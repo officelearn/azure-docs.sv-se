@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 03/10/2020
-ms.openlocfilehash: 3784b94a8571ab57d191d0bdb1e38aaa16d3cabb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 880072c9865e38e181869506e35968767fa95e8a
+ms.sourcegitcommit: d0fd35f4f0f3ec71159e9fb43fcd8e89d653f3f2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79255982"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80387911"
 ---
 # <a name="configure-streaming-export-of-azure-sql-database-diagnostic-telemetry"></a>Konfigurera strömmande export av diagnostiktelemetri för Azure SQL Database
 
@@ -84,7 +84,7 @@ Du kan aktivera och hantera mått och diagnostiktelemetriloggning med någon av 
 - Azure Resource Manager-mall
 
 > [!NOTE]
-> Information om hur du aktiverar direktuppspelning av säkerhetstelemetri finns i [Konfigurera granskning för databasen](sql-database-auditing.md#subheading-2) och [granskningsloggar i Azure Monitor-loggar och Azure Event Hubs](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/SQL-Audit-logs-in-Azure-Log-Analytics-and-Azure-Event-Hubs/ba-p/386242).
+> Information om hur du aktiverar direktuppspelning av säkerhetstelemetri finns i [Konfigurera granskning för databasen](sql-database-auditing.md#setup-auditing) och [granskningsloggar i Azure Monitor-loggar och Azure Event Hubs](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/SQL-Audit-logs-in-Azure-Log-Analytics-and-Azure-Event-Hubs/ba-p/386242).
 
 ## <a name="configure-the-streaming-export-of-diagnostic-telemetry"></a>Konfigurera direktuppspelningsexport av diagnostiktelemetri
 

@@ -1,20 +1,19 @@
 ---
-title: Budgetscenarier som rör fakturering och kostnadshantering i Azure | Microsoft Docs
+title: Budgetscenario för fakturering och kostnadshantering i Azure
 description: Lär dig hur du använder Azure Automation för att stänga av virtuella datorer baserat på specifika budgettrösklar.
 author: bandersmsft
 ms.reviewer: adwise
 tags: billing
 ms.service: cost-management-billing
 ms.topic: reference
-ms.tgt_pltfrm: na
 ms.date: 02/12/2020
 ms.author: banders
-ms.openlocfilehash: ae17ecc72bb1e6af1b79d4a2952c2f78dce4b5bd
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: 7866ae0ae5c56220c335f2ec8635434c1a651f9e
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77200990"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79297143"
 ---
 # <a name="manage-costs-with-azure-budgets"></a>Hantera kostnader med Azure Budgets
 
@@ -50,16 +49,16 @@ Genom att utföra åtgärderna som beskrivs i den här självstudien kan du:
 
 Du använder en [Azure Automation-runbook](https://docs.microsoft.com/azure/automation/automation-runbook-types) för att importera den grafiska runbooken [Stop Azure v2 VMs](https://gallery.technet.microsoft.com/scriptcenter/Stop-Azure-ARM-VMs-1ba96d5b) (Stoppa virtuella Azure V2-datorer) från galleriet.
 
-1.  Logga in på [Azure Portal](https://portal.azure.com/) med autentiseringsuppgifterna för ditt Azure-konto.
-2.  Öppna ditt Automation-konto genom att välja **Alla tjänster** > **Automation-konton**. Välj sedan ditt Automation-konto.
-3.  Klicka på **Runbook-galleri** i avsnittet **Processautomatisering**.
-4.  Välj **Skriptcenter** för **Gallerikälla** och välj sedan **OK**.
-5.  Leta upp och välj gallerialternativet [Stop Azure V2 VMs](https://gallery.technet.microsoft.com/scriptcenter/Stop-Azure-ARM-VMs-1ba96d5b) (Stoppa virtuella Azure V2-datorer) på Azure-portalen.
-6.  Öppna bladet **Importera** genom att klicka på **Importera** och välj sedan **OK**. Översiktsbladet för runbooken visas.
-7.  När runbooken har importerats väljer du **Redigera** för att visa den grafiska runbook-redigeraren och publiceringsalternativet.
+1.    Logga in på [Azure Portal](https://portal.azure.com/) med autentiseringsuppgifterna för ditt Azure-konto.
+2.    Öppna ditt Automation-konto genom att välja **Alla tjänster** > **Automation-konton**. Välj sedan ditt Automation-konto.
+3.    Klicka på **Runbook-galleri** i avsnittet **Processautomatisering**.
+4.    Välj **Skriptcenter** för **Gallerikälla** och välj sedan **OK**.
+5.    Leta upp och välj gallerialternativet [Stop Azure V2 VMs](https://gallery.technet.microsoft.com/scriptcenter/Stop-Azure-ARM-VMs-1ba96d5b) (Stoppa virtuella Azure V2-datorer) på Azure-portalen.
+6.    Öppna bladet **Importera** genom att klicka på **Importera** och välj sedan **OK**. Översiktsbladet för runbooken visas.
+7.    När runbooken har importerats väljer du **Redigera** för att visa den grafiska runbook-redigeraren och publiceringsalternativet.
 
     ![Azure – Redigera grafisk runbook](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-01.png)
-8.  Klicka på knappen **Publicera** för att publicera runbooken och välj sedan **Ja** när du uppmanas att göra det. När du publicerar en runbook åsidosätter du den befintliga publicerade versionen med utkastversionen. I detta fall finns det ingen publicerad version eftersom du har skapat runbooken.
+8.    Klicka på knappen **Publicera** för att publicera runbooken och välj sedan **Ja** när du uppmanas att göra det. När du publicerar en runbook åsidosätter du den befintliga publicerade versionen med utkastversionen. I detta fall finns det ingen publicerad version eftersom du har skapat runbooken.
 
     Mer information om hur du publicerar en runbook finns i [Skapa en grafisk runbook](https://docs.microsoft.com/azure/automation/automation-first-runbook-graphical).
 
@@ -70,7 +69,7 @@ Med hjälp av den grafiska runbooken [Stop Azure V2 VMs](https://gallery.technet
 1. På sidan **Runbooks** på [Azure-portalen](https://portal.azure.com/) klickar du på runbooken **StopAzureV2Vm** som visar runbookens översiktsblad.
 2. Klicka på **Webhook** längst upp på sidan för att öppna bladet **Lägg till webhook**.
 3. Öppna bladet **Skapa en ny webhook** genom att klicka på **Skapa ny webhook**.
-4. Ange **Optional** (Valfri) som **namn** för webhooken. Egenskapen **Aktiverat** måste vara **Ja**. Värdet **Upphör att gälla** behöver inte ändras. Mer information om egenskaper för webhooks finns i [Information om en webhook](https://docs.microsoft.com/azure/automation/automation-webhooks#details-of-a-webhook).
+4. Ange **Optional** (Valfri) som **namn** för webhooken. Egenskapen **Aktiverat** måste vara **Ja**. Värdet **Upphör att gälla** behöver inte ändras. Mer information om webhook-egenskaper finns i avsnittet om [webhook-egenskaper](../../automation/automation-webhooks.md#webhook-properties).
 5. Klicka på kopieringsikonen bredvid URL-värdet för att kopiera webhookens URL.
    > [!IMPORTANT]
    > Spara URL:en för webhooken med namnet **Optional** (Valfri) på ett säkert ställe. Du ska använda URL-adressen senare i den här självstudien. Av säkerhetsskäl kan du inte visa eller hämta URL:en igen när du har skapat webhooken.
@@ -80,7 +79,7 @@ Med hjälp av den grafiska runbooken [Stop Azure V2 VMs](https://gallery.technet
    > Om runbooken har obligatoriska parametrar kan du inte skapa webhooken utan att ange värdena.
 8. Acceptera parametervärdena för webhooken genom att klicka på **OK**.
 9. Skapa webhooken genom att klicka på **Skapa**.
-10. Följ sedan stegen ovan för att skapa en andra webhook med namnet **Complete**.
+10.    Följ sedan stegen ovan för att skapa en andra webhook med namnet **Complete**.
     > [!IMPORTANT]
     > Spara båda webhook-URL:erna. Du ska använda dem senare i den här självstudien. Av säkerhetsskäl kan du inte visa eller hämta URL:en igen när du har skapat webhooken.
 
@@ -110,10 +109,10 @@ Logikappen ska utföra flera åtgärder. Följande lista är en översikt över 
 
 Följande steg krävs för att skapa logikappen som ska utföra stegen ovan:
 
-1.  På [Azure-portalen](https://portal.azure.com/) väljer du **Skapa en resurs** > **Integrering** > **Logikapp**.
+1.    På [Azure-portalen](https://portal.azure.com/) väljer du **Skapa en resurs** > **Integrering** > **Logikapp**.
 
     ![Azure – Välja logikappresursen](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-03.png)
-2.  På bladet **Skapa logikapp** anger du informationen som behövs för att skapa din logikapp. Välj **Fäst på instrumentpanelen** och klicka på **Skapa**.
+2.    På bladet **Skapa logikapp** anger du informationen som behövs för att skapa din logikapp. Välj **Fäst på instrumentpanelen** och klicka på **Skapa**.
 
     ![Azure – Skapa en logikapp](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-03a.png)
 
@@ -123,78 +122,78 @@ När Azure har distribuerat din app öppnas **Logic Apps Designer**. Ett blad me
 
 Varje logikapp måste börja med en utlösare som utlöses när en specifik händelse sker eller när ett särskilt villkor uppfylls. Varje gång utlösaren körs skapar Logic Apps-motorn en logikappinstans som startar och kör ditt arbetsflöde. Åtgärder är alla steg som sker efter utlösaren.
 
-1.  Välj **Tom logikapp** under **Mallar** på bladet **Logic Apps Designer**.
-2.  Lägg till en [utlösare](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview#logic-app-concepts) genom att ange ”http request” i sökrutan **Logic Apps Designer** och leta upp och välj utlösaren med namnet **Begäran – När en HTTP-förfrågan tas emot**.
+1.    Välj **Tom logikapp** under **Mallar** på bladet **Logic Apps Designer**.
+2.    Lägg till en [utlösare](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview#logic-app-concepts) genom att ange ”http request” i sökrutan **Logic Apps Designer** och leta upp och välj utlösaren med namnet **Begäran – När en HTTP-förfrågan tas emot**.
 
     ![Azure – Logikapp – HTTP-utlösare](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-04.png)
-3.  Välj **Nytt steg** > **Lägg till en åtgärd**.
+3.    Välj **Nytt steg** > **Lägg till en åtgärd**.
 
     ![Azure – Nytt steg – Lägg till en åtgärd](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-05.png)
-4.  Sök efter ”Parsa JSON” i sökrutan i **Logic Apps Designer** och leta upp och välj **åtgärden** [Dataåtgärder – Parsa JSON](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview#logic-app-concepts).
+4.    Sök efter ”Parsa JSON” i sökrutan i **Logic Apps Designer** och leta upp och välj **åtgärden** [Dataåtgärder – Parsa JSON](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview#logic-app-concepts).
 
     ![Azure – Logikapp – Lägg till åtgärden Parsa JSON](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-06.png)
-5.  Ange ”Payload” (nyttolast) som **innehållsnamn** för nyttolasten Parsa JSON eller använd taggen ”Body” (innehåll) från dynamiskt innehåll.
-6.  Välj alternativet **Generera schemat genom att använda en exempelnyttolast** i rutan **Parsa JSON**.
+5.    Ange ”Payload” (nyttolast) som **innehållsnamn** för nyttolasten Parsa JSON eller använd taggen ”Body” (innehåll) från dynamiskt innehåll.
+6.    Välj alternativet **Generera schemat genom att använda en exempelnyttolast** i rutan **Parsa JSON**.
 
     ![Azure – Logikapp – Generera schema med hjälp av JSON-exempeldata](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-07.png)
-7.  Klistra in följande JSON-exempelnyttolast i textrutan: `{"schemaId":"AIP Budget Notification","data":{"SubscriptionName":"CCM - Microsoft Azure Enterprise - 1","SubscriptionId":"<GUID>","SpendingAmount":"100","BudgetStartDate":"6/1/2018","Budget":"50","Unit":"USD","BudgetCreator":"email@contoso.com","BudgetName":"BudgetName","BudgetType":"Cost","ResourceGroup":"","NotificationThresholdAmount":"0.8"}}`
+7.    Klistra in följande JSON-exempelnyttolast i textrutan: `{"schemaId":"AIP Budget Notification","data":{"SubscriptionName":"CCM - Microsoft Azure Enterprise - 1","SubscriptionId":"<GUID>","SpendingAmount":"100","BudgetStartDate":"6/1/2018","Budget":"50","Unit":"USD","BudgetCreator":"email@contoso.com","BudgetName":"BudgetName","BudgetType":"Cost","ResourceGroup":"","NotificationThresholdAmount":"0.8"}}`
 
     Textrutan ser ut så här:
 
     ![Azure – Logikapp – JSON-exempelnyttolasten](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-08.png)
-8.  Klicka på **Klar**.
+8.    Klicka på **Klar**.
 
 ### <a name="add-the-first-conditional-action"></a>Lägga till den första villkorliga åtgärden
 
 Använd en villkorlig instruktion för att kontrollera om tröskelbeloppet har nått 80 % eller mer av budgetintervallet, men inte mer än eller lika med 100 %. Skicka en HTTP POST med webhooken **Optional** (Valfri) om det här tröskelbeloppet har nåtts. Den här åtgärden stänger av de virtuella datorerna i gruppen **Optional** (Valfri).
 
-1.  Välj **Nytt steg** > **Lägg till ett villkor**.
+1.    Välj **Nytt steg** > **Lägg till ett villkor**.
 
     ![Azure – Logikapp – Lägg till ett villkor](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-09.png)
-2.  Visa en lista med tillgängliga värden genom att klicka på textrutan som innehåller **Välj ett värde** i rutan **Villkor**.
+2.    Visa en lista med tillgängliga värden genom att klicka på textrutan som innehåller **Välj ett värde** i rutan **Villkor**.
 
     ![Azure – Logikapp – Rutan Villkor](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-10.png)
 
-3.  Klicka på **Uttryck** högst upp i listan och ange följande uttryck i uttrycksredigeraren: `float()`
+3.    Klicka på **Uttryck** högst upp i listan och ange följande uttryck i uttrycksredigeraren: `float()`
 
     ![Azure – Logikapp – Flyttalsuttryck](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-11.png)
 
-4.  Välj **Dynamiskt innehåll**, placera markören inuti parentesen () och välj **NotificationThresholdAmount** i listan för att fylla i det fullständiga uttrycket.
+4.    Välj **Dynamiskt innehåll**, placera markören inuti parentesen () och välj **NotificationThresholdAmount** i listan för att fylla i det fullständiga uttrycket.
 
     Uttrycket är följande:<br>
     `float(body('Parse_JSON')?['data']?['NotificationThresholdAmount'])`
 
-5.  Bekräfta uttrycket genom att välja **OK**.
-6.  Välj **Större än eller lika med** i listrutan för **villkoret**.
-7.  I rutan **Välj ett värde** för villkoret anger du `.8`.
+5.    Bekräfta uttrycket genom att välja **OK**.
+6.    Välj **Större än eller lika med** i listrutan för **villkoret**.
+7.    I rutan **Välj ett värde** för villkoret anger du `.8`.
 
     ![Azure – Logikapp – Flyttalsuttryck med ett värde](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-12.png)
 
-8.  Lägg till en till del i villkoret genom att klicka på **Lägg till** > **Lägg till rad** i rutan Villkor.
-9.  Klicka på textrutan som innehåller **Välj ett värde** i rutan **Villkor**.
-10. Klicka på **Uttryck** högst upp i listan och ange följande uttryck i uttrycksredigeraren: `float()`
-11. Välj **Dynamiskt innehåll**, placera markören inuti parentesen () och välj **NotificationThresholdAmount** i listan för att fylla i det fullständiga uttrycket.
-12. Bekräfta uttrycket genom att välja **OK**.
-13. Välj **Är mindre än** i listrutan för **villkoret**.
-14. I rutan **Välj ett värde** för villkoret anger du `1`.
+8.    Lägg till en till del i villkoret genom att klicka på **Lägg till** > **Lägg till rad** i rutan Villkor.
+9.    Klicka på textrutan som innehåller **Välj ett värde** i rutan **Villkor**.
+10.    Klicka på **Uttryck** högst upp i listan och ange följande uttryck i uttrycksredigeraren: `float()`
+11.    Välj **Dynamiskt innehåll**, placera markören inuti parentesen () och välj **NotificationThresholdAmount** i listan för att fylla i det fullständiga uttrycket.
+12.    Bekräfta uttrycket genom att välja **OK**.
+13.    Välj **Är mindre än** i listrutan för **villkoret**.
+14.    I rutan **Välj ett värde** för villkoret anger du `1`.
 
     ![Azure – Logikapp – Flyttalsuttryck med ett värde](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-13.png)
 
-15. I rutan **Om sant** väljer du **Lägg till en åtgärd**. Du ska lägga till en HTTP POST-åtgärd som stänger av valfria virtuella datorer.
+15.    I rutan **Om sant** väljer du **Lägg till en åtgärd**. Du ska lägga till en HTTP POST-åtgärd som stänger av valfria virtuella datorer.
 
     ![Azure – Logikapp – Lägg till en åtgärd](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-14.png)
 
-16. Ange **HTTP** för att söka efter HTTP-åtgärden och välj åtgärden **HTTP – HTTP**.
+16.    Ange **HTTP** för att söka efter HTTP-åtgärden och välj åtgärden **HTTP – HTTP**.
 
     ![Azure – Logikapp – Lägg till HTTP-åtgärd](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-15.png)
 
-17. Välj **Post** som värde för **Metod**.
-18. Ange URL:en för webhooken med namnet **Optional** (Valfri), som du skapade tidigare i den här självstudien, som **URI**-värdet.
+17.    Välj **Post** som värde för **Metod**.
+18.    Ange URL:en för webhooken med namnet **Optional** (Valfri), som du skapade tidigare i den här självstudien, som **URI**-värdet.
 
     ![Azure – Logikapp – URI för HTTP-åtgärd](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-16.png)
 
-19. Välj **Lägg till en åtgärd** i rutan **Om sant**. Du ska lägga till en e-poståtgärd som skickar ett e-postmeddelande som meddelar mottagaren att de valfria virtuella datorerna har stängts av.
-20. Sök efter ”skicka e-postmeddelande” och välj en åtgärd av typen *Skicka e-postmeddelande* baserat på den e-posttjänst som du använder.
+19.    Välj **Lägg till en åtgärd** i rutan **Om sant**. Du ska lägga till en e-poståtgärd som skickar ett e-postmeddelande som meddelar mottagaren att de valfria virtuella datorerna har stängts av.
+20.    Sök efter ”skicka e-postmeddelande” och välj en åtgärd av typen *Skicka e-postmeddelande* baserat på den e-posttjänst som du använder.
 
     ![Azure – Logikapp – Åtgärden Skicka e-postmeddelande](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-17.png)
 
@@ -204,7 +203,7 @@ Använd en villkorlig instruktion för att kontrollera om tröskelbeloppet har n
 
     ![Azure – Logikapp – Åtkomstmeddelande](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-18.png)
 
-21. Lägg till texten i **Till**, **Ämne** och **Brödtext** för e-postmeddelandet som meddelar mottagaren att de valfria virtuella datorerna har stängts av. Fyll i ämnes- och brödtextfälten med det dynamiska **BudgetName**- och **NotificationThresholdAmount**-innehållet.
+21.    Lägg till texten i **Till**, **Ämne** och **Brödtext** för e-postmeddelandet som meddelar mottagaren att de valfria virtuella datorerna har stängts av. Fyll i ämnes- och brödtextfälten med det dynamiska **BudgetName**- och **NotificationThresholdAmount**-innehållet.
 
     ![Azure – Logikapp – E-postinformation](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-19.png)
 
@@ -212,40 +211,40 @@ Använd en villkorlig instruktion för att kontrollera om tröskelbeloppet har n
 
 Använd en villkorlig instruktion för att kontrollera om tröskelbeloppet har nått eller överskridit 100 % av budgetvärdet. Skicka en HTTP POST med webhooken **Complete** (Fullständig) om det här tröskelvärdet har nåtts. Den här åtgärden stänger av alla återstående virtuella datorer.
 
-1.  Välj **Nytt steg** > **Lägg till ett villkor**.
+1.    Välj **Nytt steg** > **Lägg till ett villkor**.
 
     ![Azure – Logikapp – Lägg till åtgärd](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-20.png)
 
-2.  Visa en lista med tillgängliga värden genom att klicka på textrutan som innehåller **Välj ett värde** i rutan **Villkor**.
-3.  Klicka på **Uttryck** högst upp i listan och ange följande uttryck i uttrycksredigeraren: `float()`
-4.  Välj **Dynamiskt innehåll**, placera markören inuti parentesen () och välj **NotificationThresholdAmount** i listan för att fylla i det fullständiga uttrycket.
+2.    Visa en lista med tillgängliga värden genom att klicka på textrutan som innehåller **Välj ett värde** i rutan **Villkor**.
+3.    Klicka på **Uttryck** högst upp i listan och ange följande uttryck i uttrycksredigeraren: `float()`
+4.    Välj **Dynamiskt innehåll**, placera markören inuti parentesen () och välj **NotificationThresholdAmount** i listan för att fylla i det fullständiga uttrycket.
 
     Uttrycket är följande:<br>
     `float(body('Parse_JSON')?['data']?['NotificationThresholdAmount'])`
 
-5.  Bekräfta uttrycket genom att välja **OK**.
-6.  Välj **Större än eller lika med** i listrutan för **villkoret**.
-7.  I rutan **Välj ett värde** för villkoret anger du `1`.
+5.    Bekräfta uttrycket genom att välja **OK**.
+6.    Välj **Större än eller lika med** i listrutan för **villkoret**.
+7.    I rutan **Välj ett värde** för villkoret anger du `1`.
 
     ![Azure – Logikapp – Ange villkorsvärde](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-21.png)
 
-8.  I rutan **Om sant** väljer du **Lägg till en åtgärd**. Du ska lägga till en HTTP POST-åtgärd som stänger av alla återstående virtuella datorer.
+8.    I rutan **Om sant** väljer du **Lägg till en åtgärd**. Du ska lägga till en HTTP POST-åtgärd som stänger av alla återstående virtuella datorer.
 
     ![Azure – Logikapp – Lägg till en åtgärd](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-22.png)
 
-9.  Ange **HTTP** för att söka efter HTTP-åtgärden och välj åtgärden **HTTP – HTTP**.
-10. Välj **Post** som värde för **Metod**.
-11. Ange URL:en för webhooken med namnet **Complete** (Fullständig), som du skapade tidigare i den här självstudien, som **URI**-värdet.
+9.    Ange **HTTP** för att söka efter HTTP-åtgärden och välj åtgärden **HTTP – HTTP**.
+10.    Välj **Post** som värde för **Metod**.
+11.    Ange URL:en för webhooken med namnet **Complete** (Fullständig), som du skapade tidigare i den här självstudien, som **URI**-värdet.
 
     ![Azure – Logikapp – Lägg till en åtgärd](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-23.png)
 
-12. Välj **Lägg till en åtgärd** i rutan **Om sant**. Du ska lägga till en e-poståtgärd som skickar ett e-postmeddelande som meddelar mottagaren att de återstående virtuella datorerna har stängts av.
-13. Sök efter ”skicka e-postmeddelande” och välj en åtgärd av typen *Skicka e-postmeddelande* baserat på den e-posttjänst som du använder.
-14. Lägg till texten i **Till**, **Ämne** och **Brödtext** för e-postmeddelandet som meddelar mottagaren att de valfria virtuella datorerna har stängts av. Fyll i ämnes- och brödtextfälten med det dynamiska **BudgetName**- och **NotificationThresholdAmount**-innehållet.
+12.    Välj **Lägg till en åtgärd** i rutan **Om sant**. Du ska lägga till en e-poståtgärd som skickar ett e-postmeddelande som meddelar mottagaren att de återstående virtuella datorerna har stängts av.
+13.    Sök efter ”skicka e-postmeddelande” och välj en åtgärd av typen *Skicka e-postmeddelande* baserat på den e-posttjänst som du använder.
+14.    Lägg till texten i **Till**, **Ämne** och **Brödtext** för e-postmeddelandet som meddelar mottagaren att de valfria virtuella datorerna har stängts av. Fyll i ämnes- och brödtextfälten med det dynamiska **BudgetName**- och **NotificationThresholdAmount**-innehållet.
 
     ![Azure – Logikapp – Information för ”Skicka e-postmeddelande”](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-24.png)
 
-15. Klicka på **Spara** längst upp på bladet **Logic App Designer**.
+15.    Klicka på **Spara** längst upp på bladet **Logic App Designer**.
 
 ### <a name="logic-app-summary"></a>Sammanfattning av logikappen
 
@@ -265,10 +264,10 @@ En åtgärdsgrupp är en samling aviseringsinställningar som du definierar. Nä
 
 När du skapar åtgärdsgruppen pekar du på logikappen som du skapade tidigare i den här självstudien.
 
-1.  Om du inte redan är inloggad på [Azure-portalen](https://portal.azure.com/) loggar du in och väljer **Alla tjänster** > **Monitor**.
-2.  Välj **Aviseringar** och sedan **Hantera åtgärder**.
-3.  Välj **Lägg till en åtgärdsgrupp** på bladet **Åtgärdsgrupper**.
-4.  Lägg till och verifiera följande objekt:
+1.    Om du inte redan är inloggad på [Azure-portalen](https://portal.azure.com/) loggar du in och väljer **Alla tjänster** > **Monitor**.
+2.    Välj **Aviseringar** och sedan **Hantera åtgärder**.
+3.    Välj **Lägg till en åtgärdsgrupp** på bladet **Åtgärdsgrupper**.
+4.    Lägg till och verifiera följande objekt:
     - Namn på åtgärdsgrupp
     - Kort namn
     - Prenumeration
@@ -276,8 +275,8 @@ När du skapar åtgärdsgruppen pekar du på logikappen som du skapade tidigare 
 
     ![Azure – Logikapp – Lägg till en åtgärdsgrupp](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-26.png)
 
-5.  Lägg till en LogicApp-åtgärd i fönstret **Lägg till åtgärdsgrupp**. Ge åtgärden namnet **Budget-BudgetLA**. Välj **prenumerationen** och **resursgruppen** i rutan **Logikapp**. Välj sedan **logikappen** som du skapade tidigare i den här självstudien.
-6.  Ange logikappen genom att klicka på **OK**. Skapa åtgärdsgruppen genom att välja **OK** i rutan **Lägg till åtgärdsgrupp**.
+5.    Lägg till en LogicApp-åtgärd i fönstret **Lägg till åtgärdsgrupp**. Ge åtgärden namnet **Budget-BudgetLA**. Välj **prenumerationen** och **resursgruppen** i rutan **Logikapp**. Välj sedan **logikappen** som du skapade tidigare i den här självstudien.
+6.    Ange logikappen genom att klicka på **OK**. Skapa åtgärdsgruppen genom att välja **OK** i rutan **Lägg till åtgärdsgrupp**.
 
 Du är klar med alla stödkomponenter som krävs för att effektivt orkestrera din budget. Nu behöver du bara skapa budgeten och konfigurera den så att den använder den åtgärdsgrupp som du skapat.
 
@@ -287,42 +286,42 @@ Du kan skapa en budget på Azure-portalen med hjälp av [budgetfunktionen](../co
 
 ### <a name="create-an-authentication-token"></a>Skapa en autentiseringstoken
 
-1.  Navigera till [ARMClient](https://github.com/projectkudu/ARMClient)-projektet på GitHub.
-2.  Klona lagringsplatsen för att få en lokal kopia.
-3.  Öppna projektet i Visual Studio och skapa det.
-4.  När kompileringen är klar bör den körbara filen finnas i mappen *\bin\debug*.
-5.  Kör ARMClient. Öppna en kommandotolk och navigera till mappen *\bin\debug* från projektroten.
-6.  Logga in och autentisera genom att ange följande kommando i kommandotolken:<br>
+1.    Navigera till [ARMClient](https://github.com/projectkudu/ARMClient)-projektet på GitHub.
+2.    Klona lagringsplatsen för att få en lokal kopia.
+3.    Öppna projektet i Visual Studio och skapa det.
+4.    När kompileringen är klar bör den körbara filen finnas i mappen *\bin\debug*.
+5.    Kör ARMClient. Öppna en kommandotolk och navigera till mappen *\bin\debug* från projektroten.
+6.    Logga in och autentisera genom att ange följande kommando i kommandotolken:<br>
     `ARMClient login prod`
-7.  Kopiera **prenumerationens GUID** från kommandots utdata.
-8.  Du kan kopiera en autentiseringstoken till Urklipp genom att ange följande kommando i kommandotolken, men var noga med att använda det kopierade prenumerations-ID:t från steget ovan: <br>
+7.    Kopiera **prenumerationens GUID** från kommandots utdata.
+8.    Du kan kopiera en autentiseringstoken till Urklipp genom att ange följande kommando i kommandotolken, men var noga med att använda det kopierade prenumerations-ID:t från steget ovan: <br>
     `ARMClient token <subscription GUID from previous step>`
 
     När du har utfört steget ovan visas följande:<br>
     **Token har kopierats till Urklipp**.
-9.  Spara token. Den ska användas i steg i nästa del av den här självstudien.
+9.    Spara token. Den ska användas i steg i nästa del av den här självstudien.
 
 ### <a name="create-the-budget"></a>Skapa budgeten
 
 Nu ska du konfigurera **Postman** för att skapa en budget genom att anropa REST-API:erna för Azure-förbrukning. Postman är en API-utvecklingsmiljö. Du ska importera miljö- och samlingsfiler till Postman. Samlingen innehåller grupperade definitioner av HTTP-begäranden som anropar Azure REST-API:er. Miljöfilen innehåller variabler som används av samlingen.
 
-1.  Ladda ned och öppna [REST-klienten för Postman](https://www.getpostman.com/) för att köra REST-API:erna.
-2.  Skapa en ny begäran i Postman.
+1.    Ladda ned och öppna [REST-klienten för Postman](https://www.getpostman.com/) för att köra REST-API:erna.
+2.    Skapa en ny begäran i Postman.
 
     ![Postman – Skapa en ny begäran](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-27.png)
 
-3.  Spara den nya begäran som en samling så att den inte innehåller något.
+3.    Spara den nya begäran som en samling så att den inte innehåller något.
 
     ![Postman – Spara den nya begäran](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-28.png)
 
-4.  Ändra begäran från en `Get`- till en `Put`-åtgärd.
-5.  Ändra följande URL genom att ersätta `{subscriptionId}` med **prenumerations-ID:t** som du använde i föregående avsnitt i den här självstudien. Ändra också URL:en så att den innehåller ”SampleBudget” som värde för `{budgetName}`: `https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Consumption/budgets/{budgetName}?api-version=2018-03-31`
-6.  Välj fliken **Sidhuvuden** i Postman.
-7.  Lägg till en ny **nyckel** med namnet ”Authorization” (Auktorisering).
-8.  Ange **Värde** till den token som skapades med ArmClient sist i det förra avsnittet.
-9.  Välj fliken **Body** (Brödtext) i Postman.
-10. Välj knappalternativet **raw** (rådata).
-11. I textrutan klistrar du in exempelbudgetdefinitionen nedan. Ersätt parametrarna **subscriptionid**, **budgetname** och **actiongroupname** med ditt prenumerations-ID, ett unikt namn för din budget och åtgärdsgruppsnamnet som du skapade både i URL:en och begärandetexten:
+4.    Ändra begäran från en `Get`- till en `Put`-åtgärd.
+5.    Ändra följande URL genom att ersätta `{subscriptionId}` med **prenumerations-ID:t** som du använde i föregående avsnitt i den här självstudien. Ändra också URL:en så att den innehåller ”SampleBudget” som värde för `{budgetName}`: `https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Consumption/budgets/{budgetName}?api-version=2018-03-31`
+6.    Välj fliken **Sidhuvuden** i Postman.
+7.    Lägg till en ny **nyckel** med namnet ”Authorization” (Auktorisering).
+8.    Ange **Värde** till den token som skapades med ArmClient sist i det förra avsnittet.
+9.    Välj fliken **Body** (Brödtext) i Postman.
+10.    Välj knappalternativet **raw** (rådata).
+11.    I textrutan klistrar du in exempelbudgetdefinitionen nedan. Ersätt parametrarna **subscriptionid**, **budgetname** och **actiongroupname** med ditt prenumerations-ID, ett unikt namn för din budget och åtgärdsgruppsnamnet som du skapade både i URL:en och begärandetexten:
 
     ```
         {
@@ -359,7 +358,7 @@ Nu ska du konfigurera **Postman** för att skapa en budget genom att anropa REST
             }
         }
     ```
-12. Skicka begäran genom att klicka på **Skicka**.
+12.    Skicka begäran genom att klicka på **Skicka**.
 
 Nu har du alla delar som du behöver för att anropa [API:et för budgetar](https://docs.microsoft.com/rest/api/consumption/budgets). Referensen för API:et för budgetar har ytterligare information om de specifika begärandena, inklusive följande:
     - **budgetName** – Flera budgetar stöds.  Budgetnamnen måste vara unika.

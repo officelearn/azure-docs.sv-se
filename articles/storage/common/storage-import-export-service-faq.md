@@ -1,161 +1,158 @@
 ---
-title: Vanliga frågor och svar om Azure import/export-tjänsten | Microsoft Docs
-description: Läs svar på vanliga frågor om Azure import export-tjänsten.
+title: Vanliga frågor och svar om Azure Import/Export-tjänsten | Microsoft-dokument
+description: Läs svar på vanliga frågor om Azure Import Export-tjänsten.
 author: alkohli
 services: storage
 ms.service: storage
 ms.topic: article
-ms.date: 07/18/2019
+ms.date: 03/12/2020
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: 109f541157716ae4f9b195d0a3ed02a1d8c91960
-ms.sourcegitcommit: da0a8676b3c5283fddcd94cdd9044c3b99815046
+ms.openlocfilehash: dcf9a278bfc0ede844f8eb59e3a256e40a47c57d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68314114"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80282434"
 ---
-# <a name="azure-importexport-service-frequently-asked-questions"></a>Azure import/export-tjänsten: vanliga frågor och svar 
-Följande är frågor och svar som du kan ha när du använder Azure import/export-tjänsten för att överföra data till Azure Storage. Frågor och svar är ordnade i följande kategorier:
+# <a name="azure-importexport-service-frequently-asked-questions"></a>Azure Import/Export-tjänst: Vanliga frågor och svar
 
-- Om import/export-tjänsten
+Följande är frågor och svar som du kan ha när du använder din Azure Import/Export-tjänst för att överföra data till Azure-lagring. Frågor och svar är ordnade i följande kategorier:
+
+- Om tjänsten Importera/exportera
 - Förbereda diskarna för import/export
-- Import/export-jobb
-- Leverans diskar
-- Övrigt 
+- Importera/exportera jobb
+- Leverera diskar
+- Övrigt
 
-## <a name="about-importexport-service"></a>Om import/export-tjänsten
+## <a name="about-importexport-service"></a>Om tjänsten Importera/exportera
 
-### <a name="can-i-copy-azure-file-storage-using-the-azure-importexport-service"></a>Kan jag kopiera Azure File Storage med Azure import/export-tjänsten?
+### <a name="can-i-copy-azure-file-storage-using-the-azure-importexport-service"></a>Kan jag kopiera Azure File Storage med azure import/export-tjänsten?
 
-Ja. Tjänsten Azure import/export stöder import till Azure File Storage. Den stöder inte export av Azure Files för tillfället.
+Ja. Azure Import/Export-tjänsten stöder import till Azure File Storage. Det stöder inte export av Azure-filer just nu.
 
-### <a name="is-the-azure-importexport-service-available-for-csp-subscriptions"></a>Är Azure import/export-tjänsten tillgänglig för CSP-prenumerationer?
+### <a name="is-the-azure-importexport-service-available-for-csp-subscriptions"></a>Är Azure Import/Export-tjänsten tillgänglig för CSP-prenumerationer?
 
-Ja. Azure import/export-tjänsten stöder prenumerationer av moln lösnings leverantörer (CSP).
+Ja. Azure Import/Export-tjänsten stöder CSP-prenumerationer (Cloud Solution Providers).
 
-### <a name="can-i-use-the-azure-importexport-service-to-copy-pst-mailboxes-and-sharepoint-data-to-o365"></a>Kan jag använda Azure import/export-tjänsten för att kopiera PST-postlådor och SharePoint-data till O365?
+### <a name="can-i-use-the-azure-importexport-service-to-copy-pst-mailboxes-and-sharepoint-data-to-o365"></a>Kan jag använda Azure Import/Export-tjänsten för att kopiera PST-postlådor och SharePoint-data till O365?
 
-Ja. Mer information finns i [importera PST-filer eller SharePoint-data till Office 365](https://technet.microsoft.com/library/ms.o365.cc.ingestionhelp.aspx).
+Ja. Mer information finns i [Importera PST-filer eller SharePoint-data till Office 365](https://technet.microsoft.com/library/ms.o365.cc.ingestionhelp.aspx).
 
-### <a name="can-i-use-the-azure-importexport-service-to-copy-my-backups-offline-to-the-azure-backup-service"></a>Kan jag använda Azure import/export-tjänsten för att kopiera mina säkerhets kopior offline till den Azure Backup tjänsten?
+### <a name="can-i-use-the-azure-importexport-service-to-copy-my-backups-offline-to-the-azure-backup-service"></a>Kan jag använda Azure Import/Export-tjänsten för att kopiera mina säkerhetskopior offline till Azure Backup Service?
 
-Ja. Mer information finns [i arbets flödet offline-säkerhetskopiering i Azure Backup](../../backup/backup-azure-backup-import-export.md).
+Ja. Mer information finns [i arbetsflödet för offlinesäkerhetskopiering i Azure Backup](../../backup/backup-azure-backup-import-export.md).
 
-### <a name="can-i-purchase-drives-for-importexport-jobs-from-microsoft"></a>Kan jag köpa enheter för import/export-jobb från Microsoft?
+### <a name="can-i-purchase-drives-for-importexport-jobs-from-microsoft"></a>Kan jag köpa enheter för import-/exportjobb från Microsoft?
 
-Nej. Du måste skicka dina egna enheter till import-och export jobb.
-
+Nej. Du måste skicka dina egna enheter för import och export jobb.
 
 ## <a name="preparing-disks-for-importexport"></a>Förbereda diskar för import/export
 
-### <a name="can-i-skip-the-drive-preparation-step-for-an-import-job-can-i-prepare-a-drive-without-copying"></a>Kan jag hoppa över steget förberedelse av enhet för ett import jobb? Kan jag förbereda en enhet utan att kopiera?
+### <a name="can-i-skip-the-drive-preparation-step-for-an-import-job-can-i-prepare-a-drive-without-copying"></a>Kan jag hoppa över förberedelsesteget för ett importjobb? Kan jag förbereda en enhet utan att kopiera?
 
-Nej. Alla enheter som används för att importera data måste förberedas med Azure WAImportExport-verktyget. Använd verktyget för att även kopiera data till enheten.
+Nej. Alla enheter som används för att importera data måste förberedas med verktyget Azure WAImportExport. Använd verktyget för att även kopiera data till enheten.
 
-### <a name="do-i-need-to-perform-any-disk-preparation-when-creating-an-export-job"></a>Måste jag utföra någon disk förberedelse när jag skapar ett export jobb?
+### <a name="do-i-need-to-perform-any-disk-preparation-when-creating-an-export-job"></a>Måste jag utföra några diskförberedelser när jag skapar ett exportjobb?
 
-Nej. Vissa för kontroller rekommenderas. Om du vill kontrol lera antalet diskar som krävs använder du WAImportExport-verktygets PreviewExport-kommando. Mer information finns i [för hands Visa enhets användning för ett export jobb](https://msdn.microsoft.com/library/azure/dn722414.aspx). Med kommandot kan du förhandsgranska enhets användningen för de valda Blobbarna, baserat på storleken på de enheter som du kommer att använda. Kontrol lera också att du kan läsa från och skriva till den hård disk som levereras för export jobbet.
+Nej. Vissa förkontroller rekommenderas. Om du vill kontrollera antalet diskar som krävs använder du kommandot FÖRhandsgranskningsexport för WAImportExport. Mer information finns i [Förhandsgranska enhetsanvändning för ett exportjobb](https://msdn.microsoft.com/library/azure/dn722414.aspx). Kommandot hjälper dig att förhandsgranska enhetsanvändning för de valda blobbar, baserat på storleken på de enheter du ska använda. Kontrollera också att du kan läsa från och skriva till hårddisken som levereras för exportjobbet.
 
-## <a name="importexport-jobs"></a>Import/export-jobb
+## <a name="importexport-jobs"></a>Importera/exportera jobb
 
-### <a name="can-i-cancel-my-job"></a>Kan jag avbryta mitt jobb?
-Ja. Du kan avbryta ett jobb när dess status **skapas** eller **levereras**. Utanför de här stegen går det inte att avbryta jobbet och fortsätter tills det sista steget.
+### <a name="can-i-cancel-my-job"></a>Kan jag säga upp mitt jobb?
 
-### <a name="how-long-can-i-view-the-status-of-completed-jobs-in-the-azure-portal"></a>Hur länge kan jag se statusen för slutförda jobb i Azure Portal?
-Du kan visa statusen för slutförda jobb i upp till 90 dagar. Slutförda jobb tas bort efter 90 dagar.
+Ja. Du kan avbryta ett jobb när dess status är **Skapa** eller **Leverera**. Utöver dessa steg kan jobbet inte avbrytas och det fortsätter fram till slutskedet.
+
+### <a name="how-long-can-i-view-the-status-of-completed-jobs-in-the-azure-portal"></a>Hur länge kan jag visa status för slutförda jobb i Azure-portalen?
+
+Du kan visa status för slutförda jobb i upp till 90 dagar. Slutförda jobb tas bort efter 90 dagar.
 
 ### <a name="if-i-want-to-import-or-export-more-than-10-drives-what-should-i-do"></a>Vad ska jag göra om jag vill importera eller exportera fler än 10 enheter?
-Ett import-eller export jobb kan endast referera till 10 enheter i ett enda jobb. Om du vill skicka fler än 10 enheter bör du skapa flera jobb. Enheter som är associerade med samma jobb måste levereras tillsammans i samma paket. Kontakta Microsoft Support om du vill ha mer information och vägledning när data kapaciteten sträcker sig över flera disk import jobb. 
 
-### <a name="the-uploaded-blob-shows-status-as-lease-expired-what-should-i-do"></a>Den uppladdade blobben visar status som "lån förfallet". Vad ska jag göra?
-Du kan ignorera fältet "lån upphör att gälla". Import/export tar lån i blobben under överföring för att se till att ingen annan process kan uppdatera blobben parallellt. Lånet upphör att gälla innebär att import/export inte längre överförs till den och att blobben är tillgängligt för din användning. 
+Ett import- eller exportjobb kan bara referera till 10 enheter i ett enda jobb. Om du vill leverera fler än 10 enheter bör du skapa flera jobb. Enheter som är associerade med samma jobb måste levereras tillsammans i samma paket.
+Om du vill ha mer information och vägledning när datakapaciteten sträcker sig över flera jobb för diskimport kontaktar du Microsoft Support.
 
-## <a name="shipping-disks"></a>Leverans diskar
+### <a name="the-uploaded-blob-shows-status-as-lease-expired-what-should-i-do"></a>Den uppladdade blobben visar status som "Lease expired". Vad ska jag göra?
 
-### <a name="what-is-the-maximum-number-of-hdd-for-in-one-shipment"></a>Vilket är det maximala antalet hård diskar för i en försändelse?
-Det finns ingen gräns för antalet hård diskar i en försändelse. Om diskarna tillhör flera jobb rekommenderar vi att du: 
-- förse diskarna med motsvarande jobb namn.
-- uppdatera jobben med ett spårnings nummer suffix med-1,-2 osv.
+Du kan ignorera fältet "Lånet har upphört att gälla". Import/Export tar lån på blobben under överföringen för att se till att ingen annan process kan uppdatera bloben parallellt. Lease Expired innebär att import/export inte längre överförs till det och blobben är tillgänglig för din användning.
 
-### <a name="should-i-include-anything-other-than-the-hdd-in-my-package"></a>Bör jag ta med allt annat än hård disken i mitt paket?
-Leverera endast dina hård diskar i leverans paketet. Ta inte med objekt som strömförsörjnings kablar eller USB-kablar.
+## <a name="shipping-disks"></a>Leverera diskar
 
-### <a name="do-i-have-to-ship-my-drives-using-fedex-or-dhl"></a>Måste jag leverera mina enheter med FedEx eller DHL?
-Du kan leverera enheter till Azure-datacenter med hjälp av valfri känd bärvåg som FedEx, DHL, UPS eller US Posting service. För att returnera leverans av enheter till dig från data centret måste du dock tillhandahålla:
+### <a name="what-is-the-maximum-number-of-hdd-for-in-one-shipment"></a>Vad är det maximala antalet hårddiskar för i en sändning?
 
-- Ett FedEx konto nummer i USA och EU, eller
-- Ett DHL konto nummer i regionerna Asien och Australien.
+Det finns ingen gräns för antalet hårddiskar i en sändning. Om diskarna tillhör flera jobb rekommenderar vi att du:
+
+- etikettera diskarna med motsvarande jobbnamn.
+- uppdatera jobben med ett spårningsnummer som suffixats med -1, -2 etc.
+
+### <a name="should-i-include-anything-other-than-the-hdd-in-my-package"></a>Ska jag inkludera något annat än hårddisken i mitt paket?
+
+Skicka endast dina hårddiskar i fraktpaketet. Ta inte med saker som nätkablar eller USB-kablar.
+
+### <a name="do-i-have-to-ship-my-drives-using-fedex-or-dhl"></a>Måste jag skicka mina enheter med FedEx eller DHL?
+
+Du kan skicka enheter till Azure-datacentret med alla kända bärare som FedEx, DHL, UPS eller US Postal Service. För returleverans av enheter till dig från datacentret måste du dock ange:
+
+- Ett FedEx-kontonummer i USA och EU, eller
+- Ett DHL-kontonummer i Asien och Australien.
 
 > [!NOTE]
-> Data centret i Indien kräver en deklarations bokstav på ditt brevhuvuden (leverans Challan) för att returnera enheterna. För att kunna ordna det obligatoriska post passet, måste du också boka med din valda operatör och dela informationen med data centret.
+> Datacenter i Indien kräver ett deklarationsbrev på ditt brevhuvud (leverans challan) för att returnera enheterna. Om du vill ordna det nödvändiga inträdespasset måste du också boka hämtningen med din valda operatör och dela informationen med datacentret.
 
-### <a name="are-there-any-restrictions-with-shipping-my-drive-internationally"></a>Finns det några begränsningar med att leverera min enhet internationellt?
-Observera att det fysiska medium som du levererar kan behövas mellan internationella gränser. Du ansvarar för att säkerställa att dina fysiska medier och data importeras och/eller exporteras i enlighet med tillämpliga lagar. Innan du levererar det fysiska mediet kan du kontakta dina rådgivare för att kontrol lera att dina medier och data kan skickas till det identifierade data centret. På så sätt kan du se till att det når Microsoft i rätt tid.
+### <a name="are-there-any-restrictions-with-shipping-my-drive-internationally"></a>Finns det några begränsningar med frakt min enhet internationellt?
 
-### <a name="are-there-any-special-requirements-for-delivering-my-disks-to-a-datacenter"></a>Finns det särskilda krav för att leverera mina diskar till ett Data Center?
+Observera att de fysiska medier som du skickar kan behöva passera internationella gränser. Du ansvarar för att dina fysiska medier och data importeras och/eller exporteras i enlighet med gällande lagar. Innan du skickar det fysiska mediet kontrollerar du med dina rådgivare att dina media och data kan skickas lagligt till det identifierade datacentret. Detta kommer att bidra till att säkerställa att den når Microsoft i tid.
 
-Kraven beror på de begränsningar som gäller för Azure Data Center.
-- Det finns några platser som kräver att ett Microsoft Data Center-inkommande ID-nummer skrivs på skiftena av säkerhets skäl. Innan du levererar dina enheter eller diskar till data centret kan du kontakta Azure Data Center-adbops@microsoft.comåtgärder () för att få det här numret. Utan det här antalet kommer paketet att avvisas.
-- Data centret i Indien kräver personliga uppgifter för driv rutinen, till exempel kortet för myndighets-ID eller bevis nummer. (t. ex. panorering, AADHAR, DL), namn, kontakt och bil plåt numret för att få en grind post pass. Informera operatören om dessa krav för att undvika leverans fördröjningar.
+### <a name="are-there-any-special-requirements-for-delivering-my-disks-to-a-datacenter"></a>Finns det några särskilda krav för att leverera mina diskar till ett datacenter?
 
+Kraven beror på de specifika Azure-datacenterbegränsningarna.
 
-### <a name="when-creating-a-job-the-shipping-address-is-a-location-that-is-different-from-my-storage-account-location-what-should-i-do"></a>När du skapar ett jobb är leverans adressen en plats som skiljer sig från min lagrings konto plats. Vad ska jag göra?
+- Det finns några platser som kräver ett Microsoft datacenter-inkommande ID-nummer som ska skrivas på paketet av säkerhetsskäl. Innan du skickar dina enheter eller diskar till datacentret kontaktar du Azure DataBox Operations (adbops@microsoft.com) för att hämta det här numret. Utan detta nummer kommer paketet att avvisas.
+- Datacenter i Indien kräver personliga uppgifter om drivrutinen, till exempel myndighets-ID-kortet eller bevisetr. (till exempel PAN, AADHAR, DL), namn, kontakt och bilskyltsnummer för att få ett gate-ingångspass. Informera operatören om dessa krav för att undvika leveransförseningar.
 
-Vissa lagrings konto platser mappas till alternativa leverans platser. Tidigare tillgängliga leverans platser kan också temporärt mappas till alternativa platser. Kontrol lera alltid leverans adressen som angavs när jobbet skapades innan du levererar dina enheter.
+### <a name="when-creating-a-job-the-shipping-address-is-a-location-that-is-different-from-my-storage-account-location-what-should-i-do"></a>När du skapar ett jobb är leveransadressen en annan plats än min lagringskontoplats. Vad ska jag göra?
 
-### <a name="when-shipping-my-drive-the-carrier-asks-for-the-data-center-contact-address-and-phone-number-what-should-i-provide"></a>När du levererar min enhet ber operatören efter data Center att kontakta adress och telefonnummer. Vad ska jag ge?
+Vissa lagringskontoplatser mappas till alternativa leveransplatser. Tidigare tillgängliga leveransplatser kan också tillfälligt mappas till alternativa platser. Kontrollera alltid den leveransadress som anges när du skapar arbetstillfällen innan du skickar dina enheter.
 
-Telefonnumret och DC-adressen anges som en del av jobb skapandet.
+### <a name="when-shipping-my-drive-the-carrier-asks-for-the-data-center-contact-address-and-phone-number-what-should-i-provide"></a>När du skickar min enhet frågar transportören efter kontaktadressen för datacentret och telefonnummer. Vad ska jag ge?
 
+Telefonnumret och DC-adressen anges som en del av skapandet av arbetstillfällen.
 
 ## <a name="miscellaneous"></a>Övrigt
 
-### <a name="what-happens-if-i-accidentally-send-an-hdd-that-does-not-conform-to-the-supported-requirements"></a>Vad händer om jag skickar en hård disk av misstag som inte uppfyller de krav som stöds?
+### <a name="what-happens-if-i-accidentally-send-an-hdd-that-does-not-conform-to-the-supported-requirements"></a>Vad händer om jag av misstag skickar en hårddisk som inte uppfyller kraven som stöds?
 
-Azure Data Center returnerar den enhet som inte uppfyller de krav som stöds för dig. Om bara några av enheterna i paketet uppfyller support kraven kommer enheterna att bearbetas och de enheter som inte uppfyller kraven returneras till dig.
+Azure-datacentret returnerar den enhet som inte uppfyller kraven som stöds till dig. Om bara några av enheterna i paketet uppfyller supportkraven bearbetas dessa enheter och de enheter som inte uppfyller kraven returneras till dig.
 
 ### <a name="does-the-service-format-the-drives-before-returning-them"></a>Formaterar tjänsten enheterna innan de returneras?
 
 Nej. Alla enheter är krypterade med BitLocker.
 
-### <a name="how-can-i-access-data-that-is-imported-by-this-service"></a>Hur kan jag komma åt data som importeras av den här tjänsten?
+### <a name="how-can-i-access-data-that-is-imported-by-this-service"></a>Hur kommer jag åt data som importeras av den här tjänsten?
 
-Använd Azure Portal eller [Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer) för att komma åt data på ditt Azure Storage-konto.  
+Använd Azure-portalen eller [Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer) för att komma åt data under ditt Azure-lagringskonto.  
 
-### <a name="after-the-import-is-complete-what-does-my-data-look-like-in-the-storage-account-is-my-directory-hierarchy-preserved"></a>När importen är klar ser mina data ut som i lagrings kontot? Är min katalog-hierarki bevarad?
+### <a name="after-the-import-is-complete-what-does-my-data-look-like-in-the-storage-account-is-my-directory-hierarchy-preserved"></a>När importen är klar, hur ser mina data ut i lagringskontot? Är min kataloghierarki bevarad?
 
-När du förbereder en hård disk för ett import jobb anges målet i fältet DstBlobPathOrPrefix i data uppsättningen CSV. Det här är mål behållaren i lagrings kontot som data från hård disken kopieras till. I den här mål behållaren skapas virtuella kataloger för mappar från hård disken och blobbar skapas för filer. 
+När du förbereder en hårddisk för ett importjobb anges målet av fältet DstBlobPathOrPrefix i datauppsättningen CSV. Det här är målbehållaren i lagringskontot som data från hårddisken kopieras till. I den här målbehållaren skapas virtuella kataloger för mappar från hårddisken och blobbar skapas för filer.
 
-### <a name="if-a-drive-has-files-that-already-exist-in-my-storage-account-does-the-service-overwrite-existing-blobs-or-files"></a>Om en enhet har filer som redan finns i mitt lagrings konto skriver tjänsten över befintliga blobbar eller filer?
+### <a name="if-a-drive-has-files-that-already-exist-in-my-storage-account-does-the-service-overwrite-existing-blobs-or-files"></a>Om en enhet har filer som redan finns i mitt lagringskonto, skriver tjänsten över befintliga blobbar eller filer?
 
-Väggen. När du förbereder enheten kan du ange om målfiler ska skrivas över eller ignoreras med hjälp av fältet i data uppsättningens CSV-fil som kallas disposition: < Byt namn | No-overwrite | overwrite >. Som standard byter tjänsten namn på nya filer i stället för att skriva över befintliga blobbar eller filer.
+Beror. När du förbereder enheten kan du ange om målfilerna ska skrivas över eller ignoreras med hjälp av fältet i CSV-fil med datauppsättning som heter Disposition:<byta namn på|ingen överskrivning|skriva över>. Som standard byter tjänsten namn på de nya filerna i stället för att skriva över befintliga blobbar eller filer.
 
-### <a name="is-the-waimportexport-tool-compatible-with-32-bit-operating-systems"></a>Är WAImportExport-verktyget kompatibelt med 32-bitars operativ system?
-Nej. WAImportExport-verktyget är bara kompatibelt med 64-bitars Windows-operativsystem. En fullständig lista över operativ system som stöds finns i [operativ system som stöds](https://docs.microsoft.com/azure/storage/common/storage-import-export-requirements). 
+### <a name="is-the-waimportexport-tool-compatible-with-32-bit-operating-systems"></a>Är verktyget WAImportExport kompatibelt med 32-bitars operativsystem?
 
+Nej. VERKTYGET WAImportExport är endast kompatibelt med 64-bitars Windows-operativsystem. En fullständig lista över operativsystem som stöds finns i [operativsystem som stöds](https://docs.microsoft.com/azure/storage/common/storage-import-export-requirements).
 
-### <a name="what-is-the-maximum-block-blob-and-page-blob-size-supported-by-azure-importexport"></a>Vad är den största Block Blob-och sid-BLOB-storlek som stöds av Azure import/export?
+### <a name="what-is-the-maximum-block-blob-and-page-blob-size-supported-by-azure-importexport"></a>Vilken är den maximala Block Blob- och Sidblobbstorleken som stöds av Azure Import/Export?
 
-Maximal Block Blob-storlek är ungefär 4.768 TB eller 5 000 000 MB.
-Maximal sid-BLOB-storlek är 8TB.
+- Max Block Blob storlek är cirka 4.768TB eller 5.000.000 MB.
+- Max sidblobar storlek är 8TB.
 
+### <a name="does-azure-importexport-support-aes-256-encryption"></a>Stöder Azure Import/Export AES-256-kryptering?
 
-### <a name="does-azure-importexport-support-aes-256-encryption"></a>Stöder Azure import/export AES-256-kryptering?
-Azure import/export-tjänsten använder AES-128 BitLocker-kryptering som standard. Du kan ändra detta till AES-256 genom att manuellt kryptera med BitLocker innan data kopieras. 
-
-- Om du använder [WAImportExport v1](https://download.microsoft.com/download/0/C/D/0CD6ABA7-024F-4202-91A0-CE2656DCE413/WaImportExportV1.zip), nedan är ett exempel kommando
-    ```
-    WAImportExport PrepImport /sk:<StorageAccountKey> /csas:<ContainerSas> /t: <TargetDriveLetter> [/format] [/silentmode] [/encrypt] [/bk:<BitLockerKey>] [/logdir:<LogDirectory>] /j:<JournalFile> /id:<SessionId> /srcdir:<SourceDirectory> /dstdir:<DestinationBlobVirtualDirectory> [/Disposition:<Disposition>] [/BlobType:<BlockBlob|PageBlob>] [/PropertyFile:<PropertyFile>] [/MetadataFile:<MetadataFile>] 
-    ```
-- Om du använder [WAImportExport v2](https://www.microsoft.com/download/details.aspx?id=55280) anger du "AlreadyEncrypted" och anger nyckeln i driveset CSV.
-    ```
-    DriveLetter,FormatOption,SilentOrPromptOnFormat,Encryption,ExistingBitLockerKey
-    G,AlreadyFormatted,SilentMode,AlreadyEncrypted,060456-014509-132033-080300-252615-584177-672089-411631 |
-    ```
+Nej. Azure Import/Export-tjänsten använder AES-128 BitLocker-kryptering.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Vad är Azure import/export?](storage-import-export-service.md)
-
-
+* [Vad är Azure Import/Export för något?](storage-import-export-service.md)

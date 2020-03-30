@@ -1,5 +1,5 @@
 ---
-title: Använd Azure Portal för att skapa en Service Bus kö
+title: Använda Azure-portalen för att skapa en servicebusskö
 description: I den här snabbstarten lär du dig hur du skapar en Service Bus-kö med hjälp av Azure-portalen. Sedan använder du ett exempelklientprogram för att skicka meddelanden till och ta emot meddelanden från kön.
 services: service-bus-messaging
 author: spelluru
@@ -9,23 +9,23 @@ ms.custom: mvc
 ms.date: 01/16/2020
 ms.author: spelluru
 ms.openlocfilehash: 0c88db652efe54a497af094160fb426be7c43d16
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "79240648"
 ---
-# <a name="quickstart-use-azure-portal-to-create-a-service-bus-queue"></a>Snabb start: använda Azure Portal för att skapa en Service Bus kö
-I den här snabb starten beskrivs hur du skickar och tar emot meddelanden till och från en Service Bus kö med hjälp av [Azure Portal][Azure portal] för att skapa ett meddelande namn område och en kö inom denna namnrymd och för att hämta autentiseringsuppgifter för det namn området. Proceduren visar därefter hur du skickar och tar emot meddelanden från den här kön med [.NET standardbiblioteket](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus).
+# <a name="quickstart-use-azure-portal-to-create-a-service-bus-queue"></a>Snabbstart: Använda Azure-portal för att skapa en servicebusskö
+Den här snabbstarten beskriver hur man skickar och tar emot meddelanden till och från en Service Bus-kö med [Azure-portalen][Azure portal] för att skapa ett namnområde för meddelanden och en kö inom det namnområdet och för att få auktoriseringsuppgifter på det namnområdet. Proceduren visar därefter hur du skickar och tar emot meddelanden från den här kön med [.NET standardbiblioteket](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus).
 
 [!INCLUDE [howto-service-bus-queues](../../includes/howto-service-bus-queues.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att kunna följa de här självstudierna ska du kontrollera att du har installerat:
 
 - En Azure-prenumeration. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto][] innan du börjar.
-- [Visual Studio 2017 Update 3 (version 15.3, 26730.01)](https://www.visualstudio.com/vs) eller senare. Du kan använda Visual Studio för att bygga ett exempel som skickar meddelanden till och tar emot meddelanden från en kö. Exemplet är att testa kön som du skapade med PowerShell. 
+- [Visual Studio 2017 Update 3 (version 15.3, 26730.01)](https://www.visualstudio.com/vs) eller senare. Du använder Visual Studio för att skapa ett exempel som skickar meddelanden till och tar emot meddelanden från en kö. Exemplet är att testa kön som du skapade med PowerShell. 
 - [NET Core SDK](https://www.microsoft.com/net/download/windows), version 2.0 eller senare.
 
 [!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
@@ -35,14 +35,14 @@ För att kunna följa de här självstudierna ska du kontrollera att du har inst
 ## <a name="send-and-receive-messages"></a>Skicka och ta emot meddelanden
 
 > [!NOTE]
-> Exemplet som används i det här avsnittet för att skicka och ta emot meddelanden är ett .NET-exempel. Exempel för att skicka och ta emot meddelanden med andra programmeringsspråk finns [Service Bus exempel](service-bus-samples.md). 
+> Exemplet som används i det här avsnittet för att skicka och ta emot meddelanden är ett .NET-exempel. Exempel på att skicka/ta emot meddelanden med andra programmeringsspråk finns i [Service Bus-exempel](service-bus-samples.md). 
 > 
-> Stegvisa instruktioner för att skicka och ta emot meddelanden med olika programmeringsspråk finns i följande snabb starter:
+> Stegvisa instruktioner för att skicka/ta emot meddelanden med olika programmeringsspråk finns i följande snabbstarter:
 > - [.NET](service-bus-dotnet-get-started-with-queues.md)
 > - [Java](service-bus-java-how-to-use-queues.md)
-> - [Node. js med Azure/Service-Bus-paket](service-bus-nodejs-how-to-use-queues-new-package.md)
-> - [Node. js med Azure-SB-paket](service-bus-nodejs-how-to-use-queues.md)
-> - [PHP](service-bus-php-how-to-use-queues.md)
+> - [Nod.js med azure/service-bus-paket](service-bus-nodejs-how-to-use-queues-new-package.md)
+> - [Nod.js med azure-sb-paketet](service-bus-nodejs-how-to-use-queues.md)
+> - [Php](service-bus-php-how-to-use-queues.md)
 > - [Python](service-bus-python-how-to-use-queues.md)
 > - [Ruby](service-bus-ruby-how-to-use-queues.md)
 
@@ -55,7 +55,7 @@ Om du vill köra koden gör du följande:
    ```
    git clone https://github.com/Azure/azure-service-bus.git
    ```
-3. Navigera till exempelmappen `azure-service-bus\samples\DotNet\GettingStarted\BasicSendReceiveQuickStart\BasicSendReceiveQuickStart`.
+3. Gå till exempelmappen `azure-service-bus\samples\DotNet\GettingStarted\BasicSendReceiveQuickStart\BasicSendReceiveQuickStart`.
 4. Kopiera den anslutningssträng och det könamn som du hämtade i avsnittet Hämta autentiseringsuppgifter.
 5.  Skriv följande kommando i kommandotolken:
 
@@ -82,7 +82,7 @@ Det här avsnittet innehåller mer information om vad exempelkoden gör.
 
 ### <a name="get-connection-string-and-queue"></a>Hämta anslutningssträngen och kön
 
-Anslutnings strängen och könamnet skickas till `Main()` metod som kommando rads argument. `Main()` deklarerar två strängvariabler för att hålla dessa värden:
+Anslutningssträngen och könamnet `Main()` skickas till metoden som kommandoradsargument. `Main()` deklarerar två strängvariabler för att hålla dessa värden:
 
 ```csharp
 static void Main(string[] args)
@@ -119,7 +119,7 @@ static void Main(string[] args)
 
 ### <a name="message-loop"></a>Meddelandeloop
 
-Metoden MainAsync () skapar en Queue-klient med kommando rads argumenten, anropar en mottagnings meddelande hanterare med namnet `RegisterOnMessageHandlerAndReceiveMessages()`och skickar en uppsättning meddelanden:
+Metoden MainAsync() skapar en köklient med kommandoradsargumenten, `RegisterOnMessageHandlerAndReceiveMessages()`anropar en mottagarmeddelandehanterare med namnet och skickar uppsättningen meddelanden:
 
 ```csharp
 static async Task MainAsync(string ServiceBusConnectionString, string QueueName)
@@ -209,17 +209,17 @@ static async Task ProcessMessagesAsync(Message message, CancellationToken token)
 }
 ```
 > [!NOTE]
-> Du kan hantera Service Bus-resurser med [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/). Service Bus Explorer gör det möjligt för användare att ansluta till en Service Bus namnrymd och administrera meddelande enheter på ett enkelt sätt. Verktyget innehåller avancerade funktioner som import/export-funktioner eller möjlighet att testa ämnen, köer, prenumerationer, relä tjänster, Notification Hub och Event Hub. 
+> Du kan hantera Service Bus-resurser med [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/). Service Bus Explorer tillåter användare att ansluta till ett servicebussnamnområde och administrera meddelandeenheter på ett enkelt sätt. Verktyget innehåller avancerade funktioner som import/export-funktioner eller möjligheten att testa ämne, köer, prenumerationer, relätjänster, meddelandehubbar och händelsehubbar. 
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här artikeln skapade du ett Service Bus-namnområde och andra resurser som krävs för att skicka och ta emot meddelanden från en kö. Om du vill veta mer om hur du skriver kod för att skicka och ta emot meddelanden kan du fortsätta till självstudierna i avsnittet **skicka och ta emot meddelanden** . 
+I den här artikeln skapade du ett Service Bus-namnområde och andra resurser som krävs för att skicka och ta emot meddelanden från en kö. Om du vill veta mer om hur du skriver kod för att skicka och ta emot meddelanden fortsätter du till självstudierna i avsnittet **Skicka och ta emot meddelanden.** 
 
 > [!div class="nextstepaction"]
 > [Skicka och ta emot meddelanden](service-bus-dotnet-get-started-with-queues.md)
 
 
-[kostnadsfritt konto]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
+[gratis konto]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
 [fully qualified domain name]: https://wikipedia.org/wiki/Fully_qualified_domain_name
 [Azure portal]: https://portal.azure.com/
 

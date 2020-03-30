@@ -1,5 +1,5 @@
 ---
-title: Hantera konfigurations servern för haveri beredskap med Azure Site Recovery
+title: Hantera konfigurationsservern för haveriberedskap med Azure Site Recovery
 author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
@@ -7,176 +7,176 @@ ms.topic: conceptual
 ms.date: 04/15/2019
 ms.author: ramamill
 ms.openlocfilehash: 93b10d56ae34ebdfe78dd20705634dea58721274
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79257282"
 ---
-# <a name="manage-the-configuration-server-for-vmware-vmphysical-server-disaster-recovery"></a>Hantera konfigurations servern för haveri beredskap för virtuella VMware-datorer/fysiska servrar
+# <a name="manage-the-configuration-server-for-vmware-vmphysical-server-disaster-recovery"></a>Hantera konfigurationsservern för VMware VM/fysisk serverkatastrofåterställning
 
-Du konfigurerar en lokal konfigurations server när du använder [Azure Site Recovery](site-recovery-overview.md) för haveri beredskap för virtuella VMware-datorer och fysiska servrar till Azure. Konfigurations servern samordnar kommunikationen mellan lokala VMware och Azure och hanterar datareplikering. I den här artikeln sammanfattas vanliga aktiviteter för att hantera konfigurations servern när den har distribuerats.
+Du konfigurerar en lokal konfigurationsserver när du använder [Azure Site Recovery](site-recovery-overview.md) för haveriberedskap av virtuella datorer och fysiska servrar till Azure. Konfigurationsservern samordnar kommunikationen mellan lokala VMware och Azure och hanterar datareplikering. Den här artikeln sammanfattar vanliga uppgifter för att hantera konfigurationsservern när den har distribuerats.
 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="update-windows-license"></a>Uppdatera Windows-licens
 
-Den licens som tillhandahölls med OVF-mallen är en utvärderings licens som är giltig i 180 dagar. Om du vill ha en oavbruten användning måste du aktivera Windows med en tillskaffad licens. Licens uppdatering kan göras antingen via en fristående nyckel eller en KMS-standardnyckel. Vägledning är tillgängligt på [kommando raden för DISM-Windows för att köra OS](https://docs.microsoft.com/windows-hardware/manufacture/desktop/dism-windows-edition-servicing-command-line-options). Information om hur du hämtar nycklar finns i [Konfigurera KMS-klienter](https://docs.microsoft.com/windows-server/get-started/kmsclientkeys).
+Licensen som medföljer OVF-mallen är en utvärderingslicens som är giltig i 180 dagar. För oavbruten användning måste du aktivera Windows med en upphandlad licens. Licensuppdatering kan göras antingen via en fristående nyckel eller KMS-standardnyckel. Vägledning finns på [DISM Windows kommandorad för att köra OS](https://docs.microsoft.com/windows-hardware/manufacture/desktop/dism-windows-edition-servicing-command-line-options). Information om hur du hämtar nycklar finns [i KMS-klienten.](https://docs.microsoft.com/windows-server/get-started/kmsclientkeys)
 
-## <a name="access-configuration-server"></a>Åtkomst till konfigurations Server
+## <a name="access-configuration-server"></a>Konfigurationsserver för Åtkomst
 
-Du kan komma åt konfigurations servern på följande sätt:
+Du kan komma åt konfigurationsservern på följande sätt:
 
-* Logga in på den virtuella datorn som den har distribuerats till och starta **Azure Site Recovery Configuration Manager** från genvägen till Skriv bordet.
-* Alternativt kan du fjärrans luta till konfigurations servern från https://*ConfigurationServerName*/: 44315/. Logga in med administratörs behörighet.
+* Logga in på den virtuella datorn där den distribueras och Starta **Azure Site Recovery Configuration Manager** från genvägen till skrivbordet.
+* Du kan också fjärransluta till konfigurationsservern från https://*ConfigurationServerName*/:44315/. Logga in med administratörsautentiseringsuppgifter.
 
-## <a name="modify-vmware-server-settings"></a>Ändra inställningar för VMware-Server
+## <a name="modify-vmware-server-settings"></a>Ändra serverinställningar för VMware
 
-1. Om du vill associera en annan VMware-Server med konfigurations servern väljer du **Lägg till vCenter Server/vSphere ESXi-Server**efter [inloggning](#access-configuration-server).
+1. Om du vill associera en annan VMware-server med konfigurationsservern väljer du **Lägg till vCenter Server/vSphere ESXi-server**efter [inloggning](#access-configuration-server).
 2. Ange informationen och välj sedan **OK**.
 
 ## <a name="modify-credentials-for-automatic-discovery"></a>Ändra autentiseringsuppgifter för automatisk identifiering
 
-1. Om du vill uppdatera de autentiseringsuppgifter som används för att ansluta till VMware-servern för automatisk identifiering av virtuella VMware-datorer efter [inloggning](#access-configuration-server)väljer du kontot och klickar på **Redigera**.
+1. Om du vill uppdatera de autentiseringsuppgifter som används för att ansluta till VMware-servern för automatisk identifiering av virtuella datorer med VMware väljer du kontot efter [inloggningen](#access-configuration-server)och klickar på **Redigera**.
 2. Ange de nya autentiseringsuppgifterna och välj sedan **OK**.
 
     ![Ändra VMware](./media/vmware-azure-manage-configuration-server/modify-vmware-server.png)
 
-Du kan också ändra autentiseringsuppgifterna genom CSPSConfigtool. exe.
+Du kan också ändra autentiseringsuppgifterna via CSPSConfigtool.exe.
 
-1. Logga in på konfigurations servern och starta CSPSConfigtool. exe
+1. Logga in på konfigurationsservern och starta CSPSConfigtool.exe
 2. Välj det konto som du vill ändra och klicka på **Redigera**.
-3. Ange de ändrade autentiseringsuppgifterna och klicka på **OK**
+3. Ange ändrade autentiseringsuppgifter och klicka på **Ok**
 
-## <a name="modify-credentials-for-mobility-service-installation"></a>Ändra autentiseringsuppgifter för mobilitets tjänst installationen
+## <a name="modify-credentials-for-mobility-service-installation"></a>Ändra autentiseringsuppgifter för installation av Mobilitetstjänster
 
-Ändra de autentiseringsuppgifter som används för att automatiskt installera mobilitets tjänsten på de virtuella VMware-datorer som du aktiverar för replikering.
+Ändra de autentiseringsuppgifter som används för att automatiskt installera mobilitetstjänsten på de virtuella datorer med VMware som du aktiverar för replikering.
 
-1. Efter [inloggning](#access-configuration-server)väljer du **Hantera autentiseringsuppgifter för virtuell dator**
-2. Välj det konto som du vill ändra och klicka på **Redigera**
+1. Efter [inloggning](#access-configuration-server)väljer du **Hantera autentiseringsuppgifter för virtuella datorer**
+2. Välj det konto du vill ändra och klicka på **Redigera**
 3. Ange de nya autentiseringsuppgifterna och välj sedan **OK**.
 
-    ![Ändra autentiseringsuppgifter för mobilitets tjänsten](./media/vmware-azure-manage-configuration-server/modify-mobility-credentials.png)
+    ![Ändra autentiseringsuppgifter för mobilitetstjänsten](./media/vmware-azure-manage-configuration-server/modify-mobility-credentials.png)
 
-Du kan också ändra autentiseringsuppgifterna genom CSPSConfigtool. exe.
+Du kan också ändra autentiseringsuppgifter via CSPSConfigtool.exe.
 
-1. Logga in på konfigurations servern och starta CSPSConfigtool. exe
-2. Välj det konto som du vill ändra och klicka på **Redigera**
-3. Ange de nya autentiseringsuppgifterna och klicka på **OK**.
+1. Logga in på konfigurationsservern och starta CSPSConfigtool.exe
+2. Välj det konto du vill ändra och klicka på **Redigera**
+3. Ange de nya autentiseringsuppgifterna och klicka på **Ok**.
 
-## <a name="add-credentials-for-mobility-service-installation"></a>Lägg till autentiseringsuppgifter för mobilitets tjänst installationen
+## <a name="add-credentials-for-mobility-service-installation"></a>Lägga till autentiseringsuppgifter för installation av mobilitetstjänster
 
-Om du missade att lägga till autentiseringsuppgifter under OVF-distributionen av konfigurations servern,
+Om du missade att lägga till autentiseringsuppgifter under OVF-distributionen av konfigurationsservern
 
-1. När du har [loggat in](#access-configuration-server)väljer du **Hantera autentiseringsuppgifter för virtuella datorer**.
-2. Klicka på **Lägg till autentiseringsuppgifter för virtuell dator**.
-    ![Add-Mobility-credentials](media/vmware-azure-manage-configuration-server/add-mobility-credentials.png)
+1. När [du har loggat in](#access-configuration-server)väljer du Hantera **autentiseringsuppgifter för virtuella datorer**.
+2. Klicka på **Lägg till autentiseringsuppgifter för virtuella datorer**.
+    ![tilläggsmobilitet-autentiseringsuppgifter](media/vmware-azure-manage-configuration-server/add-mobility-credentials.png)
 3. Ange de nya autentiseringsuppgifterna och klicka på **Lägg till**.
 
-Du kan också lägga till autentiseringsuppgifter via CSPSConfigtool. exe.
+Du kan också lägga till autentiseringsuppgifter via CSPSConfigtool.exe.
 
-1. Logga in på konfigurations servern och starta CSPSConfigtool. exe
-2. Klicka på **Lägg till**, ange de nya autentiseringsuppgifterna och klicka på **OK**.
+1. Logga in på konfigurationsservern och starta CSPSConfigtool.exe
+2. Klicka på **Lägg till,** ange de nya autentiseringsuppgifterna och klicka på **Ok**.
 
 ## <a name="modify-proxy-settings"></a>Ändra proxyinställningar
 
-Ändra proxyinställningarna som används av Configuration Server-datorn för Internet åtkomst till Azure. Om du har en process Server-dator utöver standard processervern som körs på konfigurations serverns dator ändrar du inställningarna på båda datorerna.
+Ändra proxyinställningarna som används av konfigurationsserverdatorn för internetåtkomst till Azure. Om du har en processserverdator utöver standardprocessservern som körs på konfigurationsserverdatorn ändrar du inställningarna på båda datorerna.
 
-1. När du har [loggat in](#access-configuration-server) på konfigurations servern väljer du **Hantera anslutning**.
-2. Uppdatera proxy-värdena. Välj sedan **Spara** för att uppdatera inställningarna.
+1. När [du har loggat in](#access-configuration-server) på konfigurationsservern väljer du Hantera **anslutning**.
+2. Uppdatera proxyvärdena. Välj sedan **Spara** för att uppdatera inställningarna.
 
-## <a name="add-a-network-adapter"></a>Lägg till ett nätverkskort
+## <a name="add-a-network-adapter"></a>Lägga till ett nätverkskort
 
-Mallen Open Virtualization Format (OVF) distribuerar den virtuella datorns konfigurations server med ett enda nätverkskort.
+OVF-mallen Open Virtualization Format (OVF) distribuerar den virtuella konfigurationsservern med ett enda nätverkskort.
 
-- Du kan [lägga till ytterligare ett nätverkskort i den virtuella datorn](vmware-azure-deploy-configuration-server.md#add-an-additional-adapter), men du måste lägga till det innan du registrerar konfigurations servern i valvet.
-- Om du vill lägga till ett kort när du har registrerat konfigurations servern i valvet lägger du till kortet i VM-egenskaperna. Sedan måste du registrera servern i valvet [igen](#reregister-a-configuration-server-in-the-same-vault) .
-
-
-## <a name="reregister-a-configuration-server-in-the-same-vault"></a>Omregistrera en konfigurations server i samma valv
-
-Du kan registrera om konfigurations servern i samma valv om du behöver. Om du har en ytterligare process Server-dator kan du, förutom standard processervern som körs på konfigurations servern, registrera om båda datorerna.
+- Du kan [lägga till ytterligare ett kort i den virtuella datorn,](vmware-azure-deploy-configuration-server.md#add-an-additional-adapter)men du måste lägga till det innan du registrerar konfigurationsservern i valvet.
+- Om du vill lägga till ett kort när du har registrerat konfigurationsservern i valvet lägger du till kortet i egenskaperna för den virtuella datorn. Då måste du [registrera](#reregister-a-configuration-server-in-the-same-vault) servern i valvet igen.
 
 
-1. I valvet öppnar du **hantera** > **Site Recovery infrastruktur** > **konfigurations servrar**.
-2. I **servrar**väljer du **Ladda ned registrerings nyckel** för att ladda ned valv filen med autentiseringsuppgifter.
-3. Logga in på Configuration Server-datorn.
-4. Öppna **cspsconfigtool. exe**i **%programdata%\ASR\home\svsystems\bin**.
-5. På fliken **valv registrering** väljer du **Bläddra**och letar reda på filen med valvets autentiseringsuppgifter som du laddade ned.
-6. Ange information om proxyservern om det behövs. Välj sedan **Registrera**.
-7. Öppna kommando fönstret admin PowerShell och kör följande kommando:
+## <a name="reregister-a-configuration-server-in-the-same-vault"></a>Registrera om en konfigurationsserver i samma valv
+
+Du kan registrera om konfigurationsservern i samma valv om du behöver. Om du har ytterligare en processserverdator registrerar du båda datorerna, förutom standardprocessservern som körs på konfigurationsserverdatorn.
+
+
+1. Öppna **Konfigurationsservrar för hantering av** > **platsåterställningsinfrastruktur** > **Configuration Servers**i valvet .
+2. Välj Hämta **registreringsnyckel** för att hämta autentiseringsuppgifterna i Valve i **Servrar.**
+3. Logga in på konfigurationsservermaskinen.
+4. Öppna **cspsconfigtool.exe**i **%ProgramData%\ASR\home\svsystems\bin**.
+5. På fliken **Arkivregistrering** väljer du **Bläddra**och letar reda på autentiseringsfilen för valvet som du hämtade.
+6. Om det behövs anger du information om proxyservern. Välj sedan **Registrera**.
+7. Öppna ett kommandofönster för administratörer i PowerShell och kör följande kommando:
    ```
     $pwd = ConvertTo-SecureString -String MyProxyUserPassword
     Set-OBMachineSetting -ProxyServer http://myproxyserver.domain.com -ProxyPort PortNumber – ProxyUserName domain\username -ProxyPassword $pwd
    ```
 
     >[!NOTE]
-    >För att **Hämta de senaste certifikaten** från konfigurations servern till den skalbara processervern kör du kommandot *"\<installation Drive\Microsoft Azure Site Recovery\agent\cdpcli.exe >"--registermt*
+    >För att **hämta de senaste certifikaten från konfigurationsservern** till utskalningsprocessservern kör kommandot " *\<Installationsenhet\Microsoft Azure Site Recovery\agent\cdpcli.exe>" --registermt*
 
-8. Slutligen startar du om obengine genom att köra följande kommando.
+8. Starta slutligen om obenginen genom att köra följande kommando.
    ```
         net stop obengine
         net start obengine
    ```
 
 
-## <a name="register-a-configuration-server-with-a-different-vault"></a>Registrera en konfigurations server med ett annat valv
+## <a name="register-a-configuration-server-with-a-different-vault"></a>Registrera en konfigurationsserver med ett annat valv
 
 > [!WARNING]
-> I följande steg kopplas konfigurations servern bort från det aktuella valvet, och replikeringen av alla skyddade virtuella datorer under konfigurations servern stoppas.
+> Följande steg tar bort tilldelningen av konfigurationsservern från det aktuella valvet och replikeringen av alla skyddade virtuella datorer under konfigurationsservern stoppas.
 
-1. Logga in på konfigurations servern.
-2. Öppna kommando fönstret admin PowerShell och kör följande kommando:
+1. Logga in på konfigurationsservern.
+2. Öppna ett kommandofönster för administratörer i PowerShell och kör följande kommando:
 
     ```
     reg delete "HKLM\Software\Microsoft\Azure Site Recovery\Registration"
     net stop dra
     ```
-3. Starta webb portalen för konfigurations serverns webbläsare med hjälp av genvägen på Skriv bordet.
-4. Utför registrerings stegen som liknar en ny konfigurations Server [registrering](vmware-azure-tutorial.md#register-the-configuration-server).
+3. Starta webbläsarportalen för konfigurationsserverinstallation med hjälp av genvägen på skrivbordet.
+4. Utför registreringsstegen som liknar en ny registrering av [konfigurationsserver](vmware-azure-tutorial.md#register-the-configuration-server).
 
-## <a name="upgrade-the-configuration-server"></a>Uppgradera konfigurations servern
+## <a name="upgrade-the-configuration-server"></a>Uppgradera konfigurationsservern
 
-Du kör samlade uppdateringar för att uppdatera konfigurations servern. Uppdateringar kan tillämpas för upp till N-4-versioner. Exempel:
+Du kör samlade uppdateringar för att uppdatera konfigurationsservern. Uppdateringar kan tillämpas för upp till N-4 versioner. Ett exempel:
 
 - Om du kör 9,7, 9,8, 9,9 eller 9,10 kan du uppgradera direkt till 9,11.
-- Om du kör 9,6 eller tidigare och du vill uppgradera till 9,11 måste du först uppgradera till version 9,7. före 9,11.
+- Om du kör 9.6 eller tidigare och vill uppgradera till 9.11 måste du först uppgradera till version 9.7. före 9.11.
 
-Detaljerad vägledning om support policyn för Azure Site Recovery-komponenter hittar du [här](https://aka.ms/asr_support_statement).
-Länkar till samlade uppdateringar för uppgradering till alla versioner av konfigurations servern finns [här](https://aka.ms/asr_update_rollups).
+Mer information om supportpolicyn för Azure Site Recovery-komponenter finns [här](https://aka.ms/asr_support_statement).
+Länkar till samlade uppdateringar för uppgradering till alla versioner av konfigurationsservern finns [här](https://aka.ms/asr_update_rollups).
 
 > [!IMPORTANT]
-> Med varje ny version av en Azure Site Recovery komponent som släpps anses alla versioner under "N-4" vara understödjande. Vi rekommenderar alltid att du uppgraderar till de senaste versionerna som är tillgängliga.</br>
-> Detaljerad vägledning om support policyn för Azure Site Recovery-komponenter hittar du [här](https://aka.ms/asr_support_statement).
+> Med varje ny version "N" av en Azure Site Recovery-komponent som släpps, anses alla versioner under "N-4" vara ur stöd. Det är alltid lämpligt att uppgradera till de senaste versionerna tillgängliga.</br>
+> Mer information om supportpolicyn för Azure Site Recovery-komponenter finns [här](https://aka.ms/asr_support_statement).
 
-Uppgradera servern på följande sätt:
+Uppgradera servern enligt följande:
 
-1. I valvet går du till **hantera** > **Site Recovery infrastruktur** > **konfigurations servrar**.
-2. Om det finns en uppdatering visas en länk i kolumnen **agent Version** >.
+1. Gå till Hantera **konfigurationsservrar** > för infrastruktur för**platsåterställning** > **Configuration Servers**i valvet .
+2. Om en uppdatering är tillgänglig visas en länk i kolumnen **Agentversion** >.
     ![Uppdatering](./media/vmware-azure-manage-configuration-server/update2.png)
-3. Hämta uppdaterings installations filen till konfigurations servern.
+3. Hämta installationsfilen för uppdatering till konfigurationsservern.
 
-    ![Uppdatera](./media/vmware-azure-manage-configuration-server/update1.png)
+    ![Uppdatering](./media/vmware-azure-manage-configuration-server/update1.png)
 
-4. Dubbelklicka för att köra installations programmet.
-5. Installations programmet identifierar den aktuella versionen som körs på datorn. Klicka på **Ja** för att starta uppgraderingen.
-6. När uppgraderingen slutförs verifierar du Server konfigurationen.
+4. Dubbelklicka för att köra installationsprogrammet.
+5. Installationsprogrammet identifierar den aktuella versionen som körs på datorn. Klicka på **Ja** för att starta uppgraderingen.
+6. När uppgraderingen är klar valideras serverkonfigurationen.
 
-    ![Uppdatera](./media/vmware-azure-manage-configuration-server/update3.png)
+    ![Uppdatering](./media/vmware-azure-manage-configuration-server/update3.png)
 
-7. Stäng installations programmet genom att klicka på **Slutför** .
-8. För att uppgradera resten av Site Recovery-komponenterna, se vår [uppgraderings vägledning](https://aka.ms/asr_vmware_upgrades).
+7. Stäng installationsprogrammet genom att klicka på **Slutför.**
+8. Om du vill uppgradera resten av komponenterna för återställning av webbplatser läser du vår [uppgraderingsvägledning](https://aka.ms/asr_vmware_upgrades).
 
-## <a name="upgrade-configuration-serverprocess-server-from-the-command-line"></a>Uppgradera konfigurations servern/processervern från kommando raden
+## <a name="upgrade-configuration-serverprocess-server-from-the-command-line"></a>Uppgradera konfigurationsservern/processservern från kommandoraden
 
-Kör installations filen på följande sätt:
+Kör installationsfilen på följande sätt:
 
   ```
   UnifiedSetup.exe [/ServerMode <CS/PS>] [/InstallDrive <DriveLetter>] [/MySQLCredsFilePath <MySQL credentials file path>] [/VaultCredsFilePath <Vault credentials file path>] [/EnvType <VMWare/NonVMWare>] [/PSIP <IP address to be used for data transfer] [/CSIP <IP address of CS to be registered with>] [/PassphraseFilePath <Passphrase file path>]
   ```
 
-### <a name="sample-usage"></a>Exempel användning
+### <a name="sample-usage"></a>Exempel på användning
   ```
   MicrosoftAzureSiteRecoveryUnifiedSetup.exe /q /x:C:\Temp\Extracted
   cd C:\Temp\Extracted
@@ -205,16 +205,16 @@ Kör installations filen på följande sätt:
 
 
 
-### <a name="create-file-input-for-mysqlcredsfilepath"></a>Skapa fil indata för MYSQLCredsFilePath
+### <a name="create-file-input-for-mysqlcredsfilepath"></a>Skapa filindata för MYSQLCredsFilePath
 
-Parametern MySQLCredsFilePath använder en fil som indata. Skapa filen med följande format och skicka den som MySQLCredsFilePath-parameter för indata.
+Parametern MySQLCredsFilePath tar en fil som indata. Skapa filen med följande format och skicka den som indata MySQLCredsFilePath-parameter.
 ```ini
 [MySQLCredentials]
 MySQLRootPassword = "Password>"
 MySQLUserPassword = "Password"
 ```
-### <a name="create-file-input-for-proxysettingsfilepath"></a>Skapa fil indata för ProxySettingsFilePath
-ProxySettingsFilePath-parametern använder en fil som indata. Skapa filen med följande format och skicka den som ProxySettingsFilePath-parameter för indata.
+### <a name="create-file-input-for-proxysettingsfilepath"></a>Skapa filindata för ProxySettingsFilePath
+Parametern ProxySettingsFilePath tar en fil som indata. Skapa filen med följande format och skicka den som indata ProxySettingsFilePath-parameter.
 
 ```ini
 [ProxySettings]
@@ -225,82 +225,82 @@ ProxyUserName="UserName"
 ProxyPassword="Password"
 ```
 
-## <a name="delete-or-unregister-a-configuration-server"></a>Ta bort eller avregistrera en konfigurations Server
+## <a name="delete-or-unregister-a-configuration-server"></a>Ta bort eller avregistrera en konfigurationsserver
 
-1. [Inaktivera skyddet](site-recovery-manage-registration-and-protection.md#disable-protection-for-a-vmware-vm-or-physical-server-vmware-to-azure) för alla virtuella datorer under konfigurations servern.
-2. Ta bort [associationen](vmware-azure-set-up-replication.md#disassociate-or-delete-a-replication-policy) och [ta bort](vmware-azure-set-up-replication.md#disassociate-or-delete-a-replication-policy) alla principer för replikering från konfigurations servern.
-3. [Ta bort](vmware-azure-manage-vcenter.md#delete-a-vcenter-server) alla vCenter-servrar/vSphere-värdar som är associerade med konfigurations servern.
-4. Öppna **Site Recovery infrastruktur** > **konfigurations servrar**i valvet.
-5. Välj den konfigurations server som du vill ta bort. Välj sedan **ta bort**på sidan **information** .
+1. [Inaktivera skydd](site-recovery-manage-registration-and-protection.md#disable-protection-for-a-vmware-vm-or-physical-server-vmware-to-azure) för alla virtuella datorer under konfigurationsservern.
+2. [Ta bort och](vmware-azure-set-up-replication.md#disassociate-or-delete-a-replication-policy) [ta bort](vmware-azure-set-up-replication.md#disassociate-or-delete-a-replication-policy) alla replikeringsprinciper från konfigurationsservern.
+3. [Ta bort](vmware-azure-manage-vcenter.md#delete-a-vcenter-server) alla vCenter-servrar/vSphere-värdar som är associerade med konfigurationsservern.
+4. Öppna**konfigurationsservrar**för infrastruktur för **platsåterställning** > i valvet .
+5. Välj den konfigurationsserver som du vill ta bort. Välj sedan **Ta bort**på sidan **Information** .
 
-    ![Ta bort konfigurations Server](./media/vmware-azure-manage-configuration-server/delete-configuration-server.png)
+    ![Ta bort konfigurationsserver](./media/vmware-azure-manage-configuration-server/delete-configuration-server.png)
 
 
 ### <a name="delete-with-powershell"></a>Ta bort med PowerShell
 
-Du kan också ta bort konfigurations servern med hjälp av PowerShell.
+Du kan också ta bort konfigurationsservern med PowerShell.
 
 1. [Installera](https://docs.microsoft.com/powershell/azure/install-Az-ps) Azure PowerShell-modulen.
-2. Logga in på ditt Azure-konto med hjälp av det här kommandot:
+2. Logga in på ditt Azure-konto med det här kommandot:
 
     `Connect-AzAccount`
-3. Välj valv prenumerationen.
+3. Välj valvprenumerationen.
 
      `Get-AzSubscription –SubscriptionName <your subscription name> | Select-AzSubscription`
-3.  Ange valv kontexten.
+3.  Ange valvkontexten.
 
     ```
     $vault = Get-AzRecoveryServicesVault -Name <name of your vault>
     Set-AzSiteRecoveryVaultSettings -ARSVault $vault
     ```
-4. Hämta konfigurations servern.
+4. Hämta konfigurationsservern.
 
     `$fabric = Get-AzSiteRecoveryFabric -FriendlyName <name of your configuration server>`
-6. Ta bort konfigurations servern.
+6. Ta bort konfigurationsservern.
 
     `Remove-AzSiteRecoveryFabric -Fabric $fabric [-Force]`
 
 > [!NOTE]
-> Du kan använda alternativet **-Force** i Remove-AzSiteRecoveryFabric för framtvingad borttagning av konfigurations servern.
+> Du kan använda alternativet **-Force** i Remove-AzSiteRecoveryFabric för påtvingad borttagning av konfigurationsservern.
 
-## <a name="generate-configuration-server-passphrase"></a>Generera lösen fras för konfigurations Server
+## <a name="generate-configuration-server-passphrase"></a>Generera lösenord för konfigurationsserver
 
-1. Logga in på konfigurations servern och öppna sedan ett kommando tolks fönster som administratör.
-2. Om du vill ändra katalogen till bin-mappen kör du kommandot **CD%programdata%\ASR\home\svsystems\bin**
-3. Om du vill generera lösen Frass filen kör du **genpassphrase. exe-v > MobSvc. lösen fras**.
-4. Lösen frasen kommer att lagras i filen som finns på **%programdata%\ASR\home\svsystems\bin\MobSvc.Passphrase**.
+1. Logga in på konfigurationsservern och öppna sedan ett kommandotolksfönster som administratör.
+2. Om du vill ändra katalogen till lagerplatsmappen kör du **kommandoskivan %ProgramData%\ASR\home\svsystems\bin**
+3. Om du vill generera lösphrase-filen kör du **genpassphrase.exe -v > MobSvc.lösphrase**.
+4. Lösenfrasen lagras i filen som finns på **%ProgramData%\ASR\home\svsystems\bin\MobSvc.passphrase**.
 
 ## <a name="renew-ssl-certificates"></a>Förnya SSL-certifikat
 
-Konfigurations servern har en inbyggd webb server som dirigerar aktiviteter för mobilitets tjänsten, processervern och huvud mål servrarna som är anslutna till den. Webb servern använder ett SSL-certifikat för att autentisera klienter. Certifikatet upphör att gälla efter tre år och kan förnyas när som helst.
+Konfigurationsservern har en inbyggd webbserver som dirigerar aktiviteter för Mobilitetstjänsten, processservrar och huvudmålservrar som är anslutna till den. Webbservern använder ett SSL-certifikat för att autentisera klienter. Certifikatet upphör att gälla efter tre år och kan förnyas när som helst.
 
-### <a name="check-expiry"></a>Kontrol lera förfallo datum
+### <a name="check-expiry"></a>Kontrollera utgångsdatum
 
-För distributioner av Configuration server före maj 2016 har certifikatet förfallo datum angetts till ett år. Om du har ett certifikat som ska upphöra att gälla inträffar följande:
+För konfigurationsserverdistributioner före maj 2016 angavs certifikatets utgång till ett år. Om du har ett certifikat som ska upphöra att gälla inträffar följande:
 
-- När förfallo datumet är två månader eller mindre börjar tjänsten skicka meddelanden i portalen och via e-post (om du prenumererar på Site Recovery meddelanden).
-- En aviserings banderoll visas på valv resurs sidan. Välj banderollen om du vill ha mer information.
-- Om du ser knappen **Uppgradera nu** , betyder det att vissa komponenter i din miljö inte har uppgraderats till 9.4. xxxx. x eller senare versioner. Uppgradera komponenterna innan du förnyar certifikatet. Du kan inte förnya på äldre versioner.
+- När utgångsdatumet är två månader eller mindre börjar tjänsten skicka meddelanden i portalen och via e-post (om du prenumererar på meddelanden om webbplatsåterställning).
+- En meddelandebanderoll visas på arkivresurssidan. Om du vill ha mer information väljer du banderollen.
+- Om knappen **Uppgradera nu** visas att vissa komponenter i din miljö inte har uppgraderats till 9.4.xxxx.x eller högre versioner. Uppgradera komponenterna innan du förnyar certifikatet. Du kan inte förnya på äldre versioner.
 
 ### <a name="renew-the-certificate"></a>Förnya certifikatet
 
-1. Öppna **Site Recovery infrastruktur** > **konfigurations Server**i valvet. Välj den konfigurations server som krävs.
-2. Förfallo datumet visas under **konfigurations serverns hälso tillstånd**.
+1. Öppna**konfigurationsserver**för infrastruktur för **platsåterställning** > i valvet . Välj den konfigurationsserver som krävs.
+2. Utgångsdatumet visas under **hälsotillståndet för Konfigurationsserver**.
 3. Välj **Förnya certifikat**.
 
-## <a name="refresh-configuration-server"></a>Uppdatera konfigurations Server
+## <a name="refresh-configuration-server"></a>Uppdatera konfigurationsserver
 
-1. I Azure Portal navigerar du till **Recovery Services Vault** > **Hantera** > **Site Recovery infrastruktur** > **för VMware & fysiska datorer** > **konfigurations servrar**
-2. Klicka på den konfigurations server som du vill uppdatera.
-3. På bladet med information om vald konfigurations Server klickar du på **mer** > **Uppdatera server**.
-4. Övervaka förloppet för jobbet under **Recovery Services valv** > **övervakning** > **Site Recovery jobb**.
+1. I Azure-portalen navigerar du till **Recovery Services Vault** > **Hantera** > infrastruktur > för**platsåterställning****för VMware & konfigurationsservrar för fysiska datorer** > **Configuration Servers**
+2. Klicka på den konfigurationsserver som du vill uppdatera.
+3. Klicka på **Mer** > **uppdateringsserver**på bladet med information om vald konfigurationsserver .
+4. Övervaka förloppet för jobbet under **Återställningstjänster Arkiv** > **Övervakning** > **Site Recovery jobb**.
 
 ## <a name="failback-requirements"></a>Krav för återställning efter fel
 
-Vid skydd och återställning efter fel måste den lokala konfigurations servern köras och vara i anslutet tillstånd. För lyckad återställning efter fel måste den virtuella datorn som återställs finnas i konfigurations Server databasen.
+Under återrotect och återställning av återställning måste den lokala konfigurationsservern köras och vara ansluten. För att återställa återställningen av återställningen efter fel måste den virtuella datorn som återställs finnas i konfigurationsserverdatabasen.
 
-Se till att du utför regelbundna schemalagda säkerhets kopieringar av konfigurations servern. Om en katastrof inträffar och konfigurations servern tappas bort, måste du först återställa konfigurations servern från en säkerhets kopia och kontrol lera att den återställda konfigurations servern har samma IP-adress som den har registrerats för valvet. Återställning efter fel fungerar inte om en annan IP-adress används för den återställda konfigurations servern.
+Se till att du tar regelbundna schemalagda säkerhetskopior av konfigurationsservern. Om en katastrof inträffar och konfigurationsservern går förlorad måste du först återställa konfigurationsservern från en säkerhetskopia och se till att den återställda konfigurationsservern har samma IP-adress som den registrerades i valvet. Återställning av återställning av återställning fungerar inte om en annan IP-adress används för den återställda konfigurationsservern.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Gå igenom självstudierna för att konfigurera haveri beredskap för [virtuella VMware-datorer](vmware-azure-tutorial.md) till Azure.
+Granska självstudierna för att konfigurera haveriberedskap för virtuella virtuella datorer med [VMware](vmware-azure-tutorial.md) till Azure.

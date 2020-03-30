@@ -1,6 +1,6 @@
 ---
-title: Microsoft Azure Data kryptering – på-rest | Microsoft Docs
-description: Den här artikeln innehåller en översikt över Microsoft Azure Data kryptering i vila, de övergripande funktionerna och allmänna överväganden.
+title: Microsoft Azure-datakryptering i vila | Microsoft-dokument
+description: Den här artikeln innehåller en översikt över Microsoft Azure-datakryptering i vila, de övergripande funktionerna och allmänna överväganden.
 services: security
 documentationcenter: na
 author: barclayn
@@ -13,304 +13,304 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/07/2020
+ms.date: 03/23/2020
 ms.author: barclayn
-ms.openlocfilehash: 682f0b66f7632bce16ae134e71ea27c4df976f43
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: d8aa643dcf9734ac983c9c4c0d53bda24ce4688d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79243398"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80125072"
 ---
-# <a name="azure-data-encryption-at-rest"></a>Azure Data Encryption – i vila
+# <a name="azure-data-encryption-at-rest"></a>Azure Data Encryption-at-Rest
 
-Microsoft Azure innehåller verktyg för att skydda data enligt företagets krav på säkerhet och efterlevnad. Det här dokumentet fokuserar på:
+Microsoft Azure innehåller verktyg för att skydda data enligt företagets säkerhets- och efterlevnadsbehov. Detta dokument fokuserar på:
 
-- Hur data skyddas i vila mellan Microsoft Azure
-- Beskriver de olika komponenterna som ingår i implementeringen av data skydd.
-- Granskar-och nack delar med olika metoder för nyckel hanterings skydd.
+- Så här skyddas data i vila i Microsoft Azure
+- Diskuterar de olika komponenter som deltar i genomförandet av uppgiftsskydd,
+- Granskar för- och nackdelar med de olika viktiga hanteringsskyddsmetoderna.
 
-Kryptering i vila är ett vanligt säkerhets krav. I Azure kan organisationer kryptera data i vila utan risk eller kostnad för en anpassad nyckel hanterings lösning. Organisationer kan välja att låta Azure helt hantera kryptering i vila. Organisationer har dessutom olika alternativ för att noga hantera krypterings-eller krypterings nycklar.
+Kryptering vid vila är ett vanligt säkerhetskrav. I Azure kan organisationer kryptera data i vila utan risk eller kostnad för en anpassad nyckelhanteringslösning. Organisationer har möjlighet att låta Azure hantera kryptering i vila helt. Dessutom har organisationer olika alternativ för att noggrant hantera krypterings- eller krypteringsnycklar.
 
 ## <a name="what-is-encryption-at-rest"></a>Vad är kryptering i vila?
 
-Kryptering i vila är kodningen (kryptering) av data när den är beständig. Kryptering i rest-modeller i Azure använder symmetrisk kryptering för att kryptera och dekryptera stora mängder data snabbt enligt en enkel konceptuell modell:
+Kryptering i vila är kodning (kryptering) av data när den sparas. Designen Kryptering på vila i Azure använder symmetrisk kryptering för att kryptera och dekryptera stora mängder data snabbt enligt en enkel konceptuell modell:
 
-- En symmetrisk krypterings nyckel används för att kryptera data när de skrivs till lagringen.
-- Samma krypterings nyckel används för att dekryptera dessa data som de är lätta att använda i minnet.
-- Data kan vara partitionerade och olika nycklar kan användas för varje partition.
-- Nycklar måste lagras på en säker plats med identitetsbaserade åtkomst kontroll och gransknings principer. Data krypterings nycklar krypteras ofta med en nyckel krypterings nyckel i Azure Key Vault för att ytterligare begränsa åtkomsten.
+- En symmetrisk krypteringsnyckel används för att kryptera data som det skrivs till lagring.
+- Samma krypteringsnyckel används för att dekryptera dessa data eftersom de är redo för användning i minnet.
+- Data kan partitioneras och olika nycklar kan användas för varje partition.
+- Nycklar måste lagras på en säker plats med identitetsbaserade åtkomstkontroll och granskningsprinciper. Datakrypteringsnycklar krypteras ofta med en nyckelkrypteringsnyckel i Azure Key Vault för att ytterligare begränsa åtkomsten.
 
-I praktiken kräver nyckel hanterings-och kontroll scenarier, samt skalnings-och tillgänglighets garantier, ytterligare konstruktioner. Microsoft Azure kryptering i rest-koncept och-komponenter beskrivs nedan.
+I praktiken kräver viktiga hanterings- och kontrollscenarier, samt skal- och tillgänglighetssäkringar, ytterligare konstruktioner. Microsoft Azure-kryptering vid vila beskrivs nedan.
 
 ## <a name="the-purpose-of-encryption-at-rest"></a>Syftet med kryptering i vila
 
-Kryptering i vila ger data skydd för lagrade data (i vila). Attacker mot data i vila inkluderar försök att få fysisk åtkomst till den maskin vara som data lagras på och sedan kompromettera de inneslutna data. I ett sådant angrepp kan en servers hård disk vara felhanterad under underhållet och göra det möjligt för en angripare att ta bort hård disken. Senare skulle angriparen lagra hård disken i en dator under sin kontroll för att försöka komma åt data.
+Kryptering i vila ger dataskydd för lagrade data (i vila). Attacker mot data i vila inkluderar försök att få fysisk åtkomst till maskinvaran som data lagras på och sedan komprometteras till inneslutna data. I en sådan attack kan en server hårddisk ha misskötts under underhåll så att en angripare att ta bort hårddisken. Senare angriparen skulle sätta hårddisken i en dator under deras kontroll för att försöka komma åt data.
 
-Kryptering i vila är utformad för att förhindra att angriparen får åtkomst till okrypterade data genom att se till att data krypteras på disk. Om en angripare får en hård disk med krypterade data men inte krypterings nycklarna måste angriparen manipulera krypteringen för att läsa data. Det här angreppet är mycket mer komplicerat och Resursanvändning än att komma åt okrypterade data på en hård disk. Av den anledningen rekommenderas kryptering i vila starkt och är ett högt prioriterat krav för många organisationer.
+Kryptering i vila är utformad för att förhindra att angriparen kommer åt okrypterade data genom att se till att data krypteras när de är på disken. Om en angripare skaffar en hårddisk med krypterade data men inte krypteringsnycklarna måste angriparen besegra krypteringen för att läsa data. Denna attack är mycket mer komplex och resurskrävande än att komma åt okrypterade data på en hårddisk. Därför rekommenderas kryptering i vila starkt och är ett högt prioriterat krav för många organisationer.
 
-Kryptering i vila kan också krävas av en organisations behov av data styrning och efterlevnad. Bransch-och myndighets bestämmelser som HIPAA, PCI och FedRAMP, utformar särskilda skydds nivåer för data skydd och krypterings krav. Kryptering i vila är ett obligatoriskt mått som krävs för att följa vissa av dessa regler.
+Kryptering i vila kan också krävas av en organisations behov av datastyrning och efterlevnadsinsatser. Bransch- och myndighetsregler som HIPAA, PCI och FedRAMP innehåller särskilda skyddsåtgärder när det gäller dataskydds- och krypteringskrav. Kryptering i vila är en obligatorisk åtgärd som krävs för att följa vissa av dessa regler. Mer information om Microsofts metod för FIPS 140-2-validering finns i [FIPS-publikationen (Federal Information Processing Standard) Publikation 140-2](https://docs.microsoft.com/microsoft-365/compliance/offering-fips-140-2). 
 
-Förutom att uppfylla kraven för efterlevnad och regler ger kryptering i rest skydd mot djupgående skydd. Microsoft Azure tillhandahåller en kompatibel plattform för tjänster, program och data. Den tillhandahåller även omfattande anläggningar och fysisk säkerhet, data åtkomst kontroll och granskning. Det är dock viktigt att tillhandahålla ytterligare "överlappande" säkerhets åtgärder om någon av de andra säkerhets åtgärderna Miss lyckas och kryptering i vila ger en säkerhets åtgärd
+Förutom att uppfylla efterlevnads- och regelkrav ger kryptering i vila ett djupgående skydd. Microsoft Azure tillhandahåller en kompatibel plattform för tjänster, program och data. Det ger också omfattande lokal och fysisk säkerhet, dataåtkomstkontroll och granskning. Det är dock viktigt att tillhandahålla ytterligare "överlappande" säkerhetsåtgärder om en av de andra säkerhetsåtgärder misslyckas och kryptering i vila ger en sådan säkerhetsåtgärd.
 
-Microsoft värnar om kryptering på rest-alternativ över moln tjänster och ger kunderna kontroll över krypterings nycklar och loggar av nyckel användning. Dessutom arbetar Microsoft för att kryptera all kund information på rest som standard.
+Microsoft har åtagit sig att kryptering i vila alternativ över molntjänster och ge kunderna kontroll över krypteringsnycklar och loggar för nyckelanvändning. Dessutom arbetar Microsoft för att kryptera alla kunddata i vila som standard.
 
-## <a name="azure-encryption-at-rest-components"></a>Azure-kryptering i rest-komponenter
+## <a name="azure-encryption-at-rest-components"></a>Azure-kryptering vid vila komponenter
 
-Som tidigare nämnts är målet för kryptering i vila att data som finns kvar på disken krypteras med en hemlig krypterings nyckel. För att uppnå detta måste du tillhandahålla ett mål för att skapa säkra nycklar, lagring, åtkomst kontroll och hantering av krypterings nycklarna. Även om informationen kan variera kan Azure Services-kryptering i rest-implementeringar beskrivas i enlighet med följande diagram.
+Som tidigare beskrivits är målet med kryptering i vila att data som sparas på disken krypteras med en hemlig krypteringsnyckel. För att uppnå detta mål måste säker nyckel skapas, lagring, åtkomstkontroll och hantering av krypteringsnycklarna tillhandahållas. Även om informationen kan variera kan Azure-tjänster Kryptering vid vila-implementeringar beskrivas i termer som illustreras i följande diagram.
 
 ![Komponenter](./media/encryption-atrest/azure-security-encryption-atrest-fig1.png)
 
 ### <a name="azure-key-vault"></a>Azure Key Vault
 
-Lagrings platsen för krypterings nycklarna och åtkomst kontrollen till dessa nycklar är central för en kryptering i rest-modellen. Nycklarna måste vara hög säkra men hanterbara av angivna användare och tillgängliga för specifika tjänster. För Azure-tjänster är Azure Key Vault den rekommenderade nyckel lagrings lösningen och ger en gemensam hanterings upplevelse över tjänster. Nycklar lagras och hanteras i nyckel valv, och åtkomst till ett nyckel valv kan ges till användare eller tjänster. Azure Key Vault stöder kund skapande av nycklar eller import av kund nycklar för användning i scenarier med Kundhanterade krypterings nycklar.
+Krypteringsnycklarnas lagringsplats och åtkomstkontrollen till dessa nycklar är central för en krypteringsmodell. Nycklarna måste vara mycket säkrade men hanterbara av angivna användare och tillgängliga för specifika tjänster. För Azure-tjänster är Azure Key Vault den rekommenderade viktiga lagringslösningen och ger en gemensam hanteringsupplevelse för tjänster. Nycklar lagras och hanteras i nyckelvalv och åtkomst till ett nyckelvalv kan ges till användare eller tjänster. Azure Key Vault stöder kundskapande av nycklar eller import av kundnycklar för användning i kundhanterade krypteringsnyckelscenarier.
 
 ### <a name="azure-active-directory"></a>Azure Active Directory
 
-Behörigheter för att använda nycklarna som lagras i Azure Key Vault, antingen för att hantera eller komma åt dem för kryptering i rest-kryptering och dekryptering, kan ges till Azure Active Directory-konton.
+Behörigheter för att använda nycklarna som lagras i Azure Key Vault, antingen för att hantera eller komma åt dem för kryptering i vila och dekryptering, kan ges till Azure Active Directory-konton.
 
-### <a name="key-hierarchy"></a>Nyckel-hierarki
+### <a name="key-hierarchy"></a>Nyckelhierarki
 
-Mer än en krypterings nyckel används i en kryptering vid rest-implementering. Lagring av en krypterings nyckel i Azure Key Vault garanterar säker nyckel åtkomst och central hantering av nycklar. Tjänst lokal åtkomst till krypterings nycklar är dock mer effektiv för Mass kryptering och dekryptering än att interagera med Key Vault för varje data åtgärd, vilket ger bättre kryptering och bättre prestanda. Att begränsa användningen av en enskild krypterings nyckel minskar risken för att nyckeln komprometteras och kostnaden för omkryptering när en nyckel måste bytas ut. Azure-kryptering i rest-modeller använder en nyckel-hierarki som består av följande typer av nycklar för att hantera alla dessa behov:
+Mer än en krypteringsnyckel används i en kryptering i vila implementering. Lagring av en krypteringsnyckel i Azure Key Vault säkerställer säker nyckelåtkomst och central hantering av nycklar. Tjänstens lokala åtkomst till krypteringsnycklar är dock effektivare för masskryptering och dekryptering än att interagera med Key Vault för varje dataåtgärd, vilket möjliggör starkare kryptering och bättre prestanda. Om du begränsar användningen av en enda krypteringsnyckel minskar risken för att nyckeln äventyras och kostnaden för återkryptering när en nyckel måste bytas ut. Azure-krypteringar i vila modeller använder en nyckelhierarki som består av följande typer av nycklar för att tillgodose alla dessa behov:
 
-- **Data krypterings nyckel (DEK)** – en symmetrisk AES256-nyckel som används för att kryptera en partition eller data block.  En enskild resurs kan ha många partitioner och många data krypterings nycklar. Kryptering av varje data block med en annan nyckel gör det svårare att analysera krypteringen. Åtkomst till DEKs krävs av resurs leverantören eller program instansen som krypterar och dekrypterar ett särskilt block. När en DEK ersätts med en ny nyckel måste endast data i det associerade blocket krypteras igen med den nya nyckeln.
-- **Nyckel krypterings nyckel (KEK)** – en krypterings nyckel som används för att kryptera data krypterings nycklarna. Användning av en nyckel krypterings nyckel som aldrig lämnar Key Vault tillåter att data krypterings nycklarna krypteras och kontrol leras. Entiteten som har åtkomst till KEK kan skilja sig från den entitet som kräver DEK. En entitet kan Broker-åtkomst till DEK för att begränsa åtkomsten för varje DEK till en speciell partition. Eftersom KEK krävs för att dekryptera DEKs är KEK en enda punkt med vilken DEKs kan tas bort effektivt genom borttagning av KEK.
+- **Data Encryption Key (DEK)** – En symmetrisk AES256-nyckel som används för att kryptera en partition eller ett datablock.  En enda resurs kan ha många partitioner och många datakrypteringsnycklar. Om du krypterar varje datablock med en annan nyckel blir kryptoanalysattacker svårare. Åtkomst till DEK:er krävs av resursprovidern eller programinstansen som krypterar och dekrypterar ett visst block. När en DEK ersätts med en ny nyckel måste endast data i det associerade blocket krypteras om med den nya nyckeln.
+- **Nyckelkrypteringsnyckel (KEK)** – En krypteringsnyckel som används för att kryptera datakrypteringsnycklarna. Användning av en nyckelkrypteringsnyckel som aldrig lämnar Key Vault gör att själva datakrypteringsnycklarna kan krypteras och kontrolleras. Den enhet som har tillgång till KEK kan skilja sig från den enhet som kräver DEK. En enhet kan förmedla åtkomst till DEK för att begränsa åtkomsten för varje DEK till en viss partition. Eftersom KEK är skyldig att dekryptera DEK, är KEK effektivt en enda punkt genom vilken DEK effektivt kan tas bort genom radering av KEK.
 
-Data krypterings nycklarna som krypteras med nyckel krypterings nycklarna lagras separat och endast en entitet med åtkomst till nyckel krypterings nyckeln kan dekryptera dessa data krypterings nycklar. Olika modeller av nyckel lagring stöds. Vi kommer att diskutera varje modell i detalj senare i nästa avsnitt.
+Datakrypteringsnycklarna, krypterade med nyckelkrypteringsnycklarna, lagras separat och endast en entitet med åtkomst till nyckelkrypteringsnyckeln kan dekryptera dessa datakrypteringsnycklar. Olika modeller av nyckellagring stöds. Vi kommer att diskutera varje modell mer i detalj senare i nästa avsnitt.
 
-## <a name="data-encryption-models"></a>Data krypterings modeller
+## <a name="data-encryption-models"></a>Datakrypteringsmodeller
 
-Det är viktigt att förstå de olika krypterings modellerna och deras-och nack delar med att förstå hur olika resurs leverantörer i Azure implementerar kryptering i vila. Dessa definitioner delas mellan alla resurs leverantörer i Azure för att säkerställa vanliga språk och taxonomier.
+En förståelse för de olika krypteringsmodellerna och deras för- och nackdelar är avgörande för att förstå hur de olika resursleverantörerna i Azure implementerar kryptering i vila. Dessa definitioner delas mellan alla resursleverantörer i Azure för att säkerställa gemensamt språk och taxonomi.
 
-Det finns tre scenarier för kryptering på Server sidan:
+Det finns tre scenarier för kryptering på serversidan:
 
-- Kryptering på Server sidan med tjänst-hanterade nycklar
-  - Azure-resurs-providers utför krypterings-och dekrypterings åtgärder
+- Kryptering på serversidan med tjänsthanterade nycklar
+  - Azure Resource Providers utför krypterings- och dekrypteringsåtgärder
   - Microsoft hanterar nycklarna
-  - Fullständig moln funktion
+  - Fullständig molnfunktionalitet
 
-- Kryptering på Server sidan med Kundhanterade nycklar i Azure Key Vault
-  - Azure-resurs-providers utför krypterings-och dekrypterings åtgärder
-  - Kund styr nycklar via Azure Key Vault
-  - Fullständig moln funktion
+- Kryptering på serversidan med kundhanterade nycklar i Azure Key Vault
+  - Azure Resource Providers utför krypterings- och dekrypteringsåtgärder
+  - Kunden styr nycklar via Azure Key Vault
+  - Fullständig molnfunktionalitet
 
-- Kryptering på Server sidan med Kundhanterade nycklar på kundkontrollerad maskin vara
-  - Azure-resurs-providers utför krypterings-och dekrypterings åtgärder
-  - Kund styr nycklar på kundkontrollerad maskin vara
-  - Fullständig moln funktion
+- Kryptering på serversidan med kundhanterade nycklar på kundstyrd maskinvara
+  - Azure Resource Providers utför krypterings- och dekrypteringsåtgärder
+  - Kunden styr nycklar på kundstyrd maskinvara
+  - Fullständig molnfunktionalitet
 
-För kryptering på klient sidan bör du tänka på följande:
+För kryptering på klientsidan bör du tänka på följande:
 
 - Azure-tjänster kan inte se dekrypterade data
-- Kunder hanterar och lagrar nycklar lokalt (eller i andra säkra lager). Nycklar är inte tillgängliga för Azure-tjänster
-- Minskad moln funktion
+- Kunder hanterar och lagrar nycklar lokalt (eller i andra säkra butiker). Nycklar är inte tillgängliga för Azure-tjänster
+- Minskad molnfunktionalitet
 
-De krypterings modeller som stöds i Azure delas in i två huvud grupper: "klient kryptering" och "kryptering på Server sidan" som tidigare nämnts. Oberoende av vilken kryptering som används i rest-modellen rekommenderar Azure-tjänster alltid användningen av en säker transport, till exempel TLS eller HTTPS. Därför bör kryptering i transporten åtgärdas av transport protokollet och bör inte vara en viktig faktor för att fastställa vilken kryptering i rest-modellen som ska användas.
+Krypteringsmodellerna som stöds i Azure delas upp i två huvudgrupper: "Klientkryptering" och "Server-side Encryption" som tidigare nämnts. Oberoende av kryptering på vila modell som används, Azure-tjänster rekommenderar alltid användning av en säker transport som TLS eller HTTPS. Kryptering inom transport bör därför hanteras av transportprotokollet och bör inte vara en viktig faktor för att avgöra vilken kryptering i vila modell som ska användas.
 
-### <a name="client-encryption-model"></a>Klient krypterings modell
+### <a name="client-encryption-model"></a>Klientkrypteringsmodell
 
-Klient krypterings modell syftar på kryptering som utförs utanför resurs leverantören eller Azure av tjänsten eller det anropande programmet. Krypteringen kan utföras av tjänst programmet i Azure eller av ett program som körs i kundens Data Center. I båda fallen tar Azure Resource providern emot en krypterad BLOB med data utan möjlighet att dekryptera data på något sätt eller ha åtkomst till krypterings nycklarna när du använder den här krypterings modellen. I den här modellen görs nyckel hanteringen av den anropande tjänsten/programmet och är ogenomskinlig för Azure-tjänsten.
+Klientkrypteringsmodellen refererar till kryptering som utförs utanför resursleverantören eller Azure av tjänsten eller det anropande programmet. Krypteringen kan utföras av tjänstprogrammet i Azure eller av ett program som körs i kunddatacentret. I båda fallen, när du använder den här krypteringsmodellen, tar Azure Resource Provider emot en krypterad blob med data utan möjlighet att dekryptera data på något sätt eller ha tillgång till krypteringsnycklarna. I den här modellen utförs nyckelhanteringen av anropande tjänst/program och är ogenomskinlig för Azure-tjänsten.
 
 ![Client](./media/encryption-atrest/azure-security-encryption-atrest-fig2.png)
 
-### <a name="server-side-encryption-model"></a>Krypterings modell på Server Sidan
+### <a name="server-side-encryption-model"></a>Krypteringsmodell på serversidan
 
-Krypterings modeller på Server sidan avser kryptering som utförs av Azure-tjänsten. I den modellen utför resurs leverantören åtgärderna kryptera och dekryptera. Azure Storage kan till exempel ta emot data i klartext och utföra kryptering och dekryptering internt. Resurs leverantören kan använda krypterings nycklar som hanteras av Microsoft eller av kunden beroende på den angivna konfigurationen.
+Krypteringsmodeller på serversidan refererar till kryptering som utförs av Azure-tjänsten. I den modellen utför resursprovidern krypterings- och dekrypteringsåtgärderna. Azure Storage kan till exempel ta emot data i oformaterad text och utföra kryptering och dekryptering internt. Resursleverantören kan använda krypteringsnycklar som hanteras av Microsoft eller av kunden beroende på vilken konfiguration som anges.
 
 ![Server](./media/encryption-atrest/azure-security-encryption-atrest-fig3.png)
 
-### <a name="server-side-encryption-key-management-models"></a>Modeller för hantering av krypterings nyckel för Server Sidan
+### <a name="server-side-encryption-key-management-models"></a>Hanteringsmodeller för krypteringsnyckel på serversidan
 
-Var och en av krypteringen på Server sidan i rest-modeller innebär olika egenskaper för nyckel hantering. Detta inkluderar var och hur krypterings nycklar skapas och lagras samt åtkomst modeller och nyckel rotations procedurer.
+Var och en av server-side kryptering i vila modeller innebär utmärkande egenskaper nyckelhantering. Detta inkluderar var och hur krypteringsnycklar skapas och lagras samt åtkomstmodeller och nyckelrotationsprocedurer.
 
-#### <a name="server-side-encryption-using-service-managed-keys"></a>Kryptering på Server sidan med tjänst-hanterade nycklar
+#### <a name="server-side-encryption-using-service-managed-keys"></a>Kryptering på serversidan med tjänsthanterade nycklar
 
-För många kunder är det grundläggande kravet att se till att data krypteras när de är i vila. Kryptering på Server sidan med hjälp av hanterade nycklar aktiverar den här modellen genom att kunderna kan markera den angivna resursen (lagrings konto, SQL DB osv.) för kryptering och lämna alla viktiga hanterings aspekter som nyckel utfärdande, rotation och säkerhets kopiering till Microsoft . De flesta Azure-tjänster som har stöd för kryptering i vila stöder vanligt vis den här modellen för att avlasta hanteringen av krypterings nycklarna till Azure. Azure-adressresursen skapar nycklar, placerar dem i säkert lagrings utrymme och hämtar dem när de behövs. Det innebär att tjänsten har fullständig åtkomst till nycklarna och att tjänsten har fullständig kontroll över livs cykel hanteringen av autentiseringsuppgifter.
+För många kunder är det viktigaste kravet att se till att data krypteras när de vilar. Server-side kryptering med hjälp av tjänsthanterade nycklar gör det möjligt för den här modellen genom att tillåta kunder att markera den specifika resursen (Storage Account, SQL DB, etc.) för kryptering och lämnar alla viktiga hanteringsaspekter såsom nyckelutgivning, rotation och säkerhetskopiering till Microsoft . De flesta Azure-tjänster som stöder kryptering i vila stöder vanligtvis den här modellen för avlastning av hanteringen av krypteringsnycklarna till Azure. Azure-resursprovidern skapar nycklarna, placerar dem i säker lagring och hämtar dem när det behövs. Det innebär att tjänsten har fullständig åtkomst till nycklarna och att tjänsten har full kontroll över livscykelhanteringen för autentiseringsuppgifter.
 
-![Leda](./media/encryption-atrest/azure-security-encryption-atrest-fig4.png)
+![Hanterade](./media/encryption-atrest/azure-security-encryption-atrest-fig4.png)
 
-Kryptering på Server sidan med hjälp av service-hanterade nycklar tar därför snabbt itu över behovet av att ha kryptering i vila med låg kostnad för kunden. När det finns en kund som vanligt vis öppnar Azure Portal för mål prenumerationen och resurs leverantören och kontrollerar en ruta som visar att data ska krypteras. I vissa resurs hanterare kryptering på Server sidan med tjänst hanterade nycklar som standard.
+Server-side kryptering med hjälp av tjänsthanterade nycklar därför snabbt adresser behovet av att ha kryptering i vila med låg overhead till kunden. När en kund är tillgänglig öppnar en vanligtvis Azure-portalen för målprenumerations- och resursprovidern och kontrollerar en ruta som anger, vill de att data ska krypteras. I vissa Resource Managers-kryptering på serversidan med tjänsthanterade nycklar är aktiverad som standard.
 
-Kryptering på Server sidan med Microsoft-hanterade nycklar innebär att tjänsten har fullständig åtkomst till lagring och hantering av nycklarna. Vissa kunder kanske vill hantera nycklarna eftersom de känner till att de får högre säkerhet, kostnaden och risken som är kopplade till en anpassad nyckel lagrings lösning bör övervägas när den här modellen utvärderas. I många fall kan en organisation avgöra om resurs begränsningar eller risker i en lokal lösning kan vara större än risken för moln hantering i rest-nycklar.  Den här modellen kanske inte räcker för organisationer som har krav på att kontrol lera skapandet eller livs cykeln för krypterings nycklarna eller ha en annan personal som hanterar en tjänsts krypterings nycklar än de som hanterar tjänsten (det vill säga åtskillnad av nyckel hantering från den övergripande hanterings modellen för tjänsten).
+Server-side kryptering med Microsoft-hanterade nycklar innebär att tjänsten har full tillgång till lagra och hantera nycklarna. Medan vissa kunder kanske vill hantera nycklarna eftersom de känner att de får större säkerhet, bör kostnaden och risken i samband med en anpassad nyckellagringslösning beaktas när den här modellen utvärderas. I många fall kan en organisation fastställa att resursbegränsningar eller risker för en lokal lösning kan vara större än risken för molnhantering av krypteringen vid vilonycklar.  Den här modellen kanske dock inte är tillräcklig för organisationer som har krav för att styra krypteringsnycklarnas skapande eller livscykel eller att ha annan personal som hanterar en tjänsts krypteringsnycklar än de som hanterar tjänsten (det vill säga segregering nyckelhantering från den övergripande förvaltningsmodellen för tjänsten).
 
-##### <a name="key-access"></a>Nyckel åtkomst
+##### <a name="key-access"></a>Tillgång till nyckel
 
-När Server sidans kryptering med hanterade nycklar används, hanteras nyckeln, lagringen och tjänst åtkomsten av tjänsten. Normalt lagras data krypterings nycklarna i en butik som ligger nära data och som är tillgängliga samtidigt som nyckel krypterings nycklarna lagras i ett säkert internt arkiv.
+När kryptering på serversidan med tjänsthanterade nycklar används hanteras nyckelgenerering, lagring och tjänståtkomst av tjänsten. Vanligtvis lagrar de grundläggande Azure-resursleverantörerna datakrypteringsnycklarna i ett arkiv som ligger nära data och snabbt är tillgängliga och tillgängliga medan nyckelkrypteringsnycklarna lagras i ett säkert internt arkiv.
 
 **Fördelar**
 
 - Enkel installation
-- Microsoft hanterar nyckel rotation, säkerhets kopiering och redundans
-- Kunden har ingen kostnad som är kopplad till implementeringen eller risken för ett anpassat nyckel hanterings schema.
+- Microsoft hanterar nyckelrotation, säkerhetskopiering och redundans
+- Kunden har inte kostnaden i samband med implementering eller risken för ett anpassat nyckelhanteringssystem.
 
 **Nackdelar**
 
-- Ingen kund kontroll över krypterings nycklarna (nyckel specifikation, livs cykel, återkallning osv.)
-- Det går inte att särskilja nyckel hantering från den övergripande hanterings modellen för tjänsten
+- Ingen kundkontroll över krypteringsnycklarna (nyckelspecifikation, livscykel, återkallning, etc.)
+- Ingen förmåga att segregera nyckelhantering från övergripande förvaltningsmodell för tjänsten
 
-#### <a name="server-side-encryption-using-customer-managed-keys-in-azure-key-vault"></a>Kryptering på Server sidan med Kundhanterade nycklar i Azure Key Vault
+#### <a name="server-side-encryption-using-customer-managed-keys-in-azure-key-vault"></a>Kryptering på serversidan med kundhanterade nycklar i Azure Key Vault
 
-För scenarier där kravet är att kryptera data i vila och kontrol lera krypterings nycklarna kan kunder använda kryptering på Server sidan med Kundhanterade nycklar i Key Vault. Vissa tjänster kan bara lagra rot nyckelns krypterings nyckel i Azure Key Vault och lagra krypterings nyckeln för krypterade data på en intern plats närmare data. I det scenariot kan kunder ta med sina egna nycklar för att Key Vault (BYOK – Bring Your Own Key) eller generera nya och använda dem för att kryptera de önskade resurserna. Medan resurs leverantören utför krypterings-och dekrypterings åtgärder, använder den den konfigurerade nyckel krypterings nyckeln som rot nyckel för alla krypterings åtgärder.
+För scenarier där kravet är att kryptera data i vila och styra krypteringsnycklarna kunder kan använda server-side kryptering med hjälp av kundhanterade nycklar i Key Vault. Vissa tjänster kan lagra endast rotnyckelkrypteringsnyckeln i Azure Key Vault och lagra den krypterade datakrypteringsnyckeln på en intern plats närmare data. I det scenariot kunder kan ta med sina egna nycklar till Key Vault (BYOK - Ta med din egen nyckel), eller generera nya, och använda dem för att kryptera önskade resurser. Medan resursprovidern utför krypterings- och dekrypteringsåtgärderna används den konfigurerade nyckelkrypteringsnyckeln som rotnyckel för alla krypteringsåtgärder.
 
-Förlust av nyckel krypterings nycklar innebär förlust av data. Därför bör nycklarna inte tas bort. Nycklar ska säkerhets kopie ras när de skapas eller roteras. [Mjuk borttagning](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete) ska vara aktiverat på alla valv som lagrar nyckel krypterings nycklar. I stället för att ta bort en nyckel ställer du in på falskt eller anger förfallo datum.
+Förlust av nyckelkrypteringsnycklar innebär förlust av data. Därför bör inte nycklar tas bort. Nycklar ska säkerhetskopieras när de skapas eller roteras. [Soft-Delete](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete) ska aktiveras på alla valv som lagrar nyckelkrypteringsnycklar. I stället för att ta bort en nyckel anger du att den är aktiverad för att göra det falskt eller ange utgångsdatumet.
 
-##### <a name="key-access"></a>Nyckel åtkomst
+##### <a name="key-access"></a>Tillgång till nyckel
 
-Krypterings modellen på Server sidan med Kundhanterade nycklar i Azure Key Vault innebär att tjänsten använder nycklarna för att kryptera och dekryptera efter behov. Kryptering i rest-nycklar görs tillgängligt för en tjänst via en princip för åtkomst kontroll. Den här principen ger åtkomst till tjänst identiteten för att ta emot nyckeln. En Azure-tjänst som körs på uppdrag av en associerad prenumeration kan konfigureras med en identitet i den prenumerationen. Tjänsten kan utföra Azure Active Directory autentisering och ta emot en autentiseringstoken som identifierar sig själv som den tjänst som agerar på uppdrag av prenumerationen. Denna token kan sedan visas för Key Vault för att få en nyckel som har getts åtkomst till.
+Krypteringsmodellen på serversidan med kundhanterade nycklar i Azure Key Vault innebär att tjänsten kommer åt nycklarna för att kryptera och dekryptera efter behov. Kryptering vid vila nycklar görs tillgängliga för en tjänst via en åtkomstkontrollprincip. Den här principen ger tjänsten identitetsåtkomst för att ta emot nyckeln. En Azure-tjänst som körs för en associerad prenumeration kan konfigureras med en identitet i den prenumerationen. Tjänsten kan utföra Azure Active Directory-autentisering och ta emot en autentiseringstoken som identifierar sig som den tjänsten som agerar för prenumerationen. Den token kan sedan presenteras för Key Vault för att få en nyckel som den har fått åtkomst till.
 
-För åtgärder som använder krypterings nycklar kan en tjänst identitet beviljas åtkomst till någon av följande åtgärder: dekryptera, kryptera, unwrapKey, wrapKey, verifiera, signera, Hämta, Visa, uppdatera, skapa, importera, ta bort, säkerhetskopiera och Återställ.
+För åtgärder som använder krypteringsnycklar kan en tjänstidentitet beviljas åtkomst till någon av följande åtgärder: dekryptera, kryptera, ta bort nyckel, wrapKey, verifiera, signera, hämta, lista, uppdatera, skapa, importera, ta bort, säkerhetskopiera och återställa.
 
-För att få en nyckel som används vid kryptering eller dekryptering av data i vila den tjänst identitet som Resource Manager-tjänstinstans ska köra som måste ha UnwrapKey (för att hämta nyckeln för dekryptering) och WrapKey (för att kunna infoga en nyckel i Key Vault när du skapar en ny nyckel).
+Om du vill hämta en nyckel för att kryptera eller dekryptera data i vila visas tjänstidentiteten som Resource Manager-tjänstinstansen körs som måste ha UnwrapKey (för att hämta nyckeln för dekryptering) och WrapKey (för att infoga en nyckel i nyckelvalvet när du skapar en ny nyckel).
 
 >[!NOTE]
->Mer information om Key Vault auktorisering finns på sidan skydda ditt nyckel valv i Azure Key Vault- [dokumentationen](../../key-vault/key-vault-secure-your-key-vault.md).
+>Mer information om Key Vault-auktorisering finns på den säkra sidan för nyckelvalvet i [Azure Key Vault-dokumentationen](../../key-vault/key-vault-secure-your-key-vault.md).
 
 **Fördelar**
 
-- Fullständig kontroll över de nycklar som används – krypterings nycklar hanteras i kundens Key Vault under kundens kontroll.
-- Möjlighet att kryptera flera tjänster till en huvud server
-- Kan åtskilja nyckel hantering från den övergripande hanterings modellen för tjänsten
-- Kan definiera tjänst-och nyckel plats mellan regioner
+- Full kontroll över de nycklar som används – krypteringsnycklar hanteras i kundens Key Vault under kundens kontroll.
+- Möjlighet att kryptera flera tjänster till en huvudsida
+- Kan segregera nyckelhantering från övergripande hanteringsmodell för tjänsten
+- Kan definiera tjänst- och nyckelplats mellan regioner
 
 **Nackdelar**
 
-- Kunden har fullt ansvar för hantering av nyckel åtkomst
-- Kunden har fullt ansvar för hantering av nyckel livs cykeln
-- Ytterligare konfiguration & konfigurations omkostnader
+- Kunden har fullt ansvar för nyckelåtkomsthantering
+- Kunden har fullt ansvar för nyckellivscykelhantering
+- Ytterligare konfigurationsinställningar & konfigurationskostnaderna
 
-#### <a name="server-side-encryption-using-customer-managed-keys-in-customer-controlled-hardware"></a>Kryptering på Server sidan med Kundhanterade nycklar i kundkontrollerad maskin vara
+#### <a name="server-side-encryption-using-customer-managed-keys-in-customer-controlled-hardware"></a>Kryptering på serversidan med kundhanterade nycklar i kundstyrd maskinvara
 
-Vissa Azure-tjänster aktiverar nyckel hanterings modellen värd för din egen nyckel (HYOK). Det här hanterings läget är användbart i scenarier där det finns behov av att kryptera data i vila och hantera nycklarna i en egen lagrings plats utanför Microsofts kontroll. I den här modellen måste tjänsten hämta nyckeln från en extern plats. Prestanda-och tillgänglighets garantier påverkas och konfigurationen är mer komplex. Eftersom tjänsten har åtkomst till DEK under kryptering och dekryptering, liknar de övergripande säkerhets garantirna för den här modellen när nycklarna är kund hanterade i Azure Key Vault.  Därför är den här modellen inte lämplig för de flesta organisationer om de inte har särskilda krav på nyckel hantering. På grund av dessa begränsningar stöder de flesta Azure-tjänster inte kryptering på Server sidan med hjälp av Server-hanterade nycklar i kundkontrollerad maskin vara.
+Vissa Azure-tjänster aktiverar hyok-nyckelhanteringsmodellen (Host Your Own Key Management Model). Det här hanteringsläget är användbart i scenarier där det finns ett behov av att kryptera data i vila och hantera nycklarna i en egen databas utanför Microsofts kontroll. I den här modellen måste tjänsten hämta nyckeln från en extern plats. Prestanda- och tillgänglighetsgarantier påverkas och konfigurationen är mer komplex. Eftersom tjänsten har åtkomst till DEK under krypterings- och dekrypteringsåtgärderna liknar dessutom de övergripande säkerhetsgarantierna för den här modellen när nycklarna hanteras av kunden i Azure Key Vault.  Därför är den här modellen inte lämplig för de flesta organisationer om de inte har specifika nyckelhanteringskrav. På grund av dessa begränsningar stöder de flesta Azure Services inte kryptering på serversidan med serverhanterade nycklar i kundstyrd maskinvara.
 
-##### <a name="key-access"></a>Nyckel åtkomst
+##### <a name="key-access"></a>Tillgång till nyckel
 
-När Server sidans kryptering använder tjänst hanterade nycklar i kundkontrollerad maskin vara används nycklarna i ett system som kon figurer ATS av kunden. Azure-tjänster som stöder den här modellen ger ett sätt att upprätta en säker anslutning till en kund som har angett nyckel lager.
+När kryptering på serversidan med hjälp av tjänsthanterade nycklar i kundstyrd maskinvara används underhålls nycklarna på ett system som konfigurerats av kunden. Azure-tjänster som stöder den här modellen är ett sätt att upprätta en säker anslutning till en kund som levereras nyckellagring.
 
 **Fördelar**
 
-- Fullständig kontroll över den rot nyckel som används – krypterings nycklar hanteras av en kund som har tillhandahållit ett arkiv
-- Möjlighet att kryptera flera tjänster till en huvud server
-- Kan åtskilja nyckel hantering från den övergripande hanterings modellen för tjänsten
-- Kan definiera tjänst-och nyckel plats mellan regioner
+- Fullständig kontroll över rotnyckeln som används – krypteringsnycklar hanteras av en kund som lagras
+- Möjlighet att kryptera flera tjänster till en huvudsida
+- Kan segregera nyckelhantering från övergripande hanteringsmodell för tjänsten
+- Kan definiera tjänst- och nyckelplats mellan regioner
 
 **Nackdelar**
 
-- Fullständigt ansvar för nyckel lagring, säkerhet, prestanda och tillgänglighet
-- Fullständigt ansvar för hantering av nyckel åtkomst
-- Fullständigt ansvar för nyckel livs cykel hantering
-- Viktiga kostnader för konfiguration, konfiguration och löpande underhåll
-- Ökat beroende på nätverks tillgänglighet mellan kundens Data Center och Azure-datacenter.
+- Fullt ansvar för nyckellagring, säkerhet, prestanda och tillgänglighet
+- Fullt ansvar för hantering av nyckelåtkomst
+- Fullt ansvar för nyckellivscykelhantering
+- Betydande kostnader för installation, konfiguration och löpande underhåll
+- Ökat beroende av nätverkstillgänglighet mellan kunddatadatadata och Azure-datacenter.
 
-## <a name="encryption-at-rest-in-microsoft-cloud-services"></a>Kryptering i vila i Microsofts moln tjänster
+## <a name="encryption-at-rest-in-microsoft-cloud-services"></a>Kryptering i vila i Microsofts molntjänster
 
-Microsoft Cloud tjänster används i alla tre moln modeller: IaaS, PaaS, SaaS. Nedan visas några exempel på hur de passar för varje modell:
+Microsoft Cloud-tjänster används i alla tre molnmodeller: IaaS, PaaS, SaaS. Nedan har du exempel på hur de passar på varje modell:
 
-- Program varu tjänster, som kallas program vara som en server eller SaaS, som har program som tillhandahålls av molnet, till exempel Office 365.
-- Plattforms tjänster som kunder utnyttjar molnet i sina program, med hjälp av molnet för saker som lagring, analys och Service Bus-funktioner.
-- Infrastruktur tjänster eller infrastruktur som en tjänst (IaaS) i vilken kunden distribuerar operativ system och program som finns i molnet och eventuellt använder andra moln tjänster.
+- Programvarutjänster, som kallas Programvara som en server eller SaaS, som har program som tillhandahålls av molnet, till exempel Office 365.
+- Plattformstjänster som kunderna använder molnet i sina program, med hjälp av molnet för saker som lagring, analys och servicebussfunktioner.
+- Infrastrukturtjänster eller Infrastruktur som en tjänst (IaaS) där kunden distribuerar operativsystem och program som finns i molnet och eventuellt utnyttjar andra molntjänster.
 
 ### <a name="encryption-at-rest-for-saas-customers"></a>Kryptering i vila för SaaS-kunder
 
-SaaS-kunder (Software as a Service) har vanligt vis kryptering på rest eller tillgänglig i varje tjänst. Office 365 har flera alternativ för kunderna att verifiera eller aktivera kryptering i vila. Information om Office 365-tjänster finns [i kryptering i Office 365](https://docs.microsoft.com/office365/securitycompliance/encryption).
+SaaS-kunder (Software as a Service) har vanligtvis kryptering i vila aktiverat eller tillgängligt i varje tjänst. Office 365 har flera alternativ för kunder att verifiera eller aktivera kryptering i vila. Information om Office 365-tjänster finns [i Kryptering i Office 365](https://docs.microsoft.com/office365/securitycompliance/encryption).
 
 ### <a name="encryption-at-rest-for-paas-customers"></a>Kryptering i vila för PaaS-kunder
 
-PaaS (Platform as a Service)-kunder finns vanligt vis i en lagrings tjänst som Blob Storage men kan också cachelagras eller lagras i program körnings miljön, till exempel en virtuell dator. Om du vill se vilka krypterings alternativ som finns tillgängliga för dig, undersöker du tabellen nedan för de lagrings-och programplattformar som du använder.
+PaaS-kundens data (Platform as a Service) finns vanligtvis i en lagringstjänst som Blob Storage men kan också cachelagras eller lagras i programkörningsmiljön, till exempel en virtuell dator. Om du vill se vilka krypteringsalternativ som är tillgängliga för dig undersöker du tabellen nedan för de lagrings- och programplattformar som du använder.
 
 ### <a name="encryption-at-rest-for-iaas-customers"></a>Kryptering i vila för IaaS-kunder
 
-IaaS-kunder (Infrastructure as a Service) kan ha en mängd olika tjänster och program som används. IaaS Services kan aktivera kryptering i vila på sina virtuella Azure-datorer och virtuella hård diskar med hjälp av Azure Disk Encryption.
+Infrastruktur som en tjänst (IaaS) kunder kan ha en mängd olika tjänster och program som används. IaaS-tjänster kan aktivera kryptering i vila i sina Azure-värdbaserade virtuella datorer och virtuella hårddiskar med Hjälp av Azure Disk Encryption.
 
 #### <a name="encrypted-storage"></a>Krypterad lagring
 
-Som PaaS kan IaaS-lösningar utnyttja andra Azure-tjänster som lagrar data som är krypterade i vila. I dessa fall kan du aktivera kryptering vid rest-stöd som tillhandahålls av varje förbrukad Azure-tjänst. Tabellen nedan räknar upp de viktigaste lagrings enheterna, tjänsterna och programplattformarna och vilken modell av kryptering som stöds i rest. 
+Precis som PaaS kan IaaS-lösningar utnyttja andra Azure-tjänster som lagrar data krypterade i vila. I dessa fall kan du aktivera supporten Kryptering i vila enligt varje förbrukad Azure-tjänst. Tabellen nedan räknar upp de viktigaste lagrings-, -tjänster- och programplattformarna och modellen för kryptering i vila stöds. 
 
 #### <a name="encrypted-compute"></a>Krypterad beräkning
 
-Alla Managed Disks, ögonblicks bilder och avbildningar krypteras med hjälp av Kryptering för lagringstjänst med hjälp av en tjänst hanterad nyckel. En mer fullständig kryptering i rest-lösning säkerställer att data aldrig sparas i okrypterad form. När data bearbetas på en virtuell dator kan data vara kvar på Windows-växlingsfilen eller Linux-swap-filen, en kraschdump eller en program logg. För att säkerställa att dessa data är krypterade i vila kan IaaS-program använda Azure Disk Encryption på en virtuell Azure IaaS-dator (Windows eller Linux) och virtuell disk.
+Alla hanterade diskar, ögonblicksbilder och avbildningar krypteras med lagringstjänstkryptering med hjälp av en tjänsthanterad nyckel. En mer komplett lösning för kryptering vid vila säkerställer att data aldrig sparas i okrypterad form. När data bearbetas på en virtuell dator kan data sparas i Windows-sidfilen eller Linux-växlingsfilen, en kraschdump eller till en programlogg. För att säkerställa att dessa data krypteras i vila kan IaaS-program använda Azure Disk Encryption på en virtuell Azure IaaS-dator (Windows eller Linux) och virtuell disk.
 
 #### <a name="custom-encryption-at-rest"></a>Anpassad kryptering i vila
 
-Vi rekommenderar att när det är möjligt utnyttjar IaaS-program Azure Disk Encryption och kryptering i rest-alternativ som tillhandahålls av alla förbrukade Azure-tjänster. I vissa fall, till exempel oregelbundet krypterings krav eller icke-Azure-baserad lagring, kan en utvecklare av ett IaaS-program behöva implementera kryptering i vila. Utvecklare av IaaS-lösningar kan bättre integrera med Azure-hantering och kund förväntningar genom att använda vissa Azure-komponenter. Mer specifikt bör utvecklare använda tjänsten Azure Key Vault för att tillhandahålla säker nyckel lagring samt förse sina kunder med enhetliga alternativ för nyckel hantering med det i de flesta Azure Platform-tjänster. Dessutom bör anpassade lösningar använda Azure-hanterade tjänst identiteter för att ge tjänst konton åtkomst till krypterings nycklar. Information om utvecklare om Azure Key Vault och hanterade tjänst identiteter finns i respektive SDK: er.
+Vi rekommenderar att IaaS-program när det är möjligt utnyttjar Azure Disk Encryption and Encryption at Rest-alternativ som tillhandahålls av alla förbrukade Azure-tjänster. I vissa fall, till exempel oregelbundna krypteringskrav eller icke-Azure-baserad lagring, kan en utvecklare av ett IaaS-program behöva implementera kryptering i vila själva. Utvecklare av IaaS-lösningar kan bättre integreras med Azure-hantering och kundernas förväntningar genom att utnyttja vissa Azure-komponenter. Specifikt bör utvecklare använda Azure Key Vault-tjänsten för att tillhandahålla säker nyckellagring samt ge sina kunder konsekventa alternativ för nyckelhantering med de flesta Azure-plattformstjänster. Dessutom bör anpassade lösningar använda Azure-Managed Service Identities för att aktivera tjänstkonton för att komma åt krypteringsnycklar. Information om utvecklare om Azure Key Vault- och Managed Service-identiteter finns i deras respektive SDK:er.
 
-## <a name="azure-resource-providers-encryption-model-support"></a>Azure Resource providers stöd för krypterings modell
+## <a name="azure-resource-providers-encryption-model-support"></a>Stöd för krypteringsmodell för Azure-resursleverantörer
 
-Microsoft Azure Services har stöd för en eller flera av krypteringen i rest-modeller. För vissa tjänster är det dock inte säkert att en eller flera av krypterings modellerna är tillämpliga. För tjänster som stöder Kundhanterade nyckel scenarier kan de bara ha stöd för en delmängd av de nyckel typer som Azure Key Vault har stöd för nyckel krypterings nycklar. Dessutom kan tjänster släppa support för dessa scenarier och nyckel typer vid olika scheman. I det här avsnittet beskrivs kryptering vid rest-support när detta skrivs för var och en av de stora Azure Data Storage-tjänsterna.
+Microsoft Azure Services stöder var och en av krypteringsmodellerna i vila. För vissa tjänster kan det dock hända att en eller flera krypteringsmodeller inte är tillämpliga. För tjänster som stöder kundhanterade nyckelscenarier kan de endast stödja en delmängd av de nyckeltyper som Azure Key Vault stöder för nyckelkrypteringsnycklar. Dessutom kan tjänster frigöra stöd för dessa scenarier och nyckeltyper vid olika scheman. I det här avsnittet beskrivs krypteringen i vila när det skrivs för var och en av de större Azure-datalagringstjänsterna.
 
-### <a name="azure-disk-encryption"></a>Azure Disk Encryption
+### <a name="azure-disk-encryption"></a>Kryptering av Azure-disk
 
-Alla kunder som använder Azure Infrastructure as a Service (IaaS)-funktioner kan uppnå kryptering i vila för sina IaaS-VM: ar och diskar via Azure Disk Encryption. Mer information om Azure Disk Encryption finns i [Azure Disk Encryption-dokumentationen](../azure-security-disk-encryption-overview.md).
+Alla kunder som använder Azure Infrastructure as a Service (IaaS) funktioner kan uppnå kryptering i vila för sina IaaS virtuella datorer och diskar via Azure Disk Encryption. Mer information om Azure Disk-kryptering finns i [dokumentationen för Azure Disk Encryption](../azure-security-disk-encryption-overview.md).
 
-#### <a name="azure-storage"></a>Azure-lagring
+#### <a name="azure-storage"></a>Azure Storage
 
-Alla Azure Storage tjänster (Blob Storage, Queue Storage, Table Storage och Azure Files) stöder kryptering på Server sidan i vila. vissa tjänster stöder även Kundhanterade nycklar och kryptering på klient sidan. 
+Alla Azure Storage-tjänster (Blob-lagring, kölagring, Tabelllagring och Azure-filer) stöder kryptering på serversidan i vila. Vissa tjänster stöder dessutom kundhanterade nycklar och kryptering på klientsidan. 
 
-- Server sidan: alla Azure Storage-tjänster aktiverar kryptering på Server sidan som standard med hjälp av tjänst nycklar, som är transparent för programmet. Mer information finns i [Azure Storage tjänst kryptering för vilande data](../../storage/common/storage-service-encryption.md). Azure Blob Storage och Azure Files stöder även RSA 2048-bitars Kundhanterade nycklar i Azure Key Vault. Mer information finns i [kryptering för lagringstjänst att använda Kundhanterade nycklar i Azure Key Vault](../../storage/common/storage-encryption-keys-portal.md).
-- Klient sidan: Azure-blobar, tabeller och köer stöder kryptering på klient sidan. När du använder kryptering på klient sidan, krypterar kunder data och laddar upp data som en krypterad blob. Nyckel hanteringen görs av kunden. Mer information finns i [kryptering på klient sidan och Azure Key Vault för Microsoft Azure Storage](../../storage/common/storage-client-side-encryption.md).
+- Serversidan: Alla Azure Storage Services aktiverar kryptering på serversidan som standard med hjälp av tjänsthanterade nycklar, vilket är transparent för programmet. Mer information finns i [Azure Storage Service Encryption for Data at Rest](../../storage/common/storage-service-encryption.md). Azure Blob storage och Azure Files stöder också RSA 2048-bitars kundhanterade nycklar i Azure Key Vault. Mer information finns i [Lagringstjänstkryptering med kundhanterade nycklar i Azure Key Vault](../../storage/common/storage-encryption-keys-portal.md).
+- Klientsidan: Azure Blobbar, Tabeller och köer stöder kryptering på klientsidan. När du använder kryptering på klientsidan krypterar kunderna data och överför data som en krypterad blob. Nyckelhantering görs av kunden. Mer information finns i [Kryptering på klientsidan och Azure Key Vault för Microsoft Azure Storage](../../storage/common/storage-client-side-encryption.md).
 
 #### <a name="azure-sql-database"></a>Azure SQL Database
 
-Azure SQL Database stöder för närvarande kryptering i vila för Microsoft-hanterad tjänst sida och krypterings scenarier på klient sidan.
+Azure SQL Database stöder för närvarande kryptering i vila för Microsoft-hanterade tjänstsidan och krypteringsscenarier på klientsidan.
 
-Stöd för server kryptering tillhandahålls för närvarande genom SQL-funktionen som kallas transparent datakryptering. När en Azure SQL Database-kund aktiverar TDE-nyckeln skapas och hanteras automatiskt. Kryptering i vila kan aktive ras på databas-och server nivå. Från och med juni 2017 är [Transparent datakryptering (TDE)](https://msdn.microsoft.com/library/bb934049.aspx) aktiverat som standard på nyligen skapade databaser. Azure SQL Database stöder RSA 2048-bitars Kundhanterade nycklar i Azure Key Vault. Mer information finns i [Transparent datakryptering med Bring Your Own Key stöd för Azure SQL Database och informations lager](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-byok-azure-sql?view=azuresqldb-current).
+Stöd för serverkryptering tillhandahålls för närvarande via SQL-funktionen Transparent datakryptering. När en Azure SQL Database-kund aktiverar TDE-nyckel skapas och hanteras automatiskt för dem. Kryptering i vila kan aktiveras på databas- och servernivå. Från och med juni 2017 aktiveras [Transparent Data Encryption (TDE)](https://msdn.microsoft.com/library/bb934049.aspx) som standard i nyskapade databaser. Azure SQL Database stöder RSA 2048-bitars kundhanterade nycklar i Azure Key Vault. Mer information finns i [Transparent datakryptering med stöd för ta med egen nyckel för Azure SQL Database och Data Warehouse](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-byok-azure-sql?view=azuresqldb-current).
 
-Kryptering på klient sidan av Azure SQL Database data stöds via funktionen [Always Encrypted](https://msdn.microsoft.com/library/mt163865.aspx) . Always Encrypted använder en nyckel som skapas och lagras av klienten. Kunder kan lagra huvud nyckeln i ett Windows-certifikat Arkiv, Azure Key Vault eller en lokal säkerhetsmodul för maskin vara. Med hjälp av SQL Server Management Studio väljer SQL-användare vilken nyckel de vill använda för att kryptera vilken kolumn som helst.
+Kryptering på klientsidan av Azure SQL Database-data stöds via funktionen [Alltid krypterad.](https://msdn.microsoft.com/library/mt163865.aspx) Alltid krypterad använder en nyckel som skapats och lagrats av klienten. Kunder kan lagra huvudnyckeln i ett Windows-certifikatarkiv, Azure Key Vault eller en lokal maskinvarusäkerhetsmodul. Med HJÄLP AV SQL Server Management Studio väljer SQL-användare vilken nyckel de vill använda för att kryptera vilken kolumn.
 
-#### <a name="encryption-model-and-key-management-table"></a>Krypterings modell och nyckel hanterings tabell
+#### <a name="encryption-model-and-key-management-table"></a>Krypteringsmodell och nyckelhanteringstabell
 
-|                                  |                    | **Krypterings modell och nyckel hantering** |                    |
+|                                  |                    | **Krypteringsmodell och nyckelhantering** |                    |
 |----------------------------------|--------------------|-----------------------------------------|--------------------|
-|                                  | **Server sidan med tjänst hanterad nyckel**     | **Server sidan med kundhanterad nyckel**             | **Klient sidan med hjälp av klient hanterad nyckel**      |
-| **AI och Machine Learning**      |                    |                    |                    |
+|                                  | **Använda tjänsthanterad nyckel på serversidan**     | **Server-side med hjälp av kundhanterad nyckel**             | **Klientsidan med klienthanterad nyckel**      |
+| **AI och maskininlärning**      |                    |                    |                    |
 | Azure Cognitive Search           | Ja                | Ja                | -                  |
 | Azure Machine Learning           | Ja                | Ja                | -                  |
-| Azure Machine Learning Studio    | Ja                | För hands version, RSA 2048-bitars | -               |
-| Power BI                         | Ja                | För hands version, RSA 2048-bitars | -                  |
+| Azure Machine Learning Studio    | Ja                | Förhandsgranskning, RSA 2048-bitars | -               |
+| Power BI                         | Ja                | Förhandsgranskning, RSA 2048-bitars | -                  |
 | **Analys**                    |                    |                    |                    |
 | Azure Stream Analytics           | Ja                | -                  | -                  |
-| Event Hubs                       | Ja                | Ja, alla RSA-längder. | -                  |
-| Functions                        | Ja                | Ja, alla RSA-längder. | -                  |
+| Händelsehubbar                       | Ja                | Ja, alla RSA längder. | -                  |
+| Funktioner                        | Ja                | Ja, alla RSA längder. | -                  |
 | Azure Analysis Services          | Ja                | -                  | -                  |
 | Azure Data Catalog               | Ja                | -                  | -                  |
 | Apache Kafka på Azure HDInsight  | Ja                | Alla RSA-längder.   | -                  |
-| Azure Monitor Application Insights | Ja                | Ja                | -                  |
+| Insikter för Azure Monitor-program | Ja                | Ja                | -                  |
 | Azure Monitor Log Analytics | Ja                | Ja                | -                  |
 | Azure-datautforskaren              | Ja                | Ja                | -                  |
 | Azure Data Factory               | Ja                | Ja                | -                  |
 | Azure Data Lake Store            | Ja                | Ja, RSA 2048-bitars  | -                  |
-| **Containrar**                   |                    |                    |                    |
+| **Behållare**                   |                    |                    |                    |
 | Azure Kubernetes Service         | Ja                | Ja                | -                  |
 | Container Instances              | Ja                | Ja                | -                  |
 | Container Registry               | Ja                | Ja                | -                  |
 | **Compute**                      |                    |                    |                    |
 | Virtuella datorer                 | Ja                | Ja, RSA 2048-bitars  | -                  |
-| Skalnings uppsättning för virtuell dator        | Ja                | Ja, RSA 2048-bitars  | -                  |
+| Skaluppsättning för virtuell dator        | Ja                | Ja, RSA 2048-bitars  | -                  |
 | SAP HANA                         | Ja                | Ja, RSA 2048-bitars  | -                  |
 | App Service                      | Ja                | Ja                | -                  |
 | Automation                       | Ja                | Ja                | -                  |
-| Azure-portalen                     | Ja                | Ja                | -                  |
+| Azure Portal                     | Ja                | Ja                | -                  |
 | Logic Apps                       | Ja                | Ja                | -                  |
 | Azure Managed Applications       | Ja                | Ja                | -                  |
 | Service Bus                      | Ja                | Ja                | -                  |
-| Webbplatsåterställning                    | Ja                | Ja                | -                  |
+| Site Recovery                    | Ja                | Ja                | -                  |
 | **Databaser**                    |                    |                    |                    |
 | SQL Server på Virtual Machines   | Ja                | Ja, RSA 2048-bitars  | Ja                |
 | Azure SQL Database               | Ja                | Ja, RSA 2048-bitars  | Ja                |
-| Azure SQL Database för MariaDB   | Ja                | -                  | -                  |
-| Azure SQL Database för MySQL     | Ja                | Ja                | -                  |
-| Azure SQL Database för PostgreSQL | Ja               | Ja                | -                  |
-| Azure Synapse Analytics          | Ja                | Ja, RSA 2048-bitars  | Ja                |
+| Azure SQL-databas för MariaDB   | Ja                | -                  | -                  |
+| Azure SQL-databas för MySQL     | Ja                | Ja                | -                  |
+| Azure SQL-databas för PostgreSQL | Ja               | Ja                | -                  |
+| Azure Synapse Analytics          | Ja                | Ja, RSA 2048-bitars  | -                  |
 | SQL Server Stretch Database      | Ja                | Ja, RSA 2048-bitars  | Ja                |
 | Table Storage                    | Ja                | Ja                | Ja                |
 | Azure Cosmos DB                  | Ja                | Ja                | -                  |
 | Azure Databricks                 | Ja                | Ja                | -                  |
 | **DevOps**                       |                    |                    |                    |
 | Azure DevOps                     | Ja                | -                  | Ja                |
-| Azure-lagringsplatser                      | Ja                | -                  | Ja                |
+| Azure Repos                      | Ja                | -                  | Ja                |
 | **Identitet**                     |                    |                    |                    |
 | Azure Active Directory           | Ja                | -                  | -                  |
 | Azure Active Directory Domain Services | Ja          | Ja, RSA 2048-bitars  | -                  |
-| **Samordning**                  |                    |                    |                    |
+| **Integration**                  |                    |                    |                    |
 | Service Bus                      | Ja                | Ja                | Ja                |
 | Event Grid                       | Ja                | -                  | -                  |
 | API Management                   | Ja                | -                  | -                  |
@@ -318,12 +318,12 @@ Kryptering på klient sidan av Azure SQL Database data stöds via funktionen [Al
 | IoT Hub                          | Ja                | Ja                | Ja                |
 | **Hantering och styrning**    |                    |                    |                    |
 | Azure Site Recovery              | Ja                | -                  | -                  |
-| **Mellanhand**                        |                    |                    |                    |
+| **Media**                        |                    |                    |                    |
 | Media Services                   | Ja                | -                  | Ja                |
-| **Storage**                      |                    |                    |                    |
+| **Lagring**                      |                    |                    |                    |
 | Blob Storage                     | Ja                | Ja, RSA 2048-bitars  | Ja                |
 | Disklagring                     | Ja                | Ja                | -                  |
-| Hanterade Disklagring             | Ja                | Ja                | -                  |
+| Hanterad disklagring             | Ja                | Ja                | -                  |
 | File Storage                     | Ja                | Ja, RSA 2048-bitars  | -                  |
 | Queue Storage                    | Ja                | Ja                | Ja                |
 | Avere vFXT                       | Ja                | -                  | -                  |
@@ -334,6 +334,6 @@ Kryptering på klient sidan av Azure SQL Database data stöds via funktionen [Al
 | Data Box                         | Ja                | -                  | Ja                |
 | Data Box Edge                    | Ja                | Ja                | -                  |
 
-## <a name="conclusion"></a>Sammanfattning
+## <a name="conclusion"></a>Slutsats
 
-Skydd av kund information som lagras i Azure-tjänster är av största vikt för Microsoft. Alla Azure-värdbaserade tjänster allokeras för att tillhandahålla kryptering vid rest-alternativ. Grundläggande tjänster som Azure Storage, Azure SQL Database och nyckel analys och Intelligence-tjänster tillhandahåller redan kryptering på rest-alternativ. Några av de här tjänsterna stöder antingen kundstyrda nycklar och kryptering på klient sidan samt tjänst hanterade nycklar och kryptering. Microsoft Azure Services ökar i stort sett kryptering vid rest-tillgänglighet och nya alternativ planeras för för hands version och allmän tillgänglighet under kommande månader.
+Skydd av kunddata som lagras i Azure Services är av största vikt för Microsoft. Alla Azure-värdbaserade tjänster har åtagit sig att tillhandahålla kryptering vid vila alternativ. Grundläggande tjänster som Azure Storage, Azure SQL Database och viktiga analys- och underrättelsetjänster tillhandahåller redan alternativ för kryptering i vila. Vissa av dessa tjänster stöder antingen kundstyrda nycklar och kryptering på klientsidan samt tjänsthanterade nycklar och kryptering. Microsoft Azure-tjänster förbättrar i stort sett kryptering i vila tillgänglighet och nya alternativ planeras för förhandsversion och allmän tillgänglighet under de kommande månaderna.

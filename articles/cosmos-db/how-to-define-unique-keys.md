@@ -1,47 +1,47 @@
 ---
 title: Definiera unika nycklar för en Azure Cosmos-behållare
-description: 'Lär dig hur du definierar unika nycklar för en Azure Cosmos-behållare med hjälp av Azure Portal, PowerShell, .net, Java och diverse andra SDK: er.'
+description: Lär dig hur du definierar unika nycklar för en Azure Cosmos-behållare med Azure-portalen, PowerShell, .Net, Java och flera andra SDK:er.
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/02/2019
 ms.author: thweiss
 ms.openlocfilehash: fa62495a7b51c9a06a91102299378c15e811eae0
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74872119"
 ---
 # <a name="define-unique-keys-for-an-azure-cosmos-container"></a>Definiera unika nycklar för en Azure Cosmos-behållare
 
-Den här artikeln visar olika sätt att definiera [unika nycklar](unique-keys.md) när du skapar en Azure Cosmos-behållare. Det är för närvarande möjligt att utföra den här åtgärden antingen genom att använda Azure Portal eller via någon av SDK: erna.
+Den här artikeln innehåller olika sätt att definiera [unika nycklar](unique-keys.md) när du skapar en Azure Cosmos-behållare. Det är för närvarande möjligt att utföra den här åtgärden antingen med hjälp av Azure-portalen eller via en av SDK:erna.
 
-## <a name="use-the-azure-portal"></a>Använd Azure Portal
+## <a name="use-the-azure-portal"></a>Använda Azure-portalen
 
 1. Logga in på [Azure-portalen](https://portal.azure.com/).
 
-1. [Skapa ett nytt Azure Cosmos-konto](create-sql-api-dotnet.md#create-account) eller Välj ett befintligt.
+1. [Skapa ett nytt Azure Cosmos-konto](create-sql-api-dotnet.md#create-account) eller välj ett befintligt konto.
 
-1. Öppna fönstret **datautforskaren** och välj den behållare som du vill arbeta med.
+1. Öppna fönstret **Data explorer** och markera den behållare som du vill arbeta med.
 
-1. Klicka på **ny behållare**.
+1. Klicka på **Ny behållare**.
 
-1. I dialog rutan **Lägg till behållare** klickar du på **+ Lägg till unik nyckel** för att lägga till en unik nyckel post.
+1. I dialogrutan **Lägg till behållare** klickar du på + Lägg till unik **nyckel** för att lägga till en unik nyckelpost.
 
-1. Ange sökvägen (erna) för den unika nyckel begränsningen
+1. Ange sökvägen/sökvägarna för den unika nyckelbegränsningen
 
-1. Om det behövs lägger du till fler unika nyckel poster genom att klicka på **+ Lägg till unik nyckel**
+1. Om det behövs kan du lägga till fler unika nyckelposter genom att klicka på **+ Lägg till unik tangent**
 
-    ![Skärm bild av unik nyckel begränsnings post på Azure Portal](./media/how-to-define-unique-keys/unique-keys-portal.png)
+    ![Skärmbild av unik nyckelbegränsningspost på Azure-portalen](./media/how-to-define-unique-keys/unique-keys-portal.png)
 
-## <a name="use-powershell"></a>Använd Powershell
+## <a name="use-powershell"></a>Använda Powershell
 
-Om du vill skapa en behållare med unika nycklar går du till [skapa en Azure Cosmos-behållare med unik nyckel och TTL](manage-with-powershell.md#create-container-unique-key-ttl)
+Om du vill skapa en behållare med unika nycklar finns [i Skapa en Azure Cosmos-behållare med unik nyckel och TTL](manage-with-powershell.md#create-container-unique-key-ttl)
 
-## <a name="use-the-net-sdk-v2"></a>Använda .NET SDK v2
+## <a name="use-the-net-sdk-v2"></a>Använda .NET SDK V2
 
-När du skapar en ny behållare med hjälp av [.NET SDK v2](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/)kan du använda ett `UniqueKeyPolicy`-objekt för att definiera unika nyckel begränsningar.
+När du skapar en ny behållare med [.NET SDK v2](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/)kan ett `UniqueKeyPolicy` objekt användas för att definiera unika tangentbegränsningar.
 
 ```csharp
 client.CreateDocumentCollectionAsync(UriFactory.CreateDatabaseUri("database"), new DocumentCollection
@@ -59,9 +59,9 @@ client.CreateDocumentCollectionAsync(UriFactory.CreateDatabaseUri("database"), n
 });
 ```
 
-## <a name="use-the-net-sdk-v3"></a>Använd .NET SDK v3
+## <a name="use-the-net-sdk-v3"></a>Använda .NET SDK V3
 
-När du skapar en ny behållare med [.NET SDK v3](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/)använder du SDK: s Fluent API för att deklarera unika nycklar på ett koncist och läsligt sätt.
+När du skapar en ny behållare med [.NET SDK v3](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/)använder du SDK:s flytande API för att deklarera unika nycklar på ett koncist och läsbart sätt.
 
 ```csharp
 await client.GetDatabase("database").DefineContainer(name: "container", partitionKeyPath: "/myPartitionKey")
@@ -78,7 +78,7 @@ await client.GetDatabase("database").DefineContainer(name: "container", partitio
 
 ## <a name="use-the-java-sdk"></a>Använda Java SDK
 
-När du skapar en ny behållare med hjälp av [Java SDK](https://mvnrepository.com/artifact/com.microsoft.azure/azure-cosmosdb)kan du använda ett `UniqueKeyPolicy`-objekt för att definiera unika nyckel begränsningar.
+När du skapar en ny behållare med `UniqueKeyPolicy` [Java SDK](https://mvnrepository.com/artifact/com.microsoft.azure/azure-cosmosdb)kan ett objekt användas för att definiera unika nyckelbegränsningar.
 
 ```java
 // create a new DocumentCollection object
@@ -113,9 +113,9 @@ container.setUniqueKeyPolicy(uniqueKeyPolicy);
 client.createCollection(String.format("/dbs/%s", "database"), container, null);
 ```
 
-## <a name="use-the-nodejs-sdk"></a>Använd Node. js SDK
+## <a name="use-the-nodejs-sdk"></a>Använda Node.js SDK
 
-När du skapar en ny behållare med hjälp av [Node. js SDK](https://www.npmjs.com/package/@azure/cosmos)kan du använda ett `UniqueKeyPolicy`-objekt för att definiera unika nyckel begränsningar.
+När du skapar en ny behållare med [Node.js SDK](https://www.npmjs.com/package/@azure/cosmos)kan ett `UniqueKeyPolicy` objekt användas för att definiera unika tangentbegränsningar.
 
 ```javascript
 client.database('database').containers.create({
@@ -129,9 +129,9 @@ client.database('database').containers.create({
 });
 ```
 
-## <a name="use-the-python-sdk"></a>Använda python SDK
+## <a name="use-the-python-sdk"></a>Använda Python SDK
 
-När du skapar en ny behållare med hjälp av [python SDK](https://pypi.org/project/azure-cosmos/)kan unika nyckel begränsningar anges som en del av ord listan som har skickats som parameter.
+När du skapar en ny behållare med [Python SDK](https://pypi.org/project/azure-cosmos/)kan unika nyckelbegränsningar anges som en del av ordlistan som skickas som parameter.
 
 ```python
 client.CreateContainer('dbs/' + config['DATABASE'], {
@@ -148,4 +148,4 @@ client.CreateContainer('dbs/' + config['DATABASE'], {
 ## <a name="next-steps"></a>Nästa steg
 
 - Läs mer om [partitionering](partition-data.md)
-- Utforska [hur indexeringen fungerar](index-overview.md)
+- Utforska [hur indexering fungerar](index-overview.md)

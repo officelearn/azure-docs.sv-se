@@ -1,6 +1,6 @@
 ---
-title: Microsoft-tjänster i cybersäkerhet | Microsoft Docs
-description: Artikeln innehåller en introduktion till Microsoft-tjänster som är relaterade till cybersäkerhet och hur du får mer information om dessa tjänster.
+title: Microsoft-tjänster inom cybersäkerhet | Microsoft-dokument
+description: Artikeln innehåller en introduktion om Microsoft-tjänster relaterade till cybersäkerhet och hur du får mer information om dessa tjänster.
 services: security
 documentationcenter: na
 author: TomShinder
@@ -16,28 +16,28 @@ ms.workload: na
 ms.date: 01/14/2019
 ms.author: barclayn
 ms.openlocfilehash: 7821fdc0dfda5db8d660a38a59efc774e30b9f4a
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/01/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "68727460"
 ---
-# <a name="microsoft-services-in-cybersecurity"></a>Microsoft-tjänster i cybersäkerhet
+# <a name="microsoft-services-in-cybersecurity"></a>Microsoft-tjänster inom cybersäkerhet
 
-Microsoft-tjänster ger en omfattande metod för säkerhet, identitet och cybersäkerhet. De omfattar en uppsättning säkerhets-och identitets tjänster i strategi, planering, implementering och kontinuerlig support. Dessa tjänster kan hjälpa företags kunder att implementera säkerhetslösningar som överensstämmer med deras strategiska mål.
+Microsoft Services tillhandahåller en övergripande metod för säkerhet, identitet och cybersäkerhet. De omfattar en rad säkerhets- och identitetstjänster över strategi, planering, implementering och löpande support. Dessa tjänster kan hjälpa Företagskunder att implementera säkerhetslösningar som överensstämmer med deras strategiska mål.
 
-Microsoft-tjänster kan skapa lösningar som integrerar och förbättrar de senaste säkerhets-och identitets funktionerna i våra produkter för att skydda din verksamhet och förbättra innovationen.
+Microsofts tjänster kan skapa lösningar som integreras och förbättra de senaste säkerhets- och identitetsfunktionerna i våra produkter för att skydda din verksamhet och driva innovation.
 
-Vårt team av tekniska experter består av högutbildade experter som erbjuder en stor mängd säkerhet och identitets upplevelser.
+Vårt team av tekniska proffs består av välutbildade experter som erbjuder en stor säkerhets- och identitetsupplevelse.
 
-Läs mer om tjänster som tillhandahålls av Microsoft-tjänster:
+Läs mer om tjänster som tillhandahålls av Microsoft Services:
 
-* [Säkerhets risk bedömning](https://download.microsoft.com/download/5/1/6/516F59A7-91EE-4463-8612-C85FD3BEBDC7/microsoft-security-risk-assessment-solution-brief.pdf)
-* [Utvärdering av dynamiskt identitets ramverk](https://download.microsoft.com/download/0/7/F/07FA8BFC-17D5-4F55-AD4F-3A987A7324AA/dynamic-identity-framework-identity-assessment-datasheet.pdf)
-* [Offline-utvärdering av Active Directory tjänster](https://download.microsoft.com/download/5/1/6/516F59A7-91EE-4463-8612-C85FD3BEBDC7/offline-assessment-for-active-directory-security-datasheet.pdf)
-* [Förbättrad säkerhets administrations miljö](https://download.microsoft.com/download/5/1/6/516F59A7-91EE-4463-8612-C85FD3BEBDC7/enhanced-security-administrative-environment-solution-brief.pdf)
-* [Implementerings tjänster för Azure AD](https://download.microsoft.com/download/0/7/F/07FA8BFC-17D5-4F55-AD4F-3A987A7324AA/azure-active-directory-implementation-services-solution-brief.pdf)
-* [Skydd mot flyttning av sido konto](https://download.microsoft.com/download/5/1/6/516F59A7-91EE-4463-8612-C85FD3BEBDC7/pop-securing-lateral-account-movement.pdf)
-* [Incident svar och återställning](https://download.microsoft.com/download/5/1/6/516F59A7-91EE-4463-8612-C85FD3BEBDC7/microsoft-incident-response-and-recovery-process-brief.pdf)
+* [Bedömning av säkerhetsrisker](https://download.microsoft.com/download/5/1/6/516F59A7-91EE-4463-8612-C85FD3BEBDC7/microsoft-security-risk-assessment-solution-brief.pdf)
+* [Utvärdering av ramverk för dynamisk identitet](https://download.microsoft.com/download/0/7/F/07FA8BFC-17D5-4F55-AD4F-3A987A7324AA/dynamic-identity-framework-identity-assessment-datasheet.pdf)
+* [Offlineutvärdering för Active Directory Services](https://download.microsoft.com/download/5/1/6/516F59A7-91EE-4463-8612-C85FD3BEBDC7/offline-assessment-for-active-directory-security-datasheet.pdf)
+* [Förbättrad miljö för säkerhetsadministration](https://download.microsoft.com/download/5/1/6/516F59A7-91EE-4463-8612-C85FD3BEBDC7/enhanced-security-administrative-environment-solution-brief.pdf)
+* [Implementeringstjänster för Azure AD](https://download.microsoft.com/download/0/7/F/07FA8BFC-17D5-4F55-AD4F-3A987A7324AA/azure-active-directory-implementation-services-solution-brief.pdf)
+* [Säkra mot laterala kontorörelser](https://download.microsoft.com/download/5/1/6/516F59A7-91EE-4463-8612-C85FD3BEBDC7/pop-securing-lateral-account-movement.pdf)
+* [Incidenthantering och återställning](https://download.microsoft.com/download/5/1/6/516F59A7-91EE-4463-8612-C85FD3BEBDC7/microsoft-incident-response-and-recovery-process-brief.pdf)
 
-[Läs mer](https://aka.ms/cyberserv) om Microsofts tjänster för säkerhets rådgivning.
+[Läs mer](https://aka.ms/cyberserv) om Konsulttjänster för Microsoft Services Security.

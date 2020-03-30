@@ -1,6 +1,6 @@
 ---
-title: Automatisering av arbets flöde (för hands version) i Azure Security Center | Microsoft Docs
-description: Lär dig hur du skapar och automatiserar arbets flöden i Azure Security Center
+title: Automatisering av arbetsflöden i Azure Security Center | Microsoft-dokument
+description: Lär dig hur du skapar och automatiserar arbetsflöden i Azure Security Center
 services: security-center
 author: memildin
 manager: rkarlin
@@ -8,97 +8,100 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: 57351ccf0c6155a1a3532ec9e6481a724e3219aa
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 972b5415b85e82a5afdaf7d85d3a3bcb9e144d4d
+ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75462438"
+ms.lasthandoff: 03/29/2020
+ms.locfileid: "80384950"
 ---
-# <a name="workflow-automation-preview"></a>Automatisering av arbets flöde (för hands version)
+# <a name="workflow-automation"></a>Arbetsflödesautomation
 
-Varje säkerhets program innehåller flera arbets flöden för incident svar. De här processerna kan omfatta att meddela relevanta intressenter, starta en ändrings hanterings process och tillämpa vissa åtgärder för reparation. Säkerhets experter rekommenderar att du automatiserar så många steg som beskrivs i de här procedurerna. Automation minskar kostnaderna. Det kan också förbättra säkerheten genom att se till att process stegen utförs snabbt, konsekvent och enligt dina fördefinierade krav.
+Varje säkerhetsprogram innehåller flera arbetsflöden för incidentsvar. Dessa processer kan omfatta att meddela relevanta intressenter, starta en ändringshanteringsprocess och tillämpa specifika åtgärder för att åtgärda. Säkerhetsexperter rekommenderar att du automatiserar så många steg av dessa procedurer som du kan. Automatisering minskar kostnaderna. Det kan också förbättra din säkerhet genom att se till att processstegen görs snabbt, konsekvent och enligt dina fördefinierade krav.
 
-Den här artikeln beskriver arbets flödets automatiserings funktion (för hands version) av Azure Security Center. Den här förhands gransknings funktionen kan utlösa Logic Apps om säkerhets aviseringar och rekommendationer. Till exempel kanske du vill Security Center att e-posta en speciell användare när en avisering inträffar. Du lär dig också hur du skapar Logic Apps att använda [Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview).
+I den här artikeln beskrivs funktionen för automatisering av arbetsflöden i Azure Security Center. Den här funktionen kan utlösa Logic Apps på säkerhetsaviseringar och rekommendationer. Du kanske till exempel vill att Security Center ska skicka e-post till en viss användare när en avisering inträffar. Du får också lära dig hur du skapar Logic Apps med [Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview).
 
 > [!NOTE]
-> Om du tidigare använde vyn spel böcker (för hands version) på sid panelen hittar du samma funktioner tillsammans med de utökade funktionerna på sidan ny arbets flödes automatisering (för hands version).
+> Om du tidigare har använt vyn Playbooks (Preview) i sidofältet hittar du samma funktioner tillsammans med de utökade funktionerna på den nya automatiseringssidan för arbetsflödet.
 
 
 ## <a name="requirements"></a>Krav
 
-* Om du vill arbeta med Azure Logic Apps arbets flöden måste du ha följande Logic Apps roller/behörigheter:
+* Om du vill arbeta med Azure Logic Apps-arbetsflöden måste du ha följande Logic Apps-roller/-behörigheter:
 
-    * [Logic app operatörs](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#logic-app-operator) behörigheter krävs eller Läs-/utlösare för Logic app (den här rollen kan inte skapa eller redigera Logi Kap par). *Kör* bara befintliga)
+    * [Logic App](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#logic-app-operator) Operator-behörigheter krävs eller Logic App läs-/triggeråtkomst (den här rollen kan inte skapa eller redigera logikappar, bara *köra* befintliga)
 
-    * [Logic app Contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#logic-app-contributor) -behörigheter krävs för att skapa och ändra Logic app
+    * [Logic App](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#logic-app-contributor) Contributor-behörigheter krävs för att skapa och ändra Logic App
 
-* Om du vill använda Logic app-kopplingar kan du behöva ytterligare autentiseringsuppgifter för att logga in på deras respektive tjänster (till exempel dina Outlook/team/slack-instanser)
+* Om du vill använda Logic App-kopplingar kan du behöva ytterligare autentiseringsuppgifter för att logga in på deras respektive tjänster (till exempel dina Outlook/Teams/Slack-instanser)
 
 
-## <a name="create-a-logic-app-and-define-when-it-should-automatically-run"></a>Skapa en Logic-app och definiera när den ska köras automatiskt 
+## <a name="create-a-logic-app-and-define-when-it-should-automatically-run"></a>Skapa en logikapp och definiera när den ska köras automatiskt 
 
-1. Från Security Centers sid panelen väljer du **arbets flödes automatisering (för hands version)** .
+1. Välj **Automatisering av arbetsflöde i**Säkerhetscenters sidofält .
 
-    [![lista över arbets flödes automatiseringar](media/workflow-automation/list-of-workflow-automations.png)](media/workflow-automation/list-of-workflow-automations.png#lightbox)
+    [![Lista över automatiseringar av arbetsflöden](media/workflow-automation/list-of-workflow-automations.png)](media/workflow-automation/list-of-workflow-automations.png#lightbox)
 
-    Från den här sidan kan du skapa nya Automation-regler, samt aktivera, inaktivera eller ta bort befintliga.  
-1. Om du vill definiera ett nytt arbets flöde klickar du på **Lägg till arbets flödes automatisering**. 
+    Från den här sidan kan du skapa nya automatiseringsregler samt aktivera, inaktivera eller ta bort befintliga.  
+1. Om du vill definiera ett nytt arbetsflöde klickar du på **Lägg till automatisering av arbetsflöden**. 
 
-    Ett fönster visas med alternativen för din nya automatisering. Här kan du ange:
-    1. Ett namn och en beskrivning av Automation.
-    1. Utlösare som kommer att initiera det här automatiska arbets flödet. Du kanske exempelvis vill att din Logic app ska köras när en säkerhets avisering som innehåller "SQL" genereras.
-    1. Den Logic-app som ska köras när utlösarens villkor uppfylls. 
+    En ruta visas med alternativen för den nya automatiseringen. Här kan du skriva in:
+    1. Ett namn och en beskrivning för automatiseringen.
+    1. De utlösare som initierar det här automatiska arbetsflödet. Du kanske till exempel vill att logikappen ska köras när en säkerhetsavisering som innehåller "SQL" genereras.
+    1. Logikappen som körs när dina utlösarvillkor är uppfyllda. 
 
-        [![lista över arbets flödes automatiseringar](media/workflow-automation/add-workflow.png)](media/workflow-automation/add-workflow.png#lightbox)
+        [![Lista över automatiseringar av arbetsflöden](media/workflow-automation/add-workflow.png)](media/workflow-automation/add-workflow.png#lightbox)
 
-1. I avsnittet åtgärder klickar du på **skapa en ny** för att starta processen för att skapa logiska appar.
+1. I avsnittet Åtgärder klickar du på **Skapa en ny** för att starta processen för att skapa logikapp.
 
-    Du kommer att Azure Logic Apps.
+    Du kommer till Azure Logic Apps.
 
-    [![att skapa en ny Logic app](media/workflow-automation/logic-apps-create-new.png)](media/workflow-automation/logic-apps-create-new.png#lightbox)
+    [![Skapa en ny logikapp](media/workflow-automation/logic-apps-create-new.png)](media/workflow-automation/logic-apps-create-new.png#lightbox)
 
-1. Ange ett namn, en resurs grupp och en plats och klicka på **skapa**.
+1. Ange ett namn, en resursgrupp och en plats och klicka på **Skapa**.
 
-1. I den nya Logic-appen kan du välja mellan inbyggda och fördefinierade mallar i kategorin säkerhet. Eller så kan du definiera ett anpassat flöde av händelser som inträffar när den här processen utlöses.
+1. I den nya Logikappen kan du välja mellan inbyggda, fördefinierade mallar från säkerhetskategorin. Du kan också definiera ett anpassat flöde av händelser som ska inträffa när den här processen utlöses.
 
-    I Logic Apps designer stöds följande utlösare från Security Center-anslutningar:
+    I Logic App-designern stöds följande utlösare från Security Center-kopplingarna:
 
-    * **När en Azure Security Center rekommendation skapas eller utlösas (för hands version)**
-    * **När en Azure Security Center-avisering skapas eller utlösas (för hands version)**
+    * **När en Rekommendation för Azure Security Center skapas eller utlöses**
+    * **När en Azure Security Center-avisering skapas eller utlöses** 
+    
+    > [!TIP]
+    > Du kan anpassa utlösaren så att den bara relaterar till aviseringar med de allvarlighetsgrader som intresserar dig.
     
     > [!NOTE]
-    > Om du använder den äldre utlösaren "när ett svar på en Azure Security Center-avisering utlöses", kommer Logic Apps inte att startas av funktionen för automatisering av arbets flöde. Använd i stället någon av de utlösare som anges ovan. 
+    > Om du använder den äldre utlösaren "När ett svar på en Azure Security Center-avisering utlöses" startas inte logikapparna av funktionen Arbetsflödesautomatisering. Använd i stället någon av de utlösare som nämns ovan. 
 
-    [![exempel på Logic-appen](media/workflow-automation/sample-logic-app.png)](media/workflow-automation/sample-logic-app.png#lightbox)
+    [![Exempel på logikapp](media/workflow-automation/sample-logic-app.png)](media/workflow-automation/sample-logic-app.png#lightbox)
 
-1. När du har definierat din Logic app går du tillbaka till fönstret definition för arbets flödes automatisering ("Lägg till arbets flödes automatisering"). Klicka på **Uppdatera** för att se till att den nya Logic-appen kan väljas.
+1. När du har definierat logikappen går du tillbaka till definitionsfönstret för automatisering av arbetsflöden ("Lägg till automatisering av arbetsflödet"). Klicka på **Uppdatera** om du vill vara säkra på att den nya Logikappen är tillgänglig för val.
 
     ![Uppdatera](media/workflow-automation/refresh-the-list-of-logic-apps.png)
 
-1. Välj din Logic app och spara Automation. Observera att List rutan Logic app endast visar Logic Apps med stöd för Security Center kopplingar som nämns ovan.
+1. Välj logikapp och spara automatiseringen. Observera att listrutan Logic App endast visar Logic Apps med stöd för Security Center-kopplingar som nämns ovan.
 
 
-## <a name="manually-trigger-a-logic-app"></a>Aktivera en Logic-app manuellt
+## <a name="manually-trigger-a-logic-app"></a>Utlösa en logikapp manuellt
 
-Du kan också köra Logic Apps manuellt när du visar en säkerhets rekommendation.
+Du kan också köra Logic Apps manuellt när du visar en säkerhetsavisering eller någon rekommendation som erbjuder [Quick Fix-reparation](https://docs.microsoft.com/azure/security-center/security-center-remediate-recommendations#quick-fix-remediation).
 
-Om du vill köra en Logic-app manuellt öppnar du en rekommendation och klickar på Utlös Logic app (för hands version):
+Om du vill köra en Logic App manuellt öppnar du en avisering eller en rekommendation som stöder snabbkorrigering och klickar på **Trigger Logic App:**
 
-[![utlösa en logisk app manuellt](media/workflow-automation/manually-trigger-logic-app.png)](media/workflow-automation/manually-trigger-logic-app.png#lightbox)
+[![Utlösa en logikapp manuellt](media/workflow-automation/manually-trigger-logic-app.png)](media/workflow-automation/manually-trigger-logic-app.png#lightbox)
 
-## <a name="data-types-schemas"></a>Data typs scheman
+## <a name="data-types-schemas"></a>Scheman för datatyper
 
-Om du vill visa obehandlade händelse scheman för de säkerhets aviseringar eller rekommendationer som skickas till Logic App-instansen går du till [data typerna för arbets flödets Automation-scheman](https://aka.ms/ASCAutomationSchemas). Detta kan vara användbart i de fall där du inte använder Security Center inbyggda Logic app-kopplingar som nämns ovan, men använder i stället Logic Apps generiska HTTP-koppling – du kan använda Event JSON-schemat för att manuellt parsa det när du ser anpassa.
+Om du vill visa råa händelsescheman för säkerhetsaviseringar eller rekommendationer som skickas till Logic App-instansen besöker du [schemana för datatyper för arbetsflödesautomatisering](https://aka.ms/ASCAutomationSchemas). Detta kan vara användbart i de fall där du inte använder Security Centers inbyggda Logic App-kopplingar som nämns ovan, utan i stället använder Logic Apps allmänna HTTP-anslutning - du kan använda händelsen JSON-schemat för att manuellt tolka det som du tycker passar.
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här artikeln har du lärt dig att skapa Logic Apps, köra dem manuellt i Security Center och automatisera körningen. 
+I den här artikeln lärde du dig om hur du skapar Logic Apps, kör dem manuellt i Security Center och automatiserar körningen. 
 
-Information om annat relaterat material finns i följande artiklar: 
+För annat relaterat material, se följande artiklar: 
 
-- [Säkerhets rekommendationer i Azure Security Center](security-center-recommendations.md)
+- [Säkerhetsrekommendationer i Azure Security Center](security-center-recommendations.md)
 - [Säkerhetsaviseringar i Azure Security Center](security-center-alerts-overview.md)
 - [Om Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview)
-- [Logic Apps anslutningar](https://docs.microsoft.com/connectors/)
-- [Data typs scheman för arbets flödes automatisering](https://aka.ms/ASCAutomationSchemas)
+- [Logic Apps-anslutningsappar](https://docs.microsoft.com/connectors/)
+- [Scheman för datatyper för arbetsflödesautomatisering](https://aka.ms/ASCAutomationSchemas)

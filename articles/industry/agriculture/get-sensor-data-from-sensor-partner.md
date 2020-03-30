@@ -1,71 +1,79 @@
 ---
-title: Hämta sensor data från partner
-description: Den här artikeln beskriver hur du hämtar sensor data från partner.
+title: Hämta sensordata från partnerna
+description: I den här artikeln beskrivs hur du hämtar sensordata från partner.
 author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 9364c344c58d17f9f6e6404dd8aa850af032cee9
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 916c828365c8f9f50f408bd6c51182bb6e89605f
+ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79271816"
+ms.lasthandoff: 03/29/2020
+ms.locfileid: "80384202"
 ---
-# <a name="get-sensor-data-from-sensor-partners"></a>Hämta sensor data från sensor partner
+# <a name="get-sensor-data-from-sensor-partners"></a>Hämta sensordata från sensorpartners
 
-Azure FarmBeats hjälper dig att ta strömma data från dina IoT-enheter och sensorer till Datahub. För närvarande stöds följande sensor enhets partner.
+Azure FarmBeats hjälper dig att föra strömmande data från dina IoT-enheter och sensorer till Datahub. För närvarande stöds följande partner för sensorenheter.
 
-  ![FarmBeats-partner](./media/get-sensor-data-from-sensor-partner/partner-information-2.png)
+  ![FarmBeats partners](./media/get-sensor-data-from-sensor-partner/partner-information-2.png)
 
-Genom att integrera enhets data med Azure FarmBeats kan du hämta grunddata från IoT-sensorer som distribuerats i Server gruppen till datahubben. Data, när de är tillgängliga, kan visualiseras genom FarmBeats-acceleratorn. Data kan användas för data fusion och Machine Learning/artificiell intelligens (ML/AI) modell uppbyggnad med hjälp av FarmBeats.
+Genom att integrera enhetsdata med Azure FarmBeats kan du hämta markdata från IoT-sensorerna som distribueras i din servergrupp till datahubben. Data, när de är tillgängliga, kan visualiseras via FarmBeats-acceleratorn. Data kan användas för datafusion och maskininlärning /artificiell intelligens (ML/AI) modellbyggnad med hjälp av FarmBeats.
 
-För att starta strömning av sensor data kontrollerar du följande:
+Så här startar du strömmande sensordata:
 
 -  Du har installerat FarmBeats på Azure Marketplace.
--  Du beslutade de sensorer och enheter som du vill installera i Server gruppen.
--  Om du planerar att använda jord fuktighets sensorer använder du FarmBeats mark fuktighets sensor karta för att få en rekommendation om antalet sensorer och var exakt du ska placera dem. Mer information finns i [generera kartor](generate-maps-in-azure-farmbeats.md).
-- Du köper och distribuerar enheter eller sensorer från din enhets partner på din server grupp. Se till att du har åtkomst till sensor data via din enhets partner lösning.
+-  Du har bestämt dig för vilka sensorer och enheter som du vill installera på din gård.
+-  Om du planerar att använda markfuktsensorer, använd FarmBeats Soil Moisture Sensor Placement karta för att få en rekommendation om antalet sensorer och var exakt du ska placera dem. Mer information finns i [Generera kartor](generate-maps-in-azure-farmbeats.md).
+- Du köper och distribuerar enheter eller sensorer från din enhetspartner på din servergrupp. Se till att du kan komma åt sensordata via enhetspartners lösning.
 
-## <a name="enable-device-integration-with-farmbeats"></a>Aktivera enhets integrering med FarmBeats
+## <a name="enable-device-integration-with-farmbeats"></a>Aktivera enhetsintegrering med FarmBeats
 
-När du har startat strömningen av sensor data kan du påbörja processen med att hämta data till FarmBeats-systemet. Ange följande information för din enhets leverantör så att du kan integrera med FarmBeats:
+När du har påbörjat strömningen av sensordata kan du påbörja processen med att hämta data till ditt FarmBeats-system. Ange följande information till din enhetsleverantör för att aktivera integreringen i FarmBeats:
 
  - API-slutpunkt
  - Klient-ID:t
  - Klientorganisations-ID
  - Klienthemlighet
- - EventHub-anslutningssträng
+ - Anslutningssträng för EventHub
 
-Du kan generera ovanstående information genom att följa dessa steg: (Observera att de här stegen måste göras på Azure så att du behöver åtkomst till Azure-prenumerationen där FarmBeats har distribuerats)
+Du kan generera ovanstående information genom att följa dessa steg: (Observera att dessa steg måste göras på Azure så att du behöver åtkomst till Azure-prenumerationen där FarmBeats distribueras)
 
-1. Hämta [zip-filen](https://aka.ms/farmbeatspartnerscriptv2)och extrahera den till den lokala enheten. Det kommer att finnas en fil i zip-filen.
+1. Logga in på https://portal.azure.com/.
 
-2. Logga in på https://portal.azure.com/.
+2. **Om du är på FarmBeats version 1.2.7 eller senare, hoppa över steg 2a, 2b och 2c, och gå till steg 3.**. Du kan kontrollera FarmBeats version genom att klicka på ikonen Inställningar längst upp till höger i FarmBeats UI.
 
-3. **Om du använder FarmBeats version 1.2.7 eller senare kan du hoppa över steg 3a, 3b och 3c och gå till steg 4.** Du kan kontrol lera FarmBeats-versionen genom att klicka på inställnings ikonen längst upp till höger i FarmBeats-ANVÄNDARGRÄNSSNITTET.
+2a. Gå till Azure Active Directory -> Appregistreringar
 
-3a. Gå till Azure Active Directory-> App-registreringar
+2b. Klicka på appregistreringen som skapades som en del av din FarmBeats-distribution. Det kommer att ha samma namn som din FarmBeats datahubb.
 
-3b. Klicka på den app-registrering som skapades som en del av din FarmBeats-distribution. Det får samma namn som FarmBeats-datahubben.
+2c. Klicka på "Exponera ett API" -> Klicka på "Lägg till ett klientprogram" och skriv **in 04b07795-8ddb-461a-bbee-02f9e1bf7b46** och kontrollera "Auktorisera omfattning". Detta ger åtkomst till Azure CLI (Cloud Shell) för att utföra stegen nedan.
 
-3c. Klicka på "exponera ett API" – > på Lägg till ett klient program och ange **04b07795-8ddb-461A-BBEE-02f9e1bf7b46** och kontrol lera "auktorisera omfång". Detta ger åtkomst till Azure CLI (Cloud Shell) för att utföra stegen nedan.
+3. Öppna Cloud Shell. Det här alternativet är tillgängligt i verktygsfältet i det övre högra hörnet av Azure-portalen.
 
-4. Öppna Cloud Shell. Det här alternativet är tillgängligt i verktygsfältet i det övre högra hörnet av Azure Portal.
+    ![Verktygsfältet Azure Portal](./media/get-drone-imagery-from-drone-partner/navigation-bar-1.png)
 
-    ![Azure Portal verktygsfält](./media/get-drone-imagery-from-drone-partner/navigation-bar-1.png)
+5. Kontrollera att miljön är inställd på **PowerShell**. Som standard är den inställd på Bash.
 
-5. Kontrol lera att miljön är inställd på **PowerShell**. Som standard är den inställd på bash.
+    ![Verktygsfältsinställningen i PowerShell](./media/get-sensor-data-from-sensor-partner/power-shell-new-1.png)
 
-    ![Inställning för PowerShell-verktygsfält](./media/get-sensor-data-from-sensor-partner/power-shell-new-1.png)
+6. Gå till din hemkatalog.
 
-6. Ladda upp filen från steg 1 i Cloud Shell-instansen.
+   ```azurepowershell-interactive 
 
-    ![Knappen Ladda upp verktygsfält](./media/get-sensor-data-from-sensor-partner/power-shell-two-1.png)
+    cd  
 
-7. Gå till den katalog där filen laddades upp. Som standard laddas filerna upp till hem katalogen under användar namnet.
+    ```
 
-8. Kör följande skript. Skriptet frågar efter klient-ID som kan hämtas från översikts sidan för Azure Active Directory->.
+7. Kör följande kommando. Detta kommer att ladda ner ett skript till din hemkatalog.
+
+    ```azurepowershell-interactive 
+
+    wget –q https://aka.ms/farmbeatspartnerscriptv3 -O ./generatePartnerCredentials.ps1 
+
+    ```
+
+8. Kör följande skript. Skriptet frågar efter klient-ID som kan erhållas från Azure Active Directory -> översiktssida.
 
     ```azurepowershell-interactive 
 
@@ -73,100 +81,104 @@ Du kan generera ovanstående information genom att följa dessa steg: (Observera
 
     ```
 
-9. Följ anvisningarna på skärmen för att samla in värdena för **API-slutpunkt**, klient-ID, **klient-ID**, **klient hemlighet**och EventHub **-** **anslutningssträng**.
+9. Följ instruktionerna på skärmen för att samla in värdena för **API-slutpunkt,** **klient-ID,** **klient-ID,** **Klienthemlighet**och **EventHub-anslutningssträng**.
 
-### <a name="integrate-device-data-by-using-the-generated-credentials"></a>Integrera enhets data med hjälp av de genererade autentiseringsuppgifterna
+### <a name="integrate-device-data-by-using-the-generated-credentials"></a>Integrera enhetsdata med hjälp av genererade autentiseringsuppgifter
 
 Nu har du följande information som genereras från föregående avsnitt.
  - API-slutpunkt
- - EventHub-anslutningssträng
+ - Anslutningssträng för EventHub
  - Klientorganisations-ID
  - Klienthemlighet
  - Klient-ID:t
  
-Du måste ange detta till din enhets partner för att kunna länka FarmBeats. Gå till enhets partner portalen för att göra samma sak. Om du t. ex. använder enheter från Davis instrument, går du till sidan nedan:
+Du måste ge detta till din enhetspartner för att länka FarmBeats. Gå till enhetspartnerportalen för att göra samma sak. Om du till exempel använder enheter från Davis Instruments, Teralytic eller Pessl Instruments (Metos.at) gå till motsvarande sidor som nämns nedan:
 
 [Davis instrument](https://weatherlink.github.io/azure-farmbeats/setup)
 
- Enhets leverantören bekräftar en lyckad integrering. Vid bekräftelse kan du Visa alla enheter och sensorer på Azure FarmBeats.
+[Teralytisk](https://app.teralytic.com/)
+
+[Pessl Instrument](https://ng.fieldclimate.com/user-api-services)
+
+ Enhetsprovidern bekräftar en lyckad integrering. Vid bekräftelse kan du visa alla enheter och sensorer på Azure FarmBeats.
 
 ## <a name="view-devices-and-sensors"></a>Visa enheter och sensorer
 
-Använd följande avsnitt om du vill visa enheter och sensorer för Server gruppen.
+Använd följande avsnitt för att visa enheter och sensorer för din servergrupp.
 
 ### <a name="view-devices"></a>Visa enheter
 
-För närvarande stöder FarmBeats följande enheter:
+FarmBeats stöder för närvarande följande enheter:
 
-- **Nod**: en enhet som en eller flera sensorer är kopplade till.
-- **Gateway**: en enhet som en eller flera noder är kopplade till.
+- **Nod:** En enhet som en eller flera sensorer är anslutna till.
+- **Gateway**: En enhet som en eller flera noder är anslutna till.
 
 Följ de här stegen.
 
-1. På sidan start väljer du **enheter** på menyn.
-  Sidan **enheter** visar enhets typ, modell, status, den server grupp som den placerats i och senaste uppdaterade datum för metadata. Som standard har kolumnen Server grupp värdet *Null*. Du kan välja att tilldela en enhet till en Server grupp. Mer information finns i [tilldela enheter](#assign-devices).
-2. Välj enhet för att Visa enhets egenskaper, telemetri och underordnade enheter som är anslutna till enheten.
+1. Välj **Enheter** på startsidan på menyn.
+  Sidan **Enheter** visar enhetstyp, modell, status, den servergrupp den placeras i och det senast uppdaterade datumet för metadata. Som standard är servergruppskolumnen inställd på *NULL*. Du kan välja att tilldela en enhet till en servergrupp. Mer information finns i [Tilldela enheter](#assign-devices).
+2. Välj den enhet som ska visa enhetsegenskaper, telemetri och underordnade enheter som är anslutna till enheten.
 
-    ![Sidan enheter](./media/get-sensor-data-from-sensor-partner/view-devices-1.png)
+    ![Sidan Enheter](./media/get-sensor-data-from-sensor-partner/view-devices-1.png)
 
 ### <a name="view-sensors"></a>Visa sensorer
 
 Följ de här stegen.
 
-1. På Start sidan väljer du **sensorer** på menyn.
-  På sidan **sensorer** visas information om typen av sensor, Server grupp den är ansluten till, överordnad enhet, portnamn, porttyp och senaste uppdaterade status.
-2. Välj sensor för att Visa sensor egenskaper, aktiva aviseringar och telemetri från sensorn.
+1. Välj **Sensorer** på startsidan på menyn.
+  På sidan **Sensorer** visas information om vilken typ av sensor, vilken servergrupp den är ansluten till, överordnad enhet, portnamn, porttyp och den senast uppdaterade statusen.
+2. Välj sensorn för att visa sensoregenskaper, aktiva varningar och telemetri från sensorn.
 
-    ![Sidan sensorer](./media/get-sensor-data-from-sensor-partner/view-sensors-1.png)
+    ![Sidan Sensorer](./media/get-sensor-data-from-sensor-partner/view-sensors-1.png)
 
 ## <a name="assign-devices"></a>Tilldela enheter  
 
-När sensor data flödar in kan du tilldela den till Server gruppen där du har distribuerat sensorer.
+När sensordata flödar in kan du tilldela den till den servergrupp där du distribuerade sensorerna.
 
-1. På sidan start väljer du **Server grupper** på menyn. Sidan **Server** grupps lista visas.
-2. Välj den server grupp som du vill tilldela enheten till och välj sedan **Lägg till enheter**.
-3. Fönstret **Lägg till enheter** visas. Välj den enhet som du vill tilldela till Server gruppen.
+1. Välj **Gårdar** på startsidan på menyn. Listsidan **Gårdar** visas.
+2. Markera den servergrupp som du vill tilldela enheten till och välj **Lägg till enheter**.
+3. Fönstret **Lägg till enheter** visas. Markera den enhet som du vill tilldela servergruppen.
 
     ![Fönstret Lägg till enheter](./media/get-sensor-data-from-sensor-partner/add-devices-1.png)
 
-4. Välj **Lägg till enheter**. Du kan också gå till menyn **enheter** , markera de enheter som du vill tilldela till en Server grupp och välja **Associera enheter**.
-5. I fönstret **Associera enheter** väljer du gruppen i list rutan och väljer **tillämpa på alla** för att associera Server gruppen till alla valda enheter.
+4. Välj **Lägg till enheter**. Du kan också gå till menyn **Enheter,** välja de enheter som du vill tilldela en servergrupp och välja **Associera enheter**.
+5. I fönstret **Associera enheter** väljer du servergruppen i listrutan och väljer Använd **för alla** om du vill associera servergruppen till alla valda enheter.
 
-    ![Fönstret associera enheter](./media/get-sensor-data-from-sensor-partner/associate-devices-1.png)
+    ![Fönstret Associera enheter](./media/get-sensor-data-from-sensor-partner/associate-devices-1.png)
 
-6. Om du vill koppla varje enhet till en annan server grupp väljer du listpilen i kolumnen **tilldela till grupp** och väljer en Server grupp för varje enhets rad.
-7. Välj **tilldela** för att slutföra tilldelningen av enheten.
+6. Om du vill associera varje enhet till en annan servergrupp markerar du nedpilen i kolumnen **Tilldela till servergrupp** och väljer en servergrupp för varje enhetsrad.
+7. Välj **Tilldela** om du vill slutföra enhetstilldelningen.
 
-### <a name="visualize-sensor-data"></a>Visualisera sensor data
+### <a name="visualize-sensor-data"></a>Visualisera sensordata
 
 Följ de här stegen.
 
-1. På sidan start väljer du **Server grupper** på menyn för att visa sidan **grupper** .
-2. Välj den **Server grupp** som du vill visa sensor data för.
-3. På instrument panelen för **Server gruppen** kan du Visa telemetridata. Du kan visa Live-telemetri eller använda det **anpassade intervallet** för att se ett visst datum intervall.
+1. På startsidan väljer du **Gårdar** på menyn för att visa sidan **Grupper.**
+2. Välj den **servergrupp** som du vill visa sensordata för.
+3. På instrumentpanelen **i servergruppen** kan du visa telemetridata. Du kan visa live telemetri eller använda **anpassat område** för att se ett visst datumintervall.
 
-    ![Instrument panel för Server gruppen](./media/get-sensor-data-from-sensor-partner/telemetry-data-1.png)
+    ![Instrumentpanel för servergrupp](./media/get-sensor-data-from-sensor-partner/telemetry-data-1.png)
 
 ## <a name="delete-a-sensor"></a>Ta bort en sensor
 
 Följ de här stegen.
 
-1. På Start sidan väljer du **sensorer** på menyn för att visa sidan **sensorer** .
-2. Välj den enhet som du vill ta bort och välj **ta bort** i bekräftelse fönstret.
+1. På startsidan väljer du **Sensorer** på menyn för att visa **sidan Sensorer.**
+2. Markera den enhet som du vill ta bort och välj **Ta bort** i bekräftelsefönstret.
 
     ![Knappen Ta bort](./media/get-sensor-data-from-sensor-partner/delete-sensors-1.png)
 
-Ett bekräftelse meddelande visas om att sensorn har tagits bort.
+Ett bekräftelsemeddelande visar att sensorn har tagits bort.
 
 ## <a name="delete-devices"></a>Ta bort enheter
 
 Följ de här stegen.
 
-1. På sidan start väljer du **enheter** på menyn för att visa sidan **enheter** .
-2. Välj den enhet som du vill ta bort och välj **ta bort** i bekräftelse fönstret.
+1. På startsidan väljer du **Enheter** på menyn för att visa sidan **Enheter.**
+2. Markera den enhet som du vill ta bort och välj **Ta bort** i bekräftelsefönstret.
 
     ![Knappen Ta bort](./media/get-sensor-data-from-sensor-partner/delete-device-1.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nu har du sensor data som flödar till din Azure FarmBeats-instans. Nu kan du lära dig hur du [genererar kartor](generate-maps-in-azure-farmbeats.md#generate-maps) för dina grupper.
+Nu har du sensordata som flödar in i din Azure FarmBeats-instans. Nu lär du dig att [generera kartor](generate-maps-in-azure-farmbeats.md#generate-maps) för dina gårdar.

@@ -1,6 +1,6 @@
 ---
-title: Hämta Media Services-tillgångar till din dator – Azure | Microsoft Docs
-description: Lär dig om att hämta tillgångar till datorn. Kodexemplen är skrivna C# och använda Media Services SDK för .NET.
+title: Ladda ned Media Services-resurser till din dator – Azure | Microsoft-dokument
+description: Läs om hur du hämtar resurser till datorn. Kodexempel skrivs i C# och använder Media Services SDK för .NET.
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -15,19 +15,19 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: 21fcc6ae09718ffbb22e1d438926586dd3cde71d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "61465668"
 ---
-# <a name="how-to-deliver-an-asset-by-download"></a>Anvisningar: Leverera en tillgång efter hämtning  
-Den här artikeln beskriver alternativ för att leverera medietillgångar överförs till Media Services. Du kan leverera Media Services-innehåll i olika Programscenarier. Ladda ned de genererade medietillgångar efter kodning, eller komma åt dem med hjälp av en positionerare för direktuppspelning. Du kan också visa innehåll med hjälp av en innehåll Delivery Network (CDN) för bättre prestanda och skalbarhet.
+# <a name="how-to-deliver-an-asset-by-download"></a>Så här: Leverera en tillgång genom nedladdning  
+I den här artikeln beskrivs alternativ för att leverera medietillgångar som överförs till Media Services. Du kan leverera Media Services-innehåll i många programscenarier. När du har kodat hämtar du de genererade medietillgångarna eller kommer åt dem med hjälp av en direktuppspelningspositionerare. För förbättrad prestanda och skalbarhet kan du även leverera innehåll med hjälp av ett CDN (Content Delivery Network).
 
-Det här exemplet visar hur du hämtar medietillgångar från Media Services till din lokala dator. Koden frågar de jobb som är associerade med Media Services-kontot genom att jobb-ID och åtkomst till dess **OutputMediaAssets** samling (vilket är uppsättningen med en eller flera utdata medietillgångar resulterar i att köra ett jobb). Det här exemplet visar hur du hämtar media utdataresultat från ett jobb, men du kan använda samma metod för att ladda ned andra tillgångar.
+I det här exemplet visas hur du hämtar medietillgångar från Media Services till den lokala datorn. Koden frågar jobben som är associerade med Media Services-kontot efter jobb-ID och har åtkomst till dess **OutputMediaAssets-samling** (som är uppsättningen med en eller flera utdatamedietillgångar som är resultatet av att köra ett jobb). I det här exemplet visas hur du hämtar utdatamedietillgångar från ett jobb, men du kan använda samma metod för att hämta andra resurser.
 
 >[!NOTE]
->Det finns en gräns på 1 000 000 principer för olika AMS-principer (till exempel för positionerarprincipen eller ContentKeyAuthorizationPolicy). Använd samma princip-ID om du alltid använder samma dagar / åtkomstbehörigheter, till exempel principer för positionerare som är avsedda att vara på plats under en längre tid (icke-överföringsprinciper). Mer information finns i [den här artikeln](media-services-dotnet-manage-entities.md#limit-access-policies).
+>Det finns en gräns på 1 000 000 principer för olika AMS-principer (till exempel för positionerarprincipen eller ContentKeyAuthorizationPolicy). Använd samma princip-ID om du alltid använder samma dagar/åtkomstbehörigheter, till exempel principer för positionerare som är avsedda att finnas kvar under en längre tid (principer som inte är uppladdningsprinciper). Mer information finns i [den här](media-services-dotnet-manage-entities.md#limit-access-policies) artikeln.
 
 ```csharp
     // Download the output asset of the specified job to a local folder.
@@ -88,5 +88,5 @@ Det här exemplet visar hur du hämtar medietillgångar från Media Services til
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="see-also"></a>Se även
-[Leverera strömmat innehåll](media-services-deliver-streaming-content.md)
+[Leverera strömmande innehåll](media-services-deliver-streaming-content.md)
 

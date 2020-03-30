@@ -12,15 +12,15 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 01/31/2020
+ms.date: 03/25/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c18613233d6dec59c76db120ed7f089dfbb5fbac
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 8fe6c857e5b0c2f48f27c167c177dbf1f4651986
+ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77046726"
+ms.lasthandoff: 03/29/2020
+ms.locfileid: "80384117"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-servicenow"></a>Självstudiekurs: Azure Active Directory-integrering med enkel inloggning (SSO) med ServiceNow
 
@@ -52,7 +52,7 @@ I den här självstudien konfigurerar och testar du Azure AD SSO i en testmiljö
 
 * ServiceNow stöder [automatisk användaretablering](servicenow-provisioning-tutorial.md).
 
-* När du har konfigurerat ServiceNow kan du framtvinga Sessionskontroll, som skyddar exfiltration och infiltration av organisationens känsliga data i realtid. Sessionskontrollen sträcker sig från villkorlig åtkomst. [Lär dig hur du tillämpar sessionskontroll med Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
+* När du har konfigurerat ServiceNow kan du framtvinga sessionskontroller som skyddar exfiltration och infiltration av organisationens känsliga data i realtid. Sessionskontrollerna sträcker sig från villkorlig åtkomst. [Lär dig hur du tillämpar sessionskontroll med Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
 
 * Du kan konfigurera ServiceNow Classic (Mobile) programmet med Azure AD för att aktivera SSO. Den stöder både Android och iOS-användare. I den här självstudien konfigurerar och testar du Azure AD SSO i en testmiljö.
 
@@ -93,11 +93,18 @@ Följ dessa steg för att aktivera Azure AD SSO i Azure-portalen.
 
    ![Skärmbild av Konfigurera enkel inloggning med SAML-sida, med pennikonen markerad](common/edit-urls.png)
 
-4. Gör följande i avsnittet **Grundläggande SAML-konfiguration:**
+1. Gör följande i avsnittet **Grundläggande SAML-konfiguration:**
 
-    a. I **Sign on URL**anger du en URL som använder följande mönster:`https://<instance-name>.service-now.com/navpage.do`
+    a. I **Sign on URL**anger du en URL som använder följande mönster:`https://instance.service-now.com/login_with_sso.do?glide_sso_id=<sys_id of the sso configuration>`
 
     b. I **Identifierare (Entitets-ID)** anger du en URL som använder följande mönster:`https://<instance-name>.service-now.com`
+
+    c. För **Svars-URL**anger du en av följande WEBBADRESSER:
+
+    |||
+    |-|-|
+    | `https://instancename.service-now.com/navpage.do` |
+    | `https://instancename.service-now.com/customer.do` | 
 
     > [!NOTE]
     > Dessa värden är inte verkliga. Du måste uppdatera dessa värden med den faktiska inloggnings-URL:en och identifieraren, vilket förklaras senare i självstudien. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
@@ -160,9 +167,16 @@ I det här avsnittet aktiverar du B.Simon att använda Azure enkel inloggning ge
 
 4. Gör följande i avsnittet **Grundläggande SAML-konfiguration:**
 
-    a. För **Inloggnings-URL**anger du en URL som använder följande mönster:`https://<instance-name>.service-now.com/navpage.do`
+    a. För **Inloggnings-URL**anger du en URL som använder följande mönster:`https://instance.service-now.com/login_with_sso.do?glide_sso_id=<sys_id of the sso configuration>`
 
     b. För **identifierare (entitets-ID)** anger du en URL som använder följande mönster:`https://<instance-name>.service-now.com`
+
+    c. För **Svars-URL**anger du en av följande WEBBADRESSER:
+
+    |||
+    |-|-|
+    | `https://instancename.service-now.com/navpage.do` |
+    | `https://instancename.service-now.com/customer.do` |
 
     > [!NOTE]
     > Dessa värden är inte verkliga. Du måste uppdatera dessa värden med den faktiska inloggnings-URL:en och identifieraren, vilket förklaras senare i självstudien. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
@@ -183,7 +197,7 @@ I det här avsnittet aktiverar du B.Simon att använda Azure enkel inloggning ge
 
 1. Logga in på ditt ServiceNow-program som administratör.
 
-2. Aktivera **plugin-programmet Integration – flera provider-installationsprogrammet** för installationsprogrammet genom att följa dessa steg:
+1. Aktivera **plugin-programmet Integration – flera provider-installationsprogrammet** för installationsprogrammet genom att följa dessa steg:
 
     a. Sök efter avsnittet **Systemdefinition** i sökrutan i den vänstra rutan och välj sedan **Plugins**.
 
@@ -201,11 +215,11 @@ I det här avsnittet aktiverar du B.Simon att använda Azure enkel inloggning ge
 
      ![Skärmbild av dialogrutan Aktivera plugin, med Aktivera markerad](./media/servicenow-tutorial/tutorial_activate1.png "Aktivera plugin")
 
-3. Sök efter **SSO-avsnittet med flera provider** i sökfältet i den vänstra rutan och välj sedan **Egenskaper**.
+1. Sök efter **SSO-avsnittet med flera provider** i sökfältet i den vänstra rutan och välj sedan **Egenskaper**.
 
     ![Skärmbild av SSO-sektionen med flera leverantörer med SSO och egenskaper för flera leverantörer markerade](./media/servicenow-tutorial/tutorial_servicenow_06.png "Konfigurera appens URL")
 
-4. Gör följande i dialogrutan **SSO-egenskaper för flera provider:**
+1. Gör följande i dialogrutan **SSO-egenskaper för flera provider:**
 
     ![Skärmbild av dialogrutan SSO-egenskaper för flera providerer](./media/servicenow-tutorial/ic7694981.png "Konfigurera appens URL")
 
@@ -215,11 +229,11 @@ I det här avsnittet aktiverar du B.Simon att använda Azure enkel inloggning ge
 
     * För **Aktivera felsökningsloggning för SSO-integrering med flera providerer**väljer du **Ja**.
 
-    * För **fältet i användartabellen som...** anger **du user_name**.
+    * För **fältet i användartabellen som...** anger du **e-post**.
   
     * Välj **Spara**.
 
-6. Du kan konfigurera ServiceNow automatiskt eller manuellt. Så här konfigurerar du ServiceNow automatiskt:
+1. Du kan konfigurera ServiceNow automatiskt eller manuellt. Så här konfigurerar du ServiceNow automatiskt:
 
     1. Gå tillbaka till den enda inloggningssidan för **ServiceNow** i Azure-portalen.
 
@@ -274,11 +288,16 @@ I det här avsnittet aktiverar du B.Simon att använda Azure enkel inloggning ge
 
              ![Skärmbild av sidan, med Testanslutning markerat](./media/servicenow-tutorial/tutorial_activate2.png "Aktivera plugin")
 
+             > [!NOTE]
+             > Om testanslutningen misslyckas och du inte kan aktivera den här anslutningen erbjuder ServiceNow åsidosättningsväxeln. Du måste gå in **Sys_properties. LISTA** i **söknavigeringen** och den öppnas den nya sidan systemegenskaper. Här måste du skapa en ny egenskap med namnet som **glide.authenticate.multisso.test.connection.mandatory** med **datatyp** som **Sant/Falskt** och sedan ange **värdet** som **Falskt**.
+
+             > ![Skärmbild av sidan Testresultat](./media/servicenow-tutorial/testconnection-fail.png "Konfigurera enkel inloggning")
+        
           1. Ange dem när du tillfrågas om dina autentiseringsuppgifter. Följande sida visas. Felet **SSO-utloggningstestresultat** förväntas. Ignorera felet och välj **Aktivera**.
 
              ![Skärmbild av sidan Testresultat](./media/servicenow-tutorial/servicenowactivate.png "Konfigurera enkel inloggning")
   
-6. Så här konfigurerar du **ServiceNow** manuellt:
+1. Så här konfigurerar du **ServiceNow** manuellt:
 
     1. Logga in på ditt ServiceNow-program som administratör.
 
@@ -319,12 +338,17 @@ I det här avsnittet aktiverar du B.Simon att använda Azure enkel inloggning ge
 
         * Bekräfta att **NameID-principen** är satt till `urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified` värde.
 
-        * Välj **Avancerat**. I **Användarfält**anger du **e-post** eller **user_name**, beroende på vilket fält som används för att unikt identifiera användare i din ServiceNow-distribution.
+        * Välj **Avancerat**. Ange **e-post** **i användarfält**.
 
             > [!NOTE]
             > Du kan konfigurera Azure AD för att avge antingen Azure AD-användar-ID (användarens huvudnamn) eller e-postadressen som den unika identifieraren i SAML-token. Gör detta genom att gå till **avsnittet ServiceNow-attribut** > **Attributes** > **Enkel inloggning i Azure-portalen** och mappa önskat fält till **namnidentifierarattributet.** Värdet som lagras för det valda attributet i Azure AD (till exempel användarens huvudnamn) måste matcha det värde som lagras i ServiceNow för det angivna fältet (till exempel user_name).
 
         * Välj **Testa anslutning** längst upp till höger på sidan.
+
+          > [!NOTE]
+          > Om testanslutningen misslyckas och du inte kan aktivera den här anslutningen erbjuder ServiceNow åsidosättningsväxeln. Du måste gå in **Sys_properties. LISTA** i **söknavigeringen** och den öppnas den nya sidan systemegenskaper. Här måste du skapa en ny egenskap med namnet som **glide.authenticate.multisso.test.connection.mandatory** med **datatyp** som **Sant/Falskt** och sedan ange **värdet** som **Falskt**.
+
+          > ![Skärmbild av sidan Testresultat](./media/servicenow-tutorial/testconnection-fail.png "Konfigurera enkel inloggning")
 
         * Ange dem när du tillfrågas om dina autentiseringsuppgifter. Följande sida visas. Felet **SSO-utloggningstestresultat** förväntas. Ignorera felet och välj **Aktivera**.
 
@@ -420,7 +444,7 @@ Syftet med det här avsnittet är att skapa en användare som heter B.Simon i Se
 
     d. För **Klocksnedställning**anger du **60**.
 
-    e. För **Användarfält**anger du **e-post** eller **user_name**, beroende på vilket fält som används för att unikt identifiera användare i din ServiceNow-distribution.
+    e. För **Användarfält**anger du **e-post**.
 
     > [!NOTE]
     > Du kan konfigurera Azure AD för att avge antingen Azure AD-användar-ID (användarens huvudnamn) eller e-postadressen som den unika identifieraren i SAML-token. Gör detta genom att gå till **avsnittet ServiceNow-attribut** > **Attributes** > **Enkel inloggning i Azure-portalen** och mappa önskat fält till **namnidentifierarattributet.** Värdet som lagras för det valda attributet i Azure AD (till exempel användarens huvudnamn) måste matcha det värde som lagras i ServiceNow för det angivna fältet (till exempel user_name).
@@ -450,7 +474,7 @@ När du väljer panelen ServiceNow på åtkomstpanelen ska du automatiskt loggas
     *  Ange **användarnamn** B.simon@contoso.com, till exempel .
 
     *  Välj **ANVÄND EXTERN INLOGGNING**. Du omdirigeras till Azure AD-sidan för inloggning.
-    
+
     *  Ange autentiseringsuppgifter. Om det finns någon autentisering från tredje part, eller någon annan säkerhetsfunktion aktiverad, måste användaren svara därefter. Programmets **startsida** visas.
 
         ![Skärmbild av programmets startsida](./media/servicenow-tutorial/test02.png)
@@ -467,6 +491,6 @@ När du väljer panelen ServiceNow på åtkomstpanelen ska du automatiskt loggas
 
 - [Prova ServiceNow med Azure AD](https://aad.portal.azure.com)
 
-- [Vad är sessionskontroll i Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [Vad är sessionskontroll i Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/protect-servicenow)
 
-- [Så här skyddar du ServiceNow med avancerad synlighet och kontroller](https://docs.microsoft.com/cloud-app-security/protect-servicenow)
+- [Så här skyddar du ServiceNow med avancerad synlighet och kontroller](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)

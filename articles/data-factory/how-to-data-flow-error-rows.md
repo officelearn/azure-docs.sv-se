@@ -1,6 +1,6 @@
 ---
-title: Hantera fel rader med data mappnings flöden i Azure Data Factory
-description: Lär dig hur du hanterar fel i SQL-trunkering i Azure Data Factory att använda mappnings data flöden.
+title: Hantera felrader med mappningsdataflöden i Azure Data Factory
+description: Lär dig hur du hanterar SQL-trunkeringsfel i Azure Data Factory med hjälp av mappningsdataflöden.
 services: data-factory
 author: kromerm
 ms.service: data-factory
@@ -9,42 +9,42 @@ ms.topic: conceptual
 ms.date: 10/28/2019
 ms.author: makromer
 ms.openlocfilehash: 3fe3403ad06d82ba5ccd33d2718bf0e5eff64490
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73166543"
 ---
-# <a name="handle-sql-truncation-error-rows-in-data-factory-mapping-data-flows"></a>Hantera fel rader för SQL-trunkering i Data Factory mappa data flöden
+# <a name="handle-sql-truncation-error-rows-in-data-factory-mapping-data-flows"></a>Hantera SQL-trunkeringsfelrader i dataflöden för datamappning av dataflöden för data
 
-Ett vanligt scenario i Data Factory när du använder mappnings data flöden är att skriva transformerade data till en Azure SQL-databas. I det här scenariot, ett vanligt fel tillstånd som du måste förhindra mot är möjlig kolumn trunkering. Följ de här stegen för att tillhandahålla loggning av kolumner som inte ryms i en mål Strängs kolumn, så att ditt data flöde fortsätter i dessa scenarier.
+Ett vanligt scenario i Data Factory när du använder mappning av dataflöden är att skriva dina transformerade data till en Azure SQL-databas. I det här fallet är ett vanligt feltillstånd som du måste förhindra mot möjlig kolumn trunkering. Följ dessa steg för att tillhandahålla loggning av kolumner som inte får plats i en målsträngskolumn, så att dataflödet kan fortsätta i dessa scenarier.
 
 ## <a name="scenario"></a>Scenario
 
-1. Vi har en Azure SQL Database-tabell som innehåller en ```nvarchar(5)``` kolumn med namnet "namn".
+1. Vi har en mål-Azure SQL-databastabell som har en ```nvarchar(5)``` kolumn som heter "namn".
 
-2. I vårt data flöde vill vi mappa film titlar från vår mottagare till den målets "namn"-kolumn.
+2. Inuti vårt dataflöde vill vi kartlägga filmtitlar från vår diskbänk till den målkolumnen för "namn".
 
-    ![Film data flöde 1](media/data-flow/error4.png)
+    ![Dataflöde för film 1](media/data-flow/error4.png)
     
-3. Problemet är att film rubriken inte passar in i en mottagar kolumn som bara får innehålla 5 tecken. När du kör det här data flödet visas ett fel meddelande som liknar detta: ```"Job failed due to reason: DF-SYS-01 at Sink 'WriteToDatabase': java.sql.BatchUpdateException: String or binary data would be truncated. java.sql.BatchUpdateException: String or binary data would be truncated."```
+3. Problemet är att filmtiteln inte alla får plats i en sinkkolumn som bara rymmer fem tecken. När du kör det här dataflödet visas ett fel som det här:```"Job failed due to reason: DF-SYS-01 at Sink 'WriteToDatabase': java.sql.BatchUpdateException: String or binary data would be truncated. java.sql.BatchUpdateException: String or binary data would be truncated."```
 
-## <a name="how-to-design-around-this-condition"></a>Så här utformar du det här tillståndet
+## <a name="how-to-design-around-this-condition"></a>Hur man utformar runt detta villkor
 
-1. I det här scenariot är den maximala längden för kolumnen "namn" fem tecken. Nu ska vi lägga till en villkorlig delnings omvandling som gör att vi kan logga rader med "titlar" som innehåller fler än fem tecken samtidigt som resten av raderna som kan rymmas i det här utrymmet skrivs till databasen.
+1. I det här fallet är den maximala längden på kolumnen "namn" fem tecken. Så, låt oss lägga till en villkorlig delad omvandling som gör det möjligt för oss att logga rader med "titlar" som är längre än fem tecken samtidigt som resten av raderna som kan passa in i det utrymmet för att skriva till databasen.
 
     ![villkorlig delning](media/data-flow/error1.png)
 
-2. Den här villkorliga Split-omvandlingen definierar den maximala längden för "title" som fem. Alla rader som är mindre än eller lika med fem hamnar i ```GoodRows```-dataströmmen. Alla rader som är större än fem hamnar i ```BadRows```-dataströmmen.
+2. Den här villkorliga delningsomformningen definierar den maximala längden på "titel" som fem. Alla rader som är mindre än eller ```GoodRows``` lika med fem kommer att gå in i strömmen. Varje rad som är större ```BadRows``` än fem kommer att gå in i strömmen.
 
-3. Nu måste vi logga raderna som misslyckades. Lägg till en Sink-transformering i ```BadRows``` strömmen för loggning. Här kommer vi att "automatiskt mappa" alla fält så att vi kan logga in hela transaktions posten. Detta är en text-avgränsad CSV-fil till en enda fil i Blob Storage. Vi anropar logg filen "badrows. csv".
+3. Nu måste vi logga raderna som misslyckades. Lägg till en ```BadRows``` sink-omformning i flödet för loggning. Här kommer vi att "mappa automatiskt" alla fält så att vi har loggning av hela transaktionsposten. Detta är en textavgränsad CSV-filutdata till en enda fil i Blob Storage. Vi kallar loggfilen "badrows.csv".
 
-    ![Felaktiga rader](media/data-flow/error3.png)
+    ![Dåliga rader](media/data-flow/error3.png)
     
-4. Det slutförda data flödet visas nedan. Vi kan nu dela upp fel rader för att undvika fel i SQL-trunkering och föra dessa poster i en loggfil. På varandra kan lyckade rader fortsätta att skriva till vår mål databas.
+4. Det slutförda dataflödet visas nedan. Vi kan nu dela upp felrader för att undvika SQL-trunkeringsfel och placera dessa poster i en loggfil. Under tiden kan framgångsrika rader fortsätta att skriva till vår måldatabas.
 
-    ![Slutför data flöde](media/data-flow/error2.png)
+    ![fullständigt dataflöde](media/data-flow/error2.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Skapa resten av data flödes logiken med hjälp av [omvandlingar](concepts-data-flow-overview.md)av data flöden.
+* Skapa resten av dataflödeslogiken med hjälp av mappning av [dataflödensomvandlingar](concepts-data-flow-overview.md).

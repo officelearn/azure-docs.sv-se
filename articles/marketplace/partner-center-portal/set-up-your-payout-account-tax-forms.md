@@ -1,196 +1,195 @@
 ---
-Description: För att kunna ta emot pengar från erbjudande försäljning på den kommersiella marknads platsen måste du konfigurera ditt utbetalnings konto och fylla i de nödvändiga skatte formulären.
-title: Konfigurera ditt utbetalnings konto och skatte formulär | Azure Marketplace
+Description: För att få pengar från erbjudandeförsäljning på den kommersiella marknaden måste du skapa ditt utbetalningskonto och fylla i de nödvändiga skatteformulären.
+title: Ställ in ditt utbetalningskonto och skatteformulär | Azure Marketplace
 ms.date: 12/10/2019
-ms.topic: article
-author: MaggiePucciEvans
-manager: evansma
-ms.author: evansma
+ms.topic: conceptual
+author: dsindona
+ms.author: dsindona
 ms.service: marketplace
-ms.openlocfilehash: a6ef9711d6047a75ca5058f12e95d72a79628e30
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: fb0caa64feb7cb024b684a2e94937aec8893bb5e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75934163"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80281314"
 ---
 # <a name="set-up-your-payout-account-and-tax-forms"></a>Konfigurera utbetalningskonto och deklarationsblanketter
 
-För att få pengarna från försäljning av erbjudandet på den kommersiella marknads platsen måste du konfigurera ditt utbetalnings konto och fylla i de nödvändiga skatte formulären i [partner Center](https://partner.microsoft.com/dashboard).
+För att få pengar från erbjudandeförsäljning på den kommersiella marknaden måste du skapa ditt utbetalningskonto och fylla i de nödvändiga skatteformulären i [Partner Center.](https://partner.microsoft.com/dashboard)
 
-Om du bara planerar att lista kostnads fria erbjudanden (och inte planerar att erbjuda köp i appar eller använda Microsoft Advertising) behöver du inte skapa något konto för utbetalning eller fylla i några skatte former. Om du ändrar dig senare och bestämmer dig för att sälja erbjudanden (eller tillägg) kan du ställa in ditt utbetalnings konto och fylla i skatte former vid denna tidpunkt. Du kan inte skicka in några avgiftsbelagda erbjudanden eller tillägg förrän ditt utbetalnings konto och din skatte profil har slutförts.
-
-> [!NOTE]
-> På vissa marknader kan utgivare bara skicka kostnads fria erbjudanden. Om ditt konto är registrerat på någon av dessa marknader kan du inte konfigurera ett utbetalnings konto.
-
-När du har konfigurerat ditt konto finns det två saker du måste göra innan du kan sälja erbjudandet (eller tillägg) på den kommersiella Marketplace:
-
-- [Fyll i dina skatte formulär](#tax-forms)
-- [Konfigurera ditt utbetalnings konto](#payout-account)
+Om du bara planerar att lista kostnadsfria erbjudanden (och inte planerar att erbjuda köp i appen eller använda Microsoft Advertising) behöver du inte skapa ett utbetalningskonto eller fylla i några skatteformulär. Om du ändrar dig senare och bestämmer dig för att du vill sälja erbjudanden (eller tillägg) kan du ställa in ditt utbetalningskonto och fylla i skatteformulär vid den tidpunkten. Du kan inte skicka in några betalda erbjudanden eller tillägg förrän ditt utbetalningskonto och skatteprofil har slutförts.
 
 > [!NOTE]
-> Om du vill ha mer information om hur och när du betalar för pengarna som ditt erbjudande gör, se [få betalt](get-paid.md).
+> På vissa marknader kan utgivare endast lämna in gratiserbjudande. Om ditt konto är registrerat på en av dessa marknader har du inte möjlighet att skapa ett utbetalningskonto.
 
-## <a name="tax-forms"></a>Skatte former
+När du har konfigurerat ditt konto måste du göra två saker innan du kan sälja erbjudanden (eller tillägg) på den kommersiella marknaden:
 
-### <a name="filling-out-your-tax-forms"></a>Fylla i dina skatte formulär
+- [Fyll i dina skatteformulär](#tax-forms)
+- [Konfigurera ditt utbetalningskonto](#payout-account)
 
-Först måste du skapa en skatte profil och tilldela den till de program som du deltar i. Du kan skapa din *skatte profil* för den kommersiella marknads platsen genom att utföra följande steg:
+> [!NOTE]
+> För mer information om hur och när du kommer att betalas för de pengar ditt erbjudande gör, se [Få betalt.](get-paid.md)
 
-- Ange ditt hemland och medborgarskap.
-- Fyll i lämpliga skatte formulär.
+## <a name="tax-forms"></a>Skatteblanketter
 
-Du kan slutföra och skicka in dina skatte formulär elektroniskt i Partner Center. i de flesta fall behöver du inte skriva ut och skicka e-post till några formulär.
+### <a name="filling-out-your-tax-forms"></a>Fylla i dina skatteformulär
+
+Först måste du skapa en skatteprofil och tilldela den till de program du deltar i. Du kan skapa din *skatteprofil* för den kommersiella marknadsplatsen genom att slutföra följande steg:
+
+- Ange ditt bosättningsland och medborgarskap.
+- Fyll i lämpliga skatteformulär.
+
+Du kan fylla i och skicka in dina skatteformulär elektroniskt i Partner Center; I de flesta fall behöver du inte skriva ut och skicka några formulär.
 
 > [!IMPORTANT]
-> Olika länder och regioner har olika skatte krav. Den exakta mängd som du måste betala i skatter beror på de länder och regioner där du säljer ditt erbjudande. Se [Microsoft Azure Marketplace Publisher-avtalet](https://go.microsoft.com/fwlink/p/?LinkID=699560) för att ta reda på för vilka länder som Microsoft betalar och använder skatt för din räkning. I andra länder, beroende på var du är registrerad, kan du behöva betala försäljnings-och användnings skatt för din erbjudande försäljning direkt till den lokala beskattnings-utfärdaren. Dessutom kan app Sales-processen som du får vara skattepliktig som intäkt. Vi rekommenderar starkt att du kontaktar den behöriga myndigheten för ditt land eller din region som bäst kan hjälpa dig att fastställa rätt skatte information för dina kommersiella Marketplace-aktiviteter.
+> Olika länder och regioner har olika skattekrav. Det exakta belopp som du måste betala i skatt beror på de länder och regioner där du säljer ditt erbjudande. Se [Microsoft Azure Marketplace Publisher Agreement](https://go.microsoft.com/fwlink/p/?LinkID=699560) för att ta reda på för vilka länder Microsoft skickar ut försäljning och använder moms för din räkning. I andra länder, beroende på var du är registrerad, kan du behöva skicka ut försäljning och använda skatt för din erbjudandeförsäljning direkt till den lokala skattemyndigheten. Dessutom kan appförsäljningsintäkterna som du får beskattas som inkomst. Vi rekommenderar starkt att du kontaktar relevant myndighet för ditt land eller din region som bäst kan hjälpa dig att fastställa rätt skatteinformation för din kommersiella marknadsplatsverksamhet.
 
-1. I [partner Center](https://partner.microsoft.com/dashboard)väljer du ikonen **konto inställningar** i det övre högra hörnet och väljer sedan inställningar för **utvecklare**.
-2. Välj **betalning och skatt**på den vänstra navigerings menyn och välj sedan **utbetalning och skatte tilldelningar**.
+1. I [Partnercenter](https://partner.microsoft.com/dashboard)väljer du ikonen **Kontoinställningar** i det övre högra hörnet och väljer sedan **Utvecklarinställningar**.
+2. I menyn till vänster väljer du **Utbetalning och skatt**och väljer sedan **Utbetalnings- och skattetilldelningar**.
 
-3. Välj den program-och säljar-ID-kombination som du vill konfigurera skatte information för.
+3. Välj den kombination av program och säljare som du vill konfigurera skatteinformation för.
 
-4. Om du vill använda en befintlig skatte profil väljer du den i list rutan. Annars väljer du **Skapa ny profil** och trycker på **Skicka**. Du kommer till sidan med skatte profiler.
-5. Klicka på **Redigera** om du vill redigera din skatte information.
-6. Välj lämplig alternativ knapp och välj land om du uppmanas att göra det. Det här steget avgör vilken Microsoft Business-entitet som ska användas för att göra utbetalningar på ditt konto.
+4. Om du vill använda en befintlig skatteprofil väljer du den i listrutan. Annars väljer du **Skapa ny profil** och trycker på **Skicka**. Du kommer att tas till sidan skatteprofiler.
+5. Klicka på knappen **Redigera** om du vill redigera skatteinformationen.
+6. Välj lämplig alternativknapp och välj ditt land om du uppmanas till det. Det här steget avgör den Microsoft-affärsentitet som ska användas för att göra utbetalningar på ditt konto.
 
-7. Beroende på dina val i steg 6 uppmanas du att ange skatte information som krävs för ditt land.
-
-> [!NOTE]
-> Oavsett ditt hemland eller medborgarskap måste du fylla i USA skatte former för att sälja erbjudanden eller tillägg via den kommersiella Marketplace. Utgivare som uppfyller vissa USA placering krav måste fylla i ett IRS W-9-formulär. Andra utgivare utanför USA måste fylla i ett IRS-W-8-formulär. Du kan fylla i dessa formulär online när du har slutfört din skatte profil.
-
-### <a name="withholding-rates"></a>Käll frekvens
-
-Den information som du skickar i dina skatte formulär avgör vilken käll avgift som behövs. Käll priset gäller endast för försäljning som du gör i USA. försäljning som görs till platser utanför USA omfattas inte av indrag. Käll priserna varierar, men för de flesta utgivare som registrerar sig utanför USA är standard priset 30%. Du kan välja att minska denna taxa om ditt land har samtyckt till ett inkomst skatte avtal med USA.
-
-### <a name="tax-treaty-benefits"></a>Förmåner för skatte fördrag
-
-Om du befinner dig utanför USA kanske du kan dra nytta av fördelarna med moms avtal. De här fördelarna varierar från land till land, och kan göra att du kan minska den mängd skatter som de kommersiella Marketplace-webbplatserna har. Du kan göra anspråk på skatte förmåner genom att fylla i del II i formuläret W-8BEN. Vi rekommenderar att du kommunicerar med lämpliga resurser i ditt land eller din region för att avgöra om dessa förmåner gäller dig.
+7. Beroende på dina val i steg 6 uppmanas du att ange skatteinformation som krävs för ditt land.
 
 > [!NOTE]
-> En USA individuellt Taxpayer Identification Number (eller ITIN) krävs inte för att få betalningar från Microsoft eller för att göra anspråk på bidrag för skatte fördrag.
+> Oavsett ditt bosättningsland eller medborgarskap måste du fylla i amerikanska skatteformulär för att sälja erbjudanden eller tillägg via den kommersiella marknaden. Utgivare som uppfyller vissa uppehållstillstånd i USA måste fylla i ett IRS W-9-formulär. Andra utgivare utanför USA måste fylla i ett IRS W-8-formulär. Du kan fylla i dessa formulär online när du fyller i din skatteprofil.
 
-## <a name="payout-account"></a>Konto utbetalning
+### <a name="withholding-rates"></a>Källskatt
 
-Ett utbetalnings konto är det bank konto som vi skickar ett steg från din försäljning till. Du kan visa alla betalnings konton som du har angett på profil sidan.
+Den information du skickar i dina skatteformulär avgör lämplig källskatt. Källskattegraden gäller endast för försäljning som du gör till USA. försäljning till platser utanför USA är inte föremål för undanhållande. Källskattefrekvensen varierar, men för de flesta utgivare som registrerar sig utanför USA är standardfrekvensen 30 %. Du har möjlighet att sänka denna skattesats om ditt land har gått med på ett inkomstskatteavtal med USA.
+
+### <a name="tax-treaty-benefits"></a>Fördelar med skatteavtalet
+
+Om du är utanför USA, kanske du kan dra nytta av skatteavtal förmåner. Dessa fördelar varierar från land till land, och kan tillåta dig att minska mängden skatter som den kommersiella marknaden undanhåller. Du kan göra anspråk på skatteavtal förmåner genom att fylla i del II i W-8BEN form. Vi rekommenderar att du kommunicerar med lämpliga resurser i ditt land eller din region för att avgöra om dessa förmåner gäller för dig.
 
 > [!NOTE]
-> På vissa marknader kan PayPal användas för ditt utbetalnings konto. För att ta reda på om PayPal stöds för en specifik marknad, se [betalnings trösklar, metoder och tidsram](payment-thresholds-methods-timeframes.md) och [PayPal-information](#paypal-info) nedan för mer information.
+> Ett amerikanskt individuellt personnummer (eller ITIN) krävs inte för att ta emot betalningar från Microsoft eller göra anspråk på skatteavtalsförmåner.
 
-### <a name="create-a-payment-profile"></a>Skapa en betalnings profil
+## <a name="payout-account"></a>Utbetalningskonto
 
-1. I [partner Center](https://partner.microsoft.com/dashboard)väljer du kugg hjuls ikonen **Inställningar** i det övre högra hörnet och väljer sedan **Inställningar för utvecklare**.
-2. Under *utbetalnings-och skatte* rubriken väljer du **utbetalning och skatte profil tilldelning**.
+Ett utbetalningskonto är det bankkonto som vi skickar intäkterna från din försäljning. Du kan visa alla betalkonton som du har angett på profilsidan.
+
+> [!NOTE]
+> På vissa marknader kan PayPal användas för ditt utbetalningskonto. Mer information om PayPal stöds för en viss marknad finns i [Betalningströsklar, metoder och tidsramar och](payment-thresholds-methods-timeframes.md) [PayPal-informationen](#paypal-info) nedan för mer information.
+
+### <a name="create-a-payment-profile"></a>Skapa en betalningsprofil
+
+1. I [Partnercenter](https://partner.microsoft.com/dashboard)väljer du ikonen **Inställningar** i det övre högra hörnet och väljer sedan **Utvecklarinställningar**.
+2. Under rubriken *Utbetalning och skatt* väljer du Tilldelning av **utbetalnings- och skatteprofiler.**
 
     > [!NOTE]
-    > Eftersom det här är känslig information kan du uppmanas att logga in igen.
+    > Eftersom det här är känslig information kan du bli ombedd att logga in igen.
 
-3. Välj den betalnings metod som du vill konfigurera.
+3. Välj den betalningsmetod som du vill konfigurera.
 
-4. Välj en befintlig betalnings profil eller klicka på **skapa en ny betalnings profil** för att skapa en ny profil för den valda betalnings metoden.
+4. Välj en befintlig betalningsprofil eller klicka på **Skapa en ny betalningsprofil** för att skapa en ny profil för den valda betalningsmetoden.
 
-### <a name="create-a-bank-based-payment-profile"></a>Skapa en bank-baserad betalnings profil
+### <a name="create-a-bank-based-payment-profile"></a>Skapa en bankbaserad betalningsprofil
 
-Om du valde att använda ett bank konto för att ta emot utbetalningar slutför du följande process för att konfigurera ditt bank konto.
+Om du har valt att använda ett bankkonto för att ta emot utbetalningar slutför du följande process för att konfigurera ditt bankkonto.
 
-1. Ange nödvändig information om din bank på sidan *Bank profil* .
-2. Ange dina bank konto uppgifter.
+1. På sidan *Bankprofil* anger du den information som krävs om din bank.
+2. Ange dina bankkontouppgifter.
 
     > [!NOTE]
-    > De fält som du använder för att ange din konto information accepterar bara alfanumeriska tecken.
+    > De fält som du använder för att ange kontoinformationen accepterar endast alfanumeriska tecken.
 
-3. Ange mottagarens information.
-4. Gå tillbaka till sidan *profil tilldelning* och välj den valuta som du vill att vi ska använda när vi utfärdar dina utbetalningar.
+3. Ange information om mottagaren.
+4. Tillbaka på *sidan Profiluppgift* väljer du den valuta du vill att vi ska använda när vi utfärdar dina utbetalningar.
 
     > [!WARNING]
-    > Se till att din bank accepterar den utbetalnings valuta du väljer.
+    > Se till att din bank accepterar den utbetalningsvalua du väljer.
 
-5. Du måste välja en betalnings profil för varje program som du deltar i, men du kan använda samma profil för flera program.
+5. Du måste välja en betalningsprofil för varje program du deltar i, men du kan använda samma profil för flera program.
 
 6. Klicka på Skicka för att spara ändringarna.
 
 > [!NOTE]
-> Det kan ta upp till 48 timmar för Microsoft att verifiera informationen i din profil. När den här processen har slutförts *verifieras statusen* **slutförd**
+> Det kan ta upp till 48 timmar innan Microsoft validerar informationen i din profil. När den här processen är klar visar *verifieringsstatusen* **Slutförd**
 
-För att se till att utbetalningen lyckas, se till att:
+Se till att din utbetalning lyckas genom att se till att:
 
-- **Konto innehavarens namn** som angetts för ditt utbetalnings konto i Partner Center måste vara exakt samma namn som associeras med ditt bank konto. Om ditt bank konto namn t. ex. innehåller ett mellan namn, lägger du till ett mellan namn i **konto innehavarens namn**.
-- Utbetalningar överförs direkt från Microsoft till ditt bank konto i kronor-valuta.
-- Bank information som anges i Partner Center i latinska tecken översätts till kyrilliska tecken.
+- **Kontoinnehavarens namn** som anges för ditt utbetalningskonto i Partner Center måste vara exakt samma namn som är kopplat till ditt bankkonto. Om ditt bankkontonamn till exempel innehåller ett mellannamn lägger du till ett mellannamn i **kontoinnehavarens namn**.
+- Utbetalningar överförs direkt från Microsoft till ditt bankkonto i USD-valuta.
+- Bankinformation som anges i Partner center med latinska tecken översätts till kyrilliska tecken.
 
-### <a name="editing-existing-payment-profiles"></a>Redigera befintliga betalnings profiler
+### <a name="editing-existing-payment-profiles"></a>Redigera befintliga betalningsprofiler
 
-Du kan redigera befintliga betalnings profiler om du behöver göra ändringar eller korrigera all felaktig information.
+Du kan redigera befintliga betalningsprofiler om du behöver göra ändringar eller korrigera felaktig information.
 
-1. I [partner Center](https://partner.microsoft.com/dashboard)väljer du kugg hjuls ikonen **Inställningar** i det övre högra hörnet och väljer sedan **Inställningar för utvecklare**.
-2. Under *utbetalnings-och skatte* rubriken väljer du **utbetalning och skatte profiler**.
-3. Dina betalnings profiler visas tillsammans med deras status. Hitta den profil som du vill redigera och klicka på **Redigera** längst till höger
+1. I [Partnercenter](https://partner.microsoft.com/dashboard)väljer du ikonen **Inställningar** i det övre högra hörnet och väljer sedan **Utvecklarinställningar**.
+2. Under rubriken *Utbetalning och skatt* väljer du **Utbetalnings- och skatteprofiler.**
+3. Dina betalningsprofiler visas tillsammans med deras status. Hitta den profil du vill redigera och klicka på **Redigera** längst till höger
 
 > [!IMPORTANT]
-> Att ändra ditt utbetalnings konto kan försena dina betalningar med upp till en betalnings cykel. Den här fördröjningen inträffar eftersom vi behöver verifiera konto ändringen, precis som vi gjorde när du först konfigurerade kontot för utbetalning. Du betalar fortfarande för hela beloppet när ditt konto har verifierats. alla betalningar som förfaller för den aktuella betalnings cykeln läggs till nästa. Se [få betalt](get-paid.md) för mer information.
+> Om du ändrar ditt utbetalningskonto kan du fördröja dina betalningar med upp till en betalningscykel. Den här förseningen beror på att vi måste verifiera kontoändringen, precis som vi gjorde när du först konfigurerade utbetalningskontot. Du får fortfarande betalt för hela beloppet efter att ditt konto har verifierats. Eventuella betalningar som förfaller till betalning för den aktuella betalningscykeln kommer att läggas till nästa. Se [Få betalt](get-paid.md) för mer info.
 
 ### <a name="paypal-info"></a>PayPal-information
 
-I Välj länder och regioner kan du skapa ett betalnings konto genom att ange din PayPal-information. Men innan du väljer PayPal som ett betalnings konto alternativ:
+I vissa länder och regioner kan du skapa ett betalkonto genom att ange din PayPal-information. Men innan du väljer PayPal som ett betalning konto alternativ:
 
-- Kontrol lera [betalnings trösklar, metoder och tids ramar](payment-thresholds-methods-timeframes.md) för att bekräfta om PayPal är en betalnings metod som stöds i ditt land eller din region.
-- Läs följande vanliga frågor och svar. Beroende på din situation kanske PayPal inte är det bästa alternativet för betalnings konto för dig, och ett bank konto kan vara lämpligt.
+- Kontrollera [betalningströsklar, metoder och tidsramar](payment-thresholds-methods-timeframes.md) för att bekräfta om PayPal är en betalningsmetod som stöds i ditt land eller din region.
+- Granska följande vanliga frågor. Beroende på din situation kanske PayPal inte är det bästa betalningskontoalternativet för dig, och ett bankkonto kan vara att föredra.
 
-Vanliga frågor om att använda PayPal som betalnings metod:
+Vanliga frågor om hur du använder PayPal som betalningsmetod:
 
-- **Vilka PayPal-inställningar behöver jag ha för att kunna ta emot betalningar?** Se till att ditt PayPal-konto inte blockerar eCheck-betalningar. Den här inställningen hanteras på sidan Inställningar för betalnings mottagning i PayPal. Mer information finns på [PayPals konto installations sida](https://go.microsoft.com/fwlink/p/?linkid=513139) .
-- **Stöds mitt land/region?** Se [betalnings trösklar, metoder och tids ramar](payment-thresholds-methods-timeframes.md) för att ta reda på var PayPal är en betalnings metod som stöds.
-- **Måste mitt PayPal-konto registreras i samma land/region som mitt Partner Center-konto?** Nej. När du konfigurerar ett PayPal-konto kan du acceptera standard konfigurationen. Du får inte ha några problem med andra länder/regioner och valutor om du inte har blockerat betalning i vissa valutor. Den här inställningen hanteras på sidan Inställningar för betalnings mottagning i PayPal.
-- **Måste jag godkänna PayPal-betalningar manuellt?** Nej. PayPal-konton ställs in som standard för att kräva att användarna accepterar betalningar manuellt, vilket innebär att om du inte accepterar betalningen inom 30 dagar returneras den. Du kan ändra den här inställningen genom att inaktivera "fråga mig" i PayPals fler inställnings sida.
-- **Vilka valutor stöder PayPal support?** Se [PayPals support sida](https://developer.paypal.com/docs/classic/api/currency-codes/#paypal) för den aktuella listan
+- **Vilka PayPal-inställningar behöver jag ha för att få betalningar?** Se till att ditt PayPal-konto inte blockerar eCheck-betalningar. Den här inställningen hanteras på paypals sida för betalningsmottagning. Mer information finns på [PayPals kontoinställningssida.](https://go.microsoft.com/fwlink/p/?linkid=513139)
+- **Stöds mitt land/min region?** Se [Betalningströsklar, metoder och tidsramar](payment-thresholds-methods-timeframes.md) för att ta reda på var PayPal är en betalningsmetod som stöds.
+- **Måste mitt PayPal-konto registreras i samma land/region som mitt Partner Center-konto?** Nej. När du konfigurerar ett PayPal-konto kan du acceptera standardkonfigurationen. Du bör inte ha några problem med andra länder/regioner och valutor om du inte har blockerat betalning i vissa valutor. Den här inställningen hanteras på paypals sida för betalningsmottagning.
+- **Måste jag acceptera PayPal-betalningar manuellt?** Nej. PayPal-konton anges som standard för att kräva att användarna accepterar betalningar manuellt, vilket innebär att om du inte accepterar betalningen inom 30 dagar returneras den. Du kan ändra den här inställningen genom att stänga av "Fråga mig" på sidan Fler inställningar i PayPal.
+- **Vilka valutor stöder PayPal?** Se [PayPals supportsida](https://developer.paypal.com/docs/classic/api/currency-codes/#paypal) för den aktuella listan
 
-### <a name="specific-requirements-for-certain-countriesregions"></a>Specifika krav för vissa länder/regioner
+### <a name="specific-requirements-for-certain-countriesregions"></a>Särskilda krav för vissa länder/regioner
 
-I vissa länder och regioner måste ytterligare krav för utbetalnings konton följas. Om du är invånare i Pakistan, Ryssland eller Ukraina noterar du följande krav.
+I vissa länder och regioner måste ytterligare krav för utbetalningskonton följas. Om du är bosatt i Pakistan, Ryssland eller Ukraina, notera följande krav.
 
 #### <a name="pakistan"></a>Pakistan
 
-Form-R är ett regel krav för bank bank. Det används för att ange syfte och skäl för mottagande av medel från utomlands. Varje gång som du är berättigad till en månatlig utbetalning från Microsoft måste du därför skicka in ett formulär – R till din bank innan utbetalningen kan släppas till ditt konto. Kontakta din lokala Banks gren för instruktioner om hur du skaffar en kopia av formulär-R.
+Form-R är ett pakistanskt bank lagstadgade krav. Det används för att ange syftet och skälet för mottagandet av medel från utlandet. Därför måste du skicka in ett formulär till din bank innan utbetalningen kan skickas till ditt konto när du är berättigad till en månatlig utbetalning från Microsoft. Kontakta din lokala bankfilial för instruktioner om hur du skaffar en kopia av Form-R.
 
-Du måste skicka in ett formulär – R till din bank varje månad som du är berättigad till en utbetalning. Om du till exempel förväntar dig att få en utbetalning varje månad under året måste du skicka in ett formulär-R 12 gånger (en gång i månaden).
+Du måste skicka in ett formulär till din bank varje månad som du är berättigad till en utbetalning. Om du till exempel förväntar dig att få en utbetalning varje månad på året måste du skicka in en Formulär-R 12 gånger (en gång i månaden).
 
-När utbetalningen har skickats till din bank har du 30 dagar på dig att skicka in ett formulär-R. Om det inte skickas inom 30 dagar kommer pengarna att returneras till Microsoft.
+När utbetalningen har skickats till din bank har du 30 dagar på dig att skicka in ett formulär-R. Om den inte skickas in inom 30 dagar returneras pengarna till Microsoft.
 
 #### <a name="russia"></a>Ryssland
 
-Om du är en utgivare som bor i Ryssland kan du behöva tillhandahålla dokumentation till din bank innan banken kommer att sätta pengar på ditt konto. När du är berättigad till att betala får du följande dokumentation i ett e-postmeddelande:
+Om du är en utgivare som bor i Ryssland kan du behöva tillhandahålla dokumentation till din bank innan din bank sätter in pengar på ditt konto. När du är berättigad till betalt kommer vi att förse dig med följande dokumentation i ett e-postmeddelande:
 
-- Certifikat för godkännande (AC) – innehåller mängden utbetalning som överförs till ditt konto.
-- [Microsoft Azure Marketplace utgivar avtal](https://go.microsoft.com/fwlink/p/?LinkID=699560) – en signerad kopia av utgivarens avtal som måste vara Counter-signerad.
+- Godkännandecertifikat (AC) – innehåller hur mycket utbetalning som överförs till ditt konto.
+- [Microsoft Azure Marketplace Publisher Agreement](https://go.microsoft.com/fwlink/p/?LinkID=699560) – en undertecknad kopia av utgivaravtalet som måste räknaresigneras.
 
-För att se till att utbetalningen lyckas, se till att:
+Se till att din utbetalning lyckas genom att se till att:
 
-- **Konto innehavarens namn** som angetts för ditt utbetalnings konto i Partner Center måste vara exakt samma namn som associeras med ditt bank konto. Om ditt bank konto namn t. ex. innehåller ett mellan namn, lägger du till ett mellan namn i **konto innehavarens namn**.
-- Utbetalningar överförs direkt från Microsoft till ditt bank konto i rubel-valuta (RUB).
-- Bank information som anges i Partner Center i latinska tecken översätts till kyrilliska tecken.
-- Utbetalningar måste göras till ett bank konto och inte till ett bank kort.
+- **Kontoinnehavarens namn** som anges för ditt utbetalningskonto i Partner Center måste vara exakt samma namn som är kopplat till ditt bankkonto. Om ditt bankkontonamn till exempel innehåller ett mellannamn lägger du till ett mellannamn i **kontoinnehavarens namn**.
+- Utbetalningar överförs direkt från Microsoft till ditt bankkonto i rubelvalutan (RUB).
+- Bankinformation som anges i Partner center med latinska tecken översätts till kyrilliska tecken.
+- Utbetalningar måste göras till ett bankkonto och inte till ett bankkort.
 
 #### <a name="ukraine"></a>Ukraina
 
-Om du är en utgivare som bor i Ukraina kan du behöva tillhandahålla dokumentation till din bank innan banken kommer att sätta pengar på ditt konto. När du är berättigad till att betala får du följande dokumentation i ett e-postmeddelande:
+Om du är en utgivare som bor i Ukraina kan du behöva tillhandahålla dokumentation till din bank innan din bank sätter in pengar på ditt konto. När du är berättigad till betalt kommer vi att förse dig med följande dokumentation i ett e-postmeddelande:
 
-- Certifikat för godkännande (AC) – innehåller mängden utbetalning som överförs till ditt konto.
-- [Microsoft Azure Marketplace utgivar avtal](https://go.microsoft.com/fwlink/p/?LinkID=699560) – en signerad kopia av utgivarens avtal som måste vara Counter-signerad.
-- Ändrings avtal (AA) – det här dokumentet kan användas av din bank för att identifiera dina utbetalnings medel.
+- Godkännandecertifikat (AC) – innehåller hur mycket utbetalning som överförs till ditt konto.
+- [Microsoft Azure Marketplace Publisher Agreement](https://go.microsoft.com/fwlink/p/?LinkID=699560) – en undertecknad kopia av utgivaravtalet som måste räknaresigneras.
+- Ändringsavtalet (AA) – detta dokument kan användas av din bank för att identifiera dina utbetalningspengar.
 
-Microsoft tillhandahåller alla tre dokumenten när din första utbetalning görs. För eventuella efterföljande utbetalningar får du bara AC-dokumentet. Behåll de ADA-och AA-dokumenten om du behöver dem för att få framtida utbetalningar från din bank.
+Microsoft tillhandahåller alla tre dokumenten när din första utbetalning görs. För eventuella efterföljande utbetalningar får du endast AC-dokumentet. Behåll ADA- och AA-dokumenten om du behöver dem för att få framtida utbetalningar från din bank.
 
 ### <a name="create-a-paypal-payment-profile"></a>Skapa en PayPal-betalningsprofil
 
-Om du valde att använda ett bank konto för att ta emot utbetalningar slutför du följande process för att konfigurera ditt bank konto.
+Om du har valt att använda ett bankkonto för att ta emot utbetalningar slutför du följande process för att konfigurera ditt bankkonto.
 
-1. På *PayPal* -sidan anger du den information som krävs för ditt PayPal-konto.
-2. Ange information om PayPal-kontot.
+1. På *PayPal-sidan* anger du den information som krävs om ditt PayPal-konto.
+2. Ange dina PayPal-kontouppgifter.
 
     > [!NOTE]
-    > De fält som du använder för att ange din konto information accepterar bara alfanumeriska tecken.
+    > De fält som du använder för att ange kontoinformationen accepterar endast alfanumeriska tecken.
 
-3. Ange mottagarens information.
-4. Gå tillbaka till sidan *profil tilldelning* och välj den valuta som du vill att vi ska använda när vi utfärdar dina utbetalningar.
-5. Du måste välja en betalnings profil för varje program som du deltar i, men du kan använda samma profil för flera program.
+3. Ange information om mottagaren.
+4. Tillbaka på *sidan Profiluppgift* väljer du den valuta du vill att vi ska använda när vi utfärdar dina utbetalningar.
+5. Du måste välja en betalningsprofil för varje program du deltar i, men du kan använda samma profil för flera program.
 6. Klicka på Skicka för att spara ändringarna.

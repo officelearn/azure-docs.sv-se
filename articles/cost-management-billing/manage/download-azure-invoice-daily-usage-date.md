@@ -1,5 +1,5 @@
 ---
-title: Ladda ned din Azure-faktura och information om den dagliga användningen | Microsoft Docs
+title: Hämta faktura och daglig användningsinformation för Azure
 description: Här beskrivs hur du laddar ned eller visar din Azure-faktura och information om den dagliga användningen.
 keywords: faktura,ladda ned faktura,Azure-faktura,Azure-användning
 author: genlin
@@ -9,12 +9,12 @@ ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: banders
-ms.openlocfilehash: af2184d7faa2ace8ed1043eaf2aaec0d525bc937
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.openlocfilehash: 629ab8a0f2af789501e6365c94f4ce7f3fd3649c
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79125640"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79237691"
 ---
 # <a name="download-or-view-your-azure-billing-invoice-and-daily-usage-data"></a>Ladda ned eller visa din Azure-faktura och information om den dagliga användningen
 
@@ -62,7 +62,7 @@ Fakturor genereras för varje [faktureringsprofil](../understand/mca-overview.md
 6. I snabbmenyn för nedladdning väljer du **Faktura**.
 
 Om du inte ser någon faktura för den senaste faktureringsperioden kan du läsa **Ytterligare information**. <!-- Fix this -->
-### <a name="noinvoice"></a> Varför finns det inte en faktura för den senaste faktureringsperioden?
+### <a name="why-dont-i-see-an-invoice-for-the-last-billing-period"></a><a name="noinvoice"></a> Varför finns det inte en faktura för den senaste faktureringsperioden?
 
 Det kan finnas flera orsaker till att den inte visas:
 

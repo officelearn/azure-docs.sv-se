@@ -1,7 +1,7 @@
 ---
 title: Hantera arbetsytor
 titleSuffix: ML Studio (classic) - Azure
-description: Hantera åtkomst till Azure Machine Learning Studio (klassiska) arbets ytor och distribuera och hantera Machine Learning API-webbtjänster
+description: Hantera åtkomst till Azure Machine Learning Studio -arbetsytor (klassiska) och distribuera och hantera API-webbtjänster för maskininlärning
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
@@ -11,44 +11,44 @@ ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 02/27/2017
 ms.openlocfilehash: 68c9ca4c7b5f30d6f62d333014f4098fe7826c99
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79217954"
 ---
-# <a name="manage-an-azure-machine-learning-studio-classic-workspace"></a>Hantera en Azure Machine Learning Studio (klassisk)-arbets yta
+# <a name="manage-an-azure-machine-learning-studio-classic-workspace"></a>Hantera en arbetsyta i Azure Machine Learning Studio (klassisk)
 
 [!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
 > [!NOTE]
-> Information om hur du hanterar webb tjänster i Machine Learning Web Services-portalen finns i [hantera en webb tjänst med hjälp av Azure Machine Learning Web Services-portalen](manage-new-webservice.md).
+> Information om hur du hanterar webbtjänster i Machine Learning Web Services-portalen finns i [Hantera en webbtjänst med hjälp av portalen för Azure Machine Learning Web Services](manage-new-webservice.md).
 > 
 > 
 
-Du kan hantera Machine Learning Studio (klassiska) arbets ytor i Azure Portal.
+Du kan hantera Machine Learning Studio -arbetsytor (klassiska) i Azure-portalen.
 
 
 
 ## <a name="use-the-azure-portal"></a>Använda Azure-portalen
 
-Så här hanterar du en Studio (klassisk) arbets yta i Azure Portal:
+Så här hanterar du en studioarbetsyta (klassisk) i Azure-portalen:
 
-1. Logga in på [Azure Portal](https://portal.azure.com/) med ett administratörs konto för Azure-prenumeration.
-2. I rutan Sök högst upp på sidan anger du "Machine Learning Studio (klassisk)-arbets ytor" och väljer sedan **Machine Learning Studio (klassiska) arbets ytor**.
-3. Klicka på den arbets yta som du vill hantera.
+1. Logga in på [Azure-portalen](https://portal.azure.com/) med ett Azure-administratörskonto för prenumeration.
+2. I sökrutan högst upp på sidan anger du "machine learning Studio (klassiska) arbetsytor" och väljer sedan **Machine Learning Studio (klassiska) arbetsytor**.
+3. Klicka på den arbetsyta som du vill hantera.
 
-Förutom den standard resurs hanterings information och de alternativ som är tillgängliga kan du:
+Förutom den standardinformation och de tillgängliga resurshanteringsalternativen kan du:
 
-- Visa **Egenskaper** – den här sidan visar arbets ytan och resursinformationen, och du kan ändra den prenumeration och resurs grupp som den här arbets ytan är ansluten till.
-- **Omsynkronisering av lagrings nycklar** – arbets ytan hanterar nycklar till lagrings kontot. Om lagrings kontot ändrar nycklar kan du klicka på **omsynkronisera nycklar** för att synkronisera nycklarna med arbets ytan.
+- Visa **egenskaper** – På den här sidan visas arbetsytan och resursinformationen och du kan ändra den prenumerations- och resursgrupp som arbetsytan är kopplad till.
+- **Resync Storage Keys** - Arbetsytan underhåller nycklar till lagringskontot. Om lagringskontot ändrar nycklar kan du klicka på **Synkronisera om nycklar** för att synkronisera nycklarna med arbetsytan.
 
-Om du vill hantera de webb tjänster som är associerade med den här Studio-arbetsytan (klassisk) använder du Machine Learning Web Services-portalen. Mer information finns i [hantera en webb tjänst med hjälp av Azure Machine Learning Web Services-portalen](manage-new-webservice.md) .
+Om du vill hantera de webbtjänster som är associerade med den här studioarbetsytan (klassisk) använder du portalen Machine Learning Web Services. Mer information finns [i Hantera en webbtjänst med hjälp av Azure Machine Learning Web Services-portalen.](manage-new-webservice.md)
 
 > [!NOTE]
-> Om du vill distribuera eller hantera nya webb tjänster måste du tilldelas rollen deltagare eller administratör för den prenumeration som webb tjänsten har distribuerats till. Om du bjuder in en annan användare till en Machine Learning Studio-arbetsyta (klassisk) måste du tilldela dem till en deltagare eller administratörs roll i prenumerationen innan de kan distribuera eller hantera webb tjänster. 
+> Om du vill distribuera eller hantera nya webbtjänster måste du tilldelas en deltagar- eller administratörsroll på den prenumeration som webbtjänsten distribueras till. Om du bjuder in en annan användare till en arbetsyta för maskininlärningsstudio (klassisk) måste du tilldela dem till en deltagarroll eller administratörsroll i prenumerationen innan de kan distribuera eller hantera webbtjänster. 
 > 
->Mer information om hur du ställer in åtkomst behörighet finns i [Hantera åtkomst med RBAC och Azure Portal](../../role-based-access-control/role-assignments-portal.md).
+>Mer information om hur du anger åtkomstbehörigheter finns i [Hantera åtkomst med RBAC och Azure-portalen](../../role-based-access-control/role-assignments-portal.md).
 
 ## <a name="next-steps"></a>Nästa steg
-* Lär dig mer om att [distribuera Machine Learning med Azure Resource Manager mallar](deploy-with-resource-manager-template.md). 
+* Läs mer om [att distribuera Maskininlärning med Azure Resource Manager-mallar](deploy-with-resource-manager-template.md). 

@@ -1,33 +1,33 @@
 ---
-title: Lägg till ett symbol lager till Android Maps | Microsoft Azure Maps
-description: I den här artikeln får du lära dig hur du återger punkt data på en karta genom att lägga till ett symbol lager till den med hjälp av Microsoft Azure Maps Android SDK.
-author: farah-alyasari
-ms.author: v-faalya
+title: Lägg till ett symbollager i Android-kartor | Microsoft Azure Maps
+description: I den här artikeln får du lära dig hur du renderar punktdata på en karta genom att lägga till ett symbollager i den med hjälp av Microsoft Azure Maps Android SDK.
+author: philmea
+ms.author: philmea
 ms.date: 04/26/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: e323d99c11df7f482e6caf81e8d38bf64d160859
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.openlocfilehash: 0eca73b5acae715283c05125181e12729ed5a772
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77209995"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80335577"
 ---
-# <a name="add-a-symbol-layer-to-a-map-using-azure-maps-android-sdk"></a>Lägg till ett symbol lager till en karta med Azure Maps Android SDK
+# <a name="add-a-symbol-layer-to-a-map-using-azure-maps-android-sdk"></a>Lägga till ett symbollager på en karta med Azure Maps Android SDK
 
-Den här artikeln visar hur du återger punkt data från en data källa som ett symbol lager på en karta med hjälp av Azure Maps Android SDK.
+Den här artikeln visar hur du renderar punktdata från en datakälla som ett symbollager på en karta med hjälp av Azure Maps Android SDK.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-Om du vill följa stegen i den här artikeln fullständigt måste du installera [Azure Maps Android SDK](https://docs.microsoft.com/azure/azure-maps/how-to-use-android-map-control-library) för att läsa in en karta.
+Om du vill följa stegen helt i den här artikeln måste du installera [Azure Maps Android SDK](https://docs.microsoft.com/azure/azure-maps/how-to-use-android-map-control-library) för att läsa in en karta.
 
 ## <a name="add-a-symbol-layer"></a>Lägga till ett symbolskikt
 
-Följ stegen nedan om du vill lägga till en markör på kartan med symbol skiktet:
+Så här lägger du till en markör på kartan med symbollagret:
 
-1. Redigera **res** > **layout** > **activity_main. XML** så att det ser ut som i följande XML:
+1. Redigera **om** > **layout** > **activity_main.xml** så att den ser ut som följande XML:
     
     ```XML
     <?xml version="1.0" encoding="utf-8"?>
@@ -50,7 +50,7 @@ Följ stegen nedan om du vill lägga till en markör på kartan med symbol skikt
     </FrameLayout>
     ```
 
-2. Kopiera följande kodfragment till metoden **onCreate ()** i `MainActivity.java`-klassen.
+2. Kopiera följande kodavsnitt till metoden **onCreate()** `MainActivity.java` för klassen.
 
     ```Java
     mapControl.onReady(map -> {
@@ -72,9 +72,9 @@ Följ stegen nedan om du vill lägga till en markör på kartan med symbol skikt
     
     ```
     
-    Kodfragmentet ovan hämtar först en Azure Maps kart kontroll instans med återanrops metoden **onReady ()** . Sedan skapas ett data käll objekt med hjälp av klassen **DataSource** och läggs till i kartan. Den lägger sedan till en **funktion** som innehåller en punkt geometri till den. En röd markör bild ställs sedan in som ikon för symbolen. Ett **symbol lager** använder text eller ikoner för att återge punktbaserade data figursatt i data källan som symbol på kartan. Ett symbol lager skapas sedan och data källan skickas till den för rendering och läggs sedan till i kartans lager.
+    Kodavsnittet ovan hämtar först en Azure Maps-kartkontrollinstans med hjälp av motringningsmetoden **onReady().** Sedan skapas ett datakällobjekt med hjälp av klassen **DataSource** och läggs till på kartan. Den lägger sedan till en **funktion** som innehåller en punktgeometri till den. En röd markörbild ställs sedan in som ikon för symbolen. Ett **symbollager** använder text eller ikoner för att återge punktbaserade data som är raderade i datakällan som symbol på kartan. Ett symbollager skapas sedan och datakällan skickas till det för att rendera och läggs sedan till i kartans lager.
     
-    När du har lagt till kodfragmentet ovan bör `MainActivity.java` se ut så här:
+    När du har lagt till `MainActivity.java` kodavsnittet ovan bör du se ut som det nedan:
     
     ```Java
     package com.example.myapplication;
@@ -166,19 +166,19 @@ Följ stegen nedan om du vill lägga till en markör på kartan med symbol skikt
     }
     ```
     
-I det här läget bör du se en markör på kartan, som du ser här, om du kör programmet:
+Om du kör programmet bör du se en markör på kartan, som visas här:
 
 <center>
 
-](./media/how-to-add-symbol-to-android-map/android-map-pin.png)</center> för ![Android-kartning
+![Android karta stift](./media/how-to-add-symbol-to-android-map/android-map-pin.png)</center>
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Information om hur du lägger till saker till din karta finns i:
+Information om hur du lägger till mer saker på kartan finns i:
 
 > [!div class="nextstepaction"]
-> [Lägga till former i en Android-karta](https://docs.microsoft.com/azure/azure-maps/how-to-add-shapes-to-android-map)
+> [Lägga till former på en Android-karta](https://docs.microsoft.com/azure/azure-maps/how-to-add-shapes-to-android-map)
 
 > [!div class="nextstepaction"]
-> [Visa funktions information](display-feature-information-android.md)
+> [Visa funktionsinformation](display-feature-information-android.md)

@@ -1,6 +1,6 @@
 ---
-title: Förstå Azure Security Center för IoT-säkerhetsmodulen för IoT Edge | Microsoft Docs
-description: Förstå arkitekturen och funktionerna i Azure Security Center för IoT Security-modulen för IoT Edge.
+title: Förstå Azure Security Center för IoT-säkerhetsmodul för IoT Edge| Microsoft-dokument
+description: Förstå arkitekturen och funktionerna i Azure Security Center för IoT-säkerhetsmodul för IoT Edge.
 services: asc-for-iot
 ms.service: asc-for-iot
 documentationcenter: na
@@ -16,52 +16,52 @@ ms.workload: na
 ms.date: 07/23/2019
 ms.author: mlottner
 ms.openlocfilehash: 148c68234a937efde554ef00a6014cdc1a350f34
-ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/26/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "71315893"
 ---
-# <a name="azure-iot-edge-security-module"></a>Azure IoT Edge säkerhetsmodulen
+# <a name="azure-iot-edge-security-module"></a>Säkerhetsmodulen Azure IoT Edge
 
-[Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/) tillhandahåller kraftfulla funktioner för att hantera och utföra affärs arbets flöden i gränsen.
-Den nyckel del som IoT Edge spelar i IoT-miljöer gör det särskilt attraktivt för skadliga aktörer.
+[Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/) ger kraftfulla funktioner för att hantera och utföra affärsarbetsflöden på gränsen.
+Den viktigaste delen som IoT Edge spelar i IoT-miljöer gör det särskilt attraktivt för skadliga aktörer.
 
-Azure Security Center för IoT-säkerhetsmodulen innehåller en omfattande säkerhetslösning för dina IoT Edge-enheter.
-Azure Security Center för IoT-modulen samlar in, samlar in och analyserar rå säkerhets data från operativ systemet och behållar systemet till rekommenderade säkerhets rekommendationer och aviseringar.
+Azure Security Center för IoT-säkerhetsmodul ger en omfattande säkerhetslösning för dina IoT Edge-enheter.
+Azure Security Center för IoT-modul samlar in, sammanställer och analyserar rådsäkerhetsdata från ditt operativsystem och behållarsystem till användbara säkerhetsrekommendationer och aviseringar.
 
-Precis som Azure Security Center för IoT-säkerhetsagenter för IoT-enheter, är Azure Security Center för IoT Edge modul mycket anpassningsbar genom sin modul.
-Mer information finns i [Konfigurera agenten](how-to-agent-configuration.md) .
+I likhet med Azure Security Center för IoT-säkerhetsagenter för IoT-enheter är Azure Security Center for IoT Edge-modulen mycket anpassningsbar via modultvillingen.
+Mer information finns i [Konfigurera din agent.](how-to-agent-configuration.md)
 
-Azure Security Center för IoT Security-modulen för IoT Edge erbjuder följande funktioner:
+Azure Security Center för IoT-säkerhetsmodul för IoT Edge erbjuder följande funktioner:
 
-- Samlar in rå säkerhets händelser från det underliggande operativ systemet (Linux) och IoT Edge container system.
+- Samlar in råsäkerhetshändelser från det underliggande operativsystemet (Linux) och IoT Edge Container-systemen.
   
-  Se [Azure Security Center för IoT agent-konfiguration](how-to-agent-configuration.md) för att lära dig mer om tillgängliga säkerhets data insamlare.
+  Mer information om tillgängliga säkerhetsdatainsamlare finns i [Azure Security Center för IoT-agentkonfiguration.](how-to-agent-configuration.md)
 
-- Analys av IoT Edge distributions manifest.
+- Analys av IoT Edge-distributionsmanifest.
 
-- Sammanställer rå säkerhets händelser till meddelanden som skickas via [IoT Edge Hub](https://docs.microsoft.com/azure/iot-edge/iot-edge-runtime#iot-edge-hub).
+- Sammanställer råsäkerhetshändelser i meddelanden som skickas via [IoT Edge Hub](https://docs.microsoft.com/azure/iot-edge/iot-edge-runtime#iot-edge-hub).
 
-- Ta bort konfigurationen genom att använda säkerhetsmodulen dubbla.
+- Ta bort konfigurationen med hjälp av säkerhetsmodultvillingen.
 
-  Mer information finns i [Konfigurera ett Azure Security Center för IoT-agent](how-to-agent-configuration.md) .
+  Mer information finns i [Konfigurera en Azure Security Center för IoT-agent.](how-to-agent-configuration.md)
 
-Azure Security Center för IoT-säkerhetsmodulen för IoT Edge körs i privilegierat läge under IoT Edge.
-Privilegierat läge krävs för att modulen ska kunna övervaka operativ systemet och andra IoT Edge moduler.
+Azure Security Center för IoT-säkerhetsmodul för IoT Edge körs i ett privilegierat läge under IoT Edge.
+Privilegierat läge krävs för att modulen ska kunna övervaka operativsystemet och andra IoT Edge-moduler.
 
-## <a name="module-supported-platforms"></a>Plattformar som stöds av moduler
+## <a name="module-supported-platforms"></a>Plattformar som stöds av modul
 
-Azure Security Center för IoT-säkerhetsmodulen för IoT Edge är för närvarande bara tillgänglig för Linux. 
+Azure Security Center för IoT-säkerhetsmodul för IoT Edge är för närvarande endast tillgängligt för Linux. 
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här artikeln har du lärt dig om arkitekturen och funktionerna i Azure Security Center för IoT Security-modulen för IoT Edge.
+I den här artikeln har du lärt dig om arkitekturen och funktionerna i Azure Security Center för IoT-säkerhetsmodul för IoT Edge.
 
-Använd följande artiklar om du vill fortsätta att komma igång med Azure Security Center för IoT-distribution:
+Om du vill fortsätta komma igång med Azure Security Center för IoT-distribution använder du följande artiklar:
 
-- Distribuera [säkerhetsmodulen för IoT Edge](how-to-deploy-edge.md)
-- Lär dig hur du [konfigurerar din säkerhetsmodul](how-to-agent-configuration.md)
-- Granska förutsättningarna för Azure Security Center för IoT [-tjänster](service-prerequisites.md)
-- Lär dig hur du [aktiverar Azure Security Center för IoT-tjänsten i din IoT Hub](quickstart-onboard-iot-hub.md)
-- Läs mer om tjänsten i [vanliga frågor och svar om Azure Security Center for IoT](resources-frequently-asked-questions.md)
+- Distribuera [säkerhetsmodul för IoT Edge](how-to-deploy-edge.md)
+- Lär dig hur du [konfigurerar säkerhetsmodulen](how-to-agent-configuration.md)
+- Granska [förutsättningarna](service-prerequisites.md) för Azure Security Center för IoT-tjänsten
+- Lär dig hur du [aktiverar Azure Security Center för IoT-tjänst i din IoT-hubb](quickstart-onboard-iot-hub.md)
+- Läs mer om tjänsten från vanliga frågor och svar om [Azure Security Center för IoT](resources-frequently-asked-questions.md)

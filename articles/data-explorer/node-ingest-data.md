@@ -1,6 +1,6 @@
 ---
 title: Mata in data med hjälp av Node-biblioteket i Azure Data Explorer
-description: I den här artikeln får lära du att mata in (load) data i Datautforskaren i Azure med hjälp av Node.js.
+description: I den här artikeln får du lära dig hur du intar (läser in) data i Azure Data Explorer med Node.js.
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
@@ -8,19 +8,19 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 06/03/2019
 ms.openlocfilehash: 19da42437cfe1d7b63dfed4bd2b30716d691a0e3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "66494487"
 ---
 # <a name="ingest-data-using-the-azure-data-explorer-node-library"></a>Mata in data med hjälp av Node-biblioteket i Azure Data Explorer
 
-Azure Data Explorer är en snabb och mycket skalbar datautforskningstjänst för logg- och telemetridata. Azure-datautforskaren tillhandahåller två klientbibliotek för Node: ett [bibliotek för inmatning](https://github.com/Azure/azure-kusto-node/tree/master/azure-kusto-ingest) och [ett databibliotek](https://github.com/Azure/azure-kusto-node/tree/master/azure-kusto-data). I biblioteken kan du mata in (läsa in) data i ett kluster och fråga data från din kod. I den här artikeln får skapa du först en tabell och datamappning av i ett testkluster. Sedan köar du inmatningen till klustret och verifierar resultaten.
+Azure Data Explorer är en snabb och mycket skalbar datautforskningstjänst för logg- och telemetridata. Azure-datautforskaren tillhandahåller två klientbibliotek för Node: ett [bibliotek för inmatning](https://github.com/Azure/azure-kusto-node/tree/master/azure-kusto-ingest) och [ett databibliotek](https://github.com/Azure/azure-kusto-node/tree/master/azure-kusto-data). I biblioteken kan du mata in (läsa in) data i ett kluster och fråga data från din kod. I den här artikeln skapar du först en tabell och datamappning i ett testkluster. Sedan köar du inmatningen till klustret och verifierar resultaten.
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt Azure-konto](https://azure.microsoft.com/free/) innan du börjar.
+Om du inte har en Azure-prenumeration skapar du ett [kostnadsfritt Azure-konto](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 Förutom en Azure-prenumeration behöver du följande för att slutföra den här artikeln:
 
@@ -76,7 +76,7 @@ const destTableMapping = "StormEvents_CSV_Mapping";
 
 ## <a name="set-source-file-information"></a>Ange information om källfilen
 
-Importera ytterligare klasser och ange konstanter för datakällan. Det här exemplet används en exempelfil som finns på Azure Blob Storage. I exempeldatauppsättningen **StormEvents** finns väderrelaterade data från [National Centers for Environmental Information](https://www.ncdc.noaa.gov/stormevents/).
+Importera ytterligare klasser och ange konstanter för datakällan. Det här exemplet används en exempelfil som finns på Azure Blob Storage. Exempeldatauppsättningen **StormEvents** innehåller väderrelaterade data från [National Centers for Environmental Information](https://www.ncdc.noaa.gov/stormevents/).
 
 ```javascript
 const container = "samplefiles";
@@ -88,7 +88,7 @@ const blobPath = `https://${account}.blob.core.windows.net/${container}/${filePa
 
 ## <a name="create-a-table-on-your-test-cluster"></a>Skapa en tabell i ditt testkluster
 
-Skapa en tabell som matchar schemat för data i filen `StormEvents.csv`. När den här koden körs returneras ett meddelande som liknar följande: *För att logga in använder du en webbläsare och öppnar sidan https://microsoft.com/devicelogin. Ange sedan koden XXXXXXXXX för att autentisera dig*. Följ stegen för att logga in och gå sedan tillbaka för att köra nästa kodblock. Efterföljande kodblock som upprättar en anslutning kräver att du loggar in igen.
+Skapa en tabell som matchar schemat för data i filen `StormEvents.csv`. När den här koden körs returneras ett meddelande som ser ut så här: *Om du vill logga in öppnar du en webbläsare och går till sidan https://microsoft.com/devicelogin och anger koden XXXXXXXXX för att autentisera*. Följ stegen för att logga in och gå sedan tillbaka för att köra nästa kodblock. Efterföljande kodblock som upprättar en anslutning kräver att du loggar in igen.
 
 ```javascript
 const kustoClient = new KustoClient(kcsbData);
@@ -141,7 +141,7 @@ kustoClient.execute(kustoDatabase, query, (err, results) => {
 
 ## <a name="run-troubleshooting-queries"></a>Köra frågor för felsökning
 
-Logga in på [https://dataexplorer.azure.com](https://dataexplorer.azure.com) och anslut till klustret. Kör följande kommando i din databas för att se om det fanns inmatningsfel under de senaste fyra timmarna. Ersätt namnet på databasen innan du kör.
+Logga in [https://dataexplorer.azure.com](https://dataexplorer.azure.com) på och anslut till klustret. Kör följande kommando i din databas för att se om det fanns inmatningsfel under de senaste fyra timmarna. Ersätt namnet på databasen innan du kör.
     
 ```Kusto
 .show ingestion failures
@@ -158,7 +158,7 @@ Kör följande kommando för att visa status för alla åtgärder för inmatning
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Om du planerar att följa våra andra artiklar, bevara alla resurser som du skapade. Om inte kör du följande kommando i din databas för att rensa tabellen `StormEvents`.
+Om du planerar att följa våra andra artiklar, behålla de resurser du skapat. Om inte kör du följande kommando i din databas för att rensa tabellen `StormEvents`.
 
 ```Kusto
 .drop table StormEvents
@@ -166,4 +166,4 @@ Om du planerar att följa våra andra artiklar, bevara alla resurser som du skap
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Skriv frågor](write-queries.md)
+* [Skriva frågor](write-queries.md)

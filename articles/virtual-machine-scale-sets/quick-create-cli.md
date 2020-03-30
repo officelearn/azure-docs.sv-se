@@ -1,6 +1,6 @@
 ---
-title: Snabb start – skapa en skalnings uppsättning för virtuella datorer med Azure CLI
-description: Kom igång med dina distributioner genom att lära dig hur du snabbt skapar en skalnings uppsättning för virtuella datorer med Azure CLI.
+title: Snabbstart - Skapa en skalningsuppsättning för virtuella datorer med Azure CLI
+description: Kom igång med dina distributioner genom att lära dig hur du snabbt skapar en skalningsuppsättning för virtuella datorer med Azure CLI.
 author: cynthn
 ms.service: virtual-machine-scale-sets
 ms.workload: infrastructure-services
@@ -10,16 +10,16 @@ ms.custom: mvc
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.openlocfilehash: 172a498b6b92a059c50cac4ad45fee322e12fdd0
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "76278041"
 ---
 # <a name="quickstart-create-a-virtual-machine-scale-set-with-the-azure-cli"></a>Snabbstart: Skapa en VM-skalningsuppsättning med Azure CLI
 Med en VM-skalningsuppsättning kan du distribuera och hantera en uppsättning identiska, virtuella datorer med automatisk skalning. Du kan skala antalet virtuella datorer i skalningsuppsättningen manuellt eller definiera regler för automatisk skalning baserat på resursanvändning, till exempel CPU, minneskrav eller nätverkstrafik. En Azure-lastbalanserare distribuerar sedan trafiken till de virtuella datorinstanserna i skalningsuppsättningen. I den här snabbstarten skapar du en VM-skalningsuppsättning och distribuerar ett exempelprogram med Azure CLI.
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -27,7 +27,7 @@ Om du väljer att installera och använda CLI lokalt, måste du köra Azure CLI 
 
 
 ## <a name="create-a-scale-set"></a>Skapa en skalningsuppsättning
-Innan du kan skapa en skalningsuppsättning skapar du en resursgrupp med [az group create](/cli/azure/group). I följande exempel skapas en resursgrupp med namnet *myResourceGroup* på platsen *eastus*:
+Innan du kan skapa en skalningsuppsättning skapar du en resursgrupp med [az group create](/cli/azure/group). I följande exempel skapas en resursgrupp med namnet *myResourceGroup* på *eastus-platsen:*
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
@@ -97,7 +97,7 @@ Skriv den offentliga IP-adressen för lastbalanseraren i en webbläsare. Lastbal
 
 
 ## <a name="clean-up-resources"></a>Rensa resurser
-När resurserna inte behövs längre kan du använda [az group delete](/cli/azure/group) för att ta bort resursgruppen, skalningsuppsättningen och alla relaterade resurser. Parametern `--no-wait` återför kontrollen till kommandotolken utan att vänta på att uppgiften slutförs. Parametern `--yes` bekräftar att du vill ta bort resurserna utan att tillfrågas ytterligare en gång.
+När det inte längre behövs kan du använda [az-gruppborttagning](/cli/azure/group) för att ta bort resursgruppen, skalningsuppsättningen och alla relaterade resurser enligt följande. Parametern `--no-wait` återför kontrollen till kommandotolken utan att vänta på att uppgiften slutförs. Parametern `--yes` bekräftar att du vill ta bort resurserna utan att tillfrågas ytterligare en gång.
 
 ```azurecli-interactive
 az group delete --name myResourceGroup --yes --no-wait

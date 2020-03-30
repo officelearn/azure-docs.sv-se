@@ -1,6 +1,6 @@
 ---
-title: Använd grupp namngivnings princip i Azure Active Directory | Microsoft Docs
-description: Så här konfigurerar du namngivnings princip för Office 365-grupper i Azure Active Directory
+title: Framtvinga gruppnamnprincip i Azure Active Directory | Microsoft-dokument
+description: Konfigurera namngivningsprincipen för Office 365-grupper i Azure Active Directory
 services: active-directory
 documentationcenter: ''
 author: curtand
@@ -14,95 +14,97 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a9136ce26f0070c8822292c741be59de537d3667
-ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
+ms.openlocfilehash: 141e83e21db18f21468113fd9927c2bdd2ed176d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75941060"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79497874"
 ---
-# <a name="enforce-a-naming-policy-on-office-365-groups-in-azure-active-directory"></a>Framtvinga en namngivnings princip på Office 365-grupper i Azure Active Directory
+# <a name="enforce-a-naming-policy-on-office-365-groups-in-azure-active-directory"></a>Framtvinga en namngivningsprincip för Office 365-grupper i Azure Active Directory
 
-Om du vill använda konsekventa namngivnings konventioner för Office 365-grupper som skapats eller redigerats av dina användare, skapar du en grupp namngivnings princip för dina klienter i Azure Active Directory (Azure AD). Du kan till exempel använda namngivnings principen för att kommunicera funktionen i en grupp, medlemskap, geografisk region eller vem som skapade gruppen. Du kan också använda namngivnings principen för att hjälpa att kategorisera grupper i adress boken. Du kan använda principen för att blockera vissa ord från att användas i grupp namn och alias.
+Om du vill tillämpa konsekventa namngivningskonventioner för Office 365-grupper som skapats eller redigerats av användarna konfigurerar du en gruppnamngivningsprincip för dina klienter i Azure Active Directory (Azure AD). Du kan till exempel använda namngivningsprincipen för att kommunicera funktionen för en grupp, ett medlemskap, en geografisk region eller vem som skapade gruppen. Du kan också använda namngivningsprincipen för att kategorisera grupper i adressboken. Du kan använda principen för att blockera specifika ord från att användas i gruppnamn och alias.
 
 > [!IMPORTANT]
-> Med hjälp av Azure AD Naming-principen för Office 365-grupper måste du ha men inte nödvändigt vis tilldela en licens för Azure Active Directory Premium P1 eller Azure AD Basic EDU-licens för varje unik användare som är medlem i en eller flera Office 365-grupper.
+> Om du använder Azure AD-namngivningsprincipen för Office 365-grupper krävs att du har men inte nödvändigtvis tilldela en Azure Active Directory Premium P1-licens eller Azure AD Basic EDU-licens för varje unik användare som är medlem i en eller flera Office 365-grupper.
 
-Namngivnings principen används för att skapa eller redigera grupper som skapats mellan arbets belastningar (till exempel Outlook, Microsoft Teams, SharePoint, Exchange eller Planner). Den används både för grupp namn och grupp-alias. Om du konfigurerar din namngivnings princip i Azure AD och du har en befintlig Exchange-grupp namngivnings princip tillämpas Azure AD-namngivnings principen i din organisation.
+Namngivningsprincipen tillämpas på att skapa eller redigera grupper som skapats över arbetsbelastningar (till exempel Outlook, Microsoft Teams, SharePoint, Exchange eller Planner). Den tillämpas på både gruppnamnet och gruppaliaset. Om du ställer in namngivningsprincipen i Azure AD och har en befintlig namngivningsprincip för Exchange-gruppen tillämpas namngivningsprincipen i Azure AD i din organisation.
 
-## <a name="naming-policy-features"></a>Funktioner i namngivnings princip
+När gruppnamngivningsprincipen har konfigurerats tillämpas principen på nya Office 365-grupper som skapats av slutanvändare. Namngivningsprincipen gäller inte för vissa katalogroller, till exempel Global administratör eller Användaradministratör (se nedan för en fullständig lista över roller som är undantagna från gruppnamngivningsprincipen). För befintliga Office 365-grupper gäller principen inte omedelbart vid konfigurationstillfället. När gruppägaren har redigerat gruppnamnet för dessa grupper tillämpas namngivningsprincipen.
 
-Du kan tillämpa namngivnings princip för grupper på två olika sätt:
+## <a name="naming-policy-features"></a>Namngivningsprincipfunktioner
 
-- **Prefix-namngivnings princip för suffix** Du kan definiera prefix eller suffix som sedan läggs till automatiskt för att genomdriva en namn konvention i dina grupper (till exempel i grupp namnet "GRP\_JAPAN\_min grupp\_teknik", GRP\_JAPAN\_ är prefixet och \_Engineering är suffixet). 
+Du kan tillämpa namngivningsprincipen för grupper på två olika sätt:
 
-- **Anpassade blockerade ord** Du kan ladda upp en uppsättning blockerade ord som är särskilt för din organisation att blockeras i grupper som skapats av användare (till exempel "VD, löner, HR").
+- **Namngivningsprincipen prefix-suffix** Du kan definiera prefix eller suffix som sedan läggs till automatiskt för att tillämpa en namngivningskonvention\_för dina grupper\_\_ (till exempel i gruppnamnet "GRP \_\_JAPAN\_My Group Engineering", GRP JAPAN är prefixet och Engineering är suffixet). 
 
-### <a name="prefix-suffix-naming-policy"></a>Prefix-namngivnings princip för suffix
+- **Anpassade blockerade ord** Du kan ladda upp en uppsättning blockerade ord som är specifika för din organisation för att blockeras i grupper som skapats av användare (till exempel "VD, Lön, HR").
 
-Den allmänna strukturen i namngivnings konventionen är prefix [GroupName] suffix. Du kan definiera flera prefix och suffix, men du kan bara ha en instans av [GroupName] i inställningen. Prefixen eller suffixen kan vara antingen fasta strängar eller användarattribut, till exempel \[avdelnings\] som ersätts av den användare som skapar gruppen. Det totala antalet tecken som tillåts för prefix-och suffix-strängar i kombination är 53 tecken. 
+### <a name="prefix-suffix-naming-policy"></a>Namngivningsprincipen prefix-suffix
 
-Prefix och suffix kan innehålla specialtecken som stöds i grupp namn och grupp Ali Aset. Alla tecken i prefixet eller suffixet som inte stöds i grupp Ali Aset används fortfarande i grupp namnet, men tas bort från grupp Ali Aset. På grund av den här begränsningen kan prefix och suffix som tillämpas på grupp namnet skilja sig från de som tillämpas på grupp Ali Aset. 
+Namnkonventionens allmänna struktur är "Prefix[GroupName]Suffix". Du kan definiera flera prefix och suffix, men du kan bara ha en instans av [GroupName] i inställningen. Prefixen eller suffixen kan vara antingen fasta strängar \[eller\] användarattribut, till exempel Avdelning som ersätts baserat på användaren som skapar gruppen. Det totala tillåtna antalet tecken för prefixet och suffixsträngarna tillsammans är 53 tecken. 
+
+Prefix och suffix kan innehålla specialtecken som stöds i gruppnamn och gruppalias. Alla tecken i prefixet eller suffixet som inte stöds i gruppaliaset används fortfarande i gruppnamnet, men tas bort från gruppaliaset. På grund av den här begränsningen kan prefix och suffix som tillämpas på gruppnamnet skilja sig från de som tillämpas på gruppalias. 
 
 #### <a name="fixed-strings"></a>Fasta strängar
 
-Du kan använda strängar för att göra det enklare att söka igenom och särskilja grupper i den globala adress listan och i de vänstra navigerings länkarna i grupp arbets belastningar. Några av de vanliga prefixen är nyckelord som "GRP\_Name", "\#namn", "\_namn"
+Du kan använda strängar för att göra det enklare att söka igenom och differentiera grupper i den globala adresslistan och i de vänstra navigeringslänkarna för grupparbetsbelastningar. Några av de vanliga prefixen är\_nyckelord som\#"Grp\_Name", ' Name', ' Name'
 
 #### <a name="user-attributes"></a>Användarattribut
 
-Du kan använda attribut som kan hjälpa dig och dina användare att identifiera vilken avdelning, vilket kontor eller vilken region som gruppen skapades för. Om du till exempel definierar din namngivnings princip som `PrefixSuffixNamingRequirement = "GRP [GroupName] [Department]"`och `User’s department = Engineering`, kan ett framtvingat grupp namn vara "GRP My Group Engineering". Azure AD-attribut som stöds är \[avdelnings\], \[företags\], \[Office\], \[StateOrProvince\], \[CountryOrRegion\], \[title\]. Användarattribut som inte stöds behandlas som fasta strängar. till exempel "\[post nummer\]". Attribut för tillägg och anpassade attribut stöds inte.
+Du kan använda attribut som kan hjälpa dig och dina användare att identifiera vilken avdelning, kontor eller geografisk region som gruppen skapades för. Om du till exempel definierar `PrefixSuffixNamingRequirement = "GRP [GroupName] [Department]"`namnprincipen som , och `User’s department = Engineering`kan ett påtvingat gruppnamn vara "GRP My Group Engineering". Azure AD-attribut \[som\] \[stöds\] \[är\] \[Avdelning, Företag\], \[Office\], \[\]StateOrProvince , CountryOrRegion , Title . Användarattribut som inte stöds behandlas som fasta strängar. till exempel\["\]postalCode ". Tilläggsattribut och anpassade attribut stöds inte.
 
-Vi rekommenderar att du använder attribut som har ifyllda värden för alla användare i din organisation och inte använder attribut som har långa värden.
+Vi rekommenderar att du använder attribut som har värden ifyllda för alla användare i organisationen och inte använder attribut som har långa värden.
 
 ### <a name="custom-blocked-words"></a>Anpassade blockerade ord
 
-En blockerad ord lista är en kommaavgränsad lista med fraser som ska blockeras i grupp namn och alias. Ingen under Strängs sökning utförs. En exakt matchning mellan grupp namnet och ett eller flera av de anpassade blockerade orden krävs för att utlösa ett fel. Under Strängs sökning utförs inte så att användarna kan använda vanliga ord som "Class" även om "lass" är ett blockerat ord.
+En blockerad ordlista är en kommaavgränsad lista med fraser som ska blockeras i gruppnamn och alias. Inga substrängsökningar utförs. En exakt matchning mellan gruppnamnet och ett eller flera av de anpassade blockerade orden krävs för att utlösa ett fel. Understrängssökning utförs inte så att användarna kan använda vanliga ord som "Klass" även om "lass" är ett blockerat ord.
 
-Blockerade ord List regler:
+Blockerade ordlisteregler:
 
-- Blockerade ord är inte Skift läges känsliga.
-- När en användare anger ett blockerat ord som en del av ett grupp namn visas ett fel meddelande med det blockerade ordet.
-- Det finns inga begränsningar för tecknen på blockerade ord.
+- Blockerade ord är inte skiftlägeskänsliga.
+- När en användare anger ett blockerat ord som en del av ett gruppnamn visas ett felmeddelande med det blockerade ordet.
+- Det finns inga teckenbegränsningar för blockerade ord.
 - Det finns en övre gräns på 5000 fraser som kan konfigureras i listan blockerade ord. 
 
 ### <a name="roles-and-permissions"></a>Roller och behörigheter
 
-En av följande roller krävs för att konfigurera namngivnings principen:
+För att konfigurera namngivningsprincipen krävs en av de efterföljande rollerna:
 - Global administratör
-- Grupp administratör
-- Användar administratör
+- Gruppadministratör
+- Användaradministratör
 
-De valda administratörerna kan undantas från dessa principer, i alla grupp arbets belastningar och slut punkter, så att de kan skapa grupper med hjälp av blockerade ord och med egna namngivnings konventioner. Följande är en lista över administratörs roller som är undantagna från grupp namngivnings principen.
+Valda administratörer kan undantas från dessa principer, över alla grupparbetsbelastningar och slutpunkter, så att de kan skapa grupper med blockerade ord och med sina egna namngivningskonventioner. Följande är listan över administratörsroller som är undantagna från gruppnamngivningsprincipen.
 
 - Global administratör
-- Support på partner nivå 1
-- Support på partner nivå 2
-- Användar administratör
-- Katalog skrivare
+- Support för partnernivå 1
+- Support för partnernivå 2
+- Användaradministratör
+- Katalogförfattare
 
-## <a name="configure-naming-policy-in-azure-portal"></a>Konfigurera namngivnings princip i Azure Portal
+## <a name="configure-naming-policy-in-azure-portal"></a>Konfigurera namngivningsprincipen i Azure Portal
 
-1. Logga in på [administrations centret för Azure AD](https://aad.portal.azure.com) med ett grupp administratörs konto.
-1. Välj **grupper**och välj sedan **namngivnings princip** för att öppna sidan namngivnings princip.
+1. Logga in på [Azure AD-administrationscentret](https://aad.portal.azure.com) med ett gruppadministratörskonto.
+1. Välj **Grupper**och välj sedan **Namngivningsprincip** för att öppna sidan Namngivningsprincip.
 
-    ![Öppna sidan namngivnings princip i administrations centret](./media/groups-naming-policy/policy.png)
+    ![öppna sidan Namngivningsprincip i administrationscentret](./media/groups-naming-policy/policy.png)
 
-### <a name="view-or-edit-the-prefix-suffix-naming-policy"></a>Visar eller redigerar prefix-suffixets namngivnings princip
+### <a name="view-or-edit-the-prefix-suffix-naming-policy"></a>Visa eller redigera namngivningsprincipen för prefix-suffix
 
-1. På sidan **namngivnings princip** väljer du **grupp namngivnings princip**.
-1. Du kan visa eller redigera nuvarande prefix eller suffix för namngivning individuellt genom att välja de attribut eller strängar som du vill tillämpa som en del av namngivnings principen.
-1. Om du vill ta bort ett prefix eller suffix från listan väljer du prefixet eller suffixet och väljer sedan **ta bort**. Flera objekt kan tas bort samtidigt.
-1. Spara ändringarna för den nya principen och börja gälla genom att välja **Spara**.
+1. Välj **Gruppnamnsprincip**på sidan **Namngivningsprincip** .
+1. Du kan visa eller redigera det aktuella prefixet eller suffixets namngivningsprinciper individuellt genom att välja de attribut eller strängar som du vill tillämpa som en del av namngivningsprincipen.
+1. Om du vill ta bort ett prefix eller ett suffix från listan markerar du prefixet eller suffixet och väljer sedan **Ta bort**. Flera objekt kan tas bort samtidigt.
+1. Spara ändringarna för att den nya principen ska träda i kraft genom att välja **Spara**.
 
 ### <a name="edit-custom-blocked-words"></a>Redigera anpassade blockerade ord
 
-1. På sidan **namngivnings princip** väljer du **blockerade ord**.
+1. På sidan **Namngivningsprincip** väljer du **Blockerade ord**.
 
-    ![Redigera och ladda upp blockerade ord lista för namngivnings princip](./media/groups-naming-policy/blockedwords.png)
+    ![redigera och ladda upp listan med blockerade ord för namngivningsprincip](./media/groups-naming-policy/blockedwords.png)
 
 1. Visa eller redigera den aktuella listan med anpassade blockerade ord genom att välja **Hämta**.
-1. Ladda upp den nya listan med anpassade blockerade ord genom att välja fil ikonen.
-1. Spara ändringarna för den nya principen och börja gälla genom att välja **Spara**.
+1. Ladda upp den nya listan med anpassade blockerade ord genom att välja filikonen.
+1. Spara ändringarna för att den nya principen ska träda i kraft genom att välja **Spara**.
 
 ## <a name="install-powershell-cmdlets"></a>Installera PowerShell-cmdletar
 
@@ -121,11 +123,11 @@ Se till att avinstallera äldre versioner av Azure Active Directory PowerShell f
    Install-Module AzureADPreview
    ```
 
-   Om du tillfrågas om åtkomst till ett ej betrott lager, anger du **Y**. Det kan ta några minuter innan den nya modulen har installerats.
+   Om du uppmanas att komma åt en ej betrodd databas anger du **Y**. Det kan ta några minuter innan den nya modulen installeras.
 
-## <a name="configure-naming-policy-in-powershell"></a>Konfigurera namngivnings princip i PowerShell
+## <a name="configure-naming-policy-in-powershell"></a>Konfigurera namngivningsprincipen i PowerShell
 
-1. Öppna ett Windows PowerShell-fönster på datorn. Du kan öppna den utan utökade privilegier.
+1. Öppna ett Windows PowerShell-fönster på datorn. Du kan öppna den utan förhöjda privilegier.
 
 1. Kör följande kommandon för att förbereda körningen av cmdletarna.
   
@@ -140,7 +142,7 @@ Se till att avinstallera äldre versioner av Azure Active Directory PowerShell f
 
 ### <a name="view-the-current-settings"></a>Visa de aktuella inställningarna
 
-1. Hämta den aktuella namngivnings principen för att visa de aktuella inställningarna.
+1. Hämta den aktuella namngivningsprincipen om du vill visa de aktuella inställningarna.
   
    ``` PowerShell
    $Setting = Get-AzureADDirectorySetting -Id (Get-AzureADDirectorySetting | where -Property DisplayName -Value "Group.Unified" -EQ).id
@@ -152,7 +154,7 @@ Se till att avinstallera äldre versioner av Azure Active Directory PowerShell f
    $Setting.Values
    ```
   
-### <a name="set-the-naming-policy-and-custom-blocked-words"></a>Ange namngivnings princip och anpassade blockerade ord
+### <a name="set-the-naming-policy-and-custom-blocked-words"></a>Ange namngivningsprincipen och anpassade blockerade ord
 
 1. Ange gruppnamnsprefix och -suffix i Azure AD PowerShell. För att funktionen ska fungera korrekt måste [GroupName] inkluderas i inställningen.
   
@@ -166,17 +168,17 @@ Se till att avinstallera äldre versioner av Azure Active Directory PowerShell f
    $Setting["CustomBlockedWordsList"]=“Payroll,CEO,HR"
    ```
   
-1. Spara inställningarna för den nya principen för att börja gälla, till exempel i följande exempel.
+1. Spara inställningarna för den nya principen som ska börja gälla, till exempel i följande exempel.
   
    ``` PowerShell
    Set-AzureADDirectorySetting -Id (Get-AzureADDirectorySetting | where -Property DisplayName -Value "Group.Unified" -EQ).id -DirectorySetting $Setting
    ```
   
-Det var allt. Du har angett en namngivnings princip och lagt till dina blockerade ord.
+Klart! Du har angett namngivningsprincipen och lagt till dina blockerade ord.
 
 ## <a name="export-or-import-custom-blocked-words"></a>Exportera eller importera anpassade blockerade ord
 
-Mer information finns i artikeln Azure Active Directory- [cmdletar för att konfigurera grupp inställningar](groups-settings-cmdlets.md).
+Mer information finns i artikeln [Azure Active Directory cmdlets för att konfigurera gruppinställningar](groups-settings-cmdlets.md).
 
 Här är ett exempel på ett PowerShell-skript för att exportera flera blockerade ord:
 
@@ -200,14 +202,14 @@ $Settings["CustomBlockedWordsList"] = $BadWords
 Set-AzureADDirectorySetting -Id $Settings.Id -DirectorySetting $Settings 
 ```
 
-## <a name="remove-the-naming-policy"></a>Ta bort namngivnings principen
+## <a name="remove-the-naming-policy"></a>Ta bort namngivningsprincipen
 
-### <a name="remove-the-naming-policy-using-azure-portal"></a>Ta bort namngivnings principen med Azure Portal
+### <a name="remove-the-naming-policy-using-azure-portal"></a>Ta bort namngivningsprincipen med Azure-portalen
 
-1. På sidan **namngivnings princip** väljer du **ta bort princip**.
-1. När du har bekräftat borttagningen tas namngivnings principen bort, inklusive alla namngivnings principer för prefix och alla anpassade blockerade ord.
+1. På sidan **Namngivningsprincip** väljer du **Ta bort princip**.
+1. När du har bekräftat borttagningen tas namngivningsprincipen bort, inklusive alla namngivningsprincipen prefix-suffix och eventuella anpassade blockerade ord.
 
-### <a name="remove-the-naming-policy-using-azure-ad-powershell"></a>Ta bort namngivnings principen med hjälp av Azure AD PowerShell
+### <a name="remove-the-naming-policy-using-azure-ad-powershell"></a>Ta bort namngivningsprincipen med Azure AD PowerShell
 
 1. Ta bort gruppnamnsprefix och -suffix i Azure AD PowerShell.
   
@@ -227,42 +229,42 @@ Set-AzureADDirectorySetting -Id $Settings.Id -DirectorySetting $Settings
    Set-AzureADDirectorySetting -Id (Get-AzureADDirectorySetting | where -Property DisplayName -Value "Group.Unified" -EQ).id -DirectorySetting $Setting
    ```
 
-## <a name="experience-across-office-365-apps"></a>Erfarenheter i Office 365-appar
+## <a name="experience-across-office-365-apps"></a>Erfarenhet av office 365-appar
 
-När du har angett en grupp namngivnings princip i Azure AD, och en användare skapar en grupp i en Office 365-app, ser de:
+När du har angett en gruppnamngivningsprincip i Azure AD, när en användare skapar en grupp i en Office 365-app, visas:
 
-- En förhands granskning av namnet enligt din namngivnings princip (med prefix och suffix) så snart som användaren skriver i grupp namnet
-- Om användaren anger blockerade ord visas ett fel meddelande så att de kan ta bort de blockerade orden.
+- En förhandsgranskning av namnet enligt namnprincipen (med prefix och suffix) så snart användaren skriver i gruppnamnet
+- Om användaren anger blockerade ord visas ett felmeddelande så att de kan ta bort de blockerade orden.
 
 Arbetsbelastning | Efterlevnad
 ----------- | -------------------------------
-Azure Active Directory portaler | Azure AD-portalen och åtkomst panelens Portal visar namngivnings principens tvingande namn när användaren skriver i ett grupp namn när de skapar eller redigerar en grupp. När en användare anger ett anpassat blockerat ord visas ett fel meddelande med det blockerade ordet så att användaren kan ta bort det.
-Outlook Web Access (OWA) | Outlook Web Access visar namnet på den namngivnings princip som tillämpas när användaren skriver ett grupp namn eller gruppalias. När en användare anger ett anpassat blockerat ord visas ett fel meddelande i användar gränssnittet tillsammans med det blockerade ordet så att användaren kan ta bort det.
-Outlook-skrivbordet | Grupper som skapats i Outlook Desktop är kompatibla med namngivnings princip inställningarna. Outlook Desktop-appen visar inte för hands versionen av namnet på den tvingade gruppen och returnerar inte de anpassade blockerade Word-felen när användaren anger grupp namnet. Namngivnings principen tillämpas dock automatiskt när du skapar eller redigerar en grupp, och användarna ser fel meddelanden om det finns anpassade blockerade ord i grupp namnet eller aliaset.
-Microsoft Teams | Microsoft Teams visar namnet på den grupp namngivnings princip som tillämpas när användaren anger ett grupp namn. När en användare anger ett anpassat blockerat ord visas ett fel meddelande tillsammans med det blockerade ordet så att användaren kan ta bort det.
-SharePoint  |  SharePoint visar namnet på den namngivnings princip som tillämpas när användaren skriver ett plats namn eller en grupps e-postadress. När en användare anger ett anpassat blockerat ord visas ett fel meddelande, tillsammans med det blockerade ordet så att användaren kan ta bort det.
-Microsoft Stream | Microsoft Stream visar namnet på den grupp namngivnings princip som tillämpas när användaren skriver ett grupp namn eller ett e-postalias för grupp. När en användare anger ett anpassat blockerat ord visas ett fel meddelande med det blockerade ordet så att användaren kan ta bort det.
-Outlook iOS-och Android-app | Grupper som skapats i Outlook-appar är kompatibla med den konfigurerade namngivnings principen. Outlook Mobile-appen visar inte förhands granskningen av det tvingade namnet för namngivnings principen och returnerar inte anpassade blockerade Word-fel när användaren anger grupp namnet. Namngivnings principen tillämpas dock automatiskt när du klickar på Skapa/redigera och användare ser fel meddelanden om det finns anpassade blockerade ord i grupp namnet eller aliaset.
-Gruppera mobilapp | Grupper som skapats i gruppmobilapp är kompatibla med namngivnings principen. Grupper mobilappar visar inte förhands granskningen av namngivnings principen och returnerar inte anpassade blockerade Word-fel när användaren anger grupp namnet. Men namngivnings principen tillämpas automatiskt när du skapar eller redigerar en grupp och användare visas med lämpliga fel om det finns anpassade blockerade ord i grupp namnet eller aliaset.
-Planner | Planner är kompatibelt med namngivnings principen. Planner visar för hands versionen av namngivnings princip när du anger plan namnet. När en användare anger ett anpassat blockerat ord visas ett fel meddelande när du skapar planen.
-Dynamics 365 för Customer Engagement | Dynamics 365 för kund engagemang är kompatibelt med namngivnings principen. Dynamics 365 visar namnet på namngivnings principen när användaren skriver ett grupp namn eller ett e-postalias för grupp. När användaren anger ett anpassat blockerat ord visas ett fel meddelande med det blockerade ordet så att användaren kan ta bort det.
-SDS (School Data Sync) | Grupper som skapats via SDS följer namngivnings principen, men namngivnings principen tillämpas inte automatiskt. SDS-administratörer måste lägga till prefix och suffix till klass namn för vilka grupper måste skapas och sedan överföras till SDS. Det gick inte att skapa eller redigera grupp på annat sätt.
-Outlook-kund Manager (OCM) | Outlook kund Manager är kompatibel med namngivnings principen, som tillämpas automatiskt på den grupp som skapats i Outlook Customer Manager. Om ett anpassat blockerat ord identifieras blockeras skapande av grupper i OCM och användaren blockeras från att använda OCM-appen.
-Klass rums app | Grupper som skapats i klass rums appen följer namngivnings principen, men namngivnings principen tillämpas inte automatiskt, och för hands versionen av namngivnings principen visas inte för användarna när du anger ett grupp namn i klass rummet. Användarna måste ange namnet på den tvingade klass rummets grupp med prefix och suffix. Annars Miss lyckas klass rums gruppen Skapa eller redigera med fel.
-Power BI | Power BI-arbetsytor är kompatibla med namngivnings principen.    
-Yammer | När en användare som är inloggad på Yammer med sitt Azure Active Directory konto skapar en grupp eller redigerar ett grupp namn, kommer grupp namnet att följa namngivnings principen. Detta gäller både för Office 365-anslutna grupper och alla andra Yammer-grupper.<br>Om en Office 365-ansluten grupp skapades innan namngivnings principen är på plats, kommer grupp namnet inte automatiskt att följa namngivnings principerna. När en användare redigerar grupp namnet kommer de att uppmanas att lägga till prefixet och suffixet.
-StaffHub  | StaffHub-team följer inte namngivnings principen, men den underliggande Office 365-gruppen gör det. StaffHub-teamets namn tillämpar inte prefix och suffix och söker inte efter anpassade blockerade ord. Men StaffHub tillämpar prefixen och suffixen och tar bort blockerade ord från den underliggande Office 365-gruppen.
-Exchange PowerShell | Exchange PowerShell-cmdletar är kompatibla med namngivnings principen. Användare får rätt fel meddelanden med föreslagna prefix och suffix och för anpassade blockerade ord om de inte följer namngivnings principen i grupp namn och grupp Ali Aset (smek namn).
-Azure Active Directory PowerShell-cmdletar | Azure Active Directory PowerShell-cmdletar är kompatibla med namngivnings principen. Användare får rätt fel meddelanden med föreslagna prefix och suffix och för anpassade blockerade ord om de inte följer namngivnings konventionen i grupp namn och gruppalias.
-Administrations Center för Exchange | Exchange administrations Center är kompatibelt med namngivnings principen. Användare får rätt fel meddelanden med föreslagna prefix och suffix och för anpassade blockerade ord om de inte följer namngivnings konventionen i grupp namn och alias.
-Administrationscenter för Microsoft 365 | Microsoft 365 administrations Center är kompatibelt med namngivnings principen. När en användare skapar eller redigerar grupp namn tillämpas namngivnings principen automatiskt och användarna får rätt fel när de anger anpassade blockerade ord. Microsoft 365 administrations Center visar inte ännu en förhands granskning av namngivnings principen och returnerar inte anpassade blockerade Word-fel när användaren anger grupp namnet.
+Azure Active Directory-portaler | Azure AD-portalen och Access Panel-portalen visar namnet på namngivningsprincipen när användaren skriver i ett gruppnamn när du skapar eller redigerar en grupp. När en användare anger ett anpassat blockerat ord visas ett felmeddelande med det blockerade ordet så att användaren kan ta bort det.
+Outlook Web Access (OWA) | Outlook Web Access visar namnet på namngivningsprincipen när användaren skriver ett gruppnamn eller gruppalias. När en användare anger ett anpassat blockerat ord visas ett felmeddelande i användargränssnittet tillsammans med det blockerade ordet så att användaren kan ta bort det.
+Outlook-skrivbordet | Grupper som skapas på Outlook-skrivbordet är kompatibla med namngivningsprincipinställningarna. Outlook-skrivbordsappen visar ännu inte förhandsgranskningen av det påtvingade gruppnamnet och returnerar inte de anpassade blockerade ordfelen när användaren anger gruppnamnet. Namngivningsprincipen tillämpas dock automatiskt när du skapar eller redigerar en grupp, och användarna ser felmeddelanden om det finns anpassade blockerade ord i gruppens namn eller alias.
+Microsoft Teams | Microsoft Teams visar det tvingande namnet på gruppnamnen när användaren anger ett gruppnamn. När en användare anger ett anpassat blockerat ord visas ett felmeddelande tillsammans med det blockerade ordet så att användaren kan ta bort det.
+SharePoint  |  SharePoint visar namnet på namngivningsprincipen när användaren skriver ett webbplatsnamn eller en grupp-e-postadress. När en användare anger ett anpassat blockerat ord visas ett felmeddelande tillsammans med det blockerade ordet så att användaren kan ta bort det.
+Microsoft Stream | Microsoft Stream visar det tvingande namnet för gruppnamngivning när användaren skriver ett gruppnamn eller gruppe-postalias. När en användare anger ett anpassat blockerat ord visas ett felmeddelande med det blockerade ordet så att användaren kan ta bort det.
+Outlook iOS och Android-app | Grupper som skapas i Outlook-appar är kompatibla med den konfigurerade namngivningsprincipen. Outlook-mobilappen visar ännu inte förhandsgranskningen av namnet på namngivningsprincipen och returnerar inte anpassade blockerade ordfel när användaren anger gruppnamnet. Namngivningsprincipen tillämpas dock automatiskt när du klickar på skapa/redigera och användarna ser felmeddelanden om det finns anpassade blockerade ord i gruppens namn eller alias.
+Mobilapp för grupper | Grupper som skapas i mobilappen Grupper är kompatibla med namngivningsprincipen. Grupp mobilapp visar inte förhandsgranskningen av namngivningsprincipen och returnerar inte anpassade blockerade ordfel när användaren anger gruppnamnet. Men namngivningsprincipen tillämpas automatiskt när du skapar eller redigerar en grupp och användarna visas med lämpliga fel om det finns anpassade blockerade ord i gruppens namn eller alias.
+Planner | Planner är kompatibel med namngivningsprincipen. Planner visar förhandsgranskningen av namngivningsprincipen när du anger planens namn. När en användare anger ett anpassat blockerat ord visas ett felmeddelande när planen skapas.
+Dynamics 365 för Customer Engagement | Dynamics 365 for Customer Engagement är kompatibel med namngivningsprincipen. Dynamics 365 visar namnet på namngivningsprincipen när användaren skriver ett gruppnamn eller gruppe-postalias. När användaren anger ett anpassat blockerat ord visas ett felmeddelande med det blockerade ordet så att användaren kan ta bort det.
+Synkronisering av skoldata (SDS) | Grupper som skapas via SDS följer namngivningsprincipen, men namngivningsprincipen tillämpas inte automatiskt. SDS-administratörer måste lägga till prefix och suffix till klassnamn för vilka grupper måste skapas och sedan överföras till SDS. Gruppskapa eller redigera skulle misslyckas annars.
+Outlook Kundhanteraren (OCM) | Outlook Customer Manager är kompatibelt med namngivningsprincipen, som tillämpas automatiskt på den grupp som skapas i Outlook Customer Manager. Om ett anpassat blockerat ord identifieras blockeras gruppskapandet i OCM och användaren blockeras från att använda OCM-appen.
+Appen Klassrum | Grupper som skapas i Classroom-appen följer namngivningsprincipen, men namngivningsprincipen tillämpas inte automatiskt och förhandsgranskningen av namngivningsprincipen visas inte för användarna när de anger ett klassrumsgruppnamn. Användare måste ange det påtvingade klassrummet gruppnamnet med prefix och suffix. Om inte, misslyckas klassrumsgruppens skapa eller redigera åtgärd med fel.
+Power BI | Power BI-arbetsytor är kompatibla med namngivningsprincipen.    
+Yammer | När en användare som är inloggad på Yammer med sitt Azure Active Directory-konto skapar en grupp eller redigerar ett gruppnamn, följer gruppnamnet namngivningsprincipen. Detta gäller både Office 365-anslutna grupper och alla andra Yammer-grupper.<br>Om en Ansluten Office 365-grupp skapades innan namngivningsprincipen finns på plats följer gruppnamnet inte automatiskt namngivningsprinciperna. När en användare redigerar gruppnamnet uppmanas de att lägga till prefixet och suffixet.
+StaffHub  | StaffHub-team följer inte namngivningsprincipen, men den underliggande Office 365-gruppen gör det. StaffHub-teamets namn använder inte prefix och suffix och söker inte efter anpassade blockerade ord. Men StaffHub tillämpar prefix och suffix och tar bort blockerade ord från den underliggande Office 365-gruppen.
+Växla PowerShell | Exchange PowerShell-cmdletar är kompatibla med namngivningsprincipen. Användarna får lämpliga felmeddelanden med föreslagna prefix och suffix och för anpassade blockerade ord om de inte följer namngivningsprincipen i gruppnamnet och gruppaliaset (mailNickname).
+Azure Active Directory PowerShell-cmdlets | Azure Active Directory PowerShell-cmdletar är kompatibla med namngivningsprincipen. Användarna får lämpliga felmeddelanden med föreslagna prefix och suffix och för anpassade blockerade ord om de inte följer namngivningskonventionen i gruppnamn och gruppalias.
+Administrationscenter för Exchange | Administrationscentret för Exchange är kompatibelt med namngivningsprincipen. Användarna får lämpliga felmeddelanden med föreslagna prefix och suffix och för anpassade blockerade ord om de inte följer namngivningskonventionen i gruppnamnet och gruppaliaset.
+Administrationscenter för Microsoft 365 | Microsoft 365-administrationscentret är kompatibelt med namngivningsprincipen. När en användare skapar eller redigerar gruppnamn tillämpas namngivningsprincipen automatiskt och användarna får lämpliga fel när de anger anpassade blockerade ord. Administrationscentret för Microsoft 365 visar ännu inte en förhandsgranskning av namngivningsprincipen och returnerar inte anpassade blockerade ordfel när användaren anger gruppnamnet.
 
 ## <a name="next-steps"></a>Nästa steg
 
-De här artiklarna innehåller ytterligare information om Azure AD-grupper.
+Dessa artiklar innehåller ytterligare information om Azure AD-grupper.
 
 - [Se befintliga grupper](../fundamentals/active-directory-groups-view-azure-portal.md)
-- [Princip för förfallo princip för Office 365-grupper](groups-lifecycle.md)
+- [Förfalloprincip för Office 365-grupper](groups-lifecycle.md)
 - [Hantera inställningar för en grupp](../fundamentals/active-directory-groups-settings-azure-portal.md)
 - [Hantera medlemmar i en grupp](../fundamentals/active-directory-groups-members-azure-portal.md)
 - [Hantera medlemskap i en grupp](../fundamentals/active-directory-groups-membership-azure-portal.md)

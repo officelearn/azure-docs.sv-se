@@ -1,18 +1,18 @@
 ---
-title: Skapa definition av hanterad app
+title: Skapa definition av hanterade appar
 description: Visar hur du skapar ett Azure-hanterat program som är avsett för medlemmar i din organisation.
 author: tfitzmac
 ms.topic: quickstart
 ms.date: 09/13/2019
 ms.author: tomfitz
-ms.openlocfilehash: 11d4eb396d332327addcd85ed7badd36ef8f1d10
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: 5168dab7501cdb2907b3eede5877dce39e9e5c97
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75650347"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79473055"
 ---
-# <a name="publish-an-azure-managed-application-definition"></a>Publicera en definition av Azure-hanterat program
+# <a name="quickstart-publish-an-azure-managed-application-definition"></a>Snabbstart: Publicera en definition av Azure-hanterat program
 
 Den här snabbstarten ger en introduktion till att arbeta med hanterade program. Du lägger till en hanterad programdefinition till en intern katalog för användare i din organisation. Vi har redan skapat filerna för det hanterade programmet för att förenkla introduktionen. Filerna är tillgängliga via GitHub. Du lär dig hur du skapar dessa filer i självstudien [Create service catalog application](publish-service-catalog-app.md) (Skapa tjänstkatalogprogram).
 

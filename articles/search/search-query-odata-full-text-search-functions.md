@@ -1,7 +1,7 @@
 ---
-title: OData fullständig text Sök funktion referens
+title: OData-referens för fulltextsökningsfunktionen
 titleSuffix: Azure Cognitive Search
-description: OData full text search functions, search. ismatch och search. ismatchscoring, i Azure Kognitiv sökning-frågor.
+description: OData fulltext sökfunktioner, search.ismatch och search.ismatchscoring, i Azure Cognitive Search frågor.
 manager: nitinme
 author: brjohnstmsft
 ms.author: brjohnst
@@ -20,22 +20,22 @@ translation.priority.mt:
 - zh-cn
 - zh-tw
 ms.openlocfilehash: 06eb29f2f3245d3f4fd047fb86b2b57fb1f0989e
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72793353"
 ---
-# <a name="odata-full-text-search-functions-in-azure-cognitive-search---searchismatch-and-searchismatchscoring"></a>OData full texts öknings funktioner i Azure Kognitiv sökning-`search.ismatch` och `search.ismatchscoring`
+# <a name="odata-full-text-search-functions-in-azure-cognitive-search---searchismatch-and-searchismatchscoring"></a>OData fulltextsökfunktioner i Azure `search.ismatch` Cognitive Search - och`search.ismatchscoring`
 
-Azure Kognitiv sökning stöder full texts ökning i samband med [OData filter-uttryck](query-odata-filter-orderby-syntax.md) via funktionerna `search.ismatch` och `search.ismatchscoring`. Med de här funktionerna kan du kombinera full texts ökning med strikt boolesk filtrering på sätt som inte är möjligt med hjälp av den översta `search`s parametern för [Sök-API: et](https://docs.microsoft.com/rest/api/searchservice/search-documents).
+Azure Cognitive Search stöder fulltextsökning i kontexten för `search.ismatch` `search.ismatchscoring` [OData-filteruttryck](query-odata-filter-orderby-syntax.md) via funktionerna och funktionerna. Med dessa funktioner kan du kombinera fulltextsökning med strikt boolesk filtrering på `search` ett sätt som inte är möjligt bara genom att använda parametern på den översta nivån i [sök-API: et](https://docs.microsoft.com/rest/api/searchservice/search-documents).
 
 > [!NOTE]
-> Funktionerna `search.ismatch` och `search.ismatchscoring` stöds bara i filter i [Sök-API: et](https://docs.microsoft.com/rest/api/searchservice/search-documents). De stöds inte i API: erna [föreslå](https://docs.microsoft.com/rest/api/searchservice/suggestions) eller [komplettera automatiskt](https://docs.microsoft.com/rest/api/searchservice/autocomplete) .
+> `search.ismatch` Funktionerna `search.ismatchscoring` och stöds endast i filter i [sök-API:et](https://docs.microsoft.com/rest/api/searchservice/search-documents). De stöds inte i [API:erna Föreslå](https://docs.microsoft.com/rest/api/searchservice/suggestions) [eller Komplettera automatiskt.](https://docs.microsoft.com/rest/api/searchservice/autocomplete)
 
 ## <a name="syntax"></a>Syntax
 
-Följande EBNF ([Extended backable-Naur form](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form)) definierar grammatiken i `search.ismatch` och `search.ismatchscoring` funktioner:
+Följande EBNF ([Extended Backus-Naur Form](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form)) `search.ismatch` definierar grammatiken i och `search.ismatchscoring` funktioner:
 
 <!-- Upload this EBNF using https://bottlecaps.de/rr/ui to create a downloadable railroad diagram. -->
 
@@ -51,17 +51,17 @@ query_type ::= "'full'" | "'simple'"
 search_mode ::= "'any'" | "'all'"
 ```
 
-Ett interaktivt syntax diagram är också tillgängligt:
+Det finns också ett interaktivt syntaxdiagram:
 
 > [!div class="nextstepaction"]
-> [OData-syntax diagram för Azure Kognitiv sökning](https://azuresearch.github.io/odata-syntax-diagram/#search_is_match_call)
+> [OData-syntaxdiagram för Azure Cognitive Search](https://azuresearch.github.io/odata-syntax-diagram/#search_is_match_call)
 
 > [!NOTE]
-> Se [referens för OData-uttryck för Azure kognitiv sökning](search-query-odata-syntax-reference.md) för den fullständiga ebnf.
+> Se [OData-uttryckssyntaxreferens för Azure Cognitive Search](search-query-odata-syntax-reference.md) för hela EBNF.
 
-### <a name="searchismatch"></a>search. ismatch
+### <a name="searchismatch"></a>sök.ismatch
 
-Funktionen `search.ismatch` utvärderar en full text Sök fråga som en del av ett filter uttryck. Dokumenten som matchar Sök frågan kommer att returneras i resultat uppsättningen. Följande överlagringar av den här funktionen är tillgängliga:
+Funktionen `search.ismatch` utvärderar en fulltextsökfråga som en del av ett filteruttryck. De dokument som matchar sökfrågan returneras i resultatuppsättningen. Följande överbelastningar av den här funktionen är tillgängliga:
 
 - `search.ismatch(search)`
 - `search.ismatch(search, searchFields)`
@@ -71,56 +71,56 @@ Parametrarna definieras i följande tabell:
 
 | Parameternamn | Typ | Beskrivning |
 | --- | --- | --- |
-| `search` | `Edm.String` | Sök frågan (i antingen [enkel](query-simple-syntax.md) eller [fullständig](query-lucene-syntax.md) Lucene-frågesyntax). |
-| `searchFields` | `Edm.String` | Kommaavgränsad lista över sökbara fält att söka i. Standardvärdet är alla sökbara fält i indexet. När du använder en [sökt sökning](query-lucene-syntax.md#bkmk_fields) i parametern `search` åsidosätter fält specifikationen i en Lucene-fråga alla fält som anges i den här parametern. |
-| `queryType` | `Edm.String` | `'simple'` eller `'full'`; Standardvärdet är `'simple'`. Anger vilket frågespråk som användes i `search`-parametern. |
-| `searchMode` | `Edm.String` | `'any'` eller `'all'`är standardvärdet `'any'`. Anger om en eller flera av Sök villkoren i parametern `search` måste matchas för att det ska gå att räkna dokumentet som en matchning. När du använder [booleska operatorerna för Lucene](query-lucene-syntax.md#bkmk_boolean) i `search`-parametern har de företräde framför den här parametern. |
+| `search` | `Edm.String` | Sökfrågan (i [antingen enkel](query-simple-syntax.md) eller [fullständig](query-lucene-syntax.md) Lucene-frågesyntax). |
+| `searchFields` | `Edm.String` | Kommaavgränsad lista över sökbara fält att söka i. alla sökbara fält i indexet. När du använder [fältsök i](query-lucene-syntax.md#bkmk_fields) parametern åsidosätter fältspecificerarna i Lucene-frågan alla fält som anges i den `search` här parametern. |
+| `queryType` | `Edm.String` | `'simple'`eller `'full'`; som standard `'simple'`. Anger vilket frågespråk som `search` användes i parametern. |
+| `searchMode` | `Edm.String` | `'any'`eller `'all'`, som `'any'`standard . Anger om något eller alla söktermer i parametern `search` måste matchas för att dokumentet ska räknas som en matchning. När du använder [lucene boolesiska operatorer](query-lucene-syntax.md#bkmk_boolean) i parametern, `search` kommer de att ha företräde framför den här parametern. |
 
-Alla parametrarna ovan motsvarar motsvarande [Sök begär ande parametrar i Sök-API: et](https://docs.microsoft.com/rest/api/searchservice/search-documents).
+Alla ovanstående parametrar motsvarar motsvarande [parametrar för sökbegäran i sök-API:et](https://docs.microsoft.com/rest/api/searchservice/search-documents).
 
-Funktionen `search.ismatch` returnerar ett värde av typen `Edm.Boolean`, vilket gör att du kan skapa den med andra filter under uttryck med de booleska [logiska operatorerna](search-query-odata-logical-operators.md).
+Funktionen `search.ismatch` returnerar ett `Edm.Boolean`typvärde , vilket gör att du kan komponera det med andra filterunderuttryck med hjälp av de booleska [logiska operatorerna](search-query-odata-logical-operators.md).
 
 > [!NOTE]
-> Azure Kognitiv sökning stöder inte användning av `search.ismatch` eller `search.ismatchscoring` inuti lambda-uttryck. Det innebär att det inte går att skriva filter över objekt samlingar som kan korrelera matchningar med full texts ökning med strikta filter matchningar på samma objekt. Mer information om den här begränsningen och exempel finns i [Felsöka samlings filter i Azure kognitiv sökning](search-query-troubleshoot-collection-filters.md). Mer detaljerad information om varför den här begränsningen finns i [förstå samlings filter i Azure kognitiv sökning](search-query-understand-collection-filters.md).
+> Azure Cognitive Search stöder `search.ismatch` `search.ismatchscoring` inte användning eller inuti lambda-uttryck. Det innebär att det inte går att skriva filter över samlingar av objekt som kan korrelera fulltextsökmatchningar med strikta filtermatchningar på samma objekt. Mer information om den här begränsningen och exempel finns [i Felsöka samlingsfilter i Azure Cognitive Search](search-query-troubleshoot-collection-filters.md). Mer detaljerad information om varför den här begränsningen finns finns i [Förstå samlingsfilter i Azure Cognitive Search](search-query-understand-collection-filters.md).
 
 
-### <a name="searchismatchscoring"></a>search. ismatchscoring
+### <a name="searchismatchscoring"></a>sök.ismatchscoring
 
-Funktionen `search.ismatchscoring`, till exempel funktionen `search.ismatch`, returnerar `true` för dokument som matchar full text Sök frågan som har skickats som en parameter. Skillnaden mellan dem är att relevans poängen för dokument som matchar `search.ismatchscoring`s frågan kommer att bidra till det övergripande resultatet av dokumentet, men när det gäller `search.ismatch`ändras inte dokument poängen. Följande överlagringar av den här funktionen är tillgängliga med parametrar som är identiska med de för `search.ismatch`:
+Funktionen, `search.ismatchscoring` liksom `search.ismatch` funktionen, `true` returnerar för dokument som matchar den fulltextsökfråga som skickas som en parameter. Skillnaden mellan dem är att relevanspoängen `search.ismatchscoring` för dokument som matchar frågan bidrar till `search.ismatch`den totala dokumentpoängen, medan dokumentpoängen inte ändras när det gäller . Följande överbelastningar av denna funktion är tillgängliga `search.ismatch`med parametrar som är identiska med:
 
 - `search.ismatchscoring(search)`
 - `search.ismatchscoring(search, searchFields)`
 - `search.ismatchscoring(search, searchFields, queryType, searchMode)`
 
-Både `search.ismatch`-och `search.ismatchscoring` funktionerna kan användas i samma filter uttryck.
+Både `search.ismatch` funktionerna och `search.ismatchscoring` kan användas i samma filteruttryck.
 
 ## <a name="examples"></a>Exempel
 
-Hitta dokument med ordet "Waterfront". Den här filter frågan är identisk med en [Sök förfrågan](https://docs.microsoft.com/rest/api/searchservice/search-documents) med `search=waterfront`.
+Hitta dokument med ordet "vattnet". Den här filterfrågan är identisk `search=waterfront`med en [sökbegäran](https://docs.microsoft.com/rest/api/searchservice/search-documents) med .
 
     search.ismatchscoring('waterfront')
 
-Hitta dokument med ordet "Hostel" och klassificera större eller lika med 4 eller dokument med ordet "Motel" och betyget är lika med 5. OBS! den här begäran kunde inte uttryckas utan funktionen `search.ismatchscoring`.
+Hitta dokument med ordet "vandrarhem" och betyg större eller lika med 4, eller dokument med ordet "motell" och betyg lika med 5. Observera att den här begäran `search.ismatchscoring` inte kunde uttryckas utan funktionen.
 
     search.ismatchscoring('hostel') and Rating ge 4 or search.ismatchscoring('motel') and Rating eq 5
 
-Hitta dokument utan ordet "lyxen".
+Hitta dokument utan ordet "lyx".
 
     not search.ismatch('luxury')
 
-Hitta dokument med frasen "oceanen" eller klassificeringen lika med 5. `search.ismatchscoring`s frågan körs bara mot fält `HotelName` och `Rooms/Description`.
+Hitta dokument med frasen "havsvy" eller betyg som är lika med 5. Frågan `search.ismatchscoring` körs endast mot fält `HotelName` `Rooms/Description`och .
 
-Dokument som matchade bara den andra satsen i diskorsningen returneras för--hotell med `Rating` lika med 5. För att göra det tydligt att dokumenten inte matchade någon av uttrycken i uttrycket returneras de med poängen lika med noll.
+Dokument som matchade endast den andra klausulen i disjunction `Rating` kommer att returneras också - hotell med lika med 5. För att klargöra att dessa dokument inte matchade någon av de poängsatta delarna av uttrycket, kommer de att returneras med poäng lika med noll.
 
     search.ismatchscoring('"ocean view"', 'Rooms/Description,HotelName') or Rating eq 5
 
-Hitta dokument där villkoren "hotell" och "flyg plats" är inom 5 ord från varandra i en beskrivning av hotellet och där rökning inte tillåts i minst några av rummen. Den här frågan använder det [fullständiga Lucene-frågespråket](query-lucene-syntax.md).
+Hitta dokument där termerna "hotell" och "flygplats" är inom 5 ord från varandra i beskrivningen av hotellet, och där rökning inte är tillåten i åtminstone några av rummen. Den här frågan använder det [fullständiga Lucene-frågespråket](query-lucene-syntax.md).
 
     search.ismatch('"hotel airport"~5', 'Description', 'full', 'any') and Rooms/any(room: not room/SmokingAllowed)
 
 ## <a name="next-steps"></a>Nästa steg  
 
-- [Filter i Azure Kognitiv sökning](search-filters.md)
-- [OData uttrycks språk översikt för Azure Kognitiv sökning](query-odata-filter-orderby-syntax.md)
-- [Syntax-referens för OData-uttryck för Azure Kognitiv sökning](search-query-odata-syntax-reference.md)
-- [Sök efter &#40;dokument Azure-kognitiv sökning REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)
+- [Filter i Azure Cognitive Search](search-filters.md)
+- [Språköversikt för OData-uttryck för Azure Cognitive Search](query-odata-filter-orderby-syntax.md)
+- [Syntaxreferens för OData-uttryck för Azure Cognitive Search](search-query-odata-syntax-reference.md)
+- [Sökdokument &#40;Azure Cognitive Search REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)

@@ -1,35 +1,35 @@
 ---
-title: Information om princip definitions strukturen
-description: Beskriver hur princip definitioner används för att upprätta konventioner för Azure-resurser i din organisation.
+title: Närmare uppgifter om den politiska definitionsstrukturen
+description: Beskriver hur principdefinitioner används för att upprätta konventioner för Azure-resurser i organisationen.
 ms.date: 02/26/2020
 ms.topic: conceptual
-ms.openlocfilehash: 95625894d0eb603ae9a37c96c91d01f3720346b1
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: d7cb1ab7d045a0595f6949052ecedba6cd1bf694
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79280734"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80239991"
 ---
 # <a name="azure-policy-definition-structure"></a>Azure Policy-definitionsstruktur
 
-Azure Policy skapar konventioner för resurser. Princip definitioner [beskriver kraven på resursanvändningen och vilken](#conditions) påverkan som ska vidtas om ett villkor är uppfyllt. Ett villkor jämför ett resurs egenskaps [fält](#fields) med ett värde som krävs. Resurs egenskaps fält öppnas med hjälp av [alias](#aliases). Ett resurs egenskaps fält är antingen ett enskilt värde fält eller en [matris](#understanding-the--alias) med flera värden. Villkors utvärderingen är annorlunda för matriser.
+Azure Policy upprättar konventioner för resurser. Principdefinitioner beskriver [villkor](#conditions) för resursefterlevnad och effekten som ska börja om ett villkor uppfylls. Ett villkor jämför ett [field](#fields) resursegenskapsfält med ett obligatoriskt värde. Resursegenskapsfält används med hjälp av [alias](#aliases). Ett resursegenskapsfält är antingen ett fält med ett värde som värderas eller en [matris](#understanding-the--alias) med flera värden. Villkorsutvärdering är olika på matriser.
 Läs mer om [villkor](#conditions).
 
-Du kan styra kostnaderna genom att definiera konventioner och mer hantera enkelt dina resurser. Du kan till exempel ange att bara vissa typer av virtuella datorer är tillåtna. Eller så kan du kräva att alla resurser har en viss tagg. Principer ärvs av alla underordnade resurser. Om en princip tillämpas på en resursgrupp, kan den användas för alla resurser i resursgruppen.
+Genom att definiera konventioner kan du kontrollera kostnader och enklare hantera dina resurser. Du kan till exempel ange att endast vissa typer av virtuella datorer är tillåtna. Du kan också kräva att alla resurser har en viss tagg. Principer ärvs av alla underordnade resurser. Om en princip tillämpas på en resursgrupp gäller den för alla resurser i resursgruppen.
 
-Princip definitions schema finns här: [https://schema.management.azure.com/schemas/2019-06-01/policyDefinition.json](https://schema.management.azure.com/schemas/2019-06-01/policyDefinition.json)
+Principdefinitionsschemat finns här:[https://schema.management.azure.com/schemas/2019-06-01/policyDefinition.json](https://schema.management.azure.com/schemas/2019-06-01/policyDefinition.json)
 
-Du kan använda JSON för att skapa en principdefinition. Principdefinitionen innehåller element för:
+Du använder JSON för att skapa en principdefinition. Principdefinitionen innehåller element för:
 
-- läge
+- mode
 - parameters
-- Visningsnamn
-- beskrivning
+- visningsnamn
+- description
 - principregel
-  - logiska utvärdering
-  - effekt
+  - logisk utvärdering
+  - Effekt
 
-Följande JSON visar exempelvis en princip som begränsar där resurser har distribuerats:
+Följande JSON visar till exempel en princip som begränsar var resurser distribueras:
 
 ```json
 {
@@ -63,67 +63,67 @@ Följande JSON visar exempelvis en princip som begränsar där resurser har dist
 }
 ```
 
-Alla Azure Policys exempel finns på [Azure policy exempel](../samples/index.md).
+Alla Azure-principexempel finns på [Azure Policy-exempel](../samples/index.md).
 
 ## <a name="mode"></a>Läge
 
-**Läge** konfigureras beroende på om principen är riktad mot en Azure Resource Manager-egenskap eller en resurs leverantörs egenskap.
+**Läget** är konfigurerat beroende på om principen är inriktad på en Azure Resource Manager-egenskap eller egenskapen Resource Provider.
 
-### <a name="resource-manager-modes"></a>Lägen i Resource Manager
+### <a name="resource-manager-modes"></a>Lägen för Resurshanteraren
 
-**Läget** avgör vilka resurs typer som ska utvärderas för en princip. De stödda lägena är:
+**Läget** avgör vilka resurstyper som ska utvärderas för en princip. Lägena som stöds är:
 
-- `all`: utvärdera resurs grupper och alla resurs typer
-- `indexed`: utvärdera endast resurs typer som stöder taggar och platser
+- `all`: utvärdera resursgrupper och alla resurstyper
+- `indexed`: utvärdera endast resurstyper som stöder taggar och plats
 
-Resurs `Microsoft.Network/routeTables` stöder t. ex. Taggar och platser och utvärderas i båda lägena. Men resurs `Microsoft.Network/routeTables/routes` kan inte taggas i `Indexed` läge.
+Resurs stöder `Microsoft.Network/routeTables` till exempel taggar och plats och utvärderas i båda lägena. Resursen `Microsoft.Network/routeTables/routes` kan dock inte taggas och utvärderas `Indexed` inte i läge.
 
-Vi rekommenderar att du ställer in **läget** till `all` i de flesta fall. Alla princip definitioner som skapats via portalen använder `all` läge. Om du använder PowerShell eller Azure CLI kan du ange **läges** parametern manuellt. Om princip definitionen inte innehåller ett **läges** värde, används standardvärdet `all` i Azure PowerShell och `null` i Azure CLI. Ett `null` läge är detsamma som att använda `indexed` för att ge stöd för bakåtkompatibilitet.
+Vi rekommenderar att **mode** du `all` ställer in läge till i de flesta fall. Alla principdefinitioner som skapas `all` via portalen använder läget. Om du använder PowerShell eller Azure **mode** CLI kan du ange lägesparametern manuellt. Om principdefinitionen inte innehåller ett **lägesvärde** `all` är det standard `null` i Azure PowerShell och i Azure CLI. Ett `null` läge är detsamma som att använda `indexed` för att stödja bakåtkompatibilitet.
 
-`indexed` bör användas när du skapar principer som tvingar taggar eller platser. Även om det inte krävs, förhindrar det att resurser som inte stöder taggar och platser visas som icke-kompatibla i resultatet av efterlevnaden. Undantag är **resurs grupper**. Principer som tvingar plats eller taggar i en resurs grupp bör ange **läge** till `all` och särskilt rikta `Microsoft.Resources/subscriptions/resourceGroups` typen. Ett exempel finns i [tvinga resurs grupps Taggar](../samples/enforce-tag-rg.md). En lista över resurser som stöder taggar finns i [tagga stöd för Azure-resurser](../../../azure-resource-manager/management/tag-support.md).
+`indexed`bör användas när du skapar principer som framtvingar taggar eller platser. Även om det inte krävs, förhindrar det resurser som inte stöder taggar och platser från att visas som icke-kompatibla i efterlevnadsresultaten. Undantaget är **resursgrupper**. Principer som tillämpar plats eller taggar i `all` en resursgrupp `Microsoft.Resources/subscriptions/resourceGroups` bör ange **läge** till och specifikt rikta typen. Ett exempel finns i [Framtvinga resursgrupptaggar](../samples/enforce-tag-rg.md). En lista över resurser som stöder taggar finns i [Taggstöd för Azure-resurser](../../../azure-resource-manager/management/tag-support.md).
 
-### <a name="a-nameresource-provider-modes-resource-provider-modes-preview"></a>läge för <a name="resource-provider-modes" />resurs leverantör (förhands granskning)
+### <a name="resource-provider-modes-preview"></a><a name="resource-provider-modes" />Resursproviderlägen (förhandsgranskning)
 
-Följande resurs leverantörs lägen stöds för närvarande under för hands versionen:
+Följande resursproviderlägen stöds för närvarande under förhandsgranskningen:
 
-- `Microsoft.ContainerService.Data` för hantering av regler för regler för åtkomst kontroll i [Azure Kubernetes-tjänsten](../../../aks/intro-kubernetes.md). Principer som använder detta resurs leverantörs läge **måste** använda [EnforceRegoPolicy](./effects.md#enforceregopolicy) -effekter.
-- `Microsoft.Kubernetes.Data` för att hantera självhanterade Kubernetes-kluster i AKS-motorn på Azure.
-  Principer som använder detta resurs leverantörs läge **måste** använda [EnforceOPAConstraint](./effects.md#enforceopaconstraint) -effekter.
-- `Microsoft.KeyVault.Data` för att hantera valv och certifikat i [Azure Key Vault](../../../key-vault/key-vault-overview.md).
+- `Microsoft.ContainerService.Data`för hantering av regler för åtkomstkontrollant på [Azure Kubernetes Service](../../../aks/intro-kubernetes.md). Principer som använder det här resursproviderläget **måste** använda effekten [EnforceRegoPolicy.](./effects.md#enforceregopolicy)
+- `Microsoft.Kubernetes.Data`för att hantera självhanterade AKS Engine Kubernetes-kluster på Azure.
+  Principer som använder det här resursproviderläget **måste** använda effekten [EnforceOPAConstraint.](./effects.md#enforceopaconstraint)
+- `Microsoft.KeyVault.Data`för hantering av valv och certifikat i [Azure Key Vault](../../../key-vault/key-vault-overview.md).
 
 > [!NOTE]
-> Resurs leverantörs lägen stöder bara inbyggda princip definitioner och stöder inte initiativ i för hands versionen.
+> Resursproviderlägen stöder bara inbyggda principdefinitioner och stöder inte initiativ i förhandsversion.
 
 ## <a name="parameters"></a>Parametrar
 
-Parametrar underlätta hanteringen av principer genom att minska antalet principdefinitioner. Tänk på parametrar som fälten i ett formulär – `name`, `address`, `city`, `state`. Dessa parametrar desamma alltid, men deras värden ändras baserat på enskilda fyller i formuläret.
-Parametrar fungerar på samma sätt som när du skapar principer. Du kan återanvända principen för olika scenarier med hjälp av olika värden genom att lägga till parametrar i en principdefinition.
+Parametrar hjälper till att förenkla din principhantering genom att minska antalet principdefinitioner. Tänk på parametrar som fälten `name` `address`i `city` `state`ett formulär – , , . Dessa parametrar förblir alltid desamma, men deras värden ändras baserat på den enskilde fylla i formuläret.
+Parametrar fungerar på samma sätt när du skapar principer. Genom att inkludera parametrar i en principdefinition kan du återanvända principen för olika scenarier med hjälp av olika värden.
 
 > [!NOTE]
-> Parametrar kan läggas till i en befintlig och tilldelad definition. Den nya parametern måste innehålla egenskapen **DefaultValue** . Detta förhindrar att befintliga tilldelningar för principen eller initiativ indirekt görs ogiltig.
+> Parametrar kan läggas till i en befintlig och tilldelad definition. Den nya parametern måste innehålla egenskapen **defaultValue.** Detta förhindrar att befintliga tilldelningar av principen eller initiativet indirekt blir ogiltiga.
 
-### <a name="parameter-properties"></a>Parameter egenskaper
+### <a name="parameter-properties"></a>Egenskaper för parameter
 
-En parameter har följande egenskaper som används i princip definitionen:
+En parameter har följande egenskaper som används i principdefinitionen:
 
-- **namn**: namnet på din parameter. Används av funktionen `parameters` distribution i princip regeln. Mer information finns i [använda ett parameter värde](#using-a-parameter-value).
-- `type`: anger om parametern är en **sträng**, en **matris**, ett **objekt**, ett **booleskt värde** **, ett** **flyttal**eller en **datetime**.
-- `metadata`: definierar under egenskaper som främst används av Azure Portal för att Visa användarvänlig information:
-  - `description`: en förklaring av vad parametern används för. Kan användas för att ge exempel på acceptabla värden.
-  - `displayName`: det egna namnet som visas i portalen för parametern.
-  - `version`: (valfritt) spårar information om versionen av innehållet i en princip definition.
+- **namn**: Namnet på parametern. Används av `parameters` distributionsfunktionen i principregeln. Mer information finns [i använda ett parametervärde](#using-a-parameter-value).
+- `type`: Avgör om parametern är en **sträng**, **matris**, **objekt**, **booleska,** **heltal,** **float**eller **datetime**.
+- `metadata`: Definierar underegenskaper som främst används av Azure-portalen för att visa användarvänlig information:
+  - `description`: Förklaringen till vad parametern används till. Kan användas för att ge exempel på godtagbara värden.
+  - `displayName`: Det eget namn som visas i portalen för parametern.
+  - `version`: (Valfritt) Spårar information om versionen av innehållet i en principdefinition.
 
     > [!NOTE]
-    > Tjänsten Azure Policy använder `version`, `preview`och `deprecated` egenskaper för att förmedla ändrings nivån till en inbyggd princip definition eller initiativ och tillstånd. Formatet för `version` är: `{Major}.{Minor}.{Patch}`. Vissa tillstånd, till exempel _föråldrad_ eller för _hands version_, läggs till i `version`-egenskapen eller i en annan egenskap som **boolesk**.
+    > Azure Policy-tjänsten `version` `preview`använder `deprecated` , och egenskaper för att förmedla förändringsnivå till en inbyggd principdefinition eller ett initiativ och tillstånd. Formatet `version` på är: `{Major}.{Minor}.{Patch}`. Specifika tillstånd, till exempel _inaktuella_ eller _förhandsgranska,_ läggs `version` till i egenskapen eller i en annan egenskap som en **boolesk**.
 
-  - `category`: (valfritt) avgör under vilken kategori i Azure Portal princip definitionen visas.
-  - `strongType`: (valfritt) som används för att tilldela princip definitionen via portalen. Innehåller en Sammanhangs medveten lista. Mer information finns i [strongType](#strongtype).
-  - `assignPermissions`: (valfritt) Ange som _Sant_ för att Azure Portal skapa roll tilldelningar under princip tilldelningen. Den här egenskapen är användbar om du vill tilldela behörigheter utanför tilldelnings omfånget. Det finns en roll tilldelning per roll definition i principen (eller per roll definition i alla principer i initiativet). Parametervärdet måste vara en giltig resurs eller ett giltigt omfång.
-- `defaultValue`: (valfritt) anger värdet för parametern i en tilldelning om inget värde anges.
-  Krävs när du uppdaterar en befintlig princip definition som är tilldelad.
-- `allowedValues`: (valfritt) tillhandahåller en matris med värden som parametern accepterar under tilldelningen.
+  - `category`: (Valfritt) Avgör under vilken kategori i Azure-portalen principdefinitionen visas.
+  - `strongType`: (Valfritt) Används när principdefinitionen tilldelas via portalen. Ger en kontextmedveten lista. Mer information finns i [strongType](#strongtype).
+  - `assignPermissions`: (Valfritt) Ange som _sant_ om Azure-portalen ska skapa rolltilldelningar under principtilldelning. Den här egenskapen är användbar om du vill tilldela behörigheter utanför tilldelningsomfånget. Det finns en rolltilldelning per rolldefinition i principen (eller per rolldefinition i alla principer i initiativet). Parametervärdet måste vara en giltig resurs eller ett giltigt scope.
+- `defaultValue`: (Valfritt) Anger parameterns värde i en tilldelning om inget värde anges.
+  Krävs vid uppdatering av en befintlig principdefinition som har tilldelats.
+- `allowedValues`: (Valfritt) Tillhandahåller en matris med värden som parametern accepterar under tilldelningen.
 
-Du kan till exempel definiera en princip definition för att begränsa de platser där resurser kan distribueras. En parameter för den princip definitionen kan vara **allowedLocations**. Den här parametern används av varje tilldelning av princip definitionen för att begränsa de godkända värdena. Användningen av **strongType** ger en bättre upplevelse när du slutför tilldelningen via portalen:
+Som ett exempel kan du definiera en principdefinition för att begränsa de platser där resurser kan distribueras. En parameter för den principdefinitionen kan **tillåtasPlatser**. Den här parametern används av varje tilldelning av principdefinitionen för att begränsa de godkända värdena. Användningen av **strongType** ger en förbättrad upplevelse när du slutför tilldelningen via portalen:
 
 ```json
 "parameters": {
@@ -144,9 +144,9 @@ Du kan till exempel definiera en princip definition för att begränsa de platse
 }
 ```
 
-### <a name="using-a-parameter-value"></a>Använda ett parameter värde
+### <a name="using-a-parameter-value"></a>Använda ett parametervärde
 
-I princip regeln refererar du parametrar med följande syntax för `parameters` funktion:
+I principregeln refererar du `parameters` till parametrar med följande funktionssyntax:
 
 ```json
 {
@@ -155,17 +155,17 @@ I princip regeln refererar du parametrar med följande syntax för `parameters` 
 }
 ```
 
-Det här exemplet refererar till den **allowedLocations** -parameter som visades i [parameter egenskaper](#parameter-properties).
+Det här exemplet refererar till parametern **allowedLocations** som demonstrerades i [parameteregenskaper](#parameter-properties).
 
-### <a name="strongtype"></a>strongType
+### <a name="strongtype"></a>strongType (olikartade)
 
-I `metadata`-egenskapen kan du använda **strongType** för att ange en lista över alternativ i Azure Portal som innehåller flera alternativ. **strongType** kan vara en _resurs typ_ som stöds eller ett tillåtet värde. Använd [Get-AzResourceProvider](/powershell/module/az.resources/get-azresourceprovider)för att avgöra om en _resurs typ_ är giltig för **strongType**.
+I `metadata` egenskapen kan du använda **strongType** för att tillhandahålla en lista över alternativ med flera val i Azure-portalen. **strongType** kan vara en _resurstyp_ som stöds eller ett tillåtet värde. Om du vill ta reda på om en _resurstyp_ är giltig för **strongType**använder du [Get-AzResourceProvider](/powershell/module/az.resources/get-azresourceprovider).
 
-Vissa _resurs typer_ som inte returneras av **Get-AzResourceProvider** stöds. De är:
+Vissa _resurstyper som_ inte returneras av **Get-AzResourceProvider** stöds. Dessa är:
 
 - `Microsoft.RecoveryServices/vaults/backupPolicies`
 
-_Tillåtna värden_ för icke- **strongType** är:
+De tillåtna värdena för _icke-resurstyp_ för **strongType** är:
 
 - `location`
 - `resourceTypes`
@@ -173,27 +173,27 @@ _Tillåtna värden_ för icke- **strongType** är:
 - `vmSKUs`
 - `existingResourceGroups`
 
-## <a name="definition-location"></a>Definitionens plats
+## <a name="definition-location"></a>Definitionsplats
 
-När du skapar ett initiativ- eller är det nödvändigt att ange platsen för definition. Definitionens plats måste vara en hanteringsgrupp eller en prenumeration. Den här platsen anger omfånget som den initiativ- eller kan tilldelas. Resurser måste vara direkta medlemmar i eller underordnade objekt inom hierarkin för definitionens plats för att rikta för tilldelning.
+När du skapar ett initiativ eller en princip är det nödvändigt att ange definitionsplatsen. Definitionsplatsen måste vara en hanteringsgrupp eller en prenumeration. Den här platsen bestämmer omfattningen som initiativet eller principen kan tilldelas. Resurser måste vara direkta medlemmar av eller underordnade inom hierarkin för definitionsplatsen som ska inriktas på tilldelning.
 
-Om den definition lagras a:
+Om definitionsplatsen är en:
 
-- Endast **prenumerations** resurser i den prenumerationen kan tilldelas principen.
-- **Hanterings grupp** – endast resurser inom underordnade hanterings grupper och underordnade prenumerationer kan tilldelas principen. Om du planerar att använda principdefinitionen till flera prenumerationer, måste platsen vara en hanteringsgrupp som innehåller dessa prenumerationer.
+- **Prenumeration** - Endast resurser inom den prenumerationen kan tilldelas principen.
+- **Hanteringsgrupp** - Endast resurser inom underordnade hanteringsgrupper och underordnade prenumerationer kan tilldelas principen. Om du planerar att tillämpa principdefinitionen på flera prenumerationer måste platsen vara en hanteringsgrupp som innehåller dessa prenumerationer.
 
-## <a name="display-name-and-description"></a>Namn och beskrivning
+## <a name="display-name-and-description"></a>Visa namn och beskrivning
 
-Du kan använda **DisplayName** och **Description** för att identifiera princip definitionen och tillhandahålla kontext när den används. **DisplayName** får innehålla högst _128_ tecken och **beskrivningen** får bestå av högst _512_ tecken.
+Du använder **displayName** och **beskrivning** för att identifiera principdefinitionen och ange kontext för när den används. **displayName** har en maximal längd på _128_ tecken och **beskriver** en maximal längd på _512_ tecken.
 
 > [!NOTE]
-> Under skapandet eller uppdateringen av en princip definition definieras **ID**, **typ**och **namn** av egenskaper som är externa för JSON och är inte nödvändiga i JSON-filen. Hämtning av princip definitionen via SDK returnerar egenskaperna **ID**, **typ**och **namn** som en del av JSON, men var och en är skrivskyddad information som är relaterad till princip definitionen.
+> När en principdefinition skapas eller uppdateras definieras **id,** **typ**och **namn** av egenskaper som är externa till JSON och är inte nödvändiga i JSON-filen. Om du hämtar principdefinitionen via SDK returneras **egenskaperna id,** **typ**och **namn** som en del av JSON, men var och en är skrivskyddad information som är relaterad till principdefinitionen.
 
 ## <a name="policy-rule"></a>Principregel
 
-Princip regeln består av **IF** och **then** -block. I **IF** -blocket definierar du ett eller flera villkor som anger när principen tillämpas. Du kan använda logiska operatorer för dessa villkor för att ange exakt scenariot för en princip.
+Principregeln består av **Om** och **Sedan** block. I blocket **Om** definierar du ett eller flera villkor som anger när principen tillämpas. Du kan använda logiska operatorer på dessa villkor för att exakt definiera scenariot för en princip.
 
-I blocket **then** definierar du den påverkan som inträffar när **IF** -villkoren är uppfyllda.
+I **sedanblocket** definierar du den effekt som inträffar när **villkoren Om** är uppfyllda.
 
 ```json
 {
@@ -214,9 +214,9 @@ Logiska operatorer som stöds är:
 - `"allOf": [{condition or operator},{condition or operator}]`
 - `"anyOf": [{condition or operator},{condition or operator}]`
 
-Syntaxen **not** inverterar resultatet av villkoret. **AllOf** -syntaxen (liknar logisk **och** åtgärd) kräver att alla villkor är sanna. **AnyOf** -syntaxen (liknar logisk **eller** åtgärd) kräver att ett eller flera villkor är sanna.
+Syntaxen **inte** inverterar resultatet av villkoret. **Syntaxen allOf** (liknar den logiska **och** åtgärden) kräver att alla villkor är sanna. **Syntaxen (som** liknar den logiska **eller** åtgärden) kräver att ett eller flera villkor är sanna.
 
-Du kan kapsla logiska operatorer. I följande exempel visas en åtgärd som är kapslad i en **allOf** **-åtgärd.**
+Du kan kapsla logiska operatorer. I följande exempel visas en **inte-åtgärd** som är kapslad i en **allOf-åtgärd.**
 
 ```json
 "if": {
@@ -236,7 +236,7 @@ Du kan kapsla logiska operatorer. I följande exempel visas en åtgärd som är 
 
 ### <a name="conditions"></a>Villkor
 
-Ett villkor utvärderar om ett **fält** eller **värde** accessor uppfyller vissa villkor. Villkor som stöds är:
+Ett villkor utvärderar om ett **fält** eller värdeahöjet uppfyller vissa villkor. **value** Villkoren som stöds är:
 
 - `"equals": "stringValue"`
 - `"notEquals": "stringValue"`
@@ -258,47 +258,47 @@ Ett villkor utvärderar om ett **fält** eller **värde** accessor uppfyller vis
 - `"greaterOrEquals": "value"`
 - `"exists": "bool"`
 
-När du använder **gilla** -och **notLike** -villkoren anger du ett jokertecken `*` i värdet.
-Värdet får inte ha fler än ett jokertecken `*`.
+När du använder **liknande** och **inteLike** villkor, ger du ett jokertecken `*` i värdet.
+Värdet bör inte ha mer än `*`ett jokertecken .
 
-När du använder **matchnings** -och **notMatch** -villkor, anger du `#` för att matcha en siffra, `?` för en bokstav `.` matcha eventuella tecken och andra tecken för att matcha det faktiska tecknet. **Matchnings** -och **notMatch** är Skift läges känsliga, men alla andra villkor som utvärderar en _stringValue_ är Skift läges känsliga. Skift läges känsliga alternativ är tillgängliga i **matchInsensitively** och **notMatchInsensitively**.
+När du använder **villkoren matchning** och **notMatch** ska du ange `#` att matcha en siffra, `?` för en bokstav, `.` för att matcha alla tecken och alla andra tecken som matchar det faktiska tecknet. Matchning **match** och **notMatch** är skiftlägeskänsliga, men alla andra villkor som utvärderar en _stringValue_ är skiftlägeskänsliga. Case-okänsliga alternativ finns i **matchInsensitively** och **notMatchInsensitively**.
 
-I ett fält värde för **\[\*\] Ali Aset** mat ris, utvärderas varje element i matrisen individuellt med logiska element **och** mellan element. Mer information finns i [utvärdera \[\*\] alias](../how-to/author-policies-for-arrays.md#evaluating-the--alias).
+I ** \[ \* \] ** ett rumsmatrisfältsvärde utvärderas varje element i matrisen individuellt med logiska **och** mellan element. Mer information finns i [ \[ \* \] Utvärdera aliaset](../how-to/author-policies-for-arrays.md#evaluating-the--alias).
 
 ### <a name="fields"></a>Fält
 
-Villkor bildas genom att använda fält. Ett fält matchar egenskaper i nyttolasten i begäran av resursen och beskriver tillståndet för resursen.
+Villkor bildas med hjälp av fält. Ett fält matchar egenskaper i resursbegäran nyttolast och beskriver tillståndet för resursen.
 
 Följande fält stöds:
 
 - `name`
 - `fullName`
-  - Returnerar det fullständiga namnet på resursen. Det fullständiga namnet på en resurs är resursnamnet föregås av ett anpassningsprefix av alla överordnade resursnamn (till exempel ”minserver/myDatabase”).
+  - Returnerar resursens fullständiga namn. Det fullständiga namnet på en resurs är det resursnamn som förbereds av alla överordnade resursnamn (till exempel "myServer/myDatabase").
 - `kind`
 - `type`
 - `location`
-  - Använd **Global** för resurser som är plats oberoende.
+  - Använd **globalt** för resurser som är platsoberoende.
 - `identity.type`
-  - Returnerar typen av [hanterad identitet](../../../active-directory/managed-identities-azure-resources/overview.md) som är aktive rad på resursen.
+  - Returnerar den typ av [hanterad identitet](../../../active-directory/managed-identities-azure-resources/overview.md) som är aktiverad på resursen.
 - `tags`
 - `tags['<tagName>']`
-  - Den här klammerns syntax stöder taggnamn som har skiljetecken, till exempel bindestreck, punkter eller blank steg.
-  - Där **\<tagName\>** är namnet på taggen som verifierar villkoret för.
-  - Exempel: `tags['Acct.CostCenter']` där **acct. CostCenter** är namnet på taggen.
+  - Den här konsolsyntaxen stöder taggnamn som har skiljetecken, till exempel ett bindestreck, en punkt eller ett blanksteg.
+  - Där ** \<tagName\> ** är namnet på taggen som du vill validera villkoret för.
+  - Exempel: `tags['Acct.CostCenter']` där **Acct.CostCenter** är namnet på taggen.
 - `tags['''<tagName>''']`
-  - Den här klammerns syntax stöder taggnamn som har apostrofer i den genom att använda dubbla apostrofer.
-  - Där **"\<tagName\>"** är namnet på taggen som verifierar villkoret för.
-  - Exempel: `tags['''My.Apostrophe.Tag''']` där **' My. apostrof. tag '** är namnet på taggen.
-- egenskaps Ali Aset – en lista finns i [alias](#aliases).
+  - Den här konsolsyntaxen stöder taggnamn som har apostrofer i den genom att fly med dubbla apostrofer.
+  - Där **\<'\>tagName '** är namnet på taggen som du vill validera villkoret för.
+  - Exempel: `tags['''My.Apostrophe.Tag''']` där **"My.Apostropof.Tag"** är namnet på taggen.
+- egenskapsalias - för en lista, se [Alias](#aliases).
 
 > [!NOTE]
-> `tags.<tagName>`, `tags[tagName]`och `tags[tag.with.dots]` är fortfarande acceptabla sätt att deklarera ett Tags-fält. De prioriterade uttrycken är dock de som anges ovan.
+> `tags.<tagName>`, `tags[tagName]`och `tags[tag.with.dots]` är fortfarande godtagbara sätt att deklarera ett taggfält. De föredragna uttrycken är dock de som anges ovan.
 
 #### <a name="use-tags-with-parameters"></a>Använda taggar med parametrar
 
-Ett parameter värde kan skickas till ett tagg-fält. Att skicka en parameter till ett taggnamn ökar flexibiliteten i princip definitionen under princip tilldelning.
+Ett parametervärde kan skickas till ett taggfält. Om du skickar en parameter till ett taggfält ökar flexibiliteten i principdefinitionen vid principtilldelning.
 
-I följande exempel används `concat` för att skapa ett tagg fälts uppslag för taggen som heter värdet för **TagName** -parametern. Om taggen inte finns används **ändra** -funktionen för att lägga till taggen med värdet för samma namngivna tagg uppsättning på den överordnade resurs gruppen granskade resurser med hjälp av `resourcegroup()` lookup-funktionen.
+I följande exempel `concat` används för att skapa en taggarfältsökning för taggen som heter värdet för **parametern tagName.** Om taggen inte finns används **ändringseffekten** för att lägga till taggen med värdet för samma namngivna `resourcegroup()` tagguppsättning i den granskade resursgruppen för resurser med hjälp av uppslagsfunktionen.
 
 ```json
 {
@@ -324,15 +324,15 @@ I följande exempel används `concat` för att skapa ett tagg fälts uppslag fö
 
 ### <a name="value"></a>Värde
 
-Villkor kan även skapas med hjälp av **värde**. **värde** kontrollerar villkor mot [parametrar](#parameters), [mall funktioner som stöds](#policy-functions)eller litteraler.
-**värdet** kombineras med alla [villkor](#conditions)som stöds.
+Villkor kan också bildas med hjälp av **värde**. **värde** kontrollerar villkoren mot [parametrar,](#parameters) [mallfunktioner](#policy-functions)som stöds eller litteraler.
+**värdet** paras ihop med alla [villkor](#conditions)som stöds .
 
 > [!WARNING]
-> Om resultatet av en _mall_ är ett fel, Miss lyckas princip utvärderingen. En misslyckad utvärdering är en implicit **nekande**. Mer information finns i [undvika mall-haverier](#avoiding-template-failures). Använd [enforcementMode](./assignment-structure.md#enforcement-mode) av **DoNotEnforce** för att förhindra påverkan av en misslyckad utvärdering på nya eller uppdaterade resurser vid testning och validering av en ny princip definition.
+> Om resultatet av en _mallfunktion_ är ett fel misslyckas principutvärderingen. En misslyckad utvärdering är en implicit **neka**. Mer information finns i [undvika mallfel](#avoiding-template-failures). Använd [enforcementMode](./assignment-structure.md#enforcement-mode) of **DoNotEnforce** för att förhindra att en misslyckad utvärdering påverkar nya eller uppdaterade resurser när du testar och validerar en ny principdefinition.
 
-#### <a name="value-examples"></a>Värde exempel
+#### <a name="value-examples"></a>Exempel på värde
 
-Den här princip regel exemplet använder **värdet** för att jämföra resultatet av funktionen `resourceGroup()` och egenskapen returnerat **namn** till ett **like** -villkor för `*netrg`. Regeln nekar en resurs som inte är av `Microsoft.Network/*` **typ** i en resurs grupp vars namn slutar på `*netrg`.
+I det här **value** principregelexemplet `resourceGroup()` används värdet för att jämföra resultatet `*netrg`av funktionen och egenskapen returnerat **namn** med ett **liknande** villkor i . Regeln nekar alla resurser `Microsoft.Network/*` som inte är av **typen** i någon resursgrupp vars namn slutar i `*netrg`.
 
 ```json
 {
@@ -353,7 +353,7 @@ Den här princip regel exemplet använder **värdet** för att jämföra resulta
 }
 ```
 
-Den här princip regel exemplet använder **värdet** för att kontrol lera om resultatet av flera kapslade funktioner **är lika med** `true`. Regeln nekar en resurs som inte har minst tre taggar.
+I det här principregelexemplet används **värdet** för att kontrollera om resultatet av flera kapslade funktioner **är** `true`lika med . Regeln nekar alla resurser som inte har minst tre taggar.
 
 ```json
 {
@@ -370,9 +370,9 @@ Den här princip regel exemplet använder **värdet** för att kontrol lera om r
 }
 ```
 
-#### <a name="avoiding-template-failures"></a>Undvika synkroniseringsfel
+#### <a name="avoiding-template-failures"></a>Undvika mallfel
 
-Användningen av _Template Functions_ i **Value** tillåter många komplexa kapslade funktioner. Om resultatet av en _mall_ är ett fel, Miss lyckas princip utvärderingen. En misslyckad utvärdering är en implicit **nekande**. Ett exempel på ett **värde** som inte fungerar i vissa scenarier:
+Användningen av _mallfunktioner_ i **värde** möjliggör många komplexa kapslade funktioner. Om resultatet av en _mallfunktion_ är ett fel misslyckas principutvärderingen. En misslyckad utvärdering är en implicit **neka**. Ett exempel på ett **värde** som misslyckas i vissa scenarier:
 
 ```json
 {
@@ -388,9 +388,9 @@ Användningen av _Template Functions_ i **Value** tillåter många komplexa kaps
 }
 ```
 
-Exempel princip regeln ovan använder [del sträng ()](../../../azure-resource-manager/templates/template-functions-string.md#substring) för att jämföra de tre första tecken **namnen** med **ABC**. Om **namnet** är kortare än tre tecken resulterar `substring()`-funktionen i ett fel. Det här felet gör att principen blir en **neka** -påverkan.
+Exempelprincipregeln ovan använder [substring()](../../../azure-resource-manager/templates/template-functions-string.md#substring) för att jämföra de tre första **tecknen i namn** med **abc**. Om **namnet** är kortare än `substring()` tre tecken resulterar funktionen i ett fel. Det här felet medför att principen blir en **nekad** effekt.
 
-Använd i stället funktionen [IF ()](../../../azure-resource-manager/templates/template-functions-logical.md#if) för att kontrol lera om de tre första tecknen i **namn** är lika med **ABC** utan att ett **namn** som är kortare än tre tecken kan orsaka ett fel:
+Använd i stället funktionen [if()](../../../azure-resource-manager/templates/template-functions-logical.md#if) för att kontrollera om de tre första **tecknen i namn** är lika med **abc** utan att tillåta ett **namn** som är kortare än tre tecken att orsaka ett fel:
 
 ```json
 {
@@ -406,13 +406,13 @@ Använd i stället funktionen [IF ()](../../../azure-resource-manager/templates/
 }
 ```
 
-Med den ändrade regel regeln `if()` kontrollerar längden på **namnet** innan ett `substring()` för ett värde får färre än tre tecken. Om **namnet** är för kort returneras värdet "inte börjar med ABC" i stället och jämförs med **ABC**. En resurs med ett kort namn som inte börjar med **ABC** kan fortfarande inte utföra princip regeln, men inte längre orsaka ett fel under utvärderingen.
+Med den reviderade `if()` principregeln kontrollerar du **namnlängden** innan du försöker få ett `substring()` värde på ett värde med färre än tre tecken. Om **namnet** är för kort returneras värdet "inte börjar med abc" i stället och jämförs med **abc**. En resurs med ett kort namn som inte börjar med **abc** misslyckas fortfarande principregeln, men orsakar inte längre ett fel under utvärderingen.
 
 ### <a name="count"></a>Antal
 
-Villkor som räknar hur många medlemmar i en matris i resurs nytto lasten uppfyller ett villkors uttryck kan skapas med hjälp av **Count** -uttryck. Vanliga scenarier kontrollerar om "minst en av", ",", "alla" eller "ingen av" mat ris medlemmarna uppfyller villkoret. **Count** utvärderar varje [\[\*\] Ali](#understanding-the--alias) mat ris medlem för ett villkors uttryck och summerar de _sanna_ resultaten, som sedan jämförs med uttrycks operatorn.
+Villkor som räknar hur många medlemmar i en matris i resursnyttolasten uppfyller ett villkorsuttryck som kan bildas med **hjälp** av count-uttryck. Vanliga scenarier är att kontrollera om "minst en av", "exakt en av", "alla" eller "ingen av" matrismedlemmarna uppfyller villkoret. **antal** utvärderar varje [ \[ \* \] ](#understanding-the--alias) aliasmatrismedlem för ett villkorsuttryck och summerar de _sanna_ resultaten, vilket sedan jämförs med uttrycksoperatorn.
 
-Strukturen för **Count** -uttrycket är:
+Strukturen för **count-uttrycket** är:
 
 ```json
 {
@@ -426,16 +426,16 @@ Strukturen för **Count** -uttrycket är:
 }
 ```
 
-Följande egenskaper används med **Count**:
+Följande egenskaper används med **antal:**
 
-- **Count. Field** (required): innehåller sökvägen till matrisen och måste vara ett mat ris alias. Om matrisen saknas utvärderas uttrycket till _false_ utan att ta hänsyn till villkors uttrycket.
-- **Count.** (valfritt): villkors uttrycket för att utvärdera varje [\[\*\] Ali Aset](#understanding-the--alias) mat ris medlem i **fältet Count.** Om den här egenskapen inte anges utvärderas alla mat ris medlemmar med sökvägen för Field till _True_. Alla [villkor](../concepts/definition-structure.md#conditions) kan användas i den här egenskapen.
-  [Logiska operatorer](#logical-operators) kan användas i den här egenskapen för att skapa komplexa utvärderings krav.
-- **\<villkor\>** (obligatoriskt): värdet jämförs med antalet objekt som uppfyller **antalet. Where** villkors uttryck. Ett numeriskt [villkor](../concepts/definition-structure.md#conditions) ska användas.
+- **count.field** (obligatoriskt): Innehåller sökvägen till matrisen och måste vara ett matrisalias. Om matrisen saknas utvärderas uttrycket till _false_ utan att hänsyn tas till villkorsuttrycket.
+- **count.where** (valfritt): Villkorsuttrycket [ \[ \* \] ](#understanding-the--alias) för att individuellt utvärdera varje aliasmatrismedlem i **count.field**. Om den här egenskapen inte anges utvärderas alla matrismedlemmar med sökvägen till fältet till _true_. Alla [villkor](../concepts/definition-structure.md#conditions) kan användas i den här egenskapen.
+  [Logiska operatorer](#logical-operators) kan användas i den här egenskapen för att skapa komplexa utvärderingskrav.
+- villkor (obligatoriskt): Värdet jämförs med antalet objekt som uppfyllde count.where-villkorsuttrycket. **count.where** ** \<\> ** Ett numeriskt [villkor](../concepts/definition-structure.md#conditions) bör användas.
 
-#### <a name="count-examples"></a>Antal exempel
+#### <a name="count-examples"></a>Räkna exempel
 
-Exempel 1: kontrol lera om en matris är tom
+Exempel 1: Kontrollera om en matris är tom
 
 ```json
 {
@@ -446,7 +446,7 @@ Exempel 1: kontrol lera om en matris är tom
 }
 ```
 
-Exempel 2: kontrol lera att endast en mat ris medlem uppfyller villkors uttrycket
+Exempel 2: Sök efter endast en matrismedlem för att uppfylla villkorsuttrycket
 
 ```json
 {
@@ -461,7 +461,7 @@ Exempel 2: kontrol lera att endast en mat ris medlem uppfyller villkors uttrycke
 }
 ```
 
-Exempel 3: kontrol lera om minst en mat ris medlem uppfyller villkors uttrycket
+Exempel 3: Sök efter minst en matrismedlem för att uppfylla villkorsuttrycket
 
 ```json
 {
@@ -476,7 +476,7 @@ Exempel 3: kontrol lera om minst en mat ris medlem uppfyller villkors uttrycket
 }
 ```
 
-Exempel 4: kontrol lera att alla medlemmar i objekt mat ris uppfyller villkors uttrycket
+Exempel 4: Kontrollera att alla objektmatrismedlemmar uppfyller villkorsuttrycket
 
 ```json
 {
@@ -491,7 +491,7 @@ Exempel 4: kontrol lera att alla medlemmar i objekt mat ris uppfyller villkors u
 }
 ```
 
-Exempel 5: kontrol lera att alla sträng mat ris medlemmar uppfyller villkors uttrycket
+Exempel 5: Kontrollera att alla strängmatrismedlemmar uppfyller villkorsuttrycket
 
 ```json
 {
@@ -506,7 +506,7 @@ Exempel 5: kontrol lera att alla sträng mat ris medlemmar uppfyller villkors ut
 }
 ```
 
-Exempel 6: Använd **fältet** i **värde** för att kontrol lera att alla mat ris medlemmar uppfyller villkors uttrycket
+Exempel 6: Använd **fält** inuti **värde** för att kontrollera att alla matrismedlemmar uppfyller villkorsuttrycket
 
 ```json
 {
@@ -521,7 +521,7 @@ Exempel 6: Använd **fältet** i **värde** för att kontrol lera att alla mat r
 }
 ```
 
-Exempel 7: kontrol lera att minst en mat ris medlem matchar flera egenskaper i villkors uttrycket
+Exempel 7: Kontrollera att minst en matrismedlem matchar flera egenskaper i villkorsuttrycket
 
 ```json
 {
@@ -550,56 +550,56 @@ Exempel 7: kontrol lera att minst en mat ris medlem matchar flera egenskaper i v
 
 ### <a name="effect"></a>Verkan
 
-Azure Policy stöder följande typer av påverkan:
+Azure Policy stöder följande typer av effekt:
 
-- **APPEND**: lägger till den definierade fält uppsättningen i begäran
-- **Granskning**: genererar en varnings händelse i aktivitets loggen men misslyckade begäran
-- **AuditIfNotExists**: genererar en varnings händelse i aktivitets loggen om en relaterad resurs inte finns
-- **Neka**: genererar en händelse i aktivitets loggen och Miss lyckas med begäran
+- **Lägg till**: lägger till den definierade uppsättningen fält i begäran
+- **Granskning**: genererar en varningshändelse i aktivitetsloggen men misslyckas inte med begäran
+- **AuditIfNotExists**: genererar en varningshändelse i aktivitetsloggen om det inte finns någon relaterad resurs
+- **Neka**: genererar en händelse i aktivitetsloggen och misslyckas begäran
 - **DeployIfNotExists**: distribuerar en relaterad resurs om den inte redan finns
-- **Disabled**: utvärderar inte resurser för efterlevnad för princip regeln
-- **EnforceOPAConstraint** (för hands version): konfigurerar hanterings styrenheten för öppna Policy Agent med Gatekeeper v3 för självhanterade Kubernetes-kluster på Azure (för hands version)
-- **EnforceRegoPolicy** (för hands version): konfigurerar kontrollanten för att öppna princip agenter med Gatekeeper v2 i Azure Kubernetes-tjänsten
-- **Ändra**: lägger till, uppdaterar eller tar bort definierade taggar från en resurs
+- **Inaktiverad**: utvärderar inte resurser för efterlevnad av principregeln
+- **EnforceOPAConstraint** (förhandsversion): konfigurerar åtkomstkontrollanten för öppna principagenter med Gatekeeper v3 för självhanterade Kubernetes-kluster på Azure (förhandsversion)
+- **EnforceRegoPolicy** (förhandsversion): konfigurerar åtkomstkontrollanten för öppna principagenter med Gatekeeper v2 i Azure Kubernetes Service
+- **Ändra**: lägger till, uppdaterar eller tar bort de definierade taggarna från en resurs
 
-Fullständig information om varje effekt, utvärderings ordning, egenskaper och exempel finns i [förstå Azure policys effekter](effects.md).
+Fullständig information om varje effekt, utvärderingsordning, egenskaper och exempel finns i [Förstå Azure-principeffekter](effects.md).
 
-### <a name="policy-functions"></a>Princip fungerar
+### <a name="policy-functions"></a>Policyfunktioner
 
-Alla [funktioner i Resource Manager-mallar](../../../azure-resource-manager/templates/template-functions.md) är tillgängliga för användning i en princip regel, förutom följande funktioner och användardefinierade funktioner:
+Alla [Resource Manager-mallfunktioner](../../../azure-resource-manager/templates/template-functions.md) är tillgängliga att använda i en principregel, förutom följande funktioner och användardefinierade funktioner:
 
 - copyIndex()
-- distribution ()
-- lista
+- distribution()
+- lista*
 - newGuid()
 - pickZones()
-- providers ()
-- referens ()
-- resourceId ()
-- variabler ()
+- leverantörer()
+- referens()
+- resourceId()
+- variabler()
 
-Följande funktion är tillgänglig för användning i en princip regel, men skiljer sig från användning i en Azure Resource Manager mall:
+Följande funktion är tillgänglig att använda i en principregel, men skiljer sig från användning i en Azure Resource Manager-mall:
 
-- `utcNow()` – till skillnad från en Resource Manager-mall kan detta användas utanför defaultValue.
-  - Returnerar en sträng som har angetts till aktuellt datum och aktuell tid i universellt ISO 8601 DateTime-format ' ÅÅÅÅ-MM-ddTHH: mm: SS. fffffffZ '
+- `utcNow()`- Till skillnad från en Resource Manager-mall kan detta användas utanför standardvärde.
+  - Returnerar en sträng som är inställd på aktuellt datum och tid i Universal ISO 8601 DateTime-formatet 'yyyy-MM-ddTHH:mm:ss.fffffffZ'
 
-Följande funktioner är endast tillgängliga i princip regler:
+Följande funktioner är endast tillgängliga i principregler:
 
 - `addDays(dateTime, numberOfDaysToAdd)`
-  - **datetime**: [required] sträng sträng i Universal ISO 8601 datetime-formatet ' ÅÅÅÅ-MM-ddTHH: mm: SS. fffffffZ '
-  - **numberOfDaysToAdd**: [required] heltal-antal dagar som ska läggas till
+  - **dateTime**: [Obligatorisk] sträng - Sträng i Universal ISO 8601 DateTime-formatet 'yyyy-MM-ddTHH:mm:ss.fffffffZ'
+  - **numberOfDaysToAdd**: [Obligatoriskt] heltal - Antal dagar att lägga till
 - `field(fieldName)`
-  - **FieldName**: [required] sträng-namnet på det [fält](#fields) som ska hämtas
-  - Returnerar värdet för det fältet från den resurs som utvärderas av IF-villkoret
-  - `field` används främst med **AuditIfNotExists** och **DeployIfNotExists** för att referera till fält på den resurs som utvärderas. Ett exempel på den här användningen kan visas i [DeployIfNotExists-exemplet](effects.md#deployifnotexists-example).
+  - **fieldName**: [Obligatorisk] sträng - Namnet på [fältet](#fields) som ska hämtas
+  - Returnerar värdet för det fältet från den resurs som utvärderas av villkoret Om
+  - `field`används främst med **AuditIfNotExists** och **DeployIfNotExists** för att referera till fält på resursen som utvärderas. Ett exempel på den här användningen kan ses i [exemplet DeployIfNotExists](effects.md#deployifnotexists-example).
 - `requestContext().apiVersion`
-  - Returnerar API-versionen för den begäran som utlöste princip utvärderingen (exempel: `2019-09-01`). Detta är den API-version som användes i begäran om att skicka/korrigera för utvärderingar av att skapa eller uppdatera resurser. Den senaste API-versionen används alltid vid utvärdering av efterlevnad på befintliga resurser.
+  - Returnerar API-versionen av begäran som utlöste `2019-09-01`principutvärdering (exempel: ). Detta kommer att vara API-versionen som användes i PUT/ PATCH-begäran om utvärderingar om att skapa/uppdatera resurser. Den senaste API-versionen används alltid under utvärdering av efterlevnad på befintliga resurser.
   
 
 
-#### <a name="policy-function-example"></a>Exempel på princip funktion
+#### <a name="policy-function-example"></a>Exempel på funktionen Princip
 
-Den här princip regel exemplet använder funktionen `resourceGroup` resurs för att hämta egenskapen **Name** , kombinerat med funktionen `concat` matris och objekt för att skapa ett `like` villkor som tvingar resurs namnet att starta med resurs gruppens namn.
+I det här `resourceGroup` principregelexemplet används resursfunktionen `concat` för att hämta `like` namnegenskapen, i kombination med matris- och objektfunktionen för att skapa ett villkor som framtvingar resursnamnet så att det börjar med resursgruppsnamnet. **name**
 
 ```json
 {
@@ -617,19 +617,19 @@ Den här princip regel exemplet använder funktionen `resourceGroup` resurs för
 
 ## <a name="aliases"></a>Alias
 
-Du kan använda egenskapen alias för att få åtkomst till specifika egenskaper för en resurstyp. Alias kan du begränsa vilka värden eller villkor är tillåtna för en egenskap för en resurs. Varje alias som mappas till sökvägar i olika API-versioner för en viss resurstyp. Under principutvärdering hämtar principmodulen egenskapssökvägen för den API-versionen.
+Du kan använda egenskapsalias för att komma åt specifika egenskaper för en resurstyp. Med alias kan du begränsa vilka värden eller villkor som tillåts för en egenskap på en resurs. Varje alias mappar till sökvägar i olika API-versioner för en viss resurstyp. Under principutvärderingen får principmotorn egenskapssökvägen för den API-versionen.
 
-Lista över alla alias växer. Använd någon av följande metoder för att hitta vilka alias är för närvarande stöds av Azure Policy:
+Listan över alias växer alltid. Om du vill ta reda på vilka alias som för närvarande stöds av Azure Policy använder du någon av följande metoder:
 
-- Azure Policy tillägg för Visual Studio Code (rekommenderas)
+- Azure Princip-tillägg för Visual Studio-kod (rekommenderas)
 
-  Använd [Azure policy-tillägget för Visual Studio Code](../how-to/extension-for-vscode.md) för att visa och identifiera alias för resurs egenskaper.
+  Använd [Azure Policy-tillägget för Visual Studio-kod](../how-to/extension-for-vscode.md) för att visa och identifiera alias för resursegenskaper.
 
-  ![Azure Policy tillägg för Visual Studio Code](../media/extension-for-vscode/extension-hover-shows-property-alias.png)
+  ![Azure Principtillägg för Visual Studio-kod](../media/extension-for-vscode/extension-hover-shows-property-alias.png)
 
 - Azure Resource Graph
 
-  Använd operatorn `project` om du vill visa ett **alias** för en resurs.
+  Använd `project` operatorn för att visa **alias** för en resurs.
 
   ```kusto
   Resources
@@ -670,23 +670,23 @@ Lista över alla alias växer. Använd någon av följande metoder för att hitt
   az provider show --namespace Microsoft.Compute --expand "resourceTypes/aliases" --query "resourceTypes[].aliases[].name"
   ```
 
-- REST-API / ARMClient
+- REST API / ARMClient
 
   ```http
   GET https://management.azure.com/providers/?api-version=2017-08-01&$expand=resourceTypes/aliases
   ```
 
-### <a name="understanding-the--alias"></a>Förstå alias [*]
+### <a name="understanding-the--alias"></a>Förstå [*] alias
 
-Flera av de tillgängliga aliasen har en version som visas som ett "normal"-namn och en annan som har **\[\*\]** kopplade till den. Exempel:
+Flera av de alias som är tillgängliga har en version som visas ** \[ \* ** som ett "normalt" namn och ett annat som har bifogat den. Ett exempel:
 
 - `Microsoft.Storage/storageAccounts/networkAcls.ipRules`
 - `Microsoft.Storage/storageAccounts/networkAcls.ipRules[*]`
 
-Aliaset "normal" representerar fältet som ett enda värde. Det här fältet är för exakta matchnings scenarier när hela uppsättningen med värden måste vara exakt som definierad, inte mer eller mindre.
+Det "normala" aliaset representerar fältet som ett enda värde. Det här fältet är för exakta matchningsjämförelsescenarier när hela uppsättningen värden måste vara exakt som de definierade, varken mer eller mindre.
 
-Med aliaset **\[\*\]** kan du jämföra med värdet för varje element i matrisen och vissa egenskaper för varje element. Den här metoden gör det möjligt att jämföra element egenskaper för "if ingen", "om några", "eller" om alla "-scenarier. För mer komplexa scenarier använder du villkors uttrycket [Count](#count) . Med **ipRules\[\*\]** verifierar ett exempel att varje _åtgärd_ är _neka_, men inte bekymrar dig om hur många regler som finns eller vad IP- _värdet_ är.
-Den här exempel regeln söker efter eventuella matchningar av **ipRules\[\*\]. Value** till **10.0.4.1** och tillämpar bara **effectType** om det inte finns minst en matchning:
+Aliaset ** \[ \* ** gör det möjligt att jämföra med värdet för varje element i matrisen och specifika egenskaper för varje element. Den här metoden gör det möjligt att jämföra elementegenskaper för "om inget av", "om något av" eller "om alla" scenarier. Om du vill ha mer komplexa scenarier använder du villkorsuttrycket [för antal.](#count) Använda **ipRules\[\***, ett exempel skulle validera att varje _åtgärd_ är _Neka_, men inte oroa sig för hur många regler som finns eller vad _IP-värdet_ är.
+Den här exempelregeln söker efter matchningar av **ipRules\[\*\].value** till **10.0.4.1** och tillämpar **effektenType** endast om den inte hittar minst en matchning:
 
 ```json
 "policyRule": {
@@ -710,16 +710,16 @@ Den här exempel regeln söker efter eventuella matchningar av **ipRules\[\*\]. 
 
 
 
-Mer information finns i avsnittet [om att utvärdera [\*]-aliaset](../how-to/author-policies-for-arrays.md#evaluating-the--alias).
+Mer information finns i [utvärdera [\*] alias](../how-to/author-policies-for-arrays.md#evaluating-the--alias).
 
 ## <a name="initiatives"></a>Initiativ
 
-Initiativ kan du gruppera flera relaterade principdefinitioner för att förenkla tilldelningar och hantering eftersom du arbetar med en grupp som ett enskilt objekt. Du kan exempelvis gruppera relaterade taggning principdefinitioner i ett enda initiativ. I stället för att tilldela varje princip individuellt kan använda du initiativ.
+Med initiativ kan du gruppera flera relaterade principdefinitioner för att förenkla tilldelningar och hantering eftersom du arbetar med en grupp som ett enda objekt. Du kan till exempel gruppera relaterade taggningsprincipdefinitioner i ett enda initiativ. I stället för att tilldela varje princip individuellt tillämpar du initiativet.
 
 > [!NOTE]
-> När ett initiativ har tilldelats kan parametrarna för Initative-nivå inte ändras. På grund av detta är rekommendationen att ange ett **Standardvärde** när du definierar parametern.
+> När ett initiativ har tilldelats kan parametrar på initiativnivå inte ändras. På grund av detta är rekommendationen att ange ett **defaultValue** när parametern definieras.
 
-I följande exempel visas hur du skapar ett initiativ för att hantera två Taggar: `costCenter` och `productName`. Två inbyggda principer används för att tillämpa taggen standardvärdet.
+Följande exempel illustrerar hur du skapar ett initiativ `costCenter` `productName`för hantering av två taggar: och . Den använder två inbyggda principer för att tillämpa standardtaggvärdet.
 
 ```json
 {
@@ -794,9 +794,9 @@ I följande exempel visas hur du skapar ett initiativ för att hantera två Tagg
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Granska exempel i [Azure policy exempel](../samples/index.md).
+- Granska exempel på [Azure Policy-exempel](../samples/index.md).
 - Granska [Förstå policy-effekter](effects.md).
-- Lär dig att [program mässigt skapa principer](../how-to/programmatically-create.md).
-- Lär dig hur du [hämtar efterlevnadsprinciper](../how-to/get-compliance-data.md).
+- Förstå hur du [programmässigt skapar principer](../how-to/programmatically-create.md).
+- Läs om hur du [hämtar efterlevnadsdata](../how-to/get-compliance-data.md).
 - Lär dig hur du [åtgärdar icke-kompatibla resurser](../how-to/remediate-resources.md).
-- Granska en hanterings grupp med [organisera dina resurser med Azures hanterings grupper](../../management-groups/overview.md).
+- Granska vad en hanteringsgrupp är med [Organisera dina resurser med Azure-hanteringsgrupper](../../management-groups/overview.md).

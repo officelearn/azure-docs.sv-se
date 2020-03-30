@@ -1,13 +1,13 @@
 ---
-title: Hantera program hemligheter för Azure Service Fabric nät
+title: Hantera Hemligheter för Azure-tjänstinfrastrukturnätprogram
 description: Hantera programhemligheter så att du på ett säkert sätt kan skapa och distribuera ett Service Fabric Mesh-program.
 ms.date: 4/2/2019
 ms.topic: conceptual
 ms.openlocfilehash: d7946092a0bebe374404870fcd711ad33cc98b11
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75461929"
 ---
 # <a name="manage-service-fabric-mesh-application-secrets"></a>Hantera Service Fabric Mesh-programhemligheter
@@ -18,14 +18,14 @@ En Mesh-programhemlighet består av:
 * En eller flera **hemlighets-/värderesurser** som lagras i **hemlighetsresurscontainern**. Varje **hemlighets-/värderesurs** identifieras med ett versionsnummer. Du kan inte ändra en version av en **hemlighets-/värderesurs**, bara lägga till en ny version.
 
 Hantering av hemligheter består av följande steg:
-1. Deklarera en resurs för nät **hemligheter** i en Azure-yaml eller JSON-fil med hjälp av inlinedValue-och SecretsStoreRef ContentType-definitioner.
-2. Deklarera nät **hemligheter/värden** resurser i en Azure-yaml eller JSON-fil som ska lagras i **hemligheter** -resursen (från steg 1).
+1. Deklarera en Mesh **Secrets-resurs** i en AZURE Resource Model YAML- eller JSON-fil med inlinedValue-typ och SecretsStoreRef contentType-definitioner.
+2. Deklarera resurser **för meshhemligheter/värden** i en AZURE Resource Model YAML- eller JSON-fil som lagras i **Secrets-resursen** (från steg 1).
 3. Ändra Mesh-programmet så att det refererar till Mesh-hemlighetsvärden.
 4. Distribuera eller uppgradera löpande Mesh-programmet så att det använder hemlighetsvärden.
 5. Använd Azure ”az” CLI-kommandon för livscykelhantering i Säker lagringstjänst.
 
 ## <a name="declare-a-mesh-secrets-resource"></a>Deklarera en Mesh-hemlighetsresurs
-En nät hemligheter-resurs deklareras i en Azure-resurs modell-JSON eller en YAML-fil med hjälp av inlinedValue-typ definition. Mesh-hemlighetsresursen stöder ursprungshemligheter i Säker lagringstjänst. 
+En Mesh Secrets-resurs deklareras i en Azure Resource Model JSON- eller YAML-fil med inlinedValue-typdefinition. Mesh-hemlighetsresursen stöder ursprungshemligheter i Säker lagringstjänst. 
 >
 Följande är ett exempel på hur du deklarerar Mesh-hemlighetsresurser i en JSON-fil:
 
@@ -202,7 +202,7 @@ Skicka antingen **template-file** eller **template-uri** (men inte båda).
 
 Ett exempel:
 - az mesh deployment create --c:\MyMeshTemplates\SecretTemplate1.txt
-- AZ nät distribution Create--https:\//www.fabrikam.com/MyMeshTemplates/SecretTemplate1.txt
+- az mesh-distribution skapa\/--https: /www.fabrikam.com/MyMeshTemplates/SecretTemplate1.txt
 
 ### <a name="show-a-secret"></a>Visa en hemlighet
 Returnerar beskrivningen av hemligheten (men inte värdet).

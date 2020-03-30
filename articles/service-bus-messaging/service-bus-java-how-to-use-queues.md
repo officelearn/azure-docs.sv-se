@@ -1,6 +1,6 @@
 ---
-title: Använda Azure Service Bus köer med Java
-description: I den här självstudien får du lära dig hur du skapar Java-program för att skicka meddelanden till och ta emot meddelanden från en Azure Service Bus kö.
+title: Använda Azure Service Bus-köer med Java
+description: I den här självstudien får du lära dig hur du skapar Java-program för att skicka meddelanden till och ta emot meddelanden från en Azure Service Bus-kö.
 services: service-bus-messaging
 documentationcenter: java
 author: axisc
@@ -12,40 +12,43 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: quickstart
-ms.date: 01/24/2020
+ms.date: 03/24/2020
 ms.author: aschhab
 ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: 25471f2cab4362d270638ee49ed8d1840aa5cdfa
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: ac6bc8f78bd3d526e68dba3e81825a28a9ac47f7
+ms.sourcegitcommit: fab450a18a600d72b583ecfbe6c5e53afd43408c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79213029"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80294133"
 ---
-# <a name="quickstart-use-azure-service-bus-queues-with-java-to-send-and-receive-messages"></a>Snabb start: använda Azure Service Bus köer med Java för att skicka och ta emot meddelanden
+# <a name="quickstart-use-azure-service-bus-queues-with-java-to-send-and-receive-messages"></a>Snabbstart: Använd Azure Service Bus-köer med Java för att skicka och ta emot meddelanden
 
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
-I den här självstudien får du lära dig hur du skapar Java-program för att skicka meddelanden till och ta emot meddelanden från en Azure Service Bus kö. 
+I den här självstudien får du lära dig hur du skapar Java-program för att skicka meddelanden till och ta emot meddelanden från en Azure Service Bus-kö. 
 
 > [!NOTE]
-> Du hittar Java-exempel på GitHub i [Azure-Service-Bus-lagringsplatsen](https://github.com/Azure/azure-service-bus/tree/master/samples/Java).
+> Du hittar Java-exempel på GitHub i [azure-service-bus-databasen](https://github.com/Azure/azure-service-bus/tree/master/samples/Java).
 
-## <a name="prerequisites"></a>Förutsättningar
-1. En Azure-prenumeration. Du behöver ett Azure-konto för att slutföra den här självstudien. Du kan aktivera dina [förmåner för MSDN-prenumeranter](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) eller registrera dig för ett [kostnads fritt konto](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
-2. Om du inte har en kö att arbeta med följer du stegen i artikeln [använd Azure Portal för att Service Bus skapa](service-bus-quickstart-portal.md) en kö.
-    1. Läs snabb **översikten** över Service Bus **köer**. 
-    2. Skapa ett Service Bus- **namnområde**. 
-    3. Hämta **anslutnings strängen**.
-    4. Skapa en Service Bus **kö**.
+## <a name="prerequisites"></a>Krav
+1. En Azure-prenumeration. Du behöver ett Azure-konto för att genomföra kursen. Du kan aktivera dina [msdn-prenumerantförmåner](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) eller registrera dig för ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
+2. Om du inte har en kö att arbeta med följer du stegen i [Azure-portalen för att skapa en](service-bus-quickstart-portal.md) köartikel för Service Bus för att skapa en kö.
+    1. Läs snabb **översikten över** servicebussköer . **queues** 
+    2. Skapa ett **servicebussnamnområde**. 
+    3. Hämta **anslutningssträngen**.
+    4. Skapa en **servicebusskö**.
 3. Installera [Azure SDK för Java][Azure SDK for Java]. 
 
 
-## <a name="configure-your-application-to-use-service-bus"></a>Konfigurera programmet så att det använder Service Bus
-Kontrol lera att du har installerat [Azure SDK för Java][Azure SDK for Java] innan du skapar det här exemplet. Om du använder Sol förmörkelse kan du installera [Azure Toolkit for Eclipse][Azure Toolkit for Eclipse] som innehåller Azure SDK för Java. Du kan sedan lägga till **Microsoft Azure bibliotek för Java** i projektet:
+## <a name="configure-your-application-to-use-service-bus"></a>Konfigurera ditt program så att det använder Service Bus
+Kontrollera att du har installerat [Azure SDK för Java][Azure SDK for Java] innan du skapar det här exemplet. 
 
-![Lägg till Microsoft Azure bibliotek för java i ditt Sol förmörkelse-projekt](./media/service-bus-java-how-to-use-queues/eclipse-azure-libraries-java.png)
+Om du använder Eclipse kan du installera [Azure Toolkit för Eclipse][Azure Toolkit for Eclipse] som innehåller Azure SDK för Java. Du kan sedan lägga till **Microsoft Azure-bibliotek för Java** i projektet. Om du använder IntelliJ läser du [Installera Azure Toolkit för IntelliJ](/azure/java/intellij/azure-toolkit-for-intellij-installation). 
 
-Lägg till följande `import`-uttryck överst i Java-filen:
+![Lägga till Microsoft Azure-bibliotek för Java i ditt Eclipse-projekt](./media/service-bus-java-how-to-use-queues/eclipse-azure-libraries-java.png)
+
+
+Lägg till `import` följande satser högst upp i Java-filen:
 
 ```java
 // Include the following imports to use Service Bus APIs
@@ -65,7 +68,7 @@ import org.apache.commons.cli.*;
 ```
 
 ## <a name="send-messages-to-a-queue"></a>Skicka meddelanden till en kö
-För att skicka meddelanden till en Service Bus kö, instansierar ditt program ett **QueueClient** -objekt och skickar meddelanden asynkront. Följande kod visar hur du skickar ett meddelande för en kö som skapats via portalen.
+Om du vill skicka meddelanden till en servicebusskö instansierar programmet ett **QueueClient-objekt** och skickar meddelanden asynkront. Följande kod visar hur du skickar ett meddelande för en kö som har skapats via portalen.
 
 ```java
 public void run() throws Exception {
@@ -113,20 +116,20 @@ public void run() throws Exception {
 
 ```
 
-Meddelanden som skickas till och tas emot från Service Bus köer är instanser av [meddelande](/java/api/com.microsoft.azure.servicebus.message?view=azure-java-stable) klassen. Meddelande objekt har en uppsättning standard egenskaper (t. ex. etikett och TimeToLive), en ord lista som används för att lagra anpassade programspecifika egenskaper och en brödtext av godtycklig program data. Ett program kan ange meddelandets brödtext genom att skicka ett serialiserbar objekt till meddelandets konstruktor, och lämplig serialiserare kommer sedan att användas för att serialisera objektet. Du kan också ange ett **Java-. I/O. InputStream** -objekt.
+Meddelanden som skickas till och tas emot från Service Bus-köer är instanser av klassen [Meddelande.](/java/api/com.microsoft.azure.servicebus.message?view=azure-java-stable) Meddelandeobjekt har en uppsättning standardegenskaper (till exempel Etikett och TimeToLive), en ordlista som används för att lagra anpassade programspecifika egenskaper och en samling godtyckliga programdata. Ett program kan ställa in meddelandets brödtext genom att skicka ett serialiserbart objekt till konstruktorn för meddelandet, och lämplig serialiserare används sedan för att serialisera objektet. Alternativt kan du ge en **java. Io. InputStream-objekt.**
 
 
 Service Bus-köerna stöder en maximal meddelandestorlek på 256 kB på [standardnivån](service-bus-premium-messaging.md) och 1 MB på [premiumnivån](service-bus-premium-messaging.md). Rubriken, som inkluderar standardprogramegenskaperna och de anpassade programegenskaperna, kan ha en maximal storlek på 64 kB. Det finns ingen gräns för antalet meddelanden som kan finnas i en kö men det finns ett tak för den totala storleken för de meddelanden som ligger i en kö. Den här köstorleken definieras när kön skapas, med en övre gräns på 5 GB.
 
 ## <a name="receive-messages-from-a-queue"></a>Ta emot meddelanden från en kö
-Det primära sättet att ta emot meddelanden från en kö är att använda ett **ServiceBusContract** -objekt. Mottagna meddelanden kan arbeta i två olika lägen: **ReceiveAndDelete** och **PeekLock**.
+Det primära sättet att ta emot meddelanden från en kö är att använda ett **ServiceBusContract-objekt.** Mottagna meddelanden kan fungera i två olika lägen: **ReceiveAndDelete** och **PeekLock**.
 
-När du använder **ReceiveAndDelete** -läget är ta emot en enda åtgärd – det vill säga när Service Bus tar emot en läsbegäran för ett meddelande i en kö, markerar det meddelandet som förbrukat och returnerar det till programmet. **ReceiveAndDelete** -läget (som är standard läget) är den enklaste modellen och fungerar bäst för scenarier där ett program kan tolerera att inte bearbeta ett meddelande i händelse av ett fel. För att förstå detta kan du föreställa dig ett scenario där konsumenten utfärdar en receive-begäran och sedan kraschar innan den kan bearbeta denna begäran.
-Eftersom Service Bus har markerat meddelandet som förbrukat, när programmet startas om och börjar förbruka meddelanden igen, har det fått meddelandet som förbrukades innan kraschen.
+När du använder **läget ReceiveAndDelete** är mottagning en enda skottåtgärd , det vill när Service Bus tar emot en läsbegäran för ett meddelande i en kö markeras meddelandet som förbrukat och returnerar det till programmet. **ReceiveAndDelete-läge** (som är standardläget) är den enklaste modellen och fungerar bäst för scenarier där ett program kan tolerera att inte bearbeta ett meddelande i händelse av ett fel. För att förstå detta kan du föreställa dig ett scenario där konsumenten utfärdar en receive-begäran och sedan kraschar innan den kan bearbeta denna begäran.
+Eftersom Service Bus har markerat meddelandet som förbrukat, då när programmet startas om och börjar konsumera meddelanden igen, har det missat meddelandet som förbrukades före kraschen.
 
-I **PeekLock** -läge blir mottagningen en åtgärd i två steg, vilket gör det möjligt att stödja program som inte kan tolerera meddelanden som saknas. När Service Bus tar emot en begäran letar det upp nästa meddelande som ska förbrukas, låser det för att förhindra andra användare tar emot det och skickar sedan tillbaka det till programmet. När programmet har slutfört bearbetningen av meddelandet (eller lagrar det tillförlitligt för framtida bearbetning) slutförs det andra steget i Receive-processen genom att anropa **Complete ()** för det mottagna meddelandet. När Service Bus ser det **fullständiga anropet ()** , markeras meddelandet som förbrukat och tas bort från kön. 
+I **PeekLock-läge** blir mottagning en tvåstegsåtgärd, vilket gör det möjligt att stödja program som inte tolererar meddelanden som saknas. När Service Bus tar emot en begäran letar det upp nästa meddelande som ska förbrukas, låser det för att förhindra andra användare tar emot det och skickar sedan tillbaka det till programmet. När programmet har slutfört bearbetningen av meddelandet (eller lagrar det på ett tillförlitligt sätt för framtida bearbetning) slutförs den andra fasen av mottagningsprocessen genom att anropa **complete()** på det mottagna meddelandet. När Service Bus ser **hela()** anropet markeras meddelandet som förbrukat och tar bort det från kön. 
 
-Följande exempel visar hur meddelanden kan tas emot och bearbetas med **PeekLock** -läge (inte standard läget). Exemplet nedan använder callback-modellen med en registrerad meddelande hanterare och bearbetar meddelanden när de anländer till vår `TestQueue`. Det här läget anropar **Complete ()** automatiskt när återanropet returnerar normalt och anropar **överge ()** om motringningen genererar ett undantag. 
+I följande exempel visas hur meddelanden kan tas emot och bearbetas med **PeekLock-läge** (inte standardläget). I exemplet nedan används motringningsmodellen med en registrerad meddelandehanterare `TestQueue`och bearbetar meddelanden när de kommer in i vår . Det här läget anropar **complete()** automatiskt när motringningen returnerar normalt och anropar **abandon()** om motringningen genererar ett undantag. 
 
 ```java
     public void run() throws Exception {
@@ -179,17 +182,17 @@ Följande exempel visar hur meddelanden kan tas emot och bearbetas med **PeekLoc
 ```
 
 ## <a name="how-to-handle-application-crashes-and-unreadable-messages"></a>Hantera programkrascher och oläsbara meddelanden
-Service Bus innehåller funktioner som hjälper dig att återställa fel i programmet eller lösa problem med bearbetning av meddelanden på ett snyggt sätt. Om ett mottagar program inte kan bearbeta meddelandet av någon anledning, kan det anropa metoden **Abandon ()** på klient objekt med det mottagna meddelandets lås-token som erhållits via **getLockToken ()** . Detta gör att Service Bus låser upp meddelandet i kön och gör det tillgängligt att tas emot igen, antingen genom samma användningsprogram eller ett annat användningsprogram.
+Service Bus innehåller funktioner som hjälper dig att återställa fel i programmet eller lösa problem med bearbetning av meddelanden på ett snyggt sätt. Om ett mottagarprogram inte kan bearbeta meddelandet av någon anledning kan det anropa metoden **abandon()** på klientobjektet med det mottagna meddelandets låstoken som erhållits via **getLockToken()**. Detta gör att Service Bus låser upp meddelandet i kön och gör det tillgängligt att tas emot igen, antingen genom samma användningsprogram eller ett annat användningsprogram.
 
-Det finns också en tids gräns som är kopplad till ett meddelande som är låst i kön och om programmet inte kan bearbeta meddelandet innan tids gränsen för låsning går ut (till exempel om programmet kraschar), så Service Bus låser upp meddelandet automatiskt och gör det tillgängligt för att tas emot igen.
+Det finns också en timeout som är associerad med ett meddelande låst i kön, och om programmet inte kan bearbeta meddelandet innan låstidsgränsen upphör att gälla (till exempel om programmet kraschar), låses Service Bus upp meddelandet automatiskt och gör det tillgängliga för att tas emot igen.
 
-I händelse av att programmet kraschar när meddelandet har bearbetats men innan **hela begäran ()** har utfärdats skickas meddelandet vidare till programmet när det startas om. Det här kallas ofta för *At Least Once Processing*, det vill säga att varje meddelande bearbetas minst en gång, men i vissa situationer kan samma meddelande levereras igen. Om scenariot inte tolererar duplicerad bearbetning, bör programutvecklarna lägga till ytterligare logik i sina program för att hantera duplicerad meddelandeleverans. Detta uppnås ofta med hjälp av **getMessageId** -metoden för meddelandet, som förblir konstant över leverans försök.
+I händelse av att programmet kraschar efter bearbetning av meddelandet men innan **den fullständiga()** begäran utfärdas, levereras meddelandet till programmet när det startas om. Det här kallas ofta för *At Least Once Processing*, det vill säga att varje meddelande bearbetas minst en gång, men i vissa situationer kan samma meddelande levereras igen. Om scenariot inte tolererar duplicerad bearbetning, bör programutvecklarna lägga till ytterligare logik i sina program för att hantera duplicerad meddelandeleverans. Detta uppnås ofta med hjälp av **getMessageId-metoden** för meddelandet, som förblir konstant över leveransförsök.
 
 > [!NOTE]
-> Du kan hantera Service Bus-resurser med [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/). Service Bus Explorer gör det möjligt för användare att ansluta till en Service Bus namnrymd och administrera meddelande enheter på ett enkelt sätt. Verktyget innehåller avancerade funktioner som import/export-funktioner eller möjlighet att testa ämnen, köer, prenumerationer, relä tjänster, Notification Hub och Event Hub. 
+> Du kan hantera Service Bus-resurser med [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/). Service Bus Explorer tillåter användare att ansluta till ett servicebussnamnområde och administrera meddelandeenheter på ett enkelt sätt. Verktyget innehåller avancerade funktioner som import/export-funktioner eller möjligheten att testa ämne, köer, prenumerationer, relätjänster, meddelandehubbar och händelsehubbar. 
 
-## <a name="next-steps"></a>Nästa steg
-Nu när du har lärt dig grunderna i Service Bus köer, se [köer, ämnen och prenumerationer][Queues, topics, and subscriptions] för mer information.
+## <a name="next-steps"></a>Efterföljande moment
+Nu när du har lärt dig grunderna i servicebussköer läser du [Köer, ämnen och prenumerationer][Queues, topics, and subscriptions] för mer information.
 
 Mer information finns på [Java Developer Center](https://azure.microsoft.com/develop/java/).
 

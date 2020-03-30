@@ -1,53 +1,53 @@
 ---
-title: Geospatiala och geospatiala JSON-plats data i Azure Cosmos DB
-description: Lär dig hur du skapar spatiala objekt med Azure Cosmos DB och SQL API.
+title: Geospatial- och GeoJSON-platsdata i Azure Cosmos DB
+description: Förstå hur du skapar rumsliga objekt med Azure Cosmos DB och SQL API.
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 02/20/2020
 ms.author: tisande
 ms.openlocfilehash: 59c8b31dcc8594d2cafb2db7832e290b01026f60
-ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/14/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79367592"
 ---
-# <a name="geospatial-and-geojson-location-data-in-azure-cosmos-db"></a>Geospatiala och geospatiala JSON-plats data i Azure Cosmos DB
+# <a name="geospatial-and-geojson-location-data-in-azure-cosmos-db"></a>Geospatial- och GeoJSON-platsdata i Azure Cosmos DB
 
-Den här artikeln ger en introduktion till geospatiala funktionerna i Azure Cosmos DB. För närvarande stöds endast att lagra och komma åt geospatiala data i Azure Cosmos DB SQL API-konton. När du har läst vår dokumentation om Geospatial indexering kan du svara på följande frågor:
+Den här artikeln är en introduktion till geospatiala funktioner i Azure Cosmos DB. För närvarande stöds lagring och åtkomst till geospatiala data endast av Azure Cosmos DB SQL API-konton. Efter att ha läst vår dokumentation om geospatial indexering kommer du att kunna svara på följande frågor:
 
-* Hur jag för att lagra rumsliga data i Azure Cosmos DB?
-* Hur kan jag läsa geospatiala data i Azure Cosmos DB i SQL och LINQ?
-* Hur jag för att aktivera eller inaktivera rumslig indexering i Azure Cosmos DB?
+* Hur lagrar jag spatialdata i Azure Cosmos DB?
+* Hur kan jag fråga geospatiala data i Azure Cosmos DB i SQL och LINQ?
+* Hur aktiverar eller inaktiverar jag spatial indexering i Azure Cosmos DB?
 
-## <a name="introduction-to-spatial-data"></a>Introduktion till spatialdata
+## <a name="introduction-to-spatial-data"></a>Introduktion till rumsliga data
 
-Spatialdata beskriver position och formen på objekt i utrymmet. I de flesta program motsvarar dessa objekt på jorden och geospatiala data. Rumsliga data kan användas för att representera platsen för en person, en plats i närheten eller ens en stad eller en sjö gränser. Vanliga användningsområden ofta omfattar närhetsförfrågningar, till exempel, ”hitta alla kaféer nära min aktuella plats”.
+Rumsliga data beskriver objektens position och form i rymden. I de flesta program motsvarar dessa objekt på jorden och geospatiala data. Rumsliga data kan användas för att representera platsen för en person, en plats av intresse, eller gränsen för en stad, eller en sjö. Vanliga användningsfall innebär ofta närhetsfrågor, till exempel "hitta alla kaféer nära min nuvarande plats".
 
-Azure Cosmos DB SQL API har stöd för två spatiala data typer: data typen **Geometry** och **geografi** data typen.
+Azure Cosmos DB:s SQL API stöder två rumsliga datatyper: **geometridatatypen** och geografidatatypen. **geography**
 
-- **Geometri** typen representerar data i ett Euclidean (flat)-koordinatsystem
-- **Geografi** typen representerar data i ett system för Round-jordens koordinater.
+- **Geometritypen** representerar data i ett euklidiskt (platt) koordinatsystem
+- **Geografitypen** representerar data i ett koordinerat koordinssystem.
 
-## <a name="supported-data-types"></a>Data typer som stöds
+## <a name="supported-data-types"></a>Datatyper som stöds
 
-Azure Cosmos DB stöder indexering och frågor om geospatiala punkt data som representeras med hjälp av den geospatiala [JSON-specifikationen](https://tools.ietf.org/html/rfc7946). GeoJSON-datastrukturer är alltid giltig JSON-objekt, så att de kan lagras och frågor med Azure Cosmos DB utan några särskilda verktyg och bibliotek.
+Azure Cosmos DB stöder indexering och frågor av geospatiala punktdata som representeras med hjälp av [GeoJSON-specifikationen](https://tools.ietf.org/html/rfc7946). GeoJSON-datastrukturer är alltid giltiga JSON-objekt, så att de kan lagras och efterfrågas med Hjälp av Azure Cosmos DB utan några specialiserade verktyg eller bibliotek.
 
-Azure Cosmos DB stöder följande spatiala data typer:
+Azure Cosmos DB stöder följande rumsliga datatyper:
 
-- Pekaren
-- Lin Est ring
-- Polygonlasso
-- MultiPolygon
+- Punkt
+- LineString (Radsträng)
+- Polygon
+- MultiPolygon (multipolygon)
 
-### <a name="points"></a>Saker
+### <a name="points"></a>Punkter
 
-En **punkt** anger en enda position i rymden. I geospatiala data motsvarar en punkt den exakta platsen, vilket kan vara en gatuadress en LIVSMEDELSBUTIK, en kiosk, en bil eller en stad.  En punkt representeras i GeoJSON (och Azure Cosmos DB) med hjälp av dess koordinat par eller longitud och latitud.
+En **punkt** betecknar en enda position i rymden. I geospatiala data representerar en punkt den exakta platsen, som kan vara en gatuadress för en livsmedelsbutik, en kiosk, en bil eller en stad.  En punkt representeras i GeoJSON (och Azure Cosmos DB) med hjälp av dess koordinatpar eller longitud och latitud.
 
-Här är ett exempel-JSON för en punkt:
+Här är ett exempel JSON för en punkt:
 
-**Punkter i Azure Cosmos DB**
+**Poäng i Azure Cosmos DB**
 
 ```json
 {
@@ -56,9 +56,9 @@ Här är ett exempel-JSON för en punkt:
 }
 ```
 
-Spatiala data typer kan bäddas in i ett Azure Cosmos DB-dokument som visas i det här exemplet på en användar profil som innehåller plats data:
+Rumsliga datatyper kan bäddas in i ett Azure Cosmos DB-dokument som visas i det här exemplet med en användarprofil som innehåller platsdata:
 
-**Använd profil med platsen lagrad i Azure Cosmos DB**
+**Använda profil med plats lagrad i Azure Cosmos DB**
 
 ```json
 {
@@ -73,21 +73,21 @@ Spatiala data typer kan bäddas in i ett Azure Cosmos DB-dokument som visas i de
 }
 ```
 
-### <a name="points-in-a-geometry-coordinate-system"></a>Punkter i ett geometri koordinat system
+### <a name="points-in-a-geometry-coordinate-system"></a>Punkter i ett geometrikoordinatsystem
 
-För data typen **Geometry** anger netjson-specifikationen den vågräta axeln först och den lodräta axeln.
+För **geometridatatypen** anger GeoJSON-specifikationen den vågräta axeln först och den lodräta axeln i andra.
 
-### <a name="points-in-a-geography-coordinate-system"></a>Punkter i ett geografiskt koordinatsystem
+### <a name="points-in-a-geography-coordinate-system"></a>Punkter i ett geografikoordinatsystem
 
-För geografi data typen anger **geografi** specifikation longitud först och Latitude Second. Som i andra program för mappning, longitud och latitud är vinklar och representeras i grader. Longitudvärden mäts från nollmeridianen och är mellan-180 grader och 180.0 grader, och värdena för latitud mäts från ekvatorn och är mellan-90.0 grader och 90.0 grader.
+För **geografidatatypen** anger GeoJSON-specifikationen longitud först och latitudsekret. Liksom i andra mappningsprogram är longitud och latitud vinklar och representerade i form av grader. Longitudvärden mäts från Prime Meridian och är mellan -180 grader och 180,0 grader, och latitudvärden mäts från ekvatorn och är mellan -90,0 grader och 90,0 grader.
 
-Azure Cosmos DB tolkar koordinater framställd per referenssystem WGS 84. Nedan finns mer information om koordinaten referenssystem.
+Azure Cosmos DB tolkar koordinater som representeras enligt WGS-84 referenssystem. Se nedan för mer information om koordinatreferenssystem.
 
-### <a name="linestrings"></a>Lin Est rings
+### <a name="linestrings"></a>LineStrings (Radsträngar)
 
-**Lin Est rings** representerar en serie med två eller flera punkter i utrymmet och de linje segment som kopplar dem. I geospatiala data användas LineStrings brukar för att representera motorvägar eller vattendrag.
+**LineStrings** representerar en serie med två eller flera punkter i rymden och de linjesegment som ansluter dem. I geospatiala data används LineStrings ofta för att representera motorvägar eller floder.
 
-**Lin Est rings i interjson**
+**LineStrings i GeoJSON**
 
 ```json
     "type":"LineString",
@@ -99,9 +99,9 @@ Azure Cosmos DB tolkar koordinater framställd per referenssystem WGS 84. Nedan 
 
 ### <a name="polygons"></a>Polygoner
 
-En **polygon** är en kant linje med anslutna punkter som utgör en stängd lin Est ring. Polygoner användas brukar för att representera naturlig buskmarker som sjöar eller politisk jurisdiktioner som orter och delstater. Här är ett exempel på en polygon i Azure Cosmos DB:
+En **Polygon** är en gräns för anslutna punkter som utgör en stängd LineString. Polygoner används ofta för att representera naturliga formationer som sjöar eller politiska jurisdiktioner som städer och stater. Här är ett exempel på en Polygon i Azure Cosmos DB:
 
-**Polygoner i polyjson**
+**Polygoner i GeoJSON**
 
 ```json
 {
@@ -117,17 +117,17 @@ En **polygon** är en kant linje med anslutna punkter som utgör en stängd lin 
 ```
 
 > [!NOTE]
-> GeoJSON-specifikationen kräver att för giltiga polygoner senaste koordinaten paret som anges ska vara samma som först som skapar en sluten form.
+> GeoJSON-specifikationen kräver att för giltiga polygoner ska det sista koordinatparet vara detsamma som den första för att skapa en sluten form.
 >
-> Punkter inom en Polygon måste anges i motsols ordning. En Polygon som angetts i medurs ordning representerar inversen till regionen i den.
+> Punkter i en Polygon måste anges i moturs ordning. En Polygon som anges i medurs ordning representerar inversen av regionen inom den.
 >
 >
 
-### <a name="multipolygons"></a>Multipolygoner
+### <a name="multipolygons"></a>MultiPolygons
 
-En **multipolygon** är en matris med noll eller flera polygoner. **Multipolygoner** får inte överlappa sidor eller ha några gemensamma områden. De kan röra sig vid en eller flera punkter.
+En **MultiPolygon** är en matris med noll eller fler polygoner. **MultiPolygoner** kan inte överlappa sidor eller ha något gemensamt område. De kan röra vid en eller flera punkter.
 
-**Multipolygoner i polyjson**
+**MultiPolygons i GeoJSON**
 
 ```json
 {
@@ -149,16 +149,16 @@ En **multipolygon** är en matris med noll eller flera polygoner. **Multipolygon
 }
 ```
 
-## <a name="coordinate-reference-systems"></a>Samordna referenssystem
+## <a name="coordinate-reference-systems"></a>Koordinera referenssystem
 
-Eftersom jordens form är oregelbunden, representeras koordinaterna för geospatiala geografiska data i många koordinatsystem, var och en med sina egna referens ramar och mått enheter. Den ”nationella rutnät för Storbritannien” är till exempel en referenssystem stämmer för Storbritannien, men inte utanför den.
+Sedan forma av jorden är ojämnt, föreställs koordinater av geografiska geospatial data i många koordinat hänvisar till system (CRS), varje med deras eget, tar fram av hänvisar till och enheter av mätningen. Till exempel är "National Grid of Britain" ett referenssystem är korrekt för Storbritannien, men inte utanför det.
 
-Det mest populära BOKNINGs systemet som används idag är världens Geodetic System [WGS-84](https://earth-info.nga.mil/GandG/update/index.php). Använd WGS 84 GPS-enheter och många mappning tjänster, inklusive Google Maps och Bing Maps API: er. Azure Cosmos DB stöder indexering och frågor om geospatiala geografi data med endast WGS-84-boknings system.
+Den mest populära CRS som används idag är World Geodetic System [WGS-84](https://earth-info.nga.mil/GandG/update/index.php). GPS-enheter och många karttjänster, inklusive Google Maps och Bing Maps API:er, använder WGS-84. Azure Cosmos DB stöder indexering och frågor av geografiska geospatiala data med endast WGS-84 CRS.
 
 ## <a name="creating-documents-with-spatial-data"></a>Skapa dokument med rumsliga data
-När du skapar dokument som innehåller GeoJSON-värden, indexeras de automatiskt med en spatialindexet i enlighet med indexprincip i behållaren. Om du arbetar med ett Azure Cosmos DB SDK på ett dynamiskt skrivna språk som Python eller Node.js, måste du skapa giltiga GeoJSON.
+När du skapar dokument som innehåller GeoJSON-värden indexeras de automatiskt med ett rumsligt index i enlighet med behållarens indexeringsprincip. Om du arbetar med en Azure Cosmos DB SDK på ett dynamiskt skrivet språk som Python eller Node.js, måste du skapa giltig GeoJSON.
 
-**Skapa dokument med geospatiala data i Node. js**
+**Skapa dokument med geospatiala data i Node.js**
 
 ```javascript
 var userProfileDocument = {
@@ -174,7 +174,7 @@ client.createDocument(`dbs/${databaseName}/colls/${collectionName}`, userProfile
 });
 ```
 
-Om du arbetar med SQL-API: erna kan du använda klasserna `Point`, `LineString`, `Polygon`och `MultiPolygon` i `Microsoft.Azure.Cosmos.Spatial`-namnrymden för att bädda in plats information i dina program objekt. De här klasserna underlätta serialisering och deserialisering av spatialdata i GeoJSON.
+Om du arbetar med SQL-API:erna `Point`kan `LineString` `Polygon`du `MultiPolygon` använda , `Microsoft.Azure.Cosmos.Spatial` , och klasserna i namnområdet för att bädda in platsinformation i programobjekten. Dessa klasser hjälper till att förenkla serialisering och avserialisering av rumsliga data i GeoJSON.
 
 **Skapa dokument med geospatiala data i .NET**
 
@@ -199,12 +199,12 @@ await container.CreateItemAsync( new UserProfile
     });
 ```
 
-Om du inte har information om latitud och longitud, men har fysiska adresser eller plats namn som stad eller land/region, kan du leta upp de faktiska koordinaterna genom att använda en tjänst som Bing Maps REST Services. Lär dig mer om Bing Maps-geografi [här](https://msdn.microsoft.com/library/ff701713.aspx).
+Om du inte har latitud- och longitudinformation, men har fysiska adresser eller platsnamn som ort eller land/region, kan du slå upp de faktiska koordinaterna med hjälp av en geokodningstjänst som Bing Maps REST Services. Läs mer om Geokodning av Bing Maps [här](https://msdn.microsoft.com/library/ff701713.aspx).
 
 ## <a name="next-steps"></a>Nästa steg
 
-Bredvid nu när du har lärt dig hur du kommer igång med geospatialt stöd i Azure Cosmos DB, kan du:
+Nu när du har lärt dig hur du kommer igång med geospatial support i Azure Cosmos DB kan du nästa du:
 
-* Läs mer om [Azure Cosmos DB fråga](sql-query-getting-started.md)
-* Lär dig mer om att [fråga spatialdata med Azure Cosmos DB](sql-query-geospatial-query.md)
-* Läs mer om [index spatial data med Azure Cosmos DB](sql-query-geospatial-index.md)
+* Läs mer om [Azure Cosmos DB Query](sql-query-getting-started.md)
+* Läs mer om [att fråga spatialdata med Azure Cosmos DB](sql-query-geospatial-query.md)
+* Läs mer om [Index spatial data med Azure Cosmos DB](sql-query-geospatial-index.md)

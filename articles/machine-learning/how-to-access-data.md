@@ -1,7 +1,7 @@
 ---
-title: Få åtkomst till data i Azure Storage Services
+title: Ansluta till Azure-lagringstjänster
 titleSuffix: Azure Machine Learning
-description: Lär dig hur du använder data lager för att säkert ansluta till Azure Storage-tjänster under utbildning med Azure Machine Learning
+description: Lär dig hur du använder datalager för att på ett säkert sätt ansluta till Azure-lagringstjänster under utbildning med Azure Machine Learning
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,33 +9,34 @@ ms.topic: conceptual
 ms.author: sihhu
 author: MayMSFT
 ms.reviewer: nibaccam
-ms.date: 02/27/2020
+ms.date: 03/24/2020
 ms.custom: seodec18
-ms.openlocfilehash: 36d622bf2873b7e629a0f6abeecded33e32898f5
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: c5972b602d92b2e08fd70850dd1af5c1236e2b1d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79283737"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80234465"
 ---
-# <a name="access-data-in-azure-storage-services"></a>Få åtkomst till data i Azure Storage-tjänster
+# <a name="connect-to-azure-storage-services"></a>Ansluta till Azure-lagringstjänster
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-I den här artikeln får du lära dig hur du enkelt kan komma åt dina data i Azure Storage Services via Azure Machine Learning data lager. Data lager används för att lagra anslutnings information, t. ex. prenumerations-ID och token-auktorisering. När du använder data lager kan du komma åt din lagring utan att behöva hårdkoda anslutnings information i dina skript. 
+I den här artikeln kan du läsa om hur du ansluter till Azure-lagringstjänster via Azure Machine Learning-datalager. Datalager lagrar anslutningsinformation, som ditt prenumerations-ID och tokenauktorisering i [key vault som](https://azure.microsoft.com/services/key-vault/) är associerade med arbetsytan, så att du kan komma åt lagringsutrymmet på ett säkert sätt utan att behöva koda dem hårt i skripten.
 
-Du kan skapa data lager från [dessa Azure Storage-lösningar](#matrix). För lagrings lösningar som inte stöds och för att spara data Utgångs kostnader under Machine Learning-experiment, rekommenderar vi att du [flyttar dina data](#move) till Azure Storage lösningar som stöds. 
+Du kan skapa datalager från [dessa Azure-lagringslösningar](#matrix). För lagringslösningar som inte stöds och för att spara datautgående kostnader under maskininlärningsexperiment rekommenderar vi att du [flyttar dina data](#move) till Azure-lagringslösningar som stöds. 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
+
 Du behöver:
-- En Azure-prenumeration. Om du inte har en Azure-prenumeration kan du skapa ett kostnads fritt konto innan du börjar. Prova den [kostnads fria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree).
+- En Azure-prenumeration. Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnadsfria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree).
 
-- Ett Azure Storage-konto med en [Azure Blob-behållare](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview) eller [Azure-filresurs](https://docs.microsoft.com/azure/storage/files/storage-files-introduction).
+- Ett Azure-lagringskonto med en [Azure blob-behållare](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview) eller [Azure-filresurs](https://docs.microsoft.com/azure/storage/files/storage-files-introduction).
 
-- [Azure Machine Learning SDK för python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)eller åtkomst till [Azure Machine Learning Studio](https://ml.azure.com/).
+- [Azure Machine Learning SDK för Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)eller åtkomst till Azure Machine Learning [Studio](https://ml.azure.com/).
 
 - En Azure Machine Learning-arbetsyta.
   
-  [Skapa antingen en Azure Machine Learning arbets yta](how-to-manage-workspace.md) eller Använd en befintlig via python SDK. Importera `Workspace`-och `Datastore`-klassen och Läs in din prenumerations information från filen `config.json` med hjälp av funktionen `from_config()`. Detta söker efter JSON-filen i den aktuella katalogen som standard, men du kan också ange en Sök vägs parameter för att peka på filen med `from_config(path="your/file/path")`.
+  Skapa [en Azure Machine Learning-arbetsyta](how-to-manage-workspace.md) eller använd en befintlig via Python SDK. Importera `Workspace` klassen `Datastore` och läs in prenumerationsinformationen `config.json` från `from_config()`filen med hjälp av funktionen . Detta letar efter JSON-filen i den aktuella katalogen som standard, men `from_config(path="your/file/path")`du kan också ange en sökvägsparameter som ska peka på filen med .
 
    ```Python
    import azureml.core
@@ -45,62 +46,68 @@ Du behöver:
    ```
 <a name="matrix"></a>
 
-## <a name="supported-data-storage-service-types"></a>Typer av data lagrings tjänster som stöds
+## <a name="supported-data-storage-service-types"></a>Typer av datalagringstjänster som stöds
 
-Data lager har för närvarande stöd för lagring av anslutnings information till de lagrings tjänster som anges i följande matris. För närvarande stöds inte Azure Data Warehouse. 
+Datalager har för närvarande stöd för lagring av anslutningsinformation till lagringstjänster som anges i följande matris. För närvarande stöds inte Azure Data Warehouse. 
 
-| Typ av lagrings&nbsp; | Typ av autentiserings&nbsp; | [Azure&nbsp;Machine&nbsp;Learning Studio](https://ml.azure.com/) | [Azure&nbsp;Machine&nbsp;Learning&nbsp; python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) |  [Azure&nbsp;Machine&nbsp;Learning CLI](reference-azure-machine-learning-cli.md) | [Azure&nbsp;Machine&nbsp;Learning&nbsp; REST API](https://docs.microsoft.com/rest/api/azureml/)
+| Typ&nbsp;av lagring | Typ&nbsp;av autentisering | [Azure&nbsp;&nbsp;Machine Learning-studio](https://ml.azure.com/) | [Azure&nbsp;Machine&nbsp;Learning&nbsp; Python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) |  [Azure&nbsp;Machine&nbsp;Learning CLI](reference-azure-machine-learning-cli.md) | [Azure&nbsp;Machine&nbsp;Learning&nbsp; Rest API](https://docs.microsoft.com/rest/api/azureml/)
 ---|---|---|---|---|---
-[Azure&nbsp;BLOB&nbsp;Storage](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview)| Kontonyckel <br> SAS-token | ✓ | ✓ | ✓ |✓
-[Azure&nbsp;fil&nbsp;resurs](https://docs.microsoft.com/azure/storage/files/storage-files-introduction)| Kontonyckel <br> SAS-token | ✓ | ✓ | ✓ |✓
-[Azure&nbsp;Data Lake&nbsp;lagring gen&nbsp;1](https://docs.microsoft.com/azure/data-lake-store/)| Tjänstens huvud namn| ✓ | ✓ | ✓ |✓
-[Azure&nbsp;Data Lake&nbsp;lagring gen&nbsp;2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction)| Tjänstens huvud namn| ✓ | ✓ | ✓ |✓
-Azure&nbsp;SQL&nbsp;-databas| SQL-autentisering <br>Tjänstens huvud namn| ✓ | ✓ | ✓ |✓
-Azure&nbsp;PostgreSQL | SQL-autentisering| ✓ | ✓ | ✓ |✓
-Azure&nbsp;Database&nbsp;för&nbsp;MySQL | SQL-autentisering|  | ✓* | ✓* |✓*
-Databricks&nbsp;fil&nbsp;system| Ingen autentisering | | ✓** | ✓ ** |✓** 
+[Azure&nbsp;Blob-lagring&nbsp;](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview)| Kontonyckel <br> SAS-token | ✓ | ✓ | ✓ |✓
+[Azure-filresurs&nbsp;&nbsp;](https://docs.microsoft.com/azure/storage/files/storage-files-introduction)| Kontonyckel <br> SAS-token | ✓ | ✓ | ✓ |✓
+[Azure&nbsp;Data&nbsp;Lake&nbsp;Storage Gen 1](https://docs.microsoft.com/azure/data-lake-store/)| Tjänstens huvudnamn| ✓ | ✓ | ✓ |✓
+[Azure&nbsp;Data&nbsp;Lake&nbsp;Storage Gen 2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction)| Tjänstens huvudnamn| ✓ | ✓ | ✓ |✓
+[Azure&nbsp;&nbsp;SQL-databas](https://docs.microsoft.com/azure/sql-database/sql-database-technical-overview)| SQL-autentisering <br>Tjänstens huvudnamn| ✓ | ✓ | ✓ |✓
+[Azure&nbsp;PostgreSQL](https://docs.microsoft.com/azure/postgresql/overview) | SQL-autentisering| ✓ | ✓ | ✓ |✓
+[Azure-databas&nbsp;&nbsp;för&nbsp;MySQL](https://docs.microsoft.com/azure/mysql/overview) | SQL-autentisering|  | ✓* | ✓* |✓*
+[Databricks&nbsp;&nbsp;filsystem](https://docs.microsoft.com/azure/databricks/data/databricks-file-system)| Ingen autentisering | | ✓** | ✓ ** |✓** 
 
-*MySQL stöds endast för pipeline- [DataTransferStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.datatransferstep?view=azure-ml-py). <br> \** Databricks stöds endast för pipeline- [DatabricksStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.databricks_step.databricksstep?view=azure-ml-py)
+*MySQL stöds endast för pipeline [DataTransferStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.datatransferstep?view=azure-ml-py). <br>
+**Databricks stöds endast för pipeline [DatabricksStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.databricks_step.databricksstep?view=azure-ml-py)
 
 ### <a name="storage-guidance"></a>Minnesriktlinjer
 
-Vi rekommenderar att du skapar ett data lager för en Azure Blob-behållare.  
-Både standard-och Premium lagring är tillgängliga för blobbar. Även om Premium Storage är dyrare, kan snabbare data flödes hastigheter förbättra hastigheten på din utbildning, särskilt om du tränar mot en stor data uppsättning. Information om kostnaden för lagrings konton finns i [pris Kalkylatorn för Azure](https://azure.microsoft.com/pricing/calculator/?service=machine-learning-service).
+Vi rekommenderar att du skapar ett datalager för en [Azure Blob-behållare](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction). Både standard- och premiumlagring är tillgängliga för blobbar. Även om premiumlagring är dyrare kan dess snabbare genomströmningshastigheter förbättra hastigheten på dina träningskörningar, särskilt om du tränar mot en stor datauppsättning. Information om kostnaden för lagringskonton finns i [Azure-priskalkylatorn](https://azure.microsoft.com/pricing/calculator/?service=machine-learning-service).
 
-När du skapar en arbets yta registreras en Azure Blob-behållare och en Azure-filresurs automatiskt till arbets ytan. De heter `workspaceblobstore` respektive `workspacefilestore`. De lagrar anslutnings informationen för BLOB-behållaren och fil resursen som är etablerad i det lagrings konto som är kopplat till arbets ytan. `workspaceblobstore` containern anges som standard data lager.
+[Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction?toc=/azure/storage/blobs/toc.json) bygger på Azure Blob-lagring och är utformad för stordataanalys för företag. En grundläggande del av Data Lake Storage Gen2 är tillägget av ett [hierarkiskt namnområde](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-namespace) till Blob-lagring. Det hierarkiska namnområdet ordnar objekt/filer i en hierarki av kataloger för effektiv dataåtkomst.
+
+När du skapar en arbetsyta registreras en Azure-blob-behållare och en Azure-filresurs automatiskt på arbetsytan. De är `workspaceblobstore` namngivna och `workspacefilestore`, respektive. `workspaceblobstore`används för att lagra arbetsytartefakter och experimentloggar för maskininlärning. `workspacefilestore`används för att lagra anteckningsböcker och R-skript som auktoriserats via [beräkningsinstans](https://docs.microsoft.com/azure/machine-learning/concept-compute-instance#accessing-files). Behållaren `workspaceblobstore` anges som standarddatalager.
+
+> [!IMPORTANT]
+> Azure Machine Learning designer (förhandsversion) skapar ett datalager med namnet **azureml_globaldatasets** automatiskt när du öppnar ett exempel på designerns startsida. Det här datalagret innehåller bara exempeldatauppsättningar. Använd **inte** detta datalager för konfidentiell dataåtkomst!
+> ![Automatiskt skapat datalager för designerexempeldatauppsättningar](media/how-to-access-data/datastore-designer-sample.png)
 
 <a name="access"></a>
 
-## <a name="create-and-register-datastores"></a>Skapa och registrera data lager
+## <a name="create-and-register-datastores"></a>Skapa och registrera datalager
 
-När du registrerar en Azure Storage-lösning som ett data lager skapar och registrerar du automatiskt data lagret till en speciell arbets yta. Du kan skapa och registrera data lager på en arbets yta med hjälp av python SDK eller Azure Machine Learning Studio.
+När du registrerar en Azure-lagringslösning som ett datalager skapar och registrerar du automatiskt datalagringen till en viss arbetsyta. Du kan skapa och registrera datalager till en arbetsyta med hjälp av Studio Python SDK eller Azure Machine Learning.
 
 >[!IMPORTANT]
-> Som en del av den aktuella processen för att skapa och registrera data lagret, verifierar Azure Machine Learning att användaren som tillhandahållit huvud kontot (användar namn, tjänstens huvud namn eller SAS-token) har åtkomst till den underliggande lagrings tjänsten. 
+> Som en del av den första datalagringsprocessen verifierar Azure Machine Learning att den underliggande lagringstjänsten finns och att användaren angav huvudnamn (användarnamn, tjänsthuvudnamn eller SAS-token) har åtkomst till den lagringen. För Azure Data Lake Storage Gen 1 och 2 datacenter sker dock den [`from_files()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.filedatasetfactory?view=azure-ml-py) [`from_delimited_files()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory?view=azure-ml-py#from-parquet-files-path--validate-true--include-path-false--set-column-types-none--partition-format-none-) här valideringen senare, när dataåtkomstmetoder gillar eller anropas. 
 <br><br>
-Men för Azure Data Lake Storage gen 1-och 2-datalager, sker denna verifiering senare när data åtkomst metoder som [`from_files()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.filedatasetfactory?view=azure-ml-py) eller [`from_delimited_files()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory?view=azure-ml-py#from-parquet-files-path--validate-true--include-path-false--set-column-types-none--partition-format-none-) anropas. 
+När datalagring har skapats utförs den här valideringen endast för metoder som kräver åtkomst till den underliggande lagringsbehållaren, **inte** varje gång datalagerobjekt hämtas. Validering sker till exempel om du vill hämta filer från ditt datalager. men om du bara vill ändra din standard datalager, då validering inte hända.
 
 ### <a name="python-sdk"></a>Python SDK
 
-Alla register metoder finns i [`Datastore`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py) -klassen och har formuläret `register_azure_*`.
+Alla registermetoder finns [`Datastore`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py) i klassen och `register_azure_*`har formuläret .
 
-Du hittar den information som du behöver för att fylla i `register()` metoden på [Azure Portal](https://portal.azure.com).
-Välj **lagrings konton** i den vänstra rutan och välj det lagrings konto som du vill registrera. **Översikts** sidan innehåller information som konto namn, behållare och fil resurs namn. 
+Du hittar den information som du `register()` behöver för att fylla i metoden på [Azure-portalen](https://portal.azure.com).
+Välj **Lagringskonton** i den vänstra rutan och välj det lagringskonto som du vill registrera. På sidan **Översikt** finns information som kontonamn, behållare och filresursnamn. 
 
-* För verifierings objekt, som konto nyckel eller SAS-token, går du till **konto nycklar** i fönstret **Inställningar** . 
+* För autentiseringsobjekt, till exempel kontonyckel eller SAS-token, går du till **Kontonycklar** i **fönstret Inställningar.** 
 
-* För tjänstens huvud objekt, t. ex. klient-ID och klient-ID, går du till **Appregistreringar** och väljer vilken app du vill använda. Dess motsvarande **översikts** sida kommer att innehålla dessa objekt.
+* För tjänsthuvudobjekt som klient-ID och klient-ID går du till dina **appregistreringar** och väljer vilken app du vill använda. Motsvarande **översiktssida** innehåller dessa objekt.
 
 > [!IMPORTANT]
-> Om ditt lagrings konto finns i ett virtuellt nätverk stöds endast skapande av BLOB, fil resurs, ADLS gen 1-och ADLS gen 2-datalager **via SDK** . Om du vill ge din arbets yta åtkomst till ditt lagrings konto anger du parametern `grant_workspace_access` `True`.
+> Om ditt lagringskonto finns i ett virtuellt nätverk stöds endast skapandet av Blob- , File share, ADLS Gen 1 och ADLS Gen **2-datalager via SDK.** Om du vill ge arbetsytan åtkomst till `grant_workspace_access` `True`ditt lagringskonto anger du parametern till .
 
-I följande exempel visas hur du registrerar en Azure Blob-behållare, en Azure-filresurs och Azure Data Lake Storage generation 2 som ett data lager. Information om andra lagrings tjänster finns i [referens dokumentationen för `register_azure_*` metoder](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore.datastore?view=azure-ml-py#methods).
+Följande exempel visar hur du registrerar en Azure blob-behållare, en Azure-filresurs och Azure Data Lake Storage Generation 2 som ett datalager. För andra lagringstjänster, se [referensdokumentationen för `register_azure_*` tillämpliga metoder](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore.datastore?view=azure-ml-py#methods).
 
 #### <a name="blob-container"></a>Blobcontainer
 
-Använd [`register_azure_blob-container()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py#register-azure-blob-container-workspace--datastore-name--container-name--account-name--sas-token-none--account-key-none--protocol-none--endpoint-none--overwrite-false--create-if-not-exists-false--skip-validation-false--blob-cache-timeout-none--grant-workspace-access-false--subscription-id-none--resource-group-none-)om du vill registrera en Azure Blob-behållare som ett data lager.
+Om du vill registrera en Azure blob-behållare som ett datalager använder du [`register_azure_blob-container()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py#register-azure-blob-container-workspace--datastore-name--container-name--account-name--sas-token-none--account-key-none--protocol-none--endpoint-none--overwrite-false--create-if-not-exists-false--skip-validation-false--blob-cache-timeout-none--grant-workspace-access-false--subscription-id-none--resource-group-none-).
 
-Följande kod skapar och registrerar `blob_datastore_name` data lagret på arbets ytan `ws`. Detta data lager har åtkomst till `my-container-name` BLOB-behållaren på `my-account-name` lagrings konto med hjälp av den angivna konto nyckeln.
+Följande kod skapar och registrerar `blob_datastore_name` datalagret `ws` till arbetsytan. Det här datalagret `my-container-name` kommer åt `my-account-name` blob-behållaren på lagringskontot med hjälp av den angivna kontonyckeln.
 
 ```Python
 blob_datastore_name='azblobsdk' # Name of the datastore to workspace
@@ -117,9 +124,9 @@ blob_datastore = Datastore.register_azure_blob_container(workspace=ws,
 
 #### <a name="file-share"></a>Filresurs
 
-Använd [`register_azure_file_share()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py#register-azure-file-share-workspace--datastore-name--file-share-name--account-name--sas-token-none--account-key-none--protocol-none--endpoint-none--overwrite-false--create-if-not-exists-false--skip-validation-false-)om du vill registrera en Azure-filresurs som ett data lager. 
+Om du vill registrera en Azure-filresurs som ett datalager använder du [`register_azure_file_share()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py#register-azure-file-share-workspace--datastore-name--file-share-name--account-name--sas-token-none--account-key-none--protocol-none--endpoint-none--overwrite-false--create-if-not-exists-false--skip-validation-false-). 
 
-Följande kod skapar och registrerar `file_datastore_name` data lagret på arbets ytan `ws`. Detta data lager har åtkomst till `my-fileshare-name` fil resurs på `my-account-name` lagrings konto med hjälp av den angivna konto nyckeln.
+Följande kod skapar och registrerar `file_datastore_name` datalagret `ws` till arbetsytan. Det här datalagret kommer åt filresursen `my-fileshare-name` på `my-account-name` lagringskontot med hjälp av den angivna kontonyckeln.
 
 ```Python
 file_datastore_name='azfilesharesdk' # Name of the datastore to workspace
@@ -134,11 +141,11 @@ file_datastore = Datastore.register_azure_file_share(workspace=ws,
                                                      account_key=account_key)
 ```
 
-#### <a name="azure-data-lake-storage-generation-2"></a>Azure Data Lake Storage generation 2
+#### <a name="azure-data-lake-storage-generation-2"></a>Azure Data Lake Storage Generation 2
 
-För en Azure Data Lake Storage generation 2 (ADLS gen 2) data lager använder du [register_azure_data_lake_gen2 ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore.datastore?view=azure-ml-py#register-azure-data-lake-gen2-workspace--datastore-name--filesystem--account-name--tenant-id--client-id--client-secret--resource-url-none--authority-url-none--protocol-none--endpoint-none--overwrite-false-) för att registrera ett data lager för autentiseringsuppgifter som är anslutet till en Azure DataLake gen 2-lagring med [tjänstens huvud namn](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal). För att kunna använda tjänstens huvud namn måste du [Registrera ditt program](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals) och ange roll tilldelningar för läsare och data åtkomst. Lär dig mer om [åtkomst kontroll som har kon figurer ATS för ADLS gen 2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control). 
+För ett datalager för Azure Data Lake Storage Generation 2 (ADLS Gen 2) använder [du register_azure_data_lake_gen2()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore.datastore?view=azure-ml-py#register-azure-data-lake-gen2-workspace--datastore-name--filesystem--account-name--tenant-id--client-id--client-secret--resource-url-none--authority-url-none--protocol-none--endpoint-none--overwrite-false-) för att registrera ett datacenter som är anslutet till en Azure DataLake Gen 2-lagring med [behörighet för tjänstens huvudnamn](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal). För att kunna utnyttja ditt tjänstehuvudnamn måste du [registrera din ansökan](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals) och ge tjänstens huvudman rätt dataåtkomst. Läs mer om [åtkomstkontroll som ställts in för ADLS Gen 2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control). 
 
-Följande kod skapar och registrerar `adlsgen2_datastore_name` data lagret på arbets ytan `ws`. Detta data lager har åtkomst till fil systemet `test` på `account_name` lagrings konto med hjälp av de angivna autentiseringsuppgifterna för tjänstens huvud namn.
+Följande kod skapar och registrerar `adlsgen2_datastore_name` datalagret `ws` till arbetsytan. Det här datalagret `test` kommer `account_name` åt filsystemet på lagringskontot med hjälp av de angivna huvudautentiseringsuppgifterna för tjänsten.
 
 ```python 
 adlsgen2_datastore_name = 'adlsgen2datastore'
@@ -162,42 +169,38 @@ adlsgen2_datastore = Datastore.register_azure_data_lake_gen2(workspace=ws,
 
 ### <a name="azure-machine-learning-studio"></a>Azure Machine Learning-studio 
 
-Skapa ett nytt data lager med några steg i Azure Machine Learning Studio:
+Skapa ett nytt datalager i några få steg i Azure Machine Learning studio:
 
 > [!IMPORTANT]
-> Om ditt lagrings konto finns i ett virtuellt nätverk stöds endast skapande av data lager [via SDK](#python-sdk) . 
+> Om ditt lagringskonto finns i ett virtuellt nätverk stöds endast skapandet av datalager [via SDK.](#python-sdk) 
 
-1. Logga in på [Azure Machine Learning Studio](https://ml.azure.com/).
-1. Välj **data lager** i det vänstra fönstret under **Hantera**.
-1. Välj **+ nytt data lager**.
-1. Fyll i formuläret för ett nytt data lager. Formuläret uppdateras intelligent baserat på dina val för Azure Storage typ och autentiseringstyp.
+1. Logga in på [Azure Machine Learning studio](https://ml.azure.com/).
+1. Välj **Datalager** i den vänstra rutan under **Hantera**.
+1. Välj **+ Nytt datalager**.
+1. Fyll i formuläret för ett nytt datalager. Formuläret uppdaterar sig intelligent baserat på dina val för Azure-lagringstyp och autentiseringstyp.
   
-Du kan hitta den information som du behöver för att fylla i formuläret på [Azure Portal](https://portal.azure.com). Välj **lagrings konton** i den vänstra rutan och välj det lagrings konto som du vill registrera. **Översikts** sidan innehåller information som konto namn, behållare och fil resurs namn. 
+Du hittar den information som du behöver för att fylla i formuläret på [Azure-portalen](https://portal.azure.com). Välj **Lagringskonton** i den vänstra rutan och välj det lagringskonto som du vill registrera. På sidan **Översikt** finns information som kontonamn, behållare och filresursnamn. 
 
-* För verifierings objekt, som konto nyckel eller SAS-token, går du till **konto nycklar** i fönstret **Inställningar** . 
+* För autentiseringsobjekt, till exempel kontonyckel eller SAS-token, går du till **Kontonycklar** i **fönstret Inställningar.** 
 
-* För tjänstens huvud objekt, t. ex. klient-ID och klient-ID, går du till **Appregistreringar** och väljer vilken app du vill använda. Dess motsvarande **översikts** sida kommer att innehålla dessa objekt. 
+* För tjänsthuvudobjekt som klient-ID och klient-ID går du till dina **appregistreringar** och väljer vilken app du vill använda. Motsvarande **översiktssida** innehåller dessa objekt. 
 
-Följande exempel visar hur formuläret ser ut när du skapar ett Azure Blob-datalager: 
+I följande exempel visas hur formuläret ser ut när du skapar ett Azure blob-datalager: 
     
-![Formulär för ett nytt data lager](media/how-to-access-data/new-datastore-form.png)
+![Formulär för ett nytt datalager](media/how-to-access-data/new-datastore-form.png)
 
 
 <a name="get"></a>
 
-## <a name="get-datastores-from-your-workspace"></a>Hämta data lager från din arbets yta
+## <a name="get-datastores-from-your-workspace"></a>Hämta datalager från arbetsytan
 
-> [!IMPORTANT]
-> Azure Machine Learning designer (för hands version) skapar ett data lager med namnet **azureml_globaldatasets** automatiskt när du öppnar ett exempel på design sidan för designern. Detta data lager innehåller bara exempel data uppsättningar. Använd **inte** det här data lagret för någon konfidentiell data åtkomst!
-> ![automatiskt skapade data lager för data uppsättningar för designer exempel](media/how-to-access-data/datastore-designer-sample.png)
-
-Om du vill hämta ett särskilt data lager som registrerats i den aktuella arbets ytan använder du metoden [`get()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py#get-workspace--datastore-name-) static i `Datastore`-klassen:
+Om du vill få ett specifikt datalager [`get()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py#get-workspace--datastore-name-) registrerat på `Datastore` den aktuella arbetsytan använder du den statiska metoden i klassen:
 
 ```Python
 # Get a named datastore from the current workspace
 datastore = Datastore.get(ws, datastore_name='your datastore name')
 ```
-Om du vill hämta listan över data lager som registrerats med en specifik arbets yta kan du använda egenskapen [`datastores`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace%28class%29?view=azure-ml-py#datastores) på ett objekt i arbets ytan:
+Om du vill hämta listan över datalager som är [`datastores`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace%28class%29?view=azure-ml-py#datastores) registrerade med en viss arbetsyta kan du använda egenskapen på ett arbetsyteobjekt:
 
 ```Python
 # List all datastores registered in the current workspace
@@ -206,27 +209,20 @@ for name, datastore in datastores.items():
     print(name, datastore.datastore_type)
 ```
 
-Använd den här raden för att hämta arbets ytans standard data lager:
+Om du vill hämta arbetsytans standarddatalager använder du den här raden:
 
 ```Python
 datastore = ws.get_default_datastore()
 ```
 
-Om du vill definiera ett annat standard data lager för den aktuella arbets ytan använder du metoden [`set_default_datastore()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py#set-default-datastore-name-) på objektet arbets yta:
-
-```Python
-# Define the default datastore for the current workspace
-ws.set_default_datastore('your datastore name')
-```
-
 <a name="up-and-down"></a>
-## <a name="upload-and-download-data"></a>Ladda upp och hämta data
+## <a name="upload-and-download-data"></a>Ladda upp och ladda ner data
 
-De [`upload()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.azure_storage_datastore.azureblobdatastore?view=azure-ml-py#upload-src-dir--target-path-none--overwrite-false--show-progress-true-) -och [`download()`s](https://docs.microsoft.com/python/api/azureml-core/azureml.data.azure_storage_datastore.azureblobdatastore?view=azure-ml-py#download-target-path--prefix-none--overwrite-false--show-progress-true-) metoderna som beskrivs i följande exempel är speciella för, och är identiska för, [AzureBlobDatastore](https://docs.microsoft.com/python/api/azureml-core/azureml.data.azure_storage_datastore.azureblobdatastore?view=azure-ml-py) -och [AzureFileDatastore](https://docs.microsoft.com/python/api/azureml-core/azureml.data.azure_storage_datastore.azurefiledatastore?view=azure-ml-py) -klasserna.
+De [`upload()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.azure_storage_datastore.azureblobdatastore?view=azure-ml-py#upload-src-dir--target-path-none--overwrite-false--show-progress-true-) [`download()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.azure_storage_datastore.azureblobdatastore?view=azure-ml-py#download-target-path--prefix-none--overwrite-false--show-progress-true-) metoder och metoder som beskrivs i följande exempel är specifika för och fungerar på samma sätt för [azureblobDatastore-](https://docs.microsoft.com/python/api/azureml-core/azureml.data.azure_storage_datastore.azureblobdatastore?view=azure-ml-py) och [AzureFileDatastore-klasserna.](https://docs.microsoft.com/python/api/azureml-core/azureml.data.azure_storage_datastore.azurefiledatastore?view=azure-ml-py)
 
 ### <a name="upload"></a>Ladda upp
 
-Ladda upp antingen en katalog eller enskilda filer till data lagret med hjälp av python SDK:
+Ladda upp antingen en katalog eller enskilda filer till datalagret med hjälp av Python SDK:
 
 ```Python
 datastore.upload(src_dir='your source directory',
@@ -235,13 +231,13 @@ datastore.upload(src_dir='your source directory',
                  show_progress=True)
 ```
 
-Parametern `target_path` anger platsen i fil resursen (eller BLOB-behållaren) som ska överföras. Standardvärdet är `None`, så data överförs till roten. Om `overwrite=True`skrivs alla befintliga data på `target_path` över.
+Parametern `target_path` anger platsen i filresursen (eller blob-behållaren) som ska överföras. Det standard `None`är , så att data överförs till roten. Om `overwrite=True`skrivs befintliga `target_path` data på över.
 
-Du kan också ladda upp en lista med enskilda filer till data lagret via `upload_files()`-metoden.
+Du kan också ladda upp en lista över `upload_files()` enskilda filer till datalagret via metoden.
 
 ### <a name="download"></a>Ladda ned
 
-Hämta data från ett data lager till ditt lokala fil system:
+Ladda ned data från ett datalager till ditt lokala filsystem:
 
 ```Python
 datastore.download(target_path='your target path',
@@ -249,47 +245,47 @@ datastore.download(target_path='your target path',
                    show_progress=True)
 ```
 
-Parametern `target_path` är platsen för den lokala katalog där data ska hämtas till. Om du vill ange en sökväg till mappen i fil resursen (eller BLOB-behållaren) som ska laddas ned anger du sökvägen till `prefix`. Om `prefix` är `None`kommer allt innehåll i din fil resurs (eller BLOB-behållare) att laddas ned.
+Parametern `target_path` är platsen för den lokala katalogen att hämta data till. Om du vill ange en sökväg till mappen i filresursen (eller blob-behållaren) som ska hämtas anger du sökvägen till `prefix`. Om `prefix` `None`är , kommer allt innehåll i filresursen (eller blob-behållaren) att hämtas.
 
 <a name="train"></a>
 
-## <a name="access-your-data-during-training"></a>Få åtkomst till dina data under utbildningen
+## <a name="access-your-data-during-training"></a>Få tillgång till dina data under träningen
 
-Om du vill interagera med data i dina data lager eller paketera dina data i ett förbruknings Bart objekt för Machine Learning-uppgifter, till exempel utbildning, [skapar du en Azure Machine Learning data uppsättning](how-to-create-register-datasets.md). Data uppsättningar tillhandahåller funktioner som läser in tabell data i en Pandas-eller Spark-DataFrame. Data uppsättningar ger också möjlighet att ladda ned eller montera filer i alla format från Azure Blob Storage, Azure Files, Azure Data Lake Storage Gen1, Azure Data Lake Storage Gen2, Azure SQL Database och Azure Database for PostgreSQL. [Lär dig mer om hur du tränar med data uppsättningar](how-to-train-with-datasets.md).
+Om du vill interagera med data i dina datalager eller för att paketera dina data till ett förbrukningsobjekt för maskininlärningsuppgifter, till exempel utbildning, [skapar du en Azure Machine Learning-datauppsättning](how-to-create-register-datasets.md). Datauppsättningar tillhandahåller funktioner som läser in tabelldata i en pandas eller Spark DataFrame. Datauppsättningar ger också möjlighet att hämta eller montera filer av alla format från Azure Blob-lagring, Azure-filer, Azure Data Lake Storage Gen1, Azure Data Lake Storage Gen2, Azure SQL Database och Azure Database för PostgreSQL. [Läs mer om hur du tränar med datauppsättningar](how-to-train-with-datasets.md).
 
-### <a name="accessing-source-code-during-training"></a>Åtkomst till käll kod under träning
+### <a name="accessing-source-code-during-training"></a>Komma åt källkoden under utbildningen
 
-Azure Blob Storage har högre överföringshastigheter än en Azure-filresurs och kommer att skalas till ett stort antal jobb som startas parallellt. Därför rekommenderar vi att du konfigurerar dina körningar för att använda blob-lagring för överföring av källfiler.
+Azure Blob-lagring har högre dataflödeshastigheter än en Azure-filresurs och skalas till ett stort antal jobb som startats parallellt. Därför rekommenderar vi att du konfigurerar dina körningar för att använda Blob-lagring för överföring av källkodsfiler.
 
-Följande kod exempel anger i den körnings konfiguration som BLOB-datalagret ska användas för käll kods överföringar:
+I följande kodexempel anges i körningskonfigurationen vilka blob-datalager som ska användas för källkodsöverföringar.
 
 ```python 
 # workspaceblobstore is the default blob storage
 run_config.source_directory_data_store = "workspaceblobstore" 
 ```
 
-## <a name="access-data-during-scoring"></a>Åtkomst till data under Poängsättning
+## <a name="access-data-during-scoring"></a>Få tillgång till data under bedömning
 
-Azure Machine Learning tillhandahåller flera olika sätt att använda dina modeller för att beräkna poäng. Några av dessa metoder ger inte åtkomst till data lager. Använd följande tabell för att förstå vilka metoder du kan använda för att komma åt data lager under poängsättningen:
+Azure Machine Learning innehåller flera sätt att använda dina modeller för bedömning. Vissa av dessa metoder ger inte åtkomst till datalager. Använd följande tabell för att förstå vilka metoder som gör att du kan komma åt datalager under bedömning:
 
-| Metod | Åtkomst till data lager | Beskrivning |
+| Metod | Tillgång till datalager | Beskrivning |
 | ----- | :-----: | ----- |
-| [Batch förutsägelse](how-to-use-parallel-run-step.md) | ✔ | Gör förutsägelser för stora mängder data asynkront. |
-| [Webb tjänst](how-to-deploy-and-where.md) | &nbsp; | Distribuera modeller som en webb tjänst. |
-| [Azure IoT Edge modul](how-to-deploy-and-where.md) | &nbsp; | Distribuera modeller till IoT Edge enheter. |
+| [Batchförutsägelse](how-to-use-parallel-run-step.md) | ✔ | Göra förutsägelser kring stora mängder data asynkront. |
+| [Webbtjänst](how-to-deploy-and-where.md) | &nbsp; | Distribuera modeller som en webbtjänst. |
+| [Azure IoT Edge-modul](how-to-deploy-and-where.md) | &nbsp; | Distribuera modeller till IoT Edge-enheter. |
 
-I situationer där SDK inte ger åtkomst till data lager kan du kanske skapa anpassad kod med hjälp av relevanta Azure SDK för att få åtkomst till data. Till exempel är [Azure Storage SDK för python](https://github.com/Azure/azure-storage-python) ett klient bibliotek som du kan använda för att komma åt data som lagras i blobbar eller filer.
+I situationer där SDK inte ger åtkomst till datalager kan du kanske skapa anpassad kod med hjälp av relevant Azure SDK för att komma åt data. Azure Storage [SDK för Python](https://github.com/Azure/azure-storage-python) är till exempel ett klientbibliotek som du kan använda för att komma åt data som lagras i blobbar eller filer.
 
 <a name="move"></a>
 
-## <a name="move-data-to-supported-azure-storage-solutions"></a>Flytta data till Azure Storage-lösningar som stöds
+## <a name="move-data-to-supported-azure-storage-solutions"></a>Flytta data till Azure-lagringslösningar som stöds
 
-Azure Machine Learning stöder åtkomst till data från Azure Blob Storage, Azure Files, Azure Data Lake Storage Gen1, Azure Data Lake Storage Gen2, Azure SQL Database och Azure Database for PostgreSQL. Om du använder lagring som inte stöds rekommenderar vi att du flyttar dina data till Azure Storage lösningar som stöds med hjälp av [Azure Data Factory och de här stegen](https://docs.microsoft.com/azure/data-factory/quickstart-create-data-factory-copy-data-tool). Genom att flytta data till lagring som stöds kan du spara data utgående kostnader under Machine Learning-experiment. 
+Azure Machine Learning stöder åtkomst till data från Azure Blob storage, Azure Files, Azure Data Lake Storage Gen1, Azure Data Lake Storage Gen2, Azure SQL Database och Azure Database for PostgreSQL. Om du använder lagring som inte stöds rekommenderar vi att du flyttar dina data till Azure-lagringslösningar som stöds med hjälp av [Azure Data Factory och dessa steg](https://docs.microsoft.com/azure/data-factory/quickstart-create-data-factory-copy-data-tool). Om du flyttar data till lagring som stöds kan du spara datautgående kostnader under maskininlärningsexperiment. 
 
-Azure Data Factory ger effektiv och flexibel data överföring med fler än 80 färdiga kopplingar utan extra kostnad. Dessa anslutningar omfattar Azure Data Services, lokala data källor, Amazon S3 och RedShift och Google BigQuery.
+Azure Data Factory ger effektiv och flexibel dataöverföring med mer än 80 fördefinierade anslutningsappar utan extra kostnad. Dessa anslutningsappar inkluderar Azure-datatjänster, lokala datakällor, Amazon S3 och Redshift och Google BigQuery.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Skapa en Azure Machine Learning-datauppsättning](how-to-create-register-datasets.md)
+* [Skapa en Azure machine learning-datauppsättning](how-to-create-register-datasets.md)
 * [Träna en modell](how-to-train-ml-models.md)
 * [Distribuera en modell](how-to-deploy-and-where.md)

@@ -1,54 +1,54 @@
 ---
-title: Distributions kvoten överskreds
-description: Beskriver hur du löser problemet med fler än 800 distributioner i resurs grupps historiken.
+title: Distributionskvoten har överskridits
+description: Beskriver hur du löser felet med att ha mer än 800 distributioner i resursgruppshistoriken.
 ms.topic: troubleshooting
 ms.date: 10/04/2019
-ms.openlocfilehash: 7f389827513562a3add67f022fec360081754b02
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 919cd9a3482401cd47516e2677b0bf58387488b0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75477829"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80245097"
 ---
-# <a name="resolve-error-when-deployment-count-exceeds-800"></a>Lös fel när antalet distributioner överskrider 800
+# <a name="resolve-error-when-deployment-count-exceeds-800"></a>Lös fel när antalet distributioner överstiger 800
 
-Varje resurs grupp är begränsad till 800 distributioner i distributions historiken. I den här artikeln beskrivs det fel som du får när en distribution Miss lyckas eftersom den skulle överskrida de tillåtna 800-distributionerna. Lös problemet genom att ta bort distributioner från resurs grupps historiken. Att ta bort en distribution från historiken påverkar inte några av de distribuerade resurserna.
+Varje resursgrupp är begränsad till 800 distributioner i distributionshistoriken. I den här artikeln beskrivs felet som visas när en distribution misslyckas eftersom den skulle överskrida de tillåtna 800-distributionerna. Lös det här felet genom att ta bort distributioner från resursgruppshistoriken. Att ta bort en distribution från historiken påverkar inte någon av de resurser som har distribuerats.
 
 ## <a name="symptom"></a>Symptom
 
-Under distributionen får du ett fel meddelande om att den aktuella distributionen kommer att överskrida kvoten på 800-distributioner.
+Under distributionen visas ett felmeddelande om att den aktuella distributionen kommer att överskrida kvoten på 800 distributioner.
 
 ## <a name="solution"></a>Lösning
 
 ### <a name="azure-cli"></a>Azure CLI
 
-Använd kommandot [AZ Group Deployment Delete](/cli/azure/group/deployment#az-group-deployment-delete) för att ta bort distributioner från historiken.
+Använd kommandot [az deployment group delete](/cli/azure/group/deployment) för att ta bort distributioner från historiken.
 
 ```azurecli-interactive
-az group deployment delete --resource-group exampleGroup --name deploymentName
+az deployment group delete --resource-group exampleGroup --name deploymentName
 ```
 
 Om du vill ta bort alla distributioner som är äldre än fem dagar använder du:
 
 ```azurecli-interactive
 startdate=$(date +%F -d "-5days")
-deployments=$(az group deployment list --resource-group exampleGroup --query "[?properties.timestamp<'$startdate'].name" --output tsv)
+deployments=$(az deployment group list --resource-group exampleGroup --query "[?properties.timestamp<'$startdate'].name" --output tsv)
 
 for deployment in $deployments
 do
-  az group deployment delete --resource-group exampleGroup --name $deployment
+  az deployment group delete --resource-group exampleGroup --name $deployment
 done
 ```
 
-Du kan hämta det aktuella antalet i distributions historiken med följande kommando:
+Du kan få det aktuella antalet i distributionshistoriken med följande kommando:
 
 ```azurecli-interactive
-az group deployment list --resource-group exampleGroup --query "length(@)"
+az deployment group list --resource-group exampleGroup --query "length(@)"
 ```
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 
-Använd kommandot [Remove-AzResourceGroupDeployment](/powershell/module/az.resources/remove-azresourcegroupdeployment) för att ta bort distributioner från historiken.
+Använd kommandot [Ta bort AzResourceGroupDeployment](/powershell/module/az.resources/remove-azresourcegroupdeployment) för att ta bort distributioner från historiken.
 
 ```azurepowershell-interactive
 Remove-AzResourceGroupDeployment -ResourceGroupName exampleGroup -Name deploymentName
@@ -64,7 +64,7 @@ foreach ($deployment in $deployments) {
 }
 ```
 
-Du kan hämta det aktuella antalet i distributions historiken med följande kommando:
+Du kan få det aktuella antalet i distributionshistoriken med följande kommando:
 
 ```azurepowershell-interactive
 (Get-AzResourceGroupDeployment -ResourceGroupName exampleGroup).Count
@@ -72,7 +72,7 @@ Du kan hämta det aktuella antalet i distributions historiken med följande komm
 
 ## <a name="third-party-solutions"></a>Lösningar från tredje part
 
-Följande externa lösningar riktar sig till vissa scenarier:
+Följande externa lösningar behandlar specifika scenarier:
 
-* [Azure Logic Apps-och PowerShell-lösningar](https://devkimchi.com/2018/05/30/managing-excessive-arm-deployment-histories-with-logic-apps/)
-* [AzDevOps-tillägg](https://github.com/christianwaha/AzureDevOpsExtensionCleanRG)
+* [Azure Logic Apps och PowerShell-lösningar](https://devkimchi.com/2018/05/30/managing-excessive-arm-deployment-histories-with-logic-apps/)
+* [AzDevOps Förlängning](https://github.com/christianwaha/AzureDevOpsExtensionCleanRG)

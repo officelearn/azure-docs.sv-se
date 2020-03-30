@@ -1,53 +1,52 @@
 ---
-title: Fliken testenhet för virtuell dator i Cloud Partner Portal för Azure Marketplace
-description: Beskriver fliken testenhet som används för att skapa ett erbjudande för virtuella Azure Marketplace-datorer.
-services: Azure, Marketplace, Cloud Partner Portal, virtual machine
-author: v-miclar
+title: Fliken Testenhet för virtuella datorer i Cloud Partner Portal för Azure Marketplace
+description: Beskriver fliken Test Drive som används för att skapa ett Azure Marketplace VM-erbjudande.
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/25/2019
-ms.author: pabutler
-ms.openlocfilehash: 94ebbcca50916f1675ab990a4b45f3b90e069104
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: d4fc8762e25825b21637b16b751d57a0dcbf369e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73808862"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80288809"
 ---
-# <a name="virtual-machine-test-drive-tab"></a>Fliken test enhet för virtuell dator
+# <a name="virtual-machine-test-drive-tab"></a>Fliken Testkörning för virtuella datorer
 
-På fliken **testenhet** på sidan **ny erbjudande** kan du ge dina potentiella kunder en praktisk och guidad demonstration av produktens viktiga funktioner och fördelar, som demonstreras i ett standardiserat scenario.  Test Drive är en valfri funktion för de erbjudande typer som stöder Test Drive.  Test enheten kräver att stöd till gångar implementeras korrekt.  Mer information finns i artikeln [Azure Marketplace Test Drive](https://azure.microsoft.com/blog/azure-marketplace-test-drive/).  <!--TD: Replace with migrated version of Test Drive article! -->
+På fliken **Provkörning** på sidan **Nytt erbjudande** kan du förse dina potentiella kunder med en praktisk, självstyrd demonstration av produktens viktigaste funktioner och fördelar, vilket visas i ett standardiserat scenario.  Test drive är en valfri funktion för de erbjudandetyper som stöder Test Drive.  Provkörning kräver att stödtillgångar implementeras korrekt.  Mer information finns i artikeln [Azure Marketplace Test Drive](https://azure.microsoft.com/blog/azure-marketplace-test-drive/).  <!--TD: Replace with migrated version of Test Drive article! -->
 
-Om du vill aktivera den här funktionen klickar du på alternativet **Ja** på fliken **test enhet** och **aktiverar en testen het**.  Fliken **test enhet** visar de fält som är tillgängliga för redigering.  En asterisk (*) som lagts till i fält namnet anger att det är obligatoriskt.
+Om du vill aktivera den här funktionen klickar du på alternativet **Ja** på **Aktivera en provkörning**på fliken **Provkörning** .  På fliken **Provkörning** visas de fält som är tillgängliga för redigering.  En bifogad asterisk (*) i fältnamnet anger att det krävs.
 
-![Fliken testenhet i det nya erbjudande formuläret för virtuella datorer](./media/publishvm_007.png)
-
-
-## <a name="field-values"></a>Fält värden
-
-I följande tabell beskrivs syftet med och innehållet i dessa fält.  Obligatoriska fält förutsägs av en asterisk (*).
+![Fliken Provkörning i formuläret Nytt erbjudande för virtuella datorer](./media/publishvm_007.png)
 
 
-|    Fält                  |       Beskrivning                                                            |
+## <a name="field-values"></a>Fältvärden
+
+I följande tabell beskrivs syftet med och innehållet i dessa fält.  Obligatoriska fält åtalas av en asterisk (*).
+
+
+|    Field                  |       Beskrivning                                                            |
 |  ---------                |     ---------------                                                          |
 |  *Detaljer*   |  |
-| **Beskrivning\***           | Ge en översikt över ditt test enhets scenario. Den här texten visas för användaren medan test enheten håller på att tillhandahållas. Det här fältet stöder grundläggande HTML om du vill tillhandahålla formaterat innehåll.  |
-| **Användar handbok\***           | Ladda upp en detaljerad Användar handbok (. pdf) som hjälper dig att testa användarna förstå hur du använder din lösning.  |
-| **Video om prov Drive demo** | Ladda upp en video som demonstrerar din lösning.  Om du väljer det här alternativet måste du ange ett namn, en URL för videon (som finns på YouTube eller Vimeo) och en (533x324 pixel) miniatyr av videon. |
+| **Beskrivning\***           | Ge en översikt över testkörningsscenariot. Den här texten visas för användaren medan provkörningen etableras. Det här fältet stöder grundläggande HTML om du vill tillhandahålla formaterat innehåll.  |
+| **Användarhandbok\***           | Ladda upp en detaljerad bruksanvisning (.pdf) som hjälper Test Drive-användare att förstå hur du använder din lösning.  |
+| **Demovideo för testkörning** | Ladda upp en video som visar din lösning.  Om du väljer det här alternativet måste du ange ett namn, en webbadress till videon (som finns på YouTube eller Vimeo) och en (533x324 pixel) miniatyrbild för videon. |
 | *Teknisk konfiguration* |  |
-| **Instanser\***             | Ange regions tillgänglighet och relativt tillgänglighet för den virtuella dator instansen (klicka på informations ikonen för mer information).  <br/>Potentiella samtidiga test enhets sessioner bör inte överskrida kvot gränsen för din prenumeration.  Den tidigare beräknas som: [antal valda regioner] x [aktiva instanser] + [antal regioner valda] x [varma instanser] + [antal regioner som valts] x [kall instanser] |
-| **Test enhetens varaktighet\***   | Längsta sessions-varaktighet i timmar. Test Drive-sessionen avslutas automatiskt när den här tids perioden har överskridits.  |
-|**Testa ARM-mall\***| Ladda upp Azure Resource Manager-mallen som är associerad med den här test enheten. Mer information finns i [transformera distribution av mall för virtuella datorer för test enheten](https://github.com/Azure/AzureTestDrive/wiki/Transforming-Virtual-Machine-Deployment-Template-for-Test-Drive). |
-| **Åtkomst information\***    | Azure Resource Manager åtkomst och utvärdering av inloggnings information, skriven som oformaterad text eller enkel HTML. |
-| *Information om distributions prenumeration för test enhet* |  |
-| **Azure-prenumerations-ID\*** | Kan fås genom att logga in på [Microsoft Azure-portalen](https://ms.portal.azure.com) och klicka på **prenumerationer** på den vänstra meny raden. (Exempel: "a83645ac-1234-5AB6-6789-1h234g764ghty")    Den här identifieraren ska vara ett GUID för formuläret `a83645ac-1234-5ab6-6789-1h234g764ghty`.|
-| **Azure AD-klient-ID\***    | Azure Active Directory klient-ID.  Kan hämtas genom att logga in på [Microsoft Azure-portalen](https://ms.portal.azure.com) och klicka på **Azure Active Directory** på den vänstra meny raden och sedan på **Egenskaper** i den mittersta meny raden och sedan kopiera **katalog-ID: t** från formuläret.  Den här identifieraren bör också vara ett GUID.  Om det är tomt måste du skapa ett klient-ID för din organisation. |
-| **Azure AD App-ID\***       | Identifierare för din registrerade Azure VM-lösning  |
-| **Azure AD App nyckel\***      | Autentiseringsnyckel för din registrerade lösning |
+| **Instanser\***             | Ange regiontillgänglighet och relativt tillgänglighet för vm-instansen (klicka på informationsikonen för mer information).  <br/>Potentiella samtidiga Test Drive-sessioner bör inte överskrida kvotgränsen för din prenumeration.  Den förstnämnda beräknas som: [Antal markerade regioner] x [Heta instanser] + [Antal markerade regioner] x [Varma förekomster] + [Antal markerade regioner] x [Kalla förekomster] |
+| **Varaktighet för provkörning\***   | Maximal sessionslängd i timmar. Testkörningssessionen avslutas automatiskt efter att den här tidsperioden har överskridits.  |
+|**ARM-mall för provkörning\***| Ladda upp Azure Resource Manager-mallen som är associerad med den här testenheten. Mer information finns i [Omvandla distributionsmall för virtuell dator för testenhet](https://github.com/Azure/AzureTestDrive/wiki/Transforming-Virtual-Machine-Deployment-Template-for-Test-Drive). |
+| **Få tillgång till information\***    | Azure Resource Manager åtkomst och utvärdering inloggningsinformation, skriven som vanlig text eller enkel HTML. |
+| *Prenumerationsinformation för distribution av testkörning* |  |
+| **Azure-prenumerations-ID\*** | Kan erhållas genom att logga in på [Microsoft Azure-portalen](https://ms.portal.azure.com) och klicka på **Prenumerationer** i det vänstra menyfältet. (Exempel: "a83645ac-1234-5ab6-6789-1h234g764ghty")    Den här identifieraren bör vara `a83645ac-1234-5ab6-6789-1h234g764ghty`ett GUID för formuläret .|
+| **Azure AD-klient-ID\***    | Azure Active Directory-klient-ID.  Kan erhållas genom att logga in på [Microsoft Azure-portalen](https://ms.portal.azure.com) och klicka på **Azure Active Directory** på det vänstra menyfältet och sedan klicka på **Egenskaper** i mittenmenyraden och sedan kopiera **katalog-ID:t** från formuläret .  Den här identifieraren bör också vara en GUID.  Om det är tomt måste du skapa ett klient-ID för din organisation. |
+| **Azure AD-app-ID\***       | Identifierare för din registrerade Azure VM-lösning  |
+| **Azure AD-appnyckel\***      | Autentiseringsnyckel för din registrerade lösning |
 |   |   |
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-På nästa [Marketplace](./cpp-marketplace-tab.md) -flik får du information om marknadsföring och juridisk information om din lösning.
+På nästa [marketplace-flik](./cpp-marketplace-tab.md) tillhandahåller du marknadsföring och juridisk information om din lösning.

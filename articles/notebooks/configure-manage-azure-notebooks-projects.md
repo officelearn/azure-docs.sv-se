@@ -1,156 +1,156 @@
 ---
-title: Konfigurera och hantera Azure Notebooks för hands version
-description: Lär dig hur du hanterar projekt-metadata, projektfiler, projektets miljö och installations steg via både Azure Notebooks användar gränssnitt och direkt åtkomst till terminalen.
+title: Konfigurera och hantera förhandsversionen av Azure-anteckningsböcker
+description: Lär dig hur du hanterar projektmetadata, projektfiler, projektets miljö och installationssteg via både Azure Notebooks-användargränssnittet och direkt terminalåtkomst.
 ms.topic: how-to
 ms.date: 02/28/2020
 ms.openlocfilehash: 1674effda2cb9bda45f49c91ca618225b0a75f0c
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79280604"
 ---
-# <a name="a-idmanage-and-configure-projects--manage-and-configure-projects-in-azure-notebooks-preview"></a><a id="manage-and-configure-projects" /> hantera och konfigurera projekt i Azure Notebooks för hands version
+# <a name="manage-and-configure-projects-in-azure-notebooks-preview"></a><a id="manage-and-configure-projects" />Hantera och konfigurera projekt i förhandsversionen av Azure Notebooks
 
-Ett projekt i Azure Notebooks för hands versionen är i grunden en konfiguration av den underliggande virtuella Linux-datorn där Jupyter-anteckningsböcker körs, tillsammans med en filmapp och beskrivande metadata. 
+Ett projekt i förhandsversionen av Azure Notebooks är i huvudsak en konfiguration av den underliggande virtuella Linux-datorn där Jupyter-anteckningsböcker körs, tillsammans med en filmapp och beskrivande metadata. 
 
 [!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
-Instrumentpanelen för projektet i Azure-datorer kan du hantera filer och konfigurera projektets egenskaper:
+Med projektinstrumentpanelen i Azure Notebooks kan du hantera filer och på annat sätt konfigurera projektets egenskaper:
 
-- Beräknings nivån som projektet körs på, vilket kan vara den kostnads fria nivån eller en virtuell Azure-dator.
-- Project-metadata, som innehåller ett namn, en beskrivning, en identifierare som används vid delning av projektet och om projektet är offentligt eller privat.
-- Projektets bärbara dator, data och andra filer som du hanterar precis som andra fil system.
-- Ett projekts miljö, som du hanterar antingen via Start skript eller direkt via terminalen.
+- Beräkningsnivån som projektet körs på, vilket kan vara den kostnadsfria nivån eller en virtuell Azure-dator.
+- Projektmetadata, som innehåller ett namn, en beskrivning, en identifierare som används när projektet delas och om projektet är offentligt eller privat.
+- Projektets anteckningsbok, data och andra filer, som du hanterar som alla andra filsystem.
+- Ett projekts miljö, som du hanterar antingen genom startskript eller direkt via terminalen.
 - Loggar, som du kommer åt via terminalen.
 
 > [!Note]
-> De hanterings-och konfigurations funktioner som beskrivs här är endast tillgängliga för den projekt ägare som skapade projektet från början. Du kan dock klona projektet till ditt eget konto, i vilket fall du blir ägare och kan konfigurera projektet efter behov.
+> Hanterings- och konfigurationsfunktionerna som beskrivs här är endast tillgängliga för projektägaren som skapade projektet från början. Du kan dock klona projektet till ditt eget konto, i vilket fall du blir ägare och kan konfigurera projektet som önskat.
 
-Azure-datorer startar den underliggande virtuella datorn när du kör en bärbar dator eller en annan fil. Servern sparar filer automatiskt och stängs av efter 60 minuters inaktivitet. Du kan också stoppa servern när som helst med kommandot **shutdown** (kortkommando: h).
+Azure Notebooks startar den underliggande virtuella datorn när du kör en anteckningsbok eller annan fil. Servern sparar automatiskt filer och stängs av efter 60 minuters inaktivitet. Du kan också stoppa servern när som helst med kommandot **Avstängning** (kortkommando: h).
 
-## <a name="compute-tier"></a>Beräknings nivå
+## <a name="compute-tier"></a>Beräkningsnivå
 
-Som standard körs projekt på den **kostnads fria beräknings** nivån, som är begränsad till 4 GB minne och 1 GB data för att förhindra missbruk. Du kan kringgå de här begränsningarna och öka beräknings kraften genom att använda en annan virtuell dator som du har etablerad i en Azure-prenumeration. Mer information finns i [så här använder du data vetenskap Virtual Machines](use-data-science-virtual-machine.md).
+Som standard körs projekt på den **kostnadsfria** beräkningsnivån, som är begränsad till 4 GB minne och 1 GB data för att förhindra missbruk. Du kan kringgå dessa begränsningar och öka beräkningskraften med hjälp av en annan virtuell dator som du har etablerat i en Azure-prenumeration. Mer information finns i [Så här använder du virtuella data science-datorer](use-data-science-virtual-machine.md).
 
-## <a name="edit-project-metadata"></a>Redigera projekt metadata
+## <a name="edit-project-metadata"></a>Redigera projektmetadata
 
-På instrument panelen för projektet väljer du **projekt inställningar**och väljer sedan fliken **information** som innehåller projektets metadata enligt beskrivningen i följande tabell. Du kan ändra projekt metadata när som helst.
+På instrumentpanelen i projektet väljer du **Projektinställningar**och väljer sedan fliken **Information** som innehåller projektets metadata enligt beskrivningen i följande tabell. Du kan ändra projektmetadata när som helst.
 
 | Inställning | Beskrivning |
 | --- | --- |
-| Projektnamn | Ett eget namn för ditt projekt som Azure-datorer använder för visning. Till exempel ”Hello World i Python”. |
-| Projekt-ID | En anpassad identifierare som blir en del av URL: en som du använder för att dela ett projekt. Detta ID får endast använda bokstäver, siffror och bindestreck, får innehålla högst 30 tecken och får inte vara ett [reserverat projekt-ID](create-clone-jupyter-notebooks.md#reserved-project-ids). Om du är osäker vad du använder, är en gemensam konvention att använda en gemen version av ditt projektnamn där blanksteg är aktiverade i bindestreck, till exempel ”min-notebook-projekt” (trunkerad vid behov för att passa längdbegränsningen). |
-| Offentliga projekt | Om ange, kan vem som helst med en länk till projektet. När du skapar ett privat projekt kan du avmarkera det här alternativet. |
-| Dölj kloner | Om du anger, andra användare inte kan se en lista över kloner som har gjorts för det här projektet. Dölja kloner är användbart för projekt som delas med många personer som inte tillhör samma organisation, till exempel när du använder en bärbar dator för undervisar en klass. |
+| Projektnamn | Ett eget namn för ditt projekt som Azure Notebooks använder för visningsändamål. Till exempel "Hello World in Python". |
+| Projekt-ID | En anpassad identifierare som blir en del av webbadressen som du använder för att dela ett projekt. Det här ID:t kan bara använda bokstäver, siffror och bindestreck, är begränsat till 30 tecken och kan inte vara ett [reserverat projekt-ID](create-clone-jupyter-notebooks.md#reserved-project-ids). Om du är osäker på vad du ska använda är en gemensam konvention att använda en gemen version av projektnamnet där blanksteg omvandlas till bindestreck, till exempel "min-notebook-project" (trunkeras om det behövs för att passa längdgränsen). |
+| Offentligt projekt | Om den är inställd kan alla som har länken komma åt projektet. När du skapar ett privat projekt avmarkerar du det här alternativet. |
+| Dölj kloner | Om den är inställd kan andra användare inte se en lista över kloner som har gjorts för det här projektet. Att dölja kloner är användbart för projekt som delas med många personer som inte ingår i samma organisation, till exempel när du använder en anteckningsbok för att undervisa en klass. |
 
 > [!Important]
 >
-> Ändra projekt-ID upphäver alla länkar i projektet som du kanske har delat tidigare.
+> Om du ändrar projekt-ID:et ogiltigförklaras alla länkar till projektet som du kan ha delat tidigare.
 
 ## <a name="manage-project-files"></a>Hantera projektfiler
 
-Innehållet i projektets mappsystem visas i instrumentpanelen för projektet. Du kan använda olika kommandon för att hantera dessa filer.
+Projektinstrumentpanelen visar innehållet i projektets mappsystem. Du kan använda olika kommandon för att hantera dessa filer.
 
 ### <a name="create-new-files-and-folders"></a>Skapa nya filer och mappar
 
-Kommandot **+ New** (kortkommando: n) skapar nya filer eller mappar. När du använder kommandot måste du först välja vilken typ av objekt som ska skapas:
+Kommandot **+ Nytt** (kortkommando: n) skapar nya filer eller mappar. När du använder kommandot väljer du först den typ av objekt som ska skapas:
 
-| Objekttyp | Beskrivning | Kommandobeteendet |
+| Typ av artikel | Beskrivning | Kommandobeteende |
 | --- | --- | --- |
-| **1150** | En Jupyter-anteckningsbok | Visar ett fönster där du anger denna notebook filnamnet och språk. |
-| **Mapp** | En undermapp | Skapar ett redigerbart fält i projektets fillistan som du anger namnet på mappen. |
-| **Tom fil** | En fil som du kan lagra innehåll, till exempel text, data, osv. | Skapar ett redigerbart fält i projektets fillistan som du anger namnet på filen. |
-| **Markdown** | En markdownfil. | Skapar ett redigerbart fält i projektets fillistan som du anger namnet på filen. |
+| **Notebook-fil** | En Jupyter anteckningsbok | Visar ett popup-fönster där du anger anteckningsbokens filnamn och språk. |
+| **Mapp** | En undermapp | Skapar ett redigeringsfält i projektets fillista där du anger mappnamnet. |
+| **Tom fil** | En fil där du kan lagra innehåll som text, data, etc. | Skapar ett redigeringsfält i projektets fillista där du anger filnamnet. |
+| **Markdown** | En Markdown-fil. | Skapar ett redigeringsfält i projektets fillista där du anger filnamnet. |
 
 ### <a name="upload-files"></a>Överföra filer
 
-**Uppladdnings** kommandot innehåller två alternativ för att importera data från andra platser: **från URL** och **från dator**. Mer information finns i [arbeta med datafiler i Azure Notebook-projekt](work-with-project-data-files.md).
+Kommandot **Ladda upp** innehåller två alternativ för att importera data från andra platser: Från **URL** och Från **dator**. Mer information finns [i Arbeta med datafiler i Azure Notebook-projekt](work-with-project-data-files.md).
 
-### <a name="select-file-specific-commands"></a>Välj fil-fil
+### <a name="select-file-specific-commands"></a>Välj filspecifika kommandon
 
-Varje objekt i listan över filer i projektets innehåller kommandon via en snabbmenyn:
+Varje objekt i projektets fillista innehåller kommandon via en snabbmeny för högerklickning:
 
-![Kommandon på en snabbmeny för fil](media/project-file-commands.png)
+![Kommandon på en snabbmeny för filer](media/project-file-commands.png)
 
 | Kommando | Kortkommando | Åtgärd |
 | --- | --- | --- |
-| Kör | r (eller klicka på) | Kör en notebook-fil. Andra filtyper öppnas för visning.  |
-| Kopiera länk | Y | Kopierar en länk till filen till Urklipp. |
-| Kör i Jupyter-labb | J | Kör en anteckningsbok i JupyterLab, vilket är ett mer utvecklarorienterade gränssnitt än Jupyter ger normalt. |
-| Förhandsversion | p | Öppnar en HTML-förhandsgranskning av filen. för bärbara datorer är förhandsgranskningen en skrivskyddad återgivningen av anteckningsboken. Mer information finns i avsnittet för [hands version](#preview) . |
-| Redigera filen | Jag | Filen öppnas för redigering. |
-| Ladda ned | d | Laddar ned en zip-fil som innehåller filen eller innehållet i en mapp. |
+| Kör | r (eller klicka) | Kör en anteckningsboksfil. Andra filtyper öppnas för visning.  |
+| Kopiera länk | y | Kopierar en länk till filen till Urklipp. |
+| Kör i Jupyter Lab | J | Kör en anteckningsbok i JupyterLab, som är ett mer utvecklarorienterat gränssnitt än Jupyter normalt ger. |
+| Förhandsversion | P | Öppnar en HTML-förhandsgranskning av filen. För anteckningsböcker är förhandsgranskningen en skrivskyddad återgivning av anteckningsboken. Mer information finns i avsnittet [Förhandsgranska.](#preview) |
+| Redigera fil | i | Öppnar filen för redigering. |
+| Ladda ned | d | Hämtar en zip-fil som innehåller filen eller innehållet i en mapp. |
 | Byt namn | a | Frågar efter ett nytt namn för filen eller mappen. |
-| Ta bort | x | Uppmanas att bekräfta och sedan tar permanent bort filen från projektet. Borttagningar kan inte ångras. |
+| Ta bort | x | Frågar efter bekräftelse och tar sedan bort filen permanent från projektet. Det går inte att ångra borttagningar. |
 | Flytta | m | Flyttar en fil till en annan mapp i samma projekt. |
 
 #### <a name="preview"></a>Förhandsversion
 
-En förhandsversion av en fil eller en bärbar dator är en skrivskyddad vy av innehållet. köra anteckningsboken celler är inaktiverad. En förhandsgranskning visas för alla som har en länk till filen eller bärbar dator, men inte har loggat in Azure-anteckningsböcker. När du har loggat in, en användare kan klona anteckningsboken på sina egna konton, eller de kan ladda ned den bärbara datorn till den lokala datorn.
+En förhandsgranskning av en fil eller anteckningsbok är en skrivskyddad vy av innehållet. att köra anteckningsceller är inaktiverat. En förhandsgranskning visas för alla som har en länk till filen eller anteckningsboken men som inte har loggat in på Azure Notebooks. När en användare har loggat in kan han eller hon klona anteckningsboken till sitt eget konto eller hämta anteckningsboken till den lokala datorn.
 
-Förhandsgranskningssidan har stöd för flera verktygskommandon med kortkommandon:
+Förhandsgranskningssidan stöder flera kommandon i verktygsfältet med kortkommandon:
 
 | Kommando | Kortkommando | Åtgärd |
 | --- | --- | --- |
-| Resurs | s | Visar delningsapplikationen popup-fönstret som du kan få en länk, dela till sociala medier, hämta HTML för att bädda in och skicka ett e-postmeddelande. |
-| Klona | c  | Klona anteckningsboken för att ditt konto. |
-| Kör | R | Körs den bärbara datorn om du har behörighet att göra detta. |
-| Ladda ned | d | Laddar ned en kopia av den bärbara datorn. |
+| Dela | s | Visar delningspopta som du kan få en länk från, dela till sociala medier, hämta HTML för inbäddning och skicka ett e-postmeddelande. |
+| Klona | c  | Klona anteckningsboken till ditt konto. |
+| Kör | r | Kör anteckningsboken om du får göra det. |
+| Ladda ned | d | Hämtar en kopia av anteckningsboken. |
 
-## <a name="configure-the-project-environment"></a>Konfigurera projektet
+## <a name="configure-the-project-environment"></a>Konfigurera projektmiljön
 
 Det finns tre sätt att konfigurera miljön för den underliggande virtuella datorn där dina anteckningsböcker körs:
 
-- Inkludera en enstaka Initieringsskript
-- Använd Projektinställningar miljö för att ange steg för konfiguration
-- Åtkomst till den virtuella datorn via en terminal.
+- Inkludera ett engångsiniteringsskript
+- Använd projektets miljöinställningar för att ange inställningssteg
+- Öppna den virtuella datorn via en terminal.
 
-Alla former av projektkonfigurationen tillämpas när den virtuella datorn har startats och därmed påverkar alla anteckningsböcker i projektet.
+Alla former av projektkonfiguration tillämpas när den virtuella datorn startas och påverkar därmed alla anteckningsböcker i projektet.
 
-### <a name="one-time-initialization-script"></a>Initieringsskript för enstaka
+### <a name="one-time-initialization-script"></a>Skript för initiering i en gång
 
-Första gången Azure Notebooks skapar en server för projektet söker den efter en fil i projektet som heter *aznbsetup.sh*. Om den här filen finns körs Azure Notebooks. Utdata från skriptet lagras i projektmappen som *. aznbsetup. log*.
+Första gången Azure Notebooks skapar en server för projektet, söker den efter en fil i projektet som kallas *aznbsetup.sh*. Om den här filen finns kör Azure Notebooks den. Utdata för skriptet lagras i projektmappen som *.aznbsetup.log*.
 
-### <a name="environment-setup-steps"></a>Steg för konfiguration av miljö
+### <a name="environment-setup-steps"></a>Steg för miljöinställningar
 
-Du kan använda i projektets miljöinställningar för att skapa enskilda steg som konfigurerar miljön.
+Du kan använda projektets miljöinställningar för att skapa enskilda steg som konfigurerar miljön.
 
-På instrument panelen för projektet väljer du **projekt inställningar**och väljer sedan fliken **miljö** där du lägger till, tar bort och ändrar installations stegen för projektet:
+På instrumentpanelen i projektet väljer du **Projektinställningar**och väljer sedan fliken **Miljö** där du lägger till, tar bort och ändrar inställningssteg för projektet:
 
-![Projektet inställningar popup-fönstret med fliken miljö valt](media/project-settings-environment-steps.png)
+![Popup-popup för projektinställningar med fliken Miljö markerad](media/project-settings-environment-steps.png)
 
-Om du vill lägga till ett steg väljer du **+ Lägg till**och väljer sedan en stegtyp i list rutan **åtgärd** :
+Om du vill lägga till ett steg väljer du först **+ Lägg till**och väljer sedan en stegtyp i listrutan **Operation:**
 
-![Åtgärden väljaren för en ny miljö installationssteget](media/project-settings-environment-details.png)
+![Åtgärdsväljare för ett nytt miljöinställningssteg](media/project-settings-environment-details.png)
 
-Vilken information som du sedan projicera beror på vilken typ av åtgärd som du har valt:
+Vilken information du sedan projicerar beror på vilken typ av åtgärd du har valt:
 
-- **Krav. txt**: i den andra List rutan väljer du en fil med *kraven. txt* som redan finns i projektet. Välj sedan en Python-version från den tredje listan som visas. Genom att använda en *Requirements. txt* -fil körs Azure Notebooks `pip install -r` med filen *Requirements. txt* när du startar en Notebook-Server. Du behöver inte uttryckligen installera paket från i anteckningsboken själva.
+- **Requirements.txt**: I den andra listrutan väljer du en *requirements.txt-fil* som redan finns i projektet. Välj sedan en Python-version från den tredje listrutan som visas. Genom att använda en *requirements.txt-fil* körs `pip install -r` Azure Notebooks med *filen requirements.txt* när du startar en anteckningsboksserver. Du behöver inte uttryckligen installera paket från själva anteckningsboken.
 
-- **Gränssnitts skript**: i den andra List rutan väljer du ett bash-gränssnitts skript i projektet (vanligt vis en fil med fil namns tillägget *. sh* ) som innehåller alla kommandon som du vill köra för att initiera miljön.
+- **Shell-skript:** I den andra listrutan väljer du ett bash shell-skript i projektet (vanligtvis en fil med *tillägget .sh)* som innehåller alla kommandon som du vill köra för att initiera miljön.
 
-- **Miljö. yml**: i den andra List rutan väljer du en *miljö. yml* -fil för python-projekt med hjälp av en Conda-miljö.
+- **Environment.yml**: I den andra listrutan väljer du en *environments.yml-fil* för Python-projekt med hjälp av en conda-miljö.
 
    > [!WARNING]
-   > Eftersom det här är en för hands versions tjänst under utveckling finns det ett känt problem där `Environment.yml` inställningen inte tillämpas på projektet som förväntat. Projektet och Jupyter-anteckningsbokarna i läser inte in den angivna miljö filen för närvarande.
+   > Eftersom det här är en förhandsversionstjänst under `Environment.yml` utveckling finns det för närvarande ett känt problem där inställningen inte tillämpas på projektet som förväntat. Projektet och Jupyter-anteckningsböckerna inom läser för närvarande inte in den angivna miljöfilen.
 
 När du är klar med att lägga till steg väljer du **Spara**.
 
-### <a name="use-the-terminal"></a>Använda terminalen
+### <a name="use-the-terminal"></a>Använd terminalen
 
-På instrument panelen för projektet öppnar **Terminal** -kommandot en Linux-terminal som ger direkt åtkomst till servern. I terminalen kan du hämta data, redigera eller hantera filer, granska processer och även använda verktyg som vi och nano.
+På projektinstrumentpanelen öppnar kommandot **Terminal** en Linux-terminal som ger dig direkt åtkomst till servern. Inom terminalen kan du ladda ner data, redigera eller hantera filer, inspektera processer och till och med använda verktyg som vi och nano.
 
 > [!Note]
-> Om du har startskript i projektets miljö visas att öppna terminalen ett meddelande som anger att inställningarna pågår fortfarande.
+> Om du har startskript i projektets miljö kan det hända att det fortfarande pågår ett meddelande om att installationen fortfarande pågår om du öppnar terminalen.
 
-Du kan utfärda alla standard Linux-kommandon i terminalen. Du kan också använda `ls` i arbetsmappen för att se de olika miljöer som finns på den virtuella datorn, till exempel *anaconda2_501*, *anaconda3_420*, *anaconda3_501*, *IfSharp*och *R*, tillsammans med en *projektmapp* som innehåller projektet:
+Du kan utfärda alla vanliga Linux-kommandon i terminalen. Du kan `ls` också använda i hemmappen för att se de olika miljöer som finns på den virtuella datorn, till exempel *anaconda2_501*, *anaconda3_420*, *anaconda3_501*, *IfSharp*och *R*, tillsammans med en *projektmapp* som innehåller projektet:
 
-![Projektet terminal i Azure-anteckningsböcker](media/project-terminal.png)
+![Projektterminal i Azure-anteckningsböcker](media/project-terminal.png)
 
-Om du vill påverka en viss miljö, byter du katalog till mappen miljö först.
+Om du vill påverka en viss miljö ändrar du katalogerna till den miljömappen först.
 
-För python-miljöer hittar du `pip` och `conda` i *bin* -mappen i varje miljö. Du kan också använda inbyggda alias för:
+För Python-miljöer kan du `pip` `conda` hitta och i *lagerplatsmappen* för varje miljö. Du kan också använda inbyggda alias för miljöerna:
 
 ```bash
 # Anaconda 2 5.3.0/Python 2.7: python27
@@ -163,24 +163,24 @@ python35 -m pip install <package>
 python36 -m pip install <package>
 ```
 
-Ändringar som görs på servern gäller endast för den aktuella sessionen, förutom filer och mappar som du skapar i själva *projektmappen* . Till exempel är redigering av en fil i projektmappen beständig mellan sessioner, men paket med `pip install` är inte.
+Ändringar som görs på servern gäller endast för den aktuella sessionen, med undantag för filer och mappar som du skapar i själva *projektmappen.* Det sparas till exempel att redigera en fil i projektmappen mellan sessioner, men paket med `pip install` är det inte.
 
 > [!Note]
-> Om du använder `python` eller `python3`anropar du systeminstallerade versioner av python, som inte används för antecknings böcker. Du har inte behörighet för åtgärder som `pip install` antingen, så se till att använda de versions bara aliasen.
+> Om du `python` `python3`använder eller anropar du de systeminstallerade versionerna av Python, som inte används för bärbara datorer. Du har inte behörigheter för `pip install` åtgärder som antingen, så se till att använda de versionsspecifika aliasen.
 
-## <a name="access-notebook-logs"></a>Åtkomstloggar för anteckningsboken
+## <a name="access-notebook-logs"></a>Loggar för accessanteckningsböcker
 
-Om du stöter på problem när du kör en bärbar dator lagras utdata från Jupyter i en mapp med namnet *. Obs. log*. Du kan komma åt dessa loggar via **Terminal** -kommandot eller instrument panelen för projektet.
+Om du stöter på problem när du kör en anteckningsbok lagras utdata från Jupyter i en mapp med namnet *.nb.log*. Du kan komma åt dessa loggar via kommandot **Terminal** eller projektinstrumentpanelen.
 
-Vanligtvis när du kör Jupyter lokalt kanske du har startat den från ett terminalfönster. Terminalfönstret visar utdata, till exempel kernel status.
+Vanligtvis när du kör Jupyter lokalt kan du ha startat den från ett terminalfönster. Terminalfönstret visar utdata som kernel-status.
 
-Om du vill visa loggar, använder du följande kommando i terminalen:
+Om du vill visa loggar använder du följande kommando i terminalen:
 
 ```bash
 cat .nb.log
 ```
 
-Du kan även använda kommandot från en kodcell i en Python notebook:
+Du kan också använda kommandot från en kodcell i en Python-anteckningsbok:
 
 ```bash
 !cat .nb.log
@@ -188,5 +188,5 @@ Du kan även använda kommandot från en kodcell i en Python notebook:
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Gör så här: arbeta med projektfiler](work-with-project-data-files.md)
-- [Komma åt moln data i en bärbar dator](access-data-resources-jupyter-notebooks.md)
+- [Så här: Arbeta med projektdatafiler](work-with-project-data-files.md)
+- [Komma åt molndata i en notebook-fil](access-data-resources-jupyter-notebooks.md)

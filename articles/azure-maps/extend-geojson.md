@@ -1,6 +1,6 @@
 ---
-title: Utökat interjson-Geometries | Microsoft Azure Maps
-description: I den här artikeln får du lära dig mer om hur Microsoft Azure Maps utökar geografi specifikationen för att representera vissa Geometries.
+title: Utökade GeoJSON-geometrier | Microsoft Azure Maps
+description: I den här artikeln får du lära dig mer om hur Microsoft Azure Maps utökar GeoJSON-specifiken för att representera vissa geometrier.
 author: sataneja
 ms.author: sataneja
 ms.date: 05/17/2018
@@ -9,51 +9,51 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.openlocfilehash: 98db10f0fc7a417f39d4bb00e77af6bdea034a03
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79276405"
 ---
-# <a name="extended-geojson-geometries"></a>Utökat interjson-Geometries
+# <a name="extended-geojson-geometries"></a>Utökade GeoJSON-geometrier
 
-Azure Maps innehåller en lista med kraftfulla API: er för att söka i och efter geografiska funktioner. Dessa API: er följer standarden för geografi- [JSON][1] som representerar geografiska funktioner.  
+Azure Maps innehåller en lista över kraftfulla API:er för att söka inuti och längs geografiska funktioner. Dessa API:er följer standarden [GeoJSON spec][1] för att representera geografiska funktioner.  
 
-Den [INTERjson-specifikationen][1] stöder endast följande Geometries:
+[GeoJSON-specifikationen][1] stöder endast följande geometrier:
 
-* GeometryCollection
-* Lin Est ring
+* GeometryKollektion
+* LineString (Radsträng)
 * MultiLineString
-* MultiPoint
-* MultiPolygon
-* Pekaren
-* Polygonlasso
+* Multipoint
+* MultiPolygon (multipolygon)
+* Punkt
+* Polygon
 
-Vissa Azure Maps API: er accepterar Geometries som inte är en del av den [INTERjson-specifikationen][1]. Till exempel accepterar [search i Geometry](https://docs.microsoft.com/rest/api/maps/search/postsearchinsidegeometry) API cirkel och polygoner.
+Vissa Azure Maps API:er accepterar geometrier som inte ingår i [GeoJSON-specifikationen][1]. Api:et [för sök inuti geometri](https://docs.microsoft.com/rest/api/maps/search/postsearchinsidegeometry) accepterar till exempel Circle och Polygoner.
 
-Den här artikeln innehåller en detaljerad förklaring av hur Azure Maps utökar den [INTERjson-specifikationen][1] som representerar vissa Geometries.
+Den här artikeln innehåller en detaljerad förklaring om hur Azure Maps utökar [GeoJSON-specifikationen][1] för att representera vissa geometrier.
 
-## <a name="circle"></a>Division
+## <a name="circle"></a>Cirkel
 
-`Circle` geometrin stöds inte av den geometriska [JSON-specifikationen][1]. Vi använder ett `GeoJSON Point Feature`-objekt för att representera en cirkel.
+Geometrin `Circle` stöds inte av [GeoJSON-specifikationen][1]. Vi använder `GeoJSON Point Feature` ett objekt för att representera en cirkel.
 
-En `Circle` geometri som representeras med `GeoJSON Feature`-objektet __måste__ innehålla följande koordinater och egenskaper:
+En `Circle` geometri som `GeoJSON Feature` representeras med objektet __måste__ innehålla följande koordinater och egenskaper:
 
-- Center
+- Centrera
 
-    Cirkelns mitt punkt representeras med ett `GeoJSON Point`-objekt.
+    Cirkelns mittpunkt representeras med `GeoJSON Point` ett objekt.
 
-- RADIUS
+- Radie
 
-    Cirkelns `radius` representeras med hjälp av `GeoJSON Feature`egenskaper. RADIUS-värdet är i _meter_ och måste vara av typen `double`.
+    Cirkelns `radius` representeras med `GeoJSON Feature`hjälp av 's egenskaper. Radievärdet är i _mätare_ och `double`måste vara av typen .
 
-- Undertyp
+- Subtyp
 
-    Cirkel geometrin måste också innehålla egenskapen `subType`. Den här egenskapen måste vara en del av `GeoJSON Feature`ens egenskaper och dess värde måste vara en _cirkel_
+    Cirkelgeometrin måste `subType` också innehålla egenskapen. Denna egenskap måste vara `GeoJSON Feature`en del av 's egenskaper och dess värde bör _Circle_
 
 #### <a name="example"></a>Exempel
 
-Så här kommer du att representera en cirkel med ett `GeoJSON Feature`-objekt. Nu ska vi centrera cirkeln vid latitud: 47,639754 och longitud:-122,126986 och tilldela den en radie som är lika med 100 meter:
+Så här representerar du en cirkel `GeoJSON Feature` med ett objekt. Låt oss centrera cirkeln vid latitud: 47.639754 och longitud: -122.126986, och tilldela den en radie som är lika med 100 meter:
 
 ```json            
 {
@@ -71,17 +71,17 @@ Så här kommer du att representera en cirkel med ett `GeoJSON Feature`-objekt. 
 
 ## <a name="rectangle"></a>Rektangel
 
-`Rectangle` geometrin stöds inte av den geometriska [JSON-specifikationen][1]. Vi använder ett `GeoJSON Polygon Feature`-objekt för att representera en rektangel. Tillägget Rectangle används främst av Web SDK: s verktyg för rit verktyg.
+Geometrin `Rectangle` stöds inte av [GeoJSON-specifikationen][1]. Vi använder `GeoJSON Polygon Feature` ett objekt för att representera en rektangel. Rektangeltillägget används främst av Webb-SDK:s ritverktygsmodul.
 
-En `Rectangle` geometri som representeras med `GeoJSON Polygon Feature`-objektet __måste__ innehålla följande koordinater och egenskaper:
+En `Rectangle` geometri som `GeoJSON Polygon Feature` representeras med objektet __måste__ innehålla följande koordinater och egenskaper:
 
 - Hörn
 
-    Rektangelns hörn visas med koordinaterna för ett `GeoJSON Polygon`-objekt. Det måste finnas fem koordinater, en för varje hörn. Och en femte koordinat som är samma som den första koordinaten för att stänga polygonen. Det förutsätts att dessa koordinater stämmer och att utvecklaren kan rotera dem som de vill.
+    Rektangelns hörn representeras med hjälp av `GeoJSON Polygon` ett objekts koordinater. Det bör finnas fem koordinater, en för varje hörn. Och, en femte koordinat som är samma som den första koordinaten, för att stänga polygonringen. Det kommer att antas att dessa koordinater anpassa, och att utvecklaren kan rotera dem som önskat.
 
-- Undertyp
+- Subtyp
 
-    Rektangelns geometri måste också innehålla egenskapen `subType`. Den här egenskapen måste vara en del av `GeoJSON Feature`ens egenskaper, och dess värde bör vara en _rektangel_
+    Rektangelgeometrin måste `subType` också innehålla egenskapen. Den här egenskapen `GeoJSON Feature`måste vara en del av 's egenskaper, och dess värde ska vara _Rectangle_
 
 ### <a name="example"></a>Exempel
 
@@ -100,14 +100,14 @@ En `Rectangle` geometri som representeras med `GeoJSON Polygon Feature`-objektet
 ```
 ## <a name="next-steps"></a>Nästa steg
 
-Läs mer om data i multijson i Azure Maps:
+Läs mer om GeoJSON-data i Azure Maps:
 
 > [!div class="nextstepaction"]
-> [Polystängsel, geografiskt JSON-format](geofence-geojson.md)
+> [Geofence GeoJSON-format](geofence-geojson.md)
 
-Granska ord listan med vanliga tekniska villkor som är associerade med Azure Maps-och plats informations program:
+Granska ordlistan med vanliga tekniska termer som är associerade med Azure Maps och platsinformationsprogram:
 
 > [!div class="nextstepaction"]
-> [Azure Maps ord lista](glossary.md)
+> [Azure Maps-ordlista](glossary.md)
 
 [1]: https://tools.ietf.org/html/rfc7946

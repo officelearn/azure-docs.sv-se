@@ -1,161 +1,160 @@
 ---
-title: 'Konfigurera SKU: er för ett erbjudande för Azure-program | Azure Marketplace'
-description: 'Så här konfigurerar du SKU: er för ett Azure-hanterat program och en Azure-lösnings mall.'
-services: Azure, Marketplace, Cloud Partner Portal,
-author: dan-wesley
+title: Konfigurera SKU:er för ett Azure-programerbjudande | Azure Marketplace
+description: Konfigurera SKU:erna för ett Azure-hanterat program och en Azure-lösningsmall.
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/23/2019
-ms.author: pabutler
-ms.openlocfilehash: 2430d7e6fa74438c148d3cb849510be06243faa0
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.author: dsindona
+ms.openlocfilehash: 043394a1303456ce5b209bb84b5afaf09f6beba4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76543162"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80289081"
 ---
-# <a name="azure-application-skus-tab"></a>Fliken för Azure program-SKU: er
+# <a name="azure-application-skus-tab"></a>Fliken Azure-programSKU:er
 
-Den här artikeln beskriver hur du använder fliken SKU: er för att skapa SKU: er för ditt Azure-program. 
+I den här artikeln beskrivs hur du använder fliken SKU:er för att skapa SKU:er för ditt Azure-program. 
 
 > [!IMPORTANT]
-> Stegen för att konfigurera en SKU är olika för ett hanterat program erbjudande och ett erbjudande för lösnings mal len. Dessa skillnader beskrivs i den här artikeln. 
+> Stegen för att konfigurera en SKU är olika för ett hanterat programerbjudande och ett lösningsmallerbjudande. Dessa skillnader dokumenteras i den här artikeln. 
 
-## <a name="configure-azure-application-skus"></a>Konfigurera Azure Application SKU: er
+## <a name="configure-azure-application-skus"></a>Konfigurera SKU:er för Azure-program
 
 ### <a name="create-a-new-sku"></a>Skapa en ny SKU
 
-Använd de här stegen för att skapa en ny SKU:
+Så här skapar du en ny SKU:
 
-1. Välj fliken **SKU: er** .
-2. Under SKU: er väljer du **+ ny SKU**.
+1. Välj fliken **SKU:er.**
+2. Under SKU väljer du **+ Ny SKU**.
 
     ![Ny SKU-prompt](./media/azureapp-plus-sku.png)
 
-3. I popup-fönstret ny SKU skriver du ett **SKU-ID**. Detta ID är begränsat till 50 tecken och får bara bestå av gemener, alfanumeriska tecken, bindestreck eller under streck. SKU-ID: t får inte sluta med ett bindestreck.
-4. SKU-ID: t är synligt för kunder i produkt-URL: er, Resource Manager-mallar (om tillämpligt) och fakturerings rapporter. Du kan inte ändra det här ID: t när erbjudandet har publicerats.
+3. Skriv ett **SKU-ID i**popup-fönstret Nytt SKU . Detta id är begränsat till 50 tecken och får endast bestå av gemener, alfanumeriska tecken, streck eller understreck. SKU-ID:t kan inte sluta med ett streck.
+4. SKU-ID:t är synligt för kunder i produktadresser, Resource Manager-mallar (om tillämpligt) och faktureringsrapporter. Du kan inte ändra id-programmet när erbjudandet har publicerats.
 
-### <a name="sku-details-for-a-solution-template"></a>SKU-information för en lösnings mall
+### <a name="sku-details-for-a-solution-template"></a>SKU-information för en lösningsmall
 
-I nästa skärm bild visas formuläret SKU-information för en lösnings mall.
+Nästa skärminspelning visar formuläret SKU Details för en lösningsmall.
 
-![Formuläret SKU-information för lösnings mal len](./media/azureapp-sku-details-solutiontemplate.png)
+![SKU-informationsformulär för lösningsmall](./media/azureapp-sku-details-solutiontemplate.png)
 
-Ange följande SKU-värden.  Fälten som läggs till med en asterisk måste anges.
+Ange följande SKU-värden.  De fält som läggs till med en asterisk krävs.
 
 |    Field         |       Beskrivning                                                            |
 |  ---------       |     ---------------                                                          |
-|  **Rubrik\***     | En rubrik för SKU: n. Den här rubriken visas i galleriet för det här objektet.   |
-| **Sammanfattning\***    | En kort beskrivning av SKU: n. (Den maximala längden är 100 tecken.)  |
-| **Beskrivning\*** | En detaljerad beskrivning av SKU: n. Grundläggande HTML stöds.                 | 
-| **SKU-typ\***   | Typ av Azure-programlösning, Välj ***lösnings mal len** för det här scenariot. |
-| **Moln tillgänglighets\*** | Platsen för SKU: n. Standardvärdet är **offentlig Azure**.  <b/>**offentliga Azure** -app kan distribueras till kunder i alla offentliga Azure-regioner som har Marketplace-integration.  <b/>**Azure Government Cloud** -app distribueras i Azure Government molnet. Innan du publicerar till [Azure Government](https://docs.microsoft.com/azure/azure-government/documentation-government-manage-marketplace-partners)rekommenderar Microsoft utgivare att testa och verifiera att lösningen fungerar som förväntat i den här miljön. Om du vill mellanlagra och testa begär du ett [utvärderings konto](https://azure.microsoft.com/offers/ms-azr-usgov-0044p/).  |
-| **Är detta en privat SKU?\*** | Välj **Ja** om den här SKU: n endast är tillgänglig för en Välj grupp med kunder. |
+|  **Titel\***     | En titel för SKU. Den här titeln visas i galleriet för det här objektet.   |
+| **Sammanfattning\***    | En kort sammanfattning beskrivning av SKU. (Maximal längd är 100 tecken.)  |
+| **Beskrivning\*** | En detaljerad beskrivning av SKU. Grundläggande HTML stöds.                 | 
+| **SKU-typ\***   | Typ av Azure-programlösning, välj ***Lösningsmall** för det här scenariot. |
+| **Molntillgänglighet\*** | Platsen för SKU. Standard är **Public Azure**.  <b/>   **Offentlig Azure** - Appen kan distribueras till kunder i alla offentliga Azure-regioner som har marketplace-integrering.  <b/>   **Azure Government Cloud** - Appen distribueras i Azure Government Cloud. Innan publicering till [Azure Government](https://docs.microsoft.com/azure/azure-government/documentation-government-manage-marketplace-partners)rekommenderar Microsoft utgivare att testa och validera deras lösning fungerar som förväntat i den här miljön. Om du vill iscensätta och testa begär du ett [utvärderingskonto](https://azure.microsoft.com/offers/ms-azr-usgov-0044p/).  |
+| **Är det här en privat SKU?\*** | Välj **Ja** om den här SKU:n bara är tillgänglig för en utvald kundgrupp. |
 |   |   |
 
   > [!NOTE] 
-  > Microsoft Azure Government är ett moln i en community med kontrollerad åtkomst för kunder från amerikanska federala, statliga, lokala eller stambaserad och partner berättigade att betjäna dessa entiteter.
+  > Microsoft Azure Government är ett moln för myndigheter med kontrollerad åtkomst för kunder från usa:s federala, statliga, lokala eller stam- och stam- och-partner som är kvalificerade att betjäna dessa enheter.
 
 
 ### <a name="sku-details-for-managed-application"></a>SKU-information för hanterat program
 
-I nästa skärm bild visas formuläret SKU-information för ett hanterat program.
+Nästa skärminspelning visar formuläret SKU Details för ett hanterat program.
 
-   ![Formuläret SKU-information för hanterat program](./media/azureapp-sku-details-managedapplication.png)
+   ![SKU-informationsformulär för hanterat program](./media/azureapp-sku-details-managedapplication.png)
 
-Konfigurera följande SKU-inställningar. Fälten som läggs till med en asterisk måste anges.
+Konfigurera följande SKU-inställningar. De fält som läggs till med en asterisk krävs.
 
 |    Field         |       Beskrivning                                                            |
 |  ---------       |     ---------------                                                          |
-|  **Rubrik\***     | En rubrik för SKU: n. Den här rubriken visas i galleriet för det här objektet.   |
-| **Sammanfattning\***    | En kort beskrivning av SKU: n. (Den maximala längden är 100 tecken.)  |
-| **Beskrivning\*** | En detaljerad beskrivning av SKU: n. Grundläggande HTML stöds.                 | 
-| **SKU-typ\***   | Typ av Azure-programlösning väljer du ***hanterat program** för det här scenariot. 
-| **Moln tillgänglighets\*** | Platsen för SKU: n. Standardvärdet är **offentlig Azure**.  <b/>**offentliga Azure** -app kan distribueras till kunder i alla offentliga Azure-regioner som har Marketplace-integration.  <b/>**Azure Government Cloud** -app distribueras i Azure Government molnet. Innan du publicerar till [Azure Government](https://docs.microsoft.com/azure/azure-government/documentation-government-manage-marketplace-partners)rekommenderar Microsoft utgivare att testa och verifiera att lösningen fungerar som förväntat i den här miljön. Om du vill mellanlagra och testa begär du ett [utvärderings konto](https://azure.microsoft.com/offers/ms-azr-usgov-0044p/).   Microsoft Azure Government är ett moln i en community med kontrollerad åtkomst för kunder från amerikanska federala, statliga, lokala eller stambaserad och partner berättigade att betjäna dessa entiteter. |
-| **Är detta en privat SKU?\*** | Välj **Ja** om den här SKU: n endast är tillgänglig för en Välj grupp med kunder. |
-| **Tillgänglighet för land/region\*** | Använd **Välj regioner** för att visa en lista över länder/regioner som är tillgängliga. Markera varje land/region och välj sedan **OK** för att spara dina plockningar.  <b/>![land-och regions tillgänglighets lista](./media/azure-app-select-country-region.png)  |
-| **Tidigare prissättnings\*** | Priset för SKU: n i USD per månad. Priserna anges i lokal valuta med aktuella växelkurser vid konfigurationen. Verifiera dessa inställningar eftersom du slutligen äger de här inställningarna. Om du vill ange eller Visa varje lands/regions pris individuellt exporterar du pris kalkyl bladet och importerar det med anpassad prissättning.  Du måste spara pris ändringarna för att tillåta export/import av pris data.  |
-| **Pris\* för förenklad valuta** | Priset för SKU: n i USD per månad. Det måste vara samma som för den gamla prissättningen. Mer information finns i [pris för förenklad valuta](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-update-existing-offer). |
+|  **Titel\***     | En titel för SKU. Den här titeln visas i galleriet för det här objektet.   |
+| **Sammanfattning\***    | En kort sammanfattning beskrivning av SKU. (Maximal längd är 100 tecken.)  |
+| **Beskrivning\*** | En detaljerad beskrivning av SKU. Grundläggande HTML stöds.                 | 
+| **SKU-typ\***   | Typ av Azure-programlösning, välj ***Hanterat program** för det här scenariot. 
+| **Molntillgänglighet\*** | Platsen för SKU. Standard är **Public Azure**.  <b/>   **Offentlig Azure** - Appen kan distribueras till kunder i alla offentliga Azure-regioner som har marketplace-integrering.  <b/>   **Azure Government Cloud** - Appen distribueras i Azure Government Cloud. Innan publicering till [Azure Government](https://docs.microsoft.com/azure/azure-government/documentation-government-manage-marketplace-partners)rekommenderar Microsoft utgivare att testa och validera deras lösning fungerar som förväntat i den här miljön. Om du vill iscensätta och testa begär du ett [utvärderingskonto](https://azure.microsoft.com/offers/ms-azr-usgov-0044p/).   Microsoft Azure Government är ett moln för myndigheter med kontrollerad åtkomst för kunder från usa:s federala, statliga, lokala eller stam- och stam- och-partner som är kvalificerade att betjäna dessa enheter. |
+| **Är det här en privat SKU?\*** | Välj **Ja** om den här SKU:n bara är tillgänglig för en utvald kundgrupp. |
+| **Tillgänglighet för land/region\*** | Använd **Välj regioner** om du vill visa en lista över tillgängliga länder/regioner. Kontrollera varje land/region och välj sedan **OK** för att spara dina val.  <b/>   ![Tillgänglighetslista för land och region](./media/azure-app-select-country-region.png)  |
+| **Gamla priser\*** | Priset för SKU, i USD per månad. Priserna anges i lokal valuta med hjälp av aktuella valutakurser vid konfiguration. Validera dessa eftersom du i slutändan äger dessa inställningar. Om du vill ange eller visa varje lands/regions pris individuellt exporterar du priskalkylbladet och importerar med anpassad prissättning.  Du måste spara dina prisändringar för att aktivera export/import av prisdata.  |
+| **Förenklad valutaprissättning\*** | Priset för SKU, i USD per månad. Detta måste vara samma som gammal prissättning. Mer information finns i [Förenklad valutaprissättning](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-update-existing-offer). |
 |  |  |
 
 
-### <a name="package-details-for-solution-template"></a>Paket information för lösnings mal len
+### <a name="package-details-for-solution-template"></a>Paketinformation för lösningsmall
 
-![Paket information för lösnings mal len](./media/azureapp-sku-pkgdetails-solutiontemplate.png)
+![Paketinformation för lösningsmall](./media/azureapp-sku-pkgdetails-solutiontemplate.png)
 
-Ange följande **paket information** värden.  Fälten som läggs till med en asterisk måste anges.
+Ange följande **paketinformationsvärden.**  De fält som läggs till med en asterisk krävs.
 
-- **Version\*** – versionen av paketet som du ska ladda upp. Versions Taggar måste vara av formatet X. Y. Z, där X, Y och Z är heltal.
-- **Paket fil (. zip)\*** – det här paketet innehåller följande filer, sparade i en. zip-fil.
-  - **mainTemplate. json\*** – distributions mal Lav bildfilen som används för att distribuera lösningen/programmet och skapa de resurser som definierats för lösningen. Mer information finns i [så här skapar du mallar för distribuering av filer](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-create-first-template).
-  - **createUIDefinition. json\*** – den här filen används av Azure Portal för att generera användar gränssnittet för etablering av den här lösningen/programmet. Mer information finns i [skapa Azure Portal användar gränssnitt för ditt hanterade program](https://docs.microsoft.com/azure/azure-resource-manager/managed-application-createuidefinition-overview).
-  - Skript (om det behövs) – eventuella ytterligare skript som kan krävas när du kör mallen, till exempel `Microsoft.Compute/virtualMachines/extensions`.
-  - Kapslade mallar (om det behövs) – eventuella ytterligare kapslade mallar.
+- **Version\* ** - Den version av paketet som du kommer att ladda upp. Versionstaggar måste vara av formuläret X.Y.Z, där X, Y och Z är heltal.
+- **Paketfil (.zip)\* ** - Det här paketet innehåller följande filer, sparade i en ZIP-fil.
+  - **mainTemplate.json\* ** - Distributionsmallfilen som används för att distribuera lösningen/programmet och skapa de resurser som definierats för lösningen. Mer information finns i [Så här skapar du distributionsmallfiler](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-create-first-template).
+  - **createUIDefinition.json\* ** - Den här filen används av Azure-portalen för att generera användargränssnittet för etablering av den här lösningen/programmet. Mer information finns i [Skapa Azure Portal-användargränssnitt för ditt hanterade program](https://docs.microsoft.com/azure/azure-resource-manager/managed-application-createuidefinition-overview).
+  - Skript (om det behövs) - Eventuella ytterligare skript som kan `Microsoft.Compute/virtualMachines/extensions`krävas när mallen körs, till exempel .
+  - Kapslade mallar (om det behövs) - Eventuella ytterligare kapslade mallar.
 
   > [!IMPORTANT] 
-  > Det här paketet bör innehålla eventuella kapslade mallar eller skript som krävs för att etablera det här programmet. MainTemplate. JSON-filen och createUIDefinition. JSON-filen måste finnas i rotmappen. Mer information om distributions artefakter finns i [Azure Resource Manager templates-Best Practices guide](https://github.com/Azure/azure-quickstart-templates/blob/master/1-CONTRIBUTION-GUIDE/best-practices.md#deployment-artifacts-nested-templates-scripts).
+  > Det här paketet ska innehålla alla kapslade mallar eller skript som behövs för att etablera det här programmet. Filen mainTemplate.json och filen createUIDefinition.json måste finnas i rotmappen. Mer information om distributionsartefakter finns i [Azure Resource Manager-mallar – metodtipsguide](https://github.com/Azure/azure-quickstart-templates/blob/master/1-CONTRIBUTION-GUIDE/best-practices.md#deployment-artifacts-nested-templates-scripts).
 
 
-### <a name="package-details-for-managed-application"></a>Paket information för hanterat program
+### <a name="package-details-for-managed-application"></a>Paketinformation för hanterade program
 
-   ![Paket information för hanterat program](./media/azureapp-sku-pkgdetails-managedapplication.png)
+   ![Paketinformation för hanterade program](./media/azureapp-sku-pkgdetails-managedapplication.png)
 
-Ange följande paket information.  Fälten som läggs till med en asterisk måste anges.
+Ange följande paketinformation.  De fält som läggs till med en asterisk krävs.
 
-- **Version\*** – versionen av paketet som du ska ladda upp. Versions Taggar måste vara av formatet X. Y. Z, där X, Y och Z är heltal.
-- **Paket fil (. zip)\*** – det här paketet innehåller följande filer, sparade i en. zip-fil.
-  - applianceMainTemplate. JSON – distributions mal Lav bildfilen som används för att distribuera lösningen/programmet och skapa de resurser som definieras. Mer information finns i [snabb start: skapa och distribuera Azure Resource Manager mallar med hjälp av Azure Portal](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal). 
-  - applianceCreateUIDefinition. JSON – den här filen används av Azure Portal för att generera användar gränssnittet för etablering av den här lösningen/programmet. Mer information finns i [skapa Azure Portal användar gränssnitt för ditt hanterade program](https://docs.microsoft.com/azure/azure-resource-manager/managed-application-createuidefinition-overview).
-  - mainTemplate. JSON – mallfilen som bara innehåller Microsoft. Solution/apparaturs-resursen. Mer information finns i [förstå strukturen och syntaxen för Azure Resource Manager mallar](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates). <br>
-Observera följande nyckel egenskaper för resursen:
-    - "Natura"-värdet ska vara "Marketplace" när det gäller Marketplace-hanterat program.
-    - "ManagedResourceGroupId" – resurs gruppen i kundens prenumeration där alla de resurser som definierats i applianceMainTemplate. JSON kommer att distribueras.
-    - "PublisherPackageId" – strängen som unikt identifierar paketet. Det här värdet måste konstrueras på följande sätt: det är en sammanfogning av [publisherId]. [OfferId]-för hands version [SKUID]. [PackageVersion].
+- **Version\* ** - Den version av paketet som du kommer att ladda upp. Versionstaggar måste vara av formuläret X.Y.Z, där X, Y och Z är heltal.
+- **Paketfil (.zip)\* ** - Det här paketet innehåller följande filer, sparade i en ZIP-fil.
+  - applianceMainTemplate.json - Distributionsmallfilen som används för att distribuera lösningen/programmet och skapa de resurser som har definierats. Mer information finns i [Snabbstart: Skapa och distribuera Azure Resource Manager-mallar med hjälp av Azure-portalen](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal). 
+  - applianceCreateUIDefinition.json - Den här filen används av Azure-portalen för att generera användargränssnittet för etablering av den här lösningen/programmet. Mer information finns i [Skapa Azure Portal-användargränssnitt för ditt hanterade program](https://docs.microsoft.com/azure/azure-resource-manager/managed-application-createuidefinition-overview).
+  - mainTemplate.json - Mallfilen som bara innehåller Microsoft.Solution/appliances-resursen. Mer information finns [i Förstå strukturen och syntaxen för Azure Resource Manager-mallar](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates). <br>
+Observera följande nyckelegenskaper för den här resursen:
+    - "typ" - Värdet ska vara "Marketplace" när det gäller Marketplace-managed-program.
+    - "ManagedResourceGroupId" - Resursgruppen i kundens prenumeration där alla resurser som definierats i installationenMainTemplate.json kommer att distribueras.
+    - "PublisherPackageId"- Strängen som unikt identifierar paketet. Det här värdet måste konstrueras på följande sätt: det är en sammanfogning av [publisherId]. [OfferId]-preview[SKUID]. [PackageVersion].
 
   >[!IMPORTANT] 
-  >Det här paketet bör innehålla eventuella kapslade mallar eller skript som krävs för att etablera det här programmet. Filerna måste finnas i rotmappen: MainTemplate. JSON, applianceMainTemplate. JSON och applianceCreateUIDefinition. JSON.
+  >Det här paketet ska innehålla alla kapslade mallar eller skript som behövs för att etablera det här programmet. Dessa filer måste finnas i rotmappen: MainTemplate.json, applianceMainTemplate.json och applianceCreateUIDefinition.json.
 
-- **Klient-id\*** -Azure Active Directory klient organisationens ID.
-- **Aktivera JIT-åtkomst?\*** – Välj **Ja** om du vill aktivera hantering av just-in-Time-åtkomst för kund distributioner med det här erbjudandet.
+- **Klient-ID\* ** - Azure Active Directory-klient-ID för din organisation.
+- **Vill du aktivera JIT Access? \* ** - Välj **Ja** för att aktivera just-in-time-hanteringsåtkomst för kunddistributioner med det här erbjudandet.
 
   >[!NOTE] 
-  >Om du aktiverar JIT måste du uppdatera filen CreateUiDefinition. JSON för att stödja JIT-åtkomst.
+  >Om du aktiverar JIT måste du uppdatera filen CreateUiDefinition.json för att stödja JIT-åtkomst.
 
-För ett hanterat program måste du konfigurera inställningar för auktorisering och principer.
-
-
-#### <a name="authorization"></a>Autentisering
-
-Lägg till Azure Active Directory identifierare för användaren, gruppen eller programmet som du vill ge behörighet till den hanterade resurs gruppen. Behörigheten som beviljas anges av roll Definitions-ID: t. Det kan vara ägare, deltagare eller en anpassad roll.
+För ett hanterat program måste du konfigurera Auktoriserings- och principinställningar.
 
 
-#### <a name="policy-settings"></a>Principinställningar
+#### <a name="authorization"></a>Auktorisering
 
-Lägg till de principer som den hanterade appen följer. Läs mer om Azure Resource policies, se [Vad är Azure policy?](../../../governance/policy/overview.md)
+Lägg till Azure Active Directory-identifieraren för användare, grupp eller program som du vill bevilja behörighet till den hanterade resursgruppen. Behörigheten som beviljas anges av rolldefinitions-ID. Det kan vara en ägare, deltagare eller en anpassad roll.
 
-   ![Inställningar för auktorisering och principer för ett hanterat program](./media/azureapp-sku-details-managedapp-auth-policy.png)
+
+#### <a name="policy-settings"></a>Princip Hantering av mobilprogram &gt; Inställningar
+
+Lägg till de principer som den hanterade appen följer. Läs mer om Azure Resource-principer, se [Vad är Azure-princip?](../../../governance/policy/overview.md)
+
+   ![Auktoriserings- och principinställningar för ett hanterat program](./media/azureapp-sku-details-managedapp-auth-policy.png)
 
 **Så här skapar du en ny auktorisering:**
 
-1. Under **auktorisering**väljer du **+ ny auktorisering**.
-2. Som **huvud-ID**anger du Azure Active Directory identifieraren för den användare, grupp eller det program som du vill ge behörighet till den hanterade resurs gruppen. Behörigheten som beviljas anges av roll definitionen.
-3. För **roll definition**väljer du ett av följande alternativ i list rutan: ägare eller deltagare. Mer information finns i [Inbyggda roller för Azure-resurser](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles).
+1. Under **Auktorisering**väljer du **+ Ny auktorisering**.
+2. För **huvud-ID**skriver du Azure Active Directory Identifier för användare, grupp eller program som du vill bevilja behörighet till den hanterade resursgruppen. Behörigheten som beviljas anges av rolldefinitionen.
+3. För **rolldefinition**väljer du ett av följande alternativ i listrutan: Ägare eller Deltagare. Mer information finns i [Inbyggda roller för Azure-resurser](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles).
 
 >[!NOTE] 
->Du kan lägga till flera auktoriseringar. Vi rekommenderar dock att du skapar en Active Directory användar grupp och anger dess ID i "PrincipalId". Detta gör att du kan lägga till fler användare i användar gruppen utan att behöva uppdatera SKU: n.
+>Flera auktoriseringar kan läggas till. Vi rekommenderar dock att du skapar en Active Directory-användargrupp och anger dess ID i "PrincipalId". Detta gör det möjligt att lägga till fler användare i användargruppen utan att behöva uppdatera SKU.
 
 **Så här skapar du en ny princip:**
 
-1. Under **princip inställningar**väljer du **+ ny princip**.
-2. Ange ett namn för principen för **princip namn**. Namnet får bestå av högst 50 tecken.
-3. För **principer**väljer du ett av alternativen i list rutan. Välj den princip som data leverantören vill aktivera när programmet använder data. Mer information finns i [Azure policy exempel](https://docs.microsoft.com/azure/governance/policy/samples/index).
+1. Välj **+ Ny princip**under **Principinställningar**.
+2. För **principnamn**anger du ett namn på principen. Namnets maximala längd är 50 tecken.
+3. För **principer**väljer du ett av alternativen i listrutan. Välj den princip som dataprovidern vill aktivera när programmet använder data. Mer information finns i [Azure Policy Samples](https://docs.microsoft.com/azure/governance/policy/samples/index).
 
-    ![Princip inställningar för ett hanterat program](./media/azureapp-sku-policy-settings.png)
+    ![Principinställningar för ett hanterat program](./media/azureapp-sku-policy-settings.png)
 
-4. För **princip-SKU**väljer du ledig eller standard som princip-SKU-typ. Standard-SKU: n krävs för gransknings principer.
+4. För **Princip SKU**väljer du Ledig eller Standard som princip-SKU-typ. Standard-SKU krävs för granskningsprinciper.
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Du lär dig mer om ditt erbjudande och levererar marknadsförings till gångar på [fliken Marketplace](./cpp-marketplace-tab.md). 
+Du kommer att beskriva dina erbjudande- och leveransmarknadstillgångar ytterligare på [fliken Marketplace](./cpp-marketplace-tab.md). 

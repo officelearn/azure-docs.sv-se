@@ -1,23 +1,23 @@
 ---
-title: Använd Server del för skalnings uppsättning för virtuell dator – CLI
+title: Använda en uppsättning för skalning av virtuell dator - CLI
 titleSuffix: Azure Application Gateway
-description: Lär dig hur du skapar en Programgateway med en skalnings uppsättning för virtuella datorer med hjälp av Azure CLI.
+description: Lär dig hur du skapar en programgateway med en skalauppsättning för virtuella datorer med Hjälp av Azure CLI.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
 ms.date: 11/14/2019
 ms.author: victorh
-ms.openlocfilehash: ec1837419390fc29e53565881e41fd4265914f78
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: a5b9fa6eca25aa5ed64725ee677330053e60cb37
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74074515"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80239488"
 ---
-# <a name="create-an-application-gateway-with-a-virtual-machine-scale-set-using-the-azure-cli"></a>Skapa en Programgateway med en skalnings uppsättning för virtuella datorer med hjälp av Azure CLI
+# <a name="create-an-application-gateway-with-a-virtual-machine-scale-set-using-the-azure-cli"></a>Skapa en programgateway med en skalningsuppsättning för virtuella datorer med Azure CLI
 
-Du kan använda Azure CLI för att skapa en [Programgateway](application-gateway-introduction.md) som använder en [skalnings uppsättning för virtuella datorer](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) för backend-servrar. I det här exemplet innehåller skalningsuppsättningen två virtuella datorinstanser i serverdelens standardpool i programgatewayen.
+Du kan använda Azure CLI för att skapa en [programgateway](application-gateway-introduction.md) som använder en [skalningsuppsättning](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) för virtuell dator för serverdelar. I det här exemplet innehåller skalningsuppsättningen två virtuella datorinstanser i serverdelens standardpool i programgatewayen.
 
 I den här artikeln kan du se hur du:
 
@@ -26,7 +26,7 @@ I den här artikeln kan du se hur du:
 > * Skapa en programgateway
 > * Skapa en VM-skalningsuppsättning med serverdelens standardpool
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -128,7 +128,7 @@ az vmss extension set \
 
 Du kan hämta den offentliga IP-adressen för programgatewayen med [az network public-ip show](/cli/azure/network/public-ip). Kopiera den offentliga IP-adressen och klistra in den i webbläsarens adressfält.
 
-```azurepowershell-interactive
+```azurecli-interactive
 az network public-ip show \
   --resource-group myResourceGroupAG \
   --name myAGPublicIPAddress \
@@ -147,4 +147,4 @@ I den här självstudiekursen lärde du dig att:
 > * Skapa en programgateway
 > * Skapa en VM-skalningsuppsättning med serverdelens standardpool
 
-Om du vill veta mer om programgatewayer och deras associerade resurser kan du fortsätta till instruktions artiklarna.
+Om du vill veta mer om programgateways och tillhörande resurser fortsätter du till instruktioner.

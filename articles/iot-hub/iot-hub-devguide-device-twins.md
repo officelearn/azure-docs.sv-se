@@ -1,6 +1,6 @@
 ---
-title: Förstå hur Azure IoT Hub enheten är dubbla | Microsoft Docs
-description: Utvecklings guide – Använd enheten för att synkronisera tillstånds-och konfigurations data mellan IoT Hub och dina enheter
+title: Förstå Azure IoT Hub-enhetstvillingar | Microsoft-dokument
+description: Utvecklarguide – använd enhetstvillingar för att synkronisera tillstånds- och konfigurationsdata mellan IoT Hub och dina enheter
 author: wesmc7777
 manager: philmea
 ms.author: wesmc
@@ -9,60 +9,60 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 02/01/2020
 ms.openlocfilehash: 51e58de92f111c8854add613a299f2b8ccec0503
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79285245"
 ---
-# <a name="understand-and-use-device-twins-in-iot-hub"></a>Förstå och Använd enheten dubbla i IoT Hub
+# <a name="understand-and-use-device-twins-in-iot-hub"></a>Förstå och använda enhetstvillingar i IoT Hub
 
-*Enhets dubbla* är JSON-dokument som lagrar information om enhets tillstånd, inklusive metadata, konfigurationer och villkor. Azure IoT Hub hanterar en enhet för varje enhet som du ansluter till IoT Hub. 
+*Enhetstvillingar* är JSON-dokument som lagrar enhetstillståndsinformation, inklusive metadata, konfigurationer och villkor. Azure IoT Hub lagrar en enhetstvilling för varje enhet som du ansluter till IoT Hub. 
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
-Den här artikeln beskrivs:
+I den här artikeln beskrivs:
 
-* Enhetens struktur:: *taggar*, *önskade* och *rapporterade egenskaper*.
-* De åtgärder som enhets appar och Server delar kan utföra på enheten är dubbla.
+* Enhetens tvillingstruktur: *taggar*, *önskade* och *rapporterade egenskaper*.
+* De åtgärder som enhetsappar och bakåtänddar kan utföra på enhetstvillingar.
 
-Använd enheten:
+Använd enhetstvillingar för att:
 
-* Lagra enhetsspecifika metadata i molnet. Till exempel distributions platsen för en Vending-dator.
+* Lagra enhetsspecifika metadata i molnet. Distributionsplatsen för en varuautomat.
 
-* Rapportera aktuell statusinformation, till exempel tillgängliga funktioner och villkor från din enhets app. Till exempel är en enhet ansluten till din IoT-hubb via mobil nät eller WiFi.
+* Rapportera aktuell tillståndsinformation, till exempel tillgängliga funktioner och villkor från enhetsappen. En enhet är till exempel ansluten till din IoT-hubb via mobilnät eller WiFi.
 
-* Synkronisera tillstånd för långvariga arbets flöden mellan enhets app och backend-app. Till exempel, när Server delen för lösningen anger den nya versionen av inbyggd program vara som ska installeras och Device-appen rapporterar de olika stegen i uppdaterings processen.
+* Synkronisera tillståndet för tidskrävande arbetsflöden mellan enhetsapp och backend-app. Till exempel när lösningen back end anger den nya firmware-versionen att installera, och enhetsappen rapporterar de olika stadierna i uppdateringsprocessen.
 
-* Fråga om metadata, konfiguration eller tillstånd för enheten.
+* Fråga enhetens metadata, konfiguration eller tillstånd.
 
-Information om hur du använder rapporterade egenskaper, meddelanden från enhet till moln eller fil uppladdning finns i [rikt linjer för kommunikation mellan enheter och moln](iot-hub-devguide-d2c-guidance.md) .
+Se [kommunikationsvägledning](iot-hub-devguide-d2c-guidance.md) för enhet till moln för vägledning om hur du använder rapporterade egenskaper, meddelanden från enhet till moln eller filöverföring.
 
-Information om hur du använder önskade egenskaper, direkta metoder eller meddelanden från moln till enhet finns i [rikt linjer för kommunikation från moln till enhet](iot-hub-devguide-c2d-guidance.md) .
+Se [kommunikationsvägledning](iot-hub-devguide-c2d-guidance.md) från molnet till enhet för vägledning om hur du använder önskade egenskaper, direkta metoder eller meddelanden från molnet till enheten.
 
-## <a name="device-twins"></a>Enhets dubbla
+## <a name="device-twins"></a>Enhetstvillingar
 
-Enheten är kopplad till lagrings enhets information som:
+Enhetstvillingar lagrar enhetsrelaterad information som:
 
-* Enhets-och backend-slut kan användas för att synkronisera enhets villkor och-konfiguration.
+* Enhets- och serverdelar kan användas för att synkronisera enhetsvillkor och konfiguration.
 
-* Lösningens Server del kan användas för att fråga efter och fokusera på tids krävande åtgärder.
+* Lösningens baksida kan användas för att fråga och rikta långvariga åtgärder.
 
-Livs cykeln för en enhet med dubbla är kopplad till motsvarande [enhets identitet](iot-hub-devguide-identity-registry.md). Enhetens dubblare skapas och tas bort implicit när en enhets identitet skapas eller tas bort i IoT Hub.
+Livscykeln för en enhetstvilling är länkad till motsvarande [enhetsidentitet](iot-hub-devguide-identity-registry.md). Enhetstvillingar skapas implicit och tas bort när en enhetsidentitet skapas eller tas bort i IoT Hub.
 
-En enhet är dubbla är ett JSON-dokument som innehåller:
+En enhetstvilling är ett JSON-dokument som innehåller:
 
-* **Taggar**. Ett avsnitt i JSON-dokumentet som server delen av lösningen kan läsa från och skriva till. Taggarna är inte synliga för enhets program.
+* **Taggar**. Ett avsnitt i JSON-dokumentet som lösningens baksida kan läsa från och skriva till. Taggar är inte synliga för enhetsappar.
 
-* **Önskade egenskaper**. Används tillsammans med rapporterade egenskaper för att synkronisera enhets konfiguration eller-villkor. Lösningens Server del kan ange önskade egenskaper och appen kan läsa dem. Device-appen kan också ta emot aviseringar om ändringar i önskade egenskaper.
+* **Önskade egenskaper**. Används tillsammans med rapporterade egenskaper för att synkronisera enhetens konfiguration eller villkor. Lösningens baksida kan ange önskade egenskaper och enhetsappen kan läsa dem. Enhetsappen kan också ta emot meddelanden om ändringar i de önskade egenskaperna.
 
-* **Rapporterade egenskaper**. Används tillsammans med önskade egenskaper för att synkronisera enhetens konfiguration eller villkor. Device-appen kan ange rapporterade egenskaper och Server delen för lösningen kan läsa och fråga dem.
+* **Rapporterade egenskaper**. Används tillsammans med önskade egenskaper för att synkronisera enhetens konfiguration eller villkor. Enhetsappen kan ange rapporterade egenskaper och lösningens baksida kan läsa och fråga dem.
 
-* **Egenskaper för enhets identitet**. Roten av enhetens dubbla JSON-dokument innehåller skrivskyddade egenskaper från motsvarande enhets identitet som lagras i [identitets registret](iot-hub-devguide-identity-registry.md).
+* **Egenskaper för enhetsidentitet**. Roten till enhetstvillingenS JSON-dokument innehåller skrivskyddade egenskaper från motsvarande enhetsidentitet som lagras i [identitetsregistret](iot-hub-devguide-identity-registry.md).
 
-![Skärm bild av enhetens dubbla egenskaper](./media/iot-hub-devguide-device-twins/twin.png)
+![Skärmbild av enhetstvillingegenskaper](./media/iot-hub-devguide-device-twins/twin.png)
 
-I följande exempel visas ett enhets dubbla JSON-dokument:
+I följande exempel visas ett enhetstvilling-JSON-dokument:
 
 ```json
 {
@@ -108,20 +108,20 @@ I följande exempel visas ett enhets dubbla JSON-dokument:
 }
 ```
 
-I rotobjektet finns enhetens identitets egenskaper och behållar objekt för `tags` och både `reported`-och `desired` egenskaper. `properties`-behållaren innehåller skrivskyddade element (`$metadata`, `$etag`och `$version`) som beskrivs i avsnitten [enhets dubbla metadata](iot-hub-devguide-device-twins.md#device-twin-metadata) och [optimistisk samtidighet](iot-hub-devguide-device-twins.md#optimistic-concurrency) .
+I rotobjektet finns enhetsidentitetsegenskaperna `reported` och `desired` behållarobjekt för `tags` och båda och egenskaper. Behållaren `properties` innehåller vissa skrivskyddade`$metadata` `$etag`element `$version`( , och ) som beskrivs i avsnitten [Enhetstvilling och](iot-hub-devguide-device-twins.md#device-twin-metadata) [Optimistisk samtidighet.](iot-hub-devguide-device-twins.md#optimistic-concurrency)
 
 ### <a name="reported-property-example"></a>Exempel på rapporterad egenskap
 
-I föregående exempel innehåller enheten dubbla en `batteryLevel`-egenskap som rapporteras av enhets appen. Den här egenskapen gör det möjligt att fråga och använda enheter baserat på den senaste rapporterade batteri nivån. Andra exempel är enhets funktioner för enhets program rapportering eller anslutnings alternativ.
+I föregående exempel innehåller enhetstvillingen en `batteryLevel` egenskap som rapporteras av enhetsappen. Den här egenskapen gör det möjligt att fråga efter och använda enheter baserat på den senast rapporterade batterinivån. Andra exempel är enhetsappens rapporteringsenhetsfunktioner eller anslutningsalternativ.
 
 > [!NOTE]
-> Rapporterade egenskaper fören klar scenarier där lösningens Server del är intresse rad av det sista kända värdet för en egenskap. Använd [enhets-till-moln-meddelanden](iot-hub-devguide-messages-d2c.md) om lösningens Server del behöver bearbeta telemetri i form av sekvenser med tidsstämplade händelser, t. ex. tids serier.
+> Rapporterade egenskaper förenklar scenarier där lösningens backend är intresserad av det senast kända värdet för en egenskap. Använd meddelanden från enhet till moln om [lösningens](iot-hub-devguide-messages-d2c.md) serverdel behöver bearbeta enhetstelemetri i form av sekvenser av tidsstämplade händelser, till exempel tidsserier.
 
 ### <a name="desired-property-example"></a>Exempel på önskad egenskap
 
-I föregående exempel används den `telemetryConfig` enheten och de rapporterade egenskaperna som används av lösningens Server del och Device-appen för att synkronisera telemetri-konfigurationen för den här enheten. Exempel:
+I föregående exempel `telemetryConfig` används enhetstvillingen önskade och rapporterade egenskaper av lösningens serverdel och enhetsappen för att synkronisera telemetrikonfigurationen för den här enheten. Ett exempel:
 
-1. Server delen för lösningen anger önskad egenskap med det önskade konfiguration svärdet. Här är den del av dokumentet med önskad egenskaps uppsättning:
+1. Lösningens serverdel anger önskad egenskap med önskat konfigurationsvärde. Här är den del av dokumentet med önskad egenskapsuppsättning:
 
    ```json
    "desired": {
@@ -132,7 +132,7 @@ I föregående exempel används den `telemetryConfig` enheten och de rapporterad
    },
    ```
 
-2. Enhets appen meddelas om ändringen omedelbart om den är ansluten eller vid första åter anslutning. Device-appen rapporterar sedan den uppdaterade konfigurationen (eller ett fel tillstånd med hjälp av egenskapen `status`). Här är den del av de rapporterade egenskaperna:
+2. Enhetsappen meddelas om ändringen omedelbart om den är ansluten eller vid den första återanslutningen. Enhetsappen rapporterar sedan den uppdaterade konfigurationen (eller ett feltillstånd med hjälp av egenskapen). `status` Här är den del av de rapporterade egenskaperna:
 
    ```json
    "reported": {
@@ -144,21 +144,21 @@ I föregående exempel används den `telemetryConfig` enheten och de rapporterad
    }
    ```
 
-3. Lösningens Server del kan spåra resultatet av konfigurations åtgärden på många enheter genom att [fråga](iot-hub-devguide-query-language.md) enheten i flera enheter.
+3. Lösningens serverdel kan spåra resultatet av konfigurationsåtgärden på många enheter genom [att fråga](iot-hub-devguide-query-language.md) enhetstvillingar.
 
 > [!NOTE]
-> Föregående kodfragment är exempel, optimerade för läsbarhet, av ett sätt att koda en enhets konfiguration och dess status. IoT Hub tillhandahåller inte ett visst schema för enheten med dubbla önskade och rapporterade egenskaper i enheten.
+> De föregående kodavsnitten är exempel, optimerade för läsbarhet, på ett sätt att koda en enhetskonfiguration och dess status. IoT Hub innehåller inte ett specifikt schema för de enhetstvillingar som önskas och rapporteras i enhetstvillingarna.
 > 
 
-Du kan använda dubbla för att synkronisera långvariga åtgärder, till exempel uppdateringar av inbyggd program vara. Mer information om hur du använder egenskaper för att synkronisera och spåra en tids krävande åtgärd mellan enheter finns i [använda önskade egenskaper för att konfigurera enheter](tutorial-device-twins.md).
+Du kan använda tvillingar för att synkronisera tidskrävande åtgärder, till exempel uppdateringar av den inbyggda programvaran. Mer information om hur du använder egenskaper för att synkronisera och spåra en tidskrävande åtgärd på olika enheter finns i [Använda önskade egenskaper för att konfigurera enheter](tutorial-device-twins.md).
 
-## <a name="back-end-operations"></a>Server dels åtgärder
+## <a name="back-end-operations"></a>Backend-verksamhet
 
-Lösningens Server del fungerar på enheten med dubbla med hjälp av följande atomiska åtgärder, exponeras via HTTPS:
+Lösningens backdel fungerar på enhetstvillingen med hjälp av följande atomoperationer, som exponeras via HTTPS:
 
-* **Hämta enhetens dubbla efter ID**. Den här åtgärden returnerar enhetens dubbla dokument, inklusive Taggar och önskade och rapporterat system egenskaper.
+* **Hämta enhetstvillingen efter ID**. Den här åtgärden returnerar enhetstvillingdokumentet, inklusive taggar och önskade och rapporterade systemegenskaper.
 
-* **Delvis uppdatering av enhets enhet** Den här åtgärden gör att lösningens Server del kan användas för att delvis uppdatera taggarna eller önskade egenskaper i en enhet. Den partiella uppdateringen uttrycks som ett JSON-dokument som lägger till eller uppdaterar en egenskap. De egenskaper som anges för `null` tas bort. I följande exempel skapas en ny önskad egenskap med Value `{"newProperty": "newValue"}`, skriver över det befintliga värdet för `existingProperty` med `"otherNewValue"`och tar bort `otherOldProperty`. Inga andra ändringar har gjorts i befintliga önskade egenskaper eller Taggar:
+* **Delvis uppdatera enhetstvillingen**. Med den här åtgärden kan lösningens backend delvis uppdatera taggarna eller önskade egenskaper i en enhetstvilling. Den partiella uppdateringen uttrycks som ett JSON-dokument som lägger till eller uppdaterar en egenskap. Egenskaper som `null` ska tas bort. I följande exempel skapas en `{"newProperty": "newValue"}`ny önskad egenskap med `existingProperty` värde, skriver över det befintliga värdet med `"otherNewValue"`och tar bort `otherOldProperty`. Inga andra ändringar görs i befintliga önskade egenskaper eller taggar:
 
    ```json
    {
@@ -174,31 +174,31 @@ Lösningens Server del fungerar på enheten med dubbla med hjälp av följande a
    }
    ```
 
-* **Ersätt önskade egenskaper**. Den här åtgärden gör att Server delen av lösningen helt skriver över alla befintliga önskade egenskaper och ersätter ett nytt JSON-dokument för `properties/desired`.
+* **Ersätt önskade egenskaper**. Den här åtgärden gör det möjligt för lösningens backend att helt `properties/desired`skriva över alla befintliga önskade egenskaper och ersätta ett nytt JSON-dokument för .
 
-* **Ersätt Taggar**. Den här åtgärden gör att Server delen av lösningen fullständigt skriver över alla befintliga taggar och ersätter ett nytt JSON-dokument för `tags`.
+* **Ersätt taggar**. Med den här åtgärden kan lösningens back end helt skriva över alla `tags`befintliga taggar och ersätta ett nytt JSON-dokument för .
 
-* **Få dubbla meddelanden**. Den här åtgärden gör att lösnings Server delen får ett meddelande när den dubbla ändras. För att göra det måste IoT-lösningen skapa en väg och ange data källan som lika med *twinChangeEvents*. Som standard finns inga sådana vägar i förväg, så inga dubbla meddelanden skickas. Om ändrings frekvensen är för hög, eller av andra orsaker, t. ex. interna problem, kan IoT Hub bara skicka ett meddelande som innehåller alla ändringar. Om ditt program behöver tillförlitlig granskning och loggning av alla mellanliggande tillstånd bör du därför använda meddelanden från enheten till molnet. Det dubbla aviserings meddelandet innehåller egenskaper och brödtext.
+* **Ta emot dubbla meddelanden**. Med den här åtgärden kan lösningens backend meddelas när tvillingen ändras. För att göra det måste din IoT-lösning skapa en väg och ange datakällan som är lika *med twinChangeEvents*. Som standard finns inga sådana vägar i föra-ägda, så inga dubbla meddelanden skickas. Om förändringshastigheten är för hög eller av andra orsaker, till exempel interna fel, kan IoT Hub bara skicka ett meddelande som innehåller alla ändringar. Om ditt program behöver tillförlitlig granskning och loggning av alla mellanliggande tillstånd bör du därför använda meddelanden från enhet till moln. Det dubbla meddelandemeddelandet innehåller egenskaper och brödtext.
 
   - Egenskaper
 
     | Namn | Värde |
     | --- | --- |
-    $content-typ | application/json |
+    $content typ | application/json |
     $iothub-enqueuedtime |  Tid när meddelandet skickades |
-    $iothub-message-source | twinChangeEvents |
-    $content kodning | utf-8 |
+    $iothub-meddelande-källa | twinChangeEvents |
+    $content-kodning | utf-8 |
     deviceId | ID för enheten |
-    hubName | Namn på IoT Hub |
-    operationTimestamp | [Iso8601](https://en.wikipedia.org/wiki/ISO_8601) tidsstämpel för åtgärd |
-    iothub-message-schema | twinChangeNotification |
-    opType | "replaceTwin" eller "updateTwin" |
+    hubName (hubName) | Namn på IoT Hub |
+    operationTimestamp | [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) tidsstämpel för drift |
+    iothub-meddelande-schema | twinChangeNotification |
+    opType (olika) | "replaceTwin" eller "updateTwin" |
 
-    Meddelande system egenskaper föregås av `$` symbolen.
+    Meddelandesystemegenskaper föregås av `$` symbolen.
 
   - Innehåll
         
-    Det här avsnittet innehåller alla dubbla ändringar i JSON-format. Den använder samma format som en korrigering, med skillnaden att den kan innehålla alla dubbla avsnitt: taggar, egenskaper. rapporterade, egenskaper. önskade och innehåller $metadata element. Exempel:
+    Det här avsnittet innehåller alla dubbla ändringar i ett JSON-format. Den använder samma format som en korrigeringsfil, med skillnaden att den kan innehålla alla dubbla avsnitt: taggar, properties.reported, properties.desired och att den innehåller "$metadata"-elementen. Exempel:
 
     ```json
     {
@@ -219,41 +219,41 @@ Lösningens Server del fungerar på enheten med dubbla med hjälp av följande a
     }
     ```
 
-Alla föregående åtgärder har stöd för [optimistisk samtidighet](iot-hub-devguide-device-twins.md#optimistic-concurrency) och kräver **ServiceConnect** -behörighet, enligt definitionen i [kontrol lera åtkomst till IoT Hub](iot-hub-devguide-security.md).
+Alla föregående åtgärder stöder [optimistisk samtidighet](iot-hub-devguide-device-twins.md#optimistic-concurrency) och kräver **ServiceConnect-behörigheten,** enligt definitionen i [Kontrollåtkomst till IoT Hub](iot-hub-devguide-security.md).
 
-Förutom dessa åtgärder kan lösningens Server del:
+Utöver dessa åtgärder kan lösningens baksida:
 
-* Fråga enheten till varandra med hjälp av SQL-like [IoT Hub frågespråk](iot-hub-devguide-query-language.md).
+* Fråga enhetstvillingarna med hjälp av frågespråket SQL-liknande [IoT Hub](iot-hub-devguide-query-language.md).
 
-* Utför åtgärder på stora enhets uppsättningar med [jobb](iot-hub-devguide-jobs.md).
+* Utför åtgärder på stora uppsättningar enhetstvillingar med [jobb](iot-hub-devguide-jobs.md).
 
-## <a name="device-operations"></a>Enhets åtgärder
+## <a name="device-operations"></a>Enhetsåtgärder
 
-Enhetens app fungerar på enheten med dubbla med följande atomiska åtgärder:
+Enhetsappen fungerar på enhetstvillingen med hjälp av följande atomära åtgärder:
 
-* **Hämta enhet dubbla**. Den här åtgärden returnerar enhetens dubbla dokument (inklusive önskade och rapporterade system egenskaper) för den anslutna enheten. (Taggar är inte synliga för enhets program.)
+* **Hämta enhetstvilling**. Den här åtgärden returnerar enhetstvillingdokumentet (inklusive önskade och rapporterade systemegenskaper) för den anslutna enheten. (Taggar är inte synliga för enhetsappar.)
 
-* **Delvis uppdatera rapporterade egenskaper**. Den här åtgärden aktiverar den partiella uppdateringen av de rapporterade egenskaperna för den anslutna enheten. Den här åtgärden använder samma JSON-uppdaterings format som lösningens Server del använder för att få en del uppdatering av önskade egenskaper.
+* **Delvis uppdatera rapporterade egenskaper**. Den här åtgärden möjliggör partiell uppdatering av de rapporterade egenskaperna för den anslutna enheten. Den här åtgärden använder samma JSON-uppdateringsformat som lösningens back end använder för en partiell uppdatering av önskade egenskaper.
 
-* **Observera önskade egenskaper**. Den aktuella anslutna enheten kan välja att få ett meddelande om uppdateringar av önskade egenskaper när de sker. Enheten får samma typ av uppdatering (delvis eller fullständig ersättning) som körs av Server delen för lösningen.
+* **Observera önskade egenskaper**. Den anslutna enheten kan välja att meddelas om uppdateringar av önskade egenskaper när de inträffar. Enheten får samma form av uppdatering (partiell eller fullständig ersättning) som utförs av lösningens backdel.
 
-Alla föregående åtgärder kräver **DeviceConnect** -behörighet, enligt definitionen i [kontrol lera åtkomst till IoT Hub](iot-hub-devguide-security.md).
+Alla föregående åtgärder kräver **behörigheten DeviceConnect,** enligt definitionen i [Kontrollåtkomst till IoT Hub](iot-hub-devguide-security.md).
 
-SDK: er för [Azure IoT-enheter](iot-hub-devguide-sdks.md) gör det enkelt att använda föregående åtgärder från många olika språk och plattformar. Mer information om IoT Hub primitiver för önskade synkronisering av egenskaper finns i [enhets åter anslutnings flöde](iot-hub-devguide-device-twins.md#device-reconnection-flow).
+[Azure IoT-enhetenSDK:er](iot-hub-devguide-sdks.md) gör det enkelt att använda de föregående åtgärderna från många språk och plattformar. Mer information om information om IoT Hub-primitiver för önskad egenskapssynkronisering finns i [Enhetsåteranslutningsflöde](iot-hub-devguide-device-twins.md#device-reconnection-flow).
 
-## <a name="tags-and-properties-format"></a>Format för taggar och egenskaper
+## <a name="tags-and-properties-format"></a>Taggar och egenskapsformat
 
 Taggar, önskade egenskaper och rapporterade egenskaper är JSON-objekt med följande begränsningar:
 
-* **Nycklar**: alla nycklar i JSON-objekt är UTF-8-kodade, SKIFT läges känsliga och upp till 1 KB. Tillåtna tecken utesluter UNICODE-kontrolltecken (segment C0 och C1) och `.`, `$`och SP.
+* **Nycklar**: Alla nycklar i JSON-objekt är UTF-8-kodade, skiftlägeskänsliga och upp till 1 KB långa. Tillåtna tecken utesluter UNICODE-kontrolltecken (segment C0 och C1) och `.`, `$`och SP.
 
-* **Värden**: alla värden i JSON-objekt kan vara av följande JSON-typer: Boolean, Number, String, Object. Matriser är inte tillåtna.
+* **Värden:** Alla värden i JSON-objekt kan vara av följande JSON-typer: boolesk, tal, sträng, objekt. Matriser är inte tillåtna.
 
-    * Heltal kan ha ett lägsta värde på-4503599627370496 och ett högsta värde på 4503599627370495.
+    * Heltal kan ha ett minimivärde på -4503599627370496 och ett högsta värde på 4503599627370495.
 
-    * Sträng värden är UTF-8-kodade och kan ha en maximal längd på 4 KB.
+    * Strängvärden är UTF-8 kodade och kan ha en maximal längd på 4 KB.
 
-* **Djup**: det maximala djupet för JSON-objekt i taggar, önskade egenskaper och rapporterade egenskaper är 10. Till exempel är följande objekt giltigt:
+* **Djup**: Det maximala djupet för JSON-objekt i taggar, önskade egenskaper och rapporterade egenskaper är 10. Följande objekt är till exempel giltigt:
 
    ```json
    {
@@ -287,27 +287,27 @@ Taggar, önskade egenskaper och rapporterade egenskaper är JSON-objekt med föl
 
 ## <a name="device-twin-size"></a>Enhetens dubbla storlek
 
-IoT Hub tillämpar storleks gränsen på 8 KB på värdet för `tags`, och en storlek på 32 KB som är begränsad till värdet för `properties/desired` och `properties/reported`. Dessa summor är exklusivt för skrivskyddade element som `$etag`, `$version`och `$metadata/$lastUpdated`.
+IoT Hub tillämpar en storleksgräns på `tags`8 kB för värdet för och `properties/desired` en `properties/reported`storleksgräns på 32 kB för värdet och . Dessa summor är exklusiva för skrivskyddade element som `$etag`, `$version`och `$metadata/$lastUpdated`.
 
-Den dubbla storleken beräknas på följande sätt:
+Twin storlek beräknas på följande sätt:
 
-* För varje egenskap i JSON-dokumentet IoT Hub ackumulerade beräkningar och lägger till längden på egenskapens nyckel och värde.
+* För varje egenskap i JSON-dokumentet beräknar IoT Hub kumulativt och lägger till längden på egenskapens nyckel och värde.
 
-* Egenskaps nycklar betraktas som UTF8-kodade strängar.
+* Egenskapsnycklar betraktas som UTF8-kodade strängar.
 
-* Enkla egenskaps värden betraktas som UTF8-kodade strängar, numeriska värden (8 byte) eller booleska värden (4 byte).
+* Enkla egenskapsvärden betraktas som UTF8-kodade strängar, numeriska värden (8 byte) eller booleskvärden (4 byte).
 
-* Storleken på UTF8-kodade strängar beräknas genom att räkna alla tecken, förutom UNICODE-kontrolltecken (segmenten C0 och C1).
+* Storleken på UTF8-kodade strängar beräknas genom att räkna alla tecken, exklusive UNICODE-kontrolltecken (segment C0 och C1).
 
-* Komplexa egenskaps värden (kapslade objekt) beräknas baserat på den sammanlagda storleken på de egenskaps nycklar och egenskaps värden som de innehåller.
+* Komplexa egenskapsvärden (kapslade objekt) beräknas baserat på den sammanlagda storleken på egenskapsnycklarna och egenskapsvärdena som de innehåller.
 
-IoT Hub avvisar alla åtgärder som skulle öka storleken på `tags`, `properties/desired`eller `properties/reported` dokument över gränsen.
+IoT Hub avvisar med ett fel alla åtgärder `tags` `properties/desired`som `properties/reported` skulle öka storleken på , eller dokument över gränsen.
 
-## <a name="device-twin-metadata"></a>Enhetens dubbla metadata
+## <a name="device-twin-metadata"></a>Metadata för enhetstvilling
 
-IoT Hub behåller tidsstämpeln för den senaste uppdateringen för varje JSON-objekt i enhetens dubbla önskade och rapporterade egenskaper. Tidsstämplar är UTC-formaterade och kodade i [iso8601](https://en.wikipedia.org/wiki/ISO_8601) -formatet `YYYY-MM-DDTHH:MM:SS.mmmZ`.
+IoT Hub underhåller tidsstämpeln för den senaste uppdateringen för varje JSON-objekt i enhetstvilling önskade och rapporterade egenskaper. Tidsstämplarna är i UTC och kodade i `YYYY-MM-DDTHH:MM:SS.mmmZ` [ISO8601-format](https://en.wikipedia.org/wiki/ISO_8601) .
 
-Exempel:
+Ett exempel:
 
 ```json
 {
@@ -354,55 +354,55 @@ Exempel:
 }
 ```
 
-Den här informationen lagras på alla nivåer (inte bara löv till JSON-strukturen) för att bevara uppdateringar som tar bort objekt nycklar.
+Denna information hålls på alla nivåer (inte bara bladen på JSON-strukturen) för att bevara uppdateringar som tar bort objektnycklar.
 
 ## <a name="optimistic-concurrency"></a>Optimistisk samtidighet
 
-Taggar, önskade och rapporterade egenskaper alla stöder optimistisk samtidighet.
-Taggar har en ETag, som per [RFC7232](https://tools.ietf.org/html/rfc7232), som representerar TAGGENs JSON-representation. Du kan använda ETags i villkorliga uppdaterings åtgärder från lösningens Server del för att säkerställa konsekvens.
+Taggar, önskade och rapporterade egenskaper stöder alla optimistisk samtidighet.
+Taggar har en ETag, enligt [RFC7232](https://tools.ietf.org/html/rfc7232), som representerar taggens JSON-representation. Du kan använda ETags i villkorsstyrda uppdateringsåtgärder från lösningens serverdel för att säkerställa konsekvens.
 
-Enhetens dubbla önskade och rapporterade egenskaper har inte ETags, men har ett `$version`-värde som garanterar att det ökar. På samma sätt som en ETag, kan versionen användas av uppdaterings parten för att tvinga fram konsekvens av uppdateringar. Till exempel en enhets app för en rapporterad egenskap eller lösningens Server del för en önskad egenskap.
+Enhetstvilling önskade och rapporterade egenskaper har `$version` inte ETags, men har ett värde som garanterat är inkrementellt. På samma sätt som en ETag kan versionen användas av uppdateringsparten för att framtvinga konsekvens av uppdateringar. Till exempel en enhetsapp för en rapporterad egenskap eller lösningens backend för en önskad egenskap.
 
-Versioner är också användbara när en iakttagit agent (t. ex. enhets appen som underrättar önskade egenskaper) måste stämma av races mellan resultatet av en Hämta-åtgärd och ett uppdaterings meddelande. [Avsnittet flöde för enhets åter anslutning](iot-hub-devguide-device-twins.md#device-reconnection-flow) innehåller mer information.
+Versioner är också användbara när en observationsagent (till exempel enhetsappen som observerar de önskade egenskaperna) måste stämma av kapplöpningar mellan resultatet av en hämtningsåtgärd och ett uppdateringsmeddelande. Avsnittet [Flödesflöde för enheten ger](iot-hub-devguide-device-twins.md#device-reconnection-flow) mer information.
 
-## <a name="device-reconnection-flow"></a>Flöde för åter anslutning av enhet
+## <a name="device-reconnection-flow"></a>Återanslutningsflöde för enheten
 
-IoT Hub bevarar inte önskade egenskaper uppdaterings meddelanden för frånkopplade enheter. Det följer på att en enhet som ansluter måste hämta ett fullständigt önskade egenskaps dokument, förutom att prenumerera på uppdaterings meddelanden. Med tanke på möjligheten att races mellan uppdaterings meddelanden och fullständig hämtning måste följande flöde vara säkerställt:
+IoT Hub bevarar inte önskade egenskaper uppdateringsmeddelanden för frånkopplade enheter. Härav följer att en enhet som ansluter måste hämta det fullständiga önskade egenskapsdokumentet, förutom att prenumerera för uppdateringsmeddelanden. Med tanke på möjligheten till tävlingar mellan uppdateringsmeddelanden och fullständig hämtning måste följande flöde säkerställas:
 
-1. Enhets appen ansluter till en IoT-hubb.
-2. Enhets app prenumererar på önskade egenskaper uppdatera meddelanden.
-3. Enhets appen hämtar det fullständiga dokumentet för önskade egenskaper.
+1. Enhetsappen ansluter till en IoT-hubb.
+2. Enhetsapp prenumererar på önskade egenskaper uppdatering meddelanden.
+3. Enhetsappen hämtar hela dokumentet för önskade egenskaper.
 
-Device-appen kan ignorera alla meddelanden med `$version` mindre än eller lika med versionen av det fullständiga hämtade dokumentet. Den här metoden är möjlig eftersom IoT Hub garanterar att versioner alltid ökar.
+Enhetsappen kan ignorera `$version` alla meddelanden med mindre eller lika med den version av det fullständiga hämtade dokumentet. Den här metoden är möjlig eftersom IoT Hub garanterar att versioner alltid ökar.
 
 > [!NOTE]
-> Den här logiken är redan implementerad i SDK: er för [Azure IoT-enheter](iot-hub-devguide-sdks.md). Den här beskrivningen är användbar endast om enhets appen inte kan använda någon av Azure IoT-enhetens SDK: er och måste program mera MQTT-gränssnittet direkt.
+> Den här logiken har redan implementerats i [Azure IoT-enhetenSDK:er](iot-hub-devguide-sdks.md). Den här beskrivningen är bara användbar om enhetsappen inte kan använda någon av Azure IoT-enhetSDK:er och måste programmera MQTT-gränssnittet direkt.
 > 
 
-## <a name="additional-reference-material"></a>Ytterligare referens material
+## <a name="additional-reference-material"></a>Ytterligare referensmaterial
 
-Andra referens ämnen i IoT Hub Developer Guide är:
+Andra referensavsnitt i utvecklarhandboken för IoT Hub är:
 
-* I artikeln [IoT Hub slut punkter](iot-hub-devguide-endpoints.md) beskrivs de olika slut punkter som varje IoT-hubb visar för körnings-och hanterings åtgärder.
+* [IoT Hub-slutpunkter](iot-hub-devguide-endpoints.md) beskriver de olika slutpunkter som varje IoT-hubb exponerar för körnings- och hanteringsåtgärder.
 
-* I artikeln [begränsning och kvoter](iot-hub-devguide-quotas-throttling.md) beskrivs de kvoter som gäller för den IoT Hub tjänsten och begränsnings beteendet som kan förväntas när du använder tjänsten.
+* I artikeln [Begränsning och kvoter](iot-hub-devguide-quotas-throttling.md) beskrivs de kvoter som gäller för IoT Hub-tjänsten och begränsningsbeteendet som du kan förvänta dig när du använder tjänsten.
 
-* Artikeln [Azure IoT-enhet och tjänst-SDK](iot-hub-devguide-sdks.md) : er innehåller de olika språk-SDK: er som du kan använda när du utvecklar både enhets-och tjänst program som samverkar med IoT Hub.
+* [IoT-enheten och tjänsten SDK:er](iot-hub-devguide-sdks.md) innehåller en lista över de olika språk-SDK:er som du kan använda när du utvecklar både enhets- och tjänstappar som interagerar med IoT Hub.
 
-* I artikeln [IoT Hub frågespråk för enhets-och skriv-, jobb-och meddelande cirkulations](iot-hub-devguide-query-language.md) artikeln beskrivs det IoT Hub frågespråk som du kan använda för att hämta information från IoT Hub om din enhets dubblare och jobb.
+* [Frågespråket IoT Hub för enhetstvillingar, jobb och meddelanderoutning](iot-hub-devguide-query-language.md) beskriver det IoT Hub-frågespråk som du kan använda för att hämta information från IoT Hub om dina enhetstvillingar och jobb.
 
-* I artikeln [IoT Hub MQTT support](iot-hub-mqtt-support.md) finns mer information om IoT Hub-stöd för MQTT-protokollet.
+* [IoT Hub MQTT-supportartikeln](iot-hub-mqtt-support.md) innehåller mer information om IoT Hub-stöd för MQTT-protokollet.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nu när du har lärt dig mer om enheten, kan du vara intresse rad av följande avsnitt om IoT Hub Developer-Guide:
+Nu har du lärt dig om enhetstvillingar, du kan vara intresserad av följande IoT Hub-utvecklarguide ämnen:
 
-* [Förstå och Använd modul dubbla i IoT Hub](iot-hub-devguide-module-twins.md)
+* [Förstå och använda modultvillingar i IoT Hub](iot-hub-devguide-module-twins.md)
 * [Anropa en direkt metod på en enhet](iot-hub-devguide-direct-methods.md)
 * [Schemalägga jobb på flera enheter](iot-hub-devguide-jobs.md)
 
-Om du vill testa några av de begrepp som beskrivs i den här artikeln kan du läsa följande IoT Hub Självstudier:
+Information om hur du provar några av de begrepp som beskrivs i den här artikeln finns i följande IoT Hub-självstudier:
 
-* [Så här använder du enheten med dubbla](iot-hub-node-node-twin-getstarted.md)
-* [Använda enhetens dubbla egenskaper](tutorial-device-twins.md)
-* [Enhets hantering med Azure IoT Tools för VS Code](iot-hub-device-management-iot-toolkit.md)
+* [Så här använder du enhetens tvilling](iot-hub-node-node-twin-getstarted.md)
+* [Så här använder du enhetstvillingegenskaper](tutorial-device-twins.md)
+* [Enhetshantering med Azure IoT-verktyg för VS Code](iot-hub-device-management-iot-toolkit.md)

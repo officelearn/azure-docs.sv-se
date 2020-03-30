@@ -1,41 +1,40 @@
 ---
-title: Publicera ett erbjudande för virtuell dator på Azure Marketplace
-description: Visar en lista över de steg som krävs för att publicera ett befintligt erbjudande om virtuell dator på Azure Marketplace.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: v-miclar
+title: Publicera ett erbjudande om en virtuell dator på Azure Marketplace
+description: Visar de steg som krävs för att publicera ett befintligt erbjudande om en virtuell dator på Azure Marketplace.
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/17/2018
-ms.author: pabutler
-ms.openlocfilehash: 1b07f3f3edab47f8f75835dffd4cc3f89f17ab63
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: c35f721131b997dcfdb0f23a91a39329168b757c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73824414"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80277352"
 ---
-# <a name="publish-a-virtual-machine-offer"></a>Publicera ett erbjudande för virtuell dator
+# <a name="publish-a-virtual-machine-offer"></a>Publicera ett erbjudande om en virtuell dator
 
- Det sista steget, när du har definierat erbjudandet i portalen och skapat tillhör ande tekniska till gångar, är att skicka in erbjudandet om publicering. Följande diagram visar de huvudsakliga stegen i publicerings processen för att "gå live":
+ Det sista steget, när du har definierat erbjudandet i portalen och skapat de associerade tekniska tillgångarna, är att skicka erbjudandet för publicering. Följande diagram visar de viktigaste stegen i publiceringsprocessen för att "publicera":
 
-![Publicerings steg för erbjudande från virtuell dator](./media/publishvm_013.png)
+![Publiceringssteg för erbjudande om virtuella datorer](./media/publishvm_013.png)
 
-I följande tabell beskrivs de här stegen och det finns en maximal tids beräkning för att slutföra slut för ande:
+I följande tabell beskrivs de här stegen och en maximal tidsuppskattning för att de ska kunna slutföras:
 <!-- we need to tell them that if an offer seems stuck in a step, to know that they should file a support ticket (link to support ticket doc) -->
 
 
-|  **Publicerings steg**           | **Tid**    | **Beskrivning**                                                            |
+|  **Publiceringssteg**           | **Tid**    | **Beskrivning**                                                            |
 |  -------------------           | --------    | ---------------                                                            |
-| Verifiera krav         | 15 min   | Information om erbjudandet och erbjudande inställningarna verifieras.                        |
-| Verifiering av test enhet (valfritt) | 2 timmar | Om du har valt att aktivera test enheten, verifierar Microsoft test enhetens konfiguration, dess distribution och replikering genom de valda regionerna. |
-| Certifiering                  | 3 dagar | Erbjudandet analyseras av Azure-certifierings teamet. I det här steget utförs genomsökningar efter virus, skadlig kod, säkerhets krav och säkerhets problem. Feedback ges om ett problem påträffas. |
-| Etablering                   | 4 dagar   | VM-erbjudandet replikeras i produktions systemen för Marketplace.               |
-| Registrering av paketering och skapande av lead | \< 1 timme  | Erbjudandets tekniska till gångar är paketerade för kund användning och lead-systemen konfigureras och konfigureras. |
-|  Publisher-signering             |  -        | Slutlig utgivar granskning och bekräftelse innan erbjudandet går live. Du kan distribuera ditt erbjudande i de valda prenumerationerna (i stegen för att erbjuda information) för att kontrol lera att det uppfyller alla krav.  |
-| Etablering                   | 4 dagar | Det slutliga virtuella dator erbjudandet replikeras i produktions system och regioner i Marketplace. | 
-| Live                           | 4 dagar | VM-erbjudandet släpps, replikeras till de regioner som krävs och görs tillgängliga för allmänheten. |
+| Validera förutsättningar         | 15 min   | Erbjudandeinformation och erbjudandeinställningar valideras.                        |
+| Validering av testkörning (valfritt) | 2 timmar | Om du har valt att aktivera Test Drive validerar Microsoft testenhetskonfigurationen, distributionen och replikeringen via de valda områdena. |
+| Certifiering                  | 3 dagar | Erbjudandet analyseras av Azure Certification Team. Det här steget kommer att utföra genomsökningar efter virus, skadlig kod, säkerhetsefterlevnad och säkerhetsproblem. Feedback ges om ett problem hittas. |
+| Etablering                   | 4 dagar   | VM-erbjudandet replikeras i marknadsplatsproduktionssystem.               |
+| Registrering av förpackning och leadgenerering | \<1 timme  | Erbjudandets tekniska tillgångar är paketerade för kundanvändning och leadsystemen är konfigurerade och konfigurerade. |
+|  Signering av utgivare             |  -        | Slutlig utgivare granskning och bekräftelse innan erbjudandet går live. Du kan distribuera ditt erbjudande i de valda prenumerationerna (i stegen för erbjudandeinformation) för att kontrollera att det uppfyller alla dina krav.  |
+| Etablering                   | 4 dagar | Slutfört VM-erbjudande replikeras i marknadsplatsproduktionssystem och regioner. | 
+| Live                           | 4 dagar | VM-erbjudandet släpps, replikeras till de regioner som krävs och görs tillgängligt för allmänheten. |
 |  |  |
 
-Tillåt att den här processen slutförs i upp till 16 dagar.  När du har gått igenom dessa publicerings steg visas ditt virtuella dator erbjudande i [Microsoft Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/). 
+Tillåt upp till 16 dagar för att den här processen ska slutföras.  När du har gått igenom de här publiceringsstegen visas ditt VM-erbjudande på [Microsoft Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/). 
 

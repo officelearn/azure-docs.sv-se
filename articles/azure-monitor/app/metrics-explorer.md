@@ -1,193 +1,193 @@
 ---
-title: Utforska mått i Azure Application Insights | Microsoft Docs
-description: Hur du tolkar diagram i metriska Utforskaren och hur du anpassar ett blad i mått Utforskaren.
+title: Utforska mått i Azure Application Insights | Microsoft-dokument
+description: Hur du tolkar diagram på måttutforskaren och hur du anpassar metriska explorer-blad.
 ms.topic: conceptual
 ms.date: 01/22/2019
 ms.openlocfilehash: f85a8fe79e7f4f820d7c0e5b942730305e892095
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79275898"
 ---
-# <a name="exploring-metrics-in-application-insights"></a>Utforska mått i Application Insights
-Mått i [Application Insights][start] mäts värden och antalet händelser som skickas i telemetri från ditt program. De hjälper dig att identifiera prestanda problem och se trender i hur ditt program används. Det finns en mängd standard mått och du kan också skapa egna anpassade mått och händelser.
+# <a name="exploring-metrics-in-application-insights"></a>Utforska mätvärden i programinsikter
+Mått i [Application Insights][start] är uppmätta värden och antal händelser som skickas i telemetri från ditt program. De hjälper dig att upptäcka prestandaproblem och titta på trender i hur ditt program används. Det finns ett brett utbud av standardmått och du kan också skapa egna anpassade mått och händelser.
 
 > [!NOTE]
-> I den här artikeln beskrivs den klassiska Metrics Explorer-upplevelsen som för närvarande är föråldrad och kommer snart att dras tillbaka. Vi rekommenderar att du kontrollerar den nya upplevelsen som beskrivs i [den här artikeln](../platform/metrics-charts.md).
+> I den här artikeln beskrivs den klassiska statistikutforskaren som för närvarande är föråldrad och så småningom kommer att dras tillbaka. Vi rekommenderar att du checkar ut den nya upplevelsen som beskrivs i [den här artikeln](../platform/metrics-charts.md).
 
-Mått och antal händelser visas i diagram över aggregerade värden, till exempel summor, medelvärden eller antal.
+Mått och händelseantal visas i diagram över aggregerade värden som summor, medelvärden eller antal.
 
-Här är en exempel uppsättning diagram:
+Här är en exempeluppsättning diagram:
 
 ![](./media/metrics-explorer/01-overview.png)
 
-Du hittar mått diagram överallt i Application Insights portalen. I de flesta fall kan de anpassas och du kan lägga till fler diagram på bladet. Från översikts bladet klickar du till mer detaljerade diagram (som har titlar som "servrar") eller på **Metrics Explorer** för att öppna ett nytt blad där du kan skapa anpassade diagram.
+Du hittar måttdiagram överallt i application insights-portalen. I de flesta fall kan de anpassas och du kan lägga till fler diagram i bladet. Från bladet Översikt klickar du vidare till mer detaljerade diagram (som har titlar som "Servrar") eller klickar på **Statistikutforskaren** för att öppna ett nytt blad där du kan skapa anpassade diagram.
 
 ## <a name="time-range"></a>Tidsintervall
-Du kan ändra det tidsintervall som omfattas av diagrammet eller rutnätet på ett blad.
+Du kan ändra det tidsintervall som täcks av diagrammen eller rutnäten på valfritt blad.
 
-![Öppna bladet översikt för programmet i Azure Portal](./media/metrics-explorer/03-range.png)
+![Öppna översiktsbladet för ditt program i Azure-portalen](./media/metrics-explorer/03-range.png)
 
-Om du förväntar dig data som ännu inte har funnits klickar du på Uppdatera. Diagram uppdateras själva med intervall, men intervallen är längre för större tidsintervall. Det kan ta en stund innan data kommer genom analys pipelinen till ett diagram.
+Om du förväntar dig vissa data som inte har dykt upp ännu klickar du på Uppdatera. Diagram uppdatera sig med jämna mellanrum, men intervallen är längre för större tidsintervall. Det kan ta ett tag innan data kommer genom analyspipelinen till ett diagram.
 
 Om du vill zooma in i en del av ett diagram drar du över det:
 
 ![Dra över en del av ett diagram.](./media/metrics-explorer/12-drag.png)
 
-Klicka på knappen Ångra zoomning för att återställa den.
+Klicka på knappen Ångra zoom för att återställa den.
 
-## <a name="granularity-and-point-values"></a>Precisions-och punkt värden
-Hovra musen över diagrammet för att visa värdena för måtten vid den punkten.
+## <a name="granularity-and-point-values"></a>Granularitet och punktvärden
+Håll musen över diagrammet för att visa värdena för måtten vid den tidpunkten.
 
-![Hovra med musen över ett diagram](./media/metrics-explorer/02-focus.png)
+![Håll muspekaren över ett diagram](./media/metrics-explorer/02-focus.png)
 
-Värdet för måttet vid en viss punkt räknas samman över föregående samplings intervall.
+Värdet för måttet vid en viss punkt aggregeras över föregående samplingsintervall.
 
-Samplings intervallet eller "granularitet" visas överst på bladet.
+Provtagningsintervallet eller "granulariteten" visas högst upp på bladet.
 
-![Rubriken på ett blad.](./media/metrics-explorer/11-grain.png)
+![Huvudet på ett blad.](./media/metrics-explorer/11-grain.png)
 
-Du kan justera granularitet på bladet tidsintervall:
+Du kan justera granulariteten i bladet Tidsintervall:
 
-![Rubriken på ett blad.](./media/metrics-explorer/grain.png)
+![Huvudet på ett blad.](./media/metrics-explorer/grain.png)
 
-Vilka detaljer som är tillgängliga beror på vilket tidsintervall du väljer. De uttryckliga granularitet är alternativ för "automatisk" precision för tidsintervallet.
+Vilka granulariteter som är tillgängliga beror på vilket tidsintervall du väljer. De explicita granulariteterna är alternativ till den "automatiska" granulariteten för tidsintervallet.
 
 
 ## <a name="editing-charts-and-grids"></a>Redigera diagram och rutnät
-Så här lägger du till ett nytt diagram på bladet:
+Så här lägger du till ett nytt diagram i bladet:
 
-![I Metrics Explorer väljer du Lägg till diagram](./media/metrics-explorer/04-add.png)
+![I Statistikutforskaren väljer du Lägg till diagram](./media/metrics-explorer/04-add.png)
 
-Välj **Redigera** i ett befintligt eller nytt diagram för att redigera vad som visas:
+Välj **Redigera** i ett befintligt eller nytt diagram om du vill redigera det som visas:
 
 ![Välj ett eller flera mått](./media/metrics-explorer/08-select.png)
 
-Du kan visa fler än ett mått i ett diagram, även om det finns begränsningar för kombinationerna som kan visas tillsammans. Så snart du väljer ett mått är några av de andra inaktiverade.
+Du kan visa mer än ett mått i ett diagram, men det finns begränsningar för de kombinationer som kan visas tillsammans. Så fort du väljer ett mått inaktiveras några av de andra.
 
-Om du kodade [anpassade mått][track] till din app (anrop till TrackMetric och TrackEvent) visas de här.
+Om du kodade [anpassade mått][track] i din app (samtal till TrackMetric och TrackEvent) visas de här.
 
 ## <a name="segment-your-data"></a>Segmentera dina data
-Du kan dela ett mått efter egenskap, till exempel för att jämföra sidvyer på klienter med olika operativ system.
+Du kan dela ett mått efter egenskap , till exempel för att jämföra sidvisningar på klienter med olika operativsystem.
 
-Välj ett diagram eller ett rutnät, växla över gruppering och välj en egenskap att gruppera efter:
+Markera ett diagram eller rutnät, aktivera gruppering och välj en egenskap som ska grupperas efter:
 
-![Välj Gruppera på och ange sedan Välj en egenskap i gruppera efter](./media/metrics-explorer/15-segment.png)
+![Välj Gruppera på och ange sedan en egenskap i Gruppera efter](./media/metrics-explorer/15-segment.png)
 
 > [!NOTE]
-> När du använder gruppering ger yt-och stapel diagram en staplad visning. Detta är lämpligt där agg regerings metoden är Sum. Men om agg regerings typen är genomsnitt, väljer du visnings typer för linje eller rutnät.
+> När du använder gruppering innehåller diagramtyperna Område och stapel en staplad skärm. Detta är lämpligt där aggregeringsmetoden är Summa. Men där aggregeringstypen är Medel väljer du visningstyperna Linje eller Rutnät.
 >
 >
 
-Om du kodade [anpassade mått][track] till din app och de innehåller egenskaps värden kan du välja egenskapen i listan.
+Om du kodade [anpassade mått][track] i din app och de innehåller egenskapsvärden kan du välja egenskapen i listan.
 
 Är diagrammet för litet för segmenterade data? Justera dess höjd:
 
 ![Justera skjutreglaget](./media/metrics-explorer/18-height.png)
 
-## <a name="aggregation-types"></a>Agg regerings typer
-Förklaringen på sidan som standard visar vanligt vis det sammanlagda värdet för diagrammets tid. Om du hovrar över diagrammet visas värdet vid den punkten.
+## <a name="aggregation-types"></a>Aggregeringstyper
+Förklaringen vid sidan visar som standard vanligtvis det aggregerade värdet under diagramperioden. Om du hovrar över diagrammet visas värdet vid den tidpunkten.
 
-Varje data punkt i diagrammet är en mängd data värden som tas emot i föregående samplings intervall eller granularitet. Granularitet visas överst på bladet och varierar med diagrammets övergripande skala.
+Varje datapunkt i diagrammet är en sammanställning av de datavärden som mottagits under föregående samplingsintervall eller "granularitet". Granulariteten visas högst upp på bladet och varierar med diagrammets övergripande tidsskala.
 
 Mått kan aggregeras på olika sätt:
 
-* **Count** är antalet händelser som tagits emot i samplings intervallet. Den används för händelser som begär Anden. Variationer i diagrammets höjd anger variationer i den hastighet som händelserna inträffar. Men Observera att det numeriska värdet ändras när du ändrar samplings intervallet.
-* **Sum** lägger till värdena för alla data punkter som tas emot över samplings intervallet eller perioden för diagrammet.
-* **Medelvärdet** dividerar summan med antalet data punkter som tas emot under intervallet.
-* **Unika** antal används för antal användare och konton. Under samplings intervallet, eller över tiden i diagrammet, visar bilden antalet olika användare som visas under den tiden.
-* **%** -procent versioner av varje agg regering används endast med segmenterade diagram. Total summan lägger alltid till upp till 100% och diagrammet visar det relativa bidraget för olika komponenter i en total mängd.
+* **Antal** är ett antal händelser som tas emot i samplingsintervallet. Den används för händelser som begäranden. Variationer i diagrammets höjd anger variationer i den hastighet med vilken händelserna inträffar. Men observera att det numeriska värdet ändras när du ändrar samplingsintervallet.
+* **Summer lägger** till värdena för alla datapunkter som tas emot under samplingsintervallet eller diagrammets period.
+* **Medelvärdet** dividerar summan med antalet datapunkter som tas emot över intervallet.
+* **Unika** antal används för antal användare och konton. Under samplingsintervallet, eller under diagrammets period, visar figuren antalet olika användare som setts under den tiden.
+* **%**- procentversioner av varje aggregering används endast med segmenterade diagram. Summan uppgår alltid till 100 % och diagrammet visar det relativa bidraget för olika komponenter av en summa.
 
-    ![Procent agg regering](./media/metrics-explorer/percentage-aggregation.png)
+    ![Procentuell aggregering](./media/metrics-explorer/percentage-aggregation.png)
 
-### <a name="change-the-aggregation-type"></a>Ändra sammansättnings typ
+### <a name="change-the-aggregation-type"></a>Ändra aggregeringstyp
 
-![Redigera diagrammet och välj sedan aggregation](./media/metrics-explorer/05-aggregation.png)
+![Redigera diagrammet och välj sedan Aggregering](./media/metrics-explorer/05-aggregation.png)
 
-Standard metoden för varje mått visas när du skapar ett nytt diagram eller när alla mått är avmarkerade:
+Standardmetoden för varje mått visas när du skapar ett nytt diagram eller när alla mått är avmarkerade:
 
-![Avmarkera alla mått om du vill se standardvärdena](./media/metrics-explorer/06-total.png)
+![Avmarkera alla mått för att se standardvärdena](./media/metrics-explorer/06-total.png)
 
-## <a name="pin-y-axis"></a>Fäst Y-axel 
-Som standard visar ett diagram Y-axelns värden som börjar från noll till högsta värden i data området, för att ge en visuell representation av Quantum för värdena. Men i vissa fall är mer än Quantum det kan vara intressant att visuellt inspektera mindre ändringar i värden. För anpassningar som detta använder du redigerings funktionen i Y-axeln för att fästa det lägsta eller högsta värdet för Y-axeln på önskad plats.
-Klicka på kryss rutan Avancerade inställningar för att ta fram Y-axelns intervall inställningar
+## <a name="pin-y-axis"></a>Pin Y-axeln 
+Som standard visar ett diagram Y-axelvärden från noll till högsta värden i dataområdet, för att ge en visuell representation av kvantum av värdena. Men i vissa fall mer än den kvantmekaniska det kan vara intressant att visuellt inspektera mindre förändringar i värden. För anpassningar som denna använder du Y-axelns områdesredigeringsfunktion för att fästa lägsta eller högsta värde på Y-axeln på önskad plats.
+Klicka på kryssrutan "Avancerade inställningar" för att visa Y-axelns intervallinställningar
 
-![Klicka på avancerade inställningar, Välj anpassat intervall och ange minsta Max värde](./media/metrics-explorer/y-axis-range.png)
+![Klicka på Avancerade inställningar, välj Anpassat område och ange maxvärden för min](./media/metrics-explorer/y-axis-range.png)
 
 ## <a name="filter-your-data"></a>Filtrera dina data
-Om du bara vill se mått för en vald uppsättning egenskaps värden:
+Så här visar du bara måtten för en vald uppsättning egenskapsvärden:
 
-![Klicka på filter, expandera en egenskap och kontrol lera några värden](./media/metrics-explorer/19-filter.png)
+![Klicka på Filter, expandera en egenskap och kontrollera vissa värden](./media/metrics-explorer/19-filter.png)
 
-Om du inte väljer några värden för en viss egenskap är det samma som att markera alla: det finns inget filter för den egenskapen.
+Om du inte väljer några värden för en viss egenskap är det samma sak som att välja dem alla: det finns inget filter på den egenskapen.
 
-Observera antalet händelser tillsammans med varje egenskaps värde. När du väljer värden för en egenskap justeras antalet bredvid andra egenskaps värden.
+Lägg märke till antalet händelser vid sidan av varje egenskapsvärde. När du väljer värden för en egenskap justeras antalet tillsammans med andra egenskapsvärden.
 
-Filter gäller för alla diagram på ett blad. Om du vill att olika filter ska tillämpas på olika diagram skapar du och sparar olika mått blad. Om du vill kan du fästa diagram från olika blad på instrument panelen, så att du kan se dem bredvid varandra.
+Filter gäller för alla diagram på ett blad. Om du vill att olika filter ska tillämpas på olika diagram skapar och sparar du olika måttblad. Om du vill kan du fästa diagram från olika blad på instrumentpanelen, så att du kan se dem bredvid varandra.
 
-### <a name="remove-bot-and-web-test-traffic"></a>Ta bort robot-och webb test trafik
-Använd filtrets **verkliga eller syntetiska trafik** och kontrol lera **verklig**.
+### <a name="remove-bot-and-web-test-traffic"></a>Ta bort bot- och webbtesttrafik
+Använd filtret **Verklig eller syntetisk trafik** och kontrollera **Real**.
 
-Du kan också filtrera efter **källa för syntetisk trafik**.
+Du kan också filtrera efter **källa till syntetisk trafik**.
 
-### <a name="to-add-properties-to-the-filter-list"></a>Lägga till egenskaper i filter listan
-Vill du filtrera telemetri efter en kategori som du väljer? Till exempel kanske du delar upp dina användare i olika kategorier, och du vill segmentera dina data efter dessa kategorier.
+### <a name="to-add-properties-to-the-filter-list"></a>Så här lägger du till egenskaper i filterlistan
+Vill du filtrera telemetri på en kategori som du själv väljer? Du kanske till exempel delar upp användarna i olika kategorier och vill segmentera dina data efter dessa kategorier.
 
-[Skapa din egen egenskap](../../azure-monitor/app/api-custom-events-metrics.md#properties). Ange den i en [telemetri initierare](../../azure-monitor/app/api-custom-events-metrics.md#defaults) så att den visas i all telemetri, inklusive standard-telemetri som skickas av olika SDK-moduler.
+[Skapa din egen egendom](../../azure-monitor/app/api-custom-events-metrics.md#properties). Ställ in den i en [telemetriinitierare](../../azure-monitor/app/api-custom-events-metrics.md#defaults) så att den visas i all telemetri – inklusive standardelemetri som skickas av olika SDK-moduler.
 
-## <a name="edit-the-chart-type"></a>Redigera diagram typen
+## <a name="edit-the-chart-type"></a>Redigera diagramtypen
 Observera att du kan växla mellan rutnät och diagram:
 
-![Välj ett rutnät eller diagram och välj sedan en diagram typ](./media/metrics-explorer/16-chart-grid.png)
+![Markera ett rutnät eller diagram och välj sedan en diagramtyp](./media/metrics-explorer/16-chart-grid.png)
 
-## <a name="save-your-metrics-blade"></a>Spara mått bladet
-När du har skapat några diagram sparar du dem som favorit. Du kan välja om du vill dela den med andra grupp medlemmar, om du använder ett organisations konto.
+## <a name="save-your-metrics-blade"></a>Spara bladet för mätvärden
+När du har skapat några diagram sparar du dem som favoriter. Du kan välja om du vill dela den med andra gruppmedlemmar om du använder ett organisationskonto.
 
 ![Välj favorit](./media/metrics-explorer/21-favorite-save.png)
 
-Om du vill se bladet igen **går du till översikts bladet** och öppnar favoriter:
+Om du vill se bladet igen **går du till översiktsbladet** och öppnar Favoriter:
 
-![I översikts bladet väljer du favoriter](./media/metrics-explorer/22-favorite-get.png)
+![Välj Favoriter i bladet Översikt](./media/metrics-explorer/22-favorite-get.png)
 
-Om du har valt relativt tidsintervallet när du sparade kommer bladet att uppdateras med de senaste måtten. Om du väljer absolut tidsintervall visas samma data varje gång.
+Om du väljer Relativt tidsintervall när du sparade uppdateras bladet med de senaste måtten. Om du väljer Absolut tidsintervall visas samma data varje gång.
 
-## <a name="reset-the-blade"></a>Återställa bladet
-Om du redigerar ett blad, men sedan vill gå tillbaka till den ursprungliga sparade uppsättningen, klickar du bara på Återställ.
+## <a name="reset-the-blade"></a>Återställ bladet
+Om du redigerar ett blad men sedan vill gå tillbaka till den ursprungliga sparade uppsättningen klickar du bara på Återställ.
 
-![I knapparna överst i Metric Explorer](./media/metrics-explorer/17-reset.png)
+![I knapparna högst upp i Metric Explorer](./media/metrics-explorer/17-reset.png)
 
-## <a name="live-metrics-stream"></a>Live Metrics-dataström
+## <a name="live-metrics-stream"></a>Live mått ström
 
-Om du vill visa en mycket mer omedelbar vy över din telemetri öppnar du [Live Stream](live-stream.md). De flesta mått tar några minuter innan de visas, på grund av agg regerings processen. Som kontrast är Live-måtten optimerade för låg latens. 
+För en mycket mer omedelbar bild av din telemetri, öppna [Live Stream](live-stream.md). De flesta mått tar några minuter att visas, på grund av processen för aggregering. Däremot är livemått optimerade för låg latens. 
 
 ## <a name="set-alerts"></a>Ange aviseringar
-För att få ett meddelande via e-post om ovanliga värden för alla mått, Lägg till en avisering. Du kan antingen välja att skicka e-postmeddelandet till konto administratörer eller till vissa e-postadresser.
+Om du vill meddelas via e-post om ovanliga värden för ett mått lägger du till en avisering. Du kan välja att antingen skicka e-postmeddelandet till kontoadministratörerna eller till specifika e-postadresser.
 
-![I Metrics Explorer väljer du aviserings regler, Lägg till avisering](./media/metrics-explorer/appinsights-413setMetricAlert.png)
+![I Statistikutforskaren väljer du Varningsregler, Lägg till avisering](./media/metrics-explorer/appinsights-413setMetricAlert.png)
 
-[Lär dig mer om aviseringar][alerts].
+[Läs mer om aviseringar][alerts].
 
 
-## <a name="continuous-export"></a>Löpande export
-Om du vill att data ska exporteras kontinuerligt så att du kan bearbeta dem externt bör du överväga att använda [kontinuerlig export](../../azure-monitor/app/export-telemetry.md).
+## <a name="continuous-export"></a>Kontinuerlig export
+Om du vill att data ska exporteras kontinuerligt så att du kan bearbeta dem externt kan du överväga att använda [Kontinuerlig export](../../azure-monitor/app/export-telemetry.md).
 
 ### <a name="power-bi"></a>Power BI
-Om du vill ha ännu bättre vyer av dina data kan du [Exportera till Power BI](https://blogs.msdn.com/b/powerbi/archive/2015/11/04/explore-your-application-insights-data-with-power-bi.aspx).
+Om du vill ha ännu mer rikare vyer av dina data kan du [exportera till Power BI](https://blogs.msdn.com/b/powerbi/archive/2015/11/04/explore-your-application-insights-data-with-power-bi.aspx).
 
-## <a name="analytics"></a>Analytics
-[Analytics](../../azure-monitor/app/analytics.md) är ett mer flexibelt sätt att analysera din telemetri med ett kraftfullt frågespråk. Använd den om du vill kombinera eller beräkna resultat från mått eller utföra en djupgående utforskning av appens senaste prestanda. 
+## <a name="analytics"></a>Analys
+[Analytics](../../azure-monitor/app/analytics.md) är ett mer mångsidigt sätt att analysera din telemetri med ett kraftfullt frågespråk. Använd den om du vill kombinera eller beräkna resultat från mått, eller utföra en djupgående utforskning av appens senaste prestanda. 
 
-I ett mått diagram kan du klicka på analys ikonen för att komma direkt till motsvarande Analytics-fråga.
+Från ett måttdiagram kan du klicka på Analytics-ikonen för att komma direkt till motsvarande Analytics-fråga.
 
 ## <a name="troubleshooting"></a>Felsökning
 *Jag ser inga data i diagrammet.*
 
-* Filter gäller för alla diagram på bladet. Se till att du inte har angett något filter som utesluter alla data på ett annat, medan du fokuserar på ett diagram.
+* Filter gäller för alla diagram på bladet. Se till att du inte har angett något filter som utesluter alla data på ett annat när du fokuserar på ett diagram.
 
-    Om du vill ange olika filter för olika diagram skapar du dem på olika blad, sparar dem som separata favoriter. Om du vill kan du fästa dem på instrument panelen så att du kan se dem bredvid varandra.
-* Om du grupperar ett diagram efter en egenskap som inte har definierats för måttet, kommer det inte att finnas något i diagrammet. Försök rensa Group by eller Välj en annan grupp egenskap.
-* Prestanda data (CPU, IO-taxa och så vidare) är tillgängliga för Java-webbtjänster, Windows-skrivbordsappar, [IIS-webbappar och-tjänster om du installerar status övervakaren](../../azure-monitor/app/monitor-performance-live-website-now.md)och [Azure Cloud Services](../../azure-monitor/app/app-insights-overview.md). Den är inte tillgänglig för Azure Websites.
+    Om du vill ställa in olika filter på olika diagram skapar du dem i olika blad och sparar dem som separata favoriter. Om du vill kan du fästa dem på instrumentpanelen så att du kan se dem bredvid varandra.
+* Om du grupperar ett diagram efter en egenskap som inte har definierats i måttet finns det ingenting i diagrammet. Prova att rensa "gruppera efter" eller välj en annan grupperingsegenskap.
+* Prestandadata (CPU, IO-hastighet och så vidare) är tillgängliga för Java-webbtjänster, Windows-skrivbordsappar, [IIS-webbappar och -tjänster om du installerar statusövervakare](../../azure-monitor/app/monitor-performance-live-website-now.md)och [Azure Cloud Services](../../azure-monitor/app/app-insights-overview.md). Den är inte tillgänglig för Azure-webbplatser.
 
 ## <a name="video"></a>Video
 
@@ -195,7 +195,7 @@ I ett mått diagram kan du klicka på analys ikonen för att komma direkt till m
 
 ## <a name="next-steps"></a>Nästa steg
 * [Övervaka användning med Application Insights](../../azure-monitor/app/usage-overview.md)
-* [Använda diagnostisk sökning](../../azure-monitor/app/diagnostic-search.md)
+* [Använda diagnostiksökning](../../azure-monitor/app/diagnostic-search.md)
 
 <!--Link references-->
 

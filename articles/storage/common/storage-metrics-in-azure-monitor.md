@@ -1,6 +1,6 @@
 ---
-title: Azure Storage mått i Azure Monitor | Microsoft Docs
-description: Lär dig mer om de nya mått som erbjuds från Azure Monitor.
+title: Azure Storage-mått i Azure Monitor | Microsoft-dokument
+description: Läs mer om de nya måtten som erbjuds från Azure Monitor.
 author: normesta
 ms.service: storage
 ms.topic: conceptual
@@ -8,44 +8,44 @@ ms.date: 09/05/2017
 ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
-ms.openlocfilehash: 34665db48d2097fd3be3cdcd11a0d9cceb31855c
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: 73181222bf3f15bbbac24fc253eddfea1c57bc6c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77588951"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80247103"
 ---
 # <a name="azure-storage-metrics-in-azure-monitor"></a>Azure Storage-mått i Azure Monitor
 
-Med mått på Azure Storage kan du analysera användnings trender, spåra begär Anden och diagnostisera problem med ditt lagrings konto.
+Med mått på Azure Storage kan du analysera användningstrender, spåra begäranden och diagnostisera problem med ditt lagringskonto.
 
-Azure Monitor tillhandahåller enhetliga användar gränssnitt för övervakning i olika Azure-tjänster. Mer information finns i [Azure Monitor](../../monitoring-and-diagnostics/monitoring-overview.md). Azure Storage integrerar Azure Monitor genom att skicka mått data till Azure Monitors plattformen.
+Azure Monitor tillhandahåller enhetliga användargränssnitt för övervakning av olika Azure-tjänster. Mer information finns i [Azure Monitor](../../monitoring-and-diagnostics/monitoring-overview.md). Azure Storage integrerar Azure Monitor genom att skicka måttdata till Azure Monitor-plattformen.
 
-## <a name="access-metrics"></a>Åtkomst-mått
+## <a name="access-metrics"></a>Åtkomstmått
 
-Azure Monitor innehåller flera sätt att åtkomst mått. Du kan komma åt dem från [Azure Portal](https://portal.azure.com), Azure Monitors-API: er (rest och .net) och analys lösningar som Event Hubs. Mer information finns i [Azure Monitor mått](../../monitoring-and-diagnostics/monitoring-overview-metrics.md).
+Azure Monitor innehåller flera sätt att komma åt mått. Du kan komma åt dem från [Azure-portalen](https://portal.azure.com), Azure Monitor API:er (REST och .NET) och analyslösningar som Event Hubs. Mer information finns i [Azure Monitor Metrics](../../monitoring-and-diagnostics/monitoring-overview-metrics.md).
 
-Mått är aktiverade som standard och du kan komma åt de senaste 93 dagarna med data. Om du vill behålla data under en längre tid kan du arkivera måttdata till ett Azure Storage-konto. Detta konfigureras i [diagnostikinställningar](../../azure-monitor/platform/platform-logs-overview.md) i Azure Monitor.
+Mått är aktiverade som standard och du kan komma åt de senaste 93 dagarnas data. Om du behöver behålla data under en längre tid kan du arkivera måttdata till ett Azure Storage-konto. Detta är konfigurerat i [diagnostikinställningar](../../azure-monitor/platform/platform-logs-overview.md) i Azure Monitor.
 
-### <a name="access-metrics-in-the-azure-portal"></a>Åtkomst mått i Azure Portal
+### <a name="access-metrics-in-the-azure-portal"></a>Få tillgång till mått i Azure-portalen
 
-Du kan övervaka mått över tid i Azure Portal. I följande exempel visas hur du visar **transaktioner** på konto nivå.
+Du kan övervaka mått över tid i Azure-portalen. I följande exempel visas hur du visar **transaktioner** på kontonivå.
 
-![skärm bild av åtkomst till mått i Azure Portal](./media/storage-metrics-in-azure-monitor/access-metrics-in-portal.png)
+![skärmbild av åtkomst till mått i Azure-portalen](./media/storage-metrics-in-azure-monitor/access-metrics-in-portal.png)
 
-För mått som stöder dimensioner kan du filtrera måttet med det önskade dimension svärdet. I följande exempel visas hur du visar **transaktioner** på konto nivå för en speciell åtgärd genom att välja värden för dimensionen **API-namn** .
+För mått som stöder dimensioner kan du filtrera mått med önskat dimensionsvärde. I följande exempel visas hur du visar **transaktioner** på kontonivå på en viss åtgärd genom att välja värden för **API-namndimension.**
 
-![skärm bild av åtkomst till mått med dimension i Azure Portal](./media/storage-metrics-in-azure-monitor/access-metrics-in-portal-with-dimension.png)
+![skärmbild av åtkomst till mått med dimension i Azure-portalen](./media/storage-metrics-in-azure-monitor/access-metrics-in-portal-with-dimension.png)
 
-### <a name="access-metrics-with-the-rest-api"></a>Åtkomst mått med REST API
+### <a name="access-metrics-with-the-rest-api"></a>Komma åt mått med REST API
 
-Azure Monitor tillhandahåller [REST-API: er](/rest/api/monitor/) för att läsa mått definition och värden. I det här avsnittet visas hur du läser lagrings måtten. Resurs-ID används i alla REST-API: er. Mer information finns i förstå resurs-ID för tjänster i lagrings utrymmen.
+Azure Monitor tillhandahåller [REST-API:er](/rest/api/monitor/) för att läsa måttdefinition och värden. I det här avsnittet visas hur du läser lagringsmåtten. Resurs-ID används i alla REST APIS. Mer information finns i Förstå resurs-ID för tjänster i lagring.
 
-I följande exempel visas hur du använder [ArmClient](https://github.com/projectkudu/ARMClient) på kommando raden för att förenkla testningen med REST API.
+I följande exempel visas hur du använder ArmClient på kommandoraden för att förenkla testningen med REST API.The following example shows how to use [ArmClient](https://github.com/projectkudu/ARMClient) at the command line to simplify testing with the REST API.
 
-#### <a name="list-account-level-metric-definition-with-the-rest-api"></a>Lista konto nivå mått definition med REST API
+#### <a name="list-account-level-metric-definition-with-the-rest-api"></a>Lista måttdefinition på kontonivå med REST API
 
-I följande exempel visas hur du listar mått definition på konto nivå:
+I följande exempel visas hur du listar måttdefinition på kontonivå:
 
 ```
 # Login to Azure and enter your credentials when prompted.
@@ -55,9 +55,9 @@ I följande exempel visas hur du listar mått definition på konto nivå:
 
 ```
 
-Om du vill visa mått definitionerna för BLOB, tabell, fil eller kö måste du ange olika resurs-ID: n för varje tjänst med API: et.
+Om du vill visa måttdefinitioner för blob, tabell, fil eller kö måste du ange olika resurs-ID:er för varje tjänst med API:et.
 
-Svaret innehåller mått definitionen i JSON-format:
+Svaret innehåller måttdefinitionen i JSON-format:
 
 ```Json
 {
@@ -90,18 +90,18 @@ Svaret innehåller mått definitionen i JSON-format:
 
 ```
 
-#### <a name="read-account-level-metric-values-with-the-rest-api"></a>Läs mått värden på konto nivå med REST API
+#### <a name="read-account-level-metric-values-with-the-rest-api"></a>Läs måttvärden på kontonivå med REST API
 
-I följande exempel visas hur du läser mått data på konto nivå:
+I följande exempel visas hur du läser måttdata på kontonivå:
 
 ```
 > armclient GET "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}/providers/microsoft.insights/metrics?metricnames=Availability&api-version=2018-01-01&aggregation=Average&interval=PT1H"
 
 ```
 
-I ovanstående exempel, om du vill läsa mått värden för BLOB, tabell, fil eller kö, måste du ange olika resurs-ID: n för varje tjänst med API: et.
+I exemplet ovan, om du vill läsa måttvärden för blob, tabell, fil eller kö, måste du ange olika resurs-ID:er för varje tjänst med API:et.
 
-Följande svar innehåller mått värden i JSON-format:
+Följande svar innehåller måttvärden i JSON-format:
 
 ```Json
 {
@@ -134,15 +134,15 @@ Följande svar innehåller mått värden i JSON-format:
 
 ```
 
-### <a name="access-metrics-with-the-net-sdk"></a>Åtkomst mått med .NET SDK
+### <a name="access-metrics-with-the-net-sdk"></a>Åtkomstmått med .NET SDK
 
-Azure Monitor tillhandahåller [.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Management.Monitor/) för att läsa mått definition och-värden. [Exempel koden](https://azure.microsoft.com/resources/samples/monitor-dotnet-metrics-api/) visar hur du använder SDK med olika parametrar. Du måste använda `0.18.0-preview` eller en senare version för lagrings mått. Resurs-ID används i .NET SDK. Mer information finns i förstå resurs-ID för tjänster i lagrings utrymmen.
+Azure Monitor tillhandahåller [.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Management.Monitor/) för att läsa måttdefinition och värden. [Exempelkoden](https://azure.microsoft.com/resources/samples/monitor-dotnet-metrics-api/) visar hur du använder SDK med olika parametrar. Du måste `0.18.0-preview` använda eller senare version för lagringsmått. Resurs-ID används i .NET SDK. Mer information finns i Förstå resurs-ID för tjänster i lagring.
 
-I följande exempel visas hur du använder Azure Monitor .NET SDK för att läsa lagrings mått.
+I följande exempel visas hur du använder Azure Monitor .NET SDK för att läsa lagringsmått.
 
-#### <a name="list-account-level-metric-definition-with-the-net-sdk"></a>Lista konto nivå mått definition med .NET SDK
+#### <a name="list-account-level-metric-definition-with-the-net-sdk"></a>Lista kontonivåmåttdefinition med .NET SDK
 
-I följande exempel visas hur du listar mått definition på konto nivå:
+I följande exempel visas hur du listar måttdefinition på kontonivå:
 
 ```csharp
     public static async Task ListStorageMetricDefinition()
@@ -175,11 +175,11 @@ I följande exempel visas hur du listar mått definition på konto nivå:
 
 ```
 
-Om du vill visa mått definitionerna för BLOB, tabell, fil eller kö måste du ange olika resurs-ID: n för varje tjänst med API: et.
+Om du vill visa måttdefinitioner för blob, tabell, fil eller kö måste du ange olika resurs-ID:er för varje tjänst med API:et.
 
-#### <a name="read-metric-values-with-the-net-sdk"></a>Läsa Metric-värden med .NET SDK
+#### <a name="read-metric-values-with-the-net-sdk"></a>Läsa måttvärden med .NET SDK
 
-I följande exempel visas hur du läser `UsedCapacity` data på konto nivå:
+I följande exempel visas `UsedCapacity` hur du läser data på kontonivå:
 
 ```csharp
     public static async Task ReadStorageMetricValue()
@@ -225,13 +225,13 @@ I följande exempel visas hur du läser `UsedCapacity` data på konto nivå:
 
 ```
 
-I ovanstående exempel, om du vill läsa mått värden för BLOB, tabell, fil eller kö, måste du ange olika resurs-ID: n för varje tjänst med API: et.
+I exemplet ovan, om du vill läsa måttvärden för blob, tabell, fil eller kö, måste du ange olika resurs-ID:er för varje tjänst med API:et.
 
-#### <a name="read-multi-dimensional-metric-values-with-the-net-sdk"></a>Läs multi-dimensionella mått värden med .NET SDK
+#### <a name="read-multi-dimensional-metric-values-with-the-net-sdk"></a>Läsa flerdimensionella måttvärden med .NET SDK
 
-För flerdimensionella mått måste du definiera meta data filter om du vill läsa mått data för ett angivet dimensions värde.
+För flerdimensionella mått måste du definiera metadatafilter om du vill läsa måttdata på specifika dimensionsvärde.
 
-I följande exempel visas hur du läser mått data för måttet som stöder flera dimensioner:
+I följande exempel visas hur du läser måttdata för måttet med stöd för flera dimensioner:
 
 ```csharp
     public static async Task ReadStorageMetricValueTest()
@@ -282,142 +282,142 @@ I följande exempel visas hur du läser mått data för måttet som stöder fler
 
 ## <a name="understanding-resource-id-for-services-in-azure-storage"></a>Förstå resurs-ID för tjänster i Azure Storage
 
-Resurs-ID är en unik identifierare för en resurs i Azure. När du använder Azure Monitor REST API för att läsa mått definitioner eller värden måste du använda resurs-ID för den resurs som du vill använda. Mallen resurs-ID följer detta format:
+Resurs-ID är en unik identifierare för en resurs i Azure. När du använder AZURE Monitor REST API för att läsa måttdefinitioner eller värden måste du använda resurs-ID för den resurs som du tänker arbeta på. Resurs-ID-mallen följer det här formatet:
 
 ```
 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 ```
 
-Storage tillhandahåller mått på både lagrings konto nivå och service nivå med Azure Monitor. Du kan till exempel hämta mått för precis Blob Storage. Varje nivå har sitt eget resurs-ID, som används för att hämta måtten för just den nivån.
+Lagring ger mått på både lagringskontonivå och tjänstnivå med Azure Monitor. Du kan till exempel hämta mått för bara Blob-lagring. Varje nivå har sitt eget resurs-ID, som används för att hämta måtten för just den nivån.
 
-### <a name="resource-id-for-a-storage-account"></a>Resurs-ID för ett lagrings konto
+### <a name="resource-id-for-a-storage-account"></a>Resurs-ID för ett lagringskonto
 
-Nedan visas formatet för att ange resurs-ID för ett lagrings konto.
+Följande visar formatet för att ange resurs-ID för ett lagringskonto.
 
 ```
 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}
 ```
 
-### <a name="resource-id-for-the-storage-services"></a>Resurs-ID för lagrings tjänsterna
+### <a name="resource-id-for-the-storage-services"></a>Resurs-ID för lagringstjänsterna
 
-Nedan visas formatet för att ange resurs-ID för var och en av lagrings tjänsterna.
+Följande visar formatet för att ange resurs-ID för var och en av lagringstjänsterna.
 
-* Resurs-ID för Blob Service
+* Resurs-ID för Blob-tjänst
 ```
 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}/blobServices/default
 ```
-* Resurs-ID för Table service
+* Resurs-ID för tabelltjänst
 ```
 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}/tableServices/default
 ```
-* Resurs-ID för Kötjänst
+* Resurs-ID för kötjänst
 ```
 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}/queueServices/default
 ```
-* Resurs-ID för fil tjänst
+* Resurs-ID för filtjänst
 ```
 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}/fileServices/default
 ```
 
-### <a name="resource-id-in-azure-monitor-rest-api"></a>Resurs-ID i Azure Monitor REST API
+### <a name="resource-id-in-azure-monitor-rest-api"></a>Resurs-ID i REST-API FÖR Azure Monitor
 
-Nedan visas mönstret som används när du anropar Azure Monitor REST API.
+Följande visar det mönster som används när du anropar AZURE Monitor REST API.
 
 ```
 GET {resourceId}/providers/microsoft.insights/metrics?{parameters}
 ```
 
-## <a name="capacity-metrics"></a>Kapacitets mått
-Värdena för kapacitets värden skickas till Azure Monitor varje timme. Värdena uppdateras varje dag. Tids kornig het definierar tidsintervallet för vilka mått värden presenteras. Tids kornig het för alla kapacitets mått är en timme (PT1H).
+## <a name="capacity-metrics"></a>Kapacitetsmått
+Kapacitetsmåttvärden skickas till Azure Monitor varje timme. Värdena uppdateras dagligen. Tidskornet definierar det tidsintervall för vilket måttvärden presenteras. Tidskornet som stöds för alla kapacitetsmått är en timme (PT1H).
 
-Azure Storage tillhandahåller följande kapacitets mått i Azure Monitor.
+Azure Storage tillhandahåller följande kapacitetsmått i Azure Monitor.
 
-### <a name="account-level"></a>Konto nivå
+### <a name="account-level"></a>Kontonivå
 
 | Måttnamn | Beskrivning |
 | ------------------- | ----------------- |
-| UsedCapacity | Mängden lagrings utrymme som används av lagrings kontot. För standardlagringskonton är det summan av den kapacitet som används av blobar, filer och köer. För Premium-lagringskonton och Blob Storage-konton är det samma sak som BlobCapacity. <br/><br/> Enhet: byte <br/> Sammansättnings typ: genomsnitt <br/> Värde exempel: 1024 |
+| UsedCapacity | Mängden lagringsutrymme som används av lagringskontot. För standardlagringskonton är det summan av den kapacitet som används av blobar, filer och köer. För Premium-lagringskonton och Blob Storage-konton är det samma sak som BlobCapacity. <br/><br/> Enhet: Byte <br/> Aggregeringstyp: Medelvärde <br/> Exempel på värde: 1024 |
 
 ### <a name="blob-storage"></a>Blob Storage
 
 | Måttnamn | Beskrivning |
 | ------------------- | ----------------- |
-| BlobCapacity | Summan av Blob Storage som används i lagrings kontot. <br/><br/> Enhet: byte <br/> Sammansättnings typ: genomsnitt <br/> Värde exempel: 1024 <br/> Dimensioner: **BlobType**och **BlobTier** ([definition](#metrics-dimensions)) |
-| BlobCount    | Antalet BLOB-objekt som lagras i lagrings kontot. <br/><br/> Enhet: antal <br/> Sammansättnings typ: genomsnitt <br/> Värde exempel: 1024 <br/> Dimensioner: **BlobType**och **BlobTier** ([definition](#metrics-dimensions)) |
-| ContainerCount    | Antalet behållare i lagrings kontot. <br/><br/> Enhet: antal <br/> Sammansättnings typ: genomsnitt <br/> Värde exempel: 1024 |
-| IndexCapacity     | Mängden lagrings utrymme som används av ADLS Gen2 hierarkiskt index <br/><br/> Enhet: byte <br/> Sammansättnings typ: genomsnitt <br/> Värde exempel: 1024 |
+| BlobCapacity | Summan av Blob-lagring som används i lagringskontot. <br/><br/> Enhet: Byte <br/> Aggregeringstyp: Medelvärde <br/> Exempel på värde: 1024 <br/> Mått: **BlobType**och **BlobTier** ([Definition](#metrics-dimensions)) |
+| BlobCount (BlobCount)    | Antalet blob-objekt som lagras i lagringskontot. <br/><br/> Enhet: Antal <br/> Aggregeringstyp: Medelvärde <br/> Exempel på värde: 1024 <br/> Mått: **BlobType**och **BlobTier** ([Definition](#metrics-dimensions)) |
+| ContainerCount (ContainerCount)    | Antalet behållare i lagringskontot. <br/><br/> Enhet: Antal <br/> Aggregeringstyp: Medelvärde <br/> Exempel på värde: 1024 |
+| IndexKapacitet     | Mängden lagringsutrymme som används av ADLS Gen2 Hierarchical Index <br/><br/> Enhet: Byte <br/> Aggregeringstyp: Medelvärde <br/> Exempel på värde: 1024 |
 
 ### <a name="table-storage"></a>Table Storage
 
 | Måttnamn | Beskrivning |
 | ------------------- | ----------------- |
-| TableCapacity | Mängden tabell lagring som används av lagrings kontot. <br/><br/> Enhet: byte <br/> Sammansättnings typ: genomsnitt <br/> Värde exempel: 1024 |
-| TableCount   | Antalet tabeller i lagrings kontot. <br/><br/> Enhet: antal <br/> Sammansättnings typ: genomsnitt <br/> Värde exempel: 1024 |
-| TableEntityCount | Antalet tabell enheter i lagrings kontot. <br/><br/> Enhet: antal <br/> Sammansättnings typ: genomsnitt <br/> Värde exempel: 1024 |
+| TabellKapacitet | Mängden tabelllagring som används av lagringskontot. <br/><br/> Enhet: Byte <br/> Aggregeringstyp: Medelvärde <br/> Exempel på värde: 1024 |
+| TabellCount   | Antalet tabeller i lagringskontot. <br/><br/> Enhet: Antal <br/> Aggregeringstyp: Medelvärde <br/> Exempel på värde: 1024 |
+| TableEntityCount | Antalet tabellentiteter i lagringskontot. <br/><br/> Enhet: Antal <br/> Aggregeringstyp: Medelvärde <br/> Exempel på värde: 1024 |
 
 ### <a name="queue-storage"></a>Queue Storage
 
 | Måttnamn | Beskrivning |
 | ------------------- | ----------------- |
-| QueueCapacity | Mängden Queue Storage som används av lagrings kontot. <br/><br/> Enhet: byte <br/> Sammansättnings typ: genomsnitt <br/> Värde exempel: 1024 |
-| QueueCount   | Antalet köer i lagrings kontot. <br/><br/> Enhet: antal <br/> Sammansättnings typ: genomsnitt <br/> Värde exempel: 1024 |
-| QueueMessageCount | Antalet meddelanden som inte har förfallit i lagrings kontot. <br/><br/>Enhet: antal <br/> Sammansättnings typ: genomsnitt <br/> Värde exempel: 1024 |
+| Kökapacitet | Mängden kölagring som används av lagringskontot. <br/><br/> Enhet: Byte <br/> Aggregeringstyp: Medelvärde <br/> Exempel på värde: 1024 |
+| QueueCount (QueueCount)   | Antalet köer i lagringskontot. <br/><br/> Enhet: Antal <br/> Aggregeringstyp: Medelvärde <br/> Exempel på värde: 1024 |
+| QueueMessageCount | Antalet oexpirerade kömeddelanden i lagringskontot. <br/><br/>Enhet: Antal <br/> Aggregeringstyp: Medelvärde <br/> Exempel på värde: 1024 |
 
 ### <a name="file-storage"></a>File Storage
 
 | Måttnamn | Beskrivning |
 | ------------------- | ----------------- |
-| FileCapacity | Mängden fil lagring som används av lagrings kontot. <br/><br/> Enhet: byte <br/> Sammansättnings typ: genomsnitt <br/> Värde exempel: 1024 |
-| FileCount   | Antalet filer i lagrings kontot. <br/><br/> Enhet: antal <br/> Sammansättnings typ: genomsnitt <br/> Värde exempel: 1024 |
-| FileShareCount | Antalet fil resurser i lagrings kontot. <br/><br/> Enhet: antal <br/> Sammansättnings typ: genomsnitt <br/> Värde exempel: 1024 |
+| Filkapacitet | Mängden fillagring som används av lagringskontot. <br/><br/> Enhet: Byte <br/> Aggregeringstyp: Medelvärde <br/> Exempel på värde: 1024 |
+| FilCount   | Antalet filer i lagringskontot. <br/><br/> Enhet: Antal <br/> Aggregeringstyp: Medelvärde <br/> Exempel på värde: 1024 |
+| Filsharecount | Antalet filresurser i lagringskontot. <br/><br/> Enhet: Antal <br/> Aggregeringstyp: Medelvärde <br/> Exempel på värde: 1024 |
 
-## <a name="transaction-metrics"></a>Transaktions mått
+## <a name="transaction-metrics"></a>Transaktionsmått
 
-Transaktions mått genereras på varje begäran till ett lagrings konto från Azure Storage till Azure Monitor. Om det inte finns någon aktivitet på ditt lagrings konto kommer det inte att finnas några data om transaktions måtten under perioden. Alla transaktions mått är tillgängliga både på konto-och service nivå (Blob Storage, Table Storage, Azure Files och Queue Storage). Tids kornig het definierar tidsintervallet som Mät värden presenteras. Tids korn som stöds för alla transaktions mått är PT1H och PT1M.
+Transaktionsmått skickas på varje begäran till ett lagringskonto från Azure Storage till Azure Monitor. Om det inte finns någon aktivitet på ditt lagringskonto kommer det inte att finnas några data om transaktionsmått under perioden. Alla transaktionsmått är tillgängliga på både konto- och tjänstnivå (Blob-lagring, Tabelllagring, Azure-filer och kölagring). Tidskornet definierar tidsintervallet som måttvärden presenteras. Tidskornen som stöds för alla transaktionsmått är PT1H och PT1M.
 
-Azure Storage tillhandahåller följande transaktions mått i Azure Monitor.
+Azure Storage innehåller följande transaktionsmått i Azure Monitor.
 
 | Måttnamn | Beskrivning |
 | ------------------- | ----------------- |
-| Transaktioner | Antalet begäranden som görs till en lagringstjänst eller för den angivna API-åtgärden. Det här värdet innefattar lyckade och misslyckade begäranden samt begäranden som genererat fel. <br/><br/> Enhet: antal <br/> Sammansättningstyp: Totalt antal <br/> Tillämpliga dimensioner: ResponseType, typ av typ, ApiName och autentisering ([definition](#metrics-dimensions))<br/> Värde exempel: 1024 |
-| Ingress | Mängden inkommande data. Det här värdet innefattar inkommande data från en extern klient till Azure Storage samt inkommande data inom Azure. <br/><br/> Enhet: byte <br/> Sammansättningstyp: Totalt antal <br/> Tillämpliga dimensioner: typ av typ, ApiName och autentisering ([definition](#metrics-dimensions)) <br/> Värde exempel: 1024 |
-| Utgående | Mängden utgående data. Det här värdet innefattar utgående data från en extern klient till Azure Storage samt utgående data inom Azure. Därför motsvarar inte det här värdet fakturerbara utgående data. <br/><br/> Enhet: byte <br/> Sammansättningstyp: Totalt antal <br/> Tillämpliga dimensioner: typ av typ, ApiName och autentisering ([definition](#metrics-dimensions)) <br/> Värde exempel: 1024 |
-| SuccessServerLatency | Den genomsnittliga tiden det tar för Azure Storage att bearbeta en lyckad begäran. Det här värdet innefattar inte nätverksfördröjningen som anges i SuccessE2ELatency. <br/><br/> Enhet: millisekunder <br/> Sammansättnings typ: genomsnitt <br/> Tillämpliga dimensioner: typ av typ, ApiName och autentisering ([definition](#metrics-dimensions)) <br/> Värde exempel: 1024 |
-| SuccessE2ELatency | Den genomsnittliga svarstiden från slutpunkt till slutpunkt för lyckade begäranden som gjorts till en lagringstjänst eller för en angiven API-åtgärd. Värdet innefattar bearbetningstiden som krävs i Azure Storage för att läsa begäran, skicka svaret och ta emot en bekräftelse av svaret. <br/><br/> Enhet: millisekunder <br/> Sammansättnings typ: genomsnitt <br/> Tillämpliga dimensioner: typ av typ, ApiName och autentisering ([definition](#metrics-dimensions)) <br/> Värde exempel: 1024 |
-| Tillgänglighet | Procentandel tillgänglighet för lagringstjänsten eller den angivna API-åtgärden. Tillgängligheten beräknas genom att värdet för TotalBillableRequests delas med antalet tillämpliga förfrågningar, även förfrågningar som genererat oväntade fel. Alla oväntade fel leder till minskad tillgänglighet för lagringstjänsten eller den angivna API-åtgärden. <br/><br/> Enhet: procent <br/> Sammansättnings typ: genomsnitt <br/> Tillämpliga dimensioner: typ av typ, ApiName och autentisering ([definition](#metrics-dimensions)) <br/> Värde exempel: 99,99 |
+| Transaktioner | Antalet begäranden som görs till en lagringstjänst eller för den angivna API-åtgärden. Det här värdet innefattar lyckade och misslyckade begäranden samt begäranden som genererat fel. <br/><br/> Enhet: Antal <br/> Aggregeringstyp: Totalt <br/> Tillämpliga dimensioner: ResponseType, GeoType, ApiName och Autentisering ([Definition](#metrics-dimensions))<br/> Exempel på värde: 1024 |
+| Ingress | Mängden inkommande data. Det här värdet innefattar inkommande data från en extern klient till Azure Storage samt inkommande data inom Azure. <br/><br/> Enhet: Byte <br/> Aggregeringstyp: Totalt <br/> Tillämpliga dimensioner: GeoType, ApiName och Autentisering ([Definition](#metrics-dimensions)) <br/> Exempel på värde: 1024 |
+| Utgående | Mängden utgående data. Det här numret inkluderar utgående till en extern klient från Azure Storage samt utgående i Azure. Därför motsvarar inte det här värdet fakturerbara utgående data. <br/><br/> Enhet: Byte <br/> Aggregeringstyp: Totalt <br/> Tillämpliga dimensioner: GeoType, ApiName och Autentisering ([Definition](#metrics-dimensions)) <br/> Exempel på värde: 1024 |
+| Lycka Till Svar | Den genomsnittliga tiden det tar för Azure Storage att bearbeta en lyckad begäran. Det här värdet innefattar inte nätverksfördröjningen som anges i SuccessE2ELatency. <br/><br/> Enhet: Millisekunder <br/> Aggregeringstyp: Medelvärde <br/> Tillämpliga dimensioner: GeoType, ApiName och Autentisering ([Definition](#metrics-dimensions)) <br/> Exempel på värde: 1024 |
+| FramgångE2ELatency | Den genomsnittliga svarstiden från slutpunkt till slutpunkt för lyckade begäranden som gjorts till en lagringstjänst eller för en angiven API-åtgärd. Värdet innefattar bearbetningstiden som krävs i Azure Storage för att läsa begäran, skicka svaret och ta emot en bekräftelse av svaret. <br/><br/> Enhet: Millisekunder <br/> Aggregeringstyp: Medelvärde <br/> Tillämpliga dimensioner: GeoType, ApiName och Autentisering ([Definition](#metrics-dimensions)) <br/> Exempel på värde: 1024 |
+| Tillgänglighet | Procentandelen tillgänglighet för lagringstjänsten eller den angivna API-åtgärden. Tillgängligheten beräknas genom att värdet för TotalBillableRequests delas med antalet tillämpliga förfrågningar, även förfrågningar som genererat oväntade fel. Alla oväntade fel leder till minskad tillgänglighet för lagringstjänsten eller den angivna API-åtgärden. <br/><br/> Enhet: Procent <br/> Aggregeringstyp: Medelvärde <br/> Tillämpliga dimensioner: GeoType, ApiName och Autentisering ([Definition](#metrics-dimensions)) <br/> Exempel på värde: 99,99 |
 
-## <a name="metrics-dimensions"></a>Mått dimensioner
+## <a name="metrics-dimensions"></a>Måttdimensioner
 
 Azure Storage stöder följande dimensioner för mått i Azure Monitor.
 
-| Dimensions namn | Beskrivning |
+| Dimensionsnamn | Beskrivning |
 | ------------------- | ----------------- |
-| **BlobType** | Typ av BLOB för BLOB-mått. De värden som stöds är **BlockBlob**, **PageBlob**och **Azure Data Lake Storage**. Lägg till BLOB ingår i BlockBlob. |
-| **BlobTier** | Azure Storage erbjuder olika åtkomst nivåer, vilket gör att du kan lagra BLOB-Datadata på det mest kostnads effektiva sättet. Läs mer i [Azure Storage BLOB-nivå](../blobs/storage-blob-storage-tiers.md). De värden som stöds är: <br/> <li>Frekvent **: frekvent**nivå</li> <li>Låg **frekvent: låg**frekvent nivå</li> <li>**Arkiv**: Arkiv lag ring</li> <li>**Premium**: Premium-nivån för Block-Blob</li> <li>**P4/P6/P10/p15/P20/P30/P40/P50/P60**: nivå typer för Premium Page-BLOB</li> <li>**Standard**: nivå typ för standard sid-BLOB</li> <li>Inte i **nivå**: nivå typ för generell användning v1 lagrings konto</li> |
-| **Typ av typ** | Transaktion från primärt eller sekundärt kluster. De tillgängliga värdena är **primär** och **sekundär**. Den gäller för läsning av Geo-redundant lagring med Läs behörighet (RA-GRS) vid läsning av objekt från en sekundär klient. |
-| **ResponseType** | Typ av transaktions svar. Tillgängliga värden är: <br/><br/> <li>**ServerOtherError**: alla andra fel på Server sidan förutom de som beskrivs </li> <li>**ServerBusyError**: autentiserad begäran som returnerade en HTTP 503-status kod. </li> <li>**ServerTimeoutError**: en timeout-autentiserad begäran som returnerade en status kod för HTTP 500. Tidsgränsen överskreds på grund av ett serverfel. </li> <li>**AuthorizationError**: autentiserad begäran som misslyckades på grund av obehörig åtkomst till data eller ett auktoriseringsfel. </li> <li>**NetworkError**: autentiserad begäran som misslyckades på grund av nätverks fel. Inträffar vanligen när klienten stänger en anslutning för tidigt innan tidsgränsen. </li>  <li>**ClientAccountBandwidthThrottlingError**: begäran begränsas på bandbredden för att överskrida [skalbarhets gränserna för lagrings kontot](scalability-targets-standard-account.md).</li><li>**ClientAccountRequestThrottlingError**: begäran begränsas enligt begär ande frekvens för överskridning av [skalbarhets gränser för lagrings kontot](scalability-targets-standard-account.md).<li>**ClientThrottlingError**: andra begränsnings fel på klient sidan. ClientAccountBandwidthThrottlingError och ClientAccountRequestThrottlingError är undantagna.</li> <li>**ClientTimeoutError**: en timeout-autentiserad begäran som returnerade en status kod för HTTP 500. Om klientens tidsgränser för nätverket eller förfrågningar är inställda på lägre värden än vad lagringstjänsten förväntar sig är det en förväntad timeout. Annars rapporteras den som ett ServerTimeoutError.</li> </li> <li>**ClientOtherError**: alla andra fel på klient sidan, förutom de som beskrivs. </li> <li>**Lyckades**: lyckad begäran</li> <li> **SuccessWithThrottling**: lyckad begäran när en SMB-klient får en begränsning i de första försöken (erna) men lyckas efter återförsök.</li> |
-| **ApiName** | Åtgärdens namn. Några exempel: <br/> <li>**CreateContainer**</li> <li>**DeleteBlob**</li> <li>**GetBlob**</li> För alla åtgärds namn, se [dokument](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages). |
-| **Autentisering** | Autentiseringstyp som används i transaktioner. Tillgängliga värden är: <br/> <li>**AccountKey**: transaktionen autentiseras med lagrings konto nyckeln.</li> <li>**SAS**: transaktionen autentiseras med signaturer för delad åtkomst.</li> <li>**OAuth**: transaktionen autentiseras med OAuth-åtkomsttoken.</li> <li>**Anonym**: transaktionen begärs anonymt. Den omfattar inte preflight-begäranden.</li> <li>**AnonymousPreflight**: transaktionen är en preflight-begäran.</li> |
+| **BlobType (BlobType)** | Endast typ av blob för Blob-mått. Värdena som stöds är **BlockBlob,** **PageBlob**och **Azure Data Lake Storage**. Append Blob ingår i BlockBlob. |
+| **BlobTier (BlobTier)** | Azure storage erbjuder olika åtkomstnivåer, vilket gör att du kan lagra blob-objektdata på det mest kostnadseffektiva sättet. Visa mer i [Azure Storage blob-nivå](../blobs/storage-blob-storage-tiers.md). De värden som stöds inkluderar: <br/> <li>**Hot:** Hot nivå</li> <li>**Cool:** Cool nivå</li> <li>**Arkiv**: Arkivnivå</li> <li>**Premium**: Premium-nivå för blockblob</li> <li>**P4/P6/P10/P15/P20/P30/P40/P50/P60**: Nivåtyper för premium sidblobb</li> <li>**Standard**: Nivåtyp för standardsida Blob</li> <li>**Ej tilltredd**: Nivåtyp för allmänt v1-lagringskonto</li> |
+| **GeoType (olika)** | Transaktion från primärt eller sekundärt kluster. De tillgängliga värdena inkluderar **Primär** och **Sekundär**. Det gäller för Read Access Geo Redundant Storage (RA-GRS) när objekt läses från sekundär klient. |
+| **Svarstyp** | Transaktionssvarstyp. Tillgängliga värden är: <br/><br/> <li>**ServerOtherError**: Alla andra fel på serversidan utom beskrivna </li> <li>**ServerBusyError**: Autentiserade begäran som returnerade en HTTP 503-statuskod. </li> <li>**ServerTimeoutError**: Timeout autentiserade begäran som returnerade en HTTP 500-statuskod. Tidsgränsen överskreds på grund av ett serverfel. </li> <li>**AuthorizationError**: Autentiserade begäran som misslyckades på grund av obehörig åtkomst av data eller ett auktoriseringsfel. </li> <li>**NetworkError**: Autentiserade begäran som misslyckades på grund av nätverksfel. Inträffar vanligen när klienten stänger en anslutning för tidigt innan tidsgränsen. </li>  <li>**ClientAccountBandwidthThrottlingError**: Begäran begränsas på bandbredd för att överskrida begränsningar för [lagringsansvarskalbarhet](scalability-targets-standard-account.md).</li><li>**ClientAccountRequestThrottlingError**: Begäran begränsas på begäran för att överskrida begränsningar för [lagringsansvarskalbarhet](scalability-targets-standard-account.md).<li>**ClientThrottlingError**: Andra begränsningsfel på klientsidan. ClientAccountBandwidthThrottlingError och ClientAccountRequestThrottlingError är exkluderade.</li> <li>**ClientTimeoutError**: Timeout autentiserade begäran som returnerade en HTTP 500-statuskod. Om klientens tidsgränser för nätverket eller förfrågningar är inställda på lägre värden än vad lagringstjänsten förväntar sig är det en förväntad timeout. Annars rapporteras den som ett ServerTimeoutError.</li> </li> <li>**ClientOtherError**: Alla andra fel på klientsidan utom beskrivna. </li> <li>**Framgång**: Lyckad begäran</li> <li> **SuccessWithThrottling**: Lyckad begäran när en SMB-klient begränsas i de första försöken men lyckas efter återförsök.</li> |
+| **ApiName (ApiName)** | Namnet på åtgärden. Ett exempel: <br/> <li>**Skapacontainer**</li> <li>**DeleteBlob (ta bort)**</li> <li>**GetBlob (på andra et)**</li> För alla operationsnamn finns i [dokument](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages). |
+| **Autentisering** | Autentiseringstyp som används i transaktioner. Tillgängliga värden är: <br/> <li>**AccountKey**: Transaktionen autentiseras med lagringskontonyckel.</li> <li>**SAS**: Transaktionen autentiseras med signaturer för delad åtkomst.</li> <li>**OAuth**: Transaktionen autentiseras med OAuth-åtkomsttoken.</li> <li>**Anonym**: Transaktionen begärs anonymt. Det inkluderar inte preflight förfrågningar.</li> <li>**AnonymousPreflight**: Transaktionen är preflight begäran.</li> |
 
-För mått som stöder dimensioner måste du ange dimension svärdet för att se motsvarande mått värden. Om du till exempel tittar på **transaktions** värde för lyckade svar måste du filtrera **ResponseType** -dimensionen med **lyckat resultat**. Eller om du tittar på **BlobCount** -värdet för Block-Blob måste du filtrera **BlobType** -dimensionen med **BlockBlob**.
+För måtten som stöder dimensioner måste du ange dimensionsvärdet för att se motsvarande måttvärden. Om du till exempel tittar på **transaktionsvärde** för lyckade svar måste du filtrera **ResponseType-dimensionen** med **Framgång**. Eller om du tittar på **BlobCount-värdet** för Block Blob måste du filtrera **BlobType-dimensionen** med **BlockBlob**.
 
-## <a name="service-continuity-of-legacy-metrics"></a>Tjänste kontinuitet för äldre mått
+## <a name="service-continuity-of-legacy-metrics"></a>Tjänstekontinuitet för äldre mått
 
-Äldre mått är tillgängliga parallellt med Azure Monitor hanterade mått. Supporten fortsätter på samma sätt tills Azure Storage avslutar tjänsten på äldre mått.
+Äldre mått är tillgängliga parallellt med Azure Monitor-hanterade mått. Supporten håller samma tills Azure Storage avslutar tjänsten på äldre mått.
 
 ## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
 
-**Stöder nya mått det klassiska lagrings kontot?**
+**Stöder nya mått Classic Storage-konto?**
 
-Nej, nya mått i Azure Monitor endast stöd för Azure Resource Manager lagrings konton. Om du vill använda mått på lagrings konton måste du migrera till Azure Resource Manager lagrings konto. Se [migrera till Azure Resource Manager](https://docs.microsoft.com/azure/virtual-machines/windows/migration-classic-resource-manager-overview).
+Nej, nya mått i Azure Monitor stöder endast Azure Resource Manager-lagringskonton. Om du vill använda mått på lagringskonton måste du migrera till Azure Resource Manager Storage-konto. Se [Migrera till Azure Resource Manager](https://docs.microsoft.com/azure/virtual-machines/windows/migration-classic-resource-manager-overview).
 
-**Stöder Azure Storage mått för Managed Disks eller ohanterade diskar?**
+**Stöder Azure Storage mått för hanterade diskar eller ohanterade diskar?**
 
-Nej, Azure Compute stöder mått på diskar. Mer information finns i [artikeln](https://azure.microsoft.com/blog/per-disk-metrics-managed-disks/) .
+Nej, Azure Compute stöder måtten på diskar. Se [artikel](https://azure.microsoft.com/blog/per-disk-metrics-managed-disks/) för mer information.
 
-**Hur mappar och migrerar du klassiska mått med nya mått?**
+**Hur man kartlägger och migrerar klassiska mätvärden med nya mått?**
 
-Du hittar detaljerad mappning mellan klassiska mått och nya mått i [Azure Storage metriska migreringar](./storage-metrics-migration.md).
+Du kan hitta detaljerad mappning mellan klassiska mått och nya mått i [Azure Storage-måttmigrering](./storage-metrics-migration.md).
 
 ## <a name="next-steps"></a>Nästa steg
 

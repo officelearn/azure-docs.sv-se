@@ -1,134 +1,133 @@
 ---
-title: Instrument panel för partner Center-beställning i kommersiell Marketplace-analys
-description: Lär dig hur du får åtkomst till analys rapporter om dina Marketplace-erbjudanden i ett grafiskt och nedladdnings Bart format.
-author: ChJenk
-manager: evansma
-ms.author: v-chjen
+title: Instrumentpanelen partnercenterorder i analys av kommersiella marknadsplatser
+description: Läs om hur du kommer åt analytiska rapporter om dina marketplace-erbjudandeorder i ett grafiskt och nedladdningsbart format.
+author: dsindona
+ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/11/2019
-ms.openlocfilehash: bf4b48fafa5b877053abe653b569cf27eb50d57b
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: d0db6553a774a69bb8a55538cbd2b4a333be9316
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75481066"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80281416"
 ---
-# <a name="orders-dashboard-in-commercial-marketplace-analytics"></a>Order instrument panel i kommersiell Marketplace-analys
+# <a name="orders-dashboard-in-commercial-marketplace-analytics"></a>Order instrumentpanel i Kommersiell Marketplace-analys
 
-Den här artikeln innehåller information om **instrument panelen för order** i Partner Center. Den här instrument panelen visar information om dina beställningar i ett grafiskt och nedladdnings Bart format.
+Den här artikeln innehåller information om **instrumentpanelen Order** i Partnercenter. Den här instrumentpanelen visar information om dina beställningar i ett grafiskt och nedladdningsbart format.
 
-För att komma åt **instrument panelen för order** i Partner Center Analytics-verktyg, öppnar du **[analys instrument panelen](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)** under kommersiell marknads plats.
+Om du vill komma åt **instrumentpanelen Order** i analysverktygen för Partner Center öppnar du **[instrumentpanelen Analysera](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)** under Kommersiell marknadsplats.
 
 >[!NOTE]
-> Detaljerade definitioner av analys terminologi finns i [vanliga frågor och terminologi för affärs platsers analys](./faq-terminology.md).
+> Detaljerade definitioner av analysterminologi finns [i Vanliga frågor och terminologi för Analys av kommersiella marknadsplatser](./faq-terminology.md).
 
 ## <a name="orders-dashboard"></a>Orderinstrumentpanel
 
-På **instrument panelen för order** i menyn **analysera** visas aktuella beställningar för alla dina SaaS-erbjudanden. Du kan visa grafiska representationer av följande objekt:
+**Instrumentpanelen Order** på **menyn Analysera** visar de aktuella orderna för alla dina SaaS-erbjudanden. Du kan visa grafiska representationer av följande objekt:
 
-- [Order Sammanfattning](#order-summary)
+- [Sammanfattning av order](#order-summary)
 - [Beställningar efter geografi](#orders-by-geography)
-- [Beställningar per erbjudanden](#orders-by-offers)
-- [Order trend per plats kontra per plats](#orders-trend-per-site-versus-per-seat)
-- [Beställningar efter SKU: er](#orders-by-skus)
-- [Trend för beställningar och platser](#orders-and-seats-trend)
-- [Order detalj tabell](#order-details-table)
+- [Beställningar av erbjudanden](#orders-by-offers)
+- [Ordertrend per plats jämfört med säte](#orders-trend-per-site-versus-per-seat)
+- [Beställningar av SKU:er](#orders-by-skus)
+- [Order och platser trend](#orders-and-seats-trend)
+- [Tabell för orderinformation](#order-details-table)
 
 > [!NOTE]
-> Det finns skillnader mellan hur analys rapporter visas i Cloud Partner Portal (CPP) och det nya kommersiella Marketplace-programmet i Partner Center. Ett särskilt sätt är att **säljar insikter** i cpp har en **order & fliken användning** , som visar data för användnings erbjudanden och icke-användnings erbjudanden. Sidan **beställningar** i Partner Center har en separat flik för SaaS-erbjudanden.
+> Det finns skillnader mellan hur analysrapporter visas i Cloud Partner Portal (CPP) och det nya kommersiella marketplace-programmet i Partner Center. Ett specifikt sätt är att **säljaren Insights** i CPP har en **order & användning** fliken, som visar data för användningsbaserade erbjudanden och icke-användningsbaserade erbjudanden. I Partnercenter har sidan **Order** en separat flik för SaaS-erbjudanden.
 
-## <a name="order-dashboard-details"></a>Information om order instrument panel
+## <a name="order-dashboard-details"></a>Information om beställning av instrumentpanel
 
-I det här avsnittet beskrivs analys rapporterna i detalj.
+I det här avsnittet beskrivs analysrapporterna mer i detalj.
 
-### <a name="order-summary"></a>Order Sammanfattning
+### <a name="order-summary"></a>Sammanfattning av order
 
-I avsnittet order Sammanfattning visas antalet inköpta order (exklusive annullerade order), annullerade order och platser.
+I avsnittet Ordersammanfattning visas antalet inköpta order (exklusive annullerade order), annullerade order och platser.
 
-Procentvärdet bredvid totalt antal beställningar representerar den mängd tillväxt som det valda datum intervallet.
+Procentvärdet bredvid Totala order representerar mängden tillväxt som det valda datumintervallet.
 
-![Översikt över analys av Partner Center](./media/order-summary.png)
+![Sammanfattning av ordersammanfattning i partnercenter](./media/order-summary.png)
 
-- En grön triangel som pekar uppåt anger en positiv tillväxt trend.
-- En röd triangel som pekar nedåt visar en negativ tillväxt trend i förhållande till föregående månad.
-- Tillväxt trender representeras av Micro bar-diagram. Du kan visa värdet för varje månad genom att hovra över kolumnerna i diagrammet.
-- Annullerade beställningar är antalet order som tidigare har köpts och sedan avbrutits under det valda datum intervallet.
-- Platser är ett antal platser som skapats under det valda datum intervallet.
+- En grön triangel som pekar uppåt indikerar en positiv tillväxttrend.
+- En röd triangel som pekar nedåt indikerar en negativ tillväxttrend jämfört med föregående månad.
+- Tillväxttrender representeras av mikrofältsdiagram. Du kan visa värdet för varje månad genom att hovra över kolumnerna i diagrammet.
+- Annullerade order är ett antal order som tidigare har köpts och sedan annullerats under det valda datumintervallet.
+- Platser är antalet platser som skapats under det valda datumintervallet.
 
 ### <a name="orders-by-geography"></a>Beställningar efter geografi
 
-Termisk karta för **beställningar per geografi** visar antalet beställningar på en världs karta och visar platser som har mappats baserat på kund land. Den här termisk karta fungerar på samma sätt som **[kunden efter geografi termisk karta](./customer-dashboard.md#customer-by-geography)** .
+**Heatmap Order efter geografi** visar antalet beställningar på en världskarta och visar platser som kartlagts baserat på Kundland. Denna heatmap fungerar på samma sätt som **[kunden efter geografi heatmap](./customer-dashboard.md#customer-by-geography)**.
 
-![Partner Center, analysera beställningar efter geografi](./media/orders-by-geography.png)
+![Partnercenter Analysera order efter geografi](./media/orders-by-geography.png)
 
-### <a name="orders-by-offers"></a>Beställningar per erbjudanden
+### <a name="orders-by-offers"></a>Beställningar av erbjudanden
 
-Med ring diagram för **beställningar per** erbjudande ordnas beställningar (inklusive annullerade order) enligt deras namn.
+**Order av erbjuder** donut diagram organiserar order (inklusive annullerade beställningar) enligt deras erbjudande namn.
 
-- De främsta erbjudandena visas i diagrammet och resten av erbjudandena grupperas som "rest all".
-- Du kan välja vissa erbjudanden i förklaringen om du bara vill visa de erbjudanden som finns i diagrammet.
-- Om du hovrar över en sektor i diagrammet visas antalet order och procent andel av erbjudandet jämfört med det totala antalet beställningar i alla erbjudanden.
-- I **trenderna order by-erbjudanden** visas trender i månaden. Kolumnen månad representerar antalet order efter namnet på erbjudandet. Linje diagrammet visar trenden för tillväxt i procent som ritats på en z-axel.
-- Du kan använda skjutreglaget överst i diagrammet för att rulla åt höger och vänster längs x-axeln och fokusera på vissa data punkter.
-- Du kan visa trend diagrammet genom att välja ett speciellt objekt i förklaringen.
-- Du kan också välja att visa trender och data för **annullerade order**. Grafen fungerar på samma sätt som grafen **order by** .
+- De översta erbjudandena visas i diagrammet och resten av erbjudandena är grupperade som "Vila alla".
+- Du kan välja specifika erbjudanden i förklaringen om du bara vill visa erbjudanden i diagrammet.
+- Om du hovrar över ett segment i diagrammet visas antalet order och procentandelen av erbjudandet jämfört med det totala antalet beställningar i alla erbjudanden.
+- **Orderingången efter erbjudandetrend** visar tillväxttrender månad för månad. Kolumnen Månad representerar antalet order efter erbjudandenamn. Linjediagrammet visar tillväxtprocenttrenden som ritats på en z-axel.
+- Du kan använda skjutreglaget högst upp i diagrammet för att rulla åt höger och vänster längs x-axeln och fokusera på specifika datapunkter.
+- Du kan visa trenddiagrammet genom att välja ett visst objekt i förklaringen.
+- Du kan också välja att visa trender och data för **annullerade order**. Diagrammet fungerar på samma sätt som **order av erbjudanden** diagram.
 
-### <a name="orders-trend-per-site-versus-per-seat"></a>Order trend per plats kontra per plats
+### <a name="orders-trend-per-site-versus-per-seat"></a>Order Trend per plats kontra per plats
 
-Ring diagrammet **per plats och per klient** representerar fördelningen av per plats-SaaS och per plats SaaS beställningar som köpts av kunder (det här diagrammet innehåller annullerade order). Stapeldiagrammet representerar trenden för per webbplats SaaS och per plats SaaS beställningar som köpts av kunder (det här diagrammet innehåller annullerade order).
+Diagrammet **per plats jämfört med sätesn** representerar fördelningen av SaaS per plats och SaaS-beställningar per plats som köpts av kunder (det här diagrammet innehåller annullerade order). Stapeldiagrammet representerar trenden för SaaS per plats och saaS-order per säte som köpts av kunder (det här diagrammet innehåller annullerade order).
 
-### <a name="orders-by-skus"></a>Beställningar efter SKU: er
+### <a name="orders-by-skus"></a>Beställningar av SKU:er
 
-Diagrammet **order by SKU: er** representerar trenden för beställningar på lagerhållnings enhets nivån (SKU) för alla dina erbjudanden (Detta inkluderar annullerade order). Ring diagrammet representerar fördelningen av de fem främsta SKU-orderna och stapeldiagrammet representerar trenden för beställningar för de fem främsta SKU: erna.
+Diagrammet **Order per SKU-diagram** representerar trenden för order på SKU-nivå (Stock Keeping Unit) för alla dina erbjudanden (detta inkluderar annullerade order). Donutdiagrammet representerar uppdelningen av de fem översta SKU-orderna och stapeldiagrammet representerar orderutvecklingen för de fem största SKU:erna.
 
-### <a name="orders-and-seats-trend"></a>Trend för beställningar och platser
+### <a name="orders-and-seats-trend"></a>Order och platser Trend
 
-**Trend diagrammet order och platser** visar de översta 50-erbjudandena med det högsta antalet beställningar. De visas på en ledare och sorteras efter det högsta antalet order och ordningen i procent.
+Order- **och platstrenddiagrammet** presenterar de 50 bästa erbjudandena med det högsta antalet beställningar. Dessa visas på en leadertavla och sorteras efter högsta orderantal och orderprocent.
 
-- **Beställningar efter SKU: er**: Välj ett erbjudande för att Visa fördelningen av order antal för de fem främsta SKU: erna i diagrammet.
-- **Platser efter SKU: er**månads Visa platser för de fem främsta SKU: erna. Om erbjudandet du väljer inte är ett erbjudande per klient visas inte några data i det här ytdiagrammet-diagrammet.
+- **Order efter SKU:** Välj ett erbjudande om du vill visa fördelningen av orderantalet för de fem största skusarna i diagrammet.
+- **Platser efter SKU:** Den månatliga trenden med platser för de fem största sku:erna. Om erbjudandet du väljer inte är ett erbjudande per plats visas inga data i det här ytdiagrammet.
 
-### <a name="canceled-orders-by-offers"></a>Annullerade beställningar efter erbjudanden
+### <a name="canceled-orders-by-offers"></a>Annullerade beställningar med erbjudanden
 
-Cirkel diagrammet **avbrutna order by erbjuder** organiserar alla dina avbrutna beställningar enligt deras namn. De främsta erbjudandena visas i diagrammet och resten av erbjudandena grupperas som "rest alla". Du kan välja vissa erbjudanden i förklaringen som ska visas i diagrammet.
+Det **annullerade order per erbjudande** cirkeldiagram organiserar alla dina annullerade order enligt deras erbjudandenamn. De översta erbjudandena visas i diagrammet och resten av erbjudandena är grupperade som "Vila alla". Du kan välja specifika erbjudanden i förklaringen som ska visas i diagrammet.
 
-- Om du hovrar över en sektor i diagrammet visas antalet order och procent andelen av det valda erbjudandet jämfört med det totala antalet beställningar i alla erbjudanden.
-- I stapeldiagrammet visas månads månads trender. Kolumnerna representerar antalet annullerade order efter namn. Du kan använda skjutreglaget ovanpå diagrammet för att rulla åt höger och vänster längs x-axeln och fokusera på vissa data punkter. Du kan visa trend diagrammet genom att välja ett speciellt objekt i förklaringen.
+- Om du hovrar över ett segment i diagrammet visas antalet order och procentandelen av det valda erbjudandet jämfört med det totala antalet order i alla erbjudanden.
+- Stapeldiagrammet visar trender månad för månad. Kolumnerna representerar antalet annullerade order efter erbjudandenamn. Du kan använda skjutreglaget högst upp i diagrammet för att rulla åt höger och vänster längs x-axeln och fokusera på specifika datapunkter. Du kan visa trenddiagrammet genom att välja ett visst objekt i förklaringen.
 
-### <a name="order-details-table"></a>Order detalj tabell
+### <a name="order-details-table"></a>Tabell för orderinformation
 
-Tabellen Order information visar en numrerad lista över de 1000 främsta order som sorteras efter förvärvs datum.
+Tabellen Orderinformation visar en numrerad lista över de 1000 översta order sorterade efter förvärvsdatum.
 
 - Varje kolumn i rutnätet är sorterbar.
 - Data kan extraheras till en TSV-fil om antalet poster är mindre än 1000.
-- Om poster nummer över 1000 placeras exporterade data asynkront på sidan nedladdningar under de närmaste 30 dagarna.
-- Filter kan tillämpas på **tabellen Order information** för att visa endast de data som du är intresse rad av. Data kan filtreras efter land, Azure-licensserver, Marketplace-licens typ, erbjudande typ, order status, kostnads fria historik, prenumerations-ID för Marketplace, kund-ID och företags namn.
+- Om posternummer över 1 000 placeras exporterade data asynkront på en nedladdningssida under de kommande 30 dagarna.
+- Filter kan användas i **tabellen Orderinformation** för att bara visa de data som du är intresserad av. Data kan filtreras efter land, Azure-licenstyp, Marketplace-licenstyp, Erbjudandetyp, Orderstatus, Kostnadsfria spår, Marketplace-prenumerations-ID, Kund-ID och Företagsnamn.
 
-#### <a name="orders-page-filters"></a>Sid filter för order
+#### <a name="orders-page-filters"></a>Sidfilter för order
 
-Filtren tillämpas på sidnivå.
+Dessa filter används på sidnivå.
 
-Du kan välja flera filter för att återge diagrammet för de kriterier du väljer att visa och de data som du vill ska visas i det **detaljerade order data** rutnätet/exporten. Filter tillämpas på de data som extraheras för det data intervall som du har valt i det övre högra hörnet på sidan beställningar.
+Du kan välja flera filter för att återge diagrammet för de villkor du väljer att visa och de data som du vill ska visas i rutnätet **för detaljerad orderdata/export.** Filter används på de data som extraheras för det dataområde som du har valt längst upp till höger på ordersidan.
 
-- Erbjudande typer och erbjudande namn visas bara för erbjudanden som du har beställningar för under det valda datum intervallet. Namnet på erbjudandet i listan visas för de erbjudande typer som du har valt i listan.
-- Tillämpade filter visar de totala måtten inom varje markering (er) för varje valt filter. Tillämpade filter visas inte när du väljer standard valet.
-- Om **alla** väljs för någon av list rutorna, kommer alla mått på den valda sidan att aggregeras. Till exempel: "alla" i filter alternativet erbjudande typer innebär att alla erbjudande typer har marker ATS. Detta är standard valet för List rutorna. Tillämpade filter visar inte något när **alla** är markerat.
-- **Val av flera värden**: alla mått på sidan sammanställs för alla val som görs under List rutan. Om flera val görs visas antalet gjorda val i det filter som används. Se bilden nedan som referens.
+- Erbjudandetyper och erbjudandenamn listas endast för erbjudanden som du har beställningar för under det valda datumintervallet. Erbjudandenamn i listan visas för erbjudandetyper som du har valt i listan.
+- Tillämpade filter visar det totala måttet i varje eller flera markerade markeringar för varje markerat filter. Tillämpade filter visas inte när standardmarkeringen väljs.
+- Om **Alla** är markerat för en av listrutorna sammanställs alla mått på den valda sidan. Till exempel: "Alla" i filteralternativet erbjudandetyper innebär att alla erbjudandetyper har valts. Det här är standardvalet för listrutorna. Tillämpade filter visar inte något när **Alla** är markerat.
+- **Val av flera värden**: Alla mått på sidan sammanställs för alla val som görs under listrutan. Om flera val görs visar det tillämpade filtret antalet alla val som gjorts. Se bilden nedan som referens.
 
-    ![Analys av Partner Center med flera värden som tillämpas på filtret](./media/filters-applied.png)
+    ![Partnercenter Analysera ordning med flera värden som tillämpas på filter](./media/filters-applied.png)
 
-- **Val av enstaka värde**: om ett värde är markerat visar det applicerade filtret antalet för det valda filtret. Se referensen nedan.
+- **Markering med ett enda värde**: Om ett värde är markerat visar det tillämpade filtret antalet för det filter som har valts. Se nedan bild för referens.
 
-     ![Analys av Partner Center med ett enda värde som tillämpas på filtret](./media/filters-applied-single.png)
+     ![Partnercenter Analysera ordning med ett enda värde som tillämpas på filter](./media/filters-applied-single.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-- En översikt över analys rapporter som är tillgängliga i partner Centers kommersiella marknads platser finns i [analys för den kommersiella Marketplace i Partner Center](./analytics.md).
-- För grafer, trender och värden för sammanställda data som sammanfattar Marketplace-aktivitet för ditt erbjudande, se [översikts instrument panel i](./summary-dashboard.md)marknads plats analys.
-- För virtuell dator (VM) erbjuder vi användnings-och mätnings mått i [användnings instrument panelen i den kommersiella Marketplace-analysen](./usage-dashboard.md).
-- Detaljerad information om dina kunder, inklusive tillväxt trender, finns [på kund instrument panel i affärs Marketplace-analys](./customer-dashboard.md).
-- En lista över dina nedladdnings begär Anden under de senaste 30 dagarna finns i [Hämta instrument panel i kommersiell Marketplace-analys](./downloads-dashboard.md).
-- Om du vill se en sammanställd vy över kundfeedback för erbjudanden på Azure Marketplace och AppSource, se [klassificering och granskning på instrument panelen i kommersiell Marketplace-analys](./ratings-reviews.md).
-- Vanliga frågor och svar om den kommersiella Marketplace-analysen och en omfattande ord lista med data termer finns i [vanliga frågor och termer för att få en kommersiell Marketplace-analys](./faq-terminology.md).
+- En översikt över analysrapporter som är tillgängliga på Den kommersiella marknaden för partnercenter finns i [Analytics för den kommersiella marknadsplatsen i Partner Center](./analytics.md).
+- Diagram, trender och värden för aggregerade data som sammanfattar marketplace-aktivitet för ditt erbjudande finns [i Sammanfattningsinstrumentpanel i Analys av kommersiella marknadsplatser](./summary-dashboard.md).
+- För virtuell dator (VM) erbjuder användnings- och datapriser för faktureringsmått finns [i instrumentpanelen Användning i Kommersiell Marketplace-analys](./usage-dashboard.md).
+- Detaljerad information om dina kunder, inklusive tillväxttrender, finns [i Kundinstrumentpanelen i Kommersiell Marketplace-analys](./customer-dashboard.md).
+- En lista över dina hämtningsbegäranden under de senaste 30 dagarna finns [i Instrumentpanelen Hämta filer i Kommersiell Marketplace-analys](./downloads-dashboard.md).
+- Information om hur du ser en konsoliderad vy över kundfeedback för erbjudanden på Azure Marketplace och AppSource finns [i instrumentpanelen Klassificeringar och recensioner i Kommersiell Marketplace-analys](./ratings-reviews.md).
+- Vanliga frågor och svar om Analys av kommersiella marknadsplatser och en omfattande ordlista med datatermer finns i [Vanliga frågor och terminologi för Kommersiell Marketplace-analys](./faq-terminology.md).

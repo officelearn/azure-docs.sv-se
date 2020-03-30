@@ -1,165 +1,164 @@
 ---
-title: Check lista för att skapa SaaS – kommersiell marknads plats för Azure
-description: Den information som du kan ange i SaaS för att skapa erbjudandet. – Kommersiell marknads plats för Azure
-author: MaggiePucciEvans
-manager: evansma
-ms.author: evansma
+title: SaaS erbjuder checklista för att skapa skapande – Commercial Marketplace för Azure
+description: De uppgifter du kan ange i SaaS erbjudandeskapande processen. - Kommersiell marknadsplats för Azure
+author: dsindona
+ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 08/14/2019
-ms.openlocfilehash: 8b01f15673f68bcc3fb0b205b9dd85a276c9b972
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: 60111b6a23c76314383c5f95be3eb4b38f90d3e2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75930308"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80281348"
 ---
 # <a name="saas-offer-creation-checklist"></a>Checklista för skapande av SaaS-erbjudande
 
-Processen för att skapa SaaS tar dig igenom flera sidor. Här är den information som du kan tillhandahålla på varje sida, med länkar till mer information om varje objekt.
+SaaS erbjudandeskapande processen tar dig igenom flera sidor. Här är detaljerna du kan ge på varje sida, med länkar för att lära dig mer om varje objekt.
 
-Objekt som du måste ange eller ange anges nedan. Vissa områden är valfria eller har standardvärden som du kan ändra efter behov. Du behöver inte arbeta med de här avsnitten i den ordning som visas här.
+Objekt som du måste ange eller ange anges nedan. Vissa områden är valfria eller har standardvärden som tillhandahålls, som du kan ändra efter behov. Du behöver inte arbeta med dessa avsnitt i den ordning som anges här.
 
 | **Objekt**    | **Syfte**  |
 | :---------- | :-------------------|
-| [**Nytt erbjudande modal**](#new-offer-modal) | Samlar in identitets information för erbjudandet.  |
-| [Installations sida för erbjudande](#offer-setup-page) | Gör att du kan välja att använda viktiga funktioner och välja hur du säljer ditt erbjudande via Microsoft.  |
-| [Egenskaps sida](#properties-page) | Definiera de kategorier och branscher som används för att gruppera ditt erbjudande på marknads platser, juridiska avtal som stöder ditt erbjudande och din program version. |
-| [Sida för erbjudande lista](#offer-listing-page) | Definiera information om erbjudandet som ska visas på Marketplace, inklusive beskrivningar av ditt erbjudande och marknadsförings till gångar. |
-| [Sidan förhandsgranska](#preview-page) | Definiera en begränsad förhands gransknings grupp så att du kan släppa ditt erbjudande innan du publicerar erbjudandet Live till de bredare Marketplace-användarna. |
-| [Sidan erbjud teknisk konfiguration](#technical-configuration-page)  | Endast tillgängligt om du väljer att sälja erbjudandet via Microsoft. Definiera teknisk information (URL-sökväg, webhook, klient-ID och app-ID) som används för att ansluta till ditt erbjudande. |
-| [**Ny plan modal**](#plan-identity-modal) | Samlar in information om plan identitet.  |
-| [Plan List sida](#plan-listing-page)  | Endast tillgängligt om du väljer att sälja erbjudandet via Microsoft. Definiera informationen som används för att Visa planen i Marketplace.  |
-| [Sidan planera pris & tillgänglighet](#plan-pricing--availability-page)  | Endast tillgängligt om du väljer att sälja erbjudandet via Microsoft.  Samlar in affärs egenskaper (pris modell), mål grupp och marknads tillgänglighet för varje plan (version) av erbjudandet.  |
-| [Sidan Testkör enhets listan](#test-drive-listing-page)  | Endast tillgängligt om du väljer att erbjuda en testen het för ditt erbjudande. Definiera informationen som används för att visa en lista på test enheten i Marketplace.  |
-| Sidan teknisk konfiguration för test enhet  | Endast tillgängligt om du väljer att erbjuda en testen het för ditt erbjudande. Definiera de tekniska detaljerna för demonstrationen (eller "testenheten") som gör det möjligt för kunder att prova ditt erbjudande innan de genomför köpet.  |
-| [Sidan granska och publicera](#review-and-publish-page)  | Välj de ändringar som du vill publicera, se status för varje sida och lämna kommentarer till certifierings teamet.  |
+| [**Nytt erbjudande Modal**](#new-offer-modal) | Samlar in identitetsinformation.  |
+| [Sidan Inställningar för erbjudande](#offer-setup-page) | Gör att du kan välja att använda viktiga funktioner och välja hur du vill sälja ditt erbjudande via Microsoft.  |
+| [Sidan Egenskaper](#properties-page) | Definiera de kategorier och branscher som används för att gruppera ditt erbjudande på marknadsplatserna, de juridiska kontrakt som stöder ditt erbjudande och din appversion. |
+| [Sidan Lista offer](#offer-listing-page) | Definiera de erbjudandeinformation som ska visas på marknadsplatsen, inklusive beskrivningar av ditt erbjudande och marknadsföringstillgångar. |
+| [Förhandsgranska sida](#preview-page) | Definiera en begränsad förhandsmålgrupp för att släppa ditt erbjudande innan du publicerar ditt erbjudande live till den bredare marknadsplatsens målgrupper. |
+| [Sidan För erbjudande teknisk konfiguration](#technical-configuration-page)  | Endast tillgängligt om du väljer att sälja erbjudandet via Microsoft. Definiera den tekniska information (URL-sökväg, webhook, klient-ID och app-ID) som används för att ansluta till ditt erbjudande. |
+| [**Ny plan Modal**](#plan-identity-modal) | Samlar in identitetsinformation för planen.  |
+| [Sida för listning av abonnemang](#plan-listing-page)  | Endast tillgängligt om du väljer att sälja erbjudandet via Microsoft. Definiera den information som används för att lista Planen på marknadsplatsen.  |
+| [Planera pris & tillgänglighetssida](#plan-pricing--availability-page)  | Endast tillgängligt om du väljer att sälja erbjudandet via Microsoft.  Samlar in affärsegenskaper (prismodell), målgrupp och marknadstillgänglighet för varje plan (version) av ditt erbjudande.  |
+| [Beskrivningssida för testkörning](#test-drive-listing-page)  | Endast tillgängligt om du väljer att erbjuda en provkörning för ditt erbjudande. Definiera den information som används för att lista provkörningen på marketplace.  |
+| Teknisk konfigurationssida för testkörning  | Endast tillgängligt om du väljer att erbjuda en provkörning för ditt erbjudande. Definiera de tekniska detaljerna för demonstrationen (eller "provkörningen") som gör det möjligt för kunder att prova ditt erbjudande innan de bestämmer sig för att köpa det.  |
+| [Granska och publicera sida](#review-and-publish-page)  | Välj de ändringar du vill publicera, se status för varje sida och ge anteckningar till certifieringsteamet.  |
 
 
 ## <a name="new-offer-modal"></a>Nytt erbjudande modal 
 
-De första uppgifterna du kommer att uppmanas att ange är ett ID och alias för ditt erbjudande. 
+De första informationsbitarna som du kommer att bli ombedd att ange är ett ID och alias för ditt erbjudande. 
 
-| **Fält namn**    | **Anteckningar**   |  
+| **Fältnamn**    | **Obs!**   |  
 | :---------------- | :-----------| 
-| Erbjudande-ID  | Krävs, kan inte ändras efter att det har skapats. Högst 50 tecken och får bara bestå av gemener, alfanumeriska tecken, bindestreck eller under streck. |
-| Erbjud alias  | Krävs. |
+| Erbjudande-ID  | Obligatoriskt, kan inte ändras när du har skapat. Max 50 tecken och får endast bestå av gemener, alfanumeriska tecken, streck eller understreck. |
+| Alias för erbjudande  | Krävs. |
 
-## <a name="offer-setup-page"></a>Installations sida för erbjudande
+## <a name="offer-setup-page"></a>Inställningssida för erbjudande
 
-På sidan erbjudande konfiguration kan du välja olika kanaler och sälja rörelser, samt förklara användningen av viktiga funktioner, till exempel test enhet och kund leads. 
+Inställningssidan för erbjudandet är där du kan välja mellan olika kanaler och sälja rörelser, samt deklarera användningen av viktiga funktioner, såsom provkörning och kundleads. 
 
-| **Fält namn**    | **Anteckningar**   | 
+| **Fältnamn**    | **Obs!**   | 
 | :---------------- | :-----------|  
 | Vill du sälja via Microsoft?  | Krävs. Standard: Ja |
-| Hur vill du att potentiella kunder ska kunna interagera med erbjudande listan? (Anrop till åtgärd)  | Krävs om de inte säljs via Microsoft. Standard: kostnads fri utvärderings version, alternativ: "Hämta nu", "kostnads fri utvärdering", "kontakta mig". |
-| Utvärderings-URL  | Krävs om "kostnads fri utvärdering" är valt, på det sätt som kunderna ska interagera med erbjudande listan. |
-| Erbjudande-URL  | Krävs om "Hämta nu" är valt, på det sätt som kunderna ska interagera med erbjudande listan |
-| Kanaler  | Valfri. Standard: inte att du valde CSP (åter försäljare)-kanalen.  |
-| Test Drive | Valfri. Standard: ingen testen het har Aktiver ATS.  |
-| Typ av test enhet | Krävs om den är aktive rad en testen het. Standard: inget har valts. Alternativ: Azure Resource Manager, Dynamics 365 for Business Central, Dynamics 365 för kund engagemang, Dynamics 365 for Operations, Logic app, Power BI.  |
-| Lead-hantering – Anslut till ett CRM-system | Krävs om du säljer via Microsoft eller om du har en lista över erbjudanden som "kontakta mig". Standard: inget CRM-system är anslutet. CRM-alternativ: Azure Table, Azure-Blob, Dynamics CRM Online, HTTPs-slutpunkt, Marketo, Salesforce  |
+| Hur vill du att potentiella kunder ska interagera med erbjudandelistan? (Uppmaning)  | Krävs om inte sälja via Microsoft. Standard: Gratis provperiod, Alternativ: "Hämta den nu", "Fri provperiod", "Kontakta mig". |
+| URL för utvärderingsversion  | Krävs om "Gratis provperiod" väljs, som hur kunderna ska interagera med erbjudandelistan. |
+| Url för erbjudande  | Krävs om "Get it Now" väljs, eftersom hur kunderna ska interagera med erbjudandelistan |
+| Kanaler  | Valfri. Standard: Inte valt till CSP-kanalen (återförsäljare).  |
+| Test Drive | Valfri. Standard: Ingen provkörning aktiverad.  |
+| Typ av provkörning | Krävs om en provkörning är aktiverad. Standard: Ingen markerad. Alternativ: Azure Resource Manager, Dynamics 365 för Business Central, Dynamics 365 för kundengagemang, Dynamics 365 for Operations, Logic-appen, Power BI.  |
+| Lead Management - anslut till ett CRM-system | Krävs om du säljer via Microsoft, eller om listning erbjudanden som "Kontakta mig". Standard: inget CRM-system anslutet. CRM-alternativ: Azure-tabell, Azure-blob, Dynamics CRM online, HTTPs slutpunkt, Marketo, Salesforce  |
 
 ## <a name="properties-page"></a>Sidan Egenskaper
 
-På sidan egenskaper definierar du de kategorier och branscher som används för att gruppera ditt erbjudande på Marketplace, de juridiska avtalen som stöder ditt erbjudande och din program version. Se till att tillhandahålla fullständig och korrekt information om ditt erbjudande på den här sidan, så att det visas på lämpligt sätt och erbjuds till rätt kund uppsättning. 
+Egenskapssidan definierar de kategorier och branscher som används för att gruppera ditt erbjudande på marknadsplatserna, de juridiska kontrakt som stöder ditt erbjudande och din appversion. Var noga med att ge fullständig och korrekt information om ditt erbjudande på den här sidan, så att det visas på rätt sätt och erbjuds till rätt uppsättning kunder. 
 
-| **Fält namn**    | **Anteckningar**   | 
+| **Fältnamn**    | **Obs!**   | 
 | :---------------- | :-----------|  
-| Kategori och underkategori | Krävs 1 och max 3. Standard: inget har valts. |
-| Branscher och under branscher | Valfri. högst 2 L1-branscher och högst 2 under branscher inom varje L1-bransch, standard: ingen vald |
-| Appversion  | Valfri. Standard: ingen. |
-| Använd standard kontrakt  | Valfri. Standard: inte valt.  | |
-| Användningsvillkor  | Krävs om standard kontrakt inte har valts.  |
+| Kategori och underkategori | Krävs 1 och max 3. Standard: Ingen markerad. |
+| Industrier och underindustrier | Valfri. max 2 L1 Industries och max 2 subindustrier inom varje L1-bransch, Standard: Ingen vald |
+| Appversion  | Valfri. Standard: Ingen. |
+| Använd standardkontrakt  | Valfri. Standard: inte markerat.  | |
+| Användningsvillkor  | Krävs om standardkontrakt inte är valt.  |
 
-## <a name="offer-listing-page"></a>Sida för erbjudande lista
+## <a name="offer-listing-page"></a>Sidan Lista offer
 
-På registrerings sidan är det där du anger den text och de bilder som kunderna ser när du visar ditt erbjudandes lista på Marketplace. 
+Listsidan anger den text och de bilder som kunderna ser när de visar erbjudandets uppgifter på marknadsplatsen. 
 
-| **Fält namn**    | **Anteckningar**   |
+| **Fältnamn**    | **Obs!**   |
 | :---------------- | :-----------| 
-| Namn  | Obligatoriskt, max 50 tecken. |
-| Sammanfattning  | Obligatoriskt, max 100 tecken. | 
-| Beskrivning  | Obligatoriskt, max 3000 tecken. |
-| Komma igång-instruktioner  | Obligatoriskt, max 3000 tecken. |
-| Komma igång-instruktioner  | Obligatoriskt, max 3000 tecken. |
-| Sök efter nyckelord  | Valfria, rekommenderade, max 3 nyckelord. |
-| URL för sekretess policy  | Krävs. |
-| URL för marknadsförings material för CSP-program  | Valfri. |
-| Rubrik för användbara länkar + URL  | Valfri. |
-| Rubrik för stöd dokument + fil  | Krävs, min 1 och max 3. Måste vara PDF-filformat. |
-| Skärmbilder  | Obligatorisk, minimal 1 skärm bild och max 5; fyra eller fler rekommenderas. Måste vara 1280 X 720 i PNG-format. |
-| Butiks logo typer (liten, medel, stor, widescreen, hjälte)  | Liten (48 X 48) och stor (216 X 216) krävs. andra storlekar valfria men rekommenderas: medium (90 x 90), bred (255 x 115), hjälte (815 x 290). Måste vara i PNG-format. |
-| Video namn + URL + miniatyr  | Valfria, rekommenderade, max 4 videor. Miniatyren måste vara 1280 x 720 i PNG-format. Video måste ligga i YouTube eller Vimeo. |
-| Kontakter (CSP-program, teknik, support)  | Teknisk kontakt krävs (namn, e-postadress och telefonnummer). CSP-programmet kontaktar valfritt men rekommenderas. |
-| Support-URL  | Krävs. |
+| Namn  | Krävs, max 50 tecken. |
+| Sammanfattning  | Krävs, max 100 tecken. | 
+| Beskrivning  | Krävs, max 3000 tecken. |
+| Instruktioner för komma igång  | Krävs, max 3000 tecken. |
+| Instruktioner för komma igång  | Krävs, max 3000 tecken. |
+| Sök nyckelord  | Valfritt, rekommenderas, max 3 sökord. |
+| Url till sekretesspolicy  | Krävs. |
+| CSP Program Marknadsföringsmaterial URL  | Valfri. |
+| Användbara länkar Titel + URL  | Valfri. |
+| Rubrik + fil i namnuppring  | Krävs, min 1 och max 3. Måste vara PDF-filformat. |
+| Skärmbilder  | Krävs, min 1 skärmdump och max 5; fyra eller fler rekommenderas. Måste vara 1280 X 720 i PNG-format. |
+| Lagra logotyper (liten, medel, stor, bred, hjälte)  | Små (48 X 48) och Large (216 X 216) krävs; andra storlekar tillval men rekommenderas: Medium (90 x 90), Wide (255 x 115), Hero (815 x 290). Måste vara i PNG-format. |
+| Videor namn + URL + miniatyr  | Tillval, rekommenderas, max 4 videor. Miniatyren måste vara 1280 x 720 i PNG-format. Video måste finnas på YouTube eller Vimeo. |
+| Kontakter (CSP-program, teknik, support)  | Teknisk och supportkontakt krävs (namn, e-post och telefonnummer); CSP Program kontakt valfritt men rekommenderas. |
+| Url:en för support  | Krävs. |
 
-## <a name="preview-page"></a>Sidan förhandsgranska
+## <a name="preview-page"></a>Sidan Förhandsgranska
 
-På sidan förhands granskning kan du ange vilken mål grupp som ska ha åtkomst till din för hands version av erbjudandet, för att kontrol lera att erbjudandet uppfyller alla krav innan det går live. 
+Förhandsgranskningssidan anger målgruppen för att få tillgång till förhandsgranskningen av erbjudandet för att verifiera att erbjudandet uppfyller alla dina krav innan det publiceras. 
 
-| **Fält namn**    | **Anteckningar**   | 
+| **Fältnamn**    | **Obs!**   | 
 | :---------------- | :-----------| 
-| AAD/MSA e-post + Beskrivning | Krävs, min 1 och max 10 om de anges manuellt, eller upp till 20 vid överföring av en CSV-fil. |
+| AAD/MSA e-post + beskrivning | Krävs, min 1 och max 10 om de anges manuellt, eller upp till 20 om du laddar upp en CSV-fil. |
 
-## <a name="technical-configuration-page"></a>Sidan teknisk konfiguration 
+## <a name="technical-configuration-page"></a>Sida för teknisk konfiguration 
 
-På sidan teknisk konfiguration anger du de tekniska uppgifter som används av Microsoft för att ansluta till ditt erbjudande. Den här sidan visas inte om du valde att inte sälja via Microsoft.
+Den tekniska konfigurationssidan anger den tekniska information som Microsoft använder för att ansluta till ditt erbjudande. Den här sidan är inte synlig för dig om du har bestämt dig för att inte sälja via Microsoft.
 
-| **Fält namn**    | **Anteckningar**   |  
+| **Fältnamn**    | **Obs!**   |  
 | :---------------- | :-----------| 
-| URL för landnings sida | Krävs om du säljer via Microsoft. |
-| Anslutning-webhook | Krävs om du säljer via Microsoft. |
+| URL till målsidan | Krävs om du säljer via Microsoft. |
+| Anslutning webhook | Krävs om du säljer via Microsoft. |
 | Azure AD-klient-ID | Krävs om du säljer via Microsoft. |
-| ID för Azure AD-App | Krävs om du säljer via Microsoft. |
+| Azure AD-app-ID | Krävs om du säljer via Microsoft. |
 
-## <a name="plan-identity-modal"></a>Planera identitet, modal
+## <a name="plan-identity-modal"></a>Planera identitetsmodalitet
 
-De första delarna av informationen som du uppmanas att ange är ett namn och ett ID för din plan. Den här sidan är inte synlig för dig om du har valt att inte sälja via Microsoft.
+Den första informationen som du uppmanas att ange är ett namn och ett ID för din plan. Den här sidan är inte synlig för dig om du har bestämt dig för att inte sälja via Microsoft.
 
-| **Fält namn**    | **Anteckningar**   |  
+| **Fältnamn**    | **Obs!**   |  
 | :---------------- | :-----------| 
-| Plan-ID  | Krävs om du säljer via Microsoft. Den kan inte ändras efter att den har skapats. Högst 50 tecken och får bara bestå av gemener, alfanumeriska tecken, bindestreck eller under streck. |
-| Plannamn  | Krävs om du säljer via Microsoft. Måste vara unikt för alla planer i erbjudandet. Högst 50 tecken. |
+| Plan-ID  | Krävs om du säljer via Microsoft. Det kan inte ändras efter skapandet. Max 50 tecken och får endast bestå av gemener, alfanumeriska tecken, streck eller understreck. |
+| Plannamn  | Krävs om du säljer via Microsoft. Måste vara unik i alla planer i erbjudandet. Max 50 tecken. |
 
-## <a name="plan-listing-page"></a>Plan List sida
+## <a name="plan-listing-page"></a>Sidan Planera listning
 
-På sidan med prenumerations listan kan du se hur kunderna ser när de visar planen i Marketplace. Den här sidan visas inte om du valde att inte sälja via Microsoft.
+På listsidan finns den plats där du anger texten som kunderna kan se när de visar planen på marknadsplatsen. Den här sidan är inte synlig för dig om du har bestämt dig för att inte sälja via Microsoft.
 
-| **Fält namn**    | **Anteckningar**   |  
+| **Fältnamn**    | **Obs!**   |  
 | :---------------- | :-----------| 
-| Beskrivning av plan   | Krävs om du säljer via Microsoft. Högst 500 tecken. | |
+| Beskrivning av planen   | Krävs om du säljer via Microsoft. Max 500 tecken. | |
 
-## <a name="plan-pricing--availability-page"></a>Sidan planera pris & tillgänglighet
+## <a name="plan-pricing--availability-page"></a>Planera pris & tillgänglighetssida
 
-På sidan planera priser och tillgänglighet kan du definiera affärs egenskaper, mål grupp och marknads tillgänglighet för varje plan (version) av erbjudandet. Den här sidan visas inte om du valde att inte sälja via Microsoft.
+Sidan för planpriser och tillgänglighet definierar du affärsegenskaper, målgrupp och marknadstillgänglighet för varje plan (version) av erbjudandet. Den här sidan är inte synlig för dig om du har bestämt dig för att inte sälja via Microsoft.
 
-| **Fält namn**    | **Anteckningar**   | 
+| **Fältnamn**    | **Obs!**   | 
 | :---------------- | :-----------| 
-| Marknads tillgänglighet  | Krävs, min 1 och Max 141. |
-| Prismodell  | Krävs. Standard: fast pris. Alternativ: fast pris, per användare. |
-| Lägsta och högsta antal platser  | Valfritt, endast tillgängligt om den platsbaserade pris modellen har valts. |
-| Fakturerings period  | Krävs. Standard: varje månad. Alternativ: månatlig, årlig. |
-| Pris  | Krävs USD per månad om fakturerings perioden per månad har valts. eller USD per år om årlig fakturerings period har valts. |
-| Planera mål grupp  | Valfri. Standard: offentlig plan. Alternativ: offentligt, privat efter klient-ID |
-| Begränsad Plans mål grupp (klient-ID + beskrivning)  | Krävs om privat plan har valts. Minst 1 och max 10 klient-ID: n om de anges manuellt. Max 20000 om import av CSV-fil. |
+| Tillgänglighet på marknaden  | Krävs, min 1 och max 141. |
+| Prismodell  | Krävs. Standard: Schablonbelopp. Alternativ: Schablonbelopp, per användare. |
+| Lägsta och högsta platser  | Valfritt, endast tillgängligt om platsbaserad prismodell har valts. |
+| Faktureringsperiod  | Krävs. Standard: Månadsvis. Alternativ: Månadsvis, årligt. |
+| Pris  | Krävs USD per månad, om månatlig faktureringsperiod vald; USD per år om den årliga faktureringsperioden väljs. |
+| Planera målgrupp  | Valfri. Standard: Offentlig plan. Alternativ: Offentligt, Privat efter klient-ID |
+| Begränsad planmålgrupp (klient-ID + beskrivning)  | Krävs om privat plan väljs. Min 1 och max 10 klient-ID om de anges manuellt. Max 20000 om CSV-fil importeras. |
 
-## <a name="test-drive-listing-page"></a>Sidan Testkör enhets listan
+## <a name="test-drive-listing-page"></a>Sidan Test drive-lista
 
-Endast tillgängligt om du väljer att erbjuda en testen het för ditt erbjudande. Definiera informationen som används för att visa en lista på test enheten i Marketplace.
+Endast tillgängligt om du väljer att erbjuda en provkörning för ditt erbjudande. Definiera den information som används för att lista provkörningen på marketplace.
 
-| **Fält namn**    | **Anteckningar**   | 
+| **Fältnamn**    | **Obs!**   | 
 | :---------------- | :-----------| 
 | Beskrivning  | Krävs. |
-| Användarens manuella namn + fil  | Obligatoriskt, max 1 dokument måste vara PDF-format. |
-| Video namn, URL + miniatyr  | Valfritt, rekommenderas. Miniatyr bilden måste vara 533 x 324 i JPGP-eller PNG-format. Video måste ligga i YouTube eller Vimeo. |
+| Namn + fil för användarhandbok  | Krävs, max 1 doc. Måste vara PDF-format. |
+| Videonamn, URL + miniatyr  | Valfritt, rekommenderas. Miniatyren måste vara 533 x 324 i JPGP- eller PNG-format. Video måste finnas på YouTube eller Vimeo. |
 
-## <a name="review-and-publish-page"></a>Sidan granska och publicera
+## <a name="review-and-publish-page"></a>Granska och publicera sida
 
-| **Fält namn**    | **Anteckningar**   | 
+| **Fältnamn**    | **Obs!**   | 
 | :---------------- | :-----------| 
-| Information om certifiering  | Valfri. |
+| Anmärkningar för certifiering  | Valfri. |
 
 ## <a name="next-steps"></a>Nästa steg
 

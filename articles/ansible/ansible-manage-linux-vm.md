@@ -1,6 +1,6 @@
 ---
-title: Snabb start – hantera virtuella Linux-datorer i Azure med Ansible
-description: I den här snabb starten lär du dig att hantera en virtuell Linux-dator i Azure med Ansible
+title: Snabbstart – hantera virtuella Linux-datorer i Azure med Ansible
+description: I den här snabbstarten kan du lära dig hur du hanterar en virtuell Linux-dator i Azure med Ansible
 keywords: ansible, azure, devops, bash, cloudshell, playbook, bash
 ms.topic: quickstart
 ms.service: ansible
@@ -8,18 +8,18 @@ author: tomarchermsft
 manager: gwallace
 ms.author: tarcher
 ms.date: 04/30/2019
-ms.openlocfilehash: 90113373535c835e5cddf707bcb520789e596aec
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: d94858391951aaf9387394afeb5ad2ae373fa7b5
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77202405"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80239536"
 ---
-# <a name="quickstart-manage-linux-virtual-machines-in-azure-using-ansible"></a>Snabb start: hantera virtuella Linux-datorer i Azure med Ansible
+# <a name="quickstart-manage-linux-virtual-machines-in-azure-using-ansible"></a>Snabbstart: Hantera virtuella Linux-datorer i Azure med Ansible
 
-Med Ansible kan du automatisera distributionen och konfigurationen av resurser i din miljö. I den här artikeln använder du en Ansible-Spelbok för att starta och stoppa en virtuell Linux-dator. 
+Med Ansible kan du automatisera distributionen och konfigurationen av resurser i din miljö. I den här artikeln använder du en Ansible-spelbok för att starta och stoppa en virtuell Linux-dator. 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 [!INCLUDE [open-source-devops-prereqs-azure-sub.md](../../includes/open-source-devops-prereqs-azure-subscription.md)]
 [!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-cloudshell-use-or-vm-creation2.md)]
@@ -32,9 +32,9 @@ I det här avsnittet använder du Ansible för att frigöra (stoppa) en virtuell
 
 1. Öppna [Cloud Shell](/azure/cloud-shell/overview).
 
-1. Skapa en fil med namnet `azure-vm-stop.yml`och öppna den i redigeraren:
+1. Skapa en `azure-vm-stop.yml`fil med namnet och öppna den i redigeraren:
 
-    ```azurecli-interactive
+    ```bash
     code azure-vm-stop.yml
     ```
 
@@ -52,17 +52,17 @@ I det här avsnittet använder du Ansible för att frigöra (stoppa) en virtuell
             allocated: no
     ```
 
-1. Ersätt plats hållarna `{{ resource_group_name }}` och `{{ vm_name }}` med dina värden.
+1. Ersätt `{{ resource_group_name }}` platshållarna och `{{ vm_name }}` platshållarna med dina värden.
 
-1. Spara filen och avsluta redigeraren.
+1. Spara filen och avsluta redigeringsprogrammet.
 
-1. Kör Spelbok med kommandot `ansible-playbook`:
+1. Kör spelboken med `ansible-playbook` kommandot:
 
     ```bash
     ansible-playbook azure-vm-stop.yml
     ```
 
-1. När du har kört Spelbok visas utdata som liknar följande resultat:
+1. När du har kört spelboken visas utdata som liknar följande resultat:
 
     ```bash
     PLAY [Stop Azure VM] ********************************************************
@@ -79,15 +79,15 @@ I det här avsnittet använder du Ansible för att frigöra (stoppa) en virtuell
 
 ## <a name="start-a-virtual-machine"></a>Starta en virtuell dator
 
-I det här avsnittet använder du Ansible för att starta en avallokerad virtuell Azure-dator (Stoppad).
+I det här avsnittet använder du Ansible för att starta en virtuell azure-dator med deallocated (stoppad).
 
 1. Logga in på [Azure-portalen](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 
 1. Öppna [Cloud Shell](/azure/cloud-shell/overview).
 
-1. Skapa en fil med namnet `azure-vm-start.yml`och öppna den i redigeraren:
+1. Skapa en `azure-vm-start.yml`fil med namnet och öppna den i redigeraren:
 
-    ```azurecli-interactive
+    ```bash
     code azure-vm-start.yml
     ```
 
@@ -104,17 +104,17 @@ I det här avsnittet använder du Ansible för att starta en avallokerad virtuel
             name: {{ vm_name }}
     ```
 
-1. Ersätt plats hållarna `{{ resource_group_name }}` och `{{ vm_name }}` med dina värden.
+1. Ersätt `{{ resource_group_name }}` platshållarna och `{{ vm_name }}` platshållarna med dina värden.
 
-1. Spara filen och avsluta redigeraren.
+1. Spara filen och avsluta redigeringsprogrammet.
 
-1. Kör Spelbok med kommandot `ansible-playbook`:
+1. Kör spelboken med `ansible-playbook` kommandot:
 
     ```bash
     ansible-playbook azure-vm-start.yml
     ```
 
-1. När du har kört Spelbok visas utdata som liknar följande resultat:
+1. När du har kört spelboken visas utdata som liknar följande resultat:
 
     ```bash
     PLAY [Start Azure VM] ********************************************************
@@ -132,4 +132,4 @@ I det här avsnittet använder du Ansible för att starta en avallokerad virtuel
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"] 
-> [Självstudie: hantera Azures dynamiska lager med Ansible](./ansible-manage-azure-dynamic-inventories.md)
+> [Självstudiekurs: Hantera dynamiska Azure-inventeringar med Ansible](./ansible-manage-azure-dynamic-inventories.md)

@@ -1,53 +1,56 @@
 ---
-title: Flytta din tjänst resurs över flera regioner
+title: Så här flyttar du tjänstresursen mellan regioner
 titleSuffix: Azure Cognitive Search
-description: I den här artikeln visas hur du flyttar dina Azure Kognitiv sökning-resurser från en region till en annan i Azure-molnet.
+description: Den här artikeln visar hur du flyttar dina Azure Cognitive Search-resurser från en region till en annan i Azure-molnet.
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: how-to
 ms.custom: subject-moving-resources
-ms.date: 03/06/2020
-ms.openlocfilehash: c31a81d2836e9f8c00dec3c0c2eb3a43800a5322
-ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
+ms.date: 03/24/2020
+ms.openlocfilehash: 00f16d11f7a9cd276772eda5e91d6e117ada8c9f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2020
-ms.locfileid: "79136269"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80246313"
 ---
-# <a name="move-your-azure-cognitive-search-service-to-another-azure-region"></a>Flytta din Azure Kognitiv sökning-tjänst till en annan Azure-region
+# <a name="move-your-azure-cognitive-search-service-to-another-azure-region"></a>Flytta din Azure Cognitive Search-tjänst till en annan Azure-region
 
-Ibland frågar kunden om att flytta en befintlig Sök tjänst till en annan region. För närvarande finns det inga inbyggda mekanismer eller verktyg som hjälper dig med den uppgiften. Den är fortfarande en manuell process, som beskrivs nedan i den här artikeln.
+Ibland frågar kunderna om att flytta en söktjänst till en annan region. För närvarande finns det ingen inbyggd mekanism eller verktyg för att hjälpa till med den uppgiften, men den här artikeln kan hjälpa dig att förstå de manuella stegen för att uppnå samma resultat.
 
 > [!NOTE]
-> I Azure Portal har alla tjänster ett kommando för att **Exportera mall** . När det gäller Azure Kognitiv sökning ger det här kommandot en grundläggande definition av en tjänst (namn, plats, nivå, replik och partition), men känner inte igen innehållet i din tjänst, inte heller med nycklar, roller eller loggar. Även om kommandot finns rekommenderar vi inte att du använder det för att flytta en Sök tjänst.
+> I Azure-portalen har alla tjänster kommandot **Exportera mall.** När det gäller Azure Cognitive Search skapar det här kommandot en grundläggande definition av en tjänst (namn, plats, nivå, replik och partitionsantal), men känner inte igen innehållet i tjänsten och överför inte heller nycklar, roller eller loggar. Även om kommandot finns rekommenderar vi inte att du använder det för att flytta en söktjänst.
 
-## <a name="steps-for-moving-a-service"></a>Steg för att flytta en tjänst
+## <a name="guidance-for-moving-a-service"></a>Vägledning för att flytta en tjänst
 
-Om du behöver flytta en Sök tjänst till en annan region bör din metod se ut ungefär så här:
+1. Identifiera beroenden och relaterade tjänster för att förstå den fulla effekten av att flytta en tjänst, om du behöver flytta mer än bara Azure Cognitive Search.
 
-1. Identifiera relaterade tjänster för att förstå den fullständiga effekten av att flytta en tjänst. Du kanske använder Azure Storage för loggning, kunskaps lager eller som en extern data källa. Du kanske använder Cognitive Services för AI-anrikning. Åtkomst till tjänster i andra regioner är vanligt, men levereras med ytterligare bandbredds kostnader. Cognitive Services-och Azure-Kognitiv sökning måste vara i samma region om du använder AI-anrikning.
+   Azure Storage används för loggning, skapa ett kunskapslager och är en vanlig extern datakälla för AI-anrikning och indexering. Cognitive Services är ett beroende av AI-anrikning. Både Cognitive Services och din söktjänst måste finnas i samma region om du använder AI-anrikning.
 
-1. Inventera din befintliga tjänst för en fullständig lista över objekt på tjänsten. Om du har aktiverat loggning kan du skapa och arkivera eventuella rapporter som du kan behöva för en historisk post.
+1. Skapa en inventering av alla objekt på tjänsten så att du vet vad du ska flytta: index, synonymkartor, indexerare, datakällor, skillsets. Om du har aktiverat loggning kan du skapa och arkivera alla rapporter som du kan behöva för en historisk post.
 
-1. Kontrol lera priserna och tillgängligheten i den nya regionen för att säkerställa tillgängligheten för Azure Kognitiv sökning plus relaterade tjänster som du kanske vill skapa i samma region. Sök efter funktions paritet. Vissa för hands versions funktioner har begränsad tillgänglighet.
+1. Kontrollera priser och tillgänglighet i den nya regionen för att säkerställa tillgängligheten för Azure Cognitive Search plus alla relaterade tjänster i den nya regionen. De flesta funktioner är tillgängliga i alla regioner, men vissa förhandsversionsfunktioner har begränsad tillgänglighet.
 
-1. Skapa en tjänst i den nya regionen och publicera från käll koden om befintliga index, indexerare, data källor, färdighetsuppsättningar, kunskaps lager och synonym kartor. Tjänst namn måste vara unika så du kan inte återanvända det befintliga namnet.
+1. Skapa en tjänst i den nya regionen och publicera om från källkoden alla befintliga index, synonymkartor, indexerare, datakällor och kunskaper. Kom ihåg att tjänstnamn måste vara unika så att du inte kan återanvända det befintliga namnet. Kontrollera varje kompetens för att se om anslutningar till Cognitive Services fortfarande är giltiga när det gäller samma region krav. Om kunskapslager skapas kontrollerar du anslutningssträngarna för Azure Storage om du använder en annan tjänst.
 
-1. Läs in index och kunskaps lager igen, om tillämpligt. Du använder antingen program kod för att skicka JSON-data till ett index eller köra indexerare på nytt för att hämta dokument från externa källor. 
+1. Ladda om index och kunskapsbutiker, om tillämpligt. Du använder antingen programkod för att skicka JSON-data till ett index eller köra indexerare igen för att hämta dokument från externa källor. 
 
-1. Aktivera loggning och skapa säkerhets roller igen om du använder dem.
+1. Aktivera loggning och om du använder dem återskapar du säkerhetsroller.
 
-1. Uppdatera klient program och test paket för att använda det nya tjänst namnet och API-nycklarna och testa alla program.
+1. Uppdatera klientprogram och testsviter för att använda det nya tjänstnamnet och API-nycklarna och testa alla program.
 
-1. Ta bort den gamla tjänsten när den nya tjänsten är fullständigt testad och fungerar.
+1. Ta bort den gamla tjänsten när den nya tjänsten är fullständigt testad och i drift.
 
 ## <a name="next-steps"></a>Nästa steg
 
+Följande länkar kan hjälpa dig att hitta mer information när du slutför stegen ovan.
+
++ [Azure Cognitive Search prissättning och regioner](https://azure.microsoft.com/pricing/details/search/)
 + [Välj en nivå](search-sku-tier.md)
-+ [Skapa en Sök tjänst](search-create-service-portal.md)
-+ [Läs in Sök dokument](search-what-is-data-import.md)
++ [Skapa en söktjänst](search-create-service-portal.md)
++ [Ladda sökdokument](search-what-is-data-import.md)
 + [Aktivera loggning](search-monitor-logs.md)
 
 

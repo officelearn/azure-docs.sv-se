@@ -1,39 +1,38 @@
 ---
-title: Skapa ett konsult erbjudande | Azure Marketplace
-description: Skapa ett Azure-eller Dynamics 365 Consulting service-erbjudande i Cloud Partner Portal för Azure Marketplace.
-services: Azure, Marketplace, Cloud Partner Portal,
+title: Skapa ett konsulterbjudande | Azure Marketplace
+description: Skapa ett Azure- eller Dynamics 365-konsulttjänsterbjudande i Cloud Partner Portal för Azure Marketplace.
 author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/30/2018
-ms.author: pabutler
-ms.openlocfilehash: 0cea0810300db1448540f58aa25b5f3197080d0e
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: c2700339a7ac8342da0250227cff898c20e60118
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73818159"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80278560"
 ---
-# <a name="create-a-consulting-offer"></a>Skapa ett konsult erbjudande
+# <a name="create-a-consulting-offer"></a>Skapa ett konsulterbjudande
 
-Den här artikeln beskriver hur du skapar och publicerar ett konsult tjänst erbjudande.
+I den här artikeln beskrivs hur du skapar och publicerar ett konsulttjänsterbjudande.
 
 ## <a name="define-your-offer"></a>Definiera ditt erbjudande
 
-Definiera ditt utbud av paketlösningar för konsult tjänster. Fokusera på det fasta omfånget, fast varaktighet, uppskattat fast pris (eller kostnads fritt) och i första hand försäljnings erbjudanden för en enskild kund. Välj upprepnings bara paketerade åtaganden som är populära och effektiva när du driver nya företag.
+Definiera ditt paketerade konsulttjänsterbjudande. Fokus på fast omfattning, fast löptid, uppskattat fast pris (eller gratis) och främst presales-orienterade erbjudanden för en enda kund. Välj repeterbara paketerade engagemang som är populära och effektiva när det gäller att driva nya affärer åt dig.
 
 ## <a name="create-a-new-offer"></a>Skapa ett nytt erbjudande
 
-Följ dessa steg om du vill skapa ett nytt erbjudande.
-1. På huvud menyn i Cloud Partner Portal väljer du **nytt erbjudande**.
-1. På menyn **ny erbjudande** väljer du **konsult tjänst**.
+Så här skapar du ett nytt erbjudande.
+1. Välj **Nytt erbjudande**på huvudmenyn i Molnpartnerportalen.
+1. På menyn **Nytt erbjudande** väljer du **Konsulttjänst**.
 
-    ![Skapa ett nytt konsult tjänst erbjudande](media/cppselectnewconsultingoffer.png)
+    ![Skapa ett nytt erbjudande om konsulttjänster](media/cppselectnewconsultingoffer.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-Den **nya erbjudande** sidan för konsult tjänstens erbjudande typ innehåller en uppsättning flikar och formulär fält som du använder för att skapa ett nytt erbjudande. I följande artiklar förklaras hur du använder fliken för att definiera erbjudande inställningarna och information om butik för ditt nya erbjudande:
+På sidan **Nytt erbjudande** för erbjudandetypen för konsulttjänster finns en uppsättning flikar och formulärfält som du använder för att skapa ett nytt erbjudande. I följande artiklar beskrivs hur du använder fliken för att definiera erbjudandeinställningar och skyltfönsterinformation för ditt nya erbjudande:
 
--   [Definiera erbjudande inställningar](./cpp-consulting-service-define-offer-settings.md)
--   [Ange butik-information och om du vill publicera på Azure Marketplace eller på AppSource](./cpp-consulting-service-storefront-details.md)
+-   [Definiera erbjudandeinställningar](./cpp-consulting-service-define-offer-settings.md)
+-   [Ange information i ett skyltfönster och om du vill publicera på Azure Marketplace eller på AppSource](./cpp-consulting-service-storefront-details.md)

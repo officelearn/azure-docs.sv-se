@@ -1,199 +1,198 @@
 ---
-title: Leverantörer av moln lösningar | Azure Marketplace
-description: Utgivare kan nu sälja sina erbjudanden via partner kanalen för Microsoft Cloud Solution Provider (CSP).
-services: Azure, Marketplace, Compute, Storage, Networking, Partner Center
-author: ChJenk
+title: Leverantörer av molnlösningar | Azure Marketplace
+description: Utgivare kan nu sälja sina erbjudanden via Microsoft Cloud Solution Provider (CSP) partnerkanal.
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/12/2019
-ms.author: v-chjen
-ms.openlocfilehash: 546702af671cfe9506a4fc0448f40b7b8353960c
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.author: dsindona
+ms.openlocfilehash: 9d7cbdd5ad551ba48f08f62237d5384aa7998fb8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74038665"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80281671"
 ---
 # <a name="cloud-solution-providers"></a>Leverantörer av molnlösningar
 
-Program varu erbjudanden kan uppnå miljon tals kvalificerade Microsoft-kunder som betjänas av partners i Cloud Solution Provider (CSP)-programmet, utöver offentlig tillgänglighet för erbjudanden via [Microsoft-butiker](https://docs.microsoft.com/azure/marketplace/comparing-appsource-azure-marketplace).
+Programvaruerbjudanden kan nå miljontals kvalificerade Microsoft-kunder som betjänas av partner i CSP-programmet (Cloud Solution Provider), förutom allmänhetens tillgänglighet för erbjudanden via [Microsofts webbfönster.](https://docs.microsoft.com/azure/marketplace/comparing-appsource-azure-marketplace)
 
-Utgivare konfigurerar erbjudanden för tillgänglighet i CSP-programmet för en valbarhet, för ett nytt erbjudande eller ett befintligt erbjudande, och gör det möjligt för partner att sälja dina produkter och skapa sammanställda lösningar för kunder.
+Utgivare konfigurerar erbjudanden om tillgänglighet i CSP-programmet på opt-in-basis, för ett nytt erbjudande eller ett befintligt erbjudande, vilket gör det möjligt för partner att sälja dina produkter och skapa paketerade lösningar för kunder.
 
-Utgivare ansvarar för att tillhandahålla stöd för att ge support för att ge slutanvändarna möjlighet att ge support för partner i CSP-programmet och/eller kunder att kontakta dig. Det är en bra idé att tillhandahålla partner i CSP-programmet med användar dokumentation, utbildning och tjänst hälso-och avbrotts meddelanden (i förekommande fall) så att partner i CSP-programmet är utrustade för att hantera support förfrågningar på nivå 1 från kunder.  
+Utgivare ansvarar för att tillhandahålla break-fix-support till slutkunder och för att tillhandahålla en mekanism för partner i CSP-programmet och/eller kunder att kontakta dig för support. Det är en bästa praxis att förse partner i CSP-programmet med användardokumentation, utbildning och meddelanden om hälso- och sjukvård/avbrott för tjänster (beroende på vad som är tillämpligt) så att partner i CSP-programmet är utrustade för att hantera supportförfrågningar på nivå 1 från kunder.  
 
-Följande erbjudanden är berättigade att välja att säljas av partner i CSP-programmet:
+Följande erbjudanden är berättigade att väljas in för att säljas av partners i CSP-programmet:
 
-- SaaS-erbjudanden (Software-as-a-Service)
-- Virtuella datorer
+- SaaS-transact-erbjudanden (Software-as-a-Service)
+- Virtuella datorer (virtuella datorer)
 - Lösningsmallar
 - Hanterade program
 
 > [!NOTE]
-> Behållare och ta med din egen licens (BYOL) VM SKU: er väljs att säljas av partner i CSP-programmet som standard.
+> Behållare och ta med din egen licens (BYOL) VM SKU:er har valt att säljas av partner i CSP-programmet som standard.
 
 ## <a name="how-to-configure-an-offering"></a>Så här konfigurerar du ett erbjudande
 
-Inställningen för att välja CSP-program konfigureras i Partner Center eller i Cloud Partner Portal skapa ett erbjudande. [Lär dig mer om den ändrade utgivarens upplevelse](https://www.microsoftpartnercommunity.com/t5/Azure-Marketplace-and-AppSource/Cloud-Marketplace-In-Partner-Center/m-p/9738#M293).
+Opt-in-inställningen för CSP-program är konfigurerad i Partner Center eller Cloud Partner Portal erbjuder upplevelse av att skapa. [Läs mer om den föränderliga förlagsupplevelsen](https://www.microsoftpartnercommunity.com/t5/Azure-Marketplace-and-AppSource/Cloud-Marketplace-In-Partner-Center/m-p/9738#M293).
 
-### <a name="partner-center-opt-in"></a>Deltagande i Partner Center
+### <a name="partner-center-opt-in"></a>Opt-in-partnercenter
 
-I Partner Center hittar du deltagande upplevelsen under modulen CSP åter försäljare.
+I Partner Center hittar du opt-in-upplevelsen under CSP-återförsäljarmodulen.
 
-![CSP åter försäljarens publik](media/marketplace-publishers-guide/csp-reseller-audience.png)
+![CSP-återförsäljares publik](media/marketplace-publishers-guide/csp-reseller-audience.png)
 
-I Audience-modulen för CSP-åter försäljaren finns tre alternativ att välja mellan:
+I målgruppsmodulen för CSP-återförsäljare har du tre alternativ att välja mellan:
 
-- Alternativ ett: alla partner i CSP-programmet
-- Alternativ två: vissa partner i CSP-programmet som jag väljer
-- Alternativ tre: inga partner i CSP-programmet
+- Alternativ ett: Alla partner i CSP-programmet
+- Alternativ två: Specifika partner i CSP-programmet väljer jag
+- Alternativ tre: Inga partner i CSP-programmet
 
-#### <a name="option-one-any-partner-in-the-csp-program"></a>Alternativ ett: alla partner i CSP-programmet
+#### <a name="option-one-any-partner-in-the-csp-program"></a>Alternativ ett: Alla partner i CSP-programmet
 
 ![Alla partner i CSP-programmet](media/marketplace-publishers-guide/csp-reseller-option-one.png)
 
- Genom att välja det här alternativet är alla partner i CSP-programmet berättigade till att sälja erbjudandet till sina kunder.
+ Genom att välja det här alternativet är alla partner i CSP-programmet berättigade att sälja ditt erbjudande vidare till sina kunder.
 
-#### <a name="option-two-specific-partners-in-the-csp-program-i-select"></a>Alternativ två: vissa partner i CSP-programmet som jag väljer
+#### <a name="option-two-specific-partners-in-the-csp-program-i-select"></a>Alternativ två: Specifika partner i CSP-programmet väljer jag
 
-![Vissa partner i CSP-programmet som jag väljer](media/marketplace-publishers-guide/csp-reseller-option-two.png)
+![Specifika partners i CSP-programmet väljer jag](media/marketplace-publishers-guide/csp-reseller-option-two.png)
 
-Genom att välja det här alternativet godkänner du vilka partner i CSP-programmet som är berättigade att sälja erbjudandet.
+Genom att välja det här alternativet godkänner du vilka partner i CSP-programmet som är berättigade att sälja ditt erbjudande vidare.
 
-Om du vill godkänna partner klickar du på **Välj CSP-partner** och en meny visas där du kan söka efter partner namn eller CSP Azure Active Directory (AAD) klient-ID.
+Om du vill auktorisera partner klickar du på **Välj CSP-partner** och en meny visas som gör att du kan söka efter partnernamn eller CSP Azure Active Directory (AAD) klient-ID.
 
-![Välj CSP-menyn](media/marketplace-publishers-guide/csp-pop-up-module.png)
+![Välj CSP-meny](media/marketplace-publishers-guide/csp-pop-up-module.png)
 
-Du kan använda Sök filter, till exempel **land**, **kompetens**eller **kunskap**.
+Du kan använda sökfilter, till exempel **Land,** **Kompetens**eller **Färdighet**.
 
-![Lands-, kompetens-och kunskaps filter för partner sökning](media/marketplace-publishers-guide/csp-add-resellers.png)
+![Land-, kompetens- och färdighetsfilter för partnersökning](media/marketplace-publishers-guide/csp-add-resellers.png)
 
-När du har valt listan över partners väljer du **Lägg till**.
+När du har valt listan över partner väljer du **Lägg till**.
 
-![Exempel lista över behöriga partner i CSP-programmet](media/marketplace-publishers-guide/csp-add-resellers-details.png)
+![Exempellista över behöriga partner i CSP-programmet](media/marketplace-publishers-guide/csp-add-resellers-details.png)
 
-En tabell som visar listan över partner som du har valt visas på mål sidan för CSP-åter försäljaren.
+En tabell med listan över partner som du har valt visas på målgruppssidan för CSP-återförsäljare.
 
-![Tabell med lista över partner på sidan för CSP-åter försäljaren](media/marketplace-publishers-guide/csp-option-two-add-reseller.png)
+![Tabell med en lista över partner på målgruppssidan för CSP-återförsäljare](media/marketplace-publishers-guide/csp-option-two-add-reseller.png)
 
-Välj **Spara utkast** för att registrera dina ändringar.
+Välj **Spara utkast** om du vill registrera ändringarna.
 
-Om erbjudandet är avpublicerat måste du publicera ditt erbjudande för att göra det tillgängligt för dina valda partner.
+Om det här erbjudandet är opublicerat måste du publicera erbjudandet för att göra det tillgängligt för dina valda partner.
 
 >[!NOTE]
->Om du godkänner en partner i CSP-programmet i en viss region kan de sälja erbjudandet till alla kunder som tillhör den aktuella regionen. Mer information om hur CSP-erbjudanden klassificeras finns i avsnittet om [program i Cloud Solution Provider-program, regionala marknader och valutor](https://docs.microsoft.com/partner-center/regional-authorization-overview) .
+>Om du godkänner en partner i CSP-programmet i en viss region kan de sälja erbjudandet till alla kunder som tillhör den regionen. Se [Cloud Solution Provider program regionala marknader och valuta](https://docs.microsoft.com/partner-center/regional-authorization-overview) för mer information om hur CSP erbjudanden klassificeras under regioner.
 
-Om du uppdaterar CSP-listan för ett redan publicerat erbjudande lägger du till ytterligare partner och väljer **Synkronisera CSP-mål**.
+Om du uppdaterar CSP-listan över ett redan publicerat erbjudande lägger du till ytterligare partner och väljer **Synkronisera CSP-målgrupp**.
 
-Om du har ett erbjudande som redan har en lista över behöriga partner och du vill använda samma lista för ett annat erbjudande, använder du **import/export**. Gå till det erbjudande som innehåller CSP-listan och välj **Exportera kryptografiproviders**. Funktionen utvecklar en. csv-fil som kan importeras till ett annat erbjudande.
+Om du har ett erbjudande som redan har en lista över auktoriserade partner och du vill använda samma lista för ett annat erbjudande använder du **Importera/Exportera**. Navigera till erbjudandet som har CSP-listan och välj **Exportera CSP: er**. Funktionen utvecklar en CSV-fil som kan importeras till ett annat erbjudande.
 
-#### <a name="option-three-no-partners-in-the-csp-program"></a>Alternativ tre: inga partner i CSP-programmet
+#### <a name="option-three-no-partners-in-the-csp-program"></a>Alternativ tre: Inga partner i CSP-programmet
 
 ![Inga partner i CSP-programmet](media/marketplace-publishers-guide/csp-reseller-option-three.png)
 
-Genom att välja det här alternativet är du väljer ditt erbjudande från CSP-programmet. Du kan ändra det här alternativet när som helst.
+Genom att välja det här alternativet väljer du ditt erbjudande från CSP-programmet. Du kan ändra det här valet när som helst.
 
-### <a name="cloud-partner-portal-opt-in"></a>Cloud Partner Portal Anmäl dig
+### <a name="cloud-partner-portal-opt-in"></a>Opt-in-portal för molnpartner
 
-I Cloud Partner Portal anges opt-in på fliken Marketplace eller butik. Möjligheten att välja vissa partner i CSP-programmet är bara tillgänglig i Partner Center.
+I Cloud Partner Portal anges opt-in på fliken Marketplace eller Storefront. Möjligheten att välja specifika partner i CSP-programmet är endast tillgänglig i Partner Center.
 
-![Upplevelse för att välja CSP i CPP](media/marketplace-publishers-guide/csp-opt-in.png)
+![CSP opt-in erfarenhet av CPP](media/marketplace-publishers-guide/csp-opt-in.png)
 
-## <a name="deauthorize-partners-in-the-csp-program"></a>Deauktorisera partner i CSP-programmet
+## <a name="deauthorize-partners-in-the-csp-program"></a>Avauktorisera partners i CSP-programmet
 
-Om du har auktoriserat en partner i CSP-programmet och den partnern redan har sålt produkten till sina kunder, kommer du inte att kunna godkänna den partnern.
+Om du har auktoriserat en partner i CSP-programmet och den partnern redan har sålt produkten vidare till sina kunder, kommer du inte att tillåtas att avauktorisera den partnern.
 
-Om en partner i CSP-programmet inte har sålt produkten till kunderna och du vill ta bort CSP: n när ditt erbjudande har publicerats, använder du följande anvisningar:
+Om en partner i CSP-programmet inte har sålt din produkt till sina kunder och du vill ta bort CSP efter att ditt erbjudande har publicerats, använd följande instruktioner:
 
-1. Gå till [sidan supportbegäran](https://aka.ms/marketplacepublishersupport). De första menyerna i listan fylls i automatiskt.
+1. Gå till [sidan Supportbegäran](https://aka.ms/marketplacepublishersupport). De första rullgardinsmenyerna fylls i automatiskt åt dig.
 
    > [!NOTE]
-   > Ändra inte markeringarna i list rutan i förväg.
+   > Ändra inte de förifyllda rullgardinsmenyn.
 
-2. För **Välj produkt version väljer du hantering av** **Live-erbjudandet**.
-3. För **Välj en kategori som bäst beskriver problemet**väljer du den kategori som refererar till ditt erbjudande.
-4. För **Välj ett problem som bäst beskriver problemet väljer du** **uppdatera befintligt erbjudande**.
-5. Välj **Nästa** för att komma till **sidan ärende information** och ange mer information om problemet.
-6. Använd **deauktorisera CSP** som ärende rubrik och fyll i resten av de nödvändiga avsnitten.
+2. För **Välj produktversion**väljer du **Live-erbjudandehantering**.
+3. Välj den kategori som refererar till erbjudandet för **att välja en kategori som bäst beskriver problemet.**
+4. Välj Uppdatera ett **befintligt erbjudande**för **att välja ett problem som bäst beskrivs.**
+5. Välj **Nästa** om du vill dirigeras till **sidan Probleminformation** om du vill ange mer information om problemet.
+6. Använd **Avauktorisera CSP** som ärendetitel och fyll i resten av de avsnitt som krävs.
 
 
 
 
 ## <a name="navigate-between-options"></a>Navigera mellan alternativ
 
-Använd det här avsnittet för att navigera mellan de tre alternativen för CSP-åter försäljare.
+Använd det här avsnittet om du vill navigera mellan de tre CSP-återförsäljaralternativen.
 
-### <a name="navigate-from-option-one-any-partner-in-the-csp-program"></a>Navigera från alternativ ett: alla partner i CSP-programmet
+### <a name="navigate-from-option-one-any-partner-in-the-csp-program"></a>Navigera från alternativ ett: Alla partner i CSP-programmet
 
-Om erbjudandet för närvarande är **alternativ 1: någon partner i CSP-programmet** och du vill navigera till något av de andra två alternativen, använder du följande instruktioner för att skapa en begäran:
+Om ditt erbjudande för närvarande är **alternativ 1: En partner i CSP-programmet** och du vill navigera till något av de andra två alternativen använder du följande instruktioner för att skapa en begäran:
 
-1. Gå till [sidan supportbegäran](https://aka.ms/marketplacepublishersupport). De första menyerna i listan fylls i automatiskt.
+1. Gå till [sidan Supportbegäran](https://aka.ms/marketplacepublishersupport). De första rullgardinsmenyerna fylls i automatiskt åt dig.
 
    > [!NOTE]
-   > Ändra inte markeringarna i list rutan i förväg.
+   > Ändra inte de förifyllda rullgardinsmenyn.
 
-2. För **Välj produkt version väljer du hantering av** **Live-erbjudandet**.
-3. För **Välj en kategori som bäst beskriver problemet**väljer du den kategori som refererar till ditt erbjudande.
-4. För **Välj ett problem som bäst beskriver problemet väljer du** **uppdatera befintligt erbjudande**.
-5. Välj **Nästa** för att komma till **sidan ärende information** och ange mer information om problemet.
-6. Använd **deauktorisera CSP** som ärende rubrik och fyll i resten av de nödvändiga avsnitten.
+2. För **Välj produktversion**väljer du **Live-erbjudandehantering**.
+3. Välj den kategori som refererar till erbjudandet för **att välja en kategori som bäst beskriver problemet.**
+4. Välj Uppdatera ett **befintligt erbjudande**för **att välja ett problem som bäst beskrivs.**
+5. Välj **Nästa** om du vill dirigeras till **sidan Probleminformation** om du vill ange mer information om problemet.
+6. Använd **Avauktorisera CSP** som ärendetitel och fyll i resten av de avsnitt som krävs.
 
 > [!NOTE]
-> Om du försöker navigera till alternativ två och en partner i CSP-programmet redan har sålt erbjudandet till sina kunder, är den partnern som standard redan i listan över behöriga partner.  
+> Om du försöker navigera till alternativ två och en partner i CSP-programmet redan har sålt erbjudandet vidare till sina kunder, är den partnern som standard redan i din lista över auktoriserade partner.  
 
-### <a name="navigate-from-option-two-specific-partners-in-the-csp-program-i-select"></a>Navigera från alternativ två: vissa partner i CSP-programmet som jag väljer
+### <a name="navigate-from-option-two-specific-partners-in-the-csp-program-i-select"></a>Navigera från alternativ två: Specifika partner i CSP-programmet väljer jag
 
-Om erbjudandet för närvarande är **Alternativ 2: vissa partner i CSP-programmet som jag väljer** och du vill navigera till **alternativ ett: alla partner i CSP-programmet**använder följande instruktioner för att skapa en begäran:
+Om ditt erbjudande för närvarande är **alternativ 2: Specifika partner i CSP-programmet väljer jag** och du vill navigera till alternativ **ett: Alla partner i CSP-programmet**använder du följande instruktioner för att skapa en begäran:
 
-1. Gå till [sidan supportbegäran](https://aka.ms/marketplacepublishersupport). De första menyerna i listan fylls i automatiskt.
-
-   > [!NOTE]
-   > Ändra inte markeringarna i list rutan i förväg.
-
-2. För **Välj produkt version väljer du hantering av** **Live-erbjudandet**.
-3. För **Välj en kategori som bäst beskriver problemet**väljer du den kategori som refererar till ditt erbjudande.
-4. För **Välj ett problem som bäst beskriver problemet väljer du** **uppdatera befintligt erbjudande**.
-5. Välj **Nästa** för att komma till **sidan ärende information** och ange mer information om problemet.
-6. Använd **deauktorisera CSP** som ärende rubrik och fyll i resten av de nödvändiga avsnitten.
-
- Om erbjudandet för närvarande är **Alternativ 2: särskilda partner i CSP-programmet som jag väljer** och du vill navigera till **Alternativ 3: inga partner i CSP-programmet**. du kommer bara att kunna navigera till det alternativet om de partner i CSP-programmet som du tidigare har godkänt inte har sålt ditt erbjudande till slutanvändare. Använd följande instruktioner för att skapa en begäran:
-
-1. Gå till [sidan supportbegäran](https://aka.ms/marketplacepublishersupport). De första menyerna i listan fylls i automatiskt.
+1. Gå till [sidan Supportbegäran](https://aka.ms/marketplacepublishersupport). De första rullgardinsmenyerna fylls i automatiskt åt dig.
 
    > [!NOTE]
-   > Ändra inte markeringarna i list rutan i förväg.
+   > Ändra inte de förifyllda rullgardinsmenyn.
 
-2. För **Välj produkt version väljer du hantering av** **Live-erbjudandet**.
-3. För **Välj en kategori som bäst beskriver problemet**väljer du den kategori som refererar till ditt erbjudande.
-4. För **Välj ett problem som bäst beskriver problemet väljer du** **uppdatera befintligt erbjudande**.
-5. Välj **Nästa** för att komma till **sidan ärende information** och ange mer information om problemet.
-6. Använd **deauktorisera CSP** som ärende rubrik och fyll i resten av de nödvändiga avsnitten.
+2. För **Välj produktversion**väljer du **Live-erbjudandehantering**.
+3. Välj den kategori som refererar till erbjudandet för **att välja en kategori som bäst beskriver problemet.**
+4. Välj Uppdatera ett **befintligt erbjudande**för **att välja ett problem som bäst beskrivs.**
+5. Välj **Nästa** om du vill dirigeras till **sidan Probleminformation** om du vill ange mer information om problemet.
+6. Använd **Avauktorisera CSP** som ärendetitel och fyll i resten av de avsnitt som krävs.
 
-### <a name="navigate-from-option-3-no-partners-in-the-csp-program"></a>Navigera från alternativ 3: inga partner i CSP-programmet
+ Om ditt erbjudande för närvarande är **alternativ 2: Specifika partner i CSP-programmet jag väljer** och du vill navigera till alternativ **3: Inga partner i CSP-programmet,** kommer du bara att kunna navigera till det alternativet om partnerna i CSP-programmet som du tidigare hade auktoriserat inte har sålt ditt erbjudande till slutkunder. Använd följande instruktioner för att skapa en begäran:
 
-Om erbjudandet för närvarande är **Alternativ 3: inga partner i CSP-programmet**, kan du navigera till något av de andra två alternativen när som helst.
+1. Gå till [sidan Supportbegäran](https://aka.ms/marketplacepublishersupport). De första rullgardinsmenyerna fylls i automatiskt åt dig.
 
-## <a name="sharing-sales-and-support-materials-with-partners-in-the-csp-program"></a>Dela försäljnings-och support material med partner i CSP-programmet
+   > [!NOTE]
+   > Ändra inte de förifyllda rullgardinsmenyn.
 
-För att hjälpa partner i Cloud Solution Provider-programmet att representera ditt erbjudande och engagera med din organisation måste du skicka in försäljnings-och support material som kommer att vara tillgängliga för åter försäljarna. De här resurserna kommer inte att exponeras för kunder i Marketplace-butiker.
+2. För **Välj produktversion**väljer du **Live-erbjudandehantering**.
+3. Välj den kategori som refererar till erbjudandet för **att välja en kategori som bäst beskriver problemet.**
+4. Välj Uppdatera ett **befintligt erbjudande**för **att välja ett problem som bäst beskrivs.**
+5. Välj **Nästa** om du vill dirigeras till **sidan Probleminformation** om du vill ange mer information om problemet.
+6. Använd **Avauktorisera CSP** som ärendetitel och fyll i resten av de avsnitt som krävs.
 
-### <a name="partner-center-csp-channel"></a>Partner Center CSP-kanal
+### <a name="navigate-from-option-3-no-partners-in-the-csp-program"></a>Navigera från alternativ 3: Inga partner i CSP-programmet
 
-Om du har valt CSP-kanalen i Partner Center måste utgivare ange en URL som är värd för relevant marknadsförings material och kanal kontakt information till CSP-kanalen under modulen för erbjudande listan:
+Om ditt erbjudande för närvarande är **alternativ 3: Inga partner i CSP-programmet**kan du navigera till något av de andra två alternativen när som helst.
 
-![Information om CSP-information för partner Center](media/marketplace-publishers-guide/pc-csp-channel.png)
+## <a name="sharing-sales-and-support-materials-with-partners-in-the-csp-program"></a>Dela försäljnings- och supportmaterial med partners i CSP-programmet
 
-### <a name="cloud-partner-portal-csp-channel"></a>Cloud Partner Portal CSP-kanal
+För att hjälpa partner i Cloud Solution Provider-programmet att mest effektivt representera ditt erbjudande och samarbeta med din organisation måste du skicka in försäljnings- och supportmaterial som är tillgängligt för återförsäljarna. Dessa resurser kommer inte att exponeras för kunder på marknadsplatsen skyltfönster.
 
-Om du har valt KRYPTOGRAFIPROVIDER-kanalen i Cloud Partner Portal måste utgivare ange en URL som är värd för relevant marknadsförings material och kanal kontakt information till CSP-kanalen:
+### <a name="partner-center-csp-channel"></a>CSP-kanal för Partner Center
 
-![Information om Cloud Partner Portal CSP-säkerhet](media/marketplace-publishers-guide/cpp-csp-information.png)
+Om du har valt CSP-kanalen i Partner Center måste utgivare ange en webbadress som är värd för relevant marknadsföringsmaterial och kanalkontaktinformation till CSP-kanalen under modulen för erbjudandelistor:
+
+![Information om säkerheter i Partner Center](media/marketplace-publishers-guide/pc-csp-channel.png)
+
+### <a name="cloud-partner-portal-csp-channel"></a>CSP-kanal för Cloud Partner Portal
+
+Om du har valt CSP-kanalen i Cloud Partner Portal måste utgivare ange en webbadress som är värd för relevant marknadsföringsmaterial och kanalkontaktinformation till CSP-kanalen:
+
+![Information om säkerheter för Cloud Partner Portal](media/marketplace-publishers-guide/cpp-csp-information.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-Besök [Azure Marketplace och AppSource Publisher guide](https://docs.microsoft.com/azure/marketplace/marketplace-publishers-guide).
+Besök [Azure Marketplace och AppSource Publisher Guide](https://docs.microsoft.com/azure/marketplace/marketplace-publishers-guide).
 
-Mer information om Marketplace GTM-tjänster finns i [Go-to-Marketing-tjänster](https://partner.microsoft.com/reach-customers/gtm).
+Mer information om GTM-marknadsplatstjänster finns i [Gå till marknaden.](https://partner.microsoft.com/reach-customers/gtm)
 
-Logga in på [partner Center](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/azureisv) eller [Cloud Partner Portal](https://cloudpartner.azure.com/) för att skapa och konfigurera ditt erbjudande.
+Logga in [på Partner Center](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/azureisv) eller Cloud Partner [Portal](https://cloudpartner.azure.com/) för att skapa och konfigurera ditt erbjudande.

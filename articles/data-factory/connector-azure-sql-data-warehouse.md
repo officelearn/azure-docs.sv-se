@@ -1,6 +1,6 @@
 ---
-title: Kopiera och transformera data i Azure Synapse Analytics
-description: Lär dig hur du kopierar data till och från Azure Synapse Analytics och transformerar data i Azure Synapse Analytics med hjälp av Data Factory.
+title: Kopiera och omvandla data i Azure Synapse Analytics
+description: Lär dig hur du kopierar data till och från Azure Synapse Analytics och omvandlar data i Azure Synapse Analytics med hjälp av Data Factory.
 services: data-factory
 ms.author: jingwang
 author: linda33wj
@@ -10,75 +10,75 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 03/12/2020
-ms.openlocfilehash: dce1697ccb40c67f8628c220799018a673be8e09
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.date: 03/25/2020
+ms.openlocfilehash: 950bbc17af920f104f31af4d324f5546ff29217e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79246310"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80257962"
 ---
-# <a name="copy-and-transform-data-in-azure-synapse-analytics-formerly-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Kopiera och transformera data i Azure Synapse Analytics (tidigare Azure SQL Data Warehouse) med hjälp av Azure Data Factory 
+# <a name="copy-and-transform-data-in-azure-synapse-analytics-formerly-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Kopiera och omvandla data i Azure Synapse Analytics (tidigare Azure SQL Data Warehouse) med hjälp av Azure Data Factory 
 
 > [!div class="op_single_selector" title1="Välj den version av Data Factory-tjänsten som du använder:"]
 > * [Version1](v1/data-factory-azure-sql-data-warehouse-connector.md)
 > * [Aktuell version](connector-azure-sql-data-warehouse.md)
 
-Den här artikeln beskriver hur du använder kopierings aktivitet i Azure Data Factory för att kopiera data från och till Azure Synapse Analytics och använda data flöden för att transformera data i Azure Data Lake Storage Gen2. Läs den [inledande artikeln](introduction.md)om du vill veta mer om Azure Data Factory.
+I den här artikeln beskrivs hur du använder Kopiera aktivitet i Azure Data Factory för att kopiera data från och till Azure Synapse Analytics och använda Dataflöde för att omvandla data i Azure Data Lake Storage Gen2. Mer information om Azure Data Factory finns i den [inledande artikeln](introduction.md).
 
 ## <a name="supported-capabilities"></a>Funktioner som stöds
 
-Den här Azure Synapse Analytics-anslutningen stöds för följande aktiviteter:
+Den här Azure Synapse Analytics-kopplingen stöds för följande aktiviteter:
 
-- [Kopiera aktivitet](copy-activity-overview.md) med [mat ris tabell med stöd för källa/mottagare](copy-activity-overview.md)
-- [Mappa data flöde](concepts-data-flow-overview.md)
-- [Sökningsaktivitet](control-flow-lookup-activity.md)
+- [Kopiera aktivitet](copy-activity-overview.md) med [käll-/sink-matristabell som stöds](copy-activity-overview.md)
+- [Mappa dataflöde](concepts-data-flow-overview.md)
+- [Uppslagsaktivitet](control-flow-lookup-activity.md)
 - [GetMetadata-aktivitet](control-flow-get-metadata-activity.md)
 
-För kopierings aktivitet stöder den här Azure Synapse Analytics-anslutaren dessa funktioner:
+För kopieringsaktivitet stöder den här Azure Synapse Analytics-kopplingen dessa funktioner:
 
-- Kopiera data med hjälp av SQL-autentisering och autentisering med Azure Active Directory (Azure AD) Application-token med ett tjänstens huvudnamn eller hanterade identiteter för Azure-resurser.
-- Hämta data med hjälp av en SQL-fråga eller en lagrad procedur som en källa.
-- Läs in data med hjälp av [PolyBase](#use-polybase-to-load-data-into-azure-sql-data-warehouse) -eller [copy-instruktionen](#use-copy-statement) (för hands version) eller Mass infogning i som mottagare. Vi rekommenderar PolyBase-eller COPY-instruktion (för hands version) för bättre kopierings prestanda.
+- Kopiera data med hjälp av SQL-autentisering och Azure Active Directory (Azure AD) Application token autentisering med ett tjänsthuvudnamn eller hanterade identiteter för Azure-resurser.
+- Som källa hämtar du data med hjälp av en SQL-fråga eller en lagrad procedur.
+- Som en mottagare läser du in data med hjälp av [PolyBase-](#use-polybase-to-load-data-into-azure-sql-data-warehouse) eller [COPY-sats](#use-copy-statement) (förhandsgranskning) eller massinfogning. Vi rekommenderar PolyBase eller COPY-sats (förhandsversion) för bättre kopieringsprestanda.
 
 > [!IMPORTANT]
-> Om du kopierar data genom att använda Azure Data Factory Integration Runtime konfigurerar du en [Azure SQL Server-brandvägg](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure) så att Azure-tjänsterna kan komma åt servern.
-> Om du kopierar data med hjälp av en lokal integration runtime kan du konfigurera Azure SQL server-brandväggen så att rätt IP-adressintervall. Detta intervall inkluderar datorns IP-adress som används för att ansluta till Azure Synapse Analytics.
+> Om du kopierar data med hjälp av Azure Data Factory Integration Runtime konfigurerar du en [Azure SQL-serverbrandvägg](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure) så att Azure-tjänster kan komma åt servern.
+> Om du kopierar data med hjälp av en självvärd integreringskörning konfigurerar du Azure SQL-serverbrandväggen så att det tillåter lämpligt IP-intervall. Det här intervallet innehåller datorns IP som används för att ansluta till Azure Synapse Analytics.
 
-## <a name="get-started"></a>Kom igång
+## <a name="get-started"></a>Komma igång
 
 > [!TIP]
-> Använd PolyBase för att läsa in data i Azure Synapse Analytics för att uppnå bästa prestanda. Mer information finns i avsnittet [använda PolyBase för att läsa in data i avsnittet om Azure Synapse Analytics](#use-polybase-to-load-data-into-azure-sql-data-warehouse) . För en genom gång med ett användnings fall läser du [läsa in 1 TB i Azure Synapse Analytics under 15 minuter med Azure Data Factory](load-azure-sql-data-warehouse.md).
+> För att uppnå bästa prestanda kan du använda PolyBase för att läsa in data i Azure Synapse Analytics. Avsnittet [Använd PolyBase för att läsa in data i Azure Synapse Analytics](#use-polybase-to-load-data-into-azure-sql-data-warehouse) innehåller information. En genomgång med ett användningsfall finns [i Ladda 1 TB till Azure Synapse Analytics under 15 minuter med Azure Data Factory](load-azure-sql-data-warehouse.md).
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
-Följande avsnitt innehåller information om egenskaper som definierar Data Factory entiteter som är speciella för en Azure Synapse Analytics-anslutning.
+Följande avsnitt innehåller information om egenskaper som definierar Data Factory-entiteter som är specifika för en Azure Synapse Analytics-anslutning.
 
 ## <a name="linked-service-properties"></a>Länkade tjänstegenskaper
 
-Följande egenskaper stöds för en länkad Azure Synapse Analytics-tjänst:
+Följande egenskaper stöds för en Azure Synapse Analytics-länkad tjänst:
 
 | Egenskap            | Beskrivning                                                  | Krävs                                                     |
 | :------------------ | :----------------------------------------------------------- | :----------------------------------------------------------- |
-| typ                | Egenskapen Type måste anges till **AzureSqlDW**.             | Ja                                                          |
-| connectionString    | Ange den information som krävs för att ansluta till Azure Synapse Analytics-instansen för egenskapen **ConnectionString** . <br/>Markera det här fältet som en SecureString för att lagra det på ett säkert sätt i Data Factory. Du kan också ange lösen ord/tjänstens huvud namn i Azure Key Vault, och om det är SQL-autentisering hämtar du `password`-konfigurationen från anslutnings strängen. Se JSON-exemplet under tabellen och [lagra autentiseringsuppgifter i Azure Key Vault](store-credentials-in-key-vault.md) artikel med mer information. | Ja                                                          |
-| servicePrincipalId  | Ange programmets klient-ID.                         | Ja, när du använder Azure AD-autentisering med ett huvudnamn för tjänsten. |
-| servicePrincipalKey | Ange programmets nyckel. Markera det här fältet som SecureString för att lagra det på ett säkert sätt i Data Factory eller [referera till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja, när du använder Azure AD-autentisering med ett huvudnamn för tjänsten. |
-| tenant              | Ange klientinformation (domain name eller klient-ID) under där programmet finns. Du kan hämta den håller musen i det övre högra hörnet i Azure Portal. | Ja, när du använder Azure AD-autentisering med ett huvudnamn för tjänsten. |
-| connectVia          | [Integrerings körningen](concepts-integration-runtime.md) som ska användas för att ansluta till data lagret. Du kan använda Azure Integration Runtime eller en lokal integration runtime (om ditt datalager finns i ett privat nätverk). Om den inte anges används standard Azure Integration Runtime. | Nej                                                           |
+| typ                | Typegenskapen måste anges till **AzureSqlDW**.             | Ja                                                          |
+| Connectionstring    | Ange den information som behövs för att ansluta till Azure Synapse Analytics-instansen för egenskapen **connectionString.** <br/>Markera det här fältet som en SecureString för att lagra det säkert i Data Factory. Du kan också placera lösenords-/tjänsthuvudnyckeln i Azure Key `password` Vault och om det är SQL-autentisering dra konfigurationen ur anslutningssträngen. Se JSON-exemplet nedanför tabellen och [Store-autentiseringsuppgifterna i](store-credentials-in-key-vault.md) Azure Key Vault-artikeln med mer information. | Ja                                                          |
+| servicePrincipalId  | Ange programmets klient-ID.                         | Ja, när du använder Azure AD-autentisering med ett tjänsthuvudnamn. |
+| servicePrincipalKey | Ange programmets nyckel. Markera det här fältet som en SecureString för att lagra det säkert i Data Factory, eller [referera till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja, när du använder Azure AD-autentisering med ett tjänsthuvudnamn. |
+| tenant              | Ange klientinformation (domännamn eller klient-ID) som programmet finns under. Du kan hämta den genom att hålla musen i det övre högra hörnet av Azure-portalen. | Ja, när du använder Azure AD-autentisering med ett tjänsthuvudnamn. |
+| connectVia (på)          | [Den integrationskörning som](concepts-integration-runtime.md) ska användas för att ansluta till datalagret. Du kan använda Azure Integration Runtime eller en självvärd integreringskörning (om ditt datalager finns i ett privat nätverk). Om det inte anges används standardkörningen för Azure Integration. | Inga                                                           |
 
-För olika typer av autentisering, se följande avsnitt om krav och JSON-exempel, respektive:
+För olika autentiseringstyper finns i följande avsnitt om förutsättningar respektive JSON-exempel:
 
 - [SQL-autentisering](#sql-authentication)
-- Azure AD Application token-autentisering: [tjänstens huvud namn](#service-principal-authentication)
-- Azure AD Application token-autentisering: [hanterade identiteter för Azure-resurser](#managed-identity)
+- Azure AD-programtokenautentisering: [Tjänsthuvudnamn](#service-principal-authentication)
+- Azure AD-programtokenautentisering: [Hanterade identiteter för Azure-resurser](#managed-identity)
 
 >[!TIP]
->Om du får ett fel meddelande med felkoden "UserErrorFailedToConnectToSqlServer" och "meddelande" som "databasens sessionsgräns är XXX och har nåtts." lägger du till `Pooling=false` i anslutnings strängen och försöker igen.
+>Om du stöter på fel med felkod som "UserErrorFailedToConnectToSqlServer" och meddelande som "Sessionsgränsen för databasen är XXX och har nåtts.", lägger du `Pooling=false` till anslutningssträngen och försöker igen.
 
 ### <a name="sql-authentication"></a>SQL-autentisering
 
-#### <a name="linked-service-example-that-uses-sql-authentication"></a>Länkad tjänst-exempel som använder SQL-autentisering
+#### <a name="linked-service-example-that-uses-sql-authentication"></a>Exempel på länkad tjänst som använder SQL-autentisering
 
 ```json
 {
@@ -96,7 +96,7 @@ För olika typer av autentisering, se följande avsnitt om krav och JSON-exempel
 }
 ```
 
-**Lösen ord i Azure Key Vault:**
+**Lösenord i Azure Key Vault:**
 
 ```json
 {
@@ -124,32 +124,32 @@ För olika typer av autentisering, se följande avsnitt om krav och JSON-exempel
 
 ### <a name="service-principal-authentication"></a>Autentisering av tjänstens huvudnamn
 
-Följ dessa steg om du vill använda tokenautentisering för service principal-baserade Azure AD-program:
+Så här använder du tjänsthuvudbaserat Azure AD-programtokenautentisering:
 
-1. **[Skapa ett Azure Active Directory-program](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application)** från Azure Portal. Anteckna namnet på programmet och följande värden som definierar den länkade tjänsten:
+1. **[Skapa ett Azure Active Directory-program](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application)** från Azure-portalen. Anteckna programnamnet och följande värden som definierar den länkade tjänsten:
 
     - Program-ID:t
     - Programnyckel
     - Klient-ID:t
 
-2. **[Etablera en Azure Active Directory administratör](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server)** för din Azure SQL-server på Azure Portal om du inte redan har gjort det. Azure AD-administratör kan vara en Azure AD-användare eller Azure AD-grupp. Hoppa över steg 3 och 4 om du beviljar gruppen med hanterad identitet en administratörs roll. Administratören har fullständig åtkomst till databasen.
+2. **[Etablera en Azure Active Directory-administratör](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server)** för din Azure SQL-server på Azure-portalen om du inte redan har gjort det. Azure AD-administratören kan vara en Azure AD-användare eller Azure AD-grupp. Om du ger gruppen en hanterad identitet en administratörsroll hoppar du över steg 3 och 4. Administratören kommer att ha fullständig åtkomst till databasen.
 
-3. **[Skapa inneslutna databas användare](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities)** för tjänstens huvud namn. Ansluta till datalagret från eller som du vill kopiera data med hjälp av verktyg som SSMS, med en Azure AD-identitet som har minst behörigheten ALTER ANY användare. Kör följande T-SQL:
+3. **[Skapa inneslutna databasanvändare](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities)** för tjänstens huvudnamn. Anslut till informationslagret från eller till vilket du vill kopiera data med hjälp av verktyg som SSMS, med en Azure AD-identitet som har minst ändra användarbehörighet. Kör följande T-SQL:
   
     ```sql
     CREATE USER [your application name] FROM EXTERNAL PROVIDER;
     ```
 
-4. **Ge tjänstens huvud namn nödvändiga behörigheter** som du vanligt vis använder för SQL-användare eller andra. Kör följande kod eller referera till fler alternativ [här](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?view=sql-server-2017). Om du vill använda PolyBase för att läsa in data kan du läsa om den [nödvändiga databas behörigheten](#required-database-permission).
+4. **Bevilja tjänstens huvudnamn nödvändiga behörigheter** som vanligt för SQL-användare eller andra. Kör följande kod eller se fler alternativ [här](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?view=sql-server-2017). Om du vill använda PolyBase för att läsa in data kan du läsa om den [databasbehörighet som krävs](#required-database-permission).
 
     ```sql
     EXEC sp_addrolemember db_owner, [your application name];
     ```
 
-5. **Konfigurera en länkad Azure Synapse Analytics-tjänst** i Azure Data Factory.
+5. **Konfigurera en Azure Synapse Analytics-länkad tjänst** i Azure Data Factory.
 
 
-#### <a name="linked-service-example-that-uses-service-principal-authentication"></a>Länkad tjänst-exempel som använder autentisering av tjänstens huvudnamn
+#### <a name="linked-service-example-that-uses-service-principal-authentication"></a>Exempel på länkad tjänst som använder autentisering av tjänstens huvudnamn
 
 ```json
 {
@@ -173,27 +173,27 @@ Följ dessa steg om du vill använda tokenautentisering för service principal-b
 }
 ```
 
-### <a name="managed-identity"></a>Hanterade identiteter för Azure-resurser-autentisering
+### <a name="managed-identities-for-azure-resources-authentication"></a><a name="managed-identity"></a>Hanterade identiteter för Azure-resursautentisering
 
-En data fabrik kan associeras med en [hanterad identitet för Azure-resurser](data-factory-service-identity.md) som representerar den aktuella fabriken. Du kan använda den här hanterade identiteten för Azure Synapse Analytics-autentisering. Den angivna datafabriken kan komma åt och kopieringsdata från eller till dina data warehouse med hjälp av den här identiteten.
+En datafabrik kan associeras med en [hanterad identitet för Azure-resurser](data-factory-service-identity.md) som representerar den specifika fabriken. Du kan använda den här hanterade identiteten för Azure Synapse Analytics-autentisering. Den angivna fabriken kan komma åt och kopiera data från eller till ditt informationslager med hjälp av den här identiteten.
 
-Följ dessa steg om du vill använda hanterad identitets autentisering:
+Så här använder du autentisering av hanterade identiteter:
 
-1. **[Etablera en Azure Active Directory administratör](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server)** för din Azure SQL-server på Azure Portal om du inte redan har gjort det. Azure AD-administratör kan vara en Azure AD-användare eller Azure AD-grupp. Hoppa över steg 3 och 4 om du beviljar gruppen med hanterad identitet en administratörs roll. Administratören har fullständig åtkomst till databasen.
+1. **[Etablera en Azure Active Directory-administratör](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server)** för din Azure SQL-server på Azure-portalen om du inte redan har gjort det. Azure AD-administratören kan vara en Azure AD-användare eller Azure AD-grupp. Om du ger gruppen en hanterad identitet en administratörsroll hoppar du över steg 3 och 4. Administratören kommer att ha fullständig åtkomst till databasen.
 
-2. **[Skapa inneslutna databas användare](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities)** för den Data Factory hanterade identiteten. Ansluta till datalagret från eller som du vill kopiera data med hjälp av verktyg som SSMS, med en Azure AD-identitet som har minst behörigheten ALTER ANY användare. Kör följande T-SQL. 
+2. **[Skapa inneslutna databasanvändare](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities)** för datafabrikens hanterade identitet. Anslut till informationslagret från eller till vilket du vill kopiera data med hjälp av verktyg som SSMS, med en Azure AD-identitet som har minst ändra användarbehörighet. Kör följande T-SQL. 
   
     ```sql
     CREATE USER [your Data Factory name] FROM EXTERNAL PROVIDER;
     ```
 
-3. **Ge den Data Factory hanterade identiteten nödvändiga behörigheter** som du vanligt vis använder för SQL-användare och andra. Kör följande kod eller referera till fler alternativ [här](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?view=sql-server-2017). Om du vill använda PolyBase för att läsa in data kan du läsa om den [nödvändiga databas behörigheten](#required-database-permission).
+3. **Bevilja datafabrikens hanterade identitet nödvändiga behörigheter** som vanligt för SQL-användare och andra. Kör följande kod eller se fler alternativ [här](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?view=sql-server-2017). Om du vill använda PolyBase för att läsa in data kan du läsa om den [databasbehörighet som krävs](#required-database-permission).
 
     ```sql
     EXEC sp_addrolemember db_owner, [your Data Factory name];
     ```
 
-5. **Konfigurera en länkad Azure Synapse Analytics-tjänst** i Azure Data Factory.
+5. **Konfigurera en Azure Synapse Analytics-länkad tjänst** i Azure Data Factory.
 
 **Exempel:**
 
@@ -215,18 +215,18 @@ Följ dessa steg om du vill använda hanterad identitets autentisering:
 
 ## <a name="dataset-properties"></a>Egenskaper för datamängd
 
-En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera data uppsättningar finns i artikeln [data uppsättningar](concepts-datasets-linked-services.md) . 
+En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera datauppsättningar finns i artikeln [Datauppsättningar.](concepts-datasets-linked-services.md) 
 
-Följande egenskaper stöds för data uppsättningen för Azure Synapse Analytics:
+Följande egenskaper stöds för Azure Synapse Analytics-datauppsättning:
 
 | Egenskap  | Beskrivning                                                  | Krävs                    |
 | :-------- | :----------------------------------------------------------- | :-------------------------- |
-| typ      | Data uppsättningens **typ** -egenskap måste anges till **AzureSqlDWTable**. | Ja                         |
-| schema | Schemats namn. |Nej för källa, Ja för mottagare  |
-| table | Namnet på tabellen/vyn. |Nej för källa, Ja för mottagare  |
-| tableName | Namnet på tabellen/vyn med schemat. Den här egenskapen stöds för bakåtkompatibilitet. Använd `schema` och `table`för nya arbets belastningar. | Nej för källa, Ja för mottagare |
+| typ      | **Egenskapen Type** property för datauppsättningen måste anges till **AzureSqlDWTable**. | Ja                         |
+| Schemat | Namnet på schemat. |Nej för källa, Ja för diskho  |
+| tabell | Namn på tabellen/vyn. |Nej för källa, Ja för diskho  |
+| tableName | Namn på tabellen/vyn med schema. Den här egenskapen stöds för bakåtkompatibilitet. För ny arbetsbelastning använder du `schema` och `table`. | Nej för källa, Ja för diskho |
 
-#### <a name="dataset-properties-example"></a>Exempel med datauppsättningen egenskaper
+#### <a name="dataset-properties-example"></a>Exempel på egenskaper för Datauppsättning
 
 ```json
 {
@@ -249,19 +249,19 @@ Följande egenskaper stöds för data uppsättningen för Azure Synapse Analytic
 
 ## <a name="copy-activity-properties"></a>Kopiera egenskaper för aktivitet
 
-En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera aktiviteter finns i artikeln om [pipeliner](concepts-pipelines-activities.md) . Det här avsnittet innehåller en lista över egenskaper som stöds av Azure Synapse Analytics-källan och mottagare.
+En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera aktiviteter finns i artikeln [Pipelines.](concepts-pipelines-activities.md) Det här avsnittet innehåller en lista över egenskaper som stöds av Azure Synapse Analytics-källan och diskhon.
 
 ### <a name="azure-synapse-analytics-as-the-source"></a>Azure Synapse Analytics som källa
 
-Om du vill kopiera data från Azure Synapse Analytics ställer du in egenskapen **Type** i källan för kopierings aktiviteten till **SqlDWSource**. Följande egenskaper stöds i avsnittet Kopiera aktivitets **källa** :
+Om du vill kopiera data från Azure **type** Synapse Analytics anger du typegenskapen i källan Kopiera aktivitet till **SqlDWSource**. Följande egenskaper stöds i **källavsnittet** Kopiera aktivitet:
 
 | Egenskap                     | Beskrivning                                                  | Krävs |
 | :--------------------------- | :----------------------------------------------------------- | :------- |
-| typ                         | **Typ** egenskapen för kopierings aktivitets källan måste anges till **SqlDWSource**. | Ja      |
-| sqlReaderQuery               | Använda anpassade SQL-frågan för att läsa data. Exempel: `select * from MyTable`. | Nej       |
-| sqlReaderStoredProcedureName | Namnet på den lagrade proceduren som läser data från källtabellen. Den senaste SQL-instruktionen måste vara en SELECT-instruktion i den lagrade proceduren. | Nej       |
-| storedProcedureParameters    | Parametrar för den lagrade proceduren.<br/>Tillåtna värden är namn eller värde-par. Namn och versaler och gemener i parametrar måste matcha namn och versaler och gemener i parametrarna för lagrade procedurer. | Nej       |
-| isolationLevel | Anger transaktions låsnings beteendet för SQL-källan. Tillåtna värden är: **ReadCommitted** (standard), **ReadUncommitted**, **RepeatableRead**, **Serializable**, **Snapshot**. Mer information finns i [det här dokumentet](https://docs.microsoft.com/dotnet/api/system.data.isolationlevel) . | Nej |
+| typ                         | **Egenskapen Type** property för källan Kopiera aktivitet måste anges till **SqlDWSource**. | Ja      |
+| sqlReaderQuery               | Använd den anpassade SQL-frågan för att läsa data. Exempel: `select * from MyTable`. | Inga       |
+| sqlReaderStoredProcedureName | Namnet på den lagrade proceduren som läser data från källtabellen. Det senaste SQL-uttrycket måste vara en SELECT-sats i den lagrade proceduren. | Inga       |
+| storedProcedureParameters    | Parametrar för den lagrade proceduren.<br/>Tillåtna värden är namn- eller värdepar. Namn och hölje av parametrar måste stämma överens med namn och hölje för de lagrade procedureparametrarna. | Inga       |
+| isoleringNivå | Anger transaktionslåsningsbeteendet för SQL-källan. De tillåtna värdena är: **ReadCommitted** (standard), **ReadUncommitted**, **RepeatableRead**, **Serializable**, **Snapshot**. Se [det här dokumentet](https://docs.microsoft.com/dotnet/api/system.data.isolationlevel) för mer information. | Inga |
 
 **Exempel: använda SQL-fråga**
 
@@ -331,7 +331,7 @@ Om du vill kopiera data från Azure Synapse Analytics ställer du in egenskapen 
 ]
 ```
 
-**Exempel på lagrad procedur:**
+**Prov lagrad procedur:**
 
 ```sql
 CREATE PROCEDURE CopyTestSrcStoredProcedureWithParameters
@@ -350,34 +350,34 @@ END
 GO
 ```
 
-### <a name="azure-sql-data-warehouse-as-sink"></a>Azure Synapse Analytics som mottagare
+### <a name="azure-synapse-analytics-as-sink"></a><a name="azure-sql-data-warehouse-as-sink"></a>Azure Synapse Analytics som mottagare
 
 Azure Data Factory stöder tre sätt att läsa in data i SQL Data Warehouse.
 
-![Kopierings alternativ för SQL DW-mottagare](./media/connector-azure-sql-data-warehouse/sql-dw-sink-copy-options.png)
+![Alternativ för SQL DW-diskhoskopia](./media/connector-azure-sql-data-warehouse/sql-dw-sink-copy-options.png)
 
 - [Använd PolyBase](#use-polybase-to-load-data-into-azure-sql-data-warehouse) 
-- [Använd COPY-instruktion (förhands granskning)](#use-copy-statement)
-- Använd Mass infogning
+- [Använda COPY-sats (förhandsgranskning)](#use-copy-statement)
+- Använd bulkskär
 
-Det snabbaste och mest skalbara sättet att läsa in data är genom [PolyBase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide) eller [kopierings instruktionen](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) (för hands version).
+Det snabbaste och mest skalbara sättet att läsa in data är via [PolyBase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide) eller [COPY-satsen](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) (förhandsversion).
 
-Om du vill kopiera data till Azure SQL Data Warehouse anger du mottagar typen i kopierings aktivitet till **SqlDWSink**. Följande egenskaper stöds i avsnittet Kopiera aktivitets **mottagare** :
+Om du vill kopiera data till Azure SQL Data Warehouse anger du sink-typen i Kopiera aktivitet till **SqlDWSink**. Följande egenskaper stöds i avsnittet Kopiera **aktivitetsmottagare:**
 
 | Egenskap          | Beskrivning                                                  | Krävs                                      |
 | :---------------- | :----------------------------------------------------------- | :-------------------------------------------- |
-| typ              | Egenskapen **Type** för kopierings aktivitetens Sink måste anges till **SqlDWSink**. | Ja                                           |
-| allowPolyBase     | Anger om PolyBase ska användas för att läsa in data i SQL Data Warehouse. `allowCopyCommand` och `allowPolyBase` kan inte båda vara sanna. <br/><br/>Se [använda PolyBase för att läsa in data i Azure SQL Data Warehouse](#use-polybase-to-load-data-into-azure-sql-data-warehouse) avsnitt för begränsningar och information.<br/><br/>Tillåtna värden är **True** och **false** (standard). | Nej.<br/>Använd när du använder PolyBase.     |
-| polyBaseSettings  | En grupp egenskaper som kan anges när egenskapen `allowPolybase` har värdet **True**. | Nej.<br/>Använd när du använder PolyBase. |
-| allowCopyCommand | Anger om [kopierings instruktionen](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) (för hands version) ska användas för att läsa in data i SQL Data Warehouse. `allowCopyCommand` och `allowPolyBase` kan inte båda vara sanna. <br/><br/>Se [använda Copy-instruktionen för att läsa in data i Azure SQL Data Warehouse](#use-copy-statement) avsnittet för begränsningar och information.<br/><br/>Tillåtna värden är **True** och **false** (standard). | Nej.<br>Använd när du använder COPY. |
-| copyCommandSettings | En grupp egenskaper som kan anges när `allowCopyCommand`-egenskapen har angetts till TRUE. | Nej.<br/>Använd när du använder COPY. |
-| writeBatchSize    | Antal rader som ska infogas i SQL-tabellen **per batch**.<br/><br/>Det tillåtna värdet är **Integer** (antal rader). Som standard bestämmer Data Factory dynamiskt rätt batchstorlek baserat på rad storleken. | Nej.<br/>Använd när du använder Mass infogning.     |
-| writeBatchTimeout | Väntetid för batch insert-åtgärden ska slutföras innan tidsgränsen uppnås.<br/><br/>Det tillåtna värdet är **TimeSpan**. Exempel ”: 00: 30:00” (30 minuter). | Nej.<br/>Använd när du använder Mass infogning.        |
-| preCopyScript     | Ange en SQL-fråga för Kopieringsaktiviteten ska köras innan du skriver data till Azure SQL Data Warehouse i varje körning. Använd den här egenskapen för att rensa förinstallerade data. | Nej                                            |
-| tableOption | Anger om mottagar tabellen ska skapas automatiskt om den inte finns, baserat på käll schemat. Det går inte att skapa en automatisk tabell när mellanlagrad kopiering har kon figurer ATS i kopierings aktiviteten. Tillåtna värden är: `none` (standard) `autoCreate`. |Nej |
-| disableMetricsCollection | Data Factory samlar in mått som SQL Data Warehouse DWU: er för att kopiera prestanda optimering och rekommendationer. Om du är orolig för det här beteendet anger du `true` att inaktivera det. | Nej (standard är `false`) |
+| typ              | **Egenskapen Type** property för copy activity sink måste anges till **SqlDWSink**. | Ja                                           |
+| allowPolyBase     | Anger om PolyBase ska användas för att läsa in data i SQL Data Warehouse. `allowCopyCommand`och `allowPolyBase` kan inte vara både sant. <br/><br/>Se [Använda PolyBase för att läsa in data i avsnittet Azure SQL Data Warehouse](#use-polybase-to-load-data-into-azure-sql-data-warehouse) för begränsningar och information.<br/><br/>Tillåtna värden är **Sant** och **Falskt** (standard). | Nej.<br/>Ansök när du använder PolyBase.     |
+| polyBaseSettings polyBaseSettings polyBaseSettings polyBase  | En grupp egenskaper som kan anges `allowPolybase` när egenskapen är inställd på **true**. | Nej.<br/>Ansök när du använder PolyBase. |
+| allowCopyCommand | Anger om [COPY-uttryck](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) (förhandsgranskning) ska användas för att läsa in data i SQL Data Warehouse. `allowCopyCommand`och `allowPolyBase` kan inte vara både sant. <br/><br/>Se [Använda COPY-uttryck för att läsa in data i avsnittet Azure SQL Data Warehouse](#use-copy-statement) för begränsningar och information.<br/><br/>Tillåtna värden är **Sant** och **Falskt** (standard). | Nej.<br>Ansök när du använder COPY. |
+| kopieraCommandSettings | En grupp egenskaper som kan `allowCopyCommand` anges när egenskapen är inställd på SANT. | Nej.<br/>Ansök när du använder COPY. |
+| skriverBatchSize    | Antal rader som ska infogas i SQL-tabellen **per batch**.<br/><br/>Det tillåtna värdet är **heltal** (antal rader). Som standard bestämmer Data Factory dynamiskt lämplig batchstorlek baserat på radstorleken. | Nej.<br/>Använd när du använder bulkinsats.     |
+| skriverBatchTimeout | Vänta på att batchinsatsen ska slutföras innan den har klarats upp.<br/><br/>Det tillåtna värdet är **tidsspann**. Exempel: "00:30:00" (30 minuter). | Nej.<br/>Använd när du använder bulkinsats.        |
+| preCopyScript     | Ange en SQL-fråga för kopieringsaktivitet som ska köras innan du skriver data till Azure SQL Data Warehouse i varje körning. Använd den här egenskapen för att rensa de förinstallerade data. | Inga                                            |
+| tabellOption | Anger om sink-tabellen ska skapas automatiskt om det inte finns baserat på källschemat. Automatisk skapande av tabeller stöds inte när den stegvisa kopian konfigureras i kopieringsaktivitet. Tillåtna värden `none` är: `autoCreate`(standard), . |Inga |
+| inaktiveraMetricsCollection | Data Factory samlar in mått som SQL Data Warehouse DWUs för kopiering prestandaoptimering och rekommendationer. Om du har något att `true` göra med det här beteendet anger du att den ska stängas av. | Nej (standard `false`är) |
 
-#### <a name="sql-data-warehouse-sink-example"></a>SQL Data Warehouse sink exempel
+#### <a name="sql-data-warehouse-sink-example"></a>Exempel på SQL Data Warehouse-mottagare
 
 ```json
 "sink": {
@@ -393,61 +393,61 @@ Om du vill kopiera data till Azure SQL Data Warehouse anger du mottagar typen i 
 }
 ```
 
-## <a name="use-polybase-to-load-data-into-azure-sql-data-warehouse"></a>Använda PolyBase för att läsa in data i Azure SQL Data Warehouse
+## <a name="use-polybase-to-load-data-into-azure-sql-data-warehouse"></a>Använd PolyBase för att läsa in data i Azure SQL Data Warehouse
 
-Att använda [PolyBase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide) är ett effektivt sätt att läsa in stora mängder data i Azure Synapse Analytics med högt data flöde. Du ser en stor vinst i dataflödet med PolyBase i stället för BULKINSERT standardmekanismen. En genom gång med ett användnings fall finns i [läsa in 1 TB i Azure Synapse Analytics](v1/data-factory-load-sql-data-warehouse.md).
+Att använda [PolyBase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide) är ett effektivt sätt att läsa in en stor mängd data i Azure Synapse Analytics med högt dataflöde. Du ser en stor vinst i dataflödet med hjälp av PolyBase i stället för standard BULKINSERT-mekanismen. En genomgång med ett användningsfall finns [i Ladda 1 TB till Azure Synapse Analytics](v1/data-factory-load-sql-data-warehouse.md).
 
-* Om dina källdata finns i **Azure Blob, Azure Data Lake Storage gen1 eller Azure Data Lake Storage Gen2**och **formatet är PolyBase-kompatibelt**, kan du använda kopierings aktivitet för att direkt anropa PolyBase för att låta Azure SQL Data Warehouse hämta data från källan. Mer information finns i **[direkt kopiering med hjälp av PolyBase](#direct-copy-by-using-polybase)** .
-* Om käll data lagret och formatet inte ursprungligen stöds av PolyBase använder du den **[mellanlagrade kopian med PolyBase](#staged-copy-by-using-polybase)** -funktionen i stället. Funktionen mellanlagrad kopiering ger dig också bättre genomströmning. Den konverterar automatiskt data till PolyBase-kompatibelt format, lagrar data i Azure Blob Storage. sedan anropar PolyBase för att läsa in data i SQL Data Warehouse.
+* Om källdata finns i **Azure Blob, Azure Data Lake Storage Gen1 eller Azure Data Lake Storage Gen2**och **formatet är PolyBase-kompatibelt**kan du använda kopieringsaktivitet för att direkt anropa PolyBase för att låta Azure SQL Data Warehouse hämta data från källan. Mer information finns i **[Direktkopia med PolyBase](#direct-copy-by-using-polybase)**.
+* Om källdatalagringen och formatet inte stöds ursprungligen av PolyBase använder du **[kopian Stegvis med hjälp av PolyBase](#staged-copy-by-using-polybase)** i stället. Den iscensatta kopieringsfunktionen ger dig också bättre dataflöde. Den konverterar automatiskt data till PolyBase-kompatibelt format, lagrar data i Azure Blob storage., sedan anropar PolyBase för att läsa in data i SQL Data Warehouse.
 
 >[!TIP]
->Lär dig mer om [metod tips för att använda PolyBase](#best-practices-for-using-polybase).
+>Läs mer om [metodtips för att använda PolyBase](#best-practices-for-using-polybase).
 
-Följande PolyBase-inställningar stöds under `polyBaseSettings` i kopierings aktiviteten:
+Följande PolyBase-inställningar stöds `polyBaseSettings` under i kopieringsaktivitet:
 
 | Egenskap          | Beskrivning                                                  | Krävs                                      |
 | :---------------- | :----------------------------------------------------------- | :-------------------------------------------- |
-| rejectValue       | Anger det tal eller procentandelen rader som kan avvisas innan frågan inte kunde köras.<br/><br/>Läs mer om polybases avvisnings alternativ i avsnittet arguments i [skapa en extern tabell (Transact-SQL)](https://msdn.microsoft.com/library/dn935021.aspx). <br/><br/>Tillåtna värden är 0 (standard), 1, 2, osv. | Nej                                            |
-| rejectType        | Anger om alternativet **rejectValue** är ett litteralt värde eller en procents ATS.<br/><br/>Tillåtna värden är **värde** (standard) och **procent**. | Nej                                            |
-| rejectSampleValue | Anger antalet rader som ska hämtas innan PolyBase beräknar om procentandelen avvisade raden.<br/><br/>Tillåtna värden är 1, 2, osv. | Ja, om **rejectType** är **procent andelen**. |
-| useTypeDefault    | Anger hur du hanterar värden som saknas i avgränsade textfiler när PolyBase hämtar data från textfilen.<br/><br/>Lär dig mer om den här egenskapen från avsnittet argument i [Skapa externt fil format (Transact-SQL)](https://msdn.microsoft.com/library/dn935026.aspx).<br/><br/>Tillåtna värden är **True** och **false** (standard).<br><br> | Nej                                            |
+| avvisaVärde       | Anger antalet eller procentandelen rader som kan avvisas innan frågan misslyckas.<br/><br/>Läs mer om PolyBases avvisningsalternativ i avsnittet Argument i [SKAPA EXTERN TABELL (Transact-SQL).](https://msdn.microsoft.com/library/dn935021.aspx) <br/><br/>Tillåtna värden är 0 (standard), 1, 2, etc. | Inga                                            |
+| rejectType (avskände)        | Anger om alternativet **rejectValue** är ett litteralt värde eller en procentsats.<br/><br/>Tillåtna värden är **Värde** (standard) och **Procent**. | Inga                                            |
+| avvisaPlevalue | Bestämmer antalet rader som ska hämtas innan PolyBase beräknar om procentandelen avvisade rader.<br/><br/>Tillåtna värden är 1, 2, etc. | Ja, om **rejectType** är **procent**. |
+| useTypeDefault    | Anger hur värden som saknas i avgränsade textfiler ska hanteras när PolyBase hämtar data från textfilen.<br/><br/>Läs mer om den här egenskapen från avsnittet Argument i [SKAPA EXTERNT FILFORMAT (Transact-SQL)](https://msdn.microsoft.com/library/dn935026.aspx).<br/><br/>Tillåtna värden är **Sant** och **Falskt** (standard).<br><br> | Inga                                            |
 
-### <a name="direct-copy-by-using-polybase"></a>Direct kopiera genom att använda PolyBase
+### <a name="direct-copy-by-using-polybase"></a>Direktkopia med PolyBase
 
-SQL Data Warehouse PolyBase stöder direkt Azure Blob, Azure Data Lake Storage Gen1 och Azure Data Lake Storage Gen2. Om dina källdata uppfyller de kriterier som beskrivs i det här avsnittet använder du PolyBase för att kopiera direkt från käll data lagret till Azure Synapse Analytics. Annars använder du [mellanlagrad kopiering med PolyBase](#staged-copy-by-using-polybase).
+SQL Data Warehouse PolyBase har direkt stöd för Azure Blob, Azure Data Lake Storage Gen1 och Azure Data Lake Storage Gen2. Om källdata uppfyller de kriterier som beskrivs i det här avsnittet använder du PolyBase för att kopiera direkt från källdataarkivet till Azure Synapse Analytics. Annars kan du använda [Stegvis kopia med PolyBase](#staged-copy-by-using-polybase).
 
 > [!TIP]
-> Om du vill kopiera data på ett effektivt sätt till SQL Data Warehouse kan du läsa mer från [Azure Data Factory gör det ännu enklare och bekvämt att få insikter från data när du använder data Lake Store med SQL Data Warehouse](https://blogs.msdn.microsoft.com/azuredatalake/2017/04/08/azure-data-factory-makes-it-even-easier-and-convenient-to-uncover-insights-from-data-when-using-data-lake-store-with-sql-data-warehouse/).
+> Om du vill kopiera data effektivt till SQL Data Warehouse gör du mer från [Azure Data Factory ännu enklare och bekvämare att upptäcka insikter från data när du använder Data Lake Store med SQL Data Warehouse](https://blogs.msdn.microsoft.com/azuredatalake/2017/04/08/azure-data-factory-makes-it-even-easier-and-convenient-to-uncover-insights-from-data-when-using-data-lake-store-with-sql-data-warehouse/).
 
-Om kraven inte uppfylls, Azure Data Factory kontrollerar du inställningarna och faller automatiskt tillbaka till BULKINSERT mekanism för dataförflyttning.
+Om kraven inte uppfylls kontrollerar Azure Data Factory inställningarna och faller automatiskt tillbaka till BULKINSERT-mekanismen för dataflyttning.
 
-1. Den **länkade käll tjänsten** har följande typer och autentiseringsmetoder:
+1. Den **källlänkade tjänsten** är med följande typer och autentiseringsmetoder:
 
-    | Typ av käll data lager som stöds                             | Typ av källtyp som stöds                        |
+    | Informationslagringstyp som stöds                             | Autentiseringstyp för källa som stöds                        |
     | :----------------------------------------------------------- | :---------------------------------------------------------- |
-    | [Azure-Blob](connector-azure-blob-storage.md)                | Autentisering av konto nyckel, hanterad identitets autentisering |
+    | [Azure-blobb](connector-azure-blob-storage.md)                | Autentisering av kontonyckel, autentisering av hanterade identiteter |
     | [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md) | Autentisering av tjänstens huvudnamn                            |
-    | [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md) | Autentisering av konto nyckel, hanterad identitets autentisering |
+    | [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md) | Autentisering av kontonyckel, autentisering av hanterade identiteter |
 
     >[!IMPORTANT]
-    >Om din Azure Storage har kon figurer ATS med VNet-tjänstens slut punkt måste du använda hanterad identitets autentisering – Se [effekten av att använda VNet-tjänstens slut punkter med Azure Storage](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage). Lär dig mer om de konfigurationer som krävs i Data Factory från [Azure Blob-hanterad identitets verifiering](connector-azure-blob-storage.md#managed-identity) och [Azure Data Lake Storage Gen2-hanterad identitets verifiering](connector-azure-data-lake-storage.md#managed-identity) .
+    >Om din Azure Storage har konfigurerats med VNet-tjänstslutpunkt måste du använda autentisering av hanterad identitet – se Effekten av att [använda VNet-tjänstslutpunkter med Azure-lagring](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage). Lär dig de konfigurationer som krävs i Data Factory från [Azure Blob - autentisering av hanterade identiteter](connector-azure-blob-storage.md#managed-identity) och Azure Data Lake Storage Gen2 - autentiseringsavsnittet för [hanterad identitet.](connector-azure-data-lake-storage.md#managed-identity)
 
-2. **Käll data formatet** är av **Parquet**, **Orc**eller **avgränsad text**, med följande konfigurationer:
+2. **Källdataformatet** är av **parett**, **ORC**eller **avgränsad text**, med följande konfigurationer:
 
-   1. Mappsökvägen innehåller inte något filter för jokertecken.
-   2. Fil namnet är tomt eller pekar på en enskild fil. Om du anger jokertecken i kopierings aktiviteten kan du bara `*` eller `*.*`.
-   3. `rowDelimiter` är **standard**, **\n**, **\r\n**eller **\r**.
-   4. `nullValue` lämnas som standard eller inställd på **tom sträng** (""), och `treatEmptyAsNull` lämnas som standard eller anges till sant.
-   5. `encodingName` är kvar som standard eller anges till **UTF-8**.
-   6. `quoteChar`, `escapeChar`och `skipLineCount` har inte angetts. Huvud stöd för att hoppa över rubrik rad, som kan konfigureras som `firstRowAsHeader` i ADF.
-   7. `compression` kan inte vara **komprimering**, **gzip**eller **DEFLATE**.
+   1. Mappsökvägen innehåller inte jokerteckenfilter.
+   2. Filnamnet är tomt eller pekar på en enda fil. Om du anger jokerteckenfilnamn i kopieringsaktivitet kan det bara vara `*` eller `*.*`.
+   3. `rowDelimiter`är **standard**, **\n**, **\r\n**eller **\r**.
+   4. `nullValue`lämnas som standard eller är inställd `treatEmptyAsNull` på tom **sträng** (""), och lämnas som standard eller är inställd på true.
+   5. `encodingName`lämnas som standard eller är inställd på **utf-8**.
+   6. `quoteChar`, `escapeChar`och `skipLineCount` har inte angetts. PolyBase-stöd hoppar över rubrikraden, `firstRowAsHeader` som kan konfigureras som i ADF.
+   7. `compression`kan inte vara **någon komprimering,** **GZip**eller **Deflate**.
 
-3. Om din källa är en mapp måste `recursive` i kopierings aktiviteten vara inställd på sant.
+3. Om källan är en `recursive` mapp måste kopieringsaktiviteten vara true.
 
-4. `wildcardFolderPath`, `wildcardFilename`, `modifiedDateTimeStart`och `modifiedDateTimeEnd` inte har angetts.
+4. `wildcardFolderPath`, `wildcardFilename` `modifiedDateTimeStart`och `modifiedDateTimeEnd` `additionalColumns` har inte angetts.
 
 >[!NOTE]
->Om din källa är en mapp hämtas filer från mappen och alla dess undermappar, och data hämtas inte från filer vars fil namn börjar med en understrykning (_) eller en punkt (.), enligt beskrivningen [här – plats argument](https://docs.microsoft.com/sql/t-sql/statements/create-external-table-transact-sql?view=azure-sqldw-latest#arguments-2).
+>Om källan är en mapp hämtar du PolyBase filer från mappen och alla dess undermappar, och den hämtar inte data från filer för vilka filnamnet börjar med en understrykning (_) eller en punkt (.), som dokumenteras [här - LOCATION-argumentet](https://docs.microsoft.com/sql/t-sql/statements/create-external-table-transact-sql?view=azure-sqldw-latest#arguments-2).
 
 ```json
 "activities":[
@@ -483,14 +483,14 @@ Om kraven inte uppfylls, Azure Data Factory kontrollerar du inställningarna och
 ]
 ```
 
-### <a name="staged-copy-by-using-polybase"></a>Mellanlagrad kopiering genom att använda PolyBase
+### <a name="staged-copy-by-using-polybase"></a>Iscensatt kopia med hjälp av PolyBase
 
-När dina källdata inte är internt kompatibla med PolyBase kan du aktivera data kopiering via en tillfällig mellanlagrings instans av Azure Blob Storage (den kan inte vara Azure Premium Storage). I det här fallet konverterar Azure Data Factory automatiskt data så att de uppfyller data format kraven för PolyBase. Sedan anropar den PolyBase för att läsa in data i SQL Data Warehouse. Slutligen rensar den tillfälliga data från blob-lagringen. Se [mellanlagrad kopia](copy-activity-performance.md#staged-copy) för information om hur du kopierar data via en mellanlagringsplats av Azure Blob Storage-instansen.
+När källdata inte är kompatibla med PolyBase aktiverar du datakopiering via en tillfällig mellanlagring av Azure Blob-lagringsinstans (det kan inte vara Azure Premium Storage). I det här fallet konverterar Azure Data Factory automatiskt data för att uppfylla kraven för dataformat i PolyBase. Sedan anropas PolyBase för att läsa in data i SQL Data Warehouse. Slutligen rensas dina tillfälliga data från blob-lagringen. Se [Stegvis kopia](copy-activity-performance.md#staged-copy) för information om hur du kopierar data via en mellanlagring av Azure Blob-lagringsinstans.
 
-Om du vill använda den här funktionen skapar du en [länkad Azure Blob Storage-tjänst](connector-azure-blob-storage.md#linked-service-properties) som refererar till Azure Storage-kontot med Interim Blob Storage. Ange sedan `enableStaging` och `stagingSettings` egenskaper för kopierings aktiviteten som du ser i följande kod.
+Om du vill använda den här funktionen skapar du en [Azure Blob Storage-länkad tjänst](connector-azure-blob-storage.md#linked-service-properties) som refererar till Azure-lagringskontot med interim blob-lagring. Ange sedan `enableStaging` `stagingSettings` egenskaperna och för kopieringsaktiviteten enligt följande kod.
 
 >[!IMPORTANT]
->Om din mellanlagrings Azure Storage har kon figurer ATS med VNet-tjänstens slut punkt måste du använda hanterad identitets autentisering – Se [effekten av att använda VNet-tjänstens slut punkter med Azure Storage](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage). Lär dig de konfigurationer som krävs i Data Factory från [Azure Blob-hanterad identitetsautentisering](connector-azure-blob-storage.md#managed-identity).
+>Om din mellanlagring Azure Storage har konfigurerats med VNet-tjänstslutpunkt måste du använda autentisering av hanterad identitet – se Effekten av att [använda VNet-tjänstslutpunkter med Azure-lagring](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage). Lär dig de konfigurationer som krävs i Data Factory från [Azure Blob - autentisering av hanterad identitet](connector-azure-blob-storage.md#managed-identity).
 
 ```json
 "activities":[
@@ -531,49 +531,49 @@ Om du vill använda den här funktionen skapar du en [länkad Azure Blob Storage
 
 ### <a name="best-practices-for-using-polybase"></a>Metodtips för att använda PolyBase
 
-Följande avsnitt innehåller metod tips utöver de som nämns i [metod tips för Azure Synapse Analytics](../sql-data-warehouse/sql-data-warehouse-best-practices.md).
+Följande avsnitt innehåller metodtips utöver de som nämns i [Metodtips för Azure Synapse Analytics](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-best-practices.md).
 
-#### <a name="required-database-permission"></a>Behörighet krävs
+#### <a name="required-database-permission"></a>Obligatorisk databasbehörighet
 
-Om du vill använda PolyBase måste användaren som läser in data i SQL Data Warehouse ha [behörigheten "kontroll"](https://msdn.microsoft.com/library/ms191291.aspx) för mål databasen. Ett sätt att åstadkomma detta är att lägga till användaren som en medlem i **db_owner** -rollen. Lär dig hur du gör i [SQL Data Warehouse översikt](../sql-data-warehouse/sql-data-warehouse-overview-manage-security.md#authorization).
+Om du vill använda PolyBase måste användaren som läser in data i SQL Data Warehouse ha [behörigheten "CONTROL"](https://msdn.microsoft.com/library/ms191291.aspx) i måldatabasen. Ett sätt att uppnå detta är att lägga till användaren som medlem i **db_owner** roll. Lär dig hur du gör det i [ÖVERSIKTEN FÖR SQL Data Warehouse](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-manage-security.md#authorization).
 
-#### <a name="row-size-and-data-type-limits"></a>Ange gränser Radstorleken och data
+#### <a name="row-size-and-data-type-limits"></a>Radstorlek och datatypsgränser
 
-PolyBase-inläsningar är begränsade till rader som är mindre än 1 MB. Den kan inte användas för att läsa in till VARCHR (MAX), NVARCHAR (MAX) eller VARBINARY (MAX). Mer information finns i [SQL Data Warehouse tjänst kapacitets gränser](../sql-data-warehouse/sql-data-warehouse-service-capacity-limits.md#loads).
+PolyBase-belastningar är begränsade till rader som är mindre än 1 MB. Den kan inte användas för att läsa in till VARCHR(MAX), NVARCHAR(MAX) eller VARBINARY(MAX). Mer information finns i [sql data warehouse-tjänstkapacitetsbegränsningar](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-service-capacity-limits.md#loads).
 
-När dina källdata innehåller rader som är större än 1 MB, kanske du vill dela lodrätt källtabellerna i flera små. Kontrollera att den största storleken på varje rad inte överskrider gränsen. De mindre tabellerna kan sedan läsas in med PolyBase och sammanfogas tillsammans i Azure Synapse Analytics.
+När källdata har rader som är större än 1 MB kanske du vill dela upp källtabellerna lodrätt i flera små. Kontrollera att den största storleken på varje rad inte överskrider gränsen. De mindre tabellerna kan sedan läsas in med Hjälp av PolyBase och slås samman i Azure Synapse Analytics.
 
-Du kan också använda icke-PolyBase för att läsa in data med hjälp av ADF genom att inaktivera inställningen Tillåt PolyBase för data med sådana breda kolumner.
+Alternativt, för data med så breda kolumner, kan du använda icke-PolyBase för att läsa in data med hjälp av ADF, genom att stänga av inställningen "tillåt PolyBase".
 
-#### <a name="sql-data-warehouse-resource-class"></a>SQL Data Warehouse resursklass
+#### <a name="sql-data-warehouse-resource-class"></a>Resursklass för SQL Data Warehouse
 
-Tilldela en större resursklass till användaren som läser in data i SQL Data Warehouse via PolyBase för att uppnå bästa möjliga genomflöde.
+För att uppnå bästa möjliga dataflöde, tilldela en större resursklass till användaren som läser in data i SQL Data Warehouse via PolyBase.
 
-#### <a name="polybase-troubleshooting"></a>PolyBase-fel sökning
+#### <a name="polybase-troubleshooting"></a>Felsökning av PolyBase
 
-**Läser in till decimal kolumn**
+**Läsa in i decimalkolumnen**
 
-Om dina källdata är i text format eller andra icke-PolyBase-kompatibla lager (med mellanlagrad kopia och PolyBase) och den innehåller ett tomt värde som ska läsas in i SQL Data Warehouse decimal kolumn, kan du trycka på följande fel:
+Om källdata är i textformat eller andra icke-PolyBase-kompatibla butiker (med mellanslagna kopior och PolyBase) och den innehåller tomt värde som ska läsas in i kolumnen Decimal i SQL-datalager, kan du få följande fel:
 
 ```
 ErrorCode=FailedDbOperation, ......HadoopSqlException: Error converting data type VARCHAR to DECIMAL.....Detailed Message=Empty string can't be converted to DECIMAL.....
 ```
 
-Lösningen är att avmarkera alternativet**Använd standard**alternativet (som falskt) i kopierings aktiviteten handfat-> PolyBase-inställningar. "[USE_TYPE_DEFAULT](https://docs.microsoft.com/sql/t-sql/statements/create-external-file-format-transact-sql?view=azure-sqldw-latest#arguments
-)" är en PolyBase-inbyggd konfiguration som anger hur du ska hantera saknade värden i avgränsade textfiler när PolyBase hämtar data från text filen. 
+Lösningen är att avmarkera alternativet "**Använd typtyp**" (som falskt) i kopieringsaktivitetsmottagaren -> PolyBase-inställningarna. "[USE_TYPE_DEFAULT](https://docs.microsoft.com/sql/t-sql/statements/create-external-file-format-transact-sql?view=azure-sqldw-latest#arguments
+)" är en inbyggd PolyBase-konfiguration som anger hur värden som saknas i avgränsade textfiler ska hanteras när PolyBase hämtar data från textfilen. 
 
-**`tableName` i Azure Synapse Analytics**
+**`tableName`i Azure Synapse Analytics**
 
-Följande tabell innehåller exempel på hur du anger egenskapen **TableName** i JSON-datauppsättningen. Den visar flera kombinationer av schema och tabellnamn.
+I följande tabell finns exempel på hur du anger egenskapen **tableName** i JSON-datauppsättningen. Den visar flera kombinationer av schema och tabellnamn.
 
-| DB-Schema | Tabellnamn | **TableName** JSON-egenskap               |
+| DB-schema | Tabellnamn | **tableName (tableName)** JSON, egenskapen               |
 | --------- | ---------- | ----------------------------------------- |
-| dbo       | MyTable    | MyTable eller dbo.MyTable eller [dbo].[Tabell] |
-| dbo1      | MyTable    | dbo1.MyTable eller [dbo1].[Tabell]          |
-| dbo       | My.Table   | [My.Table] eller [dbo].[My.Table]            |
-| dbo1      | My.Table   | [dbo1].[My.Table]                         |
+| Dbo       | MyTable (MyTable)    | MyTable eller dbo. MyTable eller [dbo]. [MyTable] |
+| dbo1 (på andra)      | MyTable (MyTable)    | dbo1. MyTable eller [dbo1]. [MyTable]          |
+| Dbo       | My.Table (bord)   | [My.Table] eller [dbo]. [Mitt.Bord]            |
+| dbo1 (på andra)      | My.Table (bord)   | [dbo1]. [Mitt.Bord]                         |
 
-Om du ser följande fel kan problemet vara det värde som du har angett för egenskapen **TableName** . I tabellen ovan finns det korrekta sättet att ange värden för JSON-egenskapen **TableName** .
+Om följande fel visas kan problemet bero på det värde som du angav för egenskapen **tableName.** Se den föregående tabellen för rätt sätt att ange värden för **egenskapen tableName** JSON.
 
 ```
 Type=System.Data.SqlClient.SqlException,Message=Invalid object name 'stg.Account_test'.,Source=.Net SqlClient Data Provider
@@ -581,57 +581,57 @@ Type=System.Data.SqlClient.SqlException,Message=Invalid object name 'stg.Account
 
 **Kolumner med standardvärden**
 
-PolyBase-funktionen i Data Factory accepterar för närvarande endast samma antal kolumner som i måltabellen. Ett exempel är en tabell med fyra kolumner där en av dem har definierats med ett standardvärde. Indata måste fortfarande ha fyra kolumner. En indatauppsättning med tre kolumner ger ett fel som liknar följande meddelande:
+För närvarande accepterar PolyBase-funktionen i Data Factory endast samma antal kolumner som i måltabellen. Ett exempel är en tabell med fyra kolumner där en av dem definieras med ett standardvärde. Indata måste fortfarande ha fyra kolumner. En indatauppsättning med tre kolumner ger ett fel som liknar följande meddelande:
 
 ```
 All columns of the table must be specified in the INSERT BULK statement.
 ```
 
-NULL-värdet är en särskild form av standardvärdet. Om kolumnen är nullbar vara inkommande data i blob för kolumnen tom. Men den kan inte vara saknas från datauppsättningen för indata. PolyBase infogar NULL för saknade värden i Azure Synapse Analytics.
+NULL-värdet är en särskild form av standardvärdet. Om kolumnen är nullable kan indata i blobben för den kolumnen vara tomma. Men det kan inte saknas från indatauppsättningen. PolyBase infogar NULL för saknade värden i Azure Synapse Analytics.
 
-## <a name="use-copy-statement"></a>Använda COPY-instruktionen för att läsa in data i Azure SQL Data Warehouse (för hands version)
+## <a name="use-copy-statement-to-load-data-into-azure-sql-data-warehouse-preview"></a><a name="use-copy-statement"></a>Använd COPY-uttryck för att läsa in data i Azure SQL Data Warehouse (förhandsversion)
 
-SQL Data Warehouse [copy-instruktionen](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) (för hands version) stöder direkt inläsning av data från **Azure blob och Azure Data Lake Storage Gen2**. Om dina källdata uppfyller de kriterier som beskrivs i det här avsnittet, kan du välja att använda COPY-instruktionen i ADF för att läsa in data i Azure SQL Data Warehouse. Azure Data Factory kontrollerar inställningarna och det går inte att köra kopierings aktiviteten om villkoren inte är uppfyllda.
+SQL Data Warehouse [COPY-uttryck](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) (förhandsversion) stöder direkt inläsning av data från **Azure Blob och Azure Data Lake Storage Gen2**. Om källdata uppfyller de kriterier som beskrivs i det här avsnittet kan du välja att använda COPY-uttryck i ADF för att läsa in data i Azure SQL Data Warehouse. Azure Data Factory kontrollerar inställningarna och misslyckas kopieringsaktiviteten köra om villkoren inte uppfylls.
 
 >[!NOTE]
->För närvarande finns Data Factory bara stöd för kopiering från COPY Statement-kompatibla källor som anges nedan.
+>För närvarande Stöder Data Factory endast kopia från COPY-satsens kompatibla källor som nämns nedan.
 
-Att använda COPY-instruktionen har stöd för följande konfiguration:
+Att använda COPY-sats stöder följande konfiguration:
 
-1. Den **länkade käll tjänsten och formatet** har följande typer och autentiseringsmetoder:
+1. Den **källlänkade tjänsten och formatet** är med följande typer och autentiseringsmetoder:
 
-    | Typ av käll data lager som stöds                             | Format som stöds           | Typ av källtyp som stöds                         |
+    | Informationslagringstyp som stöds                             | Format som stöds           | Autentiseringstyp för källa som stöds                         |
     | :----------------------------------------------------------- | -------------------------- | :----------------------------------------------------------- |
-    | [Azure-Blob](connector-azure-blob-storage.md)                | [Avgränsad text](format-delimited-text.md)             | Autentisering av konto nyckel, autentisering av signatur för delad åtkomst, autentisering av tjänstens huvud konto, hanterad identitetsautentisering |
-    | &nbsp;                                                       | [Parquet](format-parquet.md)                    | Autentisering av konto nyckel, autentisering av delad åtkomst för signaturer |
-    | &nbsp;                                                       | [ORC](format-orc.md)                        | Autentisering av konto nyckel, autentisering av delad åtkomst för signaturer |
-    | [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md) | [Avgränsad text](format-delimited-text.md)<br/>[Parquet](format-parquet.md)<br/>[ORC](format-orc.md) | Autentisering av konto nyckel, autentisering av tjänstens huvud konto, hanterad identitets autentisering |
+    | [Azure-blobb](connector-azure-blob-storage.md)                | [Avgränsad text](format-delimited-text.md)             | Autentisering av kontonyckel, autentisering av signatur för delad åtkomst, autentisering av tjänstens huvudnamn, autentisering av hanterad identitet |
+    | &nbsp;                                                       | [Parkett](format-parquet.md)                    | Autentisering av kontonyckel, autentisering av signatur för delad åtkomst |
+    | &nbsp;                                                       | [Orc](format-orc.md)                        | Autentisering av kontonyckel, autentisering av signatur för delad åtkomst |
+    | [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md) | [Avgränsad text](format-delimited-text.md)<br/>[Parkett](format-parquet.md)<br/>[Orc](format-orc.md) | Autentisering av kontonyckel, autentisering av tjänstens huvudnamn, autentisering av hanterad identitet |
 
     >[!IMPORTANT]
-    >Om din Azure Storage har kon figurer ATS med VNet-tjänstens slut punkt måste du använda hanterad identitets autentisering – Se [effekten av att använda VNet-tjänstens slut punkter med Azure Storage](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage). Lär dig mer om de konfigurationer som krävs i Data Factory från [Azure Blob-hanterad identitets verifiering](connector-azure-blob-storage.md#managed-identity) och [Azure Data Lake Storage Gen2-hanterad identitets verifiering](connector-azure-data-lake-storage.md#managed-identity) .
+    >Om din Azure Storage har konfigurerats med VNet-tjänstslutpunkt måste du använda autentisering av hanterad identitet – se Effekten av att [använda VNet-tjänstslutpunkter med Azure-lagring](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage). Lär dig de konfigurationer som krävs i Data Factory från [Azure Blob - autentisering av hanterade identiteter](connector-azure-blob-storage.md#managed-identity) och Azure Data Lake Storage Gen2 - autentiseringsavsnittet för [hanterad identitet.](connector-azure-data-lake-storage.md#managed-identity)
 
-2. Format inställningarna är med följande:
+2. Formatinställningarna är med följande:
 
-   1. För **Parquet**: `compression` kan vara **Ingen komprimering**, **fästfunktionen**eller **gzip**.
-   2. För **Orc**: `compression` kan vara **Ingen komprimering**, **zlib**eller **fästning**.
-   3. För **avgränsad text**:
-      1. `rowDelimiter` anges explicit som **enstaka** eller " **\r\n**", så stöds inte standardvärdet.
-      2. `nullValue` är kvar som standard eller inställt på **tom sträng** ("").
-      3. `encodingName` lämnas som standard eller anges till **UTF-8 eller UTF-16**.
-      4. `escapeChar` måste vara samma som `quoteChar`och är inte tom.
-      5. `skipLineCount` är kvar som standard eller anges till 0.
-      6. `compression` kan vara **Ingen komprimering** eller **gzip**.
+   1. För **Parkett:** `compression` kan inte vara **någon komprimering,** **Snappy**eller **GZip**.
+   2. För **ORC:** `compression` kan inte vara **någon komprimering,** **zlib**eller **Snappy**.
+   3. För **avgränsad text:**
+      1. `rowDelimiter`uttryckligen anges som **ett tecken** eller "**\r\n**", stöds inte standardvärdet.
+      2. `nullValue`lämnas som standard eller är inställd på **tom sträng** ("").
+      3. `encodingName`lämnas som standard eller är inställd på **utf-8 eller utf-16**.
+      4. `escapeChar`måste vara `quoteChar`samma som och inte vara tom.
+      5. `skipLineCount`lämnas som standard eller är inställd på 0.
+      6. `compression`kan inte vara **någon komprimering** eller **GZip**.
 
-3. Om din källa är en mapp måste `recursive` i kopierings aktiviteten vara inställd på sant.
+3. Om källan är en `recursive` mapp måste kopieringsaktiviteten vara true.
 
-4. `wildcardFolderPath`, `wildcardFilename`, `modifiedDateTimeStart`och `modifiedDateTimeEnd` inte har angetts.
+4. `wildcardFolderPath`, `wildcardFilename` `modifiedDateTimeStart`och `modifiedDateTimeEnd` `additionalColumns` har inte angetts.
 
-Följande KOPIERINGs instruktions inställningar stöds under `allowCopyCommand` i kopierings aktiviteten:
+Följande copy-programsatsinställningar `allowCopyCommand` stöds under i kopieringsaktivitet:
 
 | Egenskap          | Beskrivning                                                  | Krävs                                      |
 | :---------------- | :----------------------------------------------------------- | :-------------------------------------------- |
-| defaultValues | Anger standardvärden för varje mål kolumn i SQL DW.  Standardvärdena i egenskapen skriver över standard begränsnings uppsättningen i data lagret och identitets kolumnen kan inte ha ett standardvärde. | Nej |
-| additionalOptions | Ytterligare alternativ som skickas till SQL DW COPY-instruktionen direkt i With-satsen i [copy-instruktionen](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest). Citera värdet efter behov för att passa med KOPIERINGs instruktionens krav. | Nej |
+| defaultValues | Anger standardvärdena för varje målkolumn i SQL DW.  Standardvärdena i egenskapen skriver över standardvillkorsuppsättningen i informationslagret och identitetskolumnen kan inte ha ett standardvärde. | Inga |
+| ytterligareAlternativ | Ytterligare alternativ som skickas till SQL DW COPY-uttryck direkt i "Med"-satsen i [COPY-satsen](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest). Citera värdet efter behov för att justera med COPY-utdragskraven. | Inga |
 
 ```json
 "activities":[
@@ -681,96 +681,96 @@ Följande KOPIERINGs instruktions inställningar stöds under `allowCopyCommand`
 ```
 
 
-## <a name="lookup-activity-properties"></a>Egenskaper för Sök aktivitet
+## <a name="lookup-activity-properties"></a>Egenskaper för uppslagsaktivitet
 
-Om du vill veta mer om egenskaperna kontrollerar du [söknings aktiviteten](control-flow-lookup-activity.md).
+Om du vill veta mer om egenskaperna kontrollerar du [uppslagsaktivitet](control-flow-lookup-activity.md).
 
-## <a name="getmetadata-activity-properties"></a>Egenskaper för GetMetadata-aktivitet
+## <a name="getmetadata-activity-properties"></a>Aktivitetsegenskaper för GetMetadata
 
-Om du vill veta mer om egenskaperna kontrollerar du [getMetaData-aktivitet](control-flow-get-metadata-activity.md) 
+Om du vill veta mer om egenskaperna kontrollerar du [GetMetadata-aktivitet](control-flow-get-metadata-activity.md) 
 
-## <a name="data-type-mapping-for-azure-sql-data-warehouse"></a>Datatypsmappningen för Azure SQL Data Warehouse
+## <a name="data-type-mapping-for-azure-sql-data-warehouse"></a>Datatypsmappning för Azure SQL Data Warehouse
 
-## <a name="mapping-data-flow-properties"></a>Mappa data flödes egenskaper
+## <a name="mapping-data-flow-properties"></a>Mappa dataflödesegenskaper
 
-När du transformerar data i mappnings data flödet kan du läsa och skriva till tabeller från Azure Synapse Analytics. Mer information finns i omvandling av [käll omvandling](data-flow-source.md) och [mottagare](data-flow-sink.md) i mappnings data flöden.
+När du omvandlar data i mappning av dataflöde kan du läsa och skriva till tabeller från Azure Synapse Analytics. Mer information finns i [källomvandlingen](data-flow-source.md) och [sink-omvandlingen](data-flow-sink.md) vid mappning av dataflöden.
 
-### <a name="source-transformation"></a>Käll omvandling
+### <a name="source-transformation"></a>Omvandling av källa
 
-Inställningar som är särskilt tillgängliga för Azure Synapse Analytics finns på fliken **käll alternativ** i käll omvandlingen. 
+Inställningar som är specifika för Azure Synapse Analytics är tillgängliga på fliken **Källalternativ** i källomvandlingen. 
 
-**Inmatade:** Välj om du vill peka din källa i en tabell (motsvarande ```Select * from <table-name>```) eller ange en anpassad SQL-fråga.
+**Ingång:** Välj om du pekar källan mot ```Select * from <table-name>```en tabell (motsvarande) eller anger en anpassad SQL-fråga.
 
-**Fråga**: om du väljer fråga i fältet inmatat anger du en SQL-fråga för källan. Den här inställningen åsidosätter alla tabeller som du har valt i data uppsättningen. **Order by** -satser stöds inte här, men du kan ange en fullständig Select from-instruktion. Du kan också använda användardefinierade tabell funktioner. **Select * from udfGetData ()** är en UDF i SQL som returnerar en tabell. Med den här frågan skapas en käll tabell som du kan använda i ditt data flöde. Att använda frågor är också ett bra sätt att minska antalet rader för testning eller sökning. 
+**Fråga**: Om du väljer Fråga i indatafältet anger du en SQL-fråga för källan. Den här inställningen åsidosätter alla tabeller som du har valt i datauppsättningen. **Order** by-satser stöds inte här, men du kan ange en fullständig SELECT FROM-sats. Du kan också använda användardefinierade tabellfunktioner. **välj * från udfGetData()** är en UDF i SQL som returnerar en tabell. Den här frågan skapar en källtabell som du kan använda i dataflödet. Att använda frågor är också ett bra sätt att minska rader för testning eller för uppslag. 
 
-* SQL-exempel: ```Select * from MyTable where customerId > 1000 and customerId < 2000```
+* SQL-exempel:```Select * from MyTable where customerId > 1000 and customerId < 2000```
 
-**Batchstorlek**: Ange en batchstorlek för att segmentera stora data till läsningar.
+**Batchstorlek:** Ange en batchstorlek för att segmenta stora data i läsningar.
 
-**Isolerings nivå**: standardvärdet för SQL-källor i mappnings data flödet är Read uncommitted. Du kan ändra isolerings nivån här till något av följande värden:
+**Isoleringsnivå**: Standardvärdet för SQL-källor vid mappning av dataflöde läss inte. Du kan ändra isoleringsnivån här till ett av dessa värden:
 * Läs bekräftad
-* Läs ej allokerad
-* Upprepnings bar läsning
+* Läs oengagerad
+* Repeterbar läsning
 * Serialiserbar
-* Ingen (ignorera isolerings nivå)
+* Ingen (ignorera isoleringsnivå)
 
-![Isolerings nivå](media/data-flow/isolationlevel.png "Isoleringsnivå")
+![Isoleringsnivå](media/data-flow/isolationlevel.png "Isoleringsnivå")
 
-### <a name="sink-transformation"></a>Omvandling av mottagare
+### <a name="sink-transformation"></a>Sink omvandling
 
-Inställningar som är tillgängliga för Azure Synapse Analytics finns på fliken **Inställningar** i omvandlingen för mottagare.
+Inställningar som är specifika för Azure Synapse Analytics är tillgängliga på fliken **Inställningar** i sink-omvandlingen.
 
-**Uppdaterings metod:** Avgör vilka åtgärder som tillåts på databas målet. Standardvärdet är att endast tillåta infogningar. Om du vill uppdatera, upsert eller ta bort rader krävs en Alter-Row-omvandling för att tagga rader för dessa åtgärder. För uppdateringar, upsertar och borttagningar måste en nyckel kolumn eller kolumner anges för att avgöra vilken rad som ska ändras.
+**Uppdateringsmetod:** Bestämmer vilka åtgärder som är tillåtna på databasens mål. Standard är att endast tillåta infogningar. För att uppdatera, upsert eller ta bort rader krävs en omvandling på en rad för att tagga rader för dessa åtgärder. För uppdateringar, upserts och borttagningar måste en nyckelkolumn eller kolumner anges för att avgöra vilken rad som ska ändras.
 
-**Tabell åtgärd:** Bestämmer om du vill återskapa eller ta bort alla rader från mål tabellen innan du skriver.
-* Ingen: ingen åtgärd utförs i tabellen.
-* Återskapa: tabellen tas bort och återskapas. Krävs om du skapar en ny tabell dynamiskt.
-* Trunkera: alla rader från mål tabellen tas bort.
+**Tabellåtgärd:** Bestämmer om alla rader ska återskapas eller tas bort från måltabellen innan du skriver.
+* Ingen: Ingen åtgärd kommer att göras i tabellen.
+* Återskapa: Tabellen kommer att släppas och återskapas. Krävs om du skapar en ny tabell dynamiskt.
+* Trunkera: Alla rader från måltabellen tas bort.
 
-**Aktivera mellanlagring:** Bestämmer om [PolyBase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide?view=sql-server-ver15) ska användas vid skrivning till Azure Synapse Analytics
+**Aktivera mellanlagring:** Avgör om [PolyBase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide?view=sql-server-ver15) ska användas eller inte när du skriver till Azure Synapse Analytics
 
-**Batchstorlek**: styr hur många rader som skrivs i varje Bucket. Större batch-storlekar förbättrar komprimeringen och minnes optimeringen, men riskerar att ta bort minnes undantag när data cachelagras.
+**Batchstorlek:** Styr hur många rader som skrivs i varje bucket. Större batchstorlekar förbättrar komprimerings- och minnesoptimeringen, men risken är på minnesundantag när data cachelagrar.
 
-**För-och post-SQL-skript**: Ange SQL-skript med flera rader som ska köras före (för bearbetning) och efter (efter bearbetning)-data skrivs till din mottagar databas
+**Före- och post-SQL-skript:** Ange flerradiga SQL-skript som ska köras före (förbearbetning) och efter (efterbearbetning) data skrivs till din Sink-databas
 
-![skript för SQL-bearbetning före och efter bearbetning](media/data-flow/prepost1.png "Skript för SQL-bearbetning")
+![för- och efter-SQL-bearbetningsskript](media/data-flow/prepost1.png "SQL-bearbetningsskript")
 
-## <a name="data-type-mapping-for-azure-synapse-analytics"></a>Data typs mappning för Azure Synapse Analytics
+## <a name="data-type-mapping-for-azure-synapse-analytics"></a>Datatypsmappning för Azure Synapse Analytics
 
-När du kopierar data från eller till Azure Synapse Analytics används följande mappningar från Azure Synapse Analytics-datatyper för att Azure Data Factory interimistiska data typer. Se [mappningar av schema och data typer](copy-activity-schema-and-type-mapping.md) för att lära dig hur kopierings aktivitet mappar käll schema och datatyp till mottagaren.
+När du kopierar data från eller till Azure Synapse Analytics används följande mappningar från Azure Synapse Analytics-datatyper till Azure Data Factory interimsdatatyper. Se [schema- och datatypsmappningar](copy-activity-schema-and-type-mapping.md) om du vill veta hur Kopiera aktivitet mappar källschemat och datatypen till diskhon.
 
 >[!TIP]
->Se [tabell data typer i Azure Synapse Analytics](../sql-data-warehouse/sql-data-warehouse-tables-data-types.md) -artikeln om data typer som stöds av SQL DW och lösningar för de som inte stöds.
+>Se [Tabelldatatyper i Azure Synapse Analytics-artikeln](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-data-types.md) om SQL DW-stödda datatyper och lösningarna för data som inte stöds.
 
-| Data typen Azure Synapse Analytics    | Data Factory tillfälliga datatyp |
+| Azure Synapse Analytics-datatyp    | Data Factory interimdatatyp |
 | :------------------------------------ | :----------------------------- |
 | bigint                                | Int64                          |
 | binary                                | Byte[]                         |
 | bit                                   | Boolean                        |
-| char                                  | String, Char[]                 |
+| char                                  | Sträng, Röding[]                 |
 | date                                  | DateTime                       |
-| Datum/tid                              | DateTime                       |
+| Datumtid                              | DateTime                       |
 | datetime2                             | DateTime                       |
-| DateTimeOffset                        | DateTimeOffset                 |
-| decimaltal                               | decimaltal                        |
-| FILESTREAM attribute (varbinary(max)) | Byte[]                         |
-| Flyttal                                 | Double-värde                         |
+| Datumtidsdatum                        | DateTimeOffset                 |
+| Decimal                               | Decimal                        |
+| FILESTREAM-attribut (varbinary(max)) | Byte[]                         |
+| Float (Flyttal)                                 | Double                         |
 | image                                 | Byte[]                         |
 | int                                   | Int32                          |
-| money                                 | decimaltal                        |
-| nchar                                 | String, Char[]                 |
-| numeric                               | decimaltal                        |
-| nvarchar                              | String, Char[]                 |
+| money                                 | Decimal                        |
+| nchar                                 | Sträng, Röding[]                 |
+| numeric                               | Decimal                        |
+| nvarchar                              | Sträng, Röding[]                 |
 | real                                  | Enkel                         |
-| rowversion                            | Byte[]                         |
+| Rowversion                            | Byte[]                         |
 | smalldatetime                         | DateTime                       |
-| smallint                              | Int16                          |
-| smallmoney                            | decimaltal                        |
+| smallint                              | Int16 (int16)                          |
+| smallmoney                            | Decimal                        |
 | time                                  | TimeSpan                       |
 | tinyint                               | Byte                           |
-| uniqueidentifier                      | Guid                           |
+| uniqueidentifier                      | GUID                           |
 | varbinary                             | Byte[]                         |
-| varchar                               | String, Char[]                 |
+| varchar                               | Sträng, Röding[]                 |
 
 ## <a name="next-steps"></a>Nästa steg
-En lista över data lager som stöds som källor och mottagare efter kopierings aktivitet i Azure Data Factory finns i [data lager och format som stöds](copy-activity-overview.md#supported-data-stores-and-formats).
+En lista över datalager som stöds som källor och sänkor efter kopiera aktivitet i Azure Data Factory finns i [datalager och format som stöds](copy-activity-overview.md#supported-data-stores-and-formats).

@@ -1,6 +1,6 @@
 ---
-title: 'Flytta Desktop-appen som anropar webb-API: er till produktion – Microsoft Identity Platform | Azure'
-description: 'Lär dig hur du flyttar en stationär app som anropar webb-API: er till produktion'
+title: Flytta webb-API:er för att anropa webb-API:er för stationära datorer – Microsoft identity platform | Azure
+description: Lär dig hur du flyttar en skrivbordsapp som anropar webb-API:er till produktion
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -17,35 +17,35 @@ ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.openlocfilehash: c8a9cf0c05d8af14d52bb1efb536dc8bbe7db84d
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79262573"
 ---
-# <a name="desktop-app-that-calls-web-apis-move-to-production"></a>Stationär app som anropar webb-API: er: flytta till produktion
+# <a name="desktop-app-that-calls-web-apis-move-to-production"></a>Skrivbordsapp som anropar webb-API:er: Flytta till produktion
 
-I den här artikeln får du lära dig hur du flyttar din Desktop-app som anropar webb-API: er till produktion.
+I den här artikeln får du lära dig hur du flyttar din skrivbordsapp som anropar webb-API:er till produktion.
 
-## <a name="handle-errors-in-desktop-applications"></a>Hantera fel i Skriv bords program
+## <a name="handle-errors-in-desktop-applications"></a>Hantera fel i skrivbordsprogram
 
-I de olika flödena har du lärt dig hur du hanterar felen för de tysta flödena, som du ser i kodfragmenten. Du har också sett att det finns fall där interaktion krävs, som i stegvisa medgivande och villkorlig åtkomst.
+I de olika flödena har du lärt dig hur du hanterar felen för de tysta flödena, som visas i kodavsnitten. Du har också sett att det finns fall där interaktion behövs, som i inkrementellt medgivande och villkorlig åtkomst.
 
-## <a name="have-the-user-consent-upfront-for-several-resources"></a>Låt användaren godkännas framför flera resurser
+## <a name="have-the-user-consent-upfront-for-several-resources"></a>Har användaren samtycke i förväg för flera resurser
 
 > [!NOTE]
-> Att få ett medgivande för flera resurser fungerar för Microsoft Identity Platform men inte för Azure Active Directory (Azure AD) B2C. Azure AD B2C stöder endast administrativt godkännande, inte användar medgivande.
+> Att få medgivande för flera resurser fungerar för Microsoft identity-plattformen men inte för Azure Active Directory (Azure AD) B2C. Azure AD B2C stöder endast administratörssamtycke, inte användarens medgivande.
 
-Du kan inte hämta en token för flera resurser samtidigt med slut punkten för Microsoft Identity Platform (v 2.0). Parametern `scopes` kan bara innehålla omfång för en enda resurs. Du kan se till att användaren har samtyckt till flera resurser genom att använda `extraScopesToConsent`-parametern.
+Du kan inte hämta en token för flera resurser samtidigt med slutpunkten för Microsoft identity platform (v2.0). Parametern `scopes` kan innehålla scope för endast en enskild resurs. Du kan se till att användaren i förväg `extraScopesToConsent` godkänner flera resurser med hjälp av parametern.
 
-Du kan till exempel ha två resurser som har två omfång:
+Du kan till exempel ha två resurser som har två scope vardera:
 
-- `https://mytenant.onmicrosoft.com/customerapi` med omfången `customer.read` och `customer.write`
-- `https://mytenant.onmicrosoft.com/vendorapi` med omfången `vendor.read` och `vendor.write`
+- `https://mytenant.onmicrosoft.com/customerapi`med omfattningar `customer.read` och`customer.write`
+- `https://mytenant.onmicrosoft.com/vendorapi`med omfattningar `vendor.read` och`vendor.write`
 
-I det här exemplet använder du `.WithAdditionalPromptToConsent` modifierare som har parametern `extraScopesToConsent`.
+I det här `.WithAdditionalPromptToConsent` exemplet använder du `extraScopesToConsent` den modifierare som har parametern.
 
-Exempel:
+Till exempel:
 
 ### <a name="in-msalnet"></a>I MSAL.NET
 
@@ -70,7 +70,7 @@ var result = await app.AcquireTokenInteractive(scopesForCustomerApi)
 
 ### <a name="in-msal-for-ios-and-macos"></a>I MSAL för iOS och macOS
 
-Mål-C:
+Mål C:
 
 ```objc
 NSArray *scopesForCustomerApi = @[@"https://mytenant.onmicrosoft.com/customerapi/customer.read",
@@ -84,7 +84,7 @@ interactiveParams.extraScopesToConsent = scopesForVendorApi;
 [application acquireTokenWithParameters:interactiveParams completionBlock:^(MSALResult *result, NSError *error) { /* handle result */ }];
 ```
 
-Införliva
+Swift:
 
 ```swift
 let scopesForCustomerApi = ["https://mytenant.onmicrosoft.com/customerapi/customer.read",
@@ -98,17 +98,17 @@ interactiveParameters.extraScopesToConsent = scopesForVendorApi
 application.acquireToken(with: interactiveParameters, completionBlock: { (result, error) in /* handle result */ })
 ```
 
-Det här anropet får du en åtkomsttoken för det första webb-API: et.
+Det här anropet ger dig en åtkomsttoken för det första webb-API:et.
 
-När du behöver anropa det andra webb-API: et, anropar du `AcquireTokenSilent` API.
+Anropa API:et när du behöver `AcquireTokenSilent` anropa det andra webb-API:et.
 
 ```csharp
 AcquireTokenSilent(scopesForVendorApi, accounts.FirstOrDefault()).ExecuteAsync();
 ```
 
-### <a name="microsoft-personal-account-requires-reconsent-each-time-the-app-runs"></a>Microsoft personal Account kräver godkännande varje gången appen körs
+### <a name="microsoft-personal-account-requires-reconsent-each-time-the-app-runs"></a>Microsofts personliga konto kräver att appen samlas igen varje gång appen körs
 
-För användare av Microsofts personliga konto uppmanas du att ange medgivande för varje intern klient (stationär eller mobilapp) anrop till auktoriseran. Intern klient identitet är insäker, vilket strider mot konfidentiell klient program identitet. Konfidentiella klient program utbyter en hemlighet med Microsofts identitets plattform för att bevisa sin identitet. Microsoft Identity Platform valde att minimera den här insäkerheten för konsument tjänster genom att användaren uppmanas att ange medgivande varje gången programmet auktoriseras.
+För Microsofts användare av personliga konton är det avsedda beteendet att vidarebefordra samtycke på varje inbyggt klientsamtal (skrivbord eller mobilapp) för att auktorisera. Native klient identitet är i sig osäker, vilket strider mot konfidentiell klient programidentitet. Konfidentiella klientprogram utbyter en hemlighet med Microsoft Identity-plattformen för att bevisa sin identitet. Microsofts identitetsplattform valde att minska detta otrygghet för konsumenttjänster genom att uppmana användaren att ge sitt samtycke varje gång programmet godkänns.
 
 ## <a name="next-steps"></a>Nästa steg
 

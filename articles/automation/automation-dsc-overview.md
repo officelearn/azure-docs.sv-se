@@ -1,7 +1,7 @@
 ---
-title: Översikt över Azure Automation tillstånds konfiguration
-description: En översikt över Azure Automation tillstånds konfiguration (DSC), dess villkor och kända problem
-keywords: PowerShell DSC, önskad tillstånds konfiguration, PowerShell DSC Azure
+title: Konfigurationsöversikt över Azure Automation State
+description: En översikt över DSC (Azure Automation State Configuration), dess villkor och kända problem
+keywords: powershell dsc, önskad tillståndskonfiguration, powershell dsc azure
 services: automation
 ms.service: automation
 ms.subservice: dsc
@@ -10,42 +10,40 @@ ms.author: magoedte
 ms.date: 11/06/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 787cade13a0636bb25afa1d4043a977f512484f9
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 46cf0d6a12ffbc836db7bd79c0f2738a94e23085
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79278927"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80283199"
 ---
-# <a name="azure-automation-state-configuration-overview"></a>Översikt över Azure Automation tillstånds konfiguration
+# <a name="azure-automation-state-configuration-overview"></a>Konfigurationsöversikt över Azure Automation State
 
-Azure Automation tillstånds konfiguration är en Azure-tjänst som gör att du kan skriva, hantera och kompilera DSC- [konfigurationer](/powershell/scripting/dsc/configurations/configurations)(Desired State Configuration), importera [DSC-resurser](/powershell/scripting/dsc/resources/resources)och tilldela konfigurationer till mål noder, allt i molnet.
+Azure Automation State Configuration är en Azure-tjänst som låter dig skriva, hantera och kompilera DSC-konfiguration [(.](/powershell/scripting/dsc/configurations/configurations) Tjänsten importerar också [DSC-resurser](/powershell/scripting/dsc/resources/resources)och tilldelar konfigurationer till målnoder, allt i molnet.
 
-## <a name="why-use-azure-automation-state-configuration"></a>Varför ska du använda konfiguration av Azure Automation tillstånd
+## <a name="why-use-azure-automation-state-configuration"></a>Varför använda Azure Automation State Configuration
 
-Azure Automation tillstånds konfiguration ger flera fördelar jämfört med att använda DSC utanför Azure.
+Azure Automation State Configuration ger flera fördelar jämfört med att använda DSC utanför Azure.
 
-### <a name="built-in-pull-server"></a>Inbyggd hämtnings Server
+### <a name="built-in-pull-server"></a>Inbyggd pull-server
 
-Azure Automation tillstånds konfiguration är en DSC-pull-server som liknar [Windows-funktionen DSC-service](/powershell/scripting/dsc/pull-server/pullserver) så att målnoden automatiskt tar emot konfigurationer, överensstämmer med det önskade läget och rapporterar tillbaka till deras kompatibilitet. Den inbyggda hämtnings servern i Azure Automation eliminerar behovet av att konfigurera och underhålla en egen hämtnings Server. Azure Automation kan rikta in virtuella eller fysiska Windows-eller Linux-datorer, i molnet eller lokalt.
+Azure Automation State Configuration tillhandahåller en DSC-pull-server som liknar [Windows Feature DSC-Service](/powershell/scripting/dsc/pull-server/pullserver). Målnoder kan automatiskt ta emot konfigurationer, överensstämma med önskat tillstånd och rapportera om deras efterlevnad. Den inbyggda pull-servern i Azure Automation eliminerar behovet av att konfigurera och underhålla din egen pull-server. Azure Automation kan rikta virtuella eller fysiska Windows- eller Linux-datorer, i molnet eller lokalt.
 
 ### <a name="management-of-all-your-dsc-artifacts"></a>Hantering av alla dina DSC-artefakter
 
-Azure Automation tillstånds konfiguration hämtar samma hanterings skikt till [PowerShell Desired State Configuration](/powershell/scripting/dsc/overview/overview) som Azure Automation erbjudanden för PowerShell-skript.
+Azure Automation State Configuration ger samma hanteringslager till [PowerShell önskad tillståndskonfiguration](/powershell/scripting/dsc/overview/overview) som den erbjuder för PowerShell-skript. Från Azure-portalen eller från PowerShell kan du hantera alla dina DSC-konfigurationer, resurser och målnoder.
 
-Från Azure Portal eller från PowerShell kan du hantera alla DSC-konfigurationer, resurser och mål-noder.
+![Skärmbild av sidan Azure Automation](./media/automation-dsc-overview/azure-automation-blade.png)
 
-![Skärm bild av Azure Automation Sidan](./media/automation-dsc-overview/azure-automation-blade.png)
+### <a name="import-of-reporting-data-into-azure-monitor-logs"></a>Importera rapporteringsdata till Azure Monitor-loggar
 
-### <a name="import-reporting-data-into-azure-monitor-logs"></a>Importera rapport data till Azure Monitor loggar
+Noder som hanteras med Azure Automation State Configuration skickar detaljerade statusdata för rapportering till den inbyggda pull-servern. Du kan konfigurera Azure Automation State Configuration för att skicka dessa data till din Log Analytics-arbetsyta. Se [Rapportera rapporteringsdata för Azure Automation-tillståndskonfiguration till Azure Monitor-loggar](automation-dsc-diagnostics.md).
 
-Noder som hanteras med Azure Automation tillstånds konfiguration Skicka detaljerade rapporterings status data till den inbyggda hämtnings servern. Du kan konfigurera Azure Automation tillstånds konfiguration för att skicka dessa data till Log Analytics-arbetsytan. Information om hur du skickar status data för tillstånds konfiguration till din Log Analytics-arbetsyta finns i [vidarebefordra rapporterings data för Azure Automation tillstånds konfiguration till Azure Monitor loggar](automation-dsc-diagnostics.md).
+## <a name="prerequisites-for-using-azure-automation-state-configuration"></a>Förutsättningar för att använda Azure Automation State Configuration
 
-## <a name="prerequisites"></a>Förutsättningar
+Tänk på följande krav när du använder Azure Automation State Configuration för DSC.
 
-Överväg följande krav när du använder Azure Automation State Configuration (DSC).
-
-### <a name="operating-system-requirements"></a>Operativsystemkrav
+### <a name="operating-system-requirements"></a>Operativsystemskrav
 
 För noder som kör Windows stöds följande versioner:
 
@@ -58,50 +56,48 @@ För noder som kör Windows stöds följande versioner:
 - Windows 8.1
 - Windows 7
 
-Den fristående produkt-SKU: n för [Microsoft Hyper-V server](/windows-server/virtualization/hyper-v/hyper-v-server-2016) innehåller ingen implementering av önskade tillstånds agentkonfigurationerna så att den inte kan hanteras av PowerShell DSC eller Azure Automation tillstånds konfiguration.
+>[!NOTE]
+>Den fristående produkten SKU för [Microsoft Hyper-V Server](/windows-server/virtualization/hyper-v/hyper-v-server-2016) innehåller ingen implementering av DSC. Det kan därför inte hanteras av PowerShell DSC eller Azure Automation State Configuration.
 
-Följande distributioner/versioner stöds för noder som kör Linux:
-
-DSC Linux-tillägget stöder alla Linux-distributioner som listas under [stödda Linux-distributioner](https://github.com/Azure/azure-linux-extensions/tree/master/DSC#4-supported-linux-distributions).
+För noder som kör Linux stöder DSC Linux-tillägget alla Linux-distributioner som anges under [Linux-distributioner som stöds](https://github.com/Azure/azure-linux-extensions/tree/master/DSC#4-supported-linux-distributions).
 
 ### <a name="dsc-requirements"></a>DSC-krav
 
-För alla Windows-noder som körs i Azure installeras [WMF 5,1](https://docs.microsoft.com/powershell/scripting/wmf/setup/install-configure) vid onboarding.  För noder som kör Windows Server 2012 och Windows 7 [kommer WinRM att aktive ras](https://docs.microsoft.com/powershell/scripting/dsc/troubleshooting/troubleshooting#winrm-dependency).
+För alla Windows-noder som körs i Azure installeras [WMF 5.1](https://docs.microsoft.com/powershell/scripting/wmf/setup/install-configure) under introduktionen. För noder som kör Windows Server 2012 och Windows 7 är [WinRM](https://docs.microsoft.com/powershell/scripting/dsc/troubleshooting/troubleshooting#winrm-dependency) aktiverat.
 
-För alla Linux-noder som körs i Azure installeras [POWERSHELL DSC för Linux](https://github.com/Microsoft/PowerShell-DSC-for-Linux) vid onboarding.
+För alla Linux-noder som körs i Azure installeras [PowerShell DSC för Linux](https://github.com/Microsoft/PowerShell-DSC-for-Linux) under introduktionen.
 
-### <a name="network-planning"></a>Konfigurera privata nätverk
+### <a name="configuration-of-private-networks"></a><a name="network-planning"></a>Konfiguration av privata nätverk
 
-Om noderna finns i ett privat nätverk krävs följande port och URL: er för tillstånds konfigurationen (DSC) för att kommunicera med Automation:
+Om noderna finns i ett privat nätverk krävs följande port och webbadresser. Dessa resurser tillhandahåller nätverksanslutning för den hanterade noden och tillåter DSC att kommunicera med Azure Automation.
 
-* Port: endast TCP 443 krävs för utgående Internet åtkomst.
-* Global URL: *. azure-automation.net
-* Global URL för US Gov, Virginia: *. azure-automation.us
-* Agent tjänst: https://\<workspaceId\>. agentsvc.azure-automation.net
+* Port: Endast TCP 443 krävs för utgående internetåtkomst
+* Global URL: ***.azure-automation.net**
+* Global WEBBADRESS för US Gov Virginia: ***.azure-automation.us**
+* Agenttjänst: **https://\<arbetsytaId\>.agentsvc.azure-automation.net**
 
-Detta ger nätverks anslutningen för den hanterade noden att kommunicera med Azure Automation.
-Om du använder DSC-resurser som kommunicerar mellan noder, till exempel [waitfor *-resurserna](https://docs.microsoft.com/powershell/scripting/dsc/reference/resources/windows/waitForAllResource), måste du också tillåta trafik mellan noderna.
-Se dokumentationen för varje DSC-resurs för att förstå dessa nätverks krav.
+Om du använder DSC-resurser som kommunicerar mellan noder, till exempel [WaitFor*-resurserna,](https://docs.microsoft.com/powershell/scripting/dsc/reference/resources/windows/waitForAllResource)måste du också tillåta trafik mellan noder. Se dokumentationen för varje DSC-resurs för att förstå dessa nätverkskrav.
 
 #### <a name="proxy-support"></a>Stöd för proxy
 
-Proxy-stöd för DSC-agenten finns i Windows version 1809 och senare.
-Konfigurera det här alternativet genom att ange värdet för **ProxyURL** och **ProxyCredential** i [metaconfiguration-skriptet](automation-dsc-onboarding.md#generating-dsc-metaconfigurations) som används för att registrera noder.
-Proxy är inte tillgänglig i DSC för tidigare versioner av Windows.
+Proxystöd för DSC-agenten finns i Windows version 1809 och senare. Det här alternativet aktiveras genom `ProxyURL` `ProxyCredential` att ange värden för och i [det metakonfigurationsskript](automation-dsc-onboarding.md#generating-dsc-metaconfigurations) som används för att registrera noder.
 
-För Linux-noder stöder DSC-agenten proxy och använder variabeln http_proxy för att fastställa URL: en.
+>[!NOTE]
+>Azure Automation State Configuration ger inte DSC-proxystöd för tidigare versioner av Windows.
 
-#### <a name="azure-state-configuration-network-ranges-and-namespace"></a>Nätverks intervall och namnrymd för Azure State Configuration
+För Linux-noder stöder DSC-agenten `http_proxy` proxy och använder variabeln för att fastställa URL:en.
 
-Vi rekommenderar att du använder de adresser som anges när du definierar undantag. För IP-adresser kan du hämta [Microsoft Azure Data Center IP-intervall](https://www.microsoft.com/download/details.aspx?id=41653). Den här filen uppdateras varje vecka och har de för närvarande distribuerade intervallen och eventuella kommande ändringar i IP-intervallen.
+#### <a name="azure-automation-state-configuration-network-ranges-and-namespace"></a>Nätverksområden och namnområde för Konfiguration av Azure Automation-tillstånd
 
-Om du har ett Automation-konto som har definierats för en viss region kan du begränsa kommunikationen till det regionala data centret. Följande tabell innehåller DNS-posten för varje region:
+Vi rekommenderar att du använder adresserna nedan när undantag definieras. För IP-adresser kan du hämta [Microsoft Azure Datacenter IP Ranges](https://www.microsoft.com/download/details.aspx?id=41653). Den här filen uppdateras varje vecka och har de för närvarande distribuerade intervallen och eventuella kommande ändringar av IP-intervallen.
 
-| **Region** | **DNS-post** |
+Om du har ett Automation-konto som har definierats för en viss region kan du begränsa kommunikationen till det regionala datacentret. I följande tabell visas DNS-posten för varje region:
+
+| **Regionen** | **DNS-post** |
 | --- | --- |
 | USA, västra centrala | wcus-jobruntimedata-prod-su1.azure-automation.net</br>wcus-agentservice-prod-1.azure-automation.net |
 | USA, södra centrala |scus-jobruntimedata-prod-su1.azure-automation.net</br>scus-agentservice-prod-1.azure-automation.net |
-| USA, östra   | eus-jobruntimedata-prod-su1.azure-automation.net</br>eus-agentservice-prod-1.azure-automation.net |
+| USA, östra    | eus-jobruntimedata-prod-su1.azure-automation.net</br>eus-agentservice-prod-1.azure-automation.net |
 | USA, östra 2 |eus2-jobruntimedata-prod-su1.azure-automation.net</br>eus2-agentservice-prod-1.azure-automation.net |
 | Kanada, centrala |cc-jobruntimedata-prod-su1.azure-automation.net</br>cc-agentservice-prod-1.azure-automation.net |
 | Europa, västra |we-jobruntimedata-prod-su1.azure-automation.net</br>we-agentservice-prod-1.azure-automation.net |
@@ -113,20 +109,20 @@ Om du har ett Automation-konto som har definierats för en viss region kan du be
 | Storbritannien, södra | uks-jobruntimedata-prod-su1.azure-automation.net</br>uks-agentservice-prod-1.azure-automation.net |
 | US Gov, Virginia | usge-jobruntimedata-prod-su1.azure-automation.us<br>usge-agentservice-prod-1.azure-automation.us |
 
-Om du vill ha en lista över regions-IP-adresser i stället för region namn laddar du ned XML-filen för [Azure datacenter-IP-adress](https://www.microsoft.com/download/details.aspx?id=41653) från Microsoft Download Center
+För en lista över region-IP-adresser i stället för regionnamn hämtar du [XML-filen för Azure Datacenter IP-adress](https://www.microsoft.com/download/details.aspx?id=41653) från Microsoft Download Center.
 
 > [!NOTE]
-> XML-filen för Azure datacenter-IP-adress innehåller de IP-adressintervall som används i Microsoft Azure Data Center. Filen innehåller beräknings-, SQL-och lagrings intervall.
+> XML-filen För Azure Datacenter IP-adress visar de IP-adressintervall som används i Microsoft Azure-datacenter. Filen innehåller beräknings-, SQL- och lagringsområden.
 >
->En uppdaterad fil publiceras varje vecka. Filen visar de för tillfället distribuerade intervallen och eventuella kommande ändringar i IP-intervallen. Nya intervall som visas i filen används inte i Data Center i minst en vecka.
->
-> Det är en bra idé att ladda ned den nya XML-filen varje vecka. Uppdatera sedan webbplatsen för att identifiera tjänster som körs i Azure på rätt sätt. Azure ExpressRoute-användare bör Observera att den här filen används för att uppdatera Border Gateway Protocol-annonsering (BGP) för Azure-utrymmet under den första veckan i varje månad.
+>En uppdaterad fil publiceras varje vecka. Filen återspeglar de för närvarande distribuerade intervallen och eventuella kommande ändringar av IP-intervallen. Nya intervall som visas i filen används inte i datacenter i minst en vecka. Det är en bra idé att ladda ner den nya XML-filen varje vecka. Uppdatera sedan din webbplats för att korrekt identifiera tjänster som körs i Azure. 
+
+Azure ExpressRoute-användare bör notera att den här filen används för att uppdatera BGP-annonseret (Border Gateway Protocol) för Azure-utrymme under den första veckan i varje månad.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- För att komma igång, se [komma igång med konfiguration av Azure Automation tillstånd](automation-dsc-getting-started.md)
-- Information om hur du kan publicera noder finns i [onboarding Machines for Management by Azure Automation State Configuration](automation-dsc-onboarding.md)
-- Mer information om hur du kompilerar DSC-konfigurationer så att du kan tilldela dem till mål noder finns i [kompilera konfigurationer i Azure Automation tillstånds konfiguration](automation-dsc-compile.md)
-- Referens för PowerShell-cmdlet finns i [Azure Automation cmdlets för tillstånds konfiguration](/powershell/module/azurerm.automation/#automation)
-- För pris information, se [priser för Azure Automation tillstånds konfiguration](https://azure.microsoft.com/pricing/details/automation/)
-- Om du vill se ett exempel på hur du använder Azure Automation tillstånds konfiguration i en pipeline för kontinuerlig distribution, se [kontinuerlig distribution med Azure Automation tillstånds konfiguration och choklad](automation-dsc-cd-chocolatey.md)
+- Information om hur du kommer igång med DSC i Azure Automation State Configuration finns [i Komma igång med Azure Automation State Configuration](automation-dsc-getting-started.md).
+- Mer information om hur du kontrollerar nas inbyggda noder finns i [Onboarding-datorer för hantering av Azure Automation State Configuration](automation-dsc-onboarding.md).
+- Mer information om hur du kompilerar DSC-konfigurationer så att du kan tilldela dem till målnoder finns [i Kompilera konfigurationer i Azure Automation State Configuration](automation-dsc-compile.md).
+- Cmdlet-referens för PowerShell finns i [cmdlets för Azure Automation State Configuration](/powershell/module/azurerm.automation/#automation).
+- Prisinformation finns i [prissättningen för Azure Automation State Configuration](https://azure.microsoft.com/pricing/details/automation/).
+- Information om hur du använder Azure Automation State Configuration i en pipeline för kontinuerlig distribution finns i [Kontinuerlig distribution med Azure Automation State Configuration och Chocolatey](automation-dsc-cd-chocolatey.md).

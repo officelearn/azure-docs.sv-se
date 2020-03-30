@@ -1,27 +1,27 @@
 ---
-title: Överföra en nytto Last mellan enhets-och Azure Device Provisioning-tjänsten
-description: Det här dokumentet beskriver hur du överför en nytto Last mellan enhets-och enhets etablerings tjänsten (DPS)
+title: Så här överför du en nyttolast mellan enhet och Azure Device Provisioning Service
+description: I det här dokumentet beskrivs hur du överför en nyttolast mellan enhets- och enhetsetableringstjänst (DPS)
 author: menchi
 ms.author: menchi
 ms.date: 02/11/2020
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-ms.openlocfilehash: 3eec39e975b1e782eafe16205623c625f462a865
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.openlocfilehash: de6bb3fe0879a69467283e93a04a355876a02cba
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77209417"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80246695"
 ---
-# <a name="how-to-transfer-a-payload-between-device-and-dps"></a>Överföra en nytto Last mellan enhet och DPS
-DPS behöver ibland mer data från enheter för att korrekt etablera dem till rätt IoT Hub och dessa data måste tillhandahållas av enheten. Vice versa kan DPS returnera data till enheten för att under lätta klient sidans logik. 
+# <a name="how-to-transfer-a-payload-between-device-and-dps"></a>Så här överför du en nyttolast mellan enheten och DPS
+Ibland behöver DPS mer data från enheter för att korrekt etablera dem till rätt IoT Hub, och att data måste tillhandahållas av enheten. Vice versa, DPS kan returnera data till enheten för att underlätta klientsidan logik. 
 
-## <a name="when-to-use-it"></a>När du ska använda den
-Den här funktionen kan användas som en förbättring för [anpassad allokering](https://docs.microsoft.com/azure/iot-dps/how-to-use-custom-allocation-policies). Till exempel vill du allokera dina enheter baserat på enhets modellen utan mänsklig inblandning. I det här fallet ska du använda [anpassad allokering](https://docs.microsoft.com/azure/iot-dps/how-to-use-custom-allocation-policies). Du kan konfigurera enheten för att rapportera modell informationen som en del av det [registrerade enhets anropet](https://docs.microsoft.com/rest/api/iot-dps/runtimeregistration/registerdevice). DPS kommer att skicka enhetens nytto Last till den anpassade allokeringen av webhook. Och din funktion kan bestämma vilken IoT Hub enheten ska gå till när den tar emot information om enhets modellen. Om webhooken vill returnera data till enheten, kommer den att skicka tillbaka data som en sträng i webhook-svaret.  
+## <a name="when-to-use-it"></a>När du ska använda detta
+Den här funktionen kan användas som en förbättring för [anpassad allokering](https://docs.microsoft.com/azure/iot-dps/how-to-use-custom-allocation-policies). Du vill till exempel allokera dina enheter baserat på enhetsmodellen utan mänsklig inblandning. I det här fallet använder du [anpassad allokering](https://docs.microsoft.com/azure/iot-dps/how-to-use-custom-allocation-policies). Du kan konfigurera enheten så att modellinformationen rapporterars som en del av [registreringsenhetens anrop](https://docs.microsoft.com/rest/api/iot-dps/runtimeregistration/registerdevice). DPS skickar enhetens nyttolast till den anpassade allokeringen webhook. Och din funktion kan bestämma vilken IoT Hub den här enheten ska gå till när den tar emot information om enhetsmodell. På samma sätt, om webhook vill returnera vissa data till enheten, kommer det att skicka data tillbaka som en sträng i webhook svar.  
 
-## <a name="device-sends-data-payload-to-dps"></a>Enheten skickar data nytto Last till DPS
-När din enhet skickar ett [register för enhets anrop](https://docs.microsoft.com/rest/api/iot-dps/runtimeregistration/registerdevice) till DPS kan register samtalet förbättras för att ta andra fält i bröd texten. Texten ser ut ungefär så här: 
+## <a name="device-sends-data-payload-to-dps"></a>Enheten skickar datanyttolast till DPS
+När enheten skickar ett [registeranordningsanrop](https://docs.microsoft.com/rest/api/iot-dps/runtimeregistration/registerdevice) till DPS kan registreringsanropet förbättras så att det tar andra fält i brödtexten. Kroppen ser ut så här: 
    ```
    { 
        “registrationId”: “mydevice”, 
@@ -30,13 +30,12 @@ När din enhet skickar ett [register för enhets anrop](https://docs.microsoft.c
            “endorsementKey”: “stuff”, 
            “storageRootKey”: “things” 
        }, 
-       “interfaces”: “TODO: get how interfaces are reported by devices from PnP folks.”, 
        “payload”: “your additional data goes here. It can be nested JSON.” 
     } 
    ```
 
 ## <a name="dps-returns-data-to-the-device"></a>DPS returnerar data till enheten
-Om webhooken för den anpassade allokeringsregeln vill returnera data till enheten, kommer de att skickas tillbaka till en sträng i webhook-svaret. Ändringen anges i avsnittet nytto Last nedan. 
+Om den anpassade allokeringsprincipen webhook vill returnera vissa data till enheten, kommer det att skicka tillbaka data som en sträng i webhook-svaret. Ändringen finns i nyttolastavsnittet nedan. 
    ```
    { 
        "iotHubHostName": "sample-iot-hub-1.azure-devices.net", 
@@ -54,8 +53,8 @@ Om webhooken för den anpassade allokeringsregeln vill returnera data till enhet
     } 
    ```
 
-## <a name="sdk-support"></a>SDK-stöd
-Den här funktionen är tillgänglig i klient C#- [SDK](https://docs.microsoft.com/azure/iot-dps/): er för C, Java och Node. js.  
+## <a name="sdk-support"></a>SDK-support
+Den här funktionen är tillgänglig i C,C#, JAVA och Node.js-klienten [SDK:er](https://docs.microsoft.com/azure/iot-dps/).  
 
 ## <a name="next-steps"></a>Nästa steg
-* Utveckla med [Azure IoT SDK]( https://github.com/Azure/azure-iot-sdks) för Azure IoT Hub och Azure IoT Hub Device Provisioning service
+* Utveckla med azure [IoT SDK]( https://github.com/Azure/azure-iot-sdks) för Azure IoT Hub och Azure IoT Hub Device Provisioning Service

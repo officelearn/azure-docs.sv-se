@@ -1,29 +1,28 @@
 ---
 title: ta med fil
 description: ta med fil
-services: search
 author: HeidiSteen
-ms.service: search
+ms.service: cognitive-search
 ms.topic: include
 ms.date: 05/06/2019
 ms.author: heidist
 ms.custom: include file
-ms.openlocfilehash: 380a0a76de763df5f2cc6ff702750b36d233728d
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: ee430241173a6c19e2a32e176f28411631d9cb19
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73818359"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80272632"
 ---
-Du kan skapa flera tjänster i en prenumeration. Var och en kan tillhandahållas på en speciell nivå. Du är begränsad endast av antalet tjänster som tillåts på varje nivå. Du kan till exempel skapa upp till 12 tjänster på Basic-nivån och en annan 12-tjänst på S1-nivån i samma prenumeration. Mer information om nivåer finns i [Välj en SKU eller nivå för Azure kognitiv sökning](../articles/search/search-sku-tier.md).
+Du kan skapa flera tjänster inom en prenumeration. Var och en kan etableras på en viss nivå. Du begränsas endast av antalet tjänster som tillåts på varje nivå. Du kan till exempel skapa upp till 12 tjänster på Basic-nivån och ytterligare 12 tjänster på S1-nivån inom samma prenumeration. Mer information om nivåer finns i [Välj en SKU eller nivå för Azure Cognitive Search](../articles/search/search-sku-tier.md).
 
-Högsta antal tjänst gränser kan höjas vid begäran. Kontakta Azure-supporten om du behöver fler tjänster inom samma prenumeration.
+Högsta servicegränser kan höjas på begäran. Om du behöver fler tjänster inom samma prenumeration kontaktar du Azure Support.
 
-| Resurs            | Kostnads fri<sup>1</sup> | Basic | S1  | S2 | S3 | S3&nbsp;HD | L1 | L2 |
+| Resurs            | Gratis<sup>1</sup> | Basic | S1  | S2 | S3 | S3&nbsp;HD | L1 (på andra) | L2 (på andra) |
 | ------------------- | ---- | ----- | --- | -- | -- | ----- | -- | -- |
-| Högsta antal tjänster    |1     | 16    | 16  | 8  | 6  | 6     | 6  | 6  |
-| Maximal skala i Sök enheter (SU)<sup>2</sup> |Saknas |3 SU |36 SU |36 SU |36 SU |36 SU |36 SU |36 SU |
+| Maximala tjänster    |1     | 16    | 16  | 8  | 6  | 6     | 6  | 6  |
+| Maximal skala i sökenheter (SU)<sup>2</sup> |Ej tillämpligt |3 SU (SU) |36 SU (AVSU) |36 SU (AVSU) |36 SU (AVSU) |36 SU (AVSU) |36 SU (AVSU) |36 SU (AVSU) |
 
-<sup>1</sup> kostnads fri baseras på delade, inte dedikerade resurser. Det finns inte stöd för att skala upp på delade resurser.
+<sup>1</sup> Gratis bygger på delade, inte dedikerade, resurser. Uppskalning stöds inte på delade resurser.
 
-<sup>2</sup> Sök enheter är fakturerings enheter, allokerade som antingen en *replik* eller en *partition*. Du behöver båda resurserna för lagring, indexering och frågor. Mer information om SU-beräkningar finns i [skala resurs nivåer för frågor och index-arbetsbelastningar](../articles/search/search-capacity-planning.md). 
+<sup>2</sup> Sökenheter är faktureringsenheter, som tilldelas som antingen en *replik* eller en *partition*. Du behöver både resurser för lagring, indexering och frågeåtgärder. Mer information om SU-beräkningar finns i [Skala resursnivåer för fråge- och indexarbetsbelastningar](../articles/search/search-capacity-planning.md). 

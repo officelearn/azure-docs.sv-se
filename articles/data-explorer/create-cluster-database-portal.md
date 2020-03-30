@@ -1,5 +1,5 @@
 ---
-title: 'Snabb start: skapa ett Azure Datautforskaren-kluster & DB'
+title: 'Snabbstart: Skapa ett Azure Data Explorer-kluster & DB'
 description: I den här snabbstarten får du lära dig hur du skapar ett Azure Data Explorer-kluster och en -databas och matar in data (läsa in).
 author: orspod
 ms.author: orspodek
@@ -7,19 +7,19 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 07/22/2019
-ms.openlocfilehash: e97a712664a5864062fef2bba36dda76175af715
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: ed0c570449a0c21e9eace1273228539db7c208da
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78199860"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80238642"
 ---
 # <a name="quickstart-create-an-azure-data-explorer-cluster-and-database"></a>Snabbstart: Skapa ett Azure Data Explorer-kluster och -databas
 
 > [!div class="op_single_selector"]
-> * [Portalen](create-cluster-database-portal.md)
+> * [Portal](create-cluster-database-portal.md)
 > * [CLI](create-cluster-database-cli.md)
-> * [PowerShell](create-cluster-database-powershell.md)
+> * [Powershell](create-cluster-database-powershell.md)
 > * [C#](create-cluster-database-csharp.md)
 > * [Python](create-cluster-database-python.md)
 > * [ARM-mall](create-cluster-database-resource-manager.md)
@@ -27,7 +27,7 @@ ms.locfileid: "78199860"
 
 Azure Data Explorer är en snabb och mycket skalbar datautforskningstjänst för logg- och telemetridata. För att använda Azure Data Explorer skapar du först ett kluster och skapar en eller flera databaser i klustret. Sedan matar du in (läser in) data i databasen så att du kan köra frågor mot den. I den här snabbstarten skapar du ett kluster och en databas.
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt Azure-konto](https://azure.microsoft.com/free/) innan du börjar.
+Om du inte har en Azure-prenumeration skapar du ett [kostnadsfritt Azure-konto](https://azure.microsoft.com/free/) innan du börjar.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
@@ -37,7 +37,7 @@ Logga in på [Azure-portalen](https://portal.azure.com/).
 
 Skapa ett Azure Data Explorer-kluster med en definierad uppsättning beräknings- och lagringsresurser i en Azure-resursgrupp.
 
-1. Välj knappen **Skapa en resurs** (+) i det övre vänstra hörnet i portalen.
+1. Välj knappen **+ Skapa en resurs** i det övre vänstra hörnet av portalen.
 
 1. Sök efter *Azure-datautforskaren*.
 
@@ -52,10 +52,10 @@ Skapa ett Azure Data Explorer-kluster med en definierad uppsättning beräknings
     **Inställning** | **Föreslaget värde** | **Fältbeskrivning**
     |---|---|---|
     | Prenumeration | Din prenumeration | Välj den Azure-prenumeration som ska användas för klustret.|
-    | Resursgrupp | Din resurs grupp | Använd en befintlig resursgrupp eller skapa en ny resursgrupp. |
-    | Klusternamn | Ett unikt klusternamn | Välj ett unikt namn som identifierar klustret. Domännamnet *[region]. kusto.windows .net* läggs till i klusternamnet som du anger. Namnet får bara innehålla gemena bokstäver och siffror. Det måste innehålla mellan 4 och 22 tecken.
-    | Region | USA, *västra* eller *västra USA 2* | Välj *västra USA* eller *västra USA 2* (om du använder tillgänglighets zoner) för den här snabb starten. Välj den region som bäst uppfyller dina behov för ett produktionssystem.
-    | Tillgänglighetszoner | *1*, *2*och/eller *3* | Placera kluster instanserna i olika tillgänglighets zoner i samma region (valfritt). [Azure-tillgänglighetszoner](/azure/availability-zones/az-overview) är unika fysiska platser inom samma Azure-region. De skyddar ett Azure Datautforskaren-kluster och data från delvis regions fel. Klusternoderna skapas som standard i samma data Center. Genom att välja flera tillgänglighets zoner kan du eliminera en enskild felpunkt och garantera hög tillgänglighet. Det går bara att distribuera till tillgänglighets zoner när klustret skapas och kan inte ändras vid ett senare tillfälle.
+    | Resursgrupp | Din resursgrupp | Använd en befintlig resursgrupp eller skapa en ny resursgrupp. |
+    | Klusternamn | Ett unikt klusternamn | Välj ett unikt namn som identifierar klustret. Domännamnet *[region]. kusto.windows .net* läggs till i klusternamnet som du anger. Namnet får bara innehålla gemena bokstäver och siffror. Den måste innehålla från 4 till 22 tecken.
+    | Region | *Västra USA* eller *västra US 2* | Välj *Västra USA* eller västra USA *2* (om du använder tillgänglighetszoner) för den här snabbstarten. Välj den region som bäst uppfyller dina behov för ett produktionssystem.
+    | Tillgänglighetszoner | *1,* *2*och/eller *3* | Placera klusterinstanserna i olika tillgänglighetszoner i samma region (valfritt). [Azure-tillgänglighetszoner](/azure/availability-zones/az-overview) är unika fysiska platser inom samma Azure-region. De skyddar ett Azure Data Explorer-kluster och data från partiell regionfel. Klusternoderna skapas som standard i samma datacenter. Genom att välja flera tillgänglighetszoner kan du eliminera en enda felpunkt och säkerställa hög tillgänglighet. Distribution till tillgänglighetszoner är endast möjlig när klustret skapas och kan inte ändras vid ett senare tillfälle.
     | Beräkningsspecifikationer | *D13_v2* | Välj den lägsta prisspecifikationen för den här snabbstarten. För ett produktionssystem väljer du den specifikation som bäst uppfyller dina behov.
     | | | |
 

@@ -1,111 +1,110 @@
 ---
-title: Konfigurera kund leads | Azure Marketplace
-description: Konfigurera kund leads på kommersiella marknads platser.
-services: Azure, Marketplace, commercial marketplace, Partner Center
+title: Konfigurera kundleads | Azure Marketplace
+description: Konfigurera kundleads på kommersiell marknadsplats.
 author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 08/01/2019
-ms.author: evansma
-ms.openlocfilehash: 7ead8dee12d4376e6e1058b84a25b91c021a937c
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: ce576d9825819770486197a6c39425adf6ac3208
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73812659"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80275908"
 ---
-# <a name="customer-leads-from-your-marketplace-offer"></a>Kund leads från Marketplace-erbjudandet
+# <a name="customer-leads-from-your-marketplace-offer"></a>Kundleads från ditt Marketplace-erbjudande
 
-Leads är kunder som är intresserade av eller distribuerar dina erbjudanden från [Azure Marketplace](https://azuremarketplace.microsoft.com) eller från [AppSource](https://appsource.microsoft.com). Du får kund ledare när ditt erbjudande har publicerats på Marketplace. Den här artikeln förklarar följande:
+Leads är kunder som är intresserade av eller distribuerar dina erbjudanden från [Azure Marketplace](https://azuremarketplace.microsoft.com) eller från [AppSource](https://appsource.microsoft.com). Du kommer att få kundleads när ditt erbjudande har publicerats på marknaden. Denna artikel kommer att förklara:
 
-* Hur ditt Marketplace-erbjudande genererar kunder, vilket garanterar att du inte missa affärs möjligheter. 
-* Anslut din CRM till ditt erbjudande så att du kan hantera dina leads på en central plats.
-* Förstå lead-data vi skickar dig, så att du kan följa upp kunder som har nått dig.
+* Hur ditt marknadsplatserbjudande genererar kunder leads, se till att du inte missar affärsmöjligheter. 
+* Anslut din CRM till ditt erbjudande, så att du kan hantera dina leads på en central plats.
+* Förstå de leaddata vi skickar till dig, så att du kan följa upp kunder som har kontaktat dig.
 
-## <a name="generate-customer-leads"></a>Generera kund leads
+## <a name="generate-customer-leads"></a>Generera kundleads
 
 Här är platser där ett lead genereras:
 
-1. När en kund samtycker att dela sin information efter att ha valt "kontakta mig" från Marketplace. Det här leadet är ett **inledande intresse** som leder till att vi delar information om kunden som har visat intresse för att få din produkt. Leadet ligger överst i förvärvs tratten.
+1. När en kund samtycker till att dela sin information efter att ha valt "Kontakta mig" från marknadsplatsen. Detta lead är en **initial intresse** lead, där vi delar information om kunden som har uttryckt intresse för att få din produkt. Ledningen är toppen av förvärvet tratten.
 
-      ![Dynamics 365 kontakta mig](./media/commercial-marketplace-get-customer-leads/dynamics-365-contact-me.png)
+      ![Dynamics 365 Kontakta mig](./media/commercial-marketplace-get-customer-leads/dynamics-365-contact-me.png)
 
-2. När en kund väljer "Hämta nu" eller "skapa" (i [Azure Portal](https://portal.azure.com/)) för att hämta ditt erbjudande, är det här leadet ett **aktivt lead**där vi delar information om en kund som har börjat distribuera produkten.
+2. När en kund väljer "Hämta det nu" eller "Skapa" (i [Azure-portalen)](https://portal.azure.com/)för att få ditt erbjudande, är det här leadet ett **aktivt lead**, där vi delar information om en kund som har börjat distribuera din produkt.
 
-    ![Hämta nu i SQL](./media/commercial-marketplace-get-customer-leads/sql-get-it-now.png)
+    ![SQL Hämta det nu](./media/commercial-marketplace-get-customer-leads/sql-get-it-now.png)
 
     ![Skapa Windows Server](./media/commercial-marketplace-get-customer-leads/windows-server-create.png)
 
-3. En kund tar en "test enhet" eller startar en "kostnads fri utvärdering" av ditt erbjudande. Test enheter eller kostnads fria utvärderings versioner kan påskyndas för att du ska kunna dela din verksamhet direkt med potentiella kunder utan några hinder i registreringen.
+3. En kund tar en "Test Drive" eller startar en "gratis testperiod" av ditt erbjudande. Provkörningar eller kostnadsfria utvärderingsversioner är snabbare möjligheter för dig att dela ditt företag direkt med potentiella kunder utan några inträdeshinder.
 
-    ![Dynamics 365-testenhet](./media/commercial-marketplace-get-customer-leads/dynamics-365-test-drive.png)
+    ![Dynamics 365 provkörning](./media/commercial-marketplace-get-customer-leads/dynamics-365-test-drive.png)
 
-    ![Dynamics 365-testenhet](./media/commercial-marketplace-get-customer-leads/dynamics-365-free-trial.png)
+    ![Dynamics 365 provkörning](./media/commercial-marketplace-get-customer-leads/dynamics-365-free-trial.png)
 
-## <a name="connect-to-your-crm-system"></a>Anslut till ditt CRM-system
+## <a name="connect-to-your-crm-system"></a>Anslut till CRM-systemet
 
 [!INCLUDE [Test drive content](./includes/connect-lead-management.md)]
 
-## <a name="understand-lead-data"></a>Förstå lead-data
+## <a name="understand-lead-data"></a>Förstå leaddata
 
-Varje lead som du får under kund förvärvs processen har data i specifika fält. Det första fältet som ska inblickas för är `LeadSource` fältet, som följer det här formatet: **käll åtgärds** | **erbjudande**.
+Varje lead som du får under kundinhämtningsprocessen har data i specifika fält. Det första fältet som ska `LeadSource` hålla utkik efter är fältet, som följer det här formatet: **Source-Action** | **Offer**.
 
-**Källor**: värdet för det här fältet fylls i baserat på marknads platsen som skapade leadet. Möjliga värden är `"AzureMarketplace"`, `"AzurePortal"`och `"AppSource (SPZA)"`.
+**Källor**: Värdet för det här fältet fylls i baserat på den marknadsplats som genererade leadet. Möjliga värden `"AzureMarketplace"` `"AzurePortal"`är `"AppSource (SPZA)"`, och .
 
-**Åtgärder**: värdet för det här fältet fylls i baserat på den åtgärd som kunden vidtog i Marketplace, vilket genererade ett lead. 
+**Åtgärder**: Värdet för det här fältet fylls i baserat på den åtgärd som kunden vidtog på marknadsplatsen, vilket genererade leadet. 
 
 Möjliga värden:
 
-- "INS"--installation. Den här åtgärden finns på Azure Marketplace eller AppSource när en kund köper din produkt.
-- "PLT"--står för partner LED-utvärdering. Den här åtgärden är på AppSource när en kund använder alternativet kontakta mig.
-- "DNC"--kontakta inte. Den här åtgärden finns på AppSource när en partner som var korsad på din app-sida uppmanas att kontaktas. Vi delar upp de huvuden som den här kunden hade korsat i din app, men de behöver inte kontaktas.
-- "Skapa" – den här åtgärden finns bara i Azure Portal och genereras när en kund köper ditt erbjudande till sitt konto.
-- "StartTestDrive" – den här åtgärden gäller endast för test enheter och genereras när en kund startar sin test-enhet.
+- "INS" - Installation. Den här åtgärden finns på Azure Marketplace eller AppSource när en kund köper din produkt.
+- "PLT" - Står för Partner Led Trial. Den här åtgärden finns på AppSource när en kund använder alternativet Kontakta mig.
+- "DNC" - Kontakta inte. Den här åtgärden finns på AppSource när en partner som korslistades på din appsida uppmanas att kontaktas. Vi delar förvarningen att den här kunden har korslistats i din app, men de behöver inte kontaktas.
+- "Skapa" – Den här åtgärden finns bara i Azure-portalen och genereras när en kund köper ditt erbjudande till sitt konto.
+- "StartTestDrive" – Den här åtgärden är endast till för testenheter och genereras när en kund startar sin provkörning.
 
-**Erbjudanden**: du kan ha flera erbjudanden i Marketplace. Värdet för det här fältet fylls i baserat på det erbjudande som genererade leadet. Utgivar-ID och erbjudande-ID skickas både i det här fältet och är värden som du angav när du publicerade erbjudandet till Marketplace.
+**Erbjudanden:** Du kan ha flera erbjudanden på marknaden. Värdet för det här fältet fylls i baserat på erbjudandet som genererade leadet. Publisher-ID och Erbjudande-ID skickas båda i det här fältet och är värden som du angav när du publicerade erbjudandet på marknadsplatsen.
 
-I följande exempel visas exempel värden i förväntat format `publisherid.offerid`: 
+I följande exempel visas exempelvärden `publisherid.offerid`i förväntat format: 
 
 1. `checkpoint.check-point-r77-10sg-byol`
 1. `bitnami.openedxcypress`
 1. `docusign.3701c77e-1cfa-4c56-91e6-3ed0b622145`
 
-## <a name="customer-info"></a>Kund information
+## <a name="customer-info"></a>Information om kunder
 
-Kundens information skickas via flera fält. I följande exempel visas kund information som finns i ett lead.
+Kundens information skickas via flera fält. I följande exempel visas kundinformationen som finns i ett lead.
 
-- FirstName: John
-- LastName: Smith
-- E-post: jsmith\@microsoft.com
+- Förnamn: John
+- Efternamn: Svensson
+- E-post:\@jsmith microsoft.com
 - Telefon: 1234567890
-- Land: US
+- Land: USA
 - Företag: Microsoft
-- Rubrik: CTO
+- Titel: CTO
 
 >[!Note]
->Alla data i föregående exempel är alltid tillgängliga för varje lead. Eftersom du får leads från flera steg som nämns i avsnittet kund uppgifter, är det bästa sättet att hantera leads att ta bort posterna och anpassa uppföljningen. På så sätt får varje kund ett lämpligt meddelande och du skapar en unik relation.
+>Alla data i föregående exempel är inte alltid tillgängliga för varje lead. Eftersom du får leads från flera steg som nämns i avsnittet Kundleads är det bästa sättet att hantera leadsen att avd duplicera posterna och anpassa uppföljningarna. På så sätt får varje kund ett lämpligt meddelande och du skapar en unik relation.
 
-## <a name="best-practices-for-lead-management"></a>Metod tips för ledar hantering
+## <a name="best-practices-for-lead-management"></a>Metodtips för leadhantering
 
-1. *Process* – definiera en klar försäljnings process, med mil stolpar, KPI: er och ta bort teamets ägarskap.
-2. *Kvalificering* – definiera förutsättningar, som anger om ett lead har blivit fullständigt kvalificerat. Se till att Sälj-eller marknadsförings representanter kvalificerar leads noggrant innan du tar dem genom hela försäljnings processen.
-3. *Följ* upp – Glöm inte att följa upp, vänta en typisk transaktion att kräva 5 till 12 uppföljnings anrop
-4. *Nurture* – Nurture dina leads, så att du kan komma på väg till en högre vinst marginal.
+1. *Process* - Definiera en tydlig försäljningsprocess med milstolpar, KPI:er och tydlig teamägande.
+2. *Kvalificering* - Definiera förutsättningar, som anger om ett lead har kvalificerats fullt ut. Se till att försäljnings- eller marknadsföringsrepresentanter kvalificerar leads noggrant innan du tar dem genom hela försäljningsprocessen.
+3. *Uppföljning* - Glöm inte att följa upp, förvänta dig den typiska transaktionen att kräva 5 till 12 uppföljning samtal
+4. *Vårda* - Vårda dina leder, för att få dig på väg till en högre vinstmarginal.
 
-## <a name="leads-frequently-asked-questions"></a>Vanliga frågor och svar om leads
+## <a name="leads-frequently-asked-questions"></a>Vanliga frågor och svar leder till vanliga frågor
 
-### <a name="where-can-i-get-help-in-setting-up-my-lead-destination"></a>Var kan jag få hjälp med att ställa in mitt lead-mål?
+### <a name="where-can-i-get-help-in-setting-up-my-lead-destination"></a>Var kan jag få hjälp med att konfigurera mitt leadmål?
 
-Du hittar dokumentation [här](#connect-to-your-crm-system) eller skickar ett support ärende via aka.MS/marketplacepublishersupport och väljer sedan **"erbjudande skapa"** → **din typ av erbjudande** → **"konfiguration av lead-hantering".**
+Du kan hitta dokumentation [här](#connect-to-your-crm-system) eller skicka in en supportbiljett via aka.ms/marketplacepublishersupport sedan välja **"erbjudandeskapande"** → **din typ av erbjudande** → **"lead management configuration".**
 
-### <a name="am-i-required-to-configure-a-lead-destination-in-order-to-publish-an-offer-on-the-marketplace"></a>Är jag tvungen att konfigurera ett lead-mål för att publicera ett erbjudande på Marketplace?
+### <a name="am-i-required-to-configure-a-lead-destination-in-order-to-publish-an-offer-on-the-marketplace"></a>Måste jag konfigurera en leaddestination för att kunna publicera ett erbjudande på marknadsplatsen?
 
-Svaret beror på vilken typ av erbjudande du publicerar. SaaS och Dynamics 365 för kund engagemang ger en lista som "kontakta mig", alla Dynamics 365 for Operations erbjuder, alla Dynamics 365 Business Central-erbjudanden och alla konsult tjänst erbjudanden kräver en anslutning till ett lead-mål. Om erbjudande typen inte finns med i listan, krävs det inte. Vi rekommenderar dock att du konfigurerar ett lead-mål så att du inte missa affärs möjligheter.
+Svaret beror på vilken typ av erbjudande du publicerar. SaaS och Dynamics 365 for Customer Engagement erbjuder sig att lista som "Kontakta mig", alla Dynamics 365 for Operations-erbjudanden, alla Dynamics 365 Business Central-erbjudanden och alla erbjudanden om konsulttjänster kräver en anslutning till en leaddestination. Om din erbjudandetyp inte fanns med i listan krävs det inte. Vi rekommenderar dock att du konfigurerar en leaddestination så att du inte missar affärsmöjligheter.
 
-### <a name="how-can-i-find-the-test-lead"></a>Hur kan jag hitta testets lead?
+### <a name="how-can-i-find-the-test-lead"></a>Hur hittar jag testledningen?
 
-Sök efter `"MSFT_TEST"` i ditt lead-mål, här är ett exempel på ett test från Microsoft:
+Sök `"MSFT_TEST"` efter i din leaddestination, här är ett exempel test lead från Microsoft:
 
 ```
 company = MSFT_TEST_636573304831318844
@@ -122,42 +121,42 @@ phone = 1234567890
 title = MSFT_TEST_636573304831318844
 ```
 
-### <a name="i-have-a-live-offer-but-im-not-seeing-any-leads"></a>Jag har ett Live-erbjudande, men jag ser inte några leads?
+### <a name="i-have-a-live-offer-but-im-not-seeing-any-leads"></a>Jag har ett liveerbjudande, men jag ser inga ledtrådar?
 
-Kontrol lera att din anslutning till målet för målet är giltig. Vi kommer att skicka ett test lead när du har publicerat det på ditt erbjudande i Partner Center. Om du ser testets lead är anslutningen giltig. Du kan också testa din lead-anslutning genom att försöka hämta för hands versionen av erbjudandet under för hands versions steget genom att klicka på "Hämta nu", "kontakta mig" eller "kostnads fri utvärdering" på listan på Marketplace.
+Kontrollera att anslutningen till leaddestinationen är giltig. Vi skickar dig en testledare efter att du har publicerat publicera på ditt erbjudande i Partner Center. Om testkabeln visas är anslutningen giltig. Du kan också testa din leadanslutning genom att försöka skaffa förhandsgranskningen under förhandsgranskningssteget genom att klicka på "get it now", "contacts me" eller "free trial" på listan på marknaden.
 
-Kontrol lera också att du letar efter rätt data. Innehållet i avsnittet [förstå lead-data](#understand-lead-data) i det här dokumentet beskriver de lead-data vi skickar till ditt lead-mål.
+Se också till att du letar efter rätt data. Innehållet i avsnittet [Förstå leaddata](#understand-lead-data) i det här dokumentet beskriver de leaddata vi skickar till ditt leadmål.
 
-### <a name="i-have-configured-azure-blob-as-my-lead-destination-why-dont-i-see-the-lead"></a>Jag har konfigurerat Azure-BLOBBEN som mitt lead-mål, varför ser jag inte mitt lead?
+### <a name="i-have-configured-azure-blob-as-my-lead-destination-why-dont-i-see-the-lead"></a>Jag har konfigurerat Azure BLOB som min leaddestination, varför ser jag inte leadet?
 
-Det finns inte längre stöd för Azure Blob-leadadressen så att du saknar kund ledare som genereras av ditt erbjudande. Växla till något av de andra [mål alternativen för lead](./commercial-marketplace-get-customer-leads.md). 
+Azure Blob-lead-målet stöds inte längre så du saknar alla kundleads som genereras av ditt erbjudande. Växla till något av de andra [leadmålalternativen](./commercial-marketplace-get-customer-leads.md). 
 
-### <a name="i-received-an-email-from-marketplace-why-cant-i-find-the-lead-in-my-crm"></a>Jag har fått ett e-postmeddelande från Marketplace, varför kan jag inte hitta något lead i min CRM?
+### <a name="i-received-an-email-from-marketplace-why-cant-i-find-the-lead-in-my-crm"></a>Jag fick ett e-postmeddelande från Marketplace, varför kan jag inte hitta leadet i min CRM?
 
-Det är möjligt att slutanvändarens e-postdomän är från. edu. Av säkerhets skäl skickar vi inte PII-data från. edu-domän. Skicka in ett support ärende via aka.ms/marketplacepublishersupport.
+Det är möjligt att slutanvändarens e-postdomän kommer från .edu. Av sekretesskäl skickar vi inte PII-data från .edu-domänen. Skicka in en supportbiljett via aka.ms/marketplacepublishersupport.
 
-### <a name="i-have-configured-azure-table-as-my-lead-destination-how-can-i-view-the-leads"></a>Jag har konfigurerat Azure-tabellen som mitt lead-mål, hur kan jag se leads?
+### <a name="i-have-configured-azure-table-as-my-lead-destination-how-can-i-view-the-leads"></a>Jag har konfigurerat Azure Table som min leaddestination, hur kan jag visa leads?
 
-Du kan komma åt lead-data som lagras i Azure-tabellen från Azure-portalen, eller så kan du ladda ned och installera [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) kostnads fritt för att visa dina Azure Storage-kontos tabell data.
+Du kan komma åt leaddata som lagras i Azure-tabellen från Azure Portal, eller så kan du ladda ned och installera [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) gratis för att visa tabelldata för ditt Azure-lagringskonto.
 
-### <a name="i-have-configured-azure-table-as-my-lead-destination-can-i-get-notified-whenever-a-new-lead-is-sent-by-marketplace"></a>Jag har konfigurerat Azure-tabellen som mitt lead-mål, kan jag få ett meddelande när ett nytt lead skickas av Marketplace?
+### <a name="i-have-configured-azure-table-as-my-lead-destination-can-i-get-notified-whenever-a-new-lead-is-sent-by-marketplace"></a>Jag har konfigurerat Azure Table som min leaddestination, kan jag få ett meddelande när ett nytt lead skickas av Marketplace?
 
-Ja, följ instruktionerna för att konfigurera ett Microsoft Flow som skickar ett e-postmeddelande om ett lead läggs till i Azure-tabellen i dokumentationen [här](./commercial-marketplace-lead-management-instructions-azure-table.md).
+Ja, följ instruktionerna för att konfigurera ett Microsoft-flöde som skickar ett e-postmeddelande om ett lead läggs till i Azure-tabellen i dokumentationen [här](./commercial-marketplace-lead-management-instructions-azure-table.md).
 
-### <a name="i-have-configured-salesforce-as-my-lead-destination-why-cant-i-find-the-leads"></a>Jag har konfigurerat Salesforce som mitt lead-mål, varför kan jag inte hitta några leads?
+### <a name="i-have-configured-salesforce-as-my-lead-destination-why-cant-i-find-the-leads"></a>Jag har konfigurerat Salesforce som min huvuddestination, varför kan jag inte hitta leads?
 
-Kontrol lera om formuläret "webb till lead" är ett obligatoriskt fält baserat på en listruta. Om du väljer Ja växlar du över fältet till ett fält som inte är obligatoriskt.
+Kontrollera om formuläret "web to lead" är ett obligatoriskt fält baserat på en plocklista. Om ja växlar du över fältet till ett icke-obligatoriskt textfält.
 
-### <a name="there-was-an-issue-with-my-lead-destination-and-i-missed-some-leads-can-i-have-them-sent-to-me-in-an-email"></a>Det uppstod ett problem med mitt lead-mål och jag missade några leads. Kan jag skicka dem till mig i ett e-postmeddelande?
+### <a name="there-was-an-issue-with-my-lead-destination-and-i-missed-some-leads-can-i-have-them-sent-to-me-in-an-email"></a>Det var ett problem med min ledande destination, och jag missade några leder. Kan jag få dem skickade till mig i ett e-postmeddelande?
 
-På grund av PII-principer (Private identifierbar information) kan vi inte dela ledar information via oskyddad e-post.
+På grund av PII-policyer (Private Identifiee Information) kan vi inte dela leadinformation via oskyddad e-post.
 
-### <a name="i-have-configured-azure-table-as-my-lead-destination-how-much-will-it-cost"></a>Jag har konfigurerat Azure-tabellen som mitt lead-mål, hur mycket kostar det?
+### <a name="i-have-configured-azure-table-as-my-lead-destination-how-much-will-it-cost"></a>Jag har konfigurerat Azure Table som min leaddestination, hur mycket kostar det?
 
-Leadets gen data är låg (< 1 GB för nästan alla utgivare). Kostnaden beror på antalet mottagna leads, om 1 000 leads tas emot under en månad, kostar det cirka 50 cent. Mer information om lagrings priser finns i [Storage-priser](https://azure.microsoft.com/pricing/details/storage/).
+Lead gen-data är låg (<1 GB för nästan alla utgivare). Kostnaden beror på antalet mottagna leads, om 1000 leads tas emot i en månad, kostar det runt 50 cent. Mer information om lagringspriser finns i [lagringspriser](https://azure.microsoft.com/pricing/details/storage/).
 
-Om din fråga fortfarande inte besvaras kan du kontakta supporten via aka.ms/marketplacepublishersupport och sedan välja **"erbjudande skapa"** → **din typ av erbjudande** → **konfiguration av lead-hantering.** 
+Om din fråga fortfarande inte besvaras kontaktar du support via aka.ms/marketplacepublishersupport och väljer sedan **"skapa erbjudanden"** → **din typ av erbjudande** → **"lead management configuration".** 
 
 ## <a name="next-steps"></a>Nästa steg
 
-När den tekniska konfigureringen är på plats bör du inkludera dessa leads i din aktuella försäljning & marknadsförings strategi och operativa processer. Vi är intresserade av att bättre förstå den övergripande Sälj processen och vill arbeta nära dig med att tillhandahålla högkvalitativa leads och tillräckligt med data för att lyckas. Vi välkomnar din feedback om hur vi kan optimera och förbättra de leads som vi skickar till dig med ytterligare data för att hjälpa kunderna att lyckas. Berätta för oss om du är intresse rad av att [ge feedback](mailto:AzureMarketOnboard@microsoft.com) och förslag för att göra det möjligt för ditt säljteam att bli mer framgångs rik med marknads ledande kunder.
+När den tekniska uppsättningen är på plats, bör du införliva dessa leder i din nuvarande försäljning & marknadsföringsstrategi och operativa processer. Vi är intresserade av att bättre förstå din övergripande försäljningsprocess och vill arbeta nära dig på att ge högkvalitativa leads och tillräckligt med data för att göra dig framgångsrik. Vi välkomnar din feedback på hur vi kan optimera och förbättra de leads vi skickar dig med ytterligare data för att hjälpa till att göra dessa kunder framgångsrika. Meddela oss om du är intresserad av [att ge feedback](mailto:AzureMarketOnboard@microsoft.com) och förslag så att ditt säljteam kan bli mer framgångsrikt med Marketplace Leads.

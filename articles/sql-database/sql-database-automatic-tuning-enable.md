@@ -1,6 +1,6 @@
 ---
 title: Aktivera automatisk inställning
-description: Du kan aktivera automatisk justering på Azure SQL Database enkelt.
+description: Du kan enkelt aktivera automatisk justering på din Azure SQL-databas.
 services: sql-database
 ms.service: sql-database
 ms.subservice: performance
@@ -12,117 +12,117 @@ ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 12/03/2019
 ms.openlocfilehash: eed839c277156046ff9b7d97c6e87636a0822889
-ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79299336"
 ---
-# <a name="enable-automatic-tuning-to-monitor-queries-and-improve-workload-performance"></a>Aktivera automatisk justering för att övervaka frågor och förbättra arbets Belastningens prestanda
+# <a name="enable-automatic-tuning-to-monitor-queries-and-improve-workload-performance"></a>Aktivera automatisk justering för att övervaka frågor och förbättra arbetsbelastningens prestanda
 
-Azure SQL Database är en automatiskt hanterad data tjänst som kontinuerligt övervakar dina frågor och identifierar den åtgärd som du kan utföra för att förbättra arbets Belastningens prestanda. Du kan granska rekommendationer och manuellt tillämpa dem, eller låta Azure SQL Database automatiskt tillämpa korrigerande åtgärder – detta kallas **automatiskt justerings läge**.
+Azure SQL Database är en automatiskt hanterad datatjänst som ständigt övervakar dina frågor och identifierar den åtgärd som du kan utföra för att förbättra prestanda för din arbetsbelastning. Du kan granska rekommendationer och manuellt tillämpa dem, eller låta Azure SQL Database automatiskt tillämpa korrigerande åtgärder - det kallas **automatiskt justeringsläge**.
 
-Automatisk justering kan aktive ras på servern eller databas nivån via [Azure Portal](sql-database-automatic-tuning-enable.md#azure-portal), [REST API](sql-database-automatic-tuning-enable.md#rest-api) anrop och [T-SQL-](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current) kommandon.
-
-> [!NOTE]
-> För hanterade instanser kan alternativet FORCE_LAST_GOOD_PLAN konfigureras via [T-SQL](https://azure.microsoft.com/blog/automatic-tuning-introduces-automatic-plan-correction-and-t-sql-management) . Portalbaserade konfigurations alternativ och automatiska index justeringar som beskrivs i den här artikeln gäller inte för hanterade instanser.
+Automatisk justering kan aktiveras på server- eller databasnivå via [Azure-portalen,](sql-database-automatic-tuning-enable.md#azure-portal) [REST API-anrop](sql-database-automatic-tuning-enable.md#rest-api) och [T-SQL-kommandon.](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current)
 
 > [!NOTE]
-> Det går inte att konfigurera alternativ för automatisk justering via ARM-mallen (Azure Resource Manager) för tillfället.
+> För hanterad instans kan det alternativ som stöds FORCE_LAST_GOOD_PLAN konfigureras endast via [T-SQL.](https://azure.microsoft.com/blog/automatic-tuning-introduces-automatic-plan-correction-and-t-sql-management) Portalbaserade konfigurations- och automatiska indexjusteringsalternativ som beskrivs i den här artikeln gäller inte hanterad instans.
+
+> [!NOTE]
+> Det går inte att konfigurera automatisk justeringsalternativ via ARM-mallen (Azure Resource Manager) just nu.
 
 ## <a name="enable-automatic-tuning-on-server"></a>Aktivera automatisk justering på servern
 
-På server nivå kan du välja att ärva konfigurationen för automatisk justering från "Azure-standardvärden" eller att inte ärva konfigurationen. Standardinställningarna för Azure är FORCE_LAST_GOOD_PLAN aktiverat, CREATE_INDEX är aktiverat och DROP_INDEX har inaktiverats.
+På servernivå kan du välja att ärva automatisk justeringskonfiguration från "Azure Defaults" eller inte ärva konfigurationen. Azure-standardvärden är FORCE_LAST_GOOD_PLAN är aktiverat, CREATE_INDEX är aktiverat och DROP_INDEX är inaktiverat.
 
 > [!IMPORTANT]
-> Från och med mars kommer 2020 ändringar i Azure-standardvärden för automatisk justering att gälla enligt följande:
+> Från och med mars börjar 2020 ändringar av Azure-standardvärden för automatisk justering gälla på följande sätt:
 >
-> - Nya Azure-standardvärden är FORCE_LAST_GOOD_PLAN = Enabled, CREATE_INDEX = disabled och DROP_INDEX = inaktive rad.
-> - Befintliga servrar utan inställningar för automatisk justering konfigureras automatiskt för att ärva nya Azure-standardvärden. Detta gäller för alla kunder som för närvarande har Server inställningar för automatisk justering i ett odefinierat tillstånd.
-> - Nya servrar som skapas konfigureras automatiskt för att ärva nya Azure-standardvärden (till skillnad från tidigare när konfigurationen för automatisk justering var i ett odefinierat tillstånd när en ny server skapas).
+> - Nya Azure-standardvärden kommer att vara FORCE_LAST_GOOD_PLAN = aktiverade, CREATE_INDEX = inaktiverade och DROP_INDEX = inaktiverade.
+> - Befintliga servrar utan automatiska justeringsinställningar konfigureras automatiskt för att ÄRVA de nya Azure-standardinställningarna. Detta gäller alla kunder som för närvarande har serverinställningar för automatisk justering i ett odefinierat tillstånd.
+> - Nya servrar som skapas konfigureras automatiskt för att ÄRVA de nya Azure-standardvärdena (till skillnad från tidigare när automatisk justeringskonfiguration var i ett odefinierat tillstånd när den nya servern skapades).
 
 ### <a name="azure-portal"></a>Azure Portal
 
-Om du vill aktivera automatisk justering på Azure SQL Database logisk **Server**navigerar du till servern i Azure Portal och väljer sedan **Automatisk justering** i menyn.
+Om du vill aktivera automatisk justering på den logiska **servern**i Azure SQL Database navigerar du till servern i Azure-portalen och väljer sedan **Automatisk justering** på menyn.
 
 ![Server](./media/sql-database-automatic-tuning-enable/server.png)
 
 > [!NOTE]
-> Observera att **DROP_INDEX** alternativ för tillfället inte är kompatibelt med program som använder partition växlings-och index tips och inte bör aktive ras i dessa fall. Det går inte att släppa oanvända index för Premium-och Affärskritisk tjänst nivåer.
+> Observera att **DROP_INDEX** alternativet just nu inte är kompatibelt med program som använder partitionsväxling och indextips och bör inte aktiveras i dessa fall. Det går inte att släppa oanvända index för premium- och affärskritiska tjänstnivåer.
 >
 
-Välj de automatiska justerings alternativ som du vill aktivera och välj **Använd**.
+Välj de automatiska justeringsalternativ som du vill aktivera och välj **Använd**.
 
-Automatiska justerings alternativ på en server tillämpas på alla databaser på den här servern. Som standard ärver alla databaser konfigurationen från sin överordnade Server, men detta kan åsidosättas och anges för varje databas individuellt.
+Automatiska justeringsalternativ på en server tillämpas på alla databaser på den här servern. Som standard ärver alla databaser konfigurationen från den överordnade servern, men detta kan åsidosättas och anges för varje databas individuellt.
 
-### <a name="rest-api"></a>REST-API
+### <a name="rest-api"></a>REST API
 
-Ta reda på mer om hur du använder REST API för automatisk justering på en server, se [SQL Server automatisk justering uppdatering och hämta HTTP-metoder](https://docs.microsoft.com/rest/api/sql/serverautomatictuning).
+Läs mer om hur du använder REST API för att aktivera Automatisk justering på en server, se [SQL Server Automatisk justering UPPDATERING och HÄMTA HTTP-metoder](https://docs.microsoft.com/rest/api/sql/serverautomatictuning).
 
-## <a name="enable-automatic-tuning-on-an-individual-database"></a>Aktivera automatisk justering på en enskild databas
+## <a name="enable-automatic-tuning-on-an-individual-database"></a>Aktivera automatisk justering i en enskild databas
 
-Med Azure SQL Database kan du individuellt ange konfigurationen för automatisk justering för varje databas. På databas nivå kan du välja att ärva konfigurationen för automatisk justering från den överordnade servern, "Azure-standardvärden" eller att inte ärva konfigurationen. Standardinställningarna för Azure har angetts till FORCE_LAST_GOOD_PLAN är aktiverat, CREATE_INDEX är aktiverat och DROP_INDEX har inaktiverats.
+Med Azure SQL-databasen kan du individuellt ange den automatiska justeringskonfigurationen för varje databas. På databasnivå kan du välja att ärva automatisk justeringskonfiguration från den överordnade servern, "Azure Defaults" eller att inte ärva konfigurationen. Azure Defaults är inställda på FORCE_LAST_GOOD_PLAN är aktiverat, CREATE_INDEX är aktiverat och DROP_INDEX är inaktiverad.
 
 > [!TIP]
-> Den allmänna rekommendationen är att hantera konfigurationen för automatisk justering på **Server nivå** så att samma konfigurations inställningar kan tillämpas automatiskt på alla databaser. Konfigurera automatisk justering endast på en enskild databas om du behöver att databasen har andra inställningar än andra som ärver inställningar från samma server.
+> Den allmänna rekommendationen är att hantera den automatiska justeringskonfigurationen på **servernivå** så att samma konfigurationsinställningar kan tillämpas på varje databas automatiskt. Konfigurera automatisk justering på en enskild databas endast om du behöver databasen för att ha andra inställningar än andra som ärver inställningar från samma server.
 >
 
 ### <a name="azure-portal"></a>Azure Portal
 
-Om du vill aktivera automatisk justering på en **enskild databas**går du till databasen i Azure Portal och väljer **Automatisk justering**.
+Om du vill aktivera automatisk justering i en **enda databas**navigerar du till databasen i Azure-portalen och väljer **Automatisk justering**.
 
-Enskilda inställningar för automatisk justering kan konfigureras separat för varje databas. Du kan konfigurera ett enskilt alternativ för automatisk justering manuellt eller ange att ett alternativ ärver inställningarna från servern.
+Individuella automatiska justeringsinställningar kan konfigureras separat för varje databas. Du kan konfigurera ett individuellt alternativ för automatisk justering manuellt eller ange att ett alternativ ärver dess inställningar från servern.
 
 ![Databas](./media/sql-database-automatic-tuning-enable/database.png)
 
-Observera att DROP_INDEX alternativ för tillfället inte är kompatibelt med program som använder partition växlings-och index tips och inte bör aktive ras i dessa fall.
+Observera att DROP_INDEX alternativet just nu inte är kompatibelt med program som använder partitionsväxling och indextips och bör inte aktiveras i dessa fall.
 
 När du har valt önskad konfiguration klickar du på **Använd**.
 
-### <a name="rest-api"></a>Rest-API
+### <a name="rest-api"></a>API för vila
 
-Lär dig mer om hur du använder REST API för automatisk justering i en enskild databas finns i [SQL Database automatisk uppdatering av uppdatering och hämta HTTP-metoder](https://docs.microsoft.com/rest/api/sql/databaseautomatictuning).
+Läs mer om hur du använder REST API för att aktivera Automatisk justering i en enda databas, se [SQL Database Automatisk justering UPPDATERING och GET HTTP-metoder](https://docs.microsoft.com/rest/api/sql/databaseautomatictuning).
 
 ### <a name="t-sql"></a>T-SQL
 
-Om du vill aktivera automatisk justering på en enskild databas via T-SQL ansluter du till databasen och kör följande fråga:
+Om du vill aktivera automatisk justering på en enda databas via T-SQL ansluter du till databasen och kör följande fråga:
 
 ```SQL
 ALTER DATABASE current SET AUTOMATIC_TUNING = AUTO | INHERIT | CUSTOM
 ```
 
-Om du ställer in automatisk justering på AUTO används standardinställningarna för Azure. Om du anger att den ska ÄRVAs, kommer den automatiska justerings konfigurationen att ärvas från den överordnade servern. Om du väljer Anpassad måste du konfigurera automatisk justering manuellt.
+Om du ställer in automatisk justering på AUTO tillämpas Azure Defaults. Om du ställer in den på INHERIT kommer automatisk justeringskonfiguration att ärvas från den överordnade servern. Om du väljer ANPASSAD måste du konfigurera automatisk justering manuellt.
 
-Om du vill konfigurera enskilda alternativ för automatisk justering via T-SQL ansluter du till databasen och kör frågan, till exempel den här:
+Om du vill konfigurera enskilda automatiska justeringsalternativ via T-SQL ansluter du till databasen och kör frågan, till exempel den här:
 
 ```SQL
 ALTER DATABASE current SET AUTOMATIC_TUNING (FORCE_LAST_GOOD_PLAN = ON, CREATE_INDEX = DEFAULT, DROP_INDEX = OFF)
 ```
 
-Om du ställer in alternativet för enskild justering till på, åsidosätter alla inställningar som databasen har ärvt och aktiverar justerings alternativet. Att ställa in det på av, åsidosätter även alla inställningar som databasen har ärvt och inaktiverar justerings alternativet. Alternativet för automatisk justering, för vilka standardvärdet har angetts, kommer att ärva konfigurationen för automatisk justering från inställningarna på server nivå.  
+Om du ställer in det enskilda justeringsalternativet på PÅ åsidosätter du alla inställningar som databasen ärvt och aktiverar justeringsalternativet. Om du ställer in den på OFF åsidosätts även alla inställningar som databasen ärvt och inaktiverar inställningsalternativet. Det automatiska justeringsalternativet, som STANDARD har angetts för, ärver den automatiska justeringskonfigurationen från servernivåinställningarna.  
 
 > [!IMPORTANT]
-> I händelse av [aktiv geo-replikering](sql-database-auto-failover-group.md)behöver automatisk justering bara konfigureras på den primära databasen. Automatiskt tillämpade justerings åtgärder, t. ex. när indexet Create eller Delete replikeras automatiskt till den skrivskyddade sekundära. Om du försöker aktivera automatisk justering via T-SQL på den skrivskyddade sekundära sekundären, resulterar det i ett haveri att en annan inställnings konfiguration på den skrivskyddade sekundären inte stöds.
+> Vid [aktiv geo-replikering](sql-database-auto-failover-group.md)måste automatisk justering endast konfigureras på den primära databasen. Automatiskt tillämpade justeringsåtgärder replikeras till exempel indexskapande eller borttagning automatiskt till den skrivskyddade sekundära. Försöker aktivera automatisk justering via T-SQL på den skrivskyddade sekundära kommer att resultera i ett fel som har en annan justering konfiguration på den skrivskyddade sekundära stöds inte.
 >
 
-Hitta våra fler om verifieringen T-SQL-alternativ för att konfigurera automatisk justering, se [Alter Database set Options (Transact-SQL) för SQL Database Server](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current).
+Hitta våra mer abut T-SQL alternativ för att konfigurera Automatisk justering, se [ALTER DATABASE SET Options (Transact-SQL) för SQL Database server](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current).
 
-## <a name="disabled-by-the-system"></a>Inaktiverat av systemet
+## <a name="disabled-by-the-system"></a>Inaktiverad av systemet
 
-Automatisk justering övervakar alla åtgärder som det tar i databasen och i vissa fall kan det ta reda på att automatisk justering inte fungerar korrekt i databasen. I den här situationen inaktive ras justerings alternativet av systemet. I de flesta fall beror detta på att Frågearkivet inte är aktiverat eller att det är i skrivskyddat läge för en speciell databas.
+Automatisk justering övervakar alla åtgärder som krävs på databasen och i vissa fall kan den avgöra att automatisk justering inte kan fungera korrekt i databasen. I det här fallet kommer justeringsalternativet att inaktiveras av systemet. I de flesta fall beror detta på att Query Store inte är aktiverat eller om det är skrivskyddat tillstånd i en viss databas.
 
 ## <a name="permissions"></a>Behörigheter
 
-Eftersom automatisk justering är Azure-funktion måste du använda Azures inbyggda RBAC-roller för att använda den. Att endast använda SQL-autentisering är inte tillräckligt för att använda funktionen från Azure Portal.
+Eftersom automatisk justering är Azure-funktion måste du använda Azures inbyggda RBAC-roller för att kunna använda den. Att bara använda SQL-autentisering räcker inte för att använda funktionen från Azure-portalen.
 
-För att kunna använda automatisk justering är den minsta behörighet som krävs för att bevilja användaren Azure: s inbyggda roll för [SQL DB-deltagare](../role-based-access-control/built-in-roles.md#sql-db-contributor) . Du kan också överväga att använda högre behörighets roller, t. ex. SQL Server deltagare, deltagare och ägare.
+Om du vill använda automatisk justering är den minsta behörighet som krävs för att bevilja användaren Azures inbyggda [SQL DB-deltagarroll.](../role-based-access-control/built-in-roles.md#sql-db-contributor) Du kan också överväga att använda roller med högre behörighet, till exempel SQL Server Contributor, Contributor och Owner.
 
-## <a name="configure-automatic-tuning-e-mail-notifications"></a>Konfigurera e-postmeddelanden för automatisk justering
+## <a name="configure-automatic-tuning-e-mail-notifications"></a>Konfigurera automatiska inställningsmeddelanden för e-postmeddelanden
 
-Se guide för [Automatisk justering av e-postaviseringar](sql-database-automatic-tuning-email-notifications.md) .
+Se [guiden för automatisk justering av e-postmeddelanden.](sql-database-automatic-tuning-email-notifications.md)
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Läs [artikeln om automatisk justering](sql-database-automatic-tuning.md) för att lära dig mer om automatisk justering och hur det kan hjälpa dig att förbättra prestandan.
-* Se [prestanda rekommendationer](sql-database-advisor.md) för en översikt över Azure SQL Database prestanda rekommendationer.
-* Mer information om hur du visar prestanda påverkan för dina vanligaste frågor finns i [fråga prestanda insikter](sql-database-query-performance.md) .
+* Läs [artikeln Automatisk justering](sql-database-automatic-tuning.md) om du vill veta mer om automatisk justering och hur det kan hjälpa dig att förbättra dina resultat.
+* Se [Prestandarekommendationer](sql-database-advisor.md) för en översikt över prestandarekommendationer för Azure SQL Database.
+* Se [Frågeprestandastatistik](sql-database-query-performance.md) om du vill veta mer om hur du visar prestandapåverkan för dina vanligaste frågor.

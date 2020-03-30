@@ -1,41 +1,41 @@
 ---
-title: Säker kommunikation med Azure Service Fabric omvänd proxy
-description: Konfigurera omvänd proxy för att aktivera säker kommunikation från slut punkt till slut punkt i ett Azure Service Fabric-program.
+title: Azure Service Fabric omvänd proxy säker kommunikation
+description: Konfigurera omvänd proxy för att aktivera säker heltäckande kommunikation i ett Azure Service Fabric-program.
 author: kavyako
 ms.topic: conceptual
 ms.date: 08/10/2017
 ms.author: kavyako
 ms.openlocfilehash: 4cfeaf34a39231ffa91ea970a61f66632bae40c7
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79282255"
 ---
-# <a name="connect-to-a-secure-service-with-the-reverse-proxy"></a>Ansluta till en säker tjänst med den omvända proxyn
+# <a name="connect-to-a-secure-service-with-the-reverse-proxy"></a>Ansluta till en säker tjänst med omvänd proxy
 
-Den här artikeln förklarar hur du upprättar en säker anslutning mellan omvänd proxy och tjänster, vilket innebär att en säker kanal från slut punkt till slut punkt skapas. Läs mer om omvänd proxy [i omvänd proxy i Azure Service Fabric](service-fabric-reverseproxy.md)
+I den här artikeln beskrivs hur du upprättar en säker anslutning mellan omvänd proxy och tjänster, vilket möjliggör en på säker kanal. Mer information om omvänd proxy finns [i Omvänd proxy i Azure Service Fabric](service-fabric-reverseproxy.md)
 
-Det går bara att ansluta till säkra tjänster när omvänd proxy har kon figurer ATS för att lyssna på HTTPS. I den här artikeln förutsätter vi att detta är fallet.
-Läs konfigurera [omvänd proxy i Azure Service Fabric](service-fabric-reverseproxy-setup.md) för att konfigurera omvänd proxy i Service Fabric.
+Anslutning till säkra tjänster stöds endast när omvänd proxy är konfigurerad för att lyssna på HTTPS. Denna artikel förutsätter att så är fallet.
+Se [omvänd konfigurationsproxy i Azure Service Fabric](service-fabric-reverseproxy-setup.md) för att konfigurera omvänd proxy i Service Fabric.
 
-## <a name="secure-connection-establishment-between-the-reverse-proxy-and-services"></a>Upprätta säker anslutning mellan omvänd proxy och tjänster 
+## <a name="secure-connection-establishment-between-the-reverse-proxy-and-services"></a>Säker anslutningsetablering mellan omvänd proxy och tjänster 
 
-### <a name="reverse-proxy-authenticating-to-services"></a>Omvänd proxy-autentisering till tjänster:
-Den omvända proxyn identifierar sig själv för tjänster med hjälp av certifikatet. För Azure-kluster anges certifikatet med egenskapen ***reverseProxyCertificate*** i [resurs typ avsnittet](../azure-resource-manager/templates/template-syntax.md) [**Microsoft. ServiceFabric/Clusters**](https://docs.microsoft.com/azure/templates/microsoft.servicefabric/clusters) i Resource Manager-mallen. För fristående kluster anges certifikatet antingen med egenskapen ***ReverseProxyCertificate*** eller egenskapen ***ReverseProxyCertificateCommonNames*** i avsnittet **Security** i ClusterConfig. JSON. Läs mer i [Aktivera omvänd proxy i fristående kluster](service-fabric-reverseproxy-setup.md#enable-reverse-proxy-on-standalone-clusters). 
+### <a name="reverse-proxy-authenticating-to-services"></a>Omvänd proxyautentisering till tjänster:
+Den omvända proxyn identifierar sig för tjänster som använder dess certifikat. För Azure-kluster anges certifikatet med ***egenskapen reverseProxyCertificate*** i avsnittet [**Microsoft.ServiceFabric/clusters**](https://docs.microsoft.com/azure/templates/microsoft.servicefabric/clusters) [Resource type](../azure-resource-manager/templates/template-syntax.md) i Resource Manager-mallen. För fristående kluster anges certifikatet med antingen ***ReverseProxyCertificate*** eller ***ReverseProxyCertificateCommonNames-egenskapen*** i avsnittet **Säkerhet** i ClusterConfig.json. Mer information finns i [Aktivera omvänd proxy i fristående kluster](service-fabric-reverseproxy-setup.md#enable-reverse-proxy-on-standalone-clusters). 
 
-Tjänster kan implementera logiken för att verifiera certifikatet som presenteras av den omvända proxyn. Tjänsterna kan ange information om godkända klient certifikat som konfigurations inställningar i konfigurations paketet. Detta kan läsas vid körning och används för att validera certifikatet som presenteras av den omvända proxyn. Se [hantera program parametrar](service-fabric-manage-multiple-environment-app-configuration.md) för att lägga till konfigurations inställningarna. 
+Tjänster kan implementera logiken för att verifiera certifikatet som visas av den omvända proxyn. Tjänsterna kan ange den accepterade klientcertifikatinformationen som konfigurationsinställningar i konfigurationspaketet. Detta kan läsas vid körning och användas för att validera certifikatet som visas av den omvända proxyn. Se [Hantera programparametrar](service-fabric-manage-multiple-environment-app-configuration.md) för att lägga till konfigurationsinställningarna. 
 
-### <a name="reverse-proxy-verifying-the-services-identity-via-the-certificate-presented-by-the-service"></a>Omvänd proxy verifierar tjänstens identitet via certifikatet som presenteras av tjänsten:
-Omvänd proxy stöder följande principer för att utföra Server certifikat validering av de certifikat som presenteras av tjänsterna: none, ServiceCommonNameAndIssuer och ServiceCertificateThumbprints.
-Om du vill välja princip för omvänd proxy som ska användas anger du **ApplicationCertificateValidationPolicy** i avsnittet **ApplicationGateway/http** under [fabricSettings](service-fabric-cluster-fabric-settings.md).
+### <a name="reverse-proxy-verifying-the-services-identity-via-the-certificate-presented-by-the-service"></a>Omvänd proxy som verifierar tjänstens identitet via det certifikat som visas av tjänsten:
+Omvänd proxy stöder följande principer för att utföra validering av servercertifikat för de certifikat som visas av tjänster: Ingen, ServiceCommonNameAndIssuer och ServiceCertificateThumbprints.
+Om du vill välja principen för omvänd proxy som ska användas anger du **ApplicationCertificateValidationPolicy** i avsnittet **ApplicationGateway/Http** under [fabricSettings](service-fabric-cluster-fabric-settings.md).
 
-I nästa avsnitt visas konfigurations information för var och en av dessa alternativ.
+I nästa avsnitt visas konfigurationsinformation för vart och ett av dessa alternativ.
 
-### <a name="service-certificate-validation-options"></a>Verifierings alternativ för tjänst certifikat 
+### <a name="service-certificate-validation-options"></a>Valideringsalternativ för tjänstcertifikat 
 
-- **Ingen**: omvänd proxy hoppar över verifiering av tjänst certifikatet för proxy och upprättar en säker anslutning. Detta är standardbeteendet.
-Ange **ApplicationCertificateValidationPolicy** med värdet **ingen** i avsnittet [**ApplicationGateway/http**](./service-fabric-cluster-fabric-settings.md#applicationgatewayhttp) .
+- **Ingen**: Omvänd proxy hoppar över verifieringen av det proportionella tjänstcertifikatet och upprättar den säkra anslutningen. Det här är standardbeteendet.
+Ange **ApplicationCertificateValidationPolicy** med värdet **Ingen** i avsnittet [**ApplicationGateway/Http.**](./service-fabric-cluster-fabric-settings.md#applicationgatewayhttp)
 
    ```json
    {
@@ -55,7 +55,7 @@ Ange **ApplicationCertificateValidationPolicy** med värdet **ingen** i avsnitte
    }
    ```
 
-- **ServiceCommonNameAndIssuer**: omvänd proxy verifierar certifikatet som presenteras av tjänsten baserat på certifikatets egna namn och omedelbara utfärdarens tumavtryck: ange **ApplicationCertificateValidationPolicy** med värdet **ServiceCommonNameAndIssuer** i avsnittet [**ApplicationGateway/http**](./service-fabric-cluster-fabric-settings.md#applicationgatewayhttp) .
+- **ServiceCommonNameAndIssuer**: Omvänd proxy verifierar certifikatet som visas av tjänsten baserat på certifikatets gemensamma namn och omedelbara utfärdarens tumavtryck: Ange **ApplicationCertificateValidationPolicy** med värdet **ServiceCommonNameAndIssuer** i avsnittet [**ApplicationGateway/Http.**](./service-fabric-cluster-fabric-settings.md#applicationgatewayhttp)
 
    ```json
    {
@@ -75,10 +75,10 @@ Ange **ApplicationCertificateValidationPolicy** med värdet **ingen** i avsnitte
    }
    ```
 
-   Om du vill ange en lista över tjänstens nätverks namn och utfärdare tumavtrycken lägger du till ett [**ApplicationGateway/http/ServiceCommonNameAndIssuer**](./service-fabric-cluster-fabric-settings.md#applicationgatewayhttpservicecommonnameandissuer) -avsnitt under **fabricSettings**, som du ser nedan. Du kan lägga till flera certifikats egna namn och Issuer-tumavtryck i **Parameters** -matrisen. 
+   Om du vill ange listan över tjänstens gemensamma namn och utfärdartumavtryck lägger du till avsnittet [**ApplicationGateway/Http/ServiceCommonNameAndIssuer**](./service-fabric-cluster-fabric-settings.md#applicationgatewayhttpservicecommonnameandissuer) under **fabricSettings**, som visas nedan. Flera certifikat vanliga namn och utfärdare tumavtryck par kan läggas till i **parametrarna** array. 
 
-   Om den omslutna återförings-proxyn ansluter till visar ett certifikat som är ett eget namn och Issuer-tumavtryck matchar något av de värden som anges här, så upprättas SSL-kanalen. 
-   Om det inte gick att matcha certifikat informationen, Miss lyckas reversed proxy av klientens begäran med status koden 502 (Felaktig gateway). HTTP-statuskoden innehåller även frasen "ogiltigt SSL-certifikat". 
+   Om den omvända slutpunktsproxyn ansluter till presenterar ett certifikat som är vanligt namn och utfärdartumavtryck matchar något av de värden som anges här, upprättas SSL-kanal. 
+   Efter att certifikatet inte har matchats misslyckas klientens begäran med statuskoden 502 (Bad Gateway). HTTP-statusraden innehåller också frasen "Ogiltigt SSL-certifikat". 
 
    ```json
    {
@@ -102,7 +102,7 @@ Ange **ApplicationCertificateValidationPolicy** med värdet **ingen** i avsnitte
    }
    ```
 
-- **ServiceCertificateThumbprints**: omvänd proxy verifierar proxy-tjänstens certifikat baserat på dess tumavtryck. Du kan välja att använda den här vägen när tjänsterna har kon figurer ATS med självsignerade certifikat: ange **ApplicationCertificateValidationPolicy** med värdet **ServiceCertificateThumbprints** i avsnittet [**ApplicationGateway/http**](./service-fabric-cluster-fabric-settings.md#applicationgatewayhttp) .
+- **ServiceCertificateThumbprints**: Reverse proxy verifierar det proxied servicecertifikat baserat på dess tumavtryck. Du kan välja att gå den här vägen när tjänsterna är konfigurerade med självsignerade certifikat: Ange **ApplicationCertificateValidationPolicy** med värde **ServiceCertificateThumbprints** i avsnittet [**ApplicationGateway/Http.**](./service-fabric-cluster-fabric-settings.md#applicationgatewayhttp)
 
    ```json
    {
@@ -122,7 +122,7 @@ Ange **ApplicationCertificateValidationPolicy** med värdet **ingen** i avsnitte
    }
    ```
 
-   Ange även tumavtrycken med en **ServiceCertificateThumbprints** -post i avsnittet **ApplicationGateway/http** . Flera tumavtrycken kan anges som en kommaavgränsad lista i fältet värde, som du ser nedan:
+   Ange också tumavtrycken med en **ServiceCertificateThumbprints-post** i avsnittet **ApplicationGateway/Http.** Flera tumavtryck kan anges som en kommaavgränsad lista i värdefältet, som visas nedan:
 
    ```json
    {
@@ -143,12 +143,12 @@ Ange **ApplicationCertificateValidationPolicy** med värdet **ingen** i avsnitte
    }
    ```
 
-   Om Server certifikatets tumavtryck anges i den här konfigurations posten, slutför omvänd proxy SSL-anslutningen. Annars avbryts anslutningen och klientens begäran Miss lyckas med 502 (Felaktig gateway). HTTP-statuskoden innehåller även frasen "ogiltigt SSL-certifikat".
+   Om servercertifikatets tumavtryck visas i den här konfigurationsposten lyckas omvänd proxy SSL-anslutningen. Annars avslutas anslutningen och klientens begäran misslyckas med en 502 (Felaktig gateway). HTTP-statusraden innehåller också frasen "Ogiltigt SSL-certifikat".
 
-## <a name="endpoint-selection-logic-when-services-expose-secure-as-well-as-unsecured-endpoints"></a>Slut punkts val logik när tjänster exponerar säkra såväl som oskyddade slut punkter
-Service Fabric har stöd för konfiguration av flera slut punkter för en tjänst. Mer information finns i [Ange resurser i ett tjänst manifest](service-fabric-service-manifest-resources.md).
+## <a name="endpoint-selection-logic-when-services-expose-secure-as-well-as-unsecured-endpoints"></a>Slutpunktsvallogik när tjänster exponerar säkra och osäkra slutpunkter
+Service fabric stöder konfiguration av flera slutpunkter för en tjänst. Mer information finns [i Ange resurser i ett tjänstmanifest](service-fabric-service-manifest-resources.md).
 
-Omvänd proxy väljer en av slut punkterna för att vidarebefordra begäran baserat på **ListenerName** i [tjänst-URI: n](./service-fabric-reverseproxy.md#uri-format-for-addressing-services-by-using-the-reverse-proxy). Om parametern **ListenerName** inte anges kan omvänd proxy välja vilken slut punkt som helst från listan slut punkter. Beroende på vilka slut punkter som har kon figurer ATS för tjänsten kan den valda slut punkten vara en HTTP-eller HTTPS-slutpunkt. Det kan finnas scenarier eller krav där du vill att den omvända proxyn ska arbeta i ett "skyddat läge"; det vill säga att du inte vill att den säkra omvända proxyn vidarebefordrar begär anden till oskyddade slut punkter. Om du vill ställa in omvänd proxy till endast skyddat läge anger du konfigurations posten **SecureOnlyMode** med värdet **True** i avsnittet [**ApplicationGateway/http**](./service-fabric-cluster-fabric-settings.md#applicationgatewayhttp) .   
+Omvänd proxy väljer en av slutpunkterna för att vidarebefordra begäran baserat på frågeparametern **ListenerName** i [tjänsten URI](./service-fabric-reverseproxy.md#uri-format-for-addressing-services-by-using-the-reverse-proxy). Om parametern **ListenerName** inte har angetts kan omvänd proxy välja valfri slutpunkt från slutpunktslistan. Beroende på de slutpunkter som konfigurerats för tjänsten kan den valda slutpunkten vara en HTTP- eller HTTPS-slutpunkt. Det kan finnas scenarier eller krav där du vill att den omvända proxyn ska fungera i ett "säkert läge". Det vill ha inte den säkra omvända proxyn för att vidarebefordra begäranden till osäkra slutpunkter. Om du vill ange omvänd proxy till endast säkert läge anger du konfigurationsposten **SecureOnlyMode** med värdet **sant** i avsnittet [**ApplicationGateway/Http.**](./service-fabric-cluster-fabric-settings.md#applicationgatewayhttp)   
 
 ```json
 {
@@ -170,26 +170,26 @@ Omvänd proxy väljer en av slut punkterna för att vidarebefordra begäran base
 ```
 
 > [!NOTE]
-> Om en klient har angett en ListenerName som motsvarar en HTTP-slutpunkt (ej skyddad) i **SecureOnlyMode**, och om en klient har angett en som motsvarar en http-slutpunkt (ej skyddad), Miss lyckas begäran med en http-statuskod på 404
+> Om en klient har angett ett ListenerName som motsvarar en HTTP-slutpunkt(oskyddad) när den körs i **SecureOnlyMode**, om en klient har angett ett **ListenerName** som motsvarar en HTTP-slutpunkt(oskyddad) , misslyckas omvänd proxy begäran med en HTTP-statuskod på 404 (hittades inte).
 
-## <a name="setting-up-client-certificate-authentication-through-the-reverse-proxy"></a>Konfigurera autentisering av klient certifikat via omvänd proxy
-SSL-avslutning sker på den omvända proxyn och alla klient certifikat data går förlorade. För tjänsterna för att utföra autentisering av klient certifikat anger du inställningen **ForwardClientCertificate** i avsnittet [**ApplicationGateway/http**](./service-fabric-cluster-fabric-settings.md#applicationgatewayhttp) .
+## <a name="setting-up-client-certificate-authentication-through-the-reverse-proxy"></a>Ställa in klientcertifikatautentisering via omvänd proxy
+SSL-avslutning sker vid omvänd proxy och alla klientcertifikatdata går förlorade. Om tjänsterna ska utföra klientcertifikatautentisering anger du inställningen **ForwardClientCertificate** i avsnittet [**ApplicationGateway/Http.**](./service-fabric-cluster-fabric-settings.md#applicationgatewayhttp)
 
-1. När **ForwardClientCertificate** är inställt på **false**, kommer omvänd proxy inte att begära klient certifikatet under SSL-handskakningen med klienten.
-Detta är standardbeteendet.
+1. När **ForwardClientCertificate** är inställt på **false**kommer omvänd proxy inte att begära klientcertifikatet under SSL-handskakningen med klienten.
+Det här är standardbeteendet.
 
-2. När **ForwardClientCertificate** är inställt på **Sant**begär omvänd proxy KLIENTens certifikat under SSL-handskakningen med klienten.
-Sedan vidarebefordras klient certifikat data i ett anpassat HTTP-huvud med namnet **X-client-Certificate**. Head-värdet är Base64-kodad PEM-format sträng för klientens certifikat. Tjänsten kan lyckas eller Miss lyckas med lämplig status kod efter att ha kontrollerat certifikat data.
-Om klienten inte visar ett certifikat vidarebefordrar omvänd proxy en tom rubrik och låter tjänsten hantera ärendet.
+2. När **ForwardClientCertificate** är inställt på **true**begär omvänd proxy klientens certifikat under SSL-handskakningen med klienten.
+Klientcertifikatdata vidarebefordras sedan i ett anpassat HTTP-huvud med namnet **X-Client-Certificate**. Huvudvärdet är den base64-kodade PEM-formatsträngen för klientens certifikat. Tjänsten kan lyckas/misslyckas med begäran med lämplig statuskod efter att ha inspekterat certifikatdata.
+Om klienten inte visar något certifikat vidarebefordrar omvänd proxy ett tomt huvud och låter tjänsten hantera ärendet.
 
 > [!NOTE]
-> Omvänd proxy är enbart vidarebefordrare. Ingen validering av klientens certifikat utförs.
+> Omvänd proxy är bara en vidarebefordrare. Den kommer inte att utföra någon validering av klientens certifikat.
 
 
 ## <a name="next-steps"></a>Nästa steg
-* Konfigurera [och konfigurera omvänd proxy i ett kluster](service-fabric-reverseproxy-setup.md).
+* [Konfigurera omvänd proxy på ett kluster](service-fabric-reverseproxy-setup.md).
 * Se [Konfigurera omvänd proxy för att ansluta till säkra tjänster](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/Reverse-Proxy-Sample#configure-reverse-proxy-to-connect-to-secure-services)
-* Se ett exempel på HTTP-kommunikation mellan tjänster i ett [exempel projekt på GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started).
-* [Fjärran rop med Reliable Services fjärr kommunikation](service-fabric-reliable-services-communication-remoting.md)
-* [Webb-API som använder OWIN i Reliable Services](service-fabric-reliable-services-communication-webapi.md)
+* Se ett exempel på HTTP-kommunikation mellan tjänster i ett [exempelprojekt på GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started).
+* [Fjärrproceduranrop med reliable services-ommotning](service-fabric-reliable-services-communication-remoting.md)
+* [Webb-API som använder OWIN i reliable services](service-fabric-reliable-services-communication-webapi.md)
 * [Hantera klustercertifikat](service-fabric-cluster-security-update-certs-azure.md)

@@ -1,44 +1,44 @@
 ---
-title: Installera Azure IoT Edge på Linux | Microsoft Docs
-description: Azure IoT Edge Installationsinstruktioner på Linux-enheter som kör Ubuntu eller Raspbian
+title: Installera Azure IoT Edge på Linux | Microsoft-dokument
+description: Installationsinstruktioner för Azure IoT Edge på Linux-enheter som kör Ubuntu eller Raspbian
 author: kgremban
 manager: philmea
 ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
-ms.date: 07/22/2019
+ms.date: 02/21/2020
 ms.author: kgremban
-ms.openlocfilehash: af53dea76670be500e7be20063487e3e4a2177b6
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: fb86ee9ce956917f8da44146e58a4775e0ba639f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79285089"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79535909"
 ---
-# <a name="install-the-azure-iot-edge-runtime-on-debian-based-linux-systems"></a>Installera Azure IoT Edge runtime på Debian-baserade Linux-system
+# <a name="install-the-azure-iot-edge-runtime-on-debian-based-linux-systems"></a>Installera Azure IoT Edge-körningen på Debian-baserade Linux-system
 
-Azure IoT Edge-körningen är vad omvandlar en enhet till en IoT Edge-enhet. Körningen kan distribueras på enheter som är så litet som en Raspberry Pi eller stora som industriella-server. När en enhet konfigureras med IoT Edge-körningen, kan du börja distribuera affärslogik till den från molnet. Mer information finns i [förstå Azure IoT Edge Runtime och dess arkitektur](iot-edge-runtime.md).
+Azure IoT Edge-körningen är det som förvandlar en enhet till en IoT Edge-enhet. Körningen kan distribueras på enheter så små som en Raspberry Pi eller så stor som en industriell server. När en enhet har konfigurerats med IoT Edge-körningen kan du börja distribuera affärslogik till den från molnet. Mer information finns [i Förstå Azure IoT Edge-körningen och dess arkitektur](iot-edge-runtime.md).
 
-Den här artikeln beskriver stegen för att installera Azure IoT Edge runtime på en x64-, ARM32-eller ARM64 Linux-enhet. Vi tillhandahåller installations paket för Ubuntu Server 16,04, Ubuntu Server 18,04 och Raspbian utsträckt. Se [Azure IoT Edge system som stöds](support.md#operating-systems) för en lista över operativ system och arkitekturer som stöds av Linux.
+I den här artikeln visas stegen för att installera Azure IoT Edge-körningen på en X64-, ARM32- eller ARM64 Linux-enhet. Vi tillhandahåller installationspaket för Ubuntu Server 16.04, Ubuntu Server 18.04 och Raspbian Stretch. Se [Azure IoT Edge-stödda system](support.md#operating-systems) för en lista över linux-operativsystem och arkitekturer som stöds.
 
 > [!NOTE]
-> Paket i Linux-programdatabaserna omfattas av licens villkoren som finns i varje paket (/usr/share/doc/ *-paketets namn*). Läs licensvillkoren innan du börjar använda paketet. Din installation och användning av paketet kräver att du accepterar dessa villkor. Om du inte samtycker till licensvillkoren, Använd inte paketet.
+> Paket i Linux-programvarudatabaserna omfattas av licensvillkoren i varje paket (/usr/share/doc/package-name).*package-name* Läs licensvillkoren innan du använder paketet. Din installation och användning av paketet utgör ditt godkännande av dessa villkor. Om du inte godkänner licensvillkoren ska du inte använda paketet.
 
-## <a name="install-the-latest-runtime-version"></a>Installera den senaste körnings versionen
+## <a name="install-the-latest-runtime-version"></a>Installera den senaste runtime-versionen
 
-Använd följande avsnitt för att installera den senaste versionen av Azure IoT Edge runtime på din enhet.
+Använd följande avsnitt för att installera den senaste versionen av Azure IoT Edge-körningen på din enhet.
 
 >[!NOTE]
->Stöd för ARM64-enheter finns i [offentlig för hands version](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+>Stöd för ARM64-enheter finns i [offentlig förhandsversion](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-### <a name="register-microsoft-key-and-software-repository-feed"></a>Registrera Microsoft nyckeln och program lagringsplats feed
+### <a name="register-microsoft-key-and-software-repository-feed"></a>Registrera Microsofts nyckel- och programvarudatabasfeed
 
-Förbered enheten för IoT Edge runtime-installationen.
+Förbered enheten för installationen av IoT Edge-körningen.
 
-Installera konfiguration av lagrings plats. Välj det **16,04** -eller **18,04** -kommando som matchar enhetens operativ system:
+Installera databaskonfigurationen. Välj kommandot **16.04** eller **18.04** som matchar enhetens operativsystem:
 
-* **Ubuntu Server 16,04**:
+* **Ubuntu Server 16,04:**
 
    ```bash
    curl https://packages.microsoft.com/config/ubuntu/16.04/multiarch/prod.list > ./microsoft-prod.list
@@ -50,7 +50,7 @@ Installera konfiguration av lagrings plats. Välj det **16,04** -eller **18,04**
    curl https://packages.microsoft.com/config/ubuntu/18.04/multiarch/prod.list > ./microsoft-prod.list
    ```
 
-* **Raspbian-storlek**:
+* **Raspbian Stretch:**
 
    ```bash
    curl https://packages.microsoft.com/config/debian/stretch/multiarch/prod.list > ./microsoft-prod.list
@@ -62,18 +62,18 @@ Kopiera den genererade listan.
    sudo cp ./microsoft-prod.list /etc/apt/sources.list.d/
    ```
 
-Installera offentlig nyckel för Microsoft GPG
+Installera microsoft GPG-allmän nyckel
 
    ```bash
    curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
    sudo cp ./microsoft.gpg /etc/apt/trusted.gpg.d/
    ```
 
-### <a name="install-the-container-runtime"></a>Installera runtime behållare
+### <a name="install-the-container-runtime"></a>Installera behållarkörningen
 
-Azure IoT Edge förlitar sig på en [OCI-kompatibel](https://www.opencontainers.org/) container Runtime. För produktions scenarier rekommenderar vi att du använder den [Moby-baserade](https://mobyproject.org/) motorn som anges nedan. Moby-motorn är den enda behållar motorn som stöds officiellt med Azure IoT Edge. Docker CE/EE-behållaravbildningar är kompatibla med Moby runtime.
+Azure IoT Edge förlitar sig på en [OCI-kompatibel](https://www.opencontainers.org/) containerkörning. För produktionsscenarier rekommenderar vi att du använder den [Moby-baserade](https://mobyproject.org/) motorn nedan. Moby-motorn är den enda behållarmotorn som officiellt stöds med Azure IoT Edge. Docker CE/EE-behållaravbildningar är kompatibla med Moby-körningen.
 
-Uppdatera paket listor på enheten.
+Uppdatera paketlistor på enheten.
 
    ```bash
    sudo apt-get update
@@ -85,45 +85,45 @@ Installera Moby-motorn.
    sudo apt-get install moby-engine
    ```
 
-Installera Moby kommandoradsgränssnittet (CLI). CLI är användbart för utveckling men valfria för Produktionsdistribution.
+Installera Moby-kommandoradsgränssnittet (CLI). CLI är användbart för utveckling men valfritt för produktionsdistributioner.
 
    ```bash
    sudo apt-get install moby-cli
    ```
 
-Om du får fel när du installerar Moby container runtime följer du stegen för att [kontrol lera din Linux-kernel för Moby-kompatibilitet](#verify-your-linux-kernel-for-moby-compatibility), som tillhandahålls längre fram i den här artikeln.
+Om du får fel när du installerar Moby-behållarens körning följer du stegen för att [verifiera din Linux-kärna för Moby-kompatibilitet](#verify-your-linux-kernel-for-moby-compatibility), som beskrivs senare i den här artikeln.
 
-### <a name="install-the-azure-iot-edge-security-daemon"></a>Installera Daemon för Azure IoT Edge-säkerhet
+### <a name="install-the-azure-iot-edge-security-daemon"></a>Installera Säkerhetsdemonen Azure IoT Edge
 
-**IoT Edge Security daemon** tillhandahåller och upprätthåller säkerhets standarder på den IoT Edge enheten. Daemonen startar vid varje start och startar enheten genom att starta resten av IoT Edge-körningen.
+**Säkerhetsdemonen IoT Edge** tillhandahåller och upprätthåller säkerhetsstandarder på IoT Edge-enheten. Demonen startar på varje känga och bootstraps enheten genom att starta resten av IoT Edge runtime.
 
-Installations kommandot installerar även standard versionen av **libiothsm** om den inte redan finns.
+Installationskommandot installerar också standardversionen av **libiothsm** om den inte redan finns.
 
-Uppdatera paket listor på enheten.
+Uppdatera paketlistor på enheten.
 
    ```bash
    sudo apt-get update
    ```
 
-Installera daemonen säkerhet. Paketet installeras på `/etc/iotedge/`.
+Installera säkerhetsdemonen. Paketet installeras på `/etc/iotedge/`.
 
    ```bash
    sudo apt-get install iotedge
    ```
 
-När IoT Edge har installerats uppmanas du att uppdatera konfigurations filen. Följ stegen i avsnittet [Konfigurera säkerhets daemon](#configure-the-security-daemon) för att slutföra enhets etableringen.
+När IoT Edge har installerats uppmanas du att uppdatera konfigurationsfilen. Följ stegen i avsnittet [Konfigurera säkerhetsdemon](#configure-the-security-daemon) för att slutföra enhetsetablering.
 
-## <a name="install-a-specific-runtime-version"></a>Installera en viss körnings version
+## <a name="install-a-specific-runtime-version"></a>Installera en specifik runtime-version
 
-Om du vill installera en viss version av Moby och Azure IoT Edge runtime i stället för att använda de senaste versionerna kan du rikta in komponentfilerna direkt från IoT Edge GitHub-lagringsplatsen. Använd följande steg för att hämta alla IoT Edge-komponenter på enheten: Moby-motorn och CLI, libiothsm och slutligen IoT Edge Security daemon. Gå vidare till nästa avsnitt, [Konfigurera Security daemon](#configure-the-security-daemon), om du inte vill ändra till en viss körnings version.
+Om du vill installera en specifik version av Moby och Azure IoT Edge-körningen i stället för att använda de senaste versionerna kan du rikta komponentfilerna direkt från IoT Edge GitHub-databasen. Följ följande steg för att få alla IoT Edge-komponenter på din enhet: Moby-motorn och CLI, libiothsm och slutligen säkerhetsdemonen IoT Edge. Gå till nästa avsnitt, [Konfigurera säkerhetsdemonen](#configure-the-security-daemon), om du inte vill ändra till en viss körningsversion.
 
-1. Gå till [Azure IoT Edge versioner](https://github.com/Azure/azure-iotedge/releases)och leta upp den version som du vill använda som mål.
+1. Navigera till [Azure IoT Edge-versionerna](https://github.com/Azure/azure-iotedge/releases)och hitta den versionsversion som du vill rikta in dig på.
 
-2. Expandera avsnittet **till gångar** för den versionen.
+2. Expandera avsnittet **Tillgångar** för den versionen.
 
-3. Det kan hända att det inte finns uppdateringar av Moby-motorn i en specifik version. Om du ser filer som börjar med **Moby-Engine** och **Moby-CLI**använder du följande kommandon för att uppdatera komponenterna. Om du inte ser några Moby-filer går du tillbaka genom de äldre versions resurserna tills du hittar den senaste versionen.
+3. Det kan finnas uppdateringar av Moby-motorn i en given utgåva. Om du ser filer som börjar med **moby-motor** och **moby-cli**använder du följande kommandon för att uppdatera dessa komponenter. Om du inte ser några Moby-filer går du tillbaka till de äldre utgivningstillgångarna tills du hittar den senaste versionen.
 
-   1. Hitta den **Moby** som matchar din IoT Edge enhets arkitektur. Högerklicka på fil länken och Kopiera länk adressen.
+   1. Hitta **moby-engine-filen** som matchar din IoT Edge-enhets arkitektur. Högerklicka på fillänken och kopiera länkadressen.
 
    2. Använd den kopierade länken i följande kommando för att installera den versionen av Moby-motorn:
 
@@ -131,7 +131,7 @@ Om du vill installera en viss version av Moby och Azure IoT Edge runtime i stäl
       curl -L <moby-engine link> -o moby_engine.deb && sudo dpkg -i ./moby_engine.deb
       ```
 
-   3. Hitta den **Moby-CLI-** fil som matchar IoT Edge enhetens arkitektur. Moby CLI är en valfri komponent, men kan vara till hjälp under utvecklingen. Högerklicka på fil länken och Kopiera länk adressen.
+   3. Hitta **moby-cli-filen** som matchar din IoT Edge-enhets arkitektur. Moby CLI är en valfri komponent, men kan vara till hjälp under utvecklingen. Högerklicka på fillänken och kopiera länkadressen.
 
    4. Använd den kopierade länken i följande kommando för att installera den versionen av Moby CLI:
 
@@ -139,9 +139,9 @@ Om du vill installera en viss version av Moby och Azure IoT Edge runtime i stäl
       curl -L <moby-cli link> -o moby_cli.deb && sudo dpkg -i ./moby_cli.deb
       ```
 
-4. Varje utgåva bör ha nya filer för IoT Edge Security daemon och hsmlib. Använd följande kommandon för att uppdatera dessa komponenter.
+4. Varje utgåva bör ha nya filer för IoT Edge säkerhetsdemon och hsmlib. Använd följande kommandon för att uppdatera dessa komponenter.
 
-   1. Hitta filen **libiothsm-STD** som matchar IoT Edge enhetens arkitektur. Högerklicka på fil länken och Kopiera länk adressen.
+   1. Hitta **libiothsm-std-filen** som matchar din IoT Edge-enhets arkitektur. Högerklicka på fillänken och kopiera länkadressen.
 
    2. Använd den kopierade länken i följande kommando för att installera den versionen av hsmlib:
 
@@ -149,27 +149,27 @@ Om du vill installera en viss version av Moby och Azure IoT Edge runtime i stäl
       curl -L <libiothsm-std link> -o libiothsm-std.deb && sudo dpkg -i ./libiothsm-std.deb
       ```
 
-   3. Hitta den **iotedge** -fil som matchar din IoT Edge enhets arkitektur. Högerklicka på fil länken och Kopiera länk adressen.
+   3. Hitta **den iotedge-fil** som matchar IoT Edge-enhetens arkitektur. Högerklicka på fillänken och kopiera länkadressen.
 
-   4. Använd den kopierade länken i följande kommando för att installera den versionen av IoT Edge Security daemon.
+   4. Använd den kopierade länken i följande kommando för att installera den versionen av säkerhetsdemonen IoT Edge.
 
       ```bash
       curl -L <iotedge link> -o iotedge.deb && sudo dpkg -i ./iotedge.deb
       ```
 
-När IoT Edge har installerats uppmanas du att uppdatera konfigurations filen. Följ stegen i nästa avsnitt för att slutföra enhets etableringen.
+När IoT Edge har installerats uppmanas du att uppdatera konfigurationsfilen. Följ stegen i nästa avsnitt för att slutföra enhetsetablering.
 
-## <a name="configure-the-security-daemon"></a>Konfigurera Security daemon
+## <a name="configure-the-security-daemon"></a>Konfigurera säkerhetsdemonen
 
-Konfigurera IoT Edge-körningen för att länka den fysiska enheten med en enhetsidentitet som finns i Azure IoT hub.
+Konfigurera IoT Edge-körningen för att länka din fysiska enhet med en enhetsidentitet som finns i en Azure IoT-hubb.
 
-Daemonen kan konfigureras med hjälp av konfigurations filen på `/etc/iotedge/config.yaml`. Filen är skrivskyddad som standard måste du kanske förhöjd behörighet att redigera den.
+Demonen kan konfigureras med hjälp av `/etc/iotedge/config.yaml`konfigurationsfilen på . Filen är skrivskyddad som standard, du kan behöva förhöjda behörigheter för att redigera den.
 
-En enda IoT Edge-enhet kan etableras manuellt med hjälp av en sträng för anslutningar av enhet som tillhandahålls av IoT Hub. Eller så kan du använda Device Provisioning-tjänsten att automatiskt etablera enheter, vilket är användbart när du har många enheter för att etablera. Beroende på föredrar etablering, väljer du lämplig installationsskriptet.
+En enda IoT Edge-enhet kan etableras manuellt med hjälp av en enhetsanslutningssträng som tillhandahålls av IoT Hub. Du kan också använda tjänsten Enhetsetablering för att automatiskt etablera enheter, vilket är användbart när du har många enheter att etablera. Välj lämpligt installationsskript beroende på vilket etableringsval du vill.
 
 ### <a name="option-1-manual-provisioning"></a>Alternativ 1: Manuell etablering
 
-Om du vill etablera en enhet manuellt måste du tillhandahålla en [enhets anslutnings sträng](how-to-register-device.md#register-in-the-azure-portal) som du kan skapa genom att registrera en ny enhet i IoT-hubben.
+Om du vill etablera en enhet manuellt måste du förse den med en [enhetsanslutningssträng](how-to-register-device.md#register-in-the-azure-portal) som du kan skapa genom att registrera en ny enhet i IoT-hubben.
 
 Öppna konfigurationsfilen.
 
@@ -177,31 +177,22 @@ Om du vill etablera en enhet manuellt måste du tillhandahålla en [enhets anslu
 sudo nano /etc/iotedge/config.yaml
 ```
 
-Hitta etablerings konfigurationerna för filen och ta bort kommentaren till det **manuella etablerings konfigurations** avsnittet. Uppdatera värdet för **device_connection_string** med anslutnings strängen från IoT Edge enheten. Se till att alla andra etablerings avsnitt är kommenterade. Se till att **etableringen:** raden inte har några föregående blank steg och att kapslade objekt är indragna med två blank steg.
+Hitta etableringskonfigurationerna för filen och ta av avsnittet **Manuell etableringskonfiguration.** Uppdatera värdet **för device_connection_string** med anslutningssträngen från IoT Edge-enheten. Kontrollera att andra etableringsavsnitt kommenteras. Kontrollera att **etableringen:** raden inte har något föregående blanktecken och att kapslade objekt är indragna med två blanksteg.
 
-   ```yaml
-   # Manual provisioning configuration
-   provisioning:
-     source: "manual"
-     device_connection_string: "<ADD DEVICE CONNECTION STRING HERE>"
-  
-   # DPS TPM provisioning configuration
-   # provisioning:
-   #   source: "dps"
-   #   global_endpoint: "https://global.azure-devices-provisioning.net"
-   #   scope_id: "{scope_id}"
-   #   attestation:
-   #     method: "tpm"
-   #     registration_id: "{registration_id}"
-   ```
+```yml
+# Manual provisioning configuration
+provisioning:
+  source: "manual"
+  device_connection_string: "<ADD DEVICE CONNECTION STRING HERE>"
+```
 
-Om du vill klistra in innehållet i Urklipp i nano `Shift+Right Click` eller trycker du på `Shift+Insert`.
+Om du vill klistra `Shift+Right Click` in `Shift+Insert`innehållet i Urklipp i Nano eller trycka på .
 
 Spara och stäng filen.
 
    `CTRL + X`, `Y`, `Enter`
 
-Starta om daemon när du har angett etableringsinformationen i konfigurationsfilen:
+När du har angett etableringsinformationen i konfigurationsfilen startar du om demonen:
 
 ```bash
 sudo systemctl restart iotedge
@@ -209,7 +200,13 @@ sudo systemctl restart iotedge
 
 ### <a name="option-2-automatic-provisioning"></a>Alternativ 2: Automatisk etablering
 
-Konfigurera enhets [etablerings tjänsten och hämta ditt registrerings-ID](how-to-auto-provision-simulated-device-linux.md)för enheten för att automatiskt etablera en enhet. Det finns ett antal attesterings metoder som stöds av IoT Edge när du använder automatisk etablering men maskin varu kraven påverkar också dina val. Till exempel levereras inte Raspberry Pi-enheter med ett Trusted Platform Module-chip (TPM) som standard.
+IoT Edge-enheter kan etableras automatiskt med hjälp av [DPS (Azure IoT Hub Device Provisioning Service).](../iot-dps/index.yml) För närvarande stöder IoT Edge två attestationmekanismer när du använder automatisk etablering, men maskinvarukraven kan påverka dina val. Raspberry Pi-enheter levereras till exempel inte med ett TPM-chip (Trusted Platform Module) som standard. Mer information finns i följande artiklar:
+
+* [Skapa och etablera en IoT Edge-enhet med en virtuell TPM på en Virtuell Linux-dator](how-to-auto-provision-simulated-device-linux.md)
+* [Skapa och etablera en IoT Edge-enhet med X.509-certifikat](how-to-auto-provision-x509-certs.md)
+* [Skapa och etablera en IoT Edge-enhet med symmetrisk nyckeltysstik](how-to-auto-provision-symmetric-keys.md)
+
+Dessa artiklar går igenom att ställa in registreringar i DPS och generera rätt certifikat eller nycklar för attestering. Oavsett vilken attestation-mekanism du väljer läggs etableringsinformationen till i IoT Edge-konfigurationsfilen på IoT Edge-enheten.
 
 Öppna konfigurationsfilen.
 
@@ -217,79 +214,103 @@ Konfigurera enhets [etablerings tjänsten och hämta ditt registrerings-ID](how-
 sudo nano /etc/iotedge/config.yaml
 ```
 
-Hitta etablerings konfigurationerna för filen och ta bort kommentaren till det avsnitt som är lämpligt för din mekanism för attestering. När du använder TPM-attestering kan du till exempel uppdatera värdena för **scope_id** och **registration_id** med värdena från din IoT Hub Device Provisioning-tjänst och din IoT Edge enhet med TPM. Se till att **etableringen:** raden inte har några föregående blank steg och att kapslade objekt är indragna med två blank steg.
+Hitta de etableringskonfigurationer av filen och avkommentera avsnittet som är lämpligt för din attestation mekanism. Kontrollera att andra etableringsavsnitt kommenteras. **Etableringen:** raden ska inte ha något föregående blanktecken och kapslade objekt ska dras in med två blanksteg. Uppdatera värdet **för scope_id** med värdet från ioT Hub Device Provisioning Service-instansen och ange lämpliga värden för attestationfälten.
 
-   ```yaml
-   # Manual provisioning configuration
-   # provisioning:
-   #   source: "manual"
-   #   device_connection_string: "<ADD DEVICE CONNECTION STRING HERE>"
-  
-   # DPS TPM provisioning configuration
-   provisioning:
-     source: "dps"
-     global_endpoint: "https://global.azure-devices-provisioning.net"
-     scope_id: "{scope_id}"
-     attestation:
-       method: "tpm"
-       registration_id: "{registration_id}"
-   ```
+TPM-intyg:
 
-Om du vill klistra in innehållet i Urklipp i nano `Shift+Right Click` eller trycker du på `Shift+Insert`.
+```yml
+# DPS TPM provisioning configuration
+provisioning:
+  source: "dps"
+  global_endpoint: "https://global.azure-devices-provisioning.net"
+  scope_id: "<SCOPE_ID>"
+  attestation:
+    method: "tpm"
+    registration_id: "<REGISTRATION_ID>"
+```
 
-Spara och stäng filen.
+X.509 intyg:
 
-   `CTRL + X`, `Y`, `Enter`
+```yml
+# DPS X.509 provisioning configuration
+provisioning:
+  source: "dps"
+  global_endpoint: "https://global.azure-devices-provisioning.net"
+  scope_id: "<SCOPE_ID>"
+  attestation:
+    method: "x509"
+#   registration_id: "<OPTIONAL REGISTRATION ID. LEAVE COMMENTED OUT TO REGISTER WITH CN OF identity_cert>"
+    identity_cert: "<REQUIRED URI TO DEVICE IDENTITY CERTIFICATE>"
+    identity_pk: "<REQUIRED URI TO DEVICE IDENTITY PRIVATE KEY>"
+```
 
-Starta om daemon när du har angett etableringsinformationen i konfigurationsfilen:
+Symmetrisk nyckeltörsstation:
+
+```yml
+# DPS symmetric key provisioning configuration
+provisioning:
+  source: "dps"
+  global_endpoint: "https://global.azure-devices-provisioning.net"
+  scope_id: "<SCOPE_ID>"
+  attestation:
+    method: "symmetric_key"
+    registration_id: "<REGISTRATION_ID>"
+    symmetric_key: "<SYMMETRIC_KEY>"
+```
+
+Om du vill klistra `Shift+Right Click` in `Shift+Insert`innehållet i Urklipp i Nano eller trycka på .
+
+Spara och stäng filen. `CTRL + X`, `Y`, `Enter`
+
+När du har angett etableringsinformationen i konfigurationsfilen startar du om demonen:
 
 ```bash
 sudo systemctl restart iotedge
 ```
 
-## <a name="verify-successful-installation"></a>Verifiera installationen
+## <a name="verify-successful-installation"></a>Verifiera lyckad installation
 
-Om du använde de **manuella konfigurations** stegen i föregående avsnitt, ska IoT Edge runtime vara etablerade och köras på enheten. Om du använde de **automatiska konfigurations** stegen måste du utföra några ytterligare steg så att körningen kan registrera din enhet med IoT-hubben för din räkning. Nästa steg finns i [skapa och etablera en simulerad TPM IoT Edge-enhet på en virtuell Linux-dator](how-to-auto-provision-simulated-device-linux.md#give-iot-edge-access-to-the-tpm).
+Om du använde de **manuella konfigurationsstegen** i föregående avsnitt bör IoT Edge-körningen etableras och köras på enheten. Om du har använt de **automatiska konfigurationsstegen** måste du slutföra ytterligare steg så att körningen kan registrera enheten med din IoT-hubb för din räkning. Nästa steg finns i [Skapa och etablera en simulerad TPM IoT Edge-enhet på en virtuell Linux-dator](how-to-auto-provision-simulated-device-linux.md#give-iot-edge-access-to-the-tpm).
 
-Du kan kontrol lera status för IoT Edge daemon:
+Du kan kontrollera status för IoT Edge Daemon:
 
 ```bash
 systemctl status iotedge
 ```
 
-Granska daemon-loggar:
+Undersök daemon loggar:
 
 ```bash
 journalctl -u iotedge --no-pager --no-full
 ```
 
-Kör en automatisk kontroll av de vanligaste konfigurations-och nätverks felen:
+Kör en automatisk kontroll efter de vanligaste konfigurations- och nätverksfelen:
 
 ```bash
 sudo iotedge check
 ```
 
-Innan du distribuerar din första modul till IoT Edge på enheten, distribueras inte **$edgeHub** system-modulen till enheten. Det innebär att den automatiska kontrollen returnerar ett fel för kontrollen `Edge Hub can bind to ports on host` anslutning. Felet kan ignoreras om det inte inträffar när du har distribuerat en modul till enheten.
+Tills du distribuerar din första modul till IoT Edge på enheten kommer **$edgeHub** systemmodulen inte att distribueras till enheten. Som ett resultat returnerar den automatiska `Edge Hub can bind to ports on host` kontrollen ett fel för anslutningskontrollen. Det här felet kan ignoreras om det inte inträffar efter distribution av en modul till enheten.
 
-Slutligen visar du en lista med moduler som körs:
+Slutligen, lista som kör moduler:
 
 ```bash
 sudo iotedge list
 ```
 
-När du har installerat IoT Edge på enheten, är den enda modul som du bör se att köra **edgeAgent**. När du har skapat din första distribution startar den andra systemmodulen **$edgeHub** på enheten också. Mer information finns i [distribuera IoT Edge moduler](how-to-deploy-modules-portal.md).
+När du har installerat IoT Edge på enheten är den enda modulen du bör se köra **edgeAgent**. När du har skapat din första distribution startar även den andra systemmodulen **$edgeHub** på enheten. Mer information finns i [distribuera IoT Edge-moduler](how-to-deploy-modules-portal.md).
 
 ## <a name="tips-and-troubleshooting"></a>Felsökning och tips
 
-Förhöjd behörighet krävs för att köra `iotedge`-kommandon. När du har installerat en runtime, logga ut från datorn och logga in för att uppdatera dina behörigheter automatiskt. Fram till dess använder du **sudo** framför alla `iotedge` kommandon.
+Förhöjd behörighet krävs för att köra `iotedge`-kommandon. När du har installerat körningen loggar du ut från datorn och loggar in igen för att uppdatera dina behörigheter automatiskt. Tills dess, använd **sudo** framför alla `iotedge` kommandon.
 
-På resurs begränsade enheter rekommenderar vi starkt att du ställer in miljövariabeln *OptimizeForPerformance* på *falskt* enligt anvisningarna i [fel söknings guiden](troubleshoot.md).
+På resursbegränsade enheter rekommenderar vi starkt att du ställer in miljövariabeln *OptimizeForPerformance* på *false* enligt instruktionerna i [felsökningsguiden](troubleshoot.md).
 
-Om nätverket har en proxyserver följer du stegen i [Konfigurera din IoT Edge enhet för att kommunicera via en proxyserver](how-to-configure-proxy-support.md).
+Om nätverket som har en proxyserver följer du stegen i [Konfigurera IoT Edge-enheten för att kommunicera via en proxyserver](how-to-configure-proxy-support.md).
 
-### <a name="verify-your-linux-kernel-for-moby-compatibility"></a>Verifiera din Linux-kernel för Moby-kompatibilitet
+### <a name="verify-your-linux-kernel-for-moby-compatibility"></a>Verifiera din Linux-kärna för Moby-kompatibilitet
 
-Många inbäddade enhets tillverkare levererar enhets avbildningar som innehåller anpassade Linux-Kernels utan de funktioner som krävs för container runtime-kompatibilitet. Om du stöter på problem när du installerar den rekommenderade Moby container runtime kan du felsöka din Linux-kernel-konfiguration med hjälp av skriptet för att [kontrol lera konfiguration](https://raw.githubusercontent.com/moby/moby/master/contrib/check-config.sh) från den officiella [Moby GitHub-lagringsplatsen](https://github.com/moby/moby). Kör följande kommandon på enheten för att kontrol lera kernel-konfigurationen:
+Många inbäddade enhetstillverkare skickar enhetsavbildningar som innehåller anpassade Linux-kärnor utan de funktioner som krävs för kompatibilitet med behållarens körning. Om du stöter på problem när du installerar den rekommenderade Moby-behållarkörningen kan du kanske felsöka din Linux-kärnkonfiguration med hjälp av [check-config-skriptet](https://raw.githubusercontent.com/moby/moby/master/contrib/check-config.sh) från den officiella [Moby GitHub-lagringsplatsen](https://github.com/moby/moby). Kör följande kommandon på enheten för att kontrollera din kärnkonfiguration:
 
    ```bash
    curl -sSL https://raw.githubusercontent.com/moby/moby/master/contrib/check-config.sh -o check-config.sh
@@ -297,11 +318,11 @@ Många inbäddade enhets tillverkare levererar enhets avbildningar som innehåll
    ./check-config.sh
    ```
 
-Det här kommandot innehåller en detaljerad utmatning som innehåller statusen för de kernel-funktioner som används av Moby-körningsmiljön. Du bör se till att alla objekt under `Generally Necessary` och `Network Drivers` är aktiverade för att säkerställa att din kernel är helt kompatibel med Moby-körningsmiljön.  Om du har identifierat vilka funktioner som saknas kan du aktivera dem genom att återskapa din kernel från källa och välja de associerade modulerna som ska ingå i den aktuella kernel. config.  Om du använder en kernel-konfigurations generator som defconfig eller menuconfig, kan du söka efter och aktivera respektive funktioner och återskapa din kernel på motsvarande sätt.  När du har distribuerat den nyligen ändrade kärnan kör du check config-skriptet igen för att kontrol lera att alla nödvändiga funktioner har Aktiver ATS.
+Det här kommandot innehåller en detaljerad utdata som innehåller status för kärnfunktioner som används av Moby-körningen. Du kommer att vilja se `Generally Necessary` `Network Drivers` till att alla objekt under och är aktiverade för att säkerställa att din kärna är helt kompatibel med Moby runtime.  Om du har identifierat några funktioner som saknas aktiverar du dem genom att återskapa kärnan från källan och välja de associerade modulerna för att ingå i lämplig kärna .config.  På samma sätt, om du använder `defconfig` `menuconfig`en kernel konfigurationsgenerator som eller , hitta och aktivera respektive funktioner och återskapa din kärna därefter.  När du har distribuerat den nyligen ändrade kärnan kör du check-config-skriptet igen för att kontrollera att alla nödvändiga funktioner har aktiverats.
 
 ## <a name="uninstall-iot-edge"></a>Avinstallera IoT Edge
 
-Om du vill ta bort IoT Edge-installationen från din Linux-enhet använder du följande kommandon från kommando raden.
+Om du vill ta bort IoT Edge-installationen från din Linux-enhet använder du följande kommandon från kommandoraden.
 
 Ta bort IoT Edge-körningen.
 
@@ -309,19 +330,19 @@ Ta bort IoT Edge-körningen.
 sudo apt-get remove --purge iotedge
 ```
 
-När IoT Edge runtime tas bort stoppas de behållare som den skapade, men de finns kvar på enheten. Visa alla behållare för att se vilka som är kvar.
+När IoT Edge-körningen tas bort stoppas behållarna som skapas men finns fortfarande på enheten. Visa alla behållare för att se vilka som finns kvar.
 
 ```bash
 sudo docker ps -a
 ```
 
-Ta bort behållarna från enheten, inklusive de två körnings behållarna.
+Ta bort behållarna från enheten, inklusive de två körningsbehållarna.
 
 ```bash
 sudo docker rm -f <container name>
 ```
 
-Slutligen tar du bort behållar körningen från enheten.
+Ta slutligen bort behållarkörningen från enheten.
 
 ```bash
 sudo apt-get remove --purge moby-cli
@@ -330,8 +351,8 @@ sudo apt-get remove --purge moby-engine
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nu när du har en IoT Edge enhet som har installerats med körnings miljön kan du [distribuera IoT Edge moduler](how-to-deploy-modules-portal.md).
+Nu när du har etablerat en IoT Edge-enhet med körningen installerad kan du [distribuera IoT Edge-moduler](how-to-deploy-modules-portal.md).
 
-Om du har problem med IoT Edge runtime-installationen kan du kolla in [fel söknings](troubleshoot.md) sidan.
+Om du har problem med att IoT Edge-körningen installeras korrekt kan du läsa [felsökningssidan.](troubleshoot.md)
 
-Om du vill uppdatera en befintlig installation till den senaste versionen av IoT Edge, se [uppdatera IoT Edge Security daemon och runtime](how-to-update-iot-edge.md).
+Information om hur du uppdaterar en befintlig installation till den senaste versionen av IoT Edge finns i [Uppdatera säkerhetsdemonen och körningen i IoT Edge](how-to-update-iot-edge.md).

@@ -1,6 +1,6 @@
 ---
-title: Anpassa mappningar av Azure AD-attribut | Microsoft Docs
-description: Lär dig mer om vilka filmappningar för SaaS-appar i Azure Active Directory hur du kan ändra dem så att de passar dina affärs behov.
+title: Anpassa Azure AD-attributmappningar | Microsoft-dokument
+description: Lär dig vilka attributmappningar för SaaS-appar i Azure Active Directory som du kan ändra dem för att tillgodose dina affärsbehov.
 services: active-directory
 documentationcenter: ''
 author: msmimart
@@ -15,141 +15,141 @@ ms.date: 04/03/2019
 ms.author: mimart
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7003899b59e409a785c3a50e89aae6674e377b4d
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79264094"
 ---
-# <a name="customizing-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>Anpassa attribut för användar etablering för SaaS-program i Azure Active Directory
+# <a name="customizing-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>Anpassa användaretablering av attributmappningar för SaaS-program i Azure Active Directory
 
-Microsoft Azure AD ger stöd för användar etablering för SaaS-program från tredje part, till exempel Salesforce, G Suite och andra. Om du aktiverar användar etablering för ett SaaS-program från tredje part styr Azure Portal dess attributvärden via attribut-mappningar.
+Microsoft Azure AD ger stöd för användaretablering till SaaS-program från tredje part, till exempel Salesforce, G Suite och andra. Om du aktiverar användaretablering för ett SaaS-program från tredje part styr Azure-portalen sina attributvärden genom attributmappningar.
 
-Det finns en förkonfigurerad uppsättning attribut och attribut mappningar mellan Azure AD-användarkonton och varje SaaS-Apps användar objekt. Vissa appar hanterar andra typer av objekt tillsammans med användare, t. ex. grupper.
+Det finns en förkonfigurerad uppsättning attribut och attributmappningar mellan Azure AD-användarobjekt och varje SaaS-apps användarobjekt. Vissa appar hanterar andra typer av objekt tillsammans med användare, till exempel Grupper.
 
-Du kan anpassa standardattributen – mappningar efter dina affärs behov. Så du kan ändra eller ta bort befintliga attribut-mappningar eller skapa nya attribut-mappningar.
+Du kan anpassa standardattributmappningarna efter dina affärsbehov. Du kan därför ändra eller ta bort befintliga attributmappningar eller skapa nya attributmappningar.
 
-## <a name="editing-user-attribute-mappings"></a>Redigera användarattribut – mappningar
+## <a name="editing-user-attribute-mappings"></a>Redigera mappningar av användarattribut
 
-Följ de här stegen för att få åtkomst till **mappnings** funktionen för användar etablering:
+Följ dessa steg för att komma åt funktionen **Mappningar** för användaretablering:
 
-1. Logga in på [Azure Active Directory Portal](https://aad.portal.azure.com).
-1. Välj **företags program** i det vänstra fönstret. En lista över alla konfigurerade appar visas, inklusive appar som har lagts till från galleriet.
-1. Välj en app för att läsa in fönstret för hantering av appar där du kan visa rapporter och hantera appinställningar.
-1. Välj **etablering** för att hantera inställningar för etablering av användar konto för den valda appen.
-1. Expandera **mappningar** för att visa och redigera användarattribut som flödar mellan Azure AD och mål programmet. Om mål programmet stöder det kan du med hjälp av det här avsnittet Konfigurera etablering av grupper och användar konton.
+1. Logga in på [Azure Active Directory-portalen](https://aad.portal.azure.com).
+1. Välj **Enterprise-program** i den vänstra rutan. En lista över alla konfigurerade appar visas, inklusive appar som har lagts till från galleriet.
+1. Välj en app om du vill läsa in apphanteringsfönstret, där du kan visa rapporter och hantera appinställningar.
+1. Välj **Etablering** om du vill hantera etableringsinställningar för användarkonton för den valda appen.
+1. Expandera **mappningar** för att visa och redigera användarattribut som flödar mellan Azure AD och målprogrammet. Om målprogrammet stöder det kan du i det här avsnittet konfigurera etablering av grupper och användarkonton.
 
-   ![Använd mappningar för att visa och redigera användarattribut](./media/customize-application-attributes/21.png)
+   ![Använda Mappningar för att visa och redigera användarattribut](./media/customize-application-attributes/21.png)
 
-1. Välj en **mappnings** konfiguration för att öppna skärmen relaterad **Mappning av attribut** . Vissa attribut-mappningar krävs av ett SaaS-program för att fungera korrekt. **Borttagnings** funktionen är inte tillgänglig för obligatoriska attribut.
+1. Välj en **mappningskonfiguration** för att öppna den relaterade skärmen **Attributmappning.** Vissa attributmappningar krävs av ett SaaS-program för att fungera korrekt. För obligatoriska attribut är **funktionen Ta bort** inte tillgänglig.
 
-   ![Använd attributmappning för att konfigurera attribut mappningar för appar](./media/customize-application-attributes/22.png)
+   ![Använda attributmappning för att konfigurera attributmappningar för appar](./media/customize-application-attributes/22.png)
 
-   I den här skärm bilden kan du se att attributet **username** för ett hanterat objekt i Salesforce fylls med värdet **userPrincipalName** för det länkade Azure Active Directory-objektet.
+   I den här skärmbilden kan du se att **attributet Användarnamn för** ett hanterat objekt i Salesforce fylls med värdet **userPrincipalName** för det länkade Azure Active Directory-objektet.
 
-1. Välj en befintlig **attributmappning** för att öppna skärmen **Redigera attribut** . Här kan du redigera användarattribut som flödar mellan Azure AD och mål programmet.
+1. Välj en befintlig **attributmappning** för att öppna skärmen **Redigera attribut.** Här kan du redigera användarattributen som flödar mellan Azure AD och målprogrammet.
 
-   ![Använd Edit-attribut för att redigera användarattribut](./media/customize-application-attributes/23.png)
+   ![Använda Redigera attribut för att redigera användarattribut](./media/customize-application-attributes/23.png)
 
-### <a name="understanding-attribute-mapping-types"></a>Förstå attribut-mappnings typer
+### <a name="understanding-attribute-mapping-types"></a>Förstå attributmappningstyper
 
-Med attribut-mappningar kan du styra hur attribut fylls i i ett SaaS program från tredje part.
-Det finns fyra olika mappnings typer som stöds:
+Med attributmappningar styr du hur attribut fylls i i ett SaaS-program från tredje part.
+Det finns fyra olika mappningstyper som stöds:
 
-- **Direct** – målattributet är ifyllt med värdet för ett attribut för det länkade objektet i Azure AD.
-- **Konstant** – målattributet är ifyllt med en specifik sträng som du har angett.
-- **Uttryck** – målattributet är ifyllt baserat på resultatet av ett skript som liknar uttryck.
-  Mer information finns i [skriva uttryck för attribut-mappningar i Azure Active Directory](../app-provisioning/functions-for-customizing-application-data.md).
-- **Inget** – målattributet lämnas oförändrat. Men om målattributet skulle vara tomt fylls det med det standardvärde som du anger.
+- **Direkt** – målattributet fylls med värdet för ett attribut för det länkade objektet i Azure AD.
+- **Konstant** – målattributet fylls med en specifik sträng som du har angett.
+- **Uttryck** - målattributet fylls i baserat på resultatet av ett skriptliknande uttryck.
+  Mer information finns i [Skriva uttryck för attributmappningar i Azure Active Directory](../app-provisioning/functions-for-customizing-application-data.md).
+- **Ingen** - målattributet lämnas oförändrad. Men om målattributet någonsin är tomt fylls det med det standardvärde som du anger.
 
-Tillsammans med de här fyra grundläggande typerna stöder anpassade attribut-mappningar konceptet med en valfri **Standardvärde** tilldelning. Standardvärdes tilldelningen säkerställer att ett målattribut fylls med ett värde om det inte finns ett värde i Azure AD eller på målobjektet. Den vanligaste konfigurationen är att lämna detta tomt.
+Tillsammans med dessa fyra grundläggande typer stöder anpassade attributmappningar konceptet med en valfri standardvärdetilldelning. **default** Standardvärdetilldelningen säkerställer att ett målattribut fylls i med ett värde om det inte finns ett värde i Azure AD eller på målobjektet. Den vanligaste konfigurationen är att lämna detta tomt.
 
-### <a name="understanding-attribute-mapping-properties"></a>Förstå attribut-mappnings egenskaper
+### <a name="understanding-attribute-mapping-properties"></a>Förstå egenskaper för attributmappning
 
-I föregående avsnitt har du redan lanserats till egenskaps typen attribut-mappning.
-Tillsammans med den här egenskapen stöder attribut-mappningar även följande attribut:
+I föregående avsnitt har du redan introducerats till egenskapen attributmappningstyp.
+Tillsammans med den här egenskapen stöder attributmappningar även följande attribut:
 
-- **Källattribut** – attributet användare från käll systemet (exempel: Azure Active Directory).
-- **Target** -attribut – användarattribut i mål systemet (exempel: ServiceNow).
-- **Standardvärde om null (valfritt)** – det värde som skickas till mål systemet om källattributet är null. Det här värdet kommer endast att tillhandahållas när en användare skapas. "Standardvärdet när null" kommer inte att tillhandahållas när en befintlig användare uppdateras. Om du till exempel vill etablera alla befintliga användare i mål systemet med en viss befattning (när det är null i käll systemet) kan du använda följande [uttryck](../app-provisioning/functions-for-customizing-application-data.md): switch (IsPresent ([befattning]), "DefaultValue", "true", [befattning]). Se till att ersätta "standardvärde" med det du vill etablera när null i käll systemet. 
-- **Matcha objekt med det här attributet** – om mappningen ska användas för att unikt identifiera användare mellan käll-och mål systemen. Den anges vanligt vis på userPrincipalName-eller e-postattributet i Azure AD, som vanligt vis mappas till ett användar namns fält i ett mål program.
-- **Matchnings prioritet** – flera matchande attribut kan anges. När det finns flera, utvärderas de i den ordning som definieras av det här fältet. Så fort en matchning hittas utvärderas inga ytterligare matchande attribut.
+- **Källattribut** - Användarattributet från källsystemet (exempel: Azure Active Directory).
+- **Målattribut** – Användarattributet i målsystemet (exempel: ServiceNow).
+- **Standardvärde om null (valfritt)** - Det värde som skickas till målsystemet om källattributet är null. Det här värdet etableras endast när en användare skapas. Standardvärdet när null inte etableras när en befintlig användare uppdateras. Om du till exempel vill etablera alla befintliga användare i målsystemet med en viss befattning (när den är null i källsystemet) kan du använda följande [uttryck](../app-provisioning/functions-for-customizing-application-data.md): Switch(IsPresent([jobTitle]), "DefaultValue", "True", [jobTitle]). Se till att ersätta "Standardvärdet" med vad du vill etablera när null i källsystemet. 
+- **Matcha objekt med det här attributet** – Om den här mappningen ska användas för att unikt identifiera användare mellan käll- och målsystemen. Det är vanligtvis inställt på attributet userPrincipalName eller mail i Azure AD, som vanligtvis mappas till ett användarnamnsfält i ett målprogram.
+- **Matchande prioritet** – Flera matchande attribut kan ställas in. När det finns flera utvärderas de i den ordning som definieras av det här fältet. Så snart en matchning hittas utvärderas inga ytterligare matchande attribut.
 - **Använd den här mappningen**
-  - **Alltid** – Använd den här mappningen för både skapande av användare och uppdaterings åtgärder.
-  - **Endast vid skapande** – Använd endast den här mappningen för åtgärder för att skapa användare.
+  - **Alltid** – Använd den här mappningen på både åtgärder för att skapa användare och uppdatera.
+  - **Endast under skapandet** - Använd den här mappningen endast på åtgärder för att skapa användare.
 
-## <a name="matching-users-in-the-source-and-target--systems"></a>Matcha användare i käll-och mål systemen
-Azure AD Provisioning-tjänsten kan distribueras i båda scenarierna med "Bygg" (där användare inte avslutas i mål systemet) och "brownfield"-scenarier (där användare redan finns i mål systemet). För att stödja båda scenarierna använder etablerings tjänsten begreppet matchande attribut. Med matchande attribut kan du avgöra hur du unikt identifierar en användare i källan och matchar användaren i målet. Som en del av planeringen av distributionen identifierar du det attribut som kan användas för att unikt identifiera en användare i käll-och mål systemen. Saker att Observera:
+## <a name="matching-users-in-the-source-and-target--systems"></a>Matcha användare i käll- och målsystemen
+Azure AD-etableringstjänsten kan distribueras i både "greenfield"-scenarier (där användare inte avslutar i målsystemet) och "brownfield"-scenarier (där användare redan finns i målsystemet). För att stödja båda scenarierna använder etableringstjänsten begreppet matchande attribut. Med matchande attribut kan du bestämma hur du unikt identifierar en användare i källan och matchar användaren i målet. Som en del av planeringen av distributionen identifierar du det attribut som kan användas för att unikt identifiera en användare i käll- och målsystemen. Saker att notera:
 
-- **Matchande attribut ska vara unika:** Kunder använder ofta attribut som userPrincipalName, mail eller objekt-ID som matchande attribut.
-- **Du kan använda flera attribut som matchande attribut:** Du kan definiera flera attribut som ska utvärderas vid matchning av användare och i vilken ordning de utvärderas (definieras som matchnings prioritet i användar gränssnittet). Om du till exempel definierar tre attribut som matchande attribut, och en användare är unikt matchade efter utvärdering av de två första attributen, kommer tjänsten inte att utvärdera det tredje attributet. Tjänsten utvärderar matchande attribut i den angivna ordningen och slutar att utvärdera när en matchning hittas.  
-- **Värdet i källan och målet behöver inte matcha exakt:** Värdet i målet kan vara en enkel funktion av värdet i källan. Det kan därför ha ett emailAddress-attribut i källan och userPrincipalName i målet, och matcha med en funktion av attributet emailAddress som ersätter vissa tecken med ett konstant värde.  
-- **Matchning baserat på en kombination av attribut stöds inte:** De flesta program har inte stöd för frågor som baseras på två egenskaper. Därför är det inte möjligt att matcha baserat på en kombination av attribut. Det går att utvärdera enskilda egenskaper på efter en annan.
-- **Alla användare måste ha ett värde för minst ett matchande attribut:** Om du definierar ett matchande attribut måste alla användare ha ett värde för det attributet i käll systemet. Om du till exempel definierar userPrincipalName som matchande attribut, måste alla användare ha ett userPrincipalName. Om du definierar flera matchande attribut (t. ex. extensionAttribute1 och mail) måste inte alla användare ha samma matchande attribut. En användare kan ha en extensionAttribute1 men inte e-post medan en annan användare kan ha e-post men inte extensionAttribute1. 
-- **Mål programmet måste ha stöd för filtrering av matchande attribut:** Programutvecklare tillåter filtrering av en delmängd av attribut i deras användar-eller grupp-API. För program i galleriet ser vi till att standardattributets mappning är för ett attribut som mål programmets API stöder filtrering på. När du ändrar standardvärdet för det matchande attributet för mål programmet kontrollerar du API-dokumentationen från tredje part för att se till att attributet kan filtreras.  
+- **Matchande attribut ska vara unika:** Kunder använder ofta attribut som userPrincipalName, e-post eller objekt-ID som matchande attribut.
+- **Flera attribut kan användas som matchande attribut:** Du kan definiera flera attribut som ska utvärderas när användare matchas och i vilken ordning de utvärderas (definieras som matchande prioritet i användargränssnittet). Om du till exempel definierar tre attribut som matchande attribut och en användare matchas unikt efter att ha utvärderat de två första attributen, utvärderar tjänsten inte det tredje attributet. Tjänsten utvärderar matchande attribut i den angivna ordningen och slutar utvärdera när en matchning hittas.  
+- **Värdet i källan och målet behöver inte matcha exakt:** Värdet i målet kan vara en enkel funktion av värdet i källan. Så kan man ha ett e-postadressattribut i källan och användarenPrincipalName i målet och matcha med en funktion av attributet emailAddress som ersätter vissa tecken med ett konstant värde.  
+- **Matchning baserat på en kombination av attribut stöds inte:** De flesta program stöder inte frågor baserat på två egenskaper. Därför är det inte möjligt att matcha baserat på en kombination av attribut. Det är möjligt att utvärdera enskilda egenskaper efter den andra.
+- **Alla användare måste ha ett värde för minst ett matchande attribut:** Om du definierar ett matchande attribut måste alla användare ha ett värde för attributet i källsystemet. Om du till exempel definierar userPrincipalName som matchande attribut måste alla användare ha ett userPrincipalName. Om du definierar flera matchande attribut (t.ex. extensionAttribute1 och e-post) behöver inte alla användare ha samma matchande attribut. En användare kan ha en extensionAttribute1 men inte e-post medan en annan användare kan ha e-post men ingen extensionAttribute1. 
+- **Målprogrammet måste stödja filtrering på det matchande attributet:** Programutvecklare tillåter filtrering för en delmängd av attribut på användarens eller gruppens API. För program i galleriet ser vi till att standardattributmappningen är för ett attribut som målprogrammets API stöder filtrering på. När du ändrar standardmatchningsattributet för målprogrammet kontrollerar du API-dokumentationen från tredje part för att säkerställa att attributet kan filtreras efter.  
 
-## <a name="editing-group-attribute-mappings"></a>Redigera Gruppattribut – mappningar
+## <a name="editing-group-attribute-mappings"></a>Redigera gruppattributmappningar
 
-Ett valt antal program, till exempel ServiceNow, Box och G Suite, stöder möjligheten att etablera grupp objekt och användar objekt. Grupp objekt kan innehålla grupp egenskaper, till exempel visnings namn och e-postalias, tillsammans med grupp medlemmar.
+Ett markerat antal program, till exempel ServiceNow, Box och G Suite, stöder möjligheten att etablera gruppobjekt och användarobjekt. Gruppobjekt kan innehålla gruppegenskaper som visningsnamn och e-postalias, tillsammans med gruppmedlemmar.
 
-![Exempel visar ServiceNow med etablerade grupp-och användar objekt](./media/customize-application-attributes/24.png)
+![Exempel visar ServiceNow med etablerade grupp- och användarobjekt](./media/customize-application-attributes/24.png)
 
-Grupp etablering kan aktive ras eller inaktive ras genom att du väljer grupp mappningen under **mappningar**och inställningen **aktive rad** till det alternativ som du vill använda på skärmen för **Mappning av attribut** .
+Gruppetablering kan aktiveras eller inaktiveras genom att välja gruppmappningen under **Mappningar**och ange **Aktiverat** för det alternativ du vill använda på skärmen **Attributmappning.**
 
-De attribut som tillhandahålls som en del av grupp objekt kan anpassas på samma sätt som användar objekt, som beskrivs ovan. 
+Attributen som etablerats som en del av gruppobjekt kan anpassas på samma sätt som användarobjekt som beskrivits tidigare. 
 
 > [!TIP]
-> Etablering av grupp objekt (egenskaper och medlemmar) är ett distinkt begrepp för att [tilldela grupper](../manage-apps/assign-user-or-group-access-portal.md) till ett program. Det går att tilldela en grupp till ett program, men endast etablera de användar objekt som finns i gruppen. Det krävs ingen etablering av fullständiga grupp objekt för att använda grupper i tilldelningar.
+> Etablering av gruppobjekt (egenskaper och medlemmar) är ett annat begrepp än [att tilldela grupper](../manage-apps/assign-user-or-group-access-portal.md) till ett program. Det är möjligt att tilldela en grupp till ett program, men endast etablera användarobjekten i gruppen. Etablering av fullständiga gruppobjekt krävs inte för att använda grupper i tilldelningar.
 
 ## <a name="editing-the-list-of-supported-attributes"></a>Redigera listan över attribut som stöds
 
-Användarattribut som stöds för ett angivet program är förkonfigurerade. De flesta programs API: er för användar hantering stöder inte schema identifiering. Azure AD Provisioning-tjänsten kan därför inte dynamiskt generera listan över attribut som stöds genom att ringa till programmet.
+De användarattribut som stöds för ett visst program är förkonfigurerade. De flesta programs API:er för användarhantering stöder inte schemaidentifiering. Azure AD-etableringstjänsten kan därför inte dynamiskt generera listan över attribut som stöds genom att ringa anrop till programmet.
 
-Vissa program stöder dock anpassade attribut och Azure AD Provisioning-tjänsten kan läsa och skriva till anpassade attribut. Om du vill ange deras definitioner i Azure Portal markerar du kryss rutan **Visa avancerade alternativ** längst ned på skärmen **Mappning av attribut** och väljer sedan **Redigera attributlistan för** din app.
+Vissa program stöder dock anpassade attribut och Azure AD-etableringstjänsten kan läsa och skriva till anpassade attribut. Om du vill ange sina definitioner i Azure-portalen markerar du kryssrutan **Visa avancerade alternativ** längst ned på skärmen **Attributmappning** och väljer sedan **Redigera attributlista för** din app.
 
 Program och system som stöder anpassning av attributlistan är:
 
 - Salesforce
 - ServiceNow
 - Workday
-- Azure Active Directory ([Microsoft Graph REST API v 1.0-referens](https://docs.microsoft.com/graph/api/overview?view=graph-rest-1.0) och anpassade katalog tillägg stöds)
-- Appar som stöder [SCIM 2,0](https://tools.ietf.org/html/rfc7643), där attribut som definierats i [kärn schemat](https://tools.ietf.org/html/rfc7643) måste läggas till
+- Azure Active Directory ([Microsoft Graph REST API v1.0-referens](https://docs.microsoft.com/graph/api/overview?view=graph-rest-1.0) och anpassade katalogtillägg stöds)
+- Appar som stöder [SCIM 2.0](https://tools.ietf.org/html/rfc7643), där attribut som definieras i [det grundläggande schemat](https://tools.ietf.org/html/rfc7643) måste läggas till
 
 > [!NOTE]
-> Redigering av listan över attribut som stöds rekommenderas endast för administratörer som har anpassat schemat för sina program och system, och som har första kunskap om hur deras egna attribut har definierats. Detta kräver ibland välbekanthet med de API: er och utvecklingsverktyg som tillhandahålls av ett program eller system.
+> Att redigera listan över attribut som stöds rekommenderas endast för administratörer som har anpassat schemat för sina program och system och har förstahandsinformation om hur deras anpassade attribut har definierats. Detta kräver ibland förtrogenhet med API: er och utvecklarverktyg som tillhandahålls av ett program eller system.
 
 När du redigerar listan över attribut som stöds anges följande egenskaper:
 
-- **Namn** – system namnet för attributet, enligt definitionen i målobjektet.
-- **Typ** – den typ av data som attributet lagrar, enligt definitionen i målobjektets schema, som kan vara någon av följande typer:
-  - *Binary* -Attribute innehåller binära data.
-  - *Boolean* -Attribute innehåller ett true-eller false-värde.
-  - *Datetime* -attributet innehåller en datum sträng.
-  - *Integer* -attributet innehåller ett heltal.
-  - *Reference* -Attribute innehåller ett ID som refererar till ett värde som lagras i en annan tabell i mål programmet.
-  - *String* -Attribute innehåller en text sträng.
-- **Primär nyckel?** – Anger om attributet definieras som ett primär nyckel fält i målobjektets schema.
-- **Kunna?** – Anger om attributet måste fyllas i mål programmet eller systemet.
-- **Flera värden?** – Anger om attributet stöder flera värden.
-- **Exakt fall?** – Om attributvärdena utvärderas på ett skift läges känsligt sätt.
-- **API-uttryck** – Använd inte, om det inte instrueras att göra det i dokumentationen för en speciell etablerings anslutning (till exempel Workday).
-- **Refererat objektattribut** – om det är ett attribut för referens typ kan du välja tabell och attribut i mål programmet som innehåller värdet som är kopplat till attributet. Om du till exempel har ett attribut med namnet "avdelning" vars lagrade värde refererar till ett objekt i en separat "avdelnings tabell" väljer du "Departments.Name". Referens tabellerna och de primära ID-fälten som stöds för ett angivet program är förkonfigurerade och kan för närvarande inte redige ras med hjälp av Azure Portal, men det går att redigera med hjälp av [Microsoft Graph API](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-configure-with-custom-target-attributes).
+- **Namn** - Attributets systemnamn enligt definitionen i målobjektets schema.
+- **Typ** - Den typ av data som attributet lagrar, enligt definitionen i målobjektets schema, som kan vara någon av följande typer:
+  - *Binär -* Attributet innehåller binära data.
+  - *Booleskt* - Attributet innehåller ett sant eller falskt värde.
+  - *DateTime* - Attributet innehåller en datumsträng.
+  - *Heltal* - Attributet innehåller ett heltal.
+  - *Referens* - Attributet innehåller ett ID som refererar till ett värde som lagras i en annan tabell i målprogrammet.
+  - *Sträng* - Attributet innehåller en textsträng.
+- **Primärnyckel?** - Om attributet definieras som ett primärnyckelfält i målobjektets schema.
+- **Krävs?** - Om attributet måste fyllas i i målprogrammet eller målsystemet.
+- **Flera värden?** - Om attributet stöder flera värden.
+- **Exakt fall?** - Om attributvärdena utvärderas på ett skiftlägeskänsligt sätt.
+- **API-uttryck** - Använd inte, om inte instrueras att göra det av dokumentationen för en specifik etableringskoppling (till exempel Arbetsdag).
+- **Refererat objektattribut** - Om det är ett referenstypsattribut kan du på den här menyn välja tabellen och attributet i målprogrammet som innehåller värdet som är associerat med attributet. Om du till exempel har ett attribut med namnet "Avdelning" vars lagrade värde refererar till ett objekt i en separat "Avdelningar"-tabell, väljer du "Departments.Name". Referenstabellerna och de primära ID-fält som stöds för ett visst program är förkonfigurerade och kan för närvarande inte redigeras med Azure-portalen, men kan redigeras med Hjälp av [Microsoft Graph API](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-configure-with-custom-target-attributes).
 
-#### <a name="provisioning-a-custom-extension-attribute-to-a-scim-compliant-application"></a>Etablering av ett anpassat tilläggs-attribut för ett SCIM-kompatibelt program
-SCIM RFC definierar en kärn användare och ett grupp schema, samtidigt som tilläggen till schemat kan uppfylla ditt programs behov. Så här lägger du till ett anpassat attribut i ett SCIM-program:
-   1. Logga in på [Azure Active Directory Portal](https://aad.portal.azure.com), Välj **företags program**, Välj ditt program och välj sedan **etablering**.
-   2. Under **mappningar**väljer du det objekt (användare eller grupp) som du vill lägga till ett anpassat attribut för.
+#### <a name="provisioning-a-custom-extension-attribute-to-a-scim-compliant-application"></a>Etablera ett anpassat tilläggsattribut till ett SCIM-kompatibelt program
+SCIM RFC definierar ett centralt användar- och gruppschema, samtidigt som tillägg till schemat kan uppfylla programmets behov. Så här lägger du till ett anpassat attribut i ett SCIM-program:
+   1. Logga in på [Azure Active Directory-portalen,](https://aad.portal.azure.com)välj **Enterprise Applications,** välj ditt program och välj sedan **Etablering**.
+   2. Under **Mappningar**markerar du det objekt (användare eller grupp) som du vill lägga till ett anpassat attribut för.
    3. Längst ned på sidan väljer du **Visa avancerade alternativ**.
-   4. Välj **Redigera attributlistan för APPNAME**.
-   5. Längst ned i listan attribut anger du information om det anpassade attributet i de angivna fälten. Välj sedan **Lägg till attribut**.
+   4. Välj **Redigera attributlista för AppName**.
+   5. Längst ned i attributlistan anger du information om det anpassade attributet i de angivna fälten. Välj sedan **Lägg till attribut**.
 
-För SCIM-program måste attributnamnet följa mönstret som visas i exemplet nedan. Du kan anpassa "CustomExtensionName" och "CustomAttribute" enligt programmets krav, till exempel: urn: IETF: params: scim: schemas: tillägg: 2.0: CustomExtensionName: CustomAttribute eller urn: IETF: params: scim: schemas: tillägg: CustomExtensionName: 2.0: User. CustomAttributeName: värde
+För SCIM-program måste attributnamnet följa mönstret som visas i exemplet nedan. "CustomExtensionName" och "CustomAttribute" kan anpassas enligt programmets krav, till exempel: urn:ietf:params:scim:schemas:extension:2.0:CustomExtensionName:CustomAttribute eller urn:ietf:params:scim:schemas:extension: CustomExtensionName:2.0:User.CustomAttributeName:värde
 
-Dessa anvisningar gäller endast för SCIM-aktiverade program. Program som ServiceNow och Salesforce är inte integrerade med Azure AD med hjälp av SCIM, och därför behövs inte det här särskilda namn området när du lägger till ett anpassat attribut.
+Dessa instruktioner gäller endast för SCIM-aktiverade program. Program som ServiceNow och Salesforce är inte integrerade med Azure AD med SCIM, och därför kräver de inte det här specifika namnområdet när de lägger till ett anpassat attribut.
 
-Anpassade attribut kan inte vara referens attribut eller flervärdesattribut. Anpassade attribut för multi-Value-tillägg stöds för närvarande endast för program i galleriet.  
+Anpassade attribut kan inte referera attribut eller multi-value attribut. Anpassade tilläggsattribut med flera värden stöds för närvarande endast för program i galleriet.  
  
-**Exempel på representation av en användare med ett attribut för tillägg:**
+**Exempelrepresentation av en användare med ett tilläggsattribut:**
 
 ```json
    {
@@ -190,18 +190,18 @@ Anpassade attribut kan inte vara referens attribut eller flervärdesattribut. An
 ```
 
 
-## <a name="provisioning-a-role-to-a-scim-app"></a>Etablering av en roll för en SCIM-app
-Använd stegen nedan för att etablera roller för en användare till ditt program. Observera att beskrivningen nedan är speciell för anpassade SCIM-program. För Galleri program som Salesforce och ServiceNow använder du fördefinierade roll mappningar. Punkterna nedan beskriver hur du transformerar attributet AppRoleAssignments till formatet som programmet förväntar sig.
+## <a name="provisioning-a-role-to-a-scim-app"></a>Etablera en roll i en SCIM-app
+Följ stegen nedan för att etablera roller för en användare till ditt program. Observera att beskrivningen nedan är specifik för anpassade SCIM-program. För galleriprogram som Salesforce och ServiceNow använder du de fördefinierade rollmappningarna. Punkterna nedan beskriver hur du omvandlar attributet AppRoleAssignments till det format som programmet förväntar sig.
 
-- Att mappa en appRoleAssignment i Azure AD till en roll i programmet kräver att du transformerar attributet med ett [uttryck](../app-provisioning/functions-for-customizing-application-data.md). Attributet appRoleAssignment **ska inte mappas direkt** till ett roll-attribut utan att använda ett uttryck för att parsa roll informationen. 
+- Mappning av en appRoleAssignment i Azure AD till en roll i ditt program kräver att du omvandlar attributet med hjälp av ett [uttryck](../app-provisioning/functions-for-customizing-application-data.md). Attributet appRoleAssignment **bör inte mappas direkt** till ett rollattribut utan att använda ett uttryck för att tolka rollinformationen. 
 
-- **SingleAppRoleAssignment** 
-  - **När du ska använda:** Använd SingleAppRoleAssignment-uttrycket för att etablera en enskild roll för en användare och för att ange den primära rollen. 
-  - **Så här konfigurerar du:** Använd stegen som beskrivs ovan för att navigera till sidan mappningar för attribut och Använd SingleAppRoleAssignment-uttrycket för att mappa till roles-attributet. Det finns tre roll-attribut att välja mellan: (roller [Primary EQ "true"]. display, roles [Primary EQ "true]. type och Roles [Primary EQ" true "]. Value). Du kan välja att inkludera alla eller alla roll-attribut i dina mappningar. Om du vill inkludera mer än en lägger du bara till en ny mappning och inkluderar den som målattribut.  
+- **Enkeltilldelning** 
+  - **När du ska använda:** Använd uttrycket SingleAppRoleAssignment för att etablera en enskild roll för en användare och ange den primära rollen. 
+  - **Konfigurerar du:** Använd stegen som beskrivs ovan för att navigera till sidan attributmappningar och använda uttrycket SingleAppRoleAssignment för att mappa till rollattributet. Det finns tre rollattribut att välja mellan: (roller[primär eq "True"].display, roller[primär eq "True].typ och roller[primär eq "True"].värde). Du kan välja att inkludera något eller alla rollattribut i dina mappningar. Om du vill inkludera mer än en lägger du bara till en ny mappning och inkluderar den som målattribut.  
   
   ![Lägg till SingleAppRoleAssignment](./media/customize-application-attributes/edit-attribute-singleapproleassignment.png)
   - **Saker att tänka på**
-    - Se till att flera roller inte är tilldelade till en användare. Vi kan inte garantera vilken roll som ska tillhandahållas.
+    - Kontrollera att flera roller inte har tilldelats en användare. Vi kan inte garantera vilken roll som kommer att tillhandahållas.
     
   - **Exempel på utdata** 
 
@@ -227,18 +227,18 @@ Använd stegen nedan för att etablera roller för en användare till ditt progr
    }
    ```
   
-- **AppRoleAssignmentsComplex** 
-  - **När du ska använda:** Använd AppRoleAssignmentsComplex-uttrycket för att etablera flera roller för en användare. 
-  - **Så här konfigurerar du:** Redigera listan över attribut som stöds enligt beskrivningen ovan för att inkludera ett nytt attribut för roller: 
+- **AppRoleAssignmentsKomplex** 
+  - **När du ska använda:** Använd uttrycket AppRoleAssignmentsComplex för att etablera flera roller för en användare. 
+  - **Konfigurerar du:** Redigera listan över attribut som stöds enligt beskrivningen ovan för att inkludera ett nytt attribut för roller: 
   
-    ![Lägg till roller](./media/customize-application-attributes/add-roles.png)<br>
+    ![Lägga till roller](./media/customize-application-attributes/add-roles.png)<br>
 
-    Använd sedan AppRoleAssignmentsComplex-uttrycket för att mappa till attributet anpassad roll som visas på bilden nedan:
+    Använd sedan uttrycket AppRoleAssignmentsComplex för att mappa till det anpassade rollattributet som visas i bilden nedan:
 
-    ![Lägg till AppRoleAssignmentsComplex](./media/customize-application-attributes/edit-attribute-approleassignmentscomplex.png)<br>
+    ![Lägg till AppRoleAssignmentsKomplex](./media/customize-application-attributes/edit-attribute-approleassignmentscomplex.png)<br>
   - **Saker att tänka på**
-    - Alla roller kommer att tillhandahållas som primär = falskt.
-    - INLÄGGET innehåller roll typen. PATCH-begäran innehåller ingen typ. Vi arbetar med att skicka in typen i både POST-och PATCH-begäranden.
+    - Alla roller etableras som primära = false.
+    - POST innehåller rolltypen. PATCH-begäran innehåller inte typ. Vi arbetar på att skicka typen i både POST och PATCH förfrågningar.
     
   - **Exempel på utdata** 
   
@@ -274,12 +274,12 @@ Använd stegen nedan för att etablera roller för en användare till ditt progr
   
 
 
-## <a name="provisioning-a-multi-value-attribute"></a>Etablering av ett flervärdesattribut
-Vissa attribut, till exempel phoneNumbers och e-postmeddelanden, är flervärdesattribut där du kan behöva ange olika typer av telefonnummer eller e-postmeddelanden. Använd uttrycket nedan för attribut med flera värden. Det gör att du kan ange attributtypen och mappningen till motsvarande Azure AD-användarattribut för värdet. 
+## <a name="provisioning-a-multi-value-attribute"></a>Etablera ett attribut med flera värden
+Vissa attribut som phoneNumbers och e-postmeddelanden är attribut med flera värden där du kan behöva ange olika typer av telefonnummer eller e-postmeddelanden. Använd uttrycket nedan för attribut med flera värden. Det låter dig ange attributtyp och mappa det till motsvarande Azure AD-användarattribut för värdet. 
 
-* phoneNumbers [typ eq ”arbete pågår”] .value
-* phoneNumbers [typ eq ”mobil”] .value
-* phoneNumbers [typ eq ”fax”] .value
+* phoneNumbers[typ eq "arbete"].värde
+* phoneNumbers[typ eq "mobil"].värde
+* phoneNumbers[typ eq "fax"].värde
 
    ```json
    "phoneNumbers": [
@@ -298,28 +298,28 @@ Vissa attribut, till exempel phoneNumbers och e-postmeddelanden, är flervärdes
    ]
    ```
 
-## <a name="restoring-the-default-attributes-and-attribute-mappings"></a>Återställa standardattribut och attribut mappningar
+## <a name="restoring-the-default-attributes-and-attribute-mappings"></a>Återställa standardattribut och attributmappningar
 
-Om du behöver börja om och återställa dina befintliga mappningar till deras standard tillstånd, kan du markera kryss rutan **Återställ standard mappningar** och spara konfigurationen. Om du gör det anges alla mappningar och omfångs filter som om programmet precis har lagts till i din Azure AD-klient från program galleriet.
+Om du behöver börja om och återställa dina befintliga mappningar tillbaka till standardtillståndet kan du markera kryssrutan **Återställ standardmappningar** och spara konfigurationen. Om du gör det anges alla mappningar och omfångsfilter som om programmet just har lagts till i din Azure AD-klientorganisation från programgalleriet.
 
-Om du väljer det här alternativet tvingas en omsynkronisering av alla användare när etablerings tjänsten körs.
+Om du väljer det här alternativet kommer det att tvinga en omsynkronisering av alla användare medan etableringstjänsten körs.
 
 > [!IMPORTANT]
-> Vi rekommenderar starkt att **etablerings status** är **inaktive rad** innan du anropar det här alternativet.
+> Vi rekommenderar starkt att **etableringsstatus** ställs in på **Av** innan du anropar det här alternativet.
 
 ## <a name="what-you-should-know"></a>Det här bör du känna till
 
-- Microsoft Azure AD ger en effektiv implementering av en synkroniseringsprocess. I en initierad miljö bearbetas endast objekt som kräver uppdateringar under en synkroniseringsprocess.
-- Om du uppdaterar attribut-mappningar påverkas prestandan för en synkroniseringsprocess. En uppdatering av konfigurationen för attribut-mappning kräver att alla hanterade objekt utvärderas igen.
-- En rekommenderad metod är att behålla antalet ändringar i följd av dina attribut-mappningar minst.
-- Det går inte att lägga till ett foto attribut som ska tillhandahållas till en app idag eftersom du inte kan ange formatet för att synkronisera fotot. Du kan begära funktionen på [användarens röst](https://feedback.azure.com/forums/169401-azure-active-directory)
-- Attributet IsSoftDeleted är ofta en del av standard mappningarna för ett program. IsSoftdeleted kan vara sant i ett av fyra scenarier (användaren är utanför omfånget eftersom den inte är tilldelad från programmet, användaren är utanför definitions området eftersom den inte uppfyller ett omfångs filter, användaren har varit mjuk borttagen i Azure AD, eller så har egenskapen AccountEnabled angetts till false  på användaren). 
-- Azure AD Provisioning-tjänsten har inte stöd för etablering av null-värden
+- Microsoft Azure AD tillhandahåller en effektiv implementering av en synkroniseringsprocess. I en initierad miljö bearbetas endast objekt som kräver uppdateringar under en synkroniseringscykel.
+- Uppdatering av attributmappningar påverkar prestanda för en synkroniseringscykel. En uppdatering av attributmappningskonfigurationen kräver att alla hanterade objekt omvärderas.
+- En rekommenderad metod är att hålla antalet på varandra följande ändringar i attributmappningarna till ett minimum.
+- Det går inte att lägga till ett fotoattribut som ska etableras i en app i dag eftersom du inte kan ange vilket format som ska synkronisera fotot. Du kan begära funktionen på [User Voice](https://feedback.azure.com/forums/169401-azure-active-directory)
+- Attributet IsSoftDeleted är ofta en del av standardmappningarna för ett program. IsSoftdeleted kan vara sant i ett av fyra scenarier (användaren är utanför omfånget på grund av att den inte har tilldelats från programmet, användaren är utanför omfånget på grund av att inte uppfylla ett omfångsfilter, användaren har tagits bort mjukt i Azure AD eller egenskapen AccountEnabled är inställd på false på användaren). 
+- Azure AD-etableringstjänsten stöder inte etablering av null-värden
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Automatisera användar etablering/avetablering för SaaS-appar](user-provisioning.md)
-- [Skriva uttryck för attribut-mappningar](../app-provisioning/functions-for-customizing-application-data.md)
-- [Omfångs filter för användar etablering](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md)
+- [Automatisera etablering av användare/avetablering till SaaS-appar](user-provisioning.md)
+- [Skriva uttryck för attributmappningar](../app-provisioning/functions-for-customizing-application-data.md)
+- [Omfångsfilter för etablering av användare](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md)
 - [Använda SCIM för att aktivera automatisk etablering av användare och grupper från Azure Active Directory till program](use-scim-to-provision-users-and-groups.md)
-- [Lista över självstudier om hur du integrerar SaaS-appar](../saas-apps/tutorial-list.md)
+- [Lista över guider om hur man integrerar SaaS-appar](../saas-apps/tutorial-list.md)

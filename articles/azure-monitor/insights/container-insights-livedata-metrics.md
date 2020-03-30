@@ -1,87 +1,87 @@
 ---
-title: Visa mått i real tid med Azure Monitor för behållare | Microsoft Docs
-description: I den här artikeln beskrivs real tids visningen av mått utan att använda kubectl med Azure Monitor för behållare.
+title: Visa mått i realtid med Azure Monitor för behållare | Microsoft-dokument
+description: I den här artikeln beskrivs realtidsvyn för mått utan att använda kubectl med Azure Monitor för behållare.
 ms.topic: conceptual
 ms.date: 10/15/2019
 ms.openlocfilehash: 4604635c985057ec0b7f49a0d1cca7111dfc8eec
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79216599"
 ---
-# <a name="how-to-view-metrics-in-real-time"></a>Visa mått i real tid
+# <a name="how-to-view-metrics-in-real-time"></a>Så här visar du mätvärden i realtid
 
-Med funktionen Azure Monitor för behållare Live data (för hands version) kan du visualisera mått om Node-och Pod-tillstånd i ett kluster i real tid. Den emulerar direkt åtkomst till `kubectl top nodes`, `kubectl get pods –all-namespaces`och `kubectl get nodes` kommandon för att anropa, parsa och visualisera data i prestanda diagram som ingår i den här insikten. 
+Azure Monitor för behållare Live Data (preview) funktion kan du visualisera mått om nod och pod tillstånd i ett kluster i realtid. Den emulerar direkt `kubectl top nodes`åtkomst `kubectl get pods –all-namespaces`till `kubectl get nodes` , och kommandon för att anropa, tolka och visualisera data i prestandadiagram som ingår i den här insikten. 
 
 Den här artikeln innehåller en detaljerad översikt och hjälper dig att förstå hur du använder den här funktionen.  
 
 >[!NOTE]
->AKS-kluster som är aktiverade som [privata kluster](https://azure.microsoft.com/updates/aks-private-cluster/) stöds inte med den här funktionen. Den här funktionen använder direkt åtkomst till Kubernetes-API: et via en proxyserver från din webbläsare. Om du aktiverar nätverks säkerhet för att blockera Kubernetes-API: et från den här proxyn blockeras trafiken. 
+>AKS-kluster som aktiveras som [privata kluster](https://azure.microsoft.com/updates/aks-private-cluster/) stöds inte med den här funktionen. Den här funktionen är beroende av direkt åtkomst till Kubernetes API via en proxyserver från din webbläsare. Om du aktiverar nätverkssäkerhet för att blockera Kubernetes-API:et från den här proxyn blockeras den här trafiken. 
 
 >[!NOTE]
->Den här funktionen är tillgänglig i alla Azure-regioner, inklusive Azure Kina. Den är för närvarande inte tillgänglig i Azure amerikanska myndigheter.
+>Den här funktionen är tillgänglig i alla Azure-regioner, inklusive Azure China. Den är för närvarande inte tillgänglig i Azure US Government.
 
-Om du vill ha hjälp med att ställa in eller felsöka funktionen Live data (för hands version) läser du vår [installations guide](container-insights-livedata-setup.md).
+Om du vill ha hjälp med att konfigurera eller felsöka funktionen Live Data (förhandsversion) läser du vår [installationsguide](container-insights-livedata-setup.md).
 
 ## <a name="how-it-works"></a>Hur det fungerar 
 
-Funktionen Live data (för hands version) har direkt åtkomst till Kubernetes-API: et och ytterligare information om Authentication Model finns [här](https://kubernetes.io/docs/concepts/overview/kubernetes-api/). 
+Live Data (förhandsversion) funktionen direkt tillgång till Kubernetes API, och ytterligare information om autentiseringsmodellen finns [här](https://kubernetes.io/docs/concepts/overview/kubernetes-api/). 
 
-Den här funktionen utför en avsöknings åtgärd mot Mät slut punkterna (inklusive `/api/v1/nodes`, `/apis/metrics.k8s.io/v1beta1/nodes`och `/api/v1/pods`), som är var femte sekund som standard. Dessa data cachelagras i webbläsaren och ritas i de fyra prestanda diagram som ingår i Azure Monitor för behållare på fliken **kluster** genom att välja **Go Live (för hands version)** . Varje efterföljande avsökning är i ett diagram till en rullande fem minuters visualiserings period. 
+Den här funktionen utför en avsökningsåtgärd mot `/api/v1/nodes` `/apis/metrics.k8s.io/v1beta1/nodes`måttslutpunkterna (inklusive , , och `/api/v1/pods`), vilket är var femte sekund som standard. Dessa data cachelagras i webbläsaren och kartläggs i de fyra prestandadiagram som ingår i Azure Monitor för behållare på fliken **Kluster** genom att välja **Go Live (förhandsversion).** Varje efterföljande omröstning kartläggs i ett rullande fem minuters visualiseringsfönster. 
 
-![Alternativet gå live i vyn kluster](./media/container-insights-livedata-metrics/cluster-view-go-live-example-01.png)
+![Alternativet Gå live i klustervyn](./media/container-insights-livedata-metrics/cluster-view-go-live-example-01.png)
 
-Avsöknings intervallet konfigureras från List rutan **uppsättnings intervall** så att du kan ställa in sökning efter nya data varje 1, 5, 15 och 30 sekunder. 
+Avsökningsintervallet konfigureras från listrutan **Ange intervall** så att du kan ange avsökning för nya data var 1, 5, 15 och 30 sekunder. 
 
-![Gå in i list rutan för Live-avsöknings intervall](./media/container-insights-livedata-metrics/cluster-view-polling-interval-dropdown.png)
-
->[!IMPORTANT]
->Vi rekommenderar att du ställer in avsöknings intervallet på en sekund medan du felsöker ett problem under en kort tids period. Dessa förfrågningar kan påverka tillgängligheten och begränsningen av Kubernetes-API: et i klustret. Konfigurera därefter om till ett längre avsöknings intervall. 
+![Rullgardinsmenyn Gå live](./media/container-insights-livedata-metrics/cluster-view-polling-interval-dropdown.png)
 
 >[!IMPORTANT]
->Inga data lagras permanent under den här funktionens funktion. All information som samlas in under den här sessionen tas genast bort när du stänger webbläsaren eller navigerar bort från funktionen. Data är bara tillgängliga för visualisering i fem minuter-fönstret. alla mått som är äldre än fem minuter tas också bort permanent.
+>Vi rekommenderar att du ställer in avsökningsintervallet till en sekund medan du felsöker ett problem under en kort tidsperiod. Dessa begäranden kan påverka tillgängligheten och begränsningen av Kubernetes API i klustret. Konfigurera sedan om till ett längre avsökningsintervall. 
 
-De här diagrammen kan inte fästas på den sista Azure-instrumentpanelen som du visade i Live-läge.
+>[!IMPORTANT]
+>Inga data lagras permanent under drift av den här funktionen. All information som samlas in under den här sessionen raderas omedelbart när du stänger webbläsaren eller navigerar bort från funktionen. Data finns bara kvar för visualisering i femminutersfönstret. Alla mått som är äldre än fem minuter tas också bort permanent.
 
-## <a name="metrics-captured"></a>Insamlade mått
+Dessa diagram kan inte fästas på den senaste Azure-instrumentpanelen som du visade i live-läge.
 
-### <a name="node-cpu-utilization---node-memory-utilization-"></a>Nod-CPU-användning%/nod minnes användning% 
+## <a name="metrics-captured"></a>Infångade mätvärden
 
-Dessa två prestanda diagram mappar till en motsvarighet till att anropa `kubectl top nodes` och samla in resultaten från kolumnerna **CPU%** och **minne%** till respektive diagram. 
+### <a name="node-cpu-utilization---node-memory-utilization-"></a>Nod CPU-användning % / Nod Minne utnyttjande % 
 
-![Exempel resultat för Kubectl översta noder](./media/container-insights-livedata-metrics/kubectl-top-nodes-example.png)
+Dessa två prestandadiagram mappas `kubectl top nodes` till en motsvarighet till att anropa och fånga resultaten av kolumnerna **CPU%** och **MEMORY%** till respektive diagram. 
 
-![Diagram över processor användning i procent för noder](./media/container-insights-livedata-metrics/cluster-view-node-cpu-util.png)
+![Kubectl toppnoder exempel resultat](./media/container-insights-livedata-metrics/kubectl-top-nodes-example.png)
 
-![Diagram över användning av nod-minne i procent](./media/container-insights-livedata-metrics/cluster-view-node-memory-util.png)
+![Diagram för cpu-utnyttjande av noder](./media/container-insights-livedata-metrics/cluster-view-node-cpu-util.png)
 
-Percentils beräkningarna fungerar i större kluster för att hjälpa till att identifiera avvikare-noder i klustret. Om du till exempel vill förstå om noder används under användning i skala nedåt. Om du använder den **minsta** agg regeringen kan du se vilka noder som har låg belastning i klustret. Om du vill undersöka ytterligare väljer du fliken **noder** och sorterar rutnätet efter processor-eller minnes användning.
+![Nodminnesutnyttjande procent diagram](./media/container-insights-livedata-metrics/cluster-view-node-memory-util.png)
 
-Detta hjälper dig också att förstå vilka noder som håller på att flyttas till deras gränser och om det kan krävas en utskalning. Användning av både **Max** -och **P95** -aggregeringarna kan hjälpa dig att se om det finns noder i klustret med hög resursutnyttjande. För ytterligare undersökning skulle du återigen växla till fliken **noder** .
+Percentilberäkningarna fungerar i större kluster för att identifiera avvikare noder i klustret. Om du till exempel vill förstå om noder är underutnyttjade för nedskalningsändamål. Använda **Min** aggregering kan du se vilka noder har låg användning i klustret. Om du vill undersöka ytterligare väljer du fliken **Noder** och sorterar rutnätet efter CPU- eller minnesanvändning.
 
-### <a name="node-count"></a>Antal noder
+Detta hjälper dig också att förstå vilka noder som skickas till sina gränser och om utskalning kan krävas. Om du använder både **Max-** och **P95-aggregeringarna** kan du se om det finns noder i klustret med hög resursutnyttjande. För ytterligare undersökning växlar du återigen till fliken **Noder.**
 
-Det här prestanda diagrammet mappar till en motsvarighet till att anropa `kubectl get nodes` och mappa kolumnen **status** till ett diagram, grupperat efter status typer.
+### <a name="node-count"></a>Antal nod
 
-![Exempel resultat för Kubectl get Nodes](./media/container-insights-livedata-metrics/kubectl-get-nodes-example.png)
+Det här prestandadiagrammet mappas till en motsvarighet till att anropa och mappa `kubectl get nodes` kolumnen **STATUS** till ett diagram grupperat efter statustyper.
 
-![Diagram över antal noder](./media/container-insights-livedata-metrics/cluster-view-node-count-01.png)
+![Kubectl få noder exempel resultat](./media/container-insights-livedata-metrics/kubectl-get-nodes-example.png)
 
-Noder rapporteras antingen i ett **klart** eller **inte klart** tillstånd. De räknas (och ett totalt antal skapas) och resultaten av dessa två agg regeringar visas i diagram.
-Om du till exempel vill förstå om noderna hamnar i fel tillstånd. Om du använder den **ej färdiga** agg regeringen kan du snabbt se antalet noder i klustret för närvarande i läget **inte redo** .
+![Antal noder diagram](./media/container-insights-livedata-metrics/cluster-view-node-count-01.png)
 
-### <a name="active-pod-count"></a>Antal aktiva Pod
+Noder rapporteras antingen i ett **färdigt** eller **inte redo-tillstånd.** De räknas (och ett totalt antal skapas) och resultaten av dessa två aggregeringar kartläggs.
+Till exempel för att förstå om dina noder faller i misslyckade tillstånd. Med aggregering av **inte klar** kan du snabbt se antalet noder i klustret som för närvarande är i läget **Inte redo.**
 
-Det här prestanda diagrammet mappar till en motsvarighet till att anropa `kubectl get pods –all-namespaces` och mappar kolumnen **status** till grupperat efter status typer.
+### <a name="active-pod-count"></a>Antal aktiva kapslar
 
-![Kubectl Hämta poddar exempel resultat](./media/container-insights-livedata-metrics/kubectl-get-pods-example.png)
+Det här prestandadiagrammet mappas till en motsvarighet till att anropa och mappa `kubectl get pods –all-namespaces` kolumnen **STATUS** som diagrammet grupperas efter statustyper.
 
-![Diagram över antal Pod](./media/container-insights-livedata-metrics/cluster-view-node-pod-count.png)
+![Kubectl få poddar exempel resultat](./media/container-insights-livedata-metrics/kubectl-get-pods-example.png)
+
+![Antal noder pod diagram](./media/container-insights-livedata-metrics/cluster-view-node-pod-count.png)
 
 >[!NOTE]
->Namn på status som tolkas av `kubectl` kanske inte exakt matchar i diagrammet. 
+>Namn på status som `kubectl` tolkas av kanske inte exakt matchar i diagrammet. 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Visa [exempel på logg frågor](container-insights-log-search.md#search-logs-to-analyze-data) för att se fördefinierade frågor och exempel för att skapa aviseringar, visualiseringar eller utföra ytterligare analyser av klustren.
+Visa [exempel på loggfrågor](container-insights-log-search.md#search-logs-to-analyze-data) om du vill se fördefinierade frågor och exempel för att skapa aviseringar, visualiseringar eller utföra ytterligare analyser av dina kluster.

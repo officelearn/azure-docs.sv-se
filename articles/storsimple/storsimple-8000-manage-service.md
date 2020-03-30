@@ -1,6 +1,6 @@
 ---
-title: Distribuera StorSimple Enhetshanteraren-tjänsten i Azure | Microsoft Docs
-description: Förklarar hur du skapar och tar bort StorSimple-Enhetshanteraren tjänsten i Azure Portal och beskriver hur du hanterar tjänst registrerings nyckeln.
+title: Distribuera Tjänsten StorSimple Device Manager i Azure | Microsoft-dokument
+description: I artikeln beskrivs hur du skapar och tar bort Tjänsten StorSimple Device Manager i Azure-portalen och beskriver hur du hanterar nyckeln till tjänstregistrering.
 services: storsimple
 documentationcenter: ''
 author: alkohli
@@ -15,203 +15,203 @@ ms.workload: na
 ms.date: 05/09/2018
 ms.author: alkohli
 ms.openlocfilehash: 1e75acc03209fdd7e613801c9152f24aaecfa6de
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79267786"
 ---
-# <a name="deploy-the-storsimple-device-manager-service-for-storsimple-8000-series-devices"></a>Distribuera StorSimple Enhetshanteraren-tjänsten för enheter med StorSimple 8000-serien
+# <a name="deploy-the-storsimple-device-manager-service-for-storsimple-8000-series-devices"></a>Distribuera StorSimple Device Manager-tjänsten för StorSimple 8000-serieenheter
 
 [!INCLUDE [storsimple-8000-eol-banner](../../includes/storsimple-8000-eol-banner.md)]
 
 ## <a name="overview"></a>Översikt
 
-Tjänsten StorSimple Enhetshanteraren körs i Microsoft Azure och ansluter till flera StorSimple-enheter. När du har skapat tjänsten kan du använda den för att hantera alla enheter som är anslutna till StorSimple Enhetshanteraren-tjänsten från en enda central plats, vilket minimerar administrations belastningen.
+Tjänsten StorSimple Device Manager körs i Microsoft Azure och ansluter till flera StorSimple-enheter. När du har skapat tjänsten kan du använda den för att hantera alla enheter som är anslutna till Tjänsten StorSimple Device Manager från en enda central plats och därigenom minimera den administrativa bördan.
 
-I den här självstudien beskrivs de steg som krävs för att skapa, ta bort, migrera och hantera tjänst registrerings nyckeln. Informationen i den här artikeln gäller endast för enheter med StorSimple 8000-serien. Mer information om virtuella StorSimple-matriser finns i [distribuera en StorSimple Enhetshanteraren-tjänst för din virtuella StorSimple-matris](storsimple-virtual-array-manage-service.md).
+I den här självstudien beskrivs de steg som krävs för att skapa, ta bort, migrera tjänsten och hanteringen av tjänstregistreringsnyckeln. Informationen i den här artikeln gäller endast storsimam 8000-seriens enheter. Mer information om StorSimple-virtuella matriser finns i [distribuera en StorSimple Enhetshanteraren-tjänst för den virtuella storsimple-matrisen](storsimple-virtual-array-manage-service.md).
 
 > [!NOTE]
-> -  Azure Portal stöder enheter som kör uppdatering 5,0 eller senare. Om enheten inte är uppdaterad installerar du uppdatering 5 omedelbart. Mer information finns i [installera uppdatering 5](storsimple-8000-install-update-5.md). 
-> - Om du använder en StorSimple Cloud Appliance (8010/8020) kan du inte uppdatera en moln installation. Använd den senaste versionen av program vara för att skapa en ny moln installation med uppdatering 5,0 och sedan redundansväxla till den nya moln installationen som skapats. 
-> - Alla enheter som kör uppdatering 4,0 eller tidigare får färre hanterings funktioner. 
+> -  Azure-portalen stöder enheter som kör Uppdatering 5.0 eller senare. Om enheten inte är uppdaterad installerar du uppdatering 5 omedelbart. Mer information finns i [Installera uppdatering 5](storsimple-8000-install-update-5.md). 
+> - Om du använder en StorSimple Cloud Appliance (8010/8020) kan du inte uppdatera en molninstallation. Använd den senaste versionen av programvaran för att skapa en ny molninstallation med uppdatering 5.0 och växla sedan över till den nya molninstallationen som skapats. 
+> - Alla enheter som kör Uppdatering 4.0 eller tidigare kommer att få nedsatt hanteringsfunktioner. 
 
 ## <a name="create-a-service"></a>Skapa en tjänst
-Om du vill skapa en StorSimple-Enhetshanteraren tjänst måste du ha:
+Om du vill skapa en StorSimple Enhetshanteraren-tjänst måste du ha:
 
-* En prenumeration med en Enterprise-avtal
-* Ett aktivt Microsoft Azure lagrings konto
-* Den fakturerings information som används för åtkomst hantering
+* En prenumeration med ett enterprise-avtal
+* Ett aktivt Microsoft Azure-lagringskonto
+* Faktureringsinformationen som används för åtkomsthantering
 
-Endast prenumerationer med en Enterprise-avtal tillåts. Du kan också välja att generera ett standard lagrings konto när du skapar tjänsten.
+Endast prenumerationer med ett enterprise-avtal är tillåtna. Du kan också välja att generera ett standardlagringskonto när du skapar tjänsten.
 
-En enskild tjänst kan hantera flera enheter. En enhet kan dock inte omfatta flera tjänster. Ett stort företag kan ha flera tjänst instanser för att arbeta med olika prenumerationer, organisationer eller till och med distributions platser. 
+En enda tjänst kan hantera flera enheter. En enhet kan dock inte sträcka sig över flera tjänster. Ett stort företag kan ha flera tjänstinstanser för att arbeta med olika prenumerationer, organisationer eller till och med distributionsplatser. 
 
 > [!NOTE]
-> Du behöver separata instanser av StorSimple Enhetshanteraren-tjänsten för att hantera StorSimple 8000-seriens enheter och StorSimple virtuella matriser.
+> Du behöver separata instanser av StorSimple Device Manager-tjänsten för att hantera StorSimple 8000-serieenheter och StorSimple Virtual Arrays.
 
-Utför följande steg för att skapa en tjänst.
+Gör följande för att skapa en tjänst.
 
 [!INCLUDE [storsimple-create-new-service](../../includes/storsimple-8000-create-new-service.md)]
 
 
-Följande attribut finns för varje StorSimple Enhetshanteraren-tjänst:
+För varje StorSimple Enhetshanterarens tjänst finns följande attribut:
 
-* **Namn** – det namn som har tilldelats till din StorSimple Enhetshanteraren-tjänst när den skapades. **Det går inte att ändra tjänst namnet när tjänsten har skapats. Detta gäller även för andra entiteter, till exempel enheter, volymer, volym behållare och säkerhets kopierings principer som inte kan byta namn på Azure Portal.**
-* **Status** – tjänstens status, som kan vara **aktiv**, **skapas**eller **online**.
-* **Plats** – den geografiska plats där StorSimple-enheten kommer att distribueras.
-* **Prenumeration** – den fakturerings prenumeration som är associerad med din tjänst.
+* **Namn** – Namnet som tilldelades tjänsten StorSimple Device Manager när den skapades. **Det går inte att ändra tjänstnamnet när tjänsten har skapats. Detta gäller även för andra entiteter, till exempel enheter, volymer, volymbehållare och principer för säkerhetskopiering som inte kan döpas om i Azure-portalen.**
+* **Status** – Tjänstens status, som kan vara **Aktiv,** **Skapa**eller **Online**.
+* **Plats** – Den geografiska plats där StorSimple-enheten ska distribueras.
+* **Prenumeration** – Faktureringsprenumerationen som är kopplad till din tjänst.
 
 ## <a name="delete-a-service"></a>Ta bort en tjänst
 
-Innan du tar bort en tjänst ser du till att inga anslutna enheter använder den. Om tjänsten används inaktiverar du de anslutna enheterna. Åtgärden inaktivera kommer att påverka anslutningen mellan enheten och tjänsten, men behåll enhets data i molnet.
+Innan du tar bort en tjänst kontrollerar du att inga anslutna enheter använder den. Om tjänsten används inaktiverar du de anslutna enheterna. Avaktiveringsåtgärden avbryter anslutningen mellan enheten och tjänsten, men bevarar enhetsdata i molnet.
 
 > [!IMPORTANT]
-> När en tjänst har tagits bort går det inte att ångra åtgärden. Alla enheter som använder tjänsten måste återställas till fabriks inställningarna innan den kan användas med en annan tjänst. I det här scenariot förloras lokala data på enheten och konfigurationen.
+> När en tjänst har tagits bort kan åtgärden inte återföras. Alla enheter som använde tjänsten måste återställas till fabriksinställningar innan de kan användas med en annan tjänst. I det här fallet går de lokala data på enheten, liksom konfigurationen, förlorade.
 
-Utför följande steg för att ta bort en tjänst.
+Gör följande för att ta bort en tjänst.
 
-### <a name="to-delete-a-service"></a>Ta bort en tjänst
+### <a name="to-delete-a-service"></a>Så här tar du bort en tjänst
 
-1. Sök efter den tjänst som du vill ta bort. Klicka på ikonen **resurser** och mata in lämpliga villkor att söka. I Sök resultaten klickar du på den tjänst som du vill ta bort.
+1. Sök efter den tjänst som du vill ta bort. Klicka på **Ikonen Resurser** och ange sedan lämpliga termer för att söka. Klicka på den tjänst som du vill ta bort i sökresultaten.
 
-    ![Sök tjänst som ska tas bort](./media/storsimple-8000-manage-service/deletessdevman1.png)
+    ![Söktjänst som ska tas bort](./media/storsimple-8000-manage-service/deletessdevman1.png)
 
-2. Då går du till bladet StorSimple Enhetshanteraren-tjänst. Klicka på **Ta bort**.
+2. Detta tar dig till StorSimple Device Manager serviceblad. Klicka på **Ta bort**.
 
-    ![Ta bort tjänst](./media/storsimple-8000-manage-service/deletessdevman2.png)
+    ![Ta bort tjänsten](./media/storsimple-8000-manage-service/deletessdevman2.png)
 
-3. Klicka på **Ja** i bekräftelse meddelandet. Det kan ta några minuter för tjänsten att tas bort.
+3. Klicka på **Ja** i bekräftelsemeddelandet. Det kan ta några minuter innan tjänsten tas bort.
 
     ![Bekräfta borttagning](./media/storsimple-8000-manage-service/deletessdevman3.png)
 
 ## <a name="get-the-service-registration-key"></a>Hämta nyckel för tjänstregistrering
 
-När du har skapat en tjänst måste du registrera din StorSimple-enhet med tjänsten. För att registrera din första StorSimple-enhet behöver du tjänst registrerings nyckeln. Om du vill registrera ytterligare enheter med en befintlig StorSimple-tjänst behöver du både registrerings nyckeln och krypterings nyckeln för tjänst data (som genereras på den första enheten under registreringen). Mer information om krypterings nyckeln för tjänst data finns i [StorSimple Security](storsimple-8000-security.md). Du kan hämta registrerings nyckeln genom att komma åt **nycklar** på ditt StorSimple Enhetshanteraren-blad.
+När du har skapat en tjänst måste du registrera din StorSimple-enhet med tjänsten. För att registrera din första StorSimple-enhet behöver du tjänstens registreringsnyckel. Om du vill registrera ytterligare enheter med en befintlig StorSimple-tjänst behöver du både registreringsnyckeln och krypteringsnyckeln för tjänstdata (som genereras på den första enheten under registreringen). Mer information om krypteringsnyckeln för tjänstdata finns i [StorSimple security](storsimple-8000-security.md). Du kan få registreringsnyckeln genom att komma åt **Nycklar** på bladet StorSimple Device Manager.
 
-Utför följande steg för att hämta tjänst registrerings nyckeln.
+Utför följande steg för att hämta nyckeln för tjänstregistrering.
 
 [!INCLUDE [storsimple-8000-get-service-registration-key](../../includes/storsimple-8000-get-service-registration-key.md)]
 
-Behåll tjänst registrerings nyckeln på en säker plats. Du behöver den här nyckeln, samt krypterings nyckeln för tjänst data, för att registrera ytterligare enheter med tjänsten. När du har hämtat tjänst registrerings nyckeln måste du konfigurera enheten via Windows PowerShell för StorSimple-gränssnittet.
+Förvara tjänstens registreringsnyckel på en säker plats. Du behöver den här nyckeln, liksom krypteringsnyckeln för tjänstdata, för att registrera ytterligare enheter med den här tjänsten. När du har hämtat tjänstregistreringsnyckeln måste du konfigurera enheten via Windows PowerShell för StorSimple-gränssnittet.
 
-Mer information om hur du använder den här registrerings nyckeln finns i [steg 3: Konfigurera och registrera enheten via Windows PowerShell för StorSimple](storsimple-8000-deployment-walkthrough-u2.md#step-3-configure-and-register-the-device-through-windows-powershell-for-storsimple).
+Mer information om hur du använder den här registreringsnyckeln finns i [Steg 3: Konfigurera och registrera enheten via Windows PowerShell för StorSimple](storsimple-8000-deployment-walkthrough-u2.md#step-3-configure-and-register-the-device-through-windows-powershell-for-storsimple).
 
-## <a name="regenerate-the-service-registration-key"></a>Återskapa tjänst registrerings nyckeln
-Du måste återskapa en tjänst registrerings nyckel om du måste utföra nyckel rotation eller om listan över tjänst administratörer har ändrats. När du återskapar nyckeln används den nya nyckeln bara för att registrera efterföljande enheter. De enheter som redan har registrerats påverkas inte av den här processen.
+## <a name="regenerate-the-service-registration-key"></a>Återskapa nyckeln för tjänstregistrering
+Du måste återskapa en tjänstregistreringsnyckel om du måste utföra nyckelrotation eller om listan över tjänstadministratörer har ändrats. När du återskapar nyckeln används den nya nyckeln endast för att registrera efterföljande enheter. De enheter som redan har registrerats påverkas inte av den här processen.
 
-Utför följande steg för att återskapa en tjänst registrerings nyckel.
+Utför följande steg för att återskapa en tjänstregistreringsnyckel.
 
-### <a name="to-regenerate-the-service-registration-key"></a>Återskapa tjänst registrerings nyckeln
-1. I bladet **StorSimple Enhetshanteraren** går du till **hantering &gt;** **nycklar**.
+### <a name="to-regenerate-the-service-registration-key"></a>Så här återskapar du tjänstregistreringsnyckeln
+1. Gå till **Hanteringsnycklar**i **bladet StorSimple** **Enhetshanteraren &gt; ** .
     
     ![Bladet Nycklar](./media/storsimple-8000-manage-service/regenregkey2.png)
 
-2. Klicka på **Återskapa**på bladet **nycklar** .
+2. Klicka på **Återskapa**i bladet **Nycklar.**
 
     ![Klicka på återskapa](./media/storsimple-8000-manage-service/regenregkey3.png)
-3. I bladet **Återskapa tjänst registrerings nyckel** granskar du den åtgärd som krävs när nycklarna återskapas. Alla efterföljande enheter som är registrerade med den här tjänsten använder den nya registrerings nyckeln. Klicka på **Återskapa** för att bekräfta. Du får ett meddelande när återskapandet har slutförts.
+3. I **bladet Regenerera tjänstregistreringsnyckel** granskar du den åtgärd som krävs när nycklarna återskapas. Alla efterföljande enheter som är registrerade hos den här tjänsten använder den nya registreringsnyckeln. Klicka på **Återskapa** för att bekräfta. Du meddelas när regenereringen är klar.
 
-    ![Bekräfta återskapande](./media/storsimple-8000-manage-service/regenregkey4.png)
+    ![Bekräfta regenerering](./media/storsimple-8000-manage-service/regenregkey4.png)
 
-4. En ny tjänst registrerings nyckel kommer att visas.
+4. En ny tjänstregistreringsnyckel visas.
 
-5. Kopiera den här nyckeln och spara den för att registrera nya enheter med tjänsten.
+5. Kopiera den här nyckeln och spara den för att registrera nya enheter med den här tjänsten.
 
 
 
-## <a name="change-the-service-data-encryption-key"></a>Ändra krypterings nyckeln för tjänst data
-Krypterings nycklar för tjänst data används för att kryptera konfidentiella kunddata, t. ex. autentiseringsuppgifter för lagrings konto, som skickas från din StorSimple Manager-tjänst till StorSimple-enheten. Du måste ändra nycklarna regelbundet om din IT-organisation har en nyckel rotations princip på lagrings enheterna. Nyckel ändrings processen kan skilja sig åt beroende på om det finns en enskild enhet eller flera enheter som hanteras av StorSimple Managers tjänsten. Mer information finns på [StorSimple Security och Data Protection](storsimple-8000-security.md).
+## <a name="change-the-service-data-encryption-key"></a>Ändra krypteringsnyckeln för tjänstdata
+Krypteringsnycklar för tjänstdata används för att kryptera konfidentiella kunddata, till exempel autentiseringsuppgifter för lagringskonto, som skickas från StorSimple Manager-tjänsten till StorSimple-enheten. Du måste ändra dessa nycklar regelbundet om IT-organisationen har en princip för nyckelrotation på lagringsenheterna. Nyckelförändringsprocessen kan vara något annorlunda beroende på om det finns en enda enhet eller flera enheter som hanteras av StorSimple Manager-tjänsten. Mer information finns i [StorSimples säkerhet och dataskydd](storsimple-8000-security.md).
 
-Att ändra krypterings nyckeln för tjänst data är en tre stegs process:
+Att ändra krypteringsnyckeln för tjänstdata är en trestegsprocess:
 
-1. Använd Windows PowerShell-skript för Azure Resource Manager för att auktorisera en enhet för att ändra krypterings nyckeln för tjänst data.
-2. Initiera ändringen av tjänst data krypterings nyckeln med hjälp av Windows PowerShell för StorSimple.
-3. Om du har mer än en StorSimple-enhet uppdaterar du tjänst data krypterings nyckeln på de andra enheterna.
+1. Med Windows PowerShell-skript för Azure Resource Manager godkänner du en enhet som ändrar krypteringsnyckeln för tjänstdata.
+2. Med Windows PowerShell för StorSimple initierar du ändringen av tjänstdatakrypteringsnyckeln.
+3. Om du har mer än en StorSimple-enhet uppdaterar du krypteringsnyckeln för tjänstdata på de andra enheterna.
 
-### <a name="step-1-use-windows-powershell-script-to-authorize-a-device-to-change-the-service-data-encryption-key"></a>Steg 1: Använd Windows PowerShell-skript för att auktorisera en enhet att ändra krypterings nyckeln för tjänst data
-Normalt begär enhets administratören att tjänst administratören ger en enhet behörighet att ändra krypterings nycklar för tjänst data. Tjänst administratören kommer sedan att auktorisera enheten för att ändra nyckeln.
+### <a name="step-1-use-windows-powershell-script-to-authorize-a-device-to-change-the-service-data-encryption-key"></a>Steg 1: Använda Windows PowerShell-skript för att auktorisera en enhet för att ändra krypteringsnyckeln för tjänstdata
+Vanligtvis begär enhetsadministratören att tjänstadministratören auktoriserar en enhet för att ändra krypteringsnycklar för tjänstdata. Tjänstadministratören auktoriserar sedan enheten för att ändra nyckeln.
 
-Det här steget utförs med det Azure Resource Manager baserade skriptet. Tjänst administratören kan välja en enhet som är behörig att auktoriseras. Enheten har sedan behörighet att starta ändrings processen för tjänst data krypterings nyckel. 
+Det här steget utförs med det Azure Resource Manager-baserade skriptet. Tjänstadministratören kan välja en enhet som är kvalificerad att auktoriseras. Enheten har sedan behörighet att starta processen för ändring av tjänstdatakrypteringsnyckeln. 
 
-Om du vill ha mer information om hur du använder skriptet går du till [Authorize-ServiceEncryptionRollover. ps1](https://github.com/anoobbacker/storsimpledevicemgmttools/blob/master/Authorize-ServiceEncryptionRollover.ps1)
+Mer information om hur du använder skriptet finns i [Authorize-ServiceEncryptionRollover.ps1](https://github.com/anoobbacker/storsimpledevicemgmttools/blob/master/Authorize-ServiceEncryptionRollover.ps1)
 
-#### <a name="which-devices-can-be-authorized-to-change-service-data-encryption-keys"></a>Vilka enheter kan auktoriseras för att ändra krypterings nycklar för tjänst data?
-En enhet måste uppfylla följande kriterier innan den kan auktoriseras för att initiera ändringar av tjänst data krypterings nyckel:
+#### <a name="which-devices-can-be-authorized-to-change-service-data-encryption-keys"></a>Vilka enheter kan auktoriseras för att ändra krypteringsnycklar för tjänstdata?
+En enhet måste uppfylla följande kriterier innan den kan auktas för att initiera ändringar av krypteringsnyckel för tjänstdata:
 
-* Enheten måste vara online för att kunna bli berättigad till ändrings behörighet för tjänst data krypterings nyckel.
-* Du kan auktorisera samma enhet igen efter 30 minuter om nyckel ändringen inte har initierats.
-* Du kan auktorisera en annan enhet, förutsatt att nyckel ändringen inte har initierats av den tidigare auktoriserade enheten. När den nya enheten har auktoriserats kan den gamla enheten inte påbörja ändringen.
-* Du kan inte auktorisera en enhet när förnyelsen av tjänst data krypterings nyckeln pågår.
-* Du kan auktorisera en enhet när några av enheterna som är registrerade i tjänsten har registrerats via krypteringen medan andra inte har det. 
+* Enheten måste vara online för att vara berättigad till ändringsauktorisering för tjänstdatakrypteringsnyckel.
+* Du kan auktorisera samma enhet igen efter 30 minuter om nyckeländringen inte har initierats.
+* Du kan auktorisera en annan enhet, förutsatt att nyckeländringen inte har initierats av den tidigare auktoriserade enheten. När den nya enheten har auktoriserats kan den gamla enheten inte initiera ändringen.
+* Du kan inte auktorisera en enhet medan överrullningen av krypteringsnyckeln för tjänstdata pågår.
+* Du kan auktorisera en enhet när vissa av de enheter som är registrerade med tjänsten har rullat över krypteringen medan andra inte har det. 
 
-### <a name="step-2-use-windows-powershell-for-storsimple-to-initiate-the-service-data-encryption-key-change"></a>Steg 2: Använd Windows PowerShell för StorSimple för att initiera ändringen av tjänst data krypterings nyckeln
+### <a name="step-2-use-windows-powershell-for-storsimple-to-initiate-the-service-data-encryption-key-change"></a>Steg 2: Använd Windows PowerShell för StorSimple för att initiera ändringen av nyckeln för tjänstdatakryptering
 Det här steget utförs i Windows PowerShell för StorSimple-gränssnittet på den auktoriserade StorSimple-enheten.
 
 > [!NOTE]
-> Inga åtgärder kan utföras i Azure Portal av din StorSimple Manager-tjänst förrän nyckel förnyelsen har slutförts.
+> Inga åtgärder kan utföras i Azure-portalen för din StorSimple Manager-tjänst tills nyckelförtrollningen är klar.
 
 
-Om du använder enhetens serie konsol för att ansluta till Windows PowerShell-gränssnittet utför du följande steg.
+Om du använder den seriella konsolen för enheten för att ansluta till Windows PowerShell-gränssnittet utför du följande steg.
 
-#### <a name="to-initiate-the-service-data-encryption-key-change"></a>Så här initierar du ändringen av tjänst data krypterings nyckeln
-1. Välj alternativ 1 för att logga in med fullständig åtkomst.
+#### <a name="to-initiate-the-service-data-encryption-key-change"></a>Så här initierar du ändringen av tjänstdatakrypteringsnyckeln
+1. Välj alternativ 1 för att logga in med full åtkomst.
 2. Skriv följande i kommandotolken:
    
      `Invoke-HcsmServiceDataEncryptionKeyChange`
-3. När cmdleten har slutförts visas en ny krypterings nyckel för tjänst data. Kopiera och spara nyckeln för användning i steg 3 i den här processen. Den här nyckeln används för att uppdatera alla återstående enheter som är registrerade i StorSimple Manager-tjänsten.
+3. När cmdleten har slutförts får du en ny krypteringsnyckel för tjänstdata. Kopiera och spara den här nyckeln för användning i steg 3 i den här processen. Den här nyckeln används för att uppdatera alla återstående enheter som är registrerade med StorSimple Manager-tjänsten.
    
    > [!NOTE]
-   > Den här processen måste initieras inom fyra timmar med att auktorisera en StorSimple-enhet.
+   > Den här processen måste initieras inom fyra timmar efter att en StorSimple-enhet har godkänts.
    > 
    > 
    
-   Den nya nyckeln skickas sedan till tjänsten som ska skickas till alla enheter som är registrerade i tjänsten. En avisering visas sedan på instrument panelen för tjänsten. Tjänsten inaktiverar alla åtgärder på de registrerade enheterna och enhets administratören måste då uppdatera krypterings nyckeln för tjänst data på de andra enheterna. I/o (värdar som skickar data till molnet) avbryts dock inte.
+   Den här nya nyckeln skickas sedan till tjänsten för att skickas till alla enheter som är registrerade hos tjänsten. En avisering visas sedan på tjänstinstrumentpanelen. Tjänsten inaktiverar alla åtgärder på de registrerade enheterna och enhetsadministratören måste sedan uppdatera krypteringsnyckeln för tjänstdata på de andra enheterna. I/O (värdar som skickar data till molnet) kommer dock inte att störas.
    
-   Om du har en enda enhet som är registrerad för tjänsten slutförs förnyelse processen och du kan hoppa över nästa steg. Om du har flera enheter registrerade för tjänsten går du vidare till steg 3.
+   Om du har en enda enhet registrerad på din tjänst är överrullningsprocessen nu klar och du kan hoppa över nästa steg. Om du har flera enheter registrerade på din tjänst går du vidare till steg 3.
 
-### <a name="step-3-update-the-service-data-encryption-key-on-other-storsimple-devices"></a>Steg 3: uppdatera krypterings nyckeln för tjänst data på andra StorSimple-enheter
-De här stegen måste utföras i Windows PowerShell-gränssnittet på din StorSimple-enhet om du har flera enheter registrerade i StorSimple Manager-tjänsten. Den nyckel som du hämtade i steg 2 måste användas för att uppdatera alla återstående StorSimple-enheter som är registrerade i StorSimple Manager-tjänsten.
+### <a name="step-3-update-the-service-data-encryption-key-on-other-storsimple-devices"></a>Steg 3: Uppdatera krypteringsnyckeln för tjänstdata på andra StorSimple-enheter
+Dessa steg måste utföras i Windows PowerShell-gränssnittet på Din StorSimple-enhet om du har flera enheter registrerade i Tjänsten StorSimple Manager. Nyckeln som du fick i steg 2 måste användas för att uppdatera alla återstående StorSimple-enheter som registrerats med StorSimple Manager-tjänsten.
 
-Utför följande steg för att uppdatera tjänst data krypteringen på enheten.
+Utför följande steg för att uppdatera krypteringen av tjänstdata på enheten.
 
-#### <a name="to-update-the-service-data-encryption-key-on-physical-devices"></a>Så här uppdaterar du krypterings nyckeln för tjänst data på fysiska enheter
-1. Använd Windows PowerShell för StorSimple för att ansluta till-konsolen. Välj alternativ 1 för att logga in med fullständig åtkomst.
-2. Skriv följande i kommando tolken: `Invoke-HcsmServiceDataEncryptionKeyChange – ServiceDataEncryptionKey`
-3. Ange krypterings nyckeln för tjänst data som du hämtade i [steg 2: använd Windows PowerShell för StorSimple för att initiera ändringen av tjänst data krypterings nyckeln](#to-initiate-the-service-data-encryption-key-change).
+#### <a name="to-update-the-service-data-encryption-key-on-physical-devices"></a>Så här uppdaterar du krypteringsnyckeln för tjänstdata på fysiska enheter
+1. Använd Windows PowerShell för StorSimple för att ansluta till konsolen. Välj alternativ 1 för att logga in med full åtkomst.
+2. Skriv i kommandotolken:`Invoke-HcsmServiceDataEncryptionKeyChange – ServiceDataEncryptionKey`
+3. Ange den krypteringsnyckel för tjänstdata som du erhöll i [steg 2: Använd Windows PowerShell för StorSimple för att initiera ändringen av tjänstdatakrypteringsnyckeln](#to-initiate-the-service-data-encryption-key-change).
 
-#### <a name="to-update-the-service-data-encryption-key-on-all-the-80108020-cloud-appliances"></a>Så här uppdaterar du krypterings nyckeln för tjänst data på alla 8010/8020-moln enheter
-1. Hämta och installera PowerShell-skriptet [Update-CloudApplianceServiceEncryptionKey. ps1](https://github.com/anoobbacker/storsimpledevicemgmttools/blob/master/Update-CloudApplianceServiceEncryptionKey.ps1) . 
-2. Öppna PowerShell och skriv följande i kommando tolken: `Update-CloudApplianceServiceEncryptionKey.ps1 -SubscriptionId [subscription] -TenantId [tenantid] -ResourceGroupName [resource group] -ManagerName [device manager]`
+#### <a name="to-update-the-service-data-encryption-key-on-all-the-80108020-cloud-appliances"></a>Så här uppdaterar du krypteringsnyckeln för tjänstdata på alla 8010/8020-molninstallationer
+1. Ladda ned och konfigurera [Update-CloudApplianceServiceEncryptionKey.ps1](https://github.com/anoobbacker/storsimpledevicemgmttools/blob/master/Update-CloudApplianceServiceEncryptionKey.ps1) PowerShell-skriptet. 
+2. Öppna PowerShell och skriv i kommandotolken:`Update-CloudApplianceServiceEncryptionKey.ps1 -SubscriptionId [subscription] -TenantId [tenantid] -ResourceGroupName [resource group] -ManagerName [device manager]`
 
-Det här skriptet ser till att krypterings nyckeln för tjänst data är inställd på alla 8010/8020-moln enheter under enhets hanteraren.
+Det här skriptet säkerställer att krypteringsnyckeln för tjänstdata är inställd på alla 8010/8020-molninstallationer under enhetshanteraren.
 
-## <a name="supported-operations-on-devices-running-versions-prior-to-update-50"></a>Åtgärder som stöds på enheter som kör versioner före uppdateringen 5,0
-I Azure Portal stöds endast de StorSimple-enheter som kör uppdatering 5,0 och högre. Enheter som kör äldre versioner har begränsat stöd. När du har migrerat till Azure Portal kan du använda följande tabell för att förstå vilka åtgärder som stöds på enheter som kör tidigare versioner än uppdateringen 5,0.
+## <a name="supported-operations-on-devices-running-versions-prior-to-update-50"></a>Åtgärder som stöds på enheter som kör versioner före uppdatering 5.0
+I Azure-portalen stöds endast StorSimple-enheter som kör Uppdatering 5.0 och högre. De enheter som kör äldre versioner har begränsat stöd. När du har migrerat till Azure-portalen använder du följande tabell för att förstå vilka åtgärder som stöds på enheter som kör versioner före uppdatering 5.0.
 
 | Åtgärd                                                                                                                       | Stöds      |
 |---------------------------------------------------------------------------------------------------------------------------------|----------------|
 | Registrera en enhet                                                                                                               | Ja            |
-| Konfigurera enhets inställningar som allmänt, nätverk och säkerhet                                                                | Ja            |
-| Skanna, ladda ned och installera uppdateringar                                                                                             | Ja            |
+| Konfigurera enhetsinställningar som allmänt, nätverk och säkerhet                                                                | Ja            |
+| Skanna, hämta och installera uppdateringar                                                                                             | Ja            |
 | Inaktivera enhet                                                                                                               | Ja            |
 | Ta bort enhet                                                                                                                   | Ja            |
-| Skapa, ändra och ta bort en volym behållare                                                                                   | Nej             |
-| Skapa, ändra och ta bort en volym                                                                                             | Nej             |
-| Skapa, ändra och ta bort en princip för säkerhets kopiering                                                                                      | Nej             |
-| Gör en manuell säkerhets kopiering                                                                                                            | Nej             |
-| Gör en schemalagd säkerhets kopiering                                                                                                         | Inte tillämpligt |
-| Återställ från en säkerhets kopian                                                                                                        | Nej             |
-| Klona till en enhet som kör uppdatering 3,0 och senare <br> Käll enheten kör version före uppdatering 3,0.                                | Ja            |
-| Klona till en enhet som kör versioner före uppdateringen 3,0                                                                          | Nej             |
-| Redundans som käll enhet <br> (från en enhet som kör version före uppdatering 3,0 till en enhet som kör uppdatering 3,0 och senare)                                                               | Ja            |
-| Redundansväxling som mål enhet <br> (till en enhet som kör program varu version före uppdatering 3,0)                                                                                   | Nej             |
+| Skapa, ändra och ta bort en volymbehållare                                                                                   | Inga             |
+| Skapa, ändra och ta bort en volym                                                                                             | Inga             |
+| Skapa, ändra och ta bort en princip för säkerhetskopiering                                                                                      | Inga             |
+| Gör en manuell säkerhetskopiering                                                                                                            | Inga             |
+| Ta en schemalagd säkerhetskopia                                                                                                         | Inte tillämpligt |
+| Återställa från en säkerhetskopia                                                                                                        | Inga             |
+| Klona till en enhet som kör Uppdatering 3.0 och senare <br> Källenheten kör version före uppdatering 3.0.                                | Ja            |
+| Klona till en enhet som kör versioner före uppdatering 3.0                                                                          | Inga             |
+| Redundans som källenhet <br> (från en enhet som kör version före uppdatering 3.0 till en enhet som kör Uppdatering 3.0 och senare)                                                               | Ja            |
+| Redundans som målenhet <br> (till en programvaruversion som körs före uppdatering 3.0)                                                                                   | Inga             |
 | Rensa en avisering                                                                                                                  | Ja            |
-| Visa säkerhets kopierings principer, säkerhets kopierings katalog, volymer, volym behållare, övervaknings diagram, jobb och aviseringar som skapats i den klassiska portalen | Ja            |
-| Aktivera och inaktivera enhets styrenheter                                                                                              | Ja            |
+| Visa principer för säkerhetskopiering, säkerhetskopieringskatalog, volymer, volymbehållare, övervakningsdiagram, jobb och aviseringar som skapats i klassisk portal | Ja            |
+| Aktivera och stänga av enhetsstyrenheter                                                                                              | Ja            |
 
 
 ## <a name="next-steps"></a>Nästa steg
-* Läs mer om [distributions processen för StorSimple](storsimple-8000-deployment-walkthrough-u2.md).
-* Läs mer om hur [du hanterar ditt StorSimple-lagrings konto](storsimple-8000-manage-storage-accounts.md).
-* Lär dig mer om hur du [använder tjänsten StorSimple Enhetshanteraren för att administrera din StorSimple-enhet](storsimple-8000-manager-service-administration.md).
+* Läs mer om [StorSimple-distributionsprocessen](storsimple-8000-deployment-walkthrough-u2.md).
+* Läs mer om [hur du hanterar ditt StorSimple-lagringskonto](storsimple-8000-manage-storage-accounts.md).
+* Läs mer om hur du [använder Tjänsten StorSimple Device Manager för att administrera din StorSimple-enhet](storsimple-8000-manager-service-administration.md).

@@ -1,5 +1,5 @@
 ---
-title: Självstudie – grundläggande Active Directory lokala och Azure AD-miljöer.
+title: Självstudiekurs - Grundläggande Active Directory lokalt och Azure AD-miljö.
 services: active-directory
 author: billmath
 manager: daveba
@@ -11,38 +11,38 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 356a05d4d92f17ceb66ff0208153ec3eac736757
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74793903"
 ---
-# <a name="tutorial-basic-active-directory-environment"></a>Självstudie: grundläggande Active Directory miljö
+# <a name="tutorial-basic-active-directory-environment"></a>Självstudiekurs: Grundläggande Active Directory-miljö
 
-Den här självstudien vägleder dig genom att skapa en grundläggande Active Directorys miljö. 
+Den här självstudien hjälper dig att skapa en grundläggande Active Directory-miljö. 
 
-![Create](media/tutorial-single-forest/diagram1.png)
+![Skapa](media/tutorial-single-forest/diagram1.png)
 
-Du kan använda den miljö som du skapar i självstudien för att testa olika aspekter av hybrid identitets scenarier och är ett krav för några av de här självstudierna.  Om du redan har en befintlig Active Directory miljö kan du använda den som en ersättning.  Den här informationen tillhandahålls för personer som mitt börjar från ingenting.
+Du kan använda den miljö du skapar i självstudien för att testa olika aspekter av hybrididentitetsscenarier och kommer att vara en förutsättning för några av självstudierna.  Om du redan har en befintlig Active Directory-miljö kan du använda den som ersättning.  Denna information tillhandahålls för personer som jag börjar från ingenting.
 
 Den här självstudien består av
 ## <a name="prerequisites"></a>Krav
 Följande är förutsättningar som krävs för den här självstudien
 - En dator med [Hyper-V](https://docs.microsoft.com/windows-server/virtualization/hyper-v/hyper-v-technology-overview) installerat.  Vi rekommenderar att du gör detta på en dator med antingen [Windows 10](https://docs.microsoft.com/virtualization/hyper-v-on-windows/about/supported-guest-os) eller [Windows Server 2016](https://docs.microsoft.com/windows-server/virtualization/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows).
-- Ett [externt nätverkskort](https://docs.microsoft.com/virtualization/hyper-v-on-windows/quick-start/connect-to-network) så att den virtuella datorn kan kommunicera med internet.
+- Ett [externt nätverkskort](https://docs.microsoft.com/virtualization/hyper-v-on-windows/quick-start/connect-to-network) så att den virtuella datorn kan kommunicera med Internet.
 - En [Azure-prenumeration](https://azure.microsoft.com/free)
 - En kopia av Windows Server 2016
-- [Microsoft .NET Framework-4.7.1](https://www.microsoft.com/download/details.aspx?id=56115)
+- [Microsoft .NET-ramverket 4.7.1](https://www.microsoft.com/download/details.aspx?id=56115)
 
 > [!NOTE]
-> Den här självstudien använder PowerShell-skript så att du kan skapa självstudiekursens miljö så snabbt som möjligt.  Varje skript använder variabler som deklareras i början av skripten.  Du kan och bör ändra variablerna så att de speglar din miljö.
+> Den här självstudien använder PowerShell-skript så att du kan skapa självstudiemiljön så snabbt som möjligt.  Varje skript använder variabler som deklareras i början av skripten.  Du kan och bör ändra variablerna så att de speglar din miljö.
 >
->De skript som används för att skapa en allmän Active Directory miljö innan du installerar Azure AD Connect Cloud Provisioning-agenten.  De är relevanta för alla självstudierna.
+>Skripten som används skapar en allmän Active Directory-miljö innan du installerar Azure AD Connect-molnetableringsagenten.  De är relevanta för alla självstudierna.
 >
 > Kopior av de PowerShell-skript som används i den här självstudien finns på GitHub [här](https://github.com/billmath/tutorial-phs).
 
 ## <a name="create-a-virtual-machine"></a>Skapa en virtuell dator
-Det första du behöver göra är att skapa en virtuell dator som ska användas som vår lokala Active Directory-Server för att kunna få vår hybrid identitets miljö igång.  Gör följande:
+Det första du behöver göra, för att få igång vår hybrididentitetsmiljö är att skapa en virtuell dator som kommer att användas som vår lokala Active Directory-server.  Gör följande:
 
 1. Öppna PowerShell ISE som administratör.
 2. Kör följande skript.
@@ -87,7 +87,7 @@ För att slutföra skapande av den virtuella datorn kan du behöva slutföra ins
 10. När installationen är klar startar du om den virtuella datorn, loggar in och kör Windows-uppdateringar för att säkerställa att den virtuella datorn är den mest aktuella.  Installera de senaste uppdateringarna.
 
 ## <a name="install-active-directory-prerequisites"></a>Installera förutsättningar för Active Directory
-Nu när du har en virtuell dator som är igång måste du göra några saker innan du installerar Active Directory.  Det innebär att du måste byta namn på den virtuella datorn, ange en statisk IP-adress och DNS-information och installera verktyg för fjärrserveradministration.   Gör följande:
+Nu när du har en virtuell dator upp, måste du göra några saker innan du installerar Active Directory.  Det vill säga, du måste byta namn på den virtuella datorn, ange en statisk IP-adress och DNS-information och installera verktygen för fjärrserveradministration.   Gör följande:
 
 1. Öppna PowerShell ISE som administratör.
 2. Kör följande skript.
@@ -123,7 +123,7 @@ Nu när du har en virtuell dator som är igång måste du göra några saker inn
     ```
 
 ## <a name="create-a-windows-server-ad-environment"></a>Skapa en Windows Server AD-miljö
-Nu när du har skapat den virtuella datorn och fått ett nytt namn och har en statisk IP-adress kan du gå vidare och installera och konfigurera Active Directory Domain Services.  Gör följande:
+Nu när du har skapat den virtuella datorn och den har bytt namn och har en statisk IP-adress, kan du gå vidare och installera och konfigurera Active Directory Domain Services.  Gör följande:
 
 1. Öppna PowerShell ISE som administratör.
 2. Kör följande skript.
@@ -154,7 +154,7 @@ Nu när du har skapat den virtuella datorn och fått ett nytt namn och har en st
     ```
 
 ## <a name="create-a-windows-server-ad-user"></a>Skapa en Windows Server AD-användare
-Nu när du har vår Active Directorys miljö behöver du ett test konto.  Det här kontot kommer att skapas i vår lokala AD-miljö och sedan synkroniseras till Azure AD.  Gör följande:
+Nu när du har vår Active Directory-miljö behöver du ett testkonto.  Det här kontot kommer att skapas i vår lokala AD-miljö och sedan synkroniseras till Azure AD.  Gör följande:
 
 1. Öppna PowerShell ISE som administratör.
 2. Kör följande skript.
@@ -194,7 +194,7 @@ Nu när du har vår Active Directorys miljö behöver du ett test konto.  Det h�
 
 
 ## <a name="create-an-azure-ad-tenant"></a>Skapa en Azure AD-klientorganisation
-Nu måste du skapa en Azure AD-klient så att du kan synkronisera våra användare till molnet.  Skapa en ny Azure AD-klientorganisation genom att göra följande.
+Nu måste du skapa en Azure AD-klientorganisation så att du kan synkronisera våra användare till molnet.  Skapa en ny Azure AD-klientorganisation genom att göra följande.
 
 1. Bläddra till [Azure-portalen](https://portal.azure.com) och logga in med ett konto som har en Azure-prenumeration.
 2. Välj **plus-ikonen (+)** och sök efter **Azure Active Directory**.
@@ -205,7 +205,7 @@ Nu måste du skapa en Azure AD-klient så att du kan synkronisera våra använda
 6. När det här har slutförts klickar du på den **här** länken för att hantera katalogen.
 
 ## <a name="create-a-global-administrator-in-azure-ad"></a>Skapa en global administratör i Azure AD
-Nu när du har en Azure AD-klient kommer du att skapa ett globalt administratörs konto.  Skapa kontot för den globala administratören genom att göra följande.
+Nu när du har en Azure AD-klient skapar du ett globalt administratörskonto.  Skapa kontot för den globala administratören genom att göra följande.
 
 1.  Under **Hantera** väljer du **Användare**.</br>
 ![Skapa](media/tutorial-single-forest/administrator1.png)</br>
@@ -215,10 +215,10 @@ Nu när du har en Azure AD-klient kommer du att skapa ett globalt administratör
 4. När det här har slutförts öppnar du en ny webbläsare och loggar in på myapps.microsoft.com med hjälp av det nya globala administratörskontot och det tillfälliga lösenordet.
 5. Ändra lösenordet för den globala administratören till något som du kommer ihåg.
 
-## <a name="optional--additional-server-and-forest"></a>Valfritt: ytterligare Server och skog
-Följande är ett valfritt avsnitt som innehåller steg för att skapa ytterligare en server och en skog.  Detta kan användas i några av de mer avancerade självstudierna, till exempel [pilot för Azure AD Connect till moln etablering](tutorial-pilot-aadc-aadccp.md).
+## <a name="optional--additional-server-and-forest"></a>Valfritt: Ytterligare server och skog
+Följande är ett valfritt avsnitt som innehåller steg för att skapa ytterligare en server och eller skog.  Detta kan användas i några av de mer avancerade självstudierna, till exempel [Pilot for Azure AD Connect till molnetablering](tutorial-pilot-aadc-aadccp.md).
 
-Om du bara behöver en ytterligare Server kan du stoppa efter steget- **skapa den virtuella datorn** och ansluta servern till den befintliga domänen som skapades ovan.  
+Om du bara behöver ytterligare en server kan du sluta efter steget - **Skapa den virtuella datorn** och anslut servern till den befintliga domänen som skapades ovan.  
 
 ### <a name="create-a-virtual-machine"></a>Skapa en virtuell dator
 
@@ -274,7 +274,7 @@ För att slutföra skapande av den virtuella datorn kan du behöva slutföra ins
 10. När installationen är klar startar du om den virtuella datorn, loggar in och kör Windows-uppdateringar för att säkerställa att den virtuella datorn är den mest aktuella.  Installera de senaste uppdateringarna.
 
 ### <a name="install-active-directory-prerequisites"></a>Installera förutsättningar för Active Directory
-Nu när du har en virtuell dator som är igång måste du göra några saker innan du installerar Active Directory.  Det innebär att du måste byta namn på den virtuella datorn, ange en statisk IP-adress och DNS-information och installera verktyg för fjärrserveradministration.   Gör följande:
+Nu när du har en virtuell dator upp, måste du göra några saker innan du installerar Active Directory.  Det vill säga, du måste byta namn på den virtuella datorn, ange en statisk IP-adress och DNS-information och installera verktygen för fjärrserveradministration.   Gör följande:
 
 1. Öppna PowerShell ISE som administratör.
 2. Kör följande skript.
@@ -324,7 +324,7 @@ Nu när du har en virtuell dator som är igång måste du göra några saker inn
     Restart-Computer
     ```
 ### <a name="create-a-windows-server-ad-environment"></a>Skapa en Windows Server AD-miljö
-Nu när du har skapat den virtuella datorn och fått ett nytt namn och har en statisk IP-adress kan du gå vidare och installera och konfigurera Active Directory Domain Services.  Gör följande:
+Nu när du har skapat den virtuella datorn och den har bytt namn och har en statisk IP-adress, kan du gå vidare och installera och konfigurera Active Directory Domain Services.  Gör följande:
 
 1. Öppna PowerShell ISE som administratör.
 2. Kör följande skript.
@@ -370,7 +370,7 @@ Nu när du har skapat den virtuella datorn och fått ett nytt namn och har en st
     ```
 
 ### <a name="create-a-windows-server-ad-user"></a>Skapa en Windows Server AD-användare
-Nu när du har vår Active Directorys miljö behöver du ett test konto.  Det här kontot kommer att skapas i vår lokala AD-miljö och sedan synkroniseras till Azure AD.  Gör följande:
+Nu när du har vår Active Directory-miljö behöver du ett testkonto.  Det här kontot kommer att skapas i vår lokala AD-miljö och sedan synkroniseras till Azure AD.  Gör följande:
 
 1. Öppna PowerShell ISE som administratör.
 2. Kör följande skript.
@@ -408,10 +408,10 @@ Nu när du har vår Active Directorys miljö behöver du ett test konto.  Det h�
     Set-ADUser -Identity $Identity -PasswordNeverExpires $true -ChangePasswordAtLogon $false -Enabled $true
     ```
 
-## <a name="conclusion"></a>Sammanfattning
-Nu har du en miljö som kan användas för befintliga självstudier och för att testa ytterligare funktioner som moln etablering tillhandahåller.
+## <a name="conclusion"></a>Slutsats
+Nu har du en miljö som kan användas för befintliga självstudier och för att testa ytterligare funktioner molnetablering ger.
 
 ## <a name="next-steps"></a>Nästa steg 
 
 - [Vad är etablering?](what-is-provisioning.md)
-- [Vad är Azure AD Connect Cloud revisioner?](what-is-cloud-provisioning.md)
+- [Vad är Azure AD Connect-molnetablering?](what-is-cloud-provisioning.md)

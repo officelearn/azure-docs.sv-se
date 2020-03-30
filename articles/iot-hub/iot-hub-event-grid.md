@@ -1,6 +1,6 @@
 ---
-title: Azure IoT Hub och Event Grid | Microsoft Docs
-description: Använd Azure Event Grid för att utlösa processer baserat på åtgärder som inträffar i IoT Hub.
+title: Azure IoT Hub och Event Grid | Microsoft-dokument
+description: Använd Azure Event Grid för att utlösa processer baserat på åtgärder som händer i IoT Hub.
 author: robinsh
 manager: philmea
 ms.service: iot-hub
@@ -9,45 +9,45 @@ ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: robinsh
 ms.openlocfilehash: a1fd99ee595c4ae91ccd06aa41fa421ca8fcc074
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79284556"
 ---
-# <a name="react-to-iot-hub-events-by-using-event-grid-to-trigger-actions"></a>Reagera på IoT Hub händelser genom att använda Event Grid för att utlösa åtgärder
+# <a name="react-to-iot-hub-events-by-using-event-grid-to-trigger-actions"></a>Reagera på IoT Hub-händelser med hjälp av Händelserutnät för att utlösa åtgärder
 
-Azure IoT Hub integreras med Azure Event Grid så att du kan skicka händelse meddelanden till andra tjänster och utlösa efterföljande processer. Konfigurera dina affärs program så att de lyssnar efter IoT Hub händelser så att du kan reagera på kritiska händelser på ett tillförlitligt, skalbart och säkert sätt. Du kan till exempel skapa ett program som uppdaterar en databas, skapar en arbets biljett och levererar ett e-postmeddelande varje gång en ny IoT-enhet registreras på IoT-hubben.
+Azure IoT Hub integreras med Azure Event Grid så att du kan skicka händelsemeddelanden till andra tjänster och utlösa underordnade processer. Konfigurera dina affärsprogram för att lyssna efter IoT Hub-händelser så att du kan reagera på kritiska händelser på ett tillförlitligt, skalbart och säkert sätt.Till exempel skapa ett program som uppdaterar en databas, skapar en arbetsbiljett och levererar ett e-postmeddelande varje gång en ny IoT-enhet registreras till din IoT-hubb.
 
-[Azure Event Grid](../event-grid/overview.md) är en helt hanterad tjänst för händelse dirigering som använder en publicerings prenumerations modell. Event Grid har inbyggt stöd för Azure-tjänster som [Azure Functions](../azure-functions/functions-overview.md) och [Azure Logic Apps](../logic-apps/logic-apps-what-are-logic-apps.md)och kan leverera händelse aviseringar till icke-Azure-tjänster med hjälp av Webhooks. En fullständig lista över de händelse hanterare som Event Grid stöder finns i [en introduktion till Azure Event Grid](../event-grid/overview.md).
+[Azure Event Grid](../event-grid/overview.md) är en fullständigt hanterad händelseroutningstjänst som använder en publiceringsprenumerera-modell. Event Grid har inbyggt stöd för Azure-tjänster som [Azure Functions](../azure-functions/functions-overview.md) och Azure [Logic Apps](../logic-apps/logic-apps-what-are-logic-apps.md)och kan leverera händelseaviseringar till icke-Azure-tjänster med webhooks. En fullständig lista över de händelsehanterare som Event Grid stöder finns [i En introduktion till Azure Event Grid](../event-grid/overview.md).
 
-![Azure Event Grid arkitektur](./media/iot-hub-event-grid/event-grid-functional-model.png)
+![Azure Event Grid-arkitektur](./media/iot-hub-event-grid/event-grid-functional-model.png)
 
 ## <a name="regional-availability"></a>Regional tillgänglighet
 
-Event Grid-integrering är tillgänglig för IoT-hubbar som finns i regionerna där Event Grid stöds. Den senaste listan över regioner finns i [en introduktion till Azure Event Grid](../event-grid/overview.md).
+Integreringen av eventrutnät är tillgänglig för IoT-hubbar i de regioner där Event Grid stöds. Den senaste listan över regioner finns [i En introduktion till Azure Event Grid](../event-grid/overview.md).
 
-## <a name="event-types"></a>Händelse typer
+## <a name="event-types"></a>Händelsetyper
 
-IoT Hub publicerar följande händelse typer:
+IoT Hub publicerar följande händelsetyper:
 
-| eventType | Beskrivning |
+| Händelsetyp | Beskrivning |
 | ---------- | ----------- |
-| Microsoft.Devices.DeviceCreated | Publicerad när en enhet registreras i en IoT-hubb. |
+| Microsoft.Devices.DeviceSkapad | Publicerad när en enhet är registrerad på en IoT-hubb. |
 | Microsoft.Devices.DeviceDeleted | Publicerad när en enhet tas bort från en IoT-hubb. |
 | Microsoft.Devices.DeviceConnected | Publicerad när en enhet är ansluten till en IoT-hubb. |
-| Microsoft. devices. DeviceDisconnected | Publicerad när en enhet kopplas från en IoT-hubb. |
-| Microsoft.Devices.DeviceTelemetry | Publicerad när ett meddelande om telemetri skickas till en IoT-hubb |
+| Microsoft.Devices.DeviceDisconnected Microsoft.DevicesDisconnected Microsoft.Devices.DeviceDisconnected Microsoft.Devices. | Publicerad när en enhet kopplas från en IoT-hubb. |
+| Microsoft.Devices.DeviceTelemetry | Publicerat när ett enhetstelemetrimeddelande skickas till en IoT-hubb |
 
-Använd antingen Azure Portal eller Azure CLI för att konfigurera vilka händelser som ska publiceras från varje IoT-hubb. För ett exempel kan du prova självstudien [skicka e-postaviseringar om Azure IoT Hub händelser med Logic Apps](../event-grid/publish-iot-hub-events-to-logic-apps.md).
+Använd antingen Azure-portalen eller Azure CLI för att konfigurera vilka händelser som ska publiceras från varje IoT-hubb. Ett exempel kan du prova självstudien [Skicka e-postmeddelanden om Azure IoT Hub-händelser med Hjälp av Logic Apps](../event-grid/publish-iot-hub-events-to-logic-apps.md).
 
 ## <a name="event-schema"></a>Händelseschema
 
-IoT Hub händelser innehåller all information som du behöver för att svara på ändringar i enhetens livs cykel. Du kan identifiera en IoT Hub händelse genom att kontrol lera att egenskapen eventType börjar med **Microsoft. Devices**. Mer information om hur du använder Event Grid händelse egenskaper finns i [Event Grid händelse schema](../event-grid/event-schema.md).
+IoT Hub-händelser innehåller all information du behöver för att svara på ändringar i enhetens livscykel. Du kan identifiera en IoT Hub-händelse genom att kontrollera att eventType-egenskapen börjar med **Microsoft.Devices**. Mer information om hur du använder händelserutnätsegenskaper finns i [händelseschemat för Händelserutnät](../event-grid/event-schema.md).
 
-### <a name="device-connected-schema"></a>Enhetens anslutna schema
+### <a name="device-connected-schema"></a>Schema för enhetsansluten enhet
 
-I följande exempel visas schemat för en enhets ansluten händelse:
+I följande exempel visas schemat för en enhetsansluten händelse:
 
 ```json
 [{  
@@ -70,13 +70,13 @@ I följande exempel visas schemat för en enhets ansluten händelse:
 }]
 ```
 
-### <a name="device-telemetry-schema"></a>Schema för telemetri av enhet
+### <a name="device-telemetry-schema"></a>Schema för enhetstelmetri
 
-Telemetriprocessor för enheten måste vara i ett giltigt JSON-format med contentType inställd på **Application/JSON** och contentEncoding inställd på **UTF-8** i meddelande [systemets egenskaper](iot-hub-devguide-routing-query-syntax.md#system-properties). Båda dessa egenskaper är Skift läges känsliga. Om innehålls kodningen inte har angetts skrivs meddelandena i bas 64-kodat format IoT Hub.
+Enhetstelemetrimeddelandet måste vara i ett giltigt JSON-format med contentType inställd på **application/json** och contentEncoding inställd på **UTF-8** i [meddelandesystemets egenskaper](iot-hub-devguide-routing-query-syntax.md#system-properties). Båda dessa egenskaper är fall okänslig. Om innehållskodningen inte är inställd skriver IoT Hub meddelandena i bas 64-kodat format.
 
-Du kan utöka händelser för telemetri innan de publiceras till Event Grid genom att välja slut punkten som Event Grid. Mer information finns i [Översikt över meddelande översikt](iot-hub-message-enrichments-overview.md).
+Du kan berika enhetstelemetrihändelser innan de publiceras i Event Grid genom att välja slutpunkten som händelserutnät. Mer information finns i [Översikt över meddelandeanrikningar](iot-hub-message-enrichments-overview.md).
 
-I följande exempel visas schemat för en händelse för telemetri av enheter:
+I följande exempel visas schemat för en enhetstelemetrihändelse:
 
 ```json
 [{  
@@ -110,9 +110,9 @@ I följande exempel visas schemat för en händelse för telemetri av enheter:
 }]
 ```
 
-### <a name="device-created-schema"></a>Enhet skapad schema
+### <a name="device-created-schema"></a>Schema för enhetsskapade
 
-I följande exempel visas schemat för en enhet som skapar en händelse:
+I följande exempel visas schemat för en enhet som skapats:
 
 ```json
 [{
@@ -160,54 +160,54 @@ I följande exempel visas schemat för en enhet som skapar en händelse:
 }]
 ```
 
-En detaljerad beskrivning av varje egenskap finns i [Azure Event Grid händelse schema för IoT Hub](../event-grid/event-schema-iot-hub.md).
+En detaljerad beskrivning av varje egenskap finns i [Azure Event Grid-händelseschema för IoT Hub](../event-grid/event-schema-iot-hub.md).
 
 ## <a name="filter-events"></a>Filtrera händelser
 
-IoT Hub händelse prenumerationer kan filtrera händelser baserat på händelse typ, data innehåll och ämne, vilket är enhetens namn.
+IoT Hub-händelseprenumerationer kan filtrera händelser baserat på händelsetyp, datainnehåll och ämne, vilket är enhetens namn.
 
-Event Grid aktiverar [filtrering](../event-grid/event-filtering.md) av händelse typer, ämnen och data innehåll. När du skapar Event Grid prenumerationen kan du välja att prenumerera på valda IoT-händelser. Ämnes filter i Event Grid arbete baserat på **börjar med** (prefix) och **slutar med** (suffix) matchningar. Filtret använder en `AND` Operator, så händelser med ett ämne som matchar både prefixet och suffixet levereras till prenumeranten.
+Event Grid möjliggör [filtrering](../event-grid/event-filtering.md) på händelsetyper, ämnen och datainnehåll. När du skapar prenumerationen på Event Grid kan du välja att prenumerera på valda IoT-händelser. Ämnesfilter i händelserutnätsarbete baserat på matchningar för **Begins With** (prefix) och **Slutar med** (suffix). Filtret använder `AND` en operator, så händelser med ett ämne som matchar både prefixet och suffixet levereras till prenumeranten.
 
-Syftet med IoT-händelser använder formatet:
+Ämnet IoT-händelser använder formatet:
 
 ```json
 devices/{deviceId}
 ```
 
-Event Grid kan också filtrera efter attribut för varje händelse, inklusive data innehållet. På så sätt kan du välja vilka händelser som levereras baserat innehåll i telemetri-meddelandet. Se [avancerad filtrering](../event-grid/event-filtering.md#advanced-filtering) för att visa exempel. För filtrering i meddelande texten för telemetri måste du ange contentType till **Application/JSON** och ContentEncoding till **UTF-8** i meddelande [systemets egenskaper](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-routing-query-syntax#system-properties). Båda dessa egenskaper är Skift läges känsliga.
+Event Grid gör det också möjligt att filtrera på attribut för varje händelse, inklusive datainnehållet. På så sätt kan du välja vilka händelser som ska levereras baserat innehåll i telemetrimeddelandet. Se [avancerad filtrering](../event-grid/event-filtering.md#advanced-filtering) för att visa exempel. För filtrering på telemetrimeddelandetexten måste du ange contentType till **application/json** och contentEncoding till **UTF-8** i [meddelandesystemets egenskaper](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-routing-query-syntax#system-properties). Båda dessa egenskaper är fall okänslig.
 
-För icke-telemetri-händelser som DeviceConnected, DeviceDisconnected, DeviceCreated och DeviceDeleted, kan Event Grid filtrering användas när du skapar prenumerationen. För telemetri-händelser kan användare förutom filtreringen i Event Grid även filtrera på enhets-och meddelande egenskaper och brödtext via meddelande cirkulations frågan. 
+För icke-telemetrihändelser som DeviceConnected, DeviceDisconnected, DeviceCreated och DeviceDeleted kan filtrering av händelserutnät användas när prenumerationen skapas. För telemetrihändelser kan användare, förutom filtreringen i Händelserutnät, även filtrera på enhetstvillingar, meddelandeegenskaper och brödtext via meddelanderoutningsfrågan. 
 
-När du prenumererar på telemetri-händelser via Event Grid skapar IoT Hub en standard meddelande väg för att skicka data käll typen enhets meddelanden till Event Grid. Mer information om meddelanderoutning finns i [IoT Hub](iot-hub-devguide-messages-d2c.md)meddelanderoutning. Den här vägen visas i portalen under IoT Hub > meddelanderoutning. Endast en väg till Event Grid skapas oavsett hur många tex-prenumerationer som skapats för telemetri-händelser. Så om du behöver flera prenumerationer med olika filter kan du använda operatorn OR i dessa frågor på samma väg. Skapandet och borttagningen av vägen styrs genom prenumerationen av telemetri-händelser via Event Grid. Du kan inte skapa eller ta bort en väg för att Event Grid att använda IoT Hub meddelanderoutning.
+När du prenumererar på telemetrihändelser via Event Grid skapar IoT Hub en standardmeddelandeväg för att skicka enhetsmeddelanden för datakälltyp till Event Grid. Mer information om meddelanderoutning finns i [IoT Hub-meddelanderoutning](iot-hub-devguide-messages-d2c.md). Den här vägen visas i portalen under IoT Hub > Meddelanderoutning. Endast en väg till Event Grid skapas oavsett antalet EG-prenumerationer som skapats för telemetrihändelser. Så om du behöver flera prenumerationer med olika filter kan du använda operatorn ELLER i dessa frågor på samma väg. Skapandet och borttagningen av rutten styrs genom prenumeration på telemetrihändelser via Event Grid. Du kan inte skapa eller ta bort en väg till Händelserutnät med hjälp av IoT Hub Message Routing.
 
-Om du vill filtrera meddelanden innan telemetridata skickas kan du uppdatera din [cirkulations fråga](iot-hub-devguide-routing-query-syntax.md). Observera att cirkulations frågan bara kan användas i meddelande texten om texten är JSON. Du måste också ange contentType till **Application/JSON** och ContentEncoding till **UTF-8** i meddelande [systemets egenskaper](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-routing-query-syntax#system-properties).
+Om du vill filtrera meddelanden innan telemetridata skickas kan du uppdatera [routningsfrågan](iot-hub-devguide-routing-query-syntax.md). Observera att routningsfrågan endast kan tillämpas på meddelandetexten om brödtexten är JSON. Du måste också ange contentType till **application/json** och contentEncoding till **UTF-8** i egenskaperna för [meddelandesystemet](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-routing-query-syntax#system-properties).
 
-## <a name="limitations-for-device-connected-and-device-disconnected-events"></a>Begränsningar för enhet ansluten och avkopplade enhets händelser
+## <a name="limitations-for-device-connected-and-device-disconnected-events"></a>Begränsningar för enhet ansluten/enhet frånkopplad-händelser
 
-För att ta emot händelser för enhets anslutnings tillstånd måste en enhet göra antingen en "2C"-skicka telemetri "eller" C2D Receive Message "-åtgärd med IoT Hub. Observera dock att om en enhet använder AMQP-protokollet för att ansluta till IoT Hub, rekommenderar vi att de gör en "C2D Receive Message"-åtgärd i övrigt deras anslutnings tillstånds meddelanden kan fördröjas med några minuter. Om enheten använder MQTT-protokoll kommer IoT Hub att låta C2D-länken vara öppen. För AMQP kan du öppna länken C2D genom att anropa den [asynkrona API: et](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.deviceclient.receiveasync?view=azure-dotnet)för mottagning C# , för IoT Hub SDK eller [enhets klienten för AMQP](iot-hub-amqp-support.md#device-client).
+För att ta emot enhetsanslutningstillståndshändelser måste en enhet antingen göra en "D2C Send Telemetry" eller en C2D-mottagningsmeddelande med Iot Hub. Observera dock att om en enhet använder AMQP-protokoll för att ansluta till Iot Hub, rekommenderas att de gör en "C2D Receive Message"-åtgärd annars kan deras meddelanden om anslutningstillstånd fördröjas med några minuter. Om enheten använder MQTT-protokollet håller IoT Hub C2D-länken öppen. För AMQP kan du öppna C2D-länken genom att anropa [Receive Async API](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.deviceclient.receiveasync?view=azure-dotnet), för IoT Hub C# SDK eller [enhetsklient för AMQP](iot-hub-amqp-support.md#device-client).
 
 D2C-länken är öppen om du skickar telemetri. 
 
-Om enhets anslutningen flimrar, vilket innebär att enheten ansluter och kopplar från ofta, kommer vi inte att skicka varje enskilt anslutnings tillstånd, men kommer att publicera det aktuella anslutnings läget på en periodisk ögonblicks bild, tills flimmen fortsätter. Om du tar emot antingen samma anslutnings tillstånds händelse med olika sekvensnummer eller olika anslutnings tillstånds händelser innebär det att du har ändrat enhetens anslutnings tillstånd.
+Om enhetsanslutningen flimrar, vilket innebär att enheten ansluter och kopplar från ofta, skickar vi inte varenda anslutningstillstånd, men publicerar det aktuella anslutningstillståndet som tas vid en periodisk ögonblicksbild tills flimmer fortsätter. Ta emot antingen samma anslutningstillstånd händelse med olika sekvensnummer eller olika anslutningstillstånd händelser båda innebär att det fanns en förändring i enheten anslutningstillstånd.
 
 ## <a name="tips-for-consuming-events"></a>Tips för att konsumera händelser
 
-Program som hanterar IoT Hub händelser bör följa de här rekommendationerna:
+Program som hanterar IoT Hub-händelser bör följa dessa föreslagna metoder:
 
-* Flera prenumerationer kan konfigureras för att dirigera händelser till samma händelse hanterare, så anta inte att händelser kommer från en viss källa. Kontrol lera alltid meddelandet för att se till att det kommer från den IoT-hubb som du förväntar dig.
+* Flera prenumerationer kan konfigureras för att dirigera händelser till samma händelsehanterare, så anta inte att händelser kommer från en viss källa. Kontrollera alltid meddelandeämnet för att se till att det kommer från IoT-hubben som du förväntar dig.
 
-* Anta inte att alla händelser som du tar emot är de typer som du förväntar dig. Kontrol lera alltid eventType innan du bearbetar meddelandet.
+* Anta inte att alla händelser du får är de typer som du förväntar dig. Kontrollera alltid eventType innan du bearbetar meddelandet.
 
-* Meddelanden kan tas emot i rätt ordning eller efter en fördröjning. Använd etag-fältet för att ta reda på om din information om objekt är uppdaterad för enhet som skapats eller enhets borttagnings händelser.
+* Meddelanden kan komma i oordning eller efter en fördröjning. Använd etag-fältet för att förstå om din information om objekt är uppdaterad för enhetsskapade eller enhetsuttagna händelser.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Prova själv studie kursen om IoT Hub händelser](../event-grid/publish-iot-hub-events-to-logic-apps.md)
+* [Prova självstudiekursen för IoT Hub-händelser](../event-grid/publish-iot-hub-events-to-logic-apps.md)
 
 * [Lär dig att ordna enhetsanslutningshändelser och frånkopplingar](iot-hub-how-to-order-connection-state-events.md)
 
 * [Läs mer om Event Grid](../event-grid/overview.md)
 
-* [Jämför skillnaderna mellan routning IoT Hub händelser och meddelanden](iot-hub-event-grid-routing-comparison.md)
+* [Jämföra skillnaderna mellan routning av IoT Hub-händelser och meddelanden](iot-hub-event-grid-routing-comparison.md)
 
-* [Lär dig hur du använder IoT-telemetri för att implementera IoT spatial Analytics med hjälp av Azure Maps](../azure-maps/tutorial-iot-hub-maps.md#create-an-azure-function-and-add-an-event-grid-subscription)
+* [Lär dig hur du använder IoT-telemetrihändelser för att implementera IoT spatial analytics med Azure Maps](../azure-maps/tutorial-iot-hub-maps.md#create-an-azure-function-and-add-an-event-grid-subscription)

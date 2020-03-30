@@ -1,30 +1,30 @@
 ---
-title: Azure Service Fabric – använda referenser för Service Fabric-program för nyckel valv
-description: Den här artikeln förklarar hur du använder Service Fabric KeyVaultReference-stöd för program hemligheter.
+title: Azure Service Fabric - Använda KeyVault-referenser för service fabric-program
+description: I den här artikeln beskrivs hur du använder keyvaultreference-stöd för tjänstuppgörelser för programhemligheter.
 ms.topic: article
 ms.date: 09/20/2019
 ms.openlocfilehash: f7d8a083ea5ec4b66c29d392ee98927915465875
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76545491"
 ---
-#  <a name="keyvaultreference-support-for-service-fabric-applications-preview"></a>KeyVaultReference-stöd för Service Fabric program (för hands version)
+#  <a name="keyvaultreference-support-for-service-fabric-applications-preview"></a>KeyVaultReference-stöd för Service Fabric-program (förhandsversion)
 
-En vanlig utmaning när du bygger moln program är hur du säkert lagrar hemligheter som krävs av ditt program. Du kanske till exempel vill lagra autentiseringsuppgifterna för behållar databasen i nyckel valvet och referera till den i program manifestet. Service Fabric KeyVaultReference använder Service Fabric hanterad identitet och gör det enkelt att referera till nyckel valv hemligheter. Resten av den här artikeln beskriver hur du använder Service Fabric KeyVaultReference och innehåller en typisk användning.
+En vanlig utmaning när du skapar molnprogram är hur du på ett säkert sätt lagrar hemligheter som krävs av ditt program. Du kanske till exempel vill lagra autentiseringsuppgifterna för behållardatabasen i keyvault och referera till dem i programmanifestet. Service Fabric KeyVaultReference använder Service Fabric Managed Identity och gör det enkelt att referera till nyckeldatahemligheter. Resten av den här artikeln beskriver hur du använder Service Fabric KeyVaultReference och innehåller några typiska användning.
 
 ## <a name="prerequisites"></a>Krav
 
-- Hanterad identitet för program (MIT)
+- Hanterad identitet för ansökan (MIT)
     
-    Service Fabric KeyVaultReference-support använder programmets hanterade identitet och därför planerar att använda KeyVaultReferences bör använda hanterad identitet. Följ det här [dokumentet](concepts-managed-identity.md) för att aktivera hanterad identitet för ditt program.
+    Support för Service Fabric KeyVaultReference använder programmets hanterade identitet och därför bör program som planerar att använda KeyVaultReferences använda hanterad identitet. Följ det här [dokumentet](concepts-managed-identity.md) om du vill aktivera hanterad identitet för ditt program.
 
-- Centrala hemligheter lagras (CSS).
+- Central Secrets Store (CSS).
 
-    Den centrala hemligheter Store (CSS) är Service Fabrics krypterade lokala hemligheter. CSS är en lokal hemlighet som lagrar känsliga data, till exempel lösen ord, tokens och nycklar, krypterade i minnet. KeyVaultReference, som har hämtats, cachelagras i CSS.
+    Central Secrets Store (CSS) är Service Fabric krypterade lokala hemligheter cache. CSS är en lokal hemlig lagringscache som behåller känsliga data, till exempel ett lösenord, token och nycklar, krypterade i minnet. KeyVaultReference, när den har hämtats, cachelagras i CSS.
 
-    Lägg till nedanstående i kluster konfigurationen under `fabricSettings` för att aktivera alla nödvändiga funktioner för KeyVaultReference-stöd.
+    Lägg till nedanstående i `fabricSettings` klusterkonfigurationen under för att aktivera alla nödvändiga funktioner för KeyVaultReference-stöd.
 
     ```json
     "fabricSettings": 
@@ -60,7 +60,7 @@ En vanlig utmaning när du bygger moln program är hur du säkert lagrar hemligh
     ```
 
     > [!NOTE] 
-    > Vi rekommenderar att du använder ett separat krypterings certifikat för CSS. Du kan lägga till det under avsnittet "CentralSecretService".
+    > Vi rekommenderar att du använder ett separat krypteringscertifikat för CSS. Du kan lägga till den under avsnittet "CentralSecretService".
     
 
     ```json
@@ -69,7 +69,7 @@ En vanlig utmaning när du bygger moln program är hur du säkert lagrar hemligh
             "value": "<EncryptionCertificateThumbprint for CSS>"
         }
     ```
-För att ändringarna ska träda i kraft måste du också ändra uppgraderings principen för att ange en tvingande omstart av Service Fabric runtime på varje nod när uppgraderingen fortskrider genom klustret. Den här omstarten säkerställer att den nyligen aktiverade system tjänsten startas och körs på varje nod. I kodfragmentet nedan är forceRestart den viktigaste inställningen. Använd dina befintliga värden för resten av inställningarna.
+För att ändringarna ska börja gälla måste du också ändra uppgraderingsprincipen för att ange en kraftfull omstart av Service Fabric-körningen på varje nod när uppgraderingen fortskrider genom klustret. Den här omstarten säkerställer att den nyligen aktiverade systemtjänsten startas och körs på varje nod. I kodavsnittet nedan är forceRestart den väsentliga inställningen. använda dina befintliga värden för resten av inställningarna.
 ```json
 "upgradeDescription": {
     "forceRestart": true,
@@ -81,23 +81,23 @@ För att ändringarna ska träda i kraft måste du också ändra uppgraderings p
     "upgradeTimeout": "12:00:00"
 }
 ```
-- Bevilja programmets åtkomst behörighet för hanterad identitet till nyckel valvet
+- Bevilja programmets behörighet för hanterad identitetsåtkomst till keyvault
 
-    Referera till det här [dokumentet](how-to-grant-access-other-resources.md) för att se hur du beviljar hanterad identitets åtkomst till nyckel valv. Observera också om du använder systemtilldelad hanterad identitet skapas den hanterade identiteten endast efter program distributionen.
+    Referera till det här [dokumentet](how-to-grant-access-other-resources.md) för att se hur du beviljar hanterad identitetsåtkomst till keyvault. Observera också att om du använder systemtilldelade hanterade identitet, skapas den hanterade identiteten först efter programdistribution.
 
-## <a name="keyvault-secret-as-application-parameter"></a>Nyckel valvs hemlighet som program parameter
-Låt oss säga att programmet behöver läsa databas lösen ordet för Server delen som lagras i nyckel valvet. Service Fabric KeyVaultReference-support gör det enkelt. Exemplet nedan läser `DBPassword` hemlighet från ett nyckel valv med hjälp av stöd för Service Fabric KeyVaultReference.
+## <a name="keyvault-secret-as-application-parameter"></a>Keyvault hemlighet som applikationsparameter
+Låt oss säga att programmet måste läsa backend databas lösenord lagras i keyvault, Service Fabric KeyVaultReference stöd gör det enkelt. Nedanstående `DBPassword` exempel lyder hemlighet från keyvault med hjälp av Stöd för Service Fabric KeyVaultReference.
 
-- Lägg till ett avsnitt i Settings. XML
+- Lägga till ett avsnitt i settings.xml
 
-    Definiera `DBPassword` parameter med typen `KeyVaultReference` och värde `<KeyVaultURL>`
+    Definiera `DBPassword` parameter `KeyVaultReference` med typ och värde`<KeyVaultURL>`
 
     ```xml
     <Section Name="dbsecrets">
         <Parameter Name="DBPassword" Type="KeyVaultReference" Value="https://vault200.vault.azure.net/secrets/dbpassword/8ec042bbe0ea4356b9b171588a8a1f32"/>
     </Section>
     ```
-- Referera till det nya avsnittet i ApplicationManifest. xml i `<ConfigPackagePolicies>`
+- Referera till det nya avsnittet i ApplicationManifest.xml i`<ConfigPackagePolicies>`
 
     ```xml
     <ServiceManifestImport>
@@ -115,7 +115,7 @@ Låt oss säga att programmet behöver läsa databas lösen ordet för Server de
 
 - Använda KeyVaultReference i ditt program
 
-    Service Fabric på tjänsteinstansieringen kommer att matcha KeyVaultReference-parametern med programmets hanterade identitet. Varje parameter som anges under `<Section  Name=dbsecrets>` är en fil under mappen som EnvironmentVariable SecretPath. Under C# kodfragmentet visas hur du läser DBPassword i ditt program.
+    Service Fabric på tjänsten instansiering kommer att lösa KeyVaultReference Parameter med hjälp av programmets hanterade identitet. Varje parameter som `<Section  Name=dbsecrets>` anges under kommer att vara en fil under mappen som pekar på av EnvironmentVariable SecretPath. Nedan C # kod utdrag visa hur man läser DBPassword i ditt program.
 
     ```C#
     string secretPath = Environment.GetEnvironmentVariable("SecretPath");
@@ -126,11 +126,11 @@ Låt oss säga att programmet behöver läsa databas lösen ordet för Server de
     }
     ```
     > [!NOTE] 
-    > För container scenariot kan du använda monterings punkt för att styra var `secrets` ska monteras.
+    > För behållarscenariot kan du använda MountPoint för att styra var ska `secrets` monteras.
 
-## <a name="keyvault-secret-as-environment-variable"></a>Nyckel valvs hemlighet som miljö variabel
+## <a name="keyvault-secret-as-environment-variable"></a>Keyvault hemlighet som miljö variabel
 
-Service Fabric miljövariabler stöder nu KeyVaultReference-typ, och exempel visar hur du binder en miljö variabel till en hemlighet som lagras i ett nyckel valv.
+Service Fabric-miljövariabler stöder nu KeyVaultReference-typ, nedan visar exemplet hur du binder en miljövariabel till en hemlighet som lagras i KeyVault.
 
 ```xml
 <EnvironmentVariables>
@@ -141,21 +141,21 @@ Service Fabric miljövariabler stöder nu KeyVaultReference-typ, och exempel vis
 ```C#
 string eventStorePassword =  Environment.GetEnvironmentVariable("EventStorePassword");
 ```
-## <a name="keyvault-secret-as-container-repository-password"></a>Nyckel valvs hemlighet som container databas lösen ord
-KeyVaultReference är en typ som stöds för container RepositoryCredentials. nedan visas ett exempel på hur du använder en nyckel valv referens som lösen ord för container lagring.
+## <a name="keyvault-secret-as-container-repository-password"></a>Keyvault hemlighet som container databas lösenord
+KeyVaultReference är en typ som stöds för container RepositoryCredentials, nedan visas hur du använder en keyvault-referens som lösenord för behållardatabasen.
 ```xml
  <Policies>
       <ContainerHostPolicies CodePackageRef="Code">
         <RepositoryCredentials AccountName="user1" Type="KeyVaultReference" Password="https://ttkvault.vault.azure.net/secrets/containerpwd/e225bd97e203430d809740b47736b9b8"/>
       </ContainerHostPolicies>
 ```
-## <a name="faq"></a>FAQ
-- Hanterad identitet måste aktive ras för KeyVaultReference-stöd, din program aktivering Miss fungerar om KeyVaultReference används utan att aktivera hanterad identitet.
+## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
+- Hanterad identitet måste aktiveras för KeyVaultReference-stöd, programaktiveringen misslyckas om KeyVaultReference används utan att aktivera hanterad identitet.
 
-- Om du använder en tilldelad identitet skapas den bara när programmet har distribuerats och detta skapar ett cirkulärt beroende. När ditt program har distribuerats kan du ge systemet tilldelad identitet åtkomst behörighet till nyckel valvet. Du hittar systemet tilldelad identitet efter namn {Cluster}/{Application namn}/{ServiceName}
+- Om du använder systemtilldelade identitet skapas den först när programmet har distribuerats och detta skapar ett cirkulärt beroende. När ditt program har distribuerats kan du bevilja den systemtilldelade identitetsbehörigheten till keyvault. Du hittar den systemtilldelade identiteten efter namn {cluster}/{application name}/{servicename}
 
-- Nyckel valvet måste finnas i samma prenumeration som Service Fabric-klustret. 
+- Keyvault måste finnas i samma prenumeration som ditt serviceinfrastrukturkluster. 
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Dokumentation om Azure-valv](https://docs.microsoft.com/azure/key-vault/)
+* [Azure KeyVault-dokumentation](https://docs.microsoft.com/azure/key-vault/)

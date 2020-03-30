@@ -1,7 +1,7 @@
 ---
-title: Designa globalt tillgängliga tjänster
-description: Lär dig mer om program design för tjänster med hög tillgänglighet med hjälp av Azure SQL Database.
-keywords: moln haveri beredskap, katastrof återställnings lösningar, säkerhets kopiering av AppData, geo-replikering, planering av affärs kontinuitet
+title: Utforma globalt tillgängliga tjänster
+description: Lär dig mer om programdesign för tjänster med högtillgänge med Azure SQL Database.
+keywords: molnkatastrofåterställning,katastrofåterställningslösningar,säkerhetskopiering av appdata,geo-replikering,kontinuitetsplanering
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
@@ -13,156 +13,156 @@ ms.author: sashan
 ms.reviewer: carlrab
 ms.date: 12/04/2018
 ms.openlocfilehash: 348bd2b92801217a5aea2ef4d1426c020085e4c1
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79269073"
 ---
-# <a name="designing-globally-available-services-using-azure-sql-database"></a>Designa globalt tillgängliga tjänster med hjälp av Azure SQL Database
+# <a name="designing-globally-available-services-using-azure-sql-database"></a>Utforma globalt tillgängliga tjänster med Azure SQL Database
 
-När du skapar och distribuerar moln tjänster med Azure SQL Database använder du [aktiva geo-replikering](sql-database-active-geo-replication.md) eller [grupper med automatisk redundans](sql-database-auto-failover-group.md) för att ge återhämtning till regionala avbrott och katastrof fel. Med samma funktion kan du skapa globalt distribuerade program som är optimerade för lokal åtkomst till data. I den här artikeln beskrivs vanliga program mönster, inklusive fördelarna och de olika alternativen för att handla.
+När du skapar och distribuerar molntjänster med Azure SQL Database använder du [aktiva georeplikerings-](sql-database-active-geo-replication.md) eller [automatisk redundansgrupper](sql-database-auto-failover-group.md) för att ge motståndskraft mot regionala avbrott och katastrofala fel. Samma funktion gör att du kan skapa globalt distribuerade program som är optimerade för lokal åtkomst till data. I den här artikeln beskrivs vanliga programmönster, inklusive fördelarna och kompromisserna med varje alternativ.
 
 > [!NOTE]
-> Om du använder Premium-eller Affärskritisk databaser och elastiska pooler kan du göra dem flexibla till regionala drifts störningar genom att konvertera dem till zonens redundant distributions konfiguration. Se [zoner-redundanta databaser](sql-database-high-availability.md).  
+> Om du använder Premium- eller Affärskritiska databaser och elastiska pooler kan du göra dem motståndskraftiga mot regionala avbrott genom att konvertera dem till zon redundant distributionskonfiguration. Se [Zonundanta databaser](sql-database-high-availability.md).  
 
-## <a name="scenario-1-using-two-azure-regions-for-business-continuity-with-minimal-downtime"></a>Scenario 1: använda två Azure-regioner för affärs kontinuitet med minimal stillestånds tid
+## <a name="scenario-1-using-two-azure-regions-for-business-continuity-with-minimal-downtime"></a>Scenario 1: Använda två Azure-regioner för affärskontinuitet med minimal stilleståndstid
 
-I det här scenariot har programmen följande egenskaper:
+I det här fallet har programmen följande egenskaper:
 
 * Programmet är aktivt i en Azure-region
-* Alla Databassessioner kräver Läs-och skriv åtkomst (RW) till data
-* Webb nivån och data nivån måste vara samordnad för att minska svars tid och trafik kostnader
-* I grunden är nedtid en högre affärs risk för dessa program än data förlust
+* Alla databassessioner kräver läs- och skrivåtkomst (RW) till data
+* Webbnivå och datanivå måste samlokaliseringsplats för att minska svarstiden och trafikkostnaden
+* I grund och med detta är driftstopp en högre affärsrisk för dessa applikationer än dataförlust
 
-I det här fallet är program distributionens topologi optimerad för hantering av regionala katastrofer när alla program komponenter behöver redundansväxla. Diagrammet nedan visar topologin. För geografisk redundans distribueras programmets resurser till region A och B. Men resurserna i region B används inte förrän regionen A Miss lyckas. En failover-grupp konfigureras mellan de två regionerna för att hantera databas anslutning, replikering och redundans. Webb tjänsten i båda regionerna har kon figurer ATS för åtkomst till databasen via Läs-och skriv lyssnare **&lt;redundans-grupp-namn&gt;. Database.Windows.net** (1). Traffic Manager har kon figurer ATS för användning av [prioritets dirigering](../traffic-manager/traffic-manager-configure-priority-routing-method.md) (2).  
+I det här fallet är programdistributionstopologin optimerad för hantering av regionala katastrofer när alla programkomponenter behöver redundans tillsammans. Diagrammet nedan visar denna topologi. För geografisk redundans distribueras programmets resurser till region A och B. Resurserna i region B utnyttjas dock inte förrän region A misslyckas. En redundansgrupp har konfigurerats mellan de två regionerna för att hantera databasanslutning, replikering och redundans. Webbtjänsten i båda regionerna är konfigurerad för att komma åt databasen via ** &lt;&gt;redundansklassnamnet .database.windows.net** (1). Traffic manager har ställts in för att använda [prioritetsdirigeringsmetod](../traffic-manager/traffic-manager-configure-priority-routing-method.md) (2).  
 
 > [!NOTE]
-> [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md) används endast i den här artikeln i illustrations syfte. Du kan använda valfri belastnings Utjämnings lösning som stöder metoden prioriterad routning.
+> [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md) används endast i hela den här artikeln för illustrationsändamål. Du kan använda alla belastningsutjämningslösningar som stöder prioritetsroutningsmetod.
 
 Följande diagram visar den här konfigurationen före ett avbrott:
 
 ![Scenario 1. Konfiguration före avbrottet.](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/scenario1-a.png)
 
-Efter ett avbrott i den primära regionen upptäcker SQL Database tjänsten att den primära databasen inte är tillgänglig och utlöser redundansväxling till den sekundära regionen baserat på parametrarna i den automatiska redundansväxlingen (1). Beroende på ditt service avtal för program kan du konfigurera en Respitperiod som styr tiden mellan identifieringen av avbrottet och redundansväxlingen. Det är möjligt att Traffic Manager initierar slut punkts redundansväxlingen innan gruppen för växling vid fel utlöser redundansväxlingen av databasen. I så fall kan inte webb programmet återansluta direkt till-databasen. Men åter anslutningar kommer att lyckas automatiskt så snart databasen har slutförts. När den felande regionen återställs och online igen återansluter den gamla primära servern automatiskt som en ny sekundär. Diagrammet nedan visar konfigurationen efter redundansväxlingen.
+Efter ett avbrott i den primära regionen upptäcker SQL Database-tjänsten att den primära databasen inte är tillgänglig och utlöser redundans till den sekundära regionen baserat på parametrarna för den automatiska redundansprincipen (1). Beroende på ditt program-serviceavtal kan du konfigurera en respitperiod som styr tiden mellan identifieringen av avbrottet och själva redundansen. Det är möjligt att traffic manager initierar redundans för slutpunkten innan redundansgruppen utlöser redundansen för databasen. I så fall kan webbprogrammet inte omedelbart återansluta till databasen. Men återanslutningarna kommer automatiskt att lyckas så snart databasen redundansen är klar. När den misslyckade regionen återställs och är online igen återansluts den gamla primärt automatiskt som en ny sekundär. Diagrammet nedan illustrerar konfigurationen efter redundans.
 
 > [!NOTE]
-> Alla transaktioner som har utförts efter redundansväxlingen förloras under åter anslutningen. När redundansväxlingen är klar kan programmet i region B kunna återansluta och starta om bearbetningen av användar förfrågningarna. Både webb programmet och den primära databasen finns nu i region B och är samplacerade.
+> Alla transaktioner som har genomförts efter redundansen går förlorade under återanslutningen. När redundansen har slutförts kan programmet i region B återansluta och starta om bearbetningen av användarbegäranden. Både webbprogrammet och den primära databasen finns nu i region B och finns kvar i samlokalt.
 
 ![Scenario 1. Konfiguration efter redundans](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/scenario1-b.png)
 
-Om ett avbrott inträffar i region B pausas replikeringen mellan den primära databasen och den sekundära databasen, men länken mellan de två förblir intakt (1). Hanterad trafik upptäcker att anslutningen till region B är bruten och markerar slut punkts webbappen 2 som degraderad (2). Programmets prestanda påverkas inte i det här fallet, men databasen exponeras och därmed högre risk för data förlust i fall region A Miss lyckas i följd.
+Om ett avbrott inträffar i region B pausas replikeringsprocessen mellan den primära och den sekundära databasen, men länken mellan de två förblir intakt (1). Trafikhanterad identifierar att anslutningen till region B är bruten och markerar slutpunktswebbapp 2 som Degraderad (2). Programmets prestanda påverkas inte i det här fallet, men databasen exponeras och löper därför högre risk för dataförlust om region A misslyckas i följd.
 
 > [!NOTE]
-> Vid haveri beredskap rekommenderar vi att konfigurationen med program distribution är begränsad till två regioner. Detta beror på att de flesta av Azures geografiska områden bara har två regioner. Den här konfigurationen skyddar inte ditt program från ett samtidigt oåterkalleligt haveri i båda regionerna. Om det är osannolikt att ett fel uppstår kan du återställa databaserna i en tredje region med [geo Restore-åtgärden](sql-database-disaster-recovery.md#recover-using-geo-restore).
+> För haveriberedskap rekommenderar vi konfigurationen med programdistribution begränsad till två regioner. Detta beror på att de flesta azure-geografiska områden bara har två regioner. Den här konfigurationen skyddar inte ditt program från ett samtidigt oåterkalleligt fel i båda regionerna. I en osannolik händelse av ett sådant fel kan du återställa dina databaser i en tredje region med hjälp av [geoåterställning.](sql-database-disaster-recovery.md#recover-using-geo-restore)
 >
 
- När avbrottet har begränsats omsynkroniseras den sekundära databasen automatiskt med den primära databasen. Under synkroniseringen kan prestanda för den primära påverkas. Den speciella påverkan beror på mängden data som den nya primära primära förvärvade sedan redundansväxlingen. Följande diagram illustrerar ett avbrott i den sekundära regionen:
+ När avbrottet har mildrats synkroniseras den sekundära databasen automatiskt med den primära. Under synkroniseringen kan primärprestanda påverkas. Den specifika effekten beror på mängden data som den nya primärinvalen har fått sedan redundansen. Följande diagram illustrerar ett avbrott i den sekundära regionen:
 
 ![Scenario 1. Konfiguration efter ett avbrott i den sekundära regionen.](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/scenario1-c.png)
 
-De främsta **fördelarna** med det här design mönstret är:
+De viktigaste **fördelarna med** detta designmönster är:
 
-* Samma webb program distribueras till båda regionerna utan en landsspecifika konfiguration och kräver ingen ytterligare logik för att hantera redundans.
-* Program prestanda påverkas inte av redundans eftersom webb programmet och databasen alltid är samplacerade.
+* Samma webbprogram distribueras till båda regionerna utan regionspecifik konfiguration och kräver inte ytterligare logik för att hantera redundans.
+* Programmets prestanda påverkas inte av redundans eftersom webbprogrammet och databasen alltid finns i samlokalisen.
 
-Den största **kompromissen** är att program resurserna i region B är underutnyttjade som mest av tiden.
+Den huvudsakliga **kompromissen** är att programresurserna i region B underutnyttjas för det mesta.
 
-## <a name="scenario-2-azure-regions-for-business-continuity-with-maximum-data-preservation"></a>Scenario 2: Azure-regioner för affärs kontinuitet med maximal data bevarande
+## <a name="scenario-2-azure-regions-for-business-continuity-with-maximum-data-preservation"></a>Scenario 2: Azure-regioner för affärskontinuitet med maximal bevarande av data
 
 Det här alternativet passar bäst för program med följande egenskaper:
 
-* Data förlust är höga affärs risker. Det går bara att använda redundansväxlingen för databasen som en sista utväg om avbrottet orsakas av ett oåterkalleligt fel.
-* Programmet har stöd för skrivskyddade och Läs-och skriv åtgärder och kan köras i "skrivskyddat läge" under en viss tids period.
+* Alla dataförluster är hög affärsrisk. Databasen redundans kan endast användas som en sista utväg om avbrottet orsakas av ett katastrofalt fel.
+* Programmet stöder skrivskyddade och skrivskyddade driftslägen och kan fungera i "skrivskyddat läge" under en viss tid.
 
-I det här mönstret växlar programmet till skrivskyddat läge när Läs-och skriv anslutningar börjar få timeout-fel. Webb programmet distribueras till båda regionerna och innehåller en anslutning till Skriv-och skriv lyssnar slut punkten och en annan anslutning till den skrivskyddade lyssnar slut punkten (1). Traffic Manager-profilen ska använda [prioriterad routning](../traffic-manager/traffic-manager-configure-priority-routing-method.md). [Slut punkts övervakningen](../traffic-manager/traffic-manager-monitoring.md) ska vara aktive rad för program slut punkten i varje region (2).
+I det här mönstret växlar programmet till skrivskyddat läge när läs-skriv-anslutningarna börjar få time-out-fel. Webbprogrammet distribueras till båda regionerna och innehåller en anslutning till slutpunkten för läs-och skrivavlyssningsavlyssningspunkten och annan anslutning till slutpunkten för skrivskyddad lyssnare (1). Traffic Manager-profilen bör använda [prioritetsroutning](../traffic-manager/traffic-manager-configure-priority-routing-method.md). [Slutpunktsövervakningen](../traffic-manager/traffic-manager-monitoring.md) bör aktiveras för programslutpunkten i varje region (2).
 
-Följande diagram visar den här konfigurationen före ett avbrott:
+Följande diagram illustrerar den här konfigurationen före ett avbrott:
 
 ![Scenario 2. Konfiguration före avbrottet.](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/scenario2-a.png)
 
-När Traffic Manager identifierar ett anslutnings problem till region A växlar den automatiskt användar trafik till program instansen i region B. Med det här mönstret är det viktigt att du ställer in Grace-perioden med data förlust till ett tillräckligt högt värde, till exempel 24 timmar. Det säkerställer att data förlust förhindras om avbrott minimeras inom den tiden. När webb programmet i region B är aktiverat startar inte Läs-och skriv åtgärder. Vid det här läget bör den växla till skrivskyddat läge (1). I det här läget dirigeras begär Anden automatiskt till den sekundära databasen. Om avbrottet orsakas av ett oåterkalleligt haveri, kan det bero på att det inte kan undvikas inom respitperioden. När den går ut utlöser redundansväxlingen. När den Läs-och skriv lyssnaren blir tillgänglig och anslutningarna stoppas (2). Följande diagram illustrerar de två stegen i återställnings processen.
+När trafikhanteraren upptäcker ett anslutningsfel till region A växlar den automatiskt användartrafik till programinstansen i region B. Med det här mönstret är det viktigt att du ställer in respitperioden med dataförlust till ett tillräckligt högt värde, till exempel 24 timmar. Det säkerställer att dataförlust förhindras om avbrottet minskas inom den tiden. När webbprogrammet i region B aktiveras börjar läs-skrivåtgärderna misslyckas. Vid den tidpunkten bör den växla till skrivskyddat läge (1). I det här läget dirigeras begärandena automatiskt till den sekundära databasen. Om avbrottet orsakas av ett oåterkalleligt fel kan det troligen inte minskas inom respitperioden. När redundansgruppen upphör att gälla utlöses redundansen. Efter att läs-skriva lyssnaren blir tillgänglig och anslutningarna till den slutar misslyckas (2). Följande diagram illustrerar de två stegen i återställningsprocessen.
 
 > [!NOTE]
-> Om avbrottet i den primära regionen minskas inom respitperioden, identifierar Traffic Manager återställning av anslutningen i den primära regionen och växlar användar trafiken tillbaka till program instansen i region A. Den program instansen återupptas och körs i Läs-och skriv läge med hjälp av den primära databasen i regionen A som illustreras i föregående diagram.
+> Om avbrottet i den primära regionen minskas inom respitperioden identifierar trafikhanteraren återställning av anslutningen i den primära regionen och växlar användartrafik tillbaka till programinstansen i region A. Programinstansen återupptas och fungerar i läs-skrivläge med hjälp av den primära databasen i region A enligt föregående diagram.
 
-![Scenario 2. Katastrof återställnings steg.](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/scenario2-b.png)
+![Scenario 2. Katastrofåterställning stadier.](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/scenario2-b.png)
 
-Om ett avbrott inträffar i region B identifierar Traffic Manager problemet med slut punkten Web-App-2 i region B och markerar den försämrad (1). Under tiden växlar redundans gruppen till den skrivskyddade lyssnaren till region A (2). Detta avbrott påverkar inte slutanvändarens upplevelse, men den primära databasen exponeras under avbrottet. Följande diagram illustrerar ett haveri i den sekundära regionen:
+Om ett avbrott inträffar i region B upptäcker trafikhanteraren felet för slutpunkten web-app-2 i region B och markerar det försämrat (1). Under tiden växlar redundansgruppen den skrivskyddade lyssnaren till region A (2). Det här avbrottet påverkar inte slutanvändarens upplevelse, men den primära databasen exponeras under avbrottet. Följande diagram illustrerar ett fel i den sekundära regionen:
 
 ![Scenario 2. Avbrott i den sekundära regionen.](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/scenario2-c.png)
 
-När avbrottet har begränsats synkroniseras den sekundära databasen omedelbart med den primära databasen och den skrivskyddade lyssnaren växlas tillbaka till den sekundära databasen i region B. Under synkroniseringen av den primära kundens prestanda påverkas något beroende på mängden data som måste synkroniseras.
+När avbrottet har mildrats synkroniseras den sekundära databasen omedelbart med den primära och den skrivskyddade lyssnaren växlas tillbaka till den sekundära databasen i region B. Under synkroniseringsprestanda för den primära kan påverkas något beroende på mängden data som behöver synkroniseras.
 
-Det här design mönstret har flera **fördelar**:
+Detta designmönster har flera **fördelar:**
 
-* Det förhindrar data förlust under de tillfälliga drift stoppen.
-* Stillestånds tiden beror bara på hur snabbt Traffic Manager identifierar anslutnings fel, vilket kan konfigureras.
+* Den undviker dataförlust under tillfälliga avbrott.
+* Driftstopp beror bara på hur snabbt traffic manager upptäcker anslutningsfel, som kan konfigureras.
 
-**Kompromissen** är att programmet måste kunna köras i skrivskyddat läge.
+**Kompromissen** är att programmet måste kunna fungera i skrivskyddat läge.
 
-## <a name="scenario-3-application-relocation-to-a-different-geography-without-data-loss-and-near-zero-downtime"></a>Scenario 3: program flyttning till en annan geografi utan data förlust och nästan noll stillestånds tid
+## <a name="scenario-3-application-relocation-to-a-different-geography-without-data-loss-and-near-zero-downtime"></a>Scenario 3: Omlokalisering av program till en annan geografi utan dataförlust och nära noll driftstopp
 
-I det här scenariot har programmet följande egenskaper:
+I det här fallet har programmet följande egenskaper:
 
-* Slutanvändarna får åtkomst till programmet från olika geografiska områden
-* Programmet innehåller skrivskyddade arbets belastningar som inte är beroende av fullständig synkronisering med de senaste uppdateringarna
-* Skriv åtkomst till data bör stödjas i samma geografi för merparten av användarna
-* Läs fördröjning är avgörande för slut användar upplevelsen
+* Slutanvändarna får tillgång till programmet från olika geografiska områden
+* Programmet innehåller skrivskyddade arbetsbelastningar som inte är beroende av fullständig synkronisering med de senaste uppdateringarna
+* Skrivåtkomst till data bör stödjas i samma geografi för majoriteten av användarna
+* Läsfördröjning är avgörande för slutanvändarens upplevelse
 
-För att uppfylla dessa krav måste du garantera att användar enheten **alltid** ansluter till programmet som distribueras i samma geografi för de skrivskyddade åtgärderna, till exempel att bläddra bland data, analyser osv. OLTP-åtgärderna bearbetas i samma geografi som det **mesta av tiden**. Till exempel under dagen då OLTP-åtgärder bearbetas i samma geografi, men under de tids perioder som de kunde bearbetas i en annan geografi. Om aktiviteten för slutanvändare huvudsakligen sker under arbets tiden kan du garantera optimala prestanda för de flesta av användarna. Följande diagram visar den här topologin.
+För att uppfylla dessa krav måste du garantera att användarenheten **alltid** ansluter till programmet som distribueras i samma geografi för skrivskyddade åtgärder, såsom webbdata, analys etc. Oltp-åtgärderna bearbetas i samma geografi **för det mesta.** Till exempel under dagtid bearbetas OLTP-åtgärder i samma geografi, men under de lediga timmarna kan de bearbetas i en annan geografi. Om slutanvändarens aktivitet oftast sker under arbetstid kan du garantera optimal prestanda för de flesta användare för det mesta. Följande diagram visar den här topologin.
 
-Programmets resurser bör distribueras i varje geografiskt område där du har avsevärd användning efter frågan. Om ditt program till exempel används aktivt i USA, måste Europeiska unionen och Asien, sydöstra programmet distribueras till alla dessa geografiska områden. Den primära databasen ska växlas dynamiskt från en geografi till nästa i slutet av arbets tiden. Den här metoden kallas "Följ solen". OLTP-arbetsbelastningen ansluter alltid till databasen via Läs-och skriv lyssnare **&lt;redundans-grupp-namn&gt;. Database.Windows.net** (1). Den skrivskyddade arbets belastningen ansluter till den lokala databasen direkt med databas serverns slut punkt **&lt;Server namn&gt;. Database.Windows.net** (2). Traffic Manager konfigureras med [routningsmetod för prestanda](../traffic-manager/traffic-manager-configure-performance-routing-method.md). Det säkerställer att slutanvändarens enhet är ansluten till webb tjänsten i den närmaste regionen. Traffic Manager måste konfigureras med slut punkts övervakning aktiverat för varje webb tjänst slut punkt (3).
-
-> [!NOTE]
-> Konfigurationen av redundanskonfiguration definierar vilken region som används för redundans. Eftersom den nya primären finns i en annan geografi, resulterar redundansväxlingen i längre latens för både OLTP-och skrivskyddade arbets belastningar tills den berörda regionen är online igen.
-
-![Scenario 3. Konfiguration med primär i östra USA.](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/scenario3-a.png)
-
-I slutet av dagen, till exempel vid en lokal tid på 11 PM, ska de aktiva databaserna växlas till nästa region (Europa, norra). Den här uppgiften kan automatiseras helt med hjälp av [Azure Logic Apps](../logic-apps/logic-apps-overview.md). Uppgiften omfattar följande steg:
-
-* Byt primär server i gruppen redundans till norra Europa med vänlig redundans (1)
-* Ta bort gruppen för redundans mellan USA, östra och Europa, norra
-* Skapa en ny failover-grupp med samma namn, men mellan Nord Europa och Asien, östra (2).
-* Lägg till den primära i Nord Europa och sekundär i Asien, östra till den här gruppen för redundans (3).
-
-Följande diagram illustrerar den nya konfigurationen efter den planerade redundansväxlingen:
-
-![Scenario 3. Över gång från primär till Nord Europa.](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/scenario3-b.png)
-
-Om ett avbrott inträffar i Nord Europa initieras den automatiska databas växlings filen av gruppen redundans, vilket effektivt leder till att programmet flyttas till nästa region före schemat (1).  I så fall är östra USA den enda återstående sekundära regionen tills norra Europa är online igen. De återstående två regionerna betjänar kunderna i alla tre geografiska områden genom att växla roller. Azure Logic Apps måste justeras i enlighet med detta. Eftersom de återstående regionerna får ytterligare användar trafik från Europa, påverkas programmets prestanda inte bara av ytterligare latens, utan också med ett ökat antal slut användar anslutningar. När avbrottet har begränsats i Nord Europa synkroniseras den sekundära databasen omedelbart med den aktuella primära databasen. Följande diagram illustrerar ett avbrott i Nord Europa:
-
-![Scenario 3. Avbrott i Nord Europa.](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/scenario3-c.png)
+Programmets resurser bör distribueras i varje geografi där du har betydande användningsbehov. Om din ansökan till exempel används aktivt i USA, Eu ropeiska unionen och Sydostasien bör programmet distribueras till alla dessa geografiska områden. Den primära databasen bör växlas dynamiskt från en geografi till nästa i slutet av arbetstiden. Denna metod kallas "följ solen". OLTP-arbetsbelastningen ansluter alltid till databasen via ** &lt;&gt;redundansklassnamnet .database.windows.net** (1). Den skrivskyddade arbetsbelastningen ansluter direkt till den lokala databasen med hjälp av databasserverns ** &lt;slutpunktsservernamn&gt;.database.windows.net** (2). Traffic Manager är konfigurerad med [prestandaroutningsmetoden](../traffic-manager/traffic-manager-configure-performance-routing-method.md). Det säkerställer att slutanvändarens enhet är ansluten till webbtjänsten i närmaste region. Trafikhanteraren bör ställas in med slutpunktsövervakning aktiverad för varje slutpunkt för webbtjänsten (3).
 
 > [!NOTE]
-> Du kan minska tiden då slutanvändarens upplevelse i Europa försämras av lång latens. Om du vill göra det proaktivt ska du distribuera en program kopia och skapa den eller de sekundära databaserna i en annan lokal region (Västeuropa) som en ersättning för instansen offline i Nord Europa. När den senare är online kan du välja om du vill fortsätta att använda Västeuropa eller om du vill ta bort kopian av programmet där och gå tillbaka till att använda Nord Europa.
+> Redundansgruppskonfigurationen definierar vilken region som används för redundans. Eftersom den nya primären är i en annan geografi resulterar redundansen i längre svarstid för både OLTP- och skrivskyddade arbetsbelastningar tills den påverkade regionen är online igen.
 
-De främsta **fördelarna** med den här designen är:
+![Scenario 3. Konfiguration med primärt i östra USA.](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/scenario3-a.png)
 
-* Det skrivskyddade arbets belastnings programmet har alltid åtkomst till data i region stängnings regionen.
-* Läs-och skriv arbets belastningen har åtkomst till data i den närmaste regionen under perioden för den högsta aktiviteten i varje geografi
-* Eftersom programmet distribueras till flera regioner, kan det överleva en förlust av en av regionerna utan betydande stillestånds tid.
+När allt kommer omkring, till exempel klockan 23 lokal tid, bör de aktiva databaserna flyttas till nästa region (Nordeuropa). Den här uppgiften kan automatiseras helt med hjälp av [Azure Logic Apps](../logic-apps/logic-apps-overview.md). Uppgiften omfattar följande steg:
 
-Men det finns vissa **kompromisser**:
+* Växla primär server i redundansgruppen till Norra Europa med hjälp av en vänskaplig redundans (1)
+* Ta bort redundansgruppen mellan östra USA och Norra Europa
+* Skapa en ny redundansk grupp med samma namn men mellan Nordeuropa och Östasien (2).
+* Lägg till den primära i Nordeuropa och sekundärt i Östasien i denna redundansgrupp (3).
 
-* Ett regionalt avbrott resulterar i att geografin påverkas av längre latens. Både Läs-och skriv åtgärder hanteras av programmet i en annan geografi.
-* De skrivskyddade arbets belastningarna måste ansluta till en annan slut punkt i varje region.
+Följande diagram illustrerar den nya konfigurationen efter den planerade redundansen:
 
-## <a name="business-continuity-planning-choose-an-application-design-for-cloud-disaster-recovery"></a>Planering av affärs kontinuitet: Välj en program design för haveri beredskap för molnet
+![Scenario 3. Övergången till det primära till Nordeuropa.](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/scenario3-b.png)
 
-Din specifika strategi för haveri beredskap för molnet kan kombinera eller utöka de här design mönstren så att de passar bäst för ditt program.  Som tidigare nämnts är den strategi du väljer baserad på det service avtal som du vill erbjuda dina kunder och topologin för program distribution. I följande tabell jämförs de val som baseras på återställnings punkt mål (återställnings punkt mål) och beräknad återställnings tid (ERT) för att hjälpa ditt beslut.
+Om ett avbrott till exempel inträffar i norra Europa initieras den automatiska databasens redundans av redundansgruppen, vilket i praktiken leder till att programmet flyttas till nästa region före schemat (1).  I så fall är den amerikanska öst den enda återstående sekundära regionen tills Nordeuropa är online igen. De återstående två regionerna betjänar kunderna i alla tre geografiska områden genom att byta roller. Azure Logic Apps måste justeras i enlighet med detta. Eftersom de återstående regionerna får ytterligare användartrafik från Europa påverkas programmets prestanda inte bara av ytterligare svarstid utan också av ett ökat antal slutanvändaranslutningar. När avbrottet har mildrats i Norra Europa synkroniseras den sekundära databasen där omedelbart med den aktuella primär. Följande diagram illustrerar ett avbrott i Norra Europa:
 
-| Mönster | BEGÄRT | ERT |
+![Scenario 3. Strömavbrott i Norra Europa.](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/scenario3-c.png)
+
+> [!NOTE]
+> Du kan minska tiden när slutanvändarens upplevelse i Europa försämras av den långa latensen. För att göra det bör du proaktivt distribuera en programkopia och skapa den sekundära databasen(er) i en annan lokal region (Västeuropa) som en ersättning av offline-programinstansen i Norra Europa. När den senare är online igen kan du bestämma om du vill fortsätta använda Västeuropa eller ta bort kopian av programmet där och byta tillbaka till att använda Nordeuropa.
+
+De viktigaste **fördelarna med** denna design är:
+
+* Den skrivskyddade programarbetsbelastningen kommer åt data i garderobsregionen hela tiden.
+* Läs-skriv-programmet arbetsbelastningen kommer åt data i närmaste region under perioden för den högsta aktiviteten i varje geografi
+* Eftersom programmet distribueras till flera regioner kan det överleva en förlust av en av regionerna utan några större driftstopp.
+
+Men det finns några **kompromisser:**
+
+* Ett regionalt avbrott resulterar i att geografin påverkas av längre svarstid. Både läs-och skrivskyddade arbetsbelastningar betjänas av programmet i en annan geografi.
+* Skrivskyddade arbetsbelastningar måste ansluta till en annan slutpunkt i varje region.
+
+## <a name="business-continuity-planning-choose-an-application-design-for-cloud-disaster-recovery"></a>Planering av affärskontinuitet: Välj en programdesign för molnkatastrofåterställning
+
+Din specifika strategi för molnkatastrofåterställning kan kombinera eller utöka dessa designmönster så att de bäst uppfyller behoven i ditt program.  Som tidigare nämnts baseras den strategi du väljer på det serviceavtal som du vill erbjuda dina kunder och programdistributionstopologin. För att vägleda ditt beslut jämför följande tabell alternativen baserat på återställningspunktsmål (RPO) och beräknad återhämtningstid (ERT).
+
+| Mönster | RPO | ERT (SENASTE6 |
 |:--- |:--- |:--- |
-| Aktiv-passiv distribution för haveri beredskap med samplacerad databas åtkomst |Läs-och skriv åtkomst < 5 SEK |Tid för identifiering av identifiering + DNS TTL |
-| Aktiv-aktiv distribution för belastnings utjämning för program |Läs-och skriv åtkomst < 5 SEK |Tid för identifiering av identifiering + DNS TTL |
-| Aktiv-passiv distribution för data bevarande |Skrivskyddad åtkomst < 5 SEK | Skrivskyddad åtkomst = 0 |
-||Läs-och Skriv behörighet = noll | Läs-och Skriv behörighet = identifierings tid för identifiering + respitperiod med data förlust |
+| Aktiv-passiv distribution för haveriberedskap med samtidig databasåtkomst |Läs-skriv-åtkomst < 5 sek |Felidentifieringstid + DNS TTL |
+| Aktiv aktiv distribution för programbelastningsutjämning |Läs-skriv-åtkomst < 5 sek |Felidentifieringstid + DNS TTL |
+| Aktiv-passiv distribution för databevarande |Skrivskyddad åtkomst < 5 sek | Skrivskyddad åtkomst = 0 |
+||Läs-skriv-åtkomst = noll | Läs-skrivåtkomst = Felidentifieringstid + respitperiod med dataförlust |
 |||
 
 ## <a name="next-steps"></a>Nästa steg
 
-* För en översikt över verksamhets kontinuitet och scenarier, se [Översikt över verksamhets kontinuitet](sql-database-business-continuity.md)
-* Mer information om aktiv geo-replikering finns i [aktiv geo-replikering](sql-database-active-geo-replication.md).
-* Mer information om grupper för automatisk redundans finns i [grupper för automatisk redundans](sql-database-auto-failover-group.md).
-* Information om aktiv geo-replikering med elastiska pooler finns i [katastrof återställnings strategier för elastisk pool](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md).
+* En översikt över affärskontinuitet och scenarier finns i [Översikt över affärskontinuitet](sql-database-business-continuity.md)
+* Mer information om aktiv geo-replikering finns i [Aktiv geo-replikering](sql-database-active-geo-replication.md).
+* Mer information om grupper för automatisk redundans finns i [Grupper för automatisk redundans](sql-database-auto-failover-group.md).
+* Information om aktiv georeplikering med elastiska pooler finns i [Strategier för återställning av elastisk pool.](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md)

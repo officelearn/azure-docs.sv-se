@@ -1,6 +1,6 @@
 ---
-title: Installera Jupyter lokalt och ansluta till Spark i Azure HDInsight
-description: Lär dig hur du installerar Jupyter Notebook lokalt på din dator och ansluter den till ett Apache Spark-kluster.
+title: Installera Jupyter lokalt och anslut till Spark i Azure HDInsight
+description: Lär dig hur du installerar Jupyters bärbara dator lokalt på datorn och ansluter den till ett Apache Spark-kluster.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -9,88 +9,88 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/07/2019
 ms.openlocfilehash: 225ee7028b9610a4974f9bee05da667d78d3355e
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73903739"
 ---
-# <a name="install-jupyter-notebook-on-your-computer-and-connect-to-apache-spark-on-hdinsight"></a>Installera Jupyter Notebook på din dator och Anslut till Apache Spark på HDInsight
+# <a name="install-jupyter-notebook-on-your-computer-and-connect-to-apache-spark-on-hdinsight"></a>Installera Jupyter notebook på datorn och anslut till Apache Spark på HDInsight
 
-I den här artikeln får du lära dig hur du installerar Jupyter Notebook med anpassade PySpark (för python) och Apache Spark (för Scala) kernel med Spark Magic och ansluter antecknings boken till ett HDInsight-kluster. Det kan finnas flera skäl att installera Jupyter på din lokala dator, och det kan också finnas vissa utmaningar. Mer information finns i avsnittet [Varför ska jag installera Jupyter på](#why-should-i-install-jupyter-on-my-computer) den här datorn i slutet av den här artikeln.
+I den här artikeln lär du dig att installera Jupyter notebook, med de anpassade PySpark -kärnorna PySpark (för Python) och Apache Spark (för Scala) med Spark-magi och ansluter den bärbara datorn till ett HDInsight-kluster. Det kan finnas ett antal skäl att installera Jupyter på din lokala dator, och det kan finnas vissa utmaningar också. För mer information om detta, se avsnittet [Varför ska jag installera Jupyter på min dator](#why-should-i-install-jupyter-on-my-computer) i slutet av den här artikeln.
 
-Det finns fyra viktiga steg när du installerar Jupyter och ansluter till Apache Spark i HDInsight.
+Det finns fyra viktiga steg inblandade i att installera Jupyter och ansluta till Apache Spark på HDInsight.
 
 * Konfigurera Spark-kluster.
-* Installera Jupyter Notebook.
-* Installera PySpark-och Spark-kernel med Spark Magic.
-* Konfigurera Spark Magic för att få åtkomst till Spark-kluster i HDInsight.
+* Installera Jupyter notebook.
+* Installera PySpark- och Spark-kärnorna med Spark-magin.
+* Konfigurera Spark magi för att komma åt Spark-kluster på HDInsight.
 
-Mer information om anpassade kärnor och Spark Magic tillgängligt för Jupyter Notebooks med HDInsight-kluster finns i [kernels som är tillgängliga för Jupyter-anteckningsböcker med Apache Spark Linux-kluster i HDInsight](apache-spark-jupyter-notebook-kernels.md).
+Mer information om de anpassade kärnorna och Spark-magin för Jupyter-anteckningsböcker med HDInsight-kluster finns i [Kärnor som är tillgängliga för Jupyter-anteckningsböcker med Apache Spark Linux-kluster på HDInsight](apache-spark-jupyter-notebook-kernels.md).
 
 ## <a name="prerequisites"></a>Krav
 
-* Ett Apache Spark-kluster i HDInsight. Anvisningar finns i [Skapa Apache Spark-kluster i Azure HDInsight](apache-spark-jupyter-spark-sql.md). Detta är en förutsättning för att ansluta Jupyter Notebook till ett HDInsight-kluster när antecknings boken har installerats.
+* Ett Apache Spark-kluster i HDInsight. Anvisningar finns i [Skapa Apache Spark-kluster i Azure HDInsight](apache-spark-jupyter-spark-sql.md). Detta är en förutsättning för att ansluta Jupyter-anteckningsboken till ett HDInsight-kluster när den bärbara datorn har installerats.
 
 * Kunskaper om Jupyter Notebooks med Spark på HDInsight.
 
-## <a name="install-jupyter-notebook-on-your-computer"></a>Installera Jupyter Notebook på datorn
+## <a name="install-jupyter-notebook-on-your-computer"></a>Installera Jupyter notebook på datorn
 
-Du måste installera python innan du kan installera Jupyter-anteckningsböcker. [Anaconda-distributionen](https://www.anaconda.com/download/) kommer att installera både, Python och Jupyter Notebook.
+Du måste installera Python innan du kan installera Jupyter-anteckningsböcker. [Anaconda-distributionen](https://www.anaconda.com/download/) installerar både Python och Jupyter Notebook.
 
-Ladda ned installations programmet för [Anaconda](https://www.anaconda.com/download/) för din plattform och kör installationen. När du kör installations guiden kontrollerar du att du väljer alternativet för att lägga till Anaconda i din PATH-variabel.  Se även [Installera Jupyter med hjälp av AnaConDa](https://jupyter.readthedocs.io/en/latest/install.html).
+Ladda ner [Anaconda-installationsprogrammet](https://www.anaconda.com/download/) för din plattform och kör installationen. När du kör installationsguiden kontrollerar du att du väljer alternativet att lägga till Anaconda i sökvägens variabel.  Se även [installera Jupyter med Anaconda](https://jupyter.readthedocs.io/en/latest/install.html).
 
-## <a name="install-spark-magic"></a>Installera Spark Magic
+## <a name="install-spark-magic"></a>Installera Spark magi
 
-1. Ange ett av kommandona nedan för att installera Spark Magic. Se även [sparkmagic-dokumentationen](https://github.com/jupyter-incubator/sparkmagic#installation).
+1. Ange ett av kommandona nedan för att installera Spark magic. Se även [sparkmagic dokumentation](https://github.com/jupyter-incubator/sparkmagic#installation).
 
-    |Kluster version | Installations kommando |
+    |Klusterversion | Kommandot Installera |
     |---|---|
-    |v 3.6 och v 3.5 |`pip install sparkmagic==0.13.1`|
-    |v 3.4|`pip install sparkmagic==0.2.3`|
+    |v3.6 och v3.5 |`pip install sparkmagic==0.13.1`|
+    |v3.4|`pip install sparkmagic==0.2.3`|
 
-1. Se till att `ipywidgets` är korrekt installerat genom att köra följande kommando:
+1. Kontrollera `ipywidgets` att den är korrekt installerad genom att köra följande kommando:
 
     ```cmd
     jupyter nbextension enable --py --sys-prefix widgetsnbextension
     ```
 
-## <a name="install-pyspark-and-spark-kernels"></a>Installera PySpark-och Spark-kärnor
+## <a name="install-pyspark-and-spark-kernels"></a>Installera PySpark- och Spark-kärnor
 
-1. Identifiera var `sparkmagic` installeras genom att ange följande kommando:
+1. Identifiera `sparkmagic` var som installeras genom att ange följande kommando:
 
     ```cmd
     pip show sparkmagic
     ```
 
-    Ändra sedan arbets katalogen till den plats som identifierades med kommandot ovan.
+    Ändra sedan arbetskatalogen till den plats som identifieras med kommandot ovan.
 
-1. Från din nya arbets katalog anger du ett eller flera av kommandona nedan för att installera önskade kernel (er):
+1. Från den nya arbetskatalogen anger du ett eller flera av kommandona nedan för att installera önskad kärna:From your new working directory, enter one or more of the commands below to install the desired kernel(s):
 
-    |Kernellägestid | Kommando |
+    |Kernel | Kommando |
     |---|---|
     |Spark|`jupyter-kernelspec install sparkmagic/kernels/sparkkernel`|
-    |SparkR|`jupyter-kernelspec install sparkmagic/kernels/sparkrkernel`|
-    |PySpark|`jupyter-kernelspec install sparkmagic/kernels/pysparkkernel`|
-    |PySpark3|`jupyter-kernelspec install sparkmagic/kernels/pyspark3kernel`|
+    |Gnist|`jupyter-kernelspec install sparkmagic/kernels/sparkrkernel`|
+    |Pyspark (på en)|`jupyter-kernelspec install sparkmagic/kernels/pysparkkernel`|
+    |Pyspark3 (på andra sätt)|`jupyter-kernelspec install sparkmagic/kernels/pyspark3kernel`|
 
-1. Valfri. Ange kommandot nedan för att aktivera server tillägget:
+1. Valfri. Ange kommandot nedan för att aktivera servertillägget:
 
     ```cmd
     jupyter serverextension enable --py sparkmagic
     ```
 
-## <a name="configure-spark-magic-to-connect-to-hdinsight-spark-cluster"></a>Konfigurera Spark Magic för att ansluta till HDInsight Spark-kluster
+## <a name="configure-spark-magic-to-connect-to-hdinsight-spark-cluster"></a>Konfigurera Spark magic för att ansluta till HDInsight Spark-kluster
 
-I det här avsnittet konfigurerar du Spark Magic som du installerade tidigare för att ansluta till ett Apache Spark-kluster.
+I det här avsnittet konfigurerar du Spark-magin som du installerade tidigare för att ansluta till ett Apache Spark-kluster.
 
-1. Starta python-gränssnittet med följande kommando:
+1. Starta Python-skalet med följande kommando:
 
     ```cmd
     python
     ```
 
-2. Konfigurations informationen för Jupyter lagras vanligt vis i användarens arbets katalog. Ange följande kommando för att identifiera arbets katalogen och skapa en mapp med namnet **. sparkmagic**.  Den fullständiga sökvägen kommer att returneras.
+2. Jupyter-konfigurationsinformationen lagras vanligtvis i användarnas arbetskatalog. Ange följande kommando för att identifiera arbetskatalogen och skapa en mapp med namnet **.sparkmagic**.  Den fullständiga sökvägen matas ut.
 
     ```python
     import os
@@ -100,7 +100,7 @@ I det här avsnittet konfigurerar du Spark Magic som du installerade tidigare f�
     exit()
     ```
 
-3. I mappen `.sparkmagic`skapar du en fil med namnet **config. JSON** och lägger till följande JSON-kodfragment inuti den.  
+3. Skapa en `.sparkmagic`fil som heter **config.json** i mappen och lägg till följande JSON-utdrag i den.  
 
     ```json
     {
@@ -128,34 +128,34 @@ I det här avsnittet konfigurerar du Spark Magic som du installerade tidigare f�
 
 4. Gör följande ändringar i filen:
 
-    |Mall-värde | Nytt värde |
+    |Mallvärde | Nytt värde |
     |---|---|
-    |ANVÄNDAR|Kluster inloggning, standard är `admin`.|
-    |CLUSTERDNSNAME|Klusternamn|
-    |{BASE64ENCODEDPASSWORD}|Ett base64-kodat lösen ord för det faktiska lösen ordet.  Du kan generera ett base64-lösenord på [https://www.url-encode-decode.com/base64-encode-decode/](https://www.url-encode-decode.com/base64-encode-decode/).|
-    |`"livy_server_heartbeat_timeout_seconds": 60`|Behåll om du använder `sparkmagic 0.12.7` (kluster v 3.5 och v 3.6).  Om du använder `sparkmagic 0.2.3` (kluster v 3.4) ersätter du med `"should_heartbeat": true`.|
+    |{ANVÄNDARNAMN}|Klusterinloggning, `admin`standard är .|
+    |{CLUSTERDNSNAME}|Klusternamn|
+    |{BASE64ENCODEDPASSWORD}|Ett base64-kodat lösenord för ditt faktiska lösenord.  Du kan generera ett base64-lösenord på [https://www.url-encode-decode.com/base64-encode-decode/](https://www.url-encode-decode.com/base64-encode-decode/).|
+    |`"livy_server_heartbeat_timeout_seconds": 60`|Behåll `sparkmagic 0.12.7` om du använder (kluster v3.5 och v3.6).  Om `sparkmagic 0.2.3` du använder (kluster v3.4), ersätt med `"should_heartbeat": true`.|
 
-    Du kan se en fullständig exempel fil vid [exempel config. JSON](https://github.com/jupyter-incubator/sparkmagic/blob/master/sparkmagic/example_config.json).
+    Du kan se en fullständig exempelfil på [exempel config.json](https://github.com/jupyter-incubator/sparkmagic/blob/master/sparkmagic/example_config.json).
 
    > [!TIP]  
-   > Pulsslag skickas för att säkerställa att sessioner inte läcker. När en dator försätts i vilo läge eller stängs av skickas inte pulsslaget, vilket leder till att sessionen rensas. För kluster v 3.4, om du vill inaktivera det här beteendet, kan du ange livy-konfigurations `livy.server.interactive.heartbeat.timeout` att `0` från användar gränssnittet för Ambari. För kluster som är v 3.5, om du inte ställer in 3,5-konfigurationen ovan, tas sessionen inte bort.
+   > Pulsslag skickas för att säkerställa att sessioner inte läcker ut. När en dator försätts i viloläge eller stängs av skickas inte pulsslag, vilket resulterar i att sessionen rensas. För kluster v3.4, om du vill inaktivera detta beteende, kan `livy.server.interactive.heartbeat.timeout` `0` du ställa in Livy config till från Ambari UI. För kluster v3.5, om du inte ställer in 3,5-konfigurationen ovan, kommer sessionen inte att tas bort.
 
-5. Starta Jupyter. Använd följande kommando från kommando tolken.
+5. Starta Jupyter. Använd följande kommando från kommandotolken.
 
     ```cmd
     jupyter notebook
     ```
 
-6. Kontrol lera att du kan använda Spark Magic tillgängligt med kernels. Utför följande steg.
+6. Kontrollera att du kan använda Spark-magin som är tillgänglig med kärnorna. Utför följande steg.
 
-    a. Skapa en ny anteckningsbok. Välj **ny**i det högra hörnet. Du bör se standard kerneln **python 2** eller **python 3** och de kerneler som du har installerat. De faktiska värdena kan variera beroende på dina installations val.  Välj **PySpark**.
+    a. Skapa en ny anteckningsbok. Välj **Nytt**i det högra hörnet . Du bör se standardkärnan **Python 2** eller **Python 3** och de kärnor du installerade. De faktiska värdena kan variera beroende på dina installationsval.  Välj **PySpark**.
 
-    ![Tillgängliga kärnor i Jupyter Notebook](./media/apache-spark-jupyter-notebook-install-locally/jupyter-kernels-notebook.png "Kärnor i Jupyter Notebook")
+    ![Tillgängliga kärnor i Jupyters bärbara dator](./media/apache-spark-jupyter-notebook-install-locally/jupyter-kernels-notebook.png "Kärnor i Jupyter anteckningsbok")
 
     > [!IMPORTANT]  
-    > När du har valt **ny** granska ditt gränssnitt för fel.  Om du ser felet `TypeError: __init__() got an unexpected keyword argument 'io_loop'` kanske du råkat ut för ett känt problem med vissa versioner av storm.  Stoppa i så fall kerneln och nedgradera sedan Storm-installationen med följande kommando: `pip install tornado==4.5.3`.
+    > När du har valt **Nytt** granska skalet för eventuella fel.  Om du ser `TypeError: __init__() got an unexpected keyword argument 'io_loop'` felet kan du ha ett känt problem med vissa versioner av Tornado.  Om så är fallet, stoppa kärnan och sedan `pip install tornado==4.5.3`nedgradera din Tornado installation med följande kommando: .
 
-    b. Kör följande kodfragment.
+    b. Kör följande kodavsnitt.
 
     ```sql
     %%sql
@@ -164,23 +164,23 @@ I det här avsnittet konfigurerar du Spark Magic som du installerade tidigare f�
 
     Om du kan hämta utdata testas anslutningen till HDInsight-klustret.
 
-    Om du vill uppdatera Notebook-konfigurationen för att ansluta till ett annat kluster uppdaterar du config. JSON med den nya värde uppsättningen, som du ser i steg 3 ovan.
+    Om du vill uppdatera konfigurationen för bärbara datorer för att ansluta till ett annat kluster uppdaterar du config.json med den nya uppsättningen värden, som visas i steg 3 ovan.
 
-## <a name="why-should-i-install-jupyter-on-my-computer"></a>Varför ska jag installera Jupyter på datorn?
+## <a name="why-should-i-install-jupyter-on-my-computer"></a>Varför ska jag installera Jupyter på min dator?
 
-Det kan finnas flera orsaker till varför du kanske vill installera Jupyter på datorn och sedan ansluta den till ett Apache Spark kluster i HDInsight.
+Det kan finnas ett antal anledningar till varför du kanske vill installera Jupyter på din dator och sedan ansluta den till en Apache Spark kluster på HDInsight.
 
-* Även om Jupyter Notebooks redan är tillgängliga i Spark-klustret i Azure HDInsight, ger det dig möjligheten att skapa dina antecknings böcker lokalt, testa programmet mot ett kluster som körs och sedan ladda upp antecknings böcker till klustret. Om du vill ladda upp antecknings böckerna till klustret kan du antingen överföra dem med hjälp av Jupyter Notebook som körs eller klustret, eller spara dem i mappen/HdiNotebooks i det lagrings konto som är associerat med klustret. Mer information om hur antecknings böcker lagras i klustret finns i [var är Jupyter Notebooks lagrade](apache-spark-jupyter-notebook-kernels.md#where-are-the-notebooks-stored)?
-* Med antecknings böcker som är tillgängliga lokalt kan du ansluta till olika Spark-kluster baserat på ditt program krav.
-* Du kan använda GitHub för att implementera ett käll kontroll system och har versions kontroll för antecknings böckerna. Du kan också ha en samarbets miljö där flera användare kan arbeta med samma bärbara dator.
-* Du kan arbeta med antecknings böcker lokalt utan att ens ha ett kluster. Du behöver bara ett kluster för att testa dina antecknings böcker mot, inte för att manuellt hantera dina antecknings böcker eller utvecklings miljöer.
-* Det kan vara lättare att konfigurera en egen lokal utvecklings miljö än att konfigurera Jupyter-installationen på klustret.  Du kan dra nytta av all program vara som du har installerat lokalt utan att konfigurera ett eller flera fjärranslutna kluster.
+* Även om Jupyter-anteckningsböcker redan är tillgängliga i Spark-klustret i Azure HDInsight, ger du möjlighet att skapa dina anteckningsböcker lokalt genom att installera Jupyter-datorer, testa programmet mot ett kluster som körs och sedan ladda upp bärbara datorer till klustret. Om du vill överföra anteckningsböckerna till klustret kan du antingen ladda upp dem med den Jupyter-anteckningsbok som körs eller i klustret, eller spara dem i mappen /HdiNotebooks i lagringskontot som är associerat med klustret. Mer information om hur anteckningsböcker lagras i klustret finns i [Var lagras Jupyter-anteckningsböcker?](apache-spark-jupyter-notebook-kernels.md#where-are-the-notebooks-stored)
+* Med de bärbara datorerna som är tillgängliga lokalt kan du ansluta till olika Spark-kluster baserat på ditt programkrav.
+* Du kan använda GitHub för att implementera ett källkontrollsystem och ha versionskontroll för anteckningsböckerna. Du kan också ha en samarbetsmiljö där flera användare kan arbeta med samma anteckningsbok.
+* Du kan arbeta med anteckningsböcker lokalt utan att ens ha ett kluster upp. Du behöver bara ett kluster för att testa dina anteckningsböcker mot, inte manuellt hantera dina anteckningsböcker eller en utvecklingsmiljö.
+* Det kan vara enklare att konfigurera din egen lokala utvecklingsmiljö än att konfigurera Jupyter-installationen i klustret.  Du kan dra nytta av all programvara som du har installerat lokalt utan att konfigurera ett eller flera fjärrkluster.
 
 > [!WARNING]  
-> När Jupyter är installerat på den lokala datorn kan flera användare köra samma bärbara dator i samma Spark-kluster på samma tid. I en sådan situation skapas flera livy-sessioner. Om du stöter på ett problem och vill felsöka det, är det en komplex uppgift för att spåra vilken livy-session som tillhör vilken användare.  
+> Med Jupyter installerat på din lokala dator kan flera användare köra samma anteckningsbok på samma Spark-kluster samtidigt. I en sådan situation skapas flera Livy-sessioner. Om du stöter på ett problem och vill felsöka det, blir det en komplex uppgift att spåra vilken Livy-session som tillhör vilken användare.  
 
 ## <a name="next-steps"></a>Nästa steg
 
 * [Översikt: Apache Spark i Azure HDInsight](apache-spark-overview.md)
-* [Apache Spark med BI: utföra interaktiv data analys med hjälp av spark i HDInsight med BI-verktyg](apache-spark-use-bi-tools.md)
-* [Apache Spark med Machine Learning: använda spark i HDInsight för analys av byggnads temperatur med HVAC-data](apache-spark-ipython-notebook-machine-learning.md)
+* [Apache Spark med BI: Utför interaktiv dataanalys med Spark i HDInsight med BI-verktyg](apache-spark-use-bi-tools.md)
+* [Apache Spark med maskininlärning: Använd Spark i HDInsight för att analysera byggnadstemperatur med HVAC-data](apache-spark-ipython-notebook-machine-learning.md)

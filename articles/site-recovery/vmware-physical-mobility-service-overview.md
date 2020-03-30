@@ -1,6 +1,6 @@
 ---
-title: Om mobilitets tjänsten för haveri beredskap för virtuella VMware-datorer och fysiska servrar med Azure Site Recovery | Microsoft Docs
-description: Lär dig mer om mobilitets tjänst agenten för haveri beredskap för virtuella VMware-datorer och fysiska servrar till Azure med hjälp av tjänsten Azure Site Recovery.
+title: Om mobilitetstjänsten för haveriberedskap för virtuella datorer med VMware och fysiska servrar med Azure Site Recovery | Microsoft-dokument
+description: Lär dig mer om Mobility Service-agenten för haveriberedskap för virtuella datorer med VMware och fysiska servrar till Azure med hjälp av Azure Site Recovery-tjänsten.
 author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
@@ -8,92 +8,92 @@ ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: ramamill
 ms.openlocfilehash: c5acc9637fe5afe8f7dd32d23fbdbb80373b4f61
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79256840"
 ---
-# <a name="about-the-mobility-service-for-vmware-vms-and-physical-servers"></a>Om mobilitets tjänsten för virtuella VMware-datorer och fysiska servrar
+# <a name="about-the-mobility-service-for-vmware-vms-and-physical-servers"></a>Om mobilitetstjänsten för virtuella datorer och fysiska servrar
 
-När du konfigurerar haveri beredskap för virtuella VMware-datorer och fysiska servrar med hjälp av [Azure Site Recovery](site-recovery-overview.md)installerar du Site Recovery mobilitets tjänsten på varje lokal virtuell VMware-dator och fysisk server.  Mobilitets tjänsten samlar in data skrivningar på datorn och vidarebefordrar dem till Site Recovery processerver. Du kan distribuera mobilitets tjänsten på följande sätt:
+När du ställer in haveriberedskap för virtuella datorer med VMware och fysiska servrar med [Azure Site Recovery](site-recovery-overview.md)installerar du tjänsten Site Recovery Mobility på varje lokal virtuell dator för VMware och fysisk server.  Mobilitetstjänsten samlar in dataskrivningar på datorn och vidarebefordrar dem till site recovery-processservern. Du kan distribuera mobilitetstjänsten med följande metoder:
 
-- [Push-installation](#push-installation): Site Recovery installerar mobilitets agenten på servern när skyddet aktive ras via Azure Portal.
-- Installera manuellt: du kan installera mobilitets tjänsten manuellt på varje dator via [UI](#install-mobility-agent-through-ui) eller [kommando tolken](#install-mobility-agent-through-command-prompt).
-- [Automatiserad distribution](vmware-azure-mobility-install-configuration-mgr.md): du kan automatisera installationen med verktyg för program varu distribution, till exempel Configuration Manager.
+- [Push-installation:](#push-installation)Site Recovery installerar mobilitetsagent på servern när skyddet är aktiverat via Azure-portalen.
+- Installera manuellt: Du kan installera mobilitetstjänsten manuellt på varje dator via [användargränssnittet](#install-mobility-agent-through-ui) eller [kommandotolken](#install-mobility-agent-through-command-prompt).
+- [Automatisk distribution](vmware-azure-mobility-install-configuration-mgr.md): Du kan automatisera installationen med programdistributionsverktyg som Configuration Manager.
 
 > [!NOTE]
-> Mobilitets agenten använder cirka 6%-10% av minnet på käll datorerna för virtuella VMware-datorer eller fysiska datorer.
+> Mobilitetsagenten använder cirka 6%-10 % minne på källdatorer för virtuella datorer eller fysiska datorer.
 
-## <a name="anti-virus-on-replicated-machines"></a>Virus skydd på replikerade datorer
+## <a name="anti-virus-on-replicated-machines"></a>Anti-virus på replikerade maskiner
 
-Om datorer som du vill replikera har ett aktivt antivirus program som kör, se till att du undantar installationsmappen för mobilitets tjänsten från anti-virus-åtgärder (*C:\ProgramData\ASR\agent*). Detta säkerställer att replikeringen fungerar som förväntat.
+Om datorer som du vill replikera har aktiva antivirusprogram som körs kontrollerar du att du utesluter installationsmappen för mobilitetstjänsten från antivirusåtgärder (*C:\ProgramData\ASR\agent*). Detta säkerställer att replikeringen fungerar som förväntat.
 
 ## <a name="push-installation"></a>Push-installation
 
-Push-installation är en integrerad del av jobbet "[Aktivera replikering](vmware-azure-enable-replication.md#enable-replication)" som utlöses i portalen. När du har valt uppsättningen med virtuella datorer som du vill skydda och utlösa "Aktivera replikering" skickar konfigurations servern mobilitets agenten till servrarna, installerar agenten och slutför registreringen av agenten med konfigurations servern. För att åtgärden ska slutföras klart
+Push-installation är en integrerad del av "[Aktivera replikering](vmware-azure-enable-replication.md#enable-replication)" jobb som utlöses i portalen. När du har valt den uppsättning virtuella datorer som du vill skydda och utlösa "Aktivera replikering" skickar konfigurationsservern mobilitetsagenten till servrarna, installerar agenten och fullständig registrering av agent med konfigurationsserver. För att slutföra denna operation framgångsrikt
 
-- Se till att alla [krav](vmware-azure-install-mobility-service.md) för push-installation är uppfyllda.
-- Se till att alla konfigurationer av servrar omfattas [av support mat ris för VMware till Azure Dr-scenario](vmware-physical-azure-support-matrix.md).
+- Se till att alla [push-installationsförutsättningskrav](vmware-azure-install-mobility-service.md) är uppfyllda.
+- Se till att alla konfigurationer av servrar faller under [stöd matris av VMware till Azure DR scenario](vmware-physical-azure-support-matrix.md).
 
-Information om arbets flödet för push-installation har beskrivits i följande avsnitt.
+Information om push-installationsarbetsflödet har beskrivits i följande avsnitt.
 
-### <a name="from-923-version-onwards"></a>Från och med [9,23-version](https://support.microsoft.com/en-in/help/4494485/update-rollup-35-for-azure-site-recovery)
+### <a name="from-923-version-onwards"></a>Från [9.23 version](https://support.microsoft.com/en-in/help/4494485/update-rollup-35-for-azure-site-recovery) och framåt
 
-Följande steg utförs under en push-installation av mobilitets agenten
+Vid push-installation av mobilitetsagent utförs följande steg
 
-1. Push-överför agenten till käll datorn. Det går inte att kopiera agenten till käll datorn på grund av flera miljö fel. Besök [vår vägledning](vmware-azure-troubleshoot-push-install.md) för att felsöka push-installations fel.
-2. När agenten har kopierats till krav kontrollerna för servern utförs på servern. Installationen Miss lyckas om en eller flera av [kraven](vmware-physical-azure-support-matrix.md) inte uppfylls. Om alla krav är uppfyllda utlöses installationen.
-3. Azure Site Recovery VSS-providern är installerad på servern som en del av installationen av mobilitets agenten. Den här providern används för att generera program konsekventa punkter. Om installationen av VSS-providern Miss lyckas kommer det här steget att hoppas över och Agent installationen fortsätter.
-4. Om installationen av agenten lyckas men installationen av VSS-providern Miss lyckas, markeras jobb status som "varning". Detta påverkar inte genereringen av krasch konsekvens punkter.
+1. Skjuter agenten på källmaskinen. Kopiering av agenten till källdator kan misslyckas på grund av flera miljöfel. Besök [vår vägledning](vmware-azure-troubleshoot-push-install.md) för att felsöka push-installationsfel.
+2. När agenten har kopierats till servern utförs nödvändiga kontroller på servern. Installationen misslyckas om en eller flera av [förutsättningarna](vmware-physical-azure-support-matrix.md) inte uppfylls. Om alla förutsättningar uppfylls utlöses installationen.
+3. Azure Site Recovery VSS-providern installeras på servern som en del av installation av Mobilitetsagenter. Den här providern används för att generera konsekventa programpunkter. Om installationen av VSS-providern misslyckas hoppas det här steget över och agentinstallationen fortsätter.
+4. Om agentinstallationen lyckas men VSS-providerinstallationen misslyckas markeras jobbstatus som "Varning". Detta påverkar inte krasch konsekvens punkter generation.
 
-    a. Information om hur du genererar program konsekventa punkter finns i [rikt linjerna](vmware-physical-manage-mobility-service.md#install-site-recovery-vss-provider-on-source-machine) för att slutföra installationen av Site Recovery VSS-providern manuellt. </br>
-    b.  Om du inte vill att programkonsekventa punkter ska genereras, [ändra replikeringsprincipen](vmware-azure-set-up-replication.md#create-a-policy) för att inaktivera program konsekventa punkter.
+    a. För att generera konsekventa programpunkter, se [vår vägledning](vmware-physical-manage-mobility-service.md#install-site-recovery-vss-provider-on-source-machine) för att slutföra installationen av Site Recovery VSS-leverantören manuellt. </br>
+    b.  Om du inte vill att konsekventa programpunkter ska genereras [ändrar du replikeringsprincipen](vmware-azure-set-up-replication.md#create-a-policy) för att stänga av programmets konsekventa punkter.
 
-### <a name="before-922-versions"></a>Före 9,22 versioner
+### <a name="before-922-versions"></a>Före 9.22 versioner
 
-1. Push-överför agenten till käll datorn. Det går inte att kopiera agenten till käll datorn på grund av flera miljö fel. Besök [vår vägledning](vmware-azure-troubleshoot-push-install.md) för att felsöka push-installations fel.
-2. När agenten har kopierats till krav kontrollerna för servern utförs på servern. Installationen Miss lyckas om en eller flera av [kraven](vmware-physical-azure-support-matrix.md) inte uppfylls. Om alla krav är uppfyllda utlöses installationen.
-3. Azure Site Recovery VSS-providern är installerad på servern som en del av installationen av mobilitets agenten. Den här providern används för att generera program konsekventa punkter. Om installationen av VSS-providern Miss lyckas kommer Agent installationen att Miss lyckas. Undvik att installera mobilitets agenten genom att använda [9,23-versionen](https://support.microsoft.com/en-in/help/4494485/update-rollup-35-for-azure-site-recovery) eller högre för att skapa krasch konsekventa punkter och installera VSS-providern manuellt.
+1. Skjuter agenten på källmaskinen. Kopiering av agenten till källdator kan misslyckas på grund av flera miljöfel. Besök [vår vägledning](vmware-azure-troubleshoot-push-install.md) för att felsöka push-installationsfel.
+2. När agenten har kopierats till servern utförs nödvändiga kontroller på servern. Installationen misslyckas om en eller flera av [förutsättningarna](vmware-physical-azure-support-matrix.md) inte uppfylls. Om alla förutsättningar uppfylls utlöses installationen.
+3. Azure Site Recovery VSS-providern installeras på servern som en del av installation av Mobilitetsagenter. Den här providern används för att generera konsekventa programpunkter. Om installationen av VSS-providern misslyckas misslyckas agentinstallationen. Använd [9.23-versionen](https://support.microsoft.com/en-in/help/4494485/update-rollup-35-for-azure-site-recovery) eller högre för att generera kraschkonsekventa punkter och installera VSS-providern manuellt för att undvika fel på installationen av mobilitetsagenten.
 
-## <a name="install-mobility-agent-through-ui"></a>Installera mobilitets agenten via användar gränssnittet
+## <a name="install-mobility-agent-through-ui"></a>Installera mobilitetsagent via användargränssnittet
 
 ### <a name="prerequisite"></a>Krav
 
-- Se till att alla konfigurationer av servrar omfattas [av support mat ris för VMware till Azure Dr-scenario](vmware-physical-azure-support-matrix.md).
-- [Leta upp installations programmet](#locate-installer-files) baserat på serverns operativ system.
+- Se till att alla konfigurationer av servrar faller under [stöd matris av VMware till Azure DR scenario](vmware-physical-azure-support-matrix.md).
+- [Leta reda på installationsprogrammet](#locate-installer-files) baserat på serverns operativsystem.
 
 >[!IMPORTANT]
-> Använd inte den här metoden om du replikerar en virtuell Azure IaaS-dator från en Azure-region till en annan. Använd den kommando radsbaserade installations metoden i stället.
+> Om du replikerar Azure IaaS VM från en Azure-region till en annan ska du inte använda den här metoden. Använd den kommandoradsbaserade installationsmetoden i stället.
 
-1. Kopiera installations filen till datorn och kör den.
-2. I **installations alternativ**väljer du **Installera mobilitets tjänsten**.
-3. Välj installations plats > **Installera**.
+1. Kopiera installationsfilen till datorn och kör den.
+2. I **Installationsalternativ**väljer du **Installera mobilitetstjänst**.
+3. Välj installationsplatsen > **Installera**.
 
-    ![Sidan installations alternativ för mobilitets tjänsten](./media/vmware-physical-mobility-service-install-manual/mobility1.png)
+    ![Installationssida för mobilitetstjänsten](./media/vmware-physical-mobility-service-install-manual/mobility1.png)
 
-4. Övervaka installationen i **installations förloppet**. När installationen är färdig väljer du **Fortsätt till konfiguration** för att registrera tjänsten med konfigurations servern.
+4. Övervaka installationen under **installationen .** När installationen är klar väljer du **Fortsätt till konfigurationen** för att registrera tjänsten med konfigurationsservern.
 
-    ![Registrerings sida för mobilitets tjänsten](./media/vmware-physical-mobility-service-install-manual/mobility3.png)
+    ![Registreringssida för mobilitetstjänster](./media/vmware-physical-mobility-service-install-manual/mobility3.png)
 
-5. I **konfigurations Server information**anger du den IP-adress och den lösen fras som du har konfigurerat.
+5. I **Information om konfigurationsserver**anger du den IP-adress och lösenfras som du har konfigurerat.
 
-    ![Registrerings sida för mobilitets tjänsten](./media/vmware-physical-mobility-service-install-manual/mobility4.png)
+    ![Registreringssida för mobilitetstjänster](./media/vmware-physical-mobility-service-install-manual/mobility4.png)
 
-6. Välj **Registrera** för att slutföra registreringen.
+6. Välj **Registrera för** att slutföra registreringen.
 
-    ![Slut sida för mobilitets tjänst registrering](./media/vmware-physical-mobility-service-install-manual/mobility5.png)
+    ![Finalsida för registrering av mobilitetstjänster](./media/vmware-physical-mobility-service-install-manual/mobility5.png)
 
-## <a name="install-mobility-agent-through-command-prompt"></a>Installera mobilitets agenten via kommando tolken
+## <a name="install-mobility-agent-through-command-prompt"></a>Installera mobilitetsagent via kommandotolken
 
 ### <a name="prerequisite"></a>Krav
 
-- Se till att alla konfigurationer av servrar omfattas [av support mat ris för VMware till Azure Dr-scenario](vmware-physical-azure-support-matrix.md).
-- [Leta upp installations programmet](#locate-installer-files) baserat på serverns operativ system.
+- Se till att alla konfigurationer av servrar faller under [stöd matris av VMware till Azure DR scenario](vmware-physical-azure-support-matrix.md).
+- [Leta reda på installationsprogrammet](#locate-installer-files) baserat på serverns operativsystem.
 
 ### <a name="on-a-windows-machine"></a>På en Windows-dator
 
-- Kopiera installations programmet till en lokal mapp (till exempel C:\Temp) på den server som du vill skydda.
+- Kopiera installationsprogrammet till en lokal mapp (till exempel C:\Temp) på den server som du vill skydda.
 
     ```
     cd C:\Temp
@@ -108,34 +108,34 @@ Följande steg utförs under en push-installation av mobilitets agenten
     UnifiedAgent.exe /Role "MS" /InstallLocation "C:\Program Files (x86)\Microsoft Azure Site Recovery" /Platform "VmWare" /Silent
     ```
 
-- Registrera agenten på konfigurations servern.
+- Registrera agenten med konfigurationsservern.
 
     ```
     cd C:\Program Files (x86)\Microsoft Azure Site Recovery\agent
     UnifiedAgentConfigurator.exe  /CSEndPoint <CSIP> /PassphraseFilePath <PassphraseFilePath>
     ```
 
-#### <a name="installation-settings"></a>Installations inställningar
+#### <a name="installation-settings"></a>Installationsinställningar
 **Inställning** | **Detaljer**
 --- | ---
-Användning | UnifiedAgent. exe/Role \<MS/MT >/InstallLocation \<installations plats >/Platform "VmWare"/Silent
-Installations loggar | Under%ProgramData%\ASRSetupLogs\ASRUnifiedAgentInstaller.log.
-/Role | Obligatorisk installations parameter. Anger om mobilitets tjänsten (MS) eller huvud målet (MT) ska installeras.
-/InstallLocation| Valfri parameter. Anger mobilitets tjänstens installations plats (valfri mapp).
-/Platform | Obligatorisk. Anger den plattform där mobilitets tjänsten är installerad. **VMware** för virtuella VMware-datorer/fysiska servrar; Virtuella **Azure** -datorer i Azure.<br/><br/> Om du hanterar virtuella Azure-datorer som fysiska datorer anger du **VMware**.
-/Silent| Valfri. Anger om installations programmet ska köras i tyst läge.
+Användning | UnifiedAgent.exe /Roll \<MS/MT> /InstallLocation \<Install Location> /Platform "VmWare" /Silent
+Installationsloggar | Under %ProgramData%\ASRSetupLogs\ASRUnifiedAgentInstaller.log.
+/Roll | Obligatorisk installationsparameter. Anger om mobilitetstjänsten (MS) eller huvudmålet (MT) ska installeras.
+/InstallLocation| Valfri parameter. Anger installationsplatsen för mobilitetstjänsten (valfri mapp).
+/Plattform | Obligatorisk. Anger den plattform där Mobilitetstjänsten är installerad. **VMware** för virtuella datorer/fysiska VMware-servrar. **Virtuella Azure** för Virtuella Azure-datorer.<br/><br/> Om du behandlar virtuella Azure-datorer som fysiska datorer anger du **VMware**.
+/Silent| Valfri. Anger om installationsprogrammet ska köras i tyst läge.
 
-#### <a name="registration-settings"></a>Registrerings inställningar
+#### <a name="registration-settings"></a>Registreringsinställningar
 **Inställning** | **Detaljer**
 --- | ---
-Användning | UnifiedAgentConfigurator. exe/CSEndPoint \<CSIP >/PassphraseFilePath \<PassphraseFilePath >
-Agent konfigurations loggar | Under%ProgramData%\ASRSetupLogs\ASRUnifiedAgentConfigurator.log.
-/CSEndPoint | Obligatorisk parameter. Anger konfigurations serverns IP-adress. Använd en giltig IP-adress.
-/PassphraseFilePath |  Obligatorisk. Plats för lösen frasen. Använd en giltig UNC-eller lokal fil Sök väg.
+Användning | UnifiedAgentConfigurator.exe /CSEndPoint \<CSIP> /LösphraseFilePath-lösenordfraserfilepath \<>
+Agentkonfigurationsloggar | Under %ProgramData%\ASRSetupLogs\ASRUnifiedAgentConfigurator.log.
+/CSEndPoint | Obligatorisk parameter. Anger konfigurationsserverns IP-adress. Använd en giltig IP-adress.
+/PassphraseFilePath |  Obligatorisk. Plats för lösenfrasen. Använd en giltig UNC- eller lokal filsökväg.
 
-### <a name="on-a-linux-machine"></a>På en Linux-dator
+### <a name="on-a-linux-machine"></a>På en Linux-maskin
 
-1. Kopiera installations programmet till en lokal mapp (till exempel katalogen/tmp) på den server som du vill skydda. I en Terminal kör du följande kommandon:
+1. Kopiera installationsprogrammet till en lokal mapp (till exempel /tmp) på den server som du vill skydda. I en terminal kör du följande kommandon:
 
     ```
     cd /tmp ;
@@ -148,51 +148,51 @@ Agent konfigurations loggar | Under%ProgramData%\ASRSetupLogs\ASRUnifiedAgentCon
     sudo ./install -d <Install Location> -r MS -v VmWare -q
     ```
 
-3. När installationen är klar måste mobilitets tjänsten registreras på konfigurations servern. Kör följande kommando för att registrera mobilitets tjänsten med konfigurations servern:
+3. När installationen är klar måste Mobilitetstjänsten registreras på konfigurationsservern. Kör följande kommando för att registrera Mobilitetstjänsten med konfigurationsservern:
 
     ```
     /usr/local/ASR/Vx/bin/UnifiedAgentConfigurator.sh -i <CSIP> -P /var/passphrase.txt
     ```
 
-#### <a name="installation-settings"></a>Installations inställningar
+#### <a name="installation-settings"></a>Installationsinställningar
 **Inställning** | **Detaljer**
 --- | ---
-Användning | ./install-d \<installations plats >-r \<MS/MT >-v VmWare-q
--r | Obligatorisk installations parameter. Anger om mobilitets tjänsten (MS) eller huvud målet (MT) ska installeras.
-d, DDD | Valfri parameter. Anger mobilitets tjänstens installations plats:/usr/local/ASR.
--v | Obligatorisk. Anger den plattform där mobilitets tjänsten är installerad. **VMware** för virtuella VMware-datorer/fysiska servrar; Virtuella **Azure** -datorer i Azure.
--q | Valfri. Anger om installations programmet ska köras i tyst läge.
+Användning | ./install -d \<Installera plats> \<-r MS/MT> -v VmWare -q
+-r | Obligatorisk installationsparameter. Anger om mobilitetstjänsten (MS) eller huvudmålet (MT) ska installeras.
+-d. | Valfri parameter. Anger installationsplatsen för mobilitetstjänsten: /usr/local/ASR.
+-v | Obligatorisk. Anger den plattform där Mobilitetstjänsten är installerad. **VMware** för virtuella datorer/fysiska VMware-servrar. **Virtuella Azure** för Virtuella Azure-datorer.
+-q | Valfri. Anger om installationsprogrammet ska köras i tyst läge.
 
-#### <a name="registration-settings"></a>Registrerings inställningar
+#### <a name="registration-settings"></a>Registreringsinställningar
 **Inställning** | **Detaljer**
 --- | ---
-Användning | cd-/usr/local/ASR/Vx/bin<br/><br/> UnifiedAgentConfigurator.sh-i \<CSIP >-P \<PassphraseFilePath >
--i | Obligatorisk parameter. Anger konfigurations serverns IP-adress. Använd en giltig IP-adress.
--P |  Obligatorisk. Fullständig sökväg till filen där lösen frasen sparas. Använd en giltig mapp.
+Användning | cd /usr/lokal/ASR/Vx/bin<br/><br/> UnifiedAgentConfigurator.sh -i \<CSIP> -P \<LösenordsfraseFilePath>
+-i | Obligatorisk parameter. Anger konfigurationsserverns IP-adress. Använd en giltig IP-adress.
+-P. |  Obligatorisk. Fullständig filsökväg för filen där lösenfrasen sparas. Använd vilken giltig mapp som helst.
 
-## <a name="azure-virtual-machine-agent"></a>Agent för virtuell Azure-dator
+## <a name="azure-virtual-machine-agent"></a>Azure-agent för virtuella datorer
 
-- **Virtuella Windows-datorer**: från 9.7.0.0 av mobilitets tjänsten installeras [Azure VM-agenten](../virtual-machines/extensions/features-windows.md#azure-vm-agent) av mobilitets tjänstens installations program. Detta säkerställer att den virtuella Azure-datorn uppfyller kraven för agent installation för att använda alla VM-tillägg när datorn växlar över till Azure.
-- **Virtuella Linux-datorer**: [WALinuxAgent](https://docs.microsoft.com/azure/virtual-machines/extensions/update-linux-agent) måste installeras manuellt på den virtuella Azure-datorn efter redundansväxlingen.
+- **Windows virtuella datorer:** Från version 9.7.0.0 av mobilitetstjänsten installeras [Azure VM-agenten](../virtual-machines/extensions/features-windows.md#azure-vm-agent) av installationsprogrammet för mobilitetstjänster. Detta säkerställer att när datorn växlar över till Azure, azure-vm uppfyller agentinstallation förutsättningen för att använda alla Vm-tillägg.
+- **Virtuella Linux-datorer:** [WALinuxAgent](https://docs.microsoft.com/azure/virtual-machines/extensions/update-linux-agent) måste installeras manuellt på Den virtuella Azure-datorn efter redundans.
 
-## <a name="locate-installer-files"></a>Hitta installationsfiler
+## <a name="locate-installer-files"></a>Leta upp installationsfiler
 
-Gå till mappen%ProgramData%\ASR\home\svsystems\pushinstallsvc\repository på konfigurations servern. Kontrol lera vilka installations program du behöver baserat på operativ system. I följande tabell sammanfattas installationsfilerna för varje virtuell VMware-dator och operativ system för fysiska servrar. Du kan granska [operativ system som stöds](vmware-physical-azure-support-matrix.md#replicated-machines) innan du börjar.
+Gå till mappen %ProgramData%\ASR\home\svsystems\pushinstallsvc\repository på konfigurationsservern. Kontrollera vilken installationsprogram du behöver baserat på operativsystemet. I följande tabell sammanfattas installationsfilerna för varje virtuell dator med VMware och det fysiska serveroperativsystemet. Du kan granska [operativsystem som stöds](vmware-physical-azure-support-matrix.md#replicated-machines) innan du börjar.
 
-**Installations fil** | **Operativ system (endast 64-bitars)**
+**Installationsfil** | **Operativsystem (endast 64 bitars)**
 --- | ---
-Microsoft-ASR\_UA\*Windows\*version. exe | Windows Server 2016; Windows Server 2012 R2; Windows Server 2012; Windows Server 2008 R2 SP1
-Microsoft-ASR\_UA\*RHEL6-64\*release. tar. gz | Red Hat Enterprise Linux (RHEL) 6. * </br> CentOS 6.*
-Microsoft-ASR\_UA\*RHEL7-64\*release. tar. gz | Red Hat Enterprise Linux (RHEL) 7. * </br> CentOS 7.*
-Microsoft-ASR\_UA\*SLES12-64\*release. tar. gz | SUSE Linux Enterprise Server 12 SP1, SP2, SP3
-Microsoft-ASR\_UA\*SLES11-SP3-64\*release. tar. gz| SUSE Linux Enterprise Server 11 SP3
-Microsoft-ASR\_UA\*SLES11-SP4-64\*release. tar. gz| SUSE Linux Enterprise Server 11 SP4
-Microsoft-ASR\_UA\*OL6-64\*release. tar. gz | Oracle Enterprise Linux 6,4, 6,5
-Microsoft-ASR\_UA\*UBUNTU-14.04-64\*release. tar. gz | Ubuntu Linux 14,04
-Microsoft-ASR\_UA\*UBUNTU-16.04-64\*release. tar. gz | Ubuntu Linux 16,04 LTS-Server
-Microsoft-ASR_UA\*DEBIAN7-64\*version. tar. gz | Debian 7
-Microsoft-ASR_UA\*DEBIAN8-64\*version. tar. gz | Debian 8
+Microsoft-ASR\_\*UA\*Windows release.exe | Windows Server 2016; Windows Server 2012 R2; Windows Server 2012; Windows Server 2008 R2 SP1
+Microsoft-ASR\_UA\*RHEL6-64\*release.tar.gz | Red Hat Enterprise Linux (RHEL) 6.* </br> CentOS 6.*
+Microsoft-ASR\_UA\*RHEL7-64\*release.tar.gz | Red Hat Enterprise Linux (RHEL) 7.* </br> CentOS 7.*
+Microsoft-ASR\_UA\*SLES12-64\*release.tar.gz | SUSE Linux Enterprise Server 12 SP1,SP2,SP3
+Microsoft-ASR\_UA\*SLES11-SP3-64\*release.tar.gz| SUSE Linux Enterprise Server 11 SP3
+Microsoft-ASR\_UA\*SLES11-SP4-64\*release.tar.gz| SUSE Linux Enterprise Server 11 SP4
+Microsoft-ASR\_UA\*OL6-64\*release.tar.gz | Oracle Enterprise Linux 6,4, 6,5
+Microsoft-ASR\_UA\*UBUNTU-14.04-64\*release.tar.gz | Ubuntu Linux 14,04
+Microsoft-ASR\_UA\*UBUNTU-16.04-64\*release.tar.gz | Ubuntu Linux 16,04 LTS-server
+Microsoft-ASR_UA\*DEBIAN7-64\*release.tar.gz | Debian 7
+Microsoft-ASR_UA\*DEBIAN8-64\*release.tar.gz | Debian 8
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Konfigurera push-installation för mobilitets tjänsten](vmware-azure-install-mobility-service.md).
+[Konfigurera push-installation för mobilitetstjänsten](vmware-azure-install-mobility-service.md).

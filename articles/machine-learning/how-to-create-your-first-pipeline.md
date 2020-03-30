@@ -1,7 +1,7 @@
 ---
-title: Skapa, kör & spåra ML-pipelines
+title: Skapa, kör, & spåra ML-pipelines
 titleSuffix: Azure Machine Learning
-description: Skapa och kör en machine learning-pipeline med Azure Machine Learning-SDK för Python. Använd ML-pipelines för att skapa och hantera arbets flöden som häftar ihop Machine Learning-faser (ML). I de här faserna ingår förberedelse av data, modell utbildning, modell distribution och härledning/poängsättning.
+description: Skapa och kör en pipeline för maskininlärning med Azure Machine Learning SDK för Python. Använd ML-pipelines för att skapa och hantera arbetsflöden som syr ihop ml-faser (Machine Learning). Dessa faser omfattar dataförberedelse, modellutbildning, modelldistribution och inferens/bedömning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -12,34 +12,34 @@ author: sanpil
 ms.date: 12/05/2019
 ms.custom: seodec18
 ms.openlocfilehash: 2f62be94c901b383e34608508baa87ea37c893af
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79283607"
 ---
-# <a name="create-and-run-machine-learning-pipelines-with-azure-machine-learning-sdk"></a>Skapa och kör maskin inlärnings pipeliner med Azure Machine Learning SDK
+# <a name="create-and-run-machine-learning-pipelines-with-azure-machine-learning-sdk"></a>Skapa och kör pipelines för maskininlärning med Azure Machine Learning SDK
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-I den här artikeln får du lära dig hur du skapar, publicerar, kör och spårar en [pipeline för maskin inlärning](concept-ml-pipelines.md) med hjälp av [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).  Använd **ml-pipelines** för att skapa ett arbets flöde som häftar samman olika ml-faser och publicera sedan den pipelinen i Azure Machine Learning arbets ytan för att komma åt senare eller dela med andra.  ML-pipelines är idealiska för scenarier med batch-poäng, med hjälp av olika beräkningar, återanvända steg i stället för att köra om dem, samt dela ML-arbetsflöden med andra.
+I den här artikeln får du lära dig hur du skapar, publicerar, kör och spårar en pipeline för [maskininlärning](concept-ml-pipelines.md) med hjälp av [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).  Använd **ML-pipelines** för att skapa ett arbetsflöde som innehåller olika ML-faser och sedan publicera pipelinen i din Azure Machine Learning-arbetsyta för att komma åt senare eller dela med andra.  ML-pipelines är idealiska för batchbedömningsscenarier, med hjälp av olika beräkningar, återanvändning av steg istället för att köra om dem, samt dela ML-arbetsflöden med andra.
 
-Även om du kan använda en annan typ av pipeline som kallas för en [Azure-pipeline](https://docs.microsoft.com/azure/devops/pipelines/targets/azure-machine-learning?context=azure%2Fmachine-learning%2Fservice%2Fcontext%2Fml-context&view=azure-devops&tabs=yaml) för CI/CD-automatisering av ml-aktiviteter, lagras inte den typen av pipeline i arbets ytan. [Jämför dessa olika pipeliner](concept-ml-pipelines.md#which-azure-pipeline-technology-should-i-use).
+Du kan använda en annan typ av pipeline som kallas [En Azure Pipeline](https://docs.microsoft.com/azure/devops/pipelines/targets/azure-machine-learning?context=azure%2Fmachine-learning%2Fservice%2Fcontext%2Fml-context&view=azure-devops&tabs=yaml) för CI/CD-automatisering av ML-uppgifter, men den typen av pipeline lagras aldrig i arbetsytan. [Jämför dessa olika rörledningar](concept-ml-pipelines.md#which-azure-pipeline-technology-should-i-use).
 
-Varje fas i en ML-pipeline, till exempel data förberedelse och modell utbildning, kan innehålla ett eller flera steg.
+Varje fas i en ML-pipeline, till exempel dataförberedelser och modellutbildning, kan innehålla ett eller flera steg.
 
-De ML-pipeliner som du skapar visas för medlemmarna i din Azure Machine Learning- [arbetsyta](how-to-manage-workspace.md). 
+De ML-pipelines som du skapar är synliga för medlemmarna i arbetsytan Azure Machine [Learning](how-to-manage-workspace.md). 
 
-ML pipelines använder fjärrberäknings mål för beräkning och lagring av mellanliggande och slutliga data som är kopplade till den pipelinen. De kan läsa och skriva data till och från [Azure Storage](https://docs.microsoft.com/azure/storage/) platser som stöds.
+ML-pipelines använder fjärrberäkningsmål för beräkning och lagring av mellanliggande och slutliga data som är associerade med den pipelinen. De kan läsa och skriva data till och från [Azure Storage-platser](https://docs.microsoft.com/azure/storage/) som stöds.
 
-Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnads fria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree).
+Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnadsfria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-* Skapa en [Azure Machine Learning arbets yta](how-to-manage-workspace.md) för att lagra alla dina pipeline-resurser.
+* Skapa en [Azure Machine Learning-arbetsyta](how-to-manage-workspace.md) för att lagra alla dina pipeline-resurser.
 
-* [Konfigurera utvecklings miljön](how-to-configure-environment.md) för att installera Azure Machine Learning SDK eller använd en [Azure Machine Learning beräknings instans (för hands version)](concept-compute-instance.md) med SDK redan installerad.
+* [Konfigurera din utvecklingsmiljö](how-to-configure-environment.md) för att installera Azure Machine Learning SDK eller använd en [Azure Machine Learning-beräkningsinstans (förhandsversion)](concept-compute-instance.md) med SDK redan installerat.
 
-Börja med att koppla din arbets yta:
+Börja med att bifoga arbetsytan:
 
 ```Python
 import azureml.core
@@ -49,21 +49,21 @@ ws = Workspace.from_config()
 ```
 
 
-## <a name="set-up-machine-learning-resources"></a>Konfigurera machine learning-resurser
+## <a name="set-up-machine-learning-resources"></a>Konfigurera maskininlärningsresurser
 
 Skapa de resurser som krävs för att köra en ML-pipeline:
 
-* Ställ in ett datalager som används för att komma åt data som behövs i pipeline-stegen.
+* Konfigurera ett datalager som används för att komma åt de data som behövs i pipeline-stegen.
 
-* Konfigurera ett `DataReference` objekt så att det pekar på data som finns i, eller som är tillgängliga i, ett data lager.
+* Konfigurera `DataReference` ett objekt så att det pekar på data som finns i eller är tillgängliga i ett datalager.
 
-* Konfigurera [beräknings målen](concept-azure-machine-learning-architecture.md#compute-targets) som dina pipeline-steg ska köras på.
+* Ställ in [beräkningsmålen](concept-azure-machine-learning-architecture.md#compute-targets) som pipeline-stegen ska köras på.
 
 ### <a name="set-up-a-datastore"></a>Konfigurera ett datalager
 
-Ett datalager lagrar data för att få åtkomst till pipelinen. Varje arbetsyta har ett standard-datalager. Du kan registrera ytterligare datalager. 
+I ett datalager lagras data som pipelinen kan komma åt. Varje arbetsyta har ett standarddatalager. Du kan registrera ytterligare datalager. 
 
-När du skapar din arbets yta är [Azure Files](https://docs.microsoft.com/azure/storage/files/storage-files-introduction) och [Azure Blob Storage](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction) kopplade till arbets ytan. Ett standard data lager har registrerats för att ansluta till Azure Blob Storage. Mer information finns i [bestämma när du ska använda Azure Files, Azure-blobbar eller Azure-diskar](https://docs.microsoft.com/azure/storage/common/storage-decide-blobs-files-disks). 
+När du skapar din arbetsyta är [Azure-filer](https://docs.microsoft.com/azure/storage/files/storage-files-introduction) och [Azure Blob-lagring](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction) kopplade till arbetsytan. Ett standarddatalager registreras för att ansluta till Azure Blob-lagring. Mer information finns i [Bestämma när Azure-filer, Azure-blobbar eller Azure-diskar](https://docs.microsoft.com/azure/storage/common/storage-decide-blobs-files-disks)ska användas . 
 
 ```python
 # Default datastore 
@@ -77,7 +77,7 @@ def_file_store = Datastore(ws, "workspacefilestore")
 
 ```
 
-Ladda upp filer eller kataloger till databasen för att de ska vara tillgängliga från dina pipelines. I det här exemplet används Blob Storage som data lager:
+Ladda upp datafiler eller kataloger till datalagret så att de kan vara tillgängliga från dina pipelines. I det här exemplet används Blob-lagringen som datalager:
 
 ```python
 def_blob_store.upload_files(
@@ -86,13 +86,13 @@ def_blob_store.upload_files(
     overwrite=True)
 ```
 
-En pipeline består av en eller flera steg. Ett steg är en enhet som kör på ett beräkningsmål. Anvisningarna kan använda datakällor och producerar de data som ”mellanliggande”. Ett steg kan skapa data, till exempel en modell, en katalog med modellen och beroende filer eller tillfälliga data. Dessa data är sedan tillgänglig för andra steg senare i pipelinen.
+En pipeline består av ett eller flera steg. Ett steg är en enhet som körs på ett beräkningsmål. Steg kan använda datakällor och producera "mellanliggande" data. Ett steg kan skapa data som en modell, en katalog med modell och beroende filer eller tillfälliga data. Dessa data är sedan tillgängliga för andra steg senare i pipelinen.
 
-Mer information om hur du ansluter din pipeline till dina data finns i artikeln [så här får du åtkomst till data](how-to-access-data.md) och [hur du registrerar data uppsättningar](how-to-create-register-datasets.md). 
+Mer information om hur du ansluter pipelinen till dina data finns i artiklarna [Så här kommer du åt data](how-to-access-data.md) och hur du registrerar [datauppsättningar](how-to-create-register-datasets.md). 
 
-### <a name="configure-data-reference"></a>Konfigurera data-referens
+### <a name="configure-data-reference"></a>Konfigurera datareferens
 
-Du skapade en datakälla som kan refereras i en pipeline som indata till ett steg. En data källa i en pipeline representeras av ett [DataReference](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference) -objekt. `DataReference`-objektet pekar på data som finns i eller kan nås från ett data lager.
+Du har precis skapat en datakälla som kan refereras i en pipeline som en indata till ett steg. En datakälla i en pipeline representeras av ett [DataReference-objekt.](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference) Objektet `DataReference` pekar på data som finns i eller är tillgängliga från ett datalager.
 
 ```python
 from azureml.data.data_reference import DataReference
@@ -103,7 +103,7 @@ blob_input_data = DataReference(
     path_on_datastore="20newsgroups/20news.pkl")
 ```
 
-Mellanliggande data (eller utdata från ett steg) representeras av ett [PipelineData](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py) -objekt. `output_data1` skapas som utdata för ett steg och används som indata för ett eller flera framtida steg. `PipelineData` introducerar ett data beroende mellan stegen och skapar en implicit körnings ordning i pipelinen. Det här objektet kommer att användas senare när du skapar pipeline-steg.
+Mellanliggande data (eller utdata från ett steg) representeras av ett [PipelineData-objekt.](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py) `output_data1`produceras som utdata för ett steg och används som indata för ett eller flera framtida steg. `PipelineData`introducerar ett databeroende mellan steg och skapar en implicit körningsorder i pipelinen. Det här objektet används senare när pipeline-steg skapas.
 
 ```python
 from azureml.pipeline.core import PipelineData
@@ -114,11 +114,11 @@ output_data1 = PipelineData(
     output_name="output_data1")
 ```
 
-### <a name="configure-data-using-datasets"></a>Konfigurera data med hjälp av data uppsättningar
+### <a name="configure-data-using-datasets"></a>Konfigurera data med hjälp av datauppsättningar
 
-Om du har tabell data som lagras i en fil eller en uppsättning filer, är en [TabularDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py) ett effektivt alternativ till en `DataReference`. `TabularDataset` objekt stöder versions-, diff-och sammanfattnings statistik. `TabularDataset`s utvärderas Lazy (t. ex. python-generatorer) och är effektiva att under lätta för dem genom att dela eller filtrera. Klassen `FileDataset` ger liknande Lazy-utvärderade data som representerar en eller flera filer. 
+Om du har tabelldata som lagras i en fil eller uppsättning filer är `DataReference`en [tabelldatauppsättning](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py) ett effektivt alternativ till en . `TabularDataset`objekt stöder versionshantering, diffs och sammanfattande statistik. `TabularDataset`s är lättjefullt utvärderas (som Python generatorer) och det är effektivt att dela dem genom att dela eller filtrera. Klassen `FileDataset` tillhandahåller liknande lättjasvärderade data som representerar en eller flera filer. 
 
-Du skapar en `TabularDataset` med hjälp av metoder som [from_delimited_files](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory?view=azure-ml-py#from-delimited-files-path--validate-true--include-path-false--infer-column-types-true--set-column-types-none--separator------header-true--partition-format-none-).
+Du skapar `TabularDataset` en med metoder som [from_delimited_files](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory?view=azure-ml-py#from-delimited-files-path--validate-true--include-path-false--infer-column-types-true--set-column-types-none--separator------header-true--partition-format-none-).
 
 ```python
 from azureml.data import TabularDataset
@@ -126,18 +126,18 @@ from azureml.data import TabularDataset
 iris_tabular_dataset = Dataset.Tabular.from_delimited_files([(def_blob_store, 'train-dataset/tabular/iris.csv')])
 ```
 
- Du skapar en `FileDataset` med hjälp av [from_files](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.filedatasetfactory?view=azure-ml-py#from-files-path--validate-true-).
+ Du skapar `FileDataset` en med [from_files](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.filedatasetfactory?view=azure-ml-py#from-files-path--validate-true-).
 
- Du kan lära dig mer om hur du arbetar med data uppsättningar från [Lägg till & registrerar data uppsättningar](how-to-create-register-datasets.md) eller [den här exempel antecknings boken](https://aka.ms/train-datasets).
+ Du kan läsa mer om hur du arbetar med datauppsättningar från [Lägg till & registrera datauppsättningar](how-to-create-register-datasets.md) eller den här [exempelanteckningsboken](https://aka.ms/train-datasets).
 
-## <a name="set-up-compute-target"></a>Konfigurera beräkningsmål
+## <a name="set-up-compute-target"></a>Ställ in beräkningsmål
 
-I Azure Machine Learning, avser termen __beräkningarna__ (eller __beräknings målet__) de datorer eller kluster som utför beräknings stegen i din Machine Learning-pipeline.   Se [Compute-mål för modell utbildning](how-to-set-up-training-targets.md) för en fullständig lista över beräknings mål och hur du skapar och kopplar dem till din arbets yta.  Processen för att skapa och eller koppla ett beräknings mål är detsamma oavsett om du tränar en modell eller kör ett pipeline-steg. När du har skapat och kopplat ditt beräknings mål använder du `ComputeTarget`-objektet i [pipeline-steget](#steps).
+I Azure Machine Learning __refererar__ termen beräkningar (eller __beräkningsmål)__ till de datorer eller kluster som utför beräkningsstegen i din machine learning-pipeline.   Se [beräkningsmål för modellutbildning](how-to-set-up-training-targets.md) för en fullständig lista över beräkningsmål och hur du skapar och kopplar dem till din arbetsyta.  Processen för att skapa och eller koppla ett beräkningsmål är densamma oavsett om du tränar en modell eller kör ett pipeline-steg. När du har skapat och bifogat beräkningsmål använder du `ComputeTarget` objektet i [pipeline-steget](#steps).
 
 > [!IMPORTANT]
-> Det finns inte stöd för att utföra hanterings åtgärder på beräknings mål inifrån Fjärrjobb. Eftersom Machine Learning-pipelines skickas som ett Fjärrjobb använder du inte hanterings åtgärder på beräknings mål inifrån pipelinen.
+> Utföra hanteringsåtgärder på beräkningsmål stöds inte inifrån fjärrjobb. Eftersom machine learning-pipelines skickas som ett fjärrjobb ska du inte använda hanteringsåtgärder på beräkningsmål inifrån pipelinen.
 
-Nedan visas exempel på hur du skapar och kopplar beräknings mål för:
+Nedan följer exempel på hur du skapar och kopplar beräkningsmål för:
 
 * Azure Machine Learning-beräkning
 * Azure Databricks 
@@ -145,7 +145,7 @@ Nedan visas exempel på hur du skapar och kopplar beräknings mål för:
 
 ### <a name="azure-machine-learning-compute"></a>Azure Machine Learning-beräkning
 
-Du kan skapa en Azure Machine Learning beräkning för att köra dina steg.
+Du kan skapa en Azure Machine Learning-beräkning för att köra dina steg.
 
 ```python
 from azureml.core.compute import ComputeTarget, AmlCompute
@@ -174,19 +174,19 @@ else:
     print(compute_target.status.serialize())
 ```
 
-### <a id="databricks"></a>Azure Databricks
+### <a name="azure-databricks"></a><a id="databricks"></a>Azure Databricks
 
-Azure Databricks är en Apache Spark-baserad miljö i Azure-molnet. Den kan användas som ett beräknings mål med en Azure Machine Learning pipeline.
+Azure Databricks är en Apache Spark-baserad miljö i Azure-molnet. Den kan användas som ett beräkningsmål med en Azure Machine Learning-pipeline.
 
-Skapa en Azure Databricks arbets yta innan du använder den. Information om hur du skapar en arbets ytas resurs finns i [köra ett Spark-jobb på Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/quickstart-create-databricks-workspace-portal) -dokument.
+Skapa en Azure Databricks-arbetsyta innan du använder den. Om du vill skapa en arbetsytas resurs läser du [fältet Kör ett Spark-jobb på Azure Databricks-dokumentet.](https://docs.microsoft.com/azure/azure-databricks/quickstart-create-databricks-workspace-portal)
 
-Om du vill bifoga Azure Databricks som ett beräknings mål anger du följande information:
+Om du vill bifoga Azure Databricks som ett beräkningsmål anger du följande information:
 
-* __Databricks Compute Name__: det namn som du vill tilldela till den här beräknings resursen.
-* __Databricks namn på arbets yta__: namnet på arbets ytan Azure Databricks.
-* __Databricks__: åtkomst-token som används för att autentisera till Azure Databricks. Om du vill generera en åtkomsttoken, se [Authentication](https://docs.azuredatabricks.net/dev-tools/api/latest/authentication.html) -dokumentet.
+* __Databricks beräkningsnamn__: Det namn som du vill tilldela till den här beräkningsresursen.
+* __Databricks arbetsytans namn__: Namnet på Arbetsytan Azure Databricks.
+* __Databricks åtkomsttoken__: Åtkomsttoken som används för att autentisera till Azure Databricks. Om du vill generera en åtkomsttoken läser du [autentiseringsdokumentet.](https://docs.azuredatabricks.net/dev-tools/api/latest/authentication.html)
 
-Följande kod visar hur du kopplar Azure Databricks som ett beräknings mål med Azure Machine Learning SDK (Databricks-__arbetsytan måste finnas i samma prenumeration som din AML-arbetsyta__):
+Följande kod visar hur du bifogar Azure Databricks som ett beräkningsmål med Azure Machine Learning SDK (__Databricks-arbetsytan måste finnas i samma prenumeration som din AML-arbetsyta):__
 
 ```python
 import os
@@ -225,21 +225,21 @@ except ComputeTargetException:
     databricks_compute.wait_for_completion(True)
 ```
 
-Ett mer detaljerat exempel finns i en [exempel antecknings bok](https://aka.ms/pl-databricks) på GitHub.
+Ett mer detaljerat exempel finns i en [exempelanteckningsbok](https://aka.ms/pl-databricks) på GitHub.
 
-### <a id="adla"></a>Azure Data Lake Analytics
+### <a name="azure-data-lake-analytics"></a><a id="adla"></a>Azure Data Lake Analytics
 
-Azure Data Lake Analytics är en analysplattform med stordata i Azure-molnet. Den kan användas som ett beräknings mål med en Azure Machine Learning pipeline.
+Azure Data Lake Analytics är en plattform för analys av stordata i Azure-molnet. Den kan användas som ett beräkningsmål med en Azure Machine Learning-pipeline.
 
-Skapa ett Azure Data Lake Analytics konto innan du använder det. Information om hur du skapar den här resursen finns i dokumentet [Kom igång med Azure Data Lake Analytics](https://docs.microsoft.com/azure/data-lake-analytics/data-lake-analytics-get-started-portal) .
+Skapa ett Azure Data Lake Analytics-konto innan du använder det. Om du vill skapa den här resursen läser du dokumentet [Kom igång med Azure Data Lake Analytics.](https://docs.microsoft.com/azure/data-lake-analytics/data-lake-analytics-get-started-portal)
 
-Om du vill koppla Data Lake Analytics som beräkningsmål du använder Azure Machine Learning SDK och ange följande information:
+Om du vill koppla DataSjöanalys som ett beräkningsmål måste du använda Azure Machine Learning SDK och ange följande information:
 
-* __Compute-namn__: det namn som du vill tilldela till den här beräknings resursen.
-* __Resurs grupp__: den resurs grupp som innehåller det data Lake Analytics kontot.
-* __Konto namn__: namnet på data Lake Analytics kontot.
+* __Beräkningsnamn__: Det namn som du vill tilldela den här beräkningsresursen.
+* __Resursgrupp__: Resursgruppen som innehåller DataSjöanalyskontot.
+* __Kontonamn__: Kontonamnet DataSjöanalys.
 
-Följande kod visar hur du kopplar Data Lake Analytics som beräkningsmål:
+Följande kod visar hur du bifogar Data Lake Analytics som ett beräkningsmål:
 
 ```python
 import os
@@ -275,14 +275,14 @@ except ComputeTargetException:
     adla_compute.wait_for_completion(True)
 ```
 
-Ett mer detaljerat exempel finns i en [exempel antecknings bok](https://aka.ms/pl-adla) på GitHub.
+Ett mer detaljerat exempel finns i en [exempelanteckningsbok](https://aka.ms/pl-adla) på GitHub.
 
 > [!TIP]
-> Azure Machine Learning pipelines fungerar bara med data som lagras i datalagret standard för Data Lake Analytics-kontot. Om de data du behöver arbeta med finns i ett lager som inte är standard kan du använda en [`DataTransferStep`](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.data_transfer_step.datatransferstep?view=azure-ml-py) för att kopiera data innan du tränar.
+> Azure Machine Learning-pipelines kan bara fungera med data som lagras i standarddatalagret för Data Lake Analytics-kontot. Om de data du behöver arbeta med finns i ett [`DataTransferStep`](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.data_transfer_step.datatransferstep?view=azure-ml-py) icke-standardlager kan du använda en för att kopiera data före träningen.
 
-## <a id="steps"></a>Skapa dina pipeline-steg
+## <a name="construct-your-pipeline-steps"></a><a id="steps"></a>Konstruera dina pipeline-steg
 
-När du har skapat och kopplat ett beräknings mål till din arbets yta är du redo att definiera ett pipeline-steg. Det finns många inbyggda steg som är tillgängliga via Azure Machine Learning SDK. De mest grundläggande stegen är en [PythonScriptStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.python_script_step.pythonscriptstep?view=azure-ml-py), som kör ett Python-skript i ett angivet beräknings mål:
+När du har skapat och bifogat ett beräkningsmål till arbetsytan är du redo att definiera ett pipeline-steg. Det finns många inbyggda steg som är tillgängliga via Azure Machine Learning SDK. De mest grundläggande av dessa steg är en [PythonScriptStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.python_script_step.pythonscriptstep?view=azure-ml-py), som kör ett Python-skript i ett angivet beräkningsmål:
 
 ```python
 from azureml.pipeline.steps import PythonScriptStep
@@ -297,12 +297,12 @@ trainStep = PythonScriptStep(
 )
 ```
 
-Åter användning av tidigare resultat (`allow_reuse`) är nyckel när du använder pipelines i en samarbets miljö eftersom du eliminerar onödig återgångs möjligheter. Åter användning är standard beteendet när script_name, indata och parametrarna för ett steg är desamma. När utdata från steget återanvänds skickas inte jobbet till data bearbetningen, i stället för att resultaten från föregående körning är omedelbart tillgängliga för nästa stegs körning. Om `allow_reuse` är inställt på falskt skapas alltid en ny körning för det här steget under pipeline-körningen. 
+Återanvändning av tidigare`allow_reuse`resultat ( ) är nyckeln när du använder rörledningar i en samarbetsmiljö eftersom eliminera onödiga repriser erbjuder smidighet. Återanvändning är standardbeteendet när script_name, indata och parametrarna för ett steg förblir desamma. När utdata för steget återanvänds skickas inte jobbet till beräkningen, utan resultaten från föregående körning är omedelbart tillgängliga för nästa stegs körning. Om `allow_reuse` är inställd på false, genereras alltid en ny körning för det här steget under pipelinekörning. 
 
-När du har definierat stegen skapar du pipelinen med hjälp av några eller samtliga av dessa steg.
+När du har definierat dina steg skapar du pipelinen med hjälp av några eller alla av dessa steg.
 
 > [!NOTE]
-> Ingen fil eller några data överförs till Azure Machine Learning när du definierar stegen eller skapar pipelinen.
+> Ingen fil eller data överförs till Azure Machine Learning när du definierar stegen eller skapar pipelinen.
 
 ```python
 # list of steps to run
@@ -314,7 +314,7 @@ from azureml.pipeline.core import Pipeline
 pipeline1 = Pipeline(workspace=ws, steps=[compareModels])
 ```
 
-I följande exempel används Azure Databricks Compute Target som skapats tidigare: 
+I följande exempel används beräkningsmålet för Azure Databricks som skapats tidigare: 
 
 ```python
 from azureml.pipeline.steps import DatabricksStep
@@ -337,11 +337,11 @@ steps = [dbStep]
 pipeline1 = Pipeline(workspace=ws, steps=steps)
 ```
 
-### <a name="use-a-dataset"></a>Använd en data uppsättning 
+### <a name="use-a-dataset"></a>Använda en datauppsättning 
 
-Om du vill använda antingen en `TabularDataset` eller `FileDataset` i din pipeline måste du omvandla den till ett [DatasetConsumptionConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_consumption_config.datasetconsumptionconfig?view=azure-ml-py) -objekt genom att anropa [as_named_input (namn)](https://docs.microsoft.com/python/api/azureml-core/azureml.data.abstract_dataset.abstractdataset?view=azure-ml-py#as-named-input-name-). Du skickar `DatasetConsumptionConfig`-objektet som en av `inputs` till ditt pipeline-steg. 
+Om du `TabularDataset` vill `FileDataset` använda antingen ett eller i pipelinen måste du göra det till ett [DatasetConsumptionConfig-objekt](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_consumption_config.datasetconsumptionconfig?view=azure-ml-py) genom att anropa [as_named_input(namn)](https://docs.microsoft.com/python/api/azureml-core/azureml.data.abstract_dataset.abstractdataset?view=azure-ml-py#as-named-input-name-). Du skickar `DatasetConsumptionConfig` det här `inputs` objektet som ett av till pipeline-steget. 
 
-Data uppsättningar som skapats från Azure Blob Storage, Azure Files, Azure Data Lake Storage Gen1, Azure Data Lake Storage Gen2, Azure SQL Database och Azure Database for PostgreSQL kan användas som indata till alla pipeline-steg. Med undantag för att skriva utdata till en [DataTransferStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.datatransferstep?view=azure-ml-py) eller [DatabricksStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.databricks_step.databricksstep?view=azure-ml-py)kan utdata ([PipelineData](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py)) bara skrivas till Azure blob-och Azure-fildelnings data lager.
+Datauppsättningar som skapats från Azure Blob storage, Azure Files, Azure Data Lake Storage Gen1, Azure Data Lake Storage Gen2, Azure SQL Database och Azure Database for PostgreSQL kan användas som indata till alla pipeline-steg. Med undantag för att skriva utdata till en [DataTransferStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.datatransferstep?view=azure-ml-py) eller [DatabricksStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.databricks_step.databricksstep?view=azure-ml-py)kan utdata[(PipelineData)](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py)endast skrivas till Azure Blob- och Azure File-resursdatalager.
 
 ```python
 dataset_consuming_step = PythonScriptStep(
@@ -352,7 +352,7 @@ dataset_consuming_step = PythonScriptStep(
 )
 ```
 
-Sedan hämtar du data uppsättningen i din pipeline med hjälp av ord listan [Kör. input_datasets](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py#input-datasets) .
+Du hämtar sedan datauppsättningen i pipelinen med hjälp av ordlistan [Run.input_datasets.](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py#input-datasets)
 
 ```python
 # iris_train.py
@@ -363,16 +363,16 @@ iris_dataset = run_context.input_datasets['iris_data']
 dataframe = iris_dataset.to_pandas_dataframe()
 ```
 
-Mer information finns i referens för [Azure-pipeline-steg-paketet](https://docs.microsoft.com/python/api/azureml-pipeline-steps/?view=azure-ml-py) och [pipeline-klassen](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipeline%28class%29?view=azure-ml-py) .
+Mer information finns i [azure-pipeline-steps-paketet](https://docs.microsoft.com/python/api/azureml-pipeline-steps/?view=azure-ml-py) och [pipeline-klassreferensen.](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipeline%28class%29?view=azure-ml-py)
 
 ## <a name="submit-the-pipeline"></a>Skicka pipelinen
 
-När du skickar pipelinen kontrollerar Azure Machine Learning beroendena för varje steg och överför en ögonblicks bild av käll katalogen som du har angett. Om ingen källkatalog har angetts, laddas den aktuella lokala katalogen. Ögonblicks bilden lagras också som en del av experimentet i din arbets yta.
+När du skickar pipelinen kontrollerar Azure Machine Learning beroenden för varje steg och överför en ögonblicksbild av källkatalogen som du angav. Om ingen källkatalog har angetts överförs den aktuella lokala katalogen. Ögonblicksbilden lagras också som en del av experimentet på arbetsytan.
 
 > [!IMPORTANT]
-> Om du vill förhindra att filer tas med i ögonblicks bilden skapar du en [. gitignore](https://git-scm.com/docs/gitignore) -eller `.amlignore`-fil i katalogen och lägger till filerna i den. `.amlignore`-filen använder samma syntax och mönster som [. gitignore](https://git-scm.com/docs/gitignore) -filen. Om båda filerna finns har `.amlignore`-filen företräde.
+> Om du vill förhindra att filer inkluderas i ögonblicksbilden skapar du en [.gitignore](https://git-scm.com/docs/gitignore) eller-fil `.amlignore` i katalogen och lägger till filerna i den. Filen `.amlignore` använder samma syntax och mönster som [gitignore-filen.](https://git-scm.com/docs/gitignore) Om det finns `.amlignore` båda filerna har filen företräde.
 >
-> Mer information finns i [ögonblicks bilder](concept-azure-machine-learning-architecture.md#snapshots).
+> Mer information finns i [Ögonblicksbilder](concept-azure-machine-learning-architecture.md#snapshots).
 
 ```python
 from azureml.core import Experiment
@@ -382,41 +382,41 @@ pipeline_run1 = Experiment(ws, 'Compare_Models_Exp').submit(pipeline1)
 pipeline_run1.wait_for_completion()
 ```
 
-När du kör en pipeline första gången Azure Machine Learning:
+När du kör en pipeline första gången azure machine learning:
 
-* Hämtar ögonblicks bilden av projektet till beräknings målet från blob-lagringen som är kopplad till arbets ytan.
+* Hämtar projektögonblicksbilden till beräkningsmålet från Blob-lagringen som är associerad med arbetsytan.
 * Skapar en Docker-avbildning som motsvarar varje steg i pipelinen.
-* Laddar ned Docker-avbildningen för varje steg till beräknings målet från behållar registret.
-* Monterar data lagret om ett `DataReference`-objekt anges i ett steg. Om monteringspunkten inte stöds, i stället kopieras data till målet för beräkning.
-* Kör steget i beräknings målet som anges i steg definitionen. 
-* Skapar artefakter, till exempel loggar, STDOUT och stderr, mått och utdata som anges i steget. Dessa artefakter överförs och behålls i användarens standard data lager.
+* Hämtar Docker-avbildningen för varje steg till beräkningsmålet från behållarregistret.
+* Monterar datalagret `DataReference` om ett objekt anges i ett steg. Om montering inte stöds kopieras data i stället till beräkningsmålet.
+* Kör steget i beräkningsmålet som anges i stegdefinitionen. 
+* Skapar artefakter, till exempel loggar, stdout och stderr, mått och utdata som anges av steget. Dessa artefakter överförs sedan och förvaras i användarens standarddatalager.
 
-![Diagram över att köra ett experiment som en pipeline](./media/how-to-create-your-first-pipeline/run_an_experiment_as_a_pipeline.png)
+![Diagram över hur du kör ett experiment som en pipeline](./media/how-to-create-your-first-pipeline/run_an_experiment_as_a_pipeline.png)
 
-Mer information finns i referensen till [experiment klassen](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment?view=azure-ml-py) .
+Mer information finns i klassen Experiment-referensen. [Experiment class](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment?view=azure-ml-py)
 
-### <a name="view-results-of-a-pipeline"></a>Visa resultat för en pipeline
+### <a name="view-results-of-a-pipeline"></a>Visa resultat av en pipeline
 
-Se listan över alla dina pipeliner och deras körnings information i Studio:
+Se listan över alla dina pipelines och deras körinformation i studion:
 
-1. Logga in på [Azure Machine Learning Studio](https://ml.azure.com).
+1. Logga in på [Azure Machine Learning studio](https://ml.azure.com).
 
-1. [Visa din arbets yta](how-to-manage-workspace.md#view).
+1. [Visa arbetsytan](how-to-manage-workspace.md#view).
 
-1. Till vänster väljer du **pipelines** för att se alla dina pipeline-körningar.
- ![lista över maskin inlärnings pipeliner](./media/how-to-create-your-first-pipeline/pipelines.png)
+1. Till vänster väljer du **Pipelines** för att se alla dina pipeline-körningar.
+ ![lista över pipelines för maskininlärning](./media/how-to-create-your-first-pipeline/pipelines.png)
  
-1. Välj en specifik pipeline för att visa Körningsresultat.
+1. Välj en specifik pipeline för att se körningsresultaten.
 
-## <a name="git-tracking-and-integration"></a>Git-spårning och integrering
+## <a name="git-tracking-and-integration"></a>Git spårning och integration
 
-När du startar en utbildning som kör där käll katalogen är en lokal git-lagringsplats, lagras information om lagrings platsen i körnings historiken. Mer information finns i [git-integrering för Azure Machine Learning](concept-train-model-git-integration.md).
+När du startar en utbildningskörning där källkatalogen är en lokal Git-databas lagras information om databasen i körningshistoriken. Mer information finns i [Git-integrering för Azure Machine Learning](concept-train-model-git-integration.md).
 
 ## <a name="publish-a-pipeline"></a>Publicera en pipeline
 
-Du kan publicera en pipeline kan köras med olika indata senare. För REST-slutpunkten för en redan publicerad pipeline för att godkänna parametrar måste du Parameterisera pipelinen innan du publicerar den.
+Du kan publicera en pipeline för att köra den med olika indata senare. För att REST-slutpunkten för en redan publicerad pipeline ska acceptera parametrar måste du parameterisera pipelinen innan du publicerar.
 
-1. Om du vill skapa en pipeline-parameter använder du ett [PipelineParameter](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.pipelineparameter?view=azure-ml-py) -objekt med ett standardvärde.
+1. Om du vill skapa en pipeline-parameter använder du ett [PipelineParameter-objekt](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.pipelineparameter?view=azure-ml-py) med ett standardvärde.
 
    ```python
    from azureml.pipeline.core.graph import PipelineParameter
@@ -426,7 +426,7 @@ Du kan publicera en pipeline kan köras med olika indata senare. För REST-slutp
      default_value=10)
    ```
 
-2. Lägg till det här `PipelineParameter`-objektet som en parameter till något av stegen i pipelinen enligt följande:
+2. Lägg `PipelineParameter` till det här objektet som en parameter i något av stegen i pipelinen enligt följande:
 
    ```python
    compareStep = PythonScriptStep(
@@ -438,7 +438,7 @@ Du kan publicera en pipeline kan köras med olika indata senare. För REST-slutp
      source_directory=project_folder)
    ```
 
-3. Publicera den här pipelinen som accepterar en parameter när anropas.
+3. Publicera den här pipelinen som accepterar en parameter när den anropas.
 
    ```python
    published_pipeline1 = pipeline_run1.publish_pipeline(
@@ -447,11 +447,11 @@ Du kan publicera en pipeline kan köras med olika indata senare. För REST-slutp
         version="1.0")
    ```
 
-### <a name="run-a-published-pipeline"></a>Kör en publicerad pipeline
+### <a name="run-a-published-pipeline"></a>Köra en publicerad pipeline
 
-Alla publicerade pipeliner har en REST-slutpunkt. Den här slut punkten anropar körningen av pipelinen från externa system, till exempel icke-python-klienter. Den här slut punkten aktiverar "hanterad repeterbarhet" i batch-poängsättning och ominlärnings scenarier.
+Alla publicerade pipelines har en REST-slutpunkt. Den här slutpunkten anropar körningen av pipelinen från externa system, till exempel icke-Python-klienter. Den här slutpunkten möjliggör "hanterad repeterbarhet" i batchbedömnings- och omskolningsscenarier.
 
-Om du vill anropa körningen av föregående pipeline behöver du en Azure Active Directory Authentication Head-token, enligt beskrivningen i [AzureCliAuthentication-klass](https://docs.microsoft.com/python/api/azureml-core/azureml.core.authentication.azurecliauthentication?view=azure-ml-py) referens eller få mer information i [autentiseringen i Azure Machine Learning](https://aka.ms/pl-restep-auth) Notebook.
+Om du vill anropa körningen av föregående pipeline behöver du en Azure Active Directory-autentiseringshuvudtoken, enligt beskrivningen i [azurecliauthentication-klassreferensen](https://docs.microsoft.com/python/api/azureml-core/azureml.core.authentication.azurecliauthentication?view=azure-ml-py) eller få mer information i [notebooken Autentisering i Azure Machine Learning.](https://aka.ms/pl-restep-auth)
 
 ```python
 from azureml.pipeline.core import PublishedPipeline
@@ -463,8 +463,8 @@ response = requests.post(published_pipeline1.endpoint,
                                "ParameterAssignments": {"pipeline_arg": 20}})
 ```
 
-## <a name="create-a-versioned-pipeline-endpoint"></a>Skapa en slut punkt för en versions pipeline
-Du kan skapa en pipeline-slutpunkt med flera publicerade pipeliner bakom den. Detta kan användas som en publicerad pipeline, men ger dig en fast REST-slutpunkt när du itererar och uppdaterar dina ML-pipelines.
+## <a name="create-a-versioned-pipeline-endpoint"></a>Skapa en versionsversion av pipelineslutpunkten
+Du kan skapa en Pipeline-slutpunkt med flera publicerade pipelines bakom. Detta kan användas som en publicerad pipeline men ger dig en fast REST-slutpunkt när du itererar på och uppdaterar dina ML-pipelines.
 
 ```python
 from azureml.pipeline.core import PipelineEndpoint
@@ -475,19 +475,19 @@ pipeline_endpoint = PipelineEndpoint.publish(workspace=ws, name="PipelineEndpoin
 ```
 
 ### <a name="submit-a-job-to-a-pipeline-endpoint"></a>Skicka ett jobb till en pipeline-slutpunkt
-Du kan skicka ett jobb till standard versionen av en pipeline-slutpunkt:
+Du kan skicka ett jobb till standardversionen av en pipeline-slutpunkt:
 ```python
 pipeline_endpoint_by_name = PipelineEndpoint.get(workspace=ws, name="PipelineEndpointTest")
 run_id = pipeline_endpoint_by_name.submit("PipelineEndpointExperiment")
 print(run_id)
 ```
-Du kan också skicka ett jobb till en angiven version:
+Du kan också skicka ett jobb till en viss version:
 ```python
 run_id = pipeline_endpoint_by_name.submit("PipelineEndpointExperiment", pipeline_version="0")
 print(run_id)
 ```
 
-Samma kan åstadkommas med hjälp av REST API:
+Detsamma kan åstadkommas med REST API:
 ```python
 rest_endpoint = pipeline_endpoint_by_name.endpoint
 response = requests.post(rest_endpoint, 
@@ -497,25 +497,25 @@ response = requests.post(rest_endpoint,
                                "ParameterAssignments": {"1": "united", "2":"city"}})
 ```
 
-### <a name="use-published-pipelines-in-the-studio"></a>Använda publicerade pipelines i Studio
+### <a name="use-published-pipelines-in-the-studio"></a>Använda publicerade pipelines i studion
 
-Du kan också köra en publicerad pipeline från Studio:
+Du kan också köra en publicerad pipeline från studion:
 
-1. Logga in på [Azure Machine Learning Studio](https://ml.azure.com).
+1. Logga in på [Azure Machine Learning studio](https://ml.azure.com).
 
-1. [Visa din arbets yta](how-to-manage-workspace.md#view).
+1. [Visa arbetsytan](how-to-manage-workspace.md#view).
 
-1. Välj **slut punkter**till vänster.
+1. Till vänster väljer du **Slutpunkter**.
 
-1. Välj **pipeline-slutpunkter**högst upp.
- ![lista över de publicerade pipelinen för Machine Learning](./media/how-to-create-your-first-pipeline/pipeline-endpoints.png)
+1. Välj **Pipeline-slutpunkter**högst upp .
+ ![lista över maskininlärningspubliceerad pipelines](./media/how-to-create-your-first-pipeline/pipeline-endpoints.png)
 
-1. Välj en pipeline för att köra, använda eller Granska resultat från tidigare körningar av pipelinens slut punkt.
+1. Välj en specifik pipeline för att köra, förbruka eller granska resultat från tidigare körningar av pipeline-slutpunkten.
 
 
 ### <a name="disable-a-published-pipeline"></a>Inaktivera en publicerad pipeline
 
-Om du vill dölja en pipeline från listan över publicerade pipeliner inaktiverar du den, antingen i Studio eller från SDK:
+Om du vill dölja en pipeline från listan över publicerade pipelines inaktiverar du den, antingen i studion eller från SDK:
 
 ```
 # Get the pipeline by using its ID from Azure Machine Learning studio
@@ -523,16 +523,16 @@ p = PublishedPipeline.get(ws, id="068f4885-7088-424b-8ce2-eeb9ba5381a6")
 p.disable()
 ```
 
-Du kan aktivera den igen med `p.enable()`. Mer information finns i klass referens för [PublishedPipeline](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.publishedpipeline?view=azure-ml-py) .
+Du kan aktivera `p.enable()`den igen med . Mer information finns i [Klassen PublishedPipeline-referens.](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.publishedpipeline?view=azure-ml-py)
 
 
-## <a name="caching--reuse"></a>Cachelagring & återanvända  
+## <a name="caching--reuse"></a>Cachelagring & återanvändning  
 
-För att optimera och anpassa beteendet för dina pipeliner kan du göra några saker runt cachelagring och åter användning. Du kan till exempel välja att:
-+ **Inaktivera standard åter användning av steget Kör utdata genom att** ange `allow_reuse=False` under [steg definition](https://docs.microsoft.com/python/api/azureml-pipeline-steps/?view=azure-ml-py). Åter användning är nyckel när du använder pipelines i en samarbets miljö eftersom du tar bort onödiga körningar ger flexibilitet. Du kan dock välja att inte använda.
-+ **Framtvinga generering av utdata för alla steg i en körning** med `pipeline_run = exp.submit(pipeline, regenerate_outputs=False)`
+För att optimera och anpassa beteendet hos dina pipelines kan du göra några saker kring cachelagring och återanvändning. Du kan till exempel välja att:
++ **Inaktivera standardåteranvändningen för stegkörningsutdata** genom att ställa in `allow_reuse=False` under [stegdefinition](https://docs.microsoft.com/python/api/azureml-pipeline-steps/?view=azure-ml-py). Återanvändning är nyckeln när du använder pipelines i en samarbetsmiljö eftersom eliminera onödiga körningar erbjuder smidighet. Du kan dock välja bort återanvändning.
++ **Kraftutdataregenerering för alla steg i en körning** med`pipeline_run = exp.submit(pipeline, regenerate_outputs=False)`
 
-`allow_reuse` för steg aktive ras som standard och den `source_directory` som anges i steg definitionen är hash-kodad. Så om skriptet för ett specifikt steg är detsamma (`script_name`, indata och parametrar) och inget annat i` source_directory` har ändrats, så kommer utdata från föregående steg körning att återanvändas, jobbet skickas inte till beräkningen och resultatet från föregående körning är omedelbart tillgängligt för nästa steg i stället.
+Som standard `allow_reuse` är för steg `source_directory` aktiverat och den angivna i stegdefinitionen hashed. Så om skriptet för ett visst`script_name`steg förblir detsamma ( , indata` source_directory` och parametrarna), och inget annat i har ändrats, används utdata för en tidigare stegkörning, jobbet skickas inte till beräkningen och resultaten från föregående körning är omedelbart tillgängliga för nästa steg i stället.
 
 ```python
 step = PythonScriptStep(name="Hello World",
@@ -545,8 +545,8 @@ step = PythonScriptStep(name="Hello World",
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Använd [dessa Jupyter-anteckningsböcker på GitHub](https://aka.ms/aml-pipeline-readme) för att utforska maskin inlärnings pipeliner ytterligare.
-- Se SDK Reference-hjälpen för [azureml-pipeline-Core-](https://docs.microsoft.com/python/api/azureml-pipeline-core/?view=azure-ml-py) paketet och AzureML- [pipeline-steg-](https://docs.microsoft.com/python/api/azureml-pipeline-steps/?view=azure-ml-py) paketet.
-- Se tips om [hur du](how-to-debug-pipelines.md) felsöker och felsöker pipeliner.
+- Använd [dessa Jupyter-anteckningsböcker på GitHub](https://aka.ms/aml-pipeline-readme) för att utforska pipelines för maskininlärning ytterligare.
+- Se SDK-referenshjälpen för [azureml-pipelines-core-paketet](https://docs.microsoft.com/python/api/azureml-pipeline-core/?view=azure-ml-py) och [azureml-pipelines-steps-steps-steps-paketet.](https://docs.microsoft.com/python/api/azureml-pipeline-steps/?view=azure-ml-py)
+- Mer [om hur du aktiverar](how-to-debug-pipelines.md) felsökning och felsökning av pipelines finns i tipsen om felsökning och felsökning.
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../includes/aml-clone-for-examples.md)]

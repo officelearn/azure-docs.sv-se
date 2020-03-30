@@ -1,137 +1,137 @@
 ---
-title: Konfigurera noder i Azure blockchain service Transactions
-description: Så här konfigurerar du Azure blockchain service Transaction Nodes
+title: Konfigurera transaktionsnoder för Azure Blockchain-tjänst
+description: Konfigurera Azure Blockchain Service-transaktionsnoder
 ms.date: 11/20/2019
 ms.topic: article
 ms.reviewer: janders
 ms.openlocfilehash: 4a9a4f660dd171e65b600ec4cd66714ca476b091
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79252264"
 ---
-# <a name="configure-azure-blockchain-service-transaction-nodes"></a>Konfigurera noder i Azure blockchain service Transactions
+# <a name="configure-azure-blockchain-service-transaction-nodes"></a>Konfigurera transaktionsnoder för Azure Blockchain-tjänst
 
-Transaction Nodes används för att skicka blockchain-transaktioner till Azure blockchain-tjänsten via en offentlig slut punkt. Transaction-noden default innehåller den privata nyckeln för det Ethereum-konto som är registrerat på blockchain och därför inte kan tas bort.
+Transaktionsnoder används för att skicka blockchain-transaktioner till Azure Blockchain Service via en offentlig slutpunkt. Standardtransaktionsnoden innehåller den privata nyckeln för Ethereum-kontot som är registrerat på blockchain- -och kan därför inte tas bort.
 
-Så här visar du information om standardnoden transaktioner:
+Så här visar du standardinformation för transaktionsnod:
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
-1. Navigera till din Azure blockchain service-medlem. Välj **Transaction Nodes**.
+1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Navigera till din Azure Blockchain Service-medlem. Välj **Transaktionsnoder**.
 
-    ![Välj noden standard transaktion](./media/configure-transaction-nodes/nodes.png)
+    ![Välj standardtransaktionsnod](./media/configure-transaction-nodes/nodes.png)
 
-    Översikts information inkluderar offentliga slut punkts adresser och offentlig nyckel.
+    Översiktsinformation inkluderar offentliga slutpunktsadresser och offentlig nyckel.
 
-## <a name="create-transaction-node"></a>Skapa Transaction-nod
+## <a name="create-transaction-node"></a>Skapa transaktionsnod
 
-Du kan lägga till upp till nio ytterligare transaktionsloggfiler till din blockchain-medlem, för totalt 10 transaktions noder. Genom att lägga till Transaction Nodes kan du öka skalbarheten eller distribuera belastningen. Du kan till exempel ha en Transaction Node-slutpunkt för olika klient program.
+Du kan lägga till upp till nio ytterligare transaktionsnoder till din blockchain-medlem för totalt 10 transaktionsnoder. Genom att lägga till transaktionsnoder kan du öka skalbarheten eller distribuera belastningen. Du kan till exempel ha en slutpunkt för transaktionsnod för olika klientprogram.
 
-Så här lägger du till en Transaction-nod:
+Så här lägger du till en transaktionsnod:
 
-1. I Azure Portal navigerar du till din Azure blockchain service-medlem och väljer **Transaction nodes > Lägg till**.
-1. Slutför inställningarna för den nya Transaction-noden.
+1. I Azure-portalen navigerar du till din Azure Blockchain-tjänstmedlem och väljer **Transaktionsnoder > Lägg till**.
+1. Slutför inställningarna för den nya transaktionsnoden.
 
-    ![Lägg till Transaction-nod](./media/configure-transaction-nodes/add-node.png)
+    ![Lägg till transaktionsnod](./media/configure-transaction-nodes/add-node.png)
 
     | Inställning | Beskrivning |
     |---------|-------------|
-    | Namn | Nodnamn för transaktion. Namnet används för att skapa DNS-adressen för Transaction Node-slutpunkten. Till exempel `newnode-myblockchainmember.blockchain.azure.com`. Det går inte att ändra nodnamn när det har skapats. |
-    | lösenord | Ange ett starkt lösen ord. Använd lösen ordet för att komma åt Transaction Node-slutpunkten med grundläggande autentisering.
+    | Namn | Namn på transaktionsnod. Namnet används för att skapa DNS-adressen för slutpunkten för transaktionsnoden. Till exempel `newnode-myblockchainmember.blockchain.azure.com`. Nodnamnet kan inte ändras när det har skapats. |
+    | lösenord | Ange ett starkt lösenord. Använd lösenordet för att komma åt slutpunkten för transaktionsnod med grundläggande autentisering.
 
 1. Välj **Skapa**.
 
-    Det tar cirka 10 minuter att tillhandahålla en ny transaktions nod. Ytterligare transaktions noder debiteras för kostnader. Mer information om kostnader finns i [priser för Azure](https://aka.ms/ABSPricing).
+    Det tar cirka 10 minuter att etablera en ny transaktionsnod. Ytterligare transaktionsnoder medför kostnad. Mer information om kostnader finns i [Azure-priser](https://aka.ms/ABSPricing).
 
 ## <a name="endpoints"></a>Slutpunkter
 
-Transaction Nodes har ett unikt DNS-namn och offentliga slut punkter.
+Transaktionsnoder har ett unikt DNS-namn och offentliga slutpunkter.
 
-Så här visar du slut punkts information för en Transaction-nod:
+Så här visar du slutpunktsinformation för en transaktionsnod:
 
-1. I Azure Portal navigerar du till en av dina Azure blockchain service member Transaction-noder och väljer **Översikt**.
+1. I Azure-portalen navigerar du till en av dina Azure Blockchain-tjänstmedlemstransaktionsnoder och väljer **Översikt**.
 
     ![Slutpunkter](./media/configure-transaction-nodes/endpoints.png)
 
-Transaction Node-slutpunkter är säkra och kräver autentisering. Du kan ansluta till en transaktions slut punkt med Azure AD-autentisering, HTTPS Basic-autentisering och använda en åtkomst nyckel över HTTPS eller WebSocket via SSL.
+Slutpunkter för transaktionsnoder är säkra och kräver autentisering. Du kan ansluta till en transaktionsslutpunkt med Azure AD-autentisering, HTTPS-grundläggande autentisering och använda en åtkomstnyckel via HTTPS eller Websocket via SSL.
 
-### <a name="azure-active-directory-access-control"></a>Azure Active Directory åtkomst kontroll
+### <a name="azure-active-directory-access-control"></a>Azure Active Directory-åtkomstkontroll
 
-Slutpunkter för Azure blockchain service Transaction-stöd Azure Active Directory (Azure AD)-autentisering. Du kan bevilja Azure AD-användare, grupp och tjänstens huvud namn åtkomst till din slut punkt.
+Azure Blockchain Service-transaktionsnodslutpunkter stöder Azure Active Directory -autentisering (Azure AD). Du kan bevilja Azure AD-användare, grupp och tjänsthuvudnamn åtkomst till din slutpunkt.
 
-Så här beviljar du Azure AD Access Control till din slut punkt:
+Så här beviljar du Azure AD-åtkomstkontroll till slutpunkten:
 
-1. I Azure Portal navigerar du till din Azure blockchain service-medlem och väljer **Transaction nodes > åtkomst kontroll (IAM) > Lägg till > Lägg till roll tilldelning**.
-1. Skapa en ny roll tilldelning för en användare, grupp eller tjänstens huvud namn (program roller).
+1. I Azure-portalen navigerar du till din Azure Blockchain-tjänstmedlem och väljer **Transaktionsnoder > IAM -kontroll (Access Control) > Lägg till > Lägg till rolltilldelning**.
+1. Skapa en ny rolltilldelning för en användare, grupp eller tjänsthuvudnamn (programroller).
 
-    ![Lägg till IAM-rollen](./media/configure-transaction-nodes/add-role.png)
+    ![Lägg till IAM-roll](./media/configure-transaction-nodes/add-role.png)
 
     | Inställning | Åtgärd |
     |---------|-------------|
-    | Roll | Välj **ägare**, **deltagare**eller **läsare**.
-    | Tilldela åtkomst till | Välj **Azure AD-användare, grupp eller tjänstens huvud namn**.
-    | Välj | Sök efter användaren, gruppen eller tjänstens huvud namn som du vill lägga till.
+    | Roll | Välj **Ägare,** **Deltagare**eller **Läsare**.
+    | Tilldela åtkomst till | Välj **Azure AD-användare, grupp eller tjänsthuvudnamn**.
+    | Välj | Sök efter användaren, gruppen eller tjänsthuvudhuvudet som du vill lägga till.
 
-1. Välj **Spara** för att lägga till roll tilldelningen.
+1. Välj **Spara** om du vill lägga till rolltilldelningen.
 
-Mer information om Azure AD Access Control finns i [Hantera åtkomst till Azure-resurser med RBAC och Azure Portal](../../role-based-access-control/role-assignments-portal.md)
+Mer information om Azure AD-åtkomstkontroll finns i [Hantera åtkomst till Azure-resurser med RBAC och Azure-portalen](../../role-based-access-control/role-assignments-portal.md)
 
-Mer information om hur du ansluter med Azure AD-autentisering finns i [ansluta till din nod med AAD-autentisering](configure-aad.md).
+Mer information om hur du ansluter med Azure AD-autentisering finns i [Ansluta till noden med AAD-autentisering](configure-aad.md).
 
 ### <a name="basic-authentication"></a>Grundläggande autentisering
 
-För HTTPS grundläggande autentisering skickas användar namn och lösen ord som autentiseringsuppgifter i HTTPS-huvudet för begäran till slut punkten.
+För HTTPS grundläggande autentisering skickas användarnamn och lösenordsuppgifter i HTTPS-huvudet för begäran till slutpunkten.
 
-Du kan visa en nodens grundläggande autentiserings slut punkts information i Azure Portal. Navigera till en av dina Azure blockchain service member Transaction-noder och välj **grundläggande autentisering** i inställningar.
+Du kan visa en transaktionsnods grundläggande autentiseringsslutpunktsinformation i Azure-portalen. Navigera till en av dina Azure Blockchain-tjänstmedlemstransaktionsnoder och välj **Grundläggande autentisering** i inställningar.
 
 ![Grundläggande autentisering](./media/configure-transaction-nodes/basic.png)
 
-Användar namnet är namnet på noden och kan inte ändras.
+Användarnamnet är namnet på noden och kan inte ändras.
 
-Om du vill använda URL: en ersätter du \<lösen ord\> med lösen ordet som angavs när noden etablerades. Du kan uppdatera lösen ordet genom att välja **Återställ lösen ord**.
+Om du vill \<använda\> URL:en ersätter du lösenordet med lösenordsuppsättningen när noden etablerades. Du kan uppdatera lösenordet genom att välja **Återställ lösenord**.
 
 ### <a name="access-keys"></a>Åtkomstnycklar
 
-För åtkomst nyckel autentisering inkluderas åtkomst nyckeln i slut punkts-URL: en. När Transaction-noden är etablerad genereras två åtkomst nycklar. Antingen åtkomst nyckeln kan användas för autentisering. Med två nycklar kan du ändra och rotera nycklar.
+För autentisering av åtkomstnyckel ingår åtkomstnyckeln i slutpunkts-URL:en. När transaktionsnoden etableras genereras två åtkomstnycklar. Båda åtkomstnyckeln kan användas för autentisering. Med två tangenter kan du ändra och rotera tangenter.
 
-Du kan visa information om åtkomst nyckeln för en Transaction Node och kopiera slut punkts adresser som innehåller åtkomst nycklarna. Navigera till en av dina Azure blockchain service member Transaction-noder och välj **åtkomst nycklar** i inställningar.
+Du kan visa åtkomstnyckelinformation för en transaktionsnod och kopiera slutpunktsadresser som innehåller åtkomstnycklarna. Navigera till en av dina Azure Blockchain-tjänstmedlemstransaktionsnoder och välj **Åtkomstnycklar** i inställningarna.
 
 ### <a name="firewall-rules"></a>Brandväggsregler
 
-Brand Väggs regler gör att du kan begränsa de IP-adresser som kan försöka autentisera till din Transaction-nod.  Om inga brand Väggs regler har kon figurer ATS för din Transaction-nod, kan den inte användas av någon part.  
+Med brandväggsregler kan du begränsa de IP-adresser som kan försöka autentisera till transaktionsnoden.  Om inga brandväggsregler har konfigurerats för transaktionsnoden kan den inte nås av någon part.  
 
-Om du vill visa en nods brand Väggs regler navigerar du till en av dina Azure blockchain service member Transaction-noder och väljer **brand Väggs regler** i inställningar.
+Om du vill visa en transaktionsnods brandväggsregler navigerar du till en av dina Azure Blockchain-tjänstmedlemstransaktionsnoder och väljer **Brandväggsregler** i inställningar.
 
-Du kan lägga till brand Väggs regler genom att ange ett regel namn, en Start-IP-adress och en sista IP-adress i rutnätet för **brand Väggs regler** .
+Du kan lägga till brandväggsregler genom att ange ett regelnamn, starta IP-adress och en slut-IP-adress i rutnätet **Brandväggsregler.**
 
 ![Brandväggsregler](./media/configure-transaction-nodes/firewall-rules.png)
 
-För att aktivera:
+Så här aktiverar du:
 
-* **Enskild IP-adress:** Konfigurera samma IP-adress för start-och slut-IP-adresserna.
-* **IP-adressintervall:** Konfigurera Start-och slut-IP-adressintervall. Ett intervall som börjar på 10.221.34.0 och slutar på 10.221.34.255 skulle till exempel aktivera hela 10.221.34.xxx-undernätet.
-* **Tillåt alla IP-adresser:** Konfigurera den första IP-adressen till 0.0.0.0 och den sista IP-adressen till 255.255.255.255.
+* **Enda IP-adress:** Konfigurera samma IP-adress för start- och slut-IP-adresser.
+* **IP-adressintervall:** Konfigurera start- och slut-IP-adressintervallet. Ett intervall som börjar på 10.221.34.0 och slutar vid 10.221.34.255 aktiverar till exempel hela 10.221.34.xxx undernät.
+* **Tillåt alla IP-adresser:** Konfigurera start-IP-adressen till 0.0.0.0 och den avslutande IP-adressen till 255.255.255.255.
 
 ## <a name="connection-strings"></a>Anslutningssträngar
 
-Syntaxen för anslutnings strängen för Transaction-noden anges för grundläggande autentisering eller med åtkomst nycklar. Anslutnings strängar som innehåller åtkomst nycklar över HTTPS och WebSockets tillhandahålls.
+Syntax för anslutningssträng för transaktionsnoden tillhandahålls för grundläggande autentisering eller med hjälp av åtkomstnycklar. Anslutningssträngar inklusive åtkomstnycklar via HTTPS och WebSockets tillhandahålls.
 
-Du kan visa en Transaction Nodes anslutnings strängar och kopiera slut punkts adresser. Navigera till en av dina Azure blockchain service member Transaction-noder och välj **anslutnings strängar** i inställningar.
+Du kan visa en transaktionsnods anslutningssträngar och kopiera slutpunktsadresser. Navigera till en av dina Azure Blockchain-tjänstmedlemstransaktionsnoder och välj **Anslutningssträngar** i inställningar.
 
 ![Anslutningssträngar](./media/configure-transaction-nodes/connection-strings.png)
 
 ## <a name="sample-code"></a>Exempelkod
 
-Exempel kod ges för att snabbt kunna ansluta till Transaction-noden via Web3, Nethereum, Web3js och Truffle.
+Exempelkod tillhandahålls för att snabbt aktivera anslutning till transaktionsnoden via Web3, Nethereum, Web3js och Tryffel.
 
-Du kan visa en Transaction Nodes exempel anslutnings kod och kopiera den till användning med populära utvecklarverktyg. Gå till en av dina Azure blockchain service member Transaction-noder och välj **exempel kod** i inställningar.
+Du kan visa en transaktionsnods exempelanslutningskod och kopiera den till populära utvecklarverktyg. Gå till en av dina Azure Blockchain-tjänstmedlemstransaktionsnoder och välj **Exempelkod** i inställningarna.
 
-Välj fliken Web3, Nethereum, Truffle eller Web3j för att Visa kod exemplet som du vill använda.
+Välj fliken Web3, Nethereum, Tryffel eller Web3j om du vill visa det kodexempel som du vill använda.
 
 ![Exempelkod](./media/configure-transaction-nodes/sample-code.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Konfigurera Transaction Nodes med Azure CLI](manage-cli.md)
+> [Konfigurera transaktionsnoder med Azure CLI](manage-cli.md)

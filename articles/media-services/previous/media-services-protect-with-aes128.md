@@ -1,6 +1,6 @@
 ---
-title: Använd AES-128 dynamisk kryptering och Key Delivery Service | Microsoft Docs
-description: Det här avsnittet visar hur du krypterar dynamiskt med AES-128 och använder Key Delivery Service.
+title: Använd dynamisk AES-128-kryptering och nyckelleveranstjänsten | Microsoft-dokument
+description: Det här avsnittet visar hur du krypterar dynamiskt med AES-128 och använder nyckelleveranstjänsten.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -15,101 +15,101 @@ ms.topic: article
 ms.date: 04/01/2019
 ms.author: juliako
 ms.openlocfilehash: 01153317b49e4543f10faa517bce7bcc01ce22d4
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79269736"
 ---
-# <a name="use-aes-128-dynamic-encryption-and-the-key-delivery-service"></a>Använd AES-128 dynamisk kryptering och Key Delivery Service
+# <a name="use-aes-128-dynamic-encryption-and-the-key-delivery-service"></a>Använda dynamisk AES-128-kryptering och tjänsten för nyckelleverans
 > [!div class="op_single_selector"]
 > * [.NET](media-services-protect-with-aes128.md)
 > * [Java](https://github.com/southworkscom/azure-sdk-for-media-services-java-samples)
-> * [PHP](https://github.com/Azure/azure-sdk-for-php/tree/master/examples/MediaServices)
+> * [Php](https://github.com/Azure/azure-sdk-for-php/tree/master/examples/MediaServices)
 >  
 
 > [!NOTE]
-> Inga nya funktioner läggs till i Media Services v2. <br/>Upptäck den senaste versionen, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Se även [vägledning för migrering från v2 till v3](../latest/migrate-from-v2-to-v3.md)
+> Inga nya funktioner läggs till i Media Services v2. <br/>Kolla in den senaste versionen, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Se även [migreringsvägledning från v2 till v3](../latest/migrate-from-v2-to-v3.md)
 
-Du kan använda Media Services för att leverera HTTP Live Streaming (HLS) och Smooth Streaming krypterat med AES genom att använda 128-bitars krypterings nycklar. Media Services tillhandahåller också den nyckel leverans tjänst som levererar krypterings nycklar till behöriga användare. Om du vill Media Services kryptera en till gång, associerar du en krypterings nyckel med till gången och konfigurerar sedan Auktoriseringsprinciper för nyckeln. När en data ström begärs av en spelare, använder Media Services den angivna nyckeln för att dynamiskt Kryptera ditt innehåll med hjälp av AES-kryptering. Om spelaren vill dekryptera dataströmmen begär hon eller han nyckeln från nyckelleveranstjänsten. För att avgöra om användaren har behörighet att hämta nyckeln utvärderar tjänsten de Auktoriseringsprinciper som du har angett för nyckeln.
+Du kan använda Media Services för att leverera HTTP Live Streaming (HLS) och Smooth Streaming krypterat med AES med hjälp av 128-bitars krypteringsnycklar. Media Services tillhandahåller också den viktiga leveranstjänsten som levererar krypteringsnycklar till behöriga användare. Om du vill att Media Services ska kryptera en tillgång associerar du en krypteringsnyckel med tillgången och konfigurerar även auktoriseringsprinciper för nyckeln. När en stream begärs av en spelare använder Media Services den angivna nyckeln för att dynamiskt kryptera ditt innehåll med hjälp av AES-kryptering. Om spelaren vill dekryptera dataströmmen begär hon eller han nyckeln från nyckelleveranstjänsten. För att avgöra om användaren har behörighet att hämta nyckeln utvärderar tjänsten de auktoriseringsprinciper som du har angett för nyckeln.
 
 Media Services stöder flera olika sätt att auktorisera användare som begär nycklar. Auktoriseringsprincipen för innehållsnyckeln kan ha en eller flera auktoriseringsbegränsningar: antingen öppen eller tokenbegränsning. Den tokenbegränsade principen måste åtföljas av en token utfärdad av en säker tokentjänst (Secure Token Service – STS). Media Services stöder token i formaten [simple web token](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_2) (SWT) och [JSON Web Token](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_3) (JWT). Mer information finns i [Konfigurera innehållsnyckelns auktoriseringsprincip](media-services-protect-with-aes128.md#configure_key_auth_policy).
 
-För att dra fördel av dynamisk kryptering behöver du en tillgång som innehåller en uppsättning MP4-filer eller Smooth Streaming-källfiler i multibithastighet. Du måste också konfigurera leverans principen för till gången (beskrivs längre fram i den här artikeln). Sedan, baserat på det format som anges i strömnings-URL:en, kommer servern för strömning på begäran att säkerställa att dataströmmen levereras i det protokoll som du har valt. Därför behöver du bara lagra och betala för filerna i ett enda lagrings format. Media Services skapar och hanterar lämpligt svar baserat på begäran från en klient.
+För att dra fördel av dynamisk kryptering behöver du en tillgång som innehåller en uppsättning MP4-filer eller Smooth Streaming-källfiler i multibithastighet. Du måste också konfigurera leveransprincipen för tillgången (beskrivs senare i den här artikeln). Sedan, baserat på det format som anges i strömnings-URL:en, kommer servern för strömning på begäran att säkerställa att dataströmmen levereras i det protokoll som du har valt. Därför behöver du bara lagra och betala för filerna i ett enda lagringsformat. Media Services skapar och hanterar lämpligt svar baserat på begäran från en klient.
 
-Den här artikeln är användbar för utvecklare som arbetar med program som levererar skyddade medier. Artikeln visar hur du konfigurerar Key Delivery Service med auktoriseringsprinciper så att endast auktoriserade klienter kan ta emot krypterings nycklar. Det visar också hur du använder dynamisk kryptering.
+Den här artikeln är användbar för utvecklare som arbetar med program som levererar skyddade medier. Artikeln visar hur du konfigurerar nyckelleveranstjänsten med auktoriseringsprinciper så att endast behöriga klienter kan ta emot krypteringsnycklar. Den visar också hur du använder dynamisk kryptering.
 
-Information om hur du krypterar innehåll med Advanced Encryption Standard (AES) för leverans till Safari på macOS finns i [det här blogg inlägget](https://azure.microsoft.com/blog/how-to-make-token-authorized-aes-encrypted-hls-stream-working-in-safari/).
-En översikt över hur du skyddar medie innehåll med AES-kryptering finns i [den här videon](https://channel9.msdn.com/Shows/Azure-Friday/Azure-Media-Services-Protecting-your-Media-Content-with-AES-Encryption).
+Information om hur du krypterar innehåll med Advanced Encryption Standard (AES) för leverans till Safari på macOS finns i [det här blogginlägget](https://azure.microsoft.com/blog/how-to-make-token-authorized-aes-encrypted-hls-stream-working-in-safari/).
+En översikt över hur du skyddar medieinnehållet med AES-kryptering finns i [den här videon](https://channel9.msdn.com/Shows/Azure-Friday/Azure-Media-Services-Protecting-your-Media-Content-with-AES-Encryption).
 
 
-## <a name="aes-128-dynamic-encryption-and-key-delivery-service-workflow"></a>Arbets flöde för AES-128 Dynamic Encryption och Key Delivery Service
+## <a name="aes-128-dynamic-encryption-and-key-delivery-service-workflow"></a>AES-128 dynamisk kryptering och nyckelleveranstjänstarbetsflöde
 
-Utför följande allmänna steg när du krypterar dina till gångar med AES med hjälp av Media Services Key Delivery service och också med dynamisk kryptering:
+Utför följande allmänna steg när du krypterar dina tillgångar med AES med hjälp av mediatjänsternas nyckelleveranstjänst och även med hjälp av dynamisk kryptering:
 
-1. [Skapa en till gång och ladda upp filer till till gången](media-services-protect-with-aes128.md#create_asset).
+1. [Skapa en tillgång och ladda upp filer till tillgången](media-services-protect-with-aes128.md#create_asset).
 
-2. [Koda den till gång som innehåller filen till MP4-uppsättningen med anpassad bit hastighet](media-services-protect-with-aes128.md#encode_asset).
+2. [Koda tillgången som innehåller filen till den adaptiva bitrate MP4-uppsättningen](media-services-protect-with-aes128.md#encode_asset).
 
-3. [Skapa en innehålls nyckel och associera den med den kodade till gången](media-services-protect-with-aes128.md#create_contentkey). I Media Services innehåller innehållsnyckeln tillgångens krypteringsnyckel.
+3. [Skapa en innehållsnyckel och associera den med den kodade tillgången](media-services-protect-with-aes128.md#create_contentkey). I Media Services innehåller innehållsnyckeln tillgångens krypteringsnyckel.
 
-4. [Konfigurera en auktoriseringsprincip för innehålls nyckeln](media-services-protect-with-aes128.md#configure_key_auth_policy). Du måste konfigurera en auktoriseringsprincip för innehållsnyckeln. Klienten måste uppfylla principen innan innehållsnyckeln kan levereras till klienten.
+4. [Konfigurera innehållsnyckelns auktoriseringsprincip](media-services-protect-with-aes128.md#configure_key_auth_policy). Du måste konfigurera en auktoriseringsprincip för innehållsnyckeln. Klienten måste uppfylla principen innan innehållsnyckeln kan levereras till klienten.
 
-5. [Konfigurera leverans principen för en till gång](media-services-protect-with-aes128.md#configure_asset_delivery_policy). Konfigurationen för leverans principen omfattar URL för nyckel hämtning och en initierings vektor (IV). (AES-128 kräver samma IV för kryptering och dekryptering.) Konfigurationen inkluderar även leverans protokollet (till exempel MPEG-streck, HLS, Smooth Streaming eller alla) och typen av dynamisk kryptering (till exempel kuvert eller ingen dynamisk kryptering).
+5. [Konfigurera leveransprincipen för en tillgång](media-services-protect-with-aes128.md#configure_asset_delivery_policy). Konfigurationen av leveransprincipen innehåller url:en för nyckelanskaffning och en initieringsvektor (IV). (AES-128 kräver samma IV för kryptering och dekryptering.) Konfigurationen innehåller även leveransprotokollet (till exempel MPEG-DASH, HLS, Smooth Streaming eller alla) och typen av dynamisk kryptering (till exempel kuvert eller ingen dynamisk kryptering).
 
-    Du kan använda olika principer för varje protokoll för samma tillgång. Du kan till exempel tillämpa PlayReady-kryptering för Smooth/DASH och AES envelope för HLS. Alla protokoll som inte har definierats i en leverans princip blockeras från strömning. (Ett exempel är om du lägger till en enskild princip som endast anger HLS som protokoll.) Undantaget är om du inte har definierat någon till gångs leverans princip alls. Därefter tillåts alla protokoll fritt.
+    Du kan använda olika principer för varje protokoll för samma tillgång. Du kan till exempel tillämpa PlayReady-kryptering för Smooth/DASH och AES envelope för HLS. Alla protokoll som inte har definierats i en leveransprincip blockeras från direktuppspelning. (Ett exempel är om du lägger till en enskild princip som bara anger HLS som protokoll.) Undantaget är om du inte har någon princip för tillgångsleverans definierad alls. Därefter tillåts alla protokoll fritt.
 
-6. [Skapa en OnDemand-lokaliserare](media-services-protect-with-aes128.md#create_locator) för att få en strömnings-URL.
+6. [Skapa en OnDemand locator](media-services-protect-with-aes128.md#create_locator) för att få en strömmande URL.
 
-Artikeln visar också [hur ett klient program kan begära en nyckel från Key Delivery Service](media-services-protect-with-aes128.md#client_request).
+Artikeln visar också [hur ett klientprogram kan begära en nyckel från nyckelleveranstjänsten](media-services-protect-with-aes128.md#client_request).
 
-Du kan hitta ett fullständigt [.net-exempel](media-services-protect-with-aes128.md#example) i slutet av artikeln.
+Du hittar ett fullständigt [.NET-exempel](media-services-protect-with-aes128.md#example) i slutet av artikeln.
 
 Följande bild visar arbetsflödet som beskrevs tidigare. Här används aktuellt token för autentisering.
 
 ![Skydda med AES-128](./media/media-services-content-protection-overview/media-services-content-protection-with-aes.png)
 
-Resten av den här artikeln innehåller förklaringar, kod exempel och länkar till ämnen som visar hur du uppnår de uppgifter som beskrivs ovan.
+Resten av den här artikeln innehåller förklaringar, kodexempel och länkar till ämnen som visar hur du uppnår de uppgifter som tidigare beskrivits.
 
 ## <a name="current-limitations"></a>Aktuella begränsningar
 Om du lägger till eller uppdaterar din tillgångs leveransprincip måste du ta bort eventuella befintliga lokaliserare och skapa en ny.
 
-## <a id="create_asset"></a>Skapa en till gång och överför filer till till gången
+## <a name="create-an-asset-and-upload-files-into-the-asset"></a><a id="create_asset"></a>Skapa en tillgång och ladda upp filer till tillgången
 För att hantera, koda och strömma videor måste du först överföra innehållet till Media Services. När du har överfört innehållet lagras det på ett säkert sätt i molnet för vidare bearbetning och strömning. 
 
 Utförlig information finns i [Överföra filer till ett Media Services-konto](media-services-dotnet-upload-files.md).
 
-## <a id="encode_asset"></a>Koda den till gång som innehåller filen till MP4-uppsättningen med anpassad bit hastighet
-Med dynamisk kryptering skapar du en tillgång som innehåller en uppsättning MP4-filer eller Smooth Streaming-källfiler i multibithastighet. Sedan, baserat på det angivna formatet i manifest-eller fragment förfrågningen, ser servern för strömning på begäran att du får data strömmen i det protokoll som du har valt. Sedan behöver du bara lagra och betala för filerna i ett enda lagrings format. Media Services skapar och hanterar lämpligt svar baserat på begäran från en klient. Mer information finns i [Översikt över dynamisk paketering](media-services-dynamic-packaging-overview.md).
+## <a name="encode-the-asset-that-contains-the-file-to-the-adaptive-bitrate-mp4-set"></a><a id="encode_asset"></a>Koda den tillgång som innehåller filen för MP4-uppsättningen med anpassad bithastighet
+Med dynamisk kryptering skapar du en tillgång som innehåller en uppsättning MP4-filer eller Smooth Streaming-källfiler i multibithastighet. Baserat på det angivna formatet i manifest- eller fragmentbegäran säkerställer den direktuppspelningsservern på begäran att du tar emot strömmen i det protokoll du valde. Då behöver du bara lagra och betala för filerna i ett enda lagringsformat. Media Services skapar och hanterar lämpligt svar baserat på begäran från en klient. Mer information finns i [Översikt över dynamisk paketering](media-services-dynamic-packaging-overview.md).
 
 >[!NOTE]
 >När ditt Media Services-konto skapas läggs en slutpunkt för direktuppspelning av standardtyp till i kontot med tillståndet ”Stoppad”. Om du vill starta direktuppspelning av innehåll och dra nytta av dynamisk paketering och dynamisk kryptering måste slutpunkten för direktuppspelning som du vill spela upp innehåll från ha tillståndet ”Körs”. 
 >
->För att använda dynamisk paketering och dynamisk kryptering måste till gången också innehålla en uppsättning anpassad bit hastighet hastigheter eller anpassad bit hastighet Smooth Streaming filer.
+>Om du vill använda dynamisk förpackning och dynamisk kryptering måste din tillgång innehålla en uppsättning adaptiva mp4-filer med adaptiv bithastighet eller adaptiv bithastighet.
 
 Mer information om att koda finns i [Koda en tillgång med Media Encoder Standard](media-services-dotnet-encode-with-media-encoder-standard.md).
 
-## <a id="create_contentkey"></a>Skapa en innehållsnyckel och associera den med den kodade tillgången
+## <a name="create-a-content-key-and-associate-it-with-the-encoded-asset"></a><a id="create_contentkey"></a>Skapa en innehållsnyckel och associera den med den kodade tillgången
 I Media Services innehåller innehållsnyckeln den nyckel som du vill kryptera en tillgång med.
 
 Mer information finns i [Skapa en innehållsnyckel](media-services-dotnet-create-contentkey.md).
 
-## <a id="configure_key_auth_policy"></a>Konfigurera en auktoriseringsprincip för innehållsnyckeln
-Media Services stöder flera olika sätt att auktorisera användare som begär nycklar. Du måste konfigurera en auktoriseringsprincip för innehållsnyckeln. Klienten (spelaren) måste uppfylla principen innan nyckeln kan levereras till klienten. Auktoriseringsprincipen för innehålls nyckeln kan ha en eller flera auktoriseringsregler, antingen öppna, token-restriktion eller IP-begränsning.
+## <a name="configure-the-content-keys-authorization-policy"></a><a id="configure_key_auth_policy"></a>Konfigurera innehållsnyckelns auktoriseringsprincip
+Media Services stöder flera olika sätt att auktorisera användare som begär nycklar. Du måste konfigurera en auktoriseringsprincip för innehållsnyckeln. Klienten (spelaren) måste uppfylla principen innan nyckeln kan levereras till klienten. Behörighetsprincipen för innehållsnyckel kan ha en eller flera auktoriseringsbegränsningar, antingen öppna, tokenbegränsningar eller IP-begränsning.
 
 Mer information finns i [Konfigurera innehållsnyckelns auktoriseringsprincip](media-services-dotnet-configure-content-key-auth-policy.md).
 
-## <a id="configure_asset_delivery_policy"></a>Konfigurera en tillgångsleveransprincip
+## <a name="configure-an-asset-delivery-policy"></a><a id="configure_asset_delivery_policy"></a>Konfigurera en tillgångsleveransprincip
 Konfigurera leveransprincipen för din tillgång. Tillgångsleveransprincipen innehåller bland annat följande:
 
-* URL för nyckel hämtning. 
-* Initierings vektorn (IV) som ska användas för kuvert kryptering. AES-128 kräver samma IV för kryptering och dekryptering. 
+* Url:en för nyckelförvärv. 
+* Initieringsvektorn (IV) som ska användas för kuvertkrypteringen. AES-128 kräver samma IV för kryptering och dekryptering. 
 * Protokollet för tillgångsleverans (t.ex. MPEG DASH, HLS, jämn direktuppspelning eller alla).
-* Typen av dynamisk kryptering (till exempel AES-kuvert) eller ingen dynamisk kryptering. 
+* Typ av dynamisk kryptering (till exempel AES-kuvert) eller ingen dynamisk kryptering. 
 
 Mer information finns i [Konfigurera tillgångsleveransprincip](media-services-dotnet-configure-asset-delivery-policy.md).
 
-## <a id="create_locator"></a>Skapa en lokaliserare för OnDemand-strömning för att få en strömnings-URL
+## <a name="create-an-ondemand-streaming-locator-to-get-a-streaming-url"></a><a id="create_locator"></a>Skapa en lokaliserare för OnDemand-strömning för att få en strömnings-URL
 Du måste förse din användare med strömnings-URL:en för Smooth Streaming, DASH eller HLS.
 
 > [!NOTE]
@@ -137,11 +137,11 @@ Hämta en testtoken baserat på de tokenbegränsningar som användes för nyckel
 
 Du kan använda [Azure Media Services Player](https://aka.ms/azuremediaplayer) för att testa din dataström.
 
-## <a id="client_request"></a>Hur kan din klient begära en nyckel från Key Delivery Service?
-I föregående steg konstruerade du den URL som pekar på en manifest fil. Klienten måste extrahera nödvändig information från de strömmande manifest filerna för att göra en begäran till nyckel leverans tjänsten.
+## <a name="how-can-your-client-request-a-key-from-the-key-delivery-service"></a><a id="client_request"></a>Hur kan din klient begära en nyckel från nyckelleveranstjänsten?
+I föregående steg har du skapat webbadressen som pekar på en manifestfil. Din klient måste extrahera nödvändig information från strömmande manifestfiler för att göra en begäran till nyckelleveranstjänsten.
 
-### <a name="manifest-files"></a>MANIFEST filer
-Klienten måste extrahera URL: en (som också innehåller värde för innehålls nyckel-ID [barn]) från manifest filen. Klienten försöker sedan hämta krypterings nyckeln från Key Delivery Service. Klienten måste också extrahera IV-värdet och använda det för att dekryptera data strömmen. Följande fragment visar `<Protection>`-elementet i Smooth Streaming manifestet:
+### <a name="manifest-files"></a>Manifestfiler
+Klienten måste extrahera URL-värdet (som också innehåller innehållsnyckel-ID [kid]) från manifestfilen. Klienten försöker sedan hämta krypteringsnyckeln från nyckelleveranstjänsten. Klienten måste också extrahera IV-värdet och använda det för att dekryptera strömmen. Följande utdrag visar elementet i `<Protection>` manifestet För jämn direktuppspelning:
 
 ```xml
     <Protection>
@@ -157,9 +157,9 @@ Klienten måste extrahera URL: en (som också innehåller värde för innehålls
     </Protection>
 ```
 
-Vid HLS är rot manifestet indelat i segmentera filer. 
+När det gäller HLS är rotmanifestet indelat i segmentfiler. 
 
-Rot manifestet är till exempel: http:\//test001.origin.mediaservices.windows.net/8bfe7d6f-34e3-4d1a-b289-3e48a8762490/BigBuckBunny.ism/manifest (format = M3U8-AAPL). Den innehåller en lista över segment fil namn.
+Rotmanifestet är till exempel: http:\//test001.origin.mediaservices.windows.net/8bfe7d6f-34e3-4d1a-b289-3e48a8762490/BigBuckBunny.ism/manifest(format=m3u8-aapl). Den innehåller en lista med filnamn för segment.
 
     . . . 
     #EXT-X-STREAM-INF:PROGRAM-ID=1,BANDWIDTH=630133,RESOLUTION=424x240,CODECS="avc1.4d4015,mp4a.40.2",AUDIO="audio"
@@ -168,7 +168,7 @@ Rot manifestet är till exempel: http:\//test001.origin.mediaservices.windows.ne
     QualityLevels(842459)/Manifest(video,format=m3u8-aapl)
     …
 
-Om du öppnar en av segment filerna i en text redigerare (till exempel http:\//test001.origin.mediaservices.windows.net/8bfe7d6f-34e3-4d1a-b289-3e48a8762490/BigBuckBunny.ism/QualityLevels (514369)/manifest (video, format = M3U8-AAPL), innehåller den #EXT-X-KEY, som anger att filen är krypterad.
+Om du öppnar en av segmentfilerna i en\/textredigerare (t.ex. http: /test001.origin.mediaservices.windows.net/8bfe7d6f-34e3-4d1a-b289-3e48a8762490/BigBuckBunny.ism/QualityLevels(514369)/Manifest(video,format=m3u8-aapl), den innehåller #EXT-X-KEY. vilket indikerar att filen är krypterad.
 
     #EXTM3U
     #EXT-X-VERSION:4
@@ -185,11 +185,11 @@ Om du öppnar en av segment filerna i en text redigerare (till exempel http:\//t
     #EXT-X-ENDLIST
 
 >[!NOTE] 
->Om du planerar att spela upp en AES-krypterad HLS i Safari kan du läsa [den här bloggen](https://azure.microsoft.com/blog/how-to-make-token-authorized-aes-encrypted-hls-stream-working-in-safari/).
+>Om du planerar att spela en AES-krypterad HLS i Safari, se [den här bloggen](https://azure.microsoft.com/blog/how-to-make-token-authorized-aes-encrypted-hls-stream-working-in-safari/).
 
-### <a name="request-the-key-from-the-key-delivery-service"></a>Begär nyckeln från Key Delivery Service
+### <a name="request-the-key-from-the-key-delivery-service"></a>Begär nyckeln från nyckelleveranstjänsten
 
-Följande kod visar hur du skickar en begäran till tjänsten Media Services Key Delivery genom att använda en nyckel leverans-URI (som har extraherats från manifestet) och en token. (Den här artikeln förklarar inte hur du får SWTs från en STS.)
+Följande kod visar hur du skickar en begäran till mediatjänster nyckelleveranstjänsten med hjälp av en nyckelleverans Uri (som extraherades från manifestet) och en token. (Den här artikeln förklarar inte hur man får SWTs från en STS.)
 
 ```csharp
     private byte[] GetDeliveryKey(Uri keyDeliveryUri, string token)
@@ -239,25 +239,25 @@ Följande kod visar hur du skickar en begäran till tjänsten Media Services Key
 
 1. Konfigurera utvecklingsmiljön och fyll i filen app.config med anslutningsinformation, enligt beskrivningen i [Media Services-utveckling med .NET](media-services-dotnet-how-to-use.md).
 
-2. Lägg till följande element i appSettings, enligt definitionen i filen app. config:
+2. Lägg till följande element i appSettings, enligt definitionen i filen app.config:
 
     ```xml
     <add key="Issuer" value="http://testissuer.com"/>
     <add key="Audience" value="urn:test"/>
     ```
 
-### <a id="example"></a>Exempel
+### <a name="example"></a><a id="example"></a>Exempel
 
 Skriv över koden i Program.cs-filen med koden som visas i det här avsnittet.
  
 >[!NOTE]
->Det finns en gräns på 1 000 000 principer för olika Media Servicess principer (till exempel för lokaliserings principer eller ContentKeyAuthorizationPolicy). Använd samma princip-ID om du alltid använder samma dagar/åtkomst behörigheter. Ett exempel är principer för positionerare som är avsedda att vara på plats under en längre tid (icke-överföringsprinciper). Mer information finns i avsnittet begränsa åtkomst principer i [Hantera till gångar och relaterade entiteter med Media Services .NET SDK](media-services-dotnet-manage-entities.md#limit-access-policies).
+>Det finns en gräns på 1 000 000 principer för olika Media Services-principer (till exempel för Locator-princip eller ContentKeyAuthorizationPolicy). Använd samma princip-ID om du alltid använder samma behörigheter för dagar/åtkomst. Ett exempel är principer för positionerare som är avsedda att vara på plats under en längre tid (icke-överföringsprinciper). Mer information finns i avsnittet "Begränsa åtkomstprinciper" i [Hantera tillgångar och relaterade entiteter med Media Services .NET SDK](media-services-dotnet-manage-entities.md#limit-access-policies).
 
 Se till att uppdatera variablerna så att de pekar på mappar där dina indatafiler finns.
 
 [!code-csharp[Main](../../../samples-mediaservices-encryptionaes/DynamicEncryptionWithAES/DynamicEncryptionWithAES/Program.cs)]
 
-## <a name="media-services-learning-paths"></a>Utbildningsvägar för Media Services
+## <a name="media-services-learning-paths"></a>Sökvägar för Media Services-utbildning
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>Ge feedback

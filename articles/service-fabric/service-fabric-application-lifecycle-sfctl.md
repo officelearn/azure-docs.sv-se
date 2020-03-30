@@ -6,76 +6,76 @@ ms.topic: conceptual
 ms.date: 07/31/2018
 ms.author: bikang
 ms.openlocfilehash: 7d361d44c349bc7a6e3c041f78d00ad66182fa15
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79259076"
 ---
 # <a name="manage-an-azure-service-fabric-application-by-using-azure-service-fabric-cli-sfctl"></a>Hantera ett Azure Service Fabric-program med hjälp av Azure Service Fabric CLI (sfctl)
 
 Lär dig hur du skapar och tar bort program som körs i ett Azure Service Fabric-kluster.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-* Installera Service Fabric CLI. Välj sedan ditt Service Fabric-kluster. Mer information finns i [Kom igång med Service Fabric CLI](service-fabric-cli.md).
+* Installera Service Fabric CLI. Välj sedan ditt Service Fabric-kluster. Mer information finns i [Komma igång med Service Fabric CLI](service-fabric-cli.md).
 
-* Ha ett Service Fabric-programpaket klart att distribueras. Mer information om hur du skapar och paketerar ett program finns i [Service Fabric program modell](service-fabric-application-model.md).
+* Ha ett Service Fabric-programpaket redo att distribueras. Mer information om hur du skapar och paketerar ett program finns i [programmodellen Service Fabric](service-fabric-application-model.md).
 
 ## <a name="overview"></a>Översikt
 
-Slutför följande steg för att distribuera ett nytt program:
+Så här distribuerar du ett nytt program:
 
-1. Ladda upp ett programpaket till avbildnings arkivet i Service Fabric.
-2. Etablera en program typ.
-3. Ta bort innehållet i bild arkivet.
+1. Ladda upp ett programpaket till imagebutiken Service Fabric.
+2. Etablera en programtyp.
+3. Ta bort innehållet i bildarkivet.
 4. Ange och skapa ett program.
 5. Ange och skapa tjänster.
 
-Slutför följande steg för att ta bort ett befintligt program:
+Så här tar du bort ett befintligt program:
 
 1. Ta bort programmet.
-2. Avetablera den associerade program typen.
+2. Avetablera den associerade programtypen.
 
 ## <a name="deploy-a-new-application"></a>Distribuera ett nytt program
 
-Utför följande uppgifter för att distribuera ett nytt program:
+Så här distribuerar du ett nytt program:
 
-### <a name="upload-a-new-application-package-to-the-image-store"></a>Ladda upp ett nytt programpaket till avbildnings arkivet
+### <a name="upload-a-new-application-package-to-the-image-store"></a>Ladda upp ett nytt programpaket till bildarkivet
 
-Innan du skapar ett program laddar du upp programpaketet till avbildnings lagringen Service Fabric.
+Innan du skapar ett program laddar du upp programpaketet till avbildningsarkivet Service Fabric.
 
-Om ditt programpaket till exempel finns i `app_package_dir`-katalogen använder du följande kommandon för att ladda upp katalogen:
+Om ditt programpaket till exempel `app_package_dir` finns i katalogen använder du följande kommandon för att ladda upp katalogen:
 
 ```shell
 sfctl application upload --path ~/app_package_dir
 ```
 
-För stora programpaket kan du ange `--show-progress` alternativ för att visa förloppet för uppladdningen.
+För stora programpaket kan du `--show-progress` ange alternativet för att visa förloppet för överföringen.
 
-### <a name="provision-the-application-type"></a>Etablera program typen
+### <a name="provision-the-application-type"></a>Etablera programtypen
 
-När uppladdningen är färdig etablerar du programmet. Använd följande kommando för att etablera programmet:
+När överföringen är klar etablerar du programmet. Använd följande kommando om du vill etablera programmet:
 
 ```shell
 sfctl application provision --application-type-build-path app_package_dir
 ```
 
-Värdet för `application-type-build-path` är namnet på den katalog där du laddade upp ditt programpaket.
+Värdet för `application-type-build-path` är namnet på katalogen där du laddade upp ditt programpaket.
 
 ### <a name="delete-the-application-package"></a>Ta bort programpaketet
 
-Vi rekommenderar att du tar bort applikations paketet när programmet har registrerats.  Om du tar bort program paket från avbildnings arkivet frigörs system resurser.  Att behålla oanvända programpaket använder disk lagring och leder till problem med program prestanda. 
+Vi rekommenderar att du tar bort programpaketet när programmet har registrerats.  Om du tar bort programpaket från avbildningsarkivet frigörs systemresurser.  Om du behåller oanvända programpaket förbrukar disklagring och leder till problem med programmets prestanda. 
 
-Om du vill ta bort programpaketet från avbildnings arkivet använder du följande kommando:
+Om du vill ta bort programpaketet från bildarkivet använder du följande kommando:
 
 ```shell
 sfctl store delete --content-path app_package_dir
 ```
 
-`content-path` måste vara namnet på den katalog som du laddade upp när du skapade programmet.
+`content-path`måste vara namnet på den katalog som du laddade upp när du skapade programmet.
 
-### <a name="create-an-application-from-an-application-type"></a>Skapa ett program från en program typ
+### <a name="create-an-application-from-an-application-type"></a>Skapa ett program från en programtyp
 
 När du har etablerat programmet använder du följande kommando för att namnge och skapa ditt program:
 
@@ -83,40 +83,40 @@ När du har etablerat programmet använder du följande kommando för att namnge
 sfctl application create --app-name fabric:/TestApp --app-type TestAppType --app-version 1.0
 ```
 
-`app-name` är det namn som du vill använda för program instansen. Du kan hämta ytterligare parametrar från det tidigare etablerade applikations manifestet.
+`app-name`är det namn som du vill använda för programinstansen. Du kan hämta ytterligare parametrar från det tidigare etablerade programmanifestet.
 
-Program namnet måste börja med prefixet `fabric:/`.
+Programnamnet måste börja med `fabric:/`prefixet .
 
 ### <a name="create-services-for-the-new-application"></a>Skapa tjänster för det nya programmet
 
-När du har skapat ett program skapar du tjänster från programmet. I följande exempel skapar vi en ny tillstånds lös tjänst från vårt program. De tjänster som du kan skapa från ett program definieras i ett tjänst manifest i det tidigare etablerade programpaketet.
+När du har skapat ett program skapar du tjänster från programmet. I följande exempel skapar vi en ny tillståndslös tjänst från vårt program. De tjänster som du kan skapa från ett program definieras i ett tjänstmanifest i det tidigare etablerade programpaketet.
 
 ```shell
 sfctl service create --app-id TestApp --name fabric:/TestApp/TestSvc --service-type TestServiceType \
 --stateless --instance-count 1 --singleton-scheme
 ```
 
-## <a name="verify-application-deployment-and-health"></a>Verifiera program distribution och hälsa
+## <a name="verify-application-deployment-and-health"></a>Verifiera programdistribution och hälsa
 
-Använd följande hälso kommandon för att kontrol lera att allt är felfritt:
+Om du vill kontrollera att allt är felfritt använder du följande hälsokommandon:
 
 ```shell
 sfctl application list
 sfctl service list --application-id TestApp
 ```
 
-Kontrol lera att tjänsten är felfri genom att använda liknande kommandon för att hämta hälso tillståndet för både tjänsten och programmet:
+Om du vill kontrollera att tjänsten är felfri använder du liknande kommandon för att hämta hälsotillståndet för både tjänsten och programmet:
 
 ```shell
 sfctl application health --application-id TestApp
 sfctl service health --service-id TestApp/TestSvc
 ```
 
-Felfria tjänster och program har ett `HealthState` värde för `Ok`.
+Hälsosamma tjänster och `HealthState` program `Ok`har ett värde av .
 
 ## <a name="remove-an-existing-application"></a>Ta bort ett befintligt program
 
-Om du vill ta bort ett program utför du följande aktiviteter:
+Så här tar du bort ett program:
 
 ### <a name="delete-the-application"></a>Ta bort programmet
 
@@ -126,21 +126,21 @@ Om du vill ta bort programmet använder du följande kommando:
 sfctl application delete --application-id TestEdApp
 ```
 
-### <a name="unprovision-the-application-type"></a>Avetablera program typen
+### <a name="unprovision-the-application-type"></a>Avetablera programtypen
 
-När du har tagit bort programmet kan du avetablera program typen om du inte längre behöver den. Om du vill avetablera program typen använder du följande kommando:
+När du har tagit bort programmet kan du avetablera programtypen om du inte längre behöver det. Om du vill ta av dig programtypen använder du följande kommando:
 
 ```shell
 sfctl application unprovision --application-type-name TestAppType --application-type-version 1.0
 ```
 
-Typ namnet och typ versionen måste matcha namnet och versionen i det tidigare etablerade applikations manifestet.
+Typnamn och typversion måste matcha namn och version i det tidigare etablerade programmanifestet.
 
 ## <a name="upgrade-application"></a>Uppgradera program
 
-När du har skapat programmet kan du upprepa samma uppsättning steg för att etablera en andra version av programmet. Med en Service Fabric program uppgradering kan du gå över till att köra den andra versionen av programmet. Mer information finns i dokumentationen om [Service Fabric program uppgraderingar](service-fabric-application-upgrade.md).
+När du har skapat programmet kan du upprepa samma uppsättning steg för att etablera en andra version av programmet. Sedan, med en Service Fabric-programuppgradering kan du övergå till att köra den andra versionen av programmet. Mer information finns i dokumentationen om uppgraderingar av [Service Fabric-programmet](service-fabric-application-upgrade.md).
 
-För att utföra en uppgradering måste du först etablera nästa version av programmet med samma kommandon som innan:
+Om du vill utföra en uppgradering etablerar du först nästa version av programmet med samma kommandon som tidigare:
 
 ```shell
 sfctl application upload --path ~/app_package_dir_2
@@ -148,22 +148,22 @@ sfctl application provision --application-type-build-path app_package_dir_2
 sfctl store delete --content-path app_package_dir_2
 ```
 
-Vi rekommenderar att du utför en övervakad automatisk uppgradering och startar uppgraderingen genom att köra följande kommando:
+Vi rekommenderar då att du utför en övervakad automatisk uppgradering, startar uppgraderingen genom att köra följande kommando:
 
 ```shell
 sfctl application upgrade --app-id TestApp --app-version 2.0.0 --parameters "{\"test\":\"value\"}" --mode Monitored
 ```
 
-Uppgraderingar åsidosätter befintliga parametrar med vilken uppsättning som anges. Program parametrarna ska skickas som argument till uppgraderings kommandot vid behov. Program parametrarna ska vara kodade som JSON-objekt.
+Uppgraderingar åsidosätter befintliga parametrar med den uppsättning som anges. Programparametrar bör skickas som argument till uppgraderingskommandot om det behövs. Programparametrar ska kodas som ett JSON-objekt.
 
-Om du vill hämta de parametrar som angetts tidigare kan du använda kommandot `sfctl application info`.
+Om du vill hämta de parametrar `sfctl application info` som tidigare angetts kan du använda kommandot.
 
-När en program uppgradering pågår kan statusen hämtas med hjälp av kommandot `sfctl application upgrade-status`.
+När en programuppgradering pågår kan statusen `sfctl application upgrade-status` hämtas med kommandot.
 
-Slutligen, om en uppgradering pågår och måste avbrytas, kan du använda `sfctl application upgrade-rollback` för att återställa uppgraderingen.
+Slutligen, om en uppgradering pågår och måste avbrytas, `sfctl application upgrade-rollback` kan du använda för att återställa uppgraderingen.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Grunderna för Service Fabric CLI](service-fabric-cli.md)
+* [Grunderna i Service Fabric CLI](service-fabric-cli.md)
 * [Komma igång med Service Fabric på Linux](service-fabric-get-started-linux.md)
-* [Starta en Service Fabric program uppgradering](service-fabric-application-upgrade.md)
+* [Starta en uppgradering av Service Fabric-programmet](service-fabric-application-upgrade.md)

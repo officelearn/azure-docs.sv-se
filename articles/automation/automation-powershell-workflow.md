@@ -1,28 +1,28 @@
 ---
-title: Utbildnings PowerShell-arbetsflöde för Azure Automation
-description: Den här artikeln är avsedd som en snabb lektion för författare som är bekanta med PowerShell för att förstå de olika skillnaderna mellan PowerShell-och PowerShell-arbetsflöde och begrepp som är tillämpliga för Automation-runbooks.
+title: PowerShell-arbetsflöde för Azure Automation
+description: Den här artikeln är avsedd som en snabblektion för författare som är bekanta med PowerShell för att förstå de specifika skillnaderna mellan PowerShell och PowerShell-arbetsflödet och begrepp som gäller för Automation-runbooks.
 services: automation
 ms.subservice: process-automation
 ms.date: 12/14/2018
 ms.topic: conceptual
 ms.openlocfilehash: 6e4c8057322b6208ea3b447b264e2bde1344540c
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79278693"
 ---
-# <a name="learning-key-windows-powershell-workflow-concepts-for-automation-runbooks"></a>Inlärnings nyckel koncept för Windows PowerShell-arbetsflöden för Automation-runbooks
+# <a name="learning-key-windows-powershell-workflow-concepts-for-automation-runbooks"></a>Utbildningsnyckel-windows powershell-arbetsflödesbegrepp för automationskörningar
 
-Runbooks i Azure Automation implementeras som Windows PowerShell-arbetsflöden.  Ett Windows PowerShell-arbetsflöde liknar ett Windows PowerShell-skript men har några viktiga skillnader som kan vara förvirrande för en ny användare.  Även om den här artikeln är avsedd att hjälpa dig att skriva Runbooks med hjälp av PowerShell-arbetsflöde rekommenderar vi att du skriver Runbooks med hjälp av PowerShell om du inte behöver kontroll punkter.  Det finns flera skillnader i syntaxen när du redigerar PowerShell Workflow-Runbooks och dessa skillnader kräver lite mer arbete för att skriva effektiva arbets flöden.
+Runbooks i Azure Automation implementeras som Windows PowerShell-arbetsflöden.  Ett Windows PowerShell-arbetsflöde liknar ett Windows PowerShell-skript men har några betydande skillnader som kan vara förvirrande för en ny användare.  Den här artikeln är avsedd att hjälpa dig att skriva runbooks med PowerShell-arbetsflöde, men vi rekommenderar att du skriver runbooks med PowerShell om du inte behöver kontrollpunkter.  Det finns flera syntaxskillnader när du redigerar PowerShell Workflow runbooks och dessa skillnader kräver lite mer arbete för att skriva effektiva arbetsflöden.
 
-Ett arbetsflöde är en sekvens med programmerade, nätverksanslutna steg som utför tidskrävande uppgifter eller kräver samordning av flera steg i flera enheter eller hanterade noder. Fördelarna med ett arbetsflöde jämfört med ett vanligt skript är möjligheten att samtidigt kunna utföra en åtgärd på flera enheter och möjligheten att automatisk återställning vid fel. Ett Windows PowerShell-arbetsflöde är ett Windows PowerShell-skript som använder Windows Workflow Foundation. När arbetsflödet skrivs med Windows PowerShell-syntax och startas också av Windows PowerShell, bearbetas det av Windows Workflow Foundation.
+Ett arbetsflöde är en sekvens med programmerade, nätverksanslutna steg som utför tidskrävande uppgifter eller kräver samordning av flera steg i flera enheter eller hanterade noder. Fördelarna med ett arbetsflöde jämfört med ett vanligt skript är bland annat möjligheten att samtidigt kunna utföra en åtgärd på flera olika enheter samt förmågan till automatisk återställning vid fel. Ett Windows PowerShell-arbetsflöde är ett Windows PowerShell-skript som använder Windows Workflow Foundation. Arbetsflödet skrivs med Windows PowerShell-syntax och startas också av Windows PowerShell, men det bearbetas av Windows Workflow Foundation.
 
-Fullständig information om ämnena i den här artikeln finns [komma igång med Windows PowerShell-arbetsflöde](https://technet.microsoft.com/library/jj134242.aspx).
+Fullständig information om ämnena i den här artikeln finns i [Komma igång med Windows PowerShell Workflow](https://technet.microsoft.com/library/jj134242.aspx).
 
-## <a name="basic-structure-of-a-workflow"></a>Grundläggande struktur för ett arbets flöde
+## <a name="basic-structure-of-a-workflow"></a>Grundläggande struktur för ett arbetsflöde
 
-Det första steget för att konvertera ett PowerShell-skript till ett PowerShell-arbetsflöde är att stänga det med nyckelordet **arbets flöde** .  Ett arbets flöde börjar med nyckelordet **arbets flöde** följt av bröd texten i skriptet inom klammerparenteser. Namnet på arbets flödet följer arbets **flödets** nyckelord, som du ser i följande syntax:
+Det första steget för att konvertera ett PowerShell-skript till ett PowerShell-arbetsflöde omsluter det med nyckelordet **Arbetsflöde.**  Ett arbetsflöde börjar med nyckelordet **Arbetsflöde** följt av brödtexten i skriptet som omges av klammerparenteser. Namnet på arbetsflödet följer nyckelordet **Arbetsflöde** som visas i följande syntax:
 
 ```powershell
 Workflow Test-Workflow
@@ -31,31 +31,31 @@ Workflow Test-Workflow
 }
 ```
 
-Namnet på arbetsflödet måste matcha namnet på Automation-runbook. Om runbooken importeras måste fil namnet matcha arbets flödets namn och måste sluta med *. ps1*.
+Namnet på arbetsflödet måste matcha namnet på Automation-runbooken. Om runbooken importeras måste filnamnet matcha arbetsflödesnamnet och sluta i *PS1*.
 
-Om du vill lägga till parametrar i arbets flödet använder du nyckelordet **param** precis som du skulle göra med ett skript.
+Om du vill lägga till parametrar i arbetsflödet använder du nyckelordet **Param** på samma sätt som i ett skript.
 
 ## <a name="code-changes"></a>Kodändringar
 
-PowerShell-arbetsflödet ser nästan likadant ut som skript kod med PowerShell förutom några få betydande ändringar.  I följande avsnitt beskrivs ändringar som du måste göra i ett PowerShell-skript för att det ska kunna köras i ett arbets flöde.
+PowerShell-arbetsflödeskoden ser nästan identisk ut med PowerShell-skriptkod förutom några viktiga ändringar.  I följande avsnitt beskrivs ändringar som du måste göra i ett PowerShell-skript för att det ska kunna köras i ett arbetsflöde.
 
 ### <a name="activities"></a>Aktiviteter
 
-En aktivitet är en viss uppgift i ett arbetsflöde. Precis som ett skript består av ett eller flera kommandon, består ett arbetsflöde av en eller flera aktiviteter som utförs i en sekvens. Windows PowerShell-arbetsflöde konverterar automatiskt många av Windows PowerShell-cmdlets för aktiviteter när ett arbetsflöde körs. När du anger en av dessa cmdletar i din runbook körs motsvarande aktivitet med Windows Workflow Foundation. För dessa cmdletar utan motsvarande aktivitet, kör Windows PowerShell-arbetsflöde automatiskt cmdleten i en [InlineScript](#inlinescript) -aktivitet. Det finns en uppsättning cmdletar som är undantagna och inte kan användas i ett arbetsflöde om de inte uttryckligen skrivs in i ett InlineScript-block. Mer information om dessa begrepp finns i [använda aktiviteter i skript arbets flöden](https://technet.microsoft.com/library/jj574194.aspx).
+En aktivitet är en viss åtgärd i ett arbetsflöde. Precis som ett skript består av ett eller flera kommandon, består ett arbetsflöde av en eller flera aktiviteter som utförs i en sekvens. När ett arbetsflöde körs i Windows PowerShell konverteras många Windows PowerShell-cmdletar automatiskt till aktiviteter. När du anger en av dessa cmdlets i runbooken körs motsvarande aktivitet av Windows Workflow Foundation. För de cmdlets utan motsvarande aktivitet körs cmdleten automatiskt i en [InlineScript-aktivitet.](#inlinescript) Det finns en uppsättning cmdlets som är undantagna och kan inte användas i ett arbetsflöde om du inte uttryckligen inkluderar dem i ett InlineScript-block. Mer information om dessa begrepp finns [i Använda aktiviteter i skriptarbetsflöden](https://technet.microsoft.com/library/jj574194.aspx).
 
-Arbetsflödesaktiviteter delar en uppsättning gemensamma parametrar för konfiguration av deras funktion. Mer information om arbets flödets gemensamma parametrar finns [about_WorkflowCommonParameters](https://technet.microsoft.com/library/jj129719.aspx).
+Arbetsflödesaktiviteter delar en uppsättning gemensamma parametrar för konfiguration av deras funktion. Mer information om vanliga parametrar för arbetsflödet finns [i about_WorkflowCommonParameters](https://technet.microsoft.com/library/jj129719.aspx).
 
-### <a name="positional-parameters"></a>Positions parametrar
+### <a name="positional-parameters"></a>Positionella parametrar
 
-Du kan inte använda positions parametrar med aktiviteter och cmdlets i ett arbets flöde.  Allt detta innebär att du måste använda parameter namn.
+Du kan inte använda positionsparametrar med aktiviteter och cmdlets i ett arbetsflöde.  Allt detta innebär är att du måste använda parameternamn.
 
-Anta till exempel följande kod som hämtar alla tjänster som körs.
+Tänk dig till exempel följande kod som hämtar alla tjänster som körs.
 
 ```azurepowershell-interactive
 Get-Service | Where-Object {$_.Status -eq "Running"}
 ```
 
-Om du försöker köra samma kod i ett arbets flöde får du ett meddelande som "parameter uppsättningen kan inte lösas med de angivna namngivna parametrarna".  Du korrigerar detta genom att ange parameter namnet enligt följande.
+Om du försöker köra samma kod i ett arbetsflöde visas ett meddelande som "Parameteruppsättningen kan inte matchas med de angivna namngivna parametrarna".  Om du vill korrigera detta anger du parameternamnet som i följande.
 
 ```powershell
 Workflow Get-RunningServices
@@ -64,18 +64,18 @@ Workflow Get-RunningServices
 }
 ```
 
-### <a name="deserialized-objects"></a>Avserialiserade objekt
+### <a name="deserialized-objects"></a>Deserialiserade objekt
 
-Objekt i arbets flöden avserialiseras.  Det innebär att deras egenskaper fortfarande är tillgängliga, men inte deras metoder.  Överväg till exempel följande PowerShell-kod som stoppar en tjänst med hjälp av metoden STOP för serviceobjektet.
+Objekt i arbetsflöden deserialiseras.  Detta innebär att deras egenskaper fortfarande är tillgängliga, men inte deras metoder.  Tänk dig till exempel följande PowerShell-kod som stoppar en tjänst med hjälp av stoppmetoden för Service-objektet.
 
 ```azurepowershell-interactive
 $Service = Get-Service -Name MyService
 $Service.Stop()
 ```
 
-Om du försöker köra detta i ett arbets flöde får du ett fel meddelande om att "metod anropet inte stöds i ett Windows PowerShell-arbetsflöde".
+Om du försöker köra detta i ett arbetsflöde visas ett felmeddelande om att "Metod-anrop stöds inte i ett Windows PowerShell-arbetsflöde".
 
-Ett alternativ är att omsluta dessa två rader med kod i ett [InlineScript](#inlinescript) -block där $service skulle vara ett tjänst objekt i blocket.
+Ett alternativ är att radbrytas dessa två kodrader i ett [InlineScript-block,](#inlinescript) i vilket fall $Service skulle vara ett serviceobjekt i blocket.
 
 ```powershell
 Workflow Stop-Service
@@ -87,7 +87,7 @@ Workflow Stop-Service
 }
 ```
 
-Ett annat alternativ är att använda en annan cmdlet som utför samma funktion som metoden, om en sådan finns.  I vårt exempel tillhandahåller cmdleten stoppa-service samma funktioner som metoden stop och du kan använda följande för ett arbets flöde.
+Ett annat alternativ är att använda en annan cmdlet som utför samma funktioner som metoden, om en sådan är tillgänglig.  I vårt exempel tillhandahåller Cmdlet för stoppservice samma funktioner som Stopp-metoden, och du kan använda följande för ett arbetsflöde.
 
 ```powershell
 Workflow Stop-MyService
@@ -99,7 +99,7 @@ Workflow Stop-MyService
 
 ## <a name="inlinescript"></a>InlineScript
 
-**InlineScript** -aktiviteten är användbar när du behöver köra ett eller flera kommandon som traditionellt PowerShell-skript i stället för PowerShell-arbetsflöde.  Medan kommandon i ett arbetsflöde skickas till Windows Workflow Foundation för bearbetning, bearbetas kommandona i ett InlineScript-block av Windows PowerShell.
+**InlineScript-aktiviteten** är användbar när du behöver köra ett eller flera kommandon som traditionellt PowerShell-skript i stället för PowerShell-arbetsflöde.  Medan kommandon i ett arbetsflöde skickas till Windows Workflow Foundation för bearbetning, bearbetas kommandona i ett InlineScript-block av Windows PowerShell.
 
 InlineScript använder följande syntax som visas nedan.
 
@@ -110,7 +110,7 @@ InlineScript
 } <Common Parameters>
 ```
 
-Du kan returnera utdata från en InlineScript genom att tilldela utdata till en variabel. I följande exempel stoppas en tjänst och sedan genereras tjänst namnet.
+Du kan returnera utdata från ett InlineScript genom att tilldela utdata till en variabel. I följande exempel stoppas en tjänst och servicenamnet matas sedan ut.
 
 ```powershell
 Workflow Stop-MyService
@@ -125,7 +125,7 @@ Workflow Stop-MyService
 }
 ```
 
-Du kan skicka värden till ett InlineScript-block, men du måste använda **$using** omfångs modifierare.  Följande exempel är identiskt med föregående exempel, förutom att tjänst namnet tillhandahålls av en variabel.
+Du kan skicka värden till ett InlineScript-block, men du måste använda **$Using** scopemodifierare.  Följande exempel är identiskt med föregående exempel förutom att tjänstnamnet tillhandahålls av en variabel.
 
 ```powershell
 Workflow Stop-MyService
@@ -142,19 +142,19 @@ Workflow Stop-MyService
 }
 ```
 
-InlineScript-aktiviteter kan vara kritiska i vissa arbets flöden och de har inte stöd för arbets flödes konstruktioner och bör endast användas vid behov av följande orsaker:
+InlineScript-aktiviteter kan vara kritiska i vissa arbetsflöden, men de stöder inte arbetsflödeskonstruktioner och bör endast användas när det behövs av följande skäl:
 
-* Det går inte att använda [kontroll punkter](#checkpoints) i ett InlineScript-block. Om ett fel inträffar i blocket måste det återupptas från början av blocket.
+* Du kan inte använda [kontrollpunkter](#checkpoints) i ett InlineScript-block. Om ett fel inträffar i blocket måste det återupptas från början av blocket.
 * Du kan inte använda [parallell körning](#parallel-processing) i en InlineScriptBlock.
-* InlineScript påverkar skalbarheten för arbets flödet eftersom den innehåller Windows PowerShell-sessionen för hela längden på InlineScript-blocket.
+* InlineScript påverkar arbetsflödets skalbarhet eftersom den innehåller Windows PowerShell-sessionen under hela InlineScript-blockets längd.
 
-Mer information om hur du använder InlineScript finns [i köra Windows PowerShell-kommandon i ett arbets flöde](https://technet.microsoft.com/library/jj574197.aspx) och [about_InlineScript](https://technet.microsoft.com/library/jj649082.aspx).
+Mer information om hur du använder InlineScript finns [i Köra Windows PowerShell-kommandon i ett arbetsflöde](https://technet.microsoft.com/library/jj574197.aspx) och [about_InlineScript](https://technet.microsoft.com/library/jj649082.aspx).
 
-## <a name="parallel-processing"></a>Parallell bearbetning
+## <a name="parallel-processing"></a>Parallellbearbetning
 
-En fördel med Windows PowerShell-arbetsflöden är möjligheten att utföra en uppsättning kommandon parallellt i stället för sekventiellt som i ett vanligt skript.
+En av fördelarna med Windows PowerShell-arbetsflöden är möjligheten att utföra en uppsättning kommandon parallellt i stället för sekventiellt som i ett vanligt skript.
 
-Du kan använda det **parallella** nyckelordet för att skapa ett skript block med flera kommandon som körs samtidigt. Följande syntax visas nedan. I det här fallet startar Activity1 och Activity2 på samma tidpunkt. Activity3 startar bara efter att både Activity1 och Activity2 har slutförts.
+Du kan använda nyckelordet **Parallel** för att skapa ett skriptblock med flera kommandon som körs samtidigt. Detta använder följande syntax som visas nedan. I det här fallet startar Activity1 och Activity2 samtidigt. Activity3 startar först efter att både Activity1 och Activity2 har slutförts.
 
 ```powershell
 Parallel
@@ -165,7 +165,7 @@ Parallel
 <Activity3>
 ```
 
-Överväg till exempel följande PowerShell-kommandon som kopierar flera filer till ett nätverks mål.  Dessa kommandon körs i tur och ordning så att en fil måste slutföras innan nästa startas.
+Tänk dig till exempel följande PowerShell-kommandon som kopierar flera filer till ett nätverksmål.  Dessa kommandon körs sekventiellt så att en fil måste slutföra kopieringen innan nästa startas.
 
 ```azurepowershell-interactive
 Copy-Item -Path C:\LocalPath\File1.txt -Destination \\NetworkPath\File1.txt
@@ -173,7 +173,7 @@ Copy-Item -Path C:\LocalPath\File2.txt -Destination \\NetworkPath\File2.txt
 Copy-Item -Path C:\LocalPath\File3.txt -Destination \\NetworkPath\File3.txt
 ```
 
-Följande arbets flöde kör samma kommandon parallellt så att alla börjar kopieras samtidigt.  När alla har kopierats visas meddelandet slut för ande.
+Följande arbetsflöde kör samma kommandon parallellt så att de alla börjar kopiera samtidigt.  Först efter att alla har kopierats visas det slutförandemeddelande som visas.
 
 ```powershell
 Workflow Copy-Files
@@ -189,7 +189,7 @@ Workflow Copy-Files
 }
 ```
 
-Du kan använda den **förgrunds-parallella** konstruktionen för att bearbeta kommandon för varje objekt i en samling samtidigt. Objekt i samlingen bearbetas parallellt medan kommandona i skriptblocket körs sekventiellt. Följande syntax visas nedan. I det här fallet startar Activity1 på samma tid för alla objekt i samlingen. Activity2 startar när Activity1 har slutförts för varje objekt. Activity3 startar bara efter att både Activity1 och Activity2 har slutförts för alla objekt. Vi använder parametern `ThrottleLimit` för att begränsa parallellitet. För hög av en `ThrottleLimit` kan orsaka problem. Det idealiska värdet för parametern `ThrottleLimit` är beroende av många faktorer i din miljö. Du bör försöka starta med ett lågt värde och prova med olika ökande värden tills du hittar något som fungerar för dina speciella omständigheter.
+Du kan använda **forEach -Parallell** konstruera för att bearbeta kommandon för varje objekt i en samling samtidigt. Objekten i samlingen bearbetas parallellt medan kommandona i skriptblocket körs sekventiellt. Detta använder följande syntax som visas nedan. I det här fallet startar Activity1 samtidigt för alla objekt i samlingen. För varje objekt startar Activity2 när Aktivitet1 har slutförts. Activity3 startar först efter att både Activity1 och Activity2 har slutförts för alla artiklar. Vi använder `ThrottleLimit` parametern för att begränsa parallellismen. För hög `ThrottleLimit` av en kan orsaka problem. Det idealiska `ThrottleLimit` värdet för parametern beror på många faktorer i din miljö. Du bör försöka börja med ett lågt värde och prova olika ökande värden tills du hittar en som fungerar för din specifika omständighet.
 
 ```powershell
 ForEach -Parallel -ThrottleLimit 10 ($<item> in $<collection>)
@@ -200,7 +200,7 @@ ForEach -Parallel -ThrottleLimit 10 ($<item> in $<collection>)
 <Activity3>
 ```
 
-Följande exempel liknar det tidigare exemplet som kopierar filer parallellt.  I det här fallet visas ett meddelande för varje fil efter att den har kopierats.  Det slutliga slut för ande meddelandet visas bara när alla har kopierats fullständigt.
+Följande exempel liknar föregående exempel när filer kopieras parallellt.  I det här fallet visas ett meddelande för varje fil när den har kopierats.  Först efter att alla har kopierats helt visas det slutliga slutförandemeddelandet.
 
 ```powershell
 Workflow Copy-Files
@@ -218,13 +218,13 @@ Workflow Copy-Files
 ```
 
 > [!NOTE]
-> Vi rekommenderar inte att du kör underordnade Runbooks parallellt eftersom detta har visats för att ge otillförlitliga resultat. Utdata från den underordnade runbooken visas ibland inte, och inställningarna i en underordnad Runbook kan påverka de andra parallella underordnade Runbooks. Variabler som $VerbosePreference, $WarningPreference och andra kanske inte sprids till underordnade Runbooks. Och om den underordnade runbooken ändrar dessa värden kanske de inte återställs korrekt efter anrop.
+> Vi rekommenderar inte att köra underordnade runbooks parallellt eftersom detta har visat sig ge otillförlitliga resultat. Utdata från den underordnade runbooken visas ibland inte, och inställningarna i en underordnad runbook kan påverka de andra parallella underordnade runbooksna. Variabler som $VerbosePreference, $WarningPreference och andra får inte spridas till de underordnade runbooks. Och om den underordnade runbooken ändrar dessa värden kanske de inte återställs korrekt efter anrop.
 
 ## <a name="checkpoints"></a>Kontrollpunkter
 
-En *kontroll punkt* är en ögonblicks bild av det aktuella läget för det arbets flöde som innehåller det aktuella värdet för variabler och alla utdata som genereras till den punkten. Om ett arbets flöde slutar fungera eller har pausats startar det igen från den senaste kontroll punkten i stället för arbets flödets start.  Du kan ange en kontroll punkt i ett arbets flöde med **kontroll punkt – arbets flödes** aktivitet. Azure Automation har en funktion som kallas [rättvis delning](automation-runbook-execution.md#fair-share), där alla Runbook-flöden som körs i 3 timmar är inaktiverade för att tillåta andra Runbooks att köras. Slutligen kommer den inaktiverade runbooken att läsas in igen och när den är det återupptar den körningen från den senaste kontroll punkten som tagits i runbooken. För att garantera att runbooken slutligen kommer att slutföras, måste du lägga till kontroll punkter i intervall som körs i mindre än tre timmar. Om du lägger till en ny kontroll punkt under varje körning, och om runbooken tas bort efter tre timmar på grund av ett fel, kommer runbooken att återupptas oändligt.
+En *kontrollpunkt* är en ögonblicksbild av det aktuella tillståndet för arbetsflödet som innehåller det aktuella värdet för variabler och alla utdata som genereras till den punkten. Om ett arbetsflöde slutar av misstag eller pausas startar det nästa gång det körs från den senaste kontrollpunkten i stället för början av arbetsflödet.  Du kan ange en kontrollpunkt i ett arbetsflöde med aktiviteten **Kontrollpunkt-arbetsflöde.** Azure Automation har en funktion som kallas [rättvis resurs](automation-runbook-execution.md#fair-share), där alla runbook som körs i 3 timmar tas bort för att tillåta andra runbooks att köras. Så småningom kommer den olastade runbooken att laddas om, och när den är det, kommer den att återuppta körningen från den sista kontrollpunkten som tas i runbooken. För att garantera att runbooken så småningom slutförs måste du lägga till kontrollpunkter med intervall som körs i mindre än 3 timmar. Om en ny kontrollpunkt läggs till under varje körning, och om runbooken vräkas efter 3 timmar på grund av ett fel, kommer runbooken att återupptas på obestämd tid.
 
-I följande exempel kod inträffar ett undantag efter det att Activity2 orsakar att arbets flödet avslutas. När arbets flödet körs igen startar det genom att köra Activity2 eftersom det var precis efter den senaste kontroll punkts uppsättningen.
+I följande exempelkod inträffar ett undantag efter att Activity2 som gör att arbetsflödet upphör. När arbetsflödet körs igen börjar det med att köra Activity2 eftersom det var strax efter den senaste kontrollpunktsuppsättningen.
 
 ```powershell
 <Activity1>
@@ -234,9 +234,9 @@ Checkpoint-Workflow
 <Activity3>
 ```
 
-Du bör ange kontroll punkter i ett arbets flöde efter aktiviteter som kan vara känsliga för undantag och som inte bör upprepas om arbets flödet återupptas. Arbets flödet kan till exempel skapa en virtuell dator. Du kan ange en kontrollpunkt både före och efter kommandona för att skapa den virtuella datorn. Om det inte går att skapa, upprepas kommandona om arbets flödet startas igen. Om arbets flödet Miss lyckas när skapandet har slutförts skapas inte den virtuella datorn igen när arbets flödet återupptas.
+Du bör ange kontrollpunkter i ett arbetsflöde efter aktiviteter som kan vara benägna att göra undantag och bör inte upprepas om arbetsflödet återupptas. Arbetsflödet kan till exempel skapa en virtuell dator. Du kan ange en kontrollpunkt både före och efter kommandona som skapar den virtuella datorn. Om skapandet misslyckas, då kommandona skulle upprepas om arbetsflödet startas igen. Om arbetsflödet misslyckas när skapandet har slutförts skapas inte den virtuella datorn igen när arbetsflödet återupptas.
 
-I följande exempel kopieras flera filer till en nätverks plats och anger en kontroll punkt efter varje fil.  Om nätverks platsen tappas bort slutar arbets flödet med fel.  När den startas igen fortsätter den vid den senaste kontroll punkten, vilket innebär att endast de filer som redan har kopierats hoppas över.
+I följande exempel kopieras flera filer till en nätverksplats och en kontrollpunkt anges efter varje fil.  Om nätverksplatsen försvinner slutar arbetsflödet av misstag.  När den startas igen återupptas den vid den senaste kontrollpunkten, vilket innebär att endast de filer som redan har kopierats hoppas över.
 
 ```powershell
 Workflow Copy-Files
@@ -254,9 +254,9 @@ Workflow Copy-Files
 }
 ```
 
-Eftersom autentiseringsuppgifter för användar namn inte är sparade när du anropar aktiviteten [pausa – arbets flöde](https://technet.microsoft.com/library/jj733586.aspx) eller efter den senaste kontroll punkten, måste du ange autentiseringsuppgifterna till null och sedan hämta dem igen från till gångs lagret efter att du har gjort **uppehåll i arbets flödet** eller kontroll punkten.  Annars kan du få följande fel meddelande: *det går inte att återuppta arbets flödes jobbet, antingen på grund av att beständiga data inte kunde sparas fullständigt eller att sparade beständiga data har skadats. Du måste starta om arbets flödet.*
+Eftersom användarnamnsautentiseringsuppgifterna inte sparas efter att du har anropat aktiviteten [Paus-Arbetsflöde](https://technet.microsoft.com/library/jj733586.aspx) eller efter den senaste kontrollpunkten måste du ange att autentiseringsuppgifterna ska null och sedan hämta dem igen från tillgångsarkivet efter **att Paus-Arbetsflöde** eller kontrollpunkt anropas.  Annars kan följande felmeddelande visas: *Arbetsflödesjobbet kan inte återupptas, antingen på grund av att beständighetsdata inte kunde sparas helt eller så har sparade persistensdata skadats. Du måste starta om arbetsflödet.*
 
-Följande kod visar hur du hanterar det här i dina PowerShell Workflow-Runbooks.
+Följande samma kod visar hur du hanterar detta i powershellarbetsflödeskörningsböckerna.
 
 ```powershell
 workflow CreateTestVms
@@ -283,13 +283,13 @@ workflow CreateTestVms
 ```
 
 > [!IMPORTANT]
-> **Add-AzureRmAccount** är nu ett alias för **Connect-AzureRmAccount**. Om du inte ser **Connect-AzureRMAccount**när du söker i biblioteks objekt kan du använda **Add-AzureRMAccount**, eller så kan du uppdatera dina moduler i ditt Automation-konto.
+> **Add-AzureRmAccount** är nu ett alias för **Connect-AzureRMAccount**. När du söker i dina biblioteksobjekt, om du inte ser **Connect-AzureRMAccount,** kan du använda **Add-AzureRmAccount**eller uppdatera dina moduler i ditt Automation-konto.
 
-Detta krävs inte om du autentiserar med hjälp av ett Kör som-konto som kon figurer ATS med ett huvud namn för tjänsten.
+Detta krävs inte om du autentiserar med ett Run As-konto som konfigurerats med ett tjänsthuvudnamn.
 
-Mer information om kontroll punkter finns i [lägga till kontroll punkter i ett skript arbets flöde](https://technet.microsoft.com/library/jj574114.aspx).
+Mer information om kontrollpunkter finns i [Lägga till kontrollpunkter i ett skriptarbetsflöde](https://technet.microsoft.com/library/jj574114.aspx).
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Se hur du kommer igång med runbooks baserade på PowerShell-arbetsflöden i [Min första PowerShell-arbetsflödesbaserade runbook](automation-first-runbook-textual.md)
+* Information om hur du kommer igång med PowerShell-arbetsflödeskörningsböcker läser du [Min första PowerShell-arbetsflödeskörningsbok](automation-first-runbook-textual.md)
 

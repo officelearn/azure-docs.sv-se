@@ -1,27 +1,27 @@
 ---
-title: Data kryptering – Azure Portal – för Azure Database for PostgreSQL-enskild server
-description: Lär dig hur du konfigurerar och hanterar data kryptering för Azure Database for PostgreSQL enskild server med hjälp av Azure Portal.
+title: Datakryptering - Azure-portal - för Azure Database för PostgreSQL - Enkel server
+description: Lär dig hur du konfigurerar och hanterar datakryptering för din Azure-databas för PostgreSQL Single server med hjälp av Azure-portalen.
 author: kummanish
 ms.author: manishku
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 01/13/2020
 ms.openlocfilehash: fe4c69787b606c601d2dc8b31cadc6dcf57458da
-ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79297075"
 ---
-# <a name="data-encryption-for-azure-database-for-postgresql-single-server-by-using-the-azure-portal"></a>Data kryptering för Azure Database for PostgreSQL enskild server med hjälp av Azure Portal
+# <a name="data-encryption-for-azure-database-for-postgresql-single-server-by-using-the-azure-portal"></a>Datakryptering för Azure Database för PostgreSQL Single server med hjälp av Azure-portalen
 
-Lär dig hur du använder Azure Portal för att konfigurera och hantera data kryptering för din Azure Database for PostgreSQL enskild server.
+Lär dig hur du använder Azure-portalen för att konfigurera och hantera datakryptering för din Azure-databas för PostgreSQL Single server.
 
-## <a name="prerequisites-for-azure-cli"></a>Krav för Azure CLI
+## <a name="prerequisites-for-azure-cli"></a>Förutsättningar för Azure CLI
 
 * Du måste ha en Azure-prenumeration och vara administratör för den prenumerationen.
-* I Azure Key Vault skapar du ett nyckel valv och en nyckel som ska användas för en kundhanterad nyckel.
-* Nyckel valvet måste ha följande egenskaper för att kunna användas som kundhanterad nyckel:
+* Skapa ett nyckelvalv och nyckel som ska användas för en kundhanterad nyckel i Azure Key Vault.
+* Nyckelvalvet måste ha följande egenskaper som ska användas som kundhanterad nyckel:
   * [Mjuk borttagning](../key-vault/key-vault-ovw-soft-delete.md)
 
     ```azurecli-interactive
@@ -34,82 +34,82 @@ Lär dig hur du använder Azure Portal för att konfigurera och hantera data kry
     az keyvault update --name <key_vault_name> --resource-group <resource_group_name>  --enable-purge-protection true
     ```
 
-* Nyckeln måste ha följande attribut för att användas som en kundhanterad nyckel:
-  * Inget förfallo datum
-  * Inte inaktiverat
-  * Kan utföra get-, wrap-och unwrap Key-åtgärder
+* Nyckeln måste ha följande attribut att använda som kundhanterad nyckel:
+  * Inget utgångsdatum
+  * Inte inaktiverad
+  * Kunna utföra get, wrap nyckel och packa upp viktiga operationer
 
-## <a name="set-the-right-permissions-for-key-operations"></a>Ange rätt behörigheter för viktiga åtgärder
+## <a name="set-the-right-permissions-for-key-operations"></a>Ange rätt behörigheter för nyckelåtgärder
 
-1. I Key Vault väljer du **åtkomst principer** > **Lägg till åtkomst princip**.
+1. I Key Vault väljer du **Åtkomstprincip** > **Lägg till åtkomstprincip**.
 
-   ![Skärm bild av Key Vault med åtkomst principer och Lägg till åtkomst princip markerad](media/concepts-data-access-and-security-data-encryption/show-access-policy-overview.png)
+   ![Skärmbild av Key Vault, med åtkomstprinciper och Lägg till åtkomstprincip markerad](media/concepts-data-access-and-security-data-encryption/show-access-policy-overview.png)
 
-2. Välj **nyckel behörigheter**och välj **Hämta**, **Radbryt** **, packa**upp och **huvudobjektet**, som är namnet på postgresql-servern. Om ditt Server huvud namn inte finns i listan över befintliga huvud konton måste du registrera det. Du uppmanas att registrera ditt Server huvud namn när du försöker konfigurera data kryptering för första gången, och det Miss lyckas.  
+2. Välj **Nyckelbehörigheter**och välj **Hämta**, **Radbryta**, **Ta bort**och **huvudmannen**, som är namnet på PostgreSQL-servern. Om serverns huvudnamn inte finns i listan över befintliga huvudnamn måste du registrera det. Du uppmanas att registrera serverns huvudnamn när du försöker konfigurera datakryptering för första gången, och det misslyckas.  
 
-   ![Översikt över åtkomst princip](media/concepts-data-access-and-security-data-encryption/access-policy-wrap-unwrap.png)
-
-3. Välj **Spara**.
-
-## <a name="set-data-encryption-for-azure-database-for-postgresql-single-server"></a>Ange data kryptering för Azure Database for PostgreSQL enskild server
-
-1. I Azure Database for PostgreSQL väljer du **data kryptering** för att ställa in den Kundhanterade nyckeln.
-
-   ![Skärm bild av Azure Database for PostgreSQL med data kryptering markerad](media/concepts-data-access-and-security-data-encryption/data-encryption-overview.png)
-
-2. Du kan antingen välja ett nyckel valv och nyckel par eller ange en nyckel identifierare.
-
-   ![Skärm bild av Azure Database for PostgreSQL med alternativ för data kryptering markerade](media/concepts-data-access-and-security-data-encryption/setting-data-encryption.png)
+   ![Översikt över åtkomstprinciper](media/concepts-data-access-and-security-data-encryption/access-policy-wrap-unwrap.png)
 
 3. Välj **Spara**.
 
-4. Starta om servern för att se till att alla filer (inklusive temporära filer) är helt krypterade.
+## <a name="set-data-encryption-for-azure-database-for-postgresql-single-server"></a>Ange datakryptering för Azure Database för PostgreSQL Single server
+
+1. I Azure Database for PostgreSQL väljer du **Datakryptering** för att konfigurera den kundhanterade nyckeln.
+
+   ![Skärmbild av Azure Database för PostgreSQL, med datakryptering markerad](media/concepts-data-access-and-security-data-encryption/data-encryption-overview.png)
+
+2. Du kan antingen välja ett nyckelvalv och nyckelpar eller ange en nyckelidentifierare.
+
+   ![Skärmbild av Azure Database för PostgreSQL, med datakrypteringsalternativ markerade](media/concepts-data-access-and-security-data-encryption/setting-data-encryption.png)
+
+3. Välj **Spara**.
+
+4. Starta om servern om du vill vara säkra på att alla filer (inklusive temporära filer) är helt krypterade.
 
 ## <a name="restore-or-create-a-replica-of-the-server"></a>Återställa eller skapa en replik av servern
 
-När Azure Database for PostgreSQL enskild server har krypterats med en kunds hanterade nyckel som lagras i Key Vault krypteras även alla nyligen skapade kopior av servern. Du kan göra den här nya kopian antingen via en lokal åtgärd eller geo-återställning eller via en replikering (lokal/över region) åtgärd. För en krypterad PostgreSQL-Server kan du använda följande steg för att skapa en krypterad återställd Server.
+När Azure Database for PostgreSQL Single server krypteras med en kunds hanterade nyckel lagrad i Key Vault krypteras även alla nyskapade kopior av servern. Du kan göra den nya kopian antingen via en lokal eller geoåterställningsåtgärd eller genom en replik (lokal/regionöverskridande åtgärd). Så för en krypterad PostgreSQL-server kan du använda följande steg för att skapa en krypterad återställd server.
 
-1. Välj **översikt** > **återställning**på servern.
+1. Välj > **Översiktsåterställning**på servern . **Overview**
 
-   ![Skärm bild av Azure Database for PostgreSQL, med översikt och återställning markerat](media/concepts-data-access-and-security-data-encryption/show-restore.png)
+   ![Skärmbild av Azure Database för PostgreSQL, med översikt och återställning markerad](media/concepts-data-access-and-security-data-encryption/show-restore.png)
 
-   Om du använder en aktive rad server väljer du **replikering**under rubriken **Inställningar** .
+   Eller för en replikeringsaktiverad server väljer du **Replikering**under rubriken **Inställningar** .
 
-   ![Skärm bild av Azure Database for PostgreSQL med replikering markerad](media/concepts-data-access-and-security-data-encryption/postgresql-replica.png)
+   ![Skärmbild av Azure Database för PostgreSQL, med replikering markerad](media/concepts-data-access-and-security-data-encryption/postgresql-replica.png)
 
-2. När återställningen är klar är den nya servern som skapas krypterad med den primära serverns nyckel. Funktionerna och alternativen på servern är dock inaktiverade och servern är inte tillgänglig. Detta förhindrar all data manipulering eftersom den nya serverns identitet ännu inte har fått behörighet att komma åt nyckel valvet.
+2. När återställningen är klar krypteras den nya servern som skapas med den primära serverns nyckel. Funktionerna och alternativen på servern är dock inaktiverade och servern är otillgänglig. Detta förhindrar datamanipulering, eftersom den nya serverns identitet ännu inte har fått behörighet att komma åt nyckelvalvet.
 
-   ![Skärm bild av Azure Database for PostgreSQL med otillgänglig status markerad](media/concepts-data-access-and-security-data-encryption/show-restore-data-encryption.png)
+   ![Skärmbild av Azure Database för PostgreSQL, med otillgänglig status markerad](media/concepts-data-access-and-security-data-encryption/show-restore-data-encryption.png)
 
-3. Om du vill göra servern tillgänglig igen, verifierar du nyckeln på den återställda servern. Välj **data kryptering** > **omverifiera nyckel**.
+3. Om du vill göra servern tillgänglig aktiverar du nyckeln på den återställda servern. Välj**omvalidat nyckel för** **datakryptering** > .
 
    > [!NOTE]
-   > Det första försöket att validera kommer att Miss lyckas eftersom den nya serverns tjänst huvud namn måste ges åtkomst till nyckel valvet. Om du vill generera tjänstens huvud namn väljer du **revalidate Key**, som visar ett fel, men som genererar tjänstens huvud namn. Därefter kan du se [de här stegen](#set-the-right-permissions-for-key-operations) tidigare i den här artikeln.
+   > Det första försöket att förnya misslyckas, eftersom den nya serverns tjänsthuvudnamn måste få åtkomst till nyckelvalvet. Om du vill generera tjänstens huvudnamn väljer du **Revalidate-nyckel**, som visar ett fel men genererar tjänstens huvudnamn. Därefter hänvisar du till [dessa steg](#set-the-right-permissions-for-key-operations) tidigare i den här artikeln.
 
-   ![Skärm bild av Azure Database for PostgreSQL med omverifierings steg markerat](media/concepts-data-access-and-security-data-encryption/show-revalidate-data-encryption.png)
+   ![Skärmbild av Azure Database för PostgreSQL, med förlängningssteg markerat](media/concepts-data-access-and-security-data-encryption/show-revalidate-data-encryption.png)
 
-   Du måste ge nyckel valvet åtkomst till den nya servern.
+   Du måste ge nyckelvalvet åtkomst till den nya servern.
 
-4. När du har registrerat tjänstens huvud namn, verifierar nyckeln igen och servern fortsätter med sin normala funktion.
+4. När du har registrerat tjänstens huvudnamn, förnya nyckeln igen och servern återupptar sin normala funktionalitet.
 
-   ![Skärm bild av Azure Database for PostgreSQL, med återställda funktioner](media/concepts-data-access-and-security-data-encryption/restore-successful.png)
+   ![Skärmbild av Azure Database for PostgreSQL, med återställd funktionalitet](media/concepts-data-access-and-security-data-encryption/restore-successful.png)
 
-## <a name="using-an-azure-resource-manager-template-to-enable-data-encryption"></a>Använda en Azure Resource Manager-mall för att aktivera data kryptering
+## <a name="using-an-azure-resource-manager-template-to-enable-data-encryption"></a>Använda en Azure Resource Manager-mall för att aktivera datakryptering
 
-Förutom Azure Portal kan du också aktivera data kryptering på din Azure Database for PostgreSQL enskild server med Azure Resource Manager mallar för nya och befintliga servrar.
+Förutom Azure-portalen kan du också aktivera datakryptering på din Azure-databas för PostgreSQL-en server med Azure Resource Manager-mallar för ny och befintlig server.
 
 ### <a name="for-a-new-server"></a>För en ny server
 
-Använd en av de redan skapade Azure Resource Manager-mallarna för att etablera servern med data kryptering aktiverat: [exempel med data kryptering](https://github.com/Azure/azure-postgresql/tree/master/arm-templates/ExampleWithDataEncryption)
+Använd en av de förskapade Azure Resource Manager-mallarna för att etablera servern med datakryptering aktiverad: [Exempel med datakryptering](https://github.com/Azure/azure-postgresql/tree/master/arm-templates/ExampleWithDataEncryption)
 
-Den här Azure Resource Manager-mallen skapar en Azure Database for PostgreSQL enskild server och använder nyckel **valvet** och **nyckeln** som skickas som parametrar för att aktivera data kryptering på servern.
+Den här Azure Resource Manager-mallen skapar en Azure-databas för PostgreSQL Single-server och använder **KeyVault** och **Key** som skickas som parametrar för att aktivera datakryptering på servern.
 
 ### <a name="for-an-existing-server"></a>För en befintlig server
-Du kan också använda Azure Resource Manager mallar för att aktivera data kryptering på dina befintliga Azure Database for PostgreSQL-servrar.
+Dessutom kan du använda Azure Resource Manager-mallar för att aktivera datakryptering på din befintliga Azure-databas för PostgreSQL Single-servrar.
 
-* Skicka URI: n för den Azure Key Vault nyckel som du kopierade tidigare under egenskapen `keyVaultKeyUri` i egenskaps-objektet.
+* Skicka URI-värden för Azure Key Vault-nyckeln `keyVaultKeyUri` som du kopierade tidigare under egenskapen i egenskapsobjektet.
 
-* Använd *2020-01-01 – för hands* version som API-version.
+* Använd *2020-01-01-preview* som API-version.
 
 ```json
 {
@@ -220,4 +220,4 @@ Du kan också använda Azure Resource Manager mallar för att aktivera data kryp
 
 ## <a name="next-steps"></a>Nästa steg
 
- Läs mer om data kryptering i [Azure Database for PostgreSQL data kryptering med en server med kundhanterad nyckel](concepts-data-encryption-postgresql.md).
+ Mer information om datakryptering finns i [Azure Database for PostgreSQL Single server data encryption with customer-managed key](concepts-data-encryption-postgresql.md).

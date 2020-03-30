@@ -1,79 +1,79 @@
 ---
-title: Anslutnings strängar i Azure Application Insights | Microsoft Docs
-description: Så här använder du anslutnings strängar.
+title: Anslutningssträngar i Azure Application Insights | Microsoft-dokument
+description: Så här använder du anslutningssträngar.
 ms.topic: conceptual
 author: timothymothra
 ms.author: tilee
 ms.date: 01/17/2020
 ms.reviewer: mbullwin
 ms.openlocfilehash: 7b049c04913d3415074f46b9d90ec34be874a2da
-ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79136714"
 ---
 # <a name="connection-strings"></a>Anslutningssträngar
 
 ## <a name="overview"></a>Översikt
 
-Anslutnings strängar ger program insikter användare med en enda konfigurations inställning, vilket eliminerar behovet av flera proxyinställningar. Mycket användbart för webb servrar i intranät, suveräna eller hybrid moln miljöer som vill skicka data till övervaknings tjänsten.
+Anslutningssträngar ger Application Insight-användare en enda konfigurationsinställning, vilket eliminerar behovet av flera proxyinställningar. Mycket användbart för intranätwebbservrar, suveräna eller hybridmolnmiljöer som vill skicka in data till övervakningstjänsten.
 
-Nyckel värdes paren ger ett enkelt sätt för användare att definiera en kombination av prefixet prefix för varje Application Insights (AI)-tjänst/produkt.
+Nyckelvärdesparen är ett enkelt sätt för användare att definiera en kombination av prefixsuffix för varje AI-tjänst (Application Insights) för varje tjänst/produkt (Application Insights).
 
 > [!IMPORTANT]
-> Vi rekommenderar inte att du anger både anslutnings sträng och instrument nyckel. I händelse av att en användare anger båda, prioriteras det som angetts senast. 
+> Vi rekommenderar inte att du ställer in både anslutningssträng och instrumenteringsnyckel. I händelse av att en användare anger båda, den som angavs sist kommer att ha företräde. 
 
 
 ## <a name="scenario-overview"></a>Scenarioöversikt 
 
-Kund scenarier där vi visualiserar detta med största påverkan:
+Kundscenarier där vi visualiserar detta med störst inverkan:
 
-- Brand Väggs undantag eller omdirigering av proxy 
+- Brandväggsund undantag eller proxyomdirigeringar 
 
-    I de fall där övervakning av intranäts webb server krävs, uppmanade vi våra tidigare lösningar att lägga till enskilda tjänst slut punkter i konfigurationen. Mer information finns [här](https://docs.microsoft.com/azure/azure-monitor/app/troubleshoot-faq#can-i-monitor-an-intranet-web-server). 
-    Anslutnings strängar ger ett bättre alternativ genom att minska den här ansträngningen till en enda inställning. Ett enkelt prefix innebär att suffixet ändras tillåter automatisk ifyllning och omdirigering av alla slut punkter till rätt tjänster. 
+    I de fall där övervakning för intranätwebbserver krävs, bad vår tidigare lösning kunderna att lägga till enskilda tjänstslutpunkter i din konfiguration. Mer information finns [här](https://docs.microsoft.com/azure/azure-monitor/app/troubleshoot-faq#can-i-monitor-an-intranet-web-server). 
+    Anslutningssträngar erbjuder ett bättre alternativ genom att minska denna ansträngning till en enda inställning. Ett enkelt prefix, suffix ändring tillåter automatisk population och omdirigering av alla slutpunkter till rätt tjänster. 
 
-- Suveräna miljöer eller hybrid moln miljöer
+- Suveräna moln- eller hybridmolnmiljöer
 
     Användare kan skicka data till en definierad [Azure Government Region](https://docs.microsoft.com/azure/azure-government/documentation-government-services-monitoringandmanagement#application-insights).
-    Med anslutnings strängar kan du definiera slut punkts inställningar för dina intranät servrar eller hybrid moln inställningar. 
+    Med anslutningssträngar kan du definiera slutpunktsinställningar för intranätservrar eller hybridmolninställningar. 
 
 ## <a name="getting-started"></a>Komma igång
 
-### <a name="finding-my-connection-string"></a>Hittar du min anslutnings sträng?
+### <a name="finding-my-connection-string"></a>Hittar du min anslutningssträng?
 
-Anslutnings strängen visas på bladet översikt i Application Insights resursen.
+Anslutningssträngen visas på översiktsbladet för din Application Insights-resurs.
 
-![bladet anslutnings sträng på Översikt](media/overview-dashboard/overview-connection-string.png)
+![anslutningssträng på översiktsbladet](media/overview-dashboard/overview-connection-string.png)
 
 ### <a name="schema"></a>Schema
 
-#### <a name="max-length"></a>Max längd
+#### <a name="max-length"></a>Högsta längd
 
 Anslutningen har en maximal längd på 4096 tecken som stöds.
 
 #### <a name="key-value-pairs"></a>Nyckel/värde-par
 
-Anslutnings strängen består av en lista med inställningar som representeras som nyckel/värde-par avgränsade med semikolon: `key1=value1;key2=value2;key3=value3`
+Anslutningssträngen består av en lista med inställningar som representeras som nyckelvärdespar avgränsade med semikolon:`key1=value1;key2=value2;key3=value3`
 
 #### <a name="syntax"></a>Syntax
 
-- `InstrumentationKey` (t. ex. 00000000-0000-0000-0000-000000000000) är anslutnings strängen ett **obligatoriskt** fält.
-- `Authorization` (t. ex.: iKey) (den här inställningen är valfri eftersom vi bara har stöd för iKey-auktorisering i dag.)
-- `EndpointSuffix` (t. ex.: applicationinsights.azure.cn) anger att Endpoint-suffixet ska instruera SDK: n som Azure-molnet ska ansluta till. SDK monterar resten av slut punkten för enskilda tjänster.
-- Explicita slut punkter.
-  Alla tjänster kan åsidosättas explicit i anslutnings strängen.
-   - `IngestionEndpoint` (t. ex.: https://dc.applicationinsights.azure.com)
-   - `LiveEndpoint` (t. ex.: https://live.applicationinsights.azure.com)
-   - `ProfilerEndpoint` (t. ex.: https://profiler.applicationinsights.azure.com)
-   - `SnapshotEndpoint` (t. ex.: https://snapshot.applicationinsights.azure.com)
+- `InstrumentationKey`(ex: 00000000-0000-0000-0000-000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000  Anslutningssträngen är ett **obligatoriskt** fält.
+- `Authorization`(t.ex. ikey) (Den här inställningen är valfri eftersom vi idag bara stöder ikey-auktorisering.)
+- `EndpointSuffix`(t.ex. applicationinsights.azure.cn) Om du ställer in slutpunktssuffixet instrueras SDK som Azure-molnet ska ansluta till. SDK monterar resten av slutpunkten för enskilda tjänster.
+- Explicita slutpunkter.
+  Alla tjänster kan uttryckligen åsidosättas i anslutningssträngen.
+   - `IngestionEndpoint`(t.ex.https://dc.applicationinsights.azure.com)
+   - `LiveEndpoint`(t.ex.https://live.applicationinsights.azure.com)
+   - `ProfilerEndpoint`(t.ex.https://profiler.applicationinsights.azure.com)
+   - `SnapshotEndpoint`(t.ex.https://snapshot.applicationinsights.azure.com)
 
-#### <a name="endpoint-schema"></a>Slut punkts schema
+#### <a name="endpoint-schema"></a>Slutpunktsschema
 
 `<prefix>.<suffix>`
-- Prefix: definierar en tjänst. 
-- Suffix: definierar det gemensamma domän namnet.
+- Prefix: Definierar en tjänst. 
+- Suffix: Definierar det vanliga domännamnet.
 
 ##### <a name="valid-suffixes"></a>Giltiga suffix
 
@@ -82,90 +82,90 @@ Här är en lista över giltiga suffix
 - applicationinsights.us
 
 
-Se även: https://docs.microsoft.com/azure/azure-monitor/app/custom-endpoints#regions-that-require-endpoint-modification
+Se även:https://docs.microsoft.com/azure/azure-monitor/app/custom-endpoints#regions-that-require-endpoint-modification
 
 
 ##### <a name="valid-prefixes"></a>Giltiga prefix
 
-- [Telemetri](./app-insights-overview.md): `dc`
-- [Live-mått](./live-stream.md): `live`
-- [Profiler](./profiler-overview.md): `profiler`
-- [Ögonblicks bild](./snapshot-debugger.md): `snapshot`
+- [Intag av telemetri:](./app-insights-overview.md)`dc`
+- [Live Mått:](./live-stream.md)`live`
+- [Profiler:](./profiler-overview.md)`profiler`
+- [Ögonblicksbild](./snapshot-debugger.md):`snapshot`
 
 
 
-## <a name="connection-string-examples"></a>Exempel på anslutnings strängar
+## <a name="connection-string-examples"></a>Exempel på anslutningssträng
 
 
-### <a name="minimal-valid-connection-string"></a>Minimal giltig anslutnings sträng
+### <a name="minimal-valid-connection-string"></a>Minimal giltig anslutningssträng
 
 `InstrumentationKey=00000000-0000-0000-0000-000000000000;`
 
-I det här exemplet har endast Instrumentation-nyckeln angetts.
+I det här exemplet har endast instrumenteringsnyckeln ställts in.
 
-- Authorization Scheme-standardvärdet till "iKey" 
-- Instrumentation-nyckel: 00000000-0000-0000-0000-000000000000
-- De regionala tjänst-URI: erna baseras på [SDK-standardvärdena](https://github.com/microsoft/ApplicationInsights-dotnet/blob/e50d569cebf485e72e98f4a08a0bc0e30cdf42bc/BASE/src/Microsoft.ApplicationInsights/Extensibility/Implementation/Endpoints/Constants.cs#L6) och kommer att ansluta till den offentliga globala Azure:
-   - Intag: https://dc.services.visualstudio.com/
-   - Live-mått: https://rt.services.visualstudio.com/
-   - Profiler: https://agent.azureserviceprofiler.net/
-   - Fel sökare: https://agent.azureserviceprofiler.net/  
+- Tillståndsschema som standard är "ikey" 
+- Instrumenteringsnyckel: 00000000-0000-0000-0000-000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+- De regionala tjänst-URI:erna baseras på [SDK-standardvärdena](https://github.com/microsoft/ApplicationInsights-dotnet/blob/e50d569cebf485e72e98f4a08a0bc0e30cdf42bc/BASE/src/Microsoft.ApplicationInsights/Extensibility/Implementation/Endpoints/Constants.cs#L6) och ansluter till den offentliga globala Azure:
+   - Intag:https://dc.services.visualstudio.com/
+   - Live-mått:https://rt.services.visualstudio.com/
+   - Profiler:https://agent.azureserviceprofiler.net/
+   - Debugger:https://agent.azureserviceprofiler.net/  
 
 
 
-### <a name="connection-string-with-endpoint-suffix"></a>Anslutnings sträng med Endpoint-suffix
+### <a name="connection-string-with-endpoint-suffix"></a>Anslutningssträng med ändpunktssuffix
 
 `InstrumentationKey=00000000-0000-0000-0000-000000000000;EndpointSuffix=ai.contoso.com;`
 
-I det här exemplet anger den här anslutnings strängen slut punktens suffix och SDK skapar tjänstens slut punkter.
+I det här exemplet anger den här anslutningssträngen slutpunktssuffixet och SDK ska konstruera tjänstslutpunkter.
 
-- Authorization Scheme-standardvärdet till "iKey" 
-- Instrumentation-nyckel: 00000000-0000-0000-0000-000000000000
-- De regionala tjänst-URI: erna baseras på angivet slut punkts suffix: 
-   - Intag: https://dc.ai.contoso.com
-   - Live-mått: https://live.ai.contoso.com
-   - Profiler: https://profiler.ai.contoso.com 
-   - Fel sökare: https://snapshot.ai.contoso.com   
+- Tillståndsschema som standard är "ikey" 
+- Instrumenteringsnyckel: 00000000-0000-0000-0000-000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+- De regionala tjänst-URI:erna baseras på angivna slutpunktssuffix: 
+   - Intag:https://dc.ai.contoso.com
+   - Live-mått:https://live.ai.contoso.com
+   - Profiler:https://profiler.ai.contoso.com 
+   - Debugger:https://snapshot.ai.contoso.com   
 
 
 
-### <a name="connection-string-with-explicit-endpoint-overrides"></a>Anslutnings sträng med explicit slut punkts åsidosättningar 
+### <a name="connection-string-with-explicit-endpoint-overrides"></a>Anslutningssträng med explicita åsidosättningar av slutpunkt 
 
 `InstrumentationKey=00000000-0000-0000-0000-000000000000;IngestionEndpoint=https://custom.com:111/;LiveEndpoint=https://custom.com:222/;ProfilerEndpoint=https://custom.com:333/;SnapshotEndpoint=https://custom.com:444/;`
 
-I det här exemplet anger den här anslutnings strängen explicita åsidosättningar för varje tjänst. SDK använder de exakta slut punkter som tillhandahålls utan ändringar.
+I det här exemplet anger den här anslutningssträngen explicita åsidosättningar för varje tjänst. SDK kommer att använda de exakta slutpunkterna som tillhandahålls utan ändringar.
 
-- Authorization Scheme-standardvärdet till "iKey" 
-- Instrumentation-nyckel: 00000000-0000-0000-0000-000000000000
-- De regionala tjänst-URI: erna baseras på de explicita värdena för åsidosättning: 
-   - Inmatning: https:\//custom.com:111/
+- Tillståndsschema som standard är "ikey" 
+- Instrumenteringsnyckel: 00000000-0000-0000-0000-000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+- Uri:erna för den regionala tjänsten baseras på de explicita åsidosättningsvärdena: 
+   - Intag: https:\//custom.com:111/
    - Live-mått: https:\//custom.com:222/
    - Profiler: https:\//custom.com:333/ 
-   - Fel sökning: https:\//custom.com:444/   
+   - Felsökare: https:\//custom.com:444/   
 
 
-## <a name="how-to-set-a-connection-string"></a>Ange en anslutnings sträng
+## <a name="how-to-set-a-connection-string"></a>Så här ställer du in en anslutningssträng
 
-Anslutnings strängar stöds i följande SDK-versioner:
-- .NET-och .NET Core v-2.12.0
-- Java v-2.5.1
-- Java Script v-2.3.0
-- NodeJS v-1.5.0
-- Python v-1.0.0
+Anslutningssträngar stöds i följande SDK-versioner:
+- .NET och .NET Core v2.12.0
+- Java v2.5.1
+- Javascript v2.3.0
+- NodeJS v1.5.0
+- Python v1.0.0
 
-En anslutnings sträng kan anges antingen i kod, i en miljö variabel eller i en konfigurations fil.
+En anslutningssträng kan anges med antingen kod, miljövariabel eller konfigurationsfil.
 
 
 
 ### <a name="environment-variable"></a>Miljövariabel
 
-- Anslutnings sträng: `APPLICATIONINSIGHTS_CONNECTION_STRING`
+- Anslutningssträng:`APPLICATIONINSIGHTS_CONNECTION_STRING`
 
-### <a name="net-sdk-example"></a>.NET SDK-exempel
+### <a name="net-sdk-example"></a>.Net SDK-exempel
 
-TelemetryConfiguration. ConnectionString: https://github.com/microsoft/ApplicationInsights-dotnet/blob/add45ceed35a817dc7202ec07d3df1672d1f610d/BASE/src/Microsoft.ApplicationInsights/Extensibility/TelemetryConfiguration.cs#L271-L274
+TelemetriKonfiguration.ConnectionString:https://github.com/microsoft/ApplicationInsights-dotnet/blob/add45ceed35a817dc7202ec07d3df1672d1f610d/BASE/src/Microsoft.ApplicationInsights/Extensibility/TelemetryConfiguration.cs#L271-L274
 
-.Net har uttryckligen angetts:
+.Net uttryckligen ange:
 ```csharp
 var configuration = new TelemetryConfiguration
 {
@@ -173,7 +173,7 @@ var configuration = new TelemetryConfiguration
 };
 ```
 
-.Net-konfigurations fil:
+.Net Config-fil:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -183,7 +183,7 @@ var configuration = new TelemetryConfiguration
 ```
 
 
-NetCore config. JSON: 
+NetCore config.json: 
 
 ```json
 {
@@ -194,10 +194,10 @@ NetCore config. JSON:
 ```
 
 
-### <a name="java-sdk-example"></a>Java SDK-exempel
+### <a name="java-sdk-example"></a>Exempel på Java SDK
 
 
-Java explicit angiven:
+Java uttryckligen ange:
 ```java
 TelemetryConfiguration.getActive().setConnectionString("InstrumentationKey=00000000-0000-0000-0000-000000000000");
 ```
@@ -210,11 +210,11 @@ ApplicationInsights.xml
 </ApplicationInsights>
 ```
 
-### <a name="javascript-sdk-example"></a>Java Script SDK-exempel
+### <a name="javascript-sdk-example"></a>Exempel på Javascript SDK
 
-Viktigt: Java Script stöder inte användning av miljövariabler.
+Viktigt: Javascript stöder inte användning av miljövariabler.
 
-Använda kodfragmentet:
+Använda kodavsnittet:
 
 ```javascript
 <script type="text/javascript">
@@ -239,7 +239,7 @@ appInsights.loadAppInsights();
 appInsights.trackPageView();
 ```
 
-### <a name="node-sdk-example"></a>Exempel på Node SDK
+### <a name="node-sdk-example"></a>Exempel på Nod SDK
 
 ```javascript
 const appInsights = require("applicationinsights");
@@ -247,11 +247,11 @@ appInsights.setup("InstrumentationKey=00000000-0000-0000-0000-000000000000;");
 appInsights.start();
 ```
 
-### <a name="python-sdk-example"></a>Exempel på python SDK
+### <a name="python-sdk-example"></a>Python SDK-exempel
 
-Vi rekommenderar att användarna anger miljövariabeln.
+Vi rekommenderar användare att ställa in miljövariabeln.
 
-Ange anslutnings strängen explicit:
+Så här anger du anslutningssträngen explicit:
 
 ```python
 from opencensus.ext.azure.trace_exporter import AzureExporter
@@ -266,7 +266,7 @@ tracer = Tracer(exporter=AzureExporter(connection_string='InstrumentationKey=000
 
 Kom igång under körningsfasen med:
 
-* [Virtuella Azure-datorer och skalnings uppsättningar i IIS-värdbaserade appar](../../azure-monitor/app/azure-vm-vmss-apps.md)
+* [Azure VM och Azure virtuell dator skala uppsättning IIS-värdappar](../../azure-monitor/app/azure-vm-vmss-apps.md)
 * [IIS-server](../../azure-monitor/app/monitor-performance-live-website-now.md)
 * [Azure Web Apps](../../azure-monitor/app/azure-web-apps.md)
 

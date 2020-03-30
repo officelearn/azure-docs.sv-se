@@ -1,6 +1,6 @@
 ---
-title: Skala VMware/fysisk haveri beredskap med Azure Site Recovery
-description: Lär dig hur du konfigurerar haveri beredskap till Azure för ett stort antal lokala virtuella VMware-datorer eller fysiska servrar med Azure Site Recovery.
+title: Skala VMware/fysisk haveriberedskap med Azure Site Recovery
+description: Lär dig hur du konfigurerar haveriberedskap till Azure för ett stort antal lokala virtuella datorer med VMware eller fysiska servrar med Azure Site Recovery.
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
@@ -8,213 +8,213 @@ ms.topic: conceptual
 ms.date: 11/14/2019
 ms.author: raynew
 ms.openlocfilehash: 36cc63721fe003934aabfb3ae2a03a4113937ca4
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79256944"
 ---
-# <a name="set-up-disaster-recovery-at-scale-for-vmware-vmsphysical-servers"></a>Konfigurera katastrof återställning i skala för virtuella VMware-datorer/fysiska servrar
+# <a name="set-up-disaster-recovery-at-scale-for-vmware-vmsphysical-servers"></a>Konfigurera haveriberedskap i stor skala för virtuella datorer/fysiska VMware-servrar
 
-Den här artikeln beskriver hur du konfigurerar haveri beredskap till Azure för stora tal (> 1000) av lokala virtuella VMware-datorer eller fysiska servrar i produktions miljön med hjälp av tjänsten [Azure Site Recovery](site-recovery-overview.md) .
+I den här artikeln beskrivs hur du konfigurerar haveriberedskap till Azure för ett stort antal (> 1000) lokala virtuella datorer för VMware eller fysiska servrar i produktionsmiljön med hjälp av [Azure Site Recovery-tjänsten.](site-recovery-overview.md)
 
 
 ## <a name="define-your-bcdr-strategy"></a>Definiera din BCDR-strategi
 
-Som en del av din strategi för affärs kontinuitet och haveri beredskap (BCDR) definierar du återställnings punkt mål (återställnings punkter) och återställnings tid (återställnings tider) för dina affärsappar och arbets belastningar. RTO mäter varaktighet och service nivå inom vilken en affärsappar eller process måste återställas och vara tillgänglig för att undvika kontinuitets problem.
-- Site Recovery ger kontinuerlig replikering för virtuella VMware-datorer och fysiska servrar och ett [SLA](https://azure.microsoft.com/support/legal/sla/site-recovery/v1_2/) för RTO.
-- När du planerar för storskalig haveri beredskap för virtuella VMware-datorer och tar reda på vilka Azure-resurser du behöver kan du ange ett RTO-värde som ska användas för kapacitets beräkningar.
+Som en del av din strategi för affärskontinuitet och haveriberedskap (BCDR) definierar du återställningspunktmål (RPOs) och återställningstidsmål (RTOs) för dina affärsappar och arbetsbelastningar. RTO mäter den tids- och servicenivå inom vilken en affärsapp eller process måste återställas och vara tillgänglig för att undvika kontinuitetsproblem.
+- Site Recovery ger kontinuerlig replikering för virtuella datorer och fysiska servrar och ett [serviceavtal](https://azure.microsoft.com/support/legal/sla/site-recovery/v1_2/) för RTO.
+- När du planerar för storskalig haveriberedskap för virtuella datorer med VMware och ta reda på vilka Azure-resurser du behöver, kan du ange ett RTO-värde som ska användas för kapacitetsberäkningar.
 
 
 ## <a name="best-practices"></a>Bästa praxis
 
-Några allmänna metod tips för storskalig katastrof återställning. Dessa metod tips beskrivs i detalj i nästa avsnitt i dokumentet.
+Några allmänna metodtips för storskalig katastrofåterställning. Dessa metodtips beskrivs mer i detalj i nästa avsnitt i dokumentet.
 
-- **Identifiera mål krav**: beräkna ut kapacitet och resurs behov i Azure innan du konfigurerar haveri beredskap.
-- **Planera för Site Recovery-komponenter**: ta reda på vad Site Recovery komponenter (konfigurations Server, process servrar) som du behöver för att uppfylla den uppskattade kapaciteten.
-- **Konfigurera en eller flera skalbara process servrar**: Använd inte processervern som körs som standard på konfigurations servern. 
-- **Kör de senaste uppdateringarna**: Site Recovery team frigör nya versioner av Site Recovery-komponenter regelbundet och du bör kontrol lera att du kör de senaste versionerna. Om du vill ha hjälp med det spårar du [vad som är nytt](site-recovery-whats-new.md) för uppdateringar och [aktiverar och installerar uppdateringar](service-updates-how-to.md) när de släpps.
-- **Övervaka proaktivt**: när du får haveri beredskap igång bör du proaktivt övervaka status och hälsa för replikerade datorer och infrastruktur resurser.
-- **Granskning av haveri beredskap**: du bör köra granskningar på haveri nivå regelbundet. De påverkar inte produktions miljön, men se till att redundansen till Azure fungerar som förväntat när det behövs.
+- **Identifiera målkrav:** Uppskatta kapacitets- och resursbehov i Azure innan du ställer in haveriberedskap.
+- **Planera för site recovery-komponenter:** Ta reda på vilka site recovery-komponenter (konfigurationsserver, processservrar) du behöver för att uppfylla din uppskattade kapacitet.
+- **Konfigurera en eller flera skalningsprocessservrar**: Använd inte processservern som körs som standard på konfigurationsservern. 
+- **Kör de senaste uppdateringarna:** Site Recovery-teamet släpper regelbundet nya versioner av Site Recovery-komponenter och du bör se till att du kör de senaste versionerna. Du kan hjälpa till med det genom att spåra [det som är nytt](site-recovery-whats-new.md) för uppdateringar och aktivera och installera [uppdateringar](service-updates-how-to.md) när de släpps.
+- **Övervaka proaktivt**: När du får igång haveriberedskap bör du proaktivt övervaka status och hälsa för replikerade datorer och infrastrukturresurser.
+- **Katastrofåterställningsövningar:** Du bör köra katastrofåterställningsövningar regelbundet. Dessa påverkar inte din produktionsmiljö, men hjälper till att säkerställa att redundans till Azure fungerar som förväntat när det behövs.
 
 
 
-## <a name="gather-capacity-planning-information"></a>Samla in information om kapacitets planering
+## <a name="gather-capacity-planning-information"></a>Samla in information om kapacitetsplanering
 
-Samla in information om din lokala miljö för att hjälpa till att utvärdera och uppskatta dina mål (Azure) kapacitets behov.
-- För VMware kör du distributions planeraren för virtuella VMware-datorer för att göra detta.
+Samla in information om din lokala miljö för att bedöma och uppskatta dina mål (Azure) kapacitetsbehov.
+- För VMware kör du distributionsplaneraren för virtuella datorer med VMware för att göra detta.
 - Samla in informationen manuellt för fysiska servrar.
 
-### <a name="run-the-deployment-planner-for-vmware-vms"></a>Kör distributions planeraren för virtuella VMware-datorer
+### <a name="run-the-deployment-planner-for-vmware-vms"></a>Köra distributionsplaneraren för virtuella datorer med VMware
 
-Med distributions planeraren kan du samla in information om din lokala VMware-miljö.
+Distributionsplaneraren hjälper dig att samla in information om din lokala VMware-miljö.
 
-- Kör distributions planeraren under en period som representerar en typisk omsättning för dina virtuella datorer. Då skapas mer exakta uppskattningar och rekommendationer.
-- Vi rekommenderar att du kör distributions planeraren på Configuration Server-datorn eftersom Planner beräknar data flödet från den server där den körs. [Lär dig mer](site-recovery-vmware-deployment-planner-run.md#get-throughput) om Mät data flöde.
-- Om du inte har konfigurerat någon konfigurations server än:
-    - [Få en översikt](vmware-physical-azure-config-process-server-overview.md) över Site Recovery-komponenter.
-    - [Konfigurera en konfigurations Server](vmware-azure-deploy-configuration-server.md)för att köra distributions planeraren på den.
+- Kör distributionsplaneraren under en period som representerar typisk omsättning för dina virtuella datorer. Detta kommer att generera mer exakta uppskattningar och rekommendationer.
+- Vi rekommenderar att du kör distributionsplaneraren på konfigurationsserverdatorn, eftersom Planeraren beräknar dataflödet från den server där den körs. [Läs mer](site-recovery-vmware-deployment-planner-run.md#get-throughput) om mätning av dataflöde.
+- Om du ännu inte har konfigurerat en konfigurationsserver:
+    - [Få en översikt över](vmware-physical-azure-config-process-server-overview.md) komponenter för webbplatsåterställning.
+    - [Konfigurera en konfigurationsserver](vmware-azure-deploy-configuration-server.md)för att köra distributionsplaneraren på den.
 
-Kör sedan planeraren på följande sätt:
+Kör sedan Planner enligt följande:
 
-1. [Lär dig mer om](site-recovery-deployment-planner.md) distributions planeraren. Du kan ladda ned den senaste versionen från portalen eller [Ladda ned den direkt](https://aka.ms/asr-deployment-planner).
-2. Granska [kraven](site-recovery-deployment-planner.md#prerequisites) och de [senaste uppdateringarna](site-recovery-deployment-planner-history.md) för distributions planeraren och [Ladda ned och extrahera](site-recovery-deployment-planner.md#download-and-extract-the-deployment-planner-tool) verktyget.
-3. [Kör distributions planeraren](site-recovery-vmware-deployment-planner-run.md) på konfigurations servern.
+1. [Läs mer om](site-recovery-deployment-planner.md) distributionsplaneraren. Du kan ladda ner den senaste versionen från portalen, eller [ladda ner den direkt](https://aka.ms/asr-deployment-planner).
+2. Granska [förutsättningarna](site-recovery-deployment-planner.md#prerequisites) och [de senaste uppdateringarna](site-recovery-deployment-planner-history.md) för distributionsplaneraren och [hämta och extrahera](site-recovery-deployment-planner.md#download-and-extract-the-deployment-planner-tool) verktyget.
+3. [Kör distributionsplaneraren](site-recovery-vmware-deployment-planner-run.md) på konfigurationsservern.
 4. [Generera en rapport](site-recovery-vmware-deployment-planner-run.md#generate-report) för att sammanfatta uppskattningar och rekommendationer.
-5. Analysera [rapport rekommendationer](site-recovery-vmware-deployment-planner-analyze-report.md) och [kostnads uppskattningar](site-recovery-vmware-deployment-planner-cost-estimation.md).
+5. Analysera [rapportrekommendationerna](site-recovery-vmware-deployment-planner-analyze-report.md) och [kostnadsuppskattningarna](site-recovery-vmware-deployment-planner-cost-estimation.md).
 
 >[!NOTE]
-> Som standard är verktyget konfigurerat för att profilera och generera rapporter för upp till 1000 virtuella datorer. Du kan ändra den här gränsen genom att öka nyckel värdet nyckelvärdet i filen ASRDeploymentPlanner. exe. config.
+> Som standard är verktyget konfigurerat för att profilera och genererar rapport för upp till 1 000 virtuella datorer. Du kan ändra den här gränsen genom att öka nyckelvärdet MaxVMsSupported i filen ASRDeploymentPlanner.exe.config.
 
-## <a name="plan-target-azure-requirements-and-capacity"></a>Planera mål (Azure) krav och kapacitet
+## <a name="plan-target-azure-requirements-and-capacity"></a>Planera målkrav (Azure) krav och kapacitet
 
-Med hjälp av dina insamlade uppskattningar och rekommendationer kan du planera för mål resurser och kapacitet. Om du körde distributions planeraren för virtuella VMware-datorer kan du använda ett antal [rapport rekommendationer](site-recovery-vmware-deployment-planner-analyze-report.md#recommendations) för att hjälpa dig.
+Med hjälp av dina samlade uppskattningar och rekommendationer kan du planera för målresurser och kapacitet. Om du körde distributionsplaneraren för virtuella datorer med VMware kan du använda ett antal [rapportrekommendationer](site-recovery-vmware-deployment-planner-analyze-report.md#recommendations) som hjälper dig.
 
-- **Kompatibla virtuella datorer**: Använd det här numret för att identifiera antalet virtuella datorer som är klara för haveri beredskap till Azure. Rekommendationer om nätverks bandbredd och Azure-kärnor baseras på det här antalet.
-- **Nödvändig nätverks bandbredd**: anteckna vilken bandbredd du behöver för delta-replikering av kompatibla virtuella datorer. 
-    - När du kör planeraren anger du önskad återställnings punkt på några minuter. Rekommendationerna visar vilken bandbredd som krävs för att uppfylla återställnings perioden 100% och 90% av tiden. 
-    - Rekommendationerna för nätverks bandbredden tar hänsyn till den bandbredd som krävs för det totala antalet konfigurations servrar och process servrar som rekommenderas i Planner.
-- **Nödvändiga Azure-kärnor**: Observera antalet kärnor du behöver i Azures Azure-region, baserat på antalet kompatibla virtuella datorer. Om du inte har tillräckligt många kärnor går det inte att skapa de virtuella Azure-datorer som krävs för redundans Site Recovery.
-- **Rekommenderad storlek på virtuell dator**: den rekommenderade batchstorleken är baserad på möjligheten att slutföra den inledande replikeringen för batchen inom 72 timmar som standard, samtidigt som den uppfyller 100%. Värdet för timme kan ändras.
+- **Kompatibla virtuella datorer:** Använd det här numret för att identifiera antalet virtuella datorer som är redo för haveriberedskap till Azure. Rekommendationer om nätverksbandbredd och Azure-kärnor baseras på det här numret.
+- **Obligatorisk nätverksbandbredd:** Observera den bandbredd du behöver för deltareplikering av kompatibla virtuella datorer. 
+    - När du kör Planner anger du önskad RPO på några minuter. Rekommendationerna visar den bandbredd som behövs för att uppfylla den RPO 100% och 90% av tiden. 
+    - Rekommendationerna för nätverksbandbredd tar hänsyn till den bandbredd som behövs för det totala antalet konfigurationsservrar och processservrar som rekommenderas i planeraren.
+- **Nödvändiga Azure-kärnor:** Observera antalet kärnor du behöver i Azure-regionen för mål, baserat på antalet kompatibla virtuella datorer. Om du inte har tillräckligt med kärnor kan site recovery inte skapa de nödvändiga virtuella Azure-datorerna på redundansplats.
+- **Rekommenderad VM-batchstorlek:** Den rekommenderade batchstorleken baseras på möjligheten att slutföra den första replikeringen för batchen inom 72 timmar som standard, samtidigt som en RPO på 100 %. Timvärdet kan ändras.
 
-Du kan använda dessa rekommendationer för att planera för Azure-resurser, nätverks bandbredd och VM-batching.
+Du kan använda dessa rekommendationer för att planera för Azure-resurser, nätverksbandbredd och VM-batchbearbetning.
 
-## <a name="plan-azure-subscriptions-and-quotas"></a>Planera Azure-prenumerationer och-kvoter
+## <a name="plan-azure-subscriptions-and-quotas"></a>Planera Azure-prenumerationer och kvoter
 
-Vi vill se till att tillgängliga kvoter i mål prenumerationen räcker för att hantera redundans.
+Vi vill se till att tillgängliga kvoter i målprenumerationen är tillräckliga för att hantera redundans.
 
 **Aktivitet** | **Detaljer** | **Åtgärd**
 --- | --- | ---
-**Kontrol lera kärnor** | Om kärnor i den tillgängliga kvoten inte är lika med eller överskrider det totala antalet mål vid tidpunkten för redundansväxlingen, kommer redundans att Miss Don. | För virtuella VMware-datorer kontrollerar du att det finns tillräckligt många kärnor i mål prenumerationen för att uppfylla distributions Planerarens kärn rekommendation.<br/><br/> För fysiska servrar kontrollerar du att Azure-kärnor uppfyller dina manuella uppskattningar.<br/><br/> Om du vill kontrol lera kvoterna klickar du på **användning + kvoter**i Azure Portal >- **prenumerationen**.<br/><br/> [Läs mer](https://docs.microsoft.com/azure/azure-portal/supportability/resource-manager-core-quotas-request) om att öka kvoterna.
-**Kontrol lera begränsningar för redundans** | Antalet redundanser får inte överskrider gränsen för Site Recovery redundans. |  Om redundans överskrider gränserna kan du lägga till prenumerationer och redundansväxla till flera prenumerationer eller öka kvoten för en prenumeration. 
+**Kontrollera kärnor** | Om kärnorna i den tillgängliga kvoten inte är lika med eller överstiger det totala antalet mål vid tidpunkten för redundansen misslyckas redundans. | För virtuella datorer med VMware kontrollerar du att du har tillräckligt med kärnor i målprenumerationen för att uppfylla huvudrekommendationen för Distributionsplaneraren.<br/><br/> För fysiska servrar kontrollerar du att Azure-kärnor uppfyller dina manuella uppskattningar.<br/><br/> Om du vill kontrollera kvoter klickar du på **Användning + kvoter**i Azure-portalen > **prenumeration**.<br/><br/> [Läs mer](https://docs.microsoft.com/azure/azure-portal/supportability/resource-manager-core-quotas-request) om att öka kvoterna.
+**Kontrollera redundansgränser** | Antalet redundans får inte överskrida redundansgränser för platsåterställning. |  Om redundans överskrider gränserna kan du lägga till prenumerationer och växla över till flera prenumerationer eller öka kvoten för en prenumeration. 
 
 
-### <a name="failover-limits"></a>Begränsningar för redundans
+### <a name="failover-limits"></a>Redundansgränser
 
-Gränserna visar antalet redundanser som stöds av Site Recovery inom en timme, förutsatt att tre diskar per dator.
+Gränserna anger antalet redundans som stöds av Site Recovery inom en timme, förutsatt tre diskar per dator.
 
-Vad innebär detta? För att starta en virtuell Azure-dator kräver Azure att vissa driv rutiner är i Start läge och tjänster som DHCP ska ställas in för att starta automatiskt.
-- Datorer som uppfyller kraven har redan de här inställningarna på plats.
-- För datorer som kör Windows kan du proaktivt kontrol lera efterlevnaden och göra dem kompatibla om det behövs. [Läs mer](site-recovery-failover-to-azure-troubleshoot.md#failover-failed-with-error-id-170010).
-- Linux-datorer inträder endast i överensstämmelse vid redundansväxlingen.
+Vad betyder det att följa? För att starta en virtuell Azure-dator kräver Azure att vissa drivrutiner är i starttillstånd och tjänster som DHCP som ska ställas in för att starta automatiskt.
+- Maskiner som uppfyller kommer redan att ha dessa inställningar på plats.
+- För datorer som kör Windows kan du proaktivt kontrollera efterlevnaden och göra dem kompatibla om det behövs. [Läs mer](site-recovery-failover-to-azure-troubleshoot.md#failover-failed-with-error-id-170010).
+- Linux-maskiner ställs endast in i överensstämmelse vid tidpunkten för redundans.
 
-**Är datorn kompatibel med Azure?** | **Azure VM-gränser (hanterad diskdiagnostik)**
+**Datorn följer Azure?** | **Azure VM-gränser (lyckades disk redundans)**
 --- | --- 
 Ja | 2000
-Nej | 1000
+Inga | 1000
 
-- Begränsningar förutsätter att minimala andra jobb pågår i mål regionen för prenumerationen.
+- Gränser förutsätter att minimala andra jobb pågår i målregionen för prenumerationen.
 - Vissa Azure-regioner är mindre och kan ha något lägre gränser.
 
 ## <a name="plan-infrastructure-and-vm-connectivity"></a>Planera infrastruktur och VM-anslutning
 
-Efter redundansväxlingen till Azure behöver du dina arbets belastningar för att fungera som de var lokalt, och för att ge användare åtkomst till arbets belastningar som körs på virtuella Azure-datorer.
+Efter redundans till Azure behöver du dina arbetsbelastningar för att fungera som de gjorde lokalt och för att göra det möjligt för användare att komma åt arbetsbelastningar som körs på virtuella Azure-datorer.
 
-- [Lär dig mer](site-recovery-active-directory.md#test-failover-considerations) om att redundansväxla Active Directory eller lokal DNS-infrastruktur till Azure.
-- [Lär dig mer](site-recovery-test-failover-to-azure.md#prepare-to-connect-to-azure-vms-after-failover) om att förbereda för att ansluta till virtuella Azure-datorer efter en redundansväxling.
+- [Läs mer](site-recovery-active-directory.md#test-failover-considerations) om att misslyckas med din Active Directory eller DNS lokalt infrastruktur till Azure.
+- [Läs mer](site-recovery-test-failover-to-azure.md#prepare-to-connect-to-azure-vms-after-failover) om hur du förbereder anslutningen till virtuella Azure-datorer efter redundans.
 
 
 
-## <a name="plan-for-source-capacity-and-requirements"></a>Planera för käll kapacitet och krav
+## <a name="plan-for-source-capacity-and-requirements"></a>Planera för källkapacitet och krav
 
-Det är viktigt att du har tillräckligt med konfigurations servrar och skalbara process servrar för att uppfylla kapacitets kraven. När du påbörjar en storskalig distribution börjar du med en enda konfigurations Server och en skalbar processerver. Lägg till ytterligare servrar när du når de angivna gränserna.
+Det är viktigt att du har tillräckligt med konfigurationsservrar och utskalningsprocessservrar för att uppfylla kapacitetskraven. När du börjar din storskaliga distribution, börja med en enda konfigurationsserver och en enda skalningsprocessserver. När du når de föreskrivna gränserna lägger du till ytterligare servrar.
 
 >[!NOTE]
-> För virtuella VMware-datorer gör distributions planeraren några rekommendationer om de konfigurations-och process servrar som du behöver. Vi rekommenderar att du använder tabellerna som ingår i följande procedurer, i stället för att följa rekommendationerna för distributions hanteraren. 
+> För virtuella datorer med VMware ger distributionsplaneraren några rekommendationer om de konfigurations- och processservrar du behöver. Vi rekommenderar att du använder tabellerna som ingår i följande procedurer i stället för att följa rekommendationen Deployment Planner. 
 
 
-## <a name="set-up-a-configuration-server"></a>Konfigurera en konfigurations Server
+## <a name="set-up-a-configuration-server"></a>Konfigurera en konfigurationsserver
  
-Konfigurations serverns kapacitet påverkas av antalet datorer som replikeras, och inte av data omsättnings takten. Använd de här definierade gränserna för virtuella datorer för att ta reda på om du behöver ytterligare konfigurations servrar.
+Konfigurationsserverkapacitet påverkas av antalet datorer som replikeras och inte av dataomsättningshastigheten. Om du vill ta reda på om du behöver ytterligare konfigurationsservrar använder du dessa definierade vm-gränser.
 
-**REGISTRERA** | **Minnesoptimerade** | **Cachelagra disk** | **Gräns för replikerad dator**
+**Cpu** | **Minne** | **Cachedisk** | **Gränsen för replikerad dator**
  --- | --- | --- | ---
-8 virtuella processorer<br> 2 Sockets * 4 kärnor @ 2,5 GHz | 16 GB | 600 GB | Upp till 550 datorer<br> Förutsätter att varje dator har tre diskar på 100 GB vardera.
+8 virtuella processorer<br> 2 uttag * 4 kärnor @ 2,5 Ghz | 16 GB | 600 GB | Upp till 550 maskiner<br> Förutsätter att varje dator har tre diskar på 100 GB vardera.
 
-- Dessa gränser baseras på en konfigurations server som kon figurer ATS med hjälp av en OVF-mall.
-- Begränsningarna förutsätter att du inte använder processervern som körs som standard på konfigurations servern.
+- Dessa gränser baseras på en konfigurationsserver som konfigurerats med hjälp av en OVF-mall.
+- Gränserna förutsätter att du inte använder den processserver som körs som standard på konfigurationsservern.
 
-Om du behöver lägga till en ny konfigurations Server följer du dessa anvisningar:
+Om du behöver lägga till en ny konfigurationsserver följer du dessa instruktioner:
 
-- [Konfigurera en konfigurations Server](vmware-azure-deploy-configuration-server.md) för haveri beredskap för virtuella VMware-datorer med hjälp av en OVF-mall.
-- [Konfigurera en konfigurations Server](physical-azure-set-up-source.md) manuellt för fysiska servrar, eller för VMware-distributioner som inte kan använda en OVF-mall.
+- [Konfigurera en konfigurationsserver](vmware-azure-deploy-configuration-server.md) för VMware VM-haveriberedskap med hjälp av en OVF-mall.
+- [Konfigurera en konfigurationsserver](physical-azure-set-up-source.md) manuellt för fysiska servrar eller för VMware-distributioner som inte kan använda en OVF-mall.
 
-Tänk på följande när du konfigurerar en konfigurations Server:
+När du konfigurerar en konfigurationsserver bör du tänka på följande:
 
-- När du konfigurerar en konfigurations Server är det viktigt att tänka på den prenumeration och det valv där det finns, eftersom dessa inte bör ändras efter installationen. Om du behöver ändra valvet måste du ta bort kopplingen mellan konfigurations servern och valvet och registrera det igen. Detta stoppar replikeringen av virtuella datorer i valvet.
-- Om du vill konfigurera en konfigurations server med flera nätverkskort bör du göra det under Konfigurera. Du kan inte göra det efter att du registrerat konfigurations servern i valvet.
+- När du konfigurerar en konfigurationsserver är det viktigt att tänka på prenumerationen och valvet där den finns, eftersom dessa inte bör ändras efter installationen. Om du behöver ändra valvet måste du ta bort kopplingen mellan konfigurationsservern från valvet och registrera om det. Detta stoppar replikering av virtuella datorer i valvet.
+- Om du vill konfigurera en konfigurationsserver med flera nätverkskort bör du göra detta under konfigurationen. Du kan inte göra detta efter registreringen av konfigurationsservern i valvet.
 
-## <a name="set-up-a-process-server"></a>Konfigurera en processerver
+## <a name="set-up-a-process-server"></a>Konfigurera en processserver
 
-Process serverns kapacitet påverkas av data omsättnings taxan och inte av antalet datorer som är aktiverade för replikering.
+Processserverkapacitet påverkas av dataomsättningshastigheter och inte av antalet datorer som är aktiverade för replikering.
 
-- För stora distributioner bör du alltid ha minst en skalbar processerver.
-- Använd följande tabell för att avgöra om du behöver ytterligare servrar.
-- Vi rekommenderar att du lägger till en server med den högsta specifikationen. 
+- För stora distributioner bör du alltid ha minst en skalningsprocessserver.
+- Om du vill ta reda på om du behöver ytterligare servrar använder du följande tabell.
+- Vi rekommenderar att du lägger till en server med högsta specifikation. 
 
 
-**REGISTRERA** | **Minnesoptimerade** | **Cachelagra disk** | **Omsättnings pris**
+**Cpu** | **Minne** | **Cachedisk** | **Omsättningshastighet**
  --- | --- | --- | --- 
-12 virtuella processorer<br> 2 Sockets * 6 kärnor @ 2,5 GHz | 24 GB | 1 GB | Upp till 2 TB per dag
+12 virtuella processorer<br> 2 uttag *6 kärnor @ 2,5 Ghz | 24 GB | 1 GB | Upp till 2 TB per dag
 
-Konfigurera processervern enligt följande:
+Konfigurera processservern på följande sätt:
 
-1. Granska [kraven](vmware-azure-set-up-process-server-scale.md#prerequisites).
-2. Installera-servern i [portalen](vmware-azure-set-up-process-server-scale.md#install-from-the-ui)eller från [kommando raden](vmware-azure-set-up-process-server-scale.md#install-from-the-command-line).
-3. Konfigurera replikerade datorer så att de använder den nya servern. Om du redan har datorer som replikeras:
-    - Du kan [Flytta](vmware-azure-manage-process-server.md#switch-an-entire-workload-to-another-process-server) en hel arbets belastning för process server till den nya processervern.
-    - Alternativt kan du [Flytta](vmware-azure-manage-process-server.md#move-vms-to-balance-the-process-server-load) vissa virtuella datorer till den nya processervern.
+1. Granska [förutsättningarna](vmware-azure-set-up-process-server-scale.md#prerequisites).
+2. Installera servern i [portalen](vmware-azure-set-up-process-server-scale.md#install-from-the-ui)eller från [kommandoraden](vmware-azure-set-up-process-server-scale.md#install-from-the-command-line).
+3. Konfigurera replikerade datorer för att använda den nya servern. Om du redan har datorer som replikerar:
+    - Du kan [flytta](vmware-azure-manage-process-server.md#switch-an-entire-workload-to-another-process-server) en hel processserverarbetsbelastning till den nya processservern.
+    - Du kan också [flytta](vmware-azure-manage-process-server.md#move-vms-to-balance-the-process-server-load) specifika virtuella datorer till den nya processservern.
 
 
 
 ## <a name="enable-large-scale-replication"></a>Aktivera storskalig replikering
 
-När du har planerat kapaciteten och distribuerat nödvändiga komponenter och infrastruktur aktiverar du replikering för ett stort antal virtuella datorer.
+När du har planerat kapacitet och distribuerat de nödvändiga komponenterna och infrastrukturen aktiverar du replikering för ett stort antal virtuella datorer.
 
-1. Sortera datorer i batchar. Du aktiverar replikering för virtuella datorer i en batch och går sedan vidare till nästa batch.
+1. Sortera maskiner i buntar. Du aktiverar replikering för virtuella datorer i en batch och går sedan vidare till nästa batch.
 
-    - För virtuella VMware-datorer kan du använda den [rekommenderade VM-batchstorleken](site-recovery-vmware-deployment-planner-analyze-report.md#recommended-vm-batch-size-for-initial-replication) i rapporten distributions planering.
-    - För fysiska datorer rekommenderar vi att du identifierar batchar baserat på datorer som har liknande storlek och mängd data, och på tillgängligt nätverks data flöde. Syftet är att batch-datorer ska kunna slutföra sin inledande replikering inom ungefär samma tid.
+    - För virtuella datorer med VMware kan du använda den [rekommenderade vm-batchstorleken](site-recovery-vmware-deployment-planner-analyze-report.md#recommended-vm-batch-size-for-initial-replication) i rapporten Deployment Planner.
+    - För fysiska datorer rekommenderar vi att du identifierar batchar baserat på datorer som har en liknande storlek och mängd data och på tillgängligt nätverksdataflöde. Målet är att batch-datorer som sannolikt kommer att slutföra sin första replikering på ungefär samma tid.
     
-2. Om disk omsättningen för en dator är hög eller överskrider gränserna i distributionen thePlanner kan du flytta icke-kritiska filer som du inte behöver replikera (till exempel logg dum par eller temporära filer) på datorn. För virtuella VMware-datorer kan du flytta filerna till en separat disk och sedan [utesluta disken](vmware-azure-exclude-disk.md) från replikeringen.
-3. Innan du aktiverar replikering bör du kontrol lera att datorerna uppfyller [kraven för replikering](vmware-physical-azure-support-matrix.md#replicated-machines).
-4. Konfigurera en replikeringsprincip för [virtuella VMware-datorer](vmware-azure-set-up-replication.md#create-a-policy) eller [fysiska servrar](physical-azure-disaster-recovery.md#create-a-replication-policy).
-5. Aktivera replikering för [virtuella VMware-datorer](vmware-azure-enable-replication.md) eller [fysiska servrar](physical-azure-disaster-recovery.md#enable-replication). Detta avslutar den inledande replikeringen för de valda datorerna.
+2. Om diskomsättningen för en dator är hög eller överskrider gränserna i Deployment thePlanner kan du flytta icke-kritiska filer som du inte behöver replikera (till exempel loggdumpar eller temporära filer) från datorn. För virtuella datorer med VMware kan du flytta dessa filer till en separat disk och sedan [utesluta disken](vmware-azure-exclude-disk.md) från replikering.
+3. Innan du aktiverar replikering kontrollerar du att datorer uppfyller [replikeringskraven](vmware-physical-azure-support-matrix.md#replicated-machines).
+4. Konfigurera en replikeringsprincip för [virtuella datorer eller](vmware-azure-set-up-replication.md#create-a-policy) fysiska [servrar](physical-azure-disaster-recovery.md#create-a-replication-policy).
+5. Aktivera replikering för [virtuella datorer eller](vmware-azure-enable-replication.md) fysiska [servrar](physical-azure-disaster-recovery.md#enable-replication). Detta startar den första replikeringen för de valda datorerna.
 
 ## <a name="monitor-your-deployment"></a>Övervaka distributionen
 
-När du har startat replikeringen för den första batchen med virtuella datorer börjar du övervaka distributionen på följande sätt:  
+När du har sparkat igång replikeringen för den första omgången virtuella datorer börjar du övervaka distributionen enligt följande:  
 
-1. Tilldela en katastrof återställnings administratör för att övervaka hälso status för replikerade datorer.
+1. Tilldela en haveriberedskapsadministratör för att övervaka hälsotillståndet för replikerade datorer.
 2. [Övervaka händelser](site-recovery-monitor-and-troubleshoot.md) för replikerade objekt och infrastrukturen.
-3. [Övervaka hälsan](vmware-physical-azure-monitor-process-server.md) för dina skalbara process servrar.
-4. Registrera dig för att få [e-postaviseringar](https://docs.microsoft.com/azure/site-recovery/site-recovery-monitor-and-troubleshoot#subscribe-to-email-notifications) för händelser, för enklare övervakning.
-5. Genomför regelbunden [haveri beredskap](site-recovery-test-failover-to-azure.md)för att se till att allt fungerar som förväntat.
+3. [Övervaka hälsan hos](vmware-physical-azure-monitor-process-server.md) dina utskalningsprocessservrar.
+4. Registrera dig för att få [e-postmeddelanden](https://docs.microsoft.com/azure/site-recovery/site-recovery-monitor-and-troubleshoot#subscribe-to-email-notifications) för evenemang, för enklare övervakning.
+5. Utför regelbundna [haveriberedskapsövningar](site-recovery-test-failover-to-azure.md)för att säkerställa att allt fungerar som förväntat.
 
 
-## <a name="plan-for-large-scale-failovers"></a>Planera för storskalig redundans
+## <a name="plan-for-large-scale-failovers"></a>Planera för storskaliga redundans
 
-I händelse av en katastrof kan du behöva redundansväxla ett stort antal datorer/arbets belastningar till Azure. Förbered dig för den här typen av händelse på följande sätt.
+I händelse av katastrof kan du behöva växla över ett stort antal datorer/arbetsbelastningar till Azure. Förbered dig för den här typen av händelser enligt följande.
 
-Du kan förbereda i förväg för redundans på följande sätt:
+Du kan förbereda dig i förväg för redundans enligt följande:
 
-- [Förbered din infrastruktur och virtuella datorer](#plan-infrastructure-and-vm-connectivity) så att dina arbets belastningar blir tillgängliga efter redundansväxlingen och så att användarna kan komma åt de virtuella Azure-datorerna.
-- Observera [växlings begränsningarna](#failover-limits) tidigare i det här dokumentet. Kontrol lera att redundansen kommer att falla inom dessa gränser.
-- Kör regelbunden [haveri beredskap](site-recovery-test-failover-to-azure.md). Mer information om att:
+- [Förbered din infrastruktur och virtuella datorer](#plan-infrastructure-and-vm-connectivity) så att dina arbetsbelastningar blir tillgängliga efter redundans och så att användarna kan komma åt virtuella Azure-datorer.
+- Observera [redundansgränserna](#failover-limits) tidigare i det här dokumentet. Se till att dina redundans kommer att falla inom dessa gränser.
+- Kör regelbundna [haveriberedskapsövningar](site-recovery-test-failover-to-azure.md). Borrar hjälper till att:
     - Hitta luckor i distributionen före redundans.
-    - Beräkna RTO från slut punkt till slut punkt för dina appar.
-    - Beräkna slutpunkt till slut punkt för dina arbets belastningar.
+    - Uppskatta heltäckande RTO för dina appar.
+    - Uppskatta end-to-end RPO för dina arbetsbelastningar.
     - Identifiera konflikter i IP-adressintervall.
-    - När du kör övningar rekommenderar vi att du inte använder produktions nätverk för att se om det går att använda samma undernäts namn i produktions-och test nätverk och rensa redundanstest efter varje detalj nivå.
+    - När du kör övningar rekommenderar vi att du inte använder produktionsnätverk för borrmaskiner, undviker att använda samma undernätsnamn i produktions- och testnätverk och rensar testundans efter varje övning.
 
-Vi rekommenderar följande för att köra en storskalig redundans:
+Om du vill köra en storskalig redundans rekommenderar vi följande:
 
-1. Skapa återställnings planer för redundans av arbets belastning.
-    - Varje återställnings plan kan utlösa redundans på upp till 50 datorer.
-    - [Läs mer](recovery-plan-overview.md) om återställnings planer.
-2. Lägg till Azure Automation Runbook-skript i återställnings planer för att automatisera eventuella manuella uppgifter i Azure. Vanliga uppgifter är konfiguration av belastningsutjämnare, uppdatering av DNS osv. [Läs mer](site-recovery-runbook-automation.md)
-2. Förbered Windows-datorer så att de följer Azure-miljön före redundansväxlingen. [Växlings gränserna](#plan-azure-subscriptions-and-quotas) är högre för datorer som uppfyller kraven. [Läs mer](site-recovery-failover-to-azure-troubleshoot.md#failover-failed-with-error-id-170010) om Runbooks.
-4.  Utlös redundans med PowerShell [-cmdleten Start-AzRecoveryServicesAsrPlannedFailoverJob](https://docs.microsoft.com/powershell/module/az.recoveryservices/start-azrecoveryservicesasrplannedfailoverjob?view=azps-2.0.0&viewFallbackFrom=azps-1.1.0) tillsammans med en återställnings plan.
+1. Skapa återställningsplaner för arbetsbelastningsöverslag.
+    - Varje återställningsplan kan utlösa redundans på upp till 50 datorer.
+    - [Läs mer](recovery-plan-overview.md) om återställningsplaner.
+2. Lägg till Azure Automation-runbook-skript i återställningsplaner för att automatisera eventuella manuella uppgifter på Azure. Typiska uppgifter är att konfigurera belastningsutjämnare, uppdatera DNS etc. [Läs mer](site-recovery-runbook-automation.md)
+2. Förbered Windows-datorer före redundans så att de följer Azure-miljön. [Redundansgränser](#plan-azure-subscriptions-and-quotas) är högre för maskiner som uppfyller kraven. [Läs mer](site-recovery-failover-to-azure-troubleshoot.md#failover-failed-with-error-id-170010) om runbooks.
+4.  Utlösa redundans med [Start-AzRecoveryServicesAsrPlannedFailoverJob](https://docs.microsoft.com/powershell/module/az.recoveryservices/start-azrecoveryservicesasrplannedfailoverjob?view=azps-2.0.0&viewFallbackFrom=azps-1.1.0) PowerShell cmdlet, tillsammans med en återställningsplan.
 
 
 

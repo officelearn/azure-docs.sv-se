@@ -1,6 +1,6 @@
 ---
-title: Övervaka Azure Datautforskaren-inmatnings åtgärder med hjälp av diagnostikloggar
-description: Lär dig hur du konfigurerar diagnostikloggar för Azure Datautforskaren för att övervaka inmatnings åtgärder.
+title: Övervaka inmatningsåtgärder för Azure Data Explorer med hjälp av diagnostikloggar
+description: Lär dig hur du konfigurerar diagnostikloggar för Azure Data Explorer för att övervaka inmatningsåtgärder.
 author: orspod
 ms.author: orspodek
 ms.reviewer: gabil
@@ -8,74 +8,74 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 09/18/2019
 ms.openlocfilehash: 3e10979e26cacdc0c2071a6030c945adad21a51c
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76277430"
 ---
-# <a name="monitor-azure-data-explorer-ingestion-operations-using-diagnostic-logs-preview"></a>Övervaka Azure Datautforskaren-inmatnings åtgärder med diagnostikloggar (för hands version)
+# <a name="monitor-azure-data-explorer-ingestion-operations-using-diagnostic-logs-preview"></a>Övervaka inmatningsåtgärder för Azure Data Explorer med hjälp av diagnostikloggar (förhandsversion)
 
-Azure Data Explorer är en snabb, fullständigt hanterad dataanalystjänst för realtidsanalys av stora mängder data som strömmar från program, webbplatser, IoT-enheter med mera. För att använda Azure Data Explorer skapar du först ett kluster och skapar en eller flera databaser i klustret. Sedan matar du in (läser in) data i en tabell i en databas så att du kan köra frågor mot den. [Azure Monitor diagnostikloggar](/azure/azure-monitor/platform/diagnostic-logs-overview) ger information om hur Azure-resurser fungerar. Azure Datautforskaren använder diagnostikloggar för insikter om inläsningar och fel. Du kan exportera åtgärds loggar till Azure Storage, Event Hub eller Log Analytics för att övervaka inmatnings status. Loggar från Azure Storage och Azure Event Hub kan dirigeras till en tabell i Azure Datautforskaren-klustret för ytterligare analys.
+Azure Data Explorer är en snabb, fullständigt hanterad dataanalystjänst för realtidsanalys av stora mängder data som strömmar från program, webbplatser, IoT-enheter med mera. För att använda Azure Data Explorer skapar du först ett kluster och skapar en eller flera databaser i klustret. Sedan kan du ange (läsa in) data i en tabell i en databas så att du kan köra frågor mot den. [Azure Monitor-diagnostikloggar](/azure/azure-monitor/platform/diagnostic-logs-overview) tillhandahåller data om driften av Azure-resurser. Azure Data Explorer använder diagnostikloggar för insikter om inmatningsframgångar och fel. Du kan exportera åtgärdsloggar till Azure Storage, Event Hub eller Log Analytics för att övervaka inmatningsstatus. Loggar från Azure Storage och Azure Event Hub kan dirigeras till en tabell i Azure Data Explorer-klustret för vidare analys.
 
 ## <a name="prerequisites"></a>Krav
 
-* Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt Azure-konto](https://azure.microsoft.com/free/).
+* Om du inte har en Azure-prenumeration skapar du ett [kostnadsfritt Azure-konto](https://azure.microsoft.com/free/).
 * Skapa ett [kluster och en databas](create-cluster-database-portal.md).
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
-Logga in på [Azure Portal](https://portal.azure.com/).
+Logga in på [Azure-portalen](https://portal.azure.com/).
 
-## <a name="set-up-diagnostic-logs-for-an-azure-data-explorer-cluster"></a>Konfigurera diagnostikloggar för ett Azure Datautforskaren-kluster
+## <a name="set-up-diagnostic-logs-for-an-azure-data-explorer-cluster"></a>Konfigurera diagnostikloggar för ett Azure Data Explorer-kluster
 
-Diagnostikloggar kan användas för att konfigurera samlingen av följande logg data:
-* Lyckade inmatnings åtgärder: dessa loggar innehåller information om slutförda inmatnings åtgärder.
-* Misslyckade inmatnings åtgärder: dessa loggar innehåller detaljerad information om misslyckade inmatnings åtgärder, inklusive fel information. 
+Diagnostikloggar kan användas för att konfigurera insamlingen av följande loggdata:
+* Lyckade inmatningsåtgärder: Dessa loggar har information om slutförda inmatningsåtgärder.
+* Misslyckade inmatningsåtgärder: Dessa loggar har detaljerad information om misslyckade inmatningsåtgärder inklusive felinformation. 
 
-Data arkiveras sedan i ett lagrings konto, strömmas till en Händelsehubben eller skickas till Log Analytics enligt dina specifikationer.
+Data arkiveras sedan i ett lagringskonto, strömmas till en eventhubb eller skickas till Log Analytics enligt dina specifikationer.
 
 ### <a name="enable-diagnostic-logs"></a>Aktivera diagnostikloggar
 
-Diagnostikloggar är inaktiverade som standard. Gör så här för att aktivera diagnostikloggar:
+Diagnostikloggar är inaktiverade som standard. Så här aktiverar du diagnostikloggar:
 
-1. I [Azure Portal](https://portal.azure.com)väljer du den Azure datautforskaren kluster resurs som du vill övervaka.
-1. Under **övervakning**väljer **diagnostikinställningar**.
+1. I [Azure-portalen](https://portal.azure.com)väljer du den Azure Data Explorer-klusterresurs som du vill övervaka.
+1. Under **Övervakning** väljer du **Diagnostikinställningar**.
   
-    ![Lägg till diagnostikloggar](media/using-diagnostic-logs/add-diagnostic-logs.png)
+    ![Lägga till diagnostikloggar](media/using-diagnostic-logs/add-diagnostic-logs.png)
 
-1. Välj **Lägg till diagnostisk inställning**.
-1. I fönstret **diagnostikinställningar** :
+1. Välj **Lägg till diagnostikinställning**.
+1. I fönstret **Diagnostikinställningar:**
  
-    ![Konfiguration av diagnostikinställningar](media/using-diagnostic-logs/configure-diagnostics-settings.png) 
+    ![Konfiguration av inställningar för diagnostik](media/using-diagnostic-logs/configure-diagnostics-settings.png) 
 
-    1. Välj **namn** för den diagnostiska inställningen.
-    1. Välj ett eller flera mål: ett lagrings konto, en Event Hub-eller Log Analytics.
-    1. Välj loggar som ska samlas in: `SucceededIngestion` eller `FailedIngestion`.
-    1. Välj [mått](using-metrics.md#supported-azure-data-explorer-metrics) som ska samlas in (valfritt).  
-    1. Välj **Spara** för att spara de nya inställningarna och måtten för diagnostikloggar.
-    1. Skapa en **ny supportbegäran** i Azure Portal för att begära aktivering av diagnostikloggar.
+    1. Välj **Namn** för diagnostikinställningen.
+    1. Välj ett eller flera mål: ett lagringskonto, händelsehubb eller logganalys.
+    1. Välj loggar som ska `SucceededIngestion` samlas `FailedIngestion`in: eller .
+    1. Välj [mått som](using-metrics.md#supported-azure-data-explorer-metrics) ska samlas in (valfritt).  
+    1. Välj **Spara** om du vill spara de nya diagnostiklogginställningarna och måtten.
+    1. Skapa en **ny supportbegäran** i Azure-portalen för att begära aktivering av diagnostikloggar.
 
-Nya inställningar kommer att ställas in på några minuter. Loggarna visas sedan i det konfigurerade lagrings målet (lagrings konto, Event Hub eller Log Analytics). 
+Nya inställningar ställs in om några minuter. Loggar visas sedan i det konfigurerade arkiveringsmålet (lagringskonto, händelsehubben eller logganalys). 
 
-## <a name="diagnostic-logs-schema"></a>Diagnostikloggar schema
+## <a name="diagnostic-logs-schema"></a>Schema för diagnostikloggar
 
-Alla [Azure Monitor diagnostikloggar delar ett gemensamt schema på högsta nivån](/azure/azure-monitor/platform/diagnostic-logs-schema). Azure Datautforskaren har unika egenskaper för sina egna händelser. Alla loggar lagras i JSON-format.
+Alla [Azure Monitor-diagnostikloggar delar ett gemensamt schema på den högsta nivån](/azure/azure-monitor/platform/diagnostic-logs-schema). Azure Data Explorer har unika egenskaper för sina egna händelser. Alla loggar lagras i ett JSON-format.
 
-### <a name="ingestion-logs-schema"></a>Schema för inmatnings loggar
+### <a name="ingestion-logs-schema"></a>Schema för inmatningsloggar
 
-Log JSON-strängar innehåller element som anges i följande tabell:
+LoggJSON-strängar innehåller element som visas i följande tabell:
 
 |Namn               |Beskrivning
 |---                |---
 |time               |Tid för rapporten
 |resourceId         |Resurs-ID för Azure Resource Manager
-|operationName      |Åtgärdens namn: MICROSOFT. KUSTO/KLUSTER/INTAG/ÅTGÄRD
-|operationVersion   |Schema version: "1,0" 
-|category           |Åtgärdens kategori. `SucceededIngestion` eller `FailedIngestion`. Egenskaperna skiljer sig åt för [åtgärden lyckades](#successful-ingestion-operation-log) eller [misslyckades](#failed-ingestion-operation-log).
-|properties         |Detaljerad information om åtgärden.
+|operationName      |Namnet på åtgärden: 'MICROSOFT. KUSTO/KLUSTER/INTAG/ÅTGÄRD"
+|operationVersion   |Schemaversion: '1.0' 
+|category           |Kategori för operationen. `SucceededIngestion` eller `FailedIngestion`. Egenskaper skiljer sig åt för [lyckad åtgärd](#successful-ingestion-operation-log) eller [misslyckad åtgärd](#failed-ingestion-operation-log).
+|properties         |Detaljerad information om operationen.
 
-#### <a name="successful-ingestion-operation-log"></a>Åtgärds loggen har slutförts
+#### <a name="successful-ingestion-operation-log"></a>Åtgärdslogg för inmatning
 
 **Exempel:**
 
@@ -98,19 +98,19 @@ Log JSON-strängar innehåller element som anges i följande tabell:
     }
 }
 ```
-**Egenskaper för en lyckad Operations Diagnostic-logg**
+**Egenskaper för en lyckad åtgärdsdiagnostisk logg**
 
 |Namn               |Beskrivning
 |---                |---
-|succeededOn        |Tid för slut för ande av inmatning
-|operationId        |ID för inmatnings åtgärd i Azure Datautforskaren
-|databas           |Namnet på mål databasen
-|table              |Namn på mål tabellen
-|ingestionSourceId  |ID för data källan för inmatning
-|ingestionSourcePath|Sökväg till inmatnings data källan eller BLOB-URI
+|lyckadesOn        |Tid för slutförande av intag
+|operationId        |Åtgärds-ID för inmatning av Azure Data Explorer
+|databas           |Namn på måldatabasen
+|tabell              |Namn på måltabellen
+|intagSourceId  |ID för datakällan för inmatning
+|intagKällaPath|Sökväg till datakällan för inmatningsdata eller blob URI
 |rootActivityId     |Aktivitets-ID
 
-#### <a name="failed-ingestion-operation-log"></a>Åtgärds logg för misslyckad inmatning
+#### <a name="failed-ingestion-operation-log"></a>Åtgärdsloggen för inmatning misslyckades
 
 **Exempel:**
 
@@ -139,25 +139,25 @@ Log JSON-strängar innehåller element som anges i följande tabell:
 }
 ```
 
-**Egenskaper för en misslyckad Operations Diagnostic-logg**
+**Egenskaper för en diagnosk för en misslyckad åtgärdsdiagnostik**
 
 |Namn               |Beskrivning
 |---                |---
-|failedOn           |Tid för slut för ande av inmatning
-|operationId        |ID för inmatnings åtgärd i Azure Datautforskaren
-|databas           |Namnet på mål databasen
-|table              |Namn på mål tabellen
-|ingestionSourceId  |ID för data källan för inmatning
-|ingestionSourcePath|Sökväg till inmatnings data källan eller BLOB-URI
+|failedOn           |Tid för slutförande av intag
+|operationId        |Åtgärds-ID för inmatning av Azure Data Explorer
+|databas           |Namn på måldatabasen
+|tabell              |Namn på måltabellen
+|intagSourceId  |ID för datakällan för inmatning
+|intagKällaPath|Sökväg till datakällan för inmatningsdata eller blob URI
 |rootActivityId     |Aktivitets-ID
-|details            |Detaljerad beskrivning av felet och fel meddelandet
+|Detaljer            |Detaljerad beskrivning av fel- och felmeddelandet
 |errorCode          |Felkod 
-|failureStatus      |`Permanent` eller `Transient`. Det kan lyckas att försöka igen med ett tillfälligt fel.
-|originatesFromUpdatePolicy|Sant om det uppstår ett problem med en uppdaterings princip
-|shouldRetry        |Sant om återförsök kan lyckas
+|felStatus      |`Permanent` eller `Transient`. Ett nytt försök av ett tillfälligt fel kan lyckas.
+|kommer frånUpdatePolicy|Sant om fel kommer från en uppdateringsprincip
+|börFörsök        |Sant om ett nytt försök kan lyckas
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Självstudie: mata in och fråga övervaknings data i Azure Datautforskaren](ingest-data-no-code.md)
-* [Använd mått för att övervaka kluster hälsa](using-metrics.md)
+* [Självstudiekurs: Övr och frågar övervakningsdata i Azure Data Explorer](ingest-data-no-code.md)
+* [Använda mått för att övervaka hälsotillstånd hos kluster](using-metrics.md)
 

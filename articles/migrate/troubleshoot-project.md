@@ -1,68 +1,68 @@
 ---
-title: Felsöka Azure Migrate projekt
-description: Hjälper dig att felsöka problem med att skapa och hantera Azure Migrate projekt.
+title: Felsöka Azure Migrate-projekt
+description: Hjälper dig att felsöka problem med att skapa och hantera Azure Migrate-projekt.
 ms.topic: troubleshooting
 author: musa-57
 ms.manager: abhemraj
 ms.author: hamusa
 ms.date: 01/01/2020
 ms.openlocfilehash: 3b8c2f6ec33965317d2aaa23a36b6becff11a54a
-ms.sourcegitcommit: 02160a2c64a5b8cb2fb661a087db5c2b4815ec04
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/07/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75725733"
 ---
-# <a name="troubleshoot-azure-migrate-projects"></a>Felsöka Azure Migrate projekt
+# <a name="troubleshoot-azure-migrate-projects"></a>Felsöka Azure Migrate-projekt
 
-Den här artikeln hjälper dig att felsöka problem när du skapar och hanterar [Azure Migrate](migrate-services-overview.md) projekt.
+Den här artikeln hjälper dig att felsöka problem när du skapar och hanterar [Azure Migrate-projekt.](migrate-services-overview.md)
 
-## <a name="how-to-add-new-project"></a>Hur lägger jag till nya projekt?
+## <a name="how-to-add-new-project"></a>Hur lägger man till nya projekt?
 
-Du kan ha flera Azure Migrate projekt i en prenumeration. [Lär dig hur](how-to-add-tool-first-time.md) du skapar ett projekt för första gången eller [lägger till ytterligare](create-manage-projects.md#create-additional-projects) projekt.
+Du kan ha flera Azure Migrate-projekt i en prenumeration. [Lär dig hur du](how-to-add-tool-first-time.md) skapar ett projekt för första gången eller [lägger till ytterligare](create-manage-projects.md#create-additional-projects) projekt.
 
 ## <a name="what-azure-permissions-are-needed"></a>Vilka Azure-behörigheter behövs?
 
-Du måste ha deltagar-eller ägar behörigheter i prenumerationen för att kunna skapa ett Azure Migrate-projekt.
+Du behöver behörigheter för deltagare eller ägare i prenumerationen för att skapa ett Azure Migrate-projekt.
 
 ## <a name="cant-find-a-project"></a>Det går inte att hitta ett projekt
 
-Att söka efter ett befintligt Azure Migrate projekt beror på om du använder den aktuella eller gamla versionen av Azure Migrate. [Följ](create-manage-projects.md#find-a-project).
+Att hitta ett befintligt Azure Migrate-projekt beror på om du använder den aktuella eller gamla versionen av Azure Migrate. [Följ](create-manage-projects.md#find-a-project).
 
 
-## <a name="cant-find-a-geography"></a>Det går inte att hitta en geografi
+## <a name="cant-find-a-geography"></a>Kan inte hitta en geografi
 
-Du kan skapa ett Azure Migrate-projekt i [stödda geografiska](migrate-support-matrix.md#supported-geographies)områden. Observera att geografi-projektet används för att lagra identifierade dator-metadata. Du kan också utvärdera eller migrera datorer på andra platser.
+Du kan skapa ett Azure Migrate-projekt i [geografiska områden som stöds](migrate-support-matrix.md#supported-geographies). Observera att projektets geografi används för att lagra identifierade datormetadata. Du kan bedöma eller migrera datorer på andra platser också.
 
 ## <a name="what-are-vm-limits"></a>Vad är VM-gränser?
 
-Du kan utvärdera upp till 35 000 virtuella VMware-datorer eller upp till 35 000 virtuella Hyper-V-datorer i ett enda projekt. Ett projekt kan innehålla både virtuella VMware-datorer och virtuella Hyper-V-datorer, upp till utvärderings gränserna.
+Du kan bedöma upp till 35 000 virtuella virtuella datorer med VMware eller upp till 35 000 virtuella virtuella hyper-virtuella datorer i ett enda projekt. Ett projekt kan omfatta både virtuella datorer och virtuella datorer med hyper-v, upp till bedömningsgränserna.
 
 ## <a name="can-i-upgrade-old-project"></a>Kan jag uppgradera gamla projekt?
 
-Det går inte att uppdatera projekt från den tidigare versionen av Azure Migrate. Du måste [skapa ett nytt projekt](how-to-add-tool-first-time.md)och lägga till verktyg i det.
+Projekt från den tidigare versionen av Azure Migrate kan inte uppdateras. Du måste [skapa ett nytt projekt](how-to-add-tool-first-time.md)och lägga till verktyg i det.
 
 ## <a name="cant-create-a-project"></a>Det går inte att skapa ett projekt
 
-Om du försöker skapa ett projekt och påträffar ett distributions fel:
+Om du försöker skapa ett projekt och stöter på ett distributionsfel:
 
-- Försök att skapa projektet igen om det är ett tillfälligt fel. I **distributioner**klickar du på **distribuera igen** för att försöka igen.
-- Kontrol lera att du har deltagar-eller ägar behörigheter i prenumerationen.
-- Om du distribuerar i en nyligen tillagd geografi väntar du en stund och försöker igen.
-- Om du får felet "förfrågningar måste innehålla användar identitets rubriker", kan detta tyda på att du inte har åtkomst till den Azure Active Directory (Azure AD) av organisationen. I det här fallet:
-    - När du har lagt till en Azure AD-klient för första gången får du en e-postinbjudan om att ansluta till klienten.
+- Försök att skapa projektet igen om det är ett tillfälligt fel. I **Distributioner**klickar du på **Distribuera om** för att försöka igen.
+- Kontrollera att du har behörigheter för deltagare eller ägare i prenumerationen.
+- Om du distribuerar i en nyligen tillagd geografi väntar du en kort stund och försöker igen.
+- Om du får felmeddelandet "Begäranden måste innehålla användaridentitetshuvuden", kan det tyda på att du inte har åtkomst till Azure Active Directory (Azure AD) för organisationen. Om så är fallet:
+    - När du läggs till i en Azure AD-klient för första gången får du en e-post inbjudan att gå med i klienten.
     - Acceptera inbjudan som ska läggas till i klienten.
-    - Om du inte kan se e-postmeddelandet kan du kontakta en användare med åtkomst till klienten och be dem att [Skicka inbjudan](https://docs.microsoft.com/azure/active-directory/b2b/add-users-administrator#resend-invitations-to-guest-users) till dig igen.
-    - När du har tagit emot e-postinbjudan öppnar du den och väljer länken för att acceptera inbjudan. Logga sedan ut från Azure Portal och logga in igen. (att uppdatera webbläsaren fungerar inte.) Sedan kan du börja skapa migreringsjobbet.
+    - Om du inte kan se e-postmeddelandet kontaktar du en användare med åtkomst till klienten och ber dem skicka inbjudan till dig [igen.](https://docs.microsoft.com/azure/active-directory/b2b/add-users-administrator#resend-invitations-to-guest-users)
+    - När du har fått e-postmeddelandet med inbjudan öppnar du det och väljer länken för att acceptera inbjudan. Logga sedan ut från Azure-portalen och logga in igen. (det går inte att uppdatera webbläsaren.) Du kan sedan börja skapa migreringsprojektet.
 
-## <a name="how-do-i-delete-a-project"></a>Hur gör jag för att ta bort ett projekt
+## <a name="how-do-i-delete-a-project"></a>Hur tar jag bort ett projekt
 
-Ta bort ett projekt [genom att följa dessa anvisningar](create-manage-projects.md#delete-a-project) . Observera att när du tar bort ett projekt raderas både projektet och metadata om identifierade datorer i projektet.
+[Följ dessa instruktioner](create-manage-projects.md#delete-a-project) för att ta bort ett projekt. Observera att när du tar bort ett projekt tas både projektet och metadata om identifierade datorer i projektet bort.
 
-## <a name="added-tools-dont-show"></a>Verktyg som lagts till visas inte
+## <a name="added-tools-dont-show"></a>Tillagda verktyg visas inte
 
-Kontrol lera att du har valt rätt projekt. I Azure Migrate hubb >- **servrar** eller i **databaser**klickar du på **ändra** bredvid **migrera projekt (ändra)** i det övre högra hörnet på skärmen. Välj rätt prenumeration och projekt namn > **OK**. Sidan bör uppdateras med de verktyg som har lagts till i det valda projektet.
+Kontrollera att rätt projekt har valts. I hubben Azure Migrate > **servrar** eller i **databaser**klickar du på **Ändra** **bredvid Migrera projekt (Ändra)** i det övre högra hörnet på skärmen. Välj rätt prenumeration och projektnamn > **OK**. Sidan ska uppdateras med de tillagda verktygen i det valda projektet.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lägg till [utvärderings](how-to-assess.md) -eller [migreringsverktyg](how-to-migrate.md) för att Azure Migrate projekt.
+Lägg till [bedömnings-](how-to-assess.md) eller [migreringsverktyg](how-to-migrate.md) i Azure Migrate-projekt.

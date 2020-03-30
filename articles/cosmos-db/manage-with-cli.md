@@ -1,21 +1,21 @@
 ---
 title: Hantera Azure Cosmos DB-resurser med Azure CLI
-description: Använd Azure CLI för att hantera ditt Azure Cosmos DB konto, databas och behållare.
+description: Använd Azure CLI för att hantera ditt Azure Cosmos DB-konto, databas och behållare.
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 01/21/2020
 ms.author: mjbrown
 ms.openlocfilehash: 325840f8961fac49e599f1aa567ad8d4137820b4
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79251887"
 ---
 # <a name="manage-azure-cosmos-resources-using-azure-cli"></a>Hantera Azure Cosmos-resurser med Azure CLI
 
-I följande guide beskrivs vanliga kommandon för att automatisera hanteringen av dina Azure Cosmos DB-konton, databaser och containrar med hjälp av Azure CLI. Det finns referenssidor för alla Azure Cosmos DB CLI-kommandon i [referensguiden för Azure CLI](https://docs.microsoft.com/cli/azure/cosmosdb). Du kan också hitta fler exempel i [Azure CLI-exempel för Azure Cosmos DB](cli-samples.md), inklusive hur du skapar och hanterar Cosmos DB-konton, databaser och behållare för MongoDB, Gremlin, Cassandra och tabell-API.
+I följande guide beskrivs vanliga kommandon för att automatisera hanteringen av dina Azure Cosmos DB-konton, databaser och containrar med hjälp av Azure CLI. Referenssidor för alla Azure Cosmos DB CLI-kommandon finns i [Azure CLI Reference](https://docs.microsoft.com/cli/azure/cosmosdb). Du kan också hitta fler exempel i [Azure CLI-exempel för Azure Cosmos DB](cli-samples.md), inklusive hur du skapar och hanterar Cosmos DB-konton, databaser och behållare för MongoDB, Gremlin, Cassandra och Table API.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -23,10 +23,10 @@ Om du väljer att installera och använda CLI lokalt måste du köra Azure CLI v
 
 ## <a name="create-an-azure-cosmos-db-account"></a>Skapa ett Azure Cosmos DB-konto
 
-Skapa ett Azure Cosmos DB-konto med SQL API, konsekvens i sessioner i USA, västra 2 och USA, östra 2 regioner:
+Skapa ett Azure Cosmos DB-konto med SQL API, Sessionskonsekvens i regioner i västra USA 2 och östra USA 2:
 
 > [!IMPORTANT]
-> Namnet på Azure Cosmos-kontot måste innehålla gemener och färre än 31 tecken.
+> Azure Cosmos-kontonamnet måste vara gemen och mindre än 31 tecken.
 
 ```azurecli-interactive
 resourceGroupName='MyResourceGroup'
@@ -40,14 +40,14 @@ az cosmosdb create \
     --locations regionName='East US 2' failoverPriority=1 isZoneRedundant=False
 ```
 
-## <a name="add-or-remove-regions"></a>Lägg till eller ta bort regioner
+## <a name="add-or-remove-regions"></a>Lägga till eller ta bort regioner
 
-Skapa ett Azure Cosmos-konto med två regioner, Lägg till en region och ta bort en region.
+Skapa ett Azure Cosmos-konto med två regioner, lägg till en region och ta bort en region.
 
 > [!NOTE]
-> Du kan inte lägga till eller ta bort regioner samtidigt `locations` och ändra andra egenskaper för ett Azure Cosmos-konto. Ändra regioner måste utföras som en separat åtgärd än andra ändringar i konto resursen.
+> Du kan inte samtidigt `locations` lägga till eller ta bort regioner och ändra andra egenskaper för ett Azure Cosmos-konto. Ändra regioner måste utföras som en separat åtgärd än någon annan ändring av kontoresursen.
 > [!NOTE]
-> Med det här kommandot kan du lägga till och ta bort regioner, men du kan inte ändra prioriteter för redundans eller utlösa en manuell redundansväxling. Se [ange prioritet för redundans](#set-failover-priority) och [utlösa manuell redundans](#trigger-manual-failover).
+> Med det här kommandot kan du lägga till och ta bort regioner, men du kan inte ändra redundansprioriteringar eller utlösa en manuell redundans. Se [Ange redundansprioritet](#set-failover-priority) och [utlösa manuell redundans](#trigger-manual-failover).
 
 ```azurecli-interactive
 resourceGroupName = 'myResourceGroup'
@@ -70,7 +70,7 @@ az cosmosdb update --name $accountName --resource-group $resourceGroupName \
     --locations regionName= "East US 2" failoverPriority=1 isZoneRedundant=False
 ```
 
-## <a name="enable-multiple-write-regions"></a>Aktivera flera Skriv regioner
+## <a name="enable-multiple-write-regions"></a>Aktivera flera skrivområden
 
 Aktivera multi-master för ett Cosmos-konto
 
@@ -85,9 +85,9 @@ accountId=$(az cosmosdb show -g $resourceGroupName -n $accountName --query id -o
 az cosmosdb update --ids $accountId --enable-multiple-write-locations true
 ```
 
-## <a name="set-failover-priority"></a>Ange prioritet för redundans
+## <a name="set-failover-priority"></a>Ange redundansprioritet
 
-Ange prioritet för redundans för ett Azure Cosmos-konto som kon figurer ATS för automatisk redundans
+Ange redundansprioritet för ett Azure Cosmos-konto som konfigurerats för automatisk redundans
 
 ```azurecli-interactive
 # Assume region order is initially 'West US 2'=0 'East US 2'=1 'South Central US'=2 for account
@@ -115,10 +115,10 @@ accountId=$(az cosmosdb show -g $resourceGroupName -n $accountName --query id -o
 az cosmosdb update --ids $accountId --enable-automatic-failover true
 ```
 
-## <a name="trigger-manual-failover"></a>Utlös manuell redundans
+## <a name="trigger-manual-failover"></a>Utlösa manuell redundans
 
 > [!CAUTION]
-> Om du ändrar region med prioritet = 0 utlöses en manuell redundans för ett Azure Cosmos-konto. Alla andra prioritets ändringar kommer inte att utlösa redundans.
+> Ändra region med prioritet = 0 utlöser en manuell redundans för ett Azure Cosmos-konto. Alla andra prioritetsändringar utlöser inte en redundansväxling.
 
 ```azurecli-interactive
 # Assume region order is initially 'West US 2'=0 'East US 2'=1 'South Central US'=2 for account
@@ -133,7 +133,7 @@ az cosmosdb failover-priority-change --ids $accountId \
     --failover-policies 'East US 2'=0 'South Central US'=1 'West US 2'=2
 ```
 
-## <a id="list-account-keys"></a>Lista alla konto nycklar
+## <a name="list-all-account-keys"></a><a id="list-account-keys"></a>Lista alla kontonycklar
 
 Hämta alla nycklar för ett Cosmos-konto.
 
@@ -147,7 +147,7 @@ az cosmosdb keys list \
    -g $resourceGroupName
 ```
 
-## <a name="list-read-only-account-keys"></a>Lista med skrivskyddade konto nycklar
+## <a name="list-read-only-account-keys"></a>Lista skrivskyddade kontonycklar
 
 Hämta skrivskyddade nycklar för ett Cosmos-konto.
 
@@ -162,9 +162,9 @@ az cosmosdb keys list \
     --type read-only-keys
 ```
 
-## <a name="list-connection-strings"></a>Lista anslutnings strängar
+## <a name="list-connection-strings"></a>Lista anslutningssträngar
 
-Hämta anslutnings strängarna för ett Cosmos-konto.
+Hämta anslutningssträngarna för ett Cosmos-konto.
 
 ```azurecli-interactive
 # List connection strings
@@ -177,7 +177,7 @@ az cosmosdb keys list \
     --type connection-strings
 ```
 
-## <a name="regenerate-account-key"></a>Återskapa konto nyckel
+## <a name="regenerate-account-key"></a>Återskapa kontonyckel
 
 Återskapa en ny nyckel för ett Cosmos-konto.
 
@@ -205,9 +205,9 @@ az cosmosdb sql database create \
     -n $databaseName
 ```
 
-## <a name="create-a-database-with-shared-throughput"></a>Skapa en databas med delat data flöde
+## <a name="create-a-database-with-shared-throughput"></a>Skapa en databas med delat dataflöde
 
-Skapa en Cosmos-databas med delat data flöde.
+Skapa en Cosmos-databas med delat dataflöde.
 
 ```azurecli-interactive
 resourceGroupName='MyResourceGroup'
@@ -222,9 +222,9 @@ az cosmosdb sql database create \
     --throughput $throughput
 ```
 
-## <a name="change-the-throughput-of-a-database"></a>Ändra data flödet för en databas
+## <a name="change-the-throughput-of-a-database"></a>Ändra dataflödet för en databas
 
-Öka data flödet för en Cosmos-databas med 1000 RU/s.
+Öka dataflödet i en Cosmos-databas med 1000 RU/s.
 
 ```azurecli-interactive
 resourceGroupName='MyResourceGroup'
@@ -250,7 +250,7 @@ az cosmosdb sql database throughput update \
 
 ## <a name="create-a-container"></a>Skapa en container
 
-Skapa en Cosmos-behållare med standard index policy, partitionsnyckel och RU/s av 400.
+Skapa en Cosmos-behållare med standardindexprincip, partitionsnyckel och RU/s på 400.
 
 ```azurecli-interactive
 # Create a SQL API container
@@ -286,9 +286,9 @@ az cosmosdb sql container update \
     --ttl = 86400
 ```
 
-## <a name="create-a-container-with-a-custom-index-policy"></a>Skapa en behållare med en anpassad index princip
+## <a name="create-a-container-with-a-custom-index-policy"></a>Skapa en behållare med en anpassad indexprincip
 
-Skapa en Cosmos-behållare med en anpassad index princip, ett rums index, sammansatt index, en partitionsnyckel och RU/s av 400.
+Skapa en Cosmos-behållare med en anpassad indexprincip, ett rumsligt index, kompositindex, en partitionsnyckel och RU/s på 400.
 
 ```azurecli-interactive
 # Create a SQL API container
@@ -338,9 +338,9 @@ az cosmosdb sql container create \
 rm -f "idxpolicy-$uniqueId.json"
 ```
 
-## <a name="change-the-throughput-of-a-container"></a>Ändra data flödet för en behållare
+## <a name="change-the-throughput-of-a-container"></a>Ändra dataflödet för en behållare
 
-Öka data flödet för en Cosmos-behållare genom att 1000 RU/s.
+Öka genomströmningen för en Cosmos-behållare med 1000 RU/s.
 
 ```azurecli-interactive
 resourceGroupName='MyResourceGroup'

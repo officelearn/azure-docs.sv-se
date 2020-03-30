@@ -13,103 +13,103 @@ ms.date: 05/15/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 066e32d5ab21f88b170498173606043c54fec586
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79265862"
 ---
-# <a name="copy-data-to-or-from-oracle-on-premises-by-using-azure-data-factory"></a>Kopiera data till eller från Oracle lokalt genom att använda Azure Data Factory
+# <a name="copy-data-to-or-from-oracle-on-premises-by-using-azure-data-factory"></a>Kopiera data till eller från Oracle lokalt med hjälp av Azure Data Factory
 
 > [!div class="op_single_selector" title1="Välj den version av Data Factory-tjänsten som du använder:"]
 > * [Version 1](data-factory-onprem-oracle-connector.md)
 > * [Version 2 (aktuell version)](../connector-oracle.md)
 
 > [!NOTE]
-> Den här artikeln gäller för version 1 av Azure Data Factory. Om du använder den aktuella versionen av tjänsten Azure Data Factory, se [Oracle Connector i v2](../connector-oracle.md).
+> Den här artikeln gäller för version 1 av Azure Data Factory. Om du använder den aktuella versionen av Azure Data Factory-tjänsten läser du [Oracle-anslutning i V2](../connector-oracle.md).
 
 
-Den här artikeln förklarar hur du använder kopierings aktivitet i Azure Data Factory för att flytta data till eller från en lokal Oracle-databas. Artikeln bygger på [data förflyttnings aktiviteter](data-factory-data-movement-activities.md), som visar en allmän översikt över data flyttningen med hjälp av kopierings aktiviteten.
+I den här artikeln beskrivs hur du använder Kopiera aktivitet i Azure Data Factory för att flytta data till eller från en lokal Oracle-databas. Artikeln bygger på [datarörelseaktiviteter](data-factory-data-movement-activities.md), som ger en allmän översikt över dataflyttning med hjälp av Kopiera aktivitet.
 
 ## <a name="supported-scenarios"></a>Scenarier som stöds
 
-Du kan kopiera data *från en Oracle-databas* till följande data lager:
+Du kan kopiera data *från en Oracle-databas* till följande datalager:
 
 [!INCLUDE [data-factory-supported-sink](../../../includes/data-factory-supported-sinks.md)]
 
-Du kan kopiera data från följande data lager *till en Oracle-databas*:
+Du kan kopiera data från följande datalager *till en Oracle-databas:*
 
 [!INCLUDE [data-factory-supported-sources](../../../includes/data-factory-supported-sources.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-Data Factory stöder anslutning till lokala Oracle-källor med hjälp av Data Management Gateway. Mer information om Data Management Gateway finns i [Data Management Gateway](data-factory-data-management-gateway.md) . Stegvisa instruktioner för hur du konfigurerar gatewayen i en datapipeline för att flytta data finns i [Flytta data från lokalt till molnet](data-factory-move-data-between-onprem-and-cloud.md).
+Data Factory stöder anslutning till lokala Oracle-källor med hjälp av Data Management Gateway. Mer information om Data Management Gateway finns i [Data Management Gateway.](data-factory-data-management-gateway.md) Stegvisa instruktioner om hur du konfigurerar gatewayen i en datapipeline för att flytta data finns i [Flytta data från lokalt till moln](data-factory-move-data-between-onprem-and-cloud.md).
 
-Gatewayen krävs även om Oracle finns i en virtuell IaaS-dator (Azure Infrastructure as a Service). Du kan installera gatewayen på samma virtuella IaaS-dator som data lagret eller på en annan virtuell dator, förutsatt att gatewayen kan ansluta till databasen.
+Gatewayen krävs även om Oracle finns i en Azure-infrastruktur som en virtuell tjänst (IaaS). Du kan installera gatewayen på samma IaaS VM som datalagret eller på en annan virtuell dator, så länge gatewayen kan ansluta till databasen.
 
 > [!NOTE]
-> Tips på hur du felsöker problem som rör anslutning och Gateway finns i [Felsöka Gateway-problem](data-factory-data-management-gateway.md#troubleshooting-gateway-issues).
+> Tips om felsökningsproblem som är relaterade till anslutning och gateway finns i [Felsöka gatewayproblem](data-factory-data-management-gateway.md#troubleshooting-gateway-issues).
 
 ## <a name="supported-versions-and-installation"></a>Versioner och installation som stöds
 
-Den här Oracle-anslutaren stöder två versioner av driv rutiner:
+Den här Oracle-anslutningen stöder två versioner av drivrutiner:
 
-- **Microsoft-drivrutin för Oracle (rekommenderas)** : från och med Data Management Gateway version 2,7 installeras en Microsoft-drivrutin för Oracle automatiskt med gatewayen. Du behöver inte installera eller uppdatera driv rutinen för att upprätta en anslutning till Oracle. Du kan också få bättre kopierings prestanda genom att använda den här driv rutinen. Dessa versioner av Oracle-databaser stöds:
-  - Oracle 12C R1 (12,1)
+- **Microsoft-drivrutin för Oracle (rekommenderas)**: Med början i Data Management Gateway version 2.7 installeras en Microsoft-drivrutin för Oracle automatiskt med gatewayen. Du behöver inte installera eller uppdatera drivrutinen för att upprätta anslutning till Oracle. Du kan också uppleva bättre kopieringsprestanda med den här drivrutinen. Dessa versioner av Oracle-databaser stöds:
+  - Oracle 12c R1 (12,1)
   - Oracle 11g R1, R2 (11,1, 11,2)
   - Oracle 10g R1, R2 (10,1, 10,2)
-  - Oracle 9i R1, R2 (9.0.1 9,2)
+  - Oracle 9i R1, R2 (9.0.1, 9.2)
   - Oracle 8i R3 (8.1.7)
 
     > [!NOTE]
-    > Oracle-proxyservern stöds inte.
+    > Oracle-proxyserver stöds inte.
 
     > [!IMPORTANT]
-    > Microsoft-drivrutinen för Oracle stöder för närvarande endast kopiering av data från Oracle. Driv rutinen har inte stöd för skrivning till Oracle. Funktionen testa anslutning på fliken Data Management Gateway **diagnostik** stöder inte den här driv rutinen. Du kan också använda guiden Kopiera för att verifiera anslutningen.
+    > För närvarande stöder Microsoft-drivrutinen för Oracle endast kopiering av data från Oracle. Drivrutinen stöder inte att skriva till Oracle. Testanslutningsfunktionen på fliken **Diagnostik för datahanteringsgateway** stöder inte den här drivrutinen. Du kan också använda guiden Kopiera för att validera anslutningen.
     >
 
-- **Oracle Data Provider för .net**: du kan använda Oracle-dataleverantören för att kopiera data från eller till Oracle. Den här komponenten ingår i [Oracle Data Access Components för Windows](https://www.oracle.com/technetwork/topics/dotnet/downloads/). Installera den relevanta versionen (32-bitars eller 64-bitars) på den dator där gatewayen är installerad. [Oracle Data Provider .net 12,1](https://docs.oracle.com/database/121/ODPNT/InstallSystemRequirements.htm#ODPNT149) har åtkomst till Oracle Database 10g version 2 och senare versioner.
+- **Oracle-dataleverantör för .NET:** Du kan använda Oracles dataleverantör för att kopiera data från eller till Oracle. Den här komponenten ingår i [Oracle Data Access Components för Windows](https://www.oracle.com/technetwork/topics/dotnet/downloads/). Installera den relevanta versionen (32- eller 64-bitars) på datorn där gatewayen är installerad. [Oracle Data Provider .NET 12.1](https://docs.oracle.com/database/121/ODPNT/InstallSystemRequirements.htm#ODPNT149) kan komma åt Oracle Database 10g Release 2 och senare versioner.
 
-    Om du väljer **xcopy-installation**slutför du stegen som beskrivs i filen Readme. htm. Vi rekommenderar att du väljer det installations program som har användar gränssnittet (inte installations programmet för XCopy).
+    Om du väljer **XCopy-installation**slutför du stegen som beskrivs i filen readme.htm. Vi rekommenderar att du väljer installationsprogrammet som har användargränssnittet (inte XCopy-installationsprogrammet).
 
-    När du har installerat providern startar du om Data Management Gateway värd tjänsten på datorn med hjälp av tjänst-appleten eller Data Management Gateway Configuration Manager.
+    När du har installerat providern startar du om värdtjänsten för Data Management Gateway på datorn med hjälp av appleten Services eller Konfigurationshanteraren för datahanteringsgateway.
 
-Om du använder kopierings guiden för att redigera kopierings pipelinen, är driv rutins typen autobestämd. Microsoft-drivrutinen används som standard, om inte Gateway-versionen är tidigare än version 2,7 eller om du väljer Oracle som mottagare.
+Om du använder kopieringsguiden för att skapa kopieringspipelinen bestäms drivrutinstypen automatiskt. Microsoft-drivrutinen används som standard, såvida inte gateway-versionen är tidigare än version 2.7 eller om du väljer Oracle som diskbänk.
 
-## <a name="get-started"></a>Kom igång
+## <a name="get-started"></a>Komma igång
 
-Du kan skapa en pipeline som har en kopierings aktivitet. Pipelinen flyttar data till eller från en lokal Oracle-databas med hjälp av olika verktyg eller API: er.
+Du kan skapa en pipeline som har en kopieringsaktivitet. Pipelinen flyttar data till eller från en lokal Oracle-databas med hjälp av olika verktyg eller API:er.
 
-Det enklaste sättet att skapa en pipeline är att använda guiden Kopiera. Se [Självstudier: skapa en pipeline med hjälp av kopierings guiden](data-factory-copy-data-wizard-tutorial.md) för en snabb genom gång av hur du skapar en pipeline med hjälp av guiden Kopiera data.
+Det enklaste sättet att skapa en pipeline är att använda kopieringsguiden. Se [självstudiekurs: Skapa en pipeline med hjälp av kopieringsguiden](data-factory-copy-data-wizard-tutorial.md) för en snabb genomgång när du skapar en pipeline med hjälp av guiden Kopiera data.
 
-Du kan också använda något av följande verktyg för att skapa en pipeline: **Visual Studio**, **Azure PowerShell**, en **Azure Resource Manager mall**, .net- **API**eller **REST API**. I [självstudien om kopierings aktiviteten](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) finns stegvisa anvisningar om hur du skapar en pipeline med en kopierings aktivitet.
+Du kan också använda något av följande verktyg för att skapa en pipeline: **Visual Studio**, **Azure PowerShell**, en **Azure Resource Manager-mall,** **.NET API**eller REST **API**. Se [självstudien Kopiera aktivitet](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) för steg-för-steg-instruktioner om hur du skapar en pipeline som har en kopieringsaktivitet.
 
-Oavsett om du använder verktygen eller API: erna utför du följande steg för att skapa en pipeline som flyttar data från ett käll data lager till ett mottagar data lager:
+Oavsett om du använder verktygen eller API:erna gör du följande för att skapa en pipeline som flyttar data från ett källdatalager till ett sink-datalager:
 
-1. Skapa en **data fabrik**. En data fabrik kan innehålla en eller flera pipeliner.
-2. Skapa **länkade tjänster** för att länka indata och utdata från data lager till din data fabrik. Om du t. ex. kopierar data från en Oracle-databas till Azure Blob Storage, skapar du två länkade tjänster för att länka din Oracle-databas och Azure Storage-konto till data fabriken. För länkade tjänst egenskaper som är speciella för Oracle, se [länkade tjänst egenskaper](#linked-service-properties).
-3. Skapa data **uppsättningar** som representerar indata och utdata för kopierings åtgärden. I exemplet i föregående steg skapar du en data uppsättning för att ange den tabell i Oracle-databasen som innehåller indata. Du skapar en annan data uppsättning för att ange BLOB-behållaren och mappen som innehåller data som kopieras från Oracle-databasen. För data uppsättnings egenskaper som är speciella för Oracle, se [data uppsättnings egenskaper](#dataset-properties).
-4. Skapa en **pipeline** med en kopierings aktivitet som tar en data uppsättning som indata och en data uppsättning som utdata. I föregående exempel använder du **OracleSource** som källa och **BlobSink** som mottagare för kopierings aktiviteten. På samma sätt kan du använda **BlobSource** och **OracleSink** i kopierings aktiviteten om du kopierar från Azure Blob Storage till en Oracle-databas. Information om kopiera aktivitets egenskaper som är speciella för en Oracle-databas finns i [Kopiera aktivitets egenskaper](#copy-activity-properties). Om du vill ha mer information om hur du använder ett data lager som källa eller mottagare väljer du länken för data lagret i föregående avsnitt.
+1. Skapa en **datafabrik**. En datafabrik kan innehålla en eller flera pipelines.
+2. Skapa **länkade tjänster** för att länka in- och utdatalager till datafabriken. Om du till exempel kopierar data från en Oracle-databas till Azure Blob-lagring skapar du två länkade tjänster för att länka din Oracle-databas och Azure-lagringskonto till din datafabrik. Länkade tjänstegenskaper som är specifika för Oracle finns i [Länkade tjänstegenskaper](#linked-service-properties).
+3. Skapa **datauppsättningar** för att representera in- och utdata för kopieringen. I exemplet i föregående steg skapar du en datauppsättning för att ange tabellen i Oracle-databasen som innehåller indata. Du skapar en annan datauppsättning för att ange blob-behållaren och mappen som innehåller data som kopierats från Oracle-databasen. Datauppsättningsegenskaper som är specifika för Oracle finns i [Egenskaper för Datauppsättning](#dataset-properties).
+4. Skapa en **pipeline** som har en kopieringsaktivitet som tar en datauppsättning som indata och en datauppsättning som utdata. I föregående exempel använder du **OracleSource** som källa och **BlobSink** som en mottagare för kopieringsaktiviteten. Om du kopierar från Azure Blob-lagring till en Oracle-databas använder du **blobSource** och **OracleSink** i kopieringsaktiviteten. Egenskaper för kopieringsaktivitet som är specifika för en Oracle-databas finns i [Kopiera aktivitetsegenskaper](#copy-activity-properties). Om du vill ha mer information om hur du använder ett datalager som källa eller diskho väljer du länken för datalagret i föregående avsnitt.
 
-När du använder guiden skapas JSON-definitioner för dessa Data Factory entiteter automatiskt åt dig: länkade tjänster, data uppsättningar och pipelinen. När du använder verktyg eller API: er (förutom .NET API) definierar du dessa Data Factory entiteter med hjälp av JSON-formatet. Exempel som innehåller JSON-definitioner för Data Factory entiteter som du använder för att kopiera data till eller från en lokal Oracle-databas finns i JSON-exempel.
+När du använder guiden skapas JSON-definitioner för dessa datafabrikentiteter automatiskt för dig: länkade tjänster, datauppsättningar och pipelinen. När du använder verktyg eller API:er (förutom .NET API) definierar du dessa datafabrikentiteter med hjälp av JSON-formatet. Exempel som har JSON-definitioner för Data Factory-entiteter som du använder för att kopiera data till eller från en lokal Oracle-databas finns i JSON-exempel.
 
-I följande avsnitt finns information om JSON-egenskaper som du använder för att definiera Data Factory entiteter.
+I följande avsnitt finns information om JSON-egenskaper som du använder för att definiera datafabrikentiteter.
 
 ## <a name="linked-service-properties"></a>Länkade tjänstegenskaper
 
-I följande tabell beskrivs JSON-element som är speciella för den länkade Oracle-tjänsten:
+I följande tabell beskrivs JSON-element som är specifika för oracle-länkade tjänsten:
 
 | Egenskap | Beskrivning | Krävs |
 | --- | --- | --- |
 | typ |Egenskapen **Type** måste anges till **OnPremisesOracle**. |Ja |
-| driverType | Ange vilken driv rutin som ska användas för att kopiera data från eller till en Oracle-databas. Tillåtna värden är **Microsoft** och **ODP** (standard). Se [version och installation som stöds](#supported-versions-and-installation) för driv rutins information. | Nej |
-| connectionString | Ange den information som krävs för att ansluta till Oracle Database-instansen för egenskapen **ConnectionString** . | Ja |
-| gatewayName | Namnet på den gateway som används för att ansluta till den lokala Oracle-servern. |Ja |
+| driverType | Ange vilken drivrutin som ska användas för att kopiera data från eller till en Oracle-databas. Tillåtna värden är **Microsoft** och **ODP** (standard). Se [Version och installation som stöds](#supported-versions-and-installation) för drivrutinsinformation. | Inga |
+| Connectionstring | Ange den information som behövs för att ansluta till Oracle-databasinstansen för egenskapen **connectionString.** | Ja |
+| gatewayName (gatewayName) | Namnet på gatewayen som används för att ansluta till den lokala Oracle-servern. |Ja |
 
-**Exempel: använda Microsoft-drivrutinen**
+**Exempel: Använda Microsoft-drivrutinen**
 
 > [!TIP]
-> Om du ser ett fel meddelande om att "ORA-01025: UPI-parametern är utanför intervallet" och att din Oracle är version 8i lägger du till `WireProtocolMode=1` i anslutnings strängen och försöker igen:
+> Om du ser ett felmeddelande med "ORA-01025: UPI parameter out of range" `WireProtocolMode=1` och din Oracle är version 8i lägger du till anslutningssträngen och försöker igen:
 
 ```json
 {
@@ -125,9 +125,9 @@ I följande tabell beskrivs JSON-element som är speciella för den länkade Ora
 }
 ```
 
-**Exempel: använda ODP-drivrutinen**
+**Exempel: Använda ODP-drivrutinen**
 
-Mer information om tillåtna format finns i [Oracle Data Provider för .net ODP](https://www.connectionstrings.com/oracle-data-provider-for-net-odp-net/).
+Mer information om tillåtna format finns i [Oracles dataleverantör för .NET ODP](https://www.connectionstrings.com/oracle-data-provider-for-net-odp-net/).
 
 ```json
 {
@@ -144,11 +144,11 @@ Mer information om tillåtna format finns i [Oracle Data Provider för .net ODP]
 
 ## <a name="dataset-properties"></a>Egenskaper för datamängd
 
-En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera data uppsättningar finns i [skapa data uppsättningar](data-factory-create-datasets.md).
+En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera datauppsättningar finns i [Skapa datauppsättningar](data-factory-create-datasets.md).
 
-Avsnitten i en data mängds JSON-fil, till exempel struktur, tillgänglighet och princip, liknar alla typer av data uppsättningar (till exempel för Oracle, Azure Blob Storage och Azure Table Storage).
+Avsnitten i en datauppsättning JSON-fil, till exempel struktur, tillgänglighet och princip, är liknande för alla datauppsättningstyper (till exempel för Oracle, Azure Blob storage och Azure Table storage).
 
-Avsnittet **typeProperties** är olika för varje typ av data uppsättning och innehåller information om platsen för data i data lagret. Avsnittet **typeProperties** för data uppsättningen av typen **OracleTable** har följande egenskaper:
+Avsnittet **typeProperties** är olika för varje typ av datauppsättning och ger information om platsen för data i datalagret. Avsnittet **typeProperties** för datauppsättningen av typen **OracleTable** har följande egenskaper:
 
 | Egenskap | Beskrivning | Krävs |
 | --- | --- | --- |
@@ -156,51 +156,51 @@ Avsnittet **typeProperties** är olika för varje typ av data uppsättning och i
 
 ## <a name="copy-activity-properties"></a>Kopiera egenskaper för aktivitet
 
-En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera aktiviteter finns i [skapa pipeliner](data-factory-create-pipelines.md).
+En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera aktiviteter finns i [Skapa pipelines](data-factory-create-pipelines.md).
 
-Egenskaper som namn, beskrivning, indata och utdata-tabeller och policy är tillgängliga för alla typer av aktiviteter.
+Egenskaper som namn, beskrivning, indata- och utdatatabeller och princip är tillgängliga för alla typer av aktiviteter.
 
 > [!NOTE]
-> Kopierings aktiviteten tar bara en indata och producerar bara ett resultat.
+> Kopieringsaktivitet tar bara en indata och producerar bara en utdata.
 
-Egenskaper som är tillgängliga i **typeProperties** -avsnittet av aktiviteten varierar beroende på varje aktivitets typ. Egenskaperna för kopierings aktivitet varierar beroende på typ av källa och mottagare.
+Egenskaper som är tillgängliga i avsnittet **typeProperties** i aktiviteten varierar beroende på varje aktivitetstyp. Egenskaperna Kopiera aktivitet varierar beroende på typ av källa och diskho.
 
-### <a name="oraclesource"></a>OracleSource
+### <a name="oraclesource"></a>OracleSource (Orakl)
 
-När källan är av typen **OracleSource** i kopierings aktivitet är följande egenskaper tillgängliga i avsnittet **typeProperties** :
+När källan är **oracleSource-typ** i Kopiera aktivitet är följande egenskaper tillgängliga i avsnittet **typeProperties:**
 
 | Egenskap | Beskrivning | Tillåtna värden | Krävs |
 | --- | --- | --- | --- |
-| oracleReaderQuery |Använd den anpassade frågan för att läsa data. |En SQL-frågesträng. Till exempel "Select \* from **untable**". <br/><br/>Om detta inte anges körs SQL-instruktionen: "Välj \* från **tabellen**" |Nej<br />(om **TableName** för **dataset** har angetts) |
+| orakelLäsareQuery |Använd den anpassade frågan för att läsa data. |En SQL-frågesträng. Till exempel "välj \* från **MyTable**". <br/><br/>Om inget anges körs det här SQL-uttrycket: "välj \* från **MyTable"** |Inga<br />(om **tabellNamn för** datauppsättning har **angetts)** |
 
-### <a name="oraclesink"></a>OracleSink
+### <a name="oraclesink"></a>OrakelSink
 
 **OracleSink** stöder följande egenskaper:
 
 | Egenskap | Beskrivning | Tillåtna värden | Krävs |
 | --- | --- | --- | --- |
-| writeBatchTimeout |Vänte tiden för att infoga batch-åtgärden ska slutföras innan tids gränsen uppnåddes. |**intervall**<br/><br/> Exempel: 00:30:00 (30 minuter) |Nej |
-| writeBatchSize |Infogar data i SQL-tabellen när buffertstorleken når värdet för **writeBatchSize**. |Heltal (antal rader) |Nej (standard: 100) |
-| sqlWriterCleanupScript |Anger en fråga för kopierings aktivitet som ska köras så att data för en speciell sektor rensas. |Ett frågeuttryck. |Nej |
-| sliceIdentifierColumnName |Anger kolumn namnet för kopierings aktiviteten så att den fyller ett automatiskt genererat segment-ID. Värdet för **sliceIdentifierColumnName** används för att rensa data i en angiven sektor när den körs igen. |Kolumn namnet för en kolumn med data typen **Binary (32)** . |Nej |
+| skriverBatchTimeout |Väntetiden för batchinsatsen att slutföras innan den time out. |**Gått**<br/><br/> Exempel: 00:30:00 (30 minuter) |Inga |
+| skriverBatchSize |Infogar data i SQL-tabellen när buffertstorleken når värdet **för writeBatchSize**. |Heltal (antal rader) |Nej (standard: 100) |
+| sqlWriterCleanupScript |Anger en fråga om kopieringsaktivitet som ska köras så att data för ett visst segment rensas. |En frågesats. |Inga |
+| sliceIdentifierColumnName |Anger kolumnnamnet för Kopiera aktivitet som ska fyllas med en automatiskt skapad utsnittsidentifierare. Värdet för **segmentIdentifierColumnName** används för att rensa data för ett visst segment när du kör igen. |Kolumnnamnet på en kolumn som har datatyp av **binär(32)**. |Inga |
 
-## <a name="json-examples-for-copying-data-to-and-from-the-oracle-database"></a>JSON-exempel för att kopiera data till och från Oracle-databasen
+## <a name="json-examples-for-copying-data-to-and-from-the-oracle-database"></a>JSON exempel för kopiering av data till och från Oracle-databasen
 
-I följande exempel finns exempel på JSON-definitioner som du kan använda för att skapa en pipeline med hjälp av [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) eller [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). I exemplen visas hur du kopierar data från eller till en Oracle-databas och till eller från Azure Blob Storage. Data kan dock kopieras till någon av de handfat som anges i [data lager och format som stöds](data-factory-data-movement-activities.md#supported-data-stores-and-formats) med hjälp av kopierings aktiviteten i Azure Data Factory.
+Följande exempel innehåller exempel på JSON-definitioner som du kan använda för att skapa en pipeline med hjälp av [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) eller [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Exemplen visar hur du kopierar data från eller till en Oracle-databas och till eller från Azure Blob-lagring. Data kan dock kopieras till någon av de diskhoar som anges i [datalager och format som stöds](data-factory-data-movement-activities.md#supported-data-stores-and-formats) med hjälp av Kopiera aktivitet i Azure Data Factory.
 
-**Exempel: kopiera data från Oracle till Azure Blob Storage**
+**Exempel: Kopiera data från Oracle till Azure Blob-lagring**
 
-Exemplet har följande Data Factory entiteter:
+Exemplet har följande datafabrikentiteter:
 
 * En länkad tjänst av typen [OnPremisesOracle](data-factory-onprem-oracle-connector.md#linked-service-properties).
 * En länkad tjänst av typen [AzureStorage](data-factory-azure-blob-connector.md#linked-service-properties).
-* En indata- [datauppsättning](data-factory-create-datasets.md) av typen [OracleTable](data-factory-onprem-oracle-connector.md#dataset-properties).
-* En utdata- [datauppsättning](data-factory-create-datasets.md) av typen [AzureBlob](data-factory-azure-blob-connector.md#dataset-properties).
-* En [pipeline](data-factory-create-pipelines.md) med en kopierings aktivitet som använder [OracleSource](data-factory-onprem-oracle-connector.md#copy-activity-properties) som källa och [BlobSink](data-factory-azure-blob-connector.md#copy-activity-properties) som mottagare.
+* En [indatauppsättning](data-factory-create-datasets.md) av typen [OracleTable](data-factory-onprem-oracle-connector.md#dataset-properties).
+* En [utdatauppsättning](data-factory-create-datasets.md) av typen [AzureBlob](data-factory-azure-blob-connector.md#dataset-properties).
+* En [pipeline](data-factory-create-pipelines.md) med en kopieringsaktivitet som använder [OracleSource](data-factory-onprem-oracle-connector.md#copy-activity-properties) som källa och [BlobSink](data-factory-azure-blob-connector.md#copy-activity-properties) som mottagare.
 
-Exemplet kopierar data från en tabell i en lokal Oracle-databas till en BLOB per timme. Mer information om olika egenskaper som används i exemplet finns i avsnitten som följer exemplen.
+Exemplet kopierar data från en tabell i en lokal Oracle-databas till en blob varje timme. Mer information om olika egenskaper som används i exemplet finns i avsnitten som följer exemplen.
 
-**Oracle-länkad tjänst**
+**Oracles länkade tjänst**
 
 ```json
 {
@@ -216,7 +216,7 @@ Exemplet kopierar data från en tabell i en lokal Oracle-databas till en BLOB pe
 }
 ```
 
-**Länkad Azure Blob Storage-tjänst**
+**Azure Blob lagringslänkade tjänst**
 
 ```json
 {
@@ -230,11 +230,11 @@ Exemplet kopierar data från en tabell i en lokal Oracle-databas till en BLOB pe
 }
 ```
 
-**Data uppsättning för Oracle-indata**
+**Oracle-indatauppsättning**
 
-Exemplet förutsätter att du har skapat en tabell med namnet min **tabell** i Oracle. Den innehåller en kolumn med namnet **timestampcolumn** för Time Series-data.
+Exemplet förutsätter att du har skapat en tabell med namnet **MyTable** i Oracle. Den innehåller en kolumn som kallas **tidsstämpelpcolumn** för tidsseriedata.
 
-Inställningen **external**: **True** informerar Data Factory tjänsten att data uppsättningen är extern i data fabriken och att data uppsättningen inte produceras av en aktivitet i data fabriken.
+Inställningen **extern**: **true** informerar datafabrikstjänsten om att datauppsättningen är extern till datafabriken och att datauppsättningen inte produceras av en aktivitet i datafabriken.
 
 ```json
 {
@@ -265,7 +265,7 @@ Inställningen **external**: **True** informerar Data Factory tjänsten att data
 
 **Utdatauppsättning för Azure-blob**
 
-Data skrivs till en ny BLOB varje timme (**frekvens**: **timme**, **intervall**: **1**). Mappsökvägen och fil namnet för blobben utvärderas dynamiskt baserat på Start tiden för den sektor som bearbetas. Mappsökvägen använder året, månaden, dagen och Tim delen av start tiden.
+Data skrivs till en ny blob varje timme **(frekvens:** **timme,** **intervall:** **1**). Mappsökvägen och filnamnet för blobben utvärderas dynamiskt baserat på starttiden för det segment som bearbetas. Mappsökvägen använder starttiden för år, månad, dag och timme.
 
 ```json
 {
@@ -323,9 +323,9 @@ Data skrivs till en ny BLOB varje timme (**frekvens**: **timme**, **intervall**:
 }
 ```
 
-**Pipeline med en kopierings aktivitet**
+**Pipeline med en kopieringsaktivitet**
 
-Pipelinen innehåller en kopierings aktivitet som har kon figurer ATS för att använda data uppsättningar för indata och utdata och är schemalagda att köras varje timme. I JSON-definitionen för pipelinen är **käll** typen inställt på **OracleSource** och **mottagar** typen är inställd på **BlobSink**. SQL-frågan som du anger med hjälp av egenskapen **oracleReaderQuery** väljer data under den senaste timmen som ska kopieras.
+Pipelinen innehåller en kopieringsaktivitet som är konfigurerad för att använda in- och utdatauppsättningar och som är schemalagda att köras varje timme. I JSON-definitionen är **källtypen** inställd på **OracleSource** och **sink-typen** är inställd på **BlobSink**. Den SQL-fråga som du anger med egenskapen **oracleReaderQuery** väljer de data som ska kopieras under den senaste timmen.
 
 ```json
 {
@@ -374,21 +374,21 @@ Pipelinen innehåller en kopierings aktivitet som har kon figurer ATS för att a
 }
 ```
 
-**Exempel: kopiera data från Azure Blob Storage till Oracle**
+**Exempel: Kopiera data från Azure Blob-lagring till Oracle**
 
-Det här exemplet visar hur du kopierar data från ett Azure Blob Storage-konto till en lokal Oracle-databas. Du kan dock kopiera data *direkt* från någon av källorna som anges i [data lager och format som stöds](data-factory-data-movement-activities.md#supported-data-stores-and-formats) med hjälp av kopierings aktiviteten i Azure Data Factory.
+Det här exemplet visar hur du kopierar data från ett Azure Blob-lagringskonto till en lokal Oracle-databas. Du kan dock kopiera data *direkt* från någon av de källor som anges i [datalager och format som stöds](data-factory-data-movement-activities.md#supported-data-stores-and-formats) med hjälp av Kopiera aktivitet i Azure Data Factory.
 
-Exemplet har följande Data Factory entiteter:
+Exemplet har följande datafabrikentiteter:
 
 * En länkad tjänst av typen [OnPremisesOracle](data-factory-onprem-oracle-connector.md#linked-service-properties).
 * En länkad tjänst av typen [AzureStorage](data-factory-azure-blob-connector.md#linked-service-properties).
-* En indata- [datauppsättning](data-factory-create-datasets.md) av typen [AzureBlob](data-factory-azure-blob-connector.md#dataset-properties).
-* En utdata- [datauppsättning](data-factory-create-datasets.md) av typen [OracleTable](data-factory-onprem-oracle-connector.md#dataset-properties).
-* En [pipeline](data-factory-create-pipelines.md) som har en kopierings aktivitet som använder [BlobSource](data-factory-azure-blob-connector.md#copy-activity-properties) som [OracleSink](data-factory-onprem-oracle-connector.md#copy-activity-properties) som mottagare.
+* En [indatauppsättning](data-factory-create-datasets.md) av typen [AzureBlob](data-factory-azure-blob-connector.md#dataset-properties).
+* En [utdatauppsättning](data-factory-create-datasets.md) av typen [OracleTable](data-factory-onprem-oracle-connector.md#dataset-properties).
+* En [pipeline](data-factory-create-pipelines.md) som har en kopieringsaktivitet som använder [BlobSource](data-factory-azure-blob-connector.md#copy-activity-properties) som källa [OracleSink](data-factory-onprem-oracle-connector.md#copy-activity-properties) som mottagare.
 
 Exemplet kopierar data från en blob till en tabell i en lokal Oracle-databas varje timme. Mer information om olika egenskaper som används i exemplet finns i avsnitten som följer exemplen.
 
-**Oracle-länkad tjänst**
+**Oracles länkade tjänst**
 
 ```json
 {
@@ -404,7 +404,7 @@ Exemplet kopierar data från en blob till en tabell i en lokal Oracle-databas va
 }
 ```
 
-**Länkad Azure Blob Storage-tjänst**
+**Azure Blob lagringslänkade tjänst**
 
 ```json
 {
@@ -418,9 +418,9 @@ Exemplet kopierar data från en blob till en tabell i en lokal Oracle-databas va
 }
 ```
 
-**Indatauppsättning för Azure-blobb**
+**Azure blob indatauppsättning**
 
-Data hämtas från en ny BLOB varje timme (**frekvens**: **timme**, **intervall**: **1**). Mappsökvägen och fil namnet för blobben utvärderas dynamiskt baserat på Start tiden för den sektor som bearbetas. Mappsökvägen använder året, månaden och dag delen av start tiden. Fil namnet använder Tim delen av start tiden. Inställningen **external**: **True** informerar Data Factory tjänsten som den här tabellen är extern för data fabriken och produceras inte av en aktivitet i data fabriken.
+Data hämtas från en ny blob varje timme **(frekvens:** **timme,** **intervall:** **1**). Mappsökvägen och filnamnet för blobben utvärderas dynamiskt baserat på starttiden för det segment som bearbetas. Mappsökvägen använder års-, månads- och dagdelen av starttiden. Filnamnet använder timdelen av starttiden. Inställningen **extern**: **true** informerar datafabrikstjänsten om att den här tabellen är extern till datafabriken och inte produceras av en aktivitet i datafabriken.
 
 ```json
 {
@@ -478,9 +478,9 @@ Data hämtas från en ny BLOB varje timme (**frekvens**: **timme**, **intervall*
 }
 ```
 
-**Data uppsättning för Oracle-utdata**
+**Oracle-utdatauppsättning**
 
-Exemplet förutsätter att du har skapat en tabell med namnet min **tabell** i Oracle. Skapa tabellen i Oracle med samma antal kolumner som du förväntar sig att BLOB CSV-filen ska innehålla. Nya rader läggs till i tabellen varje timme.
+Exemplet förutsätter att du har skapat en tabell med namnet **MyTable** i Oracle. Skapa tabellen i Oracle med samma antal kolumner som du förväntar dig att BLOB CSV-filen ska innehålla. Nya rader läggs till i tabellen varje timme.
 
 ```json
 {
@@ -499,9 +499,9 @@ Exemplet förutsätter att du har skapat en tabell med namnet min **tabell** i O
 }
 ```
 
-**Pipeline med en kopierings aktivitet**
+**Pipeline med en kopieringsaktivitet**
 
-Pipelinen innehåller en kopierings aktivitet som har kon figurer ATS för att använda data uppsättningar för indata och utdata och som är schemalagda att köras varje timme. I JSON-definitionen för pipelinen är **käll** typen inställt på **BlobSource** och **mottagar** typen är inställd på **OracleSink**.
+Pipelinen innehåller en kopieringsaktivitet som är konfigurerad för att använda in- och utdatauppsättningar och som är schemalagda att köras varje timme. I JSON-definitionen för pipelinen är **källtypen** inställd på **BlobSource** och **sink-typen** är inställd på **OracleSink**.
 
 ```json
 {
@@ -552,85 +552,85 @@ Pipelinen innehåller en kopierings aktivitet som har kon figurer ATS för att a
 
 ## <a name="troubleshooting-tips"></a>Felsökningstips
 
-### <a name="problem-1-net-framework-data-provider"></a>Problem 1: .NET Framework data leverantör
+### <a name="problem-1-net-framework-data-provider"></a>Problem 1: .NET Framework-dataprovider
 
-**Fel meddelande**
+**Felmeddelande**
 
     Copy activity met invalid parameters: 'UnknownParameterName', Detailed message: Unable to find the requested .NET Framework Data Provider. It may not be installed.
 
 **Möjliga orsaker**
 
-* .NET Framework Data Provider för Oracle har inte installerats.
-* .NET Framework Data Provider för Oracle installerades på .NET Framework 2,0 och finns inte i .NET Framework 4,0-mapparna.
+* .NET Framework Data Provider för Oracle installerades inte.
+* .NET Framework Data Provider för Oracle installerades i .NET Framework 2.0 och finns inte i .NET Framework 4.0-mapparna.
 
 **Upplösning**
 
-* Om du inte har installerat .NET-providern för Oracle [installerar du den](https://www.oracle.com/technetwork/topics/dotnet/downloads/)och försöker sedan igen.
-* Om du ser fel meddelandet även efter att du har installerat providern utför du följande steg:
-    1. Öppna dator konfigurations filen för .NET 2,0 från mappen < system disk\>: \Windows\Microsoft.NET\Framework64\v2.0.50727\CONFIG\machine.config.
-    2. Sök efter **Oracle Data Provider för .net**. Du bör kunna hitta en post som visas i följande exempel under **system. data** > **DbProviderFactories**: `<add name="Oracle Data Provider for .NET" invariant="Oracle.DataAccess.Client" description="Oracle Data Provider for .NET" type="Oracle.DataAccess.Client.OracleClientFactory, Oracle.DataAccess, Version=2.112.3.0, Culture=neutral, PublicKeyToken=89b483f429c47342" />`
-* Kopiera den här posten till Machine. config-filen i följande .NET 4,0-mapp: < system disk\>: \Windows\Microsoft.NET\Framework64\v4.0.30319\Config\machine.config. Ändra sedan versionen till 4. xxx. x.x.
-* Installera < ODP. NET Installed path\>\ 11.2.0 \ client_1 \odp.net\bin\4\Oracle.DataAccess.dll i GAC (Global Assembly Cache) genom att köra **Gacutil/i [Provider-sökväg]** .
+* Om du inte har installerat .NET Provider för Oracle [installerar du den](https://www.oracle.com/technetwork/topics/dotnet/downloads/)och försöker sedan igen scenariot.
+* Om felmeddelandet visas även efter installation av leverantören gör du följande:
+    1. Öppna datorns konfigurationsfil för .NET 2.0 från mappen\><systemdisken :\Windows\Microsoft.NET\Framework64\v2.0.50727\CONFIG\machine.config.
+    2. Sök efter **Oracle-dataleverantör för .NET**. Du bör kunna hitta en post som visas i följande exempel under **system.data** > **DbProviderFactories:**`<add name="Oracle Data Provider for .NET" invariant="Oracle.DataAccess.Client" description="Oracle Data Provider for .NET" type="Oracle.DataAccess.Client.OracleClientFactory, Oracle.DataAccess, Version=2.112.3.0, Culture=neutral, PublicKeyToken=89b483f429c47342" />`
+* Kopiera den här posten till filen machine.config i följande .NET 4.0-mapp: <systemdisken\>:\Windows\Microsoft.NET\Framework64\v4.0.30319\Config\machine.config. Ändra sedan versionen till 4.xxx.x.x.
+* Installera <ODP.NET installerad sökväg\>\11.2.0\client_1\odp.net\bin\4\Oracle.DataAccess.dll i den globala sammansättningscachen (GAC) genom att köra **gacutil /i [provider path]**.
 
-### <a name="problem-2-datetime-formatting"></a>Problem 2: formatering av datum/tid
+### <a name="problem-2-datetime-formatting"></a>Problem 2: Datum-/tidsformatering
 
-**Fel meddelande**
+**Felmeddelande**
 
     Message=Operation failed in Oracle Database with the following error: 'ORA-01861: literal does not match format string'.,Source=,''Type=Oracle.DataAccess.Client.OracleException,Message=ORA-01861: literal does not match format string,Source=Oracle Data Provider for .NET,'.
 
 **Upplösning**
 
-Du kan behöva justera frågesträngen i kopierings aktiviteten baserat på hur datum har kon figurer ATS i Oracle-databasen. Här är ett exempel (med hjälp av funktionen **to_date** ):
+Du kan behöva justera frågesträngen i kopieringsaktiviteten baserat på hur datum konfigureras i Oracle-databasen. Här är ett exempel (med **funktionen to_date):**
 
     "oracleReaderQuery": "$$Text.Format('select * from MyTable where timestampcolumn >= to_date(\\'{0:MM-dd-yyyy HH:mm}\\',\\'MM/DD/YYYY HH24:MI\\') AND timestampcolumn < to_date(\\'{1:MM-dd-yyyy HH:mm}\\',\\'MM/DD/YYYY HH24:MI\\') ', WindowStart, WindowEnd)"
 
 
-## <a name="type-mapping-for-oracle"></a>Typ mappning för Oracle
+## <a name="type-mapping-for-oracle"></a>Typmappning för Oracle
 
-Som nämnts i [data förflyttnings aktiviteter](data-factory-data-movement-activities.md)utför kopierings aktiviteten automatiska typ konverteringar från käll typer till mottagar typer med hjälp av följande två stegs metod:
+Som nämnts i [Dataförflyttningsaktiviteter](data-factory-data-movement-activities.md)utför Kopiera aktivitet automatiska typkonverteringar från källtyper till sinktyper med hjälp av följande tvåstegsmetod:
 
-1. Konvertera från interna käll typer till .NET-typen.
-2. Konvertera från .NET-typen till den interna mottagar typen.
+1. Konvertera från ursprungliga källtyper till TYPEN .NET.
+2. Konvertera från TYPEN .NET till den ursprungliga sink-typen.
 
-När du flyttar data från Oracle används följande mappningar från data typen Oracle till .NET-typen och vice versa:
+När du flyttar data från Oracle används följande mappningar från Oracle-datatypen till TYPEN .NET och vice versa:
 
-| Oracle-datatyp | .NET Framework data typ |
+| Oracle-datatyp | .NET Framework-datatyp |
 | --- | --- |
-| BFILE |Byte[] |
-| BLOB |Byte[]<br/>(stöds endast på Oracle 10g och senare versioner när du använder en Microsoft-drivrutin) |
+| BFILE (BFILE) |Byte[] |
+| Blob |Byte[]<br/>(stöds endast på Oracle 10g och senare versioner när du använder en Microsoft-drivrutin) |
 | CHAR |String |
-| CLOB |String |
+| Clob |String |
 | DATE |DateTime |
-| FLOAT |Decimal, String (om precision > 28) |
-| INTEGER |Decimal, String (om precision > 28) |
+| Flyta |Decimal, Sträng (om precision > 28) |
+| INTEGER |Decimal, Sträng (om precision > 28) |
 | INTERVALL ÅR TILL MÅNAD |Int32 |
-| INTERVALL, DAG TILL SEKUND |TimeSpan |
-| SOM |String |
-| LONG RAW |Byte[] |
-| NCHAR |String |
-| NCLOB |String |
-| MÅNGA |Decimal, String (om precision > 28) |
-| NVARCHAR2 |String |
-| RAW |Byte[] |
-| ROWID |String |
+| INTERVALL DAG TILL SEKUND |TimeSpan |
+| Lång |String |
+| LÅNG RÅ |Byte[] |
+| Nchar |String |
+| NCLOB (på andra sätt) |String |
+| Nummer |Decimal, Sträng (om precision > 28) |
+| NVARCHAR2 (olika) |String |
+| Raw |Byte[] |
+| ROWID (RADID) |String |
 | TIMESTAMP |DateTime |
-| TIMESTAMP WITH LOCAL TIME ZONE |DateTime |
-| TIMESTAMP WITH TIME ZONE |DateTime |
-| UNSIGNED INTEGER |Tal |
-| VARCHAR2 |String |
-| FIL |String |
+| TIDSSTÄMPEL MED LOKAL TIDSZON |DateTime |
+| TIDSSTÄMPEL MED TIDSZON |DateTime |
+| OSIGNERAT HELTAL |Tal |
+| VARCHAR2 (OLIKA) |String |
+| XML |String |
 
 > [!NOTE]
-> Data typerna **Interval år till månad** och **intervall dag till sekund** stöds inte när du använder en Microsoft-drivrutin.
+> Datatyper **INTERVALL ÅR TILL MÅNAD** OCH INTERVALL DAG TILL **SEKUND** stöds inte när du använder en Microsoft-drivrutin.
 
-## <a name="map-source-to-sink-columns"></a>Mappa källa till mottagar kolumner
+## <a name="map-source-to-sink-columns"></a>Kartkälla för att sänka kolumner
 
-Mer information om att mappa kolumner i käll data uppsättningen till kolumner i mottagar data uppsättningen finns i avsnittet [mappa data uppsättnings kolumner i Data Factory](data-factory-map-columns.md).
+Mer information om hur du mappar kolumner i källdatauppsättningen till kolumner i sink-datauppsättningen finns [i Mappa datauppsättningskolumner i Data Factory](data-factory-map-columns.md).
 
-## <a name="repeatable-read-from-relational-sources"></a>Repeterbar läsning från Relations källor
+## <a name="repeatable-read-from-relational-sources"></a>Repeterbar läsning från relationskällor
 
-När du kopierar data från Relations data lager bör du ha repeterbarhet i åtanke för att undvika oönskade resultat. I Azure Data Factory kan du köra om en sektor manuellt. Du kan också konfigurera en princip för återförsök för en data uppsättning så att en sektor körs igen när ett fel uppstår. När en sektor kör om, antingen manuellt eller av en princip för återförsök, se till att samma data är läst oavsett hur många gånger en sektor körs. Mer information finns i [repeterbar läsning från Relations källor](data-factory-repeatable-copy.md#repeatable-read-from-relational-sources).
+När du kopierar data från relationsdatalager bör du tänka på repeterbarhet för att undvika oavsiktliga resultat. I Azure Data Factory kan du köra ett segment manuellt. Du kan också konfigurera en återförsöksprincip för en datauppsättning så att ett segment körs igen när ett fel inträffar. När ett segment körs igen, antingen manuellt eller av en återförsöksprincip, kontrollerar du att samma data läss oavsett hur många gånger ett segment körs. Mer information finns i [Repeterbar läsning från relationskällor](data-factory-repeatable-copy.md#repeatable-read-from-relational-sources).
 
 ## <a name="performance-and-tuning"></a>Prestanda- och justering
 
-Se [prestanda-och justerings guiden för kopierings aktivitet](data-factory-copy-activity-performance.md) och lär dig mer om viktiga faktorer som påverkar prestandan för data flytten (kopierings aktivitet) i Azure Data Factory. Du kan också lära dig om olika sätt att optimera det.
+Läs [prestanda- och justeringsguiden för kopieringsaktivitet](data-factory-copy-activity-performance.md) om du vill veta mer om viktiga faktorer som påverkar prestanda för datarörelser (kopieringsaktivitet) i Azure Data Factory. Du kan också lära dig om olika sätt att optimera den.

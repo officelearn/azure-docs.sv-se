@@ -1,6 +1,6 @@
 ---
-title: Azure Event Grid event hubs Händelseschema
-description: Beskriver de egenskaper som har angetts för event hubs händelser med Azure Event Grid
+title: Händelseschema för Azure Event Grid-händelsehubbar
+description: Beskriver de egenskaper som tillhandahålls för händelsehubbar händelser med Azure Event Grid
 services: event-grid
 author: spelluru
 ms.service: event-grid
@@ -8,25 +8,25 @@ ms.topic: reference
 ms.date: 01/17/2019
 ms.author: spelluru
 ms.openlocfilehash: 9c0113687d27bf43375f298057129a5594ec0a06
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60561836"
 ---
-# <a name="azure-event-grid-event-schema-for-event-hubs"></a>Azure Event Grid-Händelseschema för event hubs
+# <a name="azure-event-grid-event-schema-for-event-hubs"></a>Azure Event Grid-händelseschema för händelsehubbar
 
-Den här artikeln innehåller egenskaperna och schemat för event hubs-händelser. En introduktion till Händelsescheman i [Azure Event Grid Händelseschema](event-schema.md).
+Den här artikeln innehåller egenskaper och schema för händelsehubbar händelser.En introduktion till händelsescheman finns i [Azure Event Grid-händelseschema](event-schema.md).
 
-En lista över exempel på skript och självstudier finns i [Händelsehubbar händelsekälla](event-sources.md#event-hubs).
+En lista över exempelskript och självstudier finns i [händelsekällan Event Hubs](event-sources.md#event-hubs).
 
 ### <a name="available-event-types"></a>Tillgängliga händelsetyper
 
-Händelsehubbar genererar den **Microsoft.EventHub.CaptureFileCreated** händelsetyp när en avbildning fil har skapats.
+Event Hubs avger händelsetypen **Microsoft.EventHub.CaptureFileCreated** när en hämtningsfil skapas.
 
-## <a name="example-event"></a>Exempel-händelse
+## <a name="example-event"></a>Exempel händelse
 
-Den här exempelhändelse visar schemat för en aktiveras när en fil lagras i avbildningsfunktionen i event hubs händelse: 
+Den här exempelhändelsen visar schemat för en händelsehubbar som utlöses när hämtningsfunktionen lagrar en fil: 
 
 ```json
 [
@@ -53,37 +53,37 @@ Den här exempelhändelse visar schemat för en aktiveras när en fil lagras i a
 ]
 ```
 
-## <a name="event-properties"></a>Egenskaper för händelse
+## <a name="event-properties"></a>Händelseegenskaper
 
-En händelse har följande översta data:
+En händelse har följande data på den högsta nivån:
 
 | Egenskap | Typ | Beskrivning |
 | -------- | ---- | ----------- |
-| subject | string | Fullständig resurssökväg till händelsekällan. Det här fältet är skrivskyddat. Event Grid ger det här värdet. |
-| subject | string | Publisher-definierade sökvägen till ämne för händelsen. |
-| eventType | string | En av typerna som registrerade händelsen för den här händelsekällan. |
-| eventTime | string | Den tid som händelsen genereras baserat på leverantörens UTC-tid. |
-| id | string | Unik identifierare för händelsen. |
-| data | object | Händelsedata för Event hub. |
-| dataVersion | string | Dataobjektets schemaversion. Utgivaren definierar schemaversion. |
-| metadataVersion | string | Schemaversion för händelsemetadata. Event Grid definierar schemat för de översta egenskaperna. Event Grid ger det här värdet. |
+| ämne | sträng | Fullständig resurssökväg till händelsekällan. Det här fältet kan inte skrivas. Event Grid ger det här värdet. |
+| Ämne | sträng | Utgivardefinierad sökväg till händelseobjektet. |
+| Händelsetyp | sträng | En av de registrerade händelsetyperna för den här händelsekällan. |
+| Händelsetid | sträng | Den tid som händelsen genereras baserat på leverantörens UTC-tid. |
+| id | sträng | Unik identifierare för händelsen. |
+| data | objekt | Händelsehubbhändelsedata. |
+| Dataversion | sträng | Dataobjektets schemaversion. Utgivaren definierar schemaversion. |
+| Metadataversion | sträng | Schemaversionen av händelsens metadata. Event Grid definierar schemat för de översta egenskaperna. Event Grid ger det här värdet. |
 
 Dataobjektet har följande egenskaper:
 
 | Egenskap | Typ | Beskrivning |
 | -------- | ---- | ----------- |
-| fileUrl | string | Sökvägen till filen avbildning. |
-| fileType | string | Filtypen för filen avbildning. |
-| partitionId | string | Shard-ID. |
-| sizeInBytes | heltal | Filstorlek. |
-| eventCount | heltal | Antal händelser i filen. |
+| fileUrl (filUrl) | sträng | Sökvägen till hämtningsfilen. |
+| Filtyp | sträng | Filtypen för hämtningsfilen. |
+| Partitionid | sträng | Fragment-ID: et. |
+| sizeInBytes | heltal | Filstorleken. |
+| eventCount | heltal | Antalet händelser i filen. |
 | firstSequenceNumber | heltal | Det minsta sekvensnumret från kön. |
 | lastSequenceNumber | heltal | Det sista sekvensnumret från kön. |
-| firstEnqueueTime | string | Första gången från kön. |
-| lastEnqueueTime | string | Den senaste gången från kön. |
+| firstEnqueueTime | sträng | Första gången från kön. |
+| lastEnqueueTime | sträng | Sista gången från kön. |
 
 ## <a name="next-steps"></a>Nästa steg
 
-* En introduktion till Azure Event Grid finns i [vad är Event Grid?](overview.md)
-* Läs mer om hur du skapar en Azure Event Grid-prenumeration, [Event Grid prenumerationsschema](subscription-creation-schema.md).
-* Information om att hantera event hubs-händelser finns i [Stream stordata till ett datalager](event-grid-event-hubs-integration.md).
+* En introduktion till Azure Event Grid finns i [Vad är Event Grid?](overview.md)
+* Mer information om hur du skapar en Azure Event Grid-prenumeration finns i [Prenumerationsschema för Event Grid](subscription-creation-schema.md).
+* Information om hur du hanterar händelser i händelsehubbar finns [i Strömma stordata till ett informationslager](event-grid-event-hubs-integration.md).

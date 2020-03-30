@@ -1,7 +1,7 @@
 ---
-title: Initiera klient program för MSAL.NET | Azure
+title: Initiera MSAL.NET klientprogram | Azure
 titleSuffix: Microsoft identity platform
-description: Lär dig mer om att initiera offentliga klient program och konfidentiella klient program med hjälp av Microsoft Authentication Library för .NET (MSAL.NET).
+description: Lär dig mer om att initiera offentliga klient- och konfidentiella klientprogram med hjälp av Microsoft Authentication Library for .NET (MSAL.NET).
 services: active-directory
 author: mmacy
 manager: CelesteDG
@@ -14,41 +14,41 @@ ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.openlocfilehash: 57ce6ab31421cd4016f7e204eeabce82f2f7e6a7
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/08/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77083983"
 ---
-# <a name="initialize-client-applications-using-msalnet"></a>Initiera klient program med MSAL.NET
-I den här artikeln beskrivs hur du initierar offentlig klient och konfidentiella klient program med hjälp av Microsoft Authentication Library för .NET (MSAL.NET).  Läs [översikten](msal-client-applications.md)om du vill veta mer om klient program typer och program konfigurations alternativ.
+# <a name="initialize-client-applications-using-msalnet"></a>Initiera klientprogram med MSAL.NET
+I den här artikeln beskrivs initiering av offentliga klientprogram och konfidentiella klientprogram med hjälp av Microsoft Authentication Library for .NET (MSAL.NET).  Mer information om klientprogramtyper och programkonfigurationsalternativ finns i [översikten](msal-client-applications.md).
 
-Med MSAL.NET 3. x är det rekommenderade sättet att instansiera ett program med hjälp av program byggare: `PublicClientApplicationBuilder` och `ConfidentialClientApplicationBuilder`. De erbjuder en kraftfull mekanism för att konfigurera programmet antingen från koden eller från en konfigurations fil, eller till och med genom att kombinera båda metoderna.
+Med MSAL.NET 3.x är det rekommenderade sättet att instansiera ett program `PublicClientApplicationBuilder` genom `ConfidentialClientApplicationBuilder`att använda programbyggarna: och . De erbjuder en kraftfull mekanism för att konfigurera programmet antingen från koden eller från en konfigurationsfil, eller till och med genom att blanda båda metoderna.
 
-## <a name="prerequisites"></a>Förutsättningar
-Innan du initierar ett program måste du först [registrera det](quickstart-register-app.md) så att din app kan integreras med Microsoft Identity Platform.  Efter registreringen kan du behöva följande information (som du hittar i Azure Portal):
+## <a name="prerequisites"></a>Krav
+Innan du initierar ett program måste du först [registrera det](quickstart-register-app.md) så att din app kan integreras med Microsofts identitetsplattform.  Efter registreringen kan du behöva följande information (som finns i Azure-portalen):
 
 - Klient-ID (en sträng som representerar ett GUID)
-- Identitets leverantörens URL (kallas instansen) och inloggnings gruppen för ditt program. Dessa två parametrar kallas gemensamt för utfärdaren.
-- Klient-ID: t om du skriver ett affärs program enbart för din organisation (även kallat program med en enda klient).
-- Program hemligheten (klientens hemliga sträng) eller certifikat (av typen X509Certificate2) om det är ett konfidentiellt klient program.
-- För webbappar, och ibland för offentliga klient program (särskilt när appen behöver använda en Service Broker), har du också angett redirectUri där identitets leverantören ska kontakta ditt program igen med säkerhetstoken.
+- Identitetsleverantörens URL (namngiven instans) och inloggningsmålgruppen för ditt program. Dessa två parametrar kallas gemensamt myndigheten.
+- Klient-ID om du skriver en branschprogram endast för din organisation (även namnet single-tenant application).
+- Programhemligheten (klienthemlig sträng) eller certifikat (av typen X509Certificate2) om det är en konfidentiell klientapp.
+- För webbappar och ibland för offentliga klientappar (särskilt när appen behöver använda en mäklare) har du också angett omdirigeuri där identitetsleverantören kontaktar tillbaka ditt program med säkerhetstoken.
 
-## <a name="ways-to-initialize-applications"></a>Sätt att initiera program
-Det finns många olika sätt att instansiera klient program.
+## <a name="ways-to-initialize-applications"></a>Olika sätt att initiera program
+Det finns många olika sätt att instansiera klientprogram.
 
-### <a name="initializing-a-public-client-application-from-code"></a>Initiera ett offentligt klient program från kod
+### <a name="initializing-a-public-client-application-from-code"></a>Initiera ett offentligt klientprogram från kod
 
-Följande kod instansierar ett offentligt klient program, inloggnings användare i det Microsoft Azure offentliga molnet, med sina arbets-och skol konton eller deras personliga Microsoft-konton.
+Följande kod instansierar ett offentligt klientprogram, inloggade användare i det offentliga Microsoft Azure-molnet, med deras arbets- och skolkonton eller deras personliga Microsoft-konton.
 
 ```csharp
 IPublicClientApplication app = PublicClientApplicationBuilder.Create(clientId)
     .Build();
 ```
 
-### <a name="initializing-a-confidential-client-application-from-code"></a>Initiera ett konfidentiellt klient program från kod
+### <a name="initializing-a-confidential-client-application-from-code"></a>Initiera ett konfidentiellt klientprogram från kod
 
-På samma sätt instansierar följande kod ett konfidentiellt program (en webbapp som finns på `https://myapp.azurewebsites.net`) som hanterar tokens från användare i det Microsoft Azure offentliga molnet, med sina arbets-och skol konton eller deras personliga Microsoft-konton. Programmet identifieras med identitets leverantören genom att dela en klient hemlighet:
+På samma sätt instansierar följande kod ett konfidentiellt program `https://myapp.azurewebsites.net`(en webbapp som finns på) som hanterar token från användare i det offentliga Microsoft Azure-molnet, med deras arbets- och skolkonton eller deras personliga Microsoft-konton. Programmet identifieras med identitetsprovidern genom att dela en klienthemlighet:
 
 ```csharp
 string redirectUri = "https://myapp.azurewebsites.net";
@@ -58,7 +58,7 @@ IConfidentialClientApplication app = ConfidentialClientApplicationBuilder.Create
     .Build();
 ```
 
-Som du kanske vill, i produktion, i stället för att använda en klient hemlighet, kanske du vill dela med ett certifikat från Azure AD. Koden skulle då vara följande:
+Som du kanske vet kanske du vill dela ett certifikat med Azure AD i produktionen i stället för att använda en klienthemlighet. Koden skulle då vara följande:
 
 ```csharp
 IConfidentialClientApplication app = ConfidentialClientApplicationBuilder.Create(clientId)
@@ -67,9 +67,9 @@ IConfidentialClientApplication app = ConfidentialClientApplicationBuilder.Create
     .Build();
 ```
 
-### <a name="initializing-a-public-client-application-from-configuration-options"></a>Initiera ett offentligt klient program från konfigurations alternativ
+### <a name="initializing-a-public-client-application-from-configuration-options"></a>Initiera ett offentligt klientprogram från konfigurationsalternativ
 
-Följande kod instansierar ett offentligt klient program från ett konfigurations objekt, som kan fyllas i program mässigt eller läses från en konfigurations fil:
+Följande kod instansierar ett offentligt klientprogram från ett konfigurationsobjekt, som kan fyllas i programmässigt eller läsas från en konfigurationsfil:
 
 ```csharp
 PublicClientApplicationOptions options = GetOptions(); // your own method
@@ -77,9 +77,9 @@ IPublicClientApplication app = PublicClientApplicationBuilder.CreateWithApplicat
     .Build();
 ```
 
-### <a name="initializing-a-confidential-client-application-from-configuration-options"></a>Initiera ett konfidentiellt klient program från konfigurations alternativ
+### <a name="initializing-a-confidential-client-application-from-configuration-options"></a>Initiera ett konfidentiellt klientprogram från konfigurationsalternativ
 
-Samma typ av mönster gäller för konfidentiella klient program. Du kan också lägga till andra parametrar med hjälp av `.WithXXX` modifierare (här ett certifikat).
+Samma typ av mönster gäller för konfidentiella klientprogram. Du kan också lägga `.WithXXX` till andra parametrar med hjälp av modifierare (här ett certifikat).
 
 ```csharp
 ConfidentialClientApplicationOptions options = GetOptions(); // your own method
@@ -88,51 +88,51 @@ IConfidentialClientApplication app = ConfidentialClientApplicationBuilder.Create
     .Build();
 ```
 
-## <a name="builder-modifiers"></a>Builder-modifierare
+## <a name="builder-modifiers"></a>Byggare modifierare
 
-I kodfragmenten med hjälp av program byggare kan ett antal `.With` metoder användas som modifierare (till exempel `.WithCertificate` och `.WithRedirectUri`). 
+I kodavsnitten med hjälp av programbyggare `.With` kan ett antal metoder användas som `.WithCertificate` modifierare (till exempel ). `.WithRedirectUri` 
 
-### <a name="modifiers-common-to-public-and-confidential-client-applications"></a>Ändringar som är gemensamma för offentliga och konfidentiella klient program
+### <a name="modifiers-common-to-public-and-confidential-client-applications"></a>Modifierare som är gemensamma för offentliga och konfidentiella klientprogram
 
-De modifierare som du kan ställa in på en offentlig klient eller en konfidentiell klient Application Builder är:
+De modifierare som du kan ställa in på en offentlig klient eller konfidentiell klientprogrambyggare är:
 
-|Modifieraren | Beskrivning|
+|Modifierare | Beskrivning|
 |--------- | --------- |
-|åsidosättningar för `.WithAuthority()` 7 | Ställer in program standard auktoritet till en Azure AD-auktoritet, med möjligheten att välja Azure-moln, mål grupp, klient organisation (klient-ID eller domän namn) eller tillhandahålla direkt auktoritets-URI: n.|
-|`.WithAdfsAuthority(string)` | Anger att program standard utfärdaren ska vara en ADFS-auktoritet.|
-|`.WithB2CAuthority(string)` | Anger att programmets standard auktoritet ska vara en Azure AD B2C utfärdare.|
-|`.WithClientId(string)` | Åsidosätter klient-ID: t.|
-|`.WithComponent(string)` | Anger namnet på biblioteket med hjälp av MSAL.NET (för telemetri skäl). |
-|`.WithDebugLoggingCallback()` | Om detta anropas anropar programmet `Debug.Write` att du bara aktiverar fel söknings spårning. Se [loggning](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/logging) för mer information.|
-|`.WithExtraQueryParameters(IDictionary<string,string> eqp)` | Ange ytterligare frågeparametrar för program nivån som ska skickas i alla autentiseringsbegäranden. Detta är åsidosättningsbar på varje nivå för token för hämtning (med samma `.WithExtraQueryParameters pattern`).|
-|`.WithHttpClientFactory(IMsalHttpClientFactory httpClientFactory)` | Aktiverar avancerade scenarier som att konfigurera för en HTTP-proxy eller tvinga MSAL att använda en viss HttpClient (till exempel i ASP.NET Core Web Apps/API: er).|
-|`.WithLogging()` | Om det anropas anropar programmet ett återanrop med fel söknings spår. Se [loggning](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/logging) för mer information.|
-|`.WithRedirectUri(string redirectUri)` | Åsidosätter standardvärdet för omdirigerings-URI. Om det gäller offentliga klient program är detta användbart för scenarier som involverar Service Broker.|
+|`.WithAuthority()`7 åsidosättningar | Anger standardbehörigheten för programmet till en Azure AD-myndighet, med möjlighet att välja Azure Cloud, målgruppen, klienten (klient-ID eller domännamn) eller direkt tillhandahålla uri-myndigheten.|
+|`.WithAdfsAuthority(string)` | Anger att standardmyndigheten för programmet ska vara ADFS-behörighet.|
+|`.WithB2CAuthority(string)` | Anger att programstandardutfärdaren ska vara en Azure AD B2C-behörighet.|
+|`.WithClientId(string)` | Åsidosätter klient-ID.|
+|`.WithComponent(string)` | Anger namnet på biblioteket med MSAL.NET (av telemetriskäl). |
+|`.WithDebugLoggingCallback()` | Om det anropas `Debug.Write` anropas anropar programmet helt enkelt aktivera felsökningsspårningar. Se [Loggning](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/logging) för mer information.|
+|`.WithExtraQueryParameters(IDictionary<string,string> eqp)` | Ange extra frågeparametrar på programnivå som ska skickas i all autentiseringsbegäran. Detta är åsidosättbart på varje token förvärvsmetod `.WithExtraQueryParameters pattern`nivå (med samma ).|
+|`.WithHttpClientFactory(IMsalHttpClientFactory httpClientFactory)` | Aktiverar avancerade scenarier som att konfigurera för en HTTP-proxy eller tvinga MSAL att använda en viss HttpClient (till exempel i ASP.NET Core-webbappar/API:er).|
+|`.WithLogging()` | Om det anropas anropar programmet en motringning med felsökningsspårningar. Se [Loggning](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/logging) för mer information.|
+|`.WithRedirectUri(string redirectUri)` | Åsidosätter standardomdirigerings-URI:n. När det gäller offentliga klientprogram kommer detta att vara användbart för scenarier som involverar mäklaren.|
 |`.WithTelemetry(TelemetryCallback telemetryCallback)` | Anger det ombud som används för att skicka telemetri.|
-|`.WithTenantId(string tenantId)` | Åsidosätter klient-ID eller klient beskrivning.|
+|`.WithTenantId(string tenantId)` | Åsidosätter klient-ID:t eller klientbeskrivningen.|
 
-### <a name="modifiers-specific-to-xamarinios-applications"></a>Modifierare som är speciell för Xamarin. iOS-program
+### <a name="modifiers-specific-to-xamarinios-applications"></a>Modifierare som är specifika för Xamarin.iOS-program
 
-De modifierare som du kan ställa in i en offentlig klient programs Builder på Xamarin. iOS är:
+De modifierare som du kan ställa in på en offentlig klientprogrambyggare på Xamarin.iOS är:
 
-|Modifieraren | Beskrivning|
+|Modifierare | Beskrivning|
 |--------- | --------- |
-|`.WithIosKeychainSecurityGroup()` | **Xamarin. iOS**: anger säkerhets gruppen för iOS-nyckelpar (för cacheminnet).|
+|`.WithIosKeychainSecurityGroup()` | **Endast Xamarin.iOS**: Ställer in säkerhetsgruppen för iOS-nyckelring (för cachebeständighet).|
 
-### <a name="modifiers-specific-to-confidential-client-applications"></a>Modifierare som är speciella för konfidentiella klient program
+### <a name="modifiers-specific-to-confidential-client-applications"></a>Modifierare som är specifika för konfidentiella klientprogram
 
-De modifierare som du kan ställa in i ett konfidentiellt klient program verktyg är:
+De modifierare som du kan ställa in på en konfidentiell klientprogrambyggare är:
 
-|Modifieraren | Beskrivning|
+|Modifierare | Beskrivning|
 |--------- | --------- |
-|`.WithCertificate(X509Certificate2 certificate)` | Anger det certifikat som identifierar programmet med Azure AD.|
-|`.WithClientSecret(string clientSecret)` | Anger klient hemligheten (app Password) som identifierar programmet med Azure AD.|
+|`.WithCertificate(X509Certificate2 certificate)` | Anger certifikatet som identifierar programmet med Azure AD.|
+|`.WithClientSecret(string clientSecret)` | Anger klienthemligheten (applösenord) som identifierar programmet med Azure AD.|
 
-Dessa modifierare kan inte anges samtidigt. Om du anger båda kommer MSAL att utlösa ett meningsfullt undantag.
+Dessa modifierare utesluter varandra. Om du tillhandahåller båda, kommer MSAL kasta ett meningsfullt undantag.
 
 ### <a name="example-of-usage-of-modifiers"></a>Exempel på användning av modifierare
 
-Vi antar att ditt program är ett affärs program som endast gäller för din organisation.  Sedan kan du skriva:
+Anta att ditt program är ett affärsprogram som bara är för din organisation.  Då kan du skriva:
 
 ```csharp
 IPublicClientApplication app;
@@ -141,7 +141,7 @@ app = PublicClientApplicationBuilder.Create(clientId)
         .Build();
 ```
 
-Var den blir intressant är att programmering för nationella moln nu har förenklats. Om du vill att programmet ska vara ett program med flera klienter i ett nationellt moln kan du skriva, till exempel:
+Där det blir intressant är att programmeringen för nationella moln nu har förenklats. Om du vill att ditt program ska vara ett program med flera innehavare i ett nationellt moln kan du skriva, till exempel:
 
 ```csharp
 IPublicClientApplication app;
@@ -150,7 +150,7 @@ app = PublicClientApplicationBuilder.Create(clientId)
         .Build();
 ```
 
-Det finns också en åsidosättning för ADFS (ADFS 2019 stöds inte för närvarande):
+Det finns också en åsidosättning för ADFS (ADFS 2019 stöds för närvarande inte):
 ```csharp
 IPublicClientApplication app;
 app = PublicClientApplicationBuilder.Create(clientId)
@@ -158,7 +158,7 @@ app = PublicClientApplicationBuilder.Create(clientId)
         .Build();
 ```
 
-Slutligen, om du är Azure AD B2C utvecklare, kan du ange din klient organisation så här:
+Slutligen, om du är en Azure AD B2C-utvecklare, kan du ange din klient organisation så här:
 
 ```csharp
 IPublicClientApplication app;

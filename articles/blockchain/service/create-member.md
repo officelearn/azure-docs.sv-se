@@ -1,64 +1,64 @@
 ---
-title: Skapa en Azure blockchain service-medlem – Azure Portal
-description: Skapa en Azure blockchain service-medlem för ett blockchain-konsortium med hjälp av Azure Portal.
+title: Skapa en Azure Blockchain-tjänstmedlem - Azure-portal
+description: Skapa en Azure Blockchain Service-medlem för ett blockchain-konsortium med Hjälp av Azure-portalen.
 ms.date: 03/12/2020
 ms.topic: quickstart
 ms.reviewer: ravastra
 ms.openlocfilehash: 3c468633a193d78fb1c017a756ee372c6feefb12
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "79203669"
 ---
-# <a name="quickstart-create-an-azure-blockchain-service-blockchain-member-using-the-azure-portal"></a>Snabb start: skapa en Azure blockchain-tjänst blockchain-medlem med hjälp av Azure Portal
+# <a name="quickstart-create-an-azure-blockchain-service-blockchain-member-using-the-azure-portal"></a>Snabbstart: Skapa en Blockchain-tjänstmedlem för Azure Blockchain-tjänst med Azure-portalen
 
-I den här snabb starten distribuerar du en ny blockchain-medlem och konsortiet i Azure blockchain-tjänsten med hjälp av Azure Portal.
+I den här snabbstarten distribuerar du en ny blockchain-medlem och konsortium i Azure Blockchain Service med Azure-portalen.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="create-a-blockchain-member"></a>Skapa en blockchain-medlem
 
-En Azure blockchain-tjänst medlem är en blockchain-nod i ett privat konsortium blockchain-nätverk. När du konfigurerar en medlem kan du skapa eller ansluta till ett konsortiums nätverk. Du behöver minst en medlem för ett konsortiums nätverk. Antalet blockchain-medlemmar som krävs av deltagarna beror på ditt scenario. Konsortiet deltagare kan ha en eller flera blockchain-medlemmar eller de kan dela medlemmar med andra deltagare. Mer information om konsortier finns i [Azure blockchain service Consortium](consortium.md).
+En Azure Blockchain Service-medlem är en blockchain-nod i ett privat konsortium blockchain-nätverk. När du etablerar en medlem kan du skapa eller gå med i ett konsortiumnätverk. Du behöver minst en medlem för ett konsortiumnätverk. Antalet blockchain-medlemmar som deltagarna behöver beror på ditt scenario. Konsortiedeltagare kan ha en eller flera blockchain-medlemmar eller så kan de dela medlemmar med andra deltagare. Mer information om konsortier finns i [Azure Blockchain Service consortium](consortium.md).
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
+1. Logga in på [Azure-portalen](https://portal.azure.com).
 1. Klicka på **Skapa en resurs** längst upp till vänster i Azure-portalen.
-1. Välj **Blockchain** > **Azure blockchain service (för hands version)** .
+1. Välj **Blockchain** > **Azure Blockchain Service (förhandsversion)**.
 
     ![Skapa tjänst](./media/create-member/create-member.png)
 
     Inställning | Beskrivning
     --------|------------
     Prenumeration | Välj den Azure-prenumeration som du vill använda för din tjänst. Om du har flera prenumerationer väljer du den prenumeration som resursen ska debiteras till.
-    Resursgrupp | Skapa ett nytt resurs grupp namn eller Välj en befintlig från din prenumeration.
-    Region | Välj en region för att skapa medlemmen. Alla medlemmar i konsortiet måste finnas på samma plats.
-    Protokoll | För närvarande stöder för hands versionen av Azure blockchain service protokollet kvorum.
-    Konsortium | Ange ett unikt namn för ett nytt konsortium. Om du ansluter till ett konsortium via en inbjudan väljer du det konsortium som du ansluter till. Mer information om konsortier finns i [Azure blockchain service Consortium](consortium.md).
-    Namn | Välj ett unikt namn för Azure blockchain service-medlemmen. Blockchain-medlems namnet får bara innehålla gemena bokstäver och siffror. Det första tecknet måste vara en bokstav. Värdet måste vara mellan 2 och 20 tecken långt.
-    Konto lösen ord för medlem | Medlems kontots lösen ord används för att kryptera den privata nyckeln för det Ethereum-konto som skapas för din medlem. Du använder medlems kontot och medlems kontots lösen ord för hantering av konsortier.
-    Priser | Nodens konfiguration och kostnad för den nya tjänsten. Välj länken **ändra** om du vill välja mellan nivåerna **standard** och **Basic** . Använd *Basic* -nivån för utveckling, testning och bevis på koncept. Använd *standard* nivån för distributioner av produktions nivåer.
-    Node-lösenord | Lösen ordet för medlemmens standard transaktions nod. Använd lösen ordet för grundläggande autentisering vid anslutning till blockchain-medlemmens offentliga standard transaktions nod.
+    Resursgrupp | Skapa ett nytt resursgruppsnamn eller välj ett befintligt namn från din prenumeration.
+    Region | Välj en region för att skapa medlemmen. Alla medlemmar i konsortiet måste vara på samma plats.
+    Protokoll | För närvarande stöder Azure Blockchain Service Preview kvorumprotokollet.
+    Konsortium | Ange ett unikt namn för ett nytt konsortium. Om du går med i ett konsortium via en inbjudan väljer du det konsortium du ansluter dig till. Mer information om konsortier finns i [Azure Blockchain Service consortium](consortium.md).
+    Namn | Välj ett unikt namn för Azure Blockchain Service-medlemmen. Blockchain-medlemsnamnet kan bara innehålla gemener och siffror. Det första tecknet måste vara en bokstav. Värdet måste vara mellan 2 och 20 tecken långt.
+    Lösenord för medlemskonto | Medlemskontots lösenord används för att kryptera den privata nyckeln för Ethereum-kontot som skapas för din medlem. Du använder medlemskontot och medlemskontots lösenord för konsortiehantering.
+    Prissättning | Nodkonfigurationen och kostnaden för den nya tjänsten. Välj länken **Ändra** för att välja mellan **standard-** och **basic-nivåer.** Använd *basic-nivån* är för utveckling, testning och bevis på begrepp. Använd *standardnivån* för distributioner av produktionsresultat.
+    Nodlösenord | Lösenordet för medlemmens standardtransaktionsnod. Använd lösenordet för grundläggande autentisering när du ansluter till blockchain-medlemmens offentliga slutpunkt för standardtransaktionsnod.
 
-1. Välj **Granska + skapa** för att validera inställningarna. Välj **skapa** för att etablera tjänsten. Etableringen tar cirka 10 minuter.
-1. Välj **meddelanden** i verktygsfältet för att övervaka distributions processen.
+1. Välj **Granska + skapa** för att validera dina inställningar. Välj **Skapa** för att etablera tjänsten. Etablering tar cirka 10 minuter.
+1. Välj **Meddelanden** i verktygsfältet för att övervaka distributionsprocessen.
 1. Efter distributionen navigerar du till din blockchain-medlem.
 
-Välj **Översikt**. du kan visa grundläggande information om tjänsten inklusive RootContract-adress och medlems konto.
+Välj **Översikt**kan du visa grundläggande information om din tjänst, inklusive RootContract-adressen och medlemskontot.
 
-![Översikt över blockchain-medlem](./media/create-member/overview.png)
+![Översikt över Blockchain-medlemmar](./media/create-member/overview.png)
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Du kan använda den medlem som du skapade för nästa snabb start eller självstudier. När de inte längre behövs kan du ta bort resurserna genom att ta bort `myResourceGroup` resurs grupp som du skapade för snabb starten.
+Du kan använda medlemmen du skapade för nästa snabbstart eller självstudiekurs. När du inte längre behövs kan du `myResourceGroup` ta bort resurserna genom att ta bort resursgruppen som du skapade för snabbstarten.
 
-Ta bort resurs gruppen:
+Så här tar du bort resursgruppen:
 
-1. I Azure Portal navigerar du till **resurs grupp** i det vänstra navigerings fönstret och väljer den resurs grupp som du vill ta bort.
-2. Välj **Ta bort resursgrupp**. Verifiera borttagning genom att ange resurs gruppens namn och välj **ta bort**.
+1. I Azure-portalen navigerar du till **resursgruppen** i det vänstra navigeringsfönstret och väljer den resursgrupp som du vill ta bort.
+2. Välj **Ta bort resursgrupp**. Verifiera borttagning genom att ange resursgruppsnamnet och välj **Ta bort**.
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabb starten har du distribuerat en Azure blockchain service-medlem och ett nytt konsortium. Prova nästa snabb start för att använda Azure blockchain Development Kit för Ethereum för att ansluta till en Azure blockchain-tjänstemedlem.
+I den här snabbstarten har du distribuerat en Azure Blockchain Service-medlem och ett nytt konsortium. Prova nästa snabbstart för att använda Azure Blockchain Development Kit för Ethereum för att ansluta till en Azure Blockchain Service-medlem.
 
 > [!div class="nextstepaction"]
-> [Använd Visual Studio Code för att ansluta till Azure blockchain-tjänsten](connect-vscode.md)
+> [Använda Visual Studio-kod för att ansluta till Azure Blockchain Service](connect-vscode.md)

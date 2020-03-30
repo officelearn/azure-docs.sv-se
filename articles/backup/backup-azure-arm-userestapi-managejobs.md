@@ -1,23 +1,23 @@
 ---
-title: Hantera säkerhets kopierings jobb med REST API
-description: I den här artikeln lär du dig att spåra och hantera säkerhets kopierings-och återställnings jobb för Azure Backup med hjälp av REST API.
+title: Hantera säkerhetskopieringsjobb med REST API
+description: I den här artikeln kan du läsa om hur du spårar och hanterar säkerhetskopiering och återställning av jobb för Azure Backup med REST API.
 ms.topic: conceptual
 ms.date: 08/03/2018
 ms.assetid: b234533e-ac51-4482-9452-d97444f98b38
 ms.openlocfilehash: 628569c547aa776ec2fbb7ec7e32edad7c1fe7dd
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79273532"
 ---
-# <a name="track-backup-and-restore-jobs-using-rest-api"></a>Spåra säkerhets kopierings-och återställnings jobb med REST API
+# <a name="track-backup-and-restore-jobs-using-rest-api"></a>Spåra säkerhetskopierings- och återställningsjobb med REST API
 
-Azure Backup tjänst utlöser jobb som körs i bakgrunden i olika scenarier, till exempel utlöser säkerhets kopiering, återställnings åtgärder, inaktiverar säkerhets kopiering. Dessa jobb kan spåras med hjälp av deras ID.
+Azure Backup-tjänsten utlöser jobb som körs i bakgrunden i olika scenarier, till exempel utlösa säkerhetskopiering, återställningsåtgärder, inaktivera säkerhetskopiering. Dessa jobb kan spåras med hjälp av deras ID.
 
-## <a name="fetch-job-information-from-operations"></a>Hämta jobb information från åtgärder
+## <a name="fetch-job-information-from-operations"></a>Hämta jobbinformation från åtgärder
 
-En åtgärd som utlöser säkerhets kopiering returnerar alltid en jobID. Exempel: det slutliga svaret från en [Utlös ande säkerhets kopiering REST API åtgärd](backup-azure-arm-userestapi-backupazurevms.md#example-responses-3) är följande:
+En åtgärd som utlöser säkerhetskopiering returnerar alltid ett jobID. Till exempel: Det slutliga svaret för en [återställningsåtgärd för säkerhetskopiering](backup-azure-arm-userestapi-backupazurevms.md#example-responses-3) av säkerhetskopiering är följande:
 
 ```http
 {
@@ -33,7 +33,7 @@ En åtgärd som utlöser säkerhets kopiering returnerar alltid en jobID. Exempe
 }
 ```
 
-Jobbet för säkerhets kopiering av virtuella Azure-datorer identifieras av "jobId"-fältet och kan spåras på det sätt som anges [här](https://docs.microsoft.com/rest/api/backup/jobdetails/) med en enkel *Get* -begäran.
+Azure VM-säkerhetskopieringsjobbet identifieras av fältet "jobId" och kan spåras som nämnts [här](https://docs.microsoft.com/rest/api/backup/jobdetails/) med en enkel *GET-begäran.*
 
 ## <a name="tracking-the-job"></a>Spåra jobbet
 
@@ -41,17 +41,17 @@ Jobbet för säkerhets kopiering av virtuella Azure-datorer identifieras av "job
 GET https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupJobs/{jobName}?api-version=2019-05-13
 ```
 
-`{jobName}` är "jobId" som nämnts ovan. Svaret är alltid 200 OK med fältet status och indikerar jobbets aktuella status. När det är "slutfört" eller "CompletedWithWarnings" visar avsnittet "extendedInfo" Mer information om jobbet.
+Den `{jobName}` är "jobId" som nämns ovan. Svaret är alltid 200 OK med fältet "status" som anger jobbets aktuella status. När det är "Completed" eller "CompletedWithWarnings" visar avsnittet extendedInfo mer information om jobbet.
 
 ### <a name="response"></a>Svar
 
 |Namn  |Typ  |Beskrivning  |
 |---------|---------|---------|
-|200 OK     | [JobResource](https://docs.microsoft.com/rest/api/backup/jobdetails/get#jobresource)        | OK        |
+|200 OK     | [JobbKälla](https://docs.microsoft.com/rest/api/backup/jobdetails/get#jobresource)        | OK        |
 
 #### <a name="example-response"></a>Exempelsvar
 
-När *hämtnings* -URI: n har skickats returneras ett 200-svar (OK).
+När *GET* URI har skickats returneras ett 200 (OK) svar.
 
 ```http
 HTTP/1.1 200 OK

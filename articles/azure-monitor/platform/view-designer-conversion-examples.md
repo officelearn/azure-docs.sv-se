@@ -1,5 +1,5 @@
 ---
-title: Exempel på konverterings exempel för visning av designer till arbets böcker Azure Monitor
+title: Azure Monitor-vydesigner till arbetsböcker konverteringsexempel
 description: ''
 author: austonli
 ms.author: aul
@@ -7,21 +7,21 @@ ms.subservice: ''
 ms.topic: conceptual
 ms.date: 02/07/2020
 ms.openlocfilehash: b50d8cfa4731c487997e2bf431a9c71eff08f5d1
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79274169"
 ---
-# <a name="view-designer-conversion-examples"></a>Visa konverterings exempel för designer
+# <a name="view-designer-conversion-examples"></a>Visa exempel på konvertering av designer
 
-Kopiera och klistra in följande kod i avancerad redigerare för att replikera vyn designer i vyn designer, som betecknas med symbolen </> i verktygsfältet
+Om du vill replikera vydesignerns arbetsyta kopierar och klistrar du in följande kod i den avancerade redigeraren, som betecknas med symbolen </> i verktygsfältet
 
-![Avancerad redigerare verktygsfält](media/view-designer-conversion-examples/toolbar.png)
+![Verktygsfältet Avancerad redigerare](media/view-designer-conversion-examples/toolbar.png)
 
 Användare kan behöva uppdatera sina frågeinställningar och prenumerationer till sina egna tillgängliga resurser
 
-## <a name="vertical"></a>Stående
+## <a name="vertical"></a>Lodrät
 
 ```Json
 {
@@ -337,7 +337,7 @@ Användare kan behöva uppdatera sina frågeinställningar och prenumerationer t
 }
 ```
 
-## <a name="tabbed"></a>Tabbade 
+## <a name="tabbed"></a>Flikar 
 
 ```Json
 {

@@ -1,6 +1,6 @@
 ---
-title: Felsöka lokalt Azure AD-lösenord för lösen ords skydd
-description: Lär dig hur du felsöker Azure AD Password Protection för en lokal Active Directory Domain Services miljö
+title: Felsöka lokalt azure AD-lösenordsskydd
+description: Lär dig hur du felsöker Azure AD-lösenordsskydd för en lokal Active Directory Domain Services-miljö
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
@@ -12,91 +12,91 @@ manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 79ebf543a3880a4f2c8ee8c0d706c268ef3f08d2
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79263652"
 ---
-# <a name="troubleshoot-on-premises-azure-ad-password-protection"></a>Felsöka: lokalt Azure AD-lösenord
+# <a name="troubleshoot-on-premises-azure-ad-password-protection"></a>Felsöka: Lokalt Azure AD-lösenordsskydd
 
-Efter distributionen av lösen ords skydd i Azure AD kan det krävas fel sökning. Den här artikeln beskriver hur du kan förstå några vanliga fel söknings steg.
+Efter distributionen av Azure AD Password Protection kan felsökning krävas. Den här artikeln innehåller detaljerad information som hjälper dig att förstå några vanliga felsökningssteg.
 
 ## <a name="the-dc-agent-cannot-locate-a-proxy-in-the-directory"></a>DC-agenten kan inte hitta en proxy i katalogen
 
-Huvud symptomet för det här problemet är 30017 händelser i händelse loggen för DC-agenten.
+Det största symptomet på det här problemet är 30017-händelser i dc-agenten Admin händelselogg.
 
-Den vanligaste orsaken till det här problemet är att en proxy ännu inte har registrerats. Om en proxy har registrerats kan det uppstå en fördröjning på grund av svars tiden för AD-replikering tills en viss DC-agent kan se den proxyservern.
+Den vanliga orsaken till problemet är att en proxy ännu inte har registrerats. Om en proxy har registrerats kan det uppstå vissa fördröjningar på grund av AD-replikeringsfördröjning tills en viss DC-agent kan se proxyn.
 
 ## <a name="the-dc-agent-is-not-able-to-communicate-with-a-proxy"></a>DC-agenten kan inte kommunicera med en proxy
 
-Huvud symptomet för det här problemet är 30018 händelser i händelse loggen för DC-agenten. Det här problemet kan ha flera möjliga orsaker:
+Det största symptomet på det här problemet är 30018 händelser i DC agent Admin händelselogg. Det här problemet kan ha flera möjliga orsaker:
 
-1. DC-agenten finns i en isolerad del av nätverket som inte tillåter nätverks anslutning till den eller de registrerade proxyservrarna. Det här problemet kan vara ofarligt så länge andra DC-agenter kan kommunicera med proxyn eller proxyservrarna för att ladda ned lösen ords principer från Azure. När de har hämtats kommer de principerna att erhållas av den isolerade DOMÄNKONTROLLANTen via replikering av principfiler i Sysvol-resursen.
+1. DC-agenten finns i en isolerad del av nätverket som inte tillåter nätverksanslutning till de registrerade proxyerna. Det här problemet kan vara godartade så länge andra DC-agenter kan kommunicera med proxyn(er) för att hämta lösenordsprinciper från Azure. När dessa principer har hämtats kommer de att erhållas av den isolerade domänkontrollanten via replikering av principfilerna i sysvol-resursen.
 
-1. Proxyservern blockerar åtkomst till slut punkten för RPC-slutpunktsmapparen (port 135)
+1. Proxyvärdens dator blockerar åtkomsten till slutpunktsmappningsslutpunkten för RPC (port 135)
 
-   Installations programmet för Azure AD Password Protection skapar automatiskt en regel för inkommande Windows-brandvägg som ger åtkomst till port 135. Om den här regeln senare tas bort eller inaktive ras kan inte DC-agenter kommunicera med proxyservern. Om den inbyggda Windows-brandväggen har inaktiverats i stället för en annan brand Väggs produkt måste du konfigurera brand väggen så att den tillåter åtkomst till port 135.
+   Azure AD Password Protection Proxy-installationsprogrammet skapar automatiskt en inbound-regel för Windows-brandväggen som ger åtkomst till port 135. Om den här regeln senare tas bort eller inaktiveras kan DC-agenter inte kommunicera med proxytjänsten. Om den inbyggda Windows-brandväggen har inaktiverats i stället för en annan brandväggsprodukt måste du konfigurera brandväggen så att den tillåter åtkomst till port 135.
 
-1. Proxyservern blockerar åtkomst till RPC-slutpunkten (dynamisk eller statisk) som lyssnar på av proxyservern
+1. Proxyvärdens dator blockerar åtkomsten till RPC-slutpunkten (dynamisk eller statisk) som proxytjänsten lyssnar på
 
-   Installations programmet för Azure AD Password Protection skapar automatiskt en regel för inkommande Windows-brandvägg som ger åtkomst till alla inkommande portar som har avlyssnats av proxyn för Azure AD Password Protection. Om den här regeln senare tas bort eller inaktive ras kan inte DC-agenter kommunicera med proxyservern. Om den inbyggda Windows-brandväggen har inaktiverats i stället för en annan brand Väggs produkt måste du konfigurera brand väggen så att den tillåter åtkomst till alla inkommande portar som är lyssnade på Azure AD Password Protection proxy-tjänsten. Den här konfigurationen kan göras mer detaljerad om proxy-tjänsten har kon figurer ATS för att lyssna på en angiven statisk RPC-port (med hjälp av `Set-AzureADPasswordProtectionProxyConfiguration`-cmdleten).
+   Azure AD Password Protection Proxy-installationsprogrammet skapar automatiskt en inbound-regel för Windows-brandväggen som ger åtkomst till alla inkommande portar som lyssnas på av Azure AD Password Protection Proxy-tjänsten. Om den här regeln senare tas bort eller inaktiveras kan DC-agenter inte kommunicera med proxytjänsten. Om den inbyggda Windows-brandväggen har inaktiverats i stället för en annan brandväggsprodukt måste du konfigurera brandväggen så att den tillåter åtkomst till inkommande portar som lyssnas på av Azure AD Password Protection Proxy-tjänsten. Den här konfigurationen kan göras mer specifik om proxytjänsten har konfigurerats för `Set-AzureADPasswordProtectionProxyConfiguration` att lyssna på en specifik statisk RPC-port (med hjälp av cmdleten).
 
-1. Proxy-datorn är inte konfigurerad för att tillåta att domänkontrollanter loggar in på datorn. Detta beteende styrs via tilldelningen "åtkomst till den här datorn från nätverket". Alla domänkontrollanter i alla domäner i skogen måste tilldelas den här behörigheten. Den här inställningen är ofta begränsad som en del av belastningen på en större nätverks härdning.
+1. Proxyvärden är inte konfigurerad så att domänkontrollanter kan logga in på datorn. Detta styrs via användarbehörighetstilldelningen "Åtkomst till den här datorn från nätverket". Alla domänkontrollanter i alla domäner i skogen måste beviljas det här privilegiet. Den här inställningen är ofta begränsad som en del av en större nätverkshärdningsinsats.
 
-## <a name="proxy-service-is-unable-to-communicate-with-azure"></a>Proxy-tjänsten kan inte kommunicera med Azure
+## <a name="proxy-service-is-unable-to-communicate-with-azure"></a>Proxytjänsten kan inte kommunicera med Azure
 
-1. Se till att proxyservern har anslutning till de slut punkter som anges i [distributions kraven](howto-password-ban-bad-on-premises-deploy.md).
+1. Kontrollera att proxydatorn har anslutning till slutpunkterna som anges i [distributionskraven](howto-password-ban-bad-on-premises-deploy.md).
 
-1. Se till att skogen och alla proxyservrar är registrerade gentemot samma Azure-klient.
+1. Kontrollera att skogen och alla proxyservrar är registrerade mot samma Azure-klientorganisation.
 
-   Du kan kontrol lera detta krav genom att köra `Get-AzureADPasswordProtectionProxy` och `Get-AzureADPasswordProtectionDCAgent` PowerShell-cmdletar och sedan jämföra `AzureTenant`-egenskapen för varje returnerad artikel. För korrekt åtgärd måste det rapporterade klient namnet vara detsamma för alla DC-agenter och proxyservrar.
+   Du kan kontrollera det `Get-AzureADPasswordProtectionProxy` här `Get-AzureADPasswordProtectionDCAgent` kravet genom att köra cmdlets och PowerShell och sedan jämföra egenskapen `AzureTenant` för varje returnerad artikel. För korrekt åtgärd måste det rapporterade klientnamnet vara detsamma för alla DC-agenter och proxyservrar.
 
-   Om ett matchnings fel för ett Azure-klient registrerings villkor finns, kan det här problemet åtgärdas genom att köra `Register-AzureADPasswordProtectionProxy` och/eller `Register-AzureADPasswordProtectionForest` PowerShell-cmdletar efter behov, och se till att använda autentiseringsuppgifter från samma Azure-klient för alla registreringar.
+   Om det finns ett villkor för registrering av Azure-klientorganisation kan `Register-AzureADPasswordProtectionForest` det här problemet åtgärdas genom att köra cmdlets och/eller `Register-AzureADPasswordProtectionProxy` PowerShell som behövs och se till att använda autentiseringsuppgifter från samma Azure-klient för alla registreringar.
 
-## <a name="dc-agent-is-unable-to-encrypt-or-decrypt-password-policy-files"></a>DC-agenten kan inte kryptera eller dekryptera lösen ords princip filen
+## <a name="dc-agent-is-unable-to-encrypt-or-decrypt-password-policy-files"></a>DC-agenten kan inte kryptera eller dekryptera lösenordsprincipfiler
 
-Azure AD Password Protection är ett kritiskt beroende av de krypterings-och dekrypterings funktioner som tillhandahålls av Microsoft Key Distribution Service. Krypterings-eller dekrypterings fel kan manifesta med en rad olika symtom och ha flera möjliga orsaker.
+Azure AD Password Protection har ett kritiskt beroende av krypterings- och dekrypteringsfunktionen som tillhandahålls av Microsoft Key Distribution Service. Kryptering eller dekrypteringsfel kan manifesteras med en mängd olika symptom och har flera potentiella orsaker.
 
-1. Kontrol lera att KDS-tjänsten är aktive rad och fungerar på alla domänkontrollanter med Windows Server 2012 och senare i en domän.
+1. Kontrollera att KDS-tjänsten är aktiverad och funktionell på alla Windows Server 2012- och senare domänkontrollanter i en domän.
 
-   Som standard är tjänstens start läge för KDS-tjänsten konfigurerad som manuell (utlösare start). Den här konfigurationen innebär att första gången en klient försöker använda tjänsten startas den på begäran. Standard läget för tjänst start är acceptabelt för att Azure AD-lösenord ska fungera.
+   Som standard är KDS-tjänstens tjänststartläge konfigurerat som manuell (triggerstart). Den här konfigurationen innebär att första gången en klient försöker använda tjänsten startas den på begäran. Det här standardstartläget för tjänsten är acceptabelt för Azure AD Password Protection att fungera.
 
-   Om KDS-tjänstens start läge har kon figurer ATS att inaktive ras måste den här konfigurationen åtgärdas innan lösen ords skyddet i Azure AD fungerar korrekt.
+   Om startläget för KDS-tjänsten har konfigurerats till Inaktiverat måste den här konfigurationen åtgärdas innan Azure AD-lösenordsskydd fungerar korrekt.
 
-   Ett enkelt test för det här problemet är att manuellt starta KDS-tjänsten, antingen via MMC-konsolen för service hantering eller med andra hanterings verktyg (t. ex. köra "net start kdssvc" från en kommando tolks konsol). KDS-tjänsten förväntas starta korrekt och fortsätter att köras.
+   Ett enkelt test för det här problemet är att manuellt starta KDS-tjänsten, antingen via MMC-konsolen Service management eller med andra hanteringsverktyg (kör till exempel "net start kdssvc" från en kommandotolkskonsol). KDS-tjänsten förväntas starta och fortsätta att köras.
 
-   Den vanligaste rotor saken som KDS-tjänsten inte kan starta är att objektet Active Directory domänkontrollant finns utanför standarddomänkontrollantens ORGANISATIONSENHET. Den här konfigurationen stöds inte av KDS-tjänsten och är inte en begränsning som angetts av Azure AD Password Protection. Korrigeringen för det här tillståndet är att flytta objektet domänkontrollant till en plats under standarddomänkontrollantens ORGANISATIONSENHET.
+   Den vanligaste grundorsaken till att KDS-tjänsten inte kan starta är att Active Directory-domänkontrollantobjektet finns utanför standardenheten för domänkontrollanter. Den här konfigurationen stöds inte av KDS-tjänsten och är inte en begränsning som införts av Azure AD Password Protection. Korrigeringen för det här villkoret är att flytta domänkontrollantobjektet till en plats under standardenheten för domänkontrollanter.
 
-1. Inkompatibel KDS-krypterad buffertstorlek ändring från Windows Server 2012 R2 till Windows Server 2016
+1. Inkompatibel ändring av KDS-krypterat buffertformat från Windows Server 2012 R2 till Windows Server 2016
 
-   En säkerhets korrigering för KDS introducerades i Windows Server 2016 som ändrar formatet på KDS-krypterade buffertar. Dessa buffertar kan ibland inte dekrypteras på Windows Server 2012 och Windows Server 2012 R2. Den motsatta riktningen är OK-buffertar som är KDS-krypterade på Windows Server 2012 och Windows Server 2012 R2 kommer alltid att kunna dekryptera på Windows Server 2016 och senare. Om domän kontrol Lanterna i Active Directory domäner kör en blandning av dessa operativ system kan tillfälliga Azure AD-dekryptering av lösen ords skydd rapporteras. Det går inte att förutsäga tiden eller symtomen på dessa problem på ett korrekt sätt med hjälp av säkerhets korrigeringens typ, och eftersom den är icke-deterministisk som DC-agenten för lösen ords skydd för Azure AD som domänkontrollanten kommer att kryptera data vid en specifik tidpunkt.
+   En KDS-säkerhetskorrigering introducerades i Windows Server 2016 som ändrar formatet på KDS-krypterade buffertar. Dessa buffertar misslyckas ibland med att dekryptera på Windows Server 2012 och Windows Server 2012 R2. Den omvända riktningen är okej - buffertar som är KDS-krypterade på Windows Server 2012 och Windows Server 2012 R2 kommer alltid att dekryptera på Windows Server 2016 och senare. Om domänkontrollanterna i Active Directory-domänerna kör en blandning av dessa operativsystem kan tillfälliga dekrypteringsfel för Azure AD-lösenordsskydd rapporteras. Det är inte möjligt att exakt förutsäga tidpunkten eller symptomen på dessa fel med tanke på säkerhetskorrigeringens natur, och med tanke på att det inte är deterministiskt vilken Azure AD Password Protection DC Agent som domänkontrollanten krypterar data vid en viss tidpunkt.
 
-   Microsoft undersöker en korrigering för det här problemet, men det finns ingen tillgänglig i ännu. Under tiden finns det ingen lösning på det här problemet än att inte köra en blandning av dessa inkompatibla operativ system i Active Directory-domänerna. Med andra ord bör du bara köra domänkontrollanter som kör Windows Server 2012 och Windows Server 2012 R2, eller så bör du bara köra Windows Server 2016 och senare domänkontrollanter.
+   Microsoft undersöker en korrigering för det här problemet, men ingen ETA är tillgänglig ännu. Under tiden finns det ingen lösning på problemet annat än att inte köra en blandning av dessa inkompatibla operativsystem i Active Directory-domänen(erna). Med andra ord bör du bara köra Windows Server 2012- och Windows Server 2012 R2-domänkontrollanter, ELLER så ska du bara köra Windows Server 2016 och över domänkontrollanter.
 
-## <a name="weak-passwords-are-being-accepted-but-should-not-be"></a>Svaga lösen ord godkänns men bör inte
+## <a name="weak-passwords-are-being-accepted-but-should-not-be"></a>Svaga lösenord accepteras men bör inte
 
 Det här problemet kan ha flera orsaker.
 
-1. DC-agenterna kör en offentlig för hands version av program vara som har upphört att gälla. Se [Public Preview DC Agent-programvaran har upphört att gälla](howto-password-ban-bad-on-premises-troubleshoot.md#public-preview-dc-agent-software-has-expired).
+1. Dc-agenterna kör en offentlig version av förhandsversionen av förhandsversionen som har upphört att gälla. Se [Dc-agentprogramvara för offentlig förhandsgranskning har upphört att gälla](howto-password-ban-bad-on-premises-troubleshoot.md#public-preview-dc-agent-software-has-expired).
 
-1. Det går inte att hämta en princip eller också går det inte att dekryptera befintliga principer. Sök efter möjliga orsaker i ovanstående avsnitt.
+1. Din DC-agent kan inte hämta en princip eller kan inte dekryptera befintliga principer. Kontrollera om det finns några orsaker i ovanstående avsnitt.
 
-1. Lösen ords principen tvinga fram läge är fortfarande inställt på granskning. Om den här konfigurationen är aktive rad konfigurerar du om den så att den tillämpas med hjälp av Azure AD-portalen för lösen ords skydd. Mer information finns i [drifts lägen](howto-password-ban-bad-on-premises-operations.md#modes-of-operation).
+1. Tvingande läge för lösenordsprincipen är fortfarande inställt på Granskning. Om den här konfigurationen är i kraft konfigurerar du om den så att den verkställs med hjälp av portalen för lösenordsskydd i Azure AD. Mer information finns i [Driftsätt](howto-password-ban-bad-on-premises-operations.md#modes-of-operation).
 
-1. Lösen ords principen har inaktiverats. Om den här konfigurationen gäller konfigurerar du om den så att den aktive ras med Azure AD-portalen för lösen ords skydd. Mer information finns i [drifts lägen](howto-password-ban-bad-on-premises-operations.md#modes-of-operation).
+1. Lösenordsprincipen har inaktiverats. Om den här konfigurationen är i kraft konfigurerar du om den så att den aktiveras med hjälp av Portalen för lösenordsskydd i Azure AD. Mer information finns i [Driftsätt](howto-password-ban-bad-on-premises-operations.md#modes-of-operation).
 
-1. Du har inte installerat DC-agentens program vara på alla domänkontrollanter i domänen. I den här situationen är det svårt att se till att fjärranslutna Windows-klienter är riktade mot en viss domänkontrollant under en ändring av lösen ord. Om du tror att du har en viss DOMÄNKONTROLLANT där DC-agenten är installerad, kan du kontrol lera genom att dubbelklicka på händelse loggen för DC-agentens administratör: oavsett resultatet måste det finnas minst en händelse för att dokumentera resultatet av lösen ordet signaturverifiering. Om det inte finns någon händelse för den användare vars lösen ord har ändrats, bearbetades förmodligen lösen ords ändringen av en annan domänkontrollant.
+1. Du har inte installerat DC-agentprogramvaran på alla domänkontrollanter i domänen. I det här fallet är det svårt att se till att fjärrklienter i Windows inriktas på en viss domänkontrollant under en lösenordsändring. Om du tror att du har riktat in dig på en viss domänkontrollant där DC-agentprogramvaran är installerad kan du verifiera genom att dubbelkolla händelseloggen för DC-agentens administratör: oavsett resultatet kommer det att finnas minst en händelse för att dokumentera resultatet av lösenordet Validering. Om det inte finns någon händelse för användaren vars lösenord ändras, bearbetades troligen lösenordsändringen av en annan domänkontrollant.
 
-   Som ett alternativt test kan du testa setting\changing-lösenord när du är inloggad direkt på en DOMÄNKONTROLLANT där DC-agentens program vara är installerad. Den här tekniken rekommenderas inte för produktions Active Directorys domäner.
+   Som ett alternativt test kan du prova att ange\ändra lösenord när du är inloggad direkt i en domänkontroll där DC-agentprogrammet är installerat. Den här tekniken rekommenderas inte för produktion av Active Directory-domäner.
 
-   Även om den stegvisa distributionen av program varan för DC-agenten stöds av dessa begränsningar rekommenderar Microsoft starkt att program varan för DC-agenten är installerad på alla domänkontrollanter i en domän så snart som möjligt.
+   Även om inkrementell distribution av DC-agentprogramvaran stöds med förbehåll för dessa begränsningar, rekommenderar Microsoft starkt att DC-agentprogramvaran installeras på alla domänkontrollanter i en domän så snart som möjligt.
 
-1. Algoritmen för lösen ords verifiering kan faktiskt fungera som förväntat. Se [hur är lösen ord utvärderas](concept-password-ban-bad.md#how-are-passwords-evaluated).
+1. Algoritmen för lösenordsvalidering kan faktiskt fungera som förväntat. Se [Hur utvärderas lösenord](concept-password-ban-bad.md#how-are-passwords-evaluated).
 
-## <a name="ntdsutilexe-fails-to-set-a-weak-dsrm-password"></a>Ntdsutil. exe kan inte ange ett svagt DSRM-lösenord
+## <a name="ntdsutilexe-fails-to-set-a-weak-dsrm-password"></a>Ntdsutil.exe misslyckas med att ställa in ett svagt DSRM-lösenord
 
-Active Directory kommer alltid att verifiera ett nytt lösen ord för katalog tjänstens reparations läge för att säkerställa att det uppfyller domänens krav på lösen ords komplexitet. den här verifieringen anropar även DLL-filer för lösen ords filter som Azure AD Password Protection. Om det nya DSRM-lösenordet nekas visas följande fel meddelande:
+Active Directory validerar alltid ett nytt lösenord för reparationsläge för katalogtjänster för att se till att det uppfyller domänens lösenordskomplexitetskrav. Den här valideringen anropar också lösenordsfilter dlls som Azure AD Password Protection. Om det nya DSRM-lösenordet avvisas visas följande felmeddelande:
 
 ```text
 C:\>ntdsutil.exe
@@ -109,39 +109,39 @@ Setting password failed.
         Error Message: Password doesn't meet the requirements of the filter dll's
 ```
 
-När Azure AD Password Protection loggar inloggnings händelser för lösen ord för ett Active Directory DSRM-lösenord förväntas att händelse logg meddelandena inte ska innehålla något användar namn. Det här problemet beror på att DSRM-kontot är ett lokalt konto som inte ingår i den faktiska Active Directorys domänen.  
+När Azure AD Password Protection loggar händelseloggen för lösenordsverifiering för ett Active Directory DSRM-lösenord förväntas händelseloggmeddelandena inte innehålla ett användarnamn. Detta beror på att DSRM-kontot är ett lokalt konto som inte ingår i den faktiska Active Directory-domänen.  
 
-## <a name="domain-controller-replica-promotion-fails-because-of-a-weak-dsrm-password"></a>Befordran av replik på domänkontrollanten Miss lyckas på grund av ett svagt DSRM-lösenord
+## <a name="domain-controller-replica-promotion-fails-because-of-a-weak-dsrm-password"></a>Replikkampanj för domänkontrollant misslyckas på grund av ett svagt DSRM-lösenord
 
-Under befordran av DOMÄNKONTROLLANT skickas lösen ordet för den nya katalog tjänstens reparations läge till en befintlig DOMÄNKONTROLLANT i domänen för verifiering. Om det nya DSRM-lösenordet nekas visas följande fel meddelande:
+Under dc-kampanjprocessen skickas det nya lösenordet för reparationsläge för katalogtjänster till en befintlig domänkontrollant i domänen för validering. Om det nya DSRM-lösenordet avvisas visas följande felmeddelande:
 
 ```powershell
 Install-ADDSDomainController : Verification of prerequisites for Domain Controller promotion failed. The Directory Services Restore Mode password does not meet a requirement of the password filter(s). Supply a suitable password.
 ```
 
-Precis som i ovanstående problem har alla resultat för lösen ords validering av lösen ords skydd i Azure AD ett tomt användar namn för det här scenariot.
+Precis som i ovanstående problem har alla Azure AD Password Protection lösenordsverifieringsresultathändelse tomma användarnamn för det här scenariot.
 
-## <a name="domain-controller-demotion-fails-due-to-a-weak-local-administrator-password"></a>Degradering av domänkontrollanten Miss lyckas på grund av ett svagt lokalt administratörs lösen ord
+## <a name="domain-controller-demotion-fails-due-to-a-weak-local-administrator-password"></a>Degraderingen av domänkontrollanten misslyckas på grund av ett svagt lokalt administratörslösenord
 
-Det finns stöd för degradering av en domänkontrollant som fortfarande kör DC-agentprogram varan. Administratörer bör dock vara medvetna om att DC-agentens program vara fortsätter att genomdriva den aktuella lösen ords principen under degraderingen. Det nya lösen ordet för det lokala administratörs kontot (anges som en del av degraderingen) verifieras som ett annat lösen ord. Microsoft rekommenderar att säkra lösen ord väljs för lokala administratörs konton som en del av en degraderings procedur för domänkontrollanter.
+Det stöds för att nedgradera en domänkontrollant som fortfarande kör DC-agentprogramvaran. Administratörer bör dock vara medvetna om att DC-agentprogramvaran fortsätter att tillämpa den aktuella lösenordsprincipen under degraderingsproceduren. Det nya lösenordet för det lokala administratörskontot (som anges som en del av degraderingsåtgärden) valideras som vilket annat lösenord som helst. Microsoft rekommenderar att säkra lösenord väljs för lokala administratörskonton som en del av en dc-degraderingsprocedur.
 
-När degraderingen har slutförts och domänkontrollanten har startats om och körs igen som en normal medlems Server, återgår DC-agentens program vara till att köras i ett passivt läge. Den kan sedan avinstalleras när som helst.
+När degraderingen har lyckats och domänkontrollanten har startats om och körs igen som en vanlig medlemsserver återgår DC-agentprogramvaran till att köras i ett passivt läge. Det kan sedan avinstalleras när som helst.
 
-## <a name="booting-into-directory-services-repair-mode"></a>Starta i reparations läge för katalog tjänster
+## <a name="booting-into-directory-services-repair-mode"></a>Starta i reparationsläge för katalogtjänster
 
-Om domänkontrollanten har startats i reparations läge för katalog tjänster identifierar det här tillståndet i DLL-filen för DC-agentens lösen ords filter och gör att alla lösen ords validerings-eller tvingande aktiviteter inaktive ras, oavsett den aktuella aktiva principen inställningarna. DLL-filen med lösen ords filter för DC-agenten loggar en 10023 varnings händelse i administratörs händelse loggen, till exempel:
+Om domänkontrollanten startas i reparationsläge för katalogtjänster identifierar DLL-lösenordsfiltret dll för DC-agenten det här villkoret och gör att alla lösenordsverifierings- eller tvingande åtgärder inaktiveras, oavsett vilken princip som för närvarande är aktiv. Konfiguration. Dll-filen för DLL-agentens lösenordsfilter loggar en 10023-varningshändelse till händelseloggen Admin, till exempel:
 
 ```text
 The password filter dll is loaded but the machine appears to be a domain controller that has been booted into Directory Services Repair Mode. All password change and set requests will be automatically approved. No further messages will be logged until after the next reboot.
 ```
-## <a name="public-preview-dc-agent-software-has-expired"></a>Offentlig för hands version av DC Agent-programvara har upphört
+## <a name="public-preview-dc-agent-software-has-expired"></a>Dc-agentprogram för offentlig förhandsversion har upphört att gälla
 
-Under den offentliga för hands versionen av Azure AD Password Protection var DC-agenten hårdkodad för att sluta bearbeta begär Anden om lösen ords verifiering vid följande datum:
+Under den offentliga förhandsversionen av Azure AD Password Protection var DC-agentprogramvaran hårdkodad för att stoppa bearbetningen av begäranden om lösenordsverifiering på följande datum:
 
-* 1\.2.65.0 för version slutar att bearbeta begär Anden om lösen ords verifiering den 1 2019 september.
-* Version 1.2.25.0 och tidigare slutade bearbeta begär Anden om lösen ords verifiering den 1 2019 juli.
+* Version 1.2.65.0 slutar behandla begäranden om lösenordsverifiering den 1 september 2019.
+* Version 1.2.25.0 och tidigare slutade bearbeta begäranden om lösenordsverifiering den 1 juli 2019.
 
-I takt med att tids gränsen närmar sig, genererar alla tidsbegränsade DC agent-versioner en 10021-händelse i händelse loggen för DC-agenten vid start som ser ut så här:
+När tidsgränsen närmar sig kommer alla tidsbegränsade DC-agentversioner att avge en 10021-händelse i DC-agenten Admin-händelseloggen vid uppstart som ser ut så här:
 
 ```text
 The password filter dll has successfully loaded and initialized.
@@ -153,7 +153,7 @@ Expiration date:  9/01/2019 0:00:00 AM
 This message will not be repeated until the next reboot.
 ```
 
-När tids gränsen har passerat genererar alla tidsbegränsade DC agent-versioner en 10022-händelse i händelse loggen för DC agent-administratörer vid start som ser ut så här:
+När tidsfristen har passerat, alla tidsbegränsade DC agent versioner kommer att avge en 10022 händelse i DC agent Admin händelselogg vid uppstart som ser ut så här:
 
 ```text
 The password filter dll is loaded but the allowable trial period has expired. All password change and set requests will be automatically approved. Please contact Microsoft for a newer supported version of the software.
@@ -161,12 +161,12 @@ The password filter dll is loaded but the allowable trial period has expired. Al
 No further messages will be logged until after the next reboot.
 ```
 
-Eftersom tids gränsen bara kontrol leras vid den första starten kanske du inte ser dessa händelser förrän du har gått igenom kalenderns tids gräns. När tids gränsen har identifierats kommer inga negativa effekter på antingen domänkontrollanten eller den större miljön att inträffa, förutom att alla lösen ord godkänns automatiskt.
+Eftersom tidsgränsen endast kontrolleras vid den första uppstarten kanske du inte ser dessa händelser förrän långt efter att kalenderdeadline har passerats. När tidsgränsen har identifierats kommer inga negativa effekter på domänkontrollanten eller den större miljön att inträffa annat än alla lösenord automatiskt.
 
 > [!IMPORTANT]
-> Microsoft rekommenderar att inaktuella offentliga för hands versioner av DC-agenter omedelbart uppgraderas till den senaste versionen.
+> Microsoft rekommenderar att utgångna dc-agenter för offentlig förhandsversion omedelbart uppgraderas till den senaste versionen.
 
-Ett enkelt sätt att identifiera DC-agenter i din miljö som måste uppgraderas är genom att köra cmdleten `Get-AzureADPasswordProtectionDCAgent`, till exempel:
+Ett enkelt sätt att upptäcka DC-agenter i din miljö `Get-AzureADPasswordProtectionDCAgent` som behöver uppgraderas är genom att köra cmdlet, till exempel:
 
 ```powershell
 PS C:\> Get-AzureADPasswordProtectionDCAgent
@@ -180,33 +180,33 @@ HeartbeatUTC          : 8/1/2019 10:00:00 PM
 AzureTenant           : bpltest.onmicrosoft.com
 ```
 
-I det här avsnittet är fältet SoftwareVersion självklart vilken nyckel egenskap du ska titta på. Du kan också använda PowerShell-filtrering för att filtrera ut DC-agenter som redan är i eller över den nödvändiga bas linje versionen, till exempel:
+För detta ämne är SoftwareVersion fältet uppenbarligen nyckeln egenskap att titta på. Du kan också använda PowerShell-filtrering för att filtrera bort DC-agenter som redan finns på eller över den nödvändiga baslinjeversionen, till exempel:
 
 ```powershell
 PS C:\> $LatestAzureADPasswordProtectionVersion = "1.2.125.0"
 PS C:\> Get-AzureADPasswordProtectionDCAgent | Where-Object {$_.SoftwareVersion -lt $LatestAzureADPasswordProtectionVersion}
 ```
 
-Azure AD-proxyn för lösen ords skydd är inte tidsbegränsad i någon version. Microsoft rekommenderar fortfarande att både DC-och proxy-agenter uppgraderas till de senaste versionerna när de släpps. `Get-AzureADPasswordProtectionProxy` cmdlet kan användas för att hitta proxyservrar som kräver uppgraderingar, ungefär som i exemplet ovan för DC-agenter.
+Azure AD Password Protection Proxy-programvaran är inte tidsbegränsad i någon version. Microsoft rekommenderar fortfarande att både DC och proxyagenter uppgraderas till de senaste versionerna när de släpps. Cmdleten `Get-AzureADPasswordProtectionProxy` kan användas för att hitta proxyagenter som kräver uppgraderingar, liknande exemplet ovan för DC-agenter.
 
-Se [Uppgradera DC-agenten](howto-password-ban-bad-on-premises-deploy.md#upgrading-the-dc-agent) och [Uppgradera proxyservern](howto-password-ban-bad-on-premises-deploy.md#upgrading-the-proxy-service) för mer information om de olika uppgraderings procedurerna.
+Mer information om specifika uppgraderingsprocedurer finns i [Uppgradera DC-agenten](howto-password-ban-bad-on-premises-deploy.md#upgrading-the-dc-agent) och [uppgradera proxytjänsten.](howto-password-ban-bad-on-premises-deploy.md#upgrading-the-proxy-service)
 
-## <a name="emergency-remediation"></a>Nöd reparation
+## <a name="emergency-remediation"></a>Nödsanering
 
-Om en situation uppstår där DC-agenttjänsten orsakar problem kan DC-agenttjänsten stängas omedelbart. DLL-filen med lösen ords filter för DC-agenten försöker fortfarande anropa tjänsten som inte körs och loggar varnings händelser (10012 10013), men alla inkommande lösen ord godkänns under den tiden. DC-agenttjänsten kan sedan också konfigureras via Windows Service Control Manager med start typen "Disabled" vid behov.
+Om en situation uppstår där dc-agenttjänsten orsakar problem kan dc-agenttjänsten omedelbart stängas av. Dll-filtret DLL för DC-agenten försöker fortfarande anropa tjänsten som inte körs och loggar varningshändelser (10012, 10013), men alla inkommande lösenord accepteras under den tiden. Dc-agenttjänsten kan sedan också konfigureras via Windows Service Control Manager med en starttyp av "Inaktiverad" efter behov.
 
-Ett annat åtgärds mått är att ställa in läget aktivera på Nej i Azure AD-portalen för lösen ords skydd. När den uppdaterade principen har laddats ned hamnar varje DC-agenttjänsten i ett quiescent-läge där alla lösen ord godkänns. Mer information finns i [drifts lägen](howto-password-ban-bad-on-premises-operations.md#modes-of-operation).
+En annan åtgärd skulle vara att ange aktivera läge till Nej i Azure AD Password Protection portal. När den uppdaterade principen har hämtats går varje DC-agenttjänst in i ett quiescent-läge där alla lösenord accepteras som de är. Mer information finns i [Driftsätt](howto-password-ban-bad-on-premises-operations.md#modes-of-operation).
 
 ## <a name="removal"></a>Borttagning
 
-Om du bestämmer dig för att avinstallera Azure AD Password Protection-programvaran och rensa alla relaterade tillstånd från domänerna och skogen kan du utföra den här uppgiften med hjälp av följande steg:
+Om det beslutas att avinstallera Azure AD lösenordsskydd programvara och rensa alla relaterade tillstånd från domäner och skog, kan denna uppgift utföras med hjälp av följande steg:
 
 > [!IMPORTANT]
-> Det är viktigt att utföra de här stegen i rätt ordning. Om en instans av proxy-tjänsten fortfarande körs, återskapas dess serviceConnectionPoint-objekt med jämna mellanrum. Om en instans av DC-agenttjänsten är igång, återskapar den regelbundet sitt serviceConnectionPoint-objekt och SYSVOL-tillstånd.
+> Det är viktigt att utföra dessa steg i ordning. Om någon instans av proxytjänsten körs kommer den regelbundet att återskapa sitt serviceConnectionPoint-objekt. Om någon instans av dc-agenttjänsten lämnas igång återskapas dess serviceConnectionPoint-objekt och sysvol-tillståndet.
 
-1. Avinstallera proxy-programvaran från alla datorer. Det här steget kräver **ingen** omstart.
-2. Avinstallera DC-agentens program vara från alla domänkontrollanter. Det här steget **kräver** en omstart.
-3. Ta manuellt bort alla anslutnings punkter för proxy-tjänsten i varje domän namns kontext. Platsen för dessa objekt kan identifieras med följande Active Directory PowerShell-kommando:
+1. Avinstallera proxyprogramvaran från alla maskiner. Det här steget kräver **ingen** omstart.
+2. Avinstallera DC Agent-programvaran från alla domänkontrollanter. Det här steget **kräver** en omstart.
+3. Ta bort alla anslutningspunkter för proxytjänsten manuellt i varje domännamngivningskontext. Platsen för dessa objekt kan identifieras med följande Active Directory PowerShell-kommando:
 
    ```powershell
    $scp = "serviceConnectionPoint"
@@ -214,11 +214,11 @@ Om du bestämmer dig för att avinstallera Azure AD Password Protection-programv
    Get-ADObject -SearchScope Subtree -Filter { objectClass -eq $scp -and keywords -like $keywords }
    ```
 
-   Utelämna inte asterisken ("*") i slutet av $keywords variabel värde.
+   Utelämna inte asterisken ("*") i slutet av $keywords variabelvärdet.
 
-   De resulterande objekten som hittades via kommandot `Get-ADObject` kan sedan skickas till `Remove-ADObject`eller tas bort manuellt.
+   De objekt som blir resultatet `Get-ADObject` som hittas via `Remove-ADObject`kommandot kan sedan ledas till eller tas bort manuellt.
 
-4. Ta manuellt bort alla anslutnings punkter för DC-agenten i varje domän namns kontext. Det kan finnas ett objekt per domänkontrollant i skogen, beroende på hur mycket program varan distribuerades. Platsen för objektet kan identifieras med följande Active Directory PowerShell-kommando:
+4. Ta bort alla dc-agentanslutningspunkter manuellt i varje domännamnskontext. Det kan finnas ett av dessa objekt per domänkontrollant i skogen, beroende på hur mycket programvaran har distribuerats. Platsen för det objektet kan identifieras med följande Active Directory PowerShell-kommando:
 
    ```powershell
    $scp = "serviceConnectionPoint"
@@ -226,29 +226,29 @@ Om du bestämmer dig för att avinstallera Azure AD Password Protection-programv
    Get-ADObject -SearchScope Subtree -Filter { objectClass -eq $scp -and keywords -like $keywords }
    ```
 
-   De resulterande objekten som hittades via kommandot `Get-ADObject` kan sedan skickas till `Remove-ADObject`eller tas bort manuellt.
+   De objekt som blir resultatet `Get-ADObject` som hittas via `Remove-ADObject`kommandot kan sedan ledas till eller tas bort manuellt.
 
-   Utelämna inte asterisken ("*") i slutet av $keywords variabel värde.
+   Utelämna inte asterisken ("*") i slutet av $keywords variabelvärdet.
 
-5. Ta bort konfigurations statusen på skogs nivå manuellt. Skogens konfigurations tillstånd underhålls i en behållare i Active Directory namngivnings kontexten för konfigurationen. Du kan identifiera och ta bort den på följande sätt:
+5. Ta bort konfigurationstillståndet på skogsnivå manuellt. Skogskonfigurationstillståndet underhålls i en behållare i namnkontexten för Active Directory-konfiguration. Det kan upptäckas och tas bort enligt följande:
 
    ```powershell
    $passwordProtectionConfigContainer = "CN=Azure AD Password Protection,CN=Services," + (Get-ADRootDSE).configurationNamingContext
    Remove-ADObject -Recursive $passwordProtectionConfigContainer
    ```
 
-6. Ta bort alla SYSVOL-relaterade tillstånd manuellt genom att manuellt ta bort följande mapp och allt dess innehåll:
+6. Ta bort alla sysvol-relaterade tillstånd manuellt genom att manuellt ta bort följande mapp och allt dess innehåll:
 
    `\\<domain>\sysvol\<domain fqdn>\AzureADPasswordProtection`
 
-   Vid behov kan den här sökvägen också kommas åt lokalt på en specifik domänkontrollant. standard platsen skulle vara något som liknar följande sökväg:
+   Om det behövs kan den här sökvägen också nås lokalt på en viss domänkontrollant. standardplatsen skulle vara ungefär så här:
 
    `%windir%\sysvol\domain\Policies\AzureADPasswordProtection`
 
-   Den här sökvägen skiljer sig om Sysvol-resursen har kon figurer ATS på en annan plats än standard platsen.
+   Den här sökvägen är annorlunda om sysvol-resursen har konfigurerats på en plats som inte är standard.
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Vanliga frågor och svar om lösen ords skydd i Azure AD](howto-password-ban-bad-on-premises-faq.md)
+[Vanliga frågor och svar om lösenordsskydd för Azure AD](howto-password-ban-bad-on-premises-faq.md)
 
-Mer information om globala och anpassade listor över blockerade lösen ord finns i artikeln [förbjuda Felaktiga lösen ord](concept-password-ban-bad.md)
+Mer information om de globala och anpassade förbjudna [lösenordslistorna](concept-password-ban-bad.md) finns i artikeln Ban bad passwords

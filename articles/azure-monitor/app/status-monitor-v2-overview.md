@@ -1,73 +1,73 @@
 ---
-title: Översikt över Azure Application Insights-agent | Microsoft Docs
-description: En översikt över Application Insights-agenten. Övervaka webbplatsens prestanda utan att omdistribuera webbplatsen. Fungerar med ASP.NET-webbappar som finns lokalt, i virtuella datorer eller på Azure.
+title: Översikt över Azure Application Insights Agent | Microsoft-dokument
+description: En översikt över Application Insights Agent. Övervaka webbplatsens prestanda utan att distribuera om webbplatsen. Fungerar med ASP.NET webbappar som finns lokalt, i virtuella datorer eller på Azure.
 ms.topic: conceptual
 author: TimothyMothra
 ms.author: tilee
 ms.date: 09/16/2019
 ms.openlocfilehash: 4a240bc62816a46bc37108777a8b081b74047738
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79275716"
 ---
-# <a name="deploy-azure-monitor-application-insights-agent-for-on-premises-servers"></a>Distribuera Azure Monitor Application Insights agent för lokala servrar
+# <a name="deploy-azure-monitor-application-insights-agent-for-on-premises-servers"></a>Distribuera Azure Monitor Application Insights Agent för lokala servrar
 
 > [!IMPORTANT]
-> Den här vägledningen rekommenderas för lokala och icke-Azure-moln distributioner av Application Insights agent. Här är den rekommenderade metoden för [distributioner av skalnings uppsättningar för virtuella Azure-datorer och virtuella datorer](https://docs.microsoft.com/azure/azure-monitor/app/azure-vm-vmss-apps).
+> Den här vägledningen rekommenderas för lokala och icke-Azure-molndistributioner av Application Insights Agent. Här är den rekommenderade metoden för [Azure virtuell dator och virtuell dator skala uppsättning distributioner](https://docs.microsoft.com/azure/azure-monitor/app/azure-vm-vmss-apps).
 
-Application Insights agent (tidigare namngiven Statusövervakare v2) är en PowerShell-modul som publiceras till [PowerShell-galleriet](https://www.powershellgallery.com/packages/Az.ApplicationMonitor).
+Application Insights Agent (tidigare namnet Status Monitor V2) är en PowerShell-modul som publicerats i [PowerShell-galleriet](https://www.powershellgallery.com/packages/Az.ApplicationMonitor).
 Den ersätter [statusövervakare](https://docs.microsoft.com/azure/azure-monitor/app/monitor-performance-live-website-now).
-Telemetri skickas till Azure Portal, där du kan [övervaka](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview) din app.
+Telemetri skickas till Azure-portalen, där du kan [övervaka](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview) din app.
 
 > [!NOTE]
-> Modulen stöder för närvarande inte kodbaserade instrumentering av .NET-webbappar som är värdbaserade i IIS. Använd en SDK för att instrumentera ASP.NET Core-, Java-och Node. js-program.
+> Modulen stöder för närvarande endast kodlös instrumentering av .NET-webbappar som är värd för IIS. Använd ett SDK-instrument för att instrumentera ASP.NET Core-, Java- och Node.js-program.
 
 ## <a name="powershell-gallery"></a>PowerShell-galleriet
 
-Application Insights agent finns här: https://www.powershellgallery.com/packages/Az.ApplicationMonitor.
+Application Insights Agent finns https://www.powershellgallery.com/packages/Az.ApplicationMonitorhär: .
 
 ![PowerShell-galleriet](https://img.shields.io/powershellgallery/v/Az.ApplicationMonitor.svg?color=Blue&label=Current%20Version&logo=PowerShell&style=for-the-badge)
 
 
 ## <a name="instructions"></a>Instruktioner
-- Se [komma igång-instruktionerna](status-monitor-v2-get-started.md) för att få en start med kortfattade kod exempel.
-- Se de [detaljerade anvisningarna](status-monitor-v2-detailed-instructions.md) för att få en djup introduktion till hur du kommer igång.
+- Se [instruktionerna](status-monitor-v2-get-started.md) för att komma igång för att få en start med koncisa kodexempel.
+- Se [detaljerade instruktioner](status-monitor-v2-detailed-instructions.md) för en djupdykning om hur du kommer igång.
 
-## <a name="powershell-api-reference"></a>PowerShell API-referens
-- [Disable-ApplicationInsightsMonitoring](status-monitor-v2-api-disable-monitoring.md)
-- [Disable-InstrumentationEngine](status-monitor-v2-api-disable-instrumentation-engine.md)
-- [Aktivera – ApplicationInsightsMonitoring](status-monitor-v2-api-enable-monitoring.md)
-- [Aktivera – InstrumentationEngine](status-monitor-v2-api-enable-instrumentation-engine.md)
-- [Get-ApplicationInsightsMonitoringConfig](status-monitor-v2-api-get-config.md)
-- [Get-ApplicationInsightsMonitoringStatus](status-monitor-v2-api-get-status.md)
+## <a name="powershell-api-reference"></a>PowerShell-API-referens
+- [Inaktivera-ApplicationInsightsMonitoring](status-monitor-v2-api-disable-monitoring.md)
+- [Inaktivera instrumenteringsengine](status-monitor-v2-api-disable-instrumentation-engine.md)
+- [Aktivera-ApplicationInsightsMonitoring](status-monitor-v2-api-enable-monitoring.md)
+- [Aktivera instrumenteringEngine](status-monitor-v2-api-enable-instrumentation-engine.md)
+- [Hämta programInightsMonitoringConfig](status-monitor-v2-api-get-config.md)
+- [Hämta programInightsMonitoringStatus](status-monitor-v2-api-get-status.md)
 - [Set-ApplicationInsightsMonitoringConfig](status-monitor-v2-api-set-config.md)
-- [Start-ApplicationInsightsMonitoringTrace](status-monitor-v2-api-start-trace.md)
+- [Start-ProgramInsightsMonitoringTrace](status-monitor-v2-api-start-trace.md)
 
 ## <a name="troubleshooting"></a>Felsökning
-- [Felsökning](status-monitor-v2-troubleshoot.md)
+- [Troubleshooting](status-monitor-v2-troubleshoot.md) (Felsökning)
 - [Kända problem](status-monitor-v2-troubleshoot.md#known-issues)
 
 
 ## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
 
-- Stöder Application Insights-agenten proxy-installationer?
+- Stöder Application Insights Agent proxyinstallationer?
 
-  *Ja*. Det finns flera sätt att ladda ned Application Insights-agenten. Om datorn har Internet åtkomst kan du publicera den PowerShell-galleriet med hjälp av `-Proxy` parametrar.
+  *- Ja,* det är jag. Det finns flera sätt att hämta Application Insights Agent. Om datorn har tillgång till internet kan du gå `-Proxy` ombord till PowerShell-galleriet med hjälp av parametrar.
 Du kan också hämta modulen manuellt och antingen installera den på datorn eller använda den direkt.
-Vart och ett av dessa alternativ beskrivs i de [detaljerade anvisningarna](status-monitor-v2-detailed-instructions.md).
+Vart och ett av dessa alternativ beskrivs i de [detaljerade instruktionerna](status-monitor-v2-detailed-instructions.md).
 
-- Stöder Statusövervakare v2 ASP.NET Core program?
+- Stöder Status Monitor v2 ASP.NET Core-program?
 
-  *Nej*. Instruktioner för hur du aktiverar övervakning av ASP.NET Core program finns i [Application Insights för ASP.net Core program](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core). Du behöver inte installera StatusMonitor för ett ASP.NET Core-program. Detta gäller även om ASP.NET Core program finns i IIS.
+  *Nej, det är jag*inte. Instruktioner för hur du aktiverar övervakning av ASP.NET Core-program finns i [Application Insights för ASP.NET Core-program](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core). Det finns ingen anledning att installera StatusMonitor för en ASP.NET Core-program. Detta gäller även om ASP.NET Core-programmet finns i IIS.
 
-- Hur gör jag för att verifiera att aktiveringen lyckades?
+- Hur verifierar jag att aktiveringen lyckades?
 
-  - [Get-ApplicationInsightsMonitoringStatus](status-monitor-v2-api-get-status.md) -cmdlet: en kan användas för att kontrol lera att aktiveringen har slutförts.
-  - Vi rekommenderar att du använder [Live-mått](https://docs.microsoft.com/azure/azure-monitor/app/live-stream) för att snabbt avgöra om din app skickar telemetri.
+  - [Cmdlet Get-ApplicationInsightsMonitoringStatus](status-monitor-v2-api-get-status.md) kan användas för att verifiera att enablement lyckades.
+  - Vi rekommenderar att du använder [Live Metrics](https://docs.microsoft.com/azure/azure-monitor/app/live-stream) för att snabbt avgöra om din app skickar telemetri.
 
-  - Du kan också använda [Log Analytics](../log-query/get-started-portal.md) för att visa en lista över alla moln roller som för närvarande skickar telemetri:
+  - Du kan också använda [Log Analytics](../log-query/get-started-portal.md) för att lista alla molnroller som för närvarande skickar telemetri:
       ```Kusto
       union * | summarize count() by cloud_RoleName, cloud_RoleInstance
       ```
@@ -76,14 +76,14 @@ Vart och ett av dessa alternativ beskrivs i de [detaljerade anvisningarna](statu
 
 Visa telemetrin:
 
-* [Utforska mått](../../azure-monitor/app/metrics-explorer.md) för att övervaka prestanda och användning.
-* [Sök efter händelser och loggar](../../azure-monitor/app/diagnostic-search.md) för att diagnostisera problem.
+* [Utforska mätvärden](../../azure-monitor/app/metrics-explorer.md) för att övervaka prestanda och användning.
+* [Sök händelser och loggar](../../azure-monitor/app/diagnostic-search.md) för att diagnostisera problem.
 * [Använd Analytics](../../azure-monitor/app/analytics.md) för mer avancerade frågor.
-* [Skapa instrument paneler](../../azure-monitor/app/overview-dashboard.md).
+* [Skapa instrumentpaneler](../../azure-monitor/app/overview-dashboard.md).
 
 Lägg till mer telemetri:
 
-* [Skapa webbtester](monitor-web-app-availability.md) för att se till att din webbplats hålls Live.
-* [Lägg till telemetri för webb klienter](../../azure-monitor/app/javascript.md) om du vill visa undantag från webb sidans kod och aktivera spårnings anrop.
-* [Lägg till Application Insights SDK till din kod](../../azure-monitor/app/asp-net.md) så att du kan infoga spårnings-och logg anrop.
+* [Skapa webbtester](monitor-web-app-availability.md) så att du är säker på att webbplatsen är aktiv.
+* [Lägg till webbklienttelemetri](../../azure-monitor/app/javascript.md) för att se undantag från webbsidans kod och aktivera spårningsanrop.
+* [Lägg till SDK för programinsikter i koden](../../azure-monitor/app/asp-net.md) så att du kan infoga spårnings- och loggsamtal.
 

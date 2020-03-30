@@ -1,6 +1,6 @@
 ---
-title: Förstå Azure Security Center för IoT Security-rekommendationer | Microsoft Docs
-description: Lär dig mer om begreppet säkerhets rekommendationer och hur de används i Azure Security Center för IoT.
+title: Förstå Azure Security Center för IoT-säkerhetsrekommendationer| Microsoft-dokument
+description: Lär dig mer om begreppet säkerhetsrekommendationer och hur de används i Azure Security Center för IoT.
 services: asc-for-iot
 ms.service: asc-for-iot
 documentationcenter: na
@@ -16,55 +16,55 @@ ms.workload: na
 ms.date: 07/24/2019
 ms.author: mlottner
 ms.openlocfilehash: a8de821abcedf6bb9a331852a2c0af9b6439667a
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78303587"
 ---
 # <a name="security-recommendations"></a>Säkerhetsrekommendationer
 
-Azure Security Center for IoT söker igenom dina Azure-resurser och IoT-enheter och ger säkerhets rekommendationer för att minska risken för attacker. Säkerhets rekommendationer är åtgärds bara och syftar till att hjälpa kunder att följa rekommenderade säkerhets metoder.
+Azure Security Center for IoT söker igenom dina Azure-resurser och IoT-enheter och ger säkerhetsrekommendationer för att minska din attackyta. Säkerhetsrekommendationer är genomförbara och syftar till att hjälpa kunderna att följa bästa säkerhetspraxis.
 
-I den här artikeln hittar du en lista över rekommendationer som kan utlösas på dina IoT Hub-och/eller IoT-enheter.
+I den här artikeln hittar du en lista med rekommendationer som kan utlösas på din IoT Hub och /eller IoT-enheter.
 
 ## <a name="recommendations-for-iot-devices"></a>Rekommendationer för IoT-enheter
 
-Enhets rekommendationer ger insikter och förslag för att förbättra position för enhets säkerhet. 
+Enhetsrekommendationer ger insikter och förslag för att förbättra enhetens säkerhetsposition. 
 
 | Severity | Namn                                                      | Datakälla | Beskrivning                                                                                                                                                                                           |
 |----------|-----------------------------------------------------------|-------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Medel   | Öppna portar på enheten                                      | Agent       | En lyssnande slut punkt hittades på enheten.                                                                                                                                                        |
-| Medel   | Princip för att tillåta brand vägg hittas i en av kedjorna. | Agent       | Tillåten brand Väggs princip hittades (indata/utdata). Brand Väggs principen bör neka all trafik som standard och definiera regler för att tillåta nödvändig kommunikation till/från enheten.                               |
-| Medel   | En tillåtande brand Väggs regel i indatamängden hittades     | Agent       | En regel i brand väggen har hittats som innehåller ett tillåtet mönster för en mängd olika IP-adresser eller portar.                                                                                    |
-| Medel   | En tillåtande brand Väggs regel i utgående kedja hittades    | Agent       | En regel i brand väggen har hittats som innehåller ett tillåtet mönster för en mängd olika IP-adresser eller portar.                                                                                   |
-| Medel   | Det gick inte att verifiera operativ systemets bas linje           | Agent       | Enheten är inte kompatibel med [CIS Linux-benchmarks](https://www.cisecurity.org/cis-benchmarks/).                                                                                                        |
+| Medel   | Öppna portar på enheten                                      | Agent       | En lyssningsslutpunkt hittades på enheten .                                                                                                                                                        |
+| Medel   | Tillåtande brandväggspolicy som finns i en av kedjorna. | Agent       | Tillåten brandväggsprincip hittades (INPUT/OUTPUT). Brandväggsprincipen bör neka all trafik som standard och definiera regler för att möjliggöra nödvändig kommunikation till/från enheten.                               |
+| Medel   | Tillåtande brandväggsregel i indatakedjan hittades     | Agent       | En regel i brandväggen har hittats som innehåller ett tillåtande mönster för ett brett spektrum av IP-adresser eller portar.                                                                                    |
+| Medel   | Tillåtande brandväggsregel i utdatakedjan hittades    | Agent       | En regel i brandväggen har hittats som innehåller ett tillåtande mönster för ett brett spektrum av IP-adresser eller portar.                                                                                   |
+| Medel   | Valideringen av driftsystemets baslinje misslyckades           | Agent       | Enheten uppfyller inte [CIS Linux-riktmärken.](https://www.cisecurity.org/cis-benchmarks/)                                                                                                        |
 
-### <a name="operational-recommendations-for-iot-devices"></a>Drift rekommendationer för IoT-enheter
+### <a name="operational-recommendations-for-iot-devices"></a>Driftsrekommendationer för IoT-enheter
 
-Drift rekommendationer ger insikter och förslag för att förbättra konfigurationen av säkerhets agenten.
+Driftrekommendationer ger insikter och förslag för att förbättra konfigurationen av säkerhetsagenter.
 
 | Severity | Namn                                    | Datakälla | Beskrivning                                                                       |
 |----------|-----------------------------------------|-------------|-----------------------------------------------------------------------------------|
-| Låg      | Agent skickar meddelanden som inte används          | Agent       | 10% eller flera säkerhets meddelanden var mindre än 4 KB under de senaste 24 timmarna.  |
-| Låg      | Säkerhet, dubbel konfiguration inte optimal | Agent       | En dubbel säkerhets konfiguration är inte optimalt.                                        |
-| Låg      | Konflikt vid dubbel konfiguration av säkerhet    | Agent       | Konflikter identifierades i den dubbla säkerheten. |                          |
+| Låg      | Agenten skickar outnyttjade meddelanden          | Agent       | 10 % eller mer av säkerhetsmeddelandena var mindre än 4 kB under de senaste 24 timmarna.  |
+| Låg      | Konfiguration av säkerhetstvilling inte optimal | Agent       | Konfiguration av säkerhetstvilling är inte optimal.                                        |
+| Låg      | Konfigurationskonflikt för säkerhetstvilling    | Agent       | Konflikter identifierades i säkerhets twin konfigurationen. |                          |
 |
 
 ## <a name="recommendations-for-iot-hub"></a>Rekommendationer för IoT Hub
 
-Rekommendations aviseringar ger insikter och förslag på åtgärder för att förbättra position säkerhets miljö.  
+Rekommendationsvarningar ger insikt och förslag på åtgärder för att förbättra säkerhetshållningen i din miljö.  
 
 | Severity | Namn                                                     | Datakälla | Beskrivning                                                                                                                                                                                                             |
 |----------|----------------------------------------------------------|-------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Hög     | Identiska autentiseringsuppgifter för autentisering används av flera enheter | IoT Hub     | IoT Hub autentiseringsuppgifter för autentisering används av flera enheter. Detta kan tyda på att en Illegitimate-enhet personifierar en legitim enhet. Dubblett av autentiseringsuppgifter ökar risken för personifiering av enheter av en skadlig aktör. |
-| Medel   | Standard princip för IP-filter ska nekas                  | IoT Hub     | IP-filterlistan måste ha definierade regler för tillåten trafik och ska som standard neka all annan trafik som standard.                                                                                                     |
-| Medel   | IP-filterlistan innehåller stora IP-intervall                   | IoT Hub     | En Tillåt källa för IP-filterlistan är för stor. Överskrivna regler kan exponera IoT-hubben för skadliga aktörer.                                                                                       |
-| Låg      | Aktivera diagnostikloggar i IoT Hub                       | IoT Hub     | Aktivera loggar och behåll dem i upp till ett år. Om du behåller loggarna kan du återskapa aktivitets spårningar i utrednings syfte när en säkerhets incident inträffar eller nätverket komprometteras.                                       |
+| Hög     | Identiska autentiseringsuppgifter som används av flera enheter | IoT Hub     | Autentiseringsuppgifter för IoT Hub används av flera enheter. Detta kan tyda på att en illegitim enhet utger sig för att vara en legitim enhet. Användning av dubblettautentiseringsuppgifter ökar risken för att en skadlig aktör personifierar enheten. |
+| Medel   | Standard-IP-filterprincipen bör nekas                  | IoT Hub     | IP-filterkonfiguration bör ha regler definierade för tillåten trafik och bör som standard neka all annan trafik som standard.                                                                                                     |
+| Medel   | IP-filterregeln innehåller stort IP-intervall                   | IoT Hub     | IP-filterregelkällans IP-intervall är för stort. Alltför tillåtande regler kan exponera din IoT-hubb för skadliga aktörer.                                                                                       |
+| Låg      | Aktivera diagnostikloggar i IoT Hub                       | IoT Hub     | Aktivera loggar och behåll dem i upp till ett år. Om du behåller loggar kan du återskapa aktivitetsspår i undersökningssyfte när en säkerhetsincident inträffar eller nätverket äventyras.                                       |
 |
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Översikt över](overview.md) Azure Security Center för IoT-tjänsten
-- Lär dig hur du [kommer åt dina säkerhets data](how-to-security-data-access.md)
-- Lär dig mer om att [undersöka en enhet](how-to-investigate-device.md)
+- Översikt över Azure Security [Overview](overview.md) Center för IoT-tjänst
+- Läs om hur du [kommer åt dina säkerhetsdata](how-to-security-data-access.md)
+- Läs mer om [att undersöka en enhet](how-to-investigate-device.md)

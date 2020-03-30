@@ -1,24 +1,24 @@
 ---
-title: Kvot fel
-description: Beskriver hur du löser resurs kvot fel när du distribuerar resurser med Azure Resource Manager.
+title: Kvotfel
+description: Beskriver hur du löser resurskvotfel när du distribuerar resurser med Azure Resource Manager.
 ms.topic: troubleshooting
 ms.date: 03/09/2018
 ms.openlocfilehash: 410b086b39d63d03491d390364f4aec6300fc7c1
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79273792"
 ---
-# <a name="resolve-errors-for-resource-quotas"></a>Lösa fel för resurs kvoter
+# <a name="resolve-errors-for-resource-quotas"></a>Åtgärda fel för resurskvoter
 
-I den här artikeln beskrivs kvot fel som kan uppstå när du distribuerar resurser.
+I den här artikeln beskrivs kvotfel som kan uppstå när du distribuerar resurser.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="symptom"></a>Symptom
 
-Om du distribuerar en mall som skapar resurser som överstiger dina Azure-kvoter får du ett distributions fel som ser ut så här:
+Om du distribuerar en mall som skapar resurser som överskrider dina Azure-kvoter får du ett distributionsfel som ser ut som:
 
 ```
 Code=OperationNotAllowed
@@ -38,19 +38,19 @@ please delete some resources of this type before creating a new one.
 ## <a name="cause"></a>Orsak
 
 Kvoter tillämpas per resursgrupp, prenumerationer, konton och andra omfång. Din prenumeration kan till exempel konfigureras så att antalet kärnor för en region begränsas. Om du försöker distribuera en virtuell dator med fler kärnor än det tillåtna antalet visas ett felmeddelande om att kvoten har överskridits.
-Fullständig kvot information finns i [Azure-prenumeration och tjänst begränsningar, kvoter och begränsningar](../../azure-resource-manager/management/azure-subscription-service-limits.md).
+Fullständig kvotinformation finns i [Azure-prenumerations- och tjänstgränser, kvoter och begränsningar](../../azure-resource-manager/management/azure-subscription-service-limits.md).
 
 ## <a name="troubleshooting"></a>Felsökning
 
 ### <a name="azure-cli"></a>Azure CLI
 
-För Azure CLI använder du kommandot `az vm list-usage` för att hitta kvoter för virtuella datorer.
+För Azure CLI `az vm list-usage` använder du kommandot för att hitta kvoter för virtuella datorer.
 
 ```azurecli
 az vm list-usage --location "South Central US"
 ```
 
-Returnerar:
+Som returnerar:
 
 ```output
 [
@@ -74,7 +74,7 @@ För PowerShell använder du kommandot **Get-AzVMUsage** för att hitta kvoter f
 Get-AzVMUsage -Location "South Central US"
 ```
 
-Returnerar:
+Som returnerar:
 
 ```output
 Name                             Current Value Limit  Unit
@@ -86,10 +86,10 @@ Virtual Machines                             0 10000 Count
 
 ## <a name="solution"></a>Lösning
 
-Om du vill begära en kvot ökning går du till portalen och filen ett support ärende. I support ärendet kan du begära en ökning av kvoten för den region som du vill distribuera till.
+Om du vill begära en kvotökning går du till portalen och lämnar in ett supportproblem. I supportfrågan begär du en ökning av kvoten för den region som du vill distribuera.
 
 > [!NOTE]
-> Kom ihåg att för resurs grupper är kvoten för varje enskild region, inte för hela prenumerationen. Om du behöver distribuera 30 kärnor i västra USA måste du be om 30 Resource Manager-kärnor i västra USA. Om du behöver distribuera 30 kärnor i någon av de regioner som du har åtkomst till, bör du fråga efter 30 Resource Manager-kärnor i alla regioner.
+> Kom ihåg att för resursgrupper är kvoten för varje enskild region, inte för hela prenumerationen. Om du behöver distribuera 30 kärnor i västra USA måste du be om 30 Resource Manager-kärnor i västra USA. Om du behöver distribuera 30 kärnor i någon av de regioner som du har åtkomst till bör du be om 30 Resource Manager-kärnor i alla regioner.
 >
 >
 
@@ -101,13 +101,13 @@ Om du vill begära en kvot ökning går du till portalen och filen ett support �
 
    ![Välj en prenumeration](./media/error-resource-quota/select-subscription.png)
 
-3. Välj **användning + kvoter**
+3. Välj **Användning + kvoter**
 
    ![Välj användning och kvoter](./media/error-resource-quota/select-usage-quotas.png)
 
-4. I det övre högra hörnet väljer du **begär ökning**.
+4. I det övre högra hörnet väljer du **Begär ökning**.
 
-   ![Begär ökning](./media/error-resource-quota/request-increase.png)
+   ![Ökning av begäran](./media/error-resource-quota/request-increase.png)
 
 5. Fyll i formulären för den typ av kvot som du vill utöka.
 

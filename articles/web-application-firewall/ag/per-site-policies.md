@@ -1,7 +1,7 @@
 ---
-title: Konfigurera WAF-principer per webbplats med hjälp av PowerShell
+title: Konfigurera WAF-principer per plats med PowerShell
 titleSuffix: Azure Web Application Firewall
-description: Lär dig hur du konfigurerar brand Väggs principer för webb program per webbplats på en Programgateway med hjälp av Azure PowerShell.
+description: Lär dig hur du konfigurerar brandväggsprinciper för webbprogram per plats på en programgateway med Azure PowerShell.
 services: web-application-firewall
 author: winthrop28
 ms.service: web-application-firewall
@@ -9,19 +9,19 @@ ms.date: 01/24/2020
 ms.author: victorh
 ms.topic: conceptual
 ms.openlocfilehash: a04b850857b6abd81934430a05086477acd058d6
-ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/18/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77444698"
 ---
-# <a name="configure-per-site-waf-policies-using-azure-powershell"></a>Konfigurera WAF-principer per webbplats med hjälp av Azure PowerShell
+# <a name="configure-per-site-waf-policies-using-azure-powershell"></a>Konfigurera WAF-principer per plats med Azure PowerShell
 
-Inställningarna för brand vägg för webbaserade program (WAF) finns i WAF-principer och för att ändra WAF-konfigurationen ändrar du WAF-principen.
+WAF-inställningarna (Web Application Firewall) finns i WAF-principer och för att ändra WAF-konfigurationen ändrar du WAF-principen.
 
-När den är kopplad till Application Gateway återspeglas principerna och alla inställningar globalt. Så om du har fem platser bakom WAF skyddas alla fem platserna av samma WAF-princip. Detta är bra om du behöver samma säkerhets inställningar för varje plats. Men du kan också använda WAF-principer för enskilda lyssnare för att tillåta platsspecifika WAF-konfiguration.
+När principerna och alla inställningar är associerade med programgatewayen återspeglas de globalt. Så, om du har fem platser bakom din WAF, alla fem platser skyddas av samma WAF Policy. Detta är bra om du behöver samma säkerhetsinställningar för varje webbplats. Men du kan också tillämpa WAF-principer på enskilda lyssnare för att möjliggöra platsspecifik WAF-konfiguration.
 
-Genom att tillämpa WAF-principer på en lyssnare kan du konfigurera WAF-inställningar för enskilda platser utan att ändringarna påverkar varje plats. Den mest aktuella principen tar över överordnade. Om det finns en global princip och en princip för varje plats (en WAF-princip som är associerad med en lyssnare) åsidosätter principen för varje-plats den globala WAF-principen för den lyssnaren. Andra lyssnare utan egna principer påverkas endast av den globala WAF-principen.
+Genom att tillämpa WAF-principer på en lyssnare kan du konfigurera WAF-inställningar för enskilda webbplatser utan att ändringarna påverkar varje plats. Den mest specifika politiken tar prejudikat. Om det finns en global princip och en policy per plats (en WAF-princip som är associerad med en lyssnare) åsidosätter principen per plats den globala WAF-principen för lyssnaren. Andra lyssnare utan egen politik kommer bara att påverkas av den globala WAF-policyn.
 
 I den här artikeln kan du se hur du:
 
@@ -29,24 +29,24 @@ I den här artikeln kan du se hur du:
 > * Konfigurera nätverket
 > * Skapa en WAF-princip
 > * Skapa en programgateway med WAF aktiverat
-> * Tillämpa WAF-principen globalt, per webbplats och per-URI
+> * Tillämpa WAF-principen globalt, per plats och per URI
 > * Skapa en VM-skalningsuppsättning
 > * Skapa ett lagringskonto och konfigurera diagnostik
 > * Testa programgatewayen
 
 ![Exempel på brandvägg för webbaserade program](../media/tutorial-restrict-web-traffic-powershell/scenario-waf.png)
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Om du väljer att installera och använda PowerShell lokalt kräver den här artikeln Azure PowerShell module version 1.0.0 eller senare. Kör `Get-Module -ListAvailable Az` för att hitta versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-az-ps) (Installera Azure PowerShell-modul). Om du kör PowerShell lokalt måste du också köra `Login-AzAccount` för att skapa en anslutning till Azure.
+Om du väljer att installera och använda PowerShell lokalt kräver den här artikeln Azure PowerShell-modul version 1.0.0 eller senare. Kör `Get-Module -ListAvailable Az` för att hitta versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-az-ps) (Installera Azure PowerShell-modul). Om du kör PowerShell lokalt måste du också köra `Login-AzAccount` för att skapa en anslutning till Azure.
 
 ## <a name="create-a-resource-group"></a>Skapa en resursgrupp
 
-En resursgrupp är en logisk container där Azure-resurser distribueras och hanteras. Skapa en Azure-resurs grupp med [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup).  
+En resursgrupp är en logisk container där Azure-resurser distribueras och hanteras. Skapa en Azure-resursgrupp med [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup).  
 
 ```azurepowershell-interactive
 $rgname = New-AzResourceGroup -Name myResourceGroupAG -Location eastus
@@ -54,7 +54,7 @@ $rgname = New-AzResourceGroup -Name myResourceGroupAG -Location eastus
 
 ## <a name="create-network-resources"></a>Skapa nätverksresurser 
 
-Skapa under näts konfigurationerna med namnet *myBackendSubnet* och *myAGSubnet* med hjälp av [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig). Skapa det virtuella nätverket med namnet *myVNet* med [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork) med hjälp av under näts konfigurationerna. Slutligen skapar du den offentliga IP-adressen med namnet *myAGPublicIPAddress* med [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress). De här resurserna används för att ge nätverksanslutning till programgatewayen och tillhörande resurser.
+Skapa undernätskonfigurationerna *myBackendSubnet* och *myAGSubnet* med [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig). Skapa det virtuella nätverket *myVNet* med [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork) med undernätskonfigurationerna. Och slutligen, skapa den offentliga IP-adressen som heter *myAGPublicIPAddress* med [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress). De här resurserna används för att ge nätverksanslutning till programgatewayen och tillhörande resurser.
 
 ```azurepowershell-interactive
 $backendSubnetConfig = New-AzVirtualNetworkSubnetConfig `
@@ -82,7 +82,7 @@ $pip = New-AzPublicIpAddress `
 
 ## <a name="create-an-application-gateway"></a>Skapa en programgateway
 
-I det här avsnittet ska du skapa resurser som stöder programgatewayen och sedan skapa den och en WAF. Du skapar bland annat följande resurser:
+I det här avsnittet skapar du resurser som stöder programgatewayen och sedan slutligen skapar den och en WAF. Du skapar bland annat följande resurser:
 
 - *IP-konfigurationer och en klientdelsport* – associerar det undernät du skapade tidigare till programgatewayen och tilldelar en port för åtkomst till den.
 - *Standardpool* – alla programgatewayer måste ha minst en serverpool i serverdelen.
@@ -90,7 +90,7 @@ I det här avsnittet ska du skapa resurser som stöder programgatewayen och seda
 
 ### <a name="create-the-ip-configurations-and-frontend-port"></a>Skapa IP-konfigurationerna och klientdelsporten
 
-Associera *myAGSubnet* som du tidigare har skapat till programgatewayen med hjälp av [New-AzApplicationGatewayIPConfiguration](/powershell/module/az.network/new-azapplicationgatewayipconfiguration). Tilldela *myAGPublicIPAddress* till Application Gateway med [New-AzApplicationGatewayFrontendIPConfig](/powershell/module/az.network/new-azapplicationgatewayfrontendipconfig).
+Associera *myAGSubnet* som du tidigare har skapat till programgatewayen med [New-AzApplicationGatewayIPConfiguration](/powershell/module/az.network/new-azapplicationgatewayipconfiguration). Tilldela *myAGPublicIPAddress* till programgatewayen med [New-AzApplicationGatewayFrontendIPConfig](/powershell/module/az.network/new-azapplicationgatewayfrontendipconfig).
 
 ```azurepowershell-interactive
 $vnet = Get-AzVirtualNetwork `
@@ -118,7 +118,7 @@ $frontendport8080 = New-AzApplicationGatewayFrontendPort `
 
 ### <a name="create-the-backend-pool-and-settings"></a>Skapa serverdelspoolen och tillhörande inställningar
 
-Skapa backend-poolen med namnet *appGatewayBackendPool* för programgatewayen med hjälp av [New-AzApplicationGatewayBackendAddressPool](/powershell/module/az.network/new-azapplicationgatewaybackendaddresspool). Konfigurera inställningarna för backend-adresspooler med [New-AzApplicationGatewayBackendHttpSettings](/powershell/module/az.network/new-azapplicationgatewaybackendhttpsetting).
+Skapa backend-poolen med namnet *appGatewayBackendPool* för programgatewayen med [New-AzApplicationGatewayBackendAddressPool](/powershell/module/az.network/new-azapplicationgatewaybackendaddresspool). Konfigurera inställningarna för serverdelsadresspoolerna med [New-AzApplicationGatewayBackendHttpSettings](/powershell/module/az.network/new-azapplicationgatewaybackendhttpsetting).
 
 ```azurepowershell-interactive
 $defaultPool = New-AzApplicationGatewayBackendAddressPool `
@@ -134,9 +134,9 @@ $poolSettings = New-AzApplicationGatewayBackendHttpSettings `
 
 ### <a name="create-two-waf-policies"></a>Skapa två WAF-principer
 
-Skapa två WAF-principer, en global och en per plats, och Lägg till anpassade regler. 
+Skapa två WAF-principer, en global och en per plats, och lägg till anpassade regler. 
 
-Principen för varje-plats begränsar fil överförings gränsen till 5 MB. Allt annat är detsamma.
+Principen per plats begränsar filöverföringsgränsen till 5 MB. Allt annat är detsamma.
 
 ```azurepowershell-interactive
 $variable = New-AzApplicationGatewayFirewallMatchVariable -VariableName RequestUri
@@ -194,7 +194,7 @@ $wafPolicySite = New-AzApplicationGatewayFirewallPolicy `
 
 Du behöver en lyssnare så att programgatewayen kan dirigera trafiken till serverdelens adresspooler på rätt sätt. I det här exemplet skapar du en grundläggande lyssnare som lyssnar efter trafik vid rotadressen. 
 
-Skapa en lyssnare med namnet *mydefaultListener* med [New-AzApplicationGatewayHttpListener](/powershell/module/az.network/new-azapplicationgatewayhttplistener) med klient dels konfigurationen och frontend-porten som du skapade tidigare. Du måste ange en regel för lyssnaren som anger vilken serverdelspool som ska användas för inkommande trafik. Skapa en grundläggande regel med namnet *regel 1* med [New-AzApplicationGatewayRequestRoutingRule](/powershell/module/az.network/new-azapplicationgatewayrequestroutingrule).
+Skapa en lyssnare med namnet *mydefaultListener* med [New-AzApplicationGatewayHttpListener](/powershell/module/az.network/new-azapplicationgatewayhttplistener) med frontend-konfigurationen och frontend-porten som du tidigare skapade. Du måste ange en regel för lyssnaren som anger vilken serverdelspool som ska användas för inkommande trafik. Skapa en grundregel med namnet *rule1* med [New-AzApplicationGatewayRequestRoutingRule](/powershell/module/az.network/new-azapplicationgatewayrequestroutingrule).
 
 ```azurepowershell-interactive
 $globalListener = New-AzApplicationGatewayHttpListener `
@@ -227,7 +227,7 @@ $frontendRuleSite = New-AzApplicationGatewayRequestRoutingRule `
 
 ### <a name="create-the-application-gateway-with-the-waf"></a>Skapa programgatewayen med brandväggen för webbaserade program
 
-Nu när du har skapat de nödvändiga stödda resurserna anger du parametrarna för programgatewayen med hjälp av [New-AzApplicationGatewaySku](/powershell/module/az.network/new-azapplicationgatewaysku). Ange brand Väggs principen med hjälp av [New-AzApplicationGatewayFirewallPolicy](/powershell/module/az.network/new-azapplicationgatewayfirewallpolicy). Och skapa sedan programgatewayen med namnet *myAppGateway* med [New-AzApplicationGateway](/powershell/module/az.network/new-azapplicationgateway).
+Nu när du har skapat nödvändiga stödresurser anger du parametrar för programgatewayen med [New-AzApplicationGatewaywaySku](/powershell/module/az.network/new-azapplicationgatewaysku). Ange brandväggsprincipen med [New-AzApplicationGatewayFirewallPolicy](/powershell/module/az.network/new-azapplicationgatewayfirewallpolicy). Och sedan skapa ansökan gateway som heter *myAppGateway* med [New-AzApplicationGateway](/powershell/module/az.network/new-azapplicationgateway).
 
 ```azurepowershell-interactive
 $sku = New-AzApplicationGatewaySku `
@@ -250,9 +250,9 @@ $appgw = New-AzApplicationGateway `
   -FirewallPolicy $wafPolicyGlobal
 ```
 
-### <a name="apply-a-per-uri-policy"></a>Tillämpa en per URI-princip
+### <a name="apply-a-per-uri-policy"></a>Tillämpa en princip per URI
 
-Om du vill tillämpa en per URI-princip skapar du bara en ny princip och tillämpar den på Sök vägs regel konfigurationen. 
+Om du vill tillämpa en per-URI-princip skapar du bara en ny princip och tillämpar den på sökvägsregeln config. 
 
 ```azurepowershell-interactive
 $policySettingURI = New-AzApplicationGatewayFirewallPolicySetting `
@@ -368,11 +368,11 @@ Update-AzVmss `
 
 ## <a name="create-a-storage-account-and-configure-diagnostics"></a>Skapa ett lagringskonto och konfigurera diagnostik
 
-I den här artikeln använder Application Gateway ett lagrings konto för att lagra data för identifiering och förebyggande ändamål. Du kan även använda Azure Monitor-loggar eller Event Hub till att registrera data.
+I den här artikeln använder programgatewayen ett lagringskonto för att lagra data för identifiering och förebyggande ändamål. Du kan även använda Azure Monitor-loggar eller Event Hub till att registrera data.
 
 ### <a name="create-the-storage-account"></a>Skapa lagringskontot
 
-Skapa ett lagrings konto med namnet *myagstore1* med [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount).
+Skapa ett lagringskonto med namnet *myagstore1* med [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount).
 
 ```azurepowershell-interactive
 $storageAccount = New-AzStorageAccount `
@@ -384,7 +384,7 @@ $storageAccount = New-AzStorageAccount `
 
 ### <a name="configure-diagnostics"></a>Konfigurera diagnostiken
 
-Konfigurera diagnostik för att registrera data i ApplicationGatewayAccessLog-, ApplicationGatewayPerformanceLog-och ApplicationGatewayFirewallLog-loggarna med [set-AzDiagnosticSetting](/powershell/module/az.monitor/set-azdiagnosticsetting).
+Konfigurera diagnostik för att registrera data i loggarna ApplicationGatewayAccessLog, ApplicationGatewayPerformanceLog och ApplicationGatewayFirewallLog med [Set-AzDiagnosticSetting](/powershell/module/az.monitor/set-azdiagnosticsetting).
 
 ```azurepowershell-interactive
 $appgw = Get-AzApplicationGateway `
@@ -406,7 +406,7 @@ Set-AzDiagnosticSetting `
 
 ## <a name="test-the-application-gateway"></a>Testa programgatewayen
 
-Du kan använda [Get-AzPublicIPAddress](/powershell/module/az.network/get-azpublicipaddress) för att hämta den offentliga IP-adressen för Application Gateway. Använd sedan den här IP-adressen för att svänga mot (Ersätt 1.1.1.1 som visas nedan). 
+Du kan använda [Get-AzPublicIPAddress](/powershell/module/az.network/get-azpublicipaddress) för att få den offentliga IP-adressen för programgatewayen. Använd sedan denna IP-adress för att krypa mot (byt ut 1.1.1.1 nedan). 
 
 ```azurepowershell-interactive
 Get-AzPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublicIPAddress
@@ -437,7 +437,7 @@ curl 1.1.1.1/URIAllow?1=1
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Ta bort resurs gruppen, Application Gateway och alla relaterade resurser som använder [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup)när de inte längre behövs.
+När det inte längre behövs tar du bort resursgruppen, programgatewayen och alla relaterade resurser med [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup).
 
 ```azurepowershell-interactive
 Remove-AzResourceGroup -Name myResourceGroupAG
@@ -445,4 +445,4 @@ Remove-AzResourceGroup -Name myResourceGroupAG
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Anpassa brand Väggs regler för webb program](application-gateway-customize-waf-rules-portal.md)
+[Anpassa regler för brandväggen för webbaserade program](application-gateway-customize-waf-rules-portal.md)

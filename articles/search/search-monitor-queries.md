@@ -1,7 +1,7 @@
 ---
 title: Övervaka frågor
 titleSuffix: Azure Cognitive Search
-description: Övervaka frågans mått för prestanda och data flöde. Samla in och analysera indata från frågesträngar i diagnostikloggar.
+description: Övervaka frågemått för prestanda och dataflöde. Samla in och analysera frågesträngindata i diagnostikloggar.
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
@@ -9,120 +9,120 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/18/2020
 ms.openlocfilehash: a3a313ef9cd74ba901f5a6a2d82a18e3c21145dc
-ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77462537"
 ---
-# <a name="monitor-query-requests-in-azure-cognitive-search"></a>Övervaka fråge förfrågningar i Azure Kognitiv sökning
+# <a name="monitor-query-requests-in-azure-cognitive-search"></a>Övervaka frågebegäranden i Azure Cognitive Search
 
-Den här artikeln förklarar hur du mäter frågans prestanda och volym med hjälp av mått och diagnostisk loggning. Här beskrivs också hur du samlar in de indata som används i frågor – nödvändig information när du behöver utvärdera verktyget och effektiviteten hos din Sök sökkorpus.
+I den här artikeln beskrivs hur du mäter frågeprestanda och volym med hjälp av mått och diagnostikloggning. Det förklarar också hur man samlar in indatatermer som används i frågor - nödvändig information när du behöver bedöma nyttan och effektiviteten i din sökning corpus.
 
-Historiska data som matas in i mått bevaras i 30 dagar. För längre kvarhållning eller för att rapportera om drift data och frågesträngar, måste du aktivera en [diagnostisk inställning](search-monitor-logs.md) som anger ett lagrings alternativ för att spara loggade händelser och mått.
+Historiska data som matas in i mått bevaras i 30 dagar. För längre kvarhållning, eller för att rapportera om driftdata och frågesträngar, se till att aktivera en [diagnostikinställning](search-monitor-logs.md) som anger ett lagringsalternativ för beständiga loggade händelser och mått.
 
-Villkor som maximerar integriteten för data mätning är:
+Villkor som maximerar integriteten för datamätning inkluderar:
 
-+ Använd en fakturerings bar tjänst (en tjänst som skapats antingen på Basic-eller standard-nivån). Den kostnads fria tjänsten delas av flera prenumeranter, som introducerar en viss mängd flyktiga som inläsnings SKIFT.
++ Använd en fakturerbar tjänst (en tjänst som skapats på antingen Basic- eller Standard-nivån). Den fria tjänsten delas av flera abonnenter, vilket introducerar en viss volatilitet som laster skift.
 
-+ Använd en enda replik och partition, om möjligt, för att skapa en innesluten och isolerad miljö. Om du använder flera repliker, genomsnitts frågans mått över flera noder, vilket kan minska precisionen i resultatet. På samma sätt innebär flera partitioner att data delas, med möjlighet att vissa partitioner kan ha olika data om indexeringen också pågår. Vid justering av frågans prestanda ger en enda nod och partition en mer stabil miljö för testning.
++ Använd en enda replik och partition, om möjligt, för att skapa en innesluten och isolerad miljö. Om du använder flera repliker beräknas frågemåtten i genomsnitt mellan flera noder, vilket kan sänka resultatprecisionen. På samma sätt innebär flera partitioner att data är uppdelade, med potentialen att vissa partitioner kan ha olika data om indexering också pågår. När du justerar frågeprestanda ger en enda nod och partition en stabilare miljö för testning.
 
 > [!Tip]
-> Med ytterligare kod och Application Insights på klient sidan kan du också samla in genomklickning-data för djupare insikt i vad som är intressant för dina program användare. Mer information finns i [Sök efter trafik analys](search-traffic-analytics.md).
+> Med ytterligare kod på klientsidan och Application Insights kan du också samla in klickdata för djupare insikt i vad som lockar dina programanvändares intresse. Mer information finns i [Sök trafikanalys](search-traffic-analytics.md).
 
-## <a name="query-volume-qps"></a>Fråga volym (frågor per sekund)
+## <a name="query-volume-qps"></a>Frågevolym (QPS)
 
-Volymen mäts som **Sök frågor per sekund** (frågor per sekund), ett inbyggt mått som kan rapporteras som ett medelvärde, antal, minimala eller maximala värden för frågor som körs i ett minut fönster. En-minuters intervall (TimeGrain = "PT1M") för mått är fasta i systemet.
+Volymen mäts som **sökfrågor per sekund** (QPS), ett inbyggt mått som kan rapporteras som ett medelvärde, antal, lägsta eller högsta värden för frågor som körs inom ett minutsfönster. Enminutsintervall (TimeGrain = "PT1M") för mått fastställs i systemet.
 
-Det är vanligt att frågor körs i millisekunder, så endast frågor som mäter hur många sekunder visas i mått.
+Det är vanligt att frågor körs i millisekunder, så endast frågor som mäter som sekunder visas i mått.
 
-| Sammansättningstyp: | Beskrivning |
+| Sammansättningstyp | Beskrivning |
 |------------------|-------------|
-| Medel | Genomsnittligt antal sekunder inom en minut under vilken frågekörningen genomfördes.|
-| Antal | Antalet mått som har spridits till loggen inom en minuters intervall. |
-| Maximal | Det högsta antalet Sök frågor per sekund som registrerats under en minut. |
-| Minimum | Det lägsta antalet Sök frågor per sekund som registrerats under en minut.  |
+| Medel | Genomsnittligt antal sekunder inom en minut under vilken körning av frågor inträffade.|
+| Antal | Antalet mått som skickas ut till loggen inom ett minutsintervall. |
+| Maximal | Det högsta antalet sökfrågor per sekund som registrerats under en minut. |
+| Minimum | Det lägsta antalet sökfrågor per sekund som registrerats under en minut.  |
 | Summa | Summan av alla frågor som körs inom minuten.  |
 
-Inom en minut kan du till exempel ha ett mönster som liknar detta: en sekund med hög belastning som är max för SearchQueriesPerSecond, följt av 58 sekunders genomsnittlig belastning och slutligen en sekund med bara en fråga, vilket är minimivärdet.
+Inom en minut kan du till exempel ha ett mönster som detta: en sekund av hög belastning som är den maximala för SearchQueriesPerSecond, följt av 58 sekunder av genomsnittlig belastning, och slutligen en sekund med bara en fråga, vilket är det minsta.
 
-Ett annat exempel: om en nod avger 100-mått, där värdet för varje mått är 40, så är "count" den 100, "sum" är 4000, "Average" är 40 och "Max" är 40.
+Ett annat exempel: om en nod avger 100 mått, där värdet för varje mått är 40, är "Count" 100, "Summa" 4000, "Genomsnitt" 40 och "Max" är 40.
 
 ## <a name="query-performance"></a>Frågeprestanda
 
-I hela världen mäts frågans prestanda som Sök fördröjning (hur lång tid en fråga tar att slutföra) och begränsade frågor som släppts som ett resultat av resurs konkurrens.
+Hela tjänsten, frågeprestanda mäts som sökfördröjning (hur lång tid en fråga tar att slutföra) och begränsade frågor som har tagits bort till följd av resurskonkurrens.
 
-### <a name="search-latency"></a>Sök svars tid
+### <a name="search-latency"></a>Sök svarstid
 
-| Sammansättningstyp: | Svarstid | 
+| Sammansättningstyp | Svarstid | 
 |------------------|---------|
-| Medel | Genomsnittlig fråge varaktighet i millisekunder. | 
-| Antal | Antalet mått som har spridits till loggen inom en minuters intervall. |
-| Maximal | Den längsta aktiva frågan i exemplet. | 
-| Minimum | Kortast körning av fråga i exemplet.  | 
-| Totalt | Total körnings tid för alla frågor i exemplet, som körs inom intervallet (en minut).  |
+| Medel | Genomsnittlig frågevaraktighet i millisekunder. | 
+| Antal | Antalet mått som skickas ut till loggen inom ett minutsintervall. |
+| Maximal | Den längsta frågan i exemplet. | 
+| Minimum | Kortaste löpande fråga i exemplet.  | 
+| Totalt | Total körningstid för alla frågor i exemplet och körs inom intervallet (en minut).  |
 
-Tänk på följande exempel på **Sök fördröjnings** mått: 86 frågor har samplats, med en genomsnittlig varaktighet på 23,26 millisekunder. Minst 0 anger att vissa frågor har släppts. Den längsta aktiva frågan tog 1000 millisekunder att slutföra. Den totala körnings tiden var 2 sekunder.
+Tänk på följande exempel **på svarstidermått:** 86 frågor har samplats med en genomsnittlig varaktighet på 23,26 millisekunder. Minst 0 anger att vissa frågor har tagits bort. Den längsta gående frågan tog 1000 millisekunder att slutföra. Total körningstid var 2 sekunder.
 
-![Latens-aggregeringar](./media/search-monitor-usage/metrics-latency.png "Latens-aggregeringar")
+![Sammanläggning av svarstidsaggregeringar](./media/search-monitor-usage/metrics-latency.png "Sammanläggning av svarstidsaggregeringar")
 
 ### <a name="throttled-queries"></a>Begränsade frågor
 
-Begränsade frågor refererar till frågor som släpps i stället för process. I de flesta fall är begränsningen en normal del av att köra tjänsten.  Det är inte nödvändigt vis något att indikera att det inte finns något fel.
+Begränsade frågor refererar till frågor som tas bort i stället för process. I de flesta fall är begränsning en normal del av att köra tjänsten.  Det är inte nödvändigtvis ett tecken på att något är fel.
 
-Begränsningen inträffar när antalet begär Anden som för närvarande bearbetas överskrider de tillgängliga resurserna. Du kan se en ökning av begränsade begär anden när en replik tas bort från rotationen eller under indexeringen. Både fråge-och indexerings begär Anden hanteras av samma uppsättning resurser.
+Begränsning sker när antalet begäranden som för närvarande bearbetas överskrider de tillgängliga resurserna. Du kan se en ökning av begränsade begäranden när en replik tas ur rotation eller under indexering. Både fråge- och indexeringsbegäranden hanteras av samma uppsättning resurser.
 
-Tjänsten bestämmer om begär Anden ska släppas utifrån resursförbrukning. Procent andelen resurser som förbrukas över minne, CPU och disk-i/o beräknas under en viss tids period. Om den här procent andelen överskrider ett tröskelvärde begränsas alla begär anden till indexet tills volymen av begär Anden minskas. 
+Tjänsten avgör om begäranden ska släppas baserat på resursförbrukning. Procentandelen resurser som förbrukas över minne, CPU och disk-IO beräknas i genomsnitt under en tidsperiod. Om den här procentsatsen överskrider ett tröskelvärde begränsas alla begäranden till indexet tills volymen av begäranden minskas. 
 
 Beroende på din klient kan en begränsad begäran anges på följande sätt:
 
-+ En tjänst returnerar ett fel "du skickar för många begär Anden. Försök igen senare.” 
-+ En tjänst returnerar en 503-felkod som anger att tjänsten inte är tillgänglig för tillfället. 
-+ Om du använder portalen (till exempel search Explorer) ignoreras frågan tyst och du måste klicka på Sök igen.
++ En tjänst returnerar ett fel "Du skickar för många begäranden. Försök igen senare.” 
++ En tjänst returnerar en 503-felkod som anger att tjänsten för närvarande inte är tillgänglig. 
++ Om du använder portalen (till exempel Sökutforskaren) tas frågan tyst och du måste klicka på Sök igen.
 
-För att bekräfta begränsade frågor, Använd **begränsade Sök frågor** mått. Du kan utforska mått i portalen eller skapa ett varnings mått enligt beskrivningen i den här artikeln. Använd *Total* för frågor som släppts inom samplings intervallet för att hämta procent andelen frågor som inte kördes.
+Om du vill bekräfta begränsade frågor använder du **måttet För begränsade sökfrågor.** Du kan utforska mått i portalen eller skapa ett aviseringsmått enligt beskrivningen i den här artikeln. För frågor som har tagits bort inom samplingsintervallet använder du *Summa* för att hämta procentandelen frågor som inte har körning.
 
-| Sammansättningstyp: | Begränsning |
+| Sammansättningstyp | Begränsning |
 |------------------|-----------|
-| Medel | Procent andel frågor som tagits bort inom intervallet. |
-| Antal | Antalet mått som har spridits till loggen inom en minuters intervall. |
-| Maximal | Procent andel frågor som tagits bort inom intervallet.|
-| Minimum | Procent andel frågor som tagits bort inom intervallet. |
-| Totalt | Procent andel frågor som tagits bort inom intervallet. |
+| Medel | Procentandel av frågor som har tagits bort inom intervallet. |
+| Antal | Antalet mått som skickas ut till loggen inom ett minutsintervall. |
+| Maximal | Procentandel av frågor som har tagits bort inom intervallet.|
+| Minimum | Procentandel av frågor som har tagits bort inom intervallet. |
+| Totalt | Procentandel av frågor som har tagits bort inom intervallet. |
 
-För **begränsade Sök frågor i procent**, lägsta, högsta, genomsnitt och total, har alla samma värde: procent andelen Sök frågor som har begränsats från det totala antalet Sök frågor under en minut.
+För **begränsade sökfrågor Procent**, minimum, maximum, genomsnitt och totalt har alla samma värde: procentandelen sökfrågor som begränsades, från det totala antalet sökfrågor under en minut.
 
-I följande skärm bild är det första talet antalet (eller antalet mått som skickas till loggen). Ytterligare agg regeringar, som visas högst upp eller vid hovring över måttet, inklusive medelvärde, maximum och total. I det här exemplet släpptes inga förfrågningar.
+I följande skärmbild är det första numret antalet (eller antalet mått som skickas till loggen). Ytterligare aggregeringar, som visas överst eller när de hovrar över måttet, inkluderar medelvärde, maximum och total. I det här exemplet togs inga begäranden bort.
 
-![Begränsade agg regeringar](./media/search-monitor-usage/metrics-throttle.png "Begränsade agg regeringar")
+![Begränsade aggregeringar](./media/search-monitor-usage/metrics-throttle.png "Begränsade aggregeringar")
 
-## <a name="explore-metrics-in-the-portal"></a>Utforska mått i portalen
+## <a name="explore-metrics-in-the-portal"></a>Utforska mätvärden i portalen
 
-För en snabb titt på aktuella siffror visar fliken **övervakning** på sidan för tjänst översikt tre mått (**Sök svars tid**, **Sök frågor per sekund (per söknings enhet)** , **begränsade Sök frågor i procent**) över fasta intervall mätt i timmar, dagar och veckor, med alternativet att ändra agg regerings typen.
+För en snabb titt på de aktuella talen visar fliken **Övervakning** på sidan Översikt över tjänsten tre mått (**sökfördröjning**, **Sökfrågor per sekund (per sökenhet)**, **Begränsat sökfrågor procent**) över fasta intervall mätt i timmar, dagar och veckor, med möjlighet att ändra aggregeringstypen.
 
-Öppna Metrics Explorer från **övervaknings** menyn för djupare utforskning, så att du kan skikta, zooma in och visualisera data för att utforska trender eller avvikelser. Lär dig mer om Metrics Explorer genom att slutföra den här [självstudien om hur du skapar ett mått diagram](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-metrics-explorer).
+För djupare utforskning öppnar du utforskare av datametri från **övervakningsmenyn** så att du kan lagra, zooma in och visualisera data för att utforska trender eller avvikelser. Läs mer om statistik explorer genom att fylla i den här [självstudien om att skapa ett måttdiagram](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-metrics-explorer).
 
-1. Under avsnittet övervakning väljer du **mått** för att öppna mått Utforskaren med omfånget som angetts till din Sök tjänst.
+1. Under avsnittet Övervakning väljer du **Mått** för att öppna statistikutforskaren med scopet inställt på söktjänsten.
 
-1. Under mått väljer du ett från List rutan och granskar listan över tillgängliga agg regeringar för en önskad typ. Agg regeringen definierar hur insamlade värden kommer att samplas över varje tidsintervall.
+1. Under Mått väljer du en i listrutan och granskar listan över tillgängliga aggregeringar för en önskad typ. Aggregeringen definierar hur de insamlade värdena ska provtas under varje tidsintervall.
 
-   ![Mått Utforskaren för frågor per sekund-mått](./media/search-monitor-usage/metrics-explorer-qps.png "Mått Utforskaren för frågor per sekund-mått")
+   ![Statistikutforskare för QPS-mått](./media/search-monitor-usage/metrics-explorer-qps.png "Statistikutforskare för QPS-mått")
 
-1. Ange tidsintervall i det övre högra hörnet.
+1. I det övre högra hörnet ställer du in tidsintervallet.
 
-1. Välj en visualisering. Standardvärdet är ett linje diagram.
+1. Välj en visualisering. Standard är ett linjediagram.
 
-1. Skikt ytterligare agg regeringar genom att välja **Lägg till mått** och välja olika agg regeringar.
+1. Lager ytterligare aggregeringar genom att välja **Lägg till mått** och välja olika aggregeringar.
 
-1. Zooma in i ett intresse områden i linje diagrammet. Placera mus pekaren i början av ytan, klicka och håll ned vänster MUSKNAPP, dra till den andra sidan av arean och släpp knappen. Diagrammet kommer att zooma in inom det tidsintervallet.
+1. Zooma in i ett område av intresse på linjediagrammet. Placera muspekaren i början av området, klicka och håll ned vänster musknapp, dra till andra sidan av området och släpp knappen. Diagrammet zoomar in på det tidsintervallet.
 
 ## <a name="identify-strings-used-in-queries"></a>Identifiera strängar som används i frågor
 
-När du aktiverar diagnostikloggning fångar systemet fråge förfrågningar i **AzureDiagnostics** -tabellen. Som en förutsättning måste du redan ha aktiverat [diagnostisk loggning](search-monitor-logs.md), ange en Log Analytics-arbetsyta eller ett annat lagrings alternativ.
+När du aktiverar diagnostikloggning samlar systemet in frågebegäranden i tabellen **AzureDiagnostics.** Som en förutsättning måste du redan ha aktiverat [diagnostikloggning,](search-monitor-logs.md)ange en logganalysarbetsyta eller ett annat lagringsalternativ.
 
-1. Under avsnittet övervakning väljer du **loggar** för att öppna ett tomt frågefönster i Log Analytics.
+1. Under avsnittet Övervakning väljer du **Loggar** för att öppna ett tomt frågefönster i Logganalys.
 
-1. Kör följande uttryck för att söka efter fråga. Sök åtgärder, returnera en tabell resultat uppsättning som består av åtgärds namnet, frågesträngen, det efterfrågade indexet och antalet dokument som hittades. De sista två satserna utesluter frågesträngar som består av en tom eller ospecificerad sökning, över ett exempel index, vilket minskar bruset i resultatet.
+1. Kör följande uttryck för att söka efter Query.Search-åtgärder, returnera en tabellresultatuppsättning som består av åtgärdsnamnet, frågesträngen, indexet som efterfrågas och antalet dokument som hittades. De två sista uttalandena utesluter frågesträngar som består av en tom eller ospecificerad sökning, över ett exempelindex, vilket minskar bruset i resultaten.
 
    ```
    AzureDiagnostics
@@ -132,19 +132,19 @@ När du aktiverar diagnostikloggning fångar systemet fråge förfrågningar i *
    | where IndexName_s != "realestate-us-sample-index"
    ```
 
-1. Du kan också ange ett kolumn filter på *Query_s* om du vill söka över en speciell syntax eller sträng. Du kan till exempel filtrera över *är lika* med `?api-version=2019-05-06&search=*&%24filter=HotelName`).
+1. Du kan också ange ett kolumnfilter på *Query_s* för att söka över en viss syntax eller sträng. Du kan till exempel filtrera över *lika med* `?api-version=2019-05-06&search=*&%24filter=HotelName`).
 
    ![Loggade frågesträngar](./media/search-monitor-usage/log-query-strings.png "Loggade frågesträngar")
 
-Även om den här tekniken fungerar för ad hoc-undersökning kan du med hjälp av skapa en rapport konsolidera och presentera frågesträngarna i en layout mer gynnsamt analys.
+Även om den här tekniken fungerar för ad hoc-undersökning, kan du genom att skapa en rapport konsolidera och presentera frågesträngarna i en layout som är mer gynnsam för analys.
 
-## <a name="identify-long-running-queries"></a>Identifiera tids krävande frågor
+## <a name="identify-long-running-queries"></a>Identifiera tidskrävande frågor
 
-Lägg till kolumnen varaktighet för att hämta numren för alla frågor, inte bara de som hämtas som ett mått. Sortering av dessa data visar vilka frågor som tar den längsta att slutföra.
+Lägg till varaktighetskolumnen för att hämta siffrorna för alla frågor, inte bara de som plockas upp som ett mått. Om du sorterar dessa data visas vilka frågor som tar längst tid att slutföra.
 
-1. Under avsnittet övervakning väljer du **loggar** för att fråga efter logg information.
+1. Under avsnittet Övervakning väljer du **Loggar** för att fråga efter logginformation.
 
-1. Kör följande fråga för att returnera frågor, sorterade efter varaktighet i millisekunder. De längsta körnings frågorna visas överst.
+1. Kör följande fråga för att returnera frågor, sorterade efter varaktighet i millisekunder. De mest långvariga frågorna är högst upp.
 
    ```
    AzureDiagnostics
@@ -155,33 +155,33 @@ Lägg till kolumnen varaktighet för att hämta numren för alla frågor, inte b
 
    ![Sortera frågor efter varaktighet](./media/search-monitor-usage/azurediagnostics-table-sortby-duration.png "Sortera frågor efter varaktighet")
 
-## <a name="create-a-metric-alert"></a>Skapa en måtta avisering
+## <a name="create-a-metric-alert"></a>Skapa en måttavisering
 
-En måtta-varning fastställer ett tröskelvärde då du antingen får ett meddelande eller utlöser en korrigerings åtgärd som du definierar i förväg. 
+En måttavisering fastställer ett tröskelvärde där du antingen får ett meddelande eller utlöser en korrigerande åtgärd som du definierar i förväg. 
 
-För en Sök tjänst är det vanligt att skapa en mått avisering för Sök fördröjning och begränsade frågor. Om du vet när frågor släpps kan du söka efter lösningar som minskar belastningen eller ökar kapaciteten. Om till exempel begränsade frågor ökar under indexeringen kan du skjuta upp det tills du får en fråga om aktivitetens under sidor.
+För en söktjänst är det vanligt att skapa en måttavisering för sökfördröjning och begränsade frågor. Om du vet när frågor tas bort kan du söka efter åtgärder som minskar belastningen eller ökar kapaciteten. Om begränsade frågor till exempel ökar under indexeringen kan du skjuta upp den tills frågeaktiviteten avtar.
 
-När du överför gränserna för en viss konfiguration av replik-partitionen, är det också användbart att ställa in aviseringar för frågor per sekund (Query Volume Thresholds).
+När du tänjer på gränserna för en viss konfiguration av replikpartitioner är det också till hjälp att ställa in aviseringar för frågevolymtrösklar (QPS).
 
-1. Under avsnittet övervakning väljer du **aviseringar** och klickar sedan på **+ ny varnings regel**. Se till att Sök tjänsten är vald som resurs.
+1. Under avsnittet Övervakning väljer du Aviseringar och klickar sedan på **+ Ny varningsregel**. **Alerts** Kontrollera att söktjänsten är markerad som resurs.
 
-1. Klicka på **Lägg till**under villkor.
+1. Klicka på **Lägg till**under Villkor.
 
-1. Konfigurera signal logik. Välj **mått** i signal typ och välj sedan signalen.
+1. Konfigurera signallogik. För signaltyp väljer du **mått** och väljer sedan signalen.
 
-1. När du har valt signalen kan du använda ett diagram för att visualisera historiska data för ett informerat beslut om hur du ska gå vidare med att konfigurera villkor.
+1. När du har valt signalen kan du använda ett diagram för att visualisera historiska data för ett välgrundat beslut om hur du ska gå vidare med att ställa in villkor.
 
-1. Rulla sedan ned till aviserings logiken. För koncept bevis kan du ange ett artificiellt lågt värde för test ändamål.
+1. Bläddra sedan ned till Varningslogik. För proof-of-concept kan du ange ett artificiellt lågt värde för testning.
 
-   ![Aviserings logik](./media/search-monitor-usage/alert-logic-qps.png "Aviserings logik")
+   ![Varningslogik](./media/search-monitor-usage/alert-logic-qps.png "Varningslogik")
 
-1. Ange eller skapa sedan en åtgärds grupp. Detta är svaret på anropet när tröskelvärdet är uppfyllt. Det kan vara ett push-meddelande eller ett automatiskt svar.
+1. Ange eller skapa sedan en åtgärdsgrupp. Detta är svaret på att anropa när tröskelvärdet uppfylls. Det kan vara ett push-meddelande eller ett automatiserat svar.
 
-1. Sista, ange aviserings information. Namnge och beskriv aviseringen, tilldela ett allvarlighets värde och ange om regeln ska skapas i ett aktiverat eller inaktiverat tillstånd.
+1. Ange senast Aviseringsinformation. Namnge och beskriv aviseringen, tilldela ett allvarlighetsgrad och ange om regeln ska skapas i ett aktiverat eller inaktiverat tillstånd.
 
-   ![Aviserings information](./media/search-monitor-usage/alert-details.png "Aviseringsinformation")
+   ![Varningsinformation](./media/search-monitor-usage/alert-details.png "Aviseringsinformation")
 
-Om du har angett ett e-postmeddelande får du ett e-postmeddelande från "Microsoft Azure" med ämnes raden "Azure: activated allvarlighets grad: 3 `<your rule name>`".
+Om du har angett ett e-postmeddelande får du ett e-postmeddelande från "Microsoft Azure" med `<your rule name>`ämnesraden "Azure: Aktiverad allvarlighetsgrad: 3".
 
 <!-- ## Report query data
 
@@ -189,7 +189,7 @@ Power BI is an analytical reporting tool useful for visualizing data, including 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Om du inte redan har gjort det kan du läsa grunderna i Sök tjänst övervakningen för att lära dig mer om alla funktioner för överblick.
+Om du inte redan har gjort det kan du läsa grunderna för övervakning av söktjänsten för att lära dig mer om hela utbudet av tillsynsfunktioner.
 
 > [!div class="nextstepaction"]
-> [Övervaka åtgärder och aktiviteter i Azure Kognitiv sökning](search-monitor-usage.md)
+> [Övervaka åtgärder och aktivitet i Azure Cognitive Search](search-monitor-usage.md)

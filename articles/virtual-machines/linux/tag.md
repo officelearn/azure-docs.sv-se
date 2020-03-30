@@ -1,6 +1,6 @@
 ---
-title: Tagga en virtuell Azure Linux-dator
-description: Lär dig mer om att tagga en virtuell Azure Linux-dator som skapats i Azure med hjälp av distributions modellen för Resource Manager.
+title: Så här taggar du en virtuell Azure Linux-dator
+description: Lär dig mer om hur du taggar en virtuell Azure Linux-dator som skapats i Azure med hjälp av distributionsmodellen för Resource Manager.
 services: virtual-machines-linux
 documentationcenter: ''
 author: mmccrory
@@ -15,28 +15,28 @@ ms.workload: infrastructure-services
 ms.date: 02/28/2017
 ms.author: memccror
 ms.openlocfilehash: 3dd46f0c1c1e36e0373311ce6dcbf5d2f155dacc
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77616279"
 ---
-# <a name="how-to-tag-a-linux-virtual-machine-in-azure"></a>Tagga en virtuell Linux-dator i Azure
-I den här artikeln beskrivs olika sätt att tagga en virtuell Linux-dator i Azure via distributions modellen för Resource Manager. Taggar är användardefinierade nyckel/värde-par som kan placeras direkt på en resurs eller en resurs grupp. Azure har för närvarande stöd för upp till 50 Taggar per resurs och resurs grupp. Taggar kan placeras på en resurs vid tidpunkten för skapandet eller läggs till i en befintlig resurs. Observera att Taggar endast stöds för resurser som skapats via distributions modellen för Resource Manager.
+# <a name="how-to-tag-a-linux-virtual-machine-in-azure"></a>Så här taggar du en virtuell Linux-dator i Azure
+I den här artikeln beskrivs olika sätt att tagga en virtuell Linux-dator i Azure via resurshanterarens distributionsmodell. Taggar är användardefinierade nyckel-/värdepar som kan placeras direkt på en resurs eller en resursgrupp. Azure stöder för närvarande upp till 50 taggar per resurs och resursgrupp. Taggar kan placeras på en resurs när de skapas eller läggs till i en befintlig resurs. Observera att taggar stöds endast för resurser som skapats via Resurshanterarens distributionsmodell.
 
 [!INCLUDE [virtual-machines-common-tag](../../../includes/virtual-machines-common-tag.md)]
 
-## <a name="tagging-with-azure-cli"></a>Tagga med Azure CLI
+## <a name="tagging-with-azure-cli"></a>Taggning med Azure CLI
 
-Innan du börjar måste du ha det senaste [Azure CLI](/cli/azure/install-azure-cli) installerat och inloggat på ett Azure-konto med [AZ-inloggning](/cli/azure/reference-index#az-login).
+Till att börja med behöver du den senaste [Azure CLI](/cli/azure/install-azure-cli) installerat och inloggad på ett Azure-konto med [az login](/cli/azure/reference-index#az-login).
 
-Du kan visa alla egenskaper för en specifik virtuell dator, inklusive taggarna, med hjälp av det här kommandot:
+Du kan visa alla egenskaper för en viss virtuell dator, inklusive taggarna, med det här kommandot:
 
 ```azurecli
 az vm show --resource-group MyResourceGroup --name MyTestVM
 ```
 
-Om du vill lägga till en ny virtuell dator med hjälp av Azure CLI kan du använda kommandot `azure vm update` tillsammans med tag **-parametern--set**:
+Om du vill lägga till en ny VM-tagg via Azure CLI kan du använda `azure vm update` kommandot tillsammans med taggparametern **--set:**
 
 ```azurecli
 az vm update \
@@ -45,19 +45,19 @@ az vm update \
     --set tags.myNewTagName1=myNewTagValue1 tags.myNewTagName2=myNewTagValue2
 ```
 
-Om du vill ta bort taggar kan du använda parametern **--Remove** i kommandot `azure vm update`.
+Om du vill ta bort taggar kan `azure vm update` du använda parametern **--remove** i kommandot.
 
 ```azurecli
 az vm update --resource-group MyResourceGroup --name MyTestVM --remove tags.myNewTagName1
 ```
 
-Nu när vi har använt taggar till våra resurser Azure CLI och portalen, tar vi en titt på användnings informationen för att se taggarna i fakturerings portalen.
+Nu när vi har tillämpat taggar på våra resurser Azure CLI och portalen, låt oss ta en titt på användningsinformation för att se taggarna i faktureringsportalen.
 
 [!INCLUDE [virtual-machines-common-tag-usage](../../../includes/virtual-machines-common-tag-usage.md)]
 
 ## <a name="next-steps"></a>Nästa steg
-* Läs mer om att tagga dina Azure-resurser i [Azure Resource Manager översikt][Azure Resource Manager Overview] och [använda taggar för att ordna dina Azure-resurser][Using Tags to organize your Azure Resources].
-* För att se hur taggar kan hjälpa dig att hantera din användning av Azure-resurser, se [förstå din Azure-faktura][Understanding your Azure Bill] och [få insikter om din Microsoft Azure resursförbrukning][Gain insights into your Microsoft Azure resource consumption].
+* Mer information om hur du taggar dina Azure-resurser finns i [Översikt över Azure Resource Manager][Azure Resource Manager Overview] och Använda taggar för att ordna dina [Azure-resurser][Using Tags to organize your Azure Resources].
+* Information om hur taggar kan hjälpa dig att hantera din användning av Azure-resurser finns i [Förstå din Azure-faktura][Understanding your Azure Bill] och [få insikter om din Microsoft Azure-resursförbrukning][Gain insights into your Microsoft Azure resource consumption].
 
 [Azure CLI environment]: ../../azure-resource-manager/xplat-cli-azure-resource-manager.md
 [Azure Resource Manager Overview]: ../../azure-resource-manager/management/overview.md

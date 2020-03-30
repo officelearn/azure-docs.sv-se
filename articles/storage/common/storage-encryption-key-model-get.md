@@ -1,51 +1,55 @@
 ---
-title: Avgöra vilken krypterings nyckel modell som används för lagrings kontot
+title: Ta reda på vilken krypteringsnyckelmodell som används för lagringskontot
 titleSuffix: Azure Storage
-description: Använd Azure Portal, PowerShell eller Azure CLI för att kontrol lera hur krypterings nycklar hanteras för lagrings kontot. Nycklar kan hanteras av Microsoft (standard) eller av kunden. Kundhanterade nycklar måste lagras i Azure Key Vault.
+description: Använd Azure portal, PowerShell eller Azure CLI för att kontrollera hur krypteringsnycklar hanteras för lagringskontot. Nycklar kan hanteras av Microsoft (standard) eller av kunden. Kundhanterade nycklar måste lagras i Azure Key Vault.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 01/03/2020
+ms.date: 03/13/2020
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 3806fead9226978c277e87f3d97b14ee38d9552d
-ms.sourcegitcommit: 2c59a05cb3975bede8134bc23e27db5e1f4eaa45
+ms.openlocfilehash: 0df0ba4ce76d249bcb4738b41c94677e061f14ca
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/05/2020
-ms.locfileid: "75665413"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79409871"
 ---
-# <a name="determine-which-azure-storage-encryption-key-model-is-in-use-for-the-storage-account"></a>Avgöra vilken Azure Storage krypterings nyckel modell som används för lagrings kontot
+# <a name="determine-which-azure-storage-encryption-key-model-is-in-use-for-the-storage-account"></a>Ta reda på vilken Azure Storage-krypteringsnyckelmodell som används för lagringskontot
 
-Data i ditt lagrings konto krypteras automatiskt av Azure Storage. Azure Storage kryptering erbjuder två alternativ för att hantera krypterings nycklar på lagrings kontots nivå:
+Data i ditt lagringskonto krypteras automatiskt av Azure Storage. Azure Storage-kryptering erbjuder två alternativ för att hantera krypteringsnycklar på lagringskontots nivå:
 
-- **Microsoft-hanterade nycklar.** Som standard hanterar Microsoft nycklarna som används för att kryptera ditt lagrings konto.
-- **Kundhanterade nycklar.** Du kan också välja att hantera krypterings nycklar för ditt lagrings konto. Kundhanterade nycklar måste lagras i Azure Key Vault.
+- **Microsoft-hanterade nycklar.** Som standard hanterar Microsoft de nycklar som används för att kryptera ditt lagringskonto.
+- **Kundhanterade nycklar.** Du kan också välja att hantera krypteringsnycklar för ditt lagringskonto. Kundhanterade nycklar måste lagras i Azure Key Vault.
 
-Dessutom kan du ange en krypterings nyckel på nivån för en enskild begäran för vissa Blob Storage-åtgärder. När en krypterings nyckel anges i begäran åsidosätter den krypterings nyckeln som är aktiv på lagrings kontot. Mer information finns i [Ange en kund-baserad nyckel på en begäran till Blob Storage](../blobs/storage-blob-customer-provided-key.md).
+Dessutom kan du ange en krypteringsnyckel på nivån för en enskild begäran för vissa Blob-lagringsåtgärder. När en krypteringsnyckel anges på begäran åsidosätter nyckeln krypteringsnyckeln som är aktiv på lagringskontot. Mer information finns i [Ange en kundklumpningsnyckel på en begäran till Blob storage](../blobs/storage-blob-customer-provided-key.md).
 
-Mer information om krypterings nycklar finns [Azure Storage kryptering av data i vila](storage-service-encryption.md).
+Mer information om krypteringsnycklar finns i [Azure Storage-kryptering för data i vila](storage-service-encryption.md).
 
-## <a name="check-the-encryption-key-model-for-the-storage-account"></a>Kontrol lera krypterings nyckel modellen för lagrings kontot
+## <a name="check-the-encryption-key-model-for-the-storage-account"></a>Kontrollera krypteringsnyckelmodellen för lagringskontot
 
-Använd någon av följande metoder för att avgöra om ett lagrings konto använder Microsoft-hanterade nycklar eller kund hanterade nycklar för kryptering.
+Om du vill ta reda på om ett lagringskonto använder Microsoft-hanterade nycklar eller kundhanterade nycklar för kryptering använder du någon av följande metoder.
 
-# <a name="azure-portaltabportal"></a>[Azure-portalen](#tab/portal)
+# <a name="azure-portal"></a>[Azure-portal](#tab/portal)
 
-Följ dessa steg om du vill kontrol lera krypterings modellen för lagrings kontot med hjälp av Azure Portal:
+Så här kontrollerar du krypteringsmodellen för lagringskontot med hjälp av Azure-portalen:
 
 1. Navigera till ditt lagringskonto i Azure Portal.
-1. Välj **krypterings** inställningen och anteckna inställningen.
+1. Välj **krypteringsinställningen** och notera inställningen.
 
-Följande bild visar ett lagrings konto där Kundhanterade nycklar används för kryptering:
+Följande bild visar ett lagringskonto som är krypterat med Microsoft-hanterade nycklar:
 
-![Skärm bild som visar krypterings nyckel inställningen i Azure Portal](media/storage-encryption-key-model-get/customer-managed-encryption-key-setting-portal.png)
+![Visa konto krypterat med Microsoft-hanterade nycklar](media/storage-encryption-key-model-get/microsoft-managed-encryption-key-setting-portal.png)
 
-# <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
+Och följande bild visar ett lagringskonto som är krypterat med kundhanterade nycklar:
 
-Om du vill kontrol lera krypterings modellen för lagrings kontot med hjälp av PowerShell anropar du kommandot [Get-AzStorageAccount](/powershell/module/az.storage/get-azstorageaccount) och kontrollerar sedan egenskapen nyckel **källa** för kontot.
+![Skärmbild som visar krypteringsnyckelinställningen i Azure-portalen](media/storage-encryption-key-model-get/customer-managed-encryption-key-setting-portal.png)
+
+# <a name="powershell"></a>[Powershell](#tab/powershell)
+
+Om du vill kontrollera krypteringsmodellen för lagringskontot med Hjälp av PowerShell anropar du kommandot [Get-AzStorageAccount](/powershell/module/az.storage/get-azstorageaccount) och kontrollerar sedan egenskapen **KeySource** för kontot.
 
 ```powershell
 $account = Get-AzStorageAccount -ResourceGroupName <resource-group> `
@@ -53,11 +57,11 @@ $account = Get-AzStorageAccount -ResourceGroupName <resource-group> `
 $account.Encryption.KeySource
 ```
 
-Om värdet för egenskapen nyckel **källa** är `Microsoft.Storage`krypteras kontot med Microsoft-hanterade nycklar. Om värdet för egenskapen nyckel **källa** är `Microsoft.Keyvault`krypteras kontot med Kundhanterade nycklar.
+Om värdet för egenskapen `Microsoft.Storage` **KeySource** är krypteras kontot med Microsoft-hanterade nycklar. Om värdet för egenskapen `Microsoft.Keyvault` **KeySource** är krypteras kontot med kundhanterade nycklar.
 
-# <a name="azure-clitabcli"></a>[Azure CLI](#tab/cli)
+# <a name="azure-cli"></a>[Azure CLI](#tab/cli)
 
-Om du vill kontrol lera krypterings modellen för lagrings kontot med hjälp av Azure CLI anropar du kommandot [AZ Storage Account show](/cli/azure/storage/account#az-storage-account-show) och kontrollerar sedan egenskapen nyckel **källa** för kontot.
+Om du vill kontrollera krypteringsmodellen för lagringskontot med hjälp av Azure CLI anropar du kommandot [az storage account show](/cli/azure/storage/account#az-storage-account-show) och kontrollerar sedan egenskapen **keySource** för kontot.
 
 ```azurecli-interactive
 key_source=$(az storage account show \
@@ -67,10 +71,11 @@ key_source=$(az storage account show \
     --output tsv)
 ```
 
-Om värdet för egenskapen nyckel **källa** är `Microsoft.Storage`krypteras kontot med Microsoft-hanterade nycklar. Om värdet för egenskapen nyckel **källa** är `Microsoft.Keyvault`krypteras kontot med Kundhanterade nycklar.
+Om värdet för egenskapen `Microsoft.Storage` **keySource** är krypteras kontot med Microsoft-hanterade nycklar. Om värdet för egenskapen `Microsoft.Keyvault` **keySource** är krypteras kontot med kundhanterade nycklar.
 
 ---
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Azure Storage kryptering för vilande data](storage-service-encryption.md)
+- [Azure Storage-kryptering för data i vila](storage-service-encryption.md)
+- [Använda kundhanterade nycklar med Azure Key Vault för att hantera Azure Storage-kryptering](encryption-customer-managed-keys.md)

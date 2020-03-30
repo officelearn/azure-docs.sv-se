@@ -11,17 +11,17 @@ ms.author: sstein
 ms.reviewer: v-masebo
 ms.date: 02/12/2019
 ms.openlocfilehash: ae119dd23da670f16c0239b14119519c431e6326
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "73827001"
 ---
 # <a name="quickstart-use-php-to-query-an-azure-sql-database"></a>Snabbstart: Använda PHP för att köra frågor mot en Azure SQL-databas
 
 Den här artikeln visar hur du använder [PHP](https://php.net/manual/en/intro-whatis.php) för att ansluta till en Azure SQL-databas. Du kan sedan använda T-SQL-instruktioner för att köra frågor mot data.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 För att kunna slutföra det här exemplet behöver du följande:
 
@@ -31,11 +31,11 @@ För att kunna slutföra det här exemplet behöver du följande:
   |:--- |:--- |:---|
   | Skapa| [Portal](sql-database-single-database-get-started.md) | [Portal](sql-database-managed-instance-get-started.md) |
   || [CLI](scripts/sql-database-create-and-configure-database-cli.md) | [CLI](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44) |
-  || [PowerShell](scripts/sql-database-create-and-configure-database-powershell.md) | [PowerShell](scripts/sql-database-create-configure-managed-instance-powershell.md) |
+  || [Powershell](scripts/sql-database-create-and-configure-database-powershell.md) | [Powershell](scripts/sql-database-create-configure-managed-instance-powershell.md) |
   | Konfigurera | [IP-brandväggsregel på servernivå](sql-database-server-level-firewall-rule.md)| [Anslutning från en virtuell dator](sql-database-managed-instance-configure-vm.md)|
   |||[Anslutning från en lokal plats](sql-database-managed-instance-configure-p2s.md)
   |Läsa in data|AdventureWorks som lästs in per snabbstart|[Återställa Wide World Importers](sql-database-managed-instance-get-started-restore.md)
-  |||Återställa eller importera Adventure Works från [BACPAC](sql-database-import.md) -filen från [GitHub](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works)|
+  |||Återställa eller importera Adventure Works från [BACPAC-filen](sql-database-import.md) från [GitHub](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works)|
   |||
 
   > [!IMPORTANT]
@@ -47,17 +47,17 @@ För att kunna slutföra det här exemplet behöver du följande:
 
   - **Linux**, installera PHP, ODBC-drivrutinen och därefter PHP-drivrutinen för SQL Server. Se [Steg 1, 2 och 3](/sql/connect/php/installation-tutorial-linux-mac).
 
-  - **Windows**, installera PHP för IIS Express och Chocolatey och installera därefter ODBC-drivrutinen och SQLCMD. Se [Steg 1.2 och 1.3](https://www.microsoft.com/sql-server/developer-get-started/php/windows/).
+  - **Windows**, installera PHP för IIS Express och Chocolatey och installera därefter ODBC-drivrutinen och SQLCMD. Se [steg 1.2 och 1.3](https://www.microsoft.com/sql-server/developer-get-started/php/windows/).
 
 ## <a name="get-sql-server-connection-information"></a>Hämta anslutningsinformation för en SQL-server
 
 Skaffa den anslutningsinformation du behöver för att ansluta till Azure SQL-databasen. Du behöver det fullständiga servernamnet eller värdnamnet, databasnamnet och inloggningsinformationen för de kommande procedurerna.
 
-1. Logga in på [Azure Portal](https://portal.azure.com/).
+1. Logga in på [Azure-portalen](https://portal.azure.com/).
 
 2. Navigera till sidan **SQL-databaser** eller **SQL-hanterade instanser**.
 
-3. På **översiktssidan** granskar du det fullständigt kvalificerade servernamnet bredvid **Servernamn** för en enkel databas eller det fullständigt kvalificerade servernamnet bredvid **Värd** för en hanterad instans. Om du vill kopiera servernamnet eller värdnamnet hovrar du över det och markerar ikonen **Kopiera**.
+3. På **översiktssidan** granskar du det fullständigt kvalificerade servernamnet bredvid **Servernamn** för en enkel databas eller det fullständigt kvalificerade servernamnet bredvid **Värd** för en hanterad instans. Om du vill kopiera servernamnet eller värdnamnet hovrar du över det och väljer ikonen **Kopiera**.
 
 ## <a name="add-code-to-query-database"></a>Lägga till kod i frågedatabas
 
@@ -102,7 +102,7 @@ Skaffa den anslutningsinformation du behöver för att ansluta till Azure SQL-da
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Utforma din första Azure SQL-databas](sql-database-design-first-database.md)
+- [Designa din första Azure SQL-databas](sql-database-design-first-database.md)
 
 - [Microsoft PHP-drivrutiner för SQL Server](https://github.com/Microsoft/msphpsql/)
 

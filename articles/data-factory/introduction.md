@@ -10,10 +10,10 @@ ms.workload: data-services
 ms.topic: overview
 ms.date: 09/30/2019
 ms.openlocfilehash: e23268d21b01435aa71d4f471afc6d37ee9e9c1d
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "73672710"
 ---
 # <a name="what-is-azure-data-factory"></a>Vad är Azure Data Factory?
@@ -28,15 +28,15 @@ När företaget ska analysera loggarna måste de använda referensdata, till exe
 
 För att utvinna insikter så hoppas de kunna bearbeta dessa sammanslagna data med hjälp av ett Spark-kluster i molnet (Azure HDInsight) och publicera omvandlade data till ett molninformationslager, till exempel Azure SQL Data Warehouse, för att enkelt kunna skapa en rapport från dem. De vill automatisera det här arbetsflödet och övervaka och hantera det enligt ett dagligt schema. De vill också köra det när filer landar i en bloblagercontainer.
 
-Azure Data Factory är en plattform som löser den här typen av datascenarier. Det är den *MOLNBASERAD ETL-och data integrerings tjänst som gör att du kan skapa data drivna arbets flöden för att dirigera data förflyttning och omvandla data i skala*. Med Azure Data Factory kan du skapa och schemalägga datadrivna arbetsflöden (kallas pipelines) som kan mata in data från olika datalager. Du kan bygga komplexa ETL-processer som omvandlar data visuellt med data flöden eller med hjälp av beräknings tjänster som Azure HDInsight Hadoop, Azure Databricks och Azure SQL Database. 
+Azure Data Factory är en plattform som löser den här typen av datascenarier. Det är den *molnbaserade ETL- och dataintegrationstjänsten som gör att du kan skapa datadrivna arbetsflöden för att dirigera dataförflyttningar och omvandla data i stor skala*. Med Azure Data Factory kan du skapa och schemalägga datadrivna arbetsflöden (kallas pipelines) som kan mata in data från olika datalager. Du kan skapa komplexa ETL-processer som omvandlar data visuellt med dataflöden eller med hjälp av beräkningstjänster som Azure HDInsight Hadoop, Azure Databricks och Azure SQL Database. 
 
-Dessutom kan du publicera dina transformerade data till data lager som Azure SQL Data Warehouse för Business Intelligence-program (BI) att använda. Slutligen kan rådata ordnas, via Azure Data Factory, i meningsfulla datalager och datasjöar för att ge bättre beslutsunderlag.
+Dessutom kan du publicera dina transformerade data i datalager som Azure SQL Data Warehouse for Business Intelligence (BI) program att använda. Slutligen kan rådata ordnas, via Azure Data Factory, i meningsfulla datalager och datasjöar för att ge bättre beslutsunderlag.
 
 ![Toppnivåvy över Data Factory](media/data-flow/overview.png)
 
 ## <a name="how-does-it-work"></a>Hur fungerar det?
 
-Data Factory innehåller en serie sammankopplade system som tillhandahåller en komplett plattform för data tekniker.
+Data Factory innehåller en serie sammankopplade system som tillhandahåller en komplett heltäckande plattform för datatekniker.
 
 ### <a name="connect-and-collect"></a>Ansluta och samla in
 
@@ -46,15 +46,15 @@ Det första steget när det gäller att skapa ett informationsproduktionssystem 
 
 Utan Data Factory måste företag skapa egna dataöverföringskomponenter eller skriva anpassade tjänster för att integrera dessa data- och bearbetningskällor. Det är dyrt och svårt att integrera och underhålla sådana system. De saknar dessutom ofta övervakning, varningar och de kontroller i företagsklass som en helt hanterad tjänst kan erbjuda.
 
-Med Data Factory kan du använda [kopieringsaktiviteten](copy-activity-overview.md) i en datapipeline för att flytta data från datalager lokalt och molnet till ett centralt datalager i molnet där du kan analysera dem. Du kan till exempel samla in data i Azure Data Lake Storage och transformera data senare med hjälp av en Azure Data Lake Analytics Compute-tjänst. Eller så kan du samla in data i en Azure Blob Storage och sedan omvandla de med ett Azure HDInsight Hadoop-kluster.
+Med Data Factory kan du använda [kopieringsaktiviteten](copy-activity-overview.md) i en datapipeline för att flytta data från datalager lokalt och molnet till ett centralt datalager i molnet där du kan analysera dem. Du kan till exempel samla in data i Azure Data Lake Storage och omvandla data senare med hjälp av en Azure Data Lake Analytics-beräkningstjänst. Eller så kan du samla in data i en Azure Blob Storage och sedan omvandla de med ett Azure HDInsight Hadoop-kluster.
 
 ### <a name="transform-and-enrich"></a>Omvandla och berika
-När data är tillgängliga i ett centraliserat data lager i molnet, bearbeta eller transformera du insamlade data med hjälp av data flöden för automatisk mappning. Data flöden gör det möjligt för data tekniker att bygga och underhålla data omvandlings diagram som körs i Spark utan att behöva förstå Spark-kluster eller Spark-programmering.
+När data finns i ett centraliserat datalager i molnet bearbetar eller transformerar eller transformerar du de insamlade data med hjälp av ADF-mappningsdataflöden. Dataflöden gör det möjligt för datatekniker att skapa och underhålla dataomvandlingsdiagram som körs på Spark utan att behöva förstå Spark-kluster eller Spark-programmering.
 
-Om du föredrar att koda omvandlingar manuellt stöder ADF externa aktiviteter för att köra dina omvandlingar på beräknings tjänster som HDInsight Hadoop, Spark, Data Lake Analytics och Machine Learning.
+Om du föredrar att koda omvandlingar för hand stöder ADF externa aktiviteter för att utföra dina omvandlingar på beräkningstjänster som HDInsight Hadoop, Spark, Data Lake Analytics och Machine Learning.
 
 ### <a name="cicd-and-publish"></a>CI/CD och publicera
-Data Factory erbjuder fullt stöd för CI/CD-datapipeliner med Azure DevOps och GitHub. På så sätt kan du stegvis utveckla och leverera dina ETL-processer innan du publicerar den färdiga produkten. Efter att rådata har förfinats till en form som företaget kan använda, läser du in data i Azure Data Warehouse, Azure SQL Database, Azure CosmosDB eller den analysmotor som ditt företags användare kan peka till från sina business intelligence-verktyg.
+Data Factory erbjuder fullt stöd för CI/CD för dina datapipelines med Azure DevOps och GitHub. På så sätt kan du stegvis utveckla och leverera dina ETL-processer innan du publicerar den färdiga produkten. Efter att rådata har förfinats till en form som företaget kan använda, läser du in data i Azure Data Warehouse, Azure SQL Database, Azure CosmosDB eller den analysmotor som ditt företags användare kan peka till från sina business intelligence-verktyg.
 
 ### <a name="monitor"></a>Övervaka
 När du har skapat och distribuerat din pipeline för dataintegrering och fått affärsvärde från förfinade data, kan du övervaka schemalagda aktiviteter och pipelines för att se hur många som lyckats respektive misslyckats. Azure Data Factory har ett inbyggt stöd för pipelineövervakning via Azure Monitor, API, PowerShell, Azure Monitor-loggar och hälsopaneler i Azure-portalen.
@@ -68,7 +68,7 @@ En datafabrik kan ha en eller flera pipelines. En pipeline är en logisk grupper
 Fördelen med detta är att pipelinen låter dig hantera aktiviteter som en uppsättning istället för enskilt. Aktiviteter i en pipeline kan sammanlänkas för att köras sekventiellt eller så kan de köras fristående och parallellt.
 
 ### <a name="mapping-data-flows"></a>Mappa dataflöden
-Skapa och hantera diagram över data omvandlings logik som du kan använda för att omvandla data i alla storlekar. Du kan skapa ett återanvändbart bibliotek med data omvandlings rutiner och köra dessa processer på ett utskalat sätt från dina ADF-pipeliner. Data Factory kommer att köra din logik på ett Spark-kluster som snurrar upp och snurrar ned när du behöver det. Du behöver inte någonsin hantera eller underhålla kluster.
+Skapa och hantera diagram över dataomvandlingslogik som du kan använda för att omvandla data i alla storlekar. Du kan bygga upp ett återanvändbart bibliotek med dataomvandlingsrutiner och köra dessa processer på ett utskalat sätt från ADF-pipelines. Data Factory kommer att köra din logik på ett Spark-kluster som snurrar upp och snurrar nedåt när du behöver det. Du behöver aldrig hantera eller underhålla kluster.
 
 ### <a name="activity"></a>Aktivitet
 Aktiviteter representerar ett bearbetningssteg i en pipeline. Du kan till exempel använda en kopieringsaktivitet för att kopiera data från ett datalager till ett annat. På samma sätt kan du använda en Hive-aktivitet som kör en Hive-fråga på ett Azure HDInsight-kluster för att transformera eller analysera dina data. Data Factory stöder tre typer av aktiviteter: dataförflyttning, datatransformering och kontroll.
@@ -92,7 +92,7 @@ Utlösare representerar en bearbetningsenhet som avgör när en pipelinekörning
 En pipelinekörning är en instans av en pipelinekörning. Pipelinekörningar initieras vanligen genom att skicka argumenten till de parametrar som definierats i pipelines. Argumenten kan skickas manuellt eller i en utlösardefinition.
 
 ### <a name="parameters"></a>Parametrar
-Parametrar är nyckel/värde-par i en skrivskyddad konfiguration.  Parametrar definieras i pipelinen. Argumenten för de definierade parametrarna skickas vid körning från körningskontexten som skapats av en utlösare eller en pipeline som körs manuellt. Aktiviteter i pipelinen använder parametervärdena.
+Parametrar är nyckel/värde-par i en skrivskyddad konfiguration.Parametrar har definierats i pipelinen. Argumenten för de definierade parametrarna skickas vid körning från körningskontexten som skapats av en utlösare eller en pipeline som körs manuellt. Aktiviteter i pipelinen använder parametervärdena.
 
 En datauppsättning är en starkt typifierad parameter och en återanvändbar/refererbar entitet. En aktivitet kan referera till datauppsättningar och kan använda egenskaperna som definierats i definitionen för datauppsättningen.
 
@@ -102,20 +102,20 @@ En länkad tjänst är också en starkt typifierad parameter som innehåller ans
 Kontrollflöde är en orkestrering av pipelineaktiviteter som innefattar kedjesammansättning av aktiviteter i en sekvens, branchning definiering av parametrar på pipelinenivå och argument som skickas vid anrop till pipelinen på begäran eller från en utlösare. Det innefattar även att skicka anpassade tillstånd och loopcontainer, d.v.s. for-each-iteratorer.
 
 ### <a name="variables"></a>Variabler
-Variabler kan användas i pipelines för att lagra tillfälliga värden och kan också användas tillsammans med parametrar för att möjliggöra överföring av värden mellan pipelines, data flöden och andra aktiviteter.
+Variabler kan användas inuti pipelines för att lagra tillfälliga värden och kan också användas tillsammans med parametrar för att möjliggöra överföringsvärden mellan pipelines, dataflöden och andra aktiviteter.
 
 ## <a name="next-steps"></a>Nästa steg
-Här är några viktiga nästa steg i dokument som du kan utforska:
+Här är viktiga dokument i nästa steg att utforska:
 
 - [Datamängder och länkade tjänster](concepts-datasets-linked-services.md)
 - [Pipelines och aktiviteter](concepts-pipelines-activities.md)
 - [Integration runtime](concepts-integration-runtime.md)
-- [Mappa data flöden](concepts-data-flow-overview.md)
+- [Mappa dataflöden](concepts-data-flow-overview.md)
 - [Data Factory-gränssnittet i Azure Portal](quickstart-create-data-factory-portal.md)
 - [Verktyget för att kopiera data i Azure Portal](quickstart-create-data-factory-copy-data-tool.md)
-- [PowerShell](quickstart-create-data-factory-powershell.md)
-- [NET](quickstart-create-data-factory-dot-net.md)
+- [Powershell](quickstart-create-data-factory-powershell.md)
+- [.NET](quickstart-create-data-factory-dot-net.md)
 - [Python](quickstart-create-data-factory-python.md)
-- [REST](quickstart-create-data-factory-rest-api.md)
+- [Resten](quickstart-create-data-factory-rest-api.md)
 - [Azure Resource Manager-mall](quickstart-create-data-factory-resource-manager-template.md)
  

@@ -8,10 +8,10 @@ ms.date: 10/1/2019
 author: sivethe
 ms.author: sivethe
 ms.openlocfilehash: 670020d276b9d4a868f24eb4a3f522581060adca
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "72754984"
 ---
 # <a name="azure-cosmos-dbs-api-for-mongodb"></a>API för Azure Cosmos DB för MongoDB
@@ -22,7 +22,7 @@ ms.locfileid: "72754984"
 
 Azure Cosmos DB implementerar trådprotokoll för vanliga NoSQL-databaser som Cassandra, MongoDB, Gremlin och Azure Table Storage. Genom att tillhandahålla en ursprunglig implementering av trådprotokollen direkt och effektivt i Cosmos DB kan befintliga klient-SDK:er, drivrutiner och verktyg för NoSQL-databaser interagera transparent med Cosmos DB. Cosmos DB använder inte någon källkod för databaserna för att tillhandahålla trådkompatibla API:er för någon av NoSQL-databaserna.
 
-Som standard är nya konton som skapats med Azure Cosmos DBs API för MongoDB kompatibla med version 3,6 av MongoDB-Wire-protokollet. Eventuella MongoDB-klientdatorer som förstår den här protokoll versionen bör kunna ansluta till Cosmos DB.
+Som standard är nya konton som skapas med Azure Cosmos DB:s API för MongoDB kompatibla med version 3.6 i MongoDB-trådprotokollet. Alla MongoDB-klientdrivrutiner som förstår den här protokollversionen bör kunna ansluta till Cosmos DB.
 
 ![API för Azure Cosmos DB för MongoDB](./media/mongodb-introduction/cosmosdb-mongodb.png)
 
@@ -31,14 +31,14 @@ Som standard är nya konton som skapats med Azure Cosmos DBs API för MongoDB ko
 De främsta fördelarna med Cosmos DB som en fullständigt hanterad och globalt distribuerad databas som en tjänst beskrivs [här](introduction.md). Genom att implementera trådprotokoll internt för populära NoSQL-API:er tillhandahåller Cosmos DB dessutom följande fördelar:
 
 * Migrera ditt program enkelt till Cosmos DB samtidigt som du bevarar betydande delar av din programlogik.
-* Håll ditt program portabelt och förbli molnleverantörsoberoende.
+* Hålla ditt program portabelt och förbli molnleverantörsoberoende.
 * Skaffa branschledande, ekonomiskt uppbackade serviceavtal för vanliga Cosmos DB-baserade NoSQL-API:er.
 * Skala det etablerade dataflödet och lagringen elastiskt för dina Cosmos-databaser utifrån dina behov och betala bara för det dataflöde och lagringsutrymme du behöver. Detta medför betydande kostnadsbesparingar.
 * Nyckelfärdig global distribution med replikering med flera original.
 
 ## <a name="cosmos-dbs-api-for-mongodb"></a>Cosmos DB:s API:er för MongoDB
 
-Följ snabb starterna för att skapa ett Azure Cosmos-konto och migrera ditt befintliga MongoDB-program för att använda Azure Cosmos DB, eller skapa ett nytt:
+Följ snabbstarten för att skapa ett Azure Cosmos-konto och migrera ditt befintliga MongoDB-program för att använda Azure Cosmos DB eller skapa ett nytt:
 
 * [Migrera en befintlig MongoDB Node.js-webbapp](create-mongodb-nodejs.md).
 * [Skapa en webbapp med Azure Cosmos DB:s API för MongoDB och .NET SDK](create-mongodb-dotnet.md)
@@ -54,4 +54,4 @@ Här följer några tips för att komma igång:
 * Anslut till ett Cosmos-konto med [Robo 3T](mongodb-robomongo.md).
 * Lär dig hur du [konfigurerar läsinställningar för globalt distribuerade appar](../cosmos-db/tutorial-global-distribution-mongodb.md).
 
-<sup>OBS! den här artikeln beskriver en funktion i Azure Cosmos DB som ger till gång till Wire Protocol-kompatibilitet med MongoDB-databaser. Microsoft kör inte MongoDB-databaser för att tillhandahålla den här tjänsten. Azure Cosmos DB är inte kopplad till MongoDB, Inc.</sup>
+<sup>Den här artikeln beskriver en funktion i Azure Cosmos DB som tillhandahåller kompatibilitet med trådprotokoll med MongoDB-databaser. Microsoft kör inte MongoDB-databaser för att tillhandahålla den här tjänsten. Azure Cosmos DB är inte anslutet till MongoDB, Inc.</sup>

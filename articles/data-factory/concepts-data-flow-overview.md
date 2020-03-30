@@ -1,6 +1,6 @@
 ---
 title: Mappa dataflöden
-description: En översikt över att mappa data flöden i Azure Data Factory
+description: En översikt över mappning av dataflöden i Azure Data Factory
 author: kromerm
 ms.author: makromer
 ms.reviewer: daperlov
@@ -9,145 +9,145 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 12/19/2019
 ms.openlocfilehash: 210c1814325e689dd70af9caa7fad08deed933e1
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79243801"
 ---
 # <a name="what-are-mapping-data-flows"></a>Vad är Mappa dataflöden?
 
-Mappning av data flöden är visuellt utformad med data transformationer i Azure Data Factory. Data flöden gör det möjligt för data tekniker att utveckla grafisk data omvandlings logik utan att skriva kod. De resulterande data flödena körs som aktiviteter i Azure Data Factory pipelines som använder uppskalade Spark-kluster. Data flödes aktiviteter kan användas via befintliga Data Factory schemaläggnings-, kontroll-, flödes-och övervaknings funktioner.
+Mappning av dataflöden är visuellt utformade dataomvandlingar i Azure Data Factory. Dataflöden gör det möjligt för datatekniker att utveckla grafisk dataomvandlingslogik utan att skriva kod. De resulterande dataflödena körs som aktiviteter i Azure Data Factory-pipelines som använder utskalade Spark-kluster. Dataflödesaktiviteter kan användas via befintliga funktioner för schemaläggning, kontroll, flöde och övervakning av datafabriken.
 
-Genom att mappa data flöden får du en helt visuell upplevelse utan att behöva koda. Dina data flöden kommer att köras i ditt eget körnings kluster för att skala ut data bearbetningen. Azure Data Factory hanterar all kod översättning, Sök vägs optimering och körning av dina data flödes jobb.
+Mappning av dataflöden ger en helt visuell upplevelse utan kodning krävs. Dina dataflöden körs på ditt eget körningskluster för utskalning av databearbetning. Azure Data Factory hanterar alla kodöversättning, sökvägsoptimering och körning av dina dataflödesjobb.
 
 ## <a name="getting-started"></a>Komma igång
 
-Om du vill skapa ett data flöde väljer du plus tecknet under **fabriks resurser**och väljer sedan **data flöde**. 
+Om du vill skapa ett dataflöde markerar du plustecknet under **Fabriksresurser**och väljer sedan **Dataflöde**. 
 
-![Nytt data flöde](media/data-flow/newdataflow2.png "nytt data flöde")
+![Nytt dataflöde](media/data-flow/newdataflow2.png "nytt dataflöde")
 
-Detta tar dig till data flödes arbets ytan där du kan skapa din omvandlings logik. Välj **Lägg till källa** för att börja konfigurera din käll omvandling. Mer information finns i [käll omvandling](data-flow-source.md).
+Detta tar dig till dataflödesarbetsytan där du kan skapa din omvandlingslogik. Välj **Lägg till källa** om du vill börja konfigurera källomvandlingen. Mer information finns i [Källomvandling](data-flow-source.md).
 
-## <a name="data-flow-canvas"></a>Data flödes arbets yta
+## <a name="data-flow-canvas"></a>Arbetsyta för dataflöde
 
-Data flödes arbets ytan är uppdelad i tre delar: det översta fältet, grafen och konfigurations panelen. 
+Dataflödesarbetsytan är uppdelad i tre delar: det övre fältet, diagrammet och konfigurationspanelen. 
 
-![Rityta](media/data-flow/canvas1.png "Rityta")
+![Arbetsyta](media/data-flow/canvas1.png "Arbetsyta")
 
 ### <a name="graph"></a>Graph
 
-I diagrammet visas omvandlings strömmen. Den visar härkomst för källdata när den flödar till en eller flera handfat. Om du vill lägga till en ny källa väljer du **Lägg till källa**. Om du vill lägga till en ny omvandling väljer du plus tecknet längst ned till höger i en befintlig omvandling.
+Diagrammet visar omformningsströmmen. Den visar källdatas härstamning när den flödar in i en eller flera sänkor. Om du vill lägga till en ny källa väljer du **Lägg till källa**. Om du vill lägga till en ny omformning väljer du plustecknet längst ned till höger i en befintlig omvandling.
 
-![Rityta](media/data-flow/canvas2.png "Rityta")
+![Arbetsyta](media/data-flow/canvas2.png "Arbetsyta")
 
-### <a name="azure-integration-runtime-data-flow-properties"></a>Data flödes egenskaper för Azure integration runtime
+### <a name="azure-integration-runtime-data-flow-properties"></a>Azure-integreringskörningsdataflödesegenskaper
 
-![Knappen Felsök](media/data-flow/debugbutton.png "Knappen Felsök")
+![Knappen Felsökning](media/data-flow/debugbutton.png "Knappen Felsökning")
 
-När du börjar arbeta med data flöden i ADF, vill du aktivera "Felsök"-växeln för data flöden överst i webb läsar gränssnittet. Detta skapar ett Azure Databricks kluster som ska användas för interaktiva fel sökning, data förbehandlingar och fel söknings körningar för pipeline. Du kan ange storleken på det kluster som används genom att välja en anpassad [Azure integration runtime](concepts-integration-runtime.md). Felsökningssessionen är aktiv i upp till 60 minuter efter din senaste data förhands granskning eller senaste fel sökning för pipeline-körning.
+När du börjar arbeta med dataflöden i ADF vill du aktivera växeln "Felsökning" för dataflöden högst upp i webbläsargränssnittet. Detta kommer att snurra upp ett Azure Databricks-kluster som ska användas för interaktiv felsökning, dataförhandsgranskningar och pipeline-felsökningskörningar. Du kan ange storleken på det kluster som används genom att välja en anpassad [Azure Integration Runtime](concepts-integration-runtime.md). Felsökningssessionen kommer att överleva i upp till 60 minuter efter din senaste dataförhandsgranskning eller senaste felsökningspipelinekörning.
 
-När du operationalisera dina pipelines med data flödes aktiviteter använder ADF den Azure Integration Runtime som är kopplad till [aktiviteten](control-flow-execute-data-flow-activity.md) i egenskapen kör på.
+När du använder dina pipelines med dataflödesaktiviteter använder ADF Azure Integration Runtime som är associerad med [aktiviteten](control-flow-execute-data-flow-activity.md) i egenskapen "Kör på".
 
-Standard Azure Integration Runtime är ett litet 4-core-kluster med en arbets nod som är avsedd att göra det möjligt för dig att förhandsgranska data och snabbt köra fel söknings pipeliner vid minimala kostnader. Ange en större Azure IR konfiguration om du utför åtgärder mot stora data mängder.
+Standardkörningen för Azure Integration Runtime är ett litet 4-kärnigt nodkluster för en enda arbetare som är avsett att tillåta dig att förhandsgranska data och snabbt köra felsökningspipelpipelsar till minimala kostnader. Ange en större Azure IR-konfiguration om du utför åtgärder mot stora datauppsättningar.
 
-Du kan instruera ADF att underhålla en pool med kluster resurser (VM) genom att ange ett TTL-värde i egenskaperna för Azure IR data flödet. Detta leder till snabbare jobb körning för efterföljande aktiviteter.
+Du kan instruera ADF att underhålla en pool med klusterresurser (VMs) genom att ange en TTL i Azure IR-dataflödesegenskaperna. Detta resulterar i snabbare jobbkörning på efterföljande aktiviteter.
 
-#### <a name="azure-integration-runtime-and-data-flow-strategies"></a>Azure integration Runtime och data flödes strategier
+#### <a name="azure-integration-runtime-and-data-flow-strategies"></a>Azure-integreringskörning och strategier för dataflöde
 
-##### <a name="execute-data-flows-in-parallel"></a>Kör data flöden parallellt
+##### <a name="execute-data-flows-in-parallel"></a>Köra dataflöden parallellt
 
-Om du kör data flöden i en pipeline parallellt, kommer ADF att sätta upp separata Azure Databricks kluster för varje aktivitets körning baserat på inställningarna i Azure Integration Runtime som är kopplade till varje aktivitet. Om du vill utforma parallella körningar i ADF-pipeline lägger du till data flödes aktiviteter utan prioritets begränsningar i användar gränssnittet.
+Om du kör dataflöden i en pipeline parallellt kommer ADF att snurra upp separata Azure Databricks-kluster för varje aktivitetskörning baserat på inställningarna i din Azure Integration Runtime som är kopplad till varje aktivitet. Om du vill utforma parallella körningar i ADF-pipelines lägger du till dataflödesaktiviteter utan prioritetsbegränsningar i användargränssnittet.
 
-Av de här tre alternativen körs det här alternativet förmodligen på kortast möjliga tid. Alla parallella data flöden körs dock samtidigt på separata kluster, så sortering av händelser är icke-deterministisk.
+Av dessa tre alternativ kommer det här alternativet sannolikt att köras på kortast möjliga tid. Varje parallellt dataflöde körs dock samtidigt på separata kluster, så ordningsföljden av händelser är icke-deterministisk.
 
-Om du kör dina data flödes aktiviteter parallellt i pipelinen bör du inte använda TTL. Detta beror på att parallella körningar av data flöden samtidigt som använder samma Azure Integration Runtime kommer att leda till flera ingångs instanser för din data fabrik.
+Om du kör dina dataflödesaktiviteter parallellt inuti dina pipelines rekommenderar vi att du inte använder TTL. Detta beror på att parallella körningar av dataflöden samtidigt med samma Azure Integration Runtime resulterar i flera varma poolinstanser för din datafabrik.
 
-##### <a name="overload-single-data-flow"></a>Överlagring av ett enskilt data flöde
+##### <a name="overload-single-data-flow"></a>Överbelasta enstaka dataflöde
 
-Om du sätter all din logik i ett enda data flöde körs ADF alla i samma kontext för jobb körning på en enda Spark-klusterresurs.
+Om du lägger all din logik i ett enda dataflöde körs alla i samma jobbkörningskontext på en enda Spark-klusterinstans.
 
-Det här alternativet kan vara svårare att följa och felsöka eftersom affärs reglerna och affärs logiken kommer att Jumble tillsammans. Det här alternativet ger inte heller mycket åter användbarhet.
+Det här alternativet kan möjligen vara svårare att följa och felsöka eftersom dina affärsregler och affärslogik kommer att virrvarr tillsammans. Det här alternativet ger inte heller mycket återanvändbarhet.
 
-##### <a name="execute-data-flows-serially"></a>Köra data flöden seriellt
+##### <a name="execute-data-flows-serially"></a>Köra dataflöden seriellt
 
-Om du kör dina data flödes aktiviteter i serie i pipelinen och du har angett ett TTL-värde för Azure IR konfigurationen återanvänds beräknings resurserna (VM), vilket resulterar i snabbare efterföljande körnings tider. Du får fortfarande en ny Spark-kontext för varje körning.
+Om du kör dina dataflödesaktiviteter i seriella i pipelinen och du har angett en TTL på Azure IR-konfigurationen, kommer ADF att återanvända beräkningsresurserna (VMs) vilket resulterar i snabbare efterföljande körningstider. Du får fortfarande en ny Spark-kontext för varje körning.
 
-Av de här tre alternativen tar detta sannolikt den längsta tiden att köra slut punkt till slut punkt. Men det ger en ren uppdelning av logiska åtgärder i varje data flödes steg.
+Av dessa tre alternativ kommer detta sannolikt att ta längst tid att köra end-to-end. Men det ger en ren separation av logiska åtgärder i varje dataflödessteg.
 
-### <a name="configuration-panel"></a>Konfigurations panel
+### <a name="configuration-panel"></a>Panelen Konfiguration
 
-Konfigurations panelen visar inställningarna för den aktuella valda omvandlingen. Om ingen omvandling väljs visas data flödet. I den övergripande data flödes konfigurationen kan du redigera namnet och beskrivningen under fliken **Allmänt** eller lägga till parametrar via fliken **parametrar** . Mer information finns i [mappa data flödes parametrar](parameters-data-flow.md).
+Konfigurationspanelen visar de inställningar som är specifika för den valda omvandlingen. Om ingen omvandling är markerad visas dataflödet. I den övergripande konfigurationen för dataflöde kan du redigera namnet och beskrivningen under fliken **Allmänt** eller lägga till parametrar via fliken **Parametrar.** Mer information finns i [Mappa dataflödesparametrar](parameters-data-flow.md).
 
-Varje omvandling har minst fyra konfigurations flikar.
+Varje omvandling har minst fyra konfigurationsflikar.
 
-#### <a name="transformation-settings"></a>Omvandlings inställningar
+#### <a name="transformation-settings"></a>Inställningar för omvandling
 
-Den första fliken i varje omvandlings konfigurations fönster innehåller inställningar som är speciella för omvandlingen. Mer information finns på dokument sidan för omvandling.
+Den första fliken i varje omvandlings konfigurationsfönster innehåller de inställningar som är specifika för omvandlingen. Mer information finns på den omvandlingens dokumentationssida.
 
-![Fliken käll inställningar](media/data-flow/source1.png "Fliken käll inställningar")
+![Fliken Källinställningar](media/data-flow/source1.png "Fliken Källinställningar")
 
 #### <a name="optimize"></a>Optimera
 
-Fliken **Optimize** innehåller inställningar för att konfigurera partitionerings scheman.
+Fliken **Optimera** innehåller inställningar för att konfigurera partitioneringsscheman.
 
-![Optimize](media/data-flow/optimize1.png "Optimera") (Optimera)
+![Optimera](media/data-flow/optimize1.png "Optimera")
 
-Standardvärdet **använder nuvarande partitionering**, vilket instruerar Azure Data Factory att använda partitionerings schema som är inbyggt i data flöden som körs på Spark. I de flesta fall rekommenderar vi den här inställningen.
+Standardinställningen är **Använd aktuell partitionering**, som instruerar Azure Data Factory att använda partitioneringsschemat som är inbyggt i dataflöden som körs på Spark. I de flesta fall rekommenderar vi den här inställningen.
 
-Det finns instanser där du kanske vill justera partitionering. Om du till exempel vill att dina omvandlingar ska matas ut till en enda fil i sjön väljer du **enskild partition** i en Sink-omvandling.
+Det finns fall där du kanske vill justera partitioneringen. Om du till exempel vill skriva ut dina omvandlingar till en enda fil i sjön väljer du **En partition** i en sink-omformning.
 
-Ett annat fall där du kanske vill kontrol lera partitionerings scheman är att optimera prestandan. Genom att justera partitionering får du kontroll över distributionen av dina data över Compute-noder och optimeringar av data lokaler som kan ha både positiva och negativa effekter på dina övergripande data flödes prestanda. Mer information finns i [prestanda guiden för data flöde](concepts-data-flow-performance.md).
+Ett annat fall där du kanske vill styra partitioneringsscheman är att optimera prestanda. Om du justerar partitioneringen får du kontroll över fördelningen av dina data mellan beräkningsnoder och datalokalitetsoptimeringar som kan ha både positiva och negativa effekter på dina övergripande dataflödesprestanda. Mer information finns i [prestandaguiden för dataflödet](concepts-data-flow-performance.md).
 
-Om du vill ändra partitionering för en omvandling väljer du fliken **optimera** och väljer alternativ knappen **Ange partitionering** . Sedan visas en serie alternativ för partitionering. Den bästa metoden för partitionering varierar beroende på dina data volymer, kandidat nycklar, null-värden och kardinalitet. 
+Om du vill ändra partitioneringen på valfri omvandling markerar du fliken **Optimera** och väljer alternativknappen **Ange partitionering.** Du kommer då att presenteras med en rad alternativ för partitionering. Den bästa partitioneringen skiljer sig beroende på dina datavolymer, kandidatnycklar, null-värden och kardinalitet. 
 
-Vi rekommenderar att du börjar med standardpartitionering och sedan provar olika partitionerings alternativ. Du kan testa genom att använda fel söknings körningar för pipeline och Visa körnings tid och partitionera användning i varje omvandlings grupp från vyn övervakning. Mer information finns i [övervaka data flöden](concepts-data-flow-monitoring.md).
+En bra idé är att börja med standardpartitionering och sedan prova olika partitioneringsalternativ. Du kan testa med hjälp av pipeline-felsökningskörningar och visa körningstid och partitionsanvändning i varje omvandlingsgruppering från övervakningsvyn. Mer information finns i [Övervaka dataflöden](concepts-data-flow-monitoring.md).
 
-Följande partitionerings alternativ är tillgängliga.
+Följande partitioneringsalternativ är tillgängliga.
 
-##### <a name="round-robin"></a>Resursallokering 
+##### <a name="round-robin"></a>Rödhake 
 
-Resursallokering är en enkel partition som automatiskt distribuerar data jämnt mellan partitioner. Använd Round Robin när du inte har goda viktiga kandidater för att implementera en solid, smart partitionerings strategi. Du kan ange antalet fysiska partitioner.
+Round robin är en enkel partition som automatiskt distribuerar data lika mellan partitioner. Använd round robin när du inte har bra nyckelkandidater för att implementera en solid, smart partitioneringsstrategi. Du kan ange antalet fysiska partitioner.
 
 ##### <a name="hash"></a>Hash
 
-Azure Data Factory kommer att skapa en hash av kolumner för att skapa enhetliga partitioner, så att rader med liknande värden hamnar i samma partition. När du använder hash-alternativet kan du testa om det finns en sned partition. Du kan ange antalet fysiska partitioner.
+Azure Data Factory kommer att producera en hash av kolumner för att producera enhetliga partitioner så att rader med liknande värden kommer att falla i samma partition. När du använder alternativet Hash testar du om det finns en eventuell partitionssnedställning. Du kan ange antalet fysiska partitioner.
 
-##### <a name="dynamic-range"></a>Dynamiskt intervall
+##### <a name="dynamic-range"></a>Dynamiskt omfång
 
-I dynamiskt intervall används Spark-dynamiska intervall baserat på de kolumner eller uttryck som du anger. Du kan ange antalet fysiska partitioner. 
+Dynamiskt omfång använder Spark dynamiska intervall baserat på de kolumner eller uttryck som du anger. Du kan ange antalet fysiska partitioner. 
 
-##### <a name="fixed-range"></a>Fast intervall
+##### <a name="fixed-range"></a>Fast räckvidd
 
-Bygg ett uttryck som ger ett fast intervall för värden i dina partitionerade data kolumner. För att undvika separering av partitionen bör du ha en god förståelse för dina data innan du använder det här alternativet. Värdena som du anger för uttrycket kommer att användas som en del av en partitions funktion. Du kan ange antalet fysiska partitioner.
+Skapa ett uttryck som ger ett fast intervall för värden i dina partitionerade datakolumner. För att undvika partitionssnedställning bör du ha en god förståelse för dina data innan du använder det här alternativet. De värden som du anger för uttrycket används som en del av en partitionsfunktion. Du kan ange antalet fysiska partitioner.
 
 ##### <a name="key"></a>Nyckel
 
-Om du har en god förståelse för data kardinalitet kan nyckel partitionering vara en god strategi. Med nyckel partitionering skapas partitioner för varje unikt värde i kolumnen. Du kan inte ange antalet partitioner eftersom antalet baseras på unika värden i data.
+Om du har en god förståelse för kardinaliteten av dina data, kan nyckelpartitionering vara en bra strategi. Nyckelpartitionering skapar partitioner för varje unikt värde i kolumnen. Du kan inte ange antalet partitioner eftersom antalet ska baseras på unika värden i data.
 
-#### <a name="inspect"></a>Allmänt
+#### <a name="inspect"></a>Inspektera
 
-Fliken **Granska** visar metadata för den data ström som du transformerar. Du kan se kolumn antal, kolumner ändrade, tillagda kolumner, data typer, kolumn ordning och kolumn referenser. **Granska** är en skrivskyddad vy av dina metadata. Du behöver inte ha aktiverat fel söknings läge för att se metadata i rutan **Granska** .
+På fliken **Granska** visas metadata för dataströmmen som du omvandlar. Du kan se kolumnantal, ändrade kolumner, tillagda kolumner, datatyper, kolumnordning och kolumnreferenser. **Inspect** är en skrivskyddad vy av dina metadata. Du behöver inte ha felsökningsläge aktiverat för att se metadata i fönstret **Inspektera.**
 
-![Allmänt](media/data-flow/inspect1.png "Allmänt")
+![Inspektera](media/data-flow/inspect1.png "Inspektera")
 
-När du ändrar formen på dina data med omvandlingar visas flödet ändringar i metadata i rutan **Granska** . Om det inte finns ett definierat schema i din käll omvandling visas inte metadata i rutan **Granska** . Brist på metadata är vanligt i schema avvikelse scenarier.
+När du ändrar formen på dina data genom omvandlingar visas flödet för metadataändringar i fönstret **Inspektera.** Om det inte finns ett definierat schema i källomvandlingen visas inte metadata i fönstret **Granska.** Brist på metadata är vanligt i schemadrift scenarier.
 
-#### <a name="data-preview"></a>Data för hands version
+#### <a name="data-preview"></a>Förhandsgranskning
 
-Om fel söknings läget är på visar fliken **data förhands granskning** en interaktiv ögonblicks bild av data vid varje transformering. Mer information finns [i förhands granskning av data i fel söknings läge](concepts-data-flow-debug-mode.md#data-preview).
+Om felsökningsläget är aktiverat ger fliken **Förhandsgranskning** av data dig en interaktiv ögonblicksbild av data vid varje transformering. Mer information finns [i Förhandsgranskning av data i felsökningsläge](concepts-data-flow-debug-mode.md#data-preview).
 
 ### <a name="top-bar"></a>Översta fältet
 
-Det översta fältet innehåller åtgärder som påverkar hela data flödet, t. ex. Spara och verifiera. Du kan också växla mellan diagram-och konfigurations lägen med knapparna **Visa graf** och **Dölj diagram** .
+Det övre fältet innehåller åtgärder som påverkar hela dataflödet, till exempel spara och validera. Du kan också växla mellan diagram- och konfigurationslägen med hjälp av knapparna **Visa diagram** och **Dölj diagram.**
 
 ![Dölj diagram](media/data-flow/hideg.png "Dölj diagram")
 
-Om du döljer grafen kan du bläddra igenom dina transformationsfiler senare via knapparna **föregående** och **Nästa** .
+Om du döljer diagrammet kan du bläddra igenom dina omvandlingsnoder i sidled via knapparna **Föregående** och **Nästa.**
 
-![Knapparna föregående och nästa](media/data-flow/showhide.png "knapparna föregående och nästa")
+![Föregående och nästa knappar](media/data-flow/showhide.png "föregående och nästa knappar")
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Lär dig hur du skapar en [käll omvandling](data-flow-source.md).
-* Lär dig hur du skapar dina data flöden i [fel söknings läge](concepts-data-flow-debug-mode.md).
+* Lär dig hur du skapar en [källomvandling](data-flow-source.md).
+* Lär dig hur du skapar dataflöden i [felsökningsläge](concepts-data-flow-debug-mode.md).

@@ -1,5 +1,5 @@
 ---
-title: Analysera & process-JSON med Apache Hive Azure HDInsight
+title: Analysera & process JSON med Apache Hive - Azure HDInsight
 description: Lär dig hur du använder JSON-dokument och analyserar dem med hjälp av Apache Hive i Azure HDInsight.
 author: hrasheed-msft
 ms.author: hrasheed
@@ -8,15 +8,15 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/29/2019
 ms.openlocfilehash: 1c519533625835677ddae0a274c9ce9f10edc6dd
-ms.sourcegitcommit: b45ee7acf4f26ef2c09300ff2dba2eaa90e09bc7
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73098002"
 ---
 # <a name="process-and-analyze-json-documents-by-using-apache-hive-in-azure-hdinsight"></a>Bearbeta och analysera JSON-dokument med hjälp av Apache Hive i Azure HDInsight
 
-Lär dig att bearbeta och analysera JavaScript Object Notation-filer (JSON) med Apache Hive i Azure HDInsight. I den här artikeln används följande JSON-dokument:
+Lär dig hur du bearbetar och analyserar JSON-filer (JavaScript Object Notation) med hjälp av Apache Hive i Azure HDInsight. I den här artikeln används följande JSON-dokument:
 
 ```json
 {
@@ -55,13 +55,13 @@ Lär dig att bearbeta och analysera JavaScript Object Notation-filer (JSON) med 
 }
 ```
 
-Du hittar filen på `wasb://processjson@hditutorialdata.blob.core.windows.net/`. Mer information om hur du använder Azure Blob Storage med HDInsight finns i [använda HDFS-kompatibla Azure Blob Storage med Apache Hadoop i HDInsight](../hdinsight-hadoop-use-blob-storage.md). Du kan kopiera filen till standard behållaren för klustret.
+Filen finns på `wasb://processjson@hditutorialdata.blob.core.windows.net/`. Mer information om hur du använder Azure Blob-lagring med HDInsight finns i [Använda HDFS-kompatibel Azure Blob-lagring med Apache Hadoop i HDInsight](../hdinsight-hadoop-use-blob-storage.md). Du kan kopiera filen till standardbehållaren i klustret.
 
-I den här artikeln använder du Apache Hive-konsolen. Instruktioner för hur du öppnar Hive-konsolen finns i [använda Apache Ambari Hive-vy med Apache Hadoop i HDInsight](apache-hadoop-use-hive-ambari-view.md).
+I den här artikeln använder du Apache Hive-konsolen. Instruktioner om hur du öppnar Hive-konsolen finns i [Använd Apache Ambari Hive View med Apache Hadoop i HDInsight](apache-hadoop-use-hive-ambari-view.md).
 
 ## <a name="flatten-json-documents"></a>Förenkla JSON-dokument
 
-Metoderna som anges i nästa avsnitt kräver att JSON-dokumentet består av en enda rad. Därför måste du förenkla JSON-dokumentet till en sträng. Om JSON-dokumentet redan är utplattat kan du hoppa över det här steget och gå direkt till nästa avsnitt om hur du analyserar JSON-data. Om du vill förenkla JSON-dokumentet kör du följande skript:
+Metoderna i nästa avsnitt kräver att JSON-dokumentet består av en enda rad. Därför måste du förenkla JSON-dokumentet till en sträng. Om ditt JSON-dokument redan är förenklat kan du hoppa över det här steget och gå direkt till nästa avsnitt om hur du analyserar JSON-data. Om du vill förenkla JSON-dokumentet kör du följande skript:
 
 ```sql
 DROP TABLE IF EXISTS StudentsRaw;
@@ -82,32 +82,32 @@ SELECT CONCAT_WS(' ',COLLECT_LIST(textcol)) AS singlelineJSON
 SELECT * FROM StudentsOneLine
 ```
 
-Rå JSON-filen finns på `wasb://processjson@hditutorialdata.blob.core.windows.net/`. Hive-tabellen i **StudentsRaw** pekar på det obehandlade JSON-dokument som inte är förenklat.
+Den råa JSON-filen finns på `wasb://processjson@hditutorialdata.blob.core.windows.net/`. Tabellen **StudentsRaw** Hive pekar på det råa JSON-dokumentet som inte är tillplattat.
 
-Hive-tabellen för **StudentsOneLine** lagrar data i HDInsight-standardfilsystemet under **/JSON/Students/** -sökvägen.
+Tabellen **StudentsOneLine** Hive lagrar data i standardfilsystemet HDInsight under sökvägen **/json/students/path.**
 
-Instruktionen **insert** fyller i **StudentOneLine** -tabellen med de sammanslagna JSON-data.
+**INSERT-satsen** fyller i **tabellen StudentOneLine** med de förenklade JSON-data.
 
-**Select** -instruktionen returnerar bara en rad.
+**SELECT-uttrycket** returnerar bara en rad.
 
-Här är resultatet av **Select** -instruktionen:
+Här är utdata från **SELECT-satsen:**
 
-![HDInsight förenkla JSON-dokumentet](./media/using-json-in-hive/hdinsight-flatten-json.png)
+![HDInsight plattar till JSON-dokumentet](./media/using-json-in-hive/hdinsight-flatten-json.png)
 
 ## <a name="analyze-json-documents-in-hive"></a>Analysera JSON-dokument i Hive
 
-Hive innehåller tre olika mekanismer för att köra frågor på JSON-dokument, eller så kan du skriva egna:
+Hive innehåller tre olika mekanismer för att köra frågor om JSON-dokument, eller så kan du skriva egna:
 
-* Använd get_json_object-användardefinierad funktion (UDF).
+* Använd den get_json_object användardefinierade funktionen (UDF).
 * Använd json_tuple UDF.
-* Använd anpassad serialisering/deserialiserare (SerDe).
-* Skriv din egen UDF genom att använda python eller andra språk. Mer information om hur du kör din egen python-kod med Hive finns i [python UDF med Apache Hive och Apache gris](./python-udf-hdinsight.md).
+* Använd den anpassade Serializer/Deserializer (SerDe).
+* Skriv din egen UDF med python eller andra språk. Mer information om hur du kör din egen Python-kod med Hive finns i [Python UDF med Apache Hive och Apache Pig](./python-udf-hdinsight.md).
 
 ### <a name="use-the-get_json_object-udf"></a>Använd get_json_object UDF
 
-Hive innehåller en inbyggd UDF-fil med namnet [get_json_object](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-get_json_object) som kan utföra JSON-frågor under körning. Den här metoden har två argument: tabell namn och metod namn, som har det sammanslagna JSON-dokumentet och JSON-fältet som behöver parsas. Nu ska vi titta på ett exempel för att se hur UDF fungerar.
+Hive tillhandahåller en inbyggd UDF som kallas [get_json_object](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-get_json_object) som kan utföra JSON-frågor under körning. Den här metoden tar två argument – tabellnamnet och metodnamnet, som har det förenklade JSON-dokumentet och JSON-fältet som måste tolkas. Låt oss titta på ett exempel för att se hur denna UDF fungerar.
 
-Följande fråga returnerar förnamn och efter namn för varje elev:
+Följande fråga returnerar för- och efternamn för varje deltagare:
 
 ```sql
 SELECT
@@ -116,20 +116,20 @@ SELECT
 FROM StudentsOneLine;
 ```
 
-Här är utdata när du kör den här frågan i konsol fönstret:
+Här är utdata när du kör den här frågan i konsolfönstret:
 
-![Apache Hive Hämta JSON-objekt UDF](./media/using-json-in-hive/hdinsight-get-json-object.png)
+![Apache Hive få json objekt UDF](./media/using-json-in-hive/hdinsight-get-json-object.png)
 
-Det finns begränsningar för get_json_object UDF:
+Det finns begränsningar i get_json_object UDF:
 
-* Eftersom varje fält i frågan kräver omparsning av frågan, påverkas prestandan.
-* **GET\_JSON_OBJECT ()** returnerar sträng representationen för en matris. Om du vill konvertera matrisen till en Hive-matris måste du använda reguljära uttryck för att ersätta hakparenteserna "[" och "]" och sedan måste du också anropa Split för att hämta matrisen.
+* Eftersom varje fält i frågan kräver en reparsering av frågan påverkar det prestandan.
+* **GET\_JSON_OBJECT()** returnerar strängrepresentationen av en matris. Om du vill konvertera den här matrisen till en Hive-matris måste du använda reguljära uttryck för att ersätta hakparenteserna "[" och "]", och sedan måste du också anropa delning för att hämta matrisen.
 
-Det är därför som Hive-wikin rekommenderar att du använder **json_tuple**.  
+Det är därför Hive wiki rekommenderar att du använder **json_tuple**.  
 
 ### <a name="use-the-json_tuple-udf"></a>Använd json_tuple UDF
 
-En annan UDF som tillhandahålls av Hive kallas [json_tuple](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-json_tuple), som fungerar bättre än [get_ JSON-_object](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-get_json_object). Den här metoden tar en uppsättning nycklar och en JSON-sträng och returnerar en tupel med värden med hjälp av en funktion. Följande fråga returnerar Student-ID och klass från JSON-dokumentet:
+En annan UDF från Hive kallas [json_tuple](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-json_tuple), som presterar bättre än [get_ json _object](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-get_json_object). Den här metoden tar en uppsättning nycklar och en JSON-sträng och returnerar en tuppning med hjälp av en funktion. Följande fråga returnerar student-ID och resultatet från JSON-dokumentet:
 
 ```sql
 SELECT q1.StudentId, q1.Grade
@@ -138,24 +138,24 @@ LATERAL VIEW JSON_TUPLE(jt.json_body, 'StudentId', 'Grade') q1
   AS StudentId, Grade;
 ```
 
-Utdata från det här skriptet i Hive-konsolen:
+Resultatet av det här skriptet i Hive-konsolen:
 
-![Apache Hive JSON-frågeresultat](./media/using-json-in-hive/hdinsight-json-tuple.png)
+![Apache Hive json frågeresultat](./media/using-json-in-hive/hdinsight-json-tuple.png)
 
-UDF-json_tuple [använder i Hive-syntaxen](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+LateralView) i Hive, som aktiverar JSON\_tupel för att skapa en virtuell tabell genom att använda UDT-funktionen på varje rad i den ursprungliga tabellen. Komplexa JSON blir för svårhanterligt på grund av den upprepade användningen av **sido visning**. Dessutom kan **JSON_TUPLE** inte hantera KAPSLAde JSON-artiklar.
+Den json_tuple UDF använder den [laterala](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+LateralView) vysyntaxen i Hive, vilket gör att json\_tuple kan skapa en virtuell tabell genom att använda FUNKTIONEN UDT på varje rad i den ursprungliga tabellen. Komplexa JSONs blir för tungrodda på grund av upprepad användning av **LATERAL VIEW**. Dessutom kan JSON_TUPLE inte hantera kapslade JSON.Dessutom kan **JSON_TUPLE** inte hantera kapslade JSONs.
 
-### <a name="use-a-custom-serde"></a>Använd en anpassad SerDe
+### <a name="use-a-custom-serde"></a>Använda en anpassad SerDe
 
-SerDe är det bästa valet för att parsa kapslade JSON-dokument. Du kan definiera JSON-schemat och sedan använda schemat för att parsa dokumenten. Instruktioner finns i [så här använder du en anpassad JSON-SerDe med Microsoft Azure HDInsight](https://web.archive.org/web/20190217104719/https://blogs.msdn.microsoft.com/bigdatasupport/2014/06/18/how-to-use-a-custom-json-serde-with-microsoft-azure-hdinsight/).
+SerDe är det bästa valet för att tolka kapslade JSON-dokument. Det låter dig definiera JSON-schemat och sedan kan du använda schemat för att tolka dokumenten. Instruktioner finns i [Så här använder du en anpassad JSON SerDe med Microsoft Azure HDInsight](https://web.archive.org/web/20190217104719/https://blogs.msdn.microsoft.com/bigdatasupport/2014/06/18/how-to-use-a-custom-json-serde-with-microsoft-azure-hdinsight/).
 
 ## <a name="summary"></a>Sammanfattning
 
-Den typ av JSON-operator i Hive som du väljer beror på ditt scenario. Om du har ett enkelt JSON-dokument och det bara finns ett fält att söka efter, kan du välja att använda registrerings data filen UDF **get_json_object**. Om du har fler än en nyckel att leta efter kan du använda **json_tuple**. Om du har ett kapslat dokument bör du använda JSON- **SerDe**.
+Sammanfattningsvis beror vilken typ av JSON-operatör i Hive som du väljer på ditt scenario. Om du har ett enkelt JSON-dokument och du bara har ett fält att titta upp på kan du välja att använda Hive **UDF-get_json_object**. Om du har mer än en nyckel att slå upp på kan du använda **json_tuple**. Om du har ett kapslat dokument bör du använda **JSON SerDe**.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Relaterade artiklar finns i:
+För relaterade artiklar, se:
 
-* [Använda Apache Hive och HiveQL med Apache Hadoop i HDInsight för att analysera ett exempel på Apache log4j-filen](../hdinsight-use-hive.md)
-* [Analysera flyg fördröjnings data med hjälp av interaktiv fråga i HDInsight](../interactive-query/interactive-query-tutorial-analyze-flight-data.md)
-* [Analysera Twitter-data med Apache Hive i HDInsight](../hdinsight-analyze-twitter-data-linux.md)
+* [Använd Apache Hive och HiveQL med Apache Hadoop i HDInsight för att analysera ett exempel Apache log4j-fil](../hdinsight-use-hive.md)
+* [Analysera flygfördröjningsdata med hjälp av interaktiv fråga i HDInsight](../interactive-query/interactive-query-tutorial-analyze-flight-data.md)
+* [Analysera Twitter-data med hjälp av Apache Hive i HDInsight](../hdinsight-analyze-twitter-data-linux.md)

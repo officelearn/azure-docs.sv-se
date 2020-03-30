@@ -1,6 +1,6 @@
 ---
-title: Skapa en åtkomst granskning av Azure AD-roller i PIM – Azure AD | Microsoft Docs
-description: Lär dig hur du skapar en åtkomst granskning av Azure AD-roller i Azure AD Privileged Identity Management (PIM).
+title: Skapa en åtkomstgranskning av Azure AD-roller i PIM - Azure AD | Microsoft-dokument
+description: Lär dig hur du skapar en åtkomstgranskning av Azure AD-roller i Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: curtand
@@ -15,58 +15,58 @@ ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2f7e9ef503a9a3469ecbc835be8d9229fbd0167f
-ms.sourcegitcommit: 16c5374d7bcb086e417802b72d9383f8e65b24a7
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73847116"
 ---
-# <a name="create-an-access-review-of-azure-ad-roles-in-privileged-identity-management"></a>Skapa en åtkomst granskning av Azure AD-roller i Privileged Identity Management
+# <a name="create-an-access-review-of-azure-ad-roles-in-privileged-identity-management"></a>Skapa en åtkomstgranskning av Azure AD-roller i privilegierad identitetshantering
 
-För att minska risken för inaktuella roll tilldelningar bör du regelbundet granska åtkomst. Du kan använda Azure AD Privileged Identity Management (PIM) för att skapa åtkomst granskningar för privilegierade Azure AD-roller. Du kan också konfigurera återkommande åtkomst granskningar som sker automatiskt.
+Om du vill minska risken för inaktuella rolltilldelningar bör du regelbundet granska åtkomsten. Du kan använda Azure AD Privileged Identity Management (PIM) för att skapa åtkomstgranskningar för privilegierade Azure AD-roller. Du kan också konfigurera återkommande åtkomstgranskningar som sker automatiskt.
 
-Den här artikeln beskriver hur du skapar en eller flera åtkomst granskningar för privilegierade Azure AD-roller.
+I den här artikeln beskrivs hur du skapar en eller flera åtkomstgranskningar för privilegierade Azure AD-roller.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
-[Privilegie rad roll administratör](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator)
+[Administratör för privilegierad roll](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator)
 
-## <a name="open-access-reviews"></a>Öppna åtkomst granskningar
+## <a name="open-access-reviews"></a>Öppna åtkomstgranskningar
 
-1. Logga in på [Azure Portal](https://portal.azure.com/) med en användare som är medlem i rollen privilegie rad roll administratör.
+1. Logga in på [Azure-portalen](https://portal.azure.com/) med en användare som är medlem i rollen Privilegierad rolladministratör.
 
-1. Öppna **Azure AD Privileged Identity Management**.
+1. Öppna **Azure AD-privilegierad identitetshantering**.
 
-1. Välj **Azure AD-roller** på den vänstra menyn och välj sedan **åtkomst granskningar**.
+1. På den vänstra menyn väljer du **Azure AD-roller** och väljer sedan **Access-granskningar**.
 
-1. Under hantera väljer du **åtkomst granskningar**.
+1. Under Hantera väljer du **Access-granskningar**.
 
-    ![Azure AD-roller – åtkomst gransknings listan visar status för alla granskningar](./media/pim-how-to-start-security-review/access-reviews.png)
+    ![Azure AD-roller - Lista över Access-granskningar som visar status för alla granskningar](./media/pim-how-to-start-security-review/access-reviews.png)
 
 [!INCLUDE [Privileged Identity Management access reviews](../../../includes/active-directory-privileged-identity-management-access-reviews.md)]
 
-## <a name="start-the-access-review"></a>Starta åtkomst granskningen
+## <a name="start-the-access-review"></a>Starta åtkomstgranskningen
 
-När du har angett inställningarna för åtkomst granskning väljer du **Starta**. Åtkomst granskningen visas i listan med en indikator för dess status.
+När du har angett inställningarna för en åtkomstgranskning väljer du **Start**. Åtkomstgranskningen visas i listan med en indikator på dess status.
 
-![Listan åtkomst granskningar som visar statusen för startade granskningar](./media/pim-how-to-start-security-review/access-reviews-list.png)
+![Lista över Access-granskningar som visar status för startade granskningar](./media/pim-how-to-start-security-review/access-reviews-list.png)
 
-Som standard skickar Azure AD ett e-postmeddelande till granskare strax efter att granskningen startar. Om du väljer att inte låta Azure AD skicka e-postmeddelandet måste du meddela granskarna att en åtkomst granskning väntar på att de ska slutföras. Du kan visa dem i anvisningarna för hur du [granskar åtkomst till Azure AD-roller](pim-how-to-perform-security-review.md).
+Som standard skickar Azure AD ett e-postmeddelande till granskare strax efter att granskningen har startat. Om du väljer att inte låta Azure AD skicka e-postmeddelandet måste du informera granskarna om att en åtkomstgranskning väntar på att de ska slutföras. Du kan visa dem instruktionerna för hur du [granskar åtkomsten till Azure AD-roller](pim-how-to-perform-security-review.md).
 
-## <a name="manage-the-access-review"></a>Hantera åtkomst granskningen
+## <a name="manage-the-access-review"></a>Hantera åtkomstgranskningen
 
-Du kan följa förloppet när granskarna har slutfört sina granskningar på **översikts** sidan för åtkomst granskningen. Ingen åtkomst behörighet har ändrats i katalogen förrän [granskningen har slutförts](pim-how-to-complete-review.md).
+Du kan spåra förloppet när granskarna slutför sina granskningar på **sidan Översikt** för åtkomstgranskningen. Inga åtkomsträttigheter ändras i katalogen förrän [granskningen är klar](pim-how-to-complete-review.md).
 
-![Översikts sidan åtkomst granskningar som visar information om granskningen](./media/pim-how-to-start-security-review/access-review-overview.png)
+![Översiktssida för Access recensioner som visar informationen om granskningen](./media/pim-how-to-start-security-review/access-review-overview.png)
 
-Om det här är en engångs granskning kan du efter att åtkomst gransknings perioden är över eller administratören stoppar åtkomst granskningen genom att följa stegen i [slutföra en åtkomst granskning av Azure AD-roller](pim-how-to-complete-review.md) för att se och tillämpa resultaten.  
+Om detta är en engångsgranskning, sedan efter att åtkomstgranskningsperioden är över eller administratören stoppar åtkomstgranskningen, följer du stegen i [Slutför en åtkomstgranskning av Azure AD-roller](pim-how-to-complete-review.md) för att se och tillämpa resultaten.  
 
-Om du vill hantera en serie åtkomst granskningar navigerar du till åtkomst granskningen och du hittar kommande förekomster i schemalagda granskningar och redigerar slutdatumet eller lägger till/tar bort granskare i enlighet med detta.
+Om du vill hantera en serie åtkomstgranskningar navigerar du till åtkomstgranskningen och du hittar kommande förekomster i schemalagda granskningar och redigerar slutdatumet eller lägger till/tar bort granskare därefter.
 
-Baserat på dina val i **när inställningarna för slut för ande slutförs**, utförs automatiskt tillämpande efter slutdatum för granskningen eller när du stoppar granskningen manuellt. Status för granskningen ändras från **slutförd** till mellanliggande tillstånd som att **tillämpa** och slutligen tillämpa **tillstånd.** Du bör förvänta dig att se till att nekade användare, om de finns, tas bort från roller på några minuter.
+Baserat på dina val i **Efter slutförandeinställningar**kommer automatisk tillsypning att utföras efter granskningens slutdatum eller när du stoppar granskningen manuellt. Statusen för granskningen ändras från **slutförda** till mellanliggande tillstånd som **Tillämpning** och slutligen till tillstånd **Tillämpad**. Du bör förvänta dig att se nekade användare, om någon, tas bort från roller i några minuter.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Granska åtkomst till Azure AD-roller](pim-how-to-perform-security-review.md)
-- [Slutför en åtkomst granskning av Azure AD-roller](pim-how-to-complete-review.md)
-- [Skapa en åtkomst granskning av Azures resurs roller](pim-resource-roles-start-access-review.md)
+- [Granska åtkomsten till Azure AD-roller](pim-how-to-perform-security-review.md)
+- [Slutför en åtkomstgranskning av Azure AD-roller](pim-how-to-complete-review.md)
+- [Skapa en åtkomstgranskning av Azure-resursroller](pim-resource-roles-start-access-review.md)

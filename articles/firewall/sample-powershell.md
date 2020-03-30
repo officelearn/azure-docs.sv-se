@@ -1,6 +1,6 @@
 ---
-title: Exempel för Azure-brandvägg
-description: Den här artikeln innehåller länkar till Azure PowerShell skript exempel som skapar Azure-brandväggar.
+title: Exempel på Azure-brandvägg
+description: Den här artikeln innehåller länkar till Azure PowerShell-skriptexempel som skapar Azure-brandväggar.
 services: firewall
 author: vhorne
 ms.service: firewall
@@ -9,20 +9,20 @@ ms.date: 11/19/2019
 ms.author: victorh
 ms.custom: mvc
 ms.openlocfilehash: 5e4fab3d632bca6eb62f1233f681a3611d7ccddf
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74168714"
 ---
-# <a name="azure-firewall-powershell-samples"></a>PowerShell-exempel för Azure Firewall
+# <a name="azure-firewall-powershell-samples"></a>Exempel på Azure-brandväggens PowerShell
 
-Följande tabell innehåller länkar till Azure PowerShell skript exempel som skapar brand väggar:
+Följande tabell innehåller länkar till Azure PowerShell-skriptexempel som skapar brandväggar:
 
 
 | | |
 |----|----|
-|[Skapa en Azure-brandvägg och test infrastruktur](scripts/sample-create-firewall-test.md)|Skapar en Azure-brandvägg och en test nätverks infrastruktur.|
+|[Skapa en Azure-brandvägg och testinfrastruktur](scripts/sample-create-firewall-test.md)|Skapar en Azure-brandvägg och en testnätverksinfrastruktur.|
 
 
 

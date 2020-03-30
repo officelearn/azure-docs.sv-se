@@ -1,6 +1,6 @@
 ---
-title: Kopiera data från Amazon RedShift
-description: Läs om hur du kopierar data från Amazon RedShift till mottagar data lager som stöds med hjälp av Azure Data Factory.
+title: Kopiera data från Amazon Redshift
+description: Lär dig mer om hur du kopierar data från Amazon Redshift till sink-datalager som stöds med hjälp av Azure Data Factory.
 services: data-factory
 documentationcenter: ''
 ms.author: jingwang
@@ -12,58 +12,58 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 09/04/2018
 ms.openlocfilehash: 4d729a0117c7c409d1a3e0c3fd440aed96153203
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79243593"
 ---
-# <a name="copy-data-from-amazon-redshift-using-azure-data-factory"></a>Kopiera data från Amazon RedShift med Azure Data Factory
+# <a name="copy-data-from-amazon-redshift-using-azure-data-factory"></a>Kopiera data från Amazon Redshift med Azure Data Factory
 > [!div class="op_single_selector" title1="Välj den version av Data Factory-tjänsten som du använder:"]
 > * [Version 1](v1/data-factory-amazon-redshift-connector.md)
 > * [Aktuell version](connector-amazon-redshift.md)
 
 
-Den här artikeln beskriver hur du använder kopierings aktiviteten i Azure Data Factory för att kopiera data från en Amazon-RedShift. Den bygger på [översikts artikeln om kopierings aktiviteten](copy-activity-overview.md) som visar en översikt över kopierings aktiviteten.
+I den här artikeln beskrivs hur du använder kopieringsaktiviteten i Azure Data Factory för att kopiera data från en Amazon Redshift. Den bygger på [kopian aktivitet översikt](copy-activity-overview.md) artikeln som presenterar en allmän översikt över kopieringsaktivitet.
 
 ## <a name="supported-capabilities"></a>Funktioner som stöds
 
-Den här Amazon RedShift-anslutningen stöds för följande aktiviteter:
+Denna Amazon Redshift-kontakt stöds för följande aktiviteter:
 
-- [Kopierings aktivitet](copy-activity-overview.md) med [matrisen source/Sink som stöds](copy-activity-overview.md)
-- [Sökningsaktivitet](control-flow-lookup-activity.md)
+- [Kopiera aktivitet](copy-activity-overview.md) med [käll-/sink-matris som stöds](copy-activity-overview.md)
+- [Uppslagsaktivitet](control-flow-lookup-activity.md)
 
-Du kan kopiera data från Amazon RedShift till alla mottagar data lager som stöds. En lista över data lager som stöds som källor/mottagare av kopierings aktiviteten finns i tabellen över [data lager som stöds](copy-activity-overview.md#supported-data-stores-and-formats) .
+Du kan kopiera data från Amazon Redshift till alla sink-datalager som stöds. En lista över datalager som stöds som källor/sänkor av kopieringsaktiviteten finns i tabellen [Datalager som stöds.](copy-activity-overview.md#supported-data-stores-and-formats)
 
-Mer specifikt har den här Amazon RedShift-anslutningen stöd för att hämta data från RedShift med hjälp av fråge-eller inbyggda RedShift-inläsnings stöd.
+Specifikt stöder den här Amazon Redshift-kontakten att hämta data från Redshift med hjälp av fråga eller inbyggt Support för Redshift UNLOAD.
 
 > [!TIP]
-> För att uppnå bästa prestanda vid kopiering av stora mängder data från RedShift bör du överväga att använda den inbyggda RedShift-inläsningen via Amazon S3. Mer information finns i avsnittet [använda Unload för att kopiera data från Amazon RedShift](#use-unload-to-copy-data-from-amazon-redshift) .
+> För att uppnå bästa prestanda när du kopierar stora mängder data från Redshift, överväg att använda den inbyggda Redshift LOSSa via Amazon S3. Se [Använd TA BORT för att kopiera data från Avsnittet Amazon Redshift](#use-unload-to-copy-data-from-amazon-redshift) för mer information.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-* Om du kopierar data till ett lokalt data lager med hjälp av [egen värd integration runtime](create-self-hosted-integration-runtime.md)beviljar du integration Runtime (Använd IP-adressen för datorn) åtkomst till Amazon RedShift-klustret. Mer information finns i [bevilja åtkomst till klustret](https://docs.aws.amazon.com/redshift/latest/gsg/rs-gsg-authorize-cluster-access.html) .
-* Om du kopierar data till ett Azure-datalager, se [Azure Data Center IP-intervall](https://www.microsoft.com/download/details.aspx?id=41653) för den BERÄKNINGS-IP-adress och de SQL-intervall som används av Azure Data Center.
+* Om du kopierar data till ett lokalt datalager med [självvärderade integrationskörning](create-self-hosted-integration-runtime.md), ger du integrationskörningstid (använd IP-adressen för datorn) åtkomsten till Amazon Redshift-klustret. Se [Auktorisera åtkomst till klustret](https://docs.aws.amazon.com/redshift/latest/gsg/rs-gsg-authorize-cluster-access.html) för instruktioner.
+* Om du kopierar data till ett Azure-datalager läser du [Azure Data Center IP-intervall](https://www.microsoft.com/download/details.aspx?id=41653) för beräknings-IP-adressen och SQL-intervall som används av Azure-datacenter.
 
 ## <a name="getting-started"></a>Komma igång
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
-Följande avsnitt innehåller information om egenskaper som används för att definiera Data Factory entiteter som är speciella för Amazon RedShift-anslutaren.
+Följande avsnitt innehåller information om egenskaper som används för att definiera Data Factory-entiteter som är specifika för Amazon Redshift-anslutningsappen.
 
 ## <a name="linked-service-properties"></a>Länkade tjänstegenskaper
 
-Följande egenskaper stöds för Amazon RedShift-länkade tjänst:
+Följande egenskaper stöds för Amazon Redshift-länkad tjänst:
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Egenskapen Type måste anges till: **AmazonRedshift** | Ja |
-| server |IP-adressen eller värd namnet för Amazon RedShift-servern. |Ja |
-| port |Numret på den TCP-port som Amazon RedShift-servern använder för att lyssna efter klient anslutningar. |Nej, standard är 5439 |
-| database |Namnet på Amazon RedShift-databasen. |Ja |
-| användarnamn |Namnet på den användare som har åtkomst till databasen. |Ja |
-| lösenord |Lösen ord för användar kontot. Markera det här fältet som SecureString för att lagra det på ett säkert sätt i Data Factory eller [referera till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). |Ja |
-| connectVia | Den [integration runtime](concepts-integration-runtime.md) som ska användas för att ansluta till data lagret. Du kan använda Azure Integration Runtime eller lokal Integration Runtime (om ditt datalager finns i privat nätverk). Om den inte anges används standard Azure Integration Runtime. |Nej |
+| typ | Typegenskapen måste ställas in på: **AmazonRedshift** | Ja |
+| server |IP-adress eller värdnamn för Amazon Redshift-servern. |Ja |
+| port |Numret på TCP-porten som Amazon Redshift-servern använder för att lyssna efter klientanslutningar. |Nej, standard är 5439 |
+| databas |Namnet på Amazon Redshift-databasen. |Ja |
+| användarnamn |Namn på den användare som har åtkomst till databasen. |Ja |
+| password |Lösenord för användarkontot. Markera det här fältet som en SecureString för att lagra det säkert i Data Factory, eller [referera till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). |Ja |
+| connectVia (på) | [Den integrationskörning som](concepts-integration-runtime.md) ska användas för att ansluta till datalagret. Du kan använda Azure Integration Runtime eller Self-hosted Integration Runtime (om ditt datalager finns i privat nätverk). Om det inte anges används standardkörningen för Azure Integration. |Inga |
 
 **Exempel:**
 
@@ -93,16 +93,16 @@ Följande egenskaper stöds för Amazon RedShift-länkade tjänst:
 
 ## <a name="dataset-properties"></a>Egenskaper för datamängd
 
-En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera data uppsättningar finns i artikeln [data uppsättningar](concepts-datasets-linked-services.md) . Det här avsnittet innehåller en lista över egenskaper som stöds av Amazon RedShift-datauppsättningen.
+En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera datauppsättningar finns i [datauppsättningsartikeln.](concepts-datasets-linked-services.md) Det här avsnittet innehåller en lista över egenskaper som stöds av Amazon Redshift-datauppsättningen.
 
-Följande egenskaper stöds för att kopiera data från Amazon RedShift:
+Så här kopierar du data från Amazon Redshift och följande egenskaper stöds:
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Data uppsättningens typ-egenskap måste anges till: **AmazonRedshiftTable** | Ja |
-| schema | Schemats namn. |Nej (om ”query” i aktivitetskälla har angetts)  |
-| table | Namnet på tabellen. |Nej (om ”query” i aktivitetskälla har angetts)  |
-| tableName | Namnet på tabellen med schemat. Den här egenskapen stöds för bakåtkompatibilitet. Använd `schema` och `table` för nya arbets belastningar. | Nej (om ”query” i aktivitetskälla har angetts) |
+| typ | Typegenskapen för datauppsättningen måste ställas in på: **AmazonRedshiftTable** | Ja |
+| Schemat | Namnet på schemat. |Nej (om "fråga" i aktivitetskällan har angetts)  |
+| tabell | Tabellens namn. |Nej (om "fråga" i aktivitetskällan har angetts)  |
+| tableName | Namn på tabellen med schema. Den här egenskapen stöds för bakåtkompatibilitet. Använd `schema` `table` och för ny arbetsbelastning. | Nej (om "fråga" i aktivitetskällan har angetts) |
 
 **Exempel**
 
@@ -122,25 +122,25 @@ Följande egenskaper stöds för att kopiera data från Amazon RedShift:
 }
 ```
 
-Om du använder `RelationalTable` typ av data uppsättning, stöds den fortfarande som den är, medan du föreslås att du vill använda den nya som skickas.
+Om du `RelationalTable` använde maskinskriven datauppsättning stöds den fortfarande som den är, medan du föreslås använda den nya framöver.
 
 ## <a name="copy-activity-properties"></a>Kopiera egenskaper för aktivitet
 
-En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera aktiviteter finns i artikeln om [pipeliner](concepts-pipelines-activities.md) . Det här avsnittet innehåller en lista över egenskaper som stöds av Amazon RedShift-källan.
+En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera aktiviteter finns i artikeln [Pipelines.](concepts-pipelines-activities.md) Det här avsnittet innehåller en lista över egenskaper som stöds av Amazon Redshift-källa.
 
-### <a name="amazon-redshift-as-source"></a>Amazon-RedShift som källa
+### <a name="amazon-redshift-as-source"></a>Amazon Redshift som källa
 
-Om du vill kopiera data från Amazon RedShift anger du käll typen i kopierings aktiviteten till **AmazonRedshiftSource**. Följande egenskaper stöds i avsnittet Kopiera aktivitets **källa** :
+Om du vill kopiera data från Amazon Redshift ställer du in källtypen i kopieringsaktiviteten på **AmazonRedshiftSource**. Följande egenskaper stöds i källavsnittet för **kopieringsaktivitet:**
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Typ egenskapen för kopierings aktivitets källan måste anges till: **AmazonRedshiftSource** | Ja |
-| query |Använd den anpassade frågan för att läsa data. Exempel: Välj * från tabellen tabell. |Nej (om ”tableName” i datauppsättningen har angetts) |
-| redshiftUnloadSettings | Egenskaps grupp när Amazon RedShift tas bort från minnet. | Nej |
-| s3LinkedServiceName | Avser en Amazon S3 som ska användas som en tillfällig lagring genom att ange ett länkat tjänst namn av typen "AmazonS3". | Ja om du använder inaktivera |
-| bucketName | Ange S3-Bucket för att lagra interims data. Om den inte anges genererar Data Factory tjänsten automatiskt.  | Ja om du använder inaktivera |
+| typ | Typegenskapen för kopieringsaktivitetskällan måste ställas in på: **AmazonRedshiftSource** | Ja |
+| DocumentDB |Använd den anpassade frågan för att läsa data. Till exempel: välj * från MyTable. |Nej (om "tableName" i datauppsättningen har angetts) |
+| redshiftUnloadSettings | Egenskapsgrupp när du använder Amazon Redshift UNLOAD. | Inga |
+| s3LinkedServiceName | Refererar till en Amazon S3 som ska användas som en tillfällig butik genom att ange ett länkat tjänstnamn av typen "AmazonS3". | Ja om du använder LOSSNING |
+| bucketName (bucketName) | Ange S3-bucketen för att lagra interimsdata. Om den inte tillhandahålls genererar Data Factory-tjänsten den automatiskt.  | Ja om du använder LOSSNING |
 
-**Exempel: Amazon RedShift-källa i kopierings aktivitet med Unload**
+**Exempel: Amazon Redshift källa i kopia aktivitet med hjälp av LOSS**
 
 ```json
 "source": {
@@ -156,17 +156,17 @@ Om du vill kopiera data från Amazon RedShift anger du käll typen i kopierings 
 }
 ```
 
-Läs mer om hur du använder inläsning för att kopiera data från Amazon RedShift effektivt från nästa avsnitt.
+Läs mer om hur du använder OLADDA för att kopiera data från Amazon Redshift effektivt från nästa avsnitt.
 
-## <a name="use-unload-to-copy-data-from-amazon-redshift"></a>Använd inläsning för att kopiera data från Amazon RedShift
+## <a name="use-unload-to-copy-data-from-amazon-redshift"></a>Använd TA BORT för att kopiera data från Amazon Redshift
 
-[Borttagning](https://docs.aws.amazon.com/redshift/latest/dg/r_UNLOAD.html) är en mekanism som tillhandahålls av Amazon Redshift, som kan ta bort resultatet från en fråga till en eller flera filer på Amazon Simple Storage Service (Amazon S3). Det rekommenderas av Amazon för att kopiera stor data uppsättning från RedShift.
+[LOSSA](https://docs.aws.amazon.com/redshift/latest/dg/r_UNLOAD.html) är en mekanism som tillhandahålls av Amazon Redshift, som kan lossa resultaten av en fråga till en eller flera filer på Amazon Simple Storage Service (Amazon S3). Det är det sätt som rekommenderas av Amazon för att kopiera stora data som från Redshift.
 
-**Exempel: kopiera data från Amazon RedShift till Azure SQL Data Warehouse att använda Unload, mellanlagrad kopia och PolyBase**
+**Exempel: kopiera data från Amazon Redshift till Azure SQL Data Warehouse med hjälp av LOSSNING, stegvis kopia och PolyBase**
 
-För det här exemplet använder kopierings aktiviteten data från Amazon RedShift till Amazon S3 enligt konfigurationen i "redshiftUnloadSettings". Kopiera sedan data från Amazon S3 till Azure Blob enligt vad som anges i "stagingSettings", slutligen använder PolyBase för att läsa in data till SQL-data Lagerinleveransen. Alla tillfälliga format hanteras av kopierings aktiviteten på rätt sätt.
+För det här exempelet kan du ta bort data från Amazon Redshift till Amazon S3 som konfigurerats i "redshiftUnloadSettings" och sedan kopiera data från Amazon S3 till Azure Blob enligt vad som anges i "stagingSettings", slutligen använda PolyBase för att läsa in data i SQL-data Lager. Alla interimsformat hanteras av kopieringsaktiviteten korrekt.
 
-![RedShift till SQL DW Copy-arbetsflöde](media/copy-data-from-amazon-redshift/redshift-to-sql-dw-copy-workflow.png)
+![Redshift till SQL DW-kopieringsarbetsflöde](media/copy-data-from-amazon-redshift/redshift-to-sql-dw-copy-workflow.png)
 
 ```json
 "activities":[
@@ -212,28 +212,28 @@ För det här exemplet använder kopierings aktiviteten data från Amazon RedShi
 ]
 ```
 
-## <a name="data-type-mapping-for-amazon-redshift"></a>Data typs mappning för Amazon RedShift
+## <a name="data-type-mapping-for-amazon-redshift"></a>Datatyp kartläggning för Amazon Redshift
 
-När du kopierar data från Amazon RedShift används följande mappningar från Amazon RedShift-datatyper för att Azure Data Factory interimistiska data typer. Se [mappningar av schema och data typer](copy-activity-schema-and-type-mapping.md) för att lära dig mer om hur kopierings aktiviteten mappar käll schema och datatyp till mottagaren.
+När data kopieras från Amazon Redshift används följande mappningar från Amazon Redshift-datatyper till Azure Data Factory interimsdatatyper. Se [Schema- och datatypsmappningar](copy-activity-schema-and-type-mapping.md) om du vill veta mer om hur du kopierar aktivitetsschemat och datatypen till diskhon.
 
-| Data typen Amazon RedShift | Data factory tillfälliga datatyp |
+| Datatyp för Amazon Redshift | Data fabrik interim datatyp |
 |:--- |:--- |
 | BIGINT |Int64 |
-| BOOLEAN |String |
+| Boolean |String |
 | CHAR |String |
 | DATE |DateTime |
-| DECIMAL |decimaltal |
-| DOUBLE PRECISION |Double-värde |
+| DECIMAL |Decimal |
+| DUBBEL PRECISION |Double |
 | INTEGER |Int32 |
 | REAL |Enkel |
-| SMALLINT |Int16 |
-| INFORMATION |String |
+| SMALLINT |Int16 (int16) |
+| TEXT |String |
 | TIMESTAMP |DateTime |
 | VARCHAR |String |
 
-## <a name="lookup-activity-properties"></a>Egenskaper för Sök aktivitet
+## <a name="lookup-activity-properties"></a>Egenskaper för uppslagsaktivitet
 
-Om du vill veta mer om egenskaperna kontrollerar du [söknings aktiviteten](control-flow-lookup-activity.md).
+Om du vill veta mer om egenskaperna kontrollerar du [uppslagsaktivitet](control-flow-lookup-activity.md).
 
 ## <a name="next-steps"></a>Nästa steg
-En lista över data lager som stöds som källor och mottagare av kopierings aktiviteten i Azure Data Factory finns i [data lager som stöds](copy-activity-overview.md#supported-data-stores-and-formats).
+En lista över datalager som stöds som källor och sänkor av kopieringsaktiviteten i Azure Data Factory finns i [datalager som stöds](copy-activity-overview.md#supported-data-stores-and-formats).

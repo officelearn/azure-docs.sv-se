@@ -1,6 +1,6 @@
 ---
-title: Granska kostnads uppskattningar i Distributionshanteraren för Azure Site Recovery
-description: I den här artikeln beskrivs hur du granskar kostnads uppskattningar i Distributionshanteraren för Azure Site Recovery för katastrof återställning i VMware.
+title: Granska kostnadsuppskattningar i Azure Site Recovery Deployment Planner
+description: I de här artiklarna beskrivs hur du granskar kostnadsuppskattningarna i Azure Site Recovery Deployment Planner för VMware-haveriberedskap.
 author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
@@ -8,21 +8,21 @@ ms.topic: conceptual
 ms.date: 7/29/2019
 ms.author: mayg
 ms.openlocfilehash: 27678fff1c0322f9755e7726026c73934810d5d6
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73953330"
 ---
-# <a name="review-cost-estimations-in-the-vmware-deployment-planner"></a>Granska kostnads uppskattningar i distributions planeraren för VMware 
+# <a name="review-cost-estimations-in-the-vmware-deployment-planner"></a>Granska kostnadsuppskattningar i VMware Deployment Planner 
 
 Rapporten i distributionshanteraren ger en översikt över kostnadsuppskattningen på bladet [Rekommendationer](site-recovery-vmware-deployment-planner-analyze-report.md#recommendations) och en detaljerad kostnadsanalys på bladet Kostnadsuppskattning. Där ges en detaljerad kostnadsanalys per virtuell dator. 
 
 >[!Note]
->Den aktuella versionen av Deployment Planner Tool v 2.5 tillhandahåller kostnads uppskattning för virtuella datorer som replikeras till Managed Disks.
+>Den aktuella versionen av distributionsplanerare verktyget v2.5 ger kostnadsuppskattning för virtuella datorer replikera till hanterade diskar.
 
 ### <a name="cost-estimation-summary"></a>Sammanfattning av kostnadsuppskattning 
-Grafen visar sammanfattningsvyn av den uppskattade kostnaden haveriberedskapen (DR) för Azure för din valda målregion och valutan som du har angett för rapportgenerering.
+I diagrammet visas en sammanfattning av den uppskattade totala kostnaden för haveriberedskap (DR) till Azure i din valda målregion och i den valuta du har angett för rapporten.
 Sammanfattning av kostnadsuppskattning
 
 ![Sammanfattning av kostnadsuppskattning](media/site-recovery-vmware-deployment-planner-analyze-report/cost-estimation-summary-v2a.png)
@@ -39,7 +39,7 @@ Du kan visa kostnaden per månad eller per år. Läs mer om [målregioner som st
 
 **DR-Drill cost** (DR-testkostnad): Kostnaden som tillkommer under redundanstext. Azure Site Recovery startar virtuella datorer under redundanstest. DR-testkostnaden täcker beräkning och lagring för de virtuella datorer som körs. 
 
-**Azure storage cost per Month/Year**: (Azure Storage-kostnad per månad/år) det här visar den totala lagringskostnad som tillkommer för premium- och standardlagring för replikering och redundanstest.
+**Azure storage cost per Month/Year** (Azure Storage-kostnad per månad/år) Det visar den totala lagringskostnad som tillkommer för premium- och standardlagring för replikering och DR-test.
 
 ## <a name="detailed-cost-analysis"></a>Detaljerad kostnadsanalys
 Azure-priser för beräkning, lagring, nätverk och så vidare varierar mellan olika Azure-regioner. Du kan generera rapporten Kostnadsuppskattning med de senaste priserna baserat på din prenumeration, erbjudandet som är associerat med din prenumeration och för den angivna Azure-målregionen i den angivna valutan. Som standard används Azure-regionen USA, västra 2 och valutan amerikanska dollar (USD) i verktyget. Om du använder någon annan region eller valuta används den senast använda regionen och valutan till kostnadsuppskattningen nästa gång du skapar en rapport utan prenumerations-ID, erbjudande-ID, målregionen eller valuta.
@@ -101,7 +101,7 @@ Så här lägger du till virtuella datorer manuellt:
 
 * Antal virtuella datorer, IaaS-storlek (dina val)
 * Lagringstyp (Standard/Premium)
-* VM-total lagrings storlek (GB) för käll datorn
+* Virtuell dators totala lagringsstorlek (GB) för källdatorn
 * Antal DR-tester under ett år 
 * Varaktighet för varje DR-test (dagar) 
 * OS-typ
@@ -116,17 +116,17 @@ Så här lägger du till virtuella datorer manuellt:
 
 **Antal virtuella datorer**: antalet virtuella datorer som matchar konfigurationen. Du kan uppdatera antalet befintliga virtuella datorer om virtuella datorer med liknande konfiguration inte står med i listan men kommer att skyddas.
 
-**IaaS-storlek (rekommendation)** : det är storleken på de kompatibla virtuella datorer som verktyget rekommenderar för rollen. 
+**IaaS-storlek (rekommendation)**: det är storleken på de kompatibla virtuella datorer som verktyget rekommenderar för rollen. 
 
-**IaaS-storlek (ditt val)** : som standard är det här samma som den rekommenderade storleken. Du kan ändra rollen efter behov. Den beräknade kostnaden baseras på vald storlek för rollen.
+**IaaS-storlek (ditt val)**: som standard är det här samma som den rekommenderade storleken. Du kan ändra rollen efter behov. Den beräknade kostnaden baseras på vald storlek för rollen.
 
 **Lagringstyp**: typen av lagring som används för den virtuella datorn. Det här är antingen Standard eller Premium.
 
-**Total lagrings storlek för virtuell dator (GB)** : den totala lagrings platsen för den virtuella käll datorn.
+**VIRTUELLD total lagringsstorlek (GB)**: Den totala lagringen av källdatorn.
 
 **Antal DR-tester under ett år**: antalet gånger som du utför DR-tester under ett år. Standardvärdet är 4 gånger per år. Du kan ändra perioden för specifika virtuella datorer eller använda det nya värdet för alla virtuella datorer genom att ange det nya värdet på den översta raden och klicka på knappen Använd för alla. Den totala kostnaden för DR-tester är baserad på antalet DR-tester under ett år och varaktigheten för varje DR-test.  
 
-**Varaktighet för varje DR-test (dagar)** : varaktigheten för varje DR-test. Standardvärdet är 7 dagar varje 90 dagar enligt förmånen [Disaster Recovery Software Assurance](https://azure.microsoft.com/pricing/details/site-recovery). Du kan ändra perioden för specifika virtuella datorer eller använda ett nytt värde för alla virtuella datorer genom att ange ett nytt värde på den översta raden och klicka på Använd för alla. Totalkostnad för DR-tester beräknas baserat på antalet DR-tester under ett år och varaktigheten för varje DR-testperiod.
+**Varaktighet för varje DR-test (dagar)**: varaktigheten för varje DR-test. Standardvärdet är 7 dagar varje 90 dagar enligt förmånen [Disaster Recovery Software Assurance](https://azure.microsoft.com/pricing/details/site-recovery). Du kan ändra perioden för specifika virtuella datorer eller använda ett nytt värde för alla virtuella datorer genom att ange ett nytt värde på den översta raden och klicka på Använd för alla. Totalkostnad för DR-tester beräknas baserat på antalet DR-tester under ett år och varaktigheten för varje DR-testperiod.
   
 **OS-typ**: den virtuella datorns operativsystem. Det här är antingen Windows eller Linux. Om OS-typen är Windows kan du använda Azure Hybrid-förmånen för den virtuella datorn. 
 
@@ -138,7 +138,7 @@ Så här lägger du till virtuella datorer manuellt:
 
 **Replikeringskostnad för stabilt tillstånd**: det här omfattar lagringskostnaden för replikering.
 
-**Totalkostnad för DR-test (genomsnittlig)** : det här omfattar kostnaden för beräkning och lagring för DR-tester.
+**Totalkostnad för DR-test (genomsnittlig)**: det här omfattar kostnaden för beräkning och lagring för DR-tester.
 
 **Kostnad för ASR-licens**: kostnad för Azure Site Recovery-licensen.
 

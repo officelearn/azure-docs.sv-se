@@ -3,7 +3,7 @@ title: Snabbstart Ladda ned en granskningsrapport med Azure-portalen | Microsoft
 description: Lär dig hur du laddar ned en granskningsrapport med Azure-portalen
 services: active-directory
 documentationcenter: ''
-author: cawrites
+author: MarkusVi
 manager: daveba
 editor: ''
 ms.assetid: 4de121ea-f4aa-4c8a-aae4-700c2c5e97a2
@@ -14,21 +14,21 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 11/13/2018
-ms.author: chadam
+ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2f3e5dd1c42537ce6ff419d7d81d69d824242ec4
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: a6cbea49fe39c92c8a2fc50e501cb4ef5cff74b1
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "68989685"
 ---
-# <a name="quickstart-download-an-audit-report-using-the-azure-portal"></a>Snabbstart: Ladda ned en granskningsrapport med hjälp av Azure-portalen
+# <a name="quickstart-download-an-audit-report-using-the-azure-portal"></a>Snabbstart: Ladda ned en granskningsrapport med Azure-portalen
 
-I den här snabb starten får du lära dig hur du hämtar en CSV-fil med gransknings loggarna för din klient under de senaste 24 timmarna. Du kan hämta upp till 250 000 poster från Azure Portal. Posterna sorteras efter senaste så att du får de senaste 250 000 posterna som standard. 
+I den här snabbstarten får du lära dig hur du hämtar en CSV-fil för granskningsloggarna för din klientorganisation under de senaste 24 timmarna. Du kan hämta upp till 250 000 poster från Azure-portalen. Posterna sorteras efter senast så som standard får du de senaste 250 000 posterna. 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Du behöver:
 
@@ -41,7 +41,7 @@ Du behöver:
 2. Välj **Azure Active Directory** från det vänstra navigeringsfönstret och använd **Växla katalog** för att välja din active directory.
 3. Från instrumentpanelen väljer du **Azure Active Directory** och sedan **Granskningsloggar**. 
 4. Välj **senaste 24 timmarna** i filterlistrutan **datumintervall** och välj **Tillämpa** för att visa granskningsloggarna för de senaste 24 timmarna. 
-5. Välj knappen **Ladda ned** , Välj **CSV** som fil format och ange ett fil namn för att ladda ned en CSV-fil som innehåller de filtrerade posterna. 
+5. Välj knappen **Hämta,** välj **CSV** som filformat och ange ett filnamn för att hämta en CSV-fil som innehåller de filtrerade posterna. 
 
 ![Rapportering](./media/quickstart-download-audit-report/download-audit-logs.png)
 

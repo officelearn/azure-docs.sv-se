@@ -1,5 +1,5 @@
 ---
-title: Azure IoT Hub module identitet & modul, dubbla (portal och .NET)
+title: Identiteten för Azure IoT Hub-modulidentitet &-modultvilling (portal och .NET)
 description: Lär dig att skapa modulidentitet och uppdatera modultvillingar med portalen och .NET.
 author: robinsh
 manager: philmea
@@ -10,10 +10,10 @@ ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 08/20/2019
 ms.openlocfilehash: 289c269100eb6ab672bb8d60562c1fa77d8d091a
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73954607"
 ---
 # <a name="get-started-with-iot-hub-module-identity-and-module-twin-using-the-portal-and-net-device"></a>Kom igång med IoT Hub-modulidentitet och modultvilling med portalen och .NET-enhet
@@ -21,48 +21,48 @@ ms.locfileid: "73954607"
 [!INCLUDE [iot-hub-selector-module-twin-getstarted](../../includes/iot-hub-selector-module-twin-getstarted.md)]
 
 > [!NOTE]
-> [Modulidentiteter och modultvillingar](iot-hub-devguide-module-twins.md) liknar enhetsidentitet och enhetstvilling i Azure IoT Hub, men har en större detaljnivå. Även om Azure IoT Hub enhets identitet och enhet dubbla aktiverar Server dels programmet för att konfigurera en enhet och ger insyn på enhetens villkor, ger modulens identitet och modul dubbla dessa funktioner för enskilda komponenter i en enhet. På enheter med flera komponenter, t. ex. operativ systembaserade enheter eller inbyggd program vara, är modulens identiteter och modulerna dubbla för att isolera konfiguration och villkor för varje komponent.
+> [Modulidentiteter och modultvillingar](iot-hub-devguide-module-twins.md) liknar enhetsidentitet och enhetstvilling i Azure IoT Hub, men har en större detaljnivå. Medan Azure IoT Hub-enhetsidentitet och enhetstvilling gör det möjligt för backend-programmet att konfigurera en enhet och ge synlighet på enhetens villkor, tillhandahåller en modulidentitet och modultvilling dessa funktioner för enskilda komponenter på en enhet. På kompatibla enheter med flera komponenter, till exempel operativsystembaserade enheter eller enheter för inbyggd programvara, möjliggör modulidentiteter och modultvillingar isolerad konfiguration och villkor för varje komponent.
 >
 
 I den här kursen lär du dig:
 
-* Så här skapar du en modul identitet i portalen.
+* Så här skapar du en modulidentitet i portalen.
 
-* Så här använder du en .NET-enhets-SDK för att uppdatera modulen från din enhet.
+* Så här använder du en .NET-enhet SDK för att uppdatera modultvillingen från enheten.
 
 > [!NOTE]
-> Information om Azure IoT SDK: er som du kan använda för att skapa båda programmen som ska köras på enheter och Server delen av lösningen finns i [Azure IoT SDK](iot-hub-devguide-sdks.md): er.
+> Information om Azure IoT SDK:er som du kan använda för att skapa båda programmen för att köras på enheter och din lösnings serverdel finns i [Azure IoT SDK: er](iot-hub-devguide-sdks.md).
 >
 
 ## <a name="prerequisites"></a>Krav
 
 * Visual Studio.
 
-* Ett aktivt Azure-konto. Om du inte har något konto kan du skapa ett [kostnads fritt konto](https://azure.microsoft.com/pricing/free-trial/) på bara några minuter.
+* Ett aktivt Azure-konto. Om du inte har något konto kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial/) på bara några minuter.
 
 ## <a name="create-a-hub"></a>Skapa en hubb
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
-## <a name="register-a-new-device-in-the-hub"></a>Registrera en ny enhet i hubben
+## <a name="register-a-new-device-in-the-hub"></a>Registrera en ny enhet i navet
 
 [!INCLUDE [iot-hub-include-create-device](../../includes/iot-hub-include-create-device.md)]
 
 ## <a name="create-a-module-identity-in-the-portal"></a>Skapa en modulidentitet i portalen
 
-Inom en enhetsidentitet kan du skapa upp till 20 modulidentiteter. Följ dessa steg om du vill lägga till en identitet:
+Inom en enhetsidentitet kan du skapa upp till 20 modulidentiteter. Så här lägger du till en identitet:
 
-1. För enheten som du skapade i föregående avsnitt väljer du **Lägg till modul identitet** för att skapa din första modul identitet.
+1. För enheten som du skapade i föregående avsnitt väljer du **Lägg till modulidentitet** för att skapa din första modulidentitet.
 
-1. Ange namnet *myFirstModule*. Spara din modul identitet.
+1. Ange namnet *myFirstModule*. Spara din modulidentitet.
 
-    ![Lägg till modulens identitet](./media/iot-hub-portal-csharp-module-twin-getstarted/add-module-identity.png)
+    ![Lägg till modulidentitet](./media/iot-hub-portal-csharp-module-twin-getstarted/add-module-identity.png)
 
-    Din nya modul-ID visas längst ned på skärmen. Välj den för att se information om modulens identitet.
+    Din nya modulidentitet visas längst ned på skärmen. Välj den för att se information om modulidentitet.
 
-    ![Se information om modulens identitet](./media/iot-hub-portal-csharp-module-twin-getstarted/module-identity-details.png)
+    ![Se information om modulidentitet](./media/iot-hub-portal-csharp-module-twin-getstarted/module-identity-details.png)
 
-Spara **anslutnings strängen – primär nyckel**. Du kan använda den i nästa avsnitt för att konfigurera din modul på enheten.
+Spara **anslutningssträngen - primärnyckel**. Du använder den i nästa avsnitt för att ställa in modulen på enheten.
 
 ## <a name="update-the-module-twin-using-net-device-sdk"></a>Uppdatera modultvillingen med SDK för .NET-enheter
 
@@ -70,43 +70,43 @@ Du har skapat modulidentiteten i din IoT Hub. Försök kommunicera till molnet f
 
 ### <a name="create-a-visual-studio-project"></a>Skapa ett Visual Studio-projekt
 
-Följ dessa steg om du vill skapa en app som uppdaterar modulens dubbla rapporterade egenskaper:
+Så här skapar du en app som uppdaterar modulens tvillingrapporterade egenskaper:
 
-1. I Visual Studio väljer du **skapa ett nytt projekt**och väljer sedan **konsol program (.NET Framework)** och väljer **Nästa**.
+1. I Visual Studio väljer du **Skapa ett nytt projekt**och väljer sedan **Konsolapp (.NET Framework)** och väljer **Nästa**.
 
-1. I **Konfigurera ditt nya projekt**anger du *UpdateModuleTwinReportedProperties* som **projekt namn**. Fortsätt genom att välja **skapa** .
+1. I **Konfigurera det nya projektet**anger du *UpdateModuleTwinReportedProperties* som **projektnamn**. Välj **Skapa** för att fortsätta.
 
-    ![Konfigurera att du är ett Visual Studio-projekt](./media/iot-hub-portal-csharp-module-twin-getstarted/configure-twins-project.png)
+    ![Konfigurera dig som ett visuellt studioprojekt](./media/iot-hub-portal-csharp-module-twin-getstarted/configure-twins-project.png)
 
-### <a name="install-the-latest-azure-iot-hub-net-device-sdk"></a>Installera den senaste Azure IoT Hub .NET-enhets-SDK: n
+### <a name="install-the-latest-azure-iot-hub-net-device-sdk"></a>Installera den senaste Azure IoT Hub .NET-enheten SDK
 
-Modulens identitet och modul är i offentlig för hands version. Den är endast tillgänglig i IoT Hub för hands version av enhets-SDK: er. Följ dessa steg om du vill installera det:
+Modulidentitet och modultvilling är i offentlig förhandsversion. Den är bara tillgänglig i IoT Hub-förutgivningsenhet SDK:er. Så här installerar du den:
 
-1. I Visual Studio öppnar du **verktyg** > **NuGet Package Manager** > **Hantera NuGet-paket för lösningen**.
+1. Öppna **Tools** > **NuGet Package Manager** > **Hantera NuGet-paket för lösning**i Visual Studio.
 
-1. Välj **Bläddra**och välj sedan **Inkludera för hands version**. Sök efter *Microsoft. Azure. devices. client*. Välj den senaste versionen och installera.
+1. Välj **Bläddra**och välj sedan **Inkludera förhandsversion**. Sök efter *Microsoft.Azure.Devices.Client*. Välj den senaste versionen och installera.
 
-    ![Installera Azure IoT Hub .NET service SDK Preview](./media/iot-hub-csharp-csharp-module-twin-getstarted/install-sdk.png)
+    ![Installera förhandsversionen av Azure IoT Hub .NET-tjänsten SDK](./media/iot-hub-csharp-csharp-module-twin-getstarted/install-sdk.png)
 
     Nu har du åtkomst till alla modulfunktioner.
 
-### <a name="get-your-module-connection-string"></a>Hämta din anslutnings sträng för modul
+### <a name="get-your-module-connection-string"></a>Hämta modulanslutningssträngen
 
-Du behöver modulens anslutnings sträng för konsol programmet. Följ de här stegen:
+Du behöver modulens anslutningssträng för konsolappen. Följ de här stegen:
 
 1. Logga in på [Azure-portalen](https://portal.azure.com/).
 
-1. Navigera till din IoT-hubb och välj **IoT-enheter**. Öppna **t myfirstdevice** så ser du att **myFirstModule** har skapats.
+1. Navigera till din IoT-hubb och välj **IoT-enheter**. Öppna **myFirstDevice** och du ser att **myFirstModule** skapades.
 
-1. Välj **myFirstModule** under **modul identiteter**. I **modulens identitets information**kopierar du **anslutnings strängen (primär nyckel)** .
+1. Välj **myFirstModule** under **Modulidentiteter**. Kopiera **anslutningssträngen (primärnyckeln)** i **Modulidentitetsinformation**.
 
     ![Information om Azure-portalmodulen](./media/iot-hub-portal-csharp-module-twin-getstarted/module-identity-details.png)
 
-### <a name="create-updatemoduletwinreportedproperties-console-app"></a>Skapa UpdateModuleTwinReportedProperties-konsol program
+### <a name="create-updatemoduletwinreportedproperties-console-app"></a>Skapa konsolapp för UpdateModuleTwinReportedProperties
 
-Följ dessa steg om du vill skapa din app:
+Så här skapar du appen:
 
-1. Lägg till följande `using`-uttryck överst i **Program.cs**-filen:
+1. Lägg till `using` följande satser högst upp i **Program.cs-filen:**
 
   ```csharp
   using Microsoft.Azure.Devices.Client;
@@ -138,7 +138,7 @@ Följ dessa steg om du vill skapa din app:
       }
   ```
 
-4. Ersätt slutligen **huvud** metoden med följande kod:
+4. Slutligen ersätter **du huvudmetoden** med följande kod:
 
   ```csharp
   static void Main(string[] args)
@@ -179,14 +179,14 @@ Följ dessa steg om du vill skapa din app:
   }
   ```
   
-  Du kan skapa och köra den här appen med **F5**.
+  Du kan skapa och köra den här appen med hjälp av **F5**.
 
 Det är kodexemplet visar hur du hämtar modultvillingen och uppdaterar rapporterade egenskaper med AMQP-protokollet. I offentlig förhandsversion stöder vi endast AMQP för modultvillingåtgärder.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om hur du kan komma igång med IoT Hub och utforska andra IoT-scenarier finns här:
+För att fortsätta komma igång med IoT-hubb och utforska andra IoT-scenarier, se:
 
-* [Kom igång med IoT Hub modulens identitet och modul dubbla med .NET backup och .NET-enhet](iot-hub-csharp-csharp-module-twin-getstarted.md)
+* [Kom igång med IoT Hub-modulidentitet och modultvilling med .NET-säkerhetskopiering och .NET-enhet](iot-hub-csharp-csharp-module-twin-getstarted.md)
 
 * [Komma igång med IoT Edge](../iot-edge/tutorial-simulate-device-linux.md)

@@ -9,24 +9,24 @@ ms.date: 02/17/2019
 ms.author: dobett
 ms.custom: include file
 ms.openlocfilehash: 2514325c93f0f72aa979f871e86e465093479402
-ms.sourcegitcommit: a6888fba33fc20cc6a850e436f8f1d300d03771f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/16/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "69558783"
 ---
-## <a name="customize-and-extend-the-device-management-actions"></a>Anpassa och utöka enhets hanterings åtgärderna
+## <a name="customize-and-extend-the-device-management-actions"></a>Anpassa och utöka enhetshanteringsåtgärderna
 
-Dina IoT-lösningar kan utöka den definierade uppsättningen enhets hanterings mönster eller aktivera anpassade mönster genom att använda enhetens dubbla och moln-till-enhet-metoden. Andra exempel på enhets hanterings åtgärder är fabriks återställning, uppdatering av inbyggd program vara, program uppdatering, energispar funktioner, nätverks-och anslutnings hantering och data kryptering.
+Dina IoT-lösningar kan utöka den definierade uppsättningen enhetshanteringsmönster eller aktivera anpassade mönster med hjälp av enhetstvilling- och moln-till-enhet-metodprimiver. Andra exempel på enhetshanteringsåtgärder är fabriksåterställning, uppdatering av den inbyggda programvaran, programuppdatering, energisparfunktioner, nätverks- och anslutningshantering samt datakryptering.
 
-## <a name="device-maintenance-windows"></a>Enhets underhålls fönster
+## <a name="device-maintenance-windows"></a>Fönster för enhetsunderhåll
 
-Normalt konfigurerar du enheter för att utföra åtgärder i taget som minimerar avbrott och stillestånds tid. Enhets underhålls fönster är ett vanligt mönster för att definiera den tidpunkt då en enhet ska uppdatera konfigurationen. Dina backend-lösningar kan använda enhetens önskade egenskaper för att definiera och aktivera en princip på din enhet som aktiverar en underhålls period. När en enhet tar emot underhålls fönster principen kan den använda enhetens rapporterade egenskap för att rapportera status för principen. Backend-appen kan sedan använda enhets dubbla frågor för att intyga efterlevnaden av enheter och varje princip.
+Vanligtvis konfigurerar du enheter för att utföra åtgärder vid en tidpunkt som minimerar avbrott och driftstopp. Enhetsunderhållsfönster är ett vanligt mönster för att definiera när en enhet ska uppdatera konfigurationen. Backend-lösningarna kan använda de önskade egenskaperna för enhetstvillingen för att definiera och aktivera en princip på enheten som möjliggör ett underhållsfönster. När en enhet tar emot underhållsfönsterprincipen kan den använda den rapporterade egenskapen för enhetstvillingen för att rapportera principens status. Backend-appen kan sedan använda enhetstvillingfrågor för att intyga att enheter och varje princip följs.
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudien använde du en direkt metod för att utlösa en fjärran sluten omstart på en enhet. Du använde de rapporterade egenskaperna för att rapportera den senaste omstarts tiden från enheten och frågade enheten med en enhets gräns för att identifiera den senaste omstarts tiden för enheten från molnet.
+I den här självstudien använde du en direkt metod för att utlösa en fjärromstart på en enhet. Du använde de rapporterade egenskaperna för att rapportera den senaste omstartstiden från enheten och frågade enhetstvillingen för att upptäcka den senaste omstartstiden för enheten från molnet.
 
-Om du vill fortsätta att komma igång med IoT Hub-och enhets hanterings mönster, till exempel fjärran sluten av den inbyggda program varan, kan du läsa mer i [Uppdatera](../articles/iot-hub/tutorial-firmware-update.md)
+Information om hur du fortsätter att komma igång med IoT Hub och enhetshanteringsmönster som fjärröver uppdateringen av den inbyggda programvaran finns i [Så här gör du en uppdatering av den inbyggda programvaran](../articles/iot-hub/tutorial-firmware-update.md).
 
-Information om hur du utökar din IoT-lösning och schemalägger metod anrop på flera enheter finns i [schema-och sändnings jobb](../articles/iot-hub/iot-hub-node-node-schedule-jobs.md).
+Mer information om hur du utökar IoT-lösningen och schemalägg metodanrop på flera enheter finns i [Schemalägga och sända jobb](../articles/iot-hub/iot-hub-node-node-schedule-jobs.md).

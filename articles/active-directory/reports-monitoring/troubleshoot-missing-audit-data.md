@@ -1,5 +1,5 @@
 ---
-title: Felsöka saknade data i aktivitets loggarna | Microsoft Docs
+title: Felsöka data som saknas i aktivitetsloggar | Microsoft-dokument
 description: Ger en lösning till saknade data i Azure Active Directory-aktivitetsloggar.
 services: active-directory
 documentationcenter: ''
@@ -18,10 +18,10 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9c335a4d30846f7c1b4dbd6b6aedc4d100a9b43a
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74014278"
 ---
 # <a name="troubleshoot-missing-data-in-the-azure-active-directory-activity-logs"></a>Felsökning: Saknade data i Azure Active Directory-aktivitetsloggar 
@@ -72,7 +72,7 @@ Vänta i mellan 15 minuter och 2 timmar och se om åtgärderna visas i loggen. O
 
 ### <a name="symptoms"></a>Symtom
 
-Jag kan inte se mer än 30 dagars inloggnings- och granskningsdata från Azure-portalen. Varför? 
+Jag kan inte se mer än 30 dagars inloggnings- och granskningsdata från Azure-portalen. Varför det? 
 
  ![Rapportering](./media/troubleshoot-missing-audit-data/03.png)
 
@@ -94,6 +94,6 @@ Du har två alternativ för att behålla data längre än 30 dagar. Du kan anvä
 ## <a name="next-steps"></a>Nästa steg
 
 * [Kvarhållning av Azure AD-rapportering](reference-reports-data-retention.md).
-* [Svarstider för Azure Active Directory-rapportering](reference-reports-latencies.md).
+* [Azure Active Directory rapportering latens .](reference-reports-latencies.md)
 * [Vanliga frågor och svar om Azure Active Directory-rapportering](reports-faq.md).
 

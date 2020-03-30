@@ -1,6 +1,6 @@
 ---
-title: Redigera gruppinformation – Azure Active Directory | Microsoft Docs
-description: Anvisningar om hur du redigerar din grupps information med hjälp av Azure Active Directory.
+title: Redigera gruppinformationen – Azure Active Directory | Microsoft-dokument
+description: Instruktioner om hur du redigerar gruppens information med Hjälp av Azure Active Directory.
 services: active-directory
 author: msaburnley
 manager: daveba
@@ -14,55 +14,55 @@ ms.reviewer: krbain
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: dc06abca08b2522ac57552e85f7c1bac3ef854af
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "68561879"
 ---
-# <a name="edit-your-group-information-using-azure-active-directory"></a>Redigera gruppinformation med hjälp av Azure Active Directory
+# <a name="edit-your-group-information-using-azure-active-directory"></a>Redigera gruppinformationen med Hjälp av Azure Active Directory
 
-Med Azure Active Directory (Azure AD) kan redigera du inställningarna för en grupp, inklusive uppdatera dess namn, beskrivning eller medlemskap text.
+Med Hjälp av Azure Active Directory (Azure AD) kan du redigera en grupps inställningar, inklusive uppdatering av dess namn, beskrivning eller medlemstyp.
 
-## <a name="to-edit-your-group-settings"></a>Så här redigerar du gruppinställningarna för
+## <a name="to-edit-your-group-settings"></a>Så här redigerar du gruppinställningarna
 1. Logga in på [Azure-portalen](https://portal.azure.com) med ett Globalt administratörskonto för katalogen.
 
-2. Välj **Azure Active Directory**, och välj sedan **grupper**.
+2. Välj **Azure Active Directory**och välj sedan **Grupper**.
 
-    Den **grupper – alla grupper** visas, som visar alla aktiva grupperna.
+    Sidan **Grupper - Alla grupper** visas som visar alla dina aktiva grupper.
 
-3. Från den **grupper – alla grupper** anger så mycket av namnet som du kan göra i den **Search** box. För den här artikeln, vi söker efter den **MDM princip – västra** grupp.
+3. På sidan **Grupper - Alla grupper** skriver du så mycket av gruppnamnet som du kan i **sökrutan.** I den här artikeln söker vi efter **MDM-principen - West-gruppen.**
 
-    Sökresultatet visas den **Search** rutan uppdateras när du skriver fler tecken.
+    Sökresultaten visas under **sökrutan** och uppdateras när du skriver fler tecken.
 
-    ![Sidan alla grupper med söktext i sökrutan](media/active-directory-groups-settings-azure-portal/search-for-specific-group.png)
+    ![Sidan Alla grupper med söktext i rutan Sök](media/active-directory-groups-settings-azure-portal/search-for-specific-group.png)
 
-4. Välj gruppen som **MDM princip – västra**, och välj sedan **egenskaper** från den **hantera** området.
+4. Välj **grupp-MDM-principen - Väst**och välj sedan **Egenskaper** i området **Hantera.**
 
-    ![Sidan grupp översikt med medlems alternativ och information markerad](media/active-directory-groups-settings-azure-portal/group-overview-blade.png)
+    ![Sidan Gruppöversikt, med alternativet Medlem och information markerad](media/active-directory-groups-settings-azure-portal/group-overview-blade.png)
 
-5. Uppdatera den **allmänna inställningar** information efter behov, inklusive:
+5. Uppdatera informationen **om allmänna inställningar** efter behov, inklusive:
 
-    ![För egenskapsinställningar för en grupp](media/active-directory-groups-settings-azure-portal/group-properties-settings.png)
+    ![Egenskaper inställningar för en grupp](media/active-directory-groups-settings-azure-portal/group-properties-settings.png)
 
-    - **Gruppnamn.** Redigera det befintliga gruppnamnet.
+    - **Gruppens namn.** Redigera det befintliga gruppnamnet.
     
-    - **Gruppbeskrivning.** Redigera befintliga Gruppbeskrivning.
+    - **Gruppbeskrivning.** Redigera den befintliga gruppbeskrivningen.
 
-    - **Typ av grupp.** Du kan inte ändra typ av grupp när det har skapats. Ändra den **grupptyp**, måste du ta bort gruppen och skapa en ny.
+    - **Grupptyp.** Du kan inte ändra typen av grupp när den har skapats. Om du vill ändra **grupptypen**måste du ta bort gruppen och skapa en ny.
     
-    - **Typ av medlemskap.** Ändra medlemskap. Mer information om de olika tillgängliga medlemskaps typerna finns i [How to: Skapa en grundläggande grupp och Lägg till medlemmar med hjälp av](active-directory-groups-create-azure-portal.md)Azure Active Directory portalen.
+    - **Typ av medlemskap.** Ändra medlemstypen. Mer information om de olika tillgängliga medlemstyperna finns i [Så här skapar du en grundläggande grupp och lägger till medlemmar med Azure Active Directory-portalen](active-directory-groups-create-azure-portal.md).
     
-    - **Objekt-ID.** Du kan inte ändra objekt-ID, men du kan kopiera och använda det i din PowerShell-kommandon för gruppen. Mer information om hur du använder PowerShell-cmdlets finns i [Azure Active Directory-cmdletar för att konfigurera gruppinställningar](../users-groups-roles/groups-settings-v2-cmdlets.md).
+    - **Objekt-ID.** Du kan inte ändra objekt-ID: t, men du kan kopiera det som ska användas i PowerShell-kommandona för gruppen. Mer information om hur du använder PowerShell-cmdletar finns i [Azure Active Directory-cmdletar för att konfigurera gruppinställningar](../users-groups-roles/groups-settings-v2-cmdlets.md).
 
 ## <a name="next-steps"></a>Nästa steg
 Dessa artiklar innehåller ytterligare information om Azure Active Directory.
 
 - [Visa dina grupper och medlemmar](active-directory-groups-view-azure-portal.md)
 
-- [Skapa en basgrupp och lägga till medlemmar](active-directory-groups-create-azure-portal.md)
+- [Skapa en basgrupp och lägg till medlemmar](active-directory-groups-create-azure-portal.md)
 
-- [Lägga till eller ta bort medlemmar från en grupp](active-directory-groups-members-azure-portal.md)
+- [Så här lägger du till eller tar bort medlemmar från en grupp](active-directory-groups-members-azure-portal.md)
 
 - [Hantera dynamiska regler för användare i en grupp](../users-groups-roles/groups-create-rule.md)
 

@@ -1,27 +1,27 @@
 ---
-title: Azure HPC cache-data inmatning – parallell kopierings skript
-description: Så här använder du ett parallellt kopierings skript för att flytta data till ett Blob Storage-mål i Azure HPC-cache
+title: Azure HPC-cachedata intas - parallellkopieringsskript
+description: Så här använder du ett parallellkopieringsskript för att flytta data till ett Blob-lagringsmål i Azure HPC-cache
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
 ms.date: 10/30/2019
 ms.author: rohogue
 ms.openlocfilehash: 90e05ad3d42b1009b631630fe476669a9f418d33
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74166892"
 ---
-# <a name="azure-hpc-cache-data-ingest---parallel-copy-script-method"></a>Azure HPC cache-data inmatning – parallell kopiering skript metod
+# <a name="azure-hpc-cache-data-ingest---parallel-copy-script-method"></a>Azure HPC-cachedata intas - parallell kopiering skript metod
 
-Den här artikeln innehåller instruktioner för hur du skapar ``parallelcp``-skriptet och använder det för att flytta data till en Blob Storage-behållare för användning med Azure HPC-cache.
+Den här artikeln innehåller ``parallelcp`` instruktioner för hur du skapar skriptet och använder det för att flytta data till en Blob-lagringsbehållare för användning med Azure HPC-cache.
 
-Läs mer om hur du flyttar data till Blob Storage för Azure HPC cache genom [att läsa flytta data till Azure Blob Storage](hpc-cache-ingest.md).
+Mer information om hur du flyttar data till Blob-lagring för Din Azure HPC-cache läser du [Flytta data till Azure Blob storage](hpc-cache-ingest.md).
 
-## <a name="create-the-parallelcp-script"></a>Skapa parallelcp-skriptet
+## <a name="create-the-parallelcp-script"></a>Skapa parallellcp-skriptet
 
-Skriptet nedan lägger till den körbara `parallelcp`. (Det här skriptet är utformat för Ubuntu. om du använder en annan distribution måste du installera ``parallel`` separat.)
+Skriptet nedan kommer att `parallelcp`lägga till den körbara . (Det här skriptet är utformat för Ubuntu, ``parallel`` om du använder en annan distribution måste du installera separat.)
 
 ```bash
 sudo touch /usr/bin/parallelcp && sudo chmod 755 /usr/bin/parallelcp && sudo sh -c "/bin/cat >/usr/bin/parallelcp" <<EOM
@@ -73,13 +73,13 @@ find \$SOURCE_DIR -mindepth 1 ! -type d -print0 | sed -z "s/\$SOURCE_DIR\///" | 
 EOM
 ```
 
-## <a name="parallel-copy-example"></a>Exempel på parallell kopiering
+## <a name="parallel-copy-example"></a>Exempel på parallellkopia
 
-I det här exemplet används skriptet för parallell kopiering för att kompilera ``glibc`` med källfiler i Azure HPC-cachen.
+I det här exemplet används ``glibc`` parallellkopieringsskriptet för kompilering med hjälp av källfiler i Azure HPC-cachen.
 
-Källfilerna cachelagras i Azure HPC cache-monterings punkten och objekten lagras på den lokala hård disken.
+Källfilerna cachelagras i Azure HPC Cache-monteringspunkten och objektfilerna lagras på den lokala hårddisken.
 
-I det här exemplet används skriptet för parallell kopiering med alternativet ``-j`` och ``make`` för att få parallellisering.
+I det här exemplet används ``-j`` parallellkopieringsskriptet med alternativet och ``make`` för att få parallellisering.
 
 ```bash
 sudo apt-get update

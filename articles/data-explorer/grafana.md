@@ -1,6 +1,6 @@
 ---
-title: Visualisera data från Azure Datautforskaren med Grafana
-description: I den här artikeln lär du dig att konfigurera Azure Datautforskaren som en data källa för Grafana och sedan visualisera data från ett exempel kluster.
+title: Visualisera data från Azure Data Explorer med Grafana
+description: I den här artikeln lär du dig att konfigurera Azure Data Explorer som en datakälla för Grafana och sedan visualisera data från ett exempelkluster.
 author: orspod
 ms.author: orspodek
 ms.reviewer: gabil
@@ -8,31 +8,31 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 11/13/2019
 ms.openlocfilehash: a1c52007ea86ca0812c4a73a92ce81db6ddadc7b
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74038030"
 ---
-# <a name="visualize-data-from-azure-data-explorer-in-grafana"></a>Visualisera data från Azure Datautforskaren i Grafana
+# <a name="visualize-data-from-azure-data-explorer-in-grafana"></a>Visualisera data från Azure Data Explorer i Grafana
 
-Grafana är en analys plattform som gör det möjligt att fråga och visualisera data och sedan skapa och dela instrument paneler baserat på dina visualiseringar. Grafana tillhandahåller ett Azure Datautforskaren- *plugin-program*som gör att du kan ansluta till och visualisera data från Azure datautforskaren. I den här artikeln lär du dig att konfigurera Azure Datautforskaren som en data källa för Grafana och sedan visualisera data från ett exempel kluster.
+Grafana är en analysplattform som gör att du kan fråga och visualisera data och sedan skapa och dela instrumentpaneler baserat på dina visualiseringar. Grafana tillhandahåller ett *Plugin-program*för Azure Data Explorer , som gör att du kan ansluta till och visualisera data från Azure Data Explorer. I den här artikeln lär du dig att konfigurera Azure Data Explorer som en datakälla för Grafana och sedan visualisera data från ett exempelkluster.
 
-Använd följande video för att lära dig hur du använder Grafana-plugin-programmet för Azure Datautforskaren, konfigurerar Azure Datautforskaren som en data källa för Grafana och sedan visualiserar data. 
+Använd följande video för att lära dig hur du använder Grafanas Azure Data Explorer-plugin- program, konfigurera Azure Data Explorer som en datakälla för Grafana och visualisera sedan data. 
 
 > [!VIDEO https://www.youtube.com/embed/fSR_qCIFZSA]
 
-Alternativt kan du [Konfigurera data källan](#configure-the-data-source) och [visualisera data](#visualize-data) som beskrivs i artikeln nedan.
+Alternativt kan du [konfigurera datakällan](#configure-the-data-source) och [visualisera data](#visualize-data) enligt beskrivningen i artikeln nedan.
 
 ## <a name="prerequisites"></a>Krav
 
 Du behöver följande för att slutföra den här artikeln:
 
-* [Grafana version 5.3.0 eller senare](https://docs.grafana.org/installation/) för ditt operativ system
+* [Grafana version 5.3.0 eller senare](https://docs.grafana.org/installation/) för ditt operativsystem
 
-* [Azure datautforskaren-plugin-programmet](https://grafana.com/plugins/grafana-azure-data-explorer-datasource/installation) för Grafana
+* [Plugin-programmet Azure Data Explorer](https://grafana.com/plugins/grafana-azure-data-explorer-datasource/installation) för Grafana
 
-* Ett kluster som innehåller exempel data för StormEvents. Mer information finns i [snabb start: skapa ett azure datautforskaren-kluster och databas](create-cluster-database-portal.md) och mata [in exempel Data i Azure datautforskaren](ingest-sample-data.md).
+* Ett kluster som innehåller Exempeldata för StormEvents. Mer information finns i [Snabbstart: Skapa ett Azure Data Explorer-kluster och databas](create-cluster-database-portal.md) och [matar in exempeldata i Azure Data Explorer](ingest-sample-data.md).
 
     [!INCLUDE [data-explorer-storm-events](../../includes/data-explorer-storm-events.md)]
 
@@ -40,55 +40,55 @@ Du behöver följande för att slutföra den här artikeln:
 
 ### <a name="specify-properties-and-test-the-connection"></a>Ange egenskaper och testa anslutningen
 
-När tjänstens huvud namn har tilldelats till *visnings* rollen, anger du nu egenskaper i din instans av Grafana och testar anslutningen till Azure datautforskaren.
+Med tjänstens huvudnamn tilldelad rollen *tittare* anger du nu egenskaper i din instans av Grafana och testar anslutningen till Azure Data Explorer.
 
-1. I Grafana väljer du kugg hjuls ikonen på den vänstra menyn och sedan **data källor**.
+1. I Grafana, på den vänstra menyn, välj kugghjulsikonen sedan **Datakällor**.
 
     ![Datakällor](media/grafana/data-sources.png)
 
-1. Välj **Lägg till data källa**.
+1. Välj **Lägg till datakälla**.
 
-1. På sidan **data källor/ny** anger du ett namn för data källan och väljer sedan typen **Azure datautforskaren DataSource**.
+1. På sidan **Datakällor /Ny** anger du ett namn för datakällan och väljer sedan typen **av Azure Data Explorer Datasource**.
 
-    ![Anslutnings namn och-typ](media/grafana/connection-name-type.png)
+    ![Anslutningsnamn och text](media/grafana/connection-name-type.png)
 
-1. Ange namnet på ditt kluster i formatet https://{kluster namn}. {Region}. kusto. Windows. net. Ange de andra värdena från Azure Portal eller CLI. Se tabellen nedanför följande bild för en mappning.
+1. Ange namnet på klustret i formuläret https://{ClusterName}. {Region}.kusto.windows.net. Ange andra värden från Azure-portalen eller CLI. Se tabellen nedan för en mappning.
 
     ![Anslutningsegenskaper](media/grafana/connection-properties.png)
 
-    | Grafana-gränssnitt | Azure Portal | Azure CLI |
+    | Grafana användargränssnitt | Azure Portal | Azure CLI |
     | --- | --- | --- |
-    | Prenumeration-ID | PRENUMERATIONS-ID | SubscriptionId |
+    | Prenumerations-ID | PRENUMERATIONS-ID | SubscriptionId |
     | Klient-ID | Katalog-ID | tenant |
     | Klient-ID | Program-ID:t | appId |
-    | Klienthemlighet | Lösenord | lösenord |
+    | Klienthemlighet | lösenord | password |
     | | | |
 
-1. Välj **spara & test**.
+1. Välj **Spara & test**.
 
-    Om testet lyckas går du till nästa avsnitt. Om du kommer över alla problem, kontrollerar du de värden som du angav i Grafana och granskar föregående steg.
+    Om testet lyckas går du till nästa avsnitt. Om du stöter på några problem kontrollerar du de värden som du har angett i Grafana och granskar tidigare steg.
 
 ## <a name="visualize-data"></a>Visualisera data
 
-Nu när du har slutfört konfigurationen av Azure Datautforskaren som en data källa för Grafana är det dags att visualisera data. Vi visar ett Basic-exempel här, men det är mycket mer du kan göra. Vi rekommenderar att du tittar på [Skriv frågor för Azure datautforskaren](write-queries.md) för exempel på andra frågor som ska köras mot exempel data uppsättningen.
+Nu när du har konfigurerat Azure Data Explorer som en datakälla för Grafana är det dags att visualisera data. Vi kommer att visa ett grundläggande exempel här, men det finns mycket mer du kan göra. Vi rekommenderar att du tittar på [skrivfrågor för Azure Data Explorer](write-queries.md) för exempel på andra frågor som ska köras mot exempeldatauppsättningen.
 
-1. I Grafana, på den vänstra menyn, väljer du plus ikonen och **instrument panelen**.
+1. I Grafana, på den vänstra menyn, väljer du plusikonen och sedan **instrumentpanelen**.
 
-    ![Skapa instrument panel](media/grafana/create-dashboard.png)
+    ![Skapa instrumentpanel](media/grafana/create-dashboard.png)
 
-1. Välj **diagram**på fliken **Lägg till** .
+1. Välj **Diagram**under fliken **Lägg** till .
 
     ![Lägg till diagram](media/grafana/add-graph.png)
 
-1. I diagram panelen väljer du **panel rubrik** och sedan **Redigera**.
+1. Välj **Panelrubrik** på diagrampanelen **och**redigera sedan .
 
-    ![Redigera panel](media/grafana/edit-panel.png)
+    ![Panelen Redigera](media/grafana/edit-panel.png)
 
-1. Klicka på **data källa** längst ned på panelen och välj sedan den data källa som du konfigurerade.
+1. Längst ned på panelen väljer du **Datakälla** och väljer sedan den datakälla som du har konfigurerat.
 
     ![Välja datakälla](media/grafana/select-data-source.png)
 
-1. I rutan fråga kopierar du i följande fråga och väljer sedan **Kör**. Frågan buckerar antalet händelser per dag för exempel data uppsättningen.
+1. Kopiera i följande fråga i frågefönstret och välj sedan **Kör**. Frågan buckets antalet händelser per dag för exempeldatauppsättningen.
 
     ```kusto
     StormEvents
@@ -97,39 +97,39 @@ Nu när du har slutfört konfigurationen av Azure Datautforskaren som en data k�
 
     ![Kör frågan](media/grafana/run-query.png)
 
-1. Grafen visar inte några resultat eftersom de är begränsade till data från de senaste sex timmarna. På den översta menyn väljer du **senaste 6 timmar**.
+1. Diagrammet visar inga resultat eftersom det är begränsat som standard till data från de senaste sex timmarna. Välj **Senaste 6 timmar**på den övre menyn .
 
     ![Senaste sex timmarna](media/grafana/last-six-hours.png)
 
-1. Ange ett anpassat intervall som täcker 2007, året som ingår i vår StormEvents exempel data uppsättning. Välj **Använd**.
+1. Ange ett anpassat intervall som omfattar 2007, det år som ingår i vår StormEvents exempeldatauppsättning. Välj **Använd**.
 
-    ![Anpassat datum intervall](media/grafana/custom-date-range.png)
+    ![Anpassat datumintervall](media/grafana/custom-date-range.png)
 
-    Nu visar diagrammet data från 2007, Bucket per dag.
+    Nu visar diagrammet data från 2007, bucketed by day.
 
-    ![Diagrammet är klart](media/grafana/finished-graph.png)
+    ![Färdigt diagram](media/grafana/finished-graph.png)
 
-1. På den översta menyn väljer du ikonen Spara: ![Ikonen Spara](media/grafana/save-icon.png).
+1. Välj ikonen spara på den övre menyn: ![Ikonen Spara](media/grafana/save-icon.png).
 
 ## <a name="create-alerts"></a>Skapa aviseringar
 
-1. I Start-instrumentpanelen väljer du **aviseringar** > **aviserings kanaler** för att skapa en ny meddelande kanal
+1. I Startpanelen väljer du **Aviseringar** > **i meddelandekanaler** för att skapa en ny meddelandekanal
 
-    ![Skapa meddelande kanal](media/grafana/create-notification-channel.png)
+    ![skapa meddelandekanal](media/grafana/create-notification-channel.png)
 
-1. Skapa en ny **meddelande kanal**och **Spara**sedan.
+1. Skapa en ny **meddelandekanal** **och**spara sedan .
 
-    ![Skapa ny meddelande kanal](media/grafana/new-notification-channel-adx.png)
+    ![Skapa ny meddelandekanal](media/grafana/new-notification-channel-adx.png)
 
-1. På **instrument panelen**väljer du **Redigera** i list rutan.
+1. Välj **Redigera** i listrutan på **instrumentpanelen.**
 
-    ![Välj Redigera på instrument panelen](media/grafana/edit-panel-4-alert.png)
+    ![välj redigera i instrumentpanelen](media/grafana/edit-panel-4-alert.png)
 
-1. Välj ikonen aviserings klocka för att öppna **aviserings** fönstret. Välj **skapa avisering**. Slutför följande egenskaper i **aviserings** fönstret.
+1. Välj ikonen för varningsklockan för att öppna **varningsfönstret.** Välj **Skapa avisering**. Slutför följande egenskaper i **varningsfönstret.**
 
-    ![aviserings egenskaper](media/grafana/alert-properties.png)
+    ![varningsegenskaper](media/grafana/alert-properties.png)
 
-1. Välj ikonen **Spara instrument panel** för att spara ändringarna.
+1. Välj ikonen **Spara instrumentpanel** för att spara ändringarna.
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -1,6 +1,6 @@
 ---
 title: Systemvariabler i Azure Data Factory
-description: I den här artikeln beskrivs systemvariabler som stöds av Azure Data Factory. Du kan använda dessa variabler i uttryck när du definierar Data Factory entiteter.
+description: I den här artikeln beskrivs systemvariabler som stöds av Azure Data Factory. Du kan använda dessa variabler i uttryck när du definierar datafabrikentiteter.
 services: data-factory
 documentationcenter: ''
 author: djpmsft
@@ -12,43 +12,43 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/12/2018
 ms.openlocfilehash: 0a5237336530d30c3801b13b910171e236e87a23
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73679277"
 ---
 # <a name="system-variables-supported-by-azure-data-factory"></a>Systemvariabler som stöds av Azure Data Factory
-I den här artikeln beskrivs systemvariabler som stöds av Azure Data Factory. Du kan använda dessa variabler i uttryck när du definierar Data Factory entiteter.
+I den här artikeln beskrivs systemvariabler som stöds av Azure Data Factory. Du kan använda dessa variabler i uttryck när du definierar datafabrikentiteter.
 
-## <a name="pipeline-scope"></a>Pipeline-omfång
-Dessa systemvariabler kan refereras var som helst i pipeline-JSON.
+## <a name="pipeline-scope"></a>Pipeline-scope
+Dessa systemvariabler kan refereras var som helst i rörledningen JSON.
 
-| Variabel namn | Beskrivning |
+| Variabelnamn | Beskrivning |
 | --- | --- |
-| @pipeline(). DataFactory |Namnet på den data fabrik som pipelinen körs i |
-| @pipeline(). Pipeline |Namn på pipelinen |
-| @pipeline(). RunId | ID för den aktuella pipeline-körningen |
-| @pipeline(). TriggerType | Typ av utlösare som anropade pipelinen (manuell, Scheduler) |
-| @pipeline(). TriggerId| ID för utlösaren som anropar pipelinen |
-| @pipeline(). TriggerName| Namnet på utlösaren som anropar pipelinen |
-| @pipeline(). TriggerTime| Tid när utlösaren som anropade pipelinen. Utlösnings tiden är den faktiska utlösta tiden, inte den schemalagda tiden. `13:20:08.0149599Z` returneras till exempel i stället för `13:20:00.00Z` |
+| @pipeline(). DataFactory (datafactory) |Namnet på den datafabrik som pipelinekörningen körs inom |
+| @pipeline(). Rörledning |Rörledningens namn |
+| @pipeline(). RunId (på) | ID för den specifika pipeline-körningen |
+| @pipeline(). TriggerType | Typ av utlösare som anropade pipelinen (Manuell, Scheduler) |
+| @pipeline(). TriggerId (triggerId)| ID för utlösaren som anropar pipelinen |
+| @pipeline(). TriggerName (TriggerName)| Namnet på utlösaren som anropar pipelinen |
+| @pipeline(). TriggerTime (TriggerTime)| Tid när utlösaren som anropade pipelinen. Utlösningstiden är den faktiska avfyrningstiden, inte den schemalagda tiden. `13:20:08.0149599Z` Returneras till exempel i stället för`13:20:00.00Z` |
 
-## <a name="schedule-trigger-scope"></a>Intervall för schema utlösare
+## <a name="schedule-trigger-scope"></a>Schemalägg utfångaromomfattning
 Dessa systemvariabler kan refereras var som helst i utlösaren JSON om utlösaren är av typen: "ScheduleTrigger".
 
-| Variabel namn | Beskrivning |
+| Variabelnamn | Beskrivning |
 | --- | --- |
-| @trigger(). scheduledTime |Tid när utlösaren schemalades för att anropa pipeline-körningen. För en utlösare som utlöses var femte minut skulle den här variabeln exempelvis returnera `2017-06-01T22:20:00Z``2017-06-01T22:25:00Z``2017-06-01T22:30:00Z`.|
-| @trigger(). StartTime |Tid när utlösaren **faktiskt** startade för att anropa pipeline-körningen. För en utlösare som utlöses var femte minut kan den här variabeln till exempel returnera något som liknar detta `2017-06-01T22:20:00.4061448Z``2017-06-01T22:25:00.7958577Z``2017-06-01T22:30:00.9935483Z`. (Obs: tidsstämpeln är som standard i ISO 8601-format)|
+| @trigger().scheduledTime |Tid då utlösaren var schemalagd att anropa pipelinekörningen. Till exempel, för en utlösare som utlöses `2017-06-01T22:20:00Z`var `2017-06-01T22:25:00Z` `2017-06-01T22:30:00Z` 5 min, skulle denna variabel returnera , respektive.|
+| @trigger().startTime |Tid då utlösaren **faktiskt** avfyrades för att anropa pipelinekörningen. Till exempel, för en utlösare som utlöses var 5 `2017-06-01T22:25:00.7958577Z` `2017-06-01T22:30:00.9935483Z` min, kan denna variabel returnera ungefär så här `2017-06-01T22:20:00.4061448Z`, respektive. (Obs: Tidsstämpeln är som standard i ISO 8601-format)|
 
-## <a name="tumbling-window-trigger-scope"></a>Utlösare för rullande fönster
+## <a name="tumbling-window-trigger-scope"></a>Utlösaromfattning för tumlande fönster
 Dessa systemvariabler kan refereras var som helst i utlösaren JSON om utlösaren är av typen: "TumblingWindowTrigger".
-(Obs: tidsstämpeln är som standard i ISO 8601-format)
+(Obs: Tidsstämpeln är som standard i ISO 8601-format)
 
-| Variabel namn | Beskrivning |
+| Variabelnamn | Beskrivning |
 | --- | --- |
-| @trigger(). outputs. windowStartTime |Början av fönstret när utlösaren schemalades för att anropa pipeline-körningen. Om utlösaren för rullande Window har en frekvens på "varje timme" blir tiden i början av timmen.|
-| @trigger(). outputs. windowEndTime |Slutet av fönstret när utlösaren schemalades för att anropa pipeline-körningen. Om utlösaren för rullande Window har en frekvens på "varje timme" blir tiden i slutet av timmen.|
+| @trigger().outputs.windowStartTime |Start av fönstret när utlösaren var schemalagd att anropa pipelinekörningen. Om den tumlande fönsterutlösaren har en frekvens av "timme" skulle detta vara tiden i början av timmen.|
+| @trigger().outputs.windowEndTime |Slutet av fönstret när utlösaren var schemalagd att anropa pipelinekörningen. Om den tumlande fönsterutlösaren har en frekvens av "timme" skulle detta vara tiden i slutet av timmen.|
 ## <a name="next-steps"></a>Nästa steg
-Information om hur dessa variabler används i uttryck finns i [Expression language & Functions](control-flow-expression-language-functions.md).
+Information om hur dessa variabler används i uttryck finns i [Uttrycksspråk & funktioner](control-flow-expression-language-functions.md).

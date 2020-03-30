@@ -1,6 +1,6 @@
 ---
-title: 'Azure VPN Gateway: annonsera anpassade vägar för P2S VPN-klienter'
-description: Steg för att annonsera anpassade vägar till dina punkt-till-plats-klienter
+title: 'Azure VPN Gateway: Annonsera anpassade vägar för P2S VPN-klienter'
+description: Steg för att annonsera anpassade vägar till dina point-to-site-klienter
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
@@ -8,23 +8,23 @@ ms.topic: article
 ms.date: 11/11/2019
 ms.author: cherylmc
 ms.openlocfilehash: 7a904857b8aa0ed2aa18fc2a1b81fe31541e6f9e
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74151909"
 ---
-# <a name="advertise-custom-routes-for-p2s-vpn-clients"></a>Annonsera anpassade vägar för P2S VPN-klienter
+# <a name="advertise-custom-routes-for-p2s-vpn-clients"></a>Annonsera anpassade rutter för P2S VPN-klienter
 
-Du kanske vill annonsera anpassade vägar till alla VPN-klienter från punkt till plats. Till exempel när du har aktiverat lagrings slut punkter i ditt VNet och vill att fjärran vändare ska kunna komma åt dessa lagrings konton via VPN-anslutningen. Du kan annonsera IP-adressen för lagrings slut punkten till alla fjärran vändare så att trafiken till lagrings kontot går via VPN-tunneln och inte på det offentliga Internet.
+Du kanske vill annonsera anpassade vägar till alla dina point-to-site VPN-klienter. Till exempel när du har aktiverat lagringsslutpunkter i ditt virtuella nätverk och vill att fjärranvändarna ska kunna komma åt dessa lagringskonton via VPN-anslutningen. Du kan annonsera IP-adressen för lagringsslutpunkten till alla fjärranvändare så att trafiken till lagringskontot går över VPN-tunneln och inte till det offentliga Internet.
 
 ![Exempel på Azure VPN Gateway-anslutningar för flera platser](./media/vpn-gateway-p2s-advertise-custom-routes/custom-routes.png)
 
-## <a name="to-advertise-custom-routes"></a>Annonsera anpassade vägar
+## <a name="to-advertise-custom-routes"></a>Så här annonserar du anpassade rutter
 
-Använd `Set-AzVirtualNetworkGateway cmdlet`för att annonsera anpassade vägar. I följande exempel visas hur du annonserar IP-adressen för [contoso Storage Account-tabeller](https://contoso.table.core.windows.net).
+Om du vill annonsera `Set-AzVirtualNetworkGateway cmdlet`anpassade vägar använder du . I följande exempel visas hur du annonserar IP för [Contoso-lagringskontotabellerna](https://contoso.table.core.windows.net).
 
-1. Pinga *contoso.Table.Core.Windows.net* och anteckna IP-adressen. Exempel:
+1. Pinga *contoso.table.core.windows.net* och notera IP-adressen. Ett exempel:
 
     ```cmd
     C:\>ping contoso.table.core.windows.net
@@ -38,12 +38,12 @@ Använd `Set-AzVirtualNetworkGateway cmdlet`för att annonsera anpassade vägar.
     Set-AzVirtualNetworkGateway -VirtualNetworkGateway $gw -CustomRoute 13.88.144.250/32
     ```
 
-3. Om du vill lägga till flera anpassade vägar använder du ett Coma och blank steg för att avgränsa adresserna. Exempel:
+3. Om du vill lägga till flera anpassade vägar använder du en koma och blanksteg för att avgränsa adresserna. Ett exempel:
 
     ```azurepowershell-interactive
     Set-AzVirtualNetworkGateway -VirtualNetworkGateway $gw -CustomRoute x.x.x.x/xx , y.y.y.y/yy
     ```
-## <a name="to-view-custom-routes"></a>Visa anpassade vägar
+## <a name="to-view-custom-routes"></a>Så här visar du anpassade vägar
 
 Använd följande exempel för att visa anpassade vägar:
 
@@ -51,7 +51,7 @@ Använd följande exempel för att visa anpassade vägar:
   $gw = Get-AzVirtualNetworkGateway -Name <name of gateway> -ResourceGroupName <name of resource group>
   $gw.CustomRoutes | Format-List
   ```
-## <a name="to-delete-custom-routes"></a>Ta bort anpassade vägar
+## <a name="to-delete-custom-routes"></a>Så här tar du bort anpassade vägar
 
 Använd följande exempel för att ta bort anpassade vägar:
 
@@ -61,4 +61,4 @@ Använd följande exempel för att ta bort anpassade vägar:
   ```
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om P2S-routning finns i [om punkt-till-plats-routning](vpn-gateway-about-point-to-site-routing.md).
+Mer P2S-routningsinformation finns i [Om routning från punkt till plats](vpn-gateway-about-point-to-site-routing.md).

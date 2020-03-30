@@ -1,6 +1,6 @@
 ---
-title: Azure Connected Machine agent CLI-gränssnitt
-description: Referens dokumentation för Azure Connected Machine agent CLI
+title: Azure Connected Machine Agent CLI-gränssnitt
+description: Referensdokumentation för Azure Connected Machine-agenten CLI
 author: bobbytreed
 manager: carmonm
 services: azure-arc
@@ -10,19 +10,19 @@ ms.topic: reference
 ms.date: 11/04/2019
 ms.author: robreed
 ms.openlocfilehash: d35c5e283f2e1e2f8afd431d83775167dc2a531a
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73513203"
 ---
-# <a name="azure-connected-machine-agent-cli-interface"></a>Azure Connected Machine agent CLI-gränssnitt
+# <a name="azure-connected-machine-agent-cli-interface"></a>Azure Connected Machine Agent CLI-gränssnitt
 
-Verktyget `Azcmagent` (Azure Connected Machine agent) används för att konfigurera och felsöka en anslutning som inte är en Azure-dator till Azure.
+Verktyget `Azcmagent` (Azure Connected Machine Agent) används för att konfigurera och felsöka en icke-azure-datoranslutning till Azure.
 
-Själva agenten är en daemon-process som kallas `himdsd` på Linux, och en Windows-tjänst som kallas `himds` i Windows.
+Agenten i sig är en `himdsd` demon process som kallas `himds` på Linux, och en Windows-tjänst som kallas på Windows.
 
-I normal användning används `azcmagent connect` för att upprätta en anslutning mellan den här datorn och Azure, och `azcmagent disconnect` om du inte längre vill ha den anslutningen. De andra kommandona är för fel sökning eller andra specialfall.
+Vid normal `azcmagent connect` användning används för att upprätta en anslutning `azcmagent disconnect` mellan den här datorn och Azure, och om du bestämmer dig för att du inte längre vill ha anslutningen. De andra kommandona är för felsökning eller andra specialfall.
 
 ## <a name="options"></a>Alternativ
 
@@ -31,32 +31,32 @@ I normal användning används `azcmagent connect` för att upprätta en anslutni
   -v, --verbose   Increase logging verbosity to show all logs
 ```
 
-## <a name="see-also"></a>SE ÄVEN
+## <a name="see-also"></a>SE ÄVEN.
 
-* [azcmagent Connect](#azcmagent-connect) – ansluter den här datorn till Azure
-* [azcmagent från koppling](#azcmagent-disconnect) – kopplar från den här datorn från Azure
-* [azcmagent reconnect](#azcmagent-reconnect) – återansluter datorn till Azure
-* [azcmagent show](#azcmagent-show) -hämtar maskin-metadata och agent status. Detta är främst användbart vid fel sökning.
-* [azcmagent-version](#azcmagent-version) – Visa versionen för Hybrid Management Agent
+* [azcmagent connect](#azcmagent-connect) - Ansluter den här datorn till Azure
+* [azcmagent disconnect](#azcmagent-disconnect) - Kopplar från den här datorn från Azure
+* [azcmagent återanslut](#azcmagent-reconnect) - Återansluter den här datorn till Azure
+* [azcmagent show](#azcmagent-show) - Hämtar datorns metadata och agentstatus. Detta är främst användbart för felsökning.
+* [azcmagent version](#azcmagent-version) - Visa Hybrid Management Agent version
 
 ## <a name="azcmagent-connect"></a>azcmagent ansluta
 
 Ansluter den här datorn till Azure
 
-### <a name="synopsis"></a>Sammanfattning
+### <a name="synopsis"></a>Synopsis
 
 Skapar en resurs i Azure som representerar den här datorn.
 
-Detta använder de autentiseringsalternativ som finns för att skapa en resurs i Azure Resource Manager som representerar den här datorn. Resursen finns i prenumerations-och resurs gruppen som begärts, och data om datorn lagras i den Azure-region som anges av parametern location.
-Standard resurs namnet är värd namnet för den här datorn om den inte åsidosätts.
+Detta använder de autentiseringsalternativ som tillhandahålls för att skapa en resurs i Azure Resource Manager som representerar den här datorn. Resursen finns i den begärda prenumerations- och resursgruppen och data om datorn lagras i Azure-regionen som anges av platsparametern.
+Standardresursnamnet är den här datorns värdnamn om det inte åsidosätts.
 
-Ett certifikat som motsvarar den systemtilldelade identiteten för den här datorn laddas ned och lagras lokalt. När det här steget är klart slutförs tjänsten **Azure Connected Machine metadata** och konfigurations agenten för gäster börjar synkronisera med Azure-molnet.
+Ett certifikat som motsvarar den systemtilldelade identiteten på den här datorn hämtas och lagras sedan lokalt. När det här steget är klart börjar **Azure Connected Machine Metadata** Service och Gästkonfigurationsagenten synkronisera med Azure-molnet.
 
-Autentiserings alternativ:
+Autentiseringsalternativ:
 
-* Åtkomsttoken `azcmagent connect --access-token <> --subscription-id <> --resource-group <> --location <>`
-* Tjänstens huvud namns-ID och hemlighet `azcmagent connect --service-principal-id <> --service-principal-secret <> --tenant-id <tenantid> --subscription-id <> --resource-group <> --location <>`
-* Enhets inloggning (interaktiv) `azcmagent connect --tenant-id <> --subscription-id <> --resource-group <> --location <>`
+* Åtkomsttoken`azcmagent connect --access-token <> --subscription-id <> --resource-group <> --location <>`
+* Tjänstens huvud-ID och hemliga`azcmagent connect --service-principal-id <> --service-principal-secret <> --tenant-id <tenantid> --subscription-id <> --resource-group <> --location <>`
+* Logga in på enheten (interaktivt)`azcmagent connect --tenant-id <> --subscription-id <> --resource-group <> --location <>`
 
 ### <a name="syntax"></a>Syntax
 
@@ -80,25 +80,25 @@ azcmagent connect [flags]
       --tenant-id string                  Tenant Id
 ```
 
-## <a name="azcmagent-disconnect"></a>azcmagent från koppling
+## <a name="azcmagent-disconnect"></a>azcmagent koppla
 
 Kopplar från den här datorn från Azure
 
-### <a name="synopsis"></a>Sammanfattning
+### <a name="synopsis"></a>Synopsis
 
 Tar bort resursen i Azure som representerar den här servern.
 
-Det här kommandot använder de autentiseringsalternativ som finns för att ta bort den Azure Resource Manager resursen som representerar den här datorn. Efter den här punkten kommer **Azure Connected-datorn metadata service** och gäst konfigurations agenten att kopplas från. Det här kommandot stoppar eller tar inte bort tjänsterna: ta bort paketet för att göra det.
+Det här kommandot använder de autentiseringsalternativ som anges för att ta bort Azure Resource Manager-resursen som representerar den här datorn. Efter denna punkt kommer **Azure Connected Machine Metadata Service** och Guest Configuration Agent att kopplas från. Det här kommandot stoppar eller tar inte bort tjänsterna: ta bort paketet för att göra det.
 
-Det här kommandot kräver högre privilegier än rollen "Azure-ansluten dator onboarding".
+Det här kommandot kräver högre behörighet än rollen "Azure Connected Machine Onboarding".
 
-När en dator har kopplats från använder du `azcmagent connect`, inte `azcmagent reconnect` om du vill skapa en ny resurs för den i Azure.
+När en dator har `azcmagent connect`kopplats `azcmagent reconnect` från använder du , inte om du vill skapa en ny resurs för den i Azure.
 
-Autentiserings alternativ:
+Autentiseringsalternativ:
 
-* Åtkomsttoken `azcmagent disconnect --access-token <>`
-* Tjänstens huvud namns-ID och hemlighet `azcmagent disconnect --service-principal-id <> --service-principal-secret <> --tenant-id <tenantid>`
-* Logga in på interaktiv enhet `azcmagent disconnect --tenant-id <>`
+* Åtkomsttoken`azcmagent disconnect --access-token <>`
+* Tjänstens huvud-ID och hemliga`azcmagent disconnect --service-principal-id <> --service-principal-secret <> --tenant-id <tenantid>`
+* Logga in interaktiv enhet`azcmagent disconnect --tenant-id <>`
 
 ### <a name="syntax"></a>Syntax
 
@@ -119,27 +119,27 @@ azcmagent disconnect [flags]
   -t, --tenant-id string                  Tenant Id
 ```
 
-## <a name="azcmagent-reconnect"></a>azcmagent Återanslut
+## <a name="azcmagent-reconnect"></a>azcmagent återansluta
 
-Återansluter datorn till Azure
+Återansluter den här datorn till Azure
 
-### <a name="synopsis"></a>Sammanfattning
+### <a name="synopsis"></a>Synopsis
 
-Återanslut datorn med ogiltiga autentiseringsuppgifter till Azure.
+Återanslut dator med ogiltiga autentiseringsuppgifter till Azure.
 
-Om en dator redan har en resurs i Azure men inte kan autentisera till den, kan den återanslutas med det här kommandot. Detta är möjligt om en dator har varit inaktive rad tillräckligt lång för att certifikatet ska gå ut (minst 45 dagar).
+Om en dator redan har en resurs i Azure men inte kan autentisera till den, kan den återanslutas med det här kommandot. Detta är möjligt om en dator har stängts av tillräckligt länge för att certifikatet ska upphöra att gälla (minst 45 dagar).
 
-Om en dator har kopplats från med `azcmagent disconnect`använder du `azcmagent connect` i stället.
+Om en dator kopplades från med `azcmagent disconnect`använder du `azcmagent connect` i stället.
 
-Det här kommandot använder de autentiseringsalternativ som finns för att hämta nya autentiseringsuppgifter som motsvarar den Azure Resource Manager resursen som representerar den här datorn.
+Det här kommandot använder de autentiseringsalternativ som anges för att hämta nya autentiseringsuppgifter som motsvarar Azure Resource Manager-resursen som representerar den här datorn.
 
-Det här kommandot kräver högre privilegier än den **Azure Connected Machine onboarding** -rollen.
+Det här kommandot kräver högre behörighet än azure **connected machine onboarding-rollen.**
 
 Autentiseringsalternativ
 
-* Åtkomsttoken `azcmagent reconnect --access-token <>`
-* Tjänstens huvud namns-ID och hemlighet `azcmagent reconnect --service-principal-id <> --service-principal-secret <> --tenant-id <tenantid>`
-* Logga in på interaktiv enhet `azcmagent reconnect --tenant-id <>`
+* Åtkomsttoken`azcmagent reconnect --access-token <>`
+* Tjänstens huvud-ID och hemliga`azcmagent reconnect --service-principal-id <> --service-principal-secret <> --tenant-id <tenantid>`
+* Logga in interaktiv enhet`azcmagent reconnect --tenant-id <>`
 
 ### <a name="syntax"></a>Syntax
 
@@ -161,13 +161,13 @@ azcmagent reconnect [flags]
       --tenant-id string                  tenant id
 ```
 
-## <a name="azcmagent-show"></a>azcmagent Visa
+## <a name="azcmagent-show"></a>azcmagent visa
 
-Hämtar datorns metadata och agent status. Detta är främst användbart vid fel sökning.
+Hämtar datorns metadata och agentstatus. Detta är främst användbart för felsökning.
 
-### <a name="synopsis"></a>Sammanfattning
+### <a name="synopsis"></a>Synopsis
 
-Hämtar datorns metadata och agent status. Detta är främst användbart vid fel sökning.
+Hämtar datorns metadata och agentstatus. Detta är främst användbart för felsökning.
 
 
 ### <a name="syntax"></a>Syntax
@@ -182,13 +182,13 @@ azcmagent show [flags]
   -h, --help   help for show
 ```
 
-## <a name="azcmagent-version"></a>azcmagent-version
+## <a name="azcmagent-version"></a>azcmagent version
 
-Visa versionen för Hybrid Management Agent
+Visa hybridhanteringsagentversionen
 
-### <a name="synopsis"></a>Sammanfattning
+### <a name="synopsis"></a>Synopsis
 
-Visa versionen för Hybrid Management Agent
+Visa hybridhanteringsagentversionen
 
 ### <a name="syntax"></a>Syntax
 

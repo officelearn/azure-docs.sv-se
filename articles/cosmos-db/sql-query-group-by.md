@@ -1,25 +1,25 @@
 ---
-title: GROUP BY-sats i Azure Cosmos DB
-description: Lär dig mer om GROUP BY-satsen för Azure Cosmos DB.
+title: GROUP BY-satsen i Azure Cosmos DB
+description: Läs mer om GROUP BY-satsen för Azure Cosmos DB.
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/11/2019
 ms.author: tisande
 ms.openlocfilehash: e41e81457421bfe27e3c0313fc06e39e6df4cdce
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73819110"
 ---
-# <a name="group-by-clause-in-azure-cosmos-db"></a>GROUP BY-sats i Azure Cosmos DB
+# <a name="group-by-clause-in-azure-cosmos-db"></a>GROUP BY-satsen i Azure Cosmos DB
 
-GROUP BY-satsen delar in frågans resultat enligt värdena för en eller flera angivna egenskaper.
+SATSGRUPP BY delar upp frågans resultat enligt värdena för en eller flera angivna egenskaper.
 
 > [!NOTE]
-> Azure Cosmos DB stöder för närvarande GROUP BY i .NET SDK 3,3 och senare samt Java Script SDK 3,4 och senare.
-> Stöd för andra språk-SDK: er är inte tillgängligt för tillfället, men det är planerat.
+> Azure Cosmos DB stöder för närvarande GROUP BY i .NET SDK 3.3 och högre samt JavaScript SDK 3.4 och högre.
+> Stöd för andra språk SDK är för närvarande inte tillgängligt men planeras.
 
 ## <a name="syntax"></a>Syntax
 
@@ -35,29 +35,29 @@ GROUP BY-satsen delar in frågans resultat enligt värdena för en eller flera a
 
 - `<scalar_expression_list>`
 
-   Anger de uttryck som ska användas för att dividera frågeresultaten.
+   Anger de uttryck som ska användas för att dela upp frågeresultat.
 
 - `<scalar_expression>`
   
-   Ett skalärt uttryck tillåts förutom skalära under frågor och skalära mängder. Varje skalärt uttryck måste innehålla minst en egenskaps referens. Det finns ingen gräns för antalet enskilda uttryck eller kardinalitet för varje uttryck.
+   Alla skaläruttryck tillåts förutom scalar subqueries och skaläraggregat. Varje skaläruttryck måste innehålla minst en egenskapsreferens. Det finns ingen gräns för antalet enskilda uttryck eller kardinaliteten för varje uttryck.
 
-## <a name="remarks"></a>Kommentarer
+## <a name="remarks"></a>Anmärkningar
   
-  När en fråga använder en GROUP BY-sats kan SELECT-satsen bara innehålla del mängden av de egenskaper och system funktioner som ingår i GROUP BY-satsen. Ett undantag är [agg regerings system funktioner](sql-query-aggregates.md)som kan visas i SELECT-satsen utan att ingå i Group by-satsen. Du kan också alltid inkludera litterala värden i SELECT-satsen.
+  När en fråga använder en GROUP BY-sats kan SELECT-satsen bara innehålla delmängden av egenskaper och systemfunktioner som ingår i SATS FÖR GRUPP. Ett undantag är [aggregerade systemfunktioner](sql-query-aggregates.md), som kan visas i SELECT-satsen utan att ingå i GROUP BY-satsen. Du kan också alltid inkludera litterala värden i SELECT-satsen.
 
-  GROUP BY-satsen måste vara efter SELECT-, FROM-och WHERE-satsen och före OFFSET LIMIT-satsen. Du kan för närvarande inte använda GROUP BY med en ORDER BY-sats men detta är planerat.
+  Sats för grupp måste vara efter satsen SELECT, FROM och WHERE och före OFFSET LIMIT-satsen. Du kan för närvarande inte använda GROUP BY med en ORDER BY-sats, men detta är planerat.
 
-  GROUP BY-satsen tillåter inte något av följande:
+  GROUP BY-klausulen tillåter inte något av följande:
   
-- Egenskaper för alias eller alias för system funktioner (alias tillåts fortfarande i SELECT-satsen)
-- Under frågor
-- Sammanställda system funktioner (dessa är endast tillåtna i SELECT-satsen)
+- Aliasegenskaper eller aliassystemfunktioner (aliasing är fortfarande tillåtet inom SELECT-satsen)
+- Underfrågor
+- Aggregerade systemfunktioner (dessa är endast tillåtna i SELECT-satsen)
 
 ## <a name="examples"></a>Exempel
 
-I de här exemplen används närings data uppsättningen som är tillgänglig via [Azure Cosmos DB testplats för databasfrågor](https://www.documentdb.com/sql/demo).
+I de här exemplen används den näringsdatauppsättning som är tillgänglig via [Azure Cosmos DB Query Playground](https://www.documentdb.com/sql/demo).
 
-Här är ett exempel på en fråga som returnerar det totala antalet objekt i varje foodGroup:
+Här är till exempel en fråga som returnerar det totala antalet artiklar i varje foodGroup:
 
 ```sql
 SELECT TOP 4 COUNT(1) AS foodGroupCount, f.foodGroup
@@ -65,7 +65,7 @@ FROM Food f
 GROUP BY f.foodGroup
 ```
 
-Vissa resultat är (det översta nyckelordet används för att begränsa resultaten):
+Vissa resultat är (TOP sökord används för att begränsa resultaten):
 
 ```json
 [{
@@ -86,7 +86,7 @@ Vissa resultat är (det översta nyckelordet används för att begränsa resulta
 }]
 ```
 
-Den här frågan har två uttryck som används för att dividera resultat:
+Den här frågan har två uttryck som används för att dela upp resultat:
 
 ```sql
 SELECT TOP 4 COUNT(1) AS foodGroupCount, f.foodGroup, f.version
@@ -94,7 +94,7 @@ FROM Food f
 GROUP BY f.foodGroup, f.version
 ```
 
-Vissa resultat:
+Några resultat är:
 
 ```json
 [{
@@ -119,7 +119,7 @@ Vissa resultat:
 }]
 ```
 
-Den här frågan har en systemfunktion i GROUP BY-satsen:
+Den här frågan har en systemfunktion i SATS FÖR GROUP:
 
 ```sql
 SELECT TOP 4 COUNT(1) AS foodGroupCount, UPPER(f.foodGroup) AS upperFoodGroup
@@ -127,7 +127,7 @@ FROM Food f
 GROUP BY UPPER(f.foodGroup)
 ```
 
-Vissa resultat:
+Några resultat är:
 
 ```json
 [{
@@ -148,7 +148,7 @@ Vissa resultat:
 }]
 ```
 
-Den här frågan använder både nyckelord och system funktioner i uttryck för objekt egenskaper:
+Den här frågan använder både nyckelord och systemfunktioner i objektegenskapsuttrycket:
 
 ```sql
 SELECT COUNT(1) AS foodGroupCount, ARRAY_CONTAINS(f.tags, {name: 'orange'}) AS containsOrangeTag,  f.version BETWEEN 0 AND 2 AS correctVersion
@@ -156,7 +156,7 @@ FROM Food f
 GROUP BY ARRAY_CONTAINS(f.tags, {name: 'orange'}), f.version BETWEEN 0 AND 2
 ```
 
-Resultaten är:
+Resultatet är:
 
 ```json
 [{
@@ -175,4 +175,4 @@ Resultaten är:
 
 - [Komma igång](sql-query-getting-started.md)
 - [SELECT-sats](sql-query-select.md)
-- [Mängd funktioner](sql-query-aggregates.md)
+- [Mängdfunktioner](sql-query-aggregates.md)

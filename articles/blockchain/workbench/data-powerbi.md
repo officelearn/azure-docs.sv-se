@@ -5,23 +5,23 @@ ms.date: 05/09/2019
 ms.topic: article
 ms.reviewer: mmercuri
 ms.openlocfilehash: 6e1f160c3563a280548c74ebe84f30bf08945c3f
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74324797"
 ---
 # <a name="using-azure-blockchain-workbench-data-with-microsoft-power-bi"></a>Använda Azure Blockchain Workbench-data med Microsoft Power BI
 
-Med Microsoft Power BI kan du enkelt generera kraftfulla rapporter från SQL DB-databaser med hjälp av Power BI Desktop och sedan publicera dem till [https://www.powerbi.com](https://www.powerbi.com).
+Microsoft Power BI ger möjlighet att enkelt generera kraftfulla rapporter från SQL DB-databaser med Power BI Desktop och sedan publicera dem till [https://www.powerbi.com](https://www.powerbi.com).
 
 Den här artikeln beskriver steg för steg hur du ansluter till SQL-databasen i Azure Blockchain Workbench från PowerBI Desktop, skapar en rapport och sedan distribuerar rapporten till powerbi.com.
 
 ## <a name="prerequisites"></a>Krav
 
-* Ladda ned [Power BI Desktop](https://aka.ms/pbidesktopstore).
+* Ladda ned [Power BI-skrivbordet](https://aka.ms/pbidesktopstore).
 
-## <a name="connecting-power-bi-to-data-in-azure-blockchain-workbench"></a>Ansluta Power BI till data i Azure blockchain Workbench
+## <a name="connecting-power-bi-to-data-in-azure-blockchain-workbench"></a>Ansluta Power BI till data i Azure Blockchain Workbench
 
 1.  Öppna Power BI Desktop.
 2.  Välj **Hämta data**.
@@ -43,7 +43,7 @@ Den här artikeln beskriver steg för steg hur du ansluter till SQL-databasen i 
 
     ![Navigatör](./media/data-powerbi/navigator.png)
 
-7.  Välj de vyer som du vill ta med. I demonstrations syfte omfattar vi **vwContractAction**, som innehåller information om de åtgärder som har vidtagits i ett avtal.
+7.  Välj de vyer som du vill ta med. I demonstrationssyfte inkluderar vi **vwContractAction**, som ger information om de åtgärder som har ägt rum på ett kontrakt.
 
     ![Välja vyer](./media/data-powerbi/select-views.png)
 

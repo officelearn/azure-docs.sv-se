@@ -1,7 +1,7 @@
 ---
 title: Algoritmexempel
 titleSuffix: ML Studio (classic) - Azure
-description: Översiktligt lätt att förstå grunderna i machine learning innehåller algoritmexempel. Nedladdningsbar infografik omfattar de flesta frågor för maskininlärning.
+description: En lättförståelig översikt över grunderna för maskininlärning innehåller algoritmexempel. Den nedladdningsbara infographic täcker de flesta maskininlärningsfrågor.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
@@ -11,34 +11,34 @@ ms.author: keli19
 ms.custom: seodc18
 ms.date: 03/04/2019
 ms.openlocfilehash: 34316b13c93ca2739e87262dd09dcbaf38186b16
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79204485"
 ---
 # <a name="downloadable-infographic-machine-learning-basics-with-algorithm-examples"></a>Nedladdningsbar infografik: Machine Learning-grunder med algoritmexempel
 
 [!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
-Ladda ned den här lätt att förstå informationsgrafik över grunderna i machine learning att lära dig om populära algoritmer som används för att besvara vanliga frågor för machine learning. Algoritmexempel hjälpa machine learning-nybörjare förstå vilka algoritmer som ska användas och vad de används för.
+Ladda ned den här lättförståeliga infografiska översikten över grunderna för maskininlärning för att lära dig mer om populära algoritmer som används för att svara på vanliga frågor om maskininlärning. Algoritmexempel hjälper nybörjaren att förstå vilka algoritmer som ska användas och vad de används till.
 
 ## <a name="popular-algorithms-in-machine-learning-studio-classic"></a>Populära algoritmer i Machine Learning Studio (klassisk)
 
-[Azure Machine Learning Studio (klassisk)](https://studio.azureml.net/) levereras med ett stort bibliotek med algoritmer för förutsägelse analys. Den här informations grafiken identifierar fyra populära familjer av algoritmer – regression, avvikelse identifiering, klustring och klassificering – och innehåller länkar till arbets exempel i [Azure AI Gallery](https://gallery.azure.ai/). Galleriet innehåller exempelexperiment och självstudier som demonstrerar hur dessa algoritmer kan användas i många verkliga lösningar.
+[Azure Machine Learning Studio (klassisk)](https://studio.azureml.net/) levereras med ett stort bibliotek med algoritmer för prediktiv analys. Den här infografiken identifierar fyra populära algoritmerfamiljer – regression, avvikelseidentifiering, klustring och klassificering – och innehåller länkar till arbetsexempel i [Azure AI Gallery](https://gallery.azure.ai/). Galleriet innehåller exempelexperiment och självstudier som visar hur dessa algoritmer kan tillämpas i många verkliga lösningar.
 
-## <a name="download-the-infographic-with-algorithm-examples"></a>Ladda ned informationsgrafik med algoritmexempel
+## <a name="download-the-infographic-with-algorithm-examples"></a>Ladda ner infographic med algoritm exempel
 
-**[Hämta: informations grafiken av Machine Learning-grunderna med länkar till algoritm exempel (PDF)](https://download.microsoft.com/download/0/5/A/05AE6B94-E688-403E-90A5-6035DBE9EEC5/machine-learning-basics-infographic-with-algorithm-examples.pdf)**
+**[Ladda ner: Infographic av maskininlärning grunderna med länkar till algoritm exempel (PDF)](https://download.microsoft.com/download/0/5/A/05AE6B94-E688-403E-90A5-6035DBE9EEC5/machine-learning-basics-infographic-with-algorithm-examples.pdf)**
 
-![Infografik: Machine learning-grunder med algoritmexempel. Populära algoritmer. Maskininlärning för nybörjare.](./media/basics-infographic-with-algorithm-examples/machine-learning-basics-infographic-with-algorithm-examples.png)
+![Infographic: Grunderna för maskininlärning med algoritmexempel. Populära algoritmer. Maskininlärning för nybörjare.](./media/basics-infographic-with-algorithm-examples/machine-learning-basics-infographic-with-algorithm-examples.png)
 
 ## <a name="more-help-with-algorithms-for-beginners-and-advanced-users"></a>Mer hjälp med algoritmer för nybörjare och avancerade användare
 
-* En djupare diskussion av de olika typerna av Machine Learning-algoritmer, hur de används och hur du väljer rätt en för din lösning finns i [så här väljer du algoritmer för Microsoft Azure Machine Learning Studio (klassisk)](algorithm-choice.md).
-* En lista efter kategori för alla Machine Learning-algoritmer som är tillgängliga i Machine Learning Studio (klassisk) finns i [initiera modellen][initialize-model] i Machine Learning Studio (klassisk) algoritm och modul-hjälp.
-* En fullständig alfabetisk lista över algoritmer och moduler i Machine Learning Studio (klassisk) finns i [a-ö-listan över Machine Learning Studio (klassiska) moduler][a-z-list] i Machine Learning Studio (klassisk) algoritm och modul-hjälp.
-* En översikt över Azure AI Gallery och många community-genererade resurser finns där, se [dela och identifiera resurser i Azure AI Gallery](gallery-how-to-use-contribute-publish.md).
+* En djupare diskussion om olika typer av maskininlärningsalgoritmer, hur de används och hur du väljer den rätta för din lösning finns i Så här väljer du [algoritmer för Microsoft Azure Machine Learning Studio (klassiskt).](algorithm-choice.md)
+* En lista efter kategori av alla maskininlärningsalgoritmer som är tillgängliga i Machine Learning Studio (klassisk) finns i [Initiera modell][initialize-model] i Machine Learning Studio (klassisk) Algoritm och modulhjälp.
+* En komplett alfabetisk lista över algoritmer och moduler i Machine Learning Studio (klassisk) finns i [A-Ö-lista över Machine Learning Studio -moduler (klassiska)][a-z-list] moduler i Machine Learning Studio (klassisk) Algoritm och modulhjälp.
+* En översikt över Azure AI Gallery och de många community-genererade resurser som finns tillgängliga där finns [i Dela och identifiera resurser i Azure AI Gallery](gallery-how-to-use-contribute-publish.md).
 
 
 <!-- Module References -->

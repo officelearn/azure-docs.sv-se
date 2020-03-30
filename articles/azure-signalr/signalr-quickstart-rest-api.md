@@ -1,16 +1,16 @@
 ---
 title: Snabbstart – Azure SignalR Service REST API
-description: Lär dig hur du använder REST API med Azure SignalR service i följande exempel. Hitta information om REST API specifikation.
+description: Lär dig hur du använder REST API med Azure SignalR Service efter exempel. Hitta information om REST API-specifikationen.
 author: sffamily
 ms.service: signalr
 ms.topic: quickstart
 ms.date: 11/13/2019
 ms.author: zhshang
 ms.openlocfilehash: 17371e3bd426ea81b5e7e07610aac0073ea972c9
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/18/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "74157682"
 ---
 # <a name="quickstart-broadcast-real-time-messages-from-console-app"></a>Snabbstart: Sända realtidsmeddelanden från konsolapp
@@ -111,7 +111,7 @@ broadcast
 
 Du kan starta flera klienter med olika klientnamn.
 
-## <a name="usage"> </a> Integrering med tjänster från tredje part
+## <a name="integration-with-third-party-services"></a><a name="usage"> </a> Integrering med tjänster från tredje part
 
 Azure SignalR-tjänsten tillåter tredjepartstjänster att integrera med systemet.
 
@@ -178,7 +178,7 @@ Version | API HTTP-metoden | URL för begäran
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabb starten har du lärt dig hur du använder REST API för att sända real tids meddelanden från SignalR-tjänsten till klienter. Nu ska du läsa mer om hur du utvecklar och distribuerar Azure Functions med en signal tjänst bindning, som är byggd ovanpå REST API.
+I den här snabbstarten lärde du dig hur du använder REST API för att sända meddelanden i realtid från SignalR-tjänsten till klienter. Läs sedan mer om hur du utvecklar och distribuerar Azure-funktioner med SignalR-tjänstbindning, som bygger på REST API.
 
 > [!div class="nextstepaction"]
-> [Utveckla Azure Functions med hjälp av Azure SignalR service-bindningar](signalr-quickstart-azure-functions-csharp.md)
+> [Utveckla Azure-funktioner med Azure SignalR-tjänstbindningar](signalr-quickstart-azure-functions-csharp.md)

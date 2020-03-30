@@ -10,10 +10,10 @@ ms.service: iot-accelerators
 services: iot-accelerators
 manager: timlt
 ms.openlocfilehash: 1a27d748e16f892a748cf18569c13ca3f9ead1dd
-ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/26/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "71309518"
 ---
 # <a name="what-are-azure-iot-solution-accelerators"></a>Vad är Azure IoT-lösningsacceleratorer?
@@ -38,7 +38,7 @@ Använd [acceleratorn för fjärrövervakningslösning](iot-accelerators-remote-
 
 Du kan använda instrumentpanelen för fjärrövervakning för att visa telemetri från dina anslutna enheter, etablera nya enheter eller uppgradera den inbyggda programvaran på de anslutna enheterna:
 
-[![Visa instrumentpanelen för fjärrövervakningslösningen](./media/about-iot-accelerators/rm-dashboard-inline.png)](./media/about-iot-accelerators/rm-dashboard-expanded.png#lightbox)
+[![Instrumentpanel för fjärrövervakningslösning](./media/about-iot-accelerators/rm-dashboard-inline.png)](./media/about-iot-accelerators/rm-dashboard-expanded.png#lightbox)
 
 ### <a name="connected-factory"></a>Ansluten fabrik
 
@@ -46,15 +46,15 @@ Använd den [Fabriksanslutna lösningsacceleratorn](iot-accelerators-connected-f
 
 Du kan använda instrumentpanelen för ansluten fabrik för att övervaka och hantera dina industrienheter:
 
-[![Instrumentpanelen för lösningen för ansluten fabrik](./media/about-iot-accelerators/cf-dashboard-inline.png)](./media/about-iot-accelerators/cf-dashboard-expanded.png#lightbox)
+[![Instrumentpanel för ansluten fabrikslösning](./media/about-iot-accelerators/cf-dashboard-inline.png)](./media/about-iot-accelerators/cf-dashboard-expanded.png#lightbox)
 
-### <a name="predictive-maintenance"></a>Förebyggande underhåll
+### <a name="predictive-maintenance"></a>Förutsägande underhåll
 
 Använd [Lösningsacceleratorn för förutsägande underhåll](iot-accelerators-predictive-walkthrough.md) för att förutsäga när en det förväntas bli fel på enheten så att du kan utföra underhåll innan enheten kraschar. Den här lösningsacceleratorn använder maskininlärningsalgoritmer för att förutse fel utifrån enhetstelemetri. Exempel på enheter kan vara flygplansmotorer eller hissar.
 
 Du kan använda instrumentpanelen för förutsägande underhåll för att visa analyser för förutsägande underhåll:
 
-[![Instrumentpanelen för lösningen för ansluten fabrik](./media/about-iot-accelerators/pm-dashboard-inline.png)](./media/about-iot-accelerators/pm-dashboard-expanded.png#lightbox)
+[![Instrumentpanel för ansluten fabrikslösning](./media/about-iot-accelerators/pm-dashboard-inline.png)](./media/about-iot-accelerators/pm-dashboard-expanded.png#lightbox)
 
 ### <a name="device-simulation"></a>Enhetssimulering
 
@@ -62,7 +62,7 @@ Använd [Lösningsacceleratorn för enhetssimulering](iot-accelerators-device-si
 
 Du kan använda webbappen för enhetssimulering för att konfigurera och köra simuleringar:
 
-[![Instrumentpanelen för lösningen för ansluten fabrik](./media/about-iot-accelerators/ds-dashboard-inline.png)](./media/about-iot-accelerators/ds-dashboard-expanded.png#lightbox)
+[![Instrumentpanel för ansluten fabrikslösning](./media/about-iot-accelerators/ds-dashboard-inline.png)](./media/about-iot-accelerators/ds-dashboard-expanded.png#lightbox)
 
 ## <a name="design-principles"></a>Designprinciper
 
@@ -81,9 +81,9 @@ De ursprungliga lösningsacceleratorerna skrevs med .NET med hjälp av en MVC-ar
 | Lösningsaccelerator   | Arkitektur  | Språk     |
 | ---------------------- | ------------- | ------------- |
 | Fjärrövervakning      | Mikrotjänster | [Java](https://github.com/Azure/azure-iot-pcs-remote-monitoring-java) och [.NET](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet) |
-| Förebyggande underhåll | MVC           | [NET](https://github.com/Azure/azure-iot-predictive-maintenance)          |
-| Ansluten fabrik      | MVC           | [NET](https://github.com/Azure/azure-iot-connected-factory)          |
-| Enhetssimulering      | Mikrotjänster | [NET](https://github.com/Azure/device-simulation-dotnet)          |
+| Förutsägande underhåll | MVC           | [.NET](https://github.com/Azure/azure-iot-predictive-maintenance)          |
+| Ansluten fabrik      | MVC           | [.NET](https://github.com/Azure/azure-iot-connected-factory)          |
+| Enhetssimulering      | Mikrotjänster | [.NET](https://github.com/Azure/device-simulation-dotnet)          |
 
 Läs mer om arkitektur för mikrotjänster i [Introduktion till Azure IoT-referensarkitektur](https://docs.microsoft.com/azure/architecture/reference-architectures/iot/).
 
@@ -94,7 +94,7 @@ Du kan distribuera lösningsacceleratorerna från webbplatsen för [Microsoft Az
 Du kan distribuera acceleratorn för fjärrövervakningslösningen i följande konfigurationer:
 
 * **Standard:** Expanderad distribution av infrastruktur för att utveckla en produktionsdistribution. Azure Container Service distribuerar mikrotjänsterna till flera virtuella Azure-datorer. Kubernetes orkestrerar Docker-containrar som värdar för enskilda mikrotjänster.
-* **Grundläggande:** Version till reducerad kostnad för en demonstration eller för att testa en distribution. Alla mikrotjänster distribueras till en enda virtuell Azure-dator.
+* **Basic:** Version till reducerad kostnad för en demonstration eller för att testa en distribution. Alla mikrotjänster distribueras till en enda virtuell Azure-dator.
 * **Lokal:** Distribution på lokala datorer för testning och utveckling. Den här metoden distribuerar mikrotjänsterna till en lokal Docker-container och ansluter till IoT Hub-, Azure Cosmos DB- och Azure Storage-tjänster i molnet.
 
 Kostnaden för att köra en lösningsaccelerator är den sammanlagda [kostnaden för att köra de underliggande Azure-tjänsterna](https://azure.microsoft.com/pricing). Du ser information om Azure-tjänster som används när du väljer dina distributionsalternativ.

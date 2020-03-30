@@ -1,41 +1,41 @@
 ---
 title: Montera en Azure HPC-cache
-description: Ansluta klienter till en Azure HPC cache-tjänst
+description: Ansluta klienter till en Azure HPC-cachetjänst
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
 ms.date: 10/30/2019
 ms.author: rohogue
 ms.openlocfilehash: d906ed9a1a55e936c6374806a9037085c47e3b01
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73582221"
 ---
 # <a name="mount-the-azure-hpc-cache"></a>Montera Azure HPC-cachen
 
-När cachen har skapats kan NFS-klienter komma åt den med ett enkelt monterings kommando.
+NFS-klienter kan komma åt den med ett enkelt monteringskommando när cacheminnet har skapats.
 
-Monterings kommandot består av två element:
+Monteringskommandot består av två element:
 
-* Ett av cachens monterings adresser (visas på sidan cache-översikt)
-* Den virtuella namn områdes Sök vägen som du angav när du skapade lagrings målet
+* En av cachens monteringsadresser (listad på cacheöversiktssidan)
+* Den virtuella namnområdessökvägen som du angav när du skapade lagringsmålet
 
-![skärm bild av översikts sidan för Azure HPC-instansen med en markerings ruta runt monterings adress listan längst ned till höger](media/hpc-cache-mount-addresses.png)
+![skärmbild av översiktssidan för Azure HPC-cacheinstansen, med en markeringsruta runt listan montera adresser längst ned till höger](media/hpc-cache-mount-addresses.png)
 
 > [!NOTE] 
-> Cachens cache-adresser motsvarar nätverks gränssnitten i cachens undernät. I en resurs grupp visas dessa nätverkskort med namn som slutar på `-cluster-nic-` och ett tal. Ändra inte eller ta bort dessa gränssnitt, annars blir cachen otillgänglig.
+> Cachefästeadresserna motsvarar nätverksgränssnitt i cachens undernät. I en resursgrupp visas dessa nätverkskort med `-cluster-nic-` namn som slutar och ett tal. Ändra eller ta inte bort dessa gränssnitt, för eftersom cachen blir otillgänglig.
 
-De virtuella namn Rymdernas sökvägar visas på sidan **lagrings mål** . Klicka på ett enskilt lagrings mål namn om du vill se information om den, inklusive sammansatta namn rymds sökvägar.
+Sökvägarna för det virtuella namnområdet visas på sidan **Lagringsmål.** Klicka på ett enskilt målnamn för lagring om du vill visa dess information, inklusive aggregerade namnområdessökvägar som är associerade med det.
 
-![skärm bild av cachens lagrings mål panel med en markerings ruta runt en post i kolumnen sökväg i tabellen](media/hpc-cache-view-namespace-paths.png)
+![skärmbild av cachens målpanel För lagring, med en markeringsruta runt en post i kolumnen Sökväg i tabellen](media/hpc-cache-view-namespace-paths.png)
 
-## <a name="mount-command-syntax"></a>Montera kommandosyntax
+## <a name="mount-command-syntax"></a>Kommandosyntax för fästen
 
-Använd ett monterings kommando som följande:
+Använd ett monteringskommando som följande:
 
-> sudo Mount *cache_mount_address*:/*namespace_path* *local_path* {*Options*}
+> sudo montera *cache_mount_address*:/*namespace_path* *local_path* {*alternativ*}
 
 Exempel:
 
@@ -45,24 +45,24 @@ root@test-client:/tmp# sudo mount 10.0.0.28:/blob-demo-0722 ./hpccache/ -orw,tcp
 root@test-client:/tmp# 
 ```
 
-När det här kommandot har slutförts ska innehållet i lagrings exporten visas i ``hpccache``-katalogen på klienten.
+När det här kommandot lyckas ska innehållet i lagringsexporten vara synligt i katalogen ``hpccache`` på klienten.
 
 > [!NOTE] 
-> Klienterna måste kunna få åtkomst till det virtuella nätverket och under nätet som är hus din cache. Du kan till exempel skapa virtuella klient datorer i samma virtuella nätverk eller använda en slut punkt, gateway eller annan lösning i det virtuella nätverket för åtkomst från utanför. Kom ihåg att det inte finns något annat som kan finnas i cachens undernät.
+> Dina klienter måste kunna komma åt det virtuella nätverk och det undernät som finns i cacheminnet. Skapa till exempel virtuella klientdator i samma virtuella nätverk eller använd en slutpunkt, gateway eller annan lösning i det virtuella nätverket för åtkomst utifrån. Kom ihåg att inget annat kan finnas i cachens undernät.
 
-### <a name="mount-command-options"></a>Monterings kommando alternativ
+### <a name="mount-command-options"></a>Kommandoalternativ för Montera
 
-För en robust klient montering ska du överföra dessa inställningar och argument i monterings kommandot: 
+För ett robust klientfäste skickar du dessa inställningar och argument i monteringskommandot: 
 
 ``mount -o hard,proto=tcp,mountproto=tcp,retry=30 ${CACHE_IP_ADDRESS}:/${NAMESPACE_PATH} ${LOCAL_FILESYSTEM_MOUNT_POINT}``
 
-| Rekommenderade monterings kommando inställningar | |
+| Rekommenderade inställningar för monteringskommando | |
 --- | --- 
-``hard`` | Mjuka monteringar till Azure HPC cache är kopplade till program haverier och eventuell data förlust. 
-``proto=netid`` | Det här alternativet stöder lämplig hantering av NFS-nätverks fel.
-``mountproto=netid`` | Det här alternativet stöder lämplig hantering av nätverks fel för monterings åtgärder.
-``retry=n`` | Ange ``retry=30`` för att undvika tillfälliga monterings problem. (Ett annat värde rekommenderas i förgrunds monteringar.)
+``hard`` | Mjuka fästen till Azure HPC-cache är associerade med programfel och eventuell dataförlust. 
+``proto=netid`` | Det här alternativet stöder lämplig hantering av NFS-nätverksfel.
+``mountproto=netid`` | Det här alternativet stöder lämplig hantering av nätverksfel för monteringsåtgärder.
+``retry=n`` | Ställ ``retry=30`` in för att undvika tillfälliga monteringsfel. (Ett annat värde rekommenderas i förgrundsfästen.)
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Om du vill flytta data till cachens lagrings mål läser du [fylla i ny Azure Blob Storage](hpc-cache-ingest.md).
+* Om du vill flytta data till cachens lagringsmål läser [du Fyll i ny Azure Blob-lagring](hpc-cache-ingest.md).

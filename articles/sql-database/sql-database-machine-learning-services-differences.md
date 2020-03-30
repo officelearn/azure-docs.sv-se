@@ -1,5 +1,5 @@
 ---
-title: Viktiga skillnader för Machine Learning Services (förhands granskning)
+title: Viktiga skillnader för Machine Learning Services (förhandsgranskning)
 description: I det här avsnittet beskrivs viktiga skillnader mellan Azure SQL Database Machine Learning Services (med R) och SQL Server Machine Learning Services.
 services: sql-database
 ms.service: sql-database
@@ -13,55 +13,55 @@ ms.reviewer: carlrab
 manager: cgronlun
 ms.date: 11/20/2019
 ms.openlocfilehash: 533e2b9e50a92cce1419da521d8cebc4955e4df6
-ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74462108"
 ---
-# <a name="key-differences-between-machine-learning-services-in-azure-sql-database-preview-and-sql-server"></a>Viktiga skillnader mellan Machine Learning Services i Azure SQL Database (för hands version) och SQL Server
+# <a name="key-differences-between-machine-learning-services-in-azure-sql-database-preview-and-sql-server"></a>Viktiga skillnader mellan Machine Learning Services i Azure SQL Database (förhandsversion) och SQL Server
 
-Funktionerna i Azure SQL Database Machine Learning Services (med R) i (för hands version) liknar [SQL Server Machine Learning Services](https://docs.microsoft.com/sql/advanced-analytics/what-is-sql-server-machine-learning). Nedan visas några viktiga skillnader.
+Funktionerna i Azure SQL Database Machine Learning Services (med R) i (förhandsversion) liknar [SQL Server Machine Learning Services](https://docs.microsoft.com/sql/advanced-analytics/what-is-sql-server-machine-learning). Nedan följer några viktiga skillnader.
 
 [!INCLUDE[ml-preview-note](../../includes/sql-database-ml-preview-note.md)]
 
 ## <a name="language-support"></a>Stöd för språk
 
-SQL Server har stöd för R och python genom [utöknings ramverket](https://docs.microsoft.com/sql/advanced-analytics/concepts/extensibility-framework). SQL Database stöder inte båda språken. De viktigaste skillnaderna är:
+SQL Server har stöd för R och Python via [utökningsbarhetsramverket](https://docs.microsoft.com/sql/advanced-analytics/concepts/extensibility-framework). SQL Database stöder inte båda språken. De viktigaste skillnaderna är:
 
 - R är det enda språk som stöds i SQL Database. Det finns inget stöd för Python just nu.
 - R-versionen är 3.4.4.
-- Du behöver inte konfigurera `external scripts enabled` via `sp_configure`. När du har [registrerat](sql-database-machine-learning-services-overview.md#signup)dig aktive ras Machine Learning för din SQL-databas.
+- Det finns ingen `external scripts enabled` anledning `sp_configure`att konfigurera via . När du har [registrerat dig](sql-database-machine-learning-services-overview.md#signup)aktiveras maskininlärning för DIN SQL-databas.
 
 ## <a name="package-management"></a>Pakethantering
 
-Hantering av R-paket och installations arbete skiljer sig mellan SQL Database och SQL Server. Dessa skillnader är:
+R pakethantering och installation fungerar olika mellan SQL Database och SQL Server. Dessa skillnader är:
 
-- R-paket installeras via [sqlmlutils](https://github.com/Microsoft/sqlmlutils) eller [skapa externa bibliotek](https://docs.microsoft.com/sql/t-sql/statements/create-external-library-transact-sql).
-- Paket kan inte utföra utgående nätverks anrop. Den här begränsningen liknar [standard brand Väggs reglerna för Machine Learning Services](https://docs.microsoft.com//sql/advanced-analytics/security/firewall-configuration) i SQL Server, men kan inte ändras i SQL Database.
-- Det finns inget stöd för paket som är beroende av externa körningar (t. ex. Java) eller som behöver åtkomst till OS-API: er för installation eller användning.
+- R-paket installeras via [sqlmlutils](https://github.com/Microsoft/sqlmlutils) eller [SKAPA EXTERNT BIBLIOTEK](https://docs.microsoft.com/sql/t-sql/statements/create-external-library-transact-sql).
+- Paket kan inte utföra utgående nätverksanrop. Den här begränsningen liknar [standardbrandväggsreglerna för Machine Learning Services](https://docs.microsoft.com//sql/advanced-analytics/security/firewall-configuration) i SQL Server, men kan inte ändras i SQL Database.
+- Det finns inget stöd för paket som är beroende av externa körningar (som Java) eller behöver åtkomst till API:er för operativsystemet för installation eller användning.
 
-## <a name="writing-to-a-temporary-table"></a>Skriver till en temporär tabell
+## <a name="writing-to-a-temporary-table"></a>Skriva till en tillfällig tabell
 
-Om du använder RODBC i Azure SQL Database kan du inte skriva till en temporär tabell, oavsett om den har skapats i eller utanför `sp_execute_external_script`-sessionen. Lösningen är att använda [RxOdbcData](https://docs.microsoft.com/machine-learning-server/r-reference/revoscaler/rxodbcdata) och [rxDataStep](https://docs.microsoft.com/machine-learning-server/r-reference/revoscaler/rxdatastep) (med överskrivning = falskt och append = "rader") för att skriva till en global temporär tabell som skapats före den `sp_execute_external_script` frågan.
+Om du använder RODBC i Azure SQL Database kan du inte skriva till en tillfällig tabell, `sp_execute_external_script` oavsett om den skapas inom eller utanför sessionen. Lösningen är att använda [RxOdbcData](https://docs.microsoft.com/machine-learning-server/r-reference/revoscaler/rxodbcdata) och [rxDataStep](https://docs.microsoft.com/machine-learning-server/r-reference/revoscaler/rxdatastep) (med overwrite=FALSE och append="rader") för att `sp_execute_external_script` skriva till en global temporär tabell som skapats före frågan.
 
 ## <a name="resource-governance"></a>Resursstyrning
 
-Det går inte att begränsa R-resurser via [Resource Governor](https://docs.microsoft.com/sql/relational-databases/resource-governor/resource-governor) och externa resurspooler.
+Det går inte att begränsa [R-resurser](https://docs.microsoft.com/sql/relational-databases/resource-governor/resource-governor) via resurschef och externa resurspooler.
 
-Under den offentliga för hands versionen har R-resurser högst 20% av SQL Database resurser och är beroende av vilken tjänst nivå du väljer. Mer information finns i [Azure SQL Database inköps modeller](https://docs.microsoft.com/azure/sql-database/sql-database-service-tiers).
-### <a name="insufficient-memory-error"></a>Otillräckligt minnes fel
+Under den offentliga förhandsversionen anges R-resurser till högst 20 % av SQL Database-resurserna och beror på vilken tjänstnivå du väljer. Mer information finns i [Azure SQL Database inköpsmodeller](https://docs.microsoft.com/azure/sql-database/sql-database-service-tiers).
+### <a name="insufficient-memory-error"></a>Otillräckligt minnesfel
 
-Om det inte finns tillräckligt med minne tillgängligt för R får du ett fel meddelande. Vanliga fel meddelanden är:
+Om det inte finns tillräckligt med ledigt minne för R får du ett felmeddelande. Vanliga felmeddelanden är:
 
-- Det gick inte att kommunicera med körningen för R-skriptet för begärande-ID: * * * * * * *. Kontrol lera kraven för "R"-körningen
-- Ett R-skript fel inträffade vid körning av sp_execute_external_script med HRESULT-0x80004004. ... ett externt skript fel har inträffat: ".. Det gick inte att allokera minne (0 MB) i C-funktionen R_AllocStringBuffer
-- Ett externt skript fel har inträffat: fel: det går inte att allokera storleks vektor.
+- Det går inte att kommunicera med körningen för R-skriptet för begärande-ID: *******. Kontrollera kraven för "R" runtime
+- Skriptfelet för R inträffade under körningen av "sp_execute_external_script" med HRESULT 0x80004004. ... ett externt skriptfel uppstod: ".. kunde inte allokera minne (0 Mb) i C-funktionen "R_AllocStringBuffer""
+- Ett externt skriptfel uppstod: Fel: det går inte att allokera vektor av storlek.
 
-Minnes användningen beror på hur mycket som används i R-skripten och antalet parallella frågor som körs. Om du får felen ovan kan du skala databasen till en högre tjänst nivå för att lösa detta.
+Minnesanvändningen beror på hur mycket som används i R-skripten och antalet parallella frågor som körs. Om du får felen ovan kan du skala databasen till en högre tjänstnivå för att lösa detta.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Se översikten [Azure SQL Database Machine Learning Services med R (för hands version)](sql-database-machine-learning-services-overview.md).
-- Information om hur du använder R för att fråga Azure SQL Database Machine Learning Services (förhands granskning) finns i [snabb starts guiden](sql-database-connect-query-r.md).
-- För att komma igång med vissa enkla R-skript, se [skapa och köra enkla r-skript i Azure SQL Database Machine Learning Services (för hands version)](sql-database-quickstart-r-create-script.md).
+- Se översikten [Azure SQL Database Machine Learning Services med R (förhandsversion)](sql-database-machine-learning-services-overview.md).
+- Mer information om hur du använder R för att fråga Azure SQL Database Machine Learning Services (förhandsversion) finns i [snabbstartsguiden](sql-database-connect-query-r.md).
+- Information om hur du kommer igång med några enkla R-skript finns i [Skapa och köra enkla R-skript i Azure SQL Database Machine Learning Services (förhandsversion).](sql-database-quickstart-r-create-script.md)

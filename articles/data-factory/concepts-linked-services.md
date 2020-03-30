@@ -1,6 +1,6 @@
 ---
-title: Länkade tjänster i Azure Data Factory
-description: Lär dig mer om länkade tjänster i Data Factory. Länkade tjänster länkar beräknings-/data lager till Data Factory.
+title: Det finns inte några länkade tjänster i Azure Data Factory
+description: Läs mer om länkade tjänster i Data Factory. Länkade tjänster länkar beräknings-/datalager till datafabriken.
 services: data-factory
 documentationcenter: ''
 author: djpmsft
@@ -12,36 +12,36 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.openlocfilehash: 90e51e8b56bd3fb63d56c630d47770e97f439796
-ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/31/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75563554"
 ---
-# <a name="linked-services-in-azure-data-factory"></a>Länkade tjänster i Azure Data Factory
+# <a name="linked-services-in-azure-data-factory"></a>Det finns inte några länkade tjänster i Azure Data Factory
 > [!div class="op_single_selector" title1="Välj den version av Data Factory-tjänsten som du använder:"]
 > * [Version 1](v1/data-factory-create-datasets.md)
 > * [Aktuell version](concepts-linked-services.md)
 
-I den här artikeln beskrivs vilka länkade tjänster som är, hur de definieras i JSON-format och hur de används i Azure Data Factory pipelines.
+I den här artikeln beskrivs vilka länkade tjänster som är, hur de definieras i JSON-format och hur de används i Azure Data Factory-pipelines.
 
-Om du är nybörjare på Data Factory, se [Introduktion till Azure Data Factory](introduction.md) för en översikt.
+Om du inte har något nytt för Data Factory läser [du Introduktion till Azure Data Factory](introduction.md) för en översikt.
 
 ## <a name="overview"></a>Översikt
-En datafabrik kan ha en eller flera pipelines. En **pipeline** är en logisk gruppering av **aktiviteter** som tillsammans utför en aktivitet. Aktiviteterna i en pipeline definierar åtgärder som ska utföras för dina data. Du kan till exempel använda en kopierings aktivitet för att kopiera data från en lokal SQL Server till Azure Blob Storage. Sedan kan du använda en Hive-aktivitet som kör ett Hive-skript på ett Azure HDInsight-kluster för att bearbeta data från Blob Storage för att skapa utdata. Slutligen kan du använda en andra kopierings aktivitet för att kopiera utdata till Azure SQL Data Warehouse, utöver vilka Business Intelligence (BI) rapporterings lösningar har skapats. Mer information om pipelines och aktiviteter finns i [pipeline och aktiviteter](concepts-pipelines-activities.md) i Azure Data Factory.
+En datafabrik kan ha en eller flera pipelines. En **pipeline** är en logisk gruppering av **aktiviteter** som tillsammans utför en uppgift. Aktiviteterna i en pipeline definierar åtgärder som ska utföras för dina data. Du kan till exempel använda en kopieringsaktivitet för att kopiera data från en lokal SQL Server till Azure Blob-lagring. Sedan kan du använda en Hive-aktivitet som kör ett Hive-skript på ett Azure HDInsight-kluster för att bearbeta data från Blob-lagring för att producera utdata. Slutligen kan du använda en andra kopieringsaktivitet för att kopiera utdata till Azure SQL Data Warehouse, ovanpå vilka business intelligence -rapporteringslösningar (BI) skapas. Mer information om pipelines och aktiviteter finns i [Pipelines och aktiviteter](concepts-pipelines-activities.md) i Azure Data Factory.
 
-Nu är en **data uppsättning** en namngiven vy av data som bara pekar eller refererar till de data som du vill använda i dina **aktiviteter** som indata och utdata.
+Nu är en **datauppsättning** en namngiven vy av data som helt enkelt pekar eller refererar till de data som du vill använda i dina **aktiviteter** som indata och utdata.
 
-Innan du skapar en data uppsättning måste du skapa en **länkad tjänst** för att länka ditt data lager till data fabriken. Länkade tjänster liknar anslutningssträngar som definierar den anslutningsinformation som behövs för att Data Factory ska kunna ansluta till externa resurser. Tänk på det på det här sättet. data uppsättningen representerar strukturen för data i de länkade data lagringarna och den länkade tjänsten definierar anslutningen till data källan. Till exempel länkar en Azure Storage länkad tjänst ett lagrings konto till data fabriken. En Azure Blob-datauppsättning representerar BLOB-behållaren och mappen i det Azure Storage-konto som innehåller de blobar för indata som ska bearbetas.
+Innan du skapar en datauppsättning måste du skapa en **länkad tjänst** för att länka datalagret till datafabriken. Länkade tjänster liknar anslutningssträngar som definierar den anslutningsinformation som behövs för att Data Factory ska kunna ansluta till externa resurser. Tänk på det så här; Datauppsättningen representerar datastrukturen i de länkade datalagret och den länkade tjänsten definierar anslutningen till datakällan. En Azure Storage-länkad tjänst länkar till exempel ett lagringskonto till datafabriken. En Azure Blob-datauppsättning representerar blob-behållaren och mappen i det Azure-lagringskontot som innehåller de indatablobar som ska bearbetas.
 
-Här är ett exempel scenario. Om du vill kopiera data från Blob Storage till en SQL-databas skapar du två länkade tjänster: Azure Storage och Azure SQL Database. Skapa sedan två data uppsättningar: Azure Blob-datauppsättningen (som refererar till den Azure Storage länkade tjänsten) och data uppsättningen för Azure SQL-tabellen (som refererar till den Azure SQL Database länkade tjänsten). De länkade tjänsterna Azure Storage och Azure SQL Database innehåller anslutnings strängar som Data Factory använder vid körning för att ansluta till dina Azure Storage respektive Azure SQL Database. Azure Blob-datauppsättningen anger BLOB-behållaren och blob-mappen som innehåller blobar för indata i blob-lagringen. Data uppsättningen för Azure SQL-tabellen anger den SQL-tabell i SQL-databasen som data ska kopieras till.
+Här är ett exempelscenario. Om du vill kopiera data från Blob-lagring till en SQL-databas skapar du två länkade tjänster: Azure Storage och Azure SQL Database. Skapa sedan två datauppsättningar: Azure Blob-datauppsättning (som refererar till azure storage-länkade tjänsten) och Azure SQL Table-datauppsättningen (som refererar till azure SQL Database-länkade tjänsten). Azure Storage- och Azure SQL Database-länkade tjänster innehåller anslutningssträngar som Data Factory använder vid körning för att ansluta till din Azure Storage respektive Azure SQL Database. Azure Blob-datauppsättningen anger blob-behållaren och blob-mappen som innehåller indatablobar i blob-lagringen. Datauppsättningen för Azure SQL Table anger SQL-tabellen i SQL-databasen som data ska kopieras till.
 
-Följande diagram visar relationerna mellan pipeline, aktivitet, data uppsättning och länkad tjänst i Data Factory:
+I följande diagram visas relationerna mellan pipeline, aktivitet, datauppsättning och länkad tjänst i Data Factory:
 
-![Relation mellan pipeline, aktivitet, data uppsättning, länkade tjänster](media/concepts-datasets-linked-services/relationship-between-data-factory-entities.png)
+![Förhållandet mellan pipeline, aktivitet, datauppsättning, länkade tjänster](media/concepts-datasets-linked-services/relationship-between-data-factory-entities.png)
 
-## <a name="linked-service-json"></a>Länkad tjänst-JSON
-En länkad tjänst i Data Factory definieras i JSON-format enligt följande:
+## <a name="linked-service-json"></a>Länkad tjänst JSON
+En länkad tjänst i Data Factory definieras i JSON-format på följande sätt:
 
 ```json
 {
@@ -59,17 +59,17 @@ En länkad tjänst i Data Factory definieras i JSON-format enligt följande:
 }
 ```
 
-I följande tabell beskrivs egenskaperna i ovanstående JSON:
+I följande tabell beskrivs egenskaper i ovanstående JSON:
 
 Egenskap | Beskrivning | Krävs |
 -------- | ----------- | -------- |
-namn | Namnet på den länkade tjänsten. Se [Azure Data Factory namngivnings regler](naming-rules.md). |  Ja |
-typ | Typ av länkad tjänst. Till exempel: AzureStorage (data Store) eller AzureBatch (Compute). Se beskrivningen av typeProperties. | Ja |
-typeProperties | Typ egenskaperna är olika för varje data lager eller beräkning. <br/><br/> För de data lager typer som stöds och deras typ egenskaper, se tabellen [data uppsättnings typ](concepts-datasets-linked-services.md#dataset-type) i den här artikeln. Gå till artikeln data Store Connector om du vill veta mer om typ egenskaper som är speciella för ett data lager. <br/><br/> För beräknings typer som stöds och deras typ egenskaper, se [Compute-länkade tjänster](compute-linked-services.md). | Ja |
-connectVia | Den [Integration Runtime](concepts-integration-runtime.md) som används för att ansluta till datalagret. Du kan använda Azure Integration Runtime eller egen värd Integration Runtime (om ditt data lager finns i ett privat nätverk). Om den inte anges används standard Azure Integration Runtime. | Inga
+namn | Namnet på den länkade tjänsten. Se [Azure Data Factory - Namngivningsregler](naming-rules.md). |  Ja |
+typ | Typ av den länkade tjänsten. Till exempel: AzureStorage (datalager) eller AzureBatch (beräkning). Se beskrivningen för typeProperties. | Ja |
+typeProperties | Typegenskaperna är olika för varje datalager eller beräkning. <br/><br/> Information om vilka typer som stöds och deras typegenskaper finns i [datauppsättningstyptabellen](concepts-datasets-linked-services.md#dataset-type) i den här artikeln. Navigera till artikeln för anslutningsappen för datalager och lär dig mer om typegenskaper som är specifika för ett datalager. <br/><br/> För beräkningstyperna som stöds och deras typegenskaper finns i [Beräkna länkade tjänster](compute-linked-services.md). | Ja |
+connectVia (på) | [Den integrationskörning som](concepts-integration-runtime.md) ska användas för att ansluta till datalagret. Du kan använda Azure Integration Runtime eller Self-hosted Integration Runtime (om ditt datalager finns i ett privat nätverk). Om det inte anges används standardkörningen för Azure Integration. | Inga
 
 ## <a name="linked-service-example"></a>Exempel på länkad tjänst
-Följande länkade tjänst är en Azure Storage länkad tjänst. Observera att typen har angetts till AzureStorage. Typ egenskaperna för den Azure Storage länkade tjänsten innehåller en anslutnings sträng. Den Data Factory tjänsten använder den här anslutnings strängen för att ansluta till data lagret vid körning.
+Följande länkade tjänst är en Azure Storage-länkad tjänst. Observera att typen är inställd på AzureStorage. Typegenskaperna för azure storage-länkade tjänsten inkluderar en anslutningssträng. Tjänsten Data Factory använder den här anslutningssträngen för att ansluta till datalagret vid körning.
 
 ```json
 {
@@ -89,18 +89,18 @@ Följande länkade tjänst är en Azure Storage länkad tjänst. Observera att t
 
 ## <a name="create-linked-services"></a>Skapa länkade tjänster
 
-Du kan skapa länkade tjänster med något av dessa verktyg eller SDK: [er: .NET API](quickstart-create-data-factory-dot-net.md), [PowerShell](quickstart-create-data-factory-powershell.md), [REST API](quickstart-create-data-factory-rest-api.md), Azure Resource Manager mall och Azure Portal
+Du kan skapa länkade tjänster med hjälp av något av dessa verktyg eller SDK:er: [.NET API](quickstart-create-data-factory-dot-net.md), [PowerShell](quickstart-create-data-factory-powershell.md), [REST API](quickstart-create-data-factory-rest-api.md), Azure Resource Manager Template och Azure portal
 
-## <a name="data-store-linked-services"></a>Länkade tjänster för data lager
-Du hittar listan över data lager som stöds av Data Factory från [anslutnings översikt](copy-activity-overview.md#supported-data-stores-and-formats) artikeln. Klicka på ett data lager om du vill veta vilka anslutnings egenskaper som stöds.
+## <a name="data-store-linked-services"></a>Datalagrets länkade tjänster
+Du hittar listan över datalager som stöds av Data Factory från [kopplingsöversiktsartikeln.](copy-activity-overview.md#supported-data-stores-and-formats) Klicka på ett datalager om du vill lära dig de anslutningsegenskaper som stöds.
 
-## <a name="compute-linked-services"></a>Länkade tjänster för beräkning
-Referens [beräknings miljöer som stöds](compute-linked-services.md) för information om olika beräknings miljöer som du kan ansluta till från din data fabrik samt de olika konfigurationerna.
+## <a name="compute-linked-services"></a>Länkade tjänster för Compute
+[Referensberäkningsmiljöer som stöds](compute-linked-services.md) för information om olika beräkningsmiljöer som du kan ansluta till från datafabriken samt de olika konfigurationerna.
 
 ## <a name="next-steps"></a>Nästa steg
-I följande självstudie finns stegvisa anvisningar för hur du skapar pipelines och data uppsättningar med hjälp av något av dessa verktyg eller SDK: er.
+Se följande självstudiekurs för steg-för-steg-instruktioner för att skapa pipelines och datauppsättningar med hjälp av något av dessa verktyg eller SDK:er.
 
 - [Snabbstart: skapa en datafabrik med hjälp av .NET](quickstart-create-data-factory-dot-net.md)
-- [Snabb start: skapa en data fabrik med hjälp av PowerShell](quickstart-create-data-factory-powershell.md)
-- [Snabb start: skapa en data fabrik med hjälp av REST API](quickstart-create-data-factory-rest-api.md)
-- [Snabb start: skapa en data fabrik med hjälp av Azure Portal](quickstart-create-data-factory-portal.md)
+- [Snabbstart: skapa en datafabrik med PowerShell](quickstart-create-data-factory-powershell.md)
+- [Snabbstart: skapa en datafabrik med REST API](quickstart-create-data-factory-rest-api.md)
+- [Snabbstart: skapa en datafabrik med Azure-portalen](quickstart-create-data-factory-portal.md)

@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/25/2018
 ms.author: crdun
 ms.openlocfilehash: 687a1963ca34f2b053b479ff92f7ccdcd80b5588
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "67188023"
 ---
-* [Registrera en app-ID för din app](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/AppDistributionGuide/MaintainingProfiles/MaintainingProfiles.html#//apple_ref/doc/uid/TP40012582-CH30-SW991). Skapa en explicit app-ID (inte ett jokertecken app-ID) och för **paket-ID**, använda exakta paket-ID som är i Xcode quickstart-projektet. Det är också viktigt att du väljer den **Push-meddelanden** alternativet. 
-* Nästa [att förbereda för att konfigurera push-meddelanden](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/AppDistributionGuide/AddingCapabilities/AddingCapabilities.html#//apple_ref/doc/uid/TP40012582-CH26-SW6), skapa en ”utveckling” eller ”Distribution” SSL-certifikat.
+* [Registrera ett app-ID för din app](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/AppDistributionGuide/MaintainingProfiles/MaintainingProfiles.html#//apple_ref/doc/uid/TP40012582-CH30-SW991). Skapa ett explicit app-ID (inte ett jokerteckenapp-ID) och använd exakt bunt-ID i ditt Xcode-snabbstartsprojekt för **paket-ID.** Det är också viktigt att du väljer alternativet **Push-meddelanden.** 
+* Nästa, [för att förbereda för att konfigurera push-meddelanden](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/AppDistributionGuide/AddingCapabilities/AddingCapabilities.html#//apple_ref/doc/uid/TP40012582-CH26-SW6), skapa antingen en "Utveckling" eller "Distribution" SSL-certifikat.

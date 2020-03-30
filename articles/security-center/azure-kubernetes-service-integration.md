@@ -1,6 +1,6 @@
 ---
-title: Azure Security Center-och Azure Kubernetes-tjänsten
-description: Lär dig mer om Azure Security Center s integrering med Azure Kubernetes Services
+title: Azure Security Center och Azure Kubernetes-tjänsten
+description: Lär dig mer om Azure Security Centers integrering med Azure Kubernetes Services
 services: security-center
 documentationcenter: na
 author: memildin
@@ -12,55 +12,53 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: 0743499b019bd1c7b985636e886eee9352284a55
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.openlocfilehash: d1cd4691586b27282d221a19c5fb7a1af034ed6e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77616077"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80125162"
 ---
-# <a name="azure-kubernetes-services-integration-with-security-center-preview"></a>Integrering med Azure Kubernetes Services med Security Center (för hands version)
-Azure Kubernetes service (AKS) är Microsofts hanterade tjänst för utveckling, distribution och hantering av program i behållare. 
+# <a name="azure-kubernetes-services-integration-with-security-center"></a>Azure Kubernetes Services-integrering med Security Center
 
-Använd AKS tillsammans med Azure Security Center standard nivån (se [prissättning](security-center-pricing.md)) för att få djupare insyn i dina AKS-noder, moln trafik och säkerhets kontroller.
+Azure Kubernetes Service (AKS) är Microsofts hanterade tjänst för att utveckla, distribuera och hantera behållarprogram. 
 
-Security Center ger säkerhets förmåner till dina AKS-kluster med hjälp av data som redan har samlats in av AKS Master-noden. 
+Använd AKS tillsammans med Azure Security Centers standardnivå (se [priser)](security-center-pricing.md)för att få djupare synlighet för dina AKS-noder, molntrafik och säkerhetskontroller.
 
-![Översikt över Azure Security Center och Azure Kubernetes service (AKS)](./media/azure-kubernetes-service-integration/aks-asc-integration-overview.png)
+Security Center ger säkerhetsfördelar för DINA AKS-kluster med hjälp av data som redan samlats in av AKS-huvudnoden. 
 
-Tillsammans utgör dessa två verktyg det bästa molnets inbyggda Kubernetes säkerhets erbjudande. 
+![Översikt över Azure Security Center och Azure Kubernetes Service (AKS) på hög nivå](./media/azure-kubernetes-service-integration/aks-asc-integration-overview.png)
 
-## <a name="benefits-of-integration"></a>Fördelar med integrering
+Tillsammans utgör dessa två verktyg det bästa molnbaserade Kubernetes-säkerhetserbjudandet. 
 
-Att använda de två tjänsterna tillsammans ger:
+## <a name="benefits-of-integration"></a>Fördelar med integration
 
-* **Säkerhets rekommendationer** – Security Center identifierar dina AKS-resurser och kategoriserar dem: från kluster till enskilda virtuella datorer. Du kan sedan Visa säkerhets rekommendationer per resurs. Mer information finns i rekommendationer för behållare i [referens listan för rekommendationer](recommendations-reference.md#recs-computeapp). 
+Genom att använda de två tjänsterna tillsammans finns följande:
 
-    > [!NOTE]
-    > Om namnet på en Security Center rekommendation slutar med en "(för hands version)"-tagg, refererar den till för hands versions typen för rekommendationen, inte funktionen.
+* **Säkerhetsrekommendationer** - Security Center identifierar dina AKS-resurser och kategoriserar dem: från kluster till enskilda virtuella datorer. Du kan sedan visa säkerhetsrekommendationer per resurs. Mer information finns i behållarrekommendationerna i [referenslistan med rekommendationer](recommendations-reference.md#recs-computeapp). 
 
-* **Miljö härdning** – Security Center ständigt övervakar konfigurationen av dina Kubernetes-kluster och Docker-konfigurationer. Den genererar sedan säkerhets rekommendationer som återspeglar bransch standarder.
+* **Miljöhärdning** - Security Center övervakar ständigt konfigurationen av kubernetes-kluster och Docker-konfigurationer. Den genererar sedan säkerhetsrekommendationer som återspeglar branschstandarder.
 
-* **Körnings skydd** – genom kontinuerlig analys av följande AKS-källor, Security Center varnar dig om hot och skadlig aktivitet som identifieras på värd- *och* AKS-kluster nivån:
-    * Rå säkerhets händelser, t. ex. nätverks data och process skapande
-    * Gransknings loggen för Kubernetes
+* **Körningsskydd** – Genom kontinuerlig analys av följande AKS-källor varnar Security Center dig för hot och skadlig aktivitet som upptäckts på *värd- och* AKS-klusternivå:
+    * Råa säkerhetshändelser, till exempel nätverksdata och skapande av processer
+    * Kubernetes granskningslogg
 
-    Mer information finns i [hot Protection for Azure containers](threat-protection.md#azure-containers)
+    Mer information finns i [hotskydd för Azure-behållare](threat-protection.md#azure-containers)
 
-    En lista över möjliga aviseringar finns i följande avsnitt i referens tabellen för aviseringar: [AKS på kluster nivå varningar](alerts-reference.md#alerts-akscluster) och [aviseringar på värdnivå för behållare](alerts-reference.md#alerts-containerhost).  
+    En lista över möjliga aviseringar finns i dessa avsnitt i referenstabellen för aviseringar: [AKS-klusternivåaviseringar](alerts-reference.md#alerts-akscluster) och [varningar på behållarnivå](alerts-reference.md#alerts-containerhost).  
 
-![Azure Security Center och Azure Kubernetes service (AKS) i detalj](./media/azure-kubernetes-service-integration/aks-asc-integration-detailed.png)
+![Azure Security Center och Azure Kubernetes Service (AKS) mer i detalj](./media/azure-kubernetes-service-integration/aks-asc-integration-detailed.png)
 
 > [!NOTE]
-> Några av de data som genomsöks av Azure Security Center från din Kubernetes-miljö kan innehålla känslig information.
+> Vissa av de data som skannas av Azure Security Center från kubernetes-miljön kan innehålla känslig information.
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om Security Center behållar säkerhetsfunktioner finns i:
+Mer information om säkerhetsfunktionerna i Security Center finns i:
 
-* [Azure Security Center-och behållar säkerhet](container-security.md)
+* [Azure Security Center och containersäkerhet](container-security.md)
 
-* [Integrering med Azure Container Registry](azure-container-registry-integration.md)
+* [Integration med Azure Container Registry](azure-container-registry-integration.md)
 
-* [Data hantering på Microsoft](https://www.microsoft.com/trust-center/privacy/data-management) – beskriver data principerna för Microsoft-tjänster (inklusive Azure, Intune och Office 365), information om Microsofts data hantering och de bevarande principer som påverkar dina data
+* [Datahantering på Microsoft](https://www.microsoft.com/trust-center/privacy/data-management) – Beskriver dataprinciperna för Microsoft-tjänster (inklusive Azure, Intune och Office 365), information om Microsofts datahantering och lagringsprinciper som påverkar dina data

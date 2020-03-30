@@ -5,20 +5,20 @@ ms.topic: include
 ms.date: 08/23/2018
 ms.author: crdun
 ms.openlocfilehash: ff7ba04271c150018f2c55b62e40542a686608cf
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67187853"
 ---
-## <a name="create-client"></a>Skapa en klientanslutning
+## <a name="create-a-client-connection"></a><a name="create-client"></a>Skapa en klientanslutning
 Skapa en klientanslutning genom att skapa ett `WindowsAzure.MobileServiceClient`-objekt.  Ersätt `appUrl` med URL-adressen till din mobilapp.
 
 ```javascript
 var client = WindowsAzure.MobileServiceClient(appUrl);
 ```
 
-## <a name="table-reference"></a>Arbeta med tabeller
+## <a name="work-with-tables"></a><a name="table-reference"></a>Arbeta med tabeller
 För att få åtkomst till eller uppdatera data skapar du en referens till serverdelstabellen. Ersätt `tableName` med namnet på tabellen
 
 ```javascript
@@ -35,7 +35,7 @@ När du har en tabellreferens kan du arbeta mer med din tabell:
 * [Ändra data](#modifying)
 * [Ta bort data](#deleting)
 
-### <a name="querying"></a>Hur: Fråga en tabellreferens
+### <a name="how-to-query-a-table-reference"></a><a name="querying"></a>Anvisning: Fråga en tabellreferens
 När du har en tabellreferens kan använda du den för att fråga efter data på servern.  Frågor görs på ett "LINQ-liknande" språk.
 Använd följande kod för att returnera alla data från tabellen:
 
@@ -69,7 +69,7 @@ Klarfunktionen anropas med resultatet.  Använd inte `for (var i in results)` i 
 
 Mer information om frågesyntaxen finns i [dokumentationen för frågeobjekt].
 
-#### <a name="table-filter"></a>Filtrera data på servern
+#### <a name="filtering-data-on-the-server"></a><a name="table-filter"></a>Filtrera data på servern
 Du kan använda en `where`-sats på tabellreferensen:
 
 ```javascript
@@ -92,7 +92,7 @@ table
     .then(success, failure);
 ```
 
-#### <a name="table-paging"></a>Växla genom data
+#### <a name="paging-through-data"></a><a name="table-paging"></a>Söka via data
 Utnyttja metoderna `take()` och `skip()`.  Om du till exempel vill dela upp tabellen i 100-radsposter:
 
 ```javascript
@@ -120,7 +120,7 @@ Metoden `.includeTotalCount()` används för att lägga till ett totalCount-fäl
 
 Du kan sedan använda sidvariablerna och vissa UI-knappar för att få en sidlista. Läs in de nya posterna för varje sida med hjälp av `loadPage()`.  Implementera cachelagring för att påskynda åtkomst till poster som redan har lästs in.
 
-#### <a name="sorting-data"></a>Hur: Returnera sorterade data
+#### <a name="how-to-return-sorted-data"></a><a name="sorting-data"></a>Anvisning: Returnera sorterade data
 Använd frågemetoden `.orderBy()` eller `.orderByDescending()`:
 
 ```javascript
@@ -132,7 +132,7 @@ table
 
 Mer information om frågeobjektet finns i [dokumentationen för frågeobjekt].
 
-### <a name="inserting"></a>Hur: Infoga data
+### <a name="how-to-insert-data"></a><a name="inserting"></a>Anvisning: Infoga data
 Skapa ett JavaScript-objekt med rätt datum och anropa `table.insert()` asynkront:
 
 ```javascript
@@ -152,7 +152,7 @@ När infogningen har fungerat returneras den infogade posten med de ytterligare 
 
 Azure Mobile Apps Node.js Server SDK har funktioner för dynamiskt schema i utvecklingssyften.  Med dynamiskt schema kan du lägga till kolumner i tabellen genom att ange dem i en infognings- eller uppdateringsåtgärd.  Vi rekommenderar att du stänger av dynamiskt schema innan du flyttar programmet till produktionen.
 
-### <a name="modifying"></a>Hur: Ändra data
+### <a name="how-to-modify-data"></a><a name="modifying"></a>Anvisning: Ändra data
 Precis som för metoden `.insert()` ska du skapa ett objekt för uppdateringen och sedan anropa `.update()`.  Uppdateringsobjektet måste innehålla ID:t för posten som ska uppdateras – ID:t hämtas vid läsning av posten eller när `.insert()` anropas.
 
 ```javascript
@@ -168,7 +168,7 @@ table
     }, failure);
 ```
 
-### <a name="deleting"></a>Hur: Ta bort data
+### <a name="how-to-delete-data"></a><a name="deleting"></a>Anvisning: Ta bort data
 Om du vill ta bort en post anropar du `.del()`-metoden.  Skicka ID i en objektreferens:
 
 ```javascript

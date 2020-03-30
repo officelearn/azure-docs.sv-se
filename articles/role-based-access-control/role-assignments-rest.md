@@ -1,6 +1,6 @@
 ---
-title: Lägga till eller ta bort roll tilldelningar med RBAC och REST API
-description: Lär dig hur du beviljar åtkomst till Azure-resurser för användare, grupper, tjänstens huvud namn eller hanterade identiteter med hjälp av rollbaserad åtkomst kontroll i Azure (RBAC) och REST API.
+title: Lägga till eller ta bort rolltilldelningar med RBAC och REST API
+description: Lär dig hur du beviljar åtkomst till Azure-resurser för användare, grupper, tjänsthuvudnamn eller hanterade identiteter med hjälp av Azure Role-based Access Control (RBAC) och REST API.
 services: active-directory
 documentationcenter: na
 author: rolyon
@@ -12,33 +12,33 @@ ms.workload: multiple
 ms.tgt_pltfrm: rest-api
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/25/2019
+ms.date: 03/19/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: ae6fce5ab962637fe477ade75cf81b6ac237bdd2
-ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
+ms.openlocfilehash: 9beda6589c03f1b14fc9756af86a9ce0711894c0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77138317"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80063001"
 ---
-# <a name="add-or-remove-role-assignments-using-azure-rbac-and-the-rest-api"></a>Lägga till eller ta bort roll tilldelningar med hjälp av Azure RBAC och REST API
+# <a name="add-or-remove-role-assignments-using-azure-rbac-and-the-rest-api"></a>Lägga till eller ta bort rolltilldelningar med Azure RBAC och REST API
 
-[!INCLUDE [Azure RBAC definition grant access](../../includes/role-based-access-control-definition-grant.md)] den här artikeln beskriver hur du tilldelar roller med hjälp av REST API.
+[!INCLUDE [Azure RBAC definition grant access](../../includes/role-based-access-control-definition-grant.md)]I den här artikeln beskrivs hur du tilldelar roller med REST API.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-Om du vill lägga till eller ta bort roll tilldelningar måste du ha:
+Om du vill lägga till eller ta bort rolltilldelningar måste du ha:
 
-- `Microsoft.Authorization/roleAssignments/write`-och `Microsoft.Authorization/roleAssignments/delete` behörigheter, till exempel [administratör för användar åtkomst](built-in-roles.md#user-access-administrator) eller [ägare](built-in-roles.md#owner)
+- `Microsoft.Authorization/roleAssignments/write`och `Microsoft.Authorization/roleAssignments/delete` behörigheter, till exempel [administratör för användaråtkomst](built-in-roles.md#user-access-administrator) eller [ägare](built-in-roles.md#owner)
 
-## <a name="add-a-role-assignment"></a>Lägg till en roll tilldelning
+## <a name="add-a-role-assignment"></a>Lägg till en rolltilldelning
 
-I RBAC för att bevilja åtkomst lägger du till en roll tilldelning. Om du vill lägga till en roll tilldelning använder du [roll tilldelningarna-skapa](/rest/api/authorization/roleassignments/create) REST API och anger säkerhets objekt, roll definition och omfattning. För att anropa detta API måste du ha åtkomst till `Microsoft.Authorization/roleAssignments/write`-åtgärden. Av de inbyggda rollerna beviljas endast [ägare](built-in-roles.md#owner) och [användar åtkomst administratör](built-in-roles.md#user-access-administrator) åtkomst till den här åtgärden.
+I RBAC, för att bevilja åtkomst, lägger du till en rolltilldelning. Om du vill lägga till en rolltilldelning använder du [rolltilldelningarna - Skapa](/rest/api/authorization/roleassignments/create) REST API och ange säkerhetsobjekt, rolldefinition och scope. Om du vill anropa det här `Microsoft.Authorization/roleAssignments/write` API:et måste du ha åtkomst till åtgärden. Av de inbyggda rollerna beviljas endast [ägare](built-in-roles.md#owner) och [administratör för användaråtkomst](built-in-roles.md#user-access-administrator) åtkomst åtkomst till den här åtgärden.
 
-1. Använd [roll definitionerna-List](/rest/api/authorization/roledefinitions/list) REST API eller se [inbyggda roller](built-in-roles.md) för att hämta identifieraren för den roll definition som du vill tilldela.
+1. Använd [rolldefinitioner - Lista](/rest/api/authorization/roledefinitions/list) REST API eller se [Inbyggda roller](built-in-roles.md) för att hämta identifieraren för den rolldefinition som du vill tilldela.
 
-1. Använd ett GUID-verktyg för att generera en unik identifierare som ska användas för roll tilldelnings-ID: t. Identifieraren har formatet: `00000000-0000-0000-0000-000000000000`
+1. Använd ett GUID-verktyg för att generera en unik identifierare som ska användas för rolltilldelningsidentifieraren. Identifieraren har formatet:`00000000-0000-0000-0000-000000000000`
 
 1. Börja med följande begäran och brödtext:
 
@@ -55,35 +55,39 @@ I RBAC för att bevilja åtkomst lägger du till en roll tilldelning. Om du vill
     }
     ```
 
-1. I URI: n ersätter du *{scope}* med omfånget för roll tilldelningen.
+1. Inom URI:n ersätter *du {scope}* med omfånget för rolltilldelningen.
 
-    | Omfång | Typ |
-    | --- | --- |
-    | `providers/Microsoft.Management/managementGroups/{groupId1}` | Hanteringsgrupp |
-    | `subscriptions/{subscriptionId1}` | Prenumeration |
-    | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1` | Resursgrupp |
-    | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1/ providers/microsoft.web/sites/mysite1` | Resurs |
+    > [!div class="mx-tableFixed"]
+    > | Omfång | Typ |
+    > | --- | --- |
+    > | `providers/Microsoft.Management/managementGroups/{groupId1}` | Hanteringsgrupp |
+    > | `subscriptions/{subscriptionId1}` | Prenumeration |
+    > | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1` | Resursgrupp |
+    > | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1/providers/microsoft.web/sites/mysite1` | Resurs |
 
-1. Ersätt *{roleAssignmentName}* med GUID-identifieraren för roll tilldelningen.
+    I föregående exempel är microsoft.web en resursleverantör som refererar till en App Service-instans. På samma sätt kan du använda andra resursleverantörer och ange omfånget. Mer information finns i [Azure Resource-providers och -typer](../azure-resource-manager/management/resource-providers-and-types.md) och som stöds av [Azure Resource Manager-resursprovideråtgärder](resource-provider-operations.md).  
 
-1. I begär ande texten ersätter du *{scope}* med omfånget för roll tilldelningen.
+1. Ersätt *{roleAssignmentName}* med GUID-identifieraren för rolltilldelningen.
 
-    | Omfång | Typ |
-    | --- | --- |
-    | `providers/Microsoft.Management/managementGroups/{groupId1}` | Hanteringsgrupp |
-    | `subscriptions/{subscriptionId1}` | Prenumeration |
-    | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1` | Resursgrupp |
-    | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1/ providers/microsoft.web/sites/mysite1` | Resurs |
+1. Ersätt *{scope}* i brödtexten för begäran med omfånget för rolltilldelningen.
 
-1. Ersätt *{roleDefinitionId}* med roll Definitions-ID: n.
+    > [!div class="mx-tableFixed"]
+    > | Omfång | Typ |
+    > | --- | --- |
+    > | `providers/Microsoft.Management/managementGroups/{groupId1}` | Hanteringsgrupp |
+    > | `subscriptions/{subscriptionId1}` | Prenumeration |
+    > | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1` | Resursgrupp |
+    > | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1/providers/microsoft.web/sites/mysite1` | Resurs |
 
-1. Ersätt *{principalId}* med objekt identifieraren för användaren, gruppen eller tjänstens huvud namn som ska tilldelas rollen.
+1. Ersätt *{roleDefinitionId}* med rolldefinitionsidentifieraren.
+
+1. Ersätt *{principalId}* med objektidentifieraren för användaren, gruppen eller tjänsthuvudhuvudet som ska tilldelas rollen.
 
 ## <a name="remove-a-role-assignment"></a>Ta bort en rolltilldelning
 
-I RBAC kan du ta bort en rolltilldelning för att ta bort åtkomst. Om du vill ta bort en roll tilldelning använder du [roll tilldelningarna-ta bort](/rest/api/authorization/roleassignments/delete) REST API. För att anropa detta API måste du ha åtkomst till `Microsoft.Authorization/roleAssignments/delete`-åtgärden. Av de inbyggda rollerna beviljas endast [ägare](built-in-roles.md#owner) och [användar åtkomst administratör](built-in-roles.md#user-access-administrator) åtkomst till den här åtgärden.
+I RBAC kan du ta bort en rolltilldelning för att ta bort åtkomst. Om du vill ta bort en rolltilldelning använder du [rolltilldelningarna - Ta bort](/rest/api/authorization/roleassignments/delete) REST API. Om du vill anropa det här `Microsoft.Authorization/roleAssignments/delete` API:et måste du ha åtkomst till åtgärden. Av de inbyggda rollerna beviljas endast [ägare](built-in-roles.md#owner) och [administratör för användaråtkomst](built-in-roles.md#user-access-administrator) åtkomst åtkomst till den här åtgärden.
 
-1. Hämta roll tilldelnings identifieraren (GUID). Den här identifieraren returneras när du först skapar roll tilldelningen eller så kan du få den genom att lista roll tilldelningarna.
+1. Hämta rolltilldelningsidentifieraren (GUID). Den här identifieraren returneras när du först skapar rolltilldelningen eller så kan du hämta den genom att ange rolltilldelningarna.
 
 1. Börja med följande begäran:
 
@@ -91,20 +95,21 @@ I RBAC kan du ta bort en rolltilldelning för att ta bort åtkomst. Om du vill t
     DELETE https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleAssignments/{roleAssignmentName}?api-version=2015-07-01
     ```
 
-1. I URI: n ersätter du *{scope}* med omfånget för att ta bort roll tilldelningen.
+1. I URI:et ersätter *du {scope}* med omfånget för att ta bort rolltilldelningen.
 
-    | Omfång | Typ |
-    | --- | --- |
-    | `providers/Microsoft.Management/managementGroups/{groupId1}` | Hanteringsgrupp |
-    | `subscriptions/{subscriptionId1}` | Prenumeration |
-    | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1` | Resursgrupp |
-    | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1/ providers/microsoft.web/sites/mysite1` | Resurs |
+    > [!div class="mx-tableFixed"]
+    > | Omfång | Typ |
+    > | --- | --- |
+    > | `providers/Microsoft.Management/managementGroups/{groupId1}` | Hanteringsgrupp |
+    > | `subscriptions/{subscriptionId1}` | Prenumeration |
+    > | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1` | Resursgrupp |
+    > | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1/providers/microsoft.web/sites/mysite1` | Resurs |
 
-1. Ersätt *{roleAssignmentName}* med GUID-identifieraren för roll tilldelningen.
+1. Ersätt *{roleAssignmentName}* med GUID-identifieraren för rolltilldelningen.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Lista roll tilldelningar med hjälp av Azure RBAC och REST API](role-assignments-list-rest.md)
+- [Lista rolltilldelningar med Azure RBAC och REST API](role-assignments-list-rest.md)
 - [Distribuera resurser med Resource Manager-mallar och Resource Manager REST API](../azure-resource-manager/templates/deploy-rest.md)
 - [Azure REST API-referens](/rest/api/azure/)
-- [Skapa anpassade roller för Azure-resurser med hjälp av REST API](custom-roles-rest.md)
+- [Skapa anpassade roller för Azure-resurser med REST API](custom-roles-rest.md)

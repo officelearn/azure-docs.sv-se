@@ -1,6 +1,6 @@
 ---
-title: Felsök distribution av OpenShift container Platform 3,11 i Azure
-description: Felsök distribution av OpenShift container Platform 3,11 i Azure.
+title: Felsöka OpenShift Container Platform 3.11-distribution i Azure
+description: Felsöka OpenShift Container Platform 3.11-distribution i Azure.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: haroldwongms
@@ -14,36 +14,36 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 10/14/2019
 ms.author: haroldw
-ms.openlocfilehash: 1915cce1878b9b7ec058c13167e03c3c318f3668
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: bd83a1ca731d81edb76a3c1bc07113ce96adb9ec
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74035494"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80066593"
 ---
-# <a name="troubleshoot-openshift-container-platform-311-deployment-in-azure"></a>Felsök distribution av OpenShift container Platform 3,11 i Azure
+# <a name="troubleshoot-openshift-container-platform-311-deployment-in-azure"></a>Felsöka OpenShift Container Platform 3.11-distribution i Azure
 
-Om OpenShift-klustret inte distribueras korrekt, kommer Azure Portal att ge fel utdata. Det kan vara svårt att läsa utdata som gör det svårt att identifiera problemet. Sök snabbt igenom dessa utdata för slutkod 3, 4 eller 5. Nedan visas information om de här tre avslutnings koderna:
+Om OpenShift-klustret inte distribueras kommer Azure-portalen att tillhandahålla felutdata. Utdata kan vara svårt att läsa vilket gör det svårt att identifiera problemet. Skanna snabbt utdata efter utgångskod 3, 4 eller 5. Följande innehåller information om dessa tre exit koder:
 
-- Slutkod 3: ditt användar namn/lösen ord för Red Hat-prenumerationen eller din organisations-ID/aktiverings nyckel är felaktigt
-- Slutkod 4: ditt Red Hat-pool-ID är felaktigt eller så finns inga rättigheter tillgängliga
-- Slutkod 5: det går inte att etablera Docker tunn pool volym
+- Avsluta kod 3: Ditt Red Hat-prenumerationsanvändarnamn/lösenord eller organisations-ID/ Aktiveringsnyckel är felaktigt
+- Avsluta kod 4: Ditt Red Hat Pool-ID är felaktigt eller så finns det inga rättigheter tillgängliga
+- Avslutningskod 5: Det går inte att etablera dockers tunna poolvolym
 
-För alla andra slut koder ansluter du till värdarna via SSH för att Visa loggfilerna.
+För alla andra avslutningskoder ansluter du till värden via ssh för att visa loggfilerna.
 
-**OpenShift container Platform 3,11**
+**OpenShift Container Platform 3.11**
 
-SSH till Ansible Spelbok-värden. För mallen eller Marketplace-erbjudandet använder du skydds-värden. Från skydds kan du SSH till alla andra noder i klustret (Master, infrarött, CNS, Compute). Du måste vara rot för att kunna visa loggfilerna. Roten är inaktive rad för SSH-åtkomst som standard, så Använd inte roten till SSH till andra noder.
+SSH till den ansible playbook värden. Använd skyddsvärden för mallen eller Marketplace-erbjudandet. Från bastionen kan du SSH till alla andra noder i klustret (master, infra, CNS, compute). Du måste vara root för att kunna visa loggfilerna. Root är inaktiverat för SSH-åtkomst som standard så använd inte roten till SSH till andra noder.
 
 **OKD**
 
-SSH till Ansible Spelbok-värden. För OKD-mallen (version 3,9 och tidigare) använder du huvud-0-värden. För OKD-mallen (version 3,10 och senare) använder du skydds-värden. Från Ansible Spelbok-värden kan du SSH till alla andra noder i klustret (Master,, CNS, Compute). Du måste vara rot (sudo su-) om du vill visa loggfilerna. Roten är inaktive rad för SSH-åtkomst som standard, så Använd inte roten till SSH till andra noder.
+SSH till den ansible playbook värden. För OKD-mallen (version 3.9 och tidigare) använder du huvud-0-värden. Använd skyddsvärden för OKD-mallen (version 3.10 och senare). Från den ansible playbook-värden kan du SSH till alla andra noder i klustret (master, infra, CNS, compute). Du måste vara root (sudo su -) för att kunna visa loggfilerna. Root är inaktiverat för SSH-åtkomst som standard så använd inte roten till SSH till andra noder.
 
 ## <a name="log-files"></a>Loggfiler
 
-Loggfilerna (STDERR och STDOUT) för värd förberedelse skripten finns på `/var/lib/waagent/custom-script/download/0` på alla värdar. Om ett fel uppstod under förberedelsen av värden kan du se dessa loggfiler för att fastställa felet.
+Loggfilerna (stderr och stdout) för värdförberedelseskripten finns på `/var/lib/waagent/custom-script/download/0` alla värdar. Om ett fel uppstod under förberedelsen av värden kan du visa dessa loggfiler för att fastställa felet.
 
-Om förberedelse skripten har körts måste loggfilerna i `/var/lib/waagent/custom-script/download/1`-katalogen för Ansible Spelbok-värden undersökas. Om felet uppstod under den faktiska installationen av OpenShift visar STDOUT-filen felet. Använd den här informationen för att kontakta supporten för ytterligare hjälp.
+Om förberedelseskripten kördes måste loggfilerna `/var/lib/waagent/custom-script/download/1` i katalogen för den ansible playbook-värden undersökas. Om felet uppstod under den faktiska installationen av OpenShift visas felet i stdout-filen. Använd den här informationen för att kontakta supporten för ytterligare hjälp.
 
 Exempel på utdata
 
@@ -85,32 +85,32 @@ Failure summary:
 
 De vanligaste felen under installationen är:
 
-1. Den privata nyckeln har en lösen fras
-2. Nyckel valv hemligheten med privat nyckel skapades inte korrekt
-3. Autentiseringsuppgifterna för tjänstens huvud namn angavs felaktigt
-4. Tjänstens huvud namn har inte deltagar åtkomst till resurs gruppen
+1. Privat nyckel har lösenfras
+2. Nyckelvalvs hemlighet med privat nyckel skapades inte korrekt
+3. Tjänstens huvudreferenser angavs felaktigt
+4. Tjänsthuvudnamn har inte deltagaråtkomst till resursgruppen
 
-### <a name="private-key-has-a-passphrase"></a>Den privata nyckeln har en lösen fras
+### <a name="private-key-has-a-passphrase"></a>Private Key har en lösenfras
 
-Du ser ett fel om att behörigheten nekades för SSH. SSH till Ansible Spelbok-värden för att söka efter en lösen fras på den privata nyckeln.
+Du ser ett felmeddelande om att behörigheten nekades för ssh. ssh till den ansible playbook värd för att kontrollera om en lösenfras på den privata nyckeln.
 
-### <a name="key-vault-secret-with-private-key-wasnt-created-correctly"></a>Nyckel valv hemligheten med privat nyckel skapades inte korrekt
+### <a name="key-vault-secret-with-private-key-wasnt-created-correctly"></a>Nyckelvalvs hemlighet med privat nyckel skapades inte korrekt
 
-Den privata nyckeln kopieras till Ansible Spelbok Host-~/.ssh/id_rsa. Bekräfta att filen är korrekt. Testa genom att öppna en SSH-session till en av klusternoderna från Ansible Spelbok-värden.
+Den privata nyckeln kopieras till den ansible playbook värd - ~/.ssh /id_rsa. Bekräfta att filen är korrekt. Testa genom att öppna en SSH-session till en av klusternoderna från den ansible playbook-värden.
 
-### <a name="service-principal-credentials-were-entered-incorrectly"></a>Autentiseringsuppgifterna för tjänstens huvud namn angavs felaktigt
+### <a name="service-principal-credentials-were-entered-incorrectly"></a>Tjänstens huvudreferenser angavs felaktigt
 
-När du anger indata till mallen eller Marketplace-erbjudandet tillhandahölls felaktig information. Kontrol lera att du använder rätt appId (clientId) och lösen ord (clientSecret) för tjänstens huvud namn. Verifiera genom att utfärda följande Azure CLI-kommando.
+När du angav indata till mallen eller Marketplace-erbjudandet angavs felaktig information. Se till att du använder rätt appId (clientId) och lösenord (clientSecret) för tjänstens huvudnamn. Verifiera genom att utfärda följande azure cli-kommando.
 
-```bash
+```azurecli
 az login --service-principal -u <client id> -p <client secret> -t <tenant id>
 ```
 
-### <a name="service-principal-doesnt-have-contributor-access-to-the-resource-group"></a>Tjänstens huvud namn har inte deltagar åtkomst till resurs gruppen
+### <a name="service-principal-doesnt-have-contributor-access-to-the-resource-group"></a>Tjänsthuvudnamn har inte deltagaråtkomst till resursgruppen
 
-Om Azure Cloud-providern är aktive rad måste tjänstens huvud namn ha deltagar åtkomst till resurs gruppen. Verifiera genom att utfärda följande Azure CLI-kommando.
+Om Azure-molnleverantören är aktiverad måste tjänsthuvudnamnet som används ha deltagaråtkomst till resursgruppen. Verifiera genom att utfärda följande azure cli-kommando.
 
-```bash
+```azurecli
 az group update -g <openshift resource group> --set tags.sptest=test
 ```
 
@@ -118,5 +118,5 @@ az group update -g <openshift resource group> --set tags.sptest=test
 
 För vissa fel kan du också använda följande kommandon för att få mer information:
 
-1. systemctl-status \<tjänst >
-2. journalctl-XE
+1. systemctl \<status tjänst>
+2. journalctl -xe

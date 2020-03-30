@@ -1,5 +1,5 @@
 ---
-title: Användar Portal för Azure MFA Server – Azure Active Directory
+title: Användarportal för Azure MFA Server - Azure Active Directory
 description: Kom igång med Azure MFA och användarportalen.
 services: multi-factor-authentication
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 886e6a33428d672a40eae821e035d0b5b7f25578
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 2e68c2a75254d1b387c45e31c5830849c6127756
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74848178"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80051187"
 ---
 # <a name="user-portal-for-the-azure-multi-factor-authentication-server"></a>Användarportal för Azure Multi-Factor Authentication-servern
 
@@ -29,9 +29,9 @@ Administratörer av användarportalen kan konfigureras och beviljas behörighet 
 Beroende på din miljö kan du distribuera användarportalen på samma server som Azure Multi-Factor Authentication-servern eller på en annan Internet-ansluten server.
 
 > [!IMPORTANT]
-> Från och med den 1 juli 2019 kommer Microsoft inte längre att erbjuda MFA Server för nya distributioner. Nya kunder som vill kräva Multi-Factor Authentication från sina användare bör använda molnbaserad Azure-Multi-Factor Authentication. Befintliga kunder som har aktiverat MFA Server tidigare än 1 juli kommer att kunna ladda ned den senaste versionen, framtida uppdateringar och generera autentiseringsuppgifter för aktivering som vanligt.
+> Från och med den 1 juli 2019 kommer Microsoft inte längre att erbjuda MFA Server för nya distributioner. Nya kunder som vill kräva multifaktorautentisering från sina användare bör använda molnbaserad Azure Multi-Factor-autentisering. Befintliga kunder som har aktiverat MFA Server före den 1 juli kommer att kunna ladda ner den senaste versionen, framtida uppdateringar och generera aktiveringsautentiseringsuppgifter som vanligt.
 
-![Inloggnings sida för MFA Server-användargrupp](./media/howto-mfaserver-deploy-userportal/portal.png)
+![Inloggningssida för MFA Server User Portal](./media/howto-mfaserver-deploy-userportal/portal.png)
 
 > [!NOTE]
 > Användarportalen är endast tillgänglig med Multi-Factor Authentication-servern. Om du använder Multi-Factor Authentication i molnet ska du hänvisa användarna till [Set up your account for two-step verification](../user-help/multi-factor-authentication-end-user-first-time.md) (Konfigurera ditt konto för tvåstegsverifiering) eller [Manage your settings for two-step verification](../user-help/multi-factor-authentication-end-user-manage-settings.md) (Hantera dina inställningar för tvåstegsverifiering).
@@ -43,37 +43,37 @@ Om webbtjänst-SDK för Azure Multi-Factor Authentication **inte** redan är ins
 1. Öppna Multi-Factor Authentication-serverkonsolen.
 2. Gå till **Webbtjänst-SDK** och välj **Installera Webbtjänst-SDK:n**.
 3. Slutför installationen med hjälp av standardinställningarna om du inte behöver ändra dem av någon anledning.
-4. Binda ett SSL-certifikat till webbplatsen i IIS.
+4. Bind ett TLS/SSL-certifikat till platsen i IIS.
 
-Om du har frågor om att konfigurera ett SSL-certifikat på en IIS-server kan du läsa artikeln [How to Set Up SSL on IIS](https://docs.microsoft.com/iis/manage/configuring-security/how-to-set-up-ssl-on-iis) (Konfigurera SSL på IIS).
+Om du har frågor om hur du konfigurerar ett TLS/SSL-certifikat på en IIS-server läser du artikeln [Så här konfigurerar du SSL på IIS](https://docs.microsoft.com/iis/manage/configuring-security/how-to-set-up-ssl-on-iis).
 
-Webbtjänst-SDK måste skyddas med ett SSL-certifikat. Ett självsignerat certifikat är lämpligt för detta ändamål. Importera certifikatet till arkivet ”Betrodda rotcertifikatutfärdare” för det lokala datorkontot på webbservern för användarportalen så att certifikatet blir betrott när SSL-anslutningen initieras.
+Web Service SDK måste skyddas med ett TLS/SSL-certifikat. Ett självsignerat certifikat är lämpligt för detta ändamål. Importera certifikatet till arkivet "Betrodda rotcertifikatutfärdare" för kontot Lokal dator på användarportalens webbserver så att det litar på certifikatet när TLS-anslutningen startas.
 
 ![MFA-serverkonfiguration för webbtjänst-SDK](./media/howto-mfaserver-deploy-userportal/sdk.png)
 
 ## <a name="deploy-the-user-portal-on-the-same-server-as-the-azure-multi-factor-authentication-server"></a>Distribuera användarportalen på samma server som Azure Multi-Factor Authentication-servern
 
-Följande krav måste vara uppfyllda för att installera användarportalen på **samma server** som Azure Multi-Factor Authentication-servern:
+Följande förutsättningar krävs för att installera användarportalen på **samma server** som Azure Multi-Factor Authentication Server:
 
 * IIS, inklusive ASP.NET och IIS 6 metabase-kompatibilitet (för IIS 7 eller senare)
 * Ett konto med administratörsrättigheter för datorn och domänen om tillämpligt. Kontot måste ha behörighet att skapa Active Directory-säkerhetsgrupper.
-* Skydda användarportalen med ett SSL-certifikat.
-* Skydda webbtjänst-SDK för Azure Multi-Factor Authentication med ett SSL-certifikat.
+* Skydda användarportalen med ett TLS/SSL-certifikat.
+* Skydda Azure Multi-Factor Authentication Web Service SDK med ett TLS/SSL-certifikat.
 
 Följ anvisningarna nedan om du vill distribuera användarportalen:
 
 1. Öppna Azure Multi-Factor Authentication-serverkonsolen, klicka på ikonen **Användarportal** i vänster meny och sedan på **Installera användarportal**.
 2. Slutför installationen med hjälp av standardinställningarna om du inte behöver ändra dem av någon anledning.
-3. Binda ett SSL-certifikat till webbplatsen i IIS
+3. Binda ett TLS/SSL-certifikat till platsen i IIS
 
    > [!NOTE]
-   > SSL-certifikatet är vanligtvis ett offentligt signerat SSL-certifikat.
+   > Detta TLS/SSL-certifikat är vanligtvis ett offentligt signerat TLS/SSL-certifikat.
 
-4. Öppna en webbläsare från en dator och gå till URL:en där användarportalen installerades (till exempel https://mfa.contoso.com/MultiFactorAuth). Se till att inga certifikatvarningar eller fel visas.
+4. Öppna en webbläsare från vilken dator som helst och navigera till `https://mfa.contoso.com/MultiFactorAuth`webbadressen där användarportalen installerades (exempel: ). Se till att inga certifikatvarningar eller fel visas.
 
 ![Installation av MFA-serveranvändarportal](./media/howto-mfaserver-deploy-userportal/install.png)
 
-Om du har frågor om att konfigurera ett SSL-certifikat på en IIS-server kan du läsa artikeln [How to Set Up SSL on IIS](https://docs.microsoft.com/iis/manage/configuring-security/how-to-set-up-ssl-on-iis) (Konfigurera SSL på IIS).
+Om du har frågor om hur du konfigurerar ett TLS/SSL-certifikat på en IIS-server läser du artikeln [Så här konfigurerar du SSL på IIS](https://docs.microsoft.com/iis/manage/configuring-security/how-to-set-up-ssl-on-iis).
 
 ## <a name="deploy-the-user-portal-on-a-separate-server"></a>Distribuera användarportalen på en separat server
 
@@ -85,19 +85,19 @@ Om din organisation använder appen Microsoft Authenticator som en av verifierin
 * Installera användarportalen på en Internetriktad webbserver som kör Microsoft® Internet Information Services (IIS) 6.x eller senare.
 * Om du använder IIS 6.x, kontrollerar du att ASP.NET v2.0.50727 är installerat, registrerat och inställt på **Tillåten**.
 * När du använder IIS 7.x eller högre, IIS, inklusive grundläggande autentisering, ASP.NET och IIS 6 metabase-kompatibilitet.
-* Skydda användarportalen med ett SSL-certifikat.
-* Skydda webbtjänst-SDK för Azure Multi-Factor Authentication med ett SSL-certifikat.
-* Kontrollera att användarportalen kan ansluta till webbtjänst-SDK:n för Azure Multi-Factor Authentication via SSL.
+* Skydda användarportalen med ett TLS/SSL-certifikat.
+* Skydda Azure Multi-Factor Authentication Web Service SDK med ett TLS/SSL-certifikat.
+* Se till att användarportalen kan ansluta till Azure Multi-Factor Authentication Web Service SDK via TLS/SSL.
 * Se till att användarportalen kan autentisera till webbtjänst-SDK:n för Azure Multi-Factor Authentication med autentiseringsuppgifterna för ett tjänstkonto som är medlem i säkerhetsgruppen ”PhoneFactor Admins”. Det här kontot och gruppen ska finnas i Active Directory om Azure Multi-Factor Authentication-servern körs på en domänansluten server. Det här tjänstkontot och gruppen finns lokalt på Azure Multi-Factor Authentication-servern om den inte är ansluten till en domän.
 
 Om du installerar användarportalen på en annan server än Azure Multi-Factor Authentication-servern följer du dessa steg:
 
 1. **På MFA-servern** går du till installationssökvägen (exempel: C:\Program\Multi-Factor Authentication Server) och kopierar filen **MultiFactorAuthenticationUserPortalSetup64** till en plats som är tillgänglig för den Internet-anslutna servern där du installerar den.
 2. Kör installationsfilen **MultiFactorAuthenticationUserPortalSetup64** på den Internet-anslutna webbservern som administratör, ändra platsen om du vill och ändra namnet på den virtuella katalogen till ett kort namn om du så önskar.
-3. Binda ett SSL-certifikat till webbplatsen i IIS.
+3. Bind ett TLS/SSL-certifikat till platsen i IIS.
 
    > [!NOTE]
-   > SSL-certifikatet är vanligtvis ett offentligt signerat SSL-certifikat.
+   > Detta TLS/SSL-certifikat är vanligtvis ett offentligt signerat TLS/SSL-certifikat.
 
 4. Bläddra till **C:\inetpub\wwwroot\MultiFactorAuth**
 5. Redigera Web.Config-filen i Anteckningar
@@ -105,12 +105,12 @@ Om du installerar användarportalen på en annan server än Azure Multi-Factor A
     * Leta reda på nyckeln **"USE_WEB_SERVICE_SDK"** och ändra **värde="false"** till **värde="true"**
     * Leta rätt på nycklarna **"WEB_SERVICE_SDK_AUTHENTICATION_USERNAME"** och ändra **värde=""** till **värde="DOMAIN\User"** där DOMAIN\User är ett tjänstkonto som är en del av gruppen "PhoneFactor Admins".
     * Leta reda på nyckeln **"WEB_SERVICE_SDK_AUTHENTICATION_PASSWORD"** och ändra **värde=""** till **värde="Password"** där Password är lösenordet för tjänstkontot som angavs på föregående rad.
-    * Hitta värdet **https://www.contoso.com/MultiFactorAuthWebServiceSdk/PfWsSdk.asmx** och ändra URL-platshållaren till URL:en för webbtjänst-SDK:n vi installerade i steg 2.
+    * Hitta värdet **https://www.contoso.com/MultiFactorAuthWebServiceSdk/PfWsSdk.asmx** och ändra den här platshållaradressen till webtjänstenSDK-URL som vi installerade i steg 2.
     * Spara filen Web.Config och stäng Anteckningar.
 
-6. Öppna en webbläsare från en dator och gå till URL:en där användarportalen installerades (till exempel https://mfa.contoso.com/MultiFactorAuth). Se till att inga certifikatvarningar eller fel visas.
+6. Öppna en webbläsare från vilken dator som helst och navigera till `https://mfa.contoso.com/MultiFactorAuth`webbadressen där användarportalen installerades (exempel: ). Se till att inga certifikatvarningar eller fel visas.
 
-Om du har frågor om att konfigurera ett SSL-certifikat på en IIS-server kan du läsa artikeln [How to Set Up SSL on IIS](https://docs.microsoft.com/iis/manage/configuring-security/how-to-set-up-ssl-on-iis) (Konfigurera SSL på IIS).
+Om du har frågor om hur du konfigurerar ett TLS/SSL-certifikat på en IIS-server läser du artikeln [Så här konfigurerar du SSL på IIS](https://docs.microsoft.com/iis/manage/configuring-security/how-to-set-up-ssl-on-iis).
 
 ## <a name="configure-user-portal-settings-in-the-azure-multi-factor-authentication-server"></a>Konfigurera inställningarna för användarportalen i Azure Multi-Factor Authentication-servern
 
@@ -118,7 +118,7 @@ Nu när användarportalen har installerats måste du konfigurera Azure Multi-Fac
 
 1. I Multi-Factor Authentication-serverkonsolen klickar du på ikonen**Användarportal**. På inställningar-fliken, anger du URL:en för användarportalen i textrutan **Användarportal-URL**. Den här URL:en infogas i e-postmeddelanden som skickas till användare när de importeras till Azure Multi-Factor Authentication-servern om e-postfunktionen har aktiverats.
 2. Välj de inställningar som du vill använda på användarportalen. Om användarna till exempel tillåts styra sin autentiseringsmetod, kontrollera att **Tillåt användare välja metod** har markerats, med de metoder som de får välja mellan.
-3. Definiera vem som ska vara administratörer på fliken **Administratörer** . Du kan skapa detaljerade administrativa behörigheter med kryss rutorna och list rutorna i rutorna Lägg till/redigera.
+3. Definiera vem som ska vara administratörer på fliken **Administratörer.** Du kan skapa detaljerade administratörsbehörigheter med hjälp av kryssrutor och listrutor i rutorna Lägg till/redigera.
 
 Valfri konfiguration:
 
@@ -146,15 +146,15 @@ Azure Multi-Factor Authentication-servern tillhandahåller flera alternativ för
 | Aktivera loggning | Aktivera loggning på användarportalen. Loggfilerna finns på: C:\Program Files\Multi-Factor Authentication Server\Logs. |
 
 > [!IMPORTANT]
-> Från och med mars 2019 är Telefonsamtals alternativen inte tillgängliga för MFA-Server användare i kostnads fria/utvärderings versioner av Azure AD-klienter. SMS-meddelanden påverkas inte av den här ändringen. Telefonsamtalet fortsätter att vara tillgängligt för användare i betalda Azure AD-klienter. Den här ändringen påverkar endast kostnads fria/utvärderings versioner av Azure AD.
+> Från och med mars 2019 är samtalsalternativen inte tillgängliga för MFA Server-användare i Azure AD-klienter med kostnadsfri/utvärderingsversion. SMS-meddelanden påverkas inte av den här ändringen. Telefonsamtal fortsätter att vara tillgängligt för användare i betalda Azure AD-klienter. Den här ändringen påverkar endast azure AD-klienter som är kostnadsfria/prov.
 
 De här inställningarna blir synliga för användaren när de är aktiverade och användaren är inloggad på användarportalen.
 
-![Hantera MFA Server-kontot med hjälp av användar portalen](./media/howto-mfaserver-deploy-userportal/portalsettings.png)
+![Hantera ditt MFA-serverkonto med hjälp av användarportalen](./media/howto-mfaserver-deploy-userportal/portalsettings.png)
 
 ### <a name="self-service-user-enrollment"></a>Användarregistrering via självbetjäning
 
-Om du vill att användarna ska logga in och registrera måste du markera alternativen **Tillåt användare att logga in** och **Tillåt användar registrering** på fliken Inställningar. kom ihåg att de inställningar du väljer påverkar användarens inloggnings upplevelse.
+Om du vill att användarna ska logga in och registrera måste du välja alternativen **Tillåt användare att logga in** och Tillåt alternativ för **användarregistrering** under fliken Inställningar.
 
 När en användare till exempel loggar in på användarportalen för första gången, tas de sedan till inställningssidan för Azure Multi-Factor Authentication. Beroende på hur du har konfigurerat Azure Multi-Factor Authentication kan användaren välja autentiseringsmetod.
 
@@ -166,7 +166,7 @@ Om användaren måste ange en PIN-kod vid autentiseringen uppmanas han eller hon
 
 Om användaren väljer autentiseringsmetoden för SMS-meddelanden eller om användaren har förkonfigurerats att använda den metoden uppmanas han eller hon att ange sitt mobiltelefonnummer. Om användaren måste ange en PIN-kod vid autentiseringen uppmanas han eller hon också att ange en PIN-kod.  Efter att de angett sitt telefonnummer och PIN-kod (om en sådan krävs), klickar användaren på knappen **Skicka mig ett textmeddelande för att autentisera**. Azure Multi-Factor Authentication utför en SMS-autentisering till användarens mobiltelefon. Användaren får SMS:et med ett engångslösenord (OTP) och svarar på meddelandet med OTP:t och sin PIN-kod (om sådan krävs).
 
-![Användar Portal verifiering med SMS](./media/howto-mfaserver-deploy-userportal/text.png)
+![Verifiering av användarportaler med SMS](./media/howto-mfaserver-deploy-userportal/text.png)
 
 Om användaren väljer autentiseringsmetoden Mobilapp eller om användaren har förkonfigurerats att använda den metoden uppmanas han eller hon att installera Microsoft Authenticator-appen på sin enhet och att generera en aktiveringskod. Efter installation, klickar användaren på knappen Generera aktiveringskod.
 

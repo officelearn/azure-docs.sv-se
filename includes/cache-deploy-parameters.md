@@ -5,15 +5,15 @@ ms.topic: include
 ms.date: 04/02/2019
 ms.author: wesmc
 ms.openlocfilehash: 498a7ee28b9404d0733e4615f4df635a8c904b51
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67187152"
 ---
 ### <a name="cacheskuname"></a>cacheSKUName
 
-Prisnivån för den nya Azure-Cache för Redis.
+Prisnivån för den nya Azure-cachen för Redis.
 
 ```json
     "cacheSKUName": {
@@ -30,11 +30,11 @@ Prisnivån för den nya Azure-Cache för Redis.
     },
 ```
 
-Mallen definierar de värden som tillåts för den här parametern (Basic, Standard eller Premium), och tilldelar ett standardvärde (grundläggande), om inget värde anges. Basic tillhandahåller en enda nod med flera storlekar upp till 53 GB. Standard ger tvånods primär/replik med flera storlekar upp till 53 GB och 99,9% serviceavtal (SLA).
+Mallen definierar de värden som är tillåtna för den här parametern (Basic, Standard eller Premium) och tilldelar ett standardvärde (Basic) om inget värde anges. Basic ger en enda nod med flera storlekar tillgängliga upp till 53 GB. Standard ger tvånod primär/replik med flera storlekar tillgängliga upp till 53 GB och 99,9% SLA.
 
 ### <a name="cacheskufamily"></a>cacheSKUFamily
 
-Familjen för SKU: n.
+Familjen till sku.
 
 ```json
     "cacheSKUFamily": {
@@ -50,11 +50,11 @@ Familjen för SKU: n.
     },
 ```
 
-### <a name="cacheskucapacity"></a>cacheSKUCapacity
+### <a name="cacheskucapacity"></a>cacheSKUKapacitet
 
-Storleken på den nya Azure-Cache för Redis-instans.
+Storleken på den nya Azure-cachen för Redis-instansen.
 
-För Basic och Standard-serier:
+För basic- och standardfamiljer:
 
 ```json
     "cacheSKUCapacity": {
@@ -75,13 +75,13 @@ För Basic och Standard-serier:
     }
 ```
 
-Premium värdet cache-kapacitet definieras samma, förutom värdena som tillåts köra från 1 till 5 i stället för från 0 till 6.
+Cachekapaciteten för Premium-värde definieras på samma sätt, förutom att de tillåtna värdena körs från 1 till 5 i stället för från 0 till 6.
 
-Mallen definierar integer-värden som tillåts för den här parametern (0 till 6 för Basic och Standard-familjer; 1 – 5 för Premium-serien). Om inget värde anges tilldelar mallen används värdet 0 för Basic och Standard, 1 för Premium.
+Mallen definierar de heltalsvärden som är tillåtna för den här parametern (0 till 6 för basic- och standardfamiljer; 1 till 5 för Premium-familjen). Om inget värde anges tilldelar mallen ett standardvärde på 0 för Basic och Standard, 1 för Premium.
 
-Värdena motsvarar följande cachestorlekarna:
+Värdena motsvarar följande cachestorlekar:
 
-| Värde | Basic och Standard<br>Cachestorlek | Premium<br>Cachestorlek |
+| Värde | Grundläggande och standard<br>cachestorlek | Premium<br>cachestorlek |
 | :---: | :------------------------------: | :-------------------: |
 | 0     | 250 MB (standard)                 | Saknas                   |
 | 1     | 1 GB                             | 6 GB (standard)        |

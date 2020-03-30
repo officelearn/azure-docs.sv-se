@@ -1,13 +1,13 @@
 ---
 title: Vanliga frågor och svar om säkerhetskopiering av Azure Files
-description: I den här artikeln hittar du svar på vanliga frågor om hur du skyddar dina Azure-filresurser med Azure Backup-tjänsten.
+description: I den här artikeln kan du hitta svar på vanliga frågor om hur du skyddar dina Azure-filresurser med Azure Backup-tjänsten.
 ms.date: 07/29/2019
 ms.topic: conceptual
 ms.openlocfilehash: c69d4642aefbd599d3783dcdfa059a0cd9d129d9
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78302550"
 ---
 # <a name="questions-about-backing-up-azure-files"></a>Frågor om hur du säkerhetskopierar Azure Files
@@ -34,11 +34,11 @@ Ja. Skydd av Azure-filresurser som är anslutna till synkroniseringsgrupper kan 
 
 När du försöker säkerhetskopiera och väljer ett lagringskonto för att identifiera filresurser i kontot, registreras lagringskontot i det valv där detta görs från. Om du väljer att skydda filresurser med ett annat valv, måste du [avregistrera](troubleshoot-azure-files.md#configuring-backup) det valda lagringskontot från det här valvet.
 
-### <a name="can-i-change-the-vault-to-which-i-back-up-my-file-shares"></a>Kan jag ändra valvet till vilket jag säkerhetskopierar mina fil resurser?
+### <a name="can-i-change-the-vault-to-which-i-back-up-my-file-shares"></a>Kan jag ändra valvet som jag säkerhetskopierar mina filresurser till?
 
-Ja. Du måste dock [stoppa skyddet av en fil resurs](manage-afs-backup.md#stop-protection-on-a-file-share) från det anslutna valvet, [avregistrera](troubleshoot-azure-files.md#configuring-backup) lagrings kontot och sedan skydda det från ett annat valv.
+Ja. Du måste dock [stoppa skyddet för en filresurs](manage-afs-backup.md#stop-protection-on-a-file-share) från det anslutna Arkiv, [avregistrera](troubleshoot-azure-files.md#configuring-backup) det här lagringskontot och sedan skydda det från ett annat Arkiv.
 
-### <a name="in-which-geos-can-i-back-up-azure-file-shares"></a>I vilken geografiska områden kan jag säkerhetskopiera Azure-filresurser?
+### <a name="in-which-geos-can-i-back-up-azure-file-shares"></a>I vilka geos kan jag säkerhetskopiera Azure File-resurser?
 
 Säkerhetskopieringen av Azure-filresurser är för närvarande en förhandsversion och är endast tillgängligt på följande platser:
 
@@ -70,20 +70,20 @@ Säkerhetskopieringen av Azure-filresurser är för närvarande en förhandsvers
 - US Gov, Arizona (UGA)
 - US Gov, Texas (UGT)
 - US Gov, Virginia (UGV)
-- Australien, centrala (ACL)
-- Indien, väst (INW)
-- Södra Afrika, norra (SAN)
-- Förenade Arabemiraten Nord (UAN)
-- Frankrike, centrala (FRC)
-- Tyskland, norra (GN)                       
-- Tyskland, västra centrala (GWC)
-- Södra Afrika (såg)
-- Förenade Arabemiraten Central (UAC)
-- NVI (Norge, öst)     
-- NWW (Norge, västra)
-- SZN (Schweiz, norra)
+- Australien Central (ACL)
+- Västsvensk väst(INW)
+- Sydafrika North(SAN)
+- Norra Förenade Arabemiraten (UAN)
+- Frankrike Central (FRC)
+- Tyskland Norr (GN)                       
+- Tyskland Västcentralen (GWC)
+- Sydafrika Väst (SAW)
+- Centrala Arabemiraten (UAC)
+- NWE (Norge Öst)     
+- NWW (Västra Norge)
+- SZN (Norr Schweiz)
 
-Skriv till [AskAzureBackupTeam@microsoft.com](mailto:askazurebackupteam@microsoft.com) om du behöver använda den i ett visst område som inte anges ovan.
+Skriv [AskAzureBackupTeam@microsoft.com](mailto:askazurebackupteam@microsoft.com) till om du behöver använda den i en viss geo som inte visas ovan.
 
 ### <a name="how-many-azure-file-shares-can-i-protect-in-a-vault"></a>Hur många Azure-filresurser kan jag skydda i ett valv?
 
@@ -95,9 +95,9 @@ Nej. Filresurserna i ett lagringskonto kan endast skyddas med ett och samma valv
 
 ## <a name="backup"></a>Säkerhetskopiering
 
-### <a name="how-many-scheduled-backups-can-i-configure-per-file-share"></a>Hur många schemalagda säkerhets kopieringar kan jag konfigurera per fil resurs?
+### <a name="how-many-scheduled-backups-can-i-configure-per-file-share"></a>Hur många schemalagda säkerhetskopior kan jag konfigurera per filresurs?
 
-Azure Backup stöder för närvarande att konfigurera schemalagda en gång – daglig säkerhets kopiering av Azure-filresurser.
+Azure Backup stöder för närvarande konfigurera schemalagda en gång dagligen säkerhetskopior av Azure File Shares.
 
 ### <a name="how-many-on-demand-backups-can-i-take-per-file-share"></a>Hur många säkerhetskopior på begäran kan jag göra per filresurs?
 
@@ -113,11 +113,11 @@ När du tar bort en Azure-filresurs visas listan över säkerhetskopieringar som
 
 Ja. Om du valde **Behåll säkerhetskopieringsdata** när du stoppade skyddet kan du återställa från alla befintliga återställningspunkter.
 
-### <a name="what-happens-if-i-cancel-an-ongoing-restore-job"></a>Vad händer om jag avbryter ett pågående återställnings jobb?
+### <a name="what-happens-if-i-cancel-an-ongoing-restore-job"></a>Vad händer om jag avbryter ett pågående återställningsjobb?
 
-Om ett pågående återställnings jobb avbryts stoppas återställnings processen och alla filer som återställs före annulleringen förblir i konfigurerat mål (ursprunglig eller alternativ plats) utan återställningar.
+Om ett pågående återställningsjobb avbryts stoppas återställningen och alla filer återställs före annulleringen, stanna kvar i konfigurerat mål (ursprunglig eller alternativ plats) utan återställningar.
 
-## <a name="manage-backup"></a>Hantera säkerhets kopiering
+## <a name="manage-backup"></a>Hantera säkerhetskopiering
 
 ### <a name="can-i-use-powershell-to-configuremanagerestore-backups-of-azure-file-shares"></a>Kan jag använda PowerShell för att konfigurera/hantera/återställa säkerhetskopior av Azure-filresurser?
 
@@ -127,7 +127,7 @@ Ja. Läs den detaljerade dokumentationen [här](backup-azure-afs-automation.md)
 
 Alla ögonblicksbilder som tas av Azure Backup kan nås via Visa ögonblicksbilder i Portal, PowerShell eller CLI. Läs mer om ögonblicksbilder av Azure-filresurser i [Översikt över resursögonblicksbilder för Azure Files (förhandsversion)](../storage/files/storage-snapshots-files.md).
 
-### <a name="what-is-the-maximum-retention-i-can-configure-for-backups"></a>Vad är den maximala kvarhållning som jag kan konfigurera för säkerhets kopieringar?
+### <a name="what-is-the-maximum-retention-i-can-configure-for-backups"></a>Vilken är den maximala kvarhållning jag kan konfigurera för säkerhetskopior?
 
 Säkerhetskopiering för Azure-filresurser ger dig möjlighet att konfigurera principer med kvarhållning i upp till 180 dagar. Men med [alternativet för ”säkerhetskopiering på begäran” i PowerShell](backup-azure-afs-automation.md#trigger-an-on-demand-backup) kan du till och med behålla en återställningspunkt i tio år.
 
@@ -137,7 +137,7 @@ När en ny princip tillämpas på en eller flera filresurser följs schemat och 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om andra områden i Azure Backup finns i några av de vanliga frågorna om säkerhets kopiering:
+Mer information om andra områden i Azure Backup finns i några av följande vanliga frågor om säkerhetskopiering:
 
 - [Recovery Services-valv – vanliga frågor och svar](backup-azure-backup-faq.md)
 - [Säkerhetskopiering av virtuella Azure-datorer – vanliga frågor och svar ](backup-azure-vm-backup-faq.md)

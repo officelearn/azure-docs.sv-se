@@ -1,6 +1,6 @@
 ---
-title: Översikt över Microsoft Threat Modeling Tool funktioner – Azure
-description: Lär dig mer om alla funktioner som är tillgängliga i Threat Modeling Tool
+title: Översikt över funktionen Microsoft Threat Modeling Tool - Azure
+description: Läs mer om alla funktioner som finns i verktyget för hotmodellering
 author: jegeib
 ms.author: jegeib
 ms.service: security
@@ -8,111 +8,111 @@ ms.subservice: security-develop
 ms.topic: article
 ms.date: 08/17/2017
 ms.openlocfilehash: 88eea0eb2bceb0f6322381a94d4339cbdfa662c0
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/31/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75552125"
 ---
-# <a name="threat-modeling-tool-feature-overview"></a>Översikt över Threat Modeling Tool funktioner
+# <a name="threat-modeling-tool-feature-overview"></a>Översikt över funktionen Threat Modeling Tool
 
-Threat Modeling Tool kan hjälpa dig med dina behov av hot modellering. En grundläggande introduktion till verktyget finns i [Kom igång med Threat Modeling Tool](threat-modeling-tool-getting-started.md).
+Hot modellering tool kan hjälpa dig med ditt hot modellering behov. En grundläggande introduktion till verktyget finns i [Komma igång med verktyget för hotmodellering](threat-modeling-tool-getting-started.md).
 
 > [!NOTE]
->Threat Modeling Tool uppdateras ofta, så se till att den här guiden ofta visar de senaste funktionerna och förbättringarna.
+>Hot modellering tool uppdateras ofta, så kontrollera den här guiden ofta för att se våra senaste funktioner och förbättringar.
 
-Om du vill öppna en tom sida väljer du **skapa en modell**.
+Om du vill öppna en tom sida väljer du **Skapa en modell**.
 
 ![Tom sida](./media/threat-modeling-tool-feature-overview/tmtstart.png)
 
-Om du vill se vilka funktioner som är tillgängliga i verktyget använder du hot modellen som skapats av vårt team i exemplet [Kom igång](threat-modeling-tool-getting-started.md) .
+Om du vill se de funktioner som för närvarande är tillgängliga i verktyget använder du den hotmodell som skapats av vårt team i exemplet [Kom igång.](threat-modeling-tool-getting-started.md)
 
-![Basic Threat Model](./media/threat-modeling-tool-feature-overview/basictmt.png)
+![Grundläggande hotmodell](./media/threat-modeling-tool-feature-overview/basictmt.png)
 
 ## <a name="navigation"></a>Navigering
 
-Innan vi diskuterar de inbyggda funktionerna kan vi granska huvud komponenterna som finns i verktyget.
+Innan vi diskuterar de inbyggda funktionerna ska vi granska huvudkomponenterna i verktyget.
 
-### <a name="menu-items"></a>Meny alternativ
+### <a name="menu-items"></a>Menyalternativ
 
-Upplevelsen liknar andra Microsoft-produkter. Nu ska vi granska meny objekt på den översta nivån.
+Upplevelsen liknar andra Microsoft-produkter. Låt oss granska de översta menyalternativen.
 
-![Meny alternativ](./media/threat-modeling-tool-feature-overview/menuitems.png)
+![Menyalternativ](./media/threat-modeling-tool-feature-overview/menuitems.png)
 
-| Etikett                               | Information      |
+| Label (Etikett)                               | Information      |
 | --------------------------------------- | ------------ |
-| **Fil** | <ul><li>Öppna, Spara och Stäng filer</li><li>Logga in och logga ut från OneDrive-konton.</li><li>Dela länkar (Visa och redigera).</li><li>Visa fil information.</li><li>Använd en ny mall för befintliga modeller.</li></ul> |
-| **Redigera** | Ångra och gör om åtgärder, samt kopiera, klistra in och ta bort. |
-| **Visa** | <ul><li>Växla mellan vyerna **analys** och **design** .</li><li>Öppna stängda fönster (till exempel stenciler, element egenskaper och meddelanden).</li><li>Återställ layout till standardinställningar.</li></ul> |
-| **Venndiagram** | Lägg till och ta bort diagram och gå igenom flikar i diagram. |
-| **Rapporter** | Skapa HTML-rapporter för att dela med andra. |
+| **Fil** | <ul><li>Öppna, spara och stänga filer</li><li>Logga in och logga ut från OneDrive-konton.</li><li>Dela länkar (visa och redigera).</li><li>Visa filinformation.</li><li>Använd en ny mall på befintliga modeller.</li></ul> |
+| **Redigera** | Ångra och gör om åtgärder samt kopiera, klistra in och ta bort. |
+| **Vy** | <ul><li>Växla mellan **analys-** och designvyer. **Analysis**</li><li>Öppna stängda fönster (till exempel stenciler, elementegenskaper och meddelanden).</li><li>Återställ layouten till standardinställningarna.</li></ul> |
+| **Diagram** | Lägg till och ta bort diagram och gå igenom flikar med diagram. |
+| **Rapporter** | Skapa HTML-rapporter att dela med andra. |
 | **Hjälp** | Hitta guider som hjälper dig att använda verktyget. |
 
-Symbolerna är genvägar för menyerna på översta nivån:
+Symbolerna är genvägar för menyerna på den översta nivån:
 
 | Symbol                               | Information      |
 | --------------------------------------- | ------------ |
 | **Öppna** | Öppnar en ny fil. |
 | **Spara** | Sparar den aktuella filen. |
-| **Design** | Öppnar vyn **design** där du kan skapa modeller. |
+| **Design** | Öppnar **designvyn,** där du kan skapa modeller. |
 | **Analysera** | Visar genererade hot och deras egenskaper. |
 | **Lägg till diagram** | Lägger till ett nytt diagram (liknar nya flikar i Excel). |
 | **Ta bort diagram** | Tar bort det aktuella diagrammet. |
-| **Kopiera/klipp ut/klistra in** | Kopierar, klipper och klistrar in element. |
+| **Kopiera/klippa ut/klistra in** | Kopierar, klipper och klistrar in element. |
 | **Ångra/gör om** | Ångrar och gör om åtgärder. |
-| **Zooma in/Zooma ut** | Zoomar in och ut ur diagrammet för att få en bättre vy. |
-| **Feedback** | Öppnar MSDN-forumet. |
+| **Zooma in/zooma ut** | Zoomar in och ut ur diagrammet för en bättre vy. |
+| **Feedback** | Öppnar MSDN Forum. |
 
 ### <a name="canvas"></a>Arbetsyta
 
-Arbets ytan är det utrymme där du drar och släpper element. Dra och släpp är det snabbaste och mest effektiva sättet att bygga modeller. Du kan också högerklicka och välja objekt på menyn för att lägga till generiska versioner av element, som du ser:
+Arbetsytan är det utrymme där du drar och släpper element. Dra och släpp är det snabbaste och mest effektiva sättet att bygga modeller. Du kan också högerklicka och välja objekt på menyn för att lägga till generiska versioner av element, som visas:
 
-#### <a name="drop-the-stencil-on-the-canvas"></a>Ta bort stencilen på arbets ytan
+#### <a name="drop-the-stencil-on-the-canvas"></a>Släpp stencilen på arbetsytan
 
-![Arbets ytans släpp](./media/threat-modeling-tool-feature-overview/canvasdrop1.png)
+![Släpp arbetsyta](./media/threat-modeling-tool-feature-overview/canvasdrop1.png)
 
-#### <a name="select-the-stencil"></a>Välj stencilen
+#### <a name="select-the-stencil"></a>Markera stencilen
 
-![Element egenskaper](./media/threat-modeling-tool-feature-overview/canvasdrop2.png)
+![Egenskaper för element](./media/threat-modeling-tool-feature-overview/canvasdrop2.png)
 
 ### <a name="stencils"></a>Stenciler
 
-Utifrån den mall du väljer kan du hitta alla stenciler som är tillgängliga för användning. Om du inte hittar rätt element, använder du en annan mall. Du kan också ändra en mall så att den passar dina behov. I allmänhet hittar du en kombination av kategorier som dessa:
+Baserat på den mall du väljer kan du hitta alla stenciler som är tillgängliga att använda. Om du inte hittar rätt element använder du en annan mall. Eller så kan du ändra en mall som passar dina behov. I allmänhet kan du hitta en kombination av kategorier som dessa:
 
-| Namn på stencil                               | Information      |
+| Stencilnamn                               | Information      |
 | --------------------------------------- | ------------ |
-| **Uppgraderingen** | Program, plugin-program för webbläsare, trådar, virtuella datorer |
-| **Extern interaktör** | Autentiseringsproviders, webbläsare, användare, webb program |
-| **Data lager** | Cache, lagring, konfigurationsfiler, databaser, register |
-| **Data flöde** | Binärt, ALPC, HTTP, HTTPS/TLS/SSL, IOCTL, IPSec, Named pipe, RPC/DCOM, SMB, UDP |
-| **Förtroende linje/gräns gräns** | Företags nätverk, Internet, dator, Sandbox, användare/kernelläge |
+| **Process** | Program, plugin-program för webbläsare, trådar, virtuella maskiner |
+| **Extern interactor** | Autentiseringsleverantörer, webbläsare, användare, webbapplikationer |
+| **Datalager** | Cache, lagring, konfigurationsfiler, databaser, register |
+| **Dataflöde** | Binär, ALPC, HTTP, HTTPS/TLS/SSL, IOCTL, IPSec, namngiven pipe, RPC/DCOM, SMB, UDP |
+| **Gräns för förtroendelinje/kantlinje** | Företagsnätverk, internet, maskin, sandlåda, användar-/kernel-läge |
 
 ### <a name="notesmessages"></a>Anteckningar/meddelanden
 
 | Komponent                               | Information      |
 | --------------------------------------- | ------------ |
-| **Meddelanden** | Intern verktygs logik som varnar användare när ett fel uppstår, till exempel att inga data flödar mellan element. |
-| **Anteckningar** | Manuella anteckningar läggs till i filen av teknik team i hela design-och gransknings processen. |
+| **Meddelanden** | Intern verktygslogik som varnar användare när det finns ett fel, till exempel inga dataflöden mellan element. |
+| **Obs!** | Manuella anteckningar läggs till i filen av ingenjörsteam under hela design- och granskningsprocessen. |
 
-### <a name="element-properties"></a>Element egenskaper
+### <a name="element-properties"></a>Egenskaper för element
 
-Element egenskaperna varierar beroende på vilka element du väljer. Förutom förtroende gränserna innehåller alla andra element tre allmänna val:
+Elementegenskaperna varierar beroende på vilka element du väljer. Förutom förtroendegränser innehåller alla andra element tre allmänna val:
 
-| Element egenskap                               | Information      |
+| Egenskapen Element                               | Information      |
 | --------------------------------------- | ------------ |
-| **Namn** | Användbart för att namnge dina processer, butiker, interskådespelare och flöden så att de är lätta att känna igen. |
-| **Utanför definitions området** | Om det här alternativet väljs tas elementet bort från den hot-generations mat ris (rekommenderas inte). |
-| **Orsak för out of scope** | Motiverings fält så att användare vet varför utanför omfattning har valts. |
+| **Namn** | Användbart för att namnge dina processer, butiker, interactorer och flöden så att de är lätta att känna igen. |
+| **Utanför räckvidden** | Om du väljer det här alternativet tas elementet ut ur hotgenereringsmatrisen (rekommenderas inte). |
+| **Orsak till att det inte är så** | Fältet Motivering för att låta användarna veta varför utanför omfånget har valts. |
 
-Egenskaperna ändras under varje element kategori. Välj varje element för att granska de tillgängliga alternativen. Du kan också öppna mallen om du vill veta mer. Vi går igenom funktionerna.
+Egenskaper ändras under varje elementkategori. Markera varje element om du vill granska de tillgängliga alternativen. Eller så kan du öppna mallen för att lära dig mer. Låt oss granska funktionerna.
 
-## <a name="welcome-screen"></a>Välkomst skärmen
+## <a name="welcome-screen"></a>Välkomstskärmen
 
-När du öppnar appen visas **välkomst** skärmen.
+När du öppnar appen visas **Welcome** välkomstskärmen.
 
 ### <a name="open-a-model"></a>Öppna en modell
 
-Hovra över **öppna en modell** för att visa två alternativ: **öppna från den här datorn** och **öppna från OneDrive**. Det första alternativet öppnar **filen öppna** på skärmen. Det andra alternativet tar dig igenom inloggnings processen för OneDrive. När autentiseringen är klar kan du välja mappar och filer.
+Hovra över **Öppna en modell** för att visa två alternativ: Öppna från den här **datorn** och öppna **från OneDrive**. Det första alternativet öppnar skärmen **Öppna fil.** Det andra alternativet tar dig igenom inloggningsprocessen för OneDrive. När autentiseringen har slutförts kan du välja mappar och filer.
 
 ![Öppen modell](./media/threat-modeling-tool-feature-overview/openmodel.png)
 
@@ -120,31 +120,31 @@ Hovra över **öppna en modell** för att visa två alternativ: **öppna från d
 
 ### <a name="feedback-suggestions-and-issues"></a>Feedback, förslag och problem
 
-När du väljer **feedback, förslag och problem**går du till MSDN-forumet för sdl-verktyg. Du kan läsa vad andra personer säger om verktyget, inklusive lösningar och nya idéer.
+När du väljer **Feedback, förslag och ärenden**går du till MSDN Forum för SDL-verktyg. Du kan läsa vad andra säger om verktyget, inklusive lösningar och nya idéer.
 
 ![Feedback](./media/threat-modeling-tool-feature-overview/feedback.png)
 
-## <a name="design-view"></a>vyn Design
+## <a name="design-view"></a>Designvy
 
-När du öppnar eller skapar en ny modell öppnas **design** läge.
+När du öppnar eller skapar en ny modell öppnas **designvyn.**
 
 ### <a name="add-elements"></a>Lägg till element
 
 Du kan lägga till element i rutnätet på två sätt:
 
-- **Dra och släpp**: dra det önskade elementet till rutnätet. Använd sedan element egenskaperna för att ange ytterligare information.
-- **Högerklicka**: Högerklicka någonstans i rutnätet och välj objekt på den nedrullningsbara menyn. En allmän representation av det element du väljer visas på skärmen.
+- **Dra och släpp**: Dra önskat element till rutnätet. Använd sedan elementegenskaperna för att ge ytterligare information.
+- **Högerklicka:** Högerklicka var som helst i rutnätet och välj objekt på den nedrullningsbara menyn. En allmän representation av det element du väljer visas på skärmen.
 
 ### <a name="connect-elements"></a>Ansluta element
 
 Du kan ansluta element på två sätt:
 
-- **Dra och släpp**: dra önskat data flöde till rutnätet och Anslut båda ändarna till lämpliga element.
-- **Klicka på + Shift**: Klicka på det första elementet (skicka data), tryck på och håll ned SKIFT-tangenten och välj sedan det andra elementet (tar emot data). Högerklicka och välj **Anslut**. Om du använder ett dubbelriktat data flöde är ordningen inte lika viktig.
+- **Dra och släpp**: Dra önskat dataflöde till rutnätet och anslut båda ändarna till lämpliga element.
+- **Klicka på + Skift:** Klicka på det första elementet (skicka data), tryck och håll ned Skift-tangenten och markera sedan det andra elementet (ta emot data). Högerklicka och välj **Anslut**. Om du använder ett dubbelriktad dataflöde är ordern inte lika viktig.
 
 ### <a name="properties"></a>Egenskaper
 
- Om du vill se de egenskaper som kan ändras i stencilerna väljer du stencilen och informationen fylls i. I följande exempel visas före och efter att en **databas** stencil dras till diagrammet:
+ Om du vill se vilka egenskaper som kan ändras på stencilerna markerar du stencilen och informationen fylls i därefter. I följande exempel visas före och efter att en **databasstencil** dras till diagrammet:
 
 #### <a name="before"></a>Före
 
@@ -156,49 +156,49 @@ Du kan ansluta element på två sätt:
 
 ### <a name="messages"></a>Meddelanden
 
-Om du skapar en hot modell och glömmer att ansluta data flöden till element får du ett meddelande. Du kan ignorera meddelandet, eller så kan du följa anvisningarna för att åtgärda problemet. 
+Om du skapar en hotmodell och glömmer att ansluta dataflöden till element får du ett meddelande. Du kan ignorera meddelandet eller följa instruktionerna för att åtgärda problemet. 
 
 ![Meddelanden](./media/threat-modeling-tool-feature-overview/messages.png)
 
 ### <a name="notes"></a>Anteckningar
 
-Om du vill lägga till anteckningar i diagrammet växlar du från fliken **meddelanden** till fliken **anteckningar** .
+Om du vill lägga till anteckningar i diagrammet växlar du från fliken **Meddelanden** till fliken **Anteckningar.**
 
 ## <a name="analysis-view"></a>Analysvy
 
-När du har skapat diagrammet väljer du **analys** symbolen (förstorings glaset) i verktygsfältet genvägar för att växla till vyn **Analysvy** .
+När du har skapat diagrammet väljer du **analyssymbolen** (förstoringsglaset) i verktygsfältet genvägar för att växla till **analysvyn.**
 
 ![Analysvy](./media/threat-modeling-tool-feature-overview/analysisview.png)
 
-### <a name="generated-threat-selection"></a>Genererat hot-val
+### <a name="generated-threat-selection"></a>Genererad hotval
 
-När du väljer ett hot kan du använda tre distinkta funktioner:
+När du väljer ett hot kan du använda tre olika funktioner:
 
 | Funktion                               | Information      |
 | --------------------------------------- | ------------ |
-| **Läs indikator** | <p>Hotet markeras som läst, vilket hjälper dig att hålla koll på de objekt som du har granskat.</p><p>![Läs-/oläst indikator](./media/threat-modeling-tool-feature-overview/readmode.png)</p> |
-| **Interaktions fokus** | <p>Interaktion i diagrammet som tillhör ett hot är markerat.</p><p>![Interaktions fokus](./media/threat-modeling-tool-feature-overview/interactionfocus.png)</p> |
-| **Hot egenskaper** | <p>Ytterligare information om hotet visas i fönstret **hot egenskaper** .</p><p>![hot egenskaper](./media/threat-modeling-tool-feature-overview/threatproperties.png)</p> |
+| **Läs indikator** | <p>Hotet markeras som läst, vilket hjälper dig att hålla reda på de objekt du granskat.</p><p>![Indikator för läsning/oläst](./media/threat-modeling-tool-feature-overview/readmode.png)</p> |
+| **Interaktion fokus** | <p>Interaktion i diagrammet som tillhör ett hot markeras.</p><p>![Interaktion fokus](./media/threat-modeling-tool-feature-overview/interactionfocus.png)</p> |
+| **Hotegenskaper** | <p>Ytterligare information om hotet visas i fönstret **Hotegenskaper.**</p><p>![Hotegenskaper](./media/threat-modeling-tool-feature-overview/threatproperties.png)</p> |
 
-### <a name="priority-change"></a>Prioritets ändring
+### <a name="priority-change"></a>Prioriterad ändring
 
-Du kan ändra prioritets nivån för varje genererat hot. Olika färger gör det enkelt att identifiera hot med hög, medelhög och låg prioritet.
+Du kan ändra prioritetsnivån för varje genererat hot. Olika färger gör det enkelt att identifiera hot med hög, medelhög och låg prioritet.
 
-![Prioritets ändring](./media/threat-modeling-tool-feature-overview/prioritychange.png)
+![Prioriterad ändring](./media/threat-modeling-tool-feature-overview/prioritychange.png)
 
-### <a name="threat-properties-editable-fields"></a>Redigerbara fält för hot egenskaper
+### <a name="threat-properties-editable-fields"></a>Redigerbara fält för hotegenskaper
 
-Som du ser i föregående bild kan du ändra den information som genereras av verktyget. Du kan också lägga till information i vissa fält, till exempel motivering. Dessa fält genereras av mallen. Om du behöver mer information för varje hot kan du göra ändringar.
+Som framgår av föregående bild kan du ändra informationen som genereras av verktyget. Du kan också lägga till information i vissa fält, till exempel motivering. Dessa fält genereras av mallen. Om du behöver mer information för varje hot kan du göra ändringar.
 
-![Hot egenskaper](./media/threat-modeling-tool-feature-overview/threatproperties.png)
+![Hotegenskaper](./media/threat-modeling-tool-feature-overview/threatproperties.png)
 
 ## <a name="reports"></a>Rapporter
 
-När du har ändrat prioritet och uppdaterat statusen för varje genererat hot kan du spara filen och/eller skriva ut en rapport. Gå till **rapport** > **skapa en fullständig rapport**. Namnge rapporten och se något som liknar följande bild:
+När du har ändrat prioritet och uppdaterat statusen för varje genererat hot kan du spara filen och/eller skriva ut en rapport. Gå till **Rapportera** > **Skapa fullständig rapport**. Namnge rapporten och du bör se något som liknar följande bild:
 
 ![Rapport](./media/threat-modeling-tool-feature-overview/report.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Skicka frågor, kommentarer och problem till tmtextsupport@microsoft.com. **[Hämta](https://aka.ms/threatmodelingtool)** Threat Modeling Tool för att komma igång.
-- Om du vill bidra till en mall för communityn går du till vår [GitHub](https://github.com/Microsoft/threat-modeling-templates) -sida.
+- Skicka dina frågor, kommentarer tmtextsupport@microsoft.comoch funderingar till . **[Ladda ned](https://aka.ms/threatmodelingtool)** verktyget för hotmodellering för att komma igång.
+- Om du vill bidra med en mall för communityn går du till vår [GitHub-sida.](https://github.com/Microsoft/threat-modeling-templates)

@@ -1,6 +1,6 @@
 ---
-title: Webbläsare och enheter som stöds för Azure Portal | Microsoft Docs
-description: Du kan använda Azure Portal på alla moderna enheter och med de senaste webb läsar versionerna. Läs den här artikeln för att vara säker på att din webbläsare stöds.
+title: Webbläsare och enheter som stöds för Azure Portal | Microsoft-dokument
+description: Du kan använda Azure-portalen på alla moderna enheter och med de senaste webbläsarversionerna. Läs den här artikeln för att vara säker på att din webbläsare stöds.
 services: azure-portal
 documentationcenter: ''
 author: adamabmsft
@@ -16,15 +16,15 @@ ms.date: 12/20/2019
 ms.author: mblythe
 ms.custom: accessibility
 ms.openlocfilehash: 792864022cb7c1b2b4b43a4980d86e32b213525c
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75640112"
 ---
 # <a name="supported-devices"></a>Enheter som stöds
 
-[Azure Portal](https://portal.azure.com) är en webbaserad konsol och körs i webbläsaren av alla moderna skriv bord och Tablet-enheter. Om du behöver hantera Azure-resurser från en mobil enhet kan du försöka med [Azure-mobilapp](https://azure.microsoft.com/features/azure-portal/mobile-app/). Den är tillgänglig för iOS och Android.
+[Azure-portalen](https://portal.azure.com) är en webbaserad konsol och körs i webbläsaren på alla moderna stationära datorer och surfplattor. Om du behöver hantera Azure-resurser från en mobil enhet kan du prova [Azure-mobilappen](https://azure.microsoft.com/features/azure-portal/mobile-app/). Den är tillgänglig för iOS och Android.
 
 ## <a name="recommended-browsers"></a>Rekommenderade webbläsare
 

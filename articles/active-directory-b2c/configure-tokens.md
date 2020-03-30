@@ -1,6 +1,6 @@
 ---
-title: Konfigurera tokens – Azure Active Directory B2C | Microsoft Docs
-description: Lär dig hur du konfigurerar livs längd och kompatibilitetsinställningar för token i Azure Active Directory B2C.
+title: Konfigurera token – Azure Active Directory B2C | Microsoft-dokument
+description: Lär dig hur du konfigurerar inställningarna för tokenlivstid och kompatibilitet i Azure Active Directory B2C.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
@@ -11,46 +11,46 @@ ms.date: 04/16/2019
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 160898f8535d3dad4811af016ebca779b7ef43a8
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78189625"
 ---
-# <a name="configure-tokens-in-azure-active-directory-b2c"></a>Konfigurera tokens i Azure Active Directory B2C
+# <a name="configure-tokens-in-azure-active-directory-b2c"></a>Konfigurera token i Azure Active Directory B2C
 
-I den här artikeln får du lära dig hur du konfigurerar [livs längd och kompatibilitet för en token](tokens-overview.md) i Azure Active Directory B2C (Azure AD B2C).
+I den här artikeln får du lära dig hur du konfigurerar [livslängden och kompatibiliteten för en token](tokens-overview.md) i Azure Active Directory B2C (Azure AD B2C).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-[Skapa ett användar flöde](tutorial-create-user-flows.md) så att användarna kan registrera sig och logga in i programmet.
+[Skapa ett användarflöde](tutorial-create-user-flows.md) så att användarna kan registrera sig och logga in på ditt program.
 
-## <a name="configure-token-lifetime"></a>Konfigurera livs längd för token
+## <a name="configure-token-lifetime"></a>Konfigurera tokenlivslängd
 
-Du kan konfigurera livs längden för token för ett användar flöde.
+Du kan konfigurera tokenlivstiden för alla användarflöden.
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
-2. Kontrol lera att du använder den katalog som innehåller din Azure AD B2C-klient. Välj **katalog + prenumerations** filter på den översta menyn och välj den katalog som innehåller Azure AD B2C klienten.
-3. Välj **Alla tjänster** på menyn uppe till vänster i Azure Portal. Sök sedan efter och välj **Azure AD B2C**.
-4. Välj **användar flöden (principer)** .
-5. Öppna det användar flöde som du skapade tidigare.
-6. Välj **Egenskaper**.
-7. Under **token livs längd**justerar du följande egenskaper så att de passar dina programs behov:
+2. Kontrollera att du använder katalogen som innehåller din Azure AD B2C-klient. Välj **katalog + prenumerationsfilter** i den övre menyn och välj den katalog som innehåller din Azure AD B2C-klient.
+3. Välj **Alla tjänster** på menyn högst upp till vänster i Azure-portalen och sök efter och välj **Azure AD B2C**.
+4. Välj **Användarflöden (principer)**.
+5. Öppna användarflödet som du tidigare skapade.
+6. Välj **egenskaper**.
+7. Under **Tokenlivslängd**justerar du följande egenskaper så att de passar behoven i ditt program:
 
-    ![Egenskaps inställningar för token-livstid i Azure Portal](./media/configure-tokens/token-lifetime.png)
+    ![Egenskapsinställningar för tokenlivstid i Azure-portalen](./media/configure-tokens/token-lifetime.png)
 
-8. Klicka på **Save** (Spara).
+8. Klicka på **Spara**.
 
-## <a name="configure-token-compatibility"></a>Konfigurera token-kompatibilitet
+## <a name="configure-token-compatibility"></a>Konfigurera tokenkompatibilitet
 
-1. Välj **användar flöden (principer)** .
-2. Öppna det användar flöde som du skapade tidigare.
-3. Välj **Egenskaper**.
-4. Under **Inställningar för token-kompatibilitet**justerar du följande egenskaper efter dina programs behov:
+1. Välj **Användarflöden (principer)**.
+2. Öppna användarflödet som du tidigare skapade.
+3. Välj **egenskaper**.
+4. Justera följande egenskaper under inställningar för **tokenkompatibilitet**så att de passar programmets behov:
 
-    ![Egenskaps inställningar för token-kompatibilitet i Azure Portal](./media/configure-tokens/token-compatibility.png)
+    ![Egenskapsinställningar för tokenkompatibilitet i Azure-portalen](./media/configure-tokens/token-compatibility.png)
 
-5. Klicka på **Save** (Spara).
+5. Klicka på **Spara**.
 
 ## <a name="next-steps"></a>Nästa steg
 

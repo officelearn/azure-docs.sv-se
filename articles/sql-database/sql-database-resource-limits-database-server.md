@@ -1,6 +1,6 @@
 ---
-title: Azure SQL Database resurs gränser | Microsoft Docs
-description: Den här artikeln ger en översikt över Azure SQL Database resurs gränser för enskilda databaser och elastiska pooler. Den innehåller också information om vad som händer när dessa resurs gränser nåtts eller överskrids.
+title: Resursbegränsningar för Azure SQL Database | Microsoft-dokument
+description: Den här artikeln innehåller en översikt över azure SQL Database-resursgränserna för enskilda databaser och elastiska pooler. Den ger också information om vad som händer när dessa resursgränser träffas eller överskrids.
 services: sql-database
 ms.service: sql-database
 ms.subservice: single-database
@@ -11,129 +11,147 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: sashan,moslake,josack
 ms.date: 11/19/2019
-ms.openlocfilehash: fa41649e002bd4845b95e787c1d0589ed1987588
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 550c315023c0ae907c369778c81b16e137004bec
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79255930"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80067249"
 ---
-# <a name="sql-database-resource-limits-and-resource-governance"></a>SQL Database resurs gränser och resurs styrning
+# <a name="sql-database-resource-limits-and-resource-governance"></a>Resursbegränsningar och resursstyrning i SQL Database
 
-Den här artikeln innehåller en översikt över SQL Database resurs gränser för en SQL Database Server som hanterar enskilda databaser och elastiska pooler. Den innehåller information om vad som händer när dessa resurs gränser nåtts eller överskrids och beskriver de resurs styrnings mekanismer som används för att genomdriva dessa gränser.
+Den här artikeln innehåller en översikt över SQL Database-resursgränserna för en SQL Database-server som hanterar enskilda databaser och elastiska pooler. Den ger information om vad som händer när dessa resursgränser träffas eller överskrids, och beskriver de resursstyrningsmekanismer som används för att tillämpa dessa gränser.
 
 > [!NOTE]
-> Begränsningar för hanterade instanser finns i [SQL Database resurs gränser för hanterade instanser](sql-database-managed-instance-resource-limits.md).
+> För begränsningar för hanterad instans, se [SQL Database-resursgränser för hanterade instanser](sql-database-managed-instance-resource-limits.md).
 
-## <a name="maximum-resource-limits"></a>Högsta antal resurs gränser
+## <a name="maximum-resource-limits"></a>Maximala resursgränser
 
 | Resurs | Gräns |
 | :--- | :--- |
 | Databaser per server | 5000 |
-| Standard antal servrar per prenumeration i valfri region | 20 |
-| Maximalt antal servrar per prenumeration i valfri region | 200 |  
-| Kvot för DTU/eDTU per server | 54,000 |  
-| vCore-kvot per Server/instans | 540 |
-| Högsta antal pooler per server | Begränsas av antalet DTU: er eller virtuella kärnor. Om varje pool till exempel är 1000 DTU: er, kan en server stödja 54-pooler.|
+| Standardantal servrar per prenumeration i valfri region | 20 |
+| Max antal servrar per prenumeration i en region | 200 |  
+| DTU / eDTU kvot per server | 54,000 |  
+| vCore-kvot per server/instans | 540 |
+| Max pooler per server | Begränsas av antalet DTUs eller virtuella kärnor. Om varje pool till exempel är 1 000 DU:er kan en server stödja 54 pooler.|
 |||
 
 > [!IMPORTANT]
-> När antalet databaser närmar sig gränsen per SQL Database Server kan följande inträffa:
+> När antalet databaser närmar sig gränsen per SQL Database-server kan följande inträffa:
 >
-> - Ökande svars tid för att köra frågor mot huvud databasen.  Detta inkluderar vyer av statistik över resursutnyttjande, till exempel sys. resource_stats.
-> - Ökande svars tid i hanterings åtgärder och åter givning av Portal synvinklar som innefattar att räkna upp databaser på servern.
+> - Öka svarstiden när du kör frågor mot huvuddatabasen.  Detta inkluderar vyer av resursanvändningsstatistik, till exempel sys.resource_stats.
+> - Ökad svarstid i hanteringsåtgärder och renderingsportalsynpunkter som innebär att databaserumrar på servern.
 
 > [!NOTE]
-> För att få mer DTU/eDTU-kvot, vCore kvot eller fler servrar än standard beloppet skickar du en ny supportbegäran i Azure Portal. Mer information finns i [begäran om kvot ökning för Azure SQL Database](quota-increase-request.md).
+> Om du vill få mer DTU/eDTU-kvot, vCore-kvot eller fler servrar än standardbeloppet skickar du en ny supportbegäran i Azure-portalen. Mer information finns i [Begär kvotökningar för Azure SQL Database](quota-increase-request.md).
 
-### <a name="storage-size"></a>Lagrings storlek
+### <a name="storage-size"></a>Lagringsstorlek
 
-För resurs lagrings storlekar för enskilda databaser, referera till antingen [DTU-baserade resurs gränser](sql-database-dtu-resource-limits-single-databases.md) eller [vCore resurs gränser](sql-database-vcore-resource-limits-single-databases.md) för lagrings storleks gränser per pris nivå.
+För enskilda databaser resurslagringsstorlekar, se antingen [DTU-baserade resursgränser](sql-database-dtu-resource-limits-single-databases.md) eller [vCore-baserade resursgränser](sql-database-vcore-resource-limits-single-databases.md) för lagringsstorleksgränserna per prisnivå.
 
-## <a name="what-happens-when-database-resource-limits-are-reached"></a>Vad händer när databas resurs gränser nås
+## <a name="what-happens-when-database-resource-limits-are-reached"></a>Vad händer när begränsningar för databasresursen nås
 
-### <a name="compute-dtus-and-edtus--vcores"></a>Compute (DTU: er och eDTU: er/virtuella kärnor)
+### <a name="compute-dtus-and-edtus--vcores"></a>Beräkning (DTI och eDTUs / vCores)
 
-När databas beräknings användningen (uppmätt av DTU: er och eDTU: er, eller virtuella kärnor) blir hög, ökar svars tiden för frågor och frågor kan till och med ta lång tid. Under dessa villkor kan frågor placeras i kö av tjänsten och de tillhandahålls resurser för att köras när resurser blir kostnads fria.
-När du räknar med hög beräknings användning är följande alternativ för minskning:
+När databasberäkningsanvändningen (mätt med DTU:er och eDTU:er eller virtuella kärnor) blir hög ökar frågefördröjningen och frågor kan till och med time out. Under dessa förhållanden kan frågor köas av tjänsten och tillhandahålls resurser för körning när resurser blir gratis.
+När du stöter på hög beräkningsutnyttjande omfattar begränsningsalternativ:
 
-- Öka beräknings storleken för databasen eller den elastiska poolen för att tillhandahålla databasen med fler beräknings resurser. Se [skala resurser för enkel databas](sql-database-single-database-scale.md) och [skala elastiska pooler](sql-database-elastic-pool-scale.md).
-- Optimera frågor för att minska resursutnyttjande för varje fråga. Mer information finns i [fråga om justering/tips](sql-database-performance-guidance.md#query-tuning-and-hinting).
+- Öka beräkningsstorleken för databasen eller den elastiska poolen för att ge databasen fler beräkningsresurser. Se [Skala enskilda databasresurser](sql-database-single-database-scale.md) och [Skala elastiska poolresurser](sql-database-elastic-pool-scale.md).
+- Optimera frågor för att minska resursutnyttjandet av varje fråga. Mer information finns i [Frågejustering/tips .](sql-database-performance-guidance.md#query-tuning-and-hinting)
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>Lagring
 
-När databas utrymmet som används når den maximala storleks gränsen, infogas och uppdateras databasen som ökar data storleken och klienterna får ett [fel meddelande](troubleshoot-connectivity-issues-microsoft-azure-sql-database.md). SELECT-och DELETE-instruktioner fortsätter att fungera.
+När databasutrymmet som används når maxstorleksgränsen, infogar och uppdaterar databasen som ökar datastorleken misslyckas och klienter får ett [felmeddelande](troubleshoot-connectivity-issues-microsoft-azure-sql-database.md). SELECT- och DELETE-satser fortsätter att lyckas.
 
-När du ska räkna med hög användnings utrymme är alternativen för minskning:
+När du stöter på hög utrymmesutnyttjande omfattar begränsningsalternativ:
 
-- Öka den maximala storleken på databasen eller den elastiska poolen eller lägga till mer lagrings utrymme. Se [skala resurser för enkel databas](sql-database-single-database-scale.md) och [skala elastiska pooler](sql-database-elastic-pool-scale.md).
-- Om databasen finns i en elastisk pool kan du eventuellt flytta databasen utanför poolen så att lagrings utrymmet inte delas med andra databaser.
-- Krymp en databas för att frigöra outnyttjat utrymme. Mer information finns i [Hantera fil utrymme i Azure SQL Database](sql-database-file-space-management.md)
+- Öka databasens eller den elastiska poolens maxstorlek eller lägga till mer lagringsutrymme. Se [Skala enskilda databasresurser](sql-database-single-database-scale.md) och [Skala elastiska poolresurser](sql-database-elastic-pool-scale.md).
+- Om databasen finns i en elastisk pool kan databasen flyttas utanför poolen så att dess lagringsutrymme inte delas med andra databaser.
+- Förminska en databas för att frigöra oanvänt utrymme. Mer information finns [i Hantera filutrymme i Azure SQL Database](sql-database-file-space-management.md)
 
-### <a name="sessions-and-workers-requests"></a>Sessioner och arbetare (begär Anden)
+### <a name="sessions-and-workers-requests"></a>Sessioner och arbetare (förfrågningar)
 
-Det maximala antalet sessioner och arbets tagare bestäms av tjänst nivån och beräknings storleken (DTU: er/eDTU: er eller virtuella kärnor. Nya begär Anden avvisas när sessioner eller arbets gränser nås och klienter får ett fel meddelande. Även om antalet tillgängliga anslutningar kan styras av programmet är antalet samtidiga arbetare ofta svårare att uppskatta och kontrol lera. Detta gäller särskilt under belastnings perioder när databas resurs gränser har nåtts och arbets grupper registreras på grund av längre körnings frågor, stora spärrnings kedjor eller alltför lång frågans parallellitet.
+Det maximala antalet sessioner och arbetare bestäms av tjänstnivån och beräkningsstorleken (DTU:er/eDTU:er eller virtuella kärnor). Nya begäranden avvisas när sessions- eller arbetargränser nås och klienter får ett felmeddelande. Även om antalet tillgängliga anslutningar kan styras av programmet, är antalet samtidiga arbetstagare ofta svårare att uppskatta och kontrollera. Detta gäller särskilt under högbelastningsperioder när databasresursgränser nås och arbetare samlas på grund av längre frågor som körs, stora blockeringskedjor eller överdriven frågeparallellisering.
 
-När du räknar med hög arbets belastning eller arbets belastning, är alternativ för minskning följande:
+När du stöter på hög sessions- eller arbetaranvändning omfattar begränsningsalternativ:
 
-- Öka tjänst nivån eller beräknings storleken för databasen eller den elastiska poolen. Se [skala resurser för enkel databas](sql-database-single-database-scale.md) och [skala elastiska pooler](sql-database-elastic-pool-scale.md).
-- Optimering av frågor för att minska resursutnyttjande för varje fråga om orsaken till ökad arbets belastning beror på konkurrens för beräknings resurser. Mer information finns i [fråga om justering/tips](sql-database-performance-guidance.md#query-tuning-and-hinting).
+- Öka tjänstnivån eller beräkningsstorleken för databasen eller den elastiska poolen. Se [Skala enskilda databasresurser](sql-database-single-database-scale.md) och [Skala elastiska poolresurser](sql-database-elastic-pool-scale.md).
+- Optimera frågor för att minska resursutnyttjandet för varje fråga om orsaken till ökad arbetsutnyttjande beror på konkurrens om beräkningsresurser. Mer information finns i [Frågejustering/tips .](sql-database-performance-guidance.md#query-tuning-and-hinting)
+- Minska [inställningen MAXDOP](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-the-max-degree-of-parallelism-server-configuration-option#Guidelines) (maximal grad av parallellism).
+- Optimera frågearbetsbelastningen för att minska antalet förekomster och varaktigheten av frågeblockering.
+
+### <a name="resource-consumption-by-user-workloads-and-internal-processes"></a>Resursförbrukning efter användararbetsbelastningar och interna processer
+
+Cpu- och minnesförbrukning av användararbetsbelastningar i varje databas rapporteras i [vyerna sys.dm_db_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database?view=azuresqldb-current) `avg_cpu_percent` och `avg_memory_usage_percent` [sys.resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database?view=azuresqldb-current) i och kolumner. För elastiska pooler rapporteras resursförbrukning på poolnivå i [vyn sys.elastic_pool_resource_stats.](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database) Processorförbrukning för användararbetsbelastning rapporteras `cpu_percent` också via Azure Monitor-måttet för [enskilda databaser](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported#microsoftsqlserversdatabases) och [elastiska pooler](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported#microsoftsqlserverselasticpools) på poolnivå.
+
+Azure SQL Database kräver beräkningsresurser för att implementera grundläggande tjänstfunktioner som hög tillgänglighet och haveriberedskap, säkerhetskopiering och återställning av databaser, övervakning, Query Store, Automatisk justering osv. Systemet avsätter en viss begränsad del av de totala resurserna för dessa interna processer med hjälp av [resursstyrningsmekanismer,](#resource-governance) vilket gör resten av resurserna tillgängliga för användararbetsbelastningar. I tider när interna processer inte använder beräkningsresurser gör systemet dem tillgängliga för användararbetsbelastningar.
+
+Total cpu- och minnesförbrukning per användararbetsbelastning och interna processer i SQL Server-instansen som är värd för en enskild databas `avg_instance_cpu_percent` eller `avg_instance_memory_percent` en elastisk pool rapporteras i [vyerna sys.dm_db_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database?view=azuresqldb-current) och [sys.resource_stats,](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database?view=azuresqldb-current) i och kolumner. Dessa data rapporteras också `sqlserver_process_core_percent` `sqlserver_process_memory_percent` via måtten och Azure Monitor, för [enskilda databaser](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported#microsoftsqlserversdatabases) och [elastiska pooler](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported#microsoftsqlserverselasticpools) på poolnivå.
+
+En mer detaljerad uppdelning av den senaste resursförbrukningen efter användararbetsbelastningar och interna processer rapporteras i [vyerna sys.dm_resource_governor_resource_pools_history_ex](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-resource-governor-resource-pools-history-ex-azure-sql-database) och [sys.dm_resource_governor_workload_groups_history_ex.](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-resource-governor-workload-groups-history-ex-azure-sql-database) Mer information om resurspooler och arbetsbelastningsgrupper som refereras i dessa vyer finns i [Resursstyrning](#resource-governance). Dessa vyer rapporterar om resursutnyttjande av användararbetsbelastningar och specifika interna processer i associerade resurspooler och arbetsbelastningsgrupper.
+
+I samband med prestandaövervakning och felsökning är det viktigt att`avg_cpu_percent`ta `cpu_percent`hänsyn till både **användar-CPU-förbrukning** `sqlserver_process_core_percent`( , ), och **total CPU-förbrukning** av användararbetsbelastningar och interna processer (`avg_instance_cpu_percent`, ).
+
+**Användar-CPU-förbrukning** beräknas som en procentandel av användararbetsbelastningsgränserna i varje tjänstmål. **Användar-CPU-användning** på 100% anger att användararbetsbelastningen har nått gränsen för tjänstmålet. Men när den **totala CPU-förbrukningen** når intervallet 70-100% är det möjligt att se dataflödet för användararbetsbelastningen som planlägger ut och frågefördröjningen ökar, även om den rapporterade **processorförbrukningen** för användare fortfarande ligger betydligt under 100 %. Detta är mer sannolikt att inträffa när du använder mindre servicemål med en måttlig fördelning av beräkningsresurser, men relativt intensiva användararbetsbelastningar, till exempel i [täta elastiska pooler](sql-database-elastic-pool-resource-management.md). Detta kan också inträffa med mindre servicemål när interna processer tillfälligt kräver ytterligare resurser, till exempel när du skapar en ny replik av databasen.
+
+När **den totala CPU-förbrukningen** är hög är begränsningsalternativen desamma som tidigare nämnts och inkluderar optimering av tjänstmålsmål och/eller användararbetsbelastning.
 
 ## <a name="resource-governance"></a>Resursstyrning
 
-Om du vill framtvinga resurs gränserna använder Azure SQL Database en resurs styrnings implementering som baseras på SQL Server [Resource Governor](https://docs.microsoft.com/sql/relational-databases/resource-governor/resource-governor), modifierad och utökad för att köra en SQL Server databas tjänst i Azure. På varje SQL Server instans i tjänsten finns det flera [resurspooler](https://docs.microsoft.com/sql/relational-databases/resource-governor/resource-governor-resource-pool) och [arbets belastnings grupper](https://docs.microsoft.com/sql/relational-databases/resource-governor/resource-governor-workload-group), med resurs gränser inställda på både pool-och grupp nivåer för att tillhandahålla en [bal anse rad databas som en tjänst](https://azure.microsoft.com/blog/resource-governance-in-azure-sql-database/). Användarens arbets belastning och interna arbets belastningar klassificeras till separata resurspooler och arbets belastnings grupper. Användarens arbets belastning på de primära och läsbara sekundära replikerna, inklusive geo-replikeringar, klassificeras i `SloSharedPool1` resurspoolen och `UserPrimaryGroup.DBId[N]` arbets belastnings gruppen där `N` står för databas-ID-värdet. Det finns dessutom flera resurspooler och arbets belastnings grupper för olika interna arbets belastningar.
+För att framtvinga resursgränser använder Azure SQL Database en implementering av resursstyrning som baseras på SQL Server [Resource Governor](https://docs.microsoft.com/sql/relational-databases/resource-governor/resource-governor), ändrad och utökad för att köra en SQL Server-databastjänst i Azure. På varje SQL Server-instans i tjänsten finns det flera [resurspooler](https://docs.microsoft.com/sql/relational-databases/resource-governor/resource-governor-resource-pool) och [arbetsbelastningsgrupper](https://docs.microsoft.com/sql/relational-databases/resource-governor/resource-governor-workload-group), med resursgränser som anges på både pool- och gruppnivåer för att tillhandahålla en [balanserad databas som en tjänst](https://azure.microsoft.com/blog/resource-governance-in-azure-sql-database/). Användararbetsbelastning och interna arbetsbelastningar delas in i separata resurspooler och arbetsbelastningsgrupper. Användararbetsbelastningen på de primära och läsbara sekundära replikerna, `SloSharedPool1` inklusive georepliker, klassificeras i resurspoolen och `UserPrimaryGroup.DBId[N]` arbetsbelastningsgruppen, där `N` står för databas-ID-värdet. Dessutom finns det flera resurspooler och arbetsbelastningsgrupper för olika interna arbetsbelastningar.
 
-Förutom att använda Resource Governor för att styra resurser inom SQL Servers processen, använder Azure SQL Database även Windows- [jobb objekt](https://docs.microsoft.com/windows/win32/procthread/job-objects) för resurs styrning på processnivå och Windows [hanteraren för fil server resurser (FSRM)](https://docs.microsoft.com/windows-server/storage/fsrm/fsrm-overview) för lagrings kvot hantering.
+Förutom att använda resursflagre för att styra resurser inom SQL Server-processen använder Azure SQL Database också Windows [Job Objects](https://docs.microsoft.com/windows/win32/procthread/job-objects) för resursstyrning på processnivå och [FSRM (Windows File Server Resource Manager)](https://docs.microsoft.com/windows-server/storage/fsrm/fsrm-overview) för hantering av lagringskvoter.
 
-Azure SQL Database resurs styrning är hierarkiskt beslagen. Uppifrån och ned tillämpas gränser på OS-nivå och på lagrings volym nivå med hjälp av mekanismer för styrning av operativ system resurser och Resource Governor, sedan på resurspoolen med Resource Governor och sedan på arbets belastnings grupps nivå med Resource Governor. Resurs styrnings gränser som gäller för den aktuella databasen eller den elastiska poolen visas i vyn [sys. dm_user_db_resource_governance](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-user-db-resource-governor-azure-sql-database) . 
+Azure SQL Database resursstyrning är hierarkisk karaktär. Från uppifrån och ned tillämpas gränser på OS-nivå och på lagringsvolymnivå med hjälp av mekanismer för styrning av operativsystemets resurser och resurschef, sedan på resurspoolnivå med hjälp av resurschef och sedan på arbetsbelastningsgruppsnivå med hjälp av Resurschef. Resursstyrningsgränser som gäller för den aktuella databasen eller den elastiska poolen visas i [vyn sys.dm_user_db_resource_governance.](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-user-db-resource-governor-azure-sql-database) 
 
-### <a name="data-io-governance"></a>Data IO-styrning
+### <a name="data-io-governance"></a>Styrning av data-IO
 
-Data IO-styrning är en process i Azure SQL Database som används för att begränsa både Läs-och skriv fysisk IO mot datafiler i en databas. IOPS-gränser ställs in för varje service nivå för att minimera effekterna "störnings Grans kraft", för att tillhandahålla skälighet i tjänsten för flera innehavare och för att hålla sig inom funktionerna i den underliggande maskin varan och lagringen.
+Data-IO-styrning är en process i Azure SQL Database som används för att begränsa både läsa och skriva fysisk IO mot datafiler i en databas. IOPS-gränser har angetts för varje tjänstnivå för att minimera effekten "bullrig granne", för att ge resursallokering rättvisa i tjänsten med flera innehavare och för att hålla sig inom funktionerna för den underliggande maskinvaran och lagringen.
 
-För enskilda databaser tillämpas gränser för arbets belastnings grupper för alla lagrings-i/o mot databasen, medan gränserna för resurspooler gäller för all lagrings-i/o för alla databaser på samma SQL Server instans, inklusive `tempdb`-databasen. För elastiska pooler gäller begränsningarna för arbets belastnings gruppen för varje databas i poolen, medan gränsen för resurspooler gäller hela den elastiska poolen, inklusive `tempdb` databasen, som delas mellan alla databaser i poolen. I allmänhet är det inte säkert att gränserna för resurspooler kan uppnås av arbets belastningen mot en databas (antingen en eller en pool), eftersom gränserna för arbets belastnings gruppen är lägre än begränsningen för resurspool och begränsar IOPS/genomflöde tidigare. Pool gränser kan dock nås av den kombinerade arbets belastningen mot flera databaser på samma SQL Server instans.
+För enskilda databaser tillämpas arbetsbelastningsgruppgränser för all lagrings-IO mot databasen, medan resurspoolgränser gäller för alla lagrings-IO mot alla databaser i samma SQL Server-instans, inklusive `tempdb` databasen. För elastiska pooler gäller arbetsbelastningsgruppgränser för varje databas i poolen, medan `tempdb` resurspoolgränsen gäller för hela den elastiska poolen, inklusive databasen, som delas mellan alla databaser i poolen. I allmänhet kan det hända att resurspoolgränser inte kan uppnås av arbetsbelastningen mot en databas (antingen enstaka eller poolade), eftersom arbetsbelastningsgruppgränserna är lägre än resurspoolgränser och begränsar IOPS/dataflöde tidigare. Poolgränser kan dock nås av den kombinerade arbetsbelastningen mot flera databaser på samma SQL Server-instans.
 
-Om en fråga till exempel genererar 1000 IOPS utan någon IO-resurs styrning, men den högsta IOPS-gränsen för arbets belastnings gruppen är inställd på 900 IOPS, kan inte frågan generera mer än 900 IOPS. Men om max antalet IOPS för resurspoolen är inställt på 1500 IOPS och total i/o från alla arbets belastnings grupper som är associerade med resurspoolen överskrider 1500 IOPS, kan i/o för samma fråga minskas under arbets gruppens gräns på 900 IOPS.
+Om en fråga till exempel genererar 1 000 IOPS utan IO-resursstyrning, men arbetsbelastningsgruppens maximala IOPS-gräns är inställd på 900 IOPS, kan frågan inte generera mer än 900 IOPS. Men om resurspoolens maximala IOPS-gräns är inställd på 1500 IOPS och den totala IO:n från alla arbetsbelastningsgrupper som är associerade med resurspoolen överstiger 1500 IOPS, kan IO för samma fråga minskas under arbetsgruppsgränsen på 900 IOPS.
 
-Värdena för IOPS och data flöde som returnerades av [sys. dm_user_db_resource_governance](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-user-db-resource-governor-azure-sql-database) -vyn fungerar som gränser/versaler, inte som garantier. Vidare garanterar resurs styrning inte någon bestämd lagrings fördröjning. Den bästa tillgängliga svars tiden, IOPS och data flödet för en specifik användar arbets belastning är beroende inte bara av gränser för i/o-resursens styrning, utan även på den kombination av IO-storlek som används och på funktionerna i det underliggande lagrings utrymmet. SQL Server använder IOs som varierar i storlek mellan 512 KB och 4 MB. I syfte att framtvinga IOPS-gränser redovisas varje IO oavsett storlek, med undantag för databaser med datafiler i Azure Storage. I så fall redovisas IOs som är större än 256 KB som flera 256 KB IOs, för att justera med Azure Storage i/o-redovisning.
+IOPS- och dataflödesmin/max-värdena som returneras av [vyn sys.dm_user_db_resource_governance](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-user-db-resource-governor-azure-sql-database) fungerar som gränser/tak, inte som garantier. Dessutom garanterar resursstyrning inte någon specifik lagringsfördröjning. Den bästa uppnåeliga svarstiden, IOPS och dataflöde för en viss användararbetsbelastning beror inte bara på IO-resursstyrningsgränser, utan också på blandningen av IO-storlekar som används och på funktionerna i den underliggande lagringen. SQL Server använder IOs som varierar i storlek mellan 512 KB och 4 MB. För att tillämpa IOPS-gränser redovisas varje IO oavsett storlek, med undantag för databaser med datafiler i Azure Storage. I så fall redovisas IOs som är större än 256 KB som flera 256 KB IOs, för att anpassa sig till Azure Storage IO-redovisning.
 
-För Basic-, standard-och Generell användning-databaser, som använder datafiler i Azure Storage, kanske `primary_group_max_io` svärdet inte kan nås om en databas inte har tillräckligt med datafiler för att ackumulera antalet IOPS, eller om data inte fördelas jämnt över filer, eller om prestanda nivån för underliggande blobbar begränsar IOPS/data flödet under resurs styrnings gränsen. På samma sätt kan `primary_max_log_rate`-värdet inte uppnås av en arbets belastning på grund av IOPS-gränsen för den underliggande Azure Storage-blobben, med en liten logg-IOs som genereras av transaktions överföringen ofta.
+För basic-, standard- och general purpose-databaser, som `primary_group_max_io` använder datafiler i Azure Storage, kanske värdet inte kan uppnås om en databas inte har tillräckligt med datafiler för att kumulativt ange det här antalet IOPS, eller om data inte distribueras jämnt mellan filer, eller om prestandanivån för underliggande blobbar begränsar IOPS/dataflöde under resursstyrningsgränsen. På samma sätt, med små logg-IOs `primary_max_log_rate` som genereras av frekventa transaktionsförsetagande, kan värdet inte uppnås av en arbetsbelastning på grund av IOPS-gränsen för den underliggande Azure storage-bloben.
 
-Värdena för resursutnyttjande, till exempel `avg_data_io_percent` och `avg_log_write_percent`, som rapporteras i vyerna [sys. dm_db_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database), [sys. resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database)och [sys. elastic_pool_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database) beräknas som procent andelar av maximala resurs styrnings gränser. När andra faktorer än resurs styrningen begränsar IOPS/data flödet, är det möjligt att se att utökningar av IOPS/genom strömning och fördröjning ökar när arbets belastningen ökar, även om rapporterat resursutnyttjande är lägre än 100%. 
+Resursutnyttjandevärden `avg_data_io_percent` `avg_log_write_percent`som och , som rapporteras i [system.dm_db_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database), [sys.resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database)och [sys.elastic_pool_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database) vyer, beräknas som procentandelar av maximala resursstyrningsgränser. När andra faktorer än resursstyrning begränsar IOPS/dataflöde är det därför möjligt att se IOPS/dataflöde som planar ut och svarstider ökar när arbetsbelastningen ökar, även om det rapporterade resursutnyttjandet fortfarande är lägre än 100 %. 
 
-Om du vill se läsa och skriva IOPS, data flöde och svars tid per databas fil använder du funktionen [sys. dm_io_virtual_file_stats ()](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-io-virtual-file-stats-transact-sql) . Den här funktionen delar alla IO: t i databasen, inklusive Background IO som inte redovisas mot `avg_data_io_percent`, men använder IOPS och data flödet för den underliggande lagringen och kan påverka observerad lagrings fördröjning. Funktionen hämtar också ytterligare latens som kan introduceras av i/o-resursens styrning för läsningar och skrivningar, i `io_stall_queued_read_ms` respektive `io_stall_queued_write_ms` kolumner.
+Om du vill visa IOPS, dataflöde och svarstid per databasfil använder du funktionen [sys.dm_io_virtual_file_stats().](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-io-virtual-file-stats-transact-sql) Den här funktionen visar all IO mot databasen, inklusive `avg_data_io_percent`bakgrunds-I/O som inte redovisas i , men använder IOPS och dataflöde för den underliggande lagringen och kan påverka observerade lagringsfördröjningar. Funktionen visar också ytterligare svarstid som kan införas av IO-resursstyrning `io_stall_queued_read_ms` för `io_stall_queued_write_ms` läsningar och skrivningar, i respektive kolumnerna.
 
-### <a name="transaction-log-rate-governance"></a>Hastighets styrning för transaktions logg
+### <a name="transaction-log-rate-governance"></a>Styrning av transaktionslogghastighet
 
-Styrning av transaktions logg hastighet är en process i Azure SQL Database som används för att begränsa hög förbruknings frekvens för arbets belastningar som Mass infogning, SELECT INTO och indexe build. Dessa gränser spåras och framtvingas på den andra nivån till frekvensen för genereringen av logg poster, vilket begränsar data flödet, oavsett hur många IOs som kan utfärdas mot datafiler.  Taxan för transaktions logg skapande skalas linjärt upp till en punkt som är maskin vara beroende av, med den högsta logg frekvensen som tillåts som 96 MB/s med vCore inköps modell. 
+Styrning av transaktionslogghastighet är en process i Azure SQL Database som används för att begränsa höga inmatningshastigheter för arbetsbelastningar som massinfogning, SELECT INTO och indexversioner. Dessa gränser spåras och tillämpas på undersekundnivå till hastigheten för generering av loggpost, vilket begränsar dataflödet oavsett hur många IOs kan utfärdas mot datafiler.  Genereringsfrekvensen för transaktionsloggar skalas för närvarande linjärt upp till en punkt som är maskinvaruberoende, med den högsta tillåtna logghastigheten är 96 MB/s med vCore-inköpsmodellen. 
 
 > [!NOTE]
-> Faktiska fysiska IOs till transaktionsloggfiler är inte reglerade eller begränsade.
+> De faktiska fysiska IOs till transaktionsloggfiler styrs inte eller begränsas.
 
-Logg taxan ställs in så att de kan uppnås och hanteras i flera olika scenarier, medan det övergripande systemet kan underhålla sin funktionalitet med minimerad påverkan på användar belastningen. Styrning av logg hastighet säkerställer att säkerhets kopior av transaktions loggar stannar inom publicerings service avtal.  Denna styrning förhindrar också en alltför lång efter släpning på sekundära repliker.
+Logghastigheter är inställda så att de kan uppnås och upprätthållas i en mängd olika scenarier, medan det övergripande systemet kan behålla sin funktionalitet med minimerad påverkan på användarbelastningen. Loggfrekvensstyrning säkerställer att säkerhetskopiering av transaktionsloggar håller sig inom publicerade återställnings- och säkerhets-SLA:er.  Den här styrningen förhindrar också en överdriven eftersläpning på sekundära repliker.
 
-När logg poster skapas utvärderas och utvärderas varje åtgärd för om den ska fördröjas för att upprätthålla den högsta önskade logg frekvensen (MB/s per sekund). Fördröjningarna läggs inte till när logg posterna töms på lagringen, i takt med att logg takts styrningen används vid själva genereringen av logg hastighet.
+När loggposter genereras utvärderas och utvärderas varje åtgärd för om den ska fördröjas för att upprätthålla en maximal önskad logghastighet (MB/s per sekund). Fördröjningarna läggs inte till när loggposterna rensas till lagring, utan logghastighetsstyrning tillämpas under själva logghastighetsgenereringen.
 
-De faktiska taxan för logg skapande som påförs vid körning kan också påverkas av feedback-mekanismer, vilket tillfälligt minskar de tillåtna logg priserna så att systemet kan stabiliseras. Hantering av logg fil utrymme, Undvik att köra i slut på logg utrymmes villkor och replikering av tillgänglighets grupper kan tillfälligt minska de totala system gränserna.
+De faktiska logggenereringshastigheterna som införts vid körning kan också påverkas av återkopplingsmekanismer, vilket tillfälligt minskar de tillåtna logghastigheterna så att systemet kan stabiliseras. Hantering av loggfilutrymme, undvika att köra in i ut ur loggutrymmesförhållanden och replikeringsmekanismer för tillgänglighetsgrupper kan tillfälligt minska de totala systemgränserna.
 
-Trafikstyrningen för logg hastighets styrning sker via följande vänte typer (visas i [sys. dm_db_wait_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-wait-stats-azure-sql-database) DMV):
+Logghastighetsregulator trafikformning visas via följande vänta typer (exponeras i [sys.dm_db_wait_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-wait-stats-azure-sql-database) DMV):
 
-| Wait-typ | Anteckningar |
+| Typ av väntetyp | Anteckningar |
 | :--- | :--- |
-| LOG_RATE_GOVERNOR | Databas begränsning |
-| POOL_LOG_RATE_GOVERNOR | Begränsning av pool |
-| INSTANCE_LOG_RATE_GOVERNOR | Begränsning på instans nivå |  
-| HADR_THROTTLE_LOG_RATE_SEND_RECV_QUEUE_SIZE | Feedback-kontroll, fysisk replikering för tillgänglighets grupp i Premium/Affärskritisk inte hålla sig uppdaterad |  
-| HADR_THROTTLE_LOG_RATE_LOG_SIZE | Feedback-kontroll, begränsa priser för att undvika ett slut på logg utrymmes villkor |
+| LOG_RATE_GOVERNOR | Begränsning av databas |
+| POOL_LOG_RATE_GOVERNOR | Poolbegränsning |
+| INSTANCE_LOG_RATE_GOVERNOR | Begränsning av instansnivå |  
+| HADR_THROTTLE_LOG_RATE_SEND_RECV_QUEUE_SIZE | Feedbackkontroll, fysisk replikering av tillgänglighetsgrupper i Premium/Business Critical håller inte jämna steg |  
+| HADR_THROTTLE_LOG_RATE_LOG_SIZE | Feedback kontroll, begränsa priser för att undvika en ur log utrymme skick |
 |||
 
-När du påträffar en logg hastighets gräns som hindrar önskad skalbarhet, bör du överväga följande alternativ:
-- Skala upp till en högre service nivå för att få maximal logg hastighet på 96 MB/s. 
-- Om data som läses in är tillfälliga, till exempel mellanlagring av data i en ETL-process, kan den läsas in i tempdb (som är minimalt loggad). 
-- För analys scenarier läser du in i en klustrad columnstore-tabell. Detta minskar den nödvändiga logg frekvensen på grund av komprimering. Den här tekniken ökar processor användningen och gäller endast för data uppsättningar som drar nytta av klustrade columnstore-index. 
+När du stöter på en logghastighetsgräns som hindrar önskad skalbarhet bör du tänka på följande alternativ:
+- Skala upp till en högre servicenivå för att få den maximala logghastigheten på 96 MB/s eller växla till en annan tjänstnivå. Tjänstnivån [Hyperskala](sql-database-service-tier-hyperscale.md) ger 100 MB/s logghastighet oavsett vald tjänstnivå.
+- Om data som läses in är tillfälliga, till exempel mellanlagringsdata i en ETL-process, kan de läsas in i tempdb (som är minimalt inloggad). 
+- För analytiska scenarier läser du in den i en klusterkolonn som omfattas av tabellen. Detta minskar den logghastighet som krävs på grund av komprimering. Den här tekniken ökar CPU-användningen och är endast tillämplig på datauppsättningar som drar nytta av klustrade columnstore-index. 
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Information om allmänna Azure-gränser finns i [Azure-prenumeration och tjänst begränsningar, kvoter och begränsningar](../azure-resource-manager/management/azure-subscription-service-limits.md).
-- Information om DTU: er och eDTU: er finns i [DTU: er och eDTU: er](sql-database-purchase-models.md#dtu-based-purchasing-model).
-- Information om tempdb-storleks gränser finns [i tempdb i Azure SQL Database](https://docs.microsoft.com/sql/relational-databases/databases/tempdb-database#tempdb-database-in-sql-database).
+- Information om allmänna Azure-gränser finns i [Azure-prenumerations- och tjänstgränser, kvoter och begränsningar](../azure-resource-manager/management/azure-subscription-service-limits.md).
+- Information om DTI:er och eDU:er finns i [DTI: er och eDTI: er](sql-database-purchase-models.md#dtu-based-purchasing-model).
+- Information om tempdb-storleksbegränsningar finns [i TempDB i Azure SQL Database](https://docs.microsoft.com/sql/relational-databases/databases/tempdb-database#tempdb-database-in-sql-database).

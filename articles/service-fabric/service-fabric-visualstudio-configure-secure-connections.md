@@ -1,49 +1,49 @@
 ---
-title: Konfigurera säkra Azure-Service Fabric kluster anslutningar
+title: Konfigurera säkra Azure Service Fabric-klusteranslutningar
 description: Lär dig hur du använder Visual Studio för att konfigurera säkra anslutningar som stöds av Azure Service Fabric-klustret.
 author: cawaMS
 ms.topic: conceptual
 ms.date: 8/04/2017
 ms.author: cawa
 ms.openlocfilehash: 11f76153726d3fc92118fb46cc61b4627ab6a1b2
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75464090"
 ---
-# <a name="configure-secure-connections-to-a-service-fabric-cluster-from-visual-studio"></a>Konfigurera säkra anslutningar till ett Service Fabric kluster från Visual Studio
-Lär dig hur du använder Visual Studio för säker åtkomst till ett Azure Service Fabric-kluster med åtkomst kontroll principer konfigurerade.
+# <a name="configure-secure-connections-to-a-service-fabric-cluster-from-visual-studio"></a>Konfigurera säkra anslutningar till ett Service Fabric-kluster från Visual Studio
+Lär dig hur du använder Visual Studio för att på ett säkert sätt komma åt ett Azure Service Fabric-kluster med konfigurerade principer för åtkomstkontroll.
 
-## <a name="cluster-connection-types"></a>Kluster anslutnings typer
-Två typer av anslutningar stöds av Azure Service Fabric-klustret: **icke-säkra** anslutningar och **x509-certifikatbaserade** säkra anslutningar. (För Service Fabric-kluster som finns lokalt stöds även **Windows** -och **dSTS** -autentiseringar.) Du måste konfigurera kluster anslutnings typen när klustret skapas. När den har skapats går det inte att ändra anslutnings typen.
+## <a name="cluster-connection-types"></a>Klusteranslutningstyper
+Två typer av anslutningar stöds av Azure Service Fabric-klustret: **icke-säkra** anslutningar och **x509 certifikatbaserade** säkra anslutningar. (För Service Fabric-kluster som finns lokalt stöds även **Windows-** och **dSTS-autentiseringar.)** Du måste konfigurera klusteranslutningstypen när klustret skapas. När den har skapats kan inte anslutningstypen ändras.
 
-Visual Studio Service Fabric-verktyg stöder alla autentiseringstyper för att ansluta till ett kluster för publicering. Anvisningar om hur du konfigurerar ett säkert Service Fabric kluster finns i Konfigurera [ett Service Fabric kluster från Azure Portal](service-fabric-cluster-creation-via-portal.md) .
+Verktygen Visual Studio Service Fabric stöder alla autentiseringstyper för anslutning till ett kluster för publicering. Se [Konfigurera ett Service Fabric-kluster från Azure-portalen](service-fabric-cluster-creation-via-portal.md) för instruktioner om hur du konfigurerar ett säkert Service Fabric-kluster.
 
-## <a name="configure-cluster-connections-in-publish-profiles"></a>Konfigurera kluster anslutningar i publicerings profiler
-Om du publicerar ett Service Fabric-projekt från Visual Studio använder du dialog rutan **publicera Service Fabric program** för att välja ett Azure Service Fabric-kluster. Under **anslutnings slut punkt**väljer du ett befintligt kluster under din prenumeration.
+## <a name="configure-cluster-connections-in-publish-profiles"></a>Konfigurera klusteranslutningar i publiceringsprofiler
+Om du publicerar ett Service Fabric-projekt från Visual Studio använder du dialogrutan **Publicera tjänst fabric-program** för att välja ett Azure Service Fabric-kluster. Under **Anslutningsslutpunkt**väljer du ett befintligt kluster under din prenumeration.
 
-![Dialog rutan * * publicera Service Fabric program * * används för att konfigurera en Service Fabric anslutning.][publishdialog]
+![Dialogrutan **Publicera program för tjänstinfrastruktur** används för att konfigurera en Service Fabric-anslutning.][publishdialog]
 
-Dialog rutan **publicera Service Fabric program** validerar automatiskt kluster anslutningen. Logga in på ditt Azure-konto om du uppmanas till det. Om verifieringen lyckas innebär det att systemet har rätt certifikat installerade för att ansluta till klustret på ett säkert sätt eller att klustret inte är säkert. Verifierings fel kan bero på nätverks problem eller att systemet inte har kon figurer ATS korrekt för att ansluta till ett säkert kluster.
+Dialogrutan **Program för publiceringstjänst fabric** validerar klusteranslutningen automatiskt. Logga in på ditt Azure-konto om du uppmanas att göra det. Om valideringen går innebär det att systemet har rätt certifikat installerade för att ansluta till klustret på ett säkert sätt, eller så är klustret inte säkert. Valideringsfel kan orsakas av nätverksproblem eller genom att systemet inte är korrekt konfigurerat för att ansluta till ett säkert kluster.
 
-![Dialog rutan * * publicera Service Fabric program * * verifierar en befintlig, korrekt konfigurerad Service Fabric kluster anslutning.][selectsfcluster]
+![Dialogrutan **Publicera program för tjänstinfrastruktur** validerar en befintlig, korrekt konfigurerad Service Fabric-klusteranslutning.][selectsfcluster]
 
-### <a name="to-connect-to-a-secure-cluster"></a>Ansluta till ett säkert kluster
-1. Se till att du har åtkomst till ett klient certifikat som är förtroende för mål klustret. Certifikatet delas vanligt vis som en PFX-fil (personal information Exchange). Mer information om hur du konfigurerar servern för att bevilja åtkomst till en klient finns i Konfigurera [ett Service Fabric kluster från Azure Portal](service-fabric-cluster-creation-via-portal.md) .
-2. Installera det betrodda certifikatet. Det gör du genom att dubbelklicka på. pfx-filen eller använda PowerShell-skriptet import-PfxCertificate för att importera certifikaten. Installera certifikatet på certifikat **: \ LocalMachine\My**. Det är OK att acceptera alla standardinställningar när certifikatet importeras.
-3. Välj kommandot **publicera...** på snabb menyn för projektet för att öppna dialog rutan **publicera Azure Application** och välj sedan mål klustret. Verktyget löser automatiskt anslutningen och sparar parametrarna för säker anslutning i publicerings profilen.
-4. Valfritt: du kan redigera publicerings profilen för att ange en säker kluster anslutning.
+### <a name="to-connect-to-a-secure-cluster"></a>Så här ansluter du till ett säkert kluster
+1. Kontrollera att du kan komma åt ett av klientcertifikaten som målklustret litar på. Certifikatet delas vanligtvis som en fil för utbyte av personlig information (.pfx). Se [Konfigurera ett Service Fabric-kluster från Azure-portalen](service-fabric-cluster-creation-via-portal.md) för hur du konfigurerar servern för att bevilja åtkomst till en klient.
+2. Installera det betrodda certifikatet. Det gör du genom att dubbelklicka på PFX-filen eller använda PowerShell-skriptet Import-PfxCertificate för att importera certifikaten. Installera certifikatet på **Cert:\LocalMachine\My**. Det är OK att acceptera alla standardinställningar när du importerar certifikatet.
+3. Välj kommandot **Publicera...** på snabbmenyn i projektet för att öppna dialogrutan **Publicera Azure-program** och välj sedan målklustret. Verktyget löser anslutningen automatiskt och sparar de säkra anslutningsparametrarna i publiceringsprofilen.
+4. Valfritt: Du kan redigera publiceringsprofilen för att ange en säker klusteranslutning.
    
-   Eftersom du redigerar XML-filen för publicerings profilen manuellt för att ange certifikat information, måste du anteckna certifikat arkivets namn, lagrings plats och tumavtryck för certifikatet. Du måste ange dessa värden för certifikatets lagrings namn och lagrings plats. Mer information finns i [så här: Hämta tumavtrycket för ett certifikat](https://msdn.microsoft.com/library/ms734695\(v=vs.110\).aspx) .
+   Eftersom du redigerar XML-filen Publicera profil manuellt för att ange certifikatinformation måste du notera certifikatarkivets namn, arkivplats och certifikattumavtryck. Du måste ange dessa värden för certifikatets butiksnamn och butiksplats. Mer information finns i Så här hämtar du [tumavtrycket](https://msdn.microsoft.com/library/ms734695\(v=vs.110\).aspx) för ett certifikat.
    
-   Du kan använda *ClusterConnectionParameters* -parametrarna för att ange de PowerShell-parametrar som ska användas vid anslutning till Service Fabric klustret. Giltiga parametrar är de som accepteras av cmdleten Connect-ServiceFabricCluster. Se [Connect-ServiceFabricCluster](https://docs.microsoft.com/powershell/module/servicefabric/connect-servicefabriccluster) för en lista över tillgängliga parametrar.
+   Du kan använda parametrarna *ClusterConnectionParameters* för att ange de PowerShell-parametrar som ska användas vid anslutning till Service Fabric-klustret. Giltiga parametrar är alla som accepteras av Cmdlet Connect-ServiceFabricCluster. Se [Connect-ServiceFabricCluster](https://docs.microsoft.com/powershell/module/servicefabric/connect-servicefabriccluster) för en lista över tillgängliga parametrar.
    
-   Om du publicerar till ett fjärrkluster måste du ange lämpliga parametrar för det aktuella klustret. Följande är ett exempel på anslutning till ett icke-säkert kluster:
+   Om du publicerar till ett fjärrkluster måste du ange lämpliga parametrar för det specifika klustret. Följande är ett exempel på anslutning till ett icke-säkert kluster:
    
    `<ClusterConnectionParameters ConnectionEndpoint="mycluster.westus.cloudapp.azure.com:19000" />`
    
-   Här är ett exempel på hur du ansluter till ett x509-certifikat baserat säkra kluster:
+   Här är ett exempel på hur du ansluter till ett x509-certifikatbaserat säkert kluster:
    
    ```xml
    <ClusterConnectionParameters
@@ -55,10 +55,10 @@ Dialog rutan **publicera Service Fabric program** validerar automatiskt kluster 
    StoreLocation="CurrentUser"
    StoreName="My" />
    ```
-5. Redigera eventuella andra nödvändiga inställningar, till exempel uppgraderings parametrar och plats för parametern fil, och publicera sedan ditt program från dialog rutan **publicera Service Fabric program** i Visual Studio.
+5. Redigera alla andra nödvändiga inställningar, till exempel uppgraderingsparametrar och programparameterfilsplatsen, och publicera sedan programmet från dialogrutan **Publicera tjänstinfrastrukturprogram** i Visual Studio.
 
 ## <a name="next-steps"></a>Nästa steg
-Mer information om hur du kommer åt Service Fabric kluster finns i [visualisera klustret med hjälp av Service Fabric Explorer](service-fabric-visualizing-your-cluster.md).
+Mer information om hur du använder Service Fabric-kluster finns i [Visualisera klustret med hjälp av Service Fabric Explorer](service-fabric-visualizing-your-cluster.md).
 
 <!--Image references-->
 [publishdialog]:./media/service-fabric-visualstudio-configure-secure-connections/publishdialog.png

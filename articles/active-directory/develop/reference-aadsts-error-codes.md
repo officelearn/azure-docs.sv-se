@@ -1,6 +1,6 @@
 ---
-title: Fel koder för Azure AD-autentisering &
-description: Lär dig mer om de AADSTS-felkoder som returneras från Azure AD Security Token Service (STS).
+title: Azure AD-autentisering & auktoriseringsfelkoder
+description: Lär dig mer om AADSTS-felkoderna som returneras från Azure AD-säkerhetstokentjänsten (STS).
 services: active-directory
 documentationcenter: ''
 author: rwike77
@@ -16,233 +16,233 @@ ms.date: 02/19/2020
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: ba5af060a02e8525320f005b5d1c80534c5ca4ea
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: 89240102837b65ed2a09d9f4865ad47ee5d5afa2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77483932"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80154567"
 ---
-# <a name="azure-ad-authentication-and-authorization-error-codes"></a>Fel koder för Azure AD-autentisering och-auktorisering
+# <a name="azure-ad-authentication-and-authorization-error-codes"></a>Azure AD-autentiserings- och auktoriseringsfelkoder
 
-Letar du efter information om de AADSTS-felkoder som returneras från Azure Active Directory (Azure AD) Security Token Service (STS)? Läs det här dokumentet för att hitta AADSTS fel beskrivningar, korrigeringar och vissa föreslagna lösningar.
+Letar du efter information om AADSTS-felkoder som returneras från Azure Active Directory (Azure AD) security token service (STS)? Läs det här dokumentet om du vill hitta AADSTS-felbeskrivningar, korrigeringar och några föreslagna lösningar.
 
 > [!NOTE]
-> Den här informationen är preliminär och kan komma att ändras. Har du en fråga eller kan du inte hitta det du söker? Skapa ett GitHub-ärende eller se [support och hjälp alternativ för utvecklare](active-directory-develop-help-support.md) och lär dig mer om andra sätt att få hjälp och support.
+> Den här informationen är preliminär och kan komma att ändras. Har du en fråga eller inte hittar det du letar efter? Skapa ett GitHub-problem eller se [Support- och hjälpalternativ för utvecklare om](active-directory-develop-help-support.md) du vill lära dig mer om andra sätt du kan få hjälp och support.
 >
-> Den här dokumentationen tillhandahålls för vägledning för utvecklare och administratörer, men ska aldrig användas av själva klienten. Felkoder kan ändras när som helst för att ge mer detaljerade fel meddelanden som är avsedda att hjälpa utvecklaren när programmet skapas. Appar som tar ett beroende av text-eller fel kods nummer bryts över tid.
+> Den här dokumentationen tillhandahålls för utvecklar- och administratörsvägledning, men bör aldrig användas av klienten själv. Felkoder kan ändras när som helst för att ge mer detaljerade felmeddelanden som är avsedda att hjälpa utvecklaren när de skapar sitt program. Appar som är beroende av text- eller felkodsnummer bryts med tiden.
 
-## <a name="lookup-current-error-code-information"></a>Sök efter aktuell fel kod information
-Felkoder och meddelanden kan komma att ändras.  För den senaste informationen tar du en titt på [https://login.microsoftonline.com/error](https://login.microsoftonline.com/error) sidan för att hitta AADSTS fel beskrivningar, korrigeringar och vissa föreslagna lösningar.  
+## <a name="lookup-current-error-code-information"></a>Uppslagsström felkodsinformation
+Felkoder och meddelanden kan komma att ändras.  För den senaste informationen, ta `https://login.microsoftonline.com/error` en titt på sidan för att hitta AADSTS felbeskrivningar, korrigeringar och några föreslagna lösningar.  
 
-Sök på den numeriska delen av den returnerade felkoden.  Om du till exempel har fått felkoden "AADSTS16000" gör du en sökning i [https://login.microsoftonline.com/error](https://login.microsoftonline.com/error) för "16000".  Du kan också länka direkt till ett viss fel genom att lägga till fel kod numret i URL: en: [https://login.microsoftonline.com/error?code=16000](https://login.microsoftonline.com/error?code=16000).
+Sök på den numeriska delen av den returnerade felkoden.  Om du till exempel har fått felkoden "AADSTS16000" söker du efter `https://login.microsoftonline.com/error` "16000".  Du kan också länka direkt till ett specifikt fel genom `https://login.microsoftonline.com/error?code=16000`att lägga till felkodsnumret i URL:en.
 
-## <a name="aadsts-error-codes"></a>Felkoder för AADSTS
+## <a name="aadsts-error-codes"></a>AADSTS-felkoder
 
 | Fel | Beskrivning |
 |---|---|
-| AADSTS16000 | SelectUserAccount – detta är ett avbrott som orsakas av Azure AD, vilket resulterar i ett användar gränssnitt som gör att användaren kan välja mellan flera giltiga SSO-sessioner. Det här felet är ganska vanligt och kan returneras till programmet om `prompt=none` anges. |
-| AADSTS16001 | UserAccountSelectionInvalid – du ser det här felet om användaren klickar på en panel att sessionen väljer logik har avvisats. När det här felet utlöses kan användaren återställa genom att välja från en uppdaterad lista över paneler/sessioner, eller genom att välja ett annat konto. Det här felet kan inträffa på grund av ett kod fel eller ett konkurrens villkor. |
-| AADSTS16002 | AppSessionSelectionInvalid-det angivna SID-kravet för appen har inte uppfyllts.  |
-| AADSTS16003 | SsoUserAccountNotFoundInResourceTenant – anger att användaren inte uttryckligen har lagts till i klienten. |
-| AADSTS17003 | CredentialKeyProvisioningFailed – Azure AD kan inte etablera användar nyckeln. |
-| AADSTS20001 | WsFedSignInResponseError – det är problem med din federerade identitets leverantör. Kontakta din IDP för att lösa problemet. |
-| AADSTS20012 | WsFedMessageInvalid – det är problem med din federerade identitets leverantör. Kontakta din IDP för att lösa problemet. |
-| AADSTS20033 | FedMetadataInvalidTenantName – det är problem med din federerade identitets leverantör. Kontakta din IDP för att lösa problemet. |
-| AADSTS40008 | OAuth2IdPUnretryableServerError – det är problem med din federerade identitets leverantör. Kontakta din IDP för att lösa problemet. |
-| AADSTS40009 | OAuth2IdPRefreshTokenRedemptionUserError – det är problem med din federerade identitets leverantör. Kontakta din IDP för att lösa problemet. |
-| AADSTS40010 | OAuth2IdPRetryableServerError – det är problem med din federerade identitets leverantör. Kontakta din IDP för att lösa problemet. |
-| AADSTS40015 | OAuth2IdPAuthCodeRedemptionUserError – det är problem med din federerade identitets leverantör. Kontakta din IDP för att lösa problemet. |
-| AADSTS50000 | TokenIssuanceError – det finns ett problem med inloggnings tjänsten. [Skapa ett supportärende](../fundamentals/active-directory-troubleshooting-support-howto.md) för att lösa problemet. |
-| AADSTS50001 | InvalidResource-resursen är inaktive rad eller finns inte. Kontrol lera appens kod för att se till att du har angett den exakta resurs-URL: en för resursen som du försöker få åtkomst till.  |
-| AADSTS50002 | NotAllowedTenant-inloggningen misslyckades på grund av en begränsad proxy-åtkomst på klienten. Om det är din egen klient princip kan du ändra inställningarna för den begränsade klient organisationen för att åtgärda problemet. |
-| AADSTS50003 | MissingSigningKey-inloggningen misslyckades på grund av en saknad signerings nyckel eller certifikat. Det kan bero på att ingen signerings nyckel har kon figurer ATS i appen. Läs igenom lösningarna som beskrivs i [https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#certificate-or-key-not-configured](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#certificate-or-key-not-configured). Kontakta appens ägare eller en app-administratör om problemen fortfarande visas. |
-| AADSTS50005 | DevicePolicyError – användaren försökte logga in på en enhet från en plattform som för närvarande inte stöds via principen för villkorlig åtkomst. |
-| AADSTS50006 | InvalidSignature-signaturverifieringen misslyckades på grund av en ogiltig signatur. |
-| AADSTS50007 | PartnerEncryptionCertificateMissing – det gick inte att hitta partner krypterings certifikatet för den här appen. [Öppna ett support ärende](../fundamentals/active-directory-troubleshooting-support-howto.md) med Microsoft för att få detta åtgärdat. |
-| AADSTS50008 | InvalidSamlToken-SAML-kontroll saknas eller är felkonfigurerat i token. Kontakta den federerade providern. |
-| AADSTS50010 | AudienceUriValidationFailed-URI-validering av appen misslyckades eftersom ingen token för token hade kon figurer ATS. |
-| AADSTS50011 | InvalidReplyTo-svars adressen saknas, är felkonfigurerad eller matchar inte svars adresser som har kon figurer ATS för appen.  Som lösning ser du till att lägga till den saknade svars adressen i Azure Active Directory programmet eller låta någon med behörighet att hantera ditt program i Active Directory göra detta åt dig.|
-| AADSTS50012 | AuthenticationFailed-Autentiseringen misslyckades av någon av följande orsaker:<ul><li>Ämnes namnet för signerings certifikatet är inte auktoriserat</li><li>Det gick inte att hitta en matchande betrodd auktoritets princip för det godkända ämnes namnet</li><li>Certifikat kedjan är ogiltig</li><li>Signerings certifikatet är inte giltigt</li><li>Principen har inte kon figurer ATS för klienten</li><li>Signerings certifikatets tumavtryck har inte behörighet</li><li>Klientens kontroll innehåller en ogiltig signatur</li></ul> |
-| AADSTS50013 | InvalidAssertion-Assertion är ogiltig på grund av olika orsaker – token Issuer inte matchar API-versionen inom sitt giltiga tidsintervall-upphört att gälla-en felaktig-uppdateringstoken i kontrollen är inte en primär uppdateringstoken. |
-| AADSTS50014 | GuestUserInPendingState – användarens inlösen är i ett väntande tillstånd. Gäst användar kontot har inte skapats helt ännu. |
-| AADSTS50015 | ViralUserLegalAgeConsentRequiredState – användaren måste ha en juridisk ålders grupps medgivande. |
-| AADSTS50017 | CertificateValidationFailed-certifierings verifieringen misslyckades, orsaker av följande orsaker:<ul><li>Det går inte att hitta utfärdarcertifikatet i listan med betrodda certifikat</li><li>Det gick inte att hitta förväntat CrlSegment</li><li>Det går inte att hitta utfärdarcertifikatet i listan med betrodda certifikat</li><li>Delta CRL-distributionspunkten har konfigurerats utan motsvarande CRL-distributionspunkt</li><li>Det gick inte att hämta giltiga CRL-segment på grund av ett timeout-problem</li><li>Det gick inte att ladda ned CRL</li></ul>Kontakta administratören för klientorganisationen. |
-| AADSTS50020 | UserUnauthorized – användare har inte behörighet att anropa den här slut punkten. |
-| AADSTS50027 | InvalidJwtToken-ogiltig JWT-token på grund av följande orsaker:<ul><li>innehåller inte temporärt nonce-anspråk, sub-anspråk</li><li>felaktig matchning av ämnesidentifierare</li><li>duplicerade anspråk i idToken-anspråk</li><li>oväntad utfärdare</li><li>oväntad målgrupp</li><li>inte inom giltigt tidsintervall </li><li>fel tokenformat</li><li>Signaturverifieringen för externa ID-token från utfärdare misslyckades.</li></ul> |
+| AADSTS16000 | SelectUserAccount - Detta är ett avbrott som genereras av Azure AD, vilket resulterar i användargränssnitt som gör att användaren kan välja bland flera giltiga SSO-sessioner. Det här felet är ganska vanligt och `prompt=none` kan returneras till programmet om det anges. |
+| AADSTS16001 | UserAccountSelectionInvalid - Det här felet visas om användaren klickar på en panel som sessionsmarkeringslogiken har avvisat. När det här felet utlöses kan användaren återställa genom att välja från en uppdaterad lista över paneler/sessioner eller genom att välja ett annat konto. Det här felet kan uppstå på grund av ett kodfel eller rastillstånd. |
+| AADSTS16002 | AppSessionSelectionInvalid - Det app-specificerade SID-kravet uppfylldes inte.  |
+| AADSTS16003 | SsoUserAccountNotFoundInResourceTenant - Anger att användaren inte uttryckligen har lagts till i klienten. |
+| AADSTS17003 | AutentiseringsuppgifterKeyProvisioningFailed - Azure AD kan inte etablera användarnyckeln. |
+| AADSTS20001 | WsFedSignInResponseError - Det finns ett problem med din federerade identitetsprovider. Kontakta din IDP för att lösa problemet. |
+| AADSTS20012 | WsFedMessageInvalid - Det finns ett problem med din federerade identitetsprovider. Kontakta din IDP för att lösa problemet. |
+| AADSTS20033 | FedMetadataInvalidTenantName - Det finns ett problem med din federerade identitetsprovider. Kontakta din IDP för att lösa problemet. |
+| AADSTS40008 | OAuth2IdPUnretryableServerError - Det finns ett problem med din federerade identitetsprovider. Kontakta din IDP för att lösa problemet. |
+| AADSTS40009 | OAuth2IdPRefreshTokenRedemptionUserError - Det finns ett problem med din federerade identitetsprovider. Kontakta din IDP för att lösa problemet. |
+| AADSTS40010 | OAuth2IdPRetryableServerError - Det finns ett problem med din federerade identitetsprovider. Kontakta din IDP för att lösa problemet. |
+| AADSTS40015 | OAuth2IdPAuthCodeRedemptionUserError - Det finns ett problem med din federerade identitetsprovider. Kontakta din IDP för att lösa problemet. |
+| AADSTS50000 | TokenIssuanceError - Det finns ett problem med inloggningstjänsten. [Skapa ett supportärende](../fundamentals/active-directory-troubleshooting-support-howto.md) för att lösa problemet. |
+| AADSTS50001 | InvalidResource - Resursen är inaktiverad eller finns inte. Kontrollera appens kod för att se till att du har angett den exakta resurs-URL:en för den resurs du försöker komma åt.  |
+| AADSTS50002 | NotAllowedTenant - Inloggning misslyckades på grund av en begränsad proxyåtkomst på klienten. Om det är din egen klientprincip kan du ändra dina begränsade klientinställningar för att åtgärda problemet. |
+| AADSTS50003 | MissingSigningKey - Inloggning misslyckades på grund av en saknad signeringsnyckel eller certifikat. Det kan bero på att det inte fanns någon signeringsnyckel konfigurerad i appen. Kolla in de resolutioner [https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#certificate-or-key-not-configured](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#certificate-or-key-not-configured)som beskrivs på . Om du fortfarande ser problem kontaktar du appens ägare eller appadministratör. |
+| AADSTS50005 | DevicePolicyError - Användaren försökte logga in på en enhet från en plattform som för närvarande inte stöds via principen villkorlig åtkomst. |
+| AADSTS50006 | Ogiltigsignatur - Signaturverifiering misslyckades på grund av en ogiltig signatur. |
+| AADSTS50007 | PartnerEncryptionCertificateMissing - Partnerkrypteringscertifikatet hittades inte för den här appen. [Öppna en supportbiljett](../fundamentals/active-directory-troubleshooting-support-howto.md) med Microsoft för att få detta åtgärdat. |
+| AADSTS50008 | InvalidSamlToken - SAML-påstående saknas eller är felkonfigurerad i token. Kontakta den federerade providern. |
+| AADSTS50010 | AudienceUriValidationFailed - Audience URI-validering för appen misslyckades eftersom inga tokenmålningar konfigurerades. |
+| AADSTS50011 | InvalidReplyTo - Svarsadressen saknas, är felkonfigurerad eller matchar inte svarsadresser som konfigurerats för appen.  Som en lösning se till att lägga till denna saknade svarsadress till Azure Active Directory-programmet eller har någon med behörighet att hantera ditt program i Active Directory göra detta åt dig.|
+| AADSTS50012 | AutentiseringMissilerad - Autentisering misslyckades av något av följande skäl:<ul><li>Undernamnet på signeringscertifikatet är inte tillåtet</li><li>Det gick inte att hitta en matchande princip för betrodda myndigheter för det auktoriserat ämnesnamnet</li><li>Certifikatkedjan är ogiltig</li><li>Signeringscertifikatet är ogiltigt</li><li>Principen är inte konfigurerad för klienten</li><li>Tumavtryck för signeringscertifikatet är inte tillåtet</li><li>Klientpåståendet innehåller en ogiltig signatur</li></ul> |
+| AADSTS50013 | Ogiltig identifiering - Påstående är ogiltigt på grund av olika orsaker - Tokenutfärdaren matchar inte api-versionen inom dess giltiga tidsintervall -förfallen - Uppdateringstoken i påståendet är inte en primär uppdateringstoken. |
+| AADSTS50014 | GuestUserInPendingState - Användarens inlösen är i ett väntande tillstånd. Gästanvändarkontot är inte helt skapat ännu. |
+| AADSTS50015 | ViralUserLegalAgeConsentRequiredState - Användaren kräver samtycke från åldersgruppen. |
+| AADSTS50017 | CertifikatvalidationMissilerad - Certifieringsvalidering misslyckades, orsaker till följande skäl:<ul><li>Det går inte att hitta utfärdarcertifikatet i listan med betrodda certifikat</li><li>Det gick inte att hitta förväntat CrlSegment</li><li>Det går inte att hitta utfärdarcertifikatet i listan med betrodda certifikat</li><li>Delta CRL-distributionspunkten har konfigurerats utan motsvarande CRL-distributionspunkt</li><li>Det gick inte att hämta giltiga CRL-segment på grund av ett timeout-problem</li><li>Det gick inte att ladda ned CRL</li></ul>Kontakta administratören för klientorganisationen. |
+| AADSTS50020 | UserUnauthorized - Användare är obehöriga att anropa den här slutpunkten. |
+| AADSTS50027 | InvalidJwtToken - Ogiltig JWT token på grund av följande skäl:<ul><li>innehåller inte temporärt nonce-anspråk, sub-anspråk</li><li>felaktig matchning av ämnesidentifierare</li><li>duplicerade anspråk i idToken-anspråk</li><li>oväntad utfärdare</li><li>oväntad målgrupp</li><li>inte inom giltigt tidsintervall </li><li>fel tokenformat</li><li>Signaturverifieringen för externa ID-token från utfärdare misslyckades.</li></ul> |
 | AADSTS50029 | Ogiltig URI – domännamnet innehåller ogiltiga tecken. Kontakta administratören för klientorganisationen. |
-| AADSTS50032 | WeakRsaKey – anger att den felaktiga användaren försöker använda en svag RSA-nyckel. |
-| AADSTS50033 | RetryableError-anger ett tillfälligt fel som inte är relaterat till databas åtgärderna. |
-| AADSTS50034 | UserAccountNotFound-om du vill logga in på det här programmet måste kontot läggas till i katalogen. |
-| AADSTS50042 | UnableToGeneratePairwiseIdentifierWithMissingSalt-det salt som krävs för att generera en bibetjänings identifierare saknas i principen. Kontakta administratören för klientorganisationen. |
-| AADSTS50043 | UnableToGeneratePairwiseIdentifierWithMultipleSalts |
-| AADSTS50048 | SubjectMismatchesIssuer-subject matchar inte Issuer-anspråk i klientens kontroll. Kontakta administratören för klientorganisationen. |
-| AADSTS50049 | NoSuchInstanceForDiscovery – okänd eller ogiltig instans. |
-| AADSTS50050 | MalformedDiscoveryRequest-begäran är felaktig. |
-| AADSTS50053 | IdsLocked – kontot är låst eftersom användaren försökte logga in för många gånger med ett felaktigt användar-ID eller lösen ord. |
-| AADSTS50055 | InvalidPasswordExpiredPassword – lösen ordet har upphört att gälla. |
-| AADSTS50056 | Ogiltigt eller null lösen ord – lösen ordet finns inte i arkivet för den här användaren. |
-| AADSTS50057 | UserDisabled – användar kontot är inaktiverat. Kontot har inaktiverats av en administratör. |
-| AADSTS50058 | UserInformationNotProvided – det innebär att en användare inte är inloggad. Detta är ett vanligt fel som förväntas när en användare är oautentiserad och ännu inte har loggat in.</br>Om det här felet uppmuntras i en SSO-kontext där användaren tidigare har loggat in, innebär det att SSO-sessionen inte hittades eller är ogiltig.</br>Det här felet kan returneras till programmet om prompt = none har angetts. |
-| AADSTS50059 | MissingTenantRealmAndNoUserInformationProvided-klient identifierings information hittades inte i begäran eller underförstådda av de angivna autentiseringsuppgifterna. Användaren kan kontakta klient organisationens administratör för att hjälpa till att lösa problemet. |
-| AADSTS50061 | SignoutInvalidRequest-begäran om utloggning är ogiltig. |
-| AADSTS50064 | CredentialAuthenticationError-verifiering av autentiseringsuppgifter för användar namn eller lösen ord misslyckades. |
-| AADSTS50068 | SignoutInitiatorNotParticipant-det gick inte att logga in. Appen som initierade signering är inte en deltagare i den aktuella sessionen. |
-| AADSTS50070 | SignoutUnknownSessionIdentifier-det gick inte att logga in. Begäran om utloggning angav en namn identifierare som inte matchar de befintliga sessionerna. |
-| AADSTS50071 | SignoutMessageExpired – utloggnings förfrågan har upphört att gälla. |
-| AADSTS50072 | UserStrongAuthEnrollmentRequiredInterrupt – användaren måste registrera sig för den andra Factor Authentication (interaktiv). |
-| AADSTS50074 | UserStrongAuthClientAuthNRequiredInterrupt – stark autentisering krävs och användaren godkände inte MFA-utmaningen. |
-| AADSTS50076 | UserStrongAuthClientAuthNRequired – på grund av en konfigurations ändring som gjorts av administratören eller eftersom du har flyttat till en ny plats måste användaren använda Multi-Factor Authentication för att få åtkomst till resursen. Försök igen med en ny auktoriserad begäran för resursen. |
-| AADSTS50079 | UserStrongAuthEnrollmentRequired – på grund av en konfigurations ändring som gjorts av administratören, eller om användaren har flyttat till en ny plats, krävs Multi-Factor Authentication för att använda Multi-Factor Authentication. |
+| AADSTS50032 | WeakRsaKey - Anger felaktigt användarförsök att använda en svag RSA-nyckel. |
+| AADSTS50033 | RetryableError - Anger ett tillfälligt fel som inte är relaterade till databasåtgärderna. |
+| AADSTS50034 | UserAccountNotFound - Om du vill logga in på det här programmet måste kontot läggas till i katalogen. |
+| AADSTS50042 | Det går inte Att GenereraPairwiseIdentifierMedMissingSalt - Det salt som krävs för att generera en parvis identifierare saknas i princip. Kontakta administratören för klientorganisationen. |
+| AADSTS50043 | Det går inte att skapaPareratPairwiseIdentifierMedMultipleSalts |
+| AADSTS50048 | SubjectMismatchesIssuer - Ämne matchar inte Utfärdarens anspråk i klientpåståendet. Kontakta administratören för klientorganisationen. |
+| AADSTS50049 | NoSuchInstanceForDiscovery - Okänd eller ogiltig instans. |
+| AADSTS50050 | MissformedDiscoveryRequest - Begäran är felaktig. |
+| AADSTS50053 | IdsLocked - Kontot är låst eftersom användaren försökte logga in för många gånger med ett felaktigt användar-ID eller lösenord. |
+| AADSTS50055 | InvalidPasswordExpiredPassword - Lösenordet har upphört att gälla. |
+| AADSTS50056 | Ogiltigt lösenord eller null-lösenord -Lösenordet finns inte i butiken för den här användaren. |
+| AADSTS50057 | UserDisabled - Användarkontot är inaktiverat. Kontot har inaktiverats av en administratör. |
+| AADSTS50058 | UserInformationNotProvided - Det innebär att en användare inte är inloggad. Detta är ett vanligt fel som förväntas när en användare är oautentiserade och ännu inte har loggat in.</br>Om det här felet uppmuntras i en SSO-kontext där användaren tidigare har loggat in, innebär det att SSO-sessionen antingen inte hittades eller var ogiltig.</br>Det här felet kan returneras till programmet om prompt=none anges. |
+| AADSTS50059 | MissingTenantRealmAndNoUserInformationProvIded - Klientidentifierande information hittades inte i vare sig begäran eller underförstått av några angivna autentiseringsuppgifter. Användaren kan kontakta klientadministratören för att lösa problemet. |
+| AADSTS50061 | SignoutInvalidRequest - Ut signeringsbegäran är ogiltig. |
+| AADSTS50064 | AutentiseringsuppgifterAuthenticationError - Autentiseringsuppgifter validering på användarnamn eller lösenord har misslyckats. |
+| AADSTS50068 | SignoutInitiatorNotParticipant - Signout misslyckades. Appen som initierade signering är inte en deltagare i den aktuella sessionen. |
+| AADSTS50070 | SignoutUnknownSessionIdentifier - Signout har misslyckats. Signeringsbegäran angav en namnidentifierare som inte matchade de befintliga sessionerna. |
+| AADSTS50071 | SignoutMessageExpired - Begäran om utloggning har upphört att gälla. |
+| AADSTS50072 | UserStrongAuthEnrollmentRequiredInterrupt - Användaren måste registrera sig för andra faktorautentisering (interaktiv). |
+| AADSTS50074 | UserStrongAuthClientAuthNRequiredInterrupt - Stark autentisering krävs och användaren klarade inte MFA-utmaningen. |
+| AADSTS50076 | UserStrongAuthClientAuthNRequired - På grund av en konfigurationsändring som gjorts av administratören, eller på grund av att du har flyttat till en ny plats, måste användaren använda multifaktorautentisering för att komma åt resursen. Försök igen med en ny auktorisera begäran om resursen. |
+| AADSTS50079 | UserStrongAuthEnrollmentRequired - På grund av en konfigurationsändring som gjorts av administratören, eller på grund av att användaren flyttade till en ny plats, är användaren skyldig att använda multifaktorautentisering. |
 | AADSTS50085 | Det krävs social IDP-inloggning för att token ska kunna uppdateras. Låt användaren försöka logga in igen med användarnamn och lösenord |
 | AADSTS50086 | SasNonRetryableError |
-| AADSTS50087 | SasRetryableError – tjänsten är inte tillgänglig för tillfället. Försök igen. |
-| AADSTS50089 | Flödestoken har upphört att gälla – autentiseringen misslyckades. Låt användaren försöka logga in igen med username-Password. |
-| AADSTS50097 | DeviceAuthenticationRequired-enhets autentisering krävs. |
-| AADSTS50099 | PKeyAuthInvalidJwtUnauthorized-JWT-signaturen är ogiltig. |
-| AADSTS50105 | EntitlementGrantsNotFound – den inloggade användaren har inte tilldelats någon roll för den inloggade appen. Tilldela användaren till appen. Mer information:[https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#user-not-assigned-a-role](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#user-not-assigned-a-role). |
-| AADSTS50107 | InvalidRealmUri-det begärda Federations sfär objektet finns inte. Kontakta administratören för klientorganisationen. |
-| AADSTS50120 | ThresholdJwtInvalidJwtFormat – problem med JWT-huvudet. Kontakta administratören för klientorganisationen. |
-| AADSTS50124 | ClaimsTransformationInvalidInputParameter-anspråks omvandlingen innehåller ogiltig indataparameter. Kontakta administratören för klientorganisationen för att uppdatera principen. |
-| AADSTS50125 | PasswordResetRegistrationRequiredInterrupt-inloggningen avbröts på grund av en lösen ords återställning eller post för lösen ords registrering. |
-| AADSTS50126 | InvalidUserNameOrPassword – fel vid verifiering av autentiseringsuppgifter på grund av ogiltigt användar namn eller lösen ord. |
-| AADSTS50127 | BrokerAppNotInstalled – användaren måste installera en Broker-app för att få åtkomst till det här innehållet. |
-| AADSTS50128 | Ogiltigt domän namn – ingen klient identifierings information hittades i begäran eller underförstådd av angivna autentiseringsuppgifter. |
-| AADSTS50129 | DeviceIsNotWorkplaceJoined-Workplace-anslutning krävs för att registrera enheten. |
-| AADSTS50131 | ConditionalAccessFailed – indikerar olika fel för villkorlig åtkomst, till exempel dåligt Windows-enhets tillstånd, begäran blockeras på grund av misstänkt aktivitet, åtkomst princip eller säkerhets princip beslut. |
-| AADSTS50132 | SsoArtifactInvalidOrExpired-sessionen är inte giltig på grund av lösen ordets giltighets tid eller senaste lösen ords ändring. |
-| AADSTS50133 | SsoArtifactRevoked-sessionen är inte giltig på grund av lösen ordets giltighets tid eller senaste lösen ords ändring. |
-| AADSTS50134 | DeviceFlowAuthorizeWrongDatacenter – fel Data Center. För att auktorisera en begäran som initierades av en app i enhets flödet OAuth 2,0 måste den auktoriserade parten finnas i samma data Center där den ursprungliga begäran finns. |
-| AADSTS50135 | PasswordChangeCompromisedPassword-lösen ords ändring krävs på grund av konto risk. |
-| AADSTS50136 | RedirectMsaSessionToApp – en MSA-session har identifierats. |
-| AADSTS50139 | SessionMissingMsaOAuth2RefreshToken-sessionen är ogiltig på grund av att en extern uppdateringstoken saknas. |
-| AADSTS50140 | KmsiInterrupt – det här felet inträffade på grund av "Håll mig inloggad" Avbryt när användaren loggade in. [Skapa ett supportärende](../fundamentals/active-directory-troubleshooting-support-howto.md) med korrelations-ID, ID för begäran och felkod för mer information. |
-| AADSTS50143 | Felaktig matchning av sessioner – sessionen är ogiltig eftersom användar klienten inte matchar domän tipset på grund av en annan resurs.  [Öppna ett support ärende](../fundamentals/active-directory-troubleshooting-support-howto.md) med KORRELATIONS-ID, fråge-ID och felkod för att få mer information. |
-| AADSTS50144 | InvalidPasswordExpiredOnPremPassword-användarens Active Directory lösen ord har upphört att gälla. Skapa ett nytt lösen ord för användaren eller låt användaren använda verktyget för självbetjänings återställning för att återställa lösen ordet. |
-| AADSTS50146 | MissingCustomSigningKey – den här appen måste konfigureras med en app-Specific Sign Key. Det har antingen inte konfigurerats med en sådan eller så har nyckeln upphört att gälla/är inte giltig än. |
-| AADSTS50147 | MissingCodeChallenge-kodnings parameterns storlek är ogiltig. |
-| AADSTS50155 | DeviceAuthenticationFailed-enhetsautentisering misslyckades för den här användaren. |
-| AADSTS50158 | ExternalSecurityChallenge-extern säkerhets utmaning uppfylldes inte. |
-| AADSTS50161 | InvalidExternalSecurityChallengeConfiguration-anspråk som skickats av extern provider är inte tillräckligt eller saknar anspråk begärd till extern provider. |
-| AADSTS50166 | ExternalClaimsProviderThrottled – det gick inte att skicka begäran till anspråks leverantören. |
-| AADSTS50168 | ChromeBrowserSsoInterruptRequired – klienten kan hämta en SSO-token via tillägg för Windows 10-konton, men det gick inte att hitta token i begäran eller så har den angivna token upphört att gälla. |
-| AADSTS50169 | InvalidRequestBadRealm-sfären är inte en konfigurerad sfär för den aktuella tjänstens namnrymd. |
-| AADSTS50170 | MissingExternalClaimsProviderMapping-mappningen av externa kontroller saknas. |
-| AADSTS50177 | ExternalChallengeNotSupportedForPassthroughUsers-extern utmaning stöds inte för passthrough-användare. |
-| AADSTS50178 | SessionControlNotSupportedForPassthroughUsers-session stöds inte för passthrough-användare. |
-| AADSTS50180 | WindowsIntegratedAuthMissing-integrerad Windows-autentisering krävs. Aktivera klientorganisationen för sömlös SSO. |
-| AADSTS50187 | DeviceInformationNotProvided-tjänsten kunde inte utföra enhetsautentisering. |
-| AADSTS50196 | LoopDetected-en klient slinga har upptäckts. Kontrol lera appens logik för att säkerställa att cachelagring av token är implementerat och att fel villkoren hanteras korrekt.  Appen har gjort för många av samma begäran i en för kort period, vilket indikerar att den är i ett felaktigt tillstånd eller att abusively begär token. |
-| AADSTS50199 | CmsiInterrupt – av säkerhets skäl krävs användar bekräftelse för denna begäran.  Eftersom det här är ett "interaction_required"-fel ska klienten utföra interaktiv autentisering.  Detta beror på att en system WebView har använts för att begära en token för ett internt program – användaren måste uppmanas att fråga om detta var faktiskt appen de avsåg att logga in på.|
-| AADSTS51000 | RequiredFeatureNotEnabled – funktionen är inaktive rad. |
-| AADSTS51001 | DomainHintMustbePresent – domän tips måste finnas med lokal säkerhets identifierare eller lokalt UPN. |
-| AADSTS51004 | UserAccountNotInDirectory – användar kontot finns inte i katalogen. |
-| AADSTS51005 | TemporaryRedirect motsvarar HTTP-status 307, vilket anger att den begärda informationen finns på den URI som anges i plats rubriken. När du får den här statusen följer du plats rubriken som är kopplad till svaret. När den ursprungliga förfrågnings metoden har PUBLICERAts kommer den omdirigerade begäran också att använda POST-metoden. |
-| AADSTS51006 | ForceReauthDueToInsufficientAuth-integrerad Windows-autentisering krävs. Användaren loggade in med en sessionstoken som saknar det integrerade Windows-autentiserings-anspråket. Be användaren att logga in igen. |
-| AADSTS52004 | DelegationDoesNotExistForLinkedIn – användaren har inte gett sitt medgivande för åtkomst till LinkedIn-resurser. |
-| AADSTS53000 | DeviceNotCompliant-principen för villkorlig åtkomst kräver en kompatibel enhet och enheten är inte kompatibel. Användaren måste registrera sin enhet med en godkänd MDM-provider som Intune. |
-| AADSTS53001 | DeviceNotDomainJoined-principen för villkorlig åtkomst kräver en domänansluten enhet och enheten är inte domänansluten. Låt användaren använda en domänansluten enhet. |
-| AADSTS53002 | ApplicationUsedIsNotAnApprovedApp – appen som används är inte en godkänd app för villkorlig åtkomst. Användaren måste använda en av apparna från listan över godkända appar som ska användas för att få åtkomst. |
-| AADSTS53003 | BlockedByConditionalAccess – åtkomst har blockerats av principer för villkorlig åtkomst. Åtkomst principen tillåter inte utfärdande av token. |
-| AADSTS53004 | ProofUpBlockedDueToRisk-användaren måste slutföra registreringen av Multi-Factor Authentication innan det går att komma åt det här innehållet. Användaren bör registrera sig för multifaktorautentisering. |
+| AADSTS50087 | SasRetryableError - Tjänsten är inte tillgänglig för tillfället. Försök igen. |
+| AADSTS50089 | Flödestoken har upphört att gälla – autentiseringen misslyckades. Låt användaren försöka logga in igen med användarnamn -lösenord. |
+| AADSTS50097 | DeviceAuthenticationRequired - Enhetsautentisering krävs. |
+| AADSTS50099 | PKeyAuthInvalidJwtUnauthorized - JWT-signaturen är ogiltig. |
+| AADSTS50105 | EntitlementGrantsNotFound - Den inloggade användaren har inte tilldelats en roll för den inloggade appen. Tilldela användaren till appen. För mer[https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#user-not-assigned-a-role](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#user-not-assigned-a-role)information: . |
+| AADSTS50107 | InvalidRealmUri - Det begärda federationssfärobjektet finns inte. Kontakta administratören för klientorganisationen. |
+| AADSTS50120 | ThresholdJwtInvalidJwtFormat - Problem med JWT-huvud. Kontakta administratören för klientorganisationen. |
+| AADSTS50124 | ClaimsTransformationInvalidInputParameter - Anspråksomvandling innehåller ogiltig indataparameter. Kontakta administratören för klientorganisationen för att uppdatera principen. |
+| AADSTS50125 | PasswordResetRegistrationRequiredInterrupt - Inloggning avbröts på grund av en lösenordsåterställning eller lösenordsregistrering. |
+| AADSTS50126 | InvalidUserNameOrPassword - Fel validera autentiseringsuppgifter på grund av ogiltigt användarnamn eller lösenord. |
+| AADSTS50127 | BrokerAppNotInstalled - Användaren måste installera en mäklarapp för att få tillgång till det här innehållet. |
+| AADSTS50128 | Ogiltigt domännamn - Ingen klientidentifierande information som finns i vare sig begäran eller underförstått av några angivna autentiseringsuppgifter. |
+| AADSTS50129 | DeviceIsNotWorkplaceJoined - Arbetsplatsanslutning krävs för att registrera enheten. |
+| AADSTS50131 | ConditionalAccessFailed - Anger olika villkorliga åtkomstfel, till exempel dåligt Windows-enhetstillstånd, begäran blockerad på grund av misstänkt aktivitet, åtkomstprincip eller säkerhetsprincipbeslut. |
+| AADSTS50132 | SsoArtifactInvalidOrExpired - Sessionen är inte giltig på grund av lösenordsförfallodatum eller senaste lösenordsändring. |
+| AADSTS50133 | SsoArtifactRevoked - Sessionen är inte giltig på grund av lösenordsförfallodatum eller senaste lösenordsändring. |
+| AADSTS50134 | DeviceFlowAuthorizeWrongDatacenter - Fel datacenter. Om du vill auktorisera en begäran som initierades av en app i OAuth 2.0-enhetsflödet måste den auktorisera parten be be beta i samma datacenter där den ursprungliga begäran finns. |
+| AADSTS50135 | PasswordChangeCompromisedPassword - Lösenordsändring krävs på grund av kontorisk. |
+| AADSTS50136 | RedirectMsaSessionToApp - En enda MSA-session har upptäckts. |
+| AADSTS50139 | SessionMissingMsaOAuth2RefreshToken - Sessionen är ogiltig på grund av en extern uppdateringstoken som saknas. |
+| AADSTS50140 | KmsiInterrupt - Det här felet uppstod på grund av att "Håll mig inloggad" avbryter när användaren loggade in. [Skapa ett supportärende](../fundamentals/active-directory-troubleshooting-support-howto.md) med korrelations-ID, ID för begäran och felkod för mer information. |
+| AADSTS50143 | Sessionsmatchning - Sessionen är ogiltig eftersom användarens klientorganisation inte matchar domäntipset på grund av olika resurser.  [Öppna en supportbiljett](../fundamentals/active-directory-troubleshooting-support-howto.md) med korrelations-ID, begärande-ID och felkod för att få mer information. |
+| AADSTS50144 | InvalidPasswordExpiredOnPremPassword - Användarens Active Directory-lösenord har upphört att gälla. Generera ett nytt lösenord för användaren eller be användaren använda självbetjäningsåterställningsverktyget för att återställa sitt lösenord. |
+| AADSTS50146 | MissingCustomSigningKey - Den här appen måste konfigureras med en appspecifik signeringsnyckel. Det har antingen inte konfigurerats med en sådan eller så har nyckeln upphört att gälla/är inte giltig än. |
+| AADSTS50147 | MissingCodeChallenge - Storleken på parametern kodutmaning är ogiltig. |
+| AADSTS50155 | DeviceAuthenticationFailed - Enhetsautentisering misslyckades för den här användaren. |
+| AADSTS50158 | ExternalSecurityChallenge - Yttre säkerhet utmaning var inte nöjd. |
+| AADSTS50161 | InvalidExternalSecurityChallengeConfiguration - Anspråk som skickas av extern leverantör är inte tillräckligt eller saknade anspråk som begärs till extern leverantör. |
+| AADSTS50166 | ExternalClaimsProviderThrottled - Det gick inte att skicka begäran till anspråksprovidern. |
+| AADSTS50168 | ChromeBrowserSsoInterruptRequired - Klienten kan hämta en SSO-token via Windows 10-kontotillägget, men token hittades inte i begäran eller den medföljande token har upphört att gälla. |
+| AADSTS50169 | InvalidRequestBadRealm - Sfären är inte en konfigurerad sfär för det aktuella tjänstnamnområdet. |
+| AADSTS50170 | SaknasExternalClaimsProviderMapping - Den externa kontroller mappningen saknas. |
+| AADSTS50177 | ExternalChallengeNotSupportedForPassthroughUsers - Extern utmaning stöds inte för vidareströmsanvändare. |
+| AADSTS50178 | SessionControlNotSupportedForPassthroughUsers - Sessionskontrollen stöds inte för vidareströmningsanvändare. |
+| AADSTS50180 | WindowsIntegratedAuthMissing - Integrerad Windows-autentisering behövs. Aktivera klientorganisationen för sömlös SSO. |
+| AADSTS50187 | DeviceInformationNotProvided - Tjänsten kunde inte utföra enhetsautentisering. |
+| AADSTS50196 | LoopDetected - En klientloop har upptäckts. Kontrollera appens logik för att säkerställa att tokencacheing implementeras och att felvillkor hanteras korrekt.  Appen har gjort för många av samma begäran på för kort tid, vilket indikerar att den är i ett felaktigt tillstånd eller är felaktigt begär token. |
+| AADSTS50199 | CmsiInterrupt - Av säkerhetsskäl krävs användarbekräftelse för den här begäran.  Eftersom detta är ett "interaction_required"-fel bör klienten göra interaktiva autentisering.  Detta beror på att en systemwebbvy har använts för att begära en token för ett inbyggt program - användaren måste uppmanas att fråga om detta verkligen var appen de tänkt logga in på.|
+| AADSTS51000 | RequiredFeatureNotEnabled - Funktionen är inaktiverad. |
+| AADSTS51001 | DomainHintMustbePresent - Domäntips måste finnas med lokal säkerhetsidentifierare eller lokal UPN. |
+| AADSTS51004 | UserAccountNotInDirectory - Användarkontot finns inte i katalogen. |
+| AADSTS51005 | TemporaryRedirect - Motsvarar HTTP-status 307, vilket anger att den begärda informationen finns vid den URI som anges i platshuvudet. När du får den här statusen följer du platshuvudet som är associerat med svaret. När den ursprungliga begäran metoden var POST, kommer omdirigerad begäran också att använda POST-metoden. |
+| AADSTS51006 | ForceReauthDueToInsufficientAuth - Integrerad Windows-autentisering behövs. Användaren loggade in med en sessionstoken som saknar det integrerade Windows-autentiseringsanspråket. Be användaren att logga in igen. |
+| AADSTS52004 | DelegationDoesNotExistForLinkedIn - Användaren har inte gett sitt samtycke till åtkomst till LinkedIn-resurser. |
+| AADSTS53000 | DeviceNotCompliant - Principen villkorlig åtkomst kräver en kompatibel enhet och enheten är inte kompatibel. Användaren måste registrera sin enhet med en godkänd MDM-provider som Intune. |
+| AADSTS53001 | DeviceNotDomainJoined - Principen villkorlig åtkomst kräver en domänansluten enhet och enheten är inte domänansluten. Be användaren använda en domänansluten enhet. |
+| AADSTS53002 | ApplicationUsedIsNotAnApprovedApp - Appen som används är inte en godkänd app för villkorlig åtkomst. Användaren måste använda en av apparna från listan över godkända appar som ska användas för att få åtkomst. |
+| AADSTS53003 | BlockedByConditionalAccess - Access har blockerats av principer för villkorlig åtkomst. Åtkomstprincipen tillåter inte tokenutfärdande. |
+| AADSTS53004 | ProofUpBlockedDueToRisk - Användaren måste slutföra registreringsprocessen för multifaktorautentisering innan du öppnar det här innehållet. Användaren bör registrera sig för multifaktorautentisering. |
 | AADSTS54000 | MinorUserBlockedLegalAgeGroupRule |
-| AADSTS65001 | DelegationDoesNotExist – användaren eller administratören har inte samtyckt till att använda programmet med ID X. skicka en interaktiv auktoriseringsbegäran för den här användaren och resursen. |
-| AADSTS65004 | UserDeclinedConsent – användaren avböjde ett medgivande till att få åtkomst till appen. Låt användaren logga in igen och ge samtycke till appen|
-| AADSTS65005 | MisconfiguredApplication – appens obligatoriska resurs åtkomst lista innehåller inte appar som kan identifieras av resursen eller klient programmet har begärt åtkomst till resursen, vilket inte angavs i den obligatoriska resurs åtkomst listan eller diagram tjänsten returnerade felaktig begäran eller resursen hittades inte. Om appen har stöd för SAML kan du ha konfigurerat appen med fel identifierare (entitet). Testa lösningen för SAML via länken nedan: [https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#no-resource-in-requiredresourceaccess-list](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav) |
+| AADSTS65001 | DelegationDoesNotExist - Användaren eller administratören har inte samtyckt till att använda programmet med ID X. Skicka en interaktiv auktoriseringsbegäran för den här användaren och resursen. |
+| AADSTS65004 | UserDeclinedConsent - Användaren avböjde att godkänna åtkomst till appen. Låt användaren logga in igen och ge samtycke till appen|
+| AADSTS65005 | Felaktig konfiguration - Den app som krävs resursåtkomstlista innehåller inte appar som kan identifieras av resursen eller klientappen har begärt åtkomst till resursen, vilket inte angavs i den obligatoriska resursåtkomstlistan eller graph-tjänsten returnerade dåligt begäran eller resurs hittades inte. Om appen stöder SAML kan du ha konfigurerat appen med fel identifierare (entitet). Prova upplösningen som anges för SAML med hjälp av länken nedan:[https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#no-resource-in-requiredresourceaccess-list](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav) |
 | AADSTS67003 | ActorNotValidServiceIdentity |
-| AADSTS70000 | InvalidGrant – Autentiseringen misslyckades. Uppdateringstoken är ogiltig. Felet kan bero på följande orsaker:<ul><li>Token binding-huvud är tomt</li><li>Token binding hash matchar inte</li></ul> |
-| AADSTS70001 | UnauthorizedClient – programmet är inaktiverat. |
-| AADSTS70002 | InvalidClient – det gick inte att verifiera autentiseringsuppgifterna. Den angivna client_secret matchar inte det förväntade värdet för den här klienten. Korrigera client_secret och försök igen. Mer information finns i [använda auktoriseringskod för att begära en åtkomsttoken](v2-oauth2-auth-code-flow.md#request-an-access-token). |
-| AADSTS70003 | UnsupportedGrantType – appen returnerade en beviljande typ som inte stöds. |
-| AADSTS70004 | InvalidRedirectUri – appen returnerade en ogiltig omdirigerings-URI. Adressen för omdirigering som angetts av klienten matchar inte några konfigurerade adresser eller någon adress på godkännandelistan för OIDC. |
-| AADSTS70005 | UnsupportedResponseType – appen returnerade en svars typ som inte stöds på grund av följande orsaker:<ul><li>svars typen token har inte Aktiver ATS för appen</li><li>svarstypen "id_token" kräver OpenID-omfång – innehåller ett OAuth-parametervärde som inte stöds i den kodade wctx</li></ul> |
-| AADSTS70007 | UnsupportedResponseMode – appen returnerade ett värde som inte stöds för `response_mode` när en token begärdes.  |
-| AADSTS70008 | ExpiredOrRevokedGrant-uppdateringstoken har gått ut på grund av inaktivitet. Token utfärdades på XXX och var inaktiv under en viss tid. |
-| AADSTS70011 | InvalidScope-definitions området som begärdes av appen är ogiltigt. |
-| AADSTS70012 | MsaServerError-ett Server fel uppstod vid autentisering av en MSA-användare (Consumer). Försök igen. Om den fortfarande inte fungerar [öppnar du ett support ärende](../fundamentals/active-directory-troubleshooting-support-howto.md) |
-| AADSTS70016 | AuthorizationPending – fel i OAuth 2,0-enhets flöde. Auktorisering väntar. Enheten försöker att söka efter begäran igen. |
-| AADSTS70018 | BadVerificationCode-ogiltig verifierings kod på grund av att användaren skriver in fel användar kod för enhets kod flödet. Auktorisering är inte godkänd. |
-| AADSTS70019 | CodeExpired-verifierings koden har gått ut. Låt användaren försöka logga in igen. |
-| AADSTS75001 | BindingSerializationError-ett fel uppstod under SAML-meddelande bindningen. |
-| AADSTS75003 | UnsupportedBindingError – appen returnerade ett fel som är relaterat till en bindning som inte stöds (SAML-protokollets svar kan inte skickas via andra bindningar än HTTP POST). |
-| AADSTS75005 | Saml2MessageInvalid – Azure AD har inte stöd för SAML-begäran som skickats av appen för SSO. |
-| AADSTS75008 | RequestDeniedError-begäran från appen nekades eftersom SAML-begäran hade ett oväntat mål. |
-| AADSTS75011 | NoMatchedAuthnContextInOutputClaims – autentiseringsmetoden som användaren autentiseras med tjänsten inte matchar den begärda autentiseringsmetoden. |
-| AADSTS75016 | Saml2AuthenticationRequestInvalidNameIDPolicy-SAML2-autentiseringsbegäran har ogiltig NameIdPolicy. |
-| AADSTS80001 | OnPremiseStoreIsNotAvailable – Autentiseringstjänsten kan inte ansluta till Active Directory. Se till att agent servrarna är medlemmar i samma AD-skog som de användare vars lösen ord måste verifieras och att de kan ansluta till Active Directory. |
-| AADSTS80002 | OnPremisePasswordValidatorRequestTimedout – tids gränsen nåddes för begäran om lösen ords validering. Se till att Active Directory är tillgänglig och svarar på begär Anden från agenterna. |
-| AADSTS80005 | OnPremisePasswordValidatorUnpredictableWebException – ett okänt fel inträffade när svaret från Autentiseringstjänsten bearbetades. Gör om begäran. Om det fortfarande inte fungerar kan du [öppna ett support ärende](../fundamentals/active-directory-troubleshooting-support-howto.md) för att få mer information om felet. |
-| AADSTS80007 | OnPremisePasswordValidatorErrorOccurredOnPrem – det gick inte att verifiera användarens lösen ord. Mer information finns i agent loggarna och kontrol lera att Active Directory fungerar som förväntat. |
-| AADSTS80010 | OnPremisePasswordValidationEncryptionException-det går inte att dekryptera lösen ordet. |
-| AADSTS80012 | OnPremisePasswordValidationAccountLogonInvalidHours – användarna försökte logga in utanför de tillåtna timmarna (det anges i AD). |
-| AADSTS80013 | OnPremisePasswordValidationTimeSkew-det gick inte att utföra autentiseringsbegäran på grund av en tids gräns mellan den dator som kör Autentiseringstjänsten och AD. Åtgärda problem med tids synkronisering. |
-| AADSTS81004 | DesktopSsoIdentityInTicketIsNotAuthenticated-Kerberos-autentiseringsförsök misslyckades. |
-| AADSTS81005 | DesktopSsoAuthenticationPackageNotSupported – autentiseringspaketet stöds inte. |
-| AADSTS81006 | DesktopSsoNoAuthorizationHeader-det gick inte att hitta något Authorization-huvud. |
-| AADSTS81007 | DesktopSsoTenantIsNotOptIn – klienten är inte aktive rad för sömlös SSO. |
-| AADSTS81009 | DesktopSsoAuthorizationHeaderValueWithBadFormat – det gick inte att verifiera användarens Kerberos-biljett. |
-| AADSTS81010 | DesktopSsoAuthTokenInvalid-sömlös SSO misslyckades eftersom användarens Kerberos-biljett har upphört att gälla eller är ogiltig. |
-| AADSTS81011 | DesktopSsoLookupUserBySidFailed – det gick inte att hitta användar objekt baserat på information i användarens Kerberos-biljett. |
-| AADSTS81012 | DesktopSsoMismatchBetweenTokenUpnAndChosenUpn – användaren som försöker logga in på Azure AD skiljer sig från den användare som är inloggad på enheten. |
-| AADSTS90002 | InvalidTenantName-klient namnet hittades inte i data lagret. Kontrol lera att du har rätt klient-ID. |
-| AADSTS90004 | InvalidRequestFormat-begäran har inte formaterats korrekt. |
-| AADSTS90005 | InvalidRequestWithMultipleRequirements – det gick inte att slutföra begäran. Begäran är inte giltig eftersom tipset identifierare och inloggnings tips inte kan användas tillsammans.  |
-| AADSTS90006 | ExternalServerRetryableError – tjänsten är inte tillgänglig för tillfället.|
-| AADSTS90007 | InvalidSessionId – felaktig begäran. Det gick inte att parsa det skickade sessions-ID: t. |
-| AADSTS90008 | TokenForItselfRequiresGraphPermission – användaren eller administratören har inte samtyckt till att använda programmet. Som minimum kräver programmet åtkomst till Azure AD genom att ange behörigheten Logga in och läsa användar profil. |
-| AADSTS90009 | TokenForItselfMissingIdenticalAppIdentifier – programmet begär en token för sig själv. Det här scenariot stöds bara om den angivna resursen använder det GUID-baserade program-ID: t. |
-| AADSTS90010 | NotSupported – det gick inte att skapa algoritmen. |
-| AADSTS90012 | RequestTimeout-den begärda tids gränsen nåddes. |
-| AADSTS90013 | InvalidUserInput – indata från användaren är inte giltiga. |
-| AADSTS90014 | MissingRequiredField – den här felkoden kan visas i olika fall när ett förväntat fält inte finns i autentiseringsuppgiften. |
-| AADSTS90015 | QueryStringTooLong-frågesträngen är för lång. |
-| AADSTS90016 | MissingRequiredClaim-åtkomsttoken är ogiltig. Det begärda kravet saknas. |
-| AADSTS90019 | MissingTenantRealm-Azure AD kunde inte fastställa klient-ID: n från begäran. |
-| AADSTS90022 | AuthenticatedInvalidPrincipalNameFormat – huvud namnets format är inte giltigt eller uppfyller inte det förväntade `name[/host][@realm]` formatet. Huvud namnet är obligatoriskt, värden och sfär är valfria och kan anges till null. |
-| AADSTS90023 | InvalidRequest-begäran om autentiseringsfel är ogiltig. |
-| AADSTS9002313 | InvalidRequest-begäran är felaktig eller ogiltig. – Problemet här beror på att det uppstod något fel med begäran till en viss slut punkt. Förslaget till det här problemet är att få en Fiddler spårning av felet som inträffar och se om begäran faktiskt har formaterats eller inte. |
-| AADSTS90024 | RequestBudgetExceededError – ett tillfälligt fel har inträffat. Försök igen. |
-| AADSTS90033 | MsodsServiceUnavailable – Microsoft Online Directory Service (MSODS) är inte tillgängligt. |
-| AADSTS90036 | MsodsServiceUnretryableFailure-ett oväntat fel som inte går att försöka igen från den WCF-tjänst som är värd för MSODS har inträffat. [Skapa ett supportärende](../fundamentals/active-directory-troubleshooting-support-howto.md) för att få mer information om felet. |
-| AADSTS90038 | NationalCloudTenantRedirection-den angivna klient organisationen ' Y ' tillhör det nationella molnet ' X '. Den aktuella moln instansen ' Z ' är inte Federerad med X. Ett omdirigerings fel för molnet returneras. |
-| AADSTS90043 | NationalCloudAuthCodeRedirection – funktionen är inaktive rad. |
-| AADSTS90051 | InvalidNationalCloudId – den nationella moln identifieraren innehåller ett ogiltigt moln-ID. |
-| AADSTS90055 | TenantThrottlingError – det finns för många inkommande begär Anden. Detta undantag genereras för blockerade klienter. |
-| AADSTS90056 | BadResourceRequest-för att lösa in koden för en åtkomsttoken ska appen skicka en POST-begäran till `/token` slut punkten. Innan du gör det måste du också ange en auktoriseringskod och skicka den i POST-begäran till `/token` slut punkten. I den här artikeln hittar du en översikt över OAuth 2,0-auktoriseringskod: [https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-oauth-code](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-oauth-code). Dirigera användaren till `/authorize` slut punkten som returnerar ett authorization_code. Genom att skicka en begäran till `/token` slut punkten får användaren åtkomst-token. Logga in på Azure Portal och kontrol lera **Appregistreringar > slut punkter** för att bekräfta att de två slut punkterna har kon figurer ATS korrekt. |
-| AADSTS90072 | PassThroughUserMfaError – det externa kontot som användaren loggar in med inte finns på den klient som de har loggat in på. Det innebär att användaren inte kan uppfylla MFA-kraven för klient organisationen. Kontot måste läggas till som en extern användare i klient organisationen först. Logga ut och logga in med ett annat användar konto för Azure AD. |
-| AADSTS90081 | OrgIdWsFederationMessageInvalid – ett fel uppstod när tjänsten försökte bearbeta ett WS-Federation-meddelande. Meddelandet är inte giltigt. |
-| AADSTS90082 | OrgIdWsFederationNotSupported-den valda autentiseringsmetoden för begäran stöds inte för närvarande. |
-| AADSTS90084 | OrgIdWsFederationGuestNotAllowed – gäst konton är inte tillåtna för den här platsen. |
-| AADSTS90085 | OrgIdWsFederationSltRedemptionFailed-tjänsten kan inte utfärda en token eftersom företags objektet inte har etablerats ännu. |
-| AADSTS90086 | OrgIdWsTrustDaTokenExpired – användarens DA-token har upphört att gälla. |
-| AADSTS90087 | OrgIdWsFederationMessageCreationFromUriFailed – ett fel uppstod när WS-Federation-meddelandet skapades från URI: n. |
-| AADSTS90090 | GraphRetryableError – tjänsten är inte tillgänglig för tillfället. |
-| AADSTS90091 | GraphServiceUnreachable |
+| AADSTS70000 | InvalidGrant - Autentisering misslyckades. Uppdateringstoken är ogiltig. Felet kan bero på följande:<ul><li>Tokenbindningshuvudet är tomt</li><li>Tokenbindningshh matchar inte</li></ul> |
+| AADSTS70001 | UnauthorizedClient - Programmet är inaktiverat. |
+| AADSTS70002 | InvalidClient - Fel validera autentiseringsuppgifterna. Den angivna client_secret matchar inte det förväntade värdet för den här klienten. Korrigera client_secret och försök igen. Mer information finns i [Använda auktoriseringskoden för att begära en åtkomsttoken](v2-oauth2-auth-code-flow.md#request-an-access-token). |
+| AADSTS70003 | Inte stödsGrantType - Appen returnerade en bidragstyp som inte stöds. |
+| AADSTS70004 | InvalidRedirectUri - Appen returnerade en ogiltig omdirigerings-URI. Adressen för omdirigering som angetts av klienten matchar inte några konfigurerade adresser eller någon adress på godkännandelistan för OIDC. |
+| AADSTS70005 | ResponseeType som inte stöds – Appen returnerade en svarstyp som inte stöds på grund av följande orsaker:<ul><li>svarstypen "token" är inte aktiverad för appen</li><li>svarstypen "id_token" kräver OpenID-omfång – innehåller ett OAuth-parametervärde som inte stöds i den kodade wctx</li></ul> |
+| AADSTS70007 | Svarar inteMode - Appen returnerade ett värde som `response_mode` inte stöds när du begär en token.  |
+| AADSTS70008 | ExpiredOrRevokedGrant - Uppdateringstoken har upphört att gälla på grund av inaktivitet. Token utfärdades på XXX och var inaktiv under en viss tid. |
+| AADSTS70011 | InvalidScope - Det scope som begärs av appen är ogiltigt. |
+| AADSTS70012 | MsaServerError - Ett serverfel uppstod när en MSA-användare (konsument). Försök igen. Om det fortsätter att misslyckas [öppnar du en supportbiljett](../fundamentals/active-directory-troubleshooting-support-howto.md) |
+| AADSTS70016 | Auktoriseringsanering - OAuth 2.0-enhetsflödesfel. Auktorisering väntar. Enheten försöker avsöka begäran igen. |
+| AADSTS70018 | BadVerificationCode - Ogiltig verifieringskod på grund av att användaren skriver in fel användarkod för enhetskodflödet. Auktorisering är inte godkänd. |
+| AADSTS70019 | CodeExpired - Verifieringskoden har upphört att gälla. Be användaren försöka logga in igen. |
+| AADSTS75001 | BindingSerializationError - Ett fel uppstod under SAML-meddelandebindning. |
+| AADSTS75003 | Binder inte - Appen returnerade ett fel som var relaterat till bindning som inte stöds (SAML-protokollsvaret kan inte skickas via andra bindningar än HTTP POST). |
+| AADSTS75005 | Saml2MessageInvalid - Azure AD stöder inte SAML-begäran som skickas av appen för SSO. |
+| AADSTS75008 | RequestDeniedError - Begäran från appen nekades eftersom SAML-begäran hade ett oväntat mål. |
+| AADSTS75011 | NoMatchedAuthnContextInOutputClaims - Autentiseringsmetoden som användaren autentiserade med tjänsten inte matchar begärd autentiseringsmetod. |
+| AADSTS75016 | Saml2AuthenticationRequestInvalidNameIDPolicy - SAML2 Autentiseringsbegäran har ogiltig NameIdPolicy. |
+| AADSTS80001 | OnPremiseStoreIsNotAvailable - Autentiseringsagenten kan inte ansluta till Active Directory. Kontrollera att agentservrar är medlemmar i samma AD-skog som de användare vars lösenord måste valideras och de kan ansluta till Active Directory. |
+| AADSTS80002 | OnPremisePasswordValidatorRequestTimedout - Lösenord validering begäran timeout. Kontrollera att Active Directory är tillgängligt och svara på begäranden från agenterna. |
+| AADSTS80005 | OnPremisePasswordValidatorUnpredictableWebException - Ett okänt fel uppstod vid bearbetning av svaret från autentiseringsagenten. Försök igen. Om det fortsätter att misslyckas öppnar [du en supportbiljett](../fundamentals/active-directory-troubleshooting-support-howto.md) för att få mer information om felet. |
+| AADSTS80007 | OnPremisePasswordValidatorErrorOccurredOnPrem - Autentiseringsagenten kan inte validera användarens lösenord. Kontrollera agentloggarna för mer information och kontrollera att Active Directory fungerar som förväntat. |
+| AADSTS80010 | OnPremisePasswordValidationEncryptionException - Autentiseringsagenten kan inte dekryptera lösenord. |
+| AADSTS80012 | OnPremisePasswordValidationAccountLogonInvalidHours - Användarna försökte logga in utanför de tillåtna timmarna (detta anges i AD). |
+| AADSTS80013 | OnPremisePasswordValidationTimeSkew - Autentiseringsförsöket kunde inte slutföras på grund av tidsnedställning mellan datorn som kör autentiseringsagenten och AD. Åtgärda problem med tidssynkronisering. |
+| AADSTS81004 | DesktopSsoIdentityInTicketIsNotAuthenticated - Kerberos autentiseringsförsök misslyckades. |
+| AADSTS81005 | DesktopSsoAuthenticationPackageNotSupported - Autentiseringspaketet stöds inte. |
+| AADSTS81006 | DesktopSsoNoAuthorizationHeader - Inget auktoriseringshuvud hittades. |
+| AADSTS81007 | DesktopSsoTenantIsNotOptIn - Klienten är inte aktiverad för Sömlös SSO. |
+| AADSTS81009 | DesktopSsoAuthorizationHeaderValueWithBadFormat - Det går inte att validera användarens Kerberos-biljett. |
+| AADSTS81010 | DesktopSsoAuthTokenInvalid - Seamless SSO misslyckades eftersom användarens Kerberos-biljett har upphört att gälla eller är ogiltig. |
+| AADSTS81011 | DesktopSsoLookupUserBySidFailed - Det gick inte att hitta användarobjekt baserat på information i användarens Kerberos-biljett. |
+| AADSTS81012 | DesktopSsoMismatchBetweenTokenUpnAndChosenUpn - Användaren som försöker logga in på Azure AD skiljer sig från användaren som är inloggad på enheten. |
+| AADSTS90002 | InvalidTenantName - Klientnamnet hittades inte i datalagret. Kontrollera att du har rätt klient-ID. |
+| AADSTS90004 | InvalidRequestFormat - Begäran är inte korrekt formaterad. |
+| AADSTS90005 | InvalidRequestWithMultipleRequirements - Det går inte att slutföra begäran. Begäran är inte giltig eftersom identifierings- och inloggningstipset inte kan användas tillsammans.  |
+| AADSTS90006 | ExternalServerRetryableError - Tjänsten är inte tillgänglig för tillfället.|
+| AADSTS90007 | InvalidSessionId - Felaktig begäran. Det gick att tolka sessions-ID:t. |
+| AADSTS90008 | TokenForItselfRequiresGraphPermission - Användaren eller administratören har inte samtyckt till att använda programmet. Programmet kräver åtminstone åtkomst till Azure AD genom att ange behörigheten inloggning och läsa användarprofil. |
+| AADSTS90009 | TokenForItselfMissingIdenticalAppIdentifier - Programmet begär en token för sig själv. Det här scenariot stöds bara om den resurs som har angetts använder det GUID-baserade program-ID:et. |
+| AADSTS90010 | NotSupported - Det går inte att skapa algoritmen. |
+| AADSTS90012 | RequestTimeout - Den begärda har timeout. |
+| AADSTS90013 | InvalidUserInput - Indata från användaren är ogiltig. |
+| AADSTS90014 | MissingRequiredField - Den här felkoden kan visas i olika fall när ett förväntat fält inte finns i autentiseringsuppgifterna. |
+| AADSTS90015 | QueryStringTooLong - Frågesträngen är för lång. |
+| AADSTS90016 | MissingRequiredClaim - Åtkomsttoken är inte giltig. Den begärd fordran saknas. |
+| AADSTS90019 | MissingTenantRealm - Azure AD kunde inte fastställa klientidentifieraren från begäran. |
+| AADSTS90022 | AuthenticatedInvalidPrincipalNameFormat - Huvudnamnformatet är ogiltigt eller `name[/host][@realm]` uppfyller inte det förväntade formatet. Huvudnamnet krävs, värd och sfär är valfria och kan ställas in på null. |
+| AADSTS90023 | InvalidRequest - Begäran om autentiseringstjänst är ogiltig. |
+| AADSTS9002313 | InvalidRequest - Begäran är felaktig eller ogiltig. - (EN) Problemet här är att det var något fel med begäran till en viss slutpunkt. Förslaget till detta problem är att få en spelman spår av felet inträffar och vill se om begäran är faktiskt korrekt formaterad eller inte. |
+| AADSTS90024 | RequestBudgetExceededError - Ett tillfälligt fel har inträffat. Försök igen. |
+| AADSTS90033 | MsodsServiceUnavailable - Microsoft Online Directory Service (MSODS) är inte tillgänglig. |
+| AADSTS90036 | MsodsServiceUnretryableFailure - Ett oväntat, icke-retryable fel från WCF-tjänsten värd MSODS har inträffat. [Skapa ett supportärende](../fundamentals/active-directory-troubleshooting-support-howto.md) för att få mer information om felet. |
+| AADSTS90038 | NationalCloudTenantRedirection - Den angivna hyresgästen "Y" tillhör National Cloud "X". Aktuella molninstansen "Z" federerar inte med X. Ett fel i omdirigering av molnet returneras. |
+| AADSTS90043 | NationalCloudAuthCodeRedirection - Funktionen är inaktiverad. |
+| AADSTS90051 | InvalidNationalCloudId - Den nationella molnidentifieraren innehåller en ogiltig molnidentifierare. |
+| AADSTS90055 | TenantThrottlingError - Det finns för många inkommande begäranden. Det här undantaget genereras för blockerade klienter. |
+| AADSTS90056 | BadResourceRequest - Om du vill lösa in koden för en `/token` åtkomsttoken ska appen skicka en POST-begäran till slutpunkten. Dessutom bör du innan detta ange en auktoriseringskod `/token` och skicka den i POST-begäran till slutpunkten. Se den här artikeln för en översikt över OAuth [https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-oauth-code](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-oauth-code)2.0 auktoriseringskod flöde: . Rikta användaren till `/authorize` slutpunkten, som returnerar en authorization_code. Genom att publicera `/token` en begäran till slutpunkten får användaren åtkomsttoken. Logga in på Azure-portalen och kontrollera **appregistreringar > slutpunkter** för att bekräfta att de två slutpunkterna har konfigurerats korrekt. |
+| AADSTS90072 | PassThroughUserMfaError - Det externa konto som användaren loggar in med finns inte på klienten som de loggade in på. så att användaren inte kan uppfylla MFA-kraven för klienten. Kontot måste läggas till som en extern användare i klienten först. Logga ut och logga in med ett annat Azure AD-användarkonto. |
+| AADSTS90081 | OrgIdWsFederationMessageInvalid - Ett fel uppstod när tjänsten försökte bearbeta ett WS-Federation-meddelande. Meddelandet är ogiltigt. |
+| AADSTS90082 | OrgIdWsFederationNotSupported - Den valda autentiseringsprincipen för begäran stöds för närvarande inte. |
+| AADSTS90084 | OrgIdWsFederationGuestNotAllowed - Gästkonton är inte tillåtna för den här webbplatsen. |
+| AADSTS90085 | OrgIdWsFederationSltRedemptionFailed - Tjänsten kan inte utfärda en token eftersom företagsobjektet inte har etablerats ännu. |
+| AADSTS90086 | OrgIdWsTrustDaTokenExpirerad - Användarens DA-token har upphört att gälla. |
+| AADSTS90087 | OrgIdWsFederationMessageCreationFromUriFailed - Ett fel uppstod när WS-Federation-meddelandet från URI skulle skapas. |
+| AADSTS90090 | GraphRetryableError - Tjänsten är inte tillgänglig för tillfället. |
+| AADSTS90091 | GraphServiceOåre kan nås |
 | AADSTS90092 | GraphNonRetryableError |
-| AADSTS90093 | GraphUserUnauthorized-Graph returnerade en otillåten felkod för begäran. |
-| AADSTS90094 | AdminConsentRequired-administratörs medgivande krävs. |
-| AADSTS900382 | Konfidentiell klient stöds inte i en begäran mellan moln. |
-| AADSTS90100 | InvalidRequestParameter-parametern är tom eller ogiltig. |
-| AADSTS901002 | AADSTS901002: parametern resurs begär ande stöds inte. |
-| AADSTS90101 | InvalidEmailAddress – de angivna data är inte en giltig e-postadress. E-postadressen måste anges i formatet `someone@example.com`. |
-| AADSTS90102 | InvalidUriParameter-värdet måste vara en giltig absolut URI. |
-| AADSTS90107 | InvalidXml-begäran är inte giltig. Se till att dina data inte innehåller ogiltiga tecken.|
-| AADSTS90114 | InvalidExpiryDate – tids stämplingen för Mass-token upphör att gälla. |
-| AADSTS90117 | InvalidRequestInput |
-| AADSTS90119 | InvalidUserCode-användar koden är null eller tom.|
-| AADSTS90120 | InvalidDeviceFlowRequest-begäran har redan auktoriserats eller nekats. |
-| AADSTS90121 | InvalidEmptyRequest-ogiltig tom begäran.|
-| AADSTS90123 | IdentityProviderAccessDenied-token kan inte utfärdas eftersom identiteten eller anspråks utfärdaren nekade begäran. |
-| AADSTS90124 | V1ResourceV2GlobalEndpointNotSupported – resursen stöds inte över `/common` eller `/consumers` slut punkter. Använd den `/organizations` eller klient-/regionsspecifika slut punkten i stället. |
-| AADSTS90125 | DebugModeEnrollTenantNotFound – användaren är inte i systemet. Kontrol lera att du har angett användar namnet korrekt. |
-| AADSTS90126 | DebugModeEnrollTenantNotInferred-användar typen stöds inte för den här slut punkten. Systemet kan inte härleda användarens klient organisation från användar namnet. |
-| AADSTS90130 | NonConvergedAppV2GlobalEndpointNotSupported – programmet stöds inte över `/common` eller `/consumers` slut punkter. Använd den `/organizations` eller klient-/regionsspecifika slut punkten i stället. |
+| AADSTS90093 | GraphUserUnauthorized - Graph returneras med en förbjuden felkod för begäran. |
+| AADSTS90094 | AdminConsentRequired - Administratörsmedgivande krävs. |
+| AADSTS900382 | Konfidentiell klient stöds inte i Cross Cloud-begäran. |
+| AADSTS90100 | InvalidRequestParameter - Parametern är tom eller ogiltig. |
+| AADSTS901002 | AADSTS901002: Parametern för resursbegäran stöds inte. |
+| AADSTS90101 | InvalidEmailAddress - De angivna uppgifterna är inte en giltig e-postadress. E-postadressen måste vara `someone@example.com`i formatet . |
+| AADSTS90102 | InvalidUriParameter - Värdet måste vara en giltig absolut URI. |
+| AADSTS90107 | InvalidXml - Begäran är ogiltig. Kontrollera att dina data inte har ogiltiga tecken.|
+| AADSTS90114 | InvalidExpiryDate - Tidsstämpeln för förfallodatum för masstoken gör att en token som har upphört att gälla utfärdas. |
+| AADSTS90117 | OgiltigtQuestInput |
+| AADSTS90119 | InvalidUserCode - Användarkoden är null eller tom.|
+| AADSTS90120 | InvalidDeviceFlowRequest - Begäran har redan godkänts eller avvisats. |
+| AADSTS90121 | InvalidEmptyRequest - Ogiltig tom begäran.|
+| AADSTS90123 | IdentityProviderAccessDenied - Token kan inte utfärdas eftersom identitets- eller anspråksutfärdarprovidern nekade begäran. |
+| AADSTS90124 | V1ResourceV2GlobalEndpointNotSupported - Resursen stöds `/common` inte `/consumers` över slutpunkterna eller. Använd `/organizations` slutpunkten eller klientspecifikt i stället. |
+| AADSTS90125 | DebugModeEnrollTenantNotFound - Användaren finns inte i systemet. Kontrollera att du har angett användarnamnet korrekt. |
+| AADSTS90126 | DebugModeEnrollTenantNotInferred - Användartypen stöds inte på den här slutpunkten. Systemet kan inte dra slutsatsen att användarens klientorganisation kommer från användarnamnet. |
+| AADSTS90130 | NonConvergedAppV2GlobalEndpointNotSupported - Programmet stöds inte `/common` `/consumers` över slutpunkterna eller. Använd `/organizations` slutpunkten eller klientspecifikt i stället. |
 | AADSTS120000 | PasswordChangeIncorrectCurrentPassword |
-| AADSTS120002 | PasswordChangeInvalidNewPasswordWeak |
+| AADSTS120002 | LösenordChangeInvalidNewPasswordWeak |
 | AADSTS120003 | PasswordChangeInvalidNewPasswordContainsMemberName |
-| AADSTS120004 | PasswordChangeOnPremComplexity |
+| AADSTS120004 | LösenordChangeOnPremComplexity |
 | AADSTS120005 | PasswordChangeOnPremSuccessCloudFail |
-| AADSTS120008 | PasswordChangeAsyncJobStateTerminated-ett fel som inte går att försöka igen har inträffat.|
+| AADSTS120008 | PasswordChangeAsyncJobStateTerminated - Ett fel som inte kan försökas igen har inträffat.|
 | AADSTS120011 | PasswordChangeAsyncUpnInferenceFailed |
 | AADSTS120012 | PasswordChangeNeedsToHappenOnPrem |
 | AADSTS120013 | PasswordChangeOnPremisesConnectivityFailure |
@@ -250,31 +250,32 @@ Sök på den numeriska delen av den returnerade felkoden.  Om du till exempel ha
 | AADSTS120015 | PasswordChangeADAdminActionRequired |
 | AADSTS120016 | PasswordChangeUserNotFoundBySspr |
 | AADSTS120018 | PasswordChangePasswordDoesnotComplyFuzzyPolicy |
-| AADSTS120020 | PasswordChangeFailure |
+| AADSTS120020 | LösenordÄndelse |
 | AADSTS120021 | PartnerServiceSsprInternalServiceError |
-| AADSTS130004 | NgcKeyNotFound – användarens huvud namn har inte en NGC-ID-nyckel konfigurerad. |
-| AADSTS130005 | NgcInvalidSignature-NGC-nyckelns signatur har inte verifierats.|
-| AADSTS130006 | NgcTransportKeyNotFound – den NGC transport nyckeln har inte kon figurer ATS på enheten. |
-| AADSTS130007 | NgcDeviceIsDisabled – enheten är inaktive rad. |
-| AADSTS130008 | NgcDeviceIsNotFound-enheten som refereras av NGC-nyckeln hittades inte. |
-| AADSTS135010 | KeyNotFound |
-| AADSTS140000 | InvalidRequestNonce-fråge-ID har inte angetts. |
-| AADSTS140001 | InvalidSessionKey-sessionsnyckeln är ogiltig.|
-| AADSTS165900 | InvalidApiRequest – ogiltig begäran. |
-| AADSTS220450 | UnsupportedAndroidWebViewVersion – Chrome-webbview-versionen stöds inte. |
-| AADSTS220501 | InvalidCrlDownload |
-| AADSTS221000 | DeviceOnlyTokensNotSupportedByResource – resursen har inte kon figurer ATS för att acceptera endast enhets-token. |
-| AADSTS240001 | BulkAADJTokenUnauthorized – användaren har inte behörighet att registrera enheter i Azure AD. |
-| AADSTS240002 | RequiredClaimIsMissing-det går inte att använda id_token som `urn:ietf:params:oauth:grant-type:jwt-bearer` bevilja.|
-| AADSTS530032 | BlockedByConditionalAccessOnSecurityPolicy – klient organisationens administratör har konfigurerat en säkerhets princip som blockerar denna begäran. Kontrol lera de säkerhets principer som definierats på klient nivå för att avgöra om din begäran uppfyller princip kraven. |
-| AADSTS700016 | UnauthorizedClient_DoesNotMatchRequest – det gick inte att hitta programmet i katalogen/klient organisationen. Detta kan inträffa om programmet inte har installerats av administratören för klienten eller om någon användare i klient organisationen har godkänt detta. Du kan ha felkonfigurerat ID-värdet för programmet eller skickat autentiseringsbegäran till fel klient. |
-| AADSTS700020 | InteractionRequired – åtkomst beviljande kräver interaktion. |
-| AADSTS700022 | InvalidMultipleResourcesScope-det tillhandahållna värdet för parameter området för indata är inte giltigt eftersom det innehåller fler än en resurs. |
-| AADSTS700023 | InvalidResourcelessScope-det angivna värdet för Indataparametern för indata-parametern är inte giltigt när en åtkomsttoken begärs. |
-| AADSTS1000000 | UserNotBoundError – bindnings-API: t kräver att Azure AD-användaren också autentiseras med en extern IDP, vilket inte har hänt än. |
-| AADSTS1000002 | BindCompleteInterruptError – bindningen har slutförts, men användaren måste vara informerad. |
-| AADSTS7000112 | UnauthorizedClientApplicationDisabled – programmet är inaktiverat. |
+| AADSTS130004 | NgcKeyNotFound - Användarens huvudnamn har inte NGC ID-nyckeln konfigurerad. |
+| AADSTS130005 | NgcInvalidSignature - NGC-nyckelsignaturen misslyckades.|
+| AADSTS130006 | NgcTransportKeyNotFound - NGC-transportnyckeln är inte konfigurerad på enheten. |
+| AADSTS130007 | NgcDeviceIsabled - Enheten är inaktiverad. |
+| AADSTS130008 | NgcDeviceIsNotFound - Enheten som refererades av NGC-nyckeln hittades inte. |
+| AADSTS135010 | KeyNotFound (KeyNotFound) |
+| AADSTS140000 | InvalidRequestNonce - Begäran nonce tillhandahålls inte. |
+| AADSTS140001 | InvalidSessionKey - Sessionsnyckeln är ogiltig.|
+| AADSTS165900 | InvalidApiRequest - Ogiltig begäran. |
+| AADSTS220450 | Stöds inteAndroidWebViewVersion - Chrome WebView-versionen stöds inte. |
+| AADSTS220501 | OgiltigT Nedladdning |
+| AADSTS221000 | DeviceOnlyTokensNotSupportedByResource - Resursen är inte konfigurerad för att acceptera token endast för enheter. |
+| AADSTS240001 | BulkAADJTokenUnauthorized - Användaren har inte behörighet att registrera enheter i Azure AD. |
+| AADSTS240002 | RequiredClaimIsMissing - Id_token kan inte användas `urn:ietf:params:oauth:grant-type:jwt-bearer` som bidrag.|
+| AADSTS530032 | BlockedByConditionalAccessOnSecurityPolicy - Klientadministratören har konfigurerat en säkerhetsprincip som blockerar den här begäran. Kontrollera de säkerhetsprinciper som har definierats på klientnivå för att avgöra om din begäran uppfyller principkraven. |
+| AADSTS700016 | UnauthorizedClient_DoesNotMatchRequest - Programmet hittades inte i katalogen/klienten. Detta kan inträffa om programmet inte har installerats av klientens administratör eller medgivande från någon användare i klienten. Du kan ha felkonfigurerat identifierare värdet för programmet eller skickat din autentiseringsbegäran till fel klient. |
+| AADSTS700020 | InteractionRequired - Åtkomstbidraget kräver interaktion. |
+| AADSTS700022 | InvalidMultipleResourcesScope - Det angivna värdet för indataparameteromfånget är inte giltigt eftersom det innehåller mer än en resurs. |
+| AADSTS700023 | InvalidResourcelessScope - Det angivna värdet för indataparameteromfånget är inte giltigt när du begär en åtkomsttoken. |
+| AADSTS1000000 | UserNotBoundError - Bind API kräver att Azure AD-användaren också autentiserar med ett externt IDP, vilket inte har hänt ännu. |
+| AADSTS1000002 | BindCompleteInterruptError - Bindningen har slutförts, men användaren måste informeras. |
+| AADSTS7000112 | UnauthorizedClientApplicationDisabled - Programmet är inaktiverat. |
+| AADSTS7500529 | Värdet "SAMLId-Guid" är inte ett giltigt SAML-ID - Azure AD använder det här attributet för att fylla i InResponseTo-attributet för det returnerade svaret. ID får inte börja med ett tal, så en gemensam strategi är att prepend en sträng som "id" till strängrepresentation av ett GUID. Till exempel, id6c1c178c166d486687be4aaf5e482730 är ett giltigt ID. |
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Har du en fråga eller kan du inte hitta det du söker? Skapa ett GitHub-ärende eller se [support och hjälp alternativ för utvecklare](active-directory-develop-help-support.md) och lär dig mer om andra sätt att få hjälp och support.
+* Har du en fråga eller inte hittar det du letar efter? Skapa ett GitHub-problem eller se [Support- och hjälpalternativ för utvecklare om](active-directory-develop-help-support.md) du vill lära dig mer om andra sätt du kan få hjälp och support.

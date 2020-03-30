@@ -7,16 +7,16 @@ ms.topic: include
 ms.date: 03/14/2019
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: 284aad7dd5b51268b1c8ff8a02f4489d6f1cd3d9
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: 6bb59db4c1b31033b1e116742dedc94621b1c60d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76279437"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80117072"
 ---
-Konfigurations inställningar för [Durable Functions](../articles/azure-functions/durable-functions-overview.md).
+Konfigurationsinställningar för [varaktiga funktioner](../articles/azure-functions/durable-functions-overview.md).
 
-### <a name="durable-functions-1x"></a>Durable Functions 1. x
+### <a name="durable-functions-1x"></a>Hållbara funktioner 1.x
 
 ```json
 {
@@ -43,10 +43,11 @@ Konfigurations inställningar för [Durable Functions](../articles/azure-functio
 }
 ```
 
-### <a name="durable-functions-2-0-host-json"></a>Durable Functions 2. x
+### <a name="durable-functions-2x"></a><a name="durable-functions-2-0-host-json"></a>Hållbara funktioner 2.x
 
 ```json
 {
+ "extensions": {
   "durableTask": {
     "hubName": "MyTaskHub",
     "storageProvider": {
@@ -84,32 +85,34 @@ Konfigurations inställningar för [Durable Functions](../articles/azure-functio
     "extendedSessionIdleTimeoutInSeconds": 30,
     "useGracefulShutdown": false
   }
+  }
 }
+
 ```
 
-Namn på uppgifts hubbar måste börja med en bokstav och får bara bestå av bokstäver och siffror. Om inget värde anges är standard namnet på uppgifts navet för en Function-app **DurableFunctionsHub**. Mer information finns i [aktivitets nav](../articles/azure-functions/durable-functions-task-hubs.md).
+Aktivitetsnavnamn måste börja med en bokstav och bestå av endast bokstäver och siffror. Om inget anges är standardaktivitetsnavets namn för en funktionsapp **DurableFunctionsHub**. Mer information finns i [Aktivitetshubbar](../articles/azure-functions/durable-functions-task-hubs.md).
 
 |Egenskap  |Default | Beskrivning |
 |---------|---------|---------|
-|hubName|DurableFunctionsHub|Alternativa [aktivitets Hubbs](../articles/azure-functions/durable-functions-task-hubs.md) namn kan användas för att isolera flera Durable Functions program från varandra, även om de använder samma lagrings Server del.|
-|controlQueueBatchSize|32|Antalet meddelanden att hämta från kontroll kön i taget.|
-|controlQueueBufferThreshold|256|Antalet kontrollmeddelanden som kan buffras i minnet i taget, vid vilken tidpunkt Dispatchern väntar innan eventuella ytterligare meddelanden tas ur kö.|
-|partitionCount |4|Antalet partitioner för kontroll kön. Kan vara ett positivt heltal mellan 1 och 16.|
-|controlQueueVisibilityTimeout |5 minuter|Timeout för visning av köade kontrollmeddelanden.|
-|workItemQueueVisibilityTimeout |5 minuter|Tids gränsen för visning av meddelanden i kö för arbets objekt i kö.|
-|maxConcurrentActivityFunctions |10X antalet processorer på den aktuella datorn|Det maximala antalet aktivitets funktioner som kan bearbetas samtidigt på en enda värd instans.|
-|maxConcurrentOrchestratorFunctions |10X antalet processorer på den aktuella datorn|Det maximala antalet Orchestrator-funktioner som kan bearbetas samtidigt på en enda värd instans.|
-|maxQueuePollingInterval|30 sekunder|Det maximala avsöknings intervallet för kontroll och arbets objekt kön i formatet *hh: mm: SS* . Högre värden kan resultera i högre meddelande fördröjning. Lägre värden kan resultera i högre lagrings kostnader på grund av ökade lagrings transaktioner.|
-|azureStorageConnectionStringName |AzureWebJobsStorage|Namnet på den app-inställning som har Azure Storage anslutnings strängen som används för att hantera de underliggande Azure Storage resurserna.|
-|trackingStoreConnectionStringName||Namnet på en anslutnings sträng som ska användas för tabellerna historik och instans. Om inget anges används `azureStorageConnectionStringName` anslutningen.|
-|trackingStoreNamePrefix||Det prefix som ska användas för tabellerna historik och instans när `trackingStoreConnectionStringName` anges. Om inget värde anges kommer standardvärdet för prefix att `DurableTask`. Om `trackingStoreConnectionStringName` inte anges använder tabellerna historik och instans `hubName` värdet som prefix, och alla inställningar för `trackingStoreNamePrefix` kommer att ignoreras.|
-|traceInputsAndOutputs |false|Ett värde som anger om indata och utdata för funktions anrop ska spåras. Standard beteendet vid körning av spårning av funktions händelser är att inkludera antalet byte i de serialiserade indata och utdata för funktions anrop. Det här beteendet ger minimal information om vad indata och utdata ser ut som om de inte bloating loggar eller oavsiktligt exponerar känslig information. Om den här egenskapen ställs in på Sant loggas hela innehållet i funktions inmatning och utdata.|
-|logReplayEvents|false|Ett värde som anger om omdirigerings händelser ska skrivas till Application Insights.|
-|eventGridTopicEndpoint ||URL för en Azure Event Grid anpassad ämnes slut punkt. När den här egenskapen anges publiceras Dirigerings livs cykel meddelande händelser till den här slut punkten. Den här egenskapen stöder App Settings-matchning.|
-|eventGridKeySettingName ||Namnet på den app-inställning som innehåller den nyckel som används för att autentisera med Azure Event Grid anpassade avsnittet på `EventGridTopicEndpoint`.|
-|eventGridPublishRetryCount|0|Antalet gånger som försök görs om publicering till Event Grid avsnittet Miss lyckas.|
-|eventGridPublishRetryInterval|5 minuter|Återförsöks intervallet för Event Grid publiceras i formatet *hh: mm: SS* .|
-|eventGridPublishEventTypes||En lista med händelse typer att publicera till Event Grid. Om inget värde anges kommer alla händelse typer att publiceras. Tillåtna värden är `Started`, `Completed`, `Failed`, `Terminated`.|
-|useGracefulShutdown|false|Förhandsgranskningsvyn Aktivera Stäng av på ett smidigt sätt för att minska risken för att det inte går att stänga av värden i process funktionens körningar.|
+|hubName (hubName)|Hållbar Funktionshub|Alternativa [aktivitetsnavnamn](../articles/azure-functions/durable-functions-task-hubs.md) kan användas för att isolera flera varaktiga funktioner-program från varandra, även om de använder samma lagringstabnamn.|
+|kontrollQueueBatchSize|32|Antalet meddelanden som ska hämtas från kontrollkön åt gången.|
+|kontrollQueueBufferThreshold|256|Antalet kontrollkömeddelanden som kan buffras i minnet åt gången, då avsändaren väntar innan du utesluter ytterligare meddelanden.|
+|partitionCount |4|Partitionen räknas för kontrollkön. Kan vara ett positivt heltal mellan 1 och 16.|
+|controlQueueVisibilityTimeout |5 minuter|Tidsgränsen för synlighet för avstämda kontrollkömeddelanden.|
+|workItemQueueVisibilityTimeout |5 minuter|Tidsgränsen för synlighet för kömeddelanden för oställda arbetsobjekt.|
+|maxConcurrentActivityFunctions |10X antalet processorer på den aktuella maskinen|Det maximala antalet aktivitetsfunktioner som kan bearbetas samtidigt på en enda värdinstans.|
+|maxConcurrentOrchestratorFunktioner |10X antalet processorer på den aktuella maskinen|Det maximala antalet orchestrator-funktioner som kan bearbetas samtidigt på en enda värdinstans.|
+|maxQueuePollingInterval|30 sekunder|Det maximala kontroll- och arbetsobjektköavsökningsintervallet i *formatet hh:mm:ss.* Högre värden kan resultera i högre meddelandebehandlingsdämpningsdysligheter. Lägre värden kan resultera i högre lagringskostnader på grund av ökade lagringstransaktioner.|
+|azureStorageConnectionStringName |AzureWebJobsStorage|Namnet på appinställningen som har Azure Storage-anslutningssträngen som används för att hantera underliggande Azure Storage-resurser.|
+|spåraStoreConnectionStringName||Namnet på en anslutningssträng som ska användas för tabellerna Historik och instanser. Om inget anges `azureStorageConnectionStringName` används anslutningen.|
+|spåraStoreNamePrefix||Prefixet som ska användas för tabellerna Historik och instanser när `trackingStoreConnectionStringName` anges. Om inte inställt kommer standardprefixvärdet att vara `DurableTask`. Om `trackingStoreConnectionStringName` det inte anges kommer tabellerna Historik `hubName` och instanser att använda värdet `trackingStoreNamePrefix` som prefix och alla inställningar för ignoreras.|
+|traceInputsAndOutputs |false|Ett värde som anger om indata och utdata för funktionsanrop ska spåras. Standardbeteendet vid spårning av funktionskörningshändelser är att inkludera antalet byte i serialiserade indata och utdata för funktionsanrop. Detta ger minimal information om hur indata och utdata ser ut utan uppblåsthet loggarna eller oavsiktligt exponera känslig information. Om du ställer in den här egenskapen på true kan standardfunktionsloggningen logga hela innehållet i funktionsindata och utdata.|
+|logReplayEvents|false|Ett värde som anger om händelser för orchestration-repris ska skrivas upp i Application Insights.|
+|händelseGridTopicEndpoint ||Url:en för en anpassad ämnesslutpunkt för Azure Event Grid. När den här egenskapen har angetts publiceras meddelanden om orchestration-livscykelmeddelanden till den här slutpunkten. Den här egenskapen stöder lösning av appinställningar.|
+|händelseGridKeySettingName ||Namnet på appinställningen som innehåller nyckeln som används för att `EventGridTopicEndpoint`autentisera med det anpassade avsnittet Azure Event Grid på .|
+|eventGridPublishRetryCount|0|Antalet gånger som ska försökas om publiceringen i ämnet Händelserutnät misslyckas.|
+|händelseGridPublishRetryInterval|5 minuter|Händelserutnätet publicerar återförsöksintervallet i *formatet hh:mm:ss.*|
+|eventGridPublishEventTypes||En lista över händelsetyper som ska publiceras i Event Grid. Om inget anges publiceras alla händelsetyper. Tillåtna `Started`värden `Completed` `Failed`inkluderar `Terminated`, , , .|
+|användaGracefulShutdown|false|(Förhandsgranska) Aktivera graciöst avstängning för att minska risken för att värdavstängningar misslyckas i processens funktionskörningar.|
 
-Många av de här inställningarna är för att optimera prestanda. Mer information finns i [prestanda och skalning](../articles/azure-functions/durable-functions-perf-and-scale.md).
+Många av dessa inställningar är för att optimera prestanda. Mer information finns i [Prestanda och skala](../articles/azure-functions/durable-functions-perf-and-scale.md).

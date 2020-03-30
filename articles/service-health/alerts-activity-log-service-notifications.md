@@ -1,106 +1,106 @@
 ---
-title: Ta emot aktivitets logg aviseringar i Azure Service Notifications
-description: Få ett meddelande via SMS, e-post eller webhook när Azure-tjänsten sker.
+title: Ta emot aktivitetsloggaviseringar för Azure-tjänstmeddelanden
+description: Få ett meddelande via SMS, e-post eller webhook när Azure-tjänsten inträffar.
 ms.topic: conceptual
 ms.date: 06/27/2019
 ms.openlocfilehash: d318adc76959ac24f4be9946167965a83053f632
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75749319"
 ---
-# <a name="create-activity-log-alerts-on-service-notifications"></a>Skapa aktivitets logg aviseringar för tjänst meddelanden
+# <a name="create-activity-log-alerts-on-service-notifications"></a>Skapa aktivitetsloggsaviseringar i tjänstmeddelanden
 ## <a name="overview"></a>Översikt
 
-Den här artikeln visar hur du konfigurerar aktivitets logg aviseringar för meddelanden om tjänstens hälso tillstånd med hjälp av Azure Portal.  
+Den här artikeln visar hur du ställer in aktivitetsloggaviseringar för tjänsthälsomeddelanden med hjälp av Azure-portalen.  
 
-Meddelanden om tjänstens hälso tillstånd lagras i [Azure aktivitets loggen](../azure-monitor/platform/platform-logs-overview.md) , med tanke på den stora mängden information som lagras i aktivitets loggen, det finns ett separat användar gränssnitt som gör det lättare att visa och konfigurera aviseringar om meddelanden om tjänstens hälsa. 
+Tjänsthälsomeddelanden lagras i [Azure-aktivitetsloggen](../azure-monitor/platform/platform-logs-overview.md) Med tanke på den eventuellt stora mängden information som lagras i aktivitetsloggen finns det ett separat användargränssnitt för att göra det enklare att visa och ställa in aviseringar om tjänsthälsomeddelanden. 
 
-Du kan få en avisering när Azure skickar meddelanden om tjänst hälsa till din Azure-prenumeration. Du kan konfigurera aviseringen baserat på:
+Du kan få en avisering när Azure skickar tjänsthälsomeddelanden till din Azure-prenumeration. Du kan konfigurera aviseringen baserat på:
 
-- Hälso tillstånds klassen för tjänsten (tjänste problem, planerat underhåll, hälso rekommendationer).
-- Prenumerationen som påverkas.
-- Den eller de tjänster som påverkas.
-- De regioner som påverkas.
+- Klassen av tjänsten hälsa anmälan (Service frågor, planerat underhåll, Hälso-rådgivning).
+- Prenumerationen påverkades.
+- Tjänsten/tjänsterna påverkas.
+- Regionen/regionen påverkas.
 
 > [!NOTE]
-> Meddelanden om tjänstens hälso tillstånd skickar ingen avisering om resurs hälso händelser.
+> Hälsomeddelanden för tjänsten skickar ingen avisering om resurshälsohändelser.
 
 Du kan också konfigurera vem aviseringen ska skickas till:
 
-- Välj en befintlig åtgärds grupp.
-- Skapa en ny åtgärds grupp (som kan användas för framtida aviseringar).
+- Välj en befintlig åtgärdsgrupp.
+- Skapa en ny åtgärdsgrupp (som kan användas för framtida aviseringar).
 
-Läs mer om åtgärdsgrupper i [Skapa och hantera åtgärdsgrupper](../azure-monitor/platform/action-groups.md).
+Mer information om åtgärdsgrupper finns i [Skapa och hantera åtgärdsgrupper](../azure-monitor/platform/action-groups.md).
 
-Information om hur du konfigurerar aviseringar om tjänstens hälso tillstånd med hjälp av Azure Resource Manager mallar finns i [Resource Manager-mallar](../azure-monitor/platform/alerts-activity-log.md).
+Information om hur du konfigurerar aviseringar om tjänsthälsomeddelanden med hjälp av Azure Resource Manager-mallar finns i [Resource Manager-mallar](../azure-monitor/platform/alerts-activity-log.md).
 
-### <a name="watch-a-video-on-setting-up-your-first-azure-service-health-alert"></a>Titta på en video om hur du konfigurerar din första Azure Service Health avisering
+### <a name="watch-a-video-on-setting-up-your-first-azure-service-health-alert"></a>Titta på en video om hur du konfigurerar din första Azure Service Health-avisering
 
 >[!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE2OaXt]
 
-## <a name="alert-and-new-action-group-using-azure-portal"></a>Avisering och ny åtgärds grupp med Azure Portal
-1. I [portalen](https://portal.azure.com)väljer du **service Health**.
+## <a name="alert-and-new-action-group-using-azure-portal"></a>Avisering och ny åtgärdsgrupp med Azure-portalen
+1. Välj **Servicehälsa**i [portalen](https://portal.azure.com).
 
     ![Tjänsten "Service Health"](media/alerts-activity-log-service-notifications/home-servicehealth.png)
 
-1. I avsnittet **aviseringar** väljer du **hälso aviseringar**.
+1. I avsnittet **Aviseringar** väljer du **Hälsovarningar**.
 
-    ![Fliken "hälso aviseringar"](media/alerts-activity-log-service-notifications/alerts-blades-sh.png)
+    ![Fliken "Hälsovarningar"](media/alerts-activity-log-service-notifications/alerts-blades-sh.png)
 
-1. Välj **Skapa service Health-avisering** och fyll i fälten.
+1. Välj **Skapa hälsoavisering för tjänsten** och fyll i fälten.
 
-    ![Kommandot "skapa tjänstens hälso avisering"](media/alerts-activity-log-service-notifications/service-health-alert.png)
+    ![Kommandot "Skapa hälsovarning för tjänsten"](media/alerts-activity-log-service-notifications/service-health-alert.png)
 
-1. Välj den **prenumeration**, de **tjänster**och **regioner** som du vill bli aviserad om.
+1. Välj den **prenumeration,** **de tjänster**och **regioner som** du vill bli aviserad för.
 
-    ![Dialog rutan Lägg till aktivitets logg avisering](media/alerts-activity-log-service-notifications/activity-log-alert-new-ux.png)
+    ![Dialogrutan "Lägg till aktivitetslogg"](media/alerts-activity-log-service-notifications/activity-log-alert-new-ux.png)
 
     > [!NOTE]
-    > Den här prenumerationen används för att spara aktivitets logg aviseringen. Aviserings resursen distribueras till den här prenumerationen och övervakar händelser i aktivitets loggen för den.
+    > Den här prenumerationen används för att spara aktivitetsloggaviseringen. Aviseringsresursen distribueras till den här prenumerationen och övervakar händelser i aktivitetsloggen för den.
 
-1. Välj de **händelse typer** som du vill bli aviserad om: *Service problem*, *planerat underhåll*och *hälso rekommendationer* 
+1. Välj de **händelsetyper** som du vill bli aviserad för: *Serviceproblem,* *Planerat underhåll*och *Hälsorekommendationer* 
 
-1. Definiera aviserings informationen genom att ange ett namn och en **Beskrivning**för **varnings regeln** .
+1. Definiera dina aviseringsuppgifter genom att ange ett **varningsregelnamn** och **beskrivning**.
 
-1. Välj den **resurs grupp** där du vill att aviseringen ska sparas.
+1. Välj den **resursgrupp** där du vill att aviseringen ska sparas.
 
-1. Skapa en ny åtgärds grupp genom att välja **ny åtgärds grupp**. Ange ett namn i rutan **Åtgärds grupp namn** och ange ett namn i rutan **kort namn** . Det korta namnet refereras till i de meddelanden som skickas när den här aviseringen utlöses.
+1. Skapa en ny åtgärdsgrupp genom att välja **Ny åtgärdsgrupp**. Ange ett namn i rutan **Namn på åtgärdsgrupp** och ange ett namn i rutan **Kortnamn.** Kortnamnet refereras i de meddelanden som skickas när den här aviseringen utlöses.
 
-    ![Skapa en ny åtgärds grupp](media/alerts-activity-log-service-notifications/action-group-creation.png)
+    ![Skapa en ny åtgärdsgrupp](media/alerts-activity-log-service-notifications/action-group-creation.png)
 
-1. Definiera en lista med mottagare genom att ange mottagarens:
+1. Definiera en lista över mottagare genom att ange mottagarens:
 
     a. **Namn**: Ange mottagarens namn, alias eller identifierare.
 
-    b. **Åtgärds typ**: Välj SMS, e-post, webhook, Azure app med mera.
+    b. **Åtgärdstyp:** Välj SMS, e-post, webhook, Azure-app med mera.
 
-    c. **Information**: baserat på den valda åtgärds typen anger du ett telefonnummer, en e-postadress, en webhook-URI osv.
+    c. **Detaljer:** Baserat på den valda åtgärdstypen anger du ett telefonnummer, e-postadress, webhook URI, etc.
 
-1. Välj **OK** för att skapa åtgärds gruppen och skapa sedan en **aviserings regel** för att slutföra aviseringen.
+1. Välj **OK** om du vill skapa åtgärdsgruppen och skapa sedan **aviseringsregeln** för att slutföra aviseringen.
 
-Inom några minuter är aviseringen aktiv och börjar utlösas baserat på de villkor du angav när du skapade.
+Inom några minuter är aviseringen aktiv och börjar utlösas baserat på de villkor som du angav när du skapades.
 
-Lär dig hur du [konfigurerar webhook-meddelanden för befintliga problem hanterings system](service-health-alert-webhook-guide.md). Information om webhook-schemat för aktivitets logg aviseringar finns i [Webhooks för Azure aktivitets logg aviseringar](../azure-monitor/platform/activity-log-alerts-webhook.md).
+Lär dig hur du [konfigurerar webhook-meddelanden för befintliga problemhanteringssystem](service-health-alert-webhook-guide.md). Information om webhook-schemat för aktivitetsloggaviseringar finns i [Webhooks för Azure-aktivitetsloggaviseringar](../azure-monitor/platform/activity-log-alerts-webhook.md).
 
 >[!NOTE]
->Åtgärds gruppen som definieras i dessa steg återanvänds som en befintlig åtgärds grupp för alla framtida aviserings definitioner.
+>Åtgärdsgruppen som definieras i dessa steg kan återanvändas som en befintlig åtgärdsgrupp för alla framtida varningsdefinitioner.
 >
 
-## <a name="alert-with-existing-action-group-using-azure-portal"></a>Avisering med en befintlig åtgärds grupp med hjälp av Azure Portal
+## <a name="alert-with-existing-action-group-using-azure-portal"></a>Avisera med befintlig åtgärdsgrupp med Azure Portal
 
-1. Följ steg 1 till 6 i föregående avsnitt för att skapa ett meddelande om tjänstens hälsa. 
+1. Följ steg 1 till och med 6 i föregående avsnitt för att skapa hälsomeddelanden för tjänsten. 
 
-1. Under **definiera åtgärds grupp**klickar du på knappen **Välj åtgärds grupp** . Välj lämplig åtgärds grupp.
+1. Klicka på knappen **Välj åtgärdsgrupp** under Definiera **åtgärdsgrupp.** Välj lämplig åtgärdsgrupp.
 
-1. Välj **Lägg** till för att lägga till åtgärds gruppen och skapa sedan en **aviserings regel** för att slutföra aviseringen.
+1. Välj **Lägg till** om du vill lägga till åtgärdsgruppen och skapa sedan **aviseringsregeln** för att slutföra aviseringen.
 
-Inom några minuter är aviseringen aktiv och börjar utlösas baserat på de villkor du angav när du skapade.
+Inom några minuter är aviseringen aktiv och börjar utlösas baserat på de villkor som du angav när du skapades.
 
-## <a name="alert-and-new-action-group-using-the-azure-resource-manager-templates"></a>Avisering och ny åtgärds grupp med hjälp av Azure Resource Manager mallar
+## <a name="alert-and-new-action-group-using-the-azure-resource-manager-templates"></a>Avisering och ny åtgärdsgrupp med azure Resource Manager-mallarna
 
-Följande är ett exempel som skapar en åtgärds grupp med ett e-postmål och aktiverar alla meddelanden om tjänst hälsa för mål prenumerationen.
+Följande är ett exempel som skapar en åtgärdsgrupp med ett e-postmål och aktiverar alla servicehälsomeddelanden för målprenumerationen.
 
 ```json
 {
@@ -190,18 +190,18 @@ Följande är ett exempel som skapar en åtgärds grupp med ett e-postmål och a
 
 ## <a name="manage-your-alerts"></a>Hantera aviseringar
 
-När du har skapat en avisering visas den i avsnittet **aviseringar** i **övervakaren**. Välj den avisering som du vill hantera för att:
+När du har skapat en avisering visas den i avsnittet **Aviseringar** i **Monitor**. Välj den avisering som du vill hantera:
 
 * Redigera den.
 * Ta bort den.
-* Inaktivera eller aktivera det om du tillfälligt vill stoppa eller återuppta mottagning av aviseringar.
+* Inaktivera eller aktivera den om du tillfälligt vill stoppa eller återuppta mottagningsmeddelanden för aviseringen.
 
 ## <a name="next-steps"></a>Nästa steg
-- Lär dig mer om [metod tips för att konfigurera Azure Service Health aviseringar](https://www.microsoft.com/en-us/videoplayer/embed/RE2OtUa).
-- Lär dig hur du [ställer in mobila push-meddelanden för Azure Service Health](https://www.microsoft.com/en-us/videoplayer/embed/RE2OtUw).
-- Lär dig hur du [konfigurerar webhook-meddelanden för befintliga problem hanterings system](service-health-alert-webhook-guide.md).
-- Läs mer om [meddelanden om tjänst hälsa](service-notifications.md).
-- Lär dig mer om [begränsning av meddelande frekvens](../azure-monitor/platform/alerts-rate-limiting.md).
-- Granska [aktivitets logg aviseringens webhook-schema](../azure-monitor/platform/activity-log-alerts-webhook.md).
-- Få en [Översikt över aktivitets logg aviseringar](../azure-monitor/platform/alerts-overview.md)och lär dig hur du tar emot aviseringar.
-- Läs mer om [Åtgärds grupper](../azure-monitor/platform/action-groups.md).
+- Lär dig mer [om metodtips för att konfigurera Azure Service Health-aviseringar](https://www.microsoft.com/en-us/videoplayer/embed/RE2OtUa).
+- Läs om hur du [konfigurerar mobila push-meddelanden för Azure Service Health](https://www.microsoft.com/en-us/videoplayer/embed/RE2OtUw).
+- Lär dig hur du [konfigurerar webhook-meddelanden för befintliga problemhanteringssystem](service-health-alert-webhook-guide.md).
+- Läs mer om [hälsomeddelanden](service-notifications.md)för tjänster .
+- Läs mer om [begränsning av meddelandehastighet](../azure-monitor/platform/alerts-rate-limiting.md).
+- Granska [webbkroksschemat för aktivitetsloggen.](../azure-monitor/platform/activity-log-alerts-webhook.md)
+- Få en översikt över aviseringar för [aktivitetsloggar](../azure-monitor/platform/alerts-overview.md)och lär dig hur du tar emot aviseringar.
+- Läs mer om [åtgärdsgrupper](../azure-monitor/platform/action-groups.md).

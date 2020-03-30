@@ -1,7 +1,7 @@
 ---
 title: Hantera resurser med Microsoft Graph
 titleSuffix: Azure AD B2C
-description: Förbered för att hantera Azure AD B2C resurser med Microsoft Graph genom att registrera ett program som har beviljats nödvändiga Graph API behörigheter.
+description: Förbered för hantering av Azure AD B2C-resurser med Microsoft Graph genom att registrera ett program som har beviljat de nödvändiga Graph API-behörigheterna.
 services: B2C
 author: msmimart
 manager: celestedg
@@ -12,73 +12,73 @@ ms.date: 02/14/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 32117d4bfcf0c0af94eced095b94ab0c1b6f88af
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78184371"
 ---
 # <a name="manage-azure-ad-b2c-with-microsoft-graph"></a>Hantera Azure AD B2C med Microsoft Graph
 
-Med [Microsoft Graph][ms-graph] kan du hantera många av resurserna i Azure AD B2C-klienten, inklusive kund användar konton och anpassade principer. Genom att skriva skript eller program som anropar [Microsoft Graph API][ms-graph-api], kan du automatisera klient hanterings uppgifter som:
+[Med Microsoft Graph][ms-graph] kan du hantera många av resurserna i din Azure AD B2C-klientorganisation, inklusive kundanvändarkonton och anpassade principer. Genom att skriva skript eller program som anropar [Microsoft Graph API][ms-graph-api]kan du automatisera klienthanteringsuppgifter som:
 
-* Migrera ett befintligt användar arkiv till en Azure AD B2C-klient
-* Distribuera anpassade principer med en Azure-pipeline i Azure DevOps och hantera anpassade princip nycklar
-* Registrera värd användare på din sida och skapa användar konton i din Azure AD B2C katalog bakom kulisserna
-* Automatisera program registrering
-* Hämta gransknings loggar
+* Migrera ett befintligt användararkiv till en Azure AD B2C-klient
+* Distribuera anpassade principer med en Azure Pipeline i Azure DevOps och hantera anpassade principnycklar
+* Värd för användarregistrering på din egen sida och skapa användarkonton i din Azure AD B2C-katalog bakom kulisserna
+* Automatisera registrering av program
+* Hämta granskningsloggar
 
-Följande avsnitt hjälper dig att förbereda för att använda Microsoft Graph API för att automatisera hanteringen av resurser i din Azure AD B2Cs katalog.
+Följande avsnitt hjälper dig att förbereda dig för att använda Microsoft Graph API för att automatisera hanteringen av resurser i din Azure AD B2C-katalog.
 
-## <a name="microsoft-graph-api-interaction-modes"></a>Microsoft Graph API-interaktions lägen
+## <a name="microsoft-graph-api-interaction-modes"></a>Interaktionslägen för Microsoft Graph API
 
-Det finns två kommunikations lägen som du kan använda när du arbetar med Microsoft Graph-API: et för att hantera resurser i Azure AD B2C klient organisationen:
+Det finns två kommunikationslägen som du kan använda när du arbetar med Microsoft Graph API för att hantera resurser i din Azure AD B2C-klient:
 
-* **Interaktiv** – lämpligt för körnings aktiviteter genom att använda ett administratörs konto i B2C-klienten för att utföra hanterings uppgifter. För det här läget krävs en administratör för att logga in med sina autentiseringsuppgifter innan du anropar Microsoft Graph-API: et.
+* **Interaktiv** - Lämplig för körning en gång uppgifter, du använder ett administratörskonto i B2C-klienten för att utföra hanteringsuppgifter. Det här läget kräver att en administratör loggar in med sina autentiseringsuppgifter innan han anropar Microsoft Graph API.
 
-* **Automatiserad** – för schemalagda eller kontinuerliga körnings aktiviteter använder den här metoden ett tjänst konto som du konfigurerar med de behörigheter som krävs för att utföra hanterings uppgifter. Du skapar "tjänst konto" i Azure AD B2C genom att registrera ett program som dina program och skript använder för att autentisera med hjälp av dess *program-ID* och OAuth 2,0-klientautentiseringsuppgifter. I det här fallet fungerar programmet som de ska för att anropa Microsoft Graph-API: t, inte administratörs användaren som i den tidigare beskrivna interaktiva metoden.
+* **Automatiserad** - För schemalagda eller kontinuerligt köra uppgifter använder den här metoden ett tjänstkonto som du konfigurerar med de behörigheter som krävs för att utföra hanteringsuppgifter. Du skapar "tjänstkontot" i Azure AD B2C genom att registrera ett program som dina program och skript använder för att autentisera med hjälp av dess *program -(klient)-ID* och bevilja beviljaR OAuth 2.0-klientautentiseringsuppgifter. I det här fallet fungerar programmet som sig själv för att anropa Microsoft Graph API, inte administratörsanvändaren som i den tidigare beskrivna interaktiva metoden.
 
-Du aktiverar det **automatiserade** interaktions scenariot genom att skapa en program registrering som visas i följande avsnitt.
+Du aktiverar **scenariot Automatiserad** interaktion genom att skapa en programregistrering som visas i följande avsnitt.
 
-## <a name="register-management-application"></a>Registrera hanterings program
+## <a name="register-management-application"></a>Registrera hanteringsprogram
 
-Innan dina skript och program kan interagera med [Microsoft Graph-API][ms-graph-api] för att hantera Azure AD B2C-resurser måste du skapa en program registrering i din Azure AD B2C klient som ger nödvändiga API-behörigheter.
+Innan dina skript och program kan interagera med [Microsoft Graph API][ms-graph-api] för att hantera Azure AD B2C-resurser måste du skapa en programregistrering i din Azure AD B2C-klient som ger de nödvändiga API-behörigheterna.
 
 [!INCLUDE [active-directory-b2c-appreg-mgmt](../../includes/active-directory-b2c-appreg-mgmt.md)]
 
 ### <a name="grant-api-access"></a>Bevilja API-åtkomst
 
-Ge sedan de registrerade program behörigheterna för att manipulera klient resurser via anrop till Microsoft Graph API.
+Bevilja sedan de registrerade programbehörigheterna för att manipulera klientresurser via anrop till Microsoft Graph API.
 
 [!INCLUDE [active-directory-b2c-permissions-directory](../../includes/active-directory-b2c-permissions-directory.md)]
 
-### <a name="create-client-secret"></a>Skapa klient hemlighet
+### <a name="create-client-secret"></a>Skapa klienthemlighet
 
 [!INCLUDE [active-directory-b2c-client-secret](../../includes/active-directory-b2c-client-secret.md)]
 
-Nu har du ett program som har behörighet att *skapa*, *läsa*, *Uppdatera*och *ta bort* användare i din Azure AD B2C klient. Fortsätt till nästa avsnitt för att lägga till behörigheter för *lösen ords uppdatering* .
+Du har nu ett program som har behörighet att *skapa,* *läsa,* *uppdatera*och *ta bort* användare i din Azure AD B2C-klient. Fortsätt till nästa avsnitt om du vill lägga till behörigheter *för lösenordsuppdatering.*
 
-## <a name="enable-user-delete-and-password-update"></a>Aktivera användar borttagning och lösen ords uppdatering
+## <a name="enable-user-delete-and-password-update"></a>Aktivera uppdatering av användarborttagning och lösenord
 
-Behörigheten *läsa och skriva katalog data* omfattar **inte** möjligheten att ta bort användare eller uppdatera lösen ord för användar konton.
+Behörigheten *Läs- och skrivkatalogdata* innehåller **INTE** möjligheten att ta bort användare eller uppdatera lösenord för användarkonton.
 
-Om programmet eller skriptet måste ta bort användare eller uppdatera sina lösen ord, tilldelar du rollen *användar administratör* till ditt program:
+Om ditt program eller skript behöver ta bort användare eller uppdatera deras lösenord tilldelar du rollen *Användaradministratör* till ditt program:
 
-1. Logga in på [Azure Portal](https://portal.azure.com) och använd filtret för **katalog + prenumeration** för att växla till Azure AD B2C klienten.
+1. Logga in på [Azure-portalen](https://portal.azure.com) och använd **filtret Katalog + Prenumeration** för att växla till din Azure AD B2C-klient.
 1. Sök efter och välj **Azure AD B2C**.
-1. Under **Hantera**väljer du **roller och administratörer**.
-1. Välj rollen **användar administratör** .
+1. Under **Hantera**väljer du **Roller och administratörer**.
+1. Välj rollen **Användaradministratör.**
 1. Välj **Lägg till tilldelningar**.
-1. I rutan **Välj** text anger du namnet på det program som du registrerade tidigare, till exempel *managementapp1*. Välj ditt program när det visas i Sök resultatet.
-1. Välj **Lägg till**. Det kan ta några minuter innan behörigheterna är fullständigt spridda.
+1. I textrutan **Välj** anger du namnet på det program som du registrerade tidigare, till exempel *managementapp1*. Välj ditt program när det visas i sökresultaten.
+1. Välj **Lägg till**. Det kan ta några minuter innan behörigheterna sprids helt.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nu när du har registrerat ditt hanterings program och har beviljat den nödvändiga behörigheten kan dina program och tjänster (till exempel Azure-pipeliner) använda sina autentiseringsuppgifter och behörigheter för att interagera med Microsoft Graph-API: et.
+Nu när du har registrerat ditt hanteringsprogram och har beviljat det nödvändiga behörigheterna, kan dina program och tjänster (till exempel Azure Pipelines) använda sina autentiseringsuppgifter och behörigheter för att interagera med Microsoft Graph API.
 
 * [B2C-åtgärder som stöds av Microsoft Graph](microsoft-graph-operations.md)
-* [Hantera Azure AD B2C användar konton med Microsoft Graph](manage-user-accounts-graph-api.md)
-* [Hämta gransknings loggar med Azure AD repor ting API](view-audit-logs.md#get-audit-logs-with-the-azure-ad-reporting-api)
+* [Hantera Azure AD B2C-användarkonton med Microsoft Graph](manage-user-accounts-graph-api.md)
+* [Hämta granskningsloggar med Azure AD-rapporterings-API:et](view-audit-logs.md#get-audit-logs-with-the-azure-ad-reporting-api)
 
 <!-- LINKS -->
 [ms-graph]: https://docs.microsoft.com/graph/

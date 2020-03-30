@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: 02274bacb66a33ef54e07bc8113d7db46d4d5296
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "67187533"
 ---
 #### <a name="to-add-a-storsimple-backup-policy"></a>Så här lägger du till en StorSimple-säkerhetskopieringsprincip
@@ -23,7 +23,7 @@ ms.locfileid: "67187533"
    
    1. **Välj enhet** fylls i automatiskt baserat på den enhet du valt.
    
-   2. Ange ett **namn på principen** för säkerhetskopiering som innehåller mellan 3 och 150 tecken. När principen har skapats kan du inte byta namn på den.
+   2. Ange ett namn för **principer** för säkerhetskopiering som innehåller mellan 3 och 150 tecken. När principen har skapats kan du inte byta namn på den.
        
    3. Du kan tilldela volymer till säkerhetskopieringspolicyn genom att välja **Lägg till volymer** och sedan klicka på kryssrutan eller kryssrutorna i tabellistan över volymer för att koppla en eller flera volymer till säkerhetskopieringspolicyn.
 
@@ -35,7 +35,7 @@ ms.locfileid: "67187533"
 
        1. För **Typ av ögonblicksbild** väljer du **Moln** eller **Lokal**.
 
-       2. Ange säkerhetskopieringsfrekvensen (ange ett tal och välj sedan **Dagar** eller **Veckor** i listrutan).
+       2. Ange frekvensen för säkerhetskopior (ange ett tal och välj sedan **Dagar** eller **Veckor** i listrutan.
 
        3. Ange ett kvarhållningsschema.
 

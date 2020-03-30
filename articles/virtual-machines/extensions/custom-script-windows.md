@@ -1,6 +1,6 @@
 ---
-title: Anpassat skript tillägg för Azure för Windows
-description: Automatisera konfigurations uppgifter för virtuella Windows-datorer med hjälp av tillägget för anpassat skript
+title: Azure Custom Script-tillägg för Windows
+description: Automatisera konfigurationsuppgifter för Windows VM med tillägget Anpassat skript
 services: virtual-machines-windows
 manager: carmonm
 author: bobbytreed
@@ -10,60 +10,60 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 05/02/2019
 ms.author: robreed
-ms.openlocfilehash: 86128953130fdb34c660f6e40ec24565ff93edb4
-ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
+ms.openlocfilehash: 698fab470cdc8b8d04fa4319fd71c31b58d1c5a3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79299234"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80066883"
 ---
 # <a name="custom-script-extension-for-windows"></a>Anpassat skripttillägg för Windows
 
-Det anpassade skript tillägget laddar ned och kör skript på virtuella Azure-datorer. Det här tillägget är användbart för konfiguration av distribution, program varu installation eller andra konfigurations-eller hanterings uppgifter. Skripten kan laddas ned från Azure Storage eller GitHub, eller tillhandahållas via Azure Portal vid tilläggskörning. Det anpassade skript tillägget integreras med Azure Resource Manager mallar och kan köras med hjälp av Azure CLI, PowerShell, Azure Portal eller den virtuella Azure-datorn REST API.
+Custom Script Extension hämtar och kör skript på virtuella Azure-datorer. Det här tillägget är användbart för konfiguration efter distribution, programvaruinstallation eller andra konfigurations- eller hanteringsuppgifter. Skripten kan laddas ned från Azure Storage eller GitHub, eller tillhandahållas via Azure Portal vid tilläggskörning. Det anpassade skripttillägget integreras med Azure Resource Manager-mallar och kan köras med Azure CLI, PowerShell, Azure-portalen eller AZURE Virtual Machine REST API.
 
-Det här dokumentet beskriver hur du använder tillägget för anpassat skript med hjälp av Azure PowerShell-modulen, Azure Resource Manager mallar och information om fel söknings steg i Windows-system.
+Det här dokumentet beskriver hur du använder det anpassade skripttillägget med Azure PowerShell-modulen, Azure Resource Manager-mallar och informationsfelsökningssteg på Windows-system.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 > [!NOTE]  
-> Använd inte anpassat skript tillägg för att köra Update-AzVM med samma virtuella dator som parametern, eftersom det väntar på sig själv.  
+> Använd inte anpassat skripttillägg för att köra Update-AzVM med samma virtuella dator som parametern, eftersom den väntar på sig själv.  
 
 ### <a name="operating-system"></a>Operativsystem
 
-Tillägget för anpassat skript för Windows körs i tillägget tillägg som stöds OSs. mer information finns i det här [Azure-tillägget stöds operativ system](https://support.microsoft.com/help/4078134/azure-extension-supported-operating-systems).
+Det anpassade skripttillägget för Windows körs på tilläggstilläggets operativsystem som stöds, för mer information, se de [operativsystem som stöds av Azure Extension](https://support.microsoft.com/help/4078134/azure-extension-supported-operating-systems).
 
-### <a name="script-location"></a>Skript plats
+### <a name="script-location"></a>Skriptplats
 
-Du kan konfigurera tillägget så att det använder Azure Blob Storage-autentiseringsuppgifterna för att få åtkomst till Azure Blob Storage. Skript platsen kan vara valfri, så länge den virtuella datorn kan dirigeras till den slut punkten, till exempel GitHub eller en intern fil server.
+Du kan konfigurera tillägget för att använda dina Azure Blob-lagringsbehörighetsbehörighet för att komma åt Azure Blob-lagring. Skriptplatsen kan finnas var som helst, så länge den virtuella datorn kan dirigeras till den slutpunkten, till exempel GitHub eller en intern filserver.
 
-### <a name="internet-connectivity"></a>Internet anslutning
+### <a name="internet-connectivity"></a>Internetanslutning
 
-Om du behöver hämta ett skript externt, till exempel från GitHub eller Azure Storage, måste du öppna ytterligare brand Väggs-och nätverks säkerhets grupps portar. Om ditt skript till exempel finns i Azure Storage kan du tillåta åtkomst med hjälp av Azure NSG service-taggar för [lagring](../../virtual-network/security-overview.md#service-tags).
+Om du behöver hämta ett skript externt, till exempel från GitHub eller Azure Storage, måste ytterligare brandväggs- och nätverkssäkerhetsgruppportar öppnas. Om skriptet till exempel finns i Azure Storage kan du tillåta åtkomst med Azure NSG-tjänsttaggar för [lagring](../../virtual-network/security-overview.md#service-tags).
 
-Om ditt skript finns på en lokal server kanske du fortfarande behöver fler brand väggar och nätverks säkerhets grupps portar måste öppnas.
+Om skriptet finns på en lokal server kan du fortfarande behöva ytterligare brandväggs- och nätverkssäkerhetsgruppsportar måste öppnas.
 
-### <a name="tips-and-tricks"></a>Tips och knep
+### <a name="tips-and-tricks"></a>Tips
 
-* Den högsta fel frekvensen för det här tillägget beror på syntaxfel i skriptet, testa skriptet körs utan fel och Lägg även till ytterligare loggning i skriptet så att det blir lättare att hitta det som misslyckades.
-* Skriv skript som är idempotenta. Detta säkerställer att om de körs igen av misstag, kommer de inte att orsaka system ändringar.
+* Den högsta felfrekvensen för det här tillägget är på grund av syntaxfel i skriptet, testa skriptet körs utan fel och även lägga in ytterligare loggning i skriptet för att göra det lättare att hitta där det misslyckades.
+* Skriv skript som är idempotenta. Detta säkerställer att om de körs igen av misstag, kommer det inte att orsaka systemändringar.
 * Se till att skripten inte kräver indata från användaren när de körs.
 * Skripten kan köra i 90 minuter. Längre körningar gör att etableringen av tillägget misslyckas.
 * Lägg inte in omstarter i skriptet eftersom det leder till problem med andra tillägg som installeras. Tillägget fortsätter inte efter omstarten.
-* Om du har ett skript som gör en omstart, sedan installerar program och kör skript, kan du schemalägga omstarten med en schemalagd aktivitet i Windows eller använda verktyg som DSC, chef eller Puppet-tillägg.
+* Om du har ett skript som orsakar en omstart och sedan installerar program och kör skript kan du schemalägga omstarten med en schemalagd aktivitet i Windows eller använda verktyg som DSC-, Chef- eller Puppet-tillägg.
 * Tillägget kör bara ett skript en gång. Om du vill köra ett skript vid varje start måste du använda tillägget för att skapa en schemalagd uppgift i Windows.
 * Om du vill schemalägga när ett skript ska köras använder du tillägget för att skapa en schemalagd uppgift i Windows.
 * När skriptet körs visas tillägget med övergångsstatus på Azure-portalen eller i CLI. Om du behöver mer frekventa statusuppdateringar för ett skript som körs måste du skapa en egen lösning.
-* Anpassat skript tillägg stöder inte proxyservrar, men du kan använda ett fil överförings verktyg som stöder proxyservrar i skriptet, till exempel *vändning*
+* Custom Script-tillägget stöder inte proxyservrar, men du kan använda ett filöverföringsverktyg som stöder proxyservrar i skriptet, till exempel *Curl*
 * Om dina skript eller kommandon använder andra katalogplatser än standardplatserna krävs logik som kan hantera den situationen.
-* Anpassat skript tillägg körs under kontot LocalSystem
+* Anpassat skripttillägg körs under LocalSystem-kontot
 
 ## <a name="extension-schema"></a>Tilläggsschema
 
-Konfigurationen för det anpassade skript tillägget anger saker som skript plats och kommandot som ska köras. Du kan lagra konfigurationen i konfigurationsfiler, ange den på kommando raden eller ange den i en Azure Resource Manager mall.
+Konfigurationen för anpassat skripttillägg anger saker som skriptplats och kommandot som ska köras. Du kan lagra den här konfigurationen i konfigurationsfiler, ange den på kommandoraden eller ange den i en Azure Resource Manager-mall.
 
-Du kan lagra känsliga data i en skyddad konfiguration, som krypteras och bara dekrypteras i den virtuella datorn. Den skyddade konfigurationen är användbar när körnings kommandot innehåller hemligheter som lösen ord.
+Du kan lagra känsliga data i en skyddad konfiguration, som krypteras och endast dekrypteras inuti den virtuella datorn. Den skyddade konfigurationen är användbar när körningskommandot innehåller hemligheter som ett lösenord.
 
-De här objekten ska behandlas som känsliga data och anges i konfigurationerna för tilläggen för skyddad inställning. Azure VM-tillägget skyddade inställningsdata krypteras och dekrypteras bara på den virtuella måldatorn.
+Dessa objekt ska behandlas som känsliga data och anges i den skyddade inställningskonfigurationen för tillägg. Azure VM-tilläggsskyddade inställningsdata krypteras och dekrypteras endast på den virtuella måldatorn.
 
 ```json
 {
@@ -100,58 +100,58 @@ De här objekten ska behandlas som känsliga data och anges i konfigurationerna 
 ```
 
 > [!NOTE]
-> Egenskapen managedIdentity **får inte** användas tillsammans med storageAccountName-eller storageAccountKey-egenskaper
+> egenskapen managedIdentity **får inte** användas tillsammans med egenskaperna storageAccountName eller storageAccountKey
 
 > [!NOTE]
-> Endast en version av ett tillägg kan installeras på en virtuell dator vid en viss tidpunkt, vilket innebär att det inte går att ange ett anpassat skript två gånger i samma Resource Manager-mall för samma virtuella dator.
+> Det går inte att installera endast en version av ett tillägg på en virtuell dator vid en tidpunkt, och det går inte att ange anpassade skript två gånger i samma Resource Manager-mall för samma virtuella dator.
 
 > [!NOTE]
-> Vi kan använda det här schemat i VirtualMachine-resursen eller som en fristående resurs. Namnet på resursen måste ha formatet "virtualMachineName/tillägg", om tillägget används som en fristående resurs i ARM-mallen. 
+> Vi kan använda det här schemat i VirtualMachine-resursen eller som en fristående resurs. Namnet på resursen måste vara i det här formatet "virtualMachineName/extensionName", om det här tillägget används som en fristående resurs i ARM-mallen. 
 
 ### <a name="property-values"></a>Egenskapsvärden
 
-| Namn | Värdet / exempel | Datatyp |
+| Namn | Värde / Exempel | Datatyp |
 | ---- | ---- | ---- |
 | apiVersion | 2015-06-15 | date |
-| publisher | Microsoft.Compute | sträng |
-| typ | CustomScriptExtension | sträng |
-| typeHandlerVersion | 1,10 | int |
-| fileUris (t. ex.) | https://raw.githubusercontent.com/Microsoft/dotnet-core-sample-templates/master/dotnet-core-music-windows/scripts/configure-music-app.ps1 | matris |
-| timestamp (t.ex.) | 123456789 | 32-bitars heltal |
-| commandToExecute (t. ex.) | powershell -ExecutionPolicy Unrestricted -File configure-music-app.ps1 | sträng |
-| storageAccountName (t. ex.) | examplestorageacct | sträng |
-| storageAccountKey (t. ex.) | TmJK/1N3AbAZ3q/+hOXoi/l73zOqsaxXDhqa9Y83/v5UpXQp2DQIBuv2Tifp60cE/OaHsJZmQZ7teQfczQj8hg== | sträng |
-| managedIdentity (t. ex.) | {} eller {"clientId": "31b403aa-c364-4240-a7ff-d85fb6cd7232"} eller {"objectId": "12dd289c-0583-46e5-b9b4-115d5c19ef4b"} | JSON-objekt |
+| utgivare | Microsoft.Compute | sträng |
+| typ | Anpassad Beskrivning | sträng |
+| typHandlerVersion | 1,10 | int |
+| fileUris (t.ex. ) | https://raw.githubusercontent.com/Microsoft/dotnet-core-sample-templates/master/dotnet-core-music-windows/scripts/configure-music-app.ps1 | matris |
+| tidsstämpel (t.ex.) | 123456789 | 32-bitars heltal |
+| commandToExecute (t.ex.) | powershell -ExecutionPolicy Obegränsad -Fil konfigurera-musik-app.ps1 | sträng |
+| storageAccountName (t.ex.) | exempelstoracket | sträng |
+| lagringAccountKey (t.ex.) | TmJK/1N3AbAZ3q/+hOXoi/l73zOqsaxXDhqa9Y83/v5UpXQp2DQIBuv2Tifp60cE/OaHsJZmQZ7teQfczQj8hg== | sträng |
+| hanteradidentitet (t.ex. | { } eller { "clientId": "31b403aa-c364-4240-a7ff-d85fb6cd7232" } eller { "objectId": "12dd289c-0583-46e5-b9b4-115d5c19ef4b" } | json-objekt |
 
 >[!NOTE]
->Dessa egenskaps namn är Skift läges känsliga. Använd de namn som visas här för att undvika distributions problem.
+>Dessa egenskapsnamn är skiftlägeskänsliga. Använd namnen som visas här för att undvika distributionsproblem.
 
-#### <a name="property-value-details"></a>Information om egenskaps värde
+#### <a name="property-value-details"></a>Information om egenskapsvärde
 
-* `commandToExecute`: (**krävs**, sträng) Start punkt skriptet som ska köras. Använd det här fältet i stället om kommandot innehåller hemligheter som lösen ord, eller om dina fileUris är känsliga.
-* `fileUris`: (valfritt, sträng mat ris) URL: er för fil (er) som ska hämtas.
-* `timestamp` (valfritt, 32-bitars heltal) Använd endast det här fältet för att utlösa en körning av skriptet genom att ändra värdet för det här fältet.  Alla heltals värden är acceptabla. Det får bara vara ett annat än det tidigare värdet.
-* `storageAccountName`: (valfritt, sträng) namnet på lagrings kontot. Om du anger autentiseringsuppgifter för lagring måste alla `fileUris` vara URL: er för Azure-blobar.
-* `storageAccountKey`: (valfri, sträng) åtkomst nyckeln för lagrings kontot
-* `managedIdentity`: (valfritt, JSON-objekt) den [hanterade identiteten](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) för nedladdning av fil (er)
-  * `clientId`: (valfritt, sträng) klient-ID: t för den hanterade identiteten
+* `commandToExecute`:**(obligatorisk**, sträng) startpunkten skriptet för att köra. Använd det här fältet i stället om kommandot innehåller hemligheter som lösenord eller om filenUris är känsliga.
+* `fileUris`: (valfritt, strängmatris) url:erna för filer som ska hämtas.
+* `timestamp`(valfritt, 32-bitars heltal) använd det här fältet endast för att utlösa en repris av skriptet genom att ändra värdet för det här fältet.  Alla heltalsvärde är godtagbara. Den får bara vara annorlunda än det tidigare värdet.
+* `storageAccountName`: (valfritt, sträng) namnet på lagringskontot. Om du anger lagringsautentiseringsuppgifter måste alla `fileUris` vara URL:er för Azure Blobbar.
+* `storageAccountKey`: (valfritt, sträng) åtkomstnyckeln för lagringskontot
+* `managedIdentity`: (valfritt, json-objekt) den [hanterade identiteten](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) för nedladdning av filer
+  * `clientId`: (valfritt, sträng) klient-ID för den hanterade identiteten
   * `objectId`: (valfritt, sträng) objekt-ID för den hanterade identiteten
 
-Följande värden kan anges i offentliga eller skyddade inställningar. tillägget kommer att neka alla konfigurationer där värdena nedan anges i både offentliga och skyddade inställningar.
+Följande värden kan anges i offentliga eller skyddade inställningar, tillägget avvisar alla konfigurationer där värdena nedan anges i både offentliga och skyddade inställningar.
 
 * `commandToExecute`
 
-Användning av offentliga inställningar kan vara användbart för fel sökning, men vi rekommenderar att du använder skyddade inställningar.
+Använda offentliga inställningar kanske användbart för felsökning, men vi rekommenderar att du använder skyddade inställningar.
 
-Offentliga inställningar skickas i klartext till den virtuella dator där skriptet ska köras.  Skyddade inställningar krypteras med en nyckel som endast är känd för Azure och den virtuella datorn. Inställningarna sparas på den virtuella datorn när de skickades, det vill säga om inställningarna har krypterats som de har sparats krypterade på den virtuella datorn. Certifikatet som används för att dekryptera de krypterade värdena lagras på den virtuella datorn och används för att dekryptera inställningar (vid behov) vid körning.
+Offentliga inställningar skickas i klartext till den virtuella datorn där skriptet ska köras.  Skyddade inställningar krypteras med en nyckel som bara är känd för Azure och den virtuella datorn. Inställningarna sparas på den virtuella datorn när de skickades, det vill än om inställningarna krypterades de sparas krypterade på den virtuella datorn. Certifikatet som används för att dekryptera de krypterade värdena lagras på den virtuella datorn och används för att dekryptera inställningar (om det behövs) vid körning.
 
-####  <a name="property-managedidentity"></a>Egenskap: managedIdentity
+####  <a name="property-managedidentity"></a>Fastighetsförmedling: hanteradIdentity
 
-CustomScript (version 1,10 och senare) stöder [hanterad identitet](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) för hämtning av filer från URL: er som finns i inställningen "fileUris". Det ger CustomScript åtkomst till Azure Storage privata blobbar eller behållare utan att användaren måste skicka hemligheter som SAS-token eller lagrings konto nycklar.
+CustomScript (version 1.10 och framåt) stöder [hanterad identitet](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) för nedladdning av filer från webbadresser som anges i inställningen "fileUris". Det gör att CustomScript kan komma åt privata azure storage-blobbar eller behållare utan att användaren behöver skicka hemligheter som SAS-token eller lagringskontonycklar.
 
-Om du vill använda den här funktionen måste användaren lägga till en [tilldelad](https://docs.microsoft.com/azure/app-service/overview-managed-identity?tabs=dotnet#add-a-system-assigned-identity) eller [användardefinierad](https://docs.microsoft.com/azure/app-service/overview-managed-identity?tabs=dotnet#add-a-user-assigned-identity) identitet till den virtuella datorn eller VMSS där CustomScript förväntas köras, och [ge hanterad identitets åtkomst till Azure Storage containern eller blobben](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/tutorial-vm-windows-access-storage#grant-access).
+Om du vill använda den här funktionen måste användaren lägga till en [systemtilldelad](https://docs.microsoft.com/azure/app-service/overview-managed-identity?tabs=dotnet#add-a-system-assigned-identity) eller [användartilldelad](https://docs.microsoft.com/azure/app-service/overview-managed-identity?tabs=dotnet#add-a-user-assigned-identity) identitet till den virtuella datorn eller VMSS där CustomScript förväntas köras och [bevilja den hanterade identitetsåtkomsten till Azure Storage-behållaren eller bloben](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/tutorial-vm-windows-access-storage#grant-access).
 
-Om du vill använda den systemtilldelade identiteten på den virtuella mål datorn/VMSS anger du fältet managedidentity till ett tomt JSON-objekt. 
+Om du vill använda den systemtilldelade identiteten på mål-VM/VMSS anger du fältet "managedidentity" till ett tomt json-objekt. 
 
 > Exempel:
 >
@@ -163,7 +163,7 @@ Om du vill använda den systemtilldelade identiteten på den virtuella mål dato
 > }
 > ```
 
-Om du vill använda den användardefinierade identiteten på den virtuella mål datorn/VMSS konfigurerar du fältet managedidentity med klient-ID: t eller objekt-ID: t för den hanterade identiteten.
+Om du vill använda den användartilldelade identiteten på mål-VM/VMSS konfigurerar du fältet "managedidentity" med klient-ID eller objekt-ID för den hanterade identiteten.
 
 > Exempel:
 >
@@ -183,18 +183,18 @@ Om du vill använda den användardefinierade identiteten på den virtuella mål 
 > ```
 
 > [!NOTE]
-> Egenskapen managedIdentity **får inte** användas tillsammans med storageAccountName-eller storageAccountKey-egenskaper
+> egenskapen managedIdentity **får inte** användas tillsammans med egenskaperna storageAccountName eller storageAccountKey
 
 ## <a name="template-deployment"></a>Malldistribution
 
-Azure VM-tillägg kan distribueras med Azure Resource Manager-mallar. JSON-schemat, som beskrivs i föregående avsnitt, kan användas i en Azure Resource Manager mall för att köra det anpassade skript tillägget under distributionen. Följande exempel visar hur du använder tillägget för anpassat skript:
+Azure VM-tillägg kan distribueras med Azure Resource Manager-mallar. JSON-schemat, som beskrivs i föregående avsnitt, kan användas i en Azure Resource Manager-mall för att köra det anpassade skripttillägget under distributionen. Följande exempel visar hur du använder tillägget Anpassat skript:
 
-* [Självstudie: distribuera tillägg för virtuella datorer med Azure Resource Manager mallar](../../azure-resource-manager/templates/template-tutorial-deploy-vm-extensions.md)
-* [Distribuera program på två nivåer i Windows och Azure SQL DB](https://github.com/Microsoft/dotnet-core-sample-templates/tree/master/dotnet-core-music-windows)
+* [Självstudie: Distribuera tillägg för virtuell dator med Azure Resource Manager-mallar](../../azure-resource-manager/templates/template-tutorial-deploy-vm-extensions.md)
+* [Distribuera tvånivåprogram i Windows och Azure SQL DB](https://github.com/Microsoft/dotnet-core-sample-templates/tree/master/dotnet-core-music-windows)
 
 ## <a name="powershell-deployment"></a>PowerShell-distribution
 
-`Set-AzVMCustomScriptExtension` kommandot kan användas för att lägga till det anpassade skript tillägget till en befintlig virtuell dator. Mer information finns i [set-AzVMCustomScriptExtension](/powershell/module/az.compute/set-azvmcustomscriptextension).
+Kommandot `Set-AzVMCustomScriptExtension` kan användas för att lägga till tillägget Anpassat skript på en befintlig virtuell dator. Mer information finns i [Set-AzVMCustomScriptExtension](/powershell/module/az.compute/set-azvmcustomscriptextension).
 
 ```powershell
 Set-AzVMCustomScriptExtension -ResourceGroupName <resourceGroupName> `
@@ -209,7 +209,7 @@ Set-AzVMCustomScriptExtension -ResourceGroupName <resourceGroupName> `
 
 ### <a name="using-multiple-scripts"></a>Använda flera skript
 
-I det här exemplet har du tre skript som används för att bygga servern. **CommandToExecute** anropar det första skriptet och du har också alternativ för hur andra anropas. Du kan till exempel ha ett huvud skript som styr körningen, med rätt fel hantering, loggning och tillstånds hantering. Skripten laddas ned till den lokala datorn för att köra. I `1_Add_Tools.ps1` kan du exempelvis anropa `2_Add_Features.ps1` genom att lägga till `.\2_Add_Features.ps1` i skriptet och upprepa processen för de andra skript som du definierar i `$settings`.
+I det här exemplet har du tre skript som används för att skapa servern. **KommandotToExecute anropar** det första skriptet, då har du alternativ för hur de andra kallas. Du kan till exempel ha ett huvudskript som styr körningen, med rätt felhantering, loggning och tillståndshantering. Skripten hämtas till den lokala datorn för körning. Till exempel `1_Add_Tools.ps1` i `2_Add_Features.ps1` du `.\2_Add_Features.ps1` skulle ringa genom att lägga till skriptet och `$settings`upprepa denna process för andra skript som du definierar i .
 
 ```powershell
 $fileUri = @("https://xxxxxxx.blob.core.windows.net/buildServer1/1_Add_Tools.ps1",
@@ -236,7 +236,7 @@ Set-AzVMExtension -ResourceGroupName <resourceGroupName> `
 
 ### <a name="running-scripts-from-a-local-share"></a>Köra skript från en lokal resurs
 
-I det här exemplet kanske du vill använda en lokal SMB-server för din skript plats. Genom att göra detta behöver du inte ange några andra inställningar, förutom **commandToExecute**.
+I det här exemplet kanske du vill använda en lokal SMB-server för din skriptplats. På så sätt behöver du inte ange några andra inställningar, förutom **commandToExecute**.
 
 ```powershell
 $protectedSettings = @{"commandToExecute" = "powershell -ExecutionPolicy Unrestricted -File \\filesvr\build\serverUpdate1.ps1"};
@@ -252,43 +252,43 @@ Set-AzVMExtension -ResourceGroupName <resourceGroupName> `
 
 ```
 
-### <a name="how-to-run-custom-script-more-than-once-with-cli"></a>Så här kör du ett anpassat skript mer än en gång med CLI
+### <a name="how-to-run-custom-script-more-than-once-with-cli"></a>Så här kör du anpassade skript mer än en gång med CLI
 
-Om du vill köra det anpassade skript tillägget mer än en gång kan du bara utföra den här åtgärden under följande omständigheter:
+Om du vill köra det anpassade skripttillägget mer än en gång kan du bara göra den här åtgärden under följande villkor:
 
-* Tilläggs parameterns **namn** är samma som den tidigare distributionen av tillägget.
-* Uppdatera konfigurationen annars körs inte kommandot igen. Du kan lägga till i en dynamisk egenskap i kommandot, till exempel en tidsstämpel.
+* Parametern **tilläggsnamn** är samma som den tidigare distributionen av tillägget.
+* Uppdatera konfigurationen annars kommandot inte kommer att köras igen. Du kan lägga till en dynamisk egenskap i kommandot, till exempel en tidsstämpel.
 
-Du kan också ange egenskapen [ForceUpdateTag](/dotnet/api/microsoft.azure.management.compute.models.virtualmachineextension.forceupdatetag) till **True**.
+Du kan också ange egenskapen [ForceUpdateTag](/dotnet/api/microsoft.azure.management.compute.models.virtualmachineextension.forceupdatetag) till **true**.
 
-### <a name="using-invoke-webrequest"></a>Använda Invoke-webbegäran
+### <a name="using-invoke-webrequest"></a>Använda Invoke-WebRequest
 
-Om du använder [Invoke-WebRequest](/powershell/module/microsoft.powershell.utility/invoke-webrequest) i skriptet måste du ange parametern `-UseBasicParsing` annars visas följande fel meddelande när du kontrollerar den detaljerade statusen:
+Om du använder [Invoke-WebRequest](/powershell/module/microsoft.powershell.utility/invoke-webrequest) i skriptet måste `-UseBasicParsing` du ange parametern annars får du följande felmeddelande när du kontrollerar den detaljerade statusen:
 
 ```error
 The response content cannot be parsed because the Internet Explorer engine is not available, or Internet Explorer's first-launch configuration is not complete. Specify the UseBasicParsing parameter and try again.
 ```
 ## <a name="virtual-machine-scale-sets"></a>Skalningsuppsättningar för Virtual Machines
 
-Om du vill distribuera tillägget för anpassat skript i en skalnings uppsättning, se [Add-AzVmssExtension](https://docs.microsoft.com/powershell/module/az.compute/add-azvmssextension?view=azps-3.3.0)
+Information om hur du distribuerar det anpassade skripttillägget i en skalningsuppsättning finns [i Add-AzVmssExtension](https://docs.microsoft.com/powershell/module/az.compute/add-azvmssextension?view=azps-3.3.0)
 
 ## <a name="classic-vms"></a>Klassiska virtuella datorer
 
 [!INCLUDE [classic-vm-deprecation](../../../includes/classic-vm-deprecation.md)]
 
-Om du vill distribuera tillägget för anpassat skript på klassiska virtuella datorer kan du använda Azure Portal eller de klassiska Azure PowerShell-cmdletarna.
+Om du vill distribuera det anpassade skripttillägget på klassiska virtuella datorer kan du använda Azure-portalen eller de klassiska Azure PowerShell-cmdletsen.
 
 ### <a name="azure-portal"></a>Azure Portal
 
-Navigera till den klassiska VM-resursen. Välj **tillägg** under **Inställningar**.
+Navigera till din klassiska VM-resurs. Välj **Tillägg** under **Inställningar**.
 
-Klicka på **+ Lägg till** och i listan över resurser väljer du **anpassat skript tillägg**.
+Klicka på **+ Lägg till** och välj Anpassat **skripttillägg**i listan över resurser .
 
-På sidan **installations tillägg** väljer du den lokala PowerShell-filen och fyller i eventuella argument och klickar på **OK**.
+På sidan **Installera tillägg** markerar du den lokala PowerShell-filen och fyller i eventuella argument och klickar på **Ok**.
 
 ### <a name="powershell"></a>PowerShell
 
-Använd [set-AzureVMCustomScriptExtension-](/powershell/module/servicemanagement/azure/set-azurevmcustomscriptextension) cmdleten kan användas för att lägga till det anpassade skript tillägget till en befintlig virtuell dator.
+Använd [cmdleten Set-AzureVMCustomScriptExtension](/powershell/module/servicemanagement/azure/set-azurevmcustomscriptextension) kan användas för att lägga till tillägget Anpassat skript på en befintlig virtuell dator.
 
 ```powershell
 # define your file URI
@@ -304,49 +304,49 @@ Set-AzureVMCustomScriptExtension -VM $vm -FileUri $fileUri -Run 'Create-File.ps1
 $vm | Update-AzureVM
 ```
 
-## <a name="troubleshoot-and-support"></a>Felsökning och support
+## <a name="troubleshoot-and-support"></a>Felsöka och support
 
 ### <a name="troubleshoot"></a>Felsöka
 
-Data om tillstånd för tilläggs distributioner kan hämtas från Azure Portal och med hjälp av modulen Azure PowerShell. Kör följande kommando för att se distributions status för tillägg för en virtuell dator:
+Data om tillståndet för tilläggsdistributioner kan hämtas från Azure-portalen och med hjälp av Azure PowerShell-modulen. Om du vill se distributionstillståndet för tillägg för en viss virtuell dator kör du följande kommando:
 
 ```powershell
 Get-AzVMExtension -ResourceGroupName <resourceGroupName> -VMName <vmName> -Name myExtensionName
 ```
 
-Utökning av utdata loggas till filer som finns i följande mapp på den virtuella mål datorn.
+Tilläggsutdata loggas till filer som hittas under följande mapp på den virtuella måldatorn.
 
 ```cmd
 C:\WindowsAzure\Logs\Plugins\Microsoft.Compute.CustomScriptExtension
 ```
 
-De angivna filerna laddas ned till följande mapp på den virtuella mål datorn.
+De angivna filerna hämtas till följande mapp på den virtuella måldatorn.
 
 ```cmd
 C:\Packages\Plugins\Microsoft.Compute.CustomScriptExtension\1.*\Downloads\<n>
 ```
 
-där `<n>` är ett decimal tal som kan ändras mellan körningar av tillägget.  `1.*`-värdet matchar det faktiska, aktuella `typeHandlerVersion` svärdet för tillägget.  Den faktiska katalogen kan till exempel vara `C:\Packages\Plugins\Microsoft.Compute.CustomScriptExtension\1.8\Downloads\2`.  
+var `<n>` är ett decimalt heltal, som kan ändras mellan körningar av tillägget.  Värdet `1.*` matchar det faktiska, aktuella `typeHandlerVersion` värdet för tillägget.  Den faktiska katalogen kan `C:\Packages\Plugins\Microsoft.Compute.CustomScriptExtension\1.8\Downloads\2`till exempel vara .  
 
-När du kör kommandot `commandToExecute`, anger tillägget den här katalogen (till exempel `...\Downloads\2`) som den aktuella arbets katalogen. Den här processen gör det möjligt att använda relativa sökvägar för att hitta filerna som hämtats via egenskapen `fileURIs`. Se tabellen nedan för exempel.
+När `commandToExecute` du kör kommandot anger tillägget den här `...\Downloads\2`katalogen (till exempel ) som den aktuella arbetskatalogen. Den här processen gör det möjligt att använda relativa `fileURIs` sökvägar för att hitta de filer som hämtats via egenskapen. Se tabellen nedan för exempel.
 
-Eftersom den absoluta nedladdnings Sök vägen kan variera med tiden är det bättre att välja relativa skript-och fil Sök vägar i `commandToExecute` strängen, närhelst det är möjligt. Exempel:
+Eftersom den absoluta hämtningssökvägen kan variera över tiden är det `commandToExecute` bättre att välja relativa skript-/filsökvägar i strängen, när det är möjligt. Ett exempel:
 
 ```json
 "commandToExecute": "powershell.exe . . . -File \"./scripts/myscript.ps1\""
 ```
 
-Sök vägs information efter det första URI-segmentet behålls för filer som hämtats via `fileUris` egenskaps listan.  Som visas i tabellen nedan mappas hämtade filer till under kataloger med hämtning för att återspegla strukturen för `fileUris` värden.  
+Sökvägsinformation efter det första URI-segmentet `fileUris` sparas för filer som hämtas via egenskapslistan.  Som visas i tabellen nedan mappas nedladdade filer till nedladdningsunderkataloger för att återspegla `fileUris` värdenas struktur.  
 
-#### <a name="examples-of-downloaded-files"></a>Exempel på hämtade filer
+#### <a name="examples-of-downloaded-files"></a>Exempel på nedladdade filer
 
-| URI i fileUris | Relativ nedladdnings plats | Absolut Hämtad plats <sup>1</sup> |
+| URI i fileUris | Relativ nedladdad plats | Absolut nedladdad plats <sup>1</sup> |
 | ---- | ------- |:--- |
 | `https://someAcct.blob.core.windows.net/aContainer/scripts/myscript.ps1` | `./scripts/myscript.ps1` |`C:\Packages\Plugins\Microsoft.Compute.CustomScriptExtension\1.8\Downloads\2\scripts\myscript.ps1`  |
 | `https://someAcct.blob.core.windows.net/aContainer/topLevel.ps1` | `./topLevel.ps1` | `C:\Packages\Plugins\Microsoft.Compute.CustomScriptExtension\1.8\Downloads\2\topLevel.ps1` |
 
-<sup>1</sup> de absoluta katalog Sök vägarna ändras under den virtuella datorns livstid, men inte inom en enskild körning av CustomScript-tillägget.
+<sup>1</sup> De absoluta katalogsökvägarna ändras under den virtuella datorns livstid, men inte inom en enda körning av CustomScript-tillägget.
 
 ### <a name="support"></a>Support
 
-Om du behöver mer hjälp när som helst i den här artikeln kan du kontakta Azure-experterna i [MSDN Azure och Stack Overflow forum](https://azure.microsoft.com/support/forums/). Du kan också skriva en support incident för Azure. Gå till [Support webbplatsen för Azure](https://azure.microsoft.com/support/options/) och välj få support. Information om hur du använder Azure-support finns i [vanliga frågor och svar om Microsoft Azure support](https://azure.microsoft.com/support/faq/).
+Om du behöver mer hjälp när som helst i den här artikeln kan du kontakta Azure-experterna på [MSDN Azure- och Stack Overflow-forumen](https://azure.microsoft.com/support/forums/). Du kan också lämna in en Azure-supportincident. Gå till [Azure-supportwebbplatsen](https://azure.microsoft.com/support/options/) och välj Hämta support. Information om hur du använder Azure Support finns i [vanliga frågor och svar om Microsoft Azure-support](https://azure.microsoft.com/support/faq/).

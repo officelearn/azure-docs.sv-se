@@ -1,81 +1,81 @@
 ---
-title: Azure Monitor för behållare Health Monitors-konfiguration | Microsoft Docs
-description: Den här artikeln innehåller innehåll som beskriver den detaljerade konfigurationen av hälso övervakare i Azure Monitor för behållare.
+title: Azure Monitor för behållare hälsoövervakare konfiguration | Microsoft-dokument
+description: Den här artikeln innehåller innehåll som beskriver den detaljerade konfigurationen av hälsoövervakare i Azure Monitor för behållare.
 ms.topic: conceptual
 ms.date: 12/01/2019
-ms.openlocfilehash: d2d602d767fa6a39b7f72650c426c90be210a6ed
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 99ea6e96f5a8a486784cb3d633a6e031b60eaad7
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75405047"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80055708"
 ---
-# <a name="azure-monitor-for-containers-health-monitor-configuration-guide"></a>Konfigurations guide för Azure Monitor för behållares hälso övervakning
+# <a name="azure-monitor-for-containers-health-monitor-configuration-guide"></a>Azure Monitor för behållare hälsoövervakarens konfigurationsguide
 
-Övervakare är det primära elementet för att mäta hälsa och identifiera fel i Azure Monitor för behållare. Den här artikeln hjälper dig att förstå begreppen för hur hälsa mäts och vilka element som utgör hälso modellen för att övervaka och rapportera om hälsan hos ditt Kubernetes-kluster med funktionen för [hälso tillstånd (för hands version)](container-insights-health.md) .
+Övervakare är det primära elementet för att mäta hälsotillstånd och identifiera fel i Azure Monitor för behållare. Den här artikeln hjälper dig att förstå begreppen för hur hälsa mäts och de element som utgör hälsomodellen för att övervaka och rapportera om hälsotillståndet för kubernetes-klustret med funktionen [Hälsa (förhandsversion).](container-insights-health.md)
 
 >[!NOTE]
->Hälso funktionen finns nu i offentlig för hands version.
+>Hälsofunktionen är i offentlig förhandsversion just nu.
 >
 
 ## <a name="monitors"></a>Övervakare
 
-En övervakare mäter en viss aspekt av hälsotillståndet hos ett hanterat objekt. Varje övervakare har antingen två eller tre hälsotillstånd. En övervakare befinner sig bara i ett av sina möjliga tillstånd vid en viss tidpunkt. När en Övervakare som lästs in av behållaren agent, initieras den till felfritt tillstånd. Tillståndet ändras endast om de angivna villkoren för ett annat tillstånd upptäcks.
+En övervakare mäter hälsan hos någon aspekt av ett hanterat objekt. Övervakare har antingen två eller tre hälsotillstånd vardera. En övervakare kommer att vara i ett och endast ett av dess potentiella tillstånd vid en given tidpunkt. När en övervakare som läses in av behållaren initieras den till ett felfritt tillstånd. Tillståndet ändras endast om de angivna villkoren för ett annat tillstånd identifieras.
 
-Det övergripande hälsotillståndet för ett visst objekt fastställs av hälsotillståndet för var och en av dess övervakare. Den här hierarkin illustreras i fönstret hälsohierarki i Azure Monitor for containers. Principen för hur hälso tillståndet samlas in är en del av konfigurationen av de sammanställda övervakarna.
+Den allmänna hälsan hos ett visst objekt bestäms av hälsan hos var och en av dess övervakare. Den här hierarkin illustreras i fönstret Hälsohierarki i Azure Monitor för behållare. Principen för hur hälsa summeras är en del av konfigurationen av de sammanlagda övervakarna.
 
-## <a name="types-of-monitors"></a>Typer av övervakare
+## <a name="types-of-monitors"></a>Typer av bildskärmar
 
 |Övervaka | Beskrivning | 
 |--------|-------------|
-| Enhetsövervakare |En enhets övervakare mäter viss aspekt av en resurs eller ett program. Detta kan kontrol lera en prestanda räknare för att fastställa resursens prestanda eller dess tillgänglighet. |
-|Sammanställd övervakare | Sammanställda övervakare grupperar flera Övervakare för att tillhandahålla ett hälso tillstånds sammanställt hälso tillstånd. Enhets övervakare konfigureras vanligt vis under en viss sammanställd övervakare. En mängd Övervakare för en nod samlar till exempel in statusen för nodens processor användning, minnes användning och nod status.
+| Enhetsövervakare |En enhetsövervakare mäter någon aspekt av en resurs eller ett program. Detta kan vara att kontrollera en prestandaräknare för att fastställa resursens prestanda eller dess tillgänglighet. |
+|Aggregerad bildskärm | Aggregerade övervakare grupperar flera övervakare för att tillhandahålla ett enda hälsoaggregerat hälsotillstånd. Enhetsövervakare konfigureras vanligtvis under en viss aggregerad övervakare. En nodaggregerad övervakare samlar till exempel status för nod-CPU-användning, minnesanvändning och nodstatus.
  |
 
-### <a name="aggregate-monitor-health-rollup-policy"></a>Sammanställd hälso princip för hälso sammanslagning
+### <a name="aggregate-monitor-health-rollup-policy"></a>Aggregerad princip för samlad övervakare
 
-Varje Aggregate Monitor definierar en hälso sammanslagnings princip, vilket är den logik som används för att fastställa hälso tillståndet för den sammanställda övervakaren baserat på hälso tillståndet för övervakarna. De möjliga hälso sammanslagnings principerna för en sammanställd övervakare är följande:
+Varje aggregerad övervakare definierar en hälsosammanslagningsprincip, vilket är den logik som används för att fastställa hälsotillståndet för den aggregerade övervakaren baserat på hälsotillståndet för övervakarna under den. De möjliga principer för sammanslagning av hälsotillstånd för en aggregerad övervakare är följande:
 
-#### <a name="worst-state-policy"></a>Princip för sämsta tillstånd
+#### <a name="worst-state-policy"></a>Sämsta statliga policy
 
-Tillståndet för den sammanställda övervakaren matchar tillståndet för den underordnade övervakaren med det sämsta hälso tillståndet. Det här är den vanligaste principen som används av sammanställda övervakare.
+Tillståndet för den sammanlagda övervakaren matchar tillståndet för den underordnade övervakaren med det sämsta hälsotillståndet. Detta är den vanligaste principen som används av aggregerade övervakare.
 
-![Exempel på insamlat tillstånd för samlad övervakare](./media/container-insights-health-monitoring-cfg/aggregate-monitor-rollup-worstof.png)
+![Exempel på värsta tillstånd för samlad mängd för aggregerad övervakare](./media/container-insights-health-monitoring-cfg/aggregate-monitor-rollup-worstof.png)
 
-### <a name="percentage-policy"></a>Procent princip
+### <a name="percentage-policy"></a>Procentuell policy
 
-Källobjektet matchar sämsta tillstånd för en enskild medlem i en angiven procent andel mål objekt i det bästa läget. Den här principen används när en viss procent andel av mål objekt måste vara felfri för att målobjektet ska betraktas som felfri. Procent principen sorterar övervakarna i fallande ordning efter allvarlighets grad och den sammanställda övervaknings statusen beräknas som det sämsta värdet N% (N styrs av konfigurations parametern *StateThresholdPercentage*).
+Källobjektet matchar det värsta tillståndet för en enskild medlem i en angiven procentandel målobjekt i bästa läge. Den här principen används när en viss procentandel av målobjekten måste vara felfria för att målobjektet ska betraktas som felfritt. Procentprincipen sorterar övervakarna i fallande ordning efter allvarlighetsgrad för tillstånd och den sammanlagda övervakarens tillstånd beräknas som det värsta tillståndet för N% (N dikteras av konfigurationsparametern *StateThresholdPercentage*).
 
-Anta till exempel att det finns fem behållar instanser av en behållar avbildning ochderas enskilda tillstånd är **kritiska**, **Varning**, felfria, felfria.  Statusen för övervakaren för container processor belastning är **kritisk**, eftersom det sämsta tillståndet på 90% av behållarna är **kritisk** vid sortering i fallande ordning i allvarlighets grad.
+Anta till exempel att det finns fem behållarinstanser av en behållaravbildning och deras enskilda tillstånd är **kritiska**, **Varning**, **Felfri**, **Felfri**, **Felfri**.  Statusen för behållaren CPU-användning övervaka kommer att vara **kritisk**, eftersom det värsta tillståndet för 90% av behållarna är **kritisk** när sorteras i fallande ordning allvarlighetsgrad.
 
-## <a name="understand-the-monitoring-configuration"></a>Förstå övervaknings konfigurationen
+## <a name="understand-the-monitoring-configuration"></a>Förstå övervakningskonfigurationen
 
-Azure Monitor för behållare innehåller ett antal nyckel övervaknings scenarier som är konfigurerade på följande sätt.
+Azure Monitor för behållare innehåller ett antal viktiga övervakningsscenarier som har konfigurerats enligt följande.
 
-### <a name="unit-monitors"></a>Enhets övervakare
+### <a name="unit-monitors"></a>Enhetsövervakare
 
-|**Övervakarens namn** | Övervakartyp | **Beskrivning** | **Parametern** | **Värde** |
+|**Övervaka namn** | Typ av bildskärm | **Beskrivning** | **Parametern** | **Värde** |
 |-----------------|--------------|-----------------|---------------|-----------|
-|Minnes användning för nod |Enhetsövervakare |Den här övervakaren utvärderar minnes användningen för en nod varje minut med hjälp av cadvisor rapporterade data. |ConsecutiveSamplesForStateTransition<br> FailIfGreaterThanPercentage<br> WarnIfGreaterThanPercentage | 3<br> 90<br> 80  ||
-|CPU-användning för nod |Enhets övervakare |Den här övervakaren kontrollerar nodens processor användning varje minut med hjälp av cadvisor rapporterade data. | ConsecutiveSamplesForStateTransition<br> FailIfGreaterThanPercentage<br> WarnIfGreaterThanPercentage | 3<br> 90<br> 80  ||
-|Nod status |Enhetsövervakare |Den här övervakaren kontrollerar regler för noden som rapporteras av Kubernetes.<br> För närvarande kontrol leras följande förutsättningar: disk tryck, minnes belastning, PID-tryck, slut på disk, otillgängligt nätverk, klar läge för noden.<br> Om ingen *av diskarna* eller *nätverket är inaktiverat* är **True**, ändras övervakaren till **kritiskt** tillstånd.<br> Om andra villkor är **sanna**, förutom statusen **klar** , ändras övervakaren till ett **varnings** tillstånd. | NodeConditionTypeForFailedState | outofdisk,networkunavailable ||
-|Minnes användning för behållare |Enhetsövervakare |Den här övervakaren rapporterar den kombinerade hälso statusen för minnes användningen (RSS) för instanser av containern.<br> Den utför en enkel jämförelse som jämför varje exempel med ett enda tröskelvärde och som anges av konfigurations parametern **ConsecutiveSamplesForStateTransition**.<br> Dess tillstånd beräknas som det sämsta tillståndet på 90% av containern (StateThresholdPercentage), sorterat i fallande ordning efter allvarlighets graden för behållar hälso tillståndet (det vill säga, kritiskt, varning, felfri).<br> Om ingen post tas emot från en behållar instans rapporteras hälso tillståndet för behållar instansen som **okänd**och har högre prioritet i sorterings ordningen över **kritiskt** tillstånd.<br> Varje enskild behållar instanss tillstånd beräknas med tröskelvärdena som anges i konfigurationen. Om användningen överskrider det kritiska tröskelvärdet (90%) är instansen i ett **kritiskt** tillstånd, om den är mindre än det kritiska tröskelvärdet (90%) men större än varnings tröskeln (80%) är instansen i ett **varnings** tillstånd. Annars är den i **felfritt** tillstånd. |ConsecutiveSamplesForStateTransition<br> FailIfLessThanPercentage<br> StateThresholdPercentage<br> WarnIfGreaterThanPercentage| 3<br> 90<br> 90<br> 80 ||
-|PROCESSOR användning i behållare |Enhetsövervakare |Den här övervakaren rapporterar en kombinerad hälso status för processor användningen för instanser av containern.<br> Den utför en enkel jämförelse som jämför varje exempel med ett enda tröskelvärde och som anges av konfigurations parametern **ConsecutiveSamplesForStateTransition**.<br> Dess tillstånd beräknas som det sämsta tillståndet på 90% av containern (StateThresholdPercentage), sorterat i fallande ordning efter allvarlighets graden för behållar hälso tillståndet (det vill säga, kritiskt, varning, felfri).<br> Om ingen post tas emot från en behållar instans rapporteras hälso tillståndet för behållar instansen som **okänd**och har högre prioritet i sorterings ordningen över **kritiskt** tillstånd.<br> Varje enskild behållar instanss tillstånd beräknas med tröskelvärdena som anges i konfigurationen. Om användningen överskrider det kritiska tröskelvärdet (90%) är instansen i ett **kritiskt** tillstånd, om den är mindre än det kritiska tröskelvärdet (90%) men större än varnings tröskeln (80%) är instansen i ett **varnings** tillstånd. Annars är den i **felfritt** tillstånd. |ConsecutiveSamplesForStateTransition<br> FailIfLessThanPercentage<br> StateThresholdPercentage<br> WarnIfGreaterThanPercentage| 3<br> 90<br> 90<br> 80 ||
-|Systemets arbets belastning poddar klar |Enhetsövervakare |Den här övervakaren rapporterar status baserat på procent andelen poddar i klar läge i en viss arbets belastning. Tillståndet är inställt på **kritiskt** om mindre än 100% av poddar är i **felfritt** tillstånd |ConsecutiveSamplesForStateTransition<br> FailIfLessThanPercentage |2<br> 100 ||
-|Kube API-status |Enhetsövervakare |Den här övervakaren rapporterar status för Kube-API-tjänsten. Övervakaren är i kritiskt tillstånd om API-slutpunkten för Kube inte är tillgänglig. För den här typen av övervakare bestäms tillstånd genom att göra en fråga till slut punkten "Nodes" för Kube-API-servern. Allt annat än en OK-svars kod ändrar övervakaren till **kritiskt** tillstånd. | Inga konfigurations egenskaper |||
+|Nodminnesanvändning |Enhetsövervakare |Den här övervakaren utvärderar minnesanvändningen av en nod varje minut med hjälp av cadvisor-rapporterade data. |På varandra följandeSamplesForStateTransition<br> FailIfGreaterThanPercentage<br> WarnIfGreaterTrPercentage | 3<br> 90<br> 80  ||
+|Cpu-användning för nod |Enhetsövervakare |Den här övervakaren kontrollerar CPU-användningen av noden varje minut med hjälp av cadvisor rapporterade data. | På varandra följandeSamplesForStateTransition<br> FailIfGreaterThanPercentage<br> WarnIfGreaterTrPercentage | 3<br> 90<br> 80  ||
+|Nodstatus |Enhetsövervakare |Den här övervakaren kontrollerar nodvillkor som rapporterats av Kubernetes.<br> För närvarande kontrolleras följande nodvillkor: Disktryck, minnestryck, PID-tryck, på disk, Nätverket är inte tillgängligt, Klar status för noden.<br> Om antingen på *disk* eller *Nätverket inte är* **tillgängligt**beror det på ovan ändras övervakaren till **kritiskt** tillstånd.<br> Om några andra villkor är lika **med sant**, förutom **statusen Klar,** ändras övervakaren till ett **varningstillstånd.** | NodeConditionTypeForFailedState | outofdisk,nätverkotillgänglig ||
+|Användning av behållarminne |Enhetsövervakare |Den här övervakaren rapporterar kombinerad hälsostatus för minnesutnyttjandet(RSS) för instanserna av behållaren.<br> Den utför en enkel jämförelse som jämför varje exempel med ett enda tröskelvärde och som anges av **konfigurationsparametern ConsecutiveSamplesForStateTransition**.<br> Dess tillstånd beräknas som det värsta tillståndet för 90% av behållaren (StateThresholdPercentage) instanser, sorterade i fallande ordning allvarlighetsgrad för behållarens hälsotillstånd (det vill säga Kritisk, Varning, Felfri).<br> Om ingen post tas emot från en behållarinstans rapporteras hälsotillståndet för behållarinstansen som **Okänd**och har högre prioritet i sorteringsordningen över **kritiskt** tillstånd.<br> Varje enskild behållarinstans tillstånd beräknas med de tröskelvärden som anges i konfigurationen. Om användningen är över kritiskt tröskelvärde (90%), är instansen i ett **kritiskt** tillstånd, om den är mindre än det kritiska tröskelvärdet (90 %) men större än varningströskeln (80 %), då är instansen i **ett varningstillstånd.** Annars är det i **hälsosamt** tillstånd. |På varandra följandeSamplesForStateTransition<br> FailIfLessThanPercentage<br> StateThresholdPercentage<br> WarnIfGreaterTrPercentage| 3<br> 90<br> 90<br> 80 ||
+|Cpu-användning för behållare |Enhetsövervakare |Den här övervakaren rapporterar kombinerad hälsostatus för CPU-användningen av instanserna av behållaren.<br> Den utför en enkel jämförelse som jämför varje exempel med ett enda tröskelvärde och som anges av **konfigurationsparametern ConsecutiveSamplesForStateTransition**.<br> Dess tillstånd beräknas som det värsta tillståndet för 90% av behållaren (StateThresholdPercentage) instanser, sorterade i fallande ordning allvarlighetsgrad för behållarens hälsotillstånd (det vill säga Kritisk, Varning, Felfri).<br> Om ingen post tas emot från en behållarinstans rapporteras hälsotillståndet för behållarinstansen som **Okänd**och har högre prioritet i sorteringsordningen över **kritiskt** tillstånd.<br> Varje enskild behållarinstans tillstånd beräknas med de tröskelvärden som anges i konfigurationen. Om användningen är över kritiskt tröskelvärde (90%), är instansen i ett **kritiskt** tillstånd, om den är mindre än det kritiska tröskelvärdet (90 %) men större än varningströskeln (80 %), då är instansen i **ett varningstillstånd.** Annars är det i **hälsosamt** tillstånd. |På varandra följandeSamplesForStateTransition<br> FailIfLessThanPercentage<br> StateThresholdPercentage<br> WarnIfGreaterTrPercentage| 3<br> 90<br> 90<br> 80 ||
+|Systemarbetsbelastningspoddar redo |Enhetsövervakare |Den här övervakaren rapporterar status baserat på procentandel av poddar i färdigt tillstånd i en viss arbetsbelastning. Dess tillstånd är inställt **på Kritisk** om mindre än 100% av skida är i ett **hälsosamt** tillstånd |På varandra följandeSamplesForStateTransition<br> FailIfLessThanPercentage |2<br> 100 ||
+|Kube API-status |Enhetsövervakare |Den här övervakaren rapporterar status för Kube API-tjänsten. Övervakaren är i kritiskt tillstånd om Kube API-slutpunkten inte är tillgänglig. För den här övervakaren bestäms tillståndet genom att göra en fråga till slutpunkten "noder" för kube-api-servern. Allt annat än en OK-svarskod ändrar övervakaren till ett **kritiskt** tillstånd. | Inga konfigurationsegenskaper |||
 
-### <a name="aggregate-monitors"></a>Sammanställda övervakare
+### <a name="aggregate-monitors"></a>Aggregerade bildskärmar
 
-|**Övervakarens namn** | **Beskrivning** | **Algoritm** |
+|**Övervaka namn** | **Beskrivning** | **Algoritm** |
 |-----------------|-----------------|---------------|
-|Nod |Den här övervakaren är en mängd olika noder som övervakare. Den matchar tillståndet för den underordnade övervakaren med det sämsta hälso tillståndet:<br> CPU-användning för nod<br> Minnes användning för nod<br> Nod status | Sämsta av|
-|Node-pool |Den här övervakaren rapporterar en kombinerad hälso status för alla noder i nodens *agentpoolegenskap*. Detta är en övervakare med tre tillstånd, vars tillstånd baseras på det sämsta tillståndet på 80% av noderna i Node-poolen, sorterade i fallande ordning efter allvarlighets grad för Node-tillstånd (det vill säga, kritisk, varning, felfri).|Procent |
-|Noder (överordnad för Node-pool) |Detta är en sammanställd övervakare av alla Node-pooler. Dess tillstånd baseras på de sämsta tillstånden för dess underordnade övervakare (det vill säga de noder som finns i klustret). |Sämsta av |
-|Kluster (överordnad av noder/<br> Kubernetes-infrastruktur) |Det här är den överordnade övervakaren som matchar tillståndet för den underordnade övervakaren med sämsta hälso tillstånd, som är Kubernetes-infrastruktur och noder. |Sämsta av |
-|Kubernetes-infrastruktur |Den här övervakaren rapporterar den kombinerade hälso statusen för de hanterade infrastruktur komponenterna i klustret. dess status beräknas som sämsta av dess underordnade övervakare, dvs. Kube arbets belastningar och API-Server status. |Sämsta av|
-|Systemets arbets belastning |Övervakaren rapporterar hälso status för en Kube arbets belastning. Den här övervakaren matchar tillståndet för den underordnade övervakaren med det sämsta hälso tillståndet, som är **poddar i klar läge** (övervakare och behållare i arbets belastningen). |Sämsta av |
-|Container |Den här övervakaren rapporterar övergripande hälso status för en behållare i en specifik arbets belastning. Den här övervakaren matchar tillståndet för den underordnade övervakaren med det sämsta hälso tillståndet, det vill säga **processor användning** och **minnes användnings** övervakare. |Sämsta av |
+|Node |Den här övervakaren är en mängd av alla nodövervakare. Det matchar tillståndet för den underordnade övervakaren med det värsta hälsotillståndet:<br> Nod CPU-användning<br> Användning av nodminne<br> Nodstatus | Värsta av|
+|Nodpool |Den här övervakaren rapporterar kombinerad hälsostatus för alla noder i nodpoolen *agentpool*. Detta är en tretillståndsövervakare, vars tillstånd baseras på det värsta tillståndet för 80 % av noderna i nodpoolen, sorterade i fallande ordning för allvarlighetsgraden för nodtillstånd (det vill säga Kritisk, Varning, Felfri).|Procent |
+|Noder (överordnad nodpool) |Detta är en aggregerad övervakare av alla nodpooler. Dess tillstånd baseras på det värsta tillståndet för dess underordnade övervakare (det vill säga nodpoolerna som finns i klustret). |Värsta av |
+|Kluster (överordnat noder/<br> Kubernetes infrastruktur) |Det här är den överordnade övervakaren som matchar tillståndet för den underordnade övervakaren med det sämsta hälsotillståndet, det vill säga kubernetes-infrastruktur och noder. |Värsta av |
+|Kubernetes infrastruktur |Den här övervakaren rapporterar kombinerad hälsostatus för de hanterade infrastrukturkomponenterna i klustret. dess status beräknas som den "värsta av" dess underordnade övervakare tillstånd dvs kube-system arbetsbelastningar och API Server status. |Värsta av|
+|Systemets arbetsbelastning |Den här övervakaren rapporterar hälsostatus för en kube-system-arbetsbelastning. Den här övervakaren matchar tillståndet för den underordnade övervakaren med det sämsta hälsotillståndet, det vill **säga poddar i färdigt tillstånd** (övervaka och behållarna i arbetsbelastningen). |Värsta av |
+|Container |Den här övervakaren rapporterar övergripande hälsostatus för en behållare i en viss arbetsbelastning. Den här övervakaren matchar tillståndet för den underordnade övervakaren med det sämsta hälsotillståndet, det vill säga övervakare av **CPU-användning** **och minnesanvändning.** |Värsta av |
 
 ## <a name="next-steps"></a>Nästa steg
 
-Se [övervaka kluster hälsa](container-insights-health.md) för att lära dig mer om att Visa hälso status för Kubernetes-klustret.
+Visa [övervakarkhälsa](container-insights-health.md) om du vill veta mer om hur du visar hälsostatusen för Kubernetes-klustret.

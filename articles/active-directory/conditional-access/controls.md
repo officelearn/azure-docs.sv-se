@@ -1,76 +1,64 @@
 ---
-title: Anpassade kontroller i villkorlig åtkomst i Azure AD
-description: Lär dig hur anpassade kontroller i Azure Active Directory villkorlig åtkomst fungerar.
+title: Anpassade kontroller i Azure AD-villkorlig åtkomst
+description: Lär dig hur anpassade kontroller i Azure Active Directory Villkorlig åtkomst fungerar.
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: article
-ms.date: 02/25/2020
+ms.date: 03/18/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
-ms.reviewer: calebb
+ms.reviewer: inbarc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3fff08690eb2807fbbd50f297761c57d3fef88fe
-ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
+ms.openlocfilehash: f8c149279a755eb186a3fdc7891e9b511d18c7f2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78671847"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80050540"
 ---
-# <a name="custom-controls-preview"></a>Anpassade kontroller (förhands granskning)
+# <a name="custom-controls-preview"></a>Anpassade kontroller (förhandsgranskning)
 
-Anpassade kontroller är en funktion i Azure Active Directory Premium P1-versionen. När du använder anpassade kontroller omdirigeras användarna till en kompatibel tjänst för att uppfylla ytterligare krav utanför Azure Active Directory. För att tillfredsställa den här kontrollen omdirigeras användarens webbläsare till den externa tjänsten, utför alla nödvändiga autentiserings-eller verifierings aktiviteter och dirigeras sedan tillbaka till Azure Active Directory. Azure Active Directory verifierar svaret och, om användaren har autentiserats eller verifierats, fortsätter användaren i flödet för villkorlig åtkomst.
+Anpassade kontroller är en förhandsgranskningsfunktion i Azure Active Directory. När du använder anpassade kontroller omdirigeras användarna till en kompatibel tjänst för att uppfylla autentiseringskrav utanför Azure Active Directory. För att uppfylla den här kontrollen omdirigeras en användares webbläsare till den externa tjänsten, utför all nödvändig autentisering och omdirigeras sedan tillbaka till Azure Active Directory. Azure Active Directory verifierar svaret och om användaren har autentiserats eller validerats fortsätter användaren i flödet Villkorlig åtkomst.
 
-Dessa kontroller tillåter användning av vissa externa eller anpassade tjänster som villkorliga åtkomst kontroller och utökar i allmänhet funktionerna för villkorlig åtkomst.
-
-Leverantörer som för närvarande erbjuder en kompatibel tjänst är:
-
-- [Duo-säkerhet](https://duo.com/docs/azure-ca)
-- [Entrust Datacard](https://www.entrustdatacard.com/products/authentication/intellitrust)
-- [GSMA](https://mobileconnect.io/azure/)
-- [Pinga identitet](https://documentation.pingidentity.com/pingid/pingidAdminGuide/index.shtml#pid_c_AzureADIntegration.html)
-- [RSA](https://community.rsa.com/docs/DOC-81278)
-- [SecureAuth](https://docs.secureauth.com/pages/viewpage.action?pageId=47238992#)
-- [Silverfort](https://www.silverfort.io/company/using-silverfort-mfa-with-azure-active-directory/)
-- [Symantec VIP](https://help.symantec.com/home/VIP_Integrate_with_Azure_AD)
-- [Thales (Gemalto)](https://resources.eu.safenetid.com/help/AzureMFA/Azure_Help/Index.htm)
-- [Trusona](https://www.trusona.com/docs/azure-ad-integration-guide)
-
-Om du vill ha mer information om dessa tjänster kan du kontakta providern direkt.
+> [!NOTE]
+> Mer information om ändringar som vi planerar i funktionen Anpassad kontroll finns i den [nya uppdateringen](../fundamentals/whats-new.md#upcoming-changes-to-custom-controls)från februari 2020 .
 
 ## <a name="creating-custom-controls"></a>Skapa anpassade kontroller
 
-Om du vill skapa en anpassad kontroll kontaktar du först den leverantör som du vill använda. Varje icke-Microsoft-provider har en egen process och krav för att registrera dig, prenumerera på eller på annat sätt bli en del av tjänsten och för att indikera att du vill integrera med villkorlig åtkomst. Vid det här tillfället tillhandahåller providern ett data block i JSON-format. Med den här informationen kan providern och villkorlig åtkomst samar beta för din klient, skapa den nya kontrollen och definiera hur villkorlig åtkomst kan avgöra om användarna har utfört verifiering med providern.
+Anpassade kontroller fungerar med en begränsad uppsättning godkända autentiseringsleverantörer. Om du vill skapa en anpassad kontroll bör du först kontakta den leverantör som du vill använda. Varje icke-Microsoft-leverantör har sin egen process och krav för att registrera dig, prenumerera eller på annat sätt bli en del av tjänsten, och för att ange att du vill integrera med villkorlig åtkomst. Då kommer leverantören att förse dig med ett datablock i JSON-format. Dessa data gör det möjligt för providern och villkorlig åtkomst att arbeta tillsammans för din klientorganisation, skapar den nya kontrollen och definierar hur villkorlig åtkomst kan avgöra om dina användare har utfört verifiering med leverantören.
 
-Det går inte att använda anpassade kontroller med identitets skydds automatisering som kräver Multi-Factor Authentication eller för att höja roller i Privileged Identity Manager (PIM).
+Kopiera JSON-data och klistra sedan in dem i den relaterade textrutan. Gör inga ändringar i JSON om du inte uttryckligen förstår vilken ändring du gör. Om du gör några ändringar kan anslutningen mellan leverantören och Microsoft brytas och du och användarna eventuellt inte har gjort något.
 
-Kopiera JSON-data och klistra sedan in den i den relaterade text rutan. Gör inga ändringar i JSON om du inte uttryckligen förstår den ändring du gör. Genom att göra en ändring kan du bryta anslutningen mellan leverantören och Microsoft och eventuellt låsa dig och dina användare från dina konton.
-
-Alternativet för att skapa en anpassad kontroll finns i avsnittet **Hantera** på sidan för **villkorlig åtkomst** .
+Alternativet att skapa en anpassad kontroll finns i avsnittet **Hantera** på sidan **Villkorlig åtkomst.**
 
 ![Kontroll](./media/controls/82.png)
 
-Om du klickar på **ny anpassad kontroll**öppnas ett blad med en text ruta för dina KONTROLLers JSON-data.  
+Om du klickar på **Ny anpassad kontroll**öppnas ett blad med en textruta för JSON-data för kontrollen.  
 
 ![Kontroll](./media/controls/81.png)
 
-## <a name="deleting-custom-controls"></a>Tar bort anpassade kontroller
+## <a name="deleting-custom-controls"></a>Ta bort anpassade kontroller
 
 Om du vill ta bort en anpassad kontroll måste du först se till att den inte används i någon princip för villkorlig åtkomst. När du är klar:
 
-1. Gå till listan med anpassade kontroller
-1. Klicka på...  
+1. Gå till listan Anpassade kontroller
+1. Klicka...  
 1. Välj **Ta bort**.
 
 ## <a name="editing-custom-controls"></a>Redigera anpassade kontroller
 
 Om du vill redigera en anpassad kontroll måste du ta bort den aktuella kontrollen och skapa en ny kontroll med den uppdaterade informationen.
 
+## <a name="known-limitations"></a>Kända begränsningar
+
+Anpassade kontroller kan inte användas med Identity Protections automatisering som kräver Azure Multi-Factor Authentication, Azure AD self-service password reset (SSPR), uppfyller krav på anspråk för multifaktorautentisering eller för att höja roller i Privilegierad Identitetshanteraren (PIM).
+
 ## <a name="next-steps"></a>Nästa steg
 
 - [Vanliga principer för villkorlig åtkomst](concept-conditional-access-policy-common.md)
 
-- [Endast rapport läge](concept-conditional-access-report-only.md)
+- [Läget Endast rapport](concept-conditional-access-report-only.md)
 
-- [Simulera inloggnings beteende med hjälp av What If verktyget för villkorlig åtkomst](troubleshoot-conditional-access-what-if.md)
+- [Simulera inloggningsbeteende med verktyget Villkorlig åtkomst Vad händer om](troubleshoot-conditional-access-what-if.md)

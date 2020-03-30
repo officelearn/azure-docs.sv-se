@@ -1,7 +1,7 @@
 ---
-title: Transformerings exempel för sociala konto anspråk för anpassade principer
+title: Exempel på omvandling av sociala kontoanspråk för anpassade principer
 titleSuffix: Azure AD B2C
-description: Transformerings exempel för sociala konto anspråk för IEF-schemat (Identity Experience Framework) för Azure Active Directory B2C.
+description: Exempel på omvandling av sociala kontoanspråk för IEF-schemat (Identity Experience Framework) i Azure Active Directory B2C.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
@@ -12,17 +12,17 @@ ms.date: 09/10/2018
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: cb713651aca266ab2546ff26c3cd0175a4cbc289
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78183762"
 ---
-# <a name="social-accounts-claims-transformations"></a>Anspråk omvandlingar för sociala konton
+# <a name="social-accounts-claims-transformations"></a>Sociala konton hävdar omvandlingar
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-I Azure Active Directory B2C (Azure AD B2C) lagras identiteter för sociala konton i ett `userIdentities` attribut för en **alternativeSecurityIdCollection** -anspråks typ. Varje objekt i **alternativeSecurityIdCollection** anger utfärdaren (identitets leverantörens namn, till exempel Facebook.com) och `issuerUserId`, som är ett unikt användar-ID för utfärdaren.
+I Azure Active Directory B2C (Azure AD B2C) `userIdentities` lagras sociala kontoidentiteter i ett attribut av en **alternativSecurityIdCollection-anspråkstyp.** Varje objekt i **alternativeSecurityIdCollection** anger utfärdaren (identitetsproviderns namn, till `issuerUserId`exempel facebook.com) och , som är en unik användaridentifierare för utfärdaren.
 
 ```JSON
 "userIdentities": [{
@@ -35,19 +35,19 @@ I Azure Active Directory B2C (Azure AD B2C) lagras identiteter för sociala kont
   }]
 ```
 
-Den här artikeln innehåller exempel på hur du kan använda anspråk för social konto-omvandlingar av identitets Experience Framework-schemat i Azure AD B2C. Mer information finns i [ClaimsTransformations](claimstransformations.md).
+Den här artikeln innehåller exempel på hur du använder omvandlingar av sociala kontoanspråk i Identity Experience Framework-schemat i Azure AD B2C. Mer information finns i [ClaimsTransformations](claimstransformations.md).
 
-## <a name="createalternativesecurityid"></a>CreateAlternativeSecurityId
+## <a name="createalternativesecurityid"></a>SkapaAlternativeSecurityId
 
-Skapar en JSON-representation av användarens alternativeSecurityId-egenskap som kan användas i anrop till Azure Active Directory. Mer information finns i [AlternativeSecurityId](https://docs.microsoft.com/graph/api/resources/alternativesecurityid) -schemat.
+Skapar en JSON-representation av användarens alternativeSecurityId-egenskap som kan användas i anropen till Azure Active Directory. Mer information finns i [AlternativeSecurityId-schemat.](https://docs.microsoft.com/graph/api/resources/alternativesecurityid)
 
 | Objekt | TransformationClaimType | Datatyp | Anteckningar |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | key | sträng | ClaimType som anger den unika användar identifierare som används av den sociala identitets leverantören. |
-| InputClaim | identityProvider | sträng | ClaimType som anger namnet på den sociala konto identitets leverantören, till exempel facebook.com. |
-| OutputClaim | alternativeSecurityId | sträng | Den ClaimType som skapas efter att ClaimsTransformation har anropats. Innehåller information om identiteten för en användare av sociala konton. **Utfärdaren** är värdet för `identityProvider`-anspråket. **IssuerUserId** är värdet för `key`-anspråk i base64-format. |
+| InputClaim | key | sträng | Den ClaimType som anger den unika användaridentifieraren som används av den sociala identitetsprovidern. |
+| InputClaim | identitetProvider | sträng | Den ClaimType som anger namnet på den sociala kontoidentitetsleverantören, till exempel facebook.com. |
+| OutputClaim | alternativeSecurityId | sträng | Den ClaimType som produceras efter att ClaimsTransformation har anropats. Innehåller information om identiteten på en användare av ett socialt konto. **Emittenten** är fordrans `identityProvider` värde. **UtfärdarenUserId** är värdet av `key` anspråket i base64-format. |
 
-Använd den här anspråks omvandlingen för att generera en `alternativeSecurityId` ClaimType. Den används av alla tekniska profiler för sociala identitets leverantörer, t. ex. `Facebook-OAUTH`. Följande anspråks omvandling får ID för användarens sociala konto och namnet på identitets leverantören. Utdata från den här tekniska profilen är ett JSON-sträng format som kan användas i Azure AD-katalogtjänster.
+Använd den här anspråksomvandlingen för att generera en `alternativeSecurityId` ClaimType. Det används av alla sociala identitetsprovider `Facebook-OAUTH`tekniska profiler, till exempel . Följande anspråksomvandling tar emot användarens sociala konto-ID och identitetsproviderns namn. Utdata för den här tekniska profilen är ett JSON-strängformat som kan användas i Azure AD-katalogtjänster.
 
 ```XML
 <ClaimsTransformation Id="CreateAlternativeSecurityId" TransformationMethod="CreateAlternativeSecurityId">
@@ -63,28 +63,28 @@ Använd den här anspråks omvandlingen för att generera en `alternativeSecurit
 
 ### <a name="example"></a>Exempel
 
-- Inmatade anspråk:
+- Ingående anspråk:
     - **nyckel**: 12334
-    - **identityProvider**: Facebook.com
-- Utgående anspråk:
-    - **alternativeSecurityId**: {"Issuer": "Facebook.com", "issuerUserId": "MTA4MTQ2MDgyOTI3MDUyNTYzMjcw"}
+    - **identitetProvider**: Facebook.com
+- Utdataanspråk:
+    - **alternativeSecurityId**: { "issuer": "facebook.com", "issuerUserId": "MTA4MTQ2MDgyOTI3MDUyNTYzMjcw"}
 
 ## <a name="additemtoalternativesecurityidcollection"></a>AddItemToAlternativeSecurityIdCollection
 
-Lägger till en `AlternativeSecurityId` till ett `alternativeSecurityIdCollection`-anspråk.
+Lägger `AlternativeSecurityId` till `alternativeSecurityIdCollection` ett anspråk.
 
 | Objekt | TransformationClaimType | Datatyp | Anteckningar |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | item | sträng | Den ClaimType som ska läggas till i utgående anspråk. |
-| InputClaim | samling | alternativeSecurityIdCollection | Den ClaimTypes som används av anspråks omvandlingen om den är tillgänglig i principen. Om det här alternativet anges lägger Claim-omvandlingen till `item` i slutet av samlingen. |
-| OutputClaim | samling | alternativeSecurityIdCollection | ClaimTypes som skapas efter att denna ClaimsTransformation har anropats. Den nya samlingen som innehåller både objekten från in`collection` och `item`. |
+| InputClaim | objekt | sträng | Den ClaimType som ska läggas till i utdataanspråket. |
+| InputClaim | samling | alternativeSecurityIdCollection | De ClaimTypes som används av anspråksomvandlingen om de är tillgängliga i principen. Om det tillhandahålls lägger `item` anspråksomvandlingen till i slutet av samlingen. |
+| OutputClaim | samling | alternativeSecurityIdCollection | De ClaimTypes som produceras efter att den här ClaimsTransformation har anropats. Den nya samlingen som innehåller både `collection` `item`objekt från indata och . |
 
-I följande exempel länkas en ny social identitet med ett befintligt konto. Så här länkar du en ny social identitet:
-1. I de tekniska profilerna **AAD-UserReadUsingAlternativeSecurityId** och **AAD-UserReadUsingObjectId** skriver du användarens **alternativeSecurityIds** -anspråk.
-1. Be användaren att logga in med en av identitets leverantörerna som inte är associerade med den här användaren.
-1. Använd **CreateAlternativeSecurityId** -anspråks omvandlingen och skapa en ny **alternativeSecurityId** -anspråks typ med namnet `AlternativeSecurityId2`
-1. Anropa **AddItemToAlternativeSecurityIdCollection** Claims-omvandlingen för att lägga till **AlternativeSecurityId2** -anspråket i det befintliga **AlternativeSecurityIds** -anspråket.
-1. Behåll **alternativeSecurityIds** -anspråk för användar kontot
+I följande exempel länkas en ny social identitet till ett befintligt konto. Så här länkar du en ny social identitet:
+1. I de tekniska profilerna **AAD-UserReadUsingAlternativeSecurityId** och **AAD-UserReadUsingObjectId** skriver användarens **alternativeSecurityIds-anspråk.**
+1. Be användaren att logga in med en av de identitetsleverantörer som inte är associerade med den här användaren.
+1. Med hjälp av transformeringen av **CreateAlternativeSecurityId-anspråk** skapar du en ny **alternativSecurityId-anspråkstyp** med ett namn på`AlternativeSecurityId2`
+1. Anropa **anspråkstransformeringen AddItemToAlternativeSecurityIdCollection** för att lägga till **alternativesecurityId2-anspråket** i det befintliga **AlternativeSecurityIds-anspråket.**
+1. Bevara **alternativeSecurityIds-anspråk** på användarkontot
 
 ```XML
 <ClaimsTransformation Id="AddAnotherAlternativeSecurityId" TransformationMethod="AddItemToAlternativeSecurityIdCollection">
@@ -100,22 +100,22 @@ I följande exempel länkas en ny social identitet med ett befintligt konto. Så
 
 ### <a name="example"></a>Exempel
 
-- Inmatade anspråk:
-    - **objekt**: {"Issuer": "Facebook.com", "issuerUserId": "MTIzNDU ="}
-    - **samling**: [{"Issuer": "Live.com", "issuerUserId": "MTA4MTQ2MDgyOTI3MDUyNTYzMjcw"}]
-- Utgående anspråk:
-    - **samling**: [{"Issuer": "Live.com", "issuerUserId": "MTA4MTQ2MDgyOTI3MDUyNTYzMjcw"}, {"utfärdare": "Facebook.com", "issuerUserId": "MTIzNDU ="}]
+- Ingående anspråk:
+    - **punkt**: { "emittent": "facebook.com", "issuerUserId": "MTIzNDU=" }
+    - **samling**: [ { "emittent": "live.com", "issuerUserId": "MTA4MTQ2MDgyOTI3MDUyNTYzMjcw" } ]
+- Utdataanspråk:
+    - **samling**: [ { "issuer": "live.com", "issuerUserId": "MTA4MTQ2MDgyOTI3MDUyNTYzMjcw" }, { "issuer": "facebook.com", "issuerUserId": "MTIzNDU=" } ]
 
 ## <a name="getidentityprovidersfromalternativesecurityidcollectiontransformation"></a>GetIdentityProvidersFromAlternativeSecurityIdCollectionTransformation
 
-Returnerar lista över utfärdare från **alternativeSecurityIdCollection** -anspråket till ett nytt **stringCollection** -anspråk.
+Returnerar lista över utfärdare från **alternativeSecurityIdCollection-anspråket** till ett nytt **stringCollection-anspråk.**
 
 | Objekt | TransformationClaimType | Datatyp | Anteckningar |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | alternativeSecurityIdCollection | alternativeSecurityIdCollection | Den ClaimType som ska användas för att hämta listan över identitets leverantörer (utfärdare). |
-| OutputClaim | identityProvidersCollection | stringCollection | ClaimTypes som skapas efter att denna ClaimsTransformation har anropats. Lista över identitets leverantörer som är kopplade till alternativeSecurityIdCollection-indatamängden |
+| InputClaim | alternativeSecurityIdCollection | alternativeSecurityIdCollection | Den ClaimType som ska användas för att hämta listan över identitetsleverantörer (utfärdare). |
+| OutputClaim | identitetProvidersSamla | strängInsamling | De ClaimTypes som produceras efter att den här ClaimsTransformation har anropats. Lista över identitetsleverantörer som associerar med det alternativa indataanspråket För säkerhetsinmatning |
 
-Följande Claims-omvandling läser användar **alternativeSecurityIds** -anspråket och extraherar listan över identitets leverantörs namn som är associerade med det kontot. Använd output **identityProvidersCollection** för att Visa användaren listan över identitets leverantörer som är associerade med kontot. Du kan också filtrera listan över identitets leverantörer baserat på utgående **identityProvidersCollection** -anspråk på sidan för val av identitetsprovider. Användaren kan alltså välja att länka en ny social identitet som inte redan är kopplad till kontot.
+Följande anspråksomvandling läser **användarens alternativeSecurityIds-anspråk** och extraherar listan över identitetsprovidernamn som är associerade med kontot. Använd **utdataidentitetProvidersCollection** för att visa användaren listan över identitetsleverantörer som är associerade med kontot. Eller filtrera listan över identitetsleverantörer på urvalssidan för **identitetsproviders.** Så kan användaren välja att länka ny social identitet som inte redan är associerad med kontot.
 
 ```XML
 <ClaimsTransformation Id="ExtractIdentityProviders" TransformationMethod="GetIdentityProvidersFromAlternativeSecurityIdCollectionTransformation">
@@ -128,26 +128,26 @@ Följande Claims-omvandling läser användar **alternativeSecurityIds** -ansprå
 </ClaimsTransformation>
 ```
 
-- Inmatade anspråk:
-    - **alternativeSecurityIdCollection**: [{"Issuer": "Google.com", "issuerUserId": "MTA4MTQ2MDgyOTI3MDUyNTYzMjcw"}, {"utfärdare": "Facebook.com", "issuerUserId": "MTIzNDU ="}]
-- Utgående anspråk:
-    - **identityProvidersCollection**: ["Facebook.com", "Google.com"]
+- Ingående anspråk:
+    - **alternativeSecurityIdCollection**: [ { "issuer": "google.com", "issuerUserId": "MTA4MTQ2MDgyOTI3MDUyNTYzMjcw" }, { "issuer": "facebook.com", "issuerUserId": "MTIzNDU=" } ]
+- Utdataanspråk:
+    - **identitetProvidersSamverkan**: [ "facebook.com", "google.com" ]
 
-## <a name="removealternativesecurityidbyidentityprovider"></a>RemoveAlternativeSecurityIdByIdentityProvider
+## <a name="removealternativesecurityidbyidentityprovider"></a>Ta bortAlternativeSecurityIdByIdentityProvider
 
-Tar bort en **AlternativeSecurityId** från ett **alternativeSecurityIdCollection** -anspråk.
+Tar bort en **AlternativeSecurityId** från ett **alternativeSecurityIdCollection-anspråk.**
 
 | Objekt | TransformationClaimType | Datatyp | Anteckningar |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | identityProvider | sträng | Den ClaimType som innehåller identitets leverantörens namn som ska tas bort från samlingen. |
-| InputClaim | samling | alternativeSecurityIdCollection | ClaimTypes som används av anspråks omvandlingen. Transformationen Claims tar bort identityProvider från samlingen. |
-| OutputClaim | samling | alternativeSecurityIdCollection | ClaimTypes som skapas efter att denna ClaimsTransformation har anropats. Den nya samlingen efter att identityProvider har tagits bort från samlingen. |
+| InputClaim | identitetProvider | sträng | Den ClaimType som innehåller identitetsproviderns namn som ska tas bort från samlingen. |
+| InputClaim | samling | alternativeSecurityIdCollection | De ClaimTypes som används av anspråksomvandlingen. Anspråksomvandlingen tar bort identitetenProvider från samlingen. |
+| OutputClaim | samling | alternativeSecurityIdCollection | De ClaimTypes som produceras efter att den här ClaimsTransformation har anropats. Den nya samlingen, efter identitetprovider bort från samlingen. |
 
-I följande exempel avlänkas en av den sociala identiteten med ett befintligt konto. Ta bort länken till en social identitet:
-1. I de tekniska profilerna **AAD-UserReadUsingAlternativeSecurityId** och **AAD-UserReadUsingObjectId** skriver du användarens **alternativeSecurityIds** -anspråk.
-2. Be användaren att välja vilket socialt konto som ska tas bort från listan med identitets leverantörer som är associerade med den här användaren.
-3. Anropa en teknisk profil för anspråks omvandling som anropar omvandlingen av **RemoveAlternativeSecurityIdByIdentityProvider** -anspråk, som tog bort den valda sociala identiteten med hjälp av namnet på identitets leverantören.
-4. Behåll **alternativeSecurityIds** -anspråket för användar kontot.
+I följande exempel tas en av den sociala identiteten bort från ett befintligt konto. Så här tar du bort länken till en social identitet:
+1. I de tekniska profilerna **AAD-UserReadUsingAlternativeSecurityId** och **AAD-UserReadUsingObjectId** skriver användarens **alternativeSecurityIds-anspråk.**
+2. Be användaren att välja vilket socialt konto som ska tas bort från de identitetsleverantörer som är associerade med den här användaren.
+3. Anropa en teknisk profil för anspråksomvandling som anropar anspråksomvandlingen **RemoveAlternativeSecurityIdByIdentityProvider,** som tog bort den valda sociala identiteten med hjälp av identitetsproviderns namn.
+4. Spara **alternativeSecurityIds-anspråk** på användarkontot.
 
 ```XML
 <ClaimsTransformation Id="RemoveAlternativeSecurityIdByIdentityProvider" TransformationMethod="RemoveAlternativeSecurityIdByIdentityProvider">
@@ -164,8 +164,8 @@ I följande exempel avlänkas en av den sociala identiteten med ett befintligt k
 
 ### <a name="example"></a>Exempel
 
-- Inmatade anspråk:
-    - **identityProvider**: Facebook.com
-    - **samling**: [{"Issuer": "Live.com", "issuerUserId": "MTA4MTQ2MDgyOTI3MDUyNTYzMjcw"}, {"utfärdare": "Facebook.com", "issuerUserId": "MTIzNDU ="}]
-- Utgående anspråk:
-    - **samling**: [{"Issuer": "Live.com", "issuerUserId": "MTA4MTQ2MDgyOTI3MDUyNTYzMjcw"}]
+- Ingående anspråk:
+    - **identitetProvider**: facebook.com
+    - **samling**: [ { "issuer": "live.com", "issuerUserId": "MTA4MTQ2MDgyOTI3MDUyNTYzMjcw" }, { "issuer": "facebook.com", "issuerUserId": "MTIzNDU=" } ]
+- Utdataanspråk:
+    - **samling**: [ { "emittent": "live.com", "issuerUserId": "MTA4MTQ2MDgyOTI3MDUyNTYzMjcw" } ]

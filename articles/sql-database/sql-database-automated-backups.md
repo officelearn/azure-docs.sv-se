@@ -1,6 +1,6 @@
 ---
-title: Automatisk och Geo-redundant säkerhets kopiering
-description: SQL Database skapar automatiskt en lokal databas säkerhets kopia med några minuters mellanrum och använder Azure Read-Access Geo-redundant lagring för GEO-redundans.
+title: Automatiska, geouppsagade säkerhetskopior
+description: SQL Database skapar automatiskt en lokal databassäkerhetskopiering med några minuters mellanrum och använder Azure-geo-redundant lagring med läsåtkomst för georedundans.
 services: sql-database
 ms.service: sql-database
 ms.subservice: backup-restore
@@ -12,198 +12,201 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab, danil
 manager: craigg
 ms.date: 12/13/2019
-ms.openlocfilehash: 16ee8c1e271f0aa3e6565322f9a4a422dd90b8b8
-ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.openlocfilehash: 9ac6927df63d51830a58773e32ad0968920c0867
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77461788"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80061767"
 ---
 # <a name="automated-backups"></a>Automatiserade säkerhetskopieringar
 
-SQL Database skapar automatiskt de databas säkerhets kopior som hålls under den konfigurerade kvarhållningsperioden och använder Azure [Read-Access Geo-redundant lagring (RA-GRS)](../storage/common/storage-redundancy.md) för att säkerställa att de bevaras även om data centret inte är tillgängligt. Dessa säkerhets kopior skapas automatiskt. Databas säkerhets kopieringar är en viktig del av en strategi för affärs kontinuitet och haveri beredskap eftersom de skyddar dina data från oavsiktlig skada eller borttagning. Om säkerhets reglerna kräver att dina säkerhets kopior är tillgängliga under en längre tid (upp till 10 år) kan du konfigurera en [långsiktig kvarhållning](sql-database-long-term-retention.md) på singleton-databaser och elastiska pooler.
+Azure SQL Database skapar automatiskt de säkerhetskopieringar av databasen som sparas under den konfigurerade kvarhållningsperioden. Den använder Azure [read-access geo-redundant lagring (RA-GRS)](../storage/common/storage-redundancy.md) för att säkerställa att säkerhetskopiorna bevaras även om datacentret inte är tillgängligt.
+
+Säkerhetskopiering av databaser är en viktig del av alla affärskontinuiteter och katastrofåterställningsstrategier eftersom de skyddar dina data från oavsiktlig skada eller borttagning. Om dina säkerhetsregler kräver att dina säkerhetskopior är tillgängliga under en längre tid (upp till 10 år) kan du konfigurera långsiktig kvarhållning på [singleton-databaser](sql-database-long-term-retention.md) och elastiska databaspooler.
 
 [!INCLUDE [GDPR-related guidance](../../includes/gdpr-intro-sentence.md)]
 
-## <a name="what-is-a-sql-database-backup"></a>Vad är en SQL Database säkerhets kopia
+## <a name="what-is-a-sql-database-backup"></a>Vad är en säkerhetskopia av SQL Database?
 
-SQL Database använder SQL Server teknik för att skapa [fullständiga säkerhets kopior](https://docs.microsoft.com/sql/relational-databases/backup-restore/full-database-backups-sql-server) varje vecka, [differentiella säkerhets kopieringar](https://docs.microsoft.com/sql/relational-databases/backup-restore/differential-backups-sql-server) var 12: e timme och [säkerhets kopior av transaktions loggar](https://docs.microsoft.com/sql/relational-databases/backup-restore/transaction-log-backups-sql-server) var 5-10 minut. Säkerhets kopiorna lagras i [RA-GRS Storage-blobbar](../storage/common/storage-redundancy.md) som replikeras till ett [parat Data Center](../best-practices-availability-paired-regions.md) för skydd mot ett avbrott i data centret. När du återställer en databas, tar tjänsten reda på vilka säkerhets kopior av fullständig, differentiell och transaktions logg måste återställas.
+SQL Database använder SQL Server-teknik för att skapa [fullständiga säkerhetskopior](https://docs.microsoft.com/sql/relational-databases/backup-restore/full-database-backups-sql-server) varje vecka, [differentiella säkerhetskopior](https://docs.microsoft.com/sql/relational-databases/backup-restore/differential-backups-sql-server) var 12:e timme och [säkerhetskopiering av transaktionsloggar](https://docs.microsoft.com/sql/relational-databases/backup-restore/transaction-log-backups-sql-server) var 5:e till 10:e minut. Säkerhetskopiorna lagras i [RA-GRS-lagringsblobar](../storage/common/storage-redundancy.md) som replikeras till ett [parat datacenter](../best-practices-availability-paired-regions.md) för skydd mot ett datacenterutbrott. När du återställer en databas avgör tjänsten vilka fullständiga säkerhetskopieringar, differentiella och transaktionsloggar som behöver återställas.
 
-Du kan använda dessa säkerhets kopior för att:
+Du kan använda de här säkerhetskopiorna för att:
 
-- **Återställ en befintlig databas till en tidpunkt som redan har passerat** under kvarhållningsperioden med hjälp av Azure Portal, Azure PowerShell, Azure CLI eller REST API. I en enkel databas och elastiska pooler skapar den här åtgärden en ny databas i samma server som den ursprungliga databasen. I en hanterad instans kan den här åtgärden Skapa en kopia av databasen eller samma eller en annan hanterad instans under samma prenumeration.
-- **Återställ en borttagen databas till den tidpunkt då den togs bort eller var** som helst under kvarhållningsperioden. Den borttagna databasen kan bara återställas på samma logiska Server eller hanterade instans där den ursprungliga databasen skapades.
-- **Återställ en databas till en annan geografisk region**. Med geo-återställning kan du återställa från en geografisk katastrof när du inte har åtkomst till servern och databasen. Den skapar en ny databas på en befintlig server var som helst i världen.
-- **Återställ en databas från en speciell långsiktig säkerhets kopia** på Enkel databas eller elastisk pool om databasen har kon figurer ATS med en långsiktig bevarande princip (brv). Med LTR kan du återställa en gammal version av databasen med hjälp [av Azure Portal](sql-database-long-term-backup-retention-configure.md#using-azure-portal) eller [Azure PowerShell](sql-database-long-term-backup-retention-configure.md#using-powershell) för att uppfylla en begäran om efterlevnad eller köra en gammal version av programmet. Mer information finns i avsnittet om [långsiktig kvarhållning](sql-database-long-term-retention.md).
-- Information om hur du utför en återställning finns i [återställa databasen från säkerhets kopior](sql-database-recovery-using-backups.md).
+- **Återställa en befintlig databas till en tidpunkt tidigare** under kvarhållningsperioden med hjälp av Azure-portalen, Azure PowerShell, Azure CLI eller REST API. För enskilda databaser och elastiska databaspooler skapar den här åtgärden en ny databas på samma server som den ursprungliga databasen. I hanterad instans kan den här åtgärden skapa en kopia av databasen eller samma eller en annan hanterad instans under samma prenumeration.
+- **Återställa en borttagen databas till tidpunkten för borttagningen** eller när som helst inom kvarhållningsperioden. Den borttagna databasen kan bara återställas på samma logiska server eller hanterade instans där den ursprungliga databasen skapades.
+- **Återställa en databas till ett annat geografiskt område**. Med geoåterställning kan du återställa från en geografisk katastrof när du inte kan komma åt servern och databasen. Det skapar en ny databas på en befintlig server, var som helst i världen.
+- **Återställa en databas från en specifik långsiktig säkerhetskopiering** på en enda databas eller elastisk databaspool, om databasen är konfigurerad med en långsiktig bevarandeprincip (LTR). Med LTR kan du återställa en gammal version av databasen med hjälp av [Azure-portalen](sql-database-long-term-backup-retention-configure.md#using-azure-portal) eller [Azure PowerShell](sql-database-long-term-backup-retention-configure.md#using-powershell) för att uppfylla en efterlevnadsbegäran eller för att köra en gammal version av programmet. Mer information finns i avsnittet om [långsiktig kvarhållning](sql-database-long-term-retention.md).
+
+Information om hur du återställer finns i [Återställa databas från säkerhetskopior](sql-database-recovery-using-backups.md).
 
 > [!NOTE]
-> I Azure Storage refererar termen *replikering* till att kopiera filer från en plats till en annan. SQL- *databasreplikering* syftar till att hålla flera sekundära databaser synkroniserade med en primär databas.
+> I Azure Storage avser termen *replikering* att kopiera filer från en plats till en annan. SQL *Server-databasreplikering* avser att hålla flera sekundära databaser synkroniserade med en primär databas.
 
-Du kan prova några av de här åtgärderna med hjälp av följande exempel:
+Du kan prova några av dessa åtgärder med hjälp av följande exempel:
 
 | | Azure Portal | Azure PowerShell |
 |---|---|---|
-| Ändra kvarhållning av säkerhets kopior | [Enkel databas](sql-database-automated-backups.md?tabs=managed-instance#change-pitr-backup-retention-period-using-azure-portal) <br/> [Hanterad instans](sql-database-automated-backups.md?tabs=managed-instance#change-pitr-backup-retention-period-using-azure-portal) | [Enkel databas](sql-database-automated-backups.md#change-pitr-backup-retention-period-using-powershell) <br/>[Hanterad instans](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlinstancedatabasebackupshorttermretentionpolicy) |
-| Ändra långsiktig kvarhållning av säkerhets kopior | [Enkel databas](sql-database-long-term-backup-retention-configure.md#configure-long-term-retention-policies)<br/>Hanterad instans-saknas  | [Enkel databas](sql-database-long-term-backup-retention-configure.md)<br/>Hanterad instans-saknas  |
-| Återställ databas från tidpunkt | [Enkel databas](sql-database-recovery-using-backups.md#point-in-time-restore) | [Enkel databas](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqldatabase) <br/> [Hanterad instans](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqlinstancedatabase) |
-| Återställa borttagen databas | [Enkel databas](sql-database-recovery-using-backups.md) | [Enkel databas](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldeleteddatabasebackup) <br/> [Hanterad instans](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldeletedinstancedatabasebackup)|
-| Återställa databasen från Azure Blob Storage | Enkel databas-ej tillämpligt <br/>Hanterad instans-saknas  | Enkel databas-ej tillämpligt <br/>[Hanterad instans](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-get-started-restore) |
+| Ändra kvarhållning av säkerhetskopiering | [Enskild databas](sql-database-automated-backups.md?tabs=managed-instance#change-the-pitr-backup-retention-period-by-using-the-azure-portal) <br/> [Hanterad instans](sql-database-automated-backups.md?tabs=managed-instance#change-the-pitr-backup-retention-period-by-using-the-azure-portal) | [Enskild databas](sql-database-automated-backups.md#change-the-pitr-backup-retention-period-by-using-powershell) <br/>[Hanterad instans](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlinstancedatabasebackupshorttermretentionpolicy) |
+| Ändra långsiktig lagring av säkerhetskopiering | [Enskild databas](sql-database-long-term-backup-retention-configure.md#configure-long-term-retention-policies)<br/>Hanterad instans - Saknas  | [Enskild databas](sql-database-long-term-backup-retention-configure.md)<br/>Hanterad instans - Saknas  |
+| Återställa en databas från en tidpunkt | [Enskild databas](sql-database-recovery-using-backups.md#point-in-time-restore) | [Enskild databas](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqldatabase) <br/> [Hanterad instans](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqlinstancedatabase) |
+| Återställa en borttagen databas | [Enskild databas](sql-database-recovery-using-backups.md) | [Enskild databas](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldeleteddatabasebackup) <br/> [Hanterad instans](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldeletedinstancedatabasebackup)|
+| Återställa en databas från Azure Blob-lagring | Enkel databas - Ej vilken databas <br/>Hanterad instans - Saknas  | Enkel databas - Ej vilken databas <br/>[Hanterad instans](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-get-started-restore) |
 
 
 ## <a name="backup-frequency"></a>Säkerhetskopieringsfrekvens
 
 ### <a name="point-in-time-restore"></a>Återställning från tidpunkt
 
-SQL Database stöder självbetjäning för återställning av PITR (Point-in-Time-återställning) genom att automatiskt skapa fullständig säkerhets kopiering, differentiella säkerhets kopieringar och säkerhets kopior av transaktions loggar. Fullständiga säkerhets kopior av databaser skapas varje vecka, och säkerhets kopior av differentiella databaser skapas vanligt vis var 12: e timme och säkerhets kopior av transaktions loggar skapas vanligt vis var 5-10 minut, med frekvensen baserat på beräknings storlek och mängden databas aktivitet. Den första fullständiga säkerhets kopieringen schemaläggs direkt efter att en databas har skapats. Den slutförs vanligt vis inom 30 minuter, men det kan ta längre tid när databasen har en betydande storlek. Den första säkerhets kopieringen kan till exempel ta längre tid på en återställd databas eller en databas kopia. Efter den första fullständiga säkerhets kopieringen schemaläggs alla ytterligare säkerhets kopieringar automatiskt och hanteras tyst i bakgrunden. Den exakta tiden för alla säkerhets kopieringar av databasen bestäms av SQL Database tjänsten när den balanserar den övergripande system belastningen. Du kan inte ändra eller inaktivera säkerhets kopierings jobben.
+SQL Database stöder självbetjäning för point-in-time restore (PITR) genom att automatiskt skapa fullständiga säkerhetskopior, differentiella säkerhetskopior och säkerhetskopiering av transaktionsloggar. Fullständiga säkerhetskopieringar av databaser skapas varje vecka och differentiella databassäkerhetskopior skapas i allmänhet var 12:e timme. Säkerhetskopior av transaktionsloggen skapas i allmänhet var 5:e till 10:e minut. Frekvensen för säkerhetskopior av transaktionsloggen baseras på beräkningsstorleken och mängden databasaktivitet. 
 
-PITR-säkerhetskopieringarna skyddas med Geo-redundant lagring. Mer information finns i [Azure Storage redundans](../storage/common/storage-redundancy.md).
+Den första fullständiga säkerhetskopian schemaläggs omedelbart efter att en databas har skapats. Den här säkerhetskopian slutförs vanligtvis inom 30 minuter, men det kan ta längre tid när databasen är stor. Den första säkerhetskopian kan till exempel ta längre tid på en återställd databas eller en databaskopia. Efter den första fullständiga säkerhetskopian schemaläggs alla ytterligare säkerhetskopieringar obevakat i bakgrunden. Den exakta tiden för alla databassäkerhetskopieringar fastställs av SQL Database-tjänsten eftersom den balanserar den övergripande systemarbetsbelastningen. Du kan inte ändra eller inaktivera säkerhetskopieringsjobben.
 
-Mer information finns i [punkt-in-Time-återställning](sql-database-recovery-using-backups.md#point-in-time-restore)
+PITR-säkerhetskopior skyddas med geouppsagbar lagring. Läs mer i [Redundansalternativ för Azure Storage](../storage/common/storage-redundancy.md).
+
+Mer information om PITR finns [i Point-in-time restore](sql-database-recovery-using-backups.md#point-in-time-restore).
 
 ### <a name="long-term-retention"></a>Långsiktig kvarhållning
 
-Med enkla och grupperade databaser kan du konfigurera långsiktig kvarhållning (brv) för fullständiga säkerhets kopieringar i upp till 10 år i Azure Blob Storage. Om LTR-principen är aktive rad kopieras de fullständiga vecko säkerhets kopieringarna automatiskt till en annan RA-GRS lagrings behållare. För att uppfylla olika krav för efterlevnad kan du välja olika kvarhållningsperiod för säkerhets kopiering varje vecka, månatlig och/eller år. Lagrings förbrukningen beror på den valda frekvensen av säkerhets kopior och kvarhållningsperioden. Du kan använda pris listan för [vanlig pris sättning](https://azure.microsoft.com/pricing/calculator/?service=sql-database) för att beräkna kostnaden för LTR Storage.
+För enstaka och poolade databaser kan du konfigurera långsiktig kvarhållning (LTR) för fullständiga säkerhetskopior i upp till 10 år i Azure Blob-lagring. Om du aktiverar LTR-principen kopieras de veckovisa fullständiga säkerhetskopieringarna automatiskt till en annan RA-GRS-lagringsbehållare. För att uppfylla olika efterlevnadskrav kan du välja olika kvarhållningsperioder för veckovisa, månatliga och/eller årliga säkerhetskopior. Lagringsförbrukningen beror på den valda frekvensen av säkerhetskopior och kvarhållningsperioden eller kvarhållningsperioderna. Du kan använda [LTR-priskalkylatorn](https://azure.microsoft.com/pricing/calculator/?service=sql-database) för att uppskatta kostnaden för LTR-lagring.
 
-Precis som PITR är säkerhets kopiorna i LTR skyddade med Geo-redundant lagring. Mer information finns i [Azure Storage redundans](../storage/common/storage-redundancy.md).
+Precis som PITR-säkerhetskopior skyddas LTR-säkerhetskopior med geouppsagd lagring. Läs mer i [Redundansalternativ för Azure Storage](../storage/common/storage-redundancy.md).
 
-Mer information finns i [långsiktig kvarhållning av säkerhets kopior](sql-database-long-term-retention.md).
+Mer information om LTR finns i [Lagring av säkerhetskopiering på lång sikt](sql-database-long-term-retention.md).
 
-## <a name="backup-storage-consumption"></a>Lagrings förbrukning för säkerhets kopiering 
+## <a name="backup-storage-consumption"></a>Förbrukning för lagring för säkerhetskopiering
 
-För enskilda databaser beräknas den totala användningen av lagring av säkerhets kopior på följande sätt:   
-`Total backup storage size = (size of full backups + size of differential backups + size of log backups) – database size`.
+För enskilda databaser används den här ekvationen för att beräkna den totala användningen av säkerhetskopieringslagring:
 
-För elastiska pooler aggregeras den totala lagrings storleken för säkerhets kopior på Poolnivå och beräknas på följande sätt:   
-`Total backup storage size = (total size of all full backups + total size of all differential backups + total size of all log backups) - allocated pool data storage`. 
+`Total backup storage size = (size of full backups + size of differential backups + size of log backups) – database size`
 
-Säkerhets kopieringar som är äldre än kvarhållningsperioden rensas automatiskt utifrån deras tidsstämpel. Eftersom de differentiella säkerhets kopiorna och logg säkerhets kopiorna kräver en tidigare fullständig säkerhets kopiering för att vara användbara, rensas de samman i varje vecka. 
+För elastiska databaspooler aggregeras den totala lagringsstorleken för säkerhetskopiering på poolnivå och beräknas på följande sätt:
 
-Azure SQL Database beräknar den totala lagrings platsen för säkerhets kopior som ett ackumulerat värde. Varje timme rapporteras det här värdet till den Azure-fakturerings pipeline som ansvarar för att aggregera denna användning per timme för att beräkna förbrukningen i slutet av varje månad. När databasen har släppts minskar förbrukningen som säkerhets kopierings ålder. När säkerhets kopiorna blev äldre än kvarhållningsperioden stoppas faktureringen. 
+`Total backup storage size = (total size of all full backups + total size of all differential backups + total size of all log backups) - allocated pool data storage`
+
+Säkerhetskopior som inträffar före kvarhållningsperioden rensas automatiskt baserat på deras tidsstämpel. Eftersom differentiella säkerhetskopior och loggsäkerhetskopior kräver en tidigare fullständig säkerhetskopiering för att vara användbar, rensas de tillsammans i veckosegment.
+
+Azure SQL Database beräknar din totala lagring av säkerhetskopiering i kvarhållning som ett kumulativt värde. Varje timme rapporteras det här värdet till Azure-faktureringspipelinen, som ansvarar för att samla den här timanvändningen för att beräkna din förbrukning i slutet av varje månad. När databasen har tagits bort minskar förbrukningen när säkerhetskopiorna åldras. När säkerhetskopiorna har blivit äldre än kvarhållningsperioden stoppas faktureringen.
 
    > [!IMPORTANT]
-   > Säkerhets kopior av en databas bevaras för den angivna kvarhållningsperioden, även om databasen har släppts. När du släpper och återskapar en databas ofta kan spara pengar på lagrings-och beräknings kostnader, men det kan öka kostnaderna för reserv lagrings kostnader eftersom vi behåller en säkerhets kopia för den angivna kvarhållningsperioden (som är 7 dagar på minst) för varje släppt databas varje gång den släpps. 
-
-
+   > Säkerhetskopior av en databas behålls under den angivna kvarhållningsperioden, även om databasen har tagits bort. Även om släppa och återskapa en databas kan ofta spara på lagring och beräkningskostnader, kan det öka kostnaderna för säkerhetskopiering lagring eftersom Microsoft behåller en säkerhetskopia för den angivna lagringsperioden (som är minst 7 dagar) för varje bortsläppt databas, varje när den släpps.
 
 ### <a name="monitor-consumption"></a>Övervaka förbrukning
 
-Varje typ av säkerhets kopiering (fullständig, differentiell och logg) rapporteras i bladet databas övervakning som ett separat mått. Följande diagram visar hur du övervakar lagrings förbrukningen för säkerhets kopior för en enskild databas. Den här funktionen är för närvarande inte tillgänglig för hanterade instanser.
+Varje typ av säkerhetskopiering (fullständig, differentiell och log) rapporteras på databasövervakningsbladet som ett separat mått. Följande diagram visar hur du övervakar förbrukningen för säkerhetskopieringslagring för en enskild databas. Den här funktionen är för närvarande inte tillgänglig för hanterade instanser.
 
-![Övervaka förbrukningen av databas säkerhets kopiering på bladet databas övervakning i Azure Portal](media/sql-database-automated-backup/backup-metrics.png)
+![Övervaka förbrukning av säkerhetskopiering av databaser i Azure-portalen](media/sql-database-automated-backup/backup-metrics.png)
 
-### <a name="fine-tune-the-backup-storage-consumption"></a>Finjustera lagrings förbrukningen för säkerhets kopiering
+### <a name="fine-tune-backup-storage-consumption"></a>Finjustera lagringsförbrukning för säkerhetskopiering
 
-Den överflödiga lagrings förbrukningen för säkerhets kopiering beror på arbets belastningen och storleken på de enskilda databaserna. Du kan överväga att implementera några av följande justerings metoder för att ytterligare minska användningen av lagrings utrymme för säkerhets kopior:
+Överskjutande lagringsförbrukning för säkerhetskopiering beror på arbetsbelastningen och storleken på de enskilda databaserna. Tänk på några av följande justeringstekniker för att minska förbrukningen för säkerhetskopieringslagring:
 
-* Minska [lagrings perioden för säkerhets kopior](#change-pitr-backup-retention-period-using-azure-portal) till det minimum som krävs för dina behov.
-* Undvik att utföra stora Skriv åtgärder oftare än vad som behövs, till exempel indexera återskapande.
-* För stora data inläsnings åtgärder bör du överväga att använda [grupperade columnstore-index](https://docs.microsoft.com/sql/database-engine/using-clustered-columnstore-indexes), minska antalet icke-grupperade index och även överväga Mass inläsnings åtgärder med radantal runt 1 000 000.
-* I Generell användning tjänst nivån är den etablerade data lagringen billigare än priset på den överliggande lagrings platsen, eftersom kunder med kontinuerliga höga kostnader för säkerhets kopierings lagring kan överväga att öka data lagringen för att spara på lagring av säkerhets kopior.
-* Använd TempDB i din ETL-logik för att lagra tillfälliga resultat i stället för permanenta tabeller (gäller endast hanterade instanser).
-* Överväg att inaktivera TDE-kryptering för databaser som inte innehåller känsliga data (till exempel utvecklings-eller test databaser). Säkerhets kopieringar för icke-krypterade databaser komprimeras vanligt vis med ett högre komprimerings förhållande.
+* Minska [lagringsperioden för säkerhetskopiering](#change-the-pitr-backup-retention-period-by-using-the-azure-portal) till ett minimum för dina behov.
+* Undvik att göra stora skrivåtgärder, som ombyggnader av index, oftare än du behöver.
+* För stora datainläsningsåtgärder bör du överväga att använda [klustrade columnstore-index,](https://docs.microsoft.com/sql/database-engine/using-clustered-columnstore-indexes)minska antalet icke-klustrade index och överväga massbelastningsåtgärder med radantal runt 1 miljon.
+* På den allmänna tjänstnivån är den etablerade datalagringen billigare än priset för den extra säkerhetskopieringslagringen. Om du har kontinuerligt höga kostnader för extra lagring av säkerhetskopiering kan du överväga att öka datalagringen för att spara på lagringen för säkerhetskopiering.
+* Använd TempDB i stället för permanenta tabeller i ETL-logiken för att lagra tillfälliga resultat. (Gäller endast hanterad instans.)
+* Överväg att stänga av TDE-kryptering för databaser som inte innehåller känsliga data (till exempel utvecklings- eller testdatabaser). Säkerhetskopior för icke-krypterade databaser komprimeras vanligtvis med ett högre komprimeringsförhållande.
 
 > [!IMPORTANT]
-> För analys, data mart \ arbets belastningar för data lager rekommenderas det starkt att använda [grupperade columnstore-index](https://docs.microsoft.com/sql/database-engine/using-clustered-columnstore-indexes), minska antalet icke-grupperade index och även ta hänsyn till Mass inläsnings åtgärder med rad antal runt 1 000 000 för att minska den överbelastade lagrings användningen.
-
+> För analysdata mart \ datalagerarbetsbelastningar rekommenderar vi starkt att du använder [klustrade columnstore-index,](https://docs.microsoft.com/sql/database-engine/using-clustered-columnstore-indexes)minskar antalet icke-klustrade index och överväger massinläsningsåtgärder med radantal runt 1 miljon för att minska förbrukningen för extra säkerhetskopieringslagring.
 
 ## <a name="storage-costs"></a>Lagringskostnader
 
-Priset för lagring varierar om du använder DTU-modellen eller vCore-modellen. 
+Priset för lagring varierar beroende på om du använder DTU-modellen eller vCore-modellen.
 
 ### <a name="dtu-model"></a>DTU-modell
 
-Det finns ingen ytterligare avgift för lagring av säkerhets kopior för databaser och elastiska pooler med DTU-modellen. 
+Det finns ingen extra kostnad för säkerhetskopieringslagring för databaser och elastiska databaspooler om du använder DTU-modellen.
 
 ### <a name="vcore-model"></a>vCore-modellen
 
-För enskilda databaser tillhandahålls ett minsta antal säkerhets kopierings lagrings utrymme som är lika med 100% av databasens storlek utan extra kostnad. För elastiska pooler och hanterade instanser tillhandahålls ett minsta lagrings utrymme för säkerhets kopior som motsvarar 100% av den allokerade data lagringen för pool-eller instans storleken utan extra kostnad. Ytterligare förbrukning av lagrings utrymme för säkerhets kopior debiteras i GB/månad. Den här ytterligare förbrukningen är beroende av arbets belastningen och storleken på de enskilda databaserna.
+För enskilda databaser anges ett minsta lagringsbelopp för säkerhetskopiering som motsvarar 100 procent av databasstorleken utan extra kostnad. För elastiska databaspooler och hanterade instanser tillhandahålls ett minsta belopp för säkerhetskopieringslagring som motsvarar 100 procent av den allokerade datalagringen för poolen respektive instansstorleken utan extra kostnad. Ytterligare förbrukning av lagringsenhet för säkerhetskopior debiteras i GB/månad. Den här ytterligare förbrukningen beror på arbetsbelastningen och storleken på de enskilda databaserna.
 
-Azure SQL DB kommer att beräkna den totala lagrings platsen för säkerhets kopior som ett ackumulerat värde. Varje timme rapporteras det här värdet till den Azure-fakturerings pipeline som ansvarar för att aggregera denna användning per timme för att få din förbrukning i slutet av varje månad. När databasen har släppts minskar vi förbrukningen som säkerhets kopierings ålder. När de blir äldre än kvarhållningsperioden stoppas faktureringen. Eftersom alla säkerhets kopior av loggar och differentiella säkerhets kopior bevaras för den fullständiga kvarhållningsperioden, kommer databaser som är kraftigt modifierade att ha högre kostnader för säkerhets kopiering. 
+Azure SQL Database beräknar din totala lagring av säkerhetskopiering i kvarhållning som ett kumulativt värde. Varje timme rapporteras det här värdet till Azure-faktureringspipelinen, som ansvarar för att samla den här timanvändningen för att få din förbrukning i slutet av varje månad. När databasen har tagits bort minskar Microsoft förbrukningen när säkerhetskopiorna åldras. När säkerhetskopiorna har blivit äldre än kvarhållningsperioden stoppas faktureringen. Eftersom alla loggsäkerhetskopior och differentiella säkerhetskopior behålls under hela kvarhållningsperioden, har kraftigt ändrade databaser högre säkerhetskopieringsavgifter.
 
-Vi antar att databasen har samlat 744 GB lagrings utrymme för säkerhets kopior och att detta belopp förblir konstant under hela månaden. För att konvertera den här kumulativa lagrings användningen till en Tim användning delar vi den med 744,0 (31 dagar per månad * 24 timmar per dag). Därför rapporterar SQL DB databasen som konsumeras 1 GB av PITR-säkerhetskopiering varje timme. Azure-faktureringen sammanställer detta och visar en användning på 744 GB för hela månaden och kostnaden baserat på priset $/GB/mo i din region. 
+Anta att en databas har samlat 744 GB lagringsutrymme för säkerhetskopiering och att det här beloppet förblir konstant under en hel månad. Om du vill konvertera den här kumulativa lagringsförbrukningen till timanvändning dividerar du den med 744,0 (31 dagar per månad * 24 timmar per dag). Så SQL Database rapporterar att databasen förbrukas 1 GB PITR-säkerhetskopiering varje timme. Azure-fakturering aggregerade den här förbrukningen och visar en användning på 744 GB för hela månaden. Kostnaden baseras på $/GB/månadspriset i din region.
 
-Nu är ett mer avancerat exempel. Anta att databasen har kvarhållning till 14 dagar i mitten av månaden och detta (hypotetiskt) resulterar i den totala lagringen av säkerhets kopior som är dubblerad till 1488 GB. SQL DB skulle rapportera 1 GB användning i timmar 1-372 och sedan rapportera användningen som 2 GB för timmar 373-744. Detta skulle aggregeras till en sista faktura på 1116 GB/mo. 
+Nu, ett mer komplext exempel. Anta att databasen har ökat kvarhållningen till 14 dagar i mitten av månaden. Anta att den här ökningen (hypotetiskt) resulterar i att den totala säkerhetskopieringslagringen fördubblas till 1 488 GB. SQL Database skulle rapportera 1 GB användning i timmar 1 till 372. Det skulle rapportera användningen som 2 GB för timmar 373 till 744. Den här användningen skulle aggregeras till en slutfaktura på 1 116 GB/månad.
 
 ### <a name="monitor-costs"></a>Övervaka kostnader
 
-Om du vill förstå kostnaderna för lagring av säkerhets kopior går du till **kostnads hantering + fakturering** från Azure Portal, väljer **Cost Management**och väljer sedan **kostnads analys**. Välj önskad prenumeration som **omfång**och filtrera sedan efter den tids period och tjänst som du är intresse rad av. 
+Om du vill förstå lagringskostnader för säkerhetskopiering går du till **Kostnadshantering + Fakturering** i Azure-portalen, väljer **Kostnadshantering**och väljer sedan **Kostnadsanalys**. Välj önskad prenumeration som **Scope**och filtrera sedan för den tidsperiod och tjänst som du är intresserad av.
 
-Lägg till ett filter för **tjänst namn**och välj sedan **SQL Database** i list rutan. Använd filtret under **kategori för mätning** för att välja fakturerings räknare för din tjänst. För en enskild databas eller elastisk pool väljer du **enkel/elastisk pool pitr backup Storage**. För en hanterad instans väljer du **mi pitr backup Storage**. **Lagrings** -och **beräknings** under kategorier kan vara intressanta även om de inte är kopplade till reserv lagrings kostnader. 
+Lägg till ett filter för **tjänstnamn**och välj sedan **SQL-databasen** i listrutan. Använd **underkategorifiltret för mätarkategori** för att välja faktureringsräknaren för din tjänst. För en enskild databas eller en elastisk databaspool väljer du **säkerhetskopiering av en/elastisk poolde pitr.** Välj lagring av **säkerhetskopiering av mi pitr**för en hanterad instans . Underkategorierna **Lagring** och **beräkning** kan också intressera dig, men de är inte associerade med lagringskostnader för säkerhetskopiering.
 
-![Kostnads analys för lagring av säkerhets kopior](./media/sql-database-automated-backup/check-backup-storage-cost-sql-mi.png)
-
+![Kostnadsanalys för säkerhetskopiering av lagring](./media/sql-database-automated-backup/check-backup-storage-cost-sql-mi.png)
 
 ## <a name="backup-retention"></a>Kvarhållning av säkerhetskopior
 
-Alla Azure SQL-databaser (enstaka, pooler och hanterade instans databaser) har en Standardkvarhållning av säkerhets kopior på **sju** dagar. Du kan [ändra kvarhållningsperioden för säkerhets kopior upp till 35 dagar](#change-pitr-backup-retention-period).
+Alla Azure SQL-databaser (enskilda, poolade och hanterade instansdatabaser) har en standardlagringsperiod för säkerhetskopiering på 7 dagar. Du kan [ändra lagringsperioden för säkerhetskopiering](#change-the-pitr-backup-retention-period) till så länge som 35 dagar.
 
-Om du tar bort en databas behåller SQL Database säkerhets kopiorna på samma sätt som en online-databas. Om du till exempel tar bort en Basic-databas som har en kvarhållningsperiod på sju dagar, sparas en säkerhets kopia som är fyra dagar gammal i tre dagar.
+Om du tar bort en databas behåller SQL Database säkerhetskopiorna på samma sätt som för en onlinedatabas. Om du till exempel tar bort en Basic-databas som har en kvarhållningsperiod på sju dagar sparas en säkerhetskopia som är fyra dagar gammal i ytterligare tre dagar.
 
-Om du behöver behålla säkerhets kopiorna längre än den maximala kvarhållningsperioden kan du ändra egenskaperna för säkerhets kopiering för att lägga till en eller flera långsiktiga kvarhållningsperiod i databasen. Mer information finns i avsnittet om [långsiktig kvarhållning](sql-database-long-term-retention.md).
+Om du behöver behålla säkerhetskopiorna längre än den maximala kvarhållningsperioden kan du ändra egenskaperna för säkerhetskopiering för att lägga till en eller flera långsiktiga kvarhållningsperioder i databasen. Mer information finns i avsnittet om [långsiktig kvarhållning](sql-database-long-term-retention.md).
 
 > [!IMPORTANT]
-> Om du tar bort Azure SQL-servern som är värd för SQL-databaser, tas även alla elastiska pooler och databaser som tillhör servern bort och kan inte återställas. Det går inte att återställa en borttagen Server. Men om du har konfigurerat långsiktig kvarhållning tas säkerhets kopiorna för databaserna med LTR inte bort och dessa databaser kan återställas.
+> Om du tar bort Azure SQL-servern som är värd för SQL-databaser tas även alla elastiska databaspooler och databaser som tillhör servern bort. De kan inte återvinnas. Du kan inte återställa en borttagen server. Men om du har konfigurerat långsiktig kvarhållning tas inte säkerhetskopior för databaserna med LTR bort och dessa databaser kan återställas.
 
-## <a name="encrypted-backups"></a>Krypterade säkerhets kopior
+## <a name="encrypted-backups"></a>Krypterade säkerhetskopior
 
-Om databasen är krypterad med TDE krypteras säkerhets kopiorna automatiskt i vila, inklusive LTR-säkerhetskopieringar. När TDE har Aktiver ATS för en Azure SQL-databas krypteras även säkerhets kopior. Alla nya Azure SQL-databaser konfigureras med TDE aktiverat som standard. Mer information om TDE finns i [Transparent datakryptering med Azure SQL Database](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql).
+Om databasen är krypterad med TDE krypteras säkerhetskopior automatiskt i vila, inklusive LTR-säkerhetskopior. När TDE är aktiverat för en Azure SQL-databas krypteras även säkerhetskopior. Alla nya Azure SQL-databaser är konfigurerade med TDE aktiverat som standard. Mer information om TDE finns i [Transparent datakryptering med Azure SQL Database](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql).
 
-## <a name="backup-integrity"></a>Säkerhets kopierings integritet
+## <a name="backup-integrity"></a>Integritet för säkerhetskopiering
 
-Azure SQL Database teknik teamet kommer fort löp ande att testa återställning av automatiserade databas säkerhets kopior av databaser som placerats i logiska servrar och elastiska pooler (detta är inte tillgängligt i en hanterad instans). Vid tidpunkts återställning får-databaser också integritets kontroller med hjälp av DBCC CHECKDB.
+Kontinuerligt testar Azure SQL Database engineering-teamet automatiskt återställning av automatiska databassäkerhetskopior av databaser som placeras i logiska servrar och elastiska databaspooler. (Den här testningen är inte tillgänglig i hanterade instans.) Vid återställning i tid får databaser också DBCC CHECKDB-integritetskontroller.
 
-Den hanterade instansen tar automatisk första säkerhets kopiering med `CHECKSUM` av databaserna som återställs med hjälp av Native `RESTORE`-kommando eller Datamigreringshanteraren när migreringen är klar.
+Hanterad instans tar `CHECKSUM` automatisk första säkerhetskopiering med `RESTORE` databaser som återställts med det inbyggda kommandot eller med Azure Data Migration Service när migreringen har slutförts.
 
-Eventuella problem som hittas under integritets kontrollen resulterar i en avisering till teknik teamet. Mer information om data integritet i Azure SQL Database finns [i data integritet i Azure SQL Database](https://azure.microsoft.com/blog/data-integrity-in-azure-sql-database/).
+Eventuella problem som hittas under integritetskontrollen resulterar i en avisering till ingenjörsteamet. Mer information finns [i Dataintegritet i Azure SQL Database](https://azure.microsoft.com/blog/data-integrity-in-azure-sql-database/).
 
 ## <a name="compliance"></a>Efterlevnad
 
-När du migrerar databasen från en DTU-baserad tjänst nivå till en vCore tjänst nivå bevaras PITR kvarhållning för att säkerställa att programmets data återställnings princip inte komprometteras. Om Standardkvarhållning inte uppfyller dina krav kan du ändra PITR-kvarhållningsperioden med PowerShell eller REST API. Mer information finns i [ändra kvarhållningsperiod för säkerhets kopior](#change-pitr-backup-retention-period).
+När du migrerar databasen från en DTU-baserad tjänstnivå till en vCore-baserad tjänstnivå bevaras PITR-lagringen för att säkerställa att programmets dataåterställningsprincip inte äventyras. Om standardlagringen inte uppfyller dina efterlevnadskrav kan du ändra PITR-kvarhållningsperioden med hjälp av PowerShell eller REST API. Mer information finns i [Ändra lagringsperioden för PITR-säkerhetskopiering](#change-the-pitr-backup-retention-period).
 
 [!INCLUDE [GDPR-related guidance](../../includes/gdpr-intro-sentence.md)]
 
-## <a name="change-pitr-backup-retention-period"></a>Ändra bevarande period för PITR
+## <a name="change-the-pitr-backup-retention-period"></a>Ändra lagringsperioden för PITR-säkerhetskopiering
 
-Du kan ändra standardinställningen för kvarhållning av PITR med hjälp av Azure Portal, PowerShell eller REST API. I följande exempel visas hur du ändrar PITR kvarhållning till 28 dagar.
+Du kan ändra standardlagringsperioden för PITR-säkerhetskopiering med hjälp av Azure-portalen, PowerShell eller REST API.You can change the default PITR backup retention period by using the Azure portal, PowerShell, or the REST API. Följande exempel illustrerar hur du ändrar PITR-kvarhållningen till 28 dagar.
 
 > [!WARNING]
-> Om du minskar den aktuella kvarhållningsperioden är alla befintliga säkerhets kopior som är äldre än den nya kvarhållningsperioden inte längre tillgängliga. Om du ökar den aktuella kvarhållningsperioden, behåller SQL Database befintliga säkerhets kopior tills den längre kvarhållningsperioden har nåtts.
+> Om du minskar den aktuella kvarhållningsperioden är alla befintliga säkerhetskopior som är äldre än den nya kvarhållningsperioden inte längre tillgängliga. Om du ökar den aktuella kvarhållningsperioden behåller SQL Database de befintliga säkerhetskopiorna tills slutet av den längre kvarhållningsperioden har uppnåtts.
 
 > [!NOTE]
-> Dessa API: er påverkar endast PITR bevarande period. Om du har konfigurerat LTR för databasen påverkas den inte. Mer information om hur du ändrar kvarhållning av LTR-perioder finns i [långsiktig kvarhållning](sql-database-long-term-retention.md).
+> Dessa API:er påverkar endast PITR-kvarhållningsperioden. Om du har konfigurerat LTR för databasen påverkas den inte. Information om hur du ändrar kvarhållningsperioder för ltr finns i [Långtidslagring](sql-database-long-term-retention.md).
 
-### <a name="change-pitr-backup-retention-period-using-azure-portal"></a>Ändra PITR för säkerhets kopiering med Azure Portal
+### <a name="change-the-pitr-backup-retention-period-by-using-the-azure-portal"></a>Ändra lagringsperioden för PITR-säkerhetskopiering med hjälp av Azure-portalen
 
-Om du vill ändra kvarhållningsperioden för PITR med hjälp av Azure Portal navigerar du till det Server objekt vars kvarhållningsperiod du vill ändra i portalen och väljer sedan lämpligt alternativ baserat på vilket Server objekt du ändrar.
+Om du vill ändra pitr-lagringsperioden för säkerhetskopiering med hjälp av Azure-portalen går du till serverobjektet vars kvarhållningsperiod du vill ändra i portalen. Välj sedan lämpligt alternativ baserat på det serverobjekt som du ändrar.
 
-#### <a name="single-database--elastic-pools"></a>[Enkel databas & elastiska pooler](#tab/single-database)
+#### <a name="single-database-and-elastic-database-pools"></a>[Endatabas- och elastiska databaspooler](#tab/single-database)
 
-Ändring av PITR-kvarhållning av säkerhets kopior för enskilda Azure SQL-databaser utförs på server nivå. Ändringar som görs på server nivå gäller för databaser på den servern. Om du vill ändra PITR för Azure SQL Database Server från Azure Portal navigerar du till bladet Server översikt, klickar på hantera säkerhets kopior på navigerings menyn och klickar sedan på Konfigurera kvarhållning i navigerings fältet.
+Ändringar i PITR-lagringsplats för azure SQL-databaser görs på servernivå. Ändringar som görs på servernivå gäller för databaser på servern. Om du vill ändra PITR-kvarhållning för en Azure SQL Database-server från Azure-portalen går du till serveröversiktsbladet. Välj **Hantera säkerhetskopior** i den vänstra rutan och välj sedan **Konfigurera kvarhållning** högst upp på skärmen:
 
-![Ändra PITR Azure Portal](./media/sql-database-automated-backup/configure-backup-retention-sqldb.png)
+![Ändra PITR-kvarhållning, servernivå](./media/sql-database-automated-backup/configure-backup-retention-sqldb.png)
 
 #### <a name="managed-instance"></a>[Hanterad instans](#tab/managed-instance)
 
-Ändring av PITR-kvarhållning av säkerhets kopior för SQL Database Hanterad instans utförs på en enskild databas nivå. Om du vill ändra PITR för en instans databas från Azure Portal navigerar du till bladet individuell databas översikt och klickar sedan på Konfigurera kvarhållning av säkerhets kopior i navigerings fältet.
+Ändringar i PITR-lagringsplats för HANTERADE SQL-databasinstanser görs på en enskild databasnivå. Om du vill ändra PITR-lagring av säkerhetskopiering för en instansdatabas från Azure-portalen går du till det enskilda databasöversiktsbladet. Välj sedan **Konfigurera kvarhållning av säkerhetskopiering** högst upp på skärmen:
 
-![Ändra PITR Azure Portal](./media/sql-database-automated-backup/configure-backup-retention-sqlmi.png)
+![Ändra PITR-lagring, hanterad instans](./media/sql-database-automated-backup/configure-backup-retention-sqlmi.png)
 
 ---
 
-### <a name="change-pitr-backup-retention-period-using-powershell"></a>Ändra kvarhållning av PITR för säkerhets kopior med PowerShell
+### <a name="change-the-pitr-backup-retention-period-by-using-powershell"></a>Ändra lagringsperioden för PITR-säkerhetskopiering med powershell
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> PowerShell Azure Resource Manager-modulen stöds fortfarande av Azure SQL Database, men all framtida utveckling gäller AZ. SQL-modulen. De här cmdletarna finns i [AzureRM. SQL](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Argumenten för kommandona i AZ-modulen och i AzureRm-modulerna är i stort sett identiska.
+> PowerShell AzureRM-modulen stöds fortfarande av Azure SQL Database, men all framtida utveckling är för Az.Sql-modulen. Mer information finns i [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Argumenten för kommandona i Az-modulen är i stort sett identiska med dem i AzureRm-modulerna.
 
 ```powershell
 Set-AzSqlDatabaseBackupShortTermRetentionPolicy -ResourceGroupName resourceGroup -ServerName testserver -DatabaseName testDatabase -RetentionDays 28
 ```
 
-### <a name="change-pitr-retention-period-using-rest-api"></a>Ändra PITR-kvarhållningsperiod med REST API
+### <a name="change-the-pitr-backup-retention-period-by-using-the-rest-api"></a>Ändra kvarhållningsperioden för PITR-säkerhetskopiering med hjälp av REST API
 
-#### <a name="sample-request"></a>Exempelförfrågan
+#### <a name="sample-request"></a>Exempel på begäran
 
 ```http
 PUT https://management.azure.com/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/resourceGroup/providers/Microsoft.Sql/servers/testserver/databases/testDatabase/backupShortTermRetentionPolicies/default?api-version=2017-10-01-preview
@@ -221,7 +224,7 @@ PUT https://management.azure.com/subscriptions/00000000-1111-2222-3333-444444444
 
 #### <a name="sample-response"></a>Exempelsvar
 
-Status kod: 200
+Statuskod: 200
 
 ```json
 {
@@ -234,12 +237,12 @@ Status kod: 200
 }
 ```
 
-Mer information finns i [kvarhållning av säkerhets kopior REST API](https://docs.microsoft.com/rest/api/sql/backupshorttermretentionpolicies).
+Mer information finns i [REST API för rest för bevarande av säkerhetskopiering](https://docs.microsoft.com/rest/api/sql/backupshorttermretentionpolicies).
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Databas säkerhets kopieringar är en viktig del av en strategi för affärs kontinuitet och haveri beredskap eftersom de skyddar dina data från oavsiktlig skada eller borttagning. Mer information om andra Azure SQL Database affärs kontinuitets lösningar finns i [Översikt över affärs kontinuitet](sql-database-business-continuity.md).
-- Om du vill återställa till en tidpunkt med hjälp av Azure Portal, se [restore Database till en tidpunkt med hjälp av Azure Portal](sql-database-recovery-using-backups.md).
-- Om du vill återställa till en tidpunkt med hjälp av PowerShell, se [restore Database till en tidpunkt med hjälp av PowerShell](scripts/sql-database-restore-database-powershell.md).
-- Om du vill konfigurera, hantera och återställa från långsiktig kvarhållning av automatiserade säkerhets kopieringar i Azure Blob Storage med hjälp av Azure Portal, se [Hantera långsiktig kvarhållning av säkerhets kopior med hjälp av Azure Portal](sql-database-long-term-backup-retention-configure.md).
-- Information om hur du konfigurerar, hanterar och återställer från långsiktig kvarhållning av automatiserade säkerhets kopieringar i Azure Blob Storage med hjälp av PowerShell finns i [Hantera långsiktig kvarhållning av säkerhets kopior med PowerShell](sql-database-long-term-backup-retention-configure.md).
+- Säkerhetskopiering av databaser är en viktig del av alla affärskontinuiteter och katastrofåterställningsstrategier eftersom de skyddar dina data från oavsiktlig skada eller borttagning. Mer information om de andra lösningarna för affärskontinuitet i Azure SQL Database finns i [Översikt över affärskontinuitet](sql-database-business-continuity.md).
+- Få mer information om hur du [återställer en databas till en tidpunkt med hjälp av Azure-portalen](sql-database-recovery-using-backups.md).
+- Få mer information om hur du [återställer en databas till en tidpunkt med hjälp av PowerShell](scripts/sql-database-restore-database-powershell.md).
+- Information om hur du konfigurerar, hanterar och återställer från långsiktig kvarhållning av automatiska säkerhetskopior i Azure Blob-lagring med hjälp av Azure-portalen finns i [Hantera långsiktig lagring av säkerhetskopiering med hjälp av Azure-portalen](sql-database-long-term-backup-retention-configure.md).
+- Information om hur du konfigurerar, hanterar och återställer från långsiktig kvarhållning av automatiska säkerhetskopior i Azure Blob-lagring med hjälp av PowerShell finns i [Hantera långsiktig lagring av säkerhetskopiering med hjälp av PowerShell](sql-database-long-term-backup-retention-configure.md).

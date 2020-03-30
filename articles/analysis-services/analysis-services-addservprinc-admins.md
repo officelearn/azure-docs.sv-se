@@ -1,6 +1,6 @@
 ---
-title: Lägg till tjänstens huvud namn i Azure Analysis Services admin-rollen | Microsoft Docs
-description: Lär dig hur du lägger till ett Automation-tjänstens huvud namn i rollen Azure Analysis Services Server-administratör
+title: Lägg till tjänsthuvudnamn i azure analysis services-administratörsrollen | Microsoft-dokument
+description: Lär dig hur du lägger till ett huvudnamn för en automatiseringstjänst i serveradministratören för Azure Analysis Services
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
@@ -9,44 +9,44 @@ ms.author: owend
 ms.reviewer: minewiskan
 ms.custom: fasttrack-edit
 ms.openlocfilehash: 1370f65405963ebf825e986e6801607a0d96156e
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78298096"
 ---
-# <a name="add-a-service-principal-to-the-server-administrator-role"></a>Lägg till ett huvud namn för tjänsten i Server administratörs rollen 
+# <a name="add-a-service-principal-to-the-server-administrator-role"></a>Lägga till ett tjänsthuvudnamn i serveradministratörsrollen 
 
- För att automatisera obevakade PowerShell-aktiviteter måste ett huvud namn för tjänsten ha **Server administratörs** behörighet på den Analysis Services server som hanteras. Den här artikeln beskriver hur du lägger till ett huvud namn för tjänsten i rollen Server administratörer på en Azure AS-Server. Du kan göra detta med hjälp av SQL Server Management Studio eller en Resource Manager-mall.
+ Om du vill automatisera obevakade PowerShell-uppgifter **server administrator** måste ett tjänsthuvudnamn ha serveradministratörsbehörighet på Analysis Services-servern som hanteras. I den här artikeln beskrivs hur du lägger till ett tjänsthuvudnamn till serveradministratörsrollen på en Azure AS-server. Du kan göra detta med SQL Server Management Studio eller en Resource Manager-mall.
 
 ## <a name="before-you-begin"></a>Innan du börjar
-Innan du slutför den här uppgiften måste du ha ett huvud namn för tjänsten som registrerats i Azure Active Directory.
+Innan du slutför den här uppgiften måste du ha ett tjänsthuvudnamn registrerat i Azure Active Directory.
 
-[Skapa tjänstens huvud namn – Azure Portal](../active-directory/develop/howto-create-service-principal-portal.md)   
+[Skapa tjänstens huvudnamn - Azure-portal](../active-directory/develop/howto-create-service-principal-portal.md)   
 [Skapa tjänstens huvudnamn – PowerShell](../active-directory/develop/howto-authenticate-service-principal-powershell.md)
 
 ## <a name="using-sql-server-management-studio"></a>Med hjälp av SQL Server Management Studio
 
-Du kan konfigurera Server administratörer med SQL Server Management Studio (SSMS). För att slutföra den här uppgiften måste du ha [Server administratörs](analysis-services-server-admins.md) behörighet på Azure as Server. 
+Du kan konfigurera serveradministratörer med HJÄLP av SQL Server Management Studio (SSMS). För att kunna utföra den här uppgiften måste du ha [behörigheter för serveradministratörer](analysis-services-server-admins.md) på Azure AS-servern. 
 
-1. I SSMS ansluter du till din Azure AS-Server.
-2. I **Server egenskaper** > **säkerhet**klickar du på **Lägg till**.
-3. I **Välj en användare eller grupp**söker du efter din registrerade app efter namn, väljer och klickar sedan på **Lägg till**.
+1. Anslut till Din Azure AS-server i SSMS.
+2. Klicka på Lägg **till**i**Säkerhet** **för serveregenskaper.** > 
+3. Sök efter din registrerade app efter namn i **Välj en användare eller grupp**och klicka sedan på Lägg **till**.
 
-    ![Sök efter tjänstens huvud konto](./media/analysis-services-addservprinc-admins/aas-add-sp-ssms-picker.png)
+    ![Sök efter tjänstens huvudkonto](./media/analysis-services-addservprinc-admins/aas-add-sp-ssms-picker.png)
 
-4. Kontrol lera konto-ID för tjänstens huvud namn och klicka sedan på **OK**.
+4. Verifiera tjänstens huvudkonto-ID och klicka sedan på **OK**.
     
-    ![Sök efter tjänstens huvud konto](./media/analysis-services-addservprinc-admins/aas-add-sp-ssms-add.png)
+    ![Sök efter tjänstens huvudkonto](./media/analysis-services-addservprinc-admins/aas-add-sp-ssms-add.png)
 
 ## <a name="using-a-resource-manager-template"></a>Använda en Resource Manager-mall
 
-Du kan också konfigurera Server administratörer genom att distribuera Analysis Services-servern med hjälp av en Azure Resource Manager-mall. Den identitet som kör distributionen måste tillhöra rollen **deltagare** för resursen i [Azure ROLLBASERAD Access Control (RBAC)](../role-based-access-control/overview.md).
+Du kan också konfigurera serveradministratörer genom att distribuera Analysis Services-servern med hjälp av en Azure Resource Manager-mall. Identiteten som kör distributionen måste tillhöra **rollen Deltagare** för resursen i [RBAC (Azure Role-Based Access Control).](../role-based-access-control/overview.md)
 
 > [!IMPORTANT]
-> Tjänstens huvud namn måste läggas till med formatet `app:{service-principal-client-id}@{azure-ad-tenant-id}`.
+> Tjänstens huvudnamn måste läggas `app:{service-principal-client-id}@{azure-ad-tenant-id}`till med formatet .
 
-Följande Resource Manager-mall distribuerar en Analysis Services-server med ett angivet huvud namn för tjänsten som läggs till i rollen Analysis Services administratör:
+Följande Resource Manager-mall distribuerar en Analysis Services-server med ett angivet tjänsthuvudnamn som lagts till i rollen Administration av Analysis Services:
 
 ```json
 {
@@ -96,9 +96,9 @@ Följande Resource Manager-mall distribuerar en Analysis Services-server med ett
 
 ## <a name="using-managed-identities"></a>Använda hanterade identiteter
 
-Du kan också lägga till en hanterad identitet i listan Analysis Services admins. Du kan till exempel ha en [Logic-app med en systemtilldelad hanterad identitet](../logic-apps/create-managed-service-identity.md)och vill ge den möjlighet att administrera Analysis Services-servern.
+En hanterad identitet kan också läggas till i listan Administration av Analystjänster. Du kan till exempel ha en [Logic App med en systemtilldelad hanterad identitet](../logic-apps/create-managed-service-identity.md)och vill ge den möjlighet att administrera din Analysis Services-server.
 
-I de flesta delar av Azure Portal och API: er identifieras hanterade identiteter med hjälp av objekt-ID för tjänstens huvud namn. Analysis Services kräver dock att de identifieras med hjälp av klient-ID. För att hämta klient-ID för ett huvud namn för tjänsten kan du använda Azure CLI:
+I de flesta delar av Azure-portalen och API:er identifieras hanterade identiteter med hjälp av deras tjänsthuvudobjekt-ID. Analysis Services kräver dock att de identifieras med hjälp av sitt klient-ID. Om du vill hämta klient-ID:t för ett tjänsthuvudnamn kan du använda Azure CLI:
 
 ```bash
 az ad sp show --id <ManagedIdentityServicePrincipalObjectId> --query appId -o tsv
@@ -110,11 +110,11 @@ Du kan också använda PowerShell:
 (Get-AzureADServicePrincipal -ObjectId <ManagedIdentityServicePrincipalObjectId>).AppId
 ```
 
-Du kan sedan använda det här klient-ID: t tillsammans med klient-ID: t för att lägga till den hanterade identiteten i listan Analysis Services admins, enligt beskrivningen ovan.
+Du kan sedan använda det här klient-ID:t tillsammans med klient-ID för att lägga till den hanterade identiteten i listan Administration av Analystjänster, enligt beskrivningen ovan.
 
 ## <a name="related-information"></a>Relaterad information
 
 * [Ladda ned SQL Server PowerShell-modul](https://docs.microsoft.com/sql/ssms/download-sql-server-ps-module)   
-* [Ladda ned SSMS](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)   
+* [Ladda ner SSMS](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)   
 
 

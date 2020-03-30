@@ -1,6 +1,6 @@
 ---
-title: Anpassningsbar säkerhets aviserings guide för Azure Security Center for IoT | Microsoft Docs
-description: Lär dig mer om anpassningsbara säkerhets varningar och rekommenderade åtgärder med hjälp av Azure Security Center för IoT-funktioner och-tjänster.
+title: Anpassningsbar säkerhetsvarningsguide för Azure Security Center för IoT| Microsoft-dokument
+description: Lär dig mer om anpassningsbara säkerhetsaviseringar och rekommenderad reparation med Azure Security Center för IoT-funktioner och -tjänst.
 services: asc-for-iot
 ms.service: asc-for-iot
 documentationcenter: na
@@ -15,56 +15,56 @@ ms.workload: na
 ms.date: 03/04/2020
 ms.author: mlottner
 ms.openlocfilehash: 32d79267559480de8ec91e5e66196bfd57e01cf1
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78299581"
 ---
-# <a name="azure-security-center-for-iot-security-alerts"></a>Azure Security Center för IoT-säkerhetsaviseringar
+# <a name="azure-security-center-for-iot-security-alerts"></a>Azure Security Center for IoT-säkerhetsaviseringar
 
-Azure Security Center for IoT analyserar kontinuerligt din IoT-lösning med avancerad analys och hot information för att varna dig om skadlig aktivitet.
+Azure Security Center for IoT analyserar kontinuerligt din IoT-lösning med hjälp av avancerad analys och hotinformation för att varna dig för skadlig aktivitet.
 
-Vi rekommenderar att du skapar anpassade aviseringar baserat på dina kunskaper om förväntad enhets beteende för att säkerställa att aviseringar fungerar som de mest effektiva indikatorerna för potentiell kompromiss i din unika organisations distribution och liggande. 
+Vi uppmuntrar dig att skapa anpassade aviseringar baserat på din kunskap om förväntat enhetsbeteende för att säkerställa att aviseringar fungerar som de mest effektiva indikatorerna på potentiell kompromettering i din unika organisationsdistribution och landskap. 
 
-Följande lista över Azure Security Center för IoT-aviseringar definieras av dig baserat på din förväntade IoT Hub och/eller enhets beteende. Mer information om hur du anpassar varje avisering finns i [skapa anpassade aviseringar](quickstart-create-custom-alerts.md).
+Följande lista över Azure Security Center för IoT-aviseringar kan definieras av dig baserat på ditt förväntade IoT Hub och/eller enhetsbeteende. Mer information om hur du anpassar varje avisering finns i [skapa anpassade aviseringar](quickstart-create-custom-alerts.md).
 
-## <a name="iot-hub-alerts-available-for-customization"></a>IoT Hub aviseringar som är tillgängliga för anpassning 
+## <a name="iot-hub-alerts-available-for-customization"></a>IoT Hub-varningar tillgängliga för anpassning 
 
 
 
-| Severity | Aviserings namn | Datakälla | Beskrivning | Rekommenderad reparation|
+| Severity | Aviseringsnamn | Datakälla | Beskrivning | Föreslagen reparation|
 |---|---|---|---|---|
-| Låg      | Anpassad avisering – antalet moln till enhets meddelanden i AMQP-protokollet ligger utanför det tillåtna intervallet          | IoT Hub     | Antalet moln till enhets meddelanden (AMQP-protokoll) inom ett särskilt tidsintervall är utanför det konfigurerade och tillåtna intervallet.||
-| Låg      | Anpassad avisering – antal nekade moln till enhets meddelanden i AMQP-protokollet ligger utanför det tillåtna intervallet | IoT Hub     | Antalet moln till enhets meddelanden (AMQP-protokoll) som avvisats av enheten inom ett särskilt tidsintervall är utanför det konfigurerade och tillåtna intervallet.||
-| Låg      | Anpassad avisering – antalet enheter till moln meddelanden i AMQP-protokollet ligger utanför det tillåtna intervallet      | IoT Hub     | Mängden enhet till moln meddelanden (AMQP-protokoll) inom ett visst tidsintervall är utanför det konfigurerade och tillåtna intervallet.|   |
-| Låg      | Anpassad avisering – antalet direkta metod anrop ligger utanför det tillåtna intervallet | IoT Hub     | Mängden direkta metod anrop inom ett visst tidsintervall är utanför det konfigurerade och tillåtna intervallet.||
-| Låg      | Anpassad avisering – antalet fil överföringar ligger utanför det tillåtna intervallet | IoT Hub     | Mängden fil överföringar inom ett visst tidsintervall är utanför det konfigurerade och tillåtna intervallet.| |
-| Låg      | Anpassad avisering – antalet moln till enhets meddelanden i HTTP-protokollet ligger utanför det tillåtna intervallet | IoT Hub     | Mängden moln till enhets meddelanden (HTTP-protokoll) i ett tids fönster är inte inom det konfigurerade tillåtna intervallet                                  |
-| Låg      | Anpassad avisering-antal nekade moln till enhets meddelanden i HTTP-protokollet är inte inom det tillåtna intervallet | IoT Hub     | Mängden moln till enhets meddelanden (HTTP-protokoll) inom en angiven tids period är utanför det konfigurerade och tillåtna intervallet. |
-| Låg      | Anpassad avisering – antalet enheter till moln meddelanden i HTTP-protokollet ligger utanför det tillåtna intervallet | IoT Hub| Mängden enhets-till-moln-meddelanden (HTTP-protokoll) inom ett visst tidsintervall är utanför det konfigurerade och tillåtna intervallet.|    |
-| Låg      | Anpassad avisering – antalet moln till enhets meddelanden i MQTT-protokollet ligger utanför det tillåtna intervallet | IoT Hub     | Mängden moln till enhets meddelanden (MQTT-protokoll) inom ett visst tidsintervall är utanför det aktuella konfigurerade och tillåtna intervallet.|   |
-| Låg      | Anpassad avisering – antal nekade moln till enhets meddelanden i MQTT-protokollet ligger utanför det tillåtna intervallet | IoT Hub     | Mängden moln till enhets meddelanden (MQTT-protokoll) som avvisats av enheten inom ett visst tidsintervall är utanför det konfigurerade och tillåtna intervallet. |
-| Låg      | Anpassad avisering – antalet enheter till moln meddelanden i MQTT-protokollet ligger utanför det tillåtna intervallet          | IoT Hub     | Mängden enhet till moln meddelanden (MQTT-protokoll) inom ett visst tidsintervall är utanför det konfigurerade och tillåtna intervallet.|
-| Låg      | Anpassad avisering – antalet rensningar av kommando kön ligger utanför det tillåtna intervallet                               | IoT Hub     | Mängden kommando köer som rensas inom ett visst tidsintervall är utanför det konfigurerade och tillåtna intervallet.||
-| Låg      | Anpassad avisering – antalet dubbla uppdateringar i modulen ligger utanför det tillåtna intervallet                                       | IoT Hub     | Mängden dubbla uppdateringar inom en bestämd tids period ligger utanför det konfigurerade och tillåtna intervallet.|
-| Låg      | Anpassad avisering-antalet otillåtna åtgärder ligger utanför det tillåtna intervallet  | IoT Hub     | Mängden ej auktoriserade åtgärder inom ett visst tidsintervall är utanför det konfigurerade och tillåtna intervallet.|
+| Låg      | Anpassad avisering - antalet moln-till-enhetsmeddelanden i AMQP-protokollet ligger utanför det tillåtna intervallet          | IoT Hub     | Antal amqp-protokoll (cloud to device messages) inom ett visst tidsfönster ligger utanför det för närvarande konfigurerade och tillåtna intervallet.||
+| Låg      | Anpassad avisering - antalet avvisade moln till enhetsmeddelanden i AMQP-protokollet ligger utanför det tillåtna intervallet | IoT Hub     | Antal amqp-protokoll (cloud to device protocol) som avvisats av enheten, inom ett visst tidsfönster ligger utanför det för närvarande konfigurerade och tillåtna intervallet.||
+| Låg      | Anpassad avisering - antalet enheter till molnmeddelanden i AMQP-protokollet ligger utanför det tillåtna intervallet      | IoT Hub     | Mängden enhet till molnmeddelanden (AMQP-protokoll) inom ett visst tidsfönster ligger utanför det för närvarande konfigurerade och tillåtna intervallet.|   |
+| Låg      | Anpassad avisering - antalet direkta metoden som anropas ligger utanför det tillåtna intervallet | IoT Hub     | Mängden direkt metod som anropas inom ett visst tidsfönster ligger utanför det för närvarande konfigurerade och tillåtna intervallet.||
+| Låg      | Anpassad avisering - antalet filuppladdningar ligger utanför det tillåtna intervallet | IoT Hub     | Mängden filöverföringar inom ett visst tidsfönster ligger utanför det för närvarande konfigurerade och tillåtna intervallet.| |
+| Låg      | Anpassad avisering - antalet moln-till-enhetsmeddelanden i HTTP-protokollet ligger utanför det tillåtna intervallet | IoT Hub     | Mängden moln-till-enhetsmeddelanden (HTTP-protokoll) i ett tidsfönster ligger inte i det konfigurerade tillåtna intervallet                                  |
+| Låg      | Anpassad avisering - antalet avvisade moln till enhetsmeddelanden i HTTP-protokollet finns inte i det tillåtna intervallet | IoT Hub     | Mängden moln till enhetsmeddelanden (HTTP-protokoll) inom ett visst tidsfönster ligger utanför det för närvarande konfigurerade och tillåtna intervallet. |
+| Låg      | Anpassad avisering - antalet enheter till molnmeddelanden i HTTP-protokollet ligger utanför det tillåtna intervallet | IoT Hub| Mängden enhet till molnmeddelanden (HTTP-protokoll) inom ett visst tidsfönster ligger utanför det för närvarande konfigurerade och tillåtna intervallet.|    |
+| Låg      | Anpassad avisering - antalet moln-till-enhetsmeddelanden i MQTT-protokollet ligger utanför det tillåtna intervallet | IoT Hub     | Mängden moln-till-enhetsmeddelanden (MQTT-protokoll) inom ett visst tidsfönster ligger utanför det för närvarande konfigurerade och tillåtna intervallet.|   |
+| Låg      | Anpassad avisering - antalet avvisade moln till enhetsmeddelanden i MQTT-protokollet ligger utanför det tillåtna intervallet | IoT Hub     | Mängden moln till enhetsmeddelanden (MQTT-protokoll) som avvisas av enheten inom ett visst tidsfönster ligger utanför det för närvarande konfigurerade och tillåtna intervallet. |
+| Låg      | Anpassad avisering - antalet enheter till molnmeddelanden i MQTT-protokollet ligger utanför det tillåtna intervallet          | IoT Hub     | Mängden enhet till molnmeddelanden (MQTT-protokoll) inom ett visst tidsfönster ligger utanför det för närvarande konfigurerade och tillåtna intervallet.|
+| Låg      | Anpassad avisering - antalet kommandokörensningar ligger utanför det tillåtna intervallet                               | IoT Hub     | Mängden kommandokörensningar inom ett visst tidsfönster ligger utanför det för närvarande konfigurerade och tillåtna intervallet.||
+| Låg      | Anpassad avisering - antalet modultvillinguppdateringar ligger utanför det tillåtna intervallet                                       | IoT Hub     | Mängden modultvillinguppdateringar inom ett visst tidsfönster ligger utanför det för närvarande konfigurerade och tillåtna intervallet.|
+| Låg      | Anpassad varning - antalet obehöriga åtgärder ligger utanför det tillåtna intervallet  | IoT Hub     | Mängden obehöriga åtgärder inom ett visst tidsfönster ligger utanför det för närvarande konfigurerade och tillåtna intervallet.|
 |
 
-## <a name="agent-alerts-available-for-customization"></a>Agent aviseringar tillgängliga för anpassning 
+## <a name="agent-alerts-available-for-customization"></a>Agentaviseringar tillgängliga för anpassning 
 
-| Severity | Aviserings namn | Datakälla | Beskrivning | Rekommenderad reparation|
+| Severity | Aviseringsnamn | Datakälla | Beskrivning | Föreslagen reparation|
 |---|---|---|---|---|
-| Låg      | Anpassad avisering – antalet aktiva anslutningar ligger utanför det tillåtna intervallet  | Agent       | Antalet aktiva anslutningar inom ett särskilt tidsintervall är utanför det aktuella konfigurerade och tillåtna intervallet.|  Undersök enhets loggarna. Lär dig var anslutningen kommer och ta reda på om den är ofarlig eller skadlig. Ta bort eventuell skadlig kod och förstå källan om det är skadligt. Om det är ofarligt kan du lägga till källan i listan över tillåtna anslutningar.  |
-| Låg      | Anpassad avisering – utgående anslutning har skapats till en IP-adress som inte är tillåten                             | Agent       | En utgående anslutning skapades till en IP-adress som ligger utanför din tillåtna IP-lista. |Undersök enhets loggarna. Lär dig var anslutningen kommer och ta reda på om den är ofarlig eller skadlig. Ta bort eventuell skadlig kod och förstå källan om det är skadligt. Om det är ofarligt kan du lägga till källan i listan över tillåtna IP-adresser.                        |
-| Låg      | Anpassad avisering – antalet misslyckade lokala inloggningar ligger utanför det tillåtna intervallet                               | Agent       | Mängden misslyckade lokala inloggningar inom ett visst tidsintervall är utanför det aktuella konfigurerade och tillåtna intervallet. |   |
-| Låg      | Anpassad avisering – inloggning för en användare som inte finns med i listan över tillåtna användare | Agent       | En lokal användare utanför listan över tillåtna användare som är inloggad på enheten.|  Om du sparar rå data navigerar du till ditt Log Analytics-konto och använder data för att undersöka enheten, identifiera källan och sedan reparera listan över tillåtna/blockerade för dessa inställningar. Om du inte sparar rå data för tillfället går du till enheten och korrigerar listan över tillåtna/blockerade för dessa inställningar.|
-| Låg      | Anpassad avisering – en process kördes som inte är tillåten | Agent       | En process som inte är tillåten kördes på enheten. |Om du sparar rå data navigerar du till ditt Log Analytics-konto och använder data för att undersöka enheten, identifiera källan och sedan reparera listan över tillåtna/blockerade för dessa inställningar. Om du inte sparar rå data för tillfället går du till enheten och korrigerar listan över tillåtna/blockerade för dessa inställningar.  |
+| Låg      | Anpassad avisering - antalet aktiva anslutningar ligger utanför det tillåtna intervallet  | Agent       | Antalet aktiva anslutningar inom ett visst tidsfönster ligger utanför det för närvarande konfigurerade och tillåtna intervallet.|  Undersök enhetsloggarna. Lär dig var anslutningen har sitt ursprung och ta reda på om den är godartad eller skadlig. Om skadlig, ta bort eventuell skadlig kod och förstå källa. Om det är godartade lägger du till källan i den tillåtna anslutningslistan.  |
+| Låg      | Anpassad avisering – utgående anslutning som skapats till en IP-adress som inte är tillåten                             | Agent       | En utgående anslutning skapades till en IP som ligger utanför den tillåtna IP-listan. |Undersök enhetsloggarna. Lär dig var anslutningen har sitt ursprung och ta reda på om den är godartad eller skadlig. Om skadlig, ta bort eventuell skadlig kod och förstå källa. Om det är godartade lägger du till källan i den tillåtna IP-listan.                        |
+| Låg      | Anpassad avisering - antalet misslyckade lokala inloggningar ligger utanför det tillåtna intervallet                               | Agent       | Mängden misslyckade lokala inloggningar inom ett visst tidsfönster ligger utanför det för närvarande konfigurerade och tillåtna intervallet. |   |
+| Låg      | Anpassad avisering - inloggning av en användare som inte finns med i den tillåtna användarlistan | Agent       | En lokal användare utanför listan över tillåtna användare, inloggad på enheten.|  Om du sparar rådata navigerar du till ditt logganalyskonto och använder data för att undersöka enheten, identifierar källan och åtgärdar sedan listan tillåt/blockera för dessa inställningar. Om du för närvarande inte sparar rådata går du till enheten och åtgärdar listan tillåt/blockera för dessa inställningar.|
+| Låg      | Anpassad avisering - en process har utförts som inte är tillåten | Agent       | En process som inte är tillåten utfördes på enheten. |Om du sparar rådata navigerar du till ditt logganalyskonto och använder data för att undersöka enheten, identifierar källan och åtgärdar sedan listan tillåt/blockera för dessa inställningar. Om du för närvarande inte sparar rådata går du till enheten och åtgärdar listan tillåt/blockera för dessa inställningar.  |
 |
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Lär dig hur du [anpassar en avisering](quickstart-create-custom-alerts.md)
-- [Översikt över](overview.md) Azure Security Center för IoT-tjänsten
-- Lär dig hur du [kommer åt dina säkerhets data](how-to-security-data-access.md)
-- Lär dig mer om att [undersöka en enhet](how-to-investigate-device.md)
+- Läs om hur du [anpassar en avisering](quickstart-create-custom-alerts.md)
+- Översikt över Azure Security [Overview](overview.md) Center för IoT-tjänst
+- Läs om hur du [kommer åt dina säkerhetsdata](how-to-security-data-access.md)
+- Läs mer om [att undersöka en enhet](how-to-investigate-device.md)

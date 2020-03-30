@@ -1,103 +1,103 @@
 ---
-title: Logga support ärende för Azure Data Box Edge Azure Data Box Gateway | Microsoft Docs
-description: Lär dig hur du loggar support förfrågan om problem som rör din Data Box Edge eller Data Box Gateway beställningar.
+title: Loggsupportbiljett för Azure Data Box Edge, Azure Data Box Gateway | Microsoft-dokument
+description: Lär dig hur du loggar supportbegäran för problem relaterade till dina databoxkants- eller databoxgatewayorder.
 services: databox
 author: alkohli
 ms.service: databox
-ms.subservice: ''
+ms.subservice: edge
 ms.topic: article
 ms.date: 07/11/2019
 ms.author: alkohli
-ms.openlocfilehash: 9db119733bb80d9ae1462b70c3ffe555b2493405
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: c93a2e2f3162891e72cf6d57f3df6c3ceaf0c7fc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68361744"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80064979"
 ---
-# <a name="open-a-support-ticket-for-azure-data-box-edge-and-azure-data-box-gateway"></a>Öppna ett support ärende för Azure Data Box Edge och Azure Data Box Gateway
+# <a name="open-a-support-ticket-for-azure-data-box-edge-and-azure-data-box-gateway"></a>Öppna en supportbiljett för Azure Data Box Edge och Azure Data Box Gateway
 
-Den här artikeln gäller för Azure Data Box Edge och Azure Data Box Gateway som hanteras av tjänsten Azure Data Box Edge/Azure Data Box Gateway. Om du stöter på problem med tjänsten kan du skapa en tjänstbegäran för teknisk support. Den här artikeln vägleder dig genom:
+Den här artikeln gäller Azure Data Box Edge och Azure Data Box Gateway som båda hanteras av Azure Data Box Edge/Azure Data Box Gateway-tjänsten. Om du stöter på problem med din tjänst kan du skapa en servicebegäran om teknisk support. I den här artikeln går du igenom:
 
-* Så här skapar du en support förfrågan.
-* Så här hanterar du en livs cykel för support begär Anden från portalen.
+* Så här skapar du en supportbegäran.
+* Så här hanterar du en livscykel för supportbegäran inifrån portalen.
 
 ## <a name="create-a-support-request"></a>Skapa en supportbegäran
 
-Utför följande steg för att skapa en support förfrågan:
+Gör följande för att skapa en supportbegäran:
 
-1. Gå till din Data Box Edge-eller Data Box Gateways ordning. Gå till avsnittet **support + fel sökning** och välj sedan **ny supportbegäran**.
+1. Gå till din databoxkant eller databoxgatewaybeställning. Navigera till **avsnittet Support + felsökning** och välj sedan Ny **supportbegäran**.
    
-2. I **ny supportbegäran**, på fliken **grundläggande** , vidtar du följande steg:
+2. I **Ny supportbegäran**gör du följande på fliken **Grunderna:**
     
-    1. I list rutan **ärende typ** väljer du **teknisk**.
+    1. Välj **Issue type** **Teknisk**.
     2. Välj din **prenumeration**.
-    3. Under **tjänst**kontrollerar du **Mina tjänster**. Välj **data Box Edge och data Box Gateway**i list rutan.
-    4. Välj din **resurs**. Detta motsvarar namnet på din order.
-    5. Ge en kort **Sammanfattning** av problemet som du upplever. 
-    6. Välj **problem typ**.
-    7. Välj en motsvarande **problem under typ**baserat på den problem typ du har valt.
-    8. Välj **Nästa: Lösningar > >** .
+    3. Kontrollera Mina **tjänster under** **Service**. Välj **Data Box Edge och Data Box Gateway**i listrutan .
+    4. Välj **din resurs**. Detta motsvarar namnet på din beställning.
+    5. Ge en kort **sammanfattning** av problemet du upplever. 
+    6. Välj **din problemtyp**.
+    7. Baserat på den problemtyp du valde väljer du en motsvarande **problemundertyp**.
+    8. Välj **Nästa: Lösningar >>**.
 
-        ![Grundinställningar](./media/data-box-edge-contact-microsoft-support/data-box-edge-support-request-1.png)
+        ![Grundläggande inställningar](./media/data-box-edge-contact-microsoft-support/data-box-edge-support-request-1.png)
 
-3. Gör så här på fliken **information** :
+3. Gör så här på fliken **Information:**
     
-    1. Ange start datum och start tid för problemet.
-    2. Ange en **Beskrivning** av problemet.
-    3. I **fil uppladdning**väljer du mappikonen för att bläddra bland andra filer som du vill ladda upp.
-    4. Kontrol lera **delning av diagnostikinformation**.
-    5. En **Support plan** fylls i automatiskt baserat på din prenumeration.
-    6. Välj **allvarlighets grad**i list rutan.
-    7. Ange en **önskad kontakt metod**.
-    8. **Svars tiden** väljs automatiskt utifrån prenumerations planen.
-    9. Ange det språk som du föredrar för support.
-    10. I **kontakt uppgifterna**anger du ditt namn, din e-postadress, telefonnummer, valfri kontakt, land/region. Microsoft Support använder den här informationen för att kontakta dig för ytterligare information, diagnos och lösning. 
-    11. Välj **Nästa: Granska + skapa > >** .
+    1. Ange startdatum och starttid för problemet.
+    2. Ange en **beskrivning** för ditt problem.
+    3. I **filöverföringen**väljer du mappikonen för att bläddra bland andra filer som du vill ladda upp.
+    4. Kontrollera **Dela diagnostikinformation**.
+    5. Baserat på din prenumeration fylls en **supportplan** i automatiskt.
+    6. Välj **allvarlighetsgrad**i listrutan .
+    7. Ange en **önskad kontaktmetod**.
+    8. **Svarstiderna** väljs automatiskt baserat på din prenumerationsplan.
+    9. Ange det språk du föredrar för support.
+    10. Ange namn, e-post, telefon, valfri kontakt, land/region i **kontaktinformationen.** Microsoft Support använder den här informationen för att nå ut till dig för ytterligare information, diagnos och lösning. 
+    11. Välj **Nästa: Granska + Skapa >>**.
 
         ![Problem](./media/data-box-edge-contact-microsoft-support/data-box-edge-support-request-2.png)
 
-4. På fliken **Granska + skapa** granskar du informationen som rör support ärendet. Välj **Skapa**. 
+4. På fliken **Granska + Skapa** läser du informationen om supportbiljetten. Välj **Skapa**. 
 
     ![Problem](./media/data-box-edge-contact-microsoft-support/data-box-edge-support-request-3.png)
 
-    När du har skapat support ärendet kontaktar en support tekniker så snart som möjligt för att fortsätta med din begäran.
+    När du har skapat supportbiljetten kontaktar en supporttekniker dig så snart som möjligt för att gå vidare med din förfrågan.
 
-## <a name="get-hardware-support"></a>Få support för maskin vara
+## <a name="get-hardware-support"></a>Få maskinvarusupport
 
-Den här informationen gäller endast för Data Box Edge enhet. Processen för att rapportera maskin varu problem är följande:
+Den här informationen gäller endast Data Box Edge-enheten. Processen för att rapportera maskinvaruproblem är följande:
 
-1. Öppna ett support ärende från Azure Portal för ett maskin varu problem. Under **problem typ**väljer du **data Box Edge maskin vara**. Välj under **typen av problem** som **maskin varu fel**. 
+1. Öppna en supportbiljett från Azure-portalen för ett maskinvaruproblem. Under **Problemtyp**väljer du **Data Box Edge Hardware**. Välj **undertypen Problem** som **maskinvarufel**. 
 
-    ![Maskin varu problem](./media/data-box-edge-contact-microsoft-support/data-box-edge-hardware-issue-1.png)
+    ![Maskinvaruproblem](./media/data-box-edge-contact-microsoft-support/data-box-edge-hardware-issue-1.png)
 
-    När du har skapat support ärendet kontaktar en support tekniker så snart som möjligt för att fortsätta med din begäran. 
+    När du har skapat supportbiljetten kontaktar en supporttekniker dig så snart som möjligt för att gå vidare med din förfrågan. 
 
-2. Om Microsoft Support bestämmer att detta är ett maskin varu problem inträffar en av följande åtgärder: 
+2. Om Microsoft Support fastställer att detta är ett maskinvaruproblem inträffar någon av följande åtgärder: 
 
-    - En fält ersättnings enhet (FRU) för den felande maskin varu delen skickas. För närvarande är strömförsörjnings enheten den enda FRU som stöds. 
-    - Microsoft utför en fullständig system ersättning (FSR) eller en enhets växling för andra delar av problem.
+    - En ersättningsenhet för fältersättning (FRU) för den misslyckade maskinvarudelen skickas. För närvarande är strömförsörjningsenheten den enda SOM stöds FRU. 
+    - För andra delfel gör Microsoft en fullständig systemersättning (FSR) eller en enhetsväxling.
 
-3. Om ett support ärende höjs före 4:30 lokal tid (måndag till fredag) skickas en tekniker på plats nästa arbets dag till din plats för att utföra en FRU-eller fullständig enhets ersättning.
+3. Om en supportbiljett höjs före 16:30 lokal tid (måndag till fredag) skickas en tekniker på plats nästa arbetsdag till din plats för att utföra en FRU eller en fullständig enhetsersättning.
 
-## <a name="manage-a-support-request"></a>Hantera en support förfrågan
+## <a name="manage-a-support-request"></a>Hantera en supportbegäran
 
 När du har skapat ett supportärende kan du hantera ärendets livscykel på portalen.
 
-#### <a name="to-manage-your-support-requests"></a>Så här hanterar du dina support ärenden
+#### <a name="to-manage-your-support-requests"></a>Så här hanterar du dina supportförfrågningar
 
-1. Öppna sidan hjälp och support genom att gå till **bläddra > hjälp + support**.
+1. Om du vill komma till hjälp- och supportsidan navigerar du till **Bläddra > hjälp + support**.
 
     ![Hantera supportförfrågningar](./media/data-box-edge-contact-microsoft-support/data-box-edge-manage-support-request-1.png)   
 
-2. En lista över de **senaste support förfrågningarna** visas i **Hjälp + Support**.
+2. En tabelllista över **Senaste supportbegäranden** visas i **hjälp + support**.
 
     <!--[Manage support requests](./media/data-box-edge-contact-microsoft-support/data-box-edge-support-request-1.png)--> 
 
-3. Välj och klicka på en support förfrågan. Du kan visa status och information för den här begäran. Klicka på **+ nytt meddelande** om du vill följa upp den här begäran.
+3. Markera och klicka på en supportbegäran. Du kan visa status och information för den här begäran. Klicka på **+ Nytt meddelande** om du vill följa upp den här begäran.
 
    
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig hur du [felsöker problem som rör data Box Edge](data-box-edge-troubleshoot.md).
-Lär dig hur du [felsöker problem som rör data Box Gateway](data-box-gateway-troubleshoot.md).
+Läs om hur du [felsöker problem relaterade till Data Box Edge](data-box-edge-troubleshoot.md).
+Läs om hur du [felsöker problem relaterade till Data Box Gateway](data-box-gateway-troubleshoot.md).

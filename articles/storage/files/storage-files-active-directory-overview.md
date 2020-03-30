@@ -1,131 +1,132 @@
 ---
-title: Översikt – Azure Files identitets-baserad auktorisering
-description: Azure Files stöder identitets-baserad autentisering över SMB (Server Message Block) via Azure Active Directory Domain Services (AD DS) och Active Directory. Dina domänanslutna virtuella Windows-datorer (VM) kan sedan komma åt Azure-filresurser med hjälp av Azure AD-autentiseringsuppgifter.
+title: Översikt - Identitetsbaserad auktorisering av Azure Files
+description: Azure Files stöder identitetsbaserad autentisering via SMB (Server Message Block) via Azure Active Directory Domain Services (AD DS) och Active Directory. Dina domänanslutna virtuella Datorer i Windows (VMs) kan sedan komma åt Azure-filresurser med Azure AD-autentiseringsuppgifter.
 author: roygara
 ms.service: storage
-ms.topic: article
+ms.subservice: files
+ms.topic: conceptual
 ms.date: 02/21/2020
 ms.author: rogarana
-ms.openlocfilehash: 673bf3be59d72b2cc62b9f92af353fee235c5ddc
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.openlocfilehash: 737cdfaddca3a5f7532620bdafd86149e4d61f9f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77598824"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80061061"
 ---
-# <a name="overview-of-azure-files-identity-based-authentication-support-for-smb-access"></a>Översikt över stöd för Azure Files Identity-baserad autentisering för SMB-åtkomst
+# <a name="overview-of-azure-files-identity-based-authentication-support-for-smb-access"></a>Översikt över Azure Files identitetsbaserad autentiseringsstöd för SMB-åtkomst
 [!INCLUDE [storage-files-aad-auth-include](../../../includes/storage-files-aad-auth-include.md)]
 
-Information om hur du aktiverar AD-autentisering för Azure-filresurser finns i [aktivera Active Directory autentisering över SMB för Azure-filresurser](storage-files-identity-auth-active-directory-enable.md).
+Mer information om hur du aktiverar AD-autentisering för Azure-filresurser finns i [Aktivera Active Directory-autentisering över SMB för Azure-filresurser](storage-files-identity-auth-active-directory-enable.md).
 
-Information om hur du aktiverar Azure AD DS-autentisering för Azure-filresurser finns i [aktivera Azure Active Directory Domain Services autentisering på Azure Files](storage-files-identity-auth-active-directory-domain-service-enable.md).
+Mer information om hur du aktiverar Azure AD DS-autentisering för Azure-filresurser finns i [Aktivera Azure Active Directory Domain Services-autentisering på Azure-filer](storage-files-identity-auth-active-directory-domain-service-enable.md).
 
 ## <a name="glossary"></a>Ordlista 
-Det är bra att förstå vissa viktiga villkor som rör Azure AD Domain Service-autentisering över SMB för Azure-filresurser:
+Det är bra att förstå några viktiga termer som rör Azure AD Domain Service-autentisering över SMB för Azure-filresurser:
 
 -   **Kerberos-autentisering**
 
-    Kerberos är ett autentiseringsprotokoll som används för att verifiera identiteten för en användare eller värd. Mer information om Kerberos finns i [Översikt över Kerberos-autentisering](https://docs.microsoft.com/windows-server/security/kerberos/kerberos-authentication-overview).
+    Kerberos är ett autentiseringsprotokoll som används för att verifiera en användares eller värds identitet. Mer information om Kerberos finns i [Kerberos autentiseringsöversikt](https://docs.microsoft.com/windows-server/security/kerberos/kerberos-authentication-overview).
 
 -  **SMB-protokoll (Server Message Block)**
 
-    SMB är ett standardiserat nätverks fil delnings protokoll. SMB kallas även common Internet File System eller CIFS. Mer information om SMB finns i [Översikt över Microsoft SMB-protokoll och CIFS-protokoll](https://docs.microsoft.com/windows/desktop/FileIO/microsoft-smb-protocol-and-cifs-protocol-overview).
+    SMB är ett branschstandardprotokoll för fildelning av nätverksfiler. SMB är också känd som Common Internet File System eller CIFS. Mer information om SMB finns i [Microsoft SMB Protocol och CIFS Protocol Overview](https://docs.microsoft.com/windows/desktop/FileIO/microsoft-smb-protocol-and-cifs-protocol-overview).
 
 -   **Azure Active Directory (Azure AD)**
 
-    Azure Active Directory (Azure AD) är Microsofts molnbaserade katalog-och identitets hanterings tjänst för flera innehavare. Azure AD kombinerar kärn katalog tjänster, program åtkomst hantering och identitets skydd i en enda lösning. Azure AD gör det möjligt för domänanslutna virtuella Windows-datorer (VM) att komma åt Azure-filresurser med dina autentiseringsuppgifter för Azure AD. Mer information finns i [Vad är Azure Active Directory?](../../active-directory/fundamentals/active-directory-whatis.md)
+    Azure Active Directory (Azure AD) är Microsofts molnbaserade katalog- och identitetshanteringstjänst för flera innehavare. Azure AD kombinerar grundläggande katalogtjänster, hantering av programåtkomst och identitetsskydd till en enda lösning. Azure AD gör det möjligt för dina domänanslutna virtuella datorer i Windows (VMs) att komma åt Azure-filresurser med dina Azure AD-autentiseringsuppgifter. Mer information finns i [Vad är Azure Active Directory?](../../active-directory/fundamentals/active-directory-whatis.md)
 
--   **Azure AD Domain Services (Azure AD DS)**
+-   **Azure AD-domäntjänster (Azure AD DS)**
 
-    Azure AD Domain Services (GA) tillhandahåller hanterade domän tjänster som domän anslutning, grup principer, LDAP och Kerberos/NTLM-autentisering. Dessa tjänster är helt kompatibla med Windows Server Active Directory. Mer information finns i [Azure Active Directory (AD) Domain Services](../../active-directory-domain-services/overview.md).
+    Azure AD Domain Services (GA) tillhandahåller hanterade domäntjänster som domänanslutning, grupprinciper, LDAP- och Kerberos/NTLM-autentisering. Dessa tjänster är helt kompatibla med Active Directory för Windows Server. Mer information finns i [Azure Active Directory (AD) Domain Services](../../active-directory-domain-services/overview.md).
 
-- **Active Directory Domain Services (AD DS, även kallat AD)**
+- **Active Directory Domain Services (AD DS, även kallad AD)**
 
-    Active Directory (AD) (för hands version) innehåller metoder för att lagra katalog data och göra dem tillgängliga för användare och administratörer i nätverket. Säkerhet är integrerat med Active Directory via inloggningsautentisering och åtkomst kontroll till objekt i katalogen. Med en enda nätverks inloggning kan administratörer hantera katalog data och organisationer över hela nätverket och auktoriserade nätverks användare kan komma åt resurser var som helst i nätverket. AD antas ofta av företag lokalt och använder AD-autentiseringsuppgifter som identitet för åtkomst kontroll. Mer information finns i [Active Directory Domain Services översikt](https://docs.microsoft.com/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview).
+    Active Directory (AD) (förhandsversion) innehåller metoder för att lagra katalogdata samtidigt som den blir tillgänglig för nätverksanvändare och administratörer. Säkerhet integreras med Active Directory genom inloggningsautentisering och åtkomstkontroll till objekt i katalogen. Med en enda nätverksinloggning kan administratörer hantera katalogdata och organisation i hela nätverket, och behöriga nätverksanvändare kan komma åt resurser var som helst i nätverket. AD används ofta av företag i lokala och använder AD-autentiseringsuppgifter som identitet för åtkomstkontroll. Mer information finns i [Översikt över Active Directory Domain Services](https://docs.microsoft.com/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview).
 
--   **Rollbaserad Access Control i Azure (RBAC)**
+-   **Azure-rollbaserad åtkomstkontroll (RBAC)**
 
-    Rollbaserad åtkomstkontroll (RBAC) i Azure ger tillgång till ingående åtkomsthantering för Azure. Med RBAC kan du hantera åtkomst till resurser genom att ge användarna minst de behörigheter som krävs för att utföra sina jobb. Mer information om RBAC finns i [Vad är rollbaserad åtkomst kontroll (RBAC) i Azure?](../../role-based-access-control/overview.md).
+    Rollbaserad åtkomstkontroll (RBAC) i Azure ger tillgång till ingående åtkomsthantering för Azure. Med hjälp av RBAC kan du hantera åtkomst till resurser genom att ge användarna minst behörighet som behövs för att utföra sina jobb. Mer information om RBAC finns [i Vad är rollbaserad åtkomstkontroll (RBAC) i Azure?](../../role-based-access-control/overview.md).
 
 ## <a name="common-use-cases"></a>Vanliga användarsituationer
 
-Identitetsbaserade autentisering och stöd för Windows ACL: er på Azure Files är bäst för följande användnings fall:
+Identitetsbaserad autentisering och stöd för Windows-ACL:er på Azure Files utnyttjas bäst för följande användningsfall:
 
-### <a name="replace-on-premises-file-servers"></a>Ersätta lokala fil servrar
+### <a name="replace-on-premises-file-servers"></a>Ersätta lokala filservrar
 
-Föråldrade och ersättande lokala fil servrar är ett vanligt problem som varje företag stöter på i IT-modernisering resan. Azure-filresurser med AD (förhands granskning)-autentisering är den bästa anpassningen här, när du kan migrera data till Azure Files. Med en fullständig migrering kan du dra nytta av fördelarna med hög tillgänglighet och skalbarhet samtidigt som du minimerar ändringar på klient sidan, särskilt komplicerad AD-domän infrastruktur. Det ger en sömlös migrering till slutanvändare, så de kan fortsätta att komma åt sina data med samma autentiseringsuppgifter med hjälp av sina befintliga domänanslutna datorer.
+Att inaktuella och ersätta spridda lokala filservrar är ett vanligt problem som alla företag stöter på i sin IT-moderniseringsresa. Azure-filresurser med AD-autentisering (förhandsversion) passar bäst här, när du kan migrera data till Azure-filer. En fullständig migrering gör att du kan dra nytta av fördelarna med hög tillgänglighet och skalbarhet samtidigt som du minimerar ändringar på klientsidan, särskilt komplicerad AD-domäninfrastruktur. Det ger en sömlös migreringsupplevelse till slutanvändare, så att de kan fortsätta att komma åt sina data med samma autentiseringsuppgifter med hjälp av sina befintliga domänanslutna datorer.
 
-### <a name="lift-and-shift-applications-to-azure"></a>Lyft och växla program till Azure
+### <a name="lift-and-shift-applications-to-azure"></a>Lyfta och flytta program till Azure
 
-När du lyfter och flyttar program till molnet, vill du behålla samma autentiserings modell för dina data. När vi utökar den identitetsbaserade åtkomst kontrollen till Azure-filresurser, eliminerar den behovet av att ändra programmet till modern auth-metoder och påskynda moln införande. Azure-filresurser ger möjlighet att integrera med antingen Azure AD DS (GA) eller AD (för hands version) för autentisering. Om din plan ska vara 100% Cloud Native och minimera ansträngningarna att hantera moln infrastrukturer, är Azure AD DS en bättre anpassning som en fullständigt hanterad domän tjänst. Om du behöver fullständig kompatibilitet med AD DS-funktioner (GA) kan du överväga att utöka din AD-miljö till molnet med hjälp av självvärdbaserade domänkontrollanter på virtuella datorer. I båda fallen ger vi flexibiliteten att välja de domän tjänster som passar dina affärs behov.
+När du "lyfter och flyttar" program till molnet vill du behålla samma autentiseringsmodell för dina data. När vi utökar den identitetsbaserade åtkomstkontrollupplevelsen till Azure-filresurser elimineras behovet av att ändra ditt program till moderna auth-metoder och påskynda molnanvändning. Azure-filresurser är möjligheten att integrera med antingen Azure AD DS (GA) eller AD (förhandsversion) för autentisering. Om din plan ska vara 100 % inbyggd moln och minimera arbetet med att hantera molninfrastrukturer, skulle Azure AD DS passa bättre som en fullständigt hanterad domäntjänst. Om du behöver fullständig kompatibilitet med AD DS (GA) funktioner, kanske du vill överväga att utvidga din AD-miljö till molnet genom självvärd domänkontrollanter på virtuella datorer. Hur som helst erbjuder vi flexibiliteten att välja de domäntjänster som passar dina affärsbehov.
 
-### <a name="backup-and-disaster-recovery-dr"></a>Säkerhets kopiering och haveri beredskap (DR)
+### <a name="backup-and-disaster-recovery-dr"></a>Säkerhetskopiering och haveriberedskap (DR)
 
-Om du behåller din primära fil lagring kan Azure-filresurser fungera som ett idealiskt lagrings utrymme för säkerhets kopiering eller DR för att förbättra affärs kontinuiteten. Du kan använda Azure-filresurser för att säkerhetskopiera dina data från befintliga fil servrar, samtidigt som du behåller Windows-DACL-filer. För DR-scenarier kan du konfigurera ett autentiseringsalternativ som stöd för korrekt åtkomst kontroll vid redundansväxling.
+Om du håller din primära fillagring lokalt kan Azure-filresurser fungera som en idealisk lagring för säkerhetskopiering eller DR, för att förbättra affärskontinuiteten. Du kan använda Azure-filresurser för att säkerhetskopiera data från befintliga filservrar, samtidigt som Windows-DACLs bevaras. För DR-scenarier kan du konfigurera ett autentiseringsalternativ för att stödja korrekt åtkomstkontroll vid redundans.
 
 ## <a name="supported-scenarios"></a>Scenarier som stöds
 
-I följande tabell sammanfattas de Azure-filresurser som stöds för Azure AD DS (GA) och AD (för hands version). Vi rekommenderar att du väljer den domän tjänst som du har antagit för din klient miljö för integrering med Azure Files. Om du har installerat AD (för hands version) lokalt eller på Azure där enheterna är domänanslutna till AD, bör du välja att använda AD (för hands version) för autentisering med Azure-filresurser. Om du redan har antagit Azure AD DS (GA) bör du använda det för autentisering med Azure-filresurser.
+I följande tabell sammanfattas de autentiseringsscenarier som stöds för Azure AD DS (GA) och AD (förhandsversion). Vi rekommenderar att du väljer den domäntjänst som du har antagit för din klientmiljö för integrering med Azure Files. Om du redan har AD (förhandsversion) som konfigurerar lokalt eller på Azure där dina enheter är domän anslutna till AD, bör du välja att använda AD (förhandsversion) för Azure-filresurserautentisering. På samma sätt, om du redan har antagit Azure AD DS (GA), bör du använda det för Azure-filresurser autentisering.
 
 
-|Azure AD DS-autentisering (GA)  |AD (förhands granskning)-autentisering  |
+|Azure AD DS (GA) autentisering  |AD-autentisering (förhandsversion)  |
 |---------|---------|
-|Azure AD DS-domänanslutna Windows-datorer kan komma åt Azure-filresurser med Azure AD-autentiseringsuppgifter över SMB.     |AD-domänanslutna Windows-datorer har åtkomst till Azure-filresurser med AD-autentiseringsuppgifter som synkroniseras med Azure AD över SMB.         |
+|Azure AD DS-domän anslöt till Windows-datorer kan komma åt Azure-filresurser med Azure AD-autentiseringsuppgifter via SMB.     |AD-domän gick med i Windows-datorer kan komma åt Azure-filresurser med AD-autentiseringsuppgifter som synkroniseras med Azure AD över SMB.         |
 
 ### <a name="unsupported-scenarios"></a>Scenarier som inte stöds
 
-- Azure AD DS-och AD-autentisering (för hands version) stöder inte autentisering mot dator konton. Du kan använda ett tjänst inloggnings konto i stället.
-- Azure AD DS-autentisering (GA) stöder inte autentisering mot anslutna Azure AD-enheter.
+- Azure AD DS (GA) och AD (förhandsversion) autentisering stöder inte autentisering mot datorkonton. Du kan överväga att använda ett tjänstinloggningskonto i stället.
+- Azure AD DS (GA) autentisering stöder inte autentisering mot Azure AD-molnanslutna enheter.
 
-## <a name="advantages-of-identity-based-authentication"></a>Fördelar med Identity-baserad autentisering
-Identitetsbaserade autentisering för Azure Files ger flera fördelar jämfört med autentisering med delade nycklar:
+## <a name="advantages-of-identity-based-authentication"></a>Fördelar med identitetsbaserad autentisering
+Identitetsbaserad autentisering för Azure Files ger flera fördelar jämfört med att använda autentisering av delade nyckel:
 
--   **Utöka den traditionella identitetsbaserade fil resurs åtkomst upplevelsen till molnet med AD och Azure AD DS**  
-    Om du planerar att "lyfta och byta" ditt program till molnet, ersätta traditionella fil servrar med Azure-filresurser, kanske du vill att ditt program ska autentisera med AD-eller Azure AD-autentiseringsuppgifter för att komma åt fildata. Azure Files stöder användning av både AD-eller Azure AD-autentiseringsuppgifter för att få åtkomst till Azure-filresurser via SMB från AD-eller Azure AD DS-domänanslutna virtuella datorer.
+-   **Utöka den traditionella identitetsbaserade åtkomstupplevelsen för filresurs till molnet med AD och Azure AD DS**  
+    Om du planerar att "lyfta och flytta" ditt program till molnet och ersätta traditionella filservrar med Azure-filresurser, kanske du vill att ditt program ska autentisera med AD- eller Azure AD-autentiseringsuppgifter för att komma åt fildata. Azure Files stöder användning av både AD- eller Azure AD-autentiseringsuppgifter för att komma åt Azure-filresurser via SMB från antingen AD- eller Azure AD DS-domänanslutna virtuella datorer.
 
--   **Använd detaljerad åtkomst kontroll på Azure-filresurser**  
-    Du kan bevilja behörigheter till en speciell identitet på resurs-, katalog-eller filnivå. Anta till exempel att du har flera team som använder en enda Azure-filresurs för projekt samarbete. Du kan ge alla team åtkomst till icke-känsliga kataloger, samtidigt som du begränsar åtkomsten till kataloger som innehåller känslig finansiell information till ditt finans team. 
+-   **Framtvinga detaljerad åtkomstkontroll för Azure-filresurser**  
+    Du kan bevilja behörigheter till en viss identitet på resurs-, katalog- eller filnivå. Anta till exempel att du har flera team som använder en enda Azure-filresurs för projektsamarbete. Du kan ge alla team åtkomst till icke-känsliga kataloger, samtidigt som åtkomsten till kataloger som innehåller känsliga ekonomiska data begränsas till ditt Ekonomi-team. 
 
--   **Säkerhetskopiera Windows ACL: er (kallas även NTFS) tillsammans med dina data**  
-    Du kan använda Azure-filresurser för att säkerhetskopiera befintliga lokala fil resurser. Azure Files bevarar dina ACL: er tillsammans med dina data när du säkerhetskopierar en fil resurs till Azure-filresurser över SMB.
+-   **Säkerhetskopiera Windows-åtkomstkontrollistor (kallas även NTFS) tillsammans med dina data**  
+    Du kan använda Azure-filresurser för att säkerhetskopiera dina befintliga lokala filresurser. Azure Files bevarar dina ACL:er tillsammans med dina data när du säkerhetskopierar en filresurs till Azure-filresurser över SMB.
 
 ## <a name="how-it-works"></a>Hur det fungerar
-Azure-filresurser stöder Kerberos-autentisering för integrering med antingen Azure AD DS (GA) eller AD (för hands version). Innan du kan aktivera autentisering på Azure-filresurser måste du först konfigurera din domän miljö. För Azure AD DS-autentisering (GA) bör du aktivera Azure AD Domain Services och domän anslutning till de virtuella datorer som du planerar att komma åt fil data från. Din domänanslutna virtuella dator måste finnas i samma virtuella nätverk (VNET) som Azure AD Domain Services. För AD (för hands version)-autentisering måste du på samma sätt konfigurera Active Directory domänkontrollant och domän anslutning till dina datorer eller virtuella datorer.
+Azure-filresurser stöder kerberos-autentisering för integrering med antingen Azure AD DS (GA) eller AD (förhandsversion). Innan du kan aktivera autentisering på Azure-filresurser måste du först konfigurera domänmiljön. För Azure AD DS (GA) autentisering bör du aktivera Azure AD Domain Services och domän ansluta till de virtuella datorer som du planerar att komma åt fildata från. Din domänanslutna virtuella dator måste finnas i samma virtuella nätverk (VNET) som dina Azure AD Domain Services. För AD-autentisering (förhandsversion) måste du också konfigurera Active Directory-domänkontrollanten och domänen ansluta till datorer eller virtuella datorer.
 
-När en identitet som är kopplad till ett program som körs på en virtuell dator försöker komma åt data i Azure-filresurser, skickas begäran till Azure AD Domain Services för att autentisera identiteten. Om autentiseringen lyckas returnerar Azure AD Domain Services en Kerberos-token. Programmet skickar en begäran som inkluderar Kerberos-token och Azure-filresurser använder denna token för att auktorisera begäran. Azure-filresurser får bara token och behåller inte Azure AD-autentiseringsuppgifter. AD-autentisering fungerar på liknande sätt, där AD tillhandahåller Kerberos-token.
+När en identitet som är associerad med ett program som körs på en virtuell dator försöker komma åt data i Azure-filresurser skickas begäran till Azure AD Domain Services för att autentisera identiteten. Om autentiseringen lyckas returnerar Azure AD Domain Services en Kerberos-token. Programmet skickar en begäran som innehåller Kerberos-token och Azure-filresurser använder den token för att auktorisera begäran. Azure-filresurser tar endast emot token och beständiga inte Azure AD-autentiseringsuppgifter. AD-autentisering fungerar på ett liknande sätt, där AD tillhandahåller Kerberos-token.
 
-![Skärm bild som visar diagram över Azure AD-autentisering över SMB](media/storage-files-active-directory-overview/azure-active-directory-over-smb-for-files-overview.png)
+![Skärmbild som visar diagram över Azure AD-autentisering via SMB](media/storage-files-active-directory-overview/azure-active-directory-over-smb-for-files-overview.png)
 
-### <a name="enable-identity-based-authentication"></a>Aktivera identitets baserad autentisering
+### <a name="enable-identity-based-authentication"></a>Aktivera identitetsbaserad autentisering
 
-Du kan aktivera Identity-baserad autentisering med antingen Azure AD DS (GA) eller AD (för hands version) för Azure-filresurser på dina nya och befintliga lagrings konton. Det går bara att använda en domän tjänst för autentisering av fil åtkomst på lagrings kontot, som gäller för alla fil resurser i kontot. Detaljerade anvisningar om hur du konfigurerar fil resurser för autentisering med Azure AD DS (GA) i vår artikel [aktivera Azure Active Directory Domain Services autentisering på Azure Files](storage-files-identity-auth-active-directory-domain-service-enable.md) och rikt linjer för AD (för hands version) i vår andra artikel [aktiverar du Active Directory autentisering över SMB för Azure-filresurser](storage-files-identity-auth-active-directory-enable.md).
+Du kan aktivera identitetsbaserad autentisering med antingen Azure AD DS (GA) eller AD (förhandsversion) för Azure-filresurser på dina nya och befintliga lagringskonton. Endast en domäntjänst kan användas för filåtkomstautentisering på lagringskontot, vilket gäller för alla filresurser i kontot. Detaljerad steg för steg-vägledning om hur du konfigurerar filresurser för autentisering med Azure AD DS (GA) i vår artikel [Aktivera Azure Active Directory Domain Services-autentisering på Azure-filer](storage-files-identity-auth-active-directory-domain-service-enable.md) och vägledning för AD (förhandsversion) i vår andra artikel, Aktivera Active [Directory-autentisering över SMB för Azure-filresurser](storage-files-identity-auth-active-directory-enable.md).
 
-### <a name="configure-share-level-permissions-for-azure-files"></a>Konfigurera behörigheter på resurs nivå för Azure Files
+### <a name="configure-share-level-permissions-for-azure-files"></a>Konfigurera behörigheter på delningsnivå för Azure-filer
 
-När antingen Azure AD DS-eller AD (Preview)-autentisering har Aktiver ATS kan du använda inbyggda RBAC-roller eller konfigurera anpassade roller för Azure AD-identiteter och tilldela åtkomst behörigheter till alla fil resurser i dina lagrings konton. den tilldelade behörigheten tillåter att den beviljade identiteten endast får åtkomst till resursen, inget annat, inte ens rot katalogen. Du måste fortfarande konfigurera katalog-eller fil nivå behörigheter separat för Azure-filresurser.
+När antingen Azure AD DS (GA) eller AD (förhandsversion) autentisering är aktiverad, kan du använda inbyggda RBAC-roller eller konfigurera anpassade roller för Azure AD-identiteter och tilldela åtkomsträttigheter till alla filresurser i dina lagringskonton. Den tilldelade behörigheten gör att den beviljade identiteten bara får åtkomst till resursen, inget annat, inte ens rotkatalogen. Du måste fortfarande konfigurera behörigheter på katalog- eller filnivå för Azure-filresurser separat.
 
-### <a name="configure-directory-or-file-level-permissions-for-azure-files"></a>Konfigurera katalog-eller fil nivå behörigheter för Azure Files
+### <a name="configure-directory-or-file-level-permissions-for-azure-files"></a>Konfigurera behörigheter på katalog- eller filnivå för Azure-filer
 
-Azure-filresurser tillämpar standard behörigheter för Windows-filer både på katalog-och filnivå, inklusive rot katalogen. Konfiguration av katalog-eller fil nivå behörigheter stöds över både SMB och REST. Montera mål fil resursen från den virtuella datorn och konfigurera behörigheter med Windows Utforskaren, Windows- [icacls](https://docs.microsoft.com/windows-server/administration/windows-commands/icacls)eller kommandot [set-ACL](https://docs.microsoft.com/powershell/module/microsoft.powershell.security/get-acl?view=powershell-6) .
+Azure-filresurser tillämpar standard windows-filbehörigheter på både katalog- och filnivå, inklusive rotkatalogen. Konfiguration av katalog- eller filnivåbehörigheter stöds över både SMB och REST. Montera målfilresursen från den virtuella datorn och konfigurera behörigheter med kommandot Utforskaren, Windows [Icacls](https://docs.microsoft.com/windows-server/administration/windows-commands/icacls)eller kommandot [Set-ACL.](https://docs.microsoft.com/powershell/module/microsoft.powershell.security/get-acl?view=powershell-6)
 
-### <a name="use-the-storage-account-key-for-superuser-permissions"></a>Använd lagrings konto nyckeln för behörigheter för superanvändare
+### <a name="use-the-storage-account-key-for-superuser-permissions"></a>Använd lagringskontonyckeln för superanvändarbehörigheter
 
-En användare som har lagrings konto nyckeln kan komma åt Azure-filresurser med behörigheten Superanvändare. Behörigheter för superanvändare kringgå alla begränsningar för åtkomst kontroll.
+En användare som har lagringskontonyckeln kan komma åt Azure-filresurser med superanvändarbehörigheter. Superanvändarebehörigheter kringgår alla åtkomstkontrollbegränsningar.
 
 > [!IMPORTANT]
-> Vi rekommenderar att du inte delar dina lagrings konto nycklar och använder identitets baserad autentisering närhelst det är möjligt.
+> Vår rekommenderade säkerhetspraxis är att undvika att dela dina lagringskontonycklar och utnyttja identitetsbaserad autentisering när det är möjligt.
 
-### <a name="preserve-directory-and-file-acls-when-importing-data-to-azure-file-shares"></a>Bevara katalog-och fil åtkomst kontrol listor när du importerar data till Azure-filresurser
+### <a name="preserve-directory-and-file-acls-when-importing-data-to-azure-file-shares"></a>Bevara katalog- och fil-ACL:er vid import av data till Azure-filresurser
 
-Azure Files stöder bevarande av katalog-eller filnivå-ACL: er vid kopiering av data till Azure-filresurser. Du kan kopiera ACL: er på en katalog eller fil till Azure-filresurser med hjälp av antingen Azure File Sync eller vanliga verktyg för fil rörelse. Du kan till exempel använda [Robocopy](https://docs.microsoft.com/windows-server/administration/windows-commands/robocopy) med flaggan `/copy:s` för att kopiera data samt ACL: er till en Azure-filresurs. ACL: er bevaras som standard, du behöver inte aktivera Identity-baserad autentisering på ditt lagrings konto för att bevara ACL: er.
+Azure Files stöder bevarande av ACL-filer på katalog- eller filnivå när data kopieras till Azure-filresurser. Du kan kopiera ACL:er i en katalog eller fil till Azure-filresurser med hjälp av antingen Azure File Sync eller common file movement toolsets. Du kan till exempel använda [robocopy](https://docs.microsoft.com/windows-server/administration/windows-commands/robocopy) med `/copy:s` flaggan för att kopiera data samt ACL:er till en Azure-filresurs. ACL:er bevaras som standard, du behöver inte aktivera identitetsbaserad autentisering på ditt lagringskonto för att bevara ACL:er.
 
-## <a name="pricing"></a>Priser
-Det finns ingen ytterligare service avgift för att aktivera identitets baserad autentisering över SMB på ditt lagrings konto. Mer information om priser finns [Azure Files priser](https://azure.microsoft.com/pricing/details/storage/files/) och [Azure AD Domain Services prissättnings](https://azure.microsoft.com/pricing/details/active-directory-ds/) sidor om du letar efter AAD DS-information.
+## <a name="pricing"></a>Prissättning
+Det finns ingen extra serviceavgift för att aktivera identitetsbaserad autentisering via SMB på ditt lagringskonto. Mer information om prissättning finns i [Azure Files priser](https://azure.microsoft.com/pricing/details/storage/files/) och Azure AD Domain Services [prissidor](https://azure.microsoft.com/pricing/details/active-directory-ds/) om du letar efter AAD DS-information.
 
 ## <a name="next-steps"></a>Nästa steg
-Mer information om Azure Files-och identitets-baserad autentisering över SMB finns i följande resurser:
+Mer information om Azure-filer och identitetsbaserad autentisering via SMB finns i följande resurser:
 
 - [Planera för en Azure Files-distribution](storage-files-planning.md)
-- [Aktivera Active Directory autentisering över SMB för Azure-filresurser](storage-files-identity-auth-active-directory-enable.md)
-- [Aktivera Azure Active Directory Domain Services autentisering på Azure Files](storage-files-identity-auth-active-directory-domain-service-enable.md)
-- [VANLIGA FRÅGOR OCH SVAR](storage-files-faq.md)
+- [Aktivera Active Directory-autentisering över SMB för Azure-filresurser](storage-files-identity-auth-active-directory-enable.md)
+- [Aktivera Azure Active Directory Domain Services-autentisering på Azure-filer](storage-files-identity-auth-active-directory-domain-service-enable.md)
+- [Faq](storage-files-faq.md)

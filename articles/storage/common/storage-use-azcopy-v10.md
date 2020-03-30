@@ -1,150 +1,150 @@
 ---
-title: Kopiera eller flytta data till Azure Storage med AzCopy v10 | Microsoft Docs
-description: AzCopy är ett kommando rads verktyg som du kan använda för att kopiera data till, från eller mellan lagrings konton. Den här artikeln hjälper dig att ladda ned AzCopy, ansluta till ditt lagrings konto och sedan överföra filer.
+title: Kopiera eller flytta data till Azure Storage med AzCopy v10 | Microsoft-dokument
+description: AzCopy är ett kommandoradsverktyg som du kan använda för att kopiera data till, från eller mellan lagringskonton. Den här artikeln hjälper dig att ladda ner AzCopy, ansluta till ditt lagringskonto och sedan överföra filer.
 author: normesta
 ms.service: storage
 ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: c4e2681121a15e0b84a11c7cf35119c3f1b69f11
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 90adb3b973b6952d10ef89e4b40d0fc68489e224
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79268215"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80061096"
 ---
 # <a name="get-started-with-azcopy"></a>Kom igång med AzCopy
 
-AzCopy är ett kommando rads verktyg som du kan använda för att kopiera blobbar eller filer till eller från ett lagrings konto. Den här artikeln hjälper dig att ladda ned AzCopy, ansluta till ditt lagrings konto och sedan överföra filer.
+AzCopy är ett kommandoradsverktyg som du kan använda för att kopiera blobbar eller filer till eller från ett lagringskonto. Den här artikeln hjälper dig att ladda ner AzCopy, ansluta till ditt lagringskonto och sedan överföra filer.
 
 > [!NOTE]
-> AzCopy **v10** är den version av AzCopy som stöds för tillfället.
+> AzCopy **V10** är den version som för närvarande stöds av AzCopy.
 >
-> Om du behöver använda AzCopy **v 8.1**läser du avsnittet [använda den tidigare versionen av AzCopy](#previous-version) i den här artikeln.
+> Om du behöver använda AzCopy **v8.1**läser du avsnittet [Använd den tidigare versionen av AzCopy](#previous-version) i den här artikeln.
 
 <a id="download-and-install-azcopy" />
 
-## <a name="download-azcopy"></a>Ladda ned AzCopy
+## <a name="download-azcopy"></a>Ladda ner AzCopy
 
-Börja med att ladda ned den körbara filen AzCopy v10 till valfri katalog på datorn. AzCopy v10 är bara en körbar fil, så det finns inget att installera.
+Hämta först den körbara filen AzCopy V10 till valfri katalog på datorn. AzCopy V10 är bara en körbar fil, så det finns inget att installera.
 
-- [Windows 64-bitars](https://aka.ms/downloadazcopy-v10-windows) (zip)
-- [Windows 32-bitars](https://aka.ms/downloadazcopy-v10-windows-32bit) (zip)
-- [Linux](https://aka.ms/downloadazcopy-v10-linux) (tar)
-- [MacOS](https://aka.ms/downloadazcopy-v10-mac) (zip)
+- [Windows 64-bitars](https://aka.ms/downloadazcopy-v10-windows) (dragkedja)
+- [Windows 32-bitars](https://aka.ms/downloadazcopy-v10-windows-32bit) (dragkedja)
+- [Linux](https://aka.ms/downloadazcopy-v10-linux) (tjära)
+- [MacOS](https://aka.ms/downloadazcopy-v10-mac) (dragkedja)
 
-Filerna komprimeras som en zip-fil (Windows och Mac) eller en tar-fil (Linux). Information om hur du laddar ned och dekomprimerar filen tar i Linux finns i dokumentationen för din Linux-distribution.
+Dessa filer komprimeras som en zip-fil (Windows och Mac) eller en tar-fil (Linux). Om du vill hämta och expandera tjärfilen på Linux läser du dokumentationen för din Linux-distribution.
 
 > [!NOTE]
-> Om du vill kopiera data till och från [Azure Table Storage](https://docs.microsoft.com/azure/storage/tables/table-storage-overview) -tjänsten installerar du [AzCopy version 7,3](https://aka.ms/downloadazcopynet).
+> Om du vill kopiera data till och från din [Azure Table storage-tjänst](https://docs.microsoft.com/azure/storage/tables/table-storage-overview) installerar du [AzCopy version 7.3](https://aka.ms/downloadazcopynet).
 
 
 ## <a name="run-azcopy"></a>Kör AzCopy
 
-För enkelhetens skull bör du överväga att lägga till katalog platsen för den körbara AzCopy i din system Sök väg för enkel användning. På så sätt kan du skriva `azcopy` från valfri katalog i systemet.
+För enkelhetens skull, överväg att lägga till katalogplatsen för AzCopy körbar till din systemsökväg för enkel användning. På så sätt `azcopy` kan du skriva från valfri katalog på ditt system.
 
-Om du väljer att inte lägga till katalogen AzCopy i sökvägen måste du ändra katalogerna till platsen för din AzCopy-körbara fil och skriva `azcopy` eller `.\azcopy` i kommando tolken i Windows PowerShell.
+Om du väljer att inte lägga till AzCopy-katalogen i sökvägen måste du ändra kataloger `azcopy` `.\azcopy` till platsen för din AzCopy-körbara och typ eller i Windows PowerShell-kommandotolken.
 
-Om du vill se en lista över kommandon skriver du `azcopy -h` och trycker sedan på RETUR-tangenten.
+Om du vill visa en `azcopy -h` lista med kommandon skriver du och trycker sedan på RETUR.
 
-Om du vill veta mer om ett speciellt kommando inkluderar du bara namnet på kommandot (till exempel: `azcopy list -h`).
+Om du vill veta mer om ett visst kommando, `azcopy list -h`bara inkludera namnet på kommandot (Till exempel: ).
 
-![Infogad hjälp](media/storage-use-azcopy-v10/azcopy-inline-help.png)
+![Hjälp i linje](media/storage-use-azcopy-v10/azcopy-inline-help.png)
 
-För att hitta detaljerad referens dokumentation för varje kommando och kommando parameter, se [AzCopy](storage-ref-azcopy.md)
+Information om hur du hittar detaljerad referensdokumentation för varje kommando- och kommandoparameter finns i [azkopia](storage-ref-azcopy.md)
 
 > [!NOTE] 
-> Som ägare till ditt Azure Storage-konto tilldelas du inte automatiskt behörigheter för åtkomst till data. Innan du kan göra allt meningsfullt med AzCopy måste du bestämma hur du ska ange autentiseringsuppgifter för lagrings tjänsten. 
+> Som ägare av ditt Azure Storage-konto tilldelas du inte automatiskt behörigheter för åtkomst till data. Innan du kan göra något meningsfullt med AzCopy måste du bestämma hur du ska tillhandahålla auktoriseringsautentiseringsuppgifter till lagringstjänsten. 
 
-## <a name="choose-how-youll-provide-authorization-credentials"></a>Välj hur du ska ange autentiseringsuppgifter för auktorisering
+## <a name="choose-how-youll-provide-authorization-credentials"></a>Välj hur du ska ange auktoriseringsuppgifter
 
-Du kan ange autentiseringsuppgifter för auktorisering genom att använda Azure Active Directory (AD) eller genom att använda en SAS-token (signatur för delad åtkomst).
+Du kan ange auktoriseringsbehörighetsbehörighet med hjälp av Azure Active Directory (AD) eller med hjälp av en SAS-token (Shared Access Signature).
 
-Använd den här tabellen som en guide:
+Använd den här tabellen som vägledning:
 
-| Lagringstyp | För närvarande stöds metoden för auktorisering |
+| Lagringstyp | För närvarande stöds tillståndsmetod |
 |--|--|
 |**Blob Storage** | Azure AD & SAS |
-|**Blob Storage (hierarkiskt namn område)** | Azure AD & SAS |
-|**Fil lagring** | Endast SAS |
+|**Blob-lagring (hierarkiskt namnområde)** | Azure AD & SAS |
+|**Fillagring** | ENDAST SAS |
 
 ### <a name="option-1-use-azure-active-directory"></a>Alternativ 1: Använd Azure Active Directory
 
-Med hjälp av Azure Active Directory kan du ange autentiseringsuppgifter en gång i stället för att behöva lägga till en SAS-token i varje kommando.  
+Genom att använda Azure Active Directory kan du ange autentiseringsuppgifter en gång i stället för att behöva lägga till en SAS-token till varje kommando.  
 
 > [!NOTE]
-> Om du planerar att kopiera blobbar mellan lagrings konton i den aktuella versionen måste du lägga till en SAS-token till varje käll-URL. Du kan bara utelämna SAS-token från mål-URL: en. Exempel finns i [Kopiera blobbar mellan lagrings konton](storage-use-azcopy-blobs.md).
+> Om du planerar att kopiera blobbar mellan lagringskonton i den aktuella versionen måste du lägga till en SAS-token i varje käll-URL. Du kan endast utelämna SAS-token från mål-URL:en. Exempel finns i [Kopiera blobbar mellan lagringskonton](storage-use-azcopy-blobs.md).
 
-Den behörighets nivå som du behöver baseras på om du planerar att ladda upp filer eller bara hämta dem.
+Den behörighetsnivå som du behöver baseras på om du planerar att ladda upp filer eller bara ladda ned dem.
 
-Om du bara vill hämta filer kontrollerar du att [lagrings-BLOB-dataläsaren](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-reader) har tilldelats till din användar identitet, hanterad identitet eller tjänstens huvud namn.
+Om du bara vill hämta filer kontrollerar du att [dataläsaren För storage blob har](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-reader) tilldelats din användaridentitet, hanterade identitet eller tjänsthuvudnamn.
 
-> Användar identiteter, hanterade identiteter och tjänstens huvud namn är varje typ av *säkerhets objekt*, så vi använder termen *säkerhets objekt* för resten av den här artikeln.
+> Användaridentiteter, hanterade identiteter och tjänsthuvudnamn är varje typ av *säkerhetsobjekt*, så vi använder termen *säkerhetsobjekt* för resten av den här artikeln.
 
-Om du vill ladda upp filer kontrollerar du att någon av dessa roller har tilldelats ditt säkerhets objekt:
+Om du vill ladda upp filer kontrollerar du att en av dessa roller har tilldelats ditt säkerhetsobjekt:
 
-- [Storage BLOB data-deltagare](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-queue-data-contributor)
-- [Storage BLOB data-ägare](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner)
+- [Storage Blob Data Contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-queue-data-contributor)
+- [Ägare av lagringsblobbdata](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner)
 
-De här rollerna kan tilldelas till säkerhets objekt i alla dessa omfattningar:
+Dessa roller kan tilldelas ditt säkerhetsobjekt i något av följande scope:
 
-- Behållare (fil system)
+- Behållare (filsystem)
 - Lagringskonto
 - Resursgrupp
 - Prenumeration
 
-Information om hur du verifierar och tilldelar roller finns i [bevilja åtkomst till Azure blob och Queue data med RBAC i Azure Portal](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+Mer information om hur du verifierar och tilldelar roller finns i [Bevilja åtkomst till Azure-blob och ködata med RBAC i Azure-portalen](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
 > [!NOTE]
-> Tänk på att det kan ta upp till fem minuter att sprida RBAC-roll tilldelningar.
+> Tänk på att RBAC-rolltilldelningar kan ta upp till fem minuter att sprida.
 
-Du behöver inte ha någon av dessa roller tilldelade till ditt säkerhets objekt om ditt säkerhets objekt läggs till i åtkomst kontrol listan (ACL) för mål behållaren eller katalogen. I ACL: en måste ditt säkerhets objekt ha Skriv behörighet för mål katalogen och köra behörigheten för behållaren och varje överordnad katalog.
+Du behöver inte ha någon av dessa roller tilldelad ditt säkerhetsobjekt om ditt säkerhetsobjekt läggs till i åtkomstkontrollistan (ACL) för målbehållaren eller katalogen. I åtkomstkontrollistan behöver ditt säkerhetsobjekt skrivbehörighet för målkatalogen och köra behörighet för behållaren och varje överordnad katalog.
 
-Läs mer i [åtkomst kontroll i Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control).
+Mer information finns [i Åtkomstkontroll i Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control).
 
-#### <a name="authenticate-a-user-identity"></a>Autentisera en användar identitet
+#### <a name="authenticate-a-user-identity"></a>Autentisera en användaridentitet
 
-När du har kontrollerat att din användar identitet har fått den behörighet som krävs, öppnar du en kommando tolk, skriver följande kommando och trycker sedan på RETUR-tangenten.
+När du har verifierat att din användaridentitet har fått den nödvändiga auktoriseringsnivån öppnar du en kommandotolk, skriver följande kommando och trycker sedan på RETUR.
 
 ```azcopy
 azcopy login
 ```
 
-Om du tillhör fler än en organisation inkluderar du klient-ID för den organisation som lagrings kontot tillhör.
+Om du tillhör mer än en organisation, inkludera klient-ID för den organisation som lagringskontot tillhör.
 
 ```azcopy
 azcopy login --tenant-id=<tenant-id>
 ```
 
-Ersätt `<tenant-id>` plats hållaren med klient-ID: t för den organisation som lagrings kontot tillhör. Om du vill hitta klient-ID: t väljer du **Azure Active Directory > egenskaper > katalog-ID** i Azure Portal.
+Ersätt `<tenant-id>` platshållaren med klient-ID:t för den organisation som lagringskontot tillhör. Om du vill hitta klient-ID:et väljer du **Azure Active Directory > Properties > Directory ID** i Azure-portalen.
 
-Det här kommandot returnerar en autentiseringsnyckel och URL: en för en webbplats. Öppna webbplatsen, ange koden och välj sedan knappen **Nästa** .
+Det här kommandot returnerar en autentiseringskod och webbadressen till en webbplats. Öppna webbplatsen, ange koden och välj sedan knappen **Nästa.**
 
 ![Skapa en container](media/storage-use-azcopy-v10/azcopy-login.png)
 
-Ett inloggnings fönster visas. I det fönstret loggar du in på ditt Azure-konto med hjälp av dina autentiseringsuppgifter för Azure-kontot. När du har loggat in kan du stänga webbläsarfönstret och börja använda AzCopy.
+Ett inloggningsfönster visas. I det fönstret loggar du in på ditt Azure-konto med hjälp av dina Azure-kontouppgifter. När du har loggat in kan du stänga webbläsarfönstret och börja använda AzCopy.
 
 <a id="service-principal" />
 
-#### <a name="authenticate-a-service-principal"></a>Autentisera ett huvud namn för tjänsten
+#### <a name="authenticate-a-service-principal"></a>Autentisera ett tjänsthuvudnamn
 
-Det här är ett bra alternativ om du planerar att använda AzCopy inuti ett skript som körs utan användar åtgärder, särskilt när du kör lokalt. Om du planerar att köra AzCopy på virtuella datorer som körs i Azure är det enklare att administrera en hanterad tjänst identitet. Mer information finns i avsnittet [autentisera en hanterad identitet](#managed-identity) i den här artikeln.
+Detta är ett bra alternativ om du planerar att använda AzCopy inuti ett skript som körs utan användarinteraktion, särskilt när du kör lokalt. Om du planerar att köra AzCopy på virtuella datorer som körs i Azure är en hanterad tjänstidentitet enklare att administrera. Mer information finns i avsnittet [Autentisera en hanterad identitet i](#managed-identity) den här artikeln.
 
-Innan du kör ett skript måste du logga in interaktivt minst en tid så att du kan ange AzCopy med autentiseringsuppgifterna för tjänstens huvud namn.  Dessa autentiseringsuppgifter lagras i en säker och krypterad fil så att ditt skript inte behöver ange den känsliga informationen.
+Innan du kör ett skript måste du logga in interaktivt minst en gång så att du kan förse AzCopy med autentiseringsuppgifterna för tjänstens huvudnamn.  Dessa autentiseringsuppgifter lagras i en skyddad och krypterad fil så att skriptet inte behöver ange den känsliga informationen.
 
-Du kan logga in på ditt konto med hjälp av en klient hemlighet eller genom att använda lösen ordet för ett certifikat som är kopplat till tjänstens huvud namn för appens registrering.
+Du kan logga in på ditt konto med hjälp av en klienthemlighet eller genom att använda lösenordet för ett certifikat som är kopplat till tjänstens huvudnamns appregistrering.
 
-Mer information om hur du skapar tjänstens huvud namn finns i [så här gör du: Använd portalen för att skapa ett Azure AD-program och tjänstens huvud namn som kan komma åt resurser](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
+Mer information om hur du skapar tjänstens huvudnamn finns i [Så här: Använd portalen för att skapa ett Azure AD-program och tjänsthuvudnamn som kan komma åt resurser](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
 
-Om du vill veta mer om tjänstens huvud namn i allmänhet, se [program-och tjänst huvud objekt i Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals)
+Mer information om tjänstens huvudnamn i allmänhet finns i [Program- och tjänsthuvudobjekt i Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals)
 
-##### <a name="using-a-client-secret"></a>Använda en klient hemlighet
+##### <a name="using-a-client-secret"></a>Använda en klienthemlighet
 
-Börja med att ställa in `AZCOPY_SPA_CLIENT_SECRET`-miljövariabeln på klient hemligheten för tjänstens huvud namn för appen.
+Börja med `AZCOPY_SPA_CLIENT_SECRET` att ställa in miljövariabeln till klienthemligheten för tjänstens huvudnamns appregistrering.
 
 > [!NOTE]
-> Se till att ange det här värdet från kommando tolken och inte i miljö variabel inställningarna för ditt operativ system. På så sätt är värdet bara tillgängligt för den aktuella sessionen.
+> Se till att ange det här värdet från kommandotolken och inte i miljövariabelinställningarna för operativsystemet. På så sätt är värdet endast tillgängligt för den aktuella sessionen.
 
 Det här exemplet visar hur du kan göra detta i PowerShell.
 
@@ -153,26 +153,26 @@ $env:AZCOPY_SPA_CLIENT_SECRET="$(Read-Host -prompt "Enter key")"
 ```
 
 > [!NOTE]
-> Överväg att använda en prompt som du ser i det här exemplet. På så sätt visas inte lösen ordet i konsolens kommando historik.  
+> Överväg att använda en fråga som visas i det här exemplet. På så sätt visas inte lösenordet i konsolens kommandohistorik.  
 
-Skriv sedan följande kommando och tryck sedan på RETUR-tangenten.
+Skriv sedan följande kommando och tryck sedan på RETUR.
 
 ```azcopy
 azcopy login --service-principal --application-id <application-id> --tenant-id=<tenant-id>
 ```
 
-Ersätt `<application-id>` plats hållaren med program-ID: t för tjänstens huvud namn för appens registrering. Ersätt `<tenant-id>` plats hållaren med klient-ID: t för den organisation som lagrings kontot tillhör. Om du vill hitta klient-ID: t väljer du **Azure Active Directory > egenskaper > katalog-ID** i Azure Portal. 
+Ersätt `<application-id>` platshållaren med program-ID:t för tjänsthuvudhuvudets appregistrering. Ersätt `<tenant-id>` platshållaren med klient-ID:t för den organisation som lagringskontot tillhör. Om du vill hitta klient-ID:et väljer du **Azure Active Directory > Properties > Directory ID** i Azure-portalen. 
 
 ##### <a name="using-a-certificate"></a>Använda ett certifikat
 
-Om du föredrar att använda dina egna autentiseringsuppgifter för auktorisering kan du ladda upp ett certifikat till appens registrering och sedan använda det certifikatet för att logga in.
+Om du föredrar att använda dina egna autentiseringsuppgifter för auktorisering kan du ladda upp ett certifikat till din appregistrering och sedan använda det certifikatet för att logga in.
 
-Förutom att ladda upp ditt certifikat till din app-registrering måste du också ha en kopia av certifikatet som har sparats på datorn eller den virtuella dator där AzCopy ska köras. Den här kopian av certifikatet bör vara i. PFX eller. PEM-format och måste innehålla den privata nyckeln. Den privata nyckeln bör vara lösenordsskyddad. Om du använder Windows och ditt certifikat bara finns i ett certifikat Arkiv, måste du exportera certifikatet till en PFX-fil (inklusive den privata nyckeln). Vägledning finns i [export-PfxCertificate](https://docs.microsoft.com/powershell/module/pkiclient/export-pfxcertificate?view=win10-ps)
+Förutom att ladda upp certifikatet till din appregistrering måste du också ha en kopia av certifikatet sparat på den dator eller dator där AzCopy körs. Denna kopia av intyget ska finnas i . PFX eller . PEM-format och måste innehålla den privata nyckeln. Den privata nyckeln bör vara lösenordsskyddad. Om du använder Windows och certifikatet bara finns i ett certifikatarkiv måste du exportera certifikatet till en PFX-fil (inklusive den privata nyckeln). För vägledning, se [Exportera-PfxCertificate](https://docs.microsoft.com/powershell/module/pkiclient/export-pfxcertificate?view=win10-ps)
 
-Ange sedan `AZCOPY_SPA_CERT_PASSWORD`-miljövariabeln till certifikatets lösen ord.
+Ange sedan `AZCOPY_SPA_CERT_PASSWORD` miljövariabeln till certifikatlösenordet.
 
 > [!NOTE]
-> Se till att ange det här värdet från kommando tolken och inte i miljö variabel inställningarna för ditt operativ system. På så sätt är värdet bara tillgängligt för den aktuella sessionen.
+> Se till att ange det här värdet från kommandotolken och inte i miljövariabelinställningarna för operativsystemet. På så sätt är värdet endast tillgängligt för den aktuella sessionen.
 
 Det här exemplet visar hur du kan utföra den här uppgiften i PowerShell.
 
@@ -180,96 +180,96 @@ Det här exemplet visar hur du kan utföra den här uppgiften i PowerShell.
 $env:AZCOPY_SPA_CERT_PASSWORD="$(Read-Host -prompt "Enter key")"
 ```
 
-Skriv sedan följande kommando och tryck sedan på RETUR-tangenten.
+Skriv sedan följande kommando och tryck sedan på RETUR.
 
 ```azcopy
 azcopy login --service-principal --certificate-path <path-to-certificate-file> --tenant-id=<tenant-id>
 ```
 
-Ersätt den `<path-to-certificate-file>` plats hållaren med den relativa eller fullständigt kvalificerade sökvägen till certifikat filen. AzCopy sparar sökvägen till det här certifikatet, men det sparar inte en kopia av certifikatet, så se till att hålla certifikatet på plats. Ersätt `<tenant-id>` plats hållaren med klient-ID: t för den organisation som lagrings kontot tillhör. Om du vill hitta klient-ID: t väljer du **Azure Active Directory > egenskaper > katalog-ID** i Azure Portal.
+Ersätt `<path-to-certificate-file>` platshållaren med den relativa eller fullständigt kvalificerade sökvägen till certifikatfilen. AzCopy sparar sökvägen till det här certifikatet, men det sparar inte en kopia av certifikatet, så se till att hålla certifikatet på plats. Ersätt `<tenant-id>` platshållaren med klient-ID:t för den organisation som lagringskontot tillhör. Om du vill hitta klient-ID:et väljer du **Azure Active Directory > Properties > Directory ID** i Azure-portalen.
 
 > [!NOTE]
-> Överväg att använda en prompt som du ser i det här exemplet. På så sätt visas inte lösen ordet i konsolens kommando historik. 
+> Överväg att använda en fråga som visas i det här exemplet. På så sätt visas inte lösenordet i konsolens kommandohistorik. 
 
 <a id="managed-identity" />
 
 #### <a name="authenticate-a-managed-identity"></a>Autentisera en hanterad identitet
 
-Det här är ett bra alternativ om du planerar att använda AzCopy inuti ett skript som körs utan användar interaktion och skriptet körs från en virtuell Azure-dator (VM). När du använder det här alternativet behöver du inte lagra några autentiseringsuppgifter på den virtuella datorn.
+Detta är ett bra alternativ om du planerar att använda AzCopy inuti ett skript som körs utan användarinteraktion och skriptet körs från en virtuell virtuell dator (Virtuell dator) ( Azure Virtual Machine). När du använder det här alternativet behöver du inte lagra några autentiseringsuppgifter på den virtuella datorn.
 
-Du kan logga in på ditt konto genom att använda en systemomfattande hanterad identitet som du har aktiverat på den virtuella datorn, eller genom att använda klient-ID, objekt-ID eller resurs-ID för en användardefinierad hanterad identitet som du har tilldelat till den virtuella datorn.
+Du kan logga in på ditt konto med hjälp av den systemomfattande hanterade identitet som du har aktiverat på den virtuella datorn, eller med hjälp av klient-ID, object ID eller Resource ID för en användartilldelad hanterad identitet som du har tilldelat den virtuella datorn.
 
-Mer information om hur du aktiverar en systemomfattande hanterad identitet eller skapar en användardefinierad hanterad identitet finns i [Konfigurera hanterade identiteter för Azure-resurser på en virtuell dator med hjälp av Azure Portal](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md#enable-system-assigned-managed-identity-on-an-existing-vm).
+Mer information om hur du aktiverar en systemomfattande hanterad identitet eller skapar en användartilldelad hanterad identitet finns i [Konfigurera hanterade identiteter för Azure-resurser på en virtuell dator med Azure-portalen](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md#enable-system-assigned-managed-identity-on-an-existing-vm).
 
-##### <a name="using-a-system-wide-managed-identity"></a>Använda en systemomfattande hanterad identitet
+##### <a name="using-a-system-wide-managed-identity"></a>Använda en hanterad systemomfattande identitet
 
-Kontrol lera först att du har aktiverat en systemomfattande hanterad identitet på den virtuella datorn. Se [systemtilldelad hanterad identitet](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm#system-assigned-managed-identity).
+Kontrollera först att du har aktiverat en systemomfattande hanterad identitet på den virtuella datorn. Se [Systemtilldelade hanterade identitet](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm#system-assigned-managed-identity).
 
-Skriv sedan följande kommando i kommando konsolen och tryck sedan på RETUR-tangenten.
+Skriv sedan följande kommando i kommandokonsolen och tryck sedan på RETUR.
 
 ```azcopy
 azcopy login --identity
 ```
 
-##### <a name="using-a-user-assigned-managed-identity"></a>Använda en användardefinierad hanterad identitet
+##### <a name="using-a-user-assigned-managed-identity"></a>Använda en användartilldelad hanterad identitet
 
-Kontrol lera först att du har aktiverat en användardefinierad hanterad identitet på den virtuella datorn. Se [användarens tilldelade hanterade identitet](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm#user-assigned-managed-identity).
+Kontrollera först att du har aktiverat en användartilldelad hanterad identitet på den virtuella datorn. Se [Användartilldelade hanterade identitet](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm#user-assigned-managed-identity).
 
-Skriv sedan något av följande kommandon i kommando konsolen och tryck sedan på RETUR-tangenten.
+Skriv sedan något av följande kommandon i kommandokonsolen och tryck sedan på RETUR.
 
 ```azcopy
 azcopy login --identity --identity-client-id "<client-id>"
 ```
 
-Ersätt `<client-id>` plats hållaren med klient-ID: t för den användarspecifika hanterade identiteten.
+Ersätt `<client-id>` platshållaren med klient-ID:et för den användartilldelade hanterade identiteten.
 
 ```azcopy
 azcopy login --identity --identity-object-id "<object-id>"
 ```
 
-Ersätt `<object-id>` plats hållaren med objekt-ID: t för den användare som tilldelats den hanterade identiteten.
+Ersätt `<object-id>` platshållaren med objekt-ID:t för den användartilldelade hanterade identiteten.
 
 ```azcopy
 azcopy login --identity --identity-resource-id "<resource-id>"
 ```
 
-Ersätt `<resource-id>` plats hållaren med resurs-ID för den användare som tilldelats den hanterade identiteten.
+Ersätt `<resource-id>` platshållaren med resurs-ID:t för den användartilldelade hanterade identiteten.
 
 ### <a name="option-2-use-a-sas-token"></a>Alternativ 2: Använd en SAS-token
 
-Du kan lägga till en SAS-token för varje käll-eller mål-URL som används i dina AzCopy-kommandon.
+Du kan lägga till en SAS-token i varje käll- eller mål-URL som används i azcopykommandona.
 
-Det här exempel kommandot kopierar data rekursivt från en lokal katalog till en BLOB-behållare. En fiktiv SAS-token läggs till i slutet av för behållar-URL: en.
+Det här exempelkommandot kopierar rekursivt data från en lokal katalog till en blob-behållare. En fiktiv SAS-token läggs till i slutet av behållar-URL:en.
 
 ```azcopy
 azcopy copy "C:\local\path" "https://account.blob.core.windows.net/mycontainer1/?sv=2018-03-28&ss=bjqt&srt=sco&sp=rwddgcup&se=2019-05-01T05:01:17Z&st=2019-04-30T21:01:17Z&spr=https&sig=MGCXiyEzbtttkr3ewJIh2AR8KrghSy1DGM9ovN734bQF4%3D" --recursive=true
 ```
 
-Mer information om SAS-token och hur du hämtar en finns i [använda signaturer för delad åtkomst (SAS)](https://docs.microsoft.com/azure/storage/common/storage-sas-overview).
+Mer information om SAS-token och hur du skaffar en finns i [Använda SIGNATURER för delad åtkomst (SAS).](https://docs.microsoft.com/azure/storage/common/storage-sas-overview)
 
-## <a name="transfer-files"></a>Överför filer
+## <a name="transfer-files"></a>Överföra filer
 
 När du har autentiserat din identitet eller fått en SAS-token kan du börja överföra filer.
 
-Du hittar exempel kommandon i någon av de här artiklarna.
+Information om hur du hittar exempelkommandon finns i någon av dessa artiklar.
 
-- [Överföra data med AzCopy och Blob Storage](storage-use-azcopy-blobs.md)
+- [Överföra data med AzCopy- och bloblagring](storage-use-azcopy-blobs.md)
 
-- [Överföra data med AzCopy och fil lagring](storage-use-azcopy-files.md)
+- [Överföra data med AzCopy och fillagring](storage-use-azcopy-files.md)
 
-- [Överföra data med AzCopy och Amazon S3-buckets](storage-use-azcopy-s3.md)
+- [Överför data med AzCopy och Amazon S3 hinkar](storage-use-azcopy-s3.md)
 
-- [Överföra data med AzCopy och Azure Stack Storage](https://docs.microsoft.com/azure-stack/user/azure-stack-storage-transfer#azcopy)
+- [Överföra data med Lagring av AzCopy och Azure Stack](https://docs.microsoft.com/azure-stack/user/azure-stack-storage-transfer#azcopy)
 
 ## <a name="use-azcopy-in-a-script"></a>Använda AzCopy i ett skript
 
-### <a name="obtain-a-static-download-link"></a>Hämta en statisk nedladdnings länk
+### <a name="obtain-a-static-download-link"></a>Skaffa en statisk nedladdningslänk
 
-Med tiden kommer [nedladdnings länken](#download-and-install-azcopy) för AzCopy att peka på nya versioner av AzCopy. Om skriptet laddar ned AzCopy kan skriptet sluta fungera om en nyare version av AzCopy ändrar de funktioner som skriptet är beroende av.
+Med tiden kommer AzCopy [nedladdningslänken](#download-and-install-azcopy) peka på nya versioner av AzCopy. Om skriptet hämtar AzCopy kan skriptet sluta fungera om en nyare version av AzCopy ändrar funktioner som skriptet är beroende av.
 
-Undvik dessa problem genom att hämta en statisk (ändra) länk till den aktuella versionen av AzCopy. På så sätt laddar skriptet ned samma exakta version av AzCopy varje gång den körs.
+Undvik dessa problem genom att skaffa en statisk (obyte) länk till den aktuella versionen av AzCopy. På så sätt hämtar skriptet exakt samma version av AzCopy varje gång det körs.
 
-Hämta länken genom att köra det här kommandot:
+Om du vill hämta länken kör du det här kommandot:
 
 | Operativsystem  | Kommando |
 |--------|-----------|
@@ -277,18 +277,18 @@ Hämta länken genom att köra det här kommandot:
 | **Windows** | `(curl https://aka.ms/downloadazcopy-v10-windows -MaximumRedirection 0 -ErrorAction silentlycontinue).RawContent` |
 
 > [!NOTE]
-> För Linux, `--strip-components=1` i `tar` kommandot tar bort mappen på den översta nivån som innehåller versions namnet, och extraherar i stället binärfilen direkt till den aktuella mappen. Detta gör att skriptet kan uppdateras med en ny version av `azcopy` genom att endast uppdatera `wget`-URL: en.
+> För Linux `--strip-components=1` tar `tar` den översta mappen som innehåller versionsnamnet bort på kommandot och extraherar i stället binärfilen direkt i den aktuella mappen. Detta gör att skriptet kan uppdateras med en ny version av `azcopy` genom att bara uppdatera `wget` URL:en.
 
-URL: en visas i kommandots utdata. Skriptet kan sedan hämta AzCopy med hjälp av den URL: en.
+URL:en visas i utdata från det här kommandot. Skriptet kan sedan hämta AzCopy med hjälp av webbadressen.
 
 | Operativsystem  | Kommando |
 |--------|-----------|
 | **Linux** | `wget -O azcopy_v10.tar.gz https://aka.ms/downloadazcopy-v10-linux && tar -xf azcopy_v10.tar.gz --strip-components=1` |
 | **Windows** | `Invoke-WebRequest https://azcopyvnext.azureedge.net/release20190517/azcopy_windows_amd64_10.1.2.zip -OutFile azcopyv10.zip <<Unzip here>>` |
 
-### <a name="escape-special-characters-in-sas-tokens"></a>Escape-specialtecken i SAS-token
+### <a name="escape-special-characters-in-sas-tokens"></a>Escape specialtecken i SAS-token
 
-I kommandofiler som har `.cmd` tillägget måste du undanta de `%` tecknen som visas i SAS-token. Du kan göra det genom att lägga till ett additions `%` tecken bredvid befintliga `%` tecken i SAS-token-strängen.
+I batchfiler som `.cmd` har tillägget måste du `%` fly från de tecken som visas i SAS-token. Det kan du göra `%` genom att `%` lägga till ytterligare ett tecken bredvid befintliga tecken i SAS-tokensträngen.
 
 ### <a name="run-scripts-by-using-jenkins"></a>Köra skript med Jenkins
 
@@ -298,21 +298,21 @@ Om du planerar att använda [Jenkins](https://jenkins.io/) för att köra skript
 /usr/bin/keyctl new_session
 ```
 
-## <a name="use-azcopy-in-azure-storage-explorer"></a>Använd AzCopy i Azure Storage Explorer
+## <a name="use-azcopy-in-azure-storage-explorer"></a>Använda AzCopy i Azure Storage Explorer
 
-[Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) använder AzCopy för att utföra alla data överförings åtgärder. Du kan använda [Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) om du vill dra nytta av prestanda fördelarna med AZCopy, men du föredrar att använda ett grafiskt användar gränssnitt i stället för kommando raden för att interagera med dina filer.
+[Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) använder AzCopy för att utföra alla dess dataöverföringsåtgärder. Du kan använda [Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) om du vill utnyttja prestandafördelarna med AzCopy, men du föredrar att använda ett grafiskt användargränssnitt i stället för kommandoraden för att interagera med dina filer.
 
-Storage Explorer använder din konto nyckel för att utföra åtgärder, så när du har loggat in på Storage Explorer behöver du inte ange ytterligare autentiseringsuppgifter för auktorisering.
+Storage Explorer använder din kontonyckel för att utföra åtgärder, så när du har loggat in på Storage Explorer behöver du inte ange ytterligare auktoriseringsautentiseringsuppgifter.
 
 <a id="previous-version" />
 
-## <a name="use-the-previous-version-of-azcopy"></a>Använd den tidigare versionen av AzCopy
+## <a name="use-the-previous-version-of-azcopy"></a>Använda den tidigare versionen av AzCopy
 
-Om du behöver använda den tidigare versionen av AzCopy (AzCopy v 8.1) kan du läsa någon av följande länkar:
+Om du behöver använda den tidigare versionen av AzCopy (AzCopy v8.1), se någon av följande länkar:
 
-- [AzCopy på Windows (V8)](https://docs.microsoft.com/previous-versions/azure/storage/storage-use-azcopy)
+- [AzCopy i Windows (v8)](https://docs.microsoft.com/previous-versions/azure/storage/storage-use-azcopy)
 
-- [AzCopy på Linux (V8)](https://docs.microsoft.com/previous-versions/azure/storage/storage-use-azcopy-linux)
+- [AzCopy i Linux (v8)](https://docs.microsoft.com/previous-versions/azure/storage/storage-use-azcopy-linux)
 
 ## <a name="configure-optimize-and-troubleshoot-azcopy"></a>Konfigurera, optimera och felsöka AzCopy
 
@@ -320,4 +320,4 @@ Se [Konfigurera, optimera och felsöka AzCopy](storage-use-azcopy-configure.md)
 
 ## <a name="next-steps"></a>Nästa steg
 
-Om du har frågor, problem eller allmän feedback kan du skicka dem [till GitHub](https://github.com/Azure/azure-storage-azcopy) -sidan.
+Om du har frågor, problem eller allmän feedback skickar du dem [på GitHub-sidan.](https://github.com/Azure/azure-storage-azcopy)

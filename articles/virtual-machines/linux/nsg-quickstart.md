@@ -1,6 +1,6 @@
 ---
 title: Öppna portar till en virtuell dator med Azure CLI
-description: Lär dig hur du öppnar en port/skapar en slut punkt för din virtuella dator med hjälp av Azure CLI.
+description: Lär dig hur du öppnar en port /skapar en slutpunkt till din virtuella dator med Hjälp av Azure CLI.
 author: cynthn
 manager: gwallace
 ms.service: virtual-machines
@@ -9,35 +9,35 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 12/13/2017
 ms.author: cynthn
-ms.openlocfilehash: d9488b7a466dfc67edbf2dcbee966fc1fc72e8b7
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.openlocfilehash: c29fb075fc2d8b512070d7a6cf3fef949def5894
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/09/2020
-ms.locfileid: "78944546"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80066634"
 ---
-# <a name="open-ports-and-endpoints-to-a-vm-with-the-azure-cli"></a>Öppna portar och slut punkter till en virtuell dator med Azure CLI
+# <a name="open-ports-and-endpoints-to-a-vm-with-the-azure-cli"></a>Öppna portar och slutpunkter till en virtuell dator med Azure CLI
 
-Du öppnar en port eller skapar en slut punkt för en virtuell dator (VM) i Azure genom att skapa ett nätverks filter i ett undernät eller ett nätverks gränssnitt för virtuella datorer. Du placerar dessa filter, som styr både inkommande och utgående trafik, i en nätverks säkerhets grupp som är kopplad till den resurs som tar emot trafiken. Vi använder ett vanligt exempel på webb trafik på port 80. Den här artikeln visar hur du öppnar en port till en virtuell dator med Azure CLI. 
-
-
-Om du vill skapa en nätverks säkerhets grupp och regler måste du ha det senaste [Azure CLI](/cli/azure/install-az-cli2) installerat och inloggat på ett Azure-konto med [AZ-inloggning](/cli/azure/reference-index).
-
-Ersätt exempel parameter namn med dina egna värden i följande exempel. Exempel på parameter namn är *myResourceGroup*, *myNetworkSecurityGroup*och *myVnet*.
+Du öppnar en port eller skapar en slutpunkt till en virtuell dator (VM) i Azure genom att skapa ett nätverksfilter i ett undernät eller vm-nätverksgränssnitt. Du placerar dessa filter, som styr både inkommande och utgående trafik, i en nätverkssäkerhetsgrupp som är kopplad till den resurs som tar emot trafiken. Låt oss använda ett vanligt exempel på webbtrafik på port 80. Den här artikeln visar hur du öppnar en port till en virtuell dator med Azure CLI. 
 
 
-## <a name="quickly-open-a-port-for-a-vm"></a>Öppna en port för en virtuell dator snabbt
-Om du snabbt behöver öppna en port för en virtuell dator i ett utvecklings-/test scenario kan du använda kommandot [AZ VM Open-port](/cli/azure/vm) . Det här kommandot skapar en nätverks säkerhets grupp, lägger till en regel och tillämpar den på en virtuell dator eller undernät. I följande exempel öppnas port *80* på den virtuella datorn med namnet *myVM* i resurs gruppen med namnet *myResourceGroup*.
+För att skapa en nätverkssäkerhetsgrupp och regler behöver du den senaste [Azure CLI](/cli/azure/install-az-cli2) installerat och inloggad på ett Azure-konto med [az-inloggning](/cli/azure/reference-index).
 
-```azure-cli
+I följande exempel ersätter du exempelparameternamn med dina egna värden. Exempelparameternamn inkluderar *myResourceGroup,* *myNetworkSecurityGroup*och *myVnet*.
+
+
+## <a name="quickly-open-a-port-for-a-vm"></a>Öppna snabbt en port för en virtuell dator
+Om du snabbt behöver öppna en port för en virtuell dator i ett scenario för utveckling/test kan du använda kommandot [az vm open-port.](/cli/azure/vm) Det här kommandot skapar en nätverkssäkerhetsgrupp, lägger till en regel och tillämpar den på en virtuell dator eller ett undernät. I följande exempel öppnas port *80* på den virtuella datorn med namnet *myVM* i resursgruppen *myResourceGroup*.
+
+```azurecli
 az vm open-port --resource-group myResourceGroup --name myVM --port 80
 ```
 
-Om du vill ha mer kontroll över reglerna, till exempel definiera ett käll-IP-adressintervall, fortsätter du med de ytterligare stegen i den här artikeln.
+Om du vill ha mer kontroll över reglerna, till exempel definiera ett käll-IP-adressintervall, fortsätter du med ytterligare steg i den här artikeln.
 
 
-## <a name="create-a-network-security-group-and-rules"></a>Skapa en nätverks säkerhets grupp och regler
-Skapa nätverks säkerhets gruppen med [AZ Network NSG Create](/cli/azure/network/nsg). I följande exempel skapas en nätverks säkerhets grupp med namnet *myNetworkSecurityGroup* på platsen för *öster* :
+## <a name="create-a-network-security-group-and-rules"></a>Skapa en nätverkssäkerhetsgrupp och regler
+Skapa nätverkssäkerhetsgruppen med [az network nsg create](/cli/azure/network/nsg). I följande exempel skapas en nätverkssäkerhetsgrupp med namnet *myNetworkSecurityGroup* på *eastus-platsen:*
 
 ```azurecli
 az network nsg create \
@@ -46,7 +46,7 @@ az network nsg create \
     --name myNetworkSecurityGroup
 ```
 
-Lägg till en regel med [AZ Network NSG Rule Create](/cli/azure/network/nsg/rule) för att tillåta http-trafik till din webserver (eller justera för ditt eget scenario, till exempel SSH-åtkomst eller databas anslutning). I följande exempel skapas en regel med namnet *myNetworkSecurityGroupRule* för att tillåta TCP-trafik på port 80:
+Lägg till en regel med [az-nätverks nsg-regel skapa](/cli/azure/network/nsg/rule) för att tillåta HTTP-trafik till din webbserver (eller justera för ditt eget scenario, till exempel SSH-åtkomst eller databasanslutning). I följande exempel skapas en regel med namnet *myNetworkSecurityGroupRule* för att tillåta TCP-trafik på port 80:
 
 ```azurecli
 az network nsg rule create \
@@ -59,8 +59,8 @@ az network nsg rule create \
 ```
 
 
-## <a name="apply-network-security-group-to-vm"></a>Tillämpa nätverks säkerhets gruppen på den virtuella datorn
-Associera nätverks säkerhets gruppen med den virtuella datorns nätverks gränssnitt (NIC) med [AZ Network NIC Update](/cli/azure/network/nic). I följande exempel associeras ett befintligt nätverkskort med namnet *myNic* med nätverks säkerhets gruppen med namnet *myNetworkSecurityGroup*:
+## <a name="apply-network-security-group-to-vm"></a>Använda nätverkssäkerhetsgrupp på virtuell dator
+Associera nätverkssäkerhetsgruppen med den virtuella datorns nätverksgränssnitt (NIC) med [az-nätverksuppdatering](/cli/azure/network/nic). I följande exempel associeras ett befintligt nätverkskort med namnet *myNic* med nätverkssäkerhetsgruppen *myNetworkSecurityGroup:*
 
 ```azurecli
 az network nic update \
@@ -69,7 +69,7 @@ az network nic update \
     --network-security-group myNetworkSecurityGroup
 ```
 
-Du kan också associera din nätverks säkerhets grupp med ett virtuellt nätverks under nät med [AZ Network VNet-undernät](/cli/azure/network/vnet/subnet) i stället för bara nätverks gränssnittet på en enskild virtuell dator. I följande exempel associeras ett befintligt undernät med namnet mina *undernät* i det virtuella *myVnet* -nätverket med nätverks säkerhets gruppen med namnet *myNetworkSecurityGroup*:
+Du kan också associera nätverkssäkerhetsgruppen med ett virtuellt nätverksundernät med [az network vnet-undernätsuppdatering](/cli/azure/network/vnet/subnet) i stället för bara till nätverksgränssnittet på en enda virtuell dator. I följande exempel associeras ett befintligt undernät med namnet *mySubnet* i *myVnet-nätverket* med nätverkssäkerhetsgruppen *myNetworkSecurityGroup:*
 
 ```azurecli
 az network vnet subnet update \
@@ -79,13 +79,13 @@ az network vnet subnet update \
     --network-security-group myNetworkSecurityGroup
 ```
 
-## <a name="more-information-on-network-security-groups"></a>Mer information om nätverks säkerhets grupper
-Med hjälp av snabb kommandona kan du komma igång med trafik som flödar till den virtuella datorn. Nätverks säkerhets grupper ger många fantastiska funktioner och granularitet för att kontrol lera åtkomsten till dina resurser. Du kan läsa mer om att [skapa en nätverks säkerhets grupp och ACL-regler här](tutorial-virtual-network.md#secure-network-traffic).
+## <a name="more-information-on-network-security-groups"></a>Mer information om nätverkssäkerhetsgrupper
+De snabba kommandona här gör att du kan komma igång med trafik som flödar till din virtuella dator. Nätverkssäkerhetsgrupper ger många bra funktioner och granularitet för att kontrollera åtkomsten till dina resurser. Du kan läsa mer om [hur du skapar en nätverkssäkerhetsgrupp och ACL-regler här](tutorial-virtual-network.md#secure-network-traffic).
 
-För webb program med hög tillgänglighet bör du placera de virtuella datorerna bakom en Azure Load Balancer. Belastningsutjämnaren distribuerar trafik till virtuella datorer, med en nätverks säkerhets grupp som tillhandahåller trafik filtrering. Mer information finns i [så här kan du belastningsutjämna virtuella Linux-datorer i Azure för att skapa ett program med hög](tutorial-load-balancer.md)tillgänglighet.
+För webbprogram med hög tillgänglig tillgång bör du placera dina virtuella datorer bakom en Azure Load Balancer. Belastningsutjämnaren distribuerar trafik till virtuella datorer, med en nätverkssäkerhetsgrupp som tillhandahåller trafikfiltrering. Mer information finns i [Så här laddar du fördelning av virtuella Linux-datorer i Azure för att skapa ett program med hög tillgänglig tillgång](tutorial-load-balancer.md).
 
 ## <a name="next-steps"></a>Nästa steg
-I det här exemplet har du skapat en enkel regel för att tillåta HTTP-trafik. Du hittar information om att skapa mer detaljerade miljöer i följande artiklar:
+I det här exemplet skapade du en enkel regel för att tillåta HTTP-trafik. Du hittar information om hur du skapar mer detaljerade miljöer i följande artiklar:
 
 * [Översikt över Azure Resource Manager](../../azure-resource-manager/management/overview.md)
 * [Vad är en nätverkssäkerhetsgrupp (NSG)?](../../virtual-network/security-overview.md)

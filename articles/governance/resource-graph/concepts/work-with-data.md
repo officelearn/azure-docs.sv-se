@@ -1,29 +1,29 @@
 ---
 title: Arbeta med stora datamängder
-description: Lär dig hur du hämtar, formaterar, visar och hoppar över poster i stora data mängder när du arbetar med Azures resurs diagram.
-ms.date: 10/18/2019
+description: Förstå hur du hämtar, formaterar, sidorar och hoppar över poster i stora datauppsättningar när du arbetar med Azure Resource Graph.
+ms.date: 03/20/2020
 ms.topic: conceptual
-ms.openlocfilehash: 2c6aca0c468630cee79222bc77bdc20dc9d95b19
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: be15a6234935627ca748276e6330c50c3ee5a775
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79259804"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80064749"
 ---
-# <a name="working-with-large-azure-resource-data-sets"></a>Arbeta med stora Azure-resurs data uppsättningar
+# <a name="working-with-large-azure-resource-data-sets"></a>Arbeta med stora Azure-resursdatauppsättningar
 
-Azure Resource Graph är utformat för att arbeta med och få information om resurser i din Azure-miljö. Resurs diagram gör det enkelt att komma åt dessa data, även när du frågar efter tusentals poster. Resurs diagram har flera alternativ för att arbeta med dessa stora data mängder.
+Azure Resource Graph är utformat för att arbeta med och få information om resurser i din Azure-miljö. Resource Graph gör det snabbt att få dessa data, även när du frågar tusentals poster. Resource Graph har flera alternativ för att arbeta med dessa stora datauppsättningar.
 
-Vägledning om hur du arbetar med frågor med hög frekvens finns i [rikt linjer för begränsade begär Anden](./guidance-for-throttled-requests.md).
+Information om hur du arbetar med frågor med hög frekvens finns i [Vägledning för begränsade begäranden](./guidance-for-throttled-requests.md).
 
-## <a name="data-set-result-size"></a>Resultat storlek för data uppsättning
+## <a name="data-set-result-size"></a>Resultatstorlek för datauppsättning
 
-Som standard begränsar resurs diagram alla frågor till att bara returnera **100** poster. Den här kontrollen skyddar både användaren och tjänsten från oavsiktliga frågor som leder till stora data mängder. Den här händelsen inträffar oftast när en kund experimenterar med frågor för att hitta och filtrera resurser på det sätt som passar deras specifika behov. Den här kontrollen skiljer sig från att använda [Top](/azure/kusto/query/topoperator) -eller [limit](/azure/kusto/query/limitoperator) -språkDatautforskarens språk operatörer för att begränsa resultaten.
+Som standard begränsar Resursdiagram alla frågor till att returnera endast **100** poster. Den här kontrollen skyddar både användaren och tjänsten från oavsiktliga frågor som skulle resultera i stora datauppsättningar. Den här händelsen inträffar oftast när en kund experimenterar med frågor för att hitta och filtrera resurser på det sätt som passar deras särskilda behov. Den här kontrollen skiljer sig från att använda de [översta](/azure/kusto/query/topoperator) eller [begränsa](/azure/kusto/query/limitoperator) Azure Data Explorer-språkoperatörer för att begränsa resultaten.
 
 > [!NOTE]
-> När du använder **första gången**rekommenderar vi att du sorterar resultaten efter minst en kolumn med `asc` eller `desc`. Utan sortering är de resultat som returneras slumpmässiga och inte repeterbara.
+> När du använder **Första**rekommenderas att du beställer resultaten `asc` `desc`med minst en kolumn med eller . Utan sortering är de returnerade resultaten slumpmässiga och kan inte upprepas.
 
-Standard gränsen kan åsidosättas genom alla metoder för att interagera med resurs diagram. I följande exempel visas hur du ändrar storleks gränsen för data uppsättningen till _200_:
+Standardgränsen kan åsidosättas genom alla metoder för att interagera med Resursdiagram. Följande exempel visar hur du ändrar storleksgränsen för datauppsättningen till _200:_
 
 ```azurecli-interactive
 az graph query -q "Resources | project name | order by name asc" --first 200 --output table
@@ -33,20 +33,20 @@ az graph query -q "Resources | project name | order by name asc" --first 200 --o
 Search-AzGraph -Query "Resources | project name | order by name asc" -First 200
 ```
 
-I [REST API](/rest/api/azureresourcegraph/resourcegraph(2018-09-01-preview)/resources/resources)är kontrollen **$Top** och ingår i **QueryRequestOptions**.
+I [REST API](/rest/api/azureresourcegraph/resourcegraph(2018-09-01-preview)/resources/resources)är kontrollen **$top** och är en del av **QueryRequestOptions**.
 
-Den kontroll som är _mest restriktiv_ är att vinna. Om din fråga till exempel använder **Top** -eller **Limit** -operatorer och skulle resultera i fler poster än den **första**, skulle de maximala poster som returneras vara lika med **först**. På samma sätt, om **Top** eller **Limit** är mindre än den **första**, skulle den returnerade post mängden vara det mindre värdet som kon figurer ATS av **Top** eller **Limit**.
+Den kontroll som är _mest restriktiv_ vinner. Om frågan till exempel använder de **översta** eller **limit-operatorerna** och skulle resultera i fler poster än **Först,** är de högsta posterna som returneras lika med **Först**. På samma sätt, om **över-** eller **gräns är** mindre än **Först,** skulle den postuppsättning som returneras vara det mindre värdet som konfigurerats av **över eller** **gräns**.
 
-För **närvarande har** det högsta tillåtna värdet _5000_.
+**Först** har för närvarande ett högsta tillåtna värde _på 5000_.
 
-## <a name="skipping-records"></a>Hoppar över poster
+## <a name="skipping-records"></a>Hoppa över poster
 
-Nästa alternativ för att arbeta med stora data mängder är **Skip** -kontrollen. Den här kontrollen tillåter att din fråga hoppar över eller hoppar över det definierade antalet poster innan resultatet returneras. **Skip** är användbart för frågor som sorterar resultat på ett meningsfullt sätt där avsikten är att hämta poster någonstans mitt i resultat uppsättningen. Om de resultat som behövs finns i slutet av den returnerade data uppsättningen, är det mer effektivt att använda en annan sorterings konfiguration och hämta resultaten från data uppsättningens överkant i stället.
+Nästa alternativ för att arbeta med stora datauppsättningar är **skip-kontrollen.** Med den här kontrollen kan frågan hoppa över eller hoppa över det definierade antalet poster innan resultaten returneras. **Skip** är användbart för frågor som sorterar resultat på ett meningsfullt sätt där avsikten är att komma åt poster någonstans i mitten av resultatuppsättningen. Om resultaten som behövs är i slutet av den returnerade datauppsättningen är det mer effektivt att använda en annan sorteringskonfiguration och hämta resultaten från datauppsättningens överkant i stället.
 
 > [!NOTE]
-> När du använder **Skip**rekommenderar vi att du ordnar resultaten efter minst en kolumn med `asc` eller `desc`. Utan sortering är de resultat som returneras slumpmässiga och inte repeterbara.
+> När du använder **Hoppa rekommenderas**att resultatet beställers `asc` med `desc`minst en kolumn med eller . Utan sortering är de returnerade resultaten slumpmässiga och kan inte upprepas.
 
-I följande exempel visas hur du hoppar över de första _10_ posterna som en fråga resulterar i, i stället för att starta den returnerade resultat uppsättningen med den elfte posten:
+Följande exempel visar hur du hoppar över de första _10_ posterna som en fråga skulle resultera i, i stället startar den returnerade resultatuppsättningen med den elfte posten:
 
 ```azurecli-interactive
 az graph query -q "Resources | project name | order by name asc" --skip 10 --output table
@@ -56,16 +56,16 @@ az graph query -q "Resources | project name | order by name asc" --skip 10 --out
 Search-AzGraph -Query "Resources | project name | order by name asc" -Skip 10
 ```
 
-I [REST API](/rest/api/azureresourcegraph/resourcegraph(2018-09-01-preview)/resources/resources)är kontrollen **$Skip** och ingår i **QueryRequestOptions**.
+I [REST API](/rest/api/azureresourcegraph/resourcegraph(2018-09-01-preview)/resources/resources)är kontrollen **$skip** och är en del av **QueryRequestOptions**.
 
 ## <a name="paging-results"></a>Växla resultat
 
-När det är nödvändigt att dela upp en resultat uppsättning i mindre mängder poster för bearbetning eller eftersom en resultat uppsättning skulle överskrida det högsta tillåtna värdet för _1000_ returnerade poster, använder du sid indelning. [REST API](/rest/api/azureresourcegraph/resourcegraph(2018-09-01-preview)/resources/resources) **QueryResponse** innehåller värden för att indikera en resultat uppsättning har delats upp: **resultTruncated** och **$skipToken**.
-**resultTruncated** är ett booleskt värde som informerar konsumenten om det finns ytterligare poster som inte returneras i svaret. Det här villkoret kan också identifieras när **Count** -egenskapen är mindre än egenskapen **totalRecords** . **totalRecords** definierar hur många poster som matchar frågan.
+När det är nödvändigt att bryta en resultatuppsättning i mindre uppsättningar poster för bearbetning eller på grund av att en resultatuppsättning skulle överskrida det högsta tillåtna värdet _på 1000_ returnerade poster använder du växling. [REST API](/rest/api/azureresourcegraph/resourcegraph(2018-09-01-preview)/resources/resources) **QueryResponse** innehåller värden som anger att en resultatuppsättning har brutits upp: **resultTruncated** och **$skipToken**.
+**resultatKommenterat** är ett booleskt värde som informerar konsumenten om det finns ytterligare poster som inte returneras i svaret. Det här villkoret kan också identifieras när **egenskapen count** är mindre än egenskapen **totalRecords.** **totalRecords** definierar hur många poster som matchar frågan.
 
-När **resultTruncated** är **true**anges egenskapen **$skipToken** i svaret. Det här värdet används med samma fråge-och prenumerations värden för att hämta nästa uppsättning poster som matchar frågan.
+ **resultatetStämda** **är sant** när antingen växling är `id` inaktiverad eller inte möjlig på grund av ingen kolumn eller när det finns mindre resurser tillgängliga än en fråga begär. När **resultatetSträckt** är **sant**anges inte **egenskapen $skipToken.**
 
-I följande exempel visas hur du **hoppar över** de första 3000 posterna och returnerar de **första** 1000 posterna när posterna hoppades över med Azure CLI och Azure PowerShell:
+Följande exempel visar hur **du hoppar över** de första 3 000 posterna och returnerar de **första** 1 000 posterna efter att de poster som hoppas över azure CLI och Azure PowerShell:
 
 ```azurecli-interactive
 az graph query -q "Resources | project id, name | order by id asc" --first 1000 --skip 3000
@@ -76,21 +76,21 @@ Search-AzGraph -Query "Resources | project id, name | order by id asc" -First 10
 ```
 
 > [!IMPORTANT]
-> Frågan måste **projicera** fältet **ID** för att sid brytning ska fungera. Om det saknas i frågan, innehåller svaret inte **$skipToken**.
+> Frågan måste **projicera** **id-fältet** för att sidnumrering ska fungera. Om det saknas i frågan kommer svaret inte att innehålla **$skipToken**.
 
-Ett exempel finns i [Nästa sida fråga](/rest/api/azureresourcegraph/resourcegraph(2018-09-01-preview)/resources/resources#next-page-query) i REST API dokumenten.
+En exempelvis se [Fråga på nästa sida](/rest/api/azureresourcegraph/resourcegraph(2018-09-01-preview)/resources/resources#next-page-query) i REST API-dokumenten.
 
-## <a name="formatting-results"></a>Formatering av resultat
+## <a name="formatting-results"></a>Formatera resultat
 
-Resultatet av en resurs diagram fråga finns i två format, _tabell_ -och _ObjectArray_. Formatet konfigureras med parametern **resultFormat** som en del av alternativen för begäran. _Tabell_ formatet är standardvärdet för **resultFormat**.
+Resultatet av en resursdiagramfråga finns i två format, _Tabell_ och _ObjectArray_. Formatet konfigureras med parametern **resultFormat** som en del av alternativen för begäran. _Tabellformatet_ är standardvärdet för **resultFormat**.
 
-Resultatet från Azure CLI finns som standard i JSON. Resultat i Azure PowerShell är som standard en **PSCustomObject** , men de kan snabbt konverteras till JSON med hjälp av `ConvertTo-Json`-cmdleten. I andra SDK: er kan frågeresultaten konfigureras för att skriva ut _ObjectArray_ -formatet.
+Resultat från Azure CLI tillhandahålls som standard i JSON. Resultat i Azure PowerShell är som standard ett **PSCustomObject,** men de `ConvertTo-Json` kan snabbt konverteras till JSON med hjälp av cmdleten. För andra SDK:er kan frågeresultatet konfigureras för att mata ut _ObjectArray-formatet._
 
-### <a name="format---table"></a>Format – tabell
+### <a name="format---table"></a>Format - Tabell
 
-Standardformat, _tabell_, returnerar resultat i ett JSON-format som är utformat för att markera kolumn design och rad värden för de egenskaper som returneras av frågan. Det här formatet liknar data som definierats i en strukturerad tabell eller ett kalkyl blad med kolumner som identifieras först och sedan varje rad som representerar data som är justerade för dessa kolumner.
+Standardformatet _Tabell_returnerar resultat i ett JSON-format som är utformat för att markera kolumndesignen och radvärdena för de egenskaper som returneras av frågan. Det här formatet liknar data enligt definitionen i en strukturerad tabell eller ett kalkylblad med de kolumner som först identifieras och sedan varje rad som representerar data som är justerade med dessa kolumner.
 
-Här är ett exempel på ett frågeresultat med _tabellformatering_ :
+Här är ett exempel på _Table_ ett frågeresultat med tabellformateringen:
 
 ```json
 {
@@ -128,11 +128,11 @@ Här är ett exempel på ett frågeresultat med _tabellformatering_ :
 }
 ```
 
-### <a name="format---objectarray"></a>Format – ObjectArray
+### <a name="format---objectarray"></a>Format - ObjectArray
 
-_ObjectArray_ -formatet returnerar också resultat i JSON-format. Den här designen motsvarar dock den nyckel/värde-par-relation som är gemensam i JSON där kolumnen och raddata matchas i mat ris grupper.
+_ObjectArray-formatet_ returnerar också resultat i ett JSON-format. Den här designen justerar dock till den nyckel-/värdeparrelation som är vanlig i JSON där kolumnen och raddata matchas i matrisgrupper.
 
-Här är ett exempel på ett frågeresultat med _ObjectArray_ formatering:
+Här är ett exempel på ett frågeresultat med _ObjectArray-formateringen:_
 
 ```json
 {
@@ -149,7 +149,7 @@ Här är ett exempel på ett frågeresultat med _ObjectArray_ formatering:
 }
 ```
 
-Här följer några exempel på hur du ställer in **resultFormat** för att använda _ObjectArray_ -formatet:
+Här är några exempel på att ange **resultatFormat** för att använda _ObjectArray-formatet:_
 
 ```csharp
 var requestOptions = new QueryRequestOptions( resultFormat: ResultFormat.ObjectArray);
@@ -166,6 +166,6 @@ response = client.resources(request)
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Se språket som används i [Start frågor](../samples/starter.md).
-- Se avancerade användnings områden i [avancerade frågor](../samples/advanced.md).
-- Lär dig mer om hur du [utforskar resurser](explore-resources.md).
+- Se språket som används i [Starter-frågor](../samples/starter.md).
+- Se avancerade användningsområden i [avancerade frågor](../samples/advanced.md).
+- Läs mer om hur du [utforskar resurser](explore-resources.md).

@@ -5,15 +5,15 @@ ms.topic: include
 ms.date: 08/23/2018
 ms.author: crdun
 ms.openlocfilehash: 79459be30a5a2018dc82486a84895b1a954941bc
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67187842"
 ---
-1. I den [Azure-portalen](https://portal.azure.com/)väljer **Bläddra bland alla** > **Apptjänster**. Sedan väljer Mobile Apps serverdel. Under **inställningar**väljer **App Service Push**. Välj sedan namnet på din meddelandehubb.
-2. Gå till **Windows (WNS)** . Ange sedan den **säkerhetsnyckel** (klienthemlighet) och **paket-SID** som du fick från webbplatsen för Live-tjänster. Välj sedan **spara**.
+1. I [Azure-portalen](https://portal.azure.com/)väljer du **Bläddra bland alla** > **App Services**. Välj sedan din bärbara mobilappars baksida. Under **Inställningar**väljer du **App Service Push**. Välj sedan namnet på meddelandehubben.
+2. Gå till **Windows (WNS)**. Ange sedan **säkerhetsnyckeln** (klienthemligheten) och **Package SID** som du har fått från webbplatsen Live Services. Välj sedan **Spara**.
 
-    ![Ange WNS-nyckeln i portalen](./media/app-service-mobile-configure-wns/mobile-push-wns-credentials.png)
+    ![Ange WNS-tangenten i portalen](./media/app-service-mobile-configure-wns/mobile-push-wns-credentials.png)
 
-Serverdelen har nu konfigurerats så att WNS för att skicka push-meddelanden.
+Din serverdel är nu konfigurerad för att använda WNS för att skicka push-meddelanden.

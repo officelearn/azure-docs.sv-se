@@ -1,6 +1,6 @@
 ---
-title: Mått, varningar och diagnostikloggar – Azure Batch | Microsoft Docs
-description: Registrera och analysera diagnostiklogg för resurser som pooler och uppgifter i Azure Batch-kontot.
+title: Mått, aviseringar och diagnostikloggar – Azure Batch | Microsoft-dokument
+description: Registrera och analysera diagnostiklogghändelser för Azure Batch-kontoresurser som pooler och uppgifter.
 services: batch
 documentationcenter: ''
 author: LauraBrenner
@@ -15,111 +15,111 @@ ms.date: 12/05/2018
 ms.author: labrenne
 ms.custom: seodec18
 ms.openlocfilehash: 68d5976a5a79dbde88b7f80b02b39793ffc86de9
-ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/03/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78254849"
 ---
-# <a name="batch-metrics-alerts-and-logs-for-diagnostic-evaluation-and-monitoring"></a>Batch-mått, aviseringar och loggar för diagnostisk utvärdering och övervakning
+# <a name="batch-metrics-alerts-and-logs-for-diagnostic-evaluation-and-monitoring"></a>Batchmått, aviseringar och loggar för diagnostikutvärdering och övervakning
 
  
-Den här artikeln förklarar hur du övervakar ett batch-konto med hjälp av funktioner i [Azure Monitor](../azure-monitor/overview.md). Azure Monitor samlar in [Mät värden](../azure-monitor/platform/data-platform-metrics.md) och [diagnostikloggar](../azure-monitor/platform/platform-logs-overview.md) för resurser i batch-kontot. Samla in och använda dessa data i en mängd olika sätt att övervaka ditt Batch-konto och diagnostisera problem. Du kan också konfigurera [mått varningar](../azure-monitor/platform/alerts-overview.md) så att du får meddelanden när ett mått når ett angivet värde. 
+I den här artikeln beskrivs hur du övervakar ett batchkonto med hjälp av funktioner i [Azure Monitor](../azure-monitor/overview.md). Azure Monitor samlar in [mått](../azure-monitor/platform/data-platform-metrics.md) och [diagnostikloggar](../azure-monitor/platform/platform-logs-overview.md) för resurser i ditt batchkonto. Samla in och använda dessa data på en mängd olika sätt för att övervaka ditt batchkonto och diagnostisera problem. Du kan också konfigurera [måttaviseringar](../azure-monitor/platform/alerts-overview.md) så att du får meddelanden när ett mått når ett angivet värde. 
 
-## <a name="batch-metrics"></a>Batch-mått
+## <a name="batch-metrics"></a>Batchmått
 
-Mått är Azure telemetridata (kallas även prestandaräknare) skickas från dina Azure-resurser som förbrukas av Azure Monitor-tjänsten. Inkludera exempel mått i ett Batch-konto: Pool skapa händelser, med låg prioritet Nodantal och uppgiften klar händelser. 
+Mått är Azure telemetridata (kallas även prestandaräknare) som avges av dina Azure-resurser som förbrukas av Azure Monitor-tjänsten. Exempelmått i ett batchkonto är: Pool Skapa händelser, antal nodnoder med låg prioritet och slutförda händelser för aktivitet. 
 
-Se [listan över de batch-mått som stöds](../azure-monitor/platform/metrics-supported.md#microsoftbatchbatchaccounts).
+Se [listan över batchmått som stöds](../azure-monitor/platform/metrics-supported.md#microsoftbatchbatchaccounts).
 
 Mått är:
 
-* Aktiverat som standard i varje Batch-konto utan ytterligare konfiguration
-* Genereras varje minut
-* Beständiga inte automatiskt, men har en rullande 30-dagars historik. Du kan spara aktivitets mått som en del av diagnostisk loggning.
+* Aktiverad som standard i varje batchkonto utan ytterligare konfiguration
+* Genereras var 1 minut
+* Inte kvarstod automatiskt, men har en rullande 30-dagars historik. Du kan spara aktivitetsmått som en del av diagnostikloggning.
 
 ### <a name="view-metrics"></a>Visa mått
 
-Visa mått för ditt Batch-konto i Azure-portalen. På sidan **Översikt** för kontot visas som standard nyckel nod, kärna och aktivitets mått. 
+Visa mått för ditt batchkonto i Azure-portalen. Sidan **Översikt** för kontot visar som standard nyckelnod, kärna och uppgiftsmått. 
 
-Visa alla mått för Batch-konto: 
+Så här visar du alla batchkontomått: 
 
-1. I portalen klickar du på **alla tjänster** > **batch-konton**och klickar sedan på namnet på batch-kontot.
-2. Klicka på **mått**under **övervakning**.
-3. Välj en eller flera av mått. Om du vill kan du välja ytterligare resurs mått med hjälp av list rutorna **prenumerationer**, **resurs grupp**, **resurs typ**och **resurs** .
-    * Använd "genomsnittlig" agg regering för beräknings mått (t. ex. "dedikerat antal" eller "antal med låg prioritet"). Använd agg regeringen "count" för händelsebaserade mått (t. ex. att ändra storlek på slutförda händelser för pool).
+1. Klicka på **Alla tjänster** > **Batch-konton**i portalen och klicka sedan på namnet på ditt batchkonto.
+2. Klicka på **Mått**under **Övervakning**.
+3. Välj ett eller flera av måtten. Om du vill kan du välja ytterligare resursmått med hjälp av **listrutan Prenumerationer,** **Resurs,** **Resurstyp**och **Resurs.**
+    * För räknebaserade mått (som "Dedikerad kärnantal" eller "Antal nod med låg prioritet" använder du aggregeringen "Medel". För händelsebaserade mått (som "Pool Ändra storlek på slutförda händelser" använder du aggregeringen "Antal".
 
 > [!WARNING]
-> Använd inte agg regeringen "sum", som lägger till värdena för alla data punkter som tas emot under perioden i diagrammet
+> Använd inte aggregeringen "Summa", som summerar värdena för alla datapunkter som tas emot under diagramperioden
 > 
 > 
 
     ![Batch metrics](media/batch-diagnostics/metrics-portal.png)
 
-Hämta mätvärden via programmering genom att använda API: er för Azure Monitor. Se till exempel [hämta Azure Monitor mått med .net](https://azure.microsoft.com/resources/samples/monitor-dotnet-metrics-api/).
+Om du vill hämta mätvärden programmässigt använder du Azure Monitor API:er. Se till exempel [Hämta Azure Monitor-mått med .NET](https://azure.microsoft.com/resources/samples/monitor-dotnet-metrics-api/).
 
-## <a name="batch-metric-reliability"></a>Batch mått tillförlitlighet
+## <a name="batch-metric-reliability"></a>Batch måtttillförlitlighet
 
-Mått är avsedda att användas för trender och dataanalys. Metrisk leverans garanteras inte och kan komma ut ordning, förlust av data och/eller duplicering. Du bör inte använda enkel händelser till varning eller utlösare. Mer information om hur du anger tröskelvärden för aviseringar finns i avsnittet [batch-mått aviseringar](#batch-metric-alerts) .
+Mått är avsedda att användas för trender och dataanalys. Måttleverans garanteras inte och är föremål för leverans utanför beställning, dataförlust och/eller dubbelarbete. Det rekommenderas inte att använda enskilda händelser för att avisera eller utlösa funktioner. Se avsnittet [Batch-måttaviseringar](#batch-metric-alerts) för mer information om hur du anger tröskelvärden för aviseringar.
 
-Fortfarande kan sammanställning av mått som genererats under de senaste 3 minuterna. Under det här tidsintervallet kan du underreported mått värdena.
+Mått som avges under de senaste 3 minuterna kan fortfarande vara aggregerande. Under den här tidsperioden kan måttvärdena vara underrapporterade.
 
-## <a name="batch-metric-alerts"></a>Måttaviseringar för batch
+## <a name="batch-metric-alerts"></a>Batch måttaviseringar
 
-Alternativt kan du konfigurera mått för nära real tids *aviseringar* som utlöses när värdet för ett angivet mått korsar ett tröskelvärde som du tilldelar. Aviseringen genererar ett [meddelande](../monitoring-and-diagnostics/insights-alerts-portal.md) som du väljer när aviseringen är "aktive rad" (när tröskelvärdet överskrids och varnings villkoret är uppfyllt) samt när det är "löst" (när tröskelvärdet överskrids igen och villkoret inte längre uppfylls). Aviseringar baserat på enskild datapunkter rekommenderas inte eftersom mått är föremål för out-ordning, förlust av data och/eller duplicering. Avisering bör se användning av tröskelvärden för att kompensera för de här inkonsekvenserna.
+Du kan också konfigurera *måttaviseringar* i nära realtid som utlöser när värdet för ett angivet mått överskrider ett tröskelvärde som du tilldelar. Aviseringen genererar ett [meddelande](../monitoring-and-diagnostics/insights-alerts-portal.md) som du väljer när aviseringen är "Aktiverad" (när tröskelvärdet överskrids och varningsvillkoret uppfylls) samt när det är "Löst" (när tröskelvärdet överskrids igen och villkoret inte längre uppfylls). Aviseringar baserat på enskilda datapunkter rekommenderas inte eftersom mått är föremål för leverans utanför beställning, dataförlust och/eller duplicering. Aviseringar bör använda tröskelvärden för att ta hänsyn till dessa inkonsekvenser.
 
-Du kan till exempel vill konfigurera en metrisk varning när med låg prioritet core beräkningen faller på en viss nivå så att du kan justera sammansättning av dina pooler. Det rekommenderas att ställa in en period av minst 10 minuter där aviseringar Utlös om antal för genomsnittlig med låg prioritet kärnor hamnar under tröskelvärdet för hela perioden. Det rekommenderas inte att Avisera om en 1-5-minutersperiod som kan fortfarande sammanställning av mått.
+Du kanske till exempel vill konfigurera en måttavisering när antalet kärnvärden med låg prioritet sjunker till en viss nivå, så att du kan justera sammansättningen av dina pooler. Vi rekommenderar att du ställer in en period på 10 eller fler minuter där aviseringar utlöses om det genomsnittliga kärnantalet med låg prioritet understiger tröskelvärdet för hela perioden. Det rekommenderas inte att varna på en 1-5 minuters period som mått kan fortfarande vara aggregera.
 
-Konfigurera en metrisk varning i portalen:
+Så här konfigurerar du en måttavisering i portalen:
 
-1. Klicka på **Alla tjänster** > **Batch-konton** och sedan på namnet på Batch-kontot.
-2. Under **övervakning**klickar du på **aviserings regler** > **Lägg till mått avisering**.
-3. Välj ett mått, en varningsvillkor (till exempel när ett mått överskrider ett visst värde under en period) och en eller flera meddelanden.
+1. Klicka på **Alla tjänster** > **Batch-konton**och klicka sedan på namnet på ditt batchkonto.
+2. Klicka på **Varningsregler** > **Lägg till måttavisering**under **Övervakning**.
+3. Välj ett mått, ett varningsvillkor (till exempel när ett mått överskrider ett visst värde under en period) och ett eller flera meddelanden.
 
-Du kan också konfigurera en nästan real tids avisering med hjälp av [REST API](https://docs.microsoft.com/rest/api/monitor/). Mer information finns i [Översikt över aviseringar](../azure-monitor/platform/alerts-overview.md). Om du vill inkludera jobb, uppgift eller leverantörsspecifik information i dina aviseringar kan du läsa informationen om Sök frågor i [svara på händelser med Azure Monitor aviseringar](../azure-monitor/learn/tutorial-response.md)
+Du kan också konfigurera en varning i nära realtid med [REST API](https://docs.microsoft.com/rest/api/monitor/). Mer information finns i [Översikt över aviseringar](../azure-monitor/platform/alerts-overview.md). Om du vill inkludera jobb-, uppgifts- eller poolspecifik information i dina aviseringar läser du informationen om sökfrågor i [Svara på händelser med Azure Monitor-aviseringar](../azure-monitor/learn/tutorial-response.md)
 
 ## <a name="batch-diagnostics"></a>Batch-diagnostik
 
-Diagnostikloggar innehåller information som genereras av Azure-resurser som beskrivs åtgärden för varje resurs. För Batch, kan du samla in följande loggar:
+Diagnostikloggar innehåller information som avges av Azure-resurser som beskriver åtgärden för varje resurs. För Batch kan du samla in följande loggar:
 
-* **Tjänst loggar** händelser som genereras av tjänsten Azure Batch under en enskild batch-resurss livs längd, till exempel en pool eller uppgift. 
+* **Tjänstloggar** händelser som avges av Azure Batch-tjänsten under livstiden för en enskild batchresurs som en pool eller aktivitet. 
 
-* **Mått** loggar på konto nivå. 
+* **Måttloggar** på kontonivå. 
 
-Inställningar för att aktivera insamling av diagnostiska loggar är inte aktiverade som standard. Uttryckligen aktivera diagnostikinställningar för varje Batch-konto som du vill övervaka.
+Inställningar för att aktivera insamling av diagnostikloggar är inte aktiverade som standard. Aktivera uttryckligen diagnostikinställningar för varje batchkonto som du vill övervaka.
 
-### <a name="log-destinations"></a>Log mål
+### <a name="log-destinations"></a>Logga destinationer
 
-Ett vanligt scenario är att välja ett Azure Storage-konto som destination log. För att lagra loggar i Azure Storage, skapa kontot innan du aktiverar insamling av loggar. Om du har associerat ett storage-konto med ditt Batch-konto, kan du välja det kontot som log-mål. 
+Ett vanligt scenario är att välja ett Azure Storage-konto som loggmål. Om du vill lagra loggar i Azure Storage skapar du kontot innan du aktiverar insamling av loggar. Om du har kopplat ett lagringskonto till ditt Batch-konto kan du välja det kontot som loggmål. 
 
-Andra valfritt mål för diagnostikloggar:
+Andra valfria destinationer för diagnostikloggar:
 
-* Strömma logg händelser för batch-diagnostikloggar till en [Azure Event Hub](../event-hubs/event-hubs-what-is-event-hubs.md). Event Hubs kan mata in miljontals händelser per sekund, vilket du kan omvandla och lagra med hjälp av valfri leverantör av realtidsanalys. 
+* Strömma diagnostiklogghändelser för batch till en [Azure Event Hub](../event-hubs/event-hubs-what-is-event-hubs.md). Event Hubs kan inta miljontals händelser per sekund, som du sedan kan omvandla och lagra med hjälp av alla analysleverantörer i realtid. 
 
-* Skicka diagnostikloggar till [Azure Monitor loggar](../log-analytics/log-analytics-overview.md)där du kan analysera dem eller exportera dem för analys i Power BI eller Excel.
+* Skicka diagnostikloggar till [Azure Monitor-loggar](../log-analytics/log-analytics-overview.md), där du kan analysera dem eller exportera dem för analys i Power BI eller Excel.
 
 > [!NOTE]
-> Du kan medföra ytterligare kostnader för att lagra eller bearbeta diagnostiklogg data med Azure-tjänster. 
+> Du kan ådra dig ytterligare kostnader för att lagra eller bearbeta diagnostikloggdata med Azure-tjänster. 
 >
 
-### <a name="enable-collection-of-batch-diagnostic-logs"></a>Aktivera insamling av Batch-diagnostikloggar
+### <a name="enable-collection-of-batch-diagnostic-logs"></a>Aktivera insamling av batchdiagnostiska loggar
 
-1. I portalen klickar du på **alla tjänster** > **batch-konton**och klickar sedan på namnet på batch-kontot.
-2. Under **övervakning**klickar du på **diagnostikloggar** > **aktiverar diagnostik**.
-3. I **diagnostikinställningar**anger du ett namn för inställningen och väljer ett mål för loggen (befintligt lagrings konto, Event Hub eller Azure Monitor loggar). Välj antingen eller både **ServiceLog** och **AllMetrics**.
+1. Klicka på **Alla tjänster** > **Batch-konton**i portalen och klicka sedan på namnet på ditt batchkonto.
+2. Klicka på **Diagnostikloggar** > **Aktivera diagnostik**under **Övervakning**.
+3. I **Diagnostikinställningar**anger du ett namn för inställningen och väljer ett loggmål (befintliga lagringskonto-, eventnav- eller Azure Monitor-loggar). Välj antingen eller både **ServiceLog** och **AllMetrics**.
 
-    När du väljer ett lagringskonto om du vill ange en bevarandeprincip. Om du inte anger ett antal dagar för kvarhållning, bevaras under din arbetsgrens livstid storage-konto.
+    När du väljer ett lagringskonto anger du eventuellt en bevarandeprincip. Om du inte anger ett antal dagar för kvarhållning sparas data under lagringskontots livslängd.
 
-4. Klicka på **Save** (Spara).
+4. Klicka på **Spara**.
 
     ![Batch-diagnostik](media/batch-diagnostics/diagnostics-portal.png)
 
-Andra alternativ för att aktivera logg insamling är: Använd Azure Monitor i portalen för att konfigurera diagnostikinställningar, använda en [Resource Manager-mall](../azure-monitor/platform/diagnostic-settings-template.md)eller använda Azure PowerShell eller Azure CLI. Se [samla in och använda loggdata från dina Azure-resurser](../azure-monitor/platform/platform-logs-overview.md).
+Andra alternativ för att aktivera loggsamling inkluderar: använd Azure Monitor i portalen för att konfigurera diagnostikinställningar, använda en [Resource Manager-mall](../azure-monitor/platform/diagnostic-settings-template.md)eller använda Azure PowerShell eller Azure CLI. se [Samla in och använda loggdata från dina Azure-resurser](../azure-monitor/platform/platform-logs-overview.md).
 
 
-### <a name="access-diagnostics-logs-in-storage"></a>Diagnostisk loggar i storage
+### <a name="access-diagnostics-logs-in-storage"></a>Komma åt diagnostikloggar i lagring
 
-Om du arkiverar Batch-diagnostikloggar i ett lagringskonto skapas en lagringsbehållare i lagringskontot när en relaterade händelse inträffar. BLOB-objekt skapas enligt följande namngivningsmönstret:
+Om du arkiverar batchdiagnostikloggar i ett lagringskonto skapas en lagringsbehållare i lagringskontot så snart en relaterad händelse inträffar. Blobbar skapas enligt följande namngivningsmönster:
 
 ```
 insights-{log category name}/resourceId=/SUBSCRIPTIONS/{subscription ID}/
@@ -135,18 +135,18 @@ insights-metrics-pt1m/resourceId=/SUBSCRIPTIONS/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXX
 RESOURCEGROUPS/MYRESOURCEGROUP/PROVIDERS/MICROSOFT.BATCH/
 BATCHACCOUNTS/MYBATCHACCOUNT/y=2018/m=03/d=05/h=22/m=00/PT1H.json
 ```
-Varje `PT1H.json` BLOB-fil innehåller JSON-formaterade händelser som inträffat inom den timme som anges i BLOB-URL: en (till exempel `h=12`). Under den aktuella timmen läggs händelser till i `PT1H.json`-filen när de inträffar. Värdet för minut (`m=00`) är alltid `00`, eftersom diagnostikloggar för incidenter bryts till enskilda blobbar per timme. (Hela tiden är i UTC.)
+Varje `PT1H.json` blob-fil innehåller JSON-formaterade händelser som inträffade inom den timme som `h=12`anges i blob-URL:en (till exempel ). Under den aktuella timmen läggs händelser `PT1H.json` till i filen när de inträffar. Minutvärdet (`m=00`) `00`är alltid , eftersom diagnostiska logghändelser är uppdelade i enskilda blobbar per timme. (Alla tider är i UTC.)
 
-Nedan visas ett exempel på en `PoolResizeCompleteEvent` post i en `PT1H.json` loggfil. Den innehåller information om aktuella och mål för dedikerade och låg prioritets noder, samt start-och slut tid för åtgärden:
+Nedan följer ett `PoolResizeCompleteEvent` exempel på `PT1H.json` en post i en loggfil. Den innehåller information om det aktuella antalet dedikerade noder och noder med låg prioritet samt start- och sluttid för operationen:
 
 ```
 { "Tenant": "65298bc2729a4c93b11c00ad7e660501", "time": "2019-08-22T20:59:13.5698778Z", "resourceId": "/SUBSCRIPTIONS/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/RESOURCEGROUPS/MYRESOURCEGROUP/PROVIDERS/MICROSOFT.BATCH/BATCHACCOUNTS/MYBATCHACCOUNT/", "category": "ServiceLog", "operationName": "PoolResizeCompleteEvent", "operationVersion": "2017-06-01", "properties": {"id":"MYPOOLID","nodeDeallocationOption":"Requeue","currentDedicatedNodes":10,"targetDedicatedNodes":100,"currentLowPriorityNodes":0,"targetLowPriorityNodes":0,"enableAutoScale":false,"isAutoPool":false,"startTime":"2019-08-22 20:50:59.522","endTime":"2019-08-22 20:59:12.489","resultCode":"Success","resultMessage":"The operation succeeded"}}
 ```
 
-Mer information om schemat för diagnostikloggar i lagrings kontot finns i [arkivera Azure-diagnostikloggar](../azure-monitor/platform/resource-logs-collect-storage.md#schema-of-platform-logs-in-storage-account). Använda Storage-API: er för att komma åt loggarna i ditt storage-konto via programmering. 
+Mer information om schemat för diagnostikloggar i lagringskontot finns i [Arkivera Azure Diagnostic Logs](../azure-monitor/platform/resource-logs-collect-storage.md#schema-of-platform-logs-in-storage-account). Använd api:erna för lagrings-API:er för att komma åt loggarna i ditt lagringskonto programmässigt. 
 
-### <a name="service-log-events"></a>Tjänsten logghändelser
-Loggar om Azure Batch-tjänsten om som samlas in, innehålla händelser som genereras av Azure Batch-tjänsten under livslängden för en enskild Batch-resurs som en pool eller uppgift. Varje händelse som genereras av Batch loggas i JSON-format. Detta är till exempel bröd texten i en exempel händelse för att **skapa en pool**:
+### <a name="service-log-events"></a>Servicelogghändelser
+Azure Batch Service Loggar, om de samlas in, innehåller händelser som avges av Azure Batch-tjänsten under livstiden för en enskild batchresurs som en pool eller aktivitet. Varje händelse som avges av Batch loggas i JSON-format. Det här är till exempel brödtexten i en **exempelpool skapa händelse:**
 
 ```json
 {
@@ -170,22 +170,22 @@ Loggar om Azure Batch-tjänsten om som samlas in, innehålla händelser som gene
 }
 ```
 
-Batch-tjänsten genererar för närvarande följande händelser i loggen för tjänsten. Den här listan kanske inte fullständig, eftersom ytterligare händelser kan ha lagts eftersom den här artikeln senast uppdaterades.
+Batch-tjänsten avger för närvarande följande servicelogghändelser. Den här listan kanske inte är uttömmande, eftersom ytterligare händelser kan ha lagts till sedan den här artikeln senast uppdaterades.
 
-| **Tjänst logg händelser** |
+| **Servicelogghändelser** |
 | --- |
 | [Skapa pool](batch-pool-create-event.md) |
-| [Start för borttagning av pool](batch-pool-delete-start-event.md) |
-| [Borttagning av pool slutförd](batch-pool-delete-complete-event.md) |
-| [Start av poolens storleks ändring](batch-pool-resize-start-event.md) |
-| [Storleks ändring av pool slutförd](batch-pool-resize-complete-event.md) |
-| [Uppgiftens start](batch-task-start-event.md) |
-| [Uppgiften slutförd](batch-task-complete-event.md) |
-| [Åtgärden kunde inte utföras](batch-task-fail-event.md) |
+| [Start av poolborttagning](batch-pool-delete-start-event.md) |
+| [Borttagning av pool har slutförts](batch-pool-delete-complete-event.md) |
+| [Starta om poolen](batch-pool-resize-start-event.md) |
+| [Ändrar storlek på poolen färdigt](batch-pool-resize-complete-event.md) |
+| [Start av uppgift](batch-task-start-event.md) |
+| [Uppgiften har slutförts](batch-task-complete-event.md) |
+| [Aktiviteten misslyckas](batch-task-fail-event.md) |
 
 
 
 ## <a name="next-steps"></a>Nästa steg
 
 * Läs om tillgängliga [Batch-API:er och verktyg](batch-apis-tools.md) för att skapa Batch-lösningar.
-* Lär dig mer om att [övervaka batch-lösningar](monitoring-overview.md).
+* Läs mer om [övervakning av batchlösningar](monitoring-overview.md).

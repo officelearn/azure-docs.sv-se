@@ -5,22 +5,22 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: 4dd0182e5698c992e45afae183ef94c488b27e14
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67187312"
 ---
-1. Välj den virtuella datorn i portalen. Under **DNS-namnet**, klickar du på **konfigurera**.
+1. Välj din virtuella dator i portalen. Klicka på **Konfigurera**under **DNS-namn.**
    
    ![Klicka på Konfigurera under DNS-namn](./media/virtual-machines-common-portal-create-fqdn/configure.png)
 
-2. Ange det önskade DNS-namnet och välj sedan **spara**.
+2. Ange önskat DNS-namn och välj sedan **Spara**.
    
-   ![Ange en DNS-Namnetiketten för din offentliga IP-resurs](./media/virtual-machines-common-portal-create-fqdn/configure-pane.png)
+   ![Ange en DNS-namnetikett för din offentliga IP-resurs](./media/virtual-machines-common-portal-create-fqdn/configure-pane.png)
 
 
-3. Om du vill gå tillbaka till bladet VM-översikt, Stäng den *offentliga IP-adressen* bladet. Kontrollera att den *DNS-namnet* nu visas.
+3. Om du vill återgå till översiktsbladet för virtuella datorer stänger du bladet *offentlig IP-adress.* Kontrollera att *DNS-namnet* nu visas.
    
 
 

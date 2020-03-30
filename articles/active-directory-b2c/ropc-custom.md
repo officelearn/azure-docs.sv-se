@@ -1,7 +1,7 @@
 ---
-title: Konfigurera autentiseringsuppgifter för resurs ägar lösen ord med anpassade principer
+title: Konfigurera flödet för lösenord för resursägare med anpassade principer
 titleSuffix: Azure AD B2C
-description: Lär dig hur du konfigurerar ROPC-flödet (Resource Owner Password Credential) genom att använda anpassade principer i Azure Active Directory B2C.
+description: Lär dig hur du konfigurerar RESURSÄGARENs lösenordsreferenser (ROPC) med hjälp av anpassade principer i Azure Active Directory B2C.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
@@ -12,32 +12,32 @@ ms.date: 02/27/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 55b4750d2c601a4d3c66bcd8235a9718d6daaf9d
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78187021"
 ---
-# <a name="configure-the-resource-owner-password-credentials-flow-in-azure-active-directory-b2c-using-a-custom-policy"></a>Konfigurera flödet för autentiseringsuppgifter för resurs ägar lösen ord i Azure Active Directory B2C att använda en anpassad princip
+# <a name="configure-the-resource-owner-password-credentials-flow-in-azure-active-directory-b2c-using-a-custom-policy"></a>Konfigurera flödet för lösenord för resursägare i Azure Active Directory B2C med en anpassad princip
 
 [!INCLUDE [active-directory-b2c-public-preview](../../includes/active-directory-b2c-public-preview.md)]
 
-I Azure Active Directory B2C (Azure AD B2C) är ROPC-flödet (Resource Owner Password Credential) ett OAuth-standardautentiserings flöde. I det här flödet, som även kallas för den förlitande parten, utbyter giltiga autentiseringsuppgifter för token. Autentiseringsuppgifterna innehåller ett användar-ID och lösen ord. De token som returneras är en ID-token, en åtkomsttoken och en uppdateringstoken.
+I Azure Active Directory B2C (Azure AD B2C) är ROPC-flödet (Resource Owner Password Credentials) ett OAuth-standardautentiseringsflöde. I det här flödet utbyter ett program, även kallat den förlitande parten, giltiga autentiseringsuppgifter för token. Autentiseringsuppgifterna innehåller ett användar-ID och lösenord. De token som returneras är en ID-token, åtkomsttoken och en uppdateringstoken.
 
 [!INCLUDE [active-directory-b2c-ropc-notes](../../includes/active-directory-b2c-ropc-notes.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-Slutför stegen i [Kom igång med anpassade principer i Azure Active Directory B2C](custom-policy-get-started.md).
+Slutför stegen i [Komma igång med anpassade principer i Azure Active Directory B2C](custom-policy-get-started.md).
 
 ## <a name="register-an-application"></a>Registrera ett program
 
 [!INCLUDE [active-directory-b2c-appreg-ropc](../../includes/active-directory-b2c-appreg-ropc.md)]
 
-##  <a name="create-a-resource-owner-policy"></a>Skapa en resurs ägar princip
+##  <a name="create-a-resource-owner-policy"></a>Skapa en resursägarprincip
 
-1. Öppna filen *TrustFrameworkExtensions. XML* .
-2. Om den inte redan finns lägger du till ett **ClaimsSchema** -element och dess underordnade element som det första elementet under elementet **BuildingBlocks** :
+1. Öppna filen *TrustFrameworkExtensions.xml.*
+2. Om det inte redan finns lägger du till ett **ClaimsSchema-element** och dess underordnade element som det första elementet under elementet **BuildingBlocks:**
 
     ```XML
     <ClaimsSchema>
@@ -60,7 +60,7 @@ Slutför stegen i [Kom igång med anpassade principer i Azure Active Directory B
     </ClaimsSchema>
     ```
 
-3. Efter **ClaimsSchema**lägger du till ett **ClaimsTransformations** -element och dess underordnade element till **BuildingBlocks** -elementet:
+3. Efter **ClaimsSchema**lägger du till ett **ClaimsTransformations-element** och dess underordnade element i **elementet BuildingBlocks:**
 
     ```XML
     <ClaimsTransformations>
@@ -86,7 +86,7 @@ Slutför stegen i [Kom igång med anpassade principer i Azure Active Directory B
     </ClaimsTransformations>
     ```
 
-4. Leta upp det **ClaimsProvider** -element som har ett **DisplayName** för `Local Account SignIn` och Lägg till följande tekniska profil:
+4. Leta reda på **elementet ClaimsProvider** som har ett **DisplayName för** `Local Account SignIn` och lägg till följande tekniska profil:
 
     ```XML
     <TechnicalProfile Id="ResourceOwnerPasswordCredentials-OAUTH2">
@@ -124,9 +124,9 @@ Slutför stegen i [Kom igång med anpassade principer i Azure Active Directory B
     </TechnicalProfile>
     ```
 
-    Ersätt **DefaultValue** för **client_id** med program-ID: t för det ProxyIdentityExperienceFramework-program som du skapade i den nödvändiga självstudien. Ersätt sedan **DefaultValue** för **resource_id** med program-ID: t för det IdentityExperienceFramework-program som du också skapade i den nödvändiga självstudien.
+    Ersätt **standardvärde** för **client_id** med program-ID för ProxyIdentityExperienceFramework-programmet som du skapade i den nödvändiga självstudien. Ersätt sedan **DefaultValue** av **resource_id** med program-ID för IdentityExperienceFramework-programmet som du också skapade i den nödvändiga självstudien.
 
-5. Lägg till följande **ClaimsProvider** -element med sina tekniska profiler i **ClaimsProviders** -elementet:
+5. Lägg till följande **ClaimsProvider-element** med sina tekniska profiler i elementet **ClaimsProviders:**
 
     ```XML
     <ClaimsProvider>
@@ -180,7 +180,7 @@ Slutför stegen i [Kom igång med anpassade principer i Azure Active Directory B
     </ClaimsProvider>
     ```
 
-6. Lägg till ett **UserJourneys** -element och dess underordnade element till elementet **TrustFrameworkPolicy** :
+6. Lägga till ett **UserJourneys-element** och dess underordnade element i **TrustFrameworkPolicy-elementet:**
 
     ```XML
     <UserJourney Id="ResourceOwnerPasswordCredentials">
@@ -217,18 +217,18 @@ Slutför stegen i [Kom igång med anpassade principer i Azure Active Directory B
     </UserJourney>
     ```
 
-7. På sidan **anpassade principer** i Azure AD B2C klienten väljer du **Ladda upp princip**.
-8. Aktivera **Skriv över principen om den finns**och bläddra sedan till och välj filen *TrustFrameworkExtensions. XML* .
+7. På sidan **Anpassade principer** i din Azure AD B2C-klient väljer du **Överför princip**.
+8. Aktivera **Skriv över principen om den finns**och bläddra sedan till och välj filen *TrustFrameworkExtensions.xml.*
 9. Klicka på **Överför**.
 
-## <a name="create-a-relying-party-file"></a>Skapa en förlitande parts fil
+## <a name="create-a-relying-party-file"></a>Skapa en förlitande partfil
 
-Uppdatera sedan den förlitande part filen som initierar användar resan som du skapade:
+Uppdatera sedan den förlitande part-filen som initierar användarfärden som du skapade:
 
-1. Gör en kopia av *SignUpOrSignin. XML-* filen i din arbets katalog och Byt namn på den till *ROPC_Auth. XML*.
-2. Öppna den nya filen och ändra värdet för attributet **PolicyId** för **TrustFrameworkPolicy** till ett unikt värde. Princip-ID är namnet på principen. Till exempel **B2C_1A_ROPC_Auth**.
-3. Ändra värdet för attributet **ReferenceId** i **DefaultUserJourney** till `ResourceOwnerPasswordCredentials`.
-4. Ändra **OutputClaims** -elementet så att det endast innehåller följande anspråk:
+1. Gör en kopia av *Filen SignUpOrSignin.xml* i arbetskatalogen och byt namn på den till *ROPC_Auth.xml*.
+2. Öppna den nya filen och ändra värdet för **attributet PolicyId** för **TrustFrameworkPolicy** till ett unikt värde. Princip-ID:n är namnet på din princip. Till exempel **B2C_1A_ROPC_Auth**.
+3. Ändra värdet för **attributet ReferenceId** i **DefaultUserJourney** till `ResourceOwnerPasswordCredentials`.
+4. Ändra **elementet OutputClaims** så att det bara innehåller följande anspråk:
 
     ```XML
     <OutputClaim ClaimTypeReferenceId="sub" />
@@ -238,34 +238,34 @@ Uppdatera sedan den förlitande part filen som initierar användar resan som du 
     <OutputClaim ClaimTypeReferenceId="surname" DefaultValue="" />
     ```
 
-5. På sidan **anpassade principer** i Azure AD B2C klienten väljer du **Ladda upp princip**.
-6. Aktivera **Skriv över principen om den finns**och bläddra sedan till och välj filen *ROPC_Auth. XML* .
+5. På sidan **Anpassade principer** i din Azure AD B2C-klient väljer du **Överför princip**.
+6. Aktivera **Skriv över principen om den finns**och bläddra sedan till och markera filen *ROPC_Auth.xml.*
 7. Klicka på **Överför**.
 
 ## <a name="test-the-policy"></a>Testa principen
 
-Använd ditt favorit-API utvecklings program för att generera ett API-anrop och granska svaret för att felsöka principen. Skapa ett anrop som det här exemplet med följande information som brödtext i POST-begäran:
+Använd ditt favoritprogram för API-utveckling för att generera ett API-anrop och granska svaret för att felsöka principen. Konstruera ett anrop som det här exemplet med följande information som brödtext för POST-begäran:
 
 `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/v2.0/token?p=B2C_1_ROPC_Auth`
 
 - Ersätt `your-tenant-name` med namnet på din Azure AD B2C-klient.
-- Ersätt `B2C_1A_ROPC_Auth` med det fullständiga namnet på din resurs ägar lösen ord princip för autentiseringsuppgifter.
+- Ersätt `B2C_1A_ROPC_Auth` med det fullständiga namnet på principen för lösenord för resursägare.
 
 | Nyckel | Värde |
 | --- | ----- |
 | användarnamn | `user-account` |
-| lösenord | `password1` |
-| grant_type | lösenord |
-| omfång | OpenID `application-id` offline_access |
+| password | `password1` |
+| grant_type | password |
+| omfång | openid `application-id` offline_access |
 | client_id | `application-id` |
 | response_type | token id_token |
 
-- Ersätt `user-account` med namnet på ett användar konto i din klient organisation.
-- Ersätt `password1` med användar kontots lösen ord.
-- Ersätt `application-id` med program-ID: t från *ROPC_Auth_app* registreringen.
-- *Offline_access* är valfritt om du vill ta emot en uppdateringstoken.
+- Ersätt `user-account` med namnet på ett användarkonto i din klientorganisation.
+- Ersätt `password1` med lösenordet för användarkontot.
+- Ersätt `application-id` med program-ID:et från *ROPC_Auth_app* registrering.
+- *Offline_access* är valfritt om du vill få en uppdateringstoken.
 
-Förfrågningen om faktisk POST ser ut som i följande exempel:
+Den faktiska POST-begäran ser ut som följande exempel:
 
 ```HTTPS
 POST /yourtenant.onmicrosoft.com/oauth2/v2.0/token?B2C_1_ROPC_Auth HTTP/1.1
@@ -275,7 +275,7 @@ Content-Type: application/x-www-form-urlencoded
 username=contosouser.outlook.com.ws&password=Passxword1&grant_type=password&scope=openid+bef22d56-552f-4a5b-b90a-1988a7d634ce+offline_access&client_id=bef22d56-552f-4a5b-b90a-1988a7d634ce&response_type=token+id_token
 ```
 
-Ett lyckat svar med offline-åtkomst ser ut som i följande exempel:
+Ett lyckat svar med offlineåtkomst ser ut som följande exempel:
 
 ```JSON
 {
@@ -287,14 +287,14 @@ Ett lyckat svar med offline-åtkomst ser ut som i följande exempel:
 }
 ```
 
-## <a name="redeem-a-refresh-token"></a>Lös in en uppdateringstoken
+## <a name="redeem-a-refresh-token"></a>Lösa in en uppdateringstoken
 
-Skapa ett POST samtal som det som visas här. Använd informationen i följande tabell som brödtext i begäran:
+Konstruera ett POST-anrop som det som visas här. Använd informationen i följande tabell som brödtext för begäran:
 
 `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/v2.0/token?p=B2C_1_ROPC_Auth`
 
 - Ersätt `your-tenant-name` med namnet på din Azure AD B2C-klient.
-- Ersätt `B2C_1A_ROPC_Auth` med det fullständiga namnet på din resurs ägar lösen ord princip för autentiseringsuppgifter.
+- Ersätt `B2C_1A_ROPC_Auth` med det fullständiga namnet på principen för lösenord för resursägare.
 
 | Nyckel | Värde |
 | --- | ----- |
@@ -304,10 +304,10 @@ Skapa ett POST samtal som det som visas här. Använd informationen i följande 
 | resource | `application-id` |
 | refresh_token | `refresh-token` |
 
-- Ersätt `application-id` med program-ID: t från *ROPC_Auth_app* registreringen.
-- Ersätt `refresh-token` med **refresh_token** som har skickats tillbaka i föregående svar.
+- Ersätt `application-id` med program-ID:et från *ROPC_Auth_app* registrering.
+- Ersätt `refresh-token` med **den refresh_token** som skickades tillbaka i föregående svar.
 
-Ett lyckat svar ser ut som i följande exempel:
+Ett lyckat svar ser ut som följande exempel:
 
 ```JSON
 {
@@ -325,11 +325,11 @@ Ett lyckat svar ser ut som i följande exempel:
 }
 ```
 
-## <a name="use-a-native-sdk-or-app-auth"></a>Använd en inbyggd SDK eller app-auth
+## <a name="use-a-native-sdk-or-app-auth"></a>Använda en inbyggd SDK eller App-Auth
 
-Azure AD B2C uppfyller OAuth 2,0-standarder för offentliga autentiseringsuppgifter för lösen ord för klient resurs ägare och bör vara kompatibla med de flesta klient-SDK: er. Den senaste informationen finns i [native app SDK för OAuth 2,0 och OpenID Connect implementering av moderna bästa metoder](https://appauth.io/).
+Azure AD B2C uppfyller OAuth 2.0-standarder för lösenordsuppgifter för offentliga klientresurser och bör vara kompatibla med de flesta klient-SDK:er. Den senaste informationen finns i [Native App SDK för OAuth 2.0 och OpenID Connect som implementerar moderna metodtips](https://appauth.io/).
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Se ett fullständigt exempel på det här scenariot i [Azure Active Directory B2C anpassad princip start paket](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/source/aadb2c-ief-ropc).
-- Läs mer om de tokens som används av Azure Active Directory B2C i [referensen för token](tokens-overview.md).
+- Se ett fullständigt exempel på det här scenariot i startpaketet för [Azure Active Directory B2C.](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/source/aadb2c-ief-ropc)
+- Läs mer om de token som används av Azure Active Directory B2C i [tokenreferensen](tokens-overview.md).

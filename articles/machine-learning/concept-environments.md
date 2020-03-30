@@ -1,104 +1,107 @@
 ---
-title: Om Azure Machine Learning miljöer
+title: Om Azure Machine Learning-miljöer
 titleSuffix: Azure Machine Learning
-description: I den här artikeln får du lära dig fördelarna med Machine Learning-miljöer, som möjliggör återare, gransknings bara och bärbara dator inlärnings beroende definitioner över flera olika beräknings mål.
+description: I den här artikeln kan du lära dig fördelarna med maskininlärningsmiljöer som möjliggör reproducerbara, granskningsbara och bärbara maskininlärningsberoendedefinitioner över en mängd olika beräkningsmål.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.author: trbye
 author: trevorbye
-ms.date: 01/06/2020
-ms.openlocfilehash: 036efa27fb8d22c32f2f6bce1efe9dea300a3972
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.date: 03/18/2020
+ms.openlocfilehash: 50ddbffd00e0cbbd0641089613aaa40d03658c9e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78302786"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80064197"
 ---
-# <a name="what-are-azure-machine-learning-environments"></a>Vad är Azure Machine Learning miljöer?
+# <a name="what-are-azure-machine-learning-environments"></a>Vad är Azure Machine Learning-miljöer?
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-Azure Machine Learning miljöer anger python-paket, miljövariabler och program varu inställningar kring dina utbildnings-och bedömnings skript. De anger också kör tider (python, Spark eller Docker). Miljöerna är hanterade och versioner av entiteter inom din Machine Learning arbets yta som möjliggör återskapande, gransknings bara och bärbara Machine Learning-arbetsflöden över flera olika beräknings mål.
+Azure Machine Learning-miljöer anger Python-paket, miljövariabler och programvaruinställningar runt dina tränings- och bedömningsskript. De anger också körtider (Python, Spark eller Docker). Miljöerna hanteras och versionerade entiteter inom arbetsytan Machine Learning som möjliggör reproducerbara, granskningsbara och bärbara maskininlärningsarbetsflöden i en mängd olika beräkningsmål.
 
-Du kan använda ett `Environment`-objekt i din lokala beräkning för att:
-* Utveckla ditt utbildnings skript.
-* Återanvänd samma miljö på Azure Machine Learning beräkning för modell träning i stor skala.
+Du kan `Environment` använda ett objekt på din lokala beräkning för att:
+* Utveckla din utbildning skript.
+* Återanvänd samma miljö på Azure Machine Learning Compute för modellutbildning i stor skala.
 * Distribuera din modell med samma miljö.
 
-Följande diagram illustrerar hur du kan använda ett enda `Environment`-objekt i både din körnings konfiguration, för utbildning och din konfiguration för distribution av webb tjänster.
+Följande diagram illustrerar hur du kan `Environment` använda ett enda objekt i både din körningskonfiguration, för utbildning och din inferens- och distributionskonfiguration för webbtjänstdistributioner.
 
-![Diagram över en miljö i Machine Learning-arbetsflöde](./media/concept-environments/ml-environment.png)
+![Diagram över en miljö i arbetsflödet för maskininlärning](./media/concept-environments/ml-environment.png)
 
 ## <a name="types-of-environments"></a>Typer av miljöer
 
-Miljöer kan i stort sett delas in i tre kategorier: *granskade*, *hanterade*och *systemhanterade*.
+Miljöer kan i stort sett delas in i tre kategorier: *kurerade,* *användarhanterade*och *systemhanterade*.
 
-Granskade miljöer tillhandahålls av Azure Machine Learning och är tillgängliga i arbets ytan som standard. De innehåller samlingar med python-paket och inställningar som hjälper dig att komma igång med olika ramverk för maskin inlärning. 
+Kurerade miljöer tillhandahålls av Azure Machine Learning och är tillgängliga på din arbetsyta som standard. De innehåller samlingar av Python-paket och inställningar som hjälper dig att komma igång med olika ramverk för maskininlärning. 
 
-I användar hanterade miljöer ansvarar du för att konfigurera din miljö och installera varje paket som utbildnings skriptet behöver på beräknings målet. Conda kontrollerar inte din miljö eller installerar något åt dig. Om du definierar en egen miljö måste du ange `azureml-defaults` med version `>= 1.0.45` som ett pip-beroende. Det här paketet innehåller de funktioner som krävs för att vara värd för modellen som en webb tjänst.
+I användarhanterade miljöer är du ansvarig för att konfigurera din miljö och installera alla paket som träningsskriptet behöver på beräkningsmålet. Conda kontrollerar inte din miljö eller installerar något åt dig. Om du definierar din egen miljö `azureml-defaults` måste `>= 1.0.45` du lista med version som pipberoende. Det här paketet innehåller de funktioner som behövs för att vara värd för modellen som en webbtjänst.
 
-Du använder systemhanterade miljöer när du vill att [Conda](https://conda.io/docs/) ska hantera python-miljön och skript beroenden åt dig. Tjänsten förutsätter den här typen av miljö som standard, på grund av dess användbarhet för fjärranslutna beräknings mål som inte kan konfigureras manuellt.
+Du använder systemhanterade miljöer när du vill att [Conda](https://conda.io/docs/) ska hantera Python-miljön och skriptberoendena åt dig. Tjänsten förutsätter den här typen av miljö som standard, på grund av dess användbarhet för fjärrberäkningsmål som inte kan konfigureras manuellt.
 
 ## <a name="create-and-manage-environments"></a>Skapa och hantera miljöer
 
 Du kan skapa miljöer genom att:
 
-* Definiera nya `Environment` objekt, antingen genom att använda en granskad miljö eller genom att definiera egna beroenden.
-* Använda befintliga `Environment` objekt från din arbets yta. Den här metoden möjliggör konsekvens och reproducerbarhet med dina beroenden.
-* Importera från en befintlig Anaconda-miljö definition.
-* Använda Azure Machine Learning CLI
+* Definiera nya `Environment` objekt, antingen med hjälp av en kurerad miljö eller genom att definiera dina egna beroenden.
+* Använda `Environment` befintliga objekt från arbetsytan. Den här metoden möjliggör konsekvens och reproducerbarhet med dina beroenden.
+* Importera från en befintlig Anaconda-miljödefinition.
+* Använda AZURE Machine Learning CLI
 
-Vissa kod exempel finns i avsnittet "skapa en miljö" i [åter användnings miljöer för utbildning och distribution](how-to-use-environments.md#create-an-environment). Miljöer hanteras också enkelt genom din arbets yta. De innehåller följande funktioner:
+Specifika kodexempel finns i avsnittet "Skapa en miljö" [i Återanvändningsmiljöer för utbildning och distribution](how-to-use-environments.md#create-an-environment). Miljöer hanteras också enkelt via arbetsytan. De innehåller följande funktioner:
 
-* Miljöer registreras automatiskt på arbets ytan när du skickar ett experiment. De kan också registreras manuellt.
-* Du kan hämta miljöer från din arbets yta för att använda utbildning eller distribution, eller för att göra ändringar i miljö definitionen.
-* Med versions hantering kan du se ändringar i dina miljöer över tid, vilket säkerställer reproducerbarhet.
-* Du kan bygga Docker-avbildningar automatiskt från dina miljöer.
+* Miljöer registreras automatiskt på din arbetsyta när du skickar in ett experiment. De kan också registreras manuellt.
+* Du kan hämta miljöer från arbetsytan som du kan använda för utbildning eller distribution eller för att göra ändringar i miljödefinitionen.
+* Med versionshantering kan du se ändringar i dina miljöer över tid, vilket säkerställer reproducerbarhet.
+* Du kan skapa Docker-avbildningar automatiskt från dina miljöer.
 
-Kod exempel finns i avsnittet "hantera miljöer" i [Återanvänd miljöer för utbildning och distribution](how-to-use-environments.md#manage-environments).
+Kodexempel finns i avsnittet "Hantera miljöer" [i Återanvändningsmiljöer för utbildning och distribution](how-to-use-environments.md#manage-environments).
 
-## <a name="environment-building-caching-and-reuse"></a>Miljö uppbyggnad, cachelagring och åter användning
+## <a name="environment-building-caching-and-reuse"></a>Miljöbyggnad, cachelagring och återanvändning
 
-Azure Machine Learnings tjänsten bygger miljö definitioner i Docker-avbildningar och Conda-miljöer. Den cachelagrar också miljöerna så att de kan återanvändas i efterföljande utbildningar och distributioner av tjänst slut punkter.
+Azure Machine Learning-tjänsten bygger miljödefinitioner i Docker-avbildningar och conda-miljöer. Den cachelagrar också miljöerna så att de kan återanvändas i efterföljande utbildningskörningar och tjänstslutpunktsdistributioner.
 
-### <a name="building-environments-as-docker-images"></a>Skapa miljöer som Docker-avbildningar
+### <a name="building-environments-as-docker-images"></a>Bygga miljöer som Docker-avbildningar
 
-När du först skickar en körning med en miljö anropar Azure Machine Learnings tjänsten en [ACR-build-uppgift](https://docs.microsoft.com/azure/container-registry/container-registry-tasks-overview) på den Azure Container Registry (ACR) som är kopplad till arbets ytan. Den inbyggda Docker-avbildningen cachelagras sedan på arbets ytans ACR. I början av körnings körningen hämtas avbildningen av beräknings målet.
+När du skickar en körning med en miljö anropar azure Machine Learning-tjänsten vanligtvis en [ACR Build-uppgift](https://docs.microsoft.com/azure/container-registry/container-registry-tasks-overview) i Azure Container Registry (ACR) som är associerad med arbetsytan. Den inbyggda Docker-avbildningen cachelagras sedan på ACR på arbetsytan. I början av körningen hämtas avbildningen av beräkningsmålet.
 
-Avbildnings versionen består av två steg:
+Bildversionen består av två steg:
 
- 1. Hämta en bas avbildning och köra eventuella Docker-steg
- 2. Skapa en Conda-miljö enligt Conda-beroenden som anges i miljö definitionen.
+ 1. Hämta en basavbildning och köra alla Docker-steg
+ 2. Bygga en conda-miljö enligt conda-beroenden som anges i miljödefinitionen.
 
-Det andra steget utelämnas om du anger [användar hanterade beroenden](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.pythonsection?view=azure-ml-py). I det här fallet är du ansvarig för att installera python-paket, genom att inkludera dem i bas avbildningen eller ange anpassade Docker-steg i det första steget. Du är också ansvarig för att ange rätt plats för den körbara python-filen.
+Det andra steget utelämnas om du anger [användarhanterade beroenden](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.pythonsection?view=azure-ml-py). I det här fallet är du ansvarig för att installera python-paket, genom att inkludera dem i basavbildningen, eller ange anpassade Docker-steg i det första steget. Du är också ansvarig för att ange rätt plats för Python körbar.
 
-### <a name="image-caching-and-reuse"></a>Cachelagring av bilder och åter användning
+### <a name="image-caching-and-reuse"></a>Bildcache och återanvändning
 
-Om du använder samma miljö definition för en annan körning återanvänder Azure Machine Learnings tjänsten den cachelagrade avbildningen från arbets ytans ACR. 
+Om du använder samma miljödefinition för en annan körning återanvänder Azure Machine Learning-tjänsten den cachelagrade avbildningen från ACR för arbetsytan. 
 
-Om du vill visa information om en cachelagrad avbildning använder du [Environment. get_image_details](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py#get-image-details-workspace-) -metoden.
+Om du vill visa information om en cachelagrad avbildning använder du [Environment.get_image_details-metoden.](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py#get-image-details-workspace-)
 
-För att avgöra om du ska återanvända en cachelagrad avbildning eller skapa en ny, beräknar tjänsten [ett hash-värde](https://en.wikipedia.org/wiki/Hash_table) från miljö definitionen och jämför den med hasharna i befintliga miljöer. Hashen baseras på:
+För att avgöra om du vill återanvända en cachelagd avbildning eller skapa en ny beräknar tjänsten [ett hash-värde](https://en.wikipedia.org/wiki/Hash_table) från miljödefinitionen och jämför det med hashar för befintliga miljöer. Hash är baserad på:
  
- * Egenskaps värde för bas avbildning
- * Egenskaps värde för anpassade Docker-steg
- * Lista över python-paket i Conda-definitionen
+ * Egenskapsvärde för basbild
+ * Egenskapsvärde för anpassad dockersteg
+ * Lista över Python-paket i Conda-definitionen
  * Lista över paket i Spark-definition 
 
-Hashen är inte beroende av miljö namnet eller versionen. Ändringar i miljö definitionen, till exempel att lägga till eller ta bort ett python-paket eller ändra paket versionen, gör att hash-värdet ändras och utlöser en avbildnings återskapning. Men om du helt enkelt byter namn på din miljö eller skapar en ny miljö med de exakta egenskaperna och paketen för en befintlig, kommer hashvärdet att vara detsamma och den cachelagrade avbildningen används.
+Hash beror inte på miljönamn eller version. Miljödefinitionsändringar, till exempel lägga till eller ta bort ett Python-paket eller ändra paketversionen, gör att hash-värdet ändras och utlöser en bildreaning. Men om du helt enkelt byter namn på din miljö eller skapar en ny miljö med exakta egenskaper och paket för en befintlig, förblir hash-värdet detsamma och den cachelagrade avbildningen används.
 
-Se följande diagram som visar tre miljö definitioner. Två av dem har olika namn och version, men samma bas avbildning och python-paket. De har samma hash-värde och motsvarar därför samma cachelagrade avbildning. Den tredje miljön har olika python-paket och-versioner och motsvarar därför en annan cachelagrad avbildning.
+Se följande diagram som visar tre miljödefinitioner. Två av dem har olika namn och version, men identisk basavbildning och Python-paket. De har samma hash och motsvarar därför samma cachelagrade bild. Den tredje miljön har olika Python-paket och versioner och motsvarar därför en annan cachelagrad avbildning.
 
-![Diagram över cachelagring av miljöer som Docker-avbildningar](./media/concept-environments/environment-caching.png)
+![Diagram över miljöcachelagring som Docker-bilder](./media/concept-environments/environment-caching.png)
 
-Om du skapar en miljö med ett inaktivt paket beroende, till exempel ```numpy```, kommer miljön att fortsätta använda den paket version som installerats när miljön skapades. Dessutom fortsätter all framtida miljö med matchnings definition att använda den gamla versionen. Om du vill uppdatera paketet anger du ett versions nummer som tvingar avbildnings återskapning, till exempel ```numpy==1.18.1```. Observera att nya beroenden, inklusive kapslade, kommer att installeras som kan bryta ett tidigare arbets scenario
+>[!IMPORTANT]
+> Om du skapar en miljö med ett oinstallerat paketberoende, till exempel, ```numpy```kommer den miljön att fortsätta att använda paketversionen som installerades när miljön _skapas_. Dessutom kommer alla framtida miljöer med matchande definition att fortsätta använda den gamla versionen. 
+
+Om du vill uppdatera paketet anger du ett ```numpy==1.18.1```versionsnummer för att tvinga fram ombyggnad av avbildningar, till exempel . Observera att nya beroenden, inklusive kapslade, installeras som kan bryta ett tidigare arbetsscenario.
 
 > [!WARNING]
->  [Miljön. Build](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py#build-workspace-) -metoden kommer att återskapa den cachelagrade avbildningen med möjlig sido effekt på att uppdatera icke-fästa paket och bryta reproducerbarhet för alla miljö definitioner som motsvarar den cachelagrade avbildningen.
+>  Metoden [Environment.build](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py#build-workspace--image-build-compute-none-) återskapar den cachelagrade avbildningen, med möjlig bieffekt av uppdatering av oinrättade paket och bryta reproducerbarhet för alla miljödefinitioner som motsvarar den cachelagrade avbildningen.
 
 ## <a name="next-steps"></a>Nästa steg
 
 * Lär dig hur du [skapar och använder miljöer](how-to-use-environments.md) i Azure Machine Learning.
-* Se referens dokumentation för python SDK för [miljö klassen](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment(class)?view=azure-ml-py).
-* Se referens dokumentationen för R SDK för [miljöer](https://azure.github.io/azureml-sdk-for-r/reference/index.html#section-environments).
+* Se Python SDK-referensdokumentationen för [miljöklassen](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment(class)?view=azure-ml-py).
+* Se referensdokumentationen för R SDK för [miljöer](https://azure.github.io/azureml-sdk-for-r/reference/index.html#section-environments).

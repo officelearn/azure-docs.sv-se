@@ -1,65 +1,131 @@
 ---
-title: Mappa data flöde Välj omvandling
-description: Azure Data Factory mappa data flöde Välj omvandling
+title: Mappa dataflöde Välj omformning
+description: Azure Data Factory-mappningsdataflöde Välj omvandling
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 03/08/2020
-ms.openlocfilehash: 2d04de420f743e4fef4cff4bd2912559dae0886a
-ms.sourcegitcommit: e6bce4b30486cb19a6b415e8b8442dd688ad4f92
+ms.date: 03/18/2020
+ms.openlocfilehash: cfa15f5424dcd5d52b03fb65afe051444127f5ed
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/09/2020
-ms.locfileid: "78934185"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80065277"
 ---
-# <a name="mapping-data-flow-select-transformation"></a>Mappa data flöde Välj omvandling
+# <a name="select-transformation-in-mapping-data-flow"></a>Välj omformning i mappning av dataflöde
 
+Använd markeringsomformningen för att byta namn på, släppa eller ändra ordning på kolumner. Den här omvandlingen ändrar inte raddata, men väljer vilka kolumner som sprids nedströms. 
 
-Använd den här omvandlingen för kolumn urval (minska antalet kolumner), Ali Aset och Stream Names och ändra ordning på kolumner.
+I en urvalsomvandling kan användare ange fasta mappningar, använda mönster för att utföra regelbaserad mappning eller aktivera automatisk mappning. Fasta och regelbaserade mappningar kan båda användas i samma urvalsomvandling. Om en kolumn inte matchar en av de definierade mappningarna tas den bort.
 
-## <a name="how-to-use-select-transformation"></a>Använda Välj omvandling
-Med alternativet Välj transformering kan du ange alias för en hel ström eller kolumner i den data strömmen, tilldela olika namn (alias) och sedan referera till de nya namnen senare i ditt data flöde. Den här transformeringen är användbar för självkopplings scenarier. Sättet att implementera en själv koppling i ett ADF-dataflöde är att ta en ström, förgrena den med "ny gren", sedan omedelbart efteråt, lägga till en "Välj"-transformering. Den data strömmen kommer nu att ha ett nytt namn som du kan använda för att koppla tillbaka till den ursprungliga strömmen och skapa en själv koppling:
+## <a name="fixed-mapping"></a>Fast mappning
 
-![Själv koppling](media/data-flow/selfjoin.png "Själv koppling")
+Om färre än 50 kolumner har definierats i projektionen har alla definierade kolumner en fast mappning som standard. En fast mappning tar en definierad, inkommande kolumn och mappar den till ett exakt namn.
 
-I diagrammet ovan är Select Transform överst. Detta är alias för den ursprungliga strömmen till "OrigSourceBatting". I den markerade kopplings transformeringen nedan kan du se att vi använder den här Välj Ali strömmen som höger koppling, så att vi kan referera till samma nyckel i både vänster & högra sida av den inre kopplingen.
+![Fast mappning](media/data-flow/fixedmapping.png "Fast mappning")
 
-Välj kan också användas på ett sätt som avmarkerar kolumner från ditt data flöde. Om du t. ex. har 6 kolumner som definierats i din mottagare, men du bara vill välja en viss 3 att transformera och sedan flöda till mottagaren, kan du bara välja de tre genom att använda alternativet Välj transformering.
+> [!NOTE]
+> Du kan inte mappa eller byta namn på en borttuffad kolumn med hjälp av en fast mappning
 
-![Välj omvandling](media/data-flow/newselect1.png "Välj alias")
+### <a name="mapping-hierarchical-columns"></a>Mappa hierarkiska kolumner
 
-## <a name="options"></a>Alternativ
-* Standardvärdet för "Välj" är att inkludera alla inkommande kolumner och behålla de ursprungliga namnen. Du kan ange ett alias för strömmen genom att ange namnet på Välj transformering.
-* Om du vill ange alias för enskilda kolumner avmarkerar du "Markera alla" och använder kolumn mappningen längst ned.
-* Välj hoppa över dubbletter för att eliminera dubblerade kolumner från indata-eller utdata-metadata.
+Fasta mappningar kan användas för att mappa en underkolumn i en hierarkisk kolumn till en kolumn på den översta nivån. Om du har en definierad hierarki använder du kolumnrullgardermenyn för att välja en underkolumn. Urvalsomvandlingen skapar en ny kolumn med underkolumnens värde och datatyp.
+
+![hierarkisk mappning](media/data-flow/select-hierarchy.png "hierarkisk mappning")
+
+## <a name="rule-based-mapping"></a>Regelbaserad mappning
+
+Om du vill mappa många kolumner samtidigt eller skicka bortdrivna kolumner nedströms använder du regelbaserad mappning för att definiera mappningar med hjälp av kolumnmönster. Matcha baserat `name`på `type` `stream`kolumnerna `position` , , och. Du kan ha valfri kombination av fasta och regelbaserade mappningar. Som standard kommer alla prognoser med större än 50 kolumner som standard att en regelbaserad mappning som matchar på varje kolumn och matar ut det indataade namnet. 
+
+Om du vill lägga till en regelbaserad mappning klickar du på **Lägg till mappning** och väljer **Regelbaserad mappning**.
+
+![regelbaserad mappning](media/data-flow/rule2.png "Regelbaserad mappning")
+
+Varje regelbaserad mappning kräver två indata: villkoret som ska matchas efter och vad som ska namnges varje mappad kolumn. Båda värdena matas in via [uttrycksverktyget](concepts-data-flow-expression-builder.md). Ange ditt booleska matchningsvillkor i rutan vänster uttryck. I rutan för rätt uttryck anger du vad den matchade kolumnen ska mappas till.
+
+![regelbaserad mappning](media/data-flow/rule-based-mapping.png "Regelbaserad mappning")
+
+Använd `$$` syntaxen för att referera till indatanamnet för en matchad kolumn. Använd ovanstående bild som exempel, säg att en användare vill matcha på alla strängkolumner vars namn är kortare än sex tecken. Om en inkommande `test`kolumn har `$$ + '_short'` fått namnet `test_short`byter uttrycket namn på kolumnen . Om det är den enda mappningen som finns, kommer alla kolumner som inte uppfyller villkoret att tas bort från utdata.
+
+Mönster matchar både drivoch definierade kolumner. Om du vill se vilka definierade kolumner som mappas av en regel klickar du på glasögonikonen bredvid regeln. Verifiera utdata med hjälp av förhandsgranskning av data.
+
+### <a name="regex-mapping"></a>Regex-mappning
+
+Om du klickar på ikonen nedåt kan du ange ett villkor för regex-mappning. Ett regex-mappningsvillkor matchar alla kolumnnamn som matchar det angivna regex-villkoret. Detta kan användas i kombination med standardregelbaserade mappningar.
+
+![regelbaserad mappning](media/data-flow/regex-matching.png "Regelbaserad mappning")
+
+Exemplet ovan matchar på `(r)` regex-mönstret eller ett kolumnnamn som innehåller ett gemener r. I likhet med standardregelbaserad mappning ändras alla matchade kolumner `$$` av villkoret till höger med syntaxen.
+
+Om du har flera regex-matchningar i kolumnnamnet `$n` kan du referera till specifika matchningar med var 'n' refererar till vilken matchning. Till exempel refererar '$2' till den andra matchningen i ett kolumnnamn.
+
+### <a name="rule-based-hierarchies"></a>Regelbaserade hierarkier
+
+Om den definierade projektionen har en hierarki kan du använda regelbaserad mappning för att mappa underkolumnerna för hierarkier. Ange ett matchande villkor och den komplexa kolumn vars underkolumner du vill mappa. Varje matchad underkolumn matas ut med regeln "Namn som" som anges till höger.
+
+![regelbaserad mappning](media/data-flow/rule-based-hierarchy.png "Regelbaserad mappning")
+
+Exemplet ovan matchar på alla underkolumner i komplex kolumn `a`. `a`innehåller två `b` underkolumner `c`och . Utdataschemat kommer `b` att `c` innehålla två kolumner och `$$`som villkoret "Namn som" är .
+
+### <a name="parameterization"></a>Parameterisering
+
+Du kan parametriera kolumnnamn med hjälp av regelbaserad mappning. Använd nyckelordet ```name``` för att matcha inkommande kolumnnamn mot en parameter. Om du till exempel har ```mycolumn```en parameter för dataflöde kan du skapa ```mycolumn```en regel som matchar alla kolumnnamn som är lika med . Du kan byta namn på den matchade kolumnen till en hårdkodad sträng som "affärsnyckel" och referera till den uttryckligen. I det här exemplet ```name == $mycolumn``` är det matchande villkoret och namnvillkoret är "affärsnyckel". 
+
+## <a name="auto-mapping"></a>Automatisk mappning
+
+När du lägger till en markera omvandling kan **automatisk mappning** aktiveras genom att växla skjutreglaget Automatisk mappning. Med automatisk mappning mappar välja omformningen alla inkommande kolumner, exklusive dubbletter, med samma namn som indata. Detta inkluderar frånfallna kolumner, vilket innebär att utdata kan innehålla kolumner som inte har definierats i schemat. Mer information om bortträngda kolumner finns i [schemadrift](concepts-data-flow-schema-drift.md).
+
+![Automatisk mappning](media/data-flow/automap.png "Automatisk mappning")
+
+När automatisk mappning är aktiverat kommer den valda omvandlingen att hedra inställningarna för hoppa över dubblett och ge ett nytt alias för de befintliga kolumnerna. Aliasing är användbart när du gör flera kopplingar eller sökninger på samma ström och i självkopplingsscenarier. 
+
+## <a name="duplicate-columns"></a>Duplicera kolumner
+
+Som standard tappar välja omformningen dubblettkolumner i både indata- och utdataprojektionen. Dubblettindatakolumner kommer ofta från kopplings- och uppslagsomformningar där kolumnnamn dupliceras på varje sida av kopplingen. Dubblettutdatakolumner kan uppstå om du mappar två olika indatakolumner till samma namn. Välj om du vill släppa eller skicka in dubblettkolumner genom att växla kryssrutan.
 
 ![Hoppa över dubbletter](media/data-flow/select-skip-dup.png "Hoppa över dubbletter")
 
-* När du väljer att hoppa över dubbletter visas resultaten på fliken Granska. ADF behåller den första förekomsten av kolumnen och du ser att varje efterföljande förekomst av samma kolumn har tagits bort från ditt flöde.
+## <a name="ordering-of-columns"></a>Beställning av kolumner
 
-> [!NOTE]
-> Om du vill rensa mappnings reglerna trycker du på knappen **Återställ** .
+Ordningen på mappningarna bestämmer ordningen på utdatakolumnerna. Om en indatakolumn mappas flera gånger kommer endast den första mappningen att uppfyllas. För en dubblettkolumn som släpps kommer den första matchen att behållas.
 
-## <a name="mapping"></a>Mappning
-Som standard mappar Select-omvandlingen alla kolumner automatiskt, vilket kommer att gå igenom alla inkommande kolumner till samma namn i utdata. Namnet på den utgående strömmen som anges i Välj inställningar definierar ett nytt aliasnamn för data strömmen. Om du behåller Välj uppsättningen för automatisk mappning, kan du ge alias för hela data strömmen med alla kolumner samma.
+## <a name="data-flow-script"></a>Dataflödesskript
 
-![Välj omvandlings regler](media/data-flow/rule2.png "Regel baserad mappning")
+### <a name="syntax"></a>Syntax
 
-Om du vill skapa alias för, ta bort, byta namn på eller ordna om kolumner måste du först stänga av "Auto-Map". Som standard visas en standard regel som anges för dig som heter "alla kolumner". Du kan lämna den här regeln på plats om du alltid vill att alla inkommande kolumner ska mappas till samma namn i sina utdata.
+```
+<incomingStream>
+    select(mapColumn(
+        each(<hierarchicalColumn>, match(<matchCondition>), <nameCondition> = $$), ## hierarchical rule-based matching
+        <fixedColumn>, ## fixed mapping, no rename
+        <renamedFixedColumn> = <fixedColumn>, ## fixed mapping, rename
+        each(match(<matchCondition>), <nameCondition> = $$), ## rule-based mapping
+        each(patternMatch(<regexMatching>), <nameCondition> = $$) ## regex mapping
+    ),
+    skipDuplicateMapInputs: { true | false },
+    skipDuplicateMapOutputs: { true | false }) ~> <selectTransformationName>
+```
 
-Men om du vill lägga till anpassade regler klickar du på Lägg till mappning. Fält mappning ger dig en lista över inkommande och utgående kolumn namn för mappning och alias. Välj "regel baserad mappning" om du vill skapa mönster matchnings regler.
+### <a name="example"></a>Exempel
 
-## <a name="rule-based-mapping"></a>Regel baserad mappning
-När du väljer regelbaserade mappning instruerar du ADF att utvärdera matchnings uttrycket så att det matchar inkommande mönster regler och definierar de utgående fält namnen. Du kan lägga till valfri kombination av både fält-och regelbaserade mappningar. Fält namn genereras sedan vid körning med ADF baserat på inkommande metadata från källan. Du kan visa namnen på de genererade fälten under fel sökning och i fönstret data förhands granskning.
+Nedan är ett exempel på en urvalsmappning och dess dataflödesskript:
 
-Mer information om mönster matchning finns i [kolumn mönster dokumentationen](concepts-data-flow-column-pattern.md).
+![Välj skriptexempel](media/data-flow/select-script-example.png "Välj skriptexempel")
 
-### <a name="use-rule-based-mapping-to-parameterize-the-select-transformation"></a>Använd regelbaserade mappningar för att Parameterisera Välj omvandling
-Du kan Parameterisera fält mappning i SELECT-omvandlingen med hjälp av regelbaserade mappningar. Använd nyckelordet ```name``` för att kontrol lera de inkommande kolumn namnen mot en parameter. Om du till exempel har en data flödes parameter som heter ```mycolumn``` kan du skapa en enda Välj omvandlings regel som alltid mappar det kolumn namn som du anger ```mycolumn``` till ett fält namn på följande sätt:
-
-```name == $mycolumn```
+```
+DerivedColumn1 select(mapColumn(
+        each(a, match(true())),
+        movie,
+        title1 = title,
+        each(match(name == 'Rating')),
+        each(patternMatch(`(y)`),
+            $1 + 'regex' = $$)
+    ),
+    skipDuplicateMapInputs: true,
+    skipDuplicateMapOutputs: true) ~> Select1
+```
 
 ## <a name="next-steps"></a>Nästa steg
-* När du har använt Välj för att byta namn på, ändra ordning och alias använder du [omvandling av mottagare](data-flow-sink.md) för att använda data i ett data lager.
+* När du har använt Kolumnerna Välj för att byta namn på, ändra ordning och alias använder du [sink-omvandlingen](data-flow-sink.md) för att landa dina data i ett datalager.

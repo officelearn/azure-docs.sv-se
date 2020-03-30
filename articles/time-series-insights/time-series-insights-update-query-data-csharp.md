@@ -1,6 +1,6 @@
 ---
-title: Fråga efter data från en för hands C# versions miljö med-Azure Time Series Insights | Microsoft Docs
-description: Lär dig hur du frågar efter data från en Azure Time Series Insights miljö med hjälp av en C#app som skrivits i.
+title: Frågedata från en förhandsgranskningsmiljö med C# - Azure Time Series Insights | Microsoft-dokument
+description: Lär dig hur du frågar data från en Azure Time Series Insights-miljö med hjälp av en app som är skriven i C#.
 ms.service: time-series-insights
 services: time-series-insights
 author: deepakpalled
@@ -12,73 +12,73 @@ ms.topic: conceptual
 ms.date: 02/03/2020
 ms.custom: seodec18
 ms.openlocfilehash: 76e3ac85a6725976ebd14dac1805079613c94ec6
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/04/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76980995"
 ---
-# <a name="query-data-from-the-azure-time-series-insights-preview-environment-using-c"></a>Fråga efter data från Azure Time Series Insights Preview-miljön med hjälp avC#
+# <a name="query-data-from-the-azure-time-series-insights-preview-environment-using-c"></a>Frågedata från förhandsversionen av Azure Time Series Insights med C #
 
-Det C# här exemplet visar hur du frågar data från [API: erna för för hands versions data åtkomst](https://docs.microsoft.com/rest/api/time-series-insights/preview) i Azure Time Series Insights Preview-miljöer.
+Det här C#-exemplet visar hur du frågar data från [förhandsversionen av API:er för dataåtkomst](https://docs.microsoft.com/rest/api/time-series-insights/preview) i förhandsversionsmiljöer för azure time series insights.
 
 > [!TIP]
-> Visa exempel C# kod exempel på [https://github.com/Azure-Samples/Azure-Time-Series-Insights](https://github.com/Azure-Samples/Azure-Time-Series-Insights/tree/master/csharp-tsi-preview-sample).
+> Visa exempel på förhandsgranskning av C#-kod på [https://github.com/Azure-Samples/Azure-Time-Series-Insights](https://github.com/Azure-Samples/Azure-Time-Series-Insights/tree/master/csharp-tsi-preview-sample).
 
 ## <a name="summary"></a>Sammanfattning
 
-Exempel koden nedan visar följande funktioner:
+Exempelkoden nedan visar följande funktioner:
 
-* Stöd för automatisk generering av SDK från [Azure AutoRest](https://github.com/Azure/AutoRest).
-* Så här hämtar du en åtkomsttoken via Azure Active Directory med [Microsoft. IdentityModel. clients. ActiveDirectory](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory/).
-* Så här skickar du den hämtade åtkomsttoken i `Authorization`s rubriken för efterföljande API-begäranden för data åtkomst. 
-* Exemplet innehåller ett konsol gränssnitt som demonstrerar hur HTTP-begäranden görs till:
+* Stöd för automatisk SDK-generering från [Azure AutoRest](https://github.com/Azure/AutoRest).
+* Hämta en åtkomsttoken via Azure Active Directory med [Microsoft.IdentityModel.Clients.ActiveDirectory](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory/).
+* Så här skickar du den `Authorization` förvärvade åtkomsttoken i huvudet på efterföljande API-begäranden för dataåtkomst. 
+* Exemplet innehåller ett konsolgränssnitt som visar hur HTTP-begäranden görs till:
 
-    * [API för för hands versions miljöer](https://docs.microsoft.com/rest/api/time-series-insights/preview#preview-environments-apis)
-        * [Hämta tillgänglighets-API för miljöer](https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/query/getavailability) och [Hämta API för Event schema](https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/query/geteventschema)
-    * [Förhandsgranska fråge-API](https://docs.microsoft.com/rest/api/time-series-insights/preview#query-apis)
-        * [Hämta händelse-API](https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/query/execute#getevents), [Hämta serie-API](https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/query/execute#getseries)och [Hämta API för sammanställd serie](https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/query/execute#aggregateseries)
-    * [API: er för Time Series-modellen](https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/query/execute#aggregateseries)
-        * [Hämta hierarkier API](https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/timeserieshierarchies/get) och [hierarkier batch-API](https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/timeserieshierarchies/executebatch)
-        * [Hämta API](https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/timeseriestypes/get) och [typer batch API](https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/timeseriestypes/executebatch)
-        * [Hämta instanser API](https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/timeseriesinstances/get) och [instanser batch-API](https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/timeseriesinstances/executebatch)
-* Avancerade [Sök](https://docs.microsoft.com/rest/api/time-series-insights/preview#search-features) -och [TSX](https://docs.microsoft.com/rest/api/time-series-insights/preview#time-series-expression-and-syntax) -funktioner.
+    * [API för förhandsgranskningsmiljöer](https://docs.microsoft.com/rest/api/time-series-insights/preview#preview-environments-apis)
+        * [Api för miljötillgänglighet](https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/query/getavailability) och [API för händelseschema](https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/query/geteventschema)
+    * [Api för förhandsgranskning av fråga](https://docs.microsoft.com/rest/api/time-series-insights/preview#query-apis)
+        * [Hämta API för händelser,](https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/query/execute#getevents) [hämta serie-API](https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/query/execute#getseries)och [hämta API i mängdserier](https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/query/execute#aggregateseries)
+    * [Api:er för tidsseriemodell](https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/query/execute#aggregateseries)
+        * [Hämta API för hierarkier](https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/timeserieshierarchies/get) och [batch-API för hierarkier](https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/timeserieshierarchies/executebatch)
+        * [Hämta API för typer](https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/timeseriestypes/get) och [typer batch-API](https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/timeseriestypes/executebatch)
+        * [Hämta API-api för instanser](https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/timeseriesinstances/get) och [instanser batch-API](https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/timeseriesinstances/executebatch)
+* Avancerade [sök-](https://docs.microsoft.com/rest/api/time-series-insights/preview#search-features) och [TSX-funktioner.](https://docs.microsoft.com/rest/api/time-series-insights/preview#time-series-expression-and-syntax)
 
-## <a name="prerequisites-and-setup"></a>Krav och installation
+## <a name="prerequisites-and-setup"></a>Förutsättningar och inställningar
 
-Slutför följande steg innan du kompilerar och kör exempel koden:
+Gör följande innan du kompilerar och kör exempelkoden:
 
-1. [Etablera en förhands granskning Azure Time Series Insightss](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-update-how-to-manage#create-the-environment) miljö.
-1. Konfigurera din Azure Time Series Insightss miljö för Azure Active Directory enligt beskrivningen i [autentisering och auktorisering](time-series-insights-authentication-and-authorization.md). 
-1. Kör [GenerateCode. bat](https://github.com/Azure-Samples/Azure-Time-Series-Insights/blob/master/csharp-tsi-preview-sample/DataPlaneClient/GenerateCode.bat) enligt vad som anges i [Readme.MD](https://github.com/Azure-Samples/Azure-Time-Series-Insights/blob/master/csharp-tsi-preview-sample/DataPlaneClient/Readme.md) för att generera Time Series Insights för hands versions klient beroenden.
-1. Öppna `TSIPreviewDataPlaneclient.sln` lösning och ange `DataPlaneClientSampleApp` som standard projekt i Visual Studio.
-1. Installera de nödvändiga projekt beroendena med stegen som beskrivs [nedan](#project-dependencies) och kompilera exemplet till en körbar `.exe`-fil.
-1. Kör `.exe`-filen genom att dubbelklicka på den.
+1. [Etablera en förhandsgranskning av Azure Time Series Insights-miljö.](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-update-how-to-manage#create-the-environment)
+1. Konfigurera din Azure Time Series Insights-miljö för Azure Active Directory enligt beskrivningen i [Autentisering och auktorisering](time-series-insights-authentication-and-authorization.md). 
+1. Kör [GenerateCode.bat](https://github.com/Azure-Samples/Azure-Time-Series-Insights/blob/master/csharp-tsi-preview-sample/DataPlaneClient/GenerateCode.bat) som anges i [Readme.md](https://github.com/Azure-Samples/Azure-Time-Series-Insights/blob/master/csharp-tsi-preview-sample/DataPlaneClient/Readme.md) för att generera klientberoendena för time series insights..
+1. Öppna `TSIPreviewDataPlaneclient.sln` lösningen och `DataPlaneClientSampleApp` ange som standardprojekt i Visual Studio.
+1. Installera de nödvändiga projektberoendena [below](#project-dependencies) med hjälp av stegen som `.exe` beskrivs nedan och kompilera exemplet till en körbar fil.
+1. Kör `.exe` filen genom att dubbelklicka på den.
 
 ## <a name="project-dependencies"></a>Projektberoenden
 
 Vi rekommenderar att du använder den senaste versionen av Visual Studio:
 
-* [Visual Studio 2019](https://visualstudio.microsoft.com/vs/) -version 16.4.2 +
+* [Visual Studio 2019](https://visualstudio.microsoft.com/vs/) - Version 16.4.2+
 
-Exempel koden har flera nödvändiga beroenden som kan visas i filen [packages. config](https://github.com/Azure-Samples/Azure-Time-Series-Insights/blob/master/csharp-tsi-preview-sample/DataPlaneClientSampleApp/packages.config) .
+Exempelkoden har flera obligatoriska beroenden som kan visas i [filen packages.config.](https://github.com/Azure-Samples/Azure-Time-Series-Insights/blob/master/csharp-tsi-preview-sample/DataPlaneClientSampleApp/packages.config)
 
-Ladda ned paketen i Visual Studio 2019 genom att välja alternativet **build** - > **build-lösning** . 
+Ladda ned paketen i Visual Studio 2019 genom att välja alternativet > **Byggversionslösning.** **Build** 
 
-Du kan också lägga till varje paket med [NuGet 2.12 +](https://www.nuget.org/). Ett exempel:
+Alternativt kan du lägga till varje paket med [NuGet 2.12+](https://www.nuget.org/). Ett exempel:
 
 * `dotnet add package Microsoft.IdentityModel.Clients.ActiveDirectory --version 4.5.1`
 
-## <a name="c-sample-code"></a>C#exempel kod
+## <a name="c-sample-code"></a>C#exempelkod
 
 [!code-csharp[csharpquery-example](~/samples-tsi/csharp-tsi-preview-sample/DataPlaneClientSampleApp/Program.cs)]
 
 > [!NOTE]
-> * Kod exemplet kan köras utan att ändra standard miljövariablerna.
-> * Kod exemplet kompileras till en körbar app för .NET-konsolen.
+> * Kodexemplet kan köras utan att ändra standardmiljövariablerna.
+> * Kodexemplet kompileras till en .NET-körbar konsolapp.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Läs mer om frågor i [API-referensen för frågor](https://docs.microsoft.com/rest/api/time-series-insights/preview-query).
+- Mer information om frågor finns i [referensen för fråge-API](https://docs.microsoft.com/rest/api/time-series-insights/preview-query).
 
-- Läs hur du [ansluter en JavaScript-app med hjälp av klient-SDK](https://github.com/microsoft/tsiclient) för att Time Series Insights.
+- Läs om hur du [ansluter en JavaScript-app med klienten SDK](https://github.com/microsoft/tsiclient) till Time Series Insights.

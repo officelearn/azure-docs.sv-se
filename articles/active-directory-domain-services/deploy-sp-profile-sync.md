@@ -1,6 +1,6 @@
 ---
-title: Aktivera SharePoint-tjänsten för användar profiler med Azure AD DS | Microsoft Docs
-description: Lär dig hur du konfigurerar en Azure Active Directory Domain Services hanterad domän så att den stöder profilsynkronisering för SharePoint Server
+title: Aktivera SharePoint-tjänst för användarprofil med Azure AD DS | Microsoft-dokument
+description: Lär dig hur du konfigurerar en hanterad Azure Active Directory Domain Services-domän för att stödja profilsynkronisering för SharePoint Server
 services: active-directory-ds
 author: iainfoulds
 manager: daveba
@@ -12,66 +12,66 @@ ms.topic: conceptual
 ms.date: 01/21/2020
 ms.author: iainfou
 ms.openlocfilehash: 9d983015927d2635f69a327a9c5b168056542519
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77613864"
 ---
-# <a name="configure-azure-active-directory-domain-services-to-support-user-profile-synchronization-for-sharepoint-server"></a>Konfigurera Azure Active Directory Domain Services som stöder synkronisering av användar profiler för SharePoint Server
+# <a name="configure-azure-active-directory-domain-services-to-support-user-profile-synchronization-for-sharepoint-server"></a>Konfigurera Azure Active Directory Domain Services så att de stöder synkronisering av användarprofiler för SharePoint Server
 
-SharePoint Server innehåller en tjänst för att synkronisera användar profiler. Med den här funktionen kan användar profiler lagras på en central plats och nås på flera SharePoint-webbplatser och-grupper. Om du vill konfigurera tjänsten användar profil för SharePoint Server måste rätt behörigheter beviljas i en Azure Active Directory Domain Services (Azure AD DS)-hanterad domän. Mer information finns i [synkronisering av användar profiler i SharePoint Server](https://technet.microsoft.com/library/hh296982.aspx).
+SharePoint Server innehåller en tjänst för att synkronisera användarprofiler. Med den här funktionen kan användarprofiler lagras på en central plats och vara tillgängliga på flera SharePoint-webbplatser och -grupper. Om du vill konfigurera tjänsten SharePoint Server-användarprofil måste lämpliga behörigheter beviljas i en Azure Active Directory Domain Services (Azure AD DS) hanterad domän. Mer information finns [i synkronisering av användarprofiler i SharePoint Server](https://technet.microsoft.com/library/hh296982.aspx).
 
-Den här artikeln visar hur du konfigurerar Azure AD DS så att synkroniseringstjänsten för användar profiler för SharePoint Server tillåts.
+I den här artikeln beskrivs hur du konfigurerar Azure AD DS så att synkroniseringstjänsten för SharePoint Server-användarprofilen tillåts.
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
-För att slutföra den här artikeln behöver du följande resurser och behörigheter:
+För att kunna slutföra den här artikeln behöver du följande resurser och privilegier:
 
 * En aktiv Azure-prenumeration.
-    * [Skapa ett konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)om du inte har någon Azure-prenumeration.
-* En Azure Active Directory klient som är associerad med din prenumeration, antingen synkroniserad med en lokal katalog eller en katalog som endast är moln.
-    * Om det behövs kan du [skapa en Azure Active Directory klient][create-azure-ad-tenant] eller [associera en Azure-prenumeration med ditt konto][associate-azure-ad-tenant].
-* En Azure Active Directory Domain Services hanterad domän aktive rad och konfigurerad i Azure AD-klienten.
-    * Om det behövs, slutför du själv studie kursen för att [skapa och konfigurera en Azure Active Directory Domain Services-instans][create-azure-ad-ds-instance].
-* En virtuell Windows Server Management-dator som är ansluten till den hanterade Azure AD DS-domänen.
-    * Om det behövs kan du slutföra självstudien för att [skapa en virtuell hanterings dator][tutorial-create-management-vm].
-* Ett användar konto som är medlem i *Administratörs gruppen för Azure AD DC* i din Azure AD-klient.
-* Ett SharePoint-tjänstkonto för tjänsten för synkronisering av användar profiler.
-    * Om det behövs, se [Planera för administrations-och tjänst konton i SharePoint Server][sharepoint-service-account].
+    * Om du inte har en Azure-prenumeration [skapar du ett konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* En Azure Active Directory-klient som är associerad med din prenumeration, antingen synkroniserad med en lokal katalog eller en katalog med endast molnet.
+    * Om det behövs [skapar du en Azure Active Directory-klientorganisation][create-azure-ad-tenant] eller [associerar en Azure-prenumeration med ditt konto][associate-azure-ad-tenant].
+* En hanterad Azure Active Directory Domain Services-domän aktiverad och konfigurerad i din Azure AD-klientorganisation.
+    * Om det behövs slutför du självstudien för att [skapa och konfigurera en Azure Active Directory Domain Services-instans][create-azure-ad-ds-instance].
+* En virtuell windows serverhantering som är ansluten till den Hanterade Azure AD DS-domänen.
+    * Om det behövs slutför du självstudien för att [skapa en vm-hantering][tutorial-create-management-vm].
+* Ett användarkonto som är medlem i azure *AD DC-administratörsgruppen* i din Azure AD-klientorganisation.
+* Ett SharePoint-tjänstkonto för synkroniseringstjänsten för användarprofiler.
+    * Om det behövs läser du [Planera för administrativa konton och tjänstkonton i SharePoint Server][sharepoint-service-account].
 
-## <a name="service-accounts-overview"></a>Översikt över tjänst konton
+## <a name="service-accounts-overview"></a>Översikt över tjänstkonton
 
-I en Azure AD DS-hanterad domän finns en säkerhets grupp med namnet **AAD DC-tjänstekonton** som en del av *användarnas* organisationsenhet (OU). Medlemmar i den här säkerhets gruppen har delegerats följande privilegier:
+I en Azure AD DS-hanterad domän finns en säkerhetsgrupp med namnet **AAD DC Service Accounts** som en del av *organisationsenheten för användare* (OU). Medlemmar i den här säkerhetsgruppen delegeras följande behörigheter:
 
-- **Replikera katalog ändringar** privilegium på rot-DSE.
-- **Replikera katalog ändringar** privilegium i *konfigurationens* namngivnings kontext (`cn=configuration` behållare).
+- **Behörigheten Replikera katalogändringar** på roten DSE.
+- **Behörigheten Replikera katalogändringar** i *konfigurationsnamnningskontexten* (behållare).`cn=configuration`
 
-Säkerhets gruppen **AAD DC service-konton** är också medlem i den inbyggda gruppen **för Windows 2000-kompatibel åtkomst**.
+Säkerhetsgruppen **AAD DC-tjänstkonton** är också medlem i den inbyggda gruppen **Pre-Windows 2000 Compatible Access**.
 
-När det läggs till i den här säkerhets gruppen, beviljas tjänst kontot för SharePoint Server-synkroniseringstjänsten för användar profiler den behörighet som krävs för att fungera korrekt.
+När tjänsten för synkroniseringstjänsten för SharePoint Server-användarprofil läggs till i den här säkerhetsgruppen beviljas tjänsten för synkroniseringstjänsten för SharePoint Server de privilegier som krävs för att fungera korrekt.
 
-## <a name="enable-support-for-sharepoint-server-user-profile-sync"></a>Aktivera stöd för synkronisering av SharePoint Server-användarprofil
+## <a name="enable-support-for-sharepoint-server-user-profile-sync"></a>Aktivera stöd för synkronisering av användarprofiler för SharePoint Server
 
-Tjänst kontot för SharePoint Server måste ha tillräcklig behörighet för att replikera ändringar till katalogen och låta synkroniseringen av användar profiler för SharePoint Server fungera korrekt. Om du vill ange de här behörigheterna lägger du till tjänst kontot som används för synkronisering av SharePoint-användarprofil till **AAD DC Service accounts** Group.
+Tjänstkontot för SharePoint Server behöver tillräcklig behörighet för att replikera ändringar i katalogen och låta SharePoint Server-användarprofilsynkronisering fungera korrekt. Om du vill ange dessa privilegier lägger du till det tjänstkonto som används för Synkronisering av SharePoint-användarprofil i gruppen **AAD DC Service Accounts.**
 
-Utför följande steg från din Azure AD DS Management VM:
+Gör så här från den virtuella virtuella datorn för Azure AD DS-hantering:
 
 > [!NOTE]
-> Om du vill redigera grupp medlemskap i en Azure AD DS-hanterad domän måste du vara inloggad på ett användar konto som är medlem i *Administratörs gruppen för AAD-domänkontrollanten* .
+> Om du vill redigera gruppmedlemskap i en Azure AD DS-hanterad domän måste du vara inloggad på ett användarkonto som är medlem i gruppen *AAD DC-administratörer.*
 
-1. Välj **administrations verktyg**på Start skärmen. En lista över tillgängliga hanterings verktyg visas som har installerats i självstudien för att [skapa en virtuell hanterings dator][tutorial-create-management-vm].
-1. Om du vill hantera grupp medlemskap väljer du **Active Directory Administrationscenter** i listan över administrations verktyg.
-1. I den vänstra rutan väljer du din Azure AD DS-hanterade domän, till exempel *aaddscontoso.com*. En lista över befintliga organisationsenheter och resurser visas.
-1. Välj ou för **användare** och välj sedan säkerhets gruppen *AAD DC Service accounts* .
-1. Välj **medlemmar**och välj sedan **Lägg till.** ...
-1. Ange namnet på SharePoint-tjänstkontot och välj sedan **OK**. I följande exempel heter SharePoint-tjänstkontot *SPAdmin*:
+1. Välj **Administrationsverktyg**på Startskärmen . En lista över tillgängliga hanteringsverktyg visas som installerades i självstudien för att [skapa en hantering VM][tutorial-create-management-vm].
+1. Om du vill hantera gruppmedlemskap väljer du **Active Directory Administrationscenter** i listan över administrativa verktyg.
+1. I den vänstra rutan väljer du din Azure AD DS-hanterade domän, till exempel *aaddscontoso.com*. En lista över befintliga företags och resurser visas.
+1. Välj **organisationsenheten Användare** och välj sedan säkerhetsgruppen *AAD DC Service Accounts.*
+1. Välj **Medlemmar**och välj sedan **Lägg till...**.
+1. Ange namnet på SharePoint-tjänstkontot och välj sedan **OK**. I följande exempel heter SharePoint-tjänstkontot *spadmin:*
 
-    ![Lägg till SharePoint-tjänstkontot i säkerhets gruppen för AAD DC service-konton](./media/deploy-sp-profile-sync/add-member-to-aad-dc-service-accounts-group.png)
+    ![Lägga till SharePoint-tjänstkontot i säkerhetsgruppen AAD DC Service Accounts](./media/deploy-sp-profile-sync/add-member-to-aad-dc-service-accounts-group.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information finns i [bevilja Active Directory Domain Services behörigheter för profilsynkronisering i SharePoint Server](https://technet.microsoft.com/library/hh296982.aspx)
+Mer information finns i [Bevilja Active Directory Domain Services-behörigheter för profilsynkronisering i SharePoint Server](https://technet.microsoft.com/library/hh296982.aspx)
 
 <!-- INTERNAL LINKS -->
 [create-azure-ad-tenant]: ../active-directory/fundamentals/sign-up-organization.md

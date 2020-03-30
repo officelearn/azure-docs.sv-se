@@ -1,6 +1,6 @@
 ---
-title: Ändra strömmar i Azure Cosmos DBs API för MongoDB
-description: Lär dig hur du använder ändrings strömmar n Azure Cosmos DBs API för MongoDB för att hämta de ändringar som gjorts i dina data.
+title: Ändra strömmar i Azure Cosmos DB:s API för MongoDB
+description: Lär dig hur du använder ändringsströmmar n Azure Cosmos DB:s API för MongoDB för att få ändringarna gjorda i dina data.
 author: srchi
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
@@ -8,20 +8,20 @@ ms.topic: conceptual
 ms.date: 11/16/2019
 ms.author: srchi
 ms.openlocfilehash: ec1ec1a8a80953f8988355341ee7128bd29b982d
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77467785"
 ---
-# <a name="change-streams-in-azure-cosmos-dbs-api-for-mongodb"></a>Ändra strömmar i Azure Cosmos DBs API för MongoDB
+# <a name="change-streams-in-azure-cosmos-dbs-api-for-mongodb"></a>Ändra strömmar i Azure Cosmos DB:s API för MongoDB
 
-[Ändra feed](change-feed.md) -stöd i Azure Cosmos DBS API för MongoDB är tillgängligt med hjälp av API: et för ändrings strömmar. Med hjälp av API: et för ändrings strömmar kan dina program få ändringarna som gjorts i samlingen eller till objekten i en enda Shard. Senare kan du vidta ytterligare åtgärder baserat på resultaten. Ändringar av objekt i samlingen samlas i ordningen av deras ändrings tid och sorterings ordningen garanteras per Shard nyckel.
+[Ändra feedstöd](change-feed.md) i Azure Cosmos DB:s API för MongoDB är tillgängligt med hjälp av API:et för ändringsströmmar. Genom att använda API:et för ändringsströmmar kan dina program hämta ändringarna i samlingen eller till objekten i en enda fragment. Senare kan du vidta ytterligare åtgärder baserat på resultaten. Ändringar av objekten i samlingen fångas i den ordning de ändras och sorteringsordningen garanteras per fragmentnyckel.
 
 > [!NOTE]
-> Om du vill använda ändrings strömmar skapar du kontot med version 3,6 av Azure Cosmos DB s API för MongoDB eller en senare version. Om du kör exemplen för ändrings data strömmar mot en tidigare version kan du se `Unrecognized pipeline stage name: $changeStream` fel. 
+> Om du vill använda ändringsströmmar skapar du kontot med version 3.6 av Azure Cosmos DB:s API för MongoDB eller en senare version. Om du kör exemplen på ändringsström mot `Unrecognized pipeline stage name: $changeStream` en tidigare version kan felet visas. 
 
-I följande exempel visas hur du hämtar ändrings strömmar för alla objekt i samlingen. I det här exemplet skapas en markör som tittar på objekt när de infogas, uppdateras eller ersätts. Alternativet $match Stage, $project Stage och fullDocument krävs för att hämta ändrings strömmar. Det finns för närvarande inte stöd för att titta efter borttagnings åtgärder med ändrings strömmar. Som en lösning kan du lägga till en mjuk markör för de objekt som tas bort. Du kan till exempel lägga till ett attribut i objektet som kallas "borttaget" och ange det som "sant" och ange ett TTL-värde för objektet, så att du kan ta bort det automatiskt och spåra det.
+I följande exempel visas hur du får ändringsströmmar för alla objekt i samlingen. I det här exemplet skapas en markör för att titta på objekt när de infogas, uppdateras eller ersätts. Det $match steget, $project steget och fullDokumentingsalternativet krävs för att få ändringsströmmarna. Det går inte att söka efter borttagningsåtgärder med ändringsströmmar. Som en lösning kan du lägga till en mjuk markör på de objekt som tas bort. Du kan till exempel lägga till ett attribut i objektet "borttaget" och ange det till "true" och ange ett TTL för objektet, så att du automatiskt kan ta bort det samt spåra det.
 
 ```javascript
 var cursor = db.coll.watch(
@@ -38,7 +38,7 @@ while (!cursor.isExhausted()) {
 }
 ```
 
-I följande exempel visas hur du kan få ändringar i objekten i en enda Shard. I det här exemplet hämtas ändringar av objekt som har Shard-nyckeln lika med "a" och värdet för Shard-nyckeln som är lika med "1".
+I följande exempel visas hur du får ändringar i objekten i en enda fragment. Det här exemplet hämtar ändringar av objekt som har fragmentnyckel som är lika med "a" och shardnyckelvärdet lika med "1".
 
 ```javascript
 var cursor = db.coll.watch(
@@ -59,22 +59,22 @@ var cursor = db.coll.watch(
 
 ## <a name="current-limitations"></a>Aktuella begränsningar
 
-Följande begränsningar gäller när du använder ändrings strömmar:
+Följande begränsningar gäller vid användning av ändringsströmmar:
 
-* Egenskaperna `operationType` och `updateDescription` stöds inte ännu i utmatnings dokumentet.
-* Åtgärds typerna `insert`, `update`och `replace` stöds för närvarande. Borttagnings åtgärden eller andra händelser stöds inte ännu.
+* Egenskaperna `operationType` `updateDescription` och stöds ännu inte i utdatadokumentet.
+* `insert`Typerna `update`, `replace` och åtgärder stöds för närvarande. Borttagning eller andra händelser stöds ännu inte.
 
-På grund av dessa begränsningar krävs $match steg, $project Stage och fullDocument alternativ som du ser i föregående exempel.
+På grund av dessa begränsningar krävs $match steg, $project och fullständigadokumentalternativ som visas i föregående exempel.
 
 ## <a name="error-handling"></a>Felhantering
 
-Följande felkoder och meddelanden stöds när du använder ändrings strömmar:
+Följande felkoder och meddelanden stöds när du använder ändringsströmmar:
 
-* **Http-felkod 429** -när ändrings data strömmen är begränsad returneras en tom sida.
+* **HTTP-felkod 429** - När ändringsströmmen begränsas returneras en tom sida.
 
-* **NamespaceNotFound (OperationType ogiltig)** – om du kör ändrings ström för samlingen som inte finns, eller om samlingen har släppts, returneras ett `NamespaceNotFound` fel. Eftersom `operationType` egenskapen inte kan returneras i utdatafilen, i stället för `operationType Invalidate` fel returneras `NamespaceNotFound` fel.
+* **NamespaceNotFound (OperationType Invalidate)** - Om du kör ändringsström på samlingen som inte `NamespaceNotFound` finns eller om samlingen tas bort returneras ett fel. Eftersom `operationType` egenskapen inte kan returneras i utdatadokumentet returneras `operationType Invalidate` `NamespaceNotFound` felet i stället för felet.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Använd Time to Live för att förfalla data automatiskt i Azure Cosmos DBs API för MongoDB](mongodb-time-to-live.md)
-* [Indexering i Azure Cosmos DBs API för MongoDB](mongodb-indexing.md)
+* [Använd tid för att leva för att förfalla data automatiskt i Azure Cosmos DB:s API för MongoDB](mongodb-time-to-live.md)
+* [Indexering i Azure Cosmos DB:s API för MongoDB](mongodb-indexing.md)

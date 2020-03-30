@@ -1,6 +1,6 @@
 ---
 title: Flytta appar från AD FS till Azure AD. | Microsoft Docs
-description: Den här artikeln är avsedd att hjälpa företag att förstå hur du flyttar program till Azure AD, med fokus på federerade SaaS-program.
+description: Den här artikeln är avsedd att hjälpa organisationer att förstå hur du flyttar program till Azure AD, med fokus på federerade SaaS-program.
 services: active-directory
 author: msmimart
 manager: CelesteDG
@@ -14,15 +14,15 @@ ms.date: 03/02/2018
 ms.author: mimart
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ec825a562b57f081305af20ee6a6ce078d5c0505
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77159020"
 ---
 # <a name="move-applications-from-ad-fs-to-azure-ad"></a>Flytta program från AD FS till Azure AD 
 
-Den här artikeln hjälper dig att flytta program från AD FS till Azure Active Directory (AD Azure). Den fokuserar på federerade SaaS-program.
+Den här artikeln hjälper dig att förstå hur du flyttar program från AD FS till Azure Active Directory (Azure AD). Den fokuserar på federerade SaaS-program.
 
 I artikeln finns det inte någon stegvis vägledning. Det ger konceptuell vägledning för att hjälpa dig att genomföra migreringen genom att förstå hur lokala konfigurationer översätts till Azure AD. Den beskriver också vanliga scenarier.
 
@@ -32,22 +32,22 @@ Om du har en lokal katalog som innehåller användarkonton har du kanske minst e
 
 Och om din organisation är som många andra håller ni förmodligen på att anpassa er till molnprogram och -identiteter. Ni kanske har kommit igång med Office 365 och Azure AD Connect. Du kanske har konfigurerat molnbaserade SaaS-program för några viktiga arbetsbelastningar, men inte för alla.  
 
-Många organisationer har SaaS-appar eller anpassade verksamhetsspecifika appar (LOB) som har federerats direkt till en lokal inloggningstjänst, som exempelvis Active Directory Federation Service (AD FS) tillsammans med Office 365- och Azure AD-baserade appar. Den här guiden beskriver varför och hur du flyttar dina program till Azure AD.
+Många organisationer har SaaS-appar eller anpassade verksamhetsspecifika appar (LOB) som har federerats direkt till en lokal inloggningstjänst, som exempelvis Active Directory Federation Service (AD FS) tillsammans med Office 365- och Azure AD-baserade appar. I den här guiden beskrivs varför och hur du flyttar dina program till Azure AD.
 
 > [!NOTE]
 > Den här guiden innehåller detaljerad information om appkonfiguration och migrering i SaaS, med översiktlig information om anpassade LOB-appar. Mer detaljerad vägledning för anpassade LOB-appar planeras i framtiden.
 
-![Program som är anslutna direkt lokalt](media/migrate-adfs-apps-to-azure/migrate1.png)
+![Program som är direkt anslutna lokalt](media/migrate-adfs-apps-to-azure/migrate1.png)
 
-![Program som är federerade via Azure AD](media/migrate-adfs-apps-to-azure/migrate2.png)
+![Program som federerats via Azure AD](media/migrate-adfs-apps-to-azure/migrate2.png)
 
-## <a name="reasons-for-moving-apps-to-azure-ad"></a>Orsaker till att flytta appar till Azure AD
+## <a name="reasons-for-moving-apps-to-azure-ad"></a>Orsaker till att du flyttar appar till Azure AD
 
-För organisationer som redan använder AD FS, Ping eller en annan lokal autentiseringsprovider, gör att flytta appar till Azure AD följande fördelar:
+För en organisation som redan använder AD FS, Ping eller en annan lokal autentiseringsleverantör möjliggör flytten av appar till Azure AD följande fördelar:
 
 - **Säkrare åtkomst**
 
-  - Konfigurera detaljerade åtkomst kontroller per program, inklusive Azure Multi-Factor Authentication, genom att använda [villkorlig åtkomst för Azure AD](../active-directory-conditional-access-azure-portal.md). Principerna kan tillämpas på SaaS-appar och anpassade appar på samma sätt som du kanske gör i dag för Office 365.
+  - Konfigurera detaljerade åtkomstkontroller per program, inklusive Azure Multi-Factor-autentisering, med hjälp av [Azure AD Conditional Access](../active-directory-conditional-access-azure-portal.md). Principerna kan tillämpas på SaaS-appar och anpassade appar på samma sätt som du kanske gör i dag för Office 365.
   - För att upptäcka hot och skydda inloggning som baseras på maskininlärning och heuristik som identifierar riskfylld trafik, kan du använda [Azure AD Identity Protection](../active-directory-identityprotection.md).
 
 - **Azure AD B2B-samarbete**
@@ -67,7 +67,7 @@ För organisationer som redan använder AD FS, Ping eller en annan lokal autenti
 
 - **Hjälp till med tillbakadragning av den lokala identitetsprovidern.**
   
-  För organisationer som vill dra tillbaka lokal autentisering produkt, möjliggör flytta appar till Azure AD en enklare övergång genom del av arbetet åt sidan.
+  För organisationer som vill dra tillbaka den lokala autentiseringsprodukten möjliggör flytten av appar till Azure AD en enklare övergång genom att få en del av arbetet ur vägen.
 
 ## <a name="mapping-types-of-apps-on-premises-to-types-of-apps-in-azure-ad"></a>Mappa typer av appar lokalt till typer av appar i Azure AD
 
@@ -110,13 +110,13 @@ Migreringen börjar med att utvärdera hur programmet är konfigurerat lokalt oc
 
 |Appkonfigurationselement|Beskrivning|Plats i AD FS-konfigurationen|Motsvarande plats i Azure AD-konfiguration|SAML-tokenelement|
 |-----|-----|-----|-----|-----|
-|Inloggnings-URL för appen|Webbadress till programmets inloggningssida. Det är här som användaren loggar in på appen i ett SP-initierat SAML-flöde.|Saknas|I Azure AD konfigureras inloggnings-URL:en i Azure-portalen i programmets egenskaper för **Enkel inloggning** som inloggnings-URL.</br></br>(Du kanske måste välja **Visa avancerade URL-inställningar** för att kunna se inloggnings-URL:en.)|Saknas|
+|Inloggnings-URL för appen|Webbadress till programmets inloggningssida. Det är här som användaren loggar in på appen i ett SP-initierat SAML-flöde.|Ej tillämpligt|I Azure AD konfigureras inloggnings-URL:en i Azure-portalen i programmets egenskaper för **Enkel inloggning** som inloggnings-URL.</br></br>(Du kanske måste välja **Visa avancerade URL-inställningar** för att kunna se inloggnings-URL:en.)|Ej tillämpligt|
 |Appens svars-URL|Appens webbadress ur identitetsproviderns (IdP) perspektiv. Hit skickas användare och token när användaren har loggat in på IdP:n.</br></br> Detta kallas ibland för ”slutpunkt för SAML-intygsmottagare”.|Den finns i appens AD FS-förlitande partsförtroende. Högerklicka på den förlitande parten, välj **Egenskaper** och välj sedan fliken **Slutpunkter**.|I Azure AD konfigureras svars-URL:en i Azure-portalen i programmets egenskaper för **Enkel inloggning** som svars-URL.</br></br>(Du kanske måste välja **Visa avancerade URL-inställningar** för att kunna se svars-URL:en.)|Mappas till **Mål**-elementet i SAML-token.</br></br> Exempelvärde: `https://contoso.my.salesforce.com`|
-|Appens webbadress för utloggning|URL dit begäranden om ”utloggningsrensning” skickas när en användare loggar ut från en app, vilket loggar ut alla andra appar som IdP:n har loggat in användaren på.|Den finns i AD FS-hantering under **Förlitande partsförtroenden**. Högerklicka på den förlitande parten, välj **Egenskaper** och välj sedan fliken **Slutpunkter**.|Ej tillämpligt. Azure AD stöder inte ”enkel utloggning”, vilket innebär utloggning från alla appar. Den loggar bara ut användaren från själva Azure AD.|Saknas|
+|Appens webbadress för utloggning|URL dit begäranden om ”utloggningsrensning” skickas när en användare loggar ut från en app, vilket loggar ut alla andra appar som IdP:n har loggat in användaren på.|Den finns i AD FS-hantering under **Förlitande partsförtroenden**. Högerklicka på den förlitande parten, välj **Egenskaper** och välj sedan fliken **Slutpunkter**.|Ej tillämpligt. Azure AD stöder inte ”enkel utloggning”, vilket innebär utloggning från alla appar. Den loggar bara ut användaren från själva Azure AD.|Ej tillämpligt|
 |Appidentifierare|Appens identifierare ur IdP:ns perspektiv. Inloggningens URL-värde används ofta för identifierare (men inte alltid).</br></br> Ibland kallar appen detta för ”Entitets-ID”.|I AD FS är detta den förlitande partens ID. Högerklicka på det förlitande partsförtroendet, välj **Egenskaper** och sedan fliken **Identifierare**.|I Azure AD konfigureras identifieraren i Azure-portalen i programmets egenskaper för **Enkel inloggning** som identifierare under **Domän och URL:er**. (Du kan behöva markera kryssrutan **Visa avancerade URL-inställningar**.)|Motsvarar elementet **Målgrupp** i SAML-token.|
-|Federationsmetadata för appen|Platsen för appens federationsmetadata. IdP:n använder den till att automatiskt uppdatera specifika konfigurationsinställningar, som t.ex. slutpunkter eller krypteringscertifikat.|URL:en för appens federationsmetadata finns i appens AD FS-förlitande partsförtroende. Högerklicka på förtroendet, välj **Egenskaper** och sedan fliken **Övervakning**.|Ej tillämpligt. Azure AD stöder inte konsumerande appars federationsmetadata direkt.|Saknas|
+|Federationsmetadata för appen|Platsen för appens federationsmetadata. IdP:n använder den till att automatiskt uppdatera specifika konfigurationsinställningar, som t.ex. slutpunkter eller krypteringscertifikat.|URL:en för appens federationsmetadata finns i appens AD FS-förlitande partsförtroende. Högerklicka på förtroendet, välj **Egenskaper** och sedan fliken **Övervakning**.|Ej tillämpligt. Azure AD stöder inte konsumerande appars federationsmetadata direkt.|Ej tillämpligt|
 |Användaridentifierare/**NameID**|Attribut som används för att unikt ange användarens identitet från Azure AD eller AD FS till din app.</br></br> Attributet är vanligtvis användarens UPN eller e-postadress.|I AD FS finns detta som en anspråksregel hos den förlitande parten. I de flesta fall är det anspråksregeln som utfärdar ett anspråk med en typ som slutar med ”nameidentifier”|I Azure AD finns användaridentifieraren i Azure-portalen i programmets egenskaper för **Enkel inloggning** under rubriken **Användarattribut**.</br></br>Som standard används UPN.|Meddelas från IdP:n till appen som ett **NameID**-element i SAML-token.|
-|Övriga anspråk som skickas till appen|Förutom användaridentifierare/**NameID** skickas ofta annan anspråksinformation från IdP:n till appen. Exempel på detta är förnamn, efternamn, e-postadress och grupper som användaren är medlem i.|I AD FS finns detta som övriga anspråksregler hos den förlitande parten.|I Azure AD finns det i Azure-portalen i programmets egenskaper för **Enkel inloggning** under rubriken **Användarattribut**. Välj **Visa** och redigera alla andra användarattribut.|Saknas|
+|Övriga anspråk som skickas till appen|Förutom användaridentifierare/**NameID** skickas ofta annan anspråksinformation från IdP:n till appen. Exempel på detta är förnamn, efternamn, e-postadress och grupper som användaren är medlem i.|I AD FS finns detta som övriga anspråksregler hos den förlitande parten.|I Azure AD finns det i Azure-portalen i programmets egenskaper för **Enkel inloggning** under rubriken **Användarattribut**. Välj **Visa** och redigera alla andra användarattribut.|Ej tillämpligt|
 
 ### <a name="representing-azure-ad-as-an-identity-provider-in-an-saas-app"></a>Visa Azure AD som en identitetsprovider i en SaaS-app
 Som en del av migreringen måste du konfigurera appen så att den pekar på Azure AD (i stället för den lokala identitetsprovidern). Det här avsnittet fokuserar på SaaS-appar som använder SAML-protokoll och inte anpassade LOB-appar. Men begreppen kan även användas på anpassade LOB-appar.
@@ -128,21 +128,21 @@ På en högre nivå är det vissa viktiga delar som pekar en SaaS-app till Azure
 - Utloggnings-URL för identitetsprovider: https&#58;//login.microsoftonline.com/{tenant-id}/saml2 
 - Plats för federationsmetadata: https&#58;//login.windows.net/{tenant-id} /federationmetadata/2007-06/federationmetadata.xml?appid={<application-id} 
 
-Ersätt {tenant-id} med ditt klientorganisations-ID som finns i Azure-portalen under **Azure Active Directory** > **Egenskaper** som **Katalog-ID**. Ersätt {application-id} med ditt program-ID som finns under programmets egenskaper som **Program-ID**.
+Ersätt {tenant-id} med ditt klient-ID som finns i Azure-portalen under **Azure Active Directory** > **Properties** as **Directory ID**. Ersätt {application-id} med ditt program-ID som finns under programmets egenskaper som **Program-ID**.
 
 Följande tabell beskriver viktiga IdP-konfigurationselement vid konfiguration av inställningar för enkel inloggning i appen, samt deras värden eller platser inom AD FS och Azure AD. Tabellens referensram är SaaS-appen, som måste veta vart begäranden om autentisering ska skickas och hur mottagna token ska valideras.
 
 |Konfigurationselement|Beskrivning|AD FS|Azure AD|
 |---|---|---|---|
-|IdP </br>inloggning </br>URL|Inloggnings-URL för IdP:n ur appens perspektiv (dit användare omdirigeras för inloggningen).|AD FS-inloggningens URL är AD FS-federationstjänstens namn följt av ”/adfs/ls/”. Till exempel: https&#58;//fs.contoso.com/adfs/ls/|Motsvarande värde för Azure AD följer mönstret där {tenant-id} ersätts med ditt klientorganisations-ID. Det finns i Azure-portalen under **Azure Active Directory** > **Egenskaper** som **Katalog-ID**.</br></br>För appar som använder SAML-P-protokollet: https&#58;//login.microsoftonline.com/{tenant-id}/saml2 </br></br>För appar som använder WS-Federation-protokollet: https&#58;//login.microsoftonline.com/{tenant-id}/wsfed|
-|IdP </br>utloggning </br>URL|Utloggnings-URL för IdP:n ur appens perspektiv (dit användarna omdirigeras när de väljer att logga ut från appen).|För AD FS är utloggnings-URL:en antingen samma som inloggnings-URL:en eller samma URL med tillägget ”wa=wsignout1.0”. Till exempel: https&#58;//fs.contoso.com/adfs/ls/?wa=wsignout1.0|Motsvarande värde för Azure AD beror på om appen har stöd för SAML 2.0-utloggning eller inte.</br></br>Om appen har stöd för SAML-utloggning följer värdet mönstret där värdet för {tenant-id} ersätts med klientorganisations-ID. Det finns i Azure-portalen under **Azure Active Directory** > **Egenskaper** som **Katalog-ID**: https&#58;//login.microsoftonline.com/{tenant-id}/saml2</br></br>Om appen inte har stöd för SAML-utloggning: https&#58;//login.microsoftonline.com/common/wsfederation?wa=wsignout1.0|
+|IdP </br>inloggning </br>URL|Inloggnings-URL för IdP:n ur appens perspektiv (dit användare omdirigeras för inloggningen).|AD FS-inloggningens URL är AD FS-federationstjänstens namn följt av ”/adfs/ls/”. Till exempel: https&#58;//fs.contoso.com/adfs/ls/|Motsvarande värde för Azure AD följer mönstret där {tenant-id} ersätts med ditt klientorganisations-ID. Hitta den i Azure-portalen under **Azure Active Directory** > **Properties** as **Directory ID**.</br></br>För appar som använder SAML-P-protokollet: https&#58;//login.microsoftonline.com/{tenant-id}/saml2 </br></br>För appar som använder WS-Federation-protokollet: https&#58;//login.microsoftonline.com/{tenant-id}/wsfed|
+|IdP </br>utloggning </br>URL|Utloggnings-URL för IdP:n ur appens perspektiv (dit användarna omdirigeras när de väljer att logga ut från appen).|För AD FS är utloggnings-URL:en antingen samma som inloggnings-URL:en eller samma URL med tillägget ”wa=wsignout1.0”. Till exempel: https&#58;//fs.contoso.com/adfs/ls/?wa=wsignout1.0|Motsvarande värde för Azure AD beror på om appen har stöd för SAML 2.0-utloggning eller inte.</br></br>Om appen har stöd för SAML-utloggning följer värdet mönstret där värdet för {tenant-id} ersätts med klientorganisations-ID. Hitta den i Azure-portalen under **Azure Active Directory** > **Properties** as **Directory ID**: https&#58;//login.microsoftonline.com/{tenant-id}/saml2</br></br>Om appen inte har stöd för SAML-utloggning: https&#58;//login.microsoftonline.com/common/wsfederation?wa=wsignout1.0|
 |Token </br>signering </br>certifikat|IdP:n använder certifikatets privata nyckel till att signera utfärdade tokens. Den kontrollerar att token kom från samma IdP som appen är konfigurerad att ha förtroende för.|AD FS-certifikatet för tokensignering finns i AD FS-hanteringen under **Certifikat**.|I Azure AD finns certifikatet för tokensignering i Azure-portalen i programmets egenskaper för **Enkel inloggning** under rubriken **SAML-signeringscertifikat**. Därifrån kan du ladda ner certifikatet för uppladdning till appen.</br></br> Om programmet har fler än ett certifikat finns alla certifikat i federationsmetadatans XML-fil.|
-|Identifierare/</br>”utfärdare”|Identifierare för IdP:n ur appens perspektiv (kallas ibland för ”Utfärdar-ID”).</br></br>I SAML-token visas värdet som elementet **Utfärdare**.|Identifieraren för AD FS är vanligen federationstjänstens identifierare i AD FS-hanteringen under **Tjänst** > **Redigera federationstjänstens egenskaper**. Till exempel: http&#58;//fs.contoso.com/adfs/services/trust|Motsvarande värde för Azure AD följer mönstret där {tenant-id} ersätts med ditt klientorganisations-ID. Det finns i Azure-portalen under **Azure Active Directory** > **Egenskaper** som **Katalog-ID**: https&#58;//sts.windows.net/{tenant-id}/|
-|IdP </br>federation </br>metadata|Plats för IdP:ns offentligt tillgängliga federationsmetadata. (Federationsmetadata används av vissa appar som ett alternativ för administratören och konfigurerar URL:er, identifierare och certifikat för tokensignering individuellt.)|Hitta metadata-URL:en för AD FS-federation i AD FS-hanteringen under **Tjänst** > **Slutpunkter** > **Metadata** > **Typ: Federationsmetadata**. Till exempel: https&#58;//fs.contoso.com/FederationMetadata/2007-06/FederationMetadata.xml|Motsvarande värde för Azure AD följer mönstret https&#58;/ / login.microsoftonline.com/{TenantDomainName}/FederationMetadata/2007-06/FederationMetadata.xml. Värdet för {TenantDomainName} ersätts med klientorganisationens namn i formatet ”contoso.onmicrosoft.com”. </br></br>Mer information finns i [Federationsmetadata](../azuread-dev/azure-ad-federation-metadata.md).
+|Identifierare/</br>”utfärdare”|Identifierare för IdP:n ur appens perspektiv (kallas ibland för ”Utfärdar-ID”).</br></br>I SAML-token visas värdet som elementet **Utfärdare**.|Identifieraren för AD FS är vanligtvis federationstjänstidentifieraren i AD FS-hantering under **Egenskaper för Tjänsten** > **Redigera federationstjänst**. Till exempel: http&#58;//fs.contoso.com/adfs/services/trust|Motsvarande värde för Azure AD följer mönstret där {tenant-id} ersätts med ditt klientorganisations-ID. Hitta den i Azure-portalen under **Azure Active Directory** > **Properties** as **Directory ID**: https&#58;//sts.windows.net/{tenant-id}/|
+|IdP </br>federation </br>metadata|Plats för IdP:ns offentligt tillgängliga federationsmetadata. (Federationsmetadata används av vissa appar som ett alternativ för administratören och konfigurerar URL:er, identifierare och certifikat för tokensignering individuellt.)|Hitta URL:en för AD FS-federationsmetadata i AD FS-hantering under**Metadatatyp** > för > **tjänstslutpunkter:** > **Federationmetadata**. **Service** Till exempel: https&#58;//fs.contoso.com/FederationMetadata/2007-06/FederationMetadata.xml|Motsvarande värde för Azure AD följer mönstret https&#58;/ / login.microsoftonline.com/{TenantDomainName}/FederationMetadata/2007-06/FederationMetadata.xml. Värdet för {TenantDomainName} ersätts med klientorganisationens namn i formatet ”contoso.onmicrosoft.com”. </br></br>Mer information finns i [Federationsmetadata](../azuread-dev/azure-ad-federation-metadata.md).
 
 ## <a name="moving-saas-apps"></a>Flytta SaaS-appar
 
-Flytta SaaS-appar från AD FS eller någon annan identitetsprovider till Azure AD är en manuell process idag. Om du behöver appspecifik vägledning kan du [titta i listan med självstudier om integrering av SaaS-appar i Marketplace](../saas-apps/tutorial-list.md).
+Att flytta SaaS-appar från AD FS eller en annan identitetsleverantör till Azure AD är en manuell process idag. Om du behöver appspecifik vägledning kan du [titta i listan med självstudier om integrering av SaaS-appar i Marketplace](../saas-apps/tutorial-list.md).
 
 I självstudierna om integrering förutsätts att du gör en integrering med grönt fält. Det finns några viktiga begrepp om migrering som du bör känna till när du planerar, utvärderar, konfigurerar och utför snabba lösningar för dina appar:  
 
@@ -164,18 +164,18 @@ Vissa konfigurationer kräver ytterligare åtgärder för att konfigureras i Azu
 
 #### <a name="what-can-be-moved-today"></a>Vad kan flyttas idag
 
-Appar som du kan flytta enkelt idag inkluderar SAML 2.0-appar som använder standarduppsättningen med konfigurationselement och anspråk. Apparna kan bestå av:
+Appar som du enkelt kan flytta i dag inkluderar SAML 2.0-appar som använder standarduppsättningen konfigurationselement och anspråk. Apparna kan bestå av:
 
 - Användarens huvudnamn.
 - E-postadress.
 - Förnamn.
 - Efternamn.
 - Alternativa attribut som SAML **NameID**, inklusive e-postattribut för Azure AD, e-postprefix, anställnings-ID, tilläggsattribut 1–15 eller lokalt **SamAccountName**-attribut. Mer information finns i [Redigera NameIdentifier-anspråket](../develop/active-directory-saml-claims-customization.md).
-- Anpassade anspråk. Information om anspråksmappningar som stöds finns i [Anspråksmappning i Azure Active Directory](../develop/active-directory-claims-mapping.md) och [Anpassa anspråk som utfärdas i SAML-token för företagsprogram i Azure Active Directory](../develop/active-directory-saml-claims-customization.md).
+- Anpassade anspråk. Information om anspråksmappningar som stöds finns i [Anspråksmappning i Azure Active Directory](../develop/active-directory-claims-mapping.md) och [Anpassa anspråk som utfärdats i SAML-token för företagsprogram i Azure Active Directory](../develop/active-directory-saml-claims-customization.md).
 
 Utöver anpassade anspråk och **NameID**-element, är de konfigurationer som kräver extra konfigurationssteg i Azure AD som en del av migreringen följande:
 
-- Anpassad auktorisering eller Multi-Factor Authentication-regler i AD FS. Du konfigurerar dem med hjälp av funktionen för [villkorlig åtkomst i Azure AD](../active-directory-conditional-access-azure-portal.md) .
+- Anpassad auktorisering eller Multi-Factor Authentication-regler i AD FS. Du konfigurerar dem med hjälp av [Azure AD Conditional Access-funktionen.](../active-directory-conditional-access-azure-portal.md)
 - Appar med flera SAML-slutpunkter. Du konfigurerar dem i Azure AD med hjälp av PowerShell. (Den här funktionen är inte tillgänglig i portalen.)
 - WS-Federation-appar, till exempel SharePoint-appar som kräver SAML version 1.1-tokens. Du måste konfigurera dem manuellt med hjälp av PowerShell.
 
@@ -194,7 +194,7 @@ Appar som kräver följande funktioner kan inte migreras idag. Ge feedback i kom
 - Anspråk i tokenfunktioner:
     - Utfärdande av lokala gruppnamn som anspråk.
     - Anspråk från andra lager än Azure AD.
-    - Transformeringsregler för utfärdande av komplexa anspråk. Information om anspråksmappningar som stöds finns i [Anspråksmappning i Azure Active Directory](../develop/active-directory-claims-mapping.md) och [Anpassa anspråk som utfärdas i SAML-token för företagsprogram i Azure Active Directory](../develop/active-directory-saml-claims-customization.md).
+    - Transformeringsregler för utfärdande av komplexa anspråk. Information om anspråksmappningar som stöds finns i [Anspråksmappning i Azure Active Directory](../develop/active-directory-claims-mapping.md) och [Anpassa anspråk som utfärdats i SAML-token för företagsprogram i Azure Active Directory](../develop/active-directory-saml-claims-customization.md).
     - Utfärdande av katalogtillägg som anspråk.
     - Anpassad specifikation av **NameID**-formatet.
     - Utfärdande av flervärdesattribut.
@@ -212,11 +212,11 @@ I Azure AD ska konfiguration av SAML-inloggningen (som krävs av din app) göras
 
 Välj **Visa och redigera alla andra användarattribut** om du vill se attributen och skicka dem som anspråk i säkerhetstoken.
 
-![Visar en lista över attribut som du kan skicka som anspråk](media/migrate-adfs-apps-to-azure/migrate4.png)
+![Visar listan över attribut som du kan skicka som anspråk](media/migrate-adfs-apps-to-azure/migrate4.png)
 
 Välj en specifik attributrad som ska redigeras eller klicka på **Lägg till attribut** för att lägga till ett nytt attribut.
 
-![Visar fönstret "redigera attribut"](media/migrate-adfs-apps-to-azure/migrate5.png)
+![Visar fönstret Redigera attribut](media/migrate-adfs-apps-to-azure/migrate5.png)
 
 #### <a name="assign-users-to-the-app"></a>Tilldela användare till appen
 
@@ -248,13 +248,13 @@ Snabbprocessen från lokal federation till Azure AD beror på om SaaS-appen du a
 
    Om appen stöder flera IdP:er och du väljer att flera IdP:er samtidigt ska hantera autentisering för inloggning, kan användarna välja vilken IdP som ska autentiseras på deras inloggningssida.
 
-#### <a name="example-support-for-multiple-identity-providers"></a>Exempel: stöd för flera identitets leverantörer
+#### <a name="example-support-for-multiple-identity-providers"></a>Exempel: Stöd för flera identitetsleverantörer
 
-I Salesforce finns exempelvis IdP-konfigurationen under **Inställningar** > **Företagsinställningar** > **Min domän** > **Autentiseringskonfiguration**.
+I Salesforce hittar du till exempel IDP-konfigurationen under **Inställningar** > **Företagsinställningar** > Min**domänautentiseringskonfiguration****My Domain** > .
 
 ![Avsnittet ”Autentiseringskonfiguration” i Salesforce-appen](media/migrate-adfs-apps-to-azure/migrate9.png)
 
-Eftersom konfigurationen skapades tidigare i **Identitet** > **Enkel inloggning** ska du kunna ändra IdP:n för autentiseringskonfigurationen. Du kan till exempel ändra den från AD FS till Azure AD.
+På grund av den konfiguration som skapades tidigare under Inställningar för**enkel inloggning i** **identitet** > bör du kunna ändra din IdP för autentiseringskonfiguration. Du kan till exempel ändra den från AD FS till Azure AD.
 
 ![Välja Azure AD som autentiseringstjänst](media/migrate-adfs-apps-to-azure/migrate10.png)
 

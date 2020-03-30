@@ -1,6 +1,6 @@
 ---
-title: Anslut en identitet som skyddar till Azure Sentinel | Microsoft Docs
-description: Lär dig hur du ansluter en identitet som skyddar till Azure Sentinel.
+title: Anslut ett identitetsskydd till Azure Sentinel| Microsoft-dokument
+description: Lär dig hur du ansluter One Identity Safeguard till Azure Sentinel.
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -15,33 +15,33 @@ ms.workload: na
 ms.date: 12/30/2019
 ms.author: yelevin
 ms.openlocfilehash: 849087cbbe91be799c51929353b9f020859c85b8
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77588152"
 ---
-# <a name="connect-one-identity-safeguard"></a>Anslut en identitets skydds åtgärd
-Den enda identiteten för identitets skydd förbättrar den vanliga CEF-anslutaren (common Event format) med skydd för behöriga sessioner. Använd den här anslutningen för att enkelt börja använda de händelser som genereras av enheten för visualisering, aviseringar, undersökningar och mycket annat.
+# <a name="connect-one-identity-safeguard"></a>Anslut ett identitetsskydd
+Datakopplingen One Identity Safeguard förbättrar standardkopplingen för common event format (CEF) med Safeguard for Privileged Sessions-specifika instrumentpaneler. Använd den här kopplingen för att enkelt börja använda de händelser som genereras av enheten för visualisering, aviseringar, undersökningar med mera.
 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-- Läs-och skriv behörigheter till Azure Sentinel-arbetsytan.
+- Läs- och skrivbehörigheter till Arbetsytan Azure Sentinel.
 
-## <a name="connect-azure-sentinel-to-one-identity-safeguard"></a>Anslut Azure Sentinel till en identitets skydds åtgärd
+## <a name="connect-azure-sentinel-to-one-identity-safeguard"></a>Anslut Azure Sentinel till ett identitetsskydd
 
-1. I Azure Portal går du till **Azure Sentinel** > **data Connectors** och väljer sedan den **identitet som skyddar** anslutningen.
+1. I Azure-portalen navigerar du till **Azure Sentinel** > **Data-kopplingar** och väljer sedan **one identity safeguard-anslutningsappen.**
 
-2. Välj **Öppna kopplings sida**.
+2. Välj **Öppna kopplingssida**.
 
-3. Följ instruktionerna på sidan med **en identitets skydds** sida.
+3. Följ instruktionerna på sidan **One Identity Safeguard.**
 
 
 ## <a name="next-steps"></a>Nästa steg
-I det här dokumentet har du lärt dig hur du ansluter en identitet som skyddar till Azure Sentinel. Mer information om Azure Sentinel finns i följande artiklar:
-- Lär dig hur du [får insyn i dina data och potentiella hot](quickstart-get-visibility.md).
+I det här dokumentet har du lärt dig hur du ansluter One Identity Safeguard till Azure Sentinel. Mer information om Azure Sentinel finns i följande artiklar:
+- Läs om hur du [får insyn i dina data och potentiella hot](quickstart-get-visibility.md).
 - Kom igång [med att identifiera hot med Azure Sentinel](tutorial-detect-threats-built-in.md).
-- [Använd arbets böcker](tutorial-monitor-your-data.md) för att övervaka dina data.
+- [Använd arbetsböcker](tutorial-monitor-your-data.md) för att övervaka dina data.
 
 

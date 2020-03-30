@@ -1,6 +1,6 @@
 ---
-title: Snabb start – skapa en virtuell Azure VMware-dator i ett privat moln – Azure VMware-lösning av CloudSimple
-description: Beskriver hur du skapar en virtuell Azure VMware-dator i ett privat CloudSimple-moln
+title: Snabbstart – skapa en virtuell azure VMware-dator i ett privat moln – Azure VMware-lösning från CloudSimple
+description: Beskriver hur du skapar en virtuell azure VMware-dator i ett CloudSimple Private Cloud
 author: sharaths-cs
 ms.author: b-shsury
 ms.date: 08/16/2019
@@ -9,149 +9,149 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 4ac818cfd267b781366c0e32c9f93cc885dff99c
-ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/23/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77566156"
 ---
 # <a name="create-vmware-virtual-machines-on-your-private-cloud"></a>Skapa virtuella VMware-datorer i ditt privata moln
 
-Börja med att komma åt CloudSimple-portalen från Azure Portal om du vill skapa virtuella datorer i ditt privata moln.
+Om du vill skapa virtuella datorer i ditt privata moln börjar du med att komma åt CloudSimple-portalen från Azure-portalen.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
-Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.com).
+Logga in på Azure-portalen på [https://portal.azure.com](https://portal.azure.com).
 
 ## <a name="access-the-cloudsimple-portal"></a>Få åtkomst till CloudSimple-portalen
 
 1. Välj **Alla tjänster**.
-2. Sök efter **CloudSimple-tjänster**.
+2. Sök efter **CloudSimple Services**.
 3. Välj den CloudSimple-tjänst som du vill skapa ditt privata moln på.
-4. På sidan **Översikt** klickar du på **gå till CloudSimple-portalen** för att öppna en ny flik i webbläsaren för CloudSimple-portalen.  Logga in med dina inloggnings uppgifter för Azure om du uppmanas till detta.  
+4. På sidan **Översikt** klickar du på **Gå till CloudSimple-portalen** för att öppna en ny webbläsarflik för CloudSimple-portalen.  Om du uppmanas till det loggar du in med dina Azure-inloggningsuppgifter.  
 
     ![Starta CloudSimple-portalen](media/launch-cloudsimple-portal.png)
 
-## <a name="launch-vcenter-web-ui"></a>Starta vCenter Web-UI
+## <a name="launch-vcenter-web-ui"></a>Starta vCenter web-ui
 
-Du kan nu starta vCenter för att konfigurera virtuella datorer och principer.
+Du kan nu starta vCenter för att ställa in virtuella datorer och principer.
 
-Kom åt vCenter genom att starta från CloudSimple-portalen. På Start sidan, under **vanliga uppgifter**, klickar du på **Starta vSphere-klient**.  Välj det privata molnet och klicka sedan på **Starta vSphere-klient** i det privata molnet.
+Om du vill komma åt vCenter startar du från CloudSimple-portalen. Klicka på **Starta vSphere-klient**under **Vanliga uppgifter**på startsidan.  Markera det privata molnet och klicka sedan på **Starta vSphere-klienten** i det privata molnet.
 
-   ![Starta vSphere-klienten](media/launch-vcenter-from-cloudsimple-portal.png)
+   ![Starta vSphere-klient](media/launch-vcenter-from-cloudsimple-portal.png)
 
-## <a name="upload-an-iso-or-vsphere-template"></a>Ladda upp en ISO-eller vSphere-mall
+## <a name="upload-an-iso-or-vsphere-template"></a>Ladda upp en ISO- eller vSphere-mall
 
   > [!WARNING]
-  > För ISO-överföring använder du vSphere HTML5-klienten.  Om du använder en Flash-klient kan ett fel uppstå.
+  > För ISO-uppladdning använder du vSphere HTML5-klienten.  Om du använder en Flash-klient kan det leda till ett fel.
 
-1. Hämta ISO-eller vSphere-mallen som du vill överföra till vCenter för att skapa en virtuell dator och ha den tillgänglig i det lokala systemet.
-2. Klicka på **disk** ikonen i vCenter och välj **vsanDatastore**. Klicka på **filer** och sedan på **ny mapp**.
+1. Skaffa iso- eller vSphere-mallen som du vill ladda upp till vCenter för att skapa en virtuell dator och ha den tillgänglig på ditt lokala system.
+2. I vCenter klickar du på **diskikonen** och väljer **vsanDatastore**. Klicka på **Filer** och sedan på **Ny mapp**.
     ![vCenter ISO](media/vciso00.png)
 
-3. Skapa en mapp med titeln "ISO och templates".
+3. Skapa en mapp med titeln "Iso-filer och mallar".
 
-4. Navigera till mappen ISO i ISO och mallar och klicka på **överför filer**. Följ anvisningarna på skärmen för att ladda upp ISO.
+4. Navigera till isos-mappen i Isoos och mallar och klicka på **Ladda upp filer**. Följ instruktionerna på skärmen för att ladda upp ISO.Follow the on-screen instructions to upload the ISO.
 
 ## <a name="create-a-virtual-machine-in-vcenter"></a>Skapa en virtuell dator i vCenter
 
-1. I vCenter klickar du på ikonen **värdar och kluster** .
+1. Klicka på ikonen **Värdar och kluster i** vCenter.
 
-2. Högerklicka på **arbets belastning** och välj **ny virtuell dator**.
-    ![ny virtuell dator](media/vcvm01.png)
+2. Högerklicka på **Arbetsbelastningen** och välj **Ny virtuell dator**.
+    ![Ny virtuell dator](media/vcvm01.png)
 
 3. Välj **Skapa ny virtuell dator** och klicka på **Nästa**.
-    ![ny virtuell dator](media/vcvm02.png)
+    ![Ny virtuell dator](media/vcvm02.png)
 
-4. Namnge datorn, Välj platsen för **arbets Belastningens VM** och klicka på **Nästa**.
-    ![ny virtuell dator](media/vcvm03.png)
+4. Namnge datorn, välj den **virtuella arbetsbelastningens** plats och klicka på **Nästa**.
+    ![Ny virtuell dator](media/vcvm03.png)
 
-5. Välj resurs för beräkning av **arbets belastning** och klicka på **Nästa**.
-    ![ny virtuell dator](media/vcvm04.png)
+5. Välj **beräkningsresurs** för arbetsbelastning och klicka på **Nästa**.
+    ![Ny virtuell dator](media/vcvm04.png)
 
 6. Välj **vsanDatastore** och klicka på **Nästa**.
-    ![ny virtuell dator](media/vcvm05.png)
+    ![Ny virtuell dator](media/vcvm05.png)
 
-7. Behåll standard valet av ESXi 6,5 och klicka på **Nästa**.
-    ![ny virtuell dator](media/vcvm06.png)
+7. Behåll standardvalet för KOMPATIBILITETEN ESXi 6.5 och klicka på **Nästa**.
+    ![Ny virtuell dator](media/vcvm06.png)
 
-8. Välj gäst operativ systemet för ISO-filen för den virtuella dator som du skapar och klicka på **Nästa**.
-    ![ny virtuell dator](media/vcvm07.png)
+8. Välj gäst-OS för ISO för den virtuella datorn som du skapar och klicka på **Nästa**.
+    ![Ny virtuell dator](media/vcvm07.png)
 
-9. Välj alternativ för hård disk och nätverk. För ny CD/DVD-enhet väljer du **data lager ISO-fil**.  Om du vill tillåta trafik från den offentliga IP-adressen till den här virtuella datorn väljer du nätverket som **VM-1**.
-    ![ny virtuell dator](media/vcvm08.png)
+9. Välj hårddisk- och nätverksalternativ. För ny CD/DVD-enhet väljer du **Datastore ISO-fil**.  Om du vill tillåta trafik från den offentliga IP-adressen till den här virtuella datorn väljer du nätverket som **vm-1**.
+    ![Ny virtuell dator](media/vcvm08.png)
 
-10. Ett val fönster öppnas. Välj den fil som du tidigare laddade upp till mappen ISO och mallar och klicka på **OK**.
-    ![ny virtuell dator](media/vcvm10.png)
+10. Ett markeringsfönster öppnas. Markera filen som du tidigare har laddat upp till mappen Iso-filer och mallar och klicka på **OK**.
+    ![Ny virtuell dator](media/vcvm10.png)
 
 11. Granska inställningarna och klicka på **OK** för att skapa den virtuella datorn.
-    ![ny virtuell dator](media/vcvm11.png)
+    ![Ny virtuell dator](media/vcvm11.png)
 
-Den virtuella datorn läggs nu till i beräknings resurserna för arbets belastningen och är redo att användas. 
-![ny virtuell dator](media/vcvm12.png)
+Den virtuella datorn läggs nu till i beräkningsresurserna för arbetsbelastning och är klar för användning. 
+![Ny virtuell dator](media/vcvm12.png)
 
-Den grundläggande installationen slutförs nu. Du kan börja använda ditt privata moln på samma sätt som du använder din lokala infrastruktur för virtuella datorer.
+Den grundläggande inställningen är nu klar. Du kan börja använda ditt privata moln på samma sätt som du skulle använda din lokala VM-infrastruktur.
 
-Följande avsnitt innehåller information om hur du konfigurerar DNS-och DHCP-servrar för privata moln arbets belastningar och hur du ändrar standard konfigurationen för nätverk.
+Följande avsnitt innehåller valfri information om hur du konfigurerar DNS- och DHCP-servrar för arbetsbelastningar i privata moln och ändrar standardkonfigurationen för nätverk.
 
-## <a name="add-users-and-identity-sources-to-vcenter-optional"></a>Lägg till användare och identitets källor till vCenter (valfritt)
+## <a name="add-users-and-identity-sources-to-vcenter-optional"></a>Lägga till användare och identitetskällor i vCenter (valfritt)
 
-CloudSimple tilldelar ett standard-vCenter-användarkonto med användar namn `cloudowner@cloudsimple.local`. Det krävs inga ytterligare konto inställningar för att komma igång.  CloudSimple tilldelar vanligt vis administratörer de privilegier de behöver för att utföra normala åtgärder.  Konfigurera din lokala Active Directory eller Azure AD som en [ytterligare identitets källa](set-vcenter-identity.md) i ditt privata moln.
+CloudSimple tilldelar ett standardkonto för `cloudowner@cloudsimple.local`vCenter-användarkonto med användarnamn . Ingen ytterligare kontokonfiguration krävs för att du ska komma igång.  CloudSimple tilldelar normalt administratörer de privilegier de behöver för att utföra normala åtgärder.  Konfigurera din lokala active directory eller Azure AD som ytterligare [en identitetskälla](set-vcenter-identity.md) i ditt privata moln.
 
-## <a name="create-a-dns-and-dhcp-server-optional"></a>Skapa en DNS-och DHCP-server (valfritt)
+## <a name="create-a-dns-and-dhcp-server-optional"></a>Skapa en DNS- och DHCP-server (valfritt)
 
-Program och arbets belastningar som körs i en privat moln miljö kräver namn matchning och DHCP-tjänster för sökning och tilldelning av IP-adresser. En korrekt DHCP-och DNS-infrastruktur krävs för att tillhandahålla dessa tjänster. Du kan konfigurera en virtuell dator i vCenter för att tillhandahålla dessa tjänster i din privata moln miljö.
+Program och arbetsbelastningar som körs i en privat molnmiljö kräver namnmatchning och DHCP-tjänster för uppslag och IP-adresstilldelning. En korrekt DHCP- och DNS-infrastruktur krävs för att tillhandahålla dessa tjänster. Du kan konfigurera en virtuell dator i vCenter för att tillhandahålla dessa tjänster i din privata molnmiljö.
 
-Förutsättningar
+Krav
 
-* En distribuerad port grupp med VLAN konfigurerat
+* En distribuerad portgrupp med VLAN konfigurerad
 
-* Dirigera installationen till lokala eller Internetbaserade DNS-servrar
+* Dirigera installation till lokala eller Internetbaserade DNS-servrar
 
-* Mall för virtuella datorer eller ISO för att skapa en virtuell dator
+* Mall för virtuell dator eller ISO för att skapa en virtuell dator
 
-Följande länkar ger vägledning om hur du konfigurerar DHCP-och DNS-servrar i Linux och Windows.
+Följande länkar ger vägledning om hur du konfigurerar DHCP- och DNS-servrar på Linux och Windows.
 
-#### <a name="linux-based-dns-server-setup"></a>Installation av Linux-baserad DNS-Server
+#### <a name="linux-based-dns-server-setup"></a>Linux-baserad DNS-serverinstallation
 
-Linux erbjuder olika paket för att konfigurera DNS-servrar.  Här är en länk till instruktioner för att skapa en BIND DNS-server med öppen källkod.
+Linux erbjuder olika paket för att konfigurera DNS-servrar.  Här är en länk till instruktioner för att konfigurera en BIND DNS-server med öppen källkod.
 
-[Exempel på installation](https://www.digitalocean.com/community/tutorials/how-to-configure-bind-as-a-private-network-dns-server-on-centos-7)
+[Exempelinställning](https://www.digitalocean.com/community/tutorials/how-to-configure-bind-as-a-private-network-dns-server-on-centos-7)
 
-#### <a name="windows-based-setup"></a>Windows-baserad installation
+#### <a name="windows-based-setup"></a>Installation av Windows-baserad
 
-Dessa Microsoft-avsnitt beskriver hur du konfigurerar en Windows-Server som en DNS-server och som en DHCP-server.
+I de här avsnitten i Microsoft beskrivs hur du konfigurerar en Windows-server som DNS-server och som DHCP-server.
 
-[Windows Server som DNS-Server](https://docs.microsoft.com/windows-server/networking/dns/dns-top)
+[Windows Server som DNS-server](https://docs.microsoft.com/windows-server/networking/dns/dns-top)
 
 [Windows Server som DHCP-server](https://docs.microsoft.com/windows-server/networking/technologies/dhcp/dhcp-top)
 
-## <a name="customize-networking-configuration-optional"></a>Anpassa nätverks konfiguration (valfritt)
+## <a name="customize-networking-configuration-optional"></a>Anpassa nätverkskonfiguration (valfritt)
 
-På nätverks sidorna i CloudSimple-portalen kan du ange konfigurationen för brand Väggs tabeller och offentliga IP-adresser för virtuella datorer.
+Med nätverkssidorna i CloudSimple-portalen kan du ange konfigurationen för brandväggstabeller och offentliga IP-adresser för virtuella datorer.
 
-### <a name="allocate-public-ips"></a>Allokera offentliga IP-adresser
+### <a name="allocate-public-ips"></a>Tilldela offentliga IPs
 
-1. Navigera till **nätverks > offentlig IP-adress** i CloudSimple-portalen.
-2. Klicka på **allokera offentlig IP**.
-3. Ange ett namn för att identifiera IP-adress posten.
-4. Behåll standard platsen.
-5. Använd skjutreglaget för att ändra tids gränsen för inaktivitet om du vill.
+1. Navigera till **Network > Public IP** i CloudSimple-portalen.
+2. Klicka på **Allokera offentlig IP**.
+3. Ange ett namn för att identifiera IP-adressposten.
+4. Behåll standardplatsen.
+5. Använd skjutreglaget för att ändra tidsgränsen för inaktiv tid om så önskas.
 6. Ange den lokala IP-adress som du vill tilldela en offentlig IP-adress för.
-7. Ange ett associerat DNS-namn om du vill.
+7. Ange ett associerat DNS-namn om så önskas.
 8. Klicka på **Klar**.
 
     ![Offentlig IP-adress](media/quick-create-pc-public-ip.png)
 
-Uppgiften att allokera den offentliga IP-adressen börjar. Du kan kontrol lera status för aktiviteten på sidan **aktiviteter > uppgifter** . När allokeringen är klar visas den nya posten på sidan offentliga IP-adresser.
+Uppgiften att allokera den offentliga IP-adressen börjar. Du kan kontrollera status för aktiviteten på sidan **Aktivitet > Aktiviteter.** När allokeringen är klar visas den nya transaktionen på sidan Offentliga IPs.
 
-Den virtuella dator som den här IP-adressen måste mappas till måste konfigureras med den lokala adress som anges ovan. Proceduren för att konfigurera en IP-adress är speciell för operativ systemet för den virtuella datorn. Mer information finns i dokumentationen för operativ systemet för virtuella datorer.
+Den virtuella datorn som den här IP-adressen måste mappas till måste konfigureras med den lokala adressen som anges ovan. Proceduren för att konfigurera en IP-adress är specifik för operativsystemet VM. Mer information om hur du gör finns i dokumentationen för operativsystemet VM.
 
 #### <a name="example"></a>Exempel
 
-Här är till exempel information om Ubuntu 16,04.
+Här är till exempel detaljerna för Ubuntu 16.04.
 
-Lägg till den statiska metoden i inet-adress familjen-konfigurationen i filen/etc/network/interfaces. Ändra adress, nätmask och gateway-värden. I det här exemplet använder vi eth0-gränssnittet, interna IP-192.168.24.10, Gateway-192.168.24.1 och netmask 255.255.255.0. Information om tillgängliga undernät finns i Välkommen e-postmeddelandet för din miljö.
+Lägg till den statiska metoden i inet-adressfamiljens konfiguration i filen /etc/network/interfaces. Ändra värden för adress, netmask och gateway. I det här exemplet använder vi eth0-gränssnittet, intern IP-adress 192.168.24.10, gateway-adress 192.168.24.1 och netmask 255.255.255.0. För din miljö finns den tillgängliga nätinformationen i välkomstmeddelandet.
 
 ```
 sudo vi /etc/network/interfaces
@@ -173,22 +173,22 @@ Inaktivera gränssnittet manuellt.
 ```
 sudo ifdown eth0
 ```
-Aktivera gränssnittet manuellt.
+Aktivera gränssnittet manuellt igen.
 
 ```
 sudo ifup eth0
 ```
 
-Som standard **nekas**all inkommande trafik från Internet. Skapa en [brand Väggs tabell](firewall.md)om du vill öppna någon annan port.
+Som standard **nekas**all inkommande trafik från Internet . Om du vill öppna en annan port skapar du en [brandväggstabell](firewall.md).
 
-När du har konfigurerat en intern IP-adress som statisk IP-adress kontrollerar du att du kan ansluta till Internet från den virtuella datorn.
+När du har konfigurerat en intern IP-adress som statisk IP-adress kontrollerar du att du kan nå Internet inifrån den virtuella datorn.
 
 ```
 ping 8.8.8.8
 ```
-Kontrol lera också att du kan komma åt den virtuella datorn från Internet med hjälp av den offentliga IP-adressen.
+Kontrollera också att du kan nå den virtuella datorn från Internet med den offentliga IP-adressen.
 
-Se till att alla iptable-regler på den virtuella datorn inte blockerar port 80 inkommande.
+Kontrollera att alla iptable regler på den virtuella datorn inte blockerar port 80 inkommande.
         
 ```
 netstat -an | grep 80
@@ -205,26 +205,26 @@ eller
 ```
 python3 -m http.server 80
 ```
-Starta en webbläsare på Skriv bordet och peka på port 80 för den offentliga IP-adressen för att bläddra bland filerna på den virtuella datorn.
+Starta en webbläsare på skrivbordet och peka den på port 80 för den offentliga IP-adressen för att bläddra i filerna på den virtuella datorn.
 
-### <a name="default-cloudsimple-firewall-rules-for-public-ip"></a>Standard brand Väggs regler för offentlig IP-CloudSimple
+### <a name="default-cloudsimple-firewall-rules-for-public-ip"></a>Standardregler för CloudSimple-brandvägg för offentlig IP
 
-* VPN-trafik: all trafik mellan (från/till) VPN-nätverket och alla arbets belastnings nätverk och hanterings nätverk tillåts.
-* Intern trafik i privat moln: all sydöstra sydöstra trafik mellan (från/till) arbets belastnings nätverk och hanterings nätverket (visas ovan) tillåts.
-* Internet trafik:
-  * All inkommande trafik från Internet nekas till arbets belastnings nätverk och hanterings nätverket.
-  * All utgående trafik till Internet från arbets belastnings nätverk eller hanterings nätverk tillåts.
+* VPN-trafik: All trafik mellan (från/till) VPN och alla arbetsbelastningsnätverk och hanteringsnätverk är tillåtna.
+* Privat intern molntrafik: All öst-västlig trafik mellan (från/till) arbetsbelastningsnätverk och hanteringsnätverket (visas ovan) är tillåtet.
+* Internettrafik:
+  * All inkommande trafik från Internet nekas arbetsbelastningsnätverk och hanteringsnätverk.
+  * All utgående trafik till Internet från arbetsbelastningsnätverk eller hanteringsnätverket är tillåten.
 
-Du kan också ändra hur trafiken skyddas med hjälp av funktionen brand Väggs regler. Mer information finns i [Konfigurera brand Väggs tabeller och regler](firewall.md).
+Du kan också ändra hur trafiken är skyddad med hjälp av brandväggsregler funktionen. Mer information finns i [Konfigurera brandväggstabeller och regler](firewall.md).
 
 ## <a name="install-solutions-optional"></a>Installera lösningar (valfritt)
 
-Du kan installera lösningar på ditt privata moln i CloudSimple för att dra full nytta av din privata moln vCenter-miljö. Du kan konfigurera säkerhets kopiering, katastrof återställning, replikering och andra funktioner för att skydda dina virtuella datorer. Exempel på detta är VMware Site Recovery Manager (VMware SRM) och säkerhets kopiering & replikering av Veeam.
+Du kan installera lösningar på ditt CloudSimple Private Cloud för att dra full nytta av din privata cloud vCenter-miljö. Du kan ställa in säkerhetskopiering, haveriberedskap, replikering och andra funktioner för att skydda dina virtuella datorer. Exempel på detta är VMware Site Recovery Manager (VMware SRM) och Veeam Backup & Replication.
 
-Om du vill installera en lösning måste du begära ytterligare behörigheter under en begränsad period. Se [eskalera privilegier](escalate-private-cloud-privileges.md).
+Om du vill installera en lösning måste du begära ytterligare privilegier under en begränsad period. Se [Behörigheten Eskalera](escalate-private-cloud-privileges.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Använda virtuella VMware-datorer i Azure](quickstart-create-vmware-virtual-machine.md)
-* [Ansluta till ett lokalt nätverk med hjälp av Azure ExpressRoute](on-premises-connection.md)
-* [Konfigurera VPN-gatewayer i CloudSimple-nätverk](vpn-gateway.md)
+* [Använda virtuella VMware-datorer på Azure](quickstart-create-vmware-virtual-machine.md)
+* [Ansluta till lokalt nätverk med Azure ExpressRoute](on-premises-connection.md)
+* [Konfigurera VPN-gateways i CloudSimple-nätverket](vpn-gateway.md)

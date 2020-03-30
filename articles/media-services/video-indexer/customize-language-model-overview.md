@@ -1,7 +1,7 @@
 ---
-title: Anpassa en språk modell i Video Indexer – Azure
+title: Anpassa en språkmodell i Video Indexer - Azure
 titleSuffix: Azure Media Services
-description: Den här artikeln ger en översikt över vad som är en språk modell i Video Indexer och hur du anpassar den.
+description: Den här artikeln innehåller en översikt över vad som är en språkmodell i Video Indexer och hur du anpassar den.
 services: media-services
 author: anikaz
 manager: johndeu
@@ -11,37 +11,37 @@ ms.topic: article
 ms.date: 05/15/2019
 ms.author: anzaman
 ms.openlocfilehash: b096b9352be65033f2fb782b118e815dc16b43b6
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73838323"
 ---
-# <a name="customize-a-language-model-with-video-indexer"></a>Anpassa en språk modell med Video Indexer
+# <a name="customize-a-language-model-with-video-indexer"></a>Anpassa en språkmodell med Video Indexer
 
-Video Indexer stöder automatisk tal igenkänning genom integrering med Microsoft- [Custom Speech service](https://azure.microsoft.com/services/cognitive-services/custom-speech-service/). Du kan anpassa språk modellen genom att överföra anpassnings text, nämligen text från den domän vars vokabulär du vill att motorn ska anpassa sig till. När du tränar din modell kommer nya ord som visas i anpassnings texten att kännas igen, förutsatt att det är standard uttal och språk modellen lär sig nya sannolika sekvenser av ord. Anpassade språk modeller stöds för engelska, spanska, franska, tyska, italienska, kinesiska (förenklad), japanska, ryska, portugisiska (Brasilien), hindi och koreanska. 
+Video Indexer stöder automatisk taligenkänning genom integrering med Microsoft [Custom Speech Service](https://azure.microsoft.com/services/cognitive-services/custom-speech-service/). Du kan anpassa språkmodellen genom att ladda upp anpassningstext, nämligen text från den domän vars ordförråd du vill att motorn ska anpassa sig till. När du tränar din modell, nya ord som visas i anpassningstexten kommer att kännas igen, förutsatt standard uttal, och språkmodellen kommer att lära sig nya sannolika sekvenser av ord. Anpassade språkmodeller stöds för engelska, spanska, franska, tyska, italienska, kinesiska (förenklad), japanska, ryska, brasiliansk portugisiska, hindi och koreanska. 
 
-Låt oss ta ett ord som är mycket speciellt, till exempel "Kubernetes" (i Azure Kubernetes-tjänsten) som exempel. Eftersom ordet är nytt för Video Indexer identifieras det som "communities". Du måste träna modellen för att kunna identifiera den som "Kubernetes". I andra fall finns orden, men språk modellen förväntar sig inte att de ska visas i en viss kontext. Till exempel är "container service" inte en 2-ord-sekvens som en icke specialiserad språk modell känner igen som en specifik uppsättning ord.
+Låt oss ta ett ord som är mycket specifikt, till exempel "Kubernetes" (i samband med Azure Kubernetes-tjänsten), som ett exempel. Eftersom ordet är nytt för Video Indexer, är det erkänt som "samhällen". Du måste träna modellen för att känna igen den som "Kubernetes". I andra fall finns orden, men språkmodellen förväntar sig inte att de ska visas i ett visst sammanhang. Till exempel är "behållartjänst" inte en 2-ordssekvens som en icke-specialiserad språkmodell skulle känna igen som en specifik uppsättning ord.
 
-Du kan välja att ladda upp ord utan sammanhang i en lista i en textfil. Detta betraktas som delvis anpassning. Du kan också ladda upp text fil (er) av dokumentation eller meningar som är relaterade till ditt innehåll för bättre anpassning.
+Du kan välja att ladda upp ord utan sammanhang i en lista i en textfil. Detta anses vara partiell anpassning. Du kan också ladda upp textfiler med dokumentation eller meningar som är relaterade till ditt innehåll för bättre anpassning.
 
-Du kan använda API: erna för Video Indexer eller webbplatsen för att skapa och redigera anpassade språk modeller, enligt beskrivningen i ämnena i avsnittet [Nästa steg](#next-steps) i det här avsnittet.
+Du kan använda API:erna för videoindexerare eller webbplatsen för att skapa och redigera anpassade språkmodeller, enligt beskrivningen i avsnitten [Nästa steg](#next-steps) i det här avsnittet.
 
-## <a name="best-practices-for-custom-language-models"></a>Metod tips för anpassade språk modeller
+## <a name="best-practices-for-custom-language-models"></a>Metodtips för anpassade språkmodeller
 
-Video Indexer lär dig på grund av sannolikheten för kombinationer av ord, så att du får bättre information:
+Video Indexer lär sig baserat på sannolikheter för ordkombinationer, så att lära sig bäst:
 
-* Ge många riktiga exempel på meningar som de skulle talas.
-* Lägg endast till en mening per rad, inte mer. Annars kommer systemet att se sannolikhet över meningar.
-* Det går bra att infoga ett ord som en mening för att förstärka ordet mot andra, men systemet lär sig bäst från fullständiga meningar.
-* När du introducerar nya ord eller akronymer kan du, om möjligt, ge så många exempel på användning i en hel mening för att ge så mycket kontext som möjligt till systemet.
-* Försök att ställa in flera anpassnings alternativ och se hur de fungerar för dig.
-* Undvik upprepning av exakt samma mening flera gånger. Det kan skapa en förskjutning mot resten av indatamängden.
-* Undvik att ta med ovanliga symboler (~, # @% &) när de kommer att tas bort. De meningar som de visas i tas också bort.
-* Undvik att placera för stora indata, t. ex. hundratals tusentals meningar, eftersom detta kommer att leda till att ökningen späds ut.
+* Ge tillräckligt med verkliga exempel på meningar som de skulle talas.
+* Sätt bara en mening per rad, inte mer. Annars kommer systemet att lära sig sannolikheter över meningar.
+* Det är okej att sätta ett ord som en mening för att öka ordet mot andra, men systemet lär sig bäst från fullständiga meningar.
+* När du inför nya ord eller förkortningar, om möjligt, ge så många exempel på användning i en fullständig mening för att ge så mycket sammanhang som möjligt till systemet.
+* Försök att sätta flera anpassningsalternativ, och se hur de fungerar för dig.
+* Undvik upprepning av exakt samma mening flera gånger. Det kan skapa partiskhet mot resten av indata.
+* Undvik att inkludera ovanliga symboler (~, # @ % &) eftersom de kommer att bli kasserade. De meningar som de visas i kommer också att kastas.
+* Undvik att sätta för stora ingångar, till exempel hundratusentals meningar, eftersom detta kommer att späda ut effekten av att öka.
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Anpassa språk modellen med hjälp av API: er](customize-language-model-with-api.md)
+[Anpassa språkmodell med API:er](customize-language-model-with-api.md)
 
-[Anpassa språk modellen med hjälp av webbplatsen](customize-language-model-with-website.md)
+[Anpassa språkmodell med hjälp av webbplatsen](customize-language-model-with-website.md)

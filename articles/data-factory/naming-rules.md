@@ -1,6 +1,6 @@
 ---
-title: Regler för namngivning av Azure Data Factory entiteter
-description: Beskriver namngivnings regler för Data Factory entiteter.
+title: Regler för namngivning av Azure Data Factory-entiteter
+description: Beskriver namngivningsregler för datafabrikentiteter.
 services: data-factory
 documentationcenter: ''
 author: djpmsft
@@ -12,20 +12,20 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/16/2018
 ms.openlocfilehash: 59cddf04493333b441dcf130d1d99d4fa946748c
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73837835"
 ---
-# <a name="azure-data-factory---naming-rules"></a>Namngivnings regler för Azure Data Factory
-Följande tabell innehåller namngivnings regler för Data Factory artefakter.
+# <a name="azure-data-factory---naming-rules"></a>Azure Data Factory – namngivningsregler
+I följande tabell finns namngivningsregler för datafabriksartefakter.
 
-| Namn | Namn unikhet | Verifierings kontroller |
+| Namn | Namn Unikhet | Valideringskontroller |
 |:--- |:--- |:--- |
-| Data Factory |Unikt mellan Microsoft Azure. Namn är Skift läges känsliga, det vill säga `MyDF` och `mydf` refererar till samma data fabrik. |<ul><li>Varje data fabrik är knuten till exakt en Azure-prenumeration.</li><li>Objekt namn måste börja med en bokstav eller en siffra och får bara innehålla bokstäver, siffror och bindestreck (-).</li><li>Varje bindestreck (-) måste föregås omedelbart och följas av en bokstav eller en siffra. Efterföljande bindestreck tillåts inte i behållar namn.</li><li>Namnet kan vara 3-63 tecken långt.</li></ul> |
-| Länkade tjänster/data uppsättningar/pipeliner |Unikt med i en data fabrik. Namn är inte Skift läges känsliga. |<ul><li>Objekt namn måste börja med en bokstav, en siffra eller ett under streck (_).</li><li>Följande tecken är inte tillåtna: ".", "+", "?", "/", "<", ">", "*", "%", "&", ":", "\\"</li><li>Bindestreck ("-") tillåts inte i namnen på länkade tjänster och data uppsättningar.</li></ul>  |
-| Resursgrupp |Unikt mellan Microsoft Azure. Namn är inte Skift läges känsliga. | Mer information finns i [namngivnings regler och begränsningar för Azure](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging#resource-naming). |
+| Data Factory |Unik i Hela Microsoft Azure. Namn är skiftlägesokänsliga, det `MyDF` villa och `mydf` referera till samma datafabrik. |<ul><li>Varje datafabrik är knuten till exakt en Azure-prenumeration.</li><li>Objektnamn måste börja med en bokstav eller ett tal och kan bara innehålla bokstäver, siffror och strecktecknet (-).</li><li>Varje streck (-) tecken måste omedelbart föregås och följas av en bokstav eller ett tal. På varandra följande streck är inte tillåtna i behållarnamn.</li><li>Namnet kan vara 3-63 tecken långt.</li></ul> |
+| Länkade tjänster/datauppsättningar/pipelines |Unik med i en datafabrik. Namnen är skiftlägesokänsliga. |<ul><li>Objektnamn måste börja med en bokstav, ett nummer eller ett understreck (_).</li><li>Följande tecken är inte tillåtna: ".", "+", "?", "/", "<", ">","*","%","&",":","\\"</li><li>Streck ("-") är inte tillåtna i namnen på länkade tjänster och endast datauppsättningar.</li></ul>  |
+| Resursgrupp |Unik i Hela Microsoft Azure. Namnen är skiftlägesokänsliga. | Mer information finns i [Azures namngivningsregler och begränsningar](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging#resource-naming). |
 
 ## <a name="next-steps"></a>Nästa steg
-Lär dig hur du skapar data fabriker genom att följa steg-för-steg-instruktioner i [snabb start: skapa en data fabriks](quickstart-create-data-factory-powershell.md) artikel. 
+Lär dig hur du skapar datafabriker genom att följa steg-för-steg-instruktioner i [Snabbstart: skapa en datafabriksartikel.](quickstart-create-data-factory-powershell.md) 

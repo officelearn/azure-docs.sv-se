@@ -1,6 +1,6 @@
 ---
-title: Associera en brand Väggs princip för webb program med en befintlig Azure Application Gateway
-description: Lär dig hur du associerar en brand Väggs princip för webb program med en befintlig Azure Application Gateway.
+title: Associera en brandvägg för webbprogram med en befintlig Azure Application Gateway
+description: Lär dig hur du associerar en brandvägg för webbprogram med en befintlig Azure Application Gateway.
 services: web-application-firewall
 ms.topic: article
 author: vhorne
@@ -8,17 +8,17 @@ ms.service: web-application-firewall
 ms.date: 10/25/2019
 ms.author: victorh
 ms.openlocfilehash: 1ed2e0cf8cc8cd841d8779462d62ba4852774a3a
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74083911"
 ---
 # <a name="associate-a-waf-policy-with-an-existing-application-gateway"></a>Associera en WAF-princip med en befintlig Application Gateway
 
-Du kan använda Azure PowerShell för att [skapa en WAF-princip](create-waf-policy-ag.md), men du kanske redan har ett Application Gateway och bara vill associera en WAF-princip till den. I den här artikeln behöver du bara göra det. du skapar en WAF-princip och kopplar den till en redan befintlig Application Gateway. 
+Du kan använda Azure PowerShell för att [skapa en WAF-princip,](create-waf-policy-ag.md)men du kanske redan har en Application Gateway och bara vill associera en WAF-princip till den. I den här artikeln gör du just det; du skapar en WAF-princip och associerar den till en redan befintlig Programgateway. 
 
-1. Hämta din Application Gateway-och brand Väggs princip. Om du inte har en befintlig brand Väggs princip går du till steg 2. 
+1. Hämta din application gateway- och brandväggsprincip. Om du inte har en befintlig brandväggsprincip läser du steg 2. 
 
    ```azurepowershell-interactive
       Connect-AzAccount
@@ -29,17 +29,17 @@ Du kan använda Azure PowerShell för att [skapa en WAF-princip](create-waf-poli
       $policy = Get-AzApplicationGatewayFirewallPolicy -Name <policy name> -ResourceGroupName <RG name>`
    ```
 
-2. Valfritt Skapa en brand Väggs princip.
+2. (Valfritt) Skapa en brandväggsprincip.
 
    ```azurepowershell-interactive
       New-AzApplicationGatewayFirewallPolicy -Name <policy name> -ResourceGroupName <RG name>'
       $policy = Get-AzApplicationGatewayFirewallPolicy -Name <policy name> -ResourceGroupName <RG name>`
    ```
    > [!NOTE]
-   > Om du skapar den här WAF-principen för över gång från en WAF-konfiguration till en WAF-princip måste principen vara en exakt kopia av din gamla konfiguration. Det innebär att varje undantag, anpassad regel, inaktive rad regel grupp osv. måste vara exakt samma som i WAF-konfigurationen.
-3. Valfritt Du kan konfigurera WAF-principen så att den passar dina behov. Detta inkluderar anpassade regler, inaktive ring av regler/regel grupper, undantag, inställning av fil överförings gränser osv. Om du hoppar över det här steget väljs alla standardvärden. 
+   > Om du skapar denna WAF-policy för att gå över från en WAF Config till en WAF-policy måste policyn vara en exakt kopia av din gamla Config. Detta innebär att varje undantag, anpassad regel, inaktiverad regelgrupp, etc. måste vara exakt samma som det är i WAF Config.
+3. (Valfritt) Du kan konfigurera WAF-principen så att den passar dina behov. Detta inkluderar anpassade regler, inaktivera regler /regelgrupper, undantag, ange filuppladdning gränser, etc. Om du hoppar över det här steget väljs alla standardvärden. 
    
-4. Spara principen och koppla den till din Application Gateway. 
+4. Spara principen och bifoga den till programgatewayen. 
    
    ```azurepowershell-interactive
       #Save the policy itself
@@ -53,4 +53,4 @@ Du kan använda Azure PowerShell för att [skapa en WAF-princip](create-waf-poli
    ```
 
 ## <a name="next-steps"></a>Nästa steg
-[Lär dig mer om anpassade regler.](configure-waf-custom-rules.md)
+[Läs mer om anpassade regler.](configure-waf-custom-rules.md)

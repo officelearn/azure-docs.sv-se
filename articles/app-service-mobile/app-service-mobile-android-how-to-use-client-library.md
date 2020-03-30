@@ -1,52 +1,52 @@
 ---
-title: Använda SDK för Android
-description: Använda Azure Mobile Apps SDK för Android
+title: Så här använder du SDK för Android
+description: Så här använder du Azure Mobile Apps SDK för Android
 ms.assetid: 5352d1e4-7685-4a11-aaf4-10bd2fa9f9fc
 ms.tgt_pltfrm: mobile-android
 ms.devlang: java
 ms.topic: article
 ms.date: 06/25/2019
 ms.openlocfilehash: 52e91d900ce0f22862904695ba8adf463219c469
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79249391"
 ---
-# <a name="how-to-use-the-azure-mobile-apps-sdk-for-android"></a>Använda Azure Mobile Apps SDK för Android
+# <a name="how-to-use-the-azure-mobile-apps-sdk-for-android"></a>Så här använder du Azure Mobile Apps SDK för Android
 
-Den här guiden visar hur du använder Android client SDK för Mobile Apps för att implementera vanliga scenarier, till exempel:
+Den här guiden visar hur du använder Android-klienten SDK för mobilappar för att implementera vanliga scenarier, till exempel:
 
-* Fråga efter data (Infoga, uppdatera och ta bort).
+* Fråga efter data (infoga, uppdatera och ta bort).
 * Autentisering.
-* Hanterings fel.
+* Hantera fel.
 * Anpassa klienten.
 
-Den här guiden fokuserar på klient sidans Android SDK.  Mer information om SDK: er för Server sidan för Mobile Apps finns i [arbeta med .net][10] -Server dels-SDK eller [så här använder du Node. js Server dels SDK][11].
+Den här guiden fokuserar på android SDK på klientsidan.  Mer information om SDK:er på serversidan för mobilappar finns i [Arbeta med .NET-serverdel SDK][10] eller [Så här använder du nod.js-serverdelen SDK][11].
 
 ## <a name="reference-documentation"></a>Referensdokumentation
 
-Du hittar [JAVADOCS API-referensen][12] för Android-klient biblioteket på GitHub.
+Du hittar [Javadocs API-referens][12] för Android-klientbiblioteket på GitHub.
 
 ## <a name="supported-platforms"></a>Plattformar som stöds
 
-Azure Mobile Apps SDK för Android har stöd för API-nivåer 19 till 24 (KitKat till nougat) för telefon-och Tablet form-faktorer.  Autentiseringen använder särskilt en gemensam Web Framework-metod för att samla in autentiseringsuppgifter.  Autentisering med Server flöde fungerar inte med små form faktor enheter, till exempel arm Watcher.
+Azure Mobile Apps SDK för Android stöder API-nivåerna 19 till 24 (KitKat through Nougat) för telefon- och tablettformfaktorer.  Autentisering, i synnerhet, använder en gemensam webbramverk metod för att samla in autentiseringsuppgifter.  Autentisering med serverflöde fungerar inte med små formfaktorenheter, till exempel klockor.
 
-## <a name="setup-and-prerequisites"></a>Konfiguration och krav
+## <a name="setup-and-prerequisites"></a>Inställningar och förutsättningar
 
-Slutför självstudien om [Mobile Apps snabb start](app-service-mobile-android-get-started.md) .  Den här uppgiften säkerställer alla krav för att utveckla Azure-Mobile Apps har uppfyllts.  Snabb starten hjälper dig också att konfigurera ditt konto och skapa din första Server del för mobilappen.
+Slutför [snabbstartshandledningen för mobilappar.](app-service-mobile-android-get-started.md)  Den här uppgiften säkerställer att alla förutsättningar för att utveckla Azure Mobile Apps har uppfyllts.  Snabbstart hjälper dig också att konfigurera ditt konto och skapa din första Mobile App-serverdel.
 
-Om du väljer att inte slutföra snabb starts guiden utför du följande aktiviteter:
+Om du bestämmer dig för att inte slutföra snabbstartshandledningen slutför du följande uppgifter:
 
-* [skapa en server][13] del för mobilappar som ska användas med din Android-app.
-* [Uppdatera Gradle build-filerna](#gradle-build)i Android Studio.
-* [Aktivera Internet behörighet](#enable-internet).
+* [skapa en backend][13] för mobilapp som du kan använda med din Android-app.
+* I Android Studio [uppdaterar du Gradle-byggfilerna](#gradle-build).
+* [Aktivera internetbehörighet](#enable-internet).
 
-### <a name="gradle-build"></a>Uppdatera Gradle build-filen
+### <a name="update-the-gradle-build-file"></a><a name="gradle-build"></a>Uppdatera filen Gradle build
 
-Ändra både **build. gradle** -filer:
+Ändra båda **build.gradle-filerna:**
 
-1. Lägg till den här koden till filen **build. gradle** för *projekt* nivå:
+1. Lägg till den här koden i filen **Build.gradle** på *projektnivå:*
 
     ```gradle
     buildscript {
@@ -64,32 +64,32 @@ Om du väljer att inte slutföra snabb starts guiden utför du följande aktivit
     }
     ```
 
-2. Lägg till den här koden i *modulen app* Level **build. gradle** i *beroende* taggen:
+2. Lägg till den här koden i *modulen app* nivå **build.gradle** fil inuti *beroenden* taggen:
 
     ```gradle
     implementation 'com.microsoft.azure:azure-mobile-android:3.4.0@aar'
     ```
 
-    För närvarande är den senaste versionen 3.4.0. De versioner som stöds finns [på bintray][14].
+    För närvarande den senaste versionen är 3.4.0. De versioner som stöds visas [på bintray][14].
 
-### <a name="enable-internet"></a>Aktivera Internet-behörighet
+### <a name="enable-internet-permission"></a><a name="enable-internet"></a>Aktivera internetbehörighet
 
-För att få åtkomst till Azure måste din app ha INTERNET-behörighet aktive rad. Om den inte redan är aktive rad lägger du till följande kodrad i filen **AndroidManifest. XML** :
+För att komma åt Azure måste din app ha INTERNET-behörigheten aktiverad. Om den inte redan är aktiverad lägger du till följande kodrad i filen **AndroidManifest.xml:**
 
 ```xml
 <uses-permission android:name="android.permission.INTERNET" />
 ```
 
-## <a name="create-a-client-connection"></a>Skapa en klient anslutning
+## <a name="create-a-client-connection"></a>Skapa en klientanslutning
 
-Azure Mobile Apps innehåller fyra funktioner i mobil programmet:
+Azure Mobile Apps innehåller fyra funktioner i ditt mobilapplikation:
 
-* Data åtkomst och offlinesynkronisering med en Azure Mobile Apps-tjänst.
-* Anropa anpassade API: er skrivna med Azure Mobile Apps Server SDK.
-* Autentisering med Azure App Service autentisering och auktorisering.
-* Registrering av push-meddelanden med Notification Hubs.
+* Dataåtkomst och offlinesynkronisering med en Azure Mobile Apps-tjänst.
+* Anropa anpassade API:er som skrivits med Azure Mobile Apps Server SDK.
+* Autentisering med autentisering och auktorisering av Azure-apptjänster.
+* Push Meddelande registrering med meddelandehubbar.
 
-För var och en av dessa funktioner måste du först skapa ett `MobileServiceClient`-objekt.  Endast ett `MobileServiceClient`-objekt ska skapas i din mobila klient (det vill säga det ska vara ett singleton-mönster).  Så här skapar du ett `MobileServiceClient`-objekt:
+Var och en av dessa `MobileServiceClient` funktioner kräver först att du skapar ett objekt.  Endast `MobileServiceClient` ett objekt ska skapas i din mobila klient (det vill säga det ska vara ett Singleton-mönster).  Så här `MobileServiceClient` skapar du ett objekt:
 
 ```java
 MobileServiceClient mClient = new MobileServiceClient(
@@ -97,11 +97,11 @@ MobileServiceClient mClient = new MobileServiceClient(
     this);                  // Your application Context
 ```
 
-`<MobileAppUrl>` är antingen en sträng eller ett URL-objekt som pekar på din mobila Server del.  Om du använder Azure App Service som värd för din mobil Server del kontrollerar du att du använder den säkra `https://`-versionen av URL: en.
+Det `<MobileAppUrl>` är antingen en sträng eller ett URL-objekt som pekar på din mobila backend.  Om du använder Azure App Service för att vara värd för `https://` din mobila backend, se till att du använder den säkra versionen av webbadressen.
 
-Klienten måste också ha åtkomst till aktiviteten eller kontexten – parametern `this` i exemplet.  MobileServiceClient konstruktion bör ske inom `onCreate()`-metoden för aktiviteten som refereras i `AndroidManifest.xml`s filen.
+Klienten kräver också åtkomst till aktiviteten `this` eller kontexten - parametern i exemplet.  MobileServiceClient-konstruktionen `onCreate()` ska ske inom metoden för `AndroidManifest.xml` aktiviteten som refereras i filen.
 
-Som bästa praxis bör du abstrakt server kommunikation i en egen (singleton-Pattern)-klass.  I det här fallet bör du skicka aktiviteten i konstruktorn för att konfigurera tjänsten på lämpligt sätt.  Exempel:
+Som bästa praxis bör du abstrakt serverkommunikation till sin egen (singleton-pattern) klass.  I det här fallet bör du skicka aktiviteten inom konstruktorn för att konfigurera tjänsten på rätt sätt.  Ett exempel:
 
 ```java
 package com.example.appname.services;
@@ -143,21 +143,21 @@ public class AzureServiceAdapter {
 }
 ```
 
-Nu kan du anropa `AzureServiceAdapter.Initialize(this);` i `onCreate()`-metoden för din huvud aktivitet.  Andra metoder som behöver åtkomst till klienten använder `AzureServiceAdapter.getInstance();` för att hämta en referens till tjänst kortet.
+Du kan `AzureServiceAdapter.Initialize(this);` nu `onCreate()` anropa metoden för din huvudsakliga aktivitet.  Alla andra metoder som behöver `AzureServiceAdapter.getInstance();` åtkomst till klienten använder för att få en referens till servicekortet.
 
-## <a name="data-operations"></a>Data åtgärder
+## <a name="data-operations"></a>Dataåtgärder
 
-Kärnan i Azure Mobile Apps SDK är att ge åtkomst till data som lagras i SQL Azure i Server delen för mobilappar.  Du kan komma åt dessa data med hjälp av starkt skrivna klasser (prioriterade) eller ej angivna frågor (rekommenderas inte).  Det här avsnittet handlar om att använda starkt skrivna klasser.
+Kärnan i Azure Mobile Apps SDK är att ge åtkomst till data som lagras i SQL Azure i mobile app-serverd.  Du kan komma åt dessa data med hjälp av starkt skrivna klasser (önskade) eller otypade frågor (rekommenderas inte).  Huvuddelen av det här avsnittet handlar om att använda starkt skrivna klasser.
 
-### <a name="define-client-data-classes"></a>Definiera klient data klasser
+### <a name="define-client-data-classes"></a>Definiera klientdataklasser
 
-För att få åtkomst till data från SQL Azure tabeller definierar du de klient data klasser som motsvarar tabellerna i Server delen för mobilappen. Exemplen i det här avsnittet förutsätter en tabell med namnet ' **DataTable**, som innehåller följande kolumner:
+Om du vill komma åt data från SQL Azure-tabeller definierar du klientdataklasser som motsvarar tabellerna i serveringsuppsättningen för mobilappen. Exempel i det här avsnittet förutsätter en tabell med namnet **MyDataTable**, som har följande kolumner:
 
 * id
 * text
-* full
+* slutföra
 
-Motsvarande typ av objekt på klient sidan finns i en fil med namnet min **DataTable. java**:
+Motsvarande maskinskrivna klientobjekt finns i en fil som heter **MyDataTable.java**:
 
 ```java
 public class ToDoItem {
@@ -167,7 +167,7 @@ public class ToDoItem {
 }
 ```
 
-Lägg till get-och set-metoder för varje fält som du lägger till.  Om SQL Azures tabellen innehåller fler kolumner lägger du till motsvarande fält i den här klassen.  Om t. ex. DTO (Data Transfer Object) hade en heltals prioritets kolumn kan du lägga till det här fältet tillsammans med dess get-och set-metoder:
+Lägg till getter- och setter-metoder för varje fält som du lägger till.  Om din SQL Azure-tabell innehåller fler kolumner lägger du till motsvarande fält i den här klassen.  Om DTO(dataöverföringsobjektet) till exempel hade kolumnen heltal prioritet kan du lägga till det här fältet tillsammans med dess getter- och setter-metoder:
 
 ```java
 private Integer priority;
@@ -190,17 +190,17 @@ public final void setPriority(Integer priority) {
 }
 ```
 
-Information om hur du skapar ytterligare tabeller i din Mobile Apps Server del finns i [så här gör du: definiera en tabell styrenhet][15] (.NET-Server del) eller [definiera tabeller med hjälp av ett dynamiskt schema][16] (Node. js-backend).
+Mer information om hur du skapar ytterligare tabeller i backend för mobilappar finns i Så här definierar du [en tabellstyrenhet][15] (.NET-backend) eller [Definiera tabeller med hjälp av ett dynamiskt schema][16] (Node.js backend).
 
-En Azure Mobile Apps-backend-tabell definierar fem särskilda fält, som är fyra av de som är tillgängliga för klienter:
+En backend-tabell för Azure Mobile Apps definierar fem specialfält, varav fyra är tillgängliga för klienter:
 
-* `String id`: postens globalt unika ID.  Vi rekommenderar att du gör ID: t till sträng representationen av ett [UUID][17] -objekt.
-* `DateTimeOffset updatedAt`: datum/tid för den senaste uppdateringen.  UpdatedAt-fältet anges av servern och ska aldrig anges av klient koden.
-* `DateTimeOffset createdAt`: det datum/tid då objektet skapades.  CreatedAt-fältet anges av servern och ska aldrig anges av klient koden.
-* `byte[] version`: som vanligt vis visas som en sträng, anges versionen också av servern.
-* `boolean deleted`: anger att posten har tagits bort men ännu inte har rensats.  Använd inte `deleted` som en egenskap i klassen.
+* `String id`: Det globalt unika ID:et för posten.  På bästa sätt gör du id:et till strängrepresentation av ett [UUID-objekt.][17]
+* `DateTimeOffset updatedAt`: Datum/tid för den senaste uppdateringen.  Fältet updatedAt anges av servern och ska aldrig anges av klientkoden.
+* `DateTimeOffset createdAt`: Datum/tid då objektet skapades.  Fältet createdAt anges av servern och ska aldrig anges av klientkoden.
+* `byte[] version`: Normalt representeras som en sträng, är versionen också inställd av servern.
+* `boolean deleted`: Anger att posten har tagits bort men inte rensats ännu.  Använd inte `deleted` som egendom i din klass.
 
-Fältet `id` är obligatoriskt.  Fältet `updatedAt` och `version` används för offlinesynkronisering (för stegvis synkronisering och konflikt lösning).  Fältet `createdAt` är ett referens fält och används inte av klienten.  Namnen är "över-namnet" i egenskaperna och är inte justerbara.  Du kan dock skapa en mappning mellan ditt objekt och namnet "över-kabel" med hjälp av [Gson][3] -biblioteket.  Exempel:
+Fältet `id` är obligatoriskt.  Fältet `updatedAt` och `version` fältet används för offlinesynkronisering (för inkrementell synkronisering respektive konfliktlösning).  Fältet `createdAt` är ett referensfält och används inte av klienten.  Namnen är "across-the-wire" namn på egenskaperna och är inte justerbara.  Du kan dock skapa en mappning mellan objektet och namnen "across-the-wire" med hjälp av [gson-biblioteket.][3]  Ett exempel:
 
 ```java
 package com.example.zumoappname;
@@ -258,9 +258,9 @@ public class ToDoItem
 }
 ```
 
-### <a name="create-a-table-reference"></a>Skapa en tabell referens
+### <a name="create-a-table-reference"></a>Skapa en tabellreferens
 
-För att få åtkomst till en tabell måste du först skapa ett [MobileServiceTable][8] -objekt genom att anropa metoden **getTable** på [MobileServiceClient][9].  Den här metoden har två överbelastningar:
+Om du vill komma åt en tabell skapar du först ett [MobileServiceTable-objekt][8] genom att anropa **metoden getTable** på [MobileServiceClient][9].  Denna metod har två överbelastningar:
 
 ```java
 public class MobileServiceClient {
@@ -269,30 +269,30 @@ public class MobileServiceClient {
 }
 ```
 
-I följande kod är **mClient** en referens till ditt MobileServiceClient-objekt.  Den första överlagringen används där klass namnet och tabell namnet är detsamma, och det som används i snabb starten:
+I följande kod är **mClient** en referens till ditt MobileServiceClient-objekt.  Den första överbelastningen används där klassnamnet och tabellnamnet är desamma och är det som används i snabbstarten:
 
 ```java
 MobileServiceTable<ToDoItem> mToDoTable = mClient.getTable(ToDoItem.class);
 ```
 
-Den andra överlagringen används när tabell namnet skiljer sig från klass namnet: den första parametern är tabellens namn.
+Den andra överbelastningen används när tabellnamnet skiljer sig från klassnamnet: den första parametern är tabellnamnet.
 
 ```java
 MobileServiceTable<ToDoItem> mToDoTable = mClient.getTable("ToDoItemBackup", ToDoItem.class);
 ```
 
-## <a name="query"></a>Fråga en server dels tabell
+## <a name="query-a-backend-table"></a><a name="query"></a>Fråga en backend-tabell
 
-Börja med att hämta en tabell referens.  Kör sedan en fråga på tabell referensen.  En fråga är en valfri kombination av:
+Hämta först en tabellreferens.  Kör sedan en fråga på tabellreferensen.  En fråga är valfri kombination av:
 
-* En `.where()` [filter-sats](#filtering).
-* En `.orderBy()` [ordnings sats](#sorting).
-* En `.select()` [fält markerings sats](#selection).
-* En `.skip()` och `.top()` för [växlade resultat](#paging).
+* En `.where()` [filtersats](#filtering).
+* En `.orderBy()` [beställningsklausul](#sorting).
+* En `.select()` [fältvalsklausul](#selection).
+* A `.skip()` `.top()` och för [sökta resultat](#paging).
 
-Satserna måste presenteras i föregående ordning.
+Klausulerna måste presenteras i föregående ordning.
 
-### <a name="filter"></a>Filtrerings resultat
+### <a name="filtering-results"></a><a name="filter"></a>Filtrera resultat
 
 Den allmänna formen av en fråga är:
 
@@ -303,11 +303,11 @@ List<MyDataTable> results = mDataTable
     .get()              // Converts the async into a sync result
 ```
 
-Föregående exempel returnerar alla resultat (upp till den maximala sid storleken som anges av servern).  Metoden `.execute()` kör frågan på Server delen.  Frågan konverteras till en [OData v3][19] -fråga innan överföring till Mobile Apps Server delen.  Vid mottagande konverterar Mobile Apps Server delen frågan till ett SQL-uttryck innan den körs på SQL Azure-instansen.  Eftersom nätverks aktiviteten tar en stund returnerar metoden `.execute()` en [`ListenableFuture<E>`][18].
+I föregående exempel returneras alla resultat (upp till den maximala sidstorlek som angetts av servern).  Metoden `.execute()` kör frågan på backend.  Frågan konverteras till en [OData v3-fråga][19] före överföring till mobile apps-backend.  Vid inleverans konverterar mobile apps-serverdelen frågan till ett SQL-uttryck innan den körs på SQL Azure-instansen.  Eftersom nätverksaktiviteten tar `.execute()` lite tid [`ListenableFuture<E>`][18]returnerar metoden en .
 
-### <a name="filtering"></a>Filtrera returnerade data
+### <a name="filter-returned-data"></a><a name="filtering"></a>Filtrera returnerade data
 
-Följande frågekörningen returnerar alla objekt från **ToDoItem** -tabellen där **Complete** är **false**.
+Följande frågekörning returnerar alla objekt från **tabellen ToDoItem** där **fullständig är** lika **med false**.
 
 ```java
 List<ToDoItem> result = mToDoTable
@@ -317,11 +317,11 @@ List<ToDoItem> result = mToDoTable
     .get();
 ```
 
-**mToDoTable** är referensen till den Mobile Service-tabell som vi skapade tidigare.
+**mToDoTable** är referensen till den mobila tjänsttabell som vi skapade tidigare.
 
-Definiera ett filter med metod anropet **WHERE** i tabell referensen. **WHERE** -metoden följs av en **fält** metod följt av en metod som anger det logiska predikatet. Möjliga predikat är **EQ** (lika med), **Ne** (inte lika med), **gt** (större än), **ge** (större än eller lika med), **lt** (mindre än), **Le** (mindre än eller lika med). Med dessa metoder kan du jämföra tal-och sträng fält med vissa värden.
+Definiera ett filter med hjälp av **den där** metoden anropar tabellreferensen. **Var** metoden följs av en **fältmetod** följt av en metod som anger det logiska predikatet. Möjliga predikatmetoder inkluderar **eq** (lika), **ne** (inte lika), **gt** (större än), **ge** (större än eller lika med), **lt** (mindre än), **le** (mindre än eller lika med). Med de här metoderna kan du jämföra tal- och strängfält med specifika värden.
 
-Du kan filtrera efter datum. Med följande metoder kan du jämföra hela datum fältet eller delar av datumet: **år**, **månad**, **dag**, **timme**, **minut**och **sekund**. I följande exempel läggs ett filter till för objekt vars *förfallo datum* är lika med 2013.
+Du kan filtrera på datum. Med följande metoder kan du jämföra hela datumfältet eller delar av datumet: **år,** **månad,** **dag,** **timme,** **minut**och **sekund**. I följande exempel läggs ett filter till för artiklar vars *förfallodatum* är lika med 2013.
 
 ```java
 List<ToDoItem> results = MToDoTable
@@ -331,7 +331,7 @@ List<ToDoItem> results = MToDoTable
     .get();
 ```
 
-Följande metoder stöder komplexa filter i sträng fält: **startsWith**, **endsWith**, **concat**, **substring**, **indexOf**, **replace**, **toLower**, **toUpper**, **trim**och **length**. I följande exempel filtreras tabell rader där *text* kolumnen börjar med "PRI0".
+Följande metoder stöder komplexa filter i strängfält: **startsWith**, **endsWith**, **concat**, **subString**, **indexOf**, **replace**, **toLower**, **toUpper**, **trim**och **length**. Följande exempel filtrerar efter tabellrader där *textkolumnen* börjar med "PRI0".
 
 ```java
 List<ToDoItem> results = mToDoTable
@@ -341,7 +341,7 @@ List<ToDoItem> results = mToDoTable
     .get();
 ```
 
-Följande operator metoder stöds i siffer fält: **Add**, **Sub**, **mul**, **div**, **mod**, **våning**, **tak**och **Round**. I följande exempel filtreras tabell rader där **varaktigheten** är ett jämnt tal.
+Följande operatörsmetoder stöds på talfält: **lägg till**, **sub**, **mul**, **div**, **mod**, **golv,** **tak**och **runda**. Följande exempel filtrerar efter tabellrader där **varaktigheten** är ett jämnt tal.
 
 ```java
 List<ToDoItem> results = mToDoTable
@@ -351,7 +351,7 @@ List<ToDoItem> results = mToDoTable
     .get();
 ```
 
-Du kan kombinera predikat med dessa logiska metoder: **och**, **eller** . I följande exempel kombineras två av föregående exempel.
+Du kan kombinera predikat med dessa logiska metoder: **och**, **eller** och **inte**. I följande exempel kombineras två av de föregående exemplen.
 
 ```java
 List<ToDoItem> results = mToDoTable
@@ -361,7 +361,7 @@ List<ToDoItem> results = mToDoTable
     .get();
 ```
 
-Gruppera och kapsla logiska operatorer:
+Logiska operatorer gruppera och kapsla:
 
 ```java
 List<ToDoItem> results = mToDoTable
@@ -375,11 +375,11 @@ List<ToDoItem> results = mToDoTable
     .execute().get();
 ```
 
-Mer detaljerad information och exempel på filtrering finns i [utforska informationen i Android-klientens fråga modell][20].
+Mer detaljerad diskussion och exempel på filtrering finns i [Utforska rikedomen i Android-klientfrågemodellen][20].
 
-### <a name="sorting"></a>Sortera returnerade data
+### <a name="sort-returned-data"></a><a name="sorting"></a>Sortera returnerade data
 
-Följande kod returnerar alla objekt från en tabell med **ToDoItems** sorterade stigande efter *textfältet.* *mToDoTable* är referensen till den server dels tabell som du skapade tidigare:
+Följande kod returnerar alla objekt från en tabell **med ToDoItems** sorterade stigande efter *textfältet.* *mToDoTable* är referensen till den backend-tabell som du skapade tidigare:
 
 ```java
 List<ToDoItem> results = mToDoTable
@@ -388,11 +388,11 @@ List<ToDoItem> results = mToDoTable
     .get();
 ```
 
-Den första parametern för **orderBy** -metoden är en sträng som är lika med namnet på det fält som sorteringen ska sorteras efter. Den andra parametern använder **QueryOrder** -uppräkningen för att ange om stigande eller fallande ska sorteras.  Om du filtrerar med hjälp av metoden ***WHERE*** måste ***WHERE*** -metoden anropas före ***orderBy*** -metoden.
+Den första parametern i **metoden orderBy** är en sträng som är lika med namnet på det fält som ska sorteras. Den andra parametern använder **QueryOrder-uppräkningen** för att ange om stigande eller fallande ska sorteras.  Om du filtrerar med hjälp av ***varmetoden*** måste ***varmetoden*** anropas före ***orderBy-metoden.***
 
-### <a name="selection"></a>Välj vissa kolumner
+### <a name="select-specific-columns"></a><a name="selection"></a>Markera specifika kolumner
 
-Följande kod visar hur du returnerar alla objekt från en tabell med **ToDoItems**, men visar bara fälten **fullständig** och **text** . **mToDoTable** är referensen till den server dels tabell som vi skapade tidigare.
+Följande kod visar hur du returnerar alla objekt från en tabell **i ToDoItems**, men visar bara **de fullständiga** fälten och **textfälten.** **mToDoTable** är referensen till backend-tabellen som vi skapade tidigare.
 
 ```java
 List<ToDoItemNarrow> result = mToDoTable
@@ -401,13 +401,13 @@ List<ToDoItemNarrow> result = mToDoTable
     .get();
 ```
 
-Parametrarna för funktionen Select är sträng namnen för tabellens kolumner som du vill returnera.  Metoden **Select** måste följa metoder som **WHERE** och **orderBy**. Det kan följas av växlings metoder som **Skip** och **Top**.
+Parametrarna till markeringsfunktionen är strängnamnen för tabellens kolumner som du vill returnera.  Välj **metod** måste följa metoder som **var** och **beställaBy**. Det kan följas av personsökning metoder som **hoppa och** **topp**.
 
-### <a name="paging"></a>Returnera data på sidor
+### <a name="return-data-in-pages"></a><a name="paging"></a>Returnera data på sidor
 
-Data returneras **alltid** i sidor.  Det maximala antalet returnerade poster anges av servern.  Om klienten begär fler poster, returnerar servern det maximala antalet poster.  Som standard är den maximala sid storleken på servern 50 poster.
+Data returneras **ALLTID** på sidor.  Det maximala antalet poster som returneras anges av servern.  Om klienten begär fler poster returnerar servern det maximala antalet poster.  Som standard är den maximala sidstorleken på servern 50 poster.
 
-I det första exemplet visas hur du väljer de översta fem objekten i en tabell. Frågan returnerar objekten från en tabell med **ToDoItems**. **mToDoTable** är referensen till den server dels tabell som du skapade tidigare:
+Det första exemplet visar hur du väljer de fem översta objekten från en tabell. Frågan returnerar objekten från en tabell **i ToDoItems**. **mToDoTable** är referensen till den backend-tabell som du skapade tidigare:
 
 ```java
 List<ToDoItem> result = mToDoTable
@@ -416,7 +416,7 @@ List<ToDoItem> result = mToDoTable
     .get();
 ```
 
-Här är en fråga som hoppar över de första fem objekten och returnerar sedan nästa fem:
+Här är en fråga som hoppar över de fem första objekten och sedan returnerar de kommande fem:
 
 ```java
 List<ToDoItem> result = mToDoTable
@@ -425,7 +425,7 @@ List<ToDoItem> result = mToDoTable
     .get();
 ```
 
-Om du vill hämta alla poster i en tabell, implementerar du kod för att iterera över alla sidor:
+Om du vill hämta alla poster i en tabell implementerar du kod för att iterera över alla sidor:
 
 ```java
 List<MyDataModel> results = new ArrayList<>();
@@ -442,14 +442,14 @@ do {
 } while (nResults > 0);
 ```
 
-En begäran om alla poster som använder den här metoden skapar minst två begär anden till Mobile Apps Server del.
+En begäran om alla poster med den här metoden skapar minst två begäranden till backend för mobilappar.
 
 > [!TIP]
-> Att välja rätt sid storlek är en balans mellan minnes användningen medan begäran sker, bandbredds användning och fördröjning när data tas emot fullständigt.  Standard (50 poster) är lämplig för alla enheter.  Om du uteslutande arbetar med större minnes enheter kan du öka upp till 500.  Vi har påträffat att öka sid storleken bortom 500 poster resulterar i oacceptabla fördröjningar och stora minnes problem.
+> Att välja rätt sidstorlek är en balans mellan minnesanvändning medan begäran sker, bandbreddsanvändning och fördröjning i att ta emot data helt.  Standardinställningen (50 poster) är lämplig för alla enheter.  Om du uteslutande arbetar på större minnesenheter ökar du upp till 500.  Vi har funnit att öka sidstorleken utöver 500 poster resulterar i oacceptabla förseningar och stora minnesproblem.
 
-### <a name="chaining"></a>Gör så här: sammanfoga fråge metoder
+### <a name="how-to-concatenate-query-methods"></a><a name="chaining"></a>Så här: Sammanfoga frågemetoder
 
-De metoder som används för att fråga Server dels tabeller kan sammanfogas. Genom att länka fråge metoder kan du välja vissa kolumner med filtrerade rader som är sorterade och växlade. Du kan skapa komplexa logiska filter.  Varje fråge metod returnerar ett Query-objekt. Anropa metoden **execute** om du vill avsluta en serie metoder och köra frågan. Exempel:
+De metoder som används i fråga backend-tabeller kan sammanfogas. Med kedjande frågemetoder kan du välja specifika kolumner med filtrerade rader som sorteras och sorteras. Du kan skapa komplexa logiska filter.  Varje frågemetod returnerar ett frågeobjekt. Om du vill avsluta serien med metoder **execute** och faktiskt köra frågan anropar du körningsmetoden. Ett exempel:
 
 ```java
 List<ToDoItem> results = mToDoTable
@@ -465,26 +465,26 @@ List<ToDoItem> results = mToDoTable
         .get();
 ```
 
-De kedjade fråge metoderna måste ordnas på följande sätt:
+De kedjade frågemetoderna måste ordnas på följande sätt:
 
-1. Filtrerings metoder (**där**).
-2. Sorterings metoder (**orderBy**).
-3. Urvals metoder (**Select**).
-4. växlings-(**Skip** -och **Top**) metoder.
+1. Filtrering **(var)** metoder.
+2. Sortering **(orderBy)** metoder.
+3. Markering **(välj)** metoder.
+4. metoder för att söka **(hoppa över** och **överst).**
 
-## <a name="binding"></a>Binda data till användar gränssnittet
+## <a name="bind-data-to-the-user-interface"></a><a name="binding"></a>Binda data till användargränssnittet
 
-Data bindningen omfattar tre komponenter:
+Databindning omfattar tre komponenter:
 
-* Data källan
-* Skärmens layout
-* Det kort som binder samman de två.
+* Datakällan
+* Skärmlayouten
+* Adaptern som binder ihop de två.
 
-I vår exempel kod returnerar vi data från Mobile Apps SQL Azure tabellen **ToDoItem** till en matris. Den här aktiviteten är ett vanligt mönster för data program.  Databas frågor returnerar ofta en samling rader som klienten får i en lista eller matris. I det här exemplet är matrisen data källan.  Koden anger en skärmlayout som definierar visningen av de data som visas på enheten.  De två är kopplade samman med ett kort, som i den här koden är en utökning av klassen **ArrayAdapter&lt;ToDoItem&gt;** .
+I vår exempelkod returnerar vi data från Mobile Apps SQL Azure-tabellen **ToDoItem** till en matris. Den här aktiviteten är ett vanligt mönster för dataprogram.  Databasfrågor returnerar ofta en samling rader som klienten får i en lista eller matris. I det här exemplet är matrisen datakällan.  Koden anger en skärmlayout som definierar vyn över de data som visas på enheten.  De två är bundna tillsammans med ett kort, som i den här koden är ett tillägg till klassen **ArrayAdapter&lt;&gt; ToDoItem.**
 
-#### <a name="layout"></a>Definiera layouten
+#### <a name="define-the-layout"></a><a name="layout"></a>Definiera layouten
 
-Layouten definieras av flera kodfragment av XML-kod. Med en befintlig layout representerar följande kod den **ListView** som vi vill fylla med våra Server data.
+Layouten definieras av flera kodavsnitt med XML-kod. Med tanke på en befintlig layout representerar följande kod den **ListView** vi vill fylla med våra serverdata.
 
 ```xml
     <ListView
@@ -495,7 +495,7 @@ Layouten definieras av flera kodfragment av XML-kod. Med en befintlig layout rep
     </ListView>
 ```
 
-I föregående kod anger attributet *ListItem* ID för layouten för en enskild rad i listan. Den här koden anger en kryss ruta och dess tillhör ande text och instansieras en gång för varje objekt i listan. Den här layouten visar inte **ID-** fältet och en mer komplex layout anger ytterligare fält i visningen. Den här koden är i filen **row_list_to_do. XML** .
+I föregående kod anger *listitem-attributet* layouten för en enskild rad i listan. Den här koden anger en kryssruta och tillhörande text och instansieras en gång för varje objekt i listan. Den här layouten visar inte **id-fältet** och en mer komplex layout anger ytterligare fält i visningen. Den här koden finns i filen **row_list_to_do.xml.**
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -511,15 +511,15 @@ I föregående kod anger attributet *ListItem* ID för layouten för en enskild 
 </LinearLayout>
 ```
 
-#### <a name="adapter"></a>Definiera kortet
-Eftersom data källan för vår vy är en matris med **ToDoItem**, underklasserar vi vårt kort från en **ArrayAdapter&lt;ToDoItem&gt;** -klass. Den här underklassen genererar en vy för varje **ToDoItem** med hjälp av layouten **row_list_to_do** .  I vår kod definierar vi följande klass som är en utökning av klassen **ArrayAdapter&lt;E&gt;** :
+#### <a name="define-the-adapter"></a><a name="adapter"></a>Definiera kortet
+Eftersom datakällan för vår uppfattning är en matris med **ToDoItem**underklassar vi vår adapter från en **ArrayAdapter&lt;&gt; ToDoItem-klass.** Den här underklassen skapar en vy för varje **ToDoItem** med hjälp av row_list_to_do-layouten. **row_list_to_do**  I vår kod definierar vi följande klass som är en förlängning av **klassen&lt;ArrayAdapter E:&gt; **
 
 ```java
 public class ToDoItemAdapter extends ArrayAdapter<ToDoItem> {
 }
 ```
 
-Åsidosätt **getView** -metoden för adaptrar. Exempel:
+Åsidosätt korten **getView-metoden.** Ett exempel:
 
 ```java
     @Override
@@ -562,16 +562,16 @@ Vi skapar en instans av den här klassen i vår aktivitet enligt följande:
     mAdapter = new ToDoItemAdapter(this, R.layout.row_list_to_do);
 ```
 
-Den andra parametern för ToDoItemAdapter-konstruktorn är en referens till layouten. Nu kan vi instansiera **ListView** och tilldela kortet till **ListView**.
+Den andra parametern till ToDoItemAdapter-konstruktorn är en referens till layouten. Vi kan nu instansiera **ListView** och tilldela kortet till **ListView**.
 
 ```java
     ListView listViewToDo = (ListView) findViewById(R.id.listViewToDo);
     listViewToDo.setAdapter(mAdapter);
 ```
 
-#### <a name="use-adapter"></a>Använd nätverkskortet för att binda till användar gränssnittet
+#### <a name="use-the-adapter-to-bind-to-the-ui"></a><a name="use-adapter"></a>Använda kortet som ska bindas till användargränssnittet
 
-Du är nu redo att använda data bindning. Följande kod visar hur du hämtar objekt i tabellen och fyller det lokala kortet med de returnerade objekten.
+Du är nu redo att använda databindning. Följande kod visar hur du hämtar artiklar i tabellen och fyller det lokala kortet med de returnerade artiklarna.
 
 ```java
     public void showAll(View view) {
@@ -600,13 +600,13 @@ Du är nu redo att använda data bindning. Följande kod visar hur du hämtar ob
     }
 ```
 
-Anropa kortet när som helst när du ändrar **ToDoItem** -tabellen. Eftersom ändringar utförs på en post efter post, hanterar du en enskild rad i stället för en samling. När du infogar ett objekt anropar du metoden **Add** på kortet. anropa **Remove** -metoden när du tar bort den.
+Anropa kortet när du ändrar **tabellen ToDoItem.** Eftersom ändringar görs på post för post hanterar du en enda rad i stället för en samling. När du infogar ett objekt anropar du **tilläggsmetoden** på kortet. när du tar bort anropar du **borttagningsmetoden.**
 
-Du kan hitta ett fullständigt exempel i [projektet för Android-snabb start][21].
+Du hittar ett komplett exempel i [Android Quickstart Project][21].
 
-## <a name="inserting"></a>Infoga data i Server delen
+## <a name="insert-data-into-the-backend"></a><a name="inserting"></a>Infoga data i backend
 
-Instansiera en instans av klassen *ToDoItem* och ange dess egenskaper.
+Instansiera en instans av *klassen ToDoItem* och ange dess egenskaper.
 
 ```java
 ToDoItem item = new ToDoItem();
@@ -614,7 +614,7 @@ item.text = "Test Program";
 item.complete = false;
 ```
 
-Använd sedan **Infoga ()** för att infoga ett objekt:
+Använd sedan **insert()** för att infoga ett objekt:
 
 ```java
 ToDoItem entity = mToDoTable
@@ -622,21 +622,21 @@ ToDoItem entity = mToDoTable
     .get();
 ```
 
-Den returnerade entiteten matchar de data som infogats i Server dels tabellen, inklusive ID och andra värden (till exempel fälten `createdAt`, `updatedAt`och `version`) i Server delen.
+Den returnerade entiteten matchar de data som infogats i backend-tabellen, `updatedAt`inklusive `version` ID och alla andra värden (till exempel `createdAt`, och fält) som angetts på backend.
 
-Mobile Apps tabeller kräver en primär nyckel kolumn med namnet **ID**. Den här kolumnen måste vara en sträng. Standardvärdet för ID-kolumnen är ett GUID.  Du kan ange andra unika värden, till exempel e-postadresser eller användar namn. När ett sträng-ID-värde inte anges för en infogad post genererar Server delen ett nytt GUID.
+Tabeller med mobilappar kräver en primärnyckelkolumn med namnet **id**. Den här kolumnen måste vara en sträng. Standardvärdet för ID-kolumnen är ett GUID.  Du kan ange andra unika värden, till exempel e-postadresser eller användarnamn. När ett sträng-ID-värde inte anges för en infogad post genererar backend ett nytt GUID.
 
 Sträng-ID-värden ger följande fördelar:
 
-* ID: n kan genereras utan att göra en tur och retur i databasen.
-* Poster är enklare att sammanfoga från olika tabeller och databaser.
-* ID-värden integreras bättre med programmets logik.
+* ID kan genereras utan att göra en rundresa till databasen.
+* Poster är enklare att sammanfoga från olika tabeller eller databaser.
+* ID-värden integreras bättre med ett programs logik.
 
-Sträng-ID-värden **krävs** för stöd för offline-synkronisering.  Du kan inte ändra ett ID när det är lagrat i backend-databasen.
+Sträng-ID-värden **krävs** för stöd för offlinesynkronisering.  Du kan inte ändra ett ID när det har lagrats i backend-databasen.
 
-## <a name="updating"></a>Uppdatera data i en mobilapp
+## <a name="update-data-in-a-mobile-app"></a><a name="updating"></a>Uppdatera data i en mobilapp
 
-Om du vill uppdatera data i en tabell skickar du det nya objektet till **Update ()-** metoden.
+Om du vill uppdatera data i en tabell skickar du det nya objektet till metoden **update().**
 
 ```java
 mToDoTable
@@ -644,18 +644,18 @@ mToDoTable
     .get();
 ```
 
-I det här exemplet är *objektet* en referens till en rad i tabellen *ToDoItem* , som har gjort några ändringar i den.  Raden med samma **ID** uppdateras.
+I det här exemplet är *objektet* en referens till en rad i *tabellen ToDoItem,* som har gjort vissa ändringar i den.  Raden med samma **id** uppdateras.
 
-## <a name="deleting"></a>Ta bort data i en mobilapp
+## <a name="delete-data-in-a-mobile-app"></a><a name="deleting"></a>Ta bort data i en mobilapp
 
-Följande kod visar hur du tar bort data från en tabell genom att ange data objekt.
+Följande kod visar hur du tar bort data från en tabell genom att ange dataobjektet.
 
 ```java
 mToDoTable
     .delete(item);
 ```
 
-Du kan också ta bort ett objekt genom att ange fältet **ID** för raden som ska tas bort.
+Du kan också ta bort ett objekt genom att ange **id-fältet** för raden som ska tas bort.
 
 ```java
 String myRowId = "2FA404AB-E458-44CD-BC1B-3BC847EF0902";
@@ -663,9 +663,9 @@ mToDoTable
     .delete(myRowId);
 ```
 
-## <a name="lookup"></a>Leta upp ett speciellt objekt efter ID
+## <a name="look-up-a-specific-item-by-id"></a><a name="lookup"></a>Slå upp ett visst objekt efter ID
 
-Leta upp ett objekt med ett angivet **ID-** fält med **lookUp ()** -metoden:
+Slå upp ett objekt med ett specifikt **id-fält** med metoden **lookUp():**
 
 ```java
 ToDoItem result = mToDoTable
@@ -673,13 +673,13 @@ ToDoItem result = mToDoTable
     .get();
 ```
 
-## <a name="untyped"></a>Så här gör du: arbeta med data utan typ
+## <a name="how-to-work-with-untyped-data"></a><a name="untyped"></a>Så här: Arbeta med otypade data
 
-Den avskrivna programmerings modellen ger dig exakt kontroll över JSON-serialisering.  Det finns några vanliga scenarier där du kanske vill använda en typ som inte är typ av programmerings modell. Om din server dels tabell till exempel innehåller många kolumner och du bara behöver referera till en delmängd av kolumnerna.  Den inskrivna modellen kräver att du definierar alla kolumner som definierats i Mobile Apps Server del i din data klass.  De flesta API-anrop för att komma åt data liknar de skrivna programmerings anropen. Den största skillnaden är att i den modell utan typ som du anropar metoder i **MobileServiceJsonTable** -objektet, i stället för **MobileServiceTable** -objektet.
+Den otypade programmeringsmodellen ger dig exakt kontroll över JSON-serialisering.  Det finns några vanliga scenarier där du kanske vill använda en otypad programmeringsmodell. Om backend-tabellen till exempel innehåller många kolumner och du bara behöver referera till en delmängd av kolumnerna.  Den maskinskrivna modellen kräver att du definierar alla kolumner som definierats i backend för mobilappar i dataklassen.  De flesta API-anrop för åtkomst till data liknar de maskinskrivna programmeringsanropen. Den största skillnaden är att du i den oskrivna modellen anropar metoder på **MobileServiceJsonTable-objektet** i stället för **MobileServiceTable-objektet.**
 
-### <a name="json_instance"></a>Skapa en instans av en tabell som inte är av typen
+### <a name="create-an-instance-of-an-untyped-table"></a><a name="json_instance"></a>Skapa en instans av en otypad tabell
 
-Precis som den typ av modell som skrivs in börjar du med att hämta en tabell referens, men i det här fallet är det ett **MobileServicesJsonTable** -objekt. Hämta referensen genom att anropa metoden **getTable** på en klient instans:
+I likhet med den maskinskrivna modellen börjar du med att hämta en tabellreferens, men i det här fallet är det ett **MobileServicesJsonTable-objekt.** Hämta referensen genom att anropa **getTable-metoden** på en instans av klienten:
 
 ```java
 private MobileServiceJsonTable mJsonToDoTable;
@@ -687,10 +687,10 @@ private MobileServiceJsonTable mJsonToDoTable;
 mJsonToDoTable = mClient.getTable("ToDoItem");
 ```
 
-När du har skapat en instans av **MobileServiceJsonTable**har den praktiskt taget samma API tillgängligt som i den skrivna programmerings modellen. I vissa fall tar metoderna en parameter utan typ i stället för en angiven parameter.
+När du har skapat en instans av **MobileServiceJsonTable**har den praktiskt taget samma API som är tillgängligt som med den maskinskrivna programmeringsmodellen. I vissa fall tar metoderna en otypad parameter i stället för en typad parameter.
 
-### <a name="json_insert"></a>Infoga i en tabell som inte är av typen
-Följande kod visar hur du gör en infogning. Det första steget är att skapa en [JsonObject][1], som är en del av [Gson][3] -biblioteket.
+### <a name="insert-into-an-untyped-table"></a><a name="json_insert"></a>Infoga i en otypad tabell
+Följande kod visar hur du gör en infogning. Det första steget är att skapa en [JsonObject][1], som är en del av [gson][3] biblioteket.
 
 ```java
 JsonObject jsonItem = new JsonObject();
@@ -698,7 +698,7 @@ jsonItem.addProperty("text", "Wake up");
 jsonItem.addProperty("complete", false);
 ```
 
-Använd sedan **Infoga ()** för att infoga det inskrivna objektet i tabellen.
+Använd sedan **insert()** för att infoga det otypade objektet i tabellen.
 
 ```java
 JsonObject insertedItem = mJsonToDoTable
@@ -706,27 +706,27 @@ JsonObject insertedItem = mJsonToDoTable
     .get();
 ```
 
-Om du behöver hämta ID för det infogade objektet använder du metoden **getAsJsonPrimitive ()** .
+Om du behöver hämta ID:t för det infogade objektet använder du metoden **getAsJsonPrimitive().**
 
 ```java
 String id = insertedItem.getAsJsonPrimitive("id").getAsString();
 ```
-### <a name="json_delete"></a>Ta bort från en tabell som inte är av typen
-Följande kod visar hur du tar bort en instans, i det här fallet samma instans av en **JsonObject** som skapades i föregående *insert* -exempel. Koden är samma som för det skrivna fallet, men metoden har en annan signatur eftersom den refererar till en **JsonObject**.
+### <a name="delete-from-an-untyped-table"></a><a name="json_delete"></a>Ta bort från en otypad tabell
+Följande kod visar hur du tar bort en instans, i det här fallet samma instans av en **JsonObject** som skapades i föregående *infoga exempel.* Koden är samma som med det maskinskrivna skiftet, men metoden har en annan signatur eftersom den refererar till en **JsonObject**.
 
 ```java
 mToDoTable
     .delete(insertedItem);
 ```
 
-Du kan också ta bort en instans direkt genom att använda dess ID:
+Du kan också ta bort en instans direkt med hjälp av dess ID:
 
 ```java
 mToDoTable.delete(ID);
 ```
 
-### <a name="json_get"></a>Returnera alla rader från en tabell som inte är av typen
-Följande kod visar hur du hämtar en hel tabell. Eftersom du använder en JSON-tabell kan du selektivt hämta några av tabellens kolumner.
+### <a name="return-all-rows-from-an-untyped-table"></a><a name="json_get"></a>Returnera alla rader från en otypad tabell
+Följande kod visar hur du hämtar en hel tabell. Eftersom du använder en JSON-tabell kan du selektivt bara hämta några av tabellens kolumner.
 
 ```java
 public void showAllUntyped(View view) {
@@ -762,20 +762,20 @@ public void showAllUntyped(View view) {
 }
 ```
 
-Samma uppsättning filtrerings-, filtrerings-och växlings metoder som är tillgängliga för den inskrivna modellen är tillgängliga för den ej angivna modellen.
+Samma uppsättning filtrerings-, filtrerings- och växlingsmetoder som är tillgängliga för den maskinskrivna modellen är tillgängliga för den otypade modellen.
 
-## <a name="offline-sync"></a>Implementera offline-synkronisering
+## <a name="implement-offline-sync"></a><a name="offline-sync"></a>Implementera offlinesynkronisering
 
-Azure Mobile Apps client SDK implementerar också offline-synkronisering av data genom att använda en SQLite-databas för att lagra en kopia av Server data lokalt.  Åtgärder som utförs på en offline-tabell kräver inte att mobila anslutningar fungerar.  Offline Sync hjälper till med återhämtning och prestanda på bekostnad av mer komplex logik för konflikt lösning.  Azure Mobile Apps client SDK implementerar följande funktioner:
+Azure Mobile Apps Client SDK implementerar också offlinesynkronisering av data med hjälp av en SQLite-databas för att lagra en kopia av serverdata lokalt.  Åtgärder som utförs på en offline-tabell kräver inte mobil anslutning för att fungera.  Offlinesynkroniseringshjälpmedel i återhämtning och prestanda på bekostnad av mer komplex logik för konfliktlösning.  Azure Mobile Apps Client SDK implementerar följande funktioner:
 
-* Stegvis synkronisering: endast uppdaterade och nya poster hämtas, sparande av bandbredd och minnes användning.
-* Optimistisk samtidighet: åtgärder antas utföras.  Konflikt lösning uppskjuts tills uppdateringar utförs på servern.
-* Konflikt lösning: SDK identifierar när en motstridig ändring har gjorts på servern och ger hookar för att varna användaren.
-* Mjuk borttagning: borttagna poster har marker ATS som borttagna, så att andra enheter kan uppdatera offline-cacheminnet.
+* Inkrementell synkronisering: Endast uppdaterade och nya poster hämtas, vilket sparar bandbredd och minnesförbrukning.
+* Optimistisk samtidighet: Operationer antas lyckas.  Konfliktlösning skjuts upp tills uppdateringar utförs på servern.
+* Konfliktlösning: SDK identifierar när en ändring i konflikt har gjorts på servern och tillhandahåller krokar för att varna användaren.
+* Mjuk borttagning: Borttagna poster markeras bort, vilket gör att andra enheter kan uppdatera offlinecachen.
 
-### <a name="initialize-offline-sync"></a>Initiera synkronisering offline
+### <a name="initialize-offline-sync"></a>Initiera offlinesynkronisering
 
-Varje offline-tabell måste definieras i offline-cachen före användning.  Normalt görs tabell definition direkt efter att klienten har skapats:
+Varje offlinetabell måste definieras i offlinecachen före användning.  Normalt görs tabelldefinitionen omedelbart efter det att klienten har skapats:
 
 ```java
 AsyncTask<Void, Void, Void> initializeStore(MobileServiceClient mClient)
@@ -818,19 +818,19 @@ AsyncTask<Void, Void, Void> initializeStore(MobileServiceClient mClient)
 }
 ```
 
-### <a name="obtain-a-reference-to-the-offline-cache-table"></a>Hämta en referens till tabellen offline-cache
+### <a name="obtain-a-reference-to-the-offline-cache-table"></a>Skaffa en referens till offlinecachetabellen
 
-För en online-tabell använder du `.getTable()`.  För en offline-tabell använder du `.getSyncTable()`:
+För en online-tabell `.getTable()`använder du .  För en offlinetabell `.getSyncTable()`använder du:
 
 ```java
 MobileServiceSyncTable<ToDoItem> mToDoTable = mClient.getSyncTable("ToDoItem", ToDoItem.class);
 ```
 
-Alla metoder som är tillgängliga för online-tabeller (inklusive filtrering, sortering, växling, infoga data, uppdatera data och ta bort data) fungerar lika bra på online-och offline-tabeller.
+Alla metoder som är tillgängliga för onlinetabeller (inklusive filtrering, sortering, växling, infoga data, uppdatera data och ta bort data) fungerar lika bra på online- och offlinetabeller.
 
-### <a name="synchronize-the-local-offline-cache"></a>Synkronisera den lokala offline-cachen
+### <a name="synchronize-the-local-offline-cache"></a>Synkronisera den lokala offlinecachen
 
-Synkronisering är i kontroll över din app.  Här är ett exempel på en synkroniseringsmetod:
+Synkroniseringen är inom kontrollen av din app.  Här är ett exempel synkroniseringsmetod:
 
 ```java
 private AsyncTask<Void, Void, Void> sync(MobileServiceClient mClient) {
@@ -851,23 +851,23 @@ private AsyncTask<Void, Void, Void> sync(MobileServiceClient mClient) {
 }
 ```
 
-Om ett frågenamn har angetts till `.pull(query, queryname)`-metoden används stegvis synkronisering för att returnera endast poster som har skapats eller ändrats sedan den senaste hämtningen.
+Om ett frågenamn anges `.pull(query, queryname)` till metoden används inkrementell synkronisering för att returnera endast poster som har skapats eller ändrats sedan den senaste lyckades dra.
 
 ### <a name="handle-conflicts-during-offline-synchronization"></a>Hantera konflikter under offlinesynkronisering
 
-Om en konflikt uppstår under en `.push()` åtgärd genereras en `MobileServiceConflictException`.   Det Server-utfärdade objektet är inbäddat i undantaget och kan hämtas av `.getItem()` i undantaget.  Justera push genom att anropa följande objekt på MobileServiceSyncContext-objektet:
+Om en konflikt `.push()` inträffar `MobileServiceConflictException` under en operation, kastas a.   Det serverutfärdade objektet bäddas in i undantaget `.getItem()` och kan hämtas med undantag.  Justera push genom att anropa följande objekt i MobileServiceSyncContext-objektet:
 
 *  `.cancelAndDiscardItem()`
 *  `.cancelAndUpdateItem()`
 *  `.updateOperationAndItem()`
 
-När alla konflikter har marker ATS som du vill kan du anropa `.push()` igen för att lösa alla konflikter.
+När alla konflikter har markerats `.push()` som du vill ringer du igen för att lösa alla konflikter.
 
-## <a name="custom-api"></a>Anropa en anpassad API
+## <a name="call-a-custom-api"></a><a name="custom-api"></a>Anropa ett anpassat API
 
-Med ett anpassat API kan du definiera anpassade slut punkter som visar Server funktioner som inte mappas till en INSERT-, Update-, DELETE-eller Read-åtgärd. Genom att använda ett anpassat API kan du ha mer kontroll över meddelanden, inklusive läsa och ställa in HTTP-meddelandehuvuden och definiera ett annat text format än JSON.
+Med ett anpassat API kan du definiera anpassade slutpunkter som visar serverfunktioner som inte mappas till en infogning, uppdatering, borttagning eller läsåtgärd. Genom att använda ett anpassat API kan du ha större kontroll över meddelanden, inklusive att läsa och ange HTTP-meddelanderubriker och definiera ett annat meddelandetextformat än JSON.
 
-Från en Android-klient anropar du **invokeApi** -metoden för att anropa den anpassade API-slutpunkten. Följande exempel visar hur du anropar en API-slutpunkt med namnet **completeAll**, som returnerar en samlings klass med namnet **MarkAllResult**.
+Från en Android-klient anropar du **metoden invokeApi** för att anropa den anpassade API-slutpunkten. I följande exempel visas hur du anropar en API-slutpunkt med namnet **completeAll**, som returnerar en samlingsklass med namnet **MarkAllResult**.
 
 ```java
 public void completeItem(View view) {
@@ -887,36 +887,36 @@ public void completeItem(View view) {
 }
 ```
 
-Metoden **invokeApi** anropas på klienten, som skickar en post-begäran till det nya anpassade API: et. Resultatet som returneras av det anpassade API: t visas i en meddelande dialog ruta, som alla fel. Med andra versioner av **invokeApi** kan du välja att skicka ett objekt i begär ande texten, ange http-metoden och skicka frågeparametrar med begäran. **InvokeApi** -versioner som inte har angetts tillhandahålls också.
+**Metoden invokeApi** anropas på klienten, som skickar en POST-begäran till det nya anpassade API:et. Resultatet som returneras av det anpassade API:et visas i en meddelandedialogruta, liksom eventuella fel. Andra versioner av **invokeApi** kan du skicka ett objekt i begäran brödtexten, ange HTTP-metoden och skicka frågeparametrar med begäran. Otypade versioner av **invokeApi** tillhandahålls också.
 
-## <a name="authentication"></a>Lägg till autentisering i din app
+## <a name="add-authentication-to-your-app"></a><a name="authentication"></a>Lägg till autentisering i appen
 
-Självstudierna beskriver redan detaljerad information om hur du lägger till dessa funktioner.
+Självstudier beskriver redan i detalj hur du lägger till dessa funktioner.
 
-App Service stöder [autentisering av App-användare](app-service-mobile-android-get-started-users.md) med olika externa identitets leverantörer: Facebook, Google, Microsoft-konto, Twitter och Azure Active Directory. Du kan ange behörigheter för tabeller för att begränsa åtkomsten för vissa åtgärder till endast autentiserade användare. Du kan också använda identiteten för autentiserade användare för att implementera auktoriseringsregler i Server delen.
+App Service stöder [autentisering av appanvändare](app-service-mobile-android-get-started-users.md) med hjälp av olika externa identitetsleverantörer: Facebook, Google, Microsoft-konto, Twitter och Azure Active Directory. Du kan ange behörigheter för tabeller för att begränsa åtkomsten för specifika åtgärder till endast autentiserade användare. Du kan också använda identiteten på autentiserade användare för att implementera auktoriseringsregler i din backend.
 
-Två autentiserings flöden stöds: ett **Server** flöde och ett **klient** flöde. Server flödet ger den enklaste autentiseringen, eftersom det förlitar sig på webb gränssnittet för identitets leverantörer.  Det krävs inga ytterligare SDK: er för att implementera autentisering av Server flöde. Autentisering av Server flöde ger inte en djupgående integrering i den mobila enheten och rekommenderas bara för koncept bevis scenarier.
+Två autentiseringsflöden stöds: ett **serverflöde** och ett **klientflöde.** Serverflödet ger den enklaste autentiseringsupplevelsen, eftersom det är beroende av identitetsleverantörernas webbgränssnitt.  Inga ytterligare SDK-filer krävs för att implementera autentisering av serverflöde. Serverflödesautentisering ger inte en djup integrering i den mobila enheten och rekommenderas endast för proof of concept-scenarier.
 
-Klient flödet möjliggör djupare integrering med enhetsspecifika funktioner, till exempel enkel inloggning eftersom det är beroende av SDK: er som tillhandahålls av identitets leverantören.  Du kan till exempel integrera Facebook SDK i det mobila programmet.  Den mobila klienten byter till Facebook-appen och bekräftar din inloggning innan du byter tillbaka till mobilappen.
+Klientflödet möjliggör djupare integrering med enhetsspecifika funktioner som enkel inloggning eftersom det är beroende av SDK:er som tillhandahålls av identitetsprovidern.  Du kan till exempel integrera Facebook SDK i din mobilapplikation.  Den mobila klienten växlar till Facebook-appen och bekräftar din inloggning innan du byter tillbaka till din mobilapp.
 
-Fyra steg krävs för att aktivera autentisering i din app:
+Fyra steg krävs för att aktivera autentisering i appen:
 
-* Registrera din app för autentisering med en identitets leverantör.
-* Konfigurera din App Service server del.
-* Begränsa tabell behörigheter till autentiserade användare endast på den App Service server delen.
-* Lägg till en autentiseringsnyckel till din app.
+* Registrera appen för autentisering hos en identitetsleverantör.
+* Konfigurera din apptjänsts serverd.
+* Begränsa tabellbehörigheter till autentiserade användare endast i apptjänstens servergrupp.
+* Lägg till autentiseringskod i appen.
 
-Du kan ange behörigheter för tabeller för att begränsa åtkomsten för vissa åtgärder till endast autentiserade användare. Du kan också använda SID: t för en autentiserad användare för att ändra begär Anden.  Mer information finns i [Kom igång med autentisering] och howto-dokumentationen för Server SDK.
+Du kan ange behörigheter för tabeller för att begränsa åtkomsten för specifika åtgärder till endast autentiserade användare. Du kan också använda SID för en autentiserade användare för att ändra begäranden.  Mer information finns i [Kom igång med autentisering] och dokumentationen för Server SDK HOWTO.
 
-### <a name="caching"></a>Autentisering: Server flöde
+### <a name="authentication-server-flow"></a><a name="caching"></a>Autentisering: Serverflöde
 
-Följande kod startar en inloggnings process för Server flöde med Google-providern.  Ytterligare konfiguration krävs på grund av säkerhets kraven för Google-providern:
+Följande kod startar en inloggningsprocess för serverflödet med hjälp av Google-leverantören.  Ytterligare konfiguration krävs på grund av säkerhetskraven för Google-leverantören:
 
 ```java
 MobileServiceUser user = mClient.login(MobileServiceAuthenticationProvider.Google, "{url_scheme_of_your_app}", GOOGLE_LOGIN_REQUEST_CODE);
 ```
 
-Lägg också till följande metod i huvud aktivitets klassen:
+Lägg dessutom till följande metod i huvudklassen Aktivitet:
 
 ```java
 // You can choose any unique number here to differentiate auth providers from each other. Note this is the same code at login() and onActivityResult().
@@ -943,9 +943,9 @@ protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 }
 ```
 
-`GOOGLE_LOGIN_REQUEST_CODE` som definieras i din huvud aktivitet används för `login()`-metoden och i `onActivityResult()`-metoden.  Du kan välja ett unikt nummer, så länge samma nummer används inom `login()`-metoden och `onActivityResult()`-metoden.  Om du sammanfattar klient koden i ett tjänst kort (som visas tidigare) bör du anropa lämpliga metoder på tjänst kortet.
+Definitionen `GOOGLE_LOGIN_REQUEST_CODE` i din huvudsakliga aktivitet `login()` används för `onActivityResult()` metoden och inom metoden.  Du kan välja ett unikt nummer, så länge `login()` samma nummer `onActivityResult()` används inom metoden och metoden.  Om du abstraherar klientkoden till ett servicekort (som tidigare) bör du anropa lämpliga metoder på servicekortet.
 
-Du måste också konfigurera projektet för customtabs.  Ange först en omdirigerings-URL.  Lägg till följande kodfragment i `AndroidManifest.xml`:
+Du måste också konfigurera projektet för customtabs.  Ange först en omdirigerings-URL.  Lägg till följande kodavsnitt i: `AndroidManifest.xml`
 
 ```xml
 <activity android:name="com.microsoft.windowsazure.mobileservices.authentication.RedirectUrlActivity">
@@ -958,7 +958,7 @@ Du måste också konfigurera projektet för customtabs.  Ange först en omdirige
 </activity>
 ```
 
-Lägg till **redirectUriScheme** i `build.gradle`-filen för ditt program:
+Lägg till **redirectUriScheme** i `build.gradle` filen för ditt program:
 
 ```gradle
 android {
@@ -975,7 +975,7 @@ android {
 }
 ```
 
-Lägg slutligen till `com.android.support:customtabs:28.0.0` i listan beroenden i `build.gradle`-filen:
+Lägg slutligen `com.android.support:customtabs:28.0.0` till i beroendelistan `build.gradle` i filen:
 
 ```gradle
 dependencies {
@@ -989,24 +989,24 @@ dependencies {
 }
 ```
 
-Hämta ID: t för den inloggade användaren från en **MobileServiceUser** med hjälp av **getUserId** -metoden. Ett exempel på hur du kan använda framtiden för att anropa de asynkrona inloggnings-API: erna finns i [Kom igång med autentisering].
+Hämta ID:et för den inloggade användaren från en **MobileServiceUser** med metoden **getUserId.** Ett exempel på hur du använder Futures för att anropa asynkrona inloggnings-API:er finns [i Komma igång med autentisering].
 
 > [!WARNING]
-> Det angivna URL-schemat är Skift läges känsligt.  Se till att alla förekomster av `{url_scheme_of_you_app}` matchnings fall.
+> Url-schemat som nämns är skiftlägeskänsligt.  Se till att `{url_scheme_of_you_app}` alla förekomster av matchfall.
 
-### <a name="caching"></a>Cachelagra autentiseringstoken
+### <a name="cache-authentication-tokens"></a><a name="caching"></a>Cacheautentiseringstoken
 
-Cachelagring av autentiseringstoken kräver att du lagrar användar-ID och autentiseringstoken lokalt på enheten. Nästa gången appen startas kontrollerar du cachen, och om dessa värden finns kan du hoppa över inloggnings proceduren och sedan synkronisera klienten med dessa data igen. Dessa data är dock känsliga och bör lagras krypterade för säkerhet, om telefonen blir stulen.  Du kan se ett fullständigt exempel på hur du cachelagrar autentiseringstoken i [avsnittet cache][7]-autentiseringstoken.
+Cachelagring av autentiseringstoken kräver att du lagrar användar-ID och autentiseringstoken lokalt på enheten. Nästa gång appen startar kontrollerar du cacheminnet, och om dessa värden finns kan du hoppa över inloggningsproceduren och rehydrera klienten med dessa data. Men dessa uppgifter är känsliga, och det bör lagras krypterad för säkerhet om telefonen blir stulen.  Du kan se ett komplett exempel på hur du cachelagrar autentiseringstoken i [avsnittet Cacheautentiseringstoken][7].
 
-När du försöker använda en utgånget token får du ett *401 obehörigt* svar. Du kan hantera autentiseringsfel med hjälp av filter.  Filtrerar avlyssnings begär anden till App Service server delen. Filter koden testar svaret för en 401, utlöser inloggnings processen och återupptar sedan den begäran som genererade 401.
+När du försöker använda en token som har upphört att gälla får du ett *401 obehörigt* svar. Du kan hantera autentiseringsfel med hjälp av filter.  Filtrerar begäranden om skärningspunkten till apptjänstens backend. Filterkoden testar svaret för en 401, utlöser inloggningsprocessen och återupptar sedan begäran som genererade 401.
 
-### <a name="refresh"></a>Använd uppdateringstoken
+### <a name="use-refresh-tokens"></a><a name="refresh"></a>Använda uppdateringstoken
 
-Den token som returnerades av Azure App Service autentiseringen och auktoriseringen har en definierad livs längd på en timme.  Efter den här perioden måste du autentisera om användaren.  Om du använder en token med lång livs längd som du har tagit emot via klient flödes autentisering kan du autentisera med Azure App Service autentisering och auktorisering med samma token.  En annan Azure App Service token genereras med en ny livs längd.
+Token som returneras av Autentisering och auktorisering av Azure-apptjänsten har en definierad livstid på en timme.  Efter den här perioden måste du ge användaren ett omautentisering.  Om du använder en långlivad token som du har tagit emot via klientflödesautentisering kan du återauktorisera med Azure App Service Authentication and Authorization med samma token.  En annan Azure App Service-token genereras med en ny livstid.
 
-Du kan också registrera providern för att använda uppdateringstoken.  Det är inte alltid möjligt att uppdatera token.  Ytterligare konfiguration krävs:
+Du kan också registrera leverantören för att använda Uppdatera token.  En uppdateringstoken är inte alltid tillgänglig.  Ytterligare konfiguration krävs:
 
-* För **Azure Active Directory**konfigurerar du en klient hemlighet för Azure Active Directory-appen.  Ange klient hemligheten i Azure App Service när du konfigurerar Azure Active Directory autentisering.  När du anropar `.login()`måste du skicka `response_type=code id_token` som en parameter:
+* För **Azure Active Directory**konfigurerar du en klienthemlighet för Azure Active Directory-appen.  Ange klienthemligheten i Azure App-tjänsten när du konfigurerar Azure Active Directory-autentisering.  När `.login()`du `response_type=code id_token` ringer , passera som en parameter:
 
     ```java
     HashMap<String, String> parameters = new HashMap<String, String>();
@@ -1018,7 +1018,7 @@ Du kan också registrera providern för att använda uppdateringstoken.  Det är
         parameters);
     ```
 
-* För **Google**skickar du `access_type=offline` som en parameter:
+* För **Google**skickar `access_type=offline` du som parameter:
 
     ```java
     HashMap<String, String> parameters = new HashMap<String, String>();
@@ -1030,9 +1030,9 @@ Du kan också registrera providern för att använda uppdateringstoken.  Det är
         parameters);
     ```
 
-* För **Microsoft-konto**väljer du `wl.offline_access`s omfång.
+* För **Microsoft-konto** `wl.offline_access` väljer du scope.
 
-Om du vill uppdatera en token, anropa `.refreshUser()`:
+Om du vill `.refreshUser()`uppdatera en token anropar du:
 
 ```java
 MobileServiceUser user = mClient
@@ -1040,15 +1040,15 @@ MobileServiceUser user = mClient
     .get();
 ```
 
-Vi rekommenderar att du skapar ett filter som identifierar ett 401-svar från servern och försöker uppdatera användartoken.
+På bästa sätt kan du skapa ett filter som identifierar ett 401-svar från servern och försöker uppdatera användartoken.
 
-## <a name="log-in-with-client-flow-authentication"></a>Logga in med klient flödes autentisering
+## <a name="log-in-with-client-flow-authentication"></a>Logga in med autentisering med klientflöde
 
-Den allmänna processen för att logga in med klient flödes autentisering är följande:
+Den allmänna processen för inloggning med klientflödesautentisering är följande:
 
-* Konfigurera Azure App Service autentisering och auktorisering på samma sätt som du gör med autentisering av Server flöde.
-* Integrera Authentication provider SDK för autentisering för att skapa en åtkomsttoken.
-* Anropa `.login()`-metoden enligt följande (`result` ska vara en `AuthenticationResult`):
+* Konfigurera Autentisering och auktorisering av Azure App Service så som du skulle kunna autentisering med serverflöde.
+* Integrera SDK för autentiseringsprovidern för autentisering för att skapa en åtkomsttoken.
+* Anropa `.login()` metoden enligt följande`result` ( `AuthenticationResult`bör vara en ):
 
     ```java
     JSONObject payload = new JSONObject();
@@ -1066,16 +1066,16 @@ Den allmänna processen för att logga in med klient flödes autentisering är f
     });
     ```
 
-Se det fullständiga kod exemplet i nästa avsnitt.
+Se hela kodexemplet i nästa avsnitt.
 
-Ersätt `onSuccess()`-metoden med den kod som du vill använda vid en lyckad inloggning.  `{provider}` strängen är en giltig provider: **AAD** (Azure Active Directory), **Facebook**, **Google**, **MicrosoftAccount**eller **Twitter**.  Om du har implementerat anpassad autentisering kan du också använda taggen för anpassad autentiseringsprovider.
+Ersätt `onSuccess()` metoden med vilken kod du vill använda vid en lyckad inloggning.  Strängen `{provider}` är en giltig leverantör: **aad** (Azure Active Directory), **facebook**, **google**, **microsoftaccount**eller **twitter**.  Om du har implementerat anpassad autentisering kan du också använda taggen anpassad autentiseringsprovider.
 
-### <a name="adal"></a>Autentisera användare med Active Directory-autentiseringsbibliotek (ADAL)
+### <a name="authenticate-users-with-the-active-directory-authentication-library-adal"></a><a name="adal"></a>Autentisera användare med Active Directory Authentication Library (ADAL)
 
-Du kan använda Active Directory-autentiseringsbibliotek (ADAL) för att logga användare i ditt program med Azure Active Directory. Att använda en klient flödes inloggning är ofta bättre att använda `loginAsync()` metoder som det ger en mer enhetlig känsla och möjliggör ytterligare anpassning.
+Du kan använda Active Directory Authentication Library (ADAL) för att logga in användare i ditt program med Azure Active Directory. Använda en klient flöde inloggning är `loginAsync()` ofta att föredra att använda de metoder som det ger en mer inbyggd UX känsla och möjliggör ytterligare anpassning.
 
-1. Konfigurera din server del för mobilappen för AAD-inloggning genom att följa själv studie kursen [konfigurera App Service för Active Directory inloggning][22] . Se till att slutföra det valfria steget när du registrerar ett internt klient program.
-2. Installera ADAL genom att ändra din build. gradle-fil så att den innehåller följande definitioner:
+1. Konfigurera din backend för mobilappen för AAD-inloggning genom att följa [självstudien Så här konfigurerar du App Service för Active Directory-inloggningsdoktor.][22] Se till att slutföra det valfria steget för att registrera ett inbyggt klientprogram.
+2. Installera ADAL genom att ändra filen build.gradle så att den innehåller följande definitioner:
 
     ```gradle
     repositories {
@@ -1100,12 +1100,12 @@ Du kan använda Active Directory-autentiseringsbibliotek (ADAL) för att logga a
     }
     ```
 
-3. Lägg till följande kod i programmet, vilket gör följande ersättningar:
+3. Lägg till följande kod i ditt program och gör följande ersättare:
 
-    * Ersätt **insert-Authority – här** visas namnet på den klient där du etablerade ditt program. Formatet ska vara https://login.microsoftonline.com/contoso.onmicrosoft.com.
-    * Ersätt **insert-Resource-ID – här** med klient-ID: t för Server delen för mobilappen. Du kan hämta klient-ID: t från fliken **Avancerat** under **Azure Active Directory inställningar** i portalen.
-    * Ersätt **insert-Client-ID – här** med det klient-ID som du kopierade från det interna klient programmet.
-    * Ersätt **insert-Redirect-URI – här** med platsens */.auth/login/Done* -slutpunkt, med hjälp av https-schemat. Det här värdet bör likna *https://contoso.azurewebsites.net/.auth/login/done* .
+    * Ersätt **INSERT-AUTHORITY-HERE** med namnet på klienten där du har etablerat ditt program. Formatet ska https://login.microsoftonline.com/contoso.onmicrosoft.comvara .
+    * Ersätt **INSERT-RESOURCE-ID-HERE** med klient-ID för din mobilapps backend. Du kan hämta klient-ID:t från fliken **Avancerat** under **Azure Active Directory-inställningar** i portalen.
+    * Ersätt **INSERT-CLIENT-ID-HERE** med klient-ID som du kopierade från det inbyggda klientprogrammet.
+    * Ersätt **INSERT-REDIRECT-URI-HERE** med webbplatsens *slutpunkt /.auth/login/done* med hjälp av HTTPS-schemat. Det här värdet *https://contoso.azurewebsites.net/.auth/login/done*bör liknas vid .
 
 ```java
 private AuthenticationContext mContext;
@@ -1170,19 +1170,19 @@ protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 }
 ```
 
-## <a name="filters"></a>Justera kommunikationen mellan klienten och servern
+## <a name="adjust-the-client-server-communication"></a><a name="filters"></a>Justera kommunikationen mellan klient och server
 
-Klient anslutningen är vanligt vis en grundläggande HTTP-anslutning med det underliggande HTTP-biblioteket som medföljer Android SDK.  Det finns flera orsaker till varför du vill ändra:
+Klientanslutningen är normalt en grundläggande HTTP-anslutning med det underliggande HTTP-biblioteket som medföljer Android SDK.  Det finns flera anledningar till varför du vill ändra på det:
 
-* Du vill använda ett alternativt HTTP-bibliotek för att justera timeout.
-* Du vill ange en förlopps indikator.
-* Du vill lägga till en anpassad rubrik som stöder API Management-funktioner.
-* Du vill avlyssna ett misslyckat svar så att du kan implementera reautentisering.
-* Du vill logga backend-begäranden till en Analytics-tjänst.
+* Du vill använda ett alternativt HTTP-bibliotek för att justera tidsutgångar.
+* Du vill tillhandahålla en förloppsindikator.
+* Du vill lägga till en anpassad rubrik för att stödja API-hanteringsfunktioner.
+* Du vill avlyssna ett misslyckat svar så att du kan implementera omautentisering.
+* Du vill logga backend-begäranden till en analystjänst.
 
 ### <a name="using-an-alternate-http-library"></a>Använda ett alternativt HTTP-bibliotek
 
-Anropa metoden `.setAndroidHttpClientFactory()` direkt efter att du har skapat din klient referens.  Om du till exempel vill ange tids gräns för anslutning till 60 sekunder (i stället för standard 10 sekunder):
+Anropa `.setAndroidHttpClientFactory()` metoden direkt efter att du har skapat klientreferensen.  Om du till exempel vill ange tidsgränsen för anslutningen till 60 sekunder (i stället för standard10 sekunder):
 
 ```java
 mClient = new MobileServiceClient("https://myappname.azurewebsites.net");
@@ -1197,9 +1197,9 @@ mClient.setAndroidHttpClientFactory(new OkHttpClientFactory() {
 });
 ```
 
-### <a name="implement-a-progress-filter"></a>Implementera ett förlopps filter
+### <a name="implement-a-progress-filter"></a>Implementera ett förloppsfilter
 
-Du kan implementera en avlyssning av varje begäran genom att implementera en `ServiceFilter`.  Följande uppdaterar till exempel en förgenererad förlopps indikator:
+Du kan implementera en skärningspunkt `ServiceFilter`för varje begäran genom att implementera en .  Följande uppdaterar till exempel en förskapad förloppsindikator:
 
 ```java
 private class ProgressFilter implements ServiceFilter {
@@ -1236,15 +1236,15 @@ private class ProgressFilter implements ServiceFilter {
 }
 ```
 
-Du kan koppla det här filtret till klienten på följande sätt:
+Du kan koppla filtret till klienten på följande sätt:
 
 ```java
 mClient = new MobileServiceClient(applicationUrl).withFilter(new ProgressFilter());
 ```
 
-### <a name="customize-request-headers"></a>Anpassa begärandehuvuden
+### <a name="customize-request-headers"></a>Anpassa målanpassningshuvuden
 
-Använd följande `ServiceFilter` och koppla filtret på samma sätt som `ProgressFilter`:
+Använd följande `ServiceFilter` och fäst filtret på `ProgressFilter`samma sätt som:
 
 ```java
 private class CustomHeaderFilter implements ServiceFilter {
@@ -1267,9 +1267,9 @@ private class CustomHeaderFilter implements ServiceFilter {
 }
 ```
 
-### <a name="conversions"></a>Konfigurera automatisk serialisering
+### <a name="configure-automatic-serialization"></a><a name="conversions"></a>Konfigurera automatisk serialisering
 
-Du kan ange en konverterings strategi som gäller för alla kolumner genom att använda [Gson][3] -API: et. Klient biblioteket för Android använder [Gson][3] bakom bakgrunden för att serialisera Java-objekt till JSON-data innan data skickas till Azure App Service.  I följande kod används metoden **setFieldNamingStrategy ()** för att ställa in strategin. I det här exemplet raderas det inledande (a "m") och sedan visas gemener och versaler för varje fält namn. Den skulle till exempel förvandla "mId" till "ID".  Implementera en konverterings strategi för att minska behovet av att `SerializedName()` anteckningar på de flesta fälten.
+Du kan ange en konverteringsstrategi som gäller för varje kolumn med hjälp av [Gson][3] API. Android-klientbiblioteket använder [gson][3] bakom kulisserna för att serialisera Java-objekt till JSON-data innan data skickas till Azure App Service.  Följande kod använder metoden **setFieldNamingStrategy()** för att ange strategin. Det här exemplet tar bort det ursprungliga tecknet (ett "m" och sedan gemener nästa tecken för varje fältnamn. Till exempel skulle det vända "mId" till "id".  Implementera en konverteringsstrategi för `SerializedName()` att minska behovet av anteckningar på de flesta fält.
 
 ```java
 FieldNamingStrategy namingStrategy = new FieldNamingStrategy() {
@@ -1286,14 +1286,14 @@ client.setGsonBuilder(
 );
 ```
 
-Den här koden måste köras innan du skapar en mobil klient referens med hjälp av **MobileServiceClient**.
+Den här koden måste köras innan en mobil klientreferens skapas med **MobileServiceClient**.
 
 <!-- URLs. -->
 [Get started with Azure Mobile Apps]: app-service-mobile-android-get-started.md
 [ASCII control codes C0 and C1]: https://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
 [Mobile Services SDK for Android]: https://go.microsoft.com/fwlink/p/?LinkID=717033
 [Azure portal]: https://portal.azure.com
-[Kom igång med autentisering]: app-service-mobile-android-get-started-users.md
+[Komma igång med autentisering]: app-service-mobile-android-get-started-users.md
 [1]: https://static.javadoc.io/com.google.code.gson/gson/2.8.5/com/google/gson/JsonObject.html
 [2]: https://hashtagfail.com/post/44606137082/mobile-services-android-serialization-gson
 [3]: https://www.javadoc.io/doc/com.google.code.gson/gson/2.8.5

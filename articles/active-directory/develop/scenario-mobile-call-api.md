@@ -1,7 +1,7 @@
 ---
 title: Anropa ett webb-API från en mobilapp | Azure
 titleSuffix: Microsoft identity platform
-description: 'Lär dig hur du skapar en mobilapp som anropar webb-API: er. (Anropa ett webb-API.)'
+description: Läs om hur du skapar en mobilapp som anropar webb-API:er. (Anropa ett webb-API.)
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -17,36 +17,36 @@ ms.author: jmprieur
 ms.reviwer: brandwe
 ms.custom: aaddev
 ms.openlocfilehash: bd848fa6f74f049f97956ef1736ac2b08f3a6148
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77160159"
 ---
 # <a name="call-a-web-api-from-a-mobile-app"></a>Anropa ett webb-API från en mobilapp
 
-När din app loggar in en användare och tar emot tokens, visar Microsoft Authentication Library (MSAL) information om användaren, användarens miljö och utfärdade token. Din app kan använda dessa värden för att anropa ett webb-API eller visa ett välkomst meddelande till användaren.
+När appen har loggat in en användare och tagit emot token exponerar Microsoft Authentication Library (MSAL) information om användaren, användarens miljö och de utfärdade token. Din app kan använda dessa värden för att anropa ett webb-API eller visa ett välkomstmeddelande till användaren.
 
-I den här artikeln tittar vi först på MSAL-resultatet. Sedan ska vi titta på hur man använder en åtkomsttoken från `AuthenticationResult` eller `result` för att anropa ett skyddat webb-API.
+I den här artikeln ska vi först titta på MSAL-resultatet. Sedan ska vi titta på hur du `AuthenticationResult` `result` använder en åtkomsttoken från eller för att anropa ett skyddat webb-API.
 
-## <a name="msal-result"></a>MSAL resultat
-MSAL innehåller följande värden: 
+## <a name="msal-result"></a>MSAL-resultat
+MSAL ger följande värden: 
 
-- `AccessToken` anropar skyddade webb-API: er i en HTTP Bearer-begäran.
-- `IdToken` innehåller användbar information om den inloggade användaren. Den här informationen omfattar användarens namn, hem klienten och en unik identifierare för lagring.
-- `ExpiresOn` är giltighets tiden för token. MSAL hanterar en Apps automatiska uppdatering.
-- `TenantId` är identifieraren för den klient där användaren är inloggad. För gäst användare i Azure Active Directory (Azure AD) B2B identifierar det här värdet innehavaren där användaren är inloggad. Värdet identifierar inte användarens hem klient.  
-- `Scopes` anger de omfattningar som har beviljats med din token. De beviljade omfattningarna kan vara en delmängd av de omfattningar som du har begärt.
+- `AccessToken`anropar skyddade webb-API:er i en HTTP-bärarebegäran.
+- `IdToken`innehåller användbar information om den inloggade användaren. Den här informationen innehåller användarens namn, hemklienten och en unik identifierare för lagring.
+- `ExpiresOn`är tokens utgångstid. MSAL hanterar en apps automatiska uppdatering.
+- `TenantId`är identifieraren för klienten där användaren loggade in. För gästanvändare i Azure Active Directory (Azure AD) B2B identifierar det här värdet klienten där användaren loggade in. Värdet identifierar inte användarens hemklient.  
+- `Scopes`anger de scope som har beviljats med din token. De beviljade scopen kan vara en delmängd av de scope som du har begärt.
 
-MSAL tillhandahåller också en abstraktion för ett `Account`-värde. Ett `Account` värde representerar den aktuella användarens inloggade konto:
+MSAL ger också en `Account` abstraktion för ett värde. Ett `Account` värde representerar den aktuella användarens inloggade konto:
 
-- `HomeAccountIdentifier` identifierar användarens hem klient.
-- `UserName` är användarens önskade användar namn. Det här värdet kan vara tomt för Azure AD B2C användare.
-- `AccountIdentifier` identifierar den inloggade användaren. I de flesta fall är det här värdet detsamma som `HomeAccountIdentifier` svärdet om inte användaren är en gäst i en annan klient.
+- `HomeAccountIdentifier`identifierar användarens hemklient.
+- `UserName`är användarens föredragna användarnamn. Det här värdet kan vara tomt för Azure AD B2C-användare.
+- `AccountIdentifier`identifierar den inloggade användaren. I de flesta fall är det `HomeAccountIdentifier` här värdet detsamma som värdet om inte användaren är gäst i en annan klient.
 
 ## <a name="call-an-api"></a>Anropa ett API
 
-När du har åtkomst-token kan du anropa ett webb-API. Din app kommer att använda token för att skapa en HTTP-begäran och sedan köra begäran.
+När du har åtkomsttoken kan du anropa ett webb-API. Din app använder token för att skapa en HTTP-begäran och kör sedan begäran.
 
 ### <a name="android"></a>Android
 
@@ -90,7 +90,7 @@ När du har åtkomst-token kan du anropa ett webb-API. Din app kommer att använ
 
 ### <a name="msal-for-ios-and-macos"></a>MSAL för iOS och macOS
 
-Metoderna för att hämta tokens returnerar ett `MSALResult`-objekt. `MSALResult` visar en `accessToken`-egenskap. Du kan använda `accessToken` för att anropa ett webb-API. Lägg till den här egenskapen i HTTP Authorization-huvudet innan du anropar åtkomst till det skyddade webb-API: et.
+Metoderna för att hämta `MSALResult` token returnerar ett objekt. `MSALResult`exponerar `accessToken` en egenskap. Du kan `accessToken` använda för att anropa ett webb-API. Lägg till den här egenskapen i HTTP-auktoriseringshuvudet innan du anropar för att komma åt det skyddade webb-API:et.
 
 ```objc
 NSMutableURLRequest *urlRequest = [NSMutableURLRequest new];
@@ -118,17 +118,17 @@ task.resume()
 
 [!INCLUDE [Call web API in .NET](../../../includes/active-directory-develop-scenarios-call-apis-dotnet.md)]
 
-## <a name="make-several-api-requests"></a>Gör flera API-begäranden
+## <a name="make-several-api-requests"></a>Skapa flera API-begäranden
 
-Om du behöver anropa samma API flera gånger, eller om du behöver anropa flera API: er, bör du tänka på följande när du skapar din app:
+Om du behöver anropa samma API flera gånger, eller om du behöver ringa flera API:er, bör du tänka på följande ämnen när du skapar appen:
 
-- **Stegvist godkännande**: med Microsoft Identity Platform kan appar få användar medgivande när behörigheter krävs i stället för alla vid starten. Varje gången appen är redo att anropa ett API bör den endast begära de omfattningar som krävs.
+- **Inkrementellt samtycke**: Microsoft identity platform tillåter appar att få användarens medgivande när behörigheter krävs i stället för alla i början. Varje gång appen är redo att anropa ett API bör den endast begära de scope som den behöver.
 
-- **Villkorlig åtkomst**: när du gör flera API-begäranden i vissa scenarier kan du behöva uppfylla ytterligare krav för villkorlig åtkomst. Kraven kan öka på det här sättet om den första begäran inte har några principer för villkorlig åtkomst och appen försöker få tyst åtkomst till ett nytt API som kräver villkorlig åtkomst. För att hantera det här problemet, se till att fånga fel från tysta begär Anden och Förbered dig för att skapa en interaktiv begäran.  Mer information finns i [rikt linjer för villkorlig åtkomst](../azuread-dev/conditional-access-dev-guide.md).
+- **Villkorlig åtkomst**: När du gör flera API-begäranden kan du i vissa scenarier behöva uppfylla ytterligare villkorsstyrda åtkomstkrav. Kraven kan öka på det här sättet om den första begäran inte har några principer för villkorlig åtkomst och din app försöker komma åt ett nytt API som kräver villkorlig åtkomst. För att hantera det här problemet, se till att fånga fel från tysta begäranden och vara beredd att göra en interaktiv begäran.  Mer information finns i [Vägledning för villkorlig åtkomst](../azuread-dev/conditional-access-dev-guide.md).
 
-## <a name="call-several-apis-by-using-incremental-consent-and-conditional-access"></a>Anropa flera API: er med hjälp av stegvisa medgivande och villkorlig åtkomst
+## <a name="call-several-apis-by-using-incremental-consent-and-conditional-access"></a>Anropa flera API:er med hjälp av inkrementellt medgivande och villkorlig åtkomst
 
-Om du behöver anropa flera API: er för samma användare kan du, efter att du har skaffat en token för användaren, undvika att upprepade gånger be användaren om autentiseringsuppgifter genom att sedan anropa `AcquireTokenSilent` för att hämta en token:
+Om du behöver anropa flera API:er för samma användare, när du har hämtat en token `AcquireTokenSilent` för användaren, kan du undvika att upprepade gånger be användaren om autentiseringsuppgifter genom att senare ringa för att hämta en token:
 
 ```csharp
 var result = await app.AcquireTokenXX("scopeApi1")
@@ -140,8 +140,8 @@ result = await app.AcquireTokenSilent("scopeApi2")
 
 Interaktion krävs när:
 
-- Den användare som har skickat för det första API: et, men som nu måste godkänna för fler omfattningar. I det här fallet använder du ett stegvist godkännande.
-- Det första API: t kräver inte multifaktorautentisering, men nästa API gör detta.
+- Användaren samtyckte till det första API:et men måste nu godkänna fler scope. I det här fallet använder du inkrementellt medgivande.
+- Det första API:et kräver inte autentisering med flera faktorer, men nästa API gör det.
 
 ```csharp
 var result = await app.AcquireTokenXX("scopeApi1")

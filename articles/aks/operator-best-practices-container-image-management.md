@@ -1,55 +1,55 @@
 ---
-title: Operatorn metodtips – bildhantering för behållare i Azure Kubernetes Services (AKS)
-description: Läs kluster operatorn metodtipsen att hantera och säkra behållaravbildningar i Azure Kubernetes Service (AKS)
+title: Metodtips för operatör – hantering av behållaravbildning i Azure Kubernetes Services (AKS)
+description: Lär dig metodtips för klusteroperatören för hur du hanterar och skyddar behållaravbildningar i Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.openlocfilehash: efe72157f598c336248e407c57bce92fe87da23a
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77594756"
 ---
-# <a name="best-practices-for-container-image-management-and-security-in-azure-kubernetes-service-aks"></a>Metodtips för hantering av behållare avbildningen och säkerhet i Azure Kubernetes Service (AKS)
+# <a name="best-practices-for-container-image-management-and-security-in-azure-kubernetes-service-aks"></a>Metodtips för hantering av behållaravbildning och säkerhet i Azure Kubernetes Service (AKS)
 
-När du utvecklar och kör program i Azure Kubernetes Service (AKS) är en nyckelfaktor säkerheten för behållare och behållaravbildningar. Behållare som innehåller inaktuella basera bilder eller okorrigerade programmet körningar medföra en säkerhetsrisk och möjliga angreppsvinkel. För att minimera riskerna, bör du integrera verktyg som kan söka efter och åtgärda problem i dina behållare vid Byggtiden samt runtime. Den tidigare i processen sårbarhet eller inaktuella basavbildning har fastnat, säkrare desto klustret. I den här artikeln innebär *behållare* både de behållar avbildningar som lagras i ett behållar register och de behållare som körs.
+När du utvecklar och kör program i Azure Kubernetes Service (AKS) är säkerheten för dina behållare och behållaravbildningar en viktig faktor. Behållare som innehåller inaktuella basavbildningar eller oacascherade programkörningar medför en säkerhetsrisk och eventuell attackvektor. För att minimera dessa risker bör du integrera verktyg som söker efter och åtgärdar problem i dina behållare vid byggtid samt körning. Ju tidigare i processen säkerhetsproblem eller inaktuella basavbildning fångas, desto säkrare är klustret. I den här artikeln betyder *behållare* både behållaravbildningar som lagras i ett behållarregister och de behållare som körs.
 
-Den här artikeln handlar om hur du skyddar dina behållare i AKS. Lär dig att:
+Den här artikeln fokuserar på hur du skyddar dina behållare i AKS. Lär dig att:
 
 > [!div class="checklist"]
-> * Söka efter och åtgärda sårbarheter i bild
-> * Automatiskt utlösa och distribuera om avbildningar när en basavbildning har uppdaterats
+> * Söka efter och åtgärda bildsäkerhetsproblem
+> * Utlöser och distribuerar om behållaravbildningar automatiskt när en basavbildning uppdateras
 
-Du kan också läsa metod tips för [kluster säkerhet][best-practices-cluster-security] och Pod- [säkerhet][best-practices-pod-security].
+Du kan också läsa metodtipsen för [klustersäkerhet][best-practices-cluster-security] och [pod-säkerhet][best-practices-pod-security].
 
-Du kan också använda [behållar säkerhet i Security Center][security-center-containers] för att söka igenom behållarna efter sårbarheter.  Det finns också [Azure Container Registry-integrering][security-center-acr] med Security Center som hjälper till att skydda dina avbildningar och register från sårbarheter.
+Du kan också använda [containersäkerhet i Security Center][security-center-containers] för att söka igenom dina behållare efter säkerhetsproblem.  Det finns också [Azure Container Registry integration][security-center-acr] med Security Center för att skydda dina avbildningar och register från sårbarheter.
 
-## <a name="secure-the-images-and-run-time"></a>Skydda bilderna och körtid
+## <a name="secure-the-images-and-run-time"></a>Säkra avbildningarna och körtiden
 
-**Vägledning för bästa praxis** – Sök igenom behållar avbildningar efter sårbarheter och distribuera bara avbildningar som har klarat verifieringen. Regelbundet uppdatera Källavbildningen och körning av program och sedan distribuera igen arbetsbelastningar i AKS-klustret.
+**Vägledning för bästa praxis** – Sök igenom behållaravbildningar efter säkerhetsproblem och distribuera endast avbildningar som har klarat valideringen. Uppdatera regelbundet basavbildningar och programkörning och distribuera sedan om arbetsbelastningar i AKS-klustret.
 
-Ett problem med införandet av behållarbaserade arbetsbelastningar verifierar säkerheten för avbildningar och runtime som används för att skapa dina egna program. Hur du se till att du inte orsakar säkerhetsrisker i dina distributioner? Distributions arbets flödet bör innehålla en process för att skanna behållar avbildningar med hjälp av verktyg som [twistlock][twistlock] eller [turkos][aqua], och sedan bara tillåta att verifierade avbildningar distribueras.
+Ett problem med antagandet av behållarbaserade arbetsbelastningar är att verifiera säkerheten för avbildningar och körning som används för att skapa egna program. Hur ser du till att du inte inför säkerhetsproblem i dina distributioner? Distributionsarbetsflödet bör innehålla en process för att skanna behållaravbildningar med hjälp av verktyg som [Twistlock][twistlock] eller [Aqua][aqua]och sedan endast tillåta att verifierade avbildningar distribueras.
 
-![Skanna och åtgärda behållaravbildningar, verifiera och distribuera](media/operator-best-practices-container-security/scan-container-images-simplified.png)
+![Skanna och åtgärda behållaravbildningar, validera och distribuera](media/operator-best-practices-container-security/scan-container-images-simplified.png)
 
-I ett verkliga exempel använda du en kontinuerlig integrering och en pipeline för kontinuerlig distribution (CI/CD) för att automatisera den avbildningen genomsökningar, verifiering och distributioner. Azure Container Registry innehåller säkerhetsproblemen genomsökning funktioner.
+I ett verkligt exempel kan du använda en pipeline för kontinuerlig integrering och kontinuerlig distribution (CI/CD) för att automatisera avbildningssökningar, verifiering och distributioner. Azure Container Registry innehåller dessa funktioner för skanning av sårbarheter.
 
-## <a name="automatically-build-new-images-on-base-image-update"></a>Automatiskt skapa nya avbildningar på grundläggande uppdateringar
+## <a name="automatically-build-new-images-on-base-image-update"></a>Skapa automatiskt nya bilder på basavbildningsuppdatering
 
-**Vägledning för bästa praxis** – när du använder bas avbildningar för program avbildningar använder du Automation för att bygga nya avbildningar när bas avbildningen uppdateras. Eftersom dessa Källavbildningen innehåller vanligtvis säkerhetskorrigeringar, uppdatera alla nedströms program-behållaravbildningar.
+**Vägledning för bästa praxis** – När du använder basavbildningar för programavbildningar använder du automatisering för att skapa nya avbildningar när basavbildningen uppdateras. Eftersom dessa basavbildningar vanligtvis innehåller säkerhetskorrigeringar uppdaterar du alla nedströms programbehållareavbildningar.
 
-Varje gång en basavbildning uppdateras bör alla underordnade behållaravbildningar också uppdateras. Den här bygg processen bör integreras i pipeline för validering och distribution, till exempel [Azure-pipeliner][azure-pipelines] eller Jenkins. Dessa pipelines ser till att dina program fortsätter att köras på de uppdaterade baserat bilderna. När dina program behållaravbildningar verifieras uppdateras AKS-distributioner sedan för att köra de senaste, säker avbildningarna.
+Varje gång en basavbildning uppdateras bör även alla nedströmsbehållaresavbildningar uppdateras. Den här byggprocessen bör integreras i validerings- och distributionspipelor som [Azure Pipelines][azure-pipelines] eller Jenkins. Dessa pipelines ser till att dina program fortsätter att köras på de uppdaterade baserade avbildningarna. När dina programbehållareavbildningar har validerats kan AKS-distributionerna sedan uppdateras för att köra de senaste, säkra avbildningarna.
 
-Azure Container Registry uppgifter kan också automatiskt uppdatera behållaravbildningar när basavbildningen uppdateras. Den här funktionen kan du skapa ett litet antal Källavbildningen och hålla dem uppdaterade med fel och säkerhet redigeringar regelbundet.
+Azure Container Registry Tasks kan också automatiskt uppdatera behållaravbildningar när basavbildningen uppdateras. Med den här funktionen kan du skapa ett litet antal basavbildningar och regelbundet hålla dem uppdaterade med bugg- och säkerhetskorrigeringar.
 
-Mer information om uppdateringar av bas avbildningar finns i avsnittet [om att automatisera avbildningar på bas avbildnings uppdatering med Azure Container Registry uppgifter][acr-base-image-update].
+Mer information om grundläggande avbildningsuppdateringar finns i [Automatisera avbildningsversioner på basavbildningsuppdatering med Azure Container Registry Tasks][acr-base-image-update].
 
 ## <a name="next-steps"></a>Nästa steg
 
-Den här artikeln fokuserar på hur du skyddar dina behållare. Om du vill implementera vissa av dessa områden, finns i följande artiklar:
+Den här artikeln fokuserade på hur du skyddar dina behållare. Information om hur du implementerar några av dessa områden finns i följande artiklar:
 
-* [Automatisera avbildning bygger på en bas avbildnings uppdatering med Azure Container Registry uppgifter][acr-base-image-update]
+* [Automatisera avbildningen bygger på basavbildningsuppdatering med Azure Container Registry Tasks][acr-base-image-update]
 
 <!-- EXTERNAL LINKS -->
 [azure-pipelines]: /azure/devops/pipelines/?view=vsts

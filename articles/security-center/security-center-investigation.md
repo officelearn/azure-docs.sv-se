@@ -14,17 +14,17 @@ ms.workload: na
 ms.date: 06/29/2018
 ms.author: memildin
 ms.openlocfilehash: ef1684f11349696c22a290c90469a8d94f922e58
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77603991"
 ---
-# <a name="investigate-incidents-and-alerts-in-azure-security-center-retired"></a>Undersöka incidenter och aviseringar i Azure Security Center (dras tillbaka)
-Det här dokumentet hjälper dig att använda undersöknings funktionen (för hands version) i Azure Security Center för att undersöka säkerhets incidenter och aviseringar.
+# <a name="investigate-incidents-and-alerts-in-azure-security-center-retired"></a>Undersöka incidenter och aviseringar i Azure Security Center (pensionerad)
+Det här dokumentet hjälper dig att använda undersökningsfunktionen (förhandsversion) i Azure Security Center för att undersöka säkerhetsincidenter och aviseringar.
 
 > [!NOTE]
-> Undersökningen om varningar och incidenter (för hands version) har dragits tillbaka den 31 juli 2019. Mer information och alternativa tjänster finns i [dra tillbaka Security Center funktioner (2019 juli)](security-center-features-retirement-july2019.md#menu_investigate).
+> Erfarenheten av utredningar och incidenter (Förhandsversion) har dragits tillbaka den 31 juli 2019. Mer information och alternativa tjänster finns i [Funktioner för Pensionering av Säkerhetscenter (juli 2019)](security-center-features-retirement-july2019.md#menu_investigate).
 
 ## <a name="what-is-investigation-in-security-center"></a>Vad är undersökning i Security Center?
 Med undersökningsfunktionen i Security Center kan du sortera, förstå omfattningen av och spåra rotorsaken till en potentiell [säkerhetsincident](https://docs.microsoft.com/azure/security-center/security-center-incident).
@@ -33,8 +33,8 @@ Avsikten är att underlätta undersökningsprocessen genom att länka alla entit
 
 
 > [!NOTE]
-> * [Anpassade aviseringar](security-center-custom-alert.md) stöds inte i Security Centers undersöknings funktion.
-> * Undersökningen stöds endast för aviseringar som baseras på data som samlas in från Windows-servrar.
+> * [Anpassade aviseringar](security-center-custom-alert.md) stöds inte i Säkerhetscenters undersökningsfunktion.
+> * Undersökning stöds endast för aviseringar baserat på data som samlats in från Windows-servrar.
 
 
 ## <a name="how-investigation-works"></a>Hur fungerar undersökningen?
@@ -64,15 +64,15 @@ På fliken **Entiteter** visas alla relaterade entiteter grupperade efter typ. D
 
 ![Entiteter](./media/security-center-investigation/security-center-investigation-fig4.png)
 
-### <a name="search"></a>Söka
+### <a name="search"></a>Search
 
 På fliken **Sök** visas alla loggtyper som är tillgängliga för entiteten. För varje loggtyp kan du se hur många poster som är tillgängliga. När du klickar på varje loggtyp kommer du till sökskärmen. På sökskärmen kan du förfina sökningen och använda olika sökfunktioner, som att ange aviseringar. I den aktuella versionen är sökfliken bara tillgänglig för användar- och datorentiteter.
 
-![Söka](./media/security-center-investigation/security-center-investigation-fig5.png)
+![Search](./media/security-center-investigation/security-center-investigation-fig5.png)
 
 ### <a name="exploration"></a>Utforskning
 
-På fliken **Utforskning** kan utredaren undersöka data relaterade till olika problem som är relaterade till entiteten. Till exempel visas en lista över processer som körs på den på fliken utforskning när en dator undersökas. I vissa fall visar fliken utforskning data som kan tyda på ett misstänkt problem. Utredaren kan undersöka data på fliken eller öppna dem på sökskärmen för att granska stora uppsättningar data och för att använda avancerade sökalternativ som filtrering och export till Excel.
+På fliken **Utforskning** kan utredaren undersöka data relaterade till olika problem som är relaterade till entiteten. När en dator till exempel undersöks visas listan över processer som körs på den på fliken utforskning. I vissa fall visar fliken utforskning data som kan tyda på ett misstänkt problem. Utredaren kan undersöka data på fliken eller öppna dem på sökskärmen för att granska stora uppsättningar data och för att använda avancerade sökalternativ som filtrering och export till Excel.
 
 ![Utforskning](./media/security-center-investigation/security-center-investigation-fig6.png)
 
@@ -98,7 +98,7 @@ Följande objekt visas oavsett den valda tidsomfattningen:
 
 ## <a name="how-to-perform-an-investigation"></a>Hur utför du en undersökning?
 
-Du kan starta en undersökningen utifrån en säkerhetsincident eller från en avisering – alternativet du väljer varierar beroende på dina behov. Stegen nedan används för att starta en undersökning från en avisering:
+Du kan starta en undersökningen utifrån en säkerhetsincident eller från en avisering – alternativet du väljer varierar beroende på dina behov. De steg som följer används för att starta en undersökning från en avisering:
 
 1.  Öppna instrumentpanelen **Security Center**.
 2.  Klicka på **Säkerhetsaviseringar** och väljer incidenten som du vill undersöka.

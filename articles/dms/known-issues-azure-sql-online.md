@@ -1,7 +1,7 @@
 ---
-title: 'Kända problem: online-migreringar till SQL Database'
+title: 'Kända problem: Onlinemigreringar till SQL Database'
 titleSuffix: Azure Database Migration Service
-description: Läs om kända problem/begränsningar för migrering med online-migreringar för att Azure SQL Database med hjälp av Azure Database Migration Service.
+description: Lär dig mer om kända problem/migreringsbegränsningar med onlinemigreringar till Azure SQL Database med hjälp av Migreringstjänsten för Azure Database.
 services: database-migration
 author: pochiraju
 ms.author: rajpo
@@ -13,149 +13,149 @@ ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 02/20/2020
 ms.openlocfilehash: e7efdb7244e2c7e4651a4507b538123f8d320c1e
-ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77650783"
 ---
-# <a name="known-issuesmigration-limitations-with-online-migrations-to-azure-sql-database"></a>Kända problem/migrerings begränsningar med online-migreringar till Azure SQL Database
+# <a name="known-issuesmigration-limitations-with-online-migrations-to-azure-sql-database"></a>Kända problem/migreringsbegränsningar med onlinemigreringar till Azure SQL Database
 
-Kända problem och begränsningar som är kopplade till online-migrering från SQL Server till Azure SQL Database beskrivs nedan.
+Kända problem och begränsningar som är associerade med onlinemigreringar från SQL Server till Azure SQL Database beskrivs nedan.
 
 > [!IMPORTANT]
-> Migrering av SQL_variant data typer stöds inte för migrering av SQL Server Azure SQL Database.
+> Med onlinemigreringar av SQL Server till Azure SQL Database stöds inte migrering av SQL_variant datatyper.
 
-### <a name="migration-of-temporal-tables-not-supported"></a>Migrering av temporala tabeller stöds inte
+### <a name="migration-of-temporal-tables-not-supported"></a>Migrering av tidstabeller stöds inte
 
-**Aktuellt**
+**Symptom**
 
-Om din käll databas består av en eller flera temporala tabeller, Miss lyckas migreringen av databasen under åtgärden "fullständig data inläsning" och du kan se följande meddelande:
+Om källdatabasen består av en eller flera temporala tabeller misslyckas databasmigrering under åtgärden "Fullständig databelastning" och följande meddelande kan visas:
 
 ```
 { "resourceId":"/subscriptions/<subscription id>/resourceGroups/migrateready/providers/Microsoft.DataMigration/services/<DMS Service name>", "errorType":"Database migration error", "errorEvents":"["Capture functionalities could not be set. RetCode: SQL_ERROR SqlState: 42000 NativeError: 13570 Message: [Microsoft][SQL Server Native Client 11.0][SQL Server]The use of replication is not supported with system-versioned temporal table '[Application. Cities]' Line: 1 Column: -1 "]" }
 ```
 
- ![Exempel på temporal Table-fel](media/known-issues-azure-sql-online/dms-temporal-tables-errors.png)
+ ![Exempel på tidstabellfel](media/known-issues-azure-sql-online/dms-temporal-tables-errors.png)
 
-**Lösning**
+**Workaround**
 
-Använd följande steg.
+Följ dessa steg.
 
-1. Hitta de temporala tabellerna i ditt käll schema med hjälp av frågan nedan.
+1. Leta reda på de tidsmässiga tabellerna i källschemat med frågan nedan.
 
      ``` 
      select name,temporal_type,temporal_type_desc,* from sys.tables where temporal_type <>0
      ```
 
-2. Exkludera dessa tabeller från bladet **Konfigurera inställningar för migrering** där du anger tabeller för migrering.
+2. Uteslut dessa tabeller från bladet **Konfigurera migreringsinställningar,** där du anger tabeller för migrering.
 
-3. Kör migrerings aktiviteten igen.
+3. Kör migreringsaktiviteten igen.
 
 **Resurser**
 
-Mer information finns i artikel [temporala tabeller](https://docs.microsoft.com/sql/relational-databases/tables/temporal-tables?view=sql-server-2017).
+Mer information finns i artikeln [Temporal Tables](https://docs.microsoft.com/sql/relational-databases/tables/temporal-tables?view=sql-server-2017).
 
-### <a name="migration-of-tables-includes-one-or-more-columns-with-the-hierarchyid-data-type"></a>Migrering av tabeller innehåller en eller flera kolumner med data typen hierarchyid
+### <a name="migration-of-tables-includes-one-or-more-columns-with-the-hierarchyid-data-type"></a>Migrering av tabeller innehåller en eller flera kolumner med hierarkins datatyp
 
-**Aktuellt**
+**Symptom**
 
-Du kan se ett SQL-undantag som föreslår att "ntext är inkompatibelt med hierarchyid" under åtgärden "fullständig data inläsning":
+Du kan se ett SQL-undantag som föreslår "ntext är inkompatibel med hierarchyid" under åtgärden "Fullständig datainläsning":
 
-![exempel på hierarchyid-fel](media/known-issues-azure-sql-online/dms-hierarchyid-errors.png)
+![exempel på hierarkifel](media/known-issues-azure-sql-online/dms-hierarchyid-errors.png)
 
-**Lösning**
+**Workaround**
 
-Använd följande steg.
+Följ dessa steg.
 
-1. Hitta de användar tabeller som innehåller kolumner med data typen hierarchyid med hjälp av frågan nedan.
+1. Leta reda på de användartabeller som innehåller kolumner med hierarkins datatyp med frågan nedan.
 
       ``` 
       select object_name(object_id) 'Table name' from sys.columns where system_type_id =240 and object_id in (select object_id from sys.objects where type='U')
       ```
 
-2. Exkludera dessa tabeller från bladet **Konfigurera inställningar för migrering** där du anger tabeller för migrering.
+2. Uteslut dessa tabeller från bladet **Konfigurera migreringsinställningar,** där du anger tabeller för migrering.
 
-3. Kör migrerings aktiviteten igen.
+3. Kör migreringsaktiviteten igen.
 
-### <a name="migration-failures-with-various-integrity-violations-with-active-triggers-in-the-schema-during-full-data-load-or-incremental-data-sync"></a>Migrerings fel med olika integritets överträdelser med aktiva utlösare i schemat under "fullständig data inläsning" eller "stegvis data synkronisering"
+### <a name="migration-failures-with-various-integrity-violations-with-active-triggers-in-the-schema-during-full-data-load-or-incremental-data-sync"></a>Migreringsfel med olika integritetsöverträdelser med aktiva utlösare i schemat under "Fullständig datainläsning" eller "Inkrementell datasynkronisering"
 
-**Lösning**
+**Workaround**
 
-Använd följande steg.
+Följ dessa steg.
 
-1. Hitta de utlösare som för närvarande är aktiva i käll databasen med hjälp av frågan nedan:
+1. Leta reda på de utlösare som för närvarande är aktiva i källdatabasen med frågan nedan:
 
      ```
      select * from sys.triggers where is_disabled =0
      ```
 
-2. Inaktivera utlösare på käll databasen med hjälp av stegen i artikeln [inaktivera UTlösare (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/disable-trigger-transact-sql?view=sql-server-2017).
+2. Inaktivera utlösare i källdatabasen med hjälp av stegen i artikeln [DISABLE TRIGGER (Transact-SQL).](https://docs.microsoft.com/sql/t-sql/statements/disable-trigger-transact-sql?view=sql-server-2017)
 
-3. Kör migrerings aktiviteten igen.
+3. Kör migreringsaktiviteten igen.
 
 ### <a name="support-for-lob-data-types"></a>Stöd för LOB-datatyper
 
-**Aktuellt**
+**Symptom**
 
-Om längden på den stora objekt kolumnen (LOB) är större än 32 KB, kan data bli trunkerade på målet. Du kan kontrol lera längden på LOB-kolumnen med frågan nedan:
+Om längden på kolumnen Stora objekt (LOB) är större än 32 kB kan data trunkeras vid målet. Du kan kontrollera längden på LOB-kolumnen med frågan nedan:
 
 ``` 
 SELECT max(DATALENGTH(ColumnName)) as LEN from TableName
 ```
 
-**Lösning**
+**Workaround**
 
-Om du har en LOB-kolumn som är större än 32 KB kan du kontakta teknik teamet på [fråga Azure Database-migreringar](mailto:AskAzureDatabaseMigrations@service.microsoft.com).
+Om du har en LOB-kolumn som är större än 32 kB kontaktar du teknikteamet på [Fråga Azure Database Migrations](mailto:AskAzureDatabaseMigrations@service.microsoft.com).
 
-### <a name="issues-with-timestamp-columns"></a>Problem med Timestamp-kolumner
+### <a name="issues-with-timestamp-columns"></a>Problem med tidsstämpelkolumner
 
-**Aktuellt**
+**Symptom**
 
-Azure Database Migration Service migrerar inte källans tidsstämpel-värde. i stället genererar Azure Database Migration Service ett nytt tidsstämpel-värde i mål tabellen.
+Azure Database Migration Service migrerar inte källtidsstämpeln. I stället genererar Azure Database Migration Service ett nytt tidsstämpelvärde i måltabellen.
 
-**Lösning**
+**Workaround**
 
-Om du behöver Azure Database Migration Service att migrera det exakta tidsstämpel-värdet som lagras i käll tabellen, kontaktar du teknik teamet i [fråga Azure Database-migreringar](mailto:AskAzureDatabaseMigrations@service.microsoft.com).
+Om du behöver Azure Database Migration Service för att migrera det exakta tidsstämpelvärdet som lagras i källtabellen kontaktar du teknikteamet på [Ask Azure Database Migrations](mailto:AskAzureDatabaseMigrations@service.microsoft.com).
 
-### <a name="data-migration-errors-dont-provide-additional-details-on-the-database-detailed-status-blade"></a>Fel vid datamigrering innehåller inte ytterligare information på bladet databas detaljerat läge
+### <a name="data-migration-errors-dont-provide-additional-details-on-the-database-detailed-status-blade"></a>Datamigreringsfel ger inte ytterligare information om databasblad för detaljerad status
 
-**Aktuellt**
+**Symptom**
 
-När du kommer över migreringsåtgärder i vyn databas information visas inte länken **datamigrerings fel** i det övre menyfliksområdet. det kan inte finnas ytterligare information som är speciell för migrerings felen.
+När du stöter på migreringsfel i statusvyn Databaserinformation kanske det inte finns ytterligare information om migreringsfelen om du väljer länken **Datamigreringsfel** i det övre menyfliksområdet.
 
-![exempel på fel vid datamigrering](media/known-issues-azure-sql-online/dms-data-migration-errors-no-details.png)
+![datamigreringsfel inga detaljerexempel](media/known-issues-azure-sql-online/dms-data-migration-errors-no-details.png)
 
-**Lösning**
+**Workaround**
 
-Använd följande steg för att få detaljerad information om felen.
+Använd följande steg för att komma åt specifika felinformation.
 
-1. Stäng bladet databas detaljerat läge för att visa skärmen migrering av aktivitet.
+1. Stäng databasblad för detaljerad status för att visa skärmen Migreringsaktivitet.
 
-     ![skärmen migrering av aktivitet](media/known-issues-azure-sql-online/dms-migration-activity-screen.png)
+     ![skärmen migreringsaktivitet](media/known-issues-azure-sql-online/dms-migration-activity-screen.png)
 
-2. Välj **se fel information** för att visa vissa fel meddelanden som hjälper dig att felsöka migrerings fel.
+2. Välj **Visa felinformation** om du vill visa specifika felmeddelanden som hjälper dig att felsöka migreringsfel.
 
-### <a name="geography-datatype-not-supported-in-sqldb-online-migration"></a>Geografi data typen stöds inte i SQLDB online-migrering
+### <a name="geography-datatype-not-supported-in-sqldb-online-migration"></a>Geografidatatyp stöds inte i SQLDB-onlinemigrering
 
-**Aktuellt**
+**Symptom**
 
-Migreringen Miss lyckas med ett fel meddelande som innehåller följande text:
+Migreringen misslyckas med ett felmeddelande som innehåller följande text:
 
      “** encountered a fatal error”, "errorEvents":<Table>.<Column> is of type 'GEOGRAPHY', which is not supported by 'Full Load' under 'Full LOB' support mode."
 
-**Lösning**
+**Workaround**
 
-Även om Azure Database Migration Service stöder geografi data typen för offline-migrering till Azure SQL Database, stöds inte geografi-datatypen för online-migrering. Försök med alternativa metoder för att ändra data typen vid källan till en typ som stöds innan du försöker använda Azure Database Migration Service för en online-migrering av den här databasen.
+Azure Database Migration Service stöder datatypen Geografi för offlinemigreringar till Azure SQL Database, men för onlinemigreringar stöds inte geografidatatypen. Prova alternativa metoder för att ändra datatypen vid källan till en typ som stöds innan du försöker använda Azure Database Migration Service för en onlinemigrering av den här databasen.
 
-### <a name="supported-editions"></a>Versioner som stöds
+### <a name="supported-editions"></a>Utgåvor som stöds
 
-**Aktuellt**
+**Symptom**
 
-Migreringen Miss lyckas med ett fel meddelande som innehåller följande text:
+Migreringen misslyckas med ett felmeddelande som innehåller följande text:
 
     Migration settings validation error: The edition of the server [Business Intelligence Edition (64-bit)] does not match the supported edition(s) [Enterprise,Standard,Developer].
 
-**Lösning**
+**Workaround**
 
-Stöd för online-migreringar till Azure SQL Database att använda Azure Database Migration Service utökar endast Enterprise-, standard-och Developer-versionerna. Se till att du använder en version som stöds innan du påbörjar migreringsprocessen.
+Stöd för onlinemigreringar till Azure SQL Database med hjälp av Azure Database Migration Service utökas endast till enterprise-, standard- och utvecklarversionerna. Se till att du använder en utgåva som stöds innan du påbörjar migreringsprocessen.

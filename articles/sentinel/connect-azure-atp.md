@@ -1,5 +1,5 @@
 ---
-title: Anslut Azure ATP-data till Azure Sentinel | Microsoft Docs
+title: Ansluta Azure ATP-data till Azure Sentinel| Microsoft-dokument
 description: Lär dig hur du ansluter Azure ATP-data till Azure Sentinel.
 services: sentinel
 documentationcenter: na
@@ -15,46 +15,46 @@ ms.workload: na
 ms.date: 12/30/2019
 ms.author: yelevin
 ms.openlocfilehash: 387d04cbbb125006efcc4efc53a02015fe3f5919
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77588594"
 ---
-# <a name="connect-data-from-azure-advanced-threat-protection-atp"></a>Anslut data från Azure Advanced Threat Protection (ATP)
+# <a name="connect-data-from-azure-advanced-threat-protection-atp"></a>Ansluta data från Azure Advanced Threat Protection (ATP)
 
 > [!IMPORTANT]
-> Azure Advanced Threat Protection data Connector i Azure Sentinel är för närvarande en offentlig för hands version.
-> Den här funktionen tillhandahålls utan service nivå avtal och rekommenderas inte för produktions arbets belastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Azure Advanced Threat Protection-dataanslutningen i Azure Sentinel är för närvarande i offentlig förhandsversion.
+> Den här funktionen tillhandahålls utan ett servicenivåavtal och rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Du kan strömma loggar från [Azure Advanced Threat Protection](https://docs.microsoft.com/azure-advanced-threat-protection/what-is-atp) till Azure Sentinel med ett enda klick.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-- Användare med behörighet som global administratör eller säkerhets administratör
-- Du måste vara en förhands gransknings kund för Azure ATP och aktivera integrering mellan Azure ATP och Microsoft Cloud App Security. Mer information finns i [Azure Advanced Protection integration](https://docs.microsoft.com/cloud-app-security/aatp-integration).
+- Användare med global administratörs- eller säkerhetsadministratörsbehörighet
+- Du måste vara en förhandsversion av Azure ATP och aktivera integration mellan Azure ATP och Microsoft Cloud App Security. Mer information finns i [Azure Advanced Protection Integration](https://docs.microsoft.com/cloud-app-security/aatp-integration).
 
-## <a name="connect-to-azure-atp"></a>Anslut till Azure ATP
+## <a name="connect-to-azure-atp"></a>Ansluta till Azure ATP
 
-Se till att Azure ATP Preview-versionen är [aktive rad i nätverket](https://docs.microsoft.com/azure-advanced-threat-protection/install-atp-step1).
-Om Azure ATP distribueras och data matas in kan de misstänkta aviseringarna enkelt strömmas i Azure Sentinel. Det kan ta upp till 24 timmar innan aviseringarna börjar strömma till Azure Sentinel.
+Kontrollera att förhandsversionen av Azure ATP är [aktiverad i nätverket](https://docs.microsoft.com/azure-advanced-threat-protection/install-atp-step1).
+Om Azure ATP distribueras och intag av dina data kan de misstänkta aviseringarna enkelt strömmas till Azure Sentinel. Det kan ta upp till 24 timmar för aviseringarna att börja strömma till Azure Sentinel.
 
 
-1. För att ansluta Azure ATP till Azure Sentinel måste du först aktivera integrering mellan Azure ATP och Microsoft Cloud App Security. Information om hur du gör detta finns i [integrering med Azure Advanced Threat Protection](https://docs.microsoft.com/cloud-app-security/aatp-integration).
+1. Om du vill ansluta Azure ATP till Azure Sentinel måste du först aktivera integrering mellan Azure ATP och Microsoft Cloud App Security. Information om hur du gör detta finns i [Azure Advanced Threat Protection integration](https://docs.microsoft.com/cloud-app-security/aatp-integration).
 
-1. I Azure Sentinel väljer du **data kopplingar** och klickar sedan på panelen **Azure Advanced Threat Protection (för hands version)** .
+1. I Azure Sentinel väljer du **Data-kopplingar** och klickar sedan på panelen **Azure Advanced Threat Protection (Preview).**
 
-1. Du kan välja om du vill att aviseringarna från Azure ATP automatiskt ska generera incidenter i Azure Sentinel automatiskt. Under **skapa incidenter** väljer du **Aktivera** för att aktivera den standard analys regel som skapar incidenter automatiskt från aviseringar som genereras i den anslutna säkerhets tjänsten. Du kan sedan redigera den här regeln under **analys** och sedan **aktiva regler**.
+1. Du kan välja om du vill att aviseringarna från Azure ATP automatiskt ska generera incidenter i Azure Sentinel automatiskt. Under **Skapa incidenter** väljer du **Aktivera** för att aktivera standardanalytiska regeln som skapar incidenter automatiskt från aviseringar som genereras i den anslutna säkerhetstjänsten. Du kan sedan redigera den här regeln under **Analytics** och sedan **aktiva regler**.
 
 1. Klicka på **Anslut**.
 
 1. Om du vill använda det relevanta schemat i Log Analytics för Azure ATP-aviseringar söker du efter **SecurityAlert**.
 
 > [!NOTE]
-> Om aviseringarna är större än 30 KB slutar Azure Sentinel att visa fältet entiteter i aviseringarna.
+> Om aviseringarna är större än 30 kB slutar Azure Sentinel att visa fältet Entiteter i aviseringarna.
 
 ## <a name="next-steps"></a>Nästa steg
 I det här dokumentet har du lärt dig hur du ansluter Azure Advanced Threat Protection till Azure Sentinel. Mer information om Azure Sentinel finns i följande artiklar:
-- Lär dig hur du [får insyn i dina data och potentiella hot](quickstart-get-visibility.md).
+- Läs om hur du [får insyn i dina data och potentiella hot](quickstart-get-visibility.md).
 - Kom igång [med att identifiera hot med Azure Sentinel](tutorial-detect-threats-built-in.md).
 

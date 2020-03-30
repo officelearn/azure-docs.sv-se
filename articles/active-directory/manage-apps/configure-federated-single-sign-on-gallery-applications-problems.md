@@ -1,6 +1,6 @@
 ---
-title: Problem med att konfigurera federerad SSO för Azure AD Gallery-appar
-description: Åtgärda några av de vanliga problem som kan uppstå när du konfigurerar federerad enkel inloggning med SAML för program som listas i Azure AD-programgalleriet
+title: Problem med att konfigurera federerade SSO-appar för Azure AD Gallery
+description: Åtgärda några av de vanliga problem som kan uppstå när du konfigurerar federerad enkel inloggning med SAML för program som visas i Azure AD Application Gallery
 services: active-directory
 documentationcenter: ''
 author: msmimart
@@ -16,99 +16,99 @@ ms.date: 07/11/2017
 ms.author: mimart
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 87c2497a781b0d46b3b2f1e281a3d7b327b60952
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74274644"
 ---
 # <a name="problem-configuring-federated-single-sign-on-for-an-azure-ad-gallery-application"></a>Problem med att konfigurera federerad enkel inloggning för ett Azure AD Gallery-program
 
-Om det uppstår ett problem när du konfigurerar ett program. Kontrol lera att du har följt alla steg i självstudien för programmet. I programmets konfiguration har du infogat dokumentation om hur du konfigurerar programmet. Du kan också få åtkomst till [listan med självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://azure.microsoft.com/documentation/articles/active-directory-saas-tutorial-list/) för en detaljerad steg-för-steg-guide.
+Om du stöter på ett problem när du konfigurerar ett program. Kontrollera att du har följt alla steg i självstudien för programmet. I programmets konfiguration har du infogad dokumentation om hur du konfigurerar programmet. Du kan också komma åt [listan med självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://azure.microsoft.com/documentation/articles/active-directory-saas-tutorial-list/) för en detaljerad steg-för-steg-vägledning.
 
 ## <a name="cant-add-another-instance-of-the-application"></a>Det går inte att lägga till en annan instans av programmet
 
 Om du vill lägga till en andra instans av ett program måste du kunna:
 
--   Konfigurera en unik identifierare för den andra instansen. Du kommer inte att kunna konfigurera samma identifierare som används för den första instansen.
+-   Konfigurera en unik identifierare för den andra instansen. Du kan inte konfigurera samma identifierare som används för den första instansen.
 
 -   Konfigurera ett annat certifikat än det som används för den första instansen.
 
-Om programmet inte stöder något av ovanstående. Sedan kan du inte konfigurera en andra instans.
+Om programmet inte stöder något av ovanstående. Då kan du inte konfigurera en andra instans.
 
-## <a name="cant-add-the-identifier-or-the-reply-url"></a>Det går inte att lägga till identifieraren eller svars-URL
+## <a name="cant-add-the-identifier-or-the-reply-url"></a>Det går inte att lägga till identifieraren eller svars-URL:en
 
-Om du inte kan konfigurera identifieraren eller svars-URL: en bekräftar du ID: t och svars-URL-värdena matchar de mönster som är förkonfigurerade för programmet.
+Om du inte kan konfigurera identifieraren eller svars-URL:en bekräftar du att url-värdena identifierare och svar matchar de mönster som är förkonfigurerade för programmet.
 
-För att veta vilka mönster som är förkonfigurerade för programmet:
+Så här känner du till de mönster som är förkonfigurerade för programmet:
 
-1. Öppna [**Azure Portal**](https://portal.azure.com/) och logga in som **Global administratör** eller **medadministratör.** Gå till steg 7. Om du redan finns på bladet program konfiguration på Azure AD.
+1. Öppna [**Azure-portalen**](https://portal.azure.com/) och logga in som **global administratör** eller **medadministratör.** Gå till steg 7. Om du redan finns i programkonfigurationsbladet på Azure AD.
 
-2. Öppna **tillägget Azure Active Directory** genom att klicka på **alla tjänster** överst i den vänstra navigerings menyn.
+2. Öppna **Azure Active Directory-tillägget** genom att klicka på **Alla tjänster** högst upp på huvudnavigeringsmenyn.
 
-3. Skriv **"Azure Active Directory**" i rutan filtrera sökning och välj **Azure Active Directory** objektet.
+3. Skriv in **"Azure Active Directory"** i sökrutan för filtret och välj **Azure Active Directory-objektet.**
 
-4. Klicka på **företags program** från Azure Active Directory vänstra navigerings menyn.
+4. Klicka på **Företagsprogram** på menyn Azure Active Directory till vänster.
 
-5. Klicka på **alla program** om du vill visa en lista över alla dina program.
+5. Klicka på **Alla program om** du vill visa en lista över alla dina program.
 
-   * Om du inte ser det program som du vill visa här använder du **filter** kontrollen längst upp i **listan Alla program** och anger alternativet **Visa** för **alla program.**
+   * Om du inte ser det program du vill visa här använder du **filterkontrollen** högst upp i **listan Alla program** och anger alternativet **Visa** till **Alla program.**
 
-6. Välj det program som du vill konfigurera enkel inloggning för.
+6. Välj det program som du vill konfigurera enkel inloggning.
 
-7. När programmet har lästs in klickar du på **enkel inloggning** från programmets vänstra navigerings meny.
+7. När programmet har läses in klickar du **på enkel inloggning** från programmets navigeringsmeny till vänster.
 
-8. Välj **SAML-baserad inloggning** från List rutan **läge** .
+8. Välj **SAML-baserad inloggning** i listrutan **Läge.**
 
-9. Gå till text rutan **identifierare** eller **svars-URL** , under **avsnittet domän och URL: er.**
+9. Gå till textrutan **Identifierare** eller **Svara på URL** under avsnittet Domän och **webbadresser.**
 
 10. Det finns tre sätt att känna till de mönster som stöds för programmet:
 
-    * I text rutan ser du de mönster som stöds som ett exempel på en plats hållare *:* <https://contoso.com>.
+    * I textrutan visas de mönster som stöds som ett platshållarexempel: *Example:* <https://contoso.com>.
 
-    * Om mönstret inte stöds visas ett rött utrops tecken när du försöker ange värdet i text rutan. Om du hovrar med musen över det röda utrops tecknet ser du de mönster som stöds.
+    * Om mönstret inte stöds visas ett rött utropstecken när du försöker ange värdet i textrutan. Om du håller musen över det röda utropstecknet visas de mönster som stöds.
 
-    * I självstudien för programmet kan du också få information om de mönster som stöds. Under avsnittet **Konfigurera enkel inloggning i Azure AD** . Gå till steget för konfigurerade värden under avsnittet **domän och URL: er** .
+    * I självstudien för programmet kan du också få information om de mönster som stöds. Under avsnittet **Konfigurera Azure AD-enkel inloggning.** Gå till steget för konfigurerade värden under avsnittet **Domän och webbadresser.**
 
-Om värdena inte matchar de mönster som förkonfigureras i Azure AD. Du kan:
+Om värdena inte stämmer överens med de mönster som är förkonfigurerade på Azure AD. Du kan:
 
--   Arbeta med program leverantören för att hämta värden som matchar mönstret förkonfigurerat i Azure AD
+-   Arbeta med programleverantören för att hämta värden som matchar mönstret som är förkonfigurerat på Azure AD
 
--   Alternativt kan du kontakta Azure AD-teamet på <aadapprequest@microsoft.com> eller lämna en kommentar i självstudien för att begära uppdateringen av de mönster som stöds för programmet
+-   Du kan också kontakta Azure <aadapprequest@microsoft.com> AD-teamet på eller lämna en kommentar i självstudien för att begära uppdatering av de mönster som stöds för programmet
 
-## <a name="where-do-i-set-the-entityid-user-identifier-format"></a>Var anger jag formatet för EntityID (användar identifierare)
+## <a name="where-do-i-set-the-entityid-user-identifier-format"></a>Var ställer jag in entityID-formatet (User Identifier)
 
 Du kan inte välja det EntityID-format (User Identifier) som Azure AD skickar till programmet i svaret efter användarautentisering.
 
-Azure AD väljer formatet för attributet NameID (användar identifierare) baserat på det värde som valts eller det format som begärdes av programmet i SAML-AuthRequest. Mer information finns i artikeln [Single Sign-on SAML Protocol](https://docs.microsoft.com/azure/active-directory/develop/active-directory-single-sign-on-protocol-reference#authnrequest) i avsnittet NameIDPolicy.
+Azure AD väljer formatet för NameID-attributet (User Identifier) baserat på det valda värdet eller det format som begärs av programmet i SAML AuthRequest. Mer information finns i artikeln [Single Sign-On SAML protokoll](https://docs.microsoft.com/azure/active-directory/develop/active-directory-single-sign-on-protocol-reference#authnrequest) under avsnittet NameIDPolicy,
 
 ## <a name="cant-find-the-azure-ad-metadata-to-complete-the-configuration-with-the-application"></a>Det går inte att hitta Azure AD-metadata för att slutföra konfigurationen med programmet
 
-Följ dessa steg om du vill ladda ned metadata för programmet eller certifikatet från Azure AD:
+Så här hämtar du programmets metadata eller certifikat från Azure AD:
 
-1. Öppna [**Azure Portal**](https://portal.azure.com/) och logga in som **Global administratör** eller **medadministratör.**
+1. Öppna [**Azure-portalen**](https://portal.azure.com/) och logga in som **global administratör** eller **medadministratör.**
 
-2. Öppna **tillägget Azure Active Directory** genom att klicka på **alla tjänster** överst i den vänstra navigerings menyn.
+2. Öppna **Azure Active Directory-tillägget** genom att klicka på **Alla tjänster** högst upp på huvudnavigeringsmenyn.
 
-3. Skriv **"Azure Active Directory**" i rutan filtrera sökning och välj **Azure Active Directory** objektet.
+3. Skriv in **"Azure Active Directory"** i sökrutan för filtret och välj **Azure Active Directory-objektet.**
 
-4. Klicka på **företags program** från Azure Active Directory vänstra navigerings menyn.
+4. Klicka på **Företagsprogram** på menyn Azure Active Directory till vänster.
 
-5. Klicka på **alla program** om du vill visa en lista över alla dina program.
+5. Klicka på **Alla program om** du vill visa en lista över alla dina program.
 
-   * Om du inte ser det program som du vill visa här använder du **filter** kontrollen längst upp i **listan Alla program** och anger alternativet **Visa** för **alla program.**
+   * Om du inte ser det program du vill visa här använder du **filterkontrollen** högst upp i **listan Alla program** och anger alternativet **Visa** till **Alla program.**
 
-6. Välj det program som du har konfigurerat enkel inloggning för.
+6. Välj det program som du har konfigurerat enkel inloggning.
 
-7. När programmet har lästs in klickar du på **enkel inloggning** från programmets vänstra navigerings meny.
+7. När programmet har läses in klickar du **på enkel inloggning** från programmets navigeringsmeny till vänster.
 
-8. Gå till avsnittet **SAML-signeringscertifikat** och klicka sedan på **Hämta** kolumn värde. Beroende på vad programmet kräver för att konfigurera enkel inloggning, ser du antingen alternativet att ladda ned XML-metadata eller certifikatet.
+8. Gå till avsnittet **SAML-signeringscertifikat** och klicka sedan på **Hämta** kolumnvärde. Beroende på vad programmet kräver att du konfigurerar enkel inloggning visas antingen alternativet att hämta METADATA-XML:en eller certifikatet.
 
-Azure AD tillhandahåller inte en URL för att hämta metadata. Det går bara att hämta metadata som en XML-fil.
+Azure AD tillhandahåller ingen URL för att hämta metadata. Metadata kan bara hämtas som en XML-fil.
 
 ## <a name="dont-know-how-to-customize-saml-claims-sent-to-an-application"></a>Vet inte hur man anpassar SAML-anspråk som skickas till ett program
 
-Information om hur du anpassar SAML-attributets anspråk som skickas till ditt program finns i [anspråks mappning i Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-claims-mapping) för mer information.
+Mer information om hur du anpassar SAML-attributanspråk som skickas till ditt program finns [i Anspråksmappning i Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-claims-mapping) för mer information.
 
 ## <a name="next-steps"></a>Nästa steg
 [Hantera program med Azure Active Directory](what-is-application-management.md)

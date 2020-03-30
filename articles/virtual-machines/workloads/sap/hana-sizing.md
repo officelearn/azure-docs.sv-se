@@ -1,6 +1,6 @@
 ---
-title: Storlek på SAP HANA på Azure (stora instanser) | Microsoft Docs
-description: Storlek på SAP HANA på Azure (stora instanser).
+title: Storlek för SAP HANA på Azure (stora instanser) | Microsoft-dokument
+description: Storlek av SAP HANA på Azure (stora instanser).
 services: virtual-machines-linux
 documentationcenter: ''
 author: msjuergent
@@ -14,25 +14,25 @@ ms.date: 09/04/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 404f8318816edcc2cfd1c50ca42304ff6ec93039
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77616898"
 ---
 # <a name="sizing"></a>Storlekar
 
-Storlek för den stora HANA-instansen skiljer sig från storlek för HANA i allmänhet. För befintliga och distribuerade system som du vill flytta från andra RDBMS till HANA tillhandahåller SAP ett antal rapporter som körs på dina befintliga SAP-system. Om databasen flyttas till HANA, kontrollerar de här rapporterna data och beräknar minnes kraven för HANA-instansen. Mer information om hur du kör dessa rapporter och skaffar de senaste korrigeringarna eller versionerna finns i följande SAP-anteckningar:
+Storlek för HANA Large Instance skiljer sig inte från storlek för HANA i allmänhet. För befintliga och distribuerade system som du vill flytta från andra RDBMS till HANA tillhandahåller SAP ett antal rapporter som körs på dina befintliga SAP-system. Om databasen flyttas till HANA kontrollerar dessa rapporter data och beräknar minneskraven för HANA-instansen. Mer information om hur du kör dessa rapporter och hämtar de senaste korrigeringsfilerna eller versionerna finns i följande SAP Notes:
 
-- [SAP-anteckning #1793345-storlek för SAP Suite på HANA](https://launchpad.support.sap.com/#/notes/1793345)
-- [SAP-anteckning #1872170-svit på HANA-och S/4 HANA-storleks rapport](https://launchpad.support.sap.com/#/notes/1872170)
-- [SAP-anteckning #2121330 – vanliga frågor och svar: SAP BW på HANA storleks rapport](https://launchpad.support.sap.com/#/notes/2121330)
-- [SAP-anteckning #1736976 storleks rapport för BW på HANA](https://launchpad.support.sap.com/#/notes/1736976)
-- [SAP-anteckning #2296290-ny storleks rapport för BW på HANA](https://launchpad.support.sap.com/#/notes/2296290)
+- [SAP Note #1793345 - Storlek för SAP Suite på HANA](https://launchpad.support.sap.com/#/notes/1793345)
+- [SAP Note #1872170 - Suite på HANA och S/4 HANA storleksrapport](https://launchpad.support.sap.com/#/notes/1872170)
+- [SAP Note #2121330 - Vanliga frågor och svar: SAP BW på HANA storleksrapport](https://launchpad.support.sap.com/#/notes/2121330)
+- [SAP Note #1736976 - Storleksrapport för BW på HANA](https://launchpad.support.sap.com/#/notes/1736976)
+- [SAP Note #2296290 - Ny storleksrapport för BW på HANA](https://launchpad.support.sap.com/#/notes/2296290)
 
-För gröna fält implementeringar kan SAP Quick Sizeer vara tillgängligt för att beräkna minnes kraven för implementeringen av SAP-programvara ovanpå HANA.
+För implementeringar av grönt fält är SAP Quick Sizer tillgänglig för att beräkna minneskrav för implementering av SAP-programvara ovanpå HANA.
 
-Minneskraven för HANA öka när datavolymen växer. Tänk på den aktuella minnes förbrukningen så att du kan förutsäga vad den kommer att vara i framtiden. Utifrån minnes kraven kan du mappa din efter frågan till en av de stora HANA-instanserna.
+Minneskraven för HANA ökar i takt med att datavolymen växer. Var medveten om din nuvarande minnesförbrukning för att hjälpa dig att förutsäga vad det kommer att bli i framtiden. Baserat på minneskrav kan du sedan mappa din efterfrågan till en av DE STORA FÖREKOMSTERNA för stora instanser.
 
 **Nästa steg**
-- Se [onboarding-krav](hana-onboarding-requirements.md)
+- Se [krav på introduktion](hana-onboarding-requirements.md)

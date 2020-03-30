@@ -1,21 +1,21 @@
 ---
-title: ORDER BY-sats i Azure Cosmos DB
-description: Läs mer om SQL ORDER BY-satsen för Azure Cosmos DB. Använd SQL som Azure Cosmos DB JSON-frågespråk.
+title: ORDER BY-satsen i Azure Cosmos DB
+description: Läs mer om SQL ORDER BY-satsen för Azure Cosmos DB. Använd SQL som ett Azure Cosmos DB JSON-frågespråk.
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: tisande
 ms.openlocfilehash: b88184be39a41ec42f8fb304a7511073f645f1cb
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77188735"
 ---
-# <a name="order-by-clause-in-azure-cosmos-db"></a>ORDER BY-sats i Azure Cosmos DB
+# <a name="order-by-clause-in-azure-cosmos-db"></a>ORDER BY-satsen i Azure Cosmos DB
 
-Den valfria ORDER BY-satsen anger sorterings ordningen för resultat som returneras av frågan.
+Den valfria ORDER BY-satsen anger sorteringsordningen för resultat som returneras av frågan.
 
 ## <a name="syntax"></a>Syntax
   
@@ -29,34 +29,34 @@ ORDER BY <sort_specification>
   
 - `<sort_specification>`  
   
-   Anger en egenskap eller ett uttryck som du vill sortera frågeresultatet. En sorterings kolumn kan anges som ett namn eller ett egenskaps-alias.  
+   Anger en egenskap eller ett uttryck som frågeresultatuppsättningen ska sorteras på. En sorteringskolumn kan anges som ett namn eller egenskapsalias.  
   
-   Flera egenskaper kan anges. Egenskaps namn måste vara unika. Ordningen på sorterings egenskaperna i ORDER BY-satsen definierar organisationen för den sorterade resultat uppsättningen. Det vill säga resultatet sorteras efter den första egenskapen och sedan den beställda listan sorteras efter den andra egenskapen och så vidare.  
+   Flera egenskaper kan anges. Egenskapsnamn måste vara unika. Sekvensen för sorteringsegenskaperna i satsen ORDER BY definierar organisationen för den sorterade resultatuppsättningen. Det innebär att resultatuppsättningen sorteras efter den första egenskapen och sedan sorteras den ordnade listan efter den andra egenskapen och så vidare.  
   
-   De egenskaps namn som refereras i ORDER BY-satsen måste motsvara antingen en egenskap i SELECT-listan eller till en egenskap som har definierats i mängden som anges i from-satsen utan tvetydigheter.  
+   De egenskapsnamn som refereras i ORDER BY-satsen måste motsvara antingen en egenskap i urvalslistan eller till en egenskap som definieras i samlingen som anges i FROM-satsen utan några tvetydigheter.  
   
 - `<sort_expression>`  
   
-   Anger en eller flera egenskaper eller uttryck som du kan använda för att sortera frågeresultatet.  
+   Anger en eller flera egenskaper eller uttryck som frågeresultatuppsättningen ska sorteras på.  
   
 - `<scalar_expression>`  
   
-   Mer information finns i avsnittet [skalära uttryck](sql-query-scalar-expressions.md) .  
+   Mer information finns i avsnittet [Skaläruttryck.](sql-query-scalar-expressions.md)  
   
 - `ASC | DESC`  
   
-   Anger att värdena i den angivna kolumnen ska sorteras i stigande eller fallande ordning. ASC sorterar från det lägsta värdet för högsta värden. DESC sorterar från högsta värdet till lägsta värdet. ASC är standardsorteringsordning. Null-värden behandlas som de lägsta möjliga värdena.  
+   Anger att värdena i den angivna kolumnen ska sorteras i stigande eller fallande ordning. ASC sorteras från det lägsta värdet till det högsta värdet. DESC sorterar från högsta värde till lägsta värde. ASC är standardsorteringsordningen. Null-värden behandlas som lägsta möjliga värden.  
   
-## <a name="remarks"></a>Kommentarer  
+## <a name="remarks"></a>Anmärkningar  
   
-   `ORDER BY`-satsen kräver att indexerings principen inkluderar ett index för fälten som sorteras. Azure Cosmos DB Query runtime stöder sortering mot ett egenskaps namn och inte mot beräknade egenskaper. Azure Cosmos DB stöder flera `ORDER BY`s egenskaper. För att kunna köra en fråga med flera ORDER BY-egenskaper bör du definiera ett [sammansatt index](index-policy.md#composite-indexes) för fälten som sorteras.
+   Satsen `ORDER BY` kräver att indexeringsprincipen innehåller ett index för de fält som sorteras. Azure Cosmos DB-frågekörningen stöder sortering mot ett egenskapsnamn och inte mot beräknade egenskaper. Azure Cosmos DB `ORDER BY` stöder flera egenskaper. Om du vill köra en fråga med flera ORDER BY-egenskaper bör du definiera ett [sammansatt index](index-policy.md#composite-indexes) för de fält som sorteras.
 
 > [!Note]
-> Om egenskaperna som sorteras kan vara odefinierade för vissa dokument och du vill hämta dem i en ORDER BY-fråga, måste du uttryckligen ta med den här sökvägen i indexet. Standard indexerings principen tillåter inte hämtning av dokument där sorterings egenskapen är odefinierad. [Granska exempel frågor i dokument med några fält som saknas](#documents-with-missing-fields).
+> Om de egenskaper som sorteras kan vara odefinierade för vissa dokument och du vill hämta dem i en ORDER BY-fråga, måste du uttryckligen inkludera den här sökvägen i indexet. Standardindexeringsprincipen tillåter inte hämtning av de dokument där sorteringsegenskapen är odefinierad. [Granska exempelfrågor på dokument med några saknade fält](#documents-with-missing-fields).
 
 ## <a name="examples"></a>Exempel
 
-Här är ett exempel på en fråga som hämtar familjer i stigande ordning efter den inhemska ortens namn:
+Här är till exempel en fråga som hämtar familjer i stigande ordning efter den inhemska stadens namn:
 
 ```sql
     SELECT f.id, f.address.city
@@ -64,7 +64,7 @@ Här är ett exempel på en fråga som hämtar familjer i stigande ordning efter
     ORDER BY f.address.city
 ```
 
-Resultaten är:
+Resultatet är:
 
 ```json
     [
@@ -79,7 +79,7 @@ Resultaten är:
     ]
 ```
 
-Följande fråga hämtar familj `id`s i ordning efter deras objekts skapande datum. Objekt `creationDate` är ett tal som representerar den *Epoka tiden*, eller förfluten tid sedan Jan. 1, 1970 på några sekunder.
+Följande fråga hämtar `id`familj s i ordning efter deras datum för att skapa objekt. Artikeln `creationDate` är ett tal som representerar *epoktiden*eller förfluten tid sedan den 1 januari 1970 i sekunder.
 
 ```sql
     SELECT f.id, f.creationDate
@@ -87,7 +87,7 @@ Följande fråga hämtar familj `id`s i ordning efter deras objekts skapande dat
     ORDER BY f.creationDate DESC
 ```
 
-Resultaten är:
+Resultatet är:
 
 ```json
     [
@@ -102,7 +102,7 @@ Resultaten är:
     ]
 ```
 
-Dessutom kan du sortera efter flera egenskaper. En fråga som sorteras efter flera egenskaper kräver ett [sammansatt index](index-policy.md#composite-indexes). Tänk på följande fråga:
+Dessutom kan du beställa efter flera egenskaper. En fråga som order efter flera egenskaper kräver ett [sammansatt index](index-policy.md#composite-indexes). Överväg följande fråga:
 
 ```sql
     SELECT f.id, f.creationDate
@@ -110,13 +110,13 @@ Dessutom kan du sortera efter flera egenskaper. En fråga som sorteras efter fle
     ORDER BY f.address.city ASC, f.creationDate DESC
 ```
 
-Den här frågan hämtar familje `id` i stigande ordning efter Orts namnet. Om flera objekt har samma Orts namn, sorteras frågan efter `creationDate` i fallande ordning.
+Den här frågan `id` hämtar familjen i stigande ordning efter ortsnamnet. Om flera objekt har samma ortnamn kommer `creationDate` frågan att ordna efter i fallande ordning.
 
-## <a name="documents-with-missing-fields"></a>Dokument med fält som saknas
+## <a name="documents-with-missing-fields"></a>Dokument med saknade fält
 
-Frågor med `ORDER BY` som körs mot behållare med standard indexerings principen returnerar inte dokument där sorterings egenskapen är odefinierad. Om du vill inkludera dokument där sorterings egenskapen är odefinierad bör du uttryckligen ta med den här egenskapen i indexerings principen.
+Frågor med `ORDER BY` som körs mot behållare med standardindexeringsprincipen returnerar inte dokument där sorteringsegenskapen är odefinierad. Om du vill inkludera dokument där sorteringsegenskapen är odefinierad bör du uttryckligen inkludera den här egenskapen i indexeringsprincipen.
 
-Här är ett exempel på en behållare med en indexerings princip som inte uttryckligen innehåller några sökvägar förutom `"/*"`:
+Här är till exempel en behållare med en indexeringsprincip `"/*"`som inte uttryckligen innehåller några sökvägar förutom:
 
 ```json
 {
@@ -131,9 +131,9 @@ Här är ett exempel på en behållare med en indexerings princip som inte uttry
 }
 ```
 
-Om du kör en fråga som innehåller `lastName` i `Order By`-satsen, kommer resultatet endast att inkludera dokument som har en definierad `lastName` egenskap. Vi har inte definierat någon uttrycklig sökväg för `lastName` så att alla dokument utan `lastName` inte visas i frågeresultatet.
+Om du kör en `lastName` fråga `Order By` som ingår i satsen inkluderas endast dokument som har en `lastName` definierad egenskap. Vi har inte definierat `lastName` en explicit inkluderad sökväg för så att alla dokument utan en `lastName` inte visas i frågeresultatet.
 
-Här är en fråga som sorteras efter `lastName` på två dokument, som inte har något definierat `lastName`:
+Här är en fråga `lastName` som sorteras efter på två `lastName` dokument, varav en inte har en definierad:
 
 ```sql
     SELECT f.id, f.lastName
@@ -141,7 +141,7 @@ Här är en fråga som sorteras efter `lastName` på två dokument, som inte har
     ORDER BY f.lastName
 ```
 
-Resultaten innehåller bara det dokument som har en definierad `lastName`:
+Resultaten omfattar endast det dokument `lastName`som har en definierad:
 
 ```json
     [
@@ -152,9 +152,9 @@ Resultaten innehåller bara det dokument som har en definierad `lastName`:
     ]
 ```
 
-Om vi uppdaterar behållarens indexerings princip för att explicit inkludera en sökväg för `lastName`, kommer vi att inkludera dokument med en odefinierad sorterings egenskap i frågeresultatet. Du måste uttryckligen definiera sökvägen för att leda till det här skalära värdet (och inte bortom det). Du bör använda `?` Character i Sök vägs definitionen i indexerings principen för att se till att du explicit indexerar egenskapen `lastName` och inga ytterligare inkapslade sökvägar.
+Om vi uppdaterar behållarens indexeringsprincip så `lastName`att den uttryckligen innehåller en sökväg för inkluderar vi dokument med en odefinierad sorteringsegenskap i frågeresultatet. Du måste uttryckligen definiera sökvägen för att leda till det här skalärvärdet (och inte utanför det). Du bör `?` använda tecknet i sökvägsdefinitionen i indexeringsprincipen för att säkerställa att du uttryckligen indexerar egenskapen `lastName` och inga ytterligare kapslade banor utanför den.
 
-Här är ett exempel på en indexerings princip som gör att du kan låta dokument med ett odefinierat `lastName` visas i frågeresultatet:
+Här är ett exempel indexeringsprincip som gör att `lastName` du kan ha dokument med en odefinierad visas i frågeresultatet:
 
 ```json
 {
@@ -172,7 +172,7 @@ Här är ett exempel på en indexerings princip som gör att du kan låta dokume
 }
 ```
 
-Om du kör samma fråga igen visas dokument som saknas `lastName` först i frågeresultatet:
+Om du kör samma fråga igen `lastName` visas dokument som saknas först i frågeresultaten:
 
 ```sql
     SELECT f.id, f.lastName
@@ -180,7 +180,7 @@ Om du kör samma fråga igen visas dokument som saknas `lastName` först i fråg
     ORDER BY f.lastName
 ```
 
-Resultaten är:
+Resultatet är:
 
 ```json
 [
@@ -194,7 +194,7 @@ Resultaten är:
 ]
 ```
 
-Om du ändrar sorterings ordningen till `DESC`visas dokument som saknas `lastName` sist i frågeresultatet:
+Om du ändrar `DESC`sorteringsordningen `lastName` till visas dokument som saknas sist i frågeresultatet:
 
 ```sql
     SELECT f.id, f.lastName
@@ -202,7 +202,7 @@ Om du ändrar sorterings ordningen till `DESC`visas dokument som saknas `lastNam
     ORDER BY f.lastName DESC
 ```
 
-Resultaten är:
+Resultatet är:
 
 ```json
 [

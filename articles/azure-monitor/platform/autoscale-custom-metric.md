@@ -1,44 +1,44 @@
 ---
-title: Autoskala i Azure med hjälp av ett anpassat mått
-description: Lär dig hur du skalar din resurs efter anpassad mått i Azure.
+title: Automatisk skalning i Azure med ett anpassat mått
+description: Lär dig hur du skalar din resurs efter anpassat mått i Azure.
 ms.topic: conceptual
 ms.date: 05/07/2017
 ms.subservice: autoscale
 ms.openlocfilehash: 7758c440c75af5819099110dcbdaf5a86a1d2a04
-ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/18/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77425127"
 ---
-# <a name="get-started-with-auto-scale-by-custom-metric-in-azure"></a>Kom igång med automatisk skalning efter anpassade mått i Azure
-Den här artikeln beskriver hur du skalar din resurs med ett anpassat mått i Azure Portal.
+# <a name="get-started-with-auto-scale-by-custom-metric-in-azure"></a>Komma igång med automatisk skalning efter anpassat mått i Azure
+I den här artikeln beskrivs hur du skalar din resurs efter ett anpassat mått i Azure-portalen.
 
-Azure Monitor autoskalning gäller endast för [Virtual Machine Scale Sets](https://azure.microsoft.com/services/virtual-machine-scale-sets/), [Cloud Services](https://azure.microsoft.com/services/cloud-services/), [App Service-Web Apps](https://azure.microsoft.com/services/app-service/web/), [Azure datautforskaren-kluster](https://azure.microsoft.com/services/data-explorer/) ,   
-Integration Service Environment-och [API Management-tjänster](https://docs.microsoft.com/azure/api-management/api-management-key-concepts).
+Automatisk skalning av Azure Monitor gäller endast för [skalningsuppsättningar för virtuella](https://azure.microsoft.com/services/virtual-machine-scale-sets/)datorer, [Molntjänster](https://azure.microsoft.com/services/cloud-services/), [App Service – Web Apps](https://azure.microsoft.com/services/app-service/web/), Azure Data Explorer [Cluster](https://azure.microsoft.com/services/data-explorer/) ,   
+Integration Service Miljö och [API Management tjänster](https://docs.microsoft.com/azure/api-management/api-management-key-concepts).
 
-## <a name="lets-get-started"></a>Gör det möjligt att komma igång
-Den här artikeln förutsätter att du har en webbapp med konfigurerat Application Insights. Om du inte redan har en, kan du [konfigurera Application Insights för din ASP.net-webbplats][1]
+## <a name="lets-get-started"></a>Låt oss komma igång
+Den här artikeln förutsätter att du har en webbapp med programinsikter konfigurerade. Om du inte redan har någon kan du [konfigurera Application Insights för din ASP.NET webbplats][1]
 
-- Öppna [Azure Portal][2]
-- Klicka på Azure Monitor ikonen i det vänstra navigerings fönstret.
-  ![starta Azure Monitor][3]
-- Klicka på Inställningar för automatisk skalning om du vill visa alla resurser som den automatiska skalningen gäller för, tillsammans med dess aktuella status för automatisk skalning ![identifiera automatisk skalning i Azure Monitor][4]
-- Öppna bladet autoskalning i Azure Monitor och välj en resurs som du vill skala
-  > Obs! stegen nedan använder en app service-plan som är associerad med en webbapp som har konfigurerat App Insights.
-- Observera att det aktuella instans antalet är 1 på bladet skalnings inställning för resursen. Klicka på Aktivera autoskalning.
-  ![skalnings inställning för ny webbapp][5]
-- Ange ett namn för skalnings inställningen och klicka på Lägg till en regel. Observera de skalnings regel alternativ som öppnas som ett kontext fönster på den högra sidan. Som standard anger den alternativet att skala antalet instanser med 1 om resursens procent andel överskrider 70%. Ändra mått källan överst till "Application Insights", Välj resursen App Insights i list rutan resurs och välj sedan det anpassade mått som du vill skala.
-  ![skala efter anpassad mått][6]
-- Precis som i steget ovan lägger du till en skalnings regel som skalar i och minskar skalnings antalet med 1 om det anpassade måttet är under ett tröskelvärde.
-  ![skala baserat på CPU][7]
-- Ange instans gränserna. Om du till exempel vill skala mellan 2-5 instanser beroende på anpassade mått, ställer du in ' minimum ' på ' 2 ', ' max ' till ' 5 ' och ' default ' till ' 2 '
-  > OBS! om det uppstår problem med att läsa resurs måtten och den aktuella kapaciteten är lägre än standard kapaciteten, så att den automatiska skalningen kan skalas upp till standardvärdet för att säkerställa resursens tillgänglighet. Om den aktuella kapaciteten redan är högre än standard kapaciteten kommer autoskalning inte att skalas i.
-- Klicka på Spara
+- Öppna [Azure-portalen][2]
+- Klicka på Azure Monitor-ikonen i det vänstra navigeringsfönstret.
+  ![Starta Azure Monitor][3]
+- Klicka på inställningen Automatisk skalning för att visa alla resurser som automatisk ![skalning är tillämpligt för, tillsammans med dess aktuella automatisk skalningsstatus Upptäck automatisk skalning i Azure-övervakaren][4]
+- Öppna bladet Automatisk skalning i Azure Monitor och välj en resurs som du vill skala
+  > Stegen nedan använder en apptjänstplan som är associerad med en webbapp som har appinsikter konfigurerade.
+- Observera att det aktuella antalet instanser är 1 i skalinställningsbladet för resursen. Klicka på "Aktivera automatisk skalning".
+  ![Skalningsinställning för ny webbapp][5]
+- Ange ett namn för skalningsinställningen och klicka på "Lägg till en regel". Lägg märke till skalningsregelalternativen som öppnas som ett sammanhangsfönster på höger sida. Som standard anges alternativet att skala antalet instanser med 1 om processorprocenten för resursen överstiger 70 %. Ändra måttkällan högst upp till "Application Insights", välj appstatistikresursen i listrutan Resurs och välj sedan det anpassade mått baserat på vilket du vill skala.
+  ![Skala efter anpassat mått][6]
+- I likhet med steget ovan lägger du till en skalningsregel som skalar in och minskar skalningsantalet med 1 om det anpassade måttet ligger under ett tröskelvärde.
+  ![Skala baserad på cpu][7]
+- Ange instansgränser. Om du till exempel vill skala mellan 2–5 instanser beroende på de anpassade måttfluktuationerna anger du "minimum" till "2", "maximum" till '5' och 'default' till '2'
+  > Om det finns ett problem med att läsa resursmåtten och den aktuella kapaciteten ligger under standardkapaciteten och sedan för att säkerställa resursens tillgänglighet skalas automatisk skalning ut till standardvärdet. Om den aktuella kapaciteten redan är högre än standardkapaciteten skalas inte automatisk skalning in.
+- Klicka på "Spara"
 
-Grattis! Du har nu skapat skalnings inställningen för att automatiskt skala din webbapp baserat på ett anpassat mått.
+Grattis! Du har nu skapat skalningsinställningen för att automatiskt skala din webbapp baserat på ett anpassat mått.
 
-> Obs: samma steg gäller för att komma igång med en VMSS-eller moln tjänst roll.
+> Samma steg gäller för att komma igång med en VMSS- eller molntjänstroll.
 
 <!--Reference-->
 [1]: https://docs.microsoft.com/azure/application-insights/app-insights-asp-net

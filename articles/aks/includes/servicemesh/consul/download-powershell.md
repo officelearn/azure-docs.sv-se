@@ -4,13 +4,13 @@ ms.topic: include
 ms.date: 10/09/2019
 ms.author: pabouwer
 ms.openlocfilehash: 8931ba97cf72891c78e20389be10178dd2c0317a
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77594298"
 ---
-I ett PowerShell-baserat gränssnitt i Windows använder du `Invoke-WebRequest` för att ladda ned den konsulära Helm-diagrammets version och sedan extrahera med `Expand-Archive` enligt följande:
+I ett PowerShell-baserat skal `Invoke-WebRequest` på Windows kan du använda för `Expand-Archive` att hämta versionen av Consul Helm-diagrammet och sedan extrahera med följande:
 
 ```powershell
 # Specify the Consul Helm chart version that will be leveraged throughout these instructions

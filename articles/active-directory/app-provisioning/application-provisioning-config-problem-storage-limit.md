@@ -1,6 +1,6 @@
 ---
-title: Problem med att spara administratörsautentiseringsuppgifter konfigurera Azure AD Gallery-appen
-description: Så här felsöker du vanliga problem med att konfigurera användar etablering till ett program som redan finns med i Azure AD-programgalleriet
+title: Problem med att spara administratörsuppgifter konfigurera Azure AD-galleriapp
+description: Felsöka vanliga problem när du konfigurerar användaretablering till ett program som redan finns i Azure AD Application Gallery
 services: active-directory
 documentationcenter: ''
 author: msmimart
@@ -17,33 +17,33 @@ ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3ff80224037001e41daf49cd6fc21439b2cc5cff
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77522874"
 ---
-# <a name="problem-saving-administrator-credentials-while-configuring-user-provisioning-to-an-azure-active-directory-gallery-application"></a>Problem med att spara administratörsautentiseringsuppgifter när du konfigurerar användar etablering till ett Azure Active Directory Galleri program 
+# <a name="problem-saving-administrator-credentials-while-configuring-user-provisioning-to-an-azure-active-directory-gallery-application"></a>Problem med att spara administratörsuppgifter när du konfigurerar användaretablering till ett Azure Active Directory Gallery-program 
 
-När du använder Azure Portal för att konfigurera [Automatisk användar etablering](user-provisioning.md) för ett företags program kan det uppstå en situation där:
+När du använder Azure-portalen för att konfigurera [automatisk användaretablering](user-provisioning.md) för ett företagsprogram kan du stöta på en situation där:
 
-* **Admin-autentiseringsuppgifterna** som har angetts för programmet är giltiga och knappen **Testa anslutning** fungerar. Men det går inte att spara autentiseringsuppgifterna och Azure Portal returnerar ett allmänt fel meddelande.
+* De **administratörsautentiseringsuppgifter** som angetts för programmet är giltiga och knappen **Testa anslutning** fungerar. Autentiseringsuppgifterna kan dock inte sparas och Azure-portalen returnerar ett allmänt felmeddelande.
 
-Om SAML-baserad enkel inloggning också har kon figurer ATS för samma program är den mest sannolika orsaken till felet att Azure AD: s interna lagrings gräns per program för certifikat och autentiseringsuppgifter har överskridits.
+Om SAML-baserad enkel inloggning också är konfigurerad för samma program, är den mest troliga orsaken till felet att Azure AD:s interna lagringsgräns per program för certifikat och autentiseringsuppgifter har överskridits.
 
-Azure AD har för närvarande en maximal lagrings kapacitet på 1024 byte för alla certifikat, hemliga token, autentiseringsuppgifter och relaterade konfigurations data som är kopplade till en enda instans av ett program (kallas även för en tjänst huvud post i Azure AD).
+Azure AD har för närvarande en maximal lagringskapacitet på 1024 byte för alla certifikat, hemliga token, autentiseringsuppgifter och relaterade konfigurationsdata som är associerade med en enda instans av ett program (kallas även en tjänsthuvudpost i Azure AD).
 
-När SAML-baserad enkel inloggning har kon figurer ATS lagras certifikatet som används för att signera SAML-token här, och använder ofta över 50% procent av utrymmet.
+När SAML-baserad enkel inloggning är konfigurerad lagras certifikatet som används för att signera SAML-token här och förbrukar ofta över 50 % procent av utrymmet.
 
-Eventuella hemliga token, URI: er, e-postadresser för meddelanden, användar namn och lösen ord som anges under installationen av användar etablering kan orsaka att lagrings gränsen överskrids.
+Alla hemliga token, URI:er, e-postadresser för meddelanden, användarnamn och lösenord som anges under installationen av användaretablering kan leda till att lagringsgränsen överskrids.
 
-## <a name="how-to-work-around-this-issue"></a>Så här löser du det här problemet 
+## <a name="how-to-work-around-this-issue"></a>Så här kan du komma runt det här problemet 
 
-Det finns två sätt att komma runt det här problemet idag:
+Det finns två möjliga sätt att komma runt det här problemet idag:
 
-1. **Använd två Gallery-programinstanser, ett för enkel inloggning och ett för användar etablering** – med galleriet till galleriet, kan du lägga till LinkedIn [-höjning från](../saas-apps/linkedinelevate-tutorial.md) galleriet och konfigurera det för enkel inloggning. För etablering, Lägg till en annan instans av LinkedIn från Azure AD App-galleriet och ge den namnet "LinkedIn-höjning (etablering)". För den andra instansen konfigurerar du [etablering](../saas-apps/linkedinelevate-provisioning-tutorial.md), men inte enkel inloggning. När du använder den här lösningen måste samma användare och grupper [tilldelas](../manage-apps/assign-user-or-group-access-portal.md) till båda programmen. 
+1. **Använd två galleriprograminstanser, en för enkel inloggning och en för användaretablering** - Ta galleriprogrammet [LinkedIn Elevate](../saas-apps/linkedinelevate-tutorial.md) som exempel kan du lägga till LinkedIn Elevate från galleriet och konfigurera det för enkel inloggning. För etablering lägger du till en annan instans av LinkedIn Elevate från Azure AD-appgalleriet och namnger den "LinkedIn Elevate (Etablering)." I den här andra instansen konfigurerar du [etablering](../saas-apps/linkedinelevate-provisioning-tutorial.md), men inte enkel inloggning. När du använder den här lösningen måste samma användare och grupper [tilldelas](../manage-apps/assign-user-or-group-access-portal.md) båda programmen. 
 
-2. **Minska mängden konfigurations data som lagras** – alla data som anges i avsnittet [admin-autentiseringsuppgifter](user-provisioning.md#how-do-i-set-up-automatic-provisioning-to-an-application) på fliken etablering lagras på samma plats som SAML-certifikatet. Det är möjligt att det inte går att minska längden på alla dessa data, några valfria konfigurations fält som **e-postaviseringen** kan tas bort.
+2. **Minska mängden konfigurationsdata som lagras** – Alla data som anges i avsnittet [Administratörsautentiseringsuppgifter](user-provisioning.md#how-do-i-set-up-automatic-provisioning-to-an-application) på etableringsfliken lagras på samma plats som SAML-certifikatet. Även om det kanske inte är möjligt att minska längden på alla dessa data, kan vissa valfria konfigurationsfält som **e-postmeddelandet** tas bort.
 
 ## <a name="next-steps"></a>Nästa steg
-[Konfigurera användar etablering och avetablering för SaaS-program](user-provisioning.md)
+[Konfigurera etablering och avetablering av användare till SaaS-program](user-provisioning.md)

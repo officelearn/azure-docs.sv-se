@@ -1,6 +1,6 @@
 ---
-title: Distribuera Azure-AD-programproxy för Azure AD Domain Services | Microsoft Docs
-description: Lär dig hur du ger säker åtkomst till interna program för fjärranslutna arbetare genom att distribuera och konfigurera Azure Active Directory-programproxy i en Azure Active Directory Domain Services hanterad domän
+title: Distribuera Azure AD-programproxy för Azure AD-domäntjänster | Microsoft-dokument
+description: Lär dig hur du ger säker åtkomst till interna program för fjärrarbetare genom att distribuera och konfigurera Azure Active Directory Application Proxy i en hanterad Azure Active Directory Domain Services-domän
 services: active-directory-ds
 author: iainfoulds
 manager: daveba
@@ -12,110 +12,110 @@ ms.topic: conceptual
 ms.date: 11/6/2019
 ms.author: iainfou
 ms.openlocfilehash: c6e4e6a45fbbeab64184d8ae4b0684ba055d7735
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77613980"
 ---
-# <a name="deploy-azure-ad-application-proxy-for-secure-access-to-internal-applications-in-an-azure-ad-domain-services-managed-domain"></a>Distribuera Azure AD-programproxy för säker åtkomst till interna program i en Azure AD Domain Services hanterad domän
+# <a name="deploy-azure-ad-application-proxy-for-secure-access-to-internal-applications-in-an-azure-ad-domain-services-managed-domain"></a>Distribuera Azure AD-programproxy för säker åtkomst till interna program i en hanterad Azure AD-domäntjänst
 
-Med Azure AD Domain Services (Azure AD DS) kan du lyfta och byta äldre program som körs lokalt i Azure. Azure Active Directory (AD) Application Proxy hjälper dig att stödja fjärran vändare genom att publicera de interna programmen på ett säkert sätt i en Azure AD DS-hanterad domän så att de kan nås via Internet.
+Med Azure AD Domain Services (Azure AD DS) kan du lyfta och flytta äldre program som körs lokalt till Azure. Azure Active Directory (AD) Application Proxy hjälper dig sedan att stödja fjärrarbetare genom att på ett säkert sätt publicera dessa interna program som är en del av en Azure AD DS-hanterad domän så att de kan nås via internet.
 
-Om du är nybörjare på Azure-AD-programproxy och vill veta mer kan du läsa om [hur du ger säker fjärråtkomst till interna program](../active-directory/manage-apps/application-proxy.md).
+Om du inte har tillgång till Azure AD Application Proxy tidigare och vill veta mer läser du Så här ger du [säker fjärråtkomst till interna program](../active-directory/manage-apps/application-proxy.md).
 
-Den här artikeln visar hur du skapar och konfigurerar en Azure AD-programproxy-anslutning för att ge säker åtkomst till program i en hanterad Azure AD DS-domän.
+Den här artikeln visar hur du skapar och konfigurerar en Azure AD Application Proxy-anslutningsapp för att ge säker åtkomst till program i en Azure AD DS-hanterad domän.
 
 [!INCLUDE [active-directory-ds-prerequisites.md](../../includes/active-directory-ds-prerequisites.md)]
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
-För att slutföra den här artikeln behöver du följande resurser och behörigheter:
+För att kunna slutföra den här artikeln behöver du följande resurser och privilegier:
 
 * En aktiv Azure-prenumeration.
-    * [Skapa ett konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)om du inte har någon Azure-prenumeration.
-* En Azure Active Directory klient som är associerad med din prenumeration, antingen synkroniserad med en lokal katalog eller en katalog som endast är moln.
-    * Om det behövs kan du [skapa en Azure Active Directory klient][create-azure-ad-tenant] eller [associera en Azure-prenumeration med ditt konto][associate-azure-ad-tenant].
-    * En **Azure AD Premium-licens** krävs för att använda Azure-AD-programproxy.
-* En Azure Active Directory Domain Services hanterad domän aktive rad och konfigurerad i Azure AD-klienten.
-    * Om det behövs kan du [skapa och konfigurera en Azure Active Directory Domain Services-instans][create-azure-ad-ds-instance].
+    * Om du inte har en Azure-prenumeration [skapar du ett konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* En Azure Active Directory-klient som är associerad med din prenumeration, antingen synkroniserad med en lokal katalog eller en katalog med endast molnet.
+    * Om det behövs [skapar du en Azure Active Directory-klientorganisation][create-azure-ad-tenant] eller [associerar en Azure-prenumeration med ditt konto][associate-azure-ad-tenant].
+    * En **Azure AD Premium-licens** krävs för att använda Azure AD Application Proxy.
+* En hanterad Azure Active Directory Domain Services-domän aktiverad och konfigurerad i din Azure AD-klientorganisation.
+    * Om det behövs [kan du skapa och konfigurera en Azure Active Directory Domain Services-instans][create-azure-ad-ds-instance].
 
-## <a name="create-a-domain-joined-windows-vm"></a>Skapa en domänansluten virtuell Windows-dator
+## <a name="create-a-domain-joined-windows-vm"></a>Skapa en domänansluten Windows VM
 
-För att dirigera trafik till program som körs i din miljö installerar du Azure AD-programproxy Connector-komponenten. Den här Azure AD-programproxy-anslutningen måste installeras på virtuella Windows Server-datorer (VM) som är anslutna till den hanterade Azure AD DS-domänen. För vissa program kan du distribuera flera servrar där anslutningen är installerad. Det här distributions alternativet ger dig större tillgänglighet och hjälper till att hantera kraftigare autentiserings belastningar.
+Om du vill dirigera trafik till program som körs i din miljö installerar du azure AD Application Proxy-anslutningskomponenten. Den här Azure AD Application Proxy-anslutningen måste installeras på virtuella Windows Server-datorer (VM) som har anslutits till azure AD DS-hanterad domän. För vissa program kan du distribuera flera servrar som var och en har anslutningen installerad. Det här distributionsalternativet ger dig större tillgänglighet och hjälper till att hantera tyngre autentiseringsbelastningar.
 
-Den virtuella datorn som kör Azure AD-programproxy-anslutningen måste finnas på samma eller ett peer-kopplat virtuellt nätverk där du har aktiverat Azure AD DS. De virtuella datorerna som sedan är värdar för de program som du publicerar med programproxyn måste också distribueras på samma virtuella Azure-nätverk.
+Den virtuella datorn som kör Azure AD Application Proxy-anslutningen måste vara på samma, eller ett peer-inkompatibla, virtuellt nätverk där du har aktiverat Azure AD DS. De virtuella datorer som sedan är värdar för de program som du publicerar med programproxyn måste också distribueras i samma virtuella Azure-nätverk.
 
-Utför följande steg för att skapa en virtuell dator för Azure AD-programproxy-anslutningen:
+Så här skapar du en virtuell dator för Azure AD Application Proxy-anslutningen:
 
-1. [Skapa en anpassad Organisationsenhet](create-ou.md). Du kan delegera behörigheter för att hantera den här anpassade ORGANISATIONSENHETen till användare i den hanterade domänen i Azure AD DS. De virtuella datorerna för Azure AD-programproxy och som kör dina program måste vara en del av den anpassade ORGANISATIONSENHETen, inte som standard organisationsenhet för *AAD DC-datorer* .
-1. [Domän – Anslut de virtuella datorerna][create-join-windows-vm], både den som kör Azure AD-programproxy-anslutningen och de som kör dina program till den hanterade domänen i Azure AD DS. Skapa dessa dator konton i den anpassade ORGANISATIONSENHETen från föregående steg.
+1. [Skapa en anpassad organisationsenhet](create-ou.md). Du kan delegera behörigheter för att hantera den här anpassade organisationsenheten till användare inom azure AD DS-hanterade domänen. De virtuella datorerna för Azure AD Application Proxy och som kör dina program måste vara en del av den anpassade organisationsenheten, inte *standardenheten för AAD DC-datorer.*
+1. [Domän ansluta till de virtuella datorerna][create-join-windows-vm], både den som kör Azure AD Application Proxy-anslutningsappen och de som kör dina program, till Azure AD DS-hanterad domän. Skapa dessa datorkonton i den anpassade organisationsenheten från föregående steg.
 
-## <a name="download-the-azure-ad-application-proxy-connector"></a>Ladda ned Azure AD-programproxy-anslutningen
+## <a name="download-the-azure-ad-application-proxy-connector"></a>Ladda ned Azure AD Application Proxy-anslutningsappen
 
-Utför följande steg för att ladda ned Azure AD-programproxy-anslutningen. Installations filen som du hämtar kopieras till din App proxy-VM i nästa avsnitt.
+Utför följande steg för att hämta Azure AD Application Proxy-anslutningen. Installationsfilen som du hämtar kopieras till appproxy-datorn i nästa avsnitt.
 
-1. Logga in på [Azure Portal](https://portal.azure.com) med ett användar konto som har *företags administratörs* behörighet i Azure AD.
-1. Sök efter och välj **Azure Active Directory** överst i portalen och välj sedan **företags program**.
-1. Välj **Application Proxy** på menyn till vänster. Om du vill skapa din första anslutning och aktivera App proxy, väljer du länken för att **Ladda ned en koppling**.
-1. Godkänn licens villkoren och sekretess avtalet på sidan hämtning och välj sedan **acceptera villkor & hämtning**.
+1. Logga in på [Azure-portalen](https://portal.azure.com) med ett användarkonto som har *behörigheter för Enterprise-administratör* i Azure AD.
+1. Sök efter och välj **Azure Active Directory** högst upp i portalen och välj sedan **Enterprise-program**.
+1. Välj **Programproxy** på menyn till vänster. Om du vill skapa den första kopplingen och aktivera App Proxy markerar du länken för att **hämta en anslutningsapp**.
+1. På nedladdningssidan godkänner du licensvillkoren och sekretessavtalet och väljer sedan **Acceptera villkor & Ladda ned**.
 
-    ![Ladda ned Azure AD App proxy Connector](./media/app-proxy/download-app-proxy-connector.png)
+    ![Ladda ned Azure AD App Proxy-anslutningsappen](./media/app-proxy/download-app-proxy-connector.png)
 
-## <a name="install-and-register-the-azure-ad-application-proxy-connector"></a>Installera och registrera Azure AD-programproxy-anslutningen
+## <a name="install-and-register-the-azure-ad-application-proxy-connector"></a>Installera och registrera Azure AD Application Proxy-anslutningsappen
 
-När du har en virtuell dator som är redo att användas som Azure AD-programproxy-anslutning kopierar du och kör installations filen som hämtats från Azure Portal.
+Med en virtuell dator redo att användas som Azure AD Application Proxy-anslutningsappen kopierar och kör nu installationsfilen som hämtats från Azure-portalen.
 
-1. Kopiera installations filen för Azure AD-programproxy Connector till den virtuella datorn.
-1. Kör installations filen, till exempel *AADApplicationProxyConnectorInstaller. exe*. Godkänn licens villkoren för program varan.
-1. Under installationen uppmanas du att registrera anslutnings programmet med programproxyn i Azure AD-katalogen.
-   * Ange autentiseringsuppgifterna för en global administratör i Azure AD-katalogen. Autentiseringsuppgifterna för global administratör i Azure AD kan skilja sig från dina Azure-autentiseringsuppgifter på portalen
+1. Kopiera installationsfilen för Azure AD Application Proxy-anslutning till den virtuella datorn.
+1. Kör installationsfilen, till exempel *AADApplicationProxyConnectorInstaller.exe*. Acceptera licensvillkoren för programvara.
+1. Under installationen uppmanas du att registrera anslutningen med programproxyen i din Azure AD-katalog.
+   * Ange autentiseringsuppgifterna för en global administratör i din Azure AD-katalog. Azure AD-globala administratörsautentiseringsuppgifter kan skilja sig från dina Azure-autentiseringsuppgifter i portalen
 
         > [!NOTE]
-        > Det globala administratörs kontot som används för att registrera anslutningen måste tillhöra samma katalog där du aktiverar Application Proxy-tjänsten.
+        > Det globala administratörskonto som används för att registrera kopplingen måste tillhöra samma katalog där du aktiverar tjänsten Programproxy.
         >
-        > Om till exempel Azure AD-domänen är *aaddscontoso.com*ska den globala administratören vara `admin@aaddscontoso.com` eller ett annat giltigt alias i domänen.
+        > Om Azure AD-domänen till exempel *är aaddscontoso.com*bör `admin@aaddscontoso.com` den globala administratören vara eller ett annat giltigt alias på den domänen.
 
-   * Om förbättrad säkerhets konfiguration i Internet Explorer är aktiverat för den virtuella datorn där du installerar anslutningen, kan registrerings skärmen blockeras. Om du vill tillåta åtkomst följer du anvisningarna i fel meddelandet eller stänger av förbättrad säkerhet i Internet Explorer under installationen.
-   * Om anslutnings registreringen Miss lyckas, se [Felsöka programproxyn](../active-directory/manage-apps/application-proxy-troubleshoot.md).
-1. I slutet av installationen visas en anteckning för miljöer med en utgående proxy. Om du vill konfigurera Azure AD-programproxy-anslutningen så att den fungerar via den utgående proxyn kör du det angivna skriptet, till exempel `C:\Program Files\Microsoft AAD App Proxy connector\ConfigureOutBoundProxy.ps1`.
-1. På sidan Application Proxy i Azure Portal visas den nya anslutningen med statusen *aktiv*, som visas i följande exempel:
+   * Om förbättrad säkerhetskonfiguration i Internet Explorer är aktiverat för den virtuella datorn där du installerar anslutningen kan registreringsskärmen blockeras. Om du vill tillåta åtkomst följer du instruktionerna i felmeddelandet eller inaktiverar Förbättrad säkerhet i Internet Explorer under installationsprocessen.
+   * Om anslutningsregistreringen misslyckas läser [du Felsöka programproxy](../active-directory/manage-apps/application-proxy-troubleshoot.md).
+1. I slutet av installationen visas en anteckning för miljöer med en utgående proxy. Om du vill konfigurera Azure AD Application Proxy-kopplingen så att den `C:\Program Files\Microsoft AAD App Proxy connector\ConfigureOutBoundProxy.ps1`fungerar via den utgående proxyn kör du det medföljande skriptet, till exempel .
+1. På sidan Programproxy i Azure-portalen visas den nya anslutningen med statusen *Aktiv*, vilket visas i följande exempel:
 
-    ![Den nya Azure AD-programproxy-anslutningen visas som aktiv i Azure Portal](./media/app-proxy/connected-app-proxy.png)
+    ![Den nya Azure AD Application Proxy-anslutningen som visas som aktiv i Azure-portalen](./media/app-proxy/connected-app-proxy.png)
 
 > [!NOTE]
-> Om du vill ge hög tillgänglighet för program som autentiseras via Azure-AD-programproxy kan du installera anslutningar på flera virtuella datorer. Upprepa samma steg som i föregående avsnitt för att installera anslutnings programmet på andra servrar som är anslutna till den hanterade Azure AD DS-domänen.
+> Om du vill ge hög tillgänglighet för program som autentiserar via Azure AD Application Proxy kan du installera kopplingar på flera virtuella datorer. Upprepa samma steg i föregående avsnitt för att installera anslutningen på andra servrar som är anslutna till azure AD DS-hanterade domänen.
 
-## <a name="enable-resource-based-kerberos-constrained-delegation"></a>Aktivera resurs baserad Kerberos-begränsad delegering
+## <a name="enable-resource-based-kerberos-constrained-delegation"></a>Aktivera resursbaserad Kerberos-begränsad delegering
 
-Om du vill använda enkel inloggning till dina program med hjälp av integrerad Windows-autentisering (IWA) ger du Azure AD-programproxy Connectors behörighet att personifiera användare och skicka och ta emot token för deras räkning. Om du vill bevilja dessa behörigheter konfigurerar du Kerberos-begränsad delegering (KCD) för anslutnings tjänsten för att få åtkomst till resurser på den hanterade domänen i Azure AD DS. Eftersom du inte har domän administratörs behörighet i en Azure AD DS-hanterad domän, kan inte traditionella KCD för konto nivå konfigureras på en hanterad domän. Använd i stället Resource based KCD.
+Om du vill använda enkel inloggning till dina program med integrerad Windows-autentisering (IWA) ger du azure AD Application Proxy-anslutningsapparna behörighet att personifiera användare och skicka och ta emot token för deras räkning. Om du vill bevilja dessa behörigheter konfigurerar du Kerberos-begränsad delegering (KCD) för att ansluta resurser på den Azure AD DS-hanterade domänen. Eftersom du inte har behörighet för domänadministratörer i en Azure AD DS-hanterad domän kan traditionell KCD på kontonivå inte konfigureras på en hanterad domän. Använd i stället resursbaserad KCD.
 
 Mer information finns i [Konfigurera Kerberos-begränsad delegering (KCD) i Azure Active Directory Domain Services](deploy-kcd.md).
 
 > [!NOTE]
-> Du måste vara inloggad på ett användar konto som är medlem i gruppen *Azure AD DC-administratörer* i din Azure AD-klient för att köra följande PowerShell-cmdletar.
+> Du måste vara inloggad på ett användarkonto som är medlem i Azure *AD DC-administratörsgruppen* i din Azure AD-klientorganisation för att kunna köra följande PowerShell-cmdletar.
 >
-> Dator kontona för din App proxy Connector-VM och virtuella program måste finnas i en anpassad ORGANISATIONSENHET där du har behörighet att konfigurera resursbaserade KCD. Du kan inte konfigurera resursbaserade KCD för ett dator konto i den inbyggda behållaren för *AAD DC-datorer* .
+> Datorkontona för den virtuella datorn och virtuella program-datorer måste finnas i en anpassad organisationsenhet där du har behörighet att konfigurera resursbaserad KCD. Du kan inte konfigurera resursbaserad KCD för ett datorkonto i behållaren för inbyggda *AAD DC-datorer.*
 
-Använd [Get-ADComputer][Get-ADComputer] för att hämta inställningarna för den dator där Azure AD-programproxy Connector är installerat. Kör följande cmdlets från din domänanslutna hanterings-VM och inloggad som användar konto som är medlem i gruppen *Azure AD DC-administratörer* .
+Använd [Get-ADComputer][Get-ADComputer] för att hämta inställningarna för den dator där Azure AD Application Proxy-anslutningen är installerad. Från din domänledda hanterings-VM och inloggad som användarkonto som är medlem i Azure *AD DC-administratörsgruppen* kör du följande cmdlets.
 
-I följande exempel får du information om dator kontot som heter *appproxy.aaddscontoso.com*. Ange ett eget dator namn för den virtuella Azure AD-programproxy-datorn som har kon figurer ATS i föregående steg.
+I följande exempel får du information om datorkontot *appproxy.aaddscontoso.com*. Ange ditt eget datornamn för den virtuella azure AD-programproxyn som konfigurerats i föregående steg.
 
 ```powershell
 $ImpersonatingAccount = Get-ADComputer -Identity appproxy.aaddscontoso.com
 ```
 
-För varje program server som kör apparna bakom Azure AD-programproxy använder du PowerShell-cmdleten [set-ADComputer][Set-ADComputer] för att konfigurera resursbaserade KCD. I följande exempel beviljas Azure AD-programproxy-anslutningen behörighet att använda den *appserver.aaddscontoso.com* datorn:
+För varje programserver som kör apparna bakom Azure AD Application Proxy använder [du Cmdleten Set-ADComputer][Set-ADComputer] PowerShell för att konfigurera resursbaserad KCD. I följande exempel beviljas Azure AD Application Proxy-anslutningsappen behörighet att använda *den appserver.aaddscontoso.com* datorn:
 
 ```powershell
 Set-ADComputer appserver.aaddscontoso.com -PrincipalsAllowedToDelegateToAccount $ImpersonatingAccount
 ```
 
-Om du distribuerar flera Azure AD-programproxy-kopplingar måste du konfigurera resursbaserade KCD för varje anslutnings instans.
+Om du distribuerar flera Azure AD Application Proxy-kopplingar måste du konfigurera resursbaserad KCD för varje kopplingsinstans.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Med Azure AD-programproxy integrerat med Azure AD DS kan du publicera program som användare kan komma åt. Mer information finns i [Publicera program med hjälp av Azure AD-programproxy](../active-directory/manage-apps/application-proxy-publish-azure-portal.md).
+Med Azure AD Application Proxy integrerad med Azure AD DS, publicera program för användare att komma åt. Mer information finns i [publicera program med Azure AD Application Proxy](../active-directory/manage-apps/application-proxy-publish-azure-portal.md).
 
 <!-- INTERNAL LINKS -->
 [create-azure-ad-tenant]: ../active-directory/fundamentals/sign-up-organization.md

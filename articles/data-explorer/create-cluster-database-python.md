@@ -1,6 +1,6 @@
 ---
-title: Skapa ett Azure Datautforskaren-kluster & DB med python
-description: Lär dig hur du skapar ett Azure Datautforskaren-kluster och-databas med hjälp av python.
+title: Skapa ett Azure Data Explorer-kluster & DB med Python
+description: Lär dig hur du skapar ett Azure Data Explorer-kluster och databas med hjälp av Python.
 author: lucygoldbergmicrosoft
 ms.author: lugoldbe
 ms.reviewer: orspodek
@@ -8,42 +8,42 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 06/03/2019
 ms.openlocfilehash: 8425058c9f6ac5b90c37a99f749a810672b406fc
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/22/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77560515"
 ---
-# <a name="create-an-azure-data-explorer-cluster-and-database-by-using-python"></a>Skapa ett Azure Datautforskaren-kluster och-databas med hjälp av python
+# <a name="create-an-azure-data-explorer-cluster-and-database-by-using-python"></a>Skapa ett Azure Data Explorer-kluster och -databas med hjälp av Python
 
 > [!div class="op_single_selector"]
-> * [Portalen](create-cluster-database-portal.md)
+> * [Portal](create-cluster-database-portal.md)
 > * [CLI](create-cluster-database-cli.md)
-> * [PowerShell](create-cluster-database-powershell.md)
+> * [Powershell](create-cluster-database-powershell.md)
 > * [C#](create-cluster-database-csharp.md)
 > * [Python](create-cluster-database-python.md)
 > * [ARM-mall](create-cluster-database-resource-manager.md)
 
-I den här artikeln skapar du ett Azure Datautforskaren-kluster och-databas med hjälp av python. Azure Data Explorer är en snabb, fullständigt hanterad dataanalystjänst för realtidsanalys av stora mängder data som strömmar från program, webbplatser, IoT-enheter med mera. Om du vill använda Azure Datautforskaren måste du först skapa ett kluster och skapa en eller flera databaser i klustret. Mata in eller Läs in data i en databas så att du kan köra frågor mot den.
+I den här artikeln skapar du ett Azure Data Explorer-kluster och databas med hjälp av Python. Azure Data Explorer är en snabb, fullständigt hanterad dataanalystjänst för realtidsanalys av stora mängder data som strömmar från program, webbplatser, IoT-enheter med mera. Om du vill använda Azure Data Explorer skapar du först ett kluster och skapar en eller flera databaser i klustret. Sedan inta, eller läsa in, data i en databas så att du kan köra frågor mot den.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-* Ett Azure-konto med en aktiv prenumeration. [Skapa ett kostnads fritt](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+* Ett Azure-konto med en aktiv prenumeration. [Skapa en gratis](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
-* [Python 3.4 +](https://www.python.org/downloads/).
+* [Python 3.4+](https://www.python.org/downloads/).
 
-* [Ett Azure AD-program och tjänstens huvud namn som har åtkomst till resurser](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal). Hämta värden för `Directory (tenant) ID`, `Application ID`och `Client Secret`.
+* [Ett Azure AD-program- och tjänsthuvudnamn som kan komma åt resurser](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal). Hämta värden `Directory (tenant) ID` `Application ID`för `Client Secret`, och .
 
 ## <a name="install-python-package"></a>Installera Python-paketet
 
-Om du vill installera python-paketet för Azure Datautforskaren (Kusto) öppnar du en kommando tolk med python i sökvägen. Kör följande kommando:
+Om du vill installera Python-paketet för Azure Data Explorer (Kusto) öppnar du en kommandotolk som har Python i sökvägen. Kör följande kommando:
 
 ```
 pip install azure-common
 pip install azure-mgmt-kusto
 ```
 ## <a name="authentication"></a>Autentisering
-För att kunna köra exemplen i den här artikeln behöver vi ett Azure AD-program och tjänstens huvud namn som kan komma åt resurser. Markera [skapa ett Azure AD-program](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal) om du vill skapa ett kostnads fritt Azure AD-program och lägga till roll tilldelning i prenumerations omfånget. Det visar också hur du hämtar `Directory (tenant) ID`, `Application ID`och `Client Secret`.
+För att köra exemplen i den här artikeln behöver vi ett Azure AD-program och tjänsthuvudnamn som kan komma åt resurser. Kontrollera [skapa ett Azure AD-program](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal) för att skapa ett kostnadsfritt Azure AD-program och lägga till rolltilldelning i prenumerationsomfånget. Det visar också hur `Directory (tenant) ID` `Application ID`man `Client Secret`får , och .
 
 ## <a name="create-the-azure-data-explorer-cluster"></a>Skapa Azure Data Explorer-klustret
 
@@ -84,14 +84,14 @@ För att kunna köra exemplen i den här artikeln behöver vi ett Azure AD-progr
 
    |**Inställning** | **Föreslaget värde** | **Fältbeskrivning**|
    |---|---|---|
-   | cluster_name | *mykustocluster* | Önskat namn på klustret.|
+   | cluster_name | *mykustocluster (en)* | Önskat namn på klustret.|
    | sku_name | *Standard_D13_v2* | Den SKU som ska användas för klustret. |
    | nivå | *Standard* | SKU-nivån. |
-   | kapacitet | *många* | Antalet instanser av klustret. |
+   | capacity | *nummer* | Antalet instanser av klustret. |
    | resource_group_name | *testrg* | Namnet på resursgruppen där klustret kommer att skapas. |
 
     > [!NOTE]
-    > **Skapa ett kluster** är en tids krävande åtgärd. Metoden **create_or_update** returnerar en instans av LROPoller, se [LROPoller-klassen](/python/api/msrest/msrest.polling.lropoller?view=azure-python) för att få mer information.
+    > **Skapa ett kluster** är en tidskrävande åtgärd. Metod **create_or_update** returnerar en instans av LROPoller, se [klass LROPoller](/python/api/msrest/msrest.polling.lropoller?view=azure-python) för att få mer information.
 
 1. Kör följande kommando för att kontrollera om klustret har skapats:
 
@@ -127,8 +127,8 @@ Om resultatet innehåller `provisioningState` med värdet `Succeeded` har klustr
 
    |**Inställning** | **Föreslaget värde** | **Fältbeskrivning**|
    |---|---|---|
-   | cluster_name | *mykustocluster* | Namnet på det kluster där databasen ska skapas.|
-   | database_name | *mykustodatabase* | Namn på databasen.|
+   | cluster_name | *mykustocluster (en)* | Namnet på det kluster där databasen ska skapas.|
+   | database_name | *mykustodatabas* | Namn på databasen.|
    | resource_group_name | *testrg* | Namnet på resursgruppen där klustret kommer att skapas. |
    | soft_delete_period | *3650 dagar, 0:00:00* | Hur lång tid data ska behållas för att vara tillgängliga för frågor. |
    | hot_cache_period | *3650 dagar, 0:00:00* | Hur lång tid data ska behållas i cache. |
@@ -143,7 +143,7 @@ Nu har du ett kluster och en databas.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-* Behåll de resurser du har skapat om du planerar att följa våra andra artiklar.
+* Om du planerar att följa våra andra artiklar, behålla de resurser du skapat.
 * Ta bort klustret om du vill rensa resurser. När du tar bort ett kluster, raderas också alla databaser i den. Använd följande kommando för att ta bort klustret:
 
     ```Python
@@ -152,4 +152,4 @@ Nu har du ett kluster och en databas.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Mata in data med Azure Datautforskaren python-biblioteket](python-ingest-data.md)
+* [Mata in data med hjälp av Python-biblioteket i Azure Data Explorer](python-ingest-data.md)

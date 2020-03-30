@@ -9,24 +9,24 @@ ms.date: 02/07/2020
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: e84a77629026bb8885a48b8ed928699825f07115
-ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77111220"
 ---
-| **Leverantör** | **Enhetsfamilj** | **Version av inbyggd program vara** |
+| **Leverantör** | **Enhetsfamilj** | **Firmware-version** |
 | --- | --- | --- |
-|Cisco | ISR| IOS 15,1 (för hands version)|
-|Cisco | ASA | ASA (*) Routningsbaserad (IKEv2-inga BGP) för ASA under 9,8 |
-|Cisco | ASA | ASA-Routningsbaserad (IKEv2-No BGP) för ASA 9.8 + |
-|Juniper | SRX_GA | 12. x|
+|Cisco | ISR| IOS 15.1 (Förhandsgranskning)|
+|Cisco | ASA | ASA ( * ) RouteBased (IKEv2- Ingen BGP) för ASA under 9,8 |
+|Cisco | ASA | ASA RouteBased (IKEv2 - Ingen BGP) för ASA 9.8+ |
+|Juniper | SRX_GA | 12.x|
 |Juniper | SSG_GA | ScreenOS 6.2.x|
-|Juniper | JSeries_GA | JunOS 12. x|
-|Juniper | SRX | JunOS 12. x Routningsbaserad BGP |
-|Ubiquiti| EdgeRouter| Randering v 1.10 x Routningsbaserad VTI|
-|Ubiquiti| EdgeRouter| Randering v 1.10 x Routningsbaserad BGP|
+|Juniper | JSeries_GA | JunOS 12.x|
+|Juniper | SRX | JunOS 12.x RuttBaserad BGP |
+|Ubiquiti| Kanter| EdgeOS v1.10x RuttBaserad VTI|
+|Ubiquiti| Kanter| EdgeOS v1.10x RuttBaserad BGP|
 
 > [!NOTE]
-> ( * ) Krävs: NarrowAzureTrafficSelectors (aktivera UsePolicyBasedTrafficSelectors-alternativet) och CustomAzurePolicies (IKE/IPsec)
+> ( * ) Obligatoriskt: NarrowAzureTrafficSelectors (aktivera usepolicybasedTrafficSelectors alternativ) och CustomAzurePolicies (IKE/IPsec)
 >

@@ -1,6 +1,6 @@
 ---
-title: Etablera simulerad X. 509-enhet till Azure IoT Hub med python
-description: Snabb start – skapa och etablera en simulerad X. 509-enhet med python-enhets-SDK för IoT Hub Device Provisioning Service (DPS). Den här snabbstarten använder enskilda registreringar.
+title: Etablera simulerad X.509-enhet till Azure IoT Hub med Python
+description: Snabbstart – Skapa och etablera en simulerad X.509-enhet med Python-enheten SDK för IoT Hub Device Provisioning Service (DPS). Den här snabbstarten använder enskilda registreringar.
 author: wesmc7777
 ms.author: wesmc
 ms.date: 11/08/2019
@@ -10,35 +10,35 @@ services: iot-dps
 ms.devlang: python
 ms.custom: mvc
 ms.openlocfilehash: 44f1a2cd3336eeae87878c333fb05d2e6b1f88e8
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77605386"
 ---
-# <a name="quickstart-create-and-provision-a-simulated-x509-device-using-python-device-sdk-for-iot-hub-device-provisioning-service"></a>Snabb start: skapa och etablera en simulerad X. 509-enhet med python-enhets-SDK för IoT Hub Device Provisioning Service
+# <a name="quickstart-create-and-provision-a-simulated-x509-device-using-python-device-sdk-for-iot-hub-device-provisioning-service"></a>Snabbstart: Skapa och etablera en simulerad X.509-enhet med Python-enheten SDK för IoT Hub Device Provisioning Service
 
 [!INCLUDE [iot-dps-selector-quick-create-simulated-device-x509](../../includes/iot-dps-selector-quick-create-simulated-device-x509.md)]
 
-I den här snabb starten skapar du en simulerad X. 509-enhet på en Windows-dator. Du använder enhets exempel python-kod för att ansluta den här simulerade enheten med IoT-hubben med hjälp av en enskild registrering med enhets etablerings tjänsten (DPS).
+I den här snabbstarten skapar du en simulerad X.509-enhet på en Windows-dator. Du använder enhetsexempelet Python-kod för att ansluta den här simulerade enheten till din IoT-hubb med hjälp av en individuell registrering med DPS (Device Provisioning Service).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-- Granskning av [koncept för automatisk etablering](concepts-auto-provisioning.md).
-- Slut för ande av [konfigurations IoT Hub Device Provisioning service med Azure Portal](./quick-setup-auto-provision.md).
-- Ett Azure-konto med en aktiv prenumeration. [Skapa ett kostnads fritt](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-- [Visual Studio 2015 +](https://visualstudio.microsoft.com/vs/) med Skriv bords C++utveckling med.
-- [Cmake build-system](https://cmake.org/download/).
+- Översyn av [begrepp för automatisk etablering](concepts-auto-provisioning.md).
+- Slutförande av [konfigurera IoT Hub Device Provisioning Service med Azure-portalen](./quick-setup-auto-provision.md).
+- Ett Azure-konto med en aktiv prenumeration. [Skapa en gratis](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+- [Visual Studio 2015+](https://visualstudio.microsoft.com/vs/) med skrivbordsutveckling med C++.
+- [CMake bygga system](https://cmake.org/download/).
 - [Git](https://git-scm.com/download/).
 
 > [!IMPORTANT]
-> Den här artikeln gäller endast den inaktuella v1 python SDK. Enhets-och tjänst klienter för IoT Hub Device Provisioning-tjänsten är ännu inte tillgängliga i v2. Teamet är för närvarande hårt för att ge v2 till funktionens paritet.
+> Den här artikeln gäller endast den inaktuella V1 Python SDK. Enhets- och tjänstklienter för Iot Hub Device Provisioning Service är ännu inte tillgängliga i V2. Teamet arbetar för närvarande hårt för att få V2 att funktionen paritet.
 
 [!INCLUDE [IoT Device Provisioning Service basic](../../includes/iot-dps-basic.md)]
 
 ## <a name="prepare-the-environment"></a>Förbereda miljön 
 
-1. Kontrol lera att du har installerat antingen [Visual studio](https://visualstudio.microsoft.com/vs/) 2015 eller senare, med arbets belastningen " C++Skriv bords utveckling med" aktiverat för Visual Studio-installationen.
+1. Kontrollera att du har installerat visual [studio](https://visualstudio.microsoft.com/vs/) 2015 eller senare, med arbetsbelastningen "Skrivbordsutveckling med C++" aktiverat för din Visual Studio-installation.
 
 2. Hämta och installera [CMake-buildsystemet](https://cmake.org/download/).
 
@@ -77,7 +77,7 @@ Du kommer att använda exempelkoden från Azure IoT C SDK för att skapa det cer
 Azure IoT Device Provisioning Service stöder två typer av registreringar:
 
 - [Registreringsgrupper](concepts-service.md#enrollment-group): används för att registrera flera relaterade enheter.
-- [Enskilda registreringar](concepts-service.md#individual-enrollment): används för att registrera en enskild enhet.
+- [Individuella registreringar](concepts-service.md#individual-enrollment): Används för att registrera en enda enhet.
 
 Den här artikeln visar enskilda registreringar.
 
@@ -101,30 +101,30 @@ Den här artikeln visar enskilda registreringar.
  
 4. Skapa en fil med namnet **_X509testcertificate.pem_** på din Windows-dator, öppna den i valfritt redigeringsprogram och kopiera urklippsinnehållet till filen. Spara filen. 
 
-5. Logga in på Azure Portal, Välj knappen **alla resurser** i den vänstra menyn och öppna etablerings tjänsten.
+5. Logga in på Azure-portalen, välj knappen **Alla resurser** på menyn till vänster och öppna etableringstjänsten.
 
-6. Från menyn enhets etablerings tjänst väljer du **Hantera registreringar**. Välj fliken **enskilda registreringar** och välj knappen **Lägg till individuell registrering** överst. 
+6. Välj **Hantera registreringar**på menyn Tjänst för enhetsetablering . Välj fliken **Enskilda registreringar** och välj knappen **Lägg till individuell registrering** högst upp. 
 
-7. Ange följande information på panelen **Lägg till registrering** :
+7. Ange följande information på panelen **Lägg till registrering:**
    - Välj **X.509** som identitet för bestyrkande *mekanism*.
-   - Under *filen Primary Certificate. pem eller. cer*väljer du *Välj en fil* för att välja certifikat filen **X509testcertificate. pem** som skapades i föregående steg.
+   - Under *filen Primär certifikat .pem eller .cer*väljer du *Välj en fil* för att välja certifikatfilen **X509testcertificate.pem** som skapats i föregående steg.
    - Du kan även ange följande information:
      - Välj en IoT hub som är länkad till din etableringstjänst.
      - Ange ett unikt enhets-ID. Se till att undvika känsliga data när du namnger din enhet. 
      - Uppdatera **inledande enhetstvillingstatus** med önskad inledande konfiguration för enheten.
-   - När du är klar trycker du på knappen **Spara** . 
+   - När du är klar trycker du på **knappen Spara.** 
 
-     [![Lägga till en enskild registrering för X.509-attestering i portalen](./media/python-quick-create-simulated-device-x509/device-enrollment.png)](./media/python-quick-create-simulated-device-x509/device-enrollment.png#lightbox)
+     [![Lägga till individuell registrering för X.509-intyg i portalen](./media/python-quick-create-simulated-device-x509/device-enrollment.png)](./media/python-quick-create-simulated-device-x509/device-enrollment.png#lightbox)
 
    Om registreringen har lyckats visas din X.509-enhet som **riot-device-cert** under kolumnen *Registrerings-ID* på fliken *Enskilda registreringar*. 
 
 ## <a name="simulate-the-device"></a>Simulera enheten
 
-1. Från menyn enhets etablerings tjänst väljer du **Översikt**. Anteckna _ID-omfånget_ och _slutpunkten för global övervakning_.
+1. Välj **Översikt**på menyn Tjänst för enhetsetablering . Observera ditt _ID-scope_ och _globala tjänstslutpunkt_.
 
     ![Tjänstinformation](./media/python-quick-create-simulated-device-x509/extract-dps-endpoints.png)
 
-2. Ladda ned och installera [Python 2.x eller 3.x](https://www.python.org/downloads/). Se till att använda en 32-bitars eller 64-bitars installation beroende på vad som krävs för din konfiguration. Se till att du lägger till Python i den plattformsspecifika miljövariabeln när du uppmanas att göra det under installationen. Om du använder Python 2.x kan du behöva [installera eller uppgradera *PIP* (pakethanteringssystemet för Python)](https://pip.pypa.io/en/stable/installing/).
+2. Ladda ned och installera [Python 2.x eller 3.x](https://www.python.org/downloads/). Se till att använda en 32-bitars eller 64-bitars installation beroende på vad som krävs för din konfiguration. Se till att du lägger till Python i de plattformsspecifika miljövariablerna när du uppmanas att göra det under installationen. Om du använder Python 2.x kan du behöva [installera eller uppgradera *PIP* (pakethanteringssystemet för Python)](https://pip.pypa.io/en/stable/installing/).
     
     > [!NOTE] 
     > Om du använder Windows ska du även installera [Visual C++ Redistributable för Visual Studio 2015](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads). Pip-paketen kräver Redistributable för att läsa in/köra C DLL-filer.
@@ -159,7 +159,7 @@ Den här artikeln visar enskilda registreringar.
 
     ![lyckad registrering](./media/python-quick-create-simulated-device-x509/enrollment-success.png)
 
-8. I portalen går du till den IoT-hubb som är kopplad till din etableringstjänst och öppnar bladet **Device Explorer**. Vid lyckad etablering av den simulerade X.509-enheten till hubben visas dess enhets-ID på bladet **Device Explorer** med *STATUS***aktiverad**. Du kan behöva klicka på knappen **Uppdatera** längst upp om du redan har öppnat bladet innan du kör programmet för enhets exempel. 
+8. I portalen går du till den IoT-hubb som är kopplad till din etableringstjänst och öppnar bladet **Device Explorer**. Vid lyckad etablering av den simulerade X.509-enheten till hubben visas dess enhets-ID på bladet **Device Explorer** med *STATUS***aktiverad**. Du kan behöva trycka på **knappen Uppdatera** högst upp om du redan har öppnat bladet innan du kör exempelenhetsprogrammet. 
 
     ![Enheten är registrerad på IoT-hubben](./media/python-quick-create-simulated-device-x509/registration.png) 
 
@@ -169,15 +169,15 @@ Den här artikeln visar enskilda registreringar.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Om du planerar att fortsätta att arbeta med och utforska enhets klient exemplet ska du inte rensa upp resurserna som du skapade i den här snabb starten. Om du inte planerar att fortsätta kan du använda följande steg för att ta bort alla resurser som skapats i den här snabb starten.
+Om du planerar att fortsätta arbeta med och utforska enhetsklientexemplet ska du inte rensa de resurser som skapas i den här snabbstarten. Om du inte planerar att fortsätta använder du följande steg för att ta bort alla resurser som skapats av den här snabbstarten.
 
 1. Stäng utdatafönstret för enhetsklientexemplet på datorn.
-2. Välj **alla resurser** på den vänstra menyn i Azure Portal och välj sedan enhets etablerings tjänsten. Öppna bladet **Hantera registreringar** för din tjänst och välj sedan fliken **enskilda registreringar** . Markera kryss rutan bredvid *registrerings-ID* för den enhet som du har registrerat i den här snabb starten och klicka på knappen **ta bort** högst upp i fönstret. 
-3. Välj **alla resurser** på den vänstra menyn i Azure Portal och välj sedan din IoT Hub. Öppna bladet **IoT-enheter** för navet, markera kryss rutan bredvid *enhets-ID* för den enhet som du registrerade i den här snabb starten och tryck sedan på knappen **ta bort** högst upp i fönstret.
+2. På menyn till vänster i Azure-portalen väljer du **Alla resurser** och väljer sedan din enhetsetableringstjänst. Öppna bladet **Hantera registreringar** för tjänsten och markera sedan fliken **Enskilda registreringar.** *REGISTRATION ID* **Delete** 
+3. På menyn till vänster i Azure-portalen väljer du **Alla resurser** och väljer sedan din IoT-hubb. Öppna **ioT-enhetsbladet** för navet, markera kryssrutan bredvid *DEVICE-ID:t* för den enhet som du registrerade i den här snabbstarten och tryck sedan på knappen **Ta bort** högst upp i fönstret.
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabb starten har du skapat en simulerad X. 509-enhet på din Windows-dator och etablerade den till IoT-hubben med hjälp av Azure-IoT Hub Device Provisioning Service på portalen. Om du vill lära dig hur du registrerar X. 509-enheten program mässigt fortsätter du till snabb starten för program mässig registrering av X. 509-enheter. 
+I den här snabbstarten har du skapat en simulerad X.509-enhet på din Windows-dator och etablerat den i din IoT-hubb med hjälp av Azure IoT Hub Device Provisioning Service på portalen. Om du vill veta hur du registrerar din X.509-enhet programmässigt fortsätter du till snabbstarten för programmatisk registrering av X.509-enheter. 
 
 > [!div class="nextstepaction"]
-> [Azure snabb start – registrera X. 509-enheter till Azure IoT Hub Device Provisioning Service](quick-enroll-device-x509-python.md)
+> [Snabbstart i Azure – Registrera X.509-enheter till Azure IoT Hub Device Provisioning Service](quick-enroll-device-x509-python.md)

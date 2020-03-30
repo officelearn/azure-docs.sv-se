@@ -1,81 +1,81 @@
 ---
 title: Migrera ett aktivt DNS-namn
-description: Lär dig hur du migrerar ett anpassat DNS-domännamn som redan har tilldelats till en Live-plats till Azure App Service utan drift avbrott.
+description: Lär dig hur du migrerar ett anpassat DNS-domännamn som redan har tilldelats en live-webbplats till Azure App Service utan avbrott.
 tags: top-support-issue
 ms.assetid: 10da5b8a-1823-41a3-a2ff-a0717c2b5c2d
 ms.topic: article
 ms.date: 10/21/2019
 ms.custom: seodec18
 ms.openlocfilehash: 79bd0a19a9bd8ebd100ed80ca0206656d73ef76c
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/02/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74672362"
 ---
 # <a name="migrate-an-active-dns-name-to-azure-app-service"></a>Migrera ett aktivt DNS-namn till Azure App Service
 
-Den här artikeln visar hur du migrerar ett aktivt DNS-namn till [Azure App Service](../app-service/overview.md) utan drift avbrott.
+Den här artikeln visar hur du migrerar ett aktivt DNS-namn till [Azure App Service](../app-service/overview.md) utan avbrott.
 
-När du migrerar en Live-plats och dess DNS-domännamn till App Service, betjänar det DNS-namnet redan direktsänd trafik. Du kan undvika drift stopp i DNS-matchning under migreringen genom att binda det aktiva DNS-namnet till din App Service app-förebyggande syfte.
+När du migrerar en live-webbplats och dess DNS-domännamn till App Service betjänar det DNS-namnet redan direktsänd trafik. Du kan undvika driftstopp i DNS-upplösningen under migreringen genom att binda det aktiva DNS-namnet till apptjänstappen i förebyggande syfte.
 
-Om du inte är oroar över stillestånds tid i DNS-matchning, se [mappa ett befintligt anpassat DNS-namn till Azure App Service](app-service-web-tutorial-custom-domain.md).
+Om du inte är orolig för driftstopp i DNS-upplösning läser du [Mappa ett befintligt anpassat DNS-namn till Azure App Service](app-service-web-tutorial-custom-domain.md).
 
 ## <a name="prerequisites"></a>Krav
 
-För att slutföra den här instruktionen:
+Så här slutför du den här in-
 
-- [Se till att din app service-app inte är i den kostnads fria nivån](app-service-web-tutorial-custom-domain.md#checkpricing).
+- [Kontrollera att apptjänstappen inte är på den kostnadsfria nivån](app-service-web-tutorial-custom-domain.md#checkpricing).
 
-## <a name="bind-the-domain-name-preemptively"></a>Bind domän namnet förebyggande syfte
+## <a name="bind-the-domain-name-preemptively"></a>Bind domännamnet förebyggande
 
-När du binder en anpassad domän förebyggande syfte utför du båda följande innan du gör några ändringar i dina DNS-poster:
+När du binder en anpassad domän i förebyggande syfte utför du båda följande innan du gör några ändringar i DNS-posterna:
 
-- Verifiera domän ägarskap
-- Aktivera domän namnet för din app
+- Verifiera domänägarskap
+- Aktivera appens domännamn
 
-När du slutligen migrerar ditt anpassade DNS-namn från den gamla platsen till App Service-appen, kommer det inte att finnas några avbrott i DNS-matchningen.
+När du slutligen migrerar ditt anpassade DNS-namn från den gamla webbplatsen till App Service-appen blir det inga driftstopp i DNS-upplösningen.
 
 [!INCLUDE [Access DNS records with domain provider](../../includes/app-service-web-access-dns-records.md)]
 
-### <a name="create-domain-verification-record"></a>Skapa domän verifierings post
+### <a name="create-domain-verification-record"></a>Skapa domänverifieringspost
 
-Om du vill verifiera domän ägarskapet lägger du till en TXT-post. TXT-posten mappar från _awverify.&lt;under domän >_ till _&lt;APPNAME >. azurewebsites. net_. 
+Om du vill verifiera domänägarskapet lägger du till en TXT-post. TXT-skivan kartlägger från _awverify.&lt; underdomän>_ till _ &lt;appnamn>.azurewebsites.net_. 
 
-Den TXT-post du behöver beror på den DNS-post som du vill migrera. Exempel finns i följande tabell (`@` vanligt vis representerar rot domänen):
+Den TXT-post du behöver beror på vilken DNS-post du vill migrera. Exempel på följande tabell`@` ( representerar vanligtvis rotdomänen):
 
 | Exempel på DNS-post | TXT-värd | TXT-värde |
 | - | - | - |
-| \@ (rot) | _awverify_ | _&lt;APPNAME >. azurewebsites. net_ |
-| www (sub) | _awverify. www_ | _&lt;APPNAME >. azurewebsites. net_ |
-| \* (jokertecken) | _awverify.\*_ | _&lt;APPNAME >. azurewebsites. net_ |
+| \@-Jag är inte så bra som jag vet. | _awverify (awverify)_ | _&lt;appnamn>.azurewebsites.net_ |
+| www (sub) | _awverify.www_ | _&lt;appnamn>.azurewebsites.net_ |
+| \*(jokertecken) | _awverify.\*_ | _&lt;appnamn>.azurewebsites.net_ |
 
-På sidan DNS-poster noterar du post typen för det DNS-namn som du vill migrera. App Service stöder mappningar från CNAME-och A-poster.
-
-> [!NOTE]
-> För vissa leverantörer, till exempel CloudFlare, är `awverify.*` inte en giltig post. Använd `*` bara i stället.
+På sidan DNS-poster lägger du till posttypen för det DNS-namn som du vill migrera. App Service stöder mappningar från CNAME- och A-poster.
 
 > [!NOTE]
-> Jokertecken `*` poster validerar inte under domäner med en befintlig CNAME-post. Du kan behöva skapa en TXT-post explicit för varje under domän.
+> För vissa leverantörer, till exempel `awverify.*` CloudFlare, är inte en giltig post. Använd `*` bara i stället.
+
+> [!NOTE]
+> Jokerteckenposter `*` validerar inte underdomäner med en befintlig CNAME-post. Du kan behöva uttryckligen skapa en TXT-post för varje underdomän.
 
 
 ### <a name="enable-the-domain-for-your-app"></a>Aktivera domänen för din app
 
-I [Azure Portal](https://portal.azure.com)i det vänstra navigerings fönstret på sidan app väljer du **anpassade domäner**. 
+I [Azure-portalen](https://portal.azure.com)väljer du **Anpassade domäner**i den vänstra navigeringen på appsidan . 
 
 ![Meny för anpassad domän](./media/app-service-web-tutorial-custom-domain/custom-domain-menu.png)
 
-På sidan **anpassade domäner** väljer du ikonen **+** bredvid **Lägg till värdnamn**.
+På sidan **Anpassade domäner** **+** väljer du ikonen bredvid **Lägg till värdnamn**.
 
 ![Lägg till värddatornamn](./media/app-service-web-tutorial-custom-domain/add-host-name-cname.png)
 
-Ange det fullständigt kvalificerade domän namnet som du har lagt till TXT-posten för, till exempel `www.contoso.com`. För en domän med jokertecken (t. ex. \*. contoso.com) kan du använda alla DNS-namn som matchar domänen med jokertecken. 
+Skriv det fullständigt kvalificerade domännamnet som du lade till `www.contoso.com`TXT-posten för, till exempel . För en jokerteckendomän (t.contoso.com) \*kan du använda alla DNS-namn som matchar jokerteckendomänen. 
 
 Välj **Verifiera**.
 
 Knappen **Lägg till värddatornamn** aktiveras. 
 
-Se till att **post typen hostname** är inställd på den DNS-posttyp som du vill migrera.
+Kontrollera att **posttypen Hostname** är inställd på den DNS-posttyp som du vill migrera.
 
 Välj **Lägg till värddatornamn**.
 
@@ -85,19 +85,19 @@ Det kan ta en stund innan det nya värdnamnet återspeglas på sidan **Anpassade
 
 ![CNAME-posten har lagts till](./media/app-service-web-tutorial-custom-domain/cname-record-added.png)
 
-Ditt anpassade DNS-namn är nu aktiverat i din Azure-App. 
+Ditt anpassade DNS-namn är nu aktiverat i din Azure-app. 
 
 ## <a name="remap-the-active-dns-name"></a>Mappa om det aktiva DNS-namnet
 
-Det enda som återstår att göra är att mappa om den aktiva DNS-posten så att den pekar på App Service. Just nu pekar den fortfarande på din gamla plats.
+Det enda som återstår att göra är att mappa om din aktiva DNS-post så att den pekar på App Service. Just nu pekar det fortfarande på din gamla webbplats.
 
 <a name="info"></a>
 
 ### <a name="copy-the-apps-ip-address-a-record-only"></a>Kopiera appens IP-adress (endast en post)
 
-Hoppa över det här avsnittet om du mappar om en CNAME-post. 
+Om du mappar om en CNAME-post hoppar du över det här avsnittet. 
 
-Om du vill mappa om en A-post behöver du App Service appens externa IP-adress, som visas på sidan **anpassade domäner** .
+Om du vill mappa om en A-post behöver du App Service-appens externa IP-adress, som visas på sidan **Anpassade domäner.**
 
 Stäng sidan **Lägg till värdnamn** genom att välja **X** i det övre högra hörnet. 
 
@@ -107,29 +107,29 @@ På sidan **Anpassade domäner** kopierar du appens IP-adress.
 
 ### <a name="update-the-dns-record"></a>Uppdatera DNS-posten
 
-Gå tillbaka till sidan DNS-poster i din domän leverantör och välj den DNS-post som du vill mappa om.
+På sidan DNS-poster i domänleverantören väljer du den DNS-post som ska mappas om.
 
-För `contoso.com` rot domän exemplet, mappa om A-eller CNAME-posten som exemplen i följande tabell: 
+För `contoso.com` rotdomänexemplet mappa om A- eller CNAME-posten så som exemplen i följande tabell: 
 
 | FQDN-exempel | Posttyp | Värd | Värde |
 | - | - | - | - |
 | contoso.com (rot) | A | `@` | IP-adress från [Kopiera appens IP-adress](#info) |
-| www\.contoso.com (sub) | CNAME | `www` | _&lt;APPNAME >. azurewebsites. net_ |
-| \*. contoso.com (jokertecken) | CNAME | _\*_ | _&lt;APPNAME >. azurewebsites. net_ |
+| www\.contoso.com (sub) | CNAME | `www` | _&lt;appnamn>.azurewebsites.net_ |
+| \*.contoso.com (jokertecken) | CNAME | _\*_ | _&lt;appnamn>.azurewebsites.net_ |
 
 Spara inställningarna.
 
-DNS-frågor ska börja matcha till din App Service-app omedelbart efter det att DNS-spridningen sker.
+DNS-frågor bör börja matcha till apptjänstappen direkt efter att DNS-spridning har inträffar.
 
 ## <a name="active-domain-in-azure"></a>Aktiv domän i Azure
 
-Du kan migrera en aktiv anpassad domän i Azure, mellan prenumerationer eller inom samma prenumeration. En sådan migrering utan drift stopp kräver att käll appen och mål appen tilldelas samma anpassade domän vid en viss tidpunkt. Därför måste du kontrol lera att de två apparna inte har distribuerats till samma distributions enhet (internt kallat ett webb utrymme). Ett domän namn kan bara tilldelas en app i varje distributions enhet.
+Du kan migrera en aktiv anpassad domän i Azure, mellan prenumerationer eller inom samma prenumeration. En sådan migrering utan driftstopp kräver dock att källappen och målappen tilldelas samma anpassade domän vid en viss tidpunkt. Därför måste du se till att de två apparna inte distribueras till samma distributionsenhet (internt känt som ett webbutrymme). Ett domännamn kan tilldelas endast en app i varje distributionsenhet.
 
-Du kan hitta distributions enheten för din app genom att titta på domän namnet för FTP/S-URL: en `<deployment-unit>.ftp.azurewebsites.windows.net`. Kontrol lera och se till att distributions enheten skiljer sig mellan käll appen och mål programmet. Distributions enheten för en app bestäms av [App Service plan](overview-hosting-plans.md) den finns i. Den väljs slumpmässigt av Azure när du skapar planen och kan inte ändras. Azure ser bara till att två planer finns i samma distributions enhet när du [skapar dem i samma resurs grupp *och* samma region](app-service-plan-manage.md#create-an-app-service-plan), men det finns ingen logik för att se till att planerna är i olika distributions enheter. Det enda sättet att skapa en plan i en annan distributions enhet är att fortsätta att skapa en plan i en ny resurs grupp eller region tills du får en annan distributions enhet.
+Du hittar distributionsenheten för din app genom att titta på `<deployment-unit>.ftp.azurewebsites.windows.net`domännamnet för FTP/S-URL:en . Kontrollera och kontrollera att distributionsenheten skiljer sig mellan källappen och målappen. Distributionsenheten för en app bestäms av [apptjänstplanen](overview-hosting-plans.md) den finns i. Det väljs slumpmässigt av Azure när du skapar planen och kan inte ändras. Azure ser bara till att två planer finns i samma distributionsenhet när du [skapar dem i samma resursgrupp *och* samma region,](app-service-plan-manage.md#create-an-app-service-plan)men det har ingen logik för att se till att planerna finns i olika distributionsenheter. Det enda sättet för dig att skapa en plan i en annan distributionsenhet är att fortsätta skapa en plan i en ny resursgrupp eller region tills du får en annan distributionsenhet.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig hur du binder ett anpassat SSL-certifikat till App Service.
+Läs om hur du binder ett anpassat SSL-certifikat till App Service.
 
 > [!div class="nextstepaction"]
-> [Bind ett SSL-certifikat till Azure App Service](configure-ssl-bindings.md)
+> [Binda ett SSL-certifikat till Azure App Service](configure-ssl-bindings.md)

@@ -1,28 +1,28 @@
 ---
-title: Azure Blob Storage-indata-bindning för Azure Functions
-description: Lär dig hur du tillhandahåller Azure Blob Storage-data till en Azure-funktion.
+title: Azure Blob-lagringsindatabindning för Azure-funktioner
+description: Lär dig hur du tillhandahåller Azure Blob-lagringsdata till en Azure-funktion.
 author: craigshoemaker
 ms.topic: reference
 ms.date: 02/13/2020
 ms.author: cshoe
 ms.openlocfilehash: e074d7d74c0c5f020cb8086124634b25012927db
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77202156"
 ---
-# <a name="azure-blob-storage-input-binding-for-azure-functions"></a>Azure Blob Storage-indata-bindning för Azure Functions
+# <a name="azure-blob-storage-input-binding-for-azure-functions"></a>Azure Blob-lagringsindatabindning för Azure-funktioner
 
-Med hjälp av den angivna bindningen kan du läsa Blob Storage-data som indata till en Azure-funktion.
+Indatabindningen gör att du kan läsa blob lagringsdata som indata till en Azure-funktion.
 
-Information om konfiguration och konfigurations information finns i [översikten](./functions-bindings-storage-blob.md).
+Information om inställnings- och konfigurationsinformation finns i [översikten](./functions-bindings-storage-blob.md).
 
 ## <a name="example"></a>Exempel
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
-Följande exempel är en [ C# funktion](functions-dotnet-class-library.md) som använder en Queue-utlösare och en BLOB-bindning för inflöde. Queue-meddelandet innehåller namnet på blobben och funktionen loggar storleken på blobben.
+Följande exempel är en [C#-funktion](functions-dotnet-class-library.md) som använder en köutlösare och en indatablolobbindning. Kömeddelandet innehåller namnet på blobben och funktionen loggar storleken på blobben.
 
 ```csharp
 [FunctionName("BlobInput")]
@@ -35,13 +35,13 @@ public static void Run(
 }
 ```
 
-# <a name="c-scripttabcsharp-script"></a>[C#Över](#tab/csharp-script)
+# <a name="c-script"></a>[C# Skript](#tab/csharp-script)
 
 <!--Same example for input and output. -->
 
-I följande exempel visas BLOB-indata och utdata-bindningar i en *Function. JSON* -fil och [ C# skript kod (. CSX)](functions-reference-csharp.md) som använder bindningarna. Funktionen gör en kopia av en text-blob. Funktionen utlöses av ett köat meddelande som innehåller namnet på den blob som ska kopieras. Den nya blobben heter *{originalblobname}-Copy*.
+I följande exempel visas blob-indata och utdatabindningar i en *function.json-fil* och [C#script (.csx)](functions-reference-csharp.md) kod som använder bindningarna. Funktionen gör en kopia av en textblob. Funktionen utlöses av ett kömeddelande som innehåller namnet på den blob som ska kopieras. Den nya blobben heter *{originalblobname}-Copy*.
 
-I *Function. JSON* -filen används `queueTrigger` metadata-egenskapen för att ange BLOB-namnet i `path` egenskaper:
+I *filen function.json* `queueTrigger` används egenskapen metadata för att ange `path` blob-namnet i egenskaperna:
 
 ```json
 {
@@ -72,9 +72,9 @@ I *Function. JSON* -filen används `queueTrigger` metadata-egenskapen för att a
 }
 ```
 
-I [konfigurations](#configuration) avsnittet förklaras dessa egenskaper.
+[Konfigurationsavsnittet](#configuration) förklarar dessa egenskaper.
 
-Här är C#-skriptkoden:
+Här är C# skriptkoden:
 
 ```cs
 public static void Run(string myQueueItem, string myInputBlob, out string myOutputBlob, ILogger log)
@@ -84,13 +84,13 @@ public static void Run(string myQueueItem, string myInputBlob, out string myOutp
 }
 ```
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[Javascript](#tab/javascript)
 
 <!--Same example for input and output. -->
 
-I följande exempel visas BLOB-indata och utdata-bindningar i en *Function. JSON* -fil och [JavaScript-kod](functions-reference-node.md) som använder bindningarna. Funktionen gör en kopia av en blob. Funktionen utlöses av ett köat meddelande som innehåller namnet på den blob som ska kopieras. Den nya blobben heter *{originalblobname}-Copy*.
+I följande exempel visas blob-indata och utdatabindningar i en *function.json-fil* och [JavaScript-kod](functions-reference-node.md) som använder bindningarna. Funktionen gör en kopia av en blob. Funktionen utlöses av ett kömeddelande som innehåller namnet på den blob som ska kopieras. Den nya blobben heter *{originalblobname}-Copy*.
 
-I *Function. JSON* -filen används `queueTrigger` metadata-egenskapen för att ange BLOB-namnet i `path` egenskaper:
+I *filen function.json* `queueTrigger` används egenskapen metadata för att ange `path` blob-namnet i egenskaperna:
 
 ```json
 {
@@ -121,9 +121,9 @@ I *Function. JSON* -filen används `queueTrigger` metadata-egenskapen för att a
 }
 ```
 
-I [konfigurations](#configuration) avsnittet förklaras dessa egenskaper.
+[Konfigurationsavsnittet](#configuration) förklarar dessa egenskaper.
 
-Här är JavaScript-kod:
+Här är JavaScript-koden:
 
 ```javascript
 module.exports = function(context) {
@@ -133,13 +133,13 @@ module.exports = function(context) {
 };
 ```
 
-# <a name="pythontabpython"></a>[Python](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 <!--Same example for input and output. -->
 
-I följande exempel visas BLOB-indata och utdata-bindningar i en *Function. JSON* -fil och [python-kod](functions-reference-python.md) som använder bindningarna. Funktionen gör en kopia av en blob. Funktionen utlöses av ett köat meddelande som innehåller namnet på den blob som ska kopieras. Den nya blobben heter *{originalblobname}-Copy*.
+I följande exempel visas blob-indata och utdatabindningar i en *function.json-fil* och [Python-kod](functions-reference-python.md) som använder bindningarna. Funktionen gör en kopia av en blob. Funktionen utlöses av ett kömeddelande som innehåller namnet på den blob som ska kopieras. Den nya blobben heter *{originalblobname}-Copy*.
 
-I *Function. JSON* -filen används `queueTrigger` metadata-egenskapen för att ange BLOB-namnet i `path` egenskaper:
+I *filen function.json* `queueTrigger` används egenskapen metadata för att ange `path` blob-namnet i egenskaperna:
 
 ```json
 {
@@ -171,9 +171,9 @@ I *Function. JSON* -filen används `queueTrigger` metadata-egenskapen för att a
 }
 ```
 
-I [konfigurations](#configuration) avsnittet förklaras dessa egenskaper.
+[Konfigurationsavsnittet](#configuration) förklarar dessa egenskaper.
 
-Här är python-koden:
+Här är Python-koden:
 
 ```python
 import logging
@@ -185,16 +185,16 @@ def main(queuemsg: func.QueueMessage, inputblob: func.InputStream) -> func.Input
     return inputblob
 ```
 
-# <a name="javatabjava"></a>[Java](#tab/java)
+# <a name="java"></a>[Java](#tab/java)
 
 Det här avsnittet innehåller följande exempel:
 
-* [HTTP-utlösare, slå upp BLOB-namn från frågesträng](#http-trigger-look-up-blob-name-from-query-string)
-* [Köa utlösare, ta emot BLOB-namn från köa meddelande](#queue-trigger-receive-blob-name-from-queue-message)
+* [HTTP-utlösare, slå upp blobnamn från frågesträngen](#http-trigger-look-up-blob-name-from-query-string)
+* [Köutlösare, ta emot blobnamn från kömeddelande](#queue-trigger-receive-blob-name-from-queue-message)
 
-#### <a name="http-trigger-look-up-blob-name-from-query-string"></a>HTTP-utlösare, slå upp BLOB-namn från frågesträng
+#### <a name="http-trigger-look-up-blob-name-from-query-string"></a>HTTP-utlösare, slå upp blobnamn från frågesträngen
 
- I följande exempel visas en Java-funktion som använder `HttpTrigger` kommentar för att ta emot en parameter som innehåller namnet på en fil i en Blob Storage-behållare. Den `BlobInput` kommentaren läser sedan filen och skickar innehållet till funktionen som en `byte[]`.
+ I följande exempel visas en `HttpTrigger` Java-funktion som använder anteckningen för att ta emot en parameter som innehåller namnet på en fil i en blob-lagringsbehållare. Anteckningen `BlobInput` läser sedan filen och skickar dess innehåll `byte[]`till funktionen som en .
 
 ```java
   @FunctionName("getBlobSizeHttp")
@@ -217,9 +217,9 @@ Det här avsnittet innehåller följande exempel:
   }
 ```
 
-#### <a name="queue-trigger-receive-blob-name-from-queue-message"></a>Köa utlösare, ta emot BLOB-namn från köa meddelande
+#### <a name="queue-trigger-receive-blob-name-from-queue-message"></a>Köutlösare, ta emot blobnamn från kömeddelande
 
- I följande exempel visas en Java-funktion som använder `QueueTrigger` kommentar för att ta emot ett meddelande som innehåller namnet på en fil i en Blob Storage-behållare. Den `BlobInput` kommentaren läser sedan filen och skickar innehållet till funktionen som en `byte[]`.
+ I följande exempel visas en `QueueTrigger` Java-funktion som använder anteckningen för att ta emot ett meddelande som innehåller namnet på en fil i en blob-lagringsbehållare. Anteckningen `BlobInput` läser sedan filen och skickar dess innehåll `byte[]`till funktionen som en .
 
 ```java
   @FunctionName("getBlobSize")
@@ -239,17 +239,17 @@ Det här avsnittet innehåller följande exempel:
   }
 ```
 
-I [Java Functions runtime-biblioteket](/java/api/overview/azure/functions/runtime)använder du `@BlobInput` kommentar för parametrar vars värde kommer från en blob.  Den här anteckningen kan användas med inbyggda Java-typer, Pojo eller null-värden med hjälp av `Optional<T>`.
+I [Java-funktionernas körningsbibliotek](/java/api/overview/azure/functions/runtime)använder du anteckningen `@BlobInput` på parametrar vars värde skulle komma från en blob.  Den här anteckningen kan användas med inbyggda Java-typer, `Optional<T>`POJOs eller nullable värden med .
 
 ---
 
 ## <a name="attributes-and-annotations"></a>Attribut och anteckningar
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
-Använd [BlobAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/dev/src/Microsoft.Azure.WebJobs.Extensions.Storage/Blobs/BlobAttribute.cs)i [ C# klass bibliotek](functions-dotnet-class-library.md).
+I [klassbibliotek för C#](functions-dotnet-class-library.md)använder du [BlobAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/dev/src/Microsoft.Azure.WebJobs.Extensions.Storage/Blobs/BlobAttribute.cs).
 
-Attributets konstruktor tar sökvägen till blobben och en `FileAccess` parameter som visar Läs-eller Skriv åtgärder, som visas i följande exempel:
+Attributets konstruktor tar sökvägen till `FileAccess` blobben och en parameter som anger läsning eller skrivning, som visas i följande exempel:
 
 ```csharp
 [FunctionName("BlobInput")]
@@ -263,7 +263,7 @@ public static void Run(
 
 ```
 
-Du kan ställa in egenskapen `Connection` för att ange det lagrings konto som ska användas, som du ser i följande exempel:
+Du kan `Connection` ange egenskapen för att ange vilket lagringskonto som ska användas, som visas i följande exempel:
 
 ```csharp
 [FunctionName("BlobInput")]
@@ -276,66 +276,66 @@ public static void Run(
 }
 ```
 
-Du kan använda attributet `StorageAccount` för att ange lagrings kontot på klass-, metod-eller parameter nivå. Mer information finns i avsnittet om [utlösare-attribut och anteckningar](./functions-bindings-storage-blob-trigger.md#attributes-and-annotations).
+Du kan `StorageAccount` använda attributet för att ange lagringskontot på klass-, metod- eller parameternivå. Mer information finns i [Utlösare - attribut och anteckningar](./functions-bindings-storage-blob-trigger.md#attributes-and-annotations).
 
-# <a name="c-scripttabcsharp-script"></a>[C#Över](#tab/csharp-script)
+# <a name="c-script"></a>[C# Skript](#tab/csharp-script)
 
-Attribut stöds inte av C# skript.
+Attribut stöds inte av C# Script.
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[Javascript](#tab/javascript)
 
-Attribut stöds inte av Java Script.
+Attribut stöds inte av JavaScript.
 
-# <a name="pythontabpython"></a>[Python](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
-Attribut stöds inte av python.
+Attribut stöds inte av Python.
 
-# <a name="javatabjava"></a>[Java](#tab/java)
+# <a name="java"></a>[Java](#tab/java)
 
-Attributet `@BlobInput` ger dig åtkomst till den blob som utlöste funktionen. Om du använder en byte mat ris med attributet anger `dataType` till `binary`. Mer information finns i [indata-exemplet](#example) .
+Attributet `@BlobInput` ger dig åtkomst till bloben som utlöste funktionen. Om du använder en bytematris `dataType` `binary`med attributet ställer du in på . Mer information finns i [indataexemplet.](#example)
 
 ---
 
 ## <a name="configuration"></a>Konfiguration
 
-I följande tabell förklaras de egenskaper för bindnings konfiguration som du anger i filen *Function. JSON* och `Blob`-attributet.
+I följande tabell beskrivs de bindningskonfigurationsegenskaper som `Blob` du anger i *filen function.json* och attributet.
 
-|Function.JSON egenskap | Attributegenskapen |Beskrivning|
+|egenskapen function.json | Egenskapen Attribute |Beskrivning|
 |---------|---------|----------------------|
-|**typ** | Saknas | måste anges till `blob`. |
-|**riktning** | Saknas | måste anges till `in`. Undantag anges i [användnings](#usage) avsnittet. |
-|**Namn** | Saknas | Namnet på variabeln som representerar blobben i funktions koden.|
-|**path** |**BlobPath** | Sökvägen till blobben. |
-|**anslutningen** |**Anslutning**| Namnet på en app-inställning som innehåller den [lagrings anslutnings sträng](../storage/common/storage-configure-connection-string.md) som ska användas för den här bindningen. Om appens inställnings namn börjar med "AzureWebJobs" kan du bara ange resten av namnet här. Om du till exempel ställer in `connection` till "telestorage" söker Functions-körningen efter en app-inställning med namnet "AzureWebJobsMyStorage". Om du lämnar `connection` tomt använder Functions-körningen standard anslutnings strängen för lagring i den app-inställning som heter `AzureWebJobsStorage`.<br><br>Anslutnings strängen måste vara avsedd för ett allmänt lagrings konto, inte ett [enbart BLOB-lagrings konto](../storage/common/storage-account-overview.md#types-of-storage-accounts).|
+|**Typ** | Saknas | Måste ställas `blob`in på . |
+|**riktning** | Saknas | Måste ställas `in`in på . Undantag anges i [avsnittet användning.](#usage) |
+|**Namn** | Saknas | Namnet på variabeln som representerar blobben i funktionskoden.|
+|**Sökvägen** |**BlobPath** | Sökvägen till blobben. |
+|**Anslutning** |**Anslutning**| Namnet på en appinställning som innehåller [anslutningssträngen Lagring](../storage/common/storage-configure-connection-string.md) som ska användas för den här bindningen. Om appinställningsnamnet börjar med "AzureWebJobs" kan du bara ange resten av namnet här. Om du till `connection` exempel anger "MyStorage" söker körtiden Funktioner efter en appinställning med namnet "AzureWebJobsMyStorage". Om du `connection` lämnar tom använder körtiden Funktioner standardanslutningssträngen för `AzureWebJobsStorage`lagring i appinställningen som heter .<br><br>Anslutningssträngen måste vara för ett allmänt lagringskonto, inte ett [lagringskonto med endast blob.](../storage/common/storage-account-overview.md#types-of-storage-accounts)|
 |Saknas | **Åtkomst** | Anger om du kommer att läsa eller skriva. |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
 ## <a name="usage"></a>Användning
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 [!INCLUDE [functions-bindings-blob-storage-input-usage.md](../../includes/functions-bindings-blob-storage-input-usage.md)]
 
-# <a name="c-scripttabcsharp-script"></a>[C#Över](#tab/csharp-script)
+# <a name="c-script"></a>[C# Skript](#tab/csharp-script)
 
 [!INCLUDE [functions-bindings-blob-storage-input-usage.md](../../includes/functions-bindings-blob-storage-input-usage.md)]
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[Javascript](#tab/javascript)
 
-Få åtkomst till BLOB-data med `context.bindings.<NAME>` där `<NAME>` matchar värdet som definierats i *Function. JSON*.
+Åtkomst blob `context.bindings.<NAME>` data `<NAME>` med var matchar det värde som definieras i *function.json*.
 
-# <a name="pythontabpython"></a>[Python](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
-Få åtkomst till BLOB-data via parametern som anges som [InputStream](https://docs.microsoft.com/python/api/azure-functions/azure.functions.inputstream?view=azure-python). Mer information finns i [indata-exemplet](#example) .
+Få åtkomst till blob-data via parametern som skrivs som [InputStream](https://docs.microsoft.com/python/api/azure-functions/azure.functions.inputstream?view=azure-python). Mer information finns i [indataexemplet.](#example)
 
-# <a name="javatabjava"></a>[Java](#tab/java)
+# <a name="java"></a>[Java](#tab/java)
 
-Attributet `@BlobInput` ger dig åtkomst till den blob som utlöste funktionen. Om du använder en byte mat ris med attributet anger `dataType` till `binary`. Mer information finns i [indata-exemplet](#example) .
+Attributet `@BlobInput` ger dig åtkomst till bloben som utlöste funktionen. Om du använder en bytematris `dataType` `binary`med attributet ställer du in på . Mer information finns i [indataexemplet.](#example)
 
 ---
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Köra en funktion när Blob Storage-data ändras](./functions-bindings-storage-blob-trigger.md)
-- [Skriv Blob Storage-data från en funktion](./functions-bindings-storage-blob-output.md)
+- [Köra en funktion när blob-lagringsdata ändras](./functions-bindings-storage-blob-trigger.md)
+- [Skriva bloblagringsdata från en funktion](./functions-bindings-storage-blob-output.md)

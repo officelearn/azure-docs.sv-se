@@ -1,55 +1,55 @@
 ---
-title: Azure Functions uppvärmnings-utlösare
-description: Lär dig hur du använder uppvärmnings-utlösaren i Azure Functions.
+title: Azure Functions uppvärmningsutlösare
+description: Förstå hur du använder uppvärmningsutlösaren i Azure Functions.
 documentationcenter: na
 author: alexkarcher-msft
 manager: gwallace
-keywords: Azure Functions, functions, Event Processing, uppvärmnings, kall start, Premium, dynamisk beräkning, Server lös arkitektur
+keywords: azure funktioner, funktioner, händelsebearbetning, uppvärmning, kallstart, premium, dynamisk beräkning, serverlös arkitektur
 ms.service: azure-functions
 ms.topic: reference
 ms.date: 11/08/2019
 ms.author: alkarche
 ms.openlocfilehash: c3ed780bc50b690b2f5c3285024695ec6426b9b3
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77167317"
 ---
-# <a name="azure-functions-warm-up-trigger"></a>Azure Functions värme utlösare
+# <a name="azure-functions-warm-up-trigger"></a>Uppvärmningsutlösning för Azure Functions
 
-Den här artikeln förklarar hur du arbetar med uppvärmnings-utlösaren i Azure Functions. Uppvärmnings-utlösaren stöds bara för Function-appar som körs i en [Premium-plan](functions-premium-plan.md). En uppvärmnings-utlösare anropas när en instans läggs till för att skala en app som körs i funktion. Du kan använda en uppvärmnings-utlösare för att i förväg läsa in anpassade beroenden under för [uppvärmnings processen](./functions-premium-plan.md#pre-warmed-instances) , så att funktionerna kan börja bearbeta begär Anden direkt. 
+I den här artikeln beskrivs hur du arbetar med uppvärmningsutlösaren i Azure Functions. Uppvärmningsutlösaren stöds endast för funktionsappar som körs i en [Premium-plan](functions-premium-plan.md). En uppvärmningsutlösare anropas när en instans läggs till för att skala en funktionsapp som körs. Du kan använda en uppvärmningsutlösare för att förinläsning av anpassade beroenden under [förvärmningsprocessen](./functions-premium-plan.md#pre-warmed-instances) så att dina funktioner är redo att börja bearbeta begäranden omedelbart. 
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-## <a name="packages---functions-2x-and-higher"></a>Paket-funktioner 2. x och högre
+## <a name="packages---functions-2x-and-higher"></a>Paket - Funktioner 2.x och högre
 
-[Microsoft. Azure. WebJobs. Extensions](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions) NuGet-paketet, version **3.0.5 eller högre** krävs. Käll koden för paketet finns i [Azure-WebJobs-SDK-Extensions GitHub-](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.Http/) lagringsplatsen. 
+[Microsoft.Azure.WebJobs.Extensions](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions) NuGet-paketet, version **3.0.5 eller senare** krävs. Källkoden för paketet finns i [azure-webjobs-sdk-extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.Http/) GitHub-databasen. 
 
 [!INCLUDE [functions-package](../../includes/functions-package-auto.md)]
 
 ## <a name="trigger"></a>Utlösare
 
-Med uppvärmnings-utlösaren kan du definiera en funktion som ska köras på en ny instans när den läggs till i appen som körs. Du kan använda en uppvärmnings-funktion för att öppna anslutningar, läsa in beroenden eller köra någon annan anpassad logik innan appen tar emot trafik. 
+Med uppvärmningsutlösaren kan du definiera en funktion som ska köras på en ny instans när den läggs till i din app som körs. Du kan använda en uppvärmningsfunktion för att öppna anslutningar, läsa in beroenden eller köra någon annan anpassad logik innan appen börjar ta emot trafik. 
 
-Uppvärmnings-utlösaren är avsedd att skapa delade beroenden som kommer att användas av andra funktioner i din app. [Se exempel på delade beroenden här](./manage-connections.md#client-code-examples).
+Uppvärmningsutlösaren är avsedd att skapa delade beroenden som ska användas av de andra funktionerna i appen. [Se exempel på delade beroenden här](./manage-connections.md#client-code-examples).
 
-Observera att uppvärmnings-utlösaren endast anropas under skalnings åtgärder, inte under omstarter eller andra icke-skalnings starter. Du måste se till att din logik kan läsa in alla nödvändiga beroenden utan att använda uppvärmnings-utlösaren. Enkel inläsning är ett utmärkt mönster för att uppnå detta.
+Observera att uppvärmningsutlösaren endast anropas under utskalningsåtgärder, inte vid omstarter eller andra icke-skalningsstarter. Du måste se till att din logik kan läsa in alla nödvändiga beroenden utan att använda uppvärmningsutlösaren. Lazy lastning är ett bra mönster för att uppnå detta.
 
 ## <a name="trigger---example"></a>Utlösare - exempel
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
-I följande exempel visas en [ C# funktion](functions-dotnet-class-library.md) som körs på varje ny instans när den läggs till i din app. Ett attribut för retur värde är inte obligatoriskt.
+I följande exempel visas en [C#-funktion](functions-dotnet-class-library.md) som körs på varje ny instans när den läggs till i appen. Ett returvärdeattribut krävs inte.
 
 
-* Din funktion måste ha namnet ```warmup``` (inte Skift läges känsligt) och det kan bara finnas en uppvärmnings-funktion per app.
-* Om du vill använda uppvärmnings som en .NET-klass biblioteks funktion kontrollerar du att du har en paket referens till **Microsoft. Azure. WebJobs. extensions > = 3.0.5**
+* Din funktion måste ```warmup``` namnges (skiftlägesokänslig) och det kanske bara finns en uppvärmningsfunktion per app.
+* Om du vill använda uppvärmning som en .NET-klassbiblioteksfunktion kontrollerar du att du har en paketreferens till **Microsoft.Azure.WebJobs.Extensions >= 3.0.5**
     * ```<PackageReference Include="Microsoft.Azure.WebJobs.Extensions" Version="3.0.5" />```
 
 
-Plats hållare kommentarer visar var i programmet att deklarera och initiera delade beroenden. 
-[Lär dig mer om delade beroenden här](./manage-connections.md#client-code-examples).
+Platshållarkommentarer visar var i programmet som ska deklarera och initiera delade beroenden. 
+[Läs mer om delade beroenden här](./manage-connections.md#client-code-examples).
 
 ```cs
 using Microsoft.Azure.WebJobs;
@@ -73,14 +73,14 @@ namespace WarmupSample
     }
 }
 ```
-# <a name="c-scripttabcsharp-script"></a>[C#Över](#tab/csharp-script)
+# <a name="c-script"></a>[C# Skript](#tab/csharp-script)
 
 
-I följande exempel visas en uppvärmnings-utlösare i en *Function. JSON* -fil och en [ C# skript funktion](functions-reference-csharp.md) som ska köras på varje ny instans när den läggs till i din app.
+I följande exempel visas en uppvärmningsutlösare i en *function.json-fil* och en [C#-skriptfunktion](functions-reference-csharp.md) som körs på varje ny instans när den läggs till i appen.
 
-Din funktion måste ha namnet ```warmup``` (inte Skift läges känsligt) och det kan bara finnas en uppvärmnings-funktion per app.
+Din funktion måste ```warmup``` namnges (skiftlägesokänslig), och det kanske bara finns en uppvärmningsfunktion per app.
 
-Här är *Function. JSON* -filen:
+Här är *filen function.json:*
 
 ```json
 {
@@ -94,9 +94,9 @@ Här är *Function. JSON* -filen:
 }
 ```
 
-I [konfigurations](#trigger---configuration) avsnittet förklaras dessa egenskaper.
+[Konfigurationsavsnittet](#trigger---configuration) förklarar dessa egenskaper.
 
-Här är C# skript koden som binder till `HttpRequest`:
+Här är C # skriptkod `HttpRequest`som binder till:
 
 ```cs
 public static void Run(ILogger log)
@@ -105,13 +105,13 @@ public static void Run(ILogger log)
 }
 ```
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[Javascript](#tab/javascript)
 
-I följande exempel visas en uppvärmnings-utlösare i en *Function. JSON* -fil och en [JavaScript-funktion](functions-reference-node.md) som ska köras på varje ny instans när den läggs till i din app.
+I följande exempel visas en uppvärmningsutlösare i en *function.json-fil* och en [JavaScript-funktion](functions-reference-node.md) som körs på varje ny instans när den läggs till i din app.
 
-Din funktion måste ha namnet ```warmup``` (inte Skift läges känsligt) och det kan bara finnas en uppvärmnings-funktion per app.
+Din funktion måste ```warmup``` namnges (skiftlägesokänslig) och det kanske bara finns en uppvärmningsfunktion per app.
 
-Här är *Function. JSON* -filen:
+Här är *filen function.json:*
 
 ```json
 {
@@ -125,9 +125,9 @@ Här är *Function. JSON* -filen:
 }
 ```
 
-I [konfigurations](#trigger---configuration) avsnittet förklaras dessa egenskaper.
+[Konfigurationsavsnittet](#trigger---configuration) förklarar dessa egenskaper.
 
-Här är JavaScript-kod:
+Här är JavaScript-koden:
 
 ```javascript
 module.exports = async function (context, warmupContext) {
@@ -136,13 +136,13 @@ module.exports = async function (context, warmupContext) {
 };
 ```
 
-# <a name="pythontabpython"></a>[Python](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
-I följande exempel visas en uppvärmnings-utlösare i en *Function. JSON* -fil och en [python-funktion](functions-reference-python.md) som ska köras på varje ny instans när den läggs till i din app.
+I följande exempel visas en uppvärmningsutlösare i en *function.json-fil* och en [Python-funktion](functions-reference-python.md) som körs på varje ny instans när den läggs till i din app.
 
-Din funktion måste ha namnet ```warmup``` (inte Skift läges känsligt) och det kan bara finnas en uppvärmnings-funktion per app.
+Din funktion måste ```warmup``` namnges (skiftlägesokänslig) och det kanske bara finns en uppvärmningsfunktion per app.
 
-Här är *Function. JSON* -filen:
+Här är *filen function.json:*
 
 ```json
 {
@@ -156,9 +156,9 @@ Här är *Function. JSON* -filen:
 }
 ```
 
-I [konfigurations](#trigger---configuration) avsnittet förklaras dessa egenskaper.
+[Konfigurationsavsnittet](#trigger---configuration) förklarar dessa egenskaper.
 
-Här är python-koden:
+Här är Python-koden:
 
 ```python
 import logging
@@ -169,11 +169,11 @@ def main(warmupContext: func.Context) -> None:
     logging.info('Function App instance is warm 🌞🌞🌞')
 ```
 
-# <a name="javatabjava"></a>[Java](#tab/java)
+# <a name="java"></a>[Java](#tab/java)
 
-I följande exempel visas en uppvärmnings-utlösare som körs när varje ny instans läggs till i din app.
+I följande exempel visas en uppvärmningsutlösare som körs när varje ny instans läggs till i appen.
 
-Din funktion måste ha namnet `warmup` (inte Skift läges känsligt) och det kan bara finnas en uppvärmnings-funktion per app.
+Din funktion måste `warmup` namnges (skiftlägesokänslig) och det kanske bara finns en uppvärmningsfunktion per app.
 
 ```java
 @FunctionName("Warmup")
@@ -186,13 +186,13 @@ public void run( ExecutionContext context) {
 
 ## <a name="trigger---attributes"></a>Utlösare - attribut
 
-I [ C# klass bibliotek](functions-dotnet-class-library.md)är `WarmupTrigger` attributet tillgängligt för att konfigurera funktionen.
+I [klassbibliotek för C#](functions-dotnet-class-library.md)är `WarmupTrigger` attributet tillgängligt för att konfigurera funktionen.
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
-Det här exemplet visar hur du använder attributet [uppvärmnings](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/dev/src/WebJobs.Extensions/Extensions/Warmup/Trigger/WarmupTriggerAttribute.cs) .
+Det här exemplet visar [warmup](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/dev/src/WebJobs.Extensions/Extensions/Warmup/Trigger/WarmupTriggerAttribute.cs) hur du använder warmup-attributet.
 
-Observera att funktionen måste anropas ```Warmup``` och det får bara finnas en uppvärmnings-funktion per app.
+Observera att din funktion ```Warmup``` måste anropas och att det bara kan finnas en uppvärmningsfunktion per app.
 
 ```csharp
  [FunctionName("Warmup")]
@@ -203,47 +203,47 @@ Observera att funktionen måste anropas ```Warmup``` och det får bara finnas en
         }
 ```
 
-Ett fullständigt exempel finns i [utlösaren exempel](#trigger---example).
+Ett fullständigt exempel finns i [utlösarexempeln](#trigger---example).
 
-# <a name="c-scripttabcsharp-script"></a>[C#Över](#tab/csharp-script)
+# <a name="c-script"></a>[C# Skript](#tab/csharp-script)
 
-Attribut stöds inte av C# skript.
+Attribut stöds inte av C# Script.
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[Javascript](#tab/javascript)
 
-Attribut stöds inte av Java Script.
+Attribut stöds inte av JavaScript.
 
-# <a name="pythontabpython"></a>[Python](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
-Attribut stöds inte av python.
+Attribut stöds inte av Python.
 
-# <a name="javatabjava"></a>[Java](#tab/java)
+# <a name="java"></a>[Java](#tab/java)
 
-Uppvärmnings-utlösaren stöds inte i Java som ett attribut.
+Uppvärmningsutlösaren stöds inte i Java som attribut.
 
 ---
 
 ## <a name="trigger---configuration"></a>Utlösare - konfiguration
 
-I följande tabell förklaras de egenskaper för bindnings konfiguration som du anger i filen *Function. JSON* och `WarmupTrigger`-attributet.
+I följande tabell beskrivs de bindningskonfigurationsegenskaper som `WarmupTrigger` du anger i *filen function.json* och attributet.
 
-|Function.JSON egenskap | Attributegenskapen |Beskrivning|
+|egenskapen function.json | Egenskapen Attribute |Beskrivning|
 |---------|---------|----------------------|
-| **typ** | Saknas| Required-måste anges till `warmupTrigger`. |
-| **riktning** | Saknas| Required-måste anges till `in`. |
-| **Namn** | Saknas| Obligatoriskt – variabel namnet som används i funktions koden.|
+| **Typ** | Saknas| Obligatoriskt - måste `warmupTrigger`ställas in på . |
+| **riktning** | Saknas| Obligatoriskt - måste `in`ställas in på . |
+| **Namn** | Saknas| Obligatoriskt - variabelnamnet som används i funktionskoden.|
 
 ## <a name="trigger---usage"></a>Utlösare - användning
 
-Ingen ytterligare information ges till en uppvärmnings-utlöst funktion när den anropas.
+Ingen ytterligare information ges till en uppvärmningsutlöst funktion när den anropas.
 
-## <a name="trigger---limits"></a>Utlösare – gränser
+## <a name="trigger---limits"></a>Utlösare - gränser
 
-* Uppvärmnings-utlösaren är endast tillgänglig för appar som körs i [Premium-planen](./functions-premium-plan.md).
-* Uppvärmnings-utlösaren anropas bara under skalnings åtgärder, inte vid omstarter eller andra icke-skalbara starter. Du måste se till att din logik kan läsa in alla nödvändiga beroenden utan att använda uppvärmnings-utlösaren. Enkel inläsning är ett utmärkt mönster för att uppnå detta.
-* Uppvärmnings-utlösaren kan inte anropas när en instans redan körs.
-* Det får bara finnas en funktion för uppvärmnings-utlösare per Function-app.
+* Uppvärmningsutlösaren är endast tillgänglig för appar som körs på [Premium-planen](./functions-premium-plan.md).
+* Uppvärmningsutlösaren anropas endast under uppskalningsåtgärder, inte vid omstarter eller andra icke-skalningsstarter. Du måste se till att din logik kan läsa in alla nödvändiga beroenden utan att använda uppvärmningsutlösaren. Lazy lastning är ett bra mönster för att uppnå detta.
+* Uppvärmningsutlösaren kan inte anropas när en instans redan körs.
+* Det kan bara finnas en uppvärmningsutlösare funktion per funktionsapp.
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Lär dig mer om Azure Functions-utlösare och bindningar](functions-triggers-bindings.md)
+[Läs mer om Utlösare och bindningar för Azure-funktioner](functions-triggers-bindings.md)

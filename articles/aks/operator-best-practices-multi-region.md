@@ -1,6 +1,6 @@
 ---
-title: Hög tillgänglighet och haveri beredskap i Azure Kubernetes service (AKS)
-description: Lär dig mer om en kluster operatörs bästa praxis för att uppnå maximal drift tid för dina program, vilket ger hög tillgänglighet och förbereder för haveri beredskap i Azure Kubernetes service (AKS).
+title: Hög tillgänglighet och haveriberedskap i Azure Kubernetes Service (AKS)
+description: Lär dig en klusteroperatörs bästa praxis för att uppnå maximal drifttid för dina program, tillhandahålla hög tillgänglighet och förbereda för haveriberedskap i Azure Kubernetes Service (AKS).
 services: container-service
 author: lastcoolnameleft
 ms.topic: conceptual
@@ -8,134 +8,134 @@ ms.date: 11/28/2018
 ms.author: thfalgou
 ms.custom: fasttrack-edit
 ms.openlocfilehash: 894ec4e543f0c68cc652141d2c1578cda61d7f42
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77594761"
 ---
-# <a name="best-practices-for-business-continuity-and-disaster-recovery-in-azure-kubernetes-service-aks"></a>Metod tips för verksamhets kontinuitet och haveri beredskap i Azure Kubernetes service (AKS)
+# <a name="best-practices-for-business-continuity-and-disaster-recovery-in-azure-kubernetes-service-aks"></a>Metodtips för kontinuitet och haveriberedskap i Azure Kubernetes Service (AKS)
 
-När du hanterar kluster i Azure Kubernetes service (AKS) blir programmets drift tid viktig. AKS ger hög tillgänglighet genom att använda flera noder i en tillgänglighets uppsättning. Men dessa flera noder skyddar inte systemet från ett regions haveri. Du kan maximera drift tiden genom att planera i förväg för att upprätthålla affärs kontinuiteten och förbereda för haveri beredskap.
+När du hanterar kluster i Azure Kubernetes Service (AKS) blir programdrifttid viktigt. AKS ger hög tillgänglighet genom att använda flera noder i en tillgänglighetsuppsättning. Men dessa flera noder skyddar inte ditt system från ett regionfel. För att maximera din drifttid, planera i förväg för att upprätthålla kontinuiteten i verksamheten och förbereda sig för haveriberedskap.
 
-Den här artikeln fokuserar på hur du planerar för verksamhets kontinuitet och haveri beredskap i AKS. Lär dig att:
+Den här artikeln fokuserar på hur du planerar för affärskontinuitet och haveriberedskap i AKS. Lär dig att:
 
 > [!div class="checklist"]
 > * Planera för AKS-kluster i flera regioner.
 > * Dirigera trafik över flera kluster med hjälp av Azure Traffic Manager.
-> * Använd geo-replikering för dina register för behållar avbildningar.
-> * Planera för program tillstånd över flera kluster.
-> * Replikera lagringen över flera regioner.
+> * Använd georeplikering för behållaravbildningsregister.
+> * Planera för programtillstånd i flera kluster.
+> * Replikera lagring i flera regioner.
 
 ## <a name="plan-for-multiregion-deployment"></a>Planera för distribution i flera regioner
 
-**Bästa praxis**: när du distribuerar flera AKS-kluster väljer du regioner där AKS är tillgängligt och använder kopplade regioner.
+**Bästa praxis:** När du distribuerar flera AKS-kluster väljer du regioner där AKS är tillgängligt och använder parade regioner.
 
-Ett AKS-kluster distribueras till en enda region. Om du vill skydda systemet från regions fel kan du distribuera programmet till flera AKS-kluster i olika regioner. När du planerar var du ska distribuera ditt AKS-kluster bör du tänka på följande:
+Ett AKS-kluster distribueras till en enda region. För att skydda ditt system från regionfel distribuerar du ditt program till flera AKS-kluster i olika regioner. När du planerar var du ska distribuera AKS-klustret bör du tänka på följande:
 
-* [**AKS region tillgänglighet**](https://docs.microsoft.com/azure/aks/quotas-skus-regions#region-availability): Välj regioner som är nära dina användare. AKS utökas kontinuerligt till nya regioner.
-* [**Azure-kopplade regioner**](https://docs.microsoft.com/azure/best-practices-availability-paired-regions): Välj två regioner i det geografiska område som är kopplade till varandra. Kopplade regioner koordinerar plattforms uppdateringar och prioriterar återställnings ansträngningar vid behov.
-* **Tjänst tillgänglighet**: Bestäm om dina kopplade regioner ska vara frekvent/frekvent, varm/varm eller varm/kall. Vill du köra båda regionerna samtidigt, och en region är *redo* att börja betjäna trafik? Eller vill du att en region ska ha tid att bli redo att betjäna trafiken?
+* [**AKS-regionens tillgänglighet**](https://docs.microsoft.com/azure/aks/quotas-skus-regions#region-availability): Välj regioner nära användarna. AKS expanderar kontinuerligt till nya regioner.
+* [**Azure-parade regioner**](https://docs.microsoft.com/azure/best-practices-availability-paired-regions): För ditt geografiska område väljer du två regioner som är ihopkopplade med varandra. Parade regioner samordnar plattformsuppdateringar och prioriterar återställningsinsatser där det behövs.
+* **Tjänstens tillgänglighet**: Bestäm om dina parade områden ska vara varma/varma, varma/varma eller varma/kalla. Vill du köra båda regionerna samtidigt, med en region *redo* att börja betjäna trafik? Eller vill du att en region ska ha tid att göra sig redo att betjäna trafiken?
 
-AKS regions tillgänglighet och kopplade regioner är ett gemensamt övervägande. Distribuera dina AKS-kluster i kopplade regioner som är utformade för att hantera Disaster Recovery för regioner tillsammans. Till exempel är AKS tillgängligt i USA, östra och västra USA. Dessa regioner är kopplade till varandra. Välj dessa två regioner när du skapar en AKS BC/DR-strategi.
+AKS-regionens tillgänglighet och parade regioner är en gemensam faktor. Distribuera dina AKS-kluster i parade regioner som är utformade för att hantera regionkatastrofåterställning tillsammans. Aks är till exempel tillgängligt i östra USA och västra USA. Dessa regioner är parade. Välj dessa två regioner när du skapar en AKS BC/DR-strategi.
 
-När du distribuerar ditt program lägger du till ett annat steg till din CI/CD-pipeline för att distribuera till dessa flera AKS-kluster. Om du inte uppdaterar dina distributions pipeliner kan program distribueras till endast en av dina regioner och AKS-kluster. Kund trafik som dirigeras till en sekundär region tar inte emot de senaste kod uppdateringarna.
+När du distribuerar ditt program lägger du till ytterligare ett steg i CI/CD-pipelinen för att distribuera till dessa flera AKS-kluster. Om du inte uppdaterar dina distributionspipelines kan program distribueras till endast en av dina regioner och AKS-kluster. Kundtrafik som dirigeras till en sekundär region får inte de senaste koduppdateringarna.
 
-## <a name="use-azure-traffic-manager-to-route-traffic"></a>Använd Azure Traffic Manager för att dirigera trafik
+## <a name="use-azure-traffic-manager-to-route-traffic"></a>Använda Azure Traffic Manager för att dirigera trafik
 
-**Bästa praxis**: Azure Traffic Manager kan dirigera kunder till sitt närmaste AKS-kluster och program instans. För bästa prestanda och redundans ska du dirigera all program trafik genom Traffic Manager innan den går till ditt AKS-kluster.
+**Bästa praxis:** Azure Traffic Manager kan dirigera kunder till deras närmaste AKS-kluster och programinstans. För bästa prestanda och redundans kan du styra all programtrafik via Traffic Manager innan den går till AKS-klustret.
 
-Om du har flera AKS-kluster i olika regioner använder du Traffic Manager för att styra hur trafiken flödar till de program som körs i varje kluster. [Azure Traffic Manager](https://docs.microsoft.com/azure/traffic-manager/) är en DNS-baserad trafikbelastnings utjämning som kan distribuera nätverks trafik över flera regioner. Använd Traffic Manager för att dirigera användare baserat på kluster svars tid eller baserat på geografi.
+Om du har flera AKS-kluster i olika regioner använder du Traffic Manager för att styra hur trafiken flödar till de program som körs i varje kluster. [Azure Traffic Manager](https://docs.microsoft.com/azure/traffic-manager/) är en DNS-baserad trafikbelastningsutjämningsfaktor som kan distribuera nätverkstrafik mellan regioner. Använd Traffic Manager för att dirigera användare baserat på klustersvarstid eller baserat på geografi.
 
 ![AKS med Traffic Manager](media/operator-best-practices-bc-dr/aks-azure-traffic-manager.png)
 
-Kunder som har ett enda AKS-kluster ansluter vanligt vis till tjänstens IP-adress eller DNS-namn för ett visst program. I en distribution med multikluster bör kunderna ansluta till ett Traffic Manager DNS-namn som pekar på tjänsterna på varje AKS-kluster. Definiera de här tjänsterna genom att använda Traffic Manager-slutpunkter. Varje slut punkt är *IP för tjänst belastnings utjämning*. Använd den här konfigurationen för att dirigera nätverks trafik från Traffic Manager slut punkt i en region till slut punkten i en annan region.
+Kunder som har ett enda AKS-kluster ansluter vanligtvis till tjänstens IP- eller DNS-namn för ett visst program. I en multicluster-distribution bör kunder ansluta till ett Traffic Manager DNS-namn som pekar på tjänsterna i varje AKS-kluster. Definiera dessa tjänster med hjälp av Traffic Manager-slutpunkter. Varje slutpunkt är *tjänsten belastningsutjämnare IP*. Använd den här konfigurationen för att dirigera nätverkstrafik från Traffic Manager-slutpunkten i en region till slutpunkten i en annan region.
 
-![Geografisk routning genom Traffic Manager](media/operator-best-practices-bc-dr/traffic-manager-geographic-routing.png)
+![Geografisk routning via Traffic Manager](media/operator-best-practices-bc-dr/traffic-manager-geographic-routing.png)
 
-Traffic Manager utför DNS-sökningar och returnerar en användares lämpligaste slut punkt. Kapslade profiler kan prioritera en primär plats. Till exempel bör användare vanligt vis ansluta till deras närmaste geografiska region. Om den här regionen har ett problem kan Traffic Manager i stället dirigera användarna till en sekundär region. Den här metoden säkerställer att kunder kan ansluta till en program instans även om deras närmaste geografiska region inte är tillgänglig.
+Traffic Manager utför DNS-sökning och returnerar en användares lämpligaste slutpunkt. Kapslade profiler kan prioritera en primär plats. Användare bör till exempel i allmänhet ansluta till sin närmaste geografiska region. Om den regionen har problem dirigerar Traffic Manager i stället användarna till en sekundär region. Den här metoden säkerställer att kunder kan ansluta till en programinstans även om deras närmaste geografiska region inte är tillgänglig.
 
-Information om hur du konfigurerar slut punkter och routning finns i [Konfigurera principen för geografisk trafik cirkulation med hjälp av Traffic Manager](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-configure-geographic-routing-method).
+Information om hur du ställer in slutpunkter och routning finns i [Konfigurera den geografiska trafikroutningsmetoden med hjälp av Traffic Manager](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-configure-geographic-routing-method).
 
-### <a name="layer-7-application-routing-with-azure-front-door-service"></a>Layer 7-programroutning med Azure-tjänsten för front dörr
+### <a name="layer-7-application-routing-with-azure-front-door-service"></a>Layer 7-programroutning med Azure Front Door Service
 
-Traffic Manager använder DNS (skikt 3) för att forma trafik. [Azure frontend-tjänsten](https://docs.microsoft.com/azure/frontdoor/front-door-overview) tillhandahåller ett alternativ för att dirigera http/https (Layer 7). Ytterligare funktioner i Azures frontend-tjänst omfattar SSL-avslutning, anpassad domän, brand vägg för webb program, URL-omskrivning och tillhörighet mellan sessioner. Granska behoven hos din program trafik för att förstå vilken lösning som passar bäst.
+Traffic Manager använder DNS (lager 3) för att forma trafik. [Azure Front Door Service](https://docs.microsoft.com/azure/frontdoor/front-door-overview) tillhandahåller ett HTTP/HTTPS-routningsalternativ (layer 7). Ytterligare funktioner i Azure Front Door Service inkluderar SSL-avslutning, anpassad domän, brandvägg för webbprogram, URL-omskrivning och sessionstillhörighet. Granska behoven hos din programtrafik för att förstå vilken lösning som är mest lämplig.
 
-### <a name="interconnect-regions-with-global-virtual-network-peering"></a>Interconnect-regioner med global peering för virtuella nätverk
+### <a name="interconnect-regions-with-global-virtual-network-peering"></a>Koppla samman regioner med global virtuell nätverks peering
 
-Om klustren måste kommunicera med varandra kan du ansluta båda virtuella nätverken till varandra via [peering för virtuella nätverk](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview). Den här tekniken sammankopplar virtuella nätverk till varandra med hög bandbredd i Microsofts stamnät nätverk, även i olika geografiska regioner.
+Om klustren behöver prata med varandra kan anslutning av båda virtuella nätverk till varandra uppnås genom [virtuell nätverks peering](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview). Den här tekniken kopplar samman virtuella nätverk till varandra och ger hög bandbredd i Microsofts stamnät, även mellan olika geografiska regioner.
 
-En förutsättning för att peer-koppla virtuella nätverk där AKS-kluster körs är att använda standard Load Balancer i ditt AKS-kluster, så att Kubernetes-tjänsterna kan uppnås i det virtuella nätverkets peering.
+En förutsättning för att peer de virtuella nätverk där AKS kluster körs är att använda standard Load Balancer i AKS-klustret, så att Kubernetes tjänster kan nås över den virtuella nätverks peering.
 
-## <a name="enable-geo-replication-for-container-images"></a>Aktivera geo-replikering för behållar avbildningar
+## <a name="enable-geo-replication-for-container-images"></a>Aktivera georeplikering för behållaravbildningar
 
-**Bästa praxis**: lagra behållar avbildningarna i Azure Container Registry och geo-replikera registret till varje AKS region.
+**Bästa praxis:** Lagra behållaravbildningar i Azure Container Registry och geo-replikera registret till varje AKS-region.
 
-Om du vill distribuera och köra dina program i AKS behöver du ett sätt att lagra och hämta behållar avbildningarna. Container Registry integreras med AKS så att det säkert kan lagra behållar avbildningar eller Helm-diagram. Container Registry stöder geo-replikering med flera huvud servrar för att automatiskt replikera dina avbildningar till Azure-regioner runtom i världen. 
+Om du vill distribuera och köra dina program i AKS behöver du ett sätt att lagra och hämta behållaravbildningarna. Container Registry integreras med AKS, så att den säkert kan lagra dina behållaravbildningar eller Helm-diagram. Container Registry stöder georeplikering med flera hanterare för att automatiskt replikera dina avbildningar till Azure-regioner runt om i världen. 
 
-Om du vill förbättra prestanda och tillgänglighet använder Container Registry geo-replikering för att skapa ett register i varje region där du har ett AKS-kluster. Varje AKS-kluster hämtar sedan behållar avbildningar från det lokala behållar registret i samma region:
+Om du vill förbättra prestanda och tillgänglighet använder du Georeplikering av behållarregistret för att skapa ett register i varje region där du har ett AKS-kluster. Varje AKS-kluster hämtar sedan behållaravbildningar från det lokala behållarregistret i samma region:
 
-![Container Registry geo-replikering för behållar avbildningar](media/operator-best-practices-bc-dr/acr-geo-replication.png)
+![Georeplikering av behållareregister för behållaravbildningar](media/operator-best-practices-bc-dr/acr-geo-replication.png)
 
-När du använder Container Registry geo-replikering för att hämta avbildningar från samma region, är resultaten:
+När du använder Georeplikering av behållarregistret för att hämta avbildningar från samma region blir resultatet:
 
-* **Snabbare**: du hämtar bilder från höghastighets nätverks anslutningar med låg fördröjning inom samma Azure-region.
-* **Mer tillförlitligt**: om en region inte är tillgänglig hämtar ditt AKS-kluster avbildningarna från ett tillgängligt behållar register.
-* **Billigare**: det finns ingen utgående nätverks belastning mellan data Center.
+* **Snabbare**: Du hämtar bilder från nätverksanslutningar med låg latens med låg hastighet inom samma Azure-region.
+* **Mer tillförlitlig**: Om en region inte är tillgänglig hämtar AKS-klustret avbildningarna från ett tillgängligt behållarregister.
+* **Billigare:** Det finns ingen nätverksutgående avgift mellan datacenter.
 
-Geo-replikering är en funktion i de register för *Premium* SKU-behållare. Information om hur du konfigurerar geo-replikering finns [container Registry geo-replikering](https://docs.microsoft.com/azure/container-registry/container-registry-geo-replication).
+Geo-replikering är en funktion i *Premium* SKU-behållarregister. Information om hur du konfigurerar geo-replikering finns i [Geo-replikering av behållareregister](https://docs.microsoft.com/azure/container-registry/container-registry-geo-replication).
 
-## <a name="remove-service-state-from-inside-containers"></a>Ta bort tjänst tillstånd från behållare i behållare
+## <a name="remove-service-state-from-inside-containers"></a>Ta bort servicetillstånd från behållare inuti
 
-**Bästa praxis**: där det är möjligt bör du inte lagra tjänst tillstånd i behållaren. Använd i stället en Azure-plattform som en tjänst (PaaS) som stöder replikering i flera regioner.
+**Bästa praxis**: Lagra inte servicetillstånd i behållaren om det är möjligt. Använd i stället en Azure-plattform som en tjänst (PaaS) som stöder multiregionreplikering.
 
-*Tjänst tillstånd* syftar på InMemory-eller disk data som en tjänst behöver för att fungera. Status omfattar de data strukturer och medlemsvariabler som tjänsten läser och skriver. Beroende på hur tjänsten är konstruerad kan tillstånd även innehålla filer eller andra resurser som lagras på disken. Till exempel kan tillstånd innehålla de filer som en databas använder för att lagra data och transaktions loggar.
+*Tjänsttillstånd* avser de minnes- eller diskdata som en tjänst behöver för att fungera. Tillståndet innehåller de datastrukturer och medlemsvariabler som tjänsten läser och skriver. Beroende på hur tjänsten är skapad kan tillståndet även innehålla filer eller andra resurser som lagras på disken. Tillståndet kan till exempel innehålla de filer som en databas använder för att lagra data och transaktionsloggar.
 
-Status kan antingen vara utlokaliserad eller befinnad med den kod som ändrar tillstånd. Normalt Externalize du tillstånd genom att använda en databas eller ett annat data lager som körs på olika datorer över nätverket eller som tar slut på samma dator.
+Tillstånd kan antingen externaliseras eller samlokaliseras med koden som manipulerar tillståndet. Vanligtvis externaliserar du tillstånd med hjälp av en databas eller annat datalager som körs på olika datorer över nätverket eller som tar på processen på samma dator.
 
-Behållare och mikrotjänster är mest elastiska när processer som körs inuti dem inte behåller sitt tillstånd. Eftersom program nästan alltid innehåller status, använder du en PaaS-lösning som Azure Database for MySQL, Azure Database for PostgreSQL eller Azure SQL Database.
+Behållare och mikrotjänster är mest motståndskraftiga när de processer som körs inuti dem inte behåller tillstånd. Eftersom program nästan alltid innehåller vissa tillstånd använder du en PaaS-lösning som Azure Database for MySQL, Azure Database for PostgreSQL eller Azure SQL Database.
 
-Information om hur du skapar bärbara program finns i följande rikt linjer:
+Så här skapar du bärbara program:
 
-* [Den 12-Factor app-metoden](https://12factor.net/)
-* [Köra ett webb program i flera Azure-regioner](https://docs.microsoft.com/azure/architecture/reference-architectures/app-service-web-app/multi-region)
+* [Den 12-faktor app metodik](https://12factor.net/)
+* [Köra ett webbprogram i flera Azure-regioner](https://docs.microsoft.com/azure/architecture/reference-architectures/app-service-web-app/multi-region)
 
-## <a name="create-a-storage-migration-plan"></a>Skapa en plan för lagringsmigrering
+## <a name="create-a-storage-migration-plan"></a>Skapa en lagringsmigreringsplan
 
-**Bästa praxis**: om du använder Azure Storage förbereder du och testar hur du migrerar lagringen från den primära regionen till säkerhets kopierings regionen.
+**Bästa praxis:** Om du använder Azure Storage förbereder och testar du hur du migrerar lagringsutrymmet från den primära regionen till säkerhetskopieringsregionen.
 
-Dina program kan använda Azure Storage för sina data. Eftersom dina program sprids över flera AKS-kluster i olika regioner måste du hålla lagringen synkroniserad. Här följer två vanliga sätt att replikera lagring:
+Dina program kan använda Azure Storage för sina data. Eftersom dina program är spridda över flera AKS-kluster i olika regioner måste du synkronisera lagringen. Här är två vanliga sätt att replikera lagring:
 
-* Infrastruktur-baserad asynkron replikering
+* Infrastrukturbaserad asynkron replikering
 * Programbaserad asynkron replikering
 
-### <a name="infrastructure-based-asynchronous-replication"></a>Infrastruktur-baserad asynkron replikering
+### <a name="infrastructure-based-asynchronous-replication"></a>Infrastrukturbaserad asynkron replikering
 
-Dina program kan kräva beständig lagring även efter att en pod har tagits bort. I Kubernetes kan du använda beständiga volymer för att bevara data lagring. Beständiga volymer monteras till en virtuell nod och exponeras sedan för poddar. Beständiga volymer följer poddar även om poddar flyttas till en annan nod i samma kluster.
+Dina program kan kräva beständig lagring även efter att en pod har tagits bort. I Kubernetes kan du använda beständiga volymer för att bevara datalagring. Beständiga volymer monteras på en virtuell nod-VM och exponeras sedan för poddar. Beständiga volymer följer poddar även om poddar flyttas till en annan nod i samma kluster.
 
-Vilken replikeringsprincip du använder beror på din lagrings lösning. Vanliga lagrings lösningar som [Gluster](https://docs.gluster.org/en/latest/Administrator%20Guide/Geo%20Replication/), [Ceph](https://docs.ceph.com/docs/master/cephfs/disaster-recovery/), [Rook](https://rook.io/docs/rook/v1.2/ceph-disaster-recovery.html)och [Portworx](https://docs.portworx.com/scheduler/kubernetes/going-production-with-k8s.html#disaster-recovery-with-cloudsnaps) ger egen vägledning om haveri beredskap och replikering.
+Vilken replikeringsstrategi du använder beror på din lagringslösning. Vanliga lagringslösningar som [Gluster,](https://docs.gluster.org/en/latest/Administrator%20Guide/Geo%20Replication/) [Ceph,](https://docs.ceph.com/docs/master/cephfs/disaster-recovery/) [Rook](https://rook.io/docs/rook/v1.2/ceph-disaster-recovery.html)och [Portworx](https://docs.portworx.com/scheduler/kubernetes/going-production-with-k8s.html#disaster-recovery-with-cloudsnaps) ger sin egen vägledning om haveriberedskap och replikering.
 
-Den typiska strategin är att tillhandahålla en gemensam lagrings plats där program kan skriva sina data. Dessa data replikeras sedan över flera regioner och sedan öppnas lokalt.
+Den typiska strategin är att tillhandahålla en gemensam lagringsplats där program kan skriva sina data. Dessa data replikeras sedan mellan regioner och sedan nås lokalt.
 
-![Infrastruktur-baserad asynkron replikering](media/operator-best-practices-bc-dr/aks-infra-based-async-repl.png)
+![Infrastrukturbaserad asynkron replikering](media/operator-best-practices-bc-dr/aks-infra-based-async-repl.png)
 
-Om du använder Azure Managed Disks kan du välja replikering och DR-lösningar som dessa:
+Om du använder Azure Managed Disks kan du välja replikerings- och DR-lösningar som dessa:
 
 * [Velero på Azure](https://github.com/vmware-tanzu/velero-plugin-for-microsoft-azure/blob/master/README.md)
-* [Azure Site Recovery](https://azure.microsoft.com/blog/asr-managed-disks-between-azure-regions/)
+* [Återställning av Azure-webbplatser](https://azure.microsoft.com/blog/asr-managed-disks-between-azure-regions/)
 
 ### <a name="application-based-asynchronous-replication"></a>Programbaserad asynkron replikering
 
-Kubernetes tillhandahåller för närvarande ingen inbyggd implementering för programbaserad asynkron replikering. Eftersom behållare och Kubernetes är löst kopplade, bör alla traditionella program-och språk metoder fungera. Programmen replikerar vanligt vis lagrings begär Anden, som sedan skrivs till varje klusters underliggande data lagring.
+Kubernetes tillhandahåller för närvarande ingen inbyggd implementering för programbaserad asynkron replikering. Eftersom behållare och Kubernetes är löst kopplade, bör alla traditionella program eller språk tillvägagångssätt fungera. Vanligtvis replikerar programmen själva lagringsbegäranden, som sedan skrivs till varje klusters underliggande datalagring.
 
 ![Programbaserad asynkron replikering](media/operator-best-practices-bc-dr/aks-app-based-async-repl.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-Den här artikeln fokuserar på verksamhets kontinuitet och haveri beredskap för AKS-kluster. Mer information om kluster åtgärder i AKS finns i följande artiklar om metod tips:
+Den här artikeln fokuserar på kontinuitet och katastrofåterställningsöverväganden för AKS-kluster. Mer information om klusteråtgärder i AKS finns i följande artiklar om metodtips:
 
-* [Flera innehavare och kluster isolering][aks-best-practices-cluster-isolation]
-* [Basic Kubernetes Scheduler-funktioner][aks-best-practices-scheduler]
+* [Multitenancy och klusterisolering][aks-best-practices-cluster-isolation]
+* [Grundläggande kubernetes-schemaläggare][aks-best-practices-scheduler]
 
 <!-- INTERNAL LINKS -->
 [aks-best-practices-scheduler]: operator-best-practices-scheduler.md

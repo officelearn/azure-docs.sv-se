@@ -1,6 +1,6 @@
 ---
-title: Fråga efter data från en GA- C# miljö med hjälp av kod-Azure Time Series Insights | Microsoft Docs
-description: Lär dig hur du frågar efter data från en Azure Time Series Insights miljö med hjälp av en C#anpassad app som skrivits i.
+title: Frågedata från en GA-miljö med C#-kod - Azure Time Series Insights | Microsoft-dokument
+description: Lär dig hur du frågar data från en Azure Time Series Insights-miljö med hjälp av en anpassad app som är skriven i C#.
 ms.service: time-series-insights
 services: time-series-insights
 author: deepakpalled
@@ -12,73 +12,73 @@ ms.topic: conceptual
 ms.date: 02/03/2020
 ms.custom: seodec18
 ms.openlocfilehash: 9f7819974e3548baf5e10f0bf9a2d656d9412beb
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/04/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76987979"
 ---
-# <a name="query-data-from-the-azure-time-series-insights-ga-environment-using-c"></a>Fråga efter data från Azure Time Series Insights GA-miljön med hjälp avC#
+# <a name="query-data-from-the-azure-time-series-insights-ga-environment-using-c"></a>Fråga data från Azure Time Series Insights GA-miljön med C #
 
-Det C# här exemplet visar hur du använder [API: erna i ga-frågor](https://docs.microsoft.com/rest/api/time-series-insights/ga-query) för att fråga efter data från Azure Time Series Insights ga-miljöer.
+Det här C#-exemplet visar hur du använder [GA Query API:er](https://docs.microsoft.com/rest/api/time-series-insights/ga-query) för att fråga data från Azure Time Series Insights GA-miljöer.
 
 > [!TIP]
-> Visa GA C# -kod exempel på [https://github.com/Azure-Samples/Azure-Time-Series-Insights](https://github.com/Azure-Samples/Azure-Time-Series-Insights/tree/master/csharp-tsi-ga-sample).
+> Visa GA C#-kodexempel på [https://github.com/Azure-Samples/Azure-Time-Series-Insights](https://github.com/Azure-Samples/Azure-Time-Series-Insights/tree/master/csharp-tsi-ga-sample).
 
 ## <a name="summary"></a>Sammanfattning
 
-Exempel koden nedan visar följande funktioner:
+Exempelkoden nedan visar följande funktioner:
 
-* Så här hämtar du en åtkomsttoken via Azure Active Directory med [Microsoft. IdentityModel. clients. ActiveDirectory](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory/).
+* Hämta en åtkomsttoken via Azure Active Directory med [Microsoft.IdentityModel.Clients.ActiveDirectory](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory/).
 
-* Så här skickar du den hämtade åtkomsttoken i `Authorization`-rubriken för efterföljande frågor om API-begäranden. 
+* Så här skickar du den `Authorization` förvärvade åtkomsttoken i huvudet på efterföljande Query API-begäranden. 
 
-* Exemplet anropar var och en av API: erna för GA-frågor som demonstrerar hur HTTP-begäranden görs till:
-    * [Hämta miljöer API](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api#get-environments-api) för att returnera de miljöer som användaren har åtkomst till
-    * [Hämta miljö tillgänglighets-API](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api#get-environment-availability-api)
-    * [Hämta API för miljö-metadata](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api#get-environment-metadata-api) för att hämta miljömetadata
-    * [Hämta händelse-API för miljöer](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api#get-environment-events-api)
-    * [Hämta API för miljö samling](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api#get-environment-aggregates-api)
+* Exemplet anropar var och en av API:erna för 2-fråga som visar hur HTTP-begäranden görs till:
+    * [Hämta Miljö-API](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api#get-environments-api) för att returnera de miljöer som användaren har tillgång till
+    * [Api för miljötillgänglighet](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api#get-environment-availability-api)
+    * [Hämta API för miljömetadata](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api#get-environment-metadata-api) för att hämta miljömetadata
+    * [Api för att få miljöer händelser](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api#get-environment-events-api)
+    * [Api för hämta miljöaggregat](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api#get-environment-aggregates-api)
     
-* Så här interagerar du med API: er för GA-frågor med hjälp av WSS för att:
+* Så här interagerar du med API:erna för GA-frågor med WSS för att skicka meddelandet:
 
-   * [Hämta direktuppspelade API: er för miljö händelser](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api#get-environment-events-streamed-api)
-   * [Hämta direktuppspelade API för miljö Aggregator](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api#get-environment-aggregates-streamed-api)
+   * [Hämta api för miljöhändelser strömmade](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api#get-environment-events-streamed-api)
+   * [Hämta Flöden av miljöaggregat](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api#get-environment-aggregates-streamed-api)
 
-## <a name="prerequisites-and-setup"></a>Krav och installation
+## <a name="prerequisites-and-setup"></a>Förutsättningar och inställningar
 
-Slutför följande steg innan du kompilerar och kör exempel koden:
+Gör följande innan du kompilerar och kör exempelkoden:
 
-1. [Etablera en GA Azure Time Series Insights](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-get-started) -miljö.
-1. Konfigurera din Azure Time Series Insightss miljö för Azure Active Directory enligt beskrivningen i [autentisering och auktorisering](time-series-insights-authentication-and-authorization.md). 
-1. Installera de projekt beroenden som krävs.
-1. Redigera exempel koden nedan genom att ersätta varje **#DUMMY #** med rätt miljö identifierare.
+1. [Etablera en GA Azure Time Series Insights-miljö.](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-get-started)
+1. Konfigurera din Azure Time Series Insights-miljö för Azure Active Directory enligt beskrivningen i [Autentisering och auktorisering](time-series-insights-authentication-and-authorization.md). 
+1. Installera de nödvändiga projektberoendena.
+1. Redigera exempelkoden nedan genom att ersätta varje **#DUMMY#** med lämplig miljöidentifierare.
 1. Kör koden i Visual Studio.
 
 ## <a name="project-dependencies"></a>Projektberoenden
 
 Vi rekommenderar att du använder den senaste versionen av Visual Studio:
 
-* [Visual Studio 2019](https://visualstudio.microsoft.com/vs/) -version 16.4.2 +
+* [Visual Studio 2019](https://visualstudio.microsoft.com/vs/) - Version 16.4.2+
 
-Exempel koden har två nödvändiga beroenden:
+Exempelkoden har två obligatoriska beroenden:
 
-* [Microsoft. IdentityModel. clients. ActiveDirectory](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory/) -3.13.9-paket.
-* [Newtonsoft. JSON](https://www.nuget.org/packages/Newtonsoft.Json) -9.0.1-paket.
+* [Microsoft.IdentityModel.Clients.ActiveDirectory](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory/) - 3.13.9-paketet.
+* [Newtonsoft.Json](https://www.nuget.org/packages/Newtonsoft.Json) - 9.0.1 paket.
 
-Ladda ned paketen i Visual Studio 2019 genom att välja alternativet **build** - > **build-lösning** .
+Ladda ned paketen i Visual Studio 2019 genom att välja alternativet > **Byggversionslösning.** **Build**
 
-Du kan också lägga till paketen med [NuGet 2.12 +](https://www.nuget.org/):
+Alternativt kan du lägga till paketen med [NuGet 2.12+](https://www.nuget.org/):
 
 * `dotnet add package Newtonsoft.Json --version 9.0.1`
 * `dotnet add package Microsoft.IdentityModel.Clients.ActiveDirectory --version 3.13.9`
 
-## <a name="c-sample-code"></a>C#exempel kod
+## <a name="c-sample-code"></a>C#exempelkod
 
 [!code-csharp[csharpquery-example](~/samples-tsi/csharp-tsi-ga-sample/Program.cs)]
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Läs mer om frågor i [API-referensen för frågor](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api).
+- Mer information om frågor finns i [referensen för fråge-API](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api).
 
-- Läs hur du [ansluter en JavaScript-app med hjälp av klient-SDK](https://github.com/microsoft/tsiclient) för att Time Series Insights.
+- Läs om hur du [ansluter en JavaScript-app med klienten SDK](https://github.com/microsoft/tsiclient) till Time Series Insights.

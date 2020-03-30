@@ -1,6 +1,6 @@
 ---
-title: Konfigurera ett Linux Shell Scripting Lab med Azure Lab Services | Microsoft Docs
-description: Lär dig hur du konfigurerar ett labb för att lära sig Shell-skript i Linux.
+title: Konfigurera ett skriptlabb för Linux-skal med Azure Lab Services | Microsoft-dokument
+description: Lär dig hur du konfigurerar ett labb för att lära ut skalskript på Linux.
 services: lab-services
 documentationcenter: na
 author: spelluru
@@ -14,40 +14,40 @@ ms.topic: article
 ms.date: 09/30/2019
 ms.author: spelluru
 ms.openlocfilehash: 100a485588c77f6977001dae984b30ebcb1de557
-ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/18/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77443558"
 ---
-# <a name="set-up-a-lab-to-teach-shell-scripting-on-linux"></a>Konfigurera ett labb för att lära sig använda Shell-skript i Linux
-Den här artikeln visar hur du konfigurerar ett labb för att lära sig att använda Shell-skript i Linux. Skript är en användbar del av system administration som gör det möjligt för administratörer att undvika repetitiva uppgifter. I det här exempel scenariot täcker klassen traditionella bash-skript och förbättrade skript. Förbättrade skript är skript som kombinerar bash-kommandon och Ruby. Med den här metoden kan ruby skicka data runt-och bash-kommandon för att interagera med gränssnittet. 
+# <a name="set-up-a-lab-to-teach-shell-scripting-on-linux"></a>Skapa ett labb för att lära ut skalskript på Linux
+Den här artikeln visar hur du ställer in ett labb för att lära skal skript på Linux. Skript är en användbar del av systemadministrationen som gör det möjligt för administratörer att undvika repetitiva uppgifter. I det här exempelscenariot täcker klassen traditionella bash-skript och förbättrade skript. Förbättrade skript är skript som kombinerar bash-kommandon och Ruby. Den här metoden gör det möjligt för Ruby att skicka data runt och bash kommandon för att interagera med skalet. 
 
-Studenter som använder dessa skript klasser får en virtuell Linux-dator för att lära sig grunderna i Linux och även bekanta dig med bash shell-skript. Den virtuella Linux-datorn har åtkomst till fjärr skrivbord och med text redigerarna [gedit](https://help.gnome.org/users/gedit/stable/) och [Visual Studio Code](https://code.visualstudio.com/) installerade.
+Studenter som tar dessa skript klasser få en Linux virtuell maskin för att lära sig grunderna i Linux, och även bekanta sig med bash skal skript. Linux virtuella maskinen levereras med fjärrskrivbordsåtkomst aktiverad och med [gedit](https://help.gnome.org/users/gedit/stable/) och [Visual Studio Code](https://code.visualstudio.com/) textredigerare installerade.
 
-## <a name="lab-configuration"></a>Labb konfiguration
-Du måste ha en Azure-prenumeration för att komma igång för att kunna konfigurera det här labbet. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar. När du har en Azure-prenumeration kan du antingen skapa ett nytt labb konto i Azure Lab Services eller använda ett befintligt labb konto. Se följande självstudie för att skapa ett nytt labb konto: [självstudier för att konfigurera ett labb konto](tutorial-setup-lab-account.md).
+## <a name="lab-configuration"></a>Labbkonfiguration
+För att konfigurera det här labbet behöver du en Azure-prenumeration för att komma igång. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar. När du har en Azure-prenumeration kan du antingen skapa ett nytt labbkonto i Azure Lab Services eller använda ett befintligt labbkonto. Se följande självstudie för att skapa ett nytt labbkonto: [Handledning för att konfigurera ett labbkonto](tutorial-setup-lab-account.md).
 
-När du har skapat labb kontot aktiverar du följande inställningar i labb kontot: 
+När du har skapat labbkontot aktiverar du följande inställningar i labbkontot: 
 
-| Inställning för labb konto | Instruktioner |
+| Inställning av labbkonto | Instruktioner |
 | ----------- | ------------ |  
-| Marketplace-avbildningar | Aktivera [Ubuntu Server 18,04 LTS](https://azuremarketplace.microsoft.com/marketplace/apps/canonical.0001-com-ubuntu-server-bionic) -avbildningen för användning i ditt labb konto. Mer information finns i [Ange Marketplace-avbildningar som är tillgängliga för labb skapande](specify-marketplace-images.md). | 
+| Marketplace-bilder | Aktivera [Ubuntu Server 18.04 LTS-avbildningen](https://azuremarketplace.microsoft.com/marketplace/apps/canonical.0001-com-ubuntu-server-bionic) för användning i ditt labbkonto. Mer information finns i [Ange Marketplace-avbildningar som är tillgängliga för labbskapare](specify-marketplace-images.md). | 
 
 Följ [den här självstudien](tutorial-setup-classroom-lab.md) för att skapa ett nytt labb och tillämpa följande inställningar:
 
-| Labb inställningar | Värde/anvisningar | 
+| Labbinställningar | Värde/instruktioner | 
 | ------------ | ------------------ |
-| Storlek för virtuell dator (VM) | Liten  |
-| Avbildning av virtuell dator | [Ubuntu Server 18,04 LTS](https://azuremarketplace.microsoft.com/marketplace/apps/canonical.0001-com-ubuntu-server-bionic) |
-| Aktivera anslutning till fjärr skrivbord | Använd. <p>Om du aktiverar den här inställningen kan lärare och studenter ansluta till sina virtuella datorer med hjälp av fjärr skrivbord (RDP). Mer information finns i [Aktivera fjärr skrivbord för virtuella Linux-datorer i ett labb i Azure Lab Services](how-to-enable-remote-desktop-linux.md#connect-to-the-template-vm). </p>|
+| Storlek på virtuell dator (VM) | Liten  |
+| Vm-avbildning | [Ubuntu-server 18,04 LTS](https://azuremarketplace.microsoft.com/marketplace/apps/canonical.0001-com-ubuntu-server-bionic) |
+| Aktivera anslutning till fjärrskrivbord | Aktivera. <p>Om du aktiverar den här inställningen kan lärare och elever ansluta till sina virtuella datorer med fjärrskrivbord (RDP). Mer information finns i [Aktivera fjärrskrivbord för virtuella Linux-datorer i ett labb i Azure Lab Services](how-to-enable-remote-desktop-linux.md#connect-to-the-template-vm). </p>|
 
 
-## <a name="install-desktop-and-xrdp"></a>Installera Desktop och xrdp
-[Ubuntu server 18,04 LTS](https://azuremarketplace.microsoft.com/marketplace/apps/canonical.0001-com-ubuntu-server-bionic) -avbildningen har inte fjärr skrivbords server installerad som standard. Följ anvisningarna i artikeln [Installera och konfigurera fjärr skrivbord för att ansluta till en virtuell Linux-dator i Azure](../../virtual-machines/linux/use-remote-desktop.md) -artikeln för att installera de paket som behövs på den mall datorn för att ansluta via Remote Desktop Protocol.
+## <a name="install-desktop-and-xrdp"></a>Installera skrivbord och xrdp
+[Ubuntu Server 18.04](https://azuremarketplace.microsoft.com/marketplace/apps/canonical.0001-com-ubuntu-server-bionic) LTS-avbildningen har inte fjärrskrivbordsserver installerad som standard. Följ instruktionerna i [installera och konfigurera Fjärrskrivbord för att ansluta till en Linux-vm i Azure-artikeln](../../virtual-machines/linux/use-remote-desktop.md) för att installera de paket som behövs på malldatorn för att ansluta via fjärrskrivbordsprotokoll.
 
 ## <a name="install-ruby"></a>Installera Ruby
-Ruby är ett dynamiskt språk med öppen källkod som kan kombineras med bash-skript. Det här avsnittet visar hur du använder `apt-get` för att installera den senaste versionen av [ruby](https://www.ruby-lang.org/).
+Ruby är ett dynamiskt språk med öppen källkod som kan kombineras med bash-skript. Det här avsnittet `apt-get` visar hur du använder för att installera den senaste versionen av [Ruby](https://www.ruby-lang.org/).
 
 1. Installera uppdateringar genom att köra följande kommandon:
 
@@ -55,47 +55,47 @@ Ruby är ett dynamiskt språk med öppen källkod som kan kombineras med bash-sk
     sudo apt-get update 
     sudo apt-get upgrade 
     ```
-2.  Installera [ruby](https://www.ruby-lang.org/).  Ruby är ett dynamiskt språk med öppen källkod som kan kombineras med bash-skript. 
+2.  Installera [Ruby](https://www.ruby-lang.org/).  Ruby är ett dynamiskt språk med öppen källkod som kan kombineras med bash-skript. 
     
     ```bash
     sudo apt-get install ruby-full
     ```
 
 ## <a name="install-development-tools"></a>Installera utvecklingsverktyg
-I det här avsnittet visas hur du installerar ett par text redigerings program. Gedit är standard text redigeraren för gnome desktop-miljön. Den är utformad som en vanlig text redigerare. Visual Studio Code är en text redigerare som innehåller stöd för fel sökning och integrering av käll kontroll.
+I det här avsnittet visas hur du installerar ett par textredigerare. Gedit är standardtextredigeraren för gnome-skrivbordsmiljön. Den är utformad som en allmän textredigerare. Visual Studio Code är en textredigerare som innehåller stöd för felsökning och källkontrollintegrering.
 
 > [!NOTE]
-> Det finns flera olika text redigerare. Visual Studio Code och gedit är bara två exempel.
+> Det finns flera olika textredigerare tillgängliga. Visual Studio Code och gedit är bara två exempel.
 
 1. Installera [gedit](https://help.gnome.org/users/gedit/stable/).
 
     ```bash
     sudo apt-get install gedit
     ```
-1. Installera [Visual Studio Code](https://code.visualstudio.com/).  Visual Studio Code kan installeras med hjälp av Snap Store.  Alternativa installations alternativ finns i [Visual Studio Code alternativa hämtningar](https://code.visualstudio.com/#alt-downloads).
+1. Installera [Visual Studio Code](https://code.visualstudio.com/).  Visual Studio-kod kan installeras med Snap Store.  Alternativa installationsalternativ finns i [alternativa nedladdningar av Visual Studio-kod](https://code.visualstudio.com/#alt-downloads).
 
     ```bash
     sudo snap install vscode --classic 
     ```
 
-    Mallen har nu uppdaterats och har både programmeringsspråk och utvecklingsverktyg som krävs för att slutföra labbet. Nu kan du publicera mallen i labbet. Klicka på knappen **publicera** på mallsida för att publicera mallen i labbet.  
+    Mallen är nu uppdaterad och har både programmeringsspråk och utvecklingsverktyg som behövs för att slutföra labbet. Mallbilden kan nu publiceras i labbet. Välj knappen **Publicera** på mallsidan om du vill publicera mallen i labbet.  
 
 ## <a name="cost"></a>Kostnad 
 Om du vill uppskatta kostnaden för det här labbet kan du använda följande exempel:
  
-För en klass av 25 studenter med 20 timmar schemalagda klass tider och 10 timmars kvot för läxor eller tilldelningar, skulle priset för labbet vara: 
+För en klass på 25 elever med 20 timmars schemalagd lektionstid och 10 timmars kvot för läxor eller uppgifter, skulle priset för labbet vara: 
 
-25 studenter * (20 + 10) timmar * 20 labbs enheter * 0,01 USD per timme = 150 USD
+25 studenter * (20 + 10) timmar * 20 lab enheter * 0,01 USD per timme = 150 USD
 
-Mer information om priser finns i följande dokument: [Azure Lab Services prissättning](https://azure.microsoft.com/pricing/details/lab-services/).
+Mer information om prissättningen finns i följande dokument: [Azure Lab Services Pricing](https://azure.microsoft.com/pricing/details/lab-services/).
 
-## <a name="conclusion"></a>Sammanfattning
-Den här artikeln gick dig genom stegen för att skapa ett labb för skript klasser. Den här artikeln fokuserar på att konfigurera ruby-skript verktyg på Linux-datorn, men samma konfiguration kan användas för andra skript klasser som python på Linux.
+## <a name="conclusion"></a>Slutsats
+Den här artikeln gick igenom stegen för att skapa ett labb för skriptklasser. Medan den här artikeln fokuserade på att konfigurera Ruby skriptverktyg på Linux-maskin, kan samma installation användas för andra skriptklasser som Python på Linux.
 
 ## <a name="next-steps"></a>Nästa steg
-Nästa steg är vanliga för att ställa in labb:
+Nästa steg är vanliga för att konfigurera ett labb:
 
-- [Lägga till användare](tutorial-setup-classroom-lab.md#add-users-to-the-lab)
+- [Lägg till användare](tutorial-setup-classroom-lab.md#add-users-to-the-lab)
 - [Ange kvot](how-to-configure-student-usage.md#set-quotas-for-users)
 - [Ange ett schema](tutorial-setup-classroom-lab.md#set-a-schedule-for-the-lab) 
 - [E-postregistrering länkar till studenter](how-to-configure-student-usage.md#send-invitations-to-users). 

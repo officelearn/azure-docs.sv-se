@@ -1,28 +1,28 @@
 ---
 title: API-referens för Azure Application Insights-agent
-description: Application Insights Agent-API-referens. Disable-ApplicationInsightsMonitoring. Övervaka webbplatsens prestanda utan att omdistribuera webbplatsen. Fungerar med ASP.NET-webbappar som finns lokalt, i virtuella datorer eller på Azure.
+description: Api-referens för Application Insights Agent. Inaktivera-ApplicationInsightsMonitoring. Övervaka webbplatsens prestanda utan att distribuera om webbplatsen. Fungerar med ASP.NET webbappar som finns lokalt, i virtuella datorer eller på Azure.
 ms.topic: conceptual
 author: TimothyMothra
 ms.author: tilee
 ms.date: 04/23/2019
 ms.openlocfilehash: 0678186012678a68fa80a23685f8b346c8c5b859
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77671298"
 ---
-# <a name="application-insights-agent-api-disable-applicationinsightsmonitoring"></a>Application Insights Agent-API: Disable-ApplicationInsightsMonitoring
+# <a name="application-insights-agent-api-disable-applicationinsightsmonitoring"></a>Program Insights Agent API: Inaktivera-ApplicationInsightsMonitoring
 
-Den här artikeln beskriver en cmdlet som är medlem i [PowerShell-modulen AZ. ApplicationMonitor](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/).
+I den här artikeln beskrivs en cmdlet som är medlem i [modulen Az.ApplicationMonitor PowerShell](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/).
 
 ## <a name="description"></a>Beskrivning
 
-Inaktiverar övervakning på mål datorn.
-Denna cmdlet kommer att ta bort ändringar i IIS applicationHost. config och ta bort register nycklar.
+Inaktiverar övervakning på måldatorn.
+Den här cmdleten tar bort redigeringar av IIS applicationHost.config och tar bort registernycklar.
 
 > [!IMPORTANT] 
-> Denna cmdlet kräver en PowerShell-session med administratörs behörighet.
+> Den här cmdleten kräver en PowerShell-session med administratörsbehörighet.
 
 ## <a name="examples"></a>Exempel
 
@@ -32,7 +32,7 @@ PS C:\> Disable-ApplicationInsightsMonitoring
 
 ## <a name="parameters"></a>Parametrar 
 
-### <a name="-verbose"></a>– Utförlig
+### <a name="-verbose"></a>-Utförlig
 **Gemensam parameter.** Använd den här växeln för att visa detaljerade loggar.
 
 ## <a name="output"></a>Resultat
@@ -64,5 +64,5 @@ Successfully disabled Application Insights Status Monitor
 
 ## <a name="next-steps"></a>Nästa steg
 
- Gör mer med Application Insights agent:
- - Använd vår guide för att [felsöka](status-monitor-v2-troubleshoot.md) Application Insights-agenten.
+ Gör mer med Application Insights Agent:
+ - Använd vår guide för att [felsöka](status-monitor-v2-troubleshoot.md) Application Insights Agent.

@@ -1,44 +1,44 @@
 ---
 title: Automatisera anpassade rapporter med Azure Application Insights-data
-description: Automatisera anpassade dagliga/veckovis/månads Visa rapporter med Azure Application Insights-data
+description: Automatisera anpassade dagliga/veckovisa/månatliga rapporter med Azure Application Insights-data
 ms.topic: conceptual
 ms.date: 05/20/2019
 ms.reviewer: sdash
 ms.openlocfilehash: d91595a863901fcc420611ac644c7856e74320dd
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77655131"
 ---
 # <a name="automate-custom-reports-with-azure-application-insights-data"></a>Automatisera anpassade rapporter med Azure Application Insights-data
 
-Periodiska rapporter hjälper till att hålla ett team informerad om hur deras affärs kritiska tjänster fungerar. Utvecklare, DevOps/SRE-team och deras chefer kan vara produktiva med automatiserade rapporter som ger insikter på ett tillförlitligt sätt utan att behöva logga in på portalen. Sådana rapporter kan också hjälpa till att identifiera gradvisa ökningar i svars tider, belastnings-eller fel frekvenser som inte kan utlösa några varnings regler
+Periodiska rapporter hjälper till att hålla ett team informerat om hur det går för deras affärskritiska tjänster. Utvecklare, DevOps/SRE-team och deras chefer kan vara produktiva med automatiserade rapporter som på ett tillförlitligt sätt ger insikter utan att alla behöver logga in på portalen. Sådana rapporter kan också hjälpa till att identifiera gradvisa ökningar av svarstider, belastnings- eller felfrekvenser som kanske inte utlöser några varningsregler.
 
-Varje företag har sina unika rapporterings behov, till exempel: 
+Varje företag har sina unika rapporteringsbehov, till exempel: 
 
-* Vissa percentiler av mått eller anpassade mått i en rapport.
-* Ha olika rapporter för daglig, veckovis och månatlig Sammanfattning av data för olika mål grupper.
+* Specifika percentilaggregeringar av mått eller anpassade mått i en rapport.
+* Ha olika rapporter för dagliga, veckovisa och månatliga sammanslagningar av data för olika målgrupper.
 * Segmentering efter anpassade attribut som region eller miljö. 
-* Gruppera vissa AI-resurser tillsammans i en enda rapport, även om de kan finnas i olika prenumerationer eller resurs grupper osv.
-* Separera rapporter som innehåller känsliga mått som skickas till en selektiv mål grupp.
-* Rapporter till intressenter som kanske inte har åtkomst till Portal resurserna.
+* Gruppera vissa AI-resurser tillsammans i en enda rapport, även om de kan finnas i olika prenumerationer eller resursgrupper etc.
+* Separata rapporter som innehåller känsliga mått som skickas till selektiv målgrupp.
+* Rapporter till intressenter som kanske inte har åtkomst till portalresurserna.
 
 > [!NOTE] 
-> Vecko Application Insights sammanfattnings-e-postmeddelandet tillät inte anpassningar och kommer att upphöra att gälla för de anpassade alternativen i listan nedan. Den senaste vecko Visa e-postmeddelandet kommer att skickas den 11 juni 2018. Konfigurera något av följande alternativ för att få liknande anpassade rapporter (Använd den fråga som föreslås nedan).
+> Den veckovisa Application Insights sammandrag e-post tillät inte någon anpassning, och kommer att avbrytas till förmån för de anpassade alternativen nedan. Det sista veckosammanfattningsmeddelandet skickas den 11 juni 2018. Konfigurera ett av följande alternativ för att hämta liknande anpassade rapporter (använd frågan som föreslås nedan).
 
-## <a name="to-automate-custom-report-emails"></a>Automatisera anpassade rapport-e-postmeddelanden
+## <a name="to-automate-custom-report-emails"></a>Så här automatiserar du e-postmeddelanden med anpassade rapporter
 
-Du kan [köra program mässigt fråga Application Insights](https://dev.applicationinsights.io/) data för att skapa anpassade rapporter enligt ett schema. Följande alternativ kan hjälpa dig att komma igång snabbt:
+Du kan [programmässigt fråga Application Insights-data](https://dev.applicationinsights.io/) för att generera anpassade rapporter enligt ett schema. Följande alternativ kan hjälpa dig att komma igång snabbt:
 
 * [Automatisera rapporter med Microsoft Flow](automate-with-flow.md)
 * [Automatisera rapporter med Logic Apps](automate-with-logic-apps.md)
-* Använd [Azure Function](https://docs.microsoft.com/azure/azure-functions/functions-create-first-azure-function) -mallen "Application Insights schemalagd Sammanfattning" i övervaknings scenariot. Den här funktionen använder SendGrid för att leverera e-postmeddelandet. 
+* Använd [azure-funktionsmallen](https://docs.microsoft.com/azure/azure-functions/functions-create-first-azure-function) "Application Insights scheduled digest" i övervakningsscenariot. Den här funktionen använder SendGrid för att leverera e-postmeddelandet. 
 
-    ![Azure Function-mall](./media/automate-custom-reports/azure-function-template.png)
+    ![Azure-funktionsmall](./media/automate-custom-reports/azure-function-template.png)
 
-## <a name="sample-query-for-a-weekly-digest-email"></a>Exempel fråga för e-postmeddelande med veckovis Sammanfattning
-Följande fråga visar koppling mellan flera data uppsättningar för ett vecko sammandrag av e-post som rapport. Anpassa den efter behov och Använd de alternativ som anges ovan för att automatisera en vecko rapport.   
+## <a name="sample-query-for-a-weekly-digest-email"></a>Exempelfråga för ett sammanfattat veckomeddelande
+Följande fråga visar att det finns en koppling över flera datauppsättningar för en veckovis sammanfattad e-post som rapport. Anpassa den efter behov och använd den med något av alternativen ovan för att automatisera en veckorapport.   
 
 ```AIQL
 let period=7d;
@@ -68,95 +68,95 @@ availabilityResults
 | project TotalRequests, FailedRequests, RequestsDuration, TotalDependencies, FailedDependencies, DependenciesDuration, TotalViews, TotalExceptions, OverallAvailability, AvailabilityDuration
 ```
 
-## <a name="application-insights-scheduled-digest-report"></a>Application Insights schemalagd sammanfattad rapport
+## <a name="application-insights-scheduled-digest-report"></a>Schemalagd sammanfattad rapport för application insights
 
-1. Från Azure Portal väljer du **skapa en resurs** > **Compute** > **Funktionsapp**.
+1. I Azure-portalen väljer du **Skapa en resource** > **compute** > **function app**.
 
-   ![Skapa en Azure-resurs Funktionsapp skärm bild](./media/automate-custom-reports/function-app-01.png)
+   ![Skapa en skärmdump av Azure Resource Function App](./media/automate-custom-reports/function-app-01.png)
 
-2. Ange lämplig information för din app och välj _skapa_. (Application Insights _på_ krävs bara om du vill övervaka nya Funktionsapp med Application Insights)
+2. Ange lämplig information för din app och välj _Skapa_. (Application Insights _On_ krävs bara om du vill övervaka din nya funktionsapp med Application Insights)
 
-   ![Skärm bild för att skapa en Azure-resurs Funktionsapp inställningar](./media/automate-custom-reports/function-app-02.png)
+   ![Skapa en skärmbild av appinställningar för Azure Resource Function](./media/automate-custom-reports/function-app-02.png)
 
-3. När din nya Funktionsapp har slutfört distributionen väljer **du gå till resurs**.
+3. När din nya funktionsapp har slutfört distributionen väljer du **Gå till resurs**.
 
-4. Välj **ny funktion**.
+4. Välj **Ny funktion**.
 
-   ![Skapa en ny skärm skärm](./media/automate-custom-reports/function-app-03.png)
+   ![Skapa en ny funktionsskärm](./media/automate-custom-reports/function-app-03.png)
 
-5. Välj **_Application Insights schemalagd sammanfattad mall_** .
+5. Välj **_den schemalagda sammanfattningsmallen Application Insights_**.
 
      > [!NOTE]
-     > Som standard skapas Function Apps med körnings version 2. x. Du måste ha [mål Azure Functions runtime version](https://docs.microsoft.com/azure/azure-functions/set-runtime-version) **1. x** för att kunna använda den schemalagda sammanfattnings mal len Application Insights.  skärm bild av ![runtime](./../../../includes/media/functions-view-update-version-portal/function-app-view-version.png)
+     > Som standard skapas funktionsappar med körningsversion 2.x. Du måste [inrikta dig på Azure Functions runtime version](https://docs.microsoft.com/azure/azure-functions/set-runtime-version) **1.x** för att kunna använda den schemalagda sammanfattningsmallen Application Insights.  ![skärmbild av runtime](./../../../includes/media/functions-view-update-version-portal/function-app-view-version.png)
 
 
 
-   ![Skärm bild för ny funktion Application Insights mall](./media/automate-custom-reports/function-app-04.png)
+   ![Skärmbild av mallen För ny funktionsapplikationsstatistik](./media/automate-custom-reports/function-app-04.png)
 
-6. Ange en lämplig mottagares e-postadress för rapporten och välj **skapa**.
+6. Ange en lämplig mottagares e-postadress för rapporten och välj **Skapa**.
 
-   ![Skärm bild för funktions inställningar](./media/automate-custom-reports/function-app-05.png)
+   ![Skärmbild av funktionsinställningar](./media/automate-custom-reports/function-app-05.png)
 
-7. Välj **Funktionsapp** > **plattforms funktioner** > **program inställningar**.
+7. Välj dina **funktionsappplattformsfunktioner** > **Platform features** > **Programinställningar**.
 
-    ![Skärm bild för Azure Function program-inställningar](./media/automate-custom-reports/function-app-07.png)
+    ![Skärmbild av Azure-funktionsprogram](./media/automate-custom-reports/function-app-07.png)
 
-8. Skapa tre nya program inställningar med lämpliga motsvarande värden ``AI_APP_ID``, ``AI_APP_KEY``och ``SendGridAPI``. Välj **Spara**.
+8. Skapa tre nya programinställningar ``AI_APP_ID``med ``AI_APP_KEY``lämpliga ``SendGridAPI``motsvarande värden , och . Välj **Spara**.
 
-     ![Skärm bild för funktions integrations gränssnitt](./media/automate-custom-reports/function-app-08.png)
+     ![Skärmbild av funktionsintegreringsgränssnitt](./media/automate-custom-reports/function-app-08.png)
     
-    (AI_ värden finns under API-åtkomst för den Application Insights resurs som du vill rapportera om. Om du inte har en Application Insights-API-nyckel finns det möjlighet att **skapa en API-nyckel**.)
+    (De AI_ värdena finns under API Access för den Application Insights-resurs som du vill rapportera om. Om du inte har en API-nyckel för programinsikter finns det möjlighet att **skapa API-nyckel**.)
     
-   * AI_APP_ID = program-ID
+   * AI_APP_ID = Program-ID
    * AI_APP_KEY = API-nyckel
-   * SendGridAPI = SendGrid API-nyckel
+   * SendGridAPI =SendGrid API-nyckel
 
      > [!NOTE]
-     > Om du inte har ett SendGrid-konto kan du skapa ett. SendGrid-dokumentationen för Azure Functions finns [här](https://docs.microsoft.com/azure/azure-functions/functions-bindings-sendgrid). Om du bara vill ha en minimal förklaring av hur du ställer in SendGrid och genererar en API-nyckel som anges i slutet av den här artikeln. 
+     > Om du inte har ett SendGrid-konto kan du skapa ett. SendGrids dokumentation för Azure Functions finns [här](https://docs.microsoft.com/azure/azure-functions/functions-bindings-sendgrid). Om bara vill ha en minimal förklaring av hur du ställer in SendGrid och generera en API-nyckel en finns i slutet av den här artikeln. 
 
-9. Välj **integrera** och under utdata klickar du på **SendGrid ($Return)** .
+9. Välj **Integrera** och klicka på **SendGrid ($return)** under Utdata .
 
-     ![Skärm bild av utdata](./media/automate-custom-reports/function-app-09.png)
+     ![Skärmdump av utdata](./media/automate-custom-reports/function-app-09.png)
 
-10. Under **inställningen SendGridAPI Key app**väljer du din nyligen skapade app-inställning för **SendGridAPI**.
+10. Under **inställningen SendGridAPI Key App**väljer du den nyskapade appinställningen för **SendGridAPI**.
 
-     ![Kör Funktionsapp skärm bild](./media/automate-custom-reports/function-app-010.png)
+     ![Kör skärmbild av funktionsapp](./media/automate-custom-reports/function-app-010.png)
 
-11. Kör och testa din Funktionsapp.
+11. Kör och testa din funktionsapp.
 
-     ![Testa skärm bild](./media/automate-custom-reports/function-app-11.png)
+     ![Testa skärmbild](./media/automate-custom-reports/function-app-11.png)
 
-12. Kontrol lera e-postmeddelandet för att bekräfta att meddelandet har skickats/tagits emot.
+12. Kontrollera din e-post för att bekräfta att meddelandet har skickats/tagits emot.
 
-     ![E-postmeddelandets ämnesrad](./media/automate-custom-reports/function-app-12.png)
+     ![Skärmdump av ämnesraden för e-post](./media/automate-custom-reports/function-app-12.png)
 
 ## <a name="sendgrid-with-azure"></a>SendGrid med Azure
 
-De här stegen gäller endast om du inte redan har ett SendGrid-konto konfigurerat.
+De här stegen gäller bara om du inte redan har ett SendGrid-konto konfigurerat.
 
-1. Från Azure Portal väljer du **skapa en resurs** sökning efter **SendGrid e-postleverans** > klickar du på **skapa** > och fyller i SendGrid-instruktionerna för att skapa. 
+1. Välj **Skapa en resurssökning** för **SendGrid-e-postleverans** > Klicka på **Skapa** > i Azure-portalen och fyll i SendGrid-specifika skapa instruktioner. 
 
-     ![Skärm bild för att skapa SendGrid-resurs](./media/automate-custom-reports/function-app-13.png)
+     ![Skapa Skärmbild av SendGrid-resurser](./media/automate-custom-reports/function-app-13.png)
 
-2. När du har skapat under SendGrid konton väljer du **Hantera**.
+2. När du har skapats under SendGrid-konton väljer du **Hantera**.
 
-     ![Skärm bild av inställningar för API-nyckel](./media/automate-custom-reports/function-app-14.png)
+     ![Skärmbild av API-nyckel för inställningar](./media/automate-custom-reports/function-app-14.png)
 
-3. SendGrid-platsen startas. Välj **inställningar** > **API-nycklar**.
+3. Detta kommer att lansera SendGrid webbplats. Välj**API-nycklar för** **inställningar** > .
 
-     ![Skärm bild för att skapa och Visa API-nyckel](./media/automate-custom-reports/function-app-15.png)
+     ![Skärmbild av API-nyckelprogram](./media/automate-custom-reports/function-app-15.png)
 
-4. Skapa en API-nyckel > Välj **skapa & vy** (granska SendGrid-dokumentationen om begränsad åtkomst för att avgöra vilken behörighets nivå som är lämplig för din API-nyckel. Fullständig åtkomst är valt här endast i exempel syfte.)
+4. Skapa en API-nyckel > välja **Skapa & vy** (Läs SendGrids dokumentation om begränsad åtkomst för att avgöra vilken behörighetsnivå som är lämplig för din API-nyckel. Fullständig åtkomst väljs här endast i exempelvis förändamål.)
 
-   ![Skärm bild av fullständig åtkomst](./media/automate-custom-reports/function-app-16.png)
+   ![Skärmbild av fullständig åtkomst](./media/automate-custom-reports/function-app-16.png)
 
-5. Kopiera hela nyckeln. det här värdet är det du behöver i Funktionsapp inställningar som värde för SendGridAPI
+5. Kopiera hela nyckeln, är detta värde vad du behöver i din funktion App inställningar som värde för SendGridAPI
 
-   ![Skärm bild för kopierings-API-nyckel](./media/automate-custom-reports/function-app-17.png)
+   ![Kopiera API-nyckel skärmdump](./media/automate-custom-reports/function-app-17.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Lär dig mer om att skapa [analys frågor](../../azure-monitor/log-query/get-started-queries.md).
-* Lär dig mer om att [fråga Application Insights data](https://dev.applicationinsights.io/) på ett program
+* Läs mer om hur du skapar [Analytics-frågor](../../azure-monitor/log-query/get-started-queries.md).
+* Läs mer om [programmatiskt fråga Application Insights-data](https://dev.applicationinsights.io/)
 * Läs mer om [Logic Apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-what-are-logic-apps).
 * Läs mer om [Microsoft Flow](https://ms.flow.microsoft.com).

@@ -1,42 +1,42 @@
 ---
 title: Migrera från CouchBase till Azure Cosmos DB SQL API
-description: Steg för steg-anvisningar för att migrera från CouchBase till Azure Cosmos DB SQL API
+description: Steg-för-steg-vägledning för migrering från CouchBase till Azure Cosmos DB SQL API
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 02/11/2020
 ms.author: mansha
 author: manishmsfte
 ms.openlocfilehash: 9713d963978e34ad874dc032676a6e1f14e4657c
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77210949"
 ---
 # <a name="migrate-from-couchbase-to-azure-cosmos-db-sql-api"></a>Migrera från CouchBase till Azure Cosmos DB SQL API
 
-Azure Cosmos DB är en skalbar, globalt distribuerad, fullständigt hanterad databas. Den ger garanterad låg latens åtkomst till dina data. Mer information om Azure Cosmos DB finns i [översikts](introduction.md) artikeln. Den här artikeln innehåller anvisningar för att migrera Java-program som är anslutna till Couchbase till ett SQL API-konto i Azure Cosmos DB.
+Azure Cosmos DB är en skalbar, globalt distribuerad, fullständigt hanterad databas. Det ger garanterad låg latens åtkomst till dina data. Mer information om Azure Cosmos DB finns i [översiktsartikeln.](introduction.md) Den här artikeln innehåller instruktioner för att migrera Java-program som är anslutna till Couchbase till ett SQL API-konto i Azure Cosmos DB.
 
-## <a name="differences-in-nomenclature"></a>Skillnader i nomenklaturen
+## <a name="differences-in-nomenclature"></a>Skillnader i nomenklatur
 
-Följande är viktiga funktioner som fungerar annorlunda i Azure Cosmos DB jämfört med Couchbase:
+Följande är de viktigaste funktionerna som fungerar annorlunda i Azure Cosmos DB jämfört med Couchbase:
 
 |   Couchbase     |   Azure Cosmos DB   |
 | ---------------|-------------------|
-|Couchbase-Server| Konto       |
-|Bucket           | Databas      |
-|Bucket           | Container/samling |
+|Couchbase server| Konto       |
+|Hink           | Databas      |
+|Hink           | Behållare/samling |
 |JSON-dokument    | Objekt/dokument |
 
 ## <a name="key-differences"></a>Viktiga skillnader
 
-* Azure Cosmos DB har ett "ID"-fält i dokumentet medan Couchbase har ID som en del av Bucket. Fältet "ID" är unikt i hela partitionen.
+* Azure Cosmos DB har ett "ID" fält i dokumentet medan Couchbase har ID som en del av bucket. "ID"-fältet är unikt över hela partitionen.
 
-* Azure Cosmos DB skalas med hjälp av partitionering eller horisontell partitionering-teknik. Det innebär att data delas upp i flera Shards/partitioner. Dessa partitioner/Shards skapas utifrån den partitionsnyckel som du anger. Du kan välja partitionsnyckel för att optimera Läs-och skriv åtgärder, eller läsa/skriva optimerat. Mer information finns i [partitionerings](./partition-data.md) artikeln.
+* Azure Cosmos DB skalar med hjälp av partitionerings- eller sharding-tekniken. Vilket innebär att den delar upp data i flera shards/partitioner. Dessa partitioner/shards skapas baserat på egenskapen partitionsnyckel som du anger. Du kan välja partitionsnyckel för att optimera läs-och skrivåtgärder eller läs/skriv optimerad också. Mer information finns i [partitioneringsartikeln.](./partition-data.md)
 
-* I Azure Cosmos DB krävs det inte för att hierarkin på den översta nivån ska beteckna samlingen, eftersom samlings namnet redan finns. Den här funktionen gör JSON-strukturen mycket enklare. Följande är ett exempel som visar skillnader i data modellen mellan Couchbase och Azure Cosmos DB:
+* I Azure Cosmos DB krävs det inte för hierarkin på den översta nivån att beteckna samlingen eftersom samlingsnamnet redan finns. Den här funktionen gör JSON-strukturen mycket enklare. Följande är ett exempel som visar skillnader i datamodellen mellan Couchbase och Azure Cosmos DB:
 
-   **Couchbase**: dokument-ID = "99FF4444"
+   **Couchbase**: Dokument-ID = "99FF4444"
 
     ```json
     {
@@ -66,7 +66,7 @@ Följande är viktiga funktioner som fungerar annorlunda i Azure Cosmos DB jämf
     }
    ```
 
-   **Azure Cosmos DB**: se "ID" i dokumentet på det sätt som visas nedan
+   **Azure Cosmos DB**: Se "ID" i dokumentet som visas nedan
 
     ```json
     {
@@ -96,20 +96,20 @@ Följande är viktiga funktioner som fungerar annorlunda i Azure Cosmos DB jämf
     
     ```
          
-## <a name="java-sdk-support"></a>Java SDK-stöd
+## <a name="java-sdk-support"></a>Support för Java SDK
 
-Azure Cosmos DB har följande SDK: er som stöder olika Java-ramverk:
+Azure Cosmos DB har följande SDK:er för att stödja olika Java-ramverk:
 
-* Asynkron SDK
-* SDK för våren Boot
+* Async SDK
+* Fjäder boot SDK
 
-I följande avsnitt beskrivs när du ska använda var och en av dessa SDK: er. Överväg ett exempel där vi har tre typer av arbets belastningar:
+I följande avsnitt beskrivs när var och en av dessa SDK:er ska användas. Tänk dig ett exempel där vi har tre typer av arbetsbelastningar:
 
-## <a name="couchbase-as-document-repository--spring-data-based-custom-queries"></a>Couchbase som dokument lagring & våren databaserade anpassade frågor
+## <a name="couchbase-as-document-repository--spring-data-based-custom-queries"></a>Couchbase som dokumentdatabas & vårens databaserade anpassade frågor
 
-Om arbets belastningen som du migrerar baseras på våren Boot-baserad SDK kan du använda följande steg:
+Om arbetsbelastningen som du migrerar baseras på Spring Boot Based SDK kan du använda följande steg:
 
-1. Lägg till överordnad till filen POM. XML:
+1. Lägg till överordnad i FILEN POM.xml:
 
    ```java
    <parent>
@@ -120,13 +120,13 @@ Om arbets belastningen som du migrerar baseras på våren Boot-baserad SDK kan d
    </parent>
    ```
 
-1. Lägg till egenskaper i filen POM. XML:
+1. Lägg till egenskaper i FILEN POM.xml:
 
    ```java
    <azure.version>2.1.6</azure.version>
    ```
 
-1. Lägg till beroenden i filen POM. XML:
+1. Lägg till beroenden i FILEN POM.xml:
 
    ```java
    <dependency>
@@ -136,7 +136,7 @@ Om arbets belastningen som du migrerar baseras på våren Boot-baserad SDK kan d
    </dependency>
    ```
 
-1. Lägg till program egenskaper under resurser och ange följande. Ersätt parametrarna för URL, nyckel och databas namn:
+1. Lägg till programegenskaper under resurser och ange följande. Se till att ersätta parametrarna för URL,nyckel och databasnamn:
 
    ```java
       azure.cosmosdb.uri=<your-cosmosDB-URL>
@@ -144,7 +144,7 @@ Om arbets belastningen som du migrerar baseras på våren Boot-baserad SDK kan d
       azure.cosmosdb.database=<your-cosmosDB-dbName>
    ```
 
-1. Definiera namnet på samlingen i modellen. Du kan också ange ytterligare anteckningar. Till exempel, ID, partitionsnyckel för att beteckna dem uttryckligen:
+1. Definiera namnet på samlingen i modellen. Du kan också ange ytterligare anteckningar. Till exempel ID, partitionsnyckel för att beteckna dem uttryckligen:
 
    ```java
    @Document(collection = "mycollection")
@@ -157,50 +157,50 @@ Om arbets belastningen som du migrerar baseras på våren Boot-baserad SDK kan d
        }
    ```
 
-Följande är kodfragmenten för CRUD-åtgärder:
+Följande är kodavsnitten för CRUD-åtgärder:
 
 ### <a name="insert-and-update-operations"></a>Infoga och uppdatera åtgärder
 
-Där *_repo* är objektet för databasen och *dokument* är POJO-klassens objekt. Du kan använda `.save` för att infoga eller upsert (om dokument med angivet ID hittades). Följande kodfragment visar hur du infogar eller uppdaterar ett dokument objekt:
+Där *_repo* är föremål för databasen och *doc* är POJO-klassens objekt. Du kan `.save` använda för att infoga eller upsert (om dokument med angivet ID hittades). Följande kodavsnitt visar hur du infogar eller uppdaterar ett doc-objekt:
 
 ```_repo.save(doc);```
 
 ### <a name="delete-operation"></a>Ta bort åtgärd
 
-Överväg följande kodfragment, där dokument-objekt har ID och partitionsnyckel måste anges för att hitta och ta bort objektet:
+Tänk på följande kodavsnitt, där doc-objektet kommer att ha ID och partitionsnyckel obligatoriskt för att hitta och ta bort objektet:
 
 ```_repo.delete(doc);```
 
-### <a name="read-operation"></a>Läs åtgärd
+### <a name="read-operation"></a>Läs operation
 
-Du kan läsa dokumentet med eller utan att ange partitionsnyckel. Om du inte anger partitionsnyckel, behandlas den som en fråga över partitioner. Överväg följande kod exempel, den första åtgärden utför åtgärden med hjälp av ID-och partitionsnyckel. I andra exemplet används ett vanligt fält & utan att ange fältet partitionsnyckel.
+Du kan läsa dokumentet med eller utan att ange partitionsnyckeln. Om du inte anger partitionsnyckeln behandlas den som en fråga mellan partitioner. Tänk på följande kodexempel, först en kommer att utföra operation med ID och partition nyckelfält. I det andra exemplet används ett vanligt fält & utan att ange partitionsnyckelfältet.
 
 * ```_repo.findByIdAndName(objDoc.getId(),objDoc.getName());```
 * ```_repo.findAllByStatus(objDoc.getStatus());```
 
-Nu kan du använda ditt program med Azure Cosmos DB. Fullständigt kod exempel för det exempel som beskrivs i det här dokumentet finns i [CouchbaseToCosmosDB-SpringCosmos](https://github.com/Azure-Samples/couchbaseTocosmosdb/tree/master/SpringCosmos) GitHub lagrings platsen.
+Det är allt, du kan nu använda ditt program med Azure Cosmos DB. Fullständigt kodexempel för det exempel som beskrivs i det här dokumentet är tillgängligt i [CouchbaseToCosmosDB-SpringCosmos](https://github.com/Azure-Samples/couchbaseTocosmosdb/tree/master/SpringCosmos) GitHub-repo.
 
-## <a name="couchbase-as-a-document-repository--using-n1ql-queries"></a>Couchbase som en dokument lagrings plats & att använda N1QL-frågor
+## <a name="couchbase-as-a-document-repository--using-n1ql-queries"></a>Couchbase som en dokumentdatabas & med N1QL-frågor
 
-N1QL-frågor är ett sätt att definiera frågor i Couchbase.
+N1QL-frågor är sättet att definiera frågor i Couchbase.
 
 |N1QL-fråga | Azure CosmosDB-fråga|
 |-------------------|-------------------|
-|Välj META (`TravelDocument`). ID som ID, `TravelDocument`. * från `TravelDocument` där `_type` = "com. xx. xx. xx. xxx. xxx. xxxx" och Country = "Indien" och alla m i viseringar uppfyller m. type = = ' Multi-Entry ' och m. Country i [' Indien ', Bhutan '] ORDER BY ` Validity` DESC LIMIT 25 OFFSET 0   | Välj c. ID, c från c JOIN m i c. Country = "Indien" där c. _type = "com. xx. xx. xx. xxx. xxx. xxxx" och c. Country = "Indien" och m. type = ' Multi-Entry ' och m. Country i (' Indien ', ' Bhutan ') ORDER BY c. giltighets DESC förskjutning 0 LIMIT 25 |
+|VÄLJ`TravelDocument`META( ).id AS `TravelDocument`id, `_type` .* VARIFRÅN `TravelDocument` = "com.xx.xx.xx.xxx.xxx.xxxx " och land = 'Indien' och ANY m i Visum TILLSFIES m.type == ` Validity` 'Multi-Entry' och m.Country IN ['Indien', Bhutan'] ORDER BY DESC LIMIT 25 OFFSET 0   | VÄLJ c.id,c FRÅN c JOIN m i c.country='Indien' WHERE c._type = " com.xx.xx.xx.xxx.xxx.xxxx" och c.country = "Indien" och m.type = "Multi-Entry" och m.Country IN ("Indien", "Bhutan") ORDER BY c.Validity DESC OFFSET 0 LIMIT 25 |
 
-Du kan observera följande ändringar i dina N1QL-frågor:
+Du kan märka följande ändringar i dina N1QL-frågor:
 
-* Du behöver inte använda nyckelordet META eller referera till dokumentet på den första nivån. I stället kan du skapa en egen referens till behållaren. I det här exemplet har vi bedömt det som "c" (det kan vara vad som helst). Den här referensen används som ett prefix för alla fält på den första nivån. Fr. ex. c.id, c. land osv.
+* Du behöver inte använda nyckelordet META eller referera till dokumentet på första nivån. Istället kan du skapa en egen referens till behållaren. I det här exemplet har vi betraktat det som "c" (det kan vara vad som helst). Den här referensen används som prefix för alla fält på första nivån. Fr exempel, c.id, c.country etc.
 
-* I stället för "alla" kan du göra en koppling i under dokument och referera till det med ett dedikerat alias, till exempel "m". När du har skapat ett alias för ett under dokument måste du använda alias. Till exempel m. Country.
+* Istället för "ANY" nu kan du göra en koppling på underdokument och hänvisa den med ett dedikerat alias som "m". När du har skapat alias för ett underdokument måste du använda alias. Till exempel m.Country.
 
-* FÖRSKJUTNINGs ordningen är annorlunda i Azure Cosmos DB fråga, först måste du ange förskjutning och sedan begränsa. Vi rekommenderar att du inte använder våren data SDK om du använder maximalt anpassade, definierade frågor eftersom det kan ha onödig till gång på klient sidan när du skickar frågan till Azure Cosmos DB. I stället har vi en direkt asynkron Java SDK, som kan utnyttjas mycket effektivt i det här fallet.
+* Sekvensen av FÖRSKJUTNING är annorlunda i Azure Cosmos DB fråga, först måste du ange FÖRSKJUTNING sedan BEGRÄNSA. Vi rekommenderar att du inte använder Spring Data SDK om du använder maximala anpassade definierade frågor eftersom det kan ha onödiga omkostnader på klientsidan medan du skickar frågan till Azure Cosmos DB. Istället har vi en direkt Async Java SDK, som kan utnyttjas mycket effektivt i detta fall.
 
-### <a name="read-operation"></a>Läs åtgärd
+### <a name="read-operation"></a>Läsåtgärd
 
-Använd asynkron Java SDK med följande steg:
+Använd Async Java SDK med följande steg:
 
-1. Konfigurera följande beroende till filen POM. XML:
+1. Konfigurera följande beroende på FILEN POM.xml:
 
    ```java
    <!-- https://mvnrepository.com/artifact/com.microsoft.azure/azure-cosmosdb -->
@@ -211,7 +211,7 @@ Använd asynkron Java SDK med följande steg:
    </dependency>
    ```
 
-1. Skapa ett anslutnings objekt för Azure Cosmos DB med hjälp av `ConnectionBuilder`-metoden som visas i följande exempel. Se till att du har placerat den här deklarationen i bönor så att följande kod bara ska köras en gång:
+1. Skapa ett anslutningsobjekt för Azure `ConnectionBuilder` Cosmos DB med den metod som visas i följande exempel. Se till att du sätter denna deklaration i bönan så att följande kod ska köras endast en gång:
 
    ```java
    ConnectionPolicy cp=new ConnectionPolicy();
@@ -228,13 +228,13 @@ Använd asynkron Java SDK med följande steg:
    container = client.getDatabase(_dbName).getContainer(_collName);
    ```
 
-1. Om du vill köra frågan måste du köra följande kodfragment:
+1. Om du vill köra frågan måste du köra följande kodavsnitt:
 
    ```java
    Flux<FeedResponse<CosmosItemProperties>> objFlux= container.queryItems(query, fo);
    ```
 
-Nu kan du med hjälp av metoden ovan skicka flera frågor och köra dem utan besvär. Om du har krav på att köra en stor fråga som kan delas upp i flera frågor kan du prova följande kodfragment i stället för föregående:
+Nu, med hjälp av ovanstående metod kan du skicka flera frågor och köra utan krångel. Om du har kravet på att köra en stor fråga, som kan delas upp i flera frågor, försök sedan med följande kodavsnitt i stället för det föregående:
 
 ```java
 for(SqlQuerySpec query:queries)
@@ -258,7 +258,7 @@ for(SqlQuerySpec query:queries)
 }
 ```
 
-Med föregående kod kan du köra frågor parallellt och öka de distribuerade körningarna för att optimera. Du kan även köra åtgärderna INSERT och Update för:
+Med den tidigare koden kan du köra frågor parallellt och öka de distribuerade körningarna för att optimera. Ytterligare kan du köra in- och uppdateringsåtgärderna också:
 
 ### <a name="insert-operation"></a>Infoga åtgärd
 
@@ -268,7 +268,7 @@ Om du vill infoga dokumentet kör du följande kod:
 Mono<CosmosItemResponse> objMono= container.createItem(doc,ro);
 ```
 
-Prenumerera sedan på mono som:
+Prenumerera sedan på Mono som:
 
 ```java
 CountDownLatch latch=new CountDownLatch(1);
@@ -284,33 +284,33 @@ objMono .subscribeOn(Schedulers.elastic())
 latch.await();              
 ```
 
-### <a name="upsert-operation"></a>Upsert-åtgärd
+### <a name="upsert-operation"></a>Upsert-drift
 
-Upsert-åtgärden kräver att du anger det dokument som behöver uppdateras. Om du vill hämta hela dokumentet kan du använda kodfragmentet som anges under rubriken Läs åtgärd och sedan ändra de obligatoriska fälten. I följande kodfragment upsertar dokumentet:
+Upsert-åtgärden kräver att du anger det dokument som behöver uppdateras. Om du vill hämta hela dokumentet kan du använda det utdrag som nämns under rubriken läsåtgärd och sedan ändra de fält som krävs. Följande kodavsnitt upserts dokumentet:
 
 ```java
 Mono<CosmosItemResponse> obs= container.upsertItem(doc, ro);
 ```
-Prenumerera sedan på mono. Se det svartvita prenumerations avsnittet i infognings åtgärden.
+Prenumerera sedan på mono. Se kodavsnittet för monoprenumeration i infogning.
 
 ### <a name="delete-operation"></a>Ta bort åtgärd
 
-Följande kodfragment tar bort:
+Följande utdrag kommer att ta bort åtgärden:
 
 ```java     
 CosmosItem objItem= container.getItem(doc.Id, doc.Tenant);
 Mono<CosmosItemResponse> objMono = objItem.delete(ro);
 ```
 
-Prenumerera sedan på svartvit, se avsnittet mono-prenumeration i INSERT-åtgärden. Det fullständiga kod exemplet är tillgängligt i [CouchbaseToCosmosDB-AsyncInSpring GitHub-](https://github.com/Azure-Samples/couchbaseTocosmosdb/tree/master/AsyncInSpring) lagrings platsen.
+Prenumerera sedan på mono, se mono prenumerationskodavsnitt i infogningsåtgärden. Det fullständiga kodexemplet finns i [CouchbaseToCosmosDB-AsyncInSpring](https://github.com/Azure-Samples/couchbaseTocosmosdb/tree/master/AsyncInSpring) GitHub-repo.
 
-## <a name="couchbase-as-a-keyvalue-pair"></a>Couchbase som ett nyckel/värde-par
+## <a name="couchbase-as-a-keyvalue-pair"></a>Couchbase som nyckel/värdepar
 
-Det här är en enkel typ av arbets belastning där du kan utföra sökningar i stället för frågor. Använd följande steg för nyckel/värde-par:
+Det här är en enkel typ av arbetsbelastning där du kan utföra uppslag i stället för frågor. Gör så här för nyckel-/värdepar:
 
-1. Överväg att använda "/ID" som primär nyckel, vilket ser till att du kan utföra söknings åtgärder direkt i den angivna partitionen. Skapa en samling och ange "/ID" som partitionsnyckel.
+1. Överväg att ha "/ID" som primärnyckel, vilket gör att du kan utföra uppslag direkt i den specifika partitionen. Skapa en samling och ange "/ID" som partitionsnyckel.
 
-1. Stäng av indexeringen helt. Eftersom du kommer att köra söknings åtgärder finns det ingen punkt för att utföra indexerings kostnader. Om du vill stänga av indexeringen loggar du in på Azure Portal, goto Azure Cosmos DB-konto. Öppna **datautforskaren**, välj din **databas** och **behållaren**. Öppna fliken **skalnings & inställningar** och välj **indexerings princip**. Index princip som är för närvarande ser ut så här:
+1. Stäng av indexeringen helt. Eftersom du ska utföra uppslagsåtgärder finns det ingen anledning att redovisa indexeringskostnader. Om du vill inaktivera indexering loggar du in på Azure Portal, goto Azure Cosmos DB-konto. Öppna **Data Explorer,** välj **databasen** och **behållaren**. Öppna fliken **Skala & inställningar** och välj **indexeringsprincipen**. Indexeringsprincipen ser ut så här:
     
    ```json
    {
@@ -348,7 +348,7 @@ Det här är en enkel typ av arbets belastning där du kan utföra sökningar i 
    }
    ````
 
-   Ersätt index principen ovan med följande princip:
+   Ersätt ovanstående indexeringsprincip med följande princip:
 
    ```json
    {
@@ -356,7 +356,7 @@ Det här är en enkel typ av arbets belastning där du kan utföra sökningar i 
    }
    ```
 
-1. Använd följande kodfragment för att skapa objektet anslutning. Anslutnings objekt (som ska placeras i @Bean eller göra det statiskt):
+1. Använd följande kodavsnitt för att skapa anslutningsobjektet. Anslutningsobjekt (som @Bean ska placeras i eller göra det statiskt):
 
    ```java
    ConnectionPolicy cp=new ConnectionPolicy();
@@ -373,11 +373,11 @@ Det här är en enkel typ av arbets belastning där du kan utföra sökningar i 
    container = client.getDatabase(_dbName).getContainer(_collName);
    ```
 
-Nu kan du köra CRUD-åtgärderna på följande sätt:
+Nu kan du utföra CRUD-åtgärderna enligt följande:
 
-### <a name="read-operation"></a>Läs åtgärd
+### <a name="read-operation"></a>Läsåtgärd
 
-Använd följande kodfragment för att läsa objektet:
+Om du vill läsa objektet använder du följande kodavsnitt:
 
 ```java        
 CosmosItemRequestOptions ro=new CosmosItemRequestOptions();
@@ -422,36 +422,36 @@ objMono.subscribeOn(Schedulers.elastic())
 latch.await();
 ```
 
-### <a name="upsert-operation"></a>Upsert-åtgärd
+### <a name="upsert-operation"></a>Upsert-drift
 
-Om du vill uppdatera värdet för ett objekt, referera till kodfragmentet nedan:
+Om du vill uppdatera värdet för en artikel läser du kodavsnittet nedan:
 
 ```java
 Mono<CosmosItemResponse> obs= container.upsertItem(doc, ro);
 ```
-Prenumerera sedan på svartvit, se avsnittet mono-prenumeration i INSERT-åtgärden.
+Prenumerera sedan på mono, se mono prenumerationskodavsnitt i infogningsåtgärden.
 
 ### <a name="delete-operation"></a>Ta bort åtgärd
 
-Använd följande kodfragment för att köra borttagnings åtgärden:
+Använd följande kodavsnitt för att köra borttagningsåtgärden:
 
 ```java     
 CosmosItem objItem= container.getItem(id, id);
 Mono<CosmosItemResponse> objMono = objItem.delete(ro);
 ```
 
-Prenumerera sedan på svartvit, se avsnittet mono-prenumeration i INSERT-åtgärden. Det fullständiga kod exemplet är tillgängligt i [CouchbaseToCosmosDB-AsyncKeyValue GitHub-](https://github.com/Azure-Samples/couchbaseTocosmosdb/tree/master/AsyncKeyValue) lagrings platsen.
+Prenumerera sedan på mono, se mono prenumerationskodavsnitt i infogningsåtgärden. Det fullständiga kodexemplet finns i [CouchbaseToCosmosDB-AsyncKeyValue](https://github.com/Azure-Samples/couchbaseTocosmosdb/tree/master/AsyncKeyValue) GitHub-repo.
 
 ## <a name="data-migration"></a>Datamigrering
 
 Det finns två sätt att migrera data.
 
-* **Använd Azure Data Factory:** Detta är den mest rekommenderade metoden för att migrera data. Konfigurera källan som Couchbase och Sink som Azure Cosmos DB SQL API, se artikeln Azure [Cosmos DB Data Factory Connector](../data-factory/connector-azure-cosmos-db.md) för detaljerade anvisningar.
+* **Använd Azure Data Factory:** Detta är den mest rekommenderade metoden för att migrera data. Konfigurera källan som Couchbase och sink som Azure Cosmos DB SQL API, se azure [Cosmos DB Data Factory-anslutningsartikeln](../data-factory/connector-azure-cosmos-db.md) för detaljerade steg.
 
-* **Använd verktyget Azure Cosmos db data import:** Det här alternativet rekommenderas för att migrera med virtuella datorer med mindre mängd data. Detaljerade anvisningar finns i artikeln om [data import](./import-data.md) .
+* **Använd verktyget för import av Azure Cosmos DB-data:** Det här alternativet rekommenderas att migrera med virtuella datorer med mindre mängd data. Detaljerade steg finns i artikeln [Dataimportör.](./import-data.md)
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 
-* För att utföra prestanda testning, se [prestanda-och skalnings testning med Azure Cosmos DB](./performance-testing.md) artikel.
-* Information om hur du optimerar koden finns i [prestanda tips för Azure Cosmos DB](./performance-tips-async-java.md) artikel.
-* Utforska Java async v3 SDK, [SDK Reference](https://github.com/Azure/azure-cosmosdb-java/tree/v3) GitHub lagrings platsen.
+* Om du vill göra prestandatester läser du [Prestanda- och skalningstestning med Azure Cosmos](./performance-testing.md) DB-artikel.
+* Information om hur du optimerar koden finns i [Prestandatips för Azure Cosmos](./performance-tips-async-java.md) DB-artikel.
+* Utforska Java Async V3 SDK, [SDK referens](https://github.com/Azure/azure-cosmosdb-java/tree/v3) GitHub repo.

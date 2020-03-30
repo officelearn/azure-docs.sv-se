@@ -1,35 +1,35 @@
 ---
 title: Hämta drönarbilder
-description: Den här artikeln beskriver hur du får drönare-bilder från partner.
+description: I den här artikeln beskrivs hur du hämtar drönarbilder från partner.
 author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
 ms.openlocfilehash: 3e452cd548738e5f211899d3a6a676f883d800ce
-ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77132056"
 ---
-# <a name="get-drone-imagery-from-drone-partners"></a>Hämta drönare-bilder från drönare-partners
+# <a name="get-drone-imagery-from-drone-partners"></a>Få drönarbilder från drönarpartner
 
-Den här artikeln beskriver hur du kan hämta orthomosaic-data från dina drönare bilder-partner till Azure FarmBeats Datahub. En orthomosaic är en flyg bild eller en bild som är geometriskt löst och Häftad från data som samlas in av en drönare.
+I den här artikeln beskrivs hur du kan ta in ortoosaiska data från dina drönarbilder till Azure FarmBeats Datahub. En ortoasisk är en flygillustration eller bild som är geometriskt korrigerad och sydd från data som samlats in av en drönare.
 
-För närvarande stöds följande bilder-partner.
+För närvarande stöds följande bildspråkspartner.
 
-  ![FarmBeats drönare bilder partners](./media/get-drone-imagery-from-drone-partner/drone-partner-1.png)
+  ![FarmBeats drone bilder partner](./media/get-drone-imagery-from-drone-partner/drone-partner-1.png)
 
-Genom att integrera drönare bilder-data med Azure FarmBeats kan du få orthomosaic-data från drönare-flygningar som du utför i Server gruppen i Datahub. När data är tillgängliga kan du visa dem i FarmBeats-acceleratorn. Data kan användas för data fusion och artificiell intelligens och utveckling av maskin inlärnings modeller.
+Genom att integrera drönarbilder med Azure FarmBeats kan du få ortoosaiska data från drönarflygningarna som du utför på din servergrupp i datahub. När data är tillgängliga kan du visa dem i FarmBeats Accelerator. Data kan användas för datafusion och artificiell intelligens och maskininlärningsmodellbyggnad.
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
-  - Kontrol lera att du har installerat Azure-FarmBeats. Information om hur du installerar FarmBeats finns i [Installera Azure FarmBeats](install-azure-farmbeats.md).
-  - Kontrol lera att du har den server grupp som du vill att drönare bilder ska definieras i FarmBeats-systemet.
+  - Se till att du har installerat Azure FarmBeats. Information om hur du installerar FarmBeats finns i [Installera Azure FarmBeats](install-azure-farmbeats.md).
+  - Se till att du har den gård som du vill ha drönarbilder definierade i ditt FarmBeats-system.
 
-## <a name="enable-drone-imagery-integration-with-farmbeats"></a>Aktivera drönare bilder-integrering med FarmBeats
+## <a name="enable-drone-imagery-integration-with-farmbeats"></a>Aktivera integrering av drönarbilder med FarmBeats
 
-Ange följande information för din enhets leverantör för att aktivera integrering med FarmBeats:
+Ange följande information till din enhetsleverantör för att aktivera integrering med FarmBeats:
  - API-slutpunkt
  - Klient-ID:t
  - Klientorganisations-ID
@@ -37,20 +37,20 @@ Ange följande information för din enhets leverantör för att aktivera integre
 
 Följ de här stegen.
 
-1. Hämta det här [skriptet](https://aka.ms/farmbeatspartnerscript)och extrahera det till den lokala enheten. Två filer finns inuti zip-filen.
-2. Logga in på [Azure Portal](https://portal.azure.com/) och öppna Azure Cloud Shell. Det här alternativet är tillgängligt i verktygsfältet i det övre högra hörnet i portalen.
+1. Ladda ner [skriptet](https://aka.ms/farmbeatspartnerscript)och extrahera det till din lokala enhet. Två filer finns i zip-filen.
+2. Logga in i [Azure-portalen](https://portal.azure.com/) och öppna Azure Cloud Shell. Det här alternativet är tillgängligt i verktygsfältet i det övre högra hörnet på portalen.
 
-    ![Öppna Azure Cloud Shell längst upp till höger i portalen](./media/get-drone-imagery-from-drone-partner/navigation-bar-1.png)
+    ![Öppna Azure Cloud Shell i portalens övre högra fält](./media/get-drone-imagery-from-drone-partner/navigation-bar-1.png)
 
-3. Kontrol lera att miljön är inställd på **PowerShell**.
+3. Kontrollera att miljön är inställd på **PowerShell**.
 
     ![PowerShell-inställning](./media/get-drone-imagery-from-drone-partner/power-shell-new-1.png)
 
-4. Ladda upp de två filerna som du laddade ned från steg 1 i Cloud Shell-instansen.
+4. Ladda upp de två filer som du hämtade från steg 1 i Cloud Shell-instansen.
 
     ![Överföra filer](./media/get-drone-imagery-from-drone-partner/power-shell-two-1.png)
 
-5. Gå till den katalog där filerna överfördes. Som standard överförs de till hem katalogen under användar namnet.
+5. Gå till katalogen där filerna laddades upp. Som standard överförs de till arbetskatalogen under användarnamnet.
 6. Kör följande skript:
 
     ```azurepowershell-interactive 
@@ -59,36 +59,36 @@ Följ de här stegen.
 
     ```
 
-7. Följ anvisningarna på skärmen för att avbilda värdena för API-slutpunkt, klient-ID, klient-ID, klient hemlighet och EventHub-anslutningssträng.
+7. Följ anvisningarna på skärmen för att samla in värdena för API-slutpunkt, klient-ID, klient-ID, Klienthemlighet och EventHub-anslutningssträng.
 
-    När du har angett de autentiseringsuppgifter som krävs i partnerns drönare-programsystem kan du importera alla Server grupper från FarmBeats-systemet. Sedan kan du använda Server grupps informationen för att planera och drönare bild samling.
+    När du har angett de autentiseringsuppgifter som krävs i partnerns drönarprogramsystem kan du importera alla gårdar från FarmBeats-systemet. Sedan kan du använda gårdsinformationen för att planera flygbanan och drönarbildsamlingen.
 
-    När RAW-avbildningarna har bearbetats av drönare-leverantörens program vara laddar drönare-programvaran upp de häftade orthomosaic och andra bearbetade avbildningar till Datahub.
+    Efter att de råa bilderna bearbetats av drönarleverantörernas programvara laddar drönarprogramvaran upp de sydda ortoosaiska och andra bearbetade bilderna till datahub.
 
-## <a name="view-drone-imagery"></a>Visa drönare bilder
+## <a name="view-drone-imagery"></a>Visa drönarbilder
 
-När data har skickats till FarmBeats-Datahub kan du fråga scen lagret med hjälp av FarmBeats Datahub-API: er.
+När data har skickats till FarmBeats datahub kan du fråga scene store med hjälp av FarmBeats Datahub API:er.
 
-Du kan också visa den senaste drönare-avbildningen på sidan **Server grupps information** . Följ stegen om du vill visa avbildningen.
+Du kan också visa den senaste drönarbilden på sidan **Servergruppsinformation.** Följ stegen om du vill visa bilden.
 
-1. Välj den server grupp som din bilder laddats upp till. Sidan **Server grupp** information visas.
-2. Rulla ned till det senaste **precision Maps** -avsnittet.
-3. Visa bilden i avsnittet **drönare bilder** .
+1. Välj den servergrupp som bilderna laddades upp till. Sidan **Servergruppsinformation** visas.
+2. Bläddra ned till det senaste avsnittet **Precision Maps.**
+3. Visa bilden i avsnittet **Drone Imagery.**
 
-    ![Drönare bilder-avsnitt](./media/get-drone-imagery-from-drone-partner/drone-imagery-1.png)
+    ![Avsnittet Drone Bilder](./media/get-drone-imagery-from-drone-partner/drone-imagery-1.png)
 
-## <a name="download-drone-imagery"></a>Ladda ned drönare bilder
+## <a name="download-drone-imagery"></a>Ladda ner drönarbilder
 
-När du väljer avsnittet drönare bilder öppnas ett popup-fönster för att visa en hög upplöst bild av drönare-orthomosaic.
+När du väljer avsnittet Drone Imagery öppnas ett popup-fönster för att visa en högupplöst bild av drönarortoosaic.
 
-![Hög upplöst orthomosaic](./media/get-drone-imagery-from-drone-partner/download-drone-imagery-1.png)
+![Högupplöst ortoosaisk](./media/get-drone-imagery-from-drone-partner/download-drone-imagery-1.png)
 
-## <a name="view-all-drone-maps"></a>Visa alla drönare Maps
+## <a name="view-all-drone-maps"></a>Visa alla drönarkartor
 
-Filer och avbildningar som laddats upp av drönare-providern visas i avsnittet **Maps** . Välj avsnittet **Maps** , filtrera efter **Server grupp**och Välj lämpliga filer att visa och ladda ned.
+Filer och bilder som laddats upp av drönarleverantören visas i avsnittet **Kartor.** Markera avsnittet **Kartor,** filtrera efter **servergrupp**och välj lämpliga filer som ska visas och hämtas.
 
-  ![Avsnittet Maps](./media/get-drone-imagery-from-drone-partner/view-drone-maps-1.png)
+  ![Avsnittet Kartor](./media/get-drone-imagery-from-drone-partner/view-drone-maps-1.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig hur du använder FarmBeats Datahub- [API: er](rest-api-in-azure-farmbeats.md) för att hämta din drönare-bilder.
+Lär dig hur du använder FarmBeats Datahub [API:er](rest-api-in-azure-farmbeats.md) för att hämta dina drönarbilder.

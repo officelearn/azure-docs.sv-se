@@ -6,109 +6,109 @@ ms.topic: conceptual
 hide_comments: true
 hideEdit: true
 ms.openlocfilehash: cb4fdd56e9cf67c71ac690d423499929167f8977
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77064249"
 ---
-# <a name="service-fabric-releases"></a>Service Fabric versioner
+# <a name="service-fabric-releases"></a>Service Fabric-utgåvor
 
-| <a href="https://github.com/Azure/Service-Fabric-Troubleshooting-Guides" target="blank">fel söknings guider</a> 
-| <a href="https://github.com/Azure/service-fabric-issues" target="blank">ärende spårning</a> 
-| <a href="https://docs.microsoft.com/azure/service-fabric/service-fabric-support" target="blank">Support alternativ</a> 
-| <a href="https://docs.microsoft.com/azure/service-fabric/service-fabric-versions" target="blank">versioner som stöds</a> 
-| <a href="https://azure.microsoft.com/resources/samples/?service=service-fabric&sort=0" target="blank">kod exempel</a>
+| <a href="https://github.com/Azure/Service-Fabric-Troubleshooting-Guides" target="blank">Felsökningsguider</a> 
+| <a href="https://github.com/Azure/service-fabric-issues" target="blank">Problemspårning</a> 
+| <a href="https://docs.microsoft.com/azure/service-fabric/service-fabric-support" target="blank">Supportalternativ</a> 
+| stöds<a href="https://docs.microsoft.com/azure/service-fabric/service-fabric-versions" target="blank">versioner</a> 
+| <a href="https://azure.microsoft.com/resources/samples/?service=service-fabric&sort=0" target="blank">Kodexempel</a>
 
-Den här artikeln innehåller mer information om de senaste versionerna och uppdateringarna av Service Fabric Runtime och SDK: er.
+Den här artikeln innehåller mer information om de senaste versionerna och uppdateringarna av Service Fabric-körningen och SDK:er.
 
-## <a name="whats-new-in-service-fabric"></a>Vad är nytt i Service Fabric
+## <a name="whats-new-in-service-fabric"></a>Nyheter i Service Fabric
 
-### <a name="service-fabric-70"></a>Service Fabric 7,0
+### <a name="service-fabric-70"></a>Service Tyg 7,0
 
-Azure Service Fabric 7,0 är nu tillgängligt! Du kommer att kunna uppdatera till 7,0 via Azure Portal eller via en Azure Resource Manager distribution. På grund av kundernas feedback om versioner under den helgdags perioden börjar vi inte att automatiskt uppdatera kluster som är inställda för att ta emot automatiska uppgraderingar förrän januari.
-I januari kommer vi att återuppta standard proceduren för distributionen och kluster med aktiverade automatiska uppgraderingar börjar ta emot 7,0-uppdateringen automatiskt. Vi kommer att tillhandahålla ett annat meddelande innan distributionen påbörjas.
-Vi uppdaterar även våra planerade versions datum för att ange att den här principen ska beaktas. Här hittar du uppdateringar för våra framtida [versions scheman](https://github.com/Microsoft/service-fabric/#service-fabric-release-schedule).
+Azure Service Fabric 7.0 är nu tillgängligt! Du kan uppdatera till 7.0 via Azure-portalen eller via en Azure Resource Manager-distribution. På grund av feedback från kunder på utgåvor runt semesterperioden kommer vi inte att börja automatiskt uppdatera kluster som ska ta emot automatiska uppgraderingar förrän i januari.
+I januari kommer vi att återuppta standardutrullningsproceduren och kluster med automatiska uppgraderingar aktiverade börjar ta emot 7.0-uppdateringen automatiskt. Vi kommer att ge ett nytt tillkännagivande innan utbyggnaden börjar.
+Vi kommer också att uppdatera våra planerade utgivningsdatum för att indikera att vi tar hänsyn till denna policy. Titta här för uppdateringar om våra framtida [release scheman.](https://github.com/Microsoft/service-fabric/#service-fabric-release-schedule)
  
-Det här är den senaste versionen av Service Fabric och har lästs in med viktiga funktioner och förbättringar.
+Detta är den senaste versionen av Service Fabric och är laddad med viktiga funktioner och förbättringar.
 
 ### <a name="key-announcements"></a>Viktiga meddelanden
- - [**KeyVaultReference-stöd för program hemligheter (för hands version)** ](https://docs.microsoft.com/azure/service-fabric/service-fabric-keyvault-references): Service Fabric program som har aktiverat [hanterade identiteter](https://docs.microsoft.com/azure/service-fabric/concepts-managed-identity) kan nu direkt referera till en Key Vault hemlig URL som en miljö variabel, program parameter eller autentiseringsuppgifter för containerns lagrings plats. Service Fabric kommer automatiskt att lösa hemligheten med hjälp av programmets hanterade identitet. 
+ - [**KeyVaultReference-stöd för programhemligheter (förhandsversion):**](https://docs.microsoft.com/azure/service-fabric/service-fabric-keyvault-references)Service Fabric-program som har aktiverat [hanterade identiteter](https://docs.microsoft.com/azure/service-fabric/concepts-managed-identity) kan nu direkt referera till en hemlig URL för Key Vault som en miljövariabel, programparameter eller autentiseringsuppgifter för behållardatabasen. Service Fabric löser automatiskt hemligheten med hjälp av programmets hanterade identitet. 
      
-- **Förbättrad uppgraderings säkerhet för tillstånds lösa tjänster**: för att garantera tillgängligheten under en program uppgradering har vi introducerat nya konfigurationer för att definiera det [minsta antalet instanser för tillstånds lösa tjänster](https://docs.microsoft.com/dotnet/api/system.fabric.description.statelessservicedescription?view=azure-dotnet) som ska anses tillgängliga. Tidigare var det här värdet 1 för alla tjänster och kunde inte ändras. Med den nya säkerhets kontrollen per tjänst kan du se till att tjänsterna behåller ett minsta antal instanser under program uppgraderingar, kluster uppgraderingar och annat underhåll som förlitar sig på Service Fabric hälso-och säkerhets kontroller.
+- **Förbättrad uppgraderingssäkerhet för tillståndslösa tjänster:** För att garantera tillgänglighet under en programuppgradering har vi infört nya konfigurationer för att definiera [det minsta antalet instanser för tillståndslösa tjänster](https://docs.microsoft.com/dotnet/api/system.fabric.description.statelessservicedescription?view=azure-dotnet) som ska anses vara tillgängliga. Tidigare var detta värde 1 för alla tjänster och kunde inte ändras. Med den här nya säkerhetskontrollen per tjänst kan du se till att dina tjänster behåller ett minsta antal upp-instanser under programuppgraderingar, klusteruppgraderingar och annat underhåll som är beroende av Service Fabric:s hälso- och säkerhetskontroller.
   
-- [**Resurs gränser för användar tjänster**](https://docs.microsoft.com/azure/service-fabric/service-fabric-resource-governance#enforcing-the-resource-limits-for-user-services): användare kan konfigurera resurs gränser för användar tjänsterna på en nod för att förhindra scenarier som resurs utbelastning av Service Fabric system tjänster. 
+- [**Resursgränser för användartjänster:**](https://docs.microsoft.com/azure/service-fabric/service-fabric-resource-governance#enforcing-the-resource-limits-for-user-services)Användare kan ställa in resursgränser för användartjänster på en nod för att förhindra scenarier som resursutmattning av Service Fabric-systemtjänsterna. 
   
-- [**Mycket hög service flytt kostnad**](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-resource-manager-movement-cost) för en replik typ. Repliker med mycket hög flytt kostnad kommer bara att flyttas om det finns en begränsnings överträdelse i klustret som inte kan åtgärdas på något annat sätt. I dokumentationen finns mer information om när användningen av en "mycket hög" flytt kostnad är rimlig och ytterligare överväganden.
+- [**Mycket hög tjänst flytta kostnad**](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-resource-manager-movement-cost) för en repliktyp. Repliker med mycket hög flyttkostnad flyttas endast om det finns ett begränsningsfel i klustret som inte kan åtgärdas på något annat sätt. Se dokumenten för ytterligare information om när användningen av en "Mycket hög" flyttkostnad är rimlig och för ytterligare överväganden.
   
--  **Ytterligare säkerhets kontroller för klustret**: i den här versionen introducerade vi en konfigurerbar säkerhets kontroll för Dirigerings-nods kvorum. På så sätt kan du anpassa hur många startnoder som måste vara tillgängliga under kluster livs cykel-och hanterings scenarier. Åtgärder som tar klustret lägre än det konfigurerade värdet blockeras. I dag är standardvärdet alltid ett kvorum för startnoderna, till exempel om du har sju startnoder, kommer en åtgärd som tar dig under 5 startnoder att blockeras som standard. Med den här ändringen kan du göra det lägsta säkra värdet 6, vilket innebär att endast en Seed-nod kan vara nere i taget.
+-  **Ytterligare kluster säkerhetskontroller:** I den här versionen introducerade vi en konfigurerbar frö nod kvorum säkerhetskontroll. På så sätt kan du anpassa hur många seed-noder som måste vara tillgängliga under klustrets livscykel- och hanteringsscenarier. Åtgärder som skulle ta klustret under det konfigurerade värdet blockeras. Idag är standardvärdet alltid kvorum för frönoderna, till exempel om du har 7 frönoder, skulle en åtgärd som tar dig under 5 frönoder blockeras som standard. Med den här ändringen kan du göra det lägsta säkra värdet 6, vilket skulle tillåta endast en frönod att vara nere i taget.
    
-- Stöd har lagts till för [**att hantera säkerhets kopierings-och återställnings tjänsten i Service Fabric Explorer**](https://docs.microsoft.com/azure/service-fabric/service-fabric-backuprestoreservice-quickstart-azurecluster). Detta gör följande aktiviteter möjligt direkt från SFX: identifiera säkerhets kopierings-och återställnings tjänsten, skapa en säkerhets kopierings princip, aktivera automatisk säkerhets kopiering, använda adhoc-säkerhetskopiering, utlösa återställnings åtgärder och söka efter befintliga säkerhets kopior.
+- Lade till stöd för [**hantering av säkerhetskopiering och återställning i Service Fabric Explorer**](https://docs.microsoft.com/azure/service-fabric/service-fabric-backuprestoreservice-quickstart-azurecluster). Detta gör följande aktiviteter möjliga direkt inifrån SFX: upptäcka säkerhetskopiering och återställning tjänst, skapa säkerhetskopiering politik, aktivera automatiska säkerhetskopior, ta adhoc säkerhetskopior, utlöser återställningsåtgärder och bläddra befintliga säkerhetskopior.
 
-- Vi presenterar tillgängligheten för [**ReliableCollectionsMissingTypesTool**](https://github.com/hiadusum/ReliableCollectionsMissingTypesTool): med det här verktyget kan du validera att de typer som används i pålitliga samlingar är framåtriktade och bakåtkompatibla under en rullande program uppgradering. Detta bidrar till att förhindra uppgraderings fel eller data förlust och skadade data på grund av saknade eller inkompatibla typer.
+- Tillkännage tillgängligheten för [**ReliableCollectionsMissingTypesTool**](https://github.com/hiadusum/ReliableCollectionsMissingTypesTool): Det här verktyget hjälper till att validera att typer som används i tillförlitliga samlingar är framåt och bakåtkompatibla under en rullande programuppgradering. Detta förhindrar uppgraderingsfel eller dataförlust och dataskador på grund av saknade eller inkompatibla typer.
 
-- [**Aktivera stabil läsning på sekundära repliker**](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-services-configuration#configuration-names-1): stabila läsningar begränsar sekundära repliker till att returnera värden som har varit bekräftat.
+- [**Aktivera stabila läsningar på sekundära repliker**](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-services-configuration#configuration-names-1):Stabila läsningar begränsar sekundära repliker till returnerande värden som har kvorum-acked.
 
-Dessutom innehåller den här versionen andra nya funktioner, fel korrigeringar och förbättringar av support, tillförlitlighet och prestanda. En fullständig lista över ändringar finns i [viktig information](https://github.com/Azure/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_70.md).
+Dessutom innehåller den här versionen andra nya funktioner, buggfixar och supportability, tillförlitlighet och prestandaförbättringar. För den fullständiga listan över ändringar, se [viktig information](https://github.com/Azure/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_70.md).
 
-### <a name="service-fabric-70-releases"></a>Service Fabric 7,0-versioner
+### <a name="service-fabric-70-releases"></a>Service Fabric 7.0-utgåvor
 
 | Utgivningsdatum | Frisläpp | Mer information |
 |---|---|---|
-| 18 november 2019 | [Azure Service Fabric 7,0](https://techcommunity.microsoft.com/t5/Azure-Service-Fabric/Service-Fabric-7-0-Release/ba-p/1015482)  | [Viktig information](https://github.com/Azure/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_70.md)|
-| 30 januari 2020 | [Uppdaterings version för Azure Service Fabric 7,0](https://techcommunity.microsoft.com/t5/azure-service-fabric/azure-service-fabric-7-0-second-refresh-release/ba-p/1137690)  | [Viktig information](https://github.com/Azure/service-fabric/blob/master/release_notes/Service-Fabric-70CU2-releasenotes.md)|
-| 6 februari 2020 | [Uppdaterings version för Azure Service Fabric 7,0](https://techcommunity.microsoft.com/t5/azure-service-fabric/azure-service-fabric-7-0-third-refresh-release/ba-p/1156508)  | [Viktig information](https://github.com/Azure/service-fabric/blob/master/release_notes/Service-Fabric-70CU3-releasenotes.md)|
+| Den 18 november 2019 | [Azure Service Fabric 7.0](https://techcommunity.microsoft.com/t5/Azure-Service-Fabric/Service-Fabric-7-0-Release/ba-p/1015482)  | [Viktig information](https://github.com/Azure/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_70.md)|
+| den 30 januari 2020 | [Uppdateringsversionen av Azure Service Fabric 7.0](https://techcommunity.microsoft.com/t5/azure-service-fabric/azure-service-fabric-7-0-second-refresh-release/ba-p/1137690)  | [Viktig information](https://github.com/Azure/service-fabric/blob/master/release_notes/Service-Fabric-70CU2-releasenotes.md)|
+| den 6 februari 2020 | [Uppdateringsversionen av Azure Service Fabric 7.0](https://techcommunity.microsoft.com/t5/azure-service-fabric/azure-service-fabric-7-0-third-refresh-release/ba-p/1156508)  | [Viktig information](https://github.com/Azure/service-fabric/blob/master/release_notes/Service-Fabric-70CU3-releasenotes.md)|
 
-### <a name="service-fabric-65"></a>Service Fabric 6,5
+### <a name="service-fabric-65"></a>Service Tyg 6,5
 
-Den här versionen innehåller förbättringar av support, tillförlitlighet och prestanda, nya funktioner, fel korrigeringar och förbättringar för att förenkla hanteringen av kluster och program livs cykeln.
+Den här versionen innehåller support, tillförlitlighet och prestandaförbättringar, nya funktioner, buggfixar och förbättringar för att underlätta hantering av kluster- och programlivscykel.
 
 > [!IMPORTANT]
-> Service Fabric 6,5 är den slutliga versionen med stöd för Service Fabric-verktyg i Visual Studio 2015. Kunderna uppmanas att gå vidare till [Visual Studio 2019](https://visualstudio.microsoft.com/vs/) .
+> Service Fabric 6.5 är den slutliga versionen med Service Fabric-verktyg i Visual Studio 2015. Kunderna rekommenderas att flytta till [Visual Studio 2019](https://visualstudio.microsoft.com/vs/) framöver.
 
-Här är what's New i Service Fabric 6,5:
+Här är nyheter i Service Fabric 6.5:
 
-- Service Fabric Explorer innehåller ett [avbildningsarkiv visnings](service-fabric-visualizing-your-cluster.md#image-store-viewer) program för att inspektera program som du har överfört till avbildnings lagret.
+- Service Fabric Explorer innehåller en [Image Store Viewer](service-fabric-visualizing-your-cluster.md#image-store-viewer) för att granska program som du har laddat upp till bildarkivet.
 
-- [POA-1.4.0 (patch Orchestration Application)](service-fabric-patch-orchestration-application.md) innehåller många själv diagnostiska förbättringar. [](https://github.com/microsoft/Service-Fabric-POA/releases/tag/v1.4.0) Kunder med POA rekommenderas att flytta till den här versionen.
+- [PA-version](service-fabric-patch-orchestration-application.md) [1.4.0](https://github.com/microsoft/Service-Fabric-POA/releases/tag/v1.4.0) innehåller många självdiagnostiska förbättringar. Kunder till POA rekommenderas att flytta till den här versionen.
 
-- [EventStore-tjänsten är aktive rad som standard](service-fabric-visualizing-your-cluster.md#event-store) i Service Fabric 6,5-kluster om du inte har valt ut.
+- [EventStore-tjänsten är aktiverad som standard](service-fabric-visualizing-your-cluster.md#event-store) för Service Fabric 6.5-kluster om du inte har valt bort.
 
-- Har lagt till [replik livs cykel händelser](service-fabric-diagnostics-event-generation-operational.md#replica-events) för tillstånds känsliga tjänster.
+- Lade till [repliklivscykelhändelser](service-fabric-diagnostics-event-generation-operational.md#replica-events) för tillståndskänsliga tjänster.
 
-- [Bättre insyn i status för Dirigerings nod](service-fabric-understand-and-troubleshoot-with-system-health-reports.md#seed-node-status), inklusive varningar på kluster nivå om en*Seed-nod är ohälsosam (av*, *borttagen* eller *okänd*).
+- [Bättre synlighet för seed-nodstatus,](service-fabric-understand-and-troubleshoot-with-system-health-reports.md#seed-node-status)inklusive varningar på klusternivå om en frönod är felaktig (*Ned,* *Borttagen* eller *Okänd*).
 
-- Med [Service Fabric-verktyget för haveri beredskap för program](https://github.com/Microsoft/Service-Fabric-AppDRTool) kan Service Fabric tillstånds känsliga tjänster återställas snabbt när det primära klustret påträffar en katastrof. Data från det primära klustret synkroniseras kontinuerligt i det sekundära standby-programmet med hjälp av periodisk säkerhets kopiering och återställning.
+- [Service Fabric Application Disaster Recovery Tool](https://github.com/Microsoft/Service-Fabric-AppDRTool) gör att service fabric-tillståndskänsliga tjänster kan återställas snabbt när det primära klustret stöter på en katastrof. Data från det primära klustret synkroniseras kontinuerligt i det sekundära vänteprogrammet med periodisk säkerhetskopiering och återställning.
 
-- Visual Studio-stöd för [att publicera .net Core-appar till Linux-baserade kluster](service-fabric-how-to-publish-linux-app-vs.md).
+- Visual Studio-stöd för [publicering av .NET Core-appar till Linux-baserade kluster](service-fabric-how-to-publish-linux-app-vs.md).
 
-- [Azure Service Fabric CLI (SFCTL)](https://docs.microsoft.com/azure/service-fabric/service-fabric-cli) installeras automatiskt för Service Fabric 6,5 (och senare versioner) när du uppgraderar eller skapar ett nytt Linux-kluster i Azure.
+- [Azure Service Fabric CLI (SFCTL)](https://docs.microsoft.com/azure/service-fabric/service-fabric-cli) installeras automatiskt för Service Fabric 6.5 (och senare versioner) när du uppgraderar eller skapar ett nytt Linux-kluster på Azure.
 
-- [SFCTL](https://docs.microsoft.com/azure/service-fabric/service-fabric-cli) installeras som standard på MacOS/Linux Onebox behållaravbildningen-kluster.
+- [SFCTL](https://docs.microsoft.com/azure/service-fabric/service-fabric-cli) installeras som standard på MacOS/Linux OneBox-kluster.
 
-Mer information finns i [versions anmärkningar för Service Fabric 6,5](https://github.com/Azure/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_65.pdf).
+Mer information finns i [Service Fabric 6.5 Release Notes](https://github.com/Azure/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_65.pdf).
 
-### <a name="service-fabric-65-releases"></a>Service Fabric 6,5-versioner
+### <a name="service-fabric-65-releases"></a>Service Fabric 6.5-utgåvor
 
 | Utgivningsdatum | Frisläpp | Mer information |
 |---|---|---|
-| 11 juni 2019 | [Azure Service Fabric 6,5](https://blogs.msdn.microsoft.com/azureservicefabric/2019/06/11/azure-service-fabric-6-5-release/)  | [Viktig information](https://github.com/Azure/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_65.pdf)|
-| 2 juli 2019 | [Uppdaterings version för Azure Service Fabric 6,5](https://blogs.msdn.microsoft.com/azureservicefabric/2019/07/04/azure-service-fabric-6-5-refresh-release/)  | [Viktig information](https://github.com/Azure/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_65CU1.pdf)  |
-| 29 juli 2019 | [Uppdaterings version för Azure Service Fabric 6,5](https://techcommunity.microsoft.com/t5/Azure-Service-Fabric/Azure-Service-Fabric-6-5-Second-Refresh-Release/ba-p/800523)  | [Viktig information](https://github.com/Azure/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_65CU2.pdf)  |
-| Aug 23, 2019 | [Uppdaterings version för Azure Service Fabric 6,5](https://techcommunity.microsoft.com/t5/Azure-Service-Fabric/Azure-Service-Fabric-6-5-Third-Refresh-Release/ba-p/818599)  | [Viktig information](https://github.com/Azure/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_65CU3.pdf)  |
-| 14 oktober 2019 | [Uppdaterings version för Azure Service Fabric 6,5](https://techcommunity.microsoft.com/t5/Azure-Service-Fabric/Azure-Service-Fabric-6-5-Fifth-Refresh-Release/ba-p/913296)  | [Viktig information](https://github.com/Azure/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_65CU5.md)  |
+| den 11 juni 2019 | [Azure Service Fabric 6.5](https://blogs.msdn.microsoft.com/azureservicefabric/2019/06/11/azure-service-fabric-6-5-release/)  | [Viktig information](https://github.com/Azure/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_65.pdf)|
+| den 2 juli 2019 | [Uppdateringsversionen av Azure Service Fabric 6.5](https://blogs.msdn.microsoft.com/azureservicefabric/2019/07/04/azure-service-fabric-6-5-refresh-release/)  | [Viktig information](https://github.com/Azure/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_65CU1.pdf)  |
+| 29 juli 2019 | [Uppdateringsversionen av Azure Service Fabric 6.5](https://techcommunity.microsoft.com/t5/Azure-Service-Fabric/Azure-Service-Fabric-6-5-Second-Refresh-Release/ba-p/800523)  | [Viktig information](https://github.com/Azure/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_65CU2.pdf)  |
+| den 23 augusti 2019 | [Uppdateringsversionen av Azure Service Fabric 6.5](https://techcommunity.microsoft.com/t5/Azure-Service-Fabric/Azure-Service-Fabric-6-5-Third-Refresh-Release/ba-p/818599)  | [Viktig information](https://github.com/Azure/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_65CU3.pdf)  |
+| den 14 oktober 2019 | [Uppdateringsversionen av Azure Service Fabric 6.5](https://techcommunity.microsoft.com/t5/Azure-Service-Fabric/Azure-Service-Fabric-6-5-Fifth-Refresh-Release/ba-p/913296)  | [Viktig information](https://github.com/Azure/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_65CU5.md)  |
 
 
 ## <a name="previous-versions"></a>Tidigare versioner
 
-### <a name="service-fabric-64-releases"></a>Service Fabric 6,4-versioner
+### <a name="service-fabric-64-releases"></a>Service Fabric 6.4-utgåvor
 
 | Utgivningsdatum | Frisläpp | Mer information |
 |---|---|---|
-| 30 november 2018 | [Azure Service Fabric 6,4](https://blogs.msdn.microsoft.com/azureservicefabric/2018/11/30/azure-service-fabric-6-4-release/)  | [Viktig information](https://msdnshared.blob.core.windows.net/media/2018/12/Service-Fabric-6.4-Release.pdf)|
-| 12 december 2018 | [Azure Service Fabric 6,4 uppdaterings version för Windows-kluster](https://blogs.msdn.microsoft.com/azureservicefabric/2018/12/12/azure-service-fabric-6-4-refresh-for-windows-clusters/)  | [Viktig information](https://msdnshared.blob.core.windows.net/media/2018/12/Links.pdf)  |
-| 4 februari 2019 | [Uppdaterings version för Azure Service Fabric 6,4](https://blogs.msdn.microsoft.com/azureservicefabric/2019/02/04/azure-service-fabric-6-4-refresh-release/) | [Viktig information](https://msdnshared.blob.core.windows.net/media/2019/02/Service-Fabric-6.4CU3-Release-Notes.pdf) |
-| 4 mars 2019 | [Uppdaterings version för Azure Service Fabric 6,4](https://blogs.msdn.microsoft.com/azureservicefabric/2019/03/12/azure-service-fabric-6-4-refresh-release-2/) | [Viktig information](https://msdnshared.blob.core.windows.net/media/2019/03/Service-Fabric-6.4CU4-Release-Notes.pdf)
-| 8 april 2019 | [Uppdaterings version för Azure Service Fabric 6,4](https://blogs.msdn.microsoft.com/azureservicefabric/2019/04/08/azure-service-fabric-6-4-refresh-release-5/) | [Viktig information](https://msdnshared.blob.core.windows.net/media/2019/04/Service-Fabric-6.4CU5-ReleaseNotes3.pdf)
-| 2 maj 2019 | [Uppdaterings version för Azure Service Fabric 6,4](https://blogs.msdn.microsoft.com/azureservicefabric/2019/05/02/azure-service-fabric-6-4-refresh-release-3/) | [Viktig information](https://msdnshared.blob.core.windows.net/media/2019/05/Service-Fabric-64CU6-Release-Notes-V2.pdf)
-| 28 maj, 2019 | [Uppdaterings version för Azure Service Fabric 6,4](https://blogs.msdn.microsoft.com/azureservicefabric/2019/05/28/azure-service-fabric-6-4-refresh-release-4/) | [Viktig information](https://msdnshared.blob.core.windows.net/media/2019/05/Service_Fabric_64CU7_Release_Notes1.pdf)
+| den 30 november 2018 | [Azure-tjänstinfrastruktur 6.4](https://blogs.msdn.microsoft.com/azureservicefabric/2018/11/30/azure-service-fabric-6-4-release/)  | [Viktig information](https://msdnshared.blob.core.windows.net/media/2018/12/Service-Fabric-6.4-Release.pdf)|
+| den 12 december 2018 | [Uppdateringsversionen av Azure Service Fabric 6.4 för Windows-kluster](https://blogs.msdn.microsoft.com/azureservicefabric/2018/12/12/azure-service-fabric-6-4-refresh-for-windows-clusters/)  | [Viktig information](https://msdnshared.blob.core.windows.net/media/2018/12/Links.pdf)  |
+| den 4 februari 2019 | [Uppdateringsversionen av Azure Service Fabric 6.4](https://blogs.msdn.microsoft.com/azureservicefabric/2019/02/04/azure-service-fabric-6-4-refresh-release/) | [Viktig information](https://msdnshared.blob.core.windows.net/media/2019/02/Service-Fabric-6.4CU3-Release-Notes.pdf) |
+| den 4 mars 2019 | [Uppdateringsversionen av Azure Service Fabric 6.4](https://blogs.msdn.microsoft.com/azureservicefabric/2019/03/12/azure-service-fabric-6-4-refresh-release-2/) | [Viktig information](https://msdnshared.blob.core.windows.net/media/2019/03/Service-Fabric-6.4CU4-Release-Notes.pdf)
+| den 8 april 2019 | [Uppdateringsversionen av Azure Service Fabric 6.4](https://blogs.msdn.microsoft.com/azureservicefabric/2019/04/08/azure-service-fabric-6-4-refresh-release-5/) | [Viktig information](https://msdnshared.blob.core.windows.net/media/2019/04/Service-Fabric-6.4CU5-ReleaseNotes3.pdf)
+| den 2 maj 2019 | [Uppdateringsversionen av Azure Service Fabric 6.4](https://blogs.msdn.microsoft.com/azureservicefabric/2019/05/02/azure-service-fabric-6-4-refresh-release-3/) | [Viktig information](https://msdnshared.blob.core.windows.net/media/2019/05/Service-Fabric-64CU6-Release-Notes-V2.pdf)
+| den 28 maj 2019 | [Uppdateringsversionen av Azure Service Fabric 6.4](https://blogs.msdn.microsoft.com/azureservicefabric/2019/05/28/azure-service-fabric-6-4-refresh-release-4/) | [Viktig information](https://msdnshared.blob.core.windows.net/media/2019/05/Service_Fabric_64CU7_Release_Notes1.pdf)

@@ -1,6 +1,6 @@
 ---
-title: Lägg till ett verktygsfält för ritning i en karta | Microsoft Azure Maps
-description: I den här artikeln får du lära dig hur du lägger till ett verktygsfält för ritning till en karta med Microsoft Azure Maps-webbsdk
+title: Lägga till ett verktygsfält för ritning på en karta | Microsoft Azure Maps
+description: I den här artikeln får du lära dig hur du lägger till ett verktygsfält för ritning på en karta med Microsoft Azure Maps Web SDK
 author: rbrundritt
 ms.author: richbrun
 ms.date: 12/05/2019
@@ -9,90 +9,90 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.openlocfilehash: cf9c79f608aa3ffd1137be41ff3348f62b890867
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77198317"
 ---
-# <a name="drawing-tool-events"></a>Rit verktygs händelser
+# <a name="drawing-tool-events"></a>Händelser i ritverktyg
 
-När du använder rit verktyg på en karta är det bra att reagera på vissa händelser när användaren ritar på kartan. I den här tabellen listas alla händelser som stöds av klassen `DrawingManager`.
+När du använder ritverktyg på en karta är det bra att reagera på vissa händelser när användaren ritar på kartan. I den här tabellen visas `DrawingManager` alla händelser som stöds av klassen.
 
 | Händelse | Beskrivning |
 |-------|-------------|
-| `drawingchanged` | Utlöses när en koordinat i en form har lagts till eller ändrats. | 
-| `drawingchanging` | Utlöses när en förhands gransknings koordinat för en form visas. Den här händelsen kommer till exempel att utlösa flera gånger när en koordinat dras. | 
-| `drawingcomplete` | Utlöses när en form har tagits bort eller tagits bort från redigerings läget. |
-| `drawingmodechanged` | Utlöses när rit läget har ändrats. Det nya ritnings läget överförs till händelse hanteraren. |
-| `drawingstarted` | Utlöses när användaren börjar att rita en form eller placerar en form i redigerings läge.  |
+| `drawingchanged` | Utlöses när någon koordinat i en form har lagts till eller ändrats. | 
+| `drawingchanging` | Utlöses när en förhandsgranskningskoordinat för en form visas. Den här händelsen avfyras till exempel flera gånger när en koordinat dras. | 
+| `drawingcomplete` | Utlöses när en form har ritats eller tagits ur redigeringsläge. |
+| `drawingmodechanged` | Utlöses när ritläget har ändrats. Det nya ritläget skickas till händelsehanteraren. |
+| `drawingstarted` | Utlöses när användaren börjar rita en form eller sätter en form i redigeringsläge.  |
 
-Följande kod visar hur händelserna i modulen rit verktyg fungerar. Rita former på kartan och se vilka händelser som utlöses.
+Följande kod visar hur händelserna i modulen Ritverktyg fungerar. Rita former på kartan och titta på när händelserna avfyras.
 
 <br/>
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="Rit verktygs händelser" src="https://codepen.io/azuremaps/embed/dyPMRWo?height=500&theme-id=default&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
-Se händelser för rit verktyg för rit <a href='https://codepen.io/azuremaps/pen/dyPMRWo'>verktyg</a> efter Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) på <a href='https://codepen.io'>CodePen</a>.
+<iframe height="500" style="width: 100%;" scrolling="no" title="Händelser för ritverktyg" src="https://codepen.io/azuremaps/embed/dyPMRWo?height=500&theme-id=default&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+Se händelserna med <a href='https://codepen.io/azuremaps/pen/dyPMRWo'>pennritverktyg</a> <a href='https://codepen.io/azuremaps'>@azuremaps</a>från Azure Maps ( ) på <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 <br/>
 
 ## <a name="examples"></a>Exempel
 
-Nu ska vi se några vanliga scenarier som använder rit verktygs händelser.
+Låt oss se några vanliga scenarier som använder ritverktygshändelserna.
 
-### <a name="select-points-in-polygon-area"></a>Välj punkter i polygon-ytan
+### <a name="select-points-in-polygon-area"></a>Markera punkter i polygonområdet
 
-Den här koden visar hur du övervakar en händelse av en användares ritnings former. I det här exemplet övervakar koden former av polygoner, rektanglar och cirklar. Sedan avgör den vilka data punkter på kartan som ligger inom det ritade fältet. `drawingcomplete`-händelsen används för att utlösa Select-logiken. I SELECT Logic loopar koden genom alla data punkter på kartan. Det kontrollerar om det finns en skärning av punkten och området för den ritade figuren. I det här exemplet används [Turf. js](https://turfjs.org/) -biblioteket med öppen källkod för att utföra en spatial skärnings beräkning.
+Den här koden visar hur du övervakar en händelse av en användare ritning former. Koden övervakar i det här exemplet former av polygoner, rektanglar och cirklar. Sedan avgör den vilka datapunkter på kartan som finns inom det ritade området. Händelsen `drawingcomplete` används för att utlösa urvalslogiken. I urvalslogiken loopar koden genom alla datapunkter på kartan. Den kontrollerar om det finns en skärningspunkt mellan punkten och området för den ritade formen. I det här exemplet används [turf.js-biblioteket](https://turfjs.org/) med öppen källkod för att utföra en beräkning av spatial skärningspunkter.
 
 <br/>
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="Välj data i ritat polygon-ytdiagram" src="https://codepen.io/azuremaps/embed/XWJdeja?height=500&theme-id=default&default-tab=result" frameborder="no" allowtransparency="true" allowfullscreen="true">
-Se <a href='https://codepen.io/azuremaps/pen/XWJdeja'>data i den ritade polygonens yta</a> genom att Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) på <a href='https://codepen.io'>CodePen</a>.
+<iframe height="500" style="width: 100%;" scrolling="no" title="Markera data i ritat polygonområde" src="https://codepen.io/azuremaps/embed/XWJdeja?height=500&theme-id=default&default-tab=result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+Se Pen <a href='https://codepen.io/azuremaps/pen/XWJdeja'>Select-data i det ritade polygonområdet</a> av Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) på <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 <br/>
 
-### <a name="draw-and-search-in-polygon-area"></a>Rita och Sök i polygon-område
+### <a name="draw-and-search-in-polygon-area"></a>Rita och söka i polygonområdet
 
-Den här koden söker efter antecknings punkter inuti en forms yta efter att användaren har ritat formen. Du kan ändra och köra koden genom att klicka på Redigera på kod penna i det övre högra hörnet i ramen. `drawingcomplete`-händelsen används för att utlösa Sök logiken. Om användaren ritar en rektangel eller polygon utförs en sökning i geometrin. Om en cirkel ritas, används Radi-och Center positionen för att utföra en orienterings punkts ökning. `drawingmodechanged`-händelsen används för att avgöra när användaren växlar till rit läget och den här händelsen rensar arbets ytan.
+Den här koden söker efter intressanta platser i området i en form när användaren har ritat formen. Du kan ändra och köra koden genom att klicka på "Redigera på kodpenna" längst upp till höger i ramen. Händelsen `drawingcomplete` används för att utlösa söklogiken. Om användaren ritar en rektangel eller polygon utförs en sökning inuti geometri. Om en cirkel ritas används radien och mittpositionen för att utföra en intressepunkt. Händelsen `drawingmodechanged` används för att avgöra när användaren växlar till ritläget och den här händelsen rensar arbetsytan.
 
 <br/>
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="Rita och Sök i polygon-område" src="https://codepen.io/azuremaps/embed/eYmZGNv?height=500&theme-id=default&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
-Se Penn <a href='https://codepen.io/azuremaps/pen/eYmZGNv'>ritning och Sök i polygon-område</a> genom Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) på <a href='https://codepen.io'>CodePen</a>.
+<iframe height="500" style="width: 100%;" scrolling="no" title="Rita och söka i polygonområdet" src="https://codepen.io/azuremaps/embed/eYmZGNv?height=500&theme-id=default&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+Se Pen <a href='https://codepen.io/azuremaps/pen/eYmZGNv'>Draw och sök i polygonområdet</a> av Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) på <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 <br/>
 
-### <a name="create-a-measuring-tool"></a>Skapa ett Mät verktyg
+### <a name="create-a-measuring-tool"></a>Skapa ett mätverktyg
 
-Koden nedan visar hur du kan använda rit händelser för att skapa ett Mät verktyg. `drawingchanging` används för att övervaka formen, när den ritas. När användaren flyttar musen beräknas formens dimensioner. `drawingcomplete`-händelsen används för att göra en slutgiltig beräkning på formen när den har ritats. Händelsen `drawingmodechanged` används för att avgöra när användaren växlar till ett ritläge. Dessutom rensar `drawingmodechanged`-händelsen arbets ytan och rensar gammal mått information.
+Koden nedan visar hur ritningshändelserna kan användas för att skapa ett mätverktyg. Den `drawingchanging` används för att övervaka formen, som den ritas. När användaren flyttar musen beräknas formens dimensioner. Händelsen `drawingcomplete` används för att göra en slutlig beräkning på formen efter att den har ritats. Händelsen `drawingmodechanged` används för att avgöra när användaren växlar till ett ritläge. Dessutom rensar händelsen `drawingmodechanged` arbetsytan och rensar gammal mätinformation.
 
 <br/>
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="Mät verktyg" src="https://codepen.io/azuremaps/embed/RwNaZXe?height=500&theme-id=default&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
-Se Penn <a href='https://codepen.io/azuremaps/pen/RwNaZXe'>Mät verktyget</a> genom att Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) på <a href='https://codepen.io'>CodePen</a>.
+<iframe height="500" style="width: 100%;" scrolling="no" title="Mätverktyg" src="https://codepen.io/azuremaps/embed/RwNaZXe?height=500&theme-id=default&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+Se <a href='https://codepen.io/azuremaps/pen/RwNaZXe'>ritstiftsmätverktyget</a> av Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) på <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 <br/>
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig hur du använder ytterligare funktioner i modulen rit verktyg:
+Lär dig hur du använder ytterligare funktioner i ritverktygsmodulen:
 
 > [!div class="nextstepaction"]
 > [Hämta formdata](map-get-shape-data.md)
 
 > [!div class="nextstepaction"]
-> [Interaktions typer och kortkommandon](drawing-tools-interactions-keyboard-shortcuts.md)
+> [Interaktionstyper och kortkommandon](drawing-tools-interactions-keyboard-shortcuts.md)
 
-Läs mer om modulen tjänster:
+Läs mer om modulen Tjänster:
 
 > [!div class="nextstepaction"]
 > [Tjänstmodul](how-to-use-services-module.md)
 
-Se fler kod exempel:
+Kolla in fler kodexempel:
 
 > [!div class="nextstepaction"]
-> [Kod exempel sida](https://aka.ms/AzureMapsSamples)
+> [Exempelsida för kod](https://aka.ms/AzureMapsSamples)

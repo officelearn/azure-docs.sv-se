@@ -1,6 +1,6 @@
 ---
-title: Kopiera data till och från Azure Table Storage
-description: Lär dig hur du kopierar data från käll arkiv som stöds till Azure Table Storage, eller från Table Storage till mottagar mottagar lager med hjälp av Data Factory.
+title: Kopiera data till och från Azure Table-lagring
+description: Lär dig hur du kopierar data från källarkiv som stöds till Azure Table-lagring eller från tabelllagring till sink-butiker som stöds med hjälp av Data Factory.
 services: data-factory
 ms.author: jingwang
 author: linda33wj
@@ -12,53 +12,53 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 08/27/2019
 ms.openlocfilehash: cf79a670db4e2729c6e0a5fb7112cdc6114f465a
-ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77460747"
 ---
-# <a name="copy-data-to-and-from-azure-table-storage-by-using-azure-data-factory"></a>Kopiera data till och från Azure Table Storage med hjälp av Azure Data Factory
+# <a name="copy-data-to-and-from-azure-table-storage-by-using-azure-data-factory"></a>Kopiera data till och från Azure Table-lagring med hjälp av Azure Data Factory
 
 > [!div class="op_single_selector" title1="Välj den version av Data Factory-tjänsten som du använder:"]
 > * [Version 1](v1/data-factory-azure-table-connector.md)
 > * [Aktuell version](connector-azure-table-storage.md)
 
-Den här artikeln beskriver hur du använder kopierings aktivitet i Azure Data Factory för att kopiera data till och från Azure Table Storage. Den bygger på [översikts artikeln om kopierings aktiviteten](copy-activity-overview.md) som visar en översikt över kopierings aktiviteten.
+I den här artikeln beskrivs hur du använder Kopiera aktivitet i Azure Data Factory för att kopiera data till och från Azure Table Storage. Den bygger på översiktsartikeln [Kopiera aktivitet](copy-activity-overview.md) som ger en allmän översikt över kopieringsaktivitet.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="supported-capabilities"></a>Funktioner som stöds
 
-Den här Azure Table Storage-anslutningen stöds för följande aktiviteter:
+Den här Azure Table-lagringsappen stöds för följande aktiviteter:
 
-- [Kopierings aktivitet](copy-activity-overview.md) med [matrisen source/Sink som stöds](copy-activity-overview.md)
-- [Sökningsaktivitet](control-flow-lookup-activity.md)
+- [Kopiera aktivitet](copy-activity-overview.md) med [käll-/sink-matris som stöds](copy-activity-overview.md)
+- [Uppslagsaktivitet](control-flow-lookup-activity.md)
 
-Du kan kopiera data från alla käll data lager som stöds till Table Storage. Du kan också kopiera data från Table Storage till alla mottagar data lager som stöds. En lista över data lager som stöds som källor eller mottagare av kopierings aktiviteten finns i tabellen med [data lager som stöds](copy-activity-overview.md#supported-data-stores-and-formats) .
+Du kan kopiera data från alla källdatalager som stöds till Tabelllagring. Du kan också kopiera data från tabelllagring till alla sink-datalager som stöds. En lista över datalager som stöds som källor eller sänkor av kopieringsaktiviteten finns i tabellen [Datalager som stöds.](copy-activity-overview.md#supported-data-stores-and-formats)
 
-Mer specifikt stöder Azure Table Connector kopiering av data med hjälp av autentisering med konto nyckel och autentisering med delad åtkomst för signaturer.
+Specifikt stöder den här Azure Table-anslutningsappen kopiering av data med hjälp av kontonyckel och tjänstautentiseringar med delad åtkomstsignatur.
 
-## <a name="get-started"></a>Kom igång
+## <a name="get-started"></a>Komma igång
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
-Följande avsnitt innehåller information om egenskaper som används för att definiera Data Factory entiteter som är speciella för Table Storage.
+I följande avsnitt finns information om egenskaper som används för att definiera datafabrikentiteter som är specifika för tabelllagring.
 
 ## <a name="linked-service-properties"></a>Länkade tjänstegenskaper
 
-### <a name="use-an-account-key"></a>Använd en konto nyckel
+### <a name="use-an-account-key"></a>Använda en kontonyckel
 
-Du kan skapa en Azure Storage länkad tjänst genom att använda konto nyckeln. Den ger data fabriken global åtkomst till lagringen. Följande egenskaper stöds.
+Du kan skapa en Azure Storage-länkad tjänst med hjälp av kontonyckeln. Det ger datafabriken global åtkomst till lagring. Följande egenskaper stöds.
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Egenskapen Type måste anges till **AzureTableStorage**. |Ja |
-| connectionString | Ange information som behövs för att ansluta till lagringsutrymmet för connectionString-egenskapen. <br/>Du kan också ange konto nyckeln i Azure Key Vault och hämta `accountKey`-konfigurationen från anslutnings strängen. Se följande exempel och [lagra autentiseringsuppgifter i Azure Key Vault](store-credentials-in-key-vault.md) artikel med mer information. |Ja |
-| connectVia | [Integrerings körningen](concepts-integration-runtime.md) som ska användas för att ansluta till data lagret. Du kan använda Azure Integration Runtime eller egen värd Integration Runtime (om ditt data lager finns i ett privat nätverk). Om den inte anges används standard Azure Integration Runtime. |Nej |
+| typ | Typegenskapen måste anges till **AzureTableStorage**. |Ja |
+| Connectionstring | Ange den information som behövs för att ansluta till lagring för egenskapen connectionString. <br/>Du kan också placera kontonyckeln i `accountKey` Azure Key Vault och hämta konfigurationen ur anslutningssträngen. Mer information finns i följande exempel och [Store-autentiseringsuppgifter i](store-credentials-in-key-vault.md) azure key vault-artikeln. |Ja |
+| connectVia (på) | [Den integrationskörning som](concepts-integration-runtime.md) ska användas för att ansluta till datalagret. Du kan använda Azure Integration Runtime eller Self-hosted Integration Runtime (om ditt datalager finns i ett privat nätverk). Om det inte anges används standardkörningen för Azure Integration. |Inga |
 
 >[!NOTE]
->Om du använder den länkade tjänsten "AzureStorage"-typ, stöds den fortfarande som den är, men du rekommenderas att använda den här nya länkade tjänst typen "AzureTableStorage".
+>Om du använde "AzureStorage" typ länkad tjänst, stöds den fortfarande som den är, medan du föreslås använda den här nya "AzureTableStorage"-länkade tjänsttypen framöver.
 
 **Exempel:**
 
@@ -78,7 +78,7 @@ Du kan skapa en Azure Storage länkad tjänst genom att använda konto nyckeln. 
 }
 ```
 
-**Exempel: lagrings konto nyckel i Azure Key Vault**
+**Exempel: store-kontonyckel i Azure Key Vault**
 
 ```json
 {
@@ -104,30 +104,30 @@ Du kan skapa en Azure Storage länkad tjänst genom att använda konto nyckeln. 
 }
 ```
 
-### <a name="use-shared-access-signature-authentication"></a>Använd autentisering med signatur för delad åtkomst
+### <a name="use-shared-access-signature-authentication"></a>Använda autentisering av signatur för delad åtkomst
 
-Du kan också skapa en länkad lagrings tjänst genom att använda en signatur för delad åtkomst. Den tillhandahåller data fabriken med begränsad/tidsbegränsad åtkomst till alla/vissa resurser i lagrings platsen.
+Du kan också skapa en lagringslänkad tjänst med hjälp av en signatur för delad åtkomst. Det ger datafabriken begränsad/tidsbunden åtkomst till alla/specifika resurser i lagringen.
 
-En signatur för delad åtkomst ger delegerad åtkomst till resurser i ditt storage-konto. Du kan använda den för att ge en klient begränsad behörighet till objekt i ditt lagrings konto under en angiven tid och med en angiven uppsättning behörigheter. Du behöver inte dela åtkomstnycklarna för kontot. Signatur för delad åtkomst är en URI som omfattar all information som behövs för autentiserad åtkomst till en lagringsresurs i dess Frågeparametrar. Om du vill få åtkomst till lagringsresurser med signatur för delad åtkomst, behöver klienten bara använda signatur för delad åtkomst till lämplig konstruktor nebo metodu. Mer information om signaturer för delad åtkomst finns i signaturer för delad åtkomst [: förstå signatur modellen för delad åtkomst](../storage/common/storage-dotnet-shared-access-signature-part-1.md).
+En signatur för delad åtkomst ger delegerad åtkomst till resurser i ditt lagringskonto. Du kan använda den för att bevilja en klient begränsad behörighet till objekt i ditt lagringskonto under en angiven tid och med en angiven uppsättning behörigheter. Du behöver inte dela dina kontoåtkomstnycklar. Signaturen för delad åtkomst är en URI som i frågeparametrarna omfattar all information som krävs för autentiserat åtkomst till en lagringsresurs. För att komma åt lagringsresurser med signaturen för delad åtkomst behöver klienten bara skicka in signaturen för delad åtkomst till lämplig konstruktor eller metod. Mer information om signaturer för delad åtkomst finns i Signaturer för [delad åtkomst: Förstå signaturmodellen för delad åtkomst](../storage/common/storage-dotnet-shared-access-signature-part-1.md).
 
 > [!NOTE]
-> Data Factory stöder nu både signaturer för **delad åtkomst för tjänsten** och **kontots delade åtkomst-signaturer**. Mer information om signaturer för delad åtkomst finns i [bevilja begränsad åtkomst till Azure Storage-resurser med hjälp av signaturer för delad åtkomst (SAS)](../storage/common/storage-sas-overview.md). 
+> Data Factory stöder nu både **signaturer för delad åtkomst till tjänsten** och **signaturer för delad åtkomst till kontot**. Mer information om signaturer för delad åtkomst finns i [Bevilja begränsad åtkomst till Azure Storage-resurser med hjälp av SAS (Shared Access Signatures).](../storage/common/storage-sas-overview.md) 
 
 > [!TIP]
-> Du kan köra följande PowerShell-kommandon för att generera en signatur för delad åtkomst av tjänsten för ditt lagringskonto. Ersätt platshållarna och bevilja behörigheten som krävs.
+> Om du vill generera en signatur för delad åtkomst för tjänsten för ditt lagringskonto kan du köra följande PowerShell-kommandon. Ersätt platshållarna och bevilja nödvändig behörighet.
 > `$context = New-AzStorageContext -StorageAccountName <accountName> -StorageAccountKey <accountKey>`
 > `New-AzStorageContainerSASToken -Name <containerName> -Context $context -Permission rwdl -StartTime <startTime> -ExpiryTime <endTime> -FullUri`
 
-Följande egenskaper stöds om du vill använda autentisering med signaturer för delad åtkomst.
+Om du vill använda autentisering av signatur för delad åtkomst stöds följande egenskaper.
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Egenskapen Type måste anges till **AzureTableStorage**. |Ja |
-| sasUri | Ange SAS-URI för signatur-URI: n för delad åtkomst till tabellen. <br/>Markera det här fältet som en SecureString för att lagra det på ett säkert sätt i Data Factory. Du kan också ställa in SAS-token i Azure Key Vault för att dra nytta av automatisk rotation och ta bort token-delen. Se följande exempel och [lagra autentiseringsuppgifter i Azure Key Vault](store-credentials-in-key-vault.md) artikel med mer information. | Ja |
-| connectVia | [Integrerings körningen](concepts-integration-runtime.md) som ska användas för att ansluta till data lagret. Du kan använda Azure Integration Runtime eller den lokala Integration Runtime (om ditt datalager finns i ett privat nätverk). Om den inte anges används standard Azure Integration Runtime. |Nej |
+| typ | Typegenskapen måste anges till **AzureTableStorage**. |Ja |
+| sasuri (samma sak) | Ange SAS-URI för signaturen URI för delad åtkomst i tabellen. <br/>Markera det här fältet som en SecureString för att lagra det säkert i Data Factory. Du kan också placera SAS-token i Azure Key Vault för att utnyttja automatisk rotation och ta bort tokendelen. Mer information finns i följande exempel och [Store-autentiseringsuppgifter i](store-credentials-in-key-vault.md) azure key vault-artikeln. | Ja |
+| connectVia (på) | [Den integrationskörning som](concepts-integration-runtime.md) ska användas för att ansluta till datalagret. Du kan använda Azure Integration Runtime eller self-hosted Integration Runtime (om ditt datalager finns i ett privat nätverk). Om det inte anges används standardkörningen för Azure Integration. |Inga |
 
 >[!NOTE]
->Om du använder den länkade tjänsten "AzureStorage"-typ, stöds den fortfarande som den är, men du rekommenderas att använda den här nya länkade tjänst typen "AzureTableStorage".
+>Om du använde "AzureStorage" typ länkad tjänst, stöds den fortfarande som den är, medan du föreslås använda den här nya "AzureTableStorage"-länkade tjänsttypen framöver.
 
 **Exempel:**
 
@@ -150,7 +150,7 @@ Följande egenskaper stöds om du vill använda autentisering med signaturer fö
 }
 ```
 
-**Exempel: lagrings konto nyckel i Azure Key Vault**
+**Exempel: store-kontonyckel i Azure Key Vault**
 
 ```json
 {
@@ -179,22 +179,22 @@ Följande egenskaper stöds om du vill använda autentisering med signaturer fö
 }
 ```
 
-När du skapar en signatur för delad åtkomst URI kan du överväga följande punkter:
+När du skapar en URI för delad åtkomst-signatur bör du tänka på följande:
 
-- Ange lämpliga Läs/Skriv-behörigheter för objekt baserat på hur den länkade tjänsten (läsa, skriva, Läs/Skriv) används i din datafabrik.
-- Ange **förfallo tid** på lämpligt sätt. Se till att åtkomsten till lagringsobjekt inte går ut inom den aktiva perioden för pipelinen.
-- URI: n måste skapas på rätt tabell nivå baserat på behovet.
+- Ange lämpliga läs-/skrivbehörigheter för objekt baserat på hur den länkade tjänsten (läsa, skriva, läsa/skriva) används i din datafabrik.
+- Ställ **in utgångstid** på lämpligt sätt. Kontrollera att åtkomsten till Lagringsobjekt inte upphör att gälla inom den aktiva perioden för pipelinen.
+- URI-uri:n ska skapas på rätt tabellnivå baserat på behovet.
 
 ## <a name="dataset-properties"></a>Egenskaper för datamängd
 
-En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera data uppsättningar finns i artikeln [data uppsättningar](concepts-datasets-linked-services.md) . Det här avsnittet innehåller en lista över egenskaper som stöds av Azure Table-datauppsättningen.
+En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera datauppsättningar finns i artikeln [Datauppsättningar.](concepts-datasets-linked-services.md) Det här avsnittet innehåller en lista över egenskaper som stöds av Azure Table-datauppsättningen.
 
-Om du vill kopiera data till och från Azure-tabellen anger du egenskapen type för data uppsättningen till **AzureTable**. Följande egenskaper stöds.
+Om du vill kopiera data till och från Azure Table anger du egenskapen type för datauppsättningen till **AzureTable**. Följande egenskaper stöds.
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Data uppsättningens typ-egenskap måste anges till **AzureTable**. |Ja |
-| tableName |Namnet på tabellen i den tabell lagrings databas instans som den länkade tjänsten refererar till. |Ja |
+| typ | Egenskapen Type property för datauppsättningen måste anges till **AzureTable**. |Ja |
+| tableName |Namnet på tabellen i databasinstansen Tabelllagring som den länkade tjänsten refererar till. |Ja |
 
 **Exempel:**
 
@@ -216,59 +216,59 @@ Om du vill kopiera data till och från Azure-tabellen anger du egenskapen type f
 }
 ```
 
-### <a name="schema-by-data-factory"></a>Schemat av Data Factory
+### <a name="schema-by-data-factory"></a>Schema efter datafabrik
 
-Data Factory härleder schemat på något av följande sätt för schema fria data lager, till exempel Azure Table:
+För schemafria datalager som Azure Table härleder Data Factory schemat på något av följande sätt:
 
-* Om du anger kolumn mappningen i kopierings aktiviteten Data Factory använda kolumn listan på käll sidan för att hämta data. I det här fallet anges ett null-värde för det om en rad inte innehåller något värde för en kolumn.
-* Om du inte anger kolumn mappningen i kopierings aktiviteten härleder Data Factory schemat genom att använda den första raden i data. I detta fall, om den första raden inte innehåller det fullständiga schemat (t. ex. om vissa kolumner har null-värde), saknas vissa kolumner i resultatet av kopierings åtgärden.
+* Om du anger kolumnmappningen i kopieringsaktivitet använder Data Factory kolumnlistan för källsidan för att hämta data. I det här fallet, om en rad inte innehåller ett värde för en kolumn, anges ett null-värde för den.
+* Om du inte anger kolumnmappningen i kopieringsaktiviteten härleds schemat genom att använda den första raden i data. I det här fallet, om den första raden inte innehåller det fullständiga schemat (t.ex. vissa kolumner har null-värde), saknas vissa kolumner i resultatet av kopieringen.
 
 ## <a name="copy-activity-properties"></a>Kopiera egenskaper för aktivitet
 
-En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera aktiviteter finns i artikeln om [pipeliner](concepts-pipelines-activities.md) . Det här avsnittet innehåller en lista över egenskaper som stöds av Azures tabell källa och mottagare.
+En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera aktiviteter finns i artikeln [Pipelines.](concepts-pipelines-activities.md) Det här avsnittet innehåller en lista över egenskaper som stöds av Azure Table-källan och diskhon.
 
-### <a name="azure-table-as-a-source-type"></a>Azure-tabell som käll typ
+### <a name="azure-table-as-a-source-type"></a>Azure-tabell som källtyp
 
-Om du vill kopiera data från Azure-tabellen anger du käll typen i kopierings aktiviteten till **AzureTableSource**. Följande egenskaper stöds i avsnittet Kopiera aktivitets **källa** .
+Om du vill kopiera data från Azure Table anger du källtypen i kopieringsaktiviteten till **AzureTableSource**. Följande egenskaper stöds i källavsnittet för **kopieringsaktivitet.**
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Typ egenskapen för kopierings aktivitets källan måste anges till **AzureTableSource**. |Ja |
-| azureTableSourceQuery |Använd den anpassade tabell lagrings frågan för att läsa data. Se exemplen i följande avsnitt. |Nej |
-| azureTableSourceIgnoreTableNotFound |Anger om undantag för tabellen inte finns.<br/>Tillåtna värden är **True** och **false** (standard). |Nej |
+| typ | Egenskapen Type property för kopians aktivitetskälla måste anges till **AzureTableSource**. |Ja |
+| azureTableSourceQuery |Använd den anpassade tabelllagringsfrågan för att läsa data. Se exempel i följande avsnitt. |Inga |
+| azureTableSourceIgnoreTableNotFound |Anger om det inte finns något undantag för tabellen.<br/>Tillåtna värden är **Sant** och **Falskt** (standard). |Inga |
 
-### <a name="azuretablesourcequery-examples"></a>azureTableSourceQuery-exempel
+### <a name="azuretablesourcequery-examples"></a>azureTableSourceQuery exempel
 
 >[!NOTE]
->Azure Table Query-åtgärden nådde tids gränsen på 30 sekunder som [tillämpas av azure Table service](https://docs.microsoft.com/rest/api/storageservices/setting-timeouts-for-table-service-operations). Lär dig hur du optimerar frågan från [design för att fråga](../storage/tables/table-storage-design-for-query.md) artikeln.
+>Azure Table-frågeåtgärden time out på 30 sekunder som [tillämpas av Azure Table Service](https://docs.microsoft.com/rest/api/storageservices/setting-timeouts-for-table-service-operations). Lär dig hur du [optimerar](../storage/tables/table-storage-design-for-query.md) frågan från Design för att fråga artikel.
 
-I Azure Data Factory, om du vill filtrera data mot en kolumn av typen datetime, se följande exempel:
+Om du vill filtrera data mot en kolumn för datetime-typ i Azure Data Factory läser du det här exemplet:
 
 ```json
 "azureTableSourceQuery": "LastModifiedTime gt datetime'2017-10-01T00:00:00' and LastModifiedTime le datetime'2017-10-02T00:00:00'"
 ```
 
-Om du vill filtrera data mot en sträng typ kolumn, se följande exempel:
+Om du vill filtrera data mot en strängtypskolumn läser du det här exemplet:
 
 ```json
 "azureTableSourceQuery": "LastModifiedTime ge '201710010000_0000' and LastModifiedTime le '201710010000_9999'"
 ```
 
-Om du använder pipeline-parametern, omvandla datetime-värdet till korrekt format enligt föregående exempel.
+Om du använder pipelineparametern castar du datetime-värdet till korrekt format enligt föregående exempel.
 
-### <a name="azure-table-as-a-sink-type"></a>Azure-tabell som mottagar typ
+### <a name="azure-table-as-a-sink-type"></a>Azure-tabell som en sink-typ
 
-Om du vill kopiera data till Azure-tabellen ställer du in mottagar typen i kopierings aktiviteten till **AzureTableSink**. Följande egenskaper stöds i avsnittet Kopiera aktivitets **mottagare** .
+Om du vill kopiera data till Azure Table anger du sink-typen i kopieringsaktiviteten till **AzureTableSink**. Följande egenskaper stöds i avsnittet kopiera **aktivitetsmottagare.**
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Egenskapen Type för kopierings aktivitetens Sink måste anges till **AzureTableSink**. |Ja |
-| azureTableDefaultPartitionKeyValue |Standardvärdet för partitionerings nyckel som kan användas av mottagaren. |Nej |
-| azureTablePartitionKeyName |Ange namnet på den kolumn vars värden används som partitionsnyckel. Om inget anges används "AzureTableDefaultPartitionKeyValue" som partitionsnyckel. |Nej |
-| azureTableRowKeyName |Ange namnet på den kolumn vars kolumn värden används som rad nyckel. Om inget anges ska du använda ett GUID för varje rad. |Nej |
-| azureTableInsertType |Det läge där data ska infogas i Azure-tabellen. Den här egenskapen anger om befintliga rader i utdatatabellen med matchande partition och rad nycklar har ersatts eller slås samman. <br/><br/>Tillåtna värden är **sammanfoga** (standard) och **Ersätt**. <br/><br> Den här inställningen gäller för rad nivån inte tabell nivån. Inget alternativ tar bort rader i den utgående tabell som inte finns i indata. Information om hur inställningarna för att sammanfoga och ersätta fungerar finns i [Infoga eller sammanfoga entitet](https://msdn.microsoft.com/library/azure/hh452241.aspx) och [Infoga eller Ersätt entitet](https://msdn.microsoft.com/library/azure/hh452242.aspx). |Nej |
-| writeBatchSize |Infogar data i Azure-tabellen när writeBatchSize eller writeBatchTimeout har nåtts.<br/>Tillåtna värden är heltal (antal rader). |Nej (standard är 10 000) |
-| writeBatchTimeout |Infogar data i Azure-tabellen när writeBatchSize eller writeBatchTimeout har nåtts.<br/>Tillåtna värden är TimeSpan. Ett exempel är "00:20:00" (20 minuter). |Nej (standard är 90 sekunder, lagrings klientens standard-timeout) |
+| typ | Egenskapen Type property för copy activity sink måste anges till **AzureTableSink**. |Ja |
+| azureTableDefaultPartitionKeyValue |Standardvärdet för partitionsnyckeln som kan användas av diskhon. |Inga |
+| azureTablePartitionKeyName |Ange namnet på den kolumn vars värden används som partitionsnycklar. Om det inte anges används "AzureTableDefaultPartitionKeyValue" som partitionsnyckel. |Inga |
+| azureTableRowKeyName |Ange namnet på den kolumn vars kolumnvärden används som radnyckel. Om inget anges använder du ett GUID för varje rad. |Inga |
+| azureTableInsertType |Läget för att infoga data i Azure Table. Den här egenskapen styr om befintliga rader i utdatatabellen med matchande partitions- och radnycklar har sina värden ersatta eller sammanfogade. <br/><br/>Tillåtna värden **sammanfogas** (standard) och **ersätts**. <br/><br> Den här inställningen gäller på radnivå, inte tabellnivån. Inget av alternativen tar bort rader i utdatatabellen som inte finns i indata. Mer information om hur kopplings- och ersättningsinställningarna fungerar finns i [Infoga eller sammanfoga entitet](https://msdn.microsoft.com/library/azure/hh452241.aspx) och [Infoga eller ersätta entiteten](https://msdn.microsoft.com/library/azure/hh452242.aspx). |Inga |
+| skriverBatchSize |Infogar data i Azure Table när writeBatchSize eller writeBatchTimeout träffas.<br/>Tillåtna värden är heltal (antal rader). |Nej (standard är 10 000) |
+| skriverBatchTimeout |Infogar data i Azure Table när writeBatchSize eller writeBatchTimeout träffas.<br/>Tillåtna värden är tidsspann. Ett exempel är "00:20:00" (20 minuter). |Nej (standard är 90 sekunder, lagringsklientens standardtidsutgång) |
 
 **Exempel:**
 
@@ -305,9 +305,9 @@ Om du vill kopiera data till Azure-tabellen ställer du in mottagar typen i kopi
 
 ### <a name="azuretablepartitionkeyname"></a>azureTablePartitionKeyName
 
-Mappa en käll kolumn till en mål kolumn med hjälp av egenskapen **"Translator"** innan du kan använda mål kolumnen som azureTablePartitionKeyName.
+Mappa en källkolumn till en målkolumn med egenskapen **"översättare"** innan du kan använda målkolumnen som azureTablePartitionKeyName.
 
-I följande exempel mappas käll kolumnens DivisionID till mål kolumnen DivisionID:
+I följande exempel mappas källkolumnen DivisionID till målkolumnen DivisionID:
 
 ```json
 "translator": {
@@ -316,7 +316,7 @@ I följande exempel mappas käll kolumnens DivisionID till mål kolumnen Divisio
 }
 ```
 
-"DivisionID" har angetts som partitionsnyckel.
+"DivisionID" anges som partitionsnyckel.
 
 ```json
 "sink": {
@@ -325,26 +325,26 @@ I följande exempel mappas käll kolumnens DivisionID till mål kolumnen Divisio
 }
 ```
 
-## <a name="data-type-mapping-for-azure-table"></a>Data typs mappning för Azure-tabell
+## <a name="data-type-mapping-for-azure-table"></a>Mappning av datatyp för Azure-tabell
 
-När du kopierar data från och till Azure-tabellen används följande mappningar från Azure Table data types för att Data Factory interimistiska data typer. Information om hur kopierings aktiviteten mappar käll schema och datatyp till mottagaren finns i [schema-och data typs mappningar](copy-activity-schema-and-type-mapping.md).
+När du kopierar data från och till Azure Table används följande mappningar från Azure Table-datatyper till interimsdatatyper för Data Factory. Mer information om hur kopieringsaktiviteten mappar källschemat och datatypen till diskhon finns i [Schema- och datatypsmappningar](copy-activity-schema-and-type-mapping.md).
 
-När du flyttar data till och från Azure-tabellen används följande [mappningar som definieras av Azure](https://msdn.microsoft.com/library/azure/dd179338.aspx) Table från OData-typer i Azure-typ till .net-typ och vice versa.
+När du flyttar data till och från Azure Table används följande [mappningar som definieras av Azure Table](https://msdn.microsoft.com/library/azure/dd179338.aspx) OData-typer till .NET-typ och vice versa.
 
-| Data typen Azure Table | Data Factory tillfälliga datatyp | Detaljer |
+| Datatyp för Azure Tabell | Data Factory interimdatatyp | Information |
 |:--- |:--- |:--- |
-| Edm.Binary |byte[] |En matris med byte upp till 64 KB. |
-| Edm.Boolean |booleska |Ett booleskt värde. |
-| Edm.DateTime |DateTime |Ett 64-bitars värde uttryckt som UTC (Coordinated Universal Time). Det DateTime-intervall som stöds påbörjar midnatt, 1 januari 1601 A.D. (C.E.), UTC. Intervallet slutar den 31 december 9999. |
-| Edm.Double |double |Ett 64-bitars flytt ALS värde. |
-| Edm.Guid |Guid |En 128-bitars globalt unik identifierare. |
+| Edm.Binary (Edm.Binary) |byte[] |En matris med byte upp till 64 kB. |
+| Edm.Boolean |bool |Ett booleskt värde. |
+| Edm.DateTime |DateTime |Ett 64-bitarsvärde uttryckt som Coordinated Universal Time (UTC). DateTime-intervallet som stöds börjar midnatt den 1 januari 1601 e.Kr. (C.E.), UTC. Intervallet slutar 31 december 9999. |
+| Edm.Double |double |Ett 64-bitars flyttalsvärde. |
+| Edm.Guid (edm.guid) |GUID |En 128-bitars globalt unik identifierare. |
 | Edm.Int32 |Int32 |Ett 32-bitars heltal. |
 | Edm.Int64 |Int64 |Ett 64-bitars heltal. |
-| Edm.String |String |Ett UTF-16-kodat värde. Sträng värden kan vara upp till 64 KB. |
+| Edm.String |String |Ett UTF-16-kodat värde. Strängvärden kan vara upp till 64 kB. |
 
-## <a name="lookup-activity-properties"></a>Egenskaper för Sök aktivitet
+## <a name="lookup-activity-properties"></a>Egenskaper för uppslagsaktivitet
 
-Om du vill veta mer om egenskaperna kontrollerar du [söknings aktiviteten](control-flow-lookup-activity.md).
+Om du vill veta mer om egenskaperna kontrollerar du [uppslagsaktivitet](control-flow-lookup-activity.md).
 
 ## <a name="next-steps"></a>Nästa steg
-En lista över data lager som stöds som källor och mottagare av kopierings aktiviteten i Data Factory finns i [data lager som stöds](copy-activity-overview.md#supported-data-stores-and-formats).
+En lista över datalager som stöds som källor och sänkor av kopieringsaktiviteten i Data Factory finns i [Datalager som stöds](copy-activity-overview.md#supported-data-stores-and-formats).

@@ -1,5 +1,5 @@
 ---
-title: GlusterFS på virtuella Azure-datorer på RHEL for SAP NetWeaver | Microsoft Docs
+title: GlusterFS på virtuella Azure-datorer på RHEL för SAP NetWeaver | Microsoft-dokument
 description: GlusterFS på virtuella Azure-datorer på Red Hat Enterprise Linux för SAP NetWeaver
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 08/16/2018
 ms.author: radeltch
 ms.openlocfilehash: 388a2db2c888be541d89c5f4274bd38b37e4ca28
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77591922"
 ---
 # <a name="glusterfs-on-azure-vms-on-red-hat-enterprise-linux-for-sap-netweaver"></a>GlusterFS på virtuella Azure-datorer på Red Hat Enterprise Linux för SAP NetWeaver
@@ -27,14 +27,14 @@ ms.locfileid: "77591922"
 [deployment-guide]:deployment-guide.md
 [planning-guide]:planning-guide.md
 
-[2002167]: https://launchpad.support.sap.com/#/notes/2002167
-[2009879]: https://launchpad.support.sap.com/#/notes/2009879
-[1928533]: https://launchpad.support.sap.com/#/notes/1928533
-[2015553]: https://launchpad.support.sap.com/#/notes/2015553
-[2178632]: https://launchpad.support.sap.com/#/notes/2178632
-[2191498]: https://launchpad.support.sap.com/#/notes/2191498
-[2243692]: https://launchpad.support.sap.com/#/notes/2243692
-[1999351]: https://launchpad.support.sap.com/#/notes/1999351
+[2002167]:https://launchpad.support.sap.com/#/notes/2002167
+[2009879]:https://launchpad.support.sap.com/#/notes/2009879
+[1928533]:https://launchpad.support.sap.com/#/notes/1928533
+[2015553]:https://launchpad.support.sap.com/#/notes/2015553
+[2178632]:https://launchpad.support.sap.com/#/notes/2178632
+[2191498]:https://launchpad.support.sap.com/#/notes/2191498
+[2243692]:https://launchpad.support.sap.com/#/notes/2243692
+[1999351]:https://launchpad.support.sap.com/#/notes/1999351
 
 [sap-swcenter]:https://support.sap.com/en/my-support/software-downloads.html
 
@@ -42,93 +42,93 @@ ms.locfileid: "77591922"
 
 [sap-hana-ha]:sap-hana-high-availability-rhel.md
 
-Den här artikeln beskriver hur du distribuerar virtuella datorer, konfigurerar de virtuella datorerna och installerar ett GlusterFS-kluster som kan användas för att lagra delade data i ett SAP-system med hög tillgänglighet.
-I den här guiden beskrivs hur du konfigurerar GlusterFS som används av två SAP-system, NW1 och NW2. Namnen på resurserna (till exempel virtuella datorer, virtuella nätverk) i exemplet förutsätter att du har använt [mallen SAP File Server][template-file-server] med Resource prefix **glust**.
+I den här artikeln beskrivs hur du distribuerar de virtuella datorerna, konfigurerar de virtuella datorerna och installerar ett GlusterFS-kluster som kan användas för att lagra delade data från ett SAP-system med hög tillgänglighet.
+Den här guiden beskriver hur du ställer in GlusterFS som används av två SAP-system, NW1 och NW2. Namnen på resurserna (till exempel virtuella datorer, virtuella nätverk) i exemplet förutsätter att du har använt [SAP-filservermallen][template-file-server] med resursprefix **glust**.
 
-Läs följande SAP-anteckningar och dokument först
+Läs följande SAP-anteckningar och -dokument först
 
-* SAP anmärkning [1928533], som har:
-  * Lista över storlekar på virtuella Azure-datorer som stöds för distribution av SAP-program
-  * Viktig kapacitets information för Azure VM-storlekar
-  * Stöd för SAP-program och operativ system (OS) och databas kombinationer
-  * Nödvändig SAP kernel-version för Windows och Linux på Microsoft Azure
+* SAP Note [1928533], som har:
+  * Lista över Azure VM-storlekar som stöds för distribution av SAP-programvara
+  * Viktig kapacitetsinformation för Azure VM-storlekar
+  * Sap-programvara och kombinationer av operativsystem (operativsystem) och databas
+  * Nödvändig SAP-kärnversion för Windows och Linux på Microsoft Azure
 
-* SAP NOTE [2015553] visar krav för SAP-program distributioner som stöds i Azure.
-* SAP NOTE [2002167] har rekommenderade OS-inställningar för Red Hat Enterprise Linux
-* SAP NOTE [2009879] har SAP HANA rikt linjer för Red Hat Enterprise Linux
-* SAP NOTE [2178632] innehåller detaljerad information om alla övervaknings mått som rapporter ATS för SAP i Azure.
-* SAP NOTE [2191498] har den version av SAP host agent som krävs för Linux i Azure.
-* SAP NOTE [2243692] innehåller information om SAP-licensiering på Linux i Azure.
-* SAP anmärkning [1999351] innehåller ytterligare felsöknings information för Azure Enhanced Monitoring-tillägget för SAP.
-* [SAP community wiki](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes) har alla nödvändiga SAP-anteckningar för Linux.
-* [Azure Virtual Machines planera och implementera SAP på Linux][planning-guide]
+* SAP Note [2015553] listar förutsättningar för SAP-programdistributioner som stöds av SAP i Azure.
+* SAP Note [2002167] har rekommenderat OS-inställningar för Red Hat Enterprise Linux
+* SAP Note [2009879] har SAP HANA Riktlinjer för Red Hat Enterprise Linux
+* SAP Note [2178632] har detaljerad information om alla övervakningsmått som rapporterats för SAP i Azure.
+* SAP Note [2191498] har den nödvändiga SAP Host Agent-versionen för Linux i Azure.
+* SAP Note [2243692] har information om SAP-licensiering på Linux i Azure.
+* SAP Note [1999351] har ytterligare felsökningsinformation för Azure Enhanced Monitoring Extension för SAP.
+* [SAP Community WIKI](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes) har alla nödvändiga SAP Notes för Linux.
+* [Planering och implementering av Virtuella Azure-datorer för SAP på Linux][planning-guide]
 * [Azure Virtual Machines-distribution för SAP på Linux (den här artikeln)][deployment-guide]
 * [Azure Virtual Machines DBMS-distribution för SAP på Linux][dbms-guide]
-* [Produkt dokumentation för Red Hat Gluster-lagring](https://access.redhat.com/documentation/red_hat_gluster_storage/)
-* Allmän dokumentation om RHEL
-  * [Översikt över hög tillgänglighets tillägg](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_overview/index)
-  * [Administrations tillägg med hög tillgänglighet](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_administration/index)
-  * [Referens för hög tillgänglighets tillägg](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_reference/index)
-* Dokumentation om Azure Specific RHEL:
-  * [Support principer för RHEL-kluster med hög tillgänglighet – Microsoft Azure Virtual Machines som kluster medlemmar](https://access.redhat.com/articles/3131341)
-  * [Installera och konfigurera ett kluster med hög tillgänglighet för Red Hat Enterprise Linux 7,4 (och senare) på Microsoft Azure](https://access.redhat.com/articles/3252491)
+* [Produktdokumentation för Red Hat Gluster Storage](https://access.redhat.com/documentation/red_hat_gluster_storage/)
+* Allmän RHEL-dokumentation
+  * [Tilläggsöversikt för hög tillgänglighet](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_overview/index)
+  * [Administration av tillägg med hög tillgänglighet](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_administration/index)
+  * [Tilläggsreferens för hög tillgänglighet](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_reference/index)
+* Azure-specifik RHEL-dokumentation:
+  * [Supportprinciper för RHEL-kluster med hög tillgänglighet – Virtuella Microsoft Azure-datorer som klustermedlemmar](https://access.redhat.com/articles/3131341)
+  * [Installera och konfigurera ett Red Hat Enterprise Linux 7.4 -kluster med hög tillgänglighet på Microsoft Azure](https://access.redhat.com/articles/3252491)
 
 ## <a name="overview"></a>Översikt
 
-SAP NetWeaver kräver delad lagring för att uppnå hög tillgänglighet. GlusterFS har kon figurer ATS i ett separat kluster och kan användas av flera SAP-system.
+För att uppnå hög tillgänglighet kräver SAP NetWeaver delad lagring. GlusterFS är konfigurerat i ett separat kluster och kan användas av flera SAP-system.
 
-![Översikt över SAP NetWeaver-hög tillgänglighet](./media/high-availability-guide-rhel-glusterfs/rhel-glusterfs.png)
+![ÖVERSIKT ÖVER HÖG TILLGÄNGLIGHET I SAP NetWeaver](./media/high-availability-guide-rhel-glusterfs/rhel-glusterfs.png)
 
-## <a name="set-up-glusterfs"></a>Konfigurera GlusterFS
+## <a name="set-up-glusterfs"></a>Ställ in GlusterFS
 
-Du kan antingen använda en Azure-mall från GitHub för att distribuera alla nödvändiga Azure-resurser, inklusive virtuella datorer, tillgänglighets uppsättning och nätverks gränssnitt, eller så kan du distribuera resurserna manuellt.
+Du kan antingen använda en Azure-mall från github för att distribuera alla nödvändiga Azure-resurser, inklusive virtuella datorer, tillgänglighetsuppsättning och nätverksgränssnitt eller så kan du distribuera resurserna manuellt.
 
 ### <a name="deploy-linux-via-azure-template"></a>Distribuera Linux via Azure-mall
 
 Azure Marketplace innehåller en avbildning för Red Hat Enterprise Linux som du kan använda för att distribuera nya virtuella datorer.
-Du kan använda en av snabb starts mallarna på GitHub för att distribuera alla nödvändiga resurser. Mallen distribuerar de virtuella datorerna, tillgänglighets uppsättningarna osv. Följ de här stegen för att distribuera mallen:
+Du kan använda en av snabbstartsmallarna på github för att distribuera alla nödvändiga resurser. Mallen distribuerar virtuella datorer, tillgänglighetsuppsättning etc. Så här distribuerar du mallen:
 
-1. Öppna [fil Server mal len SAP][template-file-server] i Azure Portal
+1. Öppna [SAP-filservermallen][template-file-server] i Azure-portalen
 1. Ange följande parametrar
-   1. Resource prefix  
-      Ange prefixet som du vill använda. Värdet används som prefix för de resurser som distribueras.
-   2. Antal SAP-system ange hur många SAP-system som ska använda den här fil servern. Detta kommer att distribuera antalet diskar som krävs osv.
-   3. OS-typ  
+   1. Resursprefix  
+      Ange det prefix som du vill använda. Värdet används som prefix för de resurser som distribueras.
+   2. SAP-systemantal Ange antalet SAP-system som ska använda den här filservern. Detta kommer att distribuera det antal diskar som krävs etc.
+   3. Typ av os  
       Välj en av Linux-distributionerna. I det här exemplet väljer du RHEL 7
-   4. Administratörens användar namn, administratörs lösen ord eller SSH-nyckel  
+   4. Administratörsanvändarnamn, administratörslösenord eller SSH-nyckel  
       En ny användare skapas som kan användas för att logga in på datorn.
-   5. Undernät-ID  
-      Om du vill distribuera den virtuella datorn till ett befintligt VNet där du har angett ett undernät som har definierats för den virtuella datorn ska du namnge ID: t för det aktuella under nätet. ID: t ser vanligt vis ut som/Subscriptions/ **&lt;prenumerations-id&gt;** /resourceGroups/ **&lt;resurs grupp namn&gt;** /providers/Microsoft.Network/virtualNetworks/ **&lt;virtuellt nätverks namn&gt;** /subnets/ **&lt;under näts namn&gt;**
+   5. Nät-ID  
+      Om du vill distribuera den virtuella datorn till ett befintligt virtuellt nätverk där du har ett undernät som definierats ska den virtuella datorn tilldelas, namnge ID:t för det specifika undernätet. ID:t ser vanligtvis ut som /subscriptions/subscription**&lt;ID&gt;**/resourceGroups/**&lt;resource group name&gt;**/providers/Microsoft.Network/virtualNetworks/**&lt;virtual network name&gt;**/subnets/**&lt;undernätsnamn&gt; **
 
 ### <a name="deploy-linux-manually-via-azure-portal"></a>Distribuera Linux manuellt via Azure Portal
 
-Du måste först skapa de virtuella datorerna för det här klustret. Därefter skapar du en belastningsutjämnare och använder de virtuella datorerna i backend-poolerna. Vi rekommenderar [standard Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview).  
+Du måste först skapa de virtuella datorerna för det här klustret. Därefter skapar du en belastningsutjämnare och använder de virtuella datorerna i serverdapoolerna. Vi rekommenderar [standardbelastningsutjämnare](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview).  
 
 1. Skapa en resursgrupp
-1. Skapa en Virtual Network
-1. Skapa en tillgänglighets uppsättning  
-   Ange Max uppdaterings domän
+1. Skapa ett virtuellt nätverk
+1. Skapa en tillgänglighetsuppsättning  
+   Ange maxuppdateringsdomän
 1. Skapa virtuell dator 1  
-   Använd minst RHEL 7, i det här exemplet Red Hat Enterprise Linux 7,4-avbildningen <https://portal.azure.com/#create/RedHat.RedHatEnterpriseLinux74-ARM>  
-   Välj den tillgänglighets uppsättning som skapades tidigare  
+   Använd minst RHEL 7, i det här exemplet Red Hat Enterprise Linux 7.4-avbildningen<https://portal.azure.com/#create/RedHat.RedHatEnterpriseLinux74-ARM>  
+   Välj Tillgänglighetsuppsättning som skapats tidigare  
 1. Skapa virtuell dator 2  
-   Använd minst RHEL 7, i det här exemplet Red Hat Enterprise Linux 7,4-avbildningen <https://portal.azure.com/#create/RedHat.RedHatEnterpriseLinux74-ARM>  
-   Välj den tillgänglighets uppsättning som skapades tidigare  
-1. Lägg till en datadisk för varje SAP-system till båda virtuella datorerna.
+   Använd minst RHEL 7, i det här exemplet Red Hat Enterprise Linux 7.4-avbildningen<https://portal.azure.com/#create/RedHat.RedHatEnterpriseLinux74-ARM>  
+   Välj Tillgänglighetsuppsättning som skapats tidigare  
+1. Lägg till en datadisk för varje SAP-system till båda virtuella datorer.
 
 ### <a name="configure-glusterfs"></a>Konfigurera GlusterFS
 
-Följande objekt har prefixet **[A]** -tillämpligt för alla noder, **[1]** , som endast gäller nod 1, **[2]** – endast tillämpligt på nod 2, **[3]** – gäller endast nod 3.
+Följande objekt föregås av antingen **[A]** - som gäller för alla noder, **[1]** - endast gäller för nod 1, **[2]** - endast gäller för nod 2, **[3]** - endast gäller för nod 3.
 
-1. **[A]** namn matchning för värdnamn
+1. **[A]** Namnmatchning för installationsprogrammet
 
-   Du kan använda en DNS-server, eller så kan du ändra i/etc/hosts på alla noder. Det här exemplet visar hur du använder/etc/hosts-filen.
-   Ersätt IP-adress och värdnamn i följande kommandon
+   Du kan antingen använda en DNS-server eller ändra /etc/hosts på alla noder. Det här exemplet visar hur du använder filen /etc/hosts.
+   Ersätt IP-adressen och värdnamnet i följande kommandon
 
    <pre><code>sudo vi /etc/hosts
    </code></pre>
 
-   Infoga följande rader till/etc/hosts. Ändra IP-adressen och värdnamnet till matchar din miljö
+   Infoga följande rader till /etc/hosts. Ändra IP-adressen och värdnamnet så att de matchar din miljö
 
    <pre><code># IP addresses of the Gluster nodes
    <b>10.0.0.40 glust-0</b>
@@ -136,15 +136,15 @@ Följande objekt har prefixet **[A]** -tillämpligt för alla noder, **[1]** , s
    <b>10.0.0.42 glust-2</b>
    </code></pre>
 
-1. **[A]** -register
+1. **[A]** Registrera dig
 
-   Registrera dina virtuella datorer och koppla den till en pool som innehåller databaser för RHEL 7 och GlusterFS
+   Registrera dina virtuella datorer och bifoga den till en pool som innehåller databaser för RHEL 7 och GlusterFS
 
    <pre><code>sudo subscription-manager register
    sudo subscription-manager attach --pool=&lt;pool id&gt;
    </code></pre>
 
-1. **[A]** aktivera GlusterFS databaser
+1. **[A]** Aktivera GlusterFS-repor
 
    Aktivera följande databaser för att installera de nödvändiga paketen.
 
@@ -153,7 +153,7 @@ Följande objekt har prefixet **[A]** -tillämpligt för alla noder, **[1]** , s
    sudo subscription-manager repos --enable=rh-gluster-3-for-rhel-7-server-rpms
    </code></pre>
   
-1. **[A]** installera GlusterFS-paket
+1. **[A]** Installera GlusterFS-paket
 
    Installera dessa paket på alla GlusterFS-noder
 
@@ -162,9 +162,9 @@ Följande objekt har prefixet **[A]** -tillämpligt för alla noder, **[1]** , s
 
    Starta om noderna efter installationen.
 
-1. **[A]** ändra brand vägg
+1. **[A]** Ändra brandvägg
 
-   Lägg till brand Väggs regler som tillåter klient trafik till GlusterFS-noderna.
+   Lägg till brandväggsregler för att tillåta klienttrafik till GlusterFS-noderna.
 
    <pre><code># list the available zones
    firewall-cmd --get-active-zones
@@ -173,15 +173,15 @@ Följande objekt har prefixet **[A]** -tillämpligt för alla noder, **[1]** , s
    sudo firewall-cmd --zone=public --add-service=glusterfs
    </code></pre>
 
-1. **[A]** aktivera och starta GlusterFS-tjänsten
+1. **[A]** Aktivera och starta GlusterFS-tjänsten
 
-   Starta GlusterFS-tjänsten på alla noder.
+   Starta Tjänsten GlusterFS på alla noder.
 
    <pre><code>sudo systemctl start glusterd
    sudo systemctl enable glusterd
    </code></pre>
 
-1. **[1]** skapa GluserFS
+1. **[1]** Skapa GluserFS
 
    Kör följande kommandon för att skapa GlusterFS-klustret
 
@@ -202,7 +202,7 @@ Följande objekt har prefixet **[A]** -tillämpligt för alla noder, **[1]** , s
    # State: Accepted peer request (Connected)
    </code></pre>
 
-1. **[2]** testa peer-status
+1. **[2]** Testa peer-status
 
    Testa peer-status på den andra noden
 
@@ -218,9 +218,9 @@ Följande objekt har prefixet **[A]** -tillämpligt för alla noder, **[1]** , s
    # State: Peer in Cluster (Connected)
    </code></pre>
 
-1. **[3]** testa peer-status
+1. **[3]** Testa peer-status
 
-   Testa peer-statusen på den tredje noden
+   Testa peer-status på den tredje noden
 
    <pre><code>sudo gluster peer status
    # Number of Peers: 2
@@ -234,11 +234,11 @@ Följande objekt har prefixet **[A]** -tillämpligt för alla noder, **[1]** , s
    # State: Peer in Cluster (Connected)
    </code></pre>
 
-1. **[A]** skapa LVM
+1. **[A]** Skapa LVM
 
    I det här exemplet används GlusterFS för två SAP-system, NW1 och NW2. Använd följande kommandon för att skapa LVM-konfigurationer för dessa SAP-system.
 
-   Använd de här kommandona för NW1
+   Använd dessa kommandon för NW1
 
    <pre><code>sudo pvcreate --dataalignment 1024K /dev/disk/azure/scsi1/lun0
    sudo pvscan
@@ -277,7 +277,7 @@ Följande objekt har prefixet **[A]** -tillämpligt för alla noder, **[1]** , s
    sudo mount -a
    </code></pre>
 
-   Använd de här kommandona för NW2
+   Använd dessa kommandon för NW2
 
    <pre><code>sudo pvcreate --dataalignment 1024K /dev/disk/azure/scsi1/lun1
    sudo pvscan
@@ -316,7 +316,7 @@ Följande objekt har prefixet **[A]** -tillämpligt för alla noder, **[1]** , s
    sudo mount -a
    </code></pre>
 
-1. **[1]** skapa den distribuerade volymen
+1. **[1]** Skapa den distribuerade volymen
 
    Använd följande kommandon för att skapa GlusterFS-volymen för NW1 och starta den.
 
@@ -350,9 +350,9 @@ Följande objekt har prefixet **[A]** -tillämpligt för alla noder, **[1]** , s
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Installera SAP-ASCS och-databasen](high-availability-guide-rhel.md)
-* [Azure Virtual Machines planera och implementera SAP][planning-guide]
-* [Azure Virtual Machines distribution för SAP][deployment-guide]
+* [Installera SAP ASCS och databasen](high-availability-guide-rhel.md)
+* [Planering och implementering av virtuella Azure-datorer för SAP][planning-guide]
+* [Azure Virtual Machines-distribution för SAP][deployment-guide]
 * [Azure Virtual Machines DBMS-distribution för SAP][dbms-guide]
-* Information om hur du upprättar hög tillgänglighet och planerar för haveri beredskap för SAP HANA på Azure (stora instanser) finns i [SAP HANA (stora instanser) hög tillgänglighet och haveri beredskap på Azure](hana-overview-high-availability-disaster-recovery.md).
-* Information om hur du upprättar hög tillgänglighet och planerar för haveri beredskap för SAP HANA på virtuella Azure-datorer finns i [hög tillgänglighet för SAP HANA på Azure-Virtual Machines (VM)][sap-hana-ha]
+* Mer information om hur du upprättar hög tillgänglighet och planerar för haveriberedskap av SAP HANA på Azure (stora instanser) finns i [SAP HANA (stora instanser) hög tillgänglighet och haveriberedskap på Azure](hana-overview-high-availability-disaster-recovery.md).
+* Mer information om hur du upprättar hög tillgänglighet och planerar för haveriberedskap av SAP HANA på virtuella Azure-datorer finns i [Hög tillgänglighet för SAP HANA på virtuella Azure-datorer (virtuella datorer)][sap-hana-ha]

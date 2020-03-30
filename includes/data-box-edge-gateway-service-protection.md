@@ -5,12 +5,12 @@ ms.topic: include
 ms.date: 04/16/2019
 ms.author: alkohli
 ms.openlocfilehash: 248d10e8814d195a515a658653cfc38de7dd4652
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67187988"
 ---
-- Din organisation måste ha en prenumeration för Enterprise Agreement (EA) eller Cloud Solution Provider (CSP) för att få åtkomst till Data Box Edge-tjänsten. Mer information finns i [registrera dig för en Azure-prenumeration](https://azure.microsoft.com/resources/videos/sign-up-for-microsoft-azure/).
-- Eftersom den här management-tjänsten finns i Azure, är den skyddad med säkerhet i Azure-funktioner. Mer information om säkerhetsfunktionerna i Azure går du till den [Microsoft Azure Trust Center](https://azure.microsoft.com/support/trust-center/security/).
-- För SDK-hanteringsåtgärder, du kan hämta krypteringsnyckeln för din resurs i **enhetsegenskaper**. Du kan visa krypteringsnyckeln endast om du har behörighet för resursen Graph API.
+- För att komma åt Data Box Edge-tjänsten måste din organisation ha en CSP-prenumeration (Enterprise Agreement) eller Cloud Solution Provider (CSP). Mer information finns i [Registrera dig för en Azure-prenumeration](https://azure.microsoft.com/resources/videos/sign-up-for-microsoft-azure/).
+- Eftersom den här hanteringstjänsten finns i Azure skyddas den av Azure-säkerhetsfunktionerna. Mer information om säkerhetsfunktionerna i Azure finns i [Microsoft Azure Trust Center](https://azure.microsoft.com/support/trust-center/security/).
+- För SDK-hantering kan du hämta krypteringsnyckeln för din resurs i **Enhetsegenskaper**. Du kan bara visa krypteringsnyckeln om du har behörighet för RESURSDIAGRAM-API:et.

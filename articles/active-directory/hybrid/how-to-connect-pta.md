@@ -1,8 +1,8 @@
 ---
-title: 'Azure AD Connect: direktautentisering | Microsoft Docs'
-description: Den här artikeln beskriver Azure Active Directory (Azure AD) genom strömnings autentisering och hur det tillåter Azure AD-inloggningar genom att verifiera användarnas lösen ord mot lokala Active Directory.
+title: 'Azure AD Connect: Direktautentisering | Microsoft-dokument'
+description: I den här artikeln beskrivs Azure Active Directory (Azure AD) direktautentisering och hur den tillåter Azure AD-inloggningar genom att validera användarnas lösenord mot lokala Active Directory.
 services: active-directory
-keywords: Vad är Azure AD Connect direktautentisering, installera Active Directory, nödvändiga komponenter för Azure AD, SSO, enkel inloggning
+keywords: vad är Azure AD Connect Pass-through-autentisering, installera Active Directory, nödvändiga komponenter för Azure AD, SSO, Enkel inloggning
 documentationcenter: ''
 author: billmath
 manager: daveba
@@ -17,66 +17,66 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d4b52a3025bfb15e2679709353cebf28254a75c2
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77185505"
 ---
-# <a name="user-sign-in-with-azure-active-directory-pass-through-authentication"></a>Användar inloggning med Azure Active Directory direktautentisering
+# <a name="user-sign-in-with-azure-active-directory-pass-through-authentication"></a>Användarinloggning med Azure Active Directory-direktautentisering
 
-## <a name="what-is-azure-active-directory-pass-through-authentication"></a>Vad är Azure Active Directory direktautentisering?
+## <a name="what-is-azure-active-directory-pass-through-authentication"></a>Vad är Azure Active Directory Direktautentisering?
 
-Med direktautentisering för Azure Active Directory (AD Azure) kan användarna logga in på både lokala och molnbaserade program med samma lösenord. Den här funktionen ger användarna en bättre upplevelse – ett lösenord mindre att komma ihåg, och kostnaderna för IT-supportavdelningen minskas eftersom användarna blir mindre benägna att glömma hur de ska logga in. När användarna loggar in på Azure AD verifierar den här funktionen användarnas lösenord direkt mot din lokala Active Directory.
+Azure Active Directory (Azure AD) Direktautentisering gör att användarna kan logga in på både lokala och molnbaserade program med samma lösenord. Den här funktionen ger användarna en bättre upplevelse – ett lösenord mindre att komma ihåg, och kostnaderna för IT-supportavdelningen minskas eftersom användarna blir mindre benägna att glömma hur de ska logga in. När användare loggar in med Azure AD validerar den här funktionen användarnas lösenord direkt mot din lokala Active Directory.
 
 >[!VIDEO https://www.youtube.com/embed/PyeAC85Gm7w]
 
-Den här funktionen är ett alternativ till [synkronisering av lösen ords-hash i Azure AD](how-to-connect-password-hash-synchronization.md), vilket ger samma fördelar med att Cloud-autentisering används för organisationer. Vissa organisationer vill tvinga sina lokala Active Directory säkerhets-och lösen ords principer, kan dock välja att använda direktautentisering i stället. Läs [den här guiden](https://docs.microsoft.com/azure/security/fundamentals/choose-ad-authn) för en jämförelse av de olika inloggnings metoderna för Azure AD och hur du väljer rätt inloggnings metod för din organisation.
+Den här funktionen är ett alternativ till [Azure AD Password Hash Synchronization](how-to-connect-password-hash-synchronization.md), som ger samma fördel av molnautentisering till organisationer. Vissa organisationer som vill tillämpa sina lokala active directory-säkerhets- och lösenordsprinciper kan dock välja att använda direktautentisering i stället. Granska [den här guiden](https://docs.microsoft.com/azure/security/fundamentals/choose-ad-authn) för en jämförelse av de olika Azure AD-inloggningsmetoderna och hur du väljer rätt inloggningsmetod för din organisation.
 
-![Direkt autentisering i Azure AD](./media/how-to-connect-pta/pta1.png)
+![Azure AD-direktautentisering](./media/how-to-connect-pta/pta1.png)
 
-Du kan kombinera direktautentisering med funktionen för [sömlös enkel inloggning](how-to-connect-sso.md) . På det här sättet behöver de inte ange sina lösen ord för att logga in när användarna får åtkomst till program på sina företags datorer i företagets nätverk.
+Du kan kombinera direktautentisering med funktionen [Sömlös enkel inloggning.](how-to-connect-sso.md) På så sätt behöver användarna inte skriva in sina lösenord när användarna använder program på sina företagsdatorer i företagets nätverk.
 
 ## <a name="key-benefits-of-using-azure-ad-pass-through-authentication"></a>Viktiga fördelar med att använda Azure AD-direktautentisering
 
 - *En utmärkt användarupplevelse*
-  - Användarna använder samma lösen ord för att logga in i både lokala och molnbaserade program.
-  - Användarna tillbringar mindre tid på att prata med IT-supportavdelningen för att lösa problem som rör lösen ord.
-  - Användare kan utföra uppgifter för [lösen ords hantering](../authentication/active-directory-passwords-overview.md) i molnet via självbetjäning.
-- *Enkelt att distribuera & administrera*
-  - Det behövs inga komplexa lokala distributioner eller nätverks konfiguration.
-  - Behöver bara en Lightweight-agent för att installeras lokalt.
-  - Inga hanterings kostnader. Agenten får automatiskt förbättringar och fel korrigeringar.
+  - Användare använder samma lösenord för att logga in på både lokala och molnbaserade program.
+  - Användarna ägnar mindre tid åt att prata med IT-helpdesk för att lösa lösenordsrelaterade problem.
+  - Användare kan utföra [lösenordshanteringsuppgifter för självbetjäning](../authentication/active-directory-passwords-overview.md) i molnet.
+- *Lätt att distribuera & administrera*
+  - Inget behov av komplexa lokala distributioner eller nätverkskonfiguration.
+  - Behöver bara en lättviktsagent som ska installeras lokalt.
+  - Inga hanteringskostnader. Agenten får automatiskt förbättringar och buggfixar.
 - *Skydda*
-  - Lokala lösen ord lagras aldrig i molnet i något formulär.
-  - Skyddar dina användar konton genom att arbeta sömlöst med [villkorliga åtkomst principer i Azure AD](../active-directory-conditional-access-azure-portal.md), inklusive Multi-Factor Authentication (MFA), [blockera äldre autentisering](../conditional-access/concept-conditional-access-conditions.md) och genom att [filtrera bort lösen ords attacker med brute force](../authentication/howto-password-smart-lockout.md).
-  - Agenten gör bara utgående anslutningar inifrån nätverket. Det finns därför inget krav på att installera agenten i ett perimeternätverk, även kallat DMZ.
-  - Kommunikationen mellan en agent och Azure AD skyddas med certifikatbaserad autentisering. Dessa certifikat förnyas automatiskt med några månader av Azure AD.
-- *Hög tillgänglighet*
-  - Ytterligare agenter kan installeras på flera lokala servrar för att tillhandahålla hög tillgänglighet för inloggnings begär Anden.
+  - Lokala lösenord lagras aldrig i molnet i någon form.
+  - Skyddar dina användarkonton genom att arbeta sömlöst med [Azure AD Conditional Access-principer,](../active-directory-conditional-access-azure-portal.md)inklusive MFA (Multi-Factor Authentication), [blockera äldre autentisering](../conditional-access/concept-conditional-access-conditions.md) och genom [att filtrera bort brute force-lösenordsattacker](../authentication/howto-password-smart-lockout.md).
+  - Agenten upprättar bara utgående anslutningar inifrån nätverket. Därför finns det inget krav på att installera agenten i ett perimeternätverk, även känt som en DMZ.
+  - Kommunikationen mellan en agent och Azure AD skyddas med hjälp av certifikatbaserad autentisering. Dessa certifikat förnyas automatiskt med några månaders mellanrum av Azure AD.
+- *Högt tillgänglighet*
+  - Ytterligare agenter kan installeras på flera lokala servrar för att ge hög tillgänglighet för inloggningsbegäranden.
 
-## <a name="feature-highlights"></a>Funktions markeringar
+## <a name="feature-highlights"></a>Höjdpunkter i funktionen
 
-- Har stöd för användar inloggning i alla webbläsarbaserade program och i Microsoft Office-klient program som använder [modern autentisering](https://aka.ms/modernauthga).
-- Inloggnings användar namn kan antingen vara det lokala standard användar namnet (`userPrincipalName`) eller ett annat attribut som kon figurer ATS i Azure AD Connect (kallas `Alternate ID`).
-- Funktionen fungerar sömlöst med [villkorliga åtkomst](../active-directory-conditional-access-azure-portal.md) funktioner som Multi-Factor Authentication (MFA) för att skydda dina användare.
-- Integrerad med molnbaserad [lösen ords hantering via självbetjäning](../authentication/active-directory-passwords-overview.md), inklusive tillbakaskrivning av lösen ord till lokala Active Directory och lösen ords skydd genom förbjuda vanliga lösen ord.
-- Miljöer med flera skogar stöds om det finns skogs förtroenden mellan dina AD-skogar och om routning av namnsuffix har kon figurer ATS korrekt.
-- Det är en kostnads fri funktion, och du behöver inte några betalda versioner av Azure AD för att använda den.
-- Den kan aktive ras via [Azure AD Connect](whatis-hybrid-identity.md).
-- Den använder en lätt lokal agent som lyssnar efter och svarar på begär Anden om lösen ords verifiering.
-- Om du installerar flera agenter får du hög tillgänglighet för inloggnings begär Anden.
-- Den [skyddar](../authentication/howto-password-smart-lockout.md) dina lokala konton mot bruten lösen ords attacker i molnet.
+- Stöder användarloggning i alla webbläsarbaserade program och i Microsoft Office-klientprogram som använder [modern autentisering](https://aka.ms/modernauthga).
+- Inloggningsanvändarnamn kan vara antingen det lokala`userPrincipalName`standardanvändarnamnet ( ) eller ett annat `Alternate ID`attribut som konfigurerats i Azure AD Connect (kallas ).
+- Funktionen fungerar sömlöst med [funktioner för villkorlig åtkomst,](../active-directory-conditional-access-azure-portal.md) till exempel MFA (Multi Factor Authentication) för att skydda användarna.
+- Integrerad med molnbaserad [lösenordshantering med självbetjäning](../authentication/active-directory-passwords-overview.md), inklusive återställning av lösenord till lokala Active Directory och lösenordsskydd genom att förbjuda vanliga lösenord.
+- Flerskogsmiljöer stöds om det finns skogsförtroenden mellan AD-skogarna och om namnsuffixdirigeringen är korrekt konfigurerad.
+- Det är en kostnadsfri funktion och du behöver inga betalda utgåvor av Azure AD för att kunna använda den.
+- Den kan aktiveras via [Azure AD Connect](whatis-hybrid-identity.md).
+- Den använder en lätt lokal agent som lyssnar efter och svarar på begäranden om lösenordsverifiering.
+- Installera flera agenter ger hög tillgänglighet för inloggningsbegäranden.
+- Det [skyddar](../authentication/howto-password-smart-lockout.md) dina lokala konton mot brute force lösenordsattacker i molnet.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Snabb start](how-to-connect-pta-quick-start.md) – kom igång med Azure AD-direktautentisering.
-- [Migrera från AD FS till vidarekoppling](https://github.com/Identity-Deployment-Guides/Identity-Deployment-Guides/blob/master/Authentication/Migrating%20from%20Federated%20Authentication%20to%20Pass-through%20Authentication.docx?raw=true) – en detaljerad guide för att migrera från AD FS (eller andra Federations tekniker) till vidarekoppling.
-- [Smart utelåsning](../authentication/howto-password-smart-lockout.md) – konfigurera Smart utelåsnings kapacitet på klienten för att skydda användar konton.
-- [Aktuella begränsningar](how-to-connect-pta-current-limitations.md) – lär dig vilka scenarier som stöds och vilka som inte är det.
-- [Teknisk djupgående](how-to-connect-pta-how-it-works.md) – förstå hur den här funktionen fungerar.
-- [Vanliga frågor](how-to-connect-pta-faq.md) och svar på vanliga frågor.
-- [Felsök](tshoot-connect-pass-through-authentication.md) – lär dig hur du löser vanliga problem med funktionen.
-- [Djupgående säkerhet](how-to-connect-pta-security-deep-dive.md) – ytterligare djupgående teknisk information om funktionen.
-- [Azure AD sömlös SSO](how-to-connect-sso.md) – Läs mer om den här kompletterande funktionen.
-- [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect) – för att arkivera nya funktions begär Anden.
+- [Snabbstart](how-to-connect-pta-quick-start.md) – Komma igång med Azure AD-direktautentisering.
+- [Migrera från AD FS till Direktautentisering](https://github.com/Identity-Deployment-Guides/Identity-Deployment-Guides/blob/master/Authentication/Migrating%20from%20Federated%20Authentication%20to%20Pass-through%20Authentication.docx?raw=true) – En detaljerad guide för att migrera från AD FS (eller annan federationsteknik) till direktautentisering.
+- [Smart Lockout](../authentication/howto-password-smart-lockout.md) - Konfigurera smart utelåsningsfunktion på din klient för att skydda användarkonton.
+- [Aktuella begränsningar](how-to-connect-pta-current-limitations.md) - Lär dig vilka scenarier som stöds och vilka som inte är det.
+- [Teknisk djupdykning](how-to-connect-pta-how-it-works.md) - Förstå hur den här funktionen fungerar.
+- [Vanliga frågor](how-to-connect-pta-faq.md) och svar - Svar på vanliga frågor.
+- [Felsöka](tshoot-connect-pass-through-authentication.md) - Lär dig hur du löser vanliga problem med funktionen.
+- [Security Deep Dive](how-to-connect-pta-security-deep-dive.md) - Ytterligare djup teknisk information om funktionen.
+- [Azure AD Seamless SSO](how-to-connect-sso.md) – Läs mer om den här kompletterande funktionen.
+- [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect) - För att lämna in nya funktionsförfrågningar.

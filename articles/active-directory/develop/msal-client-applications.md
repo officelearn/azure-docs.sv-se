@@ -1,7 +1,7 @@
 ---
-title: Offentliga och konfidentiella klient program (MSAL) | Azure
+title: Offentliga och konfidentiella klientappar (MSAL) | Azure
 titleSuffix: Microsoft identity platform
-description: Lär dig mer om offentliga klient program och konfidentiella klient program i Microsoft Authentication Library (MSAL).
+description: Lär dig mer om offentliga klient- och konfidentiella klientprogram i Microsoft Authentication Library (MSAL).
 services: active-directory
 author: mmacy
 manager: CelesteDG
@@ -14,39 +14,39 @@ ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.openlocfilehash: d59819c0ab614b0f6cc102c7ebe8c760fb851599
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/08/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77084131"
 ---
-# <a name="public-client-and-confidential-client-applications"></a>Offentlig klient och konfidentiella klient program
-Microsoft Authentication Library (MSAL) definierar två typer av klienter: offentliga klienter och konfidentiella klienter. De två klient typerna särskiljs genom att deras förmåga att autentisera sig på ett säkert sätt med auktoriseringsservern och upprätthålla konfidentialiteten för deras klientautentiseringsuppgifter. Azure AD Authentication Library (ADAL) använder däremot vad som kallas *autentiserings kontext* (som är en anslutning till Azure AD).
+# <a name="public-client-and-confidential-client-applications"></a>Offentliga klient- och konfidentiella klientprogram
+Microsoft Authentication Library (MSAL) definierar två typer av klienter: offentliga klienter och konfidentiella klienter. De två klienttyperna kännetecknas av sin förmåga att autentisera säkert med auktoriseringsservern och upprätthålla sekretessen för sina klientuppgifter. Azure AD Authentication Library (ADAL) använder däremot den som kallas *autentiseringskontext* (som är en anslutning till Azure AD).
 
-- **Konfidentiella klient program** är appar som körs på servrar (webbappar, webb-API-appar eller till och med service/daemon-appar). De anses vara svåra att komma åt, och därför kan det vara möjligt att hålla en program hemlighet. Konfidentiella klienter kan lagra konfigurations tids hemligheter. Varje instans av klienten har en särskild konfiguration (inklusive klient-ID och klient hemlighet). De här värdena är svåra för slutanvändare att extrahera. En webbapp är den vanligaste konfidentiella klienten. Klient-ID: t visas via webbläsaren, men hemligheten skickas bara i tillbaka-kanalen och aldrig direkt exponeras.
+- **Konfidentiella klientprogram** är appar som körs på servrar (webbappar, webb-API-appar eller till och med tjänst-/daemonappar). De anses svåra att komma åt, och av den anledningen kan hålla ett program hemligt. Konfidentiella klienter kan hålla konfigurationstidshemligheter. Varje instans av klienten har en distinkt konfiguration (inklusive klient-ID och klienthemlighet). Dessa värden är svåra för slutanvändare att extrahera. En webbapp är den vanligaste konfidentiella klienten. Klient-ID:n exponeras via webbläsaren, men hemligheten skickas bara i den bakre kanalen och exponeras aldrig direkt.
 
-    Konfidentiella klient program: <BR>
-    ![Web App](media/msal-client-applications/web-app.png) ![webb-API](media/msal-client-applications/web-api.png) ![daemon/service](media/msal-client-applications/daemon-service.png)
+    Konfidentiella klientappar: <BR>
+    ![Webbapp](media/msal-client-applications/web-app.png) ![Webb-API](media/msal-client-applications/web-api.png) ![Daemon/tjänst](media/msal-client-applications/daemon-service.png)
 
-- **Offentliga klient program** är appar som körs på enheter eller Station ära datorer eller i en webbläsare. De är inte betrodda för att på ett säkert sätt behålla program hemligheter, så de får bara åtkomst till webb-API: er för användarens räkning. (De stöder bara offentliga klient flöden.) Offentliga klienter kan inte lagra konfigurations tids hemligheter, så de har inte klient hemligheter.
+- **Offentliga klientprogram** är appar som körs på enheter eller stationära datorer eller i en webbläsare. De är inte betrodda att säkert hålla programhemligheter, så de bara tillgång till webb-API: er på uppdrag av användaren. (De stöder endast offentliga kundflöden.) Offentliga klienter kan inte hålla konfigurationstidshemligheter, så de har inte klienthemligheter.
 
-    Offentliga klient program: <BR>
-    ![Desktop-appen](media/msal-client-applications/desktop-app.png) ![webbläsarbaserade API](media/msal-client-applications/browserless-app.png) ![Mobile App](media/msal-client-applications/mobile-app.png)
+    Offentliga klientappar: <BR>
+    ![](media/msal-client-applications/desktop-app.png) ![Webbläsarappen Browserless API](media/msal-client-applications/browserless-app.png) ![Mobilapp](media/msal-client-applications/mobile-app.png)
 
 > [!NOTE]
-> I MSAL. js finns det ingen åtskillnad mellan offentliga och konfidentiella klient program.  MSAL. js representerar klient program som användar agent-baserade appar, offentliga klienter där klient koden körs i en användar agent som en webbläsare. Dessa klienter lagrar inte hemligheter eftersom webb läsar kontexten är lättillgänglig.
+> I MSAL.js finns det ingen separation av offentliga och konfidentiella klientappar.  MSAL.js representerar klientappar som användaragentbaserade appar, offentliga klienter där klientkoden körs i en användaragent som en webbläsare. Dessa klienter lagrar inte hemligheter eftersom webbläsarkontexten är öppet tillgänglig.
 
-## <a name="comparing-the-client-types"></a>Jämföra klient typerna
-Här följer några likheter och skillnader mellan offentliga klient-och konfidentiella klient program:
+## <a name="comparing-the-client-types"></a>Jämföra klienttyper
+Här är några likheter och skillnader mellan offentliga klient- och konfidentiella klientappar:
 
-- Båda typerna av appar upprätthåller en användartoken och kan hämta en token tyst (när token redan finns i token-cachen). Konfidentiella klient program har också en app-token cache för token som gäller för själva appen.
-- Båda typerna av appar hanterar användar konton och kan hämta ett konto från användarens token cache, hämta ett konto från dess identifierare eller ta bort ett konto.
-- Offentliga klient program har fyra sätt att hämta en token (fyra autentiseringsscheman). Konfidentiella klient program har tre sätt att hämta en token (och ett sätt att beräkna URL: en för den auktoriserade slut punkten för identitets leverantören). Mer information finns i [inhämta token](msal-acquire-cache-tokens.md).
+- Båda typerna av app upprätthålla en användare token cache och kan förvärva en token tyst (när token är redan i token cache). Konfidentiella klientappar har också en apptokencache för token som är för själva appen.
+- Båda typerna av app hantera användarkonton och kan hämta ett konto från användartokencache, hämta ett konto från dess identifierare eller ta bort ett konto.
+- Offentliga klientappar har fyra sätt att hämta en token (fyra autentiseringsflöden). Konfidentiella klientappar har tre sätt att skaffa en token (och ett sätt att beräkna URL:en för identitetsprovidern auktorisera slutpunkten). Mer information finns i [Hämta token](msal-acquire-cache-tokens.md).
 
-Om du har använt ADAL kanske klient-ID: t (även kallat *program-ID* eller *app-ID*) skickas en gång när programmet byggs. Den behöver inte skickas igen när appen erhåller en token. Detta gäller både för offentliga och konfidentiella klient program. Konstruktörer för konfidentiella klient program skickas också till klientens autentiseringsuppgifter: den hemlighet de delar med identitets leverantören.
+Om du har använt ADAL kanske du märker att klient-ID (även kallat *program-ID* eller *app-ID)* skickas en gång vid konstruktionen av programmet, till skillnad från ADAL:s autentiseringskontext. Det behöver inte skickas igen när appen skaffar en token. Detta gäller både för offentliga och konfidentiella klientappar. Konstruktorer av konfidentiella klientappar skickas också klientautentiseringsuppgifter: hemligheten de delar med identitetsleverantören.
 
 ## <a name="next-steps"></a>Nästa steg
-Lär dig mer om:
-- [Konfigurations alternativ för klient program](msal-client-application-configuration.md)
-- [Instansiera klient program med hjälp av MSAL.NET](msal-net-initializing-client-applications.md)
-- [Instansiera klient program med MSAL. js](msal-js-initializing-client-applications.md)
+Läs om:
+- [Konfigurationsalternativ för klientprogram](msal-client-application-configuration.md)
+- [Instansiera klientprogram med hjälp av MSAL.NET](msal-net-initializing-client-applications.md)
+- [Instansiera klientprogram med MSAL.js](msal-js-initializing-client-applications.md)

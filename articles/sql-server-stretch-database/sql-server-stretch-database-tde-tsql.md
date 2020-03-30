@@ -1,5 +1,5 @@
 ---
-title: Aktivera transparent datakryptering för Stretch Database (T-SQL)
+title: Aktivera transparent datakryptering för T-SQL (Transparent datakryptering)
 description: Aktivera transparent datakryptering (TDE) för SQL Server Stretch Database på Azure TSQL
 services: sql-server-stretch-database
 documentationcenter: ''
@@ -15,48 +15,48 @@ ms.reviewer: jroth
 manager: jroth
 ms.custom: seo-lt-2019
 ms.openlocfilehash: 6f1f5f55348069dbfe11b4d5857d93f8ba8c9b19
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74033961"
 ---
 # <a name="enable-transparent-data-encryption-tde-for-stretch-database-on-azure-transact-sql"></a>Aktivera transparent datakryptering (TDE) för Stretch Database på Azure (Transact-SQL)
 > [!div class="op_single_selector"]
-> * [Azure Portal](sql-server-stretch-database-encryption-tde.md)
-> * [TSQL](sql-server-stretch-database-tde-tsql.md)
+> * [Azure-portal](sql-server-stretch-database-encryption-tde.md)
+> * [TSQL (TSQL)](sql-server-stretch-database-tde-tsql.md)
 >
 >
 
-Transparent datakryptering (TDE) skyddar mot hot mot skadlig aktivitet genom att utföra kryptering och dekryptering i real tid av databasen, tillhör ande säkerhets kopior och transaktionsloggfiler i vila utan att det krävs några ändringar i programmet.
+Transparent datakryptering (TDE) hjälper till att skydda mot hotet om skadlig aktivitet genom att utföra kryptering i realtid och dekryptering av databasen, associerade säkerhetskopior och transaktionsloggfiler i vila utan att kräva ändringar i programmet.
 
-TDE krypterar lagringen av en hel databas med hjälp av en symmetrisk nyckel som kallas databas krypterings nyckel. Databas krypterings nyckeln skyddas av ett inbyggt Server certifikat. Det inbyggda Server certifikatet är unikt för varje Azure-Server. Microsoft roterar dessa certifikat automatiskt minst var 90: e dag. En allmän beskrivning av TDE finns [Transparent datakryptering (TDE)].
+Transparent datakryptering (TDE) krypterar lagringen av en hel databas med hjälp av en symmetrisk nyckel kallad databaskrypteringsnyckeln. Krypteringsnyckeln för databasen skyddas av ett inbyggt servercertifikat. Det inbyggda servercertifikatet är unikt för varje Azure-server. Microsoft roterar automatiskt dessa certifikat minst var 90:e dag. En allmän beskrivning av TDE finns i [Transparent datakryptering (TDE)].
 
 ## <a name="enabling-encryption"></a>Aktivera kryptering
-Gör så här om du vill aktivera TDE för en Azure-databas som lagrar data som migrerats från en utsträckt SQL Server databas:
+Så här aktiverar du TDE för en Azure-databas som lagrar data som migreras från en Stretch-aktiverad SQL Server-databas:
 
-1. Anslut till *huvud* databasen på den Azure-server som är värd för databasen med hjälp av en inloggning som är administratör eller medlem i **DBManager** -rollen i huvud databasen
-2. Kör följande instruktion för att kryptera-databasen.
+1. Ansluta till *huvuddatabasen* på Azure-servern som är värd för databasen med hjälp av en inloggning som är administratör eller medlem i **dbmanager-rollen** i huvuddatabasen
+2. Kör följande utdrag för att kryptera databasen.
 
 ```sql
 ALTER DATABASE [database_name] SET ENCRYPTION ON;
 ```
 
-## <a name="disabling-encryption"></a>Inaktiverar kryptering
-Om du vill inaktivera TDE för en Azure-databas som lagrar data som migrerats från en utsträckt SQL Server databas gör du följande:
+## <a name="disabling-encryption"></a>Inaktivera kryptering
+Så här inaktiverar du TDE för en Azure-databas som lagrar data som migreras från en Stretch-aktiverad SQL Server-databas:
 
-1. Anslut till *huvud* databasen med en inloggning som är administratör eller medlem i **DBManager** -rollen i huvud databasen
-2. Kör följande instruktion för att kryptera-databasen.
+1. Ansluta till *huvuddatabasen* med hjälp av en inloggning som är administratör eller medlem i **rollen dbmanager** i huvuddatabasen
+2. Kör följande utdrag för att kryptera databasen.
 
 ```sql
 ALTER DATABASE [database_name] SET ENCRYPTION OFF;
 ```
 
 ## <a name="verifying-encryption"></a>Verifiera kryptering
-Gör så här för att kontrol lera krypterings status för en Azure-databas som lagrar data som migrerats från en utsträckt SQL Server databas:
+Så här verifierar du krypteringsstatus för en Azure-databas som lagrar data som migreras från en Stretch-aktiverad SQL Server-databas:
 
-1. Anslut till *huvud* -eller instans databasen med hjälp av en inloggning som är administratör eller medlem i **DBManager** -rollen i huvud databasen
-2. Kör följande instruktion för att kryptera-databasen.
+1. Ansluta till *huvuddatabasen* eller instansdatabasen med hjälp av en inloggning som är administratör eller medlem i **dbmanager-rollen** i huvuddatabasen
+2. Kör följande utdrag för att kryptera databasen.
 
 ```sql
 SELECT
@@ -66,7 +66,7 @@ FROM
     sys.databases;
 ```
 
-Ett resultat av ```1``` indikerar en krypterad databas, ```0``` anger en icke-krypterad databas.
+Ett resultat ```1``` av indikerar en ```0``` krypterad databas, indikerar en icke-krypterad databas.
 
 <!--Anchors-->
 [Transparent datakryptering (TDE)]: https://msdn.microsoft.com/library/bb934049.aspx

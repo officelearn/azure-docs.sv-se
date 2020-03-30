@@ -1,6 +1,6 @@
 ---
-title: Avancerad attack identifiering i Multistage i Azure Sentinel
-description: Använd fusions teknik i Azure Sentinel för att minska varnings utmattningen och skapa åtgärds bara incidenter som baseras på avancerad attack identifiering i multiskede.
+title: Avancerad identifiering av flerstegsattacker i Azure Sentinel
+description: Använd Fusion-teknik i Azure Sentinel för att minska aviseringströtthet och skapa användbara incidenter som baseras på avancerad identifiering av angrepp i flera steg.
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -13,328 +13,328 @@ ms.workload: na
 ms.date: 02/18/2020
 ms.author: yelevin
 ms.openlocfilehash: 87ca322cbdfdd8a53a3ecefcb120a961ea1bb936
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77587931"
 ---
-# <a name="advanced-multistage-attack-detection-in-azure-sentinel"></a>Avancerad attack identifiering i Multistage i Azure Sentinel
+# <a name="advanced-multistage-attack-detection-in-azure-sentinel"></a>Avancerad identifiering av flerstegsattacker i Azure Sentinel
 
 
 > [!IMPORTANT]
-> Vissa fusions funktioner i Azure Sentinel är för närvarande en offentlig för hands version.
-> Dessa funktioner tillhandahålls utan service nivå avtal och rekommenderas inte för produktions arbets belastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Vissa Fusion-funktioner i Azure Sentinel är för närvarande i offentlig förhandsversion.
+> Dessa funktioner tillhandahålls utan ett servicenivåavtal och rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 
 
-Genom att använda fusions teknik som är baserad på maskin inlärning kan Azure Sentinel automatiskt identifiera angrepp i flera steg genom att kombinera avvikande beteenden och misstänkta aktiviteter som observeras i olika steg i Kill-kedjan. Azure Sentinel genererar sedan incidenter som annars skulle vara svåra att fånga. Dessa incidenter har två eller flera aviseringar eller aktiviteter. Som design är dessa incidenter små volymer, hög kvalitet och hög allvarlighets grad.
+Genom att använda Fusion-teknik som baseras på maskininlärning kan Azure Sentinel automatiskt identifiera flerstegsattacker genom att kombinera avvikande beteenden och misstänkta aktiviteter som observeras i olika skeden av dödskedjan. Azure Sentinel genererar sedan incidenter som annars skulle vara mycket svåra att fånga. Dessa incidenter innesluter två eller flera aviseringar eller aktiviteter. Avsiktligt är dessa incidenter låg volym, hög trohet och hög allvarlighetsgrad.
 
-Den här identifieringen är anpassad för din miljö och minskar bara falsk positiv taxa men kan också identifiera attacker med begränsad eller saknad information.
+Anpassad för din miljö, den här identifieringen minskar inte bara falska positiva priser utan kan också identifiera attacker med begränsad eller saknad information.
 
-## <a name="configuration-for-advanced-multistage-attack-detection"></a>Konfiguration för avancerad attack identifiering i Multistage
+## <a name="configuration-for-advanced-multistage-attack-detection"></a>Konfiguration för avancerad attackidentifiering i flera faser
 
-Den här identifieringen är aktive rad som standard i Azure Sentinel. Om du vill kontrol lera statusen eller inaktivera det kanske eftersom du använder en annan lösning för att skapa incidenter baserade på flera aviseringar, Använd följande instruktioner:
+Den här identifieringen är aktiverad som standard i Azure Sentinel. Om du vill kontrollera status eller inaktivera den kanske för att du använder en alternativ lösning för att skapa incidenter baserat på flera aviseringar använder du följande instruktioner:
 
 1. Om du inte redan gjort det loggar du in på [Azure Portal](https://portal.azure.com).
 
-2. Gå till **Azure Sentinel** > **Configuration** > **Analytics**
+2. Navigera till **Azure Sentinel** > **Configuration** > **Analytics**
 
-3. Välj **aktiva regler** och leta upp **Avancerad sårbarhets identifiering i Multistage** i kolumnen **namn** . Kontrol lera kolumnen **status** för att bekräfta om identifieringen är aktive rad eller inaktive rad.
+3. Välj **Aktiva regler** och leta reda på avancerad **flerstegsattackidentifiering** i kolumnen **NAMN.** Kontrollera kolumnen **STATUS** för att bekräfta om identifieringen är aktiverad eller inaktiverad.
 
-4. Om du vill ändra status väljer du den här posten och på bladet **Avancerad sårbarhets identifiering i Multistage** väljer du **Redigera**.
+4. Om du vill ändra status markerar du den här posten och på bladet **Avancerad flerstegsattackidentifiering** väljer du **Redigera**.
 
-5. På bladet **Guide för skapande av regel** väljs ändringen av status automatiskt åt dig, så välj **Nästa: granska**och **Spara**. 
+5. I **guidebladet För att skapa regler** väljs statusändringen automatiskt åt dig, så välj **Nästa: Granska**och sedan **Spara**. 
 
-Regelmallar gäller inte för den avancerade identifieringen av skadlig kod.
+Regelmallar är inte tillämpliga för avancerad attackidentifiering i flera steg.
 
 > [!NOTE]
-> Azure Sentinel använder för närvarande 30 dagars historiska data för att träna Machine Learning-systemen. Dessa data krypteras alltid med Microsofts nycklar när de passerar genom Machine Learning-pipeline. Inlärnings informationen är dock inte krypterad med [Kundhanterade nycklar (CMK)](customer-managed-keys.md) om du har aktiverat CMK i Azure Sentinel-arbetsytan. Om du inte vill använda fusion går du till **Azure Sentinel** \> **konfiguration** \> **analys \> aktiva regler \> avancerad sårbarhets identifiering i Multistage** och i kolumnen **status** väljer du **Inaktivera.**
+> Azure Sentinel använder för närvarande 30 dagar med historiska data för att träna maskininlärningssystemen. Dessa data krypteras alltid med Microsofts nycklar när de passerar genom pipelinen för maskininlärning. Utbildningsdata krypteras dock inte med [customer managed keys (CMK)](customer-managed-keys.md) om du har aktiverat CMK på din Azure Sentinel-arbetsyta. Om du vill välja bort Fusion navigerar du till **Azure Sentinel** \> **Configuration** \> ** \> Analytics Active rules \> Advanced Multistage Attack Detection** och väljer Inaktivera i kolumnen **Status.** **Disable.**
 
-## <a name="fusion-using-palo-alto-networks-and-microsoft-defender-atp"></a>Fusion med Palo-nätverk och Microsoft Defender ATP
+## <a name="fusion-using-palo-alto-networks-and-microsoft-defender-atp"></a>Fusion med Palo Alto Networks och Microsoft Defender ATP
 
-Dessa scenarier kombinerar två av de grundläggande loggar som används av säkerhetsanalytiker: brand Väggs loggar från Palo-nätverk och slut punkts identifierings loggar från Microsoft Defender ATP. I alla scenarier som anges nedan identifieras en misstänkt aktivitet i slut punkten som omfattar en extern IP-adress. därefter följs detta av avvikande trafik från den externa IP-adressen tillbaka till brand väggen. I Palo-löpeld-loggar fokuserar Azure Sentinel på [hot loggar](https://docs.paloaltonetworks.com/pan-os/8-1/pan-os-admin/monitoring/view-and-manage-logs/log-types-and-severity-levels/threat-logs)och trafiken betraktas som misstänkt när hot tillåts (misstänkta data, filer, överbelastningar, paket, genomsökningar, spionprogram, webb adresser, virus, sårbarheter,-virus, Wildfires).
+Dessa scenarier kombinerar två av de grundläggande loggar som används av säkerhetsanalytiker: Brandväggsloggar från Palo Alto-nätverk och slutpunktsidentifieringsloggar från Microsoft Defender ATP. I alla scenarier som anges nedan identifieras en misstänkt aktivitet i slutpunkten som involverar en extern IP-adress, och detta följs av avvikande trafik från den externa IP-adressen tillbaka till brandväggen. I Palo Alto-loggar fokuserar Azure Sentinel på [hotloggar](https://docs.paloaltonetworks.com/pan-os/8-1/pan-os-admin/monitoring/view-and-manage-logs/log-types-and-severity-levels/threat-logs)och trafik anses misstänkt när hot tillåts (misstänkta data, filer, översvämningar, paket, skanningar, spionprogram, webbadresser, virus, sårbarheter, löpeldvirus, skogsbränder).
 
-### <a name="network-request-to-tor-anonymization-service-followed-by-anomalous-traffic-flagged-by-palo-alto-networks-firewall"></a>Nätverks förfrågan till TOR anonymisering-tjänsten följt av avvikande trafik som flaggats av Palo-nätverkets brand vägg.
+### <a name="network-request-to-tor-anonymization-service-followed-by-anomalous-traffic-flagged-by-palo-alto-networks-firewall"></a>Nätverksbegäran till TOR-anonymiseringstjänsten följt av avvikande trafik som flaggats av Palo Alto Networks-brandväggen.
 
-I det här scenariot identifierar Azure Sentinel först en varning om att Microsoft Defender Avancerat skydd har identifierat en nätverksbegäran till en TOR anonymisering-tjänst som leder till avvikande aktivitet. Detta initierades under kontot {Account name} med SID-ID {sid} vid {Time}. Den utgående IP-adressen till anslutningen var {IndividualIp}.
-Sedan har ovanlig aktivitet identifierats av brand väggen för Palo-nätverk på {TimeGenerated}. Detta indikerar att skadlig trafik har angetts i nätverket mål-IP-adressen för nätverks trafiken är {DestinationIP}.
+I det här fallet upptäcker Azure Sentinel först en avisering om att Microsoft Defender Advanced Threat Protection har upptäckt en nätverksbegäran till en TOR-anonymiseringstjänst som leder till avvikande aktivitet. Detta initierades under konto {kontonamn} med SID-ID {sid} vid {time}. Den utgående IP-adressen till anslutningen var {IndividualIp}.
+Sedan upptäcktes ovanlig aktivitet av Palo Alto Networks-brandväggen vid {TimeGenerated}. Detta indikerar skadlig trafik som har angetts i nätverket Mål-IP-adressen för nätverkstrafiken är {DestinationIP}.
 
-Det här scenariot är för närvarande en offentlig för hands version.
+Det här scenariot är för närvarande i offentlig förhandsversion.
 
 
-### <a name="powershell-made-a-suspicious-network-connection-followed-by-anomalous-traffic-flagged-by-palo-alto-networks-firewall"></a>PowerShell gjorde en misstänkt nätverks anslutning följt av avvikande trafik som flaggats av Palo-nätverkets brand vägg.
+### <a name="powershell-made-a-suspicious-network-connection-followed-by-anomalous-traffic-flagged-by-palo-alto-networks-firewall"></a>PowerShell gjorde en misstänkt nätverksanslutning följt av avvikande trafik som flaggats av Palo Alto Networks-brandväggen.
 
-I det här scenariot identifierar Azure Sentinel först en varning om att PowerShell gjorde en misstänkt nätverks anslutning som leder till avvikande aktivitet som upptäcktes av en Palo-nätverks brand vägg. Detta initierades av kontot {Account name} med SID-ID {sid} vid {Time}. Den utgående IP-adressen till anslutningen var {IndividualIp}. Sedan har ovanlig aktivitet identifierats av brand väggen för Palo-nätverk på {TimeGenerated}. Detta anger att skadlig trafik angavs i nätverket. Mål-IP-adressen för nätverks trafiken är {DestinationIP}.
+I det här fallet upptäcker Azure Sentinel först en varning om att Microsoft Defender Advanced Threat Protection upptäckt att PowerShell har gjort en misstänkt nätverksanslutning som ledde till avvikande aktivitet som upptäcktes av en Palo Alto-nätverksbrandvägg. Detta initierades av kontot {account name} med SID ID {sid} vid {time}. Den utgående IP-adressen till anslutningen var {IndividualIp}. Sedan upptäcktes ovanlig aktivitet av Palo Alto Networks-brandväggen vid {TimeGenerated}. Detta indikerar att skadlig trafik har kommit in i nätverket. Mål-IP-adressen för nätverkstrafiken är {DestinationIP}.
 
-Det här scenariot är för närvarande en offentlig för hands version.
+Det här scenariot är för närvarande i offentlig förhandsversion.
 
-### <a name="outbound-connection-to-ip-with-a-history-of-unauthorized-access-attempts-followed-by-anomalous-traffic-flagged-by-palo-alto-networks-firewall"></a>Utgående anslutning till IP med en historik över obehöriga åtkomst försök följt av avvikande trafik som flaggats av Palo-nätverks brand vägg
+### <a name="outbound-connection-to-ip-with-a-history-of-unauthorized-access-attempts-followed-by-anomalous-traffic-flagged-by-palo-alto-networks-firewall"></a>Utgående anslutning till IP med en historik över obehöriga åtkomstförsök följt av avvikande trafik som flaggats av Palo Alto Networks-brandväggen
 
-I det här scenariot identifierar Azure Sentinel en varning att Microsoft Defender Avancerat skydd har identifierat en utgående anslutning till en IP-adress med en historik över obehöriga åtkomst försök som leder till avvikande aktivitet som identifieras av Palo-adresspoolen Nätverks brand vägg. Detta initierades av kontot {Account name} med SID-ID {sid} vid {Time}. Den utgående IP-adressen till anslutningen var {IndividualIp}. Därefter upptäcktes ovanlig aktivitet av Palo-nätverks brand väggen på {TimeGenerated}. Detta anger att skadlig trafik angavs i nätverket. Mål-IP-adressen för nätverks trafiken är {DestinationIP}.
+I det här fallet upptäcker Azure Sentinel en avisering om att Microsoft Defender Advanced Threat Protection har upptäckt en utgående anslutning till en IP-adress med en historik över obehöriga åtkomstförsök som leder till avvikande aktivitet som upptäcks av Palo Alto Brandvägg för nätverk. Detta initierades av kontot {account name} med SID ID {sid} vid {time}. Den utgående IP-adressen till anslutningen var {IndividualIp}. Därefter upptäcktes ovanlig aktivitet av Palo Alto Networks-brandväggen vid {TimeGenerated}. Detta indikerar att skadlig trafik har kommit in i nätverket. Mål-IP-adressen för nätverkstrafiken är {DestinationIP}.
 
-Det här scenariot är för närvarande en offentlig för hands version.
+Det här scenariot är för närvarande i offentlig förhandsversion.
 
 
 
-## <a name="fusion-using-identity-protection-and-microsoft-cloud-app-security"></a>Fusion med identitets skydd och Microsoft Cloud App Security
+## <a name="fusion-using-identity-protection-and-microsoft-cloud-app-security"></a>Fusion med identitetsskydd och Microsoft Cloud App Security
 
-Med hjälp av avancerad attack identifiering i flera steg stöder Azure Sentinel följande scenarier som kombinerar avvikelser från Azure Active Directory Identity Protection och Microsoft Cloud App Security:
+Med hjälp av avancerad identifiering av flerstegsattacker stöder Azure Sentinel följande scenarier som kombinerar avvikelsehändelser från Azure Active Directory Identity Protection och Microsoft Cloud App Security:
 
-- [Omöjlig resa till ovanlig plats följt av avvikande Office 365-aktivitet](#impossible-travel-to-atypical-location-followed-by-anomalous-office-365-activity)
-- [Inloggnings aktivitet för okänd plats följt av avvikande Office 365-aktivitet](#sign-in-activity-for-unfamiliar-location-followed-by-anomalous-office-365-activity)
-- [Inloggnings aktivitet från angripen enhet följt av avvikande Office 365-aktivitet](#sign-in-activity-from-infected-device-followed-by-anomalous-office-365-activity)
-- [Inloggnings aktivitet från anonym IP-adress följt av avvikande Office 365-aktivitet](#sign-in-activity-from-anonymous-ip-address-followed-by-anomalous-office-365-activity)
-- [Inloggnings aktivitet från användare med läckta autentiseringsuppgifter följt av avvikande Office 365-aktivitet](#sign-in-activity-from-user-with-leaked-credentials-followed-by-anomalous-office-365-activity)
+- [Omöjlig resa till atypisk plats följt av avvikande Office 365-aktivitet](#impossible-travel-to-atypical-location-followed-by-anomalous-office-365-activity)
+- [Inloggningsaktivitet för okänd plats följt av avvikande Office 365-aktivitet](#sign-in-activity-for-unfamiliar-location-followed-by-anomalous-office-365-activity)
+- [Inloggningsaktivitet från infekterad enhet följt av avvikande Office 365-aktivitet](#sign-in-activity-from-infected-device-followed-by-anomalous-office-365-activity)
+- [Inloggningsaktivitet från anonym IP-adress följt av avvikande Office 365-aktivitet](#sign-in-activity-from-anonymous-ip-address-followed-by-anomalous-office-365-activity)
+- [Inloggningsaktivitet från användare med läckta autentiseringsuppgifter följt av avvikande Office 365-aktivitet](#sign-in-activity-from-user-with-leaked-credentials-followed-by-anomalous-office-365-activity)
 
-Du måste ha [Azure AD Identity Protection data koppling](connect-azure-ad-identity-protection.md) och de [Cloud App Security](connect-cloud-app-security.md) anslutningarna har kon figurer ATS.
+Du måste ha [Azure AD Identity Protection-dataanslutningen](connect-azure-ad-identity-protection.md) och Cloud App Security-anslutningsapparna konfigurerade. [Cloud App Security](connect-cloud-app-security.md)
 
-I beskrivningarna som följer visar Azure Sentinel det faktiska värdet från dina data som visas på den här sidan som variabler inom hakparenteser. Till exempel, det faktiska visnings namnet för ett konto i stället för \<*konto namn*> och det faktiska antalet i stället för \<*nummer*>.
+I de beskrivningar som följer visar Azure Sentinel det faktiska värdet från dina data som representeras på den här sidan som variabler inom parentes. Det faktiska visningsnamnet för ett \<konto i stället för *kontonamn*> \<och det faktiska numret i stället för *tal*>.
 
-### <a name="impossible-travel-to-atypical-location-followed-by-anomalous-office-365-activity"></a>Omöjlig resa till ovanlig plats följt av avvikande Office 365-aktivitet
+### <a name="impossible-travel-to-atypical-location-followed-by-anomalous-office-365-activity"></a>Omöjlig resa till atypisk plats följt av avvikande Office 365-aktivitet
 
-Det finns sju möjliga Azure Sentinel-incidenter som kombinerar omöjlig resa till ovanlig plats varningar från Azure AD Identity Protection och avvikande Office 365-aviseringar som genererats av Microsoft Cloud App Security:
+Det finns sju möjliga Azure Sentinel-incidenter som kombinerar omöjliga resor till atypiska platsaviseringar från Azure AD Identity Protection och avvikande Office 365-aviseringar som genereras av Microsoft Cloud App Security:
 
-- **Omöjlig resa till ovanlig-platser som leder till Office 365 Mailbox exfiltrering**
+- **Omöjlig resa till atypiska platser som leder till Office 365-postlåda exfiltration**
     
-    Den här aviseringen är en indikation på en inloggnings händelse genom att \<*konto namnet*> från en omöjlig resa till \<*plats*>, en ovanlig plats följt av en misstänkt inkorg för vidarebefordran angavs i en användares inkorg.
+    Den här varningen är en indikation \<på en inloggningshändelse med *kontonamn*> från en omöjlig resa till \< *plats*>, en atypisk plats, följt av en misstänkt inkorgsbefordringsregel som angavs i en användares inkorg.
     
-    Detta kan tyda på att kontot komprometteras och att post lådan används för att stjäla information från din organisation. Användarens \<*konto namn*> skapat eller uppdaterat en vidarebefordrings regel för Inkorgen som vidarebefordrar all inkommande e-post till den externa adressen \<*e-postadressen*>.
+    Detta kan tyda på att kontot har komprometterats och att postlådan används för att frigöra information från din organisation. \< *Användarkontots namn*> skapat eller uppdaterat en vidarebefordringsregel för inkorgen som vidarebefordrar all inkommande e-post till den externa adressens \< *e-postadress*>.
 
-- **Omöjlig resa till ovanlig platser som leder till misstänkt administrativ aktivitet i Cloud App**
+- **Omöjlig resa till atypiska platser som leder till misstänkt molnapp administrativ aktivitet**
     
-    Den här aviseringen är en indikation på en inloggnings händelse genom att \<*konto namnet*> från en omöjlig resa till \<*plats*>, en ovanlig plats.
+    Den här varningen är en indikation \<på en inloggningshändelse efter *kontonamn*> från en omöjlig resa till \< *plats*>, en atypisk plats.
     
-    Därefter > kontot \<*konto namnet*på \<*antal*> administrativa aktiviteter i en enda session.
+    Därefter> \< *kontokontonamnet* utförts över \< *antal*> administrativa aktiviteter i en enda session.
 
-- **Omöjlig resa till ovanlig platser som leder till Mass borttagning av filer**
+- **Omöjlig resa till atypiska platser som leder till massfil radering**
     
-    Den här aviseringen är en indikation på en inloggnings händelse genom att \<*konto namn*> till \<*plats*>, en ovanlig plats. 
+    Den här aviseringen är en indikation \<på en inloggningshändelse efter *kontonamn*> till \< *plats*>, en atypisk plats. 
     
-    Sedan har kontot \<*konto namnet*> tagits bort \<*antalet*> unika filer i en enda session.
+    Därefter> \< *kontokontonamnet* \< *borttaget antal*> unika filer i en enda session.
 
-- **Omöjlig resa till ovanlig-platser som leder till Mass nedladdning av filer**
+- **Omöjligt att resa till atypiska platser som leder till massfil nedladdning**
     
-    Den här aviseringen är en indikation på en inloggnings händelse genom att \<*konto namnet*> från en omöjlig resa till \<*plats*>, en ovanlig plats. 
+    Den här varningen är en indikation \<på en inloggningshändelse efter *kontonamn*> från en omöjlig resa till \< *plats*>, en atypisk plats. 
     
-    Därefter > kontot \<*konto namnet*som hämtats över \<*antalet*> unika filer i en enda session.
+    Därefter> \< *kontokontonamnet* hämtats över \< *antalet*> unika filer i en enda session.
 
-- **Omöjlig resa till ovanlig-platser som leder till Office 365-personifiering**
+- **Omöjlig resa till atypiska platser som leder till Office 365-personifiering**
     
-    Den här aviseringen är en indikation på en inloggnings händelse genom att \<*konto namnet*> från en omöjlig resa till \<*plats*>, en ovanlig plats. 
+    Den här varningen är en indikation \<på en inloggningshändelse efter *kontonamn*> från en omöjlig resa till \< *plats*>, en atypisk plats. 
     
-    Därefter utför kontot \<*konto namnet*> en ovanlig mängd (\<*antalet aktiviteter*>) för personifiering i en enda session.
+    Därefter utförde \< *kontokontonamnet*> ett ovanligt belopp\<*(antal aktiviteter*>) av personifieringsaktiviteter i en enda session.
 
-- **Omöjlig resa till ovanlig platser som leder till Mass fildelning**
+- **Omöjlig resa till atypiska platser som leder till massfildelning**
     
-    Den här aviseringen är en indikation på en inloggnings händelse genom att \<*konto namnet*> från en omöjlig resa till \<*plats*>, en ovanlig plats. 
+    Den här varningen är en indikation \<på en inloggningshändelse efter *kontonamn*> från en omöjlig resa till \< *plats*>, en atypisk plats. 
     
-    Därefter > kontot \<*konto namnet*delat \<*antalet*> unika filer i en enda session.
+    Därefter> \< *kontokontonamnet* delats över \< *antalet*> unika filer i en enda session.
 
-- **Omöjlig resa till ovanlig-platser som leder till utpressnings troprogram i Cloud App**
+- **Omöjlig resa till atypiska platser som leder till ransomware i molnapp**
     
-    Den här aviseringen är en indikation på en inloggnings händelse genom att \<*konto namnet*> från en omöjlig resa till \<*plats*>, en ovanlig plats. 
+    Den här varningen är en indikation \<på en inloggningshändelse efter *kontonamn*> från en omöjlig resa till \< *plats*>, en atypisk plats. 
     
-    Sedan \<*konto namnet*> överfört \<*antal*>-filer och tog bort totalt \<*antal*> filer. 
+    Därefter> \< *kontokontonamnet* uppladdat \< *antal*> filer och raderade totalt \< *antal*> filer. 
     
-    Det här aktivitets mönstret är en indikation på en potentiell utpressnings attack.
+    Denna aktivitet mönster är ett tecken på en potentiell ransomware attack.
 
 
-### <a name="sign-in-activity-for-unfamiliar-location-followed-by-anomalous-office-365-activity"></a>Inloggnings aktivitet för okänd plats följt av avvikande Office 365-aktivitet
+### <a name="sign-in-activity-for-unfamiliar-location-followed-by-anomalous-office-365-activity"></a>Inloggningsaktivitet för okänd plats följt av avvikande Office 365-aktivitet
 
-Det finns sju möjliga Azure Sentinel-incidenter som kombinerar inloggnings aktivitet för okända plats varningar från Azure AD Identity Protection och avvikande Office 365-aviseringar som genererats av Microsoft Cloud App Security.
+Det finns sju möjliga Azure Sentinel-incidenter som kombinerar inloggningsaktivitet för okända platsaviseringar från Azure AD Identity Protection och avvikande Office 365-aviseringar som genereras av Microsoft Cloud App Security.
 
-- **Inloggnings händelse från en okänd plats som leder till Exchange Online-brevlåda exfiltrering**
+- **Inloggningshändelse från en okänd plats som leder till Exfiltration för Exchange Online-postlåda**
     
-    Den här aviseringen är en indikation på en inloggnings händelse genom \<*konto namn*> från \<*plats*>, en okänd plats, följt av en misstänkt vidarebefordrings regel för Inkorgen angavs i en användares inkorg.
+    Den här varningen är en indikation \<på en inloggningshändelse med *kontonamn*> från \< *plats*>, en okänd plats, följt av en misstänkt inkorgsbefordringsregel, angavs i en användares inkorg.
     
-    Detta kan tyda på att kontot komprometteras och att post lådan används för att stjäla information från din organisation. Användarens \<*konto namn*> skapat eller uppdaterat en vidarebefordrings regel för Inkorgen som vidarebefordrar all inkommande e-post till den externa adressen \<*e-postadressen*>. 
+    Detta kan tyda på att kontot har komprometterats och att postlådan används för att frigöra information från din organisation. \< *Användarkontots namn*> skapat eller uppdaterat en vidarebefordringsregel för inkorgen som vidarebefordrar all inkommande e-post till den externa adressens \< *e-postadress*>. 
 
-- **Inloggnings händelse från en okänd plats som leder till misstänkt administrativ aktivitet i Cloud App**
+- **Inloggningshändelse från en okänd plats som leder till misstänkt molnapp administrativ aktivitet**
     
-    Den här aviseringen är en indikation på en inloggnings händelse genom att \<*konto namnet*> från \<*plats*>, en okänd plats. 
+    Den här aviseringen är en indikation \<på en inloggningshändelse efter *kontonamn*> från \< *plats*>, en okänd plats. 
     
-    Sedan har kontot \<*konto namnet*> gjorts över \<*antalet*> administrativa aktiviteter i en enda session.
+    Därefter> \< *kontokontonamnet* utförts under \< *antalet*> administrativa aktiviteter i en enda session.
 
-- **Inloggnings händelse från en okänd plats som leder till Mass borttagning av filer**
+- **Inloggningshändelse från en okänd plats som leder till massfilradering**
     
-    Den här aviseringen är en indikation på en inloggnings händelse genom att \<*konto namnet*> från \<*plats*>, en okänd plats. 
+    Den här aviseringen är en indikation \<på en inloggningshändelse efter *kontonamn*> från \< *plats*>, en okänd plats. 
     
-    Sedan har kontot \<*konto namnet*> tagits bort \<*antalet*> unika filer i en enda session.
+    Därefter> \< *kontokontonamnet* \< *borttaget antal*> unika filer i en enda session.
 
-- **Inloggnings händelse från en okänd plats som leder till Mass hämtning av filer**
+- **Inloggningshändelse från en okänd plats som leder till massfilhämtning**
     
-    Den här aviseringen är en indikation på en inloggnings händelse genom att \<*konto namnet*> från \<*plats*>, en okänd plats. 
+    Den här aviseringen är en indikation \<på en inloggningshändelse efter *kontonamn*> från \< *plats*>, en okänd plats. 
     
-    Därefter > kontot \<*konto namnet*som hämtats över \<*antalet*> unika filer i en enda session.
+    Därefter> \< *kontokontonamnet* hämtats över \< *antalet*> unika filer i en enda session.
 
-- **Inloggnings händelse från en okänd plats som leder till Office 365-personifiering**
+- **Inloggningshändelse från en okänd plats som leder till personifiering av Office 365**
     
-    Den här aviseringen är en indikation på en inloggnings händelse genom att \<*konto namnet*> från \<*plats*>, en okänd plats.
+    Den här aviseringen är en indikation \<på en inloggningshändelse efter *kontonamn*> från \< *plats*>, en okänd plats.
     
-    Därefter > kontot \<*konto namnet*personifierat över \<*antalet*> olika konton i en enda session.
+    Därefter> \< *kontokontonamnet* personifieras \<över *antalet*> olika konton i en enda session.
 
-- **Inloggnings händelse från en okänd plats som leder till Mass delning av filer**
+- **Inloggningshändelse från en okänd plats som leder till massfildelning**
     
-    Den här aviseringen är en indikation på en inloggnings händelse genom att \<*konto namnet*> från \<*plats*>, en okänd plats. 
+    Den här aviseringen är en indikation \<på en inloggningshändelse efter *kontonamn*> från \< *plats*>, en okänd plats. 
     
-    Därefter > kontot \<*konto namnet*delat \<*antalet*> unika filer i en enda session.
+    Därefter> \< *kontokontonamnet* delats över \< *antalet*> unika filer i en enda session.
 
-- **Inloggnings händelse från en okänd plats som leder till utpressnings troprogram i Cloud App**
+- **Inloggningshändelse från en okänd plats som leder till ransomware i molnapp**
     
-    Den här aviseringen är en indikation på en inloggnings händelse genom att \<*konto namnet*> från \<*plats*>, en okänd plats. 
+    Den här aviseringen är en indikation \<på en inloggningshändelse efter *kontonamn*> från \< *plats*>, en okänd plats. 
     
-    Sedan \<*konto namnet*> överfört \<*antal*>-filer och tog bort totalt \<*antal*> filer. 
+    Därefter> \< *kontokontonamnet* uppladdat \< *antal*> filer och raderade totalt \< *antal*> filer. 
     
-    Det här aktivitets mönstret är en indikation på en potentiell utpressnings attack.
+    Denna aktivitet mönster är ett tecken på en potentiell ransomware attack.
 
-### <a name="sign-in-activity-from-infected-device-followed-by-anomalous-office-365-activity"></a>Inloggnings aktivitet från angripen enhet följt av avvikande Office 365-aktivitet
+### <a name="sign-in-activity-from-infected-device-followed-by-anomalous-office-365-activity"></a>Inloggningsaktivitet från infekterad enhet följt av avvikande Office 365-aktivitet
 
-Det finns sju möjliga Azure Sentinel-incidenter som kombinerar inloggnings aktivitet från infekterade enhets aviseringar från Azure AD Identity Protection och avvikande Office 365-aviseringar som genererats av Microsoft Cloud App Security:
+Det finns sju möjliga Azure Sentinel-incidenter som kombinerar inloggningsaktivitet från infekterade enhetsaviseringar från Azure AD Identity Protection och avvikande Office 365-aviseringar som genereras av Microsoft Cloud App Security:
 
-- **Inloggnings händelse från en infekterad enhet som leder till Office 365 Mailbox exfiltrering**
+- **Inloggningshändelse från en infekterad enhet som leder till exfiltrering för Office 365-postlåda**
     
-    Den här aviseringen är en indikation på en inloggnings händelse genom att \<*konto namnet*> från en enhet som potentiellt infekteras av skadlig kod, följt av en misstänkt vidarebefordrings regel för Inkorgen angavs i en användares inkorg.
+    Den här varningen är en indikation \<på en inloggningshändelse med *kontonamn*> från en enhet som kan vara infekterad med skadlig kod, följt av en misstänkt inkorgsbefordringsregel som angetts i en användares inkorg.
     
-    Detta kan tyda på att kontot komprometteras och att post lådan används för att stjäla information från din organisation. Användarens \<*konto namn*> skapat eller uppdaterat en vidarebefordrings regel för Inkorgen som vidarebefordrar all inkommande e-post till den externa adressen \<*e-postadressen*>. 
+    Detta kan tyda på att kontot har komprometterats och att postlådan används för att frigöra information från din organisation. \< *Användarkontots namn*> skapat eller uppdaterat en vidarebefordringsregel för inkorgen som vidarebefordrar all inkommande e-post till den externa adressens \< *e-postadress*>. 
 
-- **Inloggnings händelse från en infekterad enhet som leder till misstänkt administrativ aktivitet i Cloud App**
+- **Inloggningshändelse från en infekterad enhet som leder till misstänkt molnapp administrativ aktivitet**
     
-    Den här aviseringen är en indikation på en inloggnings händelse genom att \<*konto namnet*> från en enhet som potentiellt infekteras av skadlig kod.
+    Den här varningen är en indikation \<på en inloggningshändelse efter *kontonamn*> från en enhet som kan vara infekterad med skadlig kod.
     
-    Sedan har kontot \<*konto namnet*> gjorts över \<*antalet*> administrativa aktiviteter i en enda session.
+    Därefter> \< *kontokontonamnet* utförts under \< *antalet*> administrativa aktiviteter i en enda session.
 
-- **Inloggnings händelse från en infekterad enhet som leder till Mass borttagning av filer**
+- **Inloggningshändelse från en infekterad enhet som leder till massfilradering**
     
-    Den här aviseringen är en indikation på en inloggnings händelse genom att \<*konto namnet*> från en enhet som potentiellt infekteras av skadlig kod. 
+    Den här varningen är en indikation \<på en inloggningshändelse efter *kontonamn*> från en enhet som kan vara infekterad med skadlig kod. 
     
-    Sedan har kontot \<*konto namnet*> tagits bort \<*antalet*> unika filer i en enda session.
+    Därefter> \< *kontokontonamnet* \< *borttaget antal*> unika filer i en enda session.
 
-- **Inloggnings händelse från en infekterad enhet som leder till Mass fil hämtning**
+- **Inloggningshändelse från en infekterad enhet som leder till massfilhämtning**
     
-    Den här aviseringen är en indikation på en inloggnings händelse genom att \<*konto namnet*> från en enhet som potentiellt infekteras av skadlig kod. 
+    Den här varningen är en indikation \<på en inloggningshändelse efter *kontonamn*> från en enhet som kan vara infekterad med skadlig kod. 
     
-    Därefter > kontot \<*konto namnet*som hämtats över \<*antalet*> unika filer i en enda session.
+    Därefter> \< *kontokontonamnet* hämtats över \< *antalet*> unika filer i en enda session.
 
-- **Inloggnings händelse från en infekterad enhet som leder till Office 365-personifiering**
+- **Inloggningshändelse från en infekterad enhet som leder till personifiering av Office 365**
     
-    Den här aviseringen är en indikation på en inloggnings händelse genom att \<*konto namnet*> från en enhet som potentiellt infekteras av skadlig kod. 
+    Den här varningen är en indikation \<på en inloggningshändelse efter *kontonamn*> från en enhet som kan vara infekterad med skadlig kod. 
     
-    Därefter > kontot \<*konto namnet*personifierat över \<*antalet*> olika konton i en enda session.
+    Därefter> \< *kontokontonamnet* personifieras \<över *antalet*> olika konton i en enda session.
 
-- **Inloggnings händelse från en infekterad enhet som leder till Mass fil delning**
+- **Inloggningshändelse från en infekterad enhet som leder till massfildelning**
     
-    Den här aviseringen är en indikation på en inloggnings händelse genom att \<*konto namnet*> från en enhet som potentiellt infekteras av skadlig kod. 
+    Den här varningen är en indikation \<på en inloggningshändelse efter *kontonamn*> från en enhet som kan vara infekterad med skadlig kod. 
     
-    Därefter > kontot \<*konto namnet*delat \<*antalet*> unika filer i en enda session.
+    Därefter> \< *kontokontonamnet* delats över \< *antalet*> unika filer i en enda session.
 
-- **Inloggnings händelse från en infekterad enhet som leder till utpressnings troprogram i Cloud App**
+- **Inloggningshändelse från en infekterad enhet som leder till ransomware i molnapp**
     
-    Den här aviseringen är en indikation på en inloggnings händelse genom att \<*konto namnet*> från en enhet som potentiellt infekteras av skadlig kod. 
+    Den här varningen är en indikation \<på en inloggningshändelse efter *kontonamn*> från en enhet som kan vara infekterad med skadlig kod. 
     
-    Sedan \<*konto namnet*> överfört \<*antal*>-filer och tog bort totalt \<*antal*> filer. 
+    Därefter> \< *kontokontonamnet* uppladdat \< *antal*> filer och raderade totalt \< *antal*> filer. 
     
-    Det här aktivitets mönstret är en indikation på en potentiell utpressnings attack.
+    Denna aktivitet mönster är ett tecken på en potentiell ransomware attack.
 
-### <a name="sign-in-activity-from-anonymous-ip-address-followed-by-anomalous-office-365-activity"></a>Inloggnings aktivitet från anonym IP-adress följt av avvikande Office 365-aktivitet
+### <a name="sign-in-activity-from-anonymous-ip-address-followed-by-anomalous-office-365-activity"></a>Inloggningsaktivitet från anonym IP-adress följt av avvikande Office 365-aktivitet
 
-Det finns sju möjliga Azure Sentinel-incidenter som kombinerar inloggnings aktivitet från anonyma IP-aviseringar från Azure AD Identity Protection och avvikande Office 365-aviseringar som genererats av Microsoft Cloud App Security:
+Det finns sju möjliga Azure Sentinel-incidenter som kombinerar inloggningsaktivitet från anonyma IP-adressaviseringar från Azure AD Identity Protection och avvikande Office 365-aviseringar som genereras av Microsoft Cloud App Security:
 
-- **Inloggnings händelse från en anonym IP-adress som leder till Office 365 Mailbox exfiltrering**
+- **Inloggningshändelse från en anonym IP-adress som leder till exfiltrering för Office 365-postlåda**
     
-    Den här aviseringen är en indikation på en inloggnings händelse genom att \<*konto namnet*> från en anonym proxy-IP-adress \<*ip-adress*>, följt av en misstänkt vidarebefordrings regel för Inkorgen angavs i en användares inkorg.
+    Den här aviseringen är en indikation \<på en inloggningshändelse med *kontonamn*> från en anonym IP-adress för \<proxy-IP-adress>, följt av en regel för misstänkt inkorgsinriktning angavs i en användares inkorg. *IP address*
     
-    Detta kan tyda på att kontot komprometteras och att post lådan används för att stjäla information från din organisation. Användarens \<*konto namn*> skapat eller uppdaterat en vidarebefordrings regel för Inkorgen som vidarebefordrar all inkommande e-post till den externa adressen \<*e-postadressen*>. 
+    Detta kan tyda på att kontot har komprometterats och att postlådan används för att frigöra information från din organisation. \< *Användarkontots namn*> skapat eller uppdaterat en vidarebefordringsregel för inkorgen som vidarebefordrar all inkommande e-post till den externa adressens \< *e-postadress*>. 
 
-- **Inloggnings händelse från en anonym IP-adress som leder till misstänkt administrativ aktivitet i Cloud App**
+- **Inloggningshändelse från en anonym IP-adress som leder till misstänkt molnapp administrativ aktivitet**
     
-    Den här aviseringen är en indikation på en inloggnings händelse genom att \<*konto namnet*> från en anonym proxy-IP-adress \<*ip-adress*>. 
+    Den här aviseringen är en indikation \<på en inloggningshändelse efter *kontonamn*> från en anonym IP-adress för \< *proxy-IP-adress*>. 
     
-    Sedan har kontot \<*konto namnet*> gjorts över \<*antalet*> administrativa aktiviteter i en enda session.
+    Därefter> \< *kontokontonamnet* utförts under \< *antalet*> administrativa aktiviteter i en enda session.
 
-- **Inloggnings händelse från en anonym IP-adress som leder till Mass borttagning av filer**
+- **Inloggningshändelse från en anonym IP-adress som leder till massfilradering**
     
-    Den här aviseringen är en indikation på en inloggnings händelse genom att \<*konto namnet*> från en anonym proxy-IP-adress \<*ip-adress*>. 
+    Den här aviseringen är en indikation \<på en inloggningshändelse efter *kontonamn*> från en anonym IP-adress för \< *proxy-IP-adress*>. 
     
-    Sedan har kontot \<*konto namnet*> tagits bort \<*antalet*> unika filer i en enda session.
+    Därefter> \< *kontokontonamnet* \< *borttaget antal*> unika filer i en enda session.
 
-- **Inloggnings händelse från en anonym IP-adress som leder till Mass nedladdning av filer**
+- **Inloggningshändelse från en anonym IP-adress som leder till massfilhämtning**
     
-    Den här aviseringen är en indikation på en inloggnings händelse genom att \<*konto namnet*> från en anonym proxy-IP-adress \<*ip-adress*>. 
+    Den här aviseringen är en indikation \<på en inloggningshändelse efter *kontonamn*> från en anonym IP-adress för \< *proxy-IP-adress*>. 
     
-    Därefter > kontot \<*konto namnet*som hämtats över \<*antalet*> unika filer i en enda session.
+    Därefter> \< *kontokontonamnet* hämtats över \< *antalet*> unika filer i en enda session.
 
-- **Inloggnings händelse från en anonym IP-adress som leder till Office 365-personifiering**
+- **Inloggningshändelse från en anonym IP-adress som leder till personifiering av Office 365**
     
-    Den här aviseringen är en indikation på en inloggnings händelse genom att \<*konto namnet*> från en anonym proxy-IP-adress \<*ip-adress*>. 
+    Den här aviseringen är en indikation \<på en inloggningshändelse efter *kontonamn*> från en anonym IP-adress för \< *proxy-IP-adress*>. 
     
-    Därefter > kontot \<*konto namnet*personifierat över \<*antalet*> olika konton i en enda session.
+    Därefter> \< *kontokontonamnet* personifieras \<över *antalet*> olika konton i en enda session.
 
-- **Inloggnings händelse från en anonym IP-adress som leder till Mass delning av filer**
+- **Inloggningshändelse från en anonym IP-adress som leder till massfildelning**
     
-    Den här aviseringen är en indikation på en inloggnings händelse genom att \<*konto namnet*> från en anonym proxy-IP-adress \<*ip-adress*>. 
+    Den här aviseringen är en indikation \<på en inloggningshändelse efter *kontonamn*> från en anonym IP-adress för \< *proxy-IP-adress*>. 
     
-    Därefter > kontot \<*konto namnet*delat \<*antalet*> unika filer i en enda session.
+    Därefter> \< *kontokontonamnet* delats över \< *antalet*> unika filer i en enda session.
 
-- **Inloggnings händelse från en anonym IP-adress till utpressnings program vara i Cloud App**
+- **Inloggningshändelse från en anonym IP-adress till ransomware i molnapp**
     
-    Den här aviseringen är en indikation på en inloggnings händelse genom att \<*konto namnet*> från en anonym proxy-IP-adress \<*ip-adress*>. 
+    Den här aviseringen är en indikation \<på en inloggningshändelse efter *kontonamn*> från en anonym IP-adress för \< *proxy-IP-adress*>. 
     
-    Sedan \<*konto namnet*> överfört \<*antal*>-filer och tog bort totalt \<*antal*> filer. 
+    Därefter> \< *kontokontonamnet* uppladdat \< *antal*> filer och raderade totalt \< *antal*> filer. 
     
-    Det här aktivitets mönstret är en indikation på en potentiell utpressnings attack.
+    Denna aktivitet mönster är ett tecken på en potentiell ransomware attack.
 
-### <a name="sign-in-activity-from-user-with-leaked-credentials-followed-by-anomalous-office-365-activity"></a>Inloggnings aktivitet från användare med läckta autentiseringsuppgifter följt av avvikande Office 365-aktivitet
+### <a name="sign-in-activity-from-user-with-leaked-credentials-followed-by-anomalous-office-365-activity"></a>Inloggningsaktivitet från användare med läckta autentiseringsuppgifter följt av avvikande Office 365-aktivitet
 
-Det finns sju möjliga Azure Sentinel-incidenter som kombinerar inloggnings aktivitet från användare med läckta autentiseringsuppgifter från Azure AD Identity Protection och avvikande Office 365-aviseringar som genererats av Microsoft Cloud App Security:
+Det finns sju möjliga Azure Sentinel-incidenter som kombinerar inloggningsaktivitet från användare med läckta autentiseringsuppgifter från Azure AD Identity Protection och avvikande Office 365-aviseringar som genereras av Microsoft Cloud App Security:
 
-- **Inloggnings händelse från användare med läckta autentiseringsuppgifter som leder till Office 365 Mailbox exfiltrering**
+- **Inloggningshändelse från användare med läckta autentiseringsuppgifter som leder till exfiltrering för Office 365-postlåda**
     
-    Den här aviseringen anger att inloggnings händelsen för \<*konto namnet*> använt läckta autentiseringsuppgifter följt av en misstänkt vidarebefordrings regel för Inkorgen angavs i en användares inkorg. 
+    Den här aviseringen är en indikation \<på att inloggningshändelsen efter *kontonamn*> använde läckta autentiseringsuppgifter, följt av en regel för misstänkt vidarebefordran av inkorgen angavs i en användares inkorg. 
     
-    Detta kan tyda på att kontot komprometteras och att post lådan används för att stjäla information från din organisation. Användarens \<*konto namn*> skapat eller uppdaterat en vidarebefordrings regel för Inkorgen som vidarebefordrar all inkommande e-post till den externa adressen \<*e-postadressen*>. 
+    Detta kan tyda på att kontot har komprometterats och att postlådan används för att frigöra information från din organisation. \< *Användarkontots namn*> skapat eller uppdaterat en vidarebefordringsregel för inkorgen som vidarebefordrar all inkommande e-post till den externa adressens \< *e-postadress*>. 
 
-- **Inloggnings händelse från användare med läckta autentiseringsuppgifter som leder till misstänkt administrativ aktivitet i Cloud App**
+- **Inloggningshändelse från användare med läckta autentiseringsuppgifter som leder till misstänkt administrativ aktivitet i molnappen**
     
-    Den här varningen anger att inloggnings händelsen för \<*konto namnet*> använt läcka autentiseringsuppgifter.
+    Den här aviseringen är en indikation \<på att inloggningshändelsen efter *kontonamn*> använt läckta autentiseringsuppgifter.
     
-    Sedan har kontot \<*konto namnet*> gjorts över \<*antalet*> administrativa aktiviteter i en enda session.
+    Därefter> \< *kontokontonamnet* utförts under \< *antalet*> administrativa aktiviteter i en enda session.
 
-- **Inloggnings händelse från användare med läckta autentiseringsuppgifter som leder till Mass borttagning av filer**
+- **Inloggningshändelse från användare med läckta autentiseringsuppgifter som leder till massfilradering**
     
-    Den här varningen anger att inloggnings händelsen för \<*konto namnet*> använt läcka autentiseringsuppgifter.
+    Den här aviseringen är en indikation \<på att inloggningshändelsen efter *kontonamn*> använt läckta autentiseringsuppgifter.
     
-    Sedan har kontot \<*konto namnet*> tagits bort \<*antalet*> unika filer i en enda session.
+    Därefter> \< *kontokontonamnet* \< *borttaget antal*> unika filer i en enda session.
 
-- **Inloggnings händelse från användare med läckta autentiseringsuppgifter som leder till Mass nedladdning av filer**
+- **Inloggningshändelse från användare med läckta autentiseringsuppgifter som leder till massfilhämtning**
     
-    Den här varningen anger att inloggnings händelsen för \<*konto namnet*> använt läcka autentiseringsuppgifter.
+    Den här aviseringen är en indikation \<på att inloggningshändelsen efter *kontonamn*> använt läckta autentiseringsuppgifter.
     
-    Därefter > kontot \<*konto namnet*som hämtats över \<*antalet*> unika filer i en enda session.
+    Därefter> \< *kontokontonamnet* hämtats över \< *antalet*> unika filer i en enda session.
 
-- **Inloggnings händelse från användare med läckta autentiseringsuppgifter som leder till Office 365-personifiering**
+- **Inloggningshändelse från användare med läckta autentiseringsuppgifter som leder till personifiering av Office 365**
     
-    Den här varningen anger att inloggnings händelsen för \<*konto namnet*> använt läcka autentiseringsuppgifter. 
+    Den här aviseringen är en indikation \<på att inloggningshändelsen efter *kontonamn*> använt läckta autentiseringsuppgifter. 
     
-    Därefter > kontot \<*konto namnet*personifierat över \<*antalet*> olika konton i en enda session.
+    Därefter> \< *kontokontonamnet* personifieras \<över *antalet*> olika konton i en enda session.
 
-- **Inloggnings händelse från användare med läckta autentiseringsuppgifter som leder till Mass delning av filer**
+- **Inloggningshändelse från användare med läckta autentiseringsuppgifter som leder till massfildelning**
     
-    Den här varningen anger att inloggnings händelsen för \<*konto namnet*> använt läcka autentiseringsuppgifter.
+    Den här aviseringen är en indikation \<på att inloggningshändelsen efter *kontonamn*> använt läckta autentiseringsuppgifter.
     
-    Därefter > kontot \<*konto namnet*delat \<*antalet*> unika filer i en enda session.
+    Därefter> \< *kontokontonamnet* delats över \< *antalet*> unika filer i en enda session.
 
-- **Inloggnings händelse från användare med läckta autentiseringsuppgifter till utpressnings program vara i Cloud App**
+- **Inloggningshändelse från användare med läckta autentiseringsuppgifter till ransomware i molnapp**
     
-    Den här varningen anger att inloggnings händelsen för \<*konto namnet*> använt läcka autentiseringsuppgifter. 
+    Den här aviseringen är en indikation \<på att inloggningshändelsen efter *kontonamn*> använt läckta autentiseringsuppgifter. 
     
-    Sedan \<*konto namnet*> överfört \<*antal*>-filer och tog bort totalt \<*antal*> filer. 
+    Därefter> \< *kontokontonamnet* uppladdat \< *antal*> filer och raderade totalt \< *antal*> filer. 
     
-    Det här aktivitets mönstret är en indikation på en potentiell utpressnings attack.
+    Denna aktivitet mönster är ett tecken på en potentiell ransomware attack.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nu när du har lärt dig mer om avancerad attack identifiering i flera steg kan du vara intresse rad av följande snabb start för att lära dig hur du får insyn i dina data och potentiella hot: [Kom igång med Azure Sentinel](quickstart-get-visibility.md).
+Nu har du lärt dig mer om avancerad flerstegsattackidentifiering, du kanske är intresserad av följande snabbstart för att lära dig hur du får insyn i dina data och potentiella hot: [Kom igång med Azure Sentinel](quickstart-get-visibility.md).
 
-Om du är redo att undersöka de incidenter som skapas för dig kan du läsa följande självstudie: [Undersök incidenter med Azure Sentinel](tutorial-investigate-cases.md).
+Om du är redo att undersöka de incidenter som har skapats för dig läser du följande självstudie: [Undersök incidenter med Azure Sentinel](tutorial-investigate-cases.md).
 

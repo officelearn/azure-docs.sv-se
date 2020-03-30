@@ -10,10 +10,10 @@ ms.tgt_pltfrm: na
 ms.date: 03/25/2018
 ms.author: yushwang
 ms.openlocfilehash: 3917101ee7ac151cf624e5be0f51ccf01c8cb1cc
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77161893"
 ---
 # <a name="configure-vpn-gateway-transit-for-virtual-network-peering"></a>Konfigurera VPN-gatewayöverföring för peer-kopplade virtuella nätverk
@@ -48,14 +48,14 @@ Anvisningar finns i följande dokument:
 2. [Skapa peer-koppling av virtuella nätverk med samma distributionsmodell](../virtual-network/tutorial-connect-virtual-networks-portal.md)
 3. [Skapa peer-koppling av virtuella nätverk med olika distributionsmodeller](../virtual-network/create-peering-different-deployment-models.md)
 
-## <a name="permissions"></a>Behörigheter
+## <a name="permissions"></a><a name="permissions"></a>Behörigheter
 
 De konton som du använder för att skapa peer-kopplade virtuella nätverk måste ha nödvändiga roller eller behörigheter. Om du i exemplet nedan peer-kopplar två virtuella nätverk med namnen Hub-RM och Spoke-Classic måste ditt konto ha följande roller eller behörigheter för varje virtuellt nätverk:
     
 |Virtuellt nätverk|Distributionsmodell|Roll|Behörigheter|
 |---|---|---|---|
 |Hub-RM|Resource Manager|[Nätverksdeltagare](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)|Microsoft.Network/virtualNetworks/virtualNetworkPeerings/write|
-| |Klassisk|[Klassisk nätverksdeltagare](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#classic-network-contributor)|Saknas|
+| |Klassisk|[Klassisk nätverksdeltagare](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#classic-network-contributor)|Ej tillämpligt|
 |Spoke-Classic|Resource Manager|[Nätverksdeltagare](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)|Microsoft.Network/virtualNetworks/peer|
 ||Klassisk|[Klassisk nätverksdeltagare](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#classic-network-contributor)|Microsoft.ClassicNetwork/virtualNetworks/peer|
 

@@ -1,41 +1,41 @@
 ---
-title: Använd INSPEC för att automatisera efterlevnaden av din Azure-infrastruktur
-description: Lär dig hur du använder INSPEC för att identifiera problem i dina Azure-distributioner
-keywords: Azure, chef, DevOps, virtuella datorer, översikt, automatisera, INSPEC
+title: Använd InSpec för automatisering av efterlevnad av din Azure-infrastruktur
+description: Lär dig hur du använder InSpec för att identifiera problem i dina Azure-distributioner
+keywords: azurblå,, devops, virtuella datorer, översikt, automatisera, inspec
 ms.date: 03/19/2019
 ms.topic: article
 ms.openlocfilehash: 2531277eb1aa6048c93240031652e09582409e56
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/18/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74158223"
 ---
-# <a name="use-inspec-for-compliance-automation-of-your-azure-infrastructure"></a>Använd INSPEC för att automatisera efterlevnaden av din Azure-infrastruktur
+# <a name="use-inspec-for-compliance-automation-of-your-azure-infrastructure"></a>Använd InSpec för automatisering av efterlevnad av din Azure-infrastruktur
 
-[INSPEC](https://www.chef.io/inspec/) är chefens språk med öppen källkod för att beskriva säkerhets & regler för efterlevnad som kan delas mellan program varu tekniker, drift-och säkerhets tekniker. INSPEC fungerar genom att jämföra det aktuella läget för din infrastruktur med önskat tillstånd som du uttryckligen har i den lättlästa och lätt inspeca koden. INSPEC identifierar överträdelser och visar resultat i form av en rapport, men ger dig kontroll över reparation.
+[InSpec](https://www.chef.io/inspec/) är Chefs språk med öppen källkod för att beskriva & efterlevnadsregler som kan delas mellan programvaruingenjörer, drift och säkerhetstekniker. InSpec fungerar genom att jämföra det faktiska tillståndet för din infrastruktur med önskat tillstånd som du uttrycker i lättläst och lätt att skriva InSpec-kod. InSpec upptäcker överträdelser och visar resultat i form av en rapport, men ger dig kontroll över reparation.
 
-Du kan använda INSPEC för att verifiera statusen för resurser och resurs grupper i en prenumeration, inklusive virtuella datorer, nätverkskonfigurationer, Azure Active Directory inställningar med mera.
+Du kan använda InSpec för att validera tillståndet för resurser och resursgrupper i en prenumeration, inklusive virtuella datorer, nätverkskonfigurationer, Azure Active Directory-inställningar med mera.
 
-I den här artikeln beskrivs fördelarna med att använda INSPEC för att göra säkerhet och efterlevnad enklare i Azure.
+I den här artikeln beskrivs fördelarna med att använda InSpec för att göra säkerhet och efterlevnad enklare på Azure.
 
-## <a name="make-compliance-easy-to-understand-and-assess"></a>Gör kompatibiliteten lätt att förstå och utvärdera
+## <a name="make-compliance-easy-to-understand-and-assess"></a>Gör efterlevnaden lätt att förstå och bedöma
 
-Dokumentation om efterlevnad som skrivits i kalkyl blad eller Word-dokument lämnar krav som är öppna för tolkning. Med inspecen ska du transformera dina krav till versions-och körbar kod som är läslig. Code ersätter konversationer om vad som bör utvärderas i syfte att bedöma konkreta tester med tydliga avsikter.
+Dokumentation för regelefterlevnad som är skriven i kalkylblad eller i Word-dokument lämnar kraven öppna för tolkning. Med InSpec omvandlar du dina krav till version av, körbar, läsbar kod som kan läsas av människor. Koden ersätter samtal om vad som bör bedömas till förmån för konkreta tester med tydlig avsikt.
 
-## <a name="detect-fleet-wide-issues-and-prioritize-their-remediation"></a>Identifiera problem med flottan och prioritera deras reparation
+## <a name="detect-fleet-wide-issues-and-prioritize-their-remediation"></a>Identifiera problem som omfattar hela flottan och prioritera deras reparation
 
-INSPEC: s läge för identifiering av agenter gör att du snabbt kan bedöma vid skala – din exponerings nivå. Inbyggda metadata för påverkan/allvarlighets grad hjälper till att avgöra vilka områden som ska fokuseras på för reparation. Du kan också snabbt skriva regler som svar på nya sårbarheter eller regler och genast återställa dem.
+ISpecs agentlösa detekteringsläge kan du snabbt bedöma - i stor skala - din exponeringsnivå. Inbyggda metadata för bedömning av påverkan/allvarlighetsgrad hjälper dig att avgöra vilka områden som ska fokuseras på för reparation. Du kan också skriva regler snabbt som svar på nya sårbarheter eller förordningar och distribuera dem omedelbart.
 
-## <a name="audit-azure-virtual-machines-with-policy-guest-configuration"></a>Granska virtuella Azure-datorer med princip-gäst konfiguration
+## <a name="audit-azure-virtual-machines-with-policy-guest-configuration"></a>Granska virtuella Azure-datorer med principgästkonfiguration
 
-Azure stöder direkt användning av chefs INSPEC-definitioner för att granska virtuella Azure-datorer via [Azure policy gäst konfiguration](/azure/governance/policy/concepts/guest-configuration). Gäst konfigurationen utvärderar en virtuell Linux-dator till en angiven chef INSPEC-definition och rapporterar efterlevnaden genom Azure Policy. Resultaten av dessa granskningar rapporteras även genom Azure Monitor loggar. aktivera aviseringar och andra automatiserings scenarier.
+Azure stöder direkt användning av Chef InSpec-definitioner för att granska virtuella Azure-datorer via [Azure Policy Guest Configuration](/azure/governance/policy/concepts/guest-configuration). Gästkonfiguration utvärderar en virtuell Linux-dator till en medföljande Chef InSpec-definition och rapporterar efterlevnad tillbaka via Azure Policy. Resultaten av dessa granskningar rapporteras också via Azure Monitor-loggar. aktivera aviseringar och andra automatiseringsscenarier.
 
-## <a name="satisfy-audits"></a>Uppfylla granskningar
+## <a name="satisfy-audits"></a>Tillgodose revisioner
 
-Med INSPEC kan du svara på gransknings frågor när som helst – inte bara vid förinställda intervaller, till exempel kvartals Visa eller årsvis. Genom att köra inspecs test kontinuerligt kan du ange en gransknings cykel som känner till din exakta position och historik, i stället för att bli förvånad i granskarens resultat.
+Med InSpec kan du svara på revisionsfrågor när som helst - inte bara med förutbestämda intervall som kvartalsvis eller år. Genom att kontinuerligt köra InSpec-tester går du in i en granskningscykel som känner till din exakta efterlevnadsställning och historik, i stället för att bli överraskad av en revisors resultat.
 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"] 
-> [Prova att INSPEC i Azure Cloud Shell](https://shell.azure.com)
+> [Prova InSpec i Azure Cloud Shell](https://shell.azure.com)

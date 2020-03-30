@@ -1,6 +1,6 @@
 ---
-title: Lägg till Migreringsverktyg i Azure Migrate
-description: Lär dig hur du lägger till Migreringsverktyg i Azure Migrate.
+title: Lägga till migreringsverktyg i Azure Migrate
+description: Läs om hur du lägger till migreringsverktyg i Azure Migrate.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.manager: carmonm
@@ -8,72 +8,72 @@ ms.topic: article
 ms.date: 11/18/2019
 ms.author: raynew
 ms.openlocfilehash: 6bcb65912627356215769ccc8380ee1a7404f6f7
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74185968"
 ---
 # <a name="add-migration-tools"></a>Lägga till migreringsverktyg
 
-I den här artikeln beskrivs hur du lägger till Migreringsverktyg i [Azure Migrate](migrate-overview.md).
+I den här artikeln beskrivs hur du lägger till migreringsverktyg i [Azure Migrate](migrate-overview.md).
 
-Azure Migrate tillhandahåller en hubb med verktyg för utvärdering och migrering till Azure. Den innehåller inbyggda verktyg, verktyg som tillhandahålls av andra Azure-tjänster och oberoende program varu leverantörer (ISV) som tillhandahålls av tredje part.
+Azure Migrate är ett nav med verktyg för utvärdering och migrering till Azure. Den innehåller inbyggda verktyg, verktyg som tillhandahålls av andra Azure-tjänster och ISV-erbjudanden (Third-party Independent Software Vendor).
 
-Om du vill lägga till ett Migreringsverktyg och ännu inte har skapat ett Azure Migrate projekt, följer du den här [artikeln](how-to-add-tool-first-time.md).
+Om du vill lägga till ett migreringsverktyg och ännu inte har konfigurerat ett Azure Migrate-projekt följer du den här [artikeln](how-to-add-tool-first-time.md).
 
 
 
 ## <a name="selecting-an-isv-tool"></a>Välja ett ISV-verktyg
 
-Om du väljer ett [ISV-verktyg](migrate-services-overview.md#isv-integration) för migrering kan du starta genom att skaffa en licens eller registrera dig för en kostnads fri utvärderings version, i enlighet med ISV-principen. I varje verktyg finns det ett alternativ för att ansluta till Azure Migrate. Distribuera verktyget och följ anvisningarna och dokumentationen för verktyget för att ansluta arbets ytan med Azure Migrate. 
+Om du väljer ett [ISV-verktyg](migrate-services-overview.md#isv-integration) för migrering kan du börja med att skaffa en licens eller registrera dig för en kostnadsfri utvärderingsversion i enlighet med ISV-principen. I varje verktyg finns det ett alternativ för att ansluta till Azure Migrate. Distribuera verktyget och följ verktygsinstruktionerna och dokumentationen för att ansluta verktygsarbetsytan med Azure Migrate. 
 
-## <a name="select-a-migration-scenario"></a>Välj ett scenario för migrering
+## <a name="select-a-migration-scenario"></a>Välj ett migreringsscenario
 
-1. Klicka på **Översikt**i Azure Migrate projektet.
-2. Välj det scenario för migrering som du vill använda:
+1. Klicka på **Översikt**i Azure Migrate-projektet .
+2. Välj det migreringsscenario som du vill använda:
 
-    - Om du vill migrera datorer och arbets belastningar till Azure väljer du **utvärdera och migrera servrar**.
-    - Om du vill migrera lokala SQL-datorer väljer du **utvärdera och migrera databaser**.
-    - Om du vill migrera lokala webbappar väljer du **utvärdera och migrera webbappar**.
-    - Om du vill migrera stora mängder lokala data till Azure i offline-läge väljer **du Beställ en data Box-enhet**.
+    - Om du vill migrera datorer och arbetsbelastningar till Azure väljer du **Utvärdera och migrera servrar**.
+    - Om du vill migrera lokala SQL-datorer väljer du **Utvärdera och migrera databaser**.
+    - Om du vill migrera lokala webbappar väljer du **Utvärdera och migrera webbappar**.
+    - Om du vill migrera stora mängder lokala data till Azure i offlineläge väljer du **Beställ en dataruta**.
 
-    ![Bedömnings scenario](./media/how-to-migrate/assess-scenario.png)
+    ![Bedömningsscenario](./media/how-to-migrate/assess-scenario.png)
 
-## <a name="select-a-server-migration-tool"></a>Välj ett Migreringsverktyg för Server
+## <a name="select-a-server-migration-tool"></a>Välj ett verktyg för migrering av servrar
 
-1. Klicka på **utvärdera och migrera servrar**.
-2. Om du ännu inte har lagt till Migreringsverktyg i **Azure Migrate-servrar**, väljer du **Klicka här för att lägga till ett Migreringsverktyg**under **Migreringsverktyg**. Om du redan har lagt till Migreringsverktyg väljer du **ändra**i **Lägg till fler Migreringsverktyg**.
+1. Klicka på **Utvärdera och migrera servrar**.
+2. I **Azure Migrate - Servrar**väljer du Klicka **här**under **Migreringsverktyg under Migreringsverktyg**. Om du redan har lagt till migreringsverktyg väljer du **Ändra**i **Lägg till fler migreringsverktyg**.
 
     > [!NOTE]
-    > Om du behöver navigera till ett annat projekt, i **Azure Migrate-servrar**, bredvid **se information om ett annat migrerat projekt**klickar du **på Klicka här**.
+    > Om du behöver navigera till ett annat projekt klickar du på Klicka här i **Azure Migrate - Servrar**, **bredvid** **Visa information för ett annat migrerande projekt**.
 
-3. I **Azure Migrate**väljer du det Migreringsverktyg som du vill använda.
-    - Om du använder Azure Migrate Server-migrering kan du konfigurera och köra migreringar direkt i Azure Migrate projektet.
-    - Om du använder ett utvärderings verktyg från tredje part, navigerar du till den länk som tillhandahölls för ISV och kör migreringen enligt de instruktioner som de tillhandahåller.
+3. Välj det migreringsverktyg som du vill använda i **Azure Migrate.**
+    - Om du använder Azure Migrate Server Migration kan du konfigurera och köra migreringar direkt i Azure Migrate-projektet.
+    - Om du använder ett bedömningsverktyg från tredje part navigerar du till länken som tillhandahålls för ISV och kör migreringen i enlighet med de instruktioner de tillhandahåller.
 
-## <a name="select-a-database-migration-tool"></a>Välj ett Migreringsverktyg för databas
+## <a name="select-a-database-migration-tool"></a>Välj ett verktyg för databasmigrering
 
-1. Klicka på **utvärdera och migrera databaser**
-2. I **databaser**klickar du på **Lägg till verktyg**.
-3. I Lägg till ett verktyg > **Välj Migreringsverktyg**väljer du det verktyg som du vill använda för att migrera databasen.
+1. Klicka på **Utvärdera och migrera databaser**
+2. Klicka på **Lägg till verktyg**i **Databaser**.
+3. I Lägg till ett verktyg > **Välj migreringsverktyg**väljer du det verktyg som du vill använda för att migrera databasen.
 
-## <a name="select-a-web-app-migration-tool"></a>Välj ett Migreringsverktyg för webbapp
+## <a name="select-a-web-app-migration-tool"></a>Välj ett migreringsverktyg för webbappar
 
-1. Klicka på **utvärdera och migrera webbappar**.
-2. Följ länken till migrations verktyget för Azure App Service. Använd Migreringsverktyget för att:
+1. Klicka på **Utvärdera och migrera webbappar**.
+2. Följ länken till migreringsverktyget för Azure App Service. Använd migreringsverktyget för att:
 
-    - **Utvärdera appar online**: du kan utvärdera och migrera appar med en offentlig URL online med hjälp av Azure App Service Migration Assistant.
-    - **.Net/php**: för interna .net-och php-appar kan du hämta och köra Migration Assistant.
+    - **Utvärdera appar online**: Du kan bedöma och migrera appar med en offentlig URL online med hjälp av Migreringsassistenten för Azure App Service.
+    - **.NET/PHP**: För interna .NET- och PHP-appar kan du hämta och köra Migreringsassistenten.
 
-## <a name="order-an-azure-data-box"></a>Beställ en Azure Data Box
+## <a name="order-an-azure-data-box"></a>Beställ en Azure-dataruta
 
-Om du vill migrera stora mängder data till Azure kan du beställa en Azure DAta box för data överföring offline.
+Om du vill migrera stora mängder data till Azure kan du beställa en Azure DAta Box för offlinedataöverföring.
 
-1. Klicka på **Beställ en data Box-enhet**.
-2. I **Välj din Azure Data Box**anger du din prenumeration. 
-3. Överföringen är en import till Azure. Ange data källa och mål för Azure-regionen för data.
+1. Klicka på **Beställ en dataruta**.
+2. Ange din prenumeration i **Välj din Azure Data Box.** 
+3. Överföringen kommer att vara en import till Azure. Ange datakällan och Azure-regionens mål för data.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Prova en migrering med hjälp av migrering av Azure Migrate Server för virtuella [Hyper-V-](tutorial-migrate-hyper-v.md) eller [VMware](tutorial-migrate-vmware.md) -datorer.
+Prova en migrering med Azure Migrate Server Migration för virtuella [hyper-V-](tutorial-migrate-hyper-v.md) eller [VMware-datorer.](tutorial-migrate-vmware.md)

@@ -1,111 +1,111 @@
 ---
-title: Migrera Logic Apps över prenumerationer, resurs grupper eller regioner
-description: Migrera Logic Apps eller integrations konton till andra Azure-prenumerationer, resurs grupper eller platser (regioner)
+title: Migrera logikappar över prenumerationer, resursgrupper eller regioner
+description: Migrera logikappar eller integrationskonton till andra Azure-prenumerationer, resursgrupper eller platser (regioner)
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 07/31/2019
 ms.openlocfilehash: f5944accb185f1311c811cf65a8ea8348fd569db
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77605603"
 ---
-# <a name="move-logic-app-resources-to-other-azure-subscriptions-resource-groups-or-regions"></a>Flytta logiska app-resurser till andra Azure-prenumerationer, resurs grupper eller regioner
+# <a name="move-logic-app-resources-to-other-azure-subscriptions-resource-groups-or-regions"></a>Flytta logikappresurser till andra Azure-prenumerationer, resursgrupper eller regioner
 
-Om du vill migrera din Logic app eller relaterade resurser till en annan Azure-prenumeration, resurs grupp eller region kan du utföra dessa uppgifter på olika sätt, till exempel Azure Portal, Azure PowerShell, Azure CLI och REST API. Innan du flyttar resurser bör du gå igenom följande överväganden: 
+Om du vill migrera logikappen eller relaterade resurser till en annan Azure-prenumeration, resursgrupp eller region har du olika sätt att slutföra dessa uppgifter, till exempel Azure-portalen, Azure PowerShell, Azure CLI och REST API. Innan du flyttar resurser bör du granska följande: 
 
-* Du kan bara flytta [vissa resurs typer för logiska appar](../azure-resource-manager/management/move-support-resources.md#microsoftlogic) mellan Azures resurs grupper eller prenumerationer.
+* Du kan bara flytta [specifika logikappresurstyper](../azure-resource-manager/management/move-support-resources.md#microsoftlogic) mellan Azure-resursgrupper eller prenumerationer.
 
-* Kontrol lera [gränserna](../logic-apps/logic-apps-limits-and-config.md) för antalet Logic app-resurser som du kan ha i din Azure-prenumeration och i varje Azure-region. Dessa begränsningar påverkar om du kan flytta vissa resurs typer när regionen är densamma i prenumerationer eller resurs grupper. Du kan till exempel bara ha ett integrations konto på kostnads fri nivå för varje Azure-region i varje Azure-prenumeration.
+* Kontrollera [gränserna för](../logic-apps/logic-apps-limits-and-config.md) antalet logikappresurser som du kan ha i din Azure-prenumeration och i varje Azure-region. Dessa gränser påverkar om du kan flytta specifika resurstyper när regionen förblir densamma för prenumerationer eller resursgrupper. Du kan till exempel bara ha ett konto för integrering på den kostnadsfria nivån för varje Azure-region i varje Azure-prenumeration.
 
-* När du har migrerat Logi Kap par mellan prenumerationer, resurs grupper eller regioner måste du återskapa eller auktorisera om anslutningar som kräver öppen autentisering (OAuth).
+* När du har migrerat logikappar mellan prenumerationer, resursgrupper eller regioner måste du återskapa eller återauktorisera alla anslutningar som kräver öppen autentisering (OAuth).
 
-* När du flyttar resurser skapar Azure nya resurs-ID: n. Kontrol lera därför att du använder de nya ID: na i stället och uppdaterar eventuella skript eller verktyg som är associerade med de flyttade resurserna.
+* När du flyttar resurser skapar Azure nya resurs-ID:er. Så se till att du använder de nya ID:na i stället och uppdatera skript eller verktyg som är associerade med de flyttade resurserna.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-* Samma Azure-prenumeration som användes för att skapa den Logic app eller det integrations konto som du vill flytta
+* Samma Azure-prenumeration som användes för att skapa logikappen eller integrationskontot som du vill flytta
 
-* Resurs ägar behörigheter för att flytta och konfigurera de resurser som du vill använda. Lär dig mer om [rollbaserad åtkomst kontroll (RBAC)](../role-based-access-control/built-in-roles.md#owner).
+* Resursägarebehörigheter för att flytta och ställa in de resurser du vill ha. Läs mer om [rollbaserad åtkomstkontroll (RBAC)](../role-based-access-control/built-in-roles.md#owner).
 
 <a name="move-subscription"></a>
 
 ## <a name="move-resources-between-subscriptions"></a>Flytta resurser mellan prenumerationer
 
-Om du vill flytta en resurs, till exempel en Logic app eller ett integrations konto, till en annan Azure-prenumeration kan du använda Azure Portal, Azure PowerShell, Azure CLI eller REST API. Dessa steg beskriver Azure Portal som du kan använda när resursens region förblir densamma. Andra steg och allmän förberedelse finns i [Flytta resurser till en ny resurs grupp eller prenumeration](../azure-resource-manager/management/move-resource-group-and-subscription.md).
+Om du vill flytta en resurs, till exempel en logikapp eller ett integrationskonto, till en annan Azure-prenumeration kan du använda Azure-portalen, Azure PowerShell, Azure CLI eller REST API. De här stegen täcker Azure-portalen, som du kan använda när resursens region förblir densamma. Andra steg och allmänna förberedelser finns i [Flytta resurser till en ny resursgrupp eller prenumeration](../azure-resource-manager/management/move-resource-group-and-subscription.md).
 
-1. I [Azure Portal](https://portal.azure.com)letar du reda på och väljer den logiska app-resurs som du vill flytta.
+1. Leta reda på och välj den logikappresurs som du vill flytta i [Azure-portalen.](https://portal.azure.com)
 
-1. På resurs sidan **Översikt** bredvid **prenumeration**väljer du länken **ändra** .
+1. Välj ändringslänken bredvid **Prenumeration**på **change** **resursens** översiktssida.
 
-1. På sidan **Flytta resurser** väljer du den logiska app-resurs och eventuella relaterade resurser som du vill flytta.
+1. På sidan **Flytta resurser** väljer du logikappresursen och eventuella relaterade resurser som du vill flytta.
 
-1. I listan **prenumeration** väljer du mål prenumerationen.
+1. Välj målprenumerationen i listan **Prenumeration.**
 
-1. Välj mål resurs grupp i listan **resurs grupp** . Om du vill skapa en annan resurs grupp väljer du **skapa en ny grupp**.
+1. Välj målresursgruppen i listan **Resursgrupp.** Om du vill skapa en annan resursgrupp väljer du **Skapa en ny grupp**.
 
-1. För att bekräfta att skript eller verktyg som är associerade med de flyttade resurserna fungerar inte förrän du uppdaterar dem med de nya resurs-ID: n, markerar du rutan bekräftelse och väljer sedan **OK**.
+1. Om du vill bekräfta att skript eller verktyg som är associerade med de flyttade resurserna inte fungerar förrän du uppdaterar dem med de nya resurs-ID:na markerar du bekräftelserutan och väljer sedan **OK**.
 
 <a name="move-resource-group"></a>
 
-## <a name="move-resources-between-resource-groups"></a>Flytta resurser mellan resurs grupper
+## <a name="move-resources-between-resource-groups"></a>Flytta resurser mellan resursgrupper
 
-Om du vill flytta en resurs, till exempel en Logic app eller ett integrations konto, till en annan Azure-resurs grupp kan du använda Azure Portal, Azure PowerShell, Azure CLI eller REST API. Dessa steg beskriver Azure Portal som du kan använda när resursens region förblir densamma. Andra steg och allmän förberedelse finns i [Flytta resurser till en ny resurs grupp eller prenumeration](../azure-resource-manager/management/move-resource-group-and-subscription.md).
+Om du vill flytta en resurs, till exempel en logikapp eller ett integrationskonto, till en annan Azure-resursgrupp kan du använda Azure-portalen, Azure PowerShell, Azure CLI eller REST API. De här stegen täcker Azure-portalen, som du kan använda när resursens region förblir densamma. Andra steg och allmänna förberedelser finns i [Flytta resurser till en ny resursgrupp eller prenumeration](../azure-resource-manager/management/move-resource-group-and-subscription.md).
 
-Innan du faktiskt flyttar resurser mellan grupper kan du testa om du kan flytta resursen till en annan grupp. Mer information finns i [Verifiera din flytt](../azure-resource-manager/management/move-resource-group-and-subscription.md#validate-move).
+Innan du flyttar resurser mellan grupper kan du testa om du kan flytta resursen till en annan grupp. Mer information finns i [Validera flytten](../azure-resource-manager/management/move-resource-group-and-subscription.md#validate-move).
 
-1. I [Azure Portal](https://portal.azure.com)letar du reda på och väljer den logiska app-resurs som du vill flytta.
+1. Leta reda på och välj den logikappresurs som du vill flytta i [Azure-portalen.](https://portal.azure.com)
 
-1. På sidan **Översikt** på resursen, bredvid **resurs grupp**, väljer du länken **ändra** .
+1. Välj ändringslänken bredvid **Resursgrupp**på **change** **resursens** översiktssida.
 
-1. På sidan **Flytta resurser** väljer du den logiska app-resurs och eventuella relaterade resurser som du vill flytta.
+1. På sidan **Flytta resurser** väljer du logikappresursen och eventuella relaterade resurser som du vill flytta.
 
-1. Välj mål resurs grupp i listan **resurs grupp** . Om du vill skapa en annan resurs grupp väljer du **skapa en ny grupp**.
+1. Välj målresursgruppen i listan **Resursgrupp.** Om du vill skapa en annan resursgrupp väljer du **Skapa en ny grupp**.
 
-1. För att bekräfta att skript eller verktyg som är associerade med de flyttade resurserna fungerar inte förrän du uppdaterar dem med de nya resurs-ID: n, markerar du rutan bekräftelse och väljer sedan **OK**.
+1. Om du vill bekräfta att skript eller verktyg som är associerade med de flyttade resurserna inte fungerar förrän du uppdaterar dem med de nya resurs-ID:na markerar du bekräftelserutan och väljer sedan **OK**.
 
 <a name="move-location"></a>
 
 ## <a name="move-resources-between-regions"></a>Flytta resurser mellan regioner
 
-När du vill flytta en Logic app till en annan region beror alternativen på hur du har skapat din Logic app. Baserat på det alternativ som du väljer måste du återskapa eller auktorisera anslutningarna i din Logic app.
+När du vill flytta en logikapp till en annan region beror dina alternativ på hur du skapade logikappen. Baserat på det alternativ du väljer måste du återskapa eller återauktorisera anslutningarna i logikappen.
 
-* I Azure Portal återskapar du Logic-appen i den nya regionen och konfigurerar om arbets flödes inställningarna. Du kan spara tid genom att kopiera den underliggande arbets flödes definitionen och anslutningar från käll appen till mål programmet. Om du vill visa koden bakom en Logic app i Logic App Designer-verktygsfältet väljer du **kodvyn**.
+* Återskapa logikappen i den nya regionen i Azure-portalen och konfigurera om arbetsflödesinställningarna. Om du vill spara tid kan du kopiera den underliggande arbetsflödesdefinitionen och anslutningarna från källappen till målappen. Om du vill visa "koden" bakom en logikapp väljer du **kodvyn**i verktygsfältet Logikappdesigner .
 
-* Genom att använda Visual Studio och Azure Logic Apps verktyg för Visual Studio kan du [öppna och ladda ned din Logic app](../logic-apps/manage-logic-apps-with-visual-studio.md) från Azure Portal som en [Azure Resource Manager mall](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md). Den här mallen är oftast klar för distribution och innehåller resurs definitionerna för din Logic app, inklusive själva arbets flödet och anslutningar. Mallen deklarerar också parametrar för de värden som ska användas vid distributionen. På så sätt kan du enkelt ändra var och hur du distribuerar Logic-appen utifrån dina behov. Om du vill ange plats och annan nödvändig information för distribution kan du använda en separat parameter fil.
+* Genom att använda Visual Studio och Azure Logic Apps Tools för Visual Studio kan du [öppna och ladda ned logikappen](../logic-apps/manage-logic-apps-with-visual-studio.md) från Azure-portalen som en Azure Resource [Manager-mall](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md). Den här mallen är oftast klar för distribution och innehåller resursdefinitioner för logikappen, inklusive själva arbetsflödet och anslutningar. Mallen deklarerar också parametrar för de värden som ska användas vid distributionen. På så sätt kan du enklare ändra var och hur du distribuerar logikappen, baserat på dina behov. Om du vill ange plats och annan nödvändig information för distributionen kan du använda en separat parameterfil.
 
-* Om du har skapat och distribuerat din Logic app med hjälp av verktyg för kontinuerlig integrering (CI) och kontinuerlig leverans (CD), till exempel Azure-pipelines i Azure DevOps, kan du distribuera din app till en annan region med hjälp av dessa verktyg.
+* Om du har skapat och distribuerat logikappen med hjälp av verktyg för kontinuerlig integrering (CI) och cd-verktyg (continuous delivery), till exempel Azure Pipelines i Azure DevOps, kan du distribuera din app till en annan region med hjälp av dessa verktyg.
 
-Mer information om mallar för att distribuera Logic Apps finns i följande avsnitt:
+Mer information om distributionsmallar för logikappar finns i följande avsnitt:
 
-* [Översikt: Automatisera distribution av Azure Logic Apps med hjälp av Azure Resource Manager mallar](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md)
-* [Hitta, öppna och ladda ned din Logic app från Azure Portal till Visual Studio](../logic-apps/manage-logic-apps-with-visual-studio.md)
-* [Skapa Azure Resource Manager mallar för Azure Logic Apps](../logic-apps/logic-apps-create-azure-resource-manager-templates.md)
-* [Distribuera Azure Resource Manager mallar för Azure Logic Apps](../logic-apps/logic-apps-deploy-azure-resource-manager-templates.md)
+* [Översikt: Automatisera distributionen för Azure Logic Apps med hjälp av Azure Resource Manager-mallar](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md)
+* [Hitta, öppna och ladda ned logikappen från Azure-portalen till Visual Studio](../logic-apps/manage-logic-apps-with-visual-studio.md)
+* [Skapa Azure Resource Manager-mallar för Azure Logic Apps](../logic-apps/logic-apps-create-azure-resource-manager-templates.md)
+* [Distribuera Azure Resource Manager-mallar för Azure Logic Apps](../logic-apps/logic-apps-deploy-azure-resource-manager-templates.md)
 
 ### <a name="related-resources"></a>Relaterade resurser
 
-Vissa Azure-resurser, till exempel lokala data Gateway-resurser i Azure, kan finnas i en region som skiljer sig från de Logic Apps som använder dessa resurser. Andra Azure-resurser, t. ex. länkade integrations konton, måste dock finnas i samma region som dina Logic Apps. Beroende på ditt scenario kontrollerar du att dina Logi Kap par har åtkomst till de resurser som dina appar förväntar sig finnas i samma region.
+Vissa Azure-resurser, till exempel lokala datagatewayresurser i Azure, kan finnas i en region som skiljer sig från logikapparna som använder dessa resurser. Andra Azure-resurser, till exempel länkade integrationskonton, måste dock finnas i samma region som dina logikappar. Baserat på ditt scenario kontrollerar du att dina logikappar kan komma åt de resurser som dina appar förväntar sig att finnas i samma region.
 
-Om du till exempel vill länka en Logic app till ett integrations konto måste båda resurserna finnas i samma region. I scenarier som haveri beredskap vill du vanligt vis använda integrations konton som har samma konfiguration och artefakter. I andra scenarier kan du behöva integrations konton med olika konfigurationer och artefakter.
+Om du till exempel vill länka en logikapp till ett integrationskonto måste båda resurserna finnas i samma region. I scenarier som haveriberedskap vill du vanligtvis ha integrationskonton som har samma konfiguration och artefakter. I andra scenarier kan du behöva integrationskonton med olika konfigurationer och artefakter.
 
-Anpassade anslutningar i Azure Logic Apps är synliga för anslutningens författare och användare som har samma Azure-prenumeration och samma Azure Active Directory-klient. Dessa anslutningar är tillgängliga i samma region där Logic Apps distribueras. Mer information finns i [Dela anpassade anslutningsappar i organisationen](https://docs.microsoft.com/connectors/custom-connectors/share).
+Anpassade kopplingar i Azure Logic Apps är synliga för kopplingarnas författare och användare som har samma Azure-prenumeration och samma Azure Active Directory-klient. Dessa anslutningsappar är tillgängliga i samma region där logikappar distribueras. Mer information finns i [Dela anpassade anslutningsappar i organisationen](https://docs.microsoft.com/connectors/custom-connectors/share).
 
-Den mall som du hämtar från Visual Studio innehåller bara resurs definitionerna för din Logic app och dess anslutningar. Så om din Logic app använder andra resurser, till exempel ett integrations konto och B2B-artefakter, till exempel partner, avtal och scheman, måste du exportera integrations kontots mall med hjälp av Azure Portal. Den här mallen innehåller resurs definitionerna för både integrations kontot och artefakterna. Mallen är dock inte helt parametriserad. Så du måste manuellt Parameterisera de värden som du vill använda för distribution.
+Mallen som du får från Visual Studio innehåller endast resursdefinitioner för logikappen och dess anslutningar. Så om logikappen använder andra resurser, till exempel ett integrationskonto och B2B-artefakter, till exempel partner, avtal och scheman, måste du exportera det integrationskontots mall med hjälp av Azure-portalen. Den här mallen innehåller resursdefinitioner för både integrationskontot och artefakter. Mallen är dock inte helt parameteriserad. Därför måste du manuellt parameterisera de värden som du vill använda för distribution.
 
-### <a name="export-templates-for-integration-accounts"></a>Exportera mallar för integrations konton
+### <a name="export-templates-for-integration-accounts"></a>Exportera mallar för integrationskonton
 
-1. Leta upp och öppna ditt integrations konto i [Azure Portal](https://portal.azure.com).
+1. Leta reda på och öppna ditt integrationskonto i [Azure-portalen.](https://portal.azure.com)
 
-1. På integrations kontots meny väljer du **Exportera mall**under **Inställningar**.
+1. Välj Exportera mall under **Inställningar**på integrationskontots **meny**.
 
-1. I verktygsfältet väljer du **Ladda ned**och sparar mallen.
+1. Välj **Hämta**i verktygsfältet och spara mallen.
 
-1. Öppna och redigera mallen för att Parameterisera de nödvändiga värdena för distribution.
+1. Öppna och redigera mallen för att parameterisera de nödvändiga värdena för distributionen.
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Flytta Azure-resurser till nya resurs grupper eller prenumerationer](../azure-resource-manager/management/move-resource-group-and-subscription.md)
+[Flytta Azure-resurser till nya resursgrupper eller prenumerationer](../azure-resource-manager/management/move-resource-group-and-subscription.md)

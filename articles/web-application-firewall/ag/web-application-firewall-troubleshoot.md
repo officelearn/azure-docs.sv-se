@@ -1,6 +1,6 @@
 ---
-title: Felsök – brand väggen för Azure-webbprogram
-description: Den här artikeln innehåller felsöknings information för brand vägg för webbaserade program (WAF) för Azure Application Gateway
+title: Felsöka – Brandvägg för Azure-webbprogram
+description: Den här artikeln innehåller felsökningsinformation för brandvägg för webbprogram (WAF) för Azure Application Gateway
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
@@ -8,27 +8,27 @@ ms.date: 11/14/2019
 ms.author: ant
 ms.topic: conceptual
 ms.openlocfilehash: 33c85752903edd618044ccbab06aff7df9a791da
-ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74046199"
 ---
-# <a name="troubleshoot-web-application-firewall-waf-for-azure-application-gateway"></a>Felsöka brand vägg för webbaserade program (WAF) för Azure Application Gateway
+# <a name="troubleshoot-web-application-firewall-waf-for-azure-application-gateway"></a>Felsöka brandvägg för webbprogram (WAF) för Azure Application Gateway
 
-Det finns några saker du kan göra om förfrågningar som ska passera genom brand väggen för webbaserade program (WAF) är blockerade.
+Det finns några saker du kan göra om förfrågningar som ska passera genom din brandvägg för webbprogram (WAF) är blockerade.
 
-Se först till att du har läst [WAF-översikten](ag-overview.md) och [WAF-konfigurations](application-gateway-waf-configuration.md) dokumenten. Kontrol lera också att du har aktiverat [WAF övervakning](../../application-gateway/application-gateway-diagnostics.md) av de här artiklarna förklarar hur WAF-funktionerna fungerar, hur WAF regel uppsättningar fungerar och hur du kommer åt WAF-loggar.
+Kontrollera först att du har läst [WAF-översikten](ag-overview.md) och [WAF-konfigurationsdokumenten.](application-gateway-waf-configuration.md) Se också till att du har aktiverat [WAF-övervakning](../../application-gateway/application-gateway-diagnostics.md) Dessa artiklar förklarar hur WAF fungerar, hur WAF-regeln anger fungerar och hur du kommer åt WAF-loggar.
 
 ## <a name="understanding-waf-logs"></a>Förstå WAF-loggar
 
-Syftet med WAF-loggar är att visa varje begäran som matchas eller blockeras av WAF. Det är en redovisning av alla utvärderade begär Anden som matchas eller blockeras. Om du märker att WAF blockerar en begäran om att den inte ska (ett falskt positivt) kan du göra några saker. Först, begränsa och hitta en specifik begäran. Leta igenom loggarna för att hitta URI, tidsstämpel eller transaktions-ID för begäran. När du hittar de associerade logg posterna kan du börja arbeta med falska positiva identifieringar.
+Syftet med WAF-loggar är att visa varje begäran som matchas eller blockeras av WAF. Det är en redovisning för alla utvärderade begäranden som matchas eller blockeras. Om du märker att WAF blockerar en begäran om att den inte ska (ett falskt positivt) kan du göra några saker. Först, begränsa och hitta den specifika begäran. Titta igenom loggarna för att hitta den specifika URI, tidsstämpel eller transaktions-ID för begäran. När du hittar de associerade loggposterna kan du börja agera på de falska positiva.
 
-Anta till exempel att du har en legitim trafik som innehåller strängen *1 = 1* som du vill skicka genom din WAF. Om du testar begäran blockerar WAF trafik som innehåller din *1 = 1* -sträng i valfri parameter eller fält. Detta är en sträng som ofta är kopplad till en SQL-attack. Du kan titta igenom loggarna och se tidsstämpeln för begäran och reglerna som har blockerats/matchats.
+Anta till exempel att du har en legitim trafik som innehåller strängen *1=1* som du vill skicka genom din WAF. Om du försöker med begäran blockerar WAF trafik som innehåller *din 1=1-sträng* i alla parametrar eller fält. Detta är en sträng som ofta förknippas med en SQL-injektionsattack. Du kan titta igenom loggarna och se tidsstämpeln för begäran och de regler som blockerade/matchade.
 
-I följande exempel kan du se att fyra regler utlöses under samma begäran (med hjälp av fältet TransactionId). Den första avstår att den matchade eftersom användaren använde en numerisk/IP-adress för begäran, vilket ökar avvikelse poängen med tre eftersom det är en varning. Nästa regel som matchade är 942130, vilket är den som du letar efter. Du kan se *1 = 1* i fältet `details.data`. Detta ökar avvikelse poängen genom tre igen, eftersom det också är en varning. Normalt ökar varje regel som har den åtgärd som **stämmer** överens med den avvikande poängen, och vid denna tidpunkt skulle avvikelse poängen vara sex. Mer information finns i fel [bedömnings läge](ag-overview.md#anomaly-scoring-mode).
+I följande exempel kan du se att fyra regler utlöses under samma begäran (med fältet TransactionId). Den första säger att det matchade eftersom användaren använde en numerisk / IP-URL för begäran, vilket ökar avvikelsepoängen med tre eftersom det är en varning. Nästa regel som matchade är 942130, vilket är den du letar efter. Du kan se *fältet 1=1.* `details.data` Detta ytterligare ökar anomali poäng med tre igen, eftersom det är också en varning. I allmänhet ökar varje regel som har åtgärden **Matchad** avvikelsepoängen, och vid denna tidpunkt skulle avvikelsepoängen vara sex. Mer information finns i [Bedömningsläge för avvikelse](ag-overview.md#anomaly-scoring-mode).
 
-De sista två logg posterna visar att begäran blockerades eftersom avvikelse poängen var tillräckligt hög. Dessa poster har en annan åtgärd än de andra två. De visar att de faktiskt *blockerade* begäran. Dessa regler är obligatoriska och kan inte inaktive ras. De bör inte betraktas som regler, men mer som kärn infrastruktur för WAF-interna.
+De två sista loggposterna visar att begäran blockerades eftersom avvikelsepoängen var tillräckligt hög. Dessa poster har en annan åtgärd än de andra två. De visar att de faktiskt *blockerade* begäran. Dessa regler är obligatoriska och kan inte inaktiveras. De bör inte ses som regler, men mer som kärninfrastruktur i WAF interna.
 
 ```json
 { 
@@ -133,56 +133,56 @@ De sista två logg posterna visar att begäran blockerades eftersom avvikelse po
 }
 ```
 
-## <a name="fixing-false-positives"></a>Korrigera falska positiva identifieringar
+## <a name="fixing-false-positives"></a>Fastställande av falska positiva
 
-Med den här informationen och kunskapen om regel 942130 är den som matchade strängen *1 = 1* , kan du göra några saker för att stoppa detta från att blockera din trafik:
+Med den här informationen, och vetskapen om att regel 942130 är den som matchade *1 = 1* strängen, kan du göra några saker för att stoppa detta från att blockera din trafik:
 
-- Använd en undantags lista
+- Använda en undantagslista
 
-   Mer information om undantags listor finns i [WAF-konfiguration](application-gateway-waf-configuration.md#waf-exclusion-lists) .
+   Mer information om undantagslistor finns i [WAF-konfigurationen.](application-gateway-waf-configuration.md#waf-exclusion-lists)
 - Inaktivera regeln.
 
-### <a name="using-an-exclusion-list"></a>Använda en undantags lista
+### <a name="using-an-exclusion-list"></a>Använda en undantagslista
 
-För att fatta ett informerat beslut om att hantera ett falskt positivt är det viktigt att bekanta dig med de tekniker som används i programmet. Anta till exempel att det inte finns någon SQL-Server i din tekniks tack och att du får falska positiva identifieringar som är relaterade till dessa regler. Att inaktivera dessa regler innebär inte nödvändigt vis att säkerheten minskas.
+För att fatta ett välgrundat beslut om att hantera ett falskt positivt är det viktigt att du bekantar dig med den teknik som ditt program använder. Anta till exempel att det inte finns en SQL-server i teknikstacken och att du får falska positiva identifieringar relaterade till dessa regler. Om du inaktiverar dessa regler försvagas inte nödvändigtvis din säkerhet.
 
-En fördel med att använda en undantags lista är att bara en speciell del av en begäran inaktive ras. Det innebär dock att en speciell undantag gäller för all trafik som passerar genom din WAF eftersom det är en global inställning. Detta kan till exempel leda till ett problem om *1 = 1* är en giltig begäran i bröd texten för en viss app, men inte för andra. En annan fördel är att du kan välja mellan brödtext, huvuden och cookies som ska uteslutas om ett visst villkor uppfylls, i stället för att utesluta hela begäran.
+En fördel med att använda en undantagslista är att endast en viss del av en begäran inaktiveras. Detta innebär dock att en specifik uteslutning är tillämplig på all trafik som passerar genom din WAF eftersom det är en global inställning. Detta kan till exempel leda till ett problem om *1=1* är en giltig begäran i brödtexten för en viss app, men inte för andra. En annan fördel är att du kan välja mellan brödtext, rubriker och cookies som ska uteslutas om ett visst villkor är uppfyllt, i motsats till att utesluta hela begäran.
 
-Ibland finns det fall där vissa parametrar får skickas till WAF på ett sätt som inte är intuitivt. Det finns till exempel en token som skickas när du autentiserar med hjälp av Azure Active Directory. Denna token, *__RequestVerificationToken*, vanligt vis skickas som en cookie för begäran. Men i vissa fall där cookies är inaktiverat, skickas denna token också som ett attribut för begäran eller "arg". I så fall måste du se till att *__RequestVerificationToken* läggs till i undantags listan som attribut för **begäran** .
+Ibland finns det fall där specifika parametrar skickas till WAF på ett sätt som kanske inte är intuitivt. Det finns till exempel en token som skickas när du autentiserar med Azure Active Directory. Denna token, *__RequestVerificationToken*, skickas vanligtvis in som en begäran cookie. Men i vissa fall där cookies är inaktiverade skickas den här token också som ett begäranattribut eller "arg". Om detta inträffar måste du se till att *__RequestVerificationToken* läggs till i undantagslistan som **ett attributnamn för begäran.**
 
 ![Undantag](../media/web-application-firewall-troubleshoot/exclusion-list.png)
 
-I det här exemplet vill du undanta det **begärda attributnamnet** som är lika med *Text1*. Detta är uppenbart eftersom du kan se attributnamnet i brand Väggs loggarna: **data: matchade data: 1 = 1 som finns i argumenten: Text1:1 = 1**. Attributet är **Text1**. Du kan också hitta det här attributnamnet på några andra sätt, se [hitta attribut namn för begäran](#finding-request-attribute-names).
+I det här exemplet vill du utesluta **attributet Request-namn** som är lika med *text1*. Detta är uppenbart eftersom du kan se attributnamnet i brandväggsloggarna: **data: Matchade data: 1=1 finns i ARGS:text1: 1=1**. Attributet är **text1**. Du kan också hitta det här attributnamnet på några andra sätt, se [Hitta attributnamn för begäran](#finding-request-attribute-names).
 
-![Undantags listor för WAF](../media/web-application-firewall-troubleshoot/waf-config.png)
+![UNDANTAGSLISTOR FÖR WAF](../media/web-application-firewall-troubleshoot/waf-config.png)
 
 ### <a name="disabling-rules"></a>Inaktivera regler
 
-Ett annat sätt att komma runt ett falskt positivt är att inaktivera regeln som matchade den angivna invärdet. WAF trodde var skadlig. Eftersom du har analyserat WAF-loggarna och har begränsat regeln till 942130 kan du inaktivera den i Azure Portal. Se [Anpassa brand Väggs regler för webb program via Azure Portal](application-gateway-customize-waf-rules-portal.md).
+Ett annat sätt att komma runt ett falskt positivt är att inaktivera regeln som matchade på indata WAF trodde var skadligt. Eftersom du har tolkat WAF-loggarna och har begränsat regeln till 942130 kan du inaktivera den i Azure-portalen. Se [Anpassa brandväggsregler för webbprogram via Azure-portalen](application-gateway-customize-waf-rules-portal.md).
 
-En fördel med att inaktivera en regel är att om du vet att all trafik som innehåller ett visst villkor som normalt kommer att blockeras är giltig trafik, kan du inaktivera regeln för hela WAF. Men om det bara är en giltig trafik i ett särskilt användnings fall öppnar du ett säkerhets problem genom att inaktivera regeln för hela WAF eftersom det är en global inställning.
+En fördel med att inaktivera en regel är att om du vet att all trafik som innehåller ett visst villkor som normalt kommer att blockeras är giltig trafik, kan du inaktivera den regeln för hela WAF. Men om det bara är giltig trafik i ett specifikt användningsfall öppnar du ett säkerhetsproblem genom att inaktivera den regeln för hela WAF eftersom det är en global inställning.
 
-Om du vill använda Azure PowerShell, se [Anpassa brand Väggs regler för webb program via PowerShell](application-gateway-customize-waf-rules-powershell.md). Om du vill använda Azure CLI går du till [Anpassa brand Väggs regler för webb program via Azure CLI](application-gateway-customize-waf-rules-cli.md).
+Om du vill använda Azure PowerShell läser du [Anpassa brandväggsregler för webbprogram via PowerShell](application-gateway-customize-waf-rules-powershell.md). Om du vill använda Azure CLI läser du [Anpassa brandväggsregler för webbprogram via Azure CLI](application-gateway-customize-waf-rules-cli.md).
 
 ![WAF-regler](../media/web-application-firewall-troubleshoot/waf-rules.png)
 
-## <a name="finding-request-attribute-names"></a>Söker efter attribut för begäran
+## <a name="finding-request-attribute-names"></a>Söka efter attributnamn för begäran
 
-Med hjälp av [Fiddler](https://www.telerik.com/fiddler)kan du kontrol lera enskilda förfrågningar och bestämma vilka specifika fält på en webb sida som anropas. Detta kan hjälpa till att utesluta vissa fält från granskning med undantags listor.
+Med hjälp av [Fiddler inspekterar](https://www.telerik.com/fiddler)du enskilda förfrågningar och bestämmer vilka specifika fält på en webbsida som kallas. Detta kan bidra till att utesluta vissa fält från inspektion med undantagslistor.
 
-I det här exemplet kan du se att fältet där strängen *1 = 1* har angetts kallas **Text1**.
+I det här exemplet kan du se att fältet där *1=1-strängen* angavs kallas **text1**.
 
 ![Fiddler](../media/web-application-firewall-troubleshoot/fiddler-1.png)
 
-Det här är ett fält som du kan undanta. Mer information om undantags listor finns i [begäran om storleks gränser och undantags listor för WebApplication-brandvägg](application-gateway-waf-configuration.md#waf-exclusion-lists). Du kan undanta utvärderingen i det här fallet genom att konfigurera följande undantag:
+Det här är ett fält som du kan utesluta. Mer information om undantagslistor finns i [Storleksbegränsningar för webbprogramsbrandväggen och undantagslistor](application-gateway-waf-configuration.md#waf-exclusion-lists). Du kan utesluta utvärderingen i det här fallet genom att konfigurera följande undantag:
 
-![WAF-undantag](../media/web-application-firewall-troubleshoot/waf-exclusion-02.png)
+![UNDANTAG FRÅN WAF](../media/web-application-firewall-troubleshoot/waf-exclusion-02.png)
 
-Du kan också granska brand Väggs loggarna för att hämta information för att se vad du behöver lägga till i undantags listan. Om du vill aktivera loggning, se [backend-hälsa, diagnostikloggar och mått för Application Gateway](../../application-gateway/application-gateway-diagnostics.md).
+Du kan också undersöka brandväggsloggarna för att få information för att se vad du behöver lägga till i undantagslistan. Om du vill aktivera loggning finns i [Backend-hälsa, diagnostikloggar och mått för Application Gateway](../../application-gateway/application-gateway-diagnostics.md).
 
-Granska brand Väggs loggen och Visa PT1H. JSON-filen för den timme som den begäran du vill kontrol lera inträffar.
+Undersök brandväggsloggen och visa filen PT1H.json under den timme som begäran som du vill granska inträffade.
 
-I det här exemplet kan du se att du har fyra regler med samma TransactionID och att alla har inträffat på exakt samma tid:
+I det här exemplet kan du se att du har fyra regler med samma TransactionID och att alla inträffade samtidigt:
 
 ```json
 -   {
@@ -287,51 +287,51 @@ I det här exemplet kan du se att du har fyra regler med samma TransactionID och
 -   }
 ```
 
-Med dina kunskaper om hur du använder regel uppsättningarna för datoriserade system och att ruleset 3,0 fungerar med ett avvikande Poäng system (se [brand vägg för webbaserade program för Azure Application Gateway](ag-overview.md)) vet du att de två nedre reglerna med **åtgärden: blockerad** egenskap blockeras baserat på det totala avvikande resultatet. De regler som ska fokuseras på är de två översta.
+Med din kunskap om hur CRS-regeln anger fungerar och att CRS-regeluppsättningen 3.0 fungerar med ett avvikelsebedömningssystem (se [Webbprogrambrandvägg för Azure Application Gateway)](ag-overview.md)vet du att de två nedersta reglerna med **åtgärden: Blockerad** egenskap blockerar baserat på den totala avvikelsepoängen. Reglerna att fokusera på är de två bästa.
 
 Den första posten loggas eftersom användaren använde en numerisk IP-adress för att navigera till Application Gateway, som kan ignoreras i det här fallet.
 
-Den andra (regel 942130) är den intressanta en. Du kan se information om att den matchade ett mönster (1 = 1) och att fältet heter **Text1**. Följ samma föregående steg för att undanta det **begärda attributnamnet** som **är lika med** **1 = 1**.
+Den andra (regel 942130) är den intressanta. Du kan se i informationen att det matchade ett mönster (1=1) och fältet heter **text1**. Följ samma tidigare steg för att utesluta det **begärandeattributnamn** som **är lika med** **1=1**.
 
-## <a name="finding-request-header-names"></a>Söker efter begärans huvud namn
+## <a name="finding-request-header-names"></a>Söka efter sidnamn för begäran
 
-Fiddler är ett användbart verktyg en gång till för att hitta rubrik namn för begäran. I följande skärm bild kan du se huvudena för GET-begäran, som innehåller *innehålls typ*, *användar agent*och så vidare.
+Fiddler är ett användbart verktyg igen för att hitta namn på begäranhuvud. I följande skärmbild kan du se rubrikerna för den här GET-begäran, som inkluderar *Content-Type*, *User-Agent*och så vidare.
 
 ![Fiddler](../media/web-application-firewall-troubleshoot/fiddler-2.png)
 
-Ett annat sätt att Visa begäran och svarshuvuden är att titta närmare på utvecklarverktyg i Chrome. Du kan trycka på F12 eller högerklicka – > **inspektera** -> **utvecklarverktyg**och välj fliken **nätverk** . Läs in en webb sida och klicka på den begäran som du vill granska.
+Ett annat sätt att visa begäran och svar rubriker är att titta inuti utvecklarverktygen i Chrome. Du kan trycka på F12 eller högerklicka på -> **Inspektera** -> **utvecklarverktyg**och välja fliken **Nätverk.** Läs in en webbsida och klicka på den begäran som du vill granska.
 
 ![Chrome F12](../media/web-application-firewall-troubleshoot/chrome-f12.png)
 
-## <a name="finding-request-cookie-names"></a>Söker efter cookie-namn för begäran
+## <a name="finding-request-cookie-names"></a>Hitta cookienamn för begäran
 
-Om begäran innehåller cookies kan fliken **cookies** väljas för att visa dem i Fiddler.
+Om begäran innehåller cookies kan fliken **Cookies** väljas för att visa dem i Fiddler.
 
 ## <a name="restrict-global-parameters-to-eliminate-false-positives"></a>Begränsa globala parametrar för att eliminera falska positiva identifieringar
 
-- Inaktivera kontroll av begär ande brödtext
+- Inaktivera kroppskontroll för begäran
 
-   Genom att ställa in **kontrol lera att begär ande texten** är inaktive rad utvärderas inte WAF. Detta kan vara användbart om du vet att begär ande organ inte är skadliga för ditt program.
+   Genom att ställa **in Inspektera begäran kroppen** att av, begäran organ för all trafik kommer inte att utvärderas av din WAF. Detta kan vara användbart om du vet att begäran organ inte är skadliga för ditt program.
 
-   Genom att inaktivera det här alternativet kontrol leras bara begär ande texten. Rubrikerna och cookies förblir kontrollerade, om inte enskilda inte är uteslutna med hjälp av undantags listans funktioner.
+   Genom att inaktivera det här alternativet inspekteras inte endast begärandeorganet. Rubrikerna och cookies förblir inspekterade, såvida inte enskilda är undantagna med hjälp av funktionen för undantagslistan.
 
-- Fil storleks begränsningar
+- Begränsningar för filstorlek
 
-   Genom att begränsa fil storleken för din WAF begränsar du risken för att en attack går till dina webb servrar. Genom att tillåta att stora filer överförs ökar risken för att din server del blir mer utsatt. Att begränsa fil storleken till ett normalt användnings fall för ditt program är bara ett annat sätt att förhindra attacker.
+   Genom att begränsa filstorleken för din WAF begränsar du risken för att en attack ska inträffa på dina webbservrar. Genom att tillåta stora filer som ska laddas upp, risken för din backend att bli överväldigad ökar. Att begränsa filstorleken till ett normalt användningsfall för ditt program är bara ett annat sätt att förhindra attacker.
 
    > [!NOTE]
-   > Om du vet att din app aldrig behöver ha några fil överföringar över en bestämd storlek, kan du begränsa detta genom att ange en gräns.
+   > Om du vet att din app aldrig behöver någon filuppladdning över en viss storlek kan du begränsa den genom att ange en gräns.
 
-## <a name="firewall-metrics-waf_v1-only"></a>Brand Väggs mått (endast WAF_v1)
+## <a name="firewall-metrics-waf_v1-only"></a>Brandväggsmått (endast WAF_v1)
 
-För v1 webb program brand väggar är följande mått nu tillgängliga i portalen: 
+För brandväggar för v1-webbprogram är följande mått nu tillgängliga i portalen: 
 
-1. Blockerad begäran om brand vägg för webbaserade program antalet begär Anden som blockerades
-2. Blockerad brand vägg för webb program brand vägg antal regler som har matchats **och** begäran blockerades
-3. Brand vägg för brand vägg total regel distribution alla regler som matchades under utvärderingen
+1. Antal blockerade begäranden för webbprogram Brandvägg Antalet antal begäranden som har blockerats
+2. Webbprogram brandvägg blockerade regel räkna alla regler som matchades **och** begäran blockerades
+3. Total regeldistribution av brandväggen för webbprogram Alla regler som matchades under utvärderingen
      
-Om du vill aktivera mått väljer du fliken **mått** i portalen och väljer ett av de tre måtten.
+Om du vill aktivera mått markerar du fliken **Mått** i portalen och väljer ett av de tre måtten.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Se [Konfigurera brand vägg för webbaserade program på Application Gateway](tutorial-restrict-web-traffic-powershell.md).
+Se [Så här konfigurerar du brandväggen för webbprogram i Application Gateway](tutorial-restrict-web-traffic-powershell.md).

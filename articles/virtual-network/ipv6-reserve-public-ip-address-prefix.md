@@ -1,7 +1,7 @@
 ---
-title: Reservera offentliga IPv6-adresser och adress intervall i ett virtuellt Azure-nätverk
+title: Reservera offentliga IPv6-adresser och adressintervall i ett virtuellt Azure-nätverk
 titlesuffix: Azure Virtual Network
-description: Lär dig hur du reserverar offentliga IPv6-adresser och adress intervall i ett virtuellt Azure-nätverk.
+description: Lär dig hur du reserverar offentliga IPv6-adresser och adressintervall i ett virtuellt Azure-nätverk.
 services: virtual-network
 documentationcenter: na
 author: KumudD
@@ -13,23 +13,23 @@ ms.workload: infrastructure-services
 ms.date: 10/15/2019
 ms.author: kumud
 ms.openlocfilehash: 76d1ba2717ac3c8ac8e86687ef1754a8790f3e4d
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72595073"
 ---
 # <a name="reserve-public-ipv6-address-prefix"></a>Reservera offentligt IPv6-adressprefix
-Med IPv6 för Azure Virtual Network (VNet) kan du vara värd för program i Azure med IPv6-och IPv4-anslutning både i ett virtuellt nätverk och till och från Internet. Förutom att reservera enskilda IPv6-adresser kan du reservera sammanhängande intervall av Azure IPv6-adresser (kallas även IP-prefix) för din användning. I den här artikeln beskrivs hur du skapar offentliga IP-adresser och adress intervall för IPv6 med hjälp av Azure PowerShell och CLI.
+Med IPv6 för Azure Virtual Network (VNet) kan du vara värd för program i Azure med IPv6- och IPv4-anslutning både i ett virtuellt nätverk och till och från Internet. Förutom att reservera enskilda IPv6-adresser kan du reservera sammanhängande intervall för Azure IPv6-adresser (kallas IP-prefix) för din användning. I de här artiklarna beskrivs hur du skapar offentliga IPv6-ADRESSER och adressintervall med Azure PowerShell och CLI.
 
 > [!Important]
-> IPv6 för Azure Virtual Network är för närvarande en offentlig för hands version. Den här förhandsversionen tillhandahålls utan serviceavtal och rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller kan ha begränsad funktionalitet. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> IPv6 för Azure Virtual Network är för närvarande i offentlig förhandsversion. Den här förhandsversionen tillhandahålls utan serviceavtal och rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller kan ha begränsad funktionalitet. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-## <a name="create-a-single-reserved-ipv6-public-ip"></a>Skapa en enda reserverad IPv6 offentlig IP-adress
+## <a name="create-a-single-reserved-ipv6-public-ip"></a>Skapa en enda reserverad IPv6-offentlig IP
 
 ### <a name="using-azure-powershell"></a>Använda Azure PowerShell
 
-Du kan skapa en enda reserverad (statisk) IPv6-IP-adress med Azure PowerShell med [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress) på följande sätt:
+Du kan skapa en enda reserverad (statisk) IPv6 Public IP-adress med Azure PowerShell med [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress) enligt följande:
 
 ```azurepowershell  
  $myOwnIPv6Address = New-AzPublicIpAddress `
@@ -43,7 +43,7 @@ Du kan skapa en enda reserverad (statisk) IPv6-IP-adress med Azure PowerShell me
 
 ### <a name="using-azure-cli"></a>Använda Azure CLI
 
- Du kan skapa en enda reserverad (statisk) IPv6 offentlig IP-adress Azure CLI med [AZ Network Public-IP Create](/cli/azure/network/public-ip) enligt följande:
+ Du kan skapa en enda reserverad (statisk) IPv6 Public IP-adress Azure CLI med [az network public-ip skapa](/cli/azure/network/public-ip) enligt följande:
   
 ```azurecli
  az network public-ip create \
@@ -57,11 +57,11 @@ Du kan skapa en enda reserverad (statisk) IPv6-IP-adress med Azure PowerShell me
 
 ## <a name="create-a-reserved-ipv6-prefix-range"></a>Skapa ett reserverat IPv6-prefix (intervall)
 
-Om du vill reservera ett IPv6-prefix lägger du till IP-adresserna för IPv6 till samma kommando som används för att skapa IPv4-prefix. Följande kommandon skapar ett prefix av storlek/125 (8 IPv6-adresser).  
+Om du vill reservera ett IPv6-prefix lägger du till IP-adressfamiljen i IPv6 i samma kommando som används för att skapa IPv4-prefix. Följande kommandon skapar ett prefix med storleken /125 ( 8 IPv6-adresser).  
 
 ### <a name="using-azure-powershell"></a>Använda Azure PowerShell
 
-Du kan skapa en offentlig IPv6-adress med hjälp av Azure CLI med [AZ Network Public-IP Create](/powershell/module/az.network/new-azpublicipprefix) enligt följande:
+Du kan skapa en offentlig IPv6-adress med Azure CLI med [az network public-ip create](/powershell/module/az.network/new-azpublicipprefix) enligt följande:
 ```azurepowershell  
  $myOwnIPv6Prefix = New-AzPublicIpPrefix `
  -name IPv6PrefixWestUS `
@@ -74,7 +74,7 @@ Du kan skapa en offentlig IPv6-adress med hjälp av Azure CLI med [AZ Network Pu
 
 ### <a name="using-azure-cli"></a>Använda Azure CLI
 
-Du kan skapa en offentlig IPv6-adress med hjälp av Azure CLI på följande sätt:
+Du kan skapa en offentlig IPv6-adress med Azure CLI enligt följande:
 
 ```azurecli  
 az network public-ip prefix create \
@@ -89,7 +89,7 @@ az network public-ip prefix create \
 
 ### <a name="using-azure-powershell"></a>Använda Azure PowerShell
 
- Du skapar en statisk IPv6 offentlig IP-adress från ett reserverat prefix genom att lägga till argumentet `-PublicIpPrefix` när du skapar den offentliga IP-adressen med Azure PowerShell. I följande exempel förutsätts att ett prefix har skapats och lagrats i en PowerShell-variabel med namnet: *$MyOwnIPv 6prefix*.
+ Du skapar en statisk IPv6 Public IP från `-PublicIpPrefix` ett reserverat prefix genom att lägga till argumentet när du skapar den offentliga IP-adressen med Azure PowerShell. I följande exempel förutsätts att ett prefix har skapats och lagrats i en PowerShell-variabel med namnet: *$myOwnIPv6Prefix*.
 
 ```azurepowershell:  
  $MyIPv6PublicIPFromMyReservedPrefix = New-AzPublicIpAddress \
@@ -118,5 +118,5 @@ az network public-ip create \
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-- Läs mer om [IPv6-](ipv6-public-ip-address-prefix.md)adressprefix.
+- Läs mer om [IPv6-adressprefix](ipv6-public-ip-address-prefix.md).
 - Läs mer om [IPv6-adresser](ipv6-overview.md).

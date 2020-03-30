@@ -1,6 +1,6 @@
 ---
-title: Konfigurera SMT-Server för SAP HANA på Azure (stora instanser) | Microsoft Docs
-description: Konfigurera SMT-Server för SAP HANA på Azure (stora instanser).
+title: Konfigurera SMT-server för SAP HANA på Azure (stora instanser) | Microsoft-dokument
+description: Konfigurera SMT-server för SAP HANA på Azure (stora instanser).
 services: virtual-machines-linux
 documentationcenter: ''
 author: hermanndms
@@ -14,41 +14,41 @@ ms.date: 09/10/2018
 ms.author: hermannd
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 699a8a69621642d07d3547c07bb20c0d32ca7686
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77616981"
 ---
-# <a name="set-up-smt-server-for-suse-linux"></a>Konfigurera SMT-Server för SUSE Linux
-Stora instanser av SAP HANA har ingen direkt anslutning till Internet. Det är inte enkelt att registrera en sådan enhet med operativ system leverantören och att ladda ned och tillämpa uppdateringar. En lösning för SUSE Linux är att konfigurera en SMT-server på en virtuell Azure-dator. Var värd för den virtuella datorn i ett virtuellt Azure-nätverk, som är ansluten till den stora HANA-instansen. Med en sådan SMT-Server kan den stora instans enheten HANA registrera och hämta uppdateringar. 
+# <a name="set-up-smt-server-for-suse-linux"></a>Konfigurera SMT-server för SUSE Linux
+Stora instanser av SAP HANA har inte direkt anslutning till Internet. Det är inte en enkel process att registrera en sådan enhet hos operativsystemets leverantör och att hämta och tillämpa uppdateringar. En lösning för SUSE Linux är att konfigurera en SMT-server på en virtuell Azure-dator. Vara värd för den virtuella datorn i ett virtuellt Azure-nätverk som är anslutet till DEN STORA HANA-instansen. Med en sådan SMT-server kan HANA Large Instance-enheten registrera och hämta uppdateringar. 
 
-Mer dokumentation om SUSE finns i [prenumerations hanterings verktyget för SLES 12 SP2](https://www.suse.com/documentation/sles-12/pdfdoc/book_smt/book_smt.pdf). 
+Mer information om SUSE finns i deras [prenumerationshanteringsverktyg för SLES 12 SP2](https://www.suse.com/documentation/sles-12/pdfdoc/book_smt/book_smt.pdf). 
 
-Krav för att installera en SMT-server som uppfyller uppgiften för HANA-stora instanser är:
+Förutsättningarna för att installera en SMT-server som uppfyller uppgiften för STORA HANA-instanser är:
 
-- Ett virtuellt Azure-nätverk som är anslutet till den stora ExpressRoute-kretsen i HANA.
+- Ett virtuellt Azure-nätverk som är anslutet till HANA Large Instance ExpressRoute-kretsen.
 - Ett SUSE-konto som är associerat med en organisation. Organisationen bör ha en giltig SUSE-prenumeration.
 
 ## <a name="install-smt-server-on-an-azure-virtual-machine"></a>Installera SMT-server på en virtuell Azure-dator
 
-Logga först in på [SUSE kund Center](https://scc.suse.com/).
+Logga först in på [SUSE-kundcentret](https://scc.suse.com/).
 
-Gå till **organisationens** > **organisationens autentiseringsuppgifter**. I det avsnittet bör du hitta de autentiseringsuppgifter som krävs för att konfigurera SMT-servern.
+Gå till**Autentiseringsuppgifter för organisationsorganisation** **Organization** > . I det avsnittet bör du hitta de autentiseringsuppgifter som krävs för att konfigurera SMT-servern.
 
-Installera sedan en SUSE Linux-dator i det virtuella Azure-nätverket. Om du vill distribuera den virtuella datorn tar du en SLES 12 SP2 galleri bild av Azure (Välj BYOS SUSE image). I distributions processen definierar du inte ett DNS-namn och använder inte statiska IP-adresser.
+Installera sedan en virtuell SUSE Linux-dator i det virtuella Azure-nätverket. Om du vill distribuera den virtuella datorn tar du en SLES 12 SP2-galleriavbildning av Azure (välj BYOS SUSE-avbildning). Definiera inte ett DNS-namn i distributionsprocessen och använd inte statiska IP-adresser.
 
-![Skärm bild av distribution av virtuell dator för SMT-Server](./media/hana-installation/image3_vm_deployment.png)
+![Skärmbild av distribution av virtuella datorer för SMT-server](./media/hana-installation/image3_vm_deployment.png)
 
-Den distribuerade virtuella datorn är mindre och fick den interna IP-adressen i det virtuella Azure-nätverket 10.34.1.4. Namnet på den virtuella datorn är *smtserver*. Efter installationen kontrol leras anslutningen till den stora instans enheten eller enheterna i HANA. Beroende på hur du har ordnat namn matchningen kan du behöva konfigurera en upplösning av de HANA-stora instans enheterna i osv/värdar för den virtuella Azure-datorn. 
+Den distribuerade virtuella datorn är mindre och fick den interna IP-adressen i det virtuella Azure-nätverket på 10.34.1.4. Namnet på den virtuella datorn är *smtserver*. Efter installationen kontrolleras anslutningen till HANA Large Instance-enheten eller enheterna. Beroende på hur du ordnade namnmatchning kan du behöva konfigurera upplösningen för HANA-stora instansenheter i etc/hosts på den virtuella Azure-datorn. 
 
-Lägg till en disk till den virtuella datorn. Du kan använda den här disken för att hålla kvar uppdateringarna och själva start disken kan vara för liten. Här monteras disken på/SRV/www/htdocs, som du ser i följande skärm bild. En 100 GB-disk bör vara tillräckligt.
+Lägg till en disk på den virtuella datorn. Du använder den här disken för att lagra uppdateringarna och själva startdisken kan vara för liten. Här fick disken monterad på /srv/www/htdocs, som visas i följande skärmdump. En disk på 100 GB bör räcka.
 
-![Skärm bild av distribution av virtuell dator för SMT-Server](./media/hana-installation/image4_additional_disk_on_smtserver.PNG)
+![Skärmbild av distribution av virtuella datorer för SMT-server](./media/hana-installation/image4_additional_disk_on_smtserver.PNG)
 
-Logga in på en stor instans enhet eller enheter i HANA, Behåll/etc/hosts och kontrol lera om du kan komma åt den virtuella Azure-dator som ska köra SMT-servern över nätverket.
+Logga in på HANA Large Instance-enheten eller enheterna, underhåll /etc/hosts och kontrollera om du kan nå den virtuella Azure-datorn som ska köra SMT-servern över nätverket.
 
-Efter den här kontrollen loggar du in på den virtuella Azure-dator som ska köra SMT-servern. Om du använder SparaTillFil för att logga in på den virtuella datorn, kör du den här sekvensen av kommandon i bash-fönstret:
+Efter den här kontrollen loggar du in på den virtuella Azure-datorn som ska köra SMT-servern. Om du använder putty för att logga in på den virtuella datorn kör du den här sekvensen av kommandon i bash-fönstret:
 
 ```
 cd ~
@@ -67,7 +67,7 @@ Using E-Mail: email address
 Successfully registered system.
 ```
 
-När den virtuella datorn är ansluten till SUSE-platsen installerar du SMT-paketen. Använd följande SparaTillFil-kommando för att installera SMT-paketen.
+När den virtuella datorn är ansluten till SUSE-platsen installerar du smt-paketen. Använd följande kommandot putty för att installera smt-paketen.
 
 ```
 smtserver:~ # zypper in smt
@@ -78,28 +78,28 @@ Resolving package dependencies...
 ```
 
 
-Du kan också använda verktyget YAST för att installera SMT-paketen. Gå till **program varu underhåll**i YaST och Sök efter SMT. Välj **SMT**, som växlar automatiskt till YaST2-SMT.
+Du kan också använda YAST-verktyget för att installera smt-paketen. I YAST går du till **Software Maintenance**och söker efter smt. Välj **smt**, som växlar automatiskt till yast2-smt.
 
-![Skärm bild av SMT i YAST](./media/hana-installation/image5_smt_in_yast.PNG)
+![Skärmbild av SMT i YAST](./media/hana-installation/image5_smt_in_yast.PNG)
 
 
-Godkänn valet av installation på smtserver. När installationen är klar går du till konfiguration av SMT-servern. Ange organisationens autentiseringsuppgifter från det SUSE-kund Center som du hämtade tidigare. Ange även värd namnet för den virtuella Azure-datorn som URL för SMT-Server. I den här demonstrationen är https:\//smtserver.
+Acceptera valet för installation på smtservern. När installationen är klar går du till SMT-serverkonfigurationen. Ange organisationsbehörigheten från SUSE-kundcentret som du hämtade tidigare. Ange också ditt värdnamn för den virtuella Azure-datorn som SMT-server-URL:en. I den här demonstrationen\/är det https: /smtserver.
 
-![Skärm bild av konfiguration av SMT-Server](./media/hana-installation/image6_configuration_of_smtserver1.png)
+![Skärmbild av SMT-serverkonfiguration](./media/hana-installation/image6_configuration_of_smtserver1.png)
 
-Testa nu om anslutningen till SUSE kund Center fungerar. Som du ser i följande skärm bild, i det här fallet fungerade det.
+Testa nu om anslutningen till SUSE Customer Center fungerar. Som du ser i följande skärmdump, i detta demonstrationsfall, fungerade det.
 
-![Skärm bild av test anslutning till SUSE kund Center](./media/hana-installation/image7_test_connect.png)
+![Skärmbild av testanslutning till SUSE Customer Center](./media/hana-installation/image7_test_connect.png)
 
-Ange ett databas lösen ord när SMT-installationen startar. Eftersom det är en ny installation bör du definiera det lösen ordet som visas i följande skärm bild.
+När SMT-installationen har startat anger du ett databaslösenord. Eftersom det är en ny installation bör du definiera lösenordet som visas i följande skärmbild.
 
-![Skärm bild av definiera lösen ord för databas](./media/hana-installation/image8_define_db_passwd.PNG)
+![Skärmbild av att definiera lösenord för databasen](./media/hana-installation/image8_define_db_passwd.PNG)
 
 Nästa steg är att skapa ett certifikat.
 
-![Skärm bild som visar hur du skapar ett certifikat för SMT-Server](./media/hana-installation/image9_certificate_creation.PNG)
+![Skärmbild av hur du skapar ett certifikat för SMT-server](./media/hana-installation/image9_certificate_creation.PNG)
 
-I slutet av konfigurationen kan det ta några minuter att köra kontrollen av synkroniseringen. Efter installationen och konfigurationen av SMT-servern bör du hitta katalogen lagrings platsen under monterings punkten/SRV/www/htdocs/. Det finns även vissa under kataloger under lagrings platsen. 
+I slutet av konfigurationen kan det ta några minuter att köra synkroniseringskontrollen. Efter installationen och konfigurationen av SMT-servern bör du hitta katalogreponyren under monteringspunkten /srv/www/htdocs/. Det finns också några underkataloger under repo. 
 
 Starta om SMT-servern och dess relaterade tjänster med dessa kommandon.
 
@@ -109,50 +109,50 @@ systemctl restart smt.service
 systemctl restart apache2
 ```
 
-## <a name="download-packages-onto-smt-server"></a>Ladda ned paket till SMT-Server
+## <a name="download-packages-onto-smt-server"></a>Hämta paket till SMT-servern
 
-När alla tjänster har startats om väljer du lämpliga paket i SMT-hantering med hjälp av YAST. Valet av paket är beroende av operativ Systems avbildningen på servern HANA stor instans. Valet av paket är inte beroende av SLES-versionen eller versionen av den virtuella datorn som kör SMT-servern. Följande skärm bild visar ett exempel på urvals skärmen.
+När alla tjänster har startats om väljer du lämpliga paket i SMT Management med yast. Paketvalet beror på operativsystemavbildningen på HANA Large Instance-servern. Paketvalet beror inte på SLES-versionen eller versionen av den virtuella datorn som kör SMT-servern. Följande skärmbild visar ett exempel på urvalsskärmen.
 
-![Skärm bild av val av paket](./media/hana-installation/image10_select_packages.PNG)
+![Skärmbild av att välja paket](./media/hana-installation/image10_select_packages.PNG)
 
-Starta sedan den första kopian av Välj paket till den SMT-server som du ställer in. Den här kopian utlöses i gränssnittet med hjälp av kommandot SMT-Mirror.
+Starta sedan den första kopian av de valda paketen till den SMT-server som du konfigurerade. Den här kopian utlöses i skalet med kommandot smt-mirror.
 
-![Skärm bild av hämtning av paket till SMT-Server](./media/hana-installation/image11_download_packages.PNG)
+![Skärmbild av hämtning av paket till SMT-server](./media/hana-installation/image11_download_packages.PNG)
 
-Paketen bör kopieras till katalogerna som skapats under monterings punkten/SRV/www/htdocs. Den här processen kan ta en timme eller mer, beroende på hur många paket du väljer. När den här processen är klar går du till installations programmet för SMT-klienten. 
+Paketen ska kopieras till de kataloger som skapats under monteringspunkten /srv/www/htdocs. Den här processen kan ta en timme eller mer, beroende på hur många paket du väljer. När den här processen är klar flyttar du till SMT-klientkonfigurationen. 
 
-## <a name="set-up-the-smt-client-on-hana-large-instance-units"></a>Konfigurera SMT-klienten på HANA stora instans enheter
+## <a name="set-up-the-smt-client-on-hana-large-instance-units"></a>Konfigurera SMT-klienten på HANA Large Instance-enheter
 
-Klienten eller klienterna i det här fallet är de många HANA-instanser som är stora. Installations programmet för SMT-servern kopierade skriptet clientSetup4SMT.sh till den virtuella Azure-datorn. Kopiera skriptet till den stora instans av HANA som du vill ansluta till din SMT-Server. Starta skriptet med alternativet-h och ge namnet på din SMT-server som parameter. I det här exemplet är namnet *smtserver*.
+Klienten eller klienterna i det här fallet är HANA-enheter för stora instanser. SMT-serverinstallationen kopierade skriptet clientSetup4SMT.sh till den virtuella Azure-datorn. Kopiera skriptet till den STORA HANA-instansenhet som du vill ansluta till SMT-servern. Starta skriptet med alternativet -h och ange namnet på SMT-servern som en parameter. I det här exemplet är namnet *smtserver*.
 
-![Skärm bild av konfiguration av SMT-klienten](./media/hana-installation/image12_configure_client.PNG)
+![Skärmbild av konfiguration av SMT-klienten](./media/hana-installation/image12_configure_client.PNG)
 
-Det är möjligt att belastningen på certifikatet från servern lyckas, men registreringen Miss lyckas, som visas på följande skärm bild.
+Det är möjligt att belastningen av certifikatet från servern av klienten lyckas, men registreringen misslyckas, som visas i följande skärmdump.
 
-![Skärm bild av fel vid klient registrering](./media/hana-installation/image13_registration_failed.PNG)
+![Skärmbild av klientregistreringsfel](./media/hana-installation/image13_registration_failed.PNG)
 
-Om registreringen Miss lyckas, se [SUSE Support-dokument](https://www.suse.com/de-de/support/kb/doc/?id=7006024)och kör stegen som beskrivs där.
+Om registreringen misslyckas läser du [SUSE-supportdokumentet](https://www.suse.com/de-de/support/kb/doc/?id=7006024)och kör stegen som beskrivs där.
 
 > [!IMPORTANT] 
-> För Server namnet anger du namnet på den virtuella datorn (i det här fallet *smtserver*) utan det fullständigt kvalificerade domän namnet. 
+> Ange namnet på den virtuella datorn (i det här fallet *smtserver)* utan det fullständiga domännamnet för servernamnet. 
 
-När du har kört de här stegen kör du följande kommando på enheten HANA-stor instans:
+När du har kört de här stegen kör du följande kommando på HANA Large Instance-enheten:
 
 ```
 SUSEConnect –cleanup
 ```
 
 > [!Note] 
-> Vänta några minuter efter det steget. Om du kör clientSetup4SMT.sh omedelbart kan du få ett fel meddelande.
+> Vänta några minuter efter det steget. Om du kör clientSetup4SMT.sh omedelbart kan du få ett felmeddelande.
 
-Om du stöter på ett problem som du behöver åtgärda baserat på stegen i SUSE-artikeln startar du om clientSetup4SMT.sh på volymen HANA stor instans. Nu bör det slutföras.
+Om du stöter på ett problem som du behöver åtgärda baserat på stegen i SUSE-artikeln startar du om clientSetup4SMT.sh på HANA Large Instance-enheten. Nu bör det avslutas framgångsrikt.
 
-![Skärm bild av lyckad klient registrering](./media/hana-installation/image14_finish_client_config.PNG)
+![Skärmbild avlyckades med klientregistrering](./media/hana-installation/image14_finish_client_config.PNG)
 
-Du konfigurerade SMT-klienten i den stora instans enheten HANA för att ansluta till den SMT-server som du installerade på den virtuella Azure-datorn. Du kan nu ta "zypper upp" eller "zypper in" om du vill installera operativ system uppdateringar på HANA-stora instanser eller installera ytterligare paket. Du kan bara hämta uppdateringar som du har hämtat tidigare på SMT-servern.
+Du har konfigurerat SMT-klienten för HANA Large Instance-enheten för att ansluta till SMT-servern som du installerade på den virtuella Azure-datorn. Du kan nu ta "zypper up" eller "zypper in" för att installera operativsystemuppdateringar till HANA Stora instanser, eller installera ytterligare paket. Du kan bara få uppdateringar som du har hämtat tidigare på SMT-servern.
 
 ## <a name="next-steps"></a>Nästa steg
-- [Hana-installation på HLI](hana-example-installation.md).
+- [HANA Installation på HLI](hana-example-installation.md).
 
 
 

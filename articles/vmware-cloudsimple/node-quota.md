@@ -1,6 +1,6 @@
 ---
-title: Azure VMware-lösningar (AVS)-AVS-nods kvot
-description: Beskriver kvot gränserna för AVS-noder och hur du begär en ökning av kvoten
+title: Azure VMware-lösning per CloudSimple - CloudSimple-nodkvot
+description: Beskriver kvotgränserna för CloudSimple-noder och hur du begär en ökning av kvoten
 author: sharaths-cs
 ms.author: dikamath
 ms.date: 08/19/2019
@@ -8,34 +8,34 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: fa1b056c8c96fb09def63ca1cd696fc2da5e9bed
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 83dc9e26e03eb955d88340d1ed21084d4e685ed8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77019646"
 ---
-# <a name="avs-node-quota-limits"></a>Kvot gränser för AVS-noden
+# <a name="cloudsimple-node-quota-limits"></a>CloudSimple nod kvotgränser
 
-Fyra noder är den standardkvantitet som är tillgänglig för köp när prenumerationen är aktive rad för AVS-tjänsten. Du kan köpa alla [typer av noder](cloudsimple-node.md) från Azure Portal. Minst tre noder av samma SKU krävs för att skapa ett privat AVS-moln. Om du har köpt noderna kan ett fel meddelande visas när du försöker köpa ytterligare noder.
+Fyra noder är standardkvantiteten som är tillgänglig för köp när din prenumeration är aktiverad för CloudSimple-tjänsten.  Du kan köpa valfri [nodtyp](cloudsimple-node.md) från Azure-portalen.  Minst tre noder av samma SKU krävs för att skapa ett privat moln.  Om du har köpt noderna kan du se ett fel när du försöker köpa ytterligare noder.
 
 ## <a name="quota-increase"></a>Kvotökning
 
-Du kan öka kvoten för en nod genom att skicka en support förfrågan. Tjänst drifts teamet utvärderar begäran och arbetar med dig för att öka kvoten för noden. Välj följande alternativ när du öppnar en ny biljett:
+Du kan öka nodkvoten genom att skicka en supportbegäran. Serviceoperationsteamet utvärderar begäran och arbetar med dig för att öka nodkvoten.  Välj följande alternativ när du öppnar en ny biljett:
 
-* Typ av problem: **teknisk**
-* Prenumeration: **ditt prenumerations-ID**
-* Tjänst typ: **VMware-lösning enligt AVS**
-* Problem typ: **kvot för dedikerade noder**
-* Problem under typ: **öka kvoten för dedikerade noder**
-* Ämne: **kvot ökning**
+* Typ av problem: **Teknisk**
+* Prenumeration: **Ditt prenumerations-ID**
+* Tjänsttyp: **VMware-lösning från CloudSimple**
+* Problemtyp: **Kvot för dedikerade noder**
+* Problemundertyp: **Öka kvoten för dedikerade noder**
+* Angående: **Ökning av kvoten**
 
-I information om support ärendet anger du det antal noder och den nod-SKU som krävs.
+I information om supportbiljetten anger du det antal noder och nod-SKU som krävs.
 
-* Node-SKU
-* Antal ytterligare noder som du begär att kvoten ska ökas för
+* Nod SKU
+* Antal ytterligare noder som du begär kvotökning för
 
 ## <a name="next-steps"></a>Nästa steg
 
 * [Köpa noder](create-nodes.md)
-* [Översikt över AVS-noder](cloudsimple-node.md)
+* [Översikt över CloudSimple-noder](cloudsimple-node.md)

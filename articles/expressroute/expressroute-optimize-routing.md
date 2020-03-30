@@ -1,5 +1,5 @@
 ---
-title: 'Azure-ExpressRoute: optimera routning'
+title: 'Azure ExpressRoute: Optimera routning'
 description: Den här sidan innehåller information om hur du optimerar routning när du har mer än en ExpressRoute-krets för att ansluta till Microsoft från ditt företagsnätverk.
 services: expressroute
 author: charwen
@@ -8,30 +8,30 @@ ms.topic: conceptual
 ms.date: 07/11/2019
 ms.author: charwen
 ms.openlocfilehash: dcbae103933167c583bf0f73dc2fa09178c38bd5
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74080123"
 ---
 # <a name="optimize-expressroute-routing"></a>Optimera ExpressRoute-routning
 När du har flera ExpressRoute-kretsar måste ha du mer än en sökväg för att ansluta till Microsoft. Därför kan en icke-optimal routning inträffa - vilket innebär att din trafik får en längre sökväg till Microsoft, och Microsoft till nätverket. Ju längre nätverkssökvägen är, desto längre svarstid. Svarstiden har direkt inverkan på programmens prestanda och användarupplevelse. Den här artikeln beskriver problemet och förklarar hur du optimerar routning med standardroutningstekniker.
 
-## <a name="path-selection-on-microsoft-and-public-peerings"></a>Val av Sök vägar för Microsoft och offentliga peer-datorer
-Det är viktigt att se till att när du använder Microsoft eller offentlig peering som trafik flödar över den önskade sökvägen om du har en eller flera ExpressRoute-kretsar, samt sökvägar till Internet via en Internet Exchange (IX) eller Internet leverantör (ISP). BGP använder en algoritm för bästa val av sökvägar baserat på ett antal faktorer inklusive den längsta prefix matchningen (LPM). För att säkerställa att trafik som är avsedd för Azure via Microsoft eller offentlig peering passerar ExpressRoute-sökvägen, måste kunderna implementera attributet *lokal inställning* för att säkerställa att sökvägen alltid föredras på ExpressRoute. 
+## <a name="path-selection-on-microsoft-and-public-peerings"></a>Sökvägsval på Microsoft- och Offentliga peerings
+Det är viktigt att se till att när du använder Microsoft eller Public peering att trafiken flödar över önskad väg om du har en eller flera ExpressRoute-kretsar, samt vägar till Internet via en Internet Exchange (IX) eller Internet Service Provider (ISP). BGP använder en algoritm för val av bästa sökväg baserat på ett antal faktorer, inklusive längsta prefixmatchning (LPM). För att säkerställa att trafik som är avsedd för Azure via Microsoft eller Offentlig peering går igenom ExpressRoute-sökvägen måste kunderna implementera *attributet Lokal preferens* för att säkerställa att sökvägen alltid är att föredra på ExpressRoute. 
 
 > [!NOTE]
-> Den lokala standard inställningen är normalt 100. Högre lokala inställningar är mer önskade. 
+> Standardinställningen för lokal invald är vanligtvis 100. Högre lokala preferenser är mer att föredra. 
 >
 >
 
-Tänk på följande exempel scenario:
+Tänk på följande exempelscenario:
 
 ![ExpressRoute fall 1 – Problem: Icke-optimal routning från kund till Microsoft](./media/expressroute-optimize-routing/expressroute-localPreference.png)
 
-I ovanstående exempel för att föredra ExpressRoute sökvägar konfigurerar du lokal preferens enligt följande. 
+I exemplet ovan, att föredra ExpressRoute-sökvägar konfigurera Lokal inställningarna enligt följande. 
 
-**Cisco IOS – XE-konfiguration från R1-perspektiv:**
+**Cisco IOS-XE-konfiguration från R1-perspektiv:**
 
     R1(config)#route-map prefer-ExR permit 10
     R1(config-route-map)#set local-preference 150
@@ -41,7 +41,7 @@ I ovanstående exempel för att föredra ExpressRoute sökvägar konfigurerar du
     R1(config-router)#neighbor 1.1.1.2 activate
     R1(config-router)#neighbor 1.1.1.2 route-map prefer-ExR in
 
-**Junos konfiguration från R1-perspektiv:**
+**Junos konfiguration från R1 perspektiv:**
 
     user@R1# set protocols bgp group ibgp type internal
     user@R1# set protocols bgp group ibgp local-preference 150
@@ -54,7 +54,7 @@ Låt oss titta närmare på routningsproblemet med ett exempel. Anta att du har 
 ![ExpressRoute fall 1 – Problem: Icke-optimal routning från kund till Microsoft](./media/expressroute-optimize-routing/expressroute-case1-problem.png)
 
 ### <a name="solution-use-bgp-communities"></a>Lösning: Använd BGP-communities
-För att optimera routningen för båda kontoren måste du veta vilket prefix som är från Azure i USA, västra och vilket som är från Azure i USA, östra. Vi kodar informationen genom att använda [BGP Community-värden](expressroute-routing.md). Vi har tilldelat ett unikt värde för BGP community för varje Azure-region, t. ex. "12076:51004" för östra USA, "12076:51006" för västra USA. Nu när du vet vilket prefix är från vilken Azure-region, kan du konfigurera de ExpressRoute-kretsar som ska användas. Eftersom vi använder BGP till att utbyta routningsinformation kan du påverka routningen med hjälp av BGP:s lokala inställningar. I vårt exempel kan du tilldela ett högre lokalt inställningsvärde för 13.100.0.0/16 i USA, västra än i USA, östra och på samma sätt ett högre lokalt inställningsvärde för 23.100.0.0/16 i USA, östra än i USA, västra. Den här konfigurationen ser till att, när båda sökvägarna till Microsoft är tillgängliga, användarna i Los Angeles kan använda ExpressRoute-kretsen i USA, västra för att ansluta till Azure där, medan dina användare i New York tar ExpressRoute i USA, östra till Azure där. Routning är optimerad på båda sidorna. 
+För att optimera routningen för båda kontoren måste du veta vilket prefix som är från Azure i USA, västra och vilket som är från Azure i USA, östra. Vi kodar informationen genom att använda [BGP Community-värden](expressroute-routing.md). Vi har tilldelat ett unikt BGP-communityvärde till varje Azure-region, till exempel "12076:51004" för US East, "12076:51006" för US West. Nu när du vet vilket prefix är från vilken Azure-region, kan du konfigurera de ExpressRoute-kretsar som ska användas. Eftersom vi använder BGP till att utbyta routningsinformation kan du påverka routningen med hjälp av BGP:s lokala inställningar. I vårt exempel kan du tilldela ett högre lokalt inställningsvärde för 13.100.0.0/16 i USA, västra än i USA, östra och på samma sätt ett högre lokalt inställningsvärde för 23.100.0.0/16 i USA, östra än i USA, västra. Den här konfigurationen ser till att, när båda sökvägarna till Microsoft är tillgängliga, användarna i Los Angeles kan använda ExpressRoute-kretsen i USA, västra för att ansluta till Azure där, medan dina användare i New York tar ExpressRoute i USA, östra till Azure där. Routning är optimerad på båda sidorna. 
 
 ![ExpressRoute fall 1 – Lösning: Använd BGP-communities](./media/expressroute-optimize-routing/expressroute-case1-solution.png)
 
@@ -74,7 +74,7 @@ Det finns två lösningar på problemet. Den första är att du bara annonserar 
 Den andra lösningen är att du fortsätter att annonsera båda prefixen för båda ExpressRoute-kretsarna, men dessutom ger du oss en ledtråd för vilka prefix som ligger nära dina kontor. Du kan konfigurera AS PATH för ditt prefix om du vill påverka routningen eftersom vi stöder BGP. I det här exemplet kan du förlänga AS PATH för 172.2.0.0/31 i USA, östra så att vi prioriterar ExpressRoute-kretsen i USA, västra för trafik till det prefixet (vårt nätverk kommer att tro att sökvägen till prefixet är kortare i väst). På samma sätt kan du förlänga AS PATH för 172.2.0.2/31 i USA, västra så att vi prioriterar ExpressRoute-kretsen i USA, östra. Routning är optimerat för båda kontoren. Med den här designen kan Exchange Online fortfarande nå dig via en annan ExpressRoute-krets och ditt WAN om en ExpressRoute-krets bryts. 
 
 > [!IMPORTANT]
-> Vi tar bort privata AS-nummer i AS-sökvägen för de prefix som tagits emot på Microsoft-peering när de använder ett privat AS-nummer. Du måste använda peer med en offentlig som och lägga till offentliga som nummer i AS-sökvägen för att påverka routningen för Microsoft-peering.
+> Vi tar bort privata AS-nummer i AS PATH för prefix som tas emot på Microsoft Peering när peering med ett privat AS-nummer. Du måste peer med ett offentligt AS och lägga till offentliga AS-nummer i AS PATH för att påverka routning för Microsoft Peering.
 > 
 > 
 

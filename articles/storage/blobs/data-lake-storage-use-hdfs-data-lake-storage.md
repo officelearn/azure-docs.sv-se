@@ -10,26 +10,26 @@ ms.author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: artek
 ms.openlocfilehash: 1d5313f3f0fff128dd09f9c9857b7dd9921ea4f8
-ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/23/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "69992209"
 ---
 # <a name="using-the-hdfs-cli-with-data-lake-storage-gen2"></a>Använda HDFS CLI med Data Lake Storage Gen2
 
-Du kan komma åt och hantera data i ditt lagrings konto med hjälp av ett kommando rads gränssnitt, precis som med en [Hadoop Distributed File System (HDFS)](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html). Den här artikeln innehåller några exempel på hur du kommer igång.
+Du kan komma åt och hantera data i ditt lagringskonto med hjälp av ett kommandoradsgränssnitt på samma sätt som med ett [HADoop Distributed File System (HDFS)](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html). Den här artikeln innehåller några exempel som hjälper dig att komma igång.
 
-HDInsight ger åtkomst till den distribuerade behållaren som är lokalt kopplad till Compute-noderna. Du kan komma åt den här behållaren med hjälp av gränssnittet som direkt interagerar med HDFS och de andra fil system som Hadoop stöder.
+HDInsight ger åtkomst till den distribuerade behållaren som är lokalt kopplad till beräkningsnoderna. Du kan komma åt den här behållaren med hjälp av skalet som direkt interagerar med HDFS och andra filsystem som Hadoop stöder.
 
-Mer information om HDFS CLI finns i den [officiella dokumentationen](https://hadoop.apache.org/docs/r2.4.1/hadoop-project-dist/hadoop-common/FileSystemShell.html) och [HDFS Permissions guide](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsPermissionsGuide.html)
+Mer information om HDFS CLI finns i den [officiella dokumentationen](https://hadoop.apache.org/docs/r2.4.1/hadoop-project-dist/hadoop-common/FileSystemShell.html) och [HDFS-behörighetsguiden](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsPermissionsGuide.html)
 
 >[!NOTE]
->Om du använder Azure Databricks i stället för HDInsight och du vill interagera med dina data med hjälp av ett kommando rads gränssnitt kan du använda Databricks CLI för att interagera med fil systemet Databricks. Se [DATABRICKS CLI](https://docs.azuredatabricks.net/user-guide/dev-tools/databricks-cli.html).
+>Om du använder Azure Databricks i stället för HDInsight och vill interagera med dina data med hjälp av ett kommandoradsgränssnitt kan du använda Databricks CLI för att interagera med databricks filsystemet. Se [Databricks CLI](https://docs.azuredatabricks.net/user-guide/dev-tools/databricks-cli.html).
 
-## <a name="use-the-hdfs-cli-with-an-hdinsight-hadoop-cluster-on-linux"></a>Använda HDFS CLI med ett HDInsight Hadoop-kluster på Linux
+## <a name="use-the-hdfs-cli-with-an-hdinsight-hadoop-cluster-on-linux"></a>Använd HDFS CLI med ett HDInsight Hadoop-kluster på Linux
 
-Börja [med att upprätta fjärråtkomst till tjänster](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-linux-information#remote-access-to-services). Om du väljer [SSH](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix) skulle PowerShell-exemplet se ut så här:
+Upprätta först [fjärråtkomst till tjänster](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-linux-information#remote-access-to-services). Om du väljer [SSH](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix) skulle exemplet PowerShell-koden se ut så här:
 
 ```powershell
 #Connect to the cluster via SSH.
@@ -39,16 +39,16 @@ hdfs dfs -ls /
 #Create a sample directory.
 hdfs dfs -mkdir /samplefolder
 ```
-Du hittar anslutnings strängen i avsnittet "SSH + kluster inloggning" på bladet HDInsight-kluster i Azure Portal. SSH-autentiseringsuppgifter angavs vid tidpunkten för skapandet av klustret.
+Anslutningssträngen finns i avsnittet "SSH + Cluster login" i HDInsight-klusterbladet i Azure-portalen. SSH-autentiseringsuppgifter angavs när klustret skapades.
 
 >[!IMPORTANT]
->HDInsight Cluster-faktureringen startar efter att ett kluster har skapats och stoppas när klustret tas bort. Debiteringen görs i förväg per minut, så du ska alltid ta bort ditt kluster när det inte används. Information om hur du tar bort ett kluster finns i vår [artikel i avsnittet](../../hdinsight/hdinsight-delete-cluster.md). Men data som lagras i ett lagrings konto med Data Lake Storage Gen2 aktiverat kvarstår även efter att ett HDInsight-kluster har tagits bort.
+>HDInsight-klusterfaktureringen startar när ett kluster har skapats och stoppas när klustret tas bort. Debiteringen görs i förväg per minut, så du ska alltid ta bort ditt kluster när det inte används. Mer information om hur du tar bort ett kluster finns i vår [artikel i ämnet](../../hdinsight/hdinsight-delete-cluster.md). Data som lagras i ett lagringskonto med Data Lake Storage Gen2 är dock kvar även efter att ett HDInsight-kluster har tagits bort.
 
 ## <a name="create-a-container"></a>Skapa en container
 
     hdfs dfs -D "fs.azure.createRemoteFileSystemDuringInitialization=true" -ls abfs://<container-name>@<storage-account-name>.dfs.core.windows.net/
 
-* `<container-name>` Ersätt plats hållaren med det namn som du vill ge din behållare.
+* Ersätt `<container-name>` platshållaren med det namn som du vill ge behållaren.
 
 * Ersätt platshållaren `<storage-account-name>` med namnet på ditt lagringskonto.
 
@@ -56,7 +56,7 @@ Du hittar anslutnings strängen i avsnittet "SSH + kluster inloggning" på blade
 
     hdfs dfs -ls <path>
 
-`<path>` Ersätt plats hållaren med URI: n för behållaren eller container-mappen.
+Ersätt `<path>` platshållaren med URI-urin för behållar- eller behållarmappen.
 
 Exempel: `hdfs dfs -ls abfs://my-file-system@mystorageaccount.dfs.core.windows.net/my-directory-name`
 
@@ -64,7 +64,7 @@ Exempel: `hdfs dfs -ls abfs://my-file-system@mystorageaccount.dfs.core.windows.n
 
     hdfs dfs -mkdir [-p] <path>
 
-`<path>` Ersätt plats hållaren med rot behållar namnet eller en mapp i din behållare.
+Ersätt `<path>` platshållaren med rotbehållarens namn eller en mapp i behållaren.
 
 Exempel: `hdfs dfs -mkdir abfs://my-file-system@mystorageaccount.dfs.core.windows.net/`
 
@@ -72,11 +72,11 @@ Exempel: `hdfs dfs -mkdir abfs://my-file-system@mystorageaccount.dfs.core.window
 
     hdfs dfs -rm <path>
 
-`<path>` Ersätt plats hållaren med URI: n för den fil eller mapp som du vill ta bort.
+Ersätt `<path>` platshållaren med URI:n för den fil eller mapp som du vill ta bort.
 
 Exempel: `hdfs dfs -rmdir abfs://my-file-system@mystorageaccount.dfs.core.windows.net/my-directory-name/my-file-name`
 
-## <a name="display-the-access-control-lists-acls-of-files-and-directories"></a>Visa Access Control listor (ACL: er) för filer och kataloger
+## <a name="display-the-access-control-lists-acls-of-files-and-directories"></a>Visa åtkomstkontrollistorna (ACL: er) för filer och kataloger
 
     hdfs dfs -getfacl [-R] <path>
 
@@ -86,7 +86,7 @@ Exempel:
 
 Se [getfacl](https://hadoop.apache.org/docs/r2.4.1/hadoop-project-dist/hadoop-common/FileSystemShell.html#getfacl)
 
-## <a name="set-acls-of-files-and-directories"></a>Ange ACL: er för filer och kataloger
+## <a name="set-acls-of-files-and-directories"></a>Ange ACL:er för filer och kataloger
 
     hdfs dfs -setfacl [-R] [-b|-k -m|-x <acl_spec> <path>]|[--set <acl_spec> <path>]
 
@@ -96,13 +96,13 @@ Exempel:
 
 Se [setfacl](https://hadoop.apache.org/docs/r2.4.1/hadoop-project-dist/hadoop-common/FileSystemShell.html#setfacl)
 
-## <a name="change-the-owner-of-files"></a>Ändra ägare till filer
+## <a name="change-the-owner-of-files"></a>Ändra ägare av filer
 
     hdfs dfs -chown [-R] <new_owner>:<users_group> <URI>
 
 Se [chown](https://hadoop.apache.org/docs/r2.4.1/hadoop-project-dist/hadoop-common/FileSystemShell.html#chown)
 
-## <a name="change-group-association-of-files"></a>Ändra grupp koppling för filer
+## <a name="change-group-association-of-files"></a>Ändra gruppassociation av filer
 
     hdfs dfs -chgrp [-R] <group> <URI>
 
@@ -114,10 +114,10 @@ Se [chgrp](https://hadoop.apache.org/docs/r2.4.1/hadoop-project-dist/hadoop-comm
 
 Se [chmod](https://hadoop.apache.org/docs/r2.4.1/hadoop-project-dist/hadoop-common/FileSystemShell.html#chmod)
 
-Du kan visa en fullständig lista över kommandon på webbplatsen [Apache Hadoop 2.4.1 Shell guide för fil system](https://hadoop.apache.org/docs/r2.4.1/hadoop-project-dist/hadoop-common/FileSystemShell.html) .
+Du kan visa hela listan med kommandon på [Apache Hadoop 2.4.1 File System Shell Guide](https://hadoop.apache.org/docs/r2.4.1/hadoop-project-dist/hadoop-common/FileSystemShell.html) Webbplats.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Använd ett Azure Data Lake Storage Gen2 kompatibelt konto i Azure Databricks](./data-lake-storage-quickstart-create-databricks-account.md)
+* [Använda ett Azure Data Lake Storage Gen2-kompatibelt konto i Azure Databricks](./data-lake-storage-quickstart-create-databricks-account.md)
 
-* [Lär dig mer om åtkomst kontrol listor på filer och kataloger](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control)
+* [Läs mer om åtkomstkontrollistor för filer och kataloger](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control)

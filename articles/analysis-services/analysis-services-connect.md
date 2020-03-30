@@ -1,5 +1,5 @@
 ---
-title: Ansluta till Azure Analysis Services servrar | Microsoft Docs
+title: Ansluta till Azure Analysis Services-servrar| Microsoft-dokument
 description: Lär dig hur du ansluter till och hämtar data från en Analysis Services-server i Azure.
 author: minewiskan
 ms.service: azure-analysis-services
@@ -8,54 +8,54 @@ ms.date: 10/29/2019
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: 3231b46060cbb755ada000473c8fbe873cc51ef1
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73147310"
 ---
 # <a name="connecting-to-servers"></a>Ansluta till servrar
 
-Den här artikeln beskriver hur du ansluter till en server med hjälp av data modellering och hanterings program som SQL Server Management Studio (SSMS) eller Visual Studio med Analysis Services projekt eller med klient rapporterings program som Microsoft Excel, Power BI Desktop eller anpassade program. Anslutningar till Azure Analysis Services använda HTTPS.
+I den hÃ¤r artikeln beskrivs anslutning till en server med datamodellering och datahanteringsprogram som SQL Server Management Studio (SSMS) eller Visual Studio with Analysis Services-projekt, eller med klientrapporteringsprogram som Microsoft Excel, Power BI Skrivbord eller anpassade program. Anslutningar till Azure Analysis Services använder HTTPS.
 
 ## <a name="client-libraries"></a>Klientbibliotek
 
-[Hämta de senaste klient biblioteken](analysis-services-data-providers.md)
+[Hämta de senaste klientbiblioteken](analysis-services-data-providers.md)
 
-Alla anslutningar till en server, oavsett typ, kräver uppdaterade AMO-, ADOMD.NET-och OLEDB-klientcertifikat för att ansluta till och gränssnitt med en Analysis Services-server. För SSMS, Visual Studio, Excel 2016 och senare och Power BI, installeras eller uppdateras de senaste klient biblioteken med månads versioner. Men i vissa fall är det möjligt att ett program kanske inte har det senaste. Till exempel när principer skjuter uppdateringar eller uppdateringar av Office 365 finns på den uppskjutna kanalen.
+Alla anslutningar till en server, oavsett typ, kräver uppdaterade AMO-, ADOMD.NET- och OLEDB-klientbibliotek för att ansluta till och samverka med en Analysis Services-server. För SSMS, Visual Studio, Excel 2016 och senare, och Power BI, installeras eller uppdateras de senaste klientbiblioteken med månadsversioner. Men i vissa fall är det möjligt att ett program kanske inte har det senaste. Till exempel när principer fördröjer uppdateringar eller Office 365-uppdateringar finns på uppskjuten kanal.
 
 ## <a name="server-name"></a>servernamn
 
-När du skapar en Analysis Services-server i Azure anger du ett unikt namn och den region där-servern ska skapas. När du anger Server namnet i en anslutning är Server namngivnings schema:
+När du skapar en Analysis Services-server i Azure anger du ett unikt namn och den region där servern ska skapas. När du anger servernamnet i en anslutning är servernamngivningsschemat:
 
 ```
 <protocol>://<region>/<servername>
 ```
- Om protokollet är en sträng i **Azure**är region den URI där servern skapades (till exempel westus.asazure.Windows.net) och servername är namnet på din unika server i regionen.
+ Där protokollet är sträng **asazure**är regionen Uri där servern skapades (till exempel westus.asazure.windows.net) och servernamn är namnet på din unika server i regionen.
 
-### <a name="get-the-server-name"></a>Hämta Server namnet
+### <a name="get-the-server-name"></a>Hämta servernamnet
 
-I **Azure Portal** > Server > **Översikt** > **Server namn**kopierar du hela Server namnet. Om andra användare i din organisation också ansluter till den här servern kan du dela detta Server namn med dem. När du anger ett server namn måste hela sökvägen användas.
+Kopiera hela servernamnet i **Azure portal** > server >**Översiktsservernamn.** **Overview** >  Om andra användare i organisationen också ansluter till den här servern kan du dela det här servernamnet med dem. När du anger ett servernamn måste hela sökvägen användas.
 
 ![Hämta servernamnet i Azure](./media/analysis-services-deploy/aas-deploy-get-server-name.png)
 
 > [!NOTE]
-> Protokollet för regionen USA, östra 2, är **aspaaseastus2**.
+> Protokollet för östra USA 2 regionen är **aspaaseastus2**.
 
 ## <a name="connection-string"></a>Anslutningssträng
 
-När du ansluter till Azure Analysis Services med hjälp av tabell objekts modellen använder du följande anslutnings sträng format:
+När du ansluter till Azure Analysis Services med tabellobjektmodellen använder du följande anslutningssträngformat:
 
 ###### <a name="integrated-azure-active-directory-authentication"></a>Integrerad Azure Active Directory-autentisering
 
-Integrerad autentisering hämtar cachen för Azure Active Directory-autentiseringsuppgifter om den är tillgänglig. Annars visas fönstret Azure-inloggning.
+Integrerad autentisering hämtar Azure Active Directory-autentiseringsuppgifterna om det är tillgängligt. Om inte visas Azure-inloggningsfönstret.
 
 ```
 "Provider=MSOLAP;Data Source=<Azure AS instance name>;"
 ```
 
 
-###### <a name="azure-active-directory-authentication-with-username-and-password"></a>Azure Active Directory autentisering med användar namn och lösen ord
+###### <a name="azure-active-directory-authentication-with-username-and-password"></a>Azure Active Directory-autentisering med användarnamn och lösenord
 
 ```
 "Provider=MSOLAP;Data Source=<Azure AS instance name>;User ID=<user name>;Password=<password>;Persist Security Info=True; Impersonation Level=Impersonate;";
@@ -63,20 +63,20 @@ Integrerad autentisering hämtar cachen för Azure Active Directory-autentiserin
 
 ###### <a name="windows-authentication-integrated-security"></a>Windows-autentisering (integrerad säkerhet)
 
-Använd det Windows-konto som kör den aktuella processen.
+Använd Windows-kontot som kör den aktuella processen.
 
 ```
 "Provider=MSOLAP;Data Source=<Azure AS instance name>; Integrated Security=SSPI;Persist Security Info=True;"
 ```
 
-## <a name="connect-using-an-odc-file"></a>Anslut med hjälp av en. ODC-fil
+## <a name="connect-using-an-odc-file"></a>Ansluta med en ODC-fil
 
-Med äldre versioner av Excel kan användarna ansluta till en Azure Analysis Services-server med hjälp av en ODC-fil (Office Data Connection). Mer information finns i [skapa en ODC-fil (Office Data Connection)](analysis-services-odc.md).
+Med äldre versioner av Excel kan användare ansluta till en Azure Analysis Services-server med hjälp av en Office Data Connection-fil (.odc). Mer information finns i [Skapa en Office Data Connection -fil (.odc).](analysis-services-odc.md)
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Anslut till Excel](analysis-services-connect-excel.md)    
-[Ansluta till Power BI](analysis-services-connect-pbi.md)   
+[Anslut med Excel](analysis-services-connect-excel.md)    
+[Anslut med Power BI](analysis-services-connect-pbi.md)   
 [Hantera servern](analysis-services-manage.md)   
 

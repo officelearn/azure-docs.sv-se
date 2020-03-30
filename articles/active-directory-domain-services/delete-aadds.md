@@ -1,6 +1,6 @@
 ---
-title: Ta bort Azure Active Directory Domain Services | Microsoft Docs
-description: Lär dig hur du inaktiverar eller tar bort en Azure Active Directory Domain Services hanterad domän med hjälp av Azure Portal
+title: Ta bort Azure Active Directory Domain Services | Microsoft-dokument
+description: Lär dig hur du inaktiverar eller tar bort en hanterad Azure Active Directory Domain Services-domän med Azure-portalen
 services: active-directory-ds
 author: iainfoulds
 manager: daveba
@@ -12,39 +12,39 @@ ms.topic: conceptual
 ms.date: 11/26/2019
 ms.author: iainfou
 ms.openlocfilehash: e1836f91b8afc1bb4f5b7e141949f3724c57c857
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77614032"
 ---
-# <a name="delete-an-azure-active-directory-domain-services-managed-domain-using-the-azure-portal"></a>Ta bort en Azure Active Directory Domain Services hanterad domän med hjälp av Azure Portal
+# <a name="delete-an-azure-active-directory-domain-services-managed-domain-using-the-azure-portal"></a>Ta bort en hanterad Azure Active Directory Domain Services-domän med Azure-portalen
 
-Om du inte längre behöver en hanterad domän kan du ta bort en Azure Active Directory Domain Services (Azure AD DS)-instans. Det finns inget alternativ för att stänga av eller tillfälligt inaktivera en hanterad Azure AD DS-domän. Det går inte att ta bort den hanterade Azure AD DS-domänen eller på annat sätt påverka Azure AD-klienten. Den här artikeln visar hur du använder Azure Portal för att ta bort en Azure AD DS-hanterad domän.
+Om du inte längre behöver en hanterad domän kan du ta bort en Azure Active Directory Domain Services -instans (Azure AD DS). Det finns inget alternativ för att stänga av eller tillfälligt inaktivera en Azure AD DS-hanterad domän. Om du tar bort den Hanterade Azure AD DS-domänen tas inte azure AD-klienten bort eller på annat sätt negativt. Den här artikeln visar hur du använder Azure-portalen för att ta bort en Azure AD DS-hanterad domän.
 
 > [!WARNING]
-> **Borttagning är permanent och kan inte ångras.**
-> När du tar bort en Azure AD DS-hanterad domän inträffar följande steg:
->   * Domänkontrollanter för den hanterade domänen är avetablerade och tas bort från det virtuella nätverket.
->   * Data på den hanterade domänen tas bort permanent. Dessa data omfattar anpassade organisationsenheter, grup princip objekt, anpassade DNS-poster, tjänstens huvud namn, GMSAs osv. som du har skapat.
->   * Datorer som är anslutna till den hanterade domänen förlorar sin förtroende relation med domänen och måste vara frånkopplad från domänen.
->       * Du kan inte logga in på de här datorerna med Corporate AD-autentiseringsuppgifter. I stället måste du använda autentiseringsuppgifterna för lokal administratör för datorn.
+> **Borttagningen är permanent och kan inte återföras.**
+> När du tar bort en Azure AD DS-hanterad domän inträffar följande:
+>   * Domänkontrollanter för den hanterade domänen avetablerars och tas bort från det virtuella nätverket.
+>   * Data på den hanterade domänen tas bort permanent. Dessa data omfattar anpassade företagsenheter, gpu:er, anpassade DNS-poster, tjänstobjekt, GMSAs, etc. som du har skapat.
+>   * Datorer som är anslutna till den hanterade domänen förlorar sin förtroenderelation med domänen och måste tas bort från domänen.
+>       * Du kan inte logga in på dessa datorer med företagets AD-autentiseringsuppgifter. I stället måste du använda datorns lokala administratörsbehörighet.
 
 ## <a name="delete-the-managed-domain"></a>Ta bort den hanterade domänen
 
-Utför följande steg för att ta bort en Azure AD DS-hanterad domän:
+Så här tar du bort en Hanterad Azure AD DS-domän:
 
-1. I Azure Portal söker du efter och väljer **Azure AD Domain Services**.
+1. Sök efter och välj **Azure AD Domain Services**i Azure-portalen .
 1. Välj namnet på din Azure AD DS-hanterade domän, till exempel *aaddscontoso.com*.
-1. Välj **Ta bort** på sidan **Översikt**. Bekräfta borttagningen genom att skriva domän namnet för den hanterade domänen igen och sedan välja **ta bort**.
+1. Välj **Ta bort** på sidan **Översikt**. Om du vill bekräfta borttagningen skriver du domännamnet för den hanterade domänen igen och väljer sedan **Ta bort**.
 
-Det kan ta 15-20 minuter eller mer att ta bort den hanterade Azure AD DS-domänen.
+Det kan ta 15-20 minuter eller mer att ta bort azure AD DS-hanterad domän.
 
 ## <a name="next-steps"></a>Nästa steg
 
 Överväg att [dela feedback][feedback] för de funktioner som du vill se i Azure AD DS.
 
-Om du vill komma igång med Azure AD DS igen, se [skapa och konfigurera en Azure Active Directory Domain Services instans][create-instance].
+Om du vill komma igång med Azure AD DS igen läser du [Skapa och konfigurera en Azure Active Directory Domain Services-instans][create-instance].
 
 <!-- INTERNAL LINKS -->
 [feedback]: contact-us.md

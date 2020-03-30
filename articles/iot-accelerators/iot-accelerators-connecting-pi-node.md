@@ -1,6 +1,6 @@
 ---
-title: Ansluta Raspberry Pi till fjärr styrnings lösningen-Node. js – Azure | Microsoft Docs
-description: Beskriver hur du ansluter en Raspberry Pi-enhet till lösnings Accelerator för fjärrövervakning med hjälp av ett program som skrivits i Node. js.
+title: Anslut Raspberry Pi till lösningen för fjärrövervakning - Node.js - Azure | Microsoft-dokument
+description: Beskriver hur du ansluter en Raspberry Pi-enhet till lösningsacceleratorn för fjärrövervakning med hjälp av ett program skrivet i Node.js.
 author: dominicbetts
 manager: timlt
 ms.service: iot-accelerators
@@ -9,51 +9,51 @@ ms.topic: conceptual
 ms.date: 01/24/2018
 ms.author: dobett
 ms.openlocfilehash: 98d947e8aabf20fbfdb192cb80c9bc881007d5da
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73889274"
 ---
-# <a name="connect-your-raspberry-pi-device-to-the-remote-monitoring-solution-accelerator-nodejs"></a>Anslut din Raspberry Pi-enhet till den fjärrstyrda lösningen för övervakning (Node. js)
+# <a name="connect-your-raspberry-pi-device-to-the-remote-monitoring-solution-accelerator-nodejs"></a>Anslut Raspberry Pi-enheten till lösningsacceleratorn för fjärrövervakning (Node.js)
 
 [!INCLUDE [iot-suite-selector-connecting](../../includes/iot-suite-selector-connecting.md)]
 
-I den här självstudien får du se hur du ansluter en riktig enhet till en lösnings Accelerator med fjärr styrning. I den här självstudien använder du Node. js, vilket är ett utmärkt alternativ för miljöer med minimala resurs begränsningar.
+Den här självstudien visar hur du ansluter en riktig enhet till lösningsacceleratorn för fjärrövervakning. I den här självstudien använder du Node.js, vilket är ett bra alternativ för miljöer med minimala resursbegränsningar.
 
-Om du föredrar att simulera en enhet kan du läsa [skapa och testa en ny simulerad enhet](iot-accelerators-remote-monitoring-create-simulated-device.md).
+Om du föredrar att simulera en enhet läser du [Skapa och testa en ny simulerad enhet](iot-accelerators-remote-monitoring-create-simulated-device.md).
 
-### <a name="required-hardware"></a>Nödvändig maskin vara
+### <a name="required-hardware"></a>Nödvändig maskinvara
 
-En stationär dator så att du kan fjärrans luta till kommando raden på Raspberry Pi.
+En stationär dator som gör att du kan ansluta på distans till kommandoraden på Raspberry Pi.
 
-[Microsoft IoT starter kit för Raspberry Pi 3](https://azure.microsoft.com/develop/iot/starter-kits/) eller motsvarande komponenter. I den här självstudien används följande objekt från paketet:
+[Microsoft IoT Starter Kit för Raspberry Pi 3](https://azure.microsoft.com/develop/iot/starter-kits/) eller motsvarande komponenter. Den här självstudien använder följande objekt från paketet:
 
-- Raspberry Pi 3
+- Hallon Pi 3
 - MicroSD-kort (med NOOBS)
-- En USB-Mini-kabel
+- En USB Mini-kabel
 - En Ethernet-kabel
 
-### <a name="required-desktop-software"></a>Nödvändig Desktop-programvara
+### <a name="required-desktop-software"></a>Obligatorisk programvara för stationära datorer
 
-Du behöver SSH-klienten på din station ära dator så att du kan fjärrans luta till kommando raden på Raspberry Pi.
+Du behöver SSH-klienten på din stationära dator så att du kan fjärransluta till kommandoraden på Raspberry Pi.
 
-- Windows innehåller ingen SSH-klient. Vi rekommenderar att du använder [SparaTillFil](https://www.putty.org/).
-- De flesta Linux-distributioner och Mac OS innehåller SSH-verktyget för kommando rads verktyg. Mer information finns i [SSH med Linux eller Mac OS](https://www.raspberrypi.org/documentation/remote-access/ssh/unix.md).
+- Windows innehåller inte en SSH-klient. Vi rekommenderar att du använder [PuTTY](https://www.putty.org/).
+- De flesta Linux-distributioner och Mac OS inkluderar kommandoraden SSH-verktyget. Mer information finns i [SSH Använda Linux eller Mac OS](https://www.raspberrypi.org/documentation/remote-access/ssh/unix.md).
 
-### <a name="required-raspberry-pi-software"></a>Nödvändig Raspberry Pi-programvara
+### <a name="required-raspberry-pi-software"></a>Krävs Raspberry Pi programvara
 
-Om du inte redan har gjort det installerar du Node. js version 4.0.0 eller senare på Raspberry Pi. Följande steg visar hur du installerar Node. js V6 på din Raspberry Pi:
+Om du inte redan har gjort det installerar du Node.js version 4.0.0 eller senare på din Raspberry Pi. Följande steg visar hur du installerar Node.js v6 på din Raspberry Pi:
 
-1. Anslut till din Raspberry Pi med `ssh`. Mer information finns i [SSH (Secure Shell)](https://www.raspberrypi.org/documentation/remote-access/ssh/README.md) på [Raspberry Pi-webbplatsen](https://www.raspberrypi.org/).
+1. Anslut till din Raspberry Pi med `ssh`. Mer information finns i [SSH (Secure Shell)](https://www.raspberrypi.org/documentation/remote-access/ssh/README.md) på [Raspberry Pi:s webbplats](https://www.raspberrypi.org/).
 
-1. Använd följande kommando för att uppdatera din Raspberry Pi:
+1. Använd följande kommando för att uppdatera raspberry Pi:
 
     ```sh
     sudo apt-get update
     ```
 
-1. Använd följande kommandon för att ta bort en befintlig installation av Node. js från Raspberry Pi:
+1. Använd följande kommandon för att ta bort alla befintliga installationer av Node.js från raspberry Pi:
 
     ```sh
     sudo apt-get remove nodered -y
@@ -61,24 +61,24 @@ Om du inte redan har gjort det installerar du Node. js version 4.0.0 eller senar
     sudo apt-get remove npm  -y
     ```
 
-1. Använd följande kommando för att ladda ned och installera Node. js V6 på din Raspberry Pi:
+1. Använd följande kommando för att hämta och installera Node.js v6 på din Raspberry Pi:
 
     ```sh
     curl -sL https://deb.nodesource.com/setup_6.x | sudo bash -
     sudo apt-get install nodejs npm
     ```
 
-1. Använd följande kommando för att kontrol lera att du har installerat Node. js v-6.11.4:
+1. Använd följande kommando för att kontrollera att du har installerat Node.js v6.11.4 framgångsrikt:
 
     ```sh
     node --version
     ```
 
-## <a name="create-a-nodejs-solution"></a>Skapa en Node. js-lösning
+## <a name="create-a-nodejs-solution"></a>Skapa en nod.js-lösning
 
-Slutför följande steg med hjälp av `ssh`-anslutningen till din Raspberry Pi:
+Utför följande steg `ssh` med anslutningen till Raspberry Pi:
 
-1. Skapa en mapp med namnet `remotemonitoring` i din arbetsmapp på Raspberry Pi. Navigera till den här mappen på kommando raden:
+1. Skapa en `remotemonitoring` mapp som kallas i din hemmapp på Raspberry Pi. Navigera till den här mappen på kommandoraden:
 
     ```sh
     cd ~
@@ -86,15 +86,15 @@ Slutför följande steg med hjälp av `ssh`-anslutningen till din Raspberry Pi:
     cd remotemonitoring
     ```
 
-1. Om du vill hämta och installera de paket du behöver för att slutföra exempel appen kör du följande kommandon:
+1. Om du vill hämta och installera de paket du behöver för att slutföra exempelappen kör du följande kommandon:
 
     ```sh
     npm install async azure-iot-device azure-iot-device-mqtt
     ```
 
-1. I mappen `remotemonitoring` skapar du en fil med namnet **remote_monitoring. js**. Öppna den här filen i en textredigerare. På Raspberry Pi kan du använda `nano` eller `vi` text redigerare.
+1. Skapa `remotemonitoring` en fil som heter **remote_monitoring.js**i mappen . Öppna den här filen i en textredigerare. På Raspberry Pi kan du `nano` `vi` använda eller textredigerare.
 
-1. Lägg till följande `require`-uttryck i filen **remote_monitoring. js** :
+1. Lägg till följande `require` satser i filen **remote_monitoring.js:**
 
     ```javascript
     var Protocol = require('azure-iot-device-mqtt').Mqtt;
@@ -103,13 +103,13 @@ Slutför följande steg med hjälp av `ssh`-anslutningen till din Raspberry Pi:
     var async = require('async');
     ```
 
-1. Lägg till följande variabeldeklarationer efter `require`-instruktionerna. Ersätt plats hållarens värde `{device connection string}` med det värde som du antecknade för enheten du etablerade i lösningen för fjärrövervakning:
+1. Lägg till följande variabeldeklarationer efter `require`-instruktionerna. Ersätt platshållarvärdet `{device connection string}` med värdet som du har noterat för den enhet som du har etablerat i lösningen för fjärrövervakning:
 
     ```javascript
     var connectionString = '{device connection string}';
     ```
 
-1. Lägg till följande variabler för att definiera vissa grundläggande telemetridata:
+1. Om du vill definiera vissa bastelemetridata lägger du till följande variabler:
 
     ```javascript
     var temperature = 50;
@@ -120,7 +120,7 @@ Slutför följande steg med hjälp av `ssh`-anslutningen till din Raspberry Pi:
     var pressureUnit = 'psig';
     ```
 
-1. Lägg till följande variabler för att definiera vissa egenskaps värden:
+1. Om du vill definiera vissa egenskapsvärden lägger du till följande variabler:
 
     ```javascript
     var schema = "real-chiller;v1";
@@ -133,7 +133,7 @@ Slutför följande steg med hjälp av `ssh`-anslutningen till din Raspberry Pi:
     var deviceOnline = true;
     ```
 
-1. Lägg till följande variabel för att definiera de rapporterade egenskaper som ska skickas till lösningen. Dessa egenskaper inkluderar metadata som ska visas i webb gränssnittet:
+1. Lägg till följande variabel för att definiera de rapporterade egenskaperna som ska skickas till lösningen. Dessa egenskaper omfattar metadata som ska visas i webbgränssnittet:
 
     ```javascript
     var reportedProperties = {
@@ -151,7 +151,7 @@ Slutför följande steg med hjälp av `ssh`-anslutningen till din Raspberry Pi:
     }
     ```
 
-1. Om du vill skriva ut åtgärds resultatet lägger du till följande hjälp funktion:
+1. Om du vill skriva ut åtgärdsresultat lägger du till följande hjälpfunktion:
 
     ```javascript
     function printErrorFor(op) {
@@ -161,7 +161,7 @@ Slutför följande steg med hjälp av `ssh`-anslutningen till din Raspberry Pi:
     }
     ```
 
-1. Lägg till följande hjälp funktion för att göra telemetri-värden slumpmässiga:
+1. Lägg till följande hjälpfunktion som ska användas för att randomisera telemetrivärdena:
 
      ```javascript
      function generateRandomIncrement() {
@@ -169,7 +169,7 @@ Slutför följande steg med hjälp av `ssh`-anslutningen till din Raspberry Pi:
      }
      ```
 
-1. Lägg till följande generiska funktion för att hantera direkta metod anrop från lösningen. Funktionen visar information om den direkta metoden som anropades, men i det här exemplet ändrar inte enheten på något sätt. Lösningen använder direkta metoder för att agera på enheter:
+1. Lägg till följande allmänna funktion för att hantera direkta metodanrop från lösningen. Funktionen visar information om den direkta metod som anropades, men i det här exemplet ändras inte enheten på något sätt. Lösningen använder direkta metoder för att agera på enheter:
 
      ```javascript
      function onDirectMethod(request, response) {
@@ -184,7 +184,7 @@ Slutför följande steg med hjälp av `ssh`-anslutningen till din Raspberry Pi:
      }
      ```
 
-1. Lägg till följande funktion för att hantera anropen av **FirmwareUpdate** Direct-metoden från lösningen. Funktionen verifierar parametrarna som skickas i nytto lasten för direkt metoden och kör sedan asynkront en uppdaterings simulering för inbyggd program vara:
+1. Lägg till följande funktion för att hantera **firmwareUpdate** direkt metodanrop från lösningen. Funktionen verifierar de parametrar som skickas i den direkta metoden nyttolast och sedan asynkront kör en firmware uppdatering simulering:
 
      ```javascript
      function onFirmwareUpdate(request, response) {
@@ -213,7 +213,7 @@ Slutför följande steg med hjälp av `ssh`-anslutningen till din Raspberry Pi:
      }
      ```
 
-1. Lägg till följande funktion för att simulera ett tids krävande uppdaterings flöde för inbyggd program vara som rapporterar tillbaka till lösningen:
+1. Lägg till följande funktion för att simulera ett tidskrävande uppdateringsflöde för inbyggd programvara som rapporterar förloppet tillbaka till lösningen:
 
      ```javascript
      // Simulated firmwareUpdate flow
@@ -291,7 +291,7 @@ Slutför följande steg med hjälp av `ssh`-anslutningen till din Raspberry Pi:
      }
      ```
 
-1. Lägg till följande kod för att skicka telemetridata till lösningen. Klient programmet lägger till egenskaper till meddelandet för att identifiera meddelande schemat:
+1. Lägg till följande kod för att skicka telemetridata till lösningen. Klientappen lägger till egenskaper i meddelandet för att identifiera meddelandeschemat:
 
      ```javascript
      function sendTelemetry(data, schema) {
@@ -310,7 +310,7 @@ Slutför följande steg med hjälp av `ssh`-anslutningen till din Raspberry Pi:
      }
      ```
 
-1. Lägg till följande kod för att skapa en klient instans:
+1. Lägg till följande kod för att skapa en klientinstans:
 
      ```javascript
      var client = Client.fromConnectionString(connectionString, Protocol);
@@ -319,9 +319,9 @@ Slutför följande steg med hjälp av `ssh`-anslutningen till din Raspberry Pi:
 1. Lägg till följande kod i:
 
     * Öppna anslutningen.
-    * Konfigurera en hanterare för önskade egenskaper.
+    * Ställ in en hanterare för önskade egenskaper.
     * Skicka rapporterade egenskaper.
-    * Registrera hanterare för direkta metoder. Exemplet använder en separat hanterare för direkt metoden för uppdatering av den inbyggda program varan.
+    * Registrera hanterare för de direkta metoderna. I exemplet används en separat hanterare för den direkta metoden för uppdatering av inbyggd programvara.
     * Börja skicka telemetri.
 
       ```javascript
@@ -384,9 +384,9 @@ Slutför följande steg med hjälp av `ssh`-anslutningen till din Raspberry Pi:
       });
       ```
 
-1. Spara ändringarna i filen **remote_monitoring. js** .
+1. Spara ändringarna i **filen remote_monitoring.js.**
 
-1. Starta exempel programmet genom att köra följande kommando i kommando tolken på Raspberry Pi:
+1. Om du vill starta exempelprogrammet kör du följande kommando i kommandotolken på Raspberry Pi:
 
      ```sh
      node remote_monitoring.js

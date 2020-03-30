@@ -1,6 +1,6 @@
 ---
-title: Videor om Azure-ADAL till MSAL-migrering | Azure
-description: Videor som hjälper dig att migrera från Azure Active Directory Developer Platform till Microsoft Identity Platform
+title: Azure ADAL till MSAL migrering videor | Azure
+description: Videor som hjälper dig att migrera från utvecklarplattformen för Azure Active Directory till Microsofts identitetsplattform
 services: active-directory
 author: mmacy
 manager: CelesteDG
@@ -14,29 +14,29 @@ ms.custom: aaddev
 ms.reviewer: celested
 titleSuffix: Microsoft identity platform
 ms.openlocfilehash: e71f555f7a9cefef3aeada79031db3a07e3db49a
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77202065"
 ---
-# <a name="azure-active-directory-developer-platform-videos"></a>Videor om Azure Active Directory Developer Platform
+# <a name="azure-active-directory-developer-platform-videos"></a>Videor på Azure Active Directory-utvecklarplattform
 
-Lär dig mer om den nya Microsoft Identity Platform och hur du migrerar till den från Azure Active Directory (Azure AD) Developer Platform. Videorna är vanligt vis 1-2 minuter långa.
+Lär dig mer om den nya Microsoft-identitetsplattformen och hur du migrerar till den från utvecklarplattformen Azure Active Directory (Azure AD). Videorna är vanligtvis 1-2 minuter långa.
 
-## <a name="migrate-from-v10-to-v20"></a>Migrera från v 1.0 till v 2.0
+## <a name="migrate-from-v10-to-v20"></a>Migrera från v1.0 till v2.0
 
-**Lär dig mer om att migrera till den senaste versionen av Microsoft Identity Platform**
+**Lär dig mer om att migrera till den senaste versionen av Microsofts identitetsplattform**
 
 :::row:::
     :::column:::
-        Ny översikt över Microsoft Identity Platform
+        Översikt över Microsofts nya identitetsplattform
     :::column-end:::
     :::column:::
         > [!VIDEO https://www.youtube.com/embed/bNlcFuIo3r8]
     :::column-end:::
     :::column:::
-        Introduktion till MSAL-bibliotek
+        Introduktion till MSAL-biblioteken
     :::column-end:::
     :::column:::
         > [!VIDEO https://www.youtube.com/embed/apbbx2n4tnU]
@@ -44,13 +44,13 @@ Lär dig mer om den nya Microsoft Identity Platform och hur du migrerar till den
 :::row-end:::
 :::row:::
     :::column:::
-        Slut punkter och fördelar med att flytta till v 2.0
+        Slutpunkter och fördelarna med att flytta till v2.0
     :::column-end:::
     :::column:::
         > [!VIDEO https://www.youtube.com/embed/qpdC45tZYDg]
     :::column-end:::
      :::column:::
-        Migrera ADAL-kodbasen till MSAL
+        Migrera din ADAL-kodbas till MSAL
     :::column-end:::
     :::column:::
         > [!VIDEO https://www.youtube.com/embed/xgL_z9yCnrE]
@@ -64,7 +64,7 @@ Lär dig mer om den nya Microsoft Identity Platform och hur du migrerar till den
         > [!VIDEO https://www.youtube.com/embed/qpdC45tZYDg]
     :::column-end:::
     :::column:::
-        Fördelar med MSAL över ADAL
+        Fördelar med MSAL jämfört med ADAL
     :::column-end:::
     :::column:::
         > [!VIDEO https://www.youtube.com/embed/q-TDszj2O-4]
@@ -73,4 +73,4 @@ Lär dig mer om den nya Microsoft Identity Platform och hur du migrerar till den
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig mer om den nya [Microsoft Identity Platform](https://docs.microsoft.com/azure/active-directory/develop)
+Läs mer om den nya [Microsoft-identitetsplattformen](https://docs.microsoft.com/azure/active-directory/develop)

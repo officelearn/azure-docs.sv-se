@@ -1,6 +1,6 @@
 ---
-title: Övervaka migrering av aktivitet – Azure Database Migration Service
-description: Lär dig att använda Azure Database Migration Service för att övervaka migreringen.
+title: Övervaka migreringsaktivitet - Azure Database Migration Service
+description: Lär dig att använda Azure Database Migration Service för att övervaka migreringsaktivitet.
 services: database-migration
 author: pochiraju
 ms.author: rajpo
@@ -12,55 +12,55 @@ ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 02/20/2020
 ms.openlocfilehash: 31b49cdd9e0e5569981b2a0b0c6efcab7239e019
-ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77648520"
 ---
-# <a name="monitor-migration-activity-using-the-azure-database-migration-service"></a>Övervaka migrering av aktiviteter med hjälp av Azure Database Migration Service
-I den här artikeln får du lära dig hur du övervakar förloppet för en migrering på både en databas nivå och en tabell nivå.
+# <a name="monitor-migration-activity-using-the-azure-database-migration-service"></a>Övervaka migreringsaktivitet med hjälp av Tjänsten för migrering av Azure Database
+I den här artikeln får du lära dig hur du övervakar förloppet för en migrering på både databasnivå och tabellnivå.
 
-## <a name="monitor-at-the-database-level"></a>Övervaka på databas nivå
-Om du vill övervaka aktiviteten på databas nivå kan du Visa bladet på databas nivå:
+## <a name="monitor-at-the-database-level"></a>Övervaka på databasnivå
+Om du vill övervaka aktiviteten på databasnivå visar du bladet på databasnivå:
 
-![Bladet på databas nivå](media/how-to-monitor-migration-activity/dms-database-level-blade.png)
+![Blad på databasnivå](media/how-to-monitor-migration-activity/dms-database-level-blade.png)
 
 > [!NOTE]
-> Om du väljer Database-hyperlänken visas listan över tabeller och deras migrerings förlopp.
+> Om du väljer databashyperlänken visas listan över tabeller och deras migreringsförlopp.
 
-I följande tabell visas fälten på bladet på databas nivå och en beskrivning av de olika status värden som är associerade med var och en.
+I följande tabell visas fälten på bladet på databasnivå och de olika statusvärden som är associerade med var och en beskrivs.
 
 <table id='overview' class='overview'>
   <thead>
     <tr>
       <th class="x-hidden-focus"><strong>Fältnamn</strong></th>
-      <th><strong>Fält under status</strong></th>
+      <th><strong>Understatus för fält</strong></th>
       <th><strong>Beskrivning</strong></th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td rowspan="3" class="ActivityStatus"><strong>Aktivitets status</strong></td>
+      <td rowspan="3" class="ActivityStatus"><strong>Aktivitetsstatus</strong></td>
       <td>Körs</td>
-      <td>Migreringen körs.</td>
+      <td>Migreringsaktiviteten pågår.</td>
     </tr>
     <tr>
       <td>Lyckades</td>
-      <td>Migreringen lyckades utan problem.</td>
+      <td>Migreringsaktiviteten lyckades utan problem.</td>
     </tr>
     <tr>
-      <td>Felaktig</td>
-      <td>Migreringen misslyckades. Välj länken "se fel information" under information om migreringen för det fullständiga fel meddelandet.</td>
+      <td>Fel</td>
+      <td>Migreringen misslyckades. Välj länken "Se felinformation" under migreringsinformation för det fullständiga felmeddelandet.</td>
     </tr>
     <tr>
       <td rowspan="4" class="Status"><strong>Status</strong></td>
       <td>Initierar</td>
-      <td>DMS konfigurerar pipelinen för migrering.</td>
+      <td>DMS ställer in migreringspipelinen.</td>
     </tr>
     <tr>
       <td>Körs</td>
-      <td>DMS-pipeline kör och utför migrering.</td>
+      <td>DMS-pipelinen körs och utför migroreringen.</td>
     </tr>
     <tr>
       <td>Slutför</td>
@@ -68,78 +68,78 @@ I följande tabell visas fälten på bladet på databas nivå och en beskrivning
     </tr>
     <tr>
       <td>Misslyckades</td>
-      <td>Migreringen misslyckades. Klicka på information om migrering för att se migrerings fel.</td>
+      <td>Migreringen misslyckades. Klicka på migreringsinformation för att se migreringsfel.</td>
     </tr>
     <tr>
       <td rowspan="5" class="migration-details"><strong>Information om migrering</strong></td>
-      <td>Initierar pipelinen för migrering</td>
-      <td>DMS konfigurerar pipelinen för migrering.</td>
+      <td>Initiera migreringspipelinen</td>
+      <td>DMS ställer in migreringspipelinen.</td>
     </tr>
     <tr>
-      <td>Fullständig data inläsning pågår</td>
+      <td>Fullständig databelastning pågår</td>
       <td>DMS utför den första belastningen.</td>
     </tr>
     <tr>
-      <td>Redo för start punkt</td>
-      <td>När den första inläsningen har slutförts markerar DMS-databasen som klar för start punkt. Användaren bör kontrol lera om data har hämtats vid kontinuerlig synkronisering.</td>
+      <td>Redo för Cutover</td>
+      <td>När den första belastningen är klar markerar DMS databasen som klar för cutover. Användaren bör kontrollera om data har hunnit ikapp på kontinuerlig synkronisering.</td>
     </tr>
     <tr>
-      <td>Alla ändringar har tillämpats</td>
-      <td>Den inledande inläsningen och den kontinuerliga synkroniseringen är klar. Den här statusen inträffar även efter att databasen har start punkt lyckats.</td>
+      <td>Alla ändringar tillämpas</td>
+      <td>Inledande belastning och kontinuerlig synkronisering är klara. Den här statusen inträffar också när databasen har överrullning.</td>
     </tr>
     <tr>
-      <td>Se fel information</td>
-      <td>Klicka på länken för att visa fel information.</td>
+      <td>Se felinformation</td>
+      <td>Klicka på länken för att visa felinformation.</td>
     </tr>
     <tr>
-      <td rowspan="1" class="duration"><strong>Giltighet</strong></td>
-      <td>E.t.</td>
-      <td>Total tid från migrerings aktivitet som initieras för migrering slutförd eller migrering misslyckades.</td>
+      <td rowspan="1" class="duration"><strong>Varaktighet</strong></td>
+      <td>Ej tillämpligt</td>
+      <td>Total tid från migreringsaktivitet som initierades till migreringen har slutförts eller migreringsfel.</td>
     </tr>
      </tbody>
 </table>
 
-## <a name="monitor-at-table-level--quick-summary"></a>Övervaka på tabell nivå – snabb sammanfattning
-Om du vill övervaka aktiviteten på tabell nivå visar du bladet tabell nivå. Den övre delen av bladet visar det detaljerade antalet rader som migrerats vid fullständig belastning och stegvisa uppdateringar. 
+## <a name="monitor-at-table-level--quick-summary"></a>Övervaka på tabellnivå – Snabbsammanfattning
+Om du vill övervaka aktiviteten på tabellnivå visar du bladet på tabellnivå. Den övre delen av bladet visar det detaljerade antalet rader som migrerats i full belastning och inkrementella uppdateringar. 
 
-Den nedre delen av bladet listar tabellerna och visar en snabb sammanfattning av migreringens förlopp.
+Den nedre delen av bladet visar tabellerna och visar en snabb sammanfattning av migreringsförloppet.
 
-![Blad-snabb sammanfattning på tabell nivå](media/how-to-monitor-migration-activity/dms-table-level-blade-summary.png)
+![Bladet på bordsnivå - snabb sammanfattning](media/how-to-monitor-migration-activity/dms-table-level-blade-summary.png)
 
-I följande tabell beskrivs fälten som visas i informationen på tabell nivå.
+I följande tabell beskrivs de fält som visas i information på tabellnivå.
 
-| Fältnamn        | Description       |
+| Fältnamn        | Beskrivning       |
 | ------------- | ------------- |
-| **Fullständig inläsning slutförd**      | Antal tabeller slutförd fullständig data inläsning. |
-| **Fullständig belastning i kö**      | Antal tabeller som ställts i kö för fullständig belastning.      |
-| **Fullständig belastnings inläsning** | Antalet tabeller som misslyckades.      |
-| **Stegvisa uppdateringar**      | Antalet uppdateringar av registrering av ändrings data (CDC) i rader som tillämpas på målet. |
-| **Stegvisa infogningar**      | Antal CDC-infogningar i rader som tillämpas på målet.      |
-| **Stegvisa borttagningar** | Antal CDC-borttagningar i rader som tillämpas på målet.      |
-| **Väntande ändringar**      | Antal CDC i rader som fortfarande väntar på att tillämpas på målet. |
+| **Full belastning har slutförts**      | Antalet tabeller har slutfört fullständig datainläsning. |
+| **Fullständig belastning i kö**      | Antal tabeller som köas för full belastning.      |
+| **Full lastning** | Antalet tabeller misslyckades.      |
+| **Inkrementella uppdateringar**      | Antal uppdateringar av ändringsdata (CDC) i rader som tillämpas på målet. |
+| **Inkrementella skär**      | Antal CDC-infogningar i rader som tillämpas på målet.      |
+| **Inkrementella borttagningar** | Antal CDC-borttagningar i rader som tillämpas på målet.      |
+| **Väntande ändringar**      | Antal CDC i rader som fortfarande väntar på att få tillämpas på målet. |
 | **Tillämpade ändringar**      | Totalt antal CDC-uppdateringar, infogningar och borttagningar i rader som tillämpas på målet.      |
-| **Tabeller med fel tillstånd** | Antalet tabeller som är i fel tillstånd under migreringen. Några exempel på tabeller kan hamna i fel tillstånd när det finns dubbletter som identifierats i målet eller data inte är kompatibla med inläsning i mål tabellen.      |
+| **Tabeller i feltillstånd** | Antal tabeller som är i feltillstånd under migreringen. Några exempel som tabeller kan gå in i feltillstånd är när det finns dubbletter som identifieras i målet eller data inte är kompatibla inläsning i måltabellen.      |
 
-## <a name="monitor-at-table-level--detailed-summary"></a>Övervaka på tabell nivå – detaljerad sammanfattning
-Det finns två flikar som visar migreringens förlopp vid fullständig belastning och stegvis data synkronisering.
+## <a name="monitor-at-table-level--detailed-summary"></a>Övervaka på tabellnivå – Detaljerad sammanfattning
+Det finns två flikar som visar migreringsstatus i fullständig inläsning och inkrementell datasynkronisering.
     
-![Fliken fullständig inläsning](media/how-to-monitor-migration-activity/dms-full-load-tab.png)
+![Fliken Fullständig inläsning](media/how-to-monitor-migration-activity/dms-full-load-tab.png)
 
-![Fliken stegvis synkronisering av data](media/how-to-monitor-migration-activity/dms-incremental-data-sync-tab.png)
+![Fliken Inkryssning av data](media/how-to-monitor-migration-activity/dms-incremental-data-sync-tab.png)
 
-I följande tabell beskrivs fälten som visas i migreringen av tabell nivå.
+I följande tabell beskrivs de fält som visas i migreringsstatus på tabellnivå.
 
-| Fältnamn        | Description       |
+| Fältnamn        | Beskrivning       |
 | ------------- | ------------- |
-| **Status-synkronisering**      | Kontinuerlig synkronisering körs. |
-| **Matning**      | Antal CDC-infogningar i rader som tillämpas på målet.      |
-| **Uppdatera** | Antal CDC-uppdateringar i rader som tillämpas på målet.      |
+| **Status - Synkronisering**      | Kontinuerlig synkronisering körs. |
+| **Infoga**      | Antal CDC-infogningar i rader som tillämpas på målet.      |
+| **Uppdatering** | Antal CDC-uppdateringar i rader som tillämpas på målet.      |
 | **Ta bort**      | Antal CDC-borttagningar i rader som tillämpas på målet. |
-| **Totalt antal tillämpade**      | Totalt antal CDC-uppdateringar, infogningar och borttagningar i rader som tillämpas på målet. |
-| **Data fel** | Antalet data fel som har inträffat i den här tabellen. Några exempel på fel är *511: det går inte att skapa en rad med storleken% d, vilket är större än den maximalt tillåtna rad storleken på% d, 8114: det gick inte att konvertera data typen% LS till% ls.*  Kunden ska fråga från dms_apply_exceptions-tabellen i Azure Target för att se fel informationen.    |
+| **Totalt tillämpat**      | Totalt antal CDC-uppdateringar, infogningar och borttagningar i rader som tillämpas på målet. |
+| **Datafel** | Antal datafel som inträffat i den här tabellen. Några exempel på felen är *511: Det går inte att skapa en rad med storlek %d som är större än den tillåtna maximala radstorleken %d, 8114: Fel uppstod om du inte konverterar datatyp %ls till %ls.*  Kunden bör fråga från dms_apply_exceptions tabellen i Azure-målet för att se felinformationen.    |
 
 > [!NOTE]
-> CDC-värden för INSERT-, Update-och Delete-och total applicerad kan minska när databasen är start punkt eller om migreringen startas om.
+> CDC-värden för Infoga, Uppdatera och Ta bort och Totalt tillämpad kan minska när databasen är överskärning eller migrering startas om.
 
 ## <a name="next-steps"></a>Nästa steg
-- Läs igenom vägledningen för migrering i Microsoft [Database migration guide](https://datamigration.microsoft.com/).
+- Läs migreringsvägledningen i [Migreringsguiden för](https://datamigration.microsoft.com/)Microsoft Database .

@@ -1,6 +1,6 @@
 ---
-title: Dela Galleri bilder över klienter i Azure
-description: Lär dig hur du delar VM-avbildningar i Azure-klienter med hjälp av delade avbildnings gallerier.
+title: Dela galleriavbildningar över klienter i Azure
+description: Lär dig hur du delar VM-avbildningar över Azure-klienter med delade avbildningsgallerier.
 services: virtual-machines-windows
 author: cynthn
 manager: gwallace
@@ -11,25 +11,25 @@ ms.topic: article
 ms.date: 07/15/2019
 ms.author: cynthn
 ms.openlocfilehash: 9b7e7066f186017b7cc4408cd4f7edcc7e5f0dcd
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74065508"
 ---
-# <a name="share-gallery-vm-images-across-azure-tenants"></a>Dela Galleri VM-avbildningar i Azure-klienter
+# <a name="share-gallery-vm-images-across-azure-tenants"></a>Dela vm-avbildningar i galleri över Azure-klienter
 
-Med delade avbildnings gallerier kan du dela avbildningar med RBAC. Du kan använda RBAC för att dela avbildningar i din klient organisation och till och med personer utanför din klient organisation. Mer information om det här enkla delnings alternativet finns i avsnittet [dela galleriet](/azure/virtual-machines/windows/shared-images-portal#share-the-gallery).
+Med delade bildgallerier kan du dela bilder med RBAC. Du kan använda RBAC för att dela avbildningar i din klientorganisation och till och med till personer utanför din klientorganisation. Mer information om det här enkla delningsalternativet finns i [Dela galleriet](/azure/virtual-machines/windows/shared-images-portal#share-the-gallery).
 
 [!INCLUDE [virtual-machines-share-images-across-tenants](../../../includes/virtual-machines-share-images-across-tenants.md)]
 
 
 > [!IMPORTANT]
-> Du kan inte använda portalen för att distribuera en virtuell dator från en avbildning i en annan Azure-klient. Om du vill skapa en virtuell dator från en avbildning som delas mellan klienter, måste du använda [Azure CLI](../linux/share-images-across-tenants.md) eller PowerShell.
+> Du kan inte använda portalen för att distribuera en virtuell dator från en avbildning i en annan azure-klientorganisation. Om du vill skapa en virtuell dator från en avbildning som delas mellan klienter måste du använda [Azure CLI](../linux/share-images-across-tenants.md) eller Powershell.
 
 ## <a name="create-a-vm-using-powershell"></a>Skapa en virtuell dator med PowerShell
 
-Logga in på båda klienterna med program-ID, hemlighet och klient-ID. 
+Logga in på båda klienterna med hjälp av program-ID, hemlighet och klient-ID. 
 
 ```azurepowershell-interactive
 $applicationId = '<App ID>'
@@ -42,7 +42,7 @@ Connect-AzAccount -ServicePrincipal -Credential $cred  -Tenant "<Tenant 1 ID>"
 Connect-AzAccount -ServicePrincipal -Credential $cred -Tenant "<Tenant 2 ID>"
 ```
 
-Skapa den virtuella datorn i resurs gruppen som har behörighet för appens registrering. Ersätt informationen i det här exemplet med din egen.
+Skapa den virtuella datorn i resursgruppen som har behörighet för appregistreringen. Ersätt informationen i det här exemplet med din egen.
 
 
 
@@ -86,4 +86,4 @@ New-AzVM -ResourceGroupName $resourceGroup -Location $location -VM $vmConfig
 
 ## <a name="next-steps"></a>Nästa steg
 
-Du kan också skapa delade avbildnings Galleri resurser med hjälp av [Azure Portal](shared-images-portal.md).
+Du kan också skapa resurser för delat avbildningsgalleri med [Azure-portalen](shared-images-portal.md).

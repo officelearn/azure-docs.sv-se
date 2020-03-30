@@ -1,151 +1,151 @@
 ---
-title: Databas bearbetning utan server med Azure Cosmos DB och Azure Functions
-description: Lär dig hur Azure Cosmos DB och Azure Functions kan användas tillsammans för att skapa program med händelse drivna Server lös data behandling.
+title: Serverlös databasdatorbehandling med Azure Cosmos DB och Azure Functions
+description: Lär dig mer om hur Azure Cosmos DB och Azure Functions kan användas tillsammans för att skapa händelsedrivna serverlösa datorappar.
 author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/17/2019
 ms.author: sngun
 ms.openlocfilehash: 70545020899b69508a4cedb0fd7cf5495c847104
-ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77462453"
 ---
-# <a name="serverless-database-computing-using-azure-cosmos-db-and-azure-functions"></a>Databas bearbetning utan server med hjälp av Azure Cosmos DB och Azure Functions
+# <a name="serverless-database-computing-using-azure-cosmos-db-and-azure-functions"></a>Serverlös databasdatoranvändning med Azure Cosmos DB och Azure Functions
 
-Data behandling utan server är allt om möjligheten att fokusera på enskilda delar av logiken som är repeterbara och tillstånds lösa. Dessa delar kräver ingen infrastruktur hantering och de använder bara resurser för de sekunder eller millisekunder som de körs för. I kärnan av den server fria data bearbetningen är funktioner som är tillgängliga i Azures eko system genom att [Azure Functions](https://azure.microsoft.com/services/functions). Om du vill veta mer om andra miljöer utan server i Azure ser du [Server lösa på Azure](https://azure.microsoft.com/solutions/serverless/) -sidan. 
+Serverless computing handlar om förmågan att fokusera på enskilda bitar av logik som är repeterbara och tillståndslösa. Dessa bitar kräver ingen infrastrukturhantering och de förbrukar resurser bara för sekunder, eller millisekunder, de körs för. Kärnan i den serverlösa datorrörelsen är funktioner som görs tillgängliga i Azure-ekosystemet av [Azure Functions](https://azure.microsoft.com/services/functions). Om du vill veta mer om andra serverlösa körningsmiljöer i Azure finns [serverlös på](https://azure.microsoft.com/solutions/serverless/) Azure-sidan. 
 
-Med den interna integrationen mellan [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db) och Azure Functions kan du skapa databas utlösare, indata bindningar och utgående bindningar direkt från ditt Azure Cosmos DB-konto. Med hjälp av Azure Functions och Azure Cosmos DB kan du skapa och distribuera händelse drivna appar utan server med låg latens åtkomst till RTF-data för en global användar bas.
+Med den inbyggda integreringen mellan [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db) och Azure Functions kan du skapa databasutlösare, indatabindningar och utdatabindningar direkt från ditt Azure Cosmos DB-konto. Med Hjälp av Azure Functions och Azure Cosmos DB kan du skapa och distribuera händelsedrivna serverlösa appar med åtkomst med låg latens till omfattande data för en global användarbas.
 
 ## <a name="overview"></a>Översikt
 
-Azure Cosmos DB och Azure Functions kan du integrera dina databaser och appar utan server på följande sätt:
+Med Azure Cosmos DB och Azure Functions kan du integrera dina databaser och serverlösa appar på följande sätt:
 
-* Skapa en händelse driven **Azure Functions-utlösare för Cosmos DB**. Den här utlösaren förlitar sig på att [ändra feed](change-feed.md) -strömmar för att övervaka dina Azure Cosmos-behållare. När ändringar görs i en behållare skickas ändrings flödes strömmen till utlösaren, som anropar Azure-funktionen.
-* Du kan också binda en Azure-funktion till en Azure Cosmos-behållare med hjälp av en **Indatamask**. Data bindningar läser data från en behållare när en funktion körs.
-* Bind en funktion till en Azure Cosmos-behållare med hjälp av en **utgående bindning**. Utgående bindningar skriver data till en behållare när en funktion slutförs.
+* Skapa en händelsedriven **Azure Functions-utlösare för Cosmos DB**. Den här utlösaren är beroende av [ändringsflöden](change-feed.md) för att övervaka din Azure Cosmos-behållare för ändringar. När ändringar görs i en behållare skickas ändringsfeedströmmen till utlösaren, som anropar Azure-funktionen.
+* Du kan också binda en Azure-funktion till en Azure Cosmos-behållare med hjälp av en **indatabindning**. Indatabindningar läser data från en behållare när en funktion körs.
+* Binda en funktion till en Azure Cosmos-behållare med hjälp av en **utdatabindning**. Utdatabindningar skriver data till en behållare när en funktion är klar.
 
 > [!NOTE]
-> För närvarande stöds Azure Functions utlösare, indata bindningar och utgående bindningar för Cosmos DB endast för användning med SQL-API: et. För alla andra Azure Cosmos DB-API: er ska du komma åt databasen från din funktion med hjälp av den statiska klienten för ditt API.
+> Azure Functions-utlösare, indatabindningar och utdatabindningar för Cosmos DB stöds endast för användning med SQL API. För alla andra Azure Cosmos DB-API:er bör du komma åt databasen från din funktion med hjälp av den statiska klienten för ditt API.
 
 
-Följande diagram illustrerar var och en av dessa tre integreringar: 
+Följande diagram illustrerar var och en av dessa tre integrationer: 
 
-![Hur Azure Cosmos DB och Azure Functions integrera](./media/serverless-computing-database/cosmos-db-azure-functions-integration.png)
+![Så här integreras Azure Cosmos DB och Azure Functions](./media/serverless-computing-database/cosmos-db-azure-functions-integration.png)
 
-Azure Functions utlösare, indata bindning och utgående bindning för Azure Cosmos DB kan användas i följande kombinationer:
+Azure Functions-utlösaren, indatabindningen och utdatabindningen för Azure Cosmos DB kan användas i följande kombinationer:
 
-* En Azure Functions-utlösare för Cosmos DB kan användas med en utgående bindning till en annan Azure Cosmos-behållare. När en funktion utför en åtgärd på ett objekt i ändrings flödet kan du skriva den till en annan behållare (och skriva den till samma behållare som den kom ifrån skulle skapa en rekursiv loop). Du kan också använda en Azure Functions-utlösare för Cosmos DB för att effektivt migrera alla ändrade objekt från en behållare till en annan behållare, med hjälp av en utgående bindning.
-* Data bindningar och utgående bindningar för Azure Cosmos DB kan användas i samma Azure-funktion. Detta fungerar bra om du vill hitta vissa data med den angivna bindningen, ändra den i Azure-funktionen och sedan spara den i samma behållare eller en annan behållare efter ändringen.
-* En indata-bindning till en Azure Cosmos-behållare kan användas i samma funktion som en Azure Functions-utlösare för Cosmos DB, och kan även användas med eller utan en utgående bindning. Du kan använda den här kombinationen för att tillämpa uppdaterad valuta utbytes information (som hämtas med en indata-bindning till en Exchange-behållare) till ändrings flödet för nya beställningar i shopping vagns tjänsten. Den uppdaterade shopping vagns summan, med den aktuella valuta omvandlingen som används, kan skrivas till en tredje behållare med hjälp av en utgående bindning.
+* En Azure Functions-utlösare för Cosmos DB kan användas med en utdatabindning till en annan Azure Cosmos-behållare. När en funktion utför en åtgärd på ett objekt i ändringsflödet kan du skriva den till en annan behållare (skriva den till samma behållare som den kom från skulle effektivt skapa en rekursiv loop). Du kan också använda en Azure Functions-utlösare för Cosmos DB för att effektivt migrera alla ändrade objekt från en behållare till en annan behållare, med hjälp av en utdatabindning.
+* Indatabindningar och utdatabindningar för Azure Cosmos DB kan användas i samma Azure-funktion. Detta fungerar bra i de fall då du vill hitta vissa data med indatabindningen, ändra den i Azure-funktionen och sedan spara den i samma behållare eller en annan behållare, efter ändringen.
+* En indatabindning till en Azure Cosmos-behållare kan användas i samma funktion som en Azure Functions-utlösare för Cosmos DB och kan också användas med eller utan utdatabindning. Du kan använda den här kombinationen för att tillämpa aktuell valutaväxlingsinformation (dras in med en indatabindning till en utbytesbehållare) på ändringsflödet av nya order i din kundvagnstjänst. Den uppdaterade kundvagnssumman, med den aktuella valutakonverteringen tillämpad, kan skrivas till en tredje behållare med hjälp av en utdatabindning.
 
 ## <a name="use-cases"></a>Användningsfall
 
-Följande användnings fall visar några sätt som du kan använda för att få ut mesta möjliga av dina Azure Cosmos DB data – genom att ansluta dina data till händelse drivna Azure Functions.
+Följande användningsfall visar några sätt att få ut det mesta av dina Azure Cosmos DB-data – genom att ansluta dina data till händelsedrivna Azure Functions.
 
-### <a name="iot-use-case---azure-functions-trigger-and-output-binding-for-cosmos-db"></a>Användnings fall för IoT – Azure Functions utlösare och utgående bindning för Cosmos DB
+### <a name="iot-use-case---azure-functions-trigger-and-output-binding-for-cosmos-db"></a>IoT användningsfall - Azure Functions utlösare och utdatabindning för Cosmos DB
 
-I IoT-implementeringar kan du anropa en funktion när kontroll motor lampan visas i en ansluten bil.
+I IoT-implementeringar kan du anropa en funktion när kontrollmotorlampan visas i en ansluten bil.
 
-**Implementering:** Använd en Azure Functions utlösare och utgående bindning för Cosmos DB
+**Genomförande:** Använda en Azure Functions-utlösare och utdatabindning för Cosmos DB
 
-1. En **Azure Functions-utlösare för Cosmos DB** används för att utlösa händelser som rör Car-aviseringar, t. ex. kontroll motor lampan som kommer på en ansluten bil.
-2. När kontroll motorn lyser skickas sensor data till Azure Cosmos DB.
-3. Azure Cosmos DB skapar eller uppdaterar nya sensor data dokument. dessa ändringar strömmas sedan till Azure Functions-utlösaren för Cosmos DB.
-4. Utlösaren anropas vid varje data ändring till sensor data insamlingen, eftersom alla ändringar strömmas via ändrings flödet.
-5. Ett tröskel villkor används i funktionen för att skicka sensor data till garanti avdelningen.
+1. En **Azure Functions-utlösare för Cosmos DB** används för att utlösa händelser relaterade till bilaviseringar, till exempel kontrollmotorlampan som tänds i en ansluten bil.
+2. När kontrollmotorlampan kommer skickas sensordata till Azure Cosmos DB.
+3. Azure Cosmos DB skapar eller uppdaterar nya sensordatadokument, sedan strömmas dessa ändringar till Azure Functions-utlösaren för Cosmos DB.
+4. Utlösaren anropas vid varje dataändring till sensordatainsamlingen, eftersom alla ändringar strömmas via ändringsflödet.
+5. Ett tröskeltillstånd används i funktionen för att skicka sensordata till garantiavdelningen.
 6. Om temperaturen också är över ett visst värde skickas även en avisering till ägaren.
-7. Den **utgående bindningen** för funktionen uppdaterar Car-posten i en annan Azure Cosmos-behållare för att lagra information om kontroll motor händelsen.
+7. **Utdatabindningen** för funktionen uppdaterar bilposten i en annan Azure Cosmos-behållare för att lagra information om checkmotorhändelsen.
 
-Följande bild visar koden som skrivits i Azure Portal för den här utlösaren.
+Följande avbildning visar koden som skrivs i Azure-portalen för den här utlösaren.
 
-![Skapa en Azure Functions-utlösare för Cosmos DB i Azure Portal](./media/serverless-computing-database/cosmos-db-trigger-portal.png)
+![Skapa en Azure Functions-utlösare för Cosmos DB i Azure-portalen](./media/serverless-computing-database/cosmos-db-trigger-portal.png)
 
-### <a name="financial-use-case---timer-trigger-and-input-binding"></a>Ekonomiskt användnings fall – timer-utlösare och ingående bindning
+### <a name="financial-use-case---timer-trigger-and-input-binding"></a>Finansiellt användningsfall - Timer-utlösare och indatabindning
 
-I finansiella implementeringar kan du anropa en funktion när ett bank kontos saldo faller under en viss mängd.
+I ekonomiska implementeringar kan du anropa en funktion när ett bankkontosaldo faller under ett visst belopp.
 
-**Implementering:** En timer-utlösare med en Azure Cosmos DB inleveranstransport
+**Genomförande:** En timerutlösare med en Azure Cosmos DB-indatabindning
 
-1. Med hjälp av en [timer-utlösare](../azure-functions/functions-bindings-timer.md)kan du hämta bank kontots saldobelopp som lagras i en Azure Cosmos-behållare vid tidsinställda intervall med hjälp av en **data bindning**.
-2. Om saldot är lägre än tröskelvärdet för den låga balansen som användaren har angett följer du upp med en åtgärd från Azure-funktionen.
-3. Utgående bindning kan vara en [SendGrid-integrering](../azure-functions/functions-bindings-sendgrid.md) som skickar ett e-postmeddelande från ett tjänst konto till de e-postadresser som identifieras för var och en av de konton som är låga.
+1. Med hjälp av en [timerutlösare](../azure-functions/functions-bindings-timer.md)kan du hämta bankkontobalansinformationen som lagras i en Azure Cosmos-behållare med tidsburslag med hjälp av en **indatabindning**.
+2. Om saldot ligger under tröskelvärdet för låg balans som angetts av användaren följer du upp med en åtgärd från Azure-funktionen.
+3. Utdatabindningen kan vara en [SendGrid-integrering](../azure-functions/functions-bindings-sendgrid.md) som skickar ett e-postmeddelande från ett tjänstkonto till de e-postadresser som identifierats för var och en av kontona med lågt saldo.
 
-Följande bilder visar koden i Azure Portal för det här scenariot.
+Följande avbildningar visar koden i Azure-portalen för det här scenariot.
 
-![Index. js-fil för en timer-utlösare för ett finansiellt scenario](./media/serverless-computing-database/cosmos-db-functions-financial-trigger.png)
+![Index.js-fil för en Timer-utlösare för ett finansiellt scenario](./media/serverless-computing-database/cosmos-db-functions-financial-trigger.png)
 
-![Kör. CSX-fil för en timer-utlösare för ett finansiellt scenario](./media/serverless-computing-database/azure-function-cosmos-db-trigger-run.png)
+![Run.csx-fil för en Timer-utlösare för ett ekonomiskt scenario](./media/serverless-computing-database/azure-function-cosmos-db-trigger-run.png)
 
-### <a name="gaming-use-case---azure-functions-trigger-and-output-binding-for-cosmos-db"></a>Användnings fall för spel – Azure Functions utlösare och utgående bindning för Cosmos DB 
+### <a name="gaming-use-case---azure-functions-trigger-and-output-binding-for-cosmos-db"></a>Användningsfall för spel - Azure Functions utlösare och utdatabindning för Cosmos DB 
 
-När en ny användare skapas i spel kan du söka efter andra användare som kan känna till dem med hjälp av [API: et för Azure Cosmos DB Gremlin](graph-introduction.md). Du kan sedan skriva resultatet till en [Azure Cosmos DB SQL-databas] för enkel hämtning.
+När en ny användare skapas i spel kan du söka efter andra användare som kanske känner till dem med hjälp av [Azure Cosmos DB Gremlin API](graph-introduction.md). Du kan sedan skriva resultaten till en [Azure Cosmos DB SQL-databas] för enkel hämtning.
 
-**Implementering:** Använd en Azure Functions utlösare och utgående bindning för Cosmos DB
+**Genomförande:** Använda en Azure Functions-utlösare och utdatabindning för Cosmos DB
 
-1. Genom att använda en Azure Cosmos DB [diagram databas](graph-introduction.md) för att lagra alla användare kan du skapa en ny funktion med en Azure Functions-utlösare för Cosmos dB. 
-2. När en ny användare infogas, anropas funktionen och sedan lagras resultatet med hjälp av en **utgående bindning**.
-3. Funktionen frågar graf-databasen för att söka efter alla användare som är direkt relaterade till den nya användaren och returnerar den data uppsättningen till funktionen.
-4. Dessa data lagras sedan i en Azure Cosmos DB som sedan enkelt kan hämtas av alla klient program som visar den nya användaren.
+1. Med hjälp av en Azure Cosmos [DB-grafdatabas](graph-introduction.md) för att lagra alla användare kan du skapa en ny funktion med en Azure Functions-utlösare för Cosmos DB. 
+2. När en ny användare infogas anropas funktionen och sedan lagras resultatet med hjälp av en **utdatabindning**.
+3. Funktionen frågar grafdatabasen för att söka efter alla användare som är direkt relaterade till den nya användaren och returnerar den datauppsättningen till funktionen.
+4. Dessa data lagras sedan i en Azure Cosmos DB som sedan enkelt kan hämtas av alla frontend-program som visar den nya användaren deras anslutna vänner.
 
-### <a name="retail-use-case---multiple-functions"></a>Exempel på detalj handels användning – flera funktioner
+### <a name="retail-use-case---multiple-functions"></a>Användningsfall för återförsäljare - Flera funktioner
 
-När en användare lägger till ett objekt i sin varukorg i detalj handels implementeringar har du nu möjlighet att skapa och anropa funktioner för valfria affärs pipeline-komponenter.
+När en användare lägger till en artikel i sin varukorg i butiksimplementeringar har du nu flexibiliteten att skapa och anropa funktioner för valfria pipeline-komponenter.
 
-**Implementering:** Flera Azure Functions-utlösare för Cosmos DB lyssnar på en behållare
+**Genomförande:** Flera Azure Functions-utlösare för Cosmos DB lyssnar på en behållare
 
-1. Du kan skapa flera Azure Functions genom att lägga till Azure Functions utlösare för Cosmos DB till varje, som lyssnar på samma ändrings flöde för shopping vagns data. Observera att när flera funktioner lyssnar på samma ändrings flöde krävs en ny låne samling för varje funktion. Mer information om låne samlingar finns i [förstå bibliotek för ändrings flödes processor](change-feed-processor.md).
-2. Varje gång ett nytt objekt läggs till i en användares Shopping vagn, anropas varje funktion oberoende av ändrings flödet från behållaren kundvagn.
-   * En funktion kan använda innehållet i den aktuella korgen för att ändra visningen av andra objekt som användaren kan vara intresse rad av.
-   * En annan funktion kan uppdatera inventerings summor.
-   * En annan funktion kan skicka kund information för vissa produkter till marknadsförings avdelningen, som skickar dem en kampanj post. 
+1. Du kan skapa flera Azure-funktioner genom att lägga till Azure Functions-utlösare för Cosmos DB till var och en - som alla lyssnar på samma ändringsflöde av kundvagnsdata. Observera att när flera funktioner lyssnar på samma ändringsflöde krävs en ny lånesamling för varje funktion. Mer information om lånesamlingar finns [i Förstå biblioteket Ändra feedprocessor](change-feed-processor.md).
+2. När en ny artikel läggs till i en användares kundvagn anropas varje funktion oberoende av ändringsflödet från kundvagnsbehållaren.
+   * En funktion kan använda innehållet i den aktuella korgen för att ändra visningen av andra objekt som användaren kan vara intresserad av.
+   * En annan funktion kan uppdatera lagersum summan.
+   * En annan funktion kan skicka kundinformation för vissa produkter till marknadsavdelningen, som skickar dem en kampanj mailer. 
 
-     Alla avdelningar kan skapa en Azure Functions för Cosmos DB genom att lyssna på ändrings flödet och se till att de inte fördröjer kritiska bearbetnings händelser i processen.
+     Alla avdelningar kan skapa en Azure Functions for Cosmos DB genom att lyssna på ändringsflödet och se till att de inte försenar kritiska orderbearbetningshändelser i processen.
 
-I alla dessa användnings fall, eftersom funktionen har frikopplat själva appen, behöver du inte skapa nya app-instanser hela tiden. I stället skapar Azure Functions enskilda funktioner för att slutföra diskreta processer vid behov.
+I alla dessa användningsfall, eftersom funktionen har frikopplat själva appen, behöver du inte snurra upp nya appinstanser hela tiden. I stället konfigurerar Azure Functions enskilda funktioner för att slutföra diskreta processer efter behov.
 
 ## <a name="tooling"></a>Verktyg
 
-Intern integrering mellan Azure Cosmos DB och Azure Functions finns i Azure Portal och i Visual Studio 2019.
+Native integration mellan Azure Cosmos DB och Azure Functions är tillgänglig i Azure-portalen och i Visual Studio 2019.
 
-* I Azure Functions-portalen kan du skapa en utlösare. Instruktioner för snabb start finns i [skapa en Azure Functions-utlösare för Cosmos db i Azure Portal](https://aka.ms/cosmosdbtriggerportalfunc).
-* I Azure Cosmos DB Portal kan du lägga till en Azure Functions-utlösare för Cosmos DB till en befintlig Azure Function-app i samma resurs grupp.
-* I Visual Studio 2019 kan du skapa utlösaren med hjälp av [Azure Functions verktyg](../azure-functions/functions-develop-vs.md):
+* I Azure Functions-portalen kan du skapa en utlösare. Instruktioner för snabbstart finns i [Skapa en Azure Functions-utlösare för Cosmos DB i Azure-portalen](https://aka.ms/cosmosdbtriggerportalfunc).
+* I Azure Cosmos DB-portalen kan du lägga till en Azure Functions-utlösare för Cosmos DB i en befintlig Azure Function-app i samma resursgrupp.
+* I Visual Studio 2019 kan du skapa utlösaren med hjälp av [Azure Functions Tools:](../azure-functions/functions-develop-vs.md)
 
     >[!VIDEO https://www.youtube.com/embed/iprndNsUeeg]
 
-## <a name="why-choose-azure-functions-integration-for-serverless-computing"></a>Varför ska du välja Azure Functions-integrering för Server lös data behandling?
+## <a name="why-choose-azure-functions-integration-for-serverless-computing"></a>Varför välja Azure Functions-integrering för serverlös databehandling?
 
-Azure Functions ger möjlighet att skapa skalbara arbets enheter eller korta delar av logik som kan köras på begäran, utan etablering eller hantering av infrastruktur. Genom att använda Azure Functions behöver du inte skapa en fullständig app för att svara på ändringar i din Azure Cosmos-databas, men du kan skapa små återanvändbara funktioner för vissa aktiviteter. Dessutom kan du också använda Azure Cosmos DB data som indata eller utdata till en Azure-funktion som svar på händelse som till exempel en HTTP-begäran eller en tids aktive rad utlösare.
+Azure Functions ger möjlighet att skapa skalbara arbetsenheter eller koncisa element av logik som kan köras på begäran, utan att etablera eller hantera infrastruktur. Genom att använda Azure Functions behöver du inte skapa en fullskalig app för att svara på ändringar i din Azure Cosmos-databas, du kan skapa små återanvändbara funktioner för specifika uppgifter. Dessutom kan du också använda Azure Cosmos DB-data som indata eller utdata till en Azure-funktion som svar på händelser som en HTTP-begäran eller en tidsinnad utlösare.
 
-Azure Cosmos DB är den rekommenderade databasen för din server lös data behandlings arkitektur av följande anledningar:
+Azure Cosmos DB är den rekommenderade databasen för din serverlösa datorarkitektur av följande skäl:
 
-* **Omedelbar åtkomst till alla dina data**: du har detaljerad åtkomst till alla värden som lagras eftersom Azure Cosmos DB [automatiskt indexerar](index-policy.md) alla data som standard och gör dessa index omedelbart tillgängliga. Det innebär att du kan fråga, uppdatera och lägga till nya objekt i databasen och få omedelbar åtkomst via Azure Functions.
+* **Omedelbar åtkomst till alla dina data:** Du har detaljerad åtkomst till alla värden som lagras eftersom Azure Cosmos DB [automatiskt indexerar](index-policy.md) alla data som standard och gör dessa index omedelbart tillgängliga. Det innebär att du hela tiden kan fråga, uppdatera och lägga till nya objekt i databasen och få omedelbar åtkomst via Azure Functions.
 
-* **Schema**lös. Azure Cosmos DB är schema lös – så att det är unikt att hantera data utdata från en Azure-funktion. Detta "hanterar alla"-tillvägagångs sätt gör det enkelt att skapa en rad funktioner som alla utdata till Azure Cosmos DB.
+* **Schemalös**. Azure Cosmos DB är schemalös - så det är unikt kunna hantera alla datautdata från en Azure-funktion. Den här metoden "hantera vad som helst" gör det enkelt att skapa en mängd olika funktioner som alla utdata till Azure Cosmos DB.
 
-* **Skalbart data flöde**. Data flödet kan skalas upp och ned direkt i Azure Cosmos DB. Om du har hundratals eller tusentals funktioner som frågar och skriver till samma behållare kan du skala upp dina [ru/s](request-units.md) för att hantera belastningen. Alla funktioner kan arbeta parallellt med din allokerade RU/s och dina data garanteras vara [konsekventa](consistency-levels.md).
+* **Skalbart dataflöde**. Dataflöde kan skalas upp och ned direkt i Azure Cosmos DB. Om du har hundratals eller tusentals funktioner som frågar och skriver till samma behållare kan du skala upp [dina RU/s](request-units.md) för att hantera belastningen. Alla funktioner kan fungera parallellt med hjälp av din allokerade RU/s och dina data är garanterat [konsekventa.](consistency-levels.md)
 
-* **Global replikering**. Du kan replikera Azure Cosmos DB data över [hela världen](distribute-data-globally.md) för att minska svars tiden, så att du kan hitta data som ligger närmast var användarna finns. Precis som med alla Azure Cosmos DB-frågor läser data från händelse drivna utlösare data från den Azure Cosmos DB som är närmast användaren.
+* **Global replikering**. Du kan replikera Azure Cosmos DB-data [runt om i världen](distribute-data-globally.md) för att minska svarstiden, geo-lokalisera dina data närmast där dina användare är. Precis som med alla Azure Cosmos DB-frågor läss data från händelsedrivna utlösare data från Azure Cosmos DB närmast användaren.
 
 Om du vill integrera med Azure Functions för att lagra data och inte behöver djup indexering eller om du behöver lagra bifogade filer och mediefiler, kan [Azure Blob Storage-utlösaren](../azure-functions/functions-bindings-storage-blob.md) vara ett bättre alternativ.
 
-Fördelar med Azure Functions: 
+Fördelar med Azure-funktioner: 
 
-* **Händelse driven**. Azure Functions är händelse drivna och kan lyssna på en ändrings flöde från Azure Cosmos DB. Det innebär att du inte behöver skapa lyssnings logik. du behåller bara ett öga för de ändringar du lyssnar på. 
+* **Händelsedriven**. Azure Functions är händelsedrivna och kan lyssna på en ändringsfeed från Azure Cosmos DB. Detta innebär att du inte behöver skapa lyssnande logik, du bara hålla ett öga på de förändringar du lyssnar på. 
 
-* **Inga gränser**. Funktionerna körs parallellt och tjänsten ökar så många som du behöver. Du anger parametrarna.
+* **Inga gränser**. Funktionerna körs parallellt och tjänsten snurrar upp så många du behöver. Du ställer in parametrarna.
 
-* **Lämpligt för snabba uppgifter**. Tjänsten ökar nya instanser av funktioner när en händelse utlöses och stängs så snart funktionen slutförs. Du betalar bara för den tid som dina funktioner körs.
+* **Bra för snabba uppgifter**. Tjänsten snurrar upp nya instanser av funktioner när en händelse utlöses och stänger dem så snart funktionen är klar. Du betalar bara för den tid dina funktioner körs.
 
-Om du inte är säker på om Flow, Logic Apps, Azure Functions eller WebJobs är bäst för din implementering, se [Välj mellan Flow, Logic Apps, Functions och WebJobs](../azure-functions/functions-compare-logic-apps-ms-flow-webjobs.md).
+Om du är osäker på om Flow, Logic Apps, Azure Functions eller WebJobs är bäst för implementeringen läser [du Välj mellan Flow, Logic Apps, Functions och WebJobs](../azure-functions/functions-compare-logic-apps-ms-flow-webjobs.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nu ska vi ansluta Azure Cosmos DB och Azure Functions för verkliga: 
+Nu ska vi ansluta Azure Cosmos DB och Azure Functions på riktigt: 
 
-* [Skapa en Azure Functions-utlösare för Cosmos DB i Azure Portal](https://aka.ms/cosmosdbtriggerportalfunc)
-* [Skapa en Azure Functions HTTP-utlösare med en Azure Cosmos DB inkommande bindning](https://aka.ms/cosmosdbinputbind)
-* [Azure Cosmos DB bindningar och utlösare](../azure-functions/functions-bindings-cosmosdb-v2.md)
+* [Skapa en Azure Functions-utlösare för Cosmos DB i Azure-portalen](https://aka.ms/cosmosdbtriggerportalfunc)
+* [Skapa en HTTP-utlösare i Azure Functions med en Azure Cosmos DB-indatabindning](https://aka.ms/cosmosdbinputbind)
+* [Azure Cosmos DB-bindningar och utlösare](../azure-functions/functions-bindings-cosmosdb-v2.md)

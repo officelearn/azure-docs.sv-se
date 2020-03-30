@@ -1,7 +1,7 @@
 ---
-title: OData-ordning – efter referens
+title: OData order-för-referens
 titleSuffix: Azure Cognitive Search
-description: Syntax och språk referens dokumentation för att använda order by i Azure Kognitiv sökning-frågor.
+description: Syntax- och språkreferensdokumentation för att använda order-by i Azure Cognitive Search-frågor.
 manager: nitinme
 author: brjohnstmsft
 ms.author: brjohnst
@@ -20,19 +20,19 @@ translation.priority.mt:
 - zh-cn
 - zh-tw
 ms.openlocfilehash: 99ec639b88f3334530243242aadfa0ab52a40df0
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74113159"
 ---
-# <a name="odata-orderby-syntax-in-azure-cognitive-search"></a>OData $orderby-syntax i Azure Kognitiv sökning
+# <a name="odata-orderby-syntax-in-azure-cognitive-search"></a>OData $orderby syntax i Azure Cognitive Search
 
- Du kan använda [OData **$OrderBy** -parametern](query-odata-filter-orderby-syntax.md) för att tillämpa en anpassad sorterings ordning för sök resultat i Azure kognitiv sökning. I den här artikeln beskrivs syntaxen för **$OrderBy** i detalj. Mer allmän information om hur du använder **$OrderBy** när du presenterar Sök resultat finns i [så här arbetar du med Sök resultat i Azure kognitiv sökning](search-pagination-page-layout.md).
+ Du kan använda [parametern OData **$orderby** ](query-odata-filter-orderby-syntax.md) för att tillämpa en anpassad sorteringsordning för sökresultat i Azure Cognitive Search. I den här artikeln beskrivs syntaxen för **$orderby** i detalj. Mer allmän information om hur du använder **$orderby** när du presenterar sökresultat finns [i Så här arbetar du med sökresultat i Azure Cognitive Search](search-pagination-page-layout.md).
 
 ## <a name="syntax"></a>Syntax
 
-Parametern **$OrderBy** accepterar en kommaavgränsad lista med upp till 32 **order by-satser**. Syntaxen för en order by-sats beskrivs av följande EBNF ([Extended backable-Naur form](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form)):
+Parametern **$orderby** accepterar en kommaavgränsad lista med upp till 32 **order-by-satser**. Syntaxen för en order-by-sats beskrivs av följande EBNF ([Extended Backus-Naur Form](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form)):
 
 <!-- Upload this EBNF using https://bottlecaps.de/rr/ui to create a downloadable railroad diagram. -->
 
@@ -42,45 +42,45 @@ order_by_clause ::= (field_path | sortable_function) ('asc' | 'desc')?
 sortable_function ::= geo_distance_call | 'search.score()'
 ```
 
-Ett interaktivt syntax diagram är också tillgängligt:
+Det finns också ett interaktivt syntaxdiagram:
 
 > [!div class="nextstepaction"]
-> [OData-syntax diagram för Azure Kognitiv sökning](https://azuresearch.github.io/odata-syntax-diagram/#order_by_clause)
+> [OData-syntaxdiagram för Azure Cognitive Search](https://azuresearch.github.io/odata-syntax-diagram/#order_by_clause)
 
 > [!NOTE]
-> Se [referens för OData-uttryck för Azure kognitiv sökning](search-query-odata-syntax-reference.md) för den fullständiga ebnf.
+> Se [OData-uttryckssyntaxreferens för Azure Cognitive Search](search-query-odata-syntax-reference.md) för hela EBNF.
 
-Varje sats har sorterings villkor, eventuellt följt av en sorterings riktning (`asc` för stigande eller `desc` för fallande). Om du inte anger någon riktning, är standardvärdet stigande. Sorterings villkoren kan antingen vara sökvägen till ett `sortable` fält eller ett anrop till antingen [`geo.distance`](search-query-odata-geo-spatial-functions.md) -eller [`search.score`](search-query-odata-search-score-function.md) -funktionerna.
+Varje sats har sorteringsvillkor, eventuellt`asc` följt av `desc` en sorteringsriktning (för stigande eller fallande). Om du inte anger någon riktning är standardvärdet stigande. Sorteringsvillkoren kan antingen vara `sortable` sökvägen till ett [`geo.distance`](search-query-odata-geo-spatial-functions.md) fält [`search.score`](search-query-odata-search-score-function.md) eller ett anrop till antingen funktionerna eller funktionerna.
 
-Om flera dokument har samma sorterings villkor och `search.score` funktionen inte används (till exempel om du sorterar efter ett numeriskt `Rating` fält och tre dokument har en klassificering på 4) bryts bindningarna av dokument poängen i fallande ordning. När dokument resultatet är detsamma (till exempel när det inte finns någon text Sök fråga som anges i begäran) är den relativa ordningen för de bundna dokumenten obestämd.
+Om flera dokument har samma `search.score` sorteringsvillkor och funktionen inte används (till `Rating` exempel om du sorterar efter ett numeriskt fält och tre dokument alla har en klassificering på 4), bryts banden efter dokumentpoäng i fallande ordning. När dokumentpoängen är desamma (till exempel när ingen fulltextsökningsfråga anges i begäran) är den relativa ordningen för de bundna dokumenten obestämd.
 
-Du kan ange flera sorterings villkor. Ordningen på uttryck avgör den slutliga sorterings ordningen. Om du till exempel vill sortera fallande efter poäng, följt av klassificering, skulle syntaxen vara `$orderby=search.score() desc,Rating desc`.
+Du kan ange flera sorteringsvillkor. Uttrycksordningen bestämmer den slutliga sorteringsordningen. Om du till exempel vill sortera fallande efter poäng, följt av Betyg, skulle syntaxen vara `$orderby=search.score() desc,Rating desc`.
 
-Syntaxen för `geo.distance` i **$OrderBy** är samma som i **$filter**. När du använder `geo.distance` i **$OrderBy**måste det fält som det gäller för vara av typen `Edm.GeographyPoint` och det måste också vara `sortable`.
+Syntaxen `geo.distance` för i **$orderby** är densamma som i **$filter**. När `geo.distance` du använder i **$orderby**måste det fält som `Edm.GeographyPoint` det gäller vara `sortable`av typen och det måste också vara .
 
-Syntaxen för `search.score` i **$OrderBy** är `search.score()`. Funktionen `search.score` tar inga parametrar.
+Syntaxen `search.score` för i **$orderby** `search.score()`är . Funktionen `search.score` tar inga parametrar.
 
 ## <a name="examples"></a>Exempel
 
-Sortera hotell stigande efter grund pris:
+Sortera hotell som stiger efter baspris:
 
     $orderby=BaseRate asc
 
-Sortera hotell fallande efter klassificering och sedan stigande efter bas pris (kom ihåg att stigande är standard):
+Sortera hotell fallande efter betyg, sedan stigande efter basränta (kom ihåg att stigande är standard):
 
     $orderby=Rating desc,BaseRate
 
-Sortera hotell fallande efter klassificering och sedan stigande efter avstånd från givna koordinater:
+Sortera hotell fallande efter betyg, sedan stigande efter avstånd från de angivna koordinaterna:
 
     $orderby=Rating desc,geo.distance(Location, geography'POINT(-122.131577 47.678581)') asc
 
-Sortera hotell i fallande ordning efter sökning. score och betyg och sedan i stigande ordning efter avstånd från givna koordinater. Mellan två hotell med identiska resultat och omdömen visas den närmast första:
+Sortera hotell i fallande ordning efter search.score och betyg, och sedan i stigande ordning efter avstånd från de angivna koordinaterna. Mellan två hotell med identiska relevanspoäng och betyg visas den närmaste först:
 
     $orderby=search.score() desc,Rating desc,geo.distance(Location, geography'POINT(-122.131577 47.678581)') asc
 
 ## <a name="next-steps"></a>Nästa steg  
 
-- [Så här arbetar du med Sök resultat i Azure Kognitiv sökning](search-pagination-page-layout.md)
-- [OData uttrycks språk översikt för Azure Kognitiv sökning](query-odata-filter-orderby-syntax.md)
-- [Syntax-referens för OData-uttryck för Azure Kognitiv sökning](search-query-odata-syntax-reference.md)
-- [Sök efter &#40;dokument Azure-kognitiv sökning REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)
+- [Så här arbetar du med sökresultat i Azure Cognitive Search](search-pagination-page-layout.md)
+- [Språköversikt för OData-uttryck för Azure Cognitive Search](query-odata-filter-orderby-syntax.md)
+- [Syntaxreferens för OData-uttryck för Azure Cognitive Search](search-query-odata-syntax-reference.md)
+- [Sökdokument &#40;Azure Cognitive Search REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)

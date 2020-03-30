@@ -1,6 +1,6 @@
 ---
-title: Data Factory funktioner och systemvariabler
-description: Innehåller en lista över Azure Data Factory funktioner och systemvariabler
+title: Data fabriksfunktioner och systemvariabler
+description: Innehåller en lista över Azure Data Factory-funktioner och systemvariabler
 documentationcenter: ''
 author: djpmsft
 ms.author: daperlov
@@ -11,33 +11,33 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.openlocfilehash: 9acc369e24d1bac92dea3fb6ae391a410e5f6c3d
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73667656"
 ---
-# <a name="azure-data-factory---functions-and-system-variables"></a>Azure Data Factory-Functions och systemvariabler
+# <a name="azure-data-factory---functions-and-system-variables"></a>Azure Data Factory - Funktioner och systemvariabler
 > [!NOTE]
-> Den här artikeln gäller för version 1 av Data Factory. Om du använder den aktuella versionen av tjänsten Data Factory, se [Systemvariabler i Data Factory](../control-flow-system-variables.md).
+> Den här artikeln gäller för version 1 av Data Factory. Om du använder den aktuella versionen av datafabrikstjänsten läser du [Systemvariabler i Data Factory](../control-flow-system-variables.md).
 
 Den här artikeln innehåller information om funktioner och variabler som stöds av Azure Data Factory.
 
 ## <a name="data-factory-system-variables"></a>Data Factory systemvariabler
 
-| Variabel namn | Beskrivning | Objekt omfång | JSON-omfång och användnings fall |
+| Variabelnamn | Beskrivning | Objektets omfattning | JSON Omfattning och användningsfall |
 | --- | --- | --- | --- |
-| WindowStart |Början på tidsintervallet för den aktuella aktivitets körnings perioden |aktivitet |<ol><li>Ange data urvals frågor. Se de kopplings artiklar som refereras i artikeln [data förflyttnings aktiviteter](data-factory-data-movement-activities.md) .</li> |
-| WindowEnd |Tidsintervall för pågående aktivitets körnings fönster |aktivitet |samma som WindowStart. |
-| SliceStart |Början av tidsintervall för data sektorn som skapas |aktivitet<br/>Data uppsättning |<ol><li>Ange dynamiska sökvägar till mappar och fil namn när du arbetar med [data uppsättningar](data-factory-onprem-file-system-connector.md)för [Azure Blob](data-factory-azure-blob-connector.md) och fil systemet.</li><li>Ange indata-beroenden med Data Factory-funktioner i indata-samlingen.</li></ol> |
-| SliceEnd |Slutet av tidsintervallet för den aktuella data sektorn. |aktivitet<br/>Data uppsättning |samma som SliceStart. |
+| Fönsterstart |Tidsintervallstart för fönstret aktuell aktivitetskörning |aktivitet |<ol><li>Ange datavalsfrågor. Se anslutningsartiklar som refereras i artikeln [Dataflyttningsaktiviteter.](data-factory-data-movement-activities.md)</li> |
+| FönsterEnd |Slutintervall för aktuella fönstret för aktivitetskörning |aktivitet |samma som WindowStart. |
+| Segmentstart |Start av tidsintervall för datasegment som produceras |aktivitet<br/>Datamängd |<ol><li>Ange dynamiska mappsökvägar och filnamn när du arbetar med [Azure Blob-](data-factory-azure-blob-connector.md) och [File System-datauppsättningar](data-factory-onprem-file-system-connector.md).</li><li>Ange indataberoenden med datafabriksfunktioner i samlingen för indata i aktivitetsindata.</li></ol> |
+| Skivad |på tidsintervallet för aktuellt datasegment. |aktivitet<br/>Datamängd |samma som SliceStart. |
 
 > [!NOTE]
-> För närvarande kräver Data Factory att schemat som anges i aktiviteten exakt matchar det schema som anges i tillgänglighet för data uppsättningen för utdata. Därför mappar WindowStart, WindowEnd och SliceStart och SliceEnd alltid till samma tids period och en enda utgående sektor.
+> För närvarande kräver datafabriken att schemat som anges i aktiviteten exakt matchar det schema som anges i tillgängligheten för utdatauppsättningen. Därför mappas alltid WindowStart, WindowEnd och SliceStart och SliceEnd till samma tidsperiod och ett enda utdatasegment.
 > 
 
-### <a name="example-for-using-a-system-variable"></a>Exempel på användning av en system variabel
-I följande exempel extraheras år, månad, dag och tid för **SliceStart** till separata variabler som används av **FolderPath** -och **filename** -egenskaperna.
+### <a name="example-for-using-a-system-variable"></a>Exempel för att använda en systemvariabel
+I följande exempel extraheras år, månad, dag och tid för **SegmentStart** i separata variabler som används av **egenskaperna folderPath** och **fileName.**
 
 ```json
 "folderPath": "wikidatagateway/wikisampledataout/{Year}/{Month}/{Day}",
@@ -51,17 +51,17 @@ I följande exempel extraheras år, månad, dag och tid för **SliceStart** till
 ],
 ```
 
-## <a name="data-factory-functions"></a>Data Factory funktioner
-Du kan använda funktioner i Data Factory tillsammans med systemvariabler i följande syfte:
+## <a name="data-factory-functions"></a>Data Factory-funktioner
+Du kan använda funktioner i datafabriken tillsammans med systemvariabler för följande ändamål:
 
-1. Ange frågor för data urval (se kopplings artiklar som refereras till i artikeln [data förflyttnings aktiviteter](data-factory-data-movement-activities.md) ).
+1. Ange datavalsfrågor (se kopplingsartiklar som refereras av artikeln [Dataflyttningsaktiviteter.](data-factory-data-movement-activities.md)
    
-   Syntaxen för att anropa en Data Factory-funktion är: **$$\<funktionen >** för data urvals frågor och andra egenskaper i aktiviteten och data uppsättningarna.  
-2. Ange indata-beroenden med Data Factory-funktioner i indata-samlingen.
+   Syntaxen för att anropa en ** $$ \<** datafabriksfunktion är: funktion>för datavalsfrågor och andra egenskaper i aktiviteten och datauppsättningarna.  
+2. Ange indataberoenden med datafabriksfunktioner i samlingen för indata i aktivitetsindata.
    
-    $ $ behövs inte för att ange indata beroende uttryck.     
+    $$ behövs inte för att ange indataberoendeuttryck.     
 
-I följande exempel tilldelas egenskapen **sqlReaderQuery** i en JSON-fil ett värde som returneras av funktionen `Text.Format`. Det här exemplet använder också en system variabel med namnet **WindowStart**, som representerar start tiden för aktivitets körnings fönstret.
+I följande exempel tilldelas **sqlReaderQuery-egenskapen** i en JSON-fil `Text.Format` ett värde som returneras av funktionen. Det här exemplet använder också en systemvariabel med namnet **WindowStart**, som representerar starttiden för fönstret för aktivitetskörning.
 
 ```json
 {
@@ -70,37 +70,37 @@ I följande exempel tilldelas egenskapen **sqlReaderQuery** i en JSON-fil ett v�
 }
 ```
 
-Se avsnittet [anpassade datum-och tids format strängar](https://msdn.microsoft.com/library/8kb3ddd4.aspx) som beskriver olika formateringsalternativ som du kan använda (till exempel: Ay vs. åååå). 
+Se Avsnittet [Anpassade datum- och tidsformatsträngar](https://msdn.microsoft.com/library/8kb3ddd4.aspx) som beskriver olika formateringsalternativ som du kan använda (till exempel ay vs. yyyy). 
 
-### <a name="functions"></a>Functions
+### <a name="functions"></a>Funktioner
 I följande tabeller visas alla funktioner i Azure Data Factory:
 
 | Kategori | Funktion | Parametrar | Beskrivning |
 | --- | --- | --- | --- |
-| Tid |AddHours (X, Y) |X: DateTime <br/><br/>Y: int |Lägger till Y-timmar på den aktuella tiden X. <br/><br/>Exempel: `9/5/2013 12:00:00 PM + 2 hours = 9/5/2013 2:00:00 PM` |
-| Tid |AddMinutes (X, Y) |X: DateTime <br/><br/>Y: int |Lägger till Y minuter till X.<br/><br/>Exempel: `9/15/2013 12: 00:00 PM + 15 minutes = 9/15/2013 12: 15:00 PM` |
-| Tid |StartOfHour (X) |X: datetime |Hämtar start tiden för den timme som representeras av Tim komponenten i X. <br/><br/>Exempel: `StartOfHour of 9/15/2013 05: 10:23 PM is 9/15/2013 05: 00:00 PM` |
-| Date |AddDays (X, Y) |X: DateTime<br/><br/>Y: int |Lägger till Y-dagar till X. <br/><br/>Exempel: 9/15/2013 12:00:00 PM + 2 dagar = 9/17/2013 12:00:00 PM.<br/><br/>Du kan subtrahera dagar genom att ange Y som ett negativt tal.<br/><br/>Exempel: `9/15/2013 12:00:00 PM - 2 days = 9/13/2013 12:00:00 PM`. |
-| Date |AddMonths (X, Y) |X: DateTime<br/><br/>Y: int |Lägger till Y-månader till X.<br/><br/>`Example: 9/15/2013 12:00:00 PM + 1 month = 10/15/2013 12:00:00 PM`.<br/><br/>Du kan subtrahera månader genom att ange Y som ett negativt tal.<br/><br/>Exempel: `9/15/2013 12:00:00 PM - 1 month = 8/15/2013 12:00:00 PM`.|
-| Date |AddQuarters (X, Y) |X: DateTime <br/><br/>Y: int |Lägger till Y * 3 månader till X.<br/><br/>Exempel: `9/15/2013 12:00:00 PM + 1 quarter = 12/15/2013 12:00:00 PM` |
-| Date |AddWeeks (X, Y) |X: DateTime<br/><br/>Y: int |Lägger till Y * 7 dagar till X<br/><br/>Exempel: 9/15/2013 12:00:00 PM + 1 vecka = 9/22/2013 12:00:00 PM<br/><br/>Du kan subtrahera veckor genom att ange Y som ett negativt tal.<br/><br/>Exempel: `9/15/2013 12:00:00 PM - 1 week = 9/7/2013 12:00:00 PM`. |
-| Date |AddYears (X, Y) |X: DateTime<br/><br/>Y: int |Lägger till Y-år till X.<br/><br/>`Example: 9/15/2013 12:00:00 PM + 1 year = 9/15/2014 12:00:00 PM`<br/><br/>Du kan subtrahera år genom att ange Y som ett negativt tal.<br/><br/>Exempel: `9/15/2013 12:00:00 PM - 1 year = 9/15/2012 12:00:00 PM`. |
-| Date |Dag (X) |X: DateTime |Hämtar dags komponenten för X.<br/><br/>Exempel: `Day of 9/15/2013 12:00:00 PM is 9`. |
-| Date |DayOfWeek (X) |X: DateTime |Hämtar dag i veckan-komponenten i X.<br/><br/>Exempel: `DayOfWeek of 9/15/2013 12:00:00 PM is Sunday`. |
-| Date |DayOfYear (X) |X: DateTime |Hämtar den dag under året som representeras av års komponenten för X.<br/><br/>Exempel:<br/>`12/1/2015: day 335 of 2015`<br/>`12/31/2015: day 365 of 2015`<br/>`12/31/2016: day 366 of 2016 (Leap Year)` |
-| Date |DaysInMonth (X) |X: DateTime |Hämtar de dagar i månaden som representeras av månads komponenten för parametern X.<br/><br/>Exempel: `DaysInMonth of 9/15/2013 are 30 since there are 30 days in the September month`. |
-| Date |EndOfDay (X) |X: DateTime |Hämtar datum/tid som representerar slutet på dagen (dag komponenten) för X.<br/><br/>Exempel: `EndOfDay of 9/15/2013 05:10:23 PM is 9/15/2013 11:59:59 PM`. |
-| Date |EndOfMonth (X) |X: DateTime |Hämtar slutet på månaden som representeras av month-komponenten för parametern X. <br/><br/>Exempel: `EndOfMonth of 9/15/2013 05:10:23 PM is 9/30/2013 11:59:59 PM` (datum och tid som motsvarar slutet av månaden i september) |
-| Date |StartOfDay (X) |X: DateTime |Hämtar början på den dag som representeras av dags komponenten för parametern X.<br/><br/>Exempel: `StartOfDay of 9/15/2013 05:10:23 PM is 9/15/2013 12:00:00 AM`. |
-| DateTime |Från (X) |X: sträng |Parsa sträng X till en datum tid. |
-| DateTime |Tick (X) |X: DateTime |Hämtar egenskapen ticks för parametern X. Ett skal är lika med 100 nanosekunder. Värdet för den här egenskapen representerar antalet Tick som har förflutit sedan 12:00:00 midnatt, 1 januari 0001. |
-| Text |Format (X) |X: sträng variabel |Formaterar texten (Använd `\\'` kombination för att undvika `'` tecken).|
+| Tid |AddHours(X,Y) |X: DateTime <br/><br/>Y: int |Lägger till Y-timmar till den angivna tiden X. <br/><br/>Exempel: `9/5/2013 12:00:00 PM + 2 hours = 9/5/2013 2:00:00 PM` |
+| Tid |AddMinutes(X,Y) |X: DateTime <br/><br/>Y: int |Lägger till Y minuter till X.<br/><br/>Exempel: `9/15/2013 12: 00:00 PM + 15 minutes = 9/15/2013 12: 15:00 PM` |
+| Tid |Startofhour(X) |X: Datumtid |Hämtar starttiden för den timme som representeras av timkomponenten i X. <br/><br/>Exempel: `StartOfHour of 9/15/2013 05: 10:23 PM is 9/15/2013 05: 00:00 PM` |
+| Datum |AddDays(X,Y) |X: DateTime<br/><br/>Y: int |Lägger till Y-dagar i X. <br/><br/>Exempel: 2013-09-15 12:00:00 + 2 dagar = 2013-09-17 12:00:00.<br/><br/>Du kan subtrahera dagar också genom att ange Y som ett negativt tal.<br/><br/>Exempel: `9/15/2013 12:00:00 PM - 2 days = 9/13/2013 12:00:00 PM`. |
+| Datum |AddMonths(X,Y) |X: DateTime<br/><br/>Y: int |Lägger till Y månader till X.<br/><br/>`Example: 9/15/2013 12:00:00 PM + 1 month = 10/15/2013 12:00:00 PM`.<br/><br/>Du kan subtrahera månader också genom att ange Y som ett negativt tal.<br/><br/>Exempel: `9/15/2013 12:00:00 PM - 1 month = 8/15/2013 12:00:00 PM`.|
+| Datum |AddQuarters(X,Y) |X: DateTime <br/><br/>Y: int |Lägger till Y * 3 månader till X.<br/><br/>Exempel: `9/15/2013 12:00:00 PM + 1 quarter = 12/15/2013 12:00:00 PM` |
+| Datum |AddWeeks(X,Y) |X: DateTime<br/><br/>Y: int |Lägger till Y * 7 dagar till X<br/><br/>Exempel: 2013-09-15 12:00:00 + 1 vecka = 2013-09-22 12:00:00<br/><br/>Du kan subtrahera veckor också genom att ange Y som ett negativt tal.<br/><br/>Exempel: `9/15/2013 12:00:00 PM - 1 week = 9/7/2013 12:00:00 PM`. |
+| Datum |AddYears(X,Y) |X: DateTime<br/><br/>Y: int |Lägger Y år till X.<br/><br/>`Example: 9/15/2013 12:00:00 PM + 1 year = 9/15/2014 12:00:00 PM`<br/><br/>Du kan subtrahera år också genom att ange Y som ett negativt tal.<br/><br/>Exempel: `9/15/2013 12:00:00 PM - 1 year = 9/15/2012 12:00:00 PM`. |
+| Datum |Dag(X) |X: DateTime |Hämtar dagkomponenten i X.<br/><br/>Exempel: `Day of 9/15/2013 12:00:00 PM is 9`. |
+| Datum |Dagiveve(X) |X: DateTime |Hämtar veckodagskomponenten i X.<br/><br/>Exempel: `DayOfWeek of 9/15/2013 12:00:00 PM is Sunday`. |
+| Datum |Dagiår(X) |X: DateTime |Får den dag i året som representeras av årskomponenten i X.<br/><br/>Exempel:<br/>`12/1/2015: day 335 of 2015`<br/>`12/31/2015: day 365 of 2015`<br/>`12/31/2016: day 366 of 2016 (Leap Year)` |
+| Datum |DaysInMonth(X) |X: DateTime |Hämtar dagarna i månaden som representeras av månadskomponenten i parameter X.<br/><br/>Exempel: `DaysInMonth of 9/15/2013 are 30 since there are 30 days in the September month`. |
+| Datum |EndOfDay(X) |X: DateTime |Hämtar den datumtid som representerar slutet på dagen (dagkomponenten) för X.<br/><br/>Exempel: `EndOfDay of 9/15/2013 05:10:23 PM is 9/15/2013 11:59:59 PM`. |
+| Datum |EndOfMonth(X) |X: DateTime |Får slutet av månaden representeras av månad komponent av parameter X. <br/><br/>Exempel: `EndOfMonth of 9/15/2013 05:10:23 PM is 9/30/2013 11:59:59 PM` (datumtid som representerar slutet av september månad) |
+| Datum |Startofday(X) |X: DateTime |Hämtar början av dagen representeras av dagkomponenten i parameter X.<br/><br/>Exempel: `StartOfDay of 9/15/2013 05:10:23 PM is 9/15/2013 12:00:00 AM`. |
+| DateTime |Från(X) |X: Sträng |Tolka sträng X till en datumtid. |
+| DateTime |Fästingar(X) |X: DateTime |Hämtar egenskapen fästingar för parametern X. En fästing motsvarar 100 nanoseconds. Värdet för den här egenskapen representerar antalet fästingar som har förflutit sedan 12:00:00 midnatt, 1 januari 0001. |
+| Text |Format(X) |X: Strängvariabel |Formaterar texten (använd `\\'` kombination `'` för att escape-tecken).|
 
 > [!IMPORTANT]
-> När du använder en funktion i en annan funktion behöver du inte använda **$$** -prefix för den inre funktionen. Exempel: $ $Text. format (' PartitionKey EQ \\' my_pkey_filter_value\\' och RowKey är \\' {0: ÅÅÅÅ-MM-dd HH: mm: SS}\\' ', Time. AddHours (SliceStart,-6)). I det här exemplet ser du att **$$** prefix inte används för funktionen **Time. AddHours** . 
+> När du använder en funktion i en **$$** annan funktion behöver du inte använda prefixet för den inre funktionen. Till exempel: $$Text.Format('PartitionKey \\eq\\'my_pkey_filter_value' och RowKey \\ge '{0: yyyy-MM-dd HH:mm:ss}\\'', Time.AddHours(SliceStart, -6)). I det här **$$** exemplet märker du att prefixet inte används för funktionen **Time.AddHours.** 
 
 #### <a name="example"></a>Exempel
-I följande exempel bestäms indata-och utdataparametrar för Hive-aktiviteten med hjälp av funktionen `Text.Format` och SliceStart-systemvariabeln. 
+I följande exempel bestäms in- och utdataparametrar `Text.Format` för Hive-aktiviteten med hjälp av funktions- och SliceStart-systemvariabeln. 
 
 ```json  
 {
@@ -141,7 +141,7 @@ I följande exempel bestäms indata-och utdataparametrar för Hive-aktiviteten m
 
 ### <a name="example-2"></a>Exempel 2
 
-I följande exempel bestäms DateTime-parametern för den lagrade procedur aktiviteten genom att använda texten. Funktionen format och variabeln SliceStart. 
+I följande exempel bestäms parametern DateTime för den lagrade proceduraktiviteten med hjälp av texten. Formatfunktion och segmentstartvariabeln. 
 
 ```json
 {
@@ -176,7 +176,7 @@ I följande exempel bestäms DateTime-parametern för den lagrade procedur aktiv
 ```
 
 ### <a name="example-3"></a>Exempel 3
-Om du vill läsa data från föregående dag i stället för dagen som representeras av SliceStart använder du funktionen AddDays som visas i följande exempel: 
+Om du vill läsa data från föregående dag i stället för dag som representeras av SegmentStart använder du funktionen AddDays som visas i följande exempel: 
 
 ```json
 {
@@ -227,5 +227,5 @@ Om du vill läsa data från föregående dag i stället för dagen som represent
 }
 ```
 
-Se avsnittet [anpassade datum-och tids format strängar](https://msdn.microsoft.com/library/8kb3ddd4.aspx) som beskriver olika formateringsalternativ som du kan använda (till exempel: åå vs. åååå). 
+Se Avsnittet [Anpassade datum- och tidsformatsträngar](https://msdn.microsoft.com/library/8kb3ddd4.aspx) som beskriver olika formateringsalternativ som du kan använda (till exempel: yy vs. yyyy). 
 

@@ -1,6 +1,6 @@
 ---
-title: Förstå Azure Security Center för IoT-kostnader | Microsoft Docs
-description: Lär dig mer om kostnaderna som är associerade med Azure Security Center för IoT och hur du styr dem.
+title: Förstå Azure Security Center för IoT-kostnader| Microsoft-dokument
+description: Lär dig mer om kostnaderna för Azure Security Center för IoT och hur du kontrollerar dem.
 services: asc-for-iot
 ms.service: asc-for-iot
 documentationcenter: na
@@ -16,69 +16,69 @@ ms.workload: na
 ms.date: 09/27/2019
 ms.author: mlottner
 ms.openlocfilehash: dc9dcbfd00b5205fa5c66e334b30c76d549d8a42
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "71348516"
 ---
 # <a name="pricing-and-associated-costs"></a>Prissättning och associerade kostnader
 
-Den här artikeln beskriver Azure Security Center för IoT-prismodellen, sammanfattar alla associerade kostnader och förklarar hur du hanterar dem.
+I den här artikeln beskrivs Azure Security Center för IoT-prismodell, alla tillhörande kostnader sammanfattas och hur du hanterar dem.
 
 ## <a name="pricing"></a>Prissättning
 
-Azure Security Center för IoT-prismodellen består av två delar och faktureras när en IoT Hub [aktive ras](quickstart-onboard-iot-hub.md) i Azure Security Center för IoT:
+Azure Security Center for IoT-prismodellen består av två delar och faktureras när en IoT-hubb är [aktiverad](quickstart-onboard-iot-hub.md) i Azure Security Center för IoT:
 
-- Kostnad per enhet – inbyggda säkerhetsfunktioner baserat på analys av IoT Hub loggar.
+- Kostnad per enhet - inbyggda säkerhetsfunktioner baserat på analys av IoT Hub-loggar.
 
-- Kostnad per meddelande – utökade säkerhetsfunktioner baserat på säkerhets meddelanden från IoT Edge eller löv enheter.
-
-
-Mer information finns i [Security Center prissättning](https://azure.microsoft.com/pricing/details/security-center/).
-
-## <a name="associated-costs"></a>Tillhör ande kostnader
-
-Azure Security Center for IoT har associerade kostnader som inte ingår i direkt prissättningen:
+- Kostnad per meddelande – förbättrade säkerhetsfunktioner baserat på säkerhetsmeddelanden från IoT Edge- eller lövenheter.
 
 
-- Log Analytics lagrings kostnader
+Mer information finns i [Security Center-priser](https://azure.microsoft.com/pricing/details/security-center/).
 
-Du kan minska de associerade kostnaderna genom att väljer ut ur vissa lösnings funktioner. Avanmäla dig genom att ändra inställningarna.
+## <a name="associated-costs"></a>Tillhörande kostnader
 
-Ändra inställningarna:
+Azure Security Center för IoT har associerade kostnader, som inte ingår i den direkta prissättningen:
+
+
+- Lagringskostnader för Logganalys
+
+Du kan minska tillhörande kostnader genom att välja bort vissa lösningsfunktioner. Välj bort genom att ändra dina inställningar.
+
+Så här ändrar du inställningarna:
 
 1. Öppna IoT Hub.
 
-2. Klicka på **Översikt**under **säkerhet**.
+2. Klicka på **Översikt**under **Säkerhet**.
 
 3. Klicka på **Inställningar**.
 
-Följande tabell innehåller en sammanfattning av de associerade kostnaderna och konsekvenserna av varje alternativ.
+I följande tabell finns en sammanfattning av tillhörande kostnader och konsekvenser för varje alternativ.
 
 |     | Användning | Kommentar |
 | --- | --- | --- |
-| **Log Analytics lagring** |  |
-| Enhets rekommendation och aviseringar| Säkerhets rekommendationer och aviseringar som genererats av tjänsten | Inte valfritt |
-| Rå säkerhets data| Rå säkerhets data från IoT-enheter som samlas in av säkerhets agenter | Inaktivera _säkerhets händelser för lagring av rå enheter_ |
+| **Lagring av logganalys** |  |
+| Enhetsrekommendation och varningar| Säkerhet rekommendation och varningar som genereras av tjänsten | Inte valfritt |
+| Råa säkerhetsdata| Råsäkerhetsdata från IoT-enheter, som samlats in av säkerhetsagenter | Inaktivera _säkerhetshändelser för lagra rå enhet_ |
 |
 
 >[!Important]
-> Väljer out har allvarliga följder för att Azure Security Center för tillgänglighet för IoT-säkerhetsfunktioner. 
+> Att välja bort har allvarliga konsekvenser för Azure Security Center för IoT-säkerhetsfunktionstillgänglighet. 
   
-| Avanmäl | Effekter |
+| Välj bort | Effekter |
 | --- | --- |
-| _Samling med dubbla metadata_ | Inaktivera [anpassade aviseringar](quickstart-create-custom-alerts.md) |
-| | Inaktivera rekommendationer för IoT Edge manifest |
-| | Inaktivera rekommendationer och aviseringar för enhets identitet |
-| _Lagra säkerhets händelser för RAW-enhet_ | Information om bas linje rekommendationer för enhets operativ system är inte tillgänglig |
-| | Information om [varnings](concept-security-alerts.md) -och [rekommendations](concept-recommendations.md) undersökningar är inte tillgängliga |
+| _Insamling av dubbla metadata_ | Inaktivera [anpassade aviseringar](quickstart-create-custom-alerts.md) |
+| | Inaktivera rekommendationer för IoT Edge-manifest |
+| | Inaktivera enhetsidentitetsbaserade rekommendationer och aviseringar |
+| _Lagra säkerhetshändelser för rå enhet_ | Information om baslinjerekommendationer för enhetsoperativsystem är inte tillgängliga |
+| | Information om [larm-](concept-security-alerts.md) och [rekommendationsundersökningar](concept-recommendations.md) finns inte tillgängliga |
 |
 
 
-## <a name="see-also"></a>Se också
+## <a name="see-also"></a>Se även
 
-- Få åtkomst till dina [rå säkerhets data](how-to-security-data-access.md)
-- [Undersök en enhet](how-to-investigate-device.md)
-- Förstå och utforska [säkerhets rekommendationer](concept-recommendations.md)
-- Förstå och utforska [säkerhets aviseringar](concept-security-alerts.md)
+- Få tillgång till [rådata](how-to-security-data-access.md)
+- [Undersöka en enhet](how-to-investigate-device.md)
+- Förstå och utforska [säkerhetsrekommendationer](concept-recommendations.md)
+- Förstå och utforska [säkerhetsvarningar](concept-security-alerts.md)

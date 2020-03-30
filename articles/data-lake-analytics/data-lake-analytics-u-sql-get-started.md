@@ -1,6 +1,6 @@
 ---
-title: Kom igång med U-SQL-språk i Azure Data Lake Analytics
-description: Lär dig grunderna för U-SQL-språket i Azure Data Lake Analytics. Skriv din första fråga med variabler för extra data från filer, transformera rad uppsättningen och samla in data.
+title: Komma igång med U-SQL-språk i Azure Data Lake Analytics
+description: Lär dig grunderna i U-SQL-språket i Azure Data Lake Analytics. Skriv din första fråga med hjälp av variabler till extra data från filer, omvandla raduppsättningen och aggregerade data.
 services: data-lake-analytics
 author: saveenr
 ms.author: saveenr
@@ -10,28 +10,28 @@ ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.date: 06/23/2017
 ms.openlocfilehash: 8130679dcc519cecd25abf43902c003ad8047df3
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/29/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "71672823"
 ---
-# <a name="get-started-with-u-sql-in-azure-data-lake-analytics"></a>Kom igång med U-SQL i Azure Data Lake Analytics
-U-SQL är ett språk som kombinerar deklarativ SQL med tvingande C# att du kan bearbeta data i valfri skala. Genom den skalbara distribuerade fråge funktionen i U-SQL kan du effektivt analysera data i Relations lager, till exempel Azure SQL Database. Med U-SQL kan du bearbeta ostrukturerade data genom att använda schema vid läsning och infoga anpassad logik och UDF: er. U-SQL innehåller dessutom utöknings barhet som ger dig detaljerad kontroll över hur du kör i skala. 
+# <a name="get-started-with-u-sql-in-azure-data-lake-analytics"></a>Komma igång med U-SQL i Azure Data Lake Analytics
+U-SQL är ett språk som kombinerar deklarativa SQL med tvingande C# så att du kan bearbeta data i valfri skala. Genom den skalbara, distribuerade frågefunktionen i U-SQL kan du effektivt analysera data över relationsarkiv, till exempel Azure SQL Database. Med U-SQL kan du bearbeta ostrukturerade data genom att använda schema för att läsa och infoga anpassad logik och UDF:er. Dessutom innehåller U-SQL utökningsbarhet som ger dig finkornig kontroll över hur du kör i stor skala. 
 
-## <a name="learning-resources"></a>Utbildnings resurser
+## <a name="learning-resources"></a>Inlärningsresurser
 
-* [U-SQL-kursen](https://aka.ms/usqltutorial) innehåller en guidad genom gång av det mesta av U-SQL-språket. Det här dokumentet rekommenderar läsning för alla utvecklare som vill lära sig U-SQL.
-* Detaljerad information om **språksyntaxen i u-SQL**finns i [språk referens för u-SQL](https://docs.microsoft.com/u-sql/).
-* Information om **design filosofi i u-SQL**finns i Visual Studio-bloggen [Introduktion till U-SQL – ett språk som gör stor data bearbetning lätt](https://blogs.msdn.microsoft.com/visualstudio/2015/09/28/introducing-u-sql-a-language-that-makes-big-data-processing-easy/).
+* [U-SQL Tutorial](https://aka.ms/usqltutorial) ger en guidad genomgång av de flesta av U-SQL-språket. Det här dokumentet rekommenderas läsning för alla utvecklare som vill lära sig U-SQL.
+* Detaljerad information om **U-SQL-språksyntaxen**finns i [U-SQL Language Reference](https://docs.microsoft.com/u-sql/).
+* För att förstå **U-SQL design filosofi,** se Visual Studio blogginlägg [Införa U-SQL - Ett språk som gör Big Data Processing Easy](https://blogs.msdn.microsoft.com/visualstudio/2015/09/28/introducing-u-sql-a-language-that-makes-big-data-processing-easy/).
 
 ## <a name="prerequisites"></a>Krav
 
-Innan du går igenom U-SQL-exemplen i det här dokumentet, Läs och fullständig [självstudie: utveckla U-SQL-skript med hjälp av data Lake verktyg för Visual Studio](data-lake-analytics-data-lake-tools-get-started.md). Den här självstudien förklarar Mechanics med att använda U-SQL med Azure Data Lake verktyg för Visual Studio.
+Innan du går igenom U-SQL-exemplen i det här dokumentet läser och slutför [du självstudiekurs: Utveckla U-SQL-skript med Data Lake Tools för Visual Studio](data-lake-analytics-data-lake-tools-get-started.md). Den självstudien förklarar mekaniken i att använda U-SQL med Azure Data Lake Tools för Visual Studio.
 
 ## <a name="your-first-u-sql-script"></a>Skriv ditt första U-SQL-skript
 
-Följande U-SQL-skript är enkelt och låter oss utforska många aspekter av U-SQL-språket.
+Följande U-SQL-skript är enkelt och låter oss utforska många aspekter U-SQL-språket.
 
 ```
 @searchlog =
@@ -50,30 +50,30 @@ OUTPUT @searchlog
     USING Outputters.Csv();
 ```
 
-Det här skriptet har inga omvandlings steg. Den läser från käll filen med namnet `SearchLog.tsv`, schematizes den och skriver rad uppsättningen tillbaka till en fil med namnet SearchLog-first-u-sql. csv.
+Det här skriptet har inga omvandlingssteg. Den läser från källfilen som heter `SearchLog.tsv`, schemalägger den och skriver raduppsättningen tillbaka till en fil som heter SearchLog-first-u-sql.csv.
 
-Lägg märke till frågetecknet bredvid data typen i fältet `Duration`. Det innebär att fältet `Duration` kan vara null.
+Lägg märke till frågetecknet bredvid `Duration` datatypen i fältet . Det betyder `Duration` att fältet kan vara null.
 
 ### <a name="key-concepts"></a>Viktiga begrepp
-* **Rad uppsättnings variabler**: varje frågeuttryck som skapar en rad uppsättning kan tilldelas till en variabel. U-SQL följer namngivnings mönstret T-SQL-variabeln (till exempel`@searchlog`) i skriptet.
-* Nyckelordet **Extract** läser data från en fil och definierar schemat vid läsning. `Extractors.Tsv` är en inbyggd U-SQL-Extractor för filer med Tabbavgränsade värden. Du kan utveckla anpassade Extraherare.
-* **Utdata** skriver data från en rad uppsättning till en fil. `Outputters.Csv()` är en inbyggd U-SQL-utsparatillfil för att skapa en fil med kommaavgränsade värden. Du kan utveckla anpassade utsparatillfiler.
+* **Raduppsättningsvariabler:** Varje frågeuttryck som skapar en raduppsättning kan tilldelas en variabel. U-SQL följer T-SQL variabeln namngivningsmönster (`@searchlog`, till exempel) i skriptet.
+* Nyckelordet **EXTRACT** läser data från en fil och definierar schemat vid läsning. `Extractors.Tsv`är en inbyggd U-SQL-utsug för flikavgränsade filer. Du kan utveckla anpassade extractors.
+* **UTDATA** skriver data från en raduppsättning till en fil. `Outputters.Csv()`är en inbyggd U-SQL-utdatater för att skapa en kommaavgränsad värdefil. Du kan utveckla anpassade utdatarar.
 
-### <a name="file-paths"></a>Fil Sök vägar
+### <a name="file-paths"></a>Sökvägar för filer
 
-Satserna EXTRACT och OUTPUT använder fil Sök vägar. Fil Sök vägar kan vara absoluta eller relativa:
+EXTRAHERA- och OUTPUT-satserna använder filsökvägar. Filsökvägar kan vara absoluta eller relativa:
 
-Följande absoluta fil Sök väg refererar till en fil i en Data Lake Store med namnet `mystore`:
+Följande absoluta filsökväg refererar till en `mystore`fil i ett datasjölager med namnet:
 
     adl://mystore.azuredatalakestore.net/Samples/Data/SearchLog.tsv
 
-Följande fil Sök väg börjar med `"/"`. Den refererar till en fil i standard Data Lake Stores kontot:
+Följande filsökväg `"/"`börjar med . Den refererar till en fil i standardkontot För DataSjölagret:
 
     /output/SearchLog-first-u-sql.csv
 
-## <a name="use-scalar-variables"></a>Använda skalära variabler
+## <a name="use-scalar-variables"></a>Använda skalärvariabler
 
-Du kan även använda skalära variabler för att förenkla skript underhållet. Det tidigare U-SQL-skriptet kan också skrivas som:
+Du kan också använda skalärvariabler för att göra skriptunderhållet enklare. Det tidigare U-SQL-skriptet kan också skrivas som:
 
     DECLARE @in  string = "/Samples/Data/SearchLog.tsv";
     DECLARE @out string = "/output/SearchLog-scalar-variables.csv";
@@ -93,9 +93,9 @@ Du kan även använda skalära variabler för att förenkla skript underhållet.
         TO @out
         USING Outputters.Csv();
 
-## <a name="transform-rowsets"></a>Omvandla rad uppsättningar
+## <a name="transform-rowsets"></a>Omforma raduppsättningar
 
-Använd **Välj** för att omvandla rad uppsättningar:
+Använd **SELECT** för att omforma raduppsättningar:
 
     @searchlog =
         EXTRACT UserId          int,
@@ -117,9 +117,9 @@ Använd **Välj** för att omvandla rad uppsättningar:
         TO "/output/SearchLog-transform-rowsets.csv"
         USING Outputters.Csv();
 
-WHERE-satsen använder ett [ C# booleskt uttryck](/dotnet/csharp/language-reference/operators/index). Du kan använda C# uttrycks språket för att skapa egna uttryck och funktioner. Du kan till och med utföra mer komplex filtrering genom att kombinera dem med logiska samANDser () och disknutor (ORs).
+WHERE-satsen använder ett [C# Boolean-uttryck](/dotnet/csharp/language-reference/operators/index). Du kan använda C#-uttrycksspråket för att göra egna uttryck och funktioner. Du kan även utföra mer komplexa filtrering genom att kombinera dem med logiska konjunktioner (ANDs) och disjunctions (ORs).
 
-Följande skript använder metoden DateTime. parse () och en kombination.
+I följande skript används metoden DateTime.Parse() och en konjunktion.
 
     @searchlog =
         EXTRACT UserId          int,
@@ -147,14 +147,14 @@ Följande skript använder metoden DateTime. parse () och en kombination.
         USING Outputters.Csv();
 
  >[!NOTE]
- >Den andra frågan körs på resultatet av den första rad uppsättningen, vilket skapar en sammansatt uppsättning av de två filtren. Du kan också återanvända ett variabel namn, och namnen begränsas till lexikalt.
+ >Den andra frågan fungerar på resultatet av den första raduppsättningen, vilket skapar en komposit av de två filtren. Du kan också återanvända ett variabelnamn och namnen är omfångade lexikalt.
 
-## <a name="aggregate-rowsets"></a>Aggregerade rad uppsättningar
-U-SQL ger dig den välkända ORDER BY-, GROUP BY-och agg regeringar.
+## <a name="aggregate-rowsets"></a>Aggregerade raduppsättningar
+U-SQL ger dig välbekanta ORDER BY, GROUP BY och aggregeringar.
 
-Följande fråga söker efter total varaktighet per region och visar sedan de fem främsta varaktigheterna i ordning.
+Följande fråga hittar den totala varaktigheten per region och visar sedan de fem översta varaktigheterna i ordning.
 
-U-SQL-raduppsättningarna bevarar inte ordningen för nästa fråga. Om du vill beställa utdata måste du därför lägga till ORDER BY i utmatnings instruktionen:
+U-SQL-raduppsättningar bevarar inte sin ordning för nästa fråga. Om du vill beställa en utdata måste du därför lägga till ORDER BY i OUTPUT-satsen:
 
     DECLARE @outpref string = "/output/Searchlog-aggregation";
     DECLARE @out1    string = @outpref+"_agg.csv";
@@ -196,7 +196,7 @@ U-SQL-raduppsättningarna bevarar inte ordningen för nästa fråga. Om du vill 
 
 U-SQL ORDER BY-satsen kräver att du använder FETCH-satsen i ett SELECT-uttryck.
 
-U-SQL HAVING-satsen kan användas för att begränsa utdata till grupper som uppfyller HAVING-villkoret:
+U-SQL HAVING-satsen kan användas för att begränsa utdata till grupper som uppfyller HA-villkoret:
 
     @searchlog =
         EXTRACT UserId          int,
@@ -222,7 +222,7 @@ U-SQL HAVING-satsen kan användas för att begränsa utdata till grupper som upp
         ORDER BY TotalDuration DESC
         USING Outputters.Csv();
 
-Avancerade samlings scenarier finns i referens dokumentationen för U-SQL för [funktioner för mängd, analys och referens](/u-sql/built-in-functions)
+Avancerade aggregeringsscenarier finns i U-SQL-referensdokumentationen för [mängd-, analytiska och referensfunktioner](/u-sql/built-in-functions)
 
 ## <a name="next-steps"></a>Nästa steg
 * [Översikt över Microsoft Azure Data Lake Analytics](data-lake-analytics-overview.md)

@@ -1,6 +1,6 @@
 ---
-title: Videor om Microsoft Identity Platform | Azure
-description: En lista med videor om Microsoft Identity Platform
+title: Videor på Microsofts identitetsplattform | Azure
+description: En lista med videor om Microsofts identitetsplattform
 services: active-directory
 author: mmacy
 manager: CelesteDG
@@ -13,23 +13,23 @@ ms.author: marsma
 ms.custom: aaddev
 ms.reviewer: celested
 ms.openlocfilehash: 22149ccfa258852b36da61ffbabde5e1856df9de
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/08/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77085191"
 ---
 # <a name="microsoft-identity-platform-videos"></a>Videor från Microsofts identitetsplattform
 
-Lär dig mer om Microsoft Identity Platform och Microsoft Authentication libraries (MSAL). De är vanligt vis 1-2 minuter långa.
+Lär dig mer om Microsofts identitetsplattform och Microsoft Authentication-bibliotek (MSAL). De är vanligtvis 1-2 minuter långa.
 
-## <a name="microsoft-identity-platform-basics"></a>Grunderna för Microsoft Identity Platform
+## <a name="microsoft-identity-platform-basics"></a>Grunderna i Microsoft-identitetsplattform
 
-**Lär dig grundläggande begrepp för Microsoft Identity Platform**
+**Lär dig grundläggande koncept för Microsoft-identitetsplattformar**
 
 :::row:::
     :::column:::
-        Översikt över Microsoft Identity Platform
+        Översikt över Microsofts identitetsplattform
     :::column-end:::
     :::column:::
         > [!VIDEO https://www.youtube.com/embed/bNlcFuIo3r8]
@@ -41,7 +41,7 @@ Lär dig mer om Microsoft Identity Platform och Microsoft Authentication librari
 :::row-end:::
 :::row:::
     :::column:::
-        Introduktion till MSAL-bibliotek
+        Introduktion till MSAL-biblioteken
     :::column-end:::
     :::column:::
         > [!VIDEO https://www.youtube.com/embed/apbbx2n4tnU]
@@ -55,13 +55,13 @@ Lär dig mer om Microsoft Identity Platform och Microsoft Authentication librari
 :::row-end:::
 :::row:::
     :::column:::
-        Förklarad omfattning
+        Förklaras av scope
     :::column-end:::
     :::column:::
         > [!VIDEO https://www.youtube.com/embed/eiPHOoLmGJs]
     :::column-end:::
     :::column:::
-        Vad är mäklares
+        Vad är mäklare
     :::column-end:::
     :::column:::
         > [!VIDEO https://www.youtube.com/embed/Zd_Uubnu0U0]
@@ -69,13 +69,13 @@ Lär dig mer om Microsoft Identity Platform och Microsoft Authentication librari
 :::row-end:::
 :::row:::
     :::column:::
-        Vilka omdirigerings-URI: er gör
+        Vad omdirigera URI:er gör
     :::column-end:::
     :::column:::
         > [!VIDEO https://www.youtube.com/embed/znSN_3JAuoU]
     :::column-end:::
     :::column:::
-        Förklarad klient
+        Hyresgäster förklaras
     :::column-end:::
     :::column:::
         > [!VIDEO https://www.youtube.com/embed/mDhT4Zv1fZU]
@@ -83,13 +83,13 @@ Lär dig mer om Microsoft Identity Platform och Microsoft Authentication librari
 :::row-end:::
 :::row:::
     :::column:::
-        Roll för Azure AD
+        Azure AD:s roll
     :::column-end:::
     :::column:::
         > [!VIDEO https://www.youtube.com/embed/zDEC7A5ZS2Q]
     :::column-end:::
     :::column:::
-        Roll för Azure AD App-objekt
+        Roll för Azure AD-appobjekt
     :::column-end:::
     :::column:::
         > [!VIDEO https://www.youtube.com/embed/HEpq_YSmuWw]
@@ -97,32 +97,32 @@ Lär dig mer om Microsoft Identity Platform och Microsoft Authentication librari
 :::row-end:::
 :::row:::
     :::column:::
-        Skillnader i organisations-och person Microsoft-konto
+        Skillnader i organisations- och personliga Microsoft-konton
     :::column-end:::
     :::column:::
         > [!VIDEO https://www.youtube.com/embed/E2OUluQQKSk]
     :::column-end:::
     :::column:::
-        SPA-och webbappar-skillnader
+        Skillnader i SPA- och webbappar
     :::column-end:::
     :::column:::
         > [!VIDEO https://www.youtube.com/embed/ZJirt7eTVw8?t=5]
     :::column-end:::
 :::row-end:::
 
-## <a name="migrate-from-v10-to-v20"></a>Migrera från v 1.0 till v 2.0
+## <a name="migrate-from-v10-to-v20"></a>Migrera från v1.0 till v2.0
 
-**Lär dig mer om att migrera till den senaste versionen av Microsoft Identity Platform**
+**Lär dig mer om att migrera till den senaste versionen av Microsofts identitetsplattform**
 
 :::row:::
     :::column:::
-        Slut punkter och fördelar med att flytta till v 2.0
+        Slutpunkter och fördelarna med att flytta till v2.0
     :::column-end:::
     :::column:::
         > [!VIDEO https://www.youtube.com/embed/qpdC45tZYDg]
     :::column-end:::
      :::column:::
-        Migrera ADAL-kodbasen till MSAL
+        Migrera din ADAL-kodbas till MSAL
     :::column-end:::
     :::column:::
         > [!VIDEO https://www.youtube.com/embed/xgL_z9yCnrE]
@@ -136,7 +136,7 @@ Lär dig mer om Microsoft Identity Platform och Microsoft Authentication librari
         > [!VIDEO https://www.youtube.com/embed/qpdC45tZYDg]
     :::column-end:::
     :::column:::
-        Fördelar med MSAL över ADAL
+        Fördelar med MSAL jämfört med ADAL
     :::column-end:::
     :::column:::
         > [!VIDEO https://www.youtube.com/embed/q-TDszj2O-4]

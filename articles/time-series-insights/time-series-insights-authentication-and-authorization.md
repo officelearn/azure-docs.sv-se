@@ -1,6 +1,6 @@
 ---
-title: API-autentisering och auktorisering – Azure Time Series Insights | Microsoft Docs
-description: 'Den här artikeln beskriver hur du konfigurerar autentisering och auktorisering för ett anpassat program som anropar Azure Time Series Insights-API: et.'
+title: API-autentisering och auktorisering – Insikter i Azure Time Series | Microsoft-dokument
+description: I den här artikeln beskrivs hur du konfigurerar autentisering och auktorisering för ett anpassat program som anropar API:et för Azure Time Series Insights.
 ms.service: time-series-insights
 services: time-series-insights
 author: deepakpalled
@@ -13,158 +13,158 @@ ms.topic: conceptual
 ms.date: 02/03/2020
 ms.custom: seodec18
 ms.openlocfilehash: ff5f7a80e2dcedb1795bae14ee9140c2842303a5
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/04/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76984600"
 ---
-# <a name="authentication-and-authorization-for-azure-time-series-insights-api"></a>Autentisering och auktorisering för Azure Time Series Insights-API
+# <a name="authentication-and-authorization-for-azure-time-series-insights-api"></a>Autentisering och auktorisering för Azure Time Series Insights API
 
-Det här dokumentet beskriver hur du registrerar en app i Azure Active Directory att använda bladet ny Azure Active Directory. Appar som registrerats i Azure Active Directory gör det möjligt för användare att autentisera till och ha behörighet att använda Azure Time Series Insight-API som är associerat med en Time Series Insights miljö.
+I det här dokumentet beskrivs hur du registrerar en app i Azure Active Directory med det nya Azure Active Directory-bladet. Appar som är registrerade i Azure Active Directory gör det möjligt för användare att autentisera och få behörighet att använda Azure Time Series Insight API som är associerat med en Time Series Insights-miljö.
 
 > [!IMPORTANT]
-> Azure Time Series Insights stöder båda följande autentiseringsscheman:
-> * Det senaste [Microsoft Authentication Library (MSAL)](https://docs.microsoft.com/azure/active-directory/develop/msal-overview)
-> * [ADAL (Azure Active Directory Authentication Library)](https://docs.microsoft.com/azure/active-directory/develop/active-directory-authentication-libraries)
+> Azure Time Series Insights stöder båda följande autentiseringsbibliotek:
+> * Det nyare [Microsoft Authentication Library (MSAL)](https://docs.microsoft.com/azure/active-directory/develop/msal-overview)
+> * [Azure Active Directory Authentication Library (ADAL)](https://docs.microsoft.com/azure/active-directory/develop/active-directory-authentication-libraries)
 
-## <a name="service-principal"></a>Tjänstens huvud namn
+## <a name="service-principal"></a>Tjänstens huvudnamn
 
-I följande avsnitt beskrivs hur du konfigurerar ett program för att få åtkomst till Time Series Insights-API: et för en app. Programmet kan sedan fråga eller publicera referens data i Time Series Insights-miljön med hjälp av egna programautentiseringsuppgifter via Azure Active Directory.
+I följande avsnitt beskrivs hur du konfigurerar ett program för åtkomst till Time Series Insights API för en app. Programmet kan sedan fråga eller publicera referensdata i time series insights-miljön med hjälp av sina egna programautentiseringsuppgifter via Azure Active Directory.
 
-## <a name="summary-and-best-practices"></a>Sammanfattning och bästa praxis
+## <a name="summary-and-best-practices"></a>Sammanfattning och metodtips
 
-Registrerings flödet för Azure Active Directory-appen omfattar tre huvud steg.
+Registreringsflödet för Azure Active Directory-appar omfattar tre huvudsteg.
 
 1. [Registrera ett program](#azure-active-directory-app-registration) i Azure Active Directory.
-1. Ge programmet [behörighet att komma åt data i Time Series Insightss miljön](#granting-data-access).
-1. Använd **program-ID** och **klient hemlighet** för att hämta en token från `https://api.timeseries.azure.com/` i [klient programmet](#client-app-initialization). Token kan sedan användas för att anropa Time Series Insights-API: et.
+1. Auktorisera programmet för att ha [dataåtkomst till time series insights-miljön](#granting-data-access).
+1. Använd **program-ID** och **klienthemlighet** `https://api.timeseries.azure.com/` för att hämta en token från [klientappen](#client-app-initialization). Token kan sedan användas för att anropa Time Series Insights API.
 
-Enligt **steg 3**kan du genom att avgränsa ditt program och dina användarautentiseringsuppgifter göra följande:
+Per **steg 3**kan du separera programmets och dina användaruppgifter:
 
-* Tilldela behörighet till appens identitet som är distinkt från dina egna behörigheter. Dessa behörigheter är vanligt vis begränsade till vad appen kräver. Du kan till exempel tillåta att appen endast läser data från en viss Time Series Insightss miljö.
-* Isolera appens säkerhet från användarens autentiseringsuppgifter för autentisering med hjälp av en **klient hemlighet** eller ett säkerhetscertifikat. Därför är programmets autentiseringsuppgifter inte beroende av en specifik användares autentiseringsuppgifter. Om användarens roll ändras kräver programmet inte nödvändigt vis nya autentiseringsuppgifter eller ytterligare konfiguration. Om användaren ändrar sitt lösen ord kräver all åtkomst till programmet inga nya autentiseringsuppgifter eller nycklar.
-* Kör ett obevakat skript med en **klient hemlighet** eller ett säkerhetscertifikat i stället för en enskild användares autentiseringsuppgifter (vilket kräver att de finns).
-* Använd ett säkerhetscertifikat i stället för ett lösen ord för att skydda åtkomsten till ditt Azure Time Series Insights-API.
+* Tilldela behörigheter till appidentiteten som skiljer sig från dina egna behörigheter. Vanligtvis är dessa behörigheter begränsade till endast vad appen kräver. Du kan till exempel tillåta att appen bara läser data från en viss Time Series Insights-miljö.
+* Isolera appens säkerhet från den skapande användarens autentiseringsuppgifter med hjälp av en **klienthemlighet** eller ett säkerhetscertifikat. Därför är programmets autentiseringsuppgifter inte beroende av en viss användares autentiseringsuppgifter. Om användarens roll ändras kräver programmet inte nödvändigtvis nya autentiseringsuppgifter eller ytterligare konfiguration. Om användaren ändrar sitt lösenord kräver inte all åtkomst till programmet nya autentiseringsuppgifter eller nycklar.
+* Kör ett obevakat skript med hjälp av en **klienthemlighet** eller ett säkerhetscertifikat i stället för en viss användares autentiseringsuppgifter (som kräver att de finns).
+* Använd ett säkerhetscertifikat i stället för ett lösenord för att skydda åtkomsten till azure time series insights-API:et.
 
 > [!IMPORTANT]
-> Följ principen om **separering av problem** (beskrivs i det här scenariot ovan) när du konfigurerar din Azure Time Series Insights säkerhets princip.
+> Följ principen om **separation av problem** (beskrivs för det här scenariot ovan) när du konfigurerar din Azure Time Series Insights-säkerhetsprincip.
 
 > [!NOTE]
-> * Artikeln fokuserar på ett program med en enda klient organisation där programmet endast är avsett att köras i en organisation.
-> * Du använder vanligt vis program med en enda klient för branschspecifika program som körs i din organisation.
+> * Artikeln fokuserar på ett program med en klient där programmet är avsett att köras i endast en organisation.
+> * Du använder vanligtvis program med en klientorganisation för affärsprogram som körs i organisationen.
 
-## <a name="detailed-setup"></a>Detaljerad installation
+## <a name="detailed-setup"></a>Detaljerad inställning
 
-### <a name="azure-active-directory-app-registration"></a>Azure Active Directory app-registrering
+### <a name="azure-active-directory-app-registration"></a>Registrering av Azure Active Directory-appar
 
 [!INCLUDE [Azure Active Directory app registration](../../includes/time-series-insights-aad-registration.md)]
 
-### <a name="granting-data-access"></a>Bevilja åtkomst till data
+### <a name="granting-data-access"></a>Bevilja dataåtkomst
 
-1. I Time Series Insightss miljön väljer du **data åtkomst principer** och väljer **Lägg till**.
+1. För time series insights-miljön väljer du **Dataåtkomstprinciper** och väljer **Lägg till**.
 
-   [![lägga till ny princip för data åtkomst i Time Series Insightss miljön](media/authentication-and-authorization/time-series-insights-data-access-policies-add.png)](media/authentication-and-authorization/time-series-insights-data-access-policies-add.png#lightbox)
+   [![Lägga till ny dataåtkomstprincip i time series insights-miljön](media/authentication-and-authorization/time-series-insights-data-access-policies-add.png)](media/authentication-and-authorization/time-series-insights-data-access-policies-add.png#lightbox)
 
-1. I dialog rutan **Välj användare** klistrar du in antingen **program namnet** eller **program-ID: t** från avsnittet Azure Active Directory app Registration.
+1. I dialogrutan **Välj användare** klistrar du in **programnamnet** eller **program-ID:t** i avsnittet Registrering av Azure Active Directory-appar.
 
-   [![hitta ett program i dialog rutan Välj användare](media/authentication-and-authorization/time-series-insights-data-access-policies-select-user.png)](media/authentication-and-authorization/time-series-insights-data-access-policies-select-user.png#lightbox)
+   [![Hitta ett program i dialogrutan Välj användare](media/authentication-and-authorization/time-series-insights-data-access-policies-select-user.png)](media/authentication-and-authorization/time-series-insights-data-access-policies-select-user.png#lightbox)
 
-1. Välj rollen. Välj **läsare** för att fråga data eller **deltagare** att fråga efter data och ändra referens data. Välj **OK**.
+1. Välj rollen. Välj **Läsare** om du vill fråga data eller **Deltagare** för att fråga efter data och ändra referensdata. Välj **OK**.
 
-   [![Välj läsare eller deltagare i dialog rutan Välj användar roll](media/authentication-and-authorization/time-series-insights-data-access-policies-select-role.png)](media/authentication-and-authorization/time-series-insights-data-access-policies-select-role.png#lightbox)
+   [![Välj läsare eller deltagare i dialogrutan Välj användarroll](media/authentication-and-authorization/time-series-insights-data-access-policies-select-role.png)](media/authentication-and-authorization/time-series-insights-data-access-policies-select-role.png#lightbox)
 
 1. Spara principen genom att välja **OK**.
 
    > [!TIP]
-   > För avancerade data åtkomst alternativ, Läs [bevilja åtkomst till data](./time-series-insights-data-access.md).
+   > För avancerade dataåtkomstalternativ, läs [bevilja dataåtkomst](./time-series-insights-data-access.md).
 
-### <a name="client-app-initialization"></a>Initiering av klient program
+### <a name="client-app-initialization"></a>Initiering av klientappar
 
 * Utvecklare kan använda [Microsoft Authentication Library (MSAL)](https://docs.microsoft.com/azure/active-directory/develop/msal-overview) eller [Azure Active Directory Authentication Library (ADAL)](https://docs.microsoft.com/azure/active-directory/develop/active-directory-authentication-libraries) för att autentisera med Azure Time Series Insights.
 
-* Till exempel för att autentisera med ADAL:
+* Om du till exempel vill autentisera med ADAL:
 
-   1. Använd **program-ID** och **klient hemlighet** (program nyckel) från avsnittet Azure Active Directory app Registration för att hämta token för programmets räkning.
+   1. Använd **program-ID** och **Client Secret** (Application Key) från azure Active Directory-appregistreringsavsnittet för att hämta token för programmets räkning.
 
-   1. I C#kan följande kod Hämta token för programmets räkning. För ett fullständigt exempel läser du [fråga data med C#hjälp av ](time-series-insights-query-data-csharp.md).
+   1. I C#kan följande kod hämta token för programmets räkning. Ett fullständigt exempel läser du [Frågedata med C#](time-series-insights-query-data-csharp.md).
 
         [!code-csharp[csharpquery-example](~/samples-tsi/csharp-tsi-ga-sample/Program.cs?range=170-199)]
 
-   1. Token kan sedan skickas i `Authorization`-rubriken när programmet anropar Time Series Insights-API: et.
+   1. Token kan sedan skickas `Authorization` i huvudet när programmet anropar Time Series Insights API.
 
-* Utvecklare kan också välja att autentisera med MSAL. Läs om hur [du migrerar till MSAL](https://docs.microsoft.com/azure/active-directory/develop/msal-net-migration) och se våra [Hantera ga-referens data för C# en Azure Time Series Insights miljö med hjälp av](time-series-insights-manage-reference-data-csharp.md) artikeln för mer information. 
+* Alternativt kan utvecklare välja att autentisera med MSAL. Läs om [att migrera till MSAL](https://docs.microsoft.com/azure/active-directory/develop/msal-net-migration) och se våra [Hantera GA-referensdata för en Azure Time Series Insights-miljö med C#-artikeln](time-series-insights-manage-reference-data-csharp.md) för att lära dig mer. 
 
 ## <a name="common-headers-and-parameters"></a>Vanliga rubriker och parametrar
 
-I det här avsnittet beskrivs vanliga HTTP-begärandehuvuden och parametrar som används för att skapa frågor mot Time Series Insights GA-och Preview-API: er. API-särskilda krav beskrivs mer detaljerat i [Time Series Insights REST API referens dokumentation](https://docs.microsoft.com/rest/api/time-series-insights/).
+I det här avsnittet beskrivs vanliga HTTP-begäranden och parametrar som används för att ställa frågor mot Time Series Insights GA- och Preview-API:er. API-specifika krav behandlas mer i detalj i [time series insights REST API-referensdokumentation](https://docs.microsoft.com/rest/api/time-series-insights/).
 
 > [!TIP]
-> Läs [Azure REST API-referensen](https://docs.microsoft.com/rest/api/azure/) om du vill veta mer om hur du använder REST-API: er, gör HTTP-begäranden och hanterar http-svar.
+> Läs [Azure REST API-referensen](https://docs.microsoft.com/rest/api/azure/) om du vill veta mer om hur du använder REST-API:er, gör HTTP-begäranden och hanterar HTTP-svar.
 
 ### <a name="authentication"></a>Autentisering
 
-För att utföra autentiserade frågor mot [Time Series Insights REST-API: er](https://docs.microsoft.com/rest/api/time-series-insights/)måste en giltig OAuth 2,0 Bearer-token skickas i [Authorization-huvudet](/rest/api/apimanagement/2019-01-01/authorizationserver/createorupdate) med en rest-klient som du väljer (Postman, Java Script, C#). 
+Om du vill utföra autentiserade frågor mot [TIME Series Insights REST-API:er](https://docs.microsoft.com/rest/api/time-series-insights/)måste en giltig OAuth 2.0-bärarekäken skickas i [auktoriseringshuvudet](/rest/api/apimanagement/2019-01-01/authorizationserver/createorupdate) med valfri REST-klient (Postman, JavaScript, C#). 
 
 > [!TIP]
-> Läs den värdbaserade Azure Time Series Insights [SDK-exemplet för klient-SDK](https://tsiclientsample.azurewebsites.net/) för att lära dig att autentisera med Time Series Insights-API: er program mässigt med hjälp av [Java Script client SDK](https://github.com/microsoft/tsiclient/blob/master/docs/API.md) tillsammans med diagram och diagram.
+> Läs den värdbaserade Azure Time Series [Insights-klienten SDK-exempelvisualisering](https://tsiclientsample.azurewebsites.net/) för att lära dig hur du autentiserar med Time Series Insights API:er som programmässigt använder [JavaScript Client SDK](https://github.com/microsoft/tsiclient/blob/master/docs/API.md) tillsammans med diagram och diagram.
 
-### <a name="http-headers"></a>HTTP-rubriker
+### <a name="http-headers"></a>HTTP-huvuden
 
-Obligatoriska begärandehuvuden beskrivs nedan.
+Obligatoriska begäranden beskrivs nedan.
 
-| Nödvändigt begär ande huvud | Beskrivning |
+| Obligatoriskt begäranhuvud | Beskrivning |
 | --- | --- |
-| Autentisering | För att autentisera med Time Series Insights måste en giltig OAuth 2,0 Bearer-token skickas i **Authorization** -huvudet. | 
+| Auktorisering | Om du vill autentisera med Time Series Insights måste en giltig OAuth 2.0-bärarekäll skickas i **auktoriseringshuvudet.** | 
 
 > [!IMPORTANT]
-> Token måste utfärdas exakt `https://api.timeseries.azure.com/` resursen (kallas även för "mål grupp" för token).
-> * Din [Postman](https://www.getpostman.com/) - **AuthURL** kommer därför att: `https://login.microsoftonline.com/microsoft.onmicrosoft.com/oauth2/authorize?resource=https://api.timeseries.azure.com/`
-> * `https://api.timeseries.azure.com/` är giltig men `https://api.timeseries.azure.com` inte.
+> Token måste utfärdas exakt till `https://api.timeseries.azure.com/` resursen (kallas även "målgruppen" för token).
+> * Din [brevbärare](https://www.getpostman.com/) **AuthURL** kommer därför att vara:`https://login.microsoftonline.com/microsoft.onmicrosoft.com/oauth2/authorize?resource=https://api.timeseries.azure.com/`
+> * `https://api.timeseries.azure.com/`är giltig `https://api.timeseries.azure.com` men är inte.
 
-Valfria begärandehuvuden beskrivs nedan.
+Valfria begäranderubriker beskrivs nedan.
 
 | Valfritt begärandehuvud | Beskrivning |
 | --- | --- |
-| Innehålls typ | endast `application/json` stöds. |
-| x-MS-client-Request-ID | En klientbegärans-ID. Tjänsten registrerar det här värdet. Tillåter att tjänsten spårar åtgärder mellan tjänster. |
-| x-MS-client-session-ID | Ett klientsession-ID. Tjänsten registrerar det här värdet. Tillåter tjänsten att spåra en grupp relaterade åtgärder mellan tjänster. |
-| x-MS-client-program-Name | Namnet på programmet som skapade den här begäran. Tjänsten registrerar det här värdet. |
+| Innehållstyp | stöds `application/json` endast. |
+| x-ms-klient-begäran-id | Ett klientfråre-ID. Tjänsten registrerar det här värdet. Gör att tjänsten kan spåra åtgärder mellan tjänster. |
+| x-ms-klient-session-id | Ett klientsessions-ID. Tjänsten registrerar det här värdet. Gör att tjänsten kan spåra en grupp relaterade åtgärder mellan tjänster. |
+| x-ms-klient-program-namn | Namnet på programmet som genererade den här begäran. Tjänsten registrerar det här värdet. |
 
-Valfria men rekommenderade svarshuvuden beskrivs nedan.
+Valfria men rekommenderade svarsrubriker beskrivs nedan.
 
 | Svarshuvud | Beskrivning |
 | --- | --- |
-| Innehålls typ | endast `application/json` stöds. |
-| x-MS-Request-ID | Server-genererat fråge-ID. Kan användas för att kontakta Microsoft för att undersöka en begäran. |
-| x-MS-Property-not-found-Behavior | Huvud alternativ svars rubrik för GA API. Möjliga värden är `ThrowError` (standard) eller `UseNull`. |
+| Innehållstyp | Endast `application/json` stöds. |
+| x-ms-request-id | Servergenererat id-förfrå efterfrå kommer. Kan användas för att kontakta Microsoft för att undersöka en begäran. |
+| x-ms-egenskap-hittades inte-beteende | GA API valfri svarshuvud. Möjliga värden `ThrowError` är (standard) eller `UseNull`. |
 
 ### <a name="http-parameters"></a>HTTP-parametrar
 
 > [!TIP]
-> Hitta mer information om obligatoriska och valfria frågedata i [referens dokumentationen](https://docs.microsoft.com/rest/api/time-series-insights/).
+> Mer information om nödvändig och valfri frågeinformation finns i [referensdokumentationen](https://docs.microsoft.com/rest/api/time-series-insights/).
 
-Obligatoriska URL-frågeparametrar är beroende av API-versionen.
+Parametrar för begärenlig URL-frågesträng beror på API-version.
 
-| Publicera | Möjliga API-värden |
+| Frisläpp | Möjliga API-versionsvärden |
 | --- |  --- |
 | Allmän tillgänglighet | `api-version=2016-12-12`|
 | Förhandsversion | `api-version=2018-11-01-preview` |
 | Förhandsversion | `api-version=2018-08-15-preview` |
 
-Valfria URL-parametrar för frågesträngar inkluderar att ange en tids gräns för körnings tider för HTTP-begäran.
+Valfria URL-frågesträngparametrar inkluderar att ange en timeout för http-körningstider för begäran.
 
 | Valfri frågeparameter | Beskrivning | Version |
 | --- |  --- | --- |
-| `timeout=<timeout>` | Tids gräns på Server sidan för körning av HTTP-begäran. Gäller endast för [Hämta miljö händelser](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api#get-environment-events-api) och hämta API: er för [samling av miljö](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api#get-environment-aggregates-api) . Timeout-värdet ska vara i ISO 8601-varaktighets format, till exempel `"PT20S"` och måste vara inom intervallet `1-30 s`. Standardvärdet är `30 s`. | Allmänt tillgänglig |
-| `storeType=<storeType>` | För för hands versioner av miljöer där varm lagring är aktiverat kan frågan köras antingen på `WarmStore` eller `ColdStore`. Den här parametern i frågan definierar i vilken lagring frågan ska köras. Om den inte är definierad körs frågan på kall butiken. **StoreType** måste ställas in på `WarmStore`för att kunna fråga det varmt arkivet. Om den inte är definierad utförs frågan mot kyl lagret. | Förhandsversion |
+| `timeout=<timeout>` | Timeout på serversidan för körning av HTTP-begäran. Gäller endast för [API:er](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api#get-environment-events-api) för hämta miljöhändelser och [hämta miljöaggregat.](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api#get-environment-aggregates-api) Timeout-värdet ska till exempel `"PT20S"` vara i ISO 8601-längdformat och bör ligga i intervallet `1-30 s`. Standardvärdet `30 s`är . | Allmän tillgänglighet (GA) |
+| `storeType=<storeType>` | För förhandsgranskningsmiljöer med varmt arkiv aktiverat kan frågan `WarmStore` `ColdStore`köras antingen på eller . Den här parametern i frågan definierar vilket arkiv frågan ska köras på. Om den inte har definierats körs frågan i kyl- och fryshuset. Om du vill fråga om det varma `WarmStore`arkivet måste **storeType** ställas in på . Om den inte har definierats körs frågan mot kyl- och fryshuset. | Förhandsversion |
 
 ## <a name="next-steps"></a>Nästa steg
 
-- För exempel kod som anropar GA Time Series Insights API: et läser du [frågans data med hjälp av C# ](./time-series-insights-query-data-csharp.md).
+- För exempelkod som anropar API:et för GA Time Series Insights läser du [Frågedata med C#](./time-series-insights-query-data-csharp.md).
 
-- För för hands versionen Time Series Insights API-kod exempel läser du läsa [förhands gransknings data med C# ](./time-series-insights-update-query-data-csharp.md).
+- För API-kodexempel för Förhandsversioner läser du [Frågeförhandsgranskningsdata med C#](./time-series-insights-update-query-data-csharp.md).
 
-- Information om API-referensinformation finns i [referens](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api) dokumentationen för fråge-API.
+- Information om API-referens finns i referensdokumentationen [för fråge-API.](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api)
 
-- Lär dig hur du [skapar ett huvud namn för tjänsten](../active-directory/develop/howto-create-service-principal-portal.md).
+- Läs om hur du [skapar ett huvudnamn för tjänsten](../active-directory/develop/howto-create-service-principal-portal.md).

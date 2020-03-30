@@ -1,110 +1,109 @@
 ---
-title: Konfigurera en agent utan beroende visualisering i Azure Migrate
-description: Konfigurera grupper med hjälp av en agent lös beroende visualisering i Azure Migrate Server bedömning.
-ms.topic: article
+title: Konfigurera agentlös beroendeanalys i Azure Migrate Server Assessment
+description: Ställ in agentlös beroendeanalys i Azure Migrate Server Assessment.
+ms.topic: how-to
 ms.date: 2/24/2020
-ms.openlocfilehash: c9425ad1fa78f14a194d3fe13c259dadf4eb5eb6
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: af767bf73a3b9a6f2a91298987f11974499fd694
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77589138"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79455714"
 ---
-# <a name="set-up-agentless-dependency-visualization"></a>Konfigurera beroende visualisering för agent utan agent 
+# <a name="set-up-agentless-dependency-visualization"></a>Konfigurera agentlös beroendevisualisering 
 
-I den här artikeln beskrivs hur du ställer in beroende visualisering i Azure Migrate: Server utvärdering. [Beroende visualisering](concepts-dependency-visualization.md#what-is-dependency-visualization) hjälper dig att identifiera och förstå beroenden mellan datorer som du vill utvärdera och migrera till Azure.
+I den här artikeln beskrivs hur du ställer in agentlös beroendeanalys i Azure Migrate:Server Assessment. [Beroendeanalys](concepts-dependency-visualization.md) hjälper dig att identifiera och förstå beroenden mellan datorer som du vill bedöma och migrera till Azure.
 
-Beroende visualisering av en agent som hjälper dig att identifiera dator beroenden utan att installera några agenter på datorer. Det fungerar genom att samla in data för TCP-anslutningen från datorer som den är aktive rad för.
 
 > [!IMPORTANT]
-> Det finns för närvarande en för hands version av en beroende visualisering för virtuella Azure VMware-datorer, identifierade med verktyget Azure Migrate: Server bedömning.
-> Funktioner kan vara begränsade eller ofullständiga.
-> Den här för hands versionen täcks av kund support och kan användas för produktions arbets belastningar.
+> Agentless beroende visualisering är för närvarande i förhandsversion för virtuella datorer med VMware, som upptäcktes med verktyget Azure Migrate:Server Assessment.
+> Funktionerna kan vara begränsade eller ofullständiga.
+> Den här förhandsversionen omfattas av kundsupport och kan användas för produktionsarbetsbelastningar.
 > Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-## <a name="current-limitations"></a>Aktuella begränsningar
 
-- Just nu kan du inte lägga till eller ta bort en server från en grupp i vyn beroende analys.
-- En beroende karta för en Server grupp är inte tillgänglig för tillfället.
-- Beroende data kan för närvarande inte hämtas i tabell format.
 
 ## <a name="before-you-start"></a>Innan du börjar
 
-- [Granska](concepts-dependency-visualization.md#agentless-visualization) de krav och kostnader som är kopplade till en agent utan agent beroende visualisering.
-- Granska [support kraven](migrate-support-matrix-vmware.md#agentless-dependency-visualization) för att skapa en agent utan beroende visualisering.
-- Se till att du har [skapat](how-to-add-tool-first-time.md) ett Azure Migrate-projekt.
-- Om du redan har skapat ett projekt kontrollerar du att du har [lagt till](how-to-assess.md) Azure Migrate: Server utvärderings verktyget.
-- Se till att du har konfigurerat en [Azure Migrate-apparat](migrate-appliance.md) för att identifiera dina lokala datorer. Lär dig hur du konfigurerar en installation för virtuella [VMware](how-to-set-up-appliance-vmware.md) -datorer. Enheten identifierar lokala datorer och skickar metadata-och prestanda data till Azure Migrate: Server utvärdering.
+- [Läs mer om](concepts-dependency-visualization.md#agentless-analysis) agentlös beroendeanalys.
+- [Granska](migrate-support-matrix-vmware.md#agentless-dependency-analysis-requirements) förutsättningarna och supportkraven för att ställa in agentlös beroendevisualisering för virtuella datorer med VMware
+- Kontrollera att du har [skapat](how-to-add-tool-first-time.md) ett Azure Migrate-projekt.
+- Om du redan har skapat ett projekt kontrollerar du att du har [lagt till](how-to-assess.md) verktyget Azure Migrate:Server Assessment.
+- Kontrollera att du har konfigurerat en [Azure Migrate-installation för](migrate-appliance.md) att identifiera dina lokala datorer. Läs om hur du konfigurerar en apparat för virtuella datorer [med VMware.](how-to-set-up-appliance-vmware.md) Installationen identifierar lokala datorer och skickar metadata och prestandadata till Azure Migrate:Server Assessment.
 
 
-## <a name="create-a-user-account-for-discovery"></a>Skapa ett användar konto för identifiering
+## <a name="current-limitations"></a>Aktuella begränsningar
 
-Konfigurera ett användar konto så att Server utvärderingen kan komma åt den virtuella datorn för identifiering. Du kan ange ett användar konto.
+- Just nu kan du inte lägga till eller ta bort en server från en grupp i beroendeanalysvyn.
+- En beroendemappning för en grupp servrar är för närvarande inte tillgänglig.
+- För närvarande kan beroendedata inte hämtas i tabellformat.
 
-- **Virtuella Windows-datorer**: användar kontot måste vara en lokal administratör eller en domän administratör.
-- **Virtuella Linux-datorer**: rot privilegiet krävs för kontot. Alternativt måste användar kontot ha dessa två funktioner på/bin/netstat-och/bin/ls-filer: CAP_DAC_READ_SEARCH och CAP_SYS_PTRACE.
+## <a name="create-a-user-account-for-discovery"></a>Skapa ett användarkonto för identifiering
 
-## <a name="add-the-user-account-to-the-appliance"></a>Lägg till användar kontot till enheten
+Konfigurera ett användarkonto så att Serverutvärdering kan komma åt den virtuella datorn för identifiering. [Läs mer](migrate-support-matrix-vmware.md#agentless-dependency-analysis-requirements) om kontokrav.
 
-Lägg till användar kontot till enheten.
 
-1. Öppna appen för hantering av appar. 
-2. Navigera till panelen **Tillhandahåll vCenter-information** .
-3. I **identifiera program och beroenden på virtuella datorer**klickar du på **Lägg till autentiseringsuppgifter**
-3. Välj **operativ system**, ange ett eget namn för kontot och **användar namnet**/**lösen ord**
-6. Klicka på **Save** (Spara).
+## <a name="add-the-user-account-to-the-appliance"></a>Lägga till användarkontot i apparaten
+
+Lägg till användarkontot i apparaten.
+
+1. Öppna appen för hantering av apparaten. 
+2. Navigera till informationspanelen **För att tillhandahålla vCenter.**
+3. Klicka på **Lägg till autentiseringsuppgifter** i **Upptäck program och beroenden på virtuella datorer**
+3. Välj **operativsystem,** ange ett eget namn för kontot och/**användarnamnet** **User name**
+6. Klicka på **Spara**.
 7. Klicka på **Spara och starta identifiering**.
 
-    ![Lägg till användar konto för virtuell dator](./media/how-to-create-group-machine-dependencies-agentless/add-vm-credential.png)
+    ![Lägg till vm-användarkonto](./media/how-to-create-group-machine-dependencies-agentless/add-vm-credential.png)
 
-## <a name="start-dependency-discovery"></a>Starta beroende identifiering
+## <a name="start-dependency-discovery"></a>Starta identifiering av beroende
 
-Välj de datorer där du vill aktivera beroende identifiering.
+Välj de datorer som du vill aktivera beroendeidentifiering på.
 
-1. Klicka på **identifierade servrar**i **Azure Migrate: Server bedömning**.
-2. Klicka på ikonen **beroende analys** .
+1. Klicka på **Identifierade servrar**i **Azure Migrate: Server Assessment**.
+2. Klicka på ikonen **Beroendeanalys.**
 3. Klicka på **Lägg till servrar**.
-3. På sidan **Lägg till servrar** väljer du den installation som identifierar relevanta datorer.
-4. Välj datorerna i listan dator.
+3. På sidan **Lägg till servrar** väljer du den installation som identifierar de relevanta datorerna.
+4. Välj maskinerna i maskinlistan.
 5. Klicka på **Lägg till servrar**.
 
-    ![Starta beroende identifiering](./media/how-to-create-group-machine-dependencies-agentless/start-dependency-discovery.png)
+    ![Starta identifiering av beroende](./media/how-to-create-group-machine-dependencies-agentless/start-dependency-discovery.png)
 
-Du kan visualisera beroenden runt sex timmar efter start av beroende identifiering.
+Du kan visualisera beroenden runt sex timmar efter att du har startat beroendeidentifiering.
 
 ## <a name="visualize-dependencies"></a>Visualisera beroenden
 
-1. Klicka på **identifierade servrar**i **Azure Migrate: Server bedömning**.
-2. Sök efter den dator som du vill visa.
-3. I kolumnen **beroenden** klickar du på **Visa beroenden**
-4. Ändra den tids period som du vill visa kartan med i list rutan **tids längd** .
-5. Expandera **klient** gruppen för att visa en lista med datorer som är beroende av den valda datorn.
-6. Expandera **port** gruppen om du vill visa en lista med datorer som är beroende av den valda datorn.
-7. Om du vill navigera till vyn karta för någon av de beroende datorerna klickar du på dator namnet > **belastnings Server karta**
+1. Klicka på **Identifierade servrar**i **Azure Migrate: Server Assessment**.
+2. Sök efter den dator du vill visa.
+3. Klicka på **Visa beroenden** i kolumnen **Beroenden**
+4. Ändra den tidsperiod för vilken du vill visa kartan med hjälp av listrutan **Tidslängd.**
+5. Expandera **klientgruppen** för att lista datorerna med ett beroende på den valda datorn.
+6. Expandera gruppen **Port** för att visa de datorer som har ett beroende från den valda datorn.
+7. Om du vill navigera till kartvyn för någon av de beroende datorerna klickar du på maskinnamnet > **Läs in serverkartan**
 
-    ![Expandera server port grupp och läsa in Server karta](./media/how-to-create-group-machine-dependencies-agentless/load-server-map.png)
+    ![Expandera serverportgrupp och läs in serverkarta](./media/how-to-create-group-machine-dependencies-agentless/load-server-map.png)
 
-    ![Expandera klient grupp ](./media/how-to-create-group-machine-dependencies-agentless/expand-client-group.png)
+    ![Expandera klientgrupp ](./media/how-to-create-group-machine-dependencies-agentless/expand-client-group.png)
 
-8. Expandera den valda datorn om du vill visa information på process nivå för varje beroende.
+8. Expandera den valda datorn för att visa information på processnivå för varje beroende.
 
-    ![Expandera Server för att visa processer](./media/how-to-create-group-machine-dependencies-agentless/expand-server-processes.png)
+    ![Expandera server för att visa processer](./media/how-to-create-group-machine-dependencies-agentless/expand-server-processes.png)
 
 > [!NOTE]
-> Process information för ett beroende är inte alltid tillgängligt. Om det inte är tillgängligt visas beroendet med processen markerad som "okänd process".
+> Processinformation för ett beroende är inte alltid tillgänglig. Om den inte är tillgänglig visas beroendet med processen markerad som Okänd process.
 
-## <a name="stop-dependency-discovery"></a>Stoppa beroende identifiering
+## <a name="stop-dependency-discovery"></a>Stoppa identifiering av beroende
 
-Välj de datorer där du vill stoppa beroende identifiering.
+Välj de datorer som du vill stoppa beroendeidentifiering på.
 
-1. Klicka på **identifierade servrar**i **Azure Migrate: Server bedömning**.
-2. Klicka på ikonen **beroende analys** .
-3. Klicka på **ta bort servrar**.
-3. På sidan **ta bort servrar** **väljer du den installation som identifierar** de virtuella datorer där du vill stoppa beroende identifiering.
-4. Välj datorerna i listan dator.
-5. Klicka på **ta bort servrar**.
+1. Klicka på **Identifierade servrar**i **Azure Migrate: Server Assessment**.
+2. Klicka på ikonen **Beroendeanalys.**
+3. Klicka på **Ta bort servrar**.
+3. På sidan **Ta bort servrar** väljer du den **installation** som identifierar de virtuella datorer som du vill stoppa beroendeidentifieringen på.
+4. Välj maskinerna i maskinlistan.
+5. Klicka på **Ta bort servrar**.
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Gruppera datorerna](how-to-create-a-group.md) för utvärdering.
+[Gruppera maskinerna](how-to-create-a-group.md) för bedömning.

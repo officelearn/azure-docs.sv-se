@@ -1,6 +1,6 @@
 ---
-title: Leverera ett koncept bevis – Azure DevTest Labs | Microsoft Docs
-description: Lär dig att leverera ett koncept bevis så Azure DevTest Labs kan integreras i en företags miljö.
+title: Leverera ett konceptbevis - Azure DevTest Labs | Microsoft-dokument
+description: Lär dig hur du levererar ett konceptbevis så att Azure DevTest Labs kan införlivas i en företagsmiljö.
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
 author: tanmayeekamath
@@ -14,128 +14,128 @@ ms.topic: article
 ms.date: 07/23/2018
 ms.author: takamath
 ms.openlocfilehash: ca843213760cee60799568a6f33059c2bd91c835
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75643295"
 ---
-# <a name="deliver-a-proof-of-concept"></a>Leverera ett koncept bevis 
+# <a name="deliver-a-proof-of-concept"></a>Leverera ett konceptbevis 
 
-Ett av de viktigaste scenarierna för Azure DevTest Labs är att aktivera utvecklings-och testnings miljöer i molnet. Till exempel:
+Ett av de viktigaste scenarierna för Azure DevTest Labs är att aktivera utvecklings- och testmiljöer i molnet. Exempel på rekommendationer:
 
-* Skapa skriv bord för utvecklare i molnet.
+* Skapa utvecklarskrivbord i molnet.
 * Konfigurera miljöer för testning.
 * Aktivera åtkomst till virtuella datorer och andra Azure-resurser.
-* Konfigurera ett begränsat områden för utvecklare att lära sig och experimentera.
+* Konfigurera ett sandlådeområde där utvecklare kan lära sig och experimentera.
 
-DevTest Labs innehåller också principen guardrails och kostnads kontroller som gör det möjligt för företaget att tillhandahålla "självbetjänings Azure" till utvecklare som följer företagets principer för säkerhet, regler och efterlevnad. 
+DevTest Labs tillhandahåller också policyskyddsräcken och kostnadskontroller för att göra det möjligt för företaget att tillhandahålla "azure" som fungerar som egenföretagare och utvecklare som följer företagets säkerhets-, regel- och efterlevnadsprinciper. 
 
-Alla företag har olika krav för hur Azure DevTest Labs kan införlivas i deras miljö. I den här artikeln beskrivs de vanligaste stegen som företag måste utföra för att få ett välklarat koncept bevis. Ett koncept bevis är det första steget mot en lyckad distribution från slut punkt till slut punkt. 
+Varje företag har olika krav på hur Azure DevTest Labs kan införlivas i sin miljö. I den här artikeln beskrivs de vanligaste stegen som företag behöver slutföra för att säkerställa ett framgångsrikt konceptbevis. Ett proof of concept är det första steget mot en lyckad end-to-end-distribution. 
 
 ## <a name="getting-started"></a>Komma igång 
 
-För att komma igång med att leverera ett koncept bevis. Det är viktigt att ägna lite tid åt att lära dig mer om Azure och DevTest Labs.  Här är några start resurser: 
+För att komma igång med att leverera ett proof of concept. Det är viktigt att spendera lite tid att lära sig mer om Azure och DevTest Labs.  Här är några startresurser: 
 
-* [Förstå Azure Portal](https://azure.microsoft.com/features/azure-portal/)
-* [Grunderna för DevTest Labs](devtest-lab-overview.md)
+* [Förstå Azure-portalen](https://azure.microsoft.com/features/azure-portal/)
+* [Grunderna i DevTest Labs](devtest-lab-overview.md)
 * [Scenarier som stöds av DevTest Labs](devtest-lab-guidance-get-started.md)
-* [Dokumentation om DevTest Labs Enterprise](devtest-lab-guidance-prescriptive-adoption.md)
-* [Introduktion till Azure-nätverk](../virtual-network/virtual-networks-overview.md)
+* [Dokumentation för DevTest Labs-företag](devtest-lab-guidance-prescriptive-adoption.md)
+* [Intro till Azure-nätverk](../virtual-network/virtual-networks-overview.md)
 
 ## <a name="prerequisites"></a>Krav 
 
-För att kunna slutföra en pilot eller ett koncept bevis med DevTest Labs finns det några krav: 
+För att framgångsrikt slutföra en pilot eller proof of concept med DevTest Labs, det finns några förutsättningar: 
 
-* **Azure-prenumeration**: företag har ofta en befintlig [Enterprise-avtal](https://azure.microsoft.com/pricing/purchase-options/enterprise-agreement/) på plats som ger åtkomst till Azure, och de kan använda en befintlig eller ny prenumeration för DevTest Labs. Företag kan också använda en [Visual Studio-prenumeration](https://azure.microsoft.com/pricing/member-offers/visual-studio-subscriptions/) under piloten (med fördel av de kostnads fria Azure-krediterna). Om inget av dessa alternativ är tillgängligt kan företaget skapa och använda ett [kostnads fritt Azure-konto](https://azure.microsoft.com/free/search/?&OCID=AID719825_SEM_g4lyBqgB&lnkd=Bing_Azure_Brand&msclkid=ecc4275a31b61375749e7a5322c20de8&dclid=CMGW5-m78-ICFaLt4QodmUwGtQ). Om det finns en Enterprise-avtal på plats är det ett bra alternativ att använda en [Enterprise dev/test-prenumeration](https://azure.microsoft.com/offers/ms-azr-0148p/) för att få åtkomst till klient operativ systemen Windows 10/Windows 8,1 och rabatterat pris för utveckling och testning av arbets belastningar. 
-* **Azure Active Directory klient**: om du vill aktivera hantering av användare (till exempel lägga till användare eller lägga till labb ägare) måste användarna vara en del av den [Azure Active Directory klient organisationen](https://azure.microsoft.com/services/active-directory/) som används i Azure-prenumerationen för piloten. Företag kommer ofta att ställa in [Hybrid identiteter](../active-directory/hybrid/whatis-hybrid-identity.md) så att användarna kan använda sina lokala identiteter i molnet, men detta krävs inte för DevTest Labs-piloten. 
+* **Azure-prenumeration:** Företag har ofta ett befintligt [Enterprise-avtal](https://azure.microsoft.com/pricing/purchase-options/enterprise-agreement/) på plats som ger åtkomst till Azure och de kan använda en befintlig eller ny prenumeration för DevTest Labs. Alternativt kan företag använda en [Visual Studio-prenumeration](https://azure.microsoft.com/pricing/member-offers/visual-studio-subscriptions/) under pilotprojektet (dra nytta av de kostnadsfria Azure-krediterna). Om inget av dessa alternativ är tillgängligt kan ett företag skapa och använda ett [kostnadsfritt Azure-konto](https://azure.microsoft.com/free/search/?&OCID=AID719825_SEM_g4lyBqgB&lnkd=Bing_Azure_Brand&msclkid=ecc4275a31b61375749e7a5322c20de8&dclid=CMGW5-m78-ICFaLt4QodmUwGtQ). Om det finns ett enterprise-avtal på plats är det ett bra alternativ att använda en [Enterprise Dev/Test-prenumeration](https://azure.microsoft.com/offers/ms-azr-0148p/) för att få tillgång till Windows 10/Windows 8.1-klientoperativsystem och rabatterade priser för utvecklings- och testningsarbetsbelastningar. 
+* **Azure Active Directory-klient:** För att kunna hantera användare (till exempel lägga till användare eller lägga till labbägare) måste dessa användare vara en del av [Azure Active Directory-klienten](https://azure.microsoft.com/services/active-directory/) som används i Azure-prenumerationen för piloten. Ofta kommer företag att ställa in [hybrididentitet](../active-directory/hybrid/whatis-hybrid-identity.md) så att användarna kan använda sin lokala identitet i molnet, men detta krävs inte för DevTest Labs-piloten. 
 
-## <a name="scoping-of-the-pilot"></a>Omfånget för piloten 
+## <a name="scoping-of-the-pilot"></a>Scoping av piloten 
 
-Det är viktigt att planera en pilot innan du påbörjar implementeringen. I förväg vet du att resurserna inte hålls kvar runt de oändliga uppsättningarna med lämpliga förväntningar för användare av piloten. 
+Det är viktigt att planera en pilot innan du påbörjar implementeringen. Att veta i förväg att resurserna inte kommer att stanna kvar på obestämd tid ställer lämpliga förväntningar för användare av piloten. 
 
 > [!IMPORTANT]
-> Vi kan inte fokusera tillräckligt mycket av att klara piloten och ställa in förväntningarna direkt.
+> Vi kan inte nog betona vikten av att skarpt scoping piloten och ställa förväntningar på framsidan.
 
-Besvara dessa viktiga frågor innan du startar piloten: 
+Svara på dessa viktiga frågor innan du sparkar igång piloten: 
 
-* Vad vill du lära dig och hur ser det ut som för piloten? 
-* Vilka arbets belastningar eller scenarier kommer att omfattas av piloten? Det är viktigt att endast definiera en liten uppsättning för att se till att piloten kan komma att omfångs och slutföras snabbt. 
-* Vilka resurser måste vara tillgängliga i labbet? Exempel: anpassade avbildningar, Marketplace-avbildningar, principer, nätverkstopologi. 
-* Vilka är de användare och team som kommer att ingå i piloten för att verifiera erfarenheten?  
-* Vad är pilotens varaktighet? Välj en tidsram som justeras bra till planerat omfång, till exempel två veckor eller en månad. 
-* Vad händer när piloten är slutförd, vad händer med de tilldelade resurserna som användes under piloten? Planerar du att ta bort pilot resurserna? Du kan tänka dig:
+* Hur vill du lära dig, och hur ser framgång ut för piloten? 
+* Vilka arbetsbelastningar eller scenarier kommer att täckas i pilotprojektet? Det är viktigt att definiera endast en liten uppsättning för att säkerställa att piloten kan scoped och slutföras snabbt. 
+* Vilka resurser måste vara tillgängliga i labbet? Till exempel: anpassade avbildningar, marketplace-bilder, principer, nätverkstopologi. 
+* Vilka är de användare och team som kommer att delta i piloten för att verifiera upplevelsen?  
+* Hur länge ska piloten pågå? Välj en tidsram som anpassar sig väl till planerat scope, till exempel två veckor eller en månad. 
+* När pilotprojektet är klart, vad händer med de tilldelade resurser som användes under pilotprojektet? Planerar du att kassera pilotresurserna? Du kanske tror:
    
-   "Om vi kan planera för att ta bort de virtuella datorerna och labben i slutet av piloten kan vi konfigurera en enda prenumeration för piloten och göra allt det där, medan vi löser problemet med att skala distributionen parallellt." 
+   "Om vi kan planera att kasta bort virtuella maskiner och laboratorier i slutet av piloten, då kan vi ställa in en enda prenumeration för piloten och göra allt vårt arbete där medan vi lösa skala utbyggnaden frågor parallellt." 
 
-Det finns en allmän tendens att göra piloten "perfekt" så att den motsvarar det slutliga tillstånd som kommer att ske efter att tjänsten har distribuerats till företaget. Detta är ett falskt antagande. Desto närmare blir du "perfekt", desto mer måste du slutföra *innan* du börjar använda piloten. Syftet med piloten är att fatta rätt beslut om att skala upp och ut ur den slutliga tjänsten. 
+Det finns en allmän tendens att göra piloten "perfekt" så det identiskt representerar vad det slutliga tillståndet kommer att vara efter tjänsten rullas ut på företaget. Detta är ett falskt antagande. Ju närmare du kommer till "perfekt", desto mer måste du slutföra *innan* du börjar på piloten. Syftet med piloten är att fatta rätt beslut om att skala upp och rulla ut den slutliga tjänsten. 
 
-Pilotens fokus bör vara att välja minst de arbets belastningar och beroenden som krävs för att besvara frågan om Azure DevTest Labs är rätt tjänst för ditt företag. Vi rekommenderar att du väljer den enklaste arbets belastningen med minst beroenden för att säkerställa en snabb och ren framgång. Om det inte är möjligt väljer du en mest representativ arbets belastning som visar potentiella komplicerade risker så att framgång i pilot fasen kan replikeras i den skalbara fasen. 
+Pilotens fokus bör ligga på att välja de minsta nödvändiga arbetsbelastningarna och beroendena för att svara på frågan om Azure DevTest Labs är rätt tjänst för ditt företag. Vi rekommenderar att du väljer den enklaste arbetsbelastningen med minst beroenden för att säkerställa en snabb och ren framgång. Om det inte är möjligt väljer du en mest representativ arbetsbelastning som exponerar potentiella komplexiteter så att framgång i pilotfasen kan replikeras i utskalningsfasen. 
 
-I följande exempel visas ett väldefinierat koncept bevis. 
+Följande exempel visar ett välscopet konceptbevis. 
 
-## <a name="example-proof-of-concept-plan"></a>Exempel: proof-of-Concept plan 
+## <a name="example-proof-of-concept-plan"></a>Exempel: proof-of-concept plan 
 
-Det här avsnittet innehåller ett exempel som du kan använda för att omfånget för ett koncept bevis för piloten för DevTest Labs. 
+I det här avsnittet visas ett exempel som ska användas för att omfånga ett konceptbevis för piloten för DevTest Labs. 
 
 > [!TIP]
-> Vi rekommenderar starkt att du inte hoppar över exemplet som beskrivs i det här avsnittet för att minimera risken för att skapa ett projekt för haveri. 
+> För att minimera risken för att projektet kan konfigureras för fel rekommenderar vi starkt att du inte hoppar över exemplet som beskrivs i det här avsnittet. 
 
 ### <a name="overview"></a>Översikt 
 
-Vi planerar att utveckla en ny miljö i Azure baserat på DevTest Labs för leverantörer som ska användas som isolerad miljö från företags nätverket. För att avgöra om lösningen uppfyller kraven kommer vi att utveckla ett koncept bevis för att validera lösningen från slut punkt till slut punkt. Vi har inkluderat flera leverantörer för att testa och verifiera upplevelsen. 
+Vi planerar att utveckla en ny miljö i Azure baserat på DevTest Labs för leverantörer att använda som en isolerad miljö från företagsnätverket. För att avgöra om lösningen uppfyller kraven utvecklar vi ett konceptbevis för att validera lösningen från slutna till slutna. Vi har inkluderat flera leverantörer för att prova och verifiera upplevelsen. 
 
 ### <a name="outcomes"></a>Resultat 
 
-När vi skapar ett POC-koncept fokuserar vi först på resultatet (Vad försöker vi uppnå). I slutet av koncept beviset förväntas vi: 
+När vi bygger ett konceptbevis fokuserar vi först på resultaten (vad försöker vi uppnå). I slutet av proof of concept förväntar vi oss: 
 
-* En fungerande heltäckande lösning för leverantörer att använda gäst konton i Azure Active Directory (Azure AD) för att få åtkomst till en isolerad miljö i Azure. Miljön har de resurser som krävs för att de ska vara produktiva. 
-* Eventuella problem som kan blockeras och som påverkar den bredare skalnings användningen och användningen räknas upp och förstås.
-* De personer som sysslar med att utveckla POC-beviset har en god förståelse för all kod. De kan också förstå vad som är viktigt och är tryggare införande.
+* En fungerande på sluten lösning för leverantörer att använda gästkonton i Azure Active Directory (Azure AD) för att komma åt en isolerad miljö i Azure. Miljön har de resurser som krävs för att de ska vara produktiva. 
+* Eventuella blockeringsproblem som påverkar bredare användning och införande räknas upp och förstås.
+* De individer som deltar i utvecklingen av proof of concept har en god förståelse för all kod. De förstår också säkerheter inblandade och är övertygade om bredare antagande.
 
-### <a name="open-questions-and-prerequisites"></a>Öppna frågor och krav 
+### <a name="open-questions-and-prerequisites"></a>Öppna frågor och förutsättningar 
 
-* Har vi en prenumeration som vi kan använda för det här projektet? 
-* Har vi en Azure AD-klient och en global Azure AD-administratör identifierad som kan ge hjälp och vägledning för Azure AD-relaterade frågor? 
-* Har vi en plats för att samar beta för de personer som arbetar med projektet? 
+* Har vi skapat en prenumeration som vi kan använda för det här projektet? 
+* Har vi identifierat en Azure AD-klient och en global Azure AD-administratör som kan ge hjälp och vägledning för Azure AD-relaterade frågor? 
+* Har vi plats att samarbeta för de personer som arbetar med projektet? 
 
-   * Källkod och skript (som Azure databaser) 
-   * Dokument (till exempel Microsoft Teams eller SharePoint)  
-   * Konversationer (t. ex. Microsoft-team) 
-   * Arbets objekt (till exempel Azure-kort) 
-* Vilka är de resurser som krävs för leverantörer? Detta inkluderar program som är tillgängliga i nätverket, både lokalt på de virtuella datorerna och på andra nödvändiga servrar. 
-* Kommer de virtuella datorerna att vara anslutna till en domän i Azure? I så fall, kommer detta att Azure Active Directory Domain Services (Azure AD DS) eller något annat? 
-* Har vi identifierat de team eller leverantörer som är målet för koncept beviset? Vilka är kunderna för miljön?
-* Vilken Azure-region kommer vi att använda för koncept beviset? 
-* Har vi en lista över tjänster som leverantörerna får använda via DevTest Labs förutom IaaS (VM)? 
-* Hur planerar vi att träna leverantörer/användare om att använda labbet? 
+   * Källkod och skript (som Azure Repos) 
+   * Dokument (som Microsoft Teams eller SharePoint)  
+   * Konversationer (som Microsoft Teams) 
+   * Arbetsobjekt (till exempel Azure Boards) 
+* Vilka är de resurser som krävs för leverantörer? Detta inkluderar program som är tillgängliga i nätverket, både lokalt på de virtuella datorerna och på andra servrar som krävs. 
+* Kommer de virtuella datorerna att anslutas till en domän i Azure? Om så är fallet, kommer detta att vara Azure Active Directory Domain Services (Azure AD DS) eller något annat? 
+* Har vi identifierat det eller de leverantörer som kommer att vara föremål för proof of concept? Vilka kommer att vara kunder för miljön?
+* Vilken Azure-region kommer vi att använda för proof of concept? 
+* Har vi en lista över tjänster som leverantörerna får använda via DevTest Labs förutom IaaS (VMs)? 
+* Hur planerar vi att utbilda leverantörer / användare på att använda labbet? 
 
-### <a name="components-of-the-proof-of-concept-solution"></a>Komponenter i koncept bevis lösningen 
+### <a name="components-of-the-proof-of-concept-solution"></a>Komponenter i proof-of-concept-lösningen 
 
-Vi förväntar oss att lösningen ska ha följande komponenter: 
+Vi förväntar oss att lösningen har följande komponenter: 
 
-* Olika leverantörs team kommer att använda en uppsättning labb i Azure.
-* Labben är anslutna till en nätverks infrastruktur som uppfyller kraven.
-* Leverantörerna har åtkomst till labben via Azure AD och roll tilldelningar.
-* Leverantörer har möjlighet att ansluta till sina resurser. Mer specifikt möjliggör en plats-till-plats-VPN åtkomst till virtuella datorer direkt utan offentliga IP-adresser.
-* En uppsättning artefakter omfattar nödvändig program vara som leverantörer behöver på de virtuella datorerna.
+* Olika leverantörsteam använder en uppsättning labb i Azure.
+* Labben är anslutna till en nätverksinfrastruktur som stöder kraven.
+* Leverantörerna har åtkomst till labben via Azure AD och rolltilldelningar.
+* Leverantörer har ett sätt att ansluta till sina resurser. En VPN från plats till plats gör det möjligt att komma åt virtuella datorer direkt utan offentliga IP-adresser.
+* En uppsättning artefakter täcker den programvara som krävs som leverantörerna behöver på de virtuella datorerna.
 
-## <a name="additional-planning-and-design-decisions"></a>Ytterligare planerings-och design beslut 
+## <a name="additional-planning-and-design-decisions"></a>Ytterligare planerings- och designbeslut 
 
-Innan du släpper en fullständig DevTest Labs-lösning måste du fatta några viktiga planerings-och design beslut. Erfarenheten av att arbeta med koncept bevis kan hjälpa dig att fatta besluten. Ytterligare överväganden omfattar: 
+Innan du släpper en fullständig DevTest Labs-lösning måste du fatta några viktiga planerings- och designbeslut. Erfarenheten av att arbeta med ett proof of concept kan hjälpa dig att fatta dessa beslut. Ytterligare övervägande omfattar: 
 
-* **Prenumerations sto pol Ogin**: kraven på företags nivå för resurser i Azure kan utökas utöver de [tillgängliga kvoterna i en enda prenumeration](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits). Detta kräver flera Azure-prenumerationer och/eller tjänst begär Anden för att öka den inledande prenumerations gränsen. Det är viktigt att du bestämmer dig för att distribuera resurser mellan prenumerationer. En värdefull resurs är [prenumerations besluts hand boken](https://docs.microsoft.com/azure/architecture/cloud-adoption/decision-guides/subscriptions/) eftersom det är svårt att flytta resurser till en annan prenumeration senare. Ett labb kan till exempel inte flyttas till en annan prenumeration när den har skapats.  
-* **Nätverkstopologi**: den [standard nätverks infrastruktur](../app-service/networking-features.md) som DevTest Labs skapar kanske inte räcker för att uppfylla kraven och begränsningarna för företags användare. Det är vanligt att se [Azure ExpressRoute-anslutna virtuella nätverk](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/), [nav-och-eker](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) för anslutning mellan prenumerationer och till och med [Tvingad routning](../vpn-gateway/vpn-gateway-forced-tunneling-rm.md) för att säkerställa endast lokal anslutning. Med DevTest Labs kan befintliga virtuella nätverk anslutas till labbet så att de kan användas när du skapar nya virtuella datorer i labbet. 
-* **Fjärråtkomst till virtuella datorer**: det finns många alternativ för att fjärrans luta till de virtuella datorer som finns i DevTest Labs. Det enklaste sättet är att använda offentliga IP-adresser eller delade offentliga IP-adresser. Dessa [inställningar är tillgängliga i labbet](devtest-lab-shared-ip.md). Om dessa alternativ inte räcker, är det också ett alternativ att använda en gateway för fjärråtkomst. Det här alternativet visas i [DevTest Labs Enterprise-referens arkitektur](devtest-lab-reference-architecture.md) och beskrivs ytterligare i [dokumentationen för DevTest Labs Remote Desktop Gateway](configure-lab-remote-desktop-gateway.md). Företag kan också använda ExpressRoute eller en plats-till-plats-VPN för att ansluta sina labb till sitt lokala nätverk. Med det här alternativet aktive ras direkta fjärr skrivbords-eller SSH-anslutningar till de virtuella datorerna baserat på deras privata IP-adress utan exponering för Internet. 
-* **Hanterings behörigheter**: de två nyckel behörigheter som ofta används i DevTest Labs är [ägare och labb användare](devtest-lab-add-devtest-user.md). Det är viktigt att bestämma innan du utvärderar DevTest Labs i stort sett vem som ska anförtros varje nivå av åtkomst i labbet. En gemensam modell är budget ägaren (till exempel grupp ledare) som labb ägare och grupp medlemmar som labb användare. Den här modellen gör det möjligt för den person (grupp ledare) som ansvarar för budgeten att justera princip inställningarna och hålla teamet inom budgeten.  
+* **Prenumerationstopologi:** Kraven på företagsnivå för resurser i Azure kan sträcka sig längre än de [tillgängliga kvoterna inom en enda prenumeration](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits). Detta kräver flera Azure-prenumerationer och/eller tjänstbegäranden för att öka de ursprungliga prenumerationsgränserna. Det är viktigt att bestämma i förväg hur resurser ska fördelas mellan prenumerationer. En värdefull resurs är [beslutsguiden](https://docs.microsoft.com/azure/architecture/cloud-adoption/decision-guides/subscriptions/) för prenumerationefteråt eftersom det är svårt att flytta resurser till en annan prenumeration senare. Ett labb kan till exempel inte flyttas till en annan prenumeration när det har skapats.  
+* **Nätverkstopologi**: [Standardnätverksinfrastrukturen](../app-service/networking-features.md) som DevTest Labs automatiskt skapar kanske inte är tillräcklig för att uppfylla kraven och begränsningarna för företagsanvändarna. Det är vanligt att se [Azure ExpressRoute-anslutna virtuella nätverk,](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/) [hub-and-spoke](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) för anslutning mellan prenumerationer och till och med [tvingad routning](../vpn-gateway/vpn-gateway-forced-tunneling-rm.md) för att säkerställa endast lokal anslutning. DevTest Labs gör det möjligt för befintliga virtuella nätverk att anslutas till labbet för att aktivera deras användning när du skapar nya virtuella datorer i labbet. 
+* **Fjärråtkomst för virtuella datorer:** Det finns många alternativ för att fjärransluta till de virtuella datorerna som finns i DevTest Labs. Det enklaste är att använda offentliga IPs eller delade offentliga IPs. Dessa är [inställningar som är tillgängliga i labbet](devtest-lab-shared-ip.md). Om dessa alternativ inte är tillräckliga är det också ett alternativ att använda en fjärråtkomstgateway. Det här alternativet visas i [DevTest Labs företagsreferensarkitektur](devtest-lab-reference-architecture.md) och beskrivs ytterligare i [dokumentationen för DevTest Labs-fjärrskrivbordsgateway](configure-lab-remote-desktop-gateway.md). Företag kan också använda ExpressRoute eller en plats-till-plats-VPN för att ansluta sina labb till sitt lokala nätverk. Det här alternativet möjliggör direkt fjärrskrivbord eller SSH-anslutningar till de virtuella datorerna baserat på deras privata IP-adress utan exponering för Internet. 
+* **Hanteringsbehörigheter**: De två nyckelbehörigheter som vanligen används i DevTest Labs är [ägare och labbanvändare](devtest-lab-add-devtest-user.md). Det är viktigt att bestämma innan du rullar ut DevTest Labs brett som kommer att anförtros varje nivå av tillgång i labbet. En vanlig modell är budgetägaren (till exempel teamlead) som labbägare och gruppmedlemmar som labbanvändare. Den här modellen gör det möjligt för den person (teamlead) som ansvarar för budgeten att justera principinställningarna och hålla teamet inom budget.  
 
-## <a name="completing-the-proof-of-concept"></a>Slutför koncept beviset 
+## <a name="completing-the-proof-of-concept"></a>Slutföra proof of concept 
 
-När förväntad information har täckts är det dags att slutföra piloten. Det är dags att samla in feedback från användarna, avgöra om piloten lyckades och bestämma om organisationen ska fortsätta att distribuera DevTest Labs i företaget. Det är också en bra stund att överväga att automatisera distributionen av DevTest Labs och tillhör ande resurser för att säkerställa konsekvens i hela distributionen. 
+Efter att de förväntade lärdomarna har täckts är det dags att slutföra piloten. Det är dags att samla in feedback från användarna, avgöra om piloten lyckades och bestämma om organisationen ska gå vidare på en skalningsutbyggnad av DevTest Labs i företaget. Det är också ett bra tillfälle att överväga att automatisera distribution av DevTest Labs och tillhörande resurser för att säkerställa konsekvens i hela skalan utbyggnaden. 
 
 ## <a name="next-steps"></a>Nästa steg 
 
-* [Dokumentation om DevTest Labs Enterprise](devtest-lab-guidance-prescriptive-adoption.md)
-* [Referens arkitektur för ett företag](devtest-lab-reference-architecture.md)
-* [Skala upp din DevTest Labs-distribution](devtest-lab-guidance-orchestrate-implementation.md)
+* [Dokumentation för DevTest Labs-företag](devtest-lab-guidance-prescriptive-adoption.md)
+* [Referensarkitektur för ett företag](devtest-lab-reference-architecture.md)
+* [Skala upp distributionen av DevTest Labs](devtest-lab-guidance-orchestrate-implementation.md)
 * [Dirigera implementeringen av Azure DevTest Labs](devtest-lab-guidance-orchestrate-implementation.md)

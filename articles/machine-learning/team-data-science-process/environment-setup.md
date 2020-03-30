@@ -1,6 +1,6 @@
 ---
-title: Konfigurera datavetenskapsmiljöer i Azure - Team Data Science Process
-description: Ställ in data science-miljöer i Azure för användning i Team Data Science Process.
+title: Konfigurera datavetenskapsmiljöer i Azure – Team Data Science Process
+description: Konfigurera datavetenskapsmiljöer på Azure för användning i Team Data Science Process.
 services: machine-learning
 author: marktab
 manager: marktab
@@ -11,28 +11,28 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: d11e1614307d5b6cb267ae72bae6f32adb4b244a
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 6d1185e13397b3e466bd1e8d609a46f2f68bf390
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76722228"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80063941"
 ---
 # <a name="set-up-data-science-environments-for-use-in-the-team-data-science-process"></a>Konfigurera datavetenskapsmiljöer för användning i Team Data Science Process
-Team Data Science Process använder olika data science-miljöer för lagring, bearbetning och analys av data. De inkluderar Azure Blob Storage, flera typer av virtuella Azure-datorer, kluster för HDInsight (Hadoop) och Azure Machine Learning-arbetsytor. Beslut om vilken miljö som ska använda beror på typen och mängden data till modelleras och målområdet för dessa data i molnet. 
+Team Data Science Process använder olika datavetenskapliga miljöer för lagring, bearbetning och analys av data. De omfattar Azure Blob Storage, flera typer av virtuella Azure-datorer, HDInsight (Hadoop) kluster och Azure Machine Learning-arbetsytor. Beslutet om vilken miljö som ska användas beror på vilken typ och mängd av data som ska modelleras och målmålet för dessa data i molnet. 
 
-* Råd om frågor att tänka på när du fattar det här beslutet finns i [Planera din Azure Machine Learning data vetenskaps miljö](plan-your-environment.md). 
-* En förteckning över några av de scenarier som du kan stöta på när du utför avancerad analys finns i [scenarier för team data vetenskaps processen](plan-sample-scenarios.md)
+* Mer information om frågor som ska beaktas när du fattar det här beslutet finns i [Planera din Azure Machine Learning Data Science Environment](plan-your-environment.md). 
+* En katalog över några av de scenarier du kan stöta på när du gör avancerad analys finns [i Scenarier för teamdatavetenskapsprocessen](plan-sample-scenarios.md)
 
-I följande artiklar beskrivs hur du ställer in datavetenskapsmiljöer för olika data som används av Team Data Science Process.
+Följande artiklar beskriver hur du ställer in de olika datavetenskapsmiljöer som används av Team Data Science Process.
 
-* [Azure Storage – konto](../../storage/common/storage-account-create.md)
-* [HDInsight-kluster (Hadoop)](customize-hadoop-cluster.md)
-* [Azure Machine Learning Studio (klassisk) arbets yta](../studio/create-workspace.md)
+* [Azure-lagringskonto](../../storage/common/storage-account-create.md)
+* [HDInsight -kluster (Hadoop)](customize-hadoop-cluster.md)
+* [Azure Machine Learning Studio (klassisk) arbetsyta](../studio/create-workspace.md)
 
-**Microsoft data science Virtual Machine (DSVM)** är också tillgängligt som en virtuell Azure-dator (VM). Den här virtuella datorn har redan installerats och konfigurerats med flera populära verktyg som vanligen används för dataanalys och maskininlärning. DSVM finns på både Windows och Linux. Mer information finns i [Introduktion till den molnbaserade data science Virtual Machine för Linux och Windows](../data-science-virtual-machine/overview.md).
+**Microsoft Data Science Virtual Machine (DSVM)** är också tillgänglig som en virtuell Azure-avbildning (Virtual Machine). Den här virtuella datorn är förinstallerad och konfigurerad med flera populära verktyg som ofta används för dataanalys och maskininlärning. DSVM finns på både Windows och Linux. Mer information finns i [Introduktion till den molnbaserade virtuella datavetenskapsdatorn för Linux och Windows](../data-science-virtual-machine/overview.md).
 
-Lär dig hur du skapar:
+Läs om hur du skapar:
 
 - [Windows DSVM](../data-science-virtual-machine/provision-vm.md)
 - [Ubuntu DSVM](../data-science-virtual-machine/dsvm-ubuntu-intro.md)

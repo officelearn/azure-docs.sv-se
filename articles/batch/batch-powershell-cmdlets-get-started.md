@@ -16,10 +16,10 @@ ms.date: 01/15/2019
 ms.author: labrenne
 ms.custom: seodec18
 ms.openlocfilehash: 26691ca6b9d078ef18ac852c67fa2ac88dff2722
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77023012"
 ---
 # <a name="manage-batch-resources-with-powershell-cmdlets"></a>Hantera Batch-resurser med PowerShell-cmdletar
@@ -125,7 +125,7 @@ När du använder många av dessa cmdletar måste du, förutom att skicka ett Ba
 
 ### <a name="create-a-batch-pool"></a>Skapa en Batch-pool
 
-När du skapar eller uppdaterar en Batch-pool väljer du antingen en molntjänstkonfiguration eller en konfiguration för virtuell dator för beräkningsnodernas operativsystem (se [Översikt över Batch-funktioner](batch-api-basics.md#pool)). Om du anger konfigurationen för molntjänsterna avbildas dina beräkningsnoder med någon av [versionerna av Azures gäst-OS](../cloud-services/cloud-services-guestos-update-matrix.md#releases). Om du anger konfigurationen för den virtuella datorn kan du antingen ange en av de virtuella Linux-eller Windows-avbildningar som finns i listan på [Azure Virtual Machines Marketplace][vm_marketplace]eller ange en anpassad avbildning som du har för berett.
+När du skapar eller uppdaterar en Batch-pool väljer du antingen en molntjänstkonfiguration eller en konfiguration för virtuell dator för beräkningsnodernas operativsystem (se [Översikt över Batch-funktioner](batch-api-basics.md#pool)). Om du anger konfigurationen för molntjänsterna avbildas dina beräkningsnoder med någon av [versionerna av Azures gäst-OS](../cloud-services/cloud-services-guestos-update-matrix.md#releases). Om du anger konfigurationen för den virtuella datorn kan du antingen ange någon av VM-avbildningarna som stöds av Linux eller Windows som anges på [Azure Virtual Machines Marketplace][vm_marketplace] eller ange en anpassad avbildning som du har förberett.
 
 När du kör **New-AzBatchPool** skickar du operativsystemsinställningarna i ett PSCloudServiceConfiguration- eller PSVirtualMachineConfiguration-objekt. Till exempel skapar följande kodavsnitt en Batch-pool med beräkningsnoder i storleken Standard_A1 i konfigurationen för virtuella datorer, avbildade med Ubuntu Server 18.04-LTS. Här anger parametern **VirtualMachineConfiguration** variabeln *$configuration* som PSVirtualMachineConfiguration-objekt. Parametern **BatchContext** anger en tidigare definierad variabel, *$context*, som BatchAccountContext-objektet.
 

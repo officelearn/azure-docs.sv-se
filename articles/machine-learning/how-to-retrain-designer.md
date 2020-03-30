@@ -1,7 +1,7 @@
 ---
-title: Träna om modeller med hjälp av Azure Machine Learning designer (förhands granskning)
+title: Träna om modeller med hjälp av Azure Machine Learning designer (förhandsversion)
 titleSuffix: Azure Machine Learning
-description: Lär dig hur du tränar om modeller med publicerade pipelines i Azure Machine Learning designer (för hands version).
+description: Lär dig hur du tränar om modeller med publicerade pipelines i Azure Machine Learning designer (förhandsversion).
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,116 +10,116 @@ ms.author: keli19
 author: likebupt
 ms.date: 02/24/2020
 ms.openlocfilehash: 264b169eefde18880f50feae2554aa3ca7037b1f
-ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/14/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79368170"
 ---
-# <a name="retrain-models-with-azure-machine-learning-designer-preview"></a>Träna om modeller med Azure Machine Learning designer (för hands version)
+# <a name="retrain-models-with-azure-machine-learning-designer-preview"></a>Omträningsmodeller med Azure Machine Learning Designer (förhandsversion)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
 
-I den här instruktions artikeln får du lära dig hur du använder Azure Machine Learning designer för att omträna en maskin inlärnings modell. Lär dig hur du använder publicerade pipelines för att automatisera Machine Learning-arbetsflöden för omskolning.
+I den här artikeln får du lära dig hur du använder Azure Machine Learning designer för att omskola en maskininlärningsmodell. Ta reda på hur du använder publicerade pipelines för att automatisera maskininlärningsarbetsflöden för omskolning.
 
 I den här artikeln kan du se hur du:
 
 > [!div class="checklist"]
-> * Träna en maskin inlärnings modell.
+> * Träna en maskininlärningsmodell.
 > * Skapa en pipeline-parameter.
-> * Publicera din utbildnings pipeline.
-> * Träna om din modell.
+> * Publicera din träningspipeline.
+> * Omskola din modell.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-* En Azure-prenumeration. Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://aka.ms/AMLFree).
+* En Azure-prenumeration. Om du inte har en Azure-prenumeration skapar du ett [kostnadsfritt konto](https://aka.ms/AMLFree).
 * En Azure Machine Learning-arbetsyta med Enterprise SKU.
 
-Den här artikeln förutsätter att du har grundläggande kunskaper om att skapa pipelines i designern. För en guidad introduktion till designern, slutför du [själv studie kursen](tutorial-designer-automobile-price-train-score.md). 
+Den här artikeln förutsätter att du har grundläggande kunskaper om att bygga rörledningar i designern. För en guidad introduktion till designern, fyll i [handledningen](tutorial-designer-automobile-price-train-score.md). 
 
 ### <a name="sample-pipeline"></a>Exempel på pipeline
 
-Pipelinen som används i den här artikeln är en ändrad version av den som finns i [exempel 3: inkomst förutsägelse](how-to-designer-sample-classification-predict-income.md). Modulen [Importera data](algorithm-module-reference/import-data.md) används i stället för exempel data uppsättningen för att visa hur du tränar en modell genom att använda dina egna data.
+Pipelinen som används i den här artikeln är en ändrad version av den som finns i [Exempel 3: Inkomstprediktion](how-to-designer-sample-classification-predict-income.md). Den använder modulen [Importera data](algorithm-module-reference/import-data.md) i stället för exempeldatauppsättningen för att visa hur du tränar en modell med hjälp av dina egna data.
 
-![Skärm bild som visar den ändrade exempel pipelinen med en ruta som markerar modulen importera data](./media/how-to-retrain-designer/modified-sample-pipeline.png)
+![Skärmbild som visar den ändrade exempelpipelinen med en ruta som markerar modulen Importera data](./media/how-to-retrain-designer/modified-sample-pipeline.png)
 
-## <a name="train-a-machine-learning-model"></a>Träna en Machine Learning-modell
+## <a name="train-a-machine-learning-model"></a>Träna en maskininlärningsmodell
 
-För att omträna en modell behöver du en inledande modell. I det här avsnittet får du lära dig hur du tränar en modell och kommer åt den sparade modellen med hjälp av designern.
+För att träna om en modell behöver du en första modell. I det här avsnittet får du lära dig hur du tränar en modell och kommer åt den sparade modellen med hjälp av designern.
 
-1. Välj modulen **Importera data** .
-1. I fönstret Egenskaper anger du en data källa.
+1. Välj modulen **Importera data.**
+1. Ange en datakälla i egenskapsfönstret.
 
-   ![Skärm bild som visar en exempel konfiguration av modulen importera data](./media/how-to-retrain-designer/import-data-settings.png)
+   ![Skärmbild som visar en exempelkonfiguration för modulen Importera data](./media/how-to-retrain-designer/import-data-settings.png)
 
-   I det här exemplet lagras data i ett Azure- [datalager](how-to-access-data.md). Om du inte redan har ett data lager kan du skapa ett nu genom att välja **nytt data lager**.
+   I det här exemplet lagras data i ett [Azure-datacenter](how-to-access-data.md). Om du inte redan har ett datalager kan du skapa ett nu genom att välja **Nytt datalager**.
 
-1. Ange sökvägen till dina data. Du kan också välja **Bläddra sökväg** för att bläddra till ditt data lager. 
-1. Välj **Kör** överst på arbets ytan.
+1. Ange sökvägen till dina data. Du kan också välja **Bläddra sökväg** för att bläddra till ditt datalager. 
+1. Välj **Kör** högst upp på arbetsytan.
     
    > [!NOTE]
-   > Om du redan har angett en standard beräkning för pipeline-utkastet körs pipelinen automatiskt. Annars kan du ange en nu genom att följa anvisningarna i fönstret inställningar.
+   > Om du redan har angett en standardberäkning för det här pipeline-utkastet körs pipelinen automatiskt. Annars kan du följa anvisningarna i inställningsfönstret för att ställa in en nu.
 
 ### <a name="find-your-trained-model"></a>Hitta din tränade modell
 
-Designern sparar alla pipeline-utdata, inklusive utbildade modeller, på standard lagrings kontot. Du kan också komma åt den tränade modellen direkt i designern:
+Designern sparar alla pipelineutdata, inklusive tränade modeller, till standardlagringskontot. Du kan också komma åt den tränade modellen direkt i designern:
 
-1. Vänta tills pipelinen har slutförts.
-1. Välj modulen **träna modell** .
-1. I fönstret Inställningar väljer du **utdata + loggar**.
-1. Välj ikonen **Visa utdata** och följ anvisningarna i popup-fönstret för att hitta den tränade modellen.
+1. Vänta tills pipelinen är klar.
+1. Välj **träningsmodellmodulen**.
+1. Välj **Utdata+loggar i inställningsfönstret**.
+1. Välj ikonen **Visa utdata** och följ instruktionerna i popup-fönstret för att hitta den tränade modellen.
 
-![Skärm bild som visar hur du laddar ned den tränade modellen](./media/how-to-retrain-designer/trained-model-view-output.png)
+![Skärmbild som visar hur du hämtar den tränade modellen](./media/how-to-retrain-designer/trained-model-view-output.png)
 
 ## <a name="create-a-pipeline-parameter"></a>Skapa en pipeline-parameter
 
-Lägg till pipeline-parametrar för att dynamiskt ange variabler vid körning. För den här pipelinen lägger du till en parameter för övnings data Sök vägen så att du kan träna modellen på en ny data uppsättning.
+Lägg till pipelineparametrar för att dynamiskt ange variabler vid körning. För den här pipelinen lägger du till en parameter för utbildningsdatasökvägen så att du kan träna om modellen på en ny datauppsättning.
 
-1. Välj modulen **Importera data** .
-1. I fönstret Inställningar väljer du ellipserna ovanför **Sök vägs** fältet.
-1. Välj **Lägg till i pipeline-parameter**.
-1. Ange ett parameter namn och ett standardvärde.
-
-   > [!NOTE]
-   > Du kan granska och redigera dina pipeline-parametrar genom att välja kugg hjuls ikonen **Inställningar** bredvid rubriken för ditt pipeline-utkast. 
-
-![Skärm bild som visar hur du skapar en pipeline-parameter](media/how-to-retrain-designer/add-pipeline-parameter.png)
-
-## <a name="publish-a-training-pipeline"></a>Publicera en utbildnings pipeline
-
-När du publicerar en pipeline skapas en pipeline-slutpunkt. Med pipelinens slut punkter kan du återanvända och hantera dina pipeliner för repeterbarhet och automatisering. I det här exemplet har du konfigurerat din pipeline för omträning.
-
-1. Välj **publicera** ovanför designer-arbetsytan.
-1. Välj eller skapa en pipeline-slutpunkt.
+1. Välj modulen **Importera data.**
+1. Markera ellipserna ovanför fältet **Bana** i inställningsfönstret.
+1. Välj **Lägg till i pipelineparametern**.
+1. Ange ett parameternamn och ett standardvärde.
 
    > [!NOTE]
-   > Du kan publicera flera pipelines till en enda slut punkt. Varje pipeline i slut punkten tilldelas ett versions nummer, som du kan ange när du anropar pipelinen.
+   > Du kan granska och redigera pipelineparametrarna genom att välja ikonen **Inställningar** bredvid titeln på pipeline-utkastet. 
+
+![Skärmbild som visar hur du skapar en pipelineparameter](media/how-to-retrain-designer/add-pipeline-parameter.png)
+
+## <a name="publish-a-training-pipeline"></a>Publicera en träningspipeline
+
+När du publicerar en pipeline skapas en pipeline-slutpunkt. Med pipelineslutpunkter kan du återanvända och hantera dina pipelines för repeterbarhet och automatisering. I det här exemplet har du ställt in pipelinen för omskolning.
+
+1. Välj **Publicera** ovanför designerarbetsytan.
+1. Markera eller skapa en pipeline-slutpunkt.
+
+   > [!NOTE]
+   > Du kan publicera flera pipelines till en enda slutpunkt. Varje pipeline i slutpunkten får ett versionsnummer som du kan ange när du anropar pipelineslutpunkten.
 
 1. Välj **Publicera**.
 
-## <a name="retrain-your-model"></a>Träna om din modell
+## <a name="retrain-your-model"></a>Omskola din modell
 
-Nu när du har en publicerad utbildnings pipeline kan du använda den för att träna din modell med nya data. Du kan skicka körningar från en pipeline-slutpunkt från Azure Portal eller skicka dem program mässigt.
+Nu när du har en publicerad träningspipeline kan du använda den för att omskola din modell med hjälp av nya data. Du kan skicka körs från en pipeline-slutpunkt från Azure-portalen eller skicka dem programmässigt.
 
-### <a name="submit-runs-by-using-the-designer"></a>Skicka körningar med hjälp av designern
+### <a name="submit-runs-by-using-the-designer"></a>Skicka körs med hjälp av designern
 
-Använd följande steg för att skicka en slut punkt för pipelinen som körs från designern:
+Gör så här för att skicka in en pipeline-slutpunkt som körs från designern:
 
-1. Gå till sidan **slut punkter** .
-1. Välj fliken **pipelines-slutpunkter** .
-1. Välj din pipeline-slutpunkt.
-1. Välj fliken **publicerade pipeliner** .
-1. Välj den pipeline som du vill köra.
+1. Gå till sidan **Slutpunkter.**
+1. Välj fliken **Pipeline-slutpunkter.**
+1. Välj pipelineslutpunkten.
+1. Välj fliken **Publicerade pipelines.**
+1. Markera den pipeline som du vill köra.
 1. Välj **Skicka**.
-1. I dialog rutan konfiguration kan du ange ett nytt värde för Path-värdet för indata. Det här värdet pekar på din nya data uppsättning.
+1. I dialogrutan Inställning kan du ange ett nytt värde för indatasökvägsvärdet. Det här värdet pekar på den nya datauppsättningen.
 
-![Skärm bild som visar hur du konfigurerar en parametriserad pipeline som körs i designern](./media/how-to-retrain-designer/published-pipeline-run.png)
+![Skärmbild som visar hur du ställer in en parameteriserad pipelinekörning i designern](./media/how-to-retrain-designer/published-pipeline-run.png)
 
 ### <a name="submit-runs-by-using-code"></a>Skicka körningar med hjälp av kod
 
-Du kan hitta REST-slutpunkten för en publicerad pipeline i översikts panelen. Genom att anropa slut punkten kan du omträna den publicerade pipelinen.
+Du hittar REST-slutpunkten för en publicerad pipeline på översiktspanelen. Genom att anropa slutpunkten kan du träna om den publicerade pipelinen.
 
-Om du vill göra ett REST-anrop behöver du ett OAuth 2,0-värde för autentisering med OAuth-typ. Information om hur du konfigurerar autentisering till din arbets yta och gör en parameter REST-anrop finns i [skapa en pipeline för att skapa en Azure Machine Learning pipeline för batch-Poäng](tutorial-pipeline-batch-scoring-classification.md#publish-and-run-from-a-rest-endpoint).
+Om du vill ringa ett REST-samtal behöver du ett autentiseringshuvud av typen OAuth 2.0-typ. Information om hur du konfigurerar autentisering på arbetsytan och gör ett parameteriserat REST-anrop finns i [Skapa en Azure Machine Learning-pipeline för batchbedömning](tutorial-pipeline-batch-scoring-classification.md#publish-and-run-from-a-rest-endpoint).
 
 ## <a name="next-steps"></a>Nästa steg
 
-Följ [själv studie kursen](tutorial-designer-automobile-price-train-score.md) om du vill träna och distribuera en Regressions modell.
+Följ [designerns handledning](tutorial-designer-automobile-price-train-score.md) för att träna och distribuera en regressionsmodell.

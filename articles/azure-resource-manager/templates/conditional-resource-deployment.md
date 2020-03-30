@@ -1,22 +1,22 @@
 ---
-title: Villkorlig distribution med mallar
-description: Beskriver hur du villkorligt distribuerar en resurs i en Azure Resource Manager-mall.
+title: Villkorsstyrd distribution med mallar
+description: Beskriver hur du distribuerar en resurs villkorligt i en Azure Resource Manager-mall.
 ms.topic: conceptual
 ms.date: 12/03/2019
-ms.openlocfilehash: 83aa22ba57e0111d060665778922437723481c69
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.openlocfilehash: f170710118c0e3de6f3643b6216ed55b83b5c7df
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77207799"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80153428"
 ---
-# <a name="conditional-deployment-in-resource-manager-templates"></a>Villkorlig distribution i Resource Manager-mallar
+# <a name="conditional-deployment-in-arm-templates"></a>Villkorlig distribution i ARM-mallar
 
-Ibland behöver du eventuellt distribuera en resurs i en mall. Använd `condition`-elementet för att ange om resursen har distribuerats. Värdet för det här elementet matchas till true eller false. När värdet är true skapas resursen. När värdet är false skapas inte resursen. Värdet kan bara användas för hela resursen.
+Ibland måste du distribuera en resurs i en ARM-mall (Azure Resource Manager). Använd `condition` elementet för att ange om resursen ska distribueras. Värdet för det här elementet löss till sant eller falskt. När värdet är sant skapas resursen. När värdet är falskt skapas inte resursen. Värdet kan bara tillämpas på hela resursen.
 
 ## <a name="new-or-existing-resource"></a>Ny eller befintlig resurs
 
-Du kan använda villkorlig distribution för att skapa en ny resurs eller använda en befintlig. I följande exempel visas hur du använder villkor för att distribuera ett nytt lagrings konto eller använda ett befintligt lagrings konto.
+Du kan använda villkorlig distribution för att skapa en ny resurs eller använda en befintlig. I följande exempel visas hur du använder villkoret för att distribuera ett nytt lagringskonto eller använda ett befintligt lagringskonto.
 
 ```json
 {
@@ -33,13 +33,13 @@ Du kan använda villkorlig distribution för att skapa en ny resurs eller använ
 }
 ```
 
-När parametern **newOrExisting** har angetts till **New**utvärderas villkoret som sant. Lagrings kontot har distribuerats. Men när **newOrExisting** är inställt på **befintlig**, utvärderas villkoret till falskt och lagrings kontot distribueras inte.
+När parametern **newOrExisting** är inställd på **ny**utvärderas villkoret till true. Lagringskontot distribueras. Men när **newOrExisting** är inställt på **befintlig**utvärderas villkoret till false och lagringskontot distribueras inte.
 
-En fullständig exempel mall som använder `condition`-elementet finns i [VM med en ny eller befintlig Virtual Network, lagring och offentlig IP-adress](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-new-or-existing-conditions).
+En komplett exempelmall som `condition` använder elementet finns [i virtuell dator med en ny eller befintlig virtuell nätverks-, lagrings- och offentlig IP.](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-new-or-existing-conditions)
 
-## <a name="allow-condition"></a>Tillåt villkor
+## <a name="allow-condition"></a>Tillåt tillstånd
 
-Du kan skicka ett parameter värde som anger om ett villkor är tillåtet. I följande exempel distribueras en SQL-Server och du kan även tillåta Azure IP-adresser.
+Du kan skicka in ett parametervärde som anger om ett villkor är tillåtet. I följande exempel distribueras en SQL-server och tillåts eventuellt Azure IPs.
 
 ```json
 {
@@ -71,21 +71,21 @@ Du kan skicka ett parameter värde som anger om ett villkor är tillåtet. I fö
 }
 ```
 
-Den fullständiga mallen finns i [logisk Azure SQL-Server](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-logical-server).
+Den fullständiga mallen finns i [Den logiska Azure SQL-servern](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-logical-server).
 
-## <a name="runtime-functions"></a>Körnings funktioner
+## <a name="runtime-functions"></a>Körningsfunktioner
 
-Om du använder en [referens](template-functions-resource.md#reference) -eller [list](template-functions-resource.md#list) funktion med en resurs som är villkorligt distribuerad utvärderas funktionen även om resursen inte har distribuerats. Du får ett fel meddelande om funktionen hänvisar till en resurs som inte finns.
+Om du använder en [referens-](template-functions-resource.md#reference) eller [listfunktion](template-functions-resource.md#list) med en resurs som är villkorligt distribuerad utvärderas funktionen även om resursen inte distribueras. Du får ett felmeddelande om funktionen refererar till en resurs som inte finns.
 
-Använd funktionen [IF](template-functions-logical.md#if) för att se till att funktionen bara utvärderas för villkor när resursen distribueras. Se [funktionen IF](template-functions-logical.md#if) för en exempel mall som använder IF och Reference med en villkorligt distribuerad resurs.
+Använd [funktionen om](template-functions-logical.md#if) för att kontrollera att funktionen endast utvärderas för villkor när resursen distribueras. Se [om-funktionen](template-functions-logical.md#if) för en exempelmall som använder om och refererar till en villkorligt distribuerad resurs.
 
-Du anger en [resurs som beroende](define-resource-dependency.md) av en villkorlig resurs precis som med andra resurser. När en villkorlig resurs inte distribueras tar Azure Resource Manager automatiskt bort den från de nödvändiga beroendena.
+Du anger en [resurs som beroende av](define-resource-dependency.md) en villkorsresurs precis som andra resurser. När en villkorlig resurs inte distribueras tar Azure Resource Manager automatiskt bort den från de nödvändiga beroenden.
 
-## <a name="condition-with-complete-mode"></a>Villkor med slutfört läge
+## <a name="condition-with-complete-mode"></a>Skick med fullständigt läge
 
-Om du distribuerar en mall med [slutfört läge](deployment-modes.md) och en resurs inte distribueras eftersom villkoret utvärderas till false beror resultatet på vilken REST API version som du använder för att distribuera mallen. Om du använder en tidigare version än 2019-05-10 **tas inte resursen bort**. Med 2019-05-10 eller senare **tas resursen bort**. De senaste versionerna av Azure PowerShell och Azure CLI tar bort resursen när villkoret är falskt.
+Om du distribuerar en mall med [fullständigt läge](deployment-modes.md) och en resurs inte distribueras eftersom villkoret utvärderas till false, beror resultatet på vilken REST API-version du använder för att distribuera mallen. Om du använder en version tidigare än 2019-05-10 **tas resursen inte bort**. Med 2019-05-10 eller senare tas resursen **bort**. De senaste versionerna av Azure PowerShell och Azure CLI tar bort resursen när villkoret är falskt.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Rekommendationer om hur du skapar mallar finns i [metod tips för Azure Resource Manager mallar](template-best-practices.md).
-* Om du vill skapa flera instanser av en resurs, se [resurs upprepning i Azure Resource Manager mallar](copy-resources.md).
+* Rekommendationer om hur du skapar mallar finns i [metodtips för ARM-mall .](template-best-practices.md)
+* Information om hur du skapar flera instanser av en resurs finns [i Resursiteration i ARM-mallar](copy-resources.md).

@@ -1,6 +1,6 @@
 ---
-title: 'Snabb start: skicka anpassade händelser med Event Grid och Azure CLI'
-description: Snabb start använder Azure Event Grid och Azure CLI för att publicera ett anpassat ämne och prenumerera på händelser för ämnet. Händelserna hanteras av ett webbprogram.
+title: 'Snabbstart: Skicka anpassade händelser med Event Grid och Azure CLI'
+description: Snabbstart Använd Azure Event Grid och Azure CLI för att publicera ett anpassat ämne och prenumerera på händelser för det ämnet. Händelserna hanteras av en webbapp.
 services: event-grid
 keywords: ''
 author: spelluru
@@ -13,13 +13,13 @@ ms.custom:
 - seo-javascript-september2019
 - seo-python-october2019
 ms.openlocfilehash: eee6c453b4e30880034a048a3d2b63388927a753
-ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "78674531"
 ---
-# <a name="quickstart-route-custom-events-to-web-endpoint-with-azure-cli-and-event-grid"></a>Snabb start: dirigera anpassade händelser till webb slut punkten med Azure CLI och Event Grid
+# <a name="quickstart-route-custom-events-to-web-endpoint-with-azure-cli-and-event-grid"></a>Snabbstart: Dirigera anpassade händelser till webbslutpunkt med Azure CLI och Event Grid
 
 Azure Event Grid är en händelsetjänst för molnet. I den här artikeln använder du Azure CLI för att skapa ett anpassat ämne, prenumerera på det anpassade ämnet och utlösa händelsen för att visa resultatet.
 
@@ -53,7 +53,7 @@ az group create --name gridResourceGroup --location westus2
 
 ## <a name="create-a-custom-topic"></a>Skapa en anpassat ämne
 
-Ett event grid-ämne tillhandahåller en användardefinierad slutpunkt där du publicerar dina händelser. I följande exempel skapas det anpassade ämnet i din resursgrupp. Ersätt `<your-topic-name>` med ett unikt namn för ditt ämne. Namnet på det anpassade ämnet måste vara unikt eftersom det är en del av DNS-posten. Dessutom måste det bestå av mellan 3 och 50 tecken och bara innehålla a-z, A-Z, 0-9 och "-"
+Ett event grid-ämne tillhandahåller en användardefinierad slutpunkt där du publicerar dina händelser. I följande exempel skapas det anpassade ämnet i din resursgrupp. Ersätt `<your-topic-name>` med ett unikt namn för ditt ämne. Namnet på det anpassade ämnet måste vara unikt eftersom det är en del av DNS-posten. Dessutom måste det bestå av mellan 3 och 50 tecken och bara innehålla a–z, A–Z, 0–9 och "-"
 
 ```azurecli-interactive
 topicname=<your-topic-name>
@@ -98,10 +98,10 @@ az eventgrid event-subscription create \
 
 Visa ditt webbprogram igen och observera att en händelse för verifieringen av prenumerationen har skickats till den. Välj ögonikonen för att utöka informationen om händelsen. Händelserutnätet skickar valideringshändelsen så att slutpunkten kan bekräfta att den vill ta emot händelsedata. Webbappen inkluderar kod för att verifiera prenumerationen.
 
-![Visa prenumerations händelsen i Azure Event Grid Viewer](./media/custom-event-quickstart/azure-event-grid-viewer-subscription-validation-event.png)
+![Visa prenumerationshändelsen i Azure Event Grid Viewer](./media/custom-event-quickstart/azure-event-grid-viewer-subscription-validation-event.png)
 
 
-## <a name="send-an-event-to-your-custom-topic"></a>Skicka en händelse till det anpassade ämnet
+## <a name="send-an-event-to-your-custom-topic"></a>Skicka en händelse till ditt anpassade ämne
 
 Nu ska vi utlösa en händelse och se hur Event Grid distribuerar meddelandet till slutpunkten. Först måste vi ta fram URL och nyckel för det anpassade ämnet.
 
@@ -110,7 +110,7 @@ endpoint=$(az eventgrid topic show --name $topicname -g gridResourceGroup --quer
 key=$(az eventgrid topic key list --name $topicname -g gridResourceGroup --query "key1" --output tsv)
 ```
 
-Förenkla den här artikeln genom att använda exempelhändelsedata att skicka till det anpassade ämnet. Ett program eller en Azure-tjänst skulle vanligtvis skicka sådana händelsedata. I följande exempel skapas exempelhändelsedata:
+För att förenkla den här artikeln skickar du exempelhändelsedata till det anpassade ämnet. Ett program eller en Azure-tjänst skulle vanligtvis skicka sådana händelsedata. I följande exempel skapas exempelhändelsedata:
 
 ```azurecli-interactive
 event='[ {"id": "'"$RANDOM"'", "eventType": "recordInserted", "subject": "myapp/vehicles/motorcycles", "eventTime": "'`date +%Y-%m-%dT%H:%M:%S%z`'", "data":{ "make": "Ducati", "model": "Monster"},"dataVersion": "1.0"} ]'

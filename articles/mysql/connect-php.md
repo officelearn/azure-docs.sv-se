@@ -1,18 +1,18 @@
 ---
-title: Anslut med PHP-Azure Database for MySQL
+title: Anslut med PHP - Azure Database för MySQL
 description: I den här snabbstarten finns ett kodexempel i PHP som du kan använda för att ansluta till och fråga efter data från Azure Database för MySQL.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.custom: mvc
 ms.topic: quickstart
-ms.date: 12/02/2019
-ms.openlocfilehash: b8923000b0bbc75e6d96b1b27a1154ef8ff87f24
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.date: 3/18/2020
+ms.openlocfilehash: 58683cb6eb74fcc3bc2f90245d6f76ef65bdf2e6
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74770721"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80067928"
 ---
 # <a name="azure-database-for-mysql-use-php-to-connect-and-query-data"></a>Azure Database för MySQL: Använda PHP för att ansluta och fråga efter data
 Den här snabbstarten visar hur du ansluter till en Azure Database för MySQL med hjälp av ett [PHP](https://secure.php.net/manual/intro-whatis.php)-program. Den visar hur du använder SQL-instruktioner för att fråga, infoga, uppdatera och ta bort data i databasen. Det här avsnittet förutsätter att du är van att utveckla i PHP och att du saknar erfarenhet av Azure Database for MySQL.
@@ -27,15 +27,15 @@ Installera PHP på din server, eller skapa en Azure-[webbapp](../app-service/ove
 
 ### <a name="macos"></a>MacOS
 - Hämta [PHP 7.1.4](https://secure.php.net/downloads.php).
-- Installera PHP och se [PHP-handboken](https://secure.php.net/manual/install.macosx.php) för ytterligare konfiguration.
+- Installera PHP och hänvisa till [PHP manual](https://secure.php.net/manual/install.macosx.php) för ytterligare konfiguration.
 
 ### <a name="linux-ubuntu"></a>Linux (Ubuntu)
-- Hämta [PHP 7.1.4 (x64), ej trådsäker version](https://secure.php.net/downloads.php).
-- Installera PHP och se [PHP-handboken](https://secure.php.net/manual/install.unix.php) för ytterligare konfiguration.
+- Ladda ner [PHP 7.1.4 icke-tråd säker (x64) version](https://secure.php.net/downloads.php).
+- Installera PHP och hänvisa till [PHP manual](https://secure.php.net/manual/install.unix.php) för ytterligare konfiguration.
 
 ### <a name="windows"></a>Windows
-- Hämta [PHP 7.1.4 (x64), ej trådsäker version](https://windows.php.net/download#php-7.1).
-- Installera PHP och se [PHP-handboken](https://secure.php.net/manual/install.windows.php) för ytterligare konfiguration.
+- Ladda ner [PHP 7.1.4 icke-tråd säker (x64) version](https://windows.php.net/download#php-7.1).
+- Installera PHP och hänvisa till [PHP manual](https://secure.php.net/manual/install.windows.php) för ytterligare konfiguration.
 
 ## <a name="get-connection-information"></a>Hämta anslutningsinformation
 Skaffa den information som du behöver för att ansluta till Azure Database för MySQL. Du behöver det fullständiga servernamnet och inloggningsuppgifter.
@@ -123,7 +123,7 @@ mysqli_close($conn);
 ```
 
 ## <a name="read-data"></a>Läsa data
-Använd följande kod för att ansluta och läsa data med SQL-instruktionen **SELECT**.  Koden använder klassen **MySQL Improved extension** (mysqli) som ingår i PHP. Metoden [mysqli_query](https://secure.php.net/manual/mysqli.query.php) används för att utföra sql-frågan och metoden [mysqli_fetch_assoc](https://secure.php.net/manual/mysqli-result.fetch-assoc.php) används för att hämta de resulterande raderna.
+Använd följande kod för att ansluta och läsa data med en **SELECT**-SQL-instruktion.  Koden använder klassen **MySQL Improved extension** (mysqli) som ingår i PHP. Metoden [mysqli_query](https://secure.php.net/manual/mysqli.query.php) används för att utföra sql-frågan och metoden [mysqli_fetch_assoc](https://secure.php.net/manual/mysqli-result.fetch-assoc.php) används för att hämta de resulterande raderna.
 
 Ersätt parametrarna host, username, password och db_name med dina egna värden. 
 

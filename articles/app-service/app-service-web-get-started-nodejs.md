@@ -1,39 +1,39 @@
 ---
-title: 'Snabb start: skapa en Node. js-webbapp'
-description: Distribuera din första Node. js-Hello World Azure App Service på några minuter. Du distribuerar med Visual Studio Code, som är en av många sätt att distribuera till App Service.
+title: 'Snabbstart: Skapa en nod.js-webbapp'
+description: Distribuera din första Node.js Hello World till Azure App Service på några minuter. Du distribuerar med Visual Studio-kod, vilket är ett av många sätt att distribuera till App Service.
 ms.assetid: 582bb3c2-164b-42f5-b081-95bfcb7a502a
 ms.topic: quickstart
 ms.date: 03/04/2020
-ms.custom: seodec18
+ms.custom: mvc, devcenter, seodec18
 experimental: false
 experiment_id: a231f2b4-2625-4d
-ms.openlocfilehash: 1f105792a95115580d52444a617b3fc1678843ca
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: bcb0ae2457175e7511c3539187d72d48e80baa5b
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78374092"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80047122"
 ---
 # <a name="create-a-nodejs-web-app-in-azure"></a>Skapa en Node.js-webbapp i Azure 
 
-Kom igång med Azure App Service genom att skapa en Node. js/Express-app lokalt med Visual Studio Code och distribuera sedan appen till molnet. Eftersom du använder en kostnads fri App Service nivå debiteras du inga kostnader för att slutföra den här snabb starten.
+Kom igång med Azure App Service genom att skapa en Node.js/Express-app lokalt med Visual Studio-kod och sedan distribuera appen till molnet. Eftersom du använder en kostnadsfri App Service-nivå ådrar du dig inga kostnader för att slutföra den här snabbstarten.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-- Ett Azure-konto med en aktiv prenumeration. [Skapa ett konto kostnads fritt](https://azure.microsoft.com/free/?utm_source=campaign&utm_campaign=vscode-tutorial-app-service-extension&mktingSource=vscode-tutorial-app-service-extension).
-- [Node.js och npm](https://nodejs.org). Kör kommandot `node --version` för att kontrol lera att Node. js är installerat.
+- Ett Azure-konto med en aktiv prenumeration. [Skapa ett konto gratis](https://azure.microsoft.com/free/?utm_source=campaign&utm_campaign=vscode-tutorial-app-service-extension&mktingSource=vscode-tutorial-app-service-extension).
+- [Node.js och npm](https://nodejs.org). Kör kommandot `node --version` för att kontrollera att Node.js är installerat.
 - [Visual Studio Code](https://code.visualstudio.com/).
-- [Azure App Service-tillägget](vscode:extension/ms-azuretools.vscode-azureappservice) för Visual Studio Code.
+- [Azure App Service-tillägget](vscode:extension/ms-azuretools.vscode-azureappservice) för Visual Studio-kod.
 
-## <a name="clone-and-run-a-local-nodejs-application"></a>Klona och köra ett lokalt Node. js-program
+## <a name="clone-and-run-a-local-nodejs-application"></a>Klona och kör ett lokalt Node.js-program
 
-1. Öppna en terminal på den lokala datorn och klona exempel lagrings platsen:
+1. Öppna en terminal och klona exempeldatabasen på den lokala datorn:
 
     ```bash
     git clone https://github.com/Azure-Samples/nodejs-docs-hello-world
     ```
 
-1. Navigera till den nya mappen app:
+1. Navigera till den nya appmappen:
 
     ```bash
     cd nodejs-docs-hello-world
@@ -45,7 +45,7 @@ Kom igång med Azure App Service genom att skapa en Node. js/Express-app lokalt 
     npm start
     ```
     
-1. Öppna webbläsaren och gå till [http://localhost:1337](http://localhost:1337). Webbläsaren ska Visa "Hello World!".
+1. Öppna webbläsaren och [http://localhost:1337](http://localhost:1337)navigera till . Webbläsaren ska visa "Hello World!".
 
 1. Tryck på **Ctrl**+**C** i terminalen för att stoppa servern.
 
@@ -54,95 +54,95 @@ Kom igång med Azure App Service genom att skapa en Node. js/Express-app lokalt 
 
 ## <a name="deploy-the-app-to-azure"></a>distribuera appen till Azure
 
-I det här avsnittet ska du distribuera Node. js-appen till Azure med VS Code och Azure App Service tillägget.
+I det här avsnittet distribuerar du node.js-appen till Azure med VS-kod och Azure App Service-tillägget.
 
-1. I terminalen kontrollerar du att du är i mappen *NodeJS-dok-Hello-World* och startar sedan Visual Studio Code med följande kommando:
+1. I terminalen kontrollerar du att du är i mappen *nodejs-docs-hello-world* och starta sedan Visual Studio-kod med följande kommando:
 
     ```bash
     code .
     ```
 
-1. I aktivitets fältet VS Code väljer du Azure-logotypen för att visa **Azure App Service** Explorer. Välj **Logga in på Azure...** och följ instruktionerna. (Mer information finns i [fel sökning av Azure-inloggning](#troubleshooting-azure-sign-in) nedan om du stöter på fel.) När du har loggat in ska Explorer Visa namnet på din Azure-prenumeration.
+1. I aktivitetsfältet VS-kod väljer du Azure-logotypen för att visa **AZURE APP SERVICE-utforskaren.** Välj **Logga in på Azure...** och följ instruktionerna. (Se [Felsöka Azure-inloggning](#troubleshooting-azure-sign-in) nedan om du stöter på fel.) När utforskaren har loggat in ska den visa namnet på din Azure-prenumeration.
 
     ![Logga in på Azure](containers/media/quickstart-nodejs/sign-in.png)
 
-1. I **Azure App Service** Explorer med vs Code väljer du ikonen blå UPPIL för att distribuera appen till Azure. (Du kan också anropa samma kommando från **kommando paletten** (**Ctrl**+**Shift**+**P**) genom att skriva "distribuera till webbapp" och välja **Azure App Service: distribuera till Web App**).
+1. I **AZURE APP SERVICE explorer** av VS-kod väljer du ikonen för blå uppil för att distribuera din app till Azure. (Du kan också anropa samma kommando från **kommandopaletten** (**Ctrl**+**Shift**+**P**) genom att skriva "distribuera till webbapp" och välja Azure **App Service: Deploy to Web App**).
 
-    ![Distribuera till webbapp](containers/media/quickstart-nodejs/deploy.png)
+    ![Distribuera till Web App](containers/media/quickstart-nodejs/deploy.png)
         
-1. Välj mappen *NodeJS-dok-Hello-World* .
+1. Välj *mappen nodejs-docs-hello-world.*
 
-1. Välj ett alternativ för att skapa baserat på det operativ system som du vill distribuera till:
+1. Välj ett skapandealternativ baserat på det operativsystem som du vill distribuera:
 
     - Linux: Välj **Skapa ny webbapp**
     - Windows: Välj **Skapa ny webbapp... Avancerad**
 
-1. Ange ett globalt unikt namn för din webbapp och tryck på **RETUR**. Namnet måste vara unikt för alla Azure och använder endast alfanumeriska tecken ("A-Z", "a-z" och "0-9") och bindestreck (-).
+1. Skriv ett globalt unikt namn för webbappen och tryck på **Retur**. Namnet måste vara unikt i alla Azure och endast använda alfanumeriska tecken ("A-Z", "a-z" och "0-9") och bindestreck ('-').
 
-1. Om du anger Linux-mål väljer du en Node. js-version när du uppmanas till det. En **LTS** -version rekommenderas.
+1. Om du inriktar dig på Linux väljer du en Node.js-version när du uppmanas att göra det. En **LTS-version** rekommenderas.
 
-1. Om du riktar in dig på Windows följer du ytterligare prompter:
-    1. Välj **skapa en ny resurs grupp**och ange sedan ett namn för resurs gruppen, t. ex. `AppServiceQS-rg`.
-    1. Välj **Windows** för operativ systemet.
-    1. Välj **Skapa ny app service plan**och ange sedan ett namn för planen (till exempel `AppServiceQS-plan`) och välj **F1 kostnads fritt** för pris nivån.
-    1. Välj **hoppa över för tillfället** när du tillfrågas om Application Insights.
-    1. Välj en region nära dig eller nära resurser som du vill ha åtkomst till.
+1. Om du inriktar dig på Windows följer du de ytterligare anvisningarna:
+    1. Välj **Skapa en ny resursgrupp**och ange sedan ett `AppServiceQS-rg`namn för resursgruppen, till exempel .
+    1. Välj **Windows** för operativsystemet.
+    1. Välj **Skapa ny apptjänstplan**och ange sedan ett `AppServiceQS-plan`namn för planen (till exempel ) och välj sedan **F1 Gratis** för prisnivån.
+    1. Välj **Hoppa över för tillfället** när du uppmanas att göra om Application Insights.
+    1. Välj en region nära dig eller nära resurser som du vill komma åt.
 
-1. När du har svarat på alla prompter visar VS Code de Azure-resurser som skapas för din app i popup-fönstret för meddelanden.
+1. När du har svarat på alla frågor visar VS-koden de Azure-resurser som skapas för din app i meddelande popup.
 
-    När du distribuerar till Linux väljer du **Ja** när du uppmanas att uppdatera konfigurationen för att köra `npm install` på mål-Linux-servern.
+    När du distribuerar **Yes** till Linux väljer du Ja `npm install` när du uppmanas att uppdatera konfigurationen så att den körs på mål-Linux-servern.
 
-    ![Prompt för att uppdatera konfigurationen på mål servern för Linux](containers/media/quickstart-nodejs/server-build.png)
+    ![Fråga om att uppdatera konfigurationen på mål-Linux-servern](containers/media/quickstart-nodejs/server-build.png)
 
-1. Välj **Ja** när du uppmanas **att alltid distribuera arbets ytan "NodeJS-dok-Hello-World" till (App Name) "** . Välj **Ja** om du vill att vs-kod automatiskt ska rikta in samma app service-webbapp med efterföljande distributioner.
+1. Välj **Ja** när du uppmanas att **alltid distribuera arbetsytan "nodejs-docs-hello-world" till (appnamn)"**. Om du väljer **Ja** får VS-koden vs-kod att automatiskt rikta in sig på samma App Service Web App med efterföljande distributioner.
 
-1. Om du distribuerar till Linux väljer du **Bläddra på webbplats** i prompten för att visa din nyligen distribuerade webbapp när distributionen är klar. Webbläsaren ska Visa "Hello World!"
+1. Om du distribuerar till Linux väljer du **Bläddra webbplats** i prompten för att visa din nyligen distribuerade webbapp när distributionen är klar. Webbläsaren ska visa "Hello World!"
 
-1. Om du distribuerar till Windows måste du först ställa in Node. js-versions numret för webbappen:
+1. Om du distribuerar till Windows måste du först ange versionsnumret för Node.js för webbappen:
 
-    1. I VS Code expanderar du noden för den nya app service, högerklickar på **program inställningar**och väljer **Lägg till ny inställning...** :
+    1. Expandera noden för den nya apptjänsten i VS-kod, högerklicka på **Programinställningar**och välj **Lägg till ny inställning...**
 
-        ![Lägg till app Setting-kommando](containers/media/quickstart-nodejs/add-setting.png)
+        ![Kommandot Lägg till appinställning](containers/media/quickstart-nodejs/add-setting.png)
 
-    1. Ange `WEBSITE_NODE_DEFAULT_VERSION` för inställnings nyckeln.
-    1. Ange `10.15.2` som inställning svärdet.
-    1. Högerklicka på noden för app service och välj **starta om**
+    1. Ange `WEBSITE_NODE_DEFAULT_VERSION` för inställningsnyckeln.
+    1. Ange `10.15.2` för inställningsvärdet.
+    1. Högerklicka på noden för apptjänsten och välj **Starta om**
 
-        ![Starta om App Service-kommando](containers/media/quickstart-nodejs/restart.png)
+        ![Kommandot Starta om apptjänsten](containers/media/quickstart-nodejs/restart.png)
 
-    1. Högerklicka på noden för App Service en gång till och välj **Bläddra webbplats**.
+    1. Högerklicka på noden för apptjänsten en gång till och välj **Bläddra webbplats**.
 
 > [!div class="nextstepaction"]
 > [Jag stötte på ett problem](https://www.research.net/r/PWZWZ52?tutorial=node-deployment-azure-app-service&step=deploy-app)
 
 ### <a name="troubleshooting-azure-sign-in"></a>Felsöka Azure-inloggning
 
-Om du ser felet **"det går inte att hitta en prenumeration med namnet [prenumerations-ID]"** när du loggar in på Azure kan det bero på att du är bakom en proxyserver och inte kan komma åt Azure-API: et. Konfigurera `HTTP_PROXY` och `HTTPS_PROXY` miljövariabler med din proxyinformation i terminalen med hjälp av `export`.
+Om du ser felet **"Det går inte att hitta prenumeration med namn [prenumerations-ID]"** när du loggar in på Azure kan det bero på att du ligger bakom en proxy och inte kan nå Azure API. Konfigurera `HTTP_PROXY` `HTTPS_PROXY` och miljövariabler med proxyinformationen i terminalen med . `export`
 
 ```bash
 export HTTPS_PROXY=https://username:password@proxy:8080
 export HTTP_PROXY=http://username:password@proxy:8080
 ```
 
-Om du ställer in miljövariablerna inte löser problemet kan du kontakta oss genom att välja knappen **jag körde i ett ärende** ovan.
+Om inställningen av miljövariablerna inte korrigerar problemet kontaktar du oss genom att välja knappen **Jag körde in i en problemknapp** ovan.
 
 ### <a name="update-the-app"></a>Uppdatera appen
 
-Du kan distribuera ändringar i den här appen genom att göra redigeringar i VS Code, spara filer och sedan använda samma process som innan du väljer den befintliga appen i stället för att skapa en ny.
+Du kan distribuera ändringar i den här appen genom att göra ändringar i VS-kod, spara dina filer och sedan använda samma process som innan du bara väljer den befintliga appen i stället för att skapa en ny.
 
 ## <a name="viewing-logs"></a>Visa loggar
 
-Du kan visa loggens utdata (anrop till `console.log`) från appen direkt i fönstret VS-kod.
+Du kan visa loggutdata (anrop till) `console.log`från appen direkt i utdatafönstret VS-kod.
 
-1. I **Azure App Service** Explorer högerklickar du på noden app och väljer **Starta strömmande loggar**.
+1. Högerklicka på appnoden i **AZURE APP SERVICE-utforskaren** och välj Starta **strömningsloggar**.
 
     ![Starta strömmande loggar](containers/media/quickstart-nodejs/view-logs.png)
 
-1. När du uppmanas väljer du att aktivera loggning och starta om programmet. När appen har startats om öppnas VS Code-utdatafönstret med en anslutning till logg strömmen. 
+1. När du uppmanas att aktivera loggning och starta om programmet. När appen har startats om öppnas utdatafönstret VS-kod med en anslutning till loggströmmen. 
 
     ![Aktivera loggning och omstart](containers/media/quickstart-nodejs/enable-restart.png)
 
-1. Efter några sekunder visar utdatafönstret ett meddelande som anger att du är ansluten till logg strömnings tjänsten. Du kan generera fler utdata-aktiviteter genom att uppdatera sidan i webbläsaren.
+1. Efter några sekunder visas ett meddelande i utdatafönstret som anger att du är ansluten till loggströmningstjänsten. Du kan generera mer utdataaktivitet genom att uppdatera sidan i webbläsaren.
 
     <pre>
     Connecting to log stream...
@@ -155,7 +155,7 @@ Du kan visa loggens utdata (anrop till `console.log`) från appen direkt i föns
 
 ## <a name="next-steps"></a>Nästa steg
 
-Grattis, du har slutfört den här snabb starten!
+Grattis, du har slutfört denna snabbstart!
 
 Kolla sedan in de andra Azure-tilläggen.
 
@@ -163,6 +163,6 @@ Kolla sedan in de andra Azure-tilläggen.
 * [Azure Functions](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions)
 * [Docker-verktyg](https://marketplace.visualstudio.com/items?itemName=PeterJausovec.vscode-docker)
 * [Azure CLI-verktyg](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azurecli)
-* [Azure Resource Manager verktyg](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools)
+* [Verktyg för Azure Resource Manager](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools)
 
-Eller hämta dem genom att installera [Node Pack för Azure](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack) Extension Pack.
+Eller hämta dem alla genom att installera [nodepaketet för](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack) Azure-tilläggspaketet.

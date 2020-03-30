@@ -1,7 +1,7 @@
 ---
-title: 'Exportera data: modulreferens'
+title: 'Exportera data: Modulreferens'
 titleSuffix: Azure Machine Learning
-description: Lär dig hur du använder modulen exportera data i Azure Machine Learning för att spara resultat, mellanliggande data och arbeta data från dina pipelines till moln lagrings mål utanför Azure Machine Learning.
+description: Lär dig hur du använder modulen Exportera data i Azure Machine Learning för att spara resultat, mellanliggande data och arbetsdata från dina pipelines i molnlagringsmål utanför Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,51 +9,51 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 02/22/2020
-ms.openlocfilehash: 40d8e298237b6110fee04aefbb7b79c5f3bac6f0
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.openlocfilehash: 807771fd4018c9666f059c965370ebc36d0105df
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77598620"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79456309"
 ---
 # <a name="export-data-module"></a>Exportera datamodul
 
-I den här artikeln beskrivs en modul i Azure Machine Learning designer (för hands version).
+I den här artikeln beskrivs en modul i Azure Machine Learning designer (förhandsversion).
 
-Använd den här modulen för att spara resultat, mellanliggande data och arbeta data från dina pipelines till moln lagrings mål. 
+Använd den här modulen för att spara resultat, mellanliggande data och arbetsdata från dina pipelines i molnlagringsmål. 
 
-Den här modulen stöder export av data till följande moln data tjänster:
+Den här modulen stöder export av data till följande molndatatjänster:
 
 - Azure Blob-behållare
 - Azure-filresurs
 - Azure Data Lake
 - Azure Data Lake Gen2
 
-Innan du exporterar dina data måste du först registrera ett data lager på din Azure Machine Learning-arbetsyta. Mer information finns i [få åtkomst till data i Azure Storage-tjänster](../how-to-access-data.md).
+Innan du exporterar dina data måste du först registrera ett datalager på arbetsytan Azure Machine Learning. Mer information finns [i Access-data i Azure storage services](../how-to-access-data.md).
 
-## <a name="how-to-configure-export-data"></a>Så här konfigurerar du export data
+## <a name="how-to-configure-export-data"></a>Konfigurera exportdata
 
-1. Lägg till modulen **Exportera data** till din pipeline i designern. Du hittar den här modulen i kategorin för **indata och utdata** .
+1. Lägg till modulen **Exportera data** i pipelinen i designern. Du hittar den här modulen i kategorin **In- och utdata.**
 
-1. Anslut **Exportera data** till modulen som innehåller de data som du vill exportera.
+1. Anslut **exportera data** till modulen som innehåller de data som du vill exportera.
 
-1. Välj **Exportera data** för att öppna fönstret **Egenskaper** .
+1. Välj **Exportera data** om du vill öppna fönstret **Egenskaper.**
 
-1. För **data lager**väljer du ett befintligt data lager i list rutan. Du kan också skapa ett nytt data lager. Se hur du [använder åtkomst data i Azure Storage-tjänster](../how-to-access-data.md).
+1. För **Datastore**väljer du ett befintligt datalager i listrutan. Du kan också skapa ett nytt datalager. Kontrollera hur du besöker [Access-data i Azure storage services](../how-to-access-data.md).
 
-1. Kryss rutan **skapa utdata**igen, bestämmer om modulen ska köras för att återskapa utdata vid körning. 
+1. Kryssrutan, **Regenerate output**, avgör om modulen ska köras för att återskapa utdata vid drift. 
 
-    Den är som standard omarkerad, vilket innebär att om modulen har körts med samma parametrar tidigare kommer systemet att återanvända utdata från senaste körning för att minska körnings tiden. 
+    Det är som standard omarkerat, vilket innebär att om modulen har körts med samma parametrar tidigare, kommer systemet att återanvända utdata från senaste körningen för att minska körningstiden. 
 
-    Om den är markerad kommer systemet att köra modulen igen för att återskapa utdata.
+    Om det väljs kommer systemet att köra modulen igen för att återskapa utdata.
 
-1. Definiera sökvägen i data lagret där datan finns. Sökvägen är en relativ sökväg. Tomma sökvägar eller URL-sökvägar är inte tillåtna.
+1. Definiera sökvägen i datalagret där data finns. Banan är en relativ sökväg. Tomma sökvägar eller url-sökvägar är inte tillåtna.
 
 
-1. I **fil format**väljer du det format som data ska lagras i.
+1. För **Filformat**väljer du det format i vilket data ska lagras.
  
-1. Köra en pipeline.
+1. Skicka pipelinen.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Se en [uppsättning moduler som är tillgängliga](module-reference.md) för Azure Machine Learning. 
+Se uppsättningen [moduler som är tillgängliga](module-reference.md) för Azure Machine Learning. 

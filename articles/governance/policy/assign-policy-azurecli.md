@@ -1,16 +1,16 @@
 ---
-title: 'Snabb start: ny princip tilldelning med Azure CLI'
-description: I den här snabb starten använder du Azure CLI för att skapa en Azure Policy tilldelning för att identifiera icke-kompatibla resurser.
+title: 'Snabbstart: Ny principtilldelning med Azure CLI'
+description: I den här snabbstarten använder du Azure CLI för att skapa en Azure Policy-tilldelning för att identifiera icke-kompatibla resurser.
 ms.date: 01/11/2020
 ms.topic: quickstart
 ms.openlocfilehash: 7f76191d97a936c745fc2b13b54011e787e0b5e6
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "75978325"
 ---
-# <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-with-azure-cli"></a>Snabb start: skapa en princip tilldelning för att identifiera icke-kompatibla resurser med Azure CLI
+# <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-with-azure-cli"></a>Snabbstart: Skapa en principtilldelning för att identifiera icke-kompatibla resurser med Azure CLI
 
 Det första steget mot att förstå kompatibilitet i Azure är att identifiera dina resursers status.
 Denna snabbstart vägleder dig genom processen för att skapa en principtilldelning som identifierar virtuella datorer som inte använder hanterade diskar.
@@ -21,11 +21,11 @@ Azure CLI används för att skapa och hantera Azure-resurser från kommandoraden
 
 ## <a name="prerequisites"></a>Krav
 
-- Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
+- Om du inte har en Azure-prenumeration skapar du ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
-- Den här snabb starten kräver att du kör Azure CLI version 2.0.76 eller senare för att installera och använda CLI lokalt. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI](/cli/azure/install-azure-cli).
+- Den här snabbstarten kräver att du kör Azure CLI version 2.0.76 eller senare för att installera och använda CLI lokalt. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI](/cli/azure/install-azure-cli).
 
-- Registrera resurs leverantören för Azure Policy Insights med hjälp av Azure CLI. När du registrerar resursprovidern säkerställer du att din prenumeration fungerar med den. Om du vill registrera en resursprovider måste du ha behörighet att utföra åtgärden att registrera resursprovidern. Den här åtgärden ingår i rollerna Deltagare och Ägare. Registrera resursprovidern genom att köra följande kommando:
+- Registrera azure policy insights-resursleverantören med Azure CLI. När du registrerar resursprovidern säkerställer du att din prenumeration fungerar med den. Om du vill registrera en resursprovider måste du ha behörighet att utföra åtgärden att registrera resursprovidern. Den här åtgärden ingår i rollerna Deltagare och Ägare. Registrera resursprovidern genom att köra följande kommando:
 
   ```azurecli-interactive
   az provider register --namespace 'Microsoft.PolicyInsights'
@@ -62,7 +62,7 @@ Om du vill visa de resurser som inte är kompatibla under den nya tilldelningen 
 az policy assignment list --query "[?displayName=='Audit VMs without managed disks Assignment'].id"
 ```
 
-Mer information om policy tilldelnings-ID: n finns i [AZ princip tilldelning](/cli/azure/policy/assignment).
+Mer information om principtilldelnings-ID finns i [az principtilldelning](/cli/azure/policy/assignment).
 
 Kör sedan följande kommando för att hämta resurs-ID:n för de icke-kompatibla resurserna som matas ut till en JSON-fil:
 

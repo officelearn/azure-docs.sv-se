@@ -1,6 +1,6 @@
 ---
-title: Skydda DNS-zoner och poster – Azure DNS
-description: I den här utbildnings vägen ska du komma igång med att skydda DNS-zoner och post uppsättningar i Microsoft Azure DNS.
+title: Skydda DNS-zoner och -poster – Azure DNS
+description: I den här utbildningssökvägen kommer du igång med att skydda DNS-zoner och postuppsättningar i Microsoft Azure DNS.
 services: dns
 author: asudbring
 ms.service: dns
@@ -8,37 +8,37 @@ ms.topic: article
 ms.date: 2/20/2020
 ms.author: allensu
 ms.openlocfilehash: 89a945f146601084795b2e12a721a03a1b96aaea
-ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/14/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79371485"
 ---
-# <a name="how-to-protect-dns-zones-and-records"></a>Skydda DNS-zoner och-poster
+# <a name="how-to-protect-dns-zones-and-records"></a>Så här skyddar du DNS-zoner och -poster
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-DNS-zoner och-poster är kritiska resurser. Att ta bort en DNS-zon eller en enskild DNS-post kan resultera i avbrott i tjänsten. Det är viktigt att DNS-zoner och-poster skyddas mot obehöriga eller oavsiktliga ändringar.
+DNS-zoner och poster är kritiska resurser. Om du tar bort en DNS-zon eller en enda DNS-post kan det leda till ett avbrott i tjänsten. Det är viktigt att DNS-zoner och poster skyddas mot obehöriga eller oavsiktliga ändringar.
 
-I den här artikeln förklaras hur Azure DNS hjälper dig att skydda dina privata DNS-zoner och poster mot sådana ändringar.  Vi tillämpar två kraftfulla funktioner för säkerhet som tillhandahålls av Azure Resource Manager: [rollbaserad åtkomst kontroll](../role-based-access-control/overview.md) och [resurs lås](../azure-resource-manager/management/lock-resources.md).
+I den här artikeln beskrivs hur Azure DNS gör att du kan skydda dina privata DNS-zoner och poster mot sådana ändringar.  Vi tillämpar två kraftfulla värdepappersfunktioner som tillhandahålls av Azure Resource Manager: [rollbaserad åtkomstkontroll](../role-based-access-control/overview.md) och [resurslås](../azure-resource-manager/management/lock-resources.md).
 
 ## <a name="role-based-access-control"></a>Rollbaserad åtkomstkontroll
 
-Med Azure Role-baserade Access Control (RBAC) kan du få detaljerad åtkomst hantering för Azure-användare, grupper och resurser. Med RBAC kan du ge den åtkomst nivå som användarna behöver. Mer information om hur RBAC hjälper dig att hantera åtkomst finns i [Vad är rollbaserad Access Control](../role-based-access-control/overview.md).
+Azure Role-Based Access Control (RBAC) möjliggör finkornig åtkomsthantering för Azure-användare, grupper och resurser. Med RBAC kan du bevilja den åtkomstnivå som användarna behöver. Mer information om hur RBAC hjälper dig att hantera åtkomst finns i [Vad är rollbaserad åtkomstkontroll](../role-based-access-control/overview.md).
 
-### <a name="the-dns-zone-contributor-role"></a>Rollen som deltagare i DNS-zonen
+### <a name="the-dns-zone-contributor-role"></a>Rollen DNS-zondeltagare
 
-Rollen som deltagare i DNS-zonen är en inbyggd roll för hantering av privata DNS-resurser. Den här rollen som används för en användare eller grupp gör att de kan hantera DNS-resurser.
+Rollen DNS Zone Contributor är en inbyggd roll för hantering av privata DNS-resurser. Den här rollen som tillämpas på en användare eller grupp gör det möjligt för dem att hantera DNS-resurser.
 
-Resurs gruppen *myResourceGroup* innehåller fem zoner för Contoso Corporation. Att bevilja DNS-administratörens behörighet för DNS-zonen deltagare i den resurs gruppen ger fullständig kontroll över dessa DNS-zoner. Det förhindrar att du beviljar onödiga behörigheter. DNS-administratören kan inte skapa eller stoppa virtuella datorer.
+Resursgruppen *myResourceGroup* innehåller fem zoner för Contoso Corporation. Genom att bevilja DNS-administratören DNS Zone Contributor-behörigheter till resursgruppen kan fullständig kontroll över dessa DNS-zoner. Det undviker att bevilja onödiga behörigheter. DNS-administratören kan inte skapa eller stoppa virtuella datorer.
 
-Det enklaste sättet att tilldela RBAC-behörigheter är [via Azure Portal](../role-based-access-control/role-assignments-portal.md).  
+Det enklaste sättet att tilldela RBAC-behörigheter är [via Azure-portalen](../role-based-access-control/role-assignments-portal.md).  
 
-Öppna **åtkomst kontroll (IAM)** för resurs gruppen och välj sedan **Lägg till**och välj sedan rollen som **deltagare i DNS-zonen** . Välj de användare eller grupper som krävs för att bevilja behörigheter.
+Öppna **Åtkomstkontroll (IAM)** för resursgruppen och välj sedan **Lägg till**och välj sedan rollen DNS Zone **Contributor.** Välj de användare eller grupper som krävs för att bevilja behörigheter.
 
-![Resurs grupp nivå RBAC via Azure Portal](./media/dns-protect-zones-recordsets/rbac1.png)
+![RBAC på resursgruppsnivå via Azure-portalen](./media/dns-protect-zones-recordsets/rbac1.png)
 
-Behörigheter kan också [beviljas med Azure PowerShell](../role-based-access-control/role-assignments-powershell.md):
+Behörigheter kan också [beviljas med Azure PowerShell:](../role-based-access-control/role-assignments-powershell.md)
 
 ```azurepowershell
 # Grant 'DNS Zone Contributor' permissions to all zones in a resource group
@@ -50,7 +50,7 @@ $rsg = "<resource group name>"
 New-AzRoleAssignment -SignInName $usr -RoleDefinitionName $rol -ResourceGroupName $rsg
 ```
 
-Motsvarande kommando är också [tillgängligt via Azure CLI](../role-based-access-control/role-assignments-cli.md):
+Motsvarande kommando är också [tillgängligt via Azure CLI:](../role-based-access-control/role-assignments-cli.md)
 
 ```azurecli
 # Grant 'DNS Zone Contributor' permissions to all zones in a resource group
@@ -61,17 +61,17 @@ az role assignment create \
 --resource-group "<resource group name>"
 ```
 
-### <a name="zone-level-rbac"></a>RBAC för zon nivå
+### <a name="zone-level-rbac"></a>RBAC på zonnivå
 
-Azure RBAC-regler kan användas för en prenumeration, en resurs grupp eller en enskild resurs. Resursen kan vara en enskild DNS-zon eller en enskild post uppsättning.
+Azure RBAC-regler kan tillämpas på en prenumeration, en resursgrupp eller på en enskild resurs. Den resursen kan vara en enskild DNS-zon eller en enskild postuppsättning.
 
-Resurs gruppen *myResourceGroup* innehåller till exempel zonen *contoso.com* och en under zon *Customers.contoso.com*. CNAME-poster skapas för varje kund konto. Det administratörs konto som används för att hantera CNAME-poster tilldelas behörigheter för att skapa poster i *Customers.contoso.com* -zonen. Kontot kan bara hantera *Customers.contoso.com* .
+Resursgruppen *myResourceGroup* innehåller till exempel zonen *contoso.com* och en underzon *customers.contoso.com*. CNAME-poster skapas för varje kundkonto. Administratörskontot som används för att hantera CNAME-poster tilldelas behörigheter för att skapa poster i *zonen customers.contoso.com.* Kontot kan bara hantera *customers.contoso.com.*
 
-RBAC-behörigheter på Zone-nivå kan beviljas via Azure Portal.  Öppna **åtkomst kontroll (IAM)** för zonen, Välj **Lägg till**och välj sedan rollen för **DNS-zonen deltagare** och välj de användare eller grupper som krävs för att bevilja behörigheter.
+RBAC-behörigheter på zonnivå kan beviljas via Azure-portalen.  Öppna **åtkomstkontroll (IAM)** för zonen, välj **Lägg till**och välj sedan rollen DNS Zone **Contributor** och välj de användare eller grupper som krävs för att bevilja behörigheter.
 
-![DNS-zons nivå RBAC via Azure Portal](./media/dns-protect-zones-recordsets/rbac2.png)
+![RBAC-nivå på DNS-zonnivå via Azure-portalen](./media/dns-protect-zones-recordsets/rbac2.png)
 
-Behörigheter kan också [beviljas med Azure PowerShell](../role-based-access-control/role-assignments-powershell.md):
+Behörigheter kan också [beviljas med Azure PowerShell:](../role-based-access-control/role-assignments-powershell.md)
 
 ```azurepowershell
 # Grant 'DNS Zone Contributor' permissions to a specific zone
@@ -85,7 +85,7 @@ $typ = "Microsoft.Network/DNSZones"
 New-AzRoleAssignment -SignInName $usr -RoleDefinitionName $rol -ResourceGroupName $rsg -ResourceName $zon -ResourceType $typ
 ```
 
-Motsvarande kommando är också [tillgängligt via Azure CLI](../role-based-access-control/role-assignments-cli.md):
+Motsvarande kommando är också [tillgängligt via Azure CLI:](../role-based-access-control/role-assignments-cli.md)
 
 ```azurecli
 # Grant 'DNS Zone Contributor' permissions to a specific zone
@@ -96,15 +96,15 @@ az role assignment create \
 --scope "/subscriptions/<subscription id>/resourceGroups/<resource group name>/providers/Microsoft.Network/DnsZones/<zone name>/"
 ```
 
-### <a name="record-set-level-rbac"></a>Data uppsättnings nivå RBAC
+### <a name="record-set-level-rbac"></a>RBAC-nivå för postuppsättning
 
-Behörigheter tillämpas på post uppsättnings nivån.  Användaren beviljas kontroll över de poster de behöver och kan inte göra några andra ändringar.
+Behörigheter tillämpas på postuppsättningsnivå.  Användaren beviljas kontroll till poster som de behöver och kan inte göra några andra ändringar.
 
-Du kan konfigurera RBAC-behörigheter för post uppsättnings nivåer via Azure Portal med hjälp av **Access Control (IAM)** på sidan post uppsättning:
+RBAC-behörigheter på postuppsättningsnivå kan konfigureras via Azure-portalen med hjälp av **IAM-knappen (Access Control)** på postuppsättningssidan:
 
-![Post uppsättnings nivå RBAC via Azure Portal](./media/dns-protect-zones-recordsets/rbac3.png)
+![RBAC på postuppsättningsnivå via Azure-portalen](./media/dns-protect-zones-recordsets/rbac3.png)
 
-Det går även att bevilja RBAC-behörigheter för post uppsättnings nivåer [med hjälp av Azure PowerShell](../role-based-access-control/role-assignments-powershell.md):
+RBAC-behörigheter på postuppsättningsnivå kan också [beviljas med Azure PowerShell:](../role-based-access-control/role-assignments-powershell.md)
 
 ```azurepowershell
 # Grant permissions to a specific record set
@@ -117,7 +117,7 @@ $sco =
 New-AzRoleAssignment -SignInName $usr -RoleDefinitionName $rol -Scope $sco
 ```
 
-Motsvarande kommando är också [tillgängligt via Azure CLI](../role-based-access-control/role-assignments-cli.md):
+Motsvarande kommando är också [tillgängligt via Azure CLI:](../role-based-access-control/role-assignments-cli.md)
 
 ```azurecli
 # Grant permissions to a specific record set
@@ -130,11 +130,11 @@ az role assignment create \
 
 ### <a name="custom-roles"></a>Anpassade roller
 
-Den inbyggda rollen för DNS-zon Contributor möjliggör fullständig kontroll över en DNS-resurs. Det är möjligt att skapa dina egna anpassade Azure-roller för att ge en bättre och mer detaljerad kontroll.
+Den inbyggda dns-zondeltagarerollen ger fullständig kontroll över en DNS-resurs. Det är möjligt att skapa dina egna anpassade Azure-roller för att ge finare kornig kontroll.
 
-Kontot som används för att hantera CNAME beviljas behörighet att endast hantera CNAME-poster. Kontot kan inte ändra poster av andra typer. Kontot kan inte utföra åtgärder på zon nivå, till exempel zon borttagning.
+Kontot som används för att hantera CNAMEs beviljas endast behörighet att hantera CNAME-poster. Kontot kan inte ändra poster av andra typer. Kontot kan inte utföra zonnivååtgärder som att ta bort zonen.
 
-I följande exempel visas en anpassad roll definition för hantering av CNAME-poster:
+I följande exempel visas en anpassad rolldefinition endast för hantering av CNAME-poster:
 
 ```json
 {
@@ -160,49 +160,49 @@ I följande exempel visas en anpassad roll definition för hantering av CNAME-po
 }
 ```
 
-Egenskapen åtgärder definierar följande DNS-/regionsspecifika behörigheter:
+Egenskapen Åtgärder definierar följande DNS-specifika behörigheter:
 
-* `Microsoft.Network/dnsZones/CNAME/*` ger fullständig kontroll över CNAME-poster
-* `Microsoft.Network/dnsZones/read` beviljar behörighet att läsa DNS-zoner, men inte att ändra dem, så att du kan se i vilken zon som CNAME skapas.
+* `Microsoft.Network/dnsZones/CNAME/*`ger fullständig kontroll över CNAME-poster
+* `Microsoft.Network/dnsZones/read`ger behörighet att läsa DNS-zoner, men inte ändra dem, så att du kan se den zon där CNAME skapas.
 
-Återstående åtgärder kopieras från den [inbyggda rollen deltagare i DNS-zonen](../role-based-access-control/built-in-roles.md#dns-zone-contributor).
+De återstående åtgärderna kopieras från den [inbyggda rollen DNS Zone Contributor](../role-based-access-control/built-in-roles.md#dns-zone-contributor).
 
 > [!NOTE]
-> Om du använder en anpassad RBAC-roll för att förhindra borttagning av post uppsättningar samtidigt som du tillåter att den uppdateras är inte en effektiv kontroll. Det förhindrar att post uppsättningar tas bort, men den förhindrar inte att de ändras.  Tillåtna ändringar omfattar att lägga till och ta bort poster från post uppsättningen, inklusive att ta bort alla poster för att lämna en tom post uppsättning. Detta har samma resultat som när du tar bort post uppsättningen från en DNS-matchning.
+> Att använda en anpassad RBAC-roll för att förhindra att postuppsättningar tas bort samtidigt som de kan uppdateras är inte en effektiv kontroll. Det förhindrar att postuppsättningar tas bort, men de hindras inte från att ändras.  Tillåtna ändringar inkluderar att lägga till och ta bort poster från postuppsättningen, inklusive att ta bort alla poster för att lämna en tom postuppsättning. Detta har samma effekt som att ta bort posten från en DNS-lösning synvinkel.
 
-Det går för närvarande inte att definiera anpassade roll definitioner via Azure Portal. En anpassad roll som baseras på den här roll definitionen kan skapas med hjälp av Azure PowerShell:
+Anpassade rolldefinitioner kan för närvarande inte definieras via Azure-portalen. En anpassad roll baserad på den här rolldefinitionen kan skapas med Azure PowerShell:
 
 ```azurepowershell
 # Create new role definition based on input file
 New-AzRoleDefinition -InputFile <file path>
 ```
 
-Den kan också skapas via Azure CLI:
+Det kan också skapas via Azure CLI:
 
 ```azurecli
 # Create new role definition based on input file
 az role create -inputfile <file path>
 ```
 
-Rollen kan sedan tilldelas på samma sätt som inbyggda roller, enligt beskrivningen ovan i den här artikeln.
+Rollen kan sedan tilldelas på samma sätt som inbyggda roller, som beskrivs tidigare i den här artikeln.
 
-Mer information om hur du skapar, hanterar och tilldelar anpassade roller finns i [anpassade roller i Azure RBAC](../role-based-access-control/custom-roles.md).
+Mer information om hur du skapar, hanterar och tilldelar anpassade roller finns [i Anpassade roller i Azure RBAC](../role-based-access-control/custom-roles.md).
 
-## <a name="resource-locks"></a>Resurs lås
+## <a name="resource-locks"></a>Resurslås
 
-Azure Resource Manager stöder en annan typ av säkerhets kontroll, möjligheten att låsa resurser. Resurs låsningar tillämpas på resursen och gäller för alla användare och roller. Mer information finns i [Låsa resurser med Azure Resource Manager](../azure-resource-manager/management/lock-resources.md).
+Azure Resource Manager stöder en annan typ av säkerhetskontroll, möjligheten att låsa resurser. Resurslås tillämpas på resursen och är effektiva för alla användare och roller. Mer information finns i [Låsa resurser med Azure Resource Manager](../azure-resource-manager/management/lock-resources.md).
 
-Det finns två typer av resurs Lås: **CanNotDelete** och **ReadOnly**. Dessa lås typer kan användas antingen i en Privat DNS zon eller till en enskild post uppsättning. I följande avsnitt beskrivs flera vanliga scenarier och hur du kan hantera dem med hjälp av resurs lås.
+Det finns två typer av resurslås: **CanNotDelete** och **ReadOnly**. Dessa låstyper kan användas antingen på en privat DNS-zon eller på en enskild postuppsättning. I följande avsnitt beskrivs flera vanliga scenarier och hur du stöder dem med hjälp av resurslås.
 
-### <a name="protecting-against-all-changes"></a>Skydda mot alla ändringar
+### <a name="protecting-against-all-changes"></a>Skydda mot alla förändringar
 
-Använd ett skrivskyddat lås för zonen för att förhindra att ändringar görs. Det här låset förhindrar att nya post uppsättningar skapas och att befintliga post uppsättningar ändras eller tas bort.
+Om du vill förhindra att ändringar görs använder du ett ReadOnly-lås på zonen. Det här låset förhindrar att nya postuppsättningar skapas och befintliga postuppsättningar ändras eller tas bort.
 
-Resurs lås för zonens nivå kan skapas via Azure Portal.  Välj **Lås**på sidan DNS-zon och välj sedan **+ Lägg till**:
+Resurslås på zonnivå kan skapas via Azure-portalen.  På sidan DNS-zon väljer du **Lås**och väljer sedan **+Lägg till:**
 
-![Resurs lås på zon nivå via Azure Portal](./media/dns-protect-zones-recordsets/locks1.png)
+![Resurslås på zonnivå via Azure-portalen](./media/dns-protect-zones-recordsets/locks1.png)
 
-Resurs lås på zon-nivå kan också skapas via [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcelock?view=latest):
+Resurslås på zonnivå kan också skapas via [Azure PowerShell:](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcelock?view=latest)
 
 ```azurepowershell
 # Lock a DNS zone
@@ -216,7 +216,7 @@ $rsg = "<resource group name>"
 New-AzResourceLock -LockLevel $lvl -LockName $lnm -ResourceName $rsc -ResourceType $rty -ResourceGroupName $rsg
 ```
 
-Motsvarande kommando är också [tillgängligt via Azure CLI](https://docs.microsoft.com/cli/azure/lock?view=azure-cli-latest#az-lock-create):
+Motsvarande kommando är också [tillgängligt via Azure CLI:](https://docs.microsoft.com/cli/azure/lock?view=azure-cli-latest#az-lock-create)
 
 ```azurecli
 # Lock a DNS zone
@@ -232,12 +232,12 @@ az lock create \
 
 ### <a name="protecting-individual-records"></a>Skydda enskilda poster
 
-Om du vill förhindra att en befintlig DNS-post har ändrats använder du ett skrivskyddat lås till post uppsättningen.
+Om du vill förhindra att en befintlig DNS-post ställs in mot ändringar använder du ett ReadOnly-lås på postuppsättningen.
 
 > [!NOTE]
-> Att använda ett CanNotDelete-lås till en post uppsättning är inte en effektiv kontroll. Det förhindrar att post uppsättningen tas bort, men den förhindrar inte att den ändras.  Tillåtna ändringar omfattar att lägga till och ta bort poster från post uppsättningen, inklusive att ta bort alla poster för att lämna en tom post uppsättning. Detta har samma resultat som när du tar bort post uppsättningen från en DNS-matchning.
+> Att använda ett CanNotDelete-lås på en postuppsättning är inte en effektiv kontroll. Det förhindrar att postuppsättningen tas bort, men den förhindrar inte att den ändras.  Tillåtna ändringar inkluderar att lägga till och ta bort poster från postuppsättningen, inklusive att ta bort alla poster för att lämna en tom postuppsättning. Detta har samma effekt som att ta bort posten från en DNS-lösning synvinkel.
 
-Resurs lås för post uppsättnings nivå kan för närvarande bara konfigureras med hjälp av Azure PowerShell.  De stöds inte i Azure Portal eller Azure CLI.
+Resurslås på postuppsättningsnivå kan för närvarande endast konfigureras med Azure PowerShell.  De stöds inte i Azure-portalen eller Azure CLI.
 
 ```azurepowershell
 # Lock a DNS record set
@@ -251,15 +251,15 @@ $rsg = "<resource group name>"
 New-AzResourceLock -LockLevel $lvl -LockName $lnm -ResourceName $rsc -ResourceType $rty -ResourceGroupName $rsg
 ```
 
-### <a name="protecting-against-zone-deletion"></a>Skydda mot zon borttagning
+### <a name="protecting-against-zone-deletion"></a>Skydda mot borttagning av zon
 
-När en zon tas bort i Azure DNS raderas alla post uppsättningar i zonen.  Det går inte att återställa den här åtgärden. Att oavsiktligt ta bort en kritisk zon har möjlighet att få betydande påverkan på verksamheten.  Det är viktigt att skydda mot oavsiktlig zon borttagning.
+När en zon tas bort i Azure DNS tas alla postuppsättningar i zonen bort.  Den här åtgärden kan inte ångras. Om du tar bort en kritisk zon av misstag kan det finnas en betydande inverkan på verksamheten.  Det är viktigt att skydda mot oavsiktlig zonradering.
 
-Om du använder ett CanNotDelete-lås till en zon förhindrar du att zonen tas bort. Lås ärvs av underordnade resurser. Ett lås förhindrar att alla post uppsättningar i zonen tas bort. Som beskrivs i anteckningen ovan är det ineffektivt eftersom poster fortfarande kan tas bort från de befintliga post uppsättningarna.
+Om du använder ett CanNotDelete-lås på en zon tas zonen bort. Lås ärvs av underordnade resurser. Ett lås förhindrar att postuppsättningar i zonen tas bort. Som beskrivs i anteckningen ovan är det ineffektivt eftersom poster fortfarande kan tas bort från de befintliga postuppsättningarna.
 
-Alternativt kan du använda ett CanNotDelete-lås till en post uppsättning i zonen, till exempel SOA-postuppsättningen. Zonen tas inte bort utan att även ta bort post uppsättningarna. Det här låset skyddar mot zon borttagning och tillåter fortfarande att post uppsättningar i zonen ändras fritt. Om det görs ett försök att ta bort zonen identifierar Azure Resource Manager borttagningen. Borttagningen tar också bort SOA-postuppsättningen, Azure Resource Manager blockerar anropet eftersom SOA är låst.  Inga post uppsättningar har tagits bort.
+Alternativt kan du använda ett CanNotDelete-lås på en postuppsättning i zonen, till exempel SOA-postuppsättningen. Zonen tas inte bort utan att även ta bort postuppsättningarna. Det här låset skyddar mot borttagning av zoner, samtidigt som postuppsättningar inom zonen tillåts fritt. Om ett försök görs att ta bort zonen identifierar Azure Resource Manager den här borttagningen. Borttagningen skulle också ta bort SOA-postuppsättningen, Azure Resource Manager blockerar anropet eftersom SOA är låst.  Inga postuppsättningar tas bort.
 
-Följande PowerShell-kommando skapar ett CanNotDelete-lås mot SOA-posten för den aktuella zonen:
+Följande PowerShell-kommando skapar ett CanNotDelete-lås mot SOA-posten i den angivna zonen:
 
 ```azurepowershell
 # Protect against zone delete with CanNotDelete lock on the record set
@@ -273,18 +273,18 @@ $rsg = "<resource group name>"
 New-AzResourceLock -LockLevel $lvl -LockName $lnm -ResourceName $rsc -ResourceType $rty -ResourceGroupName $rsg
 ```
 
-Ett annat alternativ för att förhindra borttagning av oavsiktliga zoner är att använda en anpassad roll. Den här rollen säkerställer att konton som används för att hantera dina zoner inte har behörighet att ta bort zonen. 
+Ett annat alternativ för att förhindra borttagning av en zon i en annan är att använda en anpassad roll. Den här rollen säkerställer att de konton som används för att hantera dina zoner inte har behörigheter för zonborttagning. 
 
-När du behöver ta bort en zon kan du framtvinga en borttagning av två steg:
+När du behöver ta bort en zon kan du framtvinga en borttagning i två steg:
 
- - Först, bevilja zon borttagnings behörigheter
- - Därefter beviljar du behörighet att ta bort zonen.
+ - Först bevilja zonborttagningsbehörigheter
+ - För det andra bevilja behörigheter för att ta bort zonen.
 
-Den anpassade rollen fungerar för alla zoner som används av dessa konton. Konton med behörighet att ta bort zoner, till exempel Prenumerationens ägare, kan fortfarande ta bort en zon av misstag.
+Den anpassade rollen fungerar för alla zoner som används av dessa konton. Konton med zonborttagningsbehörigheter, till exempel prenumerationsägaren, kan fortfarande av misstag ta bort en zon.
 
-Det går att använda båda metoderna-resurs lås och anpassade roller – samtidigt, som en skydds djup metod för DNS-zonskydd.
+Det är möjligt att använda båda metoderna - resurslås och anpassade roller - samtidigt som en försvars-djupgående metod för DNS-zonskydd.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Mer information om hur du arbetar med RBAC finns i [Kom igång med åtkomst hantering i Azure Portal](../role-based-access-control/overview.md).
-* Mer information om hur du arbetar med resurs lås finns i [låsa resurser med Azure Resource Manager](../azure-resource-manager/management/lock-resources.md).
+* Mer information om hur du arbetar med RBAC finns [i Komma igång med åtkomsthantering i Azure-portalen](../role-based-access-control/overview.md).
+* Mer information om hur du arbetar med resurslås finns i [Låsa resurser med Azure Resource Manager](../azure-resource-manager/management/lock-resources.md).

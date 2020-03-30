@@ -1,6 +1,6 @@
 ---
-title: Genomgångar kör Team Data Science Process på Azure
-description: Hur du kombinerar molnet och lokala verktyg och tjänster i ett arbetsflöde eller en pipeline för att skapa ett intelligenta program.
+title: Genomgångar som kör teamdatavetenskapsprocessen på Azure
+description: Så här kombinerar du verktyg och tjänster i molnet och lokalt i ett arbetsflöde eller en pipeline för att skapa ett intelligent program.
 services: machine-learning
 author: marktab
 manager: marktab
@@ -12,35 +12,35 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 8fa21cc690742a71100c53b4e5b6ce122d1a6147
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75864085"
 ---
-# <a name="walkthroughs-executing-the-team-data-science-process"></a>Genomgångar kör Team Data Science Process
+# <a name="walkthroughs-executing-the-team-data-science-process"></a>Genomgångar som kör teamdatavetenskapsprocessen
 
-De här **omfattande genom gången** demonstrerar stegen i team data science-processen för vissa scenarier. De illustrerar hur du kombinerar moln, lokala verktyg och tjänster till ett arbets flöde för ett **intelligent program**. Genomgångar grupperas efter **plattform** som de använder.
-
-
-## <a name="walkthrough-descriptions"></a>Genomgång beskrivningar
-
-Här följer korta beskrivningar av vad de här exemplen genomgången du lär dig på respektive plattform:
+Dessa **omfattande genomgångar** visar stegen i teamdatavetenskapsprocessen för specifika scenarier. De illustrerar hur du kombinerar moln, lokala verktyg och tjänster till ett arbetsflöde för ett **intelligent program**. Genomgångarna är grupperade efter **plattform** som de använder.
 
 
-- [Genomgångar för HDInsight Spark med PySpark och Scala](walkthroughs-spark.md) dessa genomgångar använda PySpark och Scala på ett Azure Spark-kluster för att göra förutsägelseanalyser.
-- [HDInsight Hadoop-genomgångar med Hive](walkthroughs-hdinsight-hadoop.md) dessa genomgångar använda Hive med HDInsight Hadoop-kluster för att göra förutsägelseanalyser.
-- [Azure Data Lake genomgångar med hjälp av U-SQL](walkthroughs-azure-data-lake.md) dessa genomgångar använda U-SQL med Azure Data Lake för att göra förutsägelseanalyser.
-- [SQL Server](walkthroughs-sql-server.md) dessa genomgångar använda SQL Server, SQL Server R Services och SQL Server Python Services för att göra förutsägelseanalyser.
-- [SQL Data Warehouse](walkthroughs-sql-data-warehouse.md) dessa genomgångar använder SQL Data Warehouse för att göra förutsägelseanalyser. 
+## <a name="walkthrough-descriptions"></a>Genomgångsbeskrivningar
+
+Här är korta beskrivningar av vad dessa genomgångsexempel ger på sina respektive plattformar:
+
+
+- [HDInsight Spark genomgångar med PySpark och Scala](walkthroughs-spark.md) Dessa genomgångar använder PySpark och Scala på ett Azure Spark-kluster för att göra prediktiva analyser.
+- [HDInsight Hadoop genomgångar med Hive](walkthroughs-hdinsight-hadoop.md) Dessa genomgångar använder Hive med ett HDInsight Hadoop-kluster för att göra prediktiva analyser.
+- [Genomgångar i Azure Data Lake med U-SQL](walkthroughs-azure-data-lake.md) Dessa genomgångar använder U-SQL med Azure Data Lake för att göra prediktiva analyser.
+- [SQL-server](walkthroughs-sql-server.md) Dessa genomgångar använder SQL Server, SQL Server R Services och SQL Server Python Services för att göra prediktiva analyser.
+- [SQL-datalager](walkthroughs-sql-data-warehouse.md) Dessa genomgångar använder SQL Data Warehouse för att göra prediktiva analyser. 
 
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-En beskrivning av de viktigaste komponenterna som utgör Team Data Science Process finns i [Team Data Science Process översikt](overview.md).
+En diskussion om de viktigaste komponenterna som ingår i teamdatavetenskapsprocessen finns i [översikt över teamdatavetenskapsprocess](overview.md).
 
-En beskrivning av livs cykeln för team data science process finns i [livs cykeln för team data science process](lifecycle.md). Den här livs cykeln beskriver stegen, från början till slut, som vanligt vis följer de projekt som körs. 
+En diskussion om livscykeln för teamdatavetenskapsprocessen finns i [livscykeln](lifecycle.md)för Team Data Science Process . Den här livscykeln beskriver de steg, från början till, som projekt vanligtvis följer när de körs. 
 
-En översikt finns i [data vetenskaps processen](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/). 
+En översikt finns i [Data Science Process](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/). 
 

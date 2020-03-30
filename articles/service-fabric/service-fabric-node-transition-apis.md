@@ -1,59 +1,59 @@
 ---
 title: Starta och stoppa klusternoder
-description: Lär dig hur du använder fel inmatning för att testa ett Service Fabric program genom att starta och stoppa klusternoder.
+description: Lär dig hur du använder felinsprutning för att testa ett Service Fabric-program genom att starta och stoppa klusternoder.
 author: LMWF
 ms.topic: conceptual
 ms.date: 6/12/2017
 ms.author: lemai
 ms.openlocfilehash: 8f2eefec94ad4763a054ee089b17232c41e642dd
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/02/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75609799"
 ---
-# <a name="replacing-the-start-node-and-stop-node-apis-with-the-node-transition-api"></a>Ersätta startnoden och stoppa Node-API: er med nodens över gångs-API
+# <a name="replacing-the-start-node-and-stop-node-apis-with-the-node-transition-api"></a>Ersätta API:erna för startnod och stoppa nod med NOD Transition API
 
-## <a name="what-do-the-stop-node-and-start-node-apis-do"></a>Vad gör API-noden och start-nodens API: er?
+## <a name="what-do-the-stop-node-and-start-node-apis-do"></a>Vad gör stop noden och startnoden API:er?
 
-API för att stoppa noden (hanterade: [StopNodeAsync ()][stopnode], PowerShell: [Stop-ServiceFabricNode][stopnodeps]) stoppar en Service Fabric nod.  En Service Fabric nod är process, inte en virtuell dator eller dator – den virtuella datorn eller datorn kommer fortfarande att köras.  För resten av dokumentet "Node" betyder det att Service Fabric nod.  Om du *stoppar en nod* försätts den i ett *stoppat* tillstånd där den inte är medlem i klustret och kan därför inte hantera tjänster, vilket simulerar en nod.  Detta är användbart för att mata in fel i systemet för att testa ditt program.  Startnodens API (hanterat: [StartNodeAsync ()][startnode], PowerShell: [Start-ServiceFabricNode][startnodeps]]) kastar om API för att stoppa noden, vilket gör att noden återgår till ett normalt tillstånd.
+Stop Node API (hanterat: [StopNodeAsync()][stopnode], PowerShell: [Stop-ServiceFabricNode][stopnodeps]) stoppar en service fabric-nod.  En Service Fabric-nod är process, inte en virtuell dator eller dator – den virtuella datorn eller datorn körs fortfarande.  För resten av dokumentet betyder "nod" Service Fabric-noden.  Om du stoppar en nod placeras den i ett *stoppat* tillstånd där den inte är medlem i klustret och inte kan vara värd för tjänster, vilket simulerar en *nednod.*  Detta är användbart för att injicera fel i systemet för att testa din ansökan.  Startnod API (hanterad: [StartNodeAsync()][startnode], PowerShell: [Start-ServiceFabricNode][startnodeps]]) återför Stop Node API, vilket ger noden tillbaka till ett normalt tillstånd.
 
 ## <a name="why-are-we-replacing-these"></a>Varför ersätter vi dessa?
 
-Som tidigare beskrivits är en *stoppad* Service Fabric nod en nod som avsiktligen riktar sig mot att använda API: et för att stoppa noden.  En *nod är inte tillgänglig för* andra orsaker (till exempel att den virtuella datorn eller datorn är avstängd).  Med API för att stoppa noden, visar systemet inte information för att skilja mellan *stoppade* *noder och noder* .
+Som tidigare beskrivits är en *stoppad* Service Fabric-nod en nod som avsiktligt är riktad med hjälp av API:et för stoppa nod.  En *down* ned-nod är en nod som är nere av någon annan anledning (till exempel är den virtuella datorn eller datorn avstängd).  Med STOP Node API exponerar systemet inte information för att skilja mellan *stoppade* noder och *nedåtnoder.*
 
-Dessutom är vissa fel som returneras av dessa API: er inte så beskrivande som de kan vara.  Om du t. ex. anropar API: et för att stoppa noden på en redan *stoppad* nod returneras felet *InvalidAddress*.  Den här upplevelsen kan förbättras.
+Dessutom är vissa fel som returneras av dessa API:er inte så beskrivande som de kan vara.  Om du till exempel anropar API:et för stop nod på en redan *stoppad* nod returneras felet *InvalidAddress*.  Denna erfarenhet skulle kunna förbättras.
 
-Varaktigheten för en nod stoppas också för "oändlig" tills startnodens API anropas.  Vi har hittat detta kan orsaka problem och kan vara fel känsligt.  Vi har till exempel sett problem där en användare anropade API för att stoppa noden på en nod och sedan glömmer bort det.  Senare *var det* oklart om noden *stoppades eller stoppades*.
+Dessutom är varaktigheten en nod stoppas för "oändlig" tills Start Nod API anropas.  Vi har upptäckt att detta kan orsaka problem och kan vara felbenägna.  Vi har till exempel sett problem där en användare har anropat Stop Node-API:et på en nod och sedan glömt bort det.  Senare var det oklart om noden var *nere* eller *stoppad*.
 
 
-## <a name="introducing-the-node-transition-apis"></a>Introducera API: erna för noden över gångar
+## <a name="introducing-the-node-transition-apis"></a>Vi presenterar API:erna för nodövergång
 
-Vi har åtgärdat problemen ovan i en ny uppsättning API: er.  Den nya noden över gångs-API (hanterade: [StartNodeTransitionAsync ()][snt]) kan användas för att överföra en Service Fabric-nod till ett *stoppat* tillstånd, eller för att överföra den från ett *stoppat* tillstånd till ett vanligt läge.  Observera att "Start" i namnet på API: et inte refererar till att starta en nod.  Det syftar på att starta en asynkron åtgärd som systemet ska köra för att överföra noden till antingen *stoppad* eller startad.
+Vi har tagit itu med dessa problem ovan i en ny uppsättning API:er.  Det nya nodövergångs-API:et (hanterat: [StartNodeTransitionAsync()][snt]) kan användas för att överföra en Service Fabric-nod till ett *stoppat* tillstånd eller för att överföra den från ett *stoppat* tillstånd till ett normalt upptillstånd.  Observera att "Start" i API:ets namn inte refererar till att starta en nod.  Den refererar till början av en asynkron åtgärd som systemet ska köra för att överföra noden till antingen *stoppat* eller startat tillstånd.
 
 **Användning**
 
-Om nodens över gångs-API inte genererar ett undantag när det anropas, har systemet godkänt den asynkrona åtgärden och kör den.  Ett lyckat anrop innebär inte att åtgärden har slutförts ännu.  Om du vill hämta information om åtgärdens aktuella tillstånd anropar du nodens förlopps-API (hanterad: [GetNodeTransitionProgressAsync ()][gntp]) med det GUID som användes när du anropar nodens över gångs-API för den här åtgärden.  Nodens över gångs förlopps-API returnerar ett NodeTransitionProgress-objekt.  Egenskapen State för det här objektet anger åtgärdens aktuella tillstånd.  Om status är "körs" körs åtgärden.  Om det är klart slutförs åtgärden utan fel.  Om det är fel har det uppstått ett problem med att köra åtgärden.  Resultat egenskapens undantags egenskap indikerar vad problemet var.  Se https://docs.microsoft.com/dotnet/api/system.fabric.testcommandprogressstate för mer information om egenskapen State och avsnittet "exempel användning" nedan för kod exempel.
+Om API:et för nodövergång inte genererar ett undantag när det anropas, har systemet accepterat den asynkrona åtgärden och kör den.  Ett lyckat samtal innebär inte att åtgärden är klar ännu.  Om du vill hämta information om det aktuella tillståndet för åtgärden anropar du API:et för nodövergångsförlopp (hanterat: [GetNodeTransitionProgressAsync()][gntp]) med det guid som används vid anropande nod transition API för den här åtgärden.  Api:et för nodövergångsförlopp returnerar ett nodtransitionprogress-objekt.  Egenskapen State anger åtgärdens aktuella tillstånd.  Om tillståndet är "Körs" körs åtgärden.  Om den är slutförd slutförs åtgärden utan fel.  Om det är fel uppstod ett problem med att utföra åtgärden.  Egenskapen Result's Exception anger vad problemet var.  Mer https://docs.microsoft.com/dotnet/api/system.fabric.testcommandprogressstate information om egenskapen State finns i avsnittet "Exempelanvändning" nedan för kodexempel.
 
 
-**Differentiering mellan en stoppad nod och en nod** Om en nod *stoppas* med hjälp av noden över gångs-API, visar utdata för en Node-fråga (hanterad: [GetNodeListAsync ()][nodequery], PowerShell: [Get-ServiceFabricNode][nodequeryps]) att den här noden har ett värde för egenskapen *IsStopped* True.  Observera att detta skiljer sig från värdet för egenskapen *NodeStatus* , som kommer att säga *nedåt*.  Om egenskapen *NodeStatus* har värdet *Down*, men *IsStopped* är false, stoppades inte noden med nodens över gångs-API och är *avstängd* på grund av någon annan orsak.  Om egenskapen *IsStopped* är true och egenskapen *NodeStatus* är *nere*stoppades den med nodens över gångs-API.
+**Skilja mellan en stoppad nod och en nedåtnod** Om en nod *stoppas* med API:et för nodövergång visas utdata från en nodfråga (hanterad: [GetNodeListAsync()][nodequery], PowerShell: [Get-ServiceFabricNode][nodequeryps]) att den här noden har ett *IsStopped-egenskapsvärde* för true.  Observera att detta skiljer sig från värdet för egenskapen *NodeStatus,* som säger *Down*.  Om egenskapen *NodeStatus* har värdet *Ned*, men *IsStopped* är falskt, stoppades inte noden med nodövergångs-API:et och är *nere* på grund av någon annan orsak.  Om egenskapen *IsStopped* är true och egenskapen *NodeStatus* är *Down,* stoppades den med nodövergångs-API:et.
 
-Om du startar en *stoppad* nod med nodens över gångs-API kommer den att fungera som en normal medlem i klustret igen.  Utdata från API: t för Node-frågor visar *IsStopped* som falskt och *NodeStatus* som något som inte är nere (till exempel upp).
+Om du startar en *stoppad* nod med API:et för nodövergång returneras den till att fungera som en normal medlem i klustret igen.  Utdata för nodfrågan API visar *IsStopped* som false och *NodeStatus* som något som inte är Ned (till exempel Upp).
 
 
-**Begränsad varaktighet** När du använder noden över gångs-API för att stoppa en nod, representerar en av de obligatoriska parametrarna, *stopNodeDurationInSeconds*, hur lång tid i sekunder som noden *stoppas*.  Värdet måste vara inom det tillåtna intervallet, som har minst 600 och högst 14400.  När den här tiden går ut startar noden om automatiskt i upp-läge.  Se exempel 1 nedan för ett exempel på användning.
-
-> [!WARNING]
-> Undvik att blanda nodens över gångs-API: er och noden stoppa och starta Node API: er.  Rekommendationen är att endast använda nodens över gångs-API.  > Om en nod redan har stoppats med hjälp av API: et för att stoppa Node, ska den startas med hjälp av startnodens API först innan du använder API: erna för över gångar > i noden.
+**Begränsad varaktighet** När du använder API:et för nodövergång för att stoppa en nod representerar en av de nödvändiga parametrarna, *stopNodeDurationInSeconds*, hur lång tid i sekunder som ska hålla *noden stoppad*.  Detta värde måste vara i det tillåtna intervallet, som har minst 600, och högst 14400.  När den här tiden har gått ut startar noden om sig själv till uppläge automatiskt.  Se exempel 1 nedan för ett exempel på användning.
 
 > [!WARNING]
-> Det går inte att utföra flera noder över gångs-API-anrop på samma nod parallellt.  I den här situationen > noden över gångs-API: et för nodens över gångs-API ett FabricException med värdet NodeTransitionInProgress för ErrorCode.  När en nod över gång på en speciell nod har > startats, bör du vänta tills åtgärden når ett Terminal-tillstånd (slutfört, trasigt eller ForceCancelled) innan du startar en > ny över gång på samma nod.  Parallella nods över gångs anrop på olika noder tillåts.
+> Undvik att blanda nodövergångs-API:er och API:erna för stoppa nod och startnod.  Rekommendationen är att endast använda nodövergångs-API:et.  > Om en nod redan har stoppats med api:et för stoppa nod bör den startas med startnodens API först innan du använder API:erna för > nodövergång.
+
+> [!WARNING]
+> Flera nodövergångs-API:er kan inte göras på samma nod parallellt.  I en sådan situation kommer Node Transition API > kasta en FabricException med ett ErrorCode egenskapsvärde för NodeTransitionInProgress.  När en nodövergång på en viss nod har > startats bör du vänta tills åtgärden når ett terminaltillstånd (slutfört, fel eller ForceCancelled) innan du startar en > ny övergång på samma nod.  Parallella nodövergångsanrop på olika noder är tillåtna.
 
 
-#### <a name="sample-usage"></a>Exempel på användning
+#### <a name="sample-usage"></a>Exempelanvändning
 
 
-**Exempel 1** – följande exempel använder nodens över gångs-API för att stoppa en nod.
+**Exempel 1** - Följande exempel använder API:et för nodövergång för att stoppa en nod.
 
 ```csharp
         // Helper function to get information about a node
@@ -155,7 +155,7 @@ Om du startar en *stoppad* nod med nodens över gångs-API kommer den att funger
         }
 ```
 
-**Exempel 2** – följande exempel startar en *stoppad* nod.  Den använder vissa hjälp metoder från det första exemplet.
+**Prov 2** - Följande exempel startar en *stoppad* nod.  Den använder några hjälpmetoder från det första exemplet.
 
 ```csharp
         static async Task StartNodeAsync(FabricClient fc, string nodeName)
@@ -198,7 +198,7 @@ Om du startar en *stoppad* nod med nodens över gångs-API kommer den att funger
         }
 ```
 
-**Exempel 3** – följande exempel visar felaktig användning.  Den här användningen är felaktig eftersom den *stopDurationInSeconds* som den tillhandahåller är större än det tillåtna intervallet.  Eftersom StartNodeTransitionAsync () Miss fungerar med ett allvarligt fel, accepterades inte åtgärden och förlopps-API: t ska inte anropas.  I det här exemplet används vissa hjälp metoder från det första exemplet.
+**Exempel 3** - Följande exempel visar felaktig användning.  Den här användningen är felaktig eftersom *stopDurationInSeconds* det ger är större än det tillåtna intervallet.  Eftersom StartNodeTransitionAsync() misslyckas med ett allvarligt fel, accepterades inte åtgärden och status-API:et bör inte anropas.  Det här exemplet använder några hjälpmetoder från det första exemplet.
 
 ```csharp
         static async Task StopNodeWithOutOfRangeDurationAsync(FabricClient fc, string nodeName)
@@ -229,7 +229,7 @@ Om du startar en *stoppad* nod med nodens över gångs-API kommer den att funger
         }
 ```
 
-**Exempel 4** – följande exempel visar den fel information som kommer att returneras från nodens förlopps-API när åtgärden som initierades av nodens över gångs-API accepteras, men Miss lyckas senare vid körning.  I så fall Miss lyckas det eftersom nodens över gångs-API försöker starta en nod som inte finns.  I det här exemplet används vissa hjälp metoder från det första exemplet.
+**Prov 4** - Följande exempel visar felinformation som kommer att returneras från API:et för nodövergångsförlopp när åtgärden som initierats av API:et för nodövergång accepteras, men misslyckas senare när den körs.  I fallet misslyckas det eftersom API:et för nodövergång försöker starta en nod som inte finns.  Det här exemplet använder några hjälpmetoder från det första exemplet.
 
 ```csharp
         static async Task StartNodeWithNonexistentNodeAsync(FabricClient fc)

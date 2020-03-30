@@ -1,6 +1,6 @@
 ---
-title: Verifiera VPN-dataflöde till en Microsoft Azure Virtual Network
-description: Syftet med det här dokumentet är att hjälpa en användare att verifiera nätverks flödet från sina lokala resurser till en virtuell Azure-dator.
+title: Validera VPN-dataflöde till ett virtuellt Microsoft Azure-nätverk
+description: Syftet med det här dokumentet är att hjälpa en användare att validera nätverksdataflödet från sina lokala resurser till en virtuell Azure-dator.
 titleSuffix: Azure VPN Gateway
 services: vpn-gateway
 author: cherylmc
@@ -10,67 +10,67 @@ ms.date: 05/29/2019
 ms.author: radwiv
 ms.reviewer: chadmat;genli
 ms.openlocfilehash: a88e339e82484c2ec1cd2276f6218fa718b990f9
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75860494"
 ---
 # <a name="how-to-validate-vpn-throughput-to-a-virtual-network"></a>Verifiera VPN-dataflöde till ett virtuellt nätverk
 
-Med en VPN gateway-anslutning kan du upprätta säker anslutning mellan olika platser mellan dina Virtual Network i Azure och den lokala IT-infrastrukturen.
+Med en VPN-gatewayanslutning kan du upprätta säker, korslokal anslutning mellan ditt virtuella nätverk inom Azure och din lokala IT-infrastruktur.
 
-Den här artikeln visar hur du verifierar nätverks data flödet från lokala resurser till en virtuell Azure-dator (VM).
+Den här artikeln visar hur du validerar nätverksdataflöde från lokala resurser till en virtuell Azure-dator (VM).
 
 > [!NOTE]
-> Den här artikeln är avsedd att hjälpa till att diagnostisera och åtgärda vanliga problem. Om du inte kan lösa problemet med hjälp av följande information kan du [kontakta supporten](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+> Den här artikeln är avsedd att hjälpa till att diagnostisera och åtgärda vanliga problem. Om du inte kan lösa problemet med hjälp av följande information [kontaktar du supporten](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
 ## <a name="overview"></a>Översikt
 
-VPN gateway-anslutningen omfattar följande komponenter:
+VPN-gatewayanslutningen omfattar följande komponenter:
 
-* Lokal VPN-enhet (Visa en lista över [verifierade VPN-enheter](vpn-gateway-about-vpn-devices.md#devicetable).)
-* Offentligt Internet
+* Lokal VPN-enhet (Visa en lista över [validerade VPN-enheter](vpn-gateway-about-vpn-devices.md#devicetable).)
+* Offentligt internet
 * Azure VPN-gateway
 * Azure VM
 
 Följande diagram visar den logiska anslutningen för ett lokalt nätverk till ett virtuellt Azure-nätverk via VPN.
 
-![Logisk anslutning för kund nätverk till MSFT-nätverk med VPN](./media/vpn-gateway-validate-throughput-to-vnet/VPNPerf.png)
+![Logisk anslutning av kundnätverk till MSFT-nätverk med VPN](./media/vpn-gateway-validate-throughput-to-vnet/VPNPerf.png)
 
-## <a name="calculate-the-maximum-expected-ingressegress"></a>Beräkna det maximala förväntade inkommande/utgående
+## <a name="calculate-the-maximum-expected-ingressegress"></a>Beräkna det maximala förväntade ingående/utgående
 
-1. Fastställ programmets krav på data flödes flöden.
-1. Fastställ dina data flödes gränser för Azure VPN-gatewayen. Mer information finns i avsnittet om Gateway-SKU: er i [om VPN gateway](vpn-gateway-about-vpngateways.md#gwsku).
-1. Fastställ [vägledning för Azure VM-dataflöde](../virtual-machines/virtual-machines-windows-sizes.md) för din VM-storlek.
-1. Fastställ din Internet leverantörs bandbredd (ISP).
-1. Beräkna det förväntade data flödet genom att ta den minsta bandbredden för antingen den virtuella datorn, VPN Gateway eller Internet leverantören. som mäts i megabit per sekund (/) dividerat med åtta (8).
+1. Bestäm programmets grundläggande dataflödeskrav.
+1. Bestäm gränserna för ditt Azure VPN-gatewaydataflöde. Mer information finns i avsnittet "Gateway SKU: er" i [Om VPN Gateway](vpn-gateway-about-vpngateways.md#gwsku).
+1. Bestäm vägledningen för [Azure VM-dataflöde](../virtual-machines/virtual-machines-windows-sizes.md) för din vm-storlek.
+1. Bestäm bandbredden för Internet-leverantören.
+1. Beräkna ditt förväntade dataflöde genom att ta minst bandbredd för antingen den virtuella datorn, VPN Gateway eller Internet-leverantören. som mäts i Megabit per sekund (/) dividerat med åtta (8).
 
-Om det beräknade data flödet inte uppfyller programmets krav på data flöde för original vara måste du öka bandbredden för den resurs som du har identifierat som Flask hals. Om du vill ändra storlek på en Azure-VPN Gateway, se [ändra en gateway-SKU](vpn-gateway-about-vpn-gateway-settings.md#gwsku). Om du vill ändra storlek på en virtuell dator kan du läsa [ändra storlek på en](../virtual-machines/virtual-machines-windows-resize-vm.md)virtuell dator. Om du inte har den förväntade Internet bandbredden kan du också kontakta din Internet leverantör.
+Om det beräknade dataflödet inte uppfyller programmets grundläggande dataflödeskrav måste du öka bandbredden för den resurs som du identifierade som flaskhalsen. Information om hur du ändrar storlek på en Azure VPN-gateway finns i [Ändra en gateway SKU](vpn-gateway-about-vpn-gateway-settings.md#gwsku). Om du vill ändra storlek på en virtuell dator finns i [Ändra storlek på en virtuell dator](../virtual-machines/virtual-machines-windows-resize-vm.md). Om du inte upplever den förväntade internetbandbredden kan du också kontakta Internet-leverantören.
 
 > [!NOTE]
-> VPN Gateway data flöde är en mängd olika Site-to-Site\VNET-to-VNET, eller punkt-till-plats-anslutningar.
+> VPN Gateway-dataflöde är ett aggregat av alla anslutningar från plats till plats\VNET-till-VNET eller Point-to-Site.
 
-## <a name="validate-network-throughput-by-using-performance-tools"></a>Verifiera nätverks data flöde med hjälp av prestanda verktyg
+## <a name="validate-network-throughput-by-using-performance-tools"></a>Validera nätverksdataflödet med hjälp av prestandaverktyg
 
-Den här verifieringen bör utföras under perioder med låg belastning, eftersom data flödes mättnaden för VPN-tunnel under testningen inte ger korrekta resultat.
+Denna validering bör utföras under icke-rusningstid, eftersom mätbelastningsmättnad för VPN-tunnelgenomströmning under testningen inte ger korrekta resultat.
 
-Verktyget som vi använder för det här testet är iPerf, som fungerar både i Windows och Linux och har både klient-och server läge. Den är begränsad till 3Gbps för virtuella Windows-datorer.
+Verktyget vi använder för detta test är iPerf, som fungerar på både Windows och Linux och har både klient- och serverlägen. Det är begränsat till 3Gbps för Windows virtuella datorer.
 
-Det här verktyget utför inga Läs-/skriv åtgärder på disken. Den genererar bara en själv genererad TCP-trafik från ena änden till den andra. Den genererar statistik baserat på experimentering som mäter bandbredden som är tillgänglig mellan klient-och Server-noder. När du testar mellan två noder fungerar en nod som-servern och den andra noden fungerar som en klient. När det här testet har slutförts rekommenderar vi att du ändrar nodernas roller för att testa både överförings-och nedladdnings data flödet på båda noderna.
+Det här verktyget utför inga läs-/skrivåtgärder till disken. Det producerar enbart egengenererad TCP-trafik från ena änden till den andra. Den genererar statistik baserat på experiment som mäter den tillgängliga bandbredden mellan klient- och servernoder. När du testar mellan två noder fungerar en nod som server och den andra noden fungerar som en klient. När det här testet är slutfört rekommenderar vi att du vänder på rollerna för noderna för att testa både uppladdning och hämta dataflöde på båda noderna.
 
-### <a name="download-iperf"></a>Ladda ned iPerf
+### <a name="download-iperf"></a>Ladda ner iPerf
 
-Ladda ned [iPerf](https://iperf.fr/download/iperf_3.1/iperf-3.1.2-win64.zip). Mer information finns i [iPerf-dokumentationen](https://iperf.fr/iperf-doc.php).
+Ladda ner [iPerf](https://iperf.fr/download/iperf_3.1/iperf-3.1.2-win64.zip). Mer information finns [i iPerf-dokumentation](https://iperf.fr/iperf-doc.php).
 
  > [!NOTE]
- > Produkter från tredje part som diskuteras i den här artikeln tillverkas av företag som är oberoende av Microsoft. Microsoft ger ingen garanti, underförstådd eller övrigt, om prestandan eller tillförlitligheten för dessa produkter.
+ > De produkter från tredje part som beskrivs i den här artikeln tillverkas av företag som är oberoende av Microsoft. Microsoft lämnar inga garantier, underförstådda eller på annat sätt, om dessa produkters prestanda eller tillförlitlighet.
 
-### <a name="run-iperf-iperf3exe"></a>Kör iPerf (iperf3. exe)
+### <a name="run-iperf-iperf3exe"></a>Kör iPerf (iperf3.exe)
 
-1. Aktivera en NSG/ACL-regel som tillåter trafiken (för offentlig IP-adress testning på virtuella Azure-datorer).
+1. Aktivera en NSG/ACL-regel som tillåter trafik (för testning av offentliga IP-adresser på Azure VM).
 
-1. Aktivera ett brand Väggs undantag för port 5001 på båda noderna.
+1. Aktivera ett brandväggsundantag för port 5001 på båda noderna.
 
    **Windows:** Kör följande kommando som administratör:
 
@@ -78,15 +78,15 @@ Ladda ned [iPerf](https://iperf.fr/download/iperf_3.1/iperf-3.1.2-win64.zip). Me
    netsh advfirewall firewall add rule name="Open Port 5001" dir=in action=allow protocol=TCP localport=5001
    ```
 
-   Kör följande kommando för att ta bort regeln när testningen är klar:
+   Om du vill ta bort regeln när testningen är klar kör du det här kommandot:
 
    ```CMD
    netsh advfirewall firewall delete rule name="Open Port 5001" protocol=TCP localport=5001
    ```
 
-   **Azure Linux:** Azure Linux-avbildningar har tillåtna brand väggar. Om det finns ett program som lyssnar på en port tillåts trafiken via. Anpassade avbildningar som skyddas kan kräva att portar öppnas explicit. Vanliga brand väggar för Linux OS-lager omfattar `iptables`, `ufw`eller `firewalld`.
+   **Azure Linux:** Azure Linux-avbildningar har tillåtande brandväggar. Om det finns ett program som lyssnar på en port tillåts trafiken. Anpassade bilder som är säkrade kan behöva portar öppnas explicit. Vanliga Linux OS-lager `iptables`brandväggar inkluderar , `ufw`, eller `firewalld`.
 
-1. På noden Server ändrar du till den katalog där iperf3. exe extraheras. Kör sedan iPerf i server läge och Ställ in den så att den lyssnar på port 5001 som följande kommandon:
+1. På servernoden ändrar du till katalogen där iperf3.exe extraheras. Kör sedan iPerf i serverläge och ställ in den på att lyssna på port 5001 som följande kommandon:
 
    ```CMD
    cd c:\iperf-3.1.2-win65
@@ -95,74 +95,74 @@ Ladda ned [iPerf](https://iperf.fr/download/iperf_3.1/iperf-3.1.2-win64.zip). Me
    ```
 
    > [!Note]
-   > Port 5001 är anpassningsbar för att kunna redovisa särskilda brand Väggs begränsningar i din miljö.
+   > Port 5001 kan anpassas för att ta hänsyn till särskilda brandväggsbegränsningar i din miljö.
 
-1. På noden klient ändrar du till katalogen där verktyget iperf extraheras och kör sedan följande kommando:
+1. På klientnoden ändrar du till katalogen där iperf-verktyget extraheras och kör sedan följande kommando:
 
    ```CMD
    iperf3.exe -c <IP of the iperf Server> -t 30 -p 5001 -P 32
    ```
 
-   Klienten dirigerar trettio sekunders trafik på port 5001 till-servern. Flaggan-P visar att vi gör 32 samtidiga anslutningar till noden Server.
+   Klienten dirigerar trettio sekunders trafik på port 5001, till servern. Flaggan '-P' anger att vi gör 32 samtidiga anslutningar till servernoden.
 
-   Följande skärm bild visar utdata från det här exemplet:
+   Följande skärm visar utdata från det här exemplet:
 
    ![Resultat](./media/vpn-gateway-validate-throughput-to-vnet/06theoutput.png)
 
-1. VALFRITT Kör följande kommando för att bevara test resultaten:
+1. (VALFRITT) Om du vill bevara testresultaten kör du det här kommandot:
 
    ```CMD
    iperf3.exe -c IPofTheServerToReach -t 30 -p 5001 -P 32  >> output.txt
    ```
 
-1. När du har slutfört de föregående stegen kör du samma steg med de roller som har återförts, så att-noden kommer nu att vara klient-noden och vice versa.
+1. När du har slutfört föregående steg, kör samma steg med rollerna omvända, så att servernoden nu blir klientnoden och vice versa.
 
 > [!Note]
 > Iperf är inte det enda verktyget. [NTTTCP är en alternativ lösning för testning](https://docs.microsoft.com/azure/virtual-network/virtual-network-bandwidth-testing).
 
 ## <a name="test-vms-running-windows"></a>Testa virtuella datorer som kör Windows
 
-### <a name="load-latteexe-onto-the-vms"></a>Läs in latte. exe på de virtuella datorerna
+### <a name="load-latteexe-onto-the-vms"></a>Ladda Latte.exe på de virtuella datorerna
 
-Ladda ned den senaste versionen av [latte. exe](https://gallery.technet.microsoft.com/Latte-The-Windows-tool-for-ac33093b)
+Ladda ner den senaste versionen av [Latte.exe](https://gallery.technet.microsoft.com/Latte-The-Windows-tool-for-ac33093b)
 
-Överväg att lägga till latte. exe i en separat mapp, till exempel `c:\tools`
+Överväg att placera Latte.exe i separat mapp, till exempel`c:\tools`
 
-### <a name="allow-latteexe-through-the-windows-firewall"></a>Tillåt latte. exe via Windows-brandväggen
+### <a name="allow-latteexe-through-the-windows-firewall"></a>Tillåt Latte.exe genom Windows-brandväggen
 
-På mottagaren skapar du en Tillåt-regel i Windows-brandväggen så att latte. exe-trafiken kan komma. Det är enklast att tillåta hela latte. exe-programmet efter namn i stället för att tillåta vissa TCP-portar inkommande.
+Skapa en tillåt-regel i Windows-brandväggen på mottagaren så att trafiken Latte.exe kan komma fram. Det är enklast att tillåta hela Latte.exe-programmet vid namn i stället för att tillåta specifika TCP-portar inkommande.
 
-### <a name="allow-latteexe-through-the-windows-firewall-like-this"></a>Tillåt latte. exe via Windows-brandväggen som detta
+### <a name="allow-latteexe-through-the-windows-firewall-like-this"></a>Tillåt Latte.exe genom Windows-brandväggen så här
 
 `netsh advfirewall firewall add rule program=<PATH>\latte.exe name="Latte" protocol=any dir=in action=allow enable=yes profile=ANY`
 
-Om du till exempel har kopierat latte. exe till mappen "c:\Tools", är detta kommandot
+Om du till exempel kopierade latte.exe till mappen "c:\tools" är det kommandot
 
 `netsh advfirewall firewall add rule program=c:\tools\latte.exe name="Latte" protocol=any dir=in action=allow enable=yes profile=ANY`
 
-### <a name="run-latency-tests"></a>Kör svars tids test
+### <a name="run-latency-tests"></a>Kör svarstidstester
 
-Starta latte. exe på mottagaren (kör från CMD, inte från PowerShell):
+Starta latte.exe på RECEIVER (kör från CMD, inte från PowerShell):
 
 `latte -a <Receiver IP address>:<port> -i <iterations>`
 
-Cirka 65 k-iterationer är tillräckligt långt för att returnera representativa resultat.
+Runt 65k iterationer är tillräckligt länge för att returnera representativa resultat.
 
-Alla tillgängliga port nummer är fina.
+Alla tillgängliga portnummer är bra.
 
-Om den virtuella datorn har en IP-adress för 10.0.0.4, ser det ut så här
+Om den virtuella datorn har en IP-adress på 10.0.0.4, skulle det se ut så här
 
 `latte -c -a 10.0.0.4:5005 -i 65100`
 
-Starta latte. exe på avsändaren (kör från CMD, inte från PowerShell)
+Starta latte.exe på AVSÄNDAREN (körs från CMD, inte från PowerShell)
 
 `latte -c -a <Receiver IP address>:<port> -i <iterations>`
 
-Det resulterande kommandot är detsamma som på mottagaren, förutom vid tillägg av "-c" för att indikera att detta är "klienten" eller avsändaren
+Det resulterande kommandot är detsamma som på mottagaren förutom med tillägget av "-c" för att indikera att detta är "klienten" eller avsändaren
 
 `latte -c -a 10.0.0.4:5005 -i 65100`
 
-Vänta på resultaten. Beroende på hur långt isär de virtuella datorerna är, kan det ta några minuter att slutföra. Överväg att börja med färre iterationer för att testa framgång innan du kör längre tester.
+Vänta på resultaten. Beroende på hur långt ifrån varandra de virtuella datorerna är det kan det ta några minuter att slutföra. Överväg att börja med färre iterationer för att testa för framgång innan du kör längre tester.
 
 ## <a name="test-vms-running-linux"></a>Testa virtuella datorer som kör Linux
 
@@ -170,9 +170,9 @@ Använd [SockPerf](https://github.com/mellanox/sockperf) för att testa virtuell
 
 ### <a name="install-sockperf-on-the-vms"></a>Installera SockPerf på de virtuella datorerna
 
-Kör de här kommandona på de virtuella Linux-datorerna (både sändare och mottagare) för att förbereda SockPerf på dina virtuella datorer:
+På linux-datorer (både SENDER och RECEIVER) kör du dessa kommandon för att förbereda SockPerf på dina virtuella datorer:
 
-#### <a name="centos--rhel---install-git-and-other-helpful-tools"></a>CentOS/RHEL – installera GIT och andra användbara verktyg
+#### <a name="centos--rhel---install-git-and-other-helpful-tools"></a>CentOS / RHEL - Installera GIT och andra användbara verktyg
 
 `sudo yum install gcc -y -q`
 `sudo yum install git -y -q`
@@ -180,88 +180,88 @@ Kör de här kommandona på de virtuella Linux-datorerna (både sändare och mot
 `sudo yum install ncurses-devel -y`
 `sudo yum install -y automake`
 
-#### <a name="ubuntu---install-git-and-other-helpful-tools"></a>Ubuntu – installera GIT och andra användbara verktyg
+#### <a name="ubuntu---install-git-and-other-helpful-tools"></a>Ubuntu - Installera GIT och andra användbara verktyg
 
 `sudo apt-get install build-essential -y`
 `sudo apt-get install git -y -q`
 `sudo apt-get install -y autotools-dev`
 `sudo apt-get install -y automake`
 
-#### <a name="bash---all"></a>Bash – alla
+#### <a name="bash---all"></a>Bash - alla
 
-Från bash kommando rad (förutsätter git är installerat)
+Från bash kommandorad (förutsätter git är installerat)
 
 `git clone https://github.com/mellanox/sockperf`
 `cd sockperf/`
 `./autogen.sh`
 `./configure --prefix=`
 
-Det kan ta flera minuter att göra det
+Gör är långsammare, kan ta flera minuter
 
 `make`
 
-Gör installationen snabb
+Gör installationen går snabbt
 
 `sudo make install`
 
 ### <a name="run-sockperf-on-the-vms"></a>Kör SockPerf på de virtuella datorerna
 
-#### <a name="sample-commands-after-installation-serverreceiver---assumes-servers-ip-is-10004"></a>Exempel kommandon efter installationen. Server/mottagare – förutsätter att serverns IP-adress är 10.0.0.4
+#### <a name="sample-commands-after-installation-serverreceiver---assumes-servers-ip-is-10004"></a>Exempelkommandon efter installationen. Server/mottagare - förutsätter att serverns IP är 10.0.0.4
 
 `sudo sockperf sr --tcp -i 10.0.0.4 -p 12345 --full-rtt`
 
-#### <a name="client---assumes-servers-ip-is-10004"></a>Klient-antar att serverns IP-adress är 10.0.0.4
+#### <a name="client---assumes-servers-ip-is-10004"></a>Klient - förutsätter serverns IP är 10.0.0.4
 
 `sockperf ping-pong -i 10.0.0.4 --tcp -m 1400 -t 101 -p 12345  --full-rtt`
 
 > [!Note]
-> Se till att det inte finns några mellanliggande hopp (t. ex. virtuell installation) under data flödes testningen mellan den virtuella datorn och gatewayen.
-> Om det finns dåliga resultat (vad gäller det totala data flödet) som kommer från iPERF/NTTTCP-testerna ovan kan du läsa följande artikel för att förstå viktiga faktorer som ligger bakom de möjliga rotor orsakerna till problemet: https://docs.microsoft.com/azure/virtual-network/virtual-network-tcpip-performance-tuning
+> Kontrollera att det inte finns några mellanliggande hopp (t.ex. virtuell installation) under dataflödestestningen mellan den virtuella datorn och gatewayen.
+> Om det finns dåliga resultat (i termer av övergripande genomströmning) som kommer från iPERF/ NTTTCP-testerna ovan, se följande artikel för att förstå de viktigaste faktorerna bakom de möjliga bakomliggande orsakerna till problemet:https://docs.microsoft.com/azure/virtual-network/virtual-network-tcpip-performance-tuning
 
-I synnerhet kan analyser av paket fångst spår (wireshark/Network Monitor) som samlats in parallellt från klienten och servern under dessa tester hjälpa till att utvärdera dåliga prestanda. De här spårningarna kan omfatta paket förlust, hög latens, MTU-storlek. fragmentering, TCP 0-fönster, färdiga fragment och så vidare.
+I synnerhet analys av paket fånga spår (Wireshark / Network Monitor) samlas in parallellt från klient och server under dessa tester kommer att bidra till bedömningar av dåliga resultat. Dessa spår kan omfatta paketförlust, hög latens, MTU-storlek. fragmentering, TCP 0-fönster, Ur funktion-fragment och så vidare.
 
-## <a name="address-slow-file-copy-issues"></a>Åtgärda problem med långsam fil kopiering
+## <a name="address-slow-file-copy-issues"></a>Åtgärda problem med långsam filkopiering
 
-Även om det totala data flödet som utvärderas med föregående steg (iPERF/NTTTCP/osv.) var korrekt, kan det hända att du får långsamma fil Kopiera när du antingen använder Utforskaren eller drar och släpper den via en RDP-session. Det här problemet beror vanligt vis på en eller båda av följande faktorer:
+Även om det totala dataflödet som bedömts med föregående steg (iPERF/NTTTCP/etc..) var bra, kan det uppstå långsam filstektiv när du antingen använder Utforskaren eller drar och släpper igenom en RDP-session. Detta problem beror normalt på en eller båda av följande faktorer:
 
-* Fil kopierings program, till exempel Utforskaren och RDP, använder inte flera trådar vid kopiering av filer. Använd ett program med flera trådar som [RichCopy](https://technet.microsoft.com/magazine/2009.04.utilityspotlight.aspx) för att kopiera filer med hjälp av 16 eller 32 trådar för bättre prestanda. Om du vill ändra tråd numret för fil kopiering i RichCopy klickar du på **åtgärd** > **kopierings alternativ** > **fil kopiering**.
+* Filkopieringsprogram, till exempel Utforskaren och RDP, använder inte flera trådar när du kopierar filer. För bättre prestanda, använd ett flertrådat filkopieringsprogram som [Richcopy](https://technet.microsoft.com/magazine/2009.04.utilityspotlight.aspx) för att kopiera filer med 16 eller 32 trådar. Om du vill ändra trådnumret för filkopiering i Richcopy klickar du på**Alternativ för Åtgärdskopia** >  **Action** > **Filkopia**.
 
-   ![Problem med långsam fil kopiering](./media/vpn-gateway-validate-throughput-to-vnet/Richcopy.png)<br>
+   ![Problem med långsam filkopiering](./media/vpn-gateway-validate-throughput-to-vnet/Richcopy.png)<br>
 
    > [!Note]
-   > Alla program fungerar inte, och alla program/processer använder inte alla trådar. Om du kör testet kan du se att vissa trådar är tomma och inte ger korrekta data flödes resultat.
-   > Om du vill kontrol lera program filens överförings prestanda använder du flera trådar genom att öka antalet trådar i följd eller minskning för att hitta det optimala genomflödet i programmet eller fil överföringen.
+   > Inte alla program fungerar samma, och inte alla program / process använder alla trådar. Om du kör testet kan du se vissa trådar vara tomma och kommer inte att ge korrekta dataflödesresultat.
+   > För att kontrollera din program filöverföring prestanda, använd flera trådar genom att öka # av tråd i följd eller minska för att hitta den optimala dataflödet av programmet eller filöverföring.
 
-* Det finns inte tillräckligt med Läs/skriv hastighet för virtuella datorer. Mer information finns i [Azure Storage fel sökning](../storage/common/storage-e2e-troubleshooting.md).
+* Otillräcklig läs-/skrivhastighet för VM-disken. Mer information finns i [Felsökning av Azure Storage](../storage/common/storage-e2e-troubleshooting.md).
 
-## <a name="on-premises-device-external-facing-interface"></a>Externt gränssnitt för lokalt enhet
+## <a name="on-premises-device-external-facing-interface"></a>Lokalt externt gränssnitt för externt vänt gränssnitt
 
-Nämnde de undernät i lokala intervall som du vill att Azure ska uppnå via VPN på en lokal nätverksgateway. Definiera samtidigt det virtuella nätverkets adress utrymme i Azure till den lokala enheten.
+Nämnde undernäten i lokala intervall som du vill att Azure ska nå via VPN på Lokal nätverksgateway. Samtidigt definierar du VNET-adressutrymmet i Azure till den lokala enheten.
 
-* **Route-baserad Gateway**: principen eller trafik väljaren för vägbaserade VPN: er konfigureras som alla-till-alla (eller jokertecken).
+* **Ruttbaserad gateway**: Principen eller trafikväljaren för ruttbaserade VPN är konfigurerade som valfria (eller jokertecken).
 
-* **Principbaserad Gateway**: principbaserad VPN krypterar och dirigerar paket via IPSec-tunnlar baserat på kombinationer av adress prefix mellan ditt lokala nätverk och Azure VNet. Principen (eller trafikväljaren) definieras vanligtvis som en åtkomstlista i VPN-konfigurationen.
+* **Principbaserad gateway:** Principbaserade VPN krypterar och dirigerar paket via IPsec-tunnlar baserat på kombinationer av adressprefix mellan det lokala nätverket och Azure VNet. Principen (eller trafikväljaren) definieras vanligtvis som en åtkomstlista i VPN-konfigurationen.
 
-* **UsePolicyBasedTrafficSelector** -anslutningar: ("UsePolicyBasedTrafficSelectors" till $true på en anslutning kommer att konfigurera Azure VPN-gatewayen att ansluta till principbaserad VPN-brandvägg lokalt. Om du aktiverar PolicyBasedTrafficSelectors måste du se till att VPN-enheten har de matchande trafik väljare som definierats med alla kombinationer av ditt lokala nätverk (lokal nätverksgateway) prefix till och från de virtuella Azure-nätverks prefixen, i stället för valfritt.
+* **UsePolicyBasedTrafficSelector-anslutningar:** ("UsePolicyBasedTrafficSelectors" för att $True på en anslutning konfigurerar Azure VPN-gatewayen för att ansluta till principbaserad VPN-brandvägg lokalt. Om du aktiverar PolicyBasedTrafficSelectors måste du se till att din VPN-enhet har de matchande trafikväljare som definierats med alla kombinationer av dina lokala nätverksprefix (lokal nätverksgateway) till och från Azures virtuella nätverksprefix, i stället för någon-till-någon.
 
-Olämplig konfiguration kan leda till frekventa från kopplingar i tunneln, paket droppar, dåligt data flöde och svars tid.
+Olämplig konfiguration kan leda till frekventa frånkopplingar i tunneln, paketdroppar, dåligt dataflöde och svarstid.
 
-## <a name="check-latency"></a>Kontrol lera svars tid
+## <a name="check-latency"></a>Kontrollera svarstid
 
-Du kan kontrol lera svars tiden genom att använda följande verktyg:
+Du kan kontrollera svarstiden med hjälp av följande verktyg:
 
-* WinMTR
-* TCPTraceroute
-* `ping` och `psping` (dessa verktyg kan ge en klar uppskattning av efter klar Ande, men de kan inte användas i samtliga fall.)
+* WinMTR (på andra sätt)
+* Tcptraceroute
+* `ping`och `psping` (Dessa verktyg kan ge en bra uppskattning av RTT, men de kan inte användas i alla fall.)
 
-![Kontrol lera svars tid](./media/vpn-gateway-validate-throughput-to-vnet/08checkinglatency.png)
+![Kontrollera svarstid](./media/vpn-gateway-validate-throughput-to-vnet/08checkinglatency.png)
 
-Om du ser en hög latens insamling vid något av hoppen innan du anger ett stamnät till nätverks stamnät, kanske du vill fortsätta med ytterligare undersökningar med Internet leverantören.
+Om du märker en hög latens spik på någon av hopp innan du anger MS Network stamnät, kanske du vill fortsätta med ytterligare undersökningar med din Internet-leverantör.
 
-Om en stor, ovanlig svars tids ökning observeras från hopp inom "msn.net", kan du kontakta MS support för ytterligare undersökningar.
+Om en stor, ovanlig latens spik märks från humle inom "msn.net", kontakta MS support för ytterligare undersökningar.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Om du vill ha mer information eller hjälp kan du läsa följande länk:
+Mer information eller hjälp finns på följande länk:
 
 * [Microsoft Support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)

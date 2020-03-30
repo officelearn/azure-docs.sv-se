@@ -1,5 +1,5 @@
 ---
-title: Azure Relay Hybridanslutningar HTTP-begäranden i noden
+title: Azure Relay Hybrid-anslutningar - HTTP-begäranden i Nod
 description: Skriva ett Node.js-konsolprogram för HTTP-begäranden för Azure Relay-hybridanslutningar i Node.
 services: service-bus-relay
 documentationcenter: node
@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/01/2018
 ms.author: clemensv
 ms.openlocfilehash: d71386b86bf7133bb73ddce2e65c3b88743009ad
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75462018"
 ---
 # <a name="get-started-with-relay-hybrid-connections-http-requests-in-node"></a>Komma igång med HTTP-begäranden för Relay-hybridanslutningar i Node
@@ -36,7 +36,7 @@ I den här snabbstarten gör du följande:
 5. Kör program.
 
 ## <a name="prerequisites"></a>Krav
-- [Node.js](https://nodejs.org/en/).
+- [Nod.js](https://nodejs.org/en/).
 - En Azure-prenumeration. Om du inte har ett konto kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
 ## <a name="create-a-namespace-using-the-azure-portal"></a>Skapa ett namnområde med Azure Portal

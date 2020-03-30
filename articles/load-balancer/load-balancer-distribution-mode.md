@@ -1,7 +1,7 @@
 ---
-title: Konfigurera Distributionsläge för belastningsutjämnare i Azure
+title: Konfigurera distributionsläge för Azure Load Balancer
 titleSuffix: Azure Load Balancer
-description: I den här artikeln ska du komma igång med att konfigurera distributions läget för Azure Load Balancer att stödja Källans IP-tillhörighet.
+description: I den här artikeln kommer du igång med att konfigurera distributionsläget för Azure Load Balancer för att stödja käll-IP-tillhörighet.
 services: load-balancer
 documentationcenter: na
 author: asudbring
@@ -14,69 +14,69 @@ ms.workload: infrastructure-services
 ms.date: 11/19/2019
 ms.author: allensu
 ms.openlocfilehash: 5c50186692438be5d0922cd329c28e665310e5c2
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77023539"
 ---
-# <a name="configure-the-distribution-mode-for-azure-load-balancer"></a>Konfigurera Distributionsläge för belastningsutjämnare i Azure
+# <a name="configure-the-distribution-mode-for-azure-load-balancer"></a>Konfigurera distributionsläget för Azure Load Balancer
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="hash-based-distribution-mode"></a>Hash-baserade Distributionsläge
+## <a name="hash-based-distribution-mode"></a>Hash-baserat distributionsläge
 
-Standard distributions läget för Azure Load Balancer är en hash med fem tupler. 
+Standarddistributionsläget för Azure Load Balancer är en hash med fem tupplar. 
 
 Tuppeln består av:
 * **Käll-IP**
-* **Källport**
-* **Mål-IP**
-* **Målport**
-* **Protokoll typ**
+* **Källa port**
+* **Destination IP**
+* **Destinationsport**
+* **Protokolltyp**
 
-Hashen används för att mappa trafik till de tillgängliga servrarna. Algoritmen ger varaktighet endast inom en transport-session. Paket i samma session dirigeras till samma data Center-IP bakom den belastningsutjämnade slut punkten. När klienten startar en ny session från samma käll-IP ändras käll porten och gör att trafiken går till en annan data Center slut punkt.
+Hash används för att mappa trafik till tillgängliga servrar. Algoritmen ger klibbighet endast inom en transportsession. Paket som finns i samma session dirigeras till samma datacenter-IP bakom den belastningsbalanserade slutpunkten. När klienten startar en ny session från samma käll-IP ändras källporten och gör att trafiken går till en annan datacenterslutpunkt.
 
-![Hash-baserat distributions läge för fem tupler](./media/load-balancer-distribution-mode/load-balancer-distribution.png)
+![Fem-tuppel hash-baserat distributionsläge](./media/load-balancer-distribution-mode/load-balancer-distribution.png)
 
-## <a name="source-ip-affinity-mode"></a>Tillhörighetsläge för käll-IP
+## <a name="source-ip-affinity-mode"></a>Läge för käll-IP-tillhörighet
 
-Belastningsutjämnaren kan också konfigureras med hjälp av distributions läget för källans IP-tillhörighet. Den här Distributionsläge kallas även sessionstillhörighet eller klient-IP-tilldelning. I läget används en hash med två tupler (käll-IP och mål-IP) eller tre tupler (käll-IP, mål-IP och protokoll typ) för att mappa trafik till de tillgängliga servrarna. Med hjälp av Källans IP-tillhörighet går anslutningar som startas från samma klient dator till samma data Center slut punkt.
+Belastningsutjämnaren kan också konfigureras med hjälp av käll-IP-tillhörighetsdistributionsläget. Det här distributionsläget kallas även för sessionstillhörighet eller klientens IP-tillhörighet. Läget använder en två-tuppel (källa IP och destination IP) eller tre-tuppel (källa IP, mål IP och protokolltyp) hash för att mappa trafik till tillgängliga servrar. Genom att använda käll-IP-tillhörighet går anslutningar som startas från samma klientdator till samma datacenterslutpunkt.
 
-Följande bild illustrerar en konfiguration med två tupler. Observera hur två tupler körs via belastningsutjämnaren till den virtuella datorn 1 (VM1). VM1 är sedan backas upp av VM2 och VM3.
+Följande bild illustrerar en konfiguration med två tuppel. Lägg märke till hur två-tuppel löper genom belastningsutjämnaren till virtuell dator 1 (VM1). VM1 backas sedan upp av VM2 och VM3.
 
-![Distributions läge för två tuple-tillhörighet](./media/load-balancer-distribution-mode/load-balancer-session-affinity.png)
+![Distributionsläge för två tuppelsessionstillhörighet](./media/load-balancer-distribution-mode/load-balancer-session-affinity.png)
 
-Käll-IP-tillhörighetsläge löser inkompatibilitet mellan Azure Load Balancer och fjärrskrivbordsgateway (RD Gateway). Genom att använda det här läget kan skapa du en RD Gateway-servergrupp i en enda molntjänst.
+Käll-IP-tillhörighetsläge löser en inkompatibilitet mellan Azure Load Balancer och Remote Desktop Gateway (RD Gateway). Genom att använda det här läget kan du skapa en servergrupp för fjärrskrivbordsgateway i en enda molntjänst.
 
-En annan användningsfall är media ladda upp. Ladda upp data sker via UDP, men kontrollplanet uppnås via TCP:
+Ett annat användningsscenario är medieuppladdning. Dataöverföringen sker via UDP, men kontrollplanet uppnås via TCP:
 
-* En klient startar en TCP-session med den belastningsutjämnade offentliga adressen och dirigeras till en speciell DIP. Kanalen är fortfarande aktiv för att övervaka hälsotillståndet för anslutningen.
-* En ny UDP-session från samma klient dator startas till samma belastningsutjämnade offentliga slut punkt. Anslutningen dirigeras till samma DIP-slutpunkt som den tidigare TCP-anslutningen. Media-överföringen kan utföras med högt dataflöde samtidigt som en kontrollkanal via TCP.
+* En klient startar en TCP-session till den belastningsbalanserade offentliga adressen och dirigeras till en specifik DIP. Kanalen lämnas aktiv för att övervaka anslutningens hälsotillstånd.
+* En ny UDP-session från samma klientdator startas till samma belastningsbalanserade offentliga slutpunkt. Anslutningen dirigeras till samma DIP-slutpunkt som den tidigare TCP-anslutningen. Medieöverföringen kan utföras med högt dataflöde samtidigt som en kontrollkanal upprätthålls via TCP.
 
 > [!NOTE]
-> När en belastningsutjämnad uppsättning ändras genom att ta bort eller lägga till en virtuell dator, recomputed fördelningen av klientbegäranden. Du kan lita på nya anslutningar från befintliga klienter till slutar vid samma server. Dessutom använder käll-IP tillhörighetsläge distribution kan det orsaka en ojämn fördelning av trafik. Klienter som körs bakom proxyservrar kan ses som en unik klientprogram.
+> När en belastningsbalanserad uppsättning ändras genom att ta bort eller lägga till en virtuell dator, beräknas fördelningen av klientbegäranden om. Du kan inte vara beroende av nya anslutningar från befintliga klienter för att hamna på samma server. Dessutom kan användning av käll-IP-tillhörighetsdistributionsläge orsaka en ojämlik distribution av trafik. Klienter som körs bakom proxyservrar kan ses som ett unikt klientprogram.
 
-## <a name="configure-source-ip-affinity-settings"></a>Konfigurera inställningar för datakälla IP-tillhörighet
+## <a name="configure-source-ip-affinity-settings"></a>Konfigurera inställningar för käll-IP-tillhörighet
 
-### <a name="azure-portal"></a>Azure portal
+### <a name="azure-portal"></a>Azure Portal
 
-Du kan ändra konfigurationen för distributions läget genom att ändra belastnings Utjämnings regeln i portalen.
+Du kan ändra distributionslägets konfiguration genom att ändra belastningsutjämningsregeln i portalen.
 
-1. Logga in på Azure Portal och leta upp resurs gruppen som innehåller den belastningsutjämnare som du vill ändra genom att klicka på **resurs grupper**.
-2. I översikts fönstret belastningsutjämnare klickar du på **belastnings Utjämnings regler** under **Inställningar**.
-3. I fönstret belastnings Utjämnings regler klickar du på den belastnings Utjämnings regel som du vill ändra distributions läget för.
-4. Under regeln ändras distributions läget genom att den nedrullningsbara List rutan för **sessionens persistence** ändras.  Följande alternativ är tillgängliga:
+1. Logga in på Azure-portalen och leta reda på resursgruppen som innehåller den belastningsutjämnare som du vill ändra genom att klicka på **Resursgrupper**.
+2. I översiktsskärmen för belastningsutjämnare klickar du på **Belastningsutjämningsregler** under **Inställningar**.
+3. I skärmen belastningsutjämningsregler klickar du på den belastningsutjämningsregel som du vill ändra distributionsläget.
+4. Distributionsläget ändras genom att listrutan **Sessions persistens** ändras.  Följande alternativ är tillgängliga:
     
-    * **Ingen (Hash-baserad)** – anger att efterföljande begär Anden från samma klient kan hanteras av alla virtuella datorer.
-    * **Klientens IP-adress (käll-IP-tillhörighet 2-tupel)** – anger att efterföljande förfrågningar från samma klient-IP-adress ska hanteras av samma virtuella dator.
-    * **Klientens IP och protokoll (Källans IP-tillhörighet 3-tupel)** – anger att efterföljande förfrågningar från samma klient-IP-adress och protokoll kombination ska hanteras av samma virtuella dator.
+    * **Ingen (hash-baserad)** - Anger att på varandra följande begäranden från samma klient kan hanteras av vilken virtuell dator som helst.
+    * **Klient-IP (källa IP affinity 2-tuppel)** - Anger att efterföljande begäranden från samma klient-IP-adress ska hanteras av samma virtuella dator.
+    * **Klient-IP och protokoll (källa IP affinity 3-tuppel)** - Anger att på varandra följande begäranden från samma klient-IP-adress och protokollkombination ska hanteras av samma virtuella dator.
 
-5. Välj distributions läge och klicka sedan på **Spara**.
+5. Välj distributionsläge och klicka sedan på **Spara**.
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 
-För virtuella datorer som distribueras med Resource Manager använder du PowerShell för att ändra distributions inställningarna för belastningsutjämnare för en befintlig belastnings Utjämnings regel. Följande kommando uppdaterar distributions läget: 
+För virtuella datorer som distribueras med Resource Manager använder du PowerShell för att ändra belastningsutjämningsfördelningsinställningarna på en befintlig belastningsutjämningsregel. Följande kommando uppdaterar distributionsläget: 
 
 ```azurepowershell-interactive
 $lb = Get-AzLoadBalancer -Name MyLb -ResourceGroupName MyLbRg
@@ -84,15 +84,15 @@ $lb.LoadBalancingRules[0].LoadDistribution = 'sourceIp'
 Set-AzLoadBalancer -LoadBalancer $lb
 ```
 
-För klassiska virtuella datorer, använder du Azure PowerShell för att ändra inställningar för distribution. Lägg till en Azure-slutpunkt för en virtuell dator och konfigurera Distributionsläge för belastningsutjämnare:
+För klassiska virtuella datorer använder du Azure PowerShell för att ändra distributionsinställningarna. Lägg till en Azure-slutpunkt på en virtuell dator och konfigurera belastningsutjämnad distributionsläge:
 
 ```azurepowershell-interactive
 Get-AzureVM -ServiceName mySvc -Name MyVM1 | Add-AzureEndpoint -Name HttpIn -Protocol TCP -PublicPort 80 -LocalPort 8080 –LoadBalancerDistribution sourceIP | Update-AzureVM
 ```
 
-Ange värdet för `LoadBalancerDistribution`-elementet för mängden belastnings utjämning som krävs. Ange sourceIP för belastnings utjämning för två tupleer (käll-IP och mål-IP). Ange sourceIPProtocol för tre tupler (käll-IP, mål-IP och protokoll typ) belastnings utjämning. Ange ingen för standard beteendet för belastnings utjämning med fem tupleer.
+Ange värdet för `LoadBalancerDistribution` elementet för den mängd belastningsutjämning som krävs. Ange sourceIP för belastningsutjämning med två tuppel (källa IP och mål-IP). Ange sourceIPProtocol för belastningsutjämning med tre tuppel (käll-IP, mål-IP och protokolltyp). Ange ingen för standardbeteendet för utjämning av fem tuppelbelastning.
 
-Hämta en slutpunkt distribution läge konfigurationen för belastningsutjämnaren med hjälp av de här inställningarna:
+Hämta en distributionsläge för slutpunktsbelastningsutjämning med hjälp av följande inställningar:
 
     PS C:\> Get-AzureVM –ServiceName MyService –Name MyVM | Get-AzureEndpoint
 
@@ -114,21 +114,21 @@ Hämta en slutpunkt distribution läge konfigurationen för belastningsutjämnar
     IdleTimeoutInMinutes : 15
     LoadBalancerDistribution : sourceIP
 
-Om `LoadBalancerDistribution`-elementet inte finns använder Azure Load Balancer standardalgoritmen för fem tupler.
+När `LoadBalancerDistribution` elementet inte finns använder Azure Load Balancer standardalgoritmen för fempelarmar.
 
-### <a name="configure-distribution-mode-on-load-balanced-endpoint-set"></a>Konfigurera Distributionsläge på belastningsutjämnad slutpunktsuppsättning
+### <a name="configure-distribution-mode-on-load-balanced-endpoint-set"></a>Konfigurera distributionsläge för belastningsbalanserad slutpunktsuppsättning
 
-När slutpunkterna är en del av en belastningsutjämnad slutpunktsuppsättning, måste Distributionsläge konfigureras på belastningsutjämnad slutpunktsuppsättning:
+När slutpunkter ingår i en belastningsbalanserad slutpunktsuppsättning måste distributionsläget konfigureras på den belastningsbalanserade slutpunktsuppsättningen:
 
 ```azurepowershell-interactive
 Set-AzureLoadBalancedEndpoint -ServiceName MyService -LBSetName LBSet1 -Protocol TCP -LocalPort 80 -ProbeProtocolTCP -ProbePort 8080 –LoadBalancerDistribution sourceIP
 ```
 
-### <a name="configure-distribution-mode-for-cloud-services-endpoints"></a>Konfigurera Distributionsläge för Cloud Services-slutpunkter
+### <a name="configure-distribution-mode-for-cloud-services-endpoints"></a>Konfigurera distributionsläge för molntjänstslutpunkter
 
-Använd Azure SDK för .NET 2.5 för att uppdatera din molntjänst. Slutpunktsinställningarna för molntjänster görs i .csdef-filen. Om du vill uppdatera Distributionsläge för belastningsutjämnare för en Cloud Services-distribution, krävs en distributionsuppgradering av.
+Använd Azure SDK för .NET 2.5 för att uppdatera molntjänsten. Slutpunktsinställningarna för Molntjänster görs i CSDEF-filen. För att uppdatera belastningsutjämningsdistributionsläget för en Cloud Services-distribution krävs en distributionsuppgradering.
 
-Här är ett exempel på .csdef ändringar av inställningarna för slutpunkten:
+Här är ett exempel på .csdef-ändringar för slutpunktsinställningar:
 
 ```xml
 <WorkerRole name="worker-role-name" vmsize="worker-role-size" enableNativeCodeExecution="[true|false]">
@@ -148,13 +148,13 @@ Här är ett exempel på .csdef ändringar av inställningarna för slutpunkten:
 </NetworkConfiguration>
 ```
 
-## <a name="api-example"></a>API-exempel
+## <a name="api-example"></a>EXEMPEL PÅ API
 
-I följande exempel visas hur du konfigurerar om Distributionsläge för belastningsutjämnare för en angiven mängd med Utjämning av nätverksbelastning i en distribution. 
+I följande exempel visas hur du konfigurerar om belastningsutjämnad fördelningsläge för en angiven belastningsbalanserad uppsättning i en distribution. 
 
-### <a name="change-distribution-mode-for-deployed-load-balanced-set"></a>Ändra Distributionsläge för distribuerade belastningsutjämnad uppsättning
+### <a name="change-distribution-mode-for-deployed-load-balanced-set"></a>Ändra distributionsläge för distribuerad belastningsbalanserad uppsättning
 
-Använd den klassiska distributionsmodellen för att ändra en befintlig distributionskonfiguration. Lägg till den `x-ms-version` rubrik och ange version 2014-09-01 eller senare.
+Använd azure classic deployment model för att ändra en befintlig distributionskonfiguration. Lägg `x-ms-version` till rubriken och ange värdet till version 2014-09-01 eller senare.
 
 #### <a name="request"></a>Förfrågan
 
@@ -179,7 +179,7 @@ Använd den klassiska distributionsmodellen för att ändra en befintlig distrib
       </InputEndpoint>
     </LoadBalancedEndpointList>
 
-Som tidigare har beskrivits, ställer du in `LoadBalancerDistribution`-elementet på sourceIP för två tuple-tillhörighet, sourceIPProtocol för par med tre tupler eller ingen för ingen tillhörighet (5 tuple tillhörighet).
+Som tidigare beskrivits `LoadBalancerDistribution` anger du elementet till sourceIP för två-tuppel affinitet, sourceIPProtocol för tre-tuppel tillhörighet, eller ingen för ingen tillhörighet (fem-tuppel affinitet).
 
 #### <a name="response"></a>Svar
 
@@ -193,6 +193,6 @@ Som tidigare har beskrivits, ställer du in `LoadBalancerDistribution`-elementet
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Översikt över Azure intern belastningsutjämnare](load-balancer-internal-overview.md)
-* [Kom igång med att konfigurera en internetuppkopplad belastningsutjämnare](quickstart-create-standard-load-balancer-powershell.md)
+* [Översikt över Azure Intern belastningsutjämnare](load-balancer-internal-overview.md)
+* [Komma igång med att konfigurera en internetinriktad belastningsutjämnare](quickstart-create-standard-load-balancer-powershell.md)
 * [Konfigurera timeout-inställningar för inaktiv TCP för en lastbalanserare](load-balancer-tcp-idle-timeout.md)

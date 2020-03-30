@@ -1,18 +1,18 @@
 ---
 title: Introduktion
-description: Lär dig hur Azure App Service miljöer hjälper dig att skala, skydda och optimera dina appar i en helt isolerad och dedikerad miljö.
+description: Lär dig mer om hur Azure App Service Environments hjälper dig att skala, skydda och optimera dina appar i en helt isolerad och dedikerad miljö.
 author: ccompy
 ms.assetid: 3c7eaefa-1850-4643-8540-428e8982b7cb
 ms.topic: overview
 ms.date: 04/19/2018
 ms.author: ccompy
-ms.custom: seodec18
-ms.openlocfilehash: 0fc5c32570e5a5920d1616a522120ea5d5b251d8
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.custom: mvc, seodec18
+ms.openlocfilehash: 9bc40e71c1da6eb60b62cd08c51df89a7f35af09
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75768335"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80057373"
 ---
 # <a name="introduction-to-the-app-service-environments"></a>Introduktion till Azure App Service-miljöer #
  
@@ -40,8 +40,8 @@ ASE-miljöer är isolerade så att de endast kör en enda kunds program och de d
 * [App Service Environment v2](https://channel9.msdn.com/Blogs/Azure/Azure-Application-Service-Environments-v2-Private-PaaS-Environments-in-the-Cloud?term=app%20service%20environment) ger en omgivning för att skydda dina program i ett undernät i nätverket och ger en privat distribution av Azure App Service.
 * Flera ASE-miljöer kan användas för att skala vågrätt. Om du vill ha mer information kan du läsa om [hur man konfigurerar ett geodistribuerat appfotavtryck](app-service-app-service-environment-geo-distributed-scale.md).
 * ASE-miljöer kan användas för att konfigurera en säkerhetsarkitektur, vilket visas i AzureCon Deep Dive (Djupgående om AzureCon). Om du vill se hur säkerhetsarkitekturen som visades i AzureCon Deep Dive (Djupgående om AzureCon) har konfigurerats kan du läsa [artikeln om att implementera en arkitektur med flernivåsäkerhet](app-service-app-service-environment-layered-security.md) med App Service-miljöer.
-* Appar som körs i ASE kan ha sin egen åtkomst begränsad av överordnade enheter, t.ex. brandväggar för webbaserade program (WAF). Mer information finns i [brand vägg för webbaserade program (WAF)][AppGW].
-* App Service miljöer kan distribueras till Tillgänglighetszoner (AZ) med zon fäst.  Mer information finns i [App Service-miljön support för Tillgänglighetszoner][ASEAZ] .
+* Appar som körs i ASE kan ha sin egen åtkomst begränsad av överordnade enheter, t.ex. brandväggar för webbaserade program (WAF). Mer information finns i [Brandvägg för webbaserade program (WAF)][AppGW].
+* App Service-miljöer kan distribueras i tillgänglighetszoner (AZ) med hjälp av zonnålning.  Mer information finns i [Support för App Service Environment för tillgänglighetszoner.][ASEAZ]
 
 ## <a name="dedicated-environment"></a>Dedikerad miljö ##
 
@@ -57,19 +57,19 @@ Arbetare är roller som är värdar för kundappar. Arbetare finns i tre fasta s
 
 Kunderna behöver inte hantera klientdelar och arbetare. All infrastruktur läggs till automatiskt när kunderna skalar ut sina App Service-planer. Vartefter App Service-planer skapas eller skalas i en ASE-miljö kommer den infrastruktur som krävs att läggas till eller tas bort efter behov.
 
-Det finns en fast månadskostnad för en ASE-miljö som betalar för infrastrukturen och som inte ändras med storleken på ASE-miljön. Dessutom finns en kostnad per vCPU för App Service-planen. Alla appar som har en ASE som värd finns i SKU med isolerad prissättning. Information om priser för en ASE finns på sidan med [App Service priser][Pricing] och granska de tillgängliga alternativen för ASE.
+Det finns en fast månadskostnad för en ASE-miljö som betalar för infrastrukturen och som inte ändras med storleken på ASE-miljön. Dessutom finns en kostnad per vCPU för App Service-planen. Alla appar som har en ASE som värd finns i SKU med isolerad prissättning. Mer information om priser för en ASE-miljö finns på sidan [Prissättning för App Service][Pricing], där du även kan se de tillgängliga alternativen för ASE-miljöer.
 
 ## <a name="virtual-network-support"></a>Stöd för virtuellt nätverk ##
 
-ASE-funktionen är en distribution av Azure App Service direkt till kundens Azure Resource Manager virtuella nätverk. Mer information om virtuella Azure-nätverk finns i [Azure virtual networks FAQ](https://azure.microsoft.com/documentation/articles/virtual-networks-faq/) (Vanliga frågor och svar om virtuella Azure-nätverk). En ASE-miljö finns alltid i ett virtuellt nätverk och, mer exakt, i ett undernät till ett virtuellt nätverk. Du kan använda säkerhetsfunktionerna för virtuella nätverk för att styra inkommande och utgående nätverkskommunikation för apparna.
+ASE-funktionen är en distribution av Azure App Service direkt i en kunds virtuella Azure Resource Manager-nätverk. Mer information om virtuella Azure-nätverk finns i [Azure virtual networks FAQ](https://azure.microsoft.com/documentation/articles/virtual-networks-faq/) (Vanliga frågor och svar om virtuella Azure-nätverk). En ASE-miljö finns alltid i ett virtuellt nätverk och, mer exakt, i ett undernät till ett virtuellt nätverk. Du kan använda säkerhetsfunktionerna för virtuella nätverk för att styra inkommande och utgående nätverkskommunikation för apparna.
 
 En ASE-miljö kan vara antingen Internetuppkopplad med en offentlig IP-adress eller intern med bara en adress för en intern lastbalanserare (ILB) i Azure.
 
-[Nätverks säkerhets grupper][NSGs] begränsar inkommande nätverkskommunikation till under nätet där en ASE finns. Du kan använda nätverkssäkerhetsgrupper för att köra appar bakom överordnade enheter och tjänster, t.ex. WAF och SaaS-nätverksleverantörer.
+[Nätverkssäkerhetsgrupper][NSGs] begränsar inkommande kommunikation till undernätet där en ASE-miljö finns. Du kan använda nätverkssäkerhetsgrupper för att köra appar bakom överordnade enheter och tjänster, t.ex. WAF och SaaS-nätverksleverantörer.
 
 Apparna måste ofta även komma åt företagsresurser, t.ex. interna databaser och webbtjänster. Om du distribuerar ASE-miljön i ett virtuellt nätverk som har en VPN-anslutning till det lokala nätverket kan apparna i ASE-miljön komma åt de lokala resurserna. Den här funktionen gäller oavsett om VPN är en VPN för [plats-till-plats](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-multi-site) eller [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute/).
 
-Mer information om hur ASE fungerar med virtuella nätverk och lokala nätverk finns i [App Service-miljön nätverks överväganden][ASENetwork].
+Mer information om hur ASE-miljöer fungerar med virtuella nätverk och lokala nätverk finns i [App Service Environment network considerations][ASENetwork] (Nätverksöverväganden för App Service Environment).
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-Application-Service-Environments-v2-Private-PaaS-Environments-in-the-Cloud/player]
 
@@ -79,7 +79,7 @@ App Service Environment finns i två versioner: ASEv1 och ASEv2. Informationen o
 
 I ASEv1 måste du hantera alla resurser manuellt. Det omfattar klientdelar, arbetare och IP-adresser som används för IP-baserad SSL. Innan du kan skala ut App Service-planen måste du först skala ut arbetarpoolen som du vill använda som värd.
 
-ASEv1 använder en annan prissättningsmodell än ASEv2. I ASEv1 betalar du för varje allokerad vCPU. Det omfattar vCPU-enheter som används för klientdelar eller arbetare som inte är värdar för någon arbetsbelastning. I ASEv1 är den högsta skalstorleken för en ASE-miljö totalt 55 värdar. Det omfattar arbetare och klientdelar. En fördel med ASEv1 är att det går att distribuera i ett klassiskt virtuellt nätverk och ett virtuellt Resource Manager-nätverk. Mer information om ASEv1 finns i [App Service-miljön v1-inledning][ASEv1Intro].
+ASEv1 använder en annan prissättningsmodell än ASEv2. I ASEv1 betalar du för varje allokerad vCPU. Det omfattar vCPU-enheter som används för klientdelar eller arbetare som inte är värdar för någon arbetsbelastning. I ASEv1 är den högsta skalstorleken för en ASE-miljö totalt 55 värdar. Det omfattar arbetare och klientdelar. En fördel med ASEv1 är att det går att distribuera i ett klassiskt virtuellt nätverk och ett virtuellt Resource Manager-nätverk. Mer information om ASEv1 finns i [App Service Environment v1 introduction][ASEv1Intro] (Introduktion till App Service Environment v1).
 
 <!--Links-->
 [App Service Environments v2]: https://channel9.msdn.com/Blogs/Azure/Azure-Application-Service-Environments-v2-Private-PaaS-Environments-in-the-Cloud?term=app%20service%20environment

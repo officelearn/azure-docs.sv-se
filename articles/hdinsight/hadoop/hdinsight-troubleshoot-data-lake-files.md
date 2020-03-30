@@ -1,6 +1,6 @@
 ---
-title: Det gick inte att komma åt Data Lake Storage-filer i Azure HDInsight
-description: Det gick inte att komma åt Data Lake Storage-filer i Azure HDInsight
+title: Det går inte att komma åt lagringsfiler för DataSjö i Azure HDInsight
+description: Det går inte att komma åt lagringsfiler för DataSjö i Azure HDInsight
 ms.service: hdinsight
 ms.topic: troubleshooting
 author: hrasheed-msft
@@ -8,19 +8,19 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 08/13/2019
 ms.openlocfilehash: 21269f7d5a9ec832a49a613351702dd24be156af
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75894155"
 ---
-# <a name="unable-to-access-data-lake-storage-files-in-azure-hdinsight"></a>Det gick inte att komma åt Data Lake Storage-filer i Azure HDInsight
+# <a name="unable-to-access-data-lake-storage-files-in-azure-hdinsight"></a>Det går inte att komma åt lagringsfiler för DataSjö i Azure HDInsight
 
-Den här artikeln beskriver fel söknings steg och möjliga lösningar för problem med att interagera med Azure HDInsight-kluster.
+I den här artikeln beskrivs felsökningssteg och möjliga lösningar för problem när du interagerar med Azure HDInsight-kluster.
 
 ## <a name="issue-acl-verification-failed"></a>Problem: ACL-verifieringen misslyckades
 
-Du får ett fel meddelande som liknar:
+Ett felmeddelande visas som liknar:
 
 ```
 LISTSTATUS failed with error 0x83090aa2 (Forbidden. ACL verification failed. Either the resource does not exist or the user is not authorized to perform the requested operation.).
@@ -28,23 +28,23 @@ LISTSTATUS failed with error 0x83090aa2 (Forbidden. ACL verification failed. Eit
 
 ### <a name="cause"></a>Orsak
 
-Användaren kan ha återkallat behörigheter för tjänstens huvud namn (SP) på filer/mappar.
+Användaren kan ha återkallat behörigheter för tjänstens huvudnamn (SP) för filer/mappar.
 
-### <a name="resolution"></a>Upplösning
+### <a name="resolution"></a>Lösning
 
-1. Kontrol lera att alternativet SP har x-behörighet för att gå längs sökvägen. Mer information finns i [behörigheter](https://hdinsight.github.io/ClusterCRUD/ADLS/adls-create-permission-setup.html). Exempel på DFS-kommando för att kontrol lera åtkomsten till filer/mappar i Data Lake lagrings konto:
+1. Kontrollera att SP har x-behörigheter för att gå längs banan. Mer information finns i [Behörigheter](https://hdinsight.github.io/ClusterCRUD/ADLS/adls-create-permission-setup.html). Exempel på dfs-kommando för att kontrollera åtkomsten till filer/mappar i lagringskontot för Datasjö:
 
     ```
     hdfs dfs -ls /<path to check access>
     ```
 
-1. Ställ in de behörigheter som krävs för att få åtkomst till sökvägen baserat på den Läs-/skriv åtgärd som utförs. Se här för behörigheter som krävs för olika fil Systems åtgärder.
+1. Ställ in nödvändiga behörigheter för att komma åt sökvägen baserat på den läs-/skrivåtgärd som utförs. Se här för behörigheter som krävs för olika filsystemåtgärder.
 
 ---
 
-## <a name="issue-service-principal-certificate-expiry"></a>Problem: förfallo datum för tjänstens huvud namn
+## <a name="issue-service-principal-certificate-expiry"></a>Problem: Tjänstens huvudcertifikat upphör att gälla
 
-Du får ett fel meddelande som liknar:
+Ett felmeddelande visas som liknar:
 
 ```
 Token Refresh failed - Received invalid http response: 500
@@ -52,35 +52,35 @@ Token Refresh failed - Received invalid http response: 500
 
 ### <a name="cause"></a>Orsak
 
-Certifikatet som angetts för tjänstens huvud namn kan ha upphört att gälla.
+Certifikatet som anges för tjänstens huvudåtkomst kan ha upphört att gälla.
 
-1. SSH till huvudnoden. Kontrol lera åtkomst till lagrings kontot med följande DFS-kommando:
+1. SSH i headnode. Kontrollera åtkomsten till lagringskontot med följande dfs-kommando:
 
     ```
     hdfs dfs -ls /
     ```
 
-1. Bekräfta att fel meddelandet ser ut ungefär så här:
+1. Bekräfta att felmeddelandet liknar följande:
 
     ```
     {"stderr": "-ls: Token Refresh failed - Received invalid http response: 500, text = Response{protocol=http/1.1, code=500, message=Internal Server Error, url=http://gw0-abccluster.24ajrd4341lebfgq5unsrzq0ue.fx.internal.cloudapp.net:909/api/oauthtoken}}...
     ```
 
-1. Hämta en av URL: erna från `core-site.xml property` - `fs.azure.datalake.token.provider.service.urls`.
+1. Få en av webbadresserna från `core-site.xml property`  -  `fs.azure.datalake.token.provider.service.urls`.
 
-1. Kör följande spiral-kommando för att hämta OAuth-token.
+1. Kör följande curl-kommando för att hämta OAuth-token.
 
     ```
     curl gw0-abccluster.24ajrd4341lebfgq5unsrzq0ue.fx.internal.cloudapp.net:909/api/oauthtoken
     ```
 
-1. Utdata för ett giltigt huvud namn för tjänsten ska vara något som liknar:
+1. Utdata för ett giltigt tjänsthuvudnamn ska vara ungefär så här:
 
     ```
     {"AccessToken":"MIIGHQYJKoZIhvcNAQcDoIIGDjCCBgoCAQA…….","ExpiresOn":1500447750098}
     ```
 
-1. Om tjänstens huvud certifikat har upphört att gälla ser utdata ut ungefär så här:
+1. Om tjänstens huvudcertifikat har upphört att gälla ser utdata ungefär så här:
 
     ```
     Exception in OAuthTokenController.GetOAuthToken: 'System.InvalidOperationException: Error while getting the OAuth token from AAD for AppPrincipalId 23abe517-2ffd-4124-aa2d-7c224672cae2, ResourceUri https://management.core.windows.net/, AADTenantId https://login.windows.net/80abc8bf-86f1-41af-91ab-2d7cd011db47, ClientCertificateThumbprint C49C25705D60569884EDC91986CEF8A01A495783 ---> Microsoft.IdentityModel.Clients.ActiveDirectory.AdalServiceException: AADSTS70002: Error validating credentials. AADSTS50012: Client assertion contains an invalid signature. **[Reason - The key used is expired.**, Thumbprint of key used by client: 'C49C25705D60569884EDC91986CEF8A01A495783', Found key 'Start=08/03/2016, End=08/03/2017, Thumbprint=C39C25705D60569884EDC91986CEF8A01A4956D1', Configured keys: [Key0:Start=08/03/2016, End=08/03/2017, Thumbprint=C39C25705D60569884EDC91986CEF8A01A4956D1;]]
@@ -91,17 +91,17 @@ Certifikatet som angetts för tjänstens huvud namn kan ha upphört att gälla.
     at Microsoft.IdentityModel.Clients.ActiveDirectory.HttpWebRequestWrapper.<GetResponseSyncOrAsync>d__2.MoveNext()
     ```
 
-1. Eventuella andra Azure Active Directory relaterade fel eller problem med certifikat kan identifieras genom att pinga Gateway-URL: en för att hämta OAuth-token.
+1. Alla andra Azure Active Directory-relaterade fel/certifikatrelaterade fel kan identifieras genom att pinga gateway-url:en för att hämta OAuth-token.
 
-1. Om du får följande fel meddelande när du försöker få åtkomst till ADLS från HDI-klustret. Kontrol lera att certifikatet har gått ut genom att följa stegen ovan.
+1. Om du får följande fel när du försöker komma åt ADLS från HDI-klustret. Kontrollera om certifikatet har upphört att gälla genom att följa stegen ovan.
 
     ```
     Error: java.lang.IllegalArgumentException: Token Refresh failed - Received invalid http response: 500, text = Response{protocol=http/1.1, code=500, message=Internal Server Error, url=http://clustername.hmssomerandomstringc.cx.internal.cloudapp.net:909/api/oauthtoken}
     ```
 
-### <a name="resolution"></a>Upplösning
+### <a name="resolution"></a>Lösning
 
-Skapa ett nytt certifikat eller tilldela ett befintligt certifikat med hjälp av följande PowerShell-skript:
+Skapa ett nytt certifikat eller tilldela befintligt certifikat med följande PowerShell-skript:
 
 ```powershell
 $clusterName = 'CLUSTERNAME'
@@ -161,16 +161,16 @@ Invoke-AzureRmResourceAction `
 
 ```
 
-Om du vill tilldela ett befintligt certifikat, skapar du ett certifikat, har. pfx-filen och lösen ordet klart. Koppla certifikatet till tjänstens huvud namn som klustret skapades med och har den AppId som är klar.
+För att tilldela befintligt certifikat, skapa ett certifikat, ha PFX-filen och lösenordet redo. Associera certifikatet med tjänstens huvudnamn som klustret skapades med och ha AppId redo.
 
-Kör PowerShell-kommandot när du har ersatt parametrarna med de faktiska värdena.
+Kör powershell-kommandot när du har ersatt parametrarna med de faktiska värdena.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Om du inte ser problemet eller inte kan lösa problemet kan du gå till någon av följande kanaler för mer support:
+Om du inte såg problemet eller inte kan lösa problemet besöker du någon av följande kanaler för mer support:
 
-* Få svar från Azure-experter via [Azure community support](https://azure.microsoft.com/support/community/).
+* Få svar från Azure-experter via [Azure Community Support](https://azure.microsoft.com/support/community/).
 
-* Anslut till [@AzureSupport](https://twitter.com/azuresupport) – det officiella Microsoft Azure kontot för att förbättra kund upplevelsen. Att ansluta Azure-communityn till rätt resurser: svar, support och experter.
+* Anslut [@AzureSupport](https://twitter.com/azuresupport) med – det officiella Microsoft Azure-kontot för att förbättra kundupplevelsen. Ansluta Azure-communityn till rätt resurser: svar, support och experter.
 
-* Om du behöver mer hjälp kan du skicka en support förfrågan från [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Välj **stöd** på Meny raden eller öppna **Hjälp + Support** Hub. Mer detaljerad information finns [i så här skapar du en support förfrågan för Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). Åtkomst till prenumerations hantering och fakturerings support ingår i din Microsoft Azure prenumeration och teknisk support tillhandahålls via ett av support avtalen för [Azure](https://azure.microsoft.com/support/plans/).
+* Om du behöver mer hjälp kan du skicka en supportbegäran från [Azure-portalen](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Välj **Stöd** i menyraden eller öppna **supporthubben Hjälp +.** Mer detaljerad information finns i [Så här skapar du en Azure-supportbegäran](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). Åtkomst till prenumerationshantering och faktureringssupport ingår i din Microsoft Azure-prenumeration och teknisk support tillhandahålls via en av [Azure-supportplanerna](https://azure.microsoft.com/support/plans/).

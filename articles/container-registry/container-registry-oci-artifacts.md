@@ -1,52 +1,52 @@
 ---
-title: Skicka och ta emot OCI-artefakt
-description: Skicka och ta emot OCI-artefakter (Open container Initiative) med ett privat behållar register i Azure
+title: Push och dra OCI-artefakt
+description: Push and pull Open Container Initiative (OCI) artefakter med hjälp av ett privat behållarregister i Azure
 author: SteveLasker
 manager: gwallace
 ms.topic: article
 ms.date: 03/11/2020
 ms.author: stevelas
 ms.openlocfilehash: 2c6b66b635a2513ccc19e0352414d18d8389fef1
-ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/14/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79371060"
 ---
-# <a name="push-and-pull-an-oci-artifact-using-an-azure-container-registry"></a>Push-överför och hämta en OCI-artefakt med ett Azure Container Registry
+# <a name="push-and-pull-an-oci-artifact-using-an-azure-container-registry"></a>Pusha och hämta en OCI-artefakt med hjälp av ett Azure-behållarregister
 
-Du kan använda ett Azure Container Registry för att lagra och hantera [OCI-artefakter (Open container Initiative)](container-registry-image-formats.md#oci-artifacts) samt Docker-och Docker-kompatibla behållar avbildningar.
+Du kan använda ett Azure-behållarregister för att lagra och hantera [OCI-artefakter (Open Container Initiative)](container-registry-image-formats.md#oci-artifacts) samt Docker- och Docker-kompatibla behållaravbildningar.
 
-Den här artikeln visar hur du kan använda verktyget [OCI Registry as Storage (ORAS)](https://github.com/deislabs/oras) för att visa den här funktionen för att skicka ett exempel på en artefakt – en textfil till ett Azure Container Registry. Hämta sedan artefakten från registret. Du kan hantera en mängd OCI-artefakter i ett Azure Container Registry med olika kommando rads verktyg som är lämpliga för varje artefakt.
+För att demonstrera den här funktionen visar den här artikeln hur du använder [ORAS-verktyget (OCI Registry as Storage)](https://github.com/deislabs/oras) för att skicka en exempelartefakt - en textfil - till ett Azure-behållarregister. Dra sedan artefakten från registret. Du kan hantera en mängd olika OCI-artefakter i ett Azure-behållarregister med hjälp av olika kommandoradsverktyg som är lämpliga för varje artefakt.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-* **Azure-containerregister** – Skapa ett containerregister i din Azure-prenumeration. Använd till exempel [Azure Portal](container-registry-get-started-portal.md) eller [Azure CLI](container-registry-get-started-azure-cli.md).
-* **Verktyget ORAS** – hämta och installera en aktuell ORAS-version för operativ systemet från [GitHub-lagrings platsen](https://github.com/deislabs/oras/releases). Verktyget släpps som en komprimerad tarball (`.tar.gz`-fil). Extrahera och installera filen med standard procedurer för ditt operativ system.
-* **Azure Active Directory tjänstens huvud namn (valfritt)** – om du vill autentisera direkt med ORAS skapar du ett [huvud namn för tjänsten](container-registry-auth-service-principal.md) för att få åtkomst till registret. Se till att tjänstens huvud namn har tilldelats en roll som AcrPush så att den har behörighet att skicka och ta emot artefakter.
-* **Azure CLI (valfritt)** – om du vill använda en enskild identitet behöver du en lokal installation av Azure CLI. Version 2.0.71 eller senare rekommenderas. Kör `az --version `för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI](/cli/azure/install-azure-cli).
-* **Docker (valfritt)** – om du vill använda en enskild identitet måste du också ha Docker installerat lokalt för att kunna autentisera med registret. Docker innehåller paket som enkelt kan konfigurera Docker på alla [MacOS][docker-mac]-, [Windows][docker-windows]-och [Linux][docker-linux] -system.
+* **Azure-containerregister** – Skapa ett containerregister i din Azure-prenumeration. Använd till exempel [Azure-portalen](container-registry-get-started-portal.md) eller [Azure CLI](container-registry-get-started-azure-cli.md).
+* **ORAS-verktyg** - Ladda ner och installera en aktuell ORAS-version för ditt operativsystem från [GitHub-repo .](https://github.com/deislabs/oras/releases) Verktyget släpps som en komprimerad`.tar.gz` tarball (fil). Extrahera och installera filen med standardprocedurer för operativsystemet.
+* **Azure Active Directory-tjänstens huvudnamn (valfritt)** – Om du vill autentisera direkt med ORAS skapar du ett [tjänsthuvudnamn](container-registry-auth-service-principal.md) för att komma åt registret. Kontrollera att tjänstens huvudnamn har tilldelats en roll som AcrPush så att den har behörighet att skicka och hämta artefakter.
+* **Azure CLI (valfritt)** - Om du vill använda en enskild identitet behöver du en lokal installation av Azure CLI. Version 2.0.71 eller senare rekommenderas. Kör `az --version `för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI](/cli/azure/install-azure-cli).
+* **Docker (valfritt)** - Om du vill använda en enskild identitet måste du också ha Docker installerat lokalt för att autentisera med registret. Docker innehåller paket som enkelt kan konfigurera Docker på ett [macOS][docker-mac]-, [Windows][docker-windows]- eller [Linux][docker-linux]-system.
 
 
-## <a name="sign-in-to-a-registry"></a>Logga in på ett register
+## <a name="sign-in-to-a-registry"></a>Logga in i ett register
 
-I det här avsnittet visas två föreslagna arbets flöden för att logga in i registret, beroende på vilken identitet som används. Välj lämplig metod för din miljö.
+I det här avsnittet visas två föreslagna arbetsflöden för att logga in på registret, beroende på vilken identitet som används. Välj den metod som är lämplig för din miljö.
 
 ### <a name="sign-in-with-oras"></a>Logga in med ORAS
 
-Använd ett [huvud namn för tjänsten](container-registry-auth-service-principal.md) med push-behörighet och kör kommandot `oras login` för att logga in i registret med tjänstens huvud namns program-ID och lösen ord. Ange det fullständigt kvalificerade register namnet (alla gemener) i det här fallet *myregistry.azurecr.io*. Tjänstens huvud program-ID skickas i miljövariabeln `$SP_APP_ID`och lösen ordet i variabeln `$SP_PASSWD`.
+Med hjälp av ett [tjänsthuvudnamn](container-registry-auth-service-principal.md) med push-rättigheter kör du `oras login` kommandot för att logga in på registret med tjänstens huvudprogram-ID och lösenord. Ange det fullständigt kvalificerade registernamnet (alla gemener) i det här fallet *myregistry.azurecr.io*. Tjänstens huvudprogram-ID skickas i `$SP_APP_ID`miljövariabeln och `$SP_PASSWD`lösenordet i variabeln .
 
 ```bash
 oras login myregistry.azurecr.io --username $SP_APP_ID --password $SP_PASSWD
 ```
 
-Om du vill läsa lösen ordet från STDIN använder du `--password-stdin`.
+Om du vill läsa lösenordet `--password-stdin`från Stdin använder du .
 
 ### <a name="sign-in-with-azure-cli"></a>Logga in med Azure CLI
 
-[Logga in](/cli/azure/authenticate-azure-cli) på Azure CLI med din identitet för att skicka och ta emot artefakter från behållar registret.
+[Logga in](/cli/azure/authenticate-azure-cli) på Azure CLI med din identitet för att skicka och hämta artefakter från behållarregistret.
 
-Använd sedan Azure CLI-kommandot [AZ ACR login](/cli/azure/acr?view=azure-cli-latest#az-acr-login) för att få åtkomst till registret. Om du till exempel vill autentisera till ett register med namnet *unregistry*:
+Använd sedan Azure CLI-kommandot [az acr-inloggning](/cli/azure/acr?view=azure-cli-latest#az-acr-login) för att komma åt registret. Till exempel, för att autentisera till ett register med namnet *mitt register:*
 
 ```azurecli
 az login
@@ -54,17 +54,17 @@ az acr login --name myregistry
 ```
 
 > [!NOTE]
-> `az acr login` använder Docker-klienten för att ange en Azure Active Directory-token i `docker.config`-filen. Docker-klienten måste vara installerad och igång för att slutföra det enskilda autentiseringsschemat.
+> `az acr login`använder Docker-klienten för att ange `docker.config` en Azure Active Directory-token i filen. Docker-klienten måste installeras och köras för att slutföra det enskilda autentiseringsflödet.
 
-## <a name="push-an-artifact"></a>Skicka en artefakt
+## <a name="push-an-artifact"></a>Driva en artefakt
 
-Skapa en textfil i en lokal arbets katalog med lite exempel text. Till exempel i ett bash-gränssnitt:
+Skapa en textfil i en lokal arbetskatalog med lite exempeltext. Till exempel i ett bash skal:
 
 ```bash
 echo "Here is an artifact!" > artifact.txt
 ```
 
-Använd kommandot `oras push` för att skicka den här text filen till registret. I följande exempel skickas exempel text filen till `samples/artifact` lagrings platsen. Registret identifieras med det fullständigt kvalificerade register namnet *myregistry.azurecr.io* (alla gemener). Artefakten är taggad `1.0`. Artefakten har en odefinierad typ som standard identifieras av *medie typ* strängen som följer fil namnet `artifact.txt`. Se [OCI-artefakter](https://github.com/opencontainers/artifacts) för ytterligare typer. 
+Använd `oras push` kommandot för att skicka den här textfilen till registret. I följande exempel skickar exempeltextfilen `samples/artifact` till reporäntan. Registret identifieras med det fullständigt kvalificerade registernamnet *myregistry.azurecr.io* (alla gemener). Artefakten `1.0`är taggad . Artefakten har som standard en odefinierad typ som identifieras `artifact.txt`av *medietypsträngen* efter filnamnet . Se [OCI-artefakter](https://github.com/opencontainers/artifacts) för ytterligare typer. 
 
 **Linux**
 
@@ -82,7 +82,7 @@ oras push myregistry.azurecr.io/samples/artifact:1.0 \
     .\artifact.txt:application/vnd.unknown.layer.v1+txt
 ```
 
-Utdata för en lyckad push ser ut ungefär så här:
+Utdata för en lyckad push liknar följande:
 
 ```console
 Uploading 33998889555f artifact.txt
@@ -90,7 +90,7 @@ Pushed myregistry.azurecr.io/samples/artifact:1.0
 Digest: sha256:xxxxxxbc912ef63e69136f05f1078dbf8d00960a79ee73c210eb2a5f65xxxxxx
 ```
 
-Om du använder Azure CLI för att hantera artefakter i registret kan du köra standard `az acr` kommandon för att hantera avbildningar. Hämta till exempel attributen för artefakten med hjälp av kommandot [AZ ACR-lagringsplatsen show][az-acr-repository-show] :
+Om du vill hantera artefakter i registret kör du standardkommandon `az acr` för hantering av avbildningar om du använder Azure CLI. Hämta till exempel attributen för artefakten med kommandot [az acr repository show:][az-acr-repository-show]
 
 ```azurecli
 az acr repository show \
@@ -116,24 +116,24 @@ De utdata som genereras liknar följande:
 }
 ```
 
-## <a name="pull-an-artifact"></a>Hämta en artefakt
+## <a name="pull-an-artifact"></a>Dra en artefakt
 
-Kör kommandot `oras pull` för att hämta artefakten från registret.
+Kör `oras pull` kommandot för att hämta artefakten från registret.
 
-Ta först bort text filen från den lokala arbets katalogen:
+Ta först bort textfilen från den lokala arbetskatalogen:
 
 ```bash
 rm artifact.txt
 ```
 
-Kör `oras pull` för att hämta artefakten och ange den medietyp som används för att skicka artefakten:
+Kör `oras pull` för att hämta artefakten och ange vilken medietyp som används för att skicka artefakten:
 
 ```bash
 oras pull myregistry.azurecr.io/samples/artifact:1.0 \
     --media-type application/vnd.unknown.layer.v1+txt
 ```
 
-Verifiera att hämtningen lyckades:
+Kontrollera att dragningen lyckades:
 
 ```bash
 $ cat artifact.txt
@@ -142,7 +142,7 @@ Here is an artifact!
 
 ## <a name="remove-the-artifact-optional"></a>Ta bort artefakten (valfritt)
 
-Om du vill ta bort artefakten från Azure Container Registry använder du kommandot [AZ ACR databas Delete][az-acr-repository-delete] . I följande exempel tar vi bort artefakten som du har lagrat där:
+Om du vill ta bort artefakten från ditt Azure-behållarregister använder du kommandot [az acr-databasborttagning.][az-acr-repository-delete] I följande exempel tas artefakten som du lagrade där bort:
 
 ```azurecli
 az acr repository delete \
@@ -153,7 +153,7 @@ az acr repository delete \
 ## <a name="next-steps"></a>Nästa steg
 
 * Läs mer om [ORAS-biblioteket](https://github.com/deislabs/oras/tree/master/docs), inklusive hur du konfigurerar ett manifest för en artefakt
-* Besök [OCI-artefakterna](https://github.com/opencontainers/artifacts) lagrings platsen för referensinformation om nya artefakt typer
+* Besök [OCI Artifacts](https://github.com/opencontainers/artifacts) repo för referensinformation om nya artefakttyper
 
 
 

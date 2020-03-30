@@ -1,65 +1,65 @@
 ---
-title: Hantera IoT Plug and Play Preview-modeller i lagrings platsen | Microsoft Docs
-description: Hantera enhets kapacitets modeller i lagrings platsen med hjälp av Azure-certifierad för IoT-portalen, Azure CLI och Visual Studio Code.
+title: Hantera förhandsgranskningsmodeller för IoT Plug and Play i databasen| Microsoft Dokument"
+description: Hantera enhetskapacitetsmodeller i databasen med Azure Certified for IoT-portalen, Azure CLI och Visual Studio-koden.
 author: Philmea
 manager: philmea
 ms.service: iot-pnp
 services: iot-pnp
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/26/2019
 ms.author: philmea
-ms.openlocfilehash: 7e71c940d0c083642954114cf4fa1617b93335b9
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: 78406175090521af70381f61f4e33dfb6c35ac8c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75531268"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80159157"
 ---
 # <a name="manage-models-in-the-repository"></a>Hantera modeller i databasen
 
-IoT Plug and Play för hands versions modellen lagrar enhets kapacitets modeller och gränssnitt. Lagrings platsen gör att modeller och gränssnitt kan identifieras och konsumeras av lösnings utvecklare.
+IoT Plug and Play Preview-modellen lagrar modeller och gränssnitt för enhetskapacitet. Databasen gör att modeller och gränssnitt upptäcks och förbrukningsvaror av lösningsutvecklare.
 
-Det finns tre verktyg som du kan använda för att hantera lagrings platsen:
+Det finns tre verktyg som du kan använda för att hantera databasen:
 
-- Azure-certifierad för IoT-portalen
+- Azure-certifierad för IoT-portal
 - Azure CLI
-- Visual Studio-kod
+- Visual Studio-koden
 
-## <a name="model-repositories"></a>Modell databaser
+## <a name="model-repositories"></a>Modelldatabaser
 
-Det finns två typer av modell lager för lagring av enhets kapacitets modeller och gränssnitt:
+Det finns två typer av modelldatabaser för lagring av enhetsfunktioner modeller och gränssnitt:
 
-- Det finns ett enda _offentligt lagrings lager_ som lagrar enhets kapacitets modeller och-gränssnitt för enheter i [katalogen Azure Certified för IoT-enheter](https://aka.ms/iotdevcat). Den här lagrings platsen lagrar också [vanliga gränssnitt](./concepts-common-interfaces.md) och [DCMs och gränssnitt som publicerats av Microsoft-partner](./howto-onboard-portal.md). Information om hur du certifierar en enhet och lägger till dess enhets kapacitets modell i den offentliga lagrings platsen finns i självstudien [certifiera din IoT plug and Play-enhet](./tutorial-certification-test.md).
-- Det finns flera _företags databaser_. En företags databas skapas automatiskt för din organisation när du registrerar dig [på Azure-certifierad för IoT-portalen](./howto-onboard-portal.md). Du kan använda företagets lagrings plats för att lagra dina enhets kapacitets modeller och gränssnitt under utveckling och testning.
+- Det finns en enda _offentlig databas_ som lagrar enhetskapacitetsmodeller och gränssnitt för enheter i Azure Certified [for IoT-enhetskatalogen](https://aka.ms/iotdevcat). Den här databasen lagrar även [vanliga gränssnitt](./concepts-common-interfaces.md) och [DCM och gränssnitt som publicerats av Microsoft Partners](./howto-onboard-portal.md). Mer information om hur du certifierar en enhet och lägger till dess enhetskapacitetsmodell i den offentliga databasen finns i självstudien [Certifiera din IoT Plug and Play-enhet](./tutorial-certification-test.md).
+- Det finns flera _företagsdatabaser_. En företagsdatabas skapas automatiskt för din organisation när du [går ombord på Azure Certified for IoT-portalen](./howto-onboard-portal.md). Du kan använda företagets databas för att lagra modeller och gränssnitt för enhetskapacitet under utveckling och test.
 
-## <a name="azure-certified-for-iot-portal"></a>Azure-certifierad för IoT-portalen
+## <a name="azure-certified-for-iot-portal"></a>Azure-certifierad för IoT-portal
 
-I [Azure-certifierad för IoT-portalen](https://preview.catalog.azureiotsolutions.com)kan du utföra följande uppgifter:
+I [Azure Certified for IoT-portalen](https://preview.catalog.azureiotsolutions.com)kan du utföra följande uppgifter:
 
-- [Slutför certifierings processen för din IoT-enhet](./tutorial-certification-test.md).
-- Hitta IoT Plug and Play enhets kapacitets modeller. Du kan använda dessa modeller för att [snabbt bygga IoT Ready-enheter och integrera dem med lösningar](./quickstart-connect-pnp-device-solution-node.md).
+- [Slutför certifieringsprocessen för din IoT-enhet](./tutorial-certification-test.md).
+- Hitta IoT Plug and Play-enhetskapacitetsmodeller. Du kan använda dessa modeller för att [snabbt bygga IoT-förberedda enheter och integrera dem med lösningar](./quickstart-connect-pnp-device-solution-node.md).
 
 ## <a name="azure-cli"></a>Azure CLI
 
-Azure CLI innehåller kommandon för att hantera enhets kapacitets modeller och gränssnitt i IoT Plug and Play offentliga och företagets modell databaser. Mer information finns i avsnittet [Installera och använda Azure IoT-tillägget för Azure CLI](./howto-install-pnp-cli.md) -guide.
+Azure CLI innehåller kommandon för att hantera modeller och gränssnitt för enhetsfunktioner i IoT Plug and Play offentliga och företagsmodelldatabaser. Mer information finns i [installationstillägget Installera och använda Azure IoT-tillägget för Azure](./howto-install-pnp-cli.md) CLI-hjälpguiden.
 
-## <a name="visual-studio-code"></a>Visual Studio-kod
+## <a name="visual-studio-code"></a>Visual Studio-koden
 
-För att öppna vyn **modell databas** i Visual Studio Code.
+Så här öppnar du **vyn Modelldatabas** i Visual Studio-kod.
 
-1. Öppna Visual Studio Code, Använd **Ctrl + Shift + P**, skriv och välj **IoT plug and Play: databas för öppen modell**.
+1. Öppna Visual Studio-kod, använd **Ctrl+Skift+P**, skriv och välj **IoT Plug and Play: Öppna modelldatabasen**.
 
-1. Du kan välja att **öppna den offentliga modell databasen** eller **Öppna organisationens modell lagrings plats**. För företags modellens lagrings plats måste du ange anslutnings strängen för modell databasen. Du hittar den här anslutnings strängen i [Azure-certifierad för IoT-portalen](https://preview.catalog.azureiotsolutions.com) på fliken **anslutnings strängar** för din **företags lagrings plats**.
+1. Du kan välja att **öppna databasen för offentliga modeller** eller Öppna **organisationsmodellarkivet**. För företagsmodelldatabasen måste du ange anslutningssträngen för modelldatabasen. Du hittar den här anslutningssträngen i [Azure Certified for IoT-portalen](https://preview.catalog.azureiotsolutions.com) på fliken **Anslutningssträngar** för **företagsdatabasen**.
 
-1. En ny flik öppnar vyn **modell databas** .
+1. En ny flik öppnar **vyn Modelldatabas.**
 
-    Använd den här vyn för att lägga till, ladda ned och ta bort enhets kapacitets modeller och gränssnitt. Du kan använda ett filter för att hitta vissa objekt i listan.
+    Använd den här vyn om du vill lägga till, hämta och ta bort enhetskapacitetsmodeller och gränssnitt. Du kan använda ett filter för att hitta specifika objekt i listan.
 
-1. Om du vill växla mellan företagets modell databas och den offentliga modellens lagrings plats använder du **Ctrl + Shift + P**, skriver och väljer **IoT plug and Play: Logga ut modell lagrings plats**. Använd sedan **IoT-plug and Play: öppna modell databas** kommandot igen.
+1. Om du vill växla mellan företagsmodelldatabasen och den offentliga modelldatabasen använder du **Ctrl+Skift+P**, skriver och väljer **IoT Plug and Play: Logga ut Modelldatabas**. Använd sedan kommandot **IoT Plug and Play: Open Model Repository** igen.
 
 > [!NOTE]
-> I VS Code är den offentliga modellens lagrings plats skrivskyddad. Microsoft-partner kan uppdatera den offentliga lagrings platsen i [Azure Certified för IoT-portalen](https://preview.catalog.azureiotsolutions.com).
+> I VS-kod är den offentliga modelldatabasen skrivskyddad. Microsoft Partners kan uppdatera den offentliga databasen i [Azure Certified for IoT-portalen](https://preview.catalog.azureiotsolutions.com).
 
 ## <a name="next-steps"></a>Nästa steg
 
-Det föreslagna nästa steg är att lära dig att [skicka en IoT plug and Play-enhet för certifiering](tutorial-certification-test.md).
+Det föreslagna nästa steget är att lära sig hur [du skickar in en IoT Plug and Play-enhet för certifiering](tutorial-certification-test.md).

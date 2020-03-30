@@ -1,30 +1,30 @@
 ---
-title: Det gick inte att återställa till en lyckad distribution
+title: Återställ felet till en lyckad distribution
 description: Ange att en misslyckad distribution ska återställas till en lyckad distribution.
 ms.topic: conceptual
 ms.date: 10/04/2019
-ms.openlocfilehash: 32ba5485e1980eb819bf5429fbfbb597dfe75c2a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 206c794996f58a4c5b6982c551ae50128ed4f5eb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75484303"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79460151"
 ---
-# <a name="rollback-on-error-to-successful-deployment"></a>Det gick inte att återställa vid lyckad distribution
+# <a name="rollback-on-error-to-successful-deployment"></a>Återställning vid fel till lyckad distribution
 
-När en distribution Miss lyckas kan du automatiskt distribuera om en tidigare distribuerad distribution från din distributions historik. Den här funktionen är användbar om du har ett känt bra tillstånd för distribution av infrastrukturen och vill återställa till det här läget. Det finns ett antal varningar och begränsningar:
+När en distribution misslyckas kan du automatiskt distribuera om en tidigare, lyckad distribution från distributionshistoriken. Den här funktionen är användbar om du har ett fungerande tillstånd för infrastrukturdistributionen och vill återgå till det här tillståndet. Det finns ett antal förbehåll och begränsningar:
 
-- Omdistributionen körs exakt eftersom den kördes tidigare med samma parametrar. Du kan inte ändra parametrarna.
-- Den tidigare distributionen körs med [slutfört läge](./deployment-modes.md#complete-mode). Alla resurser som inte ingår i den tidigare distributionen tas bort och alla resurspooler anges till sitt tidigare tillstånd. Se till att du förstår [distributions lägena](./deployment-modes.md)fullständigt.
-- Omdistributionen påverkar endast resurserna, alla data ändringar påverkas inte.
-- Du kan bara använda den här funktionen med distributioner av resurs grupper, inte på prenumerationer eller på hanterings grupps nivå. Mer information om distribution av prenumerations nivåer finns i [skapa resurs grupper och resurser på prenumerations nivå](./deploy-to-subscription.md).
+- Omfördelningen körs exakt som den kördes tidigare med samma parametrar. Du kan inte ändra parametrarna.
+- Den tidigare distributionen körs med [det fullständiga läget](./deployment-modes.md#complete-mode). Alla resurser som inte ingår i den tidigare distributionen tas bort och alla resurskonfigurationer anges till deras tidigare tillstånd. Se till att du har full förståelse för [distributionslägena](./deployment-modes.md).
+- Omfördelningen påverkar bara resurserna, eventuella dataändringar påverkas inte.
+- Du kan bara använda den här funktionen med resursgruppsdistributioner, inte distributioner på prenumerations- eller hanteringsgruppsnivå. Mer information om distribution på prenumerationsnivå finns i [Skapa resursgrupper och resurser på prenumerationsnivå](./deploy-to-subscription.md).
 - Du kan bara använda det här alternativet med distributioner på rotnivå. Distributioner från en kapslad mall är inte tillgängliga för omdistribution.
 
 Om du vill använda det här alternativet måste distributionerna ha unika namn så att de kan identifieras i historiken. Om du inte har unika namn kan den aktuella misslyckade distributionen skriva över den tidigare lyckade distributionen i historiken.
 
 ## <a name="powershell"></a>PowerShell
 
-Om du vill distribuera om den senaste lyckade distributionen lägger du till parametern `-RollbackToLastDeployment` som en flagga.
+Om du vill distribuera om den `-RollbackToLastDeployment` senaste lyckade distributionen lägger du till parametern som en flagga.
 
 ```azurepowershell-interactive
 New-AzResourceGroupDeployment -Name ExampleDeployment02 `
@@ -33,7 +33,7 @@ New-AzResourceGroupDeployment -Name ExampleDeployment02 `
   -RollbackToLastDeployment
 ```
 
-Om du vill distribuera om en angiven distribution använder du parametern `-RollBackDeploymentName` och anger namnet på distributionen. Den angivna distributionen måste ha slutförts.
+Om du vill distribuera om en `-RollBackDeploymentName` viss distribution använder du parametern och anger namnet på distributionen. Den angivna distributionen måste ha lyckats.
 
 ```azurepowershell-interactive
 New-AzResourceGroupDeployment -Name ExampleDeployment02 `
@@ -44,10 +44,10 @@ New-AzResourceGroupDeployment -Name ExampleDeployment02 `
 
 ## <a name="azure-cli"></a>Azure CLI
 
-Om du vill distribuera om den senaste lyckade distributionen lägger du till parametern `--rollback-on-error` som en flagga.
+Om du vill distribuera om den `--rollback-on-error` senaste lyckade distributionen lägger du till parametern som en flagga.
 
 ```azurecli-interactive
-az group deployment create \
+az deployment group create \
   --name ExampleDeployment \
   --resource-group ExampleGroup \
   --template-file storage.json \
@@ -55,10 +55,10 @@ az group deployment create \
   --rollback-on-error
 ```
 
-Om du vill distribuera om en angiven distribution använder du parametern `--rollback-on-error` och anger namnet på distributionen. Den angivna distributionen måste ha slutförts.
+Om du vill distribuera om en `--rollback-on-error` viss distribution använder du parametern och anger namnet på distributionen. Den angivna distributionen måste ha lyckats.
 
 ```azurecli-interactive
-az group deployment create \
+az deployment group create \
   --name ExampleDeployment02 \
   --resource-group ExampleGroup \
   --template-file storage.json \
@@ -66,9 +66,9 @@ az group deployment create \
   --rollback-on-error ExampleDeployment01
 ```
 
-## <a name="rest-api"></a>REST-API
+## <a name="rest-api"></a>REST API
 
-Om du vill distribuera om den senaste lyckade distributionen om den aktuella distributionen Miss lyckas, använder du:
+Om du vill distribuera om den senaste lyckade distributionen om den aktuella distributionen misslyckas använder du:
 
 ```json
 {
@@ -89,7 +89,7 @@ Om du vill distribuera om den senaste lyckade distributionen om den aktuella dis
 }
 ```
 
-Om du vill distribuera om en angiven distribution, om den aktuella distributionen Miss lyckas, använder du:
+Om du vill distribuera om en viss distribution om den aktuella distributionen misslyckas använder du:
 
 ```json
 {
@@ -111,11 +111,11 @@ Om du vill distribuera om en angiven distribution, om den aktuella distributione
 }
 ```
 
-Den angivna distributionen måste ha slutförts.
+Den angivna distributionen måste ha lyckats.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- För att på ett säkert sätt distribuera tjänsten till mer än en region, se [Azure Deployment Manager](deployment-manager-overview.md).
-- Information om hur du hanterar resurser som finns i resurs gruppen men som inte har definierats i mallen finns i [Azure Resource Manager distributions lägen](deployment-modes.md).
-- Information om hur du definierar parametrar i din mall finns i [förstå strukturen och syntaxen för Azure Resource Manager mallar](template-syntax.md).
-- Information om hur du distribuerar en mall som kräver en SAS-token finns i [distribuera privat mall med SAS-token](secure-template-with-sas-token.md).
+- Information om hur du distribuerar tjänsten till mer än en region på ett säkert sätt finns i [Azure Deployment Manager](deployment-manager-overview.md).
+- Information om hur resurser som finns i resursgruppen men som inte har definierats i mallen ska [hanteras](deployment-modes.md).
+- Information om hur du definierar parametrar i mallen finns i [Förstå strukturen och syntaxen för Azure Resource Manager-mallar](template-syntax.md).
+- Information om hur du distribuerar en mall som kräver en SAS-token finns i [Distribuera privat mall med SAS-token](secure-template-with-sas-token.md).

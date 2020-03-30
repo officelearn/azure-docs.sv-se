@@ -1,7 +1,7 @@
 ---
 title: Data i Azure Machine Learning
 titleSuffix: Azure Machine Learning
-description: Lär dig hur Azure Machine Learning interagerar med dina data och hur de används i dina Machine Learning-experiment.
+description: Lär dig hur Azure Machine Learning på ett säkert sätt ansluter till dina data och använder dessa data för maskininlärningsuppgifter.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,46 +9,52 @@ ms.topic: conceptual
 ms.reviewer: nibaccam
 author: nibaccam
 ms.author: nibaccam
-ms.date: 12/09/2019
-ms.openlocfilehash: a2af1e87ce7b17183ae09fb02b2652a04f585e84
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.date: 03/20/2020
+ms.openlocfilehash: 982c9c9eadec4403c8116430e1e25092de99f1d9
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79270269"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80128494"
 ---
-# <a name="data-access-in-azure-machine-learning"></a>Data åtkomst i Azure Machine Learning
+# <a name="data-access-in-azure-machine-learning"></a>Dataåtkomst i Azure Machine Learning
 
-I den här artikeln får du lära dig mer om Azure Machine Learning lösningar för data hantering och integrering för dina Machine Learning-uppgifter. Den här artikeln förutsätter att du redan har skapat ett [Azure Storage-konto](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal) och [Azure Storage-tjänsten](https://docs.microsoft.com/azure/storage/common/storage-introduction).
+Azure Machine Learning gör det enkelt att ansluta till dina data i molnet.  Det ger ett abstraktionslager över den underliggande lagringstjänsten, så att du kan komma åt och arbeta säkert med dina data utan att behöva skriva kod som är specifik för din lagringstyp. Azure Machine Learning innehåller även följande datafunktioner:
 
-När du är redo att använda data i din lagring rekommenderar vi att du
+*    Versionshantering och spårning av data härstamning
+*    Märkning av data 
+*    Övervakning av dataavvikelser
+*    Interoperabilitet med pandor och Spark DataFrames
 
-1. Skapa ett Azure Machine Learning data lager.
-2. Skapa en Azure Machine Learning data uppsättning från det data lagret. 
-3. Använd den data uppsättningen i dator inlärnings experimentet genom att antingen 
-    1. Montera den på ditt Experiments beräknings mål för modell träning
+## <a name="data-workflow"></a>Arbetsflöde för data
 
-        **ELLER** 
+När du är redo att använda data i din molnbaserade lagringslösning rekommenderar vi följande arbetsflöde för dataleverans. Det här arbetsflödet förutsätter att du har ett [Azure-lagringskonto](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal) och data i en molnbaserad lagringstjänst i Azure. 
 
-    1. Använda det direkt i Azure Machine Learning lösningar som automatiserad dator inlärning (automatiserad ML) experiment körningar, maskin inlärnings pipeliner och [Azure Machine Learning designer](concept-designer.md).
-4. Skapa data uppsättnings Övervakare för data uppsättningen för modell utdata för att identifiera data drift. 
-5. Om data påträffas kan du uppdatera din indata-datauppsättning och träna modellen på lämpligt sätt.
+1. Skapa ett [Azure Machine Learning-datalager](#datastores) för att lagra anslutningsinformation till din Azure-lagring.
 
-Följande diagram innehåller en visuell demonstration av det rekommenderade arbets flödet för data åtkomst.
+2. Från det datalagret skapar du en [Azure Machine Learning-datauppsättning](#datasets) för att peka på en eller flera specifika filer i det underliggande lagringsutrymmet. 
 
-![Data-Concept-diagram](./media/concept-data/data-concept-diagram.svg)
+3. Om du vill använda den datauppsättningen i maskininlärningsexperimentet kan du antingen
+    1. Montera den på experimentets beräkningsmål för modellutbildning.
 
-## <a name="access-data-in-storage"></a>Åtkomst till data i lagring
+        **Eller** 
 
-För att få åtkomst till dina data i ditt lagrings konto erbjuder Azure Machine Learning data lager och data uppsättningar. Data lager besvarar frågan: Hur ansluter jag säkert till mina data i mina Azure Storage? Data lager ger ett lager av abstraktion över lagrings tjänsten. Detta hjälper till att skydda och förenkla åtkomst till din lagring, eftersom anslutnings informationen lagras i data lagret och inte visas i skript. 
+    1. Använd den direkt i Azure Machine Learning-lösningar som automatiserade datorinlärningsexperimentkörningar (automated ML), pipelines för maskininlärning eller [Azure Machine Learning-designern](concept-designer.md).
 
-Data uppsättningar besvarar frågan: Hur får jag vissa datafiler i mitt Data Center? Data uppsättningar pekar på den eller de filer i din underliggande lagring som du vill använda för ditt dator inlärnings experiment. Tillsammans erbjuder data lager och data uppsättningar ett säkert, skalbart och reproducerat data leverans arbets flöde för dina Machine Learning-uppgifter.
+4. Skapa [datauppsättningsövervakare](#data-drift) för modellutdatauppsättningen för att identifiera för datadrift. 
 
-### <a name="datastores"></a>Data lager
+5. Om datadrift upptäcks uppdaterar du indatauppsättningen och tränar om modellen därefter.
 
-Ett Azure Machine Learning data lager är en lagrings abstraktion över dina Azure Storage-tjänster. [Registrera och skapa ett data lager](how-to-access-data.md) för att enkelt ansluta till ditt Azure Storage-konto och få åtkomst till data i dina underliggande Azure Storage-tjänster.
+Följande diagram ger en visuell demonstration av det rekommenderade arbetsflödet.
 
-Azure Storage-tjänster som stöds och som kan registreras som data lager:
+![Diagram över datakoncept](./media/concept-data/data-concept-diagram.svg)
+
+## <a name="datastores"></a>Datalager
+
+Azure Machine Learning-datalager behåller anslutningsinformationen till din Azure-lagring på ett säkert sätt, så att du inte behöver koda den i skripten. [Registrera och skapa ett datalager](how-to-access-data.md) för att enkelt ansluta till ditt lagringskonto och komma åt data i din underliggande Azure-lagringstjänst. 
+
+Molnbaserade lagringstjänster som stöds i Azure och som kan registreras som datalager:
+
 + Azure Blob-behållare
 + Azure-filresurs
 + Azure Data Lake
@@ -58,64 +64,55 @@ Azure Storage-tjänster som stöds och som kan registreras som data lager:
 + Databricks-filsystem
 + Azure Database for MySQL
 
-### <a name="datasets"></a>Datauppsättningar
+## <a name="datasets"></a>Datauppsättningar
 
-[Skapa en Azure Machine Learning data uppsättning](how-to-create-register-datasets.md) för att interagera med data i dina data lager och paketera dina data i ett förbruknings Bart objekt för Machine Learning-uppgifter. Registrera data uppsättningen på din arbets yta för att dela och återanvända den över olika experiment utan komplexa data inmatningar.
+Azure Machine Learning-datauppsättningar är referenser som pekar på data i din lagringstjänst. De är inte kopior av dina data, så ingen extra lagringskostnad uppstår. Om du vill interagera med dina data i lagring [skapar du en datauppsättning](how-to-create-register-datasets.md) för att paketera dina data till ett förbrukningsobjekt för maskininlärningsuppgifter. Registrera datauppsättningen på arbetsytan för att dela och återanvända den i olika experiment utan datainmatningskomplexiteter.
 
-Data uppsättningar kan skapas från lokala filer, offentliga URL: er, [öppna data uppsättningar i Azure](#open)eller vissa filer i dina data lager. Om du vill skapa en data uppsättning från en i minnet Pandas dataframe skriver du data till en lokal fil, t. ex. en CSV-fil, och skapar din data uppsättning från den filen. Data uppsättningar är inte kopior av dina data, men är referenser som pekar på data i lagrings tjänsten, så ingen extra lagrings kostnad uppkommer. 
+Datauppsättningar kan skapas från lokala filer, offentliga url:ar, [Azure Open Datasets](https://azure.microsoft.com/services/open-datasets/)eller Azure-lagringstjänster via datalager. Om du vill skapa en datauppsättning från en dataram för i minnet pandas skriver du data till en lokal fil, till exempel en parkett, och skapar datauppsättningen från filen.  
 
-Följande diagram visar att om du inte har en Azure Storage-tjänst kan du skapa en data uppsättning direkt från lokala filer, offentliga URL: er eller en Azure Open-datauppsättning. Detta ansluter din data uppsättning till det standard data lager som skapades automatiskt med experimentets [Azure Machine Learning-arbetsyta](concept-workspace.md).
+Vi stöder 2 typer av datauppsättningar: 
++ En [tabelldatauppsättning](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py) representerar data i tabellformat genom att tolka den angivna filen eller listan med filer. Du kan ladda en Tabelldatauppsättning i en Pandas eller Spark DataFrame för ytterligare manipulering och rengöring. En fullständig lista över dataformat som du kan skapa Tabelldatauppsättningar från finns i [klassen TabellformDatasetFactory](https://aka.ms/tabulardataset-api-reference).
 
-![Data-Concept-diagram](./media/concept-data/dataset-workflow.svg)
++ En [FileDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.file_dataset.filedataset?view=azure-ml-py) refererar till en eller flera filer i dina datalager eller offentliga webbadresser. Du kan [hämta eller montera filer](how-to-train-with-datasets.md#option-2--mount-files-to-a-remote-compute-target) som refereras av FileDatasets till ditt beräkningsmål.
 
-Ytterligare data uppsättnings funktioner finns i följande dokumentation:
+Ytterligare datauppsättningar finns i följande dokumentation:
 
-+ [Version och spårning](how-to-version-track-datasets.md) av data uppsättning härkomst.
-+ [Övervaka din data uppsättning](how-to-monitor-datasets.md) för att hjälpa till med data avkänning.
-+  Se följande för dokumentation om de två typerna av data uppsättningar:
-    + [TabularDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py) representerar data i tabell format genom att parsa den angivna filen eller listan med filer. Med detta kan du materialisera data till en Pandas eller Spark-DataFrame för vidare manipulering och rengöring. En fullständig lista över filer som du kan skapa TabularDatasets från finns i [TabularDatasetFactory-klassen](https://aka.ms/tabulardataset-api-reference).
-
-    + [FileDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.file_dataset.filedataset?view=azure-ml-py) refererar till en eller flera filer i dina data lager eller offentliga URL: er. Med den här metoden kan du hämta eller montera filer som du väljer till beräknings målet som ett FileDataset-objekt.
++ [Version och spåra](how-to-version-track-datasets.md) datauppsättningslinje.
++ [Övervaka din datauppsättning](how-to-monitor-datasets.md) för att hjälpa till med identifiering av datadrift.    
 
 ## <a name="work-with-your-data"></a>Arbeta med dina data
 
-Med data uppsättningar kan du utföra ett antal Machine Learning-uppgifter genom sömlös integrering med Azure Machine Learning funktioner. 
+Med datauppsättningar kan du utföra ett antal maskininlärningsuppgifter genom sömlös integrering med Azure Machine Learning-funktioner. 
 
-+ [Träna maskin inlärnings modeller](how-to-train-with-datasets.md).
-+ Använda data uppsättningar i 
++ Skapa ett [datamärkningsprojekt](#label).
++ Träna maskininlärningsmodeller:
      + [automatiserade ML-experiment](how-to-use-automated-ml-for-ml-models.md)
-     + [designern](tutorial-designer-automobile-price-train-score.md#import-data) 
-+ Få åtkomst till data uppsättningar för poängsättning med batch-härledning i [Machine Learning-pipeliner](how-to-create-your-first-pipeline.md).
-+ Skapa ett [projekt med data etiketter](#label).
-+ Konfigurera en data uppsättnings Övervakare för [data](#drift) avkänning.
-
-<a name="open"></a>
-
-## <a name="azure-open-datasets"></a>Azure Open Datasets
-
-[Azure Open-datauppsättningar](how-to-create-register-datasets.md#create-datasets-with-azure-open-datasets) är granskade offentliga data uppsättningar som du kan använda för att lägga till scenario-/regionsspecifika funktioner till maskin inlärnings lösningar för mer exakta modeller. Öppna data uppsättningar finns i molnet på Microsoft Azure och är integrerade i Azure Machine Learning. Du kan också komma åt data uppsättningarna via API: er och använda dem i andra produkter, till exempel Power BI och Azure Data Factory.
-
-I Azure Open-datauppsättningarna ingår data från offentliga domäner för väder, räkning, helger, offentlig säkerhet och plats som hjälper dig att träna maskin inlärnings modeller och utöka förutsägelse lösningar. Du kan också dela dina offentliga data uppsättningar i Azure Open-datauppsättningar.
+     + [formgivaren](tutorial-designer-automobile-price-train-score.md#import-data)
+     + [Bärbara datorer](how-to-train-with-datasets.md)
+     + [Azure Machine Learning-pipelines](how-to-create-your-first-pipeline.md)
++ Få tillgång till datauppsättningar för bedömning med [batchinferens](how-to-use-parallel-run-step.md) i [machine learning-pipelines](how-to-create-your-first-pipeline.md).
++ Konfigurera en datauppsättningsövervakare för [identifiering av datadrift.](#drift)
 
 <a name="label"></a>
 
-## <a name="data-labeling"></a>Data etiketter
+## <a name="data-labeling"></a>Märkning av data
 
-Att märka stora mängder data har ofta varit ett problem i Machine Learning-projekt. De med en komponent för visuellt innehåll, till exempel bild klassificering eller objekt identifiering, kräver vanligt vis tusentals avbildningar och motsvarande etiketter.
+Märkning av stora mängder data har ofta varit en huvudvärk i maskininlärningsprojekt. De med en datorseende komponent, såsom bildklassificering eller objektidentifiering, kräver i allmänhet tusentals bilder och motsvarande etiketter.
 
-Azure Machine Learning ger dig en central plats för att skapa, hantera och övervaka projekt med etiketter. Genom att namnge projekt kan du koordinera data, etiketter och grupp medlemmar, så att du effektivt kan hantera etikett uppgifter. Aktiviteter som stöds för närvarande är bild klassificering, antingen flera etiketter eller flera klasser och objekt identifiering med hjälp av gränser rutor.
+Azure Machine Learning ger dig en central plats för att skapa, hantera och övervaka märkningsprojekt. Märkprojekt hjälper till att samordna data, etiketter och gruppmedlemmar, så att du kan hantera märkningsuppgifterna mer effektivt. Uppgifter som stöds är bildklassificering, antingen multietikett eller flerklass, och objektidentifiering med hjälp av avgränsade rutor.
 
-+ Skapa ett [data etiketts projekt](how-to-create-labeling-projects.md)och mata ut en data uppsättning för användning i Machine Learning-experiment.
+Skapa ett [datamärkningsprojekt](how-to-create-labeling-projects.md)och mata ut en datauppsättning för användning i maskininlärningsexperiment.
 
 <a name="drift"></a>
 
-## <a name="data-drift"></a>Data avvikelse
+## <a name="data-drift"></a>Data drift
 
-I samband med Machine Learning är data driften ändringen i modell indata som leder till modell prestanda försämring. Det är en av de främsta orsakerna till modell precisionen över tid, vilket innebär att övervakningen av data driften hjälper till att identifiera problem med modell prestanda.
-Se artikeln [skapa en data uppsättnings övervakare](how-to-monitor-datasets.md) för att lära dig mer om hur du identifierar och varnar data vid nya data i en data uppsättning.
+I samband med maskininlärning är datadrift förändringen i modellindata som leder till försämrad modellprestanda. Det är en av de främsta anledningarna till att modellens noggrannhet försämras med tiden, vilket innebär att övervakning av datadrift hjälper till att identifiera prestandaproblem för modeller.
+
+Se artikeln [Skapa en datauppsättningsövervakare](how-to-monitor-datasets.md) om du vill veta mer om hur du identifierar och varnar för data för att driva på nya data i en datauppsättning.
 
 ## <a name="next-steps"></a>Nästa steg 
 
-+ Skapa en data uppsättning i Azure Machine Learning Studio eller med python SDK och [Använd de här stegen.](how-to-create-register-datasets.md)
-+ Prova exempel på data uppsättnings utbildning med våra [exempel antecknings böcker](https://aka.ms/dataset-tutorial).
-+ Data ingångs exempel finns i [självstudien om data](https://aka.ms/datadrift-notebook)drift.
++ Skapa en datauppsättning i Azure Machine Learning studio eller med Python SDK [med hjälp av dessa steg.](how-to-create-register-datasets.md)
++ Prova exempel på datauppsättningsträning med våra [exempel anteckningsböcker.](https://aka.ms/dataset-tutorial)
++ Exempel på datadrift finns i den här [självstudiekursen för datadrift](https://aka.ms/datadrift-notebook).

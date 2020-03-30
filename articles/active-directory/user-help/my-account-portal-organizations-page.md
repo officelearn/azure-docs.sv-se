@@ -1,6 +1,6 @@
 ---
-title: Hantera dina organisationer från min konto Portal – Azure AD
-description: Hur du visar och lämnar organisationer som är anslutna till ditt arbets-eller skol konto från sidan organisationer i min konto Portal.
+title: Hantera dina organisationer från portalen Mitt konto - Azure AD
+description: Så här visar och lämnar du organisationer som är kopplade till ditt arbets- eller skolkonto från sidan Organisationer på portalen Mitt konto.
 services: active-directory
 author: curtand
 manager: daveba
@@ -12,59 +12,59 @@ ms.topic: conceptual
 ms.date: 10/28/2019
 ms.author: curtand
 ms.openlocfilehash: fbaca387dd8062f50bb7555c7be6e7f65ce346bf
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77062480"
 ---
-# <a name="manage-your-connected-organizations-from-the-organizations-page"></a>Hantera dina anslutna organisationer från sidan organisationer
+# <a name="manage-your-connected-organizations-from-the-organizations-page"></a>Hantera anslutna organisationer från sidan Organisationer
 
-Sidan **organisationer** i portalen **My-Account** hjälper dig att hantera organisationer (vanligt vis organisationens namn) som är anslutet till ditt arbets-eller skol konto. Det finns två typer av organisationer som visas på sidan **organisationer** :
+Sidan **Organisationer** på portalen **Mitt konto** hjälper dig att hantera de organisationer (vanligtvis organisationens namn) som är kopplade till ditt arbets- eller skolkonto. Det finns två typer av organisationer som visas på sidan **Organisationer:**
 
-- **Hem organisation.** Din hem organisation är den organisation som äger ditt arbets-eller skol konto. Du kan inte lämna din hem organisation.
+- **Hemorganisation.** Din hemorganisation är den organisation som äger ditt arbets- eller skolkonto. Du kan inte lämna din hemorganisation.
 
     >[!NOTE]
-    > Om du inte har någon tilldelad hem organisation visas bara en rubrik som säger organisationer med listan över dina associerade organisationer.
+    > Om du inte har en tilldelad hemorganisation visas bara en enda rubrik med en rubrik där det står Organisationer med listan över dina associerade organisationer.
 
-- **Andra organisationer.** De andra organisationerna är alla grupper som du har loggat in på tidigare med ditt arbets-eller skol konto. Du kan när som helst lämna någon av dessa organisationer.
+- **Andra organisationer.** De andra organisationerna är alla grupper som du har loggat in på tidigare med ditt arbets- eller skolkonto. Du kan lämna någon av dessa organisationer när som helst.
 
 >[!Important]
->Den här artikeln är avsedd för användare som försöker uppdatera organisations informationen som är ansluten till ett arbets-eller skol konto. Om du är administratör för att söka efter information om grupp-och användar hantering för dina anställda och andra användnings områden, se [dokumentationen för Enterprise User Management](https://docs.microsoft.com/azure/active-directory/users-groups-roles/index).
+>Den här artikeln är avsedd för användare som försöker uppdatera organisationsinformationen som är ansluten till ett arbets- eller skolkonto. Om du är administratör och letar efter information om grupp- och användarhantering för dina anställda och andra användningsområden läser du [dokumentationen för användarhantering](https://docs.microsoft.com/azure/active-directory/users-groups-roles/index)för företag .
 
 ## <a name="view-your-organizations"></a>Visa dina organisationer
 
-1. Logga in på ditt arbets-eller skol konto och gå sedan till **mitt konto** (https://myprofile.microsoft.com/) sidan.
+1. Logga in på ditt arbets- eller skolkonto ochhttps://myprofile.microsoft.com/) gå sedan till sidan Mitt **konto** (
 
-2. Välj **organisationer** i det vänstra navigerings fönstret eller Välj länken **Hantera organisationer** från **organisationer** -blocket.
+2. Välj Organisationer i det vänstra **navigeringsfönstret** eller välj länken **Hantera organisationer** **från** organisationsblocket.
 
-    ![Sidan mitt konto, som visar markerade organisations länkar](media/my-account-portal/my-account-portal-organizations.png)
+    ![Sidan Mitt konto, som visar markerade länkar till organisationer](media/my-account-portal/my-account-portal-organizations.png)
 
-3. Granska informationen för din **hem organisation**.
+3. Granska informationen för din **hemorganisation**.
 
-    ![Sidan organisationer](media/my-account-portal/my-account-portal-organization-page.png)
+    ![Sidan Organisationer](media/my-account-portal/my-account-portal-organization-page.png)
 
 4. Granska dina andra associerade organisationer och se till att du känner igen alla organisationer som är anslutna till ditt konto.
 
 ## <a name="leave-an-organization"></a>Lämna en organisation
 
-Du kan lämna en organisation som inte är din hem organisation.
+Du kan lämna alla organisationer som inte är din hemorganisation.
 
 >[!Important]
->Om du lämnar en organisation av misstag finns det inget sätt att ångra. Du måste vänta tills administratören för organisationen har bjudit in dig igen.
+>Om du lämnar en organisation av misstag, finns det inget sätt att ångra den. Du måste vänta tills organisationens administratör bjuder in dig igen.
 
-- Välj **lämna organisationen** bredvid den organisation som du vill lämna och välj sedan **lämna** för att bekräfta att du vill lämna.
+- Välj **Lämna organisation** bredvid den organisation som du vill lämna och välj sedan **Lämna** för att bekräfta att du vill lämna.
 
-    ![Sidan organisationer med markerad lämna organisations länk](media/my-account-portal/my-account-portal-organizations-leave.png)
+    ![Organisationssida med markerad organisationslänk](media/my-account-portal/my-account-portal-organizations-leave.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-När du har visat dina organisationer kan du:
+När du har tittat på dina organisationer kan du:
 
-- Visa eller hantera din [säkerhets information](user-help-security-info-overview.md).
+- Visa eller hantera [din säkerhetsinformation](user-help-security-info-overview.md).
 
 - Visa eller hantera dina anslutna [enheter](my-account-portal-devices-page.md).
 
-- Visa din [inloggnings aktivitet](my-account-portal-sign-ins-page.md).
+- Visa din [inloggningsaktivitet](my-account-portal-sign-ins-page.md).
 
-- Se hur din organisation [använder dina sekretess-relaterade data](my-account-portal-privacy-page.md).
+- Visa hur din organisation [använder dina sekretessrelaterade data](my-account-portal-privacy-page.md).

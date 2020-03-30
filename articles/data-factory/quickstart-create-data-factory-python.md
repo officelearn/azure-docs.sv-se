@@ -1,5 +1,5 @@
 ---
-title: 'Snabb start: skapa en Azure Data Factory med python'
+title: 'Snabbstart: Skapa en Azure Data Factory med Python'
 description: Skapa en Azure-datafabrik för att kopiera data från en plats i Azure Blob Storage till en annan plats.
 services: data-factory
 documentationcenter: ''
@@ -14,39 +14,39 @@ ms.topic: quickstart
 ms.date: 01/22/2018
 ms.custom: seo-python-october2019
 ms.openlocfilehash: 3b8edd249b19a61f8c80eb5b8c9df25754d4f070
-ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "78399517"
 ---
-# <a name="quickstart-create-a-data-factory-and-pipeline-using-python"></a>Snabb start: skapa en data fabrik och pipeline med python
+# <a name="quickstart-create-a-data-factory-and-pipeline-using-python"></a>Snabbstart: Skapa en datafabrik och pipeline med Python
 
 > [!div class="op_single_selector" title1="Välj den version av Data Factory-tjänsten som du använder:"]
 > * [Version 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Aktuell version](quickstart-create-data-factory-python.md)
 
-I den här snabb starten skapar du en data fabrik med hjälp av python. Pipelinen i den här data fabriken kopierar data från en mapp till en annan mapp i Azure Blob Storage.
+I den här snabbstarten skapar du en datafabrik med hjälp av Python. Pipelinen i den här datafabriken kopierar data från en mapp till en annan mapp i Azure Blob-lagring.
 
-Azure Data Factory är en molnbaserad data integrerings tjänst som gör att du kan skapa data drivna arbets flöden för att dirigera och automatisera data förflyttning och data omvandling. Med hjälp av Azure Data Factory kan du skapa och schemalägga data drivna arbets flöden som kallas pipeliner.
+Azure Data Factory är en molnbaserad dataintegrationstjänst som gör att du kan skapa datadrivna arbetsflöden för att dirigera och automatisera dataförflyttning och dataomvandling. Med Hjälp av Azure Data Factory kan du skapa och schemalägga datadrivna arbetsflöden, så kallade pipelines.
 
-Pipelines kan mata in data från olika data lager. Pipelines bearbetar eller transformerar data med hjälp av beräknings tjänster som Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics och Azure Machine Learning. Pipelines publicerar utdata till data lager som Azure SQL Data Warehouse för Business Intelligence-program (BI).
+Pipelines kan inta data från olika datalager. Pipelines bearbetar eller omvandlar data med hjälp av beräkningstjänster som Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics och Azure Machine Learning. Pipelines publicerar utdata till datalager som Azure SQL Data Warehouse for Business Intelligence (BI) program.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-* Ett Azure-konto med en aktiv prenumeration. [Skapa ett kostnads fritt](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+* Ett Azure-konto med en aktiv prenumeration. [Skapa en gratis](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
-* [Python 3.4 +](https://www.python.org/downloads/).
+* [Python 3.4+](https://www.python.org/downloads/).
 
-* [Ett Azure Storage konto](../storage/common/storage-account-create.md).
+* [Ett Azure Storage-konto](../storage/common/storage-account-create.md).
 
 * [Azure Storage Explorer](https://storageexplorer.com/) (valfritt).
 
-* [Ett program i Azure Active Directory](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application). Anteckna följande värden som du kan använda i senare steg: **program-ID**, **autentiseringsnyckel**och **klient-ID**. Tilldela program rollen **deltagare** genom att följa anvisningarna i samma artikel.
+* [Ett program i Azure Active Directory](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application). Anteckna följande värden som ska användas i senare steg: **program-ID,** **autentiseringsnyckel**och **klient-ID**. Tilldela programmet till **rollen Deltagare** genom att följa instruktionerna i samma artikel.
 
 ## <a name="create-and-upload-an-input-file"></a>Skapa och ladda upp en indatafil
 
-1. Öppna Anteckningar. Kopiera följande text och spara den som en **input.txt**-fil på din disk.
+1. Öppna Anteckningar. Kopiera följande text och spara den som **input.txt** på disken.
 
     ```text
     John|Doe
@@ -157,7 +157,7 @@ Lägg till följande kod som skapar en **datafabrik** till **Main**-metoden. Om 
 
 ## <a name="create-a-linked-service"></a>Skapa en länkad tjänst
 
-Lägg till följande kod som skapar en **länkad Azure Storage-tjänst** till **Main**-metoden.
+Lägg till följande kod i **Main**-metoden som skapar en **länkad Azure Storage-tjänst**.
 
 Du kan skapa länkade tjänster i en datafabrik för att länka ditt datalager och beräkna datafabrik-tjänster. I den här snabbstarten behöver du bara skapa en Azure Storage-länkad tjänst som både kopia på källa och mottagarlagring, med namnet "AzureStorageLinkedService" i exemplet. Byt ut `<storageaccountname>` och `<storageaccountkey>` mot namnet på och nyckeln för ditt Azure-lagringskonto.
 

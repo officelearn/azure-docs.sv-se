@@ -1,6 +1,6 @@
 ---
-title: Kontinuerlig övervaknings arkitektur för patient i Azure IoT Central | Microsoft Docs
-description: Lär dig mer om en kontinuerlig arkitektur för övervakning av patient lösningar.
+title: Kontinuerlig patientövervakningsarkitektur i Azure IoT Central | Microsoft-dokument
+description: Lär dig mer om en kontinuerlig patientövervakningslösningsarkitektur.
 author: philmea
 ms.author: philmea
 ms.date: 10/24/2019
@@ -9,44 +9,44 @@ ms.service: iot-central
 services: iot-central
 manager: eliotgra
 ms.openlocfilehash: 92eb4157abb55b7056952d1fb064c7c7d7500335
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77021704"
 ---
 # <a name="continuous-patient-monitoring-architecture"></a>Arkitektur för kontinuerlig övervakning av patienter
 
 
 
-Kontinuerliga övervaknings lösningar för patienter kan skapas med hjälp av den app-mall som anges och med hjälp av den arkitektur som beskrivs nedan som vägledning.
+Kontinuerlig patientövervakningslösningar kan byggas med hjälp av appmallen som tillhandahålls och med hjälp av arkitekturen som beskrivs nedan som vägledning.
 
 >[!div class="mx-imgBorder"] 
 >![CPM-arkitektur](media/cpm-architecture.png)
 
-1. Medicinska enheter som kommunicerar med Bluetooth låg energi (Bell)
-1. Mobil telefon Gateway tar emot tabell data och skickar till IoT Central
-1. Kontinuerlig data export av patient hälso data till Azure API för FHIR&reg;
-1. Maskin inlärning baserat på driftskompatibla data
-1. Vård Teams instrument panel som bygger på FHIR-data
+1. Medicintekniska produkter som kommunicerar med Bluetooth Low Energy (BLE)
+1. Mobiltelefon gateway ta emot BLE-data och skicka till IoT Central
+1. Kontinuerlig dataexport av patienthälsodata till Azure API för FHIR&reg;
+1. Maskininlärning baserad på driftskompatibla data
+1. Instrumentpanel för vårdteam som bygger på FHIR-data
 
 ## <a name="details"></a>Information
-I det här avsnittet beskrivs varje del av arkitektur diagrammet mer detaljerat.
+I det här avsnittet beskrivs varje del av arkitekturdiagrammet mer i detalj.
 
-### <a name="ble-medical-devices"></a>Bell-medicintekniska enheter
-Många medicinska wearables som används i hälsovårds området för sjukvård är Bluetooth-enheter med låg energi. De kan inte prata direkt till molnet och behöver släppa igenom en gateway. Den här arkitekturen föreslår användning av ett mobil telefon program som denna gateway.
+### <a name="ble-medical-devices"></a>BLE medicintekniska produkter
+Många medicinska wearables som används i hälso-IoT utrymme är Bluetooth Low Energy enheter. De kan inte tala direkt till molnet och måste passera genom en gateway. Den här arkitekturen föreslår att du använder ett mobiltelefonprogram som den här gatewayen.
 
-### <a name="mobile-phone-gateway"></a>Mobil telefon Gateway
-Mobil telefon programmets primära funktion är att mata in tabell data från medicinska enheter och kommunicera med Azure IoT Central. Dessutom kan du med hjälp av appen hjälpa dig att få hjälp med en enhets konfiguration och ett etablerings flöde och hjälpa dem se en vy över sina personliga hälso data. Andra lösningar kan använda en surfplatta gateway eller en statisk Gateway om det är i ett sjukhus rum för att uppnå samma kommunikations flöde.
+### <a name="mobile-phone-gateway"></a>Gateway för mobiltelefon
+Mobiltelefonprogrammets primära funktion är att inta BLE-data från medicintekniska produkter och kommunicera dem till Azure IoT Central. Dessutom kan appen hjälpa till att vägleda patienter genom en enhetsinstallation och etableringsflöde och hjälpa dem att se en bild av deras personliga hälsodata. Andra lösningar kan använda en tablet gateway eller en statisk gateway om inne i ett sjukhusrum för att uppnå samma kommunikationsflöde.
 
 ### <a name="export-to-azure-api-for-fhirreg"></a>Exportera till Azure API för FHIR&reg;
-Azure IoT Central är HIPAA-kompatibelt och HITRUST&reg; certifierat, men du kanske också vill skicka information om patient hälsa till Azure API för FHIR. [Azure API för FHIR](../../healthcare-apis/overview.md) är ett fullständigt hanterat, standardbaserat, kompatibelt API för kliniska hälso data som gör det möjligt att skapa nya system för engagemang med dina hälso data. Det möjliggör snabbt utbyte av data via FHIR-API: er som backas upp av ett hanterat PaaS-erbjudande (Platform-as-a-Service) i molnet. Med hjälp av funktionerna för kontinuerlig data export i IoT Central kan du skicka data till Azure API för FHIR.
+Azure IoT Central är HIPAA-kompatibel och HITRUST-certifierad,&reg; men du kanske också vill skicka patienthälsorelaterade data till Azure API för FHIR. [Azure API för FHIR](../../healthcare-apis/overview.md) är ett fullständigt hanterat, standardbaserat, kompatibelt API för kliniska hälsodata som gör att du kan skapa nya system för interaktion med dina hälsodata. Det möjliggör snabbt utbyte av data via FHIR API:er, med stöd av ett hanterat PaaS-erbjudande (Platform-as-a Service) i molnet. Med hjälp av funktionen Kontinuerlig dataexport i IoT Central kan du skicka data till Azure API för FHIR.
 
-### <a name="machine-learning"></a>Machine Learning
-När du har samlat in dina data och översätter dem till FHIR-format kan du skapa maskin inlärnings modeller som kan utveckla insikter och aktivera smartare besluts fattande för ditt vård team. Det finns olika typer av tjänster som kan användas för att skapa, träna och distribuera maskin inlärnings modeller. Mer information om hur du använder Azures Machine Learning-erbjudanden finns i vår [Machine Learning-dokumentation](../../machine-learning/index.yml).
+### <a name="machine-learning"></a>Maskininlärning
+När du har aggregerat dina data och översatt dem till FHIR-format kan du skapa maskininlärningsmodeller som kan berika insikter och möjliggöra smartare beslutsfattande för ditt vårdteam. Det finns olika typer av tjänster som kan användas för att skapa, träna och distribuera maskininlärningsmodeller. Mer information om hur du använder Azures maskininlärningserbjudanden finns i vår [maskininlärningsdokumentation](../../machine-learning/index.yml).
 
-### <a name="provider-dashboard"></a>Instrument panel för Provider
-De data som finns i Azure-API: et för FHIR kan användas för att bygga en patient instrument panel eller kan integreras direkt i en EMR för att hjälpa team att visualisera patient status. Vård team kan använda den här instrument panelen för att ta hand om patienter i behov av hjälp och för att upptäcka varnings tecken. Om du vill veta hur du skapar en Power BI instrument panel för real tids leverantörer följer [du vår instruktions guide](howto-health-data-triage.md).
+### <a name="provider-dashboard"></a>Instrumentpanel för provider
+Data som finns i Azure API för FHIR kan användas för att skapa en instrumentpanel för patientinsikter eller kan integreras direkt i en EMR för att hjälpa vårdteam att visualisera patientstatus. Vårdteam kan använda den här instrumentpanelen för att ta hand om patienter i behov av hjälp och upptäcka tidiga varningssignaler om försämring. Om du vill veta hur du skapar en Power BI-instrumentpanel i realtid följer du vår [guide](howto-health-data-triage.md).
 
 ## <a name="next-steps"></a>Nästa steg
-* [Lär dig hur du distribuerar en kontinuerlig övervaknings program mal len](tutorial-continuous-patient-monitoring.md)
+* [Lär dig hur du distribuerar en kontinuerlig patientövervakningsprogrammall](tutorial-continuous-patient-monitoring.md)

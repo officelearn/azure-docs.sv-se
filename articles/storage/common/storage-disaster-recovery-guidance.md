@@ -1,7 +1,7 @@
 ---
-title: Haveri beredskap och lagrings konto redundans (för hands version)
+title: Redundans- och lagringskonto för katastrofberedskap och lagringskonto (förhandsversion)
 titleSuffix: Azure Storage
-description: Azure Storage stöder redundans av konton (för hands version) för geo-redundanta lagrings konton. Med konto redundans kan du initiera redundansväxlingen för ditt lagrings konto om den primära slut punkten blir otillgänglig.
+description: Azure Storage stöder konto redundans (förhandsversion) för geo-redundanta lagringskonton. Med felinformation om kontot kan du initiera redundansprocessen för ditt lagringskonto om den primära slutpunkten blir otillgänglig.
 services: storage
 author: tamram
 ms.service: storage
@@ -11,174 +11,174 @@ ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
 ms.openlocfilehash: f7a8f6d0d3ab3b456c41128da9b689f6b7eda0f7
-ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/14/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79365379"
 ---
-# <a name="disaster-recovery-and-account-failover-preview"></a>Haveri beredskap och konto redundans (för hands version)
+# <a name="disaster-recovery-and-account-failover-preview"></a>Katastrofåterställning och växling av konton (förhandsversion)
 
-Microsoft strävar efter att se till att Azure-tjänster alltid är tillgängliga. Oplanerade drifts avbrott kan dock uppstå. Om ditt program kräver återhämtning rekommenderar Microsoft att använda Geo-redundant lagring, så att dina data kopieras till en andra region. Dessutom bör kunderna ha en katastrof återställnings plan för hantering av ett regionalt tjänst avbrott. En viktig del av en katastrof återställnings plan förbereder att redundansväxla till den sekundära slut punkten i händelse av att den primära slut punkten blir otillgänglig.
+Microsoft strävar efter att se till att Azure-tjänster alltid är tillgängliga. Oplanerade avbrott i tjänsten kan dock förekomma. Om ditt program kräver återhämtning rekommenderar Microsoft att du använder geouppsagbar lagring, så att dina data kopieras till en andra region. Dessutom bör kunder ha en katastrofåterställningsplan på plats för hantering av ett regionalt avbrott i tjänsten. En viktig del av en haveriberedskapsplan förbereder sig för att växla över till den sekundära slutpunkten i händelse av att den primära slutpunkten blir otillgänglig.
 
-Azure Storage stöder redundans av konton (för hands version) för geo-redundanta lagrings konton. Med konto redundans kan du initiera redundansväxlingen för ditt lagrings konto om den primära slut punkten blir otillgänglig. Redundansväxlingen uppdaterar den sekundära slut punkten för att bli den primära slut punkten för ditt lagrings konto. När redundansväxlingen är klar kan klienter börja skriva till den nya primära slut punkten.
+Azure Storage stöder konto redundans (förhandsversion) för geo-redundanta lagringskonton. Med felinformation om kontot kan du initiera redundansprocessen för ditt lagringskonto om den primära slutpunkten blir otillgänglig. Redundansen uppdaterar den sekundära slutpunkten för att bli den primära slutpunkten för ditt lagringskonto. När redundansen är klar kan klienter börja skriva till den nya primära slutpunkten.
 
 [!INCLUDE [updated-for-az](../../../includes/storage-data-lake-gen2-support.md)]
 
-Den här artikeln beskriver koncepten och processen som är inblandade i ett konto för redundans och beskriver hur du förbereder ditt lagrings konto för återställning med minsta möjliga mängd kund påverkan. Information om hur du startar en redundansväxling av ett konto i Azure Portal eller PowerShell finns i [initiera en konto redundansväxling (för hands version)](storage-initiate-account-failover.md).
+I den här artikeln beskrivs begreppen och processen som ingår i en kontoundanssväxling och hur du förbereder ditt lagringskonto för återställning med minsta möjliga kundpåverkan. Mer information om hur du initierar en kontoundanslag i Azure-portalen eller PowerShell finns [i Initiera en återställning av kontot (förhandsversion).](storage-initiate-account-failover.md)
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-## <a name="choose-the-right-redundancy-option"></a>Välj rätt redundans alternativ
+## <a name="choose-the-right-redundancy-option"></a>Välj rätt redundansalternativ
 
-Azure Storage underhåller flera kopior av ditt lagrings konto för att säkerställa hållbarhet och hög tillgänglighet. Vilket alternativ för redundans som du väljer för ditt konto beror på vilken återhämtnings grad du behöver. För skydd mot regionala avbrott väljer du Geo-redundant lagring, med eller utan alternativet Läs behörighet från den sekundära regionen:  
+Azure Storage underhåller flera kopior av ditt lagringskonto för att säkerställa hållbarhet och hög tillgänglighet. Vilket redundansalternativ du väljer för ditt konto beror på hur hög grad av återhämtning du behöver. För skydd mot regionala avbrott väljer du geoupptundit lagring, med eller utan möjlighet till läsåtkomst från den sekundära regionen:  
 
-**Geo-redundant lagring (GRS) eller geo-Zone-redundant lagring (GZRS) (för hands version)** kopierar dina data asynkront i två geografiska regioner som är minst hundratals mil. Om den primära regionen drabbas av ett avbrott fungerar den sekundära regionen som en redundant källa för dina data. Du kan initiera en redundansväxling för att transformera den sekundära slut punkten till den primära slut punkten.
+**Geo-redundant lagring (GRS) eller geo-zon-redundant lagring (GZRS) (förhandsvisning)** kopierar dina data asynkront i två geografiska regioner som är minst hundratals miles från varandra. Om den primära regionen drabbas av ett avbrott fungerar den sekundära regionen som en redundant källa för dina data. Du kan initiera en redundans för att omvandla den sekundära slutpunkten till den primära slutpunkten.
 
-**Read-Access Geo-redundant lagring (RA-GRS) eller Read-Access geo-Zone-redundant lagring (ra-GZRS) (för hands version)** tillhandahåller Geo-redundant lagring med ytterligare fördel av Läs behörighet till den sekundära slut punkten. Om ett avbrott uppstår i den primära slut punkten kan program som kon figurer ATS för RA-GRS och har utformats för hög tillgänglighet fortsätta att läsa från den sekundära slut punkten. Microsoft rekommenderar RA-GRS för maximal återhämtning för dina program.
+**Läsåtkomst geo-redundant lagring (RA-GRS) eller läsåtkomst geo-zon-redundant lagring (RA-GZRS) (förhandsvisning)** ger geo-redundant lagring med ytterligare nytta av läsåtkomst till den sekundära slutpunkten. Om ett avbrott inträffar i den primära slutpunkten kan program som konfigurerats för RA-GRS och utformats för hög tillgänglighet fortsätta att läsa från den sekundära slutpunkten. Microsoft rekommenderar RA-GRS för maximal återhämtning för dina program.
 
-Mer information om redundans i Azure Storage finns [Azure Storage redundans](storage-redundancy.md).
+Mer information om redundans i Azure Storage finns i [Azure Storage redundans](storage-redundancy.md).
 
 > [!WARNING]
-> Geo-redundant lagring medför risk för data förlust. Data kopieras till den sekundära regionen asynkront, vilket innebär att det uppstår en fördröjning mellan när data som skrivs till den primära regionen skrivs till den sekundära regionen. I händelse av ett avbrott går Skriv åtgärder till den primära slut punkten som ännu inte har kopierats till den sekundära slut punkten förlorade.
+> Geo redundant lagring medför en risk för dataförlust. Data kopieras till den sekundära regionen asynkront, vilket innebär att det finns en fördröjning mellan när data som skrivs till den primära regionen skrivs till den sekundära regionen. I händelse av ett avbrott går skrivåtgärder till den primära slutpunkten som ännu inte har kopierats till den sekundära slutpunkten förlorade.
 
 ## <a name="design-for-high-availability"></a>Utforma för hög tillgänglighet
 
-Det är viktigt att utforma ditt program för hög tillgänglighet från start. Se dessa Azure-resurser för att få hjälp med att utforma ditt program och planera för haveri beredskap:
+Det är viktigt att utforma ditt program för hög tillgänglighet från början. Se dessa Azure-resurser för vägledning i utformningen av ditt program och planering för haveriberedskap:
 
-- [Utforma elastiska program för Azure](/azure/architecture/checklist/resiliency-per-service): en översikt över viktiga begrepp för att utforma program med hög tillgänglighet i Azure.
-- [Tillgänglighets check lista](/azure/architecture/checklist/resiliency-per-service): en check lista för att kontrol lera att ditt program implementerar bästa design praxis för hög tillgänglighet.
-- [Utforma hög tillgängliga program med hjälp av RA-GRS](storage-designing-ha-apps-with-ragrs.md): design rikt linjer för att skapa program för att dra nytta av RA-GRS.
-- [Självstudie: skapa ett program med hög tillgänglighet med Blob Storage](../blobs/storage-create-geo-redundant-storage.md): en själv studie kurs som visar hur du skapar ett program med hög tillgänglighet som automatiskt växlar mellan slut punkter som fel och återställningar simuleras. 
+- [Designa elastiska program för Azure](/azure/architecture/checklist/resiliency-per-service): En översikt över de viktigaste begreppen för att skapa högtillgängliga program i Azure.
+- [Checklista](/azure/architecture/checklist/resiliency-per-service)för tillgänglighet : En checklista för att verifiera att ditt program implementerar de bästa designmetoderna för hög tillgänglighet.
+- [Designa högtillgängliga applikationer med RA-GRS:](storage-designing-ha-apps-with-ragrs.md)Designvägledning för att bygga applikationer för att dra nytta av RA-GRS.
+- [Självstudiekurs: Skapa ett program med högtillgänglighet med Blob-lagring](../blobs/storage-create-geo-redundant-storage.md): En självstudiekurs som visar hur du skapar ett program med högtillgänglighet som automatiskt växlar mellan slutpunkter när fel och återställningar simuleras. 
 
-Tänk också på följande rekommendationer för att upprätthålla hög tillgänglighet för dina Azure Storage data:
+Tänk dessutom på de här metodtipsen för att upprätthålla hög tillgänglighet för dina Azure Storage-data:
 
-- **Diskar:** Använd [Azure Backup](https://azure.microsoft.com/services/backup/) för att säkerhetskopiera de virtuella dator diskar som används av dina virtuella Azure-datorer. Överväg också att använda [Azure Site Recovery](https://azure.microsoft.com/services/site-recovery/) för att skydda dina virtuella datorer i händelse av en regional katastrof.
-- **Blockera blobbar:** Aktivera [mjuk borttagning](../blobs/storage-blob-soft-delete.md) för att skydda mot borttagningar på objekt nivå och skriv över eller kopiera block-blobar till ett annat lagrings konto i en annan region [med AZCopy](storage-use-azcopy.md), [Azure PowerShell](storage-powershell-guide-full.md)eller [Azure Data flyttnings bibliotek](https://azure.microsoft.com/blog/introducing-azure-storage-data-movement-library-preview-2/).
-- **Filer:** Använd [AzCopy](storage-use-azcopy.md) eller [Azure PowerShell](storage-powershell-guide-full.md) för att kopiera filer till ett annat lagrings konto i en annan region.
-- **Tabeller:** Använd [AzCopy](storage-use-azcopy.md) för att exportera tabell data till ett annat lagrings konto i en annan region.
+- **Diskar:** Använd [Azure Backup](https://azure.microsoft.com/services/backup/) för att säkerhetskopiera de VM-diskar som används av dina virtuella Azure-datorer. Överväg också att använda [Azure Site Recovery](https://azure.microsoft.com/services/site-recovery/) för att skydda dina virtuella datorer i händelse av en regional katastrof.
+- **Blockblobar:** Aktivera [mjuk borttagning](../blobs/storage-blob-soft-delete.md) för att skydda mot borttagningar och överskrivningar på objektnivå, eller kopiera blockblobar till ett annat lagringskonto i en annan region med [AzCopy,](storage-use-azcopy.md) [Azure PowerShell](storage-powershell-guide-full.md)eller [Azure Data Movement-biblioteket](https://azure.microsoft.com/blog/introducing-azure-storage-data-movement-library-preview-2/).
+- **Filer:** Använd [AzCopy](storage-use-azcopy.md) eller [Azure PowerShell](storage-powershell-guide-full.md) för att kopiera dina filer till ett annat lagringskonto i en annan region.
+- **Tabeller:** Använd [AzCopy](storage-use-azcopy.md) för att exportera tabelldata till ett annat lagringskonto i en annan region.
 
 ## <a name="track-outages"></a>Spåra avbrott
 
-Kunder kan prenumerera på [Azure Service Health instrument panel](https://azure.microsoft.com/status/) för att spåra hälso tillståndet och statusen för Azure Storage och andra Azure-tjänster.
+Kunder kan prenumerera på [Azure Service Health Dashboard](https://azure.microsoft.com/status/) för att spåra hälsotillstånd och status för Azure Storage och andra Azure-tjänster.
 
-Microsoft rekommenderar också att du utformar ditt program för att förbereda dig för möjlighet till skrivfel. Programmet bör exponera skrivfel på ett sätt som varnar dig om risken för avbrott i den primära regionen.
+Microsoft rekommenderar också att du utformar programmet för att förbereda dig för risken för skrivfel. Ditt program bör exponera skrivfel på ett sätt som varnar dig för risken för ett avbrott i den primära regionen.
 
-## <a name="understand-the-account-failover-process"></a>Förstå processen för redundans av konto
+## <a name="understand-the-account-failover-process"></a>Förstå felningsprocessen för kontot
 
-Med hjälp av redundans för kund hanterade konton (för hands version) kan du inte återställa hela lagrings kontot till den sekundära regionen om den primära inte är tillgänglig av någon anledning. När du tvingar fram en redundansväxling till den sekundära regionen kan klienterna börja skriva data till den sekundära slut punkten när redundansväxlingen är klar. Redundansväxlingen tar vanligt vis ungefär en timme.
+Med kundhanterad felväxling (förhandsversion) kan du underkänna hela ditt lagringskonto till den sekundära regionen om den primära blir otillgänglig av någon anledning. När du tvingar en redundans till den sekundära regionen kan klienter börja skriva data till den sekundära slutpunkten när redundansen har slutförts. Redundansen tar vanligtvis ungefär en timme.
 
-### <a name="how-an-account-failover-works"></a>Så här fungerar en konto redundansväxling
+### <a name="how-an-account-failover-works"></a>Så här fungerar kontoredundans
 
-Under normala omständigheter skriver en klient data till ett Azure Storage-konto i den primära regionen och dessa data kopieras asynkront till den sekundära regionen. Följande bild visar scenariot när den primära regionen är tillgänglig:
+Under normala omständigheter skriver en klient data till ett Azure Storage-konto i den primära regionen och att data kopieras asynkront till den sekundära regionen. Följande bild visar scenariot när den primära regionen är tillgänglig:
 
-![Klienter skriver data till lagrings kontot i den primära regionen](media/storage-disaster-recovery-guidance/primary-available.png)
+![Klienter skriver data till lagringskontot i den primära regionen](media/storage-disaster-recovery-guidance/primary-available.png)
 
-Om den primära slut punkten blir otillgänglig av någon anledning kan klienten inte längre skriva till lagrings kontot. Följande bild visar scenariot där den primära har blivit otillgänglig, men ingen återställning har skett än:
+Om den primära slutpunkten blir otillgänglig av någon anledning kan klienten inte längre skriva till lagringskontot. Följande bild visar scenariot där den primära har blivit otillgänglig, men ingen återställning har skett ännu:
 
 ![Den primära är inte tillgänglig, så klienter kan inte skriva data](media/storage-disaster-recovery-guidance/primary-unavailable-before-failover.png)
 
-Kunden initierar redundansväxlingen av kontot till den sekundära slut punkten. Vid redundansväxlingen uppdateras DNS-posten från Azure Storage så att den sekundära slut punkten blir den nya primära slut punkten för ditt lagrings konto, vilket visas i följande bild:
+Kunden initierar kontot redundans till den sekundära slutpunkten. Redundansprocessen uppdaterar DNS-posten som tillhandahålls av Azure Storage så att den sekundära slutpunkten blir den nya primära slutpunkten för ditt lagringskonto, som visas i följande bild:
 
-![Kunden initierar konto redundans till en sekundär slut punkt](media/storage-disaster-recovery-guidance/failover-to-secondary.png)
+![Kunden initierar kontoundans till sekundär slutpunkt](media/storage-disaster-recovery-guidance/failover-to-secondary.png)
 
-Skriv åtkomst återställs för GRS-och RA-GRS-konton när DNS-posten har uppdaterats och begär Anden dirigeras till den nya primära slut punkten. Befintliga slut punkter för lagrings tjänster för blobbar, tabeller, köer och filer är oförändrade efter redundansväxlingen.
+Skrivåtkomsten återställs för GRS- och RA-GRS-konton när DNS-posten har uppdaterats och begäranden dirigeras till den nya primära slutpunkten. Befintliga slutpunkter för lagringstjänster för blobbar, tabeller, köer och filer förblir desamma efter redundansen.
 
 > [!IMPORTANT]
-> När redundansväxlingen är klar konfigureras lagrings kontot för att vara lokalt redundant i den nya primära slut punkten. Om du vill återuppta replikeringen till den nya sekundära konfigurerar du kontot så att det använder Geo-redundant lagring igen (antingen RA-GRS eller GRS).
+> När redundansen är klar konfigureras lagringskontot så att det är lokalt redundant i den nya primära slutpunkten. Om du vill återuppta replikeringen till den nya sekundära konfigurerar du kontot så att det använder geoupptundsräknad lagring igen (antingen RA-GRS eller GRS).
 >
-> Kom ihåg att att konvertera ett LRS-konto till RA-GRS eller GRS ådrar sig en kostnad. Den här kostnaden gäller för uppdatering av lagrings kontot i den nya primära regionen för att använda RA-GRS eller GRS efter en redundansväxling.  
+> Tänk på att det kostar att konvertera ett LRS-konto till RA-GRS eller GRS. Den här kostnaden gäller för uppdatering av lagringskontot i den nya primära regionen för att använda RA-GRS eller GRS efter en redundans.  
 
-### <a name="anticipate-data-loss"></a>Vänta på data förlust
+### <a name="anticipate-data-loss"></a>Förutse dataförlust
 
 > [!CAUTION]
-> En redundansväxling av ett konto innebär vanligt vis data förlust. Det är viktigt att förstå konsekvenserna av att initiera en konto redundansväxling.  
+> En växlingsförlust för kontot innebär vanligtvis viss dataförlust. Det är viktigt att förstå konsekvenserna av att initiera en växling av kontot.  
 
-Eftersom data skrivs asynkront från den primära regionen till den sekundära regionen, finns det alltid en fördröjning innan en skrivning till den primära regionen kopieras till den sekundära regionen. Om den primära regionen blir otillgänglig kanske de senaste skrivningar ännu inte har kopierats till den sekundära regionen.
+Eftersom data skrivs asynkront från den primära regionen till den sekundära regionen, finns det alltid en fördröjning innan en skrivning till den primära regionen kopieras till den sekundära regionen. Om den primära regionen blir otillgänglig kanske de senaste skrivna ännu inte har kopierats till den sekundära regionen.
 
-När du tvingar fram en redundansväxling försvinner alla data i den primära regionen eftersom den sekundära regionen blir den nya primära regionen och lagrings kontot är konfigurerat för att vara lokalt redundant. Alla data som redan har kopierats till den sekundära underhålls när redundansväxlingen sker. Data som skrivs till den primära som inte också har kopierats till den sekundära förloras dock permanent.
+När du tvingar fram en redundans går alla data i den primära regionen förlorade när den sekundära regionen blir den nya primära regionen och lagringskontot är konfigurerat för att vara lokalt redundant. Alla data som redan har kopierats till den sekundära underhålls när redundansen sker. Alla data som skrivs till den primära som inte också har kopierats till den sekundära går dock förlorade permanent.
 
-Egenskapen **senaste synkroniseringstid** anger den senaste tiden som data från den primära regionen garanterat har skrivits till den sekundära regionen. Alla data som skrivits före den senaste synkroniseringstid-tiden är tillgängliga på den sekundära, medan data som skrivs efter den senaste synkroniseringen kanske inte har skrivits till den sekundära och kan gå förlorade. Använd den här egenskapen i händelse av ett avbrott för att uppskatta mängden data förlust du kan stöta på genom att initiera ett konto redundansväxling.
+Egenskapen **Senaste synkroniseringstid** anger den senaste tiden då data från den primära regionen garanterat har skrivits till den sekundära regionen. Alla data som skrivits före den senaste synkroniseringstiden är tillgängliga på den sekundära, medan data som skrivits efter den senaste synkroniseringstiden kanske inte har skrivits till den sekundära och kan gå förlorade. Använd den här egenskapen i händelse av ett avbrott för att uppskatta mängden dataförlust som du kan ådra dig genom att initiera en växlingsöverkoppling för kontot.
 
-Vi rekommenderar att du utformar ditt program så att du kan använda den senaste synkroniseringstid för att utvärdera förväntad data förlust. Om du till exempel loggar alla Skriv åtgärder kan du jämföra tiden för dina senaste Skriv åtgärder med den senaste synkroniseringen för att avgöra vilka skrivningar som inte har synkroniserats med den sekundära.
+Du kan göra bästa genom att utforma programmet så att du kan använda den senaste synkroniseringstiden för att utvärdera förväntad dataförlust. Om du till exempel loggar alla skrivåtgärder kan du jämföra tiden för dina senaste skrivåtgärder med den senaste synkroniseringstiden för att avgöra vilka skrivningar som inte har synkroniserats med den sekundära.
 
-### <a name="use-caution-when-failing-back-to-the-original-primary"></a>Använd försiktighet när du växlar tillbaka till den ursprungliga primära
+### <a name="use-caution-when-failing-back-to-the-original-primary"></a>Var försiktig när du misslyckas tillbaka till den ursprungliga primära
 
-När du växlar över från den primära till den sekundära regionen konfigureras ditt lagrings konto för att vara lokalt redundant i den nya primära regionen. Du kan konfigurera kontot för GEO-redundans igen genom att uppdatera det för att använda GRS eller RA-GRS. När kontot har kon figurer ATS för GEO-redundans igen efter en redundansväxling börjar den nya primära regionen omedelbart att kopiera data till den nya sekundära regionen, som var den primära före den ursprungliga redundansväxlingen. Det kan dock ta en stund innan befintliga data i den primära har kopierats fullständigt till den nya sekundära.
+När du har växlat över från den primära till den sekundära regionen är ditt lagringskonto konfigurerat så att det är lokalt redundant i den nya primära regionen. Du kan konfigurera kontot för georedundans igen genom att uppdatera det för att använda GRS eller RA-GRS. När kontot har konfigurerats för geo-redundans igen efter en redundans, börjar den nya primära regionen omedelbart kopiera data till den nya sekundära regionen, som var den primära före den ursprungliga redundansen. Det kan dock ta lite tid innan befintliga data i den primära kopieras helt till den nya sekundära.
 
-När lagrings kontot har kon figurer ATS om för GEO-redundans är det möjligt att initiera en annan redundansväxling från den nya primära tillbaka till den nya sekundära. I det här fallet blir den ursprungliga primära regionen före redundansväxlingen den primära regionen igen och är konfigurerad att vara lokalt redundant. Alla data i den primära regionen efter redundans (ursprunglig sekundär) går förlorade. Om de flesta data i lagrings kontot inte har kopierats till den nya sekundära platsen innan du växlar tillbaka kan du få en större data förlust.
+När lagringskontot har konfigurerats om för georedundans är det möjligt att initiera en ny redundans från den nya primära tillbaka till den nya sekundära. I det här fallet blir den ursprungliga primära regionen före redundansen den primära regionen igen och är konfigurerad för att vara lokalt redundant. Alla data i den primära regionen efter redundans (den ursprungliga sekundära) går sedan förlorade. Om de flesta data i lagringskontot inte har kopierats till den nya sekundära innan du misslyckas tillbaka, kan du drabbas av en större dataförlust.
 
-Du kan undvika en större data förlust genom att kontrol lera värdet för den **senaste synkroniseringstid** -egenskapen innan du växlar tillbaka. Jämför den senaste synkroniseringen med de senaste tidpunkterna då data skrevs till den nya primära för att utvärdera förväntad data förlust. 
+Om du vill undvika en större dataförlust kontrollerar du värdet för egenskapen **Senaste synkroniseringstid** innan du misslyckas tillbaka. Jämför den senaste synkroniseringstiden med de senaste gångerna som data skrevs till den nya primärt för att utvärdera förväntad dataförlust. 
 
 ## <a name="initiate-an-account-failover"></a>Initiera en kontoredundans
 
-Du kan starta ett konto vid fel från Azure Portal, PowerShell, Azure CLI eller Azure Storage Resource Provider API. Mer information om hur du initierar en redundansväxling finns i [initiera en konto redundansväxling (för hands version)](storage-initiate-account-failover.md).
+Du kan initiera en kontoundangång från Azure-portalen, PowerShell, Azure CLI eller Azure Storage-resursproviderns API. Mer information om hur du initierar en redundans finns i [Initiera en kontoundanvisning (förhandsgranskning).](storage-initiate-account-failover.md)
 
-## <a name="about-the-preview"></a>Om för hands versionen
+## <a name="about-the-preview"></a>Om förhandsgranskningen
 
-Det finns ett konto för redundans för alla kunder som använder GRS eller RA-GRS med Azure Resource Manager-distributioner. Generell användning v1, General-Purpose v2 och Blob Storage-konto typer stöds. Redundansväxling av kontot är för närvarande tillgänglig i alla offentliga regioner. Det går inte att redundansväxla för närvarande i suveräna/nationella moln.
+Kontoundans är tillgängligt i förhandsversion för alla kunder som använder GRS- eller RA-GRS med Azure Resource Manager-distributioner. Generella v1-, general-purpose v2- och Blob-lagringskontotyper stöds. Kontoundans är för närvarande tillgängligt i alla offentliga regioner. Konto redundans är inte tillgängligt i suveräna/nationella moln just nu.
 
-För hands versionen är endast avsedd för användning utan produktion. Service nivå avtal (service avtal) för produktions tjänster är inte tillgängliga för närvarande.
+Förhandsgranskningen är endast avsedd för användning som inte är produktion. Avtal på produktionsnivå (SLA) är för närvarande inte tillgängliga.
 
 ### <a name="additional-considerations"></a>Annat som är bra att tänka på
 
-Granska ytterligare överväganden som beskrivs i det här avsnittet för att förstå hur dina program och tjänster kan påverkas när du tvingar fram en redundansväxling under för hands versions perioden.
+Granska de ytterligare överväganden som beskrivs i det här avsnittet för att förstå hur dina program och tjänster kan påverkas när du tvingar fram en redundans under förhandsgranskningsperioden.
 
-#### <a name="storage-account-containing-archived-blobs"></a>Lagrings konto som innehåller arkiverade blobbar
+#### <a name="storage-account-containing-archived-blobs"></a>Lagringskonto som innehåller arkiverade blobbar
 
-Lagrings konton som innehåller arkiverade blobbar stöder redundans av konton. När redundansväxlingen är klar måste du automatiskt konvertera tillbaka kontot till GRS eller RA-GRS alla arkiverade blobbar till en online-nivå först.
+Lagringskonton som innehåller arkiverade blobbar supportkonto redundans. När redundansen är klar måste alla arkiverade blobbar om du vill konvertera kontot till GRS eller RA-GRS.
 
 #### <a name="storage-resource-provider"></a>Lagringsresursprovider
 
-När redundansväxlingen är klar kan klienterna läsa in och skriva Azure Storage data i den nya primära regionen. Azure Storage Resource providern växlar dock inte över, så resurs hanterings åtgärder måste ändå äga rum i den primära regionen. Om den primära regionen inte är tillgänglig går det inte att utföra hanterings åtgärder på lagrings kontot.
+När en redundans har slutförts kan klienter återigen läsa och skriva Azure Storage-data i den nya primära regionen. Azure Storage-resursprovidern växlar dock inte över, så resurshanteringsåtgärder måste fortfarande ske i den primära regionen. Om den primära regionen inte är tillgänglig kan du inte utföra hanteringsåtgärder på lagringskontot.
 
-Eftersom Azure Storage Resource Provider inte växlar över, returnerar egenskapen [location](/dotnet/api/microsoft.azure.management.storage.models.trackedresource.location) den ursprungliga primära platsen när redundansväxlingen är klar.
+Eftersom Azure Storage-resursprovidern inte [Location](/dotnet/api/microsoft.azure.management.storage.models.trackedresource.location) växlar över returneras den ursprungliga primära platsen när redundansen har slutförts.
 
 #### <a name="azure-virtual-machines"></a>Virtuella Azure-datorer
 
-Virtuella Azure-datorer (VM) växlar inte över som en del av en redundansväxling av kontot. Om den primära regionen blir otillgänglig och du växlar över till den sekundära regionen måste du återskapa alla virtuella datorer efter redundansväxlingen. Det finns också en potentiell data förlust som är associerad med kontots redundans. Microsoft rekommenderar följande rikt linjer för [hög tillgänglighet](../../virtual-machines/windows/manage-availability.md) och [katastrof återställning](../../virtual-machines/virtual-machines-disaster-recovery-guidance.md) som är särskilt tillgängliga för virtuella datorer i Azure.
+Virtuella Azure-datorer (VMs) växlar inte över som en del av en växlingsöverkoppling för kontot. Om den primära regionen blir otillgänglig och du växlar över till den sekundära regionen måste du återskapa alla virtuella datorer efter redundansen. Det finns också en potentiell dataförlust som är associerad med kontot redundans. Microsoft rekommenderar följande vägledning om [hög tillgänglighet](../../virtual-machines/windows/manage-availability.md) och [katastrofåterställning](../../virtual-machines/virtual-machines-disaster-recovery-guidance.md) som är specifik för virtuella datorer i Azure.
 
-#### <a name="azure-unmanaged-disks"></a>Azure-ohanterade diskar
+#### <a name="azure-unmanaged-disks"></a>Ohanterat azure-diskar
 
-Som bästa praxis rekommenderar Microsoft att du konverterar ohanterade diskar till hanterade diskar. Om du behöver redundansväxla ett konto som innehåller ohanterade diskar som är anslutna till virtuella Azure-datorer måste du dock stänga av den virtuella datorn innan du initierar redundansväxlingen.
+Som ett bästa praxis rekommenderar Microsoft att konvertera ohanterade diskar till hanterade diskar. Men om du behöver växla över ett konto som innehåller ohanterade diskar som är kopplade till virtuella Azure-datorer måste du stänga av den virtuella datorn innan du initierar redundansen.
 
-Ohanterade diskar lagras som Page blobbar i Azure Storage. När en virtuell dator körs i Azure, lånas alla ohanterade diskar som är anslutna till den virtuella datorn. Det går inte att fortsätta med redundansväxlingen när det finns ett lån på en blob. Följ dessa steg om du vill utföra redundansväxlingen:
+Ohanterat diskar lagras som sidblobar i Azure Storage. När en virtuell dator körs i Azure, alla ohanterade diskar som är anslutna till den virtuella datorn hyrs. En kontoundans kan inte fortsätta när det finns ett lån på en blob. Så här utför du redundansen:
 
-1. Innan du börjar noterar du namnen på eventuella ohanterade diskar, deras logiska enhets nummer (LUN) och den virtuella dator som de är kopplade till. På så sätt blir det enklare att återansluta diskarna efter redundansväxlingen.
+1. Innan du börjar bör du anteckna namnen på alla ohanterade diskar, deras logiska enhetsnummer (LUN) och den virtuella dator som de är kopplade till. Om du gör det blir det lättare att sätta tillbaka diskarna efter redundansen.
 2. Stäng av den virtuella datorn.
-3. Ta bort den virtuella datorn, men behåll VHD-filerna för de ohanterade diskarna. Observera när du tog bort den virtuella datorn.
-4. Vänta tills den **senaste synkroniseringstid-tiden** har uppdaterats och är senare än den tid då du tog bort den virtuella datorn. Det här steget är viktigt, eftersom om den sekundära slut punkten inte har uppdaterats fullständigt med VHD-filerna när redundansväxlingen inträffar, kanske den virtuella datorn inte fungerar korrekt i den nya primära regionen.
-5. Initiera redundansväxlingen av kontot.
-6. Vänta tills kontots redundans är klart och att den sekundära regionen har blivit den nya primära regionen.
-7. Skapa en virtuell dator i den nya primära regionen och återanslut de virtuella hård diskarna.
+3. Ta bort den virtuella datorn, men behåll VHD-filerna för ohanterade diskar. Observera den tidpunkt då du tog bort den virtuella datorn.
+4. Vänta tills den **senaste synkroniseringstiden** har uppdaterats och är senare än den tidpunkt då du tog bort den virtuella datorn. Det här steget är viktigt, för om den sekundära slutpunkten inte har uppdaterats helt med VHD-filerna när redundansen inträffar, kanske den virtuella datorn inte fungerar korrekt i den nya primära regionen.
+5. Initiera kontot redundans.
+6. Vänta tills kontot redundans är klar och den sekundära regionen har blivit den nya primära regionen.
+7. Skapa en virtuell dator i den nya primära regionen och sätt tillbaka de virtuella hårddiskarna.
 8. Starta den nya virtuella datorn.
 
-Tänk på att data som lagras på en temporär disk förloras när den virtuella datorn stängs av.
+Tänk på att alla data som lagras på en tillfällig disk går förlorade när den virtuella datorn stängs av.
 
 ### <a name="unsupported-features-and-services"></a>Funktioner och tjänster som inte stöds
 
-Följande funktioner och tjänster stöds inte för för hands versionen av redundansklustret:
+Följande funktioner och tjänster stöds inte för kontoundansväxling för förhandsversionen:
 
-- Azure File Sync stöder inte redundans för lagrings konto. Lagringskonton med Azure-filresurser som används som molnslutpunkter i Azure File Sync får inte redundansväxlas. Om du gör det slutar synkroniseringen att fungera och det kan leda till oväntade dataförluster för nyligen nivåbaserade filer.
-- ADLS Gen2 lagrings konton (konton med hierarkiskt namn område aktiverat) stöds inte för tillfället.
-- Det går inte att redundansväxla ett lagrings konto som innehåller Premium block-blobar. Lagrings konton som stöder Premium block-blobbar har för närvarande inte stöd för GEO-redundans.
-- Det går inte att redundansväxla ett lagrings konto som innehåller oföränderlighets-aktiverade behållare för [Worm-principer](../blobs/storage-blob-immutable-storage.md) . Olåst/låst tidsbaserad kvarhållning eller principer för juridiskt bevarande förhindrar redundans för att bibehålla kompatibiliteten.
-- När redundansväxlingen är klar kan följande funktioner sluta fungera om de ursprungligen Aktiver ATS: [händelse prenumerationer](../blobs/storage-blob-event-overview.md), [ändra feed](../blobs/storage-blob-change-feed.md), [livs cykel principer](../blobs/storage-lifecycle-management-concepts.md)och [Lagringsanalys loggning](storage-analytics-logging.md).
+- Azure File Sync stöder inte redundans för lagringskonto. Lagringskonton med Azure-filresurser som används som molnslutpunkter i Azure File Sync får inte redundansväxlas. Om du gör det slutar synkroniseringen att fungera och det kan leda till oväntade dataförluster för nyligen nivåbaserade filer.
+- ADLS Gen2-lagringskonton (konton som har aktiverat hierarkiskt namnområde) stöds inte just nu.
+- Det går inte att överföra ett lagringskonto som innehåller premiumblockblobar. Lagringskonton som stöder premiumblockblobar stöder för närvarande inte georedundans.
+- Ett lagringskonto som innehåller en [WORM-princip för oföränderlighet](../blobs/storage-blob-immutable-storage.md) kan inte överföras. Olåsta/låsta tidsbaserade bevarande- eller legal hold-principer förhindrar redundans för att upprätthålla efterlevnad.
+- När redundansen är klar kan följande funktioner sluta fungera om de ursprungligen aktiverades: [Händelseprenumerationer,](../blobs/storage-blob-event-overview.md) [ändringsflöde,](../blobs/storage-blob-change-feed.md) [livscykelprinciper](../blobs/storage-lifecycle-management-concepts.md)och [lagringsanalysloggning](storage-analytics-logging.md).
 
 ## <a name="copying-data-as-an-alternative-to-failover"></a>Kopiera data som ett alternativ till redundans
 
-Om ditt lagrings konto har kon figurer ATS för RA-GRS har du Läs behörighet till dina data med hjälp av den sekundära slut punkten. Om du föredrar att inte redundansväxla vid ett avbrott i den primära regionen kan du använda verktyg som [AzCopy](storage-use-azcopy.md), [Azure PowerShell](storage-powershell-guide-full.md)eller [Azure Data flyttnings bibliotek](https://azure.microsoft.com/blog/introducing-azure-storage-data-movement-library-preview-2/) för att kopiera data från ditt lagrings konto i den sekundära regionen till ett annat lagrings konto i en ej påverkad region. Du kan sedan peka dina program till det lagrings kontot för både Läs-och skriv tillgänglighet.
+Om ditt lagringskonto är konfigurerat för RA-GRS har du läsbehörighet till dina data med hjälp av den sekundära slutpunkten. Om du föredrar att inte växla över i händelse av ett avbrott i den primära regionen kan du använda verktyg som [AzCopy,](storage-use-azcopy.md) [Azure PowerShell](storage-powershell-guide-full.md)eller [Azure Data Movement-biblioteket](https://azure.microsoft.com/blog/introducing-azure-storage-data-movement-library-preview-2/) för att kopiera data från ditt lagringskonto i den sekundära regionen till ett annat lagringskonto i en opåverkad region. Du kan sedan peka dina program på det lagringskontot för både läs- och skrivtillgänglighet.
 
 > [!CAUTION]
-> En växling vid fel ska inte användas som en del av din strategi för datamigrering.
+> En felväxling för kontot bör inte användas som en del av din datamigreringsstrategi.
 
 
 ## <a name="microsoft-managed-failover"></a>Microsoft-hanterad redundans
 
-I extrema fall där en region försvinner på grund av en betydande katastrof kan Microsoft initiera en regional redundansväxling. I det här fallet krävs ingen åtgärd på din del. Du har inte skriv åtkomst till ditt lagrings konto förrän den Microsoft-hanterade redundansväxlingen har slutförts. Dina program kan läsa från den sekundära regionen om ditt lagrings konto har kon figurer ATS för RA-GRS. 
+Under extrema omständigheter där en region går förlorad på grund av en betydande katastrof kan Microsoft initiera en regional redundans. I det här fallet krävs ingen åtgärd från din sida. Tills den Microsoft-hanterade redundansen har slutförts har du inte skrivbehörighet till ditt lagringskonto. Dina program kan läsa från den sekundära regionen om ditt lagringskonto är konfigurerat för RA-GRS. 
 
 ## <a name="see-also"></a>Se även
 
-- [Initiera en konto redundansväxling (för hands version)](storage-initiate-account-failover.md)
+- [Initiera en redundans för kontot (förhandsgranskning)](storage-initiate-account-failover.md)
 - [Utforma högtillgängliga program med hjälp av RA GRS](storage-designing-ha-apps-with-ragrs.md)
-- [Självstudie: Bygg ett program med hög tillgänglighet med Blob Storage](../blobs/storage-create-geo-redundant-storage.md) 
+- [Självstudiekurs: Skapa ett program med högtillgänge med Blob-lagring](../blobs/storage-create-geo-redundant-storage.md) 

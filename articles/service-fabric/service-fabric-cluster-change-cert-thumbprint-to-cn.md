@@ -1,34 +1,34 @@
 ---
-title: Uppdatera ett kluster så att det använder certifikatets nätverks namn
-description: Lär dig hur du växlar ett Service Fabric kluster från att använda certifikat tumavtrycken till att använda certifikatets egna namn.
+title: Uppdatera ett kluster för att använda certifikatets gemensamma namn
+description: Lär dig hur du växlar ett Service Fabric-kluster från att använda certifikattumavtryck till att använda certifikatets gemensamma namn.
 ms.topic: conceptual
 ms.date: 09/06/2019
 ms.openlocfilehash: 66c49ccb7b7633d0eff392b676bb381118eb64a2
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/02/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75610207"
 ---
-# <a name="change-cluster-from-certificate-thumbprint-to-common-name"></a>Ändra klustret från certifikatets tumavtryck till eget namn
-Inga två certifikat kan ha samma tumavtryck, vilket gör det svårt att förnya kluster certifikat eller hantering. Flera certifikat kan dock ha samma egna namn eller ämne.  Om ett distribuerat kluster växlas från att använda certifikattumavtryck till att använda vanliga certifikatnamn blir certifikathanteringen mycket enklare. I den här artikeln beskrivs hur du uppdaterar ett kör Service Fabric-kluster för att använda certifikatets egna namn i stället för certifikatets tumavtryck.
+# <a name="change-cluster-from-certificate-thumbprint-to-common-name"></a>Ändra kluster från tumavtrycket för certifikat till eget namn
+Det finns inga två certifikat som har samma tumavtryck, vilket gör det svårt att rulla över klustercertifikat eller hantera. Flera certifikat kan dock ha samma gemensamma namn eller ämne.  Om ett distribuerat kluster växlas från att använda certifikattumavtryck till att använda vanliga certifikatnamn blir certifikathanteringen mycket enklare. I den här artikeln beskrivs hur du uppdaterar ett Service Fabric-kluster som körs för att använda certifikatets gemensamma namn i stället för certifikatets tumavtryck.
 
 >[!NOTE]
-> Om du har två tumavtryck som har deklarerats i din mall måste du utföra två distributioner.  Den första distributionen görs innan du följer stegen i den här artikeln.  Den första distributionen ställer in din **tumavtryck** -egenskap i mallen till certifikatet som används och tar bort egenskapen **thumbprintSecondary** .  För den andra distributionen följer du stegen i den här artikeln.
+> Om du har två tumavtryck som deklarerats i mallen måste du utföra två distributioner.  Den första distributionen görs innan du följer stegen i den här artikeln.  Den första distributionen anger **egenskapen tumavtryck** i mallen till det certifikat som används och tar bort **egenskapen tumavtryckSecondary.**  För den andra distributionen följer du stegen i den här artikeln.
  
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="get-a-certificate"></a>Hämta ett certifikat
-Börja med att hämta ett certifikat från en [certifikat utfärdare (ca)](https://wikipedia.org/wiki/Certificate_authority).  Certifikatets nätverks namn ska vara värd namnet för klustret.  Till exempel "myclustername.southcentralus.cloudapp.azure.com".  
+## <a name="get-a-certificate"></a>Skaffa ett certifikat
+Hämta först ett certifikat från en [certifikatutfärdarcertifikatutfärdning](https://wikipedia.org/wiki/Certificate_authority).  Certifikatets gemensamma namn ska vara värdnamnet för klustret.  Till exempel "myclustername.southcentralus.cloudapp.azure.com".  
 
-I test syfte kan du få ett CA-signerat certifikat från en kostnads fri eller öppen certifikat utfärdare.
+I testsyfte kan du få ett certifikatutfärdare signerat certifikat från en kostnadsfri eller öppen certifikatutfärdare.
 
 > [!NOTE]
-> Självsignerade certifikat, inklusive de som genereras när du distribuerar ett Service Fabric kluster i Azure Portal, stöds inte.
+> Självsignerade certifikat, inklusive de som genereras vid distribution av ett Service Fabric-kluster i Azure-portalen, stöds inte.
 
-## <a name="upload-the-certificate-and-install-it-in-the-scale-set"></a>Ladda upp certifikatet och installera det i skalnings uppsättningen
-I Azure distribueras ett Service Fabric-kluster på en skal uppsättning för virtuella datorer.  Ladda upp certifikatet till ett nyckel valv och installera det sedan på den skalnings uppsättning för virtuella datorer som klustret körs på.
+## <a name="upload-the-certificate-and-install-it-in-the-scale-set"></a>Ladda upp certifikatet och installera det i skalningsuppsättningen
+I Azure distribueras ett Service Fabric-kluster på en skalningsuppsättning för virtuella datorer.  Ladda upp certifikatet till ett nyckelvalv och installera det sedan på den virtuella datorns skalningsuppsättning som klustret körs på.
 
 ```powershell
 Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Scope CurrentUser -Force
@@ -88,25 +88,25 @@ Update-AzVmss -ResourceGroupName $VmssResourceGroupName -Verbose `
 ```
 
 >[!NOTE]
-> Skalnings uppsättnings hemligheter har inte stöd för samma resurs-ID för två separata hemligheter, eftersom varje hemlighet är en version av en unik resurs. 
+> Skalningsuppsättningshemligheter stöder inte samma resurs-ID för två separata hemligheter, eftersom varje hemlighet är en version av, unik resurs. 
 
 ## <a name="download-and-update-the-template-from-the-portal"></a>Hämta och uppdatera mallen från portalen
-Certifikatet har installerats på den underliggande skalnings uppsättningen, men du måste också uppdatera Service Fabric-klustret för att använda certifikatet och dess eget namn.  Nu kan du ladda ned mallen för kluster distributionen.  Logga in på [Azure Portal](https://portal.azure.com) och navigera till resurs gruppen som är värd för klustret.  I **Inställningar**väljer du **distributioner**.  Välj den senaste distributionen och klicka på **Visa mall**.
+Certifikatet har installerats på den underliggande skalningsuppsättningen, men du måste också uppdatera Service Fabric-klustret för att använda certifikatet och dess gemensamma namn.  Nu hämtar du mallen för klusterdistributionen.  Logga in på [Azure-portalen](https://portal.azure.com) och navigera till resursgruppen som är värd för klustret.  Välj **Distributioner**i **Inställningar**.  Markera den senaste distributionen och klicka på **Visa mall**.
 
 ![Visa mallar][image1]
 
-Ladda ned mall-och parameter-JSON-filer till den lokala datorn.
+Ladda ner mallen och parametrarna JSON filer till din lokala dator.
 
-Öppna först parameter filen i en text redigerare och Lägg till följande parameter värde:
+Öppna först parameterfilen i en textredigerare och lägg till följande parametervärde:
 ```json
 "certificateCommonName": {
     "value": "myclustername.southcentralus.cloudapp.azure.com"
 },
 ```
 
-Öppna sedan mallfilen i en text redigerare och gör tre uppdateringar till att ge stöd för certifikatets egna namn.
+Öppna sedan mallfilen i en textredigerare och gör tre uppdateringar för att stödja certifikatets gemensamma namn.
 
-1. I avsnittet **parametrar** lägger du till en *certificateCommonName* -parameter:
+1. Lägg till en *parameter för certificateCommonName* i **parametern parametrar:**
     ```json
     "certificateCommonName": {
         "type": "string",
@@ -116,9 +116,9 @@ Ladda ned mall-och parameter-JSON-filer till den lokala datorn.
     },
     ```
 
-    Överväg också att ta bort *certificateThumbprint*, den kanske inte längre refereras till i Resource Manager-mallen.
+    Också överväga att ta bort *certifikatetDumbprint*, det kanske inte längre refereras i Resource Manager mallen.
 
-2. I **Microsoft. Compute/virtualMachineScaleSets** -resursen uppdaterar du tillägget för den virtuella datorn så att det använder det egna namnet i certifikat inställningarna i stället för tumavtrycket.  I **virtualMachineProfile**->**extensionProfile**->**tillägg**->**Egenskaper**->**Inställningar**->**certifikat**, Lägg till `"commonNames": ["[parameters('certificateCommonName')]"],` och ta bort `"thumbprint": "[parameters('certificateThumbprint')]",`.
+2. I **microsoft.Compute/virtualMachineScaleSets-resursen** uppdaterar du tillägget för virtuella datorer så att det använder det vanliga namnet i certifikatinställningarna i stället för tumavtrycket.  I **virtualMachineProfile**->**extensionProfile-tilläggsegenskapersinställningar**->**extensions**->**properties**->**settings**-> `"thumbprint": "[parameters('certificateThumbprint')]",`**certifikat**lägger du till `"commonNames": ["[parameters('certificateCommonName')]"],` och tar bort .
     ```json
         "virtualMachineProfile": {
         "extensionProfile": {
@@ -152,7 +152,7 @@ Ladda ned mall-och parameter-JSON-filer till den lokala datorn.
                 },
     ```
 
-3.  Uppdatera API-versionen till "2018-02-01" i resursen **Microsoft. ServiceFabric/Clusters** .  Lägg också till en **certificateCommonNames** -inställning med en **commonNames** -egenskap och ta bort **certifikat** inställningen (med egenskapen tumavtryck) som i följande exempel:
+3.  I **Microsoft.ServiceFabric/clusters-resursen** uppdaterar du API-versionen till "2018-02-01".  Lägg också till en **certifikatInställningar** med egenskapen **commonNames** och ta bort **certifikatinställningen** (med tumavtrycksegenskapen) som i följande exempel:
     ```json
     {
         "apiVersion": "2018-02-01",
@@ -179,7 +179,7 @@ Ladda ned mall-och parameter-JSON-filer till den lokala datorn.
         ...
     ```
 
-Mer information finns i [distribuera ett Service Fabric kluster som använder certifikatets egna namn i stället för tumavtryck.](https://docs.microsoft.com/azure/service-fabric/service-fabric-create-cluster-using-cert-cn)
+Mer information finns i [Distribuera ett Service Fabric-kluster som använder certifikatets gemensamma namn i stället för tumavtryck.](https://docs.microsoft.com/azure/service-fabric/service-fabric-create-cluster-using-cert-cn)
 
 ## <a name="deploy-the-updated-template"></a>Distribuera den uppdaterade mallen
 Distribuera om den uppdaterade mallen när du har gjort ändringarna.
@@ -192,8 +192,8 @@ New-AzResourceGroupDeployment -ResourceGroupName $groupname -Verbose `
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-* Lär dig mer om [kluster säkerhet](service-fabric-cluster-security.md).
-* Lär dig hur du [förnyar ett kluster certifikat](service-fabric-cluster-rollover-cert-cn.md)
-* [Uppdatera och hantera kluster certifikat](service-fabric-cluster-security-update-certs-azure.md)
+* Lär dig mer om [klustersäkerhet](service-fabric-cluster-security.md).
+* Lär dig hur du [övertäcker ett klustercertifikat](service-fabric-cluster-rollover-cert-cn.md)
+* [Uppdatera och hantera klustercertifikat](service-fabric-cluster-security-update-certs-azure.md)
 
 [image1]: ./media/service-fabric-cluster-change-cert-thumbprint-to-cn/PortalViewTemplates.png

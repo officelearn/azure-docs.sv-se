@@ -10,12 +10,12 @@ ms.topic: overview
 ms.date: 05/08/2019
 ms.author: mamccrea
 ms.custom: mvc
-ms.openlocfilehash: ed93f332c6361d2f7cd5189ee5fedf3d9f5cf82d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 53f1b9a2fde20cacccd0730213695f26c1200fa7
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75410451"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80132540"
 ---
 # <a name="what-is-azure-databricks"></a>Vad är Azure Databricks?
 
@@ -23,7 +23,7 @@ Azure Databricks är en Apache Spark-baserad analysplattform som är optimerad f
 
 ![Vad är Azure Databricks?](./media/what-is-azure-databricks/azure-databricks-overview.png "Vad är Azure Databricks?")
 
-Azure Databricks är en snabb och enkel Apache Spark-baserad analystjänst med samarbetsfunktioner. För en stordatapipeline matas data (rådata eller strukturerade data) in i Azure via Azure Data Factory i batchar eller strömmas i nära realtid med hjälp av Kafka, Event Hub eller IoT Hub. Dessa data hamnar i en datasjö för långsiktig beständig lagring i Azure Blob Storage eller Azure Data Lake Storage. Som en del av ditt analysarbetsflöde använder du Azure Databricks för att läsa data från flera datakällor såsom [Azure Blob Storage](../storage/blobs/storage-blobs-introduction.md), [Azure Data Lake Storage](../data-lake-store/index.md), [Azure Cosmos DB](../cosmos-db/index.yml) eller [Azure SQL Data Warehouse](../sql-data-warehouse/index.yml) och omvandlar dem till banbrytande insikter med hjälp av Spark.
+Azure Databricks är en snabb och enkel Apache Spark-baserad analystjänst med samarbetsfunktioner. För en stordatapipeline matas data (rådata eller strukturerade data) in i Azure via Azure Data Factory i batchar eller strömmas i nära realtid med hjälp av Kafka, Event Hub eller IoT Hub. Dessa data hamnar i en datasjö för långsiktig beständig lagring i Azure Blob Storage eller Azure Data Lake Storage. Som en del av ditt analysarbetsflöde använder du Azure Databricks för att läsa data från flera datakällor såsom [Azure Blob Storage](../storage/blobs/storage-blobs-introduction.md), [Azure Data Lake Storage](../data-lake-store/index.yml), [Azure Cosmos DB](../cosmos-db/index.yml) eller [Azure SQL Data Warehouse](../synapse-analytics/sql-data-warehouse/index.yml) och omvandlar dem till banbrytande insikter med hjälp av Spark.
 
 ![Databricks-pipeline](./media/what-is-azure-databricks/databricks-pipeline.png)
 
@@ -37,7 +37,7 @@ Azure Databricks består av Apache Spark-klusterteknik och funktioner med helt �
 
 * **Strömning**: Realtidsbearbetning av data och analys för analysprogram och interaktiva program. Integreras med HDFS, Flume och Kafka.
 
-* **MLlib**: Machine Learning bibliotek som består av vanliga Learning-algoritmer och-verktyg, inklusive klassificering, regression, klustring, samordnad filtrering, Dimensional reducering, samt underliggande optimerings primitiver.
+* **MLlib**: Machine Learning bibliotek bestående av vanliga lärande algoritmer och verktyg, inklusive klassificering, regression, klustring, samarbete filtrering, dimensionalitet minskning, samt underliggande optimering primitiver.
 
 * **GraphX**: Diagram och diagramberäkning för ett brett omfång av användarfall, från kognitiv analys till datautforskning.
 

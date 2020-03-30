@@ -9,35 +9,35 @@ ms.date: 02/06/2020
 ms.author: tagore
 ms.custom: include file
 ms.openlocfilehash: 57469bef7014010164234638f3d059ac96b125cf
-ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78383944"
 ---
-## <a name="what-is-the-time-required-for-migration"></a>Vad är den tid som krävs för migrering?
+## <a name="what-is-the-time-required-for-migration"></a>Hur länge krävs för migrering?
 
-Planering och utförande av migreringen beror avsevärt på arkitekturens komplexitet och det kan ta några månader.  
+Planering och genomförande av migrering beror i hög grad på arkitekturens komplexitet och kan ta några månader.  
 
-## <a name="what-is-the-definition-of-a-new-customer-on-iaas-vms-classic"></a>Vad är definitionen av en ny kund på virtuella IaaS-datorer (klassisk)?
+## <a name="what-is-the-definition-of-a-new-customer-on-iaas-vms-classic"></a>Vad är definitionen av en ny kund på IaaS virtuella datorer (klassisk)?
 
-Kunder som inte har IaaS virtuella datorer (klassisk) i sina prenumerationer under månaden Febrauary 2020 (en månad innan utgångs punkt startade) betraktas som nya kunder. 
+Kunder som inte hade IaaS virtuella datorer (klassisk) i sina prenumerationer i februari månad 2020 (en månad innan utfasningen startade) betraktas som nya kunder. 
 
 ## <a name="what-is-the-definition-of-an-existing-customer-on-iaas-virtual-machines-classic"></a>Vad är definitionen av en befintlig kund på IaaS Virtual Machines (klassisk)?
 
-Kunder som haft aktiva eller stoppade men allokerade IaaS-VM: ar (klassisk) i sina prenumerationer under månaden februari 2020 betraktas som en befintlig kund. Endast de här kunderna får fram till den 1 mars 2023 att migrera sina virtuella datorer från Azure Service Manager till Azure Resource Manager. 
+Kund som hade aktiva eller stoppade men tilldelat IaaS virtuella datorer (Classic) i sina prenumerationer i februari månad 2020 betraktas som en befintlig kund. Endast dessa kunder får fram till den 1 mars 2023 för att migrera sina virtuella datorer från Azure Service Manager till Azure Resource Manager. 
 
-## <a name="why-am-i-getting-an-error-stating-newclassicvmcreationnotallowedforsubscription"></a>Varför får jag ett fel meddelande om att "NewClassicVMCreationNotAllowedForSubscription"?
+## <a name="why-am-i-getting-an-error-stating-newclassicvmcreationnotallowedforsubscription"></a>Varför får jag ett felmeddelande om "NewClassicVMCreationNotAllowedForSubscription"?
 
-IaaS VM (klassisk) är inte längre tillgängligt för nya kunder som en del av indragnings processen. Vi har identifierat dig som nya kunder och därför var din åtgärd inte auktoriserad. Vi rekommenderar starkt att du använder [Azure Virtual Machines med arm](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-powershell). Om du inte kan använda virtuella Azure-datorer med ARM kontaktar du supporten för prenumerations vit listning.
+Som en del av pensionsprocessen är IaaS VM (klassisk) inte längre tillgängligt för nya kunder. Vi identifierade dig som nya kunder och därför var din verksamhet inte auktoriserad. Vi rekommenderar starkt att du använder [virtuella Azure-datorer med ARM](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-powershell). Om du inte kan använda virtuella Azure-datorer med ARM kontaktar du supporten för vitlistning av prenumerationer.
 
 ## <a name="does-this-migration-plan-affect-any-of-my-existing-services-or-applications-that-run-on-azure-virtual-machines"></a>Påverkar den här migreringsplanen några befintliga tjänster eller program som körs på virtuella Azure-datorer? 
 
-Inte förrän den 1 mars 2023 för virtuella IaaS-datorer (klassisk). De virtuella IaaS-datorerna (klassiska) är fullt tillgängliga tjänster som är allmänt tillgängliga. Du kan fortsätta att använda de här resurserna för att utöka storleken på Microsoft Azure. Den 1 mars 2023 kommer de virtuella datorerna att dras tillbaka och alla aktiva eller allokerade virtuella datorer stoppas & frigörs. Andra klassiska resurser påverkas inte, t. ex. Cloud Services (klassisk), lagrings konton (klassisk) osv.   
+Inte förrän den 1 mars 2023 för virtuella IaaS-datorer (klassisk). IaaS virtuella datorer (klassiska) stöds fullt ut tjänster i allmän tillgänglighet. Du kan fortsätta att använda de här resurserna för att utöka storleken på Microsoft Azure. Den 1 mars 2023 kommer dessa virtuella datorer att vara helt pensionerade och alla aktiva eller tilldelade virtuella datorer stoppas & deallocated. Det kommer inte att påverka andra klassiska resurser som Cloud Services (Classic), Storage Accounts (Classic), etc.   
 
 ## <a name="what-happens-to-my-vms-if-i-dont-plan-on-migrating-in-the-near-future"></a>Vad händer med mina virtuella datorer om jag inte planerar för migrering inom den närmaste framtiden? 
 
-Den 1 mars 2023 kommer virtuella IaaS-datorer (klassisk) att dras tillbaka och alla aktiva eller allokerade virtuella datorer stoppas & frigörs. För att förhindra påverkan på verksamheten, kommenterar vi hög kommentarer för att börja planera migreringen idag och slutföra den före den 1 mars 2023. Vi är inte föråldrade de befintliga klassiska API: erna, Cloud Services och resurs modellen. Vi vill att migreringen ska gå lätt och smidigt med tanke på de avancerade funktionerna i Resource Manager-distributionsmodellen. Vi rekommenderar att du börjar planera för att migrera de här resurserna till Azure Resource Manager. 
+Den 1 mars 2023 kommer IaaS virtuella datorer (Classic) att vara helt pensionerade och alla aktiva eller tilldelade virtuella datorer stoppas & deallocated. För att förhindra påverkan på verksamheten rekommenderar vi starkt att vi börjar planera din migrering idag och slutföra den före den 1 mars 2023. Vi inaktuella inte befintliga klassiska API:er, molntjänster och resursmodell. Vi vill att migreringen ska gå lätt och smidigt med tanke på de avancerade funktionerna i Resource Manager-distributionsmodellen. Vi rekommenderar att du börjar planera att migrera dessa resurser till Azure Resource Manager. 
 
 ## <a name="what-does-this-migration-plan-mean-for-my-existing-tooling"></a>Vad innebär den här migreringsplanen för mina befintliga verktyg? 
 
@@ -53,7 +53,7 @@ Du kan avbryta migreringen så länge resurserna är i förberedelsefasen. Åter
 
 ## <a name="can-i-roll-back-my-migration-if-the-commit-operation-fails"></a>Kan jag återställa migreringen om incheckningen misslyckas? 
 
-Du kan inte avbryta migreringen om incheckningen misslyckas. Alla migreringsåtgärder, inklusive incheckning, är idempotenta. Vi rekommenderar därför att du gör om åtgärden om en stund. Om du fortfarande stöter på ett fel kan du skapa ett support ärende.
+Du kan inte avbryta migreringen om incheckningen misslyckas. Alla migreringsåtgärder, inklusive incheckning, är idempotenta. Vi rekommenderar därför att du gör om åtgärden om en stund. Om du fortfarande stöter på ett fel skapar du en supportbiljett.
 
 ## <a name="do-i-have-to-buy-another-express-route-circuit-if-i-have-to-use-iaas-under-resource-manager"></a>Måste jag köpa en annan ExpressRoute-krets om jag måste använda IaaS med Resource Manager? 
 
@@ -63,24 +63,24 @@ Nej. Vi har nyligen gjort det möjligt att [flytta ExpressRoute-kretsar från kl
 
 Under migreringen omformas resurserna från klassiskt läge till Resource Manager-läge. Vi rekommenderar att du planerar de RBAC-principuppdateringar som behövs efter migreringen.
 
-## <a name="i-backed-up-my-classic-vms-in-a-vault-can-i-migrate-my-vms-from-classic-mode-to-resource-manager-mode-and-protect-them-in-a-recovery-services-vault"></a>Jag har säkerhetskopierat mina klassiska virtuella datorer i ett valv. Kan jag migrera mina virtuella datorer från klassiskt läge till Resource Manager-läge och skydda dem i ett Recovery Services-valv?
+## <a name="i-backed-up-my-classic-vms-in-a-vault-can-i-migrate-my-vms-from-classic-mode-to-resource-manager-mode-and-protect-them-in-a-recovery-services-vault"></a>Jag säkerhetskopierade mina klassiska virtuella datorer i ett valv. Kan jag migrera mina virtuella datorer från klassiskt läge till Resource Manager-läge och skydda dem i ett Recovery Services-valv?
 
-När du flyttar en virtuell dator från klassiskt läge till Resource Manager-läge migreras inte säkerhets kopior som togs innan migreringen till den nyligen migrerade Resource Manager-datorn. Men om du vill behålla dina säkerhets kopior av klassiska virtuella datorer följer du de här stegen innan du migrerar. 
+När du flyttar en virtuell dator från klassiskt till Resource Manager-läge migreras inte säkerhetskopior som gjorts före migreringen till nymigrerad vm i Resource Manager. Men om du vill behålla dina säkerhetskopior av klassiska virtuella datorer följer du dessa steg före migreringen. 
 
-1. I Recovery Services-valvet går du till fliken **skyddade objekt** och väljer den virtuella datorn. 
-2. Klicka på Sluta skydda. Lämna alternativet *Ta bort associerade säkerhetskopieringsdata***avmarkerat**.
+1. Gå till fliken **Skyddade objekt i valvet** för återställningstjänster och välj den virtuella datorn. 
+2. Klicka på Stoppa skydd. Lämna alternativet *Ta bort associerade säkerhetskopieringsdata***avmarkerat**.
 
 > [!NOTE]
-> Du debiteras reserv instans kostnaden för att spara data. Säkerhets kopior kommer att rensas enligt kvarhållningsintervall. Den senaste säkerhets kopian sparas dock alltid tills du uttryckligen tar bort säkerhetskopierade data. Vi rekommenderar att du kontrollerar kvarhållningsintervallet för den virtuella datorn och utlöser "ta bort säkerhets kopierings data" på det skyddade objektet i valvet när kvarhållningsintervallet är över. 
+> Du debiteras kostnaden för säkerhetskopieringsinstans tills du behåller data. Säkerhetskopior kommer att beskäras enligt kvarhållningsintervallet. Den senaste säkerhetskopian sparas dock alltid tills du uttryckligen tar bort säkerhetskopierade data. Det rekommenderas att kontrollera din kvarhållningsintervall för den virtuella datorn och utlösa "Ta bort säkerhetskopierade data" på det skyddade objektet i valvet när kvarhållningsområdet är över. 
 >
 >
 
-För att migrera den virtuella datorn till Resource Manager-läge 
+Om du vill migrera den virtuella datorn till Resource Manager-läge 
 
 1. Ta bort tillägget för säkerhetskopiering/ögonblicksbild från den virtuella datorn.
 2. Migrera den virtuella datorn från klassiskt läge till Resource Manager-läge. Kontrollera att lagrings- och nätverksinformationen för den virtuella datorn också migreras till Resource Manager-läge.
 
-Om du vill säkerhetskopiera den migrerade virtuella datorn går du vidare till bladet hantering av virtuell dator för att [Aktivera säkerhets kopiering](../articles/backup/quick-backup-vm-portal.md#enable-backup-on-a-vm).
+Om du vill säkerhetskopiera den migrerade virtuella datorn går du dessutom till hanteringsbladet för virtuella datorer för att [aktivera säkerhetskopiering](../articles/backup/quick-backup-vm-portal.md#enable-backup-on-a-vm).
 
 ## <a name="can-i-validate-my-subscription-or-resources-to-see-if-theyre-capable-of-migration"></a>Kan jag verifiera prenumeration eller resurser för att se om de kan migreras? 
 
@@ -102,6 +102,6 @@ Alla resursnamn som du uttryckligen angett i den klassiska distributionsmodellen
 
 ExpressRoute-kretsar som använder auktoriseringslänkar över flera prenumerationer migreras inte automatiskt utan driftavbrott. Det finns information om hur de kan migreras manuellt. Anvisningar och mer information finns i [Migrate ExpressRoute circuits and associated virtual networks from the classic to the Resource Manager deployment model](../articles/expressroute/expressroute-migration-classic-resource-manager.md) (Migrera ExpressRoute-kretsar och tillhörande virtuella nätverk från klassisk till Resource Manager-distributionsmodell).
 
-## <a name="i-got-the-message-vm-is-reporting-the-overall-agent-status-as-not-ready-hence-the-vm-cannot-be-migrated-ensure-that-the-vm-agent-is-reporting-overall-agent-status-as-ready-or-vm-contains-extension-whose-status-is-not-being-reported-from-the-vm-hence-this-vm-cannot-be-migrated"></a>Jag fick meddelandet *"den virtuella datorn rapporterar den övergripande agent statusen som inte klar. Den virtuella datorn kan därför inte migreras. Se till att den virtuella dator agenten rapporterar övergripande agent status som färdig "* eller *" VM innehåller tillägg vars status inte rapporteras från den virtuella datorn. Den här virtuella datorn kan därför inte migreras. "*
+## <a name="i-got-the-message-vm-is-reporting-the-overall-agent-status-as-not-ready-hence-the-vm-cannot-be-migrated-ensure-that-the-vm-agent-is-reporting-overall-agent-status-as-ready-or-vm-contains-extension-whose-status-is-not-being-reported-from-the-vm-hence-this-vm-cannot-be-migrated"></a>Jag fick meddelandet *"VM rapporterar den övergripande agentstatus som inte redo. Därför kan den virtuella datorn inte migreras. Kontrollera att VM-agenten rapporterar övergripande agentstatus som klar* eller *"VM innehåller tillägg vars status inte rapporteras från den virtuella datorn. Därför kan den här virtuella datorn inte migreras."*
 
 Det här meddelandet visas när den virtuella datorn saknar utgående anslutning till Internet. Den virtuella datoragenten använder utgående anslutning till Azure Storage-konto för att uppdatera agentstatusen var femte minut.

@@ -9,10 +9,10 @@ ms.date: 07/31/2019
 ms.author: rajanaki
 ms.custom: mvc
 ms.openlocfilehash: c9f10815f2fbc8a17b8b712b6e5f8391fc7d541e
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75980286"
 ---
 # <a name="protect-a-file-server-by-using-azure-site-recovery"></a>Skydda en filserver med hjälp av Azure Site Recovery 
@@ -45,7 +45,7 @@ I det föregående diagrammet deltar flera filservrar som kallas för medlemmar 
 
     * Du kan använda den här metoden om dina virtuella datorer har konfigurationer som inte stöds av Site Recovery. Ett exempel är en delad klusterdisk, som ibland används i filservermiljöer. DFSR fungerar också bra i miljöer med låg bandbredd med medelhög kundomsättning. Du måste ta hänsyn till den extra kostnaden med att ha en virtuell Azure-dator igång hela tiden. 
 
-* **Använd Azure File Sync för att replikera dina filer**: om du planerar att använda molnet eller redan använder en virtuell Azure-dator kan du använda Azure File Sync. Azure File Sync erbjuder synkronisering av fullständigt hanterade fil resurser i molnet som är tillgängliga via SMB-protokollet ( [Server Message Block](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) ) som är bransch standard. Azure-filresurser kan sedan monteras samtidigt av molndistributioner eller lokala distributioner av Windows, Linux och macOS. 
+* **Använd Azure File Sync för att replikera dina filer:** Om du planerar att använda molnet eller redan använder en Azure VM kan du använda Azure File Sync. Azure File Sync erbjuder synkronisering av fullständigt hanterade filresurser i molnet som är tillgängliga via SMB-protokollet [(Industry-standard Server Message Block).](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) Azure-filresurser kan sedan monteras samtidigt av molndistributioner eller lokala distributioner av Windows, Linux och macOS. 
 
 Följande diagram hjälper dig att avgöra vilken strategi du ska använda för din filservermiljö.
 
@@ -56,9 +56,9 @@ Följande diagram hjälper dig att avgöra vilken strategi du ska använda för 
 
 |Miljö  |Rekommendation  |Några saker att tänka på |
 |---------|---------|---------|
-|Filservermiljö med eller utan DFSR|   [Använda Site Recovery för replikering](#replicate-an-on-premises-file-server-by-using-site-recovery)   |    Site Recovery stöder inte delade diskkluster eller nätverksansluten lagring (NAS). Om din miljö använder de här konfigurationerna kan du använda någon av de andra metoderna. <br> Site Recovery stöder inte SMB 3.0. Den replikerade virtuella datorn ändras bara när ändringar som gjorts av filen uppdateras på den ursprungliga platser för filerna.<br>  Site Recovery erbjuder en nära synkron datareplikering och därmed i händelse av ett oplanerat failover-scenario, kan det finnas potentiell data förlust och kan skapa USN-matchnings problem.
+|Filservermiljö med eller utan DFSR|   [Använda Site Recovery för replikering](#replicate-an-on-premises-file-server-by-using-site-recovery)   |    Site Recovery stöder inte delade diskkluster eller nätverksansluten lagring (NAS). Om din miljö använder de här konfigurationerna kan du använda någon av de andra metoderna. <br> Site Recovery stöder inte SMB 3.0. Den replikerade virtuella datorn ändras bara när ändringar som gjorts av filen uppdateras på den ursprungliga platser för filerna.<br>  Site Recovery erbjuder en nästan synkron datareplikeringsprocess, och i händelse av ett oplanerat redundansscenario kan det finnas potentiella dataförluster och kan skapa problem med USN-felmatchning.
 |Filservermiljö med DFSR     |  [Utöka DFSR till en virtuell Azure IaaS-dator](#extend-dfsr-to-an-azure-iaas-virtual-machine)  |      DFSR fungerar bra i miljöer med extrem bandbreddsbegränsning. Den här metoden kräver en virtuell Azure-dator som är igång hela tiden. Du måste kunna redovisa kostnaden för den virtuella datorn i planeringen.         |
-|Virtuell Azure IaaS-dator     |     File Sync    |     Om du använder File Sync i ett haveriberedskapsscenario måste du under redundansväxling vidta manuella åtgärder för att se till att filresurserna är tillgängliga för klientdatorn på ett transparent sätt. File Sync kräver att port 445 är öppen från klientdatorn.     |
+|Virtuell Azure IaaS-dator     |     File Sync     |     Om du använder File Sync i ett haveriberedskapsscenario måste du under redundansväxling vidta manuella åtgärder för att se till att filresurserna är tillgängliga för klientdatorn på ett transparent sätt. File Sync kräver att port 445 är öppen från klientdatorn.     |
 
 
 ### <a name="site-recovery-support"></a>Site Recovery-stöd
@@ -97,7 +97,7 @@ Azure Files kan användas för att fullständigt ersätta eller komplettera trad
 
 Följande steg beskriver kort hur du använder File Sync:
 
-1. [Skapa ett lagringskonto i Azure](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account?toc=%2fazure%2fstorage%2ffiles%2ftoc.json). Om du har valt geo-redundant lagring med läsåtkomst får du läsåtkomst för dina data från den sekundära regionen vid ett haveri. Mer information finns [i haveri beredskap och framtvinga redundans (för hands version) i Azure Storage](../storage/common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2ffiless%2ftoc.json).
+1. [Skapa ett lagringskonto i Azure](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account?toc=%2fazure%2fstorage%2ffiles%2ftoc.json). Om du har valt geo-redundant lagring med läsåtkomst får du läsåtkomst för dina data från den sekundära regionen vid ett haveri. Mer information finns i [Katastrofåterställning och påtvingad redundans (förhandsversion) i Azure Storage](../storage/common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2ffiless%2ftoc.json).
 2. [Skapa en filresurs](https://docs.microsoft.com/azure/storage/files/storage-how-to-create-file-share).
 3. [Starta File Sync](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide) på din Azure-filserver.
 4. Skapa en synkroniseringsgrupp. Slutpunkter i en synkroniseringsgrupp synkroniseras med varandra. En synkroniseringsgrupp måste innehålla minst en molnslutpunkt, som representerar en Azure-filresurs. En synkroniseringsgrupp måste även innehålla en serverslutpunkt, som representerar en sökväg på en Windows-server.
@@ -120,7 +120,7 @@ Mer information om haveriberedskap för en sekundär region finns i [den här ar
 
 I följande steg beskrivs replikering för en virtuell VMware-dator. Stegen för replikering av en virtuell Hyper-V-dator finns i [den här självstudien](tutorial-hyper-v-to-azure.md).
 
-1. [Förbereda Azure-resurser](tutorial-prepare-azure.md) för replikering av lokala datorer.
+1. [Förbered Azure-resurser](tutorial-prepare-azure.md) för replikering av lokala datorer.
 2. Upprätta en VPN-anslutning för plats-till-plats mellan den lokala platsen och Azure-nätverket. 
 3. Utöka lokal Active Directory.
 4. [Förbereda lokal VMware-servrar](tutorial-prepare-on-premises-vmware.md).
@@ -146,7 +146,7 @@ Integrera File Sync med Site Recovery:
 
 Följ dessa steg om du vill använda File Sync:
 
-1. [Skapa ett lagringskonto i Azure](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account?toc=%2fazure%2fstorage%2ffiles%2ftoc.json). Om du har valt geo-redundant lagring (rekommenderas) med läsåtkomst har du läsåtkomst för dina data från den sekundära regionen vid ett haveri. Mer information finns [i haveri beredskap och framtvinga redundans (för hands version) i Azure Storage](../storage/common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2ffiless%2ftoc.json)..
+1. [Skapa ett lagringskonto i Azure](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account?toc=%2fazure%2fstorage%2ffiles%2ftoc.json). Om du har valt geo-redundant lagring (rekommenderas) med läsåtkomst har du läsåtkomst för dina data från den sekundära regionen vid ett haveri. Mer information finns i [Haveriberedskap och påtvingad redundans (förhandsversion) i Azure Storage](../storage/common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2ffiless%2ftoc.json)..
 2. [Skapa en filresurs](https://docs.microsoft.com/azure/storage/files/storage-how-to-create-file-share).
 3. [Distribuera File Sync](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide) på den lokala filservern.
 4. Skapa en synkroniseringsgrupp. Slutpunkter i en synkroniseringsgrupp synkroniseras med varandra. En synkroniseringsgrupp måste innehålla minst en molnslutpunkt, som representerar en Azure-filresurs. Synkroniseringsgruppen måste även innehålla en serverslutpunkt, som representerar en sökväg på den lokala Windows-servern.

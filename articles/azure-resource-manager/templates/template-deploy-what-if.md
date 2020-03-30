@@ -1,29 +1,29 @@
 ---
-title: Malldistribution vad-om (för hands version)
-description: Ta reda på vilka ändringar som sker i resurserna innan du distribuerar en Azure Resource Manager-mall.
+title: Malldistribution what-if (förhandsgranska)
+description: Bestäm vilka ändringar som ska hända med dina resurser innan du distribuerar en Azure Resource Manager-mall.
 author: mumian
 ms.topic: conceptual
 ms.date: 03/05/2020
 ms.author: jgao
-ms.openlocfilehash: b9d4150779842614a5dc284a2b3a489593fabfe1
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: bc42585204e5cc2c3ece5293a3934fd22fe8507b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78388509"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80156454"
 ---
-# <a name="resource-manager-template-deployment-what-if-operation-preview"></a>Resource Manager-mall för att distribuera konsekvens åtgärder (för hands version)
+# <a name="arm-template-deployment-what-if-operation-preview"></a>Arm-malldistribution vad händer om -åtgärd (förhandsversion)
 
-Innan du distribuerar en mall kanske du vill förhandsgranska de ändringar som kommer att ske. Azure Resource Manager tillhandahåller åtgärden vad händer om du kan se hur resurser kommer att ändras om du distribuerar mallen. Konsekvens åtgärden gör inga ändringar i befintliga resurser. I stället förväntas ändringarna om den angivna mallen distribueras.
+Innan du distribuerar en ARM-mall (Azure Resource Manager) kanske du vill förhandsgranska de ändringar som ska ske. Azure Resource Manager tillhandahåller vad händer om-åtgärden så att du kan se hur resurser kommer att ändras om du distribuerar mallen. Vad händer om-åtgärden gör inga ändringar i befintliga resurser. I stället förutses ändringarna om den angivna mallen distribueras.
 
 > [!NOTE]
-> Konsekvens åtgärden är för närvarande en för hands version. Du måste [Registrera dig för för hands versionen för](https://aka.ms/armtemplatepreviews)att kunna använda den. Som en för hands version kan resultatet ibland visa att en resurs kommer att ändras när ingen ändring sker. Vi arbetar för att minska problemen, men vi behöver din hjälp. Rapportera de här problemen på [https://aka.ms/whatifissues](https://aka.ms/whatifissues).
+> Vad händer om-åtgärden är för närvarande i förhandsversion. Om du vill använda den måste du [registrera dig för förhandsgranskningen](https://aka.ms/armtemplatepreviews). Som en förhandsversion kan resultaten ibland visa att en resurs ändras när det faktiskt inte sker någon ändring. Vi arbetar för att minska dessa frågor, men vi behöver din hjälp. Vänligen rapportera dessa [https://aka.ms/whatifissues](https://aka.ms/whatifissues)frågor på .
 
-Du kan använda åtgärden vad händer om med PowerShell-kommandon eller REST API åtgärder.
+Du kan använda vad händer om-åtgärden med PowerShell-kommandona eller REST API-åtgärder.
 
 I PowerShell innehåller utdata färgkodade resultat som hjälper dig att se de olika typerna av ändringar.
 
-![Resource Manager-mall distribution av konsekvens åtgärder fullresourcepayload och ändrings typer](./media/template-deploy-what-if/resource-manager-deployment-whatif-change-types.png)
+![Resurshanterarens malldistribution what-if-åtgärd fullresourcepayload och ändra typer](./media/template-deploy-what-if/resource-manager-deployment-whatif-change-types.png)
 
 Texten ouptput är:
 
@@ -56,60 +56,60 @@ Resource changes: 1 to modify.
 
 ## <a name="what-if-commands"></a>Vad händer om-kommandon
 
-Du kan använda antingen Azure PowerShell eller Azure-REST API för konsekvens åtgärden.
+Du kan använda antingen Azure PowerShell eller Azure REST API för vad händer om-åtgärden.
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 
-Om du vill se en förhands granskning av ändringarna innan du distribuerar en mall, lägger du till parametern `-Whatif` switch i distributions kommandot.
+Om du vill se en förhandsgranskning av `-Whatif` ändringarna innan du distribuerar en mall lägger du till växelparametern i distributionskommandot.
 
-* `New-AzResourceGroupDeployment -Whatif` för resurs grupps distributioner
-* `New-AzSubscriptionDeployment -Whatif` och `New-AzDeployment -Whatif` för distributioner på prenumerations nivå
+* `New-AzResourceGroupDeployment -Whatif`för resursgruppsdistributioner
+* `New-AzSubscriptionDeployment -Whatif`och `New-AzDeployment -Whatif` för prenumerationsnivådistributioner
 
-Eller så kan du använda parametern `-Confirm` växel för att förhandsgranska ändringarna och uppmanas att fortsätta med distributionen.
+Du kan också `-Confirm` använda switchparametern för att förhandsgranska ändringarna och uppmanas att fortsätta med distributionen.
 
-* `New-AzResourceGroupDeployment -Confirm` för resurs grupps distributioner
-* `New-AzSubscriptionDeployment -Confirm` och `New-AzDeployment -Confirm` för distributioner på prenumerations nivå
+* `New-AzResourceGroupDeployment -Confirm`för resursgruppsdistributioner
+* `New-AzSubscriptionDeployment -Confirm`och `New-AzDeployment -Confirm` för prenumerationsnivådistributioner
 
-Föregående kommandon returnerar en text sammanfattning som du kan kontrol lera manuellt. Om du vill hämta ett objekt som du kan använda för att kontrol lera ändringar använder du:
+De föregående kommandona returnerar en textsammanfattning som du kan granska manuellt. Om du vill hämta ett objekt som du kan programmässigt inspektera för ändringar använder du:
 
-* `$results = Get-AzResourceGroupDeploymentWhatIf` för resurs grupps distributioner
-* `$results = Get-AzSubscriptionDeploymentWhatIf` eller `$results = Get-AzDeploymentWhatIf` för distributioner på prenumerations nivå
+* `$results = Get-AzResourceGroupDeploymentWhatIf`för resursgruppsdistributioner
+* `$results = Get-AzSubscriptionDeploymentWhatIf`eller `$results = Get-AzDeploymentWhatIf` för prenumerationsnivådistributioner
 
 > [!NOTE]
-> Före lanseringen av alpha5-versionen av version 2.0.1 användes kommandot `New-AzDeploymentWhatIf`. Det här kommandot har ersatts av kommandona `Get-AzDeploymentWhatIf`, `Get-AzResourceGroupDeploymentWhatIf`och `Get-AzSubscriptionDeploymentWhatIf`. Om du har använt en tidigare version måste du uppdatera den syntaxen. Parametern `-ScopeType` har tagits bort.
+> Innan version 2.0.1-alpha5 släpptes använde `New-AzDeploymentWhatIf` du kommandot. Det här kommandot har `Get-AzDeploymentWhatIf` `Get-AzResourceGroupDeploymentWhatIf`ersatts `Get-AzSubscriptionDeploymentWhatIf` av kommandona , och . Om du har använt en tidigare version måste du uppdatera syntaxen. Parametern `-ScopeType` har tagits bort.
 
-### <a name="azure-rest-api"></a>Azure-REST API
+### <a name="azure-rest-api"></a>REST-API för Azure
 
-För REST API använder du:
+För REST API, använd:
 
-* [Distributioner – what if](/rest/api/resources/deployments/whatif) för resurs grupps distributioner
-* [Distributioner – what if vid prenumerations omfång](/rest/api/resources/deployments/whatifatsubscriptionscope) för distributioner på prenumerations nivå
+* [Distributioner - Vad händer om](/rest/api/resources/deployments/whatif) för resursgruppsdistributioner
+* [Distributioner – Vad händer om i prenumerationsscope](/rest/api/resources/deployments/whatifatsubscriptionscope) för prenumerationsnivådistributioner
 
 ## <a name="change-types"></a>Ändra typer
 
-Åtgärden konsekvens visar sex olika typer av ändringar:
+I åtgärden Vad händer om visas sex olika typer av ändringar:
 
-- **Skapa**: resursen finns inte för närvarande, men den har definierats i mallen. Resursen kommer att skapas.
+- **Skapa**: Resursen finns för närvarande inte men definieras i mallen. Resursen skapas.
 
-- **Ta bort**: den här ändrings typen gäller endast när [slutfört läge](deployment-modes.md) används för distribution. Resursen finns, men har inte definierats i mallen. Med slutfört läge tas resursen bort. Endast resurser som [stöder fullständig borttagning av läge](complete-mode-deletion.md) ingår i den här ändrings typen.
+- **Ta bort**: Den här ändringstypen gäller endast när du använder [fullständigt läge](deployment-modes.md) för distribution. Resursen finns, men definieras inte i mallen. Med fullständigt läge tas resursen bort. Endast resurser som [stöder fullständig borttagning av läge](complete-mode-deletion.md) ingår i den här ändringstypen.
 
-- **Ignorera**: resursen finns, men har inte definierats i mallen. Resursen kommer inte att distribueras eller ändras.
+- **Ignorera**: Resursen finns, men definieras inte i mallen. Resursen kommer inte att distribueras eller ändras.
 
-- **Nochang**: resursen finns och definieras i mallen. Resursen kommer att omdistribueras, men egenskaperna för resursen ändras inte. Den här ändrings typen returneras när [ResultFormat](#result-format) är inställt på `FullResourcePayloads`, vilket är standardvärdet.
+- **NoChange**: Resursen finns och definieras i mallen. Resursen kommer att distribueras om, men resursens egenskaper ändras inte. Den här ändringstypen returneras `FullResourcePayloads`när [ResultFormat](#result-format) är inställt på , vilket är standardvärdet.
 
-- **Ändra**: resursen finns och definieras i mallen. Resursen kommer att omdistribueras och egenskaperna för resursen ändras. Den här ändrings typen returneras när [ResultFormat](#result-format) är inställt på `FullResourcePayloads`, vilket är standardvärdet.
+- **Ändra**: Resursen finns och definieras i mallen. Resursen distribueras om och resursens egenskaper ändras. Den här ändringstypen returneras `FullResourcePayloads`när [ResultFormat](#result-format) är inställt på , vilket är standardvärdet.
 
-- **Distribuera**: resursen finns och definieras i mallen. Resursen kommer att omdistribueras. Egenskaperna för resursen kanske inte ändras. Åtgärden returnerar den här ändrings typen när den inte har tillräckligt med information för att avgöra om några egenskaper kommer att ändras. Du ser bara det här villkoret när [ResultFormat](#result-format) är inställt på `ResourceIdOnly`.
+- **Distribuera**: Resursen finns och definieras i mallen. Resursen kommer att distribueras om. Resursens egenskaper kan ändras eller inte. Åtgärden returnerar den här ändringstypen när den inte har tillräckligt med information för att avgöra om några egenskaper kommer att ändras. Du ser bara det här villkoret när [ResultFormat](#result-format) är inställt på `ResourceIdOnly`.
 
-## <a name="result-format"></a>Resultat format
+## <a name="result-format"></a>Resultatformat
 
-Du kan styra detalj nivån som returneras om förväntade ändringar. Använd parametern **-WhatIfResultFormat** i distributions kommandona (`New-Az*Deployment`). I programmerings objekts kommandona (`Get-Az*DeploymentWhatIf`) använder du parametern **ResultFormat** .
+Du kan styra detaljnivån som returneras om de förväntade ändringarna. I distributionskommandona`New-Az*Deployment`( ) använder du parametern **-WhatIfResultFormat.** Använd parametern **ResultFormat** `Get-Az*DeploymentWhatIf`i programmatiska objektkommandon ( ).
 
-Ställ in parametern format på **FullResourcePayloads** för att hämta en lista över resurser som kommer att ändras och information om de egenskaper som kommer att ändras. Ställ in parametern format på **ResourceIdOnly** för att hämta en lista över resurser som kommer att ändras. Standardvärdet är **FullResourcePayloads**.  
+Ange formatparametern till **FullResourcePayloads** för att få en lista över resurser som kommer att ändras och information om de egenskaper som kommer att ändras. Ange formatparametern till **ResourceIdOnly** för att få en lista över resurser som ska ändras. Standardvärdet är **FullResourcePayloads**.  
 
 Följande resultat visar de två olika utdataformaten:
 
-- Fullständiga resurs nytto laster
+- Fullständiga resursnyttolaster
 
   ```powershell
   Resource and property changes are indicated with these symbols:
@@ -153,11 +153,11 @@ Följande resultat visar de två olika utdataformaten:
   Resource changes: 1 to deploy.
   ```
 
-## <a name="run-what-if-operation"></a>Kör konsekvens Åtgärd
+## <a name="run-what-if-operation"></a>Kör vad händer om-åtgärden
 
 ### <a name="set-up-environment"></a>Konfigurera miljö
 
-För att se hur det fungerar kan vi köra vissa tester. Distribuera först en [mall som skapar ett virtuellt nätverk](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/what-if/what-if-before.json). Du använder det här virtuella nätverket för att testa hur ändringar rapporteras av vad-om.
+För att se hur vad-om fungerar, låt oss köra några tester. Distribuera först en [mall som skapar ett virtuellt nätverk](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/what-if/what-if-before.json). Du ska använda det här virtuella nätverket för att testa hur ändringar rapporteras av vad händer om.
 
 ```azurepowershell
 New-AzResourceGroup `
@@ -168,9 +168,9 @@ New-AzResourceGroupDeployment `
   -TemplateUri "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/what-if/what-if-before.json"
 ```
 
-### <a name="test-modification"></a>Test ändring
+### <a name="test-modification"></a>Teständring
 
-När distributionen är klar är du redo att testa konsekvens åtgärden. Nu ska du distribuera en [mall som ändrar det virtuella nätverket](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/what-if/what-if-after.json). Det saknas en ursprunglig tagg, ett undernät har tagits bort och adressprefixet har ändrats.
+När distributionen är klar är du redo att testa vad händer om-åtgärden. Den här gången distribuera en [mall som ändrar det virtuella nätverket](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/what-if/what-if-after.json). Det saknas en av de ursprungliga taggarna, ett undernät har tagits bort och adressprefixet har ändrats.
 
 ```azurepowershell
 New-AzResourceGroupDeployment `
@@ -179,11 +179,11 @@ New-AzResourceGroupDeployment `
   -TemplateUri "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/what-if/what-if-after.json"
 ```
 
-Vad-om-utdata ser ut ungefär så här:
+Vad händer om-utdata liknar:
 
-![Resource Manager-mall distribution av konsekvens åtgärder](./media/template-deploy-what-if/resource-manager-deployment-whatif-change-types.png)
+![Resurshanterarens malldistribution vad händer om-utdata för åtgärden](./media/template-deploy-what-if/resource-manager-deployment-whatif-change-types.png)
 
-Textens utdata är:
+Textutdata är:
 
 ```powershell
 Resource and property changes are indicated with these symbols:
@@ -212,15 +212,15 @@ Scope: /subscriptions/./resourceGroups/ExampleGroup
 Resource changes: 1 to modify.
 ```
 
-Observera överst i utdata som färger definieras för att ange typ av ändringar.
+Observera högst upp i utdata att färger definieras för att ange typen av ändringar.
 
-Längst ned i utdata visas taggens ägare borttagen. Adressprefixet har ändrats från 10.0.0.0/16 till 10.0.0.0/15. Under nätet med namnet subnet001 togs bort. Kom ihåg att ändringarna inte distribuerades i själva verket. Du ser en förhands granskning av de ändringar som sker om du distribuerar mallen.
+Längst ned i utdata visas taggen Ägare har tagits bort. Adressprefixet ändrades från 10.0.0.0/16 till 10.0.0.0/15. Undernätet med namnet undernät001 har tagits bort. Kom ihåg att ändringarna inte har distribuerats. Du ser en förhandsgranskning av de ändringar som ska ske om du distribuerar mallen.
 
-Några av egenskaperna som visas som borttagna ändras inte. Egenskaper kan rapporteras felaktigt som borttagna när de inte finns i mallen, utan anges automatiskt under distributionen som standardvärden. Resultatet betraktas som "brus" i svaret. Den slutgiltiga distribuerade resursen kommer att ha värdena som angetts för egenskaperna. När konsekvens åtgärden mognar kommer dessa egenskaper att filtreras bort från resultatet.
+Vissa av de egenskaper som visas som borttagna ändras inte. Egenskaper kan rapporteras felaktigt som borttagna när de inte finns i mallen, men ställs automatiskt in under distributionen som standardvärden. Detta resultat anses vara "brus" i vad händer om-svaret. Den slutliga distribuerade resursen har värdena inställda för egenskaperna. När vad-händer-om-åtgärden mognar filtreras dessa egenskaper bort från resultatet.
 
-## <a name="programmatically-evaluate-what-if-results"></a>Utvärdera vad som händer genom programmering
+## <a name="programmatically-evaluate-what-if-results"></a>Programmässigt utvärdera vad händer om-resultat
 
-Nu ska vi program mässigt utvärdera vad-om-resultatet genom att ange kommandot till en variabel.
+Nu ska vi programmässigt utvärdera vad händer om-resultaten genom att ange kommandot till en variabel.
 
 ```azurepowershell
 $results = Get-AzResourceGroupDeploymentWhatIf `
@@ -239,9 +239,9 @@ foreach ($change in $results.Changes)
 
 ## <a name="confirm-deletion"></a>Bekräfta borttagning
 
-Konsekvens åtgärden stöder användning av [distributions läge](deployment-modes.md). När du har angett till slutfört läge raderas inte resurser som inte finns i mallen. I följande exempel distribueras en [mall som inte har några definierade resurser](https://github.com/Azure/azure-docs-json-samples/blob/master/empty-template/azuredeploy.json) i komplett läge.
+Vad händer om-åtgärden stöder användning av [distributionsläge](deployment-modes.md). När du är inställd på ett färdigt läge tas resurser som inte finns i mallen bort. I följande exempel distribueras en [mall som inte har några resurser definierade](https://github.com/Azure/azure-docs-json-samples/blob/master/empty-template/azuredeploy.json) i fullständigt läge.
 
-Om du vill förhandsgranska ändringar innan du distribuerar en mall använder du parametern `-Confirm` växel med kommandot Deployment. Om ändringarna visas som du förväntade dig, bekräftar du att du vill att distributionen ska slutföras.
+Om du vill förhandsgranska ändringar innan `-Confirm` du distribuerar en mall använder du switchparametern med distributionskommandot. Om ändringarna är som förväntat bekräftar du att du vill att distributionen ska slutföras.
 
 ```azurepowershell
 New-AzResourceGroupDeployment `
@@ -251,11 +251,11 @@ New-AzResourceGroupDeployment `
   -Mode Complete
 ```
 
-Eftersom inga resurser har definierats i mallen och distributions läget är inställt på Slutför, tas det virtuella nätverket bort.
+Eftersom inga resurser har definierats i mallen och distributionsläget är inställt på att slutföras tas det virtuella nätverket bort.
 
-![Resource Manager-mall distributions läge för konsekvens distribution av utdata slutförs](./media/template-deploy-what-if/resource-manager-deployment-whatif-output-mode-complete.png)
+![Resurshanterarens malldistribution what-if-driftutdatadistributionsläge har slutförts](./media/template-deploy-what-if/resource-manager-deployment-whatif-output-mode-complete.png)
 
-Textens utdata är:
+Textutdata är:
 
 ```powershell
 Resource and property changes are indicated with this symbol:
@@ -286,6 +286,6 @@ Du ser de förväntade ändringarna och kan bekräfta att du vill att distributi
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Om du upptäcker felaktiga resultat från för hands versionen av vad-om, kan du rapportera problemen på [https://aka.ms/whatifissues](https://aka.ms/whatifissues).
-- Information om hur du distribuerar mallar med Azure PowerShell finns i [distribuera resurser med Resource Manager-mallar och Azure PowerShell](deploy-powershell.md).
-- Information om hur du distribuerar mallar med REST finns i [distribuera resurser med Resource Manager-mallar och Resource Manager-REST API](deploy-rest.md).
+- Om du märker felaktiga resultat från förhandsversionen av vad [https://aka.ms/whatifissues](https://aka.ms/whatifissues)händer om, vänligen rapportera problemen på .
+- Information om hur du distribuerar mallar med Azure PowerShell finns [i Distribuera resurser med ARM-mallar och Azure PowerShell](deploy-powershell.md).
+- Information om hur du distribuerar mallar med REST finns [i Distribuera resurser med ARM-mallar och RESURSHANTERARENS REST API](deploy-rest.md).

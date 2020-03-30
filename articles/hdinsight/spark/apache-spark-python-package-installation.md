@@ -1,183 +1,157 @@
 ---
-title: Skript åtgärd för python-paket med Jupyter på Azure HDInsight
-description: Stegvisa instruktioner för hur du använder skript åtgärd för att konfigurera Jupyter-anteckningsböcker som är tillgängliga med HDInsight Spark-kluster för att använda externa python-paket.
+title: Skriptåtgärd för Python-paket med Jupyter på Azure HDInsight
+description: Steg-för-steg-instruktioner om hur du använder skriptåtgärd för att konfigurera Jupyter-anteckningsböcker som är tillgängliga med HDInsight Spark-kluster för att använda externa python-paket.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 11/19/2019
-ms.openlocfilehash: 98326d23f5aca1264bc47168cc25b427c3db331d
-ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
+ms.date: 03/16/2020
+ms.openlocfilehash: 659af8b85cb3736d663e79676b04af8041aeabfb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2020
-ms.locfileid: "79135963"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80129613"
 ---
 # <a name="safely-manage-python-environment-on-azure-hdinsight-using-script-action"></a>Hantera Python-miljön i Azure HDInsight på ett säkert sätt med skriptåtgärd
 
 > [!div class="op_single_selector"]
-> * [Använda cell Magic](apache-spark-jupyter-notebook-use-external-packages.md)
-> * [Använda skript åtgärd](apache-spark-python-package-installation.md)
+> * [Använda cellmagi](apache-spark-jupyter-notebook-use-external-packages.md)
+> * [Använda skriptåtgärd](apache-spark-python-package-installation.md)
 
-HDInsight har två inbyggda python-installationer i Spark-klustret, Anaconda python 2,7 och python 3,5. I vissa fall behöver kunderna anpassa python-miljön, t. ex. installera externa python-paket eller en annan python-version. I den här artikeln visar vi bästa praxis för säker hantering av python-miljöer för ett [Apache Spark](https://spark.apache.org/) kluster i HDInsight.
+HDInsight har två inbyggda Python-installationer i Spark-klustret, Anaconda Python 2.7 och Python 3.5. I vissa fall måste kunderna anpassa Python-miljön, till exempel installera externa Python-paket eller en annan Python-version. I den här artikeln visar vi bästa praxis för att hantera Python-miljöer på ett säkert sätt för ett [Apache Spark-kluster](./apache-spark-overview.md) på HDInsight.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-* En Azure-prenumeration. Se [Hämta en kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+Ett Apache Spark-kluster i HDInsight. Anvisningar finns i [Skapa Apache Spark-kluster i Azure HDInsight](apache-spark-jupyter-spark-sql.md). Om du inte redan har ett Spark-kluster på HDInsight kan du köra skriptåtgärder när klustret skapas. Besök dokumentationen om [hur du använder anpassade skriptåtgärder](../hdinsight-hadoop-customize-cluster-linux.md).
 
-* Ett Apache Spark-kluster i HDInsight. Anvisningar finns i [Skapa Apache Spark-kluster i Azure HDInsight](apache-spark-jupyter-spark-sql.md).
+## <a name="support-for-open-source-software-used-on-hdinsight-clusters"></a>Stöd för programvara med öppen källkod som används i HDInsight-kluster
 
-   > [!NOTE]  
-   > Om du inte redan har ett Spark-kluster i HDInsight Linux kan du köra skript åtgärder när klustret skapas. Gå till dokumentationen om [hur du använder anpassade skript åtgärder](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-customize-cluster-linux).
-
-## <a name="support-for-open-source-software-used-on-hdinsight-clusters"></a>Stöd för program med öppen källkod som används i HDInsight-kluster
-
-Microsoft Azure HDInsights tjänsten använder ett eko system med tekniker med öppen källkod som bildas runt Apache Hadoop. Microsoft Azure ger en allmän support nivå för tekniker med öppen källkod. Mer information finns på [webbplatsen för vanliga frågor och svar om support för Azure](https://azure.microsoft.com/support/faq/). HDInsight-tjänsten ger ytterligare en nivå av stöd för inbyggda komponenter.
+Microsoft Azure HDInsight-tjänsten använder ett ekosystem av tekniker med öppen källkod som bildas runt Apache Hadoop. Microsoft Azure ger en allmän supportnivå för tekniker med öppen källkod. Mer information finns på [webbplatsen för Vanliga frågor och svar om Azure Support](https://azure.microsoft.com/support/faq/). HDInsight-tjänsten ger ytterligare stöd för inbyggda komponenter.
 
 Det finns två typer av komponenter med öppen källkod som är tillgängliga i HDInsight-tjänsten:
 
-* **Inbyggda komponenter** – dessa komponenter är förinstallerade i HDInsight-kluster och tillhandahåller kärn funktioner i klustret. Till exempel, Apache Hadoop garn Resource Manager, Apache Hive frågespråket (HiveQL) och Mahout-biblioteket tillhör den här kategorin. En fullständig lista över kluster komponenter finns i [Nyheter i Apache Hadoop kluster versioner från HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning).
-* **Anpassade komponenter** – du, som en användare av klustret, kan installera eller använda i din arbets belastning, vilken komponent som helst som är tillgänglig i communityn eller som du har skapat.
+|Komponent |Beskrivning |
+|---|---|
+|Inbyggd|Dessa komponenter är förinstallerade på HDInsight-kluster och tillhandahåller kärnfunktioner i klustret. Apache Hadoop YARN Resource Manager, frågespråket Apache Hive (HiveQL) och Mahout-biblioteket tillhör till exempel den här kategorin. En fullständig lista över klusterkomponenter finns i [Nyheter i Apache Hadoop-klusterversionerna från HDInsight](../hdinsight-component-versioning.md).|
+|Anpassat|Du som användare av klustret kan installera eller använda alla komponenter som är tillgängliga i communityn eller som du har skapat i arbetsbelastningen.|
 
 > [!IMPORTANT]
-> Komponenter som ingår i HDInsight-klustret stöds fullt ut. Microsoft Support hjälper till att isolera och lösa problem som rör dessa komponenter.
+> Komponenter som medföljer HDInsight-klustret stöds fullt ut. Microsoft Support hjälper till att isolera och lösa problem som är relaterade till dessa komponenter.
 >
-> Anpassade komponenter får kommersiellt rimlig support för att hjälpa dig att ytterligare felsöka problemet. Microsoft Support kanske kan lösa problemet, eller så kan de be dig att tillhandahålla tillgängliga kanaler för tekniken med öppen källkod där djupgående expertis för tekniken hittas. Det finns till exempel många community-platser som kan användas, t. ex. [MSDN-forum för HDInsight](https://social.msdn.microsoft.com/Forums/azure/home?forum=hdinsight), [https://stackoverflow.com](https://stackoverflow.com). Apache-projekt har även projekt webbplatser på [https://apache.org](https://apache.org), till exempel: [Hadoop](https://hadoop.apache.org/).
+> Anpassade komponenter får kommersiellt rimligt stöd som hjälper dig att felsöka problemet ytterligare. Microsoft-support kan lösa problemet eller så kan de be dig att engagera tillgängliga kanaler för tekniker med öppen källkod där djup expertis för den tekniken hittas. Till exempel finns det många community webbplatser som kan användas, som: [https://stackoverflow.com](https://stackoverflow.com) [MSDN forum för HDInsight](https://social.msdn.microsoft.com/Forums/azure/home?forum=hdinsight), . Även Apache projekt har [https://apache.org](https://apache.org)projektwebbplatser på , till exempel: [Hadoop](https://hadoop.apache.org/).
 
-## <a name="understand-default-python-installation"></a>Förstå den standardinställda python-installationen
+## <a name="understand-default-python-installation"></a>Förstå standardinstallation av Python
 
-HDInsight Spark-kluster skapas med Anaconda-installation. Det finns två python-installationer i klustret, Anaconda python 2,7 och python 3,5. I tabellen nedan visas standard inställningarna för python för Spark, livy och Jupyter.
+HDInsight Spark-klustret skapas med Anaconda-installation. Det finns två Python-installationer i klustret, Anaconda Python 2.7 och Python 3.5. Tabellen nedan visar standardinställningarna för Python för Spark, Livy och Jupyter.
 
-| |Python 2,7|Python 3.5|
+| |Python 2.7|Python 3.5|
 |----|----|----|
 |Sökväg|/usr/bin/anaconda/bin|/usr/bin/anaconda/envs/py35/bin|
-|Spark|Standard är inställt på 2,7|Ej tillämpligt|
-|Livy|Standard är inställt på 2,7|Ej tillämpligt|
-|Jupyter|PySpark-kernel|PySpark3-kernel|
+|Spark|Standard inställd på 2,7|Ej tillämpligt|
+|Livy|Standard inställd på 2,7|Ej tillämpligt|
+|Jupyter|PySpark-kärna|PySpark3-kärna|
 
-## <a name="safely-install-external-python-packages"></a>Installera externa python-paket på ett säkert sätt
+## <a name="safely-install-external-python-packages"></a>Installera externa Python-paket på ett säkert sätt
 
-HDInsight-kluster är beroende av den inbyggda python-miljön, både python 2,7 och python 3,5. Direkt installation av anpassade paket i de inbyggda standard miljöerna kan leda till oväntade ändringar i biblioteks versionen och även dela upp klustret. Följ stegen nedan för att på ett säkert sätt installera anpassade externa python-paket för dina Spark-program.
+HDInsight-klustret är beroende av den inbyggda Python-miljön, både Python 2.7 och Python 3.5. Om du installerar anpassade paket direkt i de vanliga inbyggda miljöerna kan det orsaka oväntade ändringar av biblioteksversionen och bryta klustret ytterligare. Följ nedanstående steg för att säkert kunna installera anpassade externa Python-paket för dina Spark-program.
 
-1. Skapa en virtuell python-miljö med Conda. En virtuell miljö ger ett isolerat utrymme för dina projekt utan att behöva dela andra. När du skapar den virtuella python-miljön kan du ange python-version som du vill använda. Observera att du fortfarande behöver skapa en virtuell miljö även om du vill använda python 2,7 och 3,5. Detta görs för att se till att klustrets standard miljö inte får plats. Kör skript åtgärder på klustret för alla noder med skriptet nedan för att skapa en virtuell python-miljö. 
+1. Skapa virtuell Python-miljö med conda. En virtuell miljö ger ett isolerat utrymme för dina projekt utan att bryta andra. När du skapar den virtuella Python-miljön kan du ange pythonversion som du vill använda. Observera att du fortfarande behöver skapa virtuell miljö även om du vill använda Python 2.7 och 3.5. Detta för att se till att klustrets standardmiljö inte blir trasig. Kör skriptåtgärder i klustret för alla noder med nedanstående skript för att skapa en virtuell Python-miljö.
 
-    -   `--prefix` anger en sökväg där en virtuell Conda-miljö bor. Det finns flera konfigurationer som behöver ändras ytterligare utifrån den sökväg som anges här. I det här exemplet använder vi py35new, eftersom klustret redan har en befintlig virtuell miljö som heter py35.
-    -   `python=` anger python-versionen för den virtuella miljön. I det här exemplet använder vi version 3,5, samma version som klustret som skapats i en. Du kan också använda andra python-versioner för att skapa den virtuella miljön.
-    -   `anaconda` anger package_spec som Anaconda för att installera Anaconda-paket i den virtuella miljön.
+    -   `--prefix`anger en sökväg där en conda virtuell miljö finns. Det finns flera configs som måste ändras ytterligare baserat på den väg som anges här. I det här exemplet använder vi py35new, eftersom klustret redan har en befintlig virtuell miljö som kallas py35.
+    -   `python=`anger Python-versionen för den virtuella miljön. I det här exemplet använder vi version 3.5, samma version som klustret som är inbyggt i ett. Du kan också använda andra Python-versioner för att skapa den virtuella miljön.
+    -   `anaconda`anger package_spec som anaconda för att installera Anaconda-paket i den virtuella miljön.
     
     ```bash
-    sudo /usr/bin/anaconda/bin/conda create --prefix /usr/bin/anaconda/envs/py35new python=3.5 anaconda --yes 
+    sudo /usr/bin/anaconda/bin/conda create --prefix /usr/bin/anaconda/envs/py35new python=3.5 anaconda --yes
     ```
 
-2. Installera externa python-paket i den virtuella miljön som skapats om det behövs. Kör skript åtgärder på klustret för alla noder med skriptet nedan för att installera externa python-paket. Du måste ha sudo-behörighet här för att kunna skriva filer till den virtuella miljömappen.
+2. Installera externa Python-paket i den skapade virtuella miljön om det behövs. Kör skriptåtgärder i klustret för alla noder med nedanstående skript för att installera externa Python-paket. Du måste ha sudo privilegium här för att skriva filer till den virtuella miljön mappen.
 
-    Du kan söka i [paket indexet](https://pypi.python.org/pypi) efter den fullständiga listan med tillgängliga paket. Du kan också hämta en lista över tillgängliga paket från andra källor. Du kan till exempel installera paket som gjorts tillgängliga via [Conda-falska](https://conda-forge.org/feedstocks/).
+    Du kan söka i [paketindexet](https://pypi.python.org/pypi) efter en komplett lista över tillgängliga paket. Du kan också få en lista över tillgängliga paket från andra källor. Du kan till exempel installera paket som gjorts tillgängliga via [conda-smedja](https://conda-forge.org/feedstocks/).
 
-    Använd kommandot nedan om du vill installera ett bibliotek med den senaste versionen:
-    
-    - Använd Conda-kanal:
+    Använd nedan kommando om du vill installera ett bibliotek med sin senaste version:
 
-        -   `seaborn` är det paket namn som du vill installera.
-        -   `-n py35new` ange namnet på den virtuella miljön som du nyss skapade. Se till att ändra namnet på motsvarande sätt baserat på hur du skapar den virtuella miljön.
+    - Använd conda kanal:
+
+        -   `seaborn`är det paketnamn som du vill installera.
+        -   `-n py35new`ange det virtuella miljönamn som just skapas. Se till att ändra namnet på motsvarande sätt baserat på din virtuella miljö skapas.
 
         ```bash
         sudo /usr/bin/anaconda/bin/conda install seaborn -n py35new --yes
         ```
 
-    - Eller Använd PyPi lagrings platsen, ändra `seaborn` och `py35new` motsvarande:
+    - Eller använd PyPi repo, ändra `seaborn` och `py35new` motsvarande:
         ```bash
         sudo /usr/bin/anaconda/env/py35new/bin/pip install seaborn
-        ```        
+        ```
 
-    Använd kommandot nedan om du vill installera ett bibliotek med en angiven version:
+    Använd nedan kommando om du vill installera ett bibliotek med en viss version:
 
-    - Använd Conda-kanal:
+    - Använd conda kanal:
 
-        -   `numpy=1.16.1` är det paket namn och den version som du vill installera.
-        -   `-n py35new` ange namnet på den virtuella miljön som du nyss skapade. Se till att ändra namnet på motsvarande sätt baserat på hur du skapar den virtuella miljön.
+        -   `numpy=1.16.1`är paketets namn och version som du vill installera.
+        -   `-n py35new`ange det virtuella miljönamn som just skapas. Se till att ändra namnet på motsvarande sätt baserat på din virtuella miljö skapas.
 
         ```bash
         sudo /usr/bin/anaconda/bin/conda install numpy=1.16.1 -n py35new --yes
         ```
 
-    - Eller Använd PyPi lagrings platsen, ändra `numpy==1.16.1` och `py35new` motsvarande:
+    - Eller använd PyPi repo, ändra `numpy==1.16.1` och `py35new` motsvarande:
 
         ```bash
         sudo /usr/bin/anaconda/env/py35new/bin/pip install numpy==1.16.1
         ```
 
-    Om du inte känner till namnet på den virtuella miljön kan du använda SSH till Head-noden i klustret och köra `/usr/bin/anaconda/bin/conda info -e` för att visa alla virtuella miljöer.
+    Om du inte känner till det virtuella miljönamnet kan du SSH `/usr/bin/anaconda/bin/conda info -e` till huvudnoden i klustret och köra för att visa alla virtuella miljöer.
 
-3. Ändra Spark-och livy-konfiguration och peka på den virtuella miljön som skapats.
+3. Ändra Spark och Livy configs och peka på den skapade virtuella miljön.
 
-    1. Öppna Ambari UI, gå till sidan Spark2, fliken konfigurationer.
-    
-        ![Ändra Spark-och livy-konfiguration via Ambari](./media/apache-spark-python-package-installation/ambari-spark-and-livy-config.png)
- 
-    2. Expandera Advanced livy2-kuvert, Lägg till under uttryck i nederkant. Om du har installerat den virtuella miljön med ett annat prefix ändrar du sökvägen på motsvarande sätt.
+    1. Öppna Ambari UI, gå till Spark2 sida, Configs fliken.
+
+        ![Ändra Spark och Livy config genom Ambari](./media/apache-spark-python-package-installation/ambari-spark-and-livy-config.png)
+
+    2. Expandera Avancerad livy2-env, lägg till nedanstående satser längst ner. Om du har installerat den virtuella miljön med ett annat prefix ändrar du sökvägen på motsvarande sätt.
 
         ```
         export PYSPARK_PYTHON=/usr/bin/anaconda/envs/py35new/bin/python
         export PYSPARK_DRIVER_PYTHON=/usr/bin/anaconda/envs/py35new/bin/python
         ```
 
-        ![Ändra livy-konfiguration via Ambari](./media/apache-spark-python-package-installation/ambari-livy-config.png)
+        ![Ändra Livy config genom Ambari](./media/apache-spark-python-package-installation/ambari-livy-config.png)
 
-    3. Expandera Advanced spark2-kuvert, Ersätt den befintliga exporten PYSPARK_PYTHON-instruktionen längst ned. Om du har installerat den virtuella miljön med ett annat prefix ändrar du sökvägen på motsvarande sätt.
+    3. Expandera Avancerad spark2-env, ersätt den befintliga PYSPARK_PYTHON-satsen längst ned. Om du har installerat den virtuella miljön med ett annat prefix ändrar du sökvägen på motsvarande sätt.
 
         ```
         export PYSPARK_PYTHON=${PYSPARK_PYTHON:-/usr/bin/anaconda/envs/py35new/bin/python}
         ```
 
-        ![Ändra Spark-konfiguration via Ambari](./media/apache-spark-python-package-installation/ambari-spark-config.png)
+        ![Ändra Spark config genom Ambari](./media/apache-spark-python-package-installation/ambari-spark-config.png)
 
-    4. Spara ändringarna och starta om berörda tjänster. Dessa ändringar kräver en omstart av Spark2-tjänsten. Ambari UI upprättar en nödvändig omstart, klicka på Starta om för att starta om alla berörda tjänster.
+    4. Spara ändringarna och starta om berörda tjänster. Dessa ändringar kräver en omstart av Spark2-tjänsten. Ambari UI kommer att fråga en obligatorisk omstart påminnelse, klicka på Starta om för att starta om alla berörda tjänster.
 
-        ![Ändra Spark-konfiguration via Ambari](./media/apache-spark-python-package-installation/ambari-restart-services.png)
- 
-4.  Om du vill använda den nya virtuella miljön på Jupyter. Du måste ändra Jupyter-konfiguration och starta om Jupyter. Kör skript åtgärder på alla huvudnoder med nedanstående instruktion för att peka Jupyter mot den nya virtuella miljön som skapats. Se till att ändra sökvägen till det prefix du angav för den virtuella miljön. När du har kört den här skript åtgärden startar du om Jupyter-tjänsten via Ambari-ANVÄNDARGRÄNSSNITTET för att göra den här ändringen tillgänglig.
+        ![Ändra Spark config genom Ambari](./media/apache-spark-python-package-installation/ambari-restart-services.png)
 
-    ```
+4. Om du vill använda den nya skapade virtuella miljön på Jupyter. Du måste ändra Jupyter configs och starta Om Jupyter. Kör skriptåtgärder på alla rubriknoder med nedanstående sats för att peka Jupyter på den nya skapade virtuella miljön. Se till att ändra sökvägen till det prefix som du angav för den virtuella miljön. När du har kört den här skriptåtgärden startar du om Jupyter-tjänsten via Ambari UI för att göra den här ändringen tillgänglig.
+
+    ```bash
     sudo sed -i '/python3_executable_path/c\ \"python3_executable_path\" : \"/usr/bin/anaconda/envs/py35new/bin/python3\"' /home/spark/.sparkmagic/config.json
     ```
 
-    Du kan dubbelt kontrol lera python-miljön i Jupyter Notebook genom att köra nedanstående kod:
+    Du kan dubbla bekräfta Python-miljön i Jupyter Notebook genom att köra under kod:
 
-    ![Kontrol lera python-versionen i Jupyter Notebook](./media/apache-spark-python-package-installation/check-python-version-in-jupyter.png)
+    ![Kontrollera Python-versionen i Jupyter Notebook](./media/apache-spark-python-package-installation/check-python-version-in-jupyter.png)
 
 ## <a name="known-issue"></a>Kända problem
 
-Det finns ett känt fel för Anaconda-version 4.7.11, 4.7.12 och 4.8.0. Om du ser att skript åtgärderna låser sig vid `"Collecting package metadata (repodata.json): ...working..."` och att det inte går att `"Python script has been killed due to timeout after waiting 3600 secs"`. Du kan ladda ned [skriptet](https://gregorysfixes.blob.core.windows.net/public/fix-conda.sh) och köra det som skript åtgärder på alla noder för att åtgärda problemet.
+Det finns en känd bugg för Anaconda version 4.7.11, 4.7.12 och 4.8.0. Om du ser dina `"Collecting package metadata (repodata.json): ...working..."` skriptåtgärder `"Python script has been killed due to timeout after waiting 3600 secs"`hänga på och misslyckas med . Du kan hämta [skriptet](https://gregorysfixes.blob.core.windows.net/public/fix-conda.sh) och köra det som skriptåtgärder på alla noder för att åtgärda problemet.
 
-Du kan kontrol lera din Anaconda-version genom att använda SSH till noden kluster huvud och köra `/usr/bin/anaconda/bin/conda --v`.
+Om du vill kontrollera Anaconda-versionen kan du SSH `/usr/bin/anaconda/bin/conda --v`till klusterhuvudnoden och köra .
 
-## <a name="seealso"></a>Se även
+## <a name="next-steps"></a>Nästa steg
 
 * [Översikt: Apache Spark i Azure HDInsight](apache-spark-overview.md)
-
-### <a name="scenarios"></a>Scenarier
-
-* [Apache Spark med BI: utföra interaktiv data analys med hjälp av spark i HDInsight med BI-verktyg](apache-spark-use-bi-tools.md)
-* [Apache Spark med Machine Learning: använda spark i HDInsight för analys av byggnads temperatur med HVAC-data](apache-spark-ipython-notebook-machine-learning.md)
-* [Apache Spark med Machine Learning: använda spark i HDInsight för att förutsäga resultatet av livsmedels inspektionen](apache-spark-machine-learning-mllib-ipython.md)
-* [Webbplats logg analys med Apache Spark i HDInsight](apache-spark-custom-library-website-log-analysis.md)
-
-### <a name="create-and-run-applications"></a>Skapa och köra program
-
-* [Skapa ett fristående program med hjälp av Scala](apache-spark-create-standalone-application.md)
-* [Köra jobb via fjärranslutning på ett Apache Spark-kluster med hjälp av Apache Livy](apache-spark-livy-rest-interface.md)
-
-### <a name="tools-and-extensions"></a>Verktyg och tillägg
-
-* [Använda externa paket med Jupyter-anteckningsböcker i Apache Spark kluster i HDInsight](apache-spark-jupyter-notebook-use-external-packages.md)
-* [Använda HDInsight Tools-plugin för IntelliJ IDEA till att skapa och skicka Spark Scala-appar](apache-spark-intellij-tool-plugin.md)
-* [Använd HDInsight tools-plugin för IntelliJ-idé för att felsöka Apache Spark program via fjärr anslutning](apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
-* [Använda Apache Zeppelin-anteckningsböcker med ett Apache Spark-kluster i HDInsight](apache-spark-zeppelin-notebook.md)
-* [Kernels tillgängliga för Jupyter Notebook i Apache Spark kluster för HDInsight](apache-spark-jupyter-notebook-kernels.md)
-* [Installera Jupyter på datorn och ansluta till ett HDInsight Spark-kluster](apache-spark-jupyter-notebook-install-locally.md)
-
-### <a name="manage-resources"></a>Hantera resurser
-
+* [Apache Spark med BI: Utför interaktiv dataanalys med Spark i HDInsight med BI-verktyg](apache-spark-use-bi-tools.md)
 * [Hantera resurser för Apache Spark-klustret i Azure HDInsight](apache-spark-resource-manager.md)
 * [Följa och felsöka jobb som körs i ett Apache Spark-kluster i HDInsight](apache-spark-job-debugging.md)

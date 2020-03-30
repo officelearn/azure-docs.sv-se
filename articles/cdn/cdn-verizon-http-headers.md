@@ -1,6 +1,6 @@
 ---
-title: Verizon-specifika HTTP-huvuden för Azure CDN regelmotor | Microsoft Docs
-description: Den här artikeln beskriver hur du använder Verizon-specifika HTTP-huvuden med Azure CDN regelmotor.
+title: Verizon-specifika HTTP-huvuden för Azure CDN-regler motor | Microsoft-dokument
+description: I den här artikeln beskrivs hur du använder Verizon-specifika HTTP-huvuden med Azure CDN-regelmotor.
 services: cdn
 documentationcenter: ''
 author: mdgattuso
@@ -15,69 +15,69 @@ ms.topic: article
 ms.date: 04/16/2018
 ms.author: magattus
 ms.openlocfilehash: a5881bea578f2791f8dc0d6e760fd15c6f47e435
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67593253"
 ---
-# <a name="verizon-specific-http-headers-for-azure-cdn-rules-engine"></a>Verizon-specifika HTTP-huvuden för Azure CDN regelmotor
+# <a name="verizon-specific-http-headers-for-azure-cdn-rules-engine"></a>Verizon-specifika HTTP-huvuden för Azure CDN-regler motor
 
-För **Azure CDN Premium från Verizon** produkter, när en HTTP-begäran skickas till den ursprungliga servern, point of presence (POP)-servern kan lägga till en eller flera reserverade rubriker (eller särskilda proxy-huvuden) i klientbegäran till POP. Dessa rubriker måste vara uppfyllda utöver standard vidarebefordran huvuden som togs emot. Läs om hur standard begärandehuvuden [begär fält](https://en.wikipedia.org/wiki/List_of_HTTP_header_fields#Request_fields).
+För **Azure CDN Premium från Verizon-produkter** kan POP-servern lägga till ett eller flera reserverade rubriker (eller proxyspecialhuvuden) när en HTTP-begäran skickas till ursprungsservern. Dessa rubriker är utöver de vanliga vidarebefordringsrubriker som tas emot. Information om standardfråre för begäran finns i [Fält för begäran](https://en.wikipedia.org/wiki/List_of_HTTP_header_fields#Request_fields).
 
-Om du vill förhindra att en av dessa reserverade huvuden som läggs till i Azure CDN (Content Delivery Network) POP-begäran till den ursprungliga servern, måste du skapa en regel med den [Proxy särskilda rubriker funktionen](cdn-verizon-premium-rules-engine-reference-features.md#proxy-special-headers) i regelmotorn. Undanta rubriken som du vill ta bort från listan över sidhuvuden i fältet huvuden i den här regeln. Om du har aktiverat den [felsöka Cache svarshuvuden funktionen](cdn-verizon-premium-rules-engine-reference-features.md#debug-cache-response-headers), se till att lägga till nödvändiga `X-EC-Debug` rubriker. 
+Om du vill förhindra att något av dessa reserverade rubriker läggs till i POP-begäran om Azure CDN (Content Delivery Network) till ursprungsservern måste du skapa en regel med [funktionen Proxy Special Headers](cdn-verizon-premium-rules-engine-reference-features.md#proxy-special-headers) i regelmotorn. I den här regeln utesluter du det huvud som du vill ta bort från standardlistan med rubriker i sidhuvudena. Om du har aktiverat [funktionen Debug Cache Response Headers](cdn-verizon-premium-rules-engine-reference-features.md#debug-cache-response-headers)måste `X-EC-Debug` du lägga till nödvändiga rubriker. 
 
-Till exempel för att ta bort den `Via` rubrik som är fältet rubriker i regeln bör innehålla följande lista med rubriker: *X-vidarebefordrade-, X-vidarebefordrade-protokoll, X-värden, X-Midgress X Gatewaylista, X-EG-Name, vara värd för*. 
+Om du till `Via` exempel vill ta bort huvudet bör huvudfältet i regeln innehålla följande lista med rubriker: *X-Forwarded-For, X-Forwarded-Proto, X-Host, X-Midgress, X-Gateway-List, X-EC-Name, Host*. 
 
-![Regel för proxy särskilda rubriker](./media/cdn-http-headers/cdn-proxy-special-header-rule.png)
+![Proxy specialrubriker regel](./media/cdn-http-headers/cdn-proxy-special-header-rule.png)
 
-I följande tabell beskrivs de rubriker som kan läggas till med Verizon CDN POP i begäran:
+I följande tabell beskrivs de rubriker som kan läggas till av Verizon CDN POP i begäran:
 
 Begärandehuvud | Beskrivning | Exempel
 ---------------|-------------|--------
-[Via](#via-request-header) | Identifierar POP-servern som körs via en proxy begäran till en ursprungsservern. | HTTP/1.1 ECS (dca/1A2B)
-X-Forwarded-For | Anger den som begär IP-adress.| 10.10.10.10
-X-Forwarded-Proto | Anger den begäran-protokollet. | http
-X-Host | Anger den förfrågans värdnamn. | cdn.mydomain.com
-X-Midgress | Anger om begäran har via proxy till en ytterligare CDN-server. Till exempel en server till ursprunget shield POP-server eller en POP-servern till ADN gateway-server. <br />Den här rubriken läggs till i begäran endast när midgress trafik äger rum. I det här fallet är huvudet inställd till 1 anger att begäran har via proxy till en ytterligare CDN-server.| 1
-[Värd](#host-request-header) | Identifierar värden och den port där du kan hitta det begärda innehållet. | marketing.mydomain.com:80
-[X-Gateway-List](#x-gateway-list-request-header) | ADN: Identifierar redundans över ADN Gateway-servrar som tilldelats ett kund-ursprung. <br />Ursprung shield: Anger uppsättningen ursprungsservrar shield som tilldelats ett kund-ursprung. | `icn1,hhp1,hnd1`
-X-EC- _&lt;name&gt;_ | Begärandehuvuden som börjar med *X-EG* (till exempel X-EG-tagg, [X-EG-Debug](cdn-http-debug-headers.md)) är reserverade för användning av CDN.| waf-produktion
+[Via](#via-request-header) | Identifierar POP-servern som proxied begäran till en ursprungsserver. | HTTP/1.1 ECS (dca/1A2B)
+X-vidarebefordrad-för | Anger beställarens IP-adress.| 10.10.10.10
+X-vidarebefordrad-Proto | Anger protokollet för begäran. | http
+X-värd | Anger begärans värdnamn. | cdn.mydomain.com
+X-Midgress | Anger om begäran har hanterats via ytterligare en CDN-server. Till exempel en POP-server-till-ursprung-sköldserver eller en POP-server-till-ADN-gateway-server. <br />Det här huvudet läggs till i begäran endast när midgress trafik sker. I det här fallet är huvudet inställt på 1 för att ange att begäran har proxied genom en ytterligare CDN-server.| 1
+[Värd](#host-request-header) | Identifierar värden och porten där det begärda innehållet kan hittas. | marketing.mydomain.com:80
+[X-Gateway-lista](#x-gateway-list-request-header) | ADN: Identifierar redundanslistan över ADN Gateway-servrar som tilldelats en kundursprung. <br />Ursprungssköld: Anger den uppsättning ursprungssköldservrar som tilldelats en kundursprung. | `icn1,hhp1,hnd1`
+X-EC-_&lt;namn&gt;_ | Begäranderubriker som börjar med *X-EG* (till exempel X-EC-Tag, [X-EC-Debug](cdn-http-debug-headers.md)) är reserverade för användning av CDN.| waf-produktion
 
-## <a name="via-request-header"></a>Via huvudet i begäran
-Format som den `Via` begäran rubrik identifierar en POP-server anges med följande syntax:
+## <a name="via-request-header"></a>Via begäran header
+Det format genom `Via` vilket begäranden identifierar en POP-server anges av följande syntax:
 
 `Via: Protocol from Platform (POP/ID)` 
 
-De termer som används i syntax definieras enligt följande:
-- Protokoll: Anger versionen av protokollet (till exempel HTTP/1.1) används för att proxy begäran. 
+De termer som används i syntaxen definieras på följande sätt:
+- Protokoll: Anger den version av protokollet (till exempel HTTP/1.1) som används för att proxy begäran. 
 
-- Plattform: Anger plattformen där innehållet begärdes. Följande koder är giltiga för det här fältet: 
+- Plattform: Anger den plattform där innehållet begärdes. Följande koder gäller för det här fältet: 
 
     Kod | Plattform
     -----|---------
-    ECAcc | HTTP-stor
-    ECS   | HTTP-liten
-    ECD   | Application delivery network (ADN)
+    Ecacc (europeiska) | HTTP Stor
+    Ecs   | HTTP Liten
+    Ecd   | Nätverk för programleverans (ADN)
 
-- POP: Anger den [POP](cdn-pop-abbreviations.md) som hanteras begäran. 
+- POP: Anger [pop](cdn-pop-abbreviations.md) som hanterade begäran. 
 
 - ID: Endast för internt bruk.
 
-### <a name="example-via-request-header"></a>Exempel Via huvudet i begäran
+### <a name="example-via-request-header"></a>Exempel via begäran header
 
 `Via: HTTP/1.1 ECD (dca/1A2B)`
 
-## <a name="host-request-header"></a>Värdhuvud för begäran
-POP-servrar kommer att skriva över den `Host` rubrik när båda av följande villkor föreligger:
-- Källan för det begärda innehållet är en kund ursprungsservern.
-- Motsvarande kund ursprungets HTTP-Värdrubriken alternativet är inte tom.
+## <a name="host-request-header"></a>Huvud för värdbegäran
+POP-servrarna skriver över `Host` huvudet när båda följande villkor är uppfyllda:
+- Källan för det begärda innehållet är en kundursprungsserver.
+- Motsvarande kundursprung http-värdhuvud är inte tomt.
 
-Den `Host` huvudet i begäran kommer att skrivas över för att återspegla värdet som definieras i HTTP-Värdrubriken-alternativet.
-Om kunden ursprunget HTTP-Värdrubriken alternativet är inställt på tom, sedan den `Host` förfrågnings-huvud som skickas av den som begär vidarebefordras till kundens ursprungsservern.
+Förfrånadshuvudet `Host` skrivs över för att återspegla det värde som definierats i alternativet HTTP-värdhuvud.
+Om kundens ursprungs HTTP-värdhuvud alternativet är `Host` inställt på tom, vidarebefordras begäranden som skickas av beställaren till kundens ursprungsserver.
 
-## <a name="x-gateway-list-request-header"></a>Begärandehuvud i X-Gateway-List
-En POP-server lägger du till/skriver över den ' X Gatewaylista begärandehuvudet när något av följande villkor är uppfyllda:
+## <a name="x-gateway-list-request-header"></a>X-Gateway-list-begäranhuvud
+En POP-server lägger till/skriver över "X-Gateway-List-begäranden när något av följande villkor är uppfyllda:
 - Begäran pekar på ADN-plattformen.
-- Begäran vidarebefordras till en kund ursprungsservern som skyddas av funktionen ursprung Shield.
+- Begäran vidarebefordras till en kundursprungsserver som skyddas av Origin Shield-funktionen.
 

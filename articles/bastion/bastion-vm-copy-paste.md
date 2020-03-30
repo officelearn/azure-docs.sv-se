@@ -1,6 +1,6 @@
 ---
-title: 'Kopiera och klistra in till och från en virtuell dator: Azure skydds'
-description: I den här artikeln får du lära dig hur du kopierar och klistrar in till och från en virtuell Azure-dator med skydds.
+title: 'Kopiera och klistra in till och från en virtuell dator: Azure Bastion'
+description: I den här artikeln får du lära dig hur du kopierar och klistrar in på och från en Virtuell Azure-dator med Bastion.
 services: bastion
 author: cherylmc
 ms.service: bastion
@@ -8,52 +8,52 @@ ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: cherylmc
 ms.openlocfilehash: 0aaf816cdfe7d42fd345eb4f010cf47b1615f462
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/04/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76989543"
 ---
-# <a name="copy-and-paste-to-a-virtual-machine-azure-bastion"></a>Kopiera och klistra in på en virtuell dator: Azure skydds
+# <a name="copy-and-paste-to-a-virtual-machine-azure-bastion"></a>Kopiera och klistra in på en virtuell dator: Azure Bastion
 
-Den här artikeln hjälper dig att kopiera och klistra in text till och från virtuella datorer när du använder Azure-skydds. Innan du arbetar med en virtuell dator bör du kontrol lera att du har följt stegen för att [skapa en skydds-värd](bastion-create-host-portal.md). Anslut sedan till den virtuella dator som du vill arbeta med via [RDP](bastion-connect-vm-rdp.md) eller [SSH](bastion-connect-vm-ssh.md).
+Den här artikeln hjälper dig att kopiera och klistra in text till och från virtuella datorer när du använder Azure Bastion. Innan du arbetar med en virtuell dator kontrollerar du att du har följt stegen för att [skapa en bastionvärd](bastion-create-host-portal.md). Anslut sedan till den virtuella datorn som du vill arbeta med med hjälp av [rdp](bastion-connect-vm-rdp.md) eller [SSH](bastion-connect-vm-ssh.md).
 
-För webbläsare som har stöd för den avancerade API-åtkomsten till Urklipp, kan du kopiera och klistra in text mellan den lokala enheten och fjärrsessionen på samma sätt som du kopierar och klistrar in mellan program på din lokala enhet. För andra webbläsare kan du använda skydds urklipps Access verktyg-paletten.
+För webbläsare som stöder den avancerade Api-åtkomsten för Urklipp kan du kopiera och klistra in text mellan den lokala enheten och fjärrsessionen på samma sätt som du kopierar och klistrar in mellan program på den lokala enheten. För andra webbläsare kan du använda verktygspaletten för åtkomstverktyg för Bastion.
 
    ![Tillåt Urklipp](./media/bastion-vm-manage/allow.png)
 
-Endast text kopiering och inklistring stöds. För direkt kopiering och inklistring kan webbläsaren uppmana dig att få åtkomst till Urklipp när skydds-sessionen initieras. **Tillåt** att webb sidan får åtkomst till Urklipp.
+Endast textkopiering/inklistring stöds. Om du vill kopiera och klistra in direkt kan du uppmanas att komma åt Urklipp när Bastion-sessionen initieras. **Tillåt** webbsidan att komma åt Urklipp.
 
-## <a name="to"></a>Kopiera till en fjärrsession
+## <a name="copy-to-a-remote-session"></a><a name="to"></a>Kopiera till en fjärrsession
 
-När du har anslutit till den virtuella datorn med [Azure Portal ](https://portal.azure.com)utför du följande steg:
+När du har anslutit till den virtuella datorn med [Azure-portalen ](https://portal.azure.com)gör du följande:
 
-1. Kopiera texten/innehållet från den lokala enheten till lokalt Urklipp.
-1. Under fjärrsessionen startar du paletten skydds urklipps åtkomst verktyg genom att välja de två pilarna. Pilarna finns i mitten till vänster i sessionen.
+1. Kopiera texten/innehållet från den lokala enheten till det lokala Urklipp.
+1. Under fjärrsessionen startar du verktygspaletten för åtkomstverktyg för Bastion genom att välja de två pilarna. Pilarna finns till vänster i mitten av sessionen.
 
-   ![verktygs palett](./media/bastion-vm-manage/left.png)
+   ![verktygspalett](./media/bastion-vm-manage/left.png)
 
-   ![involvera](./media/bastion-vm-manage/clipboard.png)
-1. Normalt visas den kopierade texten automatiskt på skydds kopiera klistra in-palett. Om texten inte finns där klistrar du in texten i text rutan på paletten.
-1. När texten finns i text områden kan du klistra in den i fjärrsessionen.
+   ![skrivskiva](./media/bastion-vm-manage/clipboard.png)
+1. Den kopierade texten visas vanligtvis automatiskt på inklistringspaletten för Bastion-kopiering. Om texten inte finns där klistrar du in texten i textområdet på paletten.
+1. När texten finns i textområdet kan du klistra in den i fjärrsessionen.
 
-   ![Inklistringsfel](./media/bastion-vm-manage/local.png)
+   ![Klistra in](./media/bastion-vm-manage/local.png)
 
-## <a name="from"></a>Kopiera från en fjärran sluten session
+## <a name="copy-from-a-remote-session"></a><a name="from"></a>Kopiera från en fjärrsession
 
-När du har anslutit till den virtuella datorn med [Azure Portal ](https://portal.azure.com)utför du följande steg:
+När du har anslutit till den virtuella datorn med [Azure-portalen ](https://portal.azure.com)gör du följande:
 
-1. Kopiera texten/innehållet från fjärrsessionen till fjärran sluten Urklipp (med CTRL-C).
+1. Kopiera texten/innehållet från fjärrsessionen till urklipp (med Ctrl-C).
 
-   ![verktygs palett](./media/bastion-vm-manage/remote.png)
-1. Under fjärrsessionen startar du paletten skydds urklipps åtkomst verktyg genom att välja de två pilarna. Pilarna finns i mitten till vänster i sessionen.
+   ![verktygspalett](./media/bastion-vm-manage/remote.png)
+1. Under fjärrsessionen startar du verktygspaletten för åtkomstverktyg för Bastion genom att välja de två pilarna. Pilarna finns till vänster i mitten av sessionen.
 
-   ![involvera](./media/bastion-vm-manage/clipboard2.png)
-1. Normalt visas den kopierade texten automatiskt på skydds kopiera klistra in-palett. Om texten inte finns där klistrar du in texten i text rutan på paletten.
-1. När texten finns i text område kan du klistra in den på den lokala enheten.
+   ![skrivskiva](./media/bastion-vm-manage/clipboard2.png)
+1. Den kopierade texten visas vanligtvis automatiskt på inklistringspaletten för Bastion-kopiering. Om texten inte finns där klistrar du in texten i textområdet på paletten.
+1. När texten finns i textområdet kan du klistra in den på den lokala enheten.
 
-   ![Inklistringsfel](./media/bastion-vm-manage/local2.png)
+   ![Klistra in](./media/bastion-vm-manage/local2.png)
  
 ## <a name="next-steps"></a>Nästa steg
 
-Läs [vanliga frågor och svar om skydds](bastion-faq.md).
+Läs [Vanliga frågor om Bastion](bastion-faq.md).

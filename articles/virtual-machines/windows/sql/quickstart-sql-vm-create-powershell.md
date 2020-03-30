@@ -14,10 +14,10 @@ ms.date: 12/21/2018
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: 8994079cf18a9af5f5e1368761015bbd8b836bd9
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "74790904"
 ---
 # <a name="quickstart-create-a-sql-server-windows-virtual-machine-with-azure-powershell"></a>Snabbstart: Skapa en virtuell Windows SQL Server-dator med Azure PowerShell
@@ -28,12 +28,12 @@ Den här snabbstarten beskriver hur du skapar en virtuell SQL Server-dator med A
 > - I snabbstarten finns en sökväg för snabb etablering och anslutning till en SQL-VM. Mer information om andra Azure PowerShell-alternativ för att skapa virtuella SQL-datorer finns i [Etableringsguide för virtuella SQL Server-datorer med Azure PowerShell](virtual-machines-windows-ps-sql-create.md).
 > - Om du har frågor om virtuella SQL Server-datorer kan du läsa [Vanliga frågor](virtual-machines-windows-sql-server-iaas-faq.md).
 
-## <a id="subscription"></a> Skaffa en Azure-prenumeration
+## <a name="get-an-azure-subscription"></a><a id="subscription"></a> Skaffa en Azure-prenumeration
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
 
 
-## <a id="powershell"></a> Skaffa Azure PowerShell
+## <a name="get-azure-powershell"></a><a id="powershell"></a> Skaffa Azure PowerShell
 
 [!INCLUDE [updated-for-az.md](../../../../includes/updated-for-az.md)]
 
@@ -170,7 +170,7 @@ För att få portalintegrering och SQL VM-funktioner måste du installera [till�
 
 1. Ange autentiseringsuppgifter för ett annat konto när du tillfrågas om autentiseringsuppgifter. Ange användarnamnet med ett föregående omvänt snedstreck (till exempel `\azureadmin`), och det lösenord som du angav tidigare i den här snabbstarten.
 
-## <a name="connect-to-sql-server"></a>Ansluta till SQL Server
+## <a name="connect-to-sql-server"></a>Anslut till SQL Server
 
 1. När du har loggat in i fjärrskrivbordssessionen kan du starta **SQL Server Management Studio 2017** från Start-menyn.
 

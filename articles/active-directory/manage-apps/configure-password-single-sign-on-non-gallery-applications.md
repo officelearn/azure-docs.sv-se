@@ -1,6 +1,6 @@
 ---
-title: Konfigurera enkel inloggning med lösen ord för Azure AD-appar | Microsoft Docs
-description: Så här konfigurerar du lösen ord för enkel inloggning (SSO) till dina Azure AD Enterprise-program i Microsoft Identity Platform (Azure AD)
+title: Konfigurera lösenordsbaserad inloggning för Azure AD-appar | Microsoft-dokument
+description: Konfigurera lösenord enkel inloggning (SSO) till dina Azure AD-företagsprogram i Microsoft Identity Platform (Azure AD)
 services: active-directory
 author: msmimart
 manager: CelesteDG
@@ -12,87 +12,87 @@ ms.date: 07/10/2019
 ms.author: mimart
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 563bda275b73f76b042b5e57a9909ca78c504bb3
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77063534"
 ---
-# <a name="configure-password-single-sign-on"></a>Konfigurera enkel inloggning för lösen ord
+# <a name="configure-password-single-sign-on"></a>Konfigurera enkel inloggning för lösenord
 
-När du [lägger till en Galleri app](add-gallery-app.md) eller en [icke-Galleri-](add-non-gallery-app.md) WEBBAPP till dina Azure AD Enterprise-program, är ett av de alternativ för enkel inloggning som är tillgängligt för dig, [lösenordsbaserad enkel inloggning](what-is-single-sign-on.md#password-based-sso). Det här alternativet är tillgängligt för alla webbplatser med en HTML-inloggnings sida. Lösenordsbaserad SSO, som även kallas lösen ords valv, gör att du kan hantera användar åtkomst och lösen ord för webb program som inte stöder identitets Federation. Det är också användbart för scenarier där flera användare behöver dela ett enda konto, t. ex. till din organisations konton för sociala media. 
+När du [lägger till en galleriapp](add-gallery-app.md) eller en [webbapp som inte är galleri](add-non-gallery-app.md) i dina Azure AD Enterprise-program är ett av de alternativ för enkel inloggning som är tillgängliga för dig [lösenordsbaserad enkel inloggning](what-is-single-sign-on.md#password-based-sso). Det här alternativet är tillgängligt för alla webbplatser med en HTML-inloggningssida. Lösenordsbaserad SSO, även kallad lösenordsvalv, gör att du kan hantera användaråtkomst och lösenord till webbprogram som inte stöder identitetsfederation. Det är också användbart för scenarier där flera användare behöver dela ett enda konto, till exempel till organisationens konton för sociala medier. 
 
-Lösenordsbaserad SSO är ett bra sätt att komma igång med att integrera program i Azure AD snabbt och gör att du kan:
+Lösenordsbaserad SSO är ett bra sätt att snabbt komma igång med att integrera program i Azure AD och gör att du kan:
 
--   Aktivera **enkel inloggning för dina användare** genom säker lagring och uppspelning av användar namn och lösen ord för det program som du har integrerat med Azure AD
+-   Aktivera **enkel inloggning för dina användare** genom att säkert lagra och spela upp användarnamn och lösenord för det program som du har integrerat med Azure AD
 
--   **Stöd för program som kräver flera inloggnings fält** för program som kräver mer än bara användar namn och lösen ords fält för att logga in
+-   **Stödprogram som kräver flera inloggningsfält** för program som kräver mer än bara användarnamn och lösenordsfält för att logga in
 
--   **Anpassa etiketterna** för fälten användar namn och lösen ord indatatyper som användarna ser på [program åtkomst panelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) när de anger sina autentiseringsuppgifter
+-   **Anpassa etiketterna för** de inmatningsfält för användarnamn och lösenord som användarna ser på [programåtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) när de anger sina autentiseringsuppgifter
 
--   Tillåt att **användarna** anger sina egna användar namn och lösen ord för alla befintliga program konton som de skriver in manuellt på [program åtkomst panelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
+-   Tillåt **användarna** att ange sina egna användarnamn och lösenord för alla befintliga programkonton som de skriver in manuellt på [programåtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
 
--   Tillåt en **medlem i företags gruppen** att ange användar namn och lösen ord som tilldelats en användare med hjälp av funktionen för [självbetjänings åtkomst](https://docs.microsoft.com/azure/active-directory/active-directory-self-service-application-access)
+-   Tillåt en **medlem i företagsgruppen** att ange de användarnamn och lösenord som tilldelats en användare med hjälp av funktionen [Självbetjäningsprogramåtkomst](https://docs.microsoft.com/azure/active-directory/active-directory-self-service-application-access)
 
--   Tillåt en **administratör** att ange ett användar namn och lösen ord som ska användas av personer eller grupper vid inloggning till programmet med hjälp av funktionen uppdatera autentiseringsuppgifter 
+-   Tillåt en **administratör** att ange ett användarnamn och lösenord som ska användas av personer eller grupper när du loggar in på programmet med hjälp av funktionen Uppdatera autentiseringsuppgifter 
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
-Om programmet inte har lagts till i din Azure AD-klient kan du läsa [Lägg till en Galleri app](add-gallery-app.md) eller [lägga till en app som inte är en Galleri](add-non-gallery-app.md).
+Om programmet inte har lagts till i din Azure [AD-klient](add-non-gallery-app.md)läser du Lägga till en [galleriapp](add-gallery-app.md) eller Lägg till en app som inte är galleri.
 
-## <a name="open-the-app-and-select-password-single-sign-on"></a>Öppna appen och välj enkel inloggning för lösen ord
+## <a name="open-the-app-and-select-password-single-sign-on"></a>Öppna appen och välj lösenord enkel inloggning
 
 1. Logga in på [Azure-portalen](https://portal.azure.com) som administratör för molnprogram eller programadministratör för din Azure AD-klientorganisation.
 
-2. Gå till **Azure Active Directory** > **företags program**. Ett slumpmässigt exempel på programmen i din Azure AD-klient visas. 
+2. Navigera till **Azure Active Directory** > **Enterprise-program**. Ett slumpmässigt urval av programmen i din Azure AD-klient visas. 
 
-3. I menyn **program typ** väljer du **alla program**och väljer sedan **Använd**.
+3. Välj **Alla program**på **menyn Programtyp** och välj sedan **Använd**.
 
 4. Ange namnet på programmet i sökrutan och välj sedan programmet från resultaten.
 
-5. Under avsnittet **Hantera** väljer du **enkel inloggning**. 
+5. Under avsnittet **Hantera** väljer du **Enkel inloggning**. 
 
-6. Välj **lösenordsbaserad**.
+6. Välj **Lösenordsbaserad**.
 
-7. Ange webb adressen till programmets webbaserade inloggnings sida. Den här strängen måste vara sidan som innehåller fältet username.
+7. Ange URL:en för programmets webbaserade inloggningssida. Den här strängen måste vara den sida som innehåller inmatningsfältet för användarnamn.
 
    ![Lösenordsbaserad enkel inloggning](./media/configure-single-sign-on-non-gallery-applications/password-based-sso.png)
 
-8. Välj **Spara**. Azure AD försöker parsa inloggnings sidan för inmatade användar namn och lösen ord. Om försöket lyckas är du klar. 
+8. Välj **Spara**. Azure AD försöker tolka inloggningssidan för en användarnamnsinmatning och en lösenordsinmatning. Om försöket lyckas är du klar. 
  
 > [!NOTE]
-> Nästa steg är att [tilldela användare eller grupper till programmet](methods-for-assigning-users-and-groups.md). När du har tilldelat användare och grupper kan du ange autentiseringsuppgifter som ska användas för en användares räkning när de loggar in i programmet. Välj **användare och grupper**, markera kryss rutan för användarens eller gruppens rad och klicka sedan på **uppdatera autentiseringsuppgifter**. Ange sedan användar namnet och lösen ordet som ska användas för användarens eller gruppens räkning. Annars uppmanas användarna att ange autentiseringsuppgifterna vid start.
+> Nästa steg är att [tilldela användare eller grupper till programmet](methods-for-assigning-users-and-groups.md). När du har tilldelat användare och grupper kan du ange autentiseringsuppgifter som ska användas för en användares räkning när de loggar in på programmet. Välj **Användare och grupper,** markera kryssrutan för användarens eller gruppens rad och klicka sedan på **Uppdatera autentiseringsuppgifter**. Ange sedan användarnamnet och lösenordet som ska användas för användarens eller gruppens räkning. Annars uppmanas användarna att ange autentiseringsuppgifterna själva vid lanseringen.
  
 
 ## <a name="manual-configuration"></a>Manuell konfiguration
 
-Om Azure AD parsing-försöket Miss lyckas kan du konfigurera inloggning manuellt.
+Om Azure AD:s tolkningsförsök misslyckas kan du konfigurera inloggning manuellt.
 
-1. Under **\<program namn > konfiguration**väljer du **Konfigurera \<program namn > inställningar för enkel inloggning med lösen ord** för att visa sidan **Konfigurera inloggning** . 
+1. Under ** \<programnamn> konfiguration**väljer du **Konfigurera \<programnamn> Enkel inloggningsinställningar för lösenord** för att visa sidan Konfigurera **inloggning.** 
 
-2. Välj **identifiera inloggnings fält manuellt**. Ytterligare instruktioner som beskriver manuell identifiering av inloggnings fält visas.
+2. Välj **Identifiera inloggningsfält manuellt**. Ytterligare instruktioner som beskriver manuell identifiering av inloggningsfält visas.
 
    ![Manuell konfiguration av lösenordsbaserad enkel inloggning](./media/configure-password-single-sign-on/password-configure-sign-on.png)
-3. Välj **registrerings fält för registrering**. Sidan status för hämtning öppnas på en ny flik som visar att meddelande om att **metadata har fångats pågår**.
+3. Välj **Fånga inloggningsfält**. En hämtningsstatussida öppnas på en ny flik och visar att **infångningen av meddelandemetadata pågår**.
 
-4. Om rutan **åtkomst panels tillägg krävs** på en ny flik väljer du **Installera nu** för att installera webb läsar tillägget **Mina appar säker inloggnings tillägg** . (Webb läsar tillägget kräver Microsoft Edge, Chrome eller Firefox.) Installera, starta och aktivera tillägget och uppdatera sidan för hämtnings status.
+4. Om rutan **Tilläggstillägg för Åtkomstpanelen visas** på en ny flik väljer du **Installera nu** för att installera **webbläsartillägget För säker inloggning i mina appar.** (Webbläsartillägget kräver Microsoft Edge, Chrome eller Firefox.) Installera, starta och aktivera tillägget och uppdatera sidan för insamlingsstatus.
 
-   Webb läsar tillägget öppnar sedan en annan flik som visar den angivna URL: en.
-5. Gå igenom inloggnings processen på fliken med den angivna URL: en. Fyll i fälten användar namn och lösen ord och försök logga in. (Du behöver inte ange rätt lösen ord.)
+   Webbläsartillägget öppnar sedan en annan flik som visar den angivna webbadressen.
+5. Gå igenom inloggningsprocessen på fliken med den angivna webbadressen. Fyll i fälten användarnamn och lösenord och försök logga in. (Du behöver inte ange rätt lösenord.)
 
-   Du uppmanas att spara de insamlade inloggnings fälten.
-6. Välj **OK**. Webb läsar tillägget uppdaterar sidan för hämtnings status med meddelandets **metadata har uppdaterats för programmet**. Fliken webbläsare stängs.
+   En uppmaning ber dig att spara de infångade inloggningsfälten.
+6. Välj **OK**. Webbläsartillägget uppdaterar sidan med meddelandet **Metadata har uppdaterats för programmet**. Webbläsarfliken stängs.
 
-7. På sidan **Konfigurera inloggning på** Azure AD väljer **du OK, jag kunde logga in på appen**.
+7. På inloggningssidan för Azure AD **Configure** väljer **jag Ok, jag kunde logga in på appen**.
 
 8. Välj **OK**.
 
-När du har skapat inloggnings sidan kan du tilldela användare och grupper, och du kan konfigurera principer för autentiseringsuppgifter precis som vanliga [SSO-program för lösen ord](what-is-single-sign-on.md).
+När inloggningssidan har hämtats kan du tilldela användare och grupper och du kan ställa in principer för autentiseringsuppgifter precis som vanliga [SSO-lösenordsprogram](what-is-single-sign-on.md).
 
 > [!NOTE]
-> Du kan ladda upp en panel logo typ för programmet med knappen **Ladda upp logo typ** på fliken **Konfigurera** för programmet.
+> Du kan ladda upp en panellogotyp för programmet med knappen **Ladda upp logotyp** på fliken **Konfigurera** för programmet.
 
 ## <a name="next-steps"></a>Nästa steg
 
 - [Tilldela användare eller grupper till programmet](methods-for-assigning-users-and-groups.md)
-- [Konfigurera automatisk etablering av användar konto](../app-provisioning/configure-automatic-user-provisioning-portal.md)
+- [Konfigurera automatisk etablering av användarkonton](../app-provisioning/configure-automatic-user-provisioning-portal.md)

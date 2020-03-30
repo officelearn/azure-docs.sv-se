@@ -1,5 +1,5 @@
 ---
-title: Ändra Microsoft identifiera plattforms program konton | Azure
+title: Ändra Konton för Microsoft identifiera plattformsapp | Azure
 description: Konfigurera en app registrerad på Microsoft Identity Platform för att ändra vilka, eller vilka konton, som har åtkomst till appen.
 services: active-directory
 author: rwike77
@@ -12,34 +12,34 @@ ms.date: 05/08/2019
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: aragra, lenalepa, sureshja
-ms.openlocfilehash: 56771658380e0a5b946c3acc70df98a262561b5c
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: 94fed6f4aa62c7e649cf7d644e571b30561e0da4
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77160697"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80050231"
 ---
-# <a name="quickstart-modify-the-accounts-supported-by-an-application"></a>Snabb start: ändra de konton som stöds av ett program
+# <a name="quickstart-modify-the-accounts-supported-by-an-application"></a>Snabbstart: Ändra konton som stöds av ett program
 
 När du registrerar en app på Microsoft Identity Platform vill du kanske att appen endast kan kommas åt av användare i din organisation. Du kan också vilja att appen är åtkomlig för användare i externa organisationer eller av användare i externa i organisationer samt användare som inte nödvändigtvis är en del av en organisation (personliga konton).
 
 I den här snabbstarten lär du hur du ändrar appens konfiguration för att ändra vilka, eller vilka konton, som har åtkomst till appen.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Innan du börjar kontrollerar du att följande krav är uppfyllda:
 
 * Lär dig mer om [behörigheter och medgivande](v2-permissions-and-consent.md) som stöds, vilket är viktigt att förstå när du skapar appar som måste användas av andra användare eller appar.
-* Ha en klientorganisation som har program som är registrerade till den.
+* Ha en klientorganisation som har appar som är registrerade till den.
   * Om du inte har några registrerade appar kan du [få information om hur du registrerar appar på Microsoft Identity Platform](quickstart-register-app.md).
 
 ## <a name="sign-in-to-the-azure-portal-and-select-the-app"></a>Logga in på Azure-portalen och välj appen
 
 Innan du kan konfigurera appen gör du följande:
 
-1. Logga in på [Azure-portalen](https://portal.azure.com) med ett arbets- eller skolkonto eller en personligt Microsoft-konto.
+1. Logga in på [Azure-portalen](https://portal.azure.com) med ett arbets- eller skolkonto eller ett personligt Microsoft-konto.
 1. Om ditt konto ger dig tillgång till fler än en klientorganisation väljer du ditt konto i det övre högra hörnet och ställer in din portalsession på önskad Azure AD-klientorganisation.
-1. I det vänstra navigerings fönstret väljer du tjänsten **Azure Active Directory** och väljer sedan **Appregistreringar**.
+1. I det vänstra navigeringsfönstret väljer du **Azure Active Directory-tjänsten** och väljer sedan **Appregistreringar**.
 1. Leta reda på och välj den app du vill konfigurera. När du har valt appen ser du dess **översikt** eller huvudregistreringssida.
 1. Följ stegen för att [ändra appregistreringen för att stödja olika konton](#change-the-application-registration-to-support-different-accounts).
 1. Om du har en ensidesapplikation [aktiverar du implicit OAuth 2.0-beviljande](#enable-oauth-20-implicit-grant-for-single-page-applications).
@@ -49,7 +49,7 @@ Innan du kan konfigurera appen gör du följande:
 Om du skriver ett program som du vill göra tillgängliga för dina kunder eller partner utanför din organisation behöver du uppdatera programdefinitionen i Azure-portalen.
 
 > [!IMPORTANT]
-> Azure AD kräver att app-ID-URI för program för flera klientorganisationer är globalt unik. App-ID-URI är en av de sätt som ett program identifieras i protokollmeddelanden. För ett program för en enskild klientorganisation räcker det att app-ID-URI är unikt i den klientorganisationen. För ett program för flera klientorganisationer måste den vara globalt unikt så att Azure AD kan hitta programmet bland alla klientorganisationer. Global unikhet framtvingas genom att det krävs att app-ID-URI har ett värdnamn som matchar en verifierad domän i Azure AD-klientorganisationen. Om namnet på din klientorganisation till exempel är contoso.onmicrosoft.com blir en giltig app-ID-URI https://contoso.onmicrosoft.com/myapp. Om din klientorganisation har en verifierad domän som är contoso.com blir en giltig app-ID-URI även https://contoso.com/myapp. Om App-ID-URI inte följer detta mönster misslyckas konfigurationen av ett program som ett program för flera klientorganisationer.
+> Azure AD kräver att app-ID-URI för program för flera klientorganisationer är globalt unik. App-ID-URI är en av de sätt som ett program identifieras i protokollmeddelanden. För ett program för en enskild klientorganisation räcker det att app-ID-URI är unikt i den klientorganisationen. För ett program för flera klientorganisationer måste den vara globalt unikt så att Azure AD kan hitta programmet bland alla klientorganisationer. Global unikhet framtvingas genom att det krävs att app-ID-URI har ett värdnamn som matchar en verifierad domän i Azure AD-klientorganisationen. Om namnet på din klientorganisation till exempel är contoso.onmicrosoft.com blir en giltig app-ID-URI `https://contoso.onmicrosoft.com/myapp`. Om din klientorganisation har en verifierad domän som är contoso.com blir en giltig app-ID-URI även `https://contoso.com/myapp`. Om App-ID-URI inte följer detta mönster misslyckas konfigurationen av ett program som ett program för flera klientorganisationer.
 
 ### <a name="to-change-who-can-access-your-application"></a>Ändra vilka som har åtkomst till appen
 
@@ -78,9 +78,9 @@ Som standard är implicit OAuth 2.0-beviljande inaktiverat för program. Du kan 
 
 Läs mer om dessa andra relaterade snabbstarter för apphantering:
 
-* [Registrera ett program på Microsoft Identity Platform](quickstart-register-app.md)
-* [Konfigurera ett klientprogram för åtkomst till webb-API:er](quickstart-configure-app-access-web-apis.md)
-* [Konfigurera ett program att exponera webb-API:er](quickstart-configure-app-expose-web-apis.md)
+* [Registrera en app på Microsoft Identity Platform](quickstart-register-app.md)
+* [Konfigurera ett klientprogram för att komma åt webb-API:er](quickstart-configure-app-access-web-apis.md)
+* [Konfigurera en app att exponera webb-API:er](quickstart-configure-app-expose-web-apis.md)
 * [Ta bort en app registrerad på Microsoft Identity Platform](quickstart-remove-app.md)
 
 Mer information om de två Azure AD-objekt som representerar ett registrerat program och relationen mellan dem finns i [Programobjekt och tjänsthuvudnamnsobjekt](app-objects-and-service-principals.md).

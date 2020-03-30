@@ -1,7 +1,7 @@
 ---
 title: Utforska Linux
 titleSuffix: Azure Data Science Virtual Machine
-description: Lär dig hur du utför flera vanliga data vetenskaps uppgifter med hjälp av Linux-Data Science Virtual Machine.
+description: Lär dig hur du slutför flera vanliga datavetenskapsuppgifter med hjälp av Virtuell dator för Linux Data Science.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: data-science-vm
@@ -9,78 +9,78 @@ author: vijetajo
 ms.author: vijetaj
 ms.topic: conceptual
 ms.date: 07/16/2018
-ms.openlocfilehash: 9883256fc801d37acd4ea10226bd9e541f9135f7
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.openlocfilehash: 9857de0470baa35dcc8005e1622e5e593da95751
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/04/2020
-ms.locfileid: "78268658"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80128357"
 ---
-# <a name="data-science-with-a-linux-data-science-virtual-machine-in-azure"></a>Data vetenskap med ett Linux-Data Science Virtual Machine i Azure
+# <a name="data-science-with-a-linux-data-science-virtual-machine-in-azure"></a>Datavetenskap med en virtuell virtuell linuxdatavetenskapdator i Azure
 
-Den här genom gången visar hur du utför flera vanliga data vetenskaps uppgifter med hjälp av Linux-Data Science Virtual Machine (DSVM). Linux-DSVM är en virtuell dator avbildning som är tillgänglig i Azure och som är förinstallerad med en samling verktyg som ofta används för data analys och maskin inlärning. Viktiga program varu komponenter används för [att etablera Linux-data science Virtual Machine](linux-dsvm-intro.md). DSVM-avbildningen gör det enkelt att komma igång med data vetenskap på några minuter, utan att behöva installera och konfigurera var och en av verktygen individuellt. Du kan enkelt skala upp DSVM om du behöver, och du kan stoppa den när den inte används. DSVM-resursen är både elastisk och kostnads effektiv.
+Den här genomgången visar hur du slutför flera vanliga datavetenskapsuppgifter med hjälp av Linux Data Science Virtual Machine (DSVM). Linux DSVM är en virtuell avbildning som är tillgänglig i Azure och som är förinstallerad med en samling verktyg som ofta används för dataanalys och maskininlärning. De viktigaste programvarukomponenterna är specificerade i [Tillhandahålla Linux Data Science Virtual Machine](linux-dsvm-intro.md). DSVM-avbildningen gör det enkelt att komma igång med datavetenskap på några minuter, utan att behöva installera och konfigurera vart och ett av verktygen individuellt. Du kan enkelt skala upp DSVM om du behöver, och du kan stoppa den när den inte används. DSVM-resursen är både elastisk och kostnadseffektiv.
 
-Data vetenskaps uppgifterna demonstreras i den här genom gången följa stegen som beskrivs i [Vad är team data science-processen?](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/overview) Team data science-processen är en systematisk metod för data vetenskap som hjälper grupper av data forskare att samar beta effektivt över livs cykeln för att skapa intelligenta program. Data science process ger också en iterativ ramverk för datavetenskap som kan följas av en person.
+De datavetenskapsuppgifter som visas i den här genomgången följer stegen i [Vad är teamdatavetenskapsprocessen?](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/overview) Team Data Science Process är ett systematiskt tillvägagångssätt för datavetenskap som hjälper grupper av datavetare att effektivt samarbeta under livscykeln för att bygga intelligenta applikationer. Data science-processen ger också ett iterativt ramverk för datavetenskap som kan följas av en individ.
 
-I den här genom gången analyserar vi [spambase](https://archive.ics.uci.edu/ml/datasets/spambase) -datauppsättningen. Spambase är en uppsättning e-postmeddelanden som marker ATS som skräp post eller Ham (inte spam). Spambase innehåller också viss statistik om e-postmeddelandets innehåll. Vi pratar om statistiken senare i genom gången.
+I den här genomgången analyserar vi spambase-datauppsättningen. [spambase](https://archive.ics.uci.edu/ml/datasets/spambase) Spambase är en uppsättning e-postmeddelanden som är markerade antingen spam eller skinka (inte spam). Spambase innehåller också viss statistik om innehållet i e-postmeddelandena. Vi pratar om statistiken senare i genomgången.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-Innan du kan använda en Linux-DSVM måste du ha följande krav:
+Innan du kan använda en Linux DSVM måste du ha följande förutsättningar:
 
-* **Azure-prenumeration**. Information om hur du skaffar en Azure-prenumeration finns i [skapa ett kostnads fritt Azure-konto idag](https://azure.microsoft.com/free/).
-* [**Linux-data science Virtual Machine**](https://azure.microsoft.com/marketplace/partners/microsoft-ads/linux-data-science-vm). Information om hur du etablerar den virtuella datorn finns i [etablera Linux-data science Virtual Machine](linux-dsvm-intro.md).
-* [**X2Go**](https://wiki.x2go.org/doku.php) installerat på datorn med en öppen xfce-session. Mer information finns i [Installera och konfigurera X2Go-klienten](linux-dsvm-intro.md#x2go).
-* För en smidig rullnings upplevelse går du till DSVMs Firefox-webbläsare och växlar `gfx.xrender.enabled`-flaggan i `about:config`. [Läs mer](https://www.reddit.com/r/firefox/comments/4nfmvp/ff_47_unbearable_slow_over_remote_x11/). Överväg också att ange `mousewheel.enable_pixel_scrolling` `False`. [Läs mer](https://support.mozilla.org/questions/981140).
-* **Azure Machine Learning konto**. Om du inte redan har ett kan du registrera dig för ett nytt konto på [Start sidan för Azure Machine Learning](https://azure.microsoft.com/free/services/machine-learning//).
+* **Azure-prenumeration**. Information om hur du skaffar en Azure-prenumeration finns i [Skapa ditt kostnadsfria Azure-konto idag](https://azure.microsoft.com/free/).
+* [**Linux Data Science virtuell maskin**](https://azure.microsoft.com/marketplace/partners/microsoft-ads/linux-data-science-vm). Information om hur du etablerar den virtuella datorn finns i [Etablera virtuell virtuell dator för Linux Data Science](linux-dsvm-intro.md).
+* [**X2Go**](https://wiki.x2go.org/doku.php) installerat på din dator med en öppen XFCE-session. Mer information finns i [Installera och konfigurera X2Go-klienten](linux-dsvm-intro.md#x2go).
+* För en smidigare rullningsupplevelse, i DSVM:s Firefox `gfx.xrender.enabled` webbläsare, växla flaggan i `about:config`. [Läs mer](https://www.reddit.com/r/firefox/comments/4nfmvp/ff_47_unbearable_slow_over_remote_x11/). Också överväga `mousewheel.enable_pixel_scrolling` `False`att ställa in till . [Läs mer](https://support.mozilla.org/questions/981140).
+* **Azure Machine Learning-konto**. Om du inte redan har ett kan du registrera dig för ett nytt konto på [startsidan](https://azure.microsoft.com/free/services/machine-learning//)för Azure Machine Learning .
 
-## <a name="download-the-spambase-dataset"></a>Hämta spambase datauppsättningen
+## <a name="download-the-spambase-dataset"></a>Ladda ner datauppsättningen för spambase
 
-[Spambase](https://archive.ics.uci.edu/ml/datasets/spambase) -datauppsättningen är en relativt liten uppsättning data som innehåller 4 601-exempel. Data uppsättningen är en bekväm storlek för att demonstrera några av de viktigaste funktionerna i DSVM eftersom den håller resurs kraven på en liten stund.
+Datauppsättningen [för spambase](https://archive.ics.uci.edu/ml/datasets/spambase) är en relativt liten uppsättning data som innehåller 4 601 exempel. Datauppsättningen är en praktisk storlek för att demonstrera några av de viktigaste funktionerna i DSVM eftersom det håller resurskraven blygsamma.
 
 > [!NOTE]
-> Den här genom gången har skapats med hjälp av en D2 v2-storlek Linux-DSVM (CentOS Edition). Du kan använda en DSVM för den här storleken för att slutföra de procedurer som visas i den här genom gången.
+> Den här genomgången skapades med hjälp av en D2 v2-storlek Linux DSVM (CentOS Edition). Du kan använda en DSVM den här storleken för att slutföra de procedurer som visas i den här genomgången.
 
-Om du behöver mer lagrings utrymme kan du skapa ytterligare diskar och koppla dem till din DSVM. Diskarna använder beständig Azure-lagring, så deras data bevaras även om servern har reserver ATS på grund av storleks ändring eller avstängning. Om du vill lägga till en disk och koppla den till din DSVM slutför du stegen i [lägga till en disk till en virtuell Linux-dator](../../virtual-machines/linux/add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Stegen för att lägga till en disk använder Azure CLI, som redan är installerad på DSVM. Du kan slutföra stegen helt och hållet från själva DSVM. Ett annat alternativ för att öka lagrings utrymmet är att använda [Azure Files](../../storage/files/storage-how-to-use-files-linux.md).
+Om du behöver mer lagringsutrymme kan du skapa ytterligare diskar och koppla dem till din DSVM. Diskarna använder beständig Azure-lagring, så deras data bevaras även om servern återetableras på grund av storleksändring eller stängs av. Om du vill lägga till en disk och bifoga den till din DSVM slutför du stegen i [Lägg till en disk till en Virtuell Linux.](../../virtual-machines/linux/add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) Stegen för att lägga till en disk använder Azure CLI, som redan är installerat på DSVM. Du kan slutföra stegen helt från själva DSVM. Ett annat alternativ för att öka lagringsutrymmet är att använda [Azure Files](../../storage/files/storage-how-to-use-files-linux.md).
 
 Om du vill hämta data öppnar du ett terminalfönster och kör sedan det här kommandot:
 
     wget https://archive.ics.uci.edu/ml/machine-learning-databases/spambase/spambase.data
 
-Den hämtade filen har inte någon rubrik rad. Nu ska vi skapa en annan fil som har en rubrik. Kör följande kommando för att skapa en fil med lämpliga rubriker:
+Den nedladdade filen har ingen rubrikrad. Nu ska vi skapa en annan fil som har ett huvud. Kör det här kommandot om du vill skapa en fil med lämpliga rubriker:
 
     echo 'word_freq_make, word_freq_address, word_freq_all, word_freq_3d,word_freq_our, word_freq_over, word_freq_remove, word_freq_internet,word_freq_order, word_freq_mail, word_freq_receive, word_freq_will,word_freq_people, word_freq_report, word_freq_addresses, word_freq_free,word_freq_business, word_freq_email, word_freq_you, word_freq_credit,word_freq_your, word_freq_font, word_freq_000, word_freq_money,word_freq_hp, word_freq_hpl, word_freq_george, word_freq_650, word_freq_lab,word_freq_labs, word_freq_telnet, word_freq_857, word_freq_data,word_freq_415, word_freq_85, word_freq_technology, word_freq_1999,word_freq_parts, word_freq_pm, word_freq_direct, word_freq_cs, word_freq_meeting,word_freq_original, word_freq_project, word_freq_re, word_freq_edu,word_freq_table, word_freq_conference, char_freq_semicolon, char_freq_leftParen,char_freq_leftBracket, char_freq_exclamation, char_freq_dollar, char_freq_pound, capital_run_length_average,capital_run_length_longest, capital_run_length_total, spam' > headers
 
-Sammanfoga sedan de två filerna tillsammans:
+Sammanfoga sedan ihop de två filerna:
 
     cat spambase.data >> headers
     mv headers spambaseHeaders.data
 
-Data uppsättningen har flera typer av statistik för varje e-post:
+Datauppsättningen har flera typer av statistik för varje e-postmeddelande:
 
-* Kolumner som **word\_freq\__Word_**  anger procent andelen ord i e-postmeddelandet som matchar *Word*. Om **word\_freq\_** till exempel är **1**, *gör*1% av alla ord i e-postmeddelandet.
-* Kolumner som **char\_freq\__char_**  anger procent andelen av alla tecken i e-postmeddelandet som är *char*.
-* **versal\_\_längd\_längst** är den längsta längden för en sekvens med versaler.
-* **genomsnittligt\_\_längd\_genomsnittet** är den genomsnittliga längden för alla sekvenser med versaler.
-* **\_för\_längd\_total** är total längden på alla sekvenser med versaler.
-* **spam** anger om e-postmeddelandet ansågs vara skräp post eller inte (1 = spam, 0 = inte skräp post).
+* Kolumner som **\_ordet\_freq WORD** anger procentandelen ord i e-postmeddelandet som matchar *WORD*. Till exempel, om **\_ordet freq\_göra** är **1**, då 1% av alla ord i e-postmeddelandet var att *göra*.
+* Kolumner som **\_char\_freq CHAR** anger procentandelen av alla tecken i e-postmeddelandet som är *CHAR*.
+* **\_kapitalkörningslängd\_\_längst** är den längsta längden på en sekvens av versaler.
+* **\_kapitalkörningslängd\_\_genomsnitt** är den genomsnittliga längden på alla sekvenser av versaler.
+* **\_versalt\_\_körningslängd är** den totala längden på alla sekvenser av versaler.
+* **spam** anger om e-postmeddelandet ansågs spam eller inte (1 = spam, 0 = inte spam).
 
-## <a name="explore-the-dataset-by-using-r-open"></a>Utforska data uppsättningen med R Open
+## <a name="explore-the-dataset-by-using-r-open"></a>Utforska datauppsättningen med hjälp av R Open
 
-Vi ska undersöka data och göra några grundläggande Machine Learning med hjälp av R. DSVM levereras med [Microsoft R Open](https://mran.revolutionanalytics.com/open/) förinstallerat. De flertrådiga matematiska biblioteken i den förinstallerade versionen av R ger bättre prestanda än versioner med en tråd. R Open tillhandahåller också reproducerbarhet genom en ögonblicks bild av CRAN-paketets lagrings plats.
+Låt oss undersöka data och göra några grundläggande maskininlärning med hjälp av R. DSVM levereras med [Microsoft R Open](https://mran.revolutionanalytics.com/open/) förinstallerat. De flertrådade matematiska biblioteken i den förinstallerade versionen av R ger bättre prestanda än versioner med en tråd. R Open ger också reproducerbarhet genom en ögonblicksbild av CRAN-paketarkivet.
 
-Om du vill hämta kopior av kod exemplen som används i den här genom gången använder du git för att klona Azure-Machine-Learning-data-science-lagringsplatsen. Git förinstalleras på DSVM. På git-kommandoraden kör du:
+Om du vill hämta kopior av kodexemplen som används i den här genomgången använder du git för att klona Azure-Machine-Learning-Data-Science-databasen. Git är förinstallerat på DSVM. Kör på kommandoraden git:
 
     git clone https://github.com/Azure/Azure-MachineLearning-DataScience.git
 
-Öppna ett terminalfönster och starta en ny R-session i den R interaktiva konsolen. Du kan också använda RStudio, som är förinstallerat på DSVM.
+Öppna ett terminalfönster och starta en ny R-session i R-konsolen. Du kan också använda RStudio, som är förinstallerad på DSVM.
 
-Så här importerar du data och konfigurerar miljön:
+Så här importerar du data och ställer in miljön:
 
     data <- read.csv("spambaseHeaders.data")
     set.seed(123)
 
-Visa sammanfattande statistik om varje kolumn:
+Så här visar du sammanfattningsstatistik om varje kolumn:
 
     summary(data)
 
@@ -88,27 +88,27 @@ För en annan vy av data:
 
     str(data)
 
-I den här vyn visas typen av varje variabel och de första värdena i data uppsättningen.
+I den här vyn visas typen av varje variabel och de första värdena i datauppsättningen.
 
-Kolumnen **spam** lästes som ett heltal, men det är egentligen en kategoriska variabel (eller faktor). Ange dess typ:
+**Spamkolumnen** lästes som ett heltal, men det är faktiskt en kategorisk variabel (eller faktor). Så här anger du dess typ:
 
     data$spam <- as.factor(data$spam)
 
-Om du vill göra en viss analys av analyser använder du [ggplot2](https://ggplot2.tidyverse.org/) -paketet, ett populärt diagram bibliotek för R som är förinstallerat på DSVM. Baserat på de sammanfattnings data som visas tidigare har vi sammanfattande statistik om hur ofta utrops tecknet är. Låt oss Rita dessa frekvenser här genom att köra följande kommandon:
+För att göra några undersökande analys, använd [ggplot2](https://ggplot2.tidyverse.org/) paketet, ett populärt grafbibliotek för R som är förinstallerat på DSVM. Baserat på de sammanfattande data som visas tidigare har vi sammanfattande statistik om frekvensen för utropstecknet. Låt oss rita dessa frekvenser här genom att köra följande kommandon:
 
     library(ggplot2)
     ggplot(data) + geom_histogram(aes(x=char_freq_exclamation), binwidth=0.25)
 
-Eftersom noll fältet skevar ritningen tar vi bort det:
+Eftersom nollstrecket är skeva tomten, låt oss eliminera det:
 
     email_with_exclamation = data[data$char_freq_exclamation > 0, ]
     ggplot(email_with_exclamation) + geom_histogram(aes(x=char_freq_exclamation), binwidth=0.25)
 
-Det finns en inte trivial densitet över 1 som ser intressant ut. Nu ska vi titta på endast dessa data:
+Det finns en nontrivial densitet över 1 som ser intressant. Låt oss bara titta på dessa data:
 
     ggplot(data[data$char_freq_exclamation > 1, ]) + geom_histogram(aes(x=char_freq_exclamation), binwidth=0.25)
 
-Dela sedan upp den med skräp post jämfört med Ham:
+Sedan dela den med spam kontra skinka:
 
     ggplot(data[data$char_freq_exclamation > 1, ], aes(x=char_freq_exclamation)) +
     geom_density(lty=3) +
@@ -117,22 +117,22 @@ Dela sedan upp den med skräp post jämfört med Ham:
     ggtitle("Distribution of spam \nby frequency of !") +
     labs(fill="spam", y="Density")
 
-Dessa exempel bör hjälpa dig att göra liknande observationer och utforska data i de andra kolumnerna.
+De här exemplen bör hjälpa dig att skapa liknande diagram och utforska data i de andra kolumnerna.
 
-## <a name="train-and-test-a-machine-learning-model"></a>Träna och testa en maskin inlärnings modell
+## <a name="train-and-test-a-machine-learning-model"></a>Träna och testa en maskininlärningsmodell
 
-Vi ska träna ett par maskin inlärnings modeller för att klassificera e-postmeddelandena i data uppsättningen som innehåller antingen skräp post eller Ham. I det här avsnittet ska vi träna en besluts träd modell och en slumpmässig skogs modell. Sedan testar vi precisionen för förutsägelserna.
+Låt oss träna ett par maskininlärningsmodeller för att klassificera e-postmeddelandena i datauppsättningen som innehåller antingen skräppost eller skinka. I det här avsnittet tränar vi en beslutsträdmodell och en slumpmässig skogsmodell. Sedan testar vi precisionen i förutsägelserna.
 
 > [!NOTE]
-> Paketet *rpart* (recursive partitioning and regression Tree) som används i följande kod är redan installerat på DSVM.
+> Paketet *rpart* (Rekursiv partitionering och regressionsträd) som används i följande kod är redan installerat på DSVM.
 
-Först ska vi dela upp data uppsättningen i tränings uppsättningar och test uppsättningar:
+Låt oss först dela upp datauppsättningen i utbildningsuppsättningar och testuppsättningar:
 
     rnd <- runif(dim(data)[1])
     trainSet = subset(data, rnd <= 0.7)
     testSet = subset(data, rnd > 0.7)
 
-Skapa sedan ett besluts träd för att klassificera e-postmeddelanden:
+Skapa sedan ett beslutsträd för att klassificera e-postmeddelandena:
 
     require(rpart)
     model.rpart <- rpart(spam ~ ., method = "class", data = trainSet)
@@ -141,23 +141,23 @@ Skapa sedan ett besluts träd för att klassificera e-postmeddelanden:
 
 Här är resultatet:
 
-![Ett diagram över besluts trädet som skapas](./media/linux-dsvm-walkthrough/decision-tree.png)
+![Ett diagram över beslutsträdet som har skapats](./media/linux-dsvm-walkthrough/decision-tree.png)
 
-Använd följande kod för att fastställa hur väl den utför på träningsmängden:
+Om du vill ta reda på hur bra den fungerar på träningsuppsättningen använder du följande kod:
 
     trainSetPred <- predict(model.rpart, newdata = trainSet, type = "class")
     t <- table(`Actual Class` = trainSet$spam, `Predicted Class` = trainSetPred)
     accuracy <- sum(diag(t))/sum(t)
     accuracy
 
-För att fastställa hur väl utför den i test-grupp:
+Så här avgör du hur bra det fungerar på testuppsättningen:
 
     testSetPred <- predict(model.rpart, newdata = testSet, type = "class")
     t <- table(`Actual Class` = testSet$spam, `Predicted Class` = testSetPred)
     accuracy <- sum(diag(t))/sum(t)
     accuracy
 
-Nu ska vi prova också en slumpmässig Skogsmodell. Slumpmässiga skogar tränar en mängd besluts träd och utvärderar en klass som är läget för klassificeringarna från alla enskilda besluts träd. De ger en mer kraftfull maskin inlärnings metod eftersom de passar för tendensen av en besluts träd modell för att overfit en tränings data uppsättning.
+Låt oss också prova en slumpmässig skogsmodell. Slumpmässiga skogar tränar en mängd beslutsträd och ut ur en klass som är klasssättet för klassificeringarna från alla enskilda beslutsträd. De ger en mer kraftfull maskininlärningsmetod eftersom de korrigerar för tendensen hos en beslutsträdmodell att övermontera en utbildningsdatauppsättning.
 
     require(randomForest)
     trainVars <- setdiff(colnames(data), 'spam')
@@ -174,18 +174,18 @@ Nu ska vi prova också en slumpmässig Skogsmodell. Slumpmässiga skogar tränar
 
 ## <a name="deploy-a-model-to-azure-machine-learning-studio-classic"></a>Distribuera en modell till Azure Machine Learning Studio (klassisk)
 
-[Azure Machine Learning Studio (klassisk)](https://studio.azureml.net/) är en moln tjänst som gör det enkelt att bygga och distribuera förutsägelse analys modeller. En bra funktion i Azure Machine Learning Studio (klassisk) är möjligheten att publicera alla R-funktioner som en webb tjänst. Det Azure Machine Learning Studio (klassiska) R-paketet gör distributionen enkelt, direkt från R-sessionen på DSVM.
+[Azure Machine Learning Studio (klassisk)](https://studio.azureml.net/) är en molntjänst som gör det enkelt att skapa och distribuera modeller för prediktiv analys. En trevlig funktion i Azure Machine Learning Studio (klassisk) är dess förmåga att publicera alla R-funktioner som en webbtjänst. Azure Machine Learning Studio -paketet (klassiskt) R gör distributionen enkel, direkt från din R-session på DSVM.
 
-Om du vill distribuera besluts träds koden från föregående avsnitt loggar du in på Azure Machine Learning Studio (klassisk). Du behöver arbetsyte-ID och en Autentiseringstoken för att logga in. Slutför följande steg för att hitta de här värdena och initiera variablerna för Azure Machine Learning:
+Om du vill distribuera beslutsträdskoden från föregående avsnitt loggar du in på Azure Machine Learning Studio (klassisk). Du behöver ditt arbetsyte-ID och en auktoriseringstoken för att logga in. Så här hittar du dessa värden och initierar Azure Machine Learning-variablerna med dem:
 
-1. I den vänstra menyn väljer du **Inställningar**. Anteckna värdet för **arbetsyte-ID**.
+1. Välj **Inställningar**i den vänstra menyn . Observera värdet för **ARBETSUTRYMMES-ID**.
 
-   ![Azure Machine Learning Studio (klassiskt) arbetsyte-ID](./media/linux-dsvm-walkthrough/workspace-id.png)
+   ![Azure Machine Learning Studio (klassiskt) arbetsområdes-ID](./media/linux-dsvm-walkthrough/workspace-id.png)
 
-1. Välj fliken **autentiseringstoken** . Observera värdet för **primär**autentiseringstoken.
+1. Välj fliken **Auktoriseringstoken.** **Primary Authorization Token**
 
-   ![Den primära autentiseringstoken för Azure Machine Learning Studio (klassisk)](./media/linux-dsvm-walkthrough/workspace-token.png)
-1. Läs in **azureml** -paketet och ange värden för variablerna med ditt token och arbetsyte-ID i R-sessionen på DSVM:
+   ![Azure Machine Learning Studio (klassisk) primär auktoriseringstoken](./media/linux-dsvm-walkthrough/workspace-token.png)
+1. Läs in **AzureML-paketet** och ange sedan värden för variablerna med token- och arbetsyte-ID:n i R-sessionen på DSVM:
 
         if(!require("devtools")) install.packages("devtools")
         devtools::install_github("RevolutionAnalytics/AzureML")
@@ -194,7 +194,7 @@ Om du vill distribuera besluts träds koden från föregående avsnitt loggar du
         wsAuth = "<authorization-token>"
         wsID = "<workspace-id>"
 
-1. Nu ska vi förenkla modellen för att göra det enklare att implementera den här demonstrationen. Välj de tre variablerna i besluts trädet närmast roten och bygg ett nytt träd genom att bara använda de tre variablerna:
+1. Låt oss förenkla modellen för att göra den här demonstrationen lättare att implementera. Välj de tre variablerna i beslutsträdet närmast roten och skapa ett nytt träd med hjälp av endast dessa tre variabler:
 
         colNames <- c("char_freq_dollar", "word_freq_remove", "word_freq_hp", "spam")
         smallTrainSet <- trainSet[, colNames]
@@ -208,11 +208,11 @@ Om du vill distribuera besluts träds koden från föregående avsnitt loggar du
         return(colnames(predictDF)[apply(predictDF, 1, which.max)])
         }
 
-1. Skapa en Settings. JSON-fil för den här arbets ytan:
+1. Skapa en settings.json-fil för den här arbetsytan:
 
         vim ~/.azureml/settings.json
 
-1. Se till att följande innehåll placeras i Settings. JSON:
+1. Kontrollera att följande innehåll finns inuti settings.json:
 
          {"workspace":{
            "id": "<workspace-id>",
@@ -222,51 +222,51 @@ Om du vill distribuera besluts träds koden från föregående avsnitt loggar du
          }
 
 
-1. Publicera **predictSpam** -funktionen till azureml med hjälp av funktionen **publishWebService** :
+1. Publicera **predictSpam-funktionen** till AzureML med hjälp av funktionen **publishWebService:**
 
         ws <- workspace()
         spamWebService <- publishWebService(ws, fun = predictSpam, name="spamWebService", inputSchema = smallTrainSet, data.frame=TRUE)
 
-1. Den här funktionen använder funktionen **predictSpam** , skapar en webb tjänst med namnet **spamWebService** som har definierat indata och utdata och returnerar sedan information om den nya slut punkten.
+1. Den här funktionen tar **funktionen predictSpam,** skapar en webbtjänst med namnet **spamWebService** som har definierat indata och utdata och sedan returnerar information om den nya slutpunkten.
 
-    Använd det här kommandot för att visa information om den senaste publicerade webb tjänsten, inklusive dess API-slutpunkt och åtkomst nycklar:
+    Använd det här kommandot om du vill visa information om den senast publicerade webbtjänsten, inklusive dess API-slutpunkt och åtkomstnycklar:
 
         s<-tail(services(ws, name = "spamWebService"), 1)
         ep <- endpoints(ws,s)
         ep
 
-1. Prova på först 10 raderna i testet ange:
+1. Så här provar du på de första 10 raderna i testuppsättningen:
 
         consume(ep, smallTestSet[1:10, ])
 
 <a name="deep-learning"></a>
 
-## <a name="deep-learning-tutorials-and-walkthroughs"></a>Guider för djup inlärning och genom gångar
+## <a name="deep-learning-tutorials-and-walkthroughs"></a>Djupinlärningshandledningar och genomgångar
 
-Förutom de ramverkbaserade exemplen tillhandahålls även en uppsättning omfattande genom gångar. Dessa genomgångar dig rivstarta din utvecklingen av deep learning-program i domäner som bild och text/språkförståelse.
+Förutom de rambaserade proverna tillhandahålls också en uppsättning omfattande genomgångar. Dessa genomgångar hjälper dig att få fart på din utveckling av djupinlärningsprogram i domäner som bild- och text- och språkförståelse.
 
-- Att [köra neurala-nätverk i olika ramverk](https://github.com/ilkarman/DeepLearningFrameworks): en omfattande genom gång som visar hur du migrerar kod från ett ramverk till ett annat. Det visar också hur du jämför modell-och körnings prestanda i ramverk. 
+- [Köra neurala nätverk över olika ramverk](https://github.com/ilkarman/DeepLearningFrameworks): En omfattande genomgång som visar hur du migrerar kod från ett ramverk till ett annat. Det visar också hur du jämför modell- och körningsprestanda över ramverk. 
 
-- [En instruktions guide för att skapa en komplett lösning för att identifiera produkter i bilder](https://github.com/Azure/cortana-intelligence-product-detection-from-images): bild identifiering är en teknik som kan användas för att hitta och klassificera objekt i bilder. Tekniken har möjlighet att få enorma förmåner i många affärs domäner i real tid. Återförsäljare kan till exempel använda den här tekniken för att avgöra vilken produkt en kund har hämtas från hyllan. Den här informationen hjälper i sin tur butiker hantera produktlager. 
+- [En vägledning för att skapa en heltäckande lösning för att identifiera produkter i bilder:](https://github.com/Azure/cortana-intelligence-product-detection-from-images)Bildidentifiering är en teknik som kan lokalisera och klassificera objekt i bilder. Tekniken har potential att ge stora belöningar i många verkliga affärsområden. Återförsäljare kan till exempel använda den här tekniken för att avgöra vilken produkt en kund har plockat upp från hyllan. Den här informationen hjälper i sin tur butiker att hantera produktlager. 
 
-- [Djup inlärning för ljud](https://blogs.technet.microsoft.com/machinelearning/2018/01/30/hearing-ai-getting-started-with-deep-learning-for-audio-on-azure/): den här självstudien visar hur du tränar en djup inlärnings modell för att upptäcka ljud händelser i [data uppsättningen för urbana ljud](https://urbansounddataset.weebly.com/). I självstudien får du en översikt över hur du arbetar med ljuddata.
+- [Djupinlärning för ljud:](https://blogs.technet.microsoft.com/machinelearning/2018/01/30/hearing-ai-getting-started-with-deep-learning-for-audio-on-azure/)Den här självstudien visar hur man tränar en djupinlärningsmodell för ljudhändelsedetektering på den [urbana ljuddatauppsättningen](https://urbansounddataset.weebly.com/). Självstudien ger en översikt över hur du arbetar med ljuddata.
 
-- [Klassificering av text dokument](https://github.com/anargyri/lstm_han): den här genom gången visar hur du skapar och tränar två olika neurala-nätverks arkitekturer: hierarkiskt Attention-nätverk och långsiktigt kortvarigt minne (LSTM). Dessa neurala nätverk använder Keras-API för djupinlärning för att klassificera textdokument. Keras är en klientdel till tre av de mest populära ramverk för djupinlärning: Microsoft Cognitive Toolkit, TensorFlow och Theano.
+- [Klassificering av textdokument](https://github.com/anargyri/lstm_han): Den här genomgången visar hur man bygger och tränar två olika neurala nätverksarkitekturer: Hierarchical Attention Network och Long Short Term Memory (LSTM). Dessa neurala nätverk använder Keras API för djupinlärning för att klassificera textdokument. Keras är en front till tre av de mest populära djupinlärningsramverken: Microsoft Cognitive Toolkit, TensorFlow och Theano.
 
 ## <a name="other-tools"></a>Andra verktyg
 
-I de återstående avsnitten får du se hur du använder några av de verktyg som är installerade på Linux-DSVM. Vi diskuterar följande verktyg:
+De återstående avsnitten visar hur du använder några av de verktyg som är installerade på Linux DSVM. Vi diskuterar dessa verktyg:
 
 * XGBoost
 * Python
-* JupyterHub
-* Spännen
+* JupyterHub (på)
+* Rattle
 * PostgreSQL och SQuirreL SQL
-* SQL Server Data Warehouse
+* SQL Server-datalager
 
 ### <a name="xgboost"></a>XGBoost
 
-[XGBoost](https://xgboost.readthedocs.org/en/latest/) tillhandahåller en snabb och korrekt utökat träd implementering.
+[XGBoost](https://xgboost.readthedocs.org/en/latest/) ger en snabb och exakt förstärkt trädimplementering.
 
     require(xgboost)
     data <- read.csv("spambaseHeaders.data")
@@ -282,16 +282,16 @@ I de återstående avsnitten får du se hur du använder några av de verktyg so
     accuracy <- 1.0 - mean(as.numeric(pred > 0.5) != testSet$spam)
     print(paste("test accuracy = ", accuracy))
 
-XGBoost kan också anropa från python eller en kommando rad.
+XGBoost kan också anropa från Python eller en kommandorad.
 
 ### <a name="python"></a>Python
 
-För python-utveckling installeras Anaconda python-distributionerna 3,5 och 2,7 på DSVM.
+För Python-utveckling installeras Anaconda Python-distributionerna 3.5 och 2.7 på DSVM.
 
 > [!NOTE]
-> Anaconda-distributionen innehåller [Conda](https://conda.pydata.org/docs/index.html). Du kan använda Conda för att skapa anpassade python-miljöer som har olika versioner eller paket installerade.
+> Anaconda-distributionen inkluderar [Conda](https://conda.pydata.org/docs/index.html). Du kan använda Conda för att skapa anpassade Python-miljöer som har olika versioner eller paket installerade i dem.
 
-Vi läser i några av spambase-datauppsättningen och klassificerar e-postmeddelandena med stöd för vektor datorer i Scikit – lära:
+Låt oss läsa i några av spambase datauppsättning och klassificera e-postmeddelanden med stöd vektor maskiner i Scikit-learn:
 
     import pandas
     from sklearn import svm
@@ -301,18 +301,18 @@ Vi läser i några av spambase-datauppsättningen och klassificerar e-postmeddel
     clf = svm.SVC()
     clf.fit(X, y)
 
-Att göra förutsägelser:
+Så här gör du förutsägelser:
 
     clf.predict(X.ix[0:20, :])
 
-För att visa hur du publicerar en Azure Machine Learning slut punkt, ska vi skapa en grundläggande modell. Vi använder de tre variabler som vi använde när vi publicerade R-modellen tidigare:
+Om du vill visa hur du publicerar en Slutpunkt för Azure Machine Learning ska vi skapa en mer grundläggande modell. Vi använder de tre variabler som vi använde när vi publicerade R-modellen tidigare:
 
     X = data[["char_freq_dollar", "word_freq_remove", "word_freq_hp"]]
     y = data.ix[:, 57]
     clf = svm.SVC()
     clf.fit(X, y)
 
-Så här publicerar du modellen till Azure Machine Learning:
+Så här publicerar du modellen i Azure Machine Learning:
 
     # Publish the model.
     workspace_id = "<workspace-id>"
@@ -334,43 +334,43 @@ Så här publicerar du modellen till Azure Machine Learning:
 
 
 > [!NOTE]
-> Det här alternativet är endast tillgängligt för python 2,7. Det stöds ännu inte på python 3,5. Använd **/Anaconda/bin/python2.7**om du vill köra.
+> Det här alternativet är endast tillgängligt för Python 2.7. Det stöds ännu inte på Python 3.5. Kör du **använd /anaconda/bin/python2.7**.
 
-### <a name="jupyterhub"></a>JupyterHub
+### <a name="jupyterhub"></a>JupyterHub (på)
 
-Anaconda-distributionen i DSVM levereras med en Jupyter Notebook, en plattforms oberoende miljö för att dela python-, R-eller Julia-kod och-analys. Jupyter Notebook nås via JupyterHub. Du loggar in med ditt lokala Linux-användarnamn och-lösen ord på https://\<DSVM DNS-namn eller IP-adress\>: 8000/. Alla konfigurationsfiler för JupyterHub finns i/etc/jupyterhub.
+Anaconda-distributionen i DSVM levereras med en Jupyter Notebook, en plattformsoberoende miljö för att dela Python-, R- eller Julia-kod och analys. Den Jupyter Notebook nås via JupyterHub. Du loggar in med ditt lokala Linux-användarnamn\<och lösenord på https:// DSVM DNS-namn eller IP-adress\>:8000/. Alla konfigurationsfiler för JupyterHub finns i /etc/jupyterhub.
 
 > [!NOTE]
-> Om du vill använda python-paketfilen (via kommandot `pip`) från en Jupyter Notebook i den aktuella kärnan använder du det här kommandot i cellen Code:
+> Om du vill använda Python `pip` Package Manager (via kommandot) från en Jupyter-anteckningsbok i den aktuella kärnan använder du det här kommandot i kodcellen:
 >
 >   ```python
 >    import sys
 >    ! {sys.executable} -m pip install numpy -y
 >   ```
 > 
-> Om du vill använda installations programmet för Conda (via kommandot `conda`) från en Jupyter Notebook i aktuell kernel, använder du det här kommandot i en kod cell:
+> Om du vill använda Installationsprogrammet `conda` för Conda (via kommandot) från en Jupyter-anteckningsbok i den aktuella kärnan använder du det här kommandot i en kodcell:
 >
 >   ```python
 >    import sys
 >    ! {sys.prefix}/bin/conda install --yes --prefix {sys.prefix} numpy
 >   ```
 
-Flera exempel antecknings böcker är redan installerade på DSVM:
+Flera exempel bärbara datorer är redan installerade på DSVM:
 
-* Exempel på python-anteckningsboker:
-  * [IntroToJupyterPython. ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Data-Science-Virtual-Machine/Samples/Notebooks/IntroToJupyterPython.ipynb)
+* Exempel på Python-anteckningsböcker:
+  * [IntroToJupyterPython.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Data-Science-Virtual-Machine/Samples/Notebooks/IntroToJupyterPython.ipynb)
   * [IrisClassifierPyMLWebService](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Data-Science-Virtual-Machine/Samples/Notebooks/IrisClassifierPyMLWebService.ipynb)
 * Exempel på R-anteckningsbok:
-  * [IntroTutorialinR](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Data-Science-Virtual-Machine/Samples/Notebooks/IntroTutorialinR.ipynb) 
+  * [Introtutorialinr](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Data-Science-Virtual-Machine/Samples/Notebooks/IntroTutorialinR.ipynb) 
 
 > [!NOTE]
-> Julia-språket är också tillgängligt från kommando raden på Linux-DSVM.
+> Julia-språket är också tillgängligt från kommandoraden på Linux DSVM.
 
-### <a name="rattle"></a>Spännen
+### <a name="rattle"></a>Rattle
 
-[Rattle](https://cran.r-project.org/web/packages/rattle/index.html) (*R* *A*nalysdatamängd *t*OOL *t*o *L*s *E*asily) är ett grafiskt R-verktyg för Data utvinning. Rattle har ett intuitivt gränssnitt som gör det enkelt att läsa in, utforska och transformera data och bygga och utvärdera modeller. [Rattle: ett användar gränssnitt för Data utvinning för R](https://journal.r-project.org/archive/2009-2/RJournal_2009-2_Williams.pdf) innehåller en genom gång som visar Rattle-funktioner.
+[Rattle](https://cran.r-project.org/web/packages/rattle/index.html) (*R* *A*nalytical *T*ool *T*o *L*earn *E*asily) är ett grafiskt R-verktyg för datautvinning. Rattle har ett intuitivt gränssnitt som gör det enkelt att ladda, utforska och omvandla data samt att bygga och utvärdera modeller. [Rattle: A Data Mining GUI för R](https://journal.r-project.org/archive/2009-2/RJournal_2009-2_Williams.pdf) ger en genomgång som visar Rattle funktioner.
 
-Installera och starta Rattle genom att köra följande kommandon:
+Installera och starta Rattle genom att köra dessa kommandon:
 
     if(!require("rattle")) install.packages("rattle")
     require(rattle)
@@ -379,40 +379,40 @@ Installera och starta Rattle genom att köra följande kommandon:
 > [!NOTE]
 > Du behöver inte installera Rattle på DSVM. Du kan dock uppmanas att installera ytterligare paket när Rattle öppnas.
 
-Spännen använder ett fliken-baserat gränssnitt. De flesta flikarna motsvarar stegen i [team data science-processen](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/), t. ex. inläsning av data eller utforska data. Data science process flödar från vänster till höger i flikarna. Den sista fliken innehåller en logg med de R-kommandon som kördes av Rattle.
+Rattle använder ett flikbaserat gränssnitt. De flesta flikarna motsvarar steg i [teamdatavetenskapsprocessen,](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/)som att läsa in data eller utforska data. Data science-processen flödar från vänster till höger genom flikarna. Den sista fliken innehåller en logg över R-kommandon som kördes av Rattle.
 
-Läsa in och konfigurera datauppsättningen:
+Så här läser du in och konfigurerar datauppsättningen:
 
-1. Om du vill läsa in filen väljer du fliken **data** .
-1. Välj väljaren bredvid **fil namn**och välj sedan **spambaseHeaders. data**.
-1. Läsa in filen. Välj **Kör**. Du bör se en sammanfattning av varje kolumn, inklusive den identifierade data typen. om det är en indatatyp, ett mål eller en annan typ av variabel. och antalet unika värden.
-1. Rattle har identifierat kolumnen **spam** som mål. Välj kolumnen **spam** och ange sedan **mål data typen** till **Categoric**.
+1. Om du vill läsa in filen markerar du fliken **Data.**
+1. Välj väljaren bredvid **Filnamn**och välj sedan **spambaseHeaders.data**.
+1. Så här läser du in filen. välj **Kör**. Du bör se en sammanfattning av varje kolumn, inklusive dess identifierade datatyp. om det är en indata, ett mål eller någon annan typ av variabel. och antalet unika värden.
+1. Rattle har korrekt identifierat **spam** kolumnen som mål. Markera **kolumnen skräppost** och ange sedan **måldatatypen** på **kategoriskt**.
 
-Att utforska data:
+Så här utforskar du data:
 
-1. Välj fliken **utforska** .
-1. Om du vill se information om variabel typer och viss sammanfattnings statistik väljer du **sammanfattning** > **Kör**.
-1. Om du vill visa andra typer av statistik om varje variabel väljer du andra alternativ, t. ex. **Beskriv** eller **grunderna**.
+1. Välj fliken **Utforska.**
+1. Om du vill visa information om variabla typer och viss sammanfattningsstatistik väljer du > **Sammanfattningsdr0**. **Summary**
+1. Om du vill visa andra typer av statistik om varje variabel väljer du andra alternativ, till exempel **Beskriv** eller **Grunderna**.
 
-Du kan också använda fliken **utforska** för att generera inblickade områden. Att rita ett histogram för data:
+Du kan också använda fliken **Utforska** för att generera insiktsfulla ritplaner. Så här ritar du ett histogram av data:
 
-1. Välj **distributioner**.
-1. För **word_freq_remove** och **Word_freq_you**väljer du **histogram**.
-1. Välj **Kör**. Du bör se båda Täthets ritningarna i ett enda diagram fönster, där det är klart att ordet _du_ ser mycket oftare i e-postmeddelanden än _ta bort_.
+1. Välj **Distributioner**.
+1. För **word_freq_remove** och **word_freq_you**väljer du **Histogram**.
+1. Välj **Kör**. Du bör se båda densiteten tomter i ett enda diagram fönster, där det är klart att ordet _du_ visas mycket oftare i e-postmeddelanden än _att ta bort_.
 
-**Korrelations** områdena är också intressanta. Så här skapar du en rityta:
+**Korrelationen** tomter är också intressanta. Så här skapar du en ritlott:
 
-1. I **typ**väljer du **korrelation**.
+1. För **Typ**väljer du **Korrelation**.
 1. Välj **Kör**.
-1. Spännen varnar dig om att den rekommenderar högst 40 variabler. Välj **Ja** om du vill visa ritningen.
+1. Rattle varnar dig att det rekommenderar högst 40 variabler. Välj **Ja** om du vill visa ritytan.
 
-Det finns några intressanta korrelationer som följer: _teknik_ är starkt korrelerad med _HP_ och _labb_, till exempel. Det är också starkt korrelerat med _650_ eftersom rikt numret för data uppsättnings givarna är 650.
+Det finns några intressanta korrelationer som kommer upp: _tekniken_ är starkt korrelerad till _HP_ och _laboratorier_, till exempel. Det är också starkt korrelerade till _650_ eftersom riktnumret för datauppsättningen givare är 650.
 
-De numeriska värdena för korrelationer mellan ord är tillgängliga i fönstret **utforska** . Det är intressant att notera, till exempel att _tekniken_ är negativ korrelerad med _dina_ och _pengar_.
+De numeriska värdena för korrelationerna mellan ord är tillgängliga i fönstret **Utforska.** Det är intressant att notera, till exempel, att _tekniken_ är negativt korrelerad med _din_ och _pengar._
 
-Spännen kan omvandla datauppsättningen för att hantera några vanliga problem. Till exempel kan den skala om funktioner, räkna upp saknade värden, hantera avvikande värden och ta bort variabler eller observationer som saknar data. Rattle kan också identifiera associerings regler mellan observationer och variabler. De här flikarna beskrivs inte i den här inledande genom gången.
+Skallra kan omvandla datauppsättningen för att hantera några vanliga problem. Den kan till exempel skala om funktioner, tillskriva saknade värden, hantera extremvärden och ta bort variabler eller observationer som saknar data. Skallra kan också identifiera associationsregler mellan observationer och variabler. Dessa flikar omfattas inte av den här inledande genomgången.
 
-Rattle kan också köra kluster analys. Nu ska vi undanta vissa funktioner för att göra det lättare att läsa utdata. På fliken **data** väljer du **Ignorera** bredvid var och en av variablerna förutom de 10 objekten:
+Skallra kan också köra klusteranalys. Låt oss utesluta vissa funktioner för att göra utdata lättare att läsa. På fliken **Data** väljer du **Ignorera** bredvid var och en av variablerna utom dessa 10 objekt:
 
 * word_freq_hp
 * word_freq_technology
@@ -425,36 +425,36 @@ Rattle kan också köra kluster analys. Nu ska vi undanta vissa funktioner för 
 * word_freq_business
 * skräppost
 
-Gå tillbaka till fliken **kluster** . Välj **KMeans**och ange sedan **antalet kluster** till **4**. Välj **Kör**. Resultaten visas i utdatafönstret. Ett kluster har hög frekvens på _George_ och _HP_och är förmodligen ett legitimt företags-e-postmeddelande.
+Gå tillbaka till fliken **Kluster.** Välj **KMeans**och ange sedan **Antal kluster** till **4**. Välj **Kör**. Resultaten visas i utdatafönstret. Ett kluster har hög frekvens av _George_ och _HP_, och är förmodligen en legitim verksamhet e-post.
 
-Så här skapar du en grundläggande besluts träd Machine Learning-modell:
+Så här skapar du en grundläggande modell för beslutsträdsmaskininlärning:
 
-1. Välj fliken **modell** ,
-1. I **typ**väljer du **träd**.
-1. Välj **Kör** för att visa trädet i text form i fönstret utdata.
-1. Välj knappen **Rita** om du vill visa en grafisk version. Besluts trädet liknar det träd vi fick tidigare genom att använda rpart.
+1. Välj fliken **Modell,**
+1. För **typen**väljer du **Träd**.
+1. Välj **Kör om** du vill visa trädet i textform i utdatafönstret.
+1. Välj knappen **Rita** om du vill visa en grafisk version. Beslutsträdet liknar trädet vi fick tidigare med hjälp av rpart.
 
-En användbar funktion i Rattle är möjligheten att köra flera Machine Learning-metoder och snabbt utvärdera dem. Här är stegen:
+En användbar funktion i Rattle är dess förmåga att köra flera machine learning-metoder och snabbt utvärdera dem. Här är stegen:
 
-1. För **typ**väljer du **alla**.
+1. För **Typ**väljer du **Alla**.
 1. Välj **Kör**.
-1. När Rattle är klar kan du välja valfritt **typ** värde, t. ex. **SVM**, och visa resultatet.
-1. Du kan också jämföra modellens prestanda på validerings uppsättningen med hjälp av fliken **utvärdera** . Till exempel visar **fel mat** ris urvalet visualiserings mat ris, övergripande fel och genomsnittligt klass fel för varje modell i validerings uppsättningen. Du kan också Rita ROC kurvor, köra känslighets analyser och utföra andra typer av modell utvärderingar.
+1. När Rattle körs kan du välja **valfritt typvärde,** till exempel **SVM,** och visa resultatet.
+1. Du kan också jämföra prestanda för modellerna på valideringsuppsättningen med hjälp av fliken **Utvärdera.** Valet **Felmatris** visar till exempel förvirringsmatrisen, det övergripande felet och det genomsnittliga klassfelet för varje modell i valideringsuppsättningen. Du kan också rita ROC-kurvor, köra känslighetsanalys och göra andra typer av modellutvärderingar.
 
-När du är klar med att skapa modeller väljer du fliken **logg** för att visa den R-kod som kördes av Rattle under sessionen. Du kan välja knappen **Exportera** för att spara den.
+När du är klar med byggmodeller väljer du fliken **Logg** för att visa R-koden som kördes av Rattle under sessionen. Du kan välja knappen **Exportera** för att spara den.
 
 > [!NOTE]
-> Den aktuella versionen av Rattle innehåller en bugg. Om du vill ändra skriptet eller använda det för att upprepa stegen senare måste du infoga ett **#** tecken framför *exporten av loggen...* i loggens text.
+> Den aktuella utgåvan av Rattle innehåller en bugg. Om du vill ändra skriptet eller använda det för **#** att upprepa dina steg senare måste du infoga ett tecken framför *Exportera den här loggen ...* i loggens text.
 
 ### <a name="postgresql-and-squirrel-sql"></a>PostgreSQL och SQuirreL SQL
 
-DSVM levereras med PostgreSQL installerat. PostgreSQL är en avancerad relationsdatabas med öppen källkod. I det här avsnittet visas hur du läser in spambase-datauppsättningen i PostgreSQL och sedan frågar den.
+DSVM levereras med PostgreSQL installerat. PostgreSQL är en sofistikerad relationsdatabas med öppen källkod. I det här avsnittet visas hur du läser in datauppsättningen för skräppostbasen i PostgreSQL och sedan frågar den.
 
 Innan du kan läsa in data måste du tillåta lösenordsautentisering från localhost. Kör följande i en kommandotolk:
 
     sudo gedit /var/lib/pgsql/data/pg_hba.conf
 
-Längst ned i konfigurationsfilen är flera rader som specificerar de tillåtna anslutningarna:
+Längst ned i config-filen finns flera rader som beskriver de tillåtna anslutningarna:
 
     # "local" is only for Unix domain socket connections:
     local   all             all                                     trust
@@ -463,7 +463,7 @@ Längst ned i konfigurationsfilen är flera rader som specificerar de tillåtna 
     # IPv6 local connections:
     host    all             all             ::1/128                 ident
 
-Ändra linjen för **IPv4-lokala anslutningar** så att den använder **MD5** i stället för **identitet**, så att vi kan logga in med ett användar namn och lösen ord:
+Ändra **IPv4 lokala anslutningar** rad för att använda **md5** istället för **ident,** så att vi kan logga in med hjälp av ett användarnamn och lösenord:
 
     # IPv4 local connections:
     host    all             all             127.0.0.1/32            md5
@@ -472,11 +472,11 @@ Starta sedan om PostgreSQL-tjänsten:
 
     sudo systemctl restart postgresql
 
-Kör det här kommandot om du vill starta *psql* (en interaktiv Terminal för postgresql) som den inbyggda postgres-användaren:
+Om du vill starta *psql* (en interaktiv terminal för PostgreSQL) som den inbyggda postgres-användaren kör du det här kommandot:
 
     sudo -u postgres psql
 
-Skapa ett nytt användar konto med hjälp av användar namnet för det Linux-konto som du använde för att logga in. Skapa ett lösen ord:
+Skapa ett nytt användarkonto med hjälp av användarnamnet för det Linux-konto som du använde för att logga in. Skapa ett lösenord:
 
     CREATE USER <username> WITH CREATEDB;
     CREATE DATABASE <username>;
@@ -497,73 +497,73 @@ Importera data till en ny databas:
 
 Nu ska vi utforska data och köra några frågor med hjälp av SQuirreL SQL, ett grafiskt verktyg som du kan använda för att interagera med databaser via en JDBC-drivrutin.
 
-Kom igång genom att öppna SQuirreL SQL på **program** -menyn. Du ställer in drivrutinen:
+För att komma igång, på **programmenyn,** öppna SQuirreL SQL. Så här konfigurerar du drivrutinen:
 
-1. Välj **Windows** > **Visa driv rutiner**.
-1. Högerklicka på **postgresql** och välj **ändra driv rutin**.
-1. Välj **extra klass Sök väg** > **Lägg till**.
-1. För **fil namn**anger du **/usr/share/Java/jdbcdrivers/postgresql-9.4.1208.jre6.jar**.
+1. Välj Drivrutiner för **Windows** > **Visa**.
+1. Högerklicka på **PostgreSQL** och välj **Ändra drivrutin**.
+1. Välj **Extra klasssökväg** > **Lägg till**.
+1. För **Filnamn**anger du **/usr/share/java/jdbcdrivers/postgresql-9.4.1208.jre6.jar**.
 1. Välj **Öppna**.
-1. Välj **list driv rutiner**. För **klass namn**väljer du **org. postgresql. driver**och väljer sedan **OK**.
+1. Välj **Listdrivrutiner**. För **Klassnamn**väljer du **org.postgresql.Driver**och väljer sedan **OK**.
 
-Konfigurera anslutningen till den lokala servern:
+Så här konfigurerar du anslutningen till den lokala servern:
 
 1. Välj **Windows** > **Visa alias.**
-1. Välj knappen **+** om du vill skapa ett nytt alias. För det nya aliasnamnet anger du **spam-databasen**. 
-1. För **driv rutin**väljer du **postgresql**.
-1. Ange URL: en till **JDBC: postgresql://localhost/spam**.
-1. Ange ditt användar namn och lösen ord.
+1. Välj **+** knappen om du vill skapa ett nytt alias. För det nya aliasnamnet anger du **Skräppostdatabas**. 
+1. För **drivrutin**väljer du **PostgreSQL**.
+1. Ange webbadressen till **jdbc:postgresql://localhost/spam**.
+1. Ange ditt användarnamn och lösenord.
 1. Välj **OK**.
-1. Öppna **anslutnings** fönstret **genom att dubbelklicka på det.**
+1. Om du vill öppna **anslutningsfönstret** dubbelklickar du på **skräppostdatabasaliaset.**
 1. Välj **Anslut**.
 
-Köra några frågor:
+Så här kör du några frågor:
 
-1. Välj fliken **SQL** .
-1. I rutan fråga högst upp på fliken **SQL** anger du en grundläggande fråga som `SELECT * from data;`.
-1. Tryck på CTRL + RETUR för att köra frågan. Som standard returnerar SQuirreL SQL de första 100 raderna från frågan.
+1. Välj **fliken SQL.**
+1. Ange en grundläggande fråga högst upp på **SQL-fliken,** till exempel `SELECT * from data;`.
+1. Tryck på Ctrl+Retur för att köra frågan. Som standard returnerar SQuirreL SQL de första 100 raderna från frågan.
 
-Det finns många fler frågor som du kan köra för att utforska dessa data. Hur *skiljer sig* ordet ofta mellan skräp post och Ham?
+Det finns många fler frågor som du kan köra för att utforska dessa data. Till exempel, hur frekvensen av ordet *gör* skiljer sig mellan spam och skinka?
 
     SELECT avg(word_freq_make), spam from data group by spam;
 
-Eller vilka egenskaper för e-post som ofta innehåller *3D*?
+Eller, vilka är egenskaperna hos e-post som ofta innehåller *3d?*
 
     SELECT * from data order by word_freq_3d desc;
 
-De flesta e-postmeddelanden som har en stor förekomst av *3D* kan vara skräp post. Den här informationen kan vara användbar för att skapa en förutsägelse modell för att klassificera e-postmeddelanden.
+De flesta e-postmeddelanden som har en hög förekomst av *3D* tydligen är spam. Den här informationen kan vara användbar för att skapa en prediktiv modell för att klassificera e-postmeddelanden.
 
-Om du vill göra Machine Learning med hjälp av data som lagras i en PostgreSQL-databas bör du överväga att använda [MADlib](https://madlib.incubator.apache.org/).
+Om du vill göra maskininlärning med hjälp av data som lagras i en PostgreSQL-databas kan du överväga att använda [MADlib](https://madlib.incubator.apache.org/).
 
 ### <a name="sql-data-warehouse"></a>SQL Data Warehouse
 
-Azure SQL Data Warehouse är en molnbaserad, skalbar databas som kan bearbeta stora mängder data, både relationella och icke-relationella. Mer information finns i [Vad är Azure SQL Data Warehouse?](../../sql-data-warehouse/sql-data-warehouse-overview-what-is.md)
+Azure SQL Data Warehouse är en molnbaserad, utskalningsdatabas som kan bearbeta stora mängder data, både relationella och icke-relationella. Mer information finns i [Vad är Azure SQL Data Warehouse?](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md)
 
-Om du vill ansluta till datalagret och skapa tabellen, kör du följande kommando från en kommandotolk:
+Om du vill ansluta till informationslagret och skapa tabellen kör du följande kommando från en kommandotolk:
 
     sqlcmd -S <server-name>.database.windows.net -d <database-name> -U <username> -P <password> -I
 
-Kör följande kommando i SQLCMD-prompten:
+Kör det här kommandot i sqlcmd-prompten:
 
     CREATE TABLE spam (word_freq_make real, word_freq_address real, word_freq_all real, word_freq_3d real,word_freq_our real, word_freq_over real, word_freq_remove real, word_freq_internet real,word_freq_order real, word_freq_mail real, word_freq_receive real, word_freq_will real,word_freq_people real, word_freq_report real, word_freq_addresses real, word_freq_free real,word_freq_business real, word_freq_email real, word_freq_you real, word_freq_credit real,word_freq_your real, word_freq_font real, word_freq_000 real, word_freq_money real,word_freq_hp real, word_freq_hpl real, word_freq_george real, word_freq_650 real, word_freq_lab real,word_freq_labs real, word_freq_telnet real, word_freq_857 real, word_freq_data real,word_freq_415 real, word_freq_85 real, word_freq_technology real, word_freq_1999 real,word_freq_parts real, word_freq_pm real, word_freq_direct real, word_freq_cs real, word_freq_meeting real,word_freq_original real, word_freq_project real, word_freq_re real, word_freq_edu real,word_freq_table real, word_freq_conference real, char_freq_semicolon real, char_freq_leftParen real,char_freq_leftBracket real, char_freq_exclamation real, char_freq_dollar real, char_freq_pound real, capital_run_length_average real, capital_run_length_longest real, capital_run_length_total real, spam integer) WITH (CLUSTERED COLUMNSTORE INDEX, DISTRIBUTION = ROUND_ROBIN);
     GO
 
-Kopiera data med hjälp av BCP:
+Kopiera data med hjälp av bcp:
 
     bcp spam in spambaseHeaders.data -q -c -t  ',' -S <server-name>.database.windows.net -d <database-name> -U <username> -P <password> -F 1 -r "\r\n"
 
 > [!NOTE]
-> Den hämtade filen innehåller rad slut i Windows-stil. BCP-verktyget förväntar sig rad brytningar i UNIX-format. Använd flaggan-r för att meddela BCP.
+> Den hämtade filen innehåller radslut i Windows-stil. Bcp-verktyget förväntar sig radslut i Unix-stil. Använd flaggan -r för att berätta för bcp.
 
-Fråga sedan med hjälp av SQLCMD:
+Fråga sedan med sqlcmd:
 
     select top 10 spam, char_freq_dollar from spam;
     GO
 
-Du kan också fråga genom att använda SQuirreL SQL. Följ stegen som liknar PostgreSQL med driv rutinen SQL Server JDBC. JDBC-drivrutinen finns i mappen/usr/share/Java/jdbcdrivers/sqljdbc42.jar.
+Du kan också fråga med hjälp av SQuirreL SQL. Följ steg som liknar PostgreSQL med hjälp av SQL Server JDBC-drivrutinen. JDBC-drivrutinen finns i mappen /usr/share/java/jdbcdrivers/sqljdbc42.jar.
 
 ## <a name="next-steps"></a>Nästa steg
 
-En översikt över artiklar som vägleder dig genom de uppgifter som ingår i data vetenskaps processen i Azure finns i [team data science process](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/overview).
+En översikt över artiklar som går igenom de uppgifter som ingår i datascience-processen i Azure finns i [Team Data Science Process](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/overview).
 
-En beskrivning av slut punkt till slut punkts steg som demonstrerar stegen i team data science-processen för särskilda scenarier finns i [genom gång av team data science process](../team-data-science-process/walkthroughs.md). Genomgångar visar också hur du kombinera molnet och lokala verktyg och tjänster i ett arbetsflöde eller en pipeline för att skapa ett intelligenta program.
+En beskrivning av genomgångar från slutpunkt till slutpunkt som visar stegen i teamdatavetenskapsprocessen för specifika scenarier finns i [genomgångar](../team-data-science-process/walkthroughs.md)av Team Data Science Process . Genomgångarna illustrerar också hur du kombinerar moln- och lokala verktyg och tjänster i ett arbetsflöde eller en pipeline för att skapa ett intelligent program.

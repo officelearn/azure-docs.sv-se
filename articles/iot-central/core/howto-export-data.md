@@ -1,142 +1,142 @@
 ---
-title: Exportera dina Azure IoT Central-data | Microsoft Docs
+title: Exportera dina Azure IoT-centrala data | Microsoft-dokument
 description: Så här exporterar du data från ditt Azure IoT Central-program till Azure Event Hubs, Azure Service Bus och Azure Blob Storage
 services: iot-central
 author: viv-liu
 ms.author: viviali
 ms.date: 01/30/2019
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: iot-central
 manager: corywink
-ms.openlocfilehash: 0386897b6cecc27781626cfecd6f1f5f8a3752e4
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.openlocfilehash: 725c5acf961fffb1fd4cf9bc17e37a5940f871cc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77524391"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80157916"
 ---
 # <a name="export-iot-data-to-destinations-in-azure"></a>Exportera IoT-data till destinationer i Azure
 
-*Det här avsnittet gäller för administratörer.*
+*Det här avsnittet gäller administratörer.*
 
-Den här artikeln beskriver hur du använder funktionen för kontinuerlig data export i Azure IoT Central för att exportera data till **azure Event Hubs**, **Azure Service Bus**eller **Azure Blob Storage** -instanser. Data exporteras i JSON-format och kan innehålla telemetri, enhets information och information om enhets mal len. Använd exporterade data för:
+I den här artikeln beskrivs hur du använder funktionen för kontinuerlig dataexport i Azure IoT Central för att exportera dina data till **Azure Event Hubs,** **Azure Service Bus**eller Azure **Blob storage** instances. Data exporteras i JSON-format och kan innehålla telemetri, enhetsinformation och enhetsmallsinformation. Använd exporterade data för:
 
-- Insikter och analys av varma sökvägar. Det här alternativet inkluderar utlöser anpassade regler i Azure Stream Analytics, utlöser anpassade arbets flöden i Azure Logic Apps eller skickar dem via Azure Functions som ska omvandlas.
-- Kall vägs analys, till exempel utbildnings modeller i Azure Machine Learning eller långsiktig trend analys i Microsoft Power BI.
+- Insikter och analyser med varma vägar. Det här alternativet omfattar utlösande av anpassade regler i Azure Stream Analytics, utlösa anpassade arbetsflöden i Azure Logic Apps eller skicka dem via Azure-funktioner som ska omvandlas.
+- Kallvägsanalys, till exempel utbildningsmodeller i Azure Machine Learning eller långsiktig trendanalys i Microsoft Power BI.
 
 > [!Note]
-> När du aktiverar kontinuerlig data export får du bara data från det här tillfället. För närvarande går det inte att hämta data under en tid då kontinuerliga data exporter ATS. Aktivera kontinuerlig data export tidigt om du vill behålla mer historiska data.
+> När du aktiverar kontinuerlig dataexport får du bara data från det ögonblicket och framåt. För närvarande kan data inte hämtas under en tid när kontinuerlig dataexport avbröts. Om du vill behålla mer historiska data aktiverar du kontinuerlig dataexport tidigt.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-Du måste vara administratör i IoT Central programmet eller ha behörighet för data export.
+Du måste vara administratör i ditt IoT Central-program eller ha behörigheter för dataexport.
 
-## <a name="set-up-export-destination"></a>Konfigurera export mål
+## <a name="set-up-export-destination"></a>Ställ in exportmål
 
-Export målet måste finnas innan du konfigurerar din kontinuerliga data export.
+Exportmålet måste finnas innan du konfigurerar din kontinuerliga dataexport.
 
-### <a name="create-event-hubs-namespace"></a>Skapa Event Hubs namn område
+### <a name="create-event-hubs-namespace"></a>Skapa en namnrymd för Event Hubs
 
-Följ dessa steg om du inte har ett befintligt Event Hubs namn område att exportera till:
+Om du inte har ett befintligt namnområde för eventhubbar att exportera till gör du så här:
 
-1. Skapa ett [nytt Event Hubs-namnområde i Azure Portal](https://ms.portal.azure.com/#create/Microsoft.EventHub). Du kan läsa mer i [Azure Event Hubs-dokument](../../event-hubs/event-hubs-create.md).
+1. Skapa ett [nytt namnområde för eventhubbar i Azure-portalen](https://ms.portal.azure.com/#create/Microsoft.EventHub). Du kan läsa mer i [Azure Event Hubs docs](../../event-hubs/event-hubs-create.md).
 
-2. Välj en prenumeration. Du kan exportera data till andra prenumerationer som inte ingår i samma prenumeration som ditt IoT Central-program. Du ansluter med hjälp av en anslutnings sträng i det här fallet.
+2. Välj en prenumeration. Du kan exportera data till andra prenumerationer som inte finns i samma prenumeration som ditt IoT Central-program. Du ansluter med hjälp av en anslutningssträng i det här fallet.
 
-3. Skapa en Event Hub i Event Hubs namn området. Gå till ditt namn område och välj **+ Event Hub** överst för att skapa en Event Hub-instans.
+3. Skapa en händelsehubb i namnområdet Event Hubs. Gå till ditt namnområde och välj **+ Event Hub** högst upp för att skapa en händelsehubbinstans.
 
-### <a name="create-service-bus-namespace"></a>Skapa Service Bus namn område
+### <a name="create-service-bus-namespace"></a>Skapa servicebussnamnområde
 
-Följ dessa steg om du inte har ett befintligt Service Bus namn område att exportera till:
+Om du inte har ett befintligt Service Bus-namnområde att exportera till gör du så här:
 
-1. Skapa ett [nytt Service Bus-namnområde i Azure Portal](https://ms.portal.azure.com/#create/Microsoft.ServiceBus.1.0.5). Du kan läsa mer i [Azure Service Bus dokument](../../service-bus-messaging/service-bus-create-namespace-portal.md).
-2. Välj en prenumeration. Du kan exportera data till andra prenumerationer som inte ingår i samma prenumeration som ditt IoT Central-program. Du ansluter med hjälp av en anslutnings sträng i det här fallet.
+1. Skapa ett [nytt servicebussnamnområde i Azure-portalen](https://ms.portal.azure.com/#create/Microsoft.ServiceBus.1.0.5). Du kan läsa mer i [Azure Service Bus-dokument](../../service-bus-messaging/service-bus-create-namespace-portal.md).
+2. Välj en prenumeration. Du kan exportera data till andra prenumerationer som inte finns i samma prenumeration som ditt IoT Central-program. Du ansluter med hjälp av en anslutningssträng i det här fallet.
 
-3. Gå till din Service Bus namnrymd och välj **+ kö** eller **+ ämne** överst för att skapa en kö eller ett ämne att exportera till.
+3. Gå till tjänstbussens namnområde och välj **+ Kö** eller **+ Ämne** högst upp för att skapa en kö eller ett ämne att exportera till.
 
-När du väljer Service Bus som export mål får inte köer och ämnen ha sessioner eller dubblettidentifiering aktiverade. Om något av dessa alternativ är aktiverat kommer vissa meddelanden inte att tas emot i din kö eller ämne.
+När du väljer Service Bus som exportmål får köerna och ämnena inte ha sessioner eller dubblettidentifiering aktiverat. Om något av dessa alternativ är aktiverat kommer vissa meddelanden inte till din kö eller ditt ämne.
 
 ### <a name="create-storage-account"></a>Skapa lagringskonto
 
-Följ dessa steg om du inte har ett befintligt Azure Storage-konto att exportera till:
+Om du inte har ett befintligt Azure Storage-konto att exportera till gör du så här:
 
-1. Skapa ett [nytt lagrings konto i Azure Portal](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM). Du kan lära dig mer om att skapa nya [Azure Blob Storage-konton](https://aka.ms/blobdocscreatestorageaccount) eller [Azure Data Lake Storage v2-lagrings konton](../../storage/blobs/data-lake-storage-quickstart-create-account.md). Data export kan bara skriva data till lagrings konton som stöder block-blobbar. Följande är en lista över kända kompatibla typer av lagrings konton: 
+1. Skapa ett [nytt lagringskonto i Azure-portalen](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM). Du kan läsa mer om hur du skapar nya [Azure Blob Storage-konton](https://aka.ms/blobdocscreatestorageaccount) eller [Azure Data Lake Storage v2-lagringskonton](../../storage/blobs/data-lake-storage-quickstart-create-account.md). Dataexport kan bara skriva data till lagringskonton som stöder blockblobar. Följande är en lista över kända kompatibla typer av lagringskonton: 
 
-    |Prestanda nivå|Kontotyp|
+    |Prestandanivå|Typ av konto|
     |-|-|
-    |Standard|Generell användning v2|
-    |Standard|Generell användning v1|
+    |Standard|Allmänt ändamål V2|
+    |Standard|Allmänt ändamål V1|
     |Standard|Blob Storage|
-    |Premium|Blockera Blob Storage|
+    |Premium|Lagring av blockblob|
 
-2. Skapa en behållare i ditt lagrings konto. Gå till ditt lagringskonto. Under **BLOB service**väljer du **Bläddra i blobbar**. Välj **+ behållare** överst för att skapa en ny behållare.
+2. Skapa en behållare i ditt lagringskonto. Gå till ditt lagringskonto. Under **Blob-tjänst**väljer du **Bläddra blobbar**. Välj **+ Behållare** högst upp om du vill skapa en ny behållare.
 
-## <a name="set-up-continuous-data-export"></a>Konfigurera kontinuerlig data export
+## <a name="set-up-continuous-data-export"></a>Ställa in kontinuerlig dataexport
 
-Nu när du har ett mål att exportera data till, följer du dessa steg för att konfigurera kontinuerlig data export.
+Nu när du har ett mål att exportera data till följer du dessa steg för att ställa in kontinuerlig dataexport.
 
 1. Logga in på ditt IoT Central-program.
 
-2. Välj **data export**i det vänstra fönstret.
+2. Välj **Dataexport**i den vänstra rutan .
 
     > [!Note]
-    > Om du inte ser data export i det vänstra fönstret har du inte behörighet att konfigurera data export i din app. Prata med en administratör för att konfigurera data export.
+    > Om du inte ser Dataexport i den vänstra rutan har du inte behörighet att konfigurera dataexport i appen. Prata med en administratör för att ställa in dataexport.
 
-3. Välj knappen **+ ny** längst upp till höger. Välj en **Azure-Event Hubs**, **Azure Service Bus**eller **Azure Blob Storage** som mål för exporten. Det maximala antalet exporter per program är fem.
+3. Välj knappen **+ Ny** längst upp till höger. Välj en av **Azure Event Hubs,** **Azure Service Bus**eller Azure **Blob storage** som mål för din export. Det maximala antalet exporter per ansökan är fem.
 
-    ![Skapa ny kontinuerlig data export](media/howto-export-data/new-export-definition.png)
+    ![Skapa ny kontinuerlig dataexport](media/howto-export-data/new-export-definition.png)
 
-4. I list rutan väljer du **Event Hubs namnrymd**, **Service Bus namnrymd**, **lagrings konto namnrum**eller **anger en anslutnings sträng**.
+4. I listrutan väljer du **namnområdet Event Hubs,** **Service Bus-namnområde,** **Namnområde för lagringskonto**eller **Ange en anslutningssträng**.
 
-    - Du ser bara lagrings konton, Event Hubs namnrymder och Service Bus namnrum i samma prenumeration som ditt IoT Central-program. Om du vill exportera till ett mål utanför den här prenumerationen väljer du **Ange en anslutnings sträng** och se steg 5.
-    - För appar som har skapats med den kostnads fria pris Planen är det enda sättet att konfigurera kontinuerlig data export genom en anslutnings sträng. Appar i den kostnads fria pris Planen har ingen tillhör ande Azure-prenumeration.
+    - Du ser bara namnområden för Lagringskonton, Event Hubs och Service Bus-namnområden i samma prenumeration som ditt IoT Central-program. Om du vill exportera till ett mål utanför den här prenumerationen väljer du **Ange en anslutningssträng** och se steg 5.
+    - För appar som skapas med hjälp av den kostnadsfria prisplanen är det enda sättet att konfigurera kontinuerlig dataexport via en anslutningssträng. Appar på den kostnadsfria prisplanen har ingen associerad Azure-prenumeration.
 
-    ![Skapa ny händelsehubben](media/howto-export-data/export-event-hub.png)
+    ![Skapa ny händelsehubb](media/howto-export-data/export-event-hub.png)
 
-5. Valfritt Om du väljer **Ange en anslutnings sträng**visas en ny ruta där du kan klistra in anslutnings strängen. Så här hämtar du anslutnings strängen för din:
-    - Event Hubs eller Service Bus går du till namn området i Azure Portal.
-        - Under **Inställningar**väljer du **principer för delad åtkomst**
-        - Välj standard- **RootManageSharedAccessKey** eller skapa en ny
-        - Kopiera antingen den primära eller sekundära anslutnings strängen
-    - Lagrings konto går du till lagrings kontot i Azure Portal:
-        - Under **Inställningar**väljer du **åtkomst nycklar**
-        - Kopiera antingen anslutnings strängen KEY1 eller key2-anslutningssträngen
+5. (Valfritt) Om du väljer **Ange en anslutningssträng**visas en ny ruta där du kan klistra in anslutningssträngen. Så här hämtar du anslutningssträngen för din:
+    - Event Hubs eller Service Bus, gå till namnområdet i Azure-portalen.
+        - Under **Inställningar**väljer du **Principer för delad åtkomst**
+        - Välj **standardrothanageSharedAccessKey** eller skapa en ny
+        - Kopiera antingen den primära eller sekundära anslutningssträngen
+    - Lagringskonto, gå till lagringskontot i Azure-portalen:
+        - Under **Inställningar**väljer du **Access-nycklar**
+        - Kopiera antingen anslutningssträngen key1 eller anslutningssträngen key2
 
-6. Välj en händelsehubben, en kö, ett ämne eller en behållare i list rutan.
+6. Välj en händelsenav, kö, ett ämne eller en behållare i listrutan.
 
-7. Under **data som ska exporteras**väljer du de typer av data som ska exporteras genom att ange typen till **på**.
+7. Under **Data som ska exporteras**väljer du vilka typer av data som ska exporteras genom att ange typen till **På**.
 
-8. Om du vill aktivera kontinuerlig data export kontrollerar du att aktivera **växling är** **aktiverat** . Välj **Spara**.
+8. Om du vill aktivera kontinuerlig dataexport kontrollerar du att **aktiverad** växlingsknapp är **På**. Välj **Spara**.
 
-9. Efter några minuter visas dina data i det valda målet.
+9. Efter några minuter visas dina data på den destination du valt.
 
 ## <a name="export-contents-and-format"></a>Exportera innehåll och format
 
-Exporterade telemetridata innehåller hela det meddelande som dina enheter skickade till IoT Central, inte bara själva telemetri värden. Exporterade enhets data innehåller ändringar av egenskaper och metadata för alla enheter och exporterade enheter innehåller ändringar i alla enhets mallar.
+Exporterade telemetridata innehåller hela meddelandet som dina enheter skickade till IoT Central, inte bara telemetrivärdena själva. Exporterade enhetsdata innehåller ändringar av egenskaper och metadata för alla enheter, och exporterade enhetsmallar innehåller ändringar i alla enhetsmallar.
 
-För Event Hubs och Service Bus exporteras data i nära real tid. Data finns i egenskapen Body och är i JSON-format (se nedan för exempel).
+För eventhubbar och servicebuss exporteras data i nästan realtid. Uppgifterna finns i brödtextegenskapen och är i JSON-format (se nedan för exempel).
 
-För Blob Storage exporteras data en gång per minut, med varje fil som innehåller grupp ändringar sedan den senaste exporterade filen. Exporterade data placeras i tre mappar i JSON-format. Standard Sök vägarna i ditt lagrings konto är:
+För Blob Storage exporteras data en gång per minut, där varje fil innehåller den batch av ändringar som sedan den senast exporterade filen. Exporterade data placeras i tre mappar i JSON-format. Standardsökvägarna i ditt lagringskonto är:
 
-- Telemetri: _{container}/{app-ID}/Telemetry/{YYYY}/{MM}/{DD}/{hh}/{mm}/{filename}_
-- Enheter: _{container}/{app-ID}/Devices/{YYYY}/{MM}/{DD}/{hh}/{mm}/{filename}_
-- Enhets mallar: _{container}/{app-ID}/deviceTemplates/{YYYY}/{MM}/{DD}/{hh}/{mm}/{filename}_
+- Telemetri: _{container}/{app-id}/telemetri/{YYYY}/{MM}/{dd}/{hh}/{mm}/{filename}_
+- Enheter: _{container}/{app-id}/devices/{YYYY}/{MM}/{dd}/{hh}/{mm}/{filename}_
+- Enhetsmallar: _{container}/{app-id}/deviceTemplates/{YYYY}/{MM}/{dd}/{hh}/{mm}/{filename}_
 
-Du kan bläddra bland de exporterade filerna i Azure Portal genom att gå till filen och välja fliken **Redigera BLOB** .
+Du kan bläddra bland de exporterade filerna i Azure-portalen genom att navigera till filen och välja fliken **Redigera blob.**
 
 
 ## <a name="telemetry"></a>Telemetri
 
-För Event Hubs och Service Bus exporteras ett nytt meddelande snabbt efter att IoT Central tagit emot meddelandet från en enhet och varje exporterat meddelande innehåller det fullständiga meddelandet som enheten skickade i text egenskapen i JSON-format.
+För Event Hubs och Service Bus exporteras ett nytt meddelande snabbt efter att IoT Central tar emot meddelandet från en enhet och varje exporterat meddelande innehåller hela meddelandet som enheten skickade i brödtextegenskapen i JSON-format.
 
-För Blob Storage grupperas och exporteras meddelanden en gång per minut. De exporterade filerna använder samma format som de meddelandefiler som exporteras av [IoT Hub](../../iot-hub/tutorial-routing.md) meddelanderoutning till Blob Storage. 
+För Blob Storage batchas och exporteras meddelanden en gång per minut. De exporterade filerna använder samma format som de meddelandefiler som exporteras av [IoT Hub-meddelanderoutning](../../iot-hub/tutorial-routing.md) till blob-lagring. 
 
 > [!NOTE]
-> För Blob Storage kontrollerar du att enheterna skickar meddelanden som har `contentType: application/JSON` och `contentEncoding:utf-8` (eller `utf-16``utf-32`). Se [IoT Hub-dokumentationen](../../iot-hub/iot-hub-devguide-routing-query-syntax.md#message-routing-query-based-on-message-body) för ett exempel.
+> För Blob Storage, se till att dina `contentType: application/JSON` `contentEncoding:utf-8` enheter `utf-16`skickar `utf-32`meddelanden som har och (eller , ). Mer information om [IoT Hub-dokumentationen](../../iot-hub/iot-hub-devguide-routing-query-syntax.md#message-routing-query-based-on-message-body) finns i dokumentationen till IoT Hub.
 
-Enheten som skickade telemetri representeras av enhets-ID: t (se följande avsnitt). För att hämta namnen på enheterna, exportera enhets data och korrelera varje meddelande med hjälp av **connectionDeviceId** som matchar enhets meddelandets **deviceId** .
+Enheten som skickade telemetrin representeras av enhets-ID :t (se följande avsnitt). Om du vill hämta namnen på enheterna exporterar du enhetsdata och korrelerar varje meddelande med hjälp av **connectionDeviceId** som matchar **enhetsmeddelandets enhet.**
 
-Detta är ett exempel meddelande som tas emot i en Event Hub-eller Service Bus-kö eller ett ämne.
+Det här är ett exempelmeddelande som tas emot i en händelsenav eller servicebusskö eller ett ämne.
 
 ```json
 {
@@ -165,7 +165,7 @@ Detta är ett exempel meddelande som tas emot i en Event Hub-eller Service Bus-k
 }
 ```
 
-Det här är en exempel post som exporteras till Blob Storage:
+Det här är en exempelpost som exporteras till blob-lagring:
 
 ```json
 {
@@ -191,24 +191,24 @@ Det här är en exempel post som exporteras till Blob Storage:
 
 ## <a name="devices"></a>Enheter
 
-Varje meddelande eller post i en ögonblicks bild representerar en eller flera ändringar av en enhet och dess enhets-och moln egenskaper sedan det senaste exporterade meddelandet. Det här omfattar:
+Varje meddelande eller post i en ögonblicksbild representerar en eller flera ändringar i en enhet och dess enhets- och molnegenskaper sedan det senast exporterade meddelandet. Det här omfattar:
 
-- enhetens `id` i IoT Central
-- enhetens `displayName`
-- Mall-ID för enhet i `instanceOf`
-- `simulated` flagga, sant om enheten är en simulerad enhet
-- `provisioned` flagga, sant om enheten har etablerats
-- `approved` flagga, sant om enheten har godkänts för att skicka data
+- `id`av enheten i IoT Central
+- `displayName`av enheten
+- Enhetsmall ID i`instanceOf`
+- `simulated`flagga, sant om enheten är en simulerad enhet
+- `provisioned`flagga, sant om enheten har etablerats
+- `approved`flagga, sant om enheten har godkänts för att skicka data
 - Egenskapsvärden
-- `properties` inklusive värden för enhets-och moln egenskaper
+- `properties`inklusive enhets- och molnegenskaper
 
 Borttagna enheter exporteras inte. För närvarande finns det inga indikatorer i exporterade meddelanden för borttagna enheter.
 
-För Event Hubs och Service Bus skickas meddelanden som innehåller enhets data till händelsehubben eller Service Bus kö eller ämne i nära real tid, så som det visas i IoT Central. 
+För eventhubbar och servicebuss skickas meddelanden som innehåller enhetsdata till din händelsenav eller servicebusskö eller -ämne i nära realtid, som det visas i IoT Central. 
 
-För Blob Storage exporteras en ny ögonblicks bild som innehåller alla ändringar sedan den senaste skrevs en gång per minut.
+För Blob Storage exporteras en ny ögonblicksbild som innehåller alla ändringar sedan den senast skrivna en gång per minut.
 
-Detta är ett exempel på ett meddelande om enheter och egenskaps data i händelsehubben eller Service Bus kö eller ämne:
+Det här är ett exempelmeddelande om enheter och egenskapsdata i händelsehubben eller Service Bus-kö eller -ämne:
 
 ```json
 {
@@ -262,7 +262,7 @@ Detta är ett exempel på ett meddelande om enheter och egenskaps data i händel
 }
 ```
 
-Det här är ett exempel på en ögonblicks bild som innehåller enheter och egenskaps data i Blob Storage. Exporterade filer innehåller en enskild rad per post.
+Det här är en exempelögonblicksbild som innehåller enheter och egenskapsdata i Blob Storage. Exporterade filer innehåller en enda rad per post.
 
 ```json
 {
@@ -303,23 +303,23 @@ Det här är ett exempel på en ögonblicks bild som innehåller enheter och ege
 }
 ```
 
-## <a name="device-templates"></a>Enhets mallar
+## <a name="device-templates"></a>Enhetsmallar
 
-Varje meddelande-eller ögonblicks bild post representerar en eller flera ändringar i en publicerad enhets mall sedan det senaste exporterade meddelandet. Information som skickas i varje meddelande eller post innehåller:
+Varje meddelande eller ögonblicksbildpost representerar en eller flera ändringar i en publicerad enhetsmall sedan det senast exporterade meddelandet. Information som skickas i varje meddelande eller post omfattar:
 
-- `id` av enhets mal len som matchar `instanceOf` för enhets strömmen ovan
-- `displayName` av enhets mal len
-- Enheten `capabilityModel` inklusive dess `interfaces`, och definitioner för telemetri, egenskaper och kommandon
-- `cloudProperties` definitioner
-- Åsidosättningar och initiala värden, infogade i `capabilityModel`
+- `id`av enhetsmallen `instanceOf` som matchar av enheternas ström ovan
+- `displayName`av enhetsmallen
+- Enheten `capabilityModel` inklusive `interfaces`dess , och telemetri, egenskaper och kommandon definitioner
+- `cloudProperties`Definitioner
+- Åsidosättningar och initiala värden, infogade med`capabilityModel`
 
-Borttagna enhetsspecifika mappar exporteras inte. För närvarande finns det inga indikatorer i exporterade meddelanden för borttagna enhets mallar.
+Borttagna enhetsmallar exporteras inte. För närvarande finns det inga indikatorer i exporterade meddelanden för borttagna enhetsmallar.
 
-För Event Hubs och Service Bus skickas meddelanden som innehåller enhetsspecifika data till händelsehubben eller Service Bus kö eller ämne i nära real tid, så som det visas i IoT Central. 
+För eventhubbar och servicebuss skickas meddelanden som innehåller enhetsmalldata till din händelsenav eller servicebusskö eller -ämne i nära realtid, som det visas i IoT Central. 
 
-För Blob Storage exporteras en ny ögonblicks bild som innehåller alla ändringar sedan den senaste skrevs en gång per minut.
+För Blob Storage exporteras en ny ögonblicksbild som innehåller alla ändringar sedan den senast skrivna en gång per minut.
 
-Detta är ett exempel på ett meddelande om Device templates-data i händelsehubben eller Service Bus kö eller ämne:
+Det här är ett exempelmeddelande om enhetsmallar data i händelsehubben eller Service Bus-kö eller ämne:
 
 ```json
 {
@@ -444,7 +444,7 @@ Detta är ett exempel på ett meddelande om Device templates-data i händelsehub
 }
 ```
 
-Det här är ett exempel på en ögonblicks bild som innehåller enheter och egenskaps data i Blob Storage. Exporterade filer innehåller en enskild rad per post.
+Det här är en exempelögonblicksbild som innehåller enheter och egenskapsdata i Blob Storage. Exporterade filer innehåller en enda rad per post.
 
 ```json
 {
@@ -554,27 +554,27 @@ Det här är ett exempel på en ögonblicks bild som innehåller enheter och ege
       }
   }
 ```
-## <a name="data-format-change-notice"></a>Ändrings meddelande för data format
+## <a name="data-format-change-notice"></a>Meddelande om ändring av dataformat
 
 > [!Note]
-> Data formatet för telemetri påverkas inte av den här ändringen. Endast data strömmar för enheter och enheter påverkas.
+> Dataformatet telemetriström påverkas inte av den här ändringen. Endast enheter och enhetsmallar som strömmar av data påverkas.
 
-Om du har en befintlig data export i ditt för hands versions program där strömmarna *enheter* och *enhets mallar* är aktiverade måste du uppdatera exporten senast **30 juni 2020**. Detta gäller för export till Azure Blob Storage, Azure Event Hubs och Azure Service Bus.
+Om du har aktiverat en befintlig dataexport i förhandsgranskningsprogrammet med mallarna *Enheter* och *enhetsmallar* aktiverade måste du uppdatera exporten senast den **30 juni 2020**. Detta gäller för export till Azure Blob Storage, Azure Event Hubs och Azure Service Bus.
 
-Från och med 3 februari 2020 kommer data formatet som beskrivs ovan att visas i alla nya exporter i program med enheter och enhetsspecifika aktiverade. Alla exporter som skapats före detta kommer att finnas kvar på det gamla data formatet fram till den 30 juni 2020, efter den tidpunkt då denna export automatiskt migreras till det nya data formatet. Det nya data formatet matchar [enheten](https://docs.microsoft.com/rest/api/iotcentral/devices/get), [enhets egenskapen](https://docs.microsoft.com/rest/api/iotcentral/devices/getproperties), [enhetens moln egenskap](https://docs.microsoft.com/rest/api/iotcentral/devices/getcloudproperties) och [enhets mal len](https://docs.microsoft.com/rest/api/iotcentral/devicetemplates/get) objekt i IoT Central offentliga API: et. 
+Från och med den 3 februari 2020 har all ny export i program med mallar med enheter och enheter aktiverade dataformatet som beskrivs ovan. All export som skapas före detta kommer att finnas kvar i det gamla dataformatet fram till den 30 juni 2020, varefter denna export automatiskt kommer att migreras till det nya dataformatet. Det nya dataformatet matchar [enheten,](https://docs.microsoft.com/rest/api/iotcentral/devices/get) [enhetsegenskapen,](https://docs.microsoft.com/rest/api/iotcentral/devices/getproperties) [enhetsmolnegenskapen](https://docs.microsoft.com/rest/api/iotcentral/devices/getcloudproperties) och [enhetsmallobjekten](https://docs.microsoft.com/rest/api/iotcentral/devicetemplates/get) i IoT Central public API. 
  
-För **enheter**är viktiga skillnader mellan det gamla data formatet och det nya data formatet:
-- `@id` för enheten tas bort, `deviceId` byter namn till `id` 
-- `provisioned` flagga läggs till för att beskriva enhetens etablerings status
-- `approved` flagga läggs till för att beskriva enhetens godkännande tillstånd
-- `properties` inklusive egenskaper för enhet och moln matchar entiteter i det offentliga API: et
+För **Enheter**är anmärkningsvärda skillnader mellan det gamla dataformatet och det nya dataformatet:
+- `@id`för enheten tas `deviceId` bort, byter namn till`id` 
+- `provisioned`flagga läggs till för att beskriva enhetens etableringsstatus
+- `approved`flagga läggs till för att beskriva godkännandetillståndet för enheten
+- `properties`inklusive enhets- och molnegenskaper, matchar entiteter i det offentliga API:et
 
-Viktiga skillnader mellan det gamla data formatet och det nya data **formatet är:**
+För **enhetsmallar**är anmärkningsvärda skillnader mellan det gamla dataformatet och det nya dataformatet:
 
-- `@id` för enhets mal len byter namn till `id`
-- `@type` för enhets mal len byter namn till `types`och är nu en matris
+- `@id`för enhetsmallen har bytt namn till`id`
+- `@type`för enhetsmallen har `types`bytt namn till , och är nu en matris
 
-### <a name="devices-format-deprecated-as-of-3-february-2020"></a>Enheter (format föråldrat från och med 3 februari 2020)
+### <a name="devices-format-deprecated-as-of-3-february-2020"></a>Enheter (format inaktuella från och med den 3 februari 2020)
 ```json
 {
   "@id":"<id-value>",
@@ -619,7 +619,7 @@ Viktiga skillnader mellan det gamla data formatet och det nya data **formatet ä
 }
 ```
 
-### <a name="device-templates-format-deprecated-as-of-3-february-2020"></a>Enhets mallar (format föråldras från och med 3 februari 2020)
+### <a name="device-templates-format-deprecated-as-of-3-february-2020"></a>Enhetsmallar (format inaktuella från och med den 3 februari 2020)
 ```json
 {
   "@id":"<template-id>",
@@ -756,4 +756,4 @@ Viktiga skillnader mellan det gamla data formatet och det nya data **formatet ä
 Nu när du vet hur du exporterar dina data till Azure Event Hubs, Azure Service Bus och Azure Blob Storage fortsätter du till nästa steg:
 
 > [!div class="nextstepaction"]
-> [Så här skapar du Webhooks](./howto-create-webhooks.md)
+> [Så här skapar du webhooks](./howto-create-webhooks.md)

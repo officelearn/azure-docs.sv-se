@@ -1,6 +1,6 @@
 ---
-title: Utveckla och distribuera en modell med Azure Synapse Analytics – team data science process
-description: Bygg och distribuera en maskin inlärnings modell med Azure Synapse Analytics med en offentligt tillgänglig data uppsättning.
+title: Skapa och distribuera en modell med Azure Synapse Analytics - Team Data Science Process
+description: Skapa och distribuera en maskininlärningsmodell med Azure Synapse Analytics med en offentligt tillgänglig datauppsättning.
 services: machine-learning
 author: marktab
 manager: marktab
@@ -11,22 +11,22 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: e64b951a8bb96b25a6ef917b4cebe077d6dd6657
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 96d0a5b2fb59e4612107d8ccbf7285fff7576585
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76718454"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80128394"
 ---
-# <a name="the-team-data-science-process-in-action-using-azure-synapse-analytics"></a>Team data science-processen i praktiken: använda Azure Synapse Analytics
-I den här självstudien vägleder vi dig genom att skapa och distribuera en maskin inlärnings modell med Azure Synapse Analytics för en offentligt tillgänglig data uppsättning – [NYC taxi TRIPs](https://www.andresmh.com/nyctaxitrips/) -datauppsättningen. Den binära klassificerings modellen är konstruerad för att förutsäga om ett tips är betalt för en resa.  I modeller ingår klassificering av multiklass (oavsett om det finns ett tips) och regression (fördelningen för de belopp som betalas).
+# <a name="the-team-data-science-process-in-action-using-azure-synapse-analytics"></a>Team datavetenskapsprocessen i aktion: använda Azure Synapse Analytics
+I den här självstudien går vi igenom att skapa och distribuera en maskininlärningsmodell med Azure Synapse Analytics för en offentligt tillgänglig datauppsättning – NYC Taxi Trips-datauppsättningen. [NYC Taxi Trips](https://www.andresmh.com/nyctaxitrips/) Den konstruerade binära klassificeringsmodellen förutsäger om ett tips betalas för en resa eller inte.  Modeller inkluderar multiklassklassificering (oavsett om det finns ett tips) och regression (fördelningen för de utbetalade tipsbeloppen).
 
-Proceduren följer TDSP-arbetsflödet [(Team data science process)](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/) . Vi visar hur du konfigurerar en data vetenskaps miljö, hur du läser in data i Azure Synapse Analytics och hur du använder Azure Synapse Analytics eller en IPython-anteckningsbok för att utforska data-och ingenjörs funktionerna för att modellera. Sedan visar vi hur du skapar och distribuerar en modell med Azure Machine Learning.
+Proceduren följer arbetsflödet [för teamdatavetenskapsprocessen (TDSP).](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/) Vi visar hur du konfigurerar en datavetenskapsmiljö, hur du läser in data i Azure Synapse Analytics och hur du använder antingen Azure Synapse Analytics eller en IPython Notebook för att utforska data- och teknikerfunktionerna som ska modelleras. Vi visar sedan hur du skapar och distribuerar en modell med Azure Machine Learning.
 
-## <a name="dataset"></a>NYC taxi TRIPs-datauppsättning
-NYC Taxi resedata består av cirka 20 GB komprimerat CSV-filer (~ 48 GB okomprimerad), registrera mer än 173 miljoner enskilda kommunikation och priser betalda för varje resa. Posterna resa innehåller hämtning och dropoff platser och gånger licensnummer maskerade hack (drivrutin) och antalet medallion (taxi's unikt ID). Informationen som täcker alla kommunikation i år 2013 och anges i följande två datauppsättningar för varje månad:
+## <a name="the-nyc-taxi-trips-dataset"></a><a name="dataset"></a>Den NYC Taxi Trips dataset
+Den NYC Taxi Trip data består av cirka 20 GB komprimerade CSV filer (~ 48 GB okomprimerad), inspelning mer än 173 miljoner enskilda resor och de priser som betalas för varje resa. Varje resepost innehåller hämtnings- och avlämningsplatser och tider, anonymiserat hackkortsnummer och medaljongnumret (taxins unika ID)-nummer. Uppgifterna omfattar alla resor år 2013 och finns i följande två datamängder för varje månad:
 
-1. Filen **trip_data. csv** innehåller information om resan, till exempel antal passagerare, upphämtnings-och DropOff punkter, varaktighet för resan och rese längd. Här följer några Exempelposter:
+1. Filen **trip_data.csv** innehåller reseinformation, till exempel antal passagerare, pickup- och avlämningsplatser, resans varaktighet och resans längd. Här är några exempelposter:
 
         medallion,hack_license,vendor_id,rate_code,store_and_fwd_flag,pickup_datetime,dropoff_datetime,passenger_count,trip_time_in_secs,trip_distance,pickup_longitude,pickup_latitude,dropoff_longitude,dropoff_latitude
         89D227B655E5C82AECF13C3F540D4CF4,BA96DE419E711691B9445D6A6307C170,CMT,1,N,2013-01-01 15:11:48,2013-01-01 15:18:10,4,382,1.00,-73.978165,40.757977,-73.989838,40.751171
@@ -34,7 +34,7 @@ NYC Taxi resedata består av cirka 20 GB komprimerat CSV-filer (~ 48 GB okomprim
         0BD7C8F5BA12B88E0B67BED28BEA73D8,9FD8F69F0804BDB5549F40E9DA1BE472,CMT,1,N,2013-01-05 18:49:41,2013-01-05 18:54:23,1,282,1.10,-74.004707,40.73777,-74.009834,40.726002
         DFD2202EE08F7A8DC9A57B02ACB81FE2,51EE87E3205C985EF8431D850C786310,CMT,1,N,2013-01-07 23:54:15,2013-01-07 23:58:20,2,244,.70,-73.974602,40.759945,-73.984734,40.759388
         DFD2202EE08F7A8DC9A57B02ACB81FE2,51EE87E3205C985EF8431D850C786310,CMT,1,N,2013-01-07 23:25:03,2013-01-07 23:34:24,1,560,2.10,-73.97625,40.748528,-74.002586,40.747868
-2. Filen **trip_fare. csv** innehåller information om avgiften som har betalats för varje resa, till exempel betalnings typ, pris belopp, tilläggs avgift, tips och avgifter, samt totalt betalat belopp. Här följer några Exempelposter:
+2. Filen **trip_fare.csv** innehåller information om det pris som betalats för varje resa, till exempel betalningstyp, biljettprisbelopp, tilläggsavgift och skatter, tips och vägtullar samt det totala belopp som betalats. Här är några exempelposter:
 
         medallion, hack_license, vendor_id, pickup_datetime, payment_type, fare_amount, surcharge, mta_tax, tip_amount, tolls_amount, total_amount
         89D227B655E5C82AECF13C3F540D4CF4,BA96DE419E711691B9445D6A6307C170,CMT,2013-01-01 15:11:48,CSH,6.5,0,0.5,0,0,7
@@ -43,51 +43,51 @@ NYC Taxi resedata består av cirka 20 GB komprimerat CSV-filer (~ 48 GB okomprim
         DFD2202EE08F7A8DC9A57B02ACB81FE2,51EE87E3205C985EF8431D850C786310,CMT,2013-01-07 23:54:15,CSH,5,0.5,0.5,0,0,6
         DFD2202EE08F7A8DC9A57B02ACB81FE2,51EE87E3205C985EF8431D850C786310,CMT,2013-01-07 23:25:03,CSH,9.5,0.5,0.5,0,0,10.5
 
-Den **unika nyckeln** som används för att ansluta till rese\_data och resan\_avgiften består av följande tre fält:
+Den **unika nyckeln** som\_används\_för att gå med i resedata och resebiljett består av följande tre fält:
 
-* medallion,
+* Medaljong
 * hacka\_licens och
-* upphämtning\_DateTime.
+* upphämtningsdatumtid.\_
 
-## <a name="mltasks"></a>Adressera tre typer av förutsägelse aktiviteter
-Vi formulerar tre förutsägelse problem baserat på *tips\_belopp* för att illustrera tre typer av modellerings uppgifter:
+## <a name="address-three-types-of-prediction-tasks"></a><a name="mltasks"></a>Ta itu med tre typer av förutsägelseuppgifter
+Vi formulerar tre förutsägelseproblem baserat på *tipsbeloppet\_* för att illustrera tre typer av modelleringsuppgifter:
 
-1. **Binära klassificering**: för att förutsäga om ett tips har betalats för en resa, det vill säga ett *tips\_mängd* som är större än $0 är ett positivt exempel, medan ett *tips\_mängden* $0 är ett negativt exempel.
-2. **Klassificering**av flera klasser: för att förutsäga det tips som du betalar för resan. Vi delar *tipset\_belopp* i fem lager platser eller klasser:
+1. **Binär klassificering:** Att förutsäga om ett tips betalades för en resa, det vill ha ett *\_tips belopp* som är större än $0 är ett positivt exempel, medan ett *tips\_belopp* på $0 är ett negativt exempel.
+2. **Multiclass klassificering**: Att förutsäga intervallet av spets betalas för resan. Vi delar *\_upp tipsbeloppet* i fem fack eller klasser:
 
         Class 0 : tip_amount = $0
         Class 1 : tip_amount > $0 and tip_amount <= $5
         Class 2 : tip_amount > $5 and tip_amount <= $10
         Class 3 : tip_amount > $10 and tip_amount <= $20
         Class 4 : tip_amount > $20
-3. **Regressions uppgift**: för att förutsäga hur mycket tips du betalar för en resa.
+3. **Regressionsuppgift**: För att förutsäga hur mycket tips som betalats för en resa.
 
-## <a name="setup"></a>Konfigurera Azure Data Science-miljön för avancerad analys
-Följ dessa steg om du vill konfigurera din Azure Data Science-miljö.
+## <a name="set-up-the-azure-data-science-environment-for-advanced-analytics"></a><a name="setup"></a>Konfigurera Azure-datavetenskapsmiljön för avancerad analys
+Så här konfigurerar du din Azure Data Science-miljö.
 
-**Skapa ditt eget Azure Blob Storage-konto**
+**Skapa ditt eget Azure blob storage-konto**
 
-* När du etablerar en egen Azure Blob-lagring väljer du en Geo-plats för Azure Blob Storage i eller så nära Central USA som möjligt till **södra centrala USA**, som är den plats där NYC taxi-data lagras. Data kommer att kopieras med hjälp av AzCopy från den offentliga blob storage-behållaren till en behållare i ditt eget lagringskonto. Ju närmare ditt Azure blob storage är att södra centrala USA, desto snabbare kommer att slutföra uppgiften (steg 4).
-* Om du vill skapa ett eget Azure Storage konto följer du stegen som beskrivs i [om Azure Storage-konton](../../storage/common/storage-create-storage-account.md). Glöm inte att göra anteckningar på värden för följande autentiseringsuppgifterna för lagringskontot eftersom de behövs längre fram i den här genomgången.
+* När du etablerar din egen Azure blob-lagring väljer du en geografisk plats för din Azure-bloblagring i eller så nära som möjligt till **Södra centrala USA**, vilket är där NYC Taxi-data lagras. Data kopieras med AzCopy från den offentliga blob-lagringsbehållaren till en behållare i ditt eget lagringskonto. Ju närmare azure-bloblagringen är till Södra Centrala USA, desto snabbare slutförs den här uppgiften (steg 4).
+* Om du vill skapa ett eget Azure Storage-konto följer du stegen som beskrivs på [Om Azure Storage-konton](../../storage/common/storage-create-storage-account.md). Var noga med att göra anteckningar om värdena för att följa autentiseringsuppgifter för lagringskonto, eftersom de kommer att behövas senare i den här genomgången.
 
   * **Lagringskontonamn**
-  * **Lagrings konto nyckel**
-  * **Behållar namn** (som du vill att data ska lagras i Azure Blob Storage)
+  * **Nyckeln för lagringskonto**
+  * **Behållarnamn** (som du vill att data ska lagras i Azure-bloblagringen)
 
-**Etablera Azure Synapse Analytics-instansen.**
-Följ dokumentationen i [create och fråga en Azure SQL Data Warehouse i Azure Portal](../../sql-data-warehouse/create-data-warehouse-portal.md) för att etablera en Azure Synapse Analytics-instans. Se till att du gör ett format på följande autentiseringsuppgifter för Azure Synapse Analytics som ska användas i senare steg.
+**Etablera din Azure Synapse Analytics-instans.**
+Följ dokumentationen på [Skapa och fråga ett Azure SQL Data Warehouse i Azure-portalen](../../synapse-analytics/sql-data-warehouse/create-data-warehouse-portal.md) för att etablera en Azure Synapse Analytics-instans. Se till att du gör notationer på följande Azure Synapse Analytics-autentiseringsuppgifter som ska användas i senare steg.
 
-* **Server namn**: \<Server namn >. Database. Windows. net
-* **Namn på SQLDW (databas)**
+* **Servernamn** \<: servernamn>.database.windows.net
+* **SQLDW(databas) namn**
 * **Användarnamn**
 * **Lösenord**
 
-**Installera Visual Studio och SQL Server Data Tools.** Instruktioner finns i [komma igång med Visual Studio 2019 för SQL Data Warehouse](../../sql-data-warehouse/sql-data-warehouse-install-visual-studio.md).
+**Installera Visual Studio- och SQL Server-dataverktyg.** Instruktioner finns i [Komma igång med Visual Studio 2019 för SQL Data Warehouse](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-install-visual-studio.md).
 
-**Anslut till din Azure Synapse Analytics med Visual Studio.** Anvisningar finns i steg 1 & 2 i [Anslut till Azure SQL Data Warehouse](../../sql-data-warehouse/sql-data-warehouse-connect-overview.md).
+**Anslut till din Azure Synapse Analytics med Visual Studio.** Instruktioner finns i steg 1 & 2 i [Anslut till Azure SQL Data Warehouse](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-connect-overview.md).
 
 > [!NOTE]
-> Kör följande SQL-fråga på databasen som du skapade i din Azure Synapse Analytics (i stället för den fråga som anges i steg 3 i avsnittet Anslut) för att **skapa en huvud nyckel**.
+> Kör följande SQL-fråga i databasen som du skapade i Din Azure Synapse Analytics (i stället för frågan i steg 3 i anslutningsavsnittet)) för att **skapa en huvudnyckel**.
 >
 >
 
@@ -99,13 +99,13 @@ Följ dokumentationen i [create och fråga en Azure SQL Data Warehouse i Azure P
            --If the master key exists, do nothing
     END CATCH;
 
-**Skapa en Azure Machine Learning arbets yta under din Azure-prenumeration.** Instruktioner finns i [skapa en Azure Machine Learning-arbetsyta](../studio/create-workspace.md).
+**Skapa en Azure Machine Learning-arbetsyta under din Azure-prenumeration.** Instruktioner finns i [Skapa en Azure Machine Learning-arbetsyta](../studio/create-workspace.md).
 
-## <a name="getdata"></a>Läs in data i Azure Synapse Analytics
-Öppna en Windows PowerShell kommando-konsol. Kör följande PowerShell-kommandon för att ladda ned exempel-SQL-skriptfilerna som vi delar med dig på GitHub till en lokal katalog som du anger med parametern *-DestDir*. Du kan ändra värdet för parametern *-DestDir* till valfri lokal katalog. IF *-DestDir* inte finns kommer att skapas av PowerShell-skriptet.
+## <a name="load-the-data-into-azure-synapse-analytics"></a><a name="getdata"></a>Läsa in data i Azure Synapse Analytics
+Öppna en Kommandokonsol för Windows PowerShell. Kör följande PowerShell-kommandon för att hämta exemplet SQL-skriptfiler som vi delar med dig på GitHub till en lokal katalog som du anger med parametern *-DestDir*. Du kan ändra värdet för parametern *-DestDir* till valfri lokal katalog. Om *-DestDir* inte finns skapas det av PowerShell-skriptet.
 
 > [!NOTE]
-> Du kan behöva **köra som administratör** när du kör följande PowerShell-skript om din *DestDir* -katalog behöver administratörs behörighet för att skapa eller skriva till den.
+> Du kan behöva **köra som administratör** när du kör följande PowerShell-skript om din *DestDir-katalog* behöver administratörsbehörighet för att skapa eller skriva till det.
 >
 >
 
@@ -115,24 +115,24 @@ Följ dokumentationen i [create och fråga en Azure SQL Data Warehouse i Azure P
     $wc.DownloadFile($source, $ps1_dest)
     .\Download_Scripts_SQLDW_Walkthrough.ps1 –DestDir 'C:\tempSQLDW'
 
-Efter lyckad körning ändras din aktuella arbets katalog till *-DestDir*. Du bör kunna skärm som den här:
+När du har lyckats med körningen ändras den aktuella arbetskatalogen till *-DestDir*. Du bör kunna se skärmen som nedan:
 
-![Aktuella fungerande katalogändringar][19]
+![Aktuella ändringar i arbetskatalogen][19]
 
-I *DestDir*kör du följande PowerShell-skript i administratörs läge:
+Kör följande PowerShell-skript i *administratörsläge i -DestDir:*
 
     ./SQLDW_Data_Import.ps1
 
-När PowerShell-skriptet körs för första gången uppmanas du att ange informationen från din Azure Synapse-analys och ditt Azure Blob Storage-konto. När det här PowerShell-skriptet har slutförts ska körs för första gången autentiseringsuppgifterna du indata ha skrivits till en konfigurationsfil SQLDW.conf i den aktuella arbetskatalogen. Den framtida körningen av den här PowerShell-skriptfil har möjlighet att läsa alla nödvändiga parametrar från konfigurationsfilen. Om du behöver ändra vissa parametrar kan du välja att ange parametrarna på skärmen vid uppmaning genom att ta bort den här konfigurations filen och mata in parameter värden som en uppmaning eller ändra parametervärdena genom att redigera filen SQLDW. conf i katalogen *DestDir* .
+När PowerShell-skriptet körs för första gången blir du ombedd att mata in informationen från din Azure Synapse Analytics och ditt Azure blob storage-konto. När det här PowerShell-skriptet har körts för första gången har autentiseringsuppgifterna du matar in till en konfigurationsfil SQLDW.conf i den aktuella arbetskatalogen. Den framtida körningen av den här PowerShell-skriptfilen har möjlighet att läsa alla nödvändiga parametrar från den här konfigurationsfilen. Om du behöver ändra vissa parametrar kan du välja att mata in parametrarna på skärmen vid prompten genom att ta bort den här konfigurationsfilen och mata in parametervärdena enligt uppmaning eller ändra parametervärdena genom att redigera filen SQLDW.conf i katalogen *-DestDir.*
 
 > [!NOTE]
-> För att undvika schema namns konflikter med de som redan finns i din Azure Azure Synapse-analys, när du läser parametrar direkt från filen SQLDW. conf, läggs ett 3-siffrigt slumptal till i schema namnet från filen SQLDW. conf som standard schema namn för varje körning. PowerShell-skriptet kan efterfrågas ett schemanamn: namnet kan anges efter användaren gottfinnande.
+> För att undvika schemanamnkonflikter med dem som redan finns i din Azure Azure Synapse Analytics, när du läser parametrar direkt från filen SQLDW.conf, läggs ett tresiffrigt slumptal till i schemanamnet från FILEN SQLDW.conf som standardschema schema namn för varje körning. PowerShell-skriptet kan fråga dig om ett schemanamn: namnet kan anges efter användarens gottfinnande.
 >
 >
 
-Den här **PowerShell-skriptfilen** Slutför följande uppgifter:
+Den här **PowerShell-skriptfilen** slutför följande uppgifter:
 
-* **Hämtar och installerar AzCopy**, om AzCopy inte redan har installerats
+* **Hämtar och installerar AzCopy**, om AzCopy inte redan är installerat
 
         $AzCopy_path = SearchAzCopy
         if ($AzCopy_path -eq $null){
@@ -153,7 +153,7 @@ Den här **PowerShell-skriptfilen** Slutför följande uppgifter:
                     $env:Path = [System.Environment]::GetEnvironmentVariable("Path","Machine")
                     $env_path = $env:Path
                 }
-* **Kopierar data till ditt privata Blob Storage-konto** från den offentliga blobben med AZCopy
+* **Kopierar data till ditt privata blob storage-konto** från den offentliga blob med AzCopy
 
         Write-Host "AzCopy is copying data from public blob to yo storage account. It may take a while..." -ForegroundColor "Yellow"
         $start_time = Get-Date
@@ -163,17 +163,17 @@ Den här **PowerShell-skriptfilen** Slutför följande uppgifter:
         $total_seconds = [math]::Round($time_span.TotalSeconds,2)
         Write-Host "AzCopy finished copying data. Please check your storage account to verify." -ForegroundColor "Yellow"
         Write-Host "This step (copying data from public blob to your storage account) takes $total_seconds seconds." -ForegroundColor "Green"
-* **Läser in data med PolyBase (genom att köra LoadDataToSQLDW. SQL) i Azure Synapse Analytics** från ditt privata Blob Storage-konto med följande kommandon.
+* **Läser in data med Polybase (genom att köra LoadDataToSQLDW.sql) till din Azure Synapse Analytics** från ditt privata blob storage-konto med följande kommandon.
 
   * Skapa ett schema
 
           EXEC (''CREATE SCHEMA {schemaname};'');
-  * Skapa en databasbegränsade autentiseringsuppgifter
+  * Skapa en databasomfattad autentiseringsuppgifter
 
           CREATE DATABASE SCOPED CREDENTIAL {KeyAlias}
           WITH IDENTITY = ''asbkey'' ,
           Secret = ''{StorageAccountKey}''
-  * Skapa en extern data källa för en Azure Storage-BLOB
+  * Skapa en extern datakälla för en Azure Storage-blob
 
           CREATE EXTERNAL DATA SOURCE {nyctaxi_trip_storage}
           WITH
@@ -192,7 +192,7 @@ Den här **PowerShell-skriptfilen** Slutför följande uppgifter:
               CREDENTIAL = {KeyAlias}
           )
           ;
-  * Skapa ett externt filformat för en csv-fil. Data är okomprimerade och fälten avgränsas med pipe-tecknet.
+  * Skapa ett externt filformat för en csv-fil. Data är okomprimerade och fält separeras med pipe-tecknet.
 
           CREATE EXTERNAL FILE FORMAT {csv_file_format}
           WITH
@@ -205,7 +205,7 @@ Den här **PowerShell-skriptfilen** Slutför följande uppgifter:
               )
           )
           ;
-  * Skapa extern avgiften och resans tabeller för NYC taxi datauppsättningen i Azure blob storage.
+  * Skapa externa pris- och resetabeller för NYC-taxidatauppsättning i Azure blob storage.
 
           CREATE EXTERNAL TABLE {external_nyctaxi_fare}
           (
@@ -254,7 +254,7 @@ Den här **PowerShell-skriptfilen** Slutför följande uppgifter:
                 REJECT_VALUE = 12
             )
 
-    - Läs in data från externa tabeller i Azure Blob Storage till Azure Synapse Analytics
+    - Läsa in data från externa tabeller i Azure blob storage till Azure Synapse Analytics
 
             CREATE TABLE {schemaname}.{nyctaxi_fare}
             WITH
@@ -278,7 +278,7 @@ Den här **PowerShell-skriptfilen** Slutför följande uppgifter:
             FROM   {external_nyctaxi_trip}
             ;
 
-    - Skapa en data exempeltabell (NYCTaxi_Sample) och infoga data till den från att välja SQL-frågor på tabellerna resa och avgiften. (Vissa steg i den här genom gången måste använda den här exempel tabellen.)
+    - Skapa en exempeldatatabell (NYCTaxi_Sample) och infoga data till den från att välja SQL-frågor på rese- och pristabellerna. (Vissa steg i den här genomgången måste använda den här exempeltabellen.)
 
             CREATE TABLE {schemaname}.{nyctaxi_sample}
             WITH
@@ -307,55 +307,55 @@ Den här **PowerShell-skriptfilen** Slutför följande uppgifter:
             )
             ;
 
-Den geografiska platsen i dina lagringskonton påverkar snabbare.
+Den geografiska platsen för dina lagringskonton påverkar belastningstiderna.
 
 > [!NOTE]
-> Beroende på den geografiska platsen för ditt privata Blob Storage-konto kan processen att kopiera data från en offentlig blob till ditt privata lagrings konto ta ungefär 15 minuter, eller till och med längre, och processen att läsa in data från ditt lagrings konto till Azure Azure Synapse Analytics kan ta 20 minuter eller längre.
+> Beroende på den geografiska platsen för ditt privata blob storage-konto kan processen att kopiera data från en offentlig blob till ditt privata lagringskonto ta cirka 15 minuter, eller ännu längre, och processen med att läsa in data från ditt lagringskonto till ditt Azure Azure Synapse Analytics kan ta 20 minuter eller längre.
 >
 >
 
-Du måste bestämma vilka gör om du har dubblettfiler för källa och mål.
+Du måste bestämma vad som ska om du har dubbla käll- och målfiler.
 
 > [!NOTE]
-> Om CSV-filer som ska kopieras från den offentliga blob storage till privat blob storage-kontot finns redan i ditt privata blob storage-konto, AzCopy tillfrågas du om du vill skriva över. Om du inte vill skriva över dem skriver du in **n** när du uppmanas till det. Om du vill skriva över **alla** dessa, ange **en** när du uppmanas att göra det. Du kan också ange **y** för att skriva över. csv-filer individuellt.
+> Om CSV-filerna som ska kopieras från den offentliga blob-lagringen till ditt privata blob-lagringskonto redan finns i ditt privata blob-lagringskonto, frågar AzCopy dig om du vill skriva över dem. Om du inte vill skriva över dem matar du in **n** när du uppmanas att göra det. Om du vill skriva över dem **alla,** mata in **en** när du uppmanas. Du kan också mata in **y** för att skriva över CSV-filer individuellt.
 >
 >
 
 ![Utdata från AzCopy][21]
 
-Du kan använda dina egna data. Om dina data är i den lokala datorn i ditt program i verkligheten kan använda du fortfarande AzCopy för att ladda upp data på plats till ditt privata Azure blob storage. Du behöver bara ändra **käll** platsen `$Source = "http://getgoing.blob.core.windows.net/public/nyctaxidataset"`i AzCopy-kommandot för PowerShell-skriptfilen till den lokala katalog som innehåller dina data.
+Du kan använda dina egna data. Om dina data finns i din lokala dator i ditt verkliga program kan du fortfarande använda AzCopy för att ladda upp lokala data till din privata Azure-bloblagring. Du behöver bara ändra `$Source = "http://getgoing.blob.core.windows.net/public/nyctaxidataset"` **källplatsen,** i kommandot AzCopy i PowerShell-skriptfilen till den lokala katalogen som innehåller dina data.
 
 > [!TIP]
-> Om dina data redan finns i din privata Azure Blob-lagring i ditt riktiga liv program, kan du hoppa över AzCopy-steget i PowerShell-skriptet och överföra data direkt till Azure Azure Synapse Analytics. Detta kräver ytterligare redigeringar av skript för att skräddarsy den efter formatet för dina data.
+> Om dina data redan finns i din privata Azure-bloblagring i ditt verkliga program kan du hoppa över AzCopy-steget i PowerShell-skriptet och direkt överföra data till Azure Azure Synapse Analytics. Detta kräver ytterligare ändringar av skriptet för att anpassa det till formatet på dina data.
 >
 >
 
-Detta PowerShell-skript ansluts också i Azure Synapse Analytics-informationen till exempel filen för data utforskningar SQLDW_Explorations. SQL, SQLDW_Explorations. ipynb och SQLDW_Explorations_Scripts. py så att dessa tre filer är klara att provas direkt efter att PowerShell-skriptet har slutförts.
+Det här PowerShell-skriptet ansluter också azure Synapse Analytics-informationen till exempelfilerna för datautforskning SQLDW_Explorations.sql, SQLDW_Explorations.ipynb och SQLDW_Explorations_Scripts.py så att dessa tre filer är redo att provas direkt efter att PowerShell-skriptet har slutförts.
 
-Efter en lyckad körning visas skärmen som den här:
+Efter en lyckad körning ser du skärmen som nedan:
 
-![Utdata för en lyckad skriptkörningen][20]
+![Utdata från en lyckad skriptkörning][20]
 
-## <a name="dbexplore"></a>Data utforskning och funktions teknik i Azure Synapse Analytics
-I det här avsnittet utför vi data utforsknings-och funktions skapande genom att köra SQL-frågor mot Azure Synapse Analytics direkt med **Visual Studio data tools**. Alla SQL-frågor som används i det här avsnittet finns i exempel skriptet som heter *SQLDW_Explorations. SQL*. Den här filen har redan hämtats till din lokala katalog med PowerShell-skriptet. Du kan också hämta det från [GitHub](https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/SQLDW/SQLDW_Explorations.sql). Men filen i GitHub har inte anslutet till Azure Synapse Analytics-information.
+## <a name="data-exploration-and-feature-engineering-in-azure-synapse-analytics"></a><a name="dbexplore"></a>Datautforskning och funktionsteknik i Azure Synapse Analytics
+I det här avsnittet utför vi datautforskning och funktionsgenerering genom att köra SQL-frågor mot Azure Synapse Analytics direkt med **Visual Studio Data Tools**. Alla SQL-frågor som används i det här avsnittet finns i exempelskriptet som heter *SQLDW_Explorations.sql*. Den här filen har redan hämtats till din lokala katalog av PowerShell-skriptet. Du kan också hämta den från [GitHub](https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/SQLDW/SQLDW_Explorations.sql). Men filen i GitHub har inte Azure Synapse Analytics-informationen inkopplad.
 
-Anslut till din Azure Synapse Analytics med hjälp av Visual Studio med inloggnings namnet och lösen ordet för Azure Synapse Analytics och öppna **SQL-Object Explorer** för att bekräfta att databasen och tabellerna har importer ATS. Hämta filen *SQLDW_Explorations. SQL* .
+Anslut till din Azure Synapse Analytics med Visual Studio med inloggningsnamnet och lösenordet för Azure Synapse Analytics och öppna **SQL Object Explorer** för att bekräfta att databasen och tabellerna har importerats. Hämta *filen SQLDW_Explorations.sql.*
 
 > [!NOTE]
-> Om du vill öppna PDW-Frågeredigeraren använder du kommandot **ny fråga** medan ditt PDW har valts i **SQL-Object Explorer**. Standard SQL-frågeredigeraren stöds inte av PDW.
+> Om du vill öppna en PDW-frågeredigerare (Parallel Data Warehouse) använder du kommandot **Ny fråga** medan PDW är markerat i **SQL Object Explorer**. Standard-SQL-frågeredigeraren stöds inte av PDW.
 >
 >
 
-Här är de typer av data utforsknings-och funktions skapande uppgifter som utförs i det här avsnittet:
+Här är de typer av datautforskning och funktionsgenereringsuppgifter som utförs i det här avsnittet:
 
-* Utforska data distributioner av ett fåtal fält i olika tidsfönster.
-* Undersök datakvaliteten fält för longitud och latitud.
-* Generera binära och multiklass-klassificerings etiketter baserat på **tips\_mängden**.
-* Skapa funktioner och beräkning/jämför resans avstånd.
-* Koppla två tabeller och extrahera ett slumpmässigt urval som ska användas för att skapa modeller.
+* Utforska datadistributioner av några fält i olika tidsfönster.
+* Undersök datakvaliteten för fälten longitud och latitud.
+* Generera binära klassificeringsetiketter och klassificeringsetiketter med flera klasser baserat på **tipsmängden\_**.
+* Generera funktioner och beräkna/jämföra trippavstånd.
+* Gå med i de två tabellerna och extrahera ett slumpmässigt urval som kommer att användas för att bygga modeller.
 
-### <a name="data-import-verification"></a>Importera dataverifieringen
-De här frågorna ge en snabb kontroll av antalet rader och kolumner i tabellerna som fyllts i tidigare med hjälp av Polybases parallella bulk importera
+### <a name="data-import-verification"></a>Verifiering av dataimport
+Dessa frågor ger en snabb verifiering av antalet rader och kolumner i tabellerna som befolkats tidigare med Polybase parallella massimport,
 
     -- Report number of rows in table <nyctaxi_trip> without table scan
     SELECT SUM(rows) FROM sys.partitions WHERE object_id = OBJECT_ID('<schemaname>.<nyctaxi_trip>')
@@ -363,10 +363,10 @@ De här frågorna ge en snabb kontroll av antalet rader och kolumner i tabellern
     -- Report number of columns in table <nyctaxi_trip>
     SELECT COUNT(*) FROM information_schema.columns WHERE table_name = '<nyctaxi_trip>' AND table_schema = '<schemaname>'
 
-**Utdata:** Du bör få 173 179 759 rader och 14 kolumner.
+**Utgång:** Du bör få 173.179.759 rader och 14 kolumner.
 
-### <a name="exploration-trip-distribution-by-medallion"></a>Utforskning: Resa distribution enligt medallion
-Den här exempelfråga identifierar medallions (taxi-nummer) som slutförts fler än 100 kommunikation inom en angiven tidsperiod. Frågan skulle dra nytta av den partitionerade tabell åtkomsten eftersom den har ett villkor för det partition schema som inhämtas **\_datetime**. Fråga hela datauppsättningen innebär även att använda partitionerade tabellen och/eller index-genomsökning.
+### <a name="exploration-trip-distribution-by-medallion"></a>Utforskning: Trip distribution av medaljong
+Den här exempelfrågan identifierar de medaljonger (taxinummer) som slutförde mer än 100 resor inom en angiven tidsperiod. Frågan skulle dra nytta av den partitionerade tabellen åtkomst eftersom det är betingat av partitionen systemet **för\_pickup datetime**. Genom att fråga hela datauppsättningen används också den partitionerade tabellen och/eller indexgenomsökningen.
 
     SELECT medallion, COUNT(*)
     FROM <schemaname>.<nyctaxi_fare>
@@ -374,10 +374,10 @@ Den här exempelfråga identifierar medallions (taxi-nummer) som slutförts fler
     GROUP BY medallion
     HAVING COUNT(*) > 100
 
-**Utdata:** Frågan ska returnera en tabell med rader som anger 13 369-medallions (taxi) och antalet resor som slutförts i 2013. Den sista kolumnen innehåller antal kommunikation har slutförts.
+**Utgång:** Frågan ska returnera en tabell med rader som anger 13 369 medaljonger (taxibilar) och antalet resor som slutfördes 2013. Den sista kolumnen innehåller antalet slutförda resor.
 
-### <a name="exploration-trip-distribution-by-medallion-and-hack_license"></a>Utforskning: Resa distribution enligt medallion och hack_license
-Det här exemplet identifierar medallions (taxi-nummer) och hack_license siffror (drivrutiner) som har slutfört mer än 100 kommunikation inom en angiven tidsperiod.
+### <a name="exploration-trip-distribution-by-medallion-and-hack_license"></a>Utforskning: Resefördelning med medaljong och hack_license
+I det här exemplet identifieras de medaljonger (taxinummer) och hack_license nummer (förare) som slutförde mer än 100 resor inom en angiven tidsperiod.
 
     SELECT medallion, hack_license, COUNT(*)
     FROM <schemaname>.<nyctaxi_fare>
@@ -385,10 +385,10 @@ Det här exemplet identifierar medallions (taxi-nummer) och hack_license siffror
     GROUP BY medallion, hack_license
     HAVING COUNT(*) > 100
 
-**Utdata:** Frågan ska returnera en tabell med 13 369 rader som anger 13 369 bilar/driv rutins-ID: n som har slutfört mer än 100 resor i 2013. Den sista kolumnen innehåller antal kommunikation har slutförts.
+**Utgång:** Frågan bör returnera en tabell med 13 369 rader som anger de 13 369 bil-/förar-ID:erna som har slutfört mer än 100 resor under 2013. Den sista kolumnen innehåller antalet slutförda resor.
 
-### <a name="data-quality-assessment-verify-records-with-incorrect-longitude-andor-latitude"></a>Data utvärdering: Verifiera poster med felaktig longitud och/eller latitud
-Det här exemplet undersöker om något av fälten för longitud och/eller latitud antingen innehåller ett ogiltigt värde (radian grader bör vara mellan-90 och 90), eller så har (0, 0) koordinater.
+### <a name="data-quality-assessment-verify-records-with-incorrect-longitude-andor-latitude"></a>Bedömning av datakvalitet: Verifiera poster med felaktig longitud och/eller latitud
+I det här exemplet undersöks om något av longitud- och/eller latitudfälten antingen innehåller ett ogiltigt värde (radianexamina bör vara mellan -90 och 90) eller ha (0, 0) koordinater.
 
     SELECT COUNT(*) FROM <schemaname>.<nyctaxi_trip>
     WHERE pickup_datetime BETWEEN '20130101' AND '20130331'
@@ -399,10 +399,10 @@ Det här exemplet undersöker om något av fälten för longitud och/eller latit
     OR    (pickup_longitude = '0' AND pickup_latitude = '0')
     OR    (dropoff_longitude = '0' AND dropoff_latitude = '0'))
 
-**Utdata:** Frågan returnerar 837 467 resor som har ogiltiga longitud-och/eller latitud-fält.
+**Utgång:** Frågan returnerar 837 467 resor som har ogiltiga longitud- och/eller latitudfält.
 
-### <a name="exploration-tipped-vs-not-tipped-trips-distribution"></a>Utforskning: Lutad kontra inte lutad och RETUR-distribution
-Det här exemplet hittar antalet turer som har lutad jämfört med antalet som inte har lutad i en angiven tidsperiod (eller i hela datauppsättningen om som täcker hela året som den har ställts in här). Den här distributionen återspeglar distribution av binära etiketter ska användas senare för binär klassificering modellering.
+### <a name="exploration-tipped-vs-not-tipped-trips-distribution"></a>Prospektering: Tippade vs inte tippade resor distribution
+I det här exemplet hittas antalet resor som tippades jämfört med det nummer som inte tippades under en angiven tidsperiod (eller i den fullständiga datauppsättningen om det täcker hela året som det ställs in här). Den här fördelningen återspeglar den binära etikettfördelning som senare ska användas för binär klassificeringsmodellering.
 
     SELECT tipped, COUNT(*) AS tip_freq FROM (
       SELECT CASE WHEN (tip_amount > 0) THEN 1 ELSE 0 END AS tipped, tip_amount
@@ -410,10 +410,10 @@ Det här exemplet hittar antalet turer som har lutad jämfört med antalet som i
       WHERE pickup_datetime BETWEEN '20130101' AND '20131231') tc
     GROUP BY tipped
 
-**Utdata:** Frågan ska returnera följande tips frekvenser för året 2013:90 447 622 lutad och 82 264 709 ej lutad.
+**Utgång:** Frågan bör returnera följande tipsfrekvenser för år 2013: 90 447 622 tippade och 82 264 709 tippas inte.
 
-### <a name="exploration-tip-classrange-distribution"></a>Utforskning: Tips klass/intervall distribution
-Det här exemplet beräknar fördelningen av tip-intervall i en viss tidsperiod (eller i hela datauppsättningen om som täcker hela året). Den här fördelningen av etikett klasser kommer att användas senare för klassificerings modellering i multiklass.
+### <a name="exploration-tip-classrange-distribution"></a>Utforskning: Tips klass / intervall distribution
+I det här exemplet beräknas fördelningen av tipsintervall under en viss tidsperiod (eller i hela datauppsättningen om den täcker hela året). Den här fördelningen av etikettklasser kommer att användas senare för klassificeringsmodellering av flera klasser.
 
     SELECT tip_class, COUNT(*) AS tip_freq FROM (
         SELECT CASE
@@ -427,7 +427,7 @@ Det här exemplet beräknar fördelningen av tip-intervall i en viss tidsperiod 
     WHERE pickup_datetime BETWEEN '20130101' AND '20131231') tc
     GROUP BY tip_class
 
-**Utdataparametrar**
+**Resultat:**
 
 | tip_class | tip_freq |
 | --- | --- |
@@ -437,8 +437,8 @@ Det här exemplet beräknar fördelningen av tip-intervall i en viss tidsperiod 
 | 0 |82264625 |
 | 4 |85765 |
 
-### <a name="exploration-compute-and-compare-trip-distance"></a>Utforskning: Beräkna och jämföra resans avstånd
-Det här exemplet konverterar hämtning och dropoff longitud och latitud till SQL geografiskt område återställningspunkter, beräknar avståndet resa med hjälp av SQL geografi punkter skillnaden och returnerar ett slumpmässigt urval av resultaten för jämförelse. I exempel begränsar resultaten till giltiga koordinater bara med data quality utvärdering fråga beskrivs tidigare.
+### <a name="exploration-compute-and-compare-trip-distance"></a>Utforskning: Beräkna och jämför resa avstånd
+I det här exemplet konverteras hämtning och avlämnings longitud och latitud till SQL-geografipunkter, beräknar trippavståndet med SQL-geografipoängsskillnaden och returnerar ett slumpmässigt urval av resultaten för jämförelse. Exemplet begränsar resultaten till giltiga koordinater endast med hjälp av den datakvalitetsbedömningsfråga som tidigare behandlats.
 
     /****** Object:  UserDefinedFunction [dbo].[fnCalculateDistance] ******/
     SET ANSI_NULLS ON
@@ -482,10 +482,10 @@ Det här exemplet konverterar hämtning och dropoff longitud och latitud till SQ
     AND CAST(dropoff_latitude AS float) BETWEEN -90 AND 90
     AND pickup_longitude != '0' AND dropoff_longitude != '0'
 
-### <a name="feature-engineering-using-sql-functions"></a>Funktionsframställning med hjälp av SQL-funktioner
-SQL-funktioner kan ibland vara en effektiv alternativ för funktioner. Vi har definierat en SQL-funktion för att beräkna direkt avståndet mellan platser för hämtning och dropoff i den här genomgången. Du kan köra följande SQL-skript i **Visual Studio data tools**.
+### <a name="feature-engineering-using-sql-functions"></a>Funktionsteknik med SQL-funktioner
+Ibland sql-funktioner kan vara ett effektivt alternativ för funktionsteknik. I den här genomgången definierade vi en SQL-funktion för att beräkna det direkta avståndet mellan upphämtnings- och avlämningsplatserna. Du kan köra följande SQL-skript i **Visual Studio Data Tools**.
 
-Här är SQL-skriptet som definierar funktionen avstånd.
+Här är SQL-skriptet som definierar avståndsfunktionen.
 
     SET ANSI_NULLS ON
     GO
@@ -520,7 +520,7 @@ Här är SQL-skriptet som definierar funktionen avstånd.
     END
     GO
 
-Här är ett exempel för att anropa den här funktionen för att generera funktioner i SQL-frågan:
+Här är ett exempel att anropa den här funktionen för att generera funktioner i din SQL-fråga:
 
     -- Sample query to call the function to create features
     SELECT pickup_latitude, pickup_longitude, dropoff_latitude, dropoff_longitude,
@@ -531,16 +531,16 @@ Här är ett exempel för att anropa den här funktionen för att generera funkt
     AND CAST(dropoff_latitude AS float) BETWEEN -90 AND 90
     AND pickup_longitude != '0' AND dropoff_longitude != '0'
 
-**Utdata:** Den här frågan genererar en tabell (med 2 803 538 rader) med upphämtnings-och DropOff-latituder och longituder och motsvarande direkta avstånd i miles. Här följer resultaten för de första tre raderna:
+**Utgång:** Den här frågan genererar en tabell (med 2 803 538 rader) med start- och avlämningsgrader och longituder och motsvarande direkta avstånd i miles. Här är resultaten för de tre första raderna:
 
-|  | pickup_latitude | pickup_longitude | dropoff_latitude | dropoff_longitude | DirectDistance |
+|  | pickup_latitude | pickup_longitude | dropoff_latitude | dropoff_longitude | DirectDistance (direktövervakning) |
 | --- | --- | --- | --- | --- | --- |
 | 1 |40.731804 |-74.001083 |40.736622 |-73.988953 |.7169601222 |
 | 2 |40.715794 |-74,010635 |40.725338 |-74.00399 |.7448343721 |
 | 3 |40.761456 |-73.999886 |40.766544 |-73.988228 |0.7037227967 |
 
-### <a name="prepare-data-for-model-building"></a>Förbereda data för att skapa modellen
-Följande fråga kopplar ihop tabellerna **nyctaxi\_rese** -och **nyctaxi\_pris** , genererar en binära klassificerings **etikett, ett**tips för klassificerings etiketter i flera klasser **\_klass**och extraherar ett exempel från den fullständiga sammanfogade data uppsättningen. Är samplingen görs genom att hämta en delmängd av kommunikation baserat på upphämtning tid.  Den här frågan kan kopieras och klistras in direkt i [Azure Machine Learning Studio (klassisk)](https://studio.azureml.net) [Importera data][-] datamodul för direkt data inmatning från SQL Database-instansen i Azure. Frågan utesluter poster med fel (0, 0) koordinater.
+### <a name="prepare-data-for-model-building"></a>Förbereda data för modellbyggnad
+Följande fråga ansluter **\_nyctaxi resa** och **nyctaxi\_biljettpris** tabeller, genererar en binär klassificering etikett **tippade**, en multi-klass klassificering etikett spets **\_klass**, och extraherar ett prov från den fullständiga kopplade datauppsättningen. Provtagningen görs genom att hämta en delmängd av resorna baserat på upphämtningstid.  Den här frågan kan kopieras och sedan klistras in direkt i [Azure Machine Learning Studio (klassisk)](https://studio.azureml.net) Import [Data][import-datamodul] för direkt datainmatning från SQL Database-instansen i Azure. Frågan utesluter poster med felaktiga (0, 0) koordinater.
 
     SELECT t.*, f.payment_type, f.fare_amount, f.surcharge, f.mta_tax, f.tolls_amount,     f.total_amount, f.tip_amount,
         CASE WHEN (tip_amount > 0) THEN 1 ELSE 0 END AS tipped,
@@ -559,49 +559,49 @@ Följande fråga kopplar ihop tabellerna **nyctaxi\_rese** -och **nyctaxi\_pris*
 
 När du är redo att gå vidare till Azure Machine Learning kan du antingen:
 
-1. Spara den sista SQL-frågan för att extrahera och sampla data och kopiera – klistra in frågan direkt i en import data[-] modul i Azure Machine Learning, eller
-2. Behåll de insamlade data som du planerar att använda för modell utveckling i en ny Azure Synapse Analytics-tabell och Använd den nya tabellen i modulen [Importera data][-] i Azure Machine Learning. PowerShell-skriptet i föregående steg har utfört den här åtgärden åt dig. Du kan läsa direkt från den här tabellen i modulen importera Data.
+1. Spara den slutliga SQL-frågan för att extrahera och ta prov på data och kopiera klistra in frågan direkt i en[importdata-import-datamodul] i Azure Machine Learning, eller
+2. Bevara de samplade och konstruerade data som du planerar att använda för modellbygge i en ny Azure Synapse[Analytics-tabell] och använd den nya tabellen i [importdatamodulen för importdata]i Azure Machine Learning. PowerShell-skriptet i tidigare steg har gjort den här uppgiften åt dig. Du kan läsa direkt från den här tabellen i modulen Importera data.
 
-## <a name="ipnb"></a>Data utforskning och funktions teknik i IPython Notebook
-I det här avsnittet ska vi utföra data utforskning och skapa funktioner med hjälp av både python-och SQL-frågor mot Azure Synapse Analytics som skapades tidigare. Ett exempel på en IPython Notebook med namnet **SQLDW_Explorations. ipynb** och en python-skriptfil **SQLDW_Explorations_Scripts. py** har laddats ned till din lokala katalog. De är också tillgängliga på [GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/SQLDW). Dessa två filer är identiska i Python-skript. Python-skriptfil får du om du inte har en IPython Notebook-server. Dessa två exempel på python-filer är utformade under **python 2,7**.
+## <a name="data-exploration-and-feature-engineering-in-ipython-notebook"></a><a name="ipnb"></a>Datautforskning och funktionsteknik i IPython-anteckningsbok
+I det här avsnittet kommer vi att utföra datautforskning och funktionsgenerering med både Python och SQL-frågor mot Azure Synapse Analytics som skapats tidigare. Ett exempel på IPython-anteckningsbok med namnet **SQLDW_Explorations.ipynb** och en Python-skriptfil **SQLDW_Explorations_Scripts.py** har hämtats till din lokala katalog. De finns också på [GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/SQLDW). Dessa två filer är identiska i Python-skript. Python-skriptfilen tillhandahålls till dig om du inte har en IPython Notebook-server. Dessa två exempel Python filer är utformade under **Python 2.7**.
 
-Den Azure Synapse Analytics-information som krävs i den exempel IPython Notebook och den python-skriptfil som hämtats till den lokala datorn har redan kopplats av PowerShell-skriptet. De är körbara utan några ändringar.
+Den nödvändiga Azure Synapse Analytics-informationen i exempelt IPython Notebook och Python-skriptfilen som hämtats till din lokala dator har tidigare anslutits av PowerShell-skriptet. De är körbara utan några ändringar.
 
-Om du redan har konfigurerat en Azure Machine Learning arbets yta kan du ladda upp den IPython-anteckningsboken direkt till AzureML IPython Notebook service och börja köra den. Här följer stegen för att ladda upp till AzureML IPython Notebook service:
+Om du redan har konfigurerat en Azure Machine Learning-arbetsyta kan du direkt ladda upp exempel på IPython Notebook till AzureML IPython Notebook-tjänsten och börja köra den. Här är stegen för att ladda upp till AzureML IPython Notebook-tjänsten:
 
-1. Logga in på din Azure Machine Learning arbets yta, klicka på **Studio "** längst upp" och klicka på **antecknings böcker** på vänster sida av webb sidan.
+1. Logga in på arbetsytan Azure Machine Learning, klicka på **Studio högst** upp och klicka på **ANTECKNINGSBÖCKER** till vänster på webbsidan.
 
-    ![Klicka på Studio och sedan ANTECKNINGSBÖCKER][22]
-2. Klicka på **nytt** i det vänstra nedre hörnet på webb sidan och välj **python 2**. Sedan anger du ett namn för anteckningsboken och klicka på kryssmarkeringen för att skapa en ny tom IPython Notebook.
+    ![Klicka på Studio och sedan anteckningsböcker][22]
+2. Klicka på **NY** i det vänstra nedre hörnet av webbsidan och välj **Python 2**. Ange sedan ett namn till anteckningsboken och klicka på bocken för att skapa den nya tomma IPython-anteckningsboken.
 
-    ![Klicka på nytt och välj sedan Python 2][23]
-3. Klicka på **Jupyter** -symbolen i det vänstra övre hörnet av den nya IPython Notebook.
+    ![Klicka på NY och välj Python 2][23]
+3. Klicka på **Jupyter-symbolen** längst upp i det nya IPython-anteckningsboken.
 
-    ![Klicka på symbolen för Jupyter][24]
-4. Dra och släpp exempel antecknings boken IPython till **träd** sidan i din azureml IPython Notebook-tjänst och klicka på **Ladda upp**. Sedan exemplet IPython Notebook ska överföras till tjänsten AzureML IPython Notebook.
+    ![Klicka på Jupyter-symbol][24]
+4. Dra och släpp exemplet IPython Notebook till **trädsidan** för din AzureML IPython Notebook-tjänst och klicka på **Ladda upp**. Sedan överförs exempelet IPython Notebook till AzureML IPython Notebook-tjänsten.
 
-    ![Klicka på ladda upp][25]
+    ![Klicka på Ladda upp][25]
 
-För att köra exemplet IPython Notebook- eller Python-skriptfil, följande paket krävs för Python. Om du använder tjänsten AzureML IPython Notebook har paketen förinstallerats.
+För att kunna köra exemplet IPython Notebook eller Python-skriptfilen behövs följande Python-paket. Om du använder azureml IPython Notebook-tjänsten har dessa paket förinstallerats.
 
-- pandas
-- numpy
+- Pandor
+- Numpy
 - matplotlib
 - pyodbc
-- PyTables
+- Pytables
 
-Här är den rekommenderade ordningen när du bygger avancerade analys lösningar på Azure Machine Learning med stora data:
+När du skapar avancerade analyslösningar på Azure Machine Learning med stora data är här den rekommenderade sekvensen:
 
-* Läs i ett litet antal data till en ram för data i minnet.
-* Utför vissa visualiseringar och explorations med exempeldata.
-* Experimentera med funktionsframställning med exempeldata.
-* För större data utforskning, data manipulation och funktions teknik använder du python för att utfärda SQL-frågor direkt mot Azure Synapse Analytics.
-* Bestäm urvalsstorlek vara lämplig för att skapa Azure Machine Learning-modell.
+* Läs i ett litet urval av data i en dataram i minnet.
+* Utför vissa visualiseringar och utforskningar med hjälp av de utvalda data.
+* Experimentera med funktionsteknik med hjälp av de utvalda data.
+* För större datautforskning, datamanipulering och funktionsteknik använder du Python för att utfärda SQL-frågor direkt mot Azure Synapse Analytics.
+* Bestäm vilken urvalsstorlek som ska vara lämplig för Azure Machine Learning-modellbyggnad.
 
-I följande avsnitt finns några datagranskning, visualisering av data och funktionen tekniska exempel. Mer data explorations finns i exemplet IPython Notebook och Python-skriptet exempelfilen.
+Följande är några datautforskning, datavisualisering och funktionsteknikexempel. Fler datautforskningar finns i exemplet IPython Notebook och exempelet Python-skriptfil.
 
-### <a name="initialize-database-credentials"></a>Initiera Databasautentiseringsuppgifter
-Initiera dina anslutningsinställningar i följande variabler:
+### <a name="initialize-database-credentials"></a>Initiera databasautentiseringsuppgifter
+Initiera inställningarna för databasanslutningen i följande variabler:
 
     SERVER_NAME=<server name>
     DATABASE_NAME=<database name>
@@ -610,12 +610,12 @@ Initiera dina anslutningsinställningar i följande variabler:
     DB_DRIVER = <database driver>
 
 ### <a name="create-database-connection"></a>Skapa databasanslutning
-Här är den anslutningssträng som skapas en anslutning till databasen.
+Här är anslutningssträngen som skapar anslutningen till databasen.
 
     CONNECTION_STRING = 'DRIVER={'+DRIVER+'};SERVER='+SERVER_NAME+';DATABASE='+DATABASE_NAME+';UID='+USERID+';PWD='+PASSWORD
     conn = pyodbc.connect(CONNECTION_STRING)
 
-### <a name="report-number-of-rows-and-columns-in-table-nyctaxi_trip"></a>Rapporten antalet rader och kolumner i tabellen < nyctaxi_trip >
+### <a name="report-number-of-rows-and-columns-in-table-nyctaxi_trip"></a>Rapportera antal rader och kolumner i tabell <nyctaxi_trip>
     nrows = pd.read_sql('''
         SELECT SUM(rows) FROM sys.partitions
         WHERE object_id = OBJECT_ID('<schemaname>.<nyctaxi_trip>')
@@ -633,7 +633,7 @@ Här är den anslutningssträng som skapas en anslutning till databasen.
 * Totalt antal rader = 173179759
 * Totalt antal kolumner = 14
 
-### <a name="report-number-of-rows-and-columns-in-table-nyctaxi_fare"></a>Rapporten antalet rader och kolumner i tabellen < nyctaxi_fare >
+### <a name="report-number-of-rows-and-columns-in-table-nyctaxi_fare"></a>Rapportera antal rader och kolumner i tabell <nyctaxi_fare>
     nrows = pd.read_sql('''
         SELECT SUM(rows) FROM sys.partitions
         WHERE object_id = OBJECT_ID('<schemaname>.<nyctaxi_fare>')
@@ -651,7 +651,7 @@ Här är den anslutningssträng som skapas en anslutning till databasen.
 * Totalt antal rader = 173179759
 * Totalt antal kolumner = 11
 
-### <a name="read-in-a-small-data-sample-from-the-azure-synapse-analytics-database"></a>Läs ett litet data exempel från Azure Synapse Analytics-databasen
+### <a name="read-in-a-small-data-sample-from-the-azure-synapse-analytics-database"></a>Läsa in ett litet dataexempel från Azure Synapse Analytics Database
     t0 = time.time()
 
     query = '''
@@ -671,23 +671,23 @@ Här är den anslutningssträng som skapas en anslutning till databasen.
 
     print 'Number of rows and columns retrieved = (%d, %d)' % (df1.shape[0], df1.shape[1])
 
-Tid för att läsa exempeltabell är 14.096495 sekunder.
-Antal rader och kolumner hämtas = (1000, 21).
+Tid att läsa exempeltabellen är 14,096495 sekunder.
+Antal rader och kolumner som hämtats = (1000, 21).
 
 ### <a name="descriptive-statistics"></a>Beskrivande statistik
-Nu är det dags att utforska exempeldata. Vi börjar med att titta på viss beskrivande statistik för **resan\_avstånd** (eller andra fält som du väljer att ange).
+Nu är du redo att utforska de utvalda data. Vi börjar med att titta på några beskrivande statistik för **resan\_avstånd** (eller andra fält som du väljer att ange).
 
     df1['trip_distance'].describe()
 
-### <a name="visualization-box-plot-example"></a>Visualiseringen: Exempel rityta
-Därefter tittar vi på Låddiagram för resans avståndet till visualisera quantiles.
+### <a name="visualization-box-plot-example"></a>Visualisering: Exempel på låddiagram
+Därefter tittar vi på lådan tomten för resan avstånd för att visualisera quantiles.
 
     df1.boxplot(column='trip_distance',return_type='dict')
 
-![Box ritytans utdata][1]
+![Utdata för rutar tomt][1]
 
-### <a name="visualization-distribution-plot-example"></a>Visualisering: Exempel Distribution diagram
-Områden som visualisera distributionen och ett histogram för provade resans avstånd.
+### <a name="visualization-distribution-plot-example"></a>Visualisering: Exempel på distributionsdiagram
+Tomter som visualiserar fördelningen och ett histogram för de samplade trippavstånden.
 
     fig = plt.figure()
     ax1 = fig.add_subplot(1,2,1)
@@ -695,52 +695,52 @@ Områden som visualisera distributionen och ett histogram för provade resans av
     df1['trip_distance'].plot(ax=ax1,kind='kde', style='b-')
     df1['trip_distance'].hist(ax=ax2, bins=100, color='k')
 
-![Distribution ritytans utdata][2]
+![Utdata för distributionstomt][2]
 
-### <a name="visualization-bar-and-line-plots"></a>Visualisering: Stapel- och linjediagram områden
-I det här exemplet vi bin resans avståndet till fem lagerplatser och visualisera datagrupperingen resultat.
+### <a name="visualization-bar-and-line-plots"></a>Visualisering: Stapel- och linjediagram
+I det här exemplet lagerplatserar vi resans avstånd till fem lagerplatser och visualiserar binningsresultaten.
 
     trip_dist_bins = [0, 1, 2, 4, 10, 1000]
     df1['trip_distance']
     trip_dist_bin_id = pd.cut(df1['trip_distance'], trip_dist_bins)
     trip_dist_bin_id
 
-Vi kan rita ovan bin-distribution i ett fält eller rad diagram med:
+Vi kan rita ovanstående bin distribution i en bar eller linje tomt med:
 
     pd.Series(trip_dist_bin_id).value_counts().plot(kind='bar')
 
-![Stapel ritytans utdata][3]
+![Utdata för stapeldiagram][3]
 
 och
 
     pd.Series(trip_dist_bin_id).value_counts().plot(kind='line')
 
-![Rad diagram utdata][4]
+![Utdata för raddiagram][4]
 
-### <a name="visualization-scatterplot-examples"></a>Visualisering: Spridningsdiagrammet exempel
-Vi visar punkt diagram mellan **resa\_tid\_i\_sekunder** och **resa\_avstånd** för att se om det finns någon korrelation
+### <a name="visualization-scatterplot-examples"></a>Visualisering: Exempel på spridning
+Vi visar scatter plot mellan **restid\_\_i\_sek** och resa **\_avstånd** för att se om det finns något samband
 
     plt.scatter(df1['trip_time_in_secs'], df1['trip_distance'])
 
-![Spridningsdiagrammet utdata av relation mellan tid och avståndet][6]
+![Spridningsutdata för relation mellan tid och avstånd][6]
 
-På samma sätt kan vi kontrol lera förhållandet mellan **pris\_s kod** och **resa\_avstånd**.
+På samma sätt kan vi kontrollera förhållandet mellan **hastighetskod\_** och **resans\_avstånd.**
 
     plt.scatter(df1['passenger_count'], df1['trip_distance'])
 
-![Spridningsdiagrammet utdata från relationen mellan kod och avståndet][8]
+![Spridningsutdata för relation mellan kod och avstånd][8]
 
-### <a name="data-exploration-on-sampled-data-using-sql-queries-in-ipython-notebook"></a>Datagranskning på samplade data med SQL-frågor i IPython notebook
-I det här avsnittet ska vi utforska data distributioner med hjälp av de exempel data som finns kvar i den nya tabellen som vi skapade ovan. Liknande utforskningar kan utföras med hjälp av de ursprungliga tabellerna.
+### <a name="data-exploration-on-sampled-data-using-sql-queries-in-ipython-notebook"></a>Datautforskning av exempeldata med SQL-frågor i IPython-anteckningsbok
+I det här avsnittet utforskar vi datadistributioner med hjälp av de exempeldata som sparas i den nya tabellen som vi skapade ovan. Liknande utforskningar kan utföras med hjälp av de ursprungliga tabellerna.
 
-#### <a name="exploration-report-number-of-rows-and-columns-in-the-sampled-table"></a>Utforskning: Rapporterar antalet rader och kolumner i tabellen provade
+#### <a name="exploration-report-number-of-rows-and-columns-in-the-sampled-table"></a>Utforskning: Rapportera antal rader och kolumner i den samplade tabellen
     nrows = pd.read_sql('''SELECT SUM(rows) FROM sys.partitions WHERE object_id = OBJECT_ID('<schemaname>.<nyctaxi_sample>')''', conn)
     print 'Number of rows in sample = %d' % nrows.iloc[0,0]
 
     ncols = pd.read_sql('''SELECT count(*) FROM information_schema.columns WHERE table_name = ('<nyctaxi_sample>') AND table_schema = '<schemaname>'''', conn)
     print 'Number of columns in sample = %d' % ncols.iloc[0,0]
 
-#### <a name="exploration-tippednot-tripped-distribution"></a>Utforskning: Lutad/inte utlöses Distribution
+#### <a name="exploration-tippednot-tripped-distribution"></a>Utforskning: Tippad/ej utlöst distribution
     query = '''
         SELECT tipped, count(*) AS tip_freq
         FROM <schemaname>.<nyctaxi_sample>
@@ -749,7 +749,7 @@ I det här avsnittet ska vi utforska data distributioner med hjälp av de exempe
 
     pd.read_sql(query, conn)
 
-#### <a name="exploration-tip-class-distribution"></a>Utforskning: Tips klass distribution
+#### <a name="exploration-tip-class-distribution"></a>Utforskning: Distribution av tipsklass
     query = '''
         SELECT tip_class, count(*) AS tip_freq
         FROM <schemaname>.<nyctaxi_sample>
@@ -758,12 +758,12 @@ I det här avsnittet ska vi utforska data distributioner med hjälp av de exempe
 
     tip_class_dist = pd.read_sql(query, conn)
 
-#### <a name="exploration-plot-the-tip-distribution-by-class"></a>Utforskning: Rita tips fördelningen av-klassen
+#### <a name="exploration-plot-the-tip-distribution-by-class"></a>Prospektering: Rita tipsfördelningen efter klass
     tip_class_dist['tip_freq'].plot(kind='bar')
 
-![Rita #26][26]
+![Tomt #26][26]
 
-#### <a name="exploration-daily-distribution-of-trips"></a>Utforskning: Dagliga distribution av kommunikation
+#### <a name="exploration-daily-distribution-of-trips"></a>Prospektering: Daglig distribution av resor
     query = '''
         SELECT CONVERT(date, dropoff_datetime) AS date, COUNT(*) AS c
         FROM <schemaname>.<nyctaxi_sample>
@@ -772,7 +772,7 @@ I det här avsnittet ska vi utforska data distributioner med hjälp av de exempe
 
     pd.read_sql(query,conn)
 
-#### <a name="exploration-trip-distribution-per-medallion"></a>Utforskning: Resa distribution per medallion
+#### <a name="exploration-trip-distribution-per-medallion"></a>Utforskning: Resefördelning per medaljong
     query = '''
         SELECT medallion,count(*) AS c
         FROM <schemaname>.<nyctaxi_sample>
@@ -781,109 +781,109 @@ I det här avsnittet ska vi utforska data distributioner med hjälp av de exempe
 
     pd.read_sql(query,conn)
 
-#### <a name="exploration-trip-distribution-by-medallion-and-hack-license"></a>Utforskning: Resa distribution enligt medallion och hack licens
+#### <a name="exploration-trip-distribution-by-medallion-and-hack-license"></a>Exploration: Trip distribution av medaljong och hacka licens
     query = '''select medallion, hack_license,count(*) from <schemaname>.<nyctaxi_sample> group by medallion, hack_license'''
     pd.read_sql(query,conn)
 
 
-#### <a name="exploration-trip-time-distribution"></a>Utforskning: Resans gång distribution
+#### <a name="exploration-trip-time-distribution"></a>Utforskning: Fördelning av restid
     query = '''select trip_time_in_secs, count(*) from <schemaname>.<nyctaxi_sample> group by trip_time_in_secs order by count(*) desc'''
     pd.read_sql(query,conn)
 
-#### <a name="exploration-trip-distance-distribution"></a>Utforskning: Resa avståndet distribution
+#### <a name="exploration-trip-distance-distribution"></a>Utforskning: Fördelning av reseavstånd
     query = '''select floor(trip_distance/5)*5 as tripbin, count(*) from <schemaname>.<nyctaxi_sample> group by floor(trip_distance/5)*5 order by count(*) desc'''
     pd.read_sql(query,conn)
 
-#### <a name="exploration-payment-type-distribution"></a>Utforskning: Betalning typ av distribution
+#### <a name="exploration-payment-type-distribution"></a>Utforskning: Distribution av betalningstyp
     query = '''select payment_type,count(*) from <schemaname>.<nyctaxi_sample> group by payment_type'''
     pd.read_sql(query,conn)
 
-#### <a name="verify-the-final-form-of-the-featurized-table"></a>Kontrollera den slutliga utformning av tabellen trädmodell
+#### <a name="verify-the-final-form-of-the-featurized-table"></a>Verifiera den slutliga formen av det medarbest bord
     query = '''SELECT TOP 100 * FROM <schemaname>.<nyctaxi_sample>'''
     pd.read_sql(query,conn)
 
-## <a name="mlmodel"></a>Bygg modeller i Azure Machine Learning
-Vi är nu redo att gå vidare till modell utveckling och modell distribution i [Azure Machine Learning](https://studio.azureml.net). Data är redo att användas i någon av de förutsägelse problem som konstaterats tidigare, nämligen:
+## <a name="build-models-in-azure-machine-learning"></a><a name="mlmodel"></a>Skapa modeller i Azure Machine Learning
+Vi är nu redo att gå vidare till modellbygge och modelldistribution i [Azure Machine Learning](https://studio.azureml.net). Uppgifterna är redo att användas i något av de förutsägelseproblem som identifierats tidigare, nämligen:
 
-1. **Binära klassificering**: för att förutsäga om ett tips har betalats för en resa.
-2. **Klassificering**av flera klasser: för att förutsäga det tips som betalas, enligt de tidigare definierade klasserna.
-3. **Regressions uppgift**: för att förutsäga hur mycket tips du betalar för en resa.
+1. **Binär klassificering**: Att förutsäga om ett tips betalades för en resa.
+2. **Multiklassklassificering**: För att förutsäga intervallet för betald spets, enligt de tidigare definierade klasserna.
+3. **Regressionsuppgift**: För att förutsäga hur mycket tips som betalats för en resa.
 
-Om du vill påbörja modelleringen av modellering loggar du in på arbets ytan **Azure Machine Learning (klassisk)** . Om du ännu inte har skapat en Machine Learning-arbetsyta, se [skapa en Azure Machine Learning Studio (klassisk)-arbets yta](../studio/create-workspace.md).
+För att påbörja modelleringsövningen loggar du in på din **Azure Machine Learning (klassiska)** arbetsyta. Om du ännu inte har skapat en arbetsyta för maskininlärning läser du [Skapa en arbetsyta för Azure Machine Learning Studio (klassiskt).](../studio/create-workspace.md)
 
-1. För att komma igång med Azure Machine Learning, se [Vad är Azure Machine Learning Studio (klassisk)?](../studio/what-is-ml-studio.md)
-2. Logga in på [Azure Machine Learning Studio (klassisk)](https://studio.azureml.net).
-3. På Start sidan för Machine Learning Studio (klassisk) finns en mängd information, videor, självstudier, länkar till modulerna referens och andra resurser. Mer information om Azure Machine Learning finns i [Azure Machine Learning dokumentations Center](https://azure.microsoft.com/documentation/services/machine-learning/).
+1. Information om hur du kommer igång med Azure Machine Learning finns i [Vad är Azure Machine Learning Studio (klassiskt)?](../studio/what-is-ml-studio.md)
+2. Logga in på [Azure Machine Learning Studio (klassiskt)](https://studio.azureml.net).
+3. Machine Learning Studio (klassisk) Hemsida ger en mängd information, videor, handledning, länkar till moduler referens och andra resurser. Mer information om Azure Machine Learning finns i [Azure Machine Learning Documentation Center](https://azure.microsoft.com/documentation/services/machine-learning/).
 
-En typisk träningsexperiment består av följande steg:
+Ett typiskt utbildningsexperiment består av följande steg:
 
-1. Skapa ett **+ nytt** experiment.
+1. Skapa ett **+NYTT** experiment.
 2. Hämta data till Azure Machine Learning Studio (klassisk).
-3. I förväg bearbeta, transformera och manipulera data efter behov.
+3. Förbehandla, transformera och manipulera data efter behov.
 4. Generera funktioner efter behov.
-5. Dela upp data i utbildning / / valideringstestning datauppsättningar (eller har separata datauppsättningar för var och en).
-6. Välj en eller flera maskininlärningsalgoritmer beroende på träningsproblemet att lösa. Till exempel binära klassificering, klassificering av multiklass, regression.
-7. Skapa en eller flera modeller med hjälp av datauppsättning för träning.
-8. Bedöma verifiering datauppsättningen med hjälp av den tränade modeller.
-9. Utvärdera modeller för att beräkna relevanta mått för träningsproblemet.
-10. Justera modell (er) och välj den bästa modellen som ska distribueras.
+5. Dela upp data i utbildnings-/validerings-/testdatauppsättningar(eller har separata datauppsättningar för varje).
+6. Välj en eller flera maskininlärningsalgoritmer beroende på vilket inlärningsproblem som ska lösas. Binär klassificering, multiklassklassificering, regression.
+7. Träna en eller flera modeller med hjälp av träningsdatauppsättningen.
+8. Poängsätta valideringsdatauppsättningen med hjälp av de tränade erna.
+9. Utvärdera modellen/erna för att beräkna relevanta mått för inlärningsproblemet.
+10. Ställ in modellen/erna och välj den bästa modellen att distribuera.
 
-I den här övningen har vi redan utforskat och utformat data i Azure Synapse Analytics, och beslut om hur stor provtagnings storlek som skulle matas in i Azure Machine Learning Studio (klassisk). Här följer stegen för att skapa en eller flera av förutsägelsemodeller:
+I den här övningen har vi redan utforskat och konstruerat data i Azure Synapse Analytics och beslutat om exempelstorleken för att inta i Azure Machine Learning Studio (klassisk). Här är proceduren för att bygga en eller flera av förutsägelsemodellerna:
 
-1. Hämta data till Azure Machine Learning Studio (klassisk) med hjälp av modulen [Importera data][-] som finns i avsnittet **data indata och utdata** . Mer information finns på referens sidan [Importera data][-] module.
+1. Hämta data till Azure Machine Learning Studio [Import Data](klassisk) med hjälp av[importdatamodulen importdata,] som är tillgänglig i avsnittet **Datainmatning och utdata.** Mer information finns på referenssidan för importdata för[importdata.] [Import Data]
 
-    ![Azure ML-importera Data][17]
-2. Välj **Azure SQL Database** som **data källa** i panelen **Egenskaper** .
-3. Ange databasens DNS-namn i fältet **databas server namn** . Format: `tcp:<your_virtual_machine_DNS_name>,1433`
-4. Ange **databas namnet** i motsvarande fält.
-5. Ange *SQL-användarnamnet* i **serverns användar konto namn**och *lösen* ordet i **serverns användar konto lösen ord**.
-7. I redigerings text områden för **databas fråga** klistrar du in frågan som extraherar de nödvändiga databas fälten (inklusive alla beräknade fält som etiketterna) och nedåt exempel data till önskad exempel storlek.
+    ![Importdata för Azure ML][17]
+2. Välj **Azure SQL Database** som **datakälla** på **egenskapspanelen.**
+3. Ange databasens DNS-namn i **fältet Databasservernamn.** Format:`tcp:<your_virtual_machine_DNS_name>,1433`
+4. Ange **databasnamnet** i motsvarande fält.
+5. Ange *SQL-användarnamnet* i **serveranvändarkontots namn**och *lösenordet* i **lösenordet för serveranvändarkontot**.
+7. I textområdet Redigera text för **databasfråga** klistrar du in frågan som extraherar nödvändiga databasfält (inklusive alla beräknade fält som etiketterna) och nedexempel data till önskad exempelstorlek.
 
-Ett exempel på ett binära klassificerings experiment som läser data direkt från Azure Synapse Analytics-databasen visas i bilden nedan (kom ihåg att ersätta tabell namnen nyctaxi_trip och nyctaxi_fare av schema namnet och de tabell namn som du använde i genom gång). Liknande experiment kan konstrueras för multiklass-baserad klassificering och regressionsproblem.
+Ett exempel på ett binärt klassificeringsexperiment som läser data direkt från Azure Synapse Analytics-databasen finns i figuren nedan (kom ihåg att ersätta tabellnamnen nyctaxi_trip och nyctaxi_fare med schemanamnet och tabellnamnen som du använde i genomgången). Liknande experiment kan konstrueras för multiklassklassificerings- och regressionsproblem.
 
-![Azure ML Train][10]
+![Azure ML-tåg][10]
 
 > [!IMPORTANT]
-> I exemplen för att extrahera data och samplings frågor i föregående avsnitt, **ingår alla etiketter för de tre modell övningarna i frågan**. Ett viktigt (obligatoriskt) steg i varje modell övning är att **utesluta** onödiga etiketter för de andra två problemen och andra **mål läckor**. Om du t. ex. använder binära klassificering använder du etiketten **lutad** och utelämnar fält **tips\_klass**, **tips\_belopp**och **Total\_belopp**. Dessa är målet läckage eftersom de innebär tipset betald.
+> I exempel på modelleringsdataextrahering och samplingsfråga i föregående avsnitt **inkluderas alla etiketter för de tre modelleringsövningarna i frågan**. Ett viktigt (obligatoriskt) steg i var och en av modelleringsövningarna är att **utesluta** onödiga etiketter för de andra två problemen och alla andra **målläckor**. När du till exempel använder binär klassificering använder du etiketten **tippad** och utesluter **\_fälttipsklassen,** **\_tipsmängden**och **det\_totala beloppet**. De senare är målläckor eftersom de antyder att tipset betalas.
 >
-> Om du vill undanta onödiga kolumner eller mål läckor kan du använda modulen [Välj kolumner i data uppsättning][select-columns] eller [Redigera metadata][edit-metadata]. Mer information finns i avsnittet [Välj kolumner i data uppsättning][select-columns] och [Redigera metadata][edit-metadata] referens sidor.
+> Om du vill utesluta onödiga kolumner eller målläckor kan du använda modulen [Välj kolumner i datauppsättning][select-columns] eller [redigera metadata][edit-metadata]. Mer information finns [i Välj kolumner i referenssidor för datauppsättning][select-columns] och Redigera [metadata.][edit-metadata]
 >
 >
 
-## <a name="mldeploy"></a>Distribuera modeller i Azure Machine Learning
-När din modell är klar kan distribuera du enkelt den som en webbtjänst direkt från experimentet. Mer information om hur du distribuerar Azure ML-webbtjänster finns i [distribuera en Azure Machine Learning-webbtjänst](../studio/deploy-a-machine-learning-web-service.md).
+## <a name="deploy-models-in-azure-machine-learning"></a><a name="mldeploy"></a>Distribuera modeller i Azure Machine Learning
+När din modell är klar kan du enkelt distribuera den som en webbtjänst direkt från experimentet. Mer information om hur du distribuerar Azure ML-webbtjänster finns i [Distribuera en azure Machine Learning-webbtjänst](../studio/deploy-a-machine-learning-web-service.md).
 
-Om du vill distribuera en ny webbtjänst, måste du:
+Om du vill distribuera en ny webbtjänst måste du:
 
-1. Skapa en arbetsflödesbaserad experiment.
+1. Skapa ett bedömningsexperiment.
 2. Distribuera webbtjänsten.
 
-Om du vill skapa ett Poäng experiment från ett **färdigt** utbildnings experiment klickar du på **skapa Poäng experiment** i det nedre åtgärds fältet.
+Om du vill skapa ett bedömningsexperiment från ett **färdigt** träningsexperiment klickar du på **SKAPA POÄNGSÄTTNINGSEXPERIment** i det nedre åtgärdsfältet.
 
-![Azure-bedömning][18]
+![Azure-poängsättning][18]
 
-Azure Machine Learning försöker skapa en arbetsflödesbaserad experiment som bygger på komponenterna för träningsexperimentet. I synnerhet att:
+Azure Machine Learning försöker skapa ett bedömningsexperiment baserat på komponenterna i utbildningsexperimentet. I synnerhet kommer den att
 
-1. Spara den tränade modellen och ta bort modellen utbildningsmoduler.
-2. Identifiera en logisk **indataport** som representerar det förväntade schemat för indata.
-3. Identifiera en logisk **utdataport** som representerar det förväntade datautdata-schemat för webb tjänsten.
+1. Spara den tränade modellen och ta bort modellutbildningsmodulerna.
+2. Identifiera en logisk **indataport** som representerar det förväntade indataschemat.
+3. Identifiera en logisk **utdataport** som representerar det förväntade webbtjänstutdataschemat.
 
-När Poäng experimentet har skapats granskar du resultaten och gör anpassningen efter behov. En typisk justering är att ersätta indata-datauppsättningen eller frågan med en som utesluter etikett fält, eftersom dessa etikett fält inte kommer att mappas till schemat vid anrop till tjänsten. Det är också en bra idé att minska storleken på data uppsättningen och/eller frågan till några få poster, tillräckligt för att ange schemat för indata. För utdataporten är det vanligt att undanta alla indatafält och bara ta med de **resultat etiketter** och **resultat** som visas i resultatet med hjälp av modulen [Välj kolumner i data uppsättning][select-columns] .
+När bedömningsexperimentet skapas granskar du resultaten och justerar efter behov. En typisk justering är att ersätta indatauppsättningen eller frågan med ett som utesluter etikettfält, eftersom dessa etikettfält inte mappas till schemat när tjänsten anropas. Det är också en bra idé att minska storleken på indatauppsättningen och/eller frågan till några få poster, tillräckligt för att ange indataschemat. För utdataporten är det vanligt att utesluta alla indatafält och endast inkludera **poängsatta etiketter** och **poängsatta sannolikheter** i utdata med modulen [Välj kolumner i datauppsättning.][select-columns]
 
-Ett exempel bedömning experiment finns i bilden nedan. När du är redo att distribuera klickar du på knappen **publicera webb tjänst** i det nedre åtgärds fältet.
+Ett provbedömningsexperiment finns i figuren nedan. När du är klar att distribuera klickar du på knappen **PUBLICERA WEBBTJÄNST** i det nedre åtgärdsfältet.
 
-![Publicera Azure ML][11]
+![Azure ML Publicera][11]
 
 ## <a name="summary"></a>Sammanfattning
-Om du vill tar och sammanfattar vad vi har gjort i den här genomgången självstudien, du har skapat en Azure data science-miljö har samarbetat med en stor offentlig datauppsättning, tar det via Team Data Science Process, allt från datainsamling till modellen och sedan till den distribution av en Azure Machine Learning-webbtjänst.
+För att sammanfatta vad vi har gjort i den här genomgången har du skapat en Azure-datavetenskapsmiljö, arbetat med en stor offentlig datauppsättning, tagit den via Team Data Science Process, hela vägen från datainsamling till modellutbildning och sedan till distribution av en Azure Machine Learning-webbtjänst.
 
 ### <a name="license-information"></a>Licensinformation
-Det här exemplet genomgång och dess tillhörande skript och IPython notebook(s) som delas av Microsoft under MIT-licensen. Se filen LICENSe. txt i katalogen i exempel koden på GitHub för mer information.
+Det här exemplet genomgång och dess medföljande skript och IPython-anteckningsböcker delas av Microsoft under MIT-licensen. Mer information finns i filen LICENSE.txt i katalogen för exempelkoden på GitHub.
 
 ## <a name="references"></a>Referenser
-- [Hämtnings sida för Andrés Monroy NYC taxi TRIPs](https://www.andresmh.com/nyctaxitrips/)
-- [NYC Taxit taxi data från Whong](https://chriswhong.com/open-data/foil_nyc_taxi/)
-- [Forskning och statistik för NYC taxi och limousine provision](https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page)
+- [Andrés Monroy NYC Taxi Trips Ladda ner sida](https://www.andresmh.com/nyctaxitrips/)
+- [FOILing NYC: s Taxi Trip Data av Chris Whong](https://chriswhong.com/open-data/foil_nyc_taxi/)
+- [NYC Taxi och Limousine kommissionens forskning och statistik](https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page)
 
 [1]: ./media/sqldw-walkthrough/sql-walkthrough_26_1.png
 [2]: ./media/sqldw-walkthrough/sql-walkthrough_28_1.png
@@ -916,4 +916,4 @@ Det här exemplet genomgång och dess tillhörande skript och IPython notebook(s
 <!-- Module References -->
 [edit-metadata]: https://msdn.microsoft.com/library/azure/370b6676-c11c-486f-bf73-35349f842a66/
 [select-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
-[-]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
+[import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/

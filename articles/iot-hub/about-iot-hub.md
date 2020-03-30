@@ -9,10 +9,10 @@ ms.custom: mvc
 ms.service: iot-hub
 services: iot-hub
 ms.openlocfilehash: 78678474430792eb7fe419ef4f15828d461c1fec
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "75647415"
 ---
 # <a name="what-is-azure-iot-hub"></a>Vad är Azure IoT Hub?
@@ -25,7 +25,7 @@ IoT Hubs funktioner hjälper dig att skapa skalbara kompletta IoT-lösningar, so
 
 ## <a name="scale-your-solution"></a>Skala din lösning
 
-IoT Hub kan skalas till flera miljoner samtidiga anslutna enheter och flera miljoner händelser per sekund och därigenom stödja dina IoT-arbetsbelastningar. Mer information om hur du skalar IoT Hub finns i [IoT Hub skalning](iot-hub-scaling.md?branch=release-iotbasic). Om du vill veta mer om flera nivåer av tjänster som erbjuds av IoT Hub och hur du bäst passar dina skalbarhets behov kan du titta på [sidan med priser](https://azure.microsoft.com/pricing/details/iot-hub/).
+IoT Hub kan skalas till flera miljoner samtidiga anslutna enheter och flera miljoner händelser per sekund och därigenom stödja dina IoT-arbetsbelastningar. Mer information om hur du skalar din IoT-hubb finns i [IoT Hub Scaling](iot-hub-scaling.md?branch=release-iotbasic). Om du vill veta mer om de flera nivåerna av tjänster som erbjuds av IoT Hub och hur du bäst passar dina skalbarhetsbehov kan du läsa [prissidan](https://azure.microsoft.com/pricing/details/iot-hub/).
 
 ## <a name="secure-your-communications"></a>Skydda din kommunikation
 
@@ -49,7 +49,7 @@ IoT Hub ger dig en säker kommunikationskanal genom vilken dina enheter kan skic
 
 Den inbyggda funktionen för meddelandedirigering ger dig flexibla möjligheter att konfigurera automatisk regelbaserad meddelandeförgrening:
 
-* Använd [meddelanderoutning](iot-hub-devguide-messages-d2c.md) för att styra var hubben ska skicka enhets telemetri.
+* Använd [meddelanderoutning](iot-hub-devguide-messages-d2c.md) för att styra var navet skickar enhetstelemetri.
 
 * Det innebär inte någon extra kostnad att skicka meddelanden till flera slutpunkter.
 
@@ -109,9 +109,9 @@ Om din lösning inte kan använda något av de protokoll som stöds kan du utök
 
 ## <a name="quotas-and-limits"></a>Kvoter och begränsningar
 
-Varje Azure-prenumeration har standardkvotgränser för att förhindra missbruk av tjänsten, och dessa begränsningar kan påverka IoT-lösningens omfång. Den aktuella gränsen för en per prenumeration är 50 IoT Hub per prenumeration. Du kan begära att kvoten ska ökas genom att kontakta supporten. Mer information finns i [IoT Hub kvoter och begränsning](iot-hub-devguide-quotas-throttling.md). Mer information om kvot gränser finns i någon av följande artiklar:
+Varje Azure-prenumeration har standardkvotgränser för att förhindra missbruk av tjänsten, och dessa begränsningar kan påverka IoT-lösningens omfång. Den aktuella gränsen per prenumeration är 50 IoT-hubbar per prenumeration. Du kan begära att kvoten ska ökas genom att kontakta supporten. Mer information finns i [IoT Hub-kvoter och begränsning](iot-hub-devguide-quotas-throttling.md). Mer information om kvotgränser finns i någon av följande artiklar:
 
-* [Tjänstbegränsningar för Azure-prenumeration](../azure-resource-manager/management/azure-subscription-service-limits.md)
+* [Begränsningar för Azure-prenumerationstjänster](../azure-resource-manager/management/azure-subscription-service-limits.md)
 
 * [IoT Hub-begränsning och du](https://azure.microsoft.com/blog/iot-hub-throttling-and-you/)
 
@@ -121,6 +121,6 @@ Om du vill testa en IoT-lösning för slutpunkt-till-slutpunkt så ta en titt p�
 
 * [Snabbstart: Skicka telemetri från en enhet till en IoT-hubb](quickstart-send-telemetry-node.md)
 
-Om du vill veta mer om hur du kan bygga och distribuera IoT-lösningar med Azure IoT går du till:
+Om du vill veta mer om hur du kan skapa och distribuera IoT-lösningar med Azure IoT besöker du:
 
-* [Grunderna: Azure IoT-tekniker och-lösningar](../iot-fundamentals/iot-services-and-technologies.md).
+* [Grunderna: Azure IoT-teknik och -lösningar](../iot-fundamentals/iot-services-and-technologies.md).

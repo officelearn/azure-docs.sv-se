@@ -9,10 +9,10 @@ ms.date: 03/21/2018
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: b802cab7d52fd886770c326e97d0378a0da64762
-ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "75752312"
 ---
 [!INCLUDE [P2S FAQ All](vpn-gateway-faq-p2s-all-include.md)]
@@ -39,9 +39,9 @@ Nej. Den kan bara skickas via en plats-till-plats-anslutning.
  
 ### <a name="is-there-a-change-in-the-number-of-sstp-connections-supported-with-radius-authentication-what-is-the-maximum-number-of-sstp-and-ikev2-connections-supported"></a>Har antalet SSTP-anslutningar som stöds med RADIUS-autentisering ändrats? Hur många SSTP- och IKEv2-anslutningar stöds?
 
-Det högsta antalet SSTP-anslutningar som stöds på en gateway med RADIUS-autentisering har inte ändrats. Den förblir 128 för SSTP, men den är beroende av Gateway-SKU: n för IKEv2. Mer information om antalet anslutningar som stöds finns i Gateway- [SKU: er](../articles/vpn-gateway/vpn-gateway-about-vpngateways.md#gwsku).
+Det högsta antalet SSTP-anslutningar som stöds på en gateway med RADIUS-autentisering har inte ändrats. Det är fortfarande 128 för SSTP, men beror på gatewayen SKU för IKEv2.Mer information om antalet anslutningar som stöds finns i [Gateway SKU: er](../articles/vpn-gateway/vpn-gateway-about-vpngateways.md#gwsku).
  
-### <a name="what-is-the-difference-between-doing-certificate-authentication-using-a-radius-server-vs-using-azure-native-certificate-authentication-by-uploading-a-trustedcertificate-to-azure"></a>Vad är skillnaden mellan att utföra certifikatautentisering med en RADIUS-server jämfört med att använda Azures interna certifikatautentisering (genom att ladda upp ett betrott certifikat till Azure).
+### <a name="what-is-the-difference-between-doing-certificate-authentication-using-a-radius-server-vs-using-azure-native-certificate-authentication-by-uploading-a-trustedcertificate-to-azure"></a>Vad är skillnaden mellan att utföra certifikatautentisering med hjälp av en RADIUS-server och att använda Azures interna certifikatautentisering (genom att ladda upp ett betrott certifikat till Azure).
 
 När RADIUS-certifikatautentisering används vidarebefordras autentiseringsbegäran till en RADIUS-server som hanterar själva certifikatverifieringen. Det här alternativet är bra om du vill integrera med en infrastruktur för certifikatautentisering som du redan har via RADIUS.
   

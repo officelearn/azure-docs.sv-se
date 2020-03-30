@@ -9,19 +9,19 @@ ms.date: 01/17/2019
 ms.author: avneet723
 ms.custom: include file
 ms.openlocfilehash: 1f567b3d083853f9bb342bfad462e8545caa6480
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67187776"
 ---
-## <a name="download-the-source-code"></a>Ladda ned källkoden
+## <a name="download-the-source-code"></a>Ladda ner källkoden
 
-Fjärrövervakning källkodslager omfattar källkoden och Docker-konfigurationsfiler som du behöver köra mikrotjänster Docker-avbildningar.
+Källkodsdatabaserna för fjärrövervakning innehåller källkoden och de Docker-konfigurationsfiler som du behöver för att köra dockeravbildningarna för mikrotjänster.
 
-Använd din kommandoradsmiljö klona och skapa en lokal version av databasen genom för att navigera till en lämplig mapp på den lokala datorn. Sedan kör något av följande uppsättningar kommandon för att klona antingen .NET-lagringsplatsen:
+Om du vill klona och skapa en lokal version av databasen använder du kommandoradsmiljön för att navigera till en lämplig mapp på den lokala datorn. Kör sedan en av följande uppsättningar kommandon för att klona antingen .NET-databasen:
 
-Om du vill hämta den senaste versionen av .NET mikrotjänst implementeringar, kör du:
+Om du vill hämta den senaste versionen av .NET-mikrotjänstimplementeringarna kör du:
 
 ```cmd/sh
 git clone --recurse-submodules https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet.git
@@ -33,47 +33,47 @@ git submodule foreach git pull origin master
 ```
 
 > [!NOTE]
-> Dessa kommandon ladda ned källkoden för alla mikrotjänster utöver de skript som används för att köra mikrotjänster lokalt. Även om du inte behöver källkoden för att köra mikrotjänster i Docker, är källkoden användbart om du senare planerar att ändra solution accelerator och testa ändringarna lokalt.
+> Dessa kommandon hämtar källkoden för alla mikrotjänster utöver de skript som du använder för att köra mikrotjänsterna lokalt. Även om du inte behöver källkoden för att köra mikrotjänsterna i Docker, är källkoden användbar om du senare planerar att ändra lösningsacceleratorn och testa ändringarna lokalt.
 
-## <a name="deploy-the-azure-services"></a>Distribuera Azure-tjänster
+## <a name="deploy-the-azure-services"></a>Distribuera Azure-tjänsterna
 
-Även om den här artikeln visar hur du kör mikrotjänster lokalt, de förlitar sig på Azure-tjänster som körs i molnet. Använd följande skript för att distribuera Azure-tjänster. I följande skriptexempel förutsätter att du använder .NET-lagringsplatsen på en Windows-dator. Om du arbetar i en annan miljö, justera de sökvägar, filnamnstillägg, och avgränsarna på rätt sätt.
+Även om den här artikeln visar hur du kör mikrotjänsterna lokalt, beror de på Azure-tjänster som körs i molnet. Använd följande skript för att distribuera Azure-tjänsterna. Följande skriptexempel förutsätter att du använder .NET-databasen på en Windows-dator. Om du arbetar i en annan miljö justerar du sökvägarna, filnamnstilläggen och sökvägsavgränsarna på rätt sätt.
 
 ### <a name="create-new-azure-resources"></a>Skapa nya Azure-resurser
 
-Om du ännu inte har skapat de nödvändiga Azure-resurserna, gör du följande:
+Om du ännu inte har skapat de nödvändiga Azure-resurserna gör du så här:
 
-1. I din kommandoradmiljö, navigerar du till den **\services\scripts\local\launch** mapp i din klonade kopia av databasen.
+1. I kommandoradsmiljön navigerar du till mappen **\services\scripts\local\launch** i den klonade kopian av databasen.
 
-1. Kör följande kommandon för att installera den **datorer** CLI-verktyget och logga in på ditt Azure-konto:
+1. Kör följande kommandon för att installera **dators CLI-verktyget** och logga in på ditt Azure-konto:
 
     ```cmd
     npm install -g iot-solutions
     pcs login
     ```
 
-1. Kör den **start.cmd** skript. Skriptet uppmanas du att följande information:
-   * Ett lösningsnamn på.
+1. Kör **start.cmd-skriptet.** Skriptet uppmanar dig att ange följande information:
+   * Ett lösningsnamn.
    * Den Azure-prenumeration som ska användas.
-   * Platsen för Azure-datacenter att använda.
+   * Platsen för Azure-datacentret som ska användas.
 
-     Skriptet skapar en resursgrupp i Azure med Lösningsnamnet på din. Den här resursgruppen innehåller Azure-resurserna solution accelerator använder. Du kan ta bort den här resursgruppen när du behöver inte längre på motsvarande resurser.
+     Skriptet skapar resursgrupp i Azure med ditt lösningsnamn. Den här resursgruppen innehåller De Azure-resurser som lösningsacceleratorn använder. Du kan ta bort den här resursgruppen när du inte längre behöver motsvarande resurser.
 
-     Skriptet lägger också till en uppsättning miljövariabler med prefixet **datorer** till den lokala datorn. Dessa miljövariabler ange uppgifter för fjärrövervakning för att kunna läsa från en Azure Key Vault-resurs. Den här Key Vault-resursen är där fjärrövervakning läsa dess konfigurationsvärden från.
+     Skriptet lägger också till en uppsättning miljövariabler med ett prefix **PCS** till din lokala dator. Dessa miljövariabler innehåller information om fjärrövervakning för att kunna läsa från en Azure Key Vault-resurs. Den här Key Vault-resursen är där fjärrövervakning kommer att läsa dess konfigurationsvärden från.
 
      > [!TIP]
-     > När skriptet har körts också sparas miljövariablerna i en fil med namnet  **\<arbetsmappen\>\\.pcs\\\<lösningsnamn\>.env** . Du kan använda dem för framtida solution accelerator distributioner. Observera att alla miljövariabler som anges på den lokala datorn åsidosätta värden i den **services\\skript\\lokala\\.env** filen när du kör **docker-compose**.
+     > När skriptet är klart sparas också miljövariablerna i en fil som kallas ** \<\>\\lösningsnamnet\\\<\>.pcs .env**. Du kan använda dem för framtida distributioner av lösningsacceleratorer. Observera att alla miljövariabler som anges på din lokala dator åsidosätter värden i **\\tjänstskriptens\\lokala\\.env-fil** när du kör **docker-compose**.
 
-1. Avsluta från kommandoraden-miljön.
+1. Lämna kommandoradsmiljön.
 
-### <a name="use-existing-azure-resources"></a>Använd befintliga Azure-resurser
+### <a name="use-existing-azure-resources"></a>Använda befintliga Azure-resurser
 
-Om du redan har skapat resurserna som krävs Azure skapar du motsvarande miljövariabler på den lokala datorn.
+Om du redan har skapat de nödvändiga Azure-resurserna skapar du motsvarande miljövariabler på den lokala datorn.
 Ange miljövariabler för följande:
-* **PCS_KEYVAULT_NAME** -namnet på den Azure Key Vault-resursen
-* **PCS_AAD_APPID** -ID för det AAD-program
-* **PCS_AAD_APPSECRET** -programhemlighet i AAD
+* **PCS_KEYVAULT_NAME** - Namn på Azure Key Vault-resursen
+* **PCS_AAD_APPID** - AAD-applikations-ID
+* **PCS_AAD_APPSECRET** - AAD-applikationshemligheten
 
-Konfigurationsvärden ska läsas från den här Azure Key Vault-resursen. Dessa miljövariabler kan sparas i den  **\<arbetsmappen\>\\.pcs\\\<lösningsnamn\>.env** filen från distributionen. Observera att miljövariabler som anges på den lokala datorn åsidosätta värden i den **services\\skript\\lokala\\.env** filen när du kör **docker-compose**.
+Konfigurationsvärden läss från den här Azure Key Vault-resursen. Dessa miljövariabler kan sparas i ** \<startmappen\>\\.pcs-lösningsnamnet\\\<\>.env-filen** från distributionen. Observera att miljövariabler som anges på din lokala dator åsidosätter värden i **\\tjänstskriptens\\lokala\\.env-fil** när du kör **docker-compose**.
 
-Del av konfigurationen som krävs av mikrotjänst lagras i en instans av **Key Vault** som skapades på den första distributionen. De motsvarande variablerna i keyvault ska ändras efter behov.
+En del av konfigurationen som behövs av mikrotjänsten lagras i en instans av **Key Vault** som skapades vid den första distributionen. Motsvarande variabler i keyvault bör ändras vid behov.

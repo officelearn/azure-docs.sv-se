@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: 473bc0a58fe49c7f454c81402b57ddce7fc745b2
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "67187404"
 ---
 #### <a name="to-configure-remote-management-on-cloud-appliance"></a>Så här konfigurerar du fjärrhantering för molninstallationen
@@ -27,7 +27,7 @@ ms.locfileid: "67187404"
 
     1. Kontrollera att **Aktivera fjärradministration** är aktiverat.
     2. Standard är att ansluta via HTTPS. Du kan välja att ansluta med HTTP. Det är bara acceptabelt att ansluta över HTTP på betrodda nätverk. Kontrollera att HTTP är aktiverat.
-    3. I kommandofältet längst upp på bladet klickar du på **... Mer** och sedan på **Hämta certifikat** för att hämta ett certifikat för fjärrhantering. Du kan ange var du vill spara filen. Det här certifikatet bör installeras på den klient- eller värddator som du använder för att ansluta till molninstallationen.
+    3. Från kommandofältet högst upp på bladet, klicka på **... Mer** och klicka sedan på **Hämta certifikat** för att hämta ett fjärrhanteringscertifikat. Du kan ange var du vill spara filen. Det här certifikatet bör installeras på den klient- eller värddator som du använder för att ansluta till molninstallationen.
 
         ![Bladet Fjärrhantering](./media/storsimple-8000-configure-remote-management-http-device/sca-remote-manage4.png)
 5. Klicka på **Spara** och bekräfta ändringarna när du uppmanas att göra det.

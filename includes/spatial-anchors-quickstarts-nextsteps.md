@@ -5,12 +5,12 @@ ms.topic: include
 ms.date: 1/30/2019
 ms.author: rgarcia
 ms.openlocfilehash: 3e0f2593f6a5cf0ddfe74b51523476f7db8ae4de
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "67187035"
 ---
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabbstarten har skapade du ett konto för Spatial fästpunkter. Du kan sedan konfigureras och distribueras en app för att spara och hämta spatial fästpunkter. Fortsätt till nästa självstudie om du vill veta mer om hur du förbättrar appen så att den kan dela spatial ankare med andra enheter.
+I den här snabbstarten skapade du ett rumsligt fästen-konto. Du konfigurerade och distribuerade sedan en app för att spara och återkalla rumsliga ankare. Om du vill veta mer om hur du kan förbättra appen så att den kan dela rumsliga ankare med andra enheter fortsätter du till nästa självstudiekurs.

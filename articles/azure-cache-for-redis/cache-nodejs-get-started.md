@@ -1,5 +1,5 @@
 ---
-title: 'Snabb start: Använd Azure cache för Redis med Node. js'
+title: 'Snabbstart: Använd Azure Cache för Redis med Node.js'
 description: I den här snabbstarten lär du dig att använda Azure Cache for Redis med Node.js och node_redis.
 author: yegu-ms
 ms.service: cache
@@ -9,20 +9,20 @@ ms.date: 05/21/2018
 ms.author: yegu
 ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019
 ms.openlocfilehash: 07e2d6f174e5af4af9bdcac73dc74f5cf061ed41
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "78300493"
 ---
-# <a name="quickstart-use-azure-cache-for-redis-with-nodejs"></a>Snabb start: Använd Azure cache för Redis med Node. js
+# <a name="quickstart-use-azure-cache-for-redis-with-nodejs"></a>Snabbstart: Använd Azure Cache för Redis med Node.js
 
-I den här snabb starten införlivar du Azure cache för Redis i en Node. js-app för att få åtkomst till en säker, dedikerad cache som är tillgänglig från alla program i Azure.
+I den här snabbstarten införlivar du Azure Cache for Redis i en Node.js-app för att få åtkomst till en säker, dedikerad cache som är tillgänglig från alla program i Azure.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-- Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/)
-- [node_redis](https://github.com/mranney/node_redis), som du kan installera med kommandot `npm install redis`. 
+- Azure-prenumeration - [skapa en gratis](https://azure.microsoft.com/free/)
+- [node_redis](https://github.com/mranney/node_redis)som du kan installera med `npm install redis`kommandot . 
 
 Exempel på användning av andra Node.js-klienter finns i dokumentationen till enskilda Node.js-klienter som anges i [Node.js Redis-klienter](https://redis.io/clients#nodejs).
 
@@ -105,9 +105,9 @@ Kör skriptet med Node.js.
 node redistest.js
 ```
 
-I exemplet nedan ser du att `Message`-nyckeln tidigare hade ett cachelagrat värde som angavs med Redis-konsolen i Azure-portalen. Appen uppdatera det cachelagrade värdet. Appen körde även kommandona `PING` och `CLIENT LIST`.
+I exemplet nedan ser du att `Message`-nyckeln tidigare hade ett cachelagrat värde som angavs med Redis-konsolen i Azure Portal. Appen uppdatera det cachelagrade värdet. Appen körde även kommandona `PING` och `CLIENT LIST`.
 
-![Redis Cache app har slutförts](./media/cache-nodejs-get-started/redis-cache-app-complete.png)
+![Appen Redis-cache har slutförts](./media/cache-nodejs-get-started/redis-cache-app-complete.png)
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
@@ -119,19 +119,19 @@ Om du är klar med exempelappen för snabbstart kan du ta bort Azure-resurserna 
 > Det går inte att ångra borttagningen av en resursgrupp och att resursgruppen och alla resurser i den tas bort permanent. Kontrollera att du inte av misstag tar bort fel resursgrupp eller resurser. Om du har skapat resurserna som värd för det här exemplet i en befintlig resursgrupp som innehåller resurser som du vill behålla, kan du ta bort varje resurs separat från deras respektive blad istället för att ta bort resursgruppen.
 >
 
-Logga in på [Azure-portalen](https://portal.azure.com) och välj **Resursgrupper**.
+Logga in på [Azure Portal](https://portal.azure.com) och välj **Resursgrupper**.
 
-I text rutan **Filtrera efter namn** anger du namnet på din resurs grupp. Anvisningarna för den här artikeln använde en resursgrupp med namnet *TestResources*. I resurs gruppen i resultat listan väljer du **...** och sedan **ta bort resurs grupp**.
+Ange namnet på resursgruppen i textrutan **Filter efter namn.** Anvisningarna för den här artikeln använde en resursgrupp med namnet *TestResources*. Välj **...** sedan **Ta bort resursgrupp**i resursgruppen i resultatlistan .
 
-![Ta bort Azure-resurs grupp](./media/cache-nodejs-get-started/redis-cache-delete-resource-group.png)
+![Ta bort Azure Resource-grupp](./media/cache-nodejs-get-started/redis-cache-delete-resource-group.png)
 
-Du blir ombedd att bekräfta borttagningen av resursgruppen. Ange namnet på resurs gruppen som ska bekräftas och välj **ta bort**.
+Du blir ombedd att bekräfta borttagningen av resursgruppen. Ange namnet på resursgruppen som du vill bekräfta och välj **Ta bort**.
 
 Efter en liten stund tas resursgruppen och resurser som finns i den bort.
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabbstarten har du lärt dig att använda Azure Cache for Redis från ett Node.js-program. Fortsätta till nästa snabbstart om du vill använda Azure Cache for Redis med en ASP.NET-webbapp.
+I den här snabbstarten har du lärt dig att använda Azure Cache for Redis från ett Node.js-program. Fortsätt till nästa snabbstart om du vill använda Azure Cache for Redis med en ASP.NET-webbapp.
 
 > [!div class="nextstepaction"]
 > [Skapa en ASP.NET-webbapp som använder en Azure Cache for Redis.](./cache-web-app-howto.md)

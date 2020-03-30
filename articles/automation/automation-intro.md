@@ -8,15 +8,15 @@ ms.date: 10/18/2018
 ms.custom: mvc
 ms.topic: overview
 ms.openlocfilehash: 3359d99d7e20bbced8950171fa34592fd2612500
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "76930403"
 ---
 # <a name="an-introduction-to-azure-automation"></a>En introduktion till Azure Automation
 
-Med Azure Automation får du en molnbaserad automatiserings- och konfigurationstjänst som ger enhetlig hantering i såväl Azure-miljöer som andra miljöer än Azure. Den består av funktioner för processautomatisering, uppdateringshantering och konfiguration. Azure Automation ger fullständig kontroll under distribution, drift och inaktivering av arbetsbelastningar och resurser.
+Azure Automation är en molnbaserad tjänst för automatisering och konfiguration. Med tjänsten får du en enhetlig hantering i Azure och andra miljöer. Den består av funktioner för processautomatisering, uppdateringshantering och konfiguration. Azure Automation ger fullständig kontroll under distribution, drift och inaktivering av arbetsbelastningar och resurser.
 Den här artikeln innehåller en kort översikt över Azure Automation och ger svar på några vanliga frågor. Om du vill ha mer information om de olika funktionerna kan du välja länkarna i den här översikten.
 
 ## <a name="azure-automation-capabilities"></a>Azure Automation-funktioner
@@ -37,7 +37,7 @@ Med inventering av gästresurser kan du få insyn i installerade program och and
 
 Uppdatera Windows- och Linux-system i hybridmiljöer med Azure Automation. Du kan se uppdateringsefterlevnad i Azure, lokalt och andra moln. Du kan skapa schemalagda distributioner för att samordna installationen av uppdateringar inom en definierad underhållsperiod. Om en uppdatering inte ska installeras på en dator kan du ta bort den från distributionen.
 
-### <a name="shared-resources"></a>Delade resurser
+### <a name="shared-resources"></a><a name="shared-resources"></a>Delade resurser
 
 Azure Automation består av en uppsättning delade resurser som gör det enklare att automatisera och konfigurera dina miljöer i större skala.
 
@@ -85,5 +85,5 @@ Du kan granska priset för Azure Automation på [sidan med priser](https://azure
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Skapa ett Automation-konto](automation-quickstart-create-account.md)
+> [Skapa ett automatiseringskonto](automation-quickstart-create-account.md)
 

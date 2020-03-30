@@ -1,34 +1,34 @@
 ---
 title: Hantera innehållstyper
-description: Lär dig hur du hanterar olika innehålls typer i arbets flöden under design tid och kör tid i Azure Logic Apps
+description: Lär dig hur du hanterar olika innehållstyper i arbetsflöden under designtid och körning i Azure Logic Apps
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 07/20/2018
 ms.openlocfilehash: ae0abe288edda2ce01311d8533b1f104409efce0
-ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/06/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75666881"
 ---
-# <a name="handle-content-types-in-azure-logic-apps"></a>Hantera innehålls typer i Azure Logic Apps
+# <a name="handle-content-types-in-azure-logic-apps"></a>Hantera innehållstyper i Azure Logic Apps
 
-Olika innehålls typer kan flöda via en Logic app, till exempel JSON, XML, flata filer och binära data. Även om Logic Apps stöder alla innehålls typer, har vissa inbyggda support och kräver inte data omvandling eller konvertering i dina Logi Kap par. Andra typer kan kräva data omvandling eller omvandling vid behov. I den här artikeln beskrivs hur Logic Apps hanterar innehålls typer och hur du korrekt kan omvandla eller konvertera dessa typer vid behov.
+Olika innehållstyper kan flöda genom en logikapp, till exempel JSON, XML, platta filer och binära data. Logic Apps stöder alla innehållstyper, men vissa har inbyggt stöd och kräver inte cast eller konvertering i logikapparna. Andra typer kan kräva gjutning eller konvertering vid behov. I den här artikeln beskrivs hur Logic Apps hanterar innehållstyper och hur du kan casta eller konvertera dessa typer på rätt sätt när det behövs.
 
-För att fastställa lämpligt sätt för att hantera innehålls typer Logic Apps förlitar sig på värdet för `Content-Type`-huvudet i HTTP-anrop, till exempel:
+För att avgöra rätt sätt för hantering av `Content-Type` innehållstyper förlitar sig Logic Apps på huvudvärdet i HTTP-anrop, till exempel:
 
-* [Application/JSON](#application-json) (intern typ)
-* [text/plain](#text-plain) (intern typ)
-* [program/XML och program/oktett-Stream](#application-xml-octet-stream)
-* [Andra innehålls typer](#other-content-types)
+* [program/json](#application-json) (inbyggt slag)
+* [text/oformaterad](#text-plain) (ursprunglig text)
+* [application/xml och application/octet-stream](#application-xml-octet-stream)
+* [Andra innehållstyper](#other-content-types)
 
 <a name="application-json"></a>
 
 ## <a name="applicationjson"></a>application/json
 
-Logic Apps lagrar och hanterar en begäran med innehålls typen *program/JSON* som ett JavaScript-objekt (JavaScript-notation). Som standard kan du parsa JSON-innehåll utan data typs byte. Om du vill parsa en begäran som har ett huvud med innehålls typen "Application/JSON" kan du använda ett uttryck. I det här exemplet returneras värdet `dog` från `animal-type` matrisen utan databyte: 
+Logic Apps lagrar och hanterar alla begäranden med innehållstypen *Program/json* som ett JSON-objekt (JavaScript Notation). Som standard kan du tolka JSON-innehåll utan någon castning. Om du vill tolka en begäran som har en rubrik med innehållstypen "application/json" kan du använda ett uttryck. I det här `dog` exemplet `animal-type` returneras värdet från matrisen utan att casta: 
  
 `@body('myAction')['animal-type'][0]` 
   
@@ -41,33 +41,33 @@ Logic Apps lagrar och hanterar en begäran med innehålls typen *program/JSON* s
   }
   ```
 
-Om du arbetar med JSON-data som inte anger något sidhuvud kan du manuellt omvandla dessa data till JSON med hjälp av [JSON ()-funktionen](../logic-apps/workflow-definition-language-functions-reference.md#json), till exempel: 
+Om du arbetar med JSON-data som inte anger ett huvud kan du manuellt casta dessa data till JSON med hjälp av [funktionen json(),](../logic-apps/workflow-definition-language-functions-reference.md#json)till exempel: 
   
 `@json(triggerBody())['animal-type']`
 
 ### <a name="create-tokens-for-json-properties"></a>Skapa token för JSON-egenskaper
 
-Logic Apps ger dig möjlighet att generera användarvänliga token som representerar egenskaperna i JSON-innehåll så att du kan referera till och använda dessa egenskaper enklare i din Logic app-arbetsflöde.
+Logic Apps ger dig möjlighet att generera användarvänliga token som representerar egenskaperna i JSON-innehåll så att du lättare kan referera till och använda dessa egenskaper i logikappens arbetsflöde.
 
-* **Begär utlösare**
+* **Utlösare för begäran**
 
-  När du använder den här utlösaren i Logic App Designer kan du ange ett JSON-schema som beskriver den nytto last som du förväntar dig att ta emot. 
-  Designern parsar JSON-innehåll med hjälp av det här schemat och genererar användarvänliga token som representerar egenskaperna i ditt JSON-innehåll. 
-  Du kan sedan enkelt referera till och använda dessa egenskaper i din Logic app-arbetsflöde. 
+  När du använder den här utlösaren i Logic App Designer kan du ange ett JSON-schema som beskriver den nyttolast du förväntar dig att ta emot. 
+  Designern tolkar JSON-innehåll med hjälp av det här schemat och genererar användarvänliga token som representerar egenskaperna i ditt JSON-innehåll. 
+  Du kan sedan enkelt referera till och använda dessa egenskaper i logikappens arbetsflöde. 
   
-  Om du inte har ett schema kan du generera schemat. 
+  Om du inte har ett schema kan du skapa schemat. 
   
-  1. I utlösaren för begäran väljer **du Använd exempel nytto last för att generera schemat**.  
+  1. I utlösaren Begäran väljer du **Använd exempelnyttolast för att generera schema**.  
   
-  2. Under **Ange eller klistra in en exempel-JSON-nyttolast**, anger du ett exempel på en nytto last och väljer sedan **färdig**. Ett exempel: 
+  2. Under **Ange eller klistra in ett prov på JSON-nyttolast**anger du en nyttolast i exempel och väljer sedan **Klar**. Ett exempel: 
 
-     ![Tillhandahåll exempel-JSON-nyttolast](./media/logic-apps-content-type/request-trigger.png)
+     ![Ge prov JSON nyttolast](./media/logic-apps-content-type/request-trigger.png)
 
      Det genererade schemat visas nu i utlösaren.
 
-     ![Tillhandahåll exempel-JSON-nyttolast](./media/logic-apps-content-type/generated-schema.png)
+     ![Ge prov JSON nyttolast](./media/logic-apps-content-type/generated-schema.png)
 
-     Här är den underliggande definitionen för din begär ande utlösare i kodvyn:
+     Här är den underliggande definitionen för utlösaren begäran i kodvyredigeraren:
 
      ```json
      "triggers": { 
@@ -99,72 +99,72 @@ Logic Apps ger dig möjlighet att generera användarvänliga token som represent
      }
      ```
 
-  3. I din förfrågan ser du till att du inkluderar ett `Content-Type`-sidhuvud och anger värdet för sidhuvudet till `application/json`.
+  3. I din begäran måste du `Content-Type` inkludera ett huvud och `application/json`ange rubrikens värde på .
 
-* **Parsa JSON-åtgärd**
+* **Tolka JSON-åtgärd**
 
-  När du använder den här åtgärden i Logic App Designer kan du parsa JSON-utdata och generera användarvänliga token som representerar egenskaperna i ditt JSON-innehåll. 
-  Du kan sedan enkelt referera till och använda dessa egenskaper i din Logic app-arbetsflöde. Precis som i utlösaren för förfrågningar kan du ange eller generera ett JSON-schema som beskriver det JSON-innehåll som du vill parsa. 
-  På så sätt kan du enklare använda data från Azure Service Bus, Azure Cosmos DB och så vidare.
+  När du använder den här åtgärden i Logic App Designer kan du tolka JSON-utdata och generera användarvänliga token som representerar egenskaperna i ditt JSON-innehåll. 
+  Du kan sedan enkelt referera till och använda dessa egenskaper i logikappens arbetsflöde. I likhet med utlösaren Begäran kan du tillhandahålla eller generera ett JSON-schema som beskriver det JSON-innehåll som du vill tolka. 
+  På så sätt kan du lättare använda data från Azure Service Bus, Azure Cosmos DB och så vidare.
 
   ![Parsa JSON](./media/logic-apps-content-type/parse-json.png)
 
 <a name="text-plain"></a>
 
-## <a name="textplain"></a>text/oformaterat
+## <a name="textplain"></a>text/oformaterad
 
-När din Logi Kap par tar emot HTTP-meddelanden som har `Content-Type` sidhuvudet inställt på `text/plain`, lagrar din Logic app dessa meddelanden i RAW-form. Om du inkluderar dessa meddelanden i efterföljande åtgärder utan databyte, så fortsätter begär Anden med `Content-Type`-rubriken inställt på `text/plain`. 
+När logikappen `Content-Type` tar emot HTTP-meddelanden `text/plain`som har rubriken inställd på lagrar logikappen dessa meddelanden i rå form. Om du inkluderar dessa meddelanden i efterföljande åtgärder `Content-Type` utan att `text/plain`casta, går begäranden ut med huvudet inställt på . 
 
-Om du till exempel arbetar med en platt fil kan du få en HTTP-begäran med `Content-Type`-huvudet inställt på `text/plain` innehålls typ:
+När du till exempel arbetar med en platt fil kan du `Content-Type` få `text/plain` en HTTP-begäran med rubriken inställd på innehållstyp:
 
 `Date,Name,Address`</br>
 `Oct-1,Frank,123 Ave`
 
-Om du sedan skickar den här begäran i en senare åtgärd som brödtext för en annan begäran, till exempel `@body('flatfile')`, har den andra begäran också ett `Content-Type`-huvud som är inställt på `text/plain`. Om du arbetar med data som är oformaterad text men inte har angett något sidhuvud, kan du manuellt omvandla dessa data till text med hjälp av [funktionen String ()](../logic-apps/workflow-definition-language-functions-reference.md#string) , till exempel följande uttryck: 
+Om du sedan skickar den här begäran i en senare åtgärd `@body('flatfile')`som brödtext för `Content-Type` en annan begäran, till exempel, har den andra begäran också ett huvud som är inställt på `text/plain`. Om du arbetar med data som är oformaterad text men inte har angett något huvud kan du casta data manuellt till text med hjälp av [funktionen string()](../logic-apps/workflow-definition-language-functions-reference.md#string) som det här uttrycket: 
 
 `@string(triggerBody())`
 
 <a name="application-xml-octet-stream"></a>
 
-## <a name="applicationxml-and-applicationoctet-stream"></a>program/XML och program/oktett-Stream
+## <a name="applicationxml-and-applicationoctet-stream"></a>application/xml och application/octet-stream
 
-Logic Apps bevarar alltid `Content-Type` i en mottagen HTTP-begäran eller ett svar. Så om din Logi Kap par tar emot innehåll med `Content-Type` inställt på `application/octet-stream`, och du tar med det innehållet i en senare åtgärd utan databyte, har den utgående begäran också `Content-Type` inställd på `application/octet-stream`. På så sätt kan Logic Apps garantera att data inte går förlorade vid förflyttning i arbets flödet. Åtgärds tillstånd, eller indata och utdata, lagras dock i ett JSON-objekt medan statusen flyttas genom arbets flödet. 
+Logic Apps bevarar `Content-Type` alltid i en mottagen HTTP-begäran eller svar. Så om logikappen `Content-Type` tar `application/octet-stream`emot innehåll med inställt på , och du inkluderar `Content-Type` innehållet `application/octet-stream`i en senare åtgärd utan att casta, har den utgående begäran också ställt in på . På så sätt kan Logic Apps garantera att data inte försvinner när de går igenom arbetsflödet. Åtgärdstillståndet, eller indata och utdata, lagras dock i ett JSON-objekt medan tillståndet flyttas genom arbetsflödet. 
 
-## <a name="converter-functions"></a>Omvandlare-funktioner
+## <a name="converter-functions"></a>Omformarfunktioner
 
-För att bevara vissa data typer, Logic Apps konverterar innehåll till en binär Base64-kodad sträng med lämpliga metadata som bevarar både `$content` nytto lasten och `$content-type`, som automatiskt konverteras. 
+Om du vill bevara vissa datatyper konverterar Logic Apps innehåll till en binär bas64-kodad sträng med lämpliga metadata som bevarar både `$content` nyttolasten och `$content-type`den som konverteras automatiskt. 
 
-I den här listan beskrivs hur Logic Apps konverterar innehåll när du använder dessa [funktioner](../logic-apps/workflow-definition-language-functions-reference.md):
+I den här listan beskrivs hur Logic Apps konverterar innehåll när du använder dessa [funktioner:](../logic-apps/workflow-definition-language-functions-reference.md)
 
-* `json()`: skickar data till `application/json`
-* `xml()`: skickar data till `application/xml`
-* `binary()`: skickar data till `application/octet-stream`
-* `string()`: skickar data till `text/plain`
-* `base64()`: konverterar innehåll till en Base64-kodad sträng
-* `base64toString()`: konverterar en Base64-kodad sträng till `text/plain`
-* `base64toBinary()`: konverterar en Base64-kodad sträng till `application/octet-stream`
-* `dataUri()`: konverterar en sträng till en data-URI
-* `dataUriToBinary()`: konverterar en data-URI till en binär sträng
-* `dataUriToString()`: konverterar en data-URI till en sträng
+* `json()`: Kastar data till`application/json`
+* `xml()`: Kastar data till`application/xml`
+* `binary()`: Kastar data till`application/octet-stream`
+* `string()`: Kastar data till`text/plain`
+* `base64()`: Konverterar innehåll till en base64-kodad sträng
+* `base64toString()`: Konverterar en base64-kodad sträng till`text/plain`
+* `base64toBinary()`: Konverterar en base64-kodad sträng till`application/octet-stream`
+* `dataUri()`: Konverterar en sträng till en data-URI
+* `dataUriToBinary()`: Konverterar en data-URI till en binär sträng
+* `dataUriToString()`: Konverterar en data-URI till en sträng
 
-Om du till exempel får en HTTP-begäran där `Content-Type` anges till `application/xml`, till exempel det här innehållet:
+Om du till exempel får `Content-Type` en `application/xml`HTTP-begäran där den är inställd på , till exempel det här innehållet:
 
 ```html
 <?xml version="1.0" encoding="UTF-8" ?>
 <CustomerName>Frank</CustomerName>
 ```
 
-Du kan omvandla det här innehållet med hjälp av `@xml(triggerBody())`-uttrycket med funktionerna `xml()` och `triggerBody()` och sedan använda det här innehållet senare. Du kan också använda `@xpath(xml(triggerBody()), '/CustomerName')` uttryck med funktionerna `xpath()` och `xml()`. 
+Du kan casta det `@xml(triggerBody())` här `xml()` innehållet `triggerBody()` genom att använda uttrycket med funktionerna och sedan använda det här innehållet senare. Du kan också `@xpath(xml(triggerBody()), '/CustomerName')` använda uttrycket med funktionerna `xpath()` och. `xml()` 
 
-## <a name="other-content-types"></a>Andra innehålls typer
+## <a name="other-content-types"></a>Andra innehållstyper
 
-Logic Apps fungerar med och stöder andra typer av innehåll, men kan kräva att du hämtar meddelande texten manuellt genom att avkoda `$content` variabeln.
+Logic Apps fungerar med och stöder andra innehållstyper, men kan kräva att `$content` du manuellt hämtar meddelandetexten genom att avkoda variabeln.
 
-Anta till exempel att din Logic app utlöses av en begäran med innehålls typen `application/x-www-url-formencoded`. För att bevara alla data har `$content` variabeln i begär ande texten en nytto last som är kodad som en Base64-sträng:
+Anta till exempel att logikappen utlöses `application/x-www-url-formencoded` av en begäran med innehållstypen. Om du vill bevara `$content` alla data har variabeln i begäranden en nyttolast som är kodad som en base64-sträng:
 
 `CustomerName=Frank&Address=123+Avenue`
 
-Eftersom begäran inte är oformaterad text eller JSON, lagras begäran i åtgärden enligt följande:
+Eftersom begäran inte är oformaterad text eller JSON lagras begäran i åtgärden på följande sätt:
 
 ```json
 "body": {
@@ -173,15 +173,15 @@ Eftersom begäran inte är oformaterad text eller JSON, lagras begäran i åtgä
 }
 ```
 
-Logic Apps innehåller inbyggda funktioner för att hantera formulär data, till exempel: 
+Logic Apps tillhandahåller inbyggda funktioner för hantering av formulärdata, till exempel: 
 
 * [triggerFormDataValue()](../logic-apps/workflow-definition-language-functions-reference.md#triggerFormDataValue)
 * [triggerFormDataMultiValues()](../logic-apps/workflow-definition-language-functions-reference.md#triggerFormDataMultiValues)
-* [formDataValue()](../logic-apps/workflow-definition-language-functions-reference.md#formDataValue) 
-* [formDataMultiValues()](../logic-apps/workflow-definition-language-functions-reference.md#formDataMultiValues)
+* [formulärDataVärde()](../logic-apps/workflow-definition-language-functions-reference.md#formDataValue) 
+* [formulärDataMultiValues()](../logic-apps/workflow-definition-language-functions-reference.md#formDataMultiValues)
 
-Eller så kan du manuellt komma åt data med hjälp av ett uttryck som till exempel:
+Du kan också komma åt data manuellt med hjälp av ett uttryck som det här exemplet:
 
 `@string(body('formdataAction'))` 
 
-Om du vill att den utgående begäran ska ha samma `application/x-www-url-formencoded` innehålls typ huvud, kan du lägga till begäran i åtgärdens brödtext utan att behöva ange något genom att använda ett uttryck som `@body('formdataAction')`. Den här metoden fungerar dock bara när bröd texten är den enda parametern i `body`-indatamängden. Om du försöker använda `@body('formdataAction')`-uttrycket i en `application/json`-begäran får du ett körnings fel eftersom bröd texten skickas som kodad.
+Om du vill att den `application/x-www-url-formencoded` utgående begäran ska ha samma innehållstypsrubrik kan du lägga till `@body('formdataAction')`begäran i åtgärdens brödtext utan att casta med hjälp av ett uttryck som . Den här metoden fungerar dock bara när brödtexten är den enda parametern i `body` indata. Om du försöker `@body('formdataAction')` använda uttrycket i en `application/json` begäran får du ett körningsfel eftersom brödtexten har kodats.

@@ -1,7 +1,7 @@
 ---
-title: 'Snabb start: skapa en offentlig Load Balancer-Azure Portal'
+title: Snabbstart:Skapa en offentlig belastningsutjämnare - Azure-portal
 titleSuffix: Azure Load Balancer
-description: Den här snabb starten visar hur du skapar en Load Balancer med hjälp av Azure Portal.
+description: Den här snabbstarten visar hur du skapar en belastningsutjämnare med hjälp av Azure-portalen.
 services: load-balancer
 documentationcenter: na
 author: asudbring
@@ -16,99 +16,99 @@ ms.date: 01/08/2020
 ms.author: allensu
 ms.custom: mvc
 ms.openlocfilehash: b424fe315737b84479283eed2d77398c8ce4f148
-ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "78898839"
 ---
-# <a name="quickstart-create-a-load-balancer-to-load-balance-vms-using-the-azure-portal"></a>Snabb start: skapa en Load Balancer för att belastningsutjämna virtuella datorer med Azure Portal
+# <a name="quickstart-create-a-load-balancer-to-load-balance-vms-using-the-azure-portal"></a>Snabbstart: Skapa en belastningsutjämnare för att läsa in virtuella datorer med hjälp av Azure-portalen
 
-Med belastningsutjämning får du högre tillgänglighet och skala genom att inkommande förfrågningar sprids över flera virtuella datorer. Du kan använda Azure Portal för att skapa en lastbalanserare som lastbalanserar virtuella datorer (VM). Den här snabb starten visar hur du kan belastningsutjämna virtuella datorer med en offentlig Load Balancer.
+Med belastningsutjämning får du högre tillgänglighet och skala genom att inkommande förfrågningar sprids över flera virtuella datorer. Du kan använda Azure Portal för att skapa en lastbalanserare som lastbalanserar virtuella datorer (VM). Den här snabbstarten visar hur du laddar fördelning virtuella datorer med hjälp av en offentlig belastningsutjämnare.
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar. 
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar. 
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 
-Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.com).
+Logga in på Azure-portalen på [https://portal.azure.com](https://portal.azure.com).
 
-## <a name="create-a-load-balancer"></a>Skapa en Load Balancer
+## <a name="create-a-load-balancer"></a>Skapa en lastbalanserare
 
-I det här avsnittet skapar du en Load Balancer som hjälper till att belastningsutjämna virtuella datorer. Du kan skapa en offentlig Load Balancer eller en intern Load Balancer. När du skapar en offentlig Load Balancer måste du också skapa en ny offentlig IP-adress som är konfigurerad som klient del (med namnet as *LoadBalancerFrontend* som standard) för Load Balancer.
+I det här avsnittet skapar du en belastningsutjämnare som hjälper till att belastningsutjämna virtuella datorer. Du kan skapa en offentlig belastningsutjämnare eller en intern belastningsutjämnare. När du skapar en offentlig belastningsutjämnare måste du också skapa en ny offentlig IP-adress som har konfigurerats som klientdel (som kallas *LoadBalancerFrontend* som standard) för belastningsutjämnaren.
 
-1. På den övre vänstra sidan av skärmen väljer du **skapa en resurs** > **nätverks** > **Load Balancer**.
+1. Välj **Skapa en resurs** > **Nätverksbelastningsutjämnare****Networking** > längst upp till vänster på skärmen .
 2. På fliken **Grundläggande inställningar** på sidan **Skapa lastbalanserare** anger eller väljer du följande information, accepterar standardinställningarna för de återstående inställningarna och väljer sedan **Granska + skapa**:
 
     | Inställning                 | Värde                                              |
     | ---                     | ---                                                |
     | Prenumeration               | Välj din prenumeration.    |    
-    | Resursgrupp         | Välj **Skapa ny** och skriv *myResourceGroupSLB* i text rutan.|
+    | Resursgrupp         | Välj **Skapa nytt** och skriv *myResourceGroupSLB* i textrutan.|
     | Namn                   | *myLoadBalancer*                                   |
     | Region         | Välj **Europa, västra**.                                        |
-    | Typ          | Välj **Offentligt**.                                        |
-    | SKU           | Välj **standard** eller **Basic**. Microsoft rekommenderar standard för produktions arbets belastningar. |
-    | Offentlig IP-adress | Välj **Skapa ny**. Om du har en befintlig offentlig IP-adress som du vill använda väljer du **Använd befintlig** |
-    | Namn på offentlig IP-adress              | Skriv *myPublicIP* i textrutan.   Använd ```-SKU Basic``` för att skapa en grundläggande offentlig IP-adress. Grundläggande offentliga IP-adresser är inte kompatibla med **standard** belastnings utjämning. Microsoft rekommenderar att du använder **standard** för produktions arbets belastningar.|
-    | Tillgänglighetszon | Skriv *Zone-redundant* för att skapa en elastisk Load Balancer. Om du vill skapa en zonindelade Load Balancer väljer du en speciell zon från 1, 2 eller 3 |
+    | Typ          | Välj **Offentlig**.                                        |
+    | SKU           | Välj **Standard** eller **Basic**. Microsoft rekommenderar Standard för produktionsarbetsbelastningar. |
+    | Offentlig IP-adress | Välj **Skapa ny**. Om du har en befintlig offentlig IP som du vill använda väljer du **Använd** |
+    | Namn på offentlig IP-adress              | Skriv *myPublicIP* i textrutan.   Används ```-SKU Basic``` för att skapa en grundläggande offentlig IP. Grundläggande offentliga IPs är **Standard** inte kompatibla med standardbelastningsutjämnare. Microsoft rekommenderar att du använder **Standard** för produktionsarbetsbelastningar.|
+    | Tillgänglighetszon | Skriv *Zonundant* för att skapa en flexibel belastningsutjämnare. Om du vill skapa en zonindelningsbelastningsutdelningsapparat väljer du en viss zon från 1, 2 eller 3 |
 
 > [!IMPORTANT]
-> Resten av den här snabb starten förutsätter att **standard** -SKU väljs under urvals processen för SKU ovan.
+> Resten av den här snabbstarten förutsätter att **Standard** SKU väljs under SKU-urvalsprocessen ovan.
 
 
-3. På fliken **Granska och skapa** väljer du **skapa**.   
+3. Välj **Skapa**på fliken **Granska + skapa** .   
 
     ![Skapa en Standard Load Balancer](./media/quickstart-load-balancer-standard-public-portal/create-standard-load-balancer.png)
 
-## <a name="create-load-balancer-resources"></a>Skapa Load Balancer resurser
+## <a name="create-load-balancer-resources"></a>Skapa belastningsutjämningsresurser
 
-I det här avsnittet konfigurerar du Load Balancer inställningar för en backend-adresspool, en hälso avsökning och anger en balans regel.
+I det här avsnittet konfigurerar du belastningsutjämnadsinställningar för en serverdelsadresspool, en hälsoavsökning och anger en balancer-regel.
 
 ### <a name="create-a-backend-pool"></a>Skapa en backend-pool
 
-För att distribuera trafik till de virtuella datorerna innehåller en backend-adresspool IP-adresserna för de virtuella nätverkskorten som är anslutna till Load Balancer. Skapa *myBackendPool* för backend-adresspoolen för att inkludera virtuella datorer för belastnings utjämning av Internet trafik.
+Om du vill distribuera trafik till de virtuella datorerna innehåller en serverd-adresspool IP-adresserna för de virtuella (nasatorer) som är anslutna till belastningsutjämnaren. Skapa serverdelsadresspoolen *myBackendPool* för att inkludera virtuella datorer för belastningsutjämning av internettrafik.
 
-1. Välj **alla tjänster** i den vänstra menyn, Välj **alla resurser**och välj sedan **myLoadBalancer** i listan resurser.
-2. Under **Inställningar**väljer du **backend-pooler**och väljer sedan **Lägg till**.
-3. På sidan **Lägg till en server dels grupp** anger du *myBackendPool*som namn på din backend-pool. Välj sedan **Lägg till**.
+1. Välj **Alla tjänster** på menyn till vänster, välj Alla **resurser**och välj sedan **myLoadBalancer** i resurslistan.
+2. Under **Inställningar**väljer du **Backend-pooler**och väljer sedan **Lägg till**.
+3. Skriv *myBackendPool*för namn på sidan **Lägg till en backend-pool** och välj sedan **Lägg till**.
 
 ### <a name="create-a-health-probe"></a>Skapa en hälsoavsökning
 
-Om du vill tillåta att Load Balancer övervakar appens status använder du en hälso avsökning. Hälso avsökningen lägger till eller tar bort virtuella datorer dynamiskt från Load Balancer rotation baserat på deras svar på hälso kontroller. Skapa en hälsoavsökning *myHealthProbe* så att du kan övervaka de virtuella datorernas hälsotillstånd.
+Om du vill att belastningsutjämnaren ska kunna övervaka appens status använder du en hälsoavsökning. Hälsoavsökningen lägger dynamiskt till eller tar bort virtuella datorer från belastningsutjämnarrotationen baserat på deras svar på hälsokontroller. Skapa en hälsoavsökning *myHealthProbe* så att du kan övervaka de virtuella datorernas hälsotillstånd.
 
-1. Välj **alla tjänster** i den vänstra menyn, Välj **alla resurser**och välj sedan **myLoadBalancer** i listan resurser.
-2. Välj **hälso avsökningar**under **Inställningar**och välj sedan **Lägg till**.
+1. Välj **Alla tjänster** på menyn till vänster, välj Alla **resurser**och välj sedan **myLoadBalancer** i resurslistan.
+2. Under **Inställningar**väljer du **Hälsoavsökningar**och väljer sedan **Lägg till**.
     
     | Inställning | Värde |
     | ------- | ----- |
     | Namn | Ange *myHealthProbe*. |
-    | Protokoll | Välj **http**. |
-    | Port | Ange *80*.|
-    | Intervall | Ange *15* som **intervall** i sekunder mellan avsöknings försök. |
-    | Tröskelvärde för ej felfri | Välj **2** för antalet fel i **tröskeln** eller på varandra följande avsöknings fel som måste inträffa innan en virtuell dator betraktas som ohälsosam.|
+    | Protokoll | Välj **HTTP**. |
+    | Port | Skriv in *80*.|
+    | Intervall | Ange *15* för antal **intervall** i sekunder mellan avsökningsförsök. |
+    | Felfritt tröskelvärde | Välj **2** för antal **felaktiga tröskelvärden** eller på varandra följande avsökningsfel som måste inträffa innan en virtuell dator anses vara fel.|
     | | |
 4. Välj **OK**.
 
 ### <a name="create-a-load-balancer-rule"></a>Skapa en lastbalanseringsregel
-En lastbalanseringsregel används för att definiera hur trafiken ska distribueras till de virtuella datorerna. Du definierar IP-konfigurationen på klientdelen för inkommande trafik och IP-poolen på serverdelen för att ta emot trafik samt nödvändig käll- och målport. Skapa en Load Balancer regel *myLoadBalancerRuleWeb* för att lyssna på port 80 i klient delens *FrontendLoadBalancer* och skicka belastningsutjämnad nätverks trafik till backend-adresspoolen *myBackEndPool* även med port 80. 
+En lastbalanseringsregel används för att definiera hur trafiken ska distribueras till de virtuella datorerna. Du definierar IP-konfigurationen på klientdelen för inkommande trafik och IP-poolen på serverdelen för att ta emot trafik samt nödvändig käll- och målport. Skapa en belastningsutjämnad regel *myLoadBalancerRuleWeb* för att lyssna på port 80 i *frontend FrontendLoadBalancer* och skicka belastningsbalanserad nätverkstrafik till backend-adresspoolen *myBackEndPool* också med port 80. 
 
-1. Välj **alla tjänster** i den vänstra menyn, Välj **alla resurser**och välj sedan **myLoadBalancer** i listan resurser.
-2. Välj **belastnings Utjämnings regler**under **Inställningar**och välj sedan **Lägg till**.
+1. Välj **Alla tjänster** på menyn till vänster, välj Alla **resurser**och välj sedan **myLoadBalancer** i resurslistan.
+2. Under **Inställningar**väljer du **Belastningsutjämningsregler**och väljer sedan **Lägg till**.
 3. Använd följande värden när du konfigurerar belastningsutjämningsregeln:
     
     | Inställning | Värde |
     | ------- | ----- |
-    | Namn | Ange *myHTTPRule*. |
+    | Namn | Ange *minHTTPRule*. |
     | Protokoll | Välj **TCP**. |
-    | Port | Ange *80*.|
-    | Backend-port | Ange *80*. |
-    | Backend-pool | Välj *myBackendPool*.|
+    | Port | Skriv in *80*.|
+    | Backend-port | Skriv in *80*. |
+    | Serverdelspool | Välj *myBackendPool*.|
     | Hälsoavsökning | Välj *myHealthProbe*. |
 4. Lämna resten av standardinställningarna och välj sedan **OK**.
 
 
 ## <a name="create-backend-servers"></a>Skapa serverdelsservrar
 
-I det här avsnittet skapar du ett virtuellt nätverk, skapar tre virtuella datorer för den Load Balancerens backend-pool och installerar sedan IIS på de virtuella datorerna för att testa Load Balancer.
+I det här avsnittet skapar du ett virtuellt nätverk, skapar tre virtuella datorer för serverdelspoolen för belastningsutjämnaren och installerar sedan IIS på de virtuella datorerna för att testa belastningsutjämnaren.
 
 ## <a name="virtual-network-and-parameters"></a>Virtuellt nätverk och parametrar
 
@@ -116,71 +116,71 @@ I det här avsnittet måste du ersätta följande parametrar i stegen med inform
 
 | Parameter                   | Värde                |
 |-----------------------------|----------------------|
-| **\<resurs-grupp-namn >**  | myResourceGroupSLB |
-| **\<virtuella-nätverks namn >** | myVNet          |
-| **\<region – namn >**          | Europa, västra      |
-| **\<IPv4-adress utrymme >**   | 10.1.0.0 \ 16          |
-| **\<under nätets namn >**          | myBackendSubnet        |
-| **\<undernät – adress intervall >** | 10.1.0.0 \ 24          |
+| **\<resursgruppnamn>**  | myResourceGroupSLB |
+| **\<>virtuellt nätverksnamn** | myVNet          |
+| **\<regionnamn>**          | Europa, västra      |
+| **\<IPv4-adress-utrymme>**   | 10.1.0.0\16          |
+| **\<>i>**          | myBackendSubnet        |
+| **\<>för>** | 10.1.0.0\24          |
 
 [!INCLUDE [virtual-networks-create-new](../../includes/virtual-networks-create-new.md)]
 
 ### <a name="create-virtual-machines"></a>Skapa virtuella datorer
-Offentliga IP-SKU: er och Load Balancer SKU: er måste matcha. För Standard Load Balancer använder du virtuella datorer med standard-IP-adresser i backend-poolen. I det här avsnittet ska du skapa tre virtuella datorer (*myVM1*, *myVM2* och *MyVM3*) med en offentlig standard-IP-adress i tre olika zoner (*zon 1*, *zon 2*och *Zon 3*) som senare läggs till i backend-poolen för Load Balancer som skapades tidigare. Om du har valt grundläggande använder du virtuella datorer med grundläggande IP-adresser.
+Offentliga GPU:er och belastningsutjämnare SKU:er måste matcha. För Standard belastningsutjämnare använder du virtuella datorer med standard-IP-adresser i serverdapoolen. I det här avsnittet skapar du tre virtuella datorer *(myVM1*, *myVM2* och *myVM3*) med en offentlig standard-IP-adress i tre olika zoner *(zon 1*, *zon 2*och *zon 3*) som senare läggs till i backend-poolen för belastningsutjämnaren som skapades tidigare. Om du har valt Grundläggande använder du virtuella datorer med grundläggande IP-adresser.
 
-1. På den övre vänstra sidan av portalen väljer du **skapa en resurs** > **Compute** > **Windows Server 2019 Data Center**. 
+1. På portalens övre vänstra sida väljer du Skapa ett > **resursberäkningscenter** > för**Windows Server 2019**. **Create a resource** 
    
 1. I **Skapa en virtuell dator** skriver eller väljer du följande värden på fliken **Grundläggande**:
-   - **Prenumerations** > **resurs grupp**: Välj **myResourceGroupSLB**.
-   - **Instans information** > **namn på virtuell dator**: Skriv *myVM1*.
-   - **Instans information** > **region** > Välj **Europa, västra**.
-   - **Instans information** > **tillgänglighets alternativ** > Välj **tillgänglighets zoner**. 
-   - **Instans information** > **tillgänglighets zon** > Välj **1**.
-   - **Administratörs konto**> ange **användar namn**, **lösen ord** och **Bekräfta lösen ords** information.
+   - **Subscription** > **Prenumerationsresursgrupp:** Välj **myResourceGroupSLB**.
+   - **Instansinformation** > **Virtuell datornamn:** Skriv *myVM1*.
+   - **Instance Details** > Region för**instansinformation** > välja **Västeuropa**.
+   - **Instance Details** > **Tillgänglighetsalternativ** för instansinformation > Välj **tillgänglighetszoner**. 
+   - **Instance Details** > **Tillgänglighetszon** för instansinformation > Välj **1**.
+   - **Administratörskontot**> ange information **om användarnamn,** **lösenord** och **bekräfta lösenord.**
    - Välj fliken **Nätverk** eller **Nästa: diskar** och sedan **Nästa: nätverk**.
   
-1. På fliken **nätverk** ser du till att följande är markerat:
-   - **Virtuellt nätverk**: *myVnet*
+1. Kontrollera att följande är markerade på fliken **Nätverk:**
+   - **Virtuellt nätverk:** *myVnet*
    - **Undernät**: *myBackendSubnet*
-   - **Offentlig ip** > Välj **Skapa ny**och i fönstret **skapa offentlig IP-adress** för **SKU**väljer du **standard**och för **tillgänglighets zon**väljer du **zon-redundant**och väljer sedan **OK**. Om du har skapat en grundläggande Load Balancer väljer du Basic. Microsoft rekommenderar att du använder standard-SKU för produktions arbets belastningar.
+   - **Offentliga IP->** väljer **Skapa ny**och i fönstret Skapa offentlig **IP-adress** väljer **du** **Standard**för **zonen Tillgänglighet**och väljer sedan **Zonundant**och väljer sedan **OK**. Om du har skapat en grundläggande belastningsutjämnare väljer du Grundläggande. Microsoft rekommenderar att du använder Standard SKU för produktionsarbetsbelastningar.
    - För att skapa en ny nätverkssäkerhetsgrupp (NSG), en typ av brandvägg, går du till **Nätverkssäkerhetsgrupp** och väljer **Avancerat**. 
        1. I fältet **Konfigurera nätverkssäkerhetsgrupp** väljer du **Skapa ny**. 
        1. Skriv *myNetworkSecurityGroup*och välj **OK**.
-   - Utför följande steg för att göra den virtuella datorn till en del av Load Balancers backend-pool:
-        - I **belastnings utjämning**väljer du **Ja**för att **Placera den virtuella datorn bakom en befintlig belastnings Utjämnings lösning?** .
-        - I inställningar **för belastnings utjämning i** **belastnings**utjämning väljer du **Azure Load Balancer**.
-        - För **Välj en belastningsutjämnare**, *myLoadBalancer*.
+   - Så här gör du den virtuella datorn till en del av belastningsutjämnarens backend-pool:
+        - I **Belastningsutjämning** **väljer**du **Ja**.
+        - I Inställningar för **belastningsutjämning**väljer du **Azure load balancer**för **inläsningsinställningar**.
+        - För **Välj en belastningsutjämnare** *, myLoadBalancer*.
         - Välj fliken **Hantering** eller **Nästa** > **Hantering**.
-2. På fliken **hantering** , under **övervakning**, ställer du in **startdiagnostik** på **av**. 
+2. Ange **Startdiagnostik** på **Av**under **Övervakning**på fliken **Hantering** . 
 1. Välj **Granska + skapa**.   
 1. Granska inställningarna och välj sedan **Skapa**.
-1. Följ steg 2 till 6 för att skapa två ytterligare virtuella datorer med följande värden och alla andra inställningar på samma sätt som *myVM1*:
+1. Följ stegen 2 till 6 för att skapa ytterligare två virtuella datorer med följande värden och alla andra inställningar på samma sätt som *myVM1:*
 
     | Inställning | VM 2| VM 3|
     | ------- | ----- |---|
-    | Namn |  *myVM2* |*myVM3*|
+    | Namn |  *myVM2 (på väg mot andra)* |*myVM3 (på väg)*|
     | Tillgänglighetszon | 2 |3|
-    |Offentlig IP-adress| **Standard** SKU|**Standard** SKU|
-    | Offentlig IP-tillgänglighets zon| **Zonen är redundant** |**Zonen är redundant**|
+    |Offentlig IP-adress| **Standard** Sku|**Standard** Sku|
+    | Offentlig IP - Tillgänglighetszon| **Zon redundant** |**Zon redundant**|
     | Nätverkssäkerhetsgrupp | Välj den befintliga *myNetworkSecurity-gruppen*| Välj den befintliga *myNetworkSecurity-gruppen*|
 
  ### <a name="create-nsg-rule"></a>Skapa NSG-regel
 
-I det här avsnittet skapar du en regel för nätverks säkerhets grupper för att tillåta inkommande anslutningar med HTTP.
+I det här avsnittet skapar du en regel för nätverkssäkerhetsgrupp för att tillåta inkommande anslutningar med HTTP.
 
-1. Välj **alla tjänster** i den vänstra menyn, Välj **alla resurser**och välj sedan **myNetworkSecurityGroup** som finns i resurs gruppen **myResourceGroupSLB** i listan resurser.
+1. Välj **Alla tjänster** på menyn till vänster, välj Alla **resurser**och välj sedan **myNetworkSecurityGroup** i resursgruppen i resursgruppen **myResourceGroupSLB.**
 2. Under **Inställningar** väljer du **Inkommande säkerhetsregler** och sedan **Lägg till**.
 3. Ange dessa värden för den ingående säkerhetsregeln *myHTTPRule* så att inkommande HTTP-anslutningar som använder port 80 tillåts:
-    - **Källa**: *service tag*
-    -  **Käll tjänst tag gen**: *Internet*
-    - **Mål Port intervall**: *80*
+    - **Källa**: *Service Tag*
+    -  **Källa tjänst tag:** *Internet*
+    - **Destinationshamnsområden:** *80*
     - **Protokoll**: *TCP*
     - **Åtgärd**: *Tillåt*
     - **Prioritet**: *100*
-    - **Namn**: *myHTTPRule* 
-    - **Beskrivning**: "*Tillåt http* 
+    - **Namn**: *minHTTPRule* 
+    - **Beskrivning**: "*Tillåt HTTP* 
 4. Välj **Lägg till**.
-5. Upprepa stegen för inkommande RDP-regel, om det behövs, med följande olika värden:
+5. Upprepa stegen för den inkommande RDP-regeln, om det behövs, med följande olika värden:
    - **Målportintervall**: Skriv *3389*.
    - **Prioritet**: Skriv *200*. 
    - **Namn**: Skriv *MyRDPRule*. 
@@ -188,10 +188,10 @@ I det här avsnittet skapar du en regel för nätverks säkerhets grupper för a
  
 ### <a name="install-iis"></a>Installera IIS
 
-1. Välj **alla tjänster** i den vänstra menyn, Välj **alla resurser**och välj sedan **myVM1** i resurs gruppen *myResourceGroupSLB* i resurs gruppen.
+1. Välj **Alla tjänster** på menyn till vänster, välj Alla **resurser**och välj sedan **myVM1** i resursgruppen *myResourceGroupSLB* i resurslistan.
 2. Välj **Anslut** på sidan **Översikt** och anslut RDP till den virtuella datorn.
 5. Logga in på den virtuella datorn med de autentiseringsuppgifter som du angav när du skapade den virtuella datorn. När du gör det startar en fjärrskrivbordssession med den virtuella datorn *myVM1*.
-6. Navigera till **Windows Administrationsverktyg**>**Windows PowerShell** på serverdatorn.
+6. På serverskrivbordet navigerar du till **Windows Administrationsverktyg**>**Windows PowerShell**.
 7. I PowerShell-fönstret kör du följande kommandon för att installera IIS.servern, ta bort standardfilen iisstart.htm och lägga till en ny iisstart.htm-fil som visar namnet på den virtuella datorn:
 
    ```azurepowershell-interactive
@@ -208,21 +208,21 @@ I det här avsnittet skapar du en regel för nätverks säkerhets grupper för a
 6. Stäng RDP-sessionen med *myVM1*.
 7. Upprepa steg 1 till 6 för att installera IIS och den uppdaterade filen iisstart.htm på *myVM2* och *myVM3*.
 
-## <a name="test-the-load-balancer"></a>Testa Load Balancer
-1. Hitta den offentliga IP-adressen för lastbalanseraren på skärmen **Översikt**. Välj **alla tjänster** i den vänstra menyn, Välj **alla resurser**och välj sedan **myPublicIP**.
+## <a name="test-the-load-balancer"></a>Testa belastningsutjämnaren
+1. Hitta den offentliga IP-adressen för lastbalanseraren på skärmen **Översikt**. Välj **Alla tjänster** på menyn till vänster, välj Alla **resurser**och välj sedan **myPublicIP**.
 
 2. Kopiera den offentliga IP-adressen och klistra in den i webbläsarens adressfält. IIS-webbserverns standardsida visas i webbläsaren.
 
    ![IIS-webbserver](./media/tutorial-load-balancer-standard-zonal-portal/load-balancer-test.png)
 
-Om du vill se Load Balancer distribuerar trafik över alla tre virtuella datorer kan du anpassa standard sidan för varje virtuell dators IIS-webbserver och sedan framtvinga en uppdatering av webbläsaren från klient datorn.
+Om du vill se belastningsutjämnaren distribuera trafik mellan alla tre virtuella datorer kan du anpassa standardsidan för varje vm-webbserver och sedan tvinga uppdatera webbläsaren från klientdatorn.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Ta bort resurs gruppen, Load Balancer och alla relaterade resurser när de inte längre behövs. Om du vill göra det väljer du den resurs grupp (*myResourceGroupSLB*) som innehåller Load Balancer och väljer sedan **ta bort**.
+När det inte längre behövs tar du bort resursgruppen, belastningsutjämnaren och alla relaterade resurser. Om du vill göra det markerar du den resursgrupp *(myResourceGroupSLB)* som innehåller belastningsutjämnaren och väljer sedan **Ta bort**.
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabb starten har du skapat en Standard Load Balancer anslutna virtuella datorer till den, konfigurerat Load Balancer trafik regel, hälso avsökning och sedan testat Load Balancer. Om du vill veta mer om Azure Load Balancer fortsätter du till [Azure Load Balancer själv studie kurser](tutorial-load-balancer-standard-public-zone-redundant-portal.md).
+I den här snabbstarten skapade du en standardbelastningsutjämningsapparat, kopplade virtuella datorer till den, konfigurerade trafikregeln lastutjämning, hälsoavsökning och testade sedan belastningsutjämnaren. Om du vill veta mer om Azure Load Balancer fortsätter du till [Azure Load Balancer-självstudier](tutorial-load-balancer-standard-public-zone-redundant-portal.md).
 
-Läs mer om [Load Balancer-och tillgänglighets zoner](load-balancer-standard-availability-zones.md).
+Läs mer om [belastningsutjämnare och tillgänglighetszoner](load-balancer-standard-availability-zones.md).

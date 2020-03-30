@@ -1,5 +1,5 @@
 ---
-title: Vilken lagrings-hierarki är Azure NetApp Files | Microsoft Docs
+title: Vad är lagringshierarkin för Azure NetApp-filer | Microsoft-dokument
 description: Beskriver lagringshierarkin, inklusive Azure NetApp Files-konton, kapacitetspooler och volymer.
 services: azure-netapp-files
 documentationcenter: ''
@@ -15,27 +15,27 @@ ms.topic: overview
 ms.date: 02/27/2020
 ms.author: b-juche
 ms.openlocfilehash: 70d3a2a501952a5e20b1ff8e99f48f4d7aefce8d
-ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "78163972"
 ---
-# <a name="what-is-the-storage-hierarchy-of-azure-netapp-files"></a>Vad är lagrings-hierarkin för Azure NetApp Files
+# <a name="what-is-the-storage-hierarchy-of-azure-netapp-files"></a>Vad är lagringshierarkin för Azure NetApp-filer
 
 Innan du skapar en volym i Azure NetApp Files måste du köpa och konfigurera en pool för etablerad kapacitet.  Du måste ha ett NetApp-konto för att kunna konfigurera en kapacitetspool. När du förstår lagringshierarkin är det lättare att konfigurera och hantera Azure NetApp Files-resurser.
 
 > [!IMPORTANT] 
-> Azure NetApp Files stöder för närvarande inte migrering mellan prenumerationer.
+> Azure NetApp-filer stöder för närvarande inte resursmigrering mellan prenumerationer.
 
-## <a name="azure_netapp_files_account"></a>NetApp-konton
+## <a name="netapp-accounts"></a><a name="azure_netapp_files_account"></a>NetApp-konton
 
 - Ett NetApp-konto fungerar som en administrativ gruppering av de ingående kapacitetspoolerna.  
 - NetApp-kontot är inte detsamma som ditt allmänna Azure-lagringskonto. 
 - Ett NetApp-konto är regionalt i omfång.   
 - Du kan ha flera NetApp-konton i en region, men varje NetApp-konto är endast kopplat till en enda region.
 
-## <a name="capacity_pools"></a>Kapacitetspooler
+## <a name="capacity-pools"></a><a name="capacity_pools"></a>Kapacitetspooler
 
 - En kapacitetspool mäts genom dess etablerade kapacitet.  
 - Kapaciteten etableras via de fasta SKU:er som du köpte (exempelvis en kapacitet på 4 TiB).
@@ -43,18 +43,18 @@ Innan du skapar en volym i Azure NetApp Files måste du köpa och konfigurera en
 - Varje kapacitetspool kan endast tillhör ett NetApp-konto. Du kan dock ha flera kapacitetspooler inom ett NetApp-konto.  
 - Det går inte att flytta kapacitetspooler mellan NetApp-konton.   
   I [Konceptdiagram över lagringshierarki](#conceptual_diagram_of_storage_hierarchy) nedan kan exempelvis Capacity Pool 1 inte flyttas från NetApp-kontot USA, östra till NetApp-kontot USA, västra 2.  
-- Det går inte att ta bort en kapacitets pool förrän alla volymer i kapacitets gruppen har tagits bort.
+- Det går inte att ta bort en kapacitetspool förrän alla volymer i kapacitetspoolen har tagits bort.
 
-## <a name="volumes"></a>Volymer
+## <a name="volumes"></a><a name="volumes"></a>Volymer
 
 - En volym mäts efter logisk kapacitetsförbrukning och är skalbar. 
 - En volyms kapacitetsförbrukning mäts mot dess pools etablerade kapacitet.
 - Varje volym hör till endast en pool, men en pool kan innehålla flera volymer. 
-- Det går inte att flytta en volym över kapacitets grupper. <!--Within the same NetApp account, you can move a volume across pools.  -->   
-  I det [konceptuella diagrammet i lagringspoolen](#conceptual_diagram_of_storage_hierarchy) nedan kan du till exempel inte flytta volymerna från pool 1 till pool 2.
-- Det går inte att ta bort en volym förrän alla ögonblicks bilder har tagits bort.
+- Det går inte att flytta en volym över kapacitetspooler. <!--Within the same NetApp account, you can move a volume across pools.  -->   
+  I det [konceptuella diagrammet för lagringshierarkin](#conceptual_diagram_of_storage_hierarchy) nedan kan du till exempel inte flytta volymerna från kapacitetspool 1 till kapacitetspool 2.
+- Det går inte att ta bort en volym förrän alla ögonblicksbilder har tagits bort.
 
-## <a name="conceptual_diagram_of_storage_hierarchy"></a>Konceptdiagram över lagringshierarki 
+## <a name="conceptual-diagram-of-storage-hierarchy"></a><a name="conceptual_diagram_of_storage_hierarchy"></a>Konceptdiagram över lagringshierarki 
 I följande exempel visar vi sambanden mellan Azure-prenumeration, NetApp-konton, kapacitetspooler och volymer.   
 
 ![Konceptdiagram över lagringshierarki](../media/azure-netapp-files/azure-netapp-files-storage-hierarchy.png)

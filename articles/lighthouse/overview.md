@@ -1,42 +1,42 @@
 ---
 title: Vad är Azure Lighthouse?
-description: Med Azure Lighthouse kan tjänst leverantörer leverera hanterade tjänster för sina kunder med högre automatisering och effektivitet i stor skala.
+description: Med Azure Lighthouse kan tjänsteleverantörer leverera hanterade tjänster för sina kunder med högre automatisering och effektivitet i stor skala.
 ms.date: 11/11/2019
 ms.topic: overview
 ms.openlocfilehash: 0bec1f5b727ca3ecd604d2654358ca9a5507abe4
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "75646202"
 ---
 # <a name="what-is-azure-lighthouse"></a>Vad är Azure Lighthouse?
 
-Azure Lighthouse erbjuder tjänste leverantörer ett enda kontroll plan för att visa och hantera Azure i alla sina kunder med högre automatisering, skalbarhet och förbättrad styrning. Med Azure Lighthouse kan tjänst leverantörer leverera hanterade tjänster med hjälp av omfattande och robusta hanterings verktyg som är inbyggda i Azure-plattformen. Det här erbjudandet kan också dra nytta av företagets IT-organisationer och hantera resurser över flera klienter.
+Azure Lighthouse erbjuder tjänsteleverantörer ett enda kontrollplan för att visa och hantera Azure för alla sina kunder med högre automatisering, skala och förbättrad styrning. Med Azure Lighthouse kan tjänsteleverantörer leverera hanterade tjänster med hjälp av omfattande och robusta hanteringsverktyg som är inbyggda i Azure-plattformen. Det här erbjudandet kan också gynna FÖRETAGETS IT-organisationer som hanterar resurser för flera klienter.
 
-![Översikts diagram över Azure-Lighthouse](media/azure-lighthouse-overview.jpg)
+![Översiktsdiagram över Azure Lighthouse](media/azure-lighthouse-overview.jpg)
 
-## <a name="benefits"></a>Erbjudande
+## <a name="benefits"></a>Fördelar
 
-Azure Lighthouse hjälper dig att effektivt skapa och leverera hanterade tjänster för dina kunder. Fördelarna innefattar:
+Azure Lighthouse hjälper dig att på ett lönsamt och effektivt sätt skapa och leverera hanterade tjänster för dina kunder. Fördelarna innefattar:
 
-- **Hantering i skala**: kund engagemang och livs cykel åtgärder för att hantera kund resurser är enklare och mer skalbar.
-- **Bättre synlighet och precision för kunder**: kunder vars resurser du hanterar har större insyn i dina åtgärder och exakt kontroll över omfattningen som de delegerar för hantering, medan IP-adressen bevaras.
-- **Omfattande och enhetlig plattforms verktyg**: vår verktygs upplevelse behandlar scenarier för nyckel tjänst leverantörer, inklusive flera licensierings modeller som EA, CSP och betala per användning. De nya funktionerna fungerar med befintliga verktyg och API: er, licensierings modeller och partner program som [Cloud Solution Provider-program (CSP)](https://docs.microsoft.com/partner-center/csp-overview). De Azure Lighthouse-alternativ som du väljer kan integreras i dina befintliga arbets flöden och program, och du kan spåra din påverkan på kund engagemang genom [att länka ditt partner-ID](../billing/billing-partner-admin-link-started.md).
+- **Hantering i stor skala**: Kundengagemang och livscykelåtgärder för att hantera kundresurser är enklare och mer skalbara.
+- **Större synlighet och precision för kunder:** Kunder vars resurser du hanterar får större insyn i dina åtgärder och exakt kontroll över omfattningen som de delegerar för hantering, medan din IP bevaras.
+- **Omfattande och enhetliga plattformsverktyg: Vår verktygsupplevelse**behandlar viktiga tjänsteleverantörer, inklusive flera licensieringsmodeller som EA, CSP och användningsbaserad betalning. De nya funktionerna fungerar med befintliga verktyg och API:er, licensieringsmodeller och partnerprogram som [CSP (Cloud Solution Provider program).](https://docs.microsoft.com/partner-center/csp-overview) De Azure Lighthouse-alternativ du väljer kan integreras i dina befintliga arbetsflöden och program, och du kan spåra din inverkan på kundengagemang genom [att länka ditt partner-ID](../billing/billing-partner-admin-link-started.md).
 
-Det finns inga ytterligare kostnader för att använda Azure-Lighthouse för att hantera kundernas Azure-resurser.
+Det finns inga extra kostnader för att använda Azure Lighthouse för att hantera dina kunders Azure-resurser.
 
-## <a name="capabilities"></a>Kapacitet
+## <a name="capabilities"></a>Funktioner
 
-Azure Lighthouse innehåller flera sätt att effektivisera kund engagemang och-hantering:
+Azure Lighthouse innehåller flera sätt att effektivisera kundengagemang och hantering:
 
-- **Azure-delegerad resurs hantering**: hantera dina kunders Azure-resurser på ett säkert sätt i din klient, utan att behöva byta kontext-och kontroll plan. Mer information finns i [Azure delegerad resurs hantering](concepts/azure-delegated-resource-management.md).
-- **Nya Azure Portal upplevelser**: Visa information om flera innehavare på sidan nya **mina kunder** i [Azure Portal](https://portal.azure.com). På ett motsvarande **Service Provider-** blad kan dina kunder se och hantera åtkomst till tjänst leverantören. Mer information finns i [Visa och hantera kunder](./how-to/view-manage-customers.md) och [Visa och hantera tjänst leverantörer](how-to/view-manage-service-providers.md).
-- **Azure Resource Manager mallar**: utför hanterings uppgifter enklare, inklusive onboarding-kunder för Azure-delegerad resurs hantering. Mer information finns i våra [exempel lagrings platsen](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/Azure-Delegated-Resource-Management/templates) och [publicera en kund till Azure-delegerad resurs hantering](how-to/onboard-customer.md).
-- **Hanterade tjänster erbjuder på Azure Marketplace**: erbjud dina tjänster till kunder via privata eller offentliga erbjudanden och låt dem automatiskt registreras i Azure delegerad resurs hantering, som ett alternativ till att registrera sig med hjälp av Azure Resource Manager mallar. Mer information finns [i erbjudanden om hanterade tjänster på Azure Marketplace](concepts/managed-services-offers.md).
-- **Azure-hanterade program**: paketera och leverera program som är enkla för dina kunder att distribuera och använda i sina egna prenumerationer. Programmet distribueras till en resurs grupp som du kommer åt från din klient organisation, så att du kan hantera tjänsten som en del av den övergripande Azure Lighthouse-upplevelsen. Mer information finns i [Översikt över Azure Managed Applications](../azure-resource-manager/managed-applications/overview.md).
+- **Azure delegerad resurshantering:** Hantera dina kunders Azure-resurser säkert inifrån din egen klientorganisation, utan att behöva byta kontext och styra plan. Mer information finns i [Azure-delegerad resurshantering](concepts/azure-delegated-resource-management.md).
+- **Nya Azure-portalupplevelser:** Visa information över flera innehavare på den nya sidan **Mina kunder** i [Azure-portalen](https://portal.azure.com). Med ett motsvarande **serviceleverantörsblad** kan dina kunder visa och hantera tjänsteleverantören åtkomst. Mer information finns i [Visa och hantera kunder](./how-to/view-manage-customers.md) och Visa och hantera [tjänsteleverantörer](how-to/view-manage-service-providers.md).
+- **Azure Resource Manager-mallar**: Utför hanteringsuppgifter enklare, inklusive introduktionskunder för Azure-delegerad resurshantering. Mer information finns i våra [exempel repo](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/Azure-Delegated-Resource-Management/templates) och [ombord på en kund till Azure delegerad resurshantering](how-to/onboard-customer.md).
+- **Managed Services erbjuder i Azure Marketplace:** Erbjud dina tjänster till kunder via privata eller offentliga erbjudanden och få dem automatiskt inbyggda i Azure-delegerad resurshantering, som ett alternativ till introduktion med Azure Resource Manager-mallar. Mer information finns [i Erbjudanden om hanterade tjänster på Azure Marketplace](concepts/managed-services-offers.md).
+- **Azure-hanterade program:** Paketera och leverera program som är enkla för dina kunder att distribuera och använda i sina egna prenumerationer. Programmet distribueras till en resursgrupp som du har åtkomst till från din klientorganisation, så att du kan hantera tjänsten som en del av den övergripande Azure Lighthouse-upplevelsen. Mer information finns i [Översikt över Hanterade Azure-program](../azure-resource-manager/managed-applications/overview.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
 - Lär dig mer om [Azure-delegerad resurshantering](concepts/azure-delegated-resource-management.md).
-- Lär dig mer om [hanterings upplevelser mellan flera innehavare](concepts/cross-tenant-management-experience.md).
+- Lär dig mer om [hanteringsupplevelser mellan klienter.](concepts/cross-tenant-management-experience.md)

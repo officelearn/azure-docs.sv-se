@@ -1,6 +1,6 @@
 ---
-title: 'Snabbstart: Fråga efter data i Azure Data Explorer-Webbgränssnittet'
-description: I den här snabbstarten får lära du att köra frågor och dela data i Azure Data Explorer-Webbgränssnittet.
+title: 'Snabbstart: Frågedata i webbgränssnittet i Azure Data Explorer'
+description: I den här snabbstarten får du lära dig hur du frågar och delar data i Azure Data Explorer Web UI.
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
@@ -8,25 +8,25 @@ ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 07/04/2019
 ms.openlocfilehash: 145e452a3a914e1026d6da11f2ce38e85fa724f0
-ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "67797181"
 ---
-# <a name="quickstart-query-data-in-azure-data-explorer-web-ui"></a>Snabbstart: Fråga efter data i Azure Data Explorer-Webbgränssnittet
+# <a name="quickstart-query-data-in-azure-data-explorer-web-ui"></a>Snabbstart: Frågedata i webbgränssnittet i Azure Data Explorer
 
 Azure Data Explorer är en snabb och mycket skalbar datautforskningstjänst för logg- och telemetridata. Azure Data Explorer tillhandahåller en webbapp som gör att du kan köra och dela frågor. Programmet är tillgängligt i Azure-portalen och som en fristående webbapp. I den här artikeln får arbeta du i den fristående versionen, vilket gör det möjligt att ansluta till flera kluster och dela djuplänkar till dina frågor.
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt Azure-konto](https://azure.microsoft.com/free/) innan du börjar.
+Om du inte har en Azure-prenumeration skapar du ett [kostnadsfritt Azure-konto](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Förutom en Azure-prenumeration behöver du ett [testkluster och en databas](create-cluster-database-portal.md) för att slutföra den här snabbstarten.
 
 ## <a name="sign-in-to-the-application"></a>Logga in på programmet
 
-Logga in på [programmet](https://dataexplorer.azure.com/).
+Logga in [på programmet](https://dataexplorer.azure.com/).
 
 ## <a name="add-clusters"></a>Lägga till kluster
 
@@ -38,11 +38,11 @@ Du måste lägga till en anslutning till minst ett kluster innan du kan börja k
 
 1. Överst till vänster i programmet väljer du **Lägg till kluster**.
 
-1. I den **Lägg till klustret** dialogrutan Ange URI: N och välj sedan **Lägg till**.
+1. I dialogrutan **Lägg till kluster** anger du URI:n och väljer sedan Lägg **till**.
 
-   Du kan använda hjälpklustret URI, `https://help.kusto.windows.net`. Om du har ett eget kluster kan du ange URI för ditt kluster. Till exempel `https://mydataexplorercluster.westus.kusto.windows.net` som i följande bild:
+   Du kan använda hjälpklustret URI, `https://help.kusto.windows.net`. Om du har ett eget kluster anger du URI:n för klustret. Till exempel `https://mydataexplorercluster.westus.kusto.windows.net` som i följande bild:
 
-    ![Serverns URI i portalen](media/web-query-data/server-uri.png)
+    ![Server-URI i Portal](media/web-query-data/server-uri.png)
 
 1. I den vänstra rutan bör du nu se **hjälpklustret**. Expandera **exempeldatabasen** så att du kan se de exempeltabeller som du har åtkomst till.
 
@@ -151,7 +151,7 @@ När du har sett hur grundläggande frågor fungerar ska vi titta på hur du kan
 
     Den här panelen fungerar på samma sätt som pivottabellens fältlista i Excel, så att du kan göra mer analyser i själva rutnätet.
 
-1. Välj **Pivot-läge** och dra sedan kolumnerna så här: **State** (Tillstånd) till **Radgrupper**, **DamageProperty** (Egendomsskada) till **Värden** och **EventTyp** (Händelsetyp) till **Kolumnetiketter**.  
+1. Välj **Pivot-läge** och dra sedan kolumnerna så här: **Tillstånd** till **Radgrupper**; **DamageProperty** till **Värden** och **EventType** till **Kolumnetiketter**.  
 
     ![Pivot-läge](media/web-query-data/pivot-mode.png)
 

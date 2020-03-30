@@ -5,17 +5,17 @@ ms.topic: include
 ms.date: 01/12/2020
 ms.author: glenga
 ms.openlocfilehash: fcfc86a3aca4aae042ce3589988aa91d821dce98
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "76842207"
 ---
-1. I Visual Studio Code, trycker du på F1 för att öppna kommando paletten. I paletten kommando söker du efter och väljer `Azure Functions: Open in portal`.
+1. Öppna kommandopaletten genom att trycka på F1 i Visual Studio Code. Sök efter och välj `Azure Functions: Open in portal`i kommandopaletten .
 
-1. Välj Function-appen och tryck på RETUR. Sidan Function app öppnas i [Azure Portal](https://portal.azure.com).
+1. Välj funktionsapp och tryck på Retur. Funktionsappsidan öppnas i [Azure-portalen](https://portal.azure.com).
 
-1. På fliken **Översikt** väljer du länken namngiven under **resurs grupp**.
+1. Välj den namngivna länken under **Resursgrupp**på fliken **Översikt** .
 
     ![Välj den resursgrupp som du vill ta bort från sidan för funktionsappar.](./media/functions-cleanup-resources-vs-code/functions-app-delete-resource-group.png)
 

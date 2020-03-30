@@ -9,22 +9,22 @@ ms.date: 08/09/2018
 ms.author: vashan, cynthn, rajsqr
 ms.custom: include file
 ms.openlocfilehash: 57f557a812ec5e4eea75b76ca1394ca360a85d30
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67187282"
 ---
-Azure-datorer (VM) som går igenom olika tillstånd kan grupperas i *etablering* och *power* tillstånd. Syftet med den här artikeln är att beskriva tillståndet och markera specifikt när kunder faktureras till exempel användning. 
+Virtuella Azure-datorer (VMs) går igenom olika tillstånd som kan kategoriseras i *etablerings-* och *energitillstånd.* Syftet med den här artikeln är att beskriva dessa tillstånd och specifikt markera när kunder faktureras för till exempel användning. 
 
 ## <a name="power-states"></a>Energinivåer
 
-Energinivån representerar den senast kända statusen för den virtuella datorn.
+Energitillståndet representerar det senast kända tillståndet för den virtuella datorn.
 
-![Diagram över VM power-tillstånd](./media/virtual-machines-common-states-lifecycle/vm-power-states.png)
+![Diagram över vm-energitillstånd](./media/virtual-machines-common-states-lifecycle/vm-power-states.png)
 
 <br>
-I följande tabell innehåller en beskrivning av varje instanstillstånd och anger om debiteras för användningen av instanser eller inte.
+Följande tabell innehåller en beskrivning av varje förekomsttillstånd och anger om det faktureras för instansanvändning eller inte.
 
 <table>
 <tr>
@@ -35,15 +35,15 @@ Status
 Beskrivning
 </th>
 <th>
-Fakturering för användning av instans
+Fakturering för instansanvändning
 </th>
 </tr>
 <tr>
 <td>
-<p><b>Startar</b></p>
+<p><b>Start</b></p>
 </td>
 <td>
-<p>Virtuell dator startas.</p>
+<p>DEN VIRTUELLA DATORN startar.</p>
 <code>"statuses": [<br>
    {<br>
       "code": "PowerState/starting",<br>
@@ -53,7 +53,7 @@ Fakturering för användning av instans
     ]</code><br>
 </td>
 <td>
-<p><b>Inte faktureras</b></p>
+<p><b>Faktureras inte</b></p>
 </td>
 </tr>
 <tr>
@@ -61,7 +61,7 @@ Fakturering för användning av instans
 <p><b>Körs</b></p>
 </td>
 <td>
-<p>Normal fungerande tillstånd för en virtuell dator</p>
+<p>Normalt arbetstillstånd för en virtuell dator</p>
 <code>"statuses": [<br>
  {<br>
  "code": "PowerState/running",<br>
@@ -76,10 +76,10 @@ Fakturering för användning av instans
 </tr>
 <tr>
 <td>
-<p><b>Stoppar</b></p>
+<p><b>Stoppas</b></p>
 </td>
 <td>
-<p>Det här är ett övergående tillstånd. När du är klar visas den som **stoppad**.</p>
+<p>Detta är en övergångsstat. När den är klar visas den som **Stoppad**.</p>
 <code>"statuses": [<br>
  {<br>
  "code": "PowerState/stopping",<br>
@@ -97,8 +97,8 @@ Fakturering för användning av instans
 <p><b>Stoppad</b></p>
 </td>
 <td>
-<p>Den virtuella datorn har stängts ned från i gästoperativsystemet eller med hjälp av the PowerOff APIs.</p>
-<p>Maskinvara fortfarande är tilldelad till den virtuella datorn och den kvar på värden. </p>
+<p>Den virtuella datorn har stängts av från gästoperativsystemet eller med PowerOff-API:erna.</p>
+<p>Maskinvaran allokeras fortfarande till den virtuella datorn och den finns kvar på värden. </p>
 <code>"statuses": [<br>
  {<br>
  "code": "PowerState/stopped",<br>
@@ -108,15 +108,15 @@ Fakturering för användning av instans
  ]</code><br>
 </td>
 <td>
-<p><b>Billed&#42;</b></p>
+<p><b>Faktureras&#42;</b></p>
 </td>
 </tr>
 <tr>
 <td>
-<p><b>Frigörs</b></p>
+<p><b>Frigör</b></p>
 </td>
 <td>
-<p>Övergångsstadium. När du är klar visas den virtuella datorn som **frigjord**.</p>
+<p>Övergångsstat. När den virtuella datorn är klar visas den som **deallocated**.</p>
 <code>"statuses": [<br>
  {<br>
  "code": "PowerState/deallocating",<br>
@@ -126,15 +126,15 @@ Fakturering för användning av instans
  ]</code><br>
 </td>
 <td>
-<p><b>Inte faktureras&#42;</b></p>
+<p><b>Faktureras inte&#42;</b></p>
 </td>
 </tr>
 <tr>
 <td>
-<p><b>Har frigjorts</b></p>
+<p><b>Frigjord</b></p>
 </td>
 <td>
-<p>Den virtuella datorn har stoppats och tas bort från värden. </p>
+<p>Den virtuella datorn har stoppats och tagits bort från värden. </p>
 <code>"statuses": [<br>
  {<br>
  "code": "PowerState/deallocated",<br>
@@ -144,30 +144,30 @@ Fakturering för användning av instans
  ]</code><br>
 </td>
 <td>
-<p><b>Inte faktureras</b></p>
+<p><b>Faktureras inte</b></p>
 </td>
 </tr>
 </tbody>
 </table>
 
 
-&#42;Vissa Azure-resurser, till exempel diskar och nätverk, avgifter. Programvarulicenser på instansen avgifter.
+&#42;Vissa Azure-resurser, till exempel diskar och nätverk, medför avgifter. Programvarulicenser på instansen medför inga avgifter.
 
-## <a name="provisioning-states"></a>Etableringsstatus
+## <a name="provisioning-states"></a>Etableringstillstånd
 
-Etableringsläge är statusen för en användarinitierad, kontrollplanet åtgärd på den virtuella datorn. Dessa tillstånd är separat från av en virtuell dator.
+Ett etableringstillstånd är statusen för en användarinitierad kontrollplansåtgärd på den virtuella datorn. Dessa tillstånd är åtskilda från en virtuell dators energitillstånd.
 
-- **Skapa** – skapa en virtuell dator.
+- **Skapa** – skapande av virtuella datorer.
 
-- **Uppdatera** – uppdaterar modellen för en befintlig virtuell dator. Vissa icke-modellen ändrar till virtuell dator som Start/omstart omfattas också uppdatering.
+- **Uppdatering** – uppdaterar modellen för en befintlig virtuell dator. Vissa ändringar som inte är modelländringar på den virtuella datorn, till exempel Start/Omstart, uppdateras också.
 
-- **Ta bort** – borttagning av virtuell dator.
+- **Ta bort** – borttagning av virtuella datorer.
 
-- **Frigör** – är där en virtuell dator stoppas och tas bort från värden. Frigörs en virtuell dator betraktas som en uppdatering, så den visar etablering tillstånd som handlar om att uppdatera.
+- **Deallocate** – är där en virtuell dator stoppas och tas bort från värden. Att frigöra en virtuell dator betraktas som en uppdatering, så den visar etableringstillstånd relaterade till uppdatering.
 
 
 
-Här är övergående åtgärden tillstånd när plattformen har godkänt en åtgärd som initieras av användaren:
+Här är övergångsåtgärden efter att plattformen har accepterat en användarinitierad åtgärd:
 
 <br>
 
@@ -183,7 +183,7 @@ Här är övergående åtgärden tillstånd när plattformen har godkänt en åt
 </tr>
 <tr>
 <td width="162">
-<p><b>Skapa</b></p>
+<p><b>Skapar</b></p>
 </td>
 <td width="366">
 <code>"statuses": [<br>
@@ -196,7 +196,7 @@ Här är övergående åtgärden tillstånd när plattformen har godkänt en åt
 </tr>
 <tr>
 <td width="162">
-<p><b>Uppdaterar</b></p>
+<p><b>Uppdatera</b></p>
 </td>
 <td width="366">
 <code>"statuses": [<br>
@@ -210,7 +210,7 @@ Här är övergående åtgärden tillstånd när plattformen har godkänt en åt
 </tr>
 <tr>
 <td width="162">
-<p><b>Tar bort</b></p>
+<p><b>Ta bort</b></p>
 </td>
 <td width="366">
 <code>"statuses": [<br>
@@ -224,11 +224,11 @@ Här är övergående åtgärden tillstånd när plattformen har godkänt en åt
 </tr>
 <tr>
 <td width="162">
-<p><b>OS-etablering tillstånd</b></p>
+<p><b>Tillstånd för etablering av operativsystemet</b></p>
 </td>
 <td width="366">
-<p>Om en virtuell dator har skapats med en OS-avbildning och inte med en specialiserad avbildning, kan följande deltillstånd observeras:</p>
-<p>1. <b>OSProvisioningInprogress</b> &ndash; den virtuella datorn körs och installationen av gäst-OS pågår. <p /> 
+<p>Om en virtuell dator skapas med en OS-avbildning och inte med en specialiserad avbildning kan följande undertillstånd observeras:</p>
+<p>1. <b>OSProvisioningInprogress</b> &ndash; Den virtuella datorn körs och installation av gäst-OS pågår. <p /> 
 <code> "statuses": [<br>
  {<br>
  "code": "ProvisioningState/creating/OSProvisioningInprogress",<br>
@@ -236,7 +236,7 @@ Här är övergående åtgärden tillstånd när plattformen har godkänt en åt
  "displayStatus": "OS Provisioning In progress"<br>
  }<br>
 ]</code><br>
-<p>2. <b>OSProvisioningComplete</b> &ndash; tillfällig tillstånd. Den virtuella datorn övergår snabbt till **lyckades** såvida inte några tillägg måste vara installerade. Installera tillägg kan ta tid. <br />
+<p>2. <b>OSProvisioningComplete</b> &ndash; Kortlivade tillstånd. Den virtuella datorn övergår snabbt till **Framgång** om inte några tillägg behöver installeras. Det kan ta tid att installera tillägg. <br />
 <code> "statuses": [<br>
  {<br>
  "code": "ProvisioningState/creating/OSProvisioningComplete",<br>
@@ -244,13 +244,13 @@ Här är övergående åtgärden tillstånd när plattformen har godkänt en åt
  "displayStatus": "OS Provisioning Complete"<br>
  }<br>
 ]</code><br>
-<p><b>Obs!</b> OS-etableringen kan övergå till **misslyckades** om det uppstår ett OS-fel eller Operativsystemet inte installeras i tid. Kunder kommer att faktureras för den distribuerade virtuella datorn på infrastrukturen.</p>
+<p><b>Operativsystemets</b>etablering kan övergå till **Misslyckades** om det uppstår ett os-fel eller om operativsystemet inte installeras i tid. Kunder debiteras för den distribuerade virtuella datorn på infrastrukturen.</p>
 </td>
 </tr>
 </table>
 
 
-När åtgärden har slutförts, övergår den virtuella datorn i något av följande tillstånd:
+När åtgärden är klar övergår den virtuella datorn till något av följande tillstånd:
 
 - **Lyckades** – de användarinitierade åtgärderna har slutförts.
 
@@ -267,7 +267,7 @@ När åtgärden har slutförts, övergår den virtuella datorn i något av följ
 
  
 
-- **Det gick inte** – representerar en misslyckad åtgärd. Referera till felkoder för att få mer information och möjliga lösningar.
+- **Misslyckades** – representerar en misslyckad åtgärd. Se felkoderna för att få mer information och möjliga lösningar.
 
     ```
   "statuses": [
@@ -283,11 +283,11 @@ När åtgärden har slutförts, övergår den virtuella datorn i något av följ
 
 
 
-## <a name="vm-instance-view"></a>Instansvy för virtuell dator
+## <a name="vm-instance-view"></a>Vyn VM-instans
 
-Instansvy API innehåller VM-Körstatus information. Mer information finns i den [VM - instansvyn](https://docs.microsoft.com/rest/api/compute/virtualmachines/instanceview) API-dokumentationen.
+Instansvy API ger VM-körtillståndsinformation. Mer information finns i [api-dokumentationen för virtuell dator - instansvy.](https://docs.microsoft.com/rest/api/compute/virtualmachines/instanceview)
 
-Azure resurser explorer ger ett enkelt gränssnitt för att visa den virtuella datorn körs: [Resursläsaren](https://resources.azure.com/).
+Azure Resources Explorer tillhandahåller ett enkelt användargränssnitt för visning av den virtuella datorns körtillstånd: [Resource Explorer](https://resources.azure.com/).
 
-Etablering tillstånd är synliga på VM-egenskaperna och instansvyn. Energinivåer är tillgängliga i instansvyn för VM. 
+Etableringstillstånd visas på vm-egenskaper och instansvy. Energitillstånd är tillgängliga i instansvy av virtuell dator. 
 

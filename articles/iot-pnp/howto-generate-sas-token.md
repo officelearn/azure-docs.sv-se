@@ -1,27 +1,27 @@
 ---
-title: Skapa säkerhetstoken för att få åtkomst till IoT Plug and Play Preview-lagringsplats | Microsoft Docs
-description: Generera en token för signatur för delad åtkomst som ska användas när du ansluter till en IoT-Plug and Play för hands versions lagrings plats.
+title: Generera säkerhetstoken för att komma åt IoT Plug and Play Preview-databas | Microsoft-dokument
+description: Generera en signaturtoken för delad åtkomst som ska användas när du öppnar en IoT Plug and Play Preview-modelldatabas programmässigt.
 author: Philmea
 ms.author: philmea
 ms.date: 12/27/2019
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: iot-pnp
 services: iot-pnp
 manager: philmea
-ms.openlocfilehash: 2530c5b3561ad90eac0556770a8a356cfaa6a52c
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: f008627317588467d731ccc03aec7738f58e46e0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75531295"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80159208"
 ---
 # <a name="generate-sas-token"></a>Generera SAS-token
 
-Den här instruktions guiden visar hur du program mässigt genererar en SAS-token (signatur för delad åtkomst) som ska användas med IoT Plug and Play för hands versions lagrings-API: er.
+Den här programguiden visar hur du programmässigt genererar en SAS-token (Shared Access Signature) som ska användas med IoT Plug and Play Preview-modelldatabasens API:er.
 
 ## <a name="python"></a>Python
 
-Följande fragment visar hur du skapar en SAS-token med python:
+Följande kodavsnitt visar hur du genererar en SAS-token med Python:
 
 ```python
 from base64 import b64decode, b64encode
@@ -46,7 +46,7 @@ def calculate_sas_token(hostname, repo_id, key_name, key, expiry_in_second):
 
 ## <a name="c"></a>C\#
 
-Följande fragment visar hur du skapar en SAS-token med C\#:
+Följande kodavsnitt visar hur du genererar en SAS-token med C:\#
 
 ```csharp
 public static string generateSasToken(string hostName, string repoId, string key, string keyName, int expiryInSeconds = 3600)
@@ -72,7 +72,7 @@ public static string generateSasToken(string hostName, string repoId, string key
 }
 ```
 
-## <a name="use-the-sas-token"></a>Använd SAS-token
+## <a name="use-the-sas-token"></a>Använda SAS-token
 
 När du har genererat en SAS-token kan du använda den för att göra en HTTP POST-begäran. Ett exempel:
 
@@ -80,8 +80,8 @@ När du har genererat en SAS-token kan du använda den för att göra en HTTP PO
 POST https:///models/{modelId}?repositoryId={repositoryId}&api-version=2019-07-01-preview
 ```
 
-Om du ger en klient en SAS-token har klienten inte resursens primär nyckel och kan inte återställa hashen för att hämta den. En SAS-token ger dig kontroll över vad klienten har åtkomst till och hur länge. När du ändrar primär nyckeln i principen blir alla SAS-token som skapats från den ogiltiga.
+Om du ger en klient en SAS-token har klienten inte resursens primära nyckel och kan inte återföra hash för att hämta den. En SAS-token ger dig kontroll över vad klienten kan komma åt och hur länge. När du ändrar primärnyckeln i principen ogiltigförklaras alla SAS-token som skapas från den.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nu när du har lärt dig om att skapa säkerhetstoken som ska användas för att få åtkomst till modell IoT Plug and Play för hands versions databaser, är ett förslag till nästa steg att lära dig mer i [IoT-plug and Play för hands versions guide](concepts-developer-guide.md).
+Nu när du har lärt dig om att generera säkerhetstoken som ska användas för att komma åt modellförhandsgranskningsmodelldatabaserna för IoT Plug and Play, är ett förslag till nästa steg att lära dig mer i [utvecklarguiden för IoT Plug and Play Preview.](concepts-developer-guide.md)

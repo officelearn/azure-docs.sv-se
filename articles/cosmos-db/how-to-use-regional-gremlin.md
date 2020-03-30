@@ -1,6 +1,6 @@
 ---
-title: Regionala slut punkter för Azure Cosmos DB diagram databas
-description: Lär dig hur du ansluter till en närmast graf Database-slutpunkt för ditt program
+title: Regionala slutpunkter för Azure Cosmos DB Graph-databas
+description: Lär dig hur du ansluter till närmaste graph-databasslutpunkt för ditt program
 author: luisbosquez
 ms.author: lbosq
 ms.service: cosmos-db
@@ -8,44 +8,44 @@ ms.subservice: cosmosdb-graph
 ms.topic: conceptual
 ms.date: 09/09/2019
 ms.openlocfilehash: 7aa1e0aa6bbbee9d40eb0d48318a8e2908a75f9d
-ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78897866"
 ---
-# <a name="regional-endpoints-for-azure-cosmos-db-graph-account"></a>Regionala slut punkter för Azure Cosmos DB diagram konto
-Azure Cosmos DB Graph Database [distribueras globalt](distribute-data-globally.md) så att program kan använda flera Läs-slut punkter. Program som behöver skriv åtkomst på flera platser bör aktivera funktioner för [flera huvud](how-to-multi-master.md) servrar.
+# <a name="regional-endpoints-for-azure-cosmos-db-graph-account"></a>Regionala slutpunkter för Azure Cosmos DB Graph-konto
+Azure Cosmos DB Graph-databasen [distribueras globalt](distribute-data-globally.md) så att program kan använda flera lässlutpunkter. Program som behöver skrivåtkomst på flera platser bör aktivera [multi-master-funktioner.](how-to-multi-master.md)
 
-Skäl att välja fler än en region:
-1. **Vågrät Läs skalbarhet** – när program belastningen ökar kan det vara försiktig att dirigera Läs trafik till olika Azure-regioner.
-2. **Lägre latens** – du kan minska belastningen på nätverks fördröjningen för varje genom gång genom att dirigera Läs-och Skriv trafik till närmaste Azure-region.
+Skäl att välja mer än en region:
+1. **Vågrät lässkalbarhet** – när programbelastningen ökar kan det vara klokt att dirigera lästrafik till olika Azure-regioner.
+2. **Lägre svarstid** - du kan minska nätverksfördröjningen omför varje traversal genom att dirigera läs- och skrivtrafik till närmaste Azure-region.
 
-Krav för **data placering** uppnås genom att ange Azure Resource Manager princip på Cosmos DB-konto. Kunden kan begränsa regioner till vilka Cosmos DB replikerar data.
+**Data hemvistkrav** uppnås genom att ange Azure Resource Manager-principen på Cosmos DB-konto. Kunden kan begränsa regioner där Cosmos DB replikerar data.
 
-## <a name="traffic-routing"></a>Trafik dirigering
+## <a name="traffic-routing"></a>Trafikroutning
 
-Cosmos DB Graph Database Engine körs i flera regioner, som var och en innehåller flera kluster. Varje kluster har hundratals datorer. Cosmos DB Graph-konto DNS CNAME- *AccountName.Gremlin.Cosmos.Azure.com* matchas mot DNS A-post för ett kluster. En enskild IP-adress för en belastningsutjämnare döljer intern kluster sto pol Ogin.
+Cosmos DB Graph databasmotor körs i flera regioner, som var och en innehåller flera kluster. Varje kluster har hundratals datorer. Cosmos DB Graph-konto DNS CNAME *accountname.gremlin.cosmos.azure.com* matchas till DNS En post i ett kluster. En enda IP-adress för en belastningsutjämnare döljer intern klustertopologi.
 
-En regional DNS CNAME-post skapas för alla regioner i Cosmos DB Graph-konto. Formatet på den regionala slut punkten är *AccountName-region.Gremlin.Cosmos.Azure.com*. Region segmentet för den regionala slut punkten erhålls genom att ta bort alla blank steg från [Azures region](https://azure.microsoft.com/global-infrastructure/regions) namn. `"East US 2"` region för `"contoso"` globala databas kontot skulle till exempel ha en DNS CNAME- *contoso-eastus2.Gremlin.Cosmos.Azure.com*
+En regional DNS CNAME-post skapas för varje region i Cosmos DB Graph-konto. Format för den regionala slutpunkten är *accountname-region.gremlin.cosmos.azure.com*. Regionsegmentet för regional slutpunkt hämtas genom att ta bort alla blanksteg från [Azure-regionnamn.](https://azure.microsoft.com/global-infrastructure/regions) `"East US 2"` Region för `"contoso"` globalt databaskonto skulle till exempel ha ett DNS CNAME-contoso-eastus2.gremlin.cosmos.azure.com *contoso-eastus2.gremlin.cosmos.azure.com*
 
-TinkerPop Gremlin-klienten är utformad för att fungera med en enda server. Programmet kan använda global skrivbar DNS CNAME för Läs-och Skriv trafik. Region medveten program ska använda regionala slut punkter för Läs trafik. Använd endast regional slut punkt för Skriv trafik om en speciell region har kon figurer ATS för att godkänna skrivningar. 
-
-> [!NOTE]
-> Cosmos DB diagram motor kan godkänna Skriv åtgärder i Läs region genom att proxy trafik för att skriva region. Vi rekommenderar inte att du skickar skrivningar till skrivskyddad region eftersom det ökar fördröjnings fördröjningen och omfattas av begränsningar i framtiden.
-
-Det globala databas kontot CNAME pekar alltid på en giltig Skriv region. Cosmos DB uppdaterar det globala databas kontot CNAME för att peka på ny region vid redundans på Server sidan. Om programmet inte kan hantera vidarebefordran av trafik efter redundansväxlingen ska det använda det globala databas kontot DNS CNAME.
+TinkerPop Gremlin klient är utformad för att fungera med en enda server. Programmet kan använda global skrivbar DNS CNAME för läs- och skrivtrafik. Regionmedvetna program bör använda regional slutpunkt för lästrafik. Använd regional slutpunkt för skrivtrafik endast om en viss region är konfigurerad för att acceptera skrivningar. 
 
 > [!NOTE]
-> Cosmos DB dirigerar inte trafik baserat på den geografiska närheten av anroparen. Det är upp till varje program att välja rätt region enligt unika program behov.
+> Cosmos DB Graph-motorn kan acceptera skrivfunktionen i läsregion genom att proxyera trafik till skrivregionen. Det rekommenderas inte att skicka skrivningar till skrivskyddad region eftersom det ökar genomgående svarstid och är föremål för begränsningar i framtiden.
 
-## <a name="portal-endpoint-discovery"></a>Portal slut punkts identifiering
+CNAME för globalt databaskonto pekar alltid på ett giltigt skrivområde. Under redundans för serversidan i skrivregionen uppdaterar Cosmos DB det globala databaskontot CNAME för att peka på en ny region. Om programmet inte kan hantera omdirigering av trafik efter redundans bör det använda det globala databaskontot DNS CNAME.
 
-Det enklaste sättet att hämta listan över regioner för Azure Cosmos DB graf-konto är översikts blad i Azure Portal. Den fungerar för program som inte ändrar regioner ofta, eller har ett sätt att uppdatera listan via program konfiguration.
+> [!NOTE]
+> Cosmos DB dirigerar inte trafik baserat på den som ringer geografisk närhet. Det är upp till varje program att välja rätt region enligt unika programbehov.
+
+## <a name="portal-endpoint-discovery"></a>Identifiering av portalslutpunkt
+
+Det enklaste sättet att få en lista över regioner för Azure Cosmos DB Graph-konto är översiktsbladet i Azure-portalen. Det kommer att fungera för program som inte ändrar regioner ofta, eller har ett sätt att uppdatera listan via programkonfiguration.
 
 ![Hämta regioner i Cosmos DB Graph-konto från portalen](./media/how-to-use-regional-gremlin/get-end-point-portal.png )
 
-Exemplet nedan visar allmänna principer för åtkomst till regional Gremlin-slutpunkt. Programmet bör överväga antalet regioner som trafiken ska skickas till och antalet motsvarande Gremlin-klienter att instansiera.
+Exempel nedan visar allmänna principer för att få tillgång till regionala Gremlin-slutpunkt. Ansökan bör överväga antal regioner att skicka trafiken till och antalet motsvarande Gremlin klienter att instansiera.
 
 ```csharp
 // Example value: Central US, West US and UK West. This can be found in the overview blade of you Azure Cosmos DB Gremlin Account. 
@@ -78,9 +78,9 @@ foreach (string gremlinAccountRegion in gremlinAccountRegions)
 
 ## <a name="sdk-endpoint-discovery"></a>Identifiering av SDK-slutpunkt
 
-Programmet kan använda [Azure Cosmos DB SDK](sql-api-sdk-dotnet.md) för att identifiera Läs-och skriv platser för graf-konto. Dessa platser kan ändras när som helst genom manuell omkonfigurering på Server sidan eller automatisk redundans.
+Programmet kan använda [Azure Cosmos DB SDK](sql-api-sdk-dotnet.md) för att identifiera läs- och skrivplatser för Graph-konto. Dessa platser kan ändras när som helst genom manuell omkonfiguration på serversidan eller automatisk redundans.
 
-TinkerPop Gremlin SDK har inget API för att identifiera Cosmos DB graf-databasens konto områden. Program som kräver slut punkts identifiering måste vara värd för 2 separata SDK: er i process utrymmet.
+TinkerPop Gremlin SDK har inget API för att identifiera databaskontoregioner i Cosmos DB Graph. Program som behöver identifiering av slutpunkt för körning måste vara värd för två separata SDK:er i processutrymmet.
 
 ```csharp
 // Depending on the version and the language of the SDK (.NET vs Java vs Python)
@@ -109,7 +109,7 @@ foreach (string location in readLocations)
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-* [Hantera databas konto kontroll](how-to-manage-database-account.md) i Azure Cosmos DB
+* [Hantera databaskontokontroll](how-to-manage-database-account.md) i Azure Cosmos DB
 * [Hög tillgänglighet](high-availability.md) i Azure Cosmos DB
-* [Global distribution med Azure Cosmos DB – under huven](global-dist-under-the-hood.md)
+* [Global distribution med Azure Cosmos DB - under huven](global-dist-under-the-hood.md)
 * [Azure CLI-exempel](cli-samples.md) för Azure Cosmos DB

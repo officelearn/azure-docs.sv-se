@@ -1,6 +1,6 @@
 ---
-title: 'Snabb start: styra en enhet från Azure IoT Hub med Java'
-description: I den här snabbstarten kör du två Java-exempelprogram. Ett program är en serverdel som kan fjärrstyra enheter som är anslutna till hubben. Det andra programmet simulerar en enhet ansluten till din hubb som kan fjärrstyras.
+title: 'Snabbstart: Styra en enhet från Azure IoT Hub med Java'
+description: I den här snabbstarten kör du två Java-exempelprogram. Ett program är en serverdelsprogram som kan fjärrstyra enheter som är anslutna till hubben. Det andra programmet simulerar en enhet ansluten till din hubb och som kan fjärrstyras.
 author: wesmc7777
 manager: philmea
 ms.author: wesmc
@@ -11,29 +11,29 @@ ms.topic: quickstart
 ms.custom: mvc, seo-java-august2019, seo-java-september2019
 ms.date: 06/21/2019
 ms.openlocfilehash: 96d30d283ec1565e512be77f55d15305fa226db4
-ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "78675351"
 ---
-# <a name="quickstart-control-a-device-connected-to-an-azure-iot-hub-with-java"></a>Snabb start: styra en enhet som är ansluten till en Azure IoT Hub med Java
+# <a name="quickstart-control-a-device-connected-to-an-azure-iot-hub-with-java"></a>Snabbstart: Styra en enhet som är ansluten till en Azure IoT-hubb med Java
 
 [!INCLUDE [iot-hub-quickstarts-2-selector](../../includes/iot-hub-quickstarts-2-selector.md)]
 
-I den här snabb starten använder du en direkt metod för att styra en simulerad enhet som är ansluten till Azure IoT Hub med ett Java-program. IoT Hub är en Azure-tjänst som gör att du kan hantera dina IoT-enheter från molnet och mata in stora mängder enhets telemetri till molnet för lagring eller bearbetning. Du kan använda direkta metoder för att fjärrändra beteendet hos en enhet ansluten till din IoT-hubb. I den här snabb starten används två Java-program: ett simulerat enhets program som svarar på direkta metoder som anropas från ett Server dels program och ett tjänst program som anropar den direkta metoden på den simulerade enheten.
+I den här snabbstarten använder du en direkt metod för att styra en simulerad enhet som är ansluten till Azure IoT Hub med ett Java-program. IoT Hub är en Azure-tjänst som gör att du kan hantera dina IoT-enheter från molnet och inta stora volymer av enhetstelemetri till molnet för lagring eller bearbetning. Du kan använda direktmetoder för att fjärrändra beteendet hos en enhet ansluten till IoT Hub. Den här snabbstarten använder två Java-program: ett simulerat enhetsprogram som svarar på direkta metoder som anropas från ett backend-program och ett tjänstprogram som anropar den direkta metoden på den simulerade enheten.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-* Ett Azure-konto med en aktiv prenumeration. [Skapa ett kostnads fritt](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+* Ett Azure-konto med en aktiv prenumeration. [Skapa en gratis](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
-* Java SE Development Kit 8. I [Java långsiktigt stöd för Azure och Azure Stack](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable), under **långsiktig support**, väljer du **Java 8**.
+* Java SE Utveckling Kit 8. I [Javas långsiktiga support för Azure och Azure Stack](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable)väljer du Java **8**under **Långsiktig support**.
 
-* [Apache maven 3](https://maven.apache.org/download.cgi).
+* [Apache Maven 3](https://maven.apache.org/download.cgi).
 
-* [Ett exempel på ett Java-projekt](https://github.com/Azure-Samples/azure-iot-samples-java/archive/master.zip).
+* [Ett exempel på Java-projekt](https://github.com/Azure-Samples/azure-iot-samples-java/archive/master.zip).
 
-* Port 8883 öppna i brand väggen. Enhets exemplet i den här snabb starten använder MQTT-protokoll, som kommunicerar via port 8883. Den här porten kan blockeras i vissa företags-och miljö nätverks miljöer. Mer information och sätt att kringgå det här problemet finns i [ansluta till IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
+* Port 8883 öppen i brandväggen. Enhetsprovet i den här snabbstarten använder MQTT-protokollet, som kommunicerar över port 8883. Den här porten kan vara blockerad i vissa företags- och utbildningsnätverksmiljöer. Mer information och sätt att lösa problemet finns i [Ansluta till IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
 Du kan kontrollera den aktuella versionen av Java på utvecklingsdatorn med följande kommando:
 
@@ -49,9 +49,9 @@ mvn --version
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-### <a name="add-azure-iot-extension"></a>Lägg till Azure IoT-tillägg
+### <a name="add-azure-iot-extension"></a>Lägga till Azure IoT-tillägg
 
-Kör följande kommando för att lägga till Microsoft Azure IoT-tillägget för Azure CLI till Cloud Shell-instansen. IoT-tillägget lägger till IoT Hub-, IoT Edge-och IoT Device Provisioning-tjänst (DPS)-kommandon i Azure CLI.
+Kör följande kommando för att lägga till Microsoft Azure IoT-tillägget för Azure CLI i din Cloud Shell-instans. IoT-tillägget lägger till IoT Hub, IoT Edge och IoT Device Provisioning Service (DPS) till Azure CLI.
 
 ```azurecli-interactive
 az extension add --name azure-iot
@@ -59,7 +59,7 @@ az extension add --name azure-iot
 
 [!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
 
-## <a name="create-an-iot-hub"></a>Skapa en IoT-hubb
+## <a name="create-an-iot-hub"></a>Skapa en IoT Hub
 
 Om du har slutfört [Snabbstart: Skicka telemetri från en enhet till en IoT-hubb](quickstart-send-telemetry-java.md) kan du hoppa över det här steget.
 
@@ -71,11 +71,11 @@ Om du har slutfört [Snabbstart: Skicka telemetri från en enhet till en IoT-hub
 
 En enhet måste vara registrerad vid din IoT-hubb innan den kan ansluta. I den här snabbstarten använder du Azure Cloud Shell till att registrera en simulerad enhet.
 
-1. Kör följande kommando i Azure Cloud Shell för att skapa enhets identiteten.
+1. Kör följande kommando i Azure Cloud Shell för att skapa enhetsidentiteten.
 
    **YourIoTHubName**: Ersätt platshållaren nedan med det namn du valde för din IoT-hubb.
 
-   **MyJavaDevice**: det här är namnet på enheten som du registrerar. Vi rekommenderar att du använder **MyJavaDevice** som det visas. Om du väljer ett annat namn på din enhet måste du också använda det namnet i den här artikeln och uppdatera enhets namnet i exempel programmen innan du kör dem.
+   **MyJavaDevice:** Detta är namnet på den enhet du registrerar. Det rekommenderas att använda **MyJavaDevice** som visas. Om du väljer ett annat namn för enheten måste du också använda det namnet i hela den här artikeln och uppdatera enhetsnamnet i exempelprogrammen innan du kör dem.
 
     ```azurecli-interactive
     az iot hub device-identity create \
@@ -113,17 +113,17 @@ Anteckna tjänstanslutningssträngen. Den ser ut ungefär som:
 
 `HostName={YourIoTHubName}.azure-devices.net;SharedAccessKeyName=service;SharedAccessKey={YourSharedAccessKey}`
 
-Du kommer att använda det här värdet senare i snabbstarten. Den här tjänst anslutnings strängen skiljer sig från den enhets anslutnings sträng som du antecknade i föregående steg.
+Du kommer att använda det här värdet senare i snabbstarten. Den här tjänstanslutningssträngen skiljer sig från den enhetsanslutningssträng som du noterade i föregående steg.
 
 ## <a name="listen-for-direct-method-calls"></a>Lyssna efter direkta metodanrop
 
-Det simulerade enhetsprogrammet ansluter till en enhetsspecifik slutpunkt på din IoT-hubb, skickar simulerad telemetri och lyssnar efter direkta metodanrop från din hubb. I den här snabbstarten uppmanar det direkta metodanropet från hubben enheten att ändra det intervall med vilket den skickar telemetri. Den simulerade enheten skickar en bekräftelse tillbaka till hubben när den har kört den direkta metoden.
+Det simulerade enhetsprogrammet ansluter till en enhetsspecifik slutpunkt på din IoT-hubb, skickar simulerad telemetri och lyssnar efter direkta metodanrop från din hubb. I den här snabbstarten uppmanar det direkta metodanropet från hubben enheten att ändra det intervall med vilket den skickar telemetri. Den simulerade enheten skickar en bekräftelse tillbaka till din hubb när den har kör den direkta metoden.
 
 1. Navigera till Java-exempelprojektets rotmapp i ett lokalt terminalfönster. Gå sedan till mappen **iot-hub\Quickstarts\simulated-device-2**.
 
 2. Öppna filen **src/main/java/com/microsoft/docs/iothub/samples/SimulatedDevice.java** i en textredigerare som du väljer.
 
-    Ersätt värdet för variabeln `connString` med enhets anslutnings strängen som du antecknade tidigare. Spara sedan ändringarna i **SimulatedDevice. java**.
+    Ersätt variabelns `connString` värde med den enhetsanslutningssträng som du har antecknat tidigare. Spara sedan ändringarna i **SimulatedDevice.java**.
 
 3. I det lokala terminalfönstret kör du följande kommandon för att installera de bibliotek som krävs och skapa programmet för simulerad enhet:
 
@@ -131,7 +131,7 @@ Det simulerade enhetsprogrammet ansluter till en enhetsspecifik slutpunkt på di
     mvn clean package
     ```
 
-4. Kör det simulerade enhetsprogrammet genom att köra följande kommandon i det lokala terminalfönstret:
+4. I det lokala terminalfönstret kör du följande kommandon för att köra programmet för simulerad enhet:
 
     ```cmd/sh
     java -jar target/simulated-device-2-1.0.0-with-deps.jar
@@ -139,17 +139,17 @@ Det simulerade enhetsprogrammet ansluter till en enhetsspecifik slutpunkt på di
 
     Följande skärmbild visar utdata när det simulerade enhetsprogrammet skickar telemetri till din IoT-hubb:
 
-    ![Utdata från telemetri som skickas av enheten till din IoT-hubb](./media/quickstart-control-device-java/iot-hub-application-send-telemetry-output.png)
+    ![Utdata från telemetrin som skickas av enheten till din IoT-hubb](./media/quickstart-control-device-java/iot-hub-application-send-telemetry-output.png)
 
 ## <a name="call-the-direct-method"></a>Anropa den direkta metoden
 
-Serverdelsprogrammet ansluter till en slutpunkt på tjänstsidan på din IoT-hubb. Programmet gör direkta metod anrop till en enhet via din IoT Hub och lyssnar efter bekräftelser. Ett IoT Hub-serverdelsprogram körs normalt i molnet.
+Serverdelsprogrammet ansluter till en slutpunkt på tjänstsidan på din IoT-hubb. Programmet gör direkta metodanrop till en enhet via din IoT-hubb och lyssnar efter bekräftelser. Ett IoT Hub-serverdelsprogram körs normalt i molnet.
 
 1. Navigera till Java-exempelprojektets rotmapp i ett annat lokalt terminalfönster. Gå sedan till mappen **Quickstarts\back-end-application**.
 
 2. Öppna filen **src/main/java/com/microsoft/docs/iothub/samples/BackEndApplication.java** i en textredigerare som du väljer.
 
-    Ersätt värdet för `iotHubConnectionString`-variabeln med tjänst anslutnings strängen som du antecknade tidigare. Spara sedan ändringarna i **BackEndApplication. java**.
+    Ersätt värdet för `iotHubConnectionString` variabeln med den tjänstanslutningssträng som du har antecknat tidigare. Spara sedan ändringarna i **BackEndApplication.java**.
 
 3. I det lokala terminalfönstret kör du följande kommandon för att installera de bibliotek som krävs och skapa serverdelsprogrammet:
 
@@ -157,19 +157,19 @@ Serverdelsprogrammet ansluter till en slutpunkt på tjänstsidan på din IoT-hub
     mvn clean package
     ```
 
-4. Kör serverdelsprogrammet genom att köra följande kommandon i det lokala terminalfönstret:
+4. I det lokala terminalfönstret kör du följande kommandon för att köra serverdelsprogrammet:
 
     ```cmd/sh
     java -jar target/back-end-application-1.0.0-with-deps.jar
     ```
 
-    Följande skärm bild visar resultatet när programmet gör ett direkt metod anrop till enheten och får en bekräftelse:
+    Följande skärmbild visar utdata när programmet gör ett direkt metodanrop till enheten och får en bekräftelse:
 
-    ![Utdata som programmet gör ett direkt metod anrop via din IoT Hub](./media/quickstart-control-device-java/iot-hub-direct-method-call-output.png)
+    ![Utdata när programmet gör ett direkt metodanrop via din IoT-hubb](./media/quickstart-control-device-java/iot-hub-direct-method-call-output.png)
 
     När du har kört serverdelsprogrammet visas ett meddelande i det konsolfönster som kör den simulerade enheten och hastigheten med vilken den skickar meddelandeändringar:
 
-    ![Konsol meddelande från enhet visar hur ofta den ändras](./media/quickstart-control-device-java/iot-hub-sent-message-change-rate.png)
+    ![Konsolmeddelande från enheten visar hur hög hastighet det ändras](./media/quickstart-control-device-java/iot-hub-sent-message-change-rate.png)
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 

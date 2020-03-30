@@ -9,72 +9,72 @@ ms.date: 07/08/2019
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: 88b19257a6a7d335e6a928a9eaf7526fbfd5b02e
-ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/14/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "75942791"
 ---
-## <a name="application-performance-indicators"></a>Program prestanda indikatorer
+## <a name="application-performance-indicators"></a>Prestandaindikatorer för program
 
-Vi bedömer om ett program presterar bra eller inte använder prestanda indikatorer, t. ex. hur snabbt ett program bearbetar en användarbegäran, hur mycket data som ett program bearbetar per begäran, hur många förfrågningar är en program bearbetning i en specifik tids period, hur länge en användare måste vänta på att få ett svar efter att ha skickat in sin begäran. De tekniska villkoren för dessa prestanda indikatorer är, IOPS, data flöde, bandbredd och latens.
+Vi bedömer om ett program fungerar bra eller inte med hjälp av prestandaindikatorer som, hur snabbt ett program bearbetar en användarbegäran, hur mycket data ett program bearbetar per begäran, hur många begäranden är en programbearbetning i en viss men, hur länge en användare måste vänta för att få ett svar efter att ha skickat sin begäran. De tekniska villkoren för dessa prestandaindikatorer är IOPS, Dataflöde eller Bandbredd samt Svarstid.
 
-I det här avsnittet kommer vi att diskutera vanliga prestanda indikatorer i samband med Premium Storage. I följande avsnitt, som samlar in program krav, kommer du att lära dig hur du mäter dessa prestanda indikatorer för ditt program. Senare i optimeringen av program prestanda får du lära dig mer om faktorer som påverkar dessa prestanda indikatorer och rekommendationer för att optimera dem.
+I det här avsnittet kommer vi att diskutera de gemensamma resultatindikatorerna i samband med Premium Storage. I följande avsnitt, Samla in programkrav, får du lära dig hur du mäter dessa resultatindikatorer för ditt program. Senare i Optimering av programprestanda får du lära dig om de faktorer som påverkar dessa prestandaindikatorer och rekommendationer för att optimera dem.
 
 ## <a name="iops"></a>IOPS
 
-IOPS-eller in-/utdata-åtgärder per sekund är antalet förfrågningar som programmet skickar till lagrings diskarna i en sekund. En in-/utdata-åtgärd kan läsas eller skrivas, sekventiellt eller slumpmässigt. OLTP-program (Online Transaction Processing) som en online-webbplats måste bearbeta många samtidiga användar förfrågningar omedelbart. Användar förfrågningarna infogar och uppdaterar intensiva databas transaktioner, vilket programmet måste bearbeta snabbt. Därför kräver OLTP-program mycket höga IOPS. Sådana program hanterar miljon tals små och slumpmässiga IO-begäranden. Om du har ett sådant program måste du utforma program infrastrukturen för att optimera för IOPS. I avsnittet senare, *optimera program prestanda*, diskuterar vi i detalj alla faktorer som du måste tänka på för att få hög IOPS.
+IOPS, eller Input/output Operations Per Sekund, är antalet begäranden som programmet skickar till lagringsdiskarna på en sekund. En indata-/utdataåtgärd kan läsas eller skrivas, sekventiell eller slumpmässig. Online Transaction Processing (OLTP) program som en online detaljhandeln webbplats måste bearbeta många samtidiga användarförfrågningar omedelbart. Användarbegärandena infogas och uppdatera intensiva databastransaktioner, som programmet måste bearbeta snabbt. Därför kräver OLTP-program mycket hög IOPS. Sådana program hanterar miljontals små och slumpmässiga IO-begäranden. Om du har ett sådant program måste du utforma programinfrastrukturen för att optimera för IOPS. I det senare avsnittet, *Optimera programprestanda*, diskuterar vi i detalj alla faktorer som du måste tänka på för att få hög IOPS.
 
-När du kopplar en premiumlagringsdisk till en virtuell dator på hög nivå tilldelar Azure ett garanterat antal IOPS enligt diskspecifikationen. Till exempel är en P50 disk 7500 IOPS. Varje storlek för virtuella datorer på hög nivå har en specifik IOPS-gräns. Till exempel har en standard GS5 VM 80 000 IOPS.
+När du kopplar en premiumlagringsdisk till en virtuell dator på hög nivå tilldelar Azure ett garanterat antal IOPS enligt diskspecifikationen. Till exempel en P50-disk tilldelar 7500 IOPS. Varje storlek för virtuella datorer på hög nivå har en specifik IOPS-gräns. En virtuell standard-GS5-dator har till exempel 80 000 IOPS-gräns.
 
 ## <a name="throughput"></a>Dataflöde
 
-Data flöde eller bandbredd är den mängd data som programmet skickar till lagrings diskarna inom ett angivet intervall. Om ditt program utför in-/utdata-åtgärder med stora IO-enheter, kräver det stora data flöden. Data lager program tenderar att utfärda skannings intensiva åtgärder som kommer åt stora delar av data i taget och ofta utför Mass åtgärder. Med andra ord kräver sådana program högre data flöde. Om du har ett sådant program måste du utforma dess infrastruktur för att optimera data flödet. I nästa avsnitt diskuterar vi i detalj de faktorer som du måste finjustera för att uppnå detta.
+Dataflöde eller bandbredd är den mängd data som programmet skickar till lagringsdiskarna i ett angivet intervall. Om ditt program utför in-/utdataåtgärder med stora IO-enhetsstorlekar kräver det högt dataflöde. Datalagerprogram tenderar att utfärda genomsökningsintensiva åtgärder som kommer åt stora delar av data åt gången och utför ofta massåtgärder. Med andra ord kräver sådana program högre dataflöde. Om du har ett sådant program måste du utforma dess infrastruktur för att optimera för dataflöde. I nästa avsnitt diskuterar vi i detalj de faktorer du måste ställa in för att uppnå detta.
 
-När du ansluter en Premium Storage-disk till en virtuell dator med hög skalning, etablerar Azure Data flödet enligt disk specifikationen. Till exempel tillhandahåller en P50 disk 250 MB per sekund disk data flöde. Varje hög skalnings storlek för virtuella datorer har också en speciell data flödes gräns som kan upprätthållas. Till exempel har standard GS5 VM ett maximalt data flöde på 2 000 MB per sekund.
+När du ansluter en premiumlagringsdisk till en virtuell dator med hög skala, etablerar Azure dataflöde enligt diskspecifikationen. Till exempel tilldelas en P50-disk ett dataflöde på 250 MB per sekund per disk. Varje storlek för virtuella datorer på hög nivå har en specifik gräns för genomflödet. Till exempel, den virtuella datorn Standard GS5 har en maximal genomströmning på 2 000 MB per sekund.
 
-Det finns en relation mellan genomflödet och IOPS som visas i formeln nedan.
+Det finns en relation mellan dataflöde och IOPS som visas i formeln nedan.
 
-![Relation för IOPS och data flöde](../articles/virtual-machines/linux/media/premium-storage-performance/image1.png)
+![Förhållande till IOPS och dataflöde](../articles/virtual-machines/linux/media/premium-storage-performance/image1.png)
 
-Därför är det viktigt att fastställa de optimala data flödes-och IOPS-värden som programmet kräver. När du försöker optimera en, påverkas även den andra. I ett senare avsnitt, *optimera program prestanda*, diskuterar vi mer information om att optimera IOPS och data flöden.
+Därför är det viktigt att bestämma det optimala dataflödet och IOPS-värdena som ditt program kräver. När du försöker optimera en, den andra också påverkas. I ett senare avsnitt, *Optimera programprestanda*, kommer vi att diskutera mer information om att optimera IOPS och Dataflöde.
 
 ## <a name="latency"></a>Svarstid
 
-Svars tiden är den tid det tar för ett program att ta emot en enskild begäran, skicka det till lagrings diskarna och skicka svaret till klienten. Detta är ett kritiskt mått för programmets prestanda utöver IOPS och data flöde. Svars tiden för en Premium Storage-disk är den tid det tar att hämta information för en begäran och att kommunicera tillbaka till ditt program. Premium Storage ger konsekvent låg fördröjning. Premium diskar är utformade för att tillhandahålla ensiffriga MS-fördröjningar för de flesta i/o-åtgärder. Om du aktiverar skrivskyddad cachelagring av värden på Premium Storage-diskar kan du få mycket lägre Läs fördröjning. Vi kommer att diskutera diskcachelagring i mer detalj i avsnittet senare om hur du *optimerar program prestanda*.
+Svarstid är den tid det tar för ett program att ta emot en enda begäran, skicka den till lagringsdiskarna och skicka svaret till klienten. Detta är ett kritiskt mått på ett programs prestanda utöver IOPS och Dataflöde. Svarstiden för en premiumlagringsdisk är den tid det tar att hämta informationen för en begäran och kommunicera den tillbaka till ditt program. Premium Storage ger konsekventa låga svarstider. Premium diskar är utformade för att ge ensiffriga millisekunder svarstider för de flesta IO-åtgärder. Om du aktiverar ReadOnly-värdcache på premiumlagringsdiskar kan du få mycket lägre lässvarstid. Vi kommer att diskutera Disk Caching mer i detalj i senare avsnitt om *optimering av programprestanda*.
 
-När du optimerar ditt program för att få högre IOPS och data flöde kommer det att påverka svars tiden för ditt program. När du har justerat program prestandan ska du alltid utvärdera svars tiden för programmet för att undvika oväntad hög latens-beteende.
+När du optimerar ditt program för att få högre IOPS och Dataflöde, kommer det att påverka svarstiden för ditt program. När du har justerat programmets prestanda utvärderar du alltid programmets svarstid för att undvika oväntat beteende med hög latens.
 
-Följande kontroll Plans åtgärder på Managed Disks kan innebära att disken flyttas från en lagrings plats till en annan. Detta dirigeras via bakgrunds kopia av data som kan ta flera timmar att slutföra, vanligt vis mindre än 24 timmar beroende på mängden data i diskarna. Under den tiden kan ditt program uppleva högre än vanliga Läs fördröjningar eftersom vissa läsningar kan omdirigeras till den ursprungliga platsen och det kan ta längre tid att slutföra. Skriv fördröjningen påverkas inte under den här perioden.
+Följande kontrollplansåtgärder på hanterade diskar kan innebära förflyttning av disken från en lagringsplats till en annan. Detta är iscensatt via bakgrundskopia av data som kan ta flera timmar att slutföra, vanligtvis mindre än 24 timmar beroende på mängden data i diskarna. Under den tiden kan ditt program uppleva högre läsfördröjning än vanligt eftersom vissa läsningar kan omdirigeras till den ursprungliga platsen och kan ta längre tid att slutföra. Det finns ingen inverkan på skrivfördröjningen under den här perioden.
 
-- Uppdatera lagrings typen.
+- Uppdatera lagringstypen.
 - Koppla från och koppla en disk från en virtuell dator till en annan.
-- Skapa en hanterad disk från en virtuell hård disk.
-- Skapa en hanterad disk från en ögonblicks bild.
+- Skapa en hanterad disk från en virtuell hårddisk.
+- Skapa en hanterad disk från en ögonblicksbild.
 - Konvertera ohanterade diskar till hanterade diskar.
 
-## <a name="performance-application-checklist-for-disks"></a>Check lista för prestanda program för diskar
+## <a name="performance-application-checklist-for-disks"></a>Checklista för prestandaprogram för diskar
 
-Det första steget i att utforma högpresterande program som körs på Azure Premium Storage är att förstå programmets prestanda krav. När du har samlat in prestanda krav kan du optimera ditt program för att uppnå bästa möjliga prestanda.
+Det första steget i utformningen av högpresterande program som körs på Azure Premium Storage är att förstå prestandakraven för ditt program. När du har samlat in prestandakrav kan du optimera ditt program för att uppnå den mest optimala prestandan.
 
-I föregående avsnitt förklarade vi vanliga prestanda indikatorer, IOPS, data flöde och svars tid. Du måste identifiera vilka av dessa prestanda indikatorer som är viktiga för ditt program för att leverera den önskade användar upplevelsen. Till exempel är höga IOPS-frågor mest till OLTP-program som bearbetar miljon tals transaktioner i en sekund. Högt data flöde är kritiskt för data lager program som bearbetar stora mängder data i en sekund. Extremt låg latens är avgörande för real tids program som webbplatser för direkt uppspelning av video.
+I föregående avsnitt förklarade vi de gemensamma resultatindikatorerna, IOPS, Dataflöde och Svarstid. Du måste identifiera vilka av dessa prestandaindikatorer som är avgörande för ditt program för att leverera önskad användarupplevelse. Till exempel spelar höga IOPS mest roll för OLTP-program som bearbetar miljontals transaktioner på en sekund. Medan högt dataflöde är avgörande för Data Warehouse-program som bearbetar stora mängder data på en sekund. Extremt låg latens är avgörande för realtidsprogram som live video streaming webbplatser.
 
-Därefter mäter du programmets högsta prestanda krav under dess livstid. Använd exempel check lista nedan som en start. Registrera de maximala prestanda kraven under perioder för normala, högsta och andra arbets timmar. Genom att identifiera krav för alla nivåer av arbets belastningar kan du fastställa programmets övergripande prestanda krav. Den normala arbets belastningen för en e-handelswebbplats är till exempel de transaktioner som används under de flesta dagar under ett år. Den högsta arbets belastningen hos webbplatsen är de transaktioner som används under jul-eller särskilda försäljnings händelser. Hög belastnings belastningen har normalt en begränsad period, men kan kräva att ditt program skalar två eller fler gånger om den normala driften. Ta reda på 50 percentil, 90 percentil och 99 percentils krav. Detta hjälper dig att filtrera bort avvikande värden i prestanda kraven och du kan fokusera på dina ansträngningar för att optimera för rätt värden.
+Mät sedan de maximala prestandakraven för ditt program under hela dess livstid. Använd exempelchecklistan nedan som en början. Registrera de maximala prestandakraven under normala, högsta och lediga timmar arbetsbelastningsperioder. Genom att identifiera krav för alla arbetsbelastningar kommer du att kunna fastställa det övergripande prestandakravet för ditt program. Till exempel, den normala arbetsbelastningen för en e-handel webbplats kommer att vara de transaktioner som den betjänar under de flesta dagar i ett år. Den högsta arbetsbelastningen på webbplatsen kommer att vara de transaktioner den betjänar under semesterperioden eller särskilda försäljningsevenemang. Topparbetsbelastningen upplevs vanligtvis under en begränsad period, men kan kräva att ditt program skalar två eller flera gånger sin normala drift. Ta reda på kraven på 50 percentil, 90 percentil och 99 percentil. Detta hjälper till att filtrera bort eventuella extremvärden i prestandakraven och du kan fokusera dina ansträngningar på att optimera för rätt värden.
 
-## <a name="application-performance-requirements-checklist"></a>Check lista för program prestanda krav
+## <a name="application-performance-requirements-checklist"></a>Checklista för krav på programprestanda
 
-| **Prestanda krav** | **50 percentil** | **90 percentil** | **99 percentil** |
+| **Prestandakrav** | **50 Percentil** | **90 Percentil** | **99 Percentil** |
 | --- | --- | --- | --- |
 | Max. Transaktioner per sekund | | | |
-| % Läs åtgärder | | | |
-| % Skriv åtgärder | | | |
-| % Slumpmässiga åtgärder | | | |
-| % Sekventiella åtgärder | | | |
-| Storlek för IO-begäran | | | |
-| Genomsnittligt data flöde | | | |
+| % Avläsningsåtgärder | | | |
+| % skrivåtgärder | | | |
+| % slumpmässiga åtgärder | | | |
+| % Sekventiell verksamhet | | | |
+| IO-begäran storlek | | | |
+| Genomsnittligt dataflöde | | | |
 | Max. Dataflöde | | | |
-| Minimum. Svarstid | | | |
-| Genomsnittlig svars tid | | | |
+| Min. Svarstid | | | |
+| Genomsnittlig svarstid | | | |
 | Max. Processor | | | |
 | Genomsnittlig CPU | | | |
 | Max. Minne | | | |
@@ -82,232 +82,232 @@ Därefter mäter du programmets högsta prestanda krav under dess livstid. Anvä
 | Ködjup | | | |
 
 > [!NOTE]
-> Du bör överväga att skala dessa siffror baserat på den förväntade framtida tillväxten av ditt program. Det är en bra idé att planera för tillväxt i förväg, eftersom det kan vara svårare att ändra infrastrukturen för att förbättra prestanda senare.
+> Du bör överväga att skala dessa siffror baserat på förväntad framtida tillväxt av ditt program. Det är en bra idé att planera för tillväxt i förväg, eftersom det kan vara svårare att ändra infrastrukturen för att förbättra prestanda senare.
 
-Om du har ett befintligt program och vill flytta till Premium Storage börjar du med att bygga check listan ovan för det befintliga programmet. Skapa sedan en prototyp av ditt program på Premium Storage och utforma programmet baserat på rikt linjer som beskrivs i *optimera program prestanda* i ett senare avsnitt i det här dokumentet. I nästa artikel beskrivs de verktyg du kan använda för att samla in prestanda mått.
+Om du har ett befintligt program och vill flytta till Premium Storage skapar du först checklistan ovan för det befintliga programmet. Skapa sedan en prototyp av ditt program på Premium Storage och utforma programmet baserat på riktlinjer som beskrivs i *Optimera programprestanda* i ett senare avsnitt av det här dokumentet. I nästa artikel beskrivs de verktyg du kan använda för att samla in prestandamätningar.
 
-### <a name="counters-to-measure-application-performance-requirements"></a>Räknare för att mäta program prestanda krav
+### <a name="counters-to-measure-application-performance-requirements"></a>Räknare för att mäta krav på programprestanda
 
-Det bästa sättet att mäta prestanda kraven för ditt program är att använda verktyg för prestanda övervakning som tillhandahålls av serverns operativ system. Du kan använda PerfMon för Windows och iostat för Linux. Dessa verktyg fångar in räknare som motsvarar varje mått som beskrivs i avsnittet ovan. Du måste samla in värdena för dessa räknare när ditt program kör arbets belastningarna normal, högsta och andra arbets tid.
+Det bästa sättet att mäta prestandakrav för ditt program, är att använda prestandaövervakningsverktyg som tillhandahålls av serverns operativsystem. Du kan använda PerfMon för Windows och iostat för Linux. Dessa verktyg fånga räknare som motsvarar varje åtgärd förklaras i ovanstående avsnitt. Du måste samla in värdena för dessa räknare när programmet kör sina normala arbetsbelastningar, topp- och lågtimmarsarbetsbelastningar.
 
-PerfMon-räknarna är tillgängliga för processor, minne och, varje logisk disk och fysisk disk på servern. När du använder Premium Storage-diskar med en virtuell dator är räknarna för fysiska diskar för varje Premium Storage-disk och räknare för logiska diskar för varje volym som skapas på Premium Storage-diskarna. Du måste samla in värdena för diskarna som är värdar för din program arbets belastning. Om det finns en till en mappning mellan logiska och fysiska diskar kan du referera till fysiska disk räknare. Se i övrigt räknare för logiska diskar. I Linux genererar kommandot iostat en processor-och disk användnings rapport. Disk användnings rapporten innehåller statistik per fysisk enhet eller partition. Om du har en databas server med data och loggar på separata diskar samlar du in dessa data för båda diskarna. I tabellen nedan beskrivs räknare för diskar, processorer och minne:
+PerfMon-räknarna är tillgängliga för processor, minne och varje logisk disk och fysisk disk på servern. När du använder premiumlagringsdiskar med en virtuell dator är de fysiska diskräknarna för varje premiumlagringsdisk och logiska diskräknare är för varje volym som skapas på premiumlagringsdiskarna. Du måste samla in värdena för diskarna som är värdar för programarbetsbelastningen. Om det finns en mappning mellan logiska och fysiska diskar kan du referera till fysiska diskräknare. I annat fall referera till de logiska diskräknarna. På Linux genererar iostat-kommandot en cpu- och diskanvändningsrapport. Diskutnyttjanderapporten innehåller statistik per fysisk enhet eller partition. Om du har en databasserver med data och loggar på separata diskar samlar du in dessa data för båda diskarna. I tabellen Nedan beskrivs räknare för diskar, processorer och minne:
 
-| Räknare | Beskrivning | PerfMon | Iostat |
+| Räknare | Beskrivning | Perfmon | Iostat (på andra sätt) |
 | --- | --- | --- | --- |
-| **IOPS eller transaktioner per sekund** |Antalet I/O-begäranden som har utfärdats till lagrings disken per sekund. |Diskläsningar/sek <br> Diskskrivningar/sek |TPS <br> r/s <br> w/s |
-| **Disk läsningar och skrivningar** |% av Läs-och skriv åtgärder som utförts på disken. |% Disk Läs tid <br> Disk skrivnings tid i procent |r/s <br> w/s |
-| **Dataflöde** |Mängden data som läses från eller skrivs till disken per sekund. |Disk – lästa byte/sek <br> Disk – skrivna byte/sek |kB_read/s <br> kB_wrtn/s |
-| **Svarstid** |Total tid för att slutföra en disk-IO-begäran. |Medel s/disk läsning <br> Medel s/disk skrivning |await <br> svctm |
-| **I/o-storlek** |Storleken på I/O-begäranden till lagrings diskarna. |Genomsnittligt antal Disk byte/läsning <br> Genomsnittlig Disk byte/skrivning |avgrq-sz |
-| **Ködjup** |Antal väntande I/O-begäranden som väntar på att läsas från eller skrivas till lagrings disken. |Aktuell diskkölängd |avgqu-sz |
-| **Bekräftat. Minnesoptimerade** |Mängden minne som krävs för att köra programmet smidigt |% använda dedikerade byte |Använd vmstat |
-| **Bekräftat. REGISTRERA** |PROCESSOR mängd som krävs för att köra programmet smidigt |% Processor tid |% util |
+| **IOPS eller transaktioner per sekund** |Antal I/O-begäranden som utfärdats till lagringsdisken per sekund. |Diskläsningar/sek <br> Diskskrivningar per sekund |Tps <br> r/s <br> w/s |
+| **Diskläsningar och skrivningar** |% av läs- och skrivåtgärder som utförs på disken. |% diskläsningstid <br> Procent diskskrivningstid |r/s <br> w/s |
+| **Dataflöde** |Mängden data som läss från eller skrivs till disken per sekund. |Diskläs byte per sekund <br> Byte för diskskrivning/sek |kB_read/s <br> kB_wrtn/s |
+| **Svarstid** |Total tid för att slutföra en disk-IO-begäran. |Genomsnittlig disk sek/läsning <br> Genomsnittlig disk sek/skrivning |Väntar <br> svctm (svenska) |
+| **IO-storlek** |Storleken på I/O begär problem till lagringsdiskarna. |Genomsnittligt diskbyte/läsning <br> Genomsnittlig diskbyte/skrivning |avgrq-sz |
+| **Ködjup** |Antal utestående I/O-begäranden som väntar på att läsas från eller skrivas till lagringsdisken. |Aktuell diskkölängd |avgqu-sz |
+| **Max. Minne** |Mängden minne som krävs för att köra programmet smidigt |% använda dedikerade byte |Använd vmstat |
+| **Max. Cpu** |Belopp CPU krävs för att köra programmet smidigt |% processortid |%util |
 
-Läs mer om [iostat](https://linux.die.net/man/1/iostat) och [perfmon](https://msdn.microsoft.com/library/aa645516.aspx).
+Läs mer om [iostat](https://linux.die.net/man/1/iostat) och [PerfMon](https://msdn.microsoft.com/library/aa645516.aspx).
 
 
 
-## <a name="optimize-application-performance"></a>Optimera program prestanda
+## <a name="optimize-application-performance"></a>Optimera programmets prestanda
 
-De huvudsakliga faktorer som påverkar prestanda för ett program som körs på Premium Storage är arten av IO-begäranden, VM-storlek, disk storlek, antal diskar, diskcachelagring, multitrådning och ködjup. Du kan styra några av de här faktorerna med rattar som tillhandahålls av systemet. De flesta program kan inte ge dig möjlighet att ändra i/o-storlek och ködjup direkt. Om du till exempel använder SQL Server kan du inte välja IO-storlek och ködjup. SQL Server väljer den optimala storleken för IO-storlek och ködjup för att få ut mesta möjliga prestanda. Det är viktigt att förstå effekterna av båda typerna av faktorer i programmets prestanda, så att du kan etablera lämpliga resurser för att möta prestanda behoven.
+De viktigaste faktorerna som påverkar prestanda för ett program som körs på Premium Storage är IO-begäranden, VM-storlek, Diskstorlek, Antal diskar, diskcachening, flertrådning och ködjup. Du kan styra några av dessa faktorer med rattar som tillhandahålls av systemet. De flesta program kanske inte ger dig möjlighet att ändra IO-storlek och ködjup direkt. Om du till exempel använder SQL Server kan du inte välja IO-storlek och ködjup. SQL Server väljer de optimala IO-storleks- och ködjupsvärdena för att få ut så mycket prestanda som mest. Det är viktigt att förstå effekterna av båda typerna av faktorer på programmets prestanda, så att du kan etablera lämpliga resurser för att uppfylla prestandabehov.
 
-I det här avsnittet finns en check lista för program krav som du har skapat för att identifiera hur mycket du behöver för att optimera program prestandan. Utifrån detta kommer du att kunna avgöra vilka faktorer från det här avsnittet som du måste justera. Om du vill beräkna effekterna av varje faktor i programmets prestanda kör du benchmarking-verktyg i program konfigurationen. Mer information om hur du kör vanliga benchmarking-verktyg på virtuella Windows-och Linux-datorer finns i artikeln om benchmarking-artikeln, som är länkad i slutet.
+I det här avsnittet läser du checklistan för programkrav som du har skapat för att identifiera hur mycket du behöver för att optimera programmets prestanda. Baserat på detta kommer du att kunna avgöra vilka faktorer från det här avsnittet du behöver ställa in. Om du vill se effekterna av varje faktor på programmets prestanda kör du benchmarkingverktyg på programinställningarna. Se benchmarking-artikeln, länkad i slutet, för steg för att köra vanliga benchmarkingverktyg på virtuella datorer i Windows och Linux.
 
-### <a name="optimize-iops-throughput-and-latency-at-a-glance"></a>Optimera IOPS, data flöde och svars tider snabbt
+### <a name="optimize-iops-throughput-and-latency-at-a-glance"></a>Optimera IOPS, dataflöde och svarstid i korthet
 
-I tabellen nedan sammanfattas prestanda faktorer och de steg som krävs för att optimera IOPS, data flöde och svars tid. I avsnitten som följer den här sammanfattningen beskrivs varje faktor mycket mer djup.
+Tabellen nedan sammanfattar prestandafaktorer och de steg som krävs för att optimera IOPS, dataflöde och svarstid. De avsnitt som följer på den här sammanfattningen beskriver varje faktor är mycket mer djupgående.
 
-Mer information om storlekar på virtuella datorer och om IOPS, data flöde och svars tid som är tillgängliga för varje typ av virtuell dator finns i storlekar för [virtuella Linux-datorer](../articles/virtual-machines/linux/sizes.md) eller [storlekar för virtuella Windows-datorer](../articles/virtual-machines/windows/sizes.md).
+Mer information om vm-storlekar och iops-, dataflöde och svarstid som är tillgängliga för varje typ av virtuell dator finns i [Storlekar på virtuella linux-datorer](../articles/virtual-machines/linux/sizes.md) eller [Windows VM-storlekar](../articles/virtual-machines/windows/sizes.md).
 
 | &nbsp; | **IOPS** | **Dataflöde** | **Svarstid** |
 | --- | --- | --- | --- |
-| **Exempel scenario** |Enterprise OLTP-program som kräver mycket höga transaktioner per sekund. |Företags data lager hanterings program bearbetar stora mängder data. |Nära real tids program som kräver omedelbara svar på användar förfrågningar, t. ex. online-spel. |
-| Prestanda faktorer | &nbsp; | &nbsp; | &nbsp; |
-| **I/o-storlek** |Mindre IO-storlek ger högre IOPS. |Större IO-storlek för att ge högre data flöde. | &nbsp;|
-| **Storlek på virtuell dator** |Använd en VM-storlek som erbjuder IOPS som är större än ditt program krav. |Använd en VM-storlek med en data flödes gräns som är större än ditt program krav. |Använd en VM-storlek som ger större skalnings gränser än ditt program krav. |
-| **Disk storlek** |Använd en disk storlek som erbjuder IOPS som är större än ditt program krav. |Använd en disk storlek med data flödes gräns som är större än ditt program krav. |Använd en disk storlek som ger större skalnings gränser än ditt program krav. |
-| **Begränsningar för virtuell dator och disk skala** |IOPS-gränsen för den valda virtuella dator storleken ska vara större än det totala antalet IOPS som är kopplade till den. |Data flödes gränsen för den valda virtuella dator storleken ska vara större än det totala data flödet som styrs av Premium Storage-diskar som är anslutna till den |Skalnings gränserna för den valda virtuella dator storleken måste vara större än de sammanlagda skalnings gränserna för anslutna Premium Storage-diskar. |
-| **Diskcachelagring** |Aktivera ReadOnly-cache på Premium Storage-diskar med Läs tung-åtgärder för att få högre Läs-IOPS. | &nbsp; |Aktivera ReadOnly-cache på Premium Storage-diskar med klara tung åtgärder för att få mycket låg Läs fördröjning. |
-| **Disk randning** |Använd flera diskar och ta bort dem tillsammans för att få en kombination av högre IOPS och data flödes gräns. Den kombinerade gränsen per virtuell dator måste vara högre än de sammanlagda gränserna för anslutna Premium diskar. | &nbsp; | &nbsp; |
-| **Rand storlek** |Mindre rand storlek för slumpmässiga små IO-mönster som visas i OLTP-program. Använd till exempel stripe-storlek på 64 KB för SQL Server OLTP-program. |Större rand storlek för sekventiellt stort IO-mönster visas i data lager program. Använd till exempel 256 KB stripe-storlek för SQL Server data lager program. | &nbsp; |
-| **Multitrådning** |Använd flera trådar för att push-överföra fler begär anden till Premium Storage som leder till högre IOPS och data flöde. På SQL Server till exempel ange ett högt MAXDOP-värde för att allokera fler processorer till SQL Server. | &nbsp; | &nbsp; |
-| **Ködjup** |Större ködjup ger högre IOPS. |Större ködjup ger högre genomflöde. |Mindre ködjup ger lägre fördröjning. |
+| **Exempel på ett scenario** |Oltp-program för företag som kräver mycket höga transaktioner per sekund. |Enterprise Data-lagringsprogram som bearbetar stora mängder data. |Nära realtidsprogram som kräver omedelbara svar på användarnas önskemål, som onlinespel. |
+| Prestandafaktorer | &nbsp; | &nbsp; | &nbsp; |
+| **IO-storlek** |Mindre IO-storlek ger högre IOPS. |Större IO-storlek för att ge högre dataflöde. | &nbsp;|
+| **Storlek på virtuell dator** |Använd en VM-storlek som erbjuder IOPS som är större än ditt programkrav. |Använd en VM-storlek med dataflödesgräns som är större än ditt programkrav. |Använd en vm-storlek som erbjuder skalbegränsningar som är större än ditt programkrav. |
+| **Diskstorlek** |Använd en diskstorlek som erbjuder IOPS som är större än ditt programkrav. |Använd en diskstorlek med dataflödesgränsen som är större än ditt programkrav. |Använd en diskstorlek som erbjuder skalbegränsningar som är större än ditt programkrav. |
+| **Begränsningar för vm- och diskskala** |IOPS-gränsen för den valda vm-storleken bör vara större än den totala IOPS som drivs av lagringsdiskar som är kopplade till den. |Dataflödesgränsen för den valda vm-storleken bör vara större än det totala dataflödet som drivs av premiumlagringsdiskar som är kopplade till den. |Skalningsgränser för den valda vm-storleken måste vara större än de totala skalgränserna för anslutna premiumlagringsdiskar. |
+| **Disk Caching** |Aktivera ReadOnly Cache på premiumlagringsdiskar med Läs tunga åtgärder för att få högre Read IOPS. | &nbsp; |Aktivera ReadOnly Cache på premiumlagringsdiskar med färdiga tunga åtgärder för att få mycket låga läs-fördröjningar. |
+| **Disk Striping** |Använd flera diskar och rand dem tillsammans för att få en kombinerad högre IOPS och Dataflöde gräns. Den kombinerade gränsen per virtuell dator bör vara högre än de kombinerade gränserna för kopplade premiumdiskar. | &nbsp; | &nbsp; |
+| **Randstorlek** |Mindre randstorlek för slumpmässigt litet IO-mönster som ses i OLTP-applikationer. Använd till exempel stripe-storleken på 64 KB för SQL Server OLTP-program. |Större randstorlek för sekventiellt stort IO-mönster som visas i Data Warehouse-program. Använd till exempel 256 KB-stripe-storlek för SQL Server Data warehouse-program. | &nbsp; |
+| **Flertrådsteknik** |Använd flertrådsteknik för att skicka ett högre antal begäranden till Premium Storage som leder till högre IOPS och Dataflöde. På SQL Server anger du till exempel ett högt MAXDOP-värde för att tilldela fler processorer till SQL Server. | &nbsp; | &nbsp; |
+| **Ködjup** |Större ködjup ger högre IOPS. |Större ködjup ger högre dataflöde. |Mindre ködjup ger lägre svarstider. |
 
-## <a name="nature-of-io-requests"></a>Typ av IO-begäranden
+## <a name="nature-of-io-requests"></a>Typ av IO-förfrågningar
 
-En IO-begäran är en enhet med in-/utdata-åtgärd som programmet kommer att utföra. Att identifiera vilken typ av IO-begäranden, slumpmässig eller sekventiell, läsa eller skriva, liten eller stor, hjälper dig att avgöra programmets prestanda krav. Det är viktigt att förstå vilken typ av IO-begäranden som krävs för att fatta rätt beslut när du utformar program infrastrukturen. IOs måste distribueras jämnt för att uppnå bästa möjliga prestanda.
+En IO-begäran är en enhet för indata-/utdataåtgärd som ditt program kommer att utföra. Identifiera vilken typ av IO-begäranden, slumpmässiga eller sekventiella, läsa eller skriva, små eller stora, hjälper dig att avgöra prestandakraven för ditt program. Det är viktigt att förstå vilken typ av IO-begäranden har, att fatta rätt beslut när du utformar din programinfrastruktur. IOs måste fördelas jämnt för att uppnå bästa möjliga prestanda.
 
-I/o-storlek är en av de viktiga faktorerna. I/o-storleken är storleken på begäran om indata/utdata som genererats av ditt program. I/o-storleken har en betydande inverkan på prestanda, särskilt på den IOPS och bandbredd som programmet kan uppnå. Följande formel visar förhållandet mellan IOPS, IO-storlek och bandbredd/data flöde.  
+IO storlek är en av de viktigaste faktorerna. I/O-storleken är storleken på den begäran om indata-/utdataåtgärd som genereras av ditt program. I/o-storleken har en betydande inverkan på prestanda, särskilt på IOPS och bandbredd som programmet kan uppnå. Följande formel visar förhållandet mellan IOPS, IO-storlek och Bandbredd/dataflöde.  
     ![](media/premium-storage-performance/image1.png)
 
-I vissa program kan du ändra deras IO-storlek, medan vissa program inte gör det. SQL Server bestämmer till exempel den optimala i/o-storleken och ger inte användare med någon ratt att ändra den. Å andra sidan tillhandahåller Oracle en parameter med namnet [DB\_BLOCK\_storlek](https://docs.oracle.com/cd/B19306_01/server.102/b14211/iodesign.htm#i28815) som du kan använda för att konfigurera i/O-begäranden för databasen.
+Vissa program kan du ändra sin IO-storlek, medan vissa program inte. SQL Server bestämmer till exempel själva den optimala I/O-storleken och ger inte användarna några rattar för att ändra den. Å andra sidan tillhandahåller Oracle en parameter som kallas [DB\_BLOCK\_SIZE](https://docs.oracle.com/cd/B19306_01/server.102/b14211/iodesign.htm#i28815) med vilken du kan konfigurera I/O-begärandens storlek på databasen.
 
-Om du använder ett program, som inte tillåter att du ändrar i/o-storlek, använder du rikt linjerna i den här artikeln för att optimera prestanda-KPI: n som är mest relevant för ditt program. Exempel:
+Om du använder ett program, som inte tillåter dig att ändra IO-storleken, använder du riktlinjerna i den här artikeln för att optimera prestanda-KPI:n som är mest relevant för ditt program. Exempel:
 
-* Ett OLTP-program genererar miljon tals små och slumpmässiga IO-begäranden. Om du vill hantera dessa typer av IO-begäranden måste du utforma program infrastrukturen för att få högre IOPS.  
-* Ett data lager program genererar stora och sekventiella IO-begäranden. Om du vill hantera dessa typer av IO-begäranden måste du utforma program infrastrukturen för att få högre bandbredd eller data flöde.
+* Ett OLTP-program genererar miljontals små och slumpmässiga IO-begäranden. För att hantera dessa typer av IO-begäranden måste du utforma programinfrastrukturen för att få högre IOPS.  
+* Ett datalagringsprogram genererar stora och sekventiella IO-begäranden. Om du vill hantera dessa typer av I/O-begäranden måste du utforma programinfrastrukturen för att få högre bandbredd eller dataflöde.
 
-Om du använder ett program, som gör att du kan ändra i/o-storlek, använder du den här regeln för i/o-storleken förutom andra rikt linjer för prestanda.
+Om du använder ett program, som gör att du kan ändra IO-storleken, använder du den här tumregeln för IO-storleken utöver andra prestandariktlinjer.
 
 * Mindre IO-storlek för att få högre IOPS. Till exempel 8 KB för ett OLTP-program.  
-* Större IO-storlek för att få högre bandbredd/data flöde. Till exempel 1024 KB för ett data lager program.
+* Större IO-storlek för att få högre bandbredd/dataflöde. Till exempel 1024 KB för ett informationslagerprogram.
 
-Här är ett exempel på hur du kan beräkna IOPS och data flöde/bandbredd för ditt program. Överväg ett program med hjälp av en P30-disk. Högsta antal IOPS och data flöde/bandbredd som en P30 disk kan uppnå är 5000 IOPS och 200 MB per sekund. Om ditt program kräver högsta IOPS från P30-disken och du använder en mindre IO-storlek som 8 KB, kommer den resulterande bandbredd som du kan hämta vara 40 MB per sekund. Men om ditt program kräver maximalt data flöde/bandbredd från P30 disk, och du använder en större IO-storlek som 1024 KB, kommer den resulterande IOPS att vara mindre än 200 IOPS. Därför bör du justera i/o-storleken så att den uppfyller både ditt programs IOPS och data flöde/bandbredds krav. I följande tabell sammanfattas olika IO-storlekar och deras motsvarande IOPS och data flöde för en P30 disk.
+Här är ett exempel på hur du kan beräkna IOPS och Dataflöde/Bandbredd för ditt program. Överväg ett program med en P30-disk. Den maximala IOPS och Dataflöde / bandbredd en P30-disk kan uppnå är 5000 IOPS och 200 MB per sekund respektive. Nu, om ditt program kräver maximal IOPS från P30-disken och du använder en mindre IO-storlek som 8 KB, den resulterande bandbredd du kommer att kunna få är 40 MB per sekund. Men om ditt program kräver maximalt dataflöde/bandbredd från P30-disken och du använder en större IO-storlek som 1024 KB blir den resulterande IOPS mindre, 200 IOPS. Ställ därför in IO-storleken så att den uppfyller både programmets IOPS- och Dataflödes-/bandbreddskrav. I följande tabell sammanfattas de olika IO-storlekarna och motsvarande IOPS och Dataflöde för en P30-disk.
 
-| Program krav | I/O-storlek | IOPS | Genom strömning/bandbredd |
+| Ansökan krav | I/O-storlek | IOPS | Dataflöde/bandbredd |
 | --- | --- | --- | --- |
 | Maximalt IOPS |8 kB |5 000 |40 MB per sekund |
-| Maximalt data flöde |1024 KB |200 |200 MB per sekund |
-| Maximalt data flöde + hög IOPS |64 kB |3,200 |200 MB per sekund |
-| Högsta IOPS + högt data flöde |32 KB |5 000 |160 MB per sekund |
+| Maximalt dataflöde |1024 KB |200 |200 MB per sekund |
+| Max dataflöde + hög IOPS |64 kB |3,200 |200 MB per sekund |
+| Max IOPS + högt genomflöde |32 KB |5 000 |160 MB per sekund |
 
-Om du vill få IOPS och bandbredd som är högre än det högsta värdet för en enskild Premium Storage-disk, använder du flera Premium diskar stripe tillsammans. Du kan till exempel ta bort två P30 diskar för att få en kombination av IOPS på 10 000 IOPS eller ett kombinerat data flöde på 400 MB per sekund. Som förklaras i nästa avsnitt måste du använda en VM-storlek som stöder den kombinerade diskens IOPS och data flöde.
+Om du vill få IOPS och bandbredd högre än det maximala värdet för en enda premiumlagringsdisk använder du flera premiumdiskar som är randiga tillsammans. Till exempel rand två P30-diskar för att få en kombinerad IOPS på 10.000 IOPS eller en kombinerad genomströmning på 400 MB per sekund. Som förklaras i nästa avsnitt måste du använda en VM-storlek som stöder den kombinerade disken IOPS och Dataflöde.
 
 > [!NOTE]
-> När du ökar antingen IOPS eller data flödet kan andra också öka, se till att du inte trycker på genomflödet eller IOPS-gränser för disken eller den virtuella datorn när du ökar en.
+> När du ökar antingen IOPS eller Dataflöde den andra också ökar, se till att du inte träffar dataflöde eller IOPS gränser för disken eller den virtuella datorn när du ökar antingen en.
 
-För att vittnea effekterna av IO-storleken på program prestanda kan du köra benchmarking-verktyg på din virtuella dator och diskar. Skapa flera test körningar och Använd en annan IO-storlek för varje körning för att se effekten. Mer information finns i artikeln om benchmarking, som är länkad i slutet.
+Om du vill se effekterna av I/O-storlek på programmets prestanda kan du köra benchmarkingverktyg på din virtuella dator och diskar. Skapa flera testkörningar och använd olika IO-storlekar för varje körning för att se effekten. Mer information finns i benchmarkingartikeln, länkad i slutet.
 
-## <a name="high-scale-vm-sizes"></a>Hög skalning av VM-storlekar
+## <a name="high-scale-vm-sizes"></a>Vm-storlekar i hög skala
 
-När du börjar utforma ett program, en av de första saker som du bör göra, väljer du en virtuell dator som är värd för ditt program. Premium Storage levereras med hög skalnings storlekar för virtuella datorer som kan köra program som kräver högre beräknings kraft och en hög I/O-prestanda för lokala diskar. De här virtuella datorerna ger snabbare processorer, en högre förhållande mellan minne och kärna och en SSD-enhet (Solid-State Drive) för den lokala disken. Exempel på virtuella datorer med hög skalning som stöder Premium Storage är virtuella datorer i DS och GS-serien.
+När du börjar utforma ett program, en av de första sakerna att göra är, välja en virtuell dator som värd för ditt program. Premium Storage levereras med storskaliga VM-storlekar som kan köra program som kräver högre beräkningskraft och en hög lokal disk-I/O-prestanda. Dessa virtuella datorer ger snabbare processorer, ett högre förhållande mellan minne och kärna och en SSD (Solid State Drive) för den lokala disken. Exempel på virtuella datorer med hög skala som stöder Premium Storage är virtuella datorer i DS- och GS-serien.
 
-Virtuella datorer med hög skalning är tillgängliga i olika storlekar med olika antal processor kärnor, minne, OS och temporär disk storlek. Varje VM-storlek har också maximalt antal data diskar som du kan ansluta till den virtuella datorn. Det innebär att den valda virtuella dator storleken påverkar hur mycket bearbetning, minne och lagrings kapacitet som är tillgängligt för ditt program. Det påverkar också beräknings-och lagrings kostnaden. Nedan visas till exempel specifikationerna för den största virtuella dator storleken i en DS-serie och GS-serien:
+Virtuella datorer med hög skala finns i olika storlekar med ett annat antal CPU-kärnor, minne, operativsystem och tillfällig diskstorlek. Varje vm-storlek har också maximalt antal datadiskar som du kan koppla till den virtuella datorn. Därför påverkar den valda vm-storleken hur mycket bearbetning, minne och lagringskapacitet som är tillgänglig för ditt program. Det påverkar också beräknings- och lagringskostnaden. Nedan finns till exempel specifikationerna för den största VM-storleken i en DS-serie och en GS-serie:
 
-| VM-storlek | CPU-kärnor | Minne | Disk storlekar för virtuella datorer | Max. data diskar | Cachestorlek | IOPS | IO-gränser för bandbredds cache |
+| Storlek på virtuell dator | Processorkärnor | Minne | VM diskstorlekar | Max. datadiskar | Cachestorlek | IOPS | IO-begränsningar för bandbreddscachen |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_DS14 |16 |112 GB |OS = 1023 GB <br> Lokal SSD = 224 GB |32 |576 GB |50 000 IOPS <br> 512 MB per sekund |4 000 IOPS och 33 MB per sekund |
 | Standard_GS5 |32 |448 GB |OS = 1023 GB <br> Lokal SSD = 896 GB |64 |4224 GB |80 000 IOPS <br> 2 000 MB per sekund |5 000 IOPS och 50 MB per sekund |
 
-Om du vill visa en fullständig lista över alla tillgängliga storlekar för virtuella Azure-datorer, se storlekar på [virtuella Windows-datorer](../articles/virtual-machines/windows/sizes.md) eller [virtuella Linux-datorer](../articles/virtual-machines/linux/sizes.md). Välj en VM-storlek som kan mötas och skalas till önskade program prestanda krav. Förutom detta bör du ta hänsyn till följande viktiga överväganden när du väljer VM-storlekar.
+Om du vill visa en fullständig lista över alla tillgängliga Azure VM-storlekar läser du [storlekarna](../articles/virtual-machines/windows/sizes.md) för virtuella datorer för Windows eller [Linux VM](../articles/virtual-machines/linux/sizes.md). Välj en vm-storlek som kan uppfylla och skala till dina önskade programprestandakrav. Dessutom bör du ta hänsyn till följande viktiga överväganden när du väljer VM-storlekar.
 
-*Skalnings gränser*  
-De högsta IOPS-gränserna per virtuell dator och per disk är olika och oberoende av varandra. Se till att programmet kör IOPS inom gränserna för den virtuella datorn samt de Premium-diskar som är kopplade till den. Annars kommer program prestanda att drabbas av begränsning.
+*Skalbegränsningar*  
+De maximala IOPS-gränserna per virtuell dator och disk är olika och oberoende av varandra. Se till att programmet kör IOPS inom gränserna för den virtuella datorn samt de premiumdiskar som är kopplade till den. Annars uppstår begränsning av programprestanda.
 
-Anta till exempel att ett program krav är högst 4 000 IOPS. För att åstadkomma detta etablerar du en P30-disk på en DS1-VM. P30-disken kan leverera upp till 5 000 IOPS. Den virtuella DS1-datorn är dock begränsad till 3 200 IOPS. Det innebär att program prestandan begränsas av den virtuella datorns gräns vid 3 200 IOPS och att prestanda försämras. För att förhindra den här situationen väljer du en virtuell dator och disk storlek som båda uppfyller program kraven.
+Anta till exempel att ett programkrav är högst 4 000 IOPS. För att uppnå detta etablerar du en P30-disk på en DS1 VM. P30-disken kan leverera upp till 5 000 IOPS. DS1-datorn är dock begränsad till 3 200 IOPS. Följaktligen begränsas programprestanda av den virtuella datorns gräns på 3 200 IOPS och prestanda försämras. För att förhindra den här situationen väljer du en virtuell dator och diskstorlek som båda uppfyller programkraven.
 
-*Drifts kostnader*  
-I många fall är det möjligt att den totala kostnaden för åtgärden med Premium Storage är lägre än att använda standard lagring.
+*Kostnad för drift*  
+I många fall är det möjligt att din totala driftskostnad med Premium Storage är lägre än att använda standardlagring.
 
-Överväg till exempel ett program som kräver 16 000 IOPS. För att uppnå den här prestandan behöver du en standard\_D14 Azure IaaS VM, som kan ge en maximal IOPS på 16 000 med 32 standard lagring 1 TB diskar. Varje 1 – TB standard lagrings disk kan uppnå högst 500 IOPS. Den uppskattade kostnaden för den här virtuella datorn per månad blir $1 570. Månads kostnaden för 32 standard lagrings diskar är $1 638. Den uppskattade totala månads kostnaden blir $3 208.
+Tänk dig till exempel ett program som kräver 16 000 IOPS. För att uppnå den här\_prestandan behöver du en standard D14 Azure IaaS VM, som kan ge en maximal IOPS på 16 000 med 32 standardlagring 1 TB-diskar. Varje 1 TB standardlagringsdisk kan uppnå maximalt 500 IOPS. Den beräknade kostnaden för den här virtuella datorn per månad kommer att vara $1 570. Den månatliga kostnaden för 32 standard lagring diskar kommer att vara $ 1.638. Den beräknade totala månadskostnaden kommer att vara $ 3.208.
 
-Men om du har samma program på Premium Storage behöver du en mindre VM-storlek och färre Premium Storage-diskar, vilket minskar den totala kostnaden. En standard-\_DS13 VM kan uppfylla 16 000 IOPS-kravet med fyra P30-diskar. Den virtuella datorn DS13 har en maximal IOPS på 25 600 och varje P30-disk har maximalt IOPS på 5 000. Som helhet kan den här konfigurationen uppnå 5 000 x 4 = 20 000 IOPS. Den uppskattade kostnaden för den här virtuella datorn per månad blir $1 003. Månads kostnaden för fyra P30 Premium Storage-diskar är $544,34. Den uppskattade totala månads kostnaden blir $1 544.
+Men om du var värd för samma program på Premium Storage behöver du en mindre VM-storlek och färre premiumlagringsdiskar, vilket minskar den totala kostnaden. En\_virtuell standarddS13-dator kan uppfylla 16 000 IOPS-krav med fyra P30-diskar. DS13-datorn har en maximal IOPS på 25 600 och varje P30-disk har en maximal IOPS på 5 000. Totalt kan den här konfigurationen uppnå 5 000 x 4 = 20 000 IOPS. Den beräknade kostnaden för den här virtuella datorn per månad kommer att vara $1,003. Den månatliga kostnaden för fyra P30 premium lagring diskar kommer att vara $ 544,34. Den beräknade totala månadskostnaden kommer att vara $ 1.544.
 
-I tabellen nedan sammanfattas kostnads nedbrytningen för det här scenariot för standard och Premium Storage.
+Tabellen nedan sammanfattar kostnadsfördelningen för det här scenariot för standard- och Premium-lagring.
 
 | &nbsp; | **Standard** | **Premium** |
 | --- | --- | --- |
-| **Kostnad för virtuell dator per månad** |$1 570,58 (standard\_D14) |$1 003,66 (standard\_DS13) |
-| **Kostnad för diskar per månad** |$1 638,40 (32 x 1 – TB diskar) |$544,34 (4 x P30 diskar) |
-| **Total kostnad per månad** |$3,208.98 |$1,544.34 |
+| **Kostnad för virtuell dator per månad** |$1,570.58 (Standard\_D14) |$1,003.66 (Standard\_DS13) |
+| **Kostnad för diskar per månad** |$1,638.40 (32 x 1 TB diskar) |$544.34 (4 x P30 diskar) |
+| **Total kostnad per månad** |$3,208.98 |1 544,34 $34 |
 
 *Linux-distributioner*  
 
-Med Azure Premium Storage får du samma prestanda nivå för virtuella datorer som kör Windows och Linux. Vi har stöd för många varianter Linux-distributioner och du kan se den fullständiga listan [här](../articles/virtual-machines/linux/endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Det är viktigt att Observera att olika distributioner passar bättre för olika typer av arbets belastningar. Du kan se olika prestanda nivåer beroende på vilken distribution din arbets belastning körs på. Testa Linux-distributioner med ditt program och välj det som fungerar bäst.
+Med Azure Premium Storage får du samma prestandanivå för virtuella datorer som kör Windows och Linux. Vi stöder många smaker av Linux distributioner, och du kan se hela listan [här](../articles/virtual-machines/linux/endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Det är viktigt att notera att olika distributioner är bättre lämpade för olika typer av arbetsbelastningar. Du kommer att se olika prestandanivåer beroende på vilken arbetsbelastning som körs på. Testa Linux-distributioner med din ansökan och välj den som fungerar bäst.
 
-När du kör Linux med Premium Storage kontrollerar du de senaste uppdateringarna om nödvändiga driv rutiner för att garantera höga prestanda.
+När du kör Linux med Premium Storage kontrollerar du de senaste uppdateringarna om nödvändiga drivrutiner för att säkerställa hög prestanda.
 
-## <a name="premium-storage-disk-sizes"></a>Storlek på Premium Storage-diskar
+## <a name="premium-storage-disk-sizes"></a>Premium lagring diskstorlekar
 
-Azure Premium Storage erbjuder en mängd olika storlekar så att du kan välja en som passar dina behov bäst. Varje disk storlek har en annan skalnings gräns för IOPS, bandbredd och lagring. Välj rätt Premium Storage disk storlek beroende på program kraven och den virtuella datorns storlek för hög skalning. I tabellen nedan visas disk storlekar och deras funktioner. P4-, P6-, p15-, P60-, P70-och P80-storlekarna stöds för närvarande bara för Managed Disks.
+Azure Premium Storage erbjuder en mängd olika storlekar så att du kan välja en som bäst passar dina behov. Varje diskstorlek har en annan skalgräns för IOPS, bandbredd och lagring. Välj rätt Premium Storage Disk storlek beroende på applikationskrav och den storskaliga VM-storleken. Tabellen nedan visar diskstorlekar och deras kapacitet. P4-, P6-, P15-, P60-, P70- och P80-storlekarna stöds för närvarande endast för hanterade diskar.
 
 [!INCLUDE [disk-storage-premium-ssd-sizes](disk-storage-premium-ssd-sizes.md)]
 
-Hur många diskar du väljer beror på vilken disk storlek som valts. Du kan använda en enskild P50-disk eller flera P10-diskar för att uppfylla ditt program krav. Ta hänsyn till de överväganden som visas nedan när du gör valet.
+Hur många diskar du väljer beror på vilken diskstorlek du väljer. Du kan använda en enda P50-disk eller flera P10-diskar för att uppfylla dina programkrav. Ta hänsyn till de överväganden som anges nedan när du gör valet.
 
-*Skalnings gränser (IOPS och data flöde)*  
-IOPS-och data flödes gränserna för varje Premium disk-storlek är olika och oberoende av skalnings gränserna för virtuella datorer. Kontrol lera att total IOPS och data flöde från diskarna ligger inom skalnings gränserna för den valda virtuella dator storleken.
+*Skalningsgränser (IOPS och dataflöde)*  
+IOPS- och Dataflödesgränserna för varje Premium-diskstorlek skiljer sig från skalbegränsningarna för den virtuella datorn. Kontrollera att den totala IOPS och Dataflöde från diskarna är inom skalgränser för den valda VM-storleken.
 
-Om ett program krav till exempel är högst 250 MB/s genom strömning och du använder en virtuell DS4-dator med en enda P30-disk. Den virtuella datorn DS4 kan ge upp till 256 MB/s-genomflöde. En enda P30-disk har dock en gräns på 200 MB/SEK. Programmet kommer därför att begränsas med 200 MB/s på grund av disk gränsen. Du kan lösa den här gränsen genom att etablera fler än en data disk till den virtuella datorn eller ändra storlek på diskarna till P40 eller P50.
+Om ett programkrav till exempel är högst 250 MB/sek Dataflöde och du använder en DS4 VM med en enda P30-disk. DS4-datorn kan ge upp till 256 MB/sek Dataflöde. En enda P30-disk har dock dataflödesgränsen på 200 MB/sek. Följaktligen kommer programmet att begränsas till 200 MB/sek på grund av diskgränsen. För att övervinna den här gränsen, etablera mer än en datadiskar till den virtuella datorn eller ändra storlek på diskarna till P40 eller P50.
 
 > [!NOTE]
-> Läsningar som hanteras av cachen ingår inte i disk-IOPS och data flödet, och kan därför inte omfattas av disk gränser. Cachen har en separat IOPS och data flödes gräns per virtuell dator.
+> Läsningar som betjänas av cachen ingår inte i disken IOPS och Dataflöde, vilket inte omfattas av diskgränser. Cachen har sin separata IOPS- och Dataflödesgräns per virtuell dator.
 >
-> Till exempel är dina läsningar och skrivningar från början 60MB/SEK respektive 40MB/s. Med tiden kan cachen värma upp och bevarar mer av läsningarna från cachen. Sedan kan du få högre Skriv data flöde från disken.
+> Till exempel, inledningsvis dina läsningar och skrivningar är 60MB/sec och 40MB/sec respektive. Med tiden värms cachen upp och tjänar mer och mer av läsningarna från cachen. Sedan kan du få högre skrivdataflöde från disken.
 
 *Antal diskar*  
-Fastställ hur många diskar du behöver för att utvärdera program kraven. Varje VM-storlek har också en gräns för antalet diskar som du kan ansluta till den virtuella datorn. Vanligt vis är detta två gånger antalet kärnor. Se till att den virtuella dator storleken du väljer har stöd för antalet diskar som behövs.
+Bestäm hur många diskar du behöver genom att bedöma programkrav. Varje vm-storlek har också en gräns för antalet diskar som du kan koppla till den virtuella datorn. Vanligtvis är detta dubbelt så många kärnor. Kontrollera att den virtuella datorns storlek du väljer kan stödja antalet diskar som behövs.
 
-Kom ihåg att Premium Storage diskar har högre prestanda funktioner jämfört med standard lagrings diskar. Om du migrerar ditt program från den virtuella Azure IaaS-datorn med standard lagring till Premium Storage, behöver du förmodligen färre Premium diskar för att uppnå samma eller högre prestanda för ditt program.
+Kom ihåg att Premium Storage-diskarna har högre prestanda jämfört med standardlagringsdiskar. Om du migrerar ditt program från Azure IaaS VM med standardlagring till Premium Storage behöver du därför förmodligen färre premiumdiskar för att uppnå samma eller högre prestanda för ditt program.
 
 ## <a name="disk-caching"></a>Diskcachelagring
 
-Virtuella datorer med hög skalning som utnyttjar Azure Premium Storage har en teknik för cachelagring på flera nivåer som kallas BlobCache. BlobCache använder en kombination av den virtuella datorns RAM-minne och lokal SSD för cachelagring. Den här cachen är tillgänglig för Premium Storage beständiga diskar och lokala VM-diskar. Den här cache-inställningen är som standard inställd på läsa/skriva för OS-diskar och ReadOnly för data diskar som finns på Premium Storage. När diskcachelagring är aktiverat på Premium Storage diskar kan virtuella datorer med hög skala uppnå mycket höga prestanda nivåer som överstiger den underliggande disk prestandan.
+Virtuella datorer med hög skala som utnyttjar Azure Premium Storage har en cachelagringsteknik på flera nivåer som kallas BlobCache. BlobCache använder en kombination av RAM för virtuella datorer och lokala SSD för cachelagring. Den här cachen är tillgänglig för beständiga diskar för Premium Storage och de virtuella datorerna. Som standard är den här cacheinställningen inställd på Read/Write for OS-diskar och ReadOnly för datadiskar som finns på Premium Storage. Med diskcachening aktiverat på Premium Storage-diskarna kan de virtuella datorerna i hög skala uppnå extremt höga prestandanivåer som överstiger den underliggande diskens prestanda.
 
 > [!WARNING]
-> Diskcachelagring stöds inte för disk 4 TiB och större. Om flera diskar är anslutna till den virtuella datorn kommer varje disk som är mindre än 4 TiB att ha stöd för cachelagring.
+> Diskcachening stöds inte för diskar 4 TiB och större. Om flera diskar är anslutna till den virtuella datorn stöder varje disk som är mindre än 4 TiB cachelagring.
 >
-> När du ändrar cacheinställningen för en Azure-disk så frånkopplas och återansluts måldisken. Om det är operativ system disken startas den virtuella datorn om. Stoppa alla program/tjänster som kan påverkas av det här avbrottet innan du ändrar inställningen för diskcachelagring.
+> När du ändrar cacheinställningen för en Azure-disk så frånkopplas och återansluts måldisken. Om det är operativsystemdisken startas den virtuella datorn om. Stoppa alla program/tjänster som kan påverkas av det här avbrottet innan du ändrar inställningen för diskcachelagring.
 
-Mer information om hur BlobCache fungerar finns i blogg inlägget i [Azure Premium Storage](https://azure.microsoft.com/blog/azure-premium-storage-now-generally-available-2/) .
+Mer information om hur BlobCache fungerar finns i blogginlägget inside [Azure Premium Storage.](https://azure.microsoft.com/blog/azure-premium-storage-now-generally-available-2/)
 
-Det är viktigt att aktivera cache på rätt disk uppsättning. Huruvida du bör aktivera diskcachelagring på en Premium-disk eller inte beror på arbets belastnings mönstret som disken ska hantera. I tabellen nedan visas standardinställningarna för cache för OS-och data diskar.
+Det är viktigt att aktivera cache på rätt uppsättning diskar. Om du ska aktivera diskcachelagring på en premiumdisk eller inte beror på vilket arbetsbelastningsmönster som disken hanterar. Tabellen nedan visar standardcachen för os- och datadiskar.
 
-| **Disktyp** | **Standardinställning för cacheminne** |
+| **Disktyp** | **Standardweacheinställning** |
 | --- | --- |
 | OS-disk |ReadWrite |
 | Datadisk |ReadOnly |
 
-Följande är de rekommenderade diskens cacheinställningar för data diskar,
+Följande är de rekommenderade diskcacheinställningarna för datadiskar,
 
-| **Inställning av diskcachelagring** | **rekommendation när du ska använda den här inställningen** |
+| **Inställning för diskcachelagring** | **rekommendation om när du ska använda den här inställningen** |
 | --- | --- |
-| Inget |Konfigurera värd-cachen som ingen för skrivbara och skrivbara diskar. |
-| ReadOnly |Konfigurera Host-cache som skrivskyddat för skrivskyddade och Läs-och skriv diskar. |
-| ReadWrite |Konfigurera Host-cache enbart som ReadWrite om ditt program hanterar skrivningen av cachelagrade data korrekt till beständiga diskar vid behov. |
+| Inget |Konfigurera värdcache som Ingen för skriv-bara och skriv-tunga diskar. |
+| ReadOnly |Konfigurera värdcache som ReadOnly för skrivskyddade och skrivskyddade diskar. |
+| ReadWrite |Konfigurera värdcachen som ReadWrite endast om programmet hanterar skrivningsbaserade data till beständiga diskar när det behövs. |
 
 *ReadOnly*  
-Genom att konfigurera ReadOnly-cachelagring på Premium Storage data diskar kan du få låg Läs fördröjning och få mycket hög Läs-IOPS och data flöde för ditt program. Detta beror på två orsaker,
+Genom att konfigurera ReadOnly-cachelagring på Premium Storage-datadiskar kan du uppnå låg läsfördröjning och få mycket hög Läs IOPS och Dataflöde för ditt program. Detta beror på två skäl,
 
-1. Läsningar som utförs från cache, som finns på det virtuella dator minnet och lokal SSD, är mycket snabbare än läsningar från data disken, som finns i Azure Blob Storage.  
-1. Premium Storage räknar inte vilka läsningar som hanteras från cachen, mot diskens IOPS och data flöde. Därför kan ditt program uppnå högre total IOPS och data flöde.
+1. Läsningar som utförs från cacheminnet, som finns på VM-minnet och lokala SSD, är mycket snabbare än läsningar från datadisken, som finns på Azure blob-lagring.  
+1. Premium Storage räknar inte de läsningar som visas från cacheminnet, mot disken IOPS och Dataflöde. Därför kan ditt program uppnå högre totalt IOPS och Dataflöde.
 
 *ReadWrite*  
-Som standard har OS-diskar ReadWrite-cachelagring aktiverat. Vi har nyligen lagt till stöd för ReadWrite-cachelagring på data diskar även. Om du använder ReadWrite-cachelagring måste du ha ett korrekt sätt att skriva data från cache till beständiga diskar. SQL Server hanterar till exempel att skriva cachelagrade data till de beständiga lagrings diskarna. Att använda ReadWrite cache med ett program som inte hanterar beständiga data kan leda till data förlust, om den virtuella datorn kraschar.
+Som standard har OS-diskarna ReadWrite-cachelagring aktiverad. Vi har nyligen lagt till stöd för ReadWrite cachelagring på datadiskar också. Om du använder ReadWrite-cachelagring måste du ha ett korrekt sätt att skriva data från cache till beständiga diskar. SQL Server hanterar till exempel skrivning av cachelagrade data till de beständiga lagringsdiskarna på egen hand. Om du använder ReadWrite-cache med ett program som inte hanterar beständiga data som krävs kan data gå förlorade om den virtuella datorn kraschar.
 
-*Inga*  
-För närvarande stöds **ingen** på data diskar. Den stöds inte på OS-diskar. Om du anger **ingen** på en operativ system disk åsidosätts detta internt och anges som **skrivskyddad**.
+*Inget*  
+För närvarande stöds **Ingen** endast på datadiskar. Det stöds inte på OS-diskar. Om du ställer in **Ingen** på en OS-disk åsidosätts det internt och ställer in den på **ReadOnly**.
 
-Du kan till exempel använda dessa rikt linjer för att SQL Server som körs på Premium Storage genom att göra följande:
+Som ett exempel kan du tillämpa dessa riktlinjer på SQL Server som körs på Premium Storage genom att göra följande,
 
-1. Konfigurera "ReadOnly"-cache på Premium Storage-diskar som värd för data filer.  
-   a.  Snabb läsningarna från cachen sänker tiden för SQL Server fråga eftersom data sidor hämtas mycket snabbare från cachen jämfört med direkt från data diskarna.  
-   b.  Att betjäna läsningar från cache innebär att det finns ytterligare data flöde tillgängliga från Premium data diskar. SQL Server kan använda detta ytterligare data flöde för att hämta fler data sidor och andra åtgärder som säkerhets kopiering/återställning, batch-belastning och index återuppbyggnad.  
-1. Konfigurera cachen "inget" på Premium Storage-diskar som är värd för loggfilerna.  
-   a.  Loggfiler har främst Skriv åtgärder. Därför drar de inte ut den skrivskyddade cachen.
+1. Konfigurera "ReadOnly" cache på premium lagring diskar som är värd för datafiler.  
+   a.  Den snabba avläsningar från cachen sänker SQL Server-frågetiden eftersom datasidor hämtas mycket snabbare från cacheminnet jämfört med direkt från datadiskarna.  
+   b.  Servering läser från cache, innebär att det finns ytterligare dataflöde tillgänglig från premium datadiskar. SQL Server kan använda det här ytterligare dataflödet för att hämta fler datasidor och andra åtgärder som säkerhetskopiering/återställning, batchbelastningar och indexrekningar.  
+1. Konfigurera "Ingen" cache på premium lagring diskar som är värd för loggfiler.  
+   a.  Loggfiler har främst skrivtunga operationer. Därför drar de inte nytta av ReadOnly-cachen.
 
 ## <a name="optimize-performance-on-linux-vms"></a>Optimera prestanda på virtuella Linux-datorer
 
-För alla Premium-SSD eller Ultra disks med cache satt till **ReadOnly** eller **none**, måste du inaktivera "barriärer" när du monterar fil systemet. Du behöver inte hinder i det här scenariot eftersom skrivningarna till Premium Storage-diskar är varaktiga för dessa cacheinställningar. När Skriv förfrågan har slutförts har data skrivits till det beständiga arkivet. Om du vill inaktivera "barriärer" använder du någon av följande metoder. Välj ett för fil systemet:
+För alla premium-SSD-enheter eller ultradiskar med cache inställd på **ReadOnly** eller **Ingen**måste du inaktivera "hinder" när du monterar filsystemet. Du behöver inte hinder i det här scenariot eftersom skrivningarna till premiumlagringsdiskar är hållbara för dessa cacheinställningar. När skrivbegäran har slutförts har data skrivits till det beständiga arkivet. Om du vill inaktivera "hinder" använder du någon av följande metoder. Välj den för filsystemet:
   
-* Använd `barrier=none` Mount-alternativet för att inaktivera barriärer för **reiserFS**. (Använd `barrier=flush`om du vill aktivera hinder.)
-* För **EXT3/Ext4**, för att inaktivera barriärer, använder du alternativet `barrier=0` montering. (Använd `barrier=1`om du vill aktivera hinder.)
-* Använd `nobarrier` Mount-alternativet för att inaktivera barriärer för **xfs**. (Använd `barrier`om du vill aktivera hinder.)
-* För Premium Storage-diskar med cache set till **readwrite**aktiverar du hinder för Skriv hållbarhet.
-* För att volym etiketter ska vara kvar när du startar om den virtuella datorn måste du uppdatera/etc/fstab med UUID-referenser (Universally Unique Identifier) till diskarna. Mer information finns i [lägga till en hanterad disk till en virtuell Linux-dator](../articles/virtual-machines/linux/add-disk.md).
+* Använd monteringsalternativet `barrier=none` **för reiserFS.** (Om du vill `barrier=flush`aktivera hinder använder du .)
+* För **ext3/ext4**, för att `barrier=0` inaktivera hinder, använd monteringsalternativet. (Om du vill `barrier=1`aktivera hinder använder du .)
+* Använd monteringsalternativet `nobarrier` för **XFS.** (Om du vill `barrier`aktivera hinder använder du .)
+* För premiumlagringsdiskar med cache inställd på **ReadWrite**aktiverar du hinder för skrivhållbarhet.
+* För att volymetiketter ska finnas kvar efter att du har startat om den virtuella datorn måste du uppdatera /etc/fstab med UUID-referenserna (Universally Unique Identifier) till diskarna. Mer information finns i [Lägga till en hanterad disk till en Virtuell Linux.](../articles/virtual-machines/linux/add-disk.md)
 
-Följande Linux-distributioner har verifierats för Premium-SSD. För bättre prestanda och stabilitet med Premium-SSD rekommenderar vi att du uppgraderar dina virtuella datorer till någon av dessa versioner eller senare. 
+Följande Linux-distributioner har validerats för premium-SSD-enheter. För bättre prestanda och stabilitet med premium-SSD-enheter rekommenderar vi att du uppgraderar dina virtuella datorer till en av dessa versioner eller nyare. 
 
-Vissa av versionerna kräver de senaste Linux Integration Services (LIS), v 4.0, för Azure. Om du vill ladda ned och installera en distribution följer du länken som anges i följande tabell. Vi lägger till bilder i listan när vi har slutfört verifieringen. Våra valideringar visar att prestandan varierar för varje bild. Prestandan beror på arbets Belastningens egenskaper och dina avbildnings inställningar. Olika avbildningar är justerade för olika typer av arbets belastningar.
+Vissa versioner kräver de senaste Linux Integration Services (LIS), v4.0, för Azure. Om du vill hämta och installera en distribution följer du länken i följande tabell. Vi lägger till bilder i listan när vi slutför valideringen. Våra valideringar visar att prestanda varierar för varje bild. Prestanda beror på arbetsbelastningsegenskaper och dina bildinställningar. Olika bilder är inställda för olika typer av arbetsbelastningar.
 
-| Distribution | Version | Kernel som stöds | Information |
+| Distribution | Version | Kärna som stöds | Information |
 | --- | --- | --- | --- |
-| Ubuntu | 12,04 eller senare| 3.2.0-75.110+ | &nbsp; |
-| Ubuntu | 14,04 eller senare| 3.13.0-44.73+  | &nbsp; |
-| Debian | 7. x, 8. x eller senare| 3.16.7-ckt4-1 + | &nbsp; |
-| SUSE | SLES 12 eller senare| 3.12.36-38.1+ | &nbsp; |
-| SUSE | SLES 11 SP4 eller senare| 3.0.101-0.63.1+ | &nbsp; |
-| CoreOS | 584.0.0 + eller senare| 3.18.4+ | &nbsp; |
-| CentOS | 6,5, 6,6, 6,7, 7,0 eller senare| &nbsp; | [LIS4 krävs](https://www.microsoft.com/download/details.aspx?id=55106) <br> *Se Obs! i nästa avsnitt* |
-| CentOS | 7.1 + eller senare| 3.10.0-229.1.2. el7 + | [LIS4 rekommenderas](https://www.microsoft.com/download/details.aspx?id=55106) <br> *Se Obs! i nästa avsnitt* |
-| Red Hat Enterprise Linux (RHEL) | 6,8 +, 7.2 + eller senare | &nbsp; | &nbsp; |
-| Oracle | 6.0 +, 7.2 + eller senare | &nbsp; | UEK4 eller RHCK |
-| Oracle | 7.0 – 7.1 eller senare | &nbsp; | UEK4 eller RHCK med[LIS4](https://www.microsoft.com/download/details.aspx?id=55106) |
-| Oracle | 6.4-6,7 eller senare | &nbsp; | UEK4 eller RHCK med[LIS4](https://www.microsoft.com/download/details.aspx?id=55106) |
+| Ubuntu | 12.04 eller nyare| 3.2.0-75.110+ | &nbsp; |
+| Ubuntu | 14.04 eller nyare| 3.13.0-44.73+  | &nbsp; |
+| Debian | 7.x, 8.x eller nyare| 3.16.7-ckt4-1+ | &nbsp; |
+| SUSE | SLES 12 eller nyare| 3.12.36-38.1+ | &nbsp; |
+| SUSE | SLES 11 SP4 eller nyare| 3.0.101-0.63.1+ | &nbsp; |
+| CoreOS | 584.0.0+ eller nyare| 3.18.4+ | &nbsp; |
+| CentOS | 6.5, 6.6, 6.7, 7.0 eller nyare| &nbsp; | [LIS4 krävs](https://www.microsoft.com/download/details.aspx?id=55106) <br> *Se anteckning i nästa avsnitt* |
+| CentOS | 7.1+ eller nyare| 3.10.0-229.1.2.el7+ | [LIS4 rekommenderas](https://www.microsoft.com/download/details.aspx?id=55106) <br> *Se anteckning i nästa avsnitt* |
+| Red Hat Enterprise Linux (RHEL) | 6,8+, 7,2+, eller nyare | &nbsp; | &nbsp; |
+| Oracle | 6,0+, 7,2+, eller nyare | &nbsp; | UEK4 eller RHCK |
+| Oracle | 7.0-7.1 eller nyare | &nbsp; | UEK4 eller RHCK med[LIS4](https://www.microsoft.com/download/details.aspx?id=55106) |
+| Oracle | 6.4-6.7 eller nyare | &nbsp; | UEK4 eller RHCK med[LIS4](https://www.microsoft.com/download/details.aspx?id=55106) |
 
-### <a name="lis-drivers-for-openlogic-centos"></a>LIS-drivrutiner för OpenLogic-CentOS
+### <a name="lis-drivers-for-openlogic-centos"></a>LIS-drivrutiner för OpenLogic CentOS
 
-Om du kör OpenLogic CentOS-virtuella datorer kör du följande kommando för att installera de senaste driv rutinerna:
+Om du kör virtuella öppna centos-datorer kör du följande kommando för att installera de senaste drivrutinerna:
 
 ```
 sudo yum remove hypervkvpd  ## (Might return an error if not installed. That's OK.)
@@ -315,72 +315,72 @@ sudo yum install microsoft-hyper-v
 sudo reboot
 ```
 
-I vissa fall kommer kommandot ovan även att uppgradera kerneln. Om en kernel-uppdatering krävs kan du behöva köra kommandona ovan igen efter omstart för att installera Microsoft-Hyper-v-paketet fullständigt.
+I vissa fall kommandot ovan kommer att uppgradera kärnan också. Om en kernel-uppdatering krävs kan du behöva köra ovanstående kommandon igen efter omstart för att helt installera microsoft-hyper-v-paketet.
 
 
-## <a name="disk-striping"></a>Disk randning
+## <a name="disk-striping"></a>Diskremsning
 
-När en virtuell dator med hög skalning är kopplad till flera beständiga diskar för Premium Storage kan diskarna slås samman för att aggregera deras IOPs-, bandbredds-och lagrings kapacitet.
+När en virtuell dator med hög skala är ansluten med flera beständiga premiumlagringsdiskar kan diskarna skalas bort för att aggregera sina IOPs, bandbredd och lagringskapacitet.
 
-I Windows kan du använda lagrings utrymmen för att Stripa diskar tillsammans. Du måste konfigurera en kolumn för varje disk i en pool. Annars kan den övergripande prestandan för stripe-volymer vara lägre än förväntat, på grund av ojämn fördelning av trafik över diskarna.
+I Windows kan du använda lagringsutrymmen för att ta med diskar. Du måste konfigurera en kolumn för varje disk i en pool. Annars kan den totala prestandan för stripe-volym vara lägre än förväntat, på grund av ojämn fördelning av trafik över diskarna.
 
-Viktigt: med Serverhanteraren användar gränssnitt kan du ange det totala antalet kolumner upp till 8 för en stripe-volym. När du ansluter fler än åtta diskar använder du PowerShell för att skapa volymen. Med hjälp av PowerShell kan du ange antalet kolumner som motsvarar antalet diskar. Till exempel, om det finns 16 diskar i en enda stripe-uppsättning. Ange 16 kolumner i parametern *NumberOfColumns* för PowerShell-cmdleten *New-VirtualDisk* .
+Viktigt: Med hjälp av Serverhanterarens användargränssnitt kan du ange det totala antalet kolumner upp till 8 för en stripe-volym. När du ansluter fler än åtta diskar använder du PowerShell för att skapa volymen. Med PowerShell kan du ange antalet kolumner som är lika med antalet diskar. Om det till exempel finns 16 diskar i en enda randuppsättning. ange 16 kolumner i parametern *NumberOfColumns* i cmdleten *New-VirtualDisk* PowerShell.
 
-I Linux använder du MDADM-verktyget för att Stripa diskar tillsammans. Detaljerade anvisningar om hur du tar bort diskar i Linux, se [Konfigurera programvaru-RAID på Linux](../articles/virtual-machines/linux/configure-raid.md).
+På Linux använder du MDADM-verktyget för att stripe-diskar tillsammans. Detaljerade steg på striping diskar på Linux hänvisa till [Konfigurera Software RAID på Linux](../articles/virtual-machines/linux/configure-raid.md).
 
-*Rand storlek*  
-En viktig konfiguration i disk ränder är stripe-storleken. Stripe-storlek eller block storlek är det minsta data segmentet som programmet kan adressera på en stripe-volym. Stripe-storleken som du konfigurerar beror på typen av program och dess fråge mönster. Om du väljer fel rand storlek kan det leda till i/o-fel i i/o, vilket leder till försämrade prestanda för ditt program.
+*Randstorlek*  
+En viktig konfiguration i disk striping är randstorleken. Stripe-storleken eller blockstorleken är den minsta bit av data som programmet kan adressera på en stripe-volym. Vilken stripe-storlek du konfigurerar beror på vilken typ av program och dess begäranmönster. Om du väljer fel randstorlek kan det leda till IO-feljustering, vilket leder till försämrad prestanda för ditt program.
 
-Om t. ex. en IO-begäran som genererats av ditt program är större än storleken på disk stripe skriver lagrings systemet det över stripe-enhetens gränser på mer än en disk. När det är dags att komma åt dessa data måste de söka i fler än en rand enhet för att slutföra begäran. Den kumulativa påverkan av sådant beteende kan leda till avsevärd prestanda försämring. Å andra sidan, om storleken på IO-begärandena är mindre än stripe-storlek, och om den är slumpmässig i natur, kan IO-begärandena lägga till upp på samma disk som orsakar en Flask hals och i slut ändan försämra IO-prestandan.
+Om till exempel en I/o-begäran som genereras av ditt program är större än diskränderns storlek, skriver lagringssystemet det över stripe-enhetsgränser på mer än en disk. När det är dags att komma åt dessa data måste den söka över mer än en stripe-enheter för att slutföra begäran. Den kumulativa effekten av ett sådant beteende kan leda till betydande prestandaförsämring. Å andra sidan, om IO-begärandens storlek är mindre än randstorleken, och om den är slumpmässig till sin natur, kan IO-begäranden lägga upp på samma disk som orsakar en flaskhals och slutligen försämrar IO-prestanda.
 
-Välj en lämplig rand storlek beroende på vilken typ av arbets belastning ditt program körs på. Använd en mindre rand storlek för slumpmässiga små IO-begäranden. För stora sekventiella IO-begäranden används en större rand storlek. Ta reda på rand storleks rekommendationerna för det program som du kommer att köra på Premium Storage. För SQL Server konfigurerar du stripe-storlek på 64 KB för OLTP-arbetsbelastningar och 256 KB för arbets belastningar för data lager. Mer information finns i [metod tips för prestanda för SQL Server på virtuella Azure-datorer](../articles/virtual-machines/windows/sql/virtual-machines-windows-sql-performance.md#disks-guidance) .
+Beroende på vilken typ av arbetsbelastning ditt program körs väljer du en lämplig randstorlek. För slumpmässiga små IO-begäranden använder du en mindre randstorlek. Medan för stora sekventiella IO-begäranden använder en större randstorlek. Ta reda på rekommendationerna för randstorlek för programmet som du kommer att köra på Premium Storage. För SQL Server konfigurerar du stripe-storlek på 64 kB för OLTP-arbetsbelastningar och 256 KB för datalagringsarbetsbelastningar. Läs [metodtips för prestanda för SQL Server på virtuella Azure-datorer](../articles/virtual-machines/windows/sql/virtual-machines-windows-sql-performance.md#disks-guidance) om du vill veta mer.
 
 > [!NOTE]
-> Du kan ta bort högst 32 Premium Storage-diskar på en VM för VM-serien och 64 Premium Storage-diskar på en virtuell GS-serien.
+> Du kan ta fram högst 32 premiumlagringsdiskar på en VIRTUELLD DS-serie och 64 premiumlagringsdiskar på en virtuell dator i GS-serien.
 
-## <a name="multi-threading"></a>Multi-threading
+## <a name="multi-threading"></a>Flertrådning
 
-Azure har utformat Premium Storage plattform för att vara massivt parallell. Ett program med flera trådar uppnår därför mycket högre prestanda än ett enda trådat program. Ett program med flera trådar delar upp sina aktiviteter över flera trådar och ökar effektiviteten i körningen genom att använda den virtuella datorns och disk resurserna till max.
+Azure har utformat Premium Storage-plattformen för att vara enormt parallell. Därför uppnår ett flertrådat program mycket högre prestanda än ett entrådigt program. Ett flertrådat program delar upp sina uppgifter över flera trådar och ökar effektiviteten i körningen genom att använda den virtuella datorn och diskresurserna maximalt.
 
-Om ditt program till exempel körs på en enskild kärn virtuell dator med två trådar, kan Processorn växla mellan de två trådarna för att uppnå effektiviteten. Även om en tråd väntar på att en disk i/o ska slutföras, kan CPU: n växla till den andra tråden. På så sätt kan två trådar utföra mer än en enskild tråd. Om den virtuella datorn har mer än en kärna minskar den ytterligare körnings tiden eftersom varje kärna kan köra aktiviteter parallellt.
+Om ditt program till exempel körs på en enda virtuell kärna med två trådar kan processorn växla mellan de två trådarna för att uppnå effektivitet. Medan en tråd väntar på en disk IO för att slutföra, kan processorn växla till den andra tråden. På detta sätt kan två trådar åstadkomma mer än en enda tråd skulle. Om den virtuella datorn har mer än en kärna minskar den drifttiden ytterligare eftersom varje kärna kan utföra aktiviteter parallellt.
 
-Du kanske inte kan ändra hur ett program utanför hyllan implementerar enkel trådning eller flera trådar. SQL Server kan till exempel hantera multi-CPU och flera kärnor. SQL Server bestämmer dock under vilka omständigheter som ska utnyttja en eller flera trådar för att bearbeta en fråga. Den kan köra frågor och skapa index med flera trådar. För en fråga som involverar koppling av stora tabeller och sortering av data innan användaren återgår till användaren, kommer SQL Server förmodligen att använda flera trådar. En användare kan dock inte styra om SQL Server kör en fråga med hjälp av en enda tråd eller flera trådar.
+Du kanske inte kan ändra hur ett off-the-shelf program implementerar enstaka tråd eller flertrådning. SQL Server kan till exempel hantera flera processorer och flera kärnor. SQL Server bestämmer dock under vilka förhållanden det kommer att utnyttja en eller flera trådar för att bearbeta en fråga. Den kan köra frågor och skapa index med flera trådar. För en fråga som innebär att ansluta stora tabeller och sortera data innan de återvänder till användaren, kommer SQL Server använder sannolikt flera trådar. En användare kan dock inte styra om SQL Server kör en fråga med en enda tråd eller flera trådar.
 
-Det finns konfigurations inställningar som du kan ändra för att påverka den här multi-threading-eller parallell bearbetningen av ett program. Om SQL Server till exempel den högsta graden av Parallel-konfiguration. Den här inställningen kallas MAXDOP, som gör att du kan konfigurera det maximala antalet processorer SQL Server kan använda vid parallell bearbetning. Du kan konfigurera MAXDOP för enskilda frågor eller index åtgärder. Detta är fördelaktigt när du vill balansera resurser i systemet för ett kritiskt prestanda program.
+Det finns konfigurationsinställningar som du kan ändra för att påverka den här flertråds- eller parallellbearbetningen av ett program. Till exempel, i fallet med SQL Server är det den maximala graden av parallellism konfiguration. Med den här inställningen MAXDOP kan du konfigurera det maximala antalet processorer som SQL Server kan använda vid parallell bearbetning. Du kan konfigurera MAXDOP för enskilda frågor eller indexåtgärder. Detta är fördelaktigt när du vill balansera resurser i ditt system för ett prestandakritiskt program.
 
-Anta till exempel att ditt program använder SQL Server köra en stor fråga och en index åtgärd på samma tid. Låt oss anta att du vill att index åtgärden ska vara mer utförd jämfört med den stora frågan. I sådana fall kan du ange MAXDOP-värdet för index åtgärden som är högre än MAXDOP-värdet för frågan. På så sätt har SQL Server fler processorer som kan utnyttjas för index åtgärden jämfört med antalet processorer som det kan tilldela till den stora frågan. Kom ihåg att du inte styr antalet trådar som SQL Server används för varje åtgärd. Du kan kontrol lera hur många processorer som är dedikerade för flera trådar.
+Anta till exempel att ditt program som använder SQL Server kör en stor fråga och en indexåtgärd samtidigt. Låt oss anta att du ville att indexåtgärden skulle vara mer högpresterande jämfört med den stora frågan. I så fall kan du ange att MAXDOP-värdet för indexåtgärden ska vara högre än MAXDOP-värdet för frågan. På så sätt har SQL Server fler processorer som den kan utnyttja för indexåtgärden jämfört med antalet processorer som den kan avsätta till den stora frågan. Kom ihåg att du inte styr antalet trådar som SQL Server ska använda för varje åtgärd. Du kan styra det maximala antalet processorer som dedikeras för flertrådsteknik.
 
-Lär dig mer om [grader av parallellitet](https://technet.microsoft.com/library/ms188611.aspx) i SQL Server. Ta reda på sådana inställningar som påverkar flera trådar i ditt program och deras konfigurationer för att optimera prestanda.
+Läs mer om [Grader av parallellism](https://technet.microsoft.com/library/ms188611.aspx) i SQL Server. Ta reda på sådana inställningar som påverkar flertrådning i ditt program och deras konfigurationer för att optimera prestanda.
 
 ## <a name="queue-depth"></a>Ködjup
 
-Ködjup eller köns längd eller kös Tor lek är antalet väntande IO-begäranden i systemet. Värdet för Queue-djupet avgör hur många IO-åtgärder som programmet kan hantera, vilket innebär att lagrings diskarna bearbetas. Det påverkar alla de tre program prestanda indikatorer som vi beskrivit i den här artikeln, nämligen, IOPS, data flöde och svars tid.
+Ködjupet eller kölängden eller köstorleken är antalet väntande I/O-begäranden i systemet. Värdet för ködjupet avgör hur många I/O-åtgärder som ditt program kan rada upp, vilka lagringsdiskarna ska bearbeta. Det påverkar alla tre programprestandaindikatorer som vi diskuterade i den här artikeln dvs.
 
-Ködjup och multi-threading är nära relaterade. Värdet för ködjup anger hur mycket flera trådar som kan uppnås av programmet. Om ködjup är stort kan programmet köra fler åtgärder samtidigt, med andra ord, mer multi-threading. Om ködjup är litet, även om programmet är flertrådadt, så har det inte tillräckligt många begär Anden för samtidig körning.
+Ködjup och flertrådning är nära besläktade. Värdet Ködjup anger hur mycket flertrådning som kan uppnås av programmet. Om ködjupet är stort kan programmet köra fler åtgärder samtidigt, med andra ord mer flertrådsteknik. Om ködjupet är litet, även om programmet är flertrådat, har det inte tillräckligt många begäranden uppradade för samtidig körning.
 
-Du kan vanligt vis inte ändra ködjup på grund av hylletiketter, eftersom om inställningen är felaktig blir det svårare än så. Programmet kommer att ange rätt värde för ködjup för att få optimala prestanda. Det är dock viktigt att förstå det här konceptet så att du kan felsöka prestanda problem med programmet. Du kan också titta på effekterna av ködjup genom att köra benchmarking-verktyg på systemet.
+Vanligtvis kan du inte ändra ködjupet från hyllan, för om det anges felaktigt kommer det att göra mer skada än nytta. Program ställer in rätt värde för ködjup för att få optimal prestanda. Det är dock viktigt att förstå det här konceptet så att du kan felsöka prestandaproblem med ditt program. Du kan också observera effekterna av ködjup genom att köra benchmarkingverktyg på ditt system.
 
-Vissa program tillhandahåller inställningar för att påverka köns djupet. Till exempel inställningen MAXDOP (maximal grad av parallellitet) i SQL Server förklaras i föregående avsnitt. MAXDOP är ett sätt att påverka ködjup och multi-threading, även om det inte direkt ändrar värdet för ködjup för SQL Server.
+Vissa program innehåller inställningar för att påverka ködjupet. Till exempel maxdop -inställningen (maximal parallellitet) i SQL Server förklaras i föregående avsnitt. MAXDOP är ett sätt att påverka ködjup och flertrådning, även om det inte direkt ändrar värdet för ködjup för SQL Server.
 
 *Högt ködjup*  
-Ett högt ködjup raderar fler åtgärder på disken. Disken känner igen nästa förfrågan i kön i förväg. Det innebär att disken kan schemalägga åtgärder i förväg och bearbeta dem i en optimal sekvens. Eftersom programmet skickar fler begär anden till disken kan disken bearbeta mer Parallel IOs. Slutligen kommer programmet att kunna uppnå högre IOPS. Eftersom programmet bearbetar fler förfrågningar ökar även det totala data flödet för programmet.
+Ett högt ködjup ställer upp fler åtgärder på disken. Disken känner till nästa begäran i kön i förväg. Därför kan disken schemalägga åtgärder i förväg och bearbeta dem i en optimal sekvens. Eftersom programmet skickar fler begäranden till disken kan disken bearbeta mer parallella IOs. I slutändan kommer programmet att kunna uppnå högre IOPS. Eftersom programmet bearbetar fler begäranden ökar även programmets totala dataflöde.
 
-Ett program kan normalt uppnå maximalt data flöde med 8-16 + utestående IOs per ansluten disk. Om ett ködjup är ett, skickar programmet inte tillräckligt med IOs till systemet, och det bearbetar mindre mängd under en viss period. Med andra ord, mindre data flöde.
+Vanligtvis kan ett program uppnå maximalt dataflöde med 8-16 + utestående IOs per ansluten disk. Om ett ködjup är ett, är programmet inte driver tillräckligt IOs till systemet, och det kommer att bearbeta mindre mängd under en viss period. Med andra ord, mindre genomströmning.
 
-Till exempel, i SQL Server, ställer in MAXDOP-värdet för en fråga på "4" informerar SQL Server att den kan använda upp till fyra kärnor för att köra frågan. SQL Server avgör vad som är det bästa värdet för ködjup och antalet kärnor för frågekörningen.
+I SQL Server informerar du SQL Server om du till exempel anger MAXDOP-värdet för en fråga till "4" sql server om att den kan använda upp till fyra kärnor för att köra frågan. SQL Server avgör vad som är bäst ködjupsvärde och antalet kärnor för frågekörningen.
 
 *Optimalt ködjup*  
-Mycket högt värde för ködjup har också sina nack delar. Om värdet för ködjup är för högt försöker programmet att köra mycket höga IOPS. Om inte programmet har permanenta diskar med tillräckligt etablerade IOPS kan detta påverka program fördröjningar negativt. Följande formel visar relationen mellan IOPS, svars tid och ködjup.  
+Mycket högt ködjupsvärde har också sina nackdelar. Om ködjupsvärdet är för högt försöker programmet köra mycket hög IOPS. Om inte programmet har beständiga diskar med tillräcklig etablerad IOPS kan detta påverka programdämnaderna negativt. Följande formel visar relationen mellan IOPS, svarstid och ködjup.  
     ![](media/premium-storage-performance/image6.png)
 
-Du bör inte konfigurera ködjup till något högt värde, men till ett optimalt värde som kan leverera tillräckligt med IOPS för programmet utan att påverka fördröjning. Om programmets fördröjning till exempel måste vara 1 millisekund måste det ködjup som krävs för att uppnå 5 000 IOPS vara KÖDJUP = 5000 x 0,001 = 5.
+Du bör inte konfigurera ködjup till något högt värde, men till ett optimalt värde, som kan leverera tillräckligt med IOPS för programmet utan att påverka svarstider. Om till exempel programfördröjningen måste vara 1 millisekund är ködjupet som krävs för att uppnå 5 000 IOPS, QD = 5000 x 0,001 = 5.
 
-*Ködjup för stripe-volym*  
-För en stripe-volym upprätthåller du ett högt tillräckligt ködjup så att varje disk har ett djup ködjup individuellt. Överväg till exempel ett program som pushar ett ködjup på 2 och det finns fyra diskar i stripen. De två IO-begärandena skickas till två diskar och återstående två diskar är inaktiva. Konfigurera därför köns djupet så att alla diskar kan vara upptagna. I formeln nedan visas hur du fastställer ködjup för stripe-volymer.  
+*Ködjup för randig volym*  
+För en stripe-volym, upprätthålla ett tillräckligt högt ködjup så att varje disk har ett toppködjup individuellt. Tänk dig till exempel ett program som skickar ett ködjup på 2 och det finns fyra diskar i randen. De två IO-begäranden går till två diskar och återstående två diskar kommer att vara inaktiva. Konfigurera därför ködjupet så att alla diskar kan vara upptagna. Formel nedan visar hur du bestämmer ködjupet för randiga volymer.  
     ![](media/premium-storage-performance/image7.png)
 
 ## <a name="throttling"></a>Begränsning
 
-Azure Premium Storage etablerar det angivna antalet IOPS och data flöden beroende på vilka VM-storlekar och disk storlekar du väljer. När ditt program försöker köra IOPS eller data flödet ovanför de här gränserna för vad den virtuella datorn eller disken kan hantera, kommer Premium Storage att reglera den. Detta manifest i form av försämrade prestanda i ditt program. Detta kan betyda högre latens, lägre data flöde eller lägre IOPS. Om Premium Storage inte begränsas kan programmet bli helt misslyckat genom att överskrida vad dess resurser kan uppnå. För att undvika prestanda problem på grund av begränsning, ska du alltid tillhandahålla tillräckligt med resurser för ditt program. Ta hänsyn till vad vi har diskuterat i avsnitten VM-storlekar och disk storlekar ovan. Benchmarking är det bästa sättet att ta reda på vilka resurser du behöver för att vara värd för ditt program.
+Azure Premium Storage-avsättningar anges antalet IOPS och Dataflöde beroende på den virtuella datorns storlekar och diskstorlekar du väljer. När ditt program försöker köra IOPS eller Dataflöde över dessa gränser för vad den virtuella datorn eller disken kan hantera, kommer Premium Storage att begränsa den. Detta manifesteras i form av försämrad prestanda i ditt program. Detta kan innebära högre svarstid, lägre dataflöde eller lägre IOPS. Om Premium Storage inte begränsar sig kan ditt program misslyckas helt genom att överskrida vad dess resurser kan uppnå. Så, för att undvika prestandaproblem på grund av begränsning, alltid etablera tillräckliga resurser för ditt program. Ta hänsyn till vad vi diskuterade i avsnitten VM-storlekar och diskstorlekar ovan. Benchmarking är det bästa sättet att ta reda på vilka resurser du behöver för att vara värd för ditt program.
 
 ## <a name="next-steps"></a>Nästa steg

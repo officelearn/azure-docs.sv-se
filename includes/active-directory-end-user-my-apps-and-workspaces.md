@@ -9,13 +9,13 @@ ms.date: 09/10/2019
 ms.author: lizross
 ms.custom: include file
 ms.openlocfilehash: f2e76229673033ab001c5499739090a7c435ef8a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "75468953"
 ---
 | |
 |--|
-|Om din administratör har aktiverat den nya för hands versionen av **Mina appar** för din organisation visas nu en banderoll överst på sidan **Mina appar** där det står att det finns **en uppdaterad mina program miljö**. Om du väljer **testa**kan du omedelbart gå till den nya URL: en (myapplications.Microsoft.com) och den uppdaterade upplevelsen. När du har gått tillbaka till sidan **Mina appar** kommer du automatiskt till den nya upplevelsen.<br><br>Om du vill sluta använda den nya upplevelsen kan du välja **Ja** från rutan **lämna nya upplevelser** överst på sidan nya **Mina appar** . Du återgår omedelbart till den gamla URL: en (myapps.microsoft.com) och erfarenhet. När du har gått tillbaka till sidan **Mina appar** kommer du automatiskt till den gamla upplevelsen.|
+|Om administratören har aktiverat den nya förhandsgranskningsupplevelsen för **Mina appar** för din organisation visas nu en banderoll högst upp på sidan **Mina appar** med texten , En uppdaterad upplevelse för Mina program **är tillgänglig**. Om du väljer **Prova det**kommer du omedelbart till den nya webbadressen (myapplications.microsoft.com) och den uppdaterade upplevelsen. Därefter går du automatiskt till den nya upplevelsen varje gång du går tillbaka till sidan **Mina appar.**<br><br>Om du vill sluta använda den nya upplevelsen kan du välja **Ja** på banderollen **Lämna ny upplevelse** högst upp på den nya sidan Mina **appar.** Du kommer omedelbart tillbaka till den gamla webbadressen (myapps.microsoft.com) och erfarenhet. Därefter går du automatiskt till den gamla upplevelsen varje gång du går tillbaka till sidan **Mina appar.**|
 |

@@ -1,6 +1,6 @@
 ---
-title: Migrera till Azure Resource Manager verktyg för HDInsight
-description: Så här migrerar du till Azure Resource Manager utvecklingsverktyg för HDInsight-kluster
+title: Migrera till Azure Resource Manager-verktyg för HDInsight
+description: Migrera till utvecklingsverktyg för Azure Resource Manager för HDInsight-kluster
 ms.reviewer: jasonh
 author: hrasheed-msft
 ms.service: hdinsight
@@ -9,140 +9,140 @@ ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: hrasheed
 ms.openlocfilehash: 76eb3a135f7a32a30cfa62546a644bc77cf39998
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/14/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75934592"
 ---
 # <a name="migrating-to-azure-resource-manager-based-development-tools-for-hdinsight-clusters"></a>Migrera till Azure Resource Manager-baserade utvecklingsverktyg för HDInsight-kluster
 
-HDInsight är inaktuellt Azure Service Manager-baserade (ASM) verktyg för HDInsight. Om du har använt Azure PowerShell, Azure klassisk CLI eller HDInsight .NET SDK för att arbeta med HDInsight-kluster, rekommenderar vi att du använder Azure Resource Manager versioner av PowerShell, CLI och .NET SDK. Den här artikeln innehåller länkar till hur du migrerar till den nya Resource Manager-baserade metoden. I tillämpliga fall visar det här dokumentet skillnaderna mellan ASM-och Resource Manager-metoderna för HDInsight.
+HDInsight är inaktuella Azure Service Manager (ASM)-baserade verktyg för HDInsight. Om du har använt Azure PowerShell, Azure Classic CLI eller HDInsight .NET SDK för att arbeta med HDInsight-kluster, uppmanas du att använda Azure Resource Manager-versionerna av PowerShell, CLI och .NET SDK framöver. Den här artikeln innehåller tips om hur du migrerar till den nya resurshanteraren-baserade metoden. I det här dokumentet belyser det här dokumentet skillnaderna mellan ASM- och Resource Manager-metoderna för HDInsight.
 
 > [!IMPORTANT]  
-> Stödet för ASM-baserade PowerShell-, CLI-och .NET SDK upphör att fungera den **1 januari 2017**.
+> Stödet för ASM-baserade PowerShell, CLI och .NET SDK upphör den **1 januari 2017**.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="migrating-azure-classic-cli-to-azure-resource-manager"></a>Migrera Azure klassisk CLI till Azure Resource Manager
+## <a name="migrating-azure-classic-cli-to-azure-resource-manager"></a>Migrera Azure Classic CLI till Azure Resource Manager
 
 > [!IMPORTANT]  
-> Azure CLI ger inte stöd för att arbeta med HDInsight-kluster. Du kan fortfarande använda den klassiska Azure-CLI: en med HDInsight, men Azures klassiska CLI är föråldrad.
+> Azure CLI ger inte stöd för att arbeta med HDInsight-kluster. Du kan fortfarande använda Azure Classic CLI med HDInsight, men Azure Classic CLI är inaktuellt.
 
-Följande är de grundläggande kommandona för att arbeta med HDInsight via den klassiska Azure-CLI:
+Följande är de grundläggande kommandona för att arbeta med HDInsight via Azure CLassic CLI:
 
-* `azure hdinsight cluster create` – skapar ett nytt HDInsight-kluster
-* `azure hdinsight cluster delete`-tar bort ett befintligt HDInsight-kluster
-* `azure hdinsight cluster show` – Visa information om ett befintligt kluster
-* `azure hdinsight cluster list` – visar HDInsight-kluster för din Azure-prenumeration
+* `azure hdinsight cluster create`- skapar ett nytt HDInsight-kluster
+* `azure hdinsight cluster delete`- tar bort ett befintligt HDInsight-kluster
+* `azure hdinsight cluster show`- visa information om ett befintligt kluster
+* `azure hdinsight cluster list`- listar HDInsight-kluster för din Azure-prenumeration
 
-Använd växeln `-h` för att kontrol lera de parametrar och växlar som är tillgängliga för varje kommando.
+Använd `-h` växeln för att granska parametrar och växlar tillgängliga för varje kommando.
 
 ### <a name="new-commands"></a>Nya kommandon
 Nya kommandon som är tillgängliga med Azure Resource Manager är:
 
-* `azure hdinsight cluster resize`-ändrar antalet arbets noder dynamiskt i klustret
-* `azure hdinsight cluster enable-http-access` – aktiverar HTTPs-åtkomst till klustret (aktiverat som standard)
-* `azure hdinsight cluster disable-http-access`-inaktiverar HTTPs-åtkomst till klustret
-* `azure hdinsight script-action`-tillhandahåller kommandon för att skapa/hantera skript åtgärder i ett kluster
-* `azure hdinsight config` – innehåller kommandon för att skapa en konfigurations fil som kan användas med kommandot `hdinsight cluster create` för att tillhandahålla konfigurations information.
+* `azure hdinsight cluster resize`- dynamiskt ändrar antalet arbetsnoder i klustret
+* `azure hdinsight cluster enable-http-access`- ger HTTPs åtkomst till klustret (på som standard)
+* `azure hdinsight cluster disable-http-access`- inaktiverar HTTPs-åtkomst till klustret
+* `azure hdinsight script-action`- ger kommandon för att skapa/hantera skriptåtgärder i ett kluster
+* `azure hdinsight config`- ger kommandon för att skapa en konfigurationsfil som kan användas med `hdinsight cluster create` kommandot för att tillhandahålla konfigurationsinformation.
 
-### <a name="deprecated-commands"></a>Föråldrade kommandon
-Om du använder `azure hdinsight job` kommandon för att skicka jobb till ditt HDInsight-kluster är de här kommandona inte tillgängliga via Resource Manager-kommandona. Om du behöver skicka jobb program mässigt till HDInsight från skript bör du i stället använda de REST-API: er som tillhandahålls av HDInsight. Mer information om hur du skickar jobb med hjälp av REST API: er finns i följande dokument.
+### <a name="deprecated-commands"></a>Inaktuella kommandon
+Om du `azure hdinsight job` använder kommandona för att skicka jobb till HDInsight-klustret är dessa kommandon inte tillgängliga via Resource Manager-kommandona. Om du behöver programmatiskt skicka jobb till HDInsight från skript, bör du istället använda REST API: er som tillhandahålls av HDInsight. Mer information om hur du skickar jobb med REST-API:er finns i följande dokument.
 
-* [Köra MapReduce-jobb med Hadoop på HDInsight med hjälp av sväng](hadoop/apache-hadoop-use-mapreduce-curl.md)
-* [Kör Apache Hive frågor med Apache Hadoop på HDInsight med hjälp av sväng](hadoop/apache-hadoop-use-hive-curl.md)
+* [Kör MapReduce-jobb med Hadoop på HDInsight med cURL](hadoop/apache-hadoop-use-mapreduce-curl.md)
+* [Kör Apache Hive-frågor med Apache Hadoop på HDInsight med cURL](hadoop/apache-hadoop-use-hive-curl.md)
 
 
-Information om andra sätt att köra Apache Hadoop MapReduce, Apache Hive och Apache gris interaktivt finns i [använda MapReduce med Hadoop på HDInsight](hadoop/hdinsight-use-mapreduce.md), [använda Apache Hive med Apache Hadoop på HDInsight](hadoop/hdinsight-use-hive.md)och [använda Apache gris med Apache Hadoop i HDInsight](hadoop/hdinsight-use-pig.md).
+Information om andra sätt att köra Apache Hadoop MapReduce, Apache Hive och Apache Pig interaktivt finns i [Använd MapReduce med Hadoop på HDInsight](hadoop/hdinsight-use-mapreduce.md), [Använd Apache Hive med Apache Hadoop på HDInsight](hadoop/hdinsight-use-hive.md)och Använd Apache Pig med Apache [Hadoop på HDInsight](hadoop/hdinsight-use-pig.md).
 
 ### <a name="examples"></a>Exempel
 **Skapa ett kluster**
 
-* Gammalt kommando (ASM)-`azure hdinsight cluster create myhdicluster --location northeurope --osType linux --storageAccountName mystorage --storageAccountKey <storagekey> --storageContainer mycontainer --userName admin --password mypassword --sshUserName sshuser --sshPassword mypassword`
-* Nytt kommando – `azure hdinsight cluster create myhdicluster -g myresourcegroup --location northeurope --osType linux --clusterType hadoop --defaultStorageAccountName mystorage --defaultStorageAccountKey <storagekey> --defaultStorageContainer mycontainer --userName admin -password mypassword --sshUserName sshuser --sshPassword mypassword`
+* Gammalt kommando (ASM) -`azure hdinsight cluster create myhdicluster --location northeurope --osType linux --storageAccountName mystorage --storageAccountKey <storagekey> --storageContainer mycontainer --userName admin --password mypassword --sshUserName sshuser --sshPassword mypassword`
+* Nytt kommando -`azure hdinsight cluster create myhdicluster -g myresourcegroup --location northeurope --osType linux --clusterType hadoop --defaultStorageAccountName mystorage --defaultStorageAccountKey <storagekey> --defaultStorageContainer mycontainer --userName admin -password mypassword --sshUserName sshuser --sshPassword mypassword`
 
 **Ta bort ett kluster**
 
-* Gammalt kommando (ASM)-`azure hdinsight cluster delete myhdicluster`
-* Nytt kommando – `azure hdinsight cluster delete mycluster -g myresourcegroup`
+* Gammalt kommando (ASM) -`azure hdinsight cluster delete myhdicluster`
+* Nytt kommando -`azure hdinsight cluster delete mycluster -g myresourcegroup`
 
 **Lista kluster**
 
-* Gammalt kommando (ASM)-`azure hdinsight cluster list`
-* Nytt kommando – `azure hdinsight cluster list`
+* Gammalt kommando (ASM) -`azure hdinsight cluster list`
+* Nytt kommando -`azure hdinsight cluster list`
 
 > [!NOTE]  
-> För list kommandot visas endast kluster i den angivna resurs gruppen om du anger resurs gruppen som använder `-g`.
+> För listkommandot returnerar du `-g` bara kluster i den angivna resursgruppen om du anger resursgruppen som använder.
 
-**Visa kluster information**
+**Visa klusterinformation**
 
-* Gammalt kommando (ASM)-`azure hdinsight cluster show myhdicluster`
-* Nytt kommando – `azure hdinsight cluster show myhdicluster -g myresourcegroup`
+* Gammalt kommando (ASM) -`azure hdinsight cluster show myhdicluster`
+* Nytt kommando -`azure hdinsight cluster show myhdicluster -g myresourcegroup`
 
-## <a name="migrating-azure-powershell-to-azure-resource-manager"></a>Migrerar Azure PowerShell till Azure Resource Manager
-Allmän information om Azure PowerShell i Azure Resource Manager läge finns i [använda Azure PowerShell med Azure Resource Manager](../powershell-azure-resource-manager.md).
+## <a name="migrating-azure-powershell-to-azure-resource-manager"></a>Migrera Azure PowerShell till Azure Resource Manager
+Den allmänna informationen om Azure PowerShell i Azure Resource Manager-läget finns på [Använda Azure PowerShell med Azure Resource Manager](../powershell-azure-resource-manager.md).
 
-Azure PowerShell Resource Manager-cmdletar kan installeras sida vid sida med ASM-cmdletar. Cmdletarna från de två lägena kan särskiljas med deras namn.  Resource Manager-läget har *AzHDInsight* i cmdlet-namnen som jämförs med *AzureHDInsight* i ASM-läge.  Till exempel *New-AzHDInsightCluster* eller *New-AzureHDInsightCluster*. Parametrar och växlar kan ha namn på diskussions grupper och det finns många nya parametrar som är tillgängliga när du använder Resource Manager.  Till exempel kräver flera cmdlets en ny växel som heter *-ResourceGroupName*. 
+Cmdlets för Azure PowerShell Resource Manager kan installeras sida vid sida med ASM-cmdlets. Cmdletsen från de två lägena kan särskiljas av deras namnger.  Resurshanteraren-läget har *AzHDInsight* i cmdletnamnen som jämförs med *AzureHDInsight* i ASM-läget.  Till exempel *New-AzHDInsightCluster* vs. *Ny-AzureHDInsightCluster*. Parametrar och växlar kan ha nyhetsnamn och det finns många nya parametrar tillgängliga när du använder Resource Manager.  Flera cmdlets kräver till exempel en ny växel som kallas *-ResourceGroupName*. 
 
-Innan du kan använda HDInsight-cmdlets måste du ansluta till ditt Azure-konto och skapa en ny resurs grupp:
+Innan du kan använda HDInsight-cmdlets måste du ansluta till ditt Azure-konto och skapa en ny resursgrupp:
 
-* [Anslut – AzAccount](/powershell/module/az.accounts/connect-azaccount)
+* [Anslut-AzAccount](/powershell/module/az.accounts/connect-azaccount)
 * [New-AzResourceGroup](https://msdn.microsoft.com/library/mt603739.aspx)
 
-### <a name="renamed-cmdlets"></a>Omdöpta cmdletar
-Så här visar du HDInsight ASM-cmdletar i Windows PowerShell-konsolen:
+### <a name="renamed-cmdlets"></a>Omdöpta cmdlets
+Så här listar du HDInsight ASM-cmdlets i Windows PowerShell-konsolen:
 
     help *azurehdinsight*
 
-I följande tabell visas ASM-cmdletar och deras namn i Resource Manager-läge:
+I följande tabell visas ASM-cmdlets och deras namn i resurshanteraren-läge:
 
-| ASM-cmdletar | Resource Manager-cmdletar |
+| ASM-cmdlets | Cmdlets för Resurshanteraren |
 | --- | --- |
-| Add-AzureHDInsightConfigValue |[Add-AzHDInsightConfigValue](https://docs.microsoft.com/powershell/module/az.hdinsight/add-azhdinsightconfigvalue) |
-| Add-AzureHDInsightMetastore |[Add-AzHDInsightMetastore](https://docs.microsoft.com/powershell/module/az.hdinsight/add-azhdinsightmetastore) |
-| Add-AzureHDInsightScriptAction |[Add-AzHDInsightScriptAction](https://docs.microsoft.com/powershell/module/az.hdinsight/add-azhdinsightscriptaction) |
-| Add-AzureHDInsightStorage |[Add-AzHDInsightStorage](https://docs.microsoft.com/powershell/module/az.hdinsight/add-azhdinsightstorage) |
-| Get-AzureHDInsightCluster |[Get-AzHDInsightCluster](https://docs.microsoft.com/powershell/module/az.hdinsight/get-azhdinsightcluster) |
-| Get-AzureHDInsightJob |[Get-AzHDInsightJob](https://docs.microsoft.com/powershell/module/az.hdinsight/get-azhdinsightjob) |
+| Tillägg-AzureHDInsightConfigValue |[Tillägg AzHDInsightConfigValue](https://docs.microsoft.com/powershell/module/az.hdinsight/add-azhdinsightconfigvalue) |
+| Add-AzureHDInsightMetastore |[Tillägg AzHDInsightMetastore](https://docs.microsoft.com/powershell/module/az.hdinsight/add-azhdinsightmetastore) |
+| Add-AzureHDInsightScriptAction |[Tillägg AzHDInsightScriptAction](https://docs.microsoft.com/powershell/module/az.hdinsight/add-azhdinsightscriptaction) |
+| Add-AzureHDInsightStorage |[Tillägg AzHDInsightStorage](https://docs.microsoft.com/powershell/module/az.hdinsight/add-azhdinsightstorage) |
+| Get-AzureHDInsightCluster |[Få-AzHDInsightCluster](https://docs.microsoft.com/powershell/module/az.hdinsight/get-azhdinsightcluster) |
+| Get-AzureHDInsightJob |[Få-AzHDInsightJob](https://docs.microsoft.com/powershell/module/az.hdinsight/get-azhdinsightjob) |
 | Get-AzureHDInsightJobOutput |[Get-AzHDInsightJobOutput](https://docs.microsoft.com/powershell/module/az.hdinsight/get-azhdinsightjoboutput) |
-| Get-AzureHDInsightProperty |[Get-AzHDInsightProperty](https://docs.microsoft.com/powershell/module/az.hdinsight/get-azhdinsightproperty) |
+| Hämta AzureHDInsightProperty |[Få-AzHDInsightProperty](https://docs.microsoft.com/powershell/module/az.hdinsight/get-azhdinsightproperty) |
 | Grant-AzureHDInsightHttpServicesAccess |[Grant-AzureRmHDInsightHttpServicesAccess](https://docs.microsoft.com/powershell/module/azurerm.hdinsight/grant-azurermhdinsighthttpservicesaccess) |
 | Grant-AzureHdinsightRdpAccess |[Grant-AzHDInsightRdpServicesAccess](https://docs.microsoft.com/powershell/module/az.hdinsight/grant-azhdinsightrdpservicesaccess) |
-| Invoke-AzureHDInsightHiveJob |[Invoke-AzHDInsightHiveJob](https://docs.microsoft.com/powershell/module/az.hdinsight/invoke-azhdinsighthivejob) |
-| New-AzureHDInsightCluster |[New-AzHDInsightCluster](https://docs.microsoft.com/powershell/module/az.hdinsight/new-azhdinsightcluster) |
-| New-AzureHDInsightClusterConfig |[New-AzHDInsightClusterConfig](https://docs.microsoft.com/powershell/module/az.hdinsight/new-azhdinsightclusterconfig) |
-| New-AzureHDInsightHiveJobDefinition |[New-AzHDInsightHiveJobDefinition](https://docs.microsoft.com/powershell/module/az.hdinsight/new-azhdinsighthivejobdefinition) |
-| New-AzureHDInsightMapReduceJobDefinition |[New-AzHDInsightMapReduceJobDefinition](https://docs.microsoft.com/powershell/module/az.hdinsight/new-azhdinsightmapreducejobdefinition) |
-| New-AzureHDInsightPigJobDefinition |[New-AzHDInsightPigJobDefinition](https://docs.microsoft.com/powershell/module/az.hdinsight/new-azhdinsightpigjobdefinition) |
-| New-AzureHDInsightSqoopJobDefinition |[New-AzHDInsightSqoopJobDefinition](https://docs.microsoft.com/powershell/module/az.hdinsight/new-azhdinsightsqoopjobdefinition) |
-| New-AzureHDInsightStreamingMapReduceJobDefinition |[New-AzHDInsightStreamingMapReduceJobDefinition](https://docs.microsoft.com/powershell/module/az.hdinsight/new-azhdinsightstreamingmapreducejobdefinition) |
-| Remove-AzureHDInsightCluster |[Remove-AzHDInsightCluster](https://docs.microsoft.com/powershell/module/az.hdinsight/remove-azhdinsightcluster) |
+| Invoke-AzureHDInsightHiveJob |[Åberopa-AzHDInsightHiveJob](https://docs.microsoft.com/powershell/module/az.hdinsight/invoke-azhdinsighthivejob) |
+| New-AzureHDInsightCluster |[Ny-AzHDInsightCluster](https://docs.microsoft.com/powershell/module/az.hdinsight/new-azhdinsightcluster) |
+| New-AzureHDInsightClusterConfig |[Nya-AzHDInsightClusterConfig](https://docs.microsoft.com/powershell/module/az.hdinsight/new-azhdinsightclusterconfig) |
+| New-AzureHDInsightHiveJobDefinition |[Ny-AzHDInsightHiveJobDefinition](https://docs.microsoft.com/powershell/module/az.hdinsight/new-azhdinsighthivejobdefinition) |
+| New-AzureHDInsightMapReduceJobDefinition |[Ny-AzHDInsightMapReduceJobDefinition](https://docs.microsoft.com/powershell/module/az.hdinsight/new-azhdinsightmapreducejobdefinition) |
+| New-AzureHDInsightPigJobDefinition |[Ny-AzHDInsightPigJobDefinition](https://docs.microsoft.com/powershell/module/az.hdinsight/new-azhdinsightpigjobdefinition) |
+| New-AzureHDInsightSqoopJobDefinition |[Ny-AzHDInsightSqoopJobDefinition](https://docs.microsoft.com/powershell/module/az.hdinsight/new-azhdinsightsqoopjobdefinition) |
+| New-AzureHDInsightStreamingMapReduceJobDefinition |[Ny-AzHDInsightStreamingMapReduceJobDefinition](https://docs.microsoft.com/powershell/module/az.hdinsight/new-azhdinsightstreamingmapreducejobdefinition) |
+| Remove-AzureHDInsightCluster |[Ta bort-AzHDInsightCluster](https://docs.microsoft.com/powershell/module/az.hdinsight/remove-azhdinsightcluster) |
 | Revoke-AzureHDInsightHttpServicesAccess |[Revoke-AzHDInsightHttpServicesAccess](https://docs.microsoft.com/powershell/module/azurerm.hdinsight/revoke-azurermhdinsighthttpservicesaccess) |
 | Revoke-AzureHdinsightRdpAccess |[Revoke-AzHDInsightRdpServicesAccess](https://docs.microsoft.com/powershell/module/az.hdinsight/revoke-azhdinsightrdpservicesaccess) |
 | Set-AzureHDInsightClusterSize |[Set-AzHDInsightClusterSize](https://docs.microsoft.com/powershell/module/az.hdinsight/set-azhdinsightclustersize) |
 | Set-AzureHDInsightDefaultStorage |[Set-AzHDInsightDefaultStorage](https://docs.microsoft.com/powershell/module/az.hdinsight/set-azhdinsightdefaultstorage) |
 | Start-AzureHDInsightJob |[Start-AzHDInsightJob](https://docs.microsoft.com/powershell/module/az.hdinsight/start-azhdinsightjob) |
-| Stop-AzureHDInsightJob |[Stop-AzHDInsightJob](https://docs.microsoft.com/powershell/module/az.hdinsight/stop-azhdinsightjob) |
-| Use-AzureHDInsightCluster |[Använd-AzHDInsightCluster](https://docs.microsoft.com/powershell/module/az.hdinsight/use-azhdinsightcluster) |
+| Stop-AzureHDInsightJob |[Stopp-AzHDInsightJob](https://docs.microsoft.com/powershell/module/az.hdinsight/stop-azhdinsightjob) |
+| Use-AzureHDInsightCluster |[Användning-AzHDInsightCluster](https://docs.microsoft.com/powershell/module/az.hdinsight/use-azhdinsightcluster) |
 | Wait-AzureHDInsightJob |[Vänta-AzHDInsightJob](https://docs.microsoft.com/powershell/module/az.hdinsight/wait-azhdinsightjob) |
 
 ### <a name="new-cmdlets"></a>Nya cmdletar
-Följande är de nya cmdletar som endast är tillgängliga i Resource Manager-läge. 
+Följande är de nya cmdlets som bara är tillgängliga i Resource Manager-läge. 
 
-**Skript åtgärd-relaterade cmdletar:**
+**Skriptåtgärdsrelaterade cmdlets:**
 
-* **Get-AzHDInsightPersistedScriptAction**: hämtar de bestående skript åtgärderna för ett kluster och listar dem i kronologisk ordning, eller hämtar information om en angiven beständiga skript åtgärd. 
-* **Get-AzHDInsightScriptActionHistory**: hämtar skript åtgärds historiken för ett kluster och listar det i omvänd kronologisk ordning, eller hämtar information om en tidigare körd skript åtgärd. 
-* **Remove-AzHDInsightPersistedScriptAction**: tar bort en bestående skript åtgärd från ett HDInsight-kluster.
-* **Set-AzHDInsightPersistedScriptAction**: anger en tidigare utförd skript åtgärd som en bestående skript åtgärd.
-* **Submit-AzHDInsightScriptAction**: skickar en ny skript åtgärd till ett Azure HDInsight-kluster. 
+* **Get-AzHDInsightPersistedScriptAction**: Hämtar de beständiga skriptåtgärderna för ett kluster och listar dem i kronologisk ordning, eller hämtar information om en angiven beständig skriptåtgärd. 
+* **Get-AzHDInsightScriptActionHistory**: Hämtar skriptåtgärdshistoriken för ett kluster och listar den i omvänd kronologisk ordning, eller får information om en tidigare utförd skriptåtgärd. 
+* **Remove-AzHDInsightPersistedScriptAction**: Tar bort en beständig skriptåtgärd från ett HDInsight-kluster.
+* **Set-AzHDInsightPersistedScriptAction**: Anger att en tidigare utförd skriptåtgärd ska vara en beständig skriptåtgärd.
+* **Skicka-AzHDInsightScriptAction**: Skickar en ny skriptåtgärd till ett Azure HDInsight-kluster. 
 
-Mer information om användning finns i [Anpassa Linux-baserade HDInsight-kluster med skript åtgärder](hdinsight-hadoop-customize-cluster-linux.md).
+Mer information om användning finns i [Anpassa Linux-baserade HDInsight-kluster med skriptåtgärd](hdinsight-hadoop-customize-cluster-linux.md).
 
-**Kluster identitet-relaterade cmdlet: ar:**
+**Klusteridentitetsrelaterade cmdlets:**
 
-* **Add-AzHDInsightClusterIdentity**: lägger till en kluster identitet till ett kluster konfigurations objekt så att HDInsight-klustret kan komma åt Azure Data Lake Storage. Se [skapa ett HDInsight-kluster med data Lake Storage med hjälp av Azure PowerShell](../data-lake-store/data-lake-store-hdinsight-hadoop-use-powershell.md).
+* **Add-AzHDInsightClusterIdentity**: Lägger till en klusteridentitet i ett klusterkonfigurationsobjekt så att HDInsight-klustret kan komma åt Azure Data Lake Storage. Se [Skapa ett HDInsight-kluster med DataSjölagring med Azure PowerShell](../data-lake-store/data-lake-store-hdinsight-hadoop-use-powershell.md).
 
 ### <a name="examples"></a>Exempel
 **Skapa kluster**
@@ -179,7 +179,7 @@ Nytt kommando:
         -SshCredential $sshCredentials
 
 
-**Ta bort kluster**
+**Ta bort klustret**
 
 Gammalt kommando (ASM):
 
@@ -189,7 +189,7 @@ Nytt kommando:
 
     Remove-AzHDInsightCluster -ResourceGroupName $resourceGroupName -ClusterName $clusterName 
 
-**Lista kluster**
+**Lista klustret**
 
 Gammalt kommando (ASM):
 
@@ -210,37 +210,37 @@ Nytt kommando:
     Get-AzHDInsightCluster -ResourceGroupName $resourceGroupName -clusterName $clusterName
 
 
-#### <a name="other-samples"></a>Andra exempel
+#### <a name="other-samples"></a>Andra prover
 * [Skapa HDInsight-kluster](hdinsight-hadoop-create-linux-clusters-azure-powershell.md)
 * [Skicka Apache Hive jobb](hadoop/apache-hadoop-use-hive-powershell.md)
-* [Skicka Apache Sqoop-jobb](hadoop/apache-hadoop-use-sqoop-powershell.md)
+* [Skicka Apache Sqoop jobb](hadoop/apache-hadoop-use-sqoop-powershell.md)
 
-## <a name="migrating-to-the-new-hdinsight-net-sdk"></a>Migrera till nya HDInsight .NET SDK
-Azure Service Management-baserade [(ASM) HDInsight .NET SDK](https://msdn.microsoft.com/library/azure/mt416619.aspx) är nu föråldrad. Du uppmanas att använda Azure Resource Management-baserade [Resource Manager-baserade HDInsight .NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight). Följande ASM-baserade HDInsight-paket är inaktuella.
+## <a name="migrating-to-the-new-hdinsight-net-sdk"></a>Migrera till den nya HDInsight .NET SDK
+Azure Service Management-baserade [(ASM) HDInsight .NET SDK](https://msdn.microsoft.com/library/azure/mt416619.aspx) är nu inaktuell. Du uppmanas att använda Azure Resource [Management-baserade Resource Manager-baserade HDInsight .NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight). Följande ASM-baserade HDInsight-paket är inaktuella.
 
 * `Microsoft.WindowsAzure.Management.HDInsight`
 * `Microsoft.Hadoop.Client`
 
-Det här avsnittet innehåller pekare till mer information om hur du utför vissa uppgifter med hjälp av den Resource Manager-baserade SDK: n.
+Det här avsnittet innehåller tips för mer information om hur du utför vissa uppgifter med hjälp av Resource Manager-baserade SDK.
 
-| Hur... använda Resource Manager-baserad HDInsight SDK | Länkar |
+| Hur... använda Resource Manager-baserade HDInsight SDK | Länkar |
 | --- | --- |
-| Azure HDInsight SDK för .NET|Se [Azure HDInsight SDK för .net](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight?view=azure-dotnet) |
-| Autentisera program interaktivt med Azure Active Directory med .NET SDK |Se [kör Apache Hive frågor med .NET SDK](hadoop/apache-hadoop-use-hive-dotnet-sdk.md). Kodfragmentet i den här artikeln använder metoden för interaktiv autentisering. |
-| Autentisera program som inte interaktivt använder Azure Active Directory med .NET SDK |Se [skapa icke-interaktiva program för HDInsight](hdinsight-create-non-interactive-authentication-dotnet-applications.md) |
-| Skicka ett Apache Hive jobb med .NET SDK |Se [skicka Apache Hive jobb](hadoop/apache-hadoop-use-hive-dotnet-sdk.md) |
-| Skicka ett Apache Sqoop-jobb med .NET SDK |Se [Skicka Apache Sqoop-jobb](hadoop/apache-hadoop-use-sqoop-dotnet-sdk.md) |
-| Visa en lista med HDInsight-kluster med .NET SDK |Se [lista HDInsight-kluster](hdinsight-administer-use-dotnet-sdk.md#list-clusters) |
-| Skala HDInsight-kluster med hjälp av .NET SDK |Se [skala HDInsight-kluster](hdinsight-administer-use-dotnet-sdk.md#scale-clusters) |
-| Bevilja/återkalla åtkomst till HDInsight-kluster med hjälp av .NET SDK |Se [bevilja/återkalla åtkomst till HDInsight-kluster](hdinsight-administer-use-dotnet-sdk.md#grantrevoke-access) |
-| Uppdatera HTTP-användarautentiseringsuppgifter för HDInsight-kluster med hjälp av .NET SDK |Se [Uppdatera HTTP-användarautentiseringsuppgifter för HDInsight-kluster](hdinsight-administer-use-dotnet-sdk.md#update-http-user-credentials) |
-| Hitta standard lagrings kontot för HDInsight-kluster med hjälp av .NET SDK |Se [hitta standard lagrings kontot för HDInsight-kluster](hdinsight-administer-use-dotnet-sdk.md#find-the-default-storage-account) |
-| Ta bort HDInsight-kluster med .NET SDK |Se [ta bort HDInsight-kluster](hdinsight-administer-use-dotnet-sdk.md#delete-clusters) |
+| Azure HDInsight SDK för .NET|Se [Azure HDInsight SDK för .NET](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight?view=azure-dotnet) |
+| Autentisera program interaktivt med Azure Active Directory med .NET SDK |Se [Köra Apache Hive-frågor med .NET SDK](hadoop/apache-hadoop-use-hive-dotnet-sdk.md). Kodavsnittet i den här artikeln använder den interaktiva autentiseringsmetoden. |
+| Autentisera program som inte interaktivt använder Azure Active Directory med .NET SDK |Se [Skapa icke-interaktiva program för HDInsight](hdinsight-create-non-interactive-authentication-dotnet-applications.md) |
+| Skicka ett Apache Hive-jobb med .NET SDK |Se [Skicka Apache Hive jobb](hadoop/apache-hadoop-use-hive-dotnet-sdk.md) |
+| Skicka ett Apache Sqoop-jobb med .NET SDK |Se [Skicka Apache Sqoop jobb](hadoop/apache-hadoop-use-sqoop-dotnet-sdk.md) |
+| Lista HDInsight-kluster med .NET SDK |Se [Lista HDInsight-kluster](hdinsight-administer-use-dotnet-sdk.md#list-clusters) |
+| Skala HDInsight-kluster med .NET SDK |Se [Skala HDInsight-kluster](hdinsight-administer-use-dotnet-sdk.md#scale-clusters) |
+| Bevilja/återkalla åtkomst till HDInsight-kluster med .NET SDK |Se [Bevilja/återkalla åtkomst till HDInsight-kluster](hdinsight-administer-use-dotnet-sdk.md#grantrevoke-access) |
+| Uppdatera HTTP-användarautentiseringsuppgifter för HDInsight-kluster med .NET SDK |Se [Uppdatera HTTP-användarautentiseringsuppgifter för HDInsight-kluster](hdinsight-administer-use-dotnet-sdk.md#update-http-user-credentials) |
+| Hitta standardlagringskontot för HDInsight-kluster med .NET SDK |Se [Hitta standardlagringskontot för HDInsight-kluster](hdinsight-administer-use-dotnet-sdk.md#find-the-default-storage-account) |
+| Ta bort HDInsight-kluster med .NET SDK |Se [Ta bort HDInsight-kluster](hdinsight-administer-use-dotnet-sdk.md#delete-clusters) |
 
 ### <a name="examples"></a>Exempel
-Här följer några exempel på hur en åtgärd utförs med hjälp av ASM-baserade SDK och motsvarande kodfragment för Resource Manager-baserade SDK.
+Här följer några exempel på hur en åtgärd utförs med hjälp av ASM-baserade SDK och motsvarande kodavsnitt för Resource Manager-baserade SDK.
 
-**Skapa en kluster CRUD-klient**
+**Skapa en CRUD-klusterklient**
 
 * Gammalt kommando (ASM)
   
@@ -250,7 +250,7 @@ Här följer några exempel på hur en åtgärd utförs med hjälp av ASM-basera
         const string subid = "454467d4-60ca-4dfd-a556-216eeeeeeee1";
         var cred = new HDInsightCertificateCredential(new Guid(subid), new X509Certificate2(@"path\to\certificate.cer"));
         var client = HDInsightClient.Connect(cred);
-* Nytt kommando (tjänstens huvud tillstånd)
+* Nytt kommando (tillståndsbehörighet för tjänsten)
   
         //Service principal auth
         //This will log the application in as itself, rather than on behalf of a specific user.

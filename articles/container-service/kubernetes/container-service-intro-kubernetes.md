@@ -8,10 +8,10 @@ ms.date: 07/21/2017
 ms.author: gamonroy
 ms.custom: mvc
 ms.openlocfilehash: c0ef7255a087dd5dc26532316deab337f9eff715
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "76271572"
 ---
 # <a name="deprecated-introduction-to-azure-container-service-for-kubernetes"></a>(INAKTUELL) Introduktion till Azure Container Service för Kubernetes
@@ -46,7 +46,7 @@ Arkitekturdiagram över Kubernetes som distribuerats via Azure Container Service
 
 ![Azure Container Service konfigurerat för Kubernetes.](media/acs-intro/kubernetes.png)
 
-## <a name="videos"></a>Videor
+## <a name="videos"></a>Videoklipp
 
 Stöd för Kubernetes i Azure Container Service (Azure fredag, januari 2017):
 

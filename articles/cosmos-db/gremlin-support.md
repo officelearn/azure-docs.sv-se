@@ -8,18 +8,18 @@ ms.topic: overview
 ms.date: 06/24/2019
 ms.author: lbosq
 ms.openlocfilehash: 564e69e3cd852c6a0f8c20278d4742b77f064298
-ms.sourcegitcommit: 801e9118fae92f8eef8d846da009dddbd217a187
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/27/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "75499988"
 ---
 # <a name="azure-cosmos-db-gremlin-graph-support"></a>Stöd för Azure Cosmos DB Gremlin-diagram
-Azure Cosmos DB har stöd för [Apache Tinkerpops](https://tinkerpop.apache.org) diagram Traversal, som kallas [Gremlin](https://tinkerpop.apache.org/docs/3.3.2/reference/#graph-traversal-steps). Du kan använda Gremlin-språket för att skapa diagramentiteter (brytpunkter och kanter), ändra egenskaper inom de entiteterna, utföra frågor och bläddringar samt ta bort entiteter. 
+Azure Cosmos DB stöder [Apache Tinkerpops](https://tinkerpop.apache.org) grafkorsspråk, kallat [Gremlin](https://tinkerpop.apache.org/docs/3.3.2/reference/#graph-traversal-steps). Du kan använda Gremlin-språket för att skapa diagramentiteter (brytpunkter och kanter), ändra egenskaper inom de entiteterna, utföra frågor och bläddringar samt ta bort entiteter. 
 
-I den här artikeln ger vi en snabb genom gång av Gremlin och räknar upp de Gremlin-funktioner som stöds av Gremlin-API: et.
+I den här artikeln ger vi en snabb genomgång av Gremlin och räknar upp Gremlin-funktionerna som stöds av Gremlin-API:et.
 
-## <a name="compatible-client-libraries"></a>Kompatibla klient bibliotek
+## <a name="compatible-client-libraries"></a>Kompatibla klientbibliotek
 
 Följande tabell visar populära Gremlin-drivrutiner som du kan använda mot Azure Cosmos DB:
 
@@ -27,12 +27,12 @@ Följande tabell visar populära Gremlin-drivrutiner som du kan använda mot Azu
 | --- | --- | --- | --- |
 | [.NET](https://tinkerpop.apache.org/docs/3.3.1/reference/#gremlin-DotNet) | [Gremlin.NET på GitHub](https://github.com/apache/tinkerpop/tree/master/gremlin-dotnet) | [Skapa diagram med .NET](create-graph-dotnet.md) | 3.4.0-RC2 |
 | [Java](https://mvnrepository.com/artifact/com.tinkerpop.gremlin/gremlin-java) | [Gremlin JavaDoc](https://tinkerpop.apache.org/javadocs/current/full/) | [Skapa diagram med Java](create-graph-java.md) | 3.2.0+ |
-| [Node.js](https://www.npmjs.com/package/gremlin) | [Gremlin-JavaScript på GitHub](https://github.com/apache/tinkerpop/tree/master/gremlin-javascript) | [Skapa diagram med Node.js](create-graph-nodejs.md) | 3.3.4 + |
+| [Node.js](https://www.npmjs.com/package/gremlin) | [Gremlin-JavaScript på GitHub](https://github.com/apache/tinkerpop/tree/master/gremlin-javascript) | [Skapa diagram med Node.js](create-graph-nodejs.md) | 3.3.4+ |
 | [Python](https://tinkerpop.apache.org/docs/3.3.1/reference/#gremlin-python) | [Gremlin-Python på GitHub](https://github.com/apache/tinkerpop/tree/master/gremlin-python) | [Skapa diagram med Python](create-graph-python.md) | 3.2.7 |
-| [PHP](https://packagist.org/packages/brightzone/gremlin-php) | [Gremlin-PHP på GitHub](https://github.com/PommeVerte/gremlin-php) | [Skapa diagram med PHP](create-graph-php.md) | 3.1.0 |
+| [Php](https://packagist.org/packages/brightzone/gremlin-php) | [Gremlin-PHP på GitHub](https://github.com/PommeVerte/gremlin-php) | [Skapa diagram med PHP](create-graph-php.md) | 3.1.0 |
 | [Gremlin-konsol](https://tinkerpop.apache.org/downloads.html) | [TinkerPop-dokument](https://tinkerpop.apache.org/docs/current/reference/#gremlin-console) |  [Skapa diagram med Gremlin-konsolen](create-graph-gremlin-console.md) | 3.2.0 + |
 
-## <a name="supported-graph-objects"></a>Diagram objekt som stöds
+## <a name="supported-graph-objects"></a>Grafobjekt som stöds
 TinkerPop är en standard som omfattar en mängd olika diagramtekniker. Därför har den standardterminologi som beskriver vilka funktioner som tillhandahålls av en diagramprovider. Azure Cosmos DB tillhandahåller en beständig, skrivbar diagramdatabas med hög samtidighet som kan partitioneras över flera servrar eller kluster. 
 
 Följande tabell visar den TinkerPop-funktioner som implementeras av Azure Cosmos DB: 
@@ -89,24 +89,24 @@ Följande kodavsnitt visar exempelvis en GraphSON-representation av en brytpunkt
   }
 ```
 
-Egenskaperna som används av GraphSON för hörnen beskrivs nedan:
+De egenskaper som används av GraphSON för hörn beskrivs nedan:
 
 | Egenskap | Beskrivning | 
 | --- | --- | --- |
-| `id` | ID för brytpunkten. Måste vara unik (i kombination med värdet för `_partition` om tillämpligt). Om inget värde anges kommer det att anges automatiskt med ett GUID | 
-| `label` | Etiketten för brytpunkten. Den här egenskapen används för att beskriva enhets typen. |
+| `id` | ID för brytpunkten. Måste vara unik (i kombination `_partition` med värdet av om tillämpligt). Om inget värde anges kommer det automatiskt att levereras med ett GUID | 
+| `label` | Etiketten för brytpunkten. Den här egenskapen används för att beskriva entitetstypen. |
 | `type` | Används för att särskilja brytpunkter från icke-diagramdokument |
 | `properties` | En uppsättning användardefinierade egenskaper associerade med brytpunkten. Varje egenskap kan ha flera värden. |
-| `_partition` | Partitionsnyckeln för brytpunkten. Används för [diagram partitionering](graph-partitioning.md). |
-| `outE` | Den här egenskapen innehåller en lista över kanter från ett hörn. Lagring av angränsande information med brytpunkter för snabbare körning av bläddring. Kanter grupperas baserat på deras etiketter. |
+| `_partition` | Partitionsnyckeln för brytpunkten. Används för [grafpartitionering](graph-partitioning.md). |
+| `outE` | Den här egenskapen innehåller en lista över utkanter från ett hörn. Lagring av angränsande information med brytpunkter för snabbare körning av bläddring. Kanter grupperas baserat på deras etiketter. |
 
 Och kanten innehåller följande information för att underlätta navigeringen till andra delar av diagrammet.
 
 | Egenskap | Beskrivning |
 | --- | --- |
-| `id` | ID för kanten. Måste vara unik (i kombination med värdet för `_partition` om tillämpligt) |
+| `id` | ID för kanten. Måste vara unikt (i kombination `_partition` med värdet av om tillämpligt) |
 | `label` | Etiketten för kanten. Den här egenskapen är valfri och används för att beskriva relationstypen. |
-| `inV` | Den här egenskapen innehåller en lista över i hörn för en kant. Lagring av angränsningsinformation med kanter tillåter snabb körning av bläddringar. Brytpunkter grupperas baserat på deras etiketter. |
+| `inV` | Den här egenskapen innehåller en lista över hörn för en kant. Lagring av angränsningsinformation med kanter tillåter snabb körning av bläddringar. Brytpunkter grupperas baserat på deras etiketter. |
 | `properties` | En uppsättning användardefinierade egenskaper associerade med kanten. Varje egenskap kan ha flera värden. |
 
 Varje egenskap kan lagra flera värden inom en matris. 
@@ -130,7 +130,7 @@ Nu ska vi titta på de Gremlin-steg som stöds av Azure Cosmos DB. En fullständ
 | `count` | Returnerar antalet från bläddringen | [count step](https://tinkerpop.apache.org/docs/3.3.2/reference/#count-step) |
 | `dedup` | Returnerar värden med borttagna dubbletter | [dedup step](https://tinkerpop.apache.org/docs/3.3.2/reference/#dedup-step) |
 | `drop` | Släpper värdena (brytpunkt/kant) | [drop step](https://tinkerpop.apache.org/docs/3.3.2/reference/#drop-step) |
-| `executionProfile` | Skapar en beskrivning av alla åtgärder som genererats av steget utförd Gremlin | [executionProfile-steg](graph-execution-profile.md) |
+| `executionProfile` | Skapar en beskrivning av alla åtgärder som genereras av det utförda Gremlin-steget | [steget executionProfile](graph-execution-profile.md) |
 | `fold` | Fungerar som en barriär som beräknar sammanställningen av resultat| [fold step](https://tinkerpop.apache.org/docs/3.3.2/reference/#fold-step) |
 | `group` | Grupperar värdena baserat på de angivna etiketterna| [group step](https://tinkerpop.apache.org/docs/3.3.2/reference/#group-step) |
 | `has` | Används för att filtrera egenskaper, brytpunkter och kanter. Stöder varianterna `hasLabel`, `hasId`, `hasNot` och `has`. | [has step](https://tinkerpop.apache.org/docs/3.3.2/reference/#has-step) |
@@ -139,7 +139,7 @@ Nu ska vi titta på de Gremlin-steg som stöds av Azure Cosmos DB. En fullständ
 | `limit` | Används för att begränsa antalet objekt i bläddringen| [limit step](https://tinkerpop.apache.org/docs/3.3.2/reference/#limit-step) |
 | `local` | Bäddar in ett avsnitt av en bläddring lokalt, liknar en underfråga | [local step](https://tinkerpop.apache.org/docs/3.3.2/reference/#local-step) |
 | `not` | Används för att skapa negationer av ett filter | [not step](https://tinkerpop.apache.org/docs/3.3.2/reference/#not-step) |
-| `optional` | Returnerar resultatet av den angivna bläddringen om den ger upphov till ett resultat, annars returneras det anropande elementet | [optional step](https://tinkerpop.apache.org/docs/3.3.2/reference/#optional-step) |
+| `optional` | Returnerar resultatet av den angivna bläddringen om den ger upphov till ett resultat, annars returneras det anropande elementet | [valfritt steg](https://tinkerpop.apache.org/docs/3.3.2/reference/#optional-step) |
 | `or` | Garanterar att minst en av bläddringarna returnerar ett värde | [or step](https://tinkerpop.apache.org/docs/3.3.2/reference/#or-step) |
 | `order` | Returnerar resultat i den angivna sorteringsordningen | [order step](https://tinkerpop.apache.org/docs/3.3.2/reference/#order-step) |
 | `path` | Returnerar den fullständiga sökvägen för bläddringen | [path step](https://tinkerpop.apache.org/docs/3.3.2/reference/#path-step) |
@@ -150,12 +150,12 @@ Nu ska vi titta på de Gremlin-steg som stöds av Azure Cosmos DB. En fullständ
 | `sample` | Används för exempelresultat för bläddringen | [sample step](https://tinkerpop.apache.org/docs/3.3.2/reference/#sample-step) |
 | `select` | Används för att projicera resultat från bläddringen |  [select step](https://tinkerpop.apache.org/docs/3.3.2/reference/#select-step) |
 | `store` | Används för icke-blockerande sammanställningar från bläddringen | [store step](https://tinkerpop.apache.org/docs/3.3.2/reference/#store-step) |
-| `TextP.startingWith(string)` | Sträng filtrerings funktion. Den här funktionen används som ett predikat för `has()`-steget för att matcha en egenskap med början av en specifik sträng | [TextP-predikat](https://tinkerpop.apache.org/docs/3.4.0/reference/#a-note-on-predicates) |
-| `TextP.endingWith(string)` |  Sträng filtrerings funktion. Den här funktionen används som ett predikat för `has()`-steget för att matcha en egenskap med slutet av en specifik sträng | [TextP-predikat](https://tinkerpop.apache.org/docs/3.4.0/reference/#a-note-on-predicates) |
-| `TextP.containing(string)` | Sträng filtrerings funktion. Den här funktionen används som ett predikat för `has()`-steget för att matcha en egenskap med innehållet i en specifik sträng | [TextP-predikat](https://tinkerpop.apache.org/docs/3.4.0/reference/#a-note-on-predicates) |
-| `TextP.notStartingWith(string)` | Sträng filtrerings funktion. Den här funktionen används som ett predikat för `has()`-steget för att matcha en egenskap som inte börjar med en specifik sträng | [TextP-predikat](https://tinkerpop.apache.org/docs/3.4.0/reference/#a-note-on-predicates) |
-| `TextP.notEndingWith(string)` | Sträng filtrerings funktion. Den här funktionen används som ett predikat för `has()`-steget för att matcha en egenskap som inte slutar med en specifik sträng | [TextP-predikat](https://tinkerpop.apache.org/docs/3.4.0/reference/#a-note-on-predicates) |
-| `TextP.notContaining(string)` | Sträng filtrerings funktion. Den här funktionen används som ett predikat för `has()`-steget för att matcha en egenskap som inte innehåller en specifik sträng | [TextP-predikat](https://tinkerpop.apache.org/docs/3.4.0/reference/#a-note-on-predicates) |
+| `TextP.startingWith(string)` | Strängfiltreringsfunktion. Den här funktionen används som predikat för `has()` steget för att matcha en egenskap med början av en viss sträng | [TextP predikater](https://tinkerpop.apache.org/docs/3.4.0/reference/#a-note-on-predicates) |
+| `TextP.endingWith(string)` |  Strängfiltreringsfunktion. Den här funktionen används som predikat för `has()` steget för att matcha en egenskap med slutet av en viss sträng | [TextP predikater](https://tinkerpop.apache.org/docs/3.4.0/reference/#a-note-on-predicates) |
+| `TextP.containing(string)` | Strängfiltreringsfunktion. Den här funktionen används som predikat för `has()` steget för att matcha en egenskap med innehållet i en viss sträng | [TextP predikater](https://tinkerpop.apache.org/docs/3.4.0/reference/#a-note-on-predicates) |
+| `TextP.notStartingWith(string)` | Strängfiltreringsfunktion. Den här funktionen används som predikat för `has()` steget för att matcha en egenskap som inte börjar med en viss sträng | [TextP predikater](https://tinkerpop.apache.org/docs/3.4.0/reference/#a-note-on-predicates) |
+| `TextP.notEndingWith(string)` | Strängfiltreringsfunktion. Den här funktionen används som predikat för `has()` steget för att matcha en egenskap som inte slutar med en viss sträng | [TextP predikater](https://tinkerpop.apache.org/docs/3.4.0/reference/#a-note-on-predicates) |
+| `TextP.notContaining(string)` | Strängfiltreringsfunktion. Den här funktionen används som predikat för `has()` steget för att matcha en egenskap som inte innehåller en viss sträng | [TextP predikater](https://tinkerpop.apache.org/docs/3.4.0/reference/#a-note-on-predicates) |
 | `tree` | Sammanställ sökvägar från en brytpunkt i ett träd | [tree step](https://tinkerpop.apache.org/docs/3.3.2/reference/#tree-step) |
 | `unfold` | Rulla upp en iterator som ett steg| [unfold step](https://tinkerpop.apache.org/docs/3.3.2/reference/#unfold-step) |
 | `union` | Sammanfoga resultat från flera bläddringar| [union step](https://tinkerpop.apache.org/docs/3.3.2/reference/#union-step) |

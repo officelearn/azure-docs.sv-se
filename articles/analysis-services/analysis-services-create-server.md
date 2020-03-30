@@ -1,6 +1,6 @@
 ---
-title: Snabb start – skapa en Analysis Services-server i Azure Portal | Microsoft Docs
-description: Lär dig hur du snabbt skapar en Azure Analysis Services Server instans med hjälp av Azure Portal.
+title: Snabbstart – Skapa en Analysis Services-server i Azure portal | Microsoft-dokument
+description: Lär dig hur du snabbt skapar en Azure Analysis Services-serverinstans med hjälp av Azure-portalen.
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: quickstart
@@ -8,10 +8,10 @@ ms.date: 10/30/2019
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: 4c1b22d4871d3e490f59be71b63569fdf563ce45
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "75442841"
 ---
 # <a name="quickstart-create-a-server---portal"></a>Snabbstart: Skapa en server – portalen
@@ -30,13 +30,13 @@ Den här snabbstarten beskriver hur du skapar en Analysis Services-serverresurs 
 
 ## <a name="create-a-server"></a>Skapa en server
 
-1. Klicka på **+ Skapa en resurs** > **Analys** > **Analysis Services**.
+1. Klicka på **+ Skapa en resurs** > **Analystjänster** > **Analysis Services**.
 
     ![Portalen](./media/analysis-services-create-server/aas-create-server-portal.png)
 
 2. I **Analysis Services** fyller du i de fält som krävs och trycker sedan på **Skapa**.
    
-   * **Servernamn**: Skriv ett unikt namn som används för att referera till servern. Server namnet måste börja med ett gement tecken och innehålla mellan 3 och 128 gemena tecken och siffror. Blank steg och specialtecken är inte tillåtna.
+   * **Servernamn**: Skriv ett unikt namn som används för att referera till servern. Servernamnet måste börja med ett gemener och innehålla mellan 3 till 128 gemener och tal. Blanktecken och specialtecken är inte tillåtna.
    * **Prenumeration**: Välj den prenumeration som den här servern ska associeras med.
    * **Resursgrupp**: Skapa en ny resursgrupp eller välj en som du redan har. Resursgrupper är utformade för att hjälpa dig hantera en samling Azure-resurser. Mer information finns i [resursgrupper](../azure-resource-manager/management/overview.md).
    * **Plats**: Den här Azure-datacenterplatsen är värd för servern. Välj en plats närmast din största användarbas.
@@ -45,7 +45,7 @@ Den här snabbstarten beskriver hur du skapar en Analysis Services-serverresurs 
    * **Inställning för lagring av säkerhetskopior**: Valfritt. Om du redan har ett [lagringskonto](../storage/common/storage-introduction.md) kan du ange det som standard för modelldatabasens säkerhetskopia. Du kan även ange inställningar för [säkerhetskopia och återställning](analysis-services-backup.md) senare.
    * **Upphörande av lagringsnyckel**: Valfritt. Ange en upphörandeperiod för lagringsnyckeln.
 
-Det tar vanligtvis mindre än en minut att skapa servern. Om du valde **Lägg till i portalen** går du till din portal för att se den nya servern. Eller så kan du gå till **Alla tjänster** > **Analysis Services** för att se om servern är klar. Servrar stöder tabell modeller på kompatibilitetsnivån 1200 och högre. Modellens kompatibilitetsnivå anges i Visual Studio eller SSMS.
+Det tar vanligtvis mindre än en minut att skapa servern. Om du valde **Lägg till i portalen** går du till din portal för att se den nya servern. Du kan också navigera till **Alla tjänster** > **Analysis Services** för att se om servern är klar. Servrar stöder tabellmodeller på 1200- och högre kompatibilitetsnivåer. Modellkompatibilitetsnivå anges i Visual Studio eller SSMS.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
@@ -58,6 +58,6 @@ Ta bort servern när den inte längre behövs. I serverns **Översikt** klickar 
 I den här snabbstarten har du lärt dig hur du skapar en server i Azure-prenumerationen. Nu när du har en server kan du skydda den genom att konfigurera en serverbrandvägg (valfritt). Du kan även lägga till en grundläggande exempeldatamodell till servern direkt från portalen. Att använda en exempelmodell är en bra idé om du vill lära dig mer om hur man konfigurerar modelldatabasroller och testar klientanslutningar. Fortsätt till och lägg till en exempelmodell om du vill lära dig mer.
 
 > [!div class="nextstepaction"]
-> [Snabbstart: Konfigurera serverbrandvägg – portalen](analysis-services-qs-firewall.md)   
+> [Snabbstart: Konfigurera serverbrandväggen - Portal](analysis-services-qs-firewall.md)   
 > [!div class="nextstepaction"]
 > [Självstudier: Lägg till en exempelmodell till servern](analysis-services-create-sample-model.md)

@@ -11,13 +11,13 @@ ms.custom: mvc
 ms.date: 12/20/2019
 ms.author: spelluru
 ms.openlocfilehash: 890e8d3a7592a6794fd19ac28b6ca613ac7201c6
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "75426943"
 ---
-# <a name="quickstart-use-azure-powershell-to-create-a-service-bus-queue"></a>Snabb start: använda Azure PowerShell för att skapa en Service Bus kö
+# <a name="quickstart-use-azure-powershell-to-create-a-service-bus-queue"></a>Snabbstart: Använd Azure PowerShell för att skapa en servicebusskö
 Den här snabbstarten beskriver hur man skickar och tar emot meddelanden till och från en Service Bus-kö med PowerShell för att skapa ett namnområde för meddelanden och en kö inom det namnområdet och för att få auktoriseringsuppgifter på det namnområdet. Proceduren visar därefter hur du skickar och tar emot meddelanden från den här kön med [.NET standardbiblioteket](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus).
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
@@ -29,11 +29,11 @@ Den här snabbstarten beskriver hur man skickar och tar emot meddelanden till oc
 
 För att kunna följa de här självstudierna ska du kontrollera att du har installerat:
 
-- En Azure-prenumeration. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto][] innan du börjar. 
-- [Visual Studio 2017 Update 3 (version 15.3, 26730.01)](https://www.visualstudio.com/vs) eller senare. Du kan använda Visual Studio för att bygga ett exempel som skickar meddelanden till och tar emot meddelanden från en kö. Exemplet är att testa kön som du skapade i portalen. 
+- En Azure-prenumeration. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt][] konto innan du börjar. 
+- [Visual Studio 2017 Update 3 (version 15.3, 26730.01)](https://www.visualstudio.com/vs) eller senare. Du använder Visual Studio för att skapa ett exempel som skickar meddelanden till och tar emot meddelanden från en kö. Exemplet är att testa kön som du skapade i portalen. 
 - [NET Core SDK](https://www.microsoft.com/net/download/windows), version 2.0 eller senare.
 
-Den här snabbstarten kräver att du kör den senaste versionen av Azure PowerShell. Om du behöver installera eller uppgradera, kan du läsa [Installera och konfigurera Azure PowerShell][]. Om du är van att Azure Cloud Shell kan du använda den utan att installera Azure PowerShell på din dator. Mer information om Azure Cloud Shell finns i [Översikt över Azure Cloud Shell](../cloud-shell/overview.md)
+Den här snabbstarten kräver att du kör den senaste versionen av Azure PowerShell. Om du behöver installera eller uppgradera läser du [Installera och konfigurera Azure PowerShell][]. Om du är bekant med Azure Cloud Shell kan du använda det utan att installera Azure PowerShell på din dator. Mer information om Azure Cloud Shell finns i [Översikt över Azure Cloud Shell](../cloud-shell/overview.md)
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 
@@ -128,7 +128,7 @@ Det här avsnittet innehåller mer information om vad exempelkoden gör.
 
 ### <a name="get-connection-string-and-queue"></a>Hämta anslutningssträngen och kön
 
-Anslutnings strängen och könamnet skickas till `Main()` metod som kommando rads argument. `Main()` deklarerar två strängvariabler för att hålla dessa värden:
+Anslutningssträngen och könamnet `Main()` skickas till metoden som kommandoradsargument. `Main()` deklarerar två strängvariabler för att hålla dessa värden:
 
 ```csharp
 static void Main(string[] args)
@@ -165,7 +165,7 @@ static void Main(string[] args)
 
 ### <a name="message-loop"></a>Meddelandeloop
 
-Metoden MainAsync () skapar en Queue-klient med kommando rads argumenten, anropar en mottagnings meddelande hanterare med namnet `RegisterOnMessageHandlerAndReceiveMessages()`och skickar en uppsättning meddelanden:
+Metoden MainAsync() skapar en köklient med kommandoradsargumenten, `RegisterOnMessageHandlerAndReceiveMessages()`anropar en mottagarmeddelandehanterare med namnet och skickar uppsättningen meddelanden:
 
 ```csharp
 static async Task MainAsync(string ServiceBusConnectionString, string QueueName)
@@ -256,14 +256,14 @@ static async Task ProcessMessagesAsync(Message message, CancellationToken token)
 ```
 
 > [!NOTE]
-> Du kan hantera Service Bus-resurser med [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/). Service Bus Explorer gör det möjligt för användare att ansluta till en Service Bus namnrymd och administrera meddelande enheter på ett enkelt sätt. Verktyget innehåller avancerade funktioner som import/export-funktioner eller möjlighet att testa ämnen, köer, prenumerationer, relä tjänster, Notification Hub och Event Hub. 
+> Du kan hantera Service Bus-resurser med [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/). Service Bus Explorer tillåter användare att ansluta till ett servicebussnamnområde och administrera meddelandeenheter på ett enkelt sätt. Verktyget innehåller avancerade funktioner som import/export-funktioner eller möjligheten att testa ämne, köer, prenumerationer, relätjänster, meddelandehubbar och händelsehubbar. 
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här artikeln skapade du ett Service Bus-namnområde och andra resurser som krävs för att skicka och ta emot meddelanden från en kö. Om du vill veta mer om hur du skriver kod för att skicka och ta emot meddelanden kan du fortsätta till självstudierna i avsnittet **skicka och ta emot meddelanden** . 
+I den här artikeln skapade du ett Service Bus-namnområde och andra resurser som krävs för att skicka och ta emot meddelanden från en kö. Om du vill veta mer om hur du skriver kod för att skicka och ta emot meddelanden fortsätter du till självstudierna i avsnittet **Skicka och ta emot meddelanden.** 
 
 > [!div class="nextstepaction"]
 > [Skicka och ta emot meddelanden](service-bus-dotnet-get-started-with-queues.md)
 
-[kostnadsfritt konto]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
+[gratis konto]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
 [Installera och konfigurera Azure PowerShell]: /powershell/azure/install-Az-ps

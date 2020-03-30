@@ -9,75 +9,75 @@ ms.date: 04/29/2019
 ms.author: rolyon
 ms.custom: include file
 ms.openlocfilehash: d791c4ba46587ac5709d72cb31bc76f087118b03
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/29/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67476256"
 ---
 ## <a name="create-one-or-more-access-reviews"></a>Skapa en eller flera åtkomstgranskningar
 
-1. Klicka på **New** att skapa en ny åtkomstgranskning.
+1. Klicka på **Ny** om du vill skapa en ny åtkomstgranskning.
 
-1. Namnet åtkomstgranskningen. Du kan också ge granskningen en beskrivning. Namn och beskrivning visas granskarna.
+1. Namnge åtkomstgranskningen. Du kan också ge granskningen en beskrivning. Namnet och beskrivningen visas för granskarna.
 
-    ![Skapa en åtkomstgranskning - granska namn och beskrivning](./media/active-directory-privileged-identity-management-access-reviews/name-description.png)
+    ![Skapa en åtkomstgranskning - Granska namn och beskrivning](./media/active-directory-privileged-identity-management-access-reviews/name-description.png)
 
-1. Ange den **startdatum**. Som standard en åtkomstgranskning sker en gång, startar samtidigt som den har skapats och slutar i en månad. Du kan ändra start- och slutdatum komma granska start i framtiden och senast hur många dagar som du vill.
+1. Ange **startdatum**. Som standard inträffar en åtkomstgranskning en gång, startar samtidigt som den skapas och den slutar om en månad. Du kan ändra start- och slutdatum för att få en åtkomstgranskning start i framtiden och pågå hur många dagar du vill.
 
-    ![Starta datum, frekvens, varaktighet, slutet, många gånger och slutdatum](./media/active-directory-privileged-identity-management-access-reviews/start-end-dates.png)
+    ![Startdatum, frekvens, varaktighet,, antal tider och slutdatum](./media/active-directory-privileged-identity-management-access-reviews/start-end-dates.png)
 
-1. För att göra åtkomsten granska återkommande, ändra den **frekvens** från **en gång** till **veckovisa**, **månatliga**,  **Kvartalsvis**, **årligen**, eller **delvis annually**. Använd den **varaktighet** skjutreglaget eller text om du vill definiera hur många dagar som varje granskning av serien med återkommande kommer att vara öppna för indata från granskare. Maximal varaktighet som du kan ange för den månatliga granskningen är till exempel 27 dagar att undvika överlappande granskningar.
+1. Om du vill att åtkomstgranskningen ska upprepas ändrar du inställningen **Frekvens** från **en gång** till **varje vecka,** **månadsvis** **,** **kvartalsvis**, eller **Halvårsvis**. Använd skjutreglaget **Varaktighet** eller text för att definiera hur många dagar varje granskning av den återkommande serien ska vara öppen för indata från granskare. Den maximala varaktighet som du kan ange för en månatlig granskning är till exempel 27 dagar för att undvika överlappande granskningar.
 
-1. Använd den **slutet** inställningen för att specificera hur du avslutar återkommande åtkomst granska serien. Serien kan sluta på tre sätt: det körs kontinuerligt för att starta granskningar på obestämd tid tills ett visst datum eller efter ett angivet antal förekomster har slutförts. Du administratören för en annan eller en annan Global administratör kan stoppa serien när du har skapat genom att ändra datumet i **inställningar**, så att den slutar på det datumet.
+1. Använd inställningen **Slut** för att ange hur du avslutar serien för återkommande åtkomstgranskning. Serien kan sluta på tre sätt: den körs kontinuerligt för att starta granskningar på obestämd tid, tills ett visst datum eller efter att ett visst antal förekomster har slutförts. Du, en annan användaradministratör eller en annan global administratör kan stoppa serien när du har skapat den genom att ändra datumet i **Inställningar**så att det slutar på det datumet.
 
-1. I den **användare** väljer du en eller flera roller som du vill granska medlemskap.
+1. I avsnittet **Användare** väljer du en eller flera roller som du vill granska medlemskap i.
 
-    ![Omfång för användare att granska rollmedlemskap för](./media/active-directory-privileged-identity-management-access-reviews/users.png)
+    ![Användares omfattning att granska rollmedlemskap i](./media/active-directory-privileged-identity-management-access-reviews/users.png)
 
     > [!NOTE]
-    > Att välja mer än en roll skapar flera åtkomstgranskningar. Till exempel skapar att välja fem roller fem separata åtkomstgranskningar.
+    > Om du väljer mer än en roll skapas flera åtkomstgranskningar. Om du till exempel väljer fem roller skapas fem separata åtkomstgranskningar.
 
-    Om du skapar en åtkomstgranskning av Azure AD-roller, visas nedan ett exempel på medlemskapslistan för granskning.
+    Om du skapar en åtkomstgranskning av Azure AD-roller visas följande ett exempel på listan Granska medlemskap.
 
-    ![Granska medlemskap fönstret där Azure AD-roller som du kan välja](./media/active-directory-privileged-identity-management-access-reviews/review-membership.png)
+    ![Granska medlemsfönstret med Azure AD-roller som du kan välja](./media/active-directory-privileged-identity-management-access-reviews/review-membership.png)
 
-    Om du skapar en åtkomstgranskning i Azure-resursroller visas nedan ett exempel på medlemskapslistan för granskning.
+    Om du skapar en åtkomstgranskning av Azure-resursroller visas följande ett exempel på listan Granska medlemskap.
 
-    ![Granska medlemskap fönstret visa en lista över Azure-resursroller som du kan välja](./media/active-directory-privileged-identity-management-access-reviews/review-membership-azure-resource-roles.png)
+    ![Granska medlemsfönstret med Azure-resursroller som du kan välja](./media/active-directory-privileged-identity-management-access-reviews/review-membership-azure-resource-roles.png)
 
-1. I den **granskare** väljer du en eller flera personer att granska alla användare. Eller du kan välja för att ha medlemmar granska sin egen åtkomst.
+1. I avsnittet **Granskare** väljer du en eller flera personer som ska granska alla användare. Eller så kan du välja att låta medlemmarna granska sin egen åtkomst.
 
-    ![Granskare listan med valda användare eller medlemmar (själv)](./media/active-directory-privileged-identity-management-access-reviews/reviewers.png)
+    ![Granskare lista över valda användare eller medlemmar (själv)](./media/active-directory-privileged-identity-management-access-reviews/reviewers.png)
 
-    - **Markerade användare** – Använd det här alternativet om du inte vet vilka som behöver åtkomst. Med det här alternativet kan du tilldela granskningen till en resursägaren eller gruppansvarig för att slutföra.
-    - **Medlemmar (själv)** – Använd det här alternativet för att be användarna granska sin egen rolltilldelningar.
+    - **Valda användare** – Använd det här alternativet när du inte vet vem som behöver åtkomst. Med det här alternativet kan du tilldela granskningen till en resursägare eller gruppchef för att slutföra.
+    - **Medlemmar (själv)** - Använd det här alternativet om du vill att användarna ska granska sina egna rolltilldelningar.
 
-### <a name="upon-completion-settings"></a>Vid slutförande-inställningar
+### <a name="upon-completion-settings"></a>Efter slutförande inställningar
 
-1. Om du vill ange vad som händer när en granskning är klar, expandera den **vid slutförande-inställningar** avsnittet.
+1. Om du vill ange vad som ska hända när en granskning är klar expanderar du avsnittet **Efter slutförandeinställningar.**
 
-    ![När åtgärden har slutförts inställningarna för automatisk gäller och granska inte ska svara](./media/active-directory-privileged-identity-management-access-reviews/upon-completion-settings.png)
+    ![Efter avslutad inställningar för att automatiskt tillämpa och bör granska inte svara](./media/active-directory-privileged-identity-management-access-reviews/upon-completion-settings.png)
 
-1. Om du vill att automatiskt ta bort åtkomst för användare som nekades anger **tillämpa automatiskt resultaten på resursen** till **aktivera**. Om du vill tillämpa resultaten manuellt när granskningen har slutförts kan du ange växeln **inaktivera**.
+1. Om du vill ta bort åtkomst automatiskt för användare som nekades anger du **Auto tillämpa resultat på resursen** för **Aktivera**. Om du vill använda resultaten manuellt när granskningen är klar ställer du in växeln **på Inaktivera**.
 
-1. Använd den **granskaren inte svarar** listan för att ange vad som händer för användare som inte har setts över av den inom granskningsperioden. Den här inställningen påverkar inte användare som har granskats av granskarna manuellt. Om den slutliga granskare beslut neka, bort användarens åtkomst.
+1. Använd listan **Bör granskare svarar inte** för att ange vad som händer för användare som inte granskas av granskaren inom granskningsperioden. Den här inställningen påverkar inte användare som har granskats av granskarna manuellt. Om den slutliga granskarens beslut är Neka tas användarens åtkomst bort.
 
-    - **Ingen ändring** -lämna användarens åtkomst har inte ändrats
-    - **Ta bort åtkomst** -ta bort användarens åtkomst
-    - **Bevilja åtkomst** -godkänna användarens åtkomst
-    - **Anta rekommendationerna** – ta systemets rekommendation neka eller godkänna användaren är fortsatt åtkomst
+    - **Ingen ändring** - Lämna användarens åtkomst oförändrad
+    - **Ta bort åtkomst** - Ta bort användarens åtkomst
+    - **Godkänn åtkomst** - Godkänn användarens åtkomst
+    - **Ta rekommendationer** - Ta systemets rekommendation om att neka eller godkänna användarens fortsatta åtkomst
 
 ### <a name="advanced-settings"></a>Avancerade inställningar
 
-1. Om du vill ange ytterligare inställningar, expandera den **avancerade inställningar** avsnittet.
+1. Om du vill ange ytterligare inställningar expanderar du avsnittet **Avancerade inställningar.**
 
-    ![Avancerade inställningar för Visa rekommendationer, Kräv orsak vid godkännande, e-postaviseringar och påminnelser](./media/active-directory-privileged-identity-management-access-reviews/advanced-settings.png)
+    ![Avancerade inställningar för att visa rekommendationer, kräver orsak vid godkännande, e-postmeddelanden och påminnelser](./media/active-directory-privileged-identity-management-access-reviews/advanced-settings.png)
 
-1. Ange **visa rekommendationer** till **aktivera** för att visa granskarna systemet rekommendationer baserat information om användaren åtkomst.
+1. Ange **Visa rekommendationer** **som ska aktiveras** för att visa granskarna systemrekommendationerna baserat på användarens åtkomstinformation.
 
-1. Ange **Kräv orsak vid godkännande** till **aktivera** att kräva att granskaren anger skäl för godkännande.
+1. Ange **Kräv orsak vid godkännande** för att **aktivera** för att kräva att granskaren tillhandahåller en orsak till godkännande.
 
-1. Ange **e-postaviseringar** till **aktivera** till har Azure AD skickar e-postmeddelanden till granskare när en åtkomstgranskning startar och till administratörer när en granskning är klar.
+1. Ange **e-postaviseringar** **så** att Azure AD skickar e-postmeddelanden till granskare när en åtkomstgranskning startar och till administratörer när en granskning är klar.
 
-1. Ange **påminnelser** till **aktivera** har Azure AD skickar påminnelser om åtkomstgranskningar pågår till granskare som inte har slutfört sina granskningar.
+1. Ange **påminnelser** **för** att azure AD ska skicka påminnelser om åtkomstgranskningar som pågår till granskare som inte har slutfört sin granskning.

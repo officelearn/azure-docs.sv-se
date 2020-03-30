@@ -16,10 +16,10 @@ ms.date: 05/09/2018
 ms.author: magattus
 ms.custom: mvc
 ms.openlocfilehash: 4158df06b4eea175a4225e478325f8f151795850
-ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "75660638"
 ---
 # <a name="what-is-a-content-delivery-network-on-azure"></a>Vad är CDN på Azure?
@@ -35,10 +35,10 @@ Här är några exempel på fördelarna med att tillhandahålla webbplatstillgå
 
 En lista över aktuella CDN-nodplatser finns i [POP-platser för Azure CDN](cdn-pop-locations.md).
 
-## <a name="how-it-works"></a>Så här fungerar det
+## <a name="how-it-works"></a>Hur det fungerar
 ![Översikt över CDN](./media/cdn-overview/cdn-overview.png)
 
-1. En användare (Alice) begär en fil (även kallad tillgång eller resurs) med hjälp av en URL med ett särskilt domännamn, t.ex. _&lt;slutpunktsnamn&gt;_ .azureedge.net. Det här namnet kan vara slutpunktens värdnamn eller en anpassad domän. DNS omdirigerar begäran till den bästa tillgängliga POP-platsen, som vanligtvis är den POP-plats som är geografiskt närmast användaren.
+1. En användare (Alice) begär en fil (kallas även en tillgång) med hjälp av en URL med ett särskilt domännamn, till exempel _ &lt;slutpunktsnamnet&gt;_.azureedge.net. Det här namnet kan vara slutpunktens värdnamn eller en anpassad domän. DNS omdirigerar begäran till den bästa tillgängliga POP-platsen, som vanligtvis är den POP-plats som är geografiskt närmast användaren.
     
 2. Om filen inte finns i cachelagringen i någon edge-server på POP-platsen begär POP filen från ursprungsservern. Ursprungsservern kan vara en Azure-webbapp, en Azure-molntjänst, ett Azure Storage-konto eller en offentligt tillgänglig webbserver.
    
@@ -64,10 +64,10 @@ Mer information om CDN-prenumerationsbegränsningar finns i [CDN limits](https:/
 ## <a name="azure-cdn-features"></a>Funktioner i Azure CDN
 Azure CDN erbjuder följande huvudfunktioner:
 
-- [Acceleration av dynamisk webbplats](cdn-dynamic-site-acceleration.md)
+- [Dynamisk webbplatsacceleration](cdn-dynamic-site-acceleration.md)
 - [CDN-cachelagringsregler](cdn-caching-rules.md)
 - [HTTPS-stöd för egna domäner](cdn-custom-ssl.md)
-- [Azure Diagnostics-loggar](cdn-azure-diagnostic-logs.md)
+- [Azure diagnostik loggar](cdn-azure-diagnostic-logs.md)
 - [Filkomprimering](cdn-improve-performance.md)
 - [Geo-filtrering](cdn-restrict-access-by-country.md)
 

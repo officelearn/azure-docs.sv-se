@@ -1,6 +1,6 @@
 ---
-title: Sök och filtrera grupper medlemmar och ägare (för hands version) – Azure Active Directory | Microsoft Docs
-description: Sök och filtrera grupp medlemmar och ägare i Azure Portal.
+title: Sök och filtrera grupper medlemmar och ägare (förhandsversion) - Azure Active Directory | Microsoft-dokument
+description: Sök och filtrera grupper medlemmar och ägare i Azure-portalen.
 services: active-directory
 documentationcenter: ''
 author: curtand
@@ -15,72 +15,72 @@ ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a815446b79b3e5ec0a75e5d179953956643b16c9
-ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/01/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78206120"
 ---
-# <a name="search-groups-and-members-preview-in-azure-active-directory"></a>Sök efter grupper och medlemmar (förhands granskning) i Azure Active Directory
+# <a name="search-groups-and-members-preview-in-azure-active-directory"></a>Sökgrupper och medlemmar (förhandsversion) i Azure Active Directory
 
-Den här artikeln beskriver hur du söker efter medlemmar och ägare av en grupp och hur du använder Sök filter som en del av för hands versionen av grupper i Azure Active Directory (Azure AD)-portalen. Det finns många förbättringar i gruppen med grupper som hjälper dig att hantera dina grupper, inklusive medlemmar och ägare, snabbt och enkelt. Mer information om förhandsversioner finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+I den här artikeln beskrivs hur du söker efter medlemmar och ägare till en grupp och hur du använder sökfilter som en del av förhandsgranskningen av gruppförbättringar i Azure Active Directory-portalen (Azure AD). Det finns massor av förbättringar i gruppernas upplevelser som hjälper dig att hantera dina grupper, inklusive medlemmar och ägare, snabbt och enkelt. Mer information om förhandsgranskningar finns i [Tilläggsvillkor för microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Ändringarna i den här förhands granskningen innehåller:
+Ändringar i den här förhandsgranskningen inkluderar:
 
-- Nya grupper Sök funktioner, till exempel under Strängs sökning i grupp namn
-- Nya filtrerings-och sorterings alternativ för medlems-och ägar listor
-- Nya Sök funktioner för medlems-och ägar listor
-- Mer exakta grupp antal för stora grupper
+- Sökfunktioner för nya grupper, till exempel sökfunktioner för delsträngar i gruppnamn
+- Nya filtrerings- och sorteringsalternativ på medlems- och ägarlistor
+- Nya sökfunktioner för medlems- och ägarlistor
+- Mer exakta gruppantal för stora grupper
 
-## <a name="enabling-and-managing-the-preview"></a>Aktivera och hantera för hands versionen
+## <a name="enabling-and-managing-the-preview"></a>Aktivera och hantera förhandsgranskningen
 
-Vi har gjort det enkelt att delta i för hands versionen:
+Vi har gjort det enkelt att gå med i förhandsversionen:
 
-  1. Logga in på [Azure AD-portalen](https://portal.azure.com)och välj **grupper**.
-  2. Från sidan grupper – alla grupper väljer du banderollen längst upp på sidan för att gå med i förhands granskningen.
+  1. Logga in på [Azure AD-portalen](https://portal.azure.com)och välj **Grupper**.
+  2. På sidan Grupper – Alla grupper väljer du banderollen högst upp på sidan för att gå med i förhandsgranskningen.
 
-Du kan också ta en titt på de senaste funktionerna och förbättringarna genom att välja **förhands gransknings information** på sidan **alla grupper** . När du har gått med i förhands granskningen visas en förhands gransknings tagg på alla grupper som har förbättringar och ingår i förhands granskningen. Sidan alla grupper har inte uppdaterats som en del av den här för hands versionen.
+Du kan också kolla in de senaste funktionerna och förbättringarna genom att välja **Förhandsgranska information** på sidan **Alla grupper.** När du har gått med i förhandsgranskningen kan du se förhandsgranskningstaggen på alla gruppsidor som har förbättringar och som ingår i förhandsgranskningen. Alla grupper har inte uppdaterats som en del av den här förhandsgranskningen.
 
-Om du har problem kan du växla tillbaka till den äldre upplevelsen genom att välja banderollen högst upp på sidan **alla grupper** . Vi uppskattar din feedback så att vi kan förbättra vår upplevelse.
+Om du har några problem kan du växla tillbaka den äldre upplevelsen genom att välja banderollen högst upp på sidan **Alla grupper.** Vi uppskattar din feedback så att vi kan förbättra vår upplevelse.
 
-## <a name="group-search-and-sorting"></a>Grupps ökning och sortering
+## <a name="group-search-and-sorting"></a>Gruppsökning och sortering
 
-Sök efter grupp listan har förbättrats så att när du kan ange en Sök sträng utför sökningen automatiskt en `startswith` och en under Strängs sökning i listan över grupp namn. Under Strängs sökningen utförs endast på hela ord och innehåller inte specialtecken. Under Strängs sökningen är Skift läges känslig.
+Grupplistesökningen har förbättrats så att sökningen automatiskt utför en `startswith` och delsträngssökning i listan med gruppnamn när du kan ange en söksträng. Delsträngssökningen utförs endast på hela ord och innehåller inte specialtecken. Substring sökning är skiftlägeskänslig.
 
-![ny under Strängs sökning på sidan alla grupper](./media/groups-members-owners-search/groups-search-preview.png)
+![nya delsträngssökningar på sidan Alla grupper](./media/groups-members-owners-search/groups-search-preview.png)
 
-En sökning efter "princip" kommer nu att returnera både "MDM-princip – väst" och "princip grupp". Det går inte att returnera en grupp med namnet "New_policy".
+Till exempel returnerar en sökning efter "princip" nu både "MDM-principen – väst" och "Policy-grupp". En grupp med namnet "New_policy" skulle inte returneras.
 
-- Du kan också utföra samma sökning på grupp medlemskaps listor.
-- Nu kan du sortera listan grupper efter namn med hjälp av pilarna till höger om kolumn rubriken namn för att sortera listan i stigande eller fallande ordning.
+- Du kan också utföra samma sökning i gruppmedlemskapslistor.
+- Du kan nu sortera grupplistan efter namn med hjälp av pilarna till höger om namnkolumnrubriken för att sortera listan i stigande eller fallande ordning.
 
-## <a name="group-member-search-and-filtering"></a>Sökning och filtrering av grupp medlemmar
+## <a name="group-member-search-and-filtering"></a>Gruppmedlemssökning och filtrering
 
-### <a name="search-group-member-and-owner-lists"></a>Sök grupps medlem och ägar listor
+### <a name="search-group-member-and-owner-lists"></a>Sökgruppmedlem och ägarlistor
 
-Nu kan du söka efter medlemmar i en speciell grupp efter namn och utföra samma sökning i listan över gruppens ägare. I den nya upplevelsen kommer en StartsWith-sökning att utföras om du anger en sträng i sökrutan. Till exempel kommer en sökning efter "Glenn" att returnera Scott Wilkinson.
+Du kan nu söka i medlemmarna i en viss grupp efter namn och utföra samma sökning i listan över gruppens ägare också. I den nya upplevelsen, om du anger en sträng i sökrutan, utförs en startswith-sökning automatiskt. En sökning efter "Scott" returnerar till exempel Scott Wilkinson.
 
-![ny under Strängs sökning i listorna grupp medlemmar och ägare](./media/groups-members-owners-search/members-list.png)
+![nya delsträngssökningar på gruppmedlemmarna och ägarlistorna](./media/groups-members-owners-search/members-list.png)
 
-### <a name="filter-member-and-owners-list"></a>Filtrera medlem och ägare-lista
+### <a name="filter-member-and-owners-list"></a>Lista över filtermedlem och ägare
 
-Förutom sökning kan du nu filtrera medlems-och ägar listor efter användar typ. Detta är den information som finns i kolumnen användar typ i listan. Så du kan filtrera listan efter medlemmar och gäster för att fastställa om det finns några gäster i gruppen.
+Förutom sökning kan du nu filtrera medlems- och ägarlistor efter användartyp. Det här är informationen i kolumnen Användartyp i listan. Så kan du filtrera listan efter medlemmar och gäster för att avgöra om det finns några gäster i gruppen.
 
 ### <a name="view-and-manage-membership"></a>Visa och hantera medlemskap
 
-Förutom att visa de direkta medlemmarna i en speciell grupp kan du nu visa en lista över alla medlemmar i gruppen på sidan medlemmar. Listan medlemmar innehåller alla unika medlemmar i gruppen inklusive eventuella transitiva medlemmar.
+Förutom att visa direktmedlemmar i en viss grupp kan du nu visa listan över alla medlemmar i gruppen på sidan Medlemmar. Medlemslistan innehåller alla unika medlemmar i gruppen, inklusive alla transitiva medlemmar.
 
-Du kan också söka efter och filtrera listan direkt medlemmar och listan Alla medlemmar individuellt. Filtrering av listan Alla medlemmar påverkar inte de filter som tillämpas på listan direkt medlemmar.
+Du kan också söka och filtrera listan över direkta medlemmar och listan över alla medlemmar individuellt. Filtrering av listan över alla medlemmar påverkar inte de filter som tillämpas i listan över direkta medlemmar.
 
-## <a name="improved-group-member-counts"></a>Förbättrade grupp medlems antal
+## <a name="improved-group-member-counts"></a>Antal förbättrade gruppmedlemmar
 
-Vi har förbättrat grupp **översikts** sidan för att ge grupp medlemmar antal för grupper av alla storlekar. Du kan se medlems antalet även för grupper med fler än 1 000 medlemmar. Nu kan du se det totala antalet direkta medlemmar för en grupp och det totala antalet medlemskap (alla unika medlemmar i gruppen inklusive transitiva medlemmar) på **översikts** sidan.
+Vi har förbättrat sidan **Gruppöversikt** för att ge gruppmedlemsantal för grupper av alla storlekar. Du kan se antalet medlemmar även för grupper med fler än 1 000 medlemmar. Du kan nu se det totala antalet direktmedlemmar för en grupp och det totala antalet medlemmar (alla unika medlemmar i gruppen inklusive transitiva medlemmar) på **översiktssidan.**
 
-![Högre precision i antal grupp medlemskap](./media/groups-members-owners-search/member-numbers.png)
+![Högre noggrannhet i antalet gruppmedlemskap](./media/groups-members-owners-search/member-numbers.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-De här artiklarna innehåller ytterligare information om hur du arbetar med grupper i Azure AD.
+Dessa artiklar innehåller ytterligare information om hur du arbetar med grupper i Azure AD.
 
 - [Visa dina grupper och medlemmar](../fundamentals/active-directory-groups-view-azure-portal.md)
 - [Hantera gruppmedlemskap](../fundamentals/active-directory-groups-membership-azure-portal.md)
@@ -89,4 +89,4 @@ De här artiklarna innehåller ytterligare information om hur du arbetar med gru
 - [Hantera åtkomst till resurser med grupper](../fundamentals/active-directory-manage-groups.md)
 - [Hantera åtkomst till SaaS-appar med grupper](groups-saasapps.md)
 - [Hantera grupper med PowerShell-kommandon](groups-settings-v2-cmdlets.md)
-- [Lägg till en Azure-prenumeration i Azure Active Directory](../fundamentals/active-directory-how-subscriptions-associated-directory.md)
+- [Lägga till en Azure-prenumeration i Azure Active Directory](../fundamentals/active-directory-how-subscriptions-associated-directory.md)

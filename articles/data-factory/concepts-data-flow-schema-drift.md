@@ -1,6 +1,6 @@
 ---
-title: Schema avvikelse i mappnings data flödet
-description: Bygg elastiska data flöden i Azure Data Factory med schema avvikelse
+title: Schemadrift i mappning av dataflöde
+description: Skapa elastiska dataflöden i Azure Data Factory med Schema Drift
 author: kromerm
 ms.author: makromer
 ms.reviewer: daperlov
@@ -9,65 +9,65 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/12/2019
 ms.openlocfilehash: 9daf7973a2e48f866a8d0b93a682851d31dc3af7
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74928542"
 ---
-# <a name="schema-drift-in-mapping-data-flow"></a>Schema avvikelse i mappnings data flödet
+# <a name="schema-drift-in-mapping-data-flow"></a>Schemadrift i mappning av dataflöde
 
-Schema avvikelse är det fall där dina källor ofta ändrar metadata. Fält, kolumner och, typer kan läggas till, tas bort eller ändras i farten. Utan hantering av schema avvikelser blir ditt data flöde sårbart för överordnade data käll ändringar. Vanliga ETL-mönster fungerar inte när inkommande kolumner och fält ändras eftersom de tenderar att vara knutna till dessa käll namn.
+Schema drift är fallet där dina källor ofta ändrar metadata. Fält, kolumner och typer kan läggas till, tas bort eller ändras i farten. Utan hantering för schemadrift blir dataflödet sårbart för ändringar i uppströmsdatakällan. Typiska ETL-mönster misslyckas när inkommande kolumner och fält ändras eftersom de tenderar att vara knutna till dessa källnamn.
 
-För att skydda mot schema drift är det viktigt att du har funktioner i ett data flödes verktyg som gör det möjligt för dig, som en data tekniker, att:
+För att skydda mot schemadrift är det viktigt att ha anläggningarna i ett dataflödesverktyg så att du som datatekniker kan:
 
-* Definiera källor som har föränderligt fält namn, data typer, värden och storlekar
-* Definiera omvandlings parametrar som kan användas med data mönster i stället för hårdkodade fält och värden
-* Definiera uttryck som förstår mönster för att matcha inkommande fält, i stället för att använda namngivna fält
+* Definiera källor som har föränderliga fältnamn, datatyper, värden och storlekar
+* Definiera omvandlingsparametrar som kan arbeta med datamönster i stället för hårdkodade fält och värden
+* Definiera uttryck som förstår mönster som matchar inkommande fält i stället för att använda namngivna fält
 
-Azure Data Factory inbyggt stöder flexibla scheman som ändras från körning till körning så att du kan bygga Generic data Transformation Logic utan att behöva kompilera om dina data flöden.
+Azure Data Factory stöder inbyggt flexibelt scheman som ändras från körning till körning så att du kan skapa allmän dataomvandlingslogik utan att du behöver kompilera om dina dataflöden.
 
-Du måste fatta ett arkitektur beslut i ditt data flöde för att acceptera schema avvikelser i flödet. När du gör detta kan du skydda dig mot schema ändringar från källorna. Du förlorar dock tidigt bindningen för dina kolumner och typer i ditt data flöde. Azure Data Factory behandlar schema avvikelse flöden som sena bindnings flöden, så när du skapar dina omvandlingar är de nedstaplade kolumn namnen inte tillgängliga i schema vyerna i hela flödet.
+Du måste fatta ett arkitektoniskt beslut i ditt dataflöde för att acceptera schemadrift i hela flödet. När du gör detta kan du skydda mot schemaändringar från källorna. Du förlorar dock tidig bindning av kolumner och typer i hela dataflödet. Azure Data Factory behandlar schemadriftflöden som sena bindningsflöden, så när du skapar dina omvandlingar är de drifted kolumnnamnen inte tillgängliga för dig i schemavyerna i hela flödet.
 
-## <a name="schema-drift-in-source"></a>Schema avvikelse i källa
+## <a name="schema-drift-in-source"></a>Schema drift i källa
 
-Kolumner som kommer till ditt data flöde från din käll definition definieras som "inställt" när de inte finns i din käll projektion. Du kan visa käll projektionen från fliken projektion i käll omvandlingen. När du väljer en data uppsättning för källan tar ADF automatiskt schemat från data uppsättningen och skapar ett projekt från schema definitionen för data uppsättningen.
+Kolumner som kommer in i dataflödet från källdefinitionen definieras som "drifted" när de inte finns i källprojektionen. Du kan visa källprojektionen från projektionsfliken i källomformningen. När du väljer en datauppsättning för källan tar ADF automatiskt schemat från datauppsättningen och skapar ett projekt från den schemadefinitionen för datauppsättningen.
 
-I en käll omvandling definieras schema avvikelsen som att läsa kolumner som inte har definierats i data uppsättnings schemat. Om du vill aktivera schema avvikelse kontrollerar du **Tillåt schema avvikelse** i din käll omvandling.
+I en källomvandling definieras schemaavdrift som läskolumner som inte har definierats i datauppsättningsschemat. Om du vill aktivera schemadrift kontrollerar du **Tillåt schemaavdrift** i källomvandlingen.
 
-![Schema avvikelse källa](media/data-flow/schemadrift001.png "Schema avvikelse källa")
+![Bortkälla för schemaavdrift](media/data-flow/schemadrift001.png "Bortkälla för schemaavdrift")
 
-När schema avvikelsen är aktive rad läses alla inkommande fält från din källa under körningen och skickas genom hela flödet till mottagaren. Som standard tas alla nyligen identifierade kolumner, som kallas för inkommande *kolumner*, emot som en sträng data typ. Om du vill att data flödet automatiskt ska härleda data typer av inaktuella kolumner kontrollerar du **härledda kolumn typer** i dina käll inställningar.
+När schemadrift är aktiverat läs avser alla inkommande fält från källan under körningen och skickas genom hela flödet till sink. Som standard anländer alla nyligen identifierade kolumner, så kallade *drifterade kolumner,* som en strängdatatyp. Om du vill att dataflödet automatiskt ska sluta sig till datatyper av borttaviga kolumner kontrollerar du **infer-borttjänad kolumntyper** i källinställningarna.
 
-## <a name="schema-drift-in-sink"></a>Schema avvikelse i mottagare
+## <a name="schema-drift-in-sink"></a>Schema drift i diskbänken
 
-I en Sink-omvandling är schema avvikelse när du skriver ytterligare kolumner ovanpå vad som definieras i data inmatnings schema. Om du vill aktivera schema avvikelse kontrollerar du **Tillåt schema avvikelse** i din Sink-omvandling.
+I en sink-omformning är schemadrift när du skriver ytterligare kolumner ovanpå vad som definieras i sink-dataschemat. Om du vill aktivera schemadrift kontrollerar du **Tillåt schemaavdrift** i diskhonomformningen.
 
-![Schema avvikelse mottagare](media/data-flow/schemadrift002.png "Schema avvikelse mottagare")
+![Schema drift sink](media/data-flow/schemadrift002.png "Schema drift sink")
 
-Om schema avvikelse är aktiverat kontrollerar du att skjutreglaget för **automatisk mappning** på fliken mappning är aktiverat. Med det här skjutreglaget på, skrivs alla inkommande kolumner till ditt mål. Annars måste du använda regelbaserade mappningar för att skriva förbrukade kolumner.
+Om schemaavdrift är aktiverat kontrollerar du att skjutreglaget **Automatisk mappning** på fliken Mappning är aktiverat. Med det här skjutreglaget aktiverat skrivs alla inkommande kolumner till din destination. Annars måste du använda regelbaserad mappning för att skriva borttrevda kolumner.
 
-![Automatisk mappning av mottagare](media/data-flow/automap.png "Automatisk mappning av mottagare")
+![Diskänka automatisk mappning](media/data-flow/automap.png "Diskänka automatisk mappning")
 
-## <a name="transforming-drifted-columns"></a>Omvandla informerade kolumner
+## <a name="transforming-drifted-columns"></a>Omvandla drivna kolumner
 
-När ditt data flöde har förfallna kolumner, kan du komma åt dem i dina omvandlingar med följande metoder:
+När dataflödet har drivit kolumner kan du komma åt dem i dina omvandlingar med följande metoder:
 
-* Använd `byPosition` och `byName` uttryck för att explicit referera till en kolumn efter namn eller positions nummer.
-* Lägg till ett kolumn mönster i en härledd kolumn eller aggregerad omvandling så att den matchar valfri kombination av namn, ström, position eller typ
-* Lägg till regelbaserade mappningar i en urvals-eller Sink-omvandling för att matcha nedsänkta kolumner till kolumnalias i kolumner via ett mönster
+* Använd `byPosition` uttrycken och `byName` för att uttryckligen referera till en kolumn efter namn eller befattningsnummer.
+* Lägga till ett kolumnmönster i en härledd kolumn eller aggregerad omvandling som matchar en kombination av namn, ström, position eller typ
+* Lägga till regelbaserad mappning i en Select- eller Sink-omformning för att matcha bortförda kolumner med kolumneralias via ett mönster
 
-Mer information om hur du implementerar kolumn mönster finns [i kolumn mönster i mappa data flöde](concepts-data-flow-column-pattern.md).
+Mer information om hur du implementerar kolumnmönster finns [i Kolumnmönster i mappning av dataflöde](concepts-data-flow-column-pattern.md).
 
-### <a name="map-drifted-columns-quick-action"></a>Snabb åtgärd för att mappa förstaplade kolumner
+### <a name="map-drifted-columns-quick-action"></a>Snabb åtgärd för kartdrivna kolumner
 
-Om du vill referera till påpekade kolumner kan du snabbt skapa mappningar för dessa kolumner via snabb åtgärden för förhands granskning av data. När [fel söknings läget](concepts-data-flow-debug-mode.md) är på går du till fliken Data förhands granskning och klickar på **Uppdatera** för att hämta en data för hands version. Om Data Factory upptäcker att det finns inaktuella kolumner kan du klicka på **Mappa** och generera en härledd kolumn som gör att du kan referera till alla nedstaplade kolumner i schema vyerna.
+Om du uttryckligen vill referera till borttappade kolumner kan du snabbt generera mappningar för dessa kolumner via en snabbåtgärd för förhandsversionen av data. När [felsökningsläget](concepts-data-flow-debug-mode.md) är aktiverat går du till fliken Förhandsgranskning av data och klickar på **Uppdatera** för att hämta en förhandsgranskning av data. Om det finns en datafabriksidentifiering som det finns bortrepelter kan du klicka på **Karta drifted** och generera en härledd kolumn som gör att du kan referera till alla bortfallna kolumner i schemavyer nedströms.
 
-![Kartning](media/data-flow/mapdrifted1.png "Kartning")
+![Karta drev](media/data-flow/mapdrifted1.png "Karta drev")
 
-I den genererade härledda kolumn-omvandlingen mappas varje nedstaplad kolumn till dess identifierade namn och datatyp. I data förhands granskningen ovan identifieras kolumnen ' movieId ' som ett heltal. När du har klickat på **kartan** definieras movieId i den härledda kolumnen som `toInteger(byName('movieId'))` och tas med i schema vyerna i efterföljande transformeringar.
+I den genererade derived kolumnomvandlingen mappas varje bortfallen kolumn till dess identifierade namn och datatyp. I ovanstående förhandsgranskning av data identifieras kolumnen "movieId" som ett heltal. När Du har klickat på **Map Drifted** definieras `toInteger(byName('movieId'))` movieId i den härledda kolumnen som och inkluderas i schemavyer i underordnade omvandlingar.
 
-![Kartning](media/data-flow/mapdrifted2.png "Kartning")
+![Karta drev](media/data-flow/mapdrifted2.png "Karta drev")
 
 ## <a name="next-steps"></a>Nästa steg
-I [data flödets uttrycks språk](data-flow-expression-functions.md)hittar du ytterligare funktioner för kolumn mönster och schema avvikelser, inklusive "byName" och "byPosition".
+I [dataflödesuttrycksspråket](data-flow-expression-functions.md)hittar du ytterligare resurser för kolumnmönster och schemadrift, inklusive "byName" och "byPosition".

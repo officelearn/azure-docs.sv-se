@@ -1,6 +1,6 @@
 ---
-title: Skapa en Azure IoT Plug and Play Preview-enhet (Linux) | Microsoft Docs
-description: Använd en enhets kapacitets modell för att generera enhets kod. Kör sedan enhets koden och se till att enheten är ansluten till IoT Hub.
+title: Skapa en Azure IoT Plug and Play Preview-enhet (Linux) | Microsoft-dokument
+description: Använd en enhetskapacitetsmodell för att generera enhetskod. Kör sedan enhetskoden och se enheten ansluta till din IoT Hub.
 author: dominicbetts
 ms.author: dobett
 ms.date: 12/27/2019
@@ -9,32 +9,32 @@ ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
 ms.openlocfilehash: d2cc440572d6f33480972c15f5c498cc384cb2e3
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/31/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "75550544"
 ---
-# <a name="quickstart-use-a-device-capability-model-to-create-an-iot-plug-and-play-preview-device-linux"></a>Snabb start: Använd en enhets kapacitets modell för att skapa en IoT Plug and Play Preview-enhet (Linux)
+# <a name="quickstart-use-a-device-capability-model-to-create-an-iot-plug-and-play-preview-device-linux"></a>Snabbstart: Använd en enhetskapacitetsmodell för att skapa en IoT Plug and Play Preview-enhet (Linux)
 
 [!INCLUDE [iot-pnp-quickstarts-1-selector.md](../../includes/iot-pnp-quickstarts-1-selector.md)]
 
-En _enhets kapacitets modell_ (DCM) beskriver funktionerna i en IoT plug and Play-enhet. Ett DCM är ofta kopplat till en produkt-SKU. Funktionerna som definieras i DCM är indelade i återanvändbara gränssnitt. Du kan generera Skeleton-enhets kod från ett DCM-kort. Den här snabb starten visar hur du använder VS Code på Ubuntu Linux för att skapa en IoT Plug and Play-enhet med hjälp av DCM.
+En _enhetskapacitetsmodell_ (DCM) beskriver funktionerna hos en IoT Plug and Play-enhet. En DCM associeras ofta med en produkt SKU. De funktioner som definieras i DCM är organiserade i återanvändbara gränssnitt. Du kan generera skelettenhetskod från en DCM. Den här snabbstarten visar hur du använder VS-kod på Ubuntu Linux för att skapa en IoT Plug and Play-enhet med hjälp av en DCM.
 
 ## <a name="prerequisites"></a>Krav
 
-I den här snabb starten förutsätter vi att du använder Ubuntu Linux med en Skriv bords miljö. Stegen i den här självstudien har testats med Ubuntu 18,04.
+Den här snabbstarten förutsätter att du använder Ubuntu Linux med en skrivbordsmiljö. Stegen i den här självstudien testades med Ubuntu 18.04.
 
-För att slutföra den här snabb starten måste du installera följande program vara på den lokala Linux-datorn:
+För att slutföra den här snabbstarten måste du installera följande programvara på din lokala Linux-dator:
 
-* Installera **gcc**, **git**, **cmake**och alla beroenden med kommandot `apt-get`:
+* Installera **GCC,** **Git**, **cmake**och `apt-get` alla beroenden med kommandot:
 
     ```sh
     sudo apt-get update
     sudo apt-get install -y git cmake build-essential curl libcurl4-openssl-dev libssl-dev uuid-dev
     ```
 
-    Kontrol lera att versionen av `cmake` är över **2.8.12** och att versionen av **gcc** är över **4.4.7**.
+    Kontrollera att `cmake` versionen av är över **2.8.12** och versionen av **GCC** är över **4.4.7**.
 
     ```sh
     cmake --version
@@ -45,15 +45,15 @@ För att slutföra den här snabb starten måste du installera följande program
 
 ### <a name="install-azure-iot-tools"></a>Installera Azure IoT-verktyg
 
-Använd följande steg för att installera [Azure IoT-verktyg för vs Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) Extension Pack:
+Gör så här för att installera [azure IoT Tools for VS](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) Code-tilläggspaketet:
 
-1. I VS Code väljer du fliken **tillägg** .
-1. Sök efter **Azure IoT-verktyg**.
+1. Välj fliken **Tillägg** i VS-kod.
+1. Sök efter **Azure IoT Tools**.
 1. Välj **Installera**.
 
-### <a name="get-the-connection-string-for-your-company-model-repository"></a>Hämta anslutnings strängen för din företags modell databas
+### <a name="get-the-connection-string-for-your-company-model-repository"></a>Hämta anslutningssträngen för företagets modelldatabas
 
-Du hittar _anslutnings strängen för din företags modell databas_ i [Azure-certifierad för IoT Portal](https://preview.catalog.azureiotsolutions.com) -portalen när du loggar in med ett arbets-eller skol konto i Microsoft, eller ditt Microsoft partner-ID om du har ett. När du har loggat in väljer du **företags databas** och sedan **anslutnings strängar**.
+Du hittar _anslutningssträngen för företagsmodelllagringsplats_ i [Portalen för Azure Certified for IoT](https://preview.catalog.azureiotsolutions.com) när du loggar in med ett Microsoft-arbets- eller skolkonto eller ditt Microsoft Partner-ID om du har ett. När du har loggat in väljer du **Företagsdatabas** och sedan **Anslutningssträngar**.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -61,7 +61,7 @@ Du hittar _anslutnings strängen för din företags modell databas_ i [Azure-cer
 
 ## <a name="prepare-the-development-environment"></a>Förbereda utvecklingsmiljön
 
-I den här snabb starten använder du [Vcpkg](https://github.com/microsoft/vcpkg) Library Manager för att installera Azure IoT C-enhetens SDK i utvecklings miljön.
+I den här snabbstarten använder du [Vcpkg-bibliotekshanteraren](https://github.com/microsoft/vcpkg) för att installera Azure IoT C-enheten SDK i utvecklingsmiljön.
 
 Öppna ett gränssnitt. Kör följande kommando för att installera Vcpkg:
 
@@ -75,18 +75,18 @@ cd vcpkg
 
 Den här åtgärden kan förväntas ta flera minuter att slutföra.
 
-## <a name="author-your-model"></a>Redigera din modell
+## <a name="author-your-model"></a>Skapa din modell
 
-I den här snabb starten använder du en befintlig funktions modell för exempel enheter och tillhör ande gränssnitt.
+I den här snabbstarten använder du en befintlig exempelenhetsfunktionsmodell och tillhörande gränssnitt.
 
-1. Skapa en `pnp_app` katalog på din lokala enhet. Du använder den här mappen för enhets modellens filer och enhets koden stub.
+1. Skapa `pnp_app` en katalog i den lokala enheten. Du använder den här mappen för enhetsmodellfiler och enhetskod stub.
 
     ```bash
     cd ~
     mkdir pnp_app
     ```
 
-1. Ladda ned enhetens kapacitets modell och gränssnitts exempel filer till mappen `pnp_app`.
+1. Hämta enhetskapacitetsmodellen och gränssnittsprovfilerna `pnp_app` till mappen.
 
     ```bash
     cd pnp_app
@@ -94,41 +94,41 @@ I den här snabb starten använder du en befintlig funktions modell för exempel
     curl -O -L https://raw.githubusercontent.com/Azure/IoTPlugandPlay/master/samples/EnvironmentalSensor.interface.json
     ```
 
-1. Öppna `pnp_app` mapp med VS Code. Du kan visa filerna med IntelliSense:
+1. Öppna `pnp_app` mappen med VS-kod. Du kan visa filerna med IntelliSense:
 
-    ![Enhets kapacitets modell](media/quickstart-create-pnp-device-linux/dcm.png)
+    ![Modell för enhetskapacitet](media/quickstart-create-pnp-device-linux/dcm.png)
 
-1. I de filer som du laddade ned ersätter du `<YOUR_COMPANY_NAME_HERE>` i fälten `@id` och `schema` med ett unikt värde. Använd bara tecknen a-z, A-Z, 0-9 och under streck. Mer information finns i [digitalt format för dubbla identifierare](https://github.com/Azure/IoTPlugandPlay/tree/master/DTDL#digital-twin-identifier-format).
+1. Ersätt `<YOUR_COMPANY_NAME_HERE>` i fälten `@id` och `schema` med ett unikt värde i filerna som du hämtade. Använd bara tecknen a-z, A-Ö, 0-9 och understreck. Mer information finns i [Digital Twin-identifierarformat](https://github.com/Azure/IoTPlugandPlay/tree/master/DTDL#digital-twin-identifier-format).
 
-## <a name="generate-the-c-code-stub"></a>Generera C-koden stub
+## <a name="generate-the-c-code-stub"></a>Generera C-kod stub
 
-Nu när du har ett DCM och tillhör ande gränssnitt kan du generera den enhets kod som implementerar modellen. Så här genererar du C-koden stub i VS Code:
+Nu när du har en DCM och dess associerade gränssnitt kan du generera enhetskoden som implementerar modellen. Så här genererar du C-kodssubsen i VS-kod:
 
-1. Med mappen `pnp_app` öppen i VS Code, använder du **Ctrl + Shift + P** för att öppna kommando paletten, ange **IoT plug and Play**och väljer **generera enhets kod stub**.
+1. När `pnp_app` mappen är öppen i VS-kod använder du **Ctrl+Skift+P** för att öppna kommandopaletten, anger **IoT Plug and Play**och väljer **Generera Enhetskodsstub.**
 
     > [!NOTE]
-    > Första gången du använder IoT Plug and Play Code Generator-verktyget tar det några sekunder att ladda ned och installera automatiskt.
+    > Första gången du använder IoT Plug and Play Code Generator verktyget, det tar några sekunder att ladda ner och installera automatiskt.
 
-1. Välj den **SampleDevice. capabilitymodel. JSON** -fil som ska användas för att generera enhets kod stub.
+1. Välj filen **SampleDevice.capabilitymodel.json** som ska användas för att generera enhetskoden stub.
 
-1. Ange projekt namnet **sample_device**. Detta är namnet på enhets programmet.
+1. Ange projektnamnet **sample_device**. Detta kommer att vara namnet på ditt enhetsprogram.
 
 1. Välj **ANSI C** som språk.
 
-1. Välj **Via IoT Hub enhets anslutnings sträng** som anslutnings metod.
+1. Välj **Anslutningssträngen för Via IoT Hub-enheten** som anslutningsmetod.
 
-1. Välj **cmake-projekt på Linux** som projekt mal len.
+1. Välj **CMake Project på Linux** som projektmall.
 
-1. Välj **via Vcpkg** som metod för att inkludera enhets-SDK: n.
+1. Välj **Via Vcpkg** som sätt att inkludera enheten SDK.
 
-1. En ny mapp med namnet **sample_device** skapas på samma plats som DCM-filen och i den genereras stub-filer för enhets koder. VS Code öppnar ett nytt fönster för att visa dessa.
-    ![enhets kod](media/quickstart-create-pnp-device-linux/device-code.png)
+1. En ny mapp som heter **sample_device** skapas på samma plats som DCM-filen, och i den finns de genererade enhetskodssubenfilerna. VS-kod öppnar ett nytt fönster för att visa dessa.
+    ![Enhetskod](media/quickstart-create-pnp-device-linux/device-code.png)
 
 ## <a name="build-and-run-the-code"></a>Skapa och kör koden
 
-Du kan använda enhets-SDK-källkoden för att skapa den genererade enhets koden stub. Det program som du skapar simulerar en enhet som ansluter till en IoT-hubb. Programmet skickar telemetri och egenskaper och tar emot kommandon.
+Du använder enhetenSDK-källkoden för att skapa den genererade enhetskodsstuben. Programmet du skapar simulerar en enhet som ansluter till en IoT-hubb. Programmet skickar telemetri och egenskaper och tar emot kommandon.
 
-1. Skapa en **cmake** -build-mapp för det **sample_device** programmet:
+1. Skapa en **CMake-byggmapp** för **sample_device-programmet:**
 
     ```bash
     cd ~/pnp_app/sample_device
@@ -136,55 +136,55 @@ Du kan använda enhets-SDK-källkoden för att skapa den genererade enhets koden
     cd cmake
     ```
 
-1. Kör CMake för att skapa din app med SDK. Följande kommando förutsätter att du har installerat **vcpkg** i din arbetsmapp:
+1. Kör CMake för att skapa din app med SDK. Följande kommando förutsätter att du har installerat **vcpkg** i hemmappen:
 
     ```bash
     cmake .. -DCMAKE_TOOLCHAIN_FILE=~/vcpkg/scripts/buildsystems/vcpkg.cmake -Duse_prov_client=ON -Dhsm_type_symm_key:BOOL=ON
     cmake --build .
     ```
 
-1. När skapandet har slutförts kör du ditt program och skickar IoT Hub-enhetens anslutnings sträng som parameter.
+1. När versionen har slutförts kör du programmet som skickar anslutningssträngen för IoT-hubbenhet som parameter.
 
     ```sh
     cd ~/pnp_app/sample_device/cmake
     ./sample_device "<YourDeviceConnectionString>"
     ```
 
-1. Enhets programmet börjar skicka data till IoT Hub.
+1. Enhetsprogrammet börjar skicka data till IoT Hub.
 
-    ![Enhets program som körs](media/quickstart-create-pnp-device-linux/device-app-running.png)
+    ![Enhetsapp körs](media/quickstart-create-pnp-device-linux/device-app-running.png)
 
 ## <a name="validate-the-code"></a>Verifiera koden
 
-### <a name="publish-device-model-files-to-model-repository"></a>Publicera enhets modell filer till modell databasen
+### <a name="publish-device-model-files-to-model-repository"></a>Publicera enhetsmodellfiler till modelldatabasen
 
-Om du vill validera enhets koden med **AZ** CLI måste du publicera filerna på modell lagrings platsen.
+Om du vill validera enhetskoden med **az** CLI måste du publicera filerna till modelldatabasen.
 
-1. Med mappen `pnp_app` öppen i VS Code, använder du **Ctrl + Shift + P** för att öppna kommando-paletten, skriver och väljer **IoT plugg & Play: skicka filer till modell databasen**.
+1. När `pnp_app` mappen är öppen i VS-kod använder du **Ctrl+Skift+P** för att öppna kommandopaletten, skriver och väljer **IoT Plug & Play: Skicka filer till Modelldatabasen**.
 
-1. Välj `SampleDevice.capabilitymodel.json` och `EnvironmentalSensor.interface.json` filer.
+1. Markera `SampleDevice.capabilitymodel.json` `EnvironmentalSensor.interface.json` och filer.
 
-1. Ange din anslutnings sträng för företags modellens databas.
-
-    > [!NOTE]
-    > Anslutnings strängen krävs bara första gången du ansluter till lagrings platsen.
-
-1. I VS Code output-fönster och meddelande kan du kontrol lera att filerna har publicerats.
+1. Ange anslutningssträngen för företagsmodelldatabasen.
 
     > [!NOTE]
-    > Om du får fel när du publicerar enhets modellens filer kan du prova att använda kommandot **IoT plug and Play: Logga ut modell databasen** för att logga ut och gå igenom stegen igen.
+    > Anslutningssträngen krävs bara första gången du ansluter till databasen.
 
-### <a name="use-the-azure-iot-cli-to-validate-the-code"></a>Använd Azure IoT CLI för att validera koden
+1. I utdatafönstret vs-kod och meddelande kan du kontrollera att filerna har publicerats.
 
-När enhets klient exemplet startar kan du kontrol lera att det fungerar med Azure CLI.
+    > [!NOTE]
+    > Om du får fel när du publicerar enhetsmodellfilerna kan du prova att använda **kommando-IoT Plug and Play: Logga ut Modelldatabasen** för att logga ut och gå igenom stegen igen.
 
-Använd följande kommando för att Visa telemetri som exempel enheten skickar. Du kan behöva vänta en minut eller två innan du ser en telemetri i utdata:
+### <a name="use-the-azure-iot-cli-to-validate-the-code"></a>Använda Azure IoT CLI för att validera koden
+
+När enhetsklientexemplet har startat kan du kontrollera att det fungerar med Azure CLI.
+
+Använd följande kommando för att visa den telemetri som exempelenheten skickar. Du kan behöva vänta en minut eller två innan du ser någon telemetri i utdata:
 
 ```azurecli-interactive
 az iot dt monitor-events --hub-name <YourIoTHubNme> --device-id <YourDeviceID>
 ```
 
-Använd följande kommando för att visa alla egenskaper som har skickats av enheten:
+Använd följande kommando för att visa alla egenskaper som skickas av enheten:
 
 ```azurecli-interactive
 az iot dt list-properties --device-id <YourDeviceID> --hub-name <YourIoTHubNme> --source private --repo-login "<YourCompanyModelRepositoryConnectionString>"
@@ -194,9 +194,9 @@ az iot dt list-properties --device-id <YourDeviceID> --hub-name <YourIoTHubNme> 
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabb starten har du lärt dig hur du skapar en IoT Plug and Play-enhet med hjälp av ett DCM.
+I den här snabbstarten lärde du dig hur du skapar en IoT Plug and Play-enhet med hjälp av en DCM.
 
 Om du vill veta mer om DCMs och hur du skapar egna modeller fortsätter du till självstudien:
 
 > [!div class="nextstepaction"]
-> [Självstudie: skapa och testa en enhets kapacitets modell med Visual Studio Code](tutorial-pnp-visual-studio-code.md)
+> [Självstudiekurs: Skapa och testa en enhetskapacitetsmodell med Visual Studio-kod](tutorial-pnp-visual-studio-code.md)

@@ -1,18 +1,17 @@
 ---
 title: Funktionen TTL-värde per dokument i MongoDB i Azure Cosmos DB
 description: Lär dig att ställa in ett värde för tid till lansering för dokument som använder Azure Cosmos DB:s API för MongoDB för att automatiskt rensa dem från systemet efter en viss tid.
-author: rockboyfor
-ms.author: v-yeche
+author: sivethe
+ms.author: sivethe
 ms.service: cosmos-db
 ms.devlang: javascript
 ms.topic: quickstart
-origin.date: 12/26/2018
-ms.date: 03/18/2019
+ms.date: 12/26/2018
 ms.openlocfilehash: cd6cb68014eea00077328f39c2c9bf0a1f7fb679
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "61330692"
 ---
 # <a name="expire-data-with-azure-cosmos-dbs-api-for-mongodb"></a>Ta bort data med Azure Cosmos DB:s API för MongoDB
@@ -39,7 +38,7 @@ Kommandot i exemplet ovan skapar ett index med TTL-funktioner. När indexet har 
 > [!NOTE]
 > **_ts** är ett fält som är unikt för Cosmos DB och det går inte att använda med MongoDB-klienter. Det är en reserverad (system)egenskap som innehåller tidsstämpeln för senaste ändringen av dokumentet.
 >
-
+    
 Dessutom, ett C#-exempel: 
 
 ```csharp
@@ -73,13 +72,10 @@ globaldb:PRIMARY> db.coll.insert({id:1, location: "Paris", ttl: NumberLong(21474
 
 ## <a name="how-to-activate-the-per-document-ttl-feature"></a>Så här aktiverar du TTL-funktionen per dokument
 
-<!-- Verify successfully on mongodb TTL-->
 TTL-funktionen per dokument kan aktiveras med Azure Cosmos DB:s API för MongoDB.
 
-![Skärmbild av aktiveringen av Per dokument TTL-funktionen i portalen](./media/mongodb-ttl/mongodb_portal_ttl.png) 
+![Skärmbild av TTL-funktionen Per dokument aktivering i Portal](./media/mongodb-ttl/mongodb_portal_ttl.png) 
 
 ## <a name="next-steps"></a>Nästa steg
 * [Ta bort data från Azure Cosmos DB automatiskt med hjälp av förfallodatum](../cosmos-db/time-to-live.md)
 * [Indexera din Cosmos-databas konfigurerad med Azure Cosmos DB:s API för MongoDB](../cosmos-db/mongodb-indexing.md)
-
-<!-- Update_Description: update meta properties, wording update -->

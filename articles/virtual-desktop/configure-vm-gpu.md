@@ -1,6 +1,6 @@
 ---
-title: Konfigurera GPU för Windows Virtual Desktop – Azure
-description: Aktivera GPU-accelererad åter givning och kodning i Windows Virtual Desktop.
+title: Konfigurera GPU för Windows Virtual Desktop - Azure
+description: Aktivera GPU-accelererad rendering och kodning i Windows Virtual Desktop.
 services: virtual-desktop
 author: gundarev
 ms.service: virtual-desktop
@@ -8,87 +8,87 @@ ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: denisgun
 ms.openlocfilehash: 941a1ff23668a3202028e8b693b57d902095b3b2
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78384820"
 ---
 # <a name="configure-graphics-processing-unit-gpu-acceleration-for-windows-virtual-desktop"></a>Konfigurera GPU-acceleration (Graphics Processing Unit) för Windows Virtual Desktop
 
-Windows Virtual Desktop stöder GPU-accelererad åter givning och kodning för bättre prestanda och skalbarhet för appar. GPU-acceleration är särskilt viktigt för grafik intensiva appar.
+Windows Virtual Desktop stöder GPU-accelererad rendering och kodning för förbättrad appprestanda och skalbarhet. GPU-acceleration är särskilt viktigt för grafikintensiva appar.
 
-Följ anvisningarna i den här artikeln för att skapa en GPU-optimerad virtuell Azure-dator, lägga till den i din värd pool och konfigurera den för att använda GPU-acceleration för åter givning och kodning. Den här artikeln förutsätter att du redan har konfigurerat en Windows-klient för virtuella skriv bord.
+Följ instruktionerna i den här artikeln om du vill skapa en GPU-optimerad virtuell Azure-dator, lägga till den i värdpoolen och konfigurera den för att använda GPU-acceleration för rendering och kodning. Den här artikeln förutsätter att du redan har en Windows Virtual Desktop-klient konfigurerad.
 
-## <a name="select-a-gpu-optimized-azure-virtual-machine-size"></a>Välj en GPU-optimerad storlek på virtuell Azure-dator
+## <a name="select-a-gpu-optimized-azure-virtual-machine-size"></a>Välj en GPU-optimerad Azure-storlek för virtuella datorer
 
-Azure erbjuder ett antal [GPU-optimerade storlekar på virtuella datorer](/azure/virtual-machines/windows/sizes-gpu). Det rätta valet för din värd pool är beroende av ett antal faktorer, inklusive dina specifika arbets belastningar för appar, önskad kvalitet på användar upplevelsen och kostnad. I allmänhet erbjuder större och mer kompatibla GPU: er en bättre användar upplevelse vid en specifik användar täthet.
+Azure erbjuder ett antal [GPU-optimerade storlekar för virtuella datorer](/azure/virtual-machines/windows/sizes-gpu). Rätt val för värdpoolen beror på ett antal faktorer, inklusive dina arbetsbelastningar för appen, önskad användarkvalitet och kostnad. I allmänhet erbjuder större och mer kapabla GPU:er en bättre användarupplevelse med en viss användartäthet.
 
-## <a name="create-a-host-pool-provision-your-virtual-machine-and-configure-an-app-group"></a>Skapa en värdbaserad pool, etablera den virtuella datorn och konfigurera en app-grupp
+## <a name="create-a-host-pool-provision-your-virtual-machine-and-configure-an-app-group"></a>Skapa en värdpool, etablera din virtuella dator och konfigurera en appgrupp
 
-Skapa en ny adresspool med en virtuell dator med den storlek som du har valt. Mer information finns i [Självstudier: skapa en värdbaserad pool med Azure Marketplace](/azure/virtual-desktop/create-host-pools-azure-marketplace).
+Skapa en ny värdpool med en virtuell dator av den storlek du har valt. Instruktioner finns i [Självstudiekurs: Skapa en värdpool med Azure Marketplace](/azure/virtual-desktop/create-host-pools-azure-marketplace).
 
-Windows Virtual Desktop stöder GPU-accelererad åter givning och kodning i följande operativ system:
+Windows Virtual Desktop stöder GPU-accelererad rendering och kodning i följande operativsystem:
 
-* Windows 10 version 1511 eller senare
+* Windows 10 version 1511 eller nyare
 * Windows Server 2016 eller senare
 
-Du måste också konfigurera en app-grupp eller använda standard gruppen för Skriv bords appar (med namnet "Skriv bords grupp") som skapas automatiskt när du skapar en ny adresspool. Mer information finns i [Självstudier: hantera program grupper för Windows Virtual Desktop](/azure/virtual-desktop/manage-app-groups).
+Du måste också konfigurera en appgrupp eller använda standardappgruppen för skrivbordsappar (med namnet "Desktop Application Group") som skapas automatiskt när du skapar en ny värdpool. Instruktioner finns i [Självstudiekurs: Hantera appgrupper för Windows Virtuella skrivbord](/azure/virtual-desktop/manage-app-groups).
 
-## <a name="install-supported-graphics-drivers-in-your-virtual-machine"></a>Installera grafik driv rutiner som stöds på den virtuella datorn
+## <a name="install-supported-graphics-drivers-in-your-virtual-machine"></a>Installera grafikdrivrutiner som stöds i den virtuella datorn
 
-Om du vill dra nytta av GPU-funktionerna i virtuella datorer i Azure N-serien i Windows Virtual Desktop måste du installera lämpliga grafik driv rutiner. Följ instruktionerna i [operativ system och driv rutiner som stöds](/azure/virtual-machines/windows/sizes-gpu#supported-operating-systems-and-drivers) för att installera driv rutiner från rätt grafik leverantör, antingen manuellt eller med ett tillägg för Azure VM.
+Om du vill dra nytta av GPU-funktionerna i virtuella azure N-serien-datorer i Windows Virtual Desktop måste du installera lämpliga grafikdrivrutiner. Följ instruktionerna på [operativsystem och drivrutiner som stöds](/azure/virtual-machines/windows/sizes-gpu#supported-operating-systems-and-drivers) för att installera drivrutiner från lämplig grafikleverantör, antingen manuellt eller med hjälp av ett Azure VM-tillägg.
 
-Endast driv rutiner som distribueras med Azure stöds för Windows Virtual Desktop. För virtuella Azure-datorer med NVIDIA GPU: er finns det bara stöd för [NVIDIA Grid-drivrutiner](/azure/virtual-machines/windows/n-series-driver-setup#nvidia-grid-drivers) för virtuella Windows-datorer.
+Endast drivrutiner som distribueras av Azure stöds för Windows Virtual Desktop. Dessutom, för Virtuella Azure-datorer med NVIDIA GPU: er, endast [NVIDIA GRID-drivrutiner](/azure/virtual-machines/windows/n-series-driver-setup#nvidia-grid-drivers) stöds för Windows Virtual Desktop.
 
-Efter installationen av driv rutinen krävs en omstart av datorn. Använd verifierings stegen i ovanstående instruktioner för att bekräfta att grafik driv rutinerna har installerats.
+Efter installationen av drivrutinen krävs en omstart av den virtuella datorn. Följ verifieringsstegen i instruktionerna ovan för att bekräfta att grafikdrivrutiner har installerats.
 
-## <a name="configure-gpu-accelerated-app-rendering"></a>Konfigurera åter givning av GPU-accelererad app
+## <a name="configure-gpu-accelerated-app-rendering"></a>Konfigurera GPU-accelererad apprendering
 
-Som standard återges appar och skriv bord som körs i konfigurationer med flera sessioner med processorn och utnyttjar inte tillgängliga GPU: er för åter givning. Konfigurera grupprincip för sessions värden för att aktivera GPU-accelererad åter givning:
+Som standard återges appar och skrivbord som körs i konfigurationer med flera sessioner med processorn och utnyttjar inte tillgängliga gpu:er för rendering. Konfigurera grupprincip för sessionsvärden så att GPU-accelererad rendering aktiveras:
 
-1. Anslut till Skriv bordet för den virtuella datorn med ett konto med lokal administratörs behörighet.
-2. Öppna Start-menyn och skriv "gpedit. msc" för att öppna grupprincip redigeraren.
-3. Navigera i trädet till **dator konfiguration** > **administrativa mallar** > **Windows-komponenter** > **Fjärrskrivbordstjänster** > **Border vara värd** för fjärrskrivbordssession > **fjärrsessions miljö**.
-4. Välj princip **Använd maskin varans standard grafik kort för alla Fjärrskrivbordstjänster sessioner** och ange att den här principen **är aktive rad** för att aktivera GPU-rendering i fjärrsessionen.
+1. Anslut till skrivbordet på den virtuella datorn med hjälp av ett konto med lokala administratörsbehörighet.
+2. Öppna Start-menyn och skriv "gpedit.msc" för att öppna redigeraren för grupprinciper.
+3. Navigera i trädet till**administrativa mallar för** >  **datorkonfiguration** > **Windows Components** > **Fjärrskrivbordssession** > **värd för** > **fjärrsession.**
+4. Välj princip **Använd standardgrafikkortet för maskinvara för alla sessioner för Fjärrskrivbordstjänster** och ange den här principen till **Aktiverad** för att aktivera GPU-rendering i fjärrsessionen.
 
-## <a name="configure-gpu-accelerated-frame-encoding"></a>Konfigurera GPU-accelererad ram kodning
+## <a name="configure-gpu-accelerated-frame-encoding"></a>Konfigurera GPU-accelererad ramkodning
 
-Fjärr skrivbord kodar alla bilder som återges av appar och skriv bord (oavsett om de återges med GPU eller CPU) för överföring till fjärr skrivbords klienter. Som standard utnyttjar inte fjärr skrivbord tillgängliga GPU: er för den här kodningen. Konfigurera grupprincip för sessions värden för att aktivera GPU-accelererad ram kodning. Fortsätta med stegen ovan:
+Fjärrskrivbord kodar all grafik som återges av appar och stationära datorer (oavsett om den återges med GPU eller med CPU) för överföring till fjärrskrivbordsklienter. Som standard utnyttjar Fjärrskrivbord inte tillgängliga GPU:er för den här kodningen. Konfigurera grupprincip för sessionsvärden för att aktivera GPU-accelererad ramkodning. Fortsätter stegen ovan:
 
-1. Välj princip **prioritering h. 264/avc 444-grafik läge för fjärr skrivbords anslutningar** och ange att principen har **Aktiver ATS** för att tvinga H. 264/AVC 444-codec i fjärrsessionen.
-2. Välj princip **Konfigurera H. 264/AVC-maskinvarubaserad kodning för fjärr skrivbords anslutningar** och ange att den här principen **är aktive rad** för att aktivera maskin varu kodning för AVC/H. 264 i fjärrsessionen.
+1. Välj princip **Prioritera H.264/AVC 444-grafikläge för fjärrskrivbordsanslutningar** och ange den här principen på **Aktiverad** för att tvinga H.264/AVC 444 codec i fjärrsessionen.
+2. Välj princip **Konfigurera H.264/AVC-maskinvarukodning för fjärrskrivbordsanslutningar** och ange den här principen på **Aktiverad** för att aktivera maskinvarukodning för AVC/H.264 i fjärrsessionen.
 
     >[!NOTE]
-    >I Windows Server 2016 väljer du alternativet **föredra att AVC-maskinvarubaserad kodning** **alltid försöker**.
+    >I Windows Server 2016 anger du alternativet **Föredrar AVC-maskinvarukodning** för att **alltid försöka**.
 
-3. Nu när grup principerna har redigerats måste du framtvinga en uppdatering av grup principen. Öppna kommando tolken och skriv:
+3. Nu när grupprinciperna har redigerats tvingar du fram en grupprincipuppdatering. Öppna kommandotolken och skriv:
 
     ```batch
     gpupdate.exe /force
     ```
 
-4. Logga ut från fjärrskrivbordssessionen.
+4. Logga ut från sessionen med fjärrskrivbord.
 
-## <a name="verify-gpu-accelerated-app-rendering"></a>Verifiera åter givning av GPU-accelererad app
+## <a name="verify-gpu-accelerated-app-rendering"></a>Verifiera GPU-accelererad appåtergivning
 
-Om du vill kontrol lera att appar använder GPU: n för rendering kan du prova något av följande:
+Om du vill kontrollera att appar använder grafikprocessorn för rendering provar du något av följande:
 
-* För virtuella Azure-datorer med en NVIDIA-GPU använder du verktyget `nvidia-smi` enligt beskrivningen i [Verifiera driv rutins installation](/azure/virtual-machines/windows/n-series-driver-setup#verify-driver-installation) för att kontrol lera om GPU-belastningen körs när du kör dina appar.
-* I operativ system versioner som stöds kan du använda aktivitets hanteraren för att kontrol lera GPU-användningen. Välj GPU på fliken "prestanda" för att se om appar använder GPU: n.
+* För virtuella Azure-datorer med en `nvidia-smi` NVIDIA GPU använder du verktyget enligt beskrivningen i [Verifiera drivrutinsinstallation](/azure/virtual-machines/windows/n-series-driver-setup#verify-driver-installation) för att söka efter GPU-användning när du kör dina appar.
+* I operativsystemversioner som stöds kan du använda Aktivitetshanteraren för att söka efter GPU-användning. Välj GPU på fliken "Prestanda" för att se om appar använder GPU.Select the GPU in the "Performance" tab to see whether apps are utilizing the GPU.
 
-## <a name="verify-gpu-accelerated-frame-encoding"></a>Kontrol lera att GPU-accelererad ram kodning
+## <a name="verify-gpu-accelerated-frame-encoding"></a>Verifiera GPU-accelererad ramkodning
 
-Verifiera att fjärr skrivbord använder GPU-accelererad kodning:
+Så här kontrollerar du att fjärrskrivbord använder GPU-accelererad kodning:
 
-1. Anslut till den virtuella datorns Station ära dator med hjälp av Windows Virtual Desktop-klienten.
-2. Starta Loggboken och navigera till följande nod: program- **och tjänst loggar** > **Microsoft** > **Windows** > **RemoteDesktopServices-RdpCoreCDV** > **Operational**
-3. Ta reda på om GPU-accelererad kodning används genom att leta efter händelse-ID 170. Om du ser "AVC Hardware Encoder Enabled: 1" används GPU-kodning.
-4. Du kan kontrol lera om AVC 444-läge används genom att leta efter händelse-ID 162. Om du ser "AVC tillgängligt: 1 initial profil: 2048" används AVC 444.
+1. Anslut till skrivbordet för den virtuella datorn med Windows Virtual Desktop-klienten.
+2. Starta Loggboken och navigera till följande nod: **Program och tjänster loggar** > **Microsoft** > **Windows** > **RemoteDesktopServices-RdpCoreCDV** > **Operational**
+3. Om du vill ta reda på om GPU-accelererad kodning används letar du efter händelse-ID 170. Om du ser "AVC-maskinvarukodare aktiverad: 1" används GPU-kodning.
+4. Om du vill ta reda på om AVC 444-läget används letar du efter händelse-ID 162. Om du ser "AVC Tillgänglig: 1 Initial Profil: 2048" då AVC 444 används.
 
 ## <a name="next-steps"></a>Nästa steg
 
-De här instruktionerna bör vara igång med GPU-acceleration på en virtuell dator för en enda session. Ytterligare överväganden för att aktivera GPU-acceleration i en större värddator:
+Dessa instruktioner bör få dig igång med GPU-acceleration på en enda session värd VM. Några ytterligare överväganden för att aktivera GPU-acceleration över en större värdpool:
 
-* Överväg att använda ett [VM-tillägg](/azure/virtual-machines/extensions/overview) för att förenkla installation och uppdateringar av driv rutiner på flera virtuella datorer. Använd [nVidia GPU-drivrutinens tillägg](/azure/virtual-machines/extensions/hpccompute-gpu-windows) för virtuella datorer med nVidia GPU: er och Använd tillägget för AMD GPU-drivrutinen (kommer snart) för virtuella datorer med AMD GPU: er.
-* Överväg att använda Active Directory grupprincip för att förenkla konfigureringen av grup principer på flera virtuella datorer. Information om hur du distribuerar grupprincip i Active Directory-domänen finns i [arbeta med Grupprincip objekt](https://go.microsoft.com/fwlink/p/?LinkId=620889).
+* Överväg att använda ett [VM-tillägg](/azure/virtual-machines/extensions/overview) för att förenkla installationen av drivrutiner och uppdateringar för ett antal virtuella datorer. Använd [NVIDIA GPU Driver Extension](/azure/virtual-machines/extensions/hpccompute-gpu-windows) för virtuella datorer med NVIDIA GPU: er och använd AMD GPU Driver Extension (kommer snart) för virtuella datorer med AMD GPU: er.
+* Överväg att använda Active Directory-grupprincip för att förenkla grupprincipkonfigurationen för ett antal virtuella datorer. Information om hur du distribuerar grupprinciper i Active Directory-domänen finns i [Arbeta med grupprincipobjekt](https://go.microsoft.com/fwlink/p/?LinkId=620889).

@@ -15,21 +15,21 @@ ms.date: 04/24/2018
 ms.author: damendo
 ms.custom: mvc
 ms.openlocfilehash: 81621a2b63eec804aaa7c74e1d77b06ef1adb79a
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "76844997"
 ---
 # <a name="what-is-azure-network-watcher"></a>Vad är Azure Network Watcher?
 
-I Azure Network Watcher finns verktyg för att övervaka, diagnostisera, visa mått samt aktivera eller inaktivera loggar för resurser i ett virtuellt Azure-nätverk. Network Watcher har utformats för att övervaka och reparera nätverks hälsan för IaaS-produkter (Infrastructure-as-a-Service) som innehåller Virtual Machines, virtuella nätverk, programgatewayer, belastnings utjämning osv. OBS! den är inte avsedd för och kommer inte att fungera för PaaS övervakning eller webb analys. 
+I Azure Network Watcher finns verktyg för att övervaka, diagnostisera, visa mått samt aktivera eller inaktivera loggar för resurser i ett virtuellt Azure-nätverk. Network Watcher är utformad för att övervaka och reparera nätverkshälsan för IaaS (Infrastructure-as-a-Service) produkter som inkluderar virtuella datorer, virtuella nätverk, application gateways, lastjämförs, etc. Den är inte avsedd för och fungerar inte för PaaS-övervakning eller webbanalys. 
 
 ## <a name="monitoring"></a>Övervakning
 
-### <a name = "connection-monitor"></a>Övervaka kommunikation mellan en virtuell dator och en slutpunkt
+### <a name="monitor-communication-between-a-virtual-machine-and-an-endpoint"></a><a name = "connection-monitor"></a>Övervaka kommunikation mellan en virtuell dator och en slutpunkt
 
-Slutpunkterna kan vara en annan virtuell dator (VM), ett fullständigt domännamn (FQDN), en URI (Uniform Resource Identifier) eller en IPv4-adress. *Anslutningsövervakaren*  övervakar regelbundet kommunikationen och informerar dig om tillgänglighet, svarstid och ändringar i nätverkstopologin mellan den virtuella datorn och slutpunkten. Du kan till exempel ha en virtuell webbserverdator som kommunicerar med en virtuell databasserverdator. Någon i organisationen kan, utan att du känner till det, tillämpa en anpassad väg eller nätverkssäkerhetsregel på den virtuella webbserverdatorn, den virtuella databasserverdatorn eller undernätet.
+Slutpunkterna kan vara en annan virtuell dator (VM), ett fullständigt domännamn (FQDN), en URI (Uniform Resource Identifier) eller en IPv4-adress. *Anslutningsövervakaren * övervakar regelbundet kommunikationen och informerar dig om tillgänglighet, svarstid och ändringar i nätverkstopologin mellan den virtuella datorn och slutpunkten. Du kan till exempel ha en virtuell webbserverdator som kommunicerar med en virtuell databasserverdator. Någon i organisationen kan, utan att du känner till det, tillämpa en anpassad väg eller nätverkssäkerhetsregel på den virtuella webbserverdatorn, den virtuella databasserverdatorn eller undernätet.
 
 Om en slutpunkt inte kan nås, informerar anslutningens felsökning dig om orsaken. Möjliga orsaker är DNS-problem med namnmatchning, CPU, minne eller brandvägg i operativsystemet på en virtuell dator, hopptypen för en anpassad väg, eller en säkerhetsregel för den virtuella datorn eller undernätet i den utgående anslutningen. Läs mer om [säkerhetsregler](../virtual-network/security-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#security-rules) och [hopptyper för vägar](../virtual-network/virtual-networks-udr-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) i Azure.
 
@@ -55,7 +55,7 @@ När du distribuerar en virtuell dator tillämpar Azure flera standardsäkerhets
 
 När du skapar ett virtuellt nätverk skapar Azure flera utgående standardvägar för nätverkstrafiken. Utgående trafik från alla resurser, till exempel virtuella datorer som distribueras i ett virtuellt nätverk, dirigeras enligt Azures standardvägar. Du kan åsidosätta Azures standardvägar eller skapa fler vägar. Du upptäcker kanske att en virtuell dator inte längre kan kommunicera med andra resurser på grund av en specifik väg. Med funktionen *Nästa hopp* kan du ange en käll- och måladress för IPv4. Nästa hopp testar kommunikationen och informerar dig om vilken typ av nästa hopp som används för att dirigera trafiken. Du kan sedan ta bort, ändra eller lägga till en väg för att lösa routningsproblemet. Läs mer om funktionen [Nästa hopp](diagnose-vm-network-routing-problem.md).
 
-### <a name="connection-troubleshoot"></a>Diagnostisera utgående anslutningar från en virtuell dator
+### <a name="diagnose-outbound-connections-from-a-vm"></a><a name="connection-troubleshoot"></a>Diagnostisera utgående anslutningar från en virtuell dator
 
 Med funktionen *Anslutningsfelsökning* kan du testa en anslutning mellan en virtuell dator och en annan virtuell dator, ett fullständigt domännamn, en URI eller en IPv4-adress. Testet returnerar liknande information som returneras när du använder funktionen [Anslutningsövervakaren](#connection-monitor), men testar anslutningen vid en viss tidpunkt i stället för att övervaka den över tid som anslutningsövervakaren gör. Läs mer om hur du felsöker anslutningar med hjälp av [Anslutningsfelsökning](network-watcher-connectivity-overview.md).
 
@@ -77,7 +77,7 @@ De säkerhetsregler som gäller för ett nätverksgränssnitt är en kombination
 
 ## <a name="metrics"></a>Mått
 
-Det finns [gränser](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#azure-resource-manager-virtual-networking-limits) för hur många nätverksresurser som du kan skapa i en Azure-prenumeration och region. Om du har nått gränsen kan du inte skapa fler resurser i prenumerationen eller regionen. Funktionen *Prenumerationsgräns för nätverket* innehåller en översikt över hur många av varje nätverksresurs du har distribuerat i en prenumeration och region, samt vilken gräns som finns för resursen. Följande bild visar delar av utdatan för de nätverksresurser som har distribuerats i regionen östra USA för en exempelprenumeration:
+Det finns [gränser](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#azure-resource-manager-virtual-networking-limits) för hur många nätverksresurser som du kan skapa i en Azure-prenumeration och region. Om du har nått gränsen kan du inte skapa fler resurser i prenumerationen eller regionen. Funktionen *Prenumerationsgräns för nätverket* innehåller en översikt över hur många av varje nätverksresurs du har distribuerat i en prenumeration och region, samt vilken gräns som finns för resursen. Följande bild visar delar av utdatan för de nätverksresurser som har distribuerats i regionen USA, östra för en exempelprenumeration:
 
 ![Prenumerationsgränser](./media/network-watcher-monitoring-overview/subscription-limit.png)
 

@@ -1,46 +1,46 @@
 ---
-title: Konfigurera ett krypterings certifikat på Windows-kluster
-description: Lär dig hur du konfigurerar ett krypterings certifikat och krypterar hemligheter på Windows-kluster.
+title: Konfigurera ett krypteringscertifikat i Windows-kluster
+description: Lär dig hur du konfigurerar ett krypteringscertifikat och krypterar hemligheter i Windows-kluster.
 author: vturecek
 ms.topic: conceptual
 ms.date: 01/04/2019
 ms.author: vturecek
 ms.openlocfilehash: d9413a37be221adc375836719dc1f467a5571fa0
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/02/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75610190"
 ---
-# <a name="set-up-an-encryption-certificate-and-encrypt-secrets-on-windows-clusters"></a>Konfigurera ett krypterings certifikat och kryptera hemligheter på Windows-kluster
-Den här artikeln visar hur du konfigurerar ett krypterings certifikat och använder det för att kryptera hemligheter i Windows-kluster. För Linux-kluster, se [Konfigurera ett krypterings certifikat och kryptera hemligheter på Linux-kluster.][secret-management-linux-specific-link]
+# <a name="set-up-an-encryption-certificate-and-encrypt-secrets-on-windows-clusters"></a>Konfigurera ett krypteringscertifikat och kryptera hemligheter i Windows-kluster
+Den här artikeln visar hur du konfigurerar ett krypteringscertifikat och använder det för att kryptera hemligheter i Windows-kluster. För Linux-kluster finns i [Konfigurera ett krypteringscertifikat och kryptera hemligheter på Linux-kluster.][secret-management-linux-specific-link]
 
-[Azure Key Vault][key-vault-get-started] används här som en säker lagrings plats för certifikat och som ett sätt att hämta certifikat som är installerade på Service Fabric kluster i Azure. Om du inte distribuerar till Azure behöver du inte använda Key Vault för att hantera hemligheter i Service Fabric program. Att *använda* hemligheter i ett program är dock Cloud Platform-oberoende för att tillåta att program distribueras till ett kluster som finns var som helst. 
+[Azure Key Vault][key-vault-get-started] används här som en säker lagringsplats för certifikat och som ett sätt att få certifikat installerade på Service Fabric-kluster i Azure. Om du inte distribuerar till Azure behöver du inte använda Key Vault för att hantera hemligheter i Service Fabric-program. Men *att använda* hemligheter i ett program är molnplattformsoberoende för att tillåta att program distribueras till ett kluster som finns var som helst. 
 
-## <a name="obtain-a-data-encipherment-certificate"></a>Hämta ett certifikat för data kryptering
-Ett certifikat för datachiffer används enbart för kryptering och dekryptering av [parametrar][parameters-link] i en tjänsts inställningar. xml och [miljövariabler][environment-variables-link] i en tjänsts ServiceManifest. xml. Den används inte för autentisering eller signering av cipher-text. Certifikatet måste uppfylla följande krav:
+## <a name="obtain-a-data-encipherment-certificate"></a>Hämta ett dataåtkomstcertifikat
+Ett datanvisningscertifikat används strikt för kryptering och dekryptering av [parametrar][parameters-link] i en tjänsts Settings.xml- och [miljövariabler][environment-variables-link] i tjänstens ServiceManifest.xml. Den används inte för autentisering eller signering av chiffertext. Intyget skall uppfylla följande krav:
 
 * Certifikatet måste innehålla en privat nyckel.
-* Certifikatet måste skapas för nyckel utbyte, exporteras till en personal information Exchange-fil (. pfx).
-* Användningen av certifikat nyckeln måste innehålla datachiffer (10) och ska inte omfatta serverautentisering eller klientautentisering. 
+* Certifikatet måste skapas för nyckelutbyte, som kan exporteras till en fil för personligt informationsutbyte (.pfx).
+* Certifikatnyckelanvändningen måste innehålla dataidentientering (10) och bör inte innehålla serverautentisering eller klientautentisering. 
   
-  När du till exempel skapar ett självsignerat certifikat med hjälp av PowerShell måste `KeyUsage`-flaggan vara inställd på `DataEncipherment`:
+  När du till exempel skapar ett självsignerat `KeyUsage` certifikat med `DataEncipherment`PowerShell måste flaggan anges till :
   
   ```powershell
   New-SelfSignedCertificate -Type DocumentEncryptionCert -KeyUsage DataEncipherment -Subject mydataenciphermentcert -Provider 'Microsoft Enhanced Cryptographic Provider v1.0'
   ```
 
 ## <a name="install-the-certificate-in-your-cluster"></a>Installera certifikatet i klustret
-Det här certifikatet måste installeras på varje nod i klustret. Se [hur du skapar ett kluster med hjälp av Azure Resource Manager][service-fabric-cluster-creation-via-arm] installations anvisningar. 
+Certifikatet måste vara installerat på varje nod i klustret. Se [hur du skapar ett kluster med Hjälp av Azure Resource Manager][service-fabric-cluster-creation-via-arm] för installationsinstruktioner. 
 
-## <a name="encrypt-application-secrets"></a>Kryptera program hemligheter
-Följande PowerShell-kommando används för att kryptera en hemlighet. Det här kommandot krypterar bara värdet. krypterings texten signeras **inte** . Du måste använda samma krypterings certifikat som är installerat i klustret för att skapa chiffertexten för hemliga värden:
+## <a name="encrypt-application-secrets"></a>Kryptera programhemligheter
+Följande PowerShell-kommando används för att kryptera en hemlighet. Det här kommandot krypterar bara värdet. Den signerar **inte** chiffertexten. Du måste använda samma ett krypteringscertifikat som är installerat i klustret för att skapa chiffertext för hemliga värden:
 
 ```powershell
 Invoke-ServiceFabricEncryptText -CertStore -CertThumbprint "<thumbprint>" -Text "mysecret" -StoreLocation CurrentUser -StoreName My
 ```
 
-Den resulterande bas-64-kodade strängen innehåller både den hemliga chiffertexten och information om det certifikat som användes för att kryptera den.
+Den resulterande bas-64-kodade strängen innehåller både den hemliga chiffertexten samt information om certifikatet som användes för att kryptera den.
 
 ## <a name="next-steps"></a>Nästa steg
 Lär dig hur du [anger krypterade hemligheter i ett program.][secret-management-specify-encrypted-secrets-link]

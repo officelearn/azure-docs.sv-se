@@ -1,5 +1,5 @@
 ---
-title: IllegalArgumentException-fel för Apache Spark – Azure HDInsight
+title: IllegalArgumentException-fel för Apache Spark - Azure HDInsight
 description: IllegalArgumentException för Apache Spark-aktivitet i Azure HDInsight för Azure Data Factory
 ms.service: hdinsight
 ms.topic: troubleshooting
@@ -8,19 +8,19 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 07/29/2019
 ms.openlocfilehash: df62dbd8db7d41eb11207c7741aed76cec0ac7a8
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75894382"
 ---
 # <a name="scenario-illegalargumentexception-for-apache-spark-activity-in-azure-hdinsight"></a>Scenario: IllegalArgumentException för Apache Spark-aktivitet i Azure HDInsight
 
-I den här artikeln beskrivs fel söknings steg och möjliga lösningar på problem när du använder Apache Spark-komponenter i Azure HDInsight-kluster.
+I den här artikeln beskrivs felsökningssteg och möjliga lösningar för problem när du använder Apache Spark-komponenter i Azure HDInsight-kluster.
 
 ## <a name="issue"></a>Problem
 
-Du får följande undantag när du försöker köra en spark-aktivitet i en Azure Data Factory pipeline:
+Du får följande undantag när du försöker köra en Spark-aktivitet i en Azure Data Factory-pipeline:
 
 ```error
 Exception in thread "main" java.lang.IllegalArgumentException:
@@ -29,22 +29,22 @@ Wrong FS: wasbs://additional@xxx.blob.core.windows.net/spark-examples_2.11-2.1.0
 
 ## <a name="cause"></a>Orsak
 
-Ett Spark-jobb kommer att Miss förväntas om programmets jar-fil inte finns i Spark-klustrets standard-/primär lagring.
+Ett Spark-jobb misslyckas om programburkfilen inte finns i Spark-klustrets standard-/primära lagring.
 
-Detta är ett känt problem med Spark-ramverket med öppen källkod som spåras i det här felet: [Spark-jobb Miss lyckas om FS. defaultFS och Application jar är olika URL: er](https://issues.apache.org/jira/browse/SPARK-22587).
+Detta är ett känt problem med Spark open-source ram spåras i detta fel: [Spark jobb misslyckas om fs.defaultFS och ansökan burk är olika url](https://issues.apache.org/jira/browse/SPARK-22587).
 
 Det här problemet har lösts i Spark 2.3.0.
 
-## <a name="resolution"></a>Upplösning
+## <a name="resolution"></a>Lösning
 
-Se till att programmet jar är lagrat på standard-/primär lagrings platsen för HDInsight-klustret. Om Azure Data Factory ska du kontrol lera att den länkade ADF-tjänsten pekar mot standard behållaren för HDInsight i stället för en sekundär behållare.
+Kontrollera att programburken lagras på standard-/primärlagringsutrymmet för HDInsight-klustret. När det gäller Azure Data Factory kontrollerar du att den ADF-länkade tjänsten pekar på standardbehållaren HDInsight i stället för en sekundär behållare.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Om du inte ser problemet eller inte kan lösa problemet kan du gå till någon av följande kanaler för mer support:
+Om du inte såg problemet eller inte kan lösa problemet besöker du någon av följande kanaler för mer support:
 
-* Få svar från Azure-experter via [Azure community support](https://azure.microsoft.com/support/community/).
+* Få svar från Azure-experter via [Azure Community Support](https://azure.microsoft.com/support/community/).
 
-* Anslut till [@AzureSupport](https://twitter.com/azuresupport) – det officiella Microsoft Azure kontot för att förbättra kund upplevelsen genom att ansluta Azure-communityn till rätt resurser: svar, support och experter.
+* Anslut [@AzureSupport](https://twitter.com/azuresupport) med – det officiella Microsoft Azure-kontot för att förbättra kundupplevelsen genom att ansluta Azure-communityn till rätt resurser: svar, support och experter.
 
-* Om du behöver mer hjälp kan du skicka en support förfrågan från [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Välj **stöd** på Meny raden eller öppna **Hjälp + Support** Hub. Mer detaljerad information finns [i så här skapar du en support förfrågan för Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). Åtkomst till prenumerations hantering och fakturerings support ingår i din Microsoft Azure prenumeration och teknisk support tillhandahålls via ett av support avtalen för [Azure](https://azure.microsoft.com/support/plans/).
+* Om du behöver mer hjälp kan du skicka en supportbegäran från [Azure-portalen](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Välj **Stöd** i menyraden eller öppna **supporthubben Hjälp +.** Mer detaljerad information finns i Så här skapar du [en Azure-supportbegäran](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). Åtkomst till prenumerationshantering och faktureringssupport ingår i din Microsoft Azure-prenumeration och teknisk support tillhandahålls via en av [Azure-supportplanerna](https://azure.microsoft.com/support/plans/).

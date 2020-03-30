@@ -1,6 +1,6 @@
 ---
-title: 'Registrera skrivbordsappar som anropar webb-API: er – Microsoft Identity Platform | Azure'
-description: 'Lär dig hur du skapar en stationär app som anropar webb-API: er (app-registrering)'
+title: Registrera skrivbordsappar som anropar webb-API:er – Microsoft identity platform | Azure
+description: Lär dig hur du skapar en skrivbordsapp som anropar webb-API:er (appregistrering)
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -17,50 +17,50 @@ ms.date: 09/09/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.openlocfilehash: c55fc9eb94a88dba1ab9fc915fe84bc2dd7d4d40
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76702189"
 ---
-# <a name="desktop-app-that-calls-web-apis-app-registration"></a>Skriv bords app som anropar webb-API: registrera appar
+# <a name="desktop-app-that-calls-web-apis-app-registration"></a>Skrivbordsapp som anropar webb-API:er: Appregistrering
 
-Den här artikeln beskriver app-registreringen av specifika program för ett Skriv bords program.
+Den här artikeln beskriver appregistreringsdetunderen för ett skrivbordsprogram.
 
 ## <a name="supported-account-types"></a>Kontotyper som stöds
 
-De konto typer som stöds i ett Skriv bords program beror på vilken upplevelse du vill se. På grund av den här relationen är de konto typer som stöds beroende av de flöden som du vill använda.
+Vilka kontotyper som stöds i ett skrivbordsprogram beror på vilken upplevelse du vill lysa upp. På grund av den här relationen beror de kontotyper som stöds på vilka flöden du vill använda.
 
-### <a name="audience-for-interactive-token-acquisition"></a>Mål grupp för hämtning av interaktiva token
+### <a name="audience-for-interactive-token-acquisition"></a>Målgrupp för interaktivt tokenförvärv
 
-Om ditt Skriv bords program använder interaktiv autentisering kan du logga in användare från vilken [Kontotyp](quickstart-register-app.md#register-a-new-application-using-the-azure-portal)som helst.
+Om ditt skrivbordsprogram använder interaktiv autentisering kan du logga in användare från valfri [kontotyp](quickstart-register-app.md#register-a-new-application-using-the-azure-portal).
 
-### <a name="audience-for-desktop-app-silent-flows"></a>Mål grupp för tyst flöden i Desktop-appen
+### <a name="audience-for-desktop-app-silent-flows"></a>Målgrupp för tysta flöden i skrivbordsappar
 
-- Om du vill använda integrerad Windows-autentisering eller ett användar namn och ett lösen ord måste ditt program logga in användare i din egen klient, till exempel om du är en affärsutvecklare (LOB). Eller, i Azure Active Directory organisationer, måste ditt program logga in användare i din egen klient om det är ett ISV-scenario. Dessa autentiserings flöden stöds inte för Microsoft-personliga konton.
-- Om du vill använda enhets kod flödet kan du inte logga in användare med sina personliga Microsoft-konton ännu.
-- Om du loggar in användare med sociala identiteter som skickar en B2C-auktoritet (Business-to-Commerce) och-princip kan du bara använda autentiseringen interaktiv och username-Password.
+- Om du vill använda integrerad Windows-autentisering eller ett användarnamn och ett lösenord måste programmet logga in användare i din egen klientorganisation, till exempel om du är en LOB-utvecklare (line-of-business). Eller i Azure Active Directory-organisationer måste ditt program logga in användare i din egen klient om det är ett ISV-scenario. Dessa autentiseringsflöden stöds inte för Microsofts personliga konton.
+- Om du vill använda enhetskodflödet kan du inte logga in användare med deras personliga Microsoft-konton ännu.
+- Om du loggar in användare med sociala identiteter som skickar en B2C-myndighet och princip (Business-to-Commerce) kan du bara använda den interaktiva autentiseringen och autentiseringen av användarnamn och lösenord.
 
-## <a name="redirect-uris"></a>Omdirigerings-URI:er
+## <a name="redirect-uris"></a>Omdirigera URI:er
 
-De omdirigerings-URI: er som ska användas i ett Skriv bords program beror på det flöde som du vill använda.
+Vilka omdirigerings-URI:er som ska användas i ett skrivbordsprogram beror på vilket flöde du vill använda.
 
-- Om du använder interaktiv autentisering eller enhets kod flöde använder du `https://login.microsoftonline.com/common/oauth2/nativeclient`. Välj motsvarande URL i avsnittet **autentisering** för ditt program för att uppnå den här konfigurationen.
+- Om du använder interaktiv autentisering `https://login.microsoftonline.com/common/oauth2/nativeclient`eller enhetskodflöde använder du . Om du vill uppnå den här konfigurationen väljer du motsvarande URL i avsnittet **Autentisering** för ditt program.
   
   > [!IMPORTANT]
-  > Idag använder MSAL.NET en annan omdirigerings-URI som standard i Skriv bords program som körs på Windows (`urn:ietf:wg:oauth:2.0:oob`). I framtiden kommer vi att vilja ändra denna standard, så vi rekommenderar att du använder `https://login.microsoftonline.com/common/oauth2/nativeclient`.
+  > Idag använder MSAL.NET en annan omdirigera URI som standard i`urn:ietf:wg:oauth:2.0:oob`skrivbordsprogram som körs på Windows ( ). I framtiden vill vi ändra standardinställningen, så vi `https://login.microsoftonline.com/common/oauth2/nativeclient`rekommenderar att du använder .
 
-- Om du skapar en ursprunglig mål-C-eller Swift-app för macOS registrerar du omdirigerings-URI: n baserat på programmets paket-ID i följande format: msauth. <. app. bundle. ID >://auth. Ersätt <. app. bundle. ID > med programmets paket-ID.
-- Om din app endast använder integrerad Windows-autentisering eller ett användar namn och ett lösen ord, behöver du inte registrera en omdirigerings-URI för programmet. Dessa flöden gör en tur och retur till Microsoft Identity Platform v 2.0-slutpunkten. Programmet kommer inte att anropas igen på någon specifik URI.
-- Om du vill särskilja enhets kod flödet, integrerad Windows-autentisering och ett användar namn och ett lösen ord från ett konfidentiellt klient program flöde som inte har omdirigerings-URI: er antingen (det flöde för klientautentisering som används i daemon-program) måste du uttrycka att ditt program är ett offentligt klient program. För att uppnå den här konfigurationen går du till avsnittet **autentisering** för ditt program. I underavsnittet **Avancerade inställningar** i stycket **standard klient typ** väljer du **Ja** för att **behandla program som en offentlig klient**.
+- Om du skapar en inbyggd Objective-C- eller Swift-app för macOS registrerar du omdirigerings-URI:n baserat på programmets paketidentifierare i följande format: msauth.<your.app.bundle.id>://auth. Ersätt <your.app.bundle.id> med programmets paketidentifierare.
+- Om appen bara använder integrerad Windows-autentisering eller ett användarnamn och ett lösenord behöver du inte registrera en omdirigera URI för ditt program. Dessa flöden gör en rundresa till Microsoft identity platform v2.0-slutpunkten. Ditt program anropas inte på någon specifik URI.
+- Om du vill särskilja enhetskodflöde, integrerad Windows-autentisering och ett användarnamn och ett lösenord från ett konfidentiellt klientprogramflöde som inte heller har omdirigerat URI:er (klientautentiseringsflödet som används i demonprogram) måste du uttrycka det din ansökan är ett offentligt klientprogram. För att uppnå den här konfigurationen går du till avsnittet **Autentisering** för ditt program. I stycket **Avancerade inställningar** i stycket **Standardklienttyp** väljer du **Ja** för behandla program som en **offentlig klient**.
 
   ![Tillåt offentlig klient](media/scenarios/default-client-type.png)
 
 ## <a name="api-permissions"></a>API-behörigheter
 
-Skriv bords program anropar API: er för den inloggade användaren. De måste begära delegerade behörigheter. De kan inte begära program behörigheter, som endast hanteras i [daemon-program](scenario-daemon-overview.md).
+Api:er för skrivbordsprogram anropar API:er för den inloggade användaren. De måste begära delegerade behörigheter. De kan inte begära programbehörigheter, som endast hanteras i [daemon-program](scenario-daemon-overview.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Desktop-app: app-konfiguration](scenario-desktop-app-configuration.md)
+> [Skrivbordsapp: Appkonfiguration](scenario-desktop-app-configuration.md)

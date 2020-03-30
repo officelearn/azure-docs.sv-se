@@ -5,25 +5,25 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: jingwang
 ms.openlocfilehash: 1ab404b838af65dcb75395dfeee1ca0553e497a1
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "67188013"
 ---
 ## <a name="specifying-structure-definition-for-rectangular-datasets"></a>Ange strukturdefinition för rektangulära datauppsättningar
-Avsnittet strukturen i datauppsättningar JSON är en **valfritt** för rektangulär tabeller (med rader och kolumner) och innehåller en uppsättning kolumner för tabellen. Du använder avsnittet struktur för antingen givande anger du följande information typkonverteringar eller göra kolumnmappningarna. I följande avsnitt beskrivs de här funktionerna i detalj. 
+Strukturavsnittet i datauppsättningarna JSON är ett **valfritt** avsnitt för rektangulära tabeller (med rader & kolumner) och innehåller en samling kolumner för tabellen. Du kommer att använda strukturavsnittet för att antingen ange typinformation för typkonverteringar eller göra kolumnmappningar. I följande avsnitt beskrivs dessa funktioner i detalj. 
 
 Varje kolumn innehåller följande egenskaper:
 
 | Egenskap | Beskrivning | Krävs |
 | --- | --- | --- |
-| name |Namnet på kolumnen. |Ja |
-| type |Datatypen för kolumnen. Se typen konverteringar avsnittet nedan finns mer information om när ska du ange typinformation |Nej |
-| culture |.NET baserade språkmiljö som ska användas när typ har angetts och .NET-typen Datetime eller Datetimeoffset. Standardvärdet är ”en-us”. |Nej |
-| format |Formatera strängen som ska användas när typ har angetts och är .NET typen Datetime eller Datetimeoffset. |Nej |
+| namn |Kolumnens namn. |Ja |
+| typ |Datatyp för kolumnen. Se avsnittet typkonverteringar nedan för mer information om när ska du ange typinformation |Inga |
+| Kultur |.NET-baserad odling som ska användas när typen anges och är .NET-typ Datetime eller Datetimeoffset. Standard är "en-us". |Inga |
+| format |Formatera sträng som ska användas när typen anges och är .NET-typ Datetime eller Datetimeoffset. |Inga |
 
-I följande exempel visas avsnittet struktur JSON för en tabell med tre kolumner användar-ID, namn och lastlogindate.
+I följande exempel visas strukturavsnittet JSON för en tabell som har tre kolumner userid, namn och lastlogindate.
 
 ```json
 "structure": 
@@ -34,31 +34,31 @@ I följande exempel visas avsnittet struktur JSON för en tabell med tre kolumne
 ],
 ```
 
-Använd följande riktlinjer för när med ”strukturera” information och vad som ska ingå i den **struktur** avsnittet.
+Använd följande riktlinjer för när du ska inkludera "struktur" **structure** information och vad som ska ingå i strukturavsnittet.
 
-* **För strukturerade datakällor** att spara data schema- och typ av information tillsammans med själva (källor som SQL Server, Oracle, Azure-tabell osv), bör du ange avsnittet ”struktur” om du vill att informationen inte kolumnmappning av viss källa kolumner till specifika kolumner i mottagare och deras namn är inte samma (Mer information finns i kolumnen mappning nedan). 
+* **För strukturerade datakällor** som lagrar dataschema och skrivarinformation tillsammans med själva data (källor som SQL Server, Oracle, Azure-tabell etc.) bör du bara ange avsnittet "struktur" om du vill göra kolumnmappning av specifika källkolumner till specifika kolumner i diskhon och deras namn är inte desamma (se information i kolumnmappningsavsnittet nedan). 
   
-    Som nämnts ovan är är informationen valfri i avsnittet ”struktur”. För strukturerade datakällor typinformation finns redan som en del av definitionen av datauppsättningen i datalagret, så du får inte innehålla anger du följande information när du inkluderar ”struktur”-avsnittet.
-* **För schema vid läsning datakällor (speciellt Azure blob)** kan du lagra data utan att behöva lagra någon schema eller typ information med data. För dessa typer av datakällor ska du inkludera ”struktur” i följande fall 2:
+    Som nämnts ovan är typinformationen valfri i avsnittet "struktur". För strukturerade källor är typinformation redan tillgänglig som en del av datauppsättningsdefinitionen i datalagret, så du bör inte inkludera typinformation när du inkluderar avsnittet "struktur".
+* **För schema på läsdatakällor (särskilt Azure blob)** kan du välja att lagra data utan att lagra något schema eller skriva information med data. För dessa typer av datakällor bör du inkludera "struktur" i följande 2 fall:
   * Du vill göra kolumnmappning.
-  * När datauppsättningen är en källa i en Kopieringsaktivitet, du kan ange anger du följande information i ”strukturen” och data factory ska använda den här typinformation för konvertering till inbyggda typer för mottagaren. Se [flytta data till och från Azure Blob](../articles/data-factory/v1/data-factory-azure-blob-connector.md) artikeln för mer information.
+  * När datauppsättningen är en källa i en kopieringsaktivitet kan du ange typinformation i "struktur" och datafabriken använder den här typen av information för konvertering till inbyggda typer för diskhon. Mer information finns i Flytta data till och från Azure [Blob-artikel.](../articles/data-factory/v1/data-factory-azure-blob-connector.md)
 
-### <a name="supported-net-based-types"></a>Stöd för. NET-baserade typer
-Data factory stöder följande CLS kompatibla .NET baserat typvärden för att tillhandahålla anger du följande information i ”strukturen” för schemat på läsdata källor som Azure blob.
+### <a name="supported-net-based-types"></a>Stöds. NET-baserade typer
+Data factory stöder följande CLS-kompatibla .NET-baserade typvärden för att tillhandahålla typinformation i "struktur" för schema på läsa datakällor som Azure blob.
 
-* Int16
+* Int16 (int16)
 * Int32 
 * Int64
-* Single
+* Enkel
 * Double
 * Decimal
 * Byte[]
-* Booleskt
+* Bool
 * String 
-* Guid
-* DateTime
-* DateTimeOffset
+* GUID
+* Datumtid
+* Datumtidsdatum
 * Tidsintervall 
 
-Du kan även ange ”kultur” & ”format” sträng för att underlätta tolkning av din anpassade Datetime-sträng för Datetime & Datetimeoffset. Se exempel för typkonvertering nedan.
+För Datetime & Datetimeoffset kan du också ange "kultur" & "format"-sträng för att underlätta tolkning av din anpassade Datetime-sträng. Se exempel för typkonvertering nedan.
 

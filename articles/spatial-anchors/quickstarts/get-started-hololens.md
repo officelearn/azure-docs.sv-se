@@ -1,5 +1,5 @@
 ---
-title: 'Snabb start: skapa en HoloLens-app med DirectX'
+title: 'Snabbstart: Skapa en HoloLens-app med DirectX'
 description: I den här snabbstarten får du lära dig hur du skapar en HoloLens-app med Spatial Anchors.
 author: craigktreasure
 manager: virivera
@@ -9,13 +9,13 @@ ms.date: 02/24/2019
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
 ms.openlocfilehash: 01a9a8239e2997335f5123d63cfc664027cffa02
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "75376400"
 ---
-# <a name="quickstart-create-a-hololens-app-with-azure-spatial-anchors-in-cwinrt-and-directx"></a>Snabb start: skapa en HoloLens-app med Azures spatiala C++ankare, i/WinRT och DirectX
+# <a name="quickstart-create-a-hololens-app-with-azure-spatial-anchors-in-cwinrt-and-directx"></a>Snabbstart: Skapa en HoloLens-app med Azure Spatial Anchors, i C++/WinRT och DirectX
 
 I den här snabbstarten beskrivs hur du skapar en HoloLens-app med [Azure Spatial Anchors](../overview.md) i C++/WinRT och DirectX. Azure Spatial Anchors är en plattformsoberoende utvecklartjänst som du kan använda för att skapa upplevelser med mixad verklighet med hjälp av objekt som bevarar sin plats mellan enheter över tid. När du är klar har du en HoloLens-app som kan spara och återkalla en spatial fästpunkt.
 
@@ -31,7 +31,7 @@ Du lär dig följande:
 ## <a name="prerequisites"></a>Krav
 
 Kontrollera att du har följande så att du kan utföra den här snabbstarten:
-- En Windows-dator med <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2019</a> installerad med arbets belastningen **universell Windows-plattform utveckling** och **Windows 10 SDK-komponenten (10.0.18362.0 eller senare)** . Du måste också installera <a href="https://git-scm.com/download/win" target="_blank">git för Windows</a> och <a href="https://git-lfs.github.com/">git LF</a>.
+- En Windows-dator med <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2019</a> installerad med **arbetsbelastningen för universell windows-plattformsutveckling** och **Komponenten Windows 10 SDK (10.0.18362.0 eller nyare).** Du måste också installera <a href="https://git-scm.com/download/win" target="_blank">Git för Windows</a> och <a href="https://git-lfs.github.com/">Git LFS</a>.
 - [C++/WinRT Visual Studio-tillägget (VSIX)](https://aka.ms/cppwinrt/vsix) för Visual Studio bör installeras från [Visual Studio Marketplace](https://marketplace.visualstudio.com/).
 - En HoloLens-enhet med [utvecklarläge](https://docs.microsoft.com/windows/mixed-reality/using-visual-studio) aktiverat. Den här artikeln kräver en HoloLens-enhet med [Windows-uppdateringen från 10 oktober 2018](https://docs.microsoft.com/windows/mixed-reality/release-notes-october-2018 ) (kallas även RS5). Uppdatera till den senaste versionen på HoloLens genom att öppna appen **Inställningar**, gå till **Uppdatering och säkerhet** och välja **Sök efter uppdateringar**.
 - Appen måste ange funktionen **spatialPerception** i dess AppX-manifest.
@@ -46,7 +46,7 @@ Kontrollera att du har följande så att du kan utföra den här snabbstarten:
 
 ## <a name="configure-account-identifier-and-key"></a>Konfigurera konto-ID och -nyckel
 
-Nästa steg är att konfigurera appen så att den använder din konto identifierare och konto nyckeln. Du kopierade dem till en text redigerare när du [ställer in resursen för spatiala ankare](#create-a-spatial-anchors-resource).
+Nästa steg är att konfigurera appen så att den använder kontoidentifieraren och kontonyckeln. Du kopierade dem till en textredigerare när [du konfigurerade resursen Spatial Anchors](#create-a-spatial-anchors-resource).
 
 Öppna `HoloLens\DirectX\SampleHoloLens\ViewController.cpp`.
 
@@ -58,13 +58,13 @@ Leta upp fältet `SpatialAnchorsAccountId` och ersätt `Set me` med kontoidentif
 
 Ändra **Lösningskonfiguration** till **Version**, ändra **Lösningsplattform** till **x86** och välj **Enhet** bland alternativen för distributionsmål.
 
-Om du använder HoloLens 2 använder du **arm64** som **lösnings plattform**i stället för **x86**.
+Om du använder HoloLens 2 använder du **ARM64** som **lösningsplattform**i stället för **x86**.
 
 ![Visual Studio-konfiguration](./media/get-started-hololens/visual-studio-configuration.png)
 
 Slå på HoloLens-enheten, logga in och anslut den till datorn via en USB-kabel.
 
-Välj **Felsök** > **Starta felsökning** för att distribuera appen och börja felsöka.
+Välj **Felsökning** > **Starta felsökning** för att distribuera din app och börja felsöka.
 
 Följ instruktionerna i appen för att placera och återkalla en fästpunkt.
 
@@ -75,4 +75,4 @@ Stoppa appen i Visual Studio genom att välja **Stoppa felsökning** eller tryck
 [!INCLUDE [Next steps](../../../includes/spatial-anchors-quickstarts-nextsteps.md)]
 
 > [!div class="nextstepaction"]
-> [Självstudie: dela spatiala ankare mellan enheter](../tutorials/tutorial-share-anchors-across-devices.md)
+> [Självstudiekurs: Dela rumsliga ankare mellan enheter](../tutorials/tutorial-share-anchors-across-devices.md)

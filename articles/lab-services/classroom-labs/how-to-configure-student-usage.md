@@ -1,6 +1,6 @@
 ---
-title: Konfigurera användnings inställningar i klass labb labb med Azure Lab Services
-description: Lär dig hur du konfigurerar antalet användare för labbet, registrera dem med labbet, styr antalet timmar som de kan använda den virtuella datorn och mer.
+title: Konfigurera användningsinställningar i klassrumslabb i Azure Lab Services
+description: Lär dig hur du konfigurerar antalet deltagare för ett labb, får dem registrerade med labbet, styr antalet timmar de kan använda den virtuella datorn med mera.
 services: lab-services
 documentationcenter: na
 author: spelluru
@@ -13,179 +13,214 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/20/2020
 ms.author: spelluru
-ms.openlocfilehash: daa302e9be026157b464a12998f3faa52526aba6
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 2697bed77263bb5b8349898765851a9b87992279
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79270945"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80159463"
 ---
 # <a name="add-and-manage-lab-users"></a>Lägg till och hantera labbanvändare
-Den här artikeln beskriver hur du lägger till användare i labbet, registrerar dem i labbet, styr antalet timmar som de kan använda den virtuella datorn och mer. 
 
+I den här artikeln beskrivs hur du lägger till deltagare i ett labb, registrerar dem med labbet, styr antalet ytterligare timmar som de kan använda den virtuella datorn (VM) med mera. 
 
-## <a name="add-users-to-the-lab"></a>Lägga till användare i labbet
+## <a name="add-users-to-a-lab"></a>Lägga till användare i ett labb
 
-1. Välj **Användare** på den vänstra menyn. Som standard är alternativet **Begränsa åtkomst** aktiverat. När den här inställningen är aktiverad kan inte användaren registrera med labbet även om användaren har registreringslänken, såvida inte användaren finns i listan över användare. Endast användare i listan kan registreras med labbet genom att använda registreringslänken som du skickar. I den här proceduren ska du lägga till användare i listan. Du kan också stänga av **Begränsa åtkomst**, vilket gör att användare registrerar sig med labbet så länge de har registreringslänken. 
-2. Välj **Lägg till användare** i verktygsfältet och välj sedan **Lägg till efter e-postadresser**. 
+I det här avsnittet lägger du till deltagare i ett labb manuellt eller genom att ladda upp en CSV-fil. Gör följande:
 
-    ![Knappen Lägg till användare](../media/how-to-configure-student-usage/add-users-button.png)
-1. På sidan **Lägg till användare** anger du e-postadresser för användare i separata rader eller på en enda rad, avgränsade med semikolon. 
+1. Välj **Användare**i den vänstra rutan . 
 
-    ![Lägga till e-postadress till användare](../media/how-to-configure-student-usage/add-users-email-addresses.png)
-4. Välj **Spara**. Du ser användarnas e-postadresser och deras status (registrerad eller inte) i listan. 
+    Som standard är alternativet **Begränsa åtkomst** aktiverat och, om de inte finns med i listan över användare, kan deltagarna inte registrera sig i labbet även om de har en registreringslänk. Endast listade användare kan registrera sig hos labbet med hjälp av registreringslänken du skickar. I den här proceduren ska du lägga till användare i listan. Alternativt kan du inaktivera **Begränsa åtkomst**, vilket gör att deltagarna kan registrera sig i labbet så länge de har registreringslänken. 
+
+1. Högst upp i fönstret **Användare** väljer du **Lägg till användare**och väljer sedan Lägg till via **e-postadress**. 
+
+    ![Knappen "Lägg till användare"](../media/how-to-configure-student-usage/add-users-button.png)
+
+1. I fönstret **Lägg till användare** anger du deltagarnas e-postadresser på separata rader eller på en enda rad avgränsad med semikolon. 
+
+    ![Lägga till användarnas e-postadresser](../media/how-to-configure-student-usage/add-users-email-addresses.png)
+
+1. Välj **Spara**. 
+
+    Listan visar de aktuella användarnas e-postadresser och status, oavsett om de är registrerade i labbet eller inte. 
 
     ![Användarlista](../media/how-to-configure-student-usage/list-of-added-users.png)
 
     > [!NOTE]
-    > Du ser namn på användare i listan när de har registrerats i labbet. Namnet som visas i listan skapas med hjälp av användarens för-och efter namn i Azure Active Directory. 
+    > När eleverna har registrerats i labbet visar listan deras namn. Namnet som visas i listan skapas med hjälp av för- och efternamnen för deltagarna i Azure Active Directory. 
 
-### <a name="add-users-by-uploading-a-csv-file"></a>Lägg till användare genom att ladda upp en CSV-fil
-Du kan också lägga till användare genom att ladda upp en CSV-fil med e-postadresser till användare.
+### <a name="add-users-by-uploading-a-csv-file"></a>Lägga till användare genom att ladda upp en CSV-fil
 
-1. Skapa en CSV-fil med e-postadresser till användare i en kolumn.
+Du kan också lägga till användare genom att ladda upp en CSV-fil som innehåller deras e-postadresser.
 
-    ![CSV-fil med användare](../media/how-to-configure-student-usage/csv-file-with-users.png)
-2. På sidan **användare** i labbet väljer du **Lägg till användare** i verktygsfältet och väljer sedan **Ladda upp CSV**.
+1. Skapa en CSV-fil i Microsoft Excel som visar elevernas e-postadresser i en kolumn.
 
-    ![Knappen Ladda upp CSV](../media/how-to-configure-student-usage/upload-csv-button.png)
-3. Välj CSV-filen med användarens e-postadresser. När du väljer **Öppna** när du har valt CSV-filen visas följande **Lägg till användare** -fönster. Listan med e-postadresser är fylld med e-postadresser från CSV-filen. 
+    ![Lista över användare i en CSV-fil](../media/how-to-configure-student-usage/csv-file-with-users.png)
 
-    ![Fönstret Lägg till användare som har fyllts med e-postadresser från CSV-filen](../media/how-to-configure-student-usage/add-users-window.png)
-4. Välj **Spara** i fönstret **Lägg till användare** . 
-5. Bekräfta att du ser användare i listan över användare. 
+1. Högst upp i fönstret **Användare** väljer du **Lägg till användare**och väljer sedan Ladda upp **CSV**.
 
-    ![Lista över tillagda användare](../media/how-to-configure-student-usage/list-of-added-users.png)
+    ![Knappen "Ladda upp CSV"](../media/how-to-configure-student-usage/upload-csv-button.png)
+
+1. Markera csv-filen som innehåller deltagarnas e-postadresser och välj sedan **Öppna**.
+
+    I fönstret **Lägg till användare** visas e-postadresslistan från CSV-filen. 
+
+    ![Fönstret "Lägg till användare" med e-postadresser från CSV-filen](../media/how-to-configure-student-usage/add-users-window.png)
+
+1. Välj **Spara**. 
+
+1. I fönstret **Användare** visar du listan över tillagda deltagare. 
+
+    ![Lista över tillagda användare i fönstret "Användare"](../media/how-to-configure-student-usage/list-of-added-users.png)
 
 ## <a name="send-invitations-to-users"></a>Skicka inbjudningar till användare
-Använd någon av följande metoder för att skicka registrerings länken till eleverna. Den första metoden visar hur du skickar e-post till studenter med registrerings länken och ett valfritt meddelande. Den andra metoden visar hur du hämtar registrerings länken som du kan dela med andra på det sätt du vill. 
 
-Om alternativet **begränsa åtkomst** är aktiverat för labbet kan endast användare i listan med användare använda registrerings länken för att registrera sig på labbet. Det här alternativet är aktiverat som standard. 
+Om du vill skicka en registreringslänk till nya användare använder du någon av följande metoder. 
+
+Om alternativet **Begränsa åtkomst** är aktiverat för labbet kan endast listade användare använda registreringslänken för att registrera sig i labbet. Det här alternativet är aktiverat som standard. 
 
 ### <a name="invite-all-users"></a>Bjud in alla användare
-1. Växla till vyn **användare** om du inte redan är på sidan och välj **Bjud in alla** i verktygsfältet. 
 
-    ![Välj studenter](../media/tutorial-setup-classroom-lab/invite-all-button.png)
+Den här metoden visar hur du skickar e-post med en registreringslänk och ett valfritt meddelande till alla listade deltagare.
 
-1. På sidan **Skicka inbjudan via e-post** anger du ett valfritt meddelande och väljer sedan **Skicka**. E-postmeddelandet innehåller automatiskt registrerings länken. Du kan hämta den här registrerings länken genom att välja **... (tre punkter)** i verktygsfältet och **registrerings länken**. 
+1. Välj Bjud in **alla**i fönstret **Användare** . 
 
-    ![Skicka registrerings länk via e-post](../media/tutorial-setup-classroom-lab/send-email.png)
-4. Du ser status för **inbjudan** i listan **användare** . Statusen bör ändras till att **skickas** och sedan **skickas till \<datum >** . 
+    ![Knappen "Bjud in alla"](../media/tutorial-setup-classroom-lab/invite-all-button.png)
 
-    Mer information om hur du lägger till studenter i en klass och hur du hanterar användningen av labbet finns i [så här konfigurerar du elev användning](how-to-configure-student-usage.md).
+1. I fönstret **Skicka inbjudan via e-post** anger du ett valfritt meddelande och väljer sedan **Skicka**. 
+
+    E-postmeddelandet innehåller automatiskt registreringslänken. Om du vill hämta och spara registreringslänken separat väljer du ellipsen (**...**) högst upp i **fönstret Användare** och väljer sedan **Registreringslänken**. 
+
+    ![Fönstret "Skicka registreringslänk via e-post"](../media/tutorial-setup-classroom-lab/send-email.png)
+
+    I kolumnen **Inbjudan** i listan **Användare** visas inbjudningsstatus för varje tillagd användare. Statusen ska ändras till **Skicka** och sedan skickas **på \<datum>**. 
 
 ### <a name="invite-selected-users"></a>Bjud in valda användare
 
-1. Välj en eller flera användare i listan. 
-2. Välj sedan ikonen **Kuvert** som visas på den markerade raden (eller) Välj **Bjud** in i verktygsfältet. 
+Den här metoden visar hur du bara bjuder in vissa deltagare och får en registreringslänk som du kan dela med andra.
+
+1. Välj en deltagare eller flera deltagare i listan i fönstret **Användare.** 
+
+1. På raden för den deltagare som du har markerat markerar du **kuvertikonen** eller väljer **Bjud in**i verktygsfältet . 
 
     ![Bjud in valda användare](../media/how-to-configure-student-usage/invite-selected-users.png)
-3. I fönstret **Skicka inbjudan per e-post** anger du ett valfritt **meddelande**och väljer sedan **Skicka**. 
 
-    ![Skicka e-post till markerade användare](../media/how-to-configure-student-usage/send-invitation-to-selected-users.png)
+1. I fönstret **Skicka inbjudan via e-post** anger du ett valfritt **meddelande**och väljer sedan **Skicka**. 
 
-    Du ser status för den här åtgärden i kolumnen **inbjudan** i listan **användare** . E-postinbjudan innehåller en registrerings länk som användarna kan använda för att registrera sig i labbet.
+    ![Skicka e-post till valda användare](../media/how-to-configure-student-usage/send-invitation-to-selected-users.png)
 
-1. Växla till vyn **användare** om du inte redan är på sidan. 
+    I fönstret **Användare** visas status för den här åtgärden i kolumnen **Inbjudan i** tabellen. Inbjudningsmeddelandet innehåller registreringslänken som deltagarna kan använda för att registrera sig i labbet.
 
-## <a name="get-registration-link"></a>Hämta registrerings länk
-Du kan också hämta registrerings länken från portalen och skicka den med ditt eget e-postklientprogram. 
+## <a name="get-the-registration-link"></a>Hämta registreringslänken
 
-1. Växla till vyn **användare** genom att välja **användare** på den vänstra menyn. 
-2. Välj **... (tre punkter)** i verktygsfältet och välj sedan **registrerings länken**.
+I det här avsnittet kan du få registreringslänken från portalen och skicka den med hjälp av ditt eget e-postprogram. 
+
+1. Välj **Registreringslänk**i fönstret **Användare** .
 
     ![Länk för elevregistrering](../media/how-to-configure-student-usage/registration-link-button.png)
-1. I dialog rutan **användar registrering** väljer du knappen **Kopiera** . Länken kopieras till Urklipp. Klistra in den i ett e-postredigeringsprogram och skicka ett e-postmeddelande till eleven. 
 
-    ![Länk för elevregistrering](../media/how-to-configure-student-usage/registration-link.png)
-2. I dialog rutan **användar registrering** väljer du **färdig**. 
-4. Skicka **registrerings länken** till en student så att studenten kan registreras för klassen. 
+1. Välj **Kopiera**i fönstret **Användarregistrering** och välj sedan **Klar**. 
+
+    ![Fönstret "Användarregistrering"](../media/how-to-configure-student-usage/registration-link.png)
+
+    Länken kopieras till Urklipp. 
+    
+1. I din e-postansökan klistrar du in registreringslänken och skickar sedan e-postmeddelandet till en elev så att eleven kan registrera sig för klassen. 
 
 ## <a name="view-registered-users"></a>Visa registrerade användare
 
-1. Gå till [webbplatsen för Azure Lab Services](https://labs.azure.com). 
-2. Välj **Logga in** och ange dina autentiseringsuppgifter. Azure Lab Services har stöd för organisationskonton och Microsoft-konton.
-3. På sidan **My labs** (Mina labb) väljer du det labb som du vill spåra användningen för. 
-4. Välj **Användare** på den vänstra menyn eller i panelen **Användare**. Du kan se studenter som har registrerats med ditt labb.  
+1. Gå till [webbplatsen för Azure Lab Services.](https://labs.azure.com) 
+1. Välj **Logga in**och ange sedan dina autentiseringsuppgifter. Azure Lab Services har stöd för organisationskonton och Microsoft-konton.
+1. På sidan **Mina labb** väljer du det labb vars användning du vill spåra. 
+1. Välj **Användare**i den vänstra rutan eller välj panelen **Användare.** 
 
-    ![Registrerade användare](../media/tutorial-track-usage/registered-users.png)
+    I fönstret **Användare** visas en lista över deltagare som har registrerat sig i labbet.  
+
+    ![Lista över registrerade användare](../media/tutorial-track-usage/registered-users.png)
 
 ## <a name="set-quotas-for-users"></a>Ange kvoter för användare
-Du kan ange kvoter per användare med hjälp av följande steg: 
 
-1. Välj **användare** på den vänstra menyn om sidan inte redan är aktiv. 
-2. Välj **kvot per användare: \<antalet > timmar** i verktygsfältet. 
-3. På sidan **kvot per användare** anger du antalet timmar som du vill ge varje användare (student) utanför den schemalagda klass tiden och väljer sedan **Spara**.
+Du kan ange en timkvot för varje deltagare genom att göra följande: 
 
-    ![Kvot per användare](../media/how-to-configure-student-usage/quota-per-user.png)    
-5. Du ser de ändrade värdena i verktygsfältet nu: **kvot per användare: \<antalet timmar >** och även i listan användare.
+1. I fönstret **Användare** väljer du **Kvot per användare: \<nummer> timmar** i verktygsfältet. 
+1. I fönstret **Kvot per användare** anger du hur många timmar du vill ge varje deltagare utanför den schemalagda klasstiden och väljer sedan **Spara**.
 
-    ![Kvot per användare – efter](../media/how-to-configure-student-usage/quot-per-user-after.png)
+    ![Fönstret "Kvot per användare"](../media/how-to-configure-student-usage/quota-per-user.png)    
+
+    De ändrade värdena visas nu på knappen **Kvot per \<användare: antal timmar>** i verktygsfältet och i användarlistan, som visas här:
+
+    ![Kvottimmar per användare](../media/how-to-configure-student-usage/quot-per-user-after.png)
 
     > [!IMPORTANT]
-    > Den [schemalagda körningen av virtuella datorer](how-to-create-schedules.md) räknas inte mot den kvot som tilldelats till en användare. Kvoten är för tiden utanför de schema timmar som en student tillbringar på virtuella datorer. 
+    > Den [schemalagda körtiden för virtuella datorer](how-to-create-schedules.md) räknas inte mot den kvot som tilldelats en deltagare. Kvoten är för tiden utanför schemalagda timmar som en deltagare tillbringar på virtuella datorer. 
 
-## <a name="set-additional-quota-for-a-specific-user"></a>Ange ytterligare kvot för en speciell användare
-Du kan ange ytterligare kvot för en användare. Den här kvoten är utöver den gemensamma kvot uppsättningen för alla användare i föregående avsnitt. Om du till exempel (som lärare) anger kvoten för alla användare till 10 timmar och anger ytterligare kvot på 5 timmar för en speciell användare får användarna 15 (10 + 5) timmar med kvot. Om du ändrar den gemensamma kvoten senare till, till exempel 15, får användaren 20 (15) timmars kvot. Kom ihåg att denna övergripande kvot ligger utanför den schemalagda tiden. Tiden som student tillbringar på en virtuell labb dator under schema tiden räknas inte mot den här kvoten. 
+## <a name="set-additional-quotas-for-specific-users"></a>Ange ytterligare kvoter för specifika användare
 
-Det gör du genom att följa dessa steg:
+Du kan ange kvoter för vissa deltagare utöver de gemensamma kvoter som har angetts för alla användare i föregående avsnitt. Om du till exempel som lärare anger kvoten för alla deltagare till 10 timmar och anger en extra kvot på 5 timmar för en viss deltagare, får deltagaren 15 (10 + 5) kvottimmar. Om du ändrar den gemensamma kvoten senare till, säg, 15, får studenten 20 (15 + 5) kvottimmar. Kom ihåg att den här totala kvoten ligger utanför den schemalagda tiden. Den tid som en deltagare spenderar på en virtuell labbdator under den schemalagda tiden räknas inte mot den här kvoten. 
 
-1. Välj en användare (student) i listan med användare på sidan **användare** .
-2. Välj sedan **Justera kvot** i verktygsfältet. 
+Så här anger du ytterligare kvoter:
 
-    ![Knappen Justera kvot](../media/how-to-configure-student-usage/adjust-quota-button.png)
-3. Ange antalet **ytterligare timmar** för den valda användaren eller användarna och välj sedan **Använd**. 
+1. Välj en deltagare i listan i fönstret **Användare** och välj sedan **Justera kvot** i verktygsfältet. 
 
-    ![Ytterligare kvot för en användare](../media/how-to-configure-student-usage/additional-quota.png)
-4. Du ser den uppdaterade användningen för användaren i kolumnen **användning** . 
+    ![Knappen "Justera kvot"](../media/how-to-configure-student-usage/adjust-quota-button.png)
+
+1. I **e-postadressen Justera \<för vald användare eller användare>** anger du antalet ytterligare labbtimmar som du vill bevilja den eller de valda deltagarna och väljer sedan **Använd**. 
+
+    !["Justera kvoten ..." Fönstret](../media/how-to-configure-student-usage/additional-quota.png)
+
+    I kolumnen **Användning** visas den uppdaterade kvoten för de valda deltagarna. 
 
     ![Ny användning för användaren](../media/how-to-configure-student-usage/new-usage-hours.png)
 
-## <a name="student-accounts"></a>Elev konton
-Om du vill lägga till studenter i ett klass rums labb använder du sina e-postkonton. Följande typer av e-postkonton kan användas:
+## <a name="student-accounts"></a>Studentkonton
 
-- Ett student-e-postkonto som tillhandahålls av ditt universitets Office 365-Azure Active Directory. 
-- Ett Microsoft-e-postkonto, till exempel `@outlook.com`, `@hotmail.com`, `@msn.com`eller `@live.com`.
-- Ett e-postkonto som inte kommer från Microsoft, till exempel ett som tillhandahålls av Yahoo eller Google. Dessa typer av konton måste dock länkas till ett Microsoft-konto.
-- Ett GitHub-konto. Kontot måste vara länkat till ett Microsoft-konto.
+Om du vill lägga till elever i ett klassrumslabb använder du deras e-postkonton. Deltagarna kan ha följande typer av e-postkonton:
 
-### <a name="using-a-non-microsoft-email-account"></a>Använda ett e-postkonto som inte kommer från Microsoft
-Studenter kan använda e-postkonton som inte kommer från Microsoft för att registrera sig och logga in i ett klass rums labb.  Registreringen kräver dock att eleverna först skapar en Microsoft-konto som är länkad till den e-postadress som inte kommer från Microsoft.
+- Ett student-e-postkonto som tillhandahålls av universitetets Azure Active Directory-instans för Office 365. 
+- Ett e-postkonto för Microsoft-domän, till exempel *outlook.com*, *hotmail.com*, *msn.com*eller *live.com*.
+- Ett e-postkonto som inte kommer från Microsoft, till exempel ett som tillhandahålls av Yahoo! eller Google. Dessa typer av konton måste dock vara kopplade till ett Microsoft-konto.
+- Ett GitHub-konto. Det här kontot måste vara länkat till ett Microsoft-konto.
 
-Många studenter kanske redan har ett Microsoft-konto kopplat till sina e-postadresser som inte kommer från Microsoft. Studenter har till exempel redan en Microsoft-konto om de har använt sin e-postadress med Microsofts andra produkter eller tjänster, t. ex. Office, Skype, OneDrive eller Windows.  
+### <a name="use-a-non-microsoft-email-account"></a>Använda ett e-postkonto som inte kommer från Microsoft
+Deltagare kan använda e-postkonton som inte kommer från Microsoft för att registrera sig och logga in på ett klassrumslabb.  Registreringen kräver dock att de först skapar ett Microsoft-konto som är kopplat till deras e-postadress som inte kommer från Microsoft.
 
-När en student klickar på registrerings-URL: en för att logga in i ett klass rum uppmanas de att ange sina e-postadresser och lösen ord. Om student försök att logga in med en icke-Microsoft-konto som inte har någon Microsoft-konto länkad, får studenten följande fel meddelande: 
+Många studenter kanske redan har ett Microsoft-konto som är kopplat till deras e-postadress som inte kommer från Microsoft. Eleverna har till exempel redan ett Microsoft-konto om de har använt sin e-postadress med andra Produkter eller tjänster från Microsoft, till exempel Office, Skype, OneDrive eller Windows.  
 
-![Felmeddelande](../media/how-to-configure-student-usage/cant-find-account.png)
+När eleverna använder registreringslänken för att logga in i ett klassrum uppmanas de att ange sin e-postadress och sitt lösenord. Deltagare som försöker logga in med ett konto som inte är kopplat till ett Microsoft-konto får följande felmeddelande: 
 
-För att kunna registrera dig för en Microsoft-konto bör eleverna gå till [http://signup.live.com](http://signup.live.com).  
+![Felmeddelande vid inloggning](../media/how-to-configure-student-usage/cant-find-account.png)
+
+Här är en länk för studenter att [registrera dig för ett Microsoft-konto](http://signup.live.com).  
 
 > [!IMPORTANT]
-> När eleverna loggar in i ett klass rums labb får de inte möjlighet att skapa en Microsoft-konto. Vi rekommenderar därför att du inkluderar denna registrerings länk i e-postmeddelandet för klass rums labb registrering som du skickar till studenter som använder andra konton än Microsoft-konton.
+> När eleverna loggar in på ett klassrumslabb får de inte möjlighet att skapa ett Microsoft-konto. Därför rekommenderar vi att du inkluderar den här http://signup.live.comregistreringslänken i e-postmeddelandet med registrering i klassrummet som du skickar till elever som använder konton som inte är Microsoft-konton.
 
-### <a name="using-a-github-account"></a>Använda ett GitHub-konto
-Studenter kan också använda ett befintligt GitHub-konto för att registrera sig och logga in i ett klass rums labb. Om studenten redan har en Microsoft-konto länkat till sitt GitHub-konto kan de logga in och ange sitt lösen ord som visas i föregående avsnitt. Om de inte har länkat sitt GitHub-konto till en Microsoft-konto bör de välja **inloggnings alternativ**:
+### <a name="use-a-github-account"></a>Använda ett GitHub-konto
+Deltagarna kan också använda ett befintligt GitHub-konto för att registrera sig och logga in på ett klassrumslabb. Om de redan har ett Microsoft-konto kopplat till sitt GitHub-konto kan deltagarna logga in och ange sitt lösenord enligt föregående avsnitt. 
 
-![Länk för inloggnings alternativ](../media/how-to-configure-student-usage/signin-options.png)
+Om de ännu inte har länkat sitt GitHub-konto till ett Microsoft-konto kan de göra följande:
 
-På sidan **inloggnings alternativ** väljer du logga in **med GitHub**.
+1. Välj länken **Inloggningsalternativ,** som du ser här:
 
-![Logga in med GitHub-länk](../media/how-to-configure-student-usage/signin-github.png)
+    ![Länken "Inloggningsalternativ"](../media/how-to-configure-student-usage/signin-options.png)
 
-Slutligen uppmanas de att skapa en Microsoft-konto som är länkad till sitt GitHub-konto. Det sker automatiskt när studenten väljer **Nästa**.  Studenten är sedan omedelbart inloggad och ansluten till klass rummets labb.
+1. I fönstret **Inloggningsalternativ** väljer du **Logga in med GitHub**.
 
-## <a name="export-list-of-users-to-a-csv-file"></a>Exportera lista över användare till en CSV-fil
+    ![Länken "Logga in med GitHub"](../media/how-to-configure-student-usage/signin-github.png)
 
-1. Växla till fliken **användare** .
-2. Välj **...** (ellips) i verktygsfältet och välj sedan **exportera CSV**. 
+    Vid prompten skapar eleverna sedan ett Microsoft-konto som är kopplat till deras GitHub-konto. Länkningen sker automatiskt när de väljer **Nästa**. De är sedan omedelbart inloggade och anslutna till klassrummet labbet.
 
-    ![Exportera lista över användare](../media/how-to-export-users-virtual-machines-csv/users-export-csv.png)
+## <a name="export-a-list-of-users-to-a-csv-file"></a>Exportera en lista över användare till en CSV-fil
+
+1. Gå till fönstret **Användare.**
+1. Markera ellipsen (**...**) i verktygsfältet och välj sedan **Exportera CSV**. 
+
+    ![Knappen "Exportera CSV"](../media/how-to-export-users-virtual-machines-csv/users-export-csv.png)
 
 
 ## <a name="next-steps"></a>Nästa steg
 Se följande artiklar:
 
-- [Skapa och hantera labbkonton som administratör](how-to-manage-lab-accounts.md)
-- [Skapa och hantera labb som labbägare](how-to-manage-classroom-labs.md)
-- [Konfigurera och publicera mallar som labbägare](how-to-create-manage-template.md)
-- [Som labb användare, åtkomst till klass rum labb](how-to-use-classroom-lab.md)
+- För administratörer: [Skapa och hantera labbkonton](how-to-manage-lab-accounts.md)
+- För labbägare: [Skapa och hantera labb](how-to-manage-classroom-labs.md) och Konfigurera och publicera [mallar](how-to-create-manage-template.md)
+- För labbanvändare: [Få tillgång till klassrumslabb](how-to-use-classroom-lab.md)

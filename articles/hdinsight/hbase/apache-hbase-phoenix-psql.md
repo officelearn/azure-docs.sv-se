@@ -1,6 +1,6 @@
 ---
-title: Mass inläsning till Apache Phoenix med psql – Azure HDInsight
-description: Använd psql-verktyget för att läsa in Mass inläsnings data i Apache Phoenix tabeller i Azure HDInsight
+title: Massinläsning i Apache Phoenix med psql - Azure HDInsight
+description: Använd psql-verktyget för att läsa in massinläsningsdata i Apache Phoenix-tabeller i Azure HDInsight
 author: ashishthaps
 ms.author: ashishth
 ms.reviewer: jasonh
@@ -9,31 +9,31 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 12/17/2019
 ms.openlocfilehash: 845c4a62aee04a8acdc645ba4c41f1f5496537c3
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/31/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75552618"
 ---
 # <a name="bulk-load-data-into-apache-phoenix-using-psql"></a>Massinläsning av data till Apache Phoenix med psql
 
-[Apache Phoenix](https://phoenix.apache.org/) är en öppen källa, massivt parallell Relations databas som bygger på [Apache HBase](../hbase/apache-hbase-overview.md). Phoenix innehåller SQL-liknande frågor via HBase. Phoenix använder JDBC-drivrutiner för att göra det möjligt för användare att skapa, ta bort och ändra SQL-tabeller, index, vyer och sekvenser och upsert-rader individuellt och i grupp. Phoenix använder noSQL intern kompilering i stället för att använda MapReduce för att kompilera frågor, för att skapa program med låg latens ovanpå HBase. Phoenix lägger till processorer som stöder körning av kundlevererad kod i serverns adress utrymme och kör koden som samplacerade med data. Detta minimerar överföringen av klient/server-data.  Om du vill arbeta med data med hjälp av Phoenix i HDInsight måste du först skapa tabeller och sedan läsa in data i dem.
+[Apache Phoenix](https://phoenix.apache.org/) är en öppen källkod, massivt parallella relationella databas byggd på [Apache HBase](../hbase/apache-hbase-overview.md). Phoenix tillhandahåller SQL-liknande frågor via HBase. Phoenix använder JDBC-drivrutiner för att göra det möjligt för användare att skapa, ta bort och ändra SQL-tabeller, index, vyer och sekvenser och uppåtrader individuellt och i grupp. Phoenix använder noSQL native kompilering i stället för att använda MapReduce för att kompilera frågor, för att skapa låg latensprogram ovanpå HBase. Phoenix lägger till coprocessorer för att stödja körning av klientkod i serverns adressutrymme och kör koden som är samlokaliserad med data. Detta minimerar överföring av klient-serverdata.  Om du vill arbeta med data med Phoenix i HDInsight skapar du först tabeller och läser sedan in data i dem.
 
-## <a name="bulk-loading-with-apache-phoenix"></a>Mass inläsning med Apache Phoenix
+## <a name="bulk-loading-with-apache-phoenix"></a>Bulk lastning med Apache Phoenix
 
-Det finns flera sätt att hämta data till HBase, inklusive att använda klient-API: er, ett MapReduce-jobb med TableOutputFormat eller mata in data manuellt med HBase-gränssnittet. Phoenix innehåller två metoder för att läsa in CSV-data till Phoenix-tabeller: ett klient inläsnings verktyg med namnet `psql`och ett MapReduce-baserat Mass inläsnings verktyg.
+Det finns flera sätt att hämta data till HBase, inklusive användning av klient-API:er, ett MapReduce-jobb med TableOutputFormat eller mata in data manuellt med hbase-skalet. Phoenix innehåller två metoder för att läsa in CSV-data i Phoenix-tabeller: ett klientinläsningsverktyg med namnet `psql`mapreduce-baserade massbelastningsverktyg.
 
-`psql`s verktyget är en enkel tråd och passar bäst för att läsa in megabyte eller flera gigabyte data. Alla CSV-filer som ska läsas in måste ha fil namns tillägget. csv.  Du kan också ange SQL-skriptfiler i `psql` kommando rad med fil namns tillägget. SQL.
+Verktyget `psql` är enkelgängat och passar bäst för att läsa in megabyte eller gigabyte data. Alla CSV-filer som ska läsas in måste ha filändelsen ".csv".  Du kan också ange SQL-skriptfiler på `psql` kommandoraden med filtillägget ".sql".
 
-Mass inläsning med MapReduce används för mycket större data volymer, vanligt vis i produktions scenarier, eftersom MapReduce använder flera trådar.
+Massinläsning med MapReduce används för mycket större datavolymer, vanligtvis i produktionsscenarier, eftersom MapReduce använder flera trådar.
 
-Innan du börjar läsa in data kontrollerar du att Phoenix är aktiverat och att inställningarna för tids gräns för frågor är som förväntat.  Gå till ditt HDInsight-kluster [Apache Ambari](https://ambari.apache.org/) -instrumentpanelen, Välj HBase och sedan fliken konfiguration.  Rulla nedåt för att kontrol lera att Apache Phoenix är inställt på `enabled` som visas:
+Innan du börjar läsa in data kontrollerar du att Phoenix är aktiverat och att frågetidsgränsen är som förväntat.  Öppna din HDInsight-kluster [Apache Ambari-instrumentpanel,](https://ambari.apache.org/) välj HBase och sedan fliken Konfiguration.  Bläddra nedåt för att kontrollera `enabled` att Apache Phoenix är inställt på som visas:
 
-![Apache Phoenix inställningar för HDInsight-kluster](./media/apache-hbase-phoenix-psql/apache-ambari-phoenix.png)
+![Inställningar för Apache Phoenix HDInsight-kluster](./media/apache-hbase-phoenix-psql/apache-ambari-phoenix.png)
 
-### <a name="use-psql-to-bulk-load-tables"></a>Använda `psql` till Mass inläsnings tabeller
+### <a name="use-psql-to-bulk-load-tables"></a>Används `psql` för massinläsningstabeller
 
-1. Skapa en fil med namnet `createCustomersTable.sql`och kopiera koden nedan till filen. Spara sedan och stäng filen.
+1. Skapa en `createCustomersTable.sql`fil som heter och kopiera koden nedan till filen. Spara sedan och stäng filen.
 
     ```sql
     CREATE TABLE Customers (
@@ -44,13 +44,13 @@ Innan du börjar läsa in data kontrollerar du att Phoenix är aktiverat och att
         Country varchar);
     ```
 
-1. Skapa en fil med namnet `listCustomers.sql`och kopiera koden nedan till filen. Spara sedan och stäng filen.
+1. Skapa en `listCustomers.sql`fil som heter och kopiera koden nedan till filen. Spara sedan och stäng filen.
 
     ```sql
     SELECT * from Customers;
     ```
 
-1. Skapa en fil med namnet `customers.csv`och kopiera koden nedan till filen. Spara sedan och stäng filen.
+1. Skapa en `customers.csv`fil som heter och kopiera koden nedan till filen. Spara sedan och stäng filen.
 
     ```txt
     1,Samantha,260000.0,18,US
@@ -58,7 +58,7 @@ Innan du börjar läsa in data kontrollerar du att Phoenix är aktiverat och att
     3,Anton,550150.0,42,Norway
     ```
 
-1. Skapa en fil med namnet `customers2.csv`och kopiera koden nedan till filen. Spara sedan och stäng filen.
+1. Skapa en `customers2.csv`fil som heter och kopiera koden nedan till filen. Spara sedan och stäng filen.
 
     ```txt
     4,Nicolle,180000.0,22,US
@@ -66,25 +66,25 @@ Innan du börjar läsa in data kontrollerar du att Phoenix är aktiverat och att
     6,Ben,45000.0,32,Poland
     ```
 
-1. Öppna en kommando tolk och ändra katalogen till platsen för de nyligen skapade filerna. Ersätt kluster namn nedan med det faktiska namnet på ditt HBase-kluster. Kör sedan koden för att ladda upp filerna till huvudnoden för klustret:
+1. Öppna en kommandotolk och ändra katalogen till platsen för de nyskapade filerna. Ersätt CLUSTERNAME nedan med det faktiska namnet på HBase-klustret. Kör sedan koden för att ladda upp filerna till huvudnoden för klustret:
 
     ```cmd
     scp customers.csv customers2.csv createCustomersTable.sql listCustomers.sql sshuser@CLUSTERNAME-ssh.azurehdinsight.net:/tmp
     ```
 
-1. Använd [SSH-kommandot](../hdinsight-hadoop-linux-use-ssh-unix.md) för att ansluta till klustret. Redigera kommandot nedan genom att ersätta kluster namn med namnet på klustret och ange sedan kommandot:
+1. Använd kommandot ssh för att ansluta till [klustret.](../hdinsight-hadoop-linux-use-ssh-unix.md) Redigera kommandot nedan genom att ersätta CLUSTERNAME med namnet på klustret och ange sedan kommandot:
 
     ```cmd
     ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.net
     ```
 
-1. Ändra katalogen till platsen för **psql** -verktyget från SSH-sessionen. Kör kommandot nedan:
+1. Från din ssh-session ändrar du katalogen till **psql-verktygets** plats. Kör kommandot nedan:
 
     ```bash
     cd /usr/hdp/current/phoenix-client/bin
     ```
 
-1. Läs in data. Koden nedan skapar tabellen **kunder** och laddar sedan upp data.
+1. Massinläsning av data. Koden nedan skapar både tabellen **Kunder** och överför sedan data.
 
     ```bash
     python psql.py /tmp/createCustomersTable.sql /tmp/customers.csv
@@ -98,13 +98,13 @@ Innan du börjar läsa in data kontrollerar du att Phoenix är aktiverat och att
     Time: 0.081 sec(s)
     ```
 
-1. Du kan fortsätta att använda `psql` för att visa innehållet i tabellen kunder. Kör koden nedan:
+1. Du kan fortsätta `psql` att använda för att visa innehållet i tabellen Kunder. Kör koden nedan:
 
     ```bash
     python psql.py /tmp/listCustomers.sql
     ```
 
-    Du kan också använda [HBase Shell](./query-hbase-with-hbase-shell.md)eller [Apache Zeppelin](./apache-hbase-phoenix-zeppelin.md) för att fråga data.
+    Du kan också använda [HBase-skalet](./query-hbase-with-hbase-shell.md)eller [Apache Zeppelin](./apache-hbase-phoenix-zeppelin.md) för att fråga efter data.
 
 1. Ladda upp ytterligare data. Nu när tabellen redan finns anger kommandot tabellen. Kör kommandot nedan:
 
@@ -112,13 +112,13 @@ Innan du börjar läsa in data kontrollerar du att Phoenix är aktiverat och att
     python psql.py -t CUSTOMERS /tmp/customers2.csv
     ```
 
-## <a name="use-mapreduce-to-bulk-load-tables"></a>Använda MapReduce till Mass inläsnings tabeller
+## <a name="use-mapreduce-to-bulk-load-tables"></a>Använda MapReduce till massbelastningstabeller
 
-Använd inläsnings verktyget MapReduce för större data flöden som är distribuerade över klustret. Den här inläsaren konverterar först alla data till HFiles och ger sedan den skapade HFiles till HBase.
+För högre dataflödesinläsning fördelad över klustret använder du mapreduce-inläsningsverktyget. Den här lastaren konverterar först alla data till HFiles och tillhandahåller sedan den skapade HFiles till HBase.
 
-1. Det här avsnittet fortsätter med SSH-sessionen och objekt som skapats tidigare. Skapa tabellen **kunder** och **Customers. csv** -filen efter behov med hjälp av stegen ovan. Återupprätta ssh-anslutningen om det behövs.
+1. Det här avsnittet fortsätter med ssh-sessionen och objekt som skapats tidigare. Skapa tabellen **Kunder** och **filen customers.csv** efter behov med hjälp av stegen ovan. Om det behövs, återupprätta din ssh-anslutning.
 
-1. Trunkera innehållet i tabellen **kunder** . Kör följande kommandon från din öppna SSH-session:
+1. Trunkera innehållet i tabellen **Kunder.** Från din öppna ssh-session kör du kommandona nedan:
 
     ```bash
     hbase shell
@@ -126,19 +126,19 @@ Använd inläsnings verktyget MapReduce för större data flöden som är distri
     exit
     ```
 
-1. Kopiera `customers.csv`-filen från din huvudnoden till Azure Storage.
+1. Kopiera `customers.csv` filen från din headnode till Azure Storage.
 
     ```bash
     hdfs dfs -put /tmp/customers.csv wasbs:///tmp/customers.csv
     ```
 
-1. Ändra till körnings katalogen för MapReduce Mass inläsnings kommando:
+1. Ändra till körningskatalogen för kommandot MapReduce-massbelastning:
 
     ```bash
     cd /usr/hdp/current/phoenix-client
     ```
 
-1. Starta MapReduce-inläsaren genom att använda kommandot `hadoop` med Phoenix-klienten jar:
+1. Starta CSV MapReduce-lastaren `hadoop` med kommandot med Phoenix-klientburken:
 
     ```bash
     HADOOP_CLASSPATH=/usr/hdp/current/hbase-client/lib/hbase-protocol.jar:/etc/hbase/conf hadoop jar phoenix-client.jar org.apache.phoenix.mapreduce.CsvBulkLoadTool --table Customers --input /tmp/customers.csv
@@ -155,7 +155,7 @@ Använd inläsnings verktyget MapReduce för större data flöden som är distri
     19/12/18 18:30:57 INFO mapreduce.AbstractBulkLoadTool: Removing output directory /tmp/50254426-aba6-400e-88eb-8086d3dddb6
     ```
 
-1. Om du vill använda MapReduce med Azure Data Lake Storage letar du upp Data Lake Storage rot katalogen, som är värdet för `hbase.rootdir` i `hbase-site.xml`. I följande kommando är Data Lake Storage rot katalogen `adl://hdinsightconf1.azuredatalakestore.net:443/hbase1`. I det här kommandot anger du Data Lake Storage in-och utdata-mappar som parametrar:
+1. Om du vill använda MapReduce med Azure Data Lake Storage `hbase.rootdir` letar `hbase-site.xml`du reda på rotkatalogen Data Lake Storage, som är värdet i . I följande kommando är `adl://hdinsightconf1.azuredatalakestore.net:443/hbase1`rotkatalogen Data Lake Storage . I det här kommandot anger du in- och utdatamapparna för datasjölagring som parametrar:
 
     ```bash
     cd /usr/hdp/current/phoenix-client
@@ -165,25 +165,25 @@ Använd inläsnings verktyget MapReduce för större data flöden som är distri
     org.apache.phoenix.mapreduce.CsvBulkLoadTool --table Customers --input adl://hdinsightconf1.azuredatalakestore.net:443/hbase1/data/hbase/temp/input/customers.csv –zookeeper ZookeeperQuorum:2181:/hbase-unsecure --output  adl://hdinsightconf1.azuredatalakestore.net:443/hbase1/data/hbase/output1
     ```
 
-1. Om du vill fråga efter och visa data kan du använda **psql** enligt beskrivningen ovan. Du kan också använda [HBase Shell](./query-hbase-with-hbase-shell.md)eller [Apache Zeppelin](./apache-hbase-phoenix-zeppelin.md).
+1. Om du vill fråga och visa data kan du använda **psql** enligt beskrivningen tidigare. Du kan också använda [HBase-skalet](./query-hbase-with-hbase-shell.md)eller [Apache Zeppelin](./apache-hbase-phoenix-zeppelin.md).
 
 ## <a name="recommendations"></a>Rekommendationer
 
-* Använd samma lagrings medium för både in-och utdata-mappar, antingen Azure Storage (WASB) eller Azure Data Lake Storage (ADL). Om du vill överföra data från Azure Storage till Data Lake Storage kan du använda kommandot `distcp`:
+* Använd samma lagringsmedium för både indata- och utdatamappar, antingen Azure Storage (WASB) eller Azure Data Lake Storage (ADL). Om du vill överföra data från Azure Storage `distcp` till Data Lake Storage kan du använda kommandot:
 
     ```bash
     hadoop distcp wasb://@.blob.core.windows.net/example/data/gutenberg adl://.azuredatalakestore.net:443/myfolder
     ```
 
-* Använd större arbetsnoder i arbets storlek. Kart processerna för MapReduce Mass kopiering genererar stora mängder temporära utdata som fyller upp det tillgängliga icke-DFS-utrymmet. För en stor mängd Mass inläsning använder du fler och större arbetsnoder för arbetare. Antalet arbetsnoder som du allokerar till klustret påverkar direkt bearbetnings hastigheten.
+* Använd arbetsnoder av större storlek. Kartprocesserna för Masskopian MapReduce producerar stora mängder temporärt utdata som fyller upp det tillgängliga icke-DFS-utrymmet. För en stor mängd massinläsning använder du fler och större arbetsnoder. Antalet arbetsnoder som du allokerar till klustret påverkar direkt bearbetningshastigheten.
 
-* Dela in indatafiler i ~ 10 GB-segment. Mass inläsning är en lagrings intensiv åtgärd så att du kan dela in dina indatafiler i flera segment, vilket ger bättre prestanda.
+* Dela indatafiler i ~10 GB-bitar. Massinläsning är en lagringsintensiv åtgärd, så att dela upp indatafilerna i flera segment ger bättre prestanda.
 
-* Undvik hotspots på regions servern. Om rad nyckeln är monotont ökning kan HBase sekventiella skrivningar orsaka region Server Hotspotting. När rad nyckeln *saltas* minskas sekventiella skrivningar. Phoenix är ett sätt att transparent salt rad nyckel med en saltad byte för en viss tabell enligt nedan.
+* Undvik regionserverhotspots. Om radnyckeln ökar monotoniskt kan HBase-sekventiella skrivningar framkalla aktivering av regionserver.If your row key is monotonically increasing, HBase sekvential writes may inducering region server hotspotting. *Om du saltar* radtangenten minskas sekventiella skrivningar. Phoenix ger ett sätt att transparent salta radnyckeln med en saltningsbyte för en viss tabell, som refereras nedan.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Mass inläsning av data med Apache Phoenix](https://phoenix.apache.org/bulk_dataload.html)
-* [Använda Apache Phoenix med Linux-baserade Apache HBase-kluster i HDInsight](../hbase/apache-hbase-query-with-phoenix.md)
-* [Saltade tabeller](https://phoenix.apache.org/salted.html)
+* [Massdata inläsning med Apache Phoenix](https://phoenix.apache.org/bulk_dataload.html)
+* [Använd Apache Phoenix med Linux-baserade Apache HBase-kluster i HDInsight](../hbase/apache-hbase-query-with-phoenix.md)
+* [Saltade bord](https://phoenix.apache.org/salted.html)
 * [Apache Phoenix grammatik](https://phoenix.apache.org/language/index.html)

@@ -10,10 +10,10 @@ ms.date: 10/22/2019
 ms.author: spelluru
 ms.custom: seodec18
 ms.openlocfilehash: 6122f17637e76f42cc4fbcc87ac9f48da3cdca36
-ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "76122210"
 ---
 # <a name="choose-between-azure-messaging-services---event-grid-event-hubs-and-service-bus"></a>Välj mellan Azure-meddelandetjänster – Event Grid, Event Hubs och Service Bus
@@ -21,7 +21,7 @@ ms.locfileid: "76122210"
 Azure erbjuder tre tjänster som hjälp med att leverera händelsemeddelanden i en lösning. Dessa tjänster är:
 
 * [Event Grid](/azure/event-grid/)
-* [Event Hubs](/azure/event-hubs/)
+* [Händelsehubbar](/azure/event-hubs/)
 * [Service Bus](/azure/service-bus-messaging/)
 
 Även om de har vissa likheter är varje tjänst utformad för särskilda scenarier. I den här artikeln beskrivs skillnaderna mellan dessa tjänster, vilket hjälper dig förstå vilken som ska väljas för ditt program. I många fall kompletterar meddelandetjänsterna varandra och kan användas tillsammans.
@@ -44,7 +44,7 @@ Ett meddelande är rådata som genereras av en tjänst och som ska förbrukas el
 
 ## <a name="comparison-of-services"></a>Jämförelse av tjänster
 
-| Tjänst | Syfte | Typ | Används till att |
+| Tjänst | Syfte | Typ | När du ska använda detta |
 | ------- | ------- | ---- | ----------- |
 | Event Grid | Reaktiv programmering | Händelsedistribution (diskret) | Reagera på statusändringar |
 | Händelsehubbar | Pipeline för stordata | Händelseströmning (serie) | Telemetri och distribuerade strömmande data |
@@ -77,7 +77,7 @@ Det har följande egenskaper:
 
 ### <a name="service-bus"></a>Service Bus
 
-Service Bus är avsett för traditionella företagsprogram. Dessa företagsprogram kräver transaktioner, sortering, dubblettidentifiering och omedelbar konsekvens. Med Service Bus kan [molnbaserade](https://azure.microsoft.com/overview/cloudnative/) program tillhandahålla tillförlitlig övergångshantering för tillstånd i affärsprocesser. Om du hanterar viktiga meddelanden som inte får försvinna eller dupliceras, bör du använda Azure Service Bus. Service Bus underlättar också säker kommunikation i hybridmolnlösningar och kan ansluta befintliga lokala system till molnlösningar.
+Service Bus är avsett för traditionella företagsprogram. Dessa företagsprogram kräver transaktioner, sortering, dubblettidentifiering och omedelbar konsekvens. Service Bus gör det möjligt för [molnbaserade](https://azure.microsoft.com/overview/cloudnative/) program att tillhandahålla tillförlitlig tillståndsövergångshantering för affärsprocesser. Om du hanterar viktiga meddelanden som inte får försvinna eller dupliceras, bör du använda Azure Service Bus. Service Bus underlättar också säker kommunikation i hybridmolnlösningar och kan ansluta befintliga lokala system till molnlösningar.
 
 Service Bus är en asynkron meddelandetjänst. Den lagrar meddelanden på ett tillförlitligt sätt i en ”asynkron meddelandekö” tills konsumenten är redo att ta emot meddelandena.
 
@@ -90,7 +90,7 @@ Det har följande egenskaper:
 
 ## <a name="use-the-services-together"></a>Använda tjänsterna tillsammans
 
-I vissa fall kan du använda tjänsterna sida vid sida för att uppfylla olika roller. Till exempel kan en e-handelsplats använda Service Bus för att bearbeta beställningen, Event Hubs för att avbilda telemetri och Event Grid för att svara på händelser som ett objekt levererades.
+I vissa fall kan du använda tjänsterna sida vid sida för att uppfylla olika roller. En e-handelsplats kan till exempel använda Service Bus för att bearbeta ordern, eventhubbar för att samla in platstelemetri och Event Grid för att svara på händelser som en artikel levererades.
 
 I andra fall kan du koppla ihop dem för att skapa en händelse och datapipeline. Du använder Event Grid till att svara på händelser i de andra tjänsterna. Ett exempel på hur Event Grid används tillsammans med Event Hubs för att migrera data till ett informationslager, finns i [Strömma stordata till ett informationslager](event-grid-event-hubs-integration.md). Följande bild visar arbetsflödet för att strömma datan.
 
@@ -98,7 +98,7 @@ I andra fall kan du koppla ihop dem för att skapa en händelse och datapipeline
 
 ## <a name="next-steps"></a>Nästa steg
 Se följande artiklar: 
-- [Asynkrona meddelande alternativ i Azure](/azure/architecture/guide/technology-choices/messaging)
+- [Asynkrona meddelandealternativ i Azure](/azure/architecture/guide/technology-choices/messaging)
 - [Händelser, datapunkter och meddelanden – välja rätt Azure-meddelandetjänsten för dina data](https://azure.microsoft.com/blog/events-data-points-and-messages-choosing-the-right-azure-messaging-service-for-your-data/).
 - [Storage-köer och Service Bus-köer – jämförelser och skillnader](../service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted.md)
 - Kom igång med Event Grid genom att läsa [Skapa och dirigera anpassade händelser med Azure Event Grid](custom-event-quickstart.md).

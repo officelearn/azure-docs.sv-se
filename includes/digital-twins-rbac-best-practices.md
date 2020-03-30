@@ -10,26 +10,26 @@ ms.topic: include
 ms.date: 01/15/2020
 ms.custom: include file
 ms.openlocfilehash: 893beb0800af0eece4d69e727e427c3e92b79121
-ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76044957"
 ---
-Rollbaserad åtkomst kontroll är en arvs driven säkerhets strategi för hantering av åtkomst, behörigheter och roller. Underordnade roller ärver behörigheter från överordnade roller. Behörigheter kan även tilldelas utan att ärvas från en överordnad roll. De kan också tilldelas för att anpassa en roll vid behov.
+Rollbaserad åtkomstkontroll är en arvsdriven säkerhetsstrategi för hantering av åtkomst, behörigheter och roller. Underordnade roller ärver behörigheter från överordnade roller. Behörigheter kan också tilldelas utan att ärvas från en överordnad roll. De kan också tilldelas för att anpassa en roll efter behov.
 
-En utrymmes administratör kan till exempel behöva global åtkomst för att köra alla åtgärder för ett visst utrymme. Åtkomsten inkluderar alla noder under eller inom utrymmet. Installations programmet för enheten kan bara behöva *läsa* och *Uppdatera* behörigheter för enheter och sensorer.
+En utrymmesadministratör kan till exempel behöva global åtkomst för att köra alla åtgärder för ett angivet utrymme. Åtkomst innehåller alla noder under eller inom utrymmet. En enhetsinstallationsanordning kan bara behöva *läs-* och *uppdateringsbehörigheter* för enheter och sensorer.
 
-I varje fall beviljas roller *exakt och inte mer än den åtkomst som krävs* för att utföra sina uppgifter enligt principen om minsta behörighet. Enligt den här principen beviljas en identitet *endast*:
+I varje enskilt fall beviljas roller *exakt och inte mer än den åtkomst som krävs* för att uppfylla sina uppgifter enligt principen om lägsta behörighet. Enligt denna princip beviljas en identitet *endast:*
 
-* Mängden åtkomst som krävs för att slutföra jobbet.
-* En roll lämplig och begränsad för att utföra sitt jobb.
+* Mängden åtkomst som behövs för att slutföra sitt jobb.
+* En roll som är lämplig och begränsad till att utföra sitt arbete.
 
 >[!IMPORTANT]
-> Följ alltid principen om minsta behörighet.
+> Följ alltid principen om lägsta privilegium.
 
-Två andra viktiga rollbaserade åtkomst kontroll metoder att följa:
+Två andra viktiga rollbaserade åtkomstkontrollmetoder att följa:
 
 > [!div class="checklist"]
-> * Granska roll tilldelningarna regelbundet för att kontrol lera att varje roll har rätt behörigheter.
-> * Rensa roller och tilldelningar när individer ändrar roller eller tilldelningar.
+> * Granska regelbundet rolltilldelningar för att kontrollera att varje roll har rätt behörighet.
+> * Rensa roller och tilldelningar när individer byter roller eller uppgifter.

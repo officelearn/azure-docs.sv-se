@@ -5,17 +5,17 @@ ms.topic: include
 ms.date: 01/09/2020
 ms.author: larryfr
 ms.openlocfilehash: 8fd774f8a3a73ceaffa7902b35e1b1dff12ef5af
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "75893978"
 ---
-När du skapar en Azure Machine Learning arbets yta eller en resurs som används av arbets ytan kan du få ett fel meddelande som liknar följande meddelanden:
+När du skapar en Azure Machine Learning-arbetsyta eller en resurs som används av arbetsytan kan du få ett fel som liknar följande meddelanden:
 
 * `No registered resource provider found for location {location}`
 * `The subscription is not registered to use namespace {resource-provider-namespace}`
 
-De flesta resurs leverantörer registreras automatiskt, men inte alla. Om du får det här meddelandet måste du registrera den angivna providern.
+De flesta resursleverantörer registreras automatiskt, men inte alla. Om du får det här meddelandet måste du registrera den nämnda leverantören.
 
-Information om hur du registrerar resurs leverantörer finns i [lösa fel för registrering av resurs leverantör](../articles/azure-resource-manager/templates/error-register-resource-provider.md).
+Information om hur du registrerar resursleverantörer finns i [Lösa fel för registrering av resursprovider](../articles/azure-resource-manager/templates/error-register-resource-provider.md).

@@ -6,10 +6,10 @@ ms.topic: quickstart
 ms.date: 09/19/2017
 ms.custom: mvc
 ms.openlocfilehash: 73f8d23dcd53b4cbbb3fbd902c789e868c2b021b
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "75769191"
 ---
 # <a name="add-messages-to-an-azure-storage-queue-using-functions"></a>Lägga till meddelanden i en Azure Storage-kö med Functions
@@ -26,7 +26,7 @@ För att slutföra den här snabbstarten behöver du:
 
 * Installera [Microsoft Azure Storage Explorer](https://storageexplorer.com/). Det här är ett verktyg som du använder för att undersöka kömeddelanden som skapas av din utdatabindning.
 
-## <a name="add-binding"></a>Lägga till en utdatabindning
+## <a name="add-an-output-binding"></a><a name="add-binding"></a>Lägga till en utdatabindning
 
 I det här avsnittet använder du portalens användargränssnitt för att lägga till en Queue Storage-utdatabindning till funktionen som du skapade tidigare. Den här bindningen gör det möjligt att skriva minimal kod för att skapa ett meddelande i en kö. Du behöver inte skriva kod för uppgifter som till exempel att öppna en lagringsanslutning, skapa en kö eller lägga till en referens i en kö. Azure Functions-körningen och utdatabindningen tar hand om de här aktiviteterna åt dig.
 
@@ -34,9 +34,9 @@ I det här avsnittet använder du portalens användargränssnitt för att lägga
 
 1. Välj funktionen som du skapade i den tidigare snabbstarten.
 
-1. Välj **integrera > nya utdata > Azure Queue Storage**.
+1. Välj **Integrera > ny utdata > Azure Queue Storage**.
 
-1. Klicka på **Välj**.
+1. Klicka på **Markera**.
 
     ![Lägg till en Queue Storage-utdatabindning i en funktion på Azure Portal.](./media/functions-integrate-storage-queue-output-binding/function-add-queue-storage-output-binding.png)
 
@@ -66,7 +66,7 @@ I det här avsnittet lägger du till kod som skriver ett meddelande till utdatak
 
 1. Uppdatera funktionskoden beroende på ditt funktionsspråk:
 
-    # <a name="ctabcsharp"></a>[C\#](#tab/csharp)
+    # <a name="c"></a>[C\#](#tab/csharp)
 
     Lägg till en **outputQueueItem**-parameter till metodsignaturen som visas i följande exempel.
 
@@ -84,7 +84,7 @@ I det här avsnittet lägger du till kod som skriver ett meddelande till utdatak
     outputQueueItem.Add("Name passed to the function: " + name);
     ```
 
-    # <a name="javascripttabnodejs"></a>[JavaScript](#tab/nodejs)
+    # <a name="javascript"></a>[Javascript](#tab/nodejs)
 
     Lägg till kod som använder utdatabindningen till `context.bindings`-objektet för att skapa ett kömeddelande. Lägg till den här koden före `context.done`-instruktionen.
 

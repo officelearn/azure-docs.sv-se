@@ -1,88 +1,88 @@
 ---
-title: Översikt över Azure blockchain service
-description: Översikt över Azure blockchain-tjänsten
+title: Översikt över Azure Blockchain-tjänsten
+description: Översikt över Azure Blockchain-tjänsten
 ms.date: 03/12/2020
 ms.topic: overview
 ms.reviewer: ravastra
 ms.openlocfilehash: b9f5deb501fb93327fa5d5cfcfd5bb583ed6135e
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "79205075"
 ---
 # <a name="what-is-azure-blockchain-service"></a>Vad är Azure Blockchain Service?
 
-Azure blockchain service är en fullständigt hanterad redovisnings tjänst som gör det möjligt för användarna att växa och hantera blockchain-nätverk i stor skala i Azure. Genom att tillhandahålla enhetlig kontroll för både infrastruktur hantering och blockchain Network-styrning tillhandahåller Azure blockchain service:
+Azure Blockchain Service är en fullständigt hanterad redovisningstjänst som gör det möjligt för användare att växa och driva blockchain-nätverk i stor skala i Azure. Genom att tillhandahålla enhetlig kontroll för både infrastrukturhantering och styrning av blockchain-nätverk tillhandahåller Azure Blockchain Service:
 
-* Enkel nätverks distribution och åtgärder
-* Inbyggd konsortiums hantering
+* Enkel nätverksdistribution och drift
+* Inbyggd konsortiumförvaltning
 * Utveckla smarta kontrakt med välbekanta utvecklingsverktyg
 
-Azure blockchain-tjänsten har utformats för att stödja flera redovisnings protokoll. För närvarande ger den stöd för Ethereum- [kvorumet](https://www.goquorum.com/) med hjälp av [IBFT](https://github.com/jpmorganchase/quorum/wiki/Quorum-Consensus) enighet-mekanismen.
+Azure Blockchain Service har utformats för att stödja flera redovisningsprotokoll. För närvarande ger det stöd för Ethereum [Quorum-liggaren](https://www.goquorum.com/) med hjälp av [IBFT](https://github.com/jpmorganchase/quorum/wiki/Quorum-Consensus) konsensusmekanism.
 
-Dessa funktioner kräver nästan ingen administration och de tillhandahålls utan extra kostnad. Du kan fokusera på utveckling och affärs logik i appar i stället för att allokera tid och resurser för att hantera virtuella datorer och infrastruktur. Dessutom kan du fortsätta att utveckla ditt program med de verktyg med öppen källkod och plattform som du väljer för att leverera dina lösningar utan att behöva lära dig nya kunskaper.
+Dessa funktioner kräver nästan ingen administration och de tillhandahålls utan extra kostnad. Du kan fokusera på apputveckling och affärslogik i stället för att tilldela tid och resurser för att hantera virtuella datorer och infrastruktur. Dessutom kan du fortsätta att utveckla ditt program med de verktyg och en plattform med öppen källkod som du väljer för att leverera dina lösningar utan att behöva lära dig nya färdigheter.
 
-## <a name="network-deployment-and-operations"></a>Nätverks distribution och åtgärder
+## <a name="network-deployment-and-operations"></a>Nätverksdistribution och åtgärder
 
-Distribution av Azure blockchain-tjänsten görs via Azure Portal, Azure CLI eller via Visual Studio Code med Azure blockchain-tillägget. Distributionen är förenklad, inklusive etablering av både Transaction-och validator-noder, virtuella Azure-nätverk för säkerhets isolering samt hanterad lagring.  Dessutom, när du distribuerar en ny blockchain-medlem, skapar användare även eller ansluter till en konsortium.  Konsortiet gör det möjligt för flera parter i olika Azure-prenumerationer att kunna kommunicera på ett säkert sätt med varandra på en delad blockchain.  Den här förenklade distributionen minskar blockchain nätverks distribution från dagar till minuter.
+Distribution av Azure Blockchain-tjänsten sker via Azure-portalen, Azure CLI eller genom Visual Studio-kod med Azure Blockchain-tillägget. Distributionen förenklas, inklusive etablering av både transaktions- och validatornoder, Azure Virtual Networks för säkerhetsisolering samt tjänsthanterad lagring.  När användarna distribuerar en ny blockchain-medlem skapar eller ansluter användarna dessutom till ett konsortium.  Konsortier gör det möjligt för flera parter i olika Azure-prenumerationer att på ett säkert sätt kommunicera med varandra på en delad blockchain.  Den här förenklade distributionen minskar distributionen av blockchain-nätverk från dagar till minuter.
 
-### <a name="performance-and-service-tiers"></a>Prestanda-och tjänst nivåer
+### <a name="performance-and-service-tiers"></a>Prestanda- och tjänstnivåer
 
-Azure blockchain-tjänsten erbjuder två service nivåer: *Basic* och *standard*. Varje nivå erbjuder olika prestanda och funktioner för att stödja enkla utvecklings-och test arbets belastningar upp till storskaligt skalade produktions blockchain-distributioner. Använd *Basic* -nivån för utveckling, testning och bevis på koncept. Använd *standard* nivån för distributioner av produktions nivåer. Båda nivåerna inkluderar minst en Transaction-nod och en validator-nod (Basic) eller två verifierade noder (standard). 
+Azure Blockchain Service erbjuder två tjänstnivåer: *Basic* och *Standard*. Varje nivå erbjuder olika prestanda och funktioner för att stödja lättviktsutveckling och testarbetsbelastningar upp till kraftigt skalade produktionskedjedistributioner. Använd *basic-nivån* för utveckling, testning och bevis på begrepp. Använd *standardnivån* för distributioner av produktionsresultat. Båda nivåerna innehåller minst en transaktionsnod och en validerarnod (Basic) eller två validerare noder (Standard). 
 
 ![Prisnivåer](./media/overview/pricing-tiers.png)
 
-Förutom att erbjuda två validator-noder tillhandahåller *standard* nivån 2 *virtuella kärnor* för varje transaktion och validator-nod medan Basic-nivån erbjuder en 1 vCore-konfiguration.  Genom att erbjuda 2 virtuella kärnor för Transaction-och validator-noder kan 1 vCore vara dedikerad till kvorumet medan de återstående 1 vCore kan användas för andra infrastrukturbaserade tjänster, vilket säkerställer optimala prestanda för produktion blockchain-arbetsbelastningar. Mer information om pris information finns i [priser för Azure blockchain-tjänster](https://azure.microsoft.com/pricing/details/blockchain-service).
+Förutom att erbjuda två validerarnoder tillhandahåller *standardnivån* 2 *virtuella kärnor* för varje transaktions- och validatornod medan basic-nivån erbjuder en 1 vCore-konfiguration.  Genom att erbjuda 2 virtuella kärnor för transaktions- och validatornoder kan 1 vCore dedikeras till kvorumredovisningen medan de återstående 1 virtuella kärnorna kan användas för andra infrastrukturrelaterade tjänster, vilket säkerställer optimal prestanda för produktions blockchain-arbetsbelastningar. Mer information om prisinformation finns i [Azure Blockchain Service-priser](https://azure.microsoft.com/pricing/details/blockchain-service).
 
 ### <a name="security-and-maintenance"></a>Säkerhet och underhåll
 
-När du har slutfört din första blockchain-medlem har du möjlighet att lägga till ytterligare transaktionsloggfiler till din medlem.  Som standard skyddas transaktions noder genom brand Väggs regler och kräver konfiguration för åtkomst.  Dessutom kan alla transaktionsloggfiler kryptera data i rörelse via TLS.  Det finns flera alternativ för att skydda åtkomst till Transaction Node, inklusive brand Väggs regler, grundläggande autentisering, åtkomst nycklar och Azure Active Directory-integrering. Mer information finns i [Konfigurera Transaction Nodes](configure-transaction-nodes.md) och [Konfigurera Azure Active Directory åtkomst](configure-aad.md).
+När du har etablerat din första blockchain-medlem har du möjlighet att lägga till ytterligare transaktionsnoder till din medlem.  Som standard skyddas transaktionsnoder genom brandväggsregler och kräver konfiguration för åtkomst.  Dessutom krypterar alla transaktionsnoder data i rörelse via TLS.  Det finns flera alternativ för att skydda åtkomst till transaktionsnoder, inklusive brandväggsregler, grundläggande autentisering, åtkomstnycklar och Azure Active Directory-integrering. Mer information finns i [konfigurera transaktionsnoder](configure-transaction-nodes.md) och [konfigurera Azure Active Directory-åtkomst](configure-aad.md).
 
-Som en hanterad tjänst ser Azure blockchain-tjänsten till att din blockchain-medlems noder korrigeras med de senaste uppdateringarna för värd operativ systemet och program stacken i redovisningen, konfigurerade för hög tillgänglighet (endast standard nivån), vilket eliminerar mycket av DevOps krävs för traditionella IaaS blockchain-noder.  Mer information om korrigeringar och uppdateringar finns i [Azure blockchain service Ledger-versioner som stöds](ledger-versions.md).
+Som en hanterad tjänst säkerställer Azure Blockchain Service att din blockchain-medlems noder korrigeras med de senaste värdoperativsystemen och redovisningsprogramstackuppdateringarna, konfigurerade för hög tillgänglighet (endast standardnivå), vilket eliminerar mycket av DevOps krävs för traditionella IaaS blockchain-noder.  Mer information om korrigering och uppdateringar finns i [Azure Blockchain Service-redovisningsversioner som stöds](ledger-versions.md).
 
 ### <a name="monitoring-and-logging"></a>Övervakning och loggning
 
-Dessutom tillhandahåller Azure blockchain-tjänsten omfattande mått genom Azure Monitor tjänst som ger insikter om noders CPU, minne och lagrings användning.  Azure Monitor ger också till gång till insikter om blockchain nätverks aktivitet, till exempel transaktioner och block används, transaktions köns djup och aktiva anslutningar.  Mått kan anpassas för att ge vyer i de insikter som är viktiga för ditt blockchain-program.  Dessutom kan tröskelvärden definieras via aviseringar som gör det möjligt för användare att utlösa åtgärder som att skicka ett e-postmeddelande eller SMS, köra en Logic app, Azure Function eller skicka till en anpassad, webhook.
+Dessutom tillhandahåller Azure Blockchain Service omfattande mått via Azure Monitor Service som ger insikter om noders CPU, minne och lagringsanvändning.  Azure Monitor ger också användbara insikter om blockchain-nätverksaktivitet som transaktioner och blockeringar som bryts, transaktionsklindjup och aktiva anslutningar.  Mått kan anpassas för att ge vyer till de insikter som är viktiga för ditt blockchain-program.  Dessutom kan tröskelvärden definieras genom aviseringar som gör det möjligt för användare att utlösa åtgärder som att skicka ett e-postmeddelande eller sms, köra en Logikapp, Azure-funktion eller skicka till en anpassad definierad webhook.
 
 ![Mått](./media/overview/metrics.png)
 
-Via Azure Log Analytics kan användare visa loggar relaterade till kvorum-redovisningen eller annan viktig information, till exempel försöks anslutningar till Transaction-noderna.
+Via Azure Log Analytics kan användare visa loggar som är relaterade till kvorumredovisningen eller annan viktig information, till exempel försök till anslutningar till transaktionsnoderna.
 
-## <a name="built-in-consortium-management"></a>Inbyggd konsortiums hantering
+## <a name="built-in-consortium-management"></a>Inbyggd konsortiumförvaltning
 
-När du distribuerar din första blockchain-medlem kan du antingen ansluta eller skapa en ny konsortium.  Ett konsortium är en logisk grupp som används för att hantera styrningen och anslutningen mellan blockchain-medlemmar som Transact i en process med flera parter.  Azure blockchain-tjänsten tillhandahåller inbyggda styrnings kontroller genom fördefinierade smarta kontrakt som avgör vilka åtgärder som medlemmar i konsortiet kan vidta.  Dessa styrnings kontroller kan anpassas efter behov av konsortiets administratör. När du skapar ett nytt konsortium är din blockchain-medlem standard administratör för konsortiet, vilket gör det möjligt att bjuda in andra parter att delta i konsortiet.  Du kan bara ansluta till ett konsortium om du har bjudits in tidigare.  När du ansluter till ett konsortium är din blockchain-medlem underkastad styrnings kontrollerna som införts av konsortiets administratör.
+När du distribuerar din första blockchain-medlem går du antingen med i eller skapar ett nytt konsortium.  Ett konsortium är en logisk grupp som används för att hantera styrning och konnektivitet mellan blockchain-medlemmar som handlar i en process med flera parter.  Azure Blockchain Service tillhandahåller inbyggda styrningskontroller genom fördefinierade smarta kontrakt, som avgör vilka åtgärder medlemmar i konsortiet kan vidta.  Dessa styrningskontroller kan anpassas efter behov av konsortieadministratören. När du skapar ett nytt konsortium är din blockchain-medlem standardadministratör för konsortiet, vilket gör det möjligt att bjuda in andra parter att gå med i ditt konsortium.  Du kan bara gå med i ett konsortium om du tidigare har bjudits in.  När du går med i ett konsortium omfattas din blockchain-medlem av de styrningskontroller som konsortiets administratör har infört.
 
-![Hantering av konsortiet](./media/overview/consortium.png)
+![Konsortieledning](./media/overview/consortium.png)
 
-Hanterings åtgärder för konsortiet, till exempel att lägga till och ta bort medlemmar från ett konsortium, kan nås via PowerShell och en REST API. Du kan hantera ett konsortium program mässigt med hjälp av vanliga gränssnitt i stället för att ändra och skicka solidy-baserade smarta kontrakt. Mer information finns i [hantering av konsortier](consortium.md).
+Konsortiehanteringsåtgärder som att lägga till och ta bort medlemmar från ett konsortium kan nås via PowerShell och ett REST API. Du kan programmässigt hantera ett konsortium med hjälp av gemensamma gränssnitt i stället för att ändra och skicka soliditetsbaserade smarta kontrakt. Mer information finns i [konsortiehantering](consortium.md).
 
 ## <a name="develop-using-familiar-development-tools"></a>Utveckla med välbekanta utvecklingsverktyg
 
-Baserat på Ethereum-redovisningen med öppen källkod kan du utveckla program för Azure blockchain-tjänsten på samma sätt som du gör för befintliga Ethereum-program. Med ledande bransch partner arbetar Azure blockchain Development Kit Visual Studio Code-tillägget och gör det möjligt för utvecklare att använda välbekanta verktyg som Truffle Suite för att bygga smarta kontrakt. Med Azure blockchain Development Kit-tillägget kan utvecklare skapa eller ansluta till och befintliga konsortier så att du kan skapa och distribuera dina smarta kontrakt från en IDE. Med hjälp av kod tillägget för Azure blockchain Visual Studio kan du skapa eller ansluta till ett befintligt konsortium så att du kan skapa och distribuera dina smarta kontrakt från en IDE. Mer information finns i [Azure blockchain Development Kit på vs Code Marketplace](https://aka.ms/vscodebcextension) och [Användar handbok för Azure blockchain Development Kit](https://aka.ms/vscodebcextensionwiki).
+Baserat på den kvorumeteum-huvudreskontra med öppen källkod kan du utveckla program för Azure Blockchain Service på samma sätt som för befintliga Ethereum-program. Azure Blockchain Development Kit Visual Studio Code-tillägget samarbetar med ledande branschpartners och gör det möjligt för utvecklare att utnyttja välbekanta verktyg som Tryffel Suite för att skapa smarta kontrakt. Med hjälp av Tillägget Azure Blockchain Development Kit kan utvecklare skapa eller ansluta till och befintligt konsortium så att du kan skapa och distribuera dina smarta kontrakt från en IDE. Med azure blockchain Visual Studio Code-tillägget kan du skapa eller ansluta till ett befintligt konsortium så att du kan skapa och distribuera dina smarta kontrakt från ett IDE. Mer information finns [i Azure Blockchain Development Kit på VS-kodmarknadsplatsen](https://aka.ms/vscodebcextension) och [användarhandboken för Azure Blockchain Development Kit](https://aka.ms/vscodebcextensionwiki).
 
-## <a name="publish-blockchain-data"></a>Publicera blockchain-data
+## <a name="publish-blockchain-data"></a>Publicera blockkedjedata
 
-Blockchain Data Manager för Azure blockchain-tjänst fångar, transformerar och levererar Azure blockchain service Transaction-data till Azure Event Grid ämnen som tillhandahåller tillförlitlig och skalbar blockchain redovisnings integrering med Azure-tjänster. Du kan använda blockchain Data Manager för att integrera program i andra kedjan och data lager. Mer information finns i [Blockchain Data Manager for Azure blockchain service](data-manager.md).
+Blockchain Data Manager för Azure Blockchain Service samlar in, transformerar och levererar Azure Blockchain Service-transaktionsdata till Azure Event Grid-ämnen som ger tillförlitlig och skalbar blockchain-redovisningsintegrering med Azure-tjänster. Du kan använda Blockchain Data Manager för att integrera appar och datalager utanför kedjan. Mer information finns i [Blockchain Data Manager för Azure Blockchain Service](data-manager.md).
 
 ## <a name="support-and-feedback"></a>Support och feedback
 
-För Azure blockchain News går du till [Azure blockchain-bloggen](https://azure.microsoft.com/blog/topics/blockchain/) för att hålla dig uppdaterad om blockchain service-erbjudanden och information från Azures teknik team för blockchain.
+För Azure Blockchain-nyheter kan du besöka [Azure Blockchain-bloggen](https://azure.microsoft.com/blog/topics/blockchain/) för att hålla dig uppdaterad om blockchain-tjänsterbjudanden och information från Azure Blockchain-teknikteamet.
 
-För att ge feedback på produkter eller för att begära nya funktioner, röst post för en idé via [Azure feedback-forumet för blockchain](https://aka.ms/blockchainuservoice).
+Om du vill ge produktfeedback eller begära nya funktioner kan du rösta på en idé via [Azures feedbackforum för blockchain](https://aka.ms/blockchainuservoice).
 
 ### <a name="community-support"></a>Community-support
 
-Engagera med Microsoft-tekniker och Azure blockchain community-experter.
+Samarbeta med Microsoft-tekniker och Azure Blockchain-communityexperter.
 
-* [Azure blockchain MSDN-forum](https://social.msdn.microsoft.com/Forums/home?forum=azureblockchain)
+* [Azure Blockchain MSDN-forum](https://social.msdn.microsoft.com/Forums/home?forum=azureblockchain)
 * [Microsoft Tech Community](https://techcommunity.microsoft.com/t5/Blockchain/bd-p/AzureBlockchain)
 * [Stackspill](https://stackoverflow.com/questions/tagged/AzureBlockchainService)
 
 ## <a name="next-steps"></a>Nästa steg
 
-Kom igång genom att testa en snabb start eller få mer information från de här resurserna.
-* [Skapa en blockchain-medlem med hjälp av Azure Portal](create-member.md) eller [skapa en blockchain-medlem med Azure CLI](create-member-cli.md)
-* Kostnads jämförelser och kalkylatorer finns på sidan med [priser](https://azure.microsoft.com/pricing/details/blockchain-service).
-* Bygg din första app med [Azure blockchain Development Kit](https://github.com/Azure-Samples/blockchain-devkit)
-* [Användar handbok](https://github.com/Microsoft/vscode-azure-blockchain-ethereum/wiki) för Azure blockchain VSCode-tillägg
+Prova en snabbstart eller mer information från dessa resurser för att komma igång.
+* [Skapa en blockchain-medlem med Azure-portalen](create-member.md) eller [skapa en blockchain-medlem med Azure CLI](create-member-cli.md)
+* Kostnadsjämställare och kalkylatorer finns på [prissidan](https://azure.microsoft.com/pricing/details/blockchain-service).
+* Skapa din första app med Hjälp av [Azure Blockchain Development Kit](https://github.com/Azure-Samples/blockchain-devkit)
+* [Användarhandbok](https://github.com/Microsoft/vscode-azure-blockchain-ethereum/wiki) för Azure Blockchain VSCode Extension

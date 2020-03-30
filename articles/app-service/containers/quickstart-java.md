@@ -1,7 +1,7 @@
 ---
-title: 'Snabb start: skapa en Linux Java-app'
-description: Kom igång med Linux-appar på Azure App Service genom att distribuera din första java-app till en Linux-behållare i App Service.
-keywords: Azure, App Service, Web App, Linux, Java, maven, snabb start
+title: 'Snabbstart: Skapa en Linux Java-app'
+description: Kom igång med Linux-appar på Azure App Service genom att distribuera din första Java-app till en Linux-behållare i App Service.
+keywords: azure, apptjänst, webbapp, linux, java, maven, snabbstart
 author: msangapu-msft
 ms.assetid: 582bb3c2-164b-42f5-b081-95bfcb7a502a
 ms.devlang: Java
@@ -9,21 +9,21 @@ ms.topic: quickstart
 ms.date: 03/27/2019
 ms.custom: mvc, seo-java-july2019, seo-java-august2019, seo-java-september2019
 ms.openlocfilehash: 2192260c3106a6b8d3d3ffd0e063ee945734f308
-ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "79136320"
 ---
-# <a name="quickstart-create-a-java-app-on-azure-app-service-on-linux"></a>Snabb start: skapa en Java-app på Azure App Service på Linux
+# <a name="quickstart-create-a-java-app-on-azure-app-service-on-linux"></a>Snabbstart: Skapa en Java-app på Azure App Service på Linux
 
-Med [App Service i Linux](app-service-linux-intro.md) får du en mycket skalbar och automatiskt uppdaterad webbvärdtjänst som utgår från operativsystemet Linux. Den här snabb starten visar hur du använder [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) med [plugin-programmet för Azure-Webbappar för maven för](https://github.com/Microsoft/azure-maven-plugins/tree/develop/azure-webapp-maven-plugin) att distribuera en War-fil (Java Web Archive) på Linux-operativsystemet.
+[App Service på Linux](app-service-linux-intro.md) ger en mycket skalbar, självkorrigering, webbhotell med hjälp av Operativsystemet Linux. Den här snabbstarten visar hur du använder [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) med Azure Web App Plugin [för Maven för](https://github.com/Microsoft/azure-maven-plugins/tree/develop/azure-webapp-maven-plugin) att distribuera en Java-webbarkivfil (WAR) på Operativsystemet Linux.
 
 > [!NOTE]
 >
-> Samma sak kan också göras med populära IDE: er som IntelliJ, Sol förmörkelse och VS Code. Ta en titt på våra liknande dokument i [Azure Toolkit for IntelliJ snabb start](/java/azure/intellij/azure-toolkit-for-intellij-create-hello-world-web-app), [Azure Toolkit for Eclipse snabb start](/java/azure/eclipse/azure-toolkit-for-eclipse-create-hello-world-web-app) eller [vs Code snabb start](https://code.visualstudio.com/docs/java/java-webapp).
+> Samma sak kan också göras med hjälp av populära IDEs som IntelliJ, Eclipse och VS Code. Kolla in våra liknande dokument på [Azure Toolkit for IntelliJ Quickstart,](/java/azure/intellij/azure-toolkit-for-intellij-create-hello-world-web-app) [Azure Toolkit for Eclipse Quickstart](/java/azure/eclipse/azure-toolkit-for-eclipse-create-hello-world-web-app) eller [VS Code Quickstart](https://code.visualstudio.com/docs/java/java-webapp).
 >
-![Exempel app som körs i Azure App Service](media/quickstart-java/java-hello-world-in-browser-azure-app-service.png)
+![Exempel på app som körs i Azure App Service](media/quickstart-java/java-hello-world-in-browser-azure-app-service.png)
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -36,7 +36,7 @@ Kör följande Maven-kommando i Cloud Shell-prompten för att skapa en ny app me
 ```bash
 mvn archetype:generate "-DgroupId=example.demo" "-DartifactId=helloworld" "-DarchetypeArtifactId=maven-archetype-webapp"
 ```
-Ändra sedan arbets katalogen till projektmappen:
+Ändra sedan arbetskatalogen till projektmappen:
 
 ```bash
 cd helloworld
@@ -44,17 +44,17 @@ cd helloworld
 
 ## <a name="configure-the-maven-plugin"></a>Konfigurera Maven-plugin-programmet
 
-Distributions processen för Azure App Service använder konto uppgifter från Azure CLI. [Logga in med Azure CLI](/cli/azure/authenticate-azure-cli?view=azure-cli-latest) innan du fortsätter.
+Distributionsprocessen till Azure App Service använder kontobehörighet från Azure CLI. [Logga in med Azure CLI](/cli/azure/authenticate-azure-cli?view=azure-cli-latest) innan du fortsätter.
 
 ```azurecli
 az login
 ```
 
-Sedan kan du konfigurera distributionen, köra kommandot maven i kommando tolken och använda standardkonfigurationerna genom att trycka på **RETUR** tills du får frågan **Bekräfta (j/N)** . Tryck sedan på **"Y"** och konfigurationen är färdig. 
+Sedan kan du konfigurera distributionen, köra maven kommandot i Kommandotolken och använda standardkonfigurationer genom att trycka **på RETUR** tills du får **bekräfta (Y / N)** fråga, tryck sedan **på "y"** och konfigurationen är klar. 
 ```cmd
 mvn com.microsoft.azure:azure-webapp-maven-plugin:1.9.0:config
 ```
-En exempel process ser ut så här:
+En exempelprocess ser ut som:
 
 ```cmd
 ~@Azure:~/helloworld$ mvn com.microsoft.azure:azure-webapp-maven-plugin:1.9.0:config
@@ -93,17 +93,17 @@ Confirm (Y/N)? : Y
 > [!NOTE]
 > I den här artikeln arbetar vi endast med Java-appar som paketerats i WAR-filer. Plugin-programmet stöder också JAR-webbprogram. Läs informationen om att [distribuera en Java SE JAR-fil till App Service på Linux](https://docs.microsoft.com/java/azure/spring-framework/deploy-spring-boot-java-app-with-maven-plugin?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json) om du vill testa det.
 
-Navigera till `pom.xml` igen om du vill se att plugin-konfigurationen har uppdaterats, kan du ändra andra konfigurationer för App Service direkt i Pom-filen om det behövs, några vanliga i listan nedan:
+Navigera `pom.xml` till igen för att se plugin konfigurationen uppdateras, Du kan ändra andra konfigurationer för App Service direkt i din POM-fil om det behövs, några vanliga som anges nedan:
 
  Egenskap | Krävs | Beskrivning | Version
 ---|---|---|---
-`<schemaVersion>` | false | Ange konfigurations schemats version. Värden som stöds är: `v1``v2`. | 1.5.2
-`<resourceGroup>` | true | Azure-resurs grupp för din webbapp. | 0.1.0 +
-`<appName>` | true | Namnet på din webbapp. | 0.1.0 +
-`<region>` | true | Anger den region där din webbapp ska vara värd. Standardvärdet är **westeurope**. Avsnittet alla giltiga regioner i [regioner som stöds](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme) . | 0.1.0 +
-`<pricingTier>` | false | Pris nivån för din webbapp. Standardvärdet är **P1V2**.| 0.1.0 +
-`<runtime>` | true | Konfiguration av körnings miljön kan du se informationen [här](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme). | 0.1.0 +
-`<deployment>` | true | Distributions konfigurationen kan du se informationen [här](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme). | 0.1.0 +
+`<schemaVersion>` | false | Ange versionen av konfigurationsschemat. Värden som `v1`stöds `v2`är: , . | 1.5.2
+`<resourceGroup>` | true | Azure Resource Group för din webbapp. | 0.1.0+
+`<appName>` | true | Namnet på din webbapp. | 0.1.0+
+`<region>` | true | Anger den region där webbappen ska vara värd. standardvärdet är **westeurope**. Alla giltiga regioner på [avsnittet Regioner som stöds.](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme) | 0.1.0+
+`<pricingTier>` | false | Prisnivån för din webbapp. Standardvärdet är **P1V2**.| 0.1.0+
+`<runtime>` | true | Körtidsmiljökonfigurationen kan du se detaljerna [här](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme). | 0.1.0+
+`<deployment>` | true | Distributionskonfigurationen kan du se informationen [här](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme). | 0.1.0+
 
 > [!div class="nextstepaction"]
 > [Jag stötte på ett problem](https://www.research.net/r/javae2e?tutorial=app-service-linux-quickstart&step=config)
@@ -118,7 +118,7 @@ mvn package azure-webapp:deploy
 
 När distributionen är klar bläddrar du till den distribuerade tillämpningen med hjälp av följande webbadress i webbläsaren, till exempel `http://<webapp>.azurewebsites.net`. 
 
-![Exempel app som körs i Azure App Service](media/quickstart-java/java-hello-world-in-browser-azure-app-service.png)
+![Exempel på app som körs i Azure App Service](media/quickstart-java/java-hello-world-in-browser-azure-app-service.png)
 
 **Grattis!** Du har distribuerat din första Java-app till App Service på Linux.
 
@@ -127,7 +127,7 @@ När distributionen är klar bläddrar du till den distribuerade tillämpningen 
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-I de föregående stegen skapade du Azure-resurser i en resursgrupp. Om du inte tror att du behöver dessa resurser i framtiden tar du bort resurs gruppen från portalen eller genom att köra följande kommando i Cloud Shell:
+I de föregående stegen skapade du Azure-resurser i en resursgrupp. Om du inte förväntar dig att behöva dessa resurser i framtiden tar du bort resursgruppen från portalen eller genom att köra följande kommando i Cloud Shell:
 
 ```azurecli-interactive
 az group delete --name <your resource group name; for example: helloworld-1558400876966-rg> --yes
@@ -138,7 +138,7 @@ Det kan några minuter att köra kommandot.
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Ansluta till Azure SQL Database med Java](/azure/sql-database/sql-database-connect-query-java?toc=%2Fazure%2Fjava%2Ftoc.json)
+> [Ansluta till Azure SQL-databas med Java](/azure/sql-database/sql-database-connect-query-java?toc=%2Fazure%2Fjava%2Ftoc.json)
 
 > [!div class="nextstepaction"]
 > [Ansluta till Azure DB för MySQL med Java](/azure/mysql/connect-java?toc=/azure/java/toc.json)
@@ -147,13 +147,13 @@ Det kan några minuter att köra kommandot.
 > [Ansluta till Azure DB för PostgreSQL med Java](/azure/postgresql/connect-java?toc=/azure/java/toc.json)
 
 > [!div class="nextstepaction"]
-> [Konfigurera java-app](configure-custom-container.md)
+> [Konfigurera Java-appen](configure-custom-container.md)
 
 > [!div class="nextstepaction"]
 > [CI/CD med Jenkins](/azure/jenkins/deploy-jenkins-app-service-plugin)
 
 > [!div class="nextstepaction"]
-> [Andra resurser för Azure för Java-utvecklare](/java/azure/)
+> [Andra Azure för Java-utvecklare Resurser](/java/azure/)
 
 > [!div class="nextstepaction"]
-> [Lär dig mer om maven-plugin-program för Azure](https://github.com/microsoft/azure-maven-plugins)
+> [Läs mer om Maven-plugins för Azure](https://github.com/microsoft/azure-maven-plugins)

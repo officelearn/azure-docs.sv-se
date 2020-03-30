@@ -1,6 +1,6 @@
 ---
-title: Uppgradera från grundläggande offentlig till standard-Azure Load Balancer
-description: Den här artikeln visar hur du uppgraderar interna Azure Basic-Load Balancer till offentliga standard Load Balancer
+title: Uppgradera från Grundläggande offentlig till offentlig standard – Azure Load Balancer
+description: Den här artikeln visar hur du uppgraderar Azure Basic Internal Load Balancer till Standard Public Load Balancer
 services: load-balancer
 author: irenehua
 ms.service: load-balancer
@@ -8,78 +8,78 @@ ms.topic: article
 ms.date: 01/23/2020
 ms.author: irenehua
 ms.openlocfilehash: 346fc3d5a4e7b165caafd9847b9797abae0c9113
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77659993"
 ---
-# <a name="upgrade-azure-internal-load-balancer---outbound-connection-required"></a>Uppgradera intern Azure-Load Balancer-utgående anslutning krävs
-[Azure standard Load Balancer](load-balancer-overview.md) erbjuder en omfattande uppsättning funktioner och hög tillgänglighet genom zon redundans. Mer information om Load Balancer SKU finns i [jämförelse tabell](https://docs.microsoft.com/azure/load-balancer/concepts-limitations#skus). Eftersom interna standard Load Balancer inte tillhandahåller utgående anslutning tillhandahåller vi en lösning för att skapa en offentlig standard Load Balancer i stället.
+# <a name="upgrade-azure-internal-load-balancer---outbound-connection-required"></a>Uppgradera Azure Intern belastningsutjämning – utgående anslutning krävs
+[Azure Standard Load Balancer](load-balancer-overview.md) erbjuder en omfattande uppsättning funktioner och hög tillgänglighet via zonredundans. Mer information om belastningsutjämnare SKU finns i [jämförelsetabellen](https://docs.microsoft.com/azure/load-balancer/concepts-limitations#skus). Eftersom standardintern belastningsutjämnare inte tillhandahåller utgående anslutning tillhandahåller vi en lösning för att skapa en vanlig offentlig belastningsutjämnare i stället.
 
 Det finns fyra steg i en uppgradering:
 
-1. Migrera konfigurationen till offentliga standard Load Balancer
-2. Lägg till virtuella datorer till backend-pooler för offentliga standard Load Balancer
-3. Skapa en utgående regel på Load Balancer för utgående anslutning
-4. Konfigurera NSG-regler för undernät/VM-nätverk som ska AVSÄGAS från/till Internet
+1. Migrera konfigurationen till Standard Public Load Balancer
+2. Lägga till virtuella datorer i backend-pooler med standardvarmtalbelastningsutjämning
+3. Skapa en utgående regel för belastningsutjämnaren för utgående anslutning
+4. Ställa in NSG-regler för undernät/virtuella datorer som ska avhållas från/till Internet
 
-Den här artikeln beskriver migrering av konfiguration. Att lägga till virtuella datorer i backend-pooler kan variera beroende på din speciella miljö. Några [övergripande rekommendationer finns](#add-vms-to-backend-pools-of-standard-load-balancer)dock.
+Den här artikeln beskriver konfigurationsmigrering. Att lägga till virtuella datorer i backend-pooler kan variera beroende på din specifika miljö. Vissa allmänna rekommendationer på hög nivå [ges](#add-vms-to-backend-pools-of-standard-load-balancer)dock.
 
 ## <a name="upgrade-overview"></a>Översikt över uppgradering
 
-Det finns ett Azure PowerShell-skript tillgängligt som gör följande:
+Ett Azure PowerShell-skript är tillgängligt som gör följande:
 
-* Skapar en offentlig standard-Load Balancer för SKU i resurs gruppen och platsen som du anger.
-* Kopierar sömlöst de konfigurationer som skapats av Basic-SKU: n internt Load Balancer till de nya offentliga standard Load Balancer.
+* Skapar en standard SKU Public Load Balancer i resursgruppen och den plats som du anger.
+* Kopierar sömlöst konfigurationerna för den grundläggande SKU-interna belastningsutjämnaren till den nyligen skapande standarduppladdningshanteraren för offentlig belastning.
 
-### <a name="caveatslimitations"></a>Caveats\Limitations
+### <a name="caveatslimitations"></a>Varningar\Begränsningar
 
-* Skriptet stöder intern Load Balancer uppgradering där utgående anslutning krävs. Om utgående anslutning inte krävs för någon av de virtuella datorerna kan du se [den här sidan](upgrade-basicInternal-standard.md) för bästa praxis.
-* Standard Load Balancer har en ny offentlig adress. Det går inte att flytta IP-adresserna som är kopplade till den befintliga grundläggande interna Load Balancer sömlöst till offentliga standard Load Balancer eftersom de har olika SKU: er.
-* Om standard belastnings utjämning skapas i en annan region kan du inte associera de virtuella datorerna i den gamla regionen med den nya Standard Load Balancer. Du kan undvika den här begränsningen genom att skapa en ny virtuell dator i den nya regionen.
-* Om din Load Balancer inte har någon IP-konfiguration för klient delen eller en backend-pool, kommer du förmodligen att träffa ett fel som kör skriptet.  Se till att de inte är tomma.
+* Skriptet stöder intern belastningsutjämningsuppgradering där utgående anslutning krävs. Om utgående anslutning inte krävs för någon av de virtuella datorerna läser du [den här sidan](upgrade-basicInternal-standard.md) för bästa praxis.
+* Standardbelastningsutjämnaren har en ny offentlig adress. Det är omöjligt att flytta IP-adresser som är associerade med befintliga grundläggande interna belastningsutjämnare sömlöst till Standard Public Load Balancer eftersom de har olika SKU: er.
+* Om standardbelastningsutjämkaren skapas i en annan region kan du inte associera de virtuella datorerna som finns i den gamla regionen till den nyligen skapade standardbelastningsutjämningsapparaten. Du kan komma runt den här begränsningen och se till att skapa en ny virtuell dator i den nya regionen.
+* Om din belastningsutjämnare inte har någon ip-konfiguration eller serverdelspool i frontend kommer du troligen att orsaka ett fel som kör skriptet.  Se till att de inte är tomma.
 
-## <a name="download-the-script"></a>Hämta skriptet
+## <a name="download-the-script"></a>Ladda ner skriptet
 
-Hämta migrerings skriptet från [PowerShell-galleriet](https://www.powershellgallery.com/packages/AzurePublicLBUpgrade/1.0).
-## <a name="use-the-script"></a>Använd skriptet
+Hämta migreringsskriptet från [PowerShell-galleriet](https://www.powershellgallery.com/packages/AzurePublicLBUpgrade/1.0).
+## <a name="use-the-script"></a>Använda skriptet
 
-Det finns två alternativ för dig, beroende på din lokala PowerShell-Miljös konfiguration och inställningar:
+Det finns två alternativ för dig beroende på din lokala PowerShell-miljö inställning och inställningar:
 
-* Om du inte har installerat Azure AZ-moduler, eller om du inte vill avinstallera Azure AZ-modulerna, är det bästa alternativet att använda alternativet `Install-Script` för att köra skriptet.
-* Om du behöver behålla Azure AZ-modulerna är det bästa valet att ladda ned skriptet och köra det direkt.
+* Om du inte har Azure Az-modulerna installerade, eller inte har något emot att avinstallera Azure `Install-Script` Az-modulerna, är det bästa alternativet att använda alternativet för att köra skriptet.
+* Om du behöver behålla Azure Az-modulerna är det bäst att ladda ned skriptet och köra det direkt.
 
-Du kan kontrol lera om du har installerat Azure AZ-moduler genom att köra `Get-InstalledModule -Name az`. Om du inte ser några installerade AZ-moduler kan du använda metoden `Install-Script`.
+Ta reda på om du har Azure `Get-InstalledModule -Name az`Az-modulerna installerade kör du . Om du inte ser några installerade Az-moduler kan `Install-Script` du använda metoden.
 
-### <a name="install-using-the-install-script-method"></a>Installera med metoden install-script
+### <a name="install-using-the-install-script-method"></a>Installera med metoden Install-Script
 
-Om du vill använda det här alternativet behöver du inte ha de Azure AZ-moduler som är installerade på datorn. Om de är installerade visar följande kommando ett fel. Du kan antingen avinstallera Azure AZ-moduler eller använda det andra alternativet för att ladda ned skriptet manuellt och köra det.
+Om du vill använda det här alternativet får du inte ha Azure Az-modulerna installerade på datorn. Om de är installerade visas ett fel i följande kommando. Du kan antingen avinstallera Azure Az-modulerna eller använda det andra alternativet för att hämta skriptet manuellt och köra det.
   
 Kör skriptet med följande kommando:
 
 `Install-Script -Name AzurePublicLBUpgrade`
 
-Det här kommandot installerar även de AZ-moduler som krävs.  
+Det här kommandot installerar också de Az-moduler som krävs.  
 
-### <a name="install-using-the-script-directly"></a>Installera med hjälp av skriptet direkt
+### <a name="install-using-the-script-directly"></a>Installera med skriptet direkt
 
-Om du har några Azure AZ-moduler installerade och inte kan avinstallera dem (eller inte vill avinstallera dem) kan du hämta skriptet manuellt med hjälp av fliken **manuell hämtning** i länken för hämtning av skript. Skriptet laddas ned som en RAW nupkg-fil. Om du vill installera skriptet från den här nupkg-filen, se [manuell paket hämtning](/powershell/scripting/gallery/how-to/working-with-packages/manual-download).
+Om du har några Azure Az-moduler installerade och inte kan avinstallera dem (eller inte vill avinstallera dem) kan du hämta skriptet manuellt med hjälp av fliken **Manuell hämtning** i länken för hämtning av skript. Skriptet hämtas som en rå nupkg-fil. Information om hur du installerar skriptet från den här nupkg-filen finns i [Hämta manuellt paket](/powershell/scripting/gallery/how-to/working-with-packages/manual-download).
 
 Kör skriptet så här:
 
-1. Använd `Connect-AzAccount` för att ansluta till Azure.
+1. Används `Connect-AzAccount` för att ansluta till Azure.
 
-1. Använd `Import-Module Az` för att importera AZ-modulerna.
+1. Används `Import-Module Az` för att importera Az-modulerna.
 
-1. Granska de nödvändiga parametrarna:
+1. Undersök de parametrar som krävs:
 
-   * **oldRgName: [sträng]: krävs** – det här är resurs gruppen för din befintliga Basic-Load Balancer som du vill uppgradera. Om du vill hitta strängvärdet navigerar du till Azure Portal, väljer din grundläggande Load Balancer källa och klickar på **översikten** för belastningsutjämnaren. Resurs gruppen finns på sidan.
-   * **oldLBName: [sträng]: krävs** – det här är namnet på den befintliga Basic-saldo som du vill uppgradera. 
-   * **newrgName: [sträng]: krävs** – det här är resurs gruppen där standard Load Balancer skapas. Det kan vara en ny resurs grupp eller en befintlig. Om du väljer en befintlig resurs grupp, Observera att namnet på Load Balancer måste vara unikt inom resurs gruppen. 
-   * **newlocation: [sträng]: krävs** – det här är den plats där standard Load Balancer skapas. Vi rekommenderar att du ärver samma plats för de valda Basic-Load Balancer till Standard Load Balancer för bättre Association med andra befintliga resurser.
-   * **newLBName: [sträng]: obligatorisk** – det här är namnet på den standard Load Balancer som ska skapas.
-1. Kör skriptet med lämpliga parametrar. Det kan ta fem till sju minuter att slutföra.
+   * **oldRgName: [String]: Obligatoriskt** – Det här är resursgruppen för din befintliga grundläggande belastningsutjämnare som du vill uppgradera. Om du vill hitta det här strängvärdet navigerar du till Azure-portalen, väljer din grundläggande belastningsutjämnarekälla och klickar på **Översikt** för belastningsutjämnaren. Resursgruppen finns på den sidan.
+   * **oldLBName: [String]: Obligatoriskt** – Det här är namnet på din befintliga Basic Balancer som du vill uppgradera. 
+   * **newrgName: [String]: Obligatoriskt** – Det här är den resursgrupp där standardbelastningsutjämningen ska skapas. Det kan vara en ny resursgrupp eller en befintlig. Om du väljer en befintlig resursgrupp bör du tänka på att namnet på belastningsutjämnaren måste vara unikt inom resursgruppen. 
+   * **newlocation: [String]: Obligatoriskt** – Det här är den plats där standardbelastningsutjämnaren ska skapas. Vi rekommenderar att du ärver samma plats för den valda grundläggande belastningsutjämningsutjämningen till standardbelastningsutjämningsutjämningen för bättre association med andra befintliga resurser.
+   * **newLBName: [String]: Obligatoriskt** – Det här är namnet på standardbelastningsutjämningen som ska skapas.
+1. Kör skriptet med lämpliga parametrar. Det kan ta fem till sju minuter att avsluta.
 
     **Exempel**
 
@@ -87,38 +87,38 @@ Kör skriptet så här:
    AzurePublicLBUpgrade.ps1 -oldRgName "test_publicUpgrade_rg" -oldLBName "LBForPublic" -newrgName "test_userInput3_rg" -newlocation "centralus" -newLbName "LBForUpgrade"
    ```
 
-### <a name="add-vms-to-backend-pools-of-standard-load-balancer"></a>Lägg till virtuella datorer i backend-pooler för Standard Load Balancer
+### <a name="add-vms-to-backend-pools-of-standard-load-balancer"></a>Lägga till virtuella datorer i backend-pooler med standardbelastningsutjämning
 
-Börja med att kontrol lera att skriptet har skapat en ny standard offentlig Load Balancer med den exakta konfigurationen som migrerats från din grundläggande offentliga Load Balancer. Du kan kontrol lera detta från Azure Portal.
+Kontrollera först att skriptet har skapat en ny standardbevämningsutjämning med exakt konfiguration som har migrerats från din grundläggande offentliga belastningsutjämnare. Du kan verifiera detta från Azure-portalen.
 
-Se till att skicka en liten mängd trafik genom Standard Load Balancer som ett manuellt test.
+Var noga med att skicka en liten mängd trafik genom standardbelastningsutjämningsutfärdaren som ett manuellt test.
   
-Här följer några exempel på hur du lägger till virtuella datorer till backend-pooler för den nyligen skapade offentliga standard Load Balancer kan konfigureras och våra rekommendationer för var och en:
+Här är några scenarier med hur du lägger till virtuella datorer i serverdapooler i den nyligen skapade standardbelastningsutjämningsapparaten kan konfigureras och våra rekommendationer för var och en:
 
-* **Flytta befintliga virtuella datorer från backend-pooler för gamla grundläggande offentliga Load Balancer till backend-pooler för nyligen skapade standard offentliga Load Balancer**.
+* **Flytta befintliga virtuella datorer från backend-pooler med gamla grundläggande offentliga belastningsutjämnar till backend-pooler av nyskapade standardutvecklare**.
     1. Logga in på [Azure-portalen](https://portal.azure.com) för att genomföra alla uppgifter i den här snabbstarten.
  
-    1. Välj **alla resurser** på den vänstra menyn och välj sedan det **nyligen skapade standard Load Balancer** från resurs listan.
+    1. Välj **Alla resurser** på den vänstra menyn och välj sedan den nyligen skapade **standardbelastningsutjämningsaren** i resurslistan.
    
-    1. Välj **Serverdelspooler** under **Inställningar**.
+    1. Under **Inställningar**väljer du **Backend-pooler**.
    
-    1. Välj den backend-pool som matchar backend-poolen för Basic-Load Balancer, Välj följande värde: 
-      - **Virtuell dator**: list rutan och välj de virtuella datorerna från den matchande backend-poolen för Basic-Load Balancer.
+    1. Välj den backend-pool som matchar backend-poolen för basic load balancer, välj följande värde: 
+      - **Virtuell dator:** Släpp ned och välj de virtuella datorerna från den matchande servergruppspoolen i den grundläggande belastningsutjämnaren.
     1. Välj **Spara**.
     >[!NOTE]
-    >För virtuella datorer som har offentliga IP-adresser måste du skapa standard-IP-adresser först där samma IP-adress inte garanteras. Ta bort associationen från de virtuella IP-adresserna och koppla dem till de nyligen skapade standard-IP-adresserna. Sedan kommer du att kunna följa instruktionerna för att lägga till virtuella datorer i backend-poolen med Standard Load Balancer. 
+    >För virtuella datorer som har offentliga IP-adresser måste du först skapa standard-IP-adresser där samma IP-adress inte är garanterad. Ta bort virtuella datorer från grundläggande IP-adresser och associera dem med de nyligen skapade standard-IP-adresserna. Sedan kan du följa instruktionerna för att lägga till virtuella datorer i backend-poolen för standardbelastningsutjämnaren. 
 
-* **Skapa nya virtuella datorer som ska läggas till i backend-pooler för den nyligen skapade offentliga Standard Load Balancer**.
-    * Du hittar mer information om hur du skapar en virtuell dator och associerar den med Standard Load Balancer [här](https://docs.microsoft.com/azure/load-balancer/quickstart-load-balancer-standard-public-portal#create-virtual-machines).
+* **Skapa nya virtuella datorer som du vill lägga till i backend-poolerna i den nyligen skapade standardbelastningsutjämningen**.
+    * Fler instruktioner om hur du skapar virtuell dator och associerar den med standardbelastningsutjämnaren finns [här](https://docs.microsoft.com/azure/load-balancer/quickstart-load-balancer-standard-public-portal#create-virtual-machines).
 
 ### <a name="create-an-outbound-rule-for-outbound-connection"></a>Skapa en utgående regel för utgående anslutning
 
 Följ [instruktionerna](https://docs.microsoft.com/azure/load-balancer/configure-load-balancer-outbound-portal#create-outbound-rule-configuration) för att skapa en utgående regel så att du kan
 * Definiera utgående NAT från grunden.
-* Skala och finjustera beteendet för befintlig utgående NAT.
+* Skala och justera beteendet för befintlig utgående NAT.
 
-### <a name="create-nsg-rules-for-vms-which-to-refrain-communication-from-or-to-the-internet"></a>Skapa NSG-regler för virtuella datorer som kan undvika kommunikation från eller till Internet
-Om du vill undvika att Internet trafiken når dina virtuella datorer kan du skapa en [NSG-regel](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group) för de virtuella datorernas nätverks gränssnitt.
+### <a name="create-nsg-rules-for-vms-which-to-refrain-communication-from-or-to-the-internet"></a>Skapa NSG-regler för virtuella datorer som ska avhålla sig från eller till Internet
+Om du vill avstå från internettrafik från att nå till dina virtuella datorer kan du skapa en [NSG-regel](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group) i nätverksgränssnittet för de virtuella datorerna.
 
 ## <a name="common-questions"></a>Vanliga frågor
 
@@ -126,14 +126,14 @@ Om du vill undvika att Internet trafiken når dina virtuella datorer kan du skap
 
 Ja. Se [varningar/begränsningar](#caveatslimitations).
 
-### <a name="does-the-azure-powershell-script-also-switch-over-the-traffic-from-my-basic-load-balancer-to-the-newly-created-standard-load-balancer"></a>Växlar Azure PowerShell-skriptet också över trafiken från min grundläggande Load Balancer till den nyligen skapade Standard Load Balancer?
+### <a name="does-the-azure-powershell-script-also-switch-over-the-traffic-from-my-basic-load-balancer-to-the-newly-created-standard-load-balancer"></a>Växlar Azure PowerShell-skriptet också över trafiken från min grundläggande belastningsutjämnare till den nyligen skapade standardbelastningsutjämningen?
 
-Nej. Azure PowerShell-skriptet migrerar bara konfigurationen. Den faktiska trafikmigreringen är ditt ansvar och i din kontroll.
+Nej. Azure PowerShell-skriptet migrerar bara konfigurationen. Faktisk trafikmigrering är ditt ansvar och i din kontroll.
 
-### <a name="i-ran-into-some-issues-with-using-this-script-how-can-i-get-help"></a>Jag har stött på problem med att använda det här skriptet. Hur kan jag få hjälp?
+### <a name="i-ran-into-some-issues-with-using-this-script-how-can-i-get-help"></a>Jag stötte på några problem med att använda detta skript. Hur kan jag få hjälp?
   
-Du kan skicka ett e-postmeddelande till slbupgradesupport@microsoft.com, öppna ett support ärende med Azure-support eller gör båda.
+Du kan skicka slbupgradesupport@microsoft.comett e-postmeddelande till , öppna ett supportärende med Azure Support eller göra båda.
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Läs mer om Standard Load Balancer](load-balancer-overview.md)
+[Läs mer om standardbelastningsjämningsapparaten](load-balancer-overview.md)

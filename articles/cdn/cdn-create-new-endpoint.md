@@ -16,10 +16,10 @@ ms.date: 05/24/2018
 ms.author: magattus
 ms.custom: mvc
 ms.openlocfilehash: 2a3325217c1ec854e4f6cef3facce5580fb06a57
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "79240270"
 ---
 # <a name="quickstart-create-an-azure-cdn-profile-and-endpoint"></a>Snabbstart: Skapa en Azure CDN-profil och CDN-slutpunkt
@@ -27,10 +27,10 @@ I den här snabbstarten aktiverar du Azure Content Delivery Network (CDN) genom 
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 För den här snabbstarten måste du ha skapat ett lagringskonto med namnet *mystorageacct123*, som du använder för ursprungets värdnamn. Mer information finns i [Integrera ett Azure-lagringskonto med Azure CDN](cdn-create-a-storage-account-with-cdn.md).
 
-## <a name="log-in-to-the-azure-portal"></a>Logga in på Azure-portalen
+## <a name="log-in-to-the-azure-portal"></a>Logga in på Azure Portal
 Logga in på [Azure Portal](https://portal.azure.com) med ditt Azure-konto.
 
 [!INCLUDE [cdn-create-profile](../../includes/cdn-create-profile.md)]
@@ -53,12 +53,12 @@ När du har skapat en CDN-profil kan använda du den för att skapa en slutpunkt
 
     | Inställning | Värde |
     | ------- | ----- |
-    | **Namn** | Ange *my-endpoint-123* som slutpunktens värdnamn. Namnet måste vara globalt unikt. Om det redan används kan du ange ett annat namn. Namnet används för att komma åt cachelagrade resurser på domänen _&lt;slutpunktens namn&gt;_ .azureedge.net.|
-    | **Typ av ursprung** | Välj **Lagring**. | 
-    | **Ursprungets värdnamn** | Ange *mystorageacct123.blob.core.windows.net* som värdnamn. Namnet måste vara globalt unikt. Om det redan används kan du ange ett annat namn. |
+    | **Namn** | Ange *my-endpoint-123* som slutpunktens värdnamn. Det här namnet måste vara globalt unikt. Om det redan används kan du ange ett annat namn. Det här namnet används för att komma åt dina cachelagrade resurser vid _ &lt;domännamnet&gt;_.azureedge.net.|
+    | **Ursprungstyp** | Välj **Lagring**. | 
+    | **Ursprungets värdnamn** | Ange *mystorageacct123.blob.core.windows.net* som värdnamn. Det här namnet måste vara globalt unikt. Om det redan används kan du ange ett annat namn. |
     | **Sökväg till ursprung** | Lämna tomt. |
     | **Ursprungsvärdadress** | Använd det standardgenererade värdet. |  
-    | **Protokoll** | Använd de valda standardalternativen för **HTTP** och **HTTPS**. |
+    | **Protokollet** | Använd de valda standardalternativen för **HTTP** och **HTTPS**. |
     | **Ursprungsport** | Använd standardportvärdena. | 
     | **Optimerat för** | Använd standardvalet **Allmän webbleverans**. |
 

@@ -1,6 +1,6 @@
 ---
-title: Dela konton och autentiseringsuppgifter – Azure Active Directory | Microsoft Docs
-description: Beskriver hur Azure Active Directory gör det möjligt för organisationer att på ett säkert sätt dela konton för lokala appar och konsument moln tjänster.
+title: Dela konton och autentiseringsuppgifter – Azure Active Directory | Microsoft-dokument
+description: Beskriver hur Azure Active Directory gör det möjligt för organisationer att på ett säkert sätt dela konton för lokala appar och molntjänster för konsumenter.
 services: active-directory
 documentationcenter: ''
 author: curtand
@@ -16,66 +16,66 @@ ms.reviewer: jeffsta
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 987c3ee7c90eb0bb793b96eb2771efbb258f16a4
-ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/23/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77565510"
 ---
 # <a name="sharing-accounts-with-azure-ad"></a>Dela konton med Azure AD
 
 ## <a name="overview"></a>Översikt
 
-Ibland behöver organisationer använda ett enda användar namn och lösen ord för flera personer, vilket vanligt vis sker i två fall:
+Ibland måste organisationer använda ett enda användarnamn och lösenord för flera personer, vilket vanligtvis sker i två fall:
 
-* Vid åtkomst till program som kräver ett unikt inloggnings-och lösen ord för varje användare, oavsett om det gäller lokala appar eller konsument moln tjänster (t. ex. företags konton för sociala medier).
-* När du skapar miljöer med flera användare. Du kan ha ett enda, lokalt konto med utökade privilegier och används för att utföra grundläggande konfigurations-, administrations-och återställnings aktiviteter. Till exempel det lokala kontot "global administratör" för Office 365 eller rot kontot i Salesforce.
+* När du öppnar program som kräver en unik inloggning och lösenord för varje användare, oavsett om det är lokala appar eller molntjänster för konsumenter (till exempel företagskonton för sociala medier).
+* När du skapar miljöer med flera användare. Du kan ha ett enda lokalt konto som har förhöjda privilegier och används för att utföra grundläggande inställningar, administration och återställningsaktiviteter. Det lokala kontot för den globala administratören för Office 365 eller rotkontot i Salesforce.
 
-Traditionellt är dessa konton delade genom att distribuera autentiseringsuppgifterna (användar namn och lösen ord) till rätt personer eller lagra dem på en delad plats där flera betrodda agenter kan komma åt dem.
+Traditionellt delas dessa konton genom att distribuera autentiseringsuppgifterna (användarnamn och lösenord) till rätt personer eller lagra dem på en delad plats där flera betrodda agenter kan komma åt dem.
 
-Den traditionella delnings modellen har flera nack delar:
+Den traditionella delningsmodellen har flera nackdelar:
 
-* Om du aktiverar åtkomst till nya program måste du distribuera autentiseringsuppgifter till alla som behöver åtkomst.
-* Varje delat program kan kräva sin egen unika uppsättning delade autentiseringsuppgifter, vilket kräver att användarna kommer ihåg flera uppsättningar autentiseringsuppgifter. När användarna måste komma ihåg flera autentiseringsuppgifter, ökar risken att de använder riskfyllda metoder. (Skriv till exempel lösen ord).
-* Du kan inte se vem som har åtkomst till ett program.
+* För att aktivera åtkomst till nya program måste du distribuera autentiseringsuppgifter till alla som behöver åtkomst.
+* Varje delat program kan kräva sin egen unika uppsättning delade autentiseringsuppgifter, vilket kräver att användarna kommer ihåg flera uppsättningar autentiseringsuppgifter. När användare måste komma ihåg många referenser, ökar risken att de tar till riskfyllda metoder. (till exempel skriva ner lösenord).
+* Du kan inte avgöra vem som har åtkomst till ett program.
 * Du kan inte se vem som har *åtkomst till* ett program.
 * När du vill ta bort åtkomsten till ett program måste du uppdatera autentiseringsuppgifterna och distribuera dem till alla som behöver åtkomst till programmet.
 
-## <a name="azure-active-directory-account-sharing"></a>Azure Active Directory konto delning
+## <a name="azure-active-directory-account-sharing"></a>Azure Active Directory-kontodelning
 
-Azure AD ger en ny metod för att använda delade konton som eliminerar dessa nack delar.
+Azure AD tillhandahåller en ny metod för att använda delade konton som eliminerar dessa nackdelar.
 
-Azure AD-administratören konfigurerar vilka program som en användare har åtkomst till via åtkomst panelen och väljer den typ av enkel inloggning som passar bäst för det programmet. En av dessa typer, *Password-baserad enkel inloggning*, låter Azure AD agera som en typ av "Broker" under inloggnings processen för den appen.
+Azure AD-administratören konfigurerar vilka program en användare kan komma åt med hjälp av åtkomstpanelen och välja vilken typ av enkel inloggning som passar bäst för det programmet. En av dessa typer, *lösenordsbaserad enkel inloggning,* låter Azure AD fungera som ett slags "mäklare" under inloggningsprocessen för den appen.
 
-Användare loggar in en gång med sitt organisations konto. Det här kontot är detsamma som de använder ofta för att få åtkomst till Skriv bordet eller e-postmeddelandet. De kan bara identifiera och komma åt de program som de är tilldelade till. Med delade konton kan den här listan över program innehålla valfritt antal delade autentiseringsuppgifter. Slutanvändaren behöver inte komma ihåg eller skriva ned de olika konton som de kan använda.
+Användare loggar in en gång med sitt organisationskonto. Det här kontot är det som de regelbundet använder för att komma åt sin stationära eller e-post. De kan bara identifiera och komma åt de program som de har tilldelats. Med delade konton kan den här listan med program innehålla valfritt antal delade autentiseringsuppgifter. Slutanvändaren behöver inte komma ihåg eller skriva ner de olika konton som de kanske använder.
 
-Delade konton ökar inte bara överblicken och förbättrar användbarheten, men de förbättrar också säkerheten. Användare med behörighet att använda autentiseringsuppgifterna ser inte det delade lösen ordet, utan du får hellre behörighet att använda lösen ordet som en del av ett dirigerat autentiseringsschema. Dessutom ger vissa Password SSO-program möjlighet att använda Azure AD för att regelbundet förnya lösen ord (uppdatera). Systemet använder stora, komplexa lösen ord, vilket ökar konto säkerheten. Administratören kan enkelt bevilja eller återkalla åtkomst till ett program, vet vem som har åtkomst till kontot och vem som har åtkomst till det tidigare.
+Delade konton ökar inte bara tillsynen och förbättrar användbarheten, de ökar också din säkerhet. Användare med behörighet att använda autentiseringsuppgifterna ser inte det delade lösenordet, utan får i stället behörighet att använda lösenordet som en del av ett iscensatt autentiseringsflöde. Dessutom ger vissa lösenord SSO-program dig möjlighet att använda Azure AD för att regelbundet rulla över (uppdatera) lösenord. Systemet använder stora, komplexa lösenord, vilket ökar kontosäkerheten. Administratören kan enkelt bevilja eller återkalla åtkomst till ett program, veta vem som har åtkomst till kontot och vem som har åtkomst till det tidigare.
 
-Azure AD stöder delade konton för alla tjänster för Enterprise Mobility Suite (EMS) eller Azure AD Premium licens plan i alla typer av lösen ord för enkel inloggning. Du kan dela konton för tusentals förintegrerade program i program galleriet och kan lägga till ditt eget program för autentisering av lösen ord med [anpassade SSO-appar](../manage-apps/configure-single-sign-on-non-gallery-applications.md).
+Azure AD stöder delade konton för alla EMS-licenser (Enterprise Mobility Suite) eller Azure AD Premium-licensplan, för alla typer av lösenordsbaserade inloggningsprogram. Du kan dela konton för tusentals förintegrerade program i programgalleriet och lägga till ditt eget lösenordsautentiseringsprogram med [anpassade SSO-appar](../manage-apps/configure-single-sign-on-non-gallery-applications.md).
 
-Azure AD-funktioner som möjliggör konto delning är:
+Azure AD-funktioner som aktiverar kontodelning inkluderar:
 
-* [Enkel inloggning för lösen ord](../manage-apps/what-is-single-sign-on.md#password-based-sso)
-* Agent för enkel inloggning med lösen ord
-* [Grupp tilldelning](groups-self-service-management.md)
-* Anpassade Password-appar
-* [Instrument panelen för användning av appar/rapporter](../active-directory-passwords-get-insights.md)
-* Åtkomst portaler för slutanvändare
-* [App-proxy](../manage-apps/application-proxy.md)
+* [Lösenord enkel inloggning](../manage-apps/what-is-single-sign-on.md#password-based-sso)
+* Lösenord enkel inloggning agent
+* [Grupptilldelning](groups-self-service-management.md)
+* Appar med anpassat lösenord
+* [Instrumentpanelen/rapporterna för appanvändning](../active-directory-passwords-get-insights.md)
+* Åtkomstportaler för slutanvändare
+* [Appproxy](../manage-apps/application-proxy.md)
 * [Active Directory Marketplace](https://azure.microsoft.com/marketplace/active-directory/all/)
 
 ## <a name="sharing-an-account"></a>Dela ett konto
 
 Om du vill använda Azure AD för att dela ett konto måste du:
 
-* Lägg till ett program [Galleri](https://azure.microsoft.com/marketplace/active-directory/) eller [anpassat program](https://cloudblogs.microsoft.com/enterprisemobility/2015/06/17/bring-your-own-app-with-azure-ad-self-service-saml-configuration-now-in-preview/)
-* Konfigurera programmet för enkel inloggning med lösen ord (SSO)
+* Lägga till ett [programappgalleri](https://azure.microsoft.com/marketplace/active-directory/) eller [ett anpassat program](https://cloudblogs.microsoft.com/enterprisemobility/2015/06/17/bring-your-own-app-with-azure-ad-self-service-saml-configuration-now-in-preview/)
+* Konfigurera programmet för lösenord Enkel inloggning (SSO)
 * Använd [gruppbaserad tilldelning](groups-saasapps.md) och välj alternativet för att ange en delad autentiseringsuppgift
 
-Du kan också göra ditt delade konto säkrare med Multi-Factor Authentication (MFA) (Lär dig mer om att [skydda program med Azure AD](../authentication/concept-mfa-whichversion.md)) och du kan delegera möjligheten att hantera vem som har åtkomst till programmet med hjälp av [Azure AD](groups-self-service-management.md) självbetjänings grupp hantering.
+Du kan också göra ditt delade konto säkrare med MFA (Multi-Factor Authentication) (läs mer om [hur du skyddar program med Azure AD)](../authentication/concept-mfa-whichversion.md)och du kan delegera möjligheten att hantera vem som har åtkomst till programmet med hjälp av Azure [AD-självbetjäningsgrupphantering.](groups-self-service-management.md)
 
 ## <a name="next-steps"></a>Nästa steg
 
 * [Programhantering i Azure Active Directory](../manage-apps/what-is-application-management.md)
 * [Skydda appar med villkorlig åtkomst](../active-directory-conditional-access-azure-portal.md)
-* [Grupp hantering för självbetjäning/SSAA](groups-self-service-management.md)
+* [Gruppledning för självbetjäning/SSAA](groups-self-service-management.md)

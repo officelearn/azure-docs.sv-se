@@ -1,6 +1,6 @@
 ---
-title: Hantera enskilda databaser och pooler i pooler efter migreringen
-description: Lär dig hur du hanterar databasen efter migrering till Azure SQL Database.
+title: Hantera enstaka och poolade databaser efter migreringen
+description: Lär dig hur du hanterar databasen efter migreringen till Azure SQL Database.
 services: sql-database
 ms.service: sql-database
 ms.subservice: service
@@ -12,57 +12,57 @@ ms.author: josack
 ms.reviewer: sstein
 ms.date: 02/13/2019
 ms.openlocfilehash: ebb512fee0186bed3cc7f49f0525dac43e57da3a
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79256190"
 ---
-# <a name="new-dba-in-the-cloud--managing-your-single-and-pooled-databases-in-azure-sql-database"></a>Ny DBA i molnet – hantera dina enkla databaser och databaser i Azure SQL Database
+# <a name="new-dba-in-the-cloud--managing-your-single-and-pooled-databases-in-azure-sql-database"></a>Ny DBA i molnet – Hantera dina enstaka och poolade databaser i Azure SQL Database
 
-Att flytta från den traditionella självhanterade, självkontrollerade miljön till en PaaS-miljö kan vara lite förbelastad i första hand. Som en app-utvecklare eller en DBA vill du känna till kärn funktionerna i plattformen som hjälper dig att hålla ditt program tillgängligt, utföra, säkert och flexibelt – alltid. Den här artikeln syftar på att göra exakt det. Artikeln kortfattat organiserar resurser och ger dig en vägledning om hur du bäst använder viktiga funktioner i SQL Database med enkla databaser och grupperade databaser för att hantera och hålla ditt program effektivt och uppnå optimala resultat i molnet. Typisk mål grupp för den här artikeln är de som:
+Att gå från den traditionella självförvaltade, självstyrda miljön till en PaaS-miljö kan verka lite överväldigande i början. Som apputvecklare eller DBA vill du veta plattformens kärnfunktioner som hjälper dig att hålla ditt program tillgängligt, performant, säkert och motståndskraftigt - alltid. Denna artikel syftar till att göra just detta. Artikeln organiserar kortfattat resurser och ger dig lite vägledning om hur du bäst använder de viktigaste funktionerna i SQL Database med enstaka och poolade databaser för att hantera och hålla ditt program igång effektivt och uppnå optimala resultat i molnet. Typisk publik för den här artikeln skulle vara de som:
 
-- Utvärderar migrering av sina program till Azure SQL Database – att du ska använda dem.
-- Håller på att migrera sina program – ett pågående migrerings scenario.
-- Nyligen har slutfört migreringen till Azure SQL DB – nytt DBA i molnet.
+- Utvärderar migrering av sina program till Azure SQL Database – Modernisera dina program.
+- Är i färd med att migrera sina program (s) - Pågående migrering scenario.
+- Har nyligen slutfört migreringen till Azure SQL DB – New DBA i molnet.
 
-I den här artikeln beskrivs några av kärn egenskaperna för Azure SQL Database som en plattform som du lätt kan använda när du arbetar med enkla databaser och databaser i pooler i elastiska pooler. De är följande:
+I den här artikeln beskrivs några av de viktigaste egenskaperna hos Azure SQL Database som en plattform som du enkelt kan utnyttja när du arbetar med enskilda databaser och poolade databaser i elastiska pooler. De är följande:
 
-- Övervaka databasen med hjälp av Azure Portal
+- Övervaka databasen med Azure-portalen
 - Affärskontinuitet och haveriberedskap (BCDR)
 - Säkerhet och efterlevnad
-- Övervakning och underhåll av intelligent databas
+- Intelligent databasövervakning och underhåll
 - Dataförflyttning
 
 > [!NOTE]
-> Den här artikeln gäller följande distributions alternativ i Azure SQL Database: enskilda databaser och elastiska pooler. Den gäller inte för distributions alternativet hanterad instans i SQL Database.
+> Den här artikeln gäller följande distributionsalternativ i Azure SQL Database: enskilda databaser och elastiska pooler. Det gäller inte för distributionsalternativet för hanterade instanser i SQL Database.
 
 ## <a name="monitor-databases-using-the-azure-portal"></a>Övervaka databaser med Azure-portalen
 
-I [Azure Portal](https://portal.azure.com/)kan du övervaka en enskild databas användning genom att välja din databas och klicka på **övervaknings** diagrammet. Det öppnar **Mått**-fönstret, vilket du kan ändra genom att klicka på **Redigera diagram**-knappen. Lägg till följande mått:
+I [Azure-portalen](https://portal.azure.com/)kan du övervaka en enskild databasanvändning genom att välja databasen och klicka på **övervakningsdiagrammet.** Det öppnar **Mått**-fönstret, vilket du kan ändra genom att klicka på **Redigera diagram**-knappen. Lägg till följande mått:
 
 - CPU-procent
 - DTU-procent
 - Data IO-procent
 - Databasstorlek i procent
 
-När du har lagt till dessa mått kan du fortsätta att visa dem i **övervaknings** diagrammet med mer information i **mått** fönstret. Alla fyra mätvärdena visar ett snittvärde för utnyttjandeprocent i förhållande till din databas **DTU:er**. Se den [DTU-baserade inköps modellen](sql-database-service-tiers-dtu.md) och [vCore inköps modell](sql-database-service-tiers-vcore.md) artiklar för mer information om tjänst nivåer.  
+När du har lagt till dessa mått kan du fortsätta att visa dem i **övervakningsdiagrammet** med mer information om **fönstret Mått.** Alla fyra mätvärdena visar ett snittvärde för utnyttjandeprocent i förhållande till din databas **DTU:er**. Mer information om tjänstnivåer finns i [de DTU-baserade inköpsmodellartiklarna](sql-database-service-tiers-dtu.md) och [vCore-baserade inköpsmodellartiklar.](sql-database-service-tiers-vcore.md)  
 
 ![Tjänstnivå-övervakning av databasprestanda.](./media/sql-database-single-database-monitoring/sqldb_service_tier_monitoring.png)
 
 Du kan också konfigurera aviseringar på prestandamåtten. Klicka på knappen **Lägg till avisering** i **mått**-fönstret. Följ guiden för att konfigurera aviseringen. Du har möjlighet att avisera om måttet överskrider ett visst tröskelvärde eller om måttet faller under ett visst tröskelvärde.
 
-Om du exempelvis förväntar dig att arbetsbelastningen på din databas kommer att öka, kan du välja att konfigurera en e-postavisering när din databas kommer upp i 80 % för något av prestandamåtten. Du kan använda detta som en tidig varning för att ta reda på när du kanske måste växla till nästa högsta beräknings storlek.
+Om du exempelvis förväntar dig att arbetsbelastningen på din databas kommer att öka, kan du välja att konfigurera en e-postavisering när din databas kommer upp i 80 % för något av prestandamåtten. Du kan använda detta som en tidig varning för att ta reda på när du kanske måste växla till den näst högsta beräkningsstorleken.
 
-Prestanda måtten kan också hjälpa dig att avgöra om du kan nedgradera till en lägre beräknings storlek. Anta att du använder en Standard S2-databas och alla prestandamått visar att databasen i snitt inte använder mer än 10 % vid något tillfälle. Det är då troligt att databasen skulle fungera bra i Standard S1. Du bör dock vara medveten om arbets belastningar som har högre eller fluktuerat innan du fattar beslut om att flytta till en lägre beräknings storlek.
+Prestandamåtten kan också hjälpa dig att avgöra om du kan nedgradera till en lägre beräkningsstorlek. Anta att du använder en Standard S2-databas och alla prestandamått visar att databasen i snitt inte använder mer än 10 % vid något tillfälle. Det är då troligt att databasen skulle fungera bra i Standard S1. Tänk dock på arbetsbelastningar som ökar eller varierar innan du fattar beslutet att flytta till en lägre beräkningsstorlek.
 
 ## <a name="business-continuity-and-disaster-recovery-bcdr"></a>Affärskontinuitet och haveriberedskap (BCDR)
 
-Med affärs kontinuitet och haveri beredskap kan du fortsätta din verksamhet, som vanligt, i händelse av en katastrof. Haveriet kan vara en händelse på databas nivå (till exempel att någon av misstag släpper en viktig tabell) eller en data center nivå händelse (regional Catastrophe, till exempel en tsunami).
+Med kontinuitet och katastrofåterställning kan du fortsätta ditt företag, som vanligt, i händelse av en katastrof. Katastrofen kan vara en databasnivåhändelse (till exempel tappar någon av misstag en viktig tabell) eller en datacenternivåhändelse (regional katastrof, till exempel en tsunami).
 
-### <a name="how-do-i-create-and-manage-backups-on-sql-database"></a>Hur gör jag för att skapa och hantera säkerhets kopior på SQL Database
+### <a name="how-do-i-create-and-manage-backups-on-sql-database"></a>Hur skapar och hanterar jag säkerhetskopior i SQL Database
 
-Du skapar inga säkerhets kopior på Azure SQL DB och det beror på att du inte behöver. SQL Database säkerhetskopierar automatiskt databaser åt dig, så att du inte längre behöver bekymra dig om schemaläggning, insamling och hantering av säkerhets kopior. Plattformen tar en fullständig säkerhets kopia varje vecka, differentiell säkerhets kopiering med några timmar och en logg säkerhets kopia var femte minut för att säkerställa att haveri beredskap är effektiv och data förlusten är minimal. Den första fullständiga säkerhets kopieringen sker så snart du skapar en databas. Dessa säkerhets kopior är tillgängliga för dig under en viss period med namnet "kvarhållningsperiod" och varierar beroende på vilken tjänst nivå du väljer. SQL Database ger dig möjlighet att återställa till vilken tidpunkt som helst inom denna kvarhållningsperiod med hjälp av återställning av tidpunkt [(PITR)](sql-database-recovery-using-backups.md#point-in-time-restore).
+Du skapar inte säkerhetskopior på Azure SQL DB och det beror på att du inte behöver. SQL Database säkerhetskopierar automatiskt databaser åt dig, så du behöver inte längre oroa dig för schemaläggning, hantering och hantering av säkerhetskopior. Plattformen tar en fullständig säkerhetskopiering varje vecka, differentiell säkerhetskopiering med några timmars mellanrum och en loggsäkerhetskopiering var 5:e minut för att säkerställa att haveriberedskapen är effektiv och dataförlusten minimal. Den första fullständiga säkerhetskopian sker så fort du skapar en databas. Dessa säkerhetskopior är tillgängliga för dig under en viss period som kallas "Kvarhållningsperiod" och varierar beroende på vilken tjänstnivå du väljer. SQL Database ger dig möjlighet att återställa till någon tidpunkt inom denna kvarhållningsperiod med hjälp av [Point in Time Recovery (PITR)](sql-database-recovery-using-backups.md#point-in-time-restore).
 
 |Tjänstenivå|Kvarhållningsperiod i dagar|
 |---|:---:|
@@ -71,269 +71,269 @@ Du skapar inga säkerhets kopior på Azure SQL DB och det beror på att du inte 
 |Premium|35|
 |||
 
-Dessutom kan du med hjälp av funktionen för [långsiktig kvarhållning (brv)](sql-database-long-term-retention.md) Spara till dina säkerhets kopior under en längre tid, i upp till 10 år, och återställa data från dessa säkerhets kopior när som helst inom den perioden. Dessutom lagras databas säkerhets kopiorna i Geo-replikerad lagring för att garantera återhämtning från regionala Catastrophe. Du kan också återställa de här säkerhets kopiorna i valfri Azure-region vid alla tidpunkter inom kvarhållningsperioden. Se [Översikt över verksamhets kontinuitet](sql-database-business-continuity.md).
+Dessutom kan du med funktionen [för långsiktig kvarhållning (LTR)](sql-database-long-term-retention.md) hålla fast vid dina säkerhetskopior under en mycket längre period specifikt, i upp till 10 år, och återställa data från dessa säkerhetskopior när som helst inom den perioden. Dessutom sparas säkerhetskopieringarna av databasen i geore replikerad lagring för att säkerställa motståndskraft från regional katastrof. Du kan också återställa dessa säkerhetskopior i alla Azure-regioner när som helst inom kvarhållningsperioden. Se [Översikt över kontinuitet i verksamheten](sql-database-business-continuity.md).
 
-### <a name="how-do-i-ensure-business-continuity-in-the-event-of-a-datacenter-level-disaster-or-regional-catastrophe"></a>Hur gör jag för att garantera affärs kontinuitet i händelse av en katastrof eller regional Catastrophe på data center nivå
+### <a name="how-do-i-ensure-business-continuity-in-the-event-of-a-datacenter-level-disaster-or-regional-catastrophe"></a>Hur säkerställer jag kontinuitet i händelse av en katastrof på datacenternivå eller regional katastrof
 
-Eftersom dina databas säkerhets kopior lagras i Geo-replikerad lagring, så att du kan återställa säkerhets kopian till en annan Azure-region i händelse av en regional katastrof. Detta kallas geo-Restore. Återställnings punkt målet är vanligt vis < 1 timme och ERT (uppskattat återställnings tid – några minuter till timmar).
+Eftersom dina säkerhetskopieringar av databasen lagras i geore replikerad lagring för att säkerställa att du i händelse av en regional katastrof kan återställa säkerhetskopian till en annan Azure-region. Detta kallas geo-återställning. RPO (Recovery Point Mål) för detta är i allmänhet < 1 timme och ERT (Beräknad återhämtningstid - några minuter till timmar).
 
-För verksamhets kritiska databaser erbjuder Azure SQL DB, aktiv geo-replikering. Vad detta innebär i princip är att den skapar en geo-replikerad sekundär kopia av den ursprungliga databasen i en annan region. Om din databas till exempel inlednings vis finns i Azure västra USA-regionen och du vill ha regional katastrof återhämtning. Du skulle skapa en aktiv geo-replik av databasen i västra USA för att säga USA, östra. När Calamity går på västra USA kan du växla över till regionen USA, östra. Att konfigurera dem i en grupp för automatisk redundans är ännu bättre eftersom detta säkerställer att databasen automatiskt växlar över till den sekundära i östra USA i händelse av en katastrof. Återställningen för detta är < 5 sekunder och ERT < 30 sekunder.
+För verksamhetskritiska databaser erbjuder Azure SQL DB, aktiv geo-replikering. Vad detta i huvudsak gör är att det skapar en geo-replikerad sekundär kopia av den ursprungliga databasen i en annan region. Till exempel om din databas är ursprungligen värd i Azure West US-regionen och du vill ha regional katastrofresiliens. Du skulle skapa en aktiv geo replik av databasen i västra USA att säga Östra USA. När katastrofen slår mot västra USA, kan du växla över till östra USA-regionen. Konfigurera dem i en automatisk redundansgrupp är ännu bättre eftersom detta säkerställer att databasen automatiskt växlar över till den sekundära i östra USA i händelse av en katastrof. RPO för detta är < 5 sekunder och ERT < 30 sekunder.
 
-Om en grupp för automatisk redundans inte har kon figurer ATS måste programmet aktivt övervaka för en katastrof och initiera en redundansväxling till den sekundära. Du kan skapa upp till 4 sådana aktiva geo-replikeringar i olika Azure-regioner. Den får ännu bättre. Du kan också komma åt dessa sekundära aktiva geo-repliker för skrivskyddad åtkomst. Detta är särskilt användbart för att minska svars tiden för ett geo-distribuerat program scenario.
+Om en grupp för automatisk redundans inte är konfigurerad måste programmet aktivt övervaka en katastrof och initiera en redundans till den sekundära. Du kan skapa upp till 4 sådana aktiva georepliker i olika Azure-regioner. Det blir ännu bättre. Du kan också komma åt dessa sekundära aktiva georepliker för skrivskyddad åtkomst. Detta är mycket praktiskt för att minska svarstiden för ett geo-distribuerat programscenario.
 
-### <a name="how-does-my-disaster-recovery-plan-change-from-on-premises-to-sql-database"></a>Hur ändras planen för haveri beredskap från lokal plats till SQL Database
+### <a name="how-does-my-disaster-recovery-plan-change-from-on-premises-to-sql-database"></a>Hur ändras min katastrofåterställningsplan från lokalt till SQL-databas
 
-I sammanfattningen kräver den traditionella lokala SQL Server installationen att du aktivt kan hantera din tillgänglighet genom att använda funktioner som redundanskluster, databas spegling, databasreplikering eller logg överföring och underhåll och hantera säkerhets kopior för att säkerställa att Affärs kontinuitet. Med SQL Database hanterar plattformen dessa åt dig, så att du kan fokusera på att utveckla och optimera databas programmet och inte bekymra dig om haveri hantering så mycket. Du kan ställa in säkerhets kopierings-och haveri beredskaps planer konfigurerade och arbeta med bara några klick på Azure Portal (eller några kommandon med hjälp av PowerShell-API: er).
+Sammanfattningsvis krävde den traditionella lokala SQL Server-konfigurationen att du aktivt skulle hantera din tillgänglighet med hjälp av funktioner som redundanskluster, databasspegling, transaktionsreplikering eller loggfraktning och underhåller och hanterar säkerhetskopior för att säkerställa Affärskontinuitet. Med SQL Database hanterar plattformen dessa åt dig, så att du kan fokusera på att utveckla och optimera ditt databasprogram och inte oroa dig för katastrofhantering lika mycket. Du kan ha säkerhetskopierings- och haveriberedskapsplaner konfigurerade och arbetar med bara några klick på Azure-portalen (eller några kommandon med PowerShell-API:erna).
 
-Mer information om haveri beredskap finns i: [Azure SQL DB disaster recovery 101](https://azure.microsoft.com/blog/azure-sql-databases-disaster-recovery-101/)
+Mer information om haveriberedskap finns [i: Azure SQL Db Disaster Recovery 101](https://azure.microsoft.com/blog/azure-sql-databases-disaster-recovery-101/)
 
 ## <a name="security-and-compliance"></a>Säkerhet och efterlevnad
 
-SQL Database tar säkerhet och sekretess mycket allvarligt. Säkerhet i SQL Database är tillgängligt på databas nivå och på plattforms nivå och är bäst att förstå när du kategoriseras i flera lager. På varje lager får du kontroll över och ger optimal säkerhet för ditt program. Lagren är:
+SQL Database tar säkerhet och sekretess på största allvar. Säkerhet inom SQL Database är tillgänglig på databasnivå och på plattformsnivå och förstås bäst när den kategoriseras i flera lager. Vid varje lager får du styra och ge optimal säkerhet för ditt program. Lagren är:
 
-- Identitets & autentisering ([SQL-autentisering och Azure Active Directory [AAD]-autentisering](sql-database-manage-logins.md)).
-- Övervaknings aktivitet ([granskning](sql-database-auditing.md) och [hot identifiering](sql-database-threat-detection.md)).
-- Skydda faktiska data ([Transparent datakryptering [TDE]](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql) och [Always Encrypted [AE]](/sql/relational-databases/security/encryption/always-encrypted-database-engine)).
-- Kontrol lera åtkomsten till känsliga och privilegierade data ([säkerhet på radnivå](/sql/relational-databases/security/row-level-security) och [dynamisk data maskning](/sql/relational-databases/security/dynamic-data-masking)).
+- Identitet & autentisering ([SQL-autentisering och Azure Active Directory [AAD] autentisering](sql-database-manage-logins.md)).
+- Övervakningsaktivitet ([Granskning](sql-database-auditing.md) och [hotdetektering).](sql-database-threat-detection.md)
+- Skydda faktiska data[(Transparent datakryptering [TDE]](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql) och [alltid krypterad [AE]](/sql/relational-databases/security/encryption/always-encrypted-database-engine)).
+- Styra åtkomsten till känsliga och privilegierade data ([säkerhet på radnivå](/sql/relational-databases/security/row-level-security) och [dynamisk datamaskering](/sql/relational-databases/security/dynamic-data-masking)).
 
-[Azure Security Center](https://azure.microsoft.com/services/security-center/) erbjuder centraliserad säkerhets hantering över arbets belastningar som körs i Azure, lokalt och i andra moln. Du kan se om viktiga SQL Database skydd, till exempel [granskning](sql-database-auditing.md) och [Transparent datakryptering [TDE]](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql) , har kon figurer ATS på alla resurser och skapa principer baserat på dina egna krav.
+[Azure Security Center](https://azure.microsoft.com/services/security-center/) erbjuder centraliserad säkerhetshantering över arbetsbelastningar som körs i Azure, lokalt och i andra moln. Du kan visa om viktigt SQL Database-skydd, till exempel Granskning och [transparent datakryptering [TDE]](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql) är konfigurerade på alla resurser och skapar principer baserat på dina egna behov. [Auditing](sql-database-auditing.md)
 
 ### <a name="what-user-authentication-methods-are-offered-in-sql-database"></a>Vilka metoder för användarautentisering som erbjuds i SQL Database
 
 Det finns två autentiseringsmetoder som erbjuds i SQL Database:
 
-- [Azure Active Directory autentisering](sql-database-aad-authentication.md)
+- [Azure Active Directory-autentisering](sql-database-aad-authentication.md)
 - [SQL-autentisering](https://docs.microsoft.com/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-sql-server-authentication)
 
-Den traditionella Windows-autentiseringen stöds inte. Azure Active Directory (AD) är en centraliserad tjänst för identitets-och åtkomst hantering. Med det här kan du enkelt tillhandahålla enkel inloggning (SSO) till all personal i din organisation. Det innebär att autentiseringsuppgifterna delas mellan alla Azure-tjänster för enklare autentisering. AAD stöder [MFA (Multi Factor Authentication)](sql-database-ssms-mfa-authentication.md) och med [några få klick](../active-directory/hybrid/how-to-connect-install-express.md) AAD kan integreras med Windows Server Active Directory. SQL-autentisering fungerar på samma sätt som du har använt den tidigare. Du anger ett användar namn/lösen ord och du kan autentisera användare till valfri databas på en angiven SQL Database Server. Detta gör det också möjligt SQL Database och SQL Data Warehouse att erbjuda Multi-Factor Authentication-och gäst användar konton i en Azure AD-domän. Om du redan har ett Active Directory lokalt kan du federera katalogen med Azure Active Directory för att utöka din katalog till Azure.
+Den traditionella windows-autentiseringen stöds inte. Azure Active Directory (AD) är en centraliserad identitets- och åtkomsthanteringstjänst. Med detta kan du mycket bekvämt ge en enkel inloggningsåtkomst (SSO) till all personal i din organisation. Vad detta innebär är att autentiseringsuppgifterna delas över alla Azure-tjänster för enklare autentisering. AAD stöder [MFA (Multi Factor Authentication)](sql-database-ssms-mfa-authentication.md) och med [några klick](../active-directory/hybrid/how-to-connect-install-express.md) kan AAD integreras med Active Directory i Windows Server. SQL-autentisering fungerar precis som du har använt den tidigare. Du anger ett användarnamn/lösenord och du kan autentisera användare till valfri databas på en viss SQL Database-server. Detta gör det också möjligt för SQL Database och SQL Data Warehouse att erbjuda multifaktorautentisering och gästanvändarkonton inom en Azure AD-domän. Om du redan har en lokal Active Directory kan du federera katalogen med Azure Active Directory för att utöka katalogen till Azure.
 
-|**Om du...**|**SQL Database/SQL Data Warehouse**|
+|**Om du...**|**SQL-databas / SQL-datalager**|
 |---|---|
-|Föredra att inte använda Azure Active Directory (AD) i Azure|Använd [SQL-autentisering](sql-database-security-overview.md)|
-|Använda AD på SQL Server lokalt|[Federera AD med Azure AD](../active-directory/hybrid/whatis-hybrid-identity.md)och Använd Azure AD-autentisering. Med det här alternativet kan du använda enkel inloggning.|
-|Kräver Multi-Factor Authentication (MFA)|Kräv MFA som en princip via [Microsoft villkorlig åtkomst](sql-database-conditional-access.md)och Använd [Azure AD Universal Authentication med MFA-stöd](sql-database-ssms-mfa-authentication.md).|
-|Ha gäst konton från Microsoft-konton (live.com, outlook.com) eller andra domäner (gmail.com)|Använd [Azure AD Universal Authentication](sql-database-ssms-mfa-authentication.md) i SQL Database/Data Warehouse, som utnyttjar [Azure AD B2B-samarbete](../active-directory/active-directory-b2b-what-is-azure-ad-b2b.md).|
-|Är inloggad i Windows med dina autentiseringsuppgifter för Azure AD från en federerad domän|Använd [Azure AD-integrerad autentisering](sql-database-aad-authentication-configure.md).|
-|Är inloggade i Windows med autentiseringsuppgifter från en domän som inte är federerad med Azure|Använd [Azure AD-integrerad autentisering](sql-database-aad-authentication-configure.md).|
-|Ha tjänster på mellan nivå som måste ansluta till SQL Database eller SQL Data Warehouse|Använd [Azure AD-integrerad autentisering](sql-database-aad-authentication-configure.md).|
+|Föredrar att inte använda Azure Active Directory (AD) i Azure|Använda [SQL-autentisering](sql-database-security-overview.md)|
+|Används AD på lokal SQL Server|[Federera AD med Azure AD](../active-directory/hybrid/whatis-hybrid-identity.md)och använd Azure AD-autentisering. Med detta kan du använda Enkel inloggning.|
+|Behov av att framtvinga MFA (Multi Factor Authentication)|Kräv MFA som en princip via [Microsoft Conditional Access](sql-database-conditional-access.md)och använd Azure AD [Universal-autentisering med MFA-stöd](sql-database-ssms-mfa-authentication.md).|
+|Har gästkonton från Microsoft-konton (live.com, outlook.com) eller andra domäner (gmail.com)|Använd [Azure AD Universal-autentisering](sql-database-ssms-mfa-authentication.md) i SQL Database/Data Warehouse, som utnyttjar [Azure AD B2B Collaboration](../active-directory/active-directory-b2b-what-is-azure-ad-b2b.md).|
+|Loggas in i Windows med dina Azure AD-autentiseringsuppgifter från en federerad domän|Använd [Azure AD-integrerad autentisering](sql-database-aad-authentication-configure.md).|
+|Loggas in i Windows med autentiseringsuppgifter från en domän som inte federerats med Azure|Använd [Azure AD-integrerad autentisering](sql-database-aad-authentication-configure.md).|
+|Ha tjänster på mellannivå som måste ansluta till SQL Database eller SQL Data Warehouse|Använd [Azure AD-integrerad autentisering](sql-database-aad-authentication-configure.md).|
 |||
 
-### <a name="how-do-i-limit-or-control-connectivity-access-to-my-database"></a>Hur gör jag för att begränsa eller kontrol lera anslutnings åtkomst till min databas
+### <a name="how-do-i-limit-or-control-connectivity-access-to-my-database"></a>Hur begränsar eller kontrollerar jag åtkomsten till anslutningen till databasen
 
-Det finns flera metoder som du kan använda för att uppnå optimal anslutnings organisation för ditt program.
+Det finns flera tekniker till ditt förfogande som du kan använda för att uppnå optimal anslutningsorganisation för ditt program.
 
 - Brandväggsregler
-- VNet-tjänstens slut punkter
+- Slutpunkter för VNet-tjänst
 - Reserverade ip-adresser
 
 #### <a name="firewall"></a>Brandvägg
 
-En brand vägg förhindrar åtkomst till servern från en extern entitet genom att endast tillåta att vissa entiteter får åtkomst till din SQL Database-Server. Som standard tillåts inte alla anslutningar och databaser i SQL Database servern, förutom anslutningar som kommer från andra Azure-tjänster. Med en brand Väggs regel kan du bara öppna åtkomst till servern till entiteter (till exempel en utvecklare) som du godkänner genom att tillåta datorns IP-adress genom brand väggen. Du kan också ange ett intervall med IP-adresser som du vill tillåta åtkomst till SQL Database-servern. Till exempel kan utvecklarens dator-IP-adresser i din organisation läggas till samtidigt genom att ange ett intervall på sidan brand Väggs inställningar.
+En brandvägg förhindrar åtkomst till servern från en extern entitet genom att endast ge specifika entiteter åtkomst till SQL Database-servern. Som standard tillåts inte alla anslutningar och databaser i SQL Database-servern, förutom anslutningar som kommer in från andra Azure Services. Med en brandväggsregel kan du endast öppna åtkomsten till servern till entiteter (till exempel en utvecklardator) som du godkänner, genom att tillåta datorns IP-adress via brandväggen. Du kan också ange ett intervall med IP-adresser som du vill tillåta åtkomst till SQL Database-servern. Till exempel kan utvecklarmaskinens IP-adresser i organisationen läggas till samtidigt genom att ange ett intervall på sidan Brandväggsinställningar.
 
-Du kan skapa brand Väggs regler på server nivå eller på databas nivå. Regler för IP-brandvägg på server nivå kan antingen skapas med hjälp av Azure Portal eller med SSMS. Mer information om hur du ställer in en brand Väggs regel på server nivå och databas nivå finns i: [skapa IP-brandvägg i SQL Database](sql-database-security-tutorial.md#create-firewall-rules).
+Du kan skapa brandväggsregler på servernivå eller på databasnivå. IP-brandväggsregler på servernivå kan antingen skapas med Hjälp av Azure-portalen eller med SSMS. Mer information om hur du anger en brandväggsregel på servernivå och brandvägg på databasnivå finns [i: Skapa IP-brandväggsregler i SQL Database](sql-database-security-tutorial.md#create-firewall-rules).
 
 #### <a name="service-endpoints"></a>Tjänstslutpunkter
 
-Som standard är din SQL-databas konfigurerad för att "ge Azure-tjänster åtkomst till servern", vilket innebär att alla virtuella datorer i Azure kan försöka ansluta till din databas. Dessa försök behöver fortfarande autentiseras. Men om du inte vill att databasen ska vara tillgänglig för alla Azure-IP-adresser kan du inaktivera alternativet "Tillåt Azure-tjänster för åtkomst till servern". Dessutom kan du konfigurera [VNet-tjänstens slut punkter](sql-database-vnet-service-endpoint-rule-overview.md).
+Som standard är DIN SQL-databas konfigurerad för att "Tillåt Azure-tjänster att komma åt servern" – vilket innebär att alla virtuella datorer i Azure kan försöka ansluta till databasen. Dessa försök måste fortfarande autentiseras. Men om du inte vill att databasen ska vara tillgänglig för alla Azure-IPs kan du inaktivera "Tillåt Azure-tjänster att komma åt servern". Dessutom kan du konfigurera [slutpunkter för VNet-tjänst](sql-database-vnet-service-endpoint-rule-overview.md).
 
-Med tjänst slut punkter (SE) kan du bara exponera dina kritiska Azure-resurser för ditt privata virtuella nätverk i Azure. Genom att göra det, eliminerar du i princip den offentliga åtkomsten till dina resurser. Trafiken mellan ditt virtuella nätverk i Azure ligger kvar på Azures stamnät nätverk. Utan SE ska du Hämta paket routning för Tvingad tunnel trafik. Ditt virtuella nätverk tvingar Internet trafiken till din organisation och Azure-tjänstetrafiken att gå över samma väg. Med tjänst slut punkter kan du optimera detta eftersom paketen flödar direkt från ditt virtuella nätverk till tjänsten i Azure stamnät nätverket.
+Med tjänstslutpunkter (SE) kan du bara exponera dina kritiska Azure-resurser för ditt eget privata virtuella nätverk i Azure. På så sätt eliminerar du i huvudsak allmänhetens tillgång till dina resurser. Trafiken mellan det virtuella nätverket till Azure finns kvar i Azure-stamnätet. Utan SE får du forcerad tunnelpaketdragning. Ditt virtuella nätverk tvingar internettrafiken till din organisation och Azure Service-trafiken att gå över samma väg. Med Tjänstslutpunkter kan du optimera detta eftersom paketen flödar direkt från ditt virtuella nätverk till tjänsten på Azure-stamnätet.
 
 ![VNet-tjänstslutpunkter](./media/sql-database-manage-after-migration/vnet-service-endpoints.png)
 
 #### <a name="reserved-ips"></a>Reserverade ip-adresser
 
-Ett annat alternativ är att etablera [reserverade IP](../virtual-network/virtual-networks-reserved-public-ip.md) -adresser för dina virtuella datorer och lägga till de angivna IP-adresserna för virtuella datorer i inställningarna för Server brand väggen. Genom att tilldela reserverade IP-adresser sparar du problem med att uppdatera brand Väggs reglerna med ändring av IP-adresser.
+Ett annat alternativ är att etablera [reserverade IP-adresser](../virtual-network/virtual-networks-reserved-public-ip.md) för dina virtuella datorer och lägga till dessa specifika VM-IP-adresser i serverbrandväggsinställningarna. Genom att tilldela reserverade IP-adresser sparar du problemet med att behöva uppdatera brandväggsreglerna med ändrade IP-adresser.
 
 ### <a name="what-port-do-i-connect-to-sql-database-on"></a>Vilken port ansluter jag till SQL Database på
 
-Port 1433. SQL Database kommunicerar via den här porten. Om du vill ansluta inifrån ett företags nätverk måste du lägga till en utgående regel i brand Väggs inställningarna för din organisation. Undvik att exponera port 1433 utanför Azure-gränser som en rikt linje.
+Hamn 1433. SQL Database kommunicerar över den här porten. Om du vill ansluta från ett företagsnätverk måste du lägga till en utgående regel i organisationens brandväggsinställningar. Som en riktlinje bör du undvika att exponera port 1433 utanför Azure-gränsen.
 
-### <a name="how-can-i-monitor-and-regulate-activity-on-my-server-and-database-in-sql-database"></a>Hur kan jag övervaka och reglera aktiviteter på min server och databas i SQL Database
+### <a name="how-can-i-monitor-and-regulate-activity-on-my-server-and-database-in-sql-database"></a>Hur kan jag övervaka och reglera aktivitet på min server och databas i SQL Database
 
-#### <a name="sql-database-auditing"></a>SQL Database granskning
+#### <a name="sql-database-auditing"></a>SQL Database Auditing
 
-Med SQL Database kan du aktivera granskning för att spåra databas händelser. [SQL Database granskning](sql-database-auditing.md) registrerar databas händelser och skriver dem i en Gransknings logg fil i ditt Azure Storage-konto. Granskning är särskilt användbart om du vill få insikt i potentiella säkerhets-och princip överträdelser, upprätthålla efterlevnaden av efterlevnad. Det gör att du kan definiera och konfigurera vissa kategorier av händelser som du tror behöver granskning och utifrån att du kan hämta förkonfigurerade rapporter och en instrument panel för att få en översikt över händelser som inträffar i databasen. Du kan tillämpa dessa gransknings principer antingen på databas nivå eller på server nivå. En guide om hur du aktiverar granskning för servern/databasen finns i [aktivera SQL Database granskning](sql-database-security-tutorial.md#enable-security-features).
+Med SQL Database kan du aktivera granskning för att spåra databashändelser. [SQL Database Auditing](sql-database-auditing.md) registrerar databashändelser och skriver dem i en granskningsloggfil i ditt Azure Storage-konto. Granskning är särskilt användbart om du tänker få insikt i potentiella säkerhets- och policyöverträdelser, upprätthålla regelefterlevnad etc. Det gör att du kan definiera och konfigurera vissa kategorier av händelser som du tror behöver granskas och baserat på att du kan få förkonfigurerade rapporter och en instrumentpanel för att få en översikt över händelser som inträffar i databasen. Du kan använda dessa granskningsprinciper antingen på databasnivå eller på servernivå. En guide om hur du aktiverar granskning för servern/databasen finns i: [Aktivera SQL Database Auditing](sql-database-security-tutorial.md#enable-security-features).
 
 #### <a name="threat-detection"></a>Hotidentifiering
 
-Med [hot identifiering](sql-database-threat-detection.md)får du möjlighet att agera på säkerhets-eller princip överträdelser som identifieras av granskningen mycket enkelt. Du behöver inte vara en säkerhets expert för att lösa potentiella hot eller överträdelser i systemet. Hot identifiering har också några inbyggda funktioner som identifiering av SQL-injektering. SQL-inmatning är ett försök att ändra eller kompromettera data och ett enhetligt sätt att angripa ett databas program i allmänhet. Hot identifieringen kör flera uppsättningar algoritmer som identifierar potentiella sårbarheter och SQL-injektering-attacker, samt avvikande åtkomst mönster för databaser (till exempel åtkomst från en ovanlig plats eller en okänd huvud administratör). Säkerhets ansvariga eller andra angivna administratörer får ett e-postmeddelande om ett hot har identifierats i databasen. Varje meddelande innehåller information om den misstänkta aktiviteten och rekommendationer om hur du kan undersöka och minimera hotet ytterligare. Information om hur du aktiverar hot identifiering finns i: [Aktivera hot identifiering](sql-database-security-tutorial.md#enable-security-features).
+Med [hotidentifiering](sql-database-threat-detection.md)får du möjlighet att agera på säkerhets- eller policyöverträdelser som upptäcks av Granskning mycket enkelt. Du behöver inte vara säkerhetsexpert för att hantera potentiella hot eller överträdelser i systemet. Hotidentifiering har också några inbyggda funktioner som SQL Injection detection. SQL Injection är ett försök att ändra eller äventyra data och ett ganska vanligt sätt att attackera ett databasprogram i allmänhet. Hotidentifiering kör flera uppsättningar algoritmer som identifierar potentiella sårbarheter och SQL-injektionsattacker, samt avvikande databasåtkomstmönster (till exempel åtkomst från en ovanlig plats eller av ett okänt huvudnamn). Säkerhetstjänstemän eller andra utsedda administratörer får ett e-postmeddelande om ett hot upptäcks i databasen. Varje meddelande innehåller information om den misstänkta aktiviteten och rekommendationer om hur du ytterligare undersöker och minskar hotet. Mer information om hur du aktiverar identifiering av hot finns i: [Aktivera hotidentifiering](sql-database-security-tutorial.md#enable-security-features).
 
-### <a name="how-do-i-protect-my-data-in-general-on-sql-database"></a>Hur gör jag för att skydda mina data i allmänhet på SQL Database
+### <a name="how-do-i-protect-my-data-in-general-on-sql-database"></a>Hur skyddar jag mina data i allmänhet på SQL Database
 
-Kryptering ger en kraftfull mekanism för att skydda och skydda känsliga data från inkräktare. Dina krypterade data används inte för inkräktare utan krypterings nyckeln. Därmed lägger den till ett extra skydds lager ovanpå de befintliga säkerhets lagren som skapats i SQL Database. Det finns två aspekter av att skydda dina data i SQL Database:
+Kryptering ger en stark mekanism för att skydda och skydda dina känsliga data från inkräktare. Dina krypterade data är till någon nytta för inkräktaren utan dekrypteringsnyckeln. Således lägger det till ett extra lager av skydd ovanpå de befintliga lagren av säkerhet som byggts i SQL Database. Det finns två aspekter för att skydda dina data i SQL Database:
 
-- Dina data som finns i vila i data-och loggfilerna
-- Dina data som är i flygning
+- Dina data som vilar i data- och loggfilerna
+- Dina data som är under flygning
 
-I SQL Database är som standard dina data i vila i data-och loggfilerna på underlag rings systemet fullständigt och alltid krypterade via [Transparent datakryptering [TDE]](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql). Dina säkerhets kopior krypteras också. Med TDE finns det inga ändringar som krävs på din program sida som har åtkomst till dessa data. Kryptering och dekryptering sker transparent; Därför är namnet.
-För att skydda känsliga data i flygning och i vila tillhandahåller SQL Database en funktion som kallas [Always Encrypted (AE)](/sql/relational-databases/security/encryption/always-encrypted-database-engine). AE är en form av kryptering på klient sidan som krypterar känsliga kolumner i databasen (så att de finns i chiffertexten till databas administratörer och obehöriga användare). Servern tar emot krypterade data att börja med. Nyckeln för Always Encrypted lagras också på klient sidan så att endast auktoriserade klienter kan dekryptera känsliga kolumner. Server-och data administratörer kan inte se känsliga data eftersom krypterings nycklarna lagras på klienten. AE krypterar känsliga kolumner i tabellen från slut punkt till slut punkt från obehöriga klienter till den fysiska disken. AE stöder likhets jämförelser idag, så databas administratörer kan fortsätta att fråga krypterade kolumner som en del av deras SQL-kommandon. Always Encrypted kan användas med en rad olika alternativ för nyckel lagring, till exempel [Azure Key Vault](sql-database-always-encrypted-azure-key-vault.md), Windows certifikat Arkiv och lokala säkerhetsmoduler för maskin vara.
+I SQL Database, som standard, dina data i vila i data och loggfiler på lagring delsystemet är helt och alltid krypterad via [Transparent Data Encryption [TDE]](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql). Dina säkerhetskopior är också krypterade. Med TDE krävs inga ändringar på programsidan som använder dessa data. Krypteringen och dekrypteringen sker öppet. därav namnet.
+För att skydda känsliga data under flygning och i vila tillhandahåller SQL Database en funktion som kallas [Alltid krypterad (AE).](/sql/relational-databases/security/encryption/always-encrypted-database-engine) AE är en form av kryptering på klientsidan som krypterar känsliga kolumner i databasen (så att de är i chiffertext till databasadministratörer och obehöriga användare). Servern tar emot krypterade data till att börja med. Nyckeln för Alltid krypterad lagras också på klientsidan, så endast auktoriserade klienter kan dekryptera känsliga kolumner. Servern och dataadministratörerna kan inte se känsliga data eftersom krypteringsnycklarna lagras på klienten. AE krypterar känsliga kolumner i tabellen från ände till, från obehöriga klienter till den fysiska disken. AE stöder likhetsjämlikhetsjämlikhetsjämlikhet idag, så att DBAs kan fortsätta att fråga krypterade kolumner som en del av sina SQL-kommandon. Alltid krypterad kan användas med en mängd olika viktiga butiksalternativ, till exempel [Azure Key Vault,](sql-database-always-encrypted-azure-key-vault.md)Windows-certifikatarkiv och lokala maskinvarusäkerhetsmoduler.
 
-|**Förhållanden**|**Alltid krypterad**|**Transparent datakryptering**|
+|**Kännetecken **|**Alltid krypterad**|**Transparent datakryptering**|
 |---|---|---|
-|**Krypterings omfång**|Slut punkt till slut punkt|Vilande data|
-|**Databas servern kan komma åt känsliga data**|Nej|Ja, eftersom krypteringen är för vilande data|
-|**Tillåtna T-SQL-åtgärder**|Likhets jämförelse|Alla ytor i T-SQL är tillgängligt|
-|**App-ändringar krävs för att använda funktionen**|Minimalt|Mycket minimal|
-|**Krypterings precision**|Kolumn nivå|Databas nivå|
+|**Kryptering span**|Från på slutet|Efter vila data|
+|**Databasservern kan komma åt känsliga data**|Inga|Ja, eftersom kryptering är för data i vila|
+|**Tillåtna T-SQL-åtgärder**|Jämförelse av jämställdhet|Alla T-SQL-ytor är tillgängliga|
+|**Appändringar som krävs för att använda funktionen**|Minimal|Mycket minimal|
+|**Krypteringsgranularitet**|Kolumnnivå|databasnivå|
 ||||
 
 ### <a name="how-can-i-limit-access-to-sensitive-data-in-my-database"></a>Hur kan jag begränsa åtkomsten till känsliga data i min databas
 
-Varje program har en viss bit av känsliga data i databasen som behöver skyddas från att vara synlig för alla. Vissa personer inom organisationen behöver se dessa data, men andra bör inte kunna visa dessa data. Ett exempel är löner för anställda. En chef behöver till gång till löne informationen för sina direkta rapporter men de enskilda grupp medlemmarna får inte till gång till löne informationen för sina kollegor. Ett annat scenario är data utvecklare som kan interagera med känsliga data under utvecklings stadier eller testning, till exempel SSNs av kunder. Den här informationen behöver inte exponeras för utvecklaren. I sådana fall måste känsliga data antingen maskeras eller inte visas alls. SQL Database erbjuder två sådana metoder för att förhindra att obehöriga användare kan visa känsliga data:
+Varje program har en viss bit av känsliga data i databasen som måste skyddas från att vara synlig för alla. Viss personal inom organisationen måste visa dessa data, men andra bör inte kunna visa dessa data. Ett exempel är anställdas löner. En chef skulle behöva tillgång till löneinformation för sina direkta rapporter men de enskilda gruppmedlemmarna bör inte ha tillgång till löneinformation av sina kamrater. Ett annat scenario är datautvecklare som kan interagera med känsliga data under utvecklingsstadier eller testning, till exempel SSN-nätverk för kunder. Den här informationen behöver inte exponeras för utvecklaren igen. I sådana fall måste dina känsliga uppgifter antingen maskeras eller inte exponeras alls. SQL Database erbjuder två sådana metoder för att förhindra att obehöriga användare kan visa känsliga data:
 
-[Dynamisk datamaskering](sql-database-dynamic-data-masking-get-started.md) är en data mask funktion som gör att du kan begränsa känslig data exponering genom att maskera den till icke-privilegierade användare i program lagret. Du definierar en masknings regel som kan skapa ett masknings mönster (till exempel för att bara visa de sista fyra siffrorna i ett nationellt ID SSN: XXX-XX-0000 och markera det mesta av det som XS) och identifiera vilka användare som ska uteslutas från masknings regeln. Maskeringen sker direkt och det finns olika masknings funktioner som är tillgängliga för olika data kategorier. Med dynamisk datamaskering kan du automatiskt identifiera känsliga data i databasen och koppla dem till den.
+[Dynamisk datamaskering](sql-database-dynamic-data-masking-get-started.md) är en datamaskeringsfunktion som gör att du kan begränsa känslig dataexponering genom att maskera den till icke-privilegierade användare i programlagret. Du definierar en maskeringsregel som kan skapa ett maskeringsmönster (till exempel för att bara visa de fyra sista siffrorna i ett nationellt ID SSN: XXX-XX-0000 och markera det mesta som Xs) och identifiera vilka användare som ska uteslutas från maskeringsregeln. Maskering sker i farten och det finns olika maskeringsfunktioner tillgängliga för olika datakategorier. Med dynamisk datamaskering kan du automatiskt identifiera känsliga data i databasen och använda maskering på den.
 
-[Säkerhet på radnivå](/sql/relational-databases/security/row-level-security) gör att du kan kontrol lera åtkomst på rad nivå. Detta innebär att vissa rader i en databas tabell baserat på den användare som kör frågan (grupp medlemskap eller körnings kontext) är dolda. Åtkomst begränsningen görs på databas nivån i stället för på en program nivå för att förenkla din program logik. Du börjar med att skapa ett filter-predikat, filtrera bort rader som inte visas och säkerhets principen nästa definierar vem som har åtkomst till dessa rader. Slutanvändaren kör sedan sin fråga och, beroende på användarens behörighet, visar de antingen de begränsade raderna eller kan inte se dem alls.
+[Med säkerhet på radnivå](/sql/relational-databases/security/row-level-security) kan du styra åtkomsten på radnivå. Det innebär att vissa rader i en databastabell baserat på användaren som kör frågan (gruppmedlemskap eller körningskontext) döljs. Åtkomstbegränsningen görs på databasnivån i stället för på en programnivå för att förenkla applogiken. Du börjar med att skapa ett filter predikat, filtrera bort rader som inte är exponerade och säkerhetsprincipen nästa definiera vem som har tillgång till dessa rader. Slutligen kör slutanvändaren sin fråga och, beroende på användarens behörighet, de antingen visa dessa begränsade rader eller inte kan se dem alls.
 
-### <a name="how-do-i-manage-encryption-keys-in-the-cloud"></a>Hur gör jag för att hantera krypterings nycklar i molnet
+### <a name="how-do-i-manage-encryption-keys-in-the-cloud"></a>Hur hanterar jag krypteringsnycklar i molnet
 
-Det finns nyckel hanterings alternativ för både Always Encrypted (kryptering på klient sidan) och transparent datakryptering (kryptering i vila). Vi rekommenderar att du regelbundet roterar krypterings nycklar. Rotations frekvensen bör överensstämma med både din interna organisations bestämmelser och krav på efterlevnad.
+Det finns viktiga hanteringsalternativ för både Alltid krypterad (kryptering på klientsidan) och transparent datakryptering (kryptering i vila). Vi rekommenderar att du regelbundet roterar krypteringsnycklar. Rotationsfrekvensen bör anpassas till både dina interna organisationsregler och efterlevnadskrav.
 
 #### <a name="transparent-data-encryption-tde"></a>Transparent datakryptering (TDE)
 
-Det finns en hierarki med två nycklar i TDE – data i varje användar databas krypteras av en symmetrisk AES-256-databas – unik databas krypterings nyckel (DEK), vilket i sin tur krypteras av en server-unik asymmetrisk RSA 2048-huvudnyckel. Huvud nyckeln kan hanteras antingen:
+Det finns en tvånyckelhierarki i TDE – data i varje användardatabas krypteras av en symmetrisk AES-256-databasunika databaskrypteringsnyckel (DEK), som i sin tur krypteras av en serverunika asymmetrisk RSA 2048-huvudnyckel. Huvudnyckeln kan hanteras antingen:
 
-- Automatiskt av plattforms SQL Database.
-- Eller genom att använda [Azure Key Vault](sql-database-always-encrypted-azure-key-vault.md) som nyckel arkiv.
+- Automatiskt av plattformen - SQL Database.
+- Eller genom att du använder [Azure Key Vault](sql-database-always-encrypted-azure-key-vault.md) som nyckelbutik.
 
-Som standard hanteras huvud nyckeln för transparent datakryptering av SQL Databases tjänsten för enkelhetens skull. Om din organisation vill ha kontroll över huvud nyckeln, finns det ett alternativ att använda Azure Key Vault] (SQL-Database-Always-Encrypted-Azure-Key-vault.md) som nyckel arkiv. Genom att använda Azure Key Vault antar din organisation kontroll över nyckel etablering, rotation och behörighets kontroller. [Rotation eller växling av typen för en TDE huvud nyckel](/sql/relational-databases/security/encryption/transparent-data-encryption-byok-azure-sql-key-rotation) är snabb, eftersom den bara krypterar om Dek. För organisationer med separering av roller mellan säkerhets-och data hantering kan en säkerhets administratör tillhandahålla nyckel materialet för huvud nyckeln TDE i Azure Key Vault och ange en Azure Key Vault nyckel identifierare till databas administratören som ska användas för kryptering i vila på en server. Key Vault är utformad så att Microsoft inte kan se eller extrahera några krypterings nycklar. Du får också en centraliserad hantering av nycklar för din organisation.
+Som standard hanteras huvudnyckeln för transparent datakryptering av SQL Database-tjänsten för enkelhetens skull. Om din organisation vill ha kontroll över huvudnyckeln finns det ett alternativ för att använda Azure Key Vault](sql-database-always-encrypted-azure-key-vault.md) som nyckelbutik. Genom att använda Azure Key Vault tar din organisation kontroll över nyckeletablering, rotation och behörighetskontroller. [Rotation eller byte av typ av TDE-huvudnyckel](/sql/relational-databases/security/encryption/transparent-data-encryption-byok-azure-sql-key-rotation) är snabbt, eftersom det bara krypterar om DEK. För organisationer med åtskillnad mellan roller mellan säkerhet och datahantering kan en säkerhetsadministratör etablera nyckelmaterialet för TDE-huvudnyckeln i Azure Key Vault och tillhandahålla en Azure Key Vault-nyckelidentifierare till databasadministratören som ska användas för kryptering i vila på en server. Key Vault är utformad så att Microsoft inte ser eller extraherar några krypteringsnycklar. Du får också en centraliserad hantering av nycklar för din organisation.
 
 #### <a name="always-encrypted"></a>Alltid krypterad
 
-Det finns också en [hierarki med två nycklar](/sql/relational-databases/security/encryption/overview-of-key-management-for-always-encrypted) i Always Encrypted – en kolumn med känsliga data krypteras med en AES 256-kolumn krypterings nyckel (CEK), som i sin tur krypteras av en kolumn huvud nyckel (CMK). De angivna klient driv rutinerna för Always Encrypted har inga begränsningar för längden på CMKs. Det krypterade värdet för CEK lagras i databasen och CMK lagras i ett betrott nyckel lager, t. ex. Windows certifikat Arkiv, Azure Key Vault eller en modul för maskin varu säkerhet.
+Det finns också en [tvånyckelhierarki](/sql/relational-databases/security/encryption/overview-of-key-management-for-always-encrypted) i Always Encrypted - en kolumn med känsliga data krypteras av en AES 256-kolumn krypteringsnyckel (CEK), som i sin tur krypteras av en kolumn huvudnyckel (CMK). Klientdrivrutinerna som tillhandahålls för Alltid krypterade har inga begränsningar för längden på CMK:er. Det krypterade värdet för CEK lagras i databasen och CMK lagras i ett tillförlitligt nyckelarkiv, till exempel Windows Certificate Store, Azure Key Vault eller en maskinvarusäkerhetsmodul.
 
 - Både [CEK och CMK](/sql/relational-databases/security/encryption/rotate-always-encrypted-keys-using-powershell) kan roteras.
-- CEK rotation är en storlek på data åtgärd och kan vara tids krävande beroende på storleken på de tabeller som innehåller de krypterade kolumnerna. Därför är det klokt att planera CEK rotationer.
-- CMK rotation påverkar dock inte databasens prestanda och kan göras med avgränsade roller.
+- CEK-rotation är en storlek på dataåtgärd och kan vara tidsintensiv beroende på storleken på de tabeller som innehåller de krypterade kolumnerna. Därför är det klokt att planera CEK rotationer därefter.
+- CMK-rotation stör dock inte databasens prestanda och kan göras med separerade roller.
 
-Följande diagram visar nyckel Arkiv alternativen för kolumn huvud nycklar i Always Encrypted
+I följande diagram visas alternativen för nyckellagring för kolumnhuvudtangenterna i Alltid krypterad
 
-![Always Encrypted CMK Store providers](./media/sql-database-manage-after-migration/always-encrypted.png)
+![Alltid krypterade CMK-butiksleverantörer](./media/sql-database-manage-after-migration/always-encrypted.png)
 
-### <a name="how-can-i-optimize-and-secure-the-traffic-between-my-organization-and-sql-database"></a>Hur kan jag optimera och skydda trafiken mellan min organisation och SQL Database
+### <a name="how-can-i-optimize-and-secure-the-traffic-between-my-organization-and-sql-database"></a>Hur kan jag optimera och säkra trafiken mellan min organisation och SQL Database
 
-Nätverks trafiken mellan din organisation och SQL Database skulle i allmänhet dirigeras via det offentliga nätverket. Men om du väljer att optimera den här sökvägen och göra den säkrare kan du titta på Express Route. Med Express Route kan du i princip utöka företagets nätverk till Azure-plattformen via en privat anslutning. På så sätt går du inte över det offentliga Internet. Du får också högre säkerhets-, Tillförlitlighets-och Dirigerings optimering som översätter mindre nätverks fördröjningar och snabbare hastigheter än vad som normalt skulle uppstå via det offentliga Internet. Om du planerar att överföra en betydande del av data mellan din organisation och Azure kan du använda Express Route för att ge kostnads besparingar. Du kan välja mellan tre olika anslutnings modeller för anslutningen från din organisation till Azure:
+Nätverkstrafiken mellan organisationen och SQL Database dirigeras i allmänhet över det offentliga nätverket. Men om du väljer att optimera den här sökvägen och göra den säkrare kan du titta på Express Route. Med expressrutten kan du utöka ditt företagsnätverk till Azure-plattformen via en privat anslutning. På så sätt går du inte över det offentliga Internet. Du får också högre säkerhet, tillförlitlighet och routning optimering som översätts till lägre nätverk svarstider och mycket snabbare hastigheter än du normalt skulle uppleva att gå över det offentliga internet. Om du planerar att överföra en betydande del av data mellan din organisation och Azure kan det ge kostnadsfördelar med Express Route. Du kan välja mellan tre olika anslutningsmodeller för anslutningen från din organisation till Azure:
 
-- [Cloud Exchange Co-location](../expressroute/expressroute-connectivity-models.md#CloudExchange)
-- [Alla-till-alla](../expressroute/expressroute-connectivity-models.md#IPVPN)
-- [Punkt-till-punkt](../expressroute/expressroute-connectivity-models.md#Ethernet)
+- [Samlokalisering för molnutbyte](../expressroute/expressroute-connectivity-models.md#CloudExchange)
+- [Alla som helst](../expressroute/expressroute-connectivity-models.md#IPVPN)
+- [Point-to-point](../expressroute/expressroute-connectivity-models.md#Ethernet)
 
-Med Express Route kan du också överföra upp till 2 x bandbredds gränsen som du köper utan extra kostnad. Det är också möjligt att konfigurera anslutning mellan regioner med hjälp av Express Route. Om du vill se en lista över ER-anslutnings leverantörer, se: [Express Route partners och peering-platser](../expressroute/expressroute-locations.md). I följande artiklar beskrivs Express Route i detalj:
+Express Route kan du också spränga upp till 2x bandbreddsgränsen du köper utan extra kostnad. Det är också möjligt att konfigurera anslutning mellan regioner med hjälp av Express-vägen. En lista över ER-anslutningsleverantörer finns i: [Express Route Partners och Peering Locations](../expressroute/expressroute-locations.md). I följande artiklar beskrivs Express Route mer i detalj:
 
-- [Introduktion till Express Route](../expressroute/expressroute-introduction.md)
-- [Förutsättningar](../expressroute/expressroute-prerequisites.md)
+- [Introduktion på Express Route](../expressroute/expressroute-introduction.md)
+- [Krav](../expressroute/expressroute-prerequisites.md)
 - [Arbetsflöden](../expressroute/expressroute-workflows.md)
 
-### <a name="is-sql-database-compliant-with-any-regulatory-requirements-and-how-does-that-help-with-my-own-organizations-compliance"></a>Är SQL Database kompatibel med alla myndighets krav och hur hjälper det till med min egen organisations efterlevnad
+### <a name="is-sql-database-compliant-with-any-regulatory-requirements-and-how-does-that-help-with-my-own-organizations-compliance"></a>Är SQL Database kompatibel med eventuella regulatoriska krav, och hur hjälper det till med min egen organisations efterlevnad
 
-SQL Database är kompatibel med ett antal regler som compliancies. Om du vill visa den senaste uppsättningen compliancies som har uppfyllts av SQL Database kan du gå till [Microsoft Trust Center](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) och öka detalj nivån på compliancies som är viktiga för din organisation för att se om SQL Database ingår i de kompatibla Azure-tjänsterna. Det är viktigt att Observera att även om SQL Database kan certifieras som en kompatibel tjänst, bidrar den till efterlevnaden av organisationens tjänst men garanterar inte automatiskt den.
+SQL Database är kompatibel med en rad regulatoriska compliancies. Om du vill visa den senaste uppsättningen compliancies som har mötts av SQL Database besöker du [Microsoft Trust Center](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) och går nedåt i de compliancies som är viktiga för din organisation för att se om SQL Database ingår i de kompatibla Azure-tjänsterna. Det är viktigt att notera att även om SQL Database kan certifieras som en kompatibel tjänst, hjälper den till att uppfylla organisationens tjänst men garanterar den inte automatiskt.
 
-## <a name="intelligent-database-monitoring-and-maintenance-after-migration"></a>Intelligent databas övervakning och underhåll efter migrering
+## <a name="intelligent-database-monitoring-and-maintenance-after-migration"></a>Intelligent databasövervakning och underhåll efter migreringen
 
-När du har migrerat databasen till SQL Database ska du övervaka databasen (till exempel kontrol lera hur resursutnyttjande är som eller DBCC-kontroller) och utföra regelbundet underhåll (till exempel återskapa eller omorganisera index, statistik osv.). Lyckligt vis är SQL Database intelligent i den mening att den använder historiska trender och inspelade mått och statistik för att proaktivt hjälpa dig att övervaka och underhålla databasen, så att programmet körs optimalt alltid. I vissa fall kan Azure SQL DB automatiskt utföra underhålls aktiviteter beroende på konfigurations konfigurationen. Det finns tre aspekter för att övervaka din databas i SQL Database:
+När du har migrerat databasen till SQL Database, kommer du att vilja övervaka databasen (till exempel kontrollera hur resursutnyttjandet är som eller DBCC kontroller) och utföra regelbundet underhåll (till exempel återskapa eller omorganisera index, statistik etc.). Lyckligtvis är SQL Database intelligent i den meningen att den använder historiska trender och inspelade mått och statistik för att proaktivt hjälpa dig att övervaka och underhålla din databas, så att ditt program körs optimalt alltid. I vissa fall kan Azure SQL DB automatiskt utföra underhållsuppgifter beroende på konfigurationskonfigurationen. Det finns tre aspekter för att övervaka databasen i SQL Database:
 
-- Prestanda övervakning och optimering.
-- Säkerhets optimering.
-- Kostnads optimering.
+- Prestandaövervakning och optimering.
+- Säkerhetsoptimering.
+- Kostnadsoptimering.
 
-### <a name="performance-monitoring-and-optimization"></a>Prestanda övervakning och optimering
+### <a name="performance-monitoring-and-optimization"></a>Övervakning och optimering av prestanda
 
-Med frågornas prestanda insikter kan du få skräddarsydda rekommendationer för din databas belastning så att dina program kan fortsätta att köras på en optimal nivå – alltid. Du kan också ställa in det så att dessa rekommendationer tillämpas automatiskt och du inte behöver bry dig om underhålls aktiviteter. Med Index Advisor kan du automatiskt implementera index rekommendationer baserat på din arbets belastning – detta kallas automatisk justering. Rekommendationerna utvecklas när din program arbets belastning ändras för att ge dig de mest relevanta förslagen. Du får också möjlighet att manuellt granska dessa rekommendationer och tillämpa dem på egen hand.  
+Med Query Performance Insights kan du få skräddarsydda rekommendationer för din databasarbetsbelastning så att dina program kan fortsätta att köras på en optimal nivå - alltid. Du kan också ställa in den så att dessa rekommendationer tillämpas automatiskt och du behöver inte bry dig om att utföra underhållsuppgifter. Med Index Advisor kan du automatiskt implementera indexrekommendationer baserat på din arbetsbelastning - det kallas automatisk justering. Rekommendationerna utvecklas när programarbetsbelastningen ändras för att ge dig de mest relevanta förslagen. Du får också möjlighet att manuellt granska dessa rekommendationer och tillämpa dem efter eget gottfinnande.  
 
-### <a name="security-optimization"></a>Säkerhets optimering
+### <a name="security-optimization"></a>Optimering av säkerhet
 
-SQL Database tillhandahåller åtgärds bara säkerhets rekommendationer som hjälper dig att skydda dina data och hot identifiering för att identifiera och undersöka misstänkta databas aktiviteter som kan utgöra en potentiell tråd till databasen. [Sårbarhets bedömning](sql-vulnerability-assessment.md) är en databas genomsöknings-och rapporterings tjänst som gör att du kan övervaka säkerhets status för dina databaser i stor skala och identifiera säkerhets risker och avvikelser från en säkerhets bas linje som definierats av dig. Efter varje genomsökning tillhandahålls en anpassad lista över åtgärds bara steg och reparations skript, samt en utvärderings rapport som kan användas för att uppfylla kraven för efterlevnad.
+SQL Database innehåller användbara säkerhetsrekommendationer som hjälper dig att skydda dina data och hotidentifiering för att identifiera och undersöka misstänkta databasaktiviteter som kan utgöra en potentiell tråd till databasen. [Sårbarhetsbedömning](sql-vulnerability-assessment.md) är en databasskannings- och rapporteringstjänst som gör att du kan övervaka säkerhetstillståndet för dina databaser i stor skala och identifiera säkerhetsrisker och glida från en säkerhetsbaslinje som definierats av dig. Efter varje genomsökning tillhandahålls en anpassad lista över användbara steg och reparationsskript, samt en utvärderingsrapport som kan användas för att uppfylla efterlevnadskraven.
 
-Med Azure Security Center identifierar du säkerhets rekommendationerna i tavlan och tillämpar dem med ett enda klick.
+Med Azure Security Center identifierar du säkerhetsrekommendationerna över hela linjen och tillämpar dem med ett enda klick.
 
 ### <a name="cost-optimization"></a>Kostnadsoptimering
 
-Azure SQL-plattformen analyserar användnings historiken över databaserna på en server för att utvärdera och rekommendera alternativ för kostnads optimering åt dig. Den här analysen tar vanligt vis en Fortnight för att analysera och utveckla rekommendationer som kan åtgärdas. Elastisk pool är ett sådant alternativ. Rekommendationen visas i portalen som en banderoll:
+Azure SQL-plattformen analyserar användningshistoriken i databaserna på en server för att utvärdera och rekommendera kostnadsoptimeringsalternativ för dig. Denna analys tar vanligtvis två veckor att analysera och bygga upp användbara rekommendationer. Elastisk pool är ett sådant alternativ. Rekommendationen visas på portalen som en banner:
 
-![rekommendationer för elastisk pool](./media/sql-database-manage-after-migration/elastic-pool-recommendations.png)
+![elastiska poolrekommendationer](./media/sql-database-manage-after-migration/elastic-pool-recommendations.png)
 
-Du kan också visa den här analysen i avsnittet "Advisor":
+Du kan också visa den här analysen under avsnittet "Advisor":
 
-![rekommendationer för elastisk pool – Advisor](./media/sql-database-manage-after-migration/advisor-section.png)
+![elastisk pool rekommendationer-rådgivare](./media/sql-database-manage-after-migration/advisor-section.png)
 
-### <a name="how-do-i-monitor-the-performance-and-resource-utilization-in-sql-database"></a>Hur gör jag för att övervaka prestanda-och resursutnyttjande i SQL Database
+### <a name="how-do-i-monitor-the-performance-and-resource-utilization-in-sql-database"></a>Hur övervakar jag prestanda- och resursanvändningen i SQL Database
 
-I SQL Database kan du utnyttja intelligenta insikter på plattformen för att övervaka prestanda och justera dem på motsvarande sätt. Du kan övervaka prestanda-och resursutnyttjande i SQL Database med följande metoder:
+I SQL Database kan du utnyttja plattformens intelligenta insikter för att övervaka prestanda och ställa in därefter. Du kan övervaka prestanda och resursanvändning i SQL Database med hjälp av följande metoder:
 
 #### <a name="azure-portal"></a>Azure Portal
 
-Azure Portal visar en Databass användning genom att välja databasen och klicka på diagrammet i fönstret Översikt. Du kan ändra diagrammet för att visa flera mått, inklusive processor procent, DTU-procent, data-IO-procent, sessioner procent och databas storlek i procent.
+Azure-portalen visar en databass användning genom att välja databasen och klicka på diagrammet i fönstret Översikt. Du kan ändra diagrammet för att visa flera mått, inklusive CPU-procent, DTU-procent, data-IO-procent, sessionsprocent och databasstorleksprocent.
 
-![Övervaknings diagram](./media/sql-database-manage-after-migration/monitoring-chart.png)
+![Övervakningsdiagram](./media/sql-database-manage-after-migration/monitoring-chart.png)
 
-![Övervakar CHART2](./media/sql-database-manage-after-migration/chart.png)
+![Övervakningsdiagram2](./media/sql-database-manage-after-migration/chart.png)
 
-I det här diagrammet kan du också konfigurera aviseringar per resurs. Med de här aviseringarna kan du svara på resurs villkor med ett e-postmeddelande, skriva till en HTTPS/HTTP-slutpunkt eller utföra en åtgärd. Mer information finns i [skapa aviseringar](sql-database-insights-alerts-portal.md).
+I det här diagrammet kan du också konfigurera aviseringar efter resurs. Med dessa aviseringar kan du svara på resursvillkor med ett e-postmeddelande, skriva till en HTTPS/HTTP-slutpunkt eller utföra en åtgärd. Mer information finns i [Skapa aviseringar](sql-database-insights-alerts-portal.md).
 
-#### <a name="dynamic-management-views"></a>Vyer för dynamisk hantering
+#### <a name="dynamic-management-views"></a>Dynamiska hanteringsvyer
 
-Du kan ställa frågor till vyn [sys. dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) dynamisk hantering för att returnera historiken för resurs förbruknings statistik från den senaste timmen och vyn [sys. resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) system katalog för att returnera historik för de senaste 14 dagarna.
+Du kan fråga [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) dynamisk hanteringsvy för att returnera resursförbrukningsstatistikhistorik från den senaste timmen och [systemkatalogvyn sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) för att returnera historiken för de senaste 14 dagarna.
 
 #### <a name="query-performance-insight"></a>Query Performance Insight
 
-Med [query Performance Insight](sql-database-query-performance.md) kan du Visa en historik över de mest resurs krävande frågorna och tids krävande frågor för en speciell databas. Du kan snabbt identifiera de vanligaste frågorna genom resursutnyttjande, varaktighet och frekvens för körning. Du kan spåra frågor och identifiera regression. Den här funktionen kräver att [frågearkivet](/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store) aktive ras och aktive ras för databasen.
+[Med Frågeprestanda insikt](sql-database-query-performance.md) kan du se en historik över de viktigaste resurskrävande frågorna och tidskrävande frågor för en viss databas. Du kan snabbt identifiera TOP-frågor efter resursutnyttjande, varaktighet och körningsfrekvens. Du kan spåra frågor och identifiera regression. Den här funktionen kräver att [Query Store](/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store) är aktiverat och aktivt för databasen.
 
 ![Query Performance Insight](./media/sql-database-manage-after-migration/query-performance-insight.png)
 
-#### <a name="azure-sql-analytics-preview-in-azure-monitor-logs"></a>Azure SQL-analys (för hands version) i Azure Monitor loggar
+#### <a name="azure-sql-analytics-preview-in-azure-monitor-logs"></a>Azure SQL Analytics (förhandsversion) i Azure Monitor-loggar
 
-Med [Azure Monitor loggar](../azure-monitor/insights/azure-sql.md) kan du samla in och visualisera viktiga prestanda mått för Azure SQL Database, stöd för upp till 150 000 SQL-databaser och 5 000 elastiska SQL-pooler per arbets yta. Du kan använda den för att övervaka och ta emot meddelanden. Du kan övervaka SQL Database och Elastic pool-mått över flera Azure-prenumerationer och elastiska pooler och kan användas för att identifiera problem på varje skikt i en programs tack.
+[Med Azure Monitor-loggar](../azure-monitor/insights/azure-sql.md) kan du samla in och visualisera viktiga prestandamått för Azure SQL-databas, med stöd för upp till 150 000 SQL-databaser och 5 000 SQL-elastiska pooler per arbetsyta. Du kan använda den för att övervaka och ta emot meddelanden. Du kan övervaka SQL Database och elastiska poolmått över flera Azure-prenumerationer och elastiska pooler och kan användas för att identifiera problem på varje lager i en programstack.
 
-### <a name="i-am-noticing-performance-issues-how-does-my-sql-database-troubleshooting-methodology-differ-from-sql-server"></a>Jag är märker prestanda problem: Hur skiljer sig SQL Database fel söknings metoden från SQL Server
+### <a name="i-am-noticing-performance-issues-how-does-my-sql-database-troubleshooting-methodology-differ-from-sql-server"></a>Jag märker prestandaproblem: Hur skiljer sig felsökningsmetoden för SQL Database från SQL Server
 
-En större del av de fel söknings tekniker som du skulle använda för att diagnostisera problem med frågor och databas prestanda är desamma. När alla samma SQL Servers motor har befogenhet att molnet. Plattformen – Azure SQL DB har dock skapats i "Intelligence". Det kan hjälpa dig att felsöka och diagnostisera prestanda problem ännu enklare. Den kan också utföra några av dessa korrigerande åtgärder för din räkning och i vissa fall åtgärda dem proaktivt automatiskt.
+En stor del av felsökningsteknikerna som du skulle använda för att diagnostisera problem med fråga- och databasprestanda förblir desamma. När alla samma SQL Server-motor driver molnet. Plattformen - Azure SQL DB har dock byggt in "intelligens". Det kan hjälpa dig att felsöka och diagnostisera prestandaproblem ännu enklare. Det kan också utföra några av dessa korrigerande åtgärder för din räkning och i vissa fall proaktivt åtgärda dem - automatiskt.
 
-Din metod för fel sökning av prestanda problem kan avsevärt utnyttjas med hjälp av intelligenta funktioner som [query Performance Insight (QPI)](sql-database-query-performance.md) och [Database Advisor](sql-database-advisor.md) i samband med varandra, och därför skiljer sig skillnaden i metodiken – du behöver inte längre utföra det manuella arbetet med att ta bort den grundläggande information som kan hjälpa dig att felsöka problemet. Plattformen fungerar hårt för dig. Ett exempel på detta är QPI. Med QPI kan du öka detalj nivån till frågans nivå och titta på de historiska trenderna och räkna ut när exakt frågan försämrat. I Database Advisor får du rekommendationer om saker som kan hjälpa dig att förbättra den övergripande prestandan i generella, t. ex. index som saknas, släppa index, parametrar för dina frågor osv.
+Din metod för felsökning av prestandaproblem kan dra stor nytta av att använda intelligenta funktioner som [Query Performance Insight (QPI)](sql-database-query-performance.md) och [Database Advisor](sql-database-advisor.md) tillsammans och så skillnaden i metod skiljer sig åt i det avseendet - du behöver inte längre göra det manuella arbetet med att slipa ut de viktigaste detaljerna som kan hjälpa dig att felsöka problemet. Plattformen gör det hårda arbetet för dig. Ett exempel på detta är QPI. Med QPI kan du öka detaljnivån hela vägen ner till frågenivån och titta på de historiska trenderna och ta reda på exakt när frågan gick tillbaka. Database Advisor ger dig rekommendationer om saker som kan hjälpa dig att förbättra din totala prestanda i allmänhet som - saknade index, släppa index, parameterisera dina frågor etc.
 
-Med prestanda fel sökning är det viktigt att identifiera om det bara är programmet eller databasen som säkerhetskopierar, vilket påverkar programmets prestanda. Ofta beror prestanda problemet på program nivån. Det kan vara arkitekturen eller data åtkomst mönstret. Anta till exempel att du har ett chatt-program som är känsligt för nätverks fördröjning. I det här fallet är ditt program lidande eftersom det skulle finnas många korta begär Anden som kommer fram och tillbaka ("samtal") mellan programmet och servern och i ett överbelastat nätverk, så tur och retur lägger upp snabbt. För att förbättra prestandan i det här fallet kan du använda [batch-frågor](sql-database-performance-guidance.md#batch-queries). Genom att använda batchar får du en fantastisk funktion eftersom dina begär Anden bearbetas i en batch. Därför hjälper du att minska tiden för roundtrip-svar och förbättra programmets prestanda.
+Med felsökning av prestanda är det viktigt att identifiera om det bara är programmet eller databasen som stöder det, som påverkar programmets prestanda. Ofta ligger prestandaproblemet i programlagret. Det kan vara arkitekturen eller dataåtkomstmönstret. Tänk dig till exempel att du har ett pratsamt program som är känsligt för nätverksfördröjning. I det här fallet lider ditt program eftersom det skulle finnas många korta förfrågningar som går fram och tillbaka ("pratsam") mellan programmet och servern och på ett överbelastat nätverk, dessa tur och returresor lägga upp snabbt. Om du vill förbättra prestanda i det här fallet kan du använda [Batchfrågor](sql-database-performance-guidance.md#batch-queries). Använda batchar hjälper dig oerhört eftersom nu dina förfrågningar få bearbetas i en batch; vilket hjälper dig att skära ner på svarstiden för tur och retur och förbättra programmets prestanda.
 
-Om du anvisar en försämring i den övergripande prestandan för databasen kan du även övervaka [sys. dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) och [sys. resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) dynamiska hanterings vyer för att förstå CPU, IO och minnes användning. Dina prestanda kan påverkas eftersom databasen är har av resurser. Det kan vara att du kan behöva ändra beräknings storlek och/eller tjänste nivå baserat på de växande och förminskande arbets belastnings kraven.
+Om du märker en försämring av databasens övergripande prestanda kan du dessutom övervaka [system.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) och [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) dynamiska hanteringsvyer för att förstå CPU-, IO- och minnesförbrukning. Din prestanda kanske påverkas eftersom din databas är utsvulten på resurser. Det kan vara så att du kan behöva ändra beräkningsstorlek och/eller tjänstnivå baserat på de växande och krympande arbetsbelastningskraven.
 
-En omfattande uppsättning rekommendationer för att justera prestanda problem finns i: [finjustera din databas](sql-database-performance-guidance.md#tune-your-database).
+En omfattande uppsättning rekommendationer för att justera prestandaproblem finns i: [Justera databasen](sql-database-performance-guidance.md#tune-your-database).
 
-### <a name="how-do-i-ensure-i-am-using-the-appropriate-service-tier-and-compute-size"></a>Hur gör jag för att se till att jag använder rätt tjänst nivå och beräknings storlek
+### <a name="how-do-i-ensure-i-am-using-the-appropriate-service-tier-and-compute-size"></a>Hur säkerställer jag att jag använder lämplig tjänstnivå och beräkningsstorlek
 
-SQL Database erbjuder olika tjänst nivåer Basic, standard och Premium. Varje tjänst nivå får du en garanterad förutsägbar prestanda som är kopplad till tjänst nivån. Beroende på din arbets belastning kan du ha mellanstora aktiviteter där resursutnyttjande kan träffa taket för den aktuella beräknings storlek som du befinner dig i. I sådana fall är det bra att först börja med att utvärdera om någon justering kan hjälpa (till exempel att lägga till eller ändra ett index osv.). Om du fortfarande stöter på gräns problem bör du överväga att flytta till en högre tjänst nivå eller en beräknings storlek.
+SQL Database erbjuder olika tjänstnivåer Basic, Standard och Premium. Varje tjänstnivå får du en garanterad förutsägbar prestanda knuten till den tjänstnivån. Beroende på din arbetsbelastning kan du ha utbrott av aktivitet där resursutnyttjandet kan nå taket för den aktuella beräkningsstorleken som du befinner dig i. I sådana fall är det bra att först börja med att utvärdera om någon justering kan hjälpa (till exempel lägga till eller ändra ett index etc.). Om du fortfarande stöter på begränsningsproblem bör du överväga att flytta till en högre tjänstnivå eller beräkningsstorlek.
 
-|**Tjänstenivå**|**Vanliga scenarier för användnings fall**|
+|**Tjänstenivå**|**Vanliga användningsfallsscenarier**|
 |---|---|
-|**Basic**|Program med fåtal-användare och en databas som inte har höga samtidighets-, skalnings-och prestanda krav. |
-|**Standard**|Program med avsevärda samtidighets-, skalnings-och prestanda krav i kombination med låg till medelhög IO-krav. |
-|**Premium**|Program med många samtidiga användare, höga processor/minne och höga IO-krav. Hög samtidighet, högt data flöde och svars tids känsliga appar kan utnyttja Premium nivån. |
+|**Basic**|Program med en handfull användare och en databas som inte har höga samtidighets-, skalnings- och prestandakrav. |
+|**Standard**|Applikationer med betydande samtidighet, skala och prestandakrav i kombination med låga till medelstora IO-krav. |
+|**Premium**|Program med många samtidiga användare, hög CPU / minne, och höga IO krav. Känsliga appar med hög samtidighet, högt dataflöde och latens kan utnyttja Premium-nivån. |
 |||
 
-För att se till att du har rätt beräknings storlek kan du övervaka din fråga och databas resursförbrukning genom att använda ett av ovanstående sätt i "Hur gör jag för att övervaka prestanda-och resursutnyttjande i SQL Database". Om du upptäcker att dina frågor/databaser körs konsekvent på processor/minne osv. kan du skala upp till en högre beräknings storlek. På samma sätt verkar du inte använda resurserna lika mycket, om du är medveten om att även under dina arbets belastningar. Överväg att skala ned från den aktuella beräknings storleken.
+För att se till att du är på rätt beräkningsstorlek, kan du övervaka din fråga och databas resursförbrukning genom ett av de ovan nämnda sätten i "Hur övervakar jag prestanda och resursutnyttjande i SQL Database". Om du upptäcker att dina frågor / databaser konsekvent körs snabbt på CPU / minne etc. kan du överväga att skala upp till en högre beräkningsstorlek. På samma sätt, om du noterar att även under dina rusningstid, du verkar inte använda resurserna så mycket; överväga att skala ned från den aktuella beräkningsstorleken.
 
-Om du har ett SaaS app-mönster eller ett scenario för databas konsolidering bör du överväga att använda en elastisk pool för kostnads optimering. Elastisk pool är ett bra sätt att uppnå databas konsolidering och kostnads optimering. Läs mer om hur du hanterar flera databaser med elastisk pool i: [hantera pooler och databaser](sql-database-elastic-pool-manage.md#azure-portal-manage-elastic-pools-and-pooled-databases).
+Om du har ett SaaS-appmönster eller ett databaskonsolideringsscenario kan du använda en elastisk pool för kostnadsoptimering. Elastisk pool är ett bra sätt att uppnå databaskonsolidering och kostnadsoptimering. Mer information om hur du hanterar flera databaser med elastisk pool finns i: [Hantera pooler och databaser](sql-database-elastic-pool-manage.md#azure-portal-manage-elastic-pools-and-pooled-databases).
 
-### <a name="how-often-do-i-need-to-run-database-integrity-checks-for-my-database"></a>Hur ofta behöver jag köra databas integritets kontroller för min databas
+### <a name="how-often-do-i-need-to-run-database-integrity-checks-for-my-database"></a>Hur ofta måste jag köra databasintegritetskontroller för min databas
 
-SQL Database använder vissa smarta tekniker som gör det möjligt för IT att hantera vissa klasser av data som skadas automatiskt och utan data förlust. Dessa tekniker är inbyggda i tjänsten och utnyttjas av tjänsten när det behövs. Med jämna mellanrum testas dina databas säkerhets kopieringar i tjänsten genom att återställa dem och köra DBCC CHECKDB på den. Om det finns problem SQL Database proaktiva adresser. [Automatisk sid reparation](/sql/sql-server/failover-clusters/automatic-page-repair-availability-groups-database-mirroring) utnyttjas för att åtgärda sidor som är skadade eller som har problem med data integriteten. Databas sidorna verifieras alltid med standardinställningen för kontroll summa som verifierar sidans integritet. SQL Database övervakar och granskar data integriteten för databasen och, om det uppstår problem, adresser dem med högst prioritet. Förutom dessa kan du välja att eventuellt köra dina egna integritets kontroller.  Mer information finns [i data integritet i SQL Database](https://azure.microsoft.com/blog/data-integrity-in-azure-sql-database/)
+SQL Database använder vissa smarta tekniker som gör det möjligt att hantera vissa klasser av data korruption automatiskt och utan förlust av data. Dessa tekniker är inbyggda i tjänsten och utnyttjas av tjänsten när det behövs. Regelbundet testas säkerhetskopior av databasen över tjänsten genom att återställa dem och köra DBCC CHECKDB på den. Om det finns problem åtgärdar SQL Database dem proaktivt. [Automatisk sidreparation](/sql/sql-server/failover-clusters/automatic-page-repair-availability-groups-database-mirroring) utnyttjas för att åtgärda sidor som är skadade eller har problem med dataintegritet. Databassidorna verifieras alltid med standardinställningen CHECKSUM som verifierar sidans integritet. SQL Database övervakar och granskar databasens dataintegritet proaktivt och åtgärdar dem med högsta prioritet om problem uppstår. Utöver dessa kan du välja att eventuellt köra dina egna integritetskontroller efter din vilja.  Mer information finns [i Dataintegritet i SQL Database](https://azure.microsoft.com/blog/data-integrity-in-azure-sql-database/)
 
-## <a name="data-movement-after-migration"></a>Data förflyttning efter migrering
+## <a name="data-movement-after-migration"></a>Datarörelse efter migreringen
 
-### <a name="how-do-i-export-and-import-data-as-bacpac-files-from-sql-database"></a>Hur gör jag för att exportera och importera data som BACPAC-filer från SQL Database
+### <a name="how-do-i-export-and-import-data-as-bacpac-files-from-sql-database"></a>Hur exporterar och importerar jag data som BACPAC-filer från SQL Database
 
-- **Exportera**: du kan exportera din Azure SQL-databas som en BACPAC-fil från Azure Portal
+- **Exportera**: Du kan exportera din Azure SQL-databas som en BACPAC-fil från Azure-portalen
 
-   ![databas export](./media/sql-database-export/database-export1.png)
+   ![databasexport](./media/sql-database-export/database-export1.png)
 
-- **Importera**: du kan också importera data som en BACPAC-fil till databasen med hjälp av Azure Portal.
+- **Importera**: Du kan också importera data som en BACPAC-fil till databasen med Hjälp av Azure-portalen.
 
-   ![databas import](./media/sql-database-import/import1.png)
+   ![import av databas](./media/sql-database-import/import1.png)
 
-### <a name="how-do-i-synchronize-data-between-sql-database-and-sql-server"></a>Hur gör jag för att synkronisera data mellan SQL Database och SQL Server
+### <a name="how-do-i-synchronize-data-between-sql-database-and-sql-server"></a>Hur synkroniserar jag data mellan SQL Database och SQL Server
 
-Det finns flera sätt att åstadkomma detta:
+Du har flera sätt att uppnå detta:
 
-- **[Datasynkronisering](sql-database-sync-data.md)** – med den här funktionen kan du synkronisera data i bi-riktning mellan flera lokala SQL Server-databaser och SQL Database. Om du vill synkronisera med lokala SQL Server databaser måste du installera och konfigurera Sync-agenten på en lokal dator och öppna den utgående TCP-porten 1433.
-- **[Transaktions replikering](https://azure.microsoft.com/blog/transactional-replication-to-azure-sql-database-is-now-generally-available/)** – med transaktions replikering kan du synkronisera dina data från lokala datorer till Azure SQL DB med den lokala utgivaren och Azure SQL DB som prenumerant. För närvarande stöds endast den här installationen. Mer information om hur du migrerar data från lokala datorer till Azure SQL med minimal stillestånds tid finns i: [använda Transaction Replication](sql-database-single-database-migrate.md#method-2-use-transactional-replication)
+- **[Datasynkronisering](sql-database-sync-data.md)** – Den här funktionen hjälper dig att synkronisera data bi-directionally mellan flera lokala SQL Server-databaser och SQL Database. Om du vill synkronisera med lokala SQL Server-databaser måste du installera och konfigurera synkroniseringsagenten på en lokal dator och öppna den utgående TCP-porten 1433.
+- **[Transaktionsreplikering](https://azure.microsoft.com/blog/transactional-replication-to-azure-sql-database-is-now-generally-available/)** – Med transaktionsreplikering kan du synkronisera dina data från lokala till Azure SQL DB med att den lokala är utgivaren och Azure SQL DB som prenumerant. För tillfället stöds bara den här inställningen. Mer information om hur du migrerar data från lokalt till Azure SQL med minimal stilleståndstid finns i: [Använd transaktionsreplikering](sql-database-single-database-migrate.md#method-2-use-transactional-replication)
 
 ## <a name="next-steps"></a>Nästa steg
 
-Läs mer om [SQL Database](sql-database-technical-overview.md).
+Lär dig mer om [SQL Database](sql-database-technical-overview.md).

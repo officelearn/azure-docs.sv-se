@@ -1,6 +1,6 @@
 ---
-title: Övervaka kopierings aktivitet
-description: Lär dig mer om att övervaka körningen av kopierings aktiviteten i Azure Data Factory.
+title: Övervaka kopieringsaktivitet
+description: Läs mer om hur du övervakar kopieringsaktivitetskörningen i Azure Data Factory.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -12,66 +12,66 @@ ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: jingwang
 ms.openlocfilehash: 6494352bf957af83b45488493bf12a094c730c09
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/11/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79125763"
 ---
-# <a name="monitor-copy-activity"></a>Övervaka kopierings aktivitet
+# <a name="monitor-copy-activity"></a>Övervaka kopieringsaktivitet
 
-Den här artikeln beskriver hur du övervakar kopierings aktivitets körningen i Azure Data Factory. Den bygger på [översikts artikeln om kopierings aktiviteten](copy-activity-overview.md) som visar en översikt över kopierings aktiviteten.
+I den här artikeln beskrivs hur du övervakar kopieringsaktivitetskörningen i Azure Data Factory. Den bygger på [kopian aktivitet översikt](copy-activity-overview.md) artikeln som presenterar en allmän översikt över kopieringsaktivitet.
 
 ## <a name="monitor-visually"></a>Övervaka visuellt
 
-När du har skapat och publicerat en pipeline i Azure Data Factory kan du associera den med en utlösare eller manuellt starta en ad hoc-körning. Du kan övervaka alla dina pipelines körs internt i Azure Data Factory användar upplevelse. Lär dig mer om Azure Data Factory övervakning i allmänhet från [visuell övervakning Azure Data Factory](monitor-visually.md).
+När du har skapat och publicerat en pipeline i Azure Data Factory kan du associera den med en utlösare eller manuellt starta en ad hoc-körning. Du kan övervaka alla dina pipeline-körningar internt i azure data factory-användarupplevelsen. Lär dig mer om Azure Data Factory-övervakning i allmänhet från [Visually monitor Azure Data Factory](monitor-visually.md).
 
-Om du vill övervaka körningen av kopierings aktiviteten går du till Data Factory- **redigeraren & övervaka** användar gränssnitt. På fliken **övervaka** ser du en lista över pipeliner som körs. Klicka på länken **pipelin namn** för att få åtkomst till listan över aktivitets körningar i pipeline-körningen.
+Om du vill övervaka kopieringsaktivitetskörningen går du till **datafabriken Author & Monitor** UI. På fliken **Övervakar** visas en lista över pipeline-körningar, klicka på **länken för pipelinenamn** för att komma åt listan över aktivitetskörningar i pipelinekörningen.
 
-![Körning av övervaka kopierings aktivitet](./media/copy-activity-overview/monitor-pipeline-run.png)
+![Kör för övervakningskopieringsaktivitet](./media/copy-activity-overview/monitor-pipeline-run.png)
 
-På den här nivån kan du se länkar för att kopiera aktivitetens indata, utdata och fel (om kopierings aktiviteten körs Miss lyckas), samt statistik som varaktighet/status. Om du klickar på knappen **information** (glasögon) bredvid kopiera aktivitets namnet får du djupgående information om kopierings aktiviteten. 
+På den här nivån kan du se länkar för att kopiera aktivitetsindata, utdata och fel (om kopieringsaktivitetskörningen misslyckas) samt statistik som varaktighet/status. Om du klickar på **knappen Detaljer** (glasögon) bredvid kopieringsaktivitetsnamnet får du djup information om kopieringsaktivitetens utförande. 
 
-![Körning av övervaka kopierings aktivitet](./media/copy-activity-overview/monitor-copy-activity-run.png)
+![Kör för övervakningskopieringsaktivitet](./media/copy-activity-overview/monitor-copy-activity-run.png)
 
-I den här grafiska övervaknings vyn visar Azure Data Factory information om körningen av kopierings aktiviteten, inklusive lästa/skrivna volymer, antal filer/rader med data som har kopierats från källa till mottagare, data flöde, de konfigurationer som tillämpas för ditt kopierings scenario, steg för kopierings aktiviteten med motsvarande varaktighet och information. Se [den här tabellen](#monitor-programmatically) för varje möjlig mått och dess detaljerade beskrivning. 
+I den här grafiska övervakningsvyn visar Azure Data Factory information om kopieringsaktivitet, inklusive dataläs/skriftlig volym, antal filer/rader med data som kopieras från källa till diskho, dataflöde, konfigurationer som tillämpas för kopieringsscenariot, steg som kopieringsaktiviteten går igenom med motsvarande varaktigheter och information med mera. Se [den här tabellen](#monitor-programmatically) om varje möjligt mått och dess detaljerade beskrivning. 
 
-När du kör en kopierings aktivitet i Data Factory visas i vissa fall **"prestanda justerings tips"** längst upp i vyn kopiera aktivitets övervakning som du ser i exemplet. Tipsen visar vilken Flask hals som identifieras av ADF för den speciella kopierings körningen, tillsammans med förslag på vad som ska ändras för att förbättra kopieringen av data. Läs mer om [automatiska prestanda justerings tips](copy-activity-performance-troubleshooting.md#performance-tuning-tips).
+I vissa fall visas **"Prestandajusteringstips"** högst upp i övervakningsvyn för kopieringsaktivitet som visas i exemplet när du kör en kopieringsaktivitet i Data Factory. Tipsen talar om för dig flaskhalsen som identifieras av ADF för den specifika kopieringskörningen, tillsammans med förslag på vad du ska ändra för att öka kopieringsflödet. Läs mer om [tips om automatisk prestandajustering](copy-activity-performance-troubleshooting.md#performance-tuning-tips).
 
-Den nedre **körnings informationen och varaktigheten** beskriver de viktigaste stegen som kopierings aktiviteten går igenom, vilket är särskilt användbart för att felsöka kopierings prestandan. Flask halsen för din kopierings körning är den som har den längsta varaktigheten. Se [fel sökning av prestanda för kopierings aktivitet](copy-activity-performance-troubleshooting.md) på för vad varje steg representerar och detaljerad fel söknings vägledning.
+Den nedre **körningsinformationen och varaktigheten** beskriver de viktigaste stegen som kopieringsaktiviteten går igenom, vilket är särskilt användbart för felsökning av kopieringsprestandan. Flaskhalsen i kopieringskörningen är den med längst varaktighet. Se [Felsöka kopieringsaktivitetsprestanda](copy-activity-performance-troubleshooting.md) på för vad varje steg representerar och detaljerad felsökningsvägledning.
 
-**Exempel: kopiera från Amazon S3 till Azure Data Lake Storage Gen2**
+**Exempel: Kopiera från Amazon S3 till Azure Data Lake Storage Gen2**
 
-![Övervaka körnings information för kopierings aktivitet](./media/copy-activity-overview/monitor-copy-activity-run-details.png)
+![Information om övervakningskopieringsaktivitetskörning](./media/copy-activity-overview/monitor-copy-activity-run-details.png)
 
 ## <a name="monitor-programmatically"></a>Övervaka programmässigt
 
-Information om körningen av kopierings aktiviteten och prestanda egenskaperna returneras också i avsnittet **kopierings aktivitets körnings** > **utdata** , som används för att återge vyn UI-övervakning. Nedan visas en fullständig lista över egenskaper som kan returneras. Du ser bara de egenskaper som gäller för ditt kopierings scenario. Information om hur du övervakar aktivitets körningar programmatiskt i allmänhet finns i [program mässigt övervaka en Azure-datafabrik](monitor-programmatically.md).
+Information om kopiera aktivitetskörning och prestandaegenskaper returneras också i avsnittet **Kopiera aktivitetskörningsresultatutdata,** > **Output** som används för att återge övervakningsvyn för användargränssnittet. Följande är en fullständig lista över egenskaper som kan returneras. Du ser bara de egenskaper som gäller för kopieringsscenariot. Information om hur du övervakar aktivitet körs programmässigt i allmänhet finns i [Programmatiskt övervaka en Azure-datafabrik](monitor-programmatically.md).
 
 | Egenskapsnamn  | Beskrivning | Enhet i utdata |
 |:--- |:--- |:--- |
-| dataRead | Den faktiska mängden data som läses från källan. | Int64-värde, i byte |
-| dataWritten | Den faktiska monteringen av skrivna data som skrivs/allokeras till mottagaren. Storleken kan skilja sig från `dataRead` storlek, eftersom den relaterar hur varje data lager lagrar data. | Int64-värde, i byte |
-| filesRead | Antalet filer som lästs från filbaserad källa. | Int64-värde (ingen enhet) |
-| filesWritten | Antalet filer som skrivits/allokerats till filbaserad mottagare. | Int64-värde (ingen enhet) |
-| sourcePeakConnections | Det högsta antalet samtidiga anslutningar som upprättats till käll data lagret under kopierings aktivitets körningen. | Int64-värde (ingen enhet) |
-| sinkPeakConnections | Det högsta antalet samtidiga anslutningar som upprättats till mottagar data lagret under kopierings aktiviteten. | Int64-värde (ingen enhet) |
-| rowsRead | Antal rader som lästs från källan (gäller inte för binär kopia). | Int64-värde (ingen enhet) |
-| rowsCopied | Antal rader som kopierats till Sink (gäller inte för binär kopia). | Int64-värde (ingen enhet) |
-| rowsSkipped | Antal inkompatibla rader som hoppades över. Du kan aktivera inkompatibla rader som ska hoppas över genom att ange `enableSkipIncompatibleRow` till true. | Int64-värde (ingen enhet) |
-| copyDuration | Kopierings körningens längd. | Int32-värde, i sekunder |
-| throughput | Hastighet för data överföring. | Flytt ALS nummer, i kbit/s |
-| sourcePeakConnections | Det högsta antalet samtidiga anslutningar som upprättats till käll data lagret under kopierings aktivitets körningen. | Int32-värde (ingen enhet) |
-| sinkPeakConnections| Det högsta antalet samtidiga anslutningar som upprättats till mottagar data lagret under kopierings aktiviteten.| Int32-värde (ingen enhet) |
+| dataLäsa | Den faktiska mängden data som läss från källan. | Int64-värde, i byte |
+| dataSkrivet | Den faktiska monteringen av data skrivna / åtagit sig att diskbänken. Storleken kan skilja `dataRead` sig från storleken, eftersom den relaterar hur varje datalager lagrar data. | Int64-värde, i byte |
+| filerLäs | Antalet filer som läss från den filbaserade källan. | Int64-värde (ingen enhet) |
+| filerSkrivna | Antalet filer som skrivits/bekräftats till den filbaserade diskbänken. | Int64-värde (ingen enhet) |
+| källaUppkopplingar | Toppantal samtidiga anslutningar som upprättats till källdatalagret under kopieringsaktiviteten körs. | Int64-värde (ingen enhet) |
+| sinkPeakAnslutningar | Toppantal samtidiga anslutningar som upprättats till sink-datalagret under kopieringsaktiviteten körs. | Int64-värde (ingen enhet) |
+| raderLäs | Antal rader som läss från källan (gäller inte för binär kopia). | Int64-värde (ingen enhet) |
+| raderKoperade | Antal rader som kopierats till diskho (gäller inte för binär kopia). | Int64-värde (ingen enhet) |
+| raderSkipade | Antal inkompatibla rader som hoppades över. Du kan aktivera inkompatibla rader som `enableSkipIncompatibleRow` ska hoppas över genom att ställa in true. | Int64-värde (ingen enhet) |
+| kopieraDuration | Varaktighet för kopieringen kör. | Int32-värde, i sekunder |
+| dataflöde | Överföring av data. | Flyttalsnummer, i KBps |
+| källaUppkopplingar | Toppantal samtidiga anslutningar som upprättats till källdatalagret under kopieringsaktiviteten körs. | Int32-värde (ingen enhet) |
+| sinkPeakAnslutningar| Toppantal samtidiga anslutningar som upprättats till sink-datalagret under kopieringsaktiviteten körs.| Int32-värde (ingen enhet) |
 | sqlDwPolyBase | Om PolyBase används när data kopieras till SQL Data Warehouse. | Boolean |
-| redshiftUnload | Anger om borttagning används när data kopieras från RedShift. | Boolean |
-| hdfsDistcp | Om DistCp används när data kopieras från HDFS. | Boolean |
-| effectiveIntegrationRuntime | Integrerings körningen (IR) eller körningar som används för att köra aktivitets körningen i formatet `<IR name> (<region if it's Azure IR>)`. | Text (sträng) |
-| usedDataIntegrationUnits | Integrering för effektiv dataenheter vid kopiering. | Ett Int32-värde |
-| usedParallelCopies | Den effektiva parallelCopies vid kopiering. | Ett Int32-värde |
-| redirectRowPath | Sökväg till loggen över inkompatibla rader i blob-lagringen som du konfigurerar i egenskapen `redirectIncompatibleRowSettings`. Se [fel tolerans](copy-activity-overview.md#fault-tolerance). | Text (sträng) |
-| executionDetails | Mer information om de steg som kopierings aktiviteten går igenom och motsvarande steg, varaktigheter, konfigurationer och så vidare. Vi rekommenderar inte att du analyserar det här avsnittet eftersom det kan ändras. För att bättre förstå hur det hjälper dig att förstå och felsöka kopierings prestanda, se avsnittet [övervaka visuellt](#monitor-visually) objekt. | Matris |
-| perfRecommendation | Kopiera optimerings tips för prestanda. Se [tips för prestanda justering](copy-activity-performance-troubleshooting.md#performance-tuning-tips) för mer information. | Matris |
+| redshiftUnload | Om AVLASTNING används när data kopieras från Redshift. | Boolean |
+| hdfsDistcp (hdfsDistcp) | Om DistCp används när data kopieras från HDFS. | Boolean |
+| effektivtIntegrationRuntime | Integrationskörningen (IR) eller runtimes som används för `<IR name> (<region if it's Azure IR>)`att driva aktivitetskörningen i formatet . | Text (sträng) |
+| usedDataIntegrationUnits | De effektiva dataintegrationsenheterna under kopieringen. | Int32-värde |
+| användsParallelCopies | Den effektiva parallelCopies under kopia. | Int32-värde |
+| omdirigeraRowPath | Sökväg till loggen över inkompatibla rader i blob-lagringen som du konfigurerar i egenskapen. `redirectIncompatibleRowSettings` Se [Feltolerans](copy-activity-overview.md#fault-tolerance). | Text (sträng) |
+| executionDetails | Mer information om de stadier som kopieringsaktiviteten går igenom och motsvarande steg, varaktigheter, konfigurationer och så vidare. Vi rekommenderar inte att du tolkar det här avsnittet eftersom det kan ändras. Om du vill bättre förstå hur det hjälper dig att förstå och felsöka kopieringsprestanda läser du avsnittet [Övervaka visuellt.](#monitor-visually) | Matris |
+| perfKommendation | Kopiera prestandajusteringstips. Mer information finns i [Tips för prestandajustering.](copy-activity-performance-troubleshooting.md#performance-tuning-tips) | Matris |
 
 **Exempel:**
 
@@ -149,8 +149,8 @@ Information om körningen av kopierings aktiviteten och prestanda egenskaperna r
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-Se de andra artiklarna i Kopieringsaktiviteten:
+Se de andra artiklarna för kopieringsaktivitet:
 
-[Översikt över \- kopierings aktivitet](copy-activity-overview.md)
+\-[Kopiera aktivitetsöversikt](copy-activity-overview.md)
 
-prestanda för \- [kopierings aktivitet](copy-activity-performance.md)
+\-[Kopiera aktivitetsprestanda](copy-activity-performance.md)

@@ -1,6 +1,6 @@
 ---
-title: SAML-program med enkel inloggning – Microsoft Identity Platform | Microsoft Docs
-description: Konfigurera enkel inloggning (SSO) till icke-Galleri program i Microsoft Identity Platform (Azure AD)
+title: SAML enkel inloggning - icke-galleriprogram - Microsoft identity platform | Microsoft-dokument
+description: Konfigurera enkel inloggning (SSO) till program som inte är gallerier i Microsoft identity platform (Azure AD)
 services: active-directory
 author: msmimart
 manager: CelesteDG
@@ -13,154 +13,154 @@ ms.author: celested
 ms.reviewer: arvinh,luleon
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ad27ad5e34d9f44fe7d7be80e05e33dd6fb5e7b1
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79244217"
 ---
 # <a name="configure-saml-based-single-sign-on-to-non-gallery-applications"></a>Konfigurera SAML-baserad enkel inloggning till program som inte är gallerier
 
-När du [lägger till en Galleri-app](add-gallery-app.md) eller en [icke-Galleri-](add-non-gallery-app.md) WEBBAPP till dina Azure AD Enterprise-program, är ett av de alternativ för enkel inloggning som är tillgängligt för dig [SAML-baserad enkel inloggning](what-is-single-sign-on.md#saml-sso). Välj SAML när det är möjligt för program som autentiseras med ett av SAML-protokollen. Med enkel inloggning i SAML autentiserar Azure AD programmet med hjälp av användarens Azure AD-konto. Azure AD kommunicerar information inloggning till programmet via en anslutningsprotokoll. Du kan mappa användare till specifika program roller baserat på regler som du definierar i dina SAML-anspråk. I den här artikeln beskrivs hur du konfigurerar SAML-baserad enkel inloggning för en app som inte är en Galleri. 
+När du [lägger till en galleriapp](add-gallery-app.md) eller en [webbapp som inte är galleri](add-non-gallery-app.md) i dina Azure AD Enterprise-program är ett av de enskilda inloggningsalternativ som är tillgängliga för dig [SAML-baserad enkel inloggning](what-is-single-sign-on.md#saml-sso). Välj SAML när det är möjligt för program som autentiserar med något av SAML-protokollen. Med SAML enkel inloggning autentiserar Azure AD till programmet med hjälp av användarens Azure AD-konto. Azure AD kommunicerar inloggningsinformationen till programmet via ett anslutningsprotokoll. Du kan mappa användare till specifika programroller baserat på regler som du definierar i dina SAML-anspråk. I den här artikeln beskrivs hur du konfigurerar SAML-baserad enkel inloggning för en app som inte är galleri. 
 
 > [!NOTE]
-> Lägger du till en galleriapp? Hitta steg-för-steg-instruktioner i [listan med självstudier för SaaS-appar](../saas-apps/tutorial-list.md)
+> Lägger du till en galleriapp? Hitta steg-för-steg-installationsinstruktioner i [listan över Självstudier för SaaS-appar](../saas-apps/tutorial-list.md)
 
-Om du vill konfigurera SAML enkel inloggning för ett program som inte är ett galleri program utan att skriva kod, måste du ha en prenumeration tillsammans med en Azure AD Premium-licens och programmet måste ha stöd för SAML 2,0. Mer information om Azure AD-versioner finns i [priser för Azure AD](https://azure.microsoft.com/pricing/details/active-directory/).
+Om du vill konfigurera SAML-enkel inloggning för ett program som inte är galleri utan att skriva kod måste du ha en prenumeration tillsammans med en Azure AD Premium-licens och programmet måste stödja SAML 2.0. Mer information om Azure AD-versioner finns i [Azure AD-priser](https://azure.microsoft.com/pricing/details/active-directory/).
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
-Om programmet inte har lagts till i din Azure AD-klient kan du läsa [Lägg till en app som inte är en Galleri](add-non-gallery-app.md).
+Om programmet inte har lagts till i din Azure [AD-klient](add-non-gallery-app.md)finns i Lägga till en app som inte är galleri.
 
 ## <a name="step-1-edit-the-basic-saml-configuration"></a>Steg 1. Redigera den grundläggande SAML-konfigurationen
 
 1. Logga in på [Azure-portalen](https://portal.azure.com) som administratör för molnprogram eller programadministratör för din Azure AD-klientorganisation.
 
-2. Gå till **Azure Active Directory** > **företags program** och välj programmet i listan. 
+2. Navigera till **Azure Active Directory** > **Enterprise-program** och välj programmet i listan. 
    
-   - Om du vill söka efter programmet väljer du **alla program**i menyn **program typ** och väljer sedan **Använd**. Ange namnet på programmet i sökrutan och välj sedan programmet från resultaten.
+   - Om du vill söka efter programmet väljer du **Alla program**på **menyn Programtyp** och väljer sedan **Använd**. Ange namnet på programmet i sökrutan och välj sedan programmet från resultaten.
 
-3. Under avsnittet **Hantera** väljer du **enkel inloggning**. 
+3. Under avsnittet **Hantera** väljer du **Enkel inloggning**. 
 
-4. Välj **SAML**. Sidan **Konfigurera enkel inloggning med SAML-Preview** visas.
+4. Välj **SAML**. Sidan **Konfigurera enkel inloggning med SAML - Förhandsgranska** visas.
 
-   ![Steg 1 redigera den grundläggande SAML-konfigurationen](media/configure-single-sign-on-non-gallery-applications/step-one-basic-saml-config.png)
+   ![Steg 1 Redigera den grundläggande SAML-konfigurationen](media/configure-single-sign-on-non-gallery-applications/step-one-basic-saml-config.png)
 
-5. Om du vill redigera de grundläggande konfigurations alternativen för SAML väljer du **redigerings** ikonen (en penna) i det övre högra hörnet i avsnittet **grundläggande SAML-konfiguration** .
+5. Om du vill redigera de grundläggande SAML-konfigurationsalternativen markerar du **ikonen Redigera** (en penna) i det övre högra hörnet i avsnittet **Grundläggande SAML-konfiguration.**
 
-1. Ange följande inställningar. Du bör hämta värdena från program leverantören. Du kan ange värdena manuellt eller ladda upp en metadatafil för att extrahera värdet för fälten.
+1. Ange följande inställningar. Du bör hämta värdena från programleverantören. Du kan ange värdena eller ladda upp en metadatafil manuellt för att extrahera värdet för fälten.
 
-    | Grundläggande konfigurations inställning för SAML | SP-initierad | idP-initierad | Beskrivning |
+    | Grundläggande KONFIGURATION AV SAML | SP-initierad | idP-initierad | Beskrivning |
     |:--|:--|:--|:--|
-    | **Identifierare (enhets-ID)** | Krävs för vissa appar | Krävs för vissa appar | Identifierar programmet unikt. Azure AD skickar identifieraren till programmet som målgruppsparametern för SAML-token. Programmet förväntas verifiera den. Detta värde visas även som entitets-ID i alla SAML-metadata som anges av programmet. Ange en URL som använder följande mönster: "https://<subdomain>. contoso.com" *du hittar det här värdet som **Issuer** -element i **AuthnRequest** (SAML-begäran) som skickas av programmet.* |
-    | **Svarswebbadress** | Krävs | Krävs | Anger var programmet förväntas ta emot SAML-token. Svars-URL:en kallas även för URL för konsumenttjänst för försäkran (ACS-URL). Du kan använda ytterligare svars-URL-fält för att ange flera svars-URL: er. Du kan till exempel behöva ytterligare svars-URL: er för flera under domäner. I test syfte kan du ange flera svars-URL: er (lokala värden och offentliga URL: er) i taget. |
-    | **Inloggnings-URL** | Krävs | Ange inte | När en användare öppnar den här URL:en omdirigerar tjänstleverantören till Azure AD för att autentisera och logga in användaren. Azure AD använder URL:en för att starta programmet från Office 365 eller Azure AD-åtkomstpanelen. Om det är tomt utför Azure AD IdP inloggning när en användare startar programmet från Office 365, Azure AD-åtkomst panelen eller URL: en för Azure AD SSO.|
-    | **Relä status** | Valfri | Valfri | Anger för programmet var användaren ska omdirigeras när autentiseringen har slutförts. Vanligt vis är värdet en giltig URL för programmet. Vissa program använder dock det här fältet på olika sätt. Kontakta programleverantören om du vill ha mer information.
-    | **Utloggnings-URL** | Valfri | Valfri | Används för att skicka SAML-utloggnings Svaren tillbaka till programmet.
+    | **Identifierare (entitets-ID)** | Krävs för vissa appar | Krävs för vissa appar | Identifierar programmet unikt. Azure AD skickar identifieraren till programmet som målgruppsparametern för SAML-token. Programmet förväntas verifiera den. Detta värde visas även som entitets-ID i alla SAML-metadata som anges av programmet. Ange en URL som använder följande mönster: 'https://<subdomain>.contoso.com' Du hittar det här värdet som * **utfärdarelementet** i **AuthnRequest** (SAML-begäran) som skickas av programmet.* |
+    | **Svarswebbadress** | Krävs | Krävs | Anger var programmet förväntas ta emot SAML-token. Svars-URL:en kallas även för URL för konsumenttjänst för försäkran (ACS-URL). Du kan använda de ytterligare url-fälten för svar för att ange flera svarsadresser. Du kan till exempel behöva ytterligare svarsadresser för flera underdomäner. Du kan också ange flera svarsadresser (lokala värd- och offentliga webbadresser) åt gången. |
+    | **URL för inloggning** | Krävs | Ange inte | När en användare öppnar den här URL:en omdirigerar tjänstleverantören till Azure AD för att autentisera och logga in användaren. Azure AD använder URL:en för att starta programmet från Office 365 eller Azure AD-åtkomstpanelen. När det är tomt utför Azure AD IdP-initierad inloggning när en användare startar programmet från Office 365, Azure AD Access Panel eller Azure AD SSO-URL:en.|
+    | **Vidarebefordransstatus** | Valfri | Valfri | Anger för programmet var användaren ska omdirigeras när autentiseringen har slutförts. Vanligtvis är värdet en giltig URL för programmet. Vissa program använder dock det här fältet på ett annat sätt. Kontakta programleverantören om du vill ha mer information.
+    | **Utloggnings-URL** | Valfri | Valfri | Används för att skicka SAML Logout svar tillbaka till programmet.
 
-Mer information finns i [SAML-protokoll för enkel inloggning](../develop/single-sign-on-saml-protocol.md).
+Mer information finns i [Saml-protokollet för enkel inloggning](../develop/single-sign-on-saml-protocol.md).
 
 ## <a name="step-2-configure-user-attributes-and-claims"></a>Steg 2. Konfigurera användarattribut och anspråk 
 
-När en användare autentiserar sig till programmet utfärdar Azure AD programmet en SAML-token med information (eller anspråk) om den användare som unikt identifierar dem. Som standard innehåller den här informationen användarens användar namn, e-postadress, förnamn och efter namn. Du kan behöva anpassa dessa anspråk om exempelvis programmet kräver specifika anspråks värden eller ett annat **namn** än användar namn. Kraven för Gallery-appar beskrivs i de [programspecifika självstudierna](../saas-apps/tutorial-list.md), eller så kan du be program leverantören. De allmänna stegen för att konfigurera användarattribut och anspråk beskrivs nedan.
+När en användare autentiserar till programmet utfärdar Azure AD programmet en SAML-token med information (eller anspråk) om användaren som unikt identifierar dem. Som standard innehåller den här informationen användarens användarnamn, e-postadress, förnamn och efternamn. Du kan behöva anpassa dessa anspråk om programmet till exempel kräver specifika anspråksvärden eller ett **namnformat** annat än användarnamn. Krav för galleriappar [beskrivs i de programspecifika självstudierna](../saas-apps/tutorial-list.md)eller så kan du fråga programleverantören. De allmänna stegen för att konfigurera användarattribut och anspråk beskrivs nedan.
 
-1. I avsnittet **användarattribut och anspråk** väljer du **redigerings** ikonen (en penna) i det övre högra hörnet.
+1. I avsnittet **Användarattribut och anspråk** väljer du **ikonen Redigera** (en penna) i det övre högra hörnet.
 
    ![Steg 2 Konfigurera användarattribut och anspråk](media/configure-single-sign-on-non-gallery-applications/step-two-user-attributes-claims.png)
 
-2. Verifiera **namn identifierarens värde**. Standardvärdet är *User. PrincipalName*. Användaridentifieraren identifierar unikt varje användare i programmet. Exempel: om e-postadressen är både användarnamnet och den unika identifieraren anger du värdet *user.mail*.
+2. Verifiera **namnidentifieringsvärdet**. Standardvärdet är *user.principalname*. Användaridentifieraren identifierar unikt varje användare i programmet. Exempel: om e-postadressen är både användarnamnet och den unika identifieraren anger du värdet *user.mail*.
 
-3. Om du vill ändra **namnet på namn identifieraren**väljer du **redigerings** ikonen (en penna) för fältet namn på **Identifier-värde** . Gör lämpliga ändringar i identifierare och källa, om det behövs. Mer information finns i [Redigera NameId](../develop/active-directory-saml-claims-customization.md#editing-nameid). Spara ändringarna när du är klar. 
+3. Om du vill ändra **namnidentifieringsvärdet**markerar du **ikonen Redigera** (en penna) för fältet **Namnidentifieringsvärde.** Gör lämpliga ändringar i identifierarformat och källa efter behov. Mer information finns i [Redigera NameId](../develop/active-directory-saml-claims-customization.md#editing-nameid). Spara ändringarna när du är klar. 
  
-4. Om du vill konfigurera grupp anspråk väljer du **redigerings** ikonen för de **grupper som returneras i anspråks** fältet. Mer information finns i [Konfigurera grupp anspråk](../hybrid/how-to-connect-fed-group-claims.md).
+4. Om du vill konfigurera gruppanspråk väljer du ikonen **Redigera** för de **grupper som returneras i anspråksfältet.** Mer information finns i [Konfigurera gruppanspråk](../hybrid/how-to-connect-fed-group-claims.md).
 
-5. Om du vill lägga till ett anspråk väljer du **Lägg till nytt anspråk** överst på sidan. Ange **namnet** och välj lämplig källa. Om du väljer käll- **attributet** måste du välja det **källattribut** som du vill använda. Om du väljer **översättnings** källan måste du välja den **omvandling** och **parameter 1** som du vill använda. Mer information finns i [lägga till programspecifika anspråk](../develop/active-directory-saml-claims-customization.md#adding-application-specific-claims). Spara ändringarna när du är klar. 
+5. Om du vill lägga till ett anspråk väljer du **Lägg till nya anspråk** högst upp på sidan. Ange **namnet** och välj lämplig källa. Om du väljer **attributkällan** måste du välja det **källattribut** som du vill använda. Om du väljer **översättningskällan** måste du välja den **omvandling** och parameter **1** som du vill använda. Mer information finns i [Lägga till programspecifika anspråk](../develop/active-directory-saml-claims-customization.md#adding-application-specific-claims). Spara ändringarna när du är klar. 
 
 6. Välj **Spara**. Det nya anspråket visas i tabellen.
 
    > [!NOTE]
-   > Ytterligare sätt att anpassa SAML-token från Azure AD till ditt program finns i följande resurser.
-   >- Information om hur du skapar anpassade roller via Azure Portal finns i [Konfigurera roll anspråk](../develop/active-directory-enterprise-app-role-management.md).
-   >- Information om hur du anpassar anspråk via PowerShell finns i [Anpassa anspråk – PowerShell](../develop/active-directory-claims-mapping.md).
-   >- Om du vill ändra applikations manifestet för att konfigurera valfria anspråk för programmet, se [Konfigurera valfria anspråk](../develop/active-directory-optional-claims.md).
-   >- Om du vill ange livs längds principer för token för uppdateringstoken, åtkomsttoken, sessionstoken och ID-token, se [Konfigurera livs längd för token](../develop/active-directory-configurable-token-lifetimes.md). Eller, för att begränsa autentisering av sessioner via villkorlig åtkomst för Azure AD, se [hanterings funktioner för autentisering](https://go.microsoft.com/fwlink/?linkid=2083106).
+   > Mer information om hur du anpassar SAML-token från Azure AD till ditt program finns i följande resurser.
+   >- Information om hur du skapar anpassade roller via Azure-portalen finns i [Konfigurera rollanspråk](../develop/active-directory-enterprise-app-role-management.md).
+   >- Om du vill anpassa anspråken via PowerShell finns i [Anpassa anspråk - PowerShell](../develop/active-directory-claims-mapping.md).
+   >- Hur du ändrar programmanifestet för att konfigurera valfria anspråk för ditt program finns i [Konfigurera valfria anspråk](../develop/active-directory-optional-claims.md).
+   >- Om du vill ange principer för tokenlivstid för uppdateringstoken, åtkomsttoken, sessionstoken och ID-token finns [i Konfigurera tokenlivstid .](../develop/active-directory-configurable-token-lifetimes.md) Eller, för att begränsa autentiseringssessioner via Azure AD Villkorlig åtkomst, se [autentiseringssessionshanteringsfunktioner](https://go.microsoft.com/fwlink/?linkid=2083106).
 
-## <a name="step-3-manage-the-saml-signing-certificate"></a>Steg 3. Hantera SAML-signerings certifikatet
+## <a name="step-3-manage-the-saml-signing-certificate"></a>Steg 3. Hantera SAML-signeringscertifikatet
 
-Azure AD använder ett certifikat för att signera de SAML-token som skickas till programmet. Du behöver det här certifikatet för att ställa in förtroendet mellan Azure AD och programmet. Mer information om certifikat formatet finns i programmets SAML-dokumentation. Mer information finns i [Hantera certifikat för federerad enkel inloggning](manage-certificates-for-federated-single-sign-on.md) och [avancerade certifikat signerings alternativ i SAML-token](certificate-signing-options.md).
+Azure AD använder ett certifikat för att signera SAML-token som skickas till programmet. Du behöver det här certifikatet för att ställa in förtroendet mellan Azure AD och programmet. Mer information om certifikatformatet finns i programmets SAML-dokumentation. Mer information finns i [Hantera certifikat för federerade alternativ för enkel inloggning](manage-certificates-for-federated-single-sign-on.md) och Avancerad [certifikatsignering i SAML-token](certificate-signing-options.md).
 
-Från Azure AD kan du ladda ned det aktiva certifikatet i base64-eller RAW-format direkt från huvud sidan **Konfigurera enkel inloggning med SAML** . Du kan också hämta det aktiva certifikatet genom att ladda ned XML-filen med metadata för programmet eller genom att använda URL: en för app Federation-metadata. Följ dessa steg om du vill visa, skapa eller ladda ned dina certifikat (aktiva eller inaktiva).
+Från Azure AD kan du hämta det aktiva certifikatet i Base64- eller Raw-format direkt från huvudsidan **Konfigurera enkel inloggning med SAML.** Du kan också hämta det aktiva certifikatet genom att hämta XML-filen för programmetadata eller med hjälp av URL:en för appfederationsmetadata. Så här visar, skapar eller hämtar du dina certifikat (aktiva eller inaktiva).
 
-1. Gå till avsnittet **SAML-signerings certifikat** . 
+1. Gå till avsnittet **SAML-signeringscertifikat.** 
 
-   ![Steg 3 hantera SAML-signerings certifikatet](./media/configure-single-sign-on-non-gallery-applications/step-three-certificate.png)
+   ![Steg 3 Hantera SAML-signeringscertifikatet](./media/configure-single-sign-on-non-gallery-applications/step-three-certificate.png)
 
-2. Kontrol lera att certifikatet har:
+2. Kontrollera att certifikatet har:
 
-   - *Önskat förfallo datum.* Du kan konfigurera utgångs datumet för upp till tre år i framtiden.
-   - *Status aktiv för det önskade certifikatet.* Om statusen är **inaktiv**ändrar du statusen till **aktiv**. Om du vill ändra statusen högerklickar du på det önskade certifikatets rad och väljer **gör certifikat aktivt**.
-   - *Rätt signerings alternativ och algoritm.*
-   - *Rätt e-postadress för e-post.* När det aktiva certifikatet är nära utgångs datumet skickar Azure AD ett meddelande till den e-postadress som kon figurer ATS i det här fältet.
+   - *Önskat utgångsdatum.* Du kan konfigurera utgångsdatumet i upp till tre år in i framtiden.
+   - *Statusen aktiv för önskat certifikat.* Om statusen är **Inaktiv**ändrar du statusen till **Aktiv**. Om du vill ändra status högerklickar du på det önskade certifikatets rad och väljer **Gör certifikatet aktivt**.
+   - *Rätt signeringsalternativ och algoritm.*
+   - *Rätt e-postadress för anmälan.* När det aktiva certifikatet är nära utgångsdatumet skickar Azure AD ett meddelande till den e-postadress som konfigurerats i det här fältet.
 
-2. Om du vill hämta certifikatet väljer du ett av alternativen för base64-format, RAW-format eller XML för federationsmetadata. Azure AD tillhandahåller även **URL: en för app Federation-Metadata** där du kan komma åt de metadata som är specifika för programmet i formatet `https://login.microsoftonline.com/<Directory ID>/federationmetadata/2007-06/federationmetadata.xml?appid=<Application ID>`.
+2. Om du vill hämta certifikatet väljer du ett av alternativen för Base64-format, Raw-format eller FEDERATION Metadata XML. Azure AD tillhandahåller också **url:en för metadata för appfederationen** där du kan komma åt metadata som är specifika för programmet i formatet `https://login.microsoftonline.com/<Directory ID>/federationmetadata/2007-06/federationmetadata.xml?appid=<Application ID>`.
 
-3. Om du vill hantera, skapa eller importera ett certifikat väljer du **redigerings** ikonen (en penna) i det övre högra hörnet av certifikat avsnittet **SAML-signering** .
+3. Om du vill hantera, skapa eller importera ett certifikat markerar du **ikonen Redigera** (en penna) i det övre högra hörnet i avsnittet **SAML-signeringscertifikat.**
 
-   ![SAML-signeringscertifikat](./media/configure-single-sign-on-non-gallery-applications/saml-signing-certificate.png)
+   ![INTYG om SAML-signering](./media/configure-single-sign-on-non-gallery-applications/saml-signing-certificate.png)
 
 
    Vidta någon av följande åtgärder:
 
-   - Om du vill skapa ett nytt certifikat väljer du **nytt certifikat**, väljer **förfallo datum**och väljer sedan **Spara**. Om du vill aktivera certifikatet väljer du snabb menyn ( **...** ) och väljer **gör certifikat aktivt**.
-   - Om du vill överföra ett certifikat med privat nyckel och PFX-autentiseringsuppgifter väljer du **Importera certifikat** och bläddrar till certifikatet. Ange **PFX-lösenordet**och välj sedan **Lägg till**.  
-   - Använd följande alternativ för att konfigurera avancerade alternativ för certifikat signering. Beskrivningar av de här alternativen finns i artikeln [Avancerade alternativ för certifikat signering](certificate-signing-options.md) .
-      - I list rutan **signerings alternativ väljer du** **signera SAML-svar**, **signera SAML-kontroll**eller **signera SAML-svar och kontroll**.
-      - I list rutan **Signeringsalgoritm** väljer du **SHA-1** eller **SHA-256**.
-   - Om du vill meddela fler personer när det aktiva certifikatet snart upphör att gälla, anger du e-postadresserna i fälten för **e-postadresserna för aviseringar** .
+   - Om du vill skapa ett nytt certifikat väljer du **Nytt certifikat,** väljer **utgångsdatum**och väljer sedan **Spara**. Om du vill aktivera certifikatet markerar du snabbmenyn (**...**) och väljer **Gör certifikatet aktivt**.
+   - Om du vill ladda upp ett certifikat med privata nyckel- och pfx-autentiseringsuppgifter väljer du **Importera certifikat** och bläddrar till certifikatet. Ange **PFX-lösenordet**och välj sedan **Lägg till**.  
+   - Om du vill konfigurera avancerade alternativ för certifikatsignering använder du följande alternativ. Beskrivningar av dessa alternativ finns i artikeln [Alternativ för avancerade certifikatsigneringsalternativ.](certificate-signing-options.md)
+      - I listrutan **Signeringsalternativ** väljer du **Signera SAML-svar,** **Signera SAML-påstående**eller **Signera SAML-svar och -- -eller signera SAML-svar och -- -eller signera SAML-svar och -- -eller signera SAML-svar och -- -eller signera SAML-svar och -- -.**
+      - I listrutan **Signeringsalgoritm** väljer du **SHA-1** eller **SHA-256**.
+   - Om du vill meddela ytterligare personer när det aktiva certifikatet är nära utgångsdatumet anger du e-postadresserna i fälten **E-postadresser till meddelanden.**
 
-4. Om du har gjort ändringarna väljer du **Spara** längst upp i avsnittet **SAML-signerings certifikat** . 
+4. Om du har gjort ändringar väljer du **Spara** högst upp i avsnittet **SAML-signeringscertifikat.** 
 
-## <a name="step-4-set-up-the-application-to-use-azure-ad"></a>Steg 4. Konfigurera programmet för att använda Azure AD
+## <a name="step-4-set-up-the-application-to-use-azure-ad"></a>Steg 4. Konfigurera programmet så att det använder Azure AD
 
-I avsnittet **konfigurera \<applicationName >** visas de värden som måste konfigureras i programmet så att Azure AD används som en SAML-identitetsprovider. De värden som krävs varierar beroende på programmet. Mer information finns i programmets SAML-dokumentation. Du hittar dokumentationen genom att gå till avsnittet **konfigurera \<program namn >** rubriken och välja **Visa steg för steg-instruktioner**. Dokumentationen visas på sidan **Konfigurera inloggning** . På den sidan får du hjälp att fylla i **inloggnings-URL**: en, **Azure AD-identifierare**och **Logga ut URL** -värden i rubriken **Konfigurera \<program namn >** .
+Avsnittet **Konfigurera \<applicationName>** visar de värden som måste konfigureras i programmet så att azure AD används som SAML-identitetsprovider. De värden som krävs varierar beroende på programmet. Mer information finns i programmets SAML-dokumentation. Om du vill hitta dokumentationen går du till rubriken **Konfigurera \<programnamn>** och väljer **Visa steg-för-steg-instruktioner**. Dokumentationen visas på sidan **Konfigurera inloggning.** Den sidan hjälper dig att fylla i **värdena för inloggnings-URL,** **Azure AD-identifierare**och **utloggning** i rubriken **Konfigurera \<programnamn>.**
 
-1. Rulla ned till avsnittet **konfigurera \<applicationName >** . 
+1. Bläddra ned till avsnittet **Konfigurera \<applicationName>.** 
    
-   ![Steg 4 konfigurera programmet](media/configure-single-sign-on-non-gallery-applications/step-four-app-config.png)
+   ![Steg 4 Konfigurera programmet](media/configure-single-sign-on-non-gallery-applications/step-four-app-config.png)
 
-1. Kopiera värdet från varje rad i det här avsnittet efter behov och följ programspecifika instruktioner för att lägga till värdet i programmet. För Gallery-appar kan du Visa dokumentationen genom att välja **Visa steg-för-steg-instruktioner**. 
-   - URL: en för **inloggnings** -och **utloggnings-URL: er** matchas båda till samma slut punkt, vilket är slut punkten för SAML Request-hantering för din instans av Azure AD. 
-   - **Azure AD-identifieraren** är värdet för **UTFÄRDAren** i SAML-token som utfärdats till programmet.
+1. Kopiera värdet från varje rad i det här avsnittet efter behov och följ de programspecifika instruktionerna för att lägga till värdet i programmet. För galleriappar kan du visa dokumentationen genom att välja **Visa steg-för-steg-instruktioner**. 
+   - Url-värden för **inloggnings-URL** och **utloggning** matchas till samma slutpunkt, vilket är slutpunkten för HANTERING AV SAML för din instans av Azure AD. 
+   - **Azure AD-identifieraren** är värdet för **Utfärdaren** i SAML-token som utfärdats till programmet.
 2. När du har klistrat in alla värden i lämpliga fält väljer du **Spara**.
 
-## <a name="step-5-validate-single-sign-on"></a>Steg 5. Verifiera enkel inloggning
+## <a name="step-5-validate-single-sign-on"></a>Steg 5. Validera enkel inloggning
 
-När du har konfigurerat ditt program till att använda Azure AD som en SAML-baserad identitetsprovider, kan du testa inställningarna för att se om enkel inloggning fungerar för ditt konto. 
+När du har konfigurerat ditt program så att det använder Azure AD som SAML-baserad identitetsleverantör kan du testa inställningarna för att se om enkel inloggning fungerar för ditt konto. 
 
-2. Bläddra till avsnittet **Verifiera enkel inloggning med <applicationName>** .
+2. Bläddra till avsnittet **Validera enkel <applicationName> inloggning med.**
 
-   ![Steg 5 validera enkel inloggning](media/configure-single-sign-on-non-gallery-applications/step-five-validate.png)
+   ![Steg 5 Validera enkel inloggning](media/configure-single-sign-on-non-gallery-applications/step-five-validate.png)
 
 3. Välj **Verifiera**. Testningsalternativen visas.
 
 4. Välj **Logga in som aktuell användare**. 
 
-Om inloggningen är klar är du redo att tilldela användare och grupper till ditt SAML-program.
-Om ett fel meddelande visas utför du följande steg:
+Om inloggningen lyckas är du redo att tilldela användare och grupper till ditt SAML-program.
+Om ett felmeddelande visas gör du följande:
 
-1. Kopiera och klistra in informationen i rutan **Hur ser felet ut?** .
+1. Kopiera och klistra in informationen i rutan **Hur ser felet ut?**.
 
     ![Få råd om lösning](media/configure-single-sign-on-non-gallery-applications/error-guidance.png)
 
-2. Välj **Hämta lösnings vägledning**. Rotorsaken och råd om lösning visas.  I det här exemplet hade användaren inte tilldelats till programmet.
+2. Välj **Hämta lösningsvägledning**. Rotorsaken och råd om lösning visas.  I det här exemplet hade användaren inte tilldelats till programmet.
 
-3. Läs lösnings vägledningen och åtgärda problemet om möjligt.
+3. Läs lösningsvägledningen och åtgärda problemet om möjligt.
 
 4. Kör testet igen tills det slutförts helt.
 
-Mer information finns i [FELSÖKA SAML-baserad enkel inloggning till program i Azure Active Directory](../azuread-dev/howto-v1-debug-saml-sso-issues.md).
+Mer information finns i [Felsöka SAML-baserad enkel inloggning till program i Azure Active Directory](../azuread-dev/howto-v1-debug-saml-sso-issues.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
 - [Tilldela användare eller grupper till programmet](methods-for-assigning-users-and-groups.md)
-- [Konfigurera automatisk etablering av användar konto](../app-provisioning/configure-automatic-user-provisioning-portal.md)
+- [Konfigurera automatisk etablering av användarkonton](../app-provisioning/configure-automatic-user-provisioning-portal.md)

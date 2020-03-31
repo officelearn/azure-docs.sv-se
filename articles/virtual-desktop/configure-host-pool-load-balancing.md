@@ -1,6 +1,6 @@
 ---
-title: Konfigurera belastnings utjämning för Windows Virtual Desktop – Azure
-description: Så här konfigurerar du belastnings Utjämnings metoden för en Windows Virtual Desktop-miljö.
+title: Konfigurera belastningsutjämning för Windows Virtual Desktop - Azure
+description: Konfigurerar belastningsutjämningsmetoden för en Windows Virtual Desktop-miljö.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -9,46 +9,46 @@ ms.date: 08/29/2019
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 5d8670994791e360f5e3b30b90b4bea5d55464b5
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/11/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79128303"
 ---
 # <a name="configure-the-windows-virtual-desktop-load-balancing-method"></a>Konfigurera metoden för belastningsutjämning för Windows Virtual Desktop
 
-Genom att konfigurera belastnings Utjämnings metoden för en värddator kan du justera Windows Virtual Desktop-miljön så att den bättre passar dina behov.
+Genom att konfigurera belastningsutjämningsmetoden för en värdpool kan du justera Windows Virtual Desktop-miljön så att den passar dina behov bättre.
 
 >[!NOTE]
-> Detta gäller inte för en beständig Skriv bords värd eftersom användarna alltid har en 1:1-mappning till en sessionsnyckel i poolen.
+> Detta gäller inte för en beständig skrivbordsvärdpool eftersom användarna alltid har en 1:1-mappning till en sessionsvärd i värdpoolen.
 
-## <a name="configure-breadth-first-load-balancing"></a>Konfigurera bredd – första belastnings utjämning
+## <a name="configure-breadth-first-load-balancing"></a>Konfigurera bredd-första belastningsutjämning
 
-Bredd – första belastnings utjämning är standard konfigurationen för nya icke-permanent värdbaserade pooler. Bredd – den första belastnings utjämningen distribuerar nya användarsessioner över alla tillgängliga sessionsbaserade värdar i poolen. När du konfigurerar den första belastnings utjämningen kan du ange en högsta sessionsgräns per session-värd i värd gruppen.
+Bredd-första belastningsutjämning är standardkonfigurationen för nya icke-beständiga värdpooler. Bredd-första belastningsutjämning distribuerar nya användarsessioner över alla tillgängliga sessionsvärdar i värdpoolen. När du konfigurerar bredd-första belastningsutjämning kan du ange en maximal sessionsgräns per sessionsvärd i värdpoolen.
 
-Börja med att [Hämta och importera Windows Virtual Desktop PowerShell-modulen](/powershell/windows-virtual-desktop/overview/) som ska användas i PowerShell-sessionen om du inte redan gjort det. Sedan kör du följande cmdlet för att logga in på ditt konto:
+Hämta och importera först [Windows Virtual Desktop PowerShell-modulen](/powershell/windows-virtual-desktop/overview/) som du kan använda i PowerShell-sessionen om du inte redan har gjort det. Därefter kör du följande cmdlet för att logga in på ditt konto:
 
 ```powershell
 Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
 ```
 
-Kör följande PowerShell-cmdlet för att konfigurera en adresspool för att utföra bredd-första belastnings utjämning utan att justera den högsta tillåtna sessionsgränsen:
+Om du vill konfigurera en värdpool för att utföra bredd-första belastningsutjämning utan att justera den maximala sessionsgränsen kör du följande PowerShell-cmdlet:
 
 ```powershell
 Set-RdsHostPool <tenantname> <hostpoolname> -BreadthFirstLoadBalancer
 ```
 
-Kör följande PowerShell-cmdlet för att konfigurera en adresspool för att utföra bredd-första belastnings utjämning och för att använda en ny maxgräns för sessionen:
+Om du vill konfigurera en värdpool för att utföra bredd-första belastningsutjämning och använda en ny maximal sessionsgräns kör du följande PowerShell-cmdlet:
 
 ```powershell
 Set-RdsHostPool <tenantname> <hostpoolname> -BreadthFirstLoadBalancer -MaxSessionLimit ###
 ```
 
-## <a name="configure-depth-first-load-balancing"></a>Konfigurera djup-första belastnings utjämning
+## <a name="configure-depth-first-load-balancing"></a>Konfigurera djup-första belastningsutjämning
 
-Djup – den första belastnings utjämningen distribuerar nya användarsessioner till en tillgänglig sessionsvariabel med det högsta antalet anslutningar men har inte uppnått gränsen för högsta antal sessioner. När du konfigurerar djup-första belastnings utjämning, **måste** du ange en högsta sessionsgräns per session-värd i poolen.
+Djup-första belastningsutjämning distribuerar nya användarsessioner till en tillgänglig sessionsvärd med det högsta antalet anslutningar men har inte nått sitt maximala tröskelvärde för sessionsgräns. När du konfigurerar djup-första belastningsutjämning **måste** du ange en maximal sessionsgräns per sessionsvärd i värdpoolen.
 
-Kör följande PowerShell-cmdlet för att konfigurera en adresspool för att utföra djup-första belastnings utjämning:
+Om du vill konfigurera en värdpool för att utföra djup-första belastningsutjämning kör du följande PowerShell-cmdlet:
 
 ```powershell
 Set-RdsHostPool <tenantname> <hostpoolname> -DepthFirstLoadBalancer -MaxSessionLimit ###

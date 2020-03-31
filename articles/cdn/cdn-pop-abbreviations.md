@@ -1,6 +1,6 @@
 ---
-title: Azure CDN POP-platser efter förkortning | Microsoft Docs
-description: Den här artikeln visar en lista över Azure CDN POP-platser, sorterade efter POP förkortning för Azure CDN från Verizon.
+title: Azure CDN POP-platser efter förkortning | Microsoft-dokument
+description: I den här artikeln visas Azure CDN POP-platser, sorterade efter POP-förkortning, för Azure CDN från Verizon.
 services: cdn
 documentationcenter: ''
 author: mdgattuso
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/20/2018
 ms.author: magattus
 ms.openlocfilehash: 488f7bc4cb715e9cdb99b7a7c79407b9bbc0d29c
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67593602"
 ---
 # <a name="azure-cdn-pop-locations-by-abbreviation"></a>Azure CDN POP-platser efter förkortning
@@ -28,131 +28,131 @@ ms.locfileid: "67593602"
 > 
 
 
-Den här artikeln innehåller POP-platser, sorterade efter POP förkortning för **Azure CDN från Verizon**.
+I den här artikeln visas POP-platser, sorterade efter POP-förkortning, för **Azure CDN från Verizon**.
 
 Förkortning | Location | Region
 | --- | --- | --- |
-AGA | Atlanta, Georgia, USA | Nordamerika: Östkust USA
-AGB | Atlanta, Georgia, USA | Nordamerika: Östkust USA
-AKL | Auckland, Nya Zeeland | Asien
-AMA | Amsterdam, Nederländerna | Europa
-AMB | Amsterdam, Nederländerna | Europa
+Aga | Atlanta, Georgien, USA | Nordamerika: Östkusten USA
+Agb | Atlanta, Georgien, USA | Nordamerika: Östkusten USA
+Akl | Auckland, Nya Zeeland | Asien
+Ama | Amsterdam, Nederländerna | Europa
+Amb | Amsterdam, Nederländerna | Europa
 AMS | Amsterdam, Nederländerna | Europa
-ARN | Stockholm, Sverige | Europa
-ATL | Atlanta, Georgia, USA | Nordamerika: Östkust USA
-BAQ | Barranquilla, Colombia | Latinamerika
-BLR | Bengaluru (Bangalore) (Bangalore), Indien | Asien
-BNJ | Newark, New Jersey, USA | Nordamerika: Östkust USA
-BOS | Boston, Massachusetts, USA | Nordamerika: Östkust USA
-BTH | Batam, Indonesien | Asien
-BUE | Buenos Aires, Argentina | Latinamerika
-BUR | Los Angeles, Kalifornien, USA | Nordamerika: Västkusten USA
-CDG | Paris, Frankrike | Europa
-CGH | São Paulo, Brasilien | Latinamerika
-CGK | Jakarta, Indonesien | Asien
-CHA | Chicago, Illinois, USA | Nordamerika: Östkust USA
-CHB | Chicago, Illinois, USA | Nordamerika: Östkust USA
-CNJ | Newark, New Jersey, USA | Nordamerika: Östkust USA
-CPH | Köpenhamn, Danmark | Europa
-CPM | Los Angeles, Kalifornien, USA | Nordamerika: Västkusten USA
-CVA | Ashburn, Virginia, USA | Nordamerika: Östkust USA
-DAA | Dallas, Texas, USA | Nordamerika: Västkust centrala USA
-DAB | Dallas, Texas, USA | Nordamerika: Västkust centrala USA
-DCA | Ashburn, Virginia, USA | Nordamerika: Östkust USA
-DCB | Ashburn, Virginia, USA | Nordamerika: Östkust USA
-DCC | Ashburn, Virginia, USA | Nordamerika: Östkust USA
+Arn | Stockholm, Sverige | Europa
+Atl | Atlanta, Georgien, USA | Nordamerika: Östkusten USA
+Baq | Barranquilla, Colombia | Latinamerika
+BLR | Bengaluru (Bangalore), Indien | Asien
+BNJ (BNJ) | Newark, New Jersey, USA | Nordamerika: Östkusten USA
+Bim | Boston, Massachusetts, USA | Nordamerika: Östkusten USA
+Bth | Batam, Indonesien | Asien
+BUE (på andra) | Buenos Aires, Argentina | Latinamerika
+BUR (BURMA) | Los Angeles, Kalifornien, USA | Nordamerika: Västkusten USA
+Cdg | Paris, Frankrike | Europa
+Cgh | São Paulo, Brasilien | Latinamerika
+CGK (på andra sätt) | Jakarta, Indonesien | Asien
+Cha | Chicago, Illinois, USA | Nordamerika: Östkusten USA
+CHB (olika) | Chicago, Illinois, USA | Nordamerika: Östkusten USA
+Cnj | Newark, New Jersey, USA | Nordamerika: Östkusten USA
+Cph | Köpenhamn, Danmark | Europa
+Cpm | Los Angeles, Kalifornien, USA | Nordamerika: Västkusten USA
+Cva | Ashburn, Virginia, USA | Nordamerika: Östkusten USA
+Daa | Dallas, Texas, USA | Nordamerika: Central Coast USA
+Dab | Dallas, Texas, USA | Nordamerika: Central Coast USA
+Dca | Ashburn, Virginia, USA | Nordamerika: Östkusten USA
+Dcb | Ashburn, Virginia, USA | Nordamerika: Östkusten USA
+Dcc | Ashburn, Virginia, USA | Nordamerika: Östkusten USA
 DEL | Noida, Indien | Asien
-DEN | Denver, Colorado, USA | Nordamerika: Centrala USA
-DFW | Dallas, Texas, USA | Nordamerika: Centrala USA
-EWR | New York, New York USA | Nordamerika: Östkust USA
-EZE | Buenos Aires, Argentina | Latinamerika
+DEN (på andra) | Denver, Colorado, USA | Nordamerika: Centralamerika
+Dfw | Dallas, Texas, USA | Nordamerika: Centralamerika
+Ewr | New York, New York USA | Nordamerika: Östkusten USA
+Eze | Buenos Aires, Argentina | Latinamerika
 FCN | Frankfurt, Tyskland | Europa
-FLL | Miami, Florida, USA | Nordamerika: Östkust USA
+Fll | Miami, Florida, USA | Nordamerika: Östkusten USA
 FRA | Frankfurt, Tyskland | Europa
-FRB | Frankfurt, Tyskland | Europa
-FRC | Frankfurt, Tyskland | Europa
-FRF | Frankfurt, Tyskland | Europa
-FTW | Dallas, Texas, USA | Nordamerika: Centrala USA
-FTY | Atlanta, Georgia, USA | Nordamerika: Östkust USA
-GIG | Rio de Janeiro, Brasilien | Latinamerika
+FRB (på andra) | Frankfurt, Tyskland | Europa
+Frc | Frankfurt, Tyskland | Europa
+Frf | Frankfurt, Tyskland | Europa
+Ftw | Dallas, Texas, USA | Nordamerika: Centralamerika
+FTY (FTY) | Atlanta, Georgien, USA | Nordamerika: Östkusten USA
+Gig | Rio de Janeiro, Brasilien | Latinamerika
 GRU | São Paulo, Brasilien | Latinamerika
-HJÄ | Helsinki, Finland | Europa
-HHP | Hongkong SAR | Asien
-HKC | Hongkong SAR | Asien
-HKG | Hongkong SAR | Asien
-HND | Tokyo, Japan | Asien
-IAD | Ashburn, Virginia, USA | Nordamerika: Östkust USA
-ICN | Seoul, Korea | Asien
-ITM | Osaka, Japan | Asien
-JFK | New York, New York, USA | Nordamerika: Östkust USA
-JNB | Johannesburg, Sydafrika | Europa
-KHH | Kaohsiung, Taiwan | Asien
-KIX | Osaka, Japan | Asien
-LAA | Los Angeles, Kalifornien, USA | Nordamerika: Västkusten USA
+HEL ( HEL ) | Helsingfors, Finland | Europa
+HHP (HHP) | Hongkong | Asien
+HKC (på ett sätt) | Hongkong | Asien
+Hkg | Hongkong | Asien
+Hnd | Tokyo, Japan | Asien
+Iad | Ashburn, Virginia, USA | Nordamerika: Östkusten USA
+Icn | Seoul, Korea | Asien
+Itm | Osaka, Japan | Asien
+Jfk | New York, New York, USA | Nordamerika: Östkusten USA
+Jnb | Johannesburg, Sydafrika | Europa
+KHH (av ) | Kaohsiung, Taiwan | Asien
+Kix | Osaka, Japan | Asien
+Laa | Los Angeles, Kalifornien, USA | Nordamerika: Västkusten USA
 LAB | Los Angeles, Kalifornien, USA | Nordamerika: Västkusten USA
-LAM | Los Angeles, Kalifornien, USA | Nordamerika: Västkusten USA
+Lam | Los Angeles, Kalifornien, USA | Nordamerika: Västkusten USA
 LAN | Los Angeles, Kalifornien, USA | Nordamerika: Västkusten USA
-LAX | Los Angeles, Kalifornien, USA | Nordamerika: Västkusten USA
-BVA | London, Storbritannien | Europa
-LGA | New York, New York, USA | Nordamerika: Östkust USA
-LHA | London, Storbritannien | Europa
-LHB | London, Storbritannien | Europa
-LHM | London, Storbritannien | Europa
-LHN | London, Storbritannien | Europa
-LHR | London, Storbritannien | Europa
-LIM | Lima, Peru | Latinamerika
-MAA | Chennai, Indien | Asien
-MAD | Madrid, Spain | Europa
-MDE | Medellin, Colombia | Latinamerika
-MDW | Chicago, Illinois, USA | Nordamerika: Östkust USA
-MEB | Melbourne, Australien | Asien
-MEL | Melbourne, Australien | Asien
-MEX | Mexico City, Mexico | Nordamerika
-MIA | Miami, Florida, USA | Nordamerika: Östkust USA
-MIB | Miami, Florida, USA | Nordamerika: Östkust USA
-MIC | Miami, Florida, USA | Nordamerika: Östkust USA
-MRS | Marseille, France | Europa
-MXP | Milano, Italien | Europa
-NAG | Mumbai, India | Asien
-NDL | Delhi, Indien | Asien
-NRT | Tokyo, Japan | Asien
-NYA | New York, New York, USA | Nordamerika: Östkust USA
-NYB | New York, New York, USA | Nordamerika: Östkust USA
-OMM | Muskat, Oman | Mellanöstern
-VALITET | Chicago, Illinois, USA | Nordamerika: Centrala USA
-ORMATION OM SIG SJÄLVA | Paris, Frankrike | Europa
-OXR | Los Angeles, Kalifornien, USA | Nordamerika: Västkusten USA
-PAB | Paris, Frankrike | Europa
-PAE | Seattle, Washington, USA | Nordamerika: Västkusten USA
-PBC | Puebla, Mexiko | Nordamerika
-PHL | Philadelphia, Pennsylvania, USA | Nordamerika: Östkust USA
-PNQ | Mumbai, India | Asien
-POX | Paris, Frankrike | Europa
-QRO | Santiago de Querétaro, Mexiko | Nordamerika
-RHV | SAN Jose, Kalifornien, USA | Nordamerika: Västkusten USA
-RIB | Rio de Janeiro, Brasilien | Latinamerika
-RIX | Riga, Lettland | Europa
-RTM | Amsterdam, Nederländerna | Europa
-SAA | SAN Jose, Kalifornien, USA | Nordamerika: Västkusten USA
-SAB | SAN Jose, Kalifornien, USA | Nordamerika: Västkusten USA
-SCL | Valparaíso, Chile | Latinamerika
-SEA | Seattle, Washington, USA | Nordamerika: Västkusten USA
-SEB | Seattle, Washington, USA | Nordamerika: Västkusten USA
-SEC | Seattle, Washington, USA | Nordamerika: Västkusten USA
-SGB | Singapore | Asien
+LAX (LAX) | Los Angeles, Kalifornien, USA | Nordamerika: Västkusten USA
+Bva | London, Storbritannien | Europa
+Lga | New York, New York, USA | Nordamerika: Östkusten USA
+Lha | London, Storbritannien | Europa
+Lhb | London, Storbritannien | Europa
+LHM (1) | London, Storbritannien | Europa
+LHN (0) | London, Storbritannien | Europa
+Lhr | London, Storbritannien | Europa
+LIM (lim) | Lima, Peru | Latinamerika
+Maa | Chennai, Indien | Asien
+Mad | Madrid, Spanien | Europa
+Mde | Medellin, Colombia | Latinamerika
+Mdw | Chicago, Illinois, USA | Nordamerika: Östkusten USA
+Meb | Melbourne, Australien | Asien
+Mel | Melbourne, Australien | Asien
+Mex | Mexico City, Mexiko | Nordamerika
+Mia | Miami, Florida, USA | Nordamerika: Östkusten USA
+Mib | Miami, Florida, USA | Nordamerika: Östkusten USA
+Mic | Miami, Florida, USA | Nordamerika: Östkusten USA
+Fru | Marseille, Frankrike | Europa
+Mxp | Milano, Italien | Europa
+Nag | Mumbai, Indien | Asien
+NDL (på andra plats) | Delhi, Indien | Asien
+Nrt | Tokyo, Japan | Asien
+NYA (nya) | New York, New York, USA | Nordamerika: Östkusten USA
+NYB (på andra sätt) | New York, New York, USA | Nordamerika: Östkusten USA
+Omm | Muscat, Oman | Mellanöstern
+ORD (ORD) | Chicago, Illinois, USA | Nordamerika: Centralamerika
+Ory | Paris, Frankrike | Europa
+OXR (OXR) | Los Angeles, Kalifornien, USA | Nordamerika: Västkusten USA
+Pab | Paris, Frankrike | Europa
+Pae | Seattle, Washington, USA | Nordamerika: Västkusten USA
+Pbc | Puebla, Mexiko | Nordamerika
+Phl | Philadelphia, Pennsylvania, USA | Nordamerika: Östkusten USA
+Pnq | Mumbai, Indien | Asien
+Pox | Paris, Frankrike | Europa
+Qro | Santiago de Querétaro, Mexiko | Nordamerika
+RHV (PÅ) | San Jose, Kalifornien, USA | Nordamerika: Västkusten USA
+Rib | Rio de Janeiro, Brasilien | Latinamerika
+Rix | Riga, Lettland | Europa
+Rtm | Amsterdam, Nederländerna | Europa
+Saa | San Jose, Kalifornien, USA | Nordamerika: Västkusten USA
+Sab | San Jose, Kalifornien, USA | Nordamerika: Västkusten USA
+Scl | Valparaíso, Chile | Latinamerika
+Havet | Seattle, Washington, USA | Nordamerika: Västkusten USA
+Seb | Seattle, Washington, USA | Nordamerika: Västkusten USA
+Sec | Seattle, Washington, USA | Nordamerika: Västkusten USA
+SGB (SGB) | Singapore | Asien
 SIN | Singapore | Asien
-SJC | SAN Jose, Kalifornien, USA | Nordamerika: Västkusten USA
-SJO | SAN Jose, Kalifornien, USA | Nordamerika: Västkusten USA
-STO | Stockholm, Sverige | Europa
-SYD | Sydney, Australien | Asien
-TIR | Chennai, Indien | Asien
-TKA | Tokyo, Japan | Asien
-TKB | Tokyo, Japan | Asien
-TOJ | Madrid, Spain | Europa
-FÖRENADE ARABEMIRATEN | Fujairah, Förenade Arabemiraten | Europa
-UIO | Quito, Ecuador | Latinamerika
-SA BANDLISTA | Wien, Österrike | Europa
-VNY | Los Angeles, Kalifornien, USA | Nordamerika: Västkusten USA
-WAW | Warszawa, Polen | Europa
+Sjc | San Jose, Kalifornien, USA | Nordamerika: Västkusten USA
+Sjo | San Jose, Kalifornien, USA | Nordamerika: Västkusten USA
+Sto | Stockholm, Sverige | Europa
+SYD (på andra) | Sydney, Australien | Asien
+Tir | Chennai, Indien | Asien
+Tka | Tokyo, Japan | Asien
+Tkb | Tokyo, Japan | Asien
+TOJ (AV ) | Madrid, Spanien | Europa
+UAE | Fujairah, Förenade Arabemiraten | Europa
+UIO (storbritannien) | Quito, Ecuador | Latinamerika
+Vie | Wien, Österrike | Europa
+VNY (på ett sätt) | Los Angeles, Kalifornien, USA | Nordamerika: Västkusten USA
+Waw | Warszawa, Polen | Europa
 
 

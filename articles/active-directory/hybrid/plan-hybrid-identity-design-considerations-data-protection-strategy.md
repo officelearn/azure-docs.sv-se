@@ -1,6 +1,6 @@
 ---
-title: Hybrid identity design – data protection strategi Azure | Microsoft Docs
-description: Du definierar data protection strategin för din hybrididentitetslösning att uppfylla de affärskrav som du har definierat.
+title: Hybrididentitetsdesign – dataskyddsstrategi Azure | Microsoft-dokument
+description: Du definierar dataskyddsstrategin för din hybrididentitetslösning för att uppfylla de affärskrav som du har definierat.
 documentationcenter: ''
 services: active-directory
 author: billmath
@@ -18,32 +18,32 @@ ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e0186d862968259aae73071cfecd7d62443d0256
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67109361"
 ---
-# <a name="define-data-protection-strategy-for-your-hybrid-identity-solution"></a>Definiera en strategi för skydd av data för din hybrididentitetslösning
-I det här steget definierar du strategin för din hybrididentitetslösning att uppfylla affärskrav som du definierade i dataskydd:
+# <a name="define-data-protection-strategy-for-your-hybrid-identity-solution"></a>Definiera dataskyddsstrategi för din hybrididentitetslösning
+I den här uppgiften definierar du dataskyddsstrategin för hybrididentitetslösningen för att uppfylla de affärskrav som du definierade i:
 
-* [Fastställa kraven på dataskydd](plan-hybrid-identity-design-considerations-dataprotection-requirements.md)
+* [Bestäm dataskyddskrav](plan-hybrid-identity-design-considerations-dataprotection-requirements.md)
 * [Fastställa krav för innehållshantering](plan-hybrid-identity-design-considerations-contentmgt-requirements.md)
-* [Fastställa krav på åtkomstkontroll](plan-hybrid-identity-design-considerations-accesscontrol-requirements.md)
-* [Fastställa kraven på incidentsvar](plan-hybrid-identity-design-considerations-incident-response-requirements.md)
+* [Fastställa åtkomstkontrollkrav](plan-hybrid-identity-design-considerations-accesscontrol-requirements.md)
+* [Fastställa krav för incidenthantering](plan-hybrid-identity-design-considerations-incident-response-requirements.md)
 
-## <a name="define-data-protection-options"></a>Definiera alternativ för skydd av data
-Enligt beskrivningen i [fastställa katalogsynkroniseringskrav](plan-hybrid-identity-design-considerations-directory-sync-requirements.md), Microsoft Azure AD kan synkronisera med din lokala Active Directory Domain Services (AD DS). Den här integrationen kan organisationer använda Azure AD kan verifiera användarnas autentiseringsuppgifter när de försöker komma åt företagets resurser. Du kan göra detta för båda scenarierna: data vid rest både lokalt och i molnet. Åtkomst till data i Azure AD kräver användarautentisering via en säkerhetstokentjänst (STS).
+## <a name="define-data-protection-options"></a>Definiera alternativ för dataskydd
+Som förklaras i [Bestäm krav på katalogsynkronisering](plan-hybrid-identity-design-considerations-directory-sync-requirements.md)kan Microsoft Azure AD synkronisera med dina lokala ACTIVE Directory Domain Services (AD DS). Med den här integreringen kan organisationer använda Azure AD för att verifiera användarnas autentiseringsuppgifter när de försöker komma åt företagsresurser. Du kan göra detta för båda scenarierna: data lokalt och lokalt och i molnet. Åtkomst till data i Azure AD kräver användarautentisering via en säkerhetstokentjänst (STS).
 
-När autentiseringen är klar läses användarens huvudnamn (UPN) från autentiseringstoken. Auktorisering systemet avgör sedan replikerade partition och behållare som motsvarar användarens domän. Information om användarens förekomst aktiverade tillstånd och rollen sedan hjälper auktorisering systemet avgöra om åtkomst till Målklienten är auktoriserad för användaren i den aktuella sessionen. Vissa auktoriserade åtgärder (mer specifikt kan skapa användare och lösenordsåterställning) skapa en verifieringskedja som en Innehavaradministratör använder sedan för att hantera arbete för efterlevnad eller undersökningar.
+När det har autentiserats läss användarens huvudnamn (UPN) från autentiseringstoken. Sedan bestämmer auktoriseringssystemet den replikerade partitionen och behållaren som motsvarar användarens domän. Information om användarens existens, aktiverat tillstånd och roll hjälper sedan auktoriseringssystemet att avgöra om åtkomst till målklienten är auktoriserad för användaren i den sessionen. Vissa behöriga åtgärder (särskilt skapa användar- och lösenordsåterställning) skapar en granskningsspårning som en klientadministratör sedan använder för att hantera efterlevnadsinsatser eller undersökningar.
 
-Flyttar data från ditt lokala datacenter till Azure Storage via en Internetanslutning kan inte alltid är möjligt på grund av datavolymen, bandbreddstillgänglighet eller annat att tänka på. Den [Azure Storage Import/Export-tjänsten](../../storage/common/storage-import-export-service.md) erbjuder en maskinvarubaserad alternativ för att placera/hämtning av stora mängder data i blob storage. Du kan skicka [BitLocker-krypterad](https://technet.microsoft.com/library/dn306081#BKMK_BL2012R2) hårddiskar direkt till ett Azure-datacenter där molnoperatörer Överför innehållet till ditt storage-konto eller de kan ladda ned dina Azure-data till dina enheter att återgå till dig. Endast krypterade diskar accepteras för den här processen (med en BitLocker-nyckel som genereras av själva tjänsten under installationen av jobb). BitLocker-nyckel har angetts till Azure separat, vilket ger utanför band viktiga delar.
+Det kanske inte alltid är möjligt att flytta data från ditt lokala datacenter till Azure Storage via en Internetanslutning på grund av datavolym, bandbreddstillgänglighet eller andra överväganden. [Azure Storage Import/Export Service](../../storage/common/storage-import-export-service.md) är ett maskinvarubaserat alternativ för att placera/hämta stora mängder data i blob-lagring. Det låter dig skicka [BitLocker-krypterade](https://technet.microsoft.com/library/dn306081#BKMK_BL2012R2) hårddiskar direkt till ett Azure-datacenter där molnoperatörer överför innehållet till ditt lagringskonto, eller så kan de ladda ned dina Azure-data till dina enheter för att återgå till dig. Endast krypterade diskar accepteras för den här processen (med hjälp av en BitLocker-nyckel som genereras av själva tjänsten under jobbinställningarna). BitLocker-nyckeln tillhandahålls till Azure separat, vilket ger out of band-tangentdelning.
 
-Eftersom data under överföringen kan ske i olika scenarier, är också relevant för vet att Microsoft Azure använder [virtuella nätverk](https://azure.microsoft.com/documentation/services/virtual-network/) att isolera klienternas trafik från varandra, använda åtgärder, till exempel värd - och gästnivå brandväggar, IP-paketfilter, port blockerar och HTTPS-slutpunkter. De flesta av Azures intern kommunikation, inklusive infrastruktur-infrastruktur och infrastruktur-kund (lokalt), är också krypterade. Ett annat viktigt scenario är kommunikation inom Azure-Datacenter; Microsoft hanterar nätverk om du vill säkerställa att ingen virtuell dator kan personifiera eller eavesdrop på IP-adressen för en annan. TLS/SSL används vid åtkomst till Azure Storage eller SQL-databaser eller när du ansluter till molntjänster. I det här fallet ansvarar kund-administratören för att erhålla ett TLS/SSL-certifikat och distribuera den till den klient-infrastrukturen. Flyttning av data trafik mellan virtuella datorer i samma distribution eller mellan klienter i en enda distribution via Microsoft Azure Virtual Network kan skyddas genom krypterad kommunikationsprotokoll, till exempel HTTPS eller SSL/TLS.
+Eftersom data under överföring kan ske i olika scenarier, är också relevant att veta att Microsoft Azure använder [virtuella nätverk](https://azure.microsoft.com/documentation/services/virtual-network/) för att isolera klienters trafik från varandra, med åtgärder som värd- och gästnivå brandväggar, IP-paketfiltrering, portblockering och HTTPS-slutpunkter. Men de flesta av Azures interna kommunikation, inklusive infrastruktur till infrastruktur och infrastruktur-till-kund (lokalt), är också krypterade. Ett annat viktigt scenario är kommunikationen inom Azure-datacenter. Microsoft hanterar nätverk för att säkerställa att ingen virtuell dator kan personifiera eller tjuvlyssna på EN annans IP-adress. TLS/SSL används vid åtkomst till Azure Storage eller SQL-databaser, eller när du ansluter till Molntjänster. I det här fallet är kundadministratören ansvarig för att skaffa ett TLS/SSL-certifikat och distribuera det till sin klientinfrastruktur. Datatrafik som flyttas mellan virtuella datorer i samma distribution eller mellan klienter i en enda distribution via Microsoft Azure Virtual Network kan skyddas via krypterade kommunikationsprotokoll som HTTPS, SSL/TLS eller andra.
 
-Beroende på hur du besvarade frågorna i [avgöra kraven på dataskydd](plan-hybrid-identity-design-considerations-dataprotection-requirements.md), du ska kunna avgöra hur du vill skydda dina data och hur hybrididentitetslösning kan hjälpa dig med den här processen. I följande tabell visas de alternativ som stöds av Azure och som är tillgängliga för varje scenario för skydd av data.
+Beroende på hur du besvarade frågorna i [Bestäm dataskyddskraven](plan-hybrid-identity-design-considerations-dataprotection-requirements.md)bör du kunna avgöra hur du vill skydda dina data och hur hybrididentitetslösningen kan hjälpa dig med den processen. I följande tabell visas de alternativ som stöds av Azure och som är tillgängliga för varje dataskyddsscenario.
 
-| Alternativ för skydd av data | I vila i molnet | Vid rest på plats | Under överföring |
+| Alternativ för dataskydd | I vila i molnet | I vila lokalt | Under överföring |
 | --- | --- | --- | --- |
 | BitLocker-diskkryptering |X |X | |
 | SQL Server för att kryptera databaser |X |X | |
@@ -52,124 +52,124 @@ Beroende på hur du besvarade frågorna i [avgöra kraven på dataskydd](plan-hy
 | VPN | | |X |
 
 > [!NOTE]
-> Läs [efterlevnad av funktion](https://azure.microsoft.com/support/trust-center/services/) på [Microsoft Azure Trust Center](https://azure.microsoft.com/support/trust-center/) vill veta mer om de certifieringar som Azure-tjänster är kompatibla med.
-> Jämförelse mellan dessa alternativ kan inte användas för den här uppgiften eftersom alternativen för att skydda data använder en multilayer metod. Se till att du använder sig av alla alternativ som är tillgängliga för varje status för data.
+> Läs [efterlevnad efter funktion](https://azure.microsoft.com/support/trust-center/services/) på Microsoft Azure Trust [Center](https://azure.microsoft.com/support/trust-center/) för att veta mer om de certifieringar som varje Azure-tjänst är kompatibel med.
+> Eftersom alternativen för dataskydd använder en flerskiktsmetod är jämförelsen mellan dessa alternativ inte tillämplig för den här uppgiften. Se till att du använder alla tillgängliga alternativ för varje datatillstånd.
 >
 >
 
 ## <a name="define-content-management-options"></a>Definiera alternativ för innehållshantering
 
-En fördel med att använda Azure AD för att hantera en hybrididentitetsinfrastruktur är att processen är helt transparent från slutanvändarens perspektiv. Användaren försöker få åtkomst till en delad resurs, resursen kräver autentisering, som användaren måste skicka en autentiseringsbegäran om till Azure AD för att hämta token och åtkomst till resursen. Hela processen sker i bakgrunden utan interaktion från användaren. 
+En fördel med att använda Azure AD för att hantera en hybrididentitetsinfrastruktur är att processen är helt transparent från slutanvändarens perspektiv. Användaren försöker komma åt en delad resurs, resursen kräver autentisering, användaren måste skicka en autentiseringsbegäran till Azure AD för att hämta token och komma åt resursen. Hela den här processen sker i bakgrunden, utan användarinteraktion. 
 
-Organisationer som har problem om datasekretess vanligtvis kräver dataklassificering för sin lösning. Om den aktuella lokala infrastrukturen redan använder klassificering, är det möjligt att använda Azure AD som huvudlagringsplatsen för användarens identitet. Ett vanligt Verktyg att det är användas lokalt för dataklassificering kallas [Dataklassificeringsverktygslådan](https://msdn.microsoft.com/library/Hh204743.aspx) för Windows Server 2012 R2. Det här verktyget kan hjälpa till att identifiera, klassificera och skydda data på filservrar i ditt privata moln. Det är också möjligt att använda den [automatisk Filklassificering](https://technet.microsoft.com/library/hh831672.aspx) i Windows Server 2012 för att åstadkomma detta.
+Organisationer som är oroliga för datasekretess kräver vanligtvis dataklassificering för sin lösning. Om deras nuvarande lokala infrastruktur redan använder dataklassificering är det möjligt att använda Azure AD som huvuddatabas för användarens identitet. Ett vanligt verktyg som används lokalt för dataklassificering kallas [Dataklassificeringsverktyg](https://msdn.microsoft.com/library/Hh204743.aspx) för Windows Server 2012 R2. Det här verktyget kan hjälpa dig att identifiera, klassificera och skydda data på filservrar i ditt privata moln. Det är också möjligt att använda den [automatiska filklassificeringen](https://technet.microsoft.com/library/hh831672.aspx) i Windows Server 2012 för att utföra den här uppgiften.
 
-Om din organisation har inte klassificering av data på plats, men behöver skydda känsliga filer utan att lägga till nya servrar på plats, använder de Microsoft [Azure Rights Management-tjänsten](https://technet.microsoft.com/library/JJ585026.aspx).  Azure RMS använder krypterings-, identitets- och auktoriseringsprinciper för att skydda dina filer och e-post och fungerar på flera olika enheter – telefoner, surfplattor och datorer. Eftersom Azure RMS är en molnbaserad tjänst, finns behöver du inte uttryckligen konfigurera förtroenden med andra organisationer innan du kan dela skyddat innehåll med dem. Samarbete mellan olika organisationer stöds automatiskt om de redan har en Office 365 eller Azure AD-katalog. Du kan också synkronisera enbart det katalogattribut som Azure RMS måste ha stöd för en gemensam identitet för din lokala Active Directory-konton med hjälp av Azure Active Directory Sync Services (AAD Sync) eller Azure AD Connect.
+Om din organisation inte har dataklassificering på plats men behöver skydda känsliga filer utan att lägga till nya servrar lokalt kan de använda Microsoft [Azure Rights Management Service](https://technet.microsoft.com/library/JJ585026.aspx).  Azure RMS använder krypterings-, identitets- och auktoriseringsprinciper för att skydda dina filer och e-post, och det fungerar på flera enheter – telefoner, surfplattor och datorer. Eftersom Azure RMS är en molntjänst behöver du inte uttryckligen konfigurera förtroenden med andra organisationer innan du kan dela skyddat innehåll med dem. Samarbete mellan olika organisationer stöds automatiskt om de redan har en Office 365- eller Azure AD-katalog. Du kan också synkronisera bara de katalogattribut som Azure RMS behöver för att stödja en gemensam identitet för dina lokala Active Directory-konton med hjälp av Azure Active Directory Synchronization Services (AAD Sync) eller Azure AD Connect.
 
-En viktig del av innehållshantering är att förstå vem har åtkomst till vilken resurs, en omfattande loggningsfunktioner är därför viktigt för att hantera identiteter. Azure AD tillhandahåller logg över 30 dagar, inklusive:
+En viktig del av innehållshanteringen är att förstå vem som har åtkomst till vilken resurs, därför är en omfattande loggningskapacitet viktig för identitetshanteringslösningen. Azure AD tillhandahåller logg över 30 dagar inklusive:
 
-* Ändringar i rollmedlemskap (ex: användare som lagts till i rollen som Global administratör)
-* Uppdateringar av autentiseringsuppgifter (t.ex.: lösenordsändringar)
-* Domänhantering (ex: Verifiera en anpassad domän, ta bort en domän)
-* Att lägga till eller ta bort program
-* Hantering av användare (ex: lägga till, ta bort, uppdatera en användare)
-* Att lägga till eller ta bort licenser
+* Ändringar i rollmedlemskap (t.ex. användare som läggs till i rollen Global admin)
+* Uppdateringar av autentiseringsuppgifter (t.ex. lösenordsändringar)
+* Domänhantering (t.ex. verifiera en anpassad domän, ta bort en domän)
+* Lägga till eller ta bort program
+* Användarhantering (t.ex. lägga till, ta bort, uppdatera en användare)
+* Lägga till eller ta bort licenser
 
 > [!NOTE]
-> Läs [Microsoft Azure-säkerhet och hantering av granskningslogg](https://download.microsoft.com/download/B/6/C/B6C0A98B-D34A-417C-826E-3EA28CDFC9DD/AzureSecurityandAuditLogManagement_11132014.pdf) vill veta mer om funktioner för loggning i Azure.
-> Beroende på hur du besvarade frågorna i [fastställa krav för innehållshantering](plan-hybrid-identity-design-considerations-contentmgt-requirements.md), du ska kunna avgöra hur du vill att innehållet ska hanteras i din hybrididentitetslösning. Alla alternativ som visas i tabell 6 är kan integreras med Azure AD, är det viktigt att definiera vilket är mer lämpliga för dina affärsbehov.
+> Läs [Microsoft Azure Security and Audit Log Management](https://download.microsoft.com/download/B/6/C/B6C0A98B-D34A-417C-826E-3EA28CDFC9DD/AzureSecurityandAuditLogManagement_11132014.pdf) om du vill veta mer om loggningsfunktioner i Azure.
+> Beroende på hur du besvarade frågorna i [Bestäm innehållshanteringskrav](plan-hybrid-identity-design-considerations-contentmgt-requirements.md)bör du kunna avgöra hur du vill att innehållet ska hanteras i hybrididentitetslösningen. Även om alla alternativ som exponeras i tabell 6 kan integreras med Azure AD, är det viktigt att definiera vilket som är lämpligare för dina affärsbehov.
 >
 >
 
 | Alternativ för innehållshantering | Fördelar | Nackdelar |
 | --- | --- | --- |
-| Lokalt centraliserad (Active Directory Rights Management Server) |Fullständig kontroll över server-infrastrukturen ansvarar för att klassificera data <br> Med den inbyggda funktionen i Windows Server, utan behovet av extra licens eller prenumeration <br> Kan integreras med Azure AD i ett hybridscenario <br> Stöd för information rights management (IRM) funktioner i Microsoft Online services, till exempel Exchange Online och SharePoint Online, samt Office 365 <br> Har stöd för lokala Microsoft server-produkter, till exempel Exchange Server, SharePoint Server och filservrar som kör Windows Server och Filklassificeringsinfrastruktur (FCI). |Högre Underhåll (hålla jämna steg med uppdateringar, konfiguration och eventuella uppgraderingar), eftersom IT äger servern <br> Kräv en serverinfrastruktur på plats<br> Internt utnyttja inte Azure-funktioner |
-| Centraliserad i molnet (Azure RMS) |Enklare att hantera jämfört med lokal lösning <br> Kan integreras med AD DS i ett scenario med hybridanvändning <br>  Helt integrerat med Azure AD <br> Du behöver en lokal server för att distribuera tjänsten <br> Har stöd för lokala Microsoft-serverprodukter som Exchange Server, SharePoint, Server och filservrar som kör Windows Server och Filklassificering (FCI) för <br> IT-avdelningen, kan ha fullständig kontroll över sin klients nyckeln med BYOK-funktioner. |Din organisation måste ha en molnprenumeration med stöd för RMS <br> Din organisation måste ha en Azure AD-katalog för stöd av användarautentisering för RMS |
-| Hybrid (Azure RMS som är integrerad med, en lokal Active Directory Rights Management Server) |Det här scenariot ackumuleras fördelarna med både, centraliserad lokalt och i molnet. |Din organisation måste ha en molnprenumeration med stöd för RMS <br> Din organisation måste ha en Azure AD-katalog för stöd av användarautentisering för RMS, <br> Kräver en anslutning mellan Azure-molntjänst och lokal infrastruktur |
+| Centraliserad lokal (Active Directory Rights Management Server) |Fullständig kontroll över serverinfrastrukturen som ansvarar för att klassificera data <br> Inbyggd funktion i Windows Server, inget behov av extra licens eller prenumeration <br> Kan integreras med Azure AD i ett hybridscenario <br> Stöder IRM-funktioner (Information Rights Management) i Microsoft Online-tjänster som Exchange Online och SharePoint Online samt Office 365 <br> Stöder lokala Microsoft-serverprodukter, till exempel Exchange Server, SharePoint Server och filservrar som kör Windows Server och File Classification Infrastructure (FCI). |Högre underhåll (håll jämna steg med uppdateringar, konfiguration och potentiella uppgraderingar), eftersom IT äger servern <br> Kräv en serverinfrastruktur lokalt<br> Utnyttjar inte Azure-funktioner internt |
+| Centraliserad i molnet (Azure RMS) |Enklare att hantera jämfört med den lokala lösningen <br> Kan integreras med AD DS i ett hybridscenario <br>  Helt integrerad med Azure AD <br> Kräver inte en lokal server för att distribuera tjänsten <br> Stöder lokala Microsoft-serverprodukter som Exchange Server,SharePoint, Server och filservrar som kör Windows Server och Filklassificering, Infrastruktur (FCI) <br> IT, kan ha fullständig kontroll över sin klients nyckel med BYOK kapacitet. |Din organisation måste ha en molnprenumeration som stöder RMS <br> Din organisation måste ha en Azure AD-katalog för att stödja användarautentisering för RMS |
+| Hybrid (Azure RMS integrerat med, lokal Active Directory Rights Management Server) |Det här scenariot ackumulerar fördelarna med både, centraliserade lokalt och i molnet. |Din organisation måste ha en molnprenumeration som stöder RMS <br> Din organisation måste ha en Azure AD-katalog för att kunna stödja användarautentisering för RMS, <br> Kräver en anslutning mellan Azure-molntjänst och lokal infrastruktur |
 
 ## <a name="define-access-control-options"></a>Definiera alternativ för åtkomstkontroll
-Du kan aktivera ditt företag att använda en central identitetsdatabas samtidigt som användarna genom att använda autentisering, auktorisering och få tillgång till kontroll funktioner tillgängliga i Azure AD och partner att använda enkel inloggning (SSO), enligt följande bild:
+Genom att utnyttja funktionerna för autentisering, auktorisering och åtkomstkontroll som är tillgängliga i Azure AD kan du göra det möjligt för ditt företag att använda en central identitetsdatabas samtidigt som användare och partner kan använda enkel inloggning (SSO) enligt följande bild:
 
-![centraliserad hantering](./media/plan-hybrid-identity-design-considerations/centralized-management.png)
+![centraliserad förvaltning](./media/plan-hybrid-identity-design-considerations/centralized-management.png)
 
-Centraliserad hantering och helt integrering med andra kataloger
+Centraliserad förvaltning och fullständig integration med andra kataloger
 
-Azure Active Directory tillhandahåller enkel inloggning till tusentals SaaS-program och lokala webbprogram. Se den [kompatibilitetslistan för Azure Active Directory federation: identitetsleverantörer från tredje part som kan användas för att implementera enkel inloggning](how-to-connect-fed-compatibility.md) nedan för mer information om den enkel inloggning från tredje parten som har testats av Microsoft. Den här funktionen gör det möjligt för organisation att implementera en mängd B2B-scenarier och bibehålla kontrollen över identitets- och åtkomsthantering. Under B2B är utforma processen dock viktigt att förstå den autentiseringsmetod som används av partnern och kontrollera om den här metoden stöds av Azure. Följande metoder är för närvarande stöds av Azure AD:
+Azure Active Directory ger enkel inloggning till tusentals SaaS-program och lokala webbprogram. Mer information om den SSO-tredje part som testades av Microsoft finns i [listan över kompatibilitetskompatibiliteter](how-to-connect-fed-compatibility.md) för Azure Active Directory- federation. Den här funktionen gör det möjligt för organisationen att implementera en mängd olika B2B-scenarier samtidigt som du behåller kontrollen över identitets- och åtkomsthanteringen. Men under B2B-designprocessen är viktigt att förstå autentiseringsmetoden som används av partnern och validera om den här metoden stöds av Azure. För närvarande stöds följande metoder av Azure AD:
 
-* Security Assertion Markup Language (SAML)
-* OAuth
+* Markeringsspråk för säkerhetspåstående (SAML)
+* Oauth
 * Kerberos
 * Token
 * Certifikat
 
 > [!NOTE]
-> läsa [Azure Active Directory-autentiseringsprotokoll](https://msdn.microsoft.com/library/azure/dn151124.aspx) du mer information om varje protokoll och dess funktioner i Azure.
+> läs [Azure Active Directory Authentication Protocols](https://msdn.microsoft.com/library/azure/dn151124.aspx) för att veta mer om varje protokoll och dess funktioner i Azure.
 >
 >
 
-Med stöd för Azure AD, kan mobila program använder samma enkelt mobiltjänster autentisering kan låta de anställda att logga in på sina mobila program med sina företagsuppgifter för Active Directory. Med den här funktionen stöds Azure AD som identitetsprovider i mobiltjänster tillsammans med de andra identitetsprovidrar som redan stöds (bland annat Microsoft-Accounts, Facebook-ID, Google-ID och Twitter-ID). Om lokala appar använder användarens autentiseringsuppgifter i företagets AD DS, vara åtkomst från partner och användare som kommer från molnet transparent. Du kan hantera användares villkorlig åtkomstkontroll till (molnbaserade) webbprogram, webb-API, Microsoft-molntjänster, SaaS-program från tredje part och interna (mobila) klientprogram och få fördelarna med säkerhet, granskning, rapporterar med någon Placera. Vi rekommenderar dock att validera implementeringen i en icke-produktionsmiljö eller med ett begränsat antal användare.
+Med Azure AD-supporten kan mobila affärsprogram använda samma enkla autentiseringsupplevelse för mobila tjänster så att anställda kan logga in på sina mobila program med sina Active Directory-autentiseringsuppgifter för företag. Med den här funktionen stöds Azure AD som identitetsleverantör i Mobila tjänster tillsammans med andra identitetsleverantörer som redan stöds (som inkluderar Microsoft-konton, Facebook-ID, Google-ID och Twitter-ID). Om de lokala apparna använder användarens autentiseringsuppgifter som finns på företagets AD DS, bör åtkomsten från partner och användare som kommer från molnet vara transparent. Du kan hantera användarens kontroller för villkorlig åtkomst till (molnbaserade) webbprogram, webb-API, Microsofts molntjänster, SaaS-program från tredje part och inbyggda (mobila) klientprogram och har fördelarna med säkerhet, granskning, rapportering Plats. Vi rekommenderar dock att du validerar implementeringen i en icke-produktionsmiljö eller med ett begränsat antal användare.
 
 > [!TIP]
-> Det är viktigt att nämna att Azure AD inte har en grupprincip som har AD DS. Om du vill framtvinga princip för enheter du behöver en lösning för hantering av mobila enheter som [Microsoft Intune](https://technet.microsoft.com/library/jj676587.aspx).
+> Det är viktigt att nämna att Azure AD inte har grupprincip som AD DS har. För att kunna tillämpa principen för enheter behöver du en lösning för hantering av mobila enheter, till exempel [Microsoft Intune](https://technet.microsoft.com/library/jj676587.aspx).
 >
 >
 
-När användaren autentiseras med hjälp av Azure AD, är det viktigt att utvärdera åtkomstnivån som användaren har. Åtkomstnivån som användaren har över en resurs kan variera. Azure AD kan lägga till ett extra säkerhetslager genom att kontrollera åtkomst till vissa resurser, Tänk på att själva resursen kan också ha sin egen åtkomstkontrollistan separat, till exempel åtkomstkontroll för filer som finns på en filserver. Nedan sammanfattas nivåerna av åtkomstkontroll som du kan ha i ett scenario med hybridanvändning:
+När användaren har autentiserats med Azure AD är det viktigt att utvärdera åtkomstnivån som användaren har. Åtkomstnivån som användaren har via en resurs kan variera. Azure AD kan lägga till ytterligare ett säkerhetslager genom att styra åtkomsten till vissa resurser, men tänk på att själva resursen också kan ha en egen åtkomstkontrolllista separat, till exempel åtkomstkontrollen för filer som finns i en filserver. Följande bild sammanfattar de åtkomstkontrollnivåer som du kan ha i ett hybridscenario:
 
-![Åtkomstkontroll](./media/plan-hybrid-identity-design-considerations/accesscontrol.png)
+![åtkomstkontroll](./media/plan-hybrid-identity-design-considerations/accesscontrol.png)
 
-Varje interaktion i diagrammet visade i bild X representerar en access control-scenario som kan omfattas av Azure AD. Nedan finner du en beskrivning av varje scenario:
+Varje interaktion i diagrammet som visas i figur X representerar ett åtkomstkontrollscenario som kan omfattas av Azure AD. Nedan har du en beskrivning av varje scenario:
 
-1. Villkorlig åtkomst till program som finns lokalt: Du kan använda registrerade enheter med åtkomstprinciper för program som är konfigurerade för att använda AD FS i Windows Server 2012 R2.
+1. Villkorlig åtkomst till program som finns lokalt: Du kan använda registrerade enheter med åtkomstprinciper för program som är konfigurerade för att använda AD FS med Windows Server 2012 R2.
 
-2. Åtkomstkontroll till Azure-portalen:  Med Azure kan du styra åtkomst till portalen med hjälp av rollbaserad åtkomstkontroll (RBAC)). Den här metoden gör det möjligt för företaget att begränsa antalet åtgärder som en person kan göra i Azure-portalen. Genom att använda RBAC för att styra åtkomst till portalen kan kan IT-administratörer delegera åtkomst med hjälp av följande metoder för hantering av åtkomst:
+2. Åtkomstkontroll till Azure-portalen: Med Azure kan du också styra åtkomsten till portalen med hjälp av rollbaserad åtkomstkontroll (RBAC)). Med den här metoden kan företaget begränsa antalet åtgärder som en individ kan göra i Azure-portalen. Genom att använda RBAC för att kontrollera åtkomsten till portalen kan IT-administratörer delegera åtkomst med hjälp av följande åtkomsthanteringsmetoder:
 
-   - Gruppbaserad rolltilldelning: Du kan tilldela åtkomst till Azure AD-grupper som kan synkroniseras från din lokala Active Directory. På så sätt kan du utnyttja befintliga investeringar som din organisation har gjort i verktyg och processer för att hantera grupper. Du kan också använda delegerad grupp-funktionen för hantering av Azure AD Premium.
-   - Använd inbyggda roller i Azure: Du kan använda tre roller, ägare, deltagare och läsare, så att användare och grupper har behörighet till endast de aktiviteter som de behöver för att göra sina jobb.
-   -  Detaljerad åtkomst till resurser: Du kan tilldela roller till användare och grupper för en viss prenumeration, resursgrupp eller en enskild Azure-resurs, till exempel en webbplats eller i databasen. På så sätt kan du se till att användarna har åtkomst till alla resurser som de behöver och ingen åtkomst till resurser som de inte behöver hantera.
+   - Gruppbaserad rolltilldelning: Du kan tilldela åtkomst till Azure AD-grupper som kan synkroniseras från din lokala Active Directory. På så sätt kan du utnyttja de befintliga investeringar som din organisation har gjort i verktyg och processer för att hantera grupper. Du kan också använda den delegerade grupphanteringsfunktionen i Azure AD Premium.
+   - Använd inbyggda roller i Azure: Du kan använda tre roller – Ägare, Deltagare och Läsare, för att säkerställa att användare och grupper har behörighet att bara utföra de uppgifter de behöver för att utföra sina jobb.
+   -  Detaljerad åtkomst till resurser: Du kan tilldela roller till användare och grupper för en viss prenumeration, resursgrupp eller en enskild Azure-resurs, till exempel en webbplats eller databas. På så sätt kan du se till att användarna har åtkomst till alla resurser de behöver och ingen åtkomst till resurser som de inte behöver hantera.
 
    > [!NOTE]
-   > Om du skapar program och vill anpassa åtkomstkontrollen för dem, är det också möjligt att använda Azure AD-programroller för auktorisering. Den här [WebApp-RoleClaims-DotNet exempel](https://github.com/AzureADSamples/WebApp-RoleClaims-DotNet) om hur du skapar din app för att använda den här funktionen.
+   > Om du skapar program och vill anpassa åtkomstkontrollen för dem, är det också möjligt att använda Azure AD-programroller för auktorisering. Läs det här [WebApp-RoleClaims-DotNet-exemplet](https://github.com/AzureADSamples/WebApp-RoleClaims-DotNet) om hur du skapar din app för att använda den här funktionen.
 
 
-3. Villkorlig åtkomst för Office 365-program med Microsoft Intune:  IT-administratörer kan etablera enhetsprinciper för villkorlig åtkomst för att skydda företagsresurser och samtidigt ge informationsarbetare på kompatibla enheter kommer åt tjänsterna. 
+3. Villkorlig åtkomst för Office 365-program med Microsoft Intune: IT-administratörer kan etablera enhetsprinciper för villkorlig åtkomst för att skydda företagsresurser, samtidigt som informationsarbetare på kompatibla enheter kan komma åt tjänsterna. 
   
-4. Villkorlig åtkomst för Saas-appar: [Den här funktionen](https://cloudblogs.microsoft.com/enterprisemobility/2015/06/25/azure-ad-conditional-access-preview-update-more-apps-and-blocking-access-for-users-not-at-work/) kan du konfigurera regler för åtkomst av programspecifika multifaktorautentisering och möjligheten att blockera åtkomst för användare inte på ett betrott nätverk. Du kan använda Multi-Factor authentication-regler för alla användare som är kopplade till programmet, eller enbart för användare i de angivna säkerhetsgrupperna. Användare kan uteslutas från Multi-Factor authentication-krav om de kommer åt programmet från en IP-adress som i i organisationens nätverk.
+4. Villkorlig åtkomst för Saas-appar: Med den [här funktionen](https://cloudblogs.microsoft.com/enterprisemobility/2015/06/25/azure-ad-conditional-access-preview-update-more-apps-and-blocking-access-for-users-not-at-work/) kan du konfigurera åtkomstregler för multifaktorautentisering per program och möjligheten att blockera åtkomst för användare som inte finns i ett betrott nätverk. Du kan tillämpa multifaktorautentiseringsreglerna för alla användare som har tilldelats programmet, eller endast för användare inom angivna säkerhetsgrupper. Användare kan uteslutas från multifaktorautentiseringskravet om de använder programmet från en IP-adress som finns i organisationens nätverk.
 
-Jämförelse mellan dessa alternativ kan inte användas för den här uppgiften eftersom alternativen för åtkomstkontroll använder en multilayer metod. Se till att du använder sig av alla alternativ som är tillgängliga för varje scenario som kräver att du kan styra åtkomsten till dina resurser.
+Eftersom alternativen för åtkomstkontroll använder en flerskiktsmetod är jämförelsen mellan dessa alternativ inte tillämplig för den här aktiviteten. Se till att du använder alla tillgängliga alternativ för varje scenario som kräver att du styr åtkomsten till dina resurser.
 
-## <a name="define-incident-response-options"></a>Definiera alternativ för incidenthantering
-Azure AD kan hjälpa IT-avdelningen att identitet potentiella säkerhetsrisker i miljön genom att övervaka användarens aktivitet. IT kan använda Azure AD Access och rapporter för att få insyn i integriteten och säkerheten i din organisations katalog i användning. Med den här informationen kan kan IT-administratör bättre avgöra var potentiella säkerhetsrisker finns så att de kan planera på lämpligt sätt du minskar riskerna.  [Azure AD Premium-prenumeration](../fundamentals/active-directory-get-started-premium.md) har en uppsättning av säkerhetsrapporter som kan aktivera IT för att hämta den här informationen. [Azure AD-rapporter](../reports-monitoring/overview-reports.md) kategoriseras enligt följande:
+## <a name="define-incident-response-options"></a>Definiera alternativ för incidentsvar
+Azure AD kan hjälpa IT att identifiera potentiella säkerhetsrisker i miljön genom att övervaka användarens aktivitet. IT kan använda Azure AD Access- och användningsrapporter för att få insyn i integriteten och säkerheten i organisationens katalog. Med den här informationen kan en IT-administratör bättre avgöra var eventuella säkerhetsrisker kan ligga så att de kan planera för att minska dessa risker på lämpligt sätt.  [Azure AD Premium-prenumeration](../fundamentals/active-directory-get-started-premium.md) har en uppsättning säkerhetsrapporter som kan göra det möjligt för IT-för att hämta den här informationen. [Azure AD-rapporter](../reports-monitoring/overview-reports.md) kategoriseras på följande sätt:
 
-* **Avvikelseidentifiering rapporter**: Innehåller inloggningshändelser som har identifierats vara avvikande. Målet är att se till att du är medveten om sådan aktivitet och gör att du kan fastställa om huruvida en händelse är misstänkta.
-* **Integrerade program rapporten**: Ger insikter om hur molnappar används i din organisation. Azure Active Directory möjliggör integrering med tusentals molnprogram.
-* **Felrapporter**: Visa fel som kan uppstå vid etablering av konton för att externa program.
-* **Användarspecifika rapporter**: Visa enhet/logga i aktivitetsdata för en viss användare.
-* **Aktivitetsloggar**: Innehåller en post för alla granskade händelser inom de senaste 24 timmarna, senaste 7 dagarna eller senaste 30 dagarna, samt ändringar av aktivitet och aktiviteten för återställning och registrering av lösenord.
+* **Avvikelserapporter**: Innehåller inloggningshändelser som visade sig vara avvikande. Målet är att göra dig medveten om sådan aktivitet och göra det möjligt för dig att avgöra om en händelse är misstänkt.
+* **Integrerad programrapport**: Ger insikter om hur molnprogram används i din organisation. Azure Active Directory erbjuder integrering med tusentals molnprogram.
+* **Felrapporter**: Ange fel som kan uppstå vid etablering av konton till externa program.
+* **Användarspecifika rapporter**: Visa enhet/logga in aktivitetsdata för en viss användare.
+* **Aktivitetsloggar**: Innehåller en post över alla granskade händelser under de senaste 24 timmarna, de senaste 7 dagarna eller de senaste 30 dagarna, samt ändringar av gruppaktivitet och återställning och registrering av lösenord.
 
 > [!TIP]
-> En annan rapport som kan också incidenthantering-teamet arbetar med ett ärende är den [användare med läckta autentiseringsuppgifter](https://cloudblogs.microsoft.com/enterprisemobility/2015/06/15/azure-active-directory-premium-reporting-now-detects-leaked-credentials/) rapporten. Den här rapporten ser du alla matchningar mellan listan läckta autentiseringsuppgifter och din klient.
+> En annan rapport som också kan hjälpa incidentsvarsteamet som arbetar med ett ärende är [användaren med läckt autentiseringsuppgifter](https://cloudblogs.microsoft.com/enterprisemobility/2015/06/15/azure-active-directory-premium-reporting-now-detects-leaked-credentials/) rapport. Den här rapporten visar alla matchningar mellan listan över läckta autentiseringsuppgifter och din klient.
 >
 
 
-Andra viktiga inbyggda rapporter i Azure AD som kan användas vid en incidenthanteringsundersökning och är:
+Andra viktiga inbyggda rapporter i Azure AD som kan användas under en incidenthanteringsutredning och är:
 
-* **Återställningsaktivitet för lösenord**: ge administratören insikter om hur aktivt för återställning av lösenord som används i organisationen.
-* **Återställningsaktivitet för lösenord registrering**: innehåller information som användare har registrerat sina metoder för återställning av lösenord, och vilka metoder som de har valt.
-* **Gruppera aktivitet**: innehåller en historik över ändringar i gruppen (ex: användare har lagts till eller tas bort) som inleddes i åtkomstpanelen.
+* **Aktivitet för återställning av lösenord**: ge administratören insikter om hur aktivt återställning av lösenord används i organisationen.
+* **Registreringsaktivitet för lösenordsåterställning**: ger insikter om vilka användare som har registrerat sina metoder för återställning av lösenord och vilka metoder de har valt.
+* **Gruppaktivitet:** innehåller en historik över ändringar i gruppen (t.ex. användare som lagts till eller tagits bort) som initierades på åtkomstpanelen.
 
-Förutom core rapporteringsfunktionen i Azure AD Premium som du kan använda under en undersökning incidenthanteringsprocessen, IT-avdelningen kan också dra nytta av granskningsrapporten att få information som:
+Förutom den grundläggande rapporteringsfunktionen i Azure AD Premium som du kan använda under en incidentresponsundersökningsprocess kan IT-den också dra nytta av granskningsrapporten för att få information som:
 
-* Ändringar i rollmedlemskap (till exempel användare som lagts till i rollen som Global administratör)
+* Ändringar i rollmedlemskap (till exempel användare som lagts till i rollen Global Admin)
 * Uppdateringar av autentiseringsuppgifter (till exempel lösenordsändringar)
-* Domänhantering (t.ex, verifiera en anpassad domän, ta bort en domän)
-* Att lägga till eller ta bort program
-* Hantering av användare (till exempel att lägga till, ta bort, uppdatera en användare)
-* Att lägga till eller ta bort licenser
+* Domänhantering (till exempel verifiera en anpassad domän, ta bort en domän)
+* Lägga till eller ta bort program
+* Användarhantering (till exempel lägga till, ta bort, uppdatera en användare)
+* Lägga till eller ta bort licenser
 
-Jämförelse mellan dessa alternativ kan inte användas för den här uppgiften eftersom alternativen för incidenthantering använder en multilayer metod. Se till att du använder sig av alla alternativ som är tillgängliga för varje scenario som kräver att du kan använda rapporteringsfunktionen i Azure AD som en del av ditt företags incidenthanteringsprocess.
+Eftersom alternativen för incidenthantering använder en flerskiktsmetod är jämförelsen mellan dessa alternativ inte tillämplig för den här aktiviteten. Se till att du använder alla tillgängliga alternativ för varje scenario som kräver att du använder Azure AD-rapporteringsfunktionen som en del av företagets incidentsvarsprocess.
 
 ## <a name="next-steps"></a>Nästa steg
-[Fastställa hanteringsuppgifter för hybrid identity](plan-hybrid-identity-design-considerations-hybrid-id-management-tasks.md)
+[Ta reda på hybrididentitetshanteringsuppgifter](plan-hybrid-identity-design-considerations-hybrid-id-management-tasks.md)
 
 ## <a name="see-also"></a>Se även
-[Översikt över design-överväganden](plan-hybrid-identity-design-considerations-overview.md)
+[Översikt över designöverväganden](plan-hybrid-identity-design-considerations-overview.md)

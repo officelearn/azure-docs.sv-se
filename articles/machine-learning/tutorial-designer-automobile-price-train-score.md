@@ -9,12 +9,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 03/12/2020
-ms.openlocfilehash: 8b471dd509dca02ab2a66d70dbc7fac9988f1afe
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 0488002352d222abb0166737f9a042060b1a1bb1
+ms.sourcegitcommit: 0553a8b2f255184d544ab231b231f45caf7bbbb0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79472245"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80389434"
 ---
 # <a name="tutorial-predict-automobile-price-with-the-designer-preview"></a>Handledning: Förutsäga bil pris med designern (förhandsvisning)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -103,7 +103,7 @@ Du kan visualisera data för att förstå den datauppsättning som du ska använ
 
 1. Välj modulen **Bilprisdata (Raw).**
 
-1. Välj **Utdata**i rutan modulinformation till höger om arbetsytan .
+1. I rutan modulinformation till höger om arbetsytan väljer du **Utdata + logg**.
 
 1. Markera diagramikonen för att visualisera data.
 
@@ -269,7 +269,7 @@ Använd modulen **Utvärdera modell** för att utvärdera hur väl din modell gj
 
 ## <a name="submit-the-pipeline"></a>Skicka pipelinen
 
-Nu när din pipeline är konfigurerad kan du skicka in en pipeline-körning för att träna din maskininlärningsmodell. Du kan skicka en pipeline-körning när som helst när du skapar pipelines i designern. Du kan göra detta för att kontrollera ditt arbete när du går för att verifiera din pipeline fungerar som förväntat.
+Nu när din pipeline är konfigurerad kan du skicka in en pipeline-körning för att träna din maskininlärningsmodell. Du kan skicka en giltig pipeline-körning när som helst, som kan användas för att granska ändringar i pipelinen under utvecklingen.
 
 1. Högst upp på arbetsytan väljer du **Skicka**.
 
@@ -283,6 +283,8 @@ Nu när din pipeline är konfigurerad kan du skicka in en pipeline-körning för
     1. Välj **Skicka**.
     
     Du kan visa körstatus och information längst upp till höger på arbetsytan.
+    
+    Om är den första körningen kan det ta upp till 20 minuter innan pipelinen körs. Standardberäkningsinställningarna har en minsta nodstorlek på 0, vilket innebär att designern måste allokera resurser efter inaktiv. Upprepade pipeline-körningar tar mindre tid eftersom beräkningsresurserna redan har allokerats. Dessutom använder designern cachelagrade resultat för varje modul för att ytterligare förbättra effektiviteten.
 
 ### <a name="view-scored-labels"></a>Visa poängsatta etiketter
 
@@ -290,7 +292,7 @@ När körningen är klar kan du visa resultatet av pipeline-körningen. Titta f�
 
 1. Välj modulen **Poängmodell** om du vill visa dess utdata.
 
-1. I rutan modulinformation till höger om arbetsytan väljer du ![ **Utdata** ](./media/tutorial-designer-automobile-price-train-score/visualize-icon.png) > diagramikon visualisera ikonen för att visa resultat.
+1. I rutan modulinformation till höger om arbetsytan väljer du **Utdata + loggar** > diagramikon ![visualisera ikonen](./media/tutorial-designer-automobile-price-train-score/visualize-icon.png) för att visa resultat.
 
     Här kan du se de förväntade priserna och de faktiska priserna från testdata.
 
@@ -302,7 +304,7 @@ Använd **utvärdera modellen** för att se hur väl den tränade modellen prest
 
 1. Välj modulen **Utvärdera modell** om du vill visa utdata.
 
-1. I rutan modulinformation till höger om arbetsytan väljer du ![ **Utdata** > diagramikon visualisera ikonen](./media/tutorial-designer-automobile-price-train-score/visualize-icon.png) för att visa resultat.
+1. I rutan modulinformation till höger om arbetsytan väljer du **Utdata + loggar** > diagramikon ![visualisera ikonen](./media/tutorial-designer-automobile-price-train-score/visualize-icon.png) för att visa resultat.
 
 Följande statistik visas för din modell:
 

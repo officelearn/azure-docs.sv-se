@@ -1,5 +1,5 @@
 ---
-title: Kom igång med Azure MFA Server – Azure Active Directory
+title: Komma igång med Azure MFA Server – Azure Active Directory
 description: Komma igång steg för steg med Azure MFA-server lokalt
 services: multi-factor-authentication
 ms.service: active-directory
@@ -12,22 +12,22 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 53428039055005693f30f63a709105b77fe65f8f
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79263704"
 ---
 # <a name="getting-started-with-the-azure-multi-factor-authentication-server"></a>Komma igång med Azure Multi-Factor Authentication Server
 
 <center>
 
-![komma igång med MFA server lokalt](./media/howto-mfaserver-deploy/server2.png)</center>
+![Komma igång med MFA Server lokalt](./media/howto-mfaserver-deploy/server2.png)</center>
 
 Den här sidan innehåller anvisningar för hur du installerar servern och konfigurerar den med ditt lokala Active Directory. Om du redan har installerat MFA-servern och vill uppgradera så kan du läsa artikeln om att [uppgradera till den senaste Azure Multi-Factor Authentication-servern](howto-mfaserver-deploy-upgrade.md). Om du vill veta hur du endast installerar webbtjänsten kan du läsa artikeln [Aktivera mobilappautentisering och Azure Multi-Factor Authentication-servern](howto-mfaserver-deploy-mobileapp.md).
 
 > [!IMPORTANT]
-> Från och med den 1 juli 2019 kommer Microsoft inte längre att erbjuda MFA Server för nya distributioner. Nya kunder som vill kräva Multi-Factor Authentication från sina användare bör använda molnbaserad Azure-Multi-Factor Authentication. Befintliga kunder som har aktiverat MFA Server tidigare än 1 juli kommer att kunna ladda ned den senaste versionen, framtida uppdateringar och generera autentiseringsuppgifter för aktivering som vanligt.
+> Från och med den 1 juli 2019 kommer Microsoft inte längre att erbjuda MFA Server för nya distributioner. Nya kunder som vill kräva multifaktorautentisering från sina användare bör använda molnbaserad Azure Multi-Factor-autentisering. Befintliga kunder som har aktiverat MFA Server före den 1 juli kommer att kunna ladda ner den senaste versionen, framtida uppdateringar och generera aktiveringsautentiseringsuppgifter som vanligt.
 
 ## <a name="plan-your-deployment"></a>Planera distributionen
 
@@ -55,7 +55,7 @@ Se till att den server du använder för Azure Multi-Factor Authentication uppfy
 |:--- |:--- |
 | Maskinvara |<li>200 MB ledigt hårddiskutrymme</li><li>x32- eller x64-processor</li><li>Minst 1 GB RAM-minne</li> |
 | Programvara |<li>Windows Server 2016</li><li>Windows Server 2012 R2</li><li>Windows Server 2012</li><li>Windows Server 2008 R2</li><li>Windows Server 2008, SP1, SP2</li><li>Windows Server 2003 R2</li><li>Windows Server 2003, SP1, SP2</li><li>Windows 10</li><li>Windows 8.1, alla utgåvor</li><li>Windows 8, alla utgåvor</li><li>Windows 7, alla utgåvor</li><li>Windows Vista, alla utgåvor, SP1, SP2</li><li>Microsoft .NET 4.0 Framework</li><li>IIS 7.0 eller senare om du installerar användarportalen eller webbtjänst-SDK</li> |
-| Behörigheter | Domän administratörs konto eller företags administratörs konto för registrering i Active Directory |
+| Behörigheter | Domänadministratör eller företagsadministratörskonto för att registrera sig med Active Directory |
 
 ### <a name="azure-mfa-server-components"></a>Azure MFA-serverkomponenter
 
@@ -95,12 +95,12 @@ Om du inte använder funktionen Händelsebekräftelse och om användarna inte an
 
 Följ de här stegen för att ladda ned Azure Multi-Factor Authentication-servern från Azure-portalen:
 
-1. Logga in på [Azure Portal](https://portal.azure.com) som administratör.
-2. Sök efter och välj *Azure Active Directory*. Välj **säkerhets** > **MFA**.
-3. Under **Manager MFA Server**väljer du **Server inställningar**.
+1. Logga in på [Azure-portalen](https://portal.azure.com) som administratör.
+2. Sök efter och välj *Azure Active Directory*. Välj **Säkerhet** > **MFA**.
+3. Under **Hanteraren MFA Server**väljer du **Serverinställningar**.
 4. Välj **hämta** och följ instruktionerna på hämtningssidan för att spara installationsprogrammet. 
 
-   ![Hämta MFA Server från Azure Portal](./media/howto-mfaserver-deploy/downloadportal.png)
+   ![Hämta MFA Server från Azure-portalen](./media/howto-mfaserver-deploy/downloadportal.png)
 
 5. Ha den här sidan öppen eftersom vi kommer att hänvisa till den när vi har kört installationsprogrammet.
 
@@ -109,16 +109,16 @@ Följ de här stegen för att ladda ned Azure Multi-Factor Authentication-server
 Nu när du har laddat ned servern kan du installera och konfigurera den. Se till att servern du installerar den på uppfyller kraven i planeringsavsnittet.
 
 1. Dubbelklicka på den körbara filen.
-2. Kontrollera att mappen på skärmen Välj installationsmapp stämmer och klicka på **Nästa**.
+2. Kontrollera att mappen är korrekt på skärmen Välj installationsmapp och klicka på **Nästa**.
 3. När installationen har slutförts klickar du på **Slutför**. Konfigurationsguiden startar.
 4. Markera **Hoppa över autentiseringskonfigurationsguiden** på välkomstskärmen i konfigurationsguiden och klicka på **Nästa**. Guiden stängs och servern startas.
 
-   ![Hoppa över med guiden Konfigurera autentisering](./media/howto-mfaserver-deploy/skip2.png)
+   ![Hoppa över med guiden Konfiguration av autentisering](./media/howto-mfaserver-deploy/skip2.png)
 
 5. Tillbaka på sidan som du laddade ner servern från, klickar du på knappen **skapa autentiseringsuppgifter för aktivering**. Kopiera den här informationen till Azure MFA Server i de tillgängliga rutorna och klicka på **Aktivera**.
 
 > [!NOTE]
-> Endast globala administratörer kan generera autentiseringsuppgifter för aktivering i Azure Portal.
+> Endast globala administratörer kan generera aktiveringsautentiseringsuppgifter i Azure-portalen.
 
 ## <a name="send-users-an-email"></a>Skicka ett e-postmeddelande till användare
 
@@ -136,7 +136,7 @@ Klicka på e-postikonen till vänster för att konfigurera inställningarna för
 
 På fliken E-postinnehåll kan du se de e-postmallar som du kan välja mellan. Välj lämplig mall beroende på hur du har konfigurerat användarna för tvåstegsverifiering.
 
-![E-postmallar för MFA-server i-konsolen](./media/howto-mfaserver-deploy/email2.png)
+![E-postmallar för MFA Server i konsolen](./media/howto-mfaserver-deploy/email2.png)
 
 ## <a name="import-users-from-active-directory"></a>Importera användare från Active Directory
 
@@ -149,7 +149,7 @@ Nu när servern är installerad är det dags att lägga till användare. Du kan 
 3. Nu kan du antingen söka efter enskilda användare eller söka i AD-katalogen efter organisationsenheter som innehåller användare. I det här exemplet anger vi organisationsenheten för användare.
 4. Markera alla användare till höger och klicka på **Importera**. Ett popup-meddelande visas som informerar dig om att åtgärden lyckades. Stäng importfönstret.
 
-   ![MFA-serverns användar import från Active Directory](./media/howto-mfaserver-deploy/import2.png)
+   ![MFA Server-användare importeras från Active Directory](./media/howto-mfaserver-deploy/import2.png)
 
 ### <a name="automated-synchronization-with-active-directory"></a>Automatiserad synkronisering med Active Directory
 
@@ -177,7 +177,7 @@ När du använder MFA Server (Multi-Factor Authentication) lokalt lagras en anv�
 Förutom fälten ovan lagras även verifieringsresultatet (lyckades/avvisades) och orsaken till ett eventuellt avvisande tillsammans med autentiseringsinformationen och är tillgängligt i autentiserings-/användningsrapporterna.
 
 > [!IMPORTANT]
-> Från och med mars 2019 är Telefonsamtals alternativen inte tillgängliga för MFA-Server användare i kostnads fria/utvärderings versioner av Azure AD-klienter. SMS-meddelanden påverkas inte av den här ändringen. Telefonsamtalet fortsätter att vara tillgängligt för användare i betalda Azure AD-klienter. Den här ändringen påverkar endast kostnads fria/utvärderings versioner av Azure AD.
+> Från och med mars 2019 är samtalsalternativen inte tillgängliga för MFA Server-användare i Azure AD-klienter med kostnadsfri/utvärderingsversion. SMS-meddelanden påverkas inte av den här ändringen. Telefonsamtal fortsätter att vara tillgängligt för användare i betalda Azure AD-klienter. Den här ändringen påverkar endast azure AD-klienter som är kostnadsfria/prov.
 
 ## <a name="back-up-and-restore-azure-mfa-server"></a>Säkerhetskopiera och återställa Azure MFA Server
 
@@ -204,5 +204,5 @@ När du har uppgraderat till eller installerat MFA Server-versionen 8.x eller h�
 - Skapa och konfigurera [användarportalen](howto-mfaserver-deploy-userportal.md) för självbetjäning.
 - Installera och konfigurera Azure MFA Server med [Active Directory Federation Service](multi-factor-authentication-get-started-adfs.md), [RADIUS-autentisering](howto-mfaserver-dir-radius.md) eller [LDAP-autentisering](howto-mfaserver-dir-ldap.md).
 - Konfigurera [Remote Desktop Gateway och Azure Multi-Factor Authentication Server med hjälp av RADIUS](howto-mfaserver-nps-rdg.md).
-- [Distribuera webbtjänsten Azure Multi-Factor Authentication Server Mobile App](howto-mfaserver-deploy-mobileapp.md).
-- [Avancerade scenarier med Azure Multi-Factor Authentication och virtuella privata nätverk från tredje part](howto-mfaserver-nps-vpn.md).
+- [Distribuera webbtjänsten för Azure Multi Factor Authentication Server Mobile App](howto-mfaserver-deploy-mobileapp.md).
+- [Avancerade scenarier med Azure Multi-Factor Autentisering och tredjeparts-VPN](howto-mfaserver-nps-vpn.md).

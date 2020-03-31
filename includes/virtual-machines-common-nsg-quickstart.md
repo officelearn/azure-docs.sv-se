@@ -9,31 +9,31 @@ ms.date: 09/12/2018
 ms.author: cynthn
 ms.custom: include file
 ms.openlocfilehash: ec6cbcbc93fe87634c87caeb0041b75ec916a22f
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67187313"
 ---
-Du öppnar en port eller skapa en slutpunkt för att en virtuell dator (VM) i Azure genom att skapa ett filter för nätverk på ett undernät eller ett VM-nätverksgränssnitt. Du kan placera dessa filter som styr både inkommande och utgående trafik på en nätverkssäkerhetsgrupp som är kopplade till den resurs som tar emot trafiken.
+Du öppnar en port eller skapar en slutpunkt till en virtuell dator (VM) i Azure genom att skapa ett nätverksfilter i ett undernät eller ett vm-nätverksgränssnitt. Du placerar dessa filter, som styr både inkommande och utgående trafik, i en nätverkssäkerhetsgrupp som är kopplad till den resurs som tar emot trafiken.
 
-Exemplet i den här artikeln visar hur du skapar ett filter för nätverk som använder standard TCP-port 80 (förutsätts du har redan igång rätt tjänster och öppnas OS brandväggsregler på den virtuella datorn).
+Exemplet i den här artikeln visar hur du skapar ett nätverksfilter som använder standard-TCP-port 80 (det antas att du redan har startat lämpliga tjänster och öppnat alla os-brandväggsregler på den virtuella datorn).
 
-När du har skapat en virtuell dator som är konfigurerad för att hantera webbegäranden på standard TCP-port 80, kan du:
+När du har skapat en virtuell dator som är konfigurerad för att betjäna webbbegäranden på standard-TCP-port 80 kan du:
 
 1. Skapa en nätverkssäkerhetsgrupp.
 
-2. Skapa en inkommande säkerhetsregel som tillåter trafik och tilldela värden med följande inställningar:
+2. Skapa en säkerhetsregel för inkommande trafik som tillåter trafik och tilldela värden till följande inställningar:
 
-   - **Målportintervall**: 80
+   - **Destinationshamnsområden:** 80
 
-   - **Käll-portintervall**: * (tillåter alla källportar)
+   - **Källportintervall:*** (tillåter alla källporter)
 
-   - **Prioritetsvärdet**: Ange ett värde som är mindre än 65,500 och högre upp i prioritet än standardvärdet allomfattande neka inkommande regel.
+   - **Prioritetsvärde**: Ange ett värde som är mindre än 65 500 och högre prioritet än standardregeln för neka inkommande inbound.Priority value : Ange ett värde som är mindre än 65 500 och högre prioritet än standardregeln för neka alla neka inkommande.
 
-3. Associera nätverkssäkerhetsgruppen med VM-nätverksgränssnitt eller undernät.
+3. Associera nätverkssäkerhetsgruppen med vm-nätverksgränssnittet eller undernätet.
 
-Även om det här exemplet använder en enkel regel för att tillåta HTTP-trafik, kan du också använda nätverkssäkerhetsgrupper och regler för att skapa mer komplexa konfigurationer. 
+Även om det här exemplet använder en enkel regel för att tillåta HTTP-trafik kan du också använda nätverkssäkerhetsgrupper och regler för att skapa mer komplexa nätverkskonfigurationer. 
 
 
 

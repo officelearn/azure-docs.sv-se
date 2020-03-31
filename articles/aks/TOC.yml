@@ -14,7 +14,8 @@
           href: kubernetes-walkthrough.md
         - name: Använda Azure-portalen
           href: kubernetes-walkthrough-portal.md
-        - name: Använda en Resource Manager-mall
+        - name: Använda ARM-mall
+          displayName: Resource Manager
           href: kubernetes-walkthrough-rm-template.md
     - name: Utveckla program
       expanded: true
@@ -73,6 +74,8 @@
       href: concepts-storage.md
     - name: Skala
       href: concepts-scale.md
+    - name: Automatisk reparation av noder
+      href: node-auto-repair.md
     - name: Bästa praxis
       items:
         - name: Översikt
@@ -123,6 +126,8 @@
           href: upgrade-cluster.md
         - name: Bearbeta OS-noduppdateringar
           href: node-updates-kured.md
+        - name: Konfigurera ett AKS-kluster
+          href: cluster-configuration.md
         - name: Integrera ACR med ett AKS-kluster
           href: cluster-container-registry-integration.md
         - name: Skapa virtuella noder
@@ -198,7 +203,7 @@
       items:
         - name: Skapa tjänstens huvudnamn
           href: kubernetes-service-principal.md
-        - name: Använda hanterade identiteter (förhandsversion)
+        - name: Använda hanterade identiteter
           href: use-managed-identity.md
         - name: Begränsa åtkomsten till klusterkonfigurationsfiler
           href: control-kubeconfig-access.md
@@ -216,6 +221,8 @@
           href: limit-egress-traffic.md
         - name: Aktivera Azure Active Directory-integrering
           items:
+            - name: Integrera Azure AD (förhandsversion)
+              href: azure-ad-v2.md
             - name: Använda Azure CLI
               href: azure-ad-integration-cli.md
             - name: Använda Azure-portalen

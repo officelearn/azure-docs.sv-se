@@ -8,10 +8,10 @@
     - name: 'Jämför API: erna för Bing-sökresultat'
       href: ../Bing-Web-Search/bing-api-comparison.md
       maintainContext: true
-- name: Snabbstarter för REST API
+- name: Snabbstarter
   expanded: true
   items:
-    - name: REST API
+    - name: REST-API
       items:
         - name: 'Använd C#'
           href: quickstarts/csharp.md
@@ -27,14 +27,8 @@
           href: quickstarts/ruby.md
     - name: SDK
       items:
-        - name: 'Använd C#'
-          href: quickstarts/sdk-csharp-quickstart.md
-        - name: Använda Node.js
-          href: quickstarts/sdk-node-quickstart.md
-        - name: Använda Python
-          href: quickstarts/sdk-python-quickstart.md
-        - name: Använda Java
-          href: quickstarts/sdk-java-quickstart.md
+        - name: Klientbibliotek för Videosökning i Bing
+          href: ./quickstarts/client-libraries.md
 - name: Självstudier
   items:
     - name: Skapa en enkelsidig webbapp
@@ -43,7 +37,7 @@
   items:
     - name: Kodexempel
       href: 'https://azure.microsoft.com/resources/samples/?sort=0&service=cognitive-services&term=Bing+Video+Search'
-- name: Instruktionsguider
+- name: Anvisningar
   items:
     - name: Hämta information om video
       href: video-insights.md
@@ -57,7 +51,7 @@
       href: ../bing-web-search/resize-and-crop-thumbnails.md
     - name: Uppgradera från v5 till v7
       href: bing-video-upgrade-guide-v5-to-v7.md
-- name: Koncept
+- name: Begrepp
   items:
     - name: Hämta videor från webben
       href: concepts/get-videos.md
@@ -86,7 +80,7 @@
       maintainContext: true
 - name: Resurser
   items:
-    - name: Priser
+    - name: Prissättning
       href: 'https://azure.microsoft.com/pricing/details/cognitive-services/search-api/video/'
     - name: UserVoice
       href: 'https://cognitive.uservoice.com/forums/911452-bing-video-search-api'

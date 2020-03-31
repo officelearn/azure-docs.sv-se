@@ -34,7 +34,7 @@
       href: cli-samples.md
     - name: Azure PowerShell
       href: powershell-samples.md
-- name: Koncept
+- name: Begrepp
   items:
     - name: Komponenter och begränsningar
       href: concepts-limitations.md
@@ -64,6 +64,14 @@
       href: load-balancer-security-controls.md
 - name: Gör så här för att
   items:
+    - name: Skalningsuppsättningar för virtuella datorer
+      items:
+        - name: Använd med en befintlig Azure Load Balancer – Portalen
+          href: configure-vm-scale-set-portal.md
+        - name: Använd med en befintlig Azure Load Balancer – PowerShell
+          href: configure-vm-scale-set-powershell.md
+        - name: Använd med en befintlig Azure Load Balancer – CLI
+          href: configure-vm-scale-set-cli.md
     - name: Uppgradera en Basic Load Balancer till Standard Load Balancer
       items:
         - name: Uppgradera en Basic Public Load Balancer
@@ -74,7 +82,7 @@
           href: upgrade-InternalBasic-To-PublicStandard.md
     - name: Konfigurera regler för utgående trafik
       items:
-        - name: Azure-portalen
+        - name: Azure Portal
           href: configure-load-balancer-outbound-portal.md
         - name: Azure CLI
           href: configure-load-balancer-outbound-cli.md
@@ -150,13 +158,13 @@
       displayName: ARM
 - name: Resurser
   items:
-    - name: Utveckla din kompetens med Microsoft Learn
+    - name: Utveckla dina färdigheter med Microsoft Learn
       href: /learn/browse/?products=azure-load-balancer
     - name: Azure-översikt
       href: 'https://azure.microsoft.com/roadmap/?category=networking'
     - name: Feedback för Azure Load Balancer
       href: 'https://feedback.azure.com/forums/217313-networking/category/77467-load-balancing'
-    - name: Priser
+    - name: Prissättning
       href: 'https://azure.microsoft.com/pricing/details/load-balancer/'
     - name: Priskalkylator
       href: 'https://azure.microsoft.com/pricing/calculator/'

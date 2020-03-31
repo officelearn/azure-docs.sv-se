@@ -24,6 +24,8 @@
           href: cloud-governed-management-for-on-premises.md
         - name: Fyra steg för en stark identitetsgrund
           href: four-steps.md
+        - name: Välj en autentiseringsmetod för hybrididentiteter
+          href: choose-ad-authn.md
     - name: Azure AD Connect och Connect Health
       items:
         - name: Vad är Azure AD Connect och Connect Health?
@@ -90,7 +92,7 @@
           href: concept-azure-ad-connect-sync-user-and-contacts.md
         - name: Förstå skuggattribut
           href: how-to-connect-syncservice-shadow-attributes.md
-- name: Instruktionsguider
+- name: Anvisningar
   items:
     - name: Installation och uppgradering
       items:
@@ -312,6 +314,8 @@
           href: tshoot-connect-attribute-not-syncing.md
         - name: Installationsproblem
           href: tshoot-connect-install-issues.md
+        - name: UPN-ändringar
+          href: howto-troubleshoot-upn-changes.md
 - name: Referens
   items:
     - name: Portar och protokoll som krävs för hybrididentitet

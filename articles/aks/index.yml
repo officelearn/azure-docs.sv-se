@@ -1,101 +1,90 @@
-### YamlMime:YamlDocument
-documentType: LandingData
+### YamlMime:Landing
 title: Azure Kubernetes Service (AKS)
+summary: Med AKS kan du snabbt distribuera ett produktionsklart Kubernetes-kluster i Azure. Lär dig hur du använder AKS med de här snabbstarterna, självstudierna och exemplen.
 metadata:
-  title: 'Dokumentation om Azure Kubernetes Service (AKS) – Självstudier, API-referens | Microsoft Docs'
-  meta.description: 'AKS allows you to quickly deploy a production ready Kubernetes cluster in Azure. Learn how to use AKS with these quickstarts, tutorials, and samples.'
-  services: container-service
-  author: georgewallace
-  manager: gwallace
+  title: Azure Kubernetes Service (AKS)
+  description: Med AKS kan du snabbt distribuera ett produktionsklart Kubernetes-kluster i Azure. Lär dig hur du använder AKS med de här snabbstarterna, självstudierna och exemplen.
+  ms.service: container-service
   ms.topic: landing-page
-  ms.date: 07-21-2017
-  ms.author: gwallace
-abstract:
-  description: 'Azure Kubernetes Service (AKS) hanterar din värdmiljö för Kubernetes, vilket gör det enkelt att snabbt distribuera och hantera containerbaserade program utan kunskaper om orkestrering av containrar. Det eliminerar också problem med pågående åtgärder och underhåll genom etablering, uppgradering och skalning av resurser på begäran, utan att koppla från dina program.'
-sections:
-  - title: Snabbstarter på 5 minuter
-    items:
-      - type: paragraph
-        text: 'Lär dig hur du distribuerar ett AKS-kluster:'
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: 'https://docs.microsoft.com/media/common/i_cligeneric.svg'
-            text: Azure CLI
-            href: /azure/aks/kubernetes-walkthrough
-          - image:
-              src: 'https://docs.microsoft.com/media/common/i_portal.svg'
-            text: Azure Portal
-            href: /azure/aks/kubernetes-walkthrough-portal
-      - type: paragraph
-        text: 'Lär dig hur du utvecklar och felsöker program med AKS:'
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: 'https://docs.microsoft.com/media/logos/logo_java.svg'
-            text: Java
-            href: ../dev-spaces/quickstart-java.md
-          - image:
-              src: 'https://docs.microsoft.com/media/logos/logo_NETcore.svg'
-            text: .NET och VS Code
-            href: ../dev-spaces/quickstart-netcore.md
-          - image:
-              src: 'https://docs.microsoft.com/media/logos/logo_visual-studio.svg'
-            text: .NET och Visual Studio
-            href: ../dev-spaces/quickstart-netcore-visualstudio.md
-          - image:
-              src: 'https://docs.microsoft.com/media/logos/logo_nodejs.svg'
-            text: Node.js
-            href: ../dev-spaces/quickstart-nodejs.md
-  - title: Steg för steg-självstudier
-    items:
-      - type: paragraph
-        text: 'Lär dig att distribuera, hantera och uppdatera program på ett AKS-kluster.'
-      - type: list
-        style: ordered
-        items:
-          - html: <a href="/azure/aks/tutorial-kubernetes-prepare-app">Skapa behållaravbildningar från ett program (Create container images from an application)</a>
-          - html: <a href="/azure/aks/tutorial-kubernetes-prepare-acr">Ladda upp behållaravbildningar till Azure Container Registry (Upload container images to the Azure Container Registry)</a>
-          - html: <a href="/azure/aks/tutorial-kubernetes-deploy-cluster">Distribuera ett AKS-kluster</a>
-          - html: <a href="/azure/aks/tutorial-kubernetes-deploy-application">Kör dina behållaravbildningar i Kubernetes (Run your container images in Kubernetes)</a>
-          - html: <a href="/azure/aks/tutorial-kubernetes-scale">Skala ett program och Kubernetes-infrastruktur (Scale an application and Kubernetes infrastructure)</a>
-          - html: <a href="/azure/aks/tutorial-kubernetes-app-update">Uppdatera ett program som körs i Kubernetes (Update an application running in Kubernetes)</a>
-          - html: <a href="/azure/aks/tutorial-kubernetes-upgrade-cluster">Uppgradera AKS-kluster</a>
-          - html: <a href="/azure/architecture/reference-architectures/microservices/aks">Lär dig om och implementera referensarkitektur för mikrotjänst</a>
-  - title: Utveckla dina färdigheter med Microsoft Learn
-    items:
-      - type: list
-        style: cards
-        className: cardsFTitle
-        items:
-          - title: Introduktion till containrar i Azure
-            href: /learn/modules/intro-to-containers/
-            image:
-              src: /learn/achievements/intro-to-containers.svg
-              href: /learn/modules/intro-to-containers/
-          - title: Kör Docker-behållare i Azure Container Instances
-            href: /learn/modules/run-docker-with-azure-container-instances/
-            image:
-              src: /learn/achievements/run-docker-with-azure-container-instances.svg
-              href: /learn/modules/run-docker-with-azure-container-instances/
-          - title: Skapa och lagra containeravbildningar med Azure Container Registry
-            href: /learn/modules/build-and-store-container-images/
-            image:
-              src: /learn/achievements/build-and-store-container-images.svg
-              href: /learn/modules/build-and-store-container-images/
-      - type: paragraph
-        text: <a href="/learn/browse/?products=azure-container-registry%2Cazure-container-instances">Mer interaktiv inlärning...</a>
-  - title: Referens
-    items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: Kommandorad
-            html: <p><a href="/cli/azure/aks">Azure CLI</a></p>
-          - title: Språk
-            html: <p><a href="/dotnet/api/overview/azure/containerservice">NET</a></p><p><a href="/python/api/overview/azure/containerservice">Python</a></p><p><a href="/java/api/overview/azure/containerservice">Java</a></p><p><a href="/javascript/api/overview/azure/container-service">Node.js</a></p>
-          - title: REST
-            html: <p><a href="/rest/api/aks">REST-API</a></p>
+  author: laurenhughes
+  ms.author: lahugh
+  ms.date: 03/25/2020
+  ms.openlocfilehash: 7482eb14fb6bcb80bc8f8b9d06057287cb862a27
+  ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 03/27/2020
+  ms.locfileid: "80335990"
+landingContent:
+- title: Om Azure Kubernetes Service (AKS)
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Vad är AKS?
+      url: intro-kubernetes.md
+  - linkListType: concept
+    links:
+    - text: Kubernetes – viktiga koncept för AKS
+      url: concepts-clusters-workloads.md
+    - text: Kluster och arbetsbelastningar
+      url: concepts-clusters-workloads.md
+    - text: Åtkomst och identitet
+      url: concepts-identity.md
+    - text: Säkerhet
+      url: concepts-security.md
+    - text: Nätverk
+      url: concepts-network.md
+    - text: Storage
+      url: concepts-storage.md
+    - text: Skala
+      url: concepts-scale.md
+- title: Distribuera ett AKS-kluster på fem minuter
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Azure CLI
+      url: kubernetes-walkthrough.md
+    - text: Azure Portal
+      url: kubernetes-walkthrough-portal.md
+    - text: Resource Manager-mall
+      url: kubernetes-walkthrough-rm-template.md
+- title: Utveckla och felsök program med AKS och Dev Spaces
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Java
+      url: ../dev-spaces/quickstart-java.md
+    - text: .NET och VS Code
+      url: ../dev-spaces/quickstart-netcore.md
+    - text: .NET och Visual Studio
+      url: ../dev-spaces/quickstart-netcore-visualstudio.md
+    - text: Node.js
+      url: ../dev-spaces/quickstart-nodejs.md
+- title: Distribuera, hantera och uppdatera program
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: 1. Förbereda ett program för AKS
+      url: tutorial-kubernetes-prepare-app.md
+    - text: 2. Distribuera och använda Azure Container Registry
+      url: tutorial-kubernetes-prepare-acr.md
+    - text: 3. Distribuera ett AKS-kluster
+      url: tutorial-kubernetes-deploy-cluster.md
+    - text: 4. Köra ditt program
+      url: tutorial-kubernetes-deploy-application.md
+    - text: 5. Skala program
+      url: tutorial-kubernetes-scale.md
+    - text: 6. Uppdatera ett program
+      url: tutorial-kubernetes-app-update.md
+    - text: 7. Uppgradera Kubernetes i AKS
+      url: tutorial-kubernetes-upgrade-cluster.md
+- title: Utveckla dina färdigheter med Microsoft Learn
+  linkLists:
+  - linkListType: learn
+    links:
+    - text: Introduktion till Azure Kubernetes Service
+      url: https://docs.microsoft.com/learn/modules/intro-to-azure-kubernetes-service/
+    - text: Introduktion till containrar i Azure
+      url: https://docs.microsoft.com/learn/modules/intro-to-containers/
+    - text: Skapa och lagra containeravbildningar med Azure Container Registry
+      url: https://docs.microsoft.com/learn/modules/build-and-store-container-images/

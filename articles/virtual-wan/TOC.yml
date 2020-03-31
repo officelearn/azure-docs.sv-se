@@ -1,86 +1,94 @@
-- name: Virtual WAN Documentation
+- name: Dokumentation om Virtual WAN
   href: index.yml
-- name: Overview
+- name: Översikt
   items:
-    - name: About Virtual WAN
+    - name: Om Virtual WAN
       href: virtual-wan-about.md
-    - name: Architecture
+    - name: Arkitektur
       items:
-        - name: Migrate to Virtual WAN
+        - name: Migrera till Virtual WAN
           href: migrate-from-hub-spoke-topology.md
-        - name: Global transit network architecture
+        - name: Global Transit Network-arkitektur
           href: virtual-wan-global-transit-network-architecture.md
-- name: Tutorials
+        - name: Sammankoppla med Kina
+          href: interconnect-china.md
+- name: Självstudier
   items:
-    - name: Create a site-to-site connection
+    - name: Skapa en plats-till-plats-anslutning
       href: virtual-wan-site-to-site-portal.md
-    - name: Create User VPN (point-to-site) connections
+    - name: Skapa användar-VPN-anslutningar (punkt-till-plats)
       href: virtual-wan-point-to-site-portal.md
-    - name: Create an ExpressRoute connection
+    - name: Skapa en ExpressRoute-anslutning
       href: virtual-wan-expressroute-portal.md
-- name: Concepts
+- name: Begrepp
   items:
-    - name: Locations and partners
+    - name: Distansarbete
+      href: work-remotely-support.md
+    - name: Platser och partners
       items:
-        - name: Hub locations and partners
+        - name: Hubbplatser och partner
           href: virtual-wan-locations-partners.md
-        - name: Automation guidelines for partners
+        - name: Automatiseringsriktlinjer för partner
           href: virtual-wan-configure-automation-providers.md
-    - name: IPsec policies
+    - name: IPSec-principer
       href: virtual-wan-ipsec.md
-    - name: Point-to-Site VPN overview
-      href: ../vpn-gateway/point-to-site-about.md?toc=%2fazure%2fvirtual-wan%2ftoc.json
-- name: How-to guides
+- name: Anvisningar
   items:
-    - name: Connect virtual network gateway to Virtual WAN
+    - name: Anslut virtuell nätverksgateway till Virtual WAN
       href: connect-virtual-network-gateway-vwan.md
-    - name: Configure Global VNet peering
+    - name: Konfigurera global VNet-peering
       href: global-peering-vnet.md
-    - name: Upgrade a virtual WAN SKU
+    - name: Uppgradera en Virtual WAN-SKU
       href: upgrade-virtual-wan.md
-    - name: Configure custom IPsec policy
+    - name: Konfigurera anpassad IPsec-princip
       href: virtual-wan-custom-ipsec-portal.md
     - name: ExpressRoute
       items:
-        - name: Create an ExpressRoute connection
+        - name: Skapa en ExpressRoute-anslutning
           href: virtual-wan-expressroute-portal.md
-        - name: Configure ExpressRoute encryption
+        - name: Konfigurera ExpressRoute-kryptering
           href: vpn-over-expressroute.md
-    - name: Site-to-site
+    - name: Plats-till-plats
       items:
-        - name: Create a site-to-site connection
+        - name: Skapa en plats-till-plats-anslutning
           href: virtual-wan-site-to-site-portal.md
-    - name: User VPN (point-to-site)
+    - name: Användar-VPN (punkt-till-plats)
       items:
-        - name: Create User VPN (point-to-site) connections
+        - name: Skapa en VPN-anslutning för användare
           href: virtual-wan-point-to-site-portal.md
-        - name: Configure certificates for User VPN
+        - name: Generera certifikat
           href: certificates-point-to-site.md
-        - name: Configure Azure AD tenant for User VPN
+        - name: Konfigurera Azure AD-klientorganisation
           href: openvpn-azure-ad-tenant.md
-        - name: Configure Always On VPN user tunnel
-          href: ../vpn-gateway/vpn-gateway-howto-always-on-user-tunnel.md?toc=%2fazure%2fvirtual-wan%2ftoc.json
-        - name: Configure Always On VPN device tunnel
-          href: ../vpn-gateway/vpn-gateway-howto-always-on-device-tunnel.md?toc=%2fazure%2fvirtual-wan%2ftoc.json
-        - name: Enable Multi-Factor Authentication(MFA) for User VPN
-          href: openvpn-azure-ad-mfa.md
-        - name: Configure Azure AD authentication for User VPN
-          href: virtual-wan-point-to-site-azure-ad.md
-        - name: Configure Multi-application Azure AD authentication for User VPN
-          href: openvpn-azure-ad-tenant-multi-app.md
-        - name: Download global and hub-based User VPN profiles
+        - name: Klientprofil
+          href: about-vpn-profile-download.md
+        - name: Global och hubbaserad profil
           href: global-hub-profile.md
-    - name: Configure routing
+        - name: Konfigurera OpenVPN-klienter
+          href: howto-openvpn-clients.md?
+        - name: Konfigurera tunnel för AlwaysOn-VPN-användare
+          href: howto-always-on-user-tunnel.md
+        - name: Konfigurera tunnel för AlwaysOn-VPN-enhet
+          href: howto-always-on-device-tunnel.md
+        - name: Aktivera multifaktorautentisering (MFA)
+          href: openvpn-azure-ad-mfa.md
+        - name: Konfigurera Azure AD-autentisering
+          href: virtual-wan-point-to-site-azure-ad.md
+        - name: Konfigurera Azure VPN-klient för Windows 10
+          href: openvpn-azure-ad-client.md
+        - name: Konfigurera Azure AD-autentisering för flera program
+          href: openvpn-azure-ad-tenant-multi-app.md
+    - name: Routning
       items:
-        - name: Route traffic from a virtual hub to an NVA
+        - name: Dirigera trafik från en virtuell hubb till en NVA
           items:
-            - name: Azure portal
+            - name: Azure Portal
               href: virtual-wan-route-table-portal.md
             - name: Azure PowerShell
               href: virtual-wan-route-table.md
-        - name: View virtual hub effective routes
+        - name: Visa effektiva vägar för virtuell hubb
           href: effective-routes-virtual-hub.md
-- name: Reference
+- name: Referens
   items:
     - name: Azure PowerShell
       href: '/powershell/module/az.network#networking'
@@ -88,19 +96,19 @@
       href: /rest/api/azure
     - name: Azure CLI
       href: /cli/azure/ext/virtual-wan
-- name: Resources
+- name: Resurser
   items:
-    - name: FAQ
+    - name: VANLIGA FRÅGOR OCH SVAR
       href: virtual-wan-faq.md
-    - name: Azure Roadmap
+    - name: Azure-översikt
       href: 'https://azure.microsoft.com/roadmap/?category=networking'
-    - name: Blog
+    - name: Blogg
       href: 'https://azure.microsoft.com/blog/topics/networking'
-    - name: Subscription and service limits
+    - name: Prenumerations- och tjänstbegränsningar
       href: ../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-wan%2ftoc.json
-    - name: Pricing
+    - name: Prissättning
       href: 'https://azure.microsoft.com/pricing/details/virtual-wan'
-    - name: Pricing calculator
+    - name: Priskalkylator
       href: 'https://azure.microsoft.com/pricing/calculator/'
     - name: SLA
       href: 'https://azure.microsoft.com/support/legal/sla'

@@ -9,7 +9,7 @@
       maintainContext: true
 - name: Snabbstarter
   items:
-    - name: REST API
+    - name: REST-API
       expanded: true
       items:
         - name: 'Använd C#'
@@ -41,11 +41,15 @@
       href: tutorial-visual-search-image-upload.md
     - name: Beskära och söka i en del av en avbildning
       href: tutorial-visual-search-crop-area-results.md
+    - name: Hitta liknande bilder från tidigare sökningar
+      href: tutorial-visual-search-insights-token.md
+    - name: Skapa en enkelsidig webbapp
+      href: tutorial-bing-visual-search-single-page-app.md
 - name: Exempel
   items:
     - name: Kodexempel
       href: 'https://azure.microsoft.com/resources/samples/?sort=0&service=cognitive-services&term=Bing+Visual+Search'
-- name: Koncept
+- name: Begrepp
   items:
     - name: Skicka frågor
       href: concepts/sending-queries.md
@@ -56,17 +60,13 @@
     - name: Analys för API för Bing Visual Search
       maintainContext: true
       href: ../bing-web-search/bing-web-stats.md
-- name: Instruktionsguider
+- name: Anvisningar
   items:
     - name: Få insikter med token
       href: use-insights-token.md
     - name: Ändra storlek på och beskär miniatyrer
       maintainContext: true
       href: ../bing-web-search/resize-and-crop-thumbnails.md
-    - name: Söka efter en avbildning med token för avbildningsinsikter
-      href: tutorial-visual-search-insights-token.md
-    - name: Skapa en enkelsidig webbapp
-      href: tutorial-bing-visual-search-single-page-app.md
 - name: Referens
   items:
     - name: REST v7 API

@@ -15,6 +15,9 @@
       href: quick-create-powershell.md
     - name: Skapa Application Gateway – Azure CLI
       href: quick-create-cli.md
+    - name: Skapa Application Gateway – ARM-mall
+      displayName: Resource Manager
+      href: quick-create-template.md
 - name: Självstudier
   items:
     - name: Skydda med SSL
@@ -47,6 +50,8 @@
           href: application-gateway-components.md
         - name: Översikt över konfiguration
           href: configuration-overview.md
+    - name: Stöd för mycket trafik
+      href: high-traffic-support.md
     - name: Automatisk skalning av v2-SKU
       href: application-gateway-autoscaling-zone-redundant.md
     - name: Routning

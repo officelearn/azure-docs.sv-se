@@ -95,6 +95,9 @@
     - name: Modellträning
       displayName: 'run config, estimator, machine learning pipeline, ml pipeline, train model'
       href: concept-train-machine-learning-model.md
+    - name: Distribuerad träning
+      displayName: 'parallellization, deep learning, deep neural network, dnn'
+      href: concept-distributed-training.md
     - name: Modellhantering (MLOps)
       displayName: 'deploy, deployment, publish, production, operationalize, operationalization'
       href: concept-model-management-and-deployment.md
@@ -111,6 +114,9 @@
     - name: Automatiserad maskininlärning
       displayName: 'automl, auto ml'
       href: concept-automated-ml.md
+    - name: Hantera fallgropar med ML
+      displayName: 'automl, auto ml, risks'
+      href: concept-manage-ml-pitfalls.md
     - name: Beräkninsinstans
       displayName: 'resource, dsvm, Data Science Virtual Machine'
       href: concept-compute-instance.md
@@ -184,39 +190,47 @@
           href: concept-train-model-git-integration.md
     - name: Arbeta med data
       items:
-        - name: Ansluta till data i Azure Storage
-          displayName: 'blob, get, fileshare, access storage, mount, download'
-          href: how-to-access-data.md
-        - name: Hämta data från ett datalager
-          displayName: 'data, data set, register, access data'
-          href: how-to-create-register-datasets.md
-        - name: Träna med datauppsättningar
-          displayName: 'data, dataset, mount'
-          href: how-to-train-with-datasets.md
-        - name: Importera data i designern
-          displayName: 'designer, data, import, dataset, datastore'
-          href: how-to-designer-import-data.md
-        - name: Identifiera avvikelse i datamängd
-          displayName: 'data, dataset'
-          href: how-to-monitor-datasets.md
-        - name: Versionera och spåra datamängder
-          displayName: 'data, data set'
-          href: how-to-version-track-datasets.md
-        - name: Hämta märkta data
-          displayName: 'data, dataset, labeling'
-          href: how-to-create-labeling-projects.md
-        - name: Etikettavbildningar
-          displayName: 'data, dataset, labeling'
-          href: how-to-label-images.md
-        - name: Skapa datauppsättningar med etiketter
-          displayName: 'data, labels, torchvision'
-          href: how-to-use-labeled-dataset.md
-        - name: Datainmatning med Azure Data Factory
-          displayName: 'data, ingestion, adf'
-          href: how-to-data-ingest-adf.md
-        - name: DevOps för datainmatning
-          displayName: 'data, ingestion, devops'
-          href: how-to-cicd-data-ingestion.md
+        - name: Etikettdata
+          items:
+            - name: Hämta märkta data
+              displayName: 'data, dataset, labeling'
+              href: how-to-create-labeling-projects.md
+            - name: Etikettavbildningar
+              displayName: 'data, dataset, labeling'
+              href: how-to-label-images.md
+            - name: Skapa datauppsättningar med etiketter
+              displayName: 'data, labels, torchvision'
+              href: how-to-use-labeled-dataset.md
+        - name: Hämta data
+          items:
+            - name: Datainmatning med Azure Data Factory
+              displayName: 'data, ingestion, adf'
+              href: how-to-data-ingest-adf.md
+            - name: DevOps för datainmatning
+              displayName: 'data, ingestion, devops'
+              href: how-to-cicd-data-ingestion.md
+            - name: Importera data i designern
+              displayName: 'designer, data, import, dataset, datastore'
+              href: how-to-designer-import-data.md
+        - name: Åtkomst till data
+          items:
+            - name: Ansluta till Azure Storage
+              displayName: 'blob, get, fileshare, access, mount, download, data lake'
+              href: how-to-access-data.md
+            - name: Hämta data från ett datalager
+              displayName: 'data, data set, register, access data'
+              href: how-to-create-register-datasets.md
+        - name: Hantera och använda data
+          items:
+            - name: Träna med datauppsättningar
+              displayName: 'data, dataset, mount'
+              href: how-to-train-with-datasets.md
+            - name: Identifiera avvikelse i datamängd
+              displayName: 'data, dataset'
+              href: how-to-monitor-datasets.md
+            - name: Versionera och spåra datamängder
+              displayName: 'data, data set'
+              href: how-to-version-track-datasets.md
     - name: Inlärningsmodeller
       items:
         - name: Använda uppskattningar för ML
@@ -337,6 +351,7 @@
         - name: Utlösa en pipeline
           href: how-to-trigger-published-pipeline.md
         - name: Felsöka pipelines
+          displayName: designer
           href: how-to-debug-pipelines.md
         - name: Felsöka pipelines i Application Insights.
           displayname: 'pipelines, log, monitor'

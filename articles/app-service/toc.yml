@@ -265,6 +265,8 @@
           href: 'https://azure.microsoft.com/documentation/scripts/'
     - name: Felsökning
       items:
+        - name: Felsöka tillfälliga utgående anslutningsfel
+          href: troubleshoot-intermittent-outbound-connection-errors.md
         - name: Felsöka med Visual Studio
           href: troubleshoot-dotnet-visual-studio.md
         - name: Felsöka Node.js-app

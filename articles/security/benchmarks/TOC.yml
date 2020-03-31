@@ -32,11 +32,23 @@
   items:
     - name: Översikt över Azure-säkerhetsbaslinjer
       href: security-baselines-overview.md
+    - name: Säkerhetsbaslinje för Azure Cache for Redis
+      href: ../../azure-cache-for-redis/security-baseline.md
     - name: Säkerhetsbaslinje för Batch
       href: ../../batch/security-baseline.md
-    - name: Säkerhetsbaslinje för Key Vault
-      href: ../../key-vault/security-baseline.md
+    - name: Säkerhetsbaslinje för Container Registry
+      href: ../../container-registry/security-baseline.md
+    - name: Säkerhetsbaslinje för Cosmos DB
+      href: ../../cosmos-db/security-baseline.md
     - name: Säkerhetsbaslinje för HDInsight
       href: ../../hdinsight/security-baseline.md
+    - name: Säkerhetsbaslinje för Key Vault
+      href: ../../key-vault/security-baseline.md
+    - name: Säkerhetsbaslinje för MariaDB
+      href: ../../mariadb/security-baseline.md
+    - name: Säkerhetsbaslinje för MySQL
+      href: ../../mysql/security-baseline.md
+    - name: Säkerhetsbaslinje för PostgreSQL
+      href: ../../postgresql/security-baseline.md
     - name: Säkerhetsöversikt för SQL Database
       href: ../../sql-database/security-baseline.md

@@ -1,45 +1,45 @@
 ---
-title: Skala upp en typ av Azure-Service Fabric Node
-description: Lär dig hur du skalar ett Service Fabric kluster genom att lägga till en skalnings uppsättning för virtuella datorer.
+title: Skala upp en nodtyp för Azure Service Fabric
+description: Lär dig hur du skalar ett Service Fabric-kluster genom att lägga till en skaluppsättning för virtuella datorer.
 ms.topic: article
 ms.date: 02/13/2019
 ms.openlocfilehash: 33d535cb093eeb95e0ce95bdd5722bfd21150a40
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75464221"
 ---
-# <a name="scale-up-a-service-fabric-cluster-primary-node-type"></a>Skala upp en Service Fabric primär nodtyp för kluster
-Den här artikeln beskriver hur du skalar upp en Service Fabric-klusters primära nodtyp genom att öka resurserna för virtuella datorer. Ett Service Fabric kluster är en nätverksansluten uppsättning virtuella eller fysiska datorer som dina mikrotjänster distribueras och hanteras i. En dator eller en virtuell dator som ingår i ett kluster kallas för en nod. Skalnings uppsättningar för virtuella datorer är en Azure Compute-resurs som du använder för att distribuera och hantera en samling virtuella datorer som en uppsättning. Varje nodtyp som definieras i ett Azure-kluster har [kon figurer ATS som en separat skalnings uppsättning](service-fabric-cluster-nodetypes.md). Varje nodtyp kan sedan hanteras separat. När du har skapat ett Service Fabric-kluster kan du skala en typ av klusternod lodrätt (ändra resurserna för noderna) eller uppgradera operativ systemet för de virtuella datorernas nodtyper.  Du kan skala klustret när som helst, även när arbets belastningar körs på klustret.  När klustret skalas, skalas programmen automatiskt.
+# <a name="scale-up-a-service-fabric-cluster-primary-node-type"></a>Skala upp en primär nodtyp för Service Fabric-klustret
+I den här artikeln beskrivs hur du skalar upp en primär nodtyp för service fabric-kluster genom att öka resurserna för den virtuella datorn. Ett Service Fabric-kluster är en nätverksansluten uppsättning virtuella eller fysiska datorer som dina mikrotjänster distribueras och hanteras till. En dator eller virtuell dator som ingår i ett kluster kallas en nod. Skala uppsättningar för virtuella datorer är en Azure-beräkningsresurs som du använder för att distribuera och hantera en samling virtuella datorer som en uppsättning. Varje nodtyp som definieras i ett Azure-kluster [ställs in som en separat skalningsuppsättning](service-fabric-cluster-nodetypes.md). Varje nodtyp kan sedan hanteras separat. När du har skapat ett Service Fabric-kluster kan du skala en klusternodtyp lodrätt (ändra nodernas resurser) eller uppgradera operativsystemet för de virtuella datorerna för nodtyp.  Du kan skala klustret när som helst, även när arbetsbelastningar körs i klustret.  När klustret skalas skalas även dina program automatiskt.
 
 > [!WARNING]
-> Börja inte ändra den primära VM-SKU: n om klustrets hälso tillstånd inte är felfritt. Om kluster hälsan inte är felfri kommer du bara att göra klustret ytterligare om du försöker ändra VM-SKU: n.
+> Börja inte ändra den primära nodetypen VM SKU, om klusterhälsan är fel. Om klusterhälsan är felaktig destabiliserar du bara klustret ytterligare om du försöker ändra VM SKU.
 >
-> Vi rekommenderar att du inte ändrar VM-SKU: n för en skalnings uppsättning/nodtyp om den inte körs vid [silver tålighet eller större](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster). Ändring av den virtuella datorns SKU-storlek är en data-destruktiv infrastruktur åtgärd på plats. Utan någon möjlighet att fördröja eller övervaka den här ändringen är det möjligt att åtgärden kan leda till data förlust för tillstånds känsliga tjänster eller orsaka andra oförutsedda drifts problem, även för tillstånds lösa arbets belastningar. Det innebär att den primära nodtypen, som kör tillstånds känsliga Service Fabric-systemtjänster, eller en nodtyp som kör din tillstånds känsliga program arbets belastningar.
+> Vi rekommenderar att du inte ändrar VM SKU för en skalningsuppsättning/nodtyp om den inte körs vid [Silver hållbarhet eller större](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster). Ändra VM SKU Storlek är en datadestruktiv på plats infrastruktur drift. Utan viss möjlighet att fördröja eller övervaka den här ändringen är det möjligt att åtgärden kan orsaka dataförlust för tillståndskänsliga tjänster eller orsaka andra oförutsedda driftproblem, även för tillståndslösa arbetsbelastningar. Det innebär att din primära nodtyp, som kör tillståndskänsliga tjänstinfrastruktursystemtjänster, eller någon nodtyp som kör dina tillståndskänsliga programarbetsbelastningar.
 >
 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="upgrade-the-size-and-operating-system-of-the-primary-node-type-vms"></a>Uppgradera storlek och operativ system för de virtuella datorernas primära nodtyp
-Här är processen för att uppdatera VM-storlek och operativ system för de virtuella datorernas primära nodtypen.  Efter uppgraderingen är den primära nodtypen för virtuella datorer storlek standard D4_V2 och kör Windows Server 2016 Data Center med behållare.
+## <a name="upgrade-the-size-and-operating-system-of-the-primary-node-type-vms"></a>Uppgradera storlek och operativsystem för virtuella datorer av primär nodtyp
+Här är processen för att uppdatera vm-storlek och operativsystem för den primära nodtypen virtuella datorer.  Efter uppgraderingen är virtuella datorer av den primära nodtypen storlek standard D4_V2 och kör Windows Server 2016 Datacenter med behållare.
 
 > [!WARNING]
-> Innan du försöker utföra den här proceduren i ett produktions kluster rekommenderar vi att du studerar exempelfilerna och kontrollerar processen mot ett test kluster. Klustret är inte heller tillgängligt under en tid. Du kan inte göra ändringar i flera VMSS som deklareras som samma NodeType parallellt. Du måste utföra åtskilda distributions åtgärder för att tillämpa ändringar på varje NodeType-VMSS individuellt.
+> Innan du försöker med den här proceduren i ett produktionskluster rekommenderar vi att du studerar exempelmallarna och verifierar processen mot ett testkluster. Klustret är inte heller tillgängligt under en tid. Du kan INTE göra ändringar i flera VMSS som deklarerats som samma NodeType parallellt. Du måste utföra separerade distributionsåtgärder för att tillämpa ändringar på varje NodeType VMSS individuellt.
 
-1. Distribuera det första klustret med två nodtyper och två skalnings uppsättningar (en skalnings uppsättning per nodtyp) med hjälp av dessa exempel [mal len](https://github.com/Azure/service-fabric-scripts-and-templates/blob/master/templates/nodetype-upgrade/Deploy-2NodeTypes-2ScaleSets.json) och [parametrar](https://github.com/Azure/service-fabric-scripts-and-templates/blob/master/templates/nodetype-upgrade/Deploy-2NodeTypes-2ScaleSets.parameters.json) filer.  Båda skalnings uppsättningarna är storlek standard D2_V2 och kör Windows Server 2012 R2 Data Center.  Vänta tills klustret har slutfört bas linje uppgraderingen.   
-2. Valfritt – distribuera ett tillstånds känsligt exempel till klustret.
-3. När du har bestämt dig för att uppgradera den primära nodtypen för virtuella datorer lägger du till en ny skalnings uppsättning till den primära nodtypen med hjälp av dessa exempel- [mall](https://github.com/Azure/service-fabric-scripts-and-templates/blob/master/templates/nodetype-upgrade/Deploy-2NodeTypes-3ScaleSets.json) och [parametrar](https://github.com/Azure/service-fabric-scripts-and-templates/blob/master/templates/nodetype-upgrade/Deploy-2NodeTypes-3ScaleSets.parameters.json) filer så att den primära nodtypen nu har två skalnings uppsättningar.  System tjänster och användar program kan migreras mellan virtuella datorer i de två olika skalnings uppsättningarna.  De nya virtuella datorerna med skalnings uppsättningen är storlek standard D4_V2 och kör Windows Server 2016 Data Center med behållare.  En ny belastningsutjämnare och en offentlig IP-adress läggs också till med den nya skalnings uppsättningen.  
-    Sök efter den nya skalnings uppsättningen i mallen genom att söka efter resursen "Microsoft. Compute/virtualMachineScaleSets" som heter med parametern *vmNodeType2Name* .  Den nya skalnings uppsättningen läggs till i den primära nodtypen med hjälp av egenskaperna-> virtualMachineProfile-> extensionProfile-> tillägg-> Egenskaper-> Inställningar-> nodeTypeRef inställning.
-4. Kontrol lera kluster hälsan och kontrol lera att alla noder är felfria.
-5. Inaktivera noderna i den gamla skalnings uppsättningen för den primära nodtypen med avsikt att ta bort noden. Du kan inaktivera alla samtidigt och åtgärderna placeras i kö. Vänta tills alla noder har inaktiverats, vilket kan ta lite tid.  Eftersom de äldre noderna i nodtypen är inaktiverade migreras system tjänsterna och dirigeringsrouters till de virtuella datorerna för den nya skalnings uppsättningen i den primära nodtypen.
-6. Ta bort den äldre skalnings uppsättningen från den primära nodtypen.
-7. Ta bort belastningsutjämnaren som är associerad med den gamla skalnings uppsättningen. Klustret är inte tillgängligt medan den nya offentliga IP-adressen och belastningsutjämnaren har kon figurer ATS för den nya skalnings uppsättningen.  
-8. Lagra DNS-inställningar för den offentliga IP-adress som är kopplad till den gamla skalnings uppsättningen för den primära nodtypen i en variabel och ta bort den offentliga IP-adressen.
-9. Ersätt DNS-inställningarna för den offentliga IP-adress som är associerad med den nya primära nodens typ skalnings uppsättning med DNS-inställningarna för den borttagna offentliga IP-adressen.  Klustret kan nu uppnås igen.
-10. Ta bort nodens tillstånd för noderna från klustret.  Om hållbarhets nivån för den gamla skalnings uppsättningen är silver eller guld utförs det här steget automatiskt av systemet.
-11. Om du har distribuerat det tillstånds känsliga programmet i föregående steg kontrollerar du att programmet fungerar.
+1. Distribuera det första klustret med två nodtyper och två skalningsuppsättningar (en skalningsuppsättning per nodtyp) med hjälp av dessa [exempelmall och](https://github.com/Azure/service-fabric-scripts-and-templates/blob/master/templates/nodetype-upgrade/Deploy-2NodeTypes-2ScaleSets.json) [parameterfiler.](https://github.com/Azure/service-fabric-scripts-and-templates/blob/master/templates/nodetype-upgrade/Deploy-2NodeTypes-2ScaleSets.parameters.json)  Båda skalningsuppsättningarna är storleksstandard D2_V2 och windows server 2012 R2-datacenter.  Vänta tills klustret har slutfört baslinjeuppgraderingen.   
+2. Valfritt- distribuera ett tillståndskänsligt exempel till klustret.
+3. När du har bestämt dig för att uppgradera de primära nodtypen virtuella datorer lägger du till en ny skaluppsättning till den primära nodtypen med hjälp av dessa [exempelmall och](https://github.com/Azure/service-fabric-scripts-and-templates/blob/master/templates/nodetype-upgrade/Deploy-2NodeTypes-3ScaleSets.json) [parameterfiler](https://github.com/Azure/service-fabric-scripts-and-templates/blob/master/templates/nodetype-upgrade/Deploy-2NodeTypes-3ScaleSets.parameters.json) så att den primära nodtypen nu har två skalningsuppsättningar.  Systemtjänster och användarprogram kan migrera mellan virtuella datorer i de två olika skalningsuppsättningarna.  De nya skaluppsättningen virtuella datorer är storleksstandard D4_V2 och kör Windows Server 2016 Datacenter med behållare.  En ny belastningsutjämnare och offentlig IP-adress läggs också till med den nya skalningsuppsättningen.  
+    Om du vill hitta den nya skalningsuppsättningen i mallen söker du efter resursen "Microsoft.Compute/virtualMachineScaleSets" som namnges av parametern *vmNodeType2Name.*  Den nya skaluppsättningen läggs till i den primära nodtypen med inställningen egenskaper >virtualMachineProfile->->->->egenskaper->inställningar->nodeTypeRef-inställningen.
+4. Kontrollera klustrets hälsa och kontrollera att alla noder är felfria.
+5. Inaktivera noderna i den gamla skaluppsättningen för den primära nodtypen med avsikt att ta bort noden. Du kan inaktivera alla på en gång och åtgärderna står i kö. Vänta tills alla noder är inaktiverade, vilket kan ta lite tid.  När de äldre noderna i nodtypen är inaktiverade migrerar systemtjänsterna och frönoderna till de virtuella datorerna i den nya skalan som angetts i den primära nodtypen.
+6. Ta bort den äldre skaluppsättningen från den primära nodtypen.
+7. Ta bort belastningsutjämnaren som är associerad med den gamla skaluppsättningen. Klustret är inte tillgängligt medan den nya offentliga IP-adressen och belastningsutjämnaren är konfigurerade för den nya skalningsuppsättningen.  
+8. Lagra DNS-inställningar för den offentliga IP-adress som är associerad med den gamla primära nodtypsskalan som angetts i en variabel och ta bort den offentliga IP-adressen.
+9. Ersätt DNS-inställningarna för den offentliga IP-adress som är associerad med den nya primära nodtypsskalan som har angetts med DNS-inställningarna för den borttagna offentliga IP-adressen.  Klustret kan nu nås igen.
+10. Ta bort nodtillståndet för noderna från klustret.  Om hållbarhetsnivån för den gamla skalningsuppsättningen var silver eller guld, görs detta steg automatiskt av systemet.
+11. Om du har distribuerat det tillståndskänsliga programmet i ett tidigare steg kontrollerar du att programmet fungerar.
 
 ```powershell
 # Variables.
@@ -151,8 +151,8 @@ foreach($name in $nodeNames){
 
 ## <a name="next-steps"></a>Nästa steg
 * Lär dig hur du [lägger till en nodtyp i ett kluster](virtual-machine-scale-set-scale-node-type-scale-out.md)
-* Lär dig mer om [program skalbarhet](service-fabric-concepts-scalability.md).
+* Läs mer om [programskalbarhet](service-fabric-concepts-scalability.md).
 * [Skala ett Azure-kluster in eller ut](service-fabric-tutorial-scale-cluster.md).
-* [Skala ett Azure-kluster program mässigt](service-fabric-cluster-programmatic-scaling.md) med hjälp av Fluent Azure Compute SDK.
+* [Skala ett Azure-kluster programmässigt](service-fabric-cluster-programmatic-scaling.md) med hjälp av den flytande Azure-beräkningSDK.Scale an Azure cluster programmematically using the fluent Azure compute SDK.
 * [Skala ett fristående kluster in eller ut](service-fabric-cluster-windows-server-add-remove-nodes.md).
 

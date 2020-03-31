@@ -1,6 +1,6 @@
 ---
-title: 'Snabb start: Skapa Azure Storage köer i portalen'
-description: Använd Azure Portal för att skapa en kö. Använd sedan Azure Portal för att lägga till ett meddelande, Visa meddelande egenskaperna och ta bort kön för meddelandet.
+title: 'Snabbstart: Skapa Azure Storage-köer i portalen'
+description: Använd Azure-portalen för att skapa en kö. Använd sedan Azure-portalen för att lägga till ett meddelande, visa meddelandeegenskaperna och avmarkera meddelandet.
 author: mhopkins-msft
 ms.author: mhopkins
 ms.date: 03/06/2019
@@ -9,13 +9,13 @@ ms.subservice: queues
 ms.topic: quickstart
 ms.reviewer: cbrooks
 ms.openlocfilehash: 2876d2a680aa41372557a9f04c1d6a5eed56b8ae
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "74269251"
 ---
-# <a name="quickstart-create-a-queue-and-add-a-message-with-the-azure-portal"></a>Snabb start: skapa en kö och Lägg till ett meddelande med Azure Portal
+# <a name="quickstart-create-a-queue-and-add-a-message-with-the-azure-portal"></a>Snabbstart: Skapa en kö och lägg till ett meddelande med Azure-portalen
 
 I den här snabbstarten får du lära dig hur du använder [Azure-portalen](https://portal.azure.com/) till att skapa en kö i Azure Storage samt lägga till meddelanden i och ta dem ur kön.
 
@@ -53,7 +53,7 @@ När du har lagt till ett meddelande visar Azure-portalen en lista över alla me
 
 ![Skärmbild som visar meddelandeegenskaper](media/storage-quickstart-queues-portal/view-message-properties.png)
 
-## <a name="dequeue-a-message"></a>Ta ett meddelande ur kön
+## <a name="dequeue-a-message"></a>Ta bort ett meddelande från en kö
 
 Du kan ett meddelande ur första plats i kön från Azure-portalen. När du tar ett meddelande ur kön tas det bort. 
 

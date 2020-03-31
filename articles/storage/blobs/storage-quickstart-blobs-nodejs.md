@@ -1,6 +1,6 @@
 ---
-title: 'Snabb start: Azure Blob Storage-bibliotek V12 – Java Script'
-description: I den här snabb starten får du lära dig hur du använder Azure Blob Storage klient bibliotek version 12 för Java Script för att skapa en behållare och en BLOB i blob-lagring (objekt). Du får lära dig hur du hämtar bloben till din lokala dator och hur du visar alla blobar i en container.
+title: 'Snabbstart: Azure Blob storage library v12 - JavaScript'
+description: I den här snabbstarten får du lära dig hur du använder Azure Blob storage client library version 12 för JavaScript för att skapa en behållare och en blob i Blob(objekt) lagring. Du får lära dig hur du hämtar bloben till din lokala dator och hur du visar alla blobar i en container.
 author: mhopkins-msft
 ms.author: mhopkins
 ms.date: 01/24/2020
@@ -8,50 +8,50 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
 ms.openlocfilehash: e68e91d90846ab77b994b53be7a84a9dd8bc5a25
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "79241040"
 ---
-# <a name="quickstart-manage-blobs-with-javascript-v12-sdk-in-nodejs"></a>Snabb start: hantera blobbar med Java Script V12 SDK i Node. js
+# <a name="quickstart-manage-blobs-with-javascript-v12-sdk-in-nodejs"></a>Snabbstart: Hantera blobbar med JavaScript v12 SDK i Node.js
 
-I den här snabb starten lär du dig att hantera blobbar med hjälp av Node. js. Blobbar är objekt som kan innehålla stora mängder text eller binära data, inklusive bilder, dokument, strömmande media och Arkiv data. Du laddar upp, laddar ned och listar blobbar och skapar och tar bort behållare.
+I den här snabbstarten lär du dig hantera blobbar med nod.js. Blobbar är objekt som kan innehålla stora mängder text eller binära data, inklusive bilder, dokument, strömmande media och arkivdata. Du överför, hämtar och listblobar och skapar och tar bort behållare.
 
-[API Reference-dokumentation](/javascript/api/@azure/storage-blob) | [bibliotekets käll kod](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-blob) | [paketet (Node Pack Manager)](https://www.npmjs.com/package/@azure/storage-blob) | [exempel](https://docs.microsoft.com/azure/storage/common/storage-samples-javascript?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-samples)
+[API-referensdokumentation](/javascript/api/@azure/storage-blob) | [Bibliotekskodpaket](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-blob) | [(Nod Package Manager)](https://www.npmjs.com/package/@azure/storage-blob) | [Exempel](https://docs.microsoft.com/azure/storage/common/storage-samples-javascript?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-samples)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-- Ett Azure-konto med en aktiv prenumeration. [Skapa ett konto kostnads fritt](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+- Ett Azure-konto med en aktiv prenumeration. [Skapa ett konto gratis](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 - Ett Azure Storage-konto. [Skapa ett lagringskonto](../common/storage-account-create.md).
-- [Node.js](https://nodejs.org/en/download/).
+- [Nod.js](https://nodejs.org/en/download/).
 
 > [!NOTE]
-> För att komma igång med den tidigare SDK-versionen, se [snabb start: hantera blobbar med Java Script v10 SDK i Node. js](storage-quickstart-blobs-nodejs-legacy.md).
+> Mer om du vill komma igång med den tidigare SDK-versionen finns i [Snabbstart: Hantera blobbar med JavaScript v10 SDK i Node.js](storage-quickstart-blobs-nodejs-legacy.md).
 
 [!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
 
-## <a name="setting-up"></a>Konfigurera
+## <a name="setting-up"></a>Inrätta
 
-Det här avsnittet beskriver hur du förbereder ett projekt så att det fungerar med Azure Blob Storage-V12 för Java Script.
+I det här avsnittet får du hjälp med att förbereda ett projekt för att arbeta med Azure Blob storage-klientbiblioteket v12 för JavaScript.
 
 ### <a name="create-the-project"></a>Skapa projektet
 
-Skapa ett JavaScript-program med namnet *BLOB-snabb start-V12*.
+Skapa ett JavaScript-program med namnet *blob-quickstart-v12*.
 
-1. Skapa en ny katalog för projektet i ett konsol fönster (till exempel cmd, PowerShell eller bash).
+1. Skapa en ny katalog för projektet i ett konsolfönster (till exempel cmd, PowerShell eller Bash).
 
     ```console
     mkdir blob-quickstart-v12
     ```
 
-1. Växla till den nyss skapade *V12-katalogen för BLOB-snabb start* .
+1. Växla till den nyskapade *blob-quickstart-v12-katalogen.*
 
     ```console
     cd blob-quickstart-v12
     ```
 
-1. Skapa en ny textfil med namnet *Package. JSON*. Den här filen definierar Node. js-projektet. Spara filen i katalogen *BLOB-snabb start-V12* . Här är filens innehåll:
+1. Skapa en ny textfil som heter *package.json*. Den här filen definierar nod.js-projektet. Spara den här filen i katalogen *blob-quickstart-v12.* Här är innehållet i filen:
 
     ```json
     {
@@ -72,23 +72,23 @@ Skapa ett JavaScript-program med namnet *BLOB-snabb start-V12*.
     }
     ```
     
-    Du kan ange ett eget namn i för fältet `author` om du vill.
+    Du kan sätta ditt eget `author` namn i för fältet, om du vill.
    
 ### <a name="install-the-package"></a>Installera paketet
 
-Medan du fortfarande finns i katalogen *BLOB-snabb start-V12* , installerar du klient biblioteket för Azure Blob Storage för JavaScript-paket med hjälp av kommandot `npm install`. Detta kommando läser filen *Package. JSON* och installerar Azure Blob Storage-V12 för JavaScript-paket och alla bibliotek som det är beroende av.
+Medan du fortfarande är i katalogen *blob-quickstart-v12* installerar du Azure Blob storage-klientbiblioteket för JavaScript-paketet med `npm install` kommandot. Det här kommandot läser *filen package.json* och installerar Azure Blob storage client library v12 for JavaScript-paketet och alla bibliotek som det är beroende av.
 
 ```console
 npm install
 ```
 
-### <a name="set-up-the-app-framework"></a>Konfigurera app Framework
+### <a name="set-up-the-app-framework"></a>Konfigurera ramverket för appen
 
-Från projekt katalogen:
+Från projektkatalogen:
 
-1. Öppna en annan ny textfil i kod redigeraren
-1. Lägg till `require` anrop för att läsa in Azure-och Node. js-moduler
-1. Skapa strukturen för programmet, inklusive grundläggande undantags hantering
+1. Öppna en ny textfil i kodredigeraren
+1. Lägga `require` till anrop för att läsa in Azure- och Node.js-moduler
+1. Skapa strukturen för programmet, inklusive grundläggande undantagshantering
 
     Här är koden:
 
@@ -104,17 +104,17 @@ Från projekt katalogen:
     main().then(() => console.log('Done')).catch((ex) => console.log(ex.message));
     ```
 
-1. Spara den nya filen som *BLOB-QuickStart-V12. js* i katalogen *BLOB-snabb start-V12* .
+1. Spara den nya filen som *blob-quickstart-v12.js* i katalogen *blob-quickstart-v12.*
 
 [!INCLUDE [storage-quickstart-credentials-include](../../../includes/storage-quickstart-credentials-include.md)]
 
-## <a name="object-model"></a>Objekt modell
+## <a name="object-model"></a>Objektmodell
 
-Azure Blob Storage är optimerat för att lagra enorma mängder ostrukturerade data. Ostrukturerade data är data som inte följer en viss datamodell eller definition, till exempel text eller binära data. I blobblagringen finns tre typer av resurser:
+Azure Blob-lagring är optimerad för lagring av stora mängder ostrukturerade data. Ostrukturerade data är data som inte följer en viss datamodell eller definition, till exempel text eller binära data. I blobblagringen finns tre typer av resurser:
 
-* Lagrings kontot
-* En behållare i lagrings kontot
-* En BLOB i behållaren
+* Lagringskontot
+* En container på lagringskontot
+* En blob i behållaren
 
 Följande diagram visar relationen mellan de här resurserna.
 
@@ -122,26 +122,26 @@ Följande diagram visar relationen mellan de här resurserna.
 
 Använd följande JavaScript-klasser för att interagera med dessa resurser:
 
-* [BlobServiceClient](/javascript/api/@azure/storage-blob/blobserviceclient): klassen `BlobServiceClient` gör att du kan ändra Azure Storage resurser och blob-behållare.
-* [ContainerClient](/javascript/api/@azure/storage-blob/containerclient): klassen `ContainerClient` gör att du kan ändra Azure Storage behållare och deras blobbar.
-* [BlobClient](/javascript/api/@azure/storage-blob/blobclient): klassen `BlobClient` gör att du kan ändra Azure Storage blobbar.
+* [BlobServiceClient](/javascript/api/@azure/storage-blob/blobserviceclient): `BlobServiceClient` Med klassen kan du manipulera Azure Storage-resurser och blob-behållare.
+* [ContainerClient](/javascript/api/@azure/storage-blob/containerclient): `ContainerClient` Klassen låter dig manipulera Azure Storage-behållare och deras blobbar.
+* [BlobClient](/javascript/api/@azure/storage-blob/blobclient): `BlobClient` Klassen låter dig manipulera Azure Storage blobbar.
 
-## <a name="code-examples"></a>Kod exempel
+## <a name="code-examples"></a>Kodexempel
 
-I de här exempel kods tycken visas hur du gör följande med klient biblioteket för Azure Blob Storage för Java Script:
+I det här exemplet visar kodavsnitt hur du utför följande med Azure Blob storage-klientbiblioteket för JavaScript:
 
-* [Hämta anslutnings strängen](#get-the-connection-string)
+* [Hämta anslutningssträngen](#get-the-connection-string)
 * [Skapa en behållare](#create-a-container)
 * [Ladda upp blobbar till en behållare](#upload-blobs-to-a-container)
-* [Visa en lista över blobarna i en behållare](#list-the-blobs-in-a-container)
+* [Visa en lista över blobarna i en container](#list-the-blobs-in-a-container)
 * [Ladda ned blobbar](#download-blobs)
 * [Ta bort en container](#delete-a-container)
 
 ### <a name="get-the-connection-string"></a>Hämta anslutningssträngen
 
-Koden nedan hämtar anslutnings strängen för lagrings kontot från den miljö variabel som skapades i avsnittet [Konfigurera din lagrings anslutnings sträng](#configure-your-storage-connection-string) .
+Koden nedan hämtar anslutningssträngen för lagringskontot från den miljövariabel som skapas i avsnittet [Konfigurera lagringsanslutningssträngen.](#configure-your-storage-connection-string)
 
-Lägg till den här koden i `main`-funktionen:
+Lägg till den `main` här koden i funktionen:
 
 ```javascript
 // Retrieve the connection string for use with the application. The storage
@@ -155,14 +155,14 @@ const AZURE_STORAGE_CONNECTION_STRING = process.env.AZURE_STORAGE_CONNECTION_STR
 
 ### <a name="create-a-container"></a>Skapa en container
 
-Välj ett namn för den nya behållaren. Koden nedan lägger till ett UUID-värde till behållar namnet för att säkerställa att det är unikt.
+Bestäm ett namn för den nya behållaren. Koden nedan lägger till ett UUID-värde i behållarnamnet för att säkerställa att det är unikt.
 
 > [!IMPORTANT]
 > Containernamn måste använda gemener. Mer information om namngivning av containrar och blobar finns i [Namngivning och referens av containrar, blobar och metadata](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata).
 
-Skapa en instans av klassen [BlobServiceClient](/javascript/api/@azure/storage-blob/blobserviceclient) genom att anropa [fromConnectionString](/javascript/api/@azure/storage-blob/blobserviceclient#fromconnectionstring-string--storagepipelineoptions-) -metoden. Anropa sedan metoden [getContainerClient](/javascript/api/@azure/storage-blob/blobserviceclient#getcontainerclient-string-) för att hämta en referens till en behållare. [Skapa slutligen ett anrop för](/javascript/api/@azure/storage-blob/containerclient#create-containercreateoptions-) att skapa behållaren i ditt lagrings konto.
+Skapa en instans av klassen [BlobServiceClient](/javascript/api/@azure/storage-blob/blobserviceclient) genom att anropa metoden [fromConnectionString.](/javascript/api/@azure/storage-blob/blobserviceclient#fromconnectionstring-string--storagepipelineoptions-) Anropa sedan [metoden getContainerClient](/javascript/api/@azure/storage-blob/blobserviceclient#getcontainerclient-string-) för att få en referens till en behållare. Slutligen [anropar du skapa](/javascript/api/@azure/storage-blob/containerclient#create-containercreateoptions-) för att faktiskt skapa behållaren i ditt lagringskonto.
 
-Lägg till den här koden i slutet av `main`-funktionen:
+Lägg till den här `main` koden i slutet av funktionen:
 
 ```javascript
 // Create the BlobServiceClient object which will be used to create a container client
@@ -184,13 +184,13 @@ console.log("Container was created successfully. requestId: ", createContainerRe
 
 ### <a name="upload-blobs-to-a-container"></a>Ladda upp blobbar till en behållare
 
-Följande kodfragment:
+Följande kodavsnitt:
 
-1. Skapar en text sträng som ska överföras till en blob.
-1. Hämtar en referens till ett [BlockBlobClient](/javascript/api/@azure/storage-blob/blockblobclient) -objekt genom att anropa metoden [getBlockBlobClient](/javascript/api/@azure/storage-blob/containerclient#getblockblobclient-string-) på [ContainerClient](/javascript/api/@azure/storage-blob/containerclient) från avsnittet [skapa en behållare](#create-a-container) .
-1. Överför text Strängs data till blobben genom att anropa [överförings](/javascript/api/@azure/storage-blob/blockblobclient#upload-httprequestbody--number--blockblobuploadoptions-) metoden.
+1. Skapar en textsträng som ska överföras till en blob.
+1. Hämtar en referens till ett [BlockBlobClient-objekt](/javascript/api/@azure/storage-blob/blockblobclient) genom att anropa metoden [getBlockBlobClient](/javascript/api/@azure/storage-blob/containerclient#getblockblobclient-string-) på [ContainerClient](/javascript/api/@azure/storage-blob/containerclient) från avsnittet [Skapa en behållare.](#create-a-container)
+1. Överför textsträngsdata till blobben genom att anropa [uppladdningsmetoden.](/javascript/api/@azure/storage-blob/blockblobclient#upload-httprequestbody--number--blockblobuploadoptions-)
 
-Lägg till den här koden i slutet av `main`-funktionen:
+Lägg till den här `main` koden i slutet av funktionen:
 
 ```javascript
 // Create a unique name for the blob
@@ -209,9 +209,9 @@ console.log("Blob was uploaded successfully. requestId: ", uploadBlobResponse.re
 
 ### <a name="list-the-blobs-in-a-container"></a>Visa en lista över blobarna i en container
 
-Visa en lista över blobarna i behållaren genom att anropa metoden [listBlobsFlat](/javascript/api/@azure/storage-blob/containerclient#listblobsflat-containerlistblobsoptions-) . I det här fallet har endast en BLOB lagts till i behållaren, så List åtgärden returnerar bara den en blob.
+Lista blobbar i behållaren genom att anropa [metoden listBlobsFlat.](/javascript/api/@azure/storage-blob/containerclient#listblobsflat-containerlistblobsoptions-) I det här fallet har bara en blob lagts till i behållaren, så listningsåtgärden returnerar bara den bloben.
 
-Lägg till den här koden i slutet av `main`-funktionen:
+Lägg till den här `main` koden i slutet av funktionen:
 
 ```javascript
 console.log('\nListing blobs...');
@@ -224,9 +224,9 @@ for await (const blob of containerClient.listBlobsFlat()) {
 
 ### <a name="download-blobs"></a>Ladda ned blobbar
 
-Hämta den tidigare skapade blobben genom att anropa [nedladdnings](/javascript/api/@azure/storage-blob/blockblobclient#download-undefined---number--undefined---number--blobdownloadoptions-) metoden. Exempel koden innehåller en hjälp funktion som kallas `streamToString`, som används för att läsa en skrivskyddad data ström i Node. js i en sträng.
+Hämta den tidigare skapade blobben genom att anropa [hämtningsmetoden.](/javascript/api/@azure/storage-blob/blockblobclient#download-undefined---number--undefined---number--blobdownloadoptions-) Exempelkoden innehåller en hjälpfunktion `streamToString`som kallas , som används för att läsa en nod.js läsbar ström i en sträng.
 
-Lägg till den här koden i slutet av `main`-funktionen:
+Lägg till den här `main` koden i slutet av funktionen:
 
 ```javascript
 // Get blob content from position 0 to the end
@@ -237,7 +237,7 @@ console.log('\nDownloaded blob content...');
 console.log('\t', await streamToString(downloadBlockBlobResponse.readableStreamBody));
 ```
 
-Lägg till den här hjälp funktionen *efter* funktionen `main`:
+Lägg till den *after* här `main` hjälpfunktionen efter funktionen:
 
 ```javascript
 // A helper function used to read a Node.js readable stream into a string
@@ -257,9 +257,9 @@ async function streamToString(readableStream) {
 
 ### <a name="delete-a-container"></a>Ta bort en container
 
-Följande kod rensar resurserna som skapats av appen genom att ta bort hela behållaren med [Delete](/javascript/api/@azure/storage-blob/containerclient#delete-containerdeletemethodoptions-) -metoden. Du kan också ta bort de lokala filerna, om du vill.
+Följande kod rensar de resurser som appen har skapat genom att ta bort hela behållaren med [borttagningsmetoden.](/javascript/api/@azure/storage-blob/containerclient#delete-containerdeletemethodoptions-) Du kan också ta bort de lokala filerna om du vill.
 
-Lägg till den här koden i slutet av `main`-funktionen:
+Lägg till den här `main` koden i slutet av funktionen:
 
 ```javascript
 console.log('\nDeleting container...');
@@ -271,15 +271,15 @@ console.log("Container was deleted successfully. requestId: ", deleteContainerRe
 
 ## <a name="run-the-code"></a>Kör koden
 
-Den här appen skapar en text sträng och laddar upp den till Blob Storage. I exemplet visas sedan en lista över blobarna i behållaren, laddar ned bloben och visar hämtade data.
+Den här appen skapar en textsträng och överför den till Blob-lagring. I exemplet visas sedan blob/er i behållaren, hämtar blobben och visar de hämtade data.
 
-Från en konsol tolk navigerar du till katalogen som innehåller filen *BLOB-QuickStart-V12.py* och kör sedan följande `node` kommando för att köra appen.
+Från en konsolfråga navigerar du till katalogen som innehåller `node` *blob-quickstart-v12.py-filen* och kör sedan följande kommando för att köra appen.
 
 ```console
 node blob-quickstart-v12.js
 ```
 
-Utdata från appen liknar följande exempel:
+Utdata för appen liknar följande exempel:
 
 ```output
 Azure Blob storage v12 - JavaScript quickstart sample
@@ -300,16 +300,16 @@ Deleting container...
 Done
 ```
 
-Gå igenom koden i fel söknings programmet och kontrol lera [Azure Portal](https://portal.azure.com) under hela processen. Kontrol lera att behållaren håller på att skapas. Du kan öppna blobben i behållaren och visa innehållet.
+Gå igenom koden i felsökaren och kontrollera din [Azure-portal](https://portal.azure.com) under hela processen. Kontrollera att behållaren skapas. Du kan öppna blobben i behållaren och visa innehållet.
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabb starten har du lärt dig att ladda upp, ladda ned och lista blobar med hjälp av Java Script.
+I den här snabbstarten lärde du dig hur du laddar upp, laddar ned och listar blobbar med JavaScript.
 
-För självstudier, exempel, snabb starter och annan dokumentation går du till:
+För självstudier, exempel, snabbstarter och annan dokumentation, besök:
 
 > [!div class="nextstepaction"]
-> [Dokumentation om Azure för Java Script](/azure/javascript/)
+> [Azure för JavaScript-dokumentation](/azure/javascript/)
 
-* Mer information finns i [klient biblioteket för Azure Blob Storage för Java Script](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-blob).
-* Om du vill se exempel appar för Blob Storage kan du fortsätta till [Azure Blob Storage-V12 JavaScript-exempel](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-blob/samples).
+* Mer information finns i [Azure Blob storage client library för JavaScript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-blob).
+* Om du vill visa exempelappar för Blob-lagring fortsätter du till [Azure Blob storage client library v12 JavaScript-exempel](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-blob/samples).

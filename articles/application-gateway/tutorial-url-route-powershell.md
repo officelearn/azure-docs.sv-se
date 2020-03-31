@@ -9,15 +9,15 @@ ms.date: 07/31/2019
 ms.author: victorh
 ms.custom: mvc
 ms.openlocfilehash: 8ca5c411db5644182f7e87f1ee1c63f3cbc4d2e9
-ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73200397"
 ---
 # <a name="route-web-traffic-based-on-the-url-using-azure-powershell"></a>Dirigera webbtrafik baserat på webbadressen med Azure PowerShell
 
-Du kan använda Azure PowerShell till att konfigurera dirigering av webbtrafik till specifika, skalbara serverpooler baserat på webbadressen som användes för åtkomst till ditt program. I den här artikeln skapar du en [Azure Application Gateway](application-gateway-introduction.md) med tre backend-pooler med hjälp av [Virtual Machine Scale Sets](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md). Var och en av serverdelspoolerna har ett specifikt syfte, som vanliga data, bilder eller video.  När du dirigerar trafiken till olika pooler garanterar du att dina kunder får den information de behöver, när de behöver den.
+Du kan använda Azure PowerShell till att konfigurera dirigering av webbtrafik till specifika, skalbara serverpooler baserat på webbadressen som användes för åtkomst till ditt program. I den här artikeln skapar du en [Azure Application Gateway](application-gateway-introduction.md) med tre serverdelar pooler med virtual machine scale [sets](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md). Var och en av serverdelspoolerna har ett specifikt syfte, som vanliga data, bilder eller video.  När du dirigerar trafiken till olika pooler garanterar du att dina kunder får den information de behöver, när de behöver den.
 
 Om du vill aktivera trafikdirigering skapar du [routningsregler](application-gateway-url-route-overview.md) som tilldelas till lyssnarna för specifika portar. Då ser du till att webbtrafiken kommer till rätt server i poolen.
 
@@ -30,23 +30,23 @@ I den här artikeln kan du se hur du:
 
 ![URL-routningsexempel](./media/tutorial-url-route-powershell/scenario.png)
 
-Om du vill kan du slutföra den här proceduren med hjälp av [Azure CLI](tutorial-url-route-cli.md) eller [Azure Portal](create-url-route-portal.md).
+Om du vill kan du slutföra den här proceduren med [Azure CLI](tutorial-url-route-cli.md) eller [Azure-portalen](create-url-route-portal.md).
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Om du väljer att installera och använda PowerShell lokalt kräver den här artikeln Azure PowerShell module version 1.0.0 eller senare. Kör `Get-Module -ListAvailable Az` för att hitta versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-az-ps) (Installera Azure PowerShell-modul). Om du kör PowerShell lokalt måste du också köra `Login-AzAccount` för att skapa en anslutning till Azure.
+Om du väljer att installera och använda PowerShell lokalt kräver den här artikeln Azure PowerShell-modul version 1.0.0 eller senare. Kör `Get-Module -ListAvailable Az` för att hitta versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-az-ps) (Installera Azure PowerShell-modul). Om du kör PowerShell lokalt måste du också köra `Login-AzAccount` för att skapa en anslutning till Azure.
 
-På grund av tiden som krävs för att skapa resurser kan det ta upp till 90 minuter att slutföra den här proceduren.
+På grund av den tid som krävs för att skapa resurser kan det ta upp till 90 minuter att slutföra den här proceduren.
 
 ## <a name="create-a-resource-group"></a>Skapa en resursgrupp
 
-Skapa en resurs grupp som innehåller alla resurser för ditt program. 
+Skapa en resursgrupp som innehåller alla resurser för ditt program. 
 
-Skapa en Azure-resurs grupp med [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup).  
+Skapa en Azure-resursgrupp med [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup).  
 
 ```azurepowershell-interactive
 New-AzResourceGroup -Name myResourceGroupAG -Location eastus
@@ -54,9 +54,9 @@ New-AzResourceGroup -Name myResourceGroupAG -Location eastus
 
 ## <a name="create-network-resources"></a>Skapa nätverksresurser
 
-Oavsett om du har ett befintligt virtuellt nätverk eller skapar ett nytt så måste du se till att det har ett undernät som endast används för programgatewayer. I den här artikeln skapar du ett undernät för Application Gateway och ett undernät för skalnings uppsättningarna. Du skapar en offentlig IP-adress för åtkomst till resurserna i programgatewayen.
+Oavsett om du har ett befintligt virtuellt nätverk eller skapar ett nytt så måste du se till att det har ett undernät som endast används för programgatewayer. I den här artikeln skapar du ett undernät för programgatewayen och ett undernät för skalningsuppsättningarna. Du skapar en offentlig IP-adress för åtkomst till resurserna i programgatewayen.
 
-Skapa under näts konfigurationerna *myAGSubnet* och *myBackendSubnet* med [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig). Skapa det virtuella nätverket med namnet *myVNet* med [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork) med hjälp av under näts konfigurationerna. Slutligen skapar du den offentliga IP-adressen med namnet *myAGPublicIPAddress* med [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress). De här resurserna används för att ge nätverksanslutning till programgatewayen och tillhörande resurser.
+Skapa undernätskonfigurationerna *myAGSubnet* och *myBackendSubnet* med [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig). Skapa det virtuella nätverket *myVNet* med [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork) med undernätskonfigurationerna. Och slutligen, skapa den offentliga IP-adressen som heter *myAGPublicIPAddress* med [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress). De här resurserna används för att ge nätverksanslutning till programgatewayen och tillhörande resurser.
 
 ```azurepowershell-interactive
 $backendSubnetConfig = New-AzVirtualNetworkSubnetConfig `
@@ -81,17 +81,17 @@ $pip = New-AzPublicIpAddress `
   -Sku Standard
 ```
 
-## <a name="create-an-application-gateway"></a>Skapa en Application Gateway
+## <a name="create-an-application-gateway"></a>Skapa en programgateway
 
-I det här avsnittet skapar du stödresurser för programgatewayen och sedan själva gatewayen. De resurser som du skapar inkluderar:
+I det här avsnittet skapar du stödresurser för programgatewayen och sedan själva gatewayen. De resurser du skapar är:
 
-- *IP-konfigurationer och frontend-port* – associerar det undernät som du tidigare skapade till Application Gateway och tilldelar en port som används för att komma åt den.
+- *IP-konfigurationer och frontend-port* - Associerar undernätet som du tidigare skapade till programgatewayen och tilldelar en port som ska användas för att komma åt den.
 - *Standardpool* – alla programgatewayer måste ha minst en serverpool i serverdelen.
 - *Standardlyssnare och -regel* – standardlyssnaren lyssnar efter trafik på den tilldelade porten och standardregeln skickar trafik till standardpoolen.
 
 ### <a name="create-the-ip-configurations-and-frontend-port"></a>Skapa IP-konfigurationerna och klientdelsporten
 
-Associera *myAGSubnet* som du skapade tidigare till programgatewayen med hjälp av [New-AzApplicationGatewayIPConfiguration](/powershell/module/az.network/new-azapplicationgatewayipconfiguration). Tilldela *myAGPublicIPAddress* till Application Gateway med [New-AzApplicationGatewayFrontendIPConfig](/powershell/module/az.network/new-azapplicationgatewayfrontendipconfig).
+Associera *myAGSubnet* som du tidigare har skapat till programgatewayen med [New-AzApplicationGatewayIPConfiguration](/powershell/module/az.network/new-azapplicationgatewayipconfiguration). Tilldela *myAGPublicIPAddress* till programgatewayen med [New-AzApplicationGatewayFrontendIPConfig](/powershell/module/az.network/new-azapplicationgatewayfrontendipconfig).
 
 ```azurepowershell-interactive
 $vnet = Get-AzVirtualNetwork `
@@ -119,7 +119,7 @@ $frontendport = New-AzApplicationGatewayFrontendPort `
 
 ### <a name="create-the-default-pool-and-settings"></a>Skapa standardpoolen och tillhörande inställningar
 
-Skapa standard server delen med namnet *appGatewayBackendPool* för programgatewayen med hjälp av [New-AzApplicationGatewayBackendAddressPool](/powershell/module/az.network/new-azapplicationgatewaybackendaddresspool). Konfigurera inställningarna för backend-poolen med [New-AzApplicationGatewayBackendHttpSetting](/powershell/module/az.network/new-azapplicationgatewaybackendhttpsetting).
+Skapa standardserverdelpoolen med namnet *appGatewayBackendPool* för programgatewayen med [New-AzApplicationGatewayBackendAddressPool](/powershell/module/az.network/new-azapplicationgatewaybackendaddresspool). Konfigurera inställningarna för serverdelspoolen med [New-AzApplicationGatewayBackendHttpSetting](/powershell/module/az.network/new-azapplicationgatewaybackendhttpsetting).
 
 ```azurepowershell-interactive
 $defaultPool = New-AzApplicationGatewayBackendAddressPool `
@@ -137,9 +137,9 @@ $poolSettings = New-AzApplicationGatewayBackendHttpSetting `
 
 Du behöver en lyssnare så att programgatewayen kan dirigera trafiken till serverdelspoolen på rätt sätt. I den här artikeln skapar du två lyssnare. Den första grundläggande lyssnare du skapar lyssnar efter trafik vid rotadressen. Den andra lyssnaren du skapar lyssnar efter trafik vid specifika webbadresser.
 
-Skapa standard lyssnaren med namnet *myDefaultListener* med [New-AzApplicationGatewayHttpListener](/powershell/module/az.network/new-azapplicationgatewayhttplistener) med klient dels konfigurationen och frontend-porten som du skapade tidigare. 
+Skapa standardlyssnaren *myDefaultListener* med [New-AzApplicationGatewayHttpListener](/powershell/module/az.network/new-azapplicationgatewayhttplistener) med frontend-konfigurationen och frontend-porten som du tidigare skapade. 
 
-Du måste ange en regel för lyssnaren som anger vilken serverdelspool som ska användas för inkommande trafik. Skapa en grundläggande regel med namnet *regel 1* med [New-AzApplicationGatewayRequestRoutingRule](/powershell/module/az.network/new-azapplicationgatewayrequestroutingrule).
+Du måste ange en regel för lyssnaren som anger vilken serverdelspool som ska användas för inkommande trafik. Skapa en grundregel med namnet *rule1* med [New-AzApplicationGatewayRequestRoutingRule](/powershell/module/az.network/new-azapplicationgatewayrequestroutingrule).
 
 ```azurepowershell-interactive
 $defaultlistener = New-AzApplicationGatewayHttpListener `
@@ -158,7 +158,7 @@ $frontendRule = New-AzApplicationGatewayRequestRoutingRule `
 
 ### <a name="create-the-application-gateway"></a>Skapa programgatewayen
 
-Nu när du har skapat de nödvändiga stöd resurserna, anger du parametrar för programgatewayen med namnet *myAppGateway* med [New-AzApplicationGatewaySku](/powershell/module/az.network/new-azapplicationgatewaysku)och skapar den sedan med [New-AzApplicationGateway](/powershell/module/az.network/new-azapplicationgateway).
+Nu när du har skapat nödvändiga stödresurser anger du parametrar för programgatewayen *myAppGateway* med [New-AzApplicationGatewaySku](/powershell/module/az.network/new-azapplicationgatewaysku)och skapar den sedan med [New-AzApplicationGateway](/powershell/module/az.network/new-azapplicationgateway).
 
 ```azurepowershell-interactive
 $sku = New-AzApplicationGatewaySku `
@@ -182,11 +182,11 @@ $appgw = New-AzApplicationGateway `
 
 Det kan ta upp till 30 minuter att skapa programgatewayen. Vänta tills distributionen har slutförts innan du går vidare till nästa avsnitt. 
 
-Nu har du en Programgateway som lyssnar efter trafik på port 80 och skickar trafiken till en standardpool för Server.
+Nu har du en programgateway som lyssnar efter trafik på port 80 och skickar den trafiken till en standardserverpool.
 
 ### <a name="add-image-and-video-backend-pools-and-port"></a>Lägga till serverdelspooler och portar för bilder och video
 
-Lägg till backend-pooler med namnet *imagesBackendPool* och *videoBackendPool* i Application Gateway[Add-AzApplicationGatewayBackendAddressPool](/powershell/module/az.network/add-azapplicationgatewaybackendaddresspool). Lägg till frontend-porten för poolerna med [Add-AzApplicationGatewayFrontendPort](/powershell/module/az.network/add-azapplicationgatewayfrontendport). Skicka ändringarna till Application Gateway med [set-AzApplicationGateway](/powershell/module/az.network/set-azapplicationgateway).
+Lägg till backend pooler med namnet *imagesBackendPool* och *videoBackendPool* till din programgateway[Add-AzApplicationGatewayBackendAddressPool](/powershell/module/az.network/add-azapplicationgatewaybackendaddresspool). Lägg till frontend-porten för poolerna med [Add-AzApplicationGatewayFrontendPort](/powershell/module/az.network/add-azapplicationgatewayfrontendport). Skicka ändringarna till programgatewayen med [Set-AzApplicationGateway](/powershell/module/az.network/set-azapplicationgateway).
 
 ```azurepowershell-interactive
 $appgw = Get-AzApplicationGateway `
@@ -213,7 +213,7 @@ Det kan ta upp till 20 minuter att uppdatera programgatewayen.
 
 ### <a name="add-backend-listener"></a>Lägga till serverdelslyssnare
 
-Lägg till Server delens lyssnare med namnet *backendListener* som behövs för att dirigera trafik med hjälp av [Add-AzApplicationGatewayHttpListener](/powershell/module/az.network/add-azapplicationgatewayhttplistener).
+Lägg till den backend-lyssnaren med namnet *backendListener* som behövs för att dirigera trafik med [Add-AzApplicationGatewayHttpListener](/powershell/module/az.network/add-azapplicationgatewayhttplistener).
 
 ```azurepowershell-interactive
 $appgw = Get-AzApplicationGateway `
@@ -239,7 +239,7 @@ Set-AzApplicationGateway -ApplicationGateway $appgw
 
 ### <a name="add-url-path-map"></a>Lägga till webbadressmappningar
 
-Med adressmappningar ser du till att de webbadresser som skickas till programmet dirigeras till specifika serverdelspooler. Skapa URL-sökvägar med namnet *imagePathRule* och *videoPathRule* med [New-AzApplicationGatewayPathRuleConfig](/powershell/module/az.network/new-azapplicationgatewaypathruleconfig) och [Add-AzApplicationGatewayUrlPathMapConfig](/powershell/module/az.network/add-azapplicationgatewayurlpathmapconfig).
+Med adressmappningar ser du till att de webbadresser som skickas till programmet dirigeras till specifika serverdelspooler. Skapa URL-sökvägskartor med namnet *imagePathRule* och *videoPathRule* med [New-AzApplicationGatewayPathRuleConfig](/powershell/module/az.network/new-azapplicationgatewaypathruleconfig) och [Add-AzApplicationGatewayUrlPathMapConfig](/powershell/module/az.network/add-azapplicationgatewayurlpathmapconfig).
 
 ```azurepowershell-interactive
 $appgw = Get-AzApplicationGateway `
@@ -286,7 +286,7 @@ Set-AzApplicationGateway -ApplicationGateway $appgw
 
 ### <a name="add-routing-rule"></a>Lägga till routningsregeln
 
-Routningsregeln associerar adressmappningarna med den lyssnare du skapade. Lägg till regeln med namnet *regel 2* med hjälp av [Add-AzApplicationGatewayRequestRoutingRule](/powershell/module/az.network/add-azapplicationgatewayrequestroutingrule).
+Routningsregeln associerar adressmappningarna med den lyssnare du skapade. Lägg till regeln med namnet *rule2* med [Add-AzApplicationGatewayRequestRoutingRule](/powershell/module/az.network/add-azapplicationgatewayrequestroutingrule).
 
 ```azurepowershell-interactive
 $appgw = Get-AzApplicationGateway `
@@ -389,7 +389,7 @@ for ($i=1; $i -le 3; $i++)
 
 ### <a name="install-iis"></a>Installera IIS
 
-Varje skalningsuppsättning innehåller två virtuella datorinstanser där du installerar IIS.  En exempel sida skapas för att testa om Application Gateway fungerar.
+Varje skalningsuppsättning innehåller två virtuella datorinstanser där du installerar IIS.  En exempelsida skapas för att testa om programgatewayen fungerar.
 
 ```azurepowershell-interactive
 $publicSettings = @{ "fileUris" = (,"https://raw.githubusercontent.com/Azure/azure-docs-powershell-samples/master/application-gateway/iis/appgatewayurl.ps1"); 
@@ -414,7 +414,7 @@ for ($i=1; $i -le 3; $i++)
 
 ## <a name="test-the-application-gateway"></a>Testa programgatewayen
 
-Använd [Get-AzPublicIPAddress](/powershell/module/az.network/get-azpublicipaddress) för att hämta den offentliga IP-adressen för Application Gateway. Kopiera den offentliga IP-adressen och klistra in den i webbläsarens adressfält. Som, `http://52.168.55.24`, `http://52.168.55.24:8080/images/test.htm`eller `http://52.168.55.24:8080/video/test.htm`.
+Använd [Get-AzPublicIPAddress](/powershell/module/az.network/get-azpublicipaddress) för att hämta den offentliga IP-adressen för programgatewayen. Kopiera den offentliga IP-adressen och klistra in den i webbläsarens adressfält. Till exempel `http://52.168.55.24` `http://52.168.55.24:8080/images/test.htm`, `http://52.168.55.24:8080/video/test.htm`, eller .
 
 ```azurepowershell-interactive
 Get-AzPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublicIPAddress
@@ -422,17 +422,17 @@ Get-AzPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublicIPAdd
 
 ![Testa basadressen i programgatewayen](./media/tutorial-url-route-powershell/application-gateway-iistest.png)
 
-Ändra URL: en till http://&lt;IP-adress&gt;: 8080/images/test.htm, ersätta din IP-adress för &lt;IP-adress&gt;och du bör se något som liknar följande exempel:
+Ändra webbadressen till http://&lt;ip-adress:&gt;8080/images/test.htm, ersätta din IP-adress för &lt;IP-adress&gt;, och du bör se något i stil med följande exempel:
 
 ![Testa bildadressen i programgatewayen](./media/tutorial-url-route-powershell/application-gateway-iistest-images.png)
 
-Ändra URL: en till http://&lt;IP-adress&gt;: 8080/video/test.htm, ersätta din IP-adress för &lt;IP-adress&gt;och du bör se något som liknar följande exempel:
+Ändra webbadressen till http://&lt;ip-adress:&gt;8080/video/test.htm, ersätta din IP-adress för &lt;IP-adress&gt;, och du bör se något i stil med följande exempel:
 
 ![Testa videoadressen i programgatewayen](./media/tutorial-url-route-powershell/application-gateway-iistest-video.png)
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Ta bort resurs gruppen, Application Gateway och alla relaterade resurser som använder [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup)när de inte längre behövs.
+När det inte längre behövs tar du bort resursgruppen, programgatewayen och alla relaterade resurser med [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup).
 
 ```azurepowershell-interactive
 Remove-AzResourceGroup -Name myResourceGroupAG

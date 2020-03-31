@@ -1,7 +1,7 @@
 ---
-title: Predikat och PredicateValidations
+title: Predikat och predikatvalidationer
 titleSuffix: Azure AD B2C
-description: Förhindra att felaktiga data läggs till i Azure AD B2C-klienten genom att använda anpassade principer i Azure Active Directory B2C.
+description: Förhindra att felaktiga data läggs till i din Azure AD B2C-klient med hjälp av anpassade principer i Azure Active Directory B2C.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
@@ -12,62 +12,62 @@ ms.date: 02/24/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: cc61ef5980a8019514f05c1db47f2300fff3603b
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
-ms.translationtype: MT
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78187244"
 ---
-# <a name="predicates-and-predicatevalidations"></a>Predikat och PredicateValidations
+# <a name="predicates-and-predicatevalidations"></a>Predikat och predikatvalidationer
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-**Predikat** -och **PredicateValidations** -elementen gör att du kan utföra en verifierings process för att säkerställa att endast korrekt utformade data anges i din Azure Active Directory B2C (Azure AD B2C)-klient.
+Med elementen **Predikater** och **Predikatvalidationer** kan du utföra en valideringsprocess för att säkerställa att endast korrekt utformade data anges i din Azure Active Directory B2C-klient (Azure AD B2C).
 
-I följande diagram visas relationen mellan elementen:
+Följande diagram visar förhållandet mellan elementen:
 
-![Diagram över tillåtna predikat och predikat](./media/predicates/predicates.png)
+![Diagram som visar predikat- och predikatvaliderrelation](./media/predicates/predicates.png)
 
 ## <a name="predicates"></a>Predikat
 
-**Predikatet predikat** definierar en grundläggande verifiering för att kontrol lera värdet för en anspråks typ och returnerar `true` eller `false`. Verifieringen görs med hjälp av ett angivet **metod** element och en uppsättning **parameter** element som är relevanta för metoden. Ett predikat kan till exempel kontrol lera om längden på ett sträng anspråks värde ligger inom intervallet för de lägsta och högsta parametrarna som anges, eller om ett sträng anspråks värde innehåller en teckenuppsättning. **UserHelpText** -elementet ger ett fel meddelande för användare om kontrollen Miss lyckas. Värdet för **UserHelpText** -elementet kan lokaliseras med [språk anpassning](localization.md).
+Det **predikatelementet** definierar en grundläggande validering för att `true` kontrollera `false`värdet för en anspråkstyp och returnerar eller . Valideringen görs med hjälp av ett angivet **metodelement** och en uppsättning **parameterelement** som är relevanta för metoden. Ett predikat kan till exempel kontrollera om längden på ett stränganspråksvärde ligger inom det angivna minimi- och maximiparametrarna eller om ett stränganspråksvärde innehåller en teckenuppsättning. **Elementet UserHelpText** innehåller ett felmeddelande för användare om kontrollen misslyckas. Värdet för **UserHelpText-elementet** kan lokaliseras med hjälp av [språkanpassning](localization.md).
 
-**Predikat** -elementet måste visas direkt efter **ClaimsSchema** -elementet i [BuildingBlocks](buildingblocks.md) -elementet.
+Elementet **Predikat** måste visas direkt efter elementet **ClaimsSchema** i elementet [BuildingBlocks.](buildingblocks.md)
 
-**Predikat** -elementet innehåller följande element:
+**Predikatelementet** innehåller följande element:
 
-| Element | Förekomster | Beskrivning |
+| Element | Händelser | Beskrivning |
 | ------- | ----------- | ----------- |
-| Predikatet | 1: n | En lista med predikat. |
+| Predikat | 1:n | En lista över predikat. |
 
-**Predikatet predikat** innehåller följande attribut:
+**Predikatelementet** innehåller följande attribut:
 
 | Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
 | Id | Ja | En identifierare som används för predikatet. Andra element kan använda den här identifieraren i principen. |
-| Metod | Ja | Den typ av metod som ska användas för verifiering. Möjliga värden: **IsLengthRange**, **MatchesRegex**, **IncludesCharacters**eller **IsDateRange**. Värdet **IsLengthRange** kontrollerar om längden på ett sträng anspråks värde ligger inom intervallet för lägsta och högsta angivna parametrar. Värdet **MatchesRegex** kontrollerar om ett sträng anspråks värde matchar ett reguljärt uttryck. Värdet **IncludesCharacters** kontrollerar om ett sträng anspråks värde innehåller en teckenuppsättning. Värdet **IsDateRange** kontrollerar om ett datum anspråks värde är mellan ett intervall av minsta och högsta angivna parametrar. |
-| HelpText | Nej | Ett fel meddelande för användare om kontrollen Miss lyckas. Den här strängen kan lokaliseras med hjälp av [språk anpassning](localization.md) |
+| Metod | Ja | Den metodtyp som ska användas för validering. Möjliga värden: **IsLengthRange**, **MatchesRegex**, **IncludesCharacters**eller **IsDateRange**. Värdet **IsLengthRange** kontrollerar om längden på ett stränganspråksvärde ligger inom intervallet för de minsta och högsta parametrar som angetts. **Värdet MatchesRegex** kontrollerar om ett stränganspråksvärde matchar ett reguljärt uttryck. Värdet **IncludesCharacters** kontrollerar om ett stränganspråksvärde innehåller en teckenuppsättning. Värdet **IsDateRange** kontrollerar om ett datumanspråksvärde ligger mellan ett intervall med angivna minimi- och maximiparametrar. |
+| Hjälptext | Inga | Ett felmeddelande för användare om kontrollen misslyckas. Den här strängen kan lokaliseras med hjälp av [språkanpassningen](localization.md) |
 
-**Predikatet predikat** innehåller följande element:
+**Predikatelementet** innehåller följande element:
 
-| Element | Förekomster | Beskrivning |
+| Element | Händelser | Beskrivning |
 | ------- | ----------- | ----------- |
-| UserHelpText | 0:1 | Föråldrad Ett fel meddelande för användare om kontrollen Miss lyckas. |
-| Parametrar | 1:1 | Parametrarna för metod typen för sträng validering. |
+| UserHelpText | 0:1 | (Föråldrad) Ett felmeddelande för användare om kontrollen misslyckas. |
+| Parametrar | 1:1 | Parametrarna för metodtypen för strängvalideringen. |
 
-Elementet **Parameters** innehåller följande element:
+Elementet **Parametrar** innehåller följande element:
 
-| Element | Förekomster | Beskrivning |
+| Element | Händelser | Beskrivning |
 | ------- | ----------- | ----------- |
-| Parameter | 1: n | Parametrarna för metod typen för sträng validering. |
+| Parameter | 1:n | Parametrarna för metodtypen för strängvalideringen. |
 
-**Parameter** elementet innehåller följande attribut:
+**Parameterelementet** innehåller följande attribut:
 
-| Element | Förekomster | Beskrivning |
+| Element | Händelser | Beskrivning |
 | ------- | ----------- | ----------- |
 | Id | 1:1 | Parameterns identifierare. |
 
-I följande exempel visas en `IsLengthRange`-metod med parametrarna `Minimum` och `Maximum` som anger längd intervallet för strängen:
+I följande exempel `IsLengthRange` visas en `Minimum` `Maximum` metod med parametrarna och som anger strängens längdområde:
 
 ```XML
 <Predicate Id="IsLengthBetween8And64" Method="IsLengthRange" HelpText="The password must be between 8 and 64 characters.">
@@ -78,7 +78,7 @@ I följande exempel visas en `IsLengthRange`-metod med parametrarna `Minimum` oc
 </Predicate>
 ```
 
-I följande exempel visas en `MatchesRegex`-metod med parametern `RegularExpression` som anger ett reguljärt uttryck:
+I följande exempel `MatchesRegex` visas en `RegularExpression` metod med parametern som anger ett reguljärt uttryck:
 
 ```XML
 <Predicate Id="PIN" Method="MatchesRegex" HelpText="The password must be numbers only.">
@@ -88,7 +88,7 @@ I följande exempel visas en `MatchesRegex`-metod med parametern `RegularExpress
 </Predicate>
 ```
 
-I följande exempel visas en `IncludesCharacters`-metod med parametern `CharacterSet` som anger en uppsättning tecken:
+I följande exempel `IncludesCharacters` visas en `CharacterSet` metod med parametern som anger teckenuppsättningen:
 
 ```XML
 <Predicate Id="Lowercase" Method="IncludesCharacters" HelpText="a lowercase letter">
@@ -98,7 +98,7 @@ I följande exempel visas en `IncludesCharacters`-metod med parametern `Characte
 </Predicate>
 ```
 
-I följande exempel visas en `IsDateRange`-metod med parametrarna `Minimum` och `Maximum` som anger datum intervallet med formatet `yyyy-MM-dd` och `Today`.
+I följande exempel `IsDateRange` visas en `Minimum` `Maximum` metod med parametrarna och `yyyy-MM-dd` som `Today`anger datumintervallet med formatet och .
 
 ```XML
 <Predicate Id="DateRange" Method="IsDateRange" HelpText="The date must be between 1970-01-01 and today.">
@@ -109,11 +109,11 @@ I följande exempel visas en `IsDateRange`-metod med parametrarna `Minimum` och 
 </Predicate>
 ```
 
-## <a name="predicatevalidations"></a>PredicateValidations
+## <a name="predicatevalidations"></a>PredikatValidationer
 
-Även om predikatet definierar verifieringen för att kontrol lera mot en anspråks typ, kan **PredicateValidations** gruppera en uppsättning predikat som utgör en verifiering av användarindata som kan tillämpas på en anspråks typ. Varje **PredicateValidation** -element innehåller en uppsättning **PredicateGroup** -element som innehåller en uppsättning **PredicateReference** -element som pekar på ett **predikat**. För att kunna skicka verifieringen bör värdet för anspråket klara alla tester av alla predikat under alla **PredicateGroup** med deras uppsättning **PredicateReference** -element.
+Medan predikaten definierar valideringen för att kontrollera mot en anspråkstyp, grupperar **predikatvalidationerna** en uppsättning predikat för att bilda en verifiering av indata från användaren som kan tillämpas på en anspråkstyp. Varje **predikatvalidationselement** innehåller en uppsättning **Predikatgruppelement** som innehåller en uppsättning **predikatreferenceelement** som pekar på ett **predikat**. För att klara valideringen bör värdet på anspråket klara alla tester av alla predikat under alla **predikatgruppen** med sin uppsättning **predikatreferenceelement.**
 
-**PredicateValidations** -elementet måste visas direkt efter **predikat** -elementet i [BuildingBlocks](buildingblocks.md) -elementet.
+Elementet **Predikatvalidationer** måste visas direkt efter elementet **Predikater** i elementet [BuildingBlocks.](buildingblocks.md)
 
 ```XML
 <PredicateValidations>
@@ -133,74 +133,74 @@ I följande exempel visas en `IsDateRange`-metod med parametrarna `Minimum` och 
 </PredicateValidations>
 ```
 
-**PredicateValidations** -elementet innehåller följande element:
+**Elementet Predikatvalidationer** innehåller följande element:
 
-| Element | Förekomster | Beskrivning |
+| Element | Händelser | Beskrivning |
 | ------- | ----------- | ----------- |
-| PredicateValidation | 1: n | En lista över predikat-verifiering. |
+| PredikatValidation | 1:n | En lista över predikatvalidering. |
 
-**PredicateValidation** -elementet innehåller följande attribut:
+**Det predikatvalidationselement** innehåller följande attribut:
 
 | Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
-| Id | Ja | En identifierare som används för verifiering av predikat. Elementet **claimType** kan använda den här identifieraren i principen. |
+| Id | Ja | En identifierare som används för predikatvalidering. **Elementet ClaimType** kan använda den här identifieraren i principen. |
 
-**PredicateValidation** -elementet innehåller följande element:
+**Det predikatvalidationselement** innehåller följande element:
 
-| Element | Förekomster | Beskrivning |
+| Element | Händelser | Beskrivning |
 | ------- | ----------- | ----------- |
-| PredicateGroups | 1: n | En lista över predikaa grupper. |
+| Predikatgrupper | 1:n | En lista över predikatgrupper. |
 
-**PredicateGroups** -elementet innehåller följande element:
+**Elementet Predikatgrupper** innehåller följande element:
 
-| Element | Förekomster | Beskrivning |
+| Element | Händelser | Beskrivning |
 | ------- | ----------- | ----------- |
-| PredicateGroup | 1: n | En lista med predikat. |
+| Predikatgrupp | 1:n | En lista över predikat. |
 
-**PredicateGroup** -elementet innehåller följande attribut:
+**Det predikatgruppselementet** innehåller följande attribut:
 
 | Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
-| Id | Ja | En identifierare som används för gruppen predikat.  |
+| Id | Ja | En identifierare som används för predikatgruppen.  |
 
-**PredicateGroup** -elementet innehåller följande element:
+**Elementet Predikatgrupp** innehåller följande element:
 
-| Element | Förekomster | Beskrivning |
+| Element | Händelser | Beskrivning |
 | ------- | ----------- | ----------- |
-| UserHelpText | 0:1 |  En beskrivning av predikatet som kan vara till hjälp för användare att veta vilket värde de ska skriva. |
-| PredicateReferences | 1: n | En lista över predika-referenser. |
+| UserHelpText | 0:1 |  En beskrivning av predikatet som kan vara till hjälp för användarna att veta vilket värde de ska skriva. |
+| PredikatReferences | 1:n | En lista med predikatreferenser. |
 
-**PredicateReferences** -elementet innehåller följande attribut:
+Elementet **Predikatreferences** innehåller följande attribut:
 
 | Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
-| MatchAtLeast | Nej | Anger att värdet måste matcha minst det antal predikat som ska godkännas. Om inget värde anges måste värdet matcha alla predikat-definitioner. |
+| MatchAtLaast | Inga | Anger att värdet måste matcha minst så många predikatdefinitioner för att indata ska accepteras. Om inget anges måste värdet matcha alla predikatdefinitioner. |
 
-**PredicateReferences** -elementet innehåller följande element:
+Elementet **Predikater** innehåller följande element:
 
-| Element | Förekomster | Beskrivning |
+| Element | Händelser | Beskrivning |
 | ------- | ----------- | ----------- |
-| PredicateReference | 1: n | En referens till ett predikat. |
+| Predikatreferens | 1:n | En referens till ett predikat. |
 
-**PredicateReference** -elementet innehåller följande attribut:
+**Elementet Predikatreferens innehåller** följande attribut:
 
 | Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
-| Id | Ja | En identifierare som används för verifiering av predikat.  |
+| Id | Ja | En identifierare som används för predikatvalidering.  |
 
 
-## <a name="configure-password-complexity"></a>Konfigurera lösen ords komplexitet
+## <a name="configure-password-complexity"></a>Konfigurera lösenordskomplexitet
 
-Med **predikat** och **PredicateValidationsInput** kan du kontrol lera komplexitets kraven för lösen ord som tillhandahålls av en användare när du skapar ett konto. Som standard använder Azure AD B2C starka lösen ord. Azure AD B2C också stöd för konfigurations alternativ för att kontrol lera komplexiteten för lösen ord som kunder kan använda. Du kan definiera lösen ords komplexitet genom att använda dessa predikaa element:
+Med **predikat** och **predikatvalidationerInput** kan du styra komplexitetskraven för lösenord som tillhandahålls av en användare när du skapar ett konto. Som standard använder Azure AD B2C starka lösenord. Azure AD B2C stöder också konfigurationsalternativ för att styra komplexiteten i lösenord som kunder kan använda. Du kan definiera lösenordskomplexitet genom att använda dessa predikatelement:
 
-- **IsLengthBetween8And64** som använder metoden `IsLengthRange` verifierar att lösen ordet måste innehålla mellan 8 och 64 tecken.
-- **Gemener** med metoden `IncludesCharacters` kontrollerar att lösen ordet innehåller en gemen bokstav.
-- **Versaler** med hjälp av metoden `IncludesCharacters` verifierar att lösen ordet innehåller en versal bokstav.
-- **Tal** med hjälp av metoden `IncludesCharacters` verifierar att lösen ordet innehåller en siffra.
-- **Symbol** med hjälp av metoden `IncludesCharacters` verifierar att lösen ordet innehåller ett av flera symbol tecken.
-- **PIN-kod** med hjälp av metoden `MatchesRegex` verifierar att lösen ordet endast innehåller siffror.
-- **AllowedAADCharacters** med hjälp av metoden `MatchesRegex` verifierar att lösen ordet endast ogiltigt Character angavs.
-- **DisallowedWhitespace** med hjälp av metoden `MatchesRegex` verifierar att lösen ordet inte börjar eller slutar med ett blank stegs tecken.
+- **IsLengthBetween8And64** med `IsLengthRange` hjälp av metoden, validerar att lösenordet måste vara mellan 8 och 64 tecken.
+- **Gemener** `IncludesCharacters` med metoden, verifierar att lösenordet innehåller en gemener.
+- **Versaler** med `IncludesCharacters` metoden, verifierar att lösenordet innehåller en versal.
+- **Tal** med `IncludesCharacters` metoden, verifierar att lösenordet innehåller en siffra.
+- **Symbol** med `IncludesCharacters` metoden, verifierar att lösenordet innehåller ett av flera symboltecken.
+- **PIN-kod** med metoden, `MatchesRegex` verifierar att lösenordet endast innehåller siffror.
+- **AllowedAADCharacters** med `MatchesRegex` metoden, verifierar att lösenordet endast ogiltigt tecken angavs.
+- **Tillåts inteVitrymd** `MatchesRegex` med metoden, verifierar att lösenordet inte börjar eller slutar med ett blanksteg tecken.
 
 ```XML
 <Predicates>
@@ -254,11 +254,11 @@ Med **predikat** och **PredicateValidationsInput** kan du kontrol lera komplexit
   </Predicate>
 ```
 
-När du har definierat de grundläggande valideringarna kan du kombinera dem tillsammans och skapa en uppsättning lösen ords principer som du kan använda i principen:
+När du har definierat de grundläggande verifieringarna kan du kombinera dem tillsammans och skapa en uppsättning lösenordsprinciper som du kan använda i principen:
 
-- **SimplePassword** verifierar DisallowedWhitespace, AllowedAADCharacters och IsLengthBetween8And64
-- **StrongPassword** verifierar DisallowedWhitespace, AllowedAADCharacters, IsLengthBetween8And64. Den sista gruppen `CharacterClasses` kör ytterligare en uppsättning predikat med `MatchAtLeast` inställd på 3. Användarens lösen ord måste vara mellan 8 och 16 tecken och tre av följande tecken: gemener, versaler, siffror och symboler.
-- **CustomPassword** validerar endast DisallowedWhitespace, AllowedAADCharacters. Användaren kan alltså ange alla lösen ord med valfri längd, förutsatt att tecknen är giltiga.
+- **SimplePassword** validerar det otillåtnavitrymden, allowedAADCharacters och IsLengthBetween8And64
+- **StrongPassword** validerar Det otillåtnavitrymden, AllowedAADCharacters, IsLengthBetween8And64. Den sista `CharacterClasses` gruppen kör ytterligare en uppsättning `MatchAtLeast` predikat med inställd på 3. Användarlösenordet måste vara mellan 8 och 16 tecken och tre av följande tecken: Gemener, Versaler, Tal eller Symbol.
+- **CustomPassword** validerar endast OtillåtnaVitrymden, AllowedAADCharacters. Så kan användaren ange valfritt lösenord med valfri längd, så länge tecknen är giltiga.
 
 ```XML
 <PredicateValidations>
@@ -328,7 +328,7 @@ När du har definierat de grundläggande valideringarna kan du kombinera dem til
 </PredicateValidations>
 ```
 
-I anspråks typen lägger du till **PredicateValidationReference** -elementet och anger identifieraren som ett av predikat-valideringarna, till exempel SimplePassword, StrongPassword eller CustomPassword.
+I din anspråkstyp lägger du till **elementet PredicateValidationReference** och anger identifieraren som en av predikatvalideringarna, till exempel SimplePassword, StrongPassword eller CustomPassword.
 
 ```XML
 <ClaimType Id="password">
@@ -341,13 +341,13 @@ I anspråks typen lägger du till **PredicateValidationReference** -elementet oc
 </ClaimType>
 ```
 
-Följande visar hur elementen ordnas när Azure AD B2C visar fel meddelandet:
+Följande visar hur elementen är ordnade när Azure AD B2C visar felmeddelandet:
 
-![Diagram över predikat och PredicateGroup lösen ord komplexitets exempel](./media/predicates/predicates-pass.png)
+![Diagram över lösenordskomplexitetskomplexitet i predikat- och predikatgrupp](./media/predicates/predicates-pass.png)
 
-## <a name="configure-a-date-range"></a>Konfigurera ett datum intervall
+## <a name="configure-a-date-range"></a>Konfigurera ett datumintervall
 
-Med **predikat** och **PredicateValidations** -element kan du styra de lägsta och högsta datum värdena för **UserInputType** med hjälp av en `DateTimeDropdown`. Det gör du genom att skapa ett **predikat** med metoden `IsDateRange` och ange de lägsta och högsta parametrarna.
+Med elementen **Predikater** och **Predikatvalidationer** kan du styra lägsta och högsta datumvärden `DateTimeDropdown`för **UserInputType** med hjälp av en . För att göra detta, skapa `IsDateRange` ett **predikat** med metoden och ange de minsta och högsta parametrarna.
 
 ```XML
 <Predicates>
@@ -360,7 +360,7 @@ Med **predikat** och **PredicateValidations** -element kan du styra de lägsta o
 </Predicates>
 ```
 
-Lägg till en **PredicateValidation** med en referens till `DateRange` predikatet.
+Lägg till en **predicateValidation** `DateRange` med en referens till predikatet.
 
 ```XML
 <PredicateValidations>
@@ -376,7 +376,7 @@ Lägg till en **PredicateValidation** med en referens till `DateRange` predikate
 </PredicateValidations>
 ```
 
-I anspråks typen lägger du till **PredicateValidationReference** -element och anger identifieraren som `CustomDateRange`.
+I anspråkstypen lägger du till **elementet PredicateValidationReference** och anger identifieraren som `CustomDateRange`.
 
 ```XML
 <ClaimType Id="dateOfBirth">

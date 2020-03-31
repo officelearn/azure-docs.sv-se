@@ -1,6 +1,6 @@
 ---
-title: Aktivera webb läsar anslutning på Azure DevTest Labs virtuella datorer | Microsoft Docs
-description: DevTest Labs integreras nu med Azure skydds som en ägare till labbet som du kan använda för att få åtkomst till alla virtuella labb datorer via en webbläsare.
+title: Aktivera webbläsaranslutning på virtuella Azure DevTest Labs-datorer | Microsoft-dokument
+description: DevTest Labs integreras nu med Azure Bastion, som ägare av labbet kan du aktivera åtkomst till alla virtuella labbdatorer via en webbläsare.
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
 author: tanmayeekamath
@@ -14,59 +14,59 @@ ms.topic: article
 ms.date: 08/19/2019
 ms.author: takamath
 ms.openlocfilehash: 2ddc56c60c547bd4ce48d620a83fb79246762bfb
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "69642492"
 ---
-# <a name="enable-browser-connection-on-lab-virtual-machines"></a>Aktivera webb läsar anslutning på virtuella labb datorer 
+# <a name="enable-browser-connection-on-lab-virtual-machines"></a>Aktivera webbläsaranslutning på virtuella labbdatorer 
 
-DevTest Labs integreras med [Azure skydds](https://docs.microsoft.com/azure/bastion/), vilket gör att du kan ansluta till dina virtuella datorer via en webbläsare. Du måste först aktivera webb läsar anslutning på virtuella labb datorer.
+DevTest Labs integreras med [Azure Bastion](https://docs.microsoft.com/azure/bastion/), vilket gör att du kan ansluta till dina virtuella datorer via en webbläsare. Du måste först aktivera webbläsaranslutning på virtuella labbdatorer.
 
-Som ägare till ett labb kan du aktivera åtkomst till alla virtuella labb datorer via en webbläsare. Du behöver inte ytterligare en klient, en agent eller en program varu enhet. Azure skydds ger säker och sömlös RDP/SSH-anslutning till dina virtuella datorer direkt i Azure Portal via SSL. När du ansluter via Azure skydds behöver inte de virtuella datorerna någon offentlig IP-adress. Mer information finns i [Vad är Azure skydds?](../bastion/bastion-overview.md)
+Som ägare av ett labb kan du aktivera åtkomst till alla virtuella labbdatorer via en webbläsare. Du behöver inte ytterligare en klient, agent eller programvara. Azure Bastion tillhandahåller säker och sömlös RDP/SSH-anslutning till dina virtuella datorer direkt i Azure-portalen via SSL. När du ansluter via Azure Bastion behöver dina virtuella datorer inte en offentlig IP-adress. Mer information finns i [Vad är Azure Bastion?](../bastion/bastion-overview.md)
 
 > [!NOTE]
-> Att aktivera webb läsar anslutning på virtuella labb datorer är i för hands version.
+> Aktivera webbläsaranslutning på virtuella labbdatorer är i förhandsversion.
 
-Den här artikeln visar hur du aktiverar webb läsar anslutning på virtuella labb datorer.
+Den här artikeln visar hur du aktiverar webbläsaranslutning på virtuella labbdatorer.
 
-## <a name="prerequisites"></a>Förutsättningar 
-Antingen distribuerar du en skydds-värd i ditt befintliga labbs virtuella nätverk **(eller) och** ansluter ditt labb med ett skydds konfigurerat VNet. 
+## <a name="prerequisites"></a>Krav 
+Antingen distribuera en Bastion-värd i det befintliga labbets virtuella nätverk **(OR)** ansluter du labbet med ett bastionkonfigurerat virtuellt nätverk. 
 
-Information om hur du distribuerar en skydds-värd i ett VNet finns i [skapa en Azure skydds-värd (för hands version)](../bastion/bastion-create-host-portal.md). När du skapar skydds-värden väljer du Labbets virtuella nätverk. 
+Mer information om hur du distribuerar en Bastion-värd i ett virtuella nätverk finns i [Skapa en Azure Bastion-värd (förhandsversion).](../bastion/bastion-create-host-portal.md) När du skapar Bastion-värden väljer du labbets virtuella nätverk. 
 
-Information om hur du ansluter din labb med ett skydds konfigurerat VNet finns [i Konfigurera ett virtuellt nätverk i Azure DevTest Labs](devtest-lab-configure-vnet.md). Välj det VNet som har skydds-värden distribuerad och **AzureBastionSubnet** i den. Här är de detaljerade stegen: 
+Mer information om hur du ansluter ditt labb till ett bastionkonfigurerat virtuellt nätverk finns [i Konfigurera ett virtuellt nätverk i Azure DevTest Labs](devtest-lab-configure-vnet.md). Välj det virtuella nätverk som har bastionvärden distribuerat och **AzureBastionSubnet** i det. Här är de detaljerade stegen: 
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
-1. Välj **alla tjänster** i den vänstra navigerings menyn. 
+1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Välj **Alla tjänster** på menyn till vänster. 
 1. Välj **DevTest Labs** från listan. 
-1. I listan med labb väljer *du ditt labb*. 
+1. Välj *ditt labb*i listan över labb. 
 
     > [!NOTE]
-    > Azure skydds är för närvarande en för hands version. Den är begränsad till följande regioner: Västra USA, östra USA, Västeuropa, södra centrala USA, östra Australien och Östra Japan. Skapa ett labb i något av de här regionerna om ditt labb inte finns i något av dem. 
-1. Välj **konfiguration och principer** i avsnittet **Inställningar** på den vänstra menyn. 
-1. Välj **virtuella nätverk**.
+    > Azure Bastion är för närvarande i förhandsversion. Det är begränsat till följande regioner: Västra USA, Östra USA, Västeuropa, Södra centrala USA, Australien East och Japan East. Så, skapa ett labb i en av dessa regioner om ditt labb inte är i en av dem. 
+1. Välj **Konfiguration och principer** i avsnittet **Inställningar** på den vänstra menyn. 
+1. Välj **Virtuella nätverk**.
 1. Välj **Lägg till** i verktygsfältet. 
-1. Välj det **VNet** som har skydds-värden distribuerad. 
-1. Välj under nätet: **AzureBastionSubnet**. 
+1. Välj det **virtuella nätverk** som har bastionvärden distribuerat. 
+1. Välj undernät: **AzureBastionSubnet**. 
 
-    ![Subnet](./media/enable-browser-connection-lab-virtual-machines/subnet.png)
-1. Välj alternativet **Använd vid skapande av virtuell dator** . 
+    ![Undernät](./media/enable-browser-connection-lab-virtual-machines/subnet.png)
+1. Välj **Alternativet Använd i skapande av virtuella datorer.** 
 1. Välj **Spara** i verktygsfältet. 
-1. Om du har ett gammalt VNet för labbet tar du bort det genom att välja * *...*  och **ta bort**. 
+1. Om du har ett gammalt VNet för labbet, ta bort den genom att välja **...*  och **Ta bort**. 
 
-## <a name="enable-browser-connection"></a>Aktivera webb läsar anslutning 
+## <a name="enable-browser-connection"></a>Aktivera webbläsaranslutning 
 
-När du har ett skydds konfigurerat VNet i labbet, som labb ägare, kan du aktivera webbläsaren Anslut på virtuella labb datorer.
+När du har ett Bastion-konfigurerat virtuellt nätverk i labbet, som labbägare, kan du aktivera webbläsaranslutning på virtuella labbdatorer.
 
-Följ dessa steg om du vill aktivera webbläsaren Connect på virtuella labb datorer:
+Så här aktiverar du webbläsaranslutning på virtuella labbdatorer:
 
-1. I Azure Portal navigerar du till *labbet*.
-1. Välj **konfiguration och principer**.
-1. I **Inställningar**väljer du **webbläsare Connect (för hands version)** .
+1. Navigera till *ditt labb*i Azure-portalen .
+1. Välj **Konfiguration och principer**.
+1. Välj Browser **connect (Förhandsgranska)** i **Inställningar**.
 
-![Aktivera webb läsar anslutning](./media/enable-browser-connection-lab-virtual-machines/browser-connect.png)
+![Aktivera webbläsaranslutning](./media/enable-browser-connection-lab-virtual-machines/browser-connect.png)
 
-## <a name="next-steps"></a>Nästa steg
-I följande artikel finns information om hur du ansluter till dina virtuella datorer med hjälp av en webbläsare: [Ansluta till dina virtuella datorer via en webbläsare](connect-virtual-machine-through-browser.md)
+## <a name="next-steps"></a>Efterföljande moment
+Se följande artikel om du vill lära dig hur du ansluter till dina virtuella datorer med hjälp av en webbläsare: [Anslut till dina virtuella datorer via en webbläsare](connect-virtual-machine-through-browser.md)

@@ -1,6 +1,6 @@
 ---
-title: Felsöka Azure Data Lake Analytics U-SQL-jobb fel på grund av .NET Framework 4.7.2-uppgradering
-description: Felsök fel i U-SQL-jobb på grund av uppgraderingen till .NET Framework 4.7.2.
+title: Felsöka azure data lake analytics U-SQL-jobbfel på grund av .NET Framework 4.7.2-uppgradering
+description: Felsöka U-SQL-jobbfel på grund av uppgraderingen till .NET Framework 4.7.2.
 services: data-lake-analytics
 author: guyhay
 ms.author: guyhay
@@ -10,96 +10,96 @@ ms.topic: troubleshooting
 ms.workload: big-data
 ms.date: 10/11/2019
 ms.openlocfilehash: f909419810cbd837e57b19a13b2df6ae9ad2ee97
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79213587"
 ---
-# <a name="azure-data-lake-analytics-is-upgrading-to-the-net-framework-v472"></a>Azure Data Lake Analytics uppgraderar till .NET Framework v-4.7.2
+# <a name="azure-data-lake-analytics-is-upgrading-to-the-net-framework-v472"></a>Azure Data Lake Analytics uppgraderar till .NET Framework v4.7.2
 
-Azure Data Lake Analytics standard körningen uppgraderas från .NET Framework v 4.5.2 till .NET Framework v-4.7.2. Den här ändringen medför en liten risk för att ändra ändringar om din U-SQL-kod använder anpassade sammansättningar och dessa anpassade sammansättningar använder .NET-bibliotek.
+Standardkörningen för Azure Data Lake Analytics uppgraderas från .NET Framework v4.5.2 till .NET Framework v4.7.2. Den här ändringen medför en liten risk för att bryta ändringar om din U-SQL-kod använder anpassade sammansättningar och de anpassade sammansättningarna använder .NET-bibliotek.
 
-Den här uppgraderingen från .NET Framework 4.5.2 till version 4.7.2 innebär att .NET Framework som distribuerats i en U-SQL-körning (standard körning) alltid är 4.7.2. Det finns inte ett alternativ sida vid sida för .NET Framework versioner.
+Den här uppgraderingen från .NET Framework 4.5.2 till version 4.7.2 innebär att .NET Framework som distribueras i en U-SQL-körning (standardkörningen) nu alltid är 4.7.2. Det finns inget alternativ sida vid sida för .NET Framework-versioner.
 
-När uppgraderingen till .NET Framework 4.7.2 är klar körs systemets hanterade kod som version 4.7.2, användare som har angett bibliotek som U-SQL-anpassade sammansättningar kommer att köras i det bakåtkompatibla läge som är lämpligt för den version som sammansättningen har genererat för.
+När den här uppgraderingen till .NET Framework 4.7.2 är klar körs systemets hanterade kod som version 4.7.2, användarbibliotek som U-SQL-anpassade sammansättningar körs i det bakåtkompatibla läge som är lämpligt för den version som sammansättningen har genereras för.
 
-- Om dina paket-dll: er genereras för version 4.5.2, kommer det distribuerade ramverket att behandla dem som 4.5.2-bibliotek, vilket ger (med några undantag) 4.5.2-semantik.
-- Du kan nu använda U-SQL-anpassade sammansättningar som använder version 4.7.2-funktioner, om du riktar in .NET Framework 4.7.2.
+- Om din montering dll genereras för version 4.5.2, kommer det distribuerade ramverket att behandla dem som 4.5.2-bibliotek, förutsatt (med några få undantag) 4.5.2 semantik.
+- Du kan nu använda anpassade U-SQL-sammansättningar som använder sig av version 4.7.2-funktioner om du inriktar dig på .NET Framework 4.7.2.
 
-På grund av den här uppgraderingen till .NET Framework 4.7.2 är det möjligt att införa ändringar i dina U-SQL-jobb som använder anpassade .NET-sammansättningar. Vi rekommenderar att du söker efter bakåtkompatibla problem med proceduren nedan.
+På grund av den här uppgraderingen till .NET Framework 4.7.2 finns det en potential att införa bryta ändringar i dina U-SQL-jobb som använder .NET-anpassade sammansättningar. Vi föreslår att du söker efter problem med bakåtkompatibilitet med hjälp av proceduren nedan.
 
-## <a name="how-to-check-for-backwards-compatibility-issues"></a>Så här söker du efter bakåtkompatibla problem
+## <a name="how-to-check-for-backwards-compatibility-issues"></a>Så här kontrollerar du om det finns problem med bakåtkompatibilitet
 
-Sök efter potentiella problem med bakåtkompatibilitet genom att köra .NET-kompatibilitetskontrollen på din .NET-kod i dina U-SQL-anpassade sammansättningar.
+Kontrollera om det finns problem med att bryta bakåtkompatibilitet genom att köra .NET-kompatibilitetskontrollerna på lysset NET-koden i de anpassade U-SQL-sammansättningarna.
 
 > [!Note]
-> Verktyget identifierar inte faktiska ändringar. Det identifierar bara anropade .NET-API: er som kan (för vissa indata) orsaka problem. Om du får ett meddelande om ett problem kan din kod ändå vara bra, men du bör kontrol lera mer information.
+> Verktyget identifierar inte faktiska brottsändringar. Den identifierar bara så kallade .NET API:er som kan (för vissa indata) orsaka problem. Om du får ett meddelande om ett problem kan koden fortfarande vara bra, men du bör kontrollera mer information.
 
-1. Kör bakåtkompatibla kompatibilitetskontroll på dina .NET-DLL-filer antingen av
-   1. Använda Visual Studio-tillägget i [.net-ports Analyzer Visual Studio-tillägget](https://marketplace.visualstudio.com/items?itemName=ConnieYau.NETPortabilityAnalyzer)
-   1. Hämta och använda det fristående verktyget från [GitHub dotnetapiport](https://github.com/microsoft/dotnet-apiport). Instruktioner för att köra ett fristående verktyg finns på [GitHub dotnetapiport-bryta ändringar](https://github.com/microsoft/dotnet-apiport/blob/dev/docs/HowTo/BreakingChanges.md)
+1. Kör bakåtkompatibilitetskontrollen på dina .NET-DLL-filer antingen genom att
+   1. Använda Visual Studio-tillägget på [.NET Portability Analyzer Visual Studio Extension](https://marketplace.visualstudio.com/items?itemName=ConnieYau.NETPortabilityAnalyzer)
+   1. Hämta och använda det fristående verktyget från [GitHub dotnetapiport](https://github.com/microsoft/dotnet-apiport). Instruktioner för att köra fristående verktyg finns på [GitHub dotnetapiport bryta ändringar](https://github.com/microsoft/dotnet-apiport/blob/dev/docs/HowTo/BreakingChanges.md)
    1. För 4.7.2. kompatibilitet, `read isRetargeting == True` identifierar möjliga problem.
-2. Om-verktyget anger om din kod kan påverkas av eventuella bakåtkompatibla inkompatibiliteter (några vanliga exempel på inkompatibiliteter), kan du ytterligare kontrol lera efter
-   1. Analysera koden och identifiera om din kod skickar värden till de påverkade API: erna
-   1. Utför en körnings kontroll. Körnings distributionen utfördes inte sida vid sida i ADLA. Du kan utföra en körnings kontroll före uppgraderingen genom att använda VisualStudio lokala kör med en lokal .NET Framework-4.7.2 mot en representativ data uppsättning.
-3. Om du faktiskt påverkas av en bakåtkompatibla inkompatibilitet vidtar du nödvändiga åtgärder för att åtgärda det (till exempel att korrigera data eller kod logik).
+2. Om verktyget anger om din kod kan påverkas av någon av de möjliga bakåtkompileringskompatibiliteter (några vanliga exempel på inkompatibiliteter visas nedan), kan du ytterligare kontrollera genom att
+   1. Analysera din kod och identifiera om din kod skickar värden till de påverkade API:erna
+   1. Utför en körningskontroll. Körningsdistributionen görs inte sida vid sida i ADLA. Du kan utföra en körningskontroll före uppgraderingen med VisualStudios lokala körning med ett lokalt .NET Framework 4.7.2 mot en representativ datauppsättning.
+3. Om du verkligen påverkas av en bakåtkompatibilitet, vidta nödvändiga åtgärder för att åtgärda det (till exempel åtgärda dina data eller kodlogik).
 
-I de flesta fall bör du inte påverkas av bakåtkompatibla inkompatibilitet.
+I de flesta fall bör du inte påverkas av bakåtkompatibilitet.
 
 ## <a name="timeline"></a>Tidslinje
 
-Du kan söka efter distributionen av den nya körnings miljön [här,](runtime-troubleshoot.md)och genom att titta på ett tidigare slutfört jobb.
+Du kan söka efter distributionen av den nya körningen här [Körningsfelsökning](runtime-troubleshoot.md)och genom att titta på alla tidigare lyckade jobb.
 
 ### <a name="what-if-i-cant-get-my-code-reviewed-in-time"></a>Vad händer om jag inte kan få min kod granskad i tid
 
-Du kan skicka jobbet till den gamla körnings versionen (som är byggd som mål för 4.5.2), men på grund av bristen på .NET Framework sida vid sida-funktioner kommer den fortfarande bara att köras i 4.5.2-kompatibelt läge. Du kanske fortfarande stöter på några bakåtkompatibla problem på grund av det här problemet.
+Du kan skicka jobbet mot den gamla runtime-versionen (som är byggd med inriktning 4.5.2), men på grund av bristen på .NET Framework sida vid sida-funktioner, kommer det fortfarande bara att köras i 4.5.2 kompatibilitetsläge. Du kan fortfarande stöta på några av problemen med bakåtkompatibilitet på grund av det här beteendet.
 
-### <a name="what-are-the-most-common-backwards-compatibility-issues-you-may-encounter"></a>Vilka är de vanligaste bakåtkompatibla problemen som kan uppstå
+### <a name="what-are-the-most-common-backwards-compatibility-issues-you-may-encounter"></a>Vilka är de vanligaste problem med bakåtkompatibilitet som du kan stöta på
 
-De vanligaste baklänges-inkompatibiliteterna som granskaren är troligt vis att identifiera är (vi har genererat den här listan genom att köra kontrollen på våra egna interna ADLA-jobb), vilka bibliotek som påverkas (Obs: att du endast kan anropa biblioteken indirekt, så det är viktigt att vidta nödvändiga åtgärder #1 för att kontrol lera om dina jobb påverkas) och möjliga åtgärder att åtgärda. Obs! i nästan alla fall för våra egna jobb är varningarna inaktiverade för att vara falska positiva identifieringar på grund av smala egenskaper för de flesta större ändringar.
+De vanligaste bakåtkompatibiliteter som checker sannolikt kommer att identifiera är (vi genererade denna lista genom att köra checker på våra egna interna ADLA-jobb), vilka bibliotek påverkas (observera: att du kan ringa biblioteken endast indirekt, därför är det viktigt att vidta nödvändiga åtgärder #1 för att kontrollera om dina jobb påverkas) och eventuella åtgärder för att åtgärda. Obs: I nästan alla fall för våra egna jobb visade sig varningarna vara falska positiva på grund av de smala naturerna hos de flesta brytande förändringar.
 
-- IAsyncResult. CompletedSynchronously-egenskapen måste vara korrekt för att den resulterande uppgiften ska slutföras
-  - När du anropar TaskFactory. FromAsync måste implementeringen av egenskapen IAsyncResult. CompletedSynchronously vara korrekt för att den resulterande uppgiften ska slutföras. Det vill säga egenskapen måste returnera True om, och endast om, slutfördes synkront. Tidigare kontrollerades inte egenskapen.
-  - Påverkade bibliotek: mscorlib, system. Threading. tasks
-  - Föreslagen åtgärd: kontrol lera att TaskFactory. FromAsync returnerar korrekt värde
+- Egenskapen IAsyncResult.CompletedSynchronously måste vara korrekt för att den resulterande uppgiften ska kunna slutföras
+  - När du anropar TaskFactory.FromAsync måste implementeringen av egenskapen IAsyncResult.CompletedSynchronously vara korrekt för att den resulterande aktiviteten ska slutföras. Det vill säga egenskapen måste returnera sant om, och endast om, genomförandet slutförts synkront. Tidigare har egenskapen inte kontrollerats.
+  - Påverkade bibliotek: mscorlib, System.Threading.Tasks
+  - Föreslagen åtgärd: Se till att TaskFactory.FromAsync returnerar korrekt korrekt
 
-- DataObject. GetData hämtar nu data som UTF-8
-  - För appar som är riktade till .NET Framework 4 eller som körs i .NET Framework 4.5.1 eller tidigare versioner hämtar DataObject. GetData HTML-formaterad data som en ASCII-sträng. Det innebär att icke-ASCII-tecken (tecken vars ASCII-koder är större än 0x7F) representeras av två slumpmässiga tecken. #N # #N # för appar som är riktade till .NET Framework 4,5 eller senare och som körs på .NET Framework 4.5.2, `DataObject.GetData` hämtar HTML-formaterade data som UTF-8, vilket motsvarar tecken som är större än 0x7F.
+- DataObject.GetData hämtar nu data som UTF-8
+  - För appar som är inriktade på .NET Framework 4 eller som körs i .NET Framework 4.5.1 eller tidigare versioner hämtar DataObject.GetData HTML-formaterade data som en ASCII-sträng. Därför representeras icke-ASCII-tecken (tecken vars ASCII-koder är större än 0x7F) av två slumpmässiga tecken.#N##N#För appar som är inriktade på .NET Framework 4.5 `DataObject.GetData` eller senare och körs på .NET Framework 4.5.2, HTML-formaterade data som UTF-8, som representerar tecken som är större än 0x7F korrekt.
   - Påverkade bibliotek: Glo
-  - Föreslagen åtgärd: se till att data hämtas är det format som du vill använda
+  - Föreslagen åtgärd: Se till att data hämtas är det format du vill ha
 
-- XmlWriter returnerar ogiltiga surrogat par
-  - För appar som är riktade till .NET Framework 4.5.2 eller tidigare versioner skriver ett ogiltigt surrogat par med undantags reserv hantering inte alltid ett undantag. För appar som är riktade till .NET Framework 4,6 genererar ett försök att skriva ett ogiltigt surrogat par ett `ArgumentException`.
-  - Påverkade bibliotek: system. XML, system. xml. ReaderWriter
-  - Föreslagen åtgärd: se till att du inte skriver ett ogiltigt surrogat par som orsakar argument undantag
+- XmlWriter kastar på ogiltiga surrogatpar
+  - För appar som är inriktade på .NET Framework 4.5.2 eller tidigare versioner genererar det inte alltid ett undantag om du skriver ett ogiltigt surrogatpar med undantagsrebackningshantering. För appar som är inriktade på .NET Framework 4.6, `ArgumentException`kastar ett ogiltigt surrogatpar ett .
+  - Påverkade bibliotek: System.Xml, System.Xml.ReaderWriter
+  - Föreslagen åtgärd: Se till att du inte skriver ett ogiltigt surrogatpar som orsakar argumentundantag
 
-- HtmlTextWriter återger inte `<br/>` element korrekt
-  - Från och med .NET Framework 4,6, som anropar `HtmlTextWriter.RenderBeginTag()` och `HtmlTextWriter.RenderEndTag()` med ett `<BR />`-element, infogar bara en `<BR />` (i stället för två)
-  - Påverkade bibliotek: system. Web
-  - Föreslagen åtgärd: se till att du infogar mängden `<BR />` som du förväntar dig att se så att inget slumpmässigt beteende visas i produktions jobbet
+- HtmlTextWriter återger `<br/>` inte elementet korrekt
+  - Med början i .NET Framework 4.6 infogas endast `HtmlTextWriter.RenderBeginTag()` ett `<BR />` (i stället för två) ringa och `HtmlTextWriter.RenderEndTag()` med ett `<BR />` element på rätt sätt.
+  - Påverkade bibliotek: System.Web
+  - Föreslagen åtgärd: Se till att `<BR />` du infogar hur mycket du förväntar dig att se så att inget slumpmässigt beteende ses i produktionsjobbet
 
-- Anrop av CreateDefaultAuthorizationContext med ett null-argument har ändrats
-  - Implementeringen av AuthorizationContext som returnerades av ett anrop till `CreateDefaultAuthorizationContext(IList<IAuthorizationPolicy>)` med ett null authorizationPolicies-argument har ändrat implementeringen i .NET Framework 4,6.
-  - Påverkade bibliotek: system. IdentityModel
-  - Föreslagen åtgärd: se till att du hanterar det nya förväntade beteendet när det finns en auktoriseringsprincip
+- Anropa CreateDefaultAuthorizationContext med ett null-argument har ändrats
+  - Implementeringen av AuthorizationContext som returnerades `CreateDefaultAuthorizationContext(IList<IAuthorizationPolicy>)` genom en anrop till argumentet med ett null-behörighetPolicies har ändrat dess implementering i .NET Framework 4.6.
+  - Påverkade bibliotek: System.IdentityModel
+  - Föreslagen åtgärd: Se till att du hanterar det nya förväntade beteendet när det finns null-auktoriseringsprincip
   
-- Nu läser RSACng RSA-nycklar med en nyckel storlek som inte är standard
-  - I .NET Framework versioner före 4.6.2, kan kunder med icke-standardnyckel storlekar för RSA-certifikat inte komma åt nycklarna via metoderna `GetRSAPublicKey()` och `GetRSAPrivateKey()` tillägg. En `CryptographicException` med meddelandet "den begärda nyckel storleken stöds inte". Det här problemet har åtgärd ATS med .NET Framework 4.6.2. På samma sätt fungerar `RSA.ImportParameters()` och `RSACng.ImportParameters()` nu med nyckel storlekar som inte är standard utan att du behöver kasta `CryptographicException`.
-  - Påverkade bibliotek: mscorlib, system. Core
-  - Föreslagen åtgärd: se till att RSA-nycklar fungerar som förväntat
+- RSACng laddar nu RSA-nycklar på rätt sätt av icke-standardnyckelstorlek
+  - I .NET Framework-versioner före 4.6.2 kan kunder med icke-standardiserade nyckelstorlekar för RSA-certifikat inte komma åt dessa nycklar via tilläggsmetoderna `GetRSAPublicKey()` och `GetRSAPrivateKey()` förlängningsmetoderna. A `CryptographicException` med meddelandet "Den begärda nyckelstorleken stöds inte" genereras. Med .NET Framework 4.6.2 har problemet åtgärdats. På samma `RSA.ImportParameters()` `RSACng.ImportParameters()` sätt, och nu arbetar med `CryptographicException`icke-standard nyckelstorlekar utan att kasta 's.
+  - Påverkade bibliotek: mscorlib, System.Core
+  - Föreslagen åtgärd: Se till att RSA-nycklar fungerar som förväntat
 
-- Kontrollen av sökvägs kolon är strängare
-  - I .NET Framework 4.6.2 har ett antal ändringar gjorts för att stödja tidigare sökvägar som inte stöds (både i längd och format). Sökning efter korrekt enhets avgränsare (kolon) har gjorts mer korrekt, vilket hade en sido effekt på att blockera vissa URI-sökvägar i några utvalda Sök vägs-API: er där de använde för att tolereras.
-  - Påverkade bibliotek: mscorlib, system. Runtime. Extensions
+- Sökkolonkontroller är strängare
+  - I .NET Framework 4.6.2 gjordes ett antal ändringar för att stödja tidigare sökvägar som inte stöds (både i längd och format). Kontroller för korrekt enhetsavgränsare (kolon) syntax gjordes mer korrekt, vilket hade bieffekten att blockera vissa URI-banor i några utvalda Path API:er där de brukade tolereras.
+  - Påverkade bibliotek: mscorlib, System.Runtime.Extensions
   - Föreslagen åtgärd:
 
-- Anrop till ClaimsIdentity-konstruktorer
-  - Från och med .NET Framework 4.6.2, finns det en ändring i hur `T:System.Security.Claims.ClaimsIdentity`-konstruktörer med en `T:System.Security.Principal.IIdentity`-parameter anger egenskapen `P:System.Security.Claims.ClaimsIdentify.Actor`. Om argumentet `T:System.Security.Principal.IIdentity` är ett `T:System.Security.Claims.ClaimsIdentity`-objekt och egenskapen `P:System.Security.Claims.ClaimsIdentify.Actor` för `T:System.Security.Claims.ClaimsIdentity`-objektet inte `null`, bifogas egenskapen `P:System.Security.Claims.ClaimsIdentify.Actor` med hjälp av `M:System.Security.Claims.ClaimsIdentity.Clone`-metoden. I ramverket 4.6.1 och tidigare versioner bifogas egenskapen `P:System.Security.Claims.ClaimsIdentify.Actor` som en befintlig referens. På grund av den här ändringen, från och med .NET Framework 4.6.2, är `P:System.Security.Claims.ClaimsIdentify.Actor` egenskapen för det nya `T:System.Security.Claims.ClaimsIdentity`-objektet inte lika med `P:System.Security.Claims.ClaimsIdentify.Actor`-egenskapen för konstruktorns `T:System.Security.Principal.IIdentity`-argument. I .NET Framework 4.6.1 och tidigare versioner är det lika.
+- Anrop till ClaimsIdentity-konstruktörer
+  - Från och med .NET Framework 4.6.2 ändras hur `T:System.Security.Claims.ClaimsIdentity` `T:System.Security.Principal.IIdentity` konstruktorer med en parameter anger egenskapen. `P:System.Security.Claims.ClaimsIdentify.Actor` Om `T:System.Security.Principal.IIdentity` argumentet är `T:System.Security.Claims.ClaimsIdentity` ett objekt `P:System.Security.Claims.ClaimsIdentify.Actor` och `T:System.Security.Claims.ClaimsIdentity` egenskapen `null`för `P:System.Security.Claims.ClaimsIdentify.Actor` objektet inte är, `M:System.Security.Claims.ClaimsIdentity.Clone` kopplas egenskapen med hjälp av metoden. I Framework 4.6.1 och tidigare `P:System.Security.Claims.ClaimsIdentify.Actor` versioner är egenskapen bifogad som en befintlig referens. På grund av den här ändringen, som börjar med .NET `P:System.Security.Claims.ClaimsIdentify.Actor` Framework 4.6.2, är egenskapen för det nya `T:System.Security.Claims.ClaimsIdentity` objektet inte lika med egenskapen `P:System.Security.Claims.ClaimsIdentify.Actor` för konstruktorns `T:System.Security.Principal.IIdentity` argument. I .NET Framework 4.6.1 och tidigare versioner är den lika.
   - Påverkade bibliotek: mscorlib
-  - Föreslagen åtgärd: kontrol lera att ClaimsIdentity fungerar som förväntat på ny körning
+  - Föreslagen åtgärd: Se till att skadeidentitet fungerar som förväntat på ny körning
 
-- Serialisering av kontroll tecken med DataContractJsonSerializer är nu kompatibel med ECMAScript V6 och V8
-  - I .NET Framework 4.6.2 och tidigare versioner serialiserade DataContractJsonSerializer inte några särskilda kontroll tecken, till exempel \b, \f och \t, på ett sätt som var kompatibelt med ECMAScript V6-och V8-standarden. Från och med .NET Framework 4,7 är serialiseringen av dessa kontroll tecken kompatibel med ECMAScript V6 och V8.
-  - Påverkade bibliotek: system. Runtime. Serialization. JSON
-  - Föreslagen åtgärd: kontrol lera att samma beteende med DataContractJsonSerializer
+- Serialisering av kontrolltecken med DataContractJsonSerializer är nu kompatibel med ECMAScript V6 och V8
+  - I .NET-ramverket 4.6.2 och tidigare versioner serialerade datacontractJsonSerializer inte vissa specialkontrolltecken, till exempel \b, \f och \t, på ett sätt som var kompatibelt med ECMAScript V6- och V8-standarderna. Från och med .NET Framework 4.7 är serialisering av dessa kontrolltecken kompatibel med ECMAScript V6 och V8.
+  - Påverkade bibliotek: System.Runtime.Serialization.Json
+  - Föreslagen åtgärd: Se till att datacontractJsonSerializer fungerar samma beteende

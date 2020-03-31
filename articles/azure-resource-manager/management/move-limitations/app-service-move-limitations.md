@@ -1,51 +1,51 @@
 ---
-title: Flytta Azure App Service resurser
-description: Använd Azure Resource Manager för att flytta App Service resurser till en ny resurs grupp eller prenumeration.
+title: Flytta Azure App Service-resurser
+description: Använd Azure Resource Manager för att flytta App Service-resurser till en ny resursgrupp eller prenumeration.
 ms.topic: conceptual
 ms.date: 12/13/2019
 ms.openlocfilehash: 338b0559a5de9468ff60024b88d0f676a9fc3e8b
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75479805"
 ---
-# <a name="move-guidance-for-app-service-resources"></a>Flytta vägledning för App Service resurser
+# <a name="move-guidance-for-app-service-resources"></a>Flytta vägledning för App Service-resurser
 
-I den här artikeln beskrivs stegen för att flytta App Service-resurser. Det finns särskilda krav för att flytta App Service resurser till en ny prenumeration.
+I den här artikeln beskrivs stegen för att flytta App Service-resurser. Det finns särskilda krav för att flytta App Service-resurser till en ny prenumeration.
 
-## <a name="move-across-subscriptions"></a>Flytta över prenumerationer
+## <a name="move-across-subscriptions"></a>Flytta mellan prenumerationer
 
-När du flyttar en webbapp över prenumerationer gäller följande rikt linjer:
+När du flyttar en webbapp över prenumerationer gäller följande vägledning:
 
-- Målresursgruppen får inte ha några befintliga App Service-resurser. App Service-resurser är:
+- Målresursgruppen får inte ha några befintliga App Service-resurser. App Service-resurser omfattar:
     - Web Apps
-    - App Service-prenumerationer
-    - Överförda eller importerade SSL-certifikat
-    - App Service Environments
-- Alla App Service-resurser i resursgruppen måste flyttas tillsammans. Observera att App Service miljöer inte kan flyttas till en ny resurs grupp eller till en ny prenumeration.
-- Du kan flytta ett certifikat som är bundet till en webbplats utan att ta bort SSL-bindningarna, förutsatt att certifikatet flyttas med alla andra resurser i resurs gruppen.
-- App Service-resurser kan bara flyttas från resursgruppen där de skapades. Om en App Service resurs inte längre finns i den ursprungliga resurs gruppen flyttar du tillbaka den till den ursprungliga resurs gruppen. Flytta sedan resursen över prenumerationer.
+    - App Service-planer
+    - Uppladdade eller importerade SSL-certifikat
+    - Apptjänstmiljöer
+- Alla App Service-resurser i resursgruppen måste flyttas tillsammans. Observera att App Service-miljöer inte kan flyttas till en ny resursgrupp eller till en ny prenumeration.
+- Du kan flytta ett certifikat bundet till en webbplats utan att ta bort SSL-bindningarna, så länge certifikatet flyttas med alla andra resurser i resursgruppen.
+- AppTjänstresurser kan bara flyttas från resursgruppen där de ursprungligen skapades. Om en App Service-resurs inte längre finns i den ursprungliga resursgruppen flyttar du tillbaka den till den ursprungliga resursgruppen. Flytta sedan resursen över prenumerationer.
 
-Om du inte kommer ihåg den ursprungliga resurs gruppen kan du hitta den via diagnostik. För din webbapp väljer du **diagnostisera och lösa problem**. Välj sedan **konfiguration och hantering**.
+Om du inte kommer ihåg den ursprungliga resursgruppen kan du hitta den via diagnostik. För din webbapp väljer du **Diagnostisera och lösa problem**. Välj sedan **Konfiguration och hantering**.
 
 ![Välj diagnostik](./media/app-service-move-limitations/select-diagnostics.png)
 
-Välj **alternativ för migrering**.
+Välj **Migreringsalternativ**.
 
-![Välj alternativ för migrering](./media/app-service-move-limitations/select-migration.png)
+![Välj migreringsalternativ](./media/app-service-move-limitations/select-migration.png)
 
-Välj alternativet för rekommenderade steg för att flytta webb programmet.
+Välj alternativet för rekommenderade steg för att flytta webbappen.
 
 ![Välj rekommenderade steg](./media/app-service-move-limitations/recommended-steps.png)
 
-Du ser de rekommenderade åtgärderna innan du flyttar resurserna. Informationen omfattar den ursprungliga resurs gruppen för webbappen.
+Du ser de rekommenderade åtgärderna som ska vidtas innan du flyttar resurserna. Informationen innehåller den ursprungliga resursgruppen för webbappen.
 
 ![Rekommendationer](./media/app-service-move-limitations/recommendations.png)
 
 ## <a name="move-support"></a>Stöd för att flytta
 
-Information om hur du tar reda på vilka App Service resurser som kan flyttas finns i flytta support status för:
+Information om vilka App Service-resurser som kan flyttas finns i flytta supportstatus för:
 
 - [Microsoft.AppService](../move-support-resources.md#microsoftappservice)
 - [Microsoft.CertificateRegistration](../move-support-resources.md#microsoftcertificateregistration)
@@ -54,4 +54,4 @@ Information om hur du tar reda på vilka App Service resurser som kan flyttas fi
 
 ## <a name="next-steps"></a>Nästa steg
 
-För kommandon för att flytta resurser, se [Flytta resurser till ny resurs grupp eller prenumeration](../move-resource-group-and-subscription.md).
+Kommandon som ska flyttas finns i [Flytta resurser till ny resursgrupp eller prenumeration](../move-resource-group-and-subscription.md).

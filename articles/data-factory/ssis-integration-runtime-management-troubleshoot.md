@@ -1,6 +1,6 @@
 ---
-title: Felsöka SSIS Integration Runtime Management
-description: Den här artikeln innehåller fel söknings vägledning för hanterings problem med SSIS Integration Runtime (SSIS IR)
+title: Felsöka hantering av SSIS-integreringskörning
+description: Den här artikeln innehåller felsökningsvägledning för hanteringsproblem för SSIS Integration Runtime (SSIS IR)
 services: data-factory
 ms.service: data-factory
 ms.workload: data-services
@@ -12,25 +12,25 @@ manager: mflasko
 ms.custom: seo-lt-2019
 ms.date: 07/08/2019
 ms.openlocfilehash: 52b1d93935e6428563c72361655893ffddf8a507
-ms.sourcegitcommit: b5ff5abd7a82eaf3a1df883c4247e11cdfe38c19
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/09/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74941871"
 ---
-# <a name="troubleshoot-ssis-integration-runtime-management-in-azure-data-factory"></a>Felsöka SSIS Integration Runtime Management i Azure Data Factory
+# <a name="troubleshoot-ssis-integration-runtime-management-in-azure-data-factory"></a>Felsöka hantering av SSIS-integreringskörning i Azure Data Factory
 
-Den här artikeln innehåller fel söknings vägledning för hanterings problem i Azure-SQL Server Integration Services (SSIS) Integration Runtime (IR), även kallat SSIS IR.
+Den här artikeln innehåller felsökningsvägledning för hanteringsproblem i Azure-SQL Server Integration Services (SSIS) Integration Runtime (IR), även känd som SSIS IR.
 
 ## <a name="overview"></a>Översikt
 
-Om du stöter på ett problem under etableringen eller avetableringen av SSIS IR visas ett fel meddelande i Microsoft Azure Data Factory portalen eller ett fel som returneras från en PowerShell-cmdlet. Felet visas alltid i formatet för en felkod med ett detaljerat fel meddelande.
+Om du stöter på problem när du etablerar eller avetableras SSIS IR visas ett felmeddelande i Microsoft Azure Data Factory-portalen eller ett fel som returneras från en PowerShell-cmdlet. Felet visas alltid i formatet för en felkod med ett detaljerat felmeddelande.
 
-Om felkoden är InternalServerError har tjänsten tillfälliga problem och du bör försöka igen senare. Kontakta Azure Data Factory support-teamet om det inte går att göra ett nytt försök.
+Om felkoden är InternalServerError har tjänsten tillfälliga problem och du bör försöka igen åtgärden senare. Om ett nytt försök inte hjälper kontaktar du Supportteamet för Azure Data Factory.
 
-I annat fall kan tre större externa beroenden orsaka fel: en Azure SQL Database Server eller en hanterad instans, ett anpassat installations skript och en virtuell nätverks konfiguration.
+Annars kan tre stora externa beroenden orsaka fel: en Azure SQL Database-server eller hanterad instans, ett anpassat installationsskript och en virtuell nätverkskonfiguration.
 
-## <a name="azure-sql-database-server-or-managed-instance-issues"></a>Problem med Azure SQL Database Server eller hanterade instanser
+## <a name="azure-sql-database-server-or-managed-instance-issues"></a>Azure SQL Database server eller hanterade instansproblem
 
 En Azure SQL Database-server eller en hanterad instans krävs om du etablerar SSIS IR med en SSIS-katalogdatabas. SSIS IR måste kunna komma åt Azure SQL Database-servern eller den hanterade instansen. Dessutom ska kontot för Azure SQL Database-servern eller den hanterade instansen ha behörighet att skapa en SSIS-katalogdatabas (SSISDB). Om det uppstår ett fel visas en felkod med ett detaljerat SQL-undantagsmeddelande i Data Factory-portalen. Använd informationen i följande lista för att felsöka felkoderna.
 
@@ -43,8 +43,8 @@ Det här felet kan uppstå när du etablerar en ny SSIS IR eller medan IR körs.
 * Inloggningen misslyckades under Microsoft Azure Active Directory-autentisering (Azure AD) (hanterad identitet). Lägg till den hanterade identiteten för din fabrik till en AAD-grupp och se till att den hanterade identiteten har åtkomstbehörighet till din katalogdatabasserver.
 * Tidsgräns för anslutning. Det här felet orsakas alltid av en säkerhetsrelaterad konfiguration. Vi rekommenderar att du gör följande:
   1. Skapa en ny virtuell dator.
-  1. Anslut den virtuella datorn till samma Microsoft Azure Virtual Network av IR om IR finns i ett virtuellt nätverk.
-  1. Installera SSMS och kontrol lera status för Azure SQL Database Server eller hanterad instans.
+  1. Gå med i den virtuella datorn till samma Microsoft Azure Virtual Network of IR om IR finns i ett virtuellt nätverk.
+  1. Installera SSMS och kontrollera Azure SQL Database-servern eller statusen för hanterade instanser.
 
 För andra problem löser du det problem som visas i det detaljerade felmeddelandet för SQL-undantag. Om det fortfarande är problem kontaktar du supportteamet för Azure SQL Database-servern eller hanterad instans.
 
@@ -52,14 +52,14 @@ Om felet uppstår när IR körs förhindrar ändringar i en nätverkssäkerhetsg
 
 ### <a name="catalogcapacitylimiterror"></a>CatalogCapacityLimitError
 
-Den här typen av fel meddelande kan se ut så här: "databasen" SSISDB "har nått sin storleks kvot. Partitionera eller ta bort data, släpp index eller Läs om möjliga lösningar i dokumentationen. " 
+Så här kan den här typen av felmeddelande se ut: "Databasen 'SSISDB' har nått sin storlekskvot. Partitionera eller ta bort data, släpp index eller läs dokumentationen för möjliga lösningar." 
 
 Möjliga lösningar är följande:
-* Öka kvot storleken för din SSISDB.
+* Öka kvotstorleken för din SSISDB.
 * Ändra konfigurationen för SSISDB för att minska storleken genom att:
-   * Reducering av kvarhållningsperioden och antal projekt versioner.
-   * Minskar loggens kvarhållningsperiod.
-   * Ändra standard nivån för loggen.
+   * Minska kvarhållningsperioden och antalet projektversioner.
+   * Minska kvarhållningsperioden för loggen.
+   * Ändra loggens standardnivå.
 
 ### <a name="catalogdbbelongstoanotherir"></a>CatalogDbBelongsToAnotherIR
 
@@ -76,9 +76,9 @@ För andra problem läser du felmeddelandet om SQL-undantag och åtgärdar det p
 
 ### <a name="invalidcatalogdb"></a>InvalidCatalogDb
 
-Den här typen av fel meddelande ser ut så här: "ogiltigt objekt namn" Catalog. catalog_properties "." I så fall har du redan en databas med namnet SSISDB men den skapades inte av SSIS IR, eller så är databasen i ett ogiltigt tillstånd som orsakas av fel under den senaste SSIS IR-etableringen. Du kan frigöra den befintliga databasen med namnet SSISDB, eller så kan du konfigurera en ny Azure SQL Database-server eller en hanterad instans för IR.
+Den här typen av felmeddelande ser ut så här: "Ogiltigt objektnamn 'catalog.catalog_properties'." I det här fallet har du antingen redan en databas med namnet SSISDB men den skapades inte av SSIS IR, eller så är databasen i ett ogiltigt tillstånd som orsakas av fel i den senaste SSIS IR-etableringen. Du kan frigöra den befintliga databasen med namnet SSISDB, eller så kan du konfigurera en ny Azure SQL Database-server eller en hanterad instans för IR.
 
-## <a name="custom-setup-issues"></a>Anpassade installations problem
+## <a name="custom-setup-issues"></a>Problem med anpassade inställningar
 
 Anpassad installation tillhandahåller ett gränssnitt där du kan lägga till egna installationssteg under etablering eller omkonfiguration av din SSIS IR. Mer information finns i [Anpassa installation för Azure-SSIS Integration Runtime](https://docs.microsoft.com/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup).
 
@@ -86,7 +86,7 @@ Kontrollera att din container endast innehåller nödvändiga filer för anpassa
 
 Containern för anpassat installationsskript kontrolleras medan IR körs eftersom SSIS IR uppdateras regelbundet. Den här uppdateringen kräver åtkomst till containern för att ladda ned skriptet för anpassad installation och installera det igen. Processen kontrollerar även om containern är tillgänglig och om filen main.cmd finns.
 
-För alla fel som inbegriper anpassad installation visas en CustomSetupScriptFailure-felkod med under kod som CustomSetupScriptBlobContainerInaccessible eller CustomSetupScriptNotFound.
+För alla fel som innebär anpassad installation visas en CustomSetupScriptFailure-felkod med underkod som CustomSetupScriptBlobContainerInaccessible eller CustomSetupScriptNotFound.
 
 ### <a name="customsetupscriptblobcontainerinaccessible"></a>CustomSetupScriptBlobContainerInaccessible
 
@@ -122,7 +122,7 @@ Det här felet kan inträffa av olika orsaker. Information om hur du felsöker d
 
 ### <a name="forbidden"></a>Förbjudet
 
-Den här typen av fel kan likna detta: "SubnetId har inte Aktiver ATS för det aktuella kontot. Microsoft. batch Resource Provider är inte registrerad under samma prenumeration av VNet. "
+Den här typen av fel kan likna detta: "SubnetId är inte aktiverat för bytesbalansen. Microsoft.Batch-resursprovidern registreras inte under samma prenumeration på virtuella nätverk."
 
 Den här informationen innebär att Azure Batch inte kan komma åt ditt virtuella nätverk. Registrera Microsoft.Batch-resursprovidern under samma prenumeration som Virtual Network.
 
@@ -130,14 +130,14 @@ Den här informationen innebär att Azure Batch inte kan komma åt ditt virtuell
 
 Den här typen av fel kan se ut på något av följande sätt: 
 
-- "Antingen finns inte det angivna virtuella nätverket eller också har batch-tjänsten inte åtkomst till det."
-- "Det angivna under nätet XXX finns inte."
+- "Antingen finns inte det angivna virtuella nätverket eller så har batch-tjänsten inte åtkomst till det."
+- "Det angivna undernätet xxx finns inte."
 
 Dessa fel innebär att det virtuella nätverket inte finns, att Azure Batch-tjänsten inte kan komma åt det eller att det angivna undernätet inte finns. Kontrollera att det virtuella nätverket och undernätet finns och att Azure Batch kan komma åt dem.
 
 ### <a name="misconfigureddnsserverornsgsettings"></a>MisconfiguredDnsServerOrNsgSettings
 
-Den här typen av fel meddelande kan se ut så här: "Det gick inte att etablera Integration Runtime i VNet. Om DNS-servern eller NSG-inställningarna konfigureras kontrollerar du att DNS-servern är tillgänglig och att NSG har kon figurer ATS korrekt. "
+Den här typen av felmeddelande kan se ut så här: "Det gick inte att etablera Integration Runtime i VNet. Om DNS-servern eller NSG-inställningarna är konfigurerade kontrollerar du att DNS-servern är tillgänglig och att NSG är korrekt konfigurerat."
 
 I den här situationen har du förmodligen en anpassad konfiguration av DNS-serverns eller NSG-inställningarna, vilket förhindrar att det Azure-servernamn som krävs av SSIS IR matchas eller nås. Mer information finns i [Konfiguration av virtuellt nätverk för SSIS IR](https://docs.microsoft.com/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network). Om det fortfarande är problem kan du kontakta supportteamet för Azure Data Factory.
 
@@ -157,37 +157,37 @@ När du stoppar SSIS IR tas alla Virtual Network-relaterade resurser bort. Men b
 
 Det här felet uppstår när IR körs och innebär att IR har blivit defekt. Det här felet orsakas alltid av en ändring i den DNS-server- eller NSG-konfiguration som blockerar SSIS IR från att ansluta till en nödvändig tjänst. Eftersom konfigurationen av DNS-server och NSG kontrolleras av kunden måste kunden åtgärda blockeringsproblemen på deras sida. Mer information finns i [Konfiguration av virtuellt nätverk för SSIS IR](https://docs.microsoft.com/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network). Om det fortfarande är problem kan du kontakta supportteamet för Azure Data Factory.
 
-## <a name="static-public-ip-addresses-configuration"></a>Konfiguration av statiska offentliga IP-adresser
+## <a name="static-public-ip-addresses-configuration"></a>Statisk konfiguration av offentliga IP-adresser
 
-När du ansluter Azure-SSIS IR till Azure Virtual Network kan du också ta med egna statiska offentliga IP-adresser för IR så att IR kan komma åt data källor som begränsar åtkomsten till specifika IP-adresser. Mer information finns i [Koppla en Azure-SSIS Integration Runtime till ett virtuellt nätverk](https://docs.microsoft.com/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network).
+När du ansluter till Azure-SSIS IR till Azure Virtual Network kan du också ta med egna statiska offentliga IP-adresser för IR så att IR kan komma åt datakällor som begränsar åtkomsten till specifika IP-adresser. Mer information finns i [Koppla en Azure-SSIS Integration Runtime till ett virtuellt nätverk](https://docs.microsoft.com/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network).
 
-Förutom ovanstående problem med virtuella nätverk kan du också möta problem som rör statiska offentliga IP-adresser. Kontrol lera följande fel om du behöver hjälp.
+Förutom ovanstående problem med virtuella nätverk kan du också uppfylla statiska offentliga IP-adresser-relaterade problem. Kontrollera följande fel för hjälp.
 
-### <a name="InvalidPublicIPSpecified"></a>InvalidPublicIPSpecified
+### <a name="invalidpublicipspecified"></a><a name="InvalidPublicIPSpecified"></a>Ogiltigt Offentligt BESpecificerat
 
-Det här felet kan inträffa av olika orsaker när du startar Azure-SSIS IR:
+Det här felet kan uppstå av olika anledningar när du startar Azure-SSIS IR:
 
 | Felmeddelande | Lösning|
 |:--- |:--- |
-| Den angivna statiska offentliga IP-adressen används redan, ange två oanvända för Azure-SSIS Integration Runtime. | Du bör välja två oanvända statiska offentliga IP-adresser eller ta bort aktuella referenser till den angivna offentliga IP-adressen och sedan starta om Azure-SSIS IR. |
-| Den angivna statiska offentliga IP-adressen har inget DNS-namn. Ange två av dem med DNS-namnet för din Azure-SSIS Integration Runtime. | Du kan konfigurera DNS-namnet för den offentliga IP-adressen i Azure Portal, som visas i bilden nedan. De olika stegen är följande: (1) öppna Azure Portal och gå till resurs sidan för den här offentliga IP-adressen. (2) Välj **konfigurations** avsnittet och konfigurera DNS-namnet och klicka sedan på knappen **Spara** . (3) starta om Azure-SSIS IR. |
-| De angivna VNet-och statiska offentliga IP-adresserna för din Azure-SSIS Integration Runtime måste finnas på samma plats. | Enligt Azure-nätverkets krav bör den statiska offentliga IP-adressen och det virtuella nätverket finnas på samma plats och i samma prenumeration. Ange två giltiga statiska offentliga IP-adresser och starta om Azure-SSIS IR. |
-| Den tillhandahållna statiska offentliga IP-adressen är en grundläggande lösning, ange två standard för din Azure-SSIS Integration Runtime. | Se [SKU: er för offentlig IP-adress](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm#sku) för hjälp. |
+| Den angivna statiska offentliga IP-adressen används redan, ange två oanvända för din Azure-SSIS Integration Runtime. | Du bör välja två oanvända statiska offentliga IP-adresser eller ta bort aktuella referenser till den angivna offentliga IP-adressen och sedan starta om Azure-SSIS IR. |
+| Den angivna statiska offentliga IP-adressen har inget DNS-namn, ange två av dem med DNS-namn för din Azure-SSIS Integration Runtime. | Du kan ställa in DNS-namnet på den offentliga IP-adressen i Azure-portalen, som bilden nedan visar. Specifika steg är följande: (1) Öppna Azure-portalen och gå till resurssidan för den här offentliga IP-adressen. (2) Välj **avsnittet Konfiguration** och konfigurera DNS-namnet och klicka sedan på Knappen **Spara.** (3) Starta om din Azure-SSIS IR. |
+| De angivna virtuella nätverken och statiska offentliga IP-adresser för din Azure-SSIS-integrationskörning måste finnas på samma plats. | Enligt Azure Networks krav ska den statiska offentliga IP-adressen och det virtuella nätverket vara på samma plats och prenumeration. Ange två giltiga statiska offentliga IP-adresser och starta om Azure-SSIS IR. |
+| Den angivna statiska offentliga IP-adressen är grundläggande, ange två standardadresser för din Azure-SSIS Integration Runtime. | Mer hjälp finns [i SKU:er för offentlig IP-adress.](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm#sku) |
 
 ![Azure-SSIS IR](media/ssis-integration-runtime-management-troubleshoot/setup-publicipdns-name.png)
 
-### <a name="publicipresourcegrouplockedduringstart"></a>PublicIPResourceGroupLockedDuringStart
+### <a name="publicipresourcegrouplockedduringstart"></a>Offentlig IPResourceGroupLockedUnderingStart
 
-Om Azure-SSIS IR etableringen Miss lyckas raderas alla resurser som har skapats. Men om det finns ett resurs borttagnings lås på prenumerationen eller resurs gruppen (som innehåller din statiska offentliga IP-adress), tas inte nätverks resurserna bort som förväntat. Åtgärda felet genom att ta bort borttagnings låset och starta om IR.
+Om Azure-SSIS IR-etablering misslyckas tas alla resurser som har skapats bort. Men om det finns ett resursborttagningslås på prenumerations- eller resursgruppen (som innehåller din statiska offentliga IP-adress) nivå tas nätverksresurserna inte bort som förväntat. Åtgärda felet genom att ta bort borttagningslåset och starta om IR:n.
 
-### <a name="publicipresourcegrouplockedduringstop"></a>PublicIPResourceGroupLockedDuringStop
+### <a name="publicipresourcegrouplockedduringstop"></a>OffentligaIPResourceGroupLockedUnderingStop
 
-När du stoppar Azure-SSIS IR tas alla nätverks resurser som skapats i resurs gruppen som innehåller din offentliga IP-adress bort. Men det går inte att ta bort om det finns ett resurs borttagnings lås på prenumerationen eller resurs gruppen (som innehåller din statiska offentliga IP-adress) nivå. Ta bort borttagnings låset och starta om IR.
+När du stoppar Azure-SSIS IR tas alla nätverksresurser som skapas i resursgruppen som innehåller din offentliga IP-adress bort. Men borttagning kan misslyckas om det finns ett resursborttagningslås på prenumerations- eller resursgruppen (som innehåller din statiska offentliga IP-adress) nivå. Ta bort borttagningslåset och starta om IR:et.
 
-### <a name="publicipresourcegrouplockedduringupgrade"></a>PublicIPResourceGroupLockedDuringUpgrade
+### <a name="publicipresourcegrouplockedduringupgrade"></a>OffentligaIPResourceGroupLockedUnderingUpgrade
 
-Azure-SSIS IR uppdateras automatiskt regelbundet. Nya IR-noder skapas under uppgraderingen och de gamla noderna tas bort. Dessutom raderas de skapade nätverks resurserna (t. ex. belastningsutjämnaren och nätverks säkerhets gruppen) för de gamla noderna, och de nya nätverks resurserna skapas under din prenumeration. Det här felet innebär att det inte gick att ta bort nätverks resurserna för de gamla noderna på grund av ett borttagnings lås på prenumerationen eller resurs gruppen (som innehåller din statiska offentliga IP-adress) nivå. Ta bort borttagnings låset så att vi kan rensa de gamla noderna och frigöra den statiska offentliga IP-adressen för de gamla noderna. Annars kan inte den statiska offentliga IP-adressen släppas och vi kommer inte att kunna uppgradera dina IR-data.
+Azure-SSIS IR uppdateras automatiskt regelbundet. Nya IR-noder skapas under uppgraderingen och de gamla noderna tas bort. Dessutom tas de skapade nätverksresurserna (t.ex. belastningsutjämnaren och nätverkssäkerhetsgruppen) för de gamla noderna bort och de nya nätverksresurserna skapas under prenumerationen. Det här felet innebär att det gick inte att ta bort nätverksresurserna för de gamla noderna på grund av ett borttagningslås på prenumerations- eller resursgruppen (som innehåller din statiska offentliga IP-adress). Ta bort borttagningslåset så att vi kan rensa de gamla noderna och släppa den statiska offentliga IP-adressen för de gamla noderna. Annars kan den statiska offentliga IP-adressen inte släppas och vi kommer inte att kunna uppgradera din IR ytterligare.
 
-### <a name="publicipnotusableduringupgrade"></a>PublicIPNotUsableDuringUpgrade
+### <a name="publicipnotusableduringupgrade"></a>PublicIPAnvändbaraUnderuppgradering
 
-När du vill ta med egna statiska offentliga IP-adresser ska två offentliga IP-adresser anges. En av dem kommer att användas för att skapa IR-noderna omedelbart och en annan kommer att användas vid uppgradering av IR. Det här felet kan inträffa när den andra offentliga IP-adressen inte kan användas under uppgraderingen. Det finns möjliga orsaker till [InvalidPublicIPSpecified](#InvalidPublicIPSpecified) .
+När du vill ta med egna statiska offentliga IP-adresser bör två offentliga IP-adresser tillhandahållas. En av dem kommer att användas för att skapa IR-noder omedelbart och en annan kommer att användas under uppgraderingen av IR. Det här felet kan uppstå när den andra offentliga IP-adressen är oanvändbar under uppgraderingen. Se [InvalidPublicIP Angiven](#InvalidPublicIPSpecified) för möjliga orsaker.

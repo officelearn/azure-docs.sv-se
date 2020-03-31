@@ -15,16 +15,16 @@ ms.topic: conceptual
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: c77b700cab4afd411c3a2df824ee8335cb394cda
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "64868302"
 ---
 # <a name="upload-files-into-an-azure-media-services-account-from-azure-storsimple"></a>Ladda upp filer till ett Azure Media Services-konto från Azure StorSimple  
 
 > [!NOTE]
-> Inga nya funktioner läggs till i Media Services v2. <br/>Upptäck den senaste versionen, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Se även [migreringsvägledningen från v2 till v3](../latest/migrate-from-v2-to-v3.md)
+> Inga nya funktioner läggs till i Media Services v2. <br/>Kolla in den senaste versionen, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Se även [migreringsvägledning från v2 till v3](../latest/migrate-from-v2-to-v3.md)
 >
 > 
 > Azure StorSimple Data Manager finns för närvarande som privat förhandsutgåva. 
@@ -32,11 +32,11 @@ ms.locfileid: "64868302"
 
 ## <a name="overview"></a>Översikt
 
-I Media Services överför du dina digitala filer till en tillgång. Tillgång kan innehålla video, ljud, bilder, miniatyrsamlingar, textspår och filer med dold textning (samt metadata om dessa filer.) När filerna har överförts lagras innehållet på ett säkert sätt i molnet för ytterligare bearbetning och strömning.
+I Media Services överför du dina digitala filer till en tillgång. Tillgången kan innehålla video, ljud, bilder, miniatyrsamlingar, textspår och filer med dold text (och metadata om dessa filer.) När filerna har laddats upp lagras ditt innehåll säkert i molnet för vidare bearbetning och streaming.
 
 [Azure StorSimple](https://docs.microsoft.com/azure/storsimple/) använder lagringsutrymmet i molnet som ett tillägg till den lokala lösningen och fördelar automatiskt data mellan det lokala lagringsutrymmet och lagringsutrymmet i molnet. StorSimple-enheten deduplicerar och komprimerar data innan du skickar dem till molnet, vilket gör det mycket effektivt för att skicka stora filer till molnet. Tjänsten [StorSimple Data Manager](../../storsimple/storsimple-data-manager-overview.md) innehåller API: er som gör det möjligt att extrahera data från StorSimple och presentera dem som AMS-tillgångar.
 
-## <a name="get-started"></a>Kom igång
+## <a name="get-started"></a>Komma igång
 
 1. [Skapa ett Media Services-konto](media-services-portal-create-account.md) som du vill överföra tillgångarna till.
 2. Registrera dig för förhandsutgåvan av Data Manager på det sätt som beskrivs i artikeln [StorSimple Data Manager](../../storsimple/storsimple-data-manager-overview.md).
@@ -45,9 +45,9 @@ I Media Services överför du dina digitala filer till en tillgång. Tillgång k
 
     När jobbet börjar köras skapas en lagringskö. Den här kön fylls med meddelanden om transformerade blobbar i takt med att de är klara. Namnet på den här kön är detsamma som namnet på jobbdefinitionen. Du kan använda den här kön för att avgöra när tillgången är klar och anropa önskad Media Services-åtgärd som ska köras på den. Du kan till exempel använda den här kön för att utlösa en Azure-funktion som innehåller den nödvändiga Media Services-koden.
 
-## <a name="see-also"></a>Se också
+## <a name="see-also"></a>Se även
 
-[Använda .NET SDK, för att utlösa jobb i Data Manager](../../storsimple/storsimple-data-manager-dotnet-jobs.md)
+[Använda .NET SDK för att utlösa jobb i Datahanteraren](../../storsimple/storsimple-data-manager-dotnet-jobs.md)
 
 ## <a name="media-services-learning-paths"></a>Sökvägar för Media Services-utbildning
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

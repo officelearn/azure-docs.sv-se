@@ -5,16 +5,16 @@ ms.topic: include
 ms.date: 02/21/2019
 ms.author: alkohli
 ms.openlocfilehash: 8c87e14071b3bb40421ab655c172df739570e295
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67187798"
 ---
-Följande villkor gäller för data som flyttas till Azure.
+Följande varningar gäller för data när de flyttas till Azure.
 
-- Vi rekommenderar att mer än en enhet inte bör skriva till samma behållare.
-- Om du har ett befintligt Azure objekt (till exempel en blob eller en fil) i molnet med samma namn som det objekt som ska kopieras skrivs enhet till filen i molnet.
-- En tom katalog-hierarki (utan några filer) som skapats under dela mappar inte laddas upp till blob-behållare.
-- Du kan kopiera data med dra och släppa med Utforskaren eller via kommandoraden. Om den sammanlagda storleken på filerna kopieras är större än 10 GB, rekommenderar vi du använder ett program som bulk copy program, till exempel Robocopy eller rsync. Verktyg för bulk copy försök kopieringsåtgärden för tillfälliga fel och ger ytterligare återhämtning.
-- Om resursen som är associerade med Azure-lagringsbehållare överför BLOB-objekt som inte matchar typ av BLOB-objekt som definierats för resursen när den skapas, uppdateras inte sådan BLOB-objekt. Exempelvis kan skapa du en block blob-resurs på enheten. Koppla resursen till en befintlig cloud-behållare som har sidblobar. Uppdatera resursen för att hämta filerna. Ändra några av de uppdatera filer som redan lagras som sidblobar i molnet. Du kommer att se uppladdningsfel.
+- Vi föreslår att mer än en enhet inte ska skriva till samma behållare.
+- Om du har ett befintligt Azure-objekt (till exempel en blob eller en fil) i molnet med samma namn som objektet som kopieras, kommer enheten att skriva över filen i molnet.
+- En tom kataloghierarki (utan några filer) som skapas under resursmappar överförs inte till blob-behållarna.
+- Du kan kopiera data med dra och släpp med Utforskaren eller via kommandoraden. Om den sammanlagda storleken på filer som kopieras är större än 10 GB rekommenderar vi att du använder ett masskopieringsprogram som Robocopy eller rsync. Masskopieringsverktygen försöker igen kopieringen för intermittenta fel och ger ytterligare återhämtning.
+- Om resursen som är associerad med Azure-lagringsbehållaren överför blobbar som inte matchar den typ av blobbar som definierats för resursen vid tidpunkten för skapandet, uppdateras inte sådana blobbar. Du kan till exempel skapa en blockblolobresurs på enheten. Associera resursen med en befintlig molnbehållare som har sidblobar. Uppdatera den resursen för att hämta filerna. Ändra några av de uppdaterade filer som redan har lagrats som sidblobar i molnet. Du kommer att se uppladdningsfel.

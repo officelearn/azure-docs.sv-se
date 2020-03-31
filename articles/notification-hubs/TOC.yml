@@ -1,4 +1,4 @@
-- name: Dokumentation för Notification Hubs
+- name: Dokumentation för Notification Hub
   href: index.yml
 - name: Översikt
   items:
@@ -11,7 +11,9 @@
   items:
     - name: Skapa en meddelandehubb – Azure-portalen
       href: create-notification-hub-portal.md
-    - name: Konfigurera en meddelandehubb – Azure-portalen
+    - name: Skapa en meddelandehubb – Azure CLI
+      href: create-notification-hub-azure-cli.md
+    - name: Konfigurera en meddelandehubb
       href: configure-notification-hub-portal-pns-settings.md
 - name: Självstudier
   items:
@@ -140,6 +142,8 @@
       href: notification-hubs-push-notification-fixer.md
     - name: Skicka push-meddelanden med hjälp av Baidu Cloud Push
       href: notification-hubs-baidu-china-android-notifications-get-started.md
+    - name: Använda APNS VOIP via Notification Hubs
+      href: voip-apns.md
 - name: Referens
   items:
     - name: .NET

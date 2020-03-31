@@ -1,6 +1,6 @@
 ---
-title: 'REST-API: Filsystemsåtgärder på Azure Data Lake Storage Gen1 | Microsoft Docs'
-description: 'Använd WebHDFS REST API: er för att utföra filsystemsåtgärder på Azure Data Lake Storage Gen1'
+title: 'REST API: Filsystemåtgärder på Azure Data Lake Storage Gen1 | Microsoft-dokument'
+description: Använda WebHDFS REST API:er för att utföra filsystemåtgärder på Azure Data Lake Storage Gen1
 services: data-lake-store
 documentationcenter: ''
 author: twooley
@@ -12,45 +12,45 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: 351c92f1e1a698893f61004d523ba79ebca253e8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60878791"
 ---
-# <a name="filesystem-operations-on-azure-data-lake-storage-gen1-using-rest-api"></a>Filsystemsåtgärder på Azure Data Lake Storage Gen1 med hjälp av REST API
+# <a name="filesystem-operations-on-azure-data-lake-storage-gen1-using-rest-api"></a>Filsystemåtgärder på Azure Data Lake Storage Gen1 med REST API
 > [!div class="op_single_selector"]
 > * [.NET SDK](data-lake-store-data-operations-net-sdk.md)
 > * [Java SDK](data-lake-store-get-started-java-sdk.md)
-> * [REST-API](data-lake-store-data-operations-rest-api.md)
+> * [REST API](data-lake-store-data-operations-rest-api.md)
 > * [Python](data-lake-store-data-operations-python.md)
 >
 > 
 
-I den här artikeln får du lära dig hur du använder WebHDFS REST API: er och Data Lake Storage Gen1 REST API: er för att utföra filsystemsåtgärder på Azure Data Lake Storage Gen1. Anvisningar för hur du utför kontohanteringsåtgärder på Data Lake Storage Gen1 med hjälp av REST API finns i [Kontohanteringsåtgärder på Data Lake Storage Gen1 med hjälp av REST API](data-lake-store-get-started-rest-api.md).
+I den här artikeln får du lära dig hur du använder WebHDFS REST API:er och Data Lake Storage Gen1 REST API:er för att utföra filsystemåtgärder på Azure Data Lake Storage Gen1. Instruktioner om hur du utför kontohanteringsåtgärder på Data Lake Storage Gen1 med REST API finns i [Kontohanteringsåtgärder på DataSjölagring Gen1 med REST API](data-lake-store-get-started-rest-api.md).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 * **En Azure-prenumeration**. Se [Hämta en kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/pricing/free-trial/).
 
-* **Azure Data Lake Storage Gen1 konto**. Följ anvisningarna på [Kom igång med Azure Data Lake Storage Gen1 med Azure portal](data-lake-store-get-started-portal.md).
+* **Azure Data Lake Storage Gen1-konto**. Följ instruktionerna på [Kom igång med Azure Data Lake Storage Gen1 med Hjälp av Azure-portalen](data-lake-store-get-started-portal.md).
 
-* **[cURL](https://curl.haxx.se/)** . Den här artikeln använder cURL för att demonstrera hur du gör REST API-anrop mot ett Data Lake Storage Gen1-konto.
+* **[cURL](https://curl.haxx.se/)**. Den här artikeln använder cURL för att visa hur du gör REST API-anrop mot ett Data Lake Storage Gen1-konto.
 
 ## <a name="how-do-i-authenticate-using-azure-active-directory"></a>Hur autentiserar jag med Azure Active Directory?
 Du kan använda två sätt för att autentisera med Azure Active Directory.
 
-* Information om slutanvändarautentisering för programmet (interaktivt) finns i [slutanvändarautentisering med Data Lake Storage Gen1 med .NET SDK](data-lake-store-end-user-authenticate-rest-api.md).
-* Tjänst-till-tjänst-autentisering för programmet (interaktivt) finns i [tjänst-till-tjänst-autentisering med Data Lake Storage Gen1 med .NET SDK](data-lake-store-service-to-service-authenticate-rest-api.md).
+* För slutanvändareautentisering för ditt program (interaktivt) finns i [Slutanvändarens autentisering med Data Lake Storage Gen1 med .NET SDK](data-lake-store-end-user-authenticate-rest-api.md).
+* För tjänst-till-tjänst-autentisering för ditt program (icke-interaktiv), se [Autentisering från Tjänst till tjänst med Data Lake Storage Gen1 med .NET SDK](data-lake-store-service-to-service-authenticate-rest-api.md).
 
 
 ## <a name="create-folders"></a>Skapa mappar
 Den här åtgärden är baserad på det WebHDFS REST API-anrop som definierats [här](https://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/WebHDFS.html#Make_a_Directory).
 
-Använd följande cURL-kommando. Ersätt  **\<yourstorename >** med namnet på ditt Data Lake Storage Gen1.
+Använd följande cURL-kommando. Ersätt ** \<ditt butiksnamn>** med ditt Data Lake Storage Gen1-kontonamn.
 
     curl -i -X PUT -H "Authorization: Bearer <REDACTED>" -d "" 'https://<yourstorename>.azuredatalakestore.net/webhdfs/v1/mytempdir/?op=MKDIRS'
 
-I det föregående kommandot ersätter du \<`REDACTED`\> med den autentiseringstoken som hämtades tidigare. Det här kommandot skapar en katalog med namnet **mytempdir** under rotmappen för ditt Data Lake Storage Gen1-konto.
+I det föregående kommandot ersätter du \<`REDACTED`\> med den autentiseringstoken som hämtades tidigare. Det här kommandot skapar en katalog som kallas **mytempdir** under rotmappen för ditt Data Lake Storage Gen1-konto.
 
 Om åtgärden slutförs bör du se ett svar som följande fragment:
 
@@ -59,7 +59,7 @@ Om åtgärden slutförs bör du se ett svar som följande fragment:
 ## <a name="list-folders"></a>Lista mappar
 Den här åtgärden är baserad på det WebHDFS REST API-anrop som definierats [här](https://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/WebHDFS.html#List_a_Directory).
 
-Använd följande cURL-kommando. Ersätt  **\<yourstorename >** med namnet på ditt Data Lake Storage Gen1.
+Använd följande cURL-kommando. Ersätt ** \<ditt butiksnamn>** med ditt Data Lake Storage Gen1-kontonamn.
 
     curl -i -X GET -H "Authorization: Bearer <REDACTED>" 'https://<yourstorename>.azuredatalakestore.net/webhdfs/v1/?op=LISTSTATUS'
 
@@ -87,7 +87,7 @@ Om åtgärden slutförs bör du se ett svar som följande fragment:
 ## <a name="upload-data"></a>Ladda upp data
 Den här åtgärden är baserad på det WebHDFS REST API-anrop som definierats [här](https://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/WebHDFS.html#Create_and_Write_to_a_File).
 
-Använd följande cURL-kommando. Ersätt  **\<yourstorename >** med namnet på ditt Data Lake Storage Gen1.
+Använd följande cURL-kommando. Ersätt ** \<ditt butiksnamn>** med ditt Data Lake Storage Gen1-kontonamn.
 
     curl -i -X PUT -L -T 'C:\temp\list.txt' -H "Authorization: Bearer <REDACTED>" 'https://<yourstorename>.azuredatalakestore.net/webhdfs/v1/mytempdir/list.txt?op=CREATE'
 
@@ -109,12 +109,12 @@ De utdata som genereras liknar följande fragment:
 ## <a name="read-data"></a>Läsa data
 Den här åtgärden är baserad på det WebHDFS REST API-anrop som definierats [här](https://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/WebHDFS.html#Open_and_Read_a_File).
 
-Läsa data från ett Data Lake Storage Gen1 är konto en tvåstegsprocess.
+Att läsa data från ett Data Lake Storage Gen1-konto är en tvåstegsprocess.
 
 * Du skickar först en GET-begäran mot slutpunkten `https://<yourstorename>.azuredatalakestore.net/webhdfs/v1/mytempdir/myinputfile.txt?op=OPEN`. Det här anropet returnerar en plats dit du skickar nästa GET-begäran.
 * Du skickar sedan GET-begäran mot slutpunkten `https://<yourstorename>.azuredatalakestore.net/webhdfs/v1/mytempdir/myinputfile.txt?op=OPEN&read=true`. Det här anropet visar innehållet i filen.
 
-Eftersom det inte finns någon skillnad i indataparametrarna mellan det första och andra steget, kan du använda parameter `-L` för att skicka den första begäran. `-L`-alternativet kombinerar i stort sett två begärande till ett och gör att cURL gör om begäran på den nya platsen. Till sist visas utdata från alla begärananrop, som det visas i följande fragment. Ersätt  **\<yourstorename >** med namnet på ditt Data Lake Storage Gen1.
+Eftersom det inte finns någon skillnad i indataparametrarna mellan det första och andra steget, kan du använda parameter `-L` för att skicka den första begäran. `-L`-alternativet kombinerar i stort sett två begärande till ett och gör att cURL gör om begäran på den nya platsen. Till sist visas utdata från alla begärananrop, som det visas i följande fragment. Ersätt ** \<ditt butiksnamn>** med ditt Data Lake Storage Gen1-kontonamn.
 
     curl -i -L GET -H "Authorization: Bearer <REDACTED>" 'https://<yourstorename>.azuredatalakestore.net/webhdfs/v1/mytempdir/myinputfile.txt?op=OPEN'
 
@@ -133,7 +133,7 @@ Du bör se utdata som liknar följande fragment:
 ## <a name="rename-a-file"></a>Byt namn på en fil
 Den här åtgärden är baserad på det WebHDFS REST API-anrop som definierats [här](https://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/WebHDFS.html#Rename_a_FileDirectory).
 
-Använd kommandot cURL för att byta namn på en fil. Ersätt  **\<yourstorename >** med namnet på ditt Data Lake Storage Gen1.
+Använd kommandot cURL för att byta namn på en fil. Ersätt ** \<ditt butiksnamn>** med ditt Data Lake Storage Gen1-kontonamn.
 
     curl -i -X PUT -H "Authorization: Bearer <REDACTED>" -d "" 'https://<yourstorename>.azuredatalakestore.net/webhdfs/v1/mytempdir/myinputfile.txt?op=RENAME&destination=/mytempdir/myinputfile1.txt'
 
@@ -147,7 +147,7 @@ Du bör se utdata som liknar följande fragment:
 ## <a name="delete-a-file"></a>Ta bort en fil
 Den här åtgärden är baserad på det WebHDFS REST API-anrop som definierats [här](https://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/WebHDFS.html#Delete_a_FileDirectory).
 
-Använd kommandot cURL för att ta bort en fil. Ersätt  **\<yourstorename >** med namnet på ditt Data Lake Storage Gen1.
+Använd kommandot cURL för att ta bort en fil. Ersätt ** \<ditt butiksnamn>** med ditt Data Lake Storage Gen1-kontonamn.
 
     curl -i -X DELETE -H "Authorization: Bearer <REDACTED>" 'https://<yourstorename>.azuredatalakestore.net/webhdfs/v1/mytempdir/myinputfile1.txt?op=DELETE'
 
@@ -159,9 +159,9 @@ Du bör se utdata som liknar följande:
     {"boolean":true}
 
 ## <a name="next-steps"></a>Nästa steg
-* [Kontohanteringsåtgärder på Data Lake Storage Gen1 med hjälp av REST API](data-lake-store-get-started-rest-api.md).
+* [Kontohanteringsåtgärder på Data Lake Storage Gen1 med REST API](data-lake-store-get-started-rest-api.md).
 
-## <a name="see-also"></a>Se också
-* [Azure Data Lake Storage Gen1 REST API-referens](https://docs.microsoft.com/rest/api/datalakestore/)
-* [Öppna källa Big Data-program som är kompatibla med Azure Data Lake Storage Gen1](data-lake-store-compatible-oss-other-applications.md)
+## <a name="see-also"></a>Se även
+* [AZURE Data Lake Storage Gen1 REST API-referens](https://docs.microsoft.com/rest/api/datalakestore/)
+* [Big Data-program med öppen källkod som är kompatibla med Azure Data Lake Storage Gen1](data-lake-store-compatible-oss-other-applications.md)
 

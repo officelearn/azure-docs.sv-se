@@ -1,6 +1,6 @@
 ---
-title: 'PowerShell-skript: Lägga till en BLOB-datauppsättning till en Azure-Dataresurs | Microsoft Docs'
-description: Det här PowerShell-skriptet lägger till en BLOB-datauppsättning till en befintlig resurs.
+title: 'PowerShell-skript: Lägga till en blob-datauppsättning i en Azure Data Share | Microsoft-dokument'
+description: Det här PowerShell-skriptet lägger till en blob-datauppsättning i en befintlig resurs.
 services: data-share
 author: joannapea
 ms.service: data-share
@@ -10,15 +10,15 @@ ms.topic: article
 ms.date: 07/07/2019
 ms.author: joanpo
 ms.openlocfilehash: 95a10b112c9f6448c437f20ee95f808632a31d2d
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "70307305"
 ---
-# <a name="use-powershell-to-create-a-data-share-in-azure"></a>Använd PowerShell för att skapa en data resurs i Azure
+# <a name="use-powershell-to-create-a-data-share-in-azure"></a>Använda PowerShell för att skapa en dataresurs i Azure
 
-Det här PowerShell-skriptet lägger till en BLOB-datauppsättning till en befintlig data resurs.
+Det här PowerShell-skriptet lägger till en blob-datauppsättning i en befintlig dataresurs.
 
 ## <a name="sample-script"></a>Exempelskript
 
@@ -44,11 +44,11 @@ I det här skriptet används följande kommandon:
 
 | Kommando | Anteckningar |
 |---|---|
-| [New-AzDataShareDataSet](/powershell/module/az.datashare/new-azdatasharedataset?view=azps-2.6.0) | Lägger till en data uppsättning till en data resurs. |
+| [Ny-AzDataShareDataSet](/powershell/module/az.datashare/new-azdatasharedataset?view=azps-2.6.0) | Lägger till en datauppsättning i en dataresurs. |
 |||
 
 ## <a name="next-steps"></a>Nästa steg
 
 Mer information om Azure PowerShell finns i [Azure PowerShell-dokumentationen](https://docs.microsoft.com/powershell/).
 
-Ytterligare exempel för Azure Data Share PowerShell-skript finns i [PowerShell-exemplen för Azure Data Share](../../samples-powershell.md).
+Ytterligare Azure Data Share PowerShell-skriptexempel finns i [Azure Data Share PowerShell-exemplen](../../samples-powershell.md).

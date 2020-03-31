@@ -1,6 +1,6 @@
 ---
-title: Granskning och loggning – Microsoft Threat Modeling Tool-Azure | Microsoft Docs
-description: begränsningar för hot som exponeras i Threat Modeling Tool
+title: Granskning och loggning – Microsoft Threat Modeling Tool - Azure | Microsoft-dokument
+description: mildrande åtgärder för hot som exponeras i hotmodelleringsverktyget
 services: security
 documentationcenter: na
 author: jegeib
@@ -16,159 +16,159 @@ ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
 ms.openlocfilehash: c9d20b3259cf4ea7af263d5e31145ad372db0c77
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/01/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "68728419"
 ---
-# <a name="security-frame-auditing-and-logging--mitigations"></a>Säkerhets ram: Granskning och loggning | Åtgärder 
+# <a name="security-frame-auditing-and-logging--mitigations"></a>Säkerhetsram: Granskning och loggning | Mitigations 
 
 | Produkt/tjänst | Artikel |
 | --------------- | ------- |
-| **Dynamics CRM**    | <ul><li>[Identifiera känsliga entiteter i din lösning och implementera ändrings granskning](#sensitive-entities)</li></ul> |
-| **Webb program** | <ul><li>[Kontrol lera att granskning och loggning tillämpas på programmet](#auditing)</li><li>[Se till att log rotation och separation är på plats](#log-rotation)</li><li>[Kontrol lera att programmet inte loggar känsliga användar data](#log-sensitive-data)</li><li>[Se till att gransknings-och loggfilerna har begränsad åtkomst](#log-restricted-access)</li><li>[Se till att användar hanterings händelser loggas](#user-management)</li><li>[Se till att systemet har inbyggda skydd mot missbruk](#inbuilt-defenses)</li><li>[Aktivera diagnostikloggning för Web Apps i Azure App Service](#diagnostics-logging)</li></ul> |
-| **Databas** | <ul><li>[Kontrol lera att inloggnings granskning har Aktiver ATS på SQL Server](#identify-sensitive-entities)</li><li>[Aktivera hot identifiering i Azure SQL](#threat-detection)</li></ul> |
-| **Azure Storage** | <ul><li>[Använd Azure-lagringsanalys för att granska åtkomst till Azure Storage](#analytics)</li></ul> |
-| **WCF** | <ul><li>[Implementera tillräcklig loggning](#sufficient-logging)</li><li>[Implementera tillräcklig hantering av gransknings problem](#audit-failure-handling)</li></ul> |
-| **Webb-API** | <ul><li>[Se till att granskning och loggning tillämpas på webb-API](#logging-web-api)</li></ul> |
-| **IoT-fält Gateway** | <ul><li>[Se till att lämplig granskning och loggning tillämpas på Field Gateway](#logging-field-gateway)</li></ul> |
+| **Dynamics CRM**    | <ul><li>[Identifiera känsliga enheter i din lösning och implementera ändringsgranskning](#sensitive-entities)</li></ul> |
+| **Webbprogram** | <ul><li>[Se till att granskning och loggning tillämpas på programmet](#auditing)</li><li>[Se till att loggrotation och separation är på plats](#log-rotation)</li><li>[Se till att programmet inte loggar känsliga användardata](#log-sensitive-data)</li><li>[Se till att gransknings- och loggfiler har begränsad åtkomst](#log-restricted-access)</li><li>[Se till att användarhanteringshändelser loggas](#user-management)</li><li>[Se till att systemet har inbyggt försvar mot missbruk](#inbuilt-defenses)</li><li>[Aktivera diagnostikloggning för webbappar i Azure App Service](#diagnostics-logging)</li></ul> |
+| **Databas** | <ul><li>[Kontrollera att inloggningsgranskning är aktiverat på SQL Server](#identify-sensitive-entities)</li><li>[Aktivera hotidentifiering på Azure SQL](#threat-detection)</li></ul> |
+| **Azure-lagring** | <ul><li>[Använda Azure Storage Analytics för att granska åtkomsten till Azure Storage](#analytics)</li></ul> |
+| **WCF** | <ul><li>[Implementera tillräcklig loggning](#sufficient-logging)</li><li>[Implementera tillräcklig hantering av granskningsfel](#audit-failure-handling)</li></ul> |
+| **Webb-API** | <ul><li>[Kontrollera att granskning och loggning tillämpas på webb-API](#logging-web-api)</li></ul> |
+| **IoT-fältgateway** | <ul><li>[Se till att lämplig granskning och loggning tillämpas på Fältgateway](#logging-field-gateway)</li></ul> |
 | **IoT Cloud Gateway** | <ul><li>[Se till att lämplig granskning och loggning tillämpas på Cloud Gateway](#logging-cloud-gateway)</li></ul> |
 
-## <a id="sensitive-entities"></a>Identifiera känsliga entiteter i din lösning och implementera ändrings granskning
+## <a name="identify-sensitive-entities-in-your-solution-and-implement-change-auditing"></a><a id="sensitive-entities"></a>Identifiera känsliga enheter i din lösning och implementera ändringsgranskning
 
 | Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Dynamics CRM | 
 | **SDL-fas**               | Utveckla |  
-| **Tillämpliga tekniker** | Generisk |
-| **Dokumentattribut**              | Gäller inte  |
-| **Reference**              | Gäller inte  |
-| **Steg**                   | Identifiera entiteter i din lösning som innehåller känsliga data och implementera ändrings granskning på dessa entiteter och fält |
+| **Tillämplig teknik** | Allmänna |
+| **Attribut**              | Ej tillämpligt  |
+| **Referenser**              | Ej tillämpligt  |
+| **Steg**                   | Identifiera entiteter i din lösning som innehåller känsliga data och implementera ändringsgranskning på dessa entiteter och fält |
 
-## <a id="auditing"></a>Kontrol lera att granskning och loggning tillämpas på programmet
-
-| Titel                   | Information      |
-| ----------------------- | ------------ |
-| **Komponent**               | Webbprogram | 
-| **SDL-fas**               | Utveckla |  
-| **Tillämpliga tekniker** | Generisk |
-| **Dokumentattribut**              | Gäller inte  |
-| **Reference**              | Gäller inte  |
-| **Steg**                   | Aktivera granskning och loggning på alla komponenter. Gransknings loggar ska avbilda användar kontext. Identifiera alla viktiga händelser och logga dessa händelser. Implementera centraliserad loggning |
-
-## <a id="log-rotation"></a>Se till att log rotation och separation är på plats
+## <a name="ensure-that-auditing-and-logging-is-enforced-on-the-application"></a><a id="auditing"></a>Se till att granskning och loggning tillämpas på programmet
 
 | Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webbprogram | 
 | **SDL-fas**               | Utveckla |  
-| **Tillämpliga tekniker** | Generisk |
-| **Dokumentattribut**              | Gäller inte  |
-| **Reference**              | Gäller inte  |
-| **Steg**                   | <p>Log rotation är en automatiserad process som används vid system administration i vilken daterade loggfiler arkiveras. Servrar som kör stora program loggar ofta varje begäran: i slutet av Mass loggar är logg rotation ett sätt att begränsa den totala storleken på loggarna samtidigt som du tillåter analys av de senaste händelserna. </p><p>Logg separering innebär i princip att du måste lagra dina loggfiler på en annan partition än när ditt operativ system/program körs för att avstyra en denial of service-attack eller nedgradering av ditt programs prestanda</p>|
+| **Tillämplig teknik** | Allmänna |
+| **Attribut**              | Ej tillämpligt  |
+| **Referenser**              | Ej tillämpligt  |
+| **Steg**                   | Aktivera granskning och loggning på alla komponenter. Granskningsloggar bör fånga användarkontexten. Identifiera alla viktiga händelser och logga dessa händelser. Implementera centraliserad loggning |
 
-## <a id="log-sensitive-data"></a>Kontrol lera att programmet inte loggar känsliga användar data
-
-| Titel                   | Information      |
-| ----------------------- | ------------ |
-| **Komponent**               | Webbprogram | 
-| **SDL-fas**               | Utveckla |  
-| **Tillämpliga tekniker** | Generisk |
-| **Dokumentattribut**              | Gäller inte  |
-| **Reference**              | Gäller inte  |
-| **Steg**                   | <p>Kontrol lera att du inte loggar känsliga data som en användare skickar till din webbplats. Sök efter avsiktlig loggning och sido effekter som orsakas av design problem. Exempel på känsliga data är:</p><ul><li>Användarautentiseringsuppgifter</li><li>Person nummer eller annan identifierings information</li><li>Kreditkorts nummer eller annan finansiell information</li><li>Hälso information</li><li>Privata nycklar eller andra data som kan användas för att dekryptera krypterad information</li><li>System-eller program information som kan användas för att på ett effektivare sätt attackera programmet</li></ul>|
-
-## <a id="log-restricted-access"></a>Se till att gransknings-och loggfilerna har begränsad åtkomst
+## <a name="ensure-that-log-rotation-and-separation-are-in-place"></a><a id="log-rotation"></a>Se till att loggrotation och separation är på plats
 
 | Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webbprogram | 
 | **SDL-fas**               | Utveckla |  
-| **Tillämpliga tekniker** | Generisk |
-| **Dokumentattribut**              | Gäller inte  |
-| **Reference**              | Gäller inte  |
-| **Steg**                   | <p>Kontrol lera att åtkomst behörigheterna till loggfilerna har angetts korrekt. Program konton bör ha skrivskyddad åtkomst och operatörer och support personal bör ha skrivskyddad åtkomst vid behov.</p><p>Administratörs konton är de enda konton som bör ha fullständig åtkomst. Kontrol lera Windows ACL för loggfiler för att säkerställa att de är korrekt begränsade:</p><ul><li>Program konton ska ha skrivskyddad åtkomst</li><li>Operatörer och support personal bör ha skrivskyddad åtkomst vid behov</li><li>Administratörer är de enda konton som ska ha fullständig åtkomst</li></ul>|
+| **Tillämplig teknik** | Allmänna |
+| **Attribut**              | Ej tillämpligt  |
+| **Referenser**              | Ej tillämpligt  |
+| **Steg**                   | <p>Loggrotation är en automatiserad process som används vid systemadministration där daterade loggfiler arkiveras. Servrar som kör stora program loggar ofta varje begäran: inför skrymmande loggar är loggrotation ett sätt att begränsa den totala storleken på loggarna samtidigt som analysen av de senaste händelserna tillåts. </p><p>Loggseparation innebär i princip att du måste lagra dina loggfiler på en annan partition som där ditt OS / program körs på för att avvärja en Denial of Service-attack eller nedgradering av ditt program dess prestanda</p>|
 
-## <a id="user-management"></a>Se till att användar hanterings händelser loggas
-
-| Titel                   | Information      |
-| ----------------------- | ------------ |
-| **Komponent**               | Webbprogram | 
-| **SDL-fas**               | Utveckla |  
-| **Tillämpliga tekniker** | Generisk |
-| **Dokumentattribut**              | Gäller inte  |
-| **Reference**              | Gäller inte  |
-| **Steg**                   | <p>Kontrol lera att programmet övervakar användar hanterings händelser, till exempel lyckade och misslyckade användar inloggningar, återställning av lösen ord, lösen ords ändringar, konto utelåsning, användar registrering. Detta hjälper till att identifiera och reagera på potentiellt misstänkt beteende. Det gör också att du kan samla in drift data. till exempel för att spåra vem som har åtkomst till programmet</p>|
-
-## <a id="inbuilt-defenses"></a>Se till att systemet har inbyggda skydd mot missbruk
+## <a name="ensure-that-the-application-does-not-log-sensitive-user-data"></a><a id="log-sensitive-data"></a>Se till att programmet inte loggar känsliga användardata
 
 | Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webbprogram | 
 | **SDL-fas**               | Utveckla |  
-| **Tillämpliga tekniker** | Generisk |
-| **Dokumentattribut**              | Gäller inte  |
-| **Reference**              | Gäller inte  |
-| **Steg**                   | <p>Kontroller bör finnas på plats som ger upphov till säkerhets undantag i händelse av missbruk av program. T. ex., om verifiering av autentisering är på plats och en angripare försöker mata in skadlig kod som inte matchar regex, kan ett säkerhets undantag genereras, vilket kan vara en indikation på system missbruk</p><p>Vi rekommenderar till exempel att du har loggat över säkerhets undantag och åtgärder som vidtas för följande problem:</p><ul><li>Indataverifiering</li><li>CSRF-överträdelser</li><li>Brute Force (övre gräns för antalet begär Anden per användare per resurs)</li><li>Fil överförings fel</li><ul>|
+| **Tillämplig teknik** | Allmänna |
+| **Attribut**              | Ej tillämpligt  |
+| **Referenser**              | Ej tillämpligt  |
+| **Steg**                   | <p>Kontrollera att du inte loggar några känsliga data som en användare skickar till din webbplats. Kontrollera om det finns avsiktlig loggning samt biverkningar orsakade av designproblem. Exempel på känsliga data är:</p><ul><li>Användarreferenser</li><li>Personnummer eller annan identifierande information</li><li>Kreditkortsnummer eller annan finansiell information</li><li>Hälsoinformation</li><li>Privata nycklar eller andra data som kan användas för att dekryptera krypterad information</li><li>System- eller applikationsinformation som kan användas för att mer effektivt angripa</li></ul>|
 
-## <a id="diagnostics-logging"></a>Aktivera diagnostikloggning för Web Apps i Azure App Service
+## <a name="ensure-that-audit-and-log-files-have-restricted-access"></a><a id="log-restricted-access"></a>Se till att gransknings- och loggfiler har begränsad åtkomst
 
 | Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webbprogram | 
 | **SDL-fas**               | Utveckla |  
-| **Tillämpliga tekniker** | Generisk |
-| **Dokumentattribut**              | EnvironmentType – Azure |
-| **Reference**              | Gäller inte  |
-| **Steg** | <p>Azure har inbyggd diagnostik som hjälper till med felsökning av webbappar i App Service. Den gäller även för API-appar och mobilappar. App Service Web Apps innehåller diagnostiska funktioner för loggning av information från både webb servern och webb programmet.</p><p>Dessa delas logiskt upp i Web Server Diagnostics och Application Diagnostics</p>|
+| **Tillämplig teknik** | Allmänna |
+| **Attribut**              | Ej tillämpligt  |
+| **Referenser**              | Ej tillämpligt  |
+| **Steg**                   | <p>Kontrollera att åtkomsträttigheterna till loggfiler är korrekt inställda. Programkonton bör ha skrivskyddad åtkomst och operatörer och supportpersonal bör ha skrivskyddad åtkomst efter behov.</p><p>Administratörskonton är de enda konton som ska ha fullständig åtkomst. Kontrollera Windows ACL på loggfiler för att säkerställa att de är ordentligt begränsade:</p><ul><li>Programkonton bör ha skrivskyddad åtkomst</li><li>Operatörer och stödpersonal bör ha skrivskyddad åtkomst efter behov</li><li>Administratörer är de enda konton som ska ha full åtkomst</li></ul>|
 
-## <a id="identify-sensitive-entities"></a>Kontrol lera att inloggnings granskning har Aktiver ATS på SQL Server
+## <a name="ensure-that-user-management-events-are-logged"></a><a id="user-management"></a>Se till att användarhanteringshändelser loggas
+
+| Titel                   | Information      |
+| ----------------------- | ------------ |
+| **Komponent**               | Webbprogram | 
+| **SDL-fas**               | Utveckla |  
+| **Tillämplig teknik** | Allmänna |
+| **Attribut**              | Ej tillämpligt  |
+| **Referenser**              | Ej tillämpligt  |
+| **Steg**                   | <p>Se till att programmet övervakar användarhanteringshändelser som lyckade och misslyckade användarinloggningar, återställning av lösenord, lösenordsändringar, kontoutelåsning, användarregistrering. Detta hjälper till att identifiera och reagera på potentiellt misstänkt beteende. Det gör det också möjligt att samla in verksamhetsdata; till exempel för att spåra vem som har åtkomst till programmet</p>|
+
+## <a name="ensure-that-the-system-has-inbuilt-defenses-against-misuse"></a><a id="inbuilt-defenses"></a>Se till att systemet har inbyggt försvar mot missbruk
+
+| Titel                   | Information      |
+| ----------------------- | ------------ |
+| **Komponent**               | Webbprogram | 
+| **SDL-fas**               | Utveckla |  
+| **Tillämplig teknik** | Allmänna |
+| **Attribut**              | Ej tillämpligt  |
+| **Referenser**              | Ej tillämpligt  |
+| **Steg**                   | <p>Kontroller bör finnas på plats som kastar säkerhetsundantag i händelse av missbruk av programmet. T.ex. Om indatavalidering är på plats och en angripare försöker injicera skadlig kod som inte matchar regex, kan ett säkerhetsundantag genereras som kan vara ett tecken på systemmissbruk</p><p>Det rekommenderas till exempel att säkerhetsundantag loggas och åtgärder vidtas för följande problem:</p><ul><li>Indataverifiering</li><li>CSRF kränkningar</li><li>Brute force (övre gräns för antal begäranden per användare per resurs)</li><li>Överträdelser av filuppladdning</li><ul>|
+
+## <a name="enable-diagnostics-logging-for-web-apps-in-azure-app-service"></a><a id="diagnostics-logging"></a>Aktivera diagnostikloggning för webbappar i Azure App Service
+
+| Titel                   | Information      |
+| ----------------------- | ------------ |
+| **Komponent**               | Webbprogram | 
+| **SDL-fas**               | Utveckla |  
+| **Tillämplig teknik** | Allmänna |
+| **Attribut**              | EnvironmentType - Azure |
+| **Referenser**              | Ej tillämpligt  |
+| **Steg** | <p>Azure tillhandahåller inbyggd diagnostik för att hjälpa till med felsökning av en App Service-webbapp. Det gäller även API-appar och mobilappar. App Service-webbappar tillhandahåller diagnostikfunktioner för loggningsinformation från både webbservern och webbprogrammet.</p><p>Dessa är logiskt uppdelade i webbserver diagnostik och applikationsdiagnostik</p>|
+
+## <a name="ensure-that-login-auditing-is-enabled-on-sql-server"></a><a id="identify-sensitive-entities"></a>Kontrollera att inloggningsgranskning är aktiverat på SQL Server
 
 | Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Databas | 
 | **SDL-fas**               | Utveckla |  
-| **Tillämpliga tekniker** | Generisk |
-| **Dokumentattribut**              | Gäller inte  |
-| **Reference**              | [Konfigurera inloggnings granskning](https://msdn.microsoft.com/library/ms175850.aspx) |
-| **Steg** | <p>Granskning av databas Server inloggning måste vara aktiverat för att kunna identifiera/bekräfta angrepp vid lösen ords gissning. Det är viktigt att fånga misslyckade inloggnings försök. Att samla både lyckade och misslyckade inloggnings försök ger ytterligare förmån under kriminal tekniska-undersökningar</p>|
+| **Tillämplig teknik** | Allmänna |
+| **Attribut**              | Ej tillämpligt  |
+| **Referenser**              | [Konfigurera inloggningsgranskning](https://msdn.microsoft.com/library/ms175850.aspx) |
+| **Steg** | <p>Granskning av inloggningsgranskning av databasserver måste vara aktiverad för att identifiera/bekräfta lösenordsgissningsattacker. Det är viktigt att fånga misslyckade inloggningsförsök. Att fånga både lyckade och misslyckade inloggningsförsök ger ytterligare fördelar vid kriminaltekniska undersökningar</p>|
 
-## <a id="threat-detection"></a>Aktivera hot identifiering i Azure SQL
+## <a name="enable-threat-detection-on-azure-sql"></a><a id="threat-detection"></a>Aktivera hotidentifiering på Azure SQL
 
 | Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Databas | 
 | **SDL-fas**               | Utveckla |  
-| **Tillämpliga tekniker** | SQL Azure |
-| **Dokumentattribut**              | SQL Version - V12 |
-| **Reference**              | [Kom igång med SQL Database hot identifiering](https://azure.microsoft.com/documentation/articles/sql-database-threat-detection-get-started/)|
-| **Steg** |<p>Hot identifiering identifierar avvikande databas aktiviteter som indikerar potentiella säkerhetshot mot databasen. Det ger ett nytt säkerhets lager som gör det möjligt för kunder att upptäcka och svara på potentiella hot när de inträffar genom att tillhandahålla säkerhets aviseringar om avvikande aktiviteter.</p><p>Användare kan utforska misstänkta händelser med Azure SQL Database granskning för att avgöra om de kommer från ett försök att komma åt, avslöja eller utnyttja data i databasen.</p><p>Hot identifiering gör det enkelt att hantera potentiella hot mot databasen utan att behöva vara säkerhets expert eller hantera avancerade säkerhets övervaknings system</p>|
+| **Tillämplig teknik** | SQL Azure |
+| **Attribut**              | SQL-version - V12 |
+| **Referenser**              | [Komma igång med hotidentifiering av SQL Database](https://azure.microsoft.com/documentation/articles/sql-database-threat-detection-get-started/)|
+| **Steg** |<p>Hotidentifiering identifierar avvikande databasaktiviteter som anger potentiella säkerhetshot mot databasen. Det ger ett nytt lager av säkerhet, vilket gör det möjligt för kunder att identifiera och svara på potentiella hot när de inträffar genom att tillhandahålla säkerhetsaviseringar på avvikande aktiviteter.</p><p>Användare kan utforska misstänkta händelser med hjälp av Azure SQL Database Auditing för att avgöra om de är ett resultat av ett försök att komma åt, bryta eller utnyttja data i databasen.</p><p>Hotidentifiering gör det enkelt att hantera potentiella hot mot databasen utan att behöva vara säkerhetsexpert eller hantera avancerade säkerhetsövervakningssystem</p>|
 
-## <a id="analytics"></a>Använd Azure-lagringsanalys för att granska åtkomst till Azure Storage
+## <a name="use-azure-storage-analytics-to-audit-access-of-azure-storage"></a><a id="analytics"></a>Använda Azure Storage Analytics för att granska åtkomsten till Azure Storage
 
 | Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Azure Storage | 
 | **SDL-fas**               | Distribution |  
-| **Tillämpliga tekniker** | Generisk |
-| **Dokumentattribut**              | Gäller inte |
-| **Reference**              | [Använda Lagringsanalys för att övervaka Authorization-typ](https://azure.microsoft.com/documentation/articles/storage-security-guide/#storage-analytics) |
-| **Steg** | <p>För varje lagrings konto kan det vara möjligt för Azure-lagringsanalys att utföra loggnings-och lagrings statistik data. Lagrings analys loggarna innehåller viktig information, till exempel autentiseringsmetoden som används av någon vid åtkomst till lagring.</p><p>Detta kan vara användbart om du nära skyddar åtkomsten till lagringen. I Blob Storage kan du till exempel ange att alla behållare ska vara privata och implementera användningen av en SAS-tjänst i alla program. Sedan kan du kontrol lera loggarna regelbundet för att se om dina blobbar nås med hjälp av lagrings konto nycklarna, vilket kan tyda på en säkerhets överträdelse eller om Blobbarna är offentliga men inte bör vara det.</p>|
+| **Tillämplig teknik** | Allmänna |
+| **Attribut**              | Ej tillämpligt |
+| **Referenser**              | [Använda Storage Analytics för att övervaka auktoriseringstyp](https://azure.microsoft.com/documentation/articles/storage-security-guide/#storage-analytics) |
+| **Steg** | <p>För varje lagringskonto kan man aktivera Azure Storage Analytics för att utföra loggnings- och lagringsstatistik. Lagringsanalysloggarna innehåller viktig information, till exempel autentiseringsmetod som används av någon när de kommer åt lagring.</p><p>Detta kan vara till stor hjälp om du är tätt bevakning tillgång till lagring. I Blob Storage kan du till exempel ställa in alla behållare till privata och implementera användningen av en SAS-tjänst i hela programmen. Sedan kan du kontrollera loggarna regelbundet för att se om dina blobbar nås med hjälp av lagringskontonycklarna, vilket kan tyda på ett säkerhetsbrott eller om blobbar är offentliga men de bör inte vara det.</p>|
 
-## <a id="sufficient-logging"></a>Implementera tillräcklig loggning
+## <a name="implement-sufficient-logging"></a><a id="sufficient-logging"></a>Implementera tillräcklig loggning
 
 | Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | WCF | 
 | **SDL-fas**               | Utveckla |  
-| **Tillämpliga tekniker** | .NET Framework |
-| **Dokumentattribut**              | Gäller inte  |
-| **Reference**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [FORTIFY kungariket](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_insufficient_logging) |
-| **Steg** | <p>Bristen på ett korrekt gransknings spår efter en säkerhets incident kan försvåra kriminal tekniska-åtgärder. Windows Communication Foundation (WCF) ger möjlighet att logga lyckade och/eller misslyckade autentiseringsförsök.</p><p>Loggning av misslyckade autentiseringsförsök kan varna administratörer för potentiella angrepp av Brute Force. På samma sätt kan loggning av lyckade autentiseringsfel ge en bra Gransknings logg när ett legitimt konto komprometteras. Aktivera WCF-funktionen för säkerhets granskning av tjänster |
+| **Tillämplig teknik** | .NET Framework |
+| **Attribut**              | Ej tillämpligt  |
+| **Referenser**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify Kungariket](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_insufficient_logging) |
+| **Steg** | <p>Avsaknaden av en ordentlig verifieringskedja efter en säkerhetsincident kan försvåra kriminaltekniska insatser. Windows Communication Foundation (WCF) erbjuder möjligheten att logga lyckade och/eller misslyckade autentiseringsförsök.</p><p>Loggning misslyckades autentiseringsförsök kan varna administratörer för potentiella brute-force attacker. På samma sätt kan loggning av lyckade autentiseringshändelser ge en användbar granskningsspårning när ett legitimt konto komprometteras. Aktivera WCF:s säkerhetsgranskningsfunktion för tjänsten |
 
 ### <a name="example"></a>Exempel
-Följande är ett exempel på en konfiguration med granskning aktiverat
+Följande är en exempelkonfiguration med granskning aktiverad
 ```
 <system.serviceModel>
     <behaviors>
@@ -185,19 +185,19 @@ Följande är ett exempel på en konfiguration med granskning aktiverat
 </system.serviceModel>
 ```
 
-## <a id="audit-failure-handling"></a>Implementera tillräcklig hantering av gransknings problem
+## <a name="implement-sufficient-audit-failure-handling"></a><a id="audit-failure-handling"></a>Implementera tillräcklig hantering av granskningsfel
 
 | Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | WCF | 
 | **SDL-fas**               | Utveckla |  
-| **Tillämpliga tekniker** | .NET Framework |
-| **Dokumentattribut**              | Gäller inte  |
-| **Reference**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [FORTIFY kungariket](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_insufficient_audit_failure_handling) |
-| **Steg** | <p>Den utvecklade lösningen har kon figurer ATS för att inte generera ett undantag när det inte går att skriva till en Gransknings logg. Om WCF har kon figurer ATS för att inte utlösa ett undantag när det inte går att skriva till en Gransknings logg, kommer programmet inte att meddelas om felet och granskning av kritiska säkerhets händelser kanske inte inträffar.</p>|
+| **Tillämplig teknik** | .NET Framework |
+| **Attribut**              | Ej tillämpligt  |
+| **Referenser**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify Kungariket](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_insufficient_audit_failure_handling) |
+| **Steg** | <p>Utvecklad lösning är konfigurerad för att inte generera ett undantag när den inte skriver till en granskningslogg. Om WCF är konfigurerat för att inte utlösa ett undantag när det inte går att skriva till en granskningslogg, meddelas programmet inte om felet och granskning av kritiska säkerhetshändelser kanske inte inträffar.</p>|
 
 ### <a name="example"></a>Exempel
-`<behavior/>` Elementet i WCF-konfigurationsfilen nedan instruerar WCF att inte meddela programmet när WCF inte kan skriva till en Gransknings logg.
+Elementet `<behavior/>` i WCF-konfigurationsfilen nedan instruerar WCF att inte meddela programmet när WCF inte skriver till en granskningslogg.
 ```
 <behaviors>
     <serviceBehaviors>
@@ -210,37 +210,37 @@ Följande är ett exempel på en konfiguration med granskning aktiverat
     </serviceBehaviors>
 </behaviors>
 ```
-Konfigurera WCF för att meddela programmet när det inte går att skriva till en Gransknings logg. Programmet bör ha ett alternativt meddelande schema för att varna den organisation som gransknings historiken inte bevaras. 
+Konfigurera WCF så att programmet meddelas när det inte går att skriva till en granskningslogg. Programmet bör ha ett alternativt meddelandeschema för att varna organisationen om att granskningshistorik inte underhålls. 
 
-## <a id="logging-web-api"></a>Se till att granskning och loggning tillämpas på webb-API
+## <a name="ensure-that-auditing-and-logging-is-enforced-on-web-api"></a><a id="logging-web-api"></a>Kontrollera att granskning och loggning tillämpas på webb-API
 
 | Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webb-API | 
 | **SDL-fas**               | Utveckla |  
-| **Tillämpliga tekniker** | Generisk |
-| **Dokumentattribut**              | Gäller inte  |
-| **Reference**              | Gäller inte  |
-| **Steg** | Aktivera granskning och inloggning på webb-API: er. Gransknings loggar ska avbilda användar kontext. Identifiera alla viktiga händelser och logga dessa händelser. Implementera centraliserad loggning |
+| **Tillämplig teknik** | Allmänna |
+| **Attribut**              | Ej tillämpligt  |
+| **Referenser**              | Ej tillämpligt  |
+| **Steg** | Aktivera granskning och loggning på webb-API:er. Granskningsloggar bör fånga användarkontexten. Identifiera alla viktiga händelser och logga dessa händelser. Implementera centraliserad loggning |
 
-## <a id="logging-field-gateway"></a>Se till att lämplig granskning och loggning tillämpas på Field Gateway
+## <a name="ensure-that-appropriate-auditing-and-logging-is-enforced-on-field-gateway"></a><a id="logging-field-gateway"></a>Se till att lämplig granskning och loggning tillämpas på Fältgateway
 
 | Titel                   | Information      |
 | ----------------------- | ------------ |
-| **Komponent**               | IoT-fält Gateway | 
+| **Komponent**               | IoT-fältgateway | 
 | **SDL-fas**               | Utveckla |  
-| **Tillämpliga tekniker** | Generisk |
-| **Dokumentattribut**              | Gäller inte  |
-| **Reference**              | Gäller inte  |
-| **Steg** | <p>När flera enheter ansluter till en fält-Gateway kontrollerar du att anslutnings försöken och autentiseringen (lyckades eller misslyckades) för enskilda enheter loggas och underhålls på fält-gatewayen.</p><p>I de fall där Field Gateway upprätthåller IoT Hub autentiseringsuppgifter för enskilda enheter bör du kontrol lera att granskningen utförs när autentiseringsuppgifterna hämtas. Utveckla en process för att regelbundet överföra loggarna till Azure IoT Hub/Storage för långsiktig kvarhållning.</p> |
+| **Tillämplig teknik** | Allmänna |
+| **Attribut**              | Ej tillämpligt  |
+| **Referenser**              | Ej tillämpligt  |
+| **Steg** | <p>När flera enheter ansluter till en Fältgateway ska du se till att anslutningsförsök och autentiseringsstatus (framgång eller fel) för enskilda enheter loggas och underhålls på Fältgatewayen.</p><p>I de fall där Field Gateway underhåller IoT Hub-autentiseringsuppgifterna för enskilda enheter, se också till att granskning utförs när dessa autentiseringsuppgifter hämtas. Utveckla en process för att regelbundet överföra loggarna till Azure IoT Hub/storage för långsiktig kvarhållning.</p> |
 
-## <a id="logging-cloud-gateway"></a>Se till att lämplig granskning och loggning tillämpas på Cloud Gateway
+## <a name="ensure-that-appropriate-auditing-and-logging-is-enforced-on-cloud-gateway"></a><a id="logging-cloud-gateway"></a>Se till att lämplig granskning och loggning tillämpas på Cloud Gateway
 
 | Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | IoT Cloud Gateway | 
 | **SDL-fas**               | Utveckla |  
-| **Tillämpliga tekniker** | Generisk |
-| **Dokumentattribut**              | Gäller inte  |
-| **Reference**              | [Introduktion till IoT Hub åtgärds övervakning](https://azure.microsoft.com/documentation/articles/iot-hub-operations-monitoring/) |
-| **Steg** | <p>Design för att samla in och lagra gransknings data som samlas in via IoT Hub Operations Monitoring. Aktivera följande övervaknings kategorier:</p><ul><li>Enhets identitets åtgärder</li><li>Kommunikation från enhet till moln</li><li>Kommunikation från moln till enhet</li><li>Anslutningar</li><li>Filöverföringar</li></ul>|
+| **Tillämplig teknik** | Allmänna |
+| **Attribut**              | Ej tillämpligt  |
+| **Referenser**              | [Introduktion till övervakning av IoT Hub-operationer](https://azure.microsoft.com/documentation/articles/iot-hub-operations-monitoring/) |
+| **Steg** | <p>Design för insamling och lagring av granskningsdata som samlats in via IoT Hub Operations Monitoring. Aktivera följande övervakningskategorier:</p><ul><li>Åtgärder för enhetsidentitet</li><li>Kommunikation mellan enheter och moln</li><li>Kommunikation mellan molnet och enheten</li><li>Anslutningar</li><li>Filuppladdningar</li></ul>|

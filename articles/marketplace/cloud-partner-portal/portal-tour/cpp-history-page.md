@@ -1,32 +1,31 @@
 ---
-title: Gransknings historik sida för Azure Marketplace
-description: Översikt över sidan gransknings historik i Cloud Partner Portal för Azure Marketplace.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: v-miclar
+title: Sidan Granskningshistorik för Azure Marketplace
+description: Översikt över sidan Granskningshistorik i Cloud Partner Portal för Azure Marketplace.
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/13/2018
-ms.author: pabutler
-ms.openlocfilehash: a09eca891c434a6bd836269908c3e2cf37fbd3f5
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: cd9577a4bcdb1914ac0a7a23e4a98c31f6e43030
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73821547"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80288911"
 ---
 # <a name="audit-history-page"></a>Sidan med granskningshistorik
 
-På sidan [**gransknings historik**](https://cloudpartner.azure.com/#history) visas en lista över publicerings händelser för alla Marketplace-erbjudanden.  Kolumnerna inkluderar händelse typ, förekomst-DateTime, erbjudande namn, utgivare och användare som initierade åtgärden.  Resultaten kan sorteras efter kolumn eller filtreras efter en angiven sträng.  Den här sidan gör det också möjligt för användaren att ladda ned en fil med kommaavgränsade värden (. csv) för den aktuella gransknings listan.
+Sidan [**Granskningshistorik**](https://cloudpartner.azure.com/#history) visar en lista över publiceringshändelser för alla marketplace-erbjudanden.  Kolumnerna omfattar händelsetyp, händelsedatumtid, erbjudandenamn, utgivare och användare som initierade åtgärden.  Resultaten kan sorteras efter kolumn eller filtreras på en angiven sträng.  På den här sidan kan användaren också hämta en kommaavgränsad värdefil (.csv) i den aktuella granskningslistan.
 
 
-## <a name="example-page"></a>Exempel sida
+## <a name="example-page"></a>Exempelsida
 
-Följande bild visar sidan **gransknings historik** filtrerad på sträng `contoso`.
+Följande bild visar sidan **Granskningshistorik** filtrerad på strängen `contoso`.
 
-![Gransknings historik sida](./media/audit-history-page1.png)
+![Sidan Granskningshistorik](./media/audit-history-page1.png)
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-I nästa meny för navigerings menyerna får du till gång till [säljar insikts](./cpp-insights-page.md) funktionerna i Cloud Partner Portal, som innehåller uppsättningar med anpassningsbara instrument paneler till dina Marketplace-erbjudanden.
+Nästa navigeringsmenyradobjekt får åtkomst till [webbplatsens webbplats för säljarstatistik,](./cpp-insights-page.md) som tillhandahåller uppsättningar anpassningsbara instrumentpaneler till dina marknadsplatserbjudanden.

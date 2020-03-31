@@ -1,351 +1,352 @@
 ---
-title: Så här frågar du efter loggar från Azure Monitor for VMs (för hands version) | Microsoft Docs
-description: Azure Monitor for VMs lösning samlar in Mät värden och loggdata till och den här artikeln beskriver posterna och innehåller exempel frågor.
+title: Fråga loggar från Azure Monitor för virtuella datorer
+description: Azure Monitor för virtuella datorer-lösningen samlar in mått och loggdata till och den här artikeln beskriver posterna och innehåller exempelfrågor.
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 12/19/2019
-ms.openlocfilehash: e679345669d0954008e46f48d986930038a84c10
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
-ms.translationtype: MT
+ms.date: 03/12/2020
+ms.openlocfilehash: 71258b04bad9a7aec4e86564d51d1d6f3f8cac76
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77670720"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80283811"
 ---
-# <a name="how-to-query-logs-from-azure-monitor-for-vms-preview"></a>Så här frågar du efter loggar från Azure Monitor for VMs (för hands version)
+# <a name="how-to-query-logs-from-azure-monitor-for-vms"></a>Fråga loggar från Azure Monitor för virtuella datorer
 
-Azure Monitor for VMs samlar in prestanda-och anslutnings mått, dator-och process inventerings data och hälso tillstånds information och vidarebefordrar den till arbets ytan Log Analytics i Azure Monitor.  Dessa data är tillgängliga för [fråga](../../azure-monitor/log-query/log-query-overview.md) i Azure Monitor. Du kan använda dessa data i scenarier som omfattar migrerings planering, kapacitets analys, identifiering och prestanda fel sökning på begäran.
+Azure Monitor för virtuella datorer samlar in prestanda- och anslutningsmått, dator- och processlagerdata samt hälsotillståndsinformation och vidarebefordrar den till Log Analytics-arbetsytan i Azure Monitor.  Dessa data är tillgängliga för [frågor](../../azure-monitor/log-query/log-query-overview.md) i Azure Monitor. Du kan använda dessa data på scenarier som omfattar migreringsplanering, kapacitetsanalys, identifiering och felsökning av prestanda på begäran.
 
 ## <a name="map-records"></a>Mappa poster
 
-En post skapas per timme för varje unik dator och process, förutom de poster som genereras när en process eller dator startar eller aktive ras till Azure Monitor for VMs kart funktion. Dessa poster har egenskaperna i följande tabeller. Fälten och värdena i ServiceMapComputer_CL händelser mappar till fält i dator resursen i ServiceMap Azure Resource Manager API. Fälten och värdena i ServiceMapProcess_CL händelser mappar till fälten i process resursen i ServiceMap Azure Resource Manager API. Fältet ResourceName_s matchar fältet namn i motsvarande Resource Manager-resurs. 
+En post genereras per timme för varje unik dator och process, förutom de poster som genereras när en process eller dator startar eller är intecknad i Azure Monitor för virtuella datorer Kartfunktion. Dessa poster har egenskaperna i följande tabeller. Fälten och värdena i ServiceMapComputer_CL händelser mappas till fält för datorresursen i Api:et för ServiceMap Azure Resource Manager. Fälten och värdena i ServiceMapProcess_CL händelser mappas till fälten för processresursen i Api:et för ServiceMap Azure Resource Manager. Fältet ResourceName_s matchar namnfältet i motsvarande Resurshanteraren-resurs. 
 
 Det finns internt genererade egenskaper som du kan använda för att identifiera unika processer och datorer:
 
-- Dator: Använd *ResourceID* eller *ResourceName_s* för att unikt identifiera en dator i en Log Analytics arbets yta.
-- Process: Använd *ResourceID* för att unikt identifiera en process inom en Log Analytics-arbetsyta. *ResourceName_s* är unikt inom kontexten för den dator där processen körs (MachineResourceName_s) 
+- Dator: Använd *ResourceId* eller *ResourceName_s* för att unikt identifiera en dator i en Log Analytics-arbetsyta.
+- Process: Använd *ResourceId* för att unikt identifiera en process inom en Log Analytics-arbetsyta. *ResourceName_s* är unik inom ramen för den maskin som processen körs på (MachineResourceName_s) 
 
-Eftersom det kan finnas flera poster för en angiven process och dator inom ett angivet tidsintervall, kan frågor returnera fler än en post för samma dator eller process. Om du bara vill ta med den senaste posten lägger du till `| summarize arg_max(TimeGenerated, *) by ResourceId` i frågan.
+Eftersom det kan finnas flera poster för en angiven process och dator i ett angivet tidsintervall, kan frågor returnera mer än en post för samma dator eller process. Om du bara vill ta `| summarize arg_max(TimeGenerated, *) by ResourceId` med den senaste posten lägger du till i frågan.
 
 ### <a name="connections-and-ports"></a>Anslutningar och portar
 
-Funktionen anslutnings mått introducerar två nya tabeller i Azure Monitor loggar – VMConnection och VMBoundPort. Tabellerna innehåller information om anslutningarna för en dator (inkommande och utgående) samt de Server portar som är öppna/aktiva på dem. ConnectionMetrics exponeras också via API: er som gör det möjligt att hämta ett mått i ett tids fönster. TCP-anslutningar som orsakas av att de *godkänns* på en lyssnande socket är inkommande, medan de som skapas genom att *ansluta* till en specifik IP-adress och port är utgående. Riktningen för en anslutning representeras av egenskapen Direction, som kan anges till antingen **inkommande** eller **utgående**. 
+Med funktionen Anslutningsmått introduceras två nya tabeller i Azure Monitor-loggar - VMConnection och VMBoundPort. Dessa tabeller innehåller information om anslutningar för en dator (inkommande och utgående) samt de serverportar som är öppna/aktiva på dem. ConnectionMetrics exponeras också via API:er som ger möjlighet att hämta ett specifikt mått under ett tidsfönster. TCP-anslutningar som härrör från att acceptera på en lyssningsuttag är inkommande, medan de som skapas genom att *ansluta* till en viss IP och port är utgående. *accepting* Riktningen för en anslutning representeras av egenskapen Riktning, som kan ställas in på antingen **inkommande** eller **utgående**. 
 
-Poster i dessa tabeller genereras från data som rapporteras av Dependency Agent. Varje post representerar en observation över ett tidsintervall på 1 minut. Egenskapen TimeGenerated anger start tiden för tidsintervallet. Varje post innehåller information för att identifiera respektive entitet, det vill säga anslutning eller port, samt mått som är associerade med den entiteten. För närvarande rapporteras endast nätverks aktivitet som sker med TCP över IPv4. 
+Poster i dessa tabeller genereras från data som rapporteras av beroendeagenten. Varje post representerar en observation över ett 1-minutersintervall. Egenskapen TimeGenerated anger början av tidsintervallet. Varje post innehåller information för att identifiera respektive entitet, det vill ha, anslutning eller port, samt mått som är associerade med den entiteten. För närvarande rapporteras endast nätverksaktivitet som inträffar med TCP över IPv4. 
 
-#### <a name="common-fields-and-conventions"></a>Gemensamma fält och konventioner 
+#### <a name="common-fields-and-conventions"></a>Gemensamma områden och konventioner 
 
 Följande fält och konventioner gäller både VMConnection och VMBoundPort: 
 
-- Dator: fullständigt kvalificerat domän namn för rapporterings datorn 
-- AgentId: den unika identifieraren för en dator med Log Analytics agent  
-- Dator: namnet på Azure Resource Manager resursen för den dator som exponeras av ServiceMap. Det är i formatet *m-{GUID}* , där *GUID* är samma GUID som AgentId  
-- Process: namnet på Azure Resource Manager resursen för den process som exponeras av ServiceMap. Det har formatet *p-{hex-sträng}* . Processen är unik inom ett dator omfång och genererar ett unikt process-ID mellan datorer, kombinera maskin-och process fält. 
-- ProcessName: det körbara namnet på rapporterings processen.
-- Alla IP-adresser är strängar i kanoniskt IPv4-format, till exempel *13.107.3.160* 
+- Dator: Fullständigt kvalificerat domännamn för rapporteringsmaskin 
+- AgentId: Den unika identifieraren för en dator med Log Analytics-agenten  
+- Dator: Namn på Azure Resource Manager-resursen för den dator som exponeras av ServiceMap. Det är av formuläret *m-{GUID}*, där *GUID* är samma GUID som AgentId  
+- Process: Namn på Azure Resource Manager-resursen för den process som exponeras av ServiceMap. Det är av formen *p-{hex sträng}*. Processen är unik inom ett maskinomfång och att generera ett unikt process-ID mellan datorer, kombinera fälten Maskin och Process. 
+- ProcessName: Körbart namn på rapporteringsprocessen.
+- Alla IP-adresser är strängar i IPv4-kanoniskt format, till exempel *13.107.3.160* 
 
-För att hantera kostnader och komplexitet representerar anslutnings posterna inte enskilda fysiska nätverks anslutningar. Flera fysiska nätverks anslutningar är grupperade i en logisk anslutning, som sedan återspeglas i respektive tabell.  Det innebär att poster i *VMConnection* -tabellen representerar en logisk gruppering och inte de enskilda fysiska anslutningar som observeras. Den fysiska nätverks anslutningen som delar samma värde för följande attribut under ett angivet intervall på en minut, aggregeras i en enda logisk post i *VMConnection*. 
+För att hantera kostnader och komplexitet representerar anslutningsposter inte enskilda fysiska nätverksanslutningar. Flera fysiska nätverksanslutningar grupperas i en logisk anslutning, vilket sedan återspeglas i respektive tabell.  Det betyder att poster i *tabellen VMConnection* representerar en logisk gruppering och inte de enskilda fysiska anslutningar som observeras. Fysisk nätverksanslutning som delar samma värde för följande attribut under ett givet enminutsintervall aggregeras till en enda logisk post i *VMConnection*. 
 
 | Egenskap | Beskrivning |
 |:--|:--|
 |Riktning |Anslutningens riktning, värdet är *inkommande* eller *utgående* |
-|Dator |Datorns FQDN |
-|Process |Identitet för process eller grupper av processer, initierar/accepterar anslutningen |
-|SourceIp |Källans IP-adress |
-|DestinationIp |Målets IP-adress |
-|Destination port |Port nummer för målet |
-|Protokoll |Protokoll som används för anslutningen.  Värdena är *TCP*. |
+|Dator |Datorn FQDN |
+|Process |Identitet för process eller grupper av processer, initiera/acceptera anslutningen |
+|KällaTips |Källans IP-adress |
+|DestinationTips |Målets IP-adress |
+|DestinationPort (DestinationPort) |Destinationens portnummer |
+|Protokoll |Protokoll som används för anslutningen.  Värden är *tcp*. |
 
-För att kunna utnyttja gruppens påverkan finns information om antalet grupperade fysiska anslutningar i följande egenskaper för posten:
+För att ta hänsyn till effekten av gruppering finns information om antalet grupperade fysiska anslutningar i postens följande egenskaper:
 
 | Egenskap | Beskrivning |
 |:--|:--|
-|LinksEstablished |Antalet fysiska nätverks anslutningar som har upprättats under rapport tids perioden |
-|LinksTerminated |Antalet fysiska nätverks anslutningar som har avbrutits under rapport tids perioden |
-|LinksFailed |Antalet fysiska nätverks anslutningar som har misslyckats under rapporterings tids perioden. Den här informationen är för närvarande endast tillgänglig för utgående anslutningar. |
-|LinksLive |Antalet fysiska nätverks anslutningar som öppnades i slutet av tids perioden för rapportering|
+|LinksEtablerade |Antalet fysiska nätverksanslutningar som har upprättats under rapporteringstidsfönstret |
+|LänkarTerminerad |Antalet fysiska nätverksanslutningar som har avslutats under rapporteringstidsfönstret |
+|LänkarFailerad |Antalet fysiska nätverksanslutningar som har misslyckats under rapporteringstidsfönstret. Den här informationen är för närvarande endast tillgänglig för utgående anslutningar. |
+|LänkarLive |Antalet fysiska nätverksanslutningar som var öppna i slutet av rapporteringstidsfönstret|
 
 #### <a name="metrics"></a>Mått
 
-Förutom antalet anslutningar räknas information om mängden data som skickas och tas emot på en specifik logisk anslutning eller nätverks port också med följande egenskaper för posten:
+Förutom mått för antalet anslutningar inkluderas även information om mängden data som skickas och tas emot på en viss logisk anslutnings- eller nätverksport i postens följande egenskaper:
 
 | Egenskap | Beskrivning |
 |:--|:--|
-|Bytes sent |Totalt antal byte som har skickats under rapport tids perioden |
-|BytesReceived |Totalt antal byte som har tagits emot under rapport tids perioden |
-|Svar |Antalet svar som observerats under rapporterings tids perioden. 
-|ResponseTimeMax |Den största svars tid (millisekunder) som observeras under rapporterings tids perioden. Om inget värde anges är egenskapen tom.|
-|ResponseTimeMin |Den minsta svars tid (millisekunder) som observeras under rapporterings tids perioden. Om inget värde anges är egenskapen tom.|
-|ResponseTimeSum |Summan av alla svars tider (millisekunder) som observeras under rapporterings tids perioden. Om inget värde anges är egenskapen tom.|
+|BytesSent |Totalt antal byte som har skickats under rapporteringstidsfönstret |
+|ByteKom med |Totalt antal byte som har tagits emot under rapporteringstidsfönstret |
+|Svar |Antalet svar som observerats under rapporteringstidsfönstret. 
+|SvarStidsmax |Den största svarstiden (millisekunder) som observerats under rapporteringstidsfönstret. Om inget värde är egenskapen tom.|
+|SvarTimeMin |Den minsta svarstiden (millisekunder) som observerats under rapporteringstidsfönstret. Om inget värde är egenskapen tom.|
+|SvarTimeSum |Summan av alla svarstider (millisekunder) som observerats under rapporteringstidsfönstret. Om inget värde är egenskapen tom.|
 
-Den tredje typen av data som rapporteras är svars tid – hur lång tid en anropare ägnar åt att vänta på att en begäran skickas över en anslutning som ska bearbetas och besvaras av Fjärrslutpunkten. Svars tiden som rapporteras är en uppskattning av den sanna svars tiden för det underliggande applikations protokollet. Den beräknas med hjälp av heuristik baserat på observationen av data flödet mellan käll-och mål slutet av en fysisk nätverks anslutning. Konceptuellt är skillnaden mellan den tid då den sista byten av en begäran lämnar avsändaren och den tid då den sista byten av svaret kommer tillbaka till den. Dessa två tidsstämplar används för att avgränsa begär ande-och svars händelser på en specifik fysisk anslutning. Skillnaden mellan dem representerar svars tiden för en enskild begäran. 
+Den tredje typen av data som rapporteras är svarstid - hur länge spenderar en uppringare på att vänta på att en begäran som skickas över en anslutning ska bearbetas och besvaras av fjärrslutpunkten. Den rapporterade svarstiden är en uppskattning av den verkliga svarstiden för det underliggande programprotokollet. Det beräknas med heuristik baserat på observation av flödet av data mellan källan och målslutet för en fysisk nätverksanslutning. Begreppsmässigt är det skillnaden mellan den tidpunkt då den sista bytet av en begäran lämnar avsändaren och den tidpunkt då den sista bytet av svaret kommer tillbaka till den. Dessa två tidsstämplar används för att avgränsa begärande- och svarshändelser på en viss fysisk anslutning. Skillnaden mellan dem representerar svarstiden för en enskild begäran. 
 
-I den här första versionen av den här funktionen är vår algoritm en uppskattning som kan fungera med varierande grad av lyckade beroende på det faktiska program protokollet som används för en viss nätverks anslutning. Till exempel fungerar den aktuella metoden bra för Request-Response-baserade protokoll som t. ex. HTTP (S), men fungerar inte med envägs-eller Message Queue-baserade protokoll.
+I den här första versionen av den här funktionen är vår algoritm en approximation som kan fungera med varierande grad av framgång beroende på det faktiska programprotokollet som används för en viss nätverksanslutning. Den aktuella metoden fungerar till exempel bra för protokoll baserade på begäransvar, till exempel HTTP(S), men fungerar inte med enkelriktade eller meddelandeköbaserade protokoll.
 
-Här är några viktiga saker att tänka på:
+Här är några viktiga punkter att tänka på:
 
-1. Om en process accepterar anslutningar på samma IP-adress men över flera nätverks gränssnitt rapporteras en separat post för varje gränssnitt. 
-2. Poster med IP-adress med jokertecken kommer inte att innehålla någon aktivitet. De är inkluderade för att representera det faktum att en port på datorn är öppen för inkommande trafik.
-3. För att minska utförligheten och data volymen utelämnas poster med IP-adress med jokertecken när det finns en matchande post (för samma process, port och protokoll) med en speciell IP-adress. När en IP-post med jokertecken utelämnas, anges IsWildcardBind Record-egenskapen med den angivna IP-adressen till "true" för att indikera att porten exponeras för varje gränssnitt på rapporterings datorn.
-4. Portar som endast är kopplade till ett speciellt gränssnitt har IsWildcardBind inställt på *false*.
+1. Om en process accepterar anslutningar på samma IP-adress men via flera nätverksgränssnitt rapporteras en separat post för varje gränssnitt. 
+2. Poster med jokertecken-IP innehåller ingen aktivitet. De ingår för att representera det faktum att en port på maskinen är öppen för inkommande trafik.
+3. För att minska verbositeten och datavolymen utelämnas poster med jokertecken-IP när det finns en matchande post (för samma process, port och protokoll) med en specifik IP-adress. När en IP-post med jokertecken utelämnas ställs egenskapen IsWildcardBind-post med den specifika IP-adressen in på "True" för att ange att porten exponeras över alla gränssnitt på rapporteringsdatorn.
+4. Portar som endast är bundna på ett visst gränssnitt har IsWildcardBind inställt på *False*.
 
-#### <a name="naming-and-classification"></a>Namn och klassificering
+#### <a name="naming-and-classification"></a>Namngivning och klassificering
 
-IP-adressen för fjärran sluten av en anslutning ingår i egenskapen RemoteIp för att under lätta. För inkommande anslutningar är RemoteIp detsamma som SourceIp, medan för utgående anslutningar är det samma som DestinationIp. Egenskapen RemoteDnsCanonicalNames representerar DNS-kanoniska namn som rapporteras av datorn för RemoteIp. Egenskaperna RemoteDnsQuestions och RemoteClassification är reserverade för framtida användning. 
+För enkelhetens skull ingår IP-adressen för fjärrslutet av en anslutning i egenskapen RemoteIp. För inkommande anslutningar är RemoteIp samma som SourceIp, medan för utgående anslutningar är det samma som DestinationIp. Egenskapen RemoteDnsCanonicalNames representerar de DNS-kanoniska namn som rapporteras av datorn för RemoteIp. Egenskaperna RemoteDnsQuestions och RemoteClassification är reserverade för framtida användning. 
 
-#### <a name="geolocation"></a>Geoplats
+#### <a name="geolocation"></a>Geolocation
 
-*VMConnection* innehåller också information om geolokalisering för fjärrparten av varje anslutnings post i följande egenskaper för posten: 
+*VMConnection* innehåller även geolokaliseringsinformation för fjärrslutet av varje anslutningspost i följande egenskaper för posten: 
 
 | Egenskap | Beskrivning |
 |:--|:--|
-|RemoteCountry |Namnet på det land/den region som är värd för RemoteIp.  Till exempel *USA* |
-|RemoteLatitude |Den geolokalisering på latitud. Till exempel *47,68* |
-|RemoteLongitude |Longituden för den här platsen. Till exempel *– 122,12* |
+|Fjärrland |Namnet på det land/den region som är värd för RemoteIp.  Till exempel *kan USA* |
+|Fjärrlatitude |Geolocation latitud. Till exempel *47,68* |
+|Fjärrlånghet |Geolocation longituden. Till exempel *-122,12* |
 
 #### <a name="malicious-ip"></a>Skadlig IP
 
-Varje RemoteIp-egenskap i *VMConnection* -tabellen kontrol leras mot en uppsättning IP-adresser med känd skadlig aktivitet. Om RemoteIp identifieras som skadlig kommer följande egenskaper att fyllas i (de är tomma, om IP-adressen inte betraktas som skadlig) i följande egenskaper för posten:
+Varje RemoteIp-egenskap i *VMConnection-tabellen* kontrolleras mot en uppsättning IP-adresser med känd skadlig aktivitet. Om RemoteIp identifieras som skadliga fylls följande egenskaper i (de är tomma, när IP-adressen inte anses vara skadlig) i postens följande egenskaper:
 
 | Egenskap | Beskrivning |
 |:--|:--|
-|MaliciousIp |RemoteIp-adressen |
-|IndicatorThreadType |En hot indikator upptäcktes av följande värden: *botnät*, *C2*, *CryptoMining*, *Darknet*, *DDoS*, *MaliciousUrl*, *malware*, *phishing*, *proxy*, *oönskade program*, *visnings lista*.   |
+|MaliciousIp (skadligt) |RemoteIp-adressen |
+|IndikatorDetråd |Hotindikator som upptäckts är ett av följande värden, *Botnet*, *C2*, *CryptoMining*, *Darknet*, *DDos*, *MaliciousUrl*, *Malware*, *Phishing*, *Proxy*, *PUA*, *Watchlist*.   |
 |Beskrivning |Beskrivning av det observerade hotet. |
-|TLPLevel |TLP-nivån (trafik ljus protokoll) är en av de definierade värdena, *vitt*, *grönt*, *gult*, *rött*. |
+|TLPLevel |TLP-nivå (Traffic Light Protocol) är ett av de definierade värdena, *Vit,* *Grön*, *Gul*, *Röd*. |
 |Konfidensbedömning |Värdena är *0 – 100*. |
-|Severity |Värdena är *0 – 5*, där *5* är det allvarligaste och *0* inte är allvarligt. Standardvärdet är *3*.  |
-|FirstReportedDateTime |Första gången som providern rapporterade indikatorn. |
-|LastReportedDateTime |Den senaste gången indikatorn visades vid ett flöde. |
-|IsActive |Anger att indikatorer inaktive ras med värdet *True* eller *false* . |
-|ReportReferenceLink |Länkar till rapporter som är relaterade till en bestämd som kan observeras. |
-|AdditionalInformation |Innehåller ytterligare information om det observerade hotet. |
+|Severity |Värdena är *0 – 5*, där *5* är den allvarligaste och *0* inte är allvarlig alls. Standardvärdet är *3*.  |
+|FirstReportedDateTime |Första gången leverantören rapporterade indikatorn. |
+|SenastrapporteraddateTime |Senast indikatorn sågs av Interflow. |
+|IsActive (olikartade) |Anger att indikatorer inaktiveras med *sant* eller *falskt* värde. |
+|RapportReferenceLink |Länkar till rapporter relaterade till en viss observerbar. |
+|Ytterligare information |Ger ytterligare information, om tillämpligt, om det observerade hotet. |
 
 ### <a name="ports"></a>Portar 
 
-Portar på en dator som aktivt accepterar inkommande trafik eller som kan acceptera trafik, men som är inaktiva under rapporterings tids perioden, skrivs till tabellen VMBoundPort.  
+Portar på en dator som aktivt accepterar inkommande trafik eller som potentiellt kan acceptera trafik, men är inaktiva under rapporteringstidsfönstret, skrivs till tabellen VMBoundPort.  
 
-Varje post i VMBoundPort identifieras med följande fält: 
+Varje post i VMBoundPort identifieras av följande fält: 
 
 | Egenskap | Beskrivning |
 |:--|:--|
-|Process | Identitet för processen (eller grupper av processer) som porten är associerad med.|
-|Ip | Portens IP-adress (kan vara IP *-adress*med jokertecken) |
-|Port |Port numret |
-|Protokoll | Protokollet.  Exempel: *TCP* eller *UDP* (endast *TCP* stöds för närvarande).|
+|Process | Identitet för process (eller grupper av processer) som porten är associerad med.|
+|Ip | Port IP-adress (kan vara jokertecken IP, *0.0.0.0)* |
+|Port |Portnumret |
+|Protokoll | Protokollet.  Exempel, *tcp* eller *udp* (endast *tcp* stöds för närvarande).|
  
-Identiteten som en port härleds från ovanstående fem fält och lagras i egenskapen PortId. Den här egenskapen kan användas för att snabbt hitta poster för en speciell port över tid. 
+Identiteten som en port härleds från ovanstående fem fält och lagras i egenskapen PortId. Den här egenskapen kan användas för att snabbt hitta poster för en viss port över tid. 
 
 #### <a name="metrics"></a>Mått 
 
-Port poster innehåller mått som representerar de anslutningar som är kopplade till dem. För närvarande rapporteras följande mått (informationen för varje mått beskrivs i föregående avsnitt): 
+Portposter innehåller mått som representerar de anslutningar som är associerade med dem. För närvarande rapporteras följande mått (informationen för varje mått beskrivs i föregående avsnitt): 
 
-- Bytes sent och BytesReceived 
+- BytesSent och BytesReceived 
 - LinksEstablished, LinksTerminated, LinksLive 
 - ResposeTime, ResponseTimeMin, ResponseTimeMax, ResponseTimeSum 
 
-Här är några viktiga saker att tänka på:
+Här är några viktiga punkter att tänka på:
 
-- Om en process accepterar anslutningar på samma IP-adress men över flera nätverks gränssnitt rapporteras en separat post för varje gränssnitt.  
-- Poster med IP-adress med jokertecken kommer inte att innehålla någon aktivitet. De är inkluderade för att representera det faktum att en port på datorn är öppen för inkommande trafik. 
-- För att minska utförligheten och data volymen utelämnas poster med IP-adress med jokertecken när det finns en matchande post (för samma process, port och protokoll) med en speciell IP-adress. När en IP-post med jokertecken utelämnas, anges egenskapen *IsWildcardBind* för posten med den angivna IP-adressen till *True*.  Detta anger att porten exponeras för varje gränssnitt på rapporterings datorn. 
-- Portar som endast är kopplade till ett speciellt gränssnitt har IsWildcardBind inställt på *false*. 
+- Om en process accepterar anslutningar på samma IP-adress men via flera nätverksgränssnitt rapporteras en separat post för varje gränssnitt.  
+- Poster med jokertecken-IP innehåller ingen aktivitet. De ingår för att representera det faktum att en port på maskinen är öppen för inkommande trafik. 
+- För att minska verbositeten och datavolymen utelämnas poster med jokertecken-IP när det finns en matchande post (för samma process, port och protokoll) med en specifik IP-adress. När en JOKER IP-post utelämnas ställs egenskapen *IsWildcardBind* för posten med den specifika IP-adressen till *True*.  Detta indikerar att porten är exponerad över alla gränssnitt på rapporteringsdatorn. 
+- Portar som endast är bundna på ett visst gränssnitt har IsWildcardBind inställt på *False*. 
 
 ### <a name="vmcomputer-records"></a>VMComputer-poster
 
-Poster med en typ av *VMComputer* har inventerings data för servrar med beroende agenten. Dessa poster har egenskaper i följande tabell:
+Poster med en typ av *VMDator* har lagerdata för servrar med beroendeagenten. Dessa poster har egenskaperna i följande tabell:
 
 | Egenskap | Beskrivning |
 |:--|:--|
-|TenantId | Den unika identifieraren för arbets ytan |
+|TenantId | Den unika identifieraren för arbetsytan |
 |SourceSystem | *Insikter* | 
 |TimeGenerated | Tidsstämpel för posten (UTC) |
-|Dator | Datorns FQDN | 
-|AgentId | Unikt ID för Log Analytics agenten |
-|Dator | Namnet på Azure Resource Manager resursen för den dator som exponeras av ServiceMap. Det har formatet *m-{GUID}* , där *GUID* är samma GUID som AgentId. | 
-|displayName | Visningsnamn | 
-|FullDisplayName | Fullständigt visnings namn | 
-|Värdnamn | Namnet på datorn utan domän namn |
-|BootTime | Datorns start tid (UTC) |
-|Tidszon | Normaliserad tidszon |
-|VirtualizationState | *virtuell*, *hypervisor*, *fysisk* |
-|Ipv4Addresses | Matris med IPv4-adresser | 
-|Ipv4SubnetMasks | Matris med IPv4-nätmasker (i samma ordning som Ipv4Addresses). |
-|Ipv4DefaultGateways | Matris med IPv4-gatewayer | 
-|Ipv6Addresses | Matris med IPv6-adresser | 
-|MacAddresses | Matris med MAC-adresser | 
-|DnsNames | Matris med DNS-namn som är associerade med datorn. |
-|DependencyAgentVersion | Den version av beroende agenten som körs på datorn. | 
-|OperatingSystemFamily | *Linux*, *Windows* |
-|OperatingSystemFullName | Det fullständiga namnet på operativ systemet | 
-|PhysicalMemoryMB | Fysiskt minne i megabyte | 
-|CPU | Antal processorer | 
+|Dator | Datorn FQDN | 
+|AgentId (på andra) | Det unika ID:t för Log Analytics-agenten |
+|Dator | Namn på Azure Resource Manager-resursen för den dator som exponeras av ServiceMap. Det är av formuläret *m-{GUID}*, där *GUID* är samma GUID som AgentId. | 
+|DisplayName | Visningsnamn | 
+|FullDisplayName | Fullständigt visningsnamn | 
+|Värdnamn | Namnet på maskinen utan domännamn |
+|Starttid | Maskinens starttid (UTC) |
+|TimeZone | Den normaliserade tidszonen |
+|VirtualiseringTillstånd | *virtuell,* *hypervisor*, *fysisk* |
+|Ipv4Adresser | Matris med IPv4-adresser | 
+|Ipv4SubnetMasks | Matris med IPv4-undernätsmasker (i samma ordning som Ipv4Addresses). |
+|Ipv4DefaultGateways | Matris med IPv4-gateways | 
+|Ipv6Adresser | Matris med IPv6-adresser | 
+|MacAdresser | Matris med MAC-adresser | 
+|DnsNames (1) | Matris med DNS-namn som är associerade med datorn. |
+|DependencyAgentVersion | Den version av beroendeagenten som körs på datorn. | 
+|OperativsystemFamilj | *Linux*, *Windows* |
+|OperatingSystemFullName | Operativsystemets fullständiga namn | 
+|PhysicalMemoryMB | Det fysiska minnet i megabyte | 
+|Processorer | Antal processorer | 
 |CpuSpeed | CPU-hastigheten i MHz | 
-|VirtualMachineType | *HyperV*, *VMware*, *xen* |
-|VirtualMachineNativeId | Det VM-ID som tilldelats av dess hypervisor | 
+|VirtualMachineType | *hyperv*, *vmware*, *xen* |
+|VirtualMachineNativeId | VM-ID:et som tilldelats av dess hypervisor | 
 |VirtualMachineNativeName | Namnet på den virtuella datorn |
-|VirtualMachineHypervisorId | Den unika identifieraren för hypervisor-datorn som är värd för den virtuella datorn |
-|HypervisorType | *HyperV* |
-|HypervisorId | Det unika ID: t för hypervisorn | 
+|VirtualMachineHypervisorId | Den unika identifieraren för hypervisorn som är värd för den virtuella datorn |
+|HypervisorType | *hyperv (hyperv)* |
+|HypervisorId (på andra) | Hypervisorns unika ID | 
 |HostingProvider | *Azure* |
-|_ResourceId | Unikt ID för en Azure-resurs |
+|_ResourceId | Den unika identifieraren för en Azure-resurs |
 |AzureSubscriptionId | En globalt unik identifierare som identifierar din prenumeration | 
-|AzureResourceGroup | Namnet på den Azure-resurs grupp som datorn är medlem i. |
+|AzureResourceGroup | Namnet på den Azure-resursgrupp som datorn är medlem i. |
 |AzureResourceName | Namnet på Azure-resursen |
-|AzureLocation | Platsen för Azure-resursen |
-|AzureUpdateDomain | Namnet på Azure Update-domänen |
+|AzureLocation (AzureLocation) | Platsen för Azure-resursen |
+|AzureUpdateDomain | Namnet på Azure-uppdateringsdomänen |
 |AzureFaultDomain | Namnet på Azure-feldomänen |
 |AzureVmId | Den unika identifieraren för den virtuella Azure-datorn |
-|AzureSize | Storleken på den virtuella Azure-datorn |
-|AzureImagePublisher | Namnet på den virtuella Azure-utgivaren |
-|AzureImageOffering | Namnet på den virtuella Azure-datorns erbjudande typ | 
-|AzureImageSku | SKU: n för den virtuella Azure-avbildningen | 
+|AzureSize (AzureSize) | Storleken på den virtuella Azure-datorn |
+|AzureImagePublisher | Namnet på Azure VM-utgivaren |
+|AzureImage Erbjuder | Namnet på erbjudandetypen för Azure VM | 
+|AzureImageSku | SKU för Azure VM-avbildningen | 
 |AzureImageVersion | Versionen av Azure VM-avbildningen | 
-|AzureCloudServiceName | Namnet på Azures moln tjänst |
-|AzureCloudServiceDeployment | Distributions-ID för moln tjänsten |
-|AzureCloudServiceRoleName | Namn på moln tjänst roll |
-|AzureCloudServiceRoleType | Typ av moln tjänst roll: *Worker* eller *Web* |
-|AzureCloudServiceInstanceId | Instans-ID för moln tjänst roll |
-|AzureVmScaleSetName | Namnet på den virtuella datorns skal uppsättning |
-|AzureVmScaleSetDeployment | Distributions-ID för VM Scale set |
-|AzureVmScaleSetResourceId | Den unika identifieraren för den virtuella datorns skalnings uppsättnings resurs.|
-|AzureVmScaleSetInstanceId | Den unika identifieraren för den virtuella datorns skal uppsättning |
-|AzureServiceFabricClusterId | Det unika identifierare i Azure Service Fabric-klustret | 
+|AzureCloudServiceName | Namnet på Azure-molntjänsten |
+|AzureCloudServiceDeployment | Distributions-ID för molntjänsten |
+|AzureCloudServiceRoleName | Rollnamn för Molntjänst |
+|AzureCloudServiceRoleType | Rolltyp för Molntjänst: *arbetare* eller *webb* |
+|AzureCloudServiceInstanceId | ID för molntjänstrollinstans |
+|AzureVmScaleSetName | Namnet på skaluppsättningen för den virtuella datorn |
+|Villa om AzureVmScaleSet-utläggning | Distributions-ID för distribution av virtuell dator |
+|AzureVmScaleSetResourceId | Den unika identifieraren för den virtuella datorn skala uppsättning resurs.|
+|AzureVmScaleSetInstanceId | Den unika identifieraren för skaluppsättningen för den virtuella datorn |
+|AzureServiceFabricClusterId | Den unika identifer av Azure Service Fabric-klustret | 
 |AzureServiceFabricClusterName | Namnet på Azure Service Fabric-klustret |
 
-### <a name="vmprocess-record"></a>VMProcess-post
+### <a name="vmprocess-records"></a>VMProcess-poster
 
-Poster med en typ av *VMProcess* har inventerings data för TCP-anslutna processer på servrar med beroende agenten. Dessa poster har egenskaper i följande tabell:
+Poster med en typ av *VMProcess* har lagerdata för TCP-anslutna processer på servrar med beroendeagenten. Dessa poster har egenskaperna i följande tabell:
 
 | Egenskap | Beskrivning |
 |:--|:--|
-|TenantId | Den unika identifieraren för arbets ytan |
+|TenantId | Den unika identifieraren för arbetsytan |
 |SourceSystem | *Insikter* | 
 |TimeGenerated | Tidsstämpel för posten (UTC) |
-|Dator | Datorns FQDN | 
-|AgentId | Unikt ID för Log Analytics agenten |
-|Dator | Namnet på Azure Resource Manager resursen för den dator som exponeras av ServiceMap. Det har formatet *m-{GUID}* , där *GUID* är samma GUID som AgentId. | 
-|Process | Den unika identifieraren för den Tjänstkarta processen. Den är i formatet *p-{GUID}* . 
-|ExecutableName | Namnet på den körbara processen | 
-|displayName | Processens visnings namn |
-|Roll | Process roll: *webserver*, *appServer*, *databaseServer*, *ldapServer*, *smbServer* |
-|Grupp | Namn på process grupp. Processer i samma grupp är logiskt relaterade, t. ex. en del av samma produkt-eller system komponent. |
-|StartTime | Start tid för process bassäng |
-|FirstPid | Det första PID i lagringspoolen |
-|Beskrivning | Beskrivning av processen |
-|CompanyName | Företagets namn |
-|InternalName | Det interna namnet |
+|Dator | Datorn FQDN | 
+|AgentId (på andra) | Det unika ID:t för Log Analytics-agenten |
+|Dator | Namn på Azure Resource Manager-resursen för den dator som exponeras av ServiceMap. Det är av formuläret *m-{GUID}*, där *GUID* är samma GUID som AgentId. | 
+|Process | Den unika identifieraren för servicekartprocessen. Det är i form av *p-{GUID}*. 
+|KörbartNamn | Namnet på den körbara processen | 
+|DisplayName | Visningsnamn för process |
+|Roll | Processroll: *webbserver*, *appServer*, *databaseServer*, *ldapServer*, *smbServer* |
+|Grupp | Namn på processgrupp. Processer i samma grupp är logiskt relaterade, t.ex. |
+|StartTime | Processpoolens starttid |
+|FörstaPid (förstapid) | Det första PID i processpoolen |
+|Beskrivning | Processbeskrivningen |
+|CompanyName | Namnet på företaget |
+|Interntnamn | Det interna namnet |
 |ProductName | Produktens namn |
 |ProductVersion | Versionen av produkten |
-|FileVersion | Versionen av filen |
-|ExecutablePath |Sökvägen till den körbara filen |
-|Raden | Kommando raden |
-|WorkingDirectory | Arbets katalogen |
-|Tjänster | En matris med tjänster som processen körs under |
+|FileVersion (Filversion) | Den version av filen |
+|Körbarpath |Sökvägen till den körbara |
+|Kommandorad | Kommandoraden |
+|WorkingDirectory | Arbetskatalogen |
+|Tjänster | En rad tjänster enligt vilka processen körs |
 |UserName | Kontot under vilket processen körs |
-|UserDomain | Domänen som processen körs under |
-|_ResourceId | Den unika identifieraren för en process inom arbets ytan |
+|AnvändareDomän | Den domän under vilken processen körs |
+|_ResourceId | Den unika identifieraren för en process inom arbetsytan |
 
-## <a name="sample-log-searches"></a>Exempel på loggsökningar
 
-### <a name="list-all-known-machines"></a>Visa en lista med alla kända datorer
+## <a name="sample-map-queries"></a>Exempel på kartfrågor
+
+### <a name="list-all-known-machines"></a>Lista alla kända maskiner
 
 ```kusto
 VMComputer | summarize arg_max(TimeGenerated, *) by _ResourceId
 ```
 
-### <a name="when-was-the-vm-last-rebooted"></a>När den virtuella datorn startades om senast
+### <a name="when-was-the-vm-last-rebooted"></a>När startades den virtuella datorn senast om
 
 ```kusto
 let Today = now(); VMComputer | extend DaysSinceBoot = Today - BootTime | summarize by Computer, DaysSinceBoot, BootTime | sort by BootTime asc
 ```
 
-### <a name="summary-of-azure-vms-by-image-location-and-sku"></a>Översikt över virtuella Azure-datorer efter avbildning, plats och SKU
+### <a name="summary-of-azure-vms-by-image-location-and-sku"></a>Sammanfattning av virtuella Azure-datorer efter avbildning, plats och SKU
 
 ```kusto
 VMComputer | where AzureLocation != "" | summarize by ComputerName, AzureImageOffering, AzureLocation, AzureImageSku
 ```
 
-### <a name="list-the-physical-memory-capacity-of-all-managed-computers"></a>Visar kapaciteten för fysiskt minne för alla hanterade datorer
+### <a name="list-the-physical-memory-capacity-of-all-managed-computers"></a>Lista den fysiska minneskapaciteten för alla hanterade datorer
 
 ```kusto
 VMComputer | summarize arg_max(TimeGenerated, *) by _ResourceId | project PhysicalMemoryMB, Computer
 ```
 
-### <a name="list-computer-name-dns-ip-and-os"></a>Visa dator namn, DNS, IP och OS
+### <a name="list-computer-name-dns-ip-and-os"></a>Lista datornamn, DNS, IP och OPERATIVSYSTEM
 
 ```kusto
 VMComputer | summarize arg_max(TimeGenerated, *) by _ResourceId | project Computer, OperatingSystemFullName, DnsNames, Ipv4Addresses
 ```
 
-### <a name="find-all-processes-with-sql-in-the-command-line"></a>Hitta alla processer med "SQL" på kommando raden
+### <a name="find-all-processes-with-sql-in-the-command-line"></a>Hitta alla processer med "sql" på kommandoraden
 
 ```kusto
 VMComputer | where CommandLine contains_cs "sql" | summarize arg_max(TimeGenerated, *) by _ResourceId
 ```
 
-### <a name="find-a-machine-most-recent-record-by-resource-name"></a>Hitta en dator (senaste posten) efter resurs namn
+### <a name="find-a-machine-most-recent-record-by-resource-name"></a>Hitta en dator (senaste posten) efter resursnamn
 
 ```kusto
 search in (VMComputer) "m-4b9c93f9-bc37-46df-b43c-899ba829e07b" | summarize arg_max(TimeGenerated, *) by _ResourceId
 ```
 
-### <a name="find-a-machine-most-recent-record-by-ip-address"></a>Hitta en dator (senaste posten) via IP-adress
+### <a name="find-a-machine-most-recent-record-by-ip-address"></a>Hitta en dator (senaste posten) efter IP-adress
 
 ```kusto
 search in (VMComputer) "10.229.243.232" | summarize arg_max(TimeGenerated, *) by _ResourceId
 ```
 
-### <a name="list-all-known-processes-on-a-specified-machine"></a>Visa en lista med alla kända processer på en angiven dator
+### <a name="list-all-known-processes-on-a-specified-machine"></a>Lista alla kända processer på en angiven dator
 
 ```kusto
 VMProcess | where Machine == "m-559dbcd8-3130-454d-8d1d-f624e57961bc" | summarize arg_max(TimeGenerated, *) by _ResourceId
 ```
 
-### <a name="list-all-computers-running-sql-server"></a>Visa en lista med alla datorer som kör SQL Server
+### <a name="list-all-computers-running-sql-server"></a>Lista alla datorer som kör SQL Server
 
 ```kusto
 VMComputer | where AzureResourceName in ((search in (VMProcess) "\*sql\*" | distinct Machine)) | distinct Computer
 ```
 
-### <a name="list-all-unique-product-versions-of-curl-in-my-datacenter"></a>Visa en lista med alla unika produkt versioner av sväng i mitt Data Center
+### <a name="list-all-unique-product-versions-of-curl-in-my-datacenter"></a>Lista alla unika produktversioner av curl i mitt datacenter
 
 ```kusto
 VMProcess | where ExecutableName == "curl" | distinct ProductVersion
 ```
 
-### <a name="create-a-computer-group-of-all-computers-running-centos"></a>Skapa en dator grupp för alla datorer som kör CentOS
+### <a name="create-a-computer-group-of-all-computers-running-centos"></a>Skapa en datorgrupp över alla datorer som kör CentOS
 
 ```kusto
 VMComputer | where OperatingSystemFullName contains_cs "CentOS" | distinct ComputerName
 ```
 
-### <a name="bytes-sent-and-received-trends"></a>Trender för skickade och mottagna byte
+### <a name="bytes-sent-and-received-trends"></a>Byte skickade och mottagna trender
 
 ```kusto
 VMConnection | summarize sum(BytesSent), sum(BytesReceived) by bin(TimeGenerated,1hr), Computer | order by Computer desc | render timechart
 ```
 
-### <a name="which-azure-vms-are-transmitting-the-most-bytes"></a>Vilka virtuella Azure-datorer som överför de flesta byte
+### <a name="which-azure-vms-are-transmitting-the-most-bytes"></a>Vilka virtuella Azure-datorer överför flest byte
 
 ```kusto
 VMConnection | join kind=fullouter(VMComputer) on $left.Computer == $right.Computer | summarize count(BytesSent) by Computer, AzureVMSize | sort by count_BytesSent desc
 ```
 
-### <a name="link-status-trends"></a>Länka status trender
+### <a name="link-status-trends"></a>Länka statustrender
 
 ```kusto
 VMConnection | where TimeGenerated >= ago(24hr) | where Computer == "acme-demo" | summarize dcount(LinksEstablished), dcount(LinksLive), dcount(LinksFailed), dcount(LinksTerminated) by bin(TimeGenerated, 1h) | render timechart
 ```
 
-### <a name="connection-failures-trend"></a>Trend för anslutnings problem
+### <a name="connection-failures-trend"></a>Trend för anslutningsfel
 
 ```kusto
 VMConnection | where Computer == "acme-demo" | extend bythehour = datetime_part("hour", TimeGenerated) | project bythehour, LinksFailed | summarize failCount = count() by bythehour | sort by bythehour asc | render timechart
 ```
 
-### <a name="bound-ports"></a>Kopplade portar
+### <a name="bound-ports"></a>Bundna portar
 
 ```kusto
 VMBoundPort
@@ -354,7 +355,7 @@ VMBoundPort
 | distinct Port, ProcessName
 ```
 
-### <a name="number-of-open-ports-across-machines"></a>Antal öppna portar på olika datorer
+### <a name="number-of-open-ports-across-machines"></a>Antal öppna portar mellan datorer
 
 ```kusto
 VMBoundPort
@@ -364,7 +365,7 @@ VMBoundPort
 | order by OpenPorts desc
 ```
 
-### <a name="score-processes-in-your-workspace-by-the-number-of-ports-they-have-open"></a>Poäng processer på arbets ytan med antalet portar som de har öppna
+### <a name="score-processes-in-your-workspace-by-the-number-of-ports-they-have-open"></a>Poängprocesser på arbetsytan efter antalet portar som de har öppna
 
 ```kusto
 VMBoundPort
@@ -374,9 +375,9 @@ VMBoundPort
 | order by OpenPorts desc
 ```
 
-### <a name="aggregate-behavior-for-each-port"></a>Mängd beteende för varje port
+### <a name="aggregate-behavior-for-each-port"></a>Aggregerat beteende för varje port
 
-Den här frågan kan sedan användas för att räkna ut portar efter aktivitet, t. ex. portar med mest inkommande/utgående trafik, portar med de flesta anslutningar
+Den här frågan kan sedan användas för att poängsätta portar efter aktivitet, t.ex.
 ```kusto
 // 
 VMBoundPort
@@ -429,8 +430,49 @@ let remoteMachines = remote | summarize by RemoteMachine;
 | summarize Remote=makeset(iff(isempty(RemoteMachine), todynamic('{}'), pack('Machine', RemoteMachine, 'Process', Process1, 'ProcessName', ProcessName1))) by ConnectionId, Direction, Machine, Process, ProcessName, SourceIp, DestinationIp, DestinationPort, Protocol
 ```
 
+## <a name="performance-records"></a>Resultatposter
+Poster med en typ av *InsightsMetrics* har prestandadata från den virtuella datorns gästoperativsystem. Dessa poster har egenskaperna i följande tabell:
+
+
+| Egenskap | Beskrivning |
+|:--|:--|
+|TenantId | Unik identifierare för arbetsytan |
+|SourceSystem | *Insikter* | 
+|TimeGenerated | Tid då värdet samlades in (UTC) |
+|Dator | Datorn FQDN | 
+|Ursprung | *vm.azm.ms* |
+|Namnområde | Kategori av prestandaräknaren | 
+|Namn | Prestandaräknarens namn |
+|Val (val) | Insamt värde | 
+|Taggar | Relaterad information om posten. Se tabellen nedan för taggar som används med olika posttyper.  |
+|AgentId (på andra) | Unik identifierare för varje dators agent |
+|Typ | *InsikterMetri* |
+|_ResourceId_ | Resurs-ID för den virtuella datorn |
+
+De prestandaräknare som för närvarande samlas in i tabellen *InsightsMetrics* visas i följande tabell:
+
+| Namnområde | Namn | Beskrivning | Enhet | Taggar |
+|:---|:---|:---|:---|:---|
+| Dator    | Pulsslag             | Dator hjärtslag                        | | |
+| Minne      | Tillgängligt MB           | Tillgängliga byte för minne                    | Byte          | memorySizeMB - Total minnesstorlek|
+| Nätverk     | WriteBytesPerSecond   | Nätverksskrivningsbyte per sekund            | BytesPerSecond | NetworkDeviceId - Id för enheten<br>byte - Totalt antal skickade byte |
+| Nätverk     | ReadBytesPerSecond    | Läs byte per sekund för nätverk             | BytesPerSecond | networkDeviceId - Id för enheten<br>byte - Totalt antal mottagna byte |
+| Processor   | UtnyttjandePercentage | Procentsats för processoranvändning          | Procent        | totalCpus - Totalt antal processorer |
+| Logisk disk | SkriverPerSecond       | Logiska diskskrivningar per sekund            | CountPerSecond | mountId - Montera ID för enheten |
+| Logisk disk | WriteLatencyMs        | Millisekunder för logisk diskskrivningssvarning    | Millisekunder   | mountId - Montera ID för enheten |
+| Logisk disk | WriteBytesPerSecond   | Skrivna byte per sekund för logiska diskar       | BytesPerSecond | mountId - Montera ID för enheten |
+| Logisk disk | ÖverföringarPerSecond    | Logiska disköverföringar per sekund         | CountPerSecond | mountId - Montera ID för enheten |
+| Logisk disk | TransferLatencyMs     | Fräsningssvarskvarnund för logisk disköverföring | Millisekunder   | mountId - Montera ID för enheten |
+| Logisk disk | LäserPerSecond        | Logiska diskläsningar per sekund             | CountPerSecond | mountId - Montera ID för enheten |
+| Logisk disk | ReadLatencyMs         | Fräsningskvarnund för logisk disk     | Millisekunder   | mountId - Montera ID för enheten |
+| Logisk disk | ReadBytesPerSecond    | Logiska diskläsbyten per sekund        | BytesPerSecond | mountId - Montera ID för enheten |
+| Logisk disk | FreeSpacePercentage (frigömt)   | Procent av ledigt utrymme för logisk disk        | Procent        | mountId - Montera ID för enheten |
+| Logisk disk | FreeSpaceMB (fri)           | Växlingsbyte för logiskt diskfritt utrymme             | Byte          | mountId - Montera ID för enheten<br>diskSizeMB - Total diskstorlek |
+| Logisk disk | BytesPerSecond        | Logiska diskbyten per sekund             | BytesPerSecond | mountId - Montera ID för enheten |
+
+
 ## <a name="next-steps"></a>Nästa steg
 
-* Om du inte har använt att skriva logg frågor i Azure Monitor kan du läsa om [hur du använder Log Analytics](../../azure-monitor/log-query/get-started-portal.md) i Azure Portal för att skriva logg frågor.
+* Om du inte har använt loggfrågor i Azure Monitor tidigare kan du granska [hur du använder Log Analytics](../../azure-monitor/log-query/get-started-portal.md) i Azure-portalen för att skriva loggfrågor.
 
-* Lär dig mer om att [skriva Sök frågor](../../azure-monitor/log-query/search-queries.md).
+* Läs mer om [hur du skriver sökfrågor](../../azure-monitor/log-query/search-queries.md).

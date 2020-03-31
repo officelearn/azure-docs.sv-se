@@ -11,21 +11,21 @@ ms.topic: conceptual
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/27/2019
+ms.date: 03/15/2020
 ms.author: memildin
-ms.openlocfilehash: 834a097eb77cc7de2d0a3643bf1499ff7517ddb0
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
-ms.translationtype: MT
+ms.openlocfilehash: 6ea951b542d893b8fef3cdf19a964ce2ef8a034d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77912281"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79415684"
 ---
-# <a name="manage-and-respond-to-security-alerts-in-azure-security-center"></a>Hantera och svara på säkerhets aviseringar i Azure Security Center
+# <a name="manage-and-respond-to-security-alerts-in-azure-security-center"></a>Hantera och besvara säkerhetsaviseringar i Azure Security Center
 
-Det här avsnittet visar hur du visar och bearbetar aviseringar som du har tagit emot för att skydda dina resurser. 
+I det här avsnittet visas hur du visar och bearbetar aviseringar som du har fått för att skydda dina resurser. 
 
-* Information om olika typer av aviseringar finns i [säkerhets aviserings typer](security-center-alerts-overview.md#security-alert-types).
-* En översikt över hur Security Center genererar aviseringar finns i [hur Azure Security Center identifierar och svarar på hot](security-center-alerts-overview.md#detect-threats).
+* Mer information om de olika typerna av aviseringar finns i [Säkerhetsvarningstyper](alerts-reference.md).
+* En översikt över hur Security Center genererar aviseringar finns i [Hur Azure Security Center identifierar och svarar på hot](security-center-alerts-overview.md).
 
 > [!NOTE]
 > För avancerad identifiering rekommenderar vi att du uppgraderar till Azure Security Center. Det finns en kostnadsfri utvärderingsversion. Om du vill uppgradera väljer du Prisnivå i avsnittet om [säkerhetsprinciper](tutorial-security-policy.md). Mer information finns under [priser för Azure Security Center](security-center-pricing.md).
@@ -34,62 +34,44 @@ Det här avsnittet visar hur du visar och bearbetar aviseringar som du har tagit
 Security Center samlar automatiskt in, analyserar och integrerar loggdata från Azure-resurser, nätverket och anslutna partnerlösningar som brandväggs- och slutpunktsskyddslösningar för att identifiera verkliga hot och minimera antalet falska positiva identifieringar. En lista över prioriterade säkerhetsvarningar visas i Security Center tillsammans med den information som du behöver för att snabbt undersöka problemet, samt rekommendationer för hur du åtgärdar ett angrepp.
 
 > [!NOTE]
-> Mer information om hur Security Center identifierings funktioner fungerar finns i [hur Azure Security Center identifierar och svarar på hot](security-center-alerts-overview.md#detect-threats).
+> Mer information om hur identifieringsfunktioner för Security Center fungerar finns i [Hur Azure Security Center identifierar och svarar på hot](security-center-alerts-overview.md#detect-threats).
 
-## <a name="manage-your-security-alerts"></a>Hantera dina säkerhets aviseringar
+## <a name="manage-your-security-alerts"></a>Hantera dina säkerhetsaviseringar
 
-1. På instrument panelen för Security Center går du till panelen **hot skydd** för att visa och översikt över aviseringarna.
+1. På instrumentpanelen i Säkerhetscenter kan du se panelen **Skydd mot hot** om du vill visa och översikt över aviseringarna.
 
-    ![Panelen Säkerhetsvarningar i Security Center](./media/security-center-managing-and-responding-alerts/security-center-dashboard-alert.png)
+    ![Panelen Säkerhetsaviseringar i Security Center](./media/security-center-managing-and-responding-alerts/security-center-dashboard-alert.png)
 
-1. Klicka på panelen om du vill ha mer information om aviseringarna.
+1. Klicka på panelen om du vill se mer information om aviseringarna.
 
    ![Säkerhetsvarningar i Security Center](./media/security-center-managing-and-responding-alerts/security-center-manage-alerts.png)
 
-1. Filtrera aviseringarna som visas genom att klicka på **filter**och på bladet **filter** som öppnas väljer du de filter alternativ som du vill använda. Listan uppdateras enligt det valda filtret. Filtrering kan vara användbart. Kanske vill du till exempel se säkerhetsaviseringar från det senaste dygnet eftersom du undersöker ett potentiellt angrepp i systemet under den här tiden.
+1. Om du vill filtrera de aviseringar som visas klickar du på **Filtrera**och väljer de filteralternativ som du vill använda från **filterbladet** som öppnas. Listan uppdateras enligt det valda filtret. Filtrering kan vara till stor hjälp. Kanske vill du till exempel se säkerhetsaviseringar från det senaste dygnet eftersom du undersöker ett potentiellt angrepp i systemet under den här tiden.
 
     ![Filtrera varningar i Security Center](./media/security-center-managing-and-responding-alerts/security-center-filter-alerts.png)
 
 ## <a name="respond-to-security-alerts"></a>Åtgärda säkerhetsaviseringar
 
-1. Klicka på en säkerhets avisering i listan **säkerhets aviseringar** . De resurser som berörs och de steg som du måste vidta för att åtgärda ett angrepp visas.
+1. Klicka på en säkerhetsavisering i listan **Säkerhetsvarningar.** De resurser som är inblandade och de åtgärder du behöver vidta för att åtgärda en attack visas.
 
     ![Åtgärda säkerhetsaviseringar](./media/security-center-managing-and-responding-alerts/security-center-alert.png)
 
-1. När du har granskat informationen klickar du på en resurs som har angrips.
+1. När du har granskat informationen klickar du på en resurs som attackerades.
 
-    ![Förslag på vad du kan göra om säkerhets aviseringar](./media/security-center-managing-and-responding-alerts/security-center-alert-remediate.png)
+    ![Förslag på vad du ska göra med säkerhetsvarningar](./media/security-center-managing-and-responding-alerts/security-center-alert-remediate.png)
 
-    Avsnittet **allmän information** kan ge en insikt om vad som utlöste säkerhets aviseringen. Den visar information som mål resursen, källans IP-adress (när det är tillämpligt), om aviseringen fortfarande är aktiv och rekommendationer om hur du kan åtgärda detta.  
+    Avsnittet **Allmän information** kan ge en inblick i vad som utlöste säkerhetsaviseringen. Den visar information som målresursen, käll-IP-adress (i förekommande fall), om aviseringen fortfarande är aktiv och rekommendationer om hur du åtgärdar.  
 
     > [!NOTE]
-    >I vissa fall är käll-IP-adressen inte tillgänglig, vissa säkerhets händelser i Windows-säkerhetshändelser inkluderar inte IP-adressen.
+    >I vissa fall är käll-IP-adressen inte tillgänglig, vissa Windows-säkerhetshändelser loggar inte innehåller IP-adressen.
 
-1. De reparations steg som föreslås av Security Center varierar beroende på säkerhets aviseringen. Följ dem för varje avisering. 
+1. Vilka åtgärdssteg som föreslås av Security Center varierar beroende på typen av säkerhetsavisering. Följ dem för varje avisering. 
 
-    I vissa fall kan du behöva använda andra Azure-kontroller eller-tjänster för att kunna åtgärda en säkerhets avisering. 
-
-    Följande avsnitt vägleder dig genom de olika aviseringarna, beroende på resurs typer:
-    
-    * [Aviseringar för IaaS Windows-datorer](threat-protection.md#windows-machines)
-    * [Aviseringar för IaaS Linux-datorer](threat-protection.md#linux-machines)
-    * [Aviseringar för Azure App Service](threat-protection.md#app-services)
-    * [Aviseringar för Azure-behållare](threat-protection.md#azure-containers)
-    * [Aviseringar för SQL Database och SQL Data Warehouse](threat-protection.md#data-sql)
-    * [Aviseringar för Azure Storage](threat-protection.md#azure-storage)
-    * [Aviseringar för Cosmos DB](threat-protection.md#cosmos-db)
-
-    I följande avsnitt förklaras hur Security Center använder olika telemetri som samlas in från integrering med Azure-infrastrukturen för att kunna använda ytterligare skydds lager för resurser som distribueras i Azure:
-    
-    * [Aviseringar för Azure Management Layer (Azure Resource Manager) (för hands version)](threat-protection.md#management-layer)
-    * [Aviseringar för Azure Key Vault (för hands version)](threat-protection.md#azure-keyvault)
-    * [Aviseringar för Azure nätverks lager](threat-protection.md#network-layer)
-    * [Aviseringar från andra tjänster](threat-protection.md#alerts-other)    
+    I vissa fall, för att minska en säkerhetsavisering, kan du behöva använda andra Azure-kontroller eller tjänster för att implementera den rekommenderade reparationen. 
 
 ## <a name="see-also"></a>Se även
 
 I det här avsnittet har vi berättat hur du ställer in säkerhetsprinciper i Security Center. I följande avsnitt kan du lära dig mer om Security Center:
 
-* [Säkerhets aviseringar i Azure Security Center](security-center-alerts-overview.md).
-* [Hantera säkerhets incidenter](security-center-incident.md)
-* [Planerings- och bruksanvisning för Azure Security Center](security-center-planning-and-operations-guide.md)
+* [Säkerhetsaviseringar i Azure Security Center](security-center-alerts-overview.md).
+* [Hantering av säkerhetsincidenter](security-center-incident.md)

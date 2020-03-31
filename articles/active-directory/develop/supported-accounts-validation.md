@@ -1,6 +1,6 @@
 ---
-title: Validerings skillnader genom stödda konto typer – Microsoft Identity Platform | Azure
-description: Lär dig mer om validerings skillnader för olika egenskaper för olika typer av konton som stöds när du registrerar din app med Microsoft Identity Platform.
+title: Valideringsskillnader med kontotyper som stöds – Microsoft identity platform | Azure
+description: Lär dig mer om valideringsskillnader för olika egenskaper för olika kontotyper som stöds när du registrerar din app med Microsofts identitetsplattform.
 author: SureshJa
 ms.author: sureshja
 manager: CelesteDG
@@ -10,44 +10,44 @@ ms.subservice: develop
 ms.custom: aaddev
 ms.service: active-directory
 ms.reviewer: lenalepa, manrath
-ms.openlocfilehash: 812ca0d502572f43c968c75dee17f45d066bcf04
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 2a1507b008903085886f9392f3f4e5461997b6e2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76701305"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80128862"
 ---
-# <a name="validation-differences-by-supported-account-types-signinaudience"></a>Validerings skillnader per konto typer som stöds (signInAudience)
+# <a name="validation-differences-by-supported-account-types-signinaudience"></a>Valideringsskillnader med kontotyper som stöds (signInAudience)
 
-När du registrerar ett program med Microsoft Identity Platform för utvecklare uppmanas du att välja vilka konto typer som programmet har stöd för. Den här egenskapen är `signInAudience`i programobjektet och manifestet.
+När du registrerar ett program hos Microsofts identitetsplattform för utvecklare uppmanas du att välja vilka kontotyper ditt program stöder. I programobjektet och manifestet `signInAudience`är den här egenskapen .
 
 Alternativen omfattar följande:
 
-- *AzureADMyOrg*: endast konton i den organisations katalog där appen är registrerad (en enskild klient)
-- *AzureADMultipleOrgs*: konton i valfri organisations katalog (flera innehavare)
-- *AzureADandPersonalMicrosoftAccount*: konton i valfri organisations katalog (flera innehavare) och personliga Microsoft-konton (till exempel Skype, Xbox och Outlook.com)
+- *AzureADMyOrg*: Endast konton i organisationskatalogen där appen är registrerad (en klient)
+- *AzureADMultipleOrgs*: Konton i alla organisationskataloger (flera innehavare)
+- *AzureADandPersonalMicrosoftAccount*: Konton i alla organisationskataloger (flera innehavare) och personliga Microsoft-konton (till exempel Skype, Xbox och Outlook.com)
 
-För registrerade program kan du hitta värdet för konto typer som stöds i avsnittet **autentisering** i ett program. Du kan också hitta den under egenskapen `signInAudience` i **manifestet**.
+För registrerade program kan du hitta värdet för kontotyper som stöds i avsnittet **Autentisering** i ett program. Du kan också hitta `signInAudience` den under egenskapen i **Manifestet**.
 
-Värdet du väljer för den här egenskapen har effekter på andra egenskaper för app-objekt. Det innebär att om du ändrar den här egenskapen kan du först behöva ändra andra egenskaper.
+Det värde som du väljer för den här egenskapen har konsekvenser för andra appobjektegenskaper. Om du ändrar den här egenskapen kan du därför behöva ändra andra egenskaper först.
 
-I följande tabell visas validerings skillnader för olika egenskaper för olika typer av konton som stöds.
+Se följande tabell för valideringsskillnader för olika egenskaper för olika kontotyper som stöds.
 
-| Egenskap | `AzureADMyOrg` | `AzureADMultipleOrgs`  | `AzureADandPersonalMicrosoftAccount` |
+| Egenskap | `AzureADMyOrg` | `AzureADMultipleOrgs` | `AzureADandPersonalMicrosoftAccount` och `PersonalMicrosoftAccount` |
 |--------------|---------------|----------------|----------------|
-| URI för program-ID (`identifierURIs`)  | Måste vara unikt i klienten <br><br> urn://-scheman stöds <br><br> Jokertecken stöds inte <br><br> Frågesträngar och fragment stöds <br><br> Maximal längd på 255 tecken <br><br> Ingen gräns * på antalet identifierURIs  | Måste vara globalt unikt <br><br> urn://-scheman stöds <br><br> Jokertecken stöds inte <br><br> Frågesträngar och fragment stöds <br><br> Maximal längd på 255 tecken <br><br> Ingen gräns * på antalet identifierURIs | Måste vara globalt unikt <br><br> urn://-scheman stöds inte <br><br> Jokertecken, fragment och frågesträngar stöds inte <br><br> Maximal längd på 120 tecken <br><br> Högst 50 identifierURIs |
-| Certifikat (`keyCredentials`) | Symmetrisk signerings nyckel | Symmetrisk signerings nyckel | Kryptering och asymmetrisk signerings nyckel | 
-| Klient hemligheter (`passwordCredentials`) | Ingen gräns * | Ingen gräns * | Om liveSDK har Aktiver ATS: högst 2 klient hemligheter | 
-| Omdirigerings-URI: er (`replyURLs`) | Se [OMDIRIGERA URI/svars-URL-begränsningar och begränsningar](reply-url.md) för mer information. | | | 
-| API-behörigheter (`requiredResourceAccess`) | Ingen gräns * | Ingen gräns * | Högst 30 behörigheter per resurs tillåts (t. ex. Microsoft Graph) | 
-| Omfattningar som definieras av detta API (`oauth2Permissions`) | Maximal omfattnings namn längd på 120 tecken <br><br> Ingen gräns * för antalet definierade omfattningar | Maximal omfattnings namn längd på 120 tecken <br><br> Ingen gräns * för antalet definierade omfattningar |  Maximal omfattnings namn längd på 40 tecken <br><br> Högst 100 omfattningar har definierats | 
-| Auktoriserade klient program (`preautorizedApplications`) | Ingen gräns * | Ingen gräns * | Totalt Max 500 <br><br> Högst 100 klient program har definierats <br><br> Högst 30 scope som definierats per klient | 
-| appRoles | Stöds <br> Ingen gräns * | Stöds <br> Ingen gräns * | Stöds inte | 
-| Utloggnings-URL | http://localhost tillåts <br><br> Maximal längd på 255 tecken | http://localhost tillåts <br><br> Maximal längd på 255 tecken | <br><br> https://localhost tillåts http://localhost Miss lyckas för MSA <br><br> Maximal längd på 255 tecken <br><br> HTTP-schemat är inte tillåtet <br><br> Jokertecken stöds inte | 
+| Program-ID URI (`identifierURIs`)  | Måste vara unik i hyresgästen <br><br> urn:// system stöds <br><br> Jokertecken stöds inte <br><br> Frågesträngar och fragment stöds <br><br> Maximal längd på 255 tecken <br><br> Ingen gräns* för antalet identifierare  | Måste vara globalt unik <br><br> urn:// system stöds <br><br> Jokertecken stöds inte <br><br> Frågesträngar och fragment stöds <br><br> Maximal längd på 255 tecken <br><br> Ingen gräns* för antalet identifierare | Måste vara globalt unik <br><br> urn:// system stöds inte <br><br> Jokertecken, fragment och frågesträngar stöds inte <br><br> Maximal längd på 120 tecken <br><br> Högst 50 identifierare |
+| Certifikat (`keyCredentials`) | Symmetrisk signeringsnyckel | Symmetrisk signeringsnyckel | Kryptering och asymmetrisk signeringsnyckel | 
+| Klienthemligheter (`passwordCredentials`) | Ingen gräns* | Ingen gräns* | Om liveSDK är aktiverat: Högst 2 klienthemligheter | 
+| Omdirigera URI:er (`replyURLs`) | Mer information finns i begränsningar och begränsningar för [url för omdirigering av URI/svar.](reply-url.md) | | | 
+| API-behörigheter`requiredResourceAccess`( ) | Ingen gräns* | Ingen gräns* | Maximalt 30 behörigheter per tillåten resurs (t.ex. | 
+| Scope som definieras av`oauth2Permissions`detta API ( ) | Maximal scopenamnslängd på 120 tecken <br><br> Ingen gräns* för antalet definierade scope | Maximal scopenamnslängd på 120 tecken <br><br> Ingen gräns* för antalet definierade scope |  Maximal scopenamnslängd på 40 tecken <br><br> Maximalt 100 definierade scope | 
+| Auktoriserade klientprogram`preautorizedApplications`( ) | Ingen gräns* | Ingen gräns* | Totalt högst 500 <br><br> Maximalt 100 klientappar har definierats <br><br> Maximalt 30 scope som definierats per klient | 
+| appRoles | Stöds <br> Ingen gräns* | Stöds <br> Ingen gräns* | Stöds inte | 
+| Utloggnings-URL | http://localhostär tillåtet <br><br> Maximal längd på 255 tecken | http://localhostär tillåtet <br><br> Maximal längd på 255 tecken | <br><br> https://localhostär tillåtet, http://localhost misslyckas för MSA <br><br> Maximal längd på 255 tecken <br><br> HTTP-schema är inte tillåtet <br><br> Jokertecken stöds inte | 
 
-\* Det finns en global gräns på cirka 1000 objekt över alla samlings egenskaper på App-objektet
+*Det finns en global gräns på cirka 1 000 objekt i alla samlingsegenskaper på appobjektet
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Läs mer om [program registrering](app-objects-and-service-principals.md)
-- Läs mer om [applikations manifestet](reference-app-manifest.md)
+- Läs mer om [registrering av program](app-objects-and-service-principals.md)
+- Läs mer om [programmanifestet](reference-app-manifest.md)

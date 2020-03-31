@@ -1,6 +1,6 @@
 ---
-title: Tids serie modell – Azure Time Series Insights | Microsoft Docs
-description: Lär dig mer om tids serie modellen i Azure Time Series Insights för hands versionen.
+title: Tidsseriemodell – insikter i Azure-tidsserier | Microsoft-dokument
+description: Läs mer om Time Series-modellen i förhandsversionen av Azure Time Series Insights.
 author: deepakpalled
 ms.author: dpalled
 manager: cshankar
@@ -8,108 +8,108 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 02/14/2020
+ms.date: 03/16/2020
 ms.custom: seodec18
-ms.openlocfilehash: 884244b245be06f1477d27a4828cad18e36eca24
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+ms.openlocfilehash: 648578563a0e53d3ed5bda6ab47f85c3c6a2a24e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/15/2020
-ms.locfileid: "77368633"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79476662"
 ---
-# <a name="time-series-model-in-azure-time-series-insights-preview"></a>Tids serie modell i Azure Time Series Insights för hands version
+# <a name="time-series-model-in-azure-time-series-insights-preview"></a>Förhandsversion av Time Series-modellen i Azure Time Series Insights
 
-I den här artikeln beskrivs tids serie modellen, funktionerna och hur du börjar skapa och uppdatera dina egna modeller i Azure Time Series Insights Preview-miljön.
+I den här artikeln beskrivs Time Series Model, funktionerna och hur du börjar bygga och uppdatera dina egna modeller i förhandsversionen av Azure Time Series Insights.
 
 > [!TIP]
->  * Gå till [Contosos demonstrations](https://insights.timeseries.azure.com/preview/samples) miljö för en real tids serie modell exempel.
-> * Läs om [Azure Time Series Insights Preview Explorer](time-series-insights-update-explorer.md) och lär dig hur du navigerar i tids serie modellens gränssnitt.
-> * Lär dig [hur du arbetar med tids serie modellen](time-series-insights-update-how-to-tsm.md) med hjälp av Time Series Insights Web Explorer.
+>  * Gå till [Demomiljön Contoso Wind Farm](https://insights.timeseries.azure.com/preview/samples) för ett exempel på en live Time Series Model.Go to the Contoso Wind Farm demo environment for a live Time Series Model example.
+> * Läs om förhandsversionen av [Azure Time Series Insights](time-series-insights-update-explorer.md) om du vill lära dig hur du navigerar i användargränssnittet för tidsseriemodell.
+> * Lär dig hur du [arbetar med Time Series Model](time-series-insights-update-how-to-tsm.md) med hjälp av webbutforskaren Time Series Insights.
 
 ## <a name="summary"></a>Sammanfattning
 
-Traditionellt har data som samlas in från IoT-enheter saknar sammanhangsbaserad information, vilket gör det svårt att hitta och analysera sensorer snabbt. Det främsta skälet till tids serie modellen är att förenkla sökning och analys av IoT-eller Time Series-data. Den uppnår detta mål genom att aktivera hantering, underhåll och anrikning av Time Series-data för att förbereda konsument klara data uppsättningar för analys.
+Traditionellt saknar data som samlas in från IoT-enheter kontextuell information, vilket gör det svårt att hitta och analysera sensorer snabbt. Den främsta motivationen för Time Series Model är att förenkla att hitta och analysera IoT- eller Time Series-data. Det uppnår detta mål genom att möjliggöra kurering, underhåll och anrikning av tidsseriedata för att förbereda konsumentklara datauppsättningar för analys.
 
 ## <a name="scenario-contosos-new-smart-oven"></a>Scenario: Contosos nya smarta ugn
 
-**Överväg det fiktiva scenariot för en smartphone Smart ugn.** I det här scenariot antar vi att varje contoso Smart ugn har fem temperatur sensorer, en för var och en av de fyra främsta brännarena och en för ugnen. Tills nyligen har varje contoso-temperatur sensor skickat, lagrat och visualiserat sina data individuellt. För att kunna övervaka köks enheten, contoso förlitar sig på Basic-diagram, en för varje enskild sensor.
+**Tänk på det fiktiva scenariot med en Contoso smart ugn.** I det här scenariot, anta att varje Contoso smart ugn har fem temperatursensorer, en för var och en av fyra toppbrännare och en för ugnen själv. Tills nyligen skickade varje Contoso temperatursensor, lagras och visualiserade sina data individuellt. För sin köksapparat övervakning, Contoso förlitade sig på grundläggande diagram, en för varje enskild sensor.
 
-Medan contoso var uppfyllt med sin första data-och visualiserings lösning visade sig flera begränsningar:
+Contoso var nöjd med sina ursprungliga data och visualiseringslösningar, men flera begränsningar blev uppenbara:
 
-* Kunder ville veta hur frekvent den totala ugnen skulle få när de flesta av de främsta brännarena var på. Contoso hade mer svårt att analysera och presentera ett enhetligt svar om villkoren i den övergripande ugnen.
-* Contoso-tekniker ville verifiera att de främsta brännare som körs samtidigt inte skulle resultera i ineffektiv energi spar läge. Det var svårt att referera till vilka temperatur-och spännings sensorer som var associerade med varandra och hur du hittar dem i butiken.
-* Contosos kvalitets säkrings team ville granska och jämföra historiken mellan två sensor versioner. Det gick inte att avgöra vilka data som tillhörde vilken sensor version som hör.
+* Kunderna ville veta hur varmt den totala ugnen skulle bli när de flesta av de bästa brännare var på. Contoso hade svårare att analysera och presentera ett enhetligt svar om villkoren i den totala ugnen.
+* Contoso-tekniker ville kontrollera att de bästa brännare som körs samtidigt inte skulle resultera i ineffektivt effektdragning. Det fanns svårigheter att korsreferera vilka temperatur- och spänningssensorer som var förknippade med varandra och hur man lokaliserar dem i butiken.
+* Contoso kvalitetssäkringsteamet ville granska och jämföra historiken mellan två sensorversioner. Det var svårt att avgöra vilka data som tillhörde vilken sensorversion.
 
-Utan möjligheten att strukturera, organisera och definiera den överåtgående tids serie modellen för smart ugn, är varje temperatur sensor befinnad, isolerad och mindre informativa data punkter. Att omvandla dessa data punkter till användbara insikter var svårare eftersom varje data uppsättning levde oberoende av de andra.
+Utan möjlighet att strukturera, organisera och definiera den övergripande modellen för smarta ugnstidsserier, upprätthålls varje temperatursensor ur led, isolerade och mindre informativa datapunkter. Det var svårare att omvandla dessa datapunkter till användbara insikter eftersom varje datauppsättning levde oberoende av de andra.
 
-De här begränsningarna visar vikten av Smart data agg regering och visualiserings verktyg som medföljer Contosos nya ugn:
+Dessa begränsningar visade vikten av smarta data aggregering och visualisering verktyg för att följa Contoso nya ugn:
 
-* Data visualiseringen är användbar när du kan associera och kombinera data i en bekväm vy. Ett exempel visar spännings sensorer tillsammans med temperatur sensorer.
-* Att hantera flerdimensionella data för flera entiteter tillsammans med jämförelse-, zoomnings-och tidsintervalls funktioner kan vara svåra att utföra.
+* Datavisualisering visar sig vara användbart när du kan associera och kombinera data till en praktisk vy. Ett exempel är att visa spänningssensorer tillsammans med temperaturgivare.
+* Det kan vara svårt att hantera flerdimensionella data för flera entiteter tillsammans med funktioner för jämförelse, zoomning och tidsintervall.
 
-**Time Series-modellen är en praktisk lösning** för många av de scenarier som påträffas i detta fiktiva exempel:
+**Time Series Model är en praktisk lösning** för många av de scenarier som påträffas i det här fiktiva exemplet:
 
-[exempel på Smart ugns diagram för ![tids serie modell](media/v2-update-tsm/time-series-model-smart-oven.png)](media/v2-update-tsm/time-series-model-smart-oven.png#lightbox)
+[![Exempel på smart ugnsdiagram i Tidsseriemodell](media/v2-update-tsm/time-series-model-smart-oven.png)](media/v2-update-tsm/time-series-model-smart-oven.png#lightbox)
 
-* Time Series-modellen spelar en viktig roll i frågor och navigering eftersom den contextualizes data genom att tillåta att jämförelser ritas över tidsintervall och mellan sensor-och enhets typer. (**A**) 
-* Data är ytterligare sammanhangsbaserade eftersom data som behålls i Time Series-modellen bevarar Time Series-frågans beräkningar som variabler och återanvänder dem vid tidpunkten för frågan.
-* Time Series-modellen ordnar och samlar data för förbättrade visualiserings-och hanterings funktioner. (**B**) 
+* Time Series Model spelar en viktig roll i frågor och navigering eftersom det kontextualiserar data genom att tillåta jämförelser som ska dras över tidsintervall och mellan sensor- och enhetstyper. **A**. 
+* Data kontextualiseras ytterligare eftersom data som sparas i Tidsseriemodellen bevarar tidsseriefrågeberäkningar som variabler och återanvänder dem vid frågetid.
+* Time Series Model organiserar och sammanställer data för förbättrade visualiserings- och hanteringsfunktioner. **B)** 
 
 ### <a name="key-capabilities"></a>De viktigaste funktionerna
 
-Med målet att göra det enkelt och enkelt att hantera Time Series-contextualization, aktiverar Time Series-modellen följande funktioner i Time Series Insights Preview. Det hjälper dig att:
+Med målet att göra det enkelt och enkelt att hantera sammanhangskontextualisering i tidsserier möjliggör Time Series Model följande funktioner i förhandsversionen av Time Series Insights. Det hjälper dig:
 
-* Redigera och hantera beräkningar eller formler som använder skalära funktioner, mängd åtgärder och så vidare.
+* Skapa och hantera beräkningar eller formler som utnyttjar skalärfunktioner, aggregerade åtgärder och så vidare.
 * Definiera överordnade och underordnade relationer för att aktivera navigering, sökning och referens.
-* Definiera egenskaper som är associerade med instanserna, definierade som *instans fält*och Använd dem för att skapa hierarkier.
+* Definiera egenskaper som är associerade med instanserna, definierade som *förekomstfält,* och använd dem för att skapa hierarkier.
 
 ### <a name="components"></a>Komponenter
 
-Tids serie modellen har tre huvud komponenter:
+Time Series Model har tre kärnkomponenter:
 
-* [Tids serie modell instanser](#time-series-model-instances)
-* [Hierarkier för tids serie modell](#time-series-model-hierarchies)
-* [Modell typer för tids serier](#time-series-model-types)
+* [Time Series-modellinstanser](#time-series-model-instances)
+* [Hierarkier i tidsseriemodell](#time-series-model-hierarchies)
+* [Modelltyper för tidsserier](#time-series-model-types)
 
-Dessa komponenter kombineras för att ange en tids serie modell och för att organisera dina Azure Time Series Insights data.
+Dessa komponenter kombineras för att ange en tidsseriemodell och för att organisera dina Azure Time Series Insights-data.
 
-[översikts diagram över ![tids serie modell](media/v2-update-tsm/time-series-model-overview.png)](media/v2-update-tsm/time-series-model-overview.png#lightbox)
+[![Översiktsdiagram för tidsseriemodell](media/v2-update-tsm/time-series-model-overview.png)](media/v2-update-tsm/time-series-model-overview.png#lightbox)
 
-En tids serie modell kan skapas och hanteras via Time Series Insights för [hands versions](time-series-insights-update-how-to-tsm.md) gränssnittet. Inställningarna för tids serie modellen kan hanteras via [API: t för modell inställningar](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#model-settings-api).
+En tidsseriemodell kan skapas och hanteras via [Time Series Insights Preview-gränssnittet.](time-series-insights-update-how-to-tsm.md) Inställningar för tidsseriemodell kan hanteras via [API:et för modellinställningar](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#model-settings-api).
 
-## <a name="time-series-model-instances"></a>Tids serie modell instanser
+## <a name="time-series-model-instances"></a>Time Series-modellinstanser
 
-Tids serie modell *instanser* är virtuella representationer av själva tids serien.
+Time Series *Model-instanser* är virtuella representationer av själva tidsserien.
 
-I de flesta fall identifieras instanser unikt av **deviceId** eller **assetId**, som sparas som tids serie-ID: n.
+I de flesta fall identifieras instanser unikt av **deviceId** eller **assetId**, som sparas som tidsserie-ID: n.
 
-Instanser har beskrivande information som är kopplad till dem kallas *instans egenskaper*, till exempel ett Time Series-ID, typ, namn, beskrivning, hierarkier och instans fält. Som minst innehåller instans egenskaper hierarki-information.
+Instanser har beskrivande information som är associerad med dem som kallas *förekomstegenskaper*, till exempel ett tidsserie-ID, typ, namn, beskrivning, hierarkier och förekomstfält. Instansegenskaperna innehåller åtminstone hierarkiinformation.
 
-*Instans fält* är en samling beskrivande information som kan innehålla värden för hierarki nivåer, samt tillverkare, operatör och så vidare.
+*Förekomstfält* är en samling beskrivande information som kan innehålla värden för hierarkinivåer, samt tillverkare, operator och så vidare.
 
-När en händelse källa har kon figurer ATS för Time Series Insightss miljön identifieras och skapas instanser automatiskt i en tids serie modell. Instanserna kan skapas eller uppdateras via Time Series Insights Explorer med hjälp av tids serie modell frågor.
+När en händelsekälla har konfigurerats för time series insights-miljön identifieras och skapas instanser automatiskt i en tidsseriemodell. Instanserna kan skapas eller uppdateras via time series insights-utforskaren med hjälp av tidsseriemodellfrågor.
 
-[Contoso lindnings grupp demonstration](https://insights.timeseries.azure.com/preview/samples) innehåller flera exempel på Live-instansen.
+[Contoso Wind Farm demo](https://insights.timeseries.azure.com/preview/samples) ger flera levande exempel.
 
-[exempel på modell instans för ![Time Series](media/v2-update-tsm/time-series-model-instance.png)](media/v2-update-tsm/time-series-model-instance.png#lightbox)
+[![Exempel på tidsseriemodell](media/v2-update-tsm/time-series-model-instance.png)](media/v2-update-tsm/time-series-model-instance.png#lightbox)
 
-### <a name="instance-properties"></a>Instans egenskaper
+### <a name="instance-properties"></a>Instansegenskaper
 
-Instanser definieras av **timeSeriesId**, **typeId**, **Name**, **Description**, **hierarchyIds**och **instanceFields**. Varje instans mappar endast till en *typ*, och en eller flera *hierarkier*.
+Instanser definieras av **timeSeriesId**, **typeId**, **namn**, **beskrivning,** **hierarkiIds**och **instanceFields**. Varje förekomst mappar till endast en *typ*och en eller flera *hierarkier*.
 
 | Egenskap | Beskrivning |
 | --- | ---|
-| timeSeriesId | UUID för tids serien som instansen är associerad med. |
-| ID | UUID för tids serie modell typen som instansen är associerad med. Som standard blir alla identifierade nya instanser kopplade till en standard typ.
-| namn | Egenskapen **Name** är valfri och Skift läges känslig. Om **namnet** inte är tillgängligt används **timeSeriesId**som standard. Om ett namn anges är **timeSeriesId** fortfarande [tillgängligt.](time-series-insights-update-explorer.md#4-time-series-well) |
-| beskrivning | En text Beskrivning av instansen. |
-| hierarchyIds | Definierar vilka hierarkier som instansen tillhör. |
-| instanceFields | Egenskaperna för en instans och eventuella statiska data som definierar en instans. De definierar värden för hierarki-eller icke-hierarkiska egenskaper och stöder även indexering för att utföra Sök åtgärder. |
+| timeSeriesId (timeSeriesId) | UUID för den tidsserie som instansen är associerad med. |
+| typeId (typeId) | UUID för typen Av tidsseriemodell som instansen är associerad med. Som standard associeras alla identifierade nya instanser till en standardtyp.
+| namn | Namnegenskapen är valfri och skiftlägeskänslig. **name** Om **namnet** inte är tillgängligt, är det standard **timeSeriesId**. Om ett namn anges är **timeSeriesId** fortfarande tillgängligt i [brunnen](time-series-insights-update-explorer.md#4-time-series-well). |
+| description | En textbeskrivning av förekomsten. |
+| hierarkiIds | Definierar vilka hierarkier instansen tillhör. |
+| instanceFields | Egenskaperna för en instans och statiska data som definierar en instans. De definierar värden för hierarki- eller icke-hierarkiegenskaper samtidigt som de stöder indexering för att utföra sökåtgärder. |
 
 > [!NOTE]
-> Hierarkier skapas med hjälp av instans fält. Ytterligare **instanceFields** kan läggas till för definitioner av instans egenskaper.
+> Hierarkier skapas med hjälp av förekomstfält. Ytterligare **instanceFields** kan läggas till för ytterligare instansegenskapsdefinitioner.
 
-Instanserna har följande JSON-representation:
+Instanser har följande JSON-representation:
 
 ```JSON
 {
@@ -129,27 +129,27 @@ Instanserna har följande JSON-representation:
 ```
 
 > [!TIP]
-> För Time Series Insights instans-API och skapa, läsa, uppdatera och ta bort (CRUD) support, Läs artikeln om [data frågor](time-series-insights-update-tsq.md#time-series-model-query-tsm-q-apis) och [REST-API för instansen](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#instances-api).
+> För Time Series Insights Instance API och skapa, läsa, uppdatera och ta bort (CRUD) stöd, läs [data fråga artikeln](time-series-insights-update-tsq.md#time-series-model-query-tsm-q-apis) och instans API REST [dokumentation](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#instances-api).
 
-## <a name="time-series-model-hierarchies"></a>Hierarkier för tids serie modell
+## <a name="time-series-model-hierarchies"></a>Hierarkier i tidsseriemodell
 
-Tids serie modell *hierarkier* organiserar instanser genom att ange egenskaps namn och deras relationer.
+*Tidsseriemodellhierarkier* ordnar instanser genom att ange egenskapsnamn och deras relationer.
 
-Du kan konfigurera flera hierarkier i en specifik Time Series Insights miljö. En tids serie modell instans kan mappas till en enda hierarki eller flera hierarkier (många-till-många-relation).
+Du kan konfigurera flera hierarkier i en viss Time Series Insights-miljö. En Time Series-modellinstans kan mappas till en enda hierarki eller flera hierarkier (många-till-många-relation).
 
-Klient gränssnittet [contoso lindnings grupp demonstration](https://insights.timeseries.azure.com/preview/samples) visar en standard instans och en hierarki.
+[Demoklientgränssnittet i Contoso Wind Farm](https://insights.timeseries.azure.com/preview/samples) visar en standardinstans och typhierarki.
 
-[exempel på modell hierarki i ![Time Series](media/v2-update-tsm/time-series-model-hierarchies.png)](media/v2-update-tsm/time-series-model-hierarchies.png#lightbox)
+[![Exempel på hierarki i tidsseriemodell](media/v2-update-tsm/time-series-model-hierarchies.png)](media/v2-update-tsm/time-series-model-hierarchies.png#lightbox)
 
-### <a name="hierarchy-definition"></a>Definition av hierarki
+### <a name="hierarchy-definition"></a>Hierarkidefinition
 
-Hierarkier definieras av hierarki **-ID**, **namn**och **källa**.
+Hierarkier definieras av **hierarki-ID,** **namn**och **källa**.
 
 | Egenskap | Beskrivning |
 | ---| ---|
 | id | Den unika identifieraren för hierarkin, som används, till exempel när du definierar en instans. |
 | namn | En sträng som används för att ange ett namn för hierarkin. |
-| källa | Anger organisationens hierarki eller sökväg, som är en överordnad överordnad-underordnad ordning i hierarkin som användare vill skapa. De överordnade-underordnade egenskaperna mappar instans fält. |
+| källa | Anger organisationshierarkin eller sökvägen, som är en överordnad underordnad toppordning för den hierarki som användarna vill skapa. Mappinstansfälten för överordnade och underordnade egenskaper. |
 
 Hierarkier representeras i JSON som:
 
@@ -180,17 +180,17 @@ Hierarkier representeras i JSON som:
 }
 ```
 
-I föregående JSON-exempel:
+I föregående JSON exempel:
 
-* `Location` definierar en hierarki med överordnad `states` och underordnad `cities`. Varje `location` kan ha flera `states`, vilket i sin tur kan ha flera `cities`.
-* `ManufactureDate` definierar en hierarki med överordnad `year` och underordnad `month`. Varje `ManufactureDate` kan ha flera `years`, vilket i sin tur kan ha flera `months`.
+* `Location`definierar en hierarki `states` med `cities`överordnad och underordnad . Var `location` och `states`en kan ha flera `cities`, som i sin tur kan ha flera .
+* `ManufactureDate`definierar en hierarki `year` med `month`överordnad och underordnad . Var `ManufactureDate` och `years`en kan ha flera `months`, som i sin tur kan ha flera .
 
 > [!TIP]
-> Information om Time Series Insights instans-API och CRUD-stöd finns i artikeln [fråga om data frågor](time-series-insights-update-tsq.md#time-series-model-query-tsm-q-apis) och [rest-dokumentation för hierarki-API](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#hierarchies-api).
+> För Time Series Insights Instance API och CRUD-stöd läser du [datafrågeartikeln](time-series-insights-update-tsq.md#time-series-model-query-tsm-q-apis) och [hierarki-API REST-dokumentationen](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#hierarchies-api).
 
 ### <a name="hierarchy-example"></a>Exempel på hierarki
 
-Överväg ett exempel där hierarkin **H1** har `building`, `floor`och `room` som en del av dess **instanceFieldNames** -definition:
+Tänk dig ett exempel där `building` `floor`hierarki `room` **H1** har , och som en del av dess **instansFieldNames** definition:
 
 ```JSON
 {
@@ -206,45 +206,45 @@ I föregående JSON-exempel:
 }
 ```
 
-Utifrån de instans fält som används i den föregående definitionen och flera tids serier visas hierarkins attribut och värden som visas i följande tabell:
+Med tanke på de förekomstfält som används i föregående definition och flera tidsserier visas hierarkiattributen och hierarkivärdena som visas i följande tabell:
 
-| Time Series-ID | Instans fält |
+| Id för tidsserier | Förekomstfält |
 | --- | --- |
-| ID1 | "skapa" = "1000", "golv" = "10", "rum" = "55"  |
-| ID2 | "skapa" = "1000", "Room" = "55" |
+| ID1 | "byggnad" = "1000", "golv" = "10", "rum" = "55"  |
+| ID2 | "byggnad" = "1000", "rum" = "55" |
 | ID3 | "golv" = "10" |
-| ID4 | "skapa" = "1000", "golv" = "10"  |
-| ID5 | Ingen av "byggnad", "golv" eller "Room" har angetts. |
+| ID4 | "byggnad" = "1000", "golv" = "10"  |
+| ID5 | Ingen av "byggnad", "golv", eller "rum" är inställd. |
 
-Time Series- **id1** och **ID4** visas som en del av hierarkin **H1** i [Azure Time Series Insights Explorer](time-series-insights-update-explorer.md) eftersom de har fullständigt definierade och korrekt beställda parametrar för *bygge*, *golv*och *rum* .
+Time Series **ID1** och **ID4** visas som en del av hierarkiN **H1** i Utforskaren för [Azure Time Series Insights](time-series-insights-update-explorer.md) eftersom de har helt definierat och korrekt beställt *byggnads-,* *golv-* och rumsparametrar. *room*
 
-De andra klassificeras under icke- *överordnade instanser* eftersom de inte överensstämmer med den angivna Datahierarkin.
+De andra klassificeras under *Ej efterälskade instanser* eftersom de inte överensstämmer med den angivna datahierarkin.
 
-## <a name="time-series-model-types"></a>Modell typer för tids serier
+## <a name="time-series-model-types"></a>Modelltyper för tidsserier
 
-Med modell *typer* för tids serier kan du definiera variabler eller formler för att utföra beräkningar. Typer är associerade med en angiven Time Series Insights-instans.
+Tidsseriemodelltyper hjälper dig att definiera variabler eller formler för att göra beräkningar. *types* Typer är associerade med en specifik Time Series Insights-instans.
 
-En typ kan ha en eller flera variabler. En tids serie modell instans kan till exempel vara av typen *temperatur sensor*, som består av variablerna *medel temperatur*, *min temperatur*och *Maximal temperatur*.
+En typ kan ha en eller flera variabler. En tidsseriemodellinstans kan till exempel vara av typen *Temperatursensor*, som består av variablerna *avg temperatur,* *min temperatur*och *max temperatur*.
 
-[Contosos demo grupp demonstration](https://insights.timeseries.azure.com/preview/samples) visualiserar flera tids serie modell typer som är kopplade till sina respektive instanser.
+[Contoso Wind Farm-demon](https://insights.timeseries.azure.com/preview/samples) visualiserar flera tidsseriemodelltyper som är associerade med deras respektive instanser.
 
-[exempel på modell typ för ![tids serie](media/v2-update-tsm/time-series-model-types.png)](media/v2-update-tsm/time-series-model-types.png#lightbox)
+[![Exempel på typ av tidsseriemodell](media/v2-update-tsm/time-series-model-types.png)](media/v2-update-tsm/time-series-model-types.png#lightbox)
 
 > [!TIP]
-> För Time Series Insights instans-API och CRUD-stöd läser du artikeln om [data frågor](time-series-insights-update-tsq.md#time-series-model-query-tsm-q-apis) och [rest-dokumentation för typ-API](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#types-api).
+> För Time Series Insights Instance API och CRUD-stöd läser du artikeln [Datafrågefrågor](time-series-insights-update-tsq.md#time-series-model-query-tsm-q-apis) och [typ API REST-dokumentationen](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#types-api).
 
-### <a name="type-properties"></a>Typ egenskaper
+### <a name="type-properties"></a>Egenskaper för typ
 
-Tids serie modell typer definieras av **ID**, **namn**, **Beskrivning**och **variabler**.
+Tidsseriemodelltyper definieras av **id,** **namn,** **beskrivning**och **variabler**.
 
 | Egenskap | Beskrivning |
 | ---| ---|
 | id | UUID för typen. |
 | namn | En sträng som används för att ange ett namn för typen. |
-| beskrivning | En sträng beskrivning för typen. |
-| användarvariabler | Ange variabler som är associerade med typen. |
+| description | En strängbeskrivning för typen. |
+| Variabler | Ange variabler som är associerade med typen. |
 
-Typerna följer följande JSON-exempel:
+Typerna överensstämmer med följande JSON-exempel:
 
 ```JSON
 {
@@ -286,28 +286,28 @@ Typerna följer följande JSON-exempel:
 
 ### <a name="variables"></a>Variabler
 
-Time Series Insights typer kan ha många variabler som anger formel-och beräknings regler för händelser.
+Time Series Insights-typer kan ha många variabler som anger formel- och beräkningsregler för händelser.
 
-Varje variabel kan vara en av tre *typer*: *numeric*, *kategoriska*och *aggregation*.
+Varje variabel kan vara en av tre *typer:* *numerisk,* *kategorisk*och *aggregerad*.
 
-* **Numeriska** typer fungerar med kontinuerliga värden. 
-* **Kategoriska** -typer fungerar med en definierad uppsättning diskreta värden.
-* **Aggregerade** värden kombinerar flera variabler av samma typ (antingen alla numeriska eller alla kategoriska).
+* **Numeriska** sorter arbetar med kontinuerliga värden. 
+* **Kategoriska** typer arbetar med en definierad uppsättning diskreta värden.
+* **Aggregerade** värden kombinerar flera variabler av ett enda slag (antingen alla numeriska eller alla kategoriska).
 
 I följande tabell visas vilka egenskaper som är relevanta för varje variabel typ.
 
-[![tids serie modell variabel tabell](media/v2-update-tsm/time-series-model-variable-table.png)](media/v2-update-tsm/time-series-model-variable-table.png#lightbox)
+[![Variabeltabell för tidsseriemodell](media/v2-update-tsm/time-series-model-variable-table.png)](media/v2-update-tsm/time-series-model-variable-table.png#lightbox)
 
 #### <a name="numeric-variables"></a>Numeriska variabler
 
 | Variabel egenskap | Beskrivning |
 | --- | ---|
-| Variabel filter | Filter är valfria villkorliga satser för att begränsa antalet rader som ska beaktas för beräkning. |
-| Variabel värde | Telemetri värden som används för beräkning som kommer från enheten eller sensorer eller omvandlas med hjälp av Time Series-uttryck. Variabler av typen numerisk typ måste vara av typen *Double*.|
-| Variabel interpolation | Interpolation anger hur du återskapar en signal med hjälp av befintliga data. Alternativen för *steg* och *linjär* interpolation är tillgängliga för numeriska variabler. |
-| Variabel agg regering | Stöd för beräkning *via AVG*, *min*, *Max*, *Sum*, *Count*, *First*, *Last* och Time-Weighted (*AVG*, *min*, *Max*, *Sum*, *Left*). |
+| Variabelt filter | Filter är valfria villkorssatser för att begränsa antalet rader som övervägs för beräkning. |
+| Variabelt värde | Telemetrivärden som används för beräkning som kommer från enheten eller sensorerna eller omvandlas med hjälp av tidsserieuttryck. Numeriska slagvariabler måste vara av typen *Dubbel*.|
+| Variabel interpolation | Interpolation anger hur du rekonstruerar en signal med hjälp av befintliga data. *Steg-* och linjärinterpoleringsalternativ är tillgängliga för numeriska variabler. *Linear* |
+| Variabel aggregering | Stöd beräkning genom *Medel,* *Min*, *Max*, *Summa*, *Antal*, *Första*, *Sista* och tidsvägda operatorer (*Medel*, *Min*, *Max*, *Summa*, *Vänster).* |
 
-Variabler följer följande JSON-exempel:
+Variablerna överensstämmer med följande JSON-exempel:
 
 ```JSON
 "Interpolated Speed": {
@@ -328,23 +328,23 @@ Variabler följer följande JSON-exempel:
 }
 ```
 
-#### <a name="categorical-variables"></a>Kategoriska-variabler
+#### <a name="categorical-variables"></a>Kategoriska variabler
 
 | Variabel egenskap | Beskrivning |
 | --- | ---|
-| Variabel filter | Filter är valfria villkorliga satser för att begränsa antalet rader som ska beaktas för beräkning. |
-| Variabel värde | Telemetridata som används för beräkning som kommer från enheten eller sensorer. Kategoriska-variabler måste vara antingen *långa* eller *strängar*. |
-| Variabel interpolation | Interpolation anger hur du återskapar en signal med hjälp av befintliga data. Alternativet *Step* -interpolation är tillgängligt för kategoriska-variabler. |
-| Variabel kategorier | Kategorier skapar en mappning mellan värdena som kommer från enheten eller sensorer till en etikett. |
-| Variabel standard kategori | Standard kategorin är för alla värden som inte mappas i egenskapen "Categories". |
+| Variabelt filter | Filter är valfria villkorssatser för att begränsa antalet rader som övervägs för beräkning. |
+| Variabelt värde | Telemetrivärden som används för beräkning som kommer från enheten eller sensorerna. Kategoriska slagvariabler måste vara antingen *Långa* eller *Sträng*. |
+| Variabel interpolation | Interpolation anger hur du rekonstruerar en signal med hjälp av befintliga data. *Alternativet* Steginterpolering är tillgängligt för kategoriska variabler. |
+| Variabla kategorier | Kategorier skapar en mappning mellan värdena som kommer från enheten eller sensorerna till en etikett. |
+| Standardkategori för variabel | Standardkategorin är för alla värden som inte mappas i egenskapen "kategorier". |
 
-Variabler följer följande JSON-exempel:
+Variablerna överensstämmer med följande JSON-exempel:
 
 ```JSON
 "Status": {
   "kind": "categorical",
   "value": {
-     "tsx": "toLong($event.[Status].Double)" 
+     "tsx": "toLong($event.[Status].Double)"
 },
   "interpolation": {
     "kind": "step",
@@ -354,7 +354,7 @@ Variabler följer följande JSON-exempel:
   },
   "categories": [
     {
-      "values": [0, 1, 2, 3],
+      "values": [0, 1, 2],
       "label": "Good"
     },
     {
@@ -368,14 +368,14 @@ Variabler följer följande JSON-exempel:
 }
 ```
 
-#### <a name="aggregate-variables"></a>Aggregera variabler
+#### <a name="aggregate-variables"></a>Aggregerade variabler
 
 | Variabel egenskap | Beskrivning |
 | --- | ---|
-| Variabel filter | Filter är valfria villkorliga satser för att begränsa antalet rader som ska beaktas för beräkning. |
-| Variabel agg regering | Stöd för beräkning via *AVG*, *min*, *Max*, *Sum*, *Count*, *First*, *Last*. |
+| Variabelt filter | Filter är valfria villkorssatser för att begränsa antalet rader som övervägs för beräkning. |
+| Variabel aggregering | Stöd beräkning genom *Medel,* *Min*, *Max*, *Summa*, *Antal*, *Första*, *Sista*. |
 
-Variabler följer följande JSON-exempel:
+Variablerna överensstämmer med följande JSON-exempel:
 
 ```JSON
 "Aggregate Speed": {
@@ -387,12 +387,12 @@ Variabler följer följande JSON-exempel:
 }
 ```
 
-Variabler lagras i typ definitionen för en tids serie modell och kan anges infogade via [fråge-API: er](time-series-insights-update-tsq.md) för att åsidosätta den lagrade definitionen.
+Variabler lagras i typdefinitionen av en tidsseriemodell och kan tillhandahållas infogade via [Fråge-API:er](time-series-insights-update-tsq.md) för att åsidosätta den lagrade definitionen.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Läs [Azure Time Series Insights för hands versions lagring och inkommande](./time-series-insights-update-storage-ingress.md)trafik.
+- Läs [Azure Time Series Insights Preview lagring och inträngning](./time-series-insights-update-storage-ingress.md).
 
-- Läs om vanliga tids serie modell åtgärder i [data modellering i Azure Time Series Insights för hands version](./time-series-insights-update-how-to-tsm.md)
+- Lär dig mer om vanliga time series-modellåtgärder i [datamodellering i förhandsversionen av Azure Time Series Insights](./time-series-insights-update-how-to-tsm.md)
 
-- Läs den nya referens dokumentationen för [Time Series-modellen](https://docs.microsoft.com/rest/api/time-series-insights/preview-model) .
+- Läs den nya referensdokumentationen för [tidsseriemodellen.](https://docs.microsoft.com/rest/api/time-series-insights/preview-model)

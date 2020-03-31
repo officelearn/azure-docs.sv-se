@@ -1,34 +1,34 @@
 ---
 title: ContentDefinitions
 titleSuffix: Azure AD B2C
-description: Ange ContentDefinitions-elementet för en anpassad princip i Azure Active Directory B2C.
+description: Ange contentdefinitions-elementet i en anpassad princip i Azure Active Directory B2C.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/17/2020
+ms.date: 02/20/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: b55199ec2684ab7b95ce4e4988b19814c27b2cc3
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 074a0a39090e22a29f778fc1c99060848c6bfd99
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79246063"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80051499"
 ---
 # <a name="contentdefinitions"></a>ContentDefinitions
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Du kan anpassa utseendet på en [egen, kontrollerad teknisk profil](self-asserted-technical-profile.md). Azure Active Directory B2C (Azure AD B2C) kör kod i kundens webbläsare och använder en modern metod som kallas CORS (Cross-Origin Resource Sharing).
+Du kan anpassa utseendet och känslan hos alla [självsäkra tekniska profiler.](self-asserted-technical-profile.md) Azure Active Directory B2C (Azure AD B2C) kör kod i kundens webbläsare och använder en modern metod som kallas CORS (Cross-Origin Resource Sharing).
 
-Om du vill anpassa användar gränssnittet anger du en URL i **ContentDefinition** -elementet med anpassat HTML-innehåll. I den självkontrollerade tekniska profilen eller **OrchestrationStep**pekar du på den innehålls definitions identifieraren. Innehålls definitionen kan innehålla ett **LocalizedResourcesReferences** -element som anger en lista över lokaliserade resurser som ska läsas in. Azure AD B2C sammanfogar användargränssnittets element med HTML-innehåll som läses in från din URL och visar sedan sidan för användaren.
+Om du vill anpassa användargränssnittet anger du en URL i **ContentDefinition-elementet** med anpassat HTML-innehåll. I den självsäkra tekniska profilen eller **OrchestrationStep**pekar du på den innehållsdefinitionsidentifieraren. Innehållsdefinitionen kan innehålla ett **LocalizedResourcesReferences-element** som anger en lista över lokaliserade resurser som ska läsas in. Azure AD B2C sammanfogar användargränssnittets element med HTML-innehåll som läses in från din URL och visar sedan sidan för användaren.
 
-**ContentDefinitions** -elementet innehåller URL: er till HTML5-mallar som kan användas i en användar resa. HTML5-sidans URI används för ett angivet användar gränssnitts steg. Till exempel inloggnings-eller registrerings-, lösen ords återställning eller fel sidor. Du kan ändra utseendet och känslan genom att åsidosätta LoadUri för HTML5-filen. Du kan skapa nya innehålls definitioner efter dina behov. Det här elementet kan innehålla en lokaliserad resurs referens till lokaliserings identifieraren som anges i [lokaliserings](localization.md) elementet.
+**ContentDefinitions-elementet** innehåller url:er till HTML5-mallar som kan användas i en användarresa. HTML5-sidans URI används för ett angivet användargränssnittssteg. Till exempel inloggnings- eller registrerings-, lösenordsåterställnings- eller felsidor. Du kan ändra utseendet och känslan genom att åsidosätta LoadUri för HTML5-filen. Du kan skapa nya innehållsdefinitioner efter dina behov. Det här elementet kan innehålla en lokaliserad resursreferens till den lokaliseringsidentifierare som anges i [lokaliseringselementet.](localization.md)
 
-I följande exempel visas innehålls definitions identifieraren och definitionen av lokaliserade resurser:
+I följande exempel visas innehållsdefinitionsidentifieraren och definitionen av lokaliserade resurser:
 
 ```XML
 <ContentDefinition Id="api.localaccountsignup">
@@ -44,7 +44,7 @@ I följande exempel visas innehålls definitions identifieraren och definitionen
     ...
 ```
 
-Metadata för den **LocalAccountSignUpWithLogonEmail** självkontrollerade tekniska profilen innehåller ID för innehålls definitions **ContentDefinitionReferenceId** som är inställt på `api.localaccountsignup`
+Metadata för den självpåttade tekniska profilen **LocalAccountSignUpWithLogonEmail** innehåller innehållsdefinitionsidentifieraren **ContentDefinitionReferenceId** inställd på`api.localaccountsignup`
 
 ```XML
 <TechnicalProfile Id="LocalAccountSignUpWithLogonEmail">
@@ -57,46 +57,46 @@ Metadata för den **LocalAccountSignUpWithLogonEmail** självkontrollerade tekni
   ...
 ```
 
-## <a name="contentdefinition"></a>ContentDefinition
+## <a name="contentdefinition"></a>InnehållDefinition
 
-**ContentDefinition** -elementet innehåller följande attribut:
+**ContentDefinition-elementet** innehåller följande attribut:
 
 | Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
-| Id | Ja | En identifierare för en innehålls definition. Värdet är ett angivet i avsnittet **innehålls Definitions-ID** senare på den här sidan. |
+| Id | Ja | En identifierare för en innehållsdefinition. Värdet är ett som anges i avsnittet **Innehållsdefinitions-ID** senare på den här sidan. |
 
-**ContentDefinition** -elementet innehåller följande element:
+ContentDefinition-elementet innehåller följande element: **ContentDefinition**
 
-| Element | Förekomster | Beskrivning |
+| Element | Händelser | Beskrivning |
 | ------- | ----------- | ----------- |
-| LoadUri | 1:1 | En sträng som innehåller webb adressen till HTML5-sidan för innehålls definitionen. |
-| RecoveryUri | 1:1 | En sträng som innehåller URL: en för HTML-sidan för att visa ett fel som rör innehålls definitionen. |
-| DataUri | 1:1 | En sträng som innehåller den relativa URL: en för en HTML-fil som ger användar upplevelsen för att anropa steget. |
-| Metadata | 0:1 | En samling nyckel/värde-par som innehåller de metadata som används av innehålls definitionen. |
-| LocalizedResourcesReferences | 0:1 | En samling med lokaliserade resurs referenser. Använd det här elementet för att anpassa lokaliseringen av ett användar gränssnitt och ett anspråks attribut. |
+| LoadUri (läs) | 1:1 | En sträng som innehåller URL:en för HTML5-sidan för innehållsdefinitionen. |
+| ÅtervinningUri | 1:1 | En sträng som innehåller URL:en på HTML-sidan för att visa ett fel som relaterar till innehållsdefinitionen. Värdet används för närvarande `~/common/default_page_error.html`inte och måste vara . |
+| DataUri (datauri) | 1:1 | En sträng som innehåller den relativa URL:en för en HTML-fil som ger användaren erfarenhet att anropa för steget. |
+| Metadata | 0:1 | En samling nyckel-/värdepar som innehåller de metadata som används av innehållsdefinitionen. |
+| LokaliseradeResourcesReferences | 0:1 | En samling lokaliserade resurser refererar till. Använd det här elementet om du vill anpassa lokaliseringen av ett användargränssnitt och anspråksattribut. |
 
-### <a name="datauri"></a>DataUri
+### <a name="datauri"></a>DataUri (datauri)
 
-**DataUri** -elementet används för att ange sid-ID. Azure AD B2C använder sid identifieraren för att läsa in och initiera GRÄNSSNITTs element och Java Script på klient sidan. Värdets format är `urn:com:microsoft:aad:b2c:elements:page-name:version`. I följande tabell visas de sid identifierare som du kan använda.
+**DataUri-elementet** används för att ange sididentifieraren. Azure AD B2C använder sididentifieraren för att läsa in och initiera gränssnittselement och JavaScript på klientsidan. Värdets format är `urn:com:microsoft:aad:b2c:elements:page-name:version`. I följande tabell visas de sididentifierare som du kan använda.
 
-| Sid identifierare | Beskrivning |
+| Sididentifierare | Beskrivning |
 | ----- | ----------- |
 | `globalexception` | Visar en felsida när ett undantag eller ett fel påträffas. |
-| `providerselection`, `idpselection` | Visar en lista över identitets leverantörer som användarna kan välja bland under inloggningen.  |
-| `unifiedssp` | Visar ett formulär för att logga in med ett lokalt konto baserat på en e-postadress eller ett användar namn. Det här värdet ger även "Behåll mig inloggnings funktioner" och "glömt ditt lösen ord?" Operationsföljdslänkkod. |
-| `unifiedssd` | Visar ett formulär för att logga in med ett lokalt konto baserat på en e-postadress eller ett användar namn. |
+| `providerselection`, `idpselection` | Visar en lista över de identitetsleverantörer som användarna kan välja mellan under inloggningen.  |
+| `unifiedssp` | Visar ett formulär för inloggning med ett lokalt konto som baseras på en e-postadress eller ett användarnamn. Det här värdet ger också "keep me sign-in functionality" och "Glömt ditt lösenord?" Länk. |
+| `unifiedssd` | Visar ett formulär för inloggning med ett lokalt konto som baseras på en e-postadress eller ett användarnamn. |
 | `multifactor` | Verifierar telefonnummer med hjälp av text eller röst under registrering eller inloggning. |
-| `selfasserted` | Visar ett formulär för insamling av data från en användare. Till exempel kan användarna skapa eller uppdatera sin profil. |
+| `selfasserted` | Visar ett formulär för att samla in data från en användare. Gör det till exempel möjligt för användare att skapa eller uppdatera sin profil. |
 
-### <a name="select-a-page-layout"></a>Välj en sidlayout
+### <a name="select-a-page-layout"></a>Välja en sidlayout
 
-Du kan aktivera [JavaScript-kod på klient sidan](javascript-samples.md) genom att infoga `contract` mellan `elements` och typ av sida. Till exempel `urn:com:microsoft:aad:b2c:elements:contract:page-name:version`.
+Du kan aktivera [JavaScript-kod på klientsidan](javascript-samples.md) genom att `contract` infoga mellan `elements` och sidtypen. Till exempel `urn:com:microsoft:aad:b2c:elements:contract:page-name:version`.
 
 [!INCLUDE [active-directory-b2c-public-preview](../../includes/active-directory-b2c-public-preview.md)]
 
-[Versions](page-layout.md) delen av `DataUri` anger det innehålls paket som innehåller HTML, CSS och Java Script för användar gränssnitts elementen i principen. Om du tänker aktivera Java Script på klient sidan måste de element som du baserar Java Script på vara oföränderliga. Om de inte är oföränderliga kan eventuella ändringar orsaka oväntade beteenden på dina användar sidor. Du kan förhindra dessa problem genom att framtvinga användningen av en sidlayout och ange en version för sidlayouten. På så sätt ser du till att alla innehålls definitioner som du har baserat på Java Script är oföränderliga. Även om du inte tänker aktivera Java Script måste du fortfarande ange sidlayouten för sidorna.
+[Versionsdelen](page-layout.md) `DataUri` av anger paketet med innehåll som innehåller HTML, CSS och JavaScript för användargränssnittselementen i principen. Om du tänker aktivera JavaScript-kod på klientsidan måste de element som du baserar JavaScript på vara oföränderliga. Om de inte är oföränderliga kan eventuella ändringar orsaka oväntat beteende på dina användarsidor. Om du vill förhindra dessa problem genomdvingar du användningen av en sidlayout och anger en sidlayoutversion. Om du gör det säkerställs att alla innehållsdefinitioner som du har baserat ditt JavaScript på är oföränderliga. Även om du inte tänker aktivera JavaScript måste du fortfarande ange sidlayoutversionen för dina sidor.
 
-I följande exempel visas **DataUri** för `selfasserted` version `1.2.0`:
+I följande exempel visas `selfasserted` **DataUri** av version: `1.2.0`
 
 ```xml
 <ContentDefinition Id="api.localaccountpasswordreset">
@@ -109,11 +109,11 @@ I följande exempel visas **DataUri** för `selfasserted` version `1.2.0`:
 </ContentDefinition>
 ```
 
-#### <a name="migrating-to-page-layout"></a>Migrera till sidlayouten
+#### <a name="migrating-to-page-layout"></a>Migrera till sidlayout
 
-Formatet för värdet måste innehålla ordet `contract`: _urn: com: Microsoft: AAD: B2C: Elements:**kontrakt**:p ålder-Name: version_. Om du vill ange en sidlayout i dina anpassade principer som använder ett gammalt **DataUri** -värde, använder du följande tabell för att migrera till det nya formatet.
+Värdets format måste innehålla `contract`ordet : _urn:com:microsoft:aad:b2c:elements:**kontrakt**:page-name:version_. Om du vill ange en sidlayout i dina anpassade principer som använder ett gammalt **DataUri-värde** använder du följande tabell för att migrera till det nya formatet.
 
-| Gammalt DataUri värde | Nytt DataUri värde |
+| Gammalt DataUri-värde | Nytt DataUri-värde |
 | ----------------- | ----------------- |
 | `urn:com:microsoft:aad:b2c:elements:globalexception:1.0.0` | `urn:com:microsoft:aad:b2c:elements:contract:globalexception:1.2.0` |
 | `urn:com:microsoft:aad:b2c:elements:globalexception:1.1.0` | `urn:com:microsoft:aad:b2c:elements:contract:globalexception:1.2.0` |
@@ -131,40 +131,40 @@ Formatet för värdet måste innehålla ordet `contract`: _urn: com: Microsoft: 
 
 Ett **metadataelement** innehåller följande element:
 
-| Element | Förekomster | Beskrivning |
+| Element | Händelser | Beskrivning |
 | ------- | ----------- | ----------- |
-| Objekt | 0: n | Metadata som relaterar till innehålls definitionen. |
+| Objekt | 0:n | Metadata som relaterar till innehållsdefinitionen. |
 
-**Objekt** elementet i **metadata** -elementet innehåller följande attribut:
+Elementet **Objekt** i **elementet Metadata** innehåller följande attribut:
 
 | Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
-| Nyckel | Ja | Nyckeln metadata.  |
+| Nyckel | Ja | Metadatanyckeln.  |
 
-#### <a name="metadata-keys"></a>Nycklar för metadata
+#### <a name="metadata-keys"></a>Metadatanycklar
 
-Innehålls definitionen stöder följande metadata:
+Innehållsdefinitionen stöder följande metadataobjekt:
 
 | Nyckel | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
-| displayName | Nej | En sträng som innehåller namnet på innehålls definitionen. |
+| DisplayName | Inga | En sträng som innehåller namnet på innehållsdefinitionen. |
 
-### <a name="localizedresourcesreferences"></a>LocalizedResourcesReferences
+### <a name="localizedresourcesreferences"></a>LokaliseradeResourcesReferences
 
-**LocalizedResourcesReferences** -elementet innehåller följande element:
+Elementet **LocalizedResourcesReferences** innehåller följande element:
 
-| Element | Förekomster | Beskrivning |
+| Element | Händelser | Beskrivning |
 | ------- | ----------- | ----------- |
-| LocalizedResourcesReference | 1: n | En lista med lokaliserade resurs referenser för innehålls definitionen. |
+| LokaliseradResourcesReference | 1:n | En lista över lokaliserade resursreferenser för innehållsdefinitionen. |
 
-**LocalizedResourcesReference** -elementet innehåller följande attribut:
+Elementet **LocalizedResourcesReference** innehåller följande attribut:
 
 | Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
-| Språk | Ja | En sträng som innehåller ett språk som stöds för principen per RFC 5646-taggar för att identifiera språk. |
-| LocalizedResourcesReferenceId | Ja | Identifieraren för **LocalizedResources** -elementet. |
+| Språk | Ja | En sträng som innehåller ett språk som stöds för principen per RFC 5646 - Taggar för att identifiera språk. |
+| LokaliseradResourcesReferenceId | Ja | Identifieraren för elementet **LocalizedResources.** |
 
-I följande exempel visas en registrerings-eller inloggnings innehålls definition med en referens till lokalisering av engelska, franska och spanska:
+I följande exempel visas en definition av registrering eller inloggning med en hänvisning till lokalisering för engelska, franska och spanska:
 
 ```XML
 <ContentDefinition Id="api.signuporsignin">
@@ -182,27 +182,27 @@ I följande exempel visas en registrerings-eller inloggnings innehålls definiti
 </ContentDefinition>
 ```
 
-Information om hur du lägger till lokaliserings stöd i dina innehålls definitioner finns i [lokalisering](localization.md).
+Mer information om hur du lägger till lokaliseringsstöd i innehållsdefinitionerna finns i [Lokalisering](localization.md).
 
-## <a name="content-definition-ids"></a>ID för innehålls definition
+## <a name="content-definition-ids"></a>ID-skivor för innehållsdefinition
 
-ID-attributet för **ContentDefinition** -elementet anger vilken typ av sida som relaterar till innehålls definitionen. Elementet definierar den kontext som en anpassad HTML5/CSS-mall ska använda. I följande tabell beskrivs de olika innehålls Definitions-ID: n som identifieras av identitets miljö ramverket och de sidtyper som är relaterade till dem. Du kan skapa egna innehålls definitioner med ett godtyckligt ID.
+ContentDefinition-elementets **ContentDefinition** ID-attribut anger vilken typ av sida som relaterar till innehållsdefinitionen. Elementet definierar den kontext som en anpassad HTML5/CSS-mall ska tillämpas. I följande tabell beskrivs den uppsättning innehållsdefinitions-ID:n som känns igen av Identity Experience Framework och de sidtyper som relaterar till dem. Du kan skapa egna innehållsdefinitioner med ett godtyckligt ID.
 
 | ID | Standardmall | Beskrivning |
 | -- | ---------------- | ----------- |
-| **API. error** | [exception. cshtml](https://login.microsoftonline.com/static/tenant/default/exception.cshtml) | **Felsida** – visar en felsida när ett undantag eller ett fel påträffas. |
-| **API. idpselections** | [idpSelector. cshtml](https://login.microsoftonline.com/static/tenant/default/idpSelector.cshtml) | **Sidan Val av identitetsprovider** – visar en lista över identitets leverantörer som användarna kan välja bland under inloggningen. Alternativen är vanligt vis företags identitets leverantörer, sociala identitets leverantörer som Facebook och Google + eller lokala konton. |
-| **API. idpselections. signup** | [idpSelector. cshtml](https://login.microsoftonline.com/static/tenant/default/idpSelector.cshtml) | **Val av identitetsprovider för registrering** – visar en lista över identitets leverantörer som användarna kan välja bland vid registreringen. Alternativen är vanligt vis företags identitets leverantörer, sociala identitets leverantörer som Facebook och Google + eller lokala konton. |
-| **API. localaccountpasswordreset** | [selfasserted. cshtml](https://login.microsoftonline.com/static/tenant/default/selfAsserted.cshtml) | **Sidan glömt lösen ord** – visar ett formulär som användarna måste utföra för att initiera en lösen ords återställning. |
-| **API. localaccountsignin** | [selfasserted. cshtml](https://login.microsoftonline.com/static/tenant/default/selfAsserted.cshtml) | **Inloggnings sida för lokalt konto** – visar ett formulär för att logga in med ett lokalt konto som baseras på en e-postadress eller ett användar namn. Formuläret kan innehålla text rutorna text rutor och lösen ord. |
-| **API. localaccountsignup** | [selfasserted. cshtml](https://login.microsoftonline.com/static/tenant/default/selfAsserted.cshtml) | **Registrerings sida för lokalt konto** – visar ett formulär för att registrera ett lokalt konto baserat på en e-postadress eller ett användar namn. Formuläret kan innehålla olika inmatnings kontroller, t. ex. en text inmatnings ruta, en ruta för lösen ords inmatning, en alternativ knapp, en listruta med flera val och kryss rutor med flera val. |
-| **API. phonefactor** | [multifaktaor-1.0.0. cshtml](https://login.microsoftonline.com/static/tenant/default/multifactor-1.0.0.cshtml) | **Sidan Multi-Factor Authentication** – verifierar telefonnummer med hjälp av text eller röst under registrering eller inloggning. |
-| **API. selfasserted** | [selfasserted. cshtml](https://login.microsoftonline.com/static/tenant/default/selfAsserted.cshtml) | **Registrerings sida för socialt konto** – visar ett formulär som användarna måste slutföra när de registrerar sig genom att använda ett befintligt konto från en social identitetsprovider. Den här sidan liknar inloggnings sidan för det föregående sociala kontot, förutom fälten för lösen ords inmatning. |
-| **API. selfasserted. profileupdate** | [updateprofile. cshtml](https://login.microsoftonline.com/static/tenant/default/updateProfile.cshtml) | **Sidan profil uppdatering** – visar ett formulär som användarna kan använda för att uppdatera sin profil. Den här sidan liknar registrerings sidan för sociala konton, förutom fälten för lösen ords inmatning. |
-| **API. signuporsignin** | [Unified. cshtml](https://login.microsoftonline.com/static/tenant/default/unified.cshtml) | **Enhetlig registrering eller inloggnings sida** – hanterar användarens registrerings-och inloggnings process. Användare kan använda företags identitets leverantörer, sociala identitets leverantörer som Facebook, Google + eller lokala konton. |
+| **api.error api.error api.error api.** | [exception.cshtml](https://login.microsoftonline.com/static/tenant/default/exception.cshtml) | **Felsida** - Visar en felsida när ett undantag eller ett fel påträffas. |
+| **api.idpselections api.idpselections api.idpselections api.** | [idpSelector.cshtml](https://login.microsoftonline.com/static/tenant/default/idpSelector.cshtml) | **Urvalssida för identitetsprovider** – visar identitetsleverantörer som användarna kan välja mellan under inloggningen. Alternativen är vanligtvis företagsidentitetsleverantörer, sociala identitetsleverantörer som Facebook och Google+ eller lokala konton. |
+| **api.idpselections.signup** | [idpSelector.cshtml](https://login.microsoftonline.com/static/tenant/default/idpSelector.cshtml) | **Identitetsproviderval för registrering** – Visar identitetsleverantörer som användarna kan välja mellan under registreringen. Alternativen är vanligtvis företagsidentitetsleverantörer, sociala identitetsleverantörer som Facebook och Google+ eller lokala konton. |
+| **api.localaccountpasswordreset** | [selfasserted.cshtml](https://login.microsoftonline.com/static/tenant/default/selfAsserted.cshtml) | **Sidan Glömt lösenord** - Visar ett formulär som användarna måste fylla i för att initiera en återställning av lösenord. |
+| **api.localaccountsignin** | [selfasserted.cshtml](https://login.microsoftonline.com/static/tenant/default/selfAsserted.cshtml) | **Inloggningssida för lokalt konto** – Visar ett formulär för inloggning med ett lokalt konto som baseras på en e-postadress eller ett användarnamn. Formuläret kan innehålla en textinmatningsruta och en inmatningsruta för lösenord. |
+| **api.localaccountsignup** | [selfasserted.cshtml](https://login.microsoftonline.com/static/tenant/default/selfAsserted.cshtml) | **Registreringssida för lokalt konto** – visar ett formulär för att registrera dig för ett lokalt konto som baseras på en e-postadress eller ett användarnamn. Formuläret kan innehålla olika inmatningskontroller, till exempel: en textinmatningsruta, en inmatningsruta för lösenord, en alternativknapp, listrutor med enkel markeringar och kryssrutor med flera markeringar. |
+| **api.phonefactor (api.phonefactor)** | [multifaktor-1.0.0.cshtml](https://login.microsoftonline.com/static/tenant/default/multifactor-1.0.0.cshtml) | **Multifaktorautentiseringssida** – Verifierar telefonnummer med hjälp av text eller röst under registrering eller inloggning. |
+| **api.selfasserted** | [selfasserted.cshtml](https://login.microsoftonline.com/static/tenant/default/selfAsserted.cshtml) | **Registreringssida för sociala konton** – Visar ett formulär som användarna måste fylla i när de registrerar sig med hjälp av ett befintligt konto från en leverantör av social identitet. Den här sidan liknar den föregående registreringssidan för sociala konton, förutom fälten för lösenordsinmatning. |
+| **api.selfasserted.profileupdate api.selfasserted.profileupdate api.selfasserted.profileupdate api.** | [updateprofile.cshtml](https://login.microsoftonline.com/static/tenant/default/updateProfile.cshtml) | **Sidan Profiluppdatering** - Visar ett formulär som användarna kan komma åt för att uppdatera sin profil. Den här sidan liknar registreringssidan för sociala konton, förutom fälten för lösenordsinmatning. |
+| **api.signuporsignin** | [unified.cshtml](https://login.microsoftonline.com/static/tenant/default/unified.cshtml) | **Enhetlig registrerings- eller inloggningssida** - Hanterar användarens registrerings- och inloggningsprocess. Användare kan använda företagsidentitetsleverantörer, sociala identitetsleverantörer som Facebook eller Google+ eller lokala konton. |
 
 ## <a name="next-steps"></a>Nästa steg
 
-Ett exempel på hur du anpassar användar gränssnittet med hjälp av innehålls definitioner finns i:
+Ett exempel på hur du anpassar användargränssnittet med hjälp av innehållsdefinitioner finns i:
 
-[Anpassa ditt programs användar gränssnitt med hjälp av en anpassad princip](custom-policy-ui-customization.md)
+[Anpassa användargränssnittet i ditt program med hjälp av en anpassad princip](custom-policy-ui-customization.md)

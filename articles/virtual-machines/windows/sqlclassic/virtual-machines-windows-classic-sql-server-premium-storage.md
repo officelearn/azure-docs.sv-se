@@ -1,6 +1,6 @@
 ---
-title: Använda Azure Premium Storage med SQL Server | Microsoft Docs
-description: Den här artikeln använder resurser som skapats med den klassiska distributions modellen och ger vägledning om hur du använder Azure Premium Storage med SQL Server som körs på Azure Virtual Machines.
+title: Använda Azure Premium Storage med SQL Server | Microsoft-dokument
+description: Den här artikeln använder resurser som skapats med den klassiska distributionsmodellen och ger vägledning om hur du använder Azure Premium Storage med SQL Server som körs på virtuella Azure-datorer.
 services: virtual-machines-windows
 documentationcenter: ''
 author: MashaMSFT
@@ -16,61 +16,61 @@ ms.date: 06/01/2017
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: 479f9abc667e20a136da5f6231e78a1e4052f087
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75965676"
 ---
-# <a name="use-azure-premium-storage-with-sql-server-on-virtual-machines"></a>Använd Azure Premium Storage med SQL Server på virtuella datorer
+# <a name="use-azure-premium-storage-with-sql-server-on-virtual-machines"></a>Använd Azure Premium Storage med SQL Server på Virtual Machines
 
 ## <a name="overview"></a>Översikt
 
-[Azure Premium-SSD](../disks-types.md) är nästa generations lagring som ger låg latens och högt data flöde i/o. Det fungerar bäst för nyckel-i/o-intensiva arbets belastningar, till exempel SQL Server på IaaS [Virtual Machines](https://azure.microsoft.com/services/virtual-machines/).
+[Azure premium SSD är](../disks-types.md) nästa generation av lagring som ger låg latens och hög dataflöde IO. Det fungerar bäst för viktiga IO-intensiva arbetsbelastningar, till exempel SQL Server på [virtuella](https://azure.microsoft.com/services/virtual-machines/)IaaS-datorer .
 
 > [!IMPORTANT]
-> Azure har två olika distributions modeller för att skapa och arbeta med resurser: [Resource Manager och klassisk](../../../azure-resource-manager/management/deployment-models.md). Den här artikeln beskriver hur du använder den klassiska distributions modellen. Microsoft rekommenderar att de flesta nya distributioner använder Resource Manager-modellen.
+> Azure har två olika distributionsmodeller för att skapa och arbeta med resurser: [Resource Manager och Classic](../../../azure-resource-manager/management/deployment-models.md). Den här artikeln beskriver hur du använder den klassiska distributionsmodellen. Microsoft rekommenderar att de flesta nya distributioner använder Resource Manager-modellen.
 
-Den här artikeln innehåller planering och vägledning för att migrera en virtuell dator som kör SQL Server att använda Premium Storage. Detta omfattar Azure-infrastruktur (nätverk, lagring) och virtuella gäst datorer i Windows. Exemplet i [bilagan](#appendix-migrating-a-multisite-always-on-cluster-to-premium-storage) visar en fullständig heltäckande migrering av hur du flyttar större virtuella datorer för att dra nytta av förbättrad lokal SSD-lagring med PowerShell.
+Den här artikeln innehåller planering och vägledning för att migrera en virtuell dator som kör SQL Server för att använda Premium Storage. Detta inkluderar Azure-infrastruktur (nätverk, lagring) och gäst windows VM steg. Exemplet i [tillägget](#appendix-migrating-a-multisite-always-on-cluster-to-premium-storage) visar en fullständig omfattande övergång från till för hur du flyttar större virtuella datorer för att dra nytta av förbättrad lokal SSD-lagring med PowerShell.
 
-Det är viktigt att förstå processen från slut punkt till slut punkt för användning av Azure Premium Storage med SQL Server på virtuella IAAS-datorer. Det här omfattar:
+Det är viktigt att förstå processen från på nytt för att använda Azure Premium Storage med virtuella SQL Server på virtuella IAAS-datorer. Det här omfattar:
 
-* Identifiering av de nödvändiga förutsättningarna för att använda Premium Storage.
+* Identifiering av förutsättningarna för att använda Premium Storage.
 * Exempel på distribution av SQL Server på IaaS till Premium Storage för nya distributioner.
-* Exempel på migrering av befintliga distributioner, både fristående servrar och distributioner med SQL Always on-tillgänglighetsgrupper.
-* Möjliga metoder för migrering.
-* Komplett exempel från slut punkt till slut punkt som visar Azure, Windows och SQL Server steg för migrering av en befintlig Always on-implementering.
+* Exempel på migrering av befintliga distributioner, både fristående servrar och distributioner med SQL Always On Availability Groups.
+* Möjliga migrationsmetoder.
+* Fullständigt end-to-end-exempel som visar Azure-, Windows- och SQL Server-steg för migreringen av en befintlig Alltid på implementering.
 
-Mer bakgrunds information om SQL Server i Azure Virtual Machines finns i [SQL Server i azure Virtual Machines](../sql/virtual-machines-windows-sql-server-iaas-overview.md).
+Mer bakgrundsinformation om SQL Server i virtuella Azure-datorer finns [i SQL Server i Virtuella Azure-datorer](../sql/virtual-machines-windows-sql-server-iaas-overview.md).
 
-**Författare:** Daniel sol **teknisk granskare:** Luis Carlos Vargas sill, Sanjay Mishra, Pravin Mital, Juergen Thomas, Gonzalo Ruiz.
+**Författare:** Daniel Sol **Tekniska Granskare:** Luis Carlos Vargas Herring, Sanjay Mishra, Pravin Mital, Juergen Thomas, Gonzalo Ruiz.
 
-## <a name="prerequisites-for-premium-storage"></a>Krav för Premium Storage
+## <a name="prerequisites-for-premium-storage"></a>Förutsättningar för Premium-lagring
 
-Det finns flera krav för att använda Premium Storage.
+Det finns flera förutsättningar för att använda Premium Storage.
 
-### <a name="machine-size"></a>Dator storlek
+### <a name="machine-size"></a>Maskinens storlek
 
-För att använda Premium Storage måste du använda DS-serien Virtual Machines (VM). Om du inte har använt DS-serien datorer i moln tjänsten tidigare måste du ta bort den befintliga virtuella datorn, behålla de anslutna diskarna och sedan skapa en ny moln tjänst innan du skapar den virtuella datorn som DS * roll storlek. Mer information om storlekar för virtuella datorer finns i [virtuell dator och moln tjänst storlekar för Azure](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+För att använda Premium Storage måste du använda virtuella datorer i DS-serien (VM). Om du inte har använt DS-seriedatorer i molntjänsten tidigare måste du ta bort den befintliga virtuella datorn, behålla de anslutna diskarna och sedan skapa en ny molntjänst innan du återskapar den virtuella datorn som DS*-rollstorlek. Mer information om storlekar för virtuella datorer finns i [Storlekar för virtuella datorer och molntjänster för Azure](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
-### <a name="cloud-services"></a>Cloud services
+### <a name="cloud-services"></a>Molntjänster
 
-Du kan bara använda DS * VM: ar med Premium Storage när de skapas i en ny moln tjänst. Om du använder SQL Server Always on i Azure, refererar Always on Listener till den Azure Internal eller externa Load Balancer IP-adress som är associerad med en moln tjänst. Den här artikeln fokuserar på hur du migrerar när du behåller tillgänglighet i det här scenariot.
+Du kan bara använda virtuella DS*-datorer med Premium Storage när de skapas i en ny molntjänst. Om du använder SQL Server Always On i Azure refererar Alltid på lyssnaren till Azures interna eller externa belastningsutjämnings IP-adress som är associerad med en molntjänst. Den här artikeln fokuserar på hur du migrerar samtidigt som tillgängligheten bibehålls i det här scenariot.
 
 > [!NOTE]
-> En DS *-serie måste vara den första virtuella dator som distribueras till den nya moln tjänsten.
+> En DS*-serie måste vara den första virtuella datorn som distribueras till den nya molntjänsten.
 >
 >
 
-### <a name="regional-vnets"></a>Regional virtuella nätverk
+### <a name="regional-vnets"></a>Regionala virtuella nät
 
-För DS * VM: ar måste du konfigurera den Virtual Network (VNET) som är värd för de virtuella datorerna som regionala. Detta "ökar" det virtuella nätverket är att tillåta att större virtuella datorer tillhandahålls i andra kluster och tillåter kommunikation mellan dem. I följande skärm bild visar den markerade platsen regionala virtuella nätverk, medan det första resultatet visar ett "smal" VNET.
+För virtuella datorer med DS* måste du konfigurera virtuella nätverk (VNET) som är värd för dina virtuella datorer så att det är regionalt. Detta "breddar" det virtuella nätverket är att låta de större virtuella datorerna etableras i andra kluster och tillåta kommunikation mellan dem. I följande skärmbild visar den markerade platsen regionala VNETs, medan det första resultatet visar ett "smalt" VNET.
 
 ![RegionalVNET][1]
 
-Du kan ge ett Microsoft-Support ärende till att migrera till ett regionalt VNET. Microsoft gör en ändring. Om du vill slutföra migreringen till regionala virtuella nätverk ändrar du egenskapen AffinityGroup i nätverks konfigurationen. Exportera först nätverks konfigurationen i PowerShell och ersätt sedan egenskapen **AffinityGroup** i elementet **VirtualNetworkSite** med egenskapen **location** . Ange `Location = XXXX` där `XXXX` är en Azure-region. Importera sedan den nya konfigurationen.
+Du kan höja en Microsoft-supportbiljett för att migrera till ett regionalt VNET.You can raise a Microsoft support ticket to migration to a regional VNET. Microsoft gör sedan en förändring. Om du vill slutföra migreringen till regionala VNETs ändrar du egenskapen AffinityGroup i nätverkskonfigurationen. Exportera först nätverkskonfigurationen i PowerShell och ersätt sedan egenskapen **AffinityGroup** i elementet **VirtualNetworkSite** med **egenskapen Location.** Ange `Location = XXXX` `XXXX` var som är en Azure-region. Importera sedan den nya konfigurationen.
 
-Anta till exempel följande VNET-konfiguration:
+Med tanke på följande VNET-konfiguration kan du till exempel överväga följande VNET-konfiguration:
 
 ```xml
 <VirtualNetworkSite name="danAzureSQLnet" AffinityGroup="AzureSQLNetwork">
@@ -83,7 +83,7 @@ Anta till exempel följande VNET-konfiguration:
 </VirtualNetworkSite>
 ```
 
-Om du vill flytta detta till ett regionalt VNET i Västeuropa, ändrar du konfigurationen till följande:
+Om du vill flytta detta till ett regionalt VNET i Västeuropa ändrar du konfigurationen till följande:
 ```xml
 <VirtualNetworkSite name="danAzureSQLnet" Location="West Europe">
 <AddressSpace>
@@ -97,43 +97,43 @@ Om du vill flytta detta till ett regionalt VNET i Västeuropa, ändrar du konfig
 
 ### <a name="storage-accounts"></a>Lagringskonton
 
-Du måste skapa ett nytt lagrings konto som har kon figurer ATS för Premium Storage. Observera att användningen av Premium Storage anges på lagrings kontot, inte på enskilda virtuella hård diskar, men när du använder en DS * Series VM kan du koppla en virtuell hård disk från Premium-och standard lagrings kontona. Du kan tänka på detta om du inte vill placera OS-VHD: n på Premium Storage kontot.
+Du måste skapa ett nytt lagringskonto som är konfigurerat för Premium Storage. Observera att användningen av Premium Storage är inställd på lagringskontot, inte på enskilda virtuella hårddiskar, men när du använder en VM-serie i DS*-serien kan du koppla virtuella hårddiskar från Premium- och Standardlagringskonton. Du kan överväga detta om du inte vill placera OS VHD på Premium Storage-konto.
 
-Följande **New-AzureStorageAccountPowerShell-** kommando med **typen** "Premium_LRS" skapar ett Premium Storage-konto:
+Följande kommandot **New-AzureStorageAccountPowerShell** med typen **"Premium_LRS"** skapar ett Premium Storage-konto:
 
 ```powershell
 $newstorageaccountname = "danpremstor"
 New-AzureStorageAccount -StorageAccountName $newstorageaccountname -Location "West Europe" -Type "Premium_LRS"   
 ```
 
-### <a name="vhds-cache-settings"></a>Cache-inställningar för virtuella hård diskar
+### <a name="vhds-cache-settings"></a>Cacheinställningar för vhds
 
-Den största skillnaden mellan att skapa diskar som ingår i ett Premium Storage-konto är inställningen för diskcachen. För SQL Server data volym diskar rekommenderar vi att du använder "**Read caching**". För transaktions loggs volymer ska inställningen för diskcachen anges till "**ingen**". Detta skiljer sig från rekommendationerna för standard lagrings konton.
+Den största skillnaden mellan att skapa diskar som ingår i ett Premium Storage-konto är diskcacheinställningen. För SQL Server Data-volymdiskar rekommenderar vi att du använder**Read Caching**. För transaktionsloggvolymer ska diskcachen anges till '**Ingen**'. Detta skiljer sig från rekommendationerna för Standard Storage-konton.
 
-När de virtuella hård diskarna har anslutits kan inte cache-inställningen ändras. Du måste koppla från och återansluta den virtuella hård disken med en uppdaterad cache-inställning.
+När de virtuella hårddiskarna har anslutits kan cacheinställningen inte ändras. Du måste koppla från och sätta tillbaka den virtuella hårddisken med en uppdaterad cacheinställning.
 
-### <a name="windows-storage-spaces"></a>Windows lagrings utrymmen
+### <a name="windows-storage-spaces"></a>Windows lagringsutrymmen
 
-Du kan använda [Windows lagrings utrymmen](https://technet.microsoft.com/library/hh831739.aspx) som du gjorde med tidigare standard lagring, så att du kan migrera en virtuell dator som redan använder lagrings utrymmen. Exemplet i [bilaga](#appendix-migrating-a-multisite-always-on-cluster-to-premium-storage) (steg 9 och framåt) visar PowerShell-koden för att extrahera och importera en virtuell dator med flera anslutna virtuella hård diskar.
+Du kan använda [Windows Lagringsutrymmen](https://technet.microsoft.com/library/hh831739.aspx) som du gjorde med tidigare standardlagring, vilket gör att du kan migrera en virtuell dator som redan använder lagringsutrymmen. Exemplet i [tillägg](#appendix-migrating-a-multisite-always-on-cluster-to-premium-storage) (steg 9 och framåt) visar Powershell-koden för att extrahera och importera en virtuell dator med flera anslutna virtuella hårddiskar.
 
-Lagringspooler användes med standard Azure Storage-kontot för att förbättra data flödet och minska svars tiden. Du kan hitta värde i testa lagringspooler med Premium Storage för nya distributioner, men de lägger till ytterligare komplexitet med lagrings konfigurationen.
+Lagringspooler användes med Standard Azure-lagringskonto för att förbättra dataflödet och minska svarstiden. Du kan hitta värde i testning av lagringspooler med Premium Storage för nya distributioner, men de lägger till ytterligare komplexitet med lagringsinställningar.
 
-#### <a name="how-to-find-which-azure-virtual-disks-map-to-storage-pools"></a>Så här tar du reda på vilka virtuella Azure-diskar som mappar till lagringspooler
+#### <a name="how-to-find-which-azure-virtual-disks-map-to-storage-pools"></a>Ta reda på vilken Azure Virtual Disks-mappning till lagringspooler
 
-Eftersom det finns olika inställningar för cachelagring för anslutna virtuella hård diskar kan du välja att kopiera de virtuella hård diskarna till ett Premium Storage-konto. Men när du återansluter dem till den nya VM: en VM-serien kan du behöva ändra cacheinställningarna. Det är enklare att tillämpa Premium Storage rekommenderade cacheinställningar när du har separata virtuella hård diskar för SQL-datafiler och loggfiler (i stället för en enda virtuell hård disk som innehåller båda).
+Eftersom det finns olika rekommendationer för cacheinställning för kopplade virtuella hårddiskar kan du välja att kopiera de virtuella hårddiskarna till ett Premium Storage-konto. Men när du sätter tillbaka dem till den nya virtuella datorn i DS-serien kan du behöva ändra cacheinställningarna. Det är enklare att tillämpa de rekommenderade cacheinställningarna för Premium Storage när du har separata virtuella hårddiskar för SQL-datafiler och loggfiler (i stället för en enda virtuell hårddisk som innehåller båda).
 
 > [!NOTE]
-> Om du har SQL Server data-och loggfiler på samma volym, är det cachealternativ du väljer beroende av i/o-åtkomst mönster för dina databas arbets belastningar. Endast testning kan demonstrera vilket alternativ för cachelagring som passar bäst för det här scenariot.
+> Om du har SQL Server-data och loggfiler på samma volym beror cachelagringsalternativet du väljer på IO-åtkomstmönster för databasarbetsbelastningarna. Endast testning kan visa vilket cachelagringsalternativ som är bäst för det här scenariot.
 >
 >
 
-Men om du använder Windows lagrings utrymmen som består av flera virtuella hård diskar måste du titta på de ursprungliga skripten för att identifiera vilka anslutna virtuella hård diskar som finns i vilken pool som helst, så du kan sedan ange cacheinställningarna för varje disk.
+Men om du använder Windows Storage Spaces som består av flera virtuella hårddiskar måste du titta på dina ursprungliga skript för att identifiera vilka anslutna virtuella hårddiskar som finns i vilken specifik pool, så att du sedan kan ställa in cacheinställningarna därefter för varje disk.
 
-Om du inte har det ursprungliga skriptet tillgängligt för att visa vilka virtuella hård diskar som mappar till lagringspoolen kan du använda följande steg för att ta reda på mappningen för disk-och lagrings enheter.
+Om du inte har ett originalskript tillgängligt för att visa vilka virtuella hårddiskar som mappas till lagringspoolen kan du använda följande steg för att bestämma mappningen av disk-/lagringspoolen.
 
-Använd följande steg för varje disk:
+Gör så här för varje disk:
 
-1. Hämta lista över diskar som är anslutna till den virtuella datorn med kommandot **Get-AzureVM** :
+1. Hämta lista över diskar som är kopplade till den virtuella datorn med kommandot **Get-AzureVM:**
 
 ```powershell
 Get-AzureVM -ServiceName <servicename> -Name <vmname> | Get-AzureDataDisk
@@ -141,15 +141,15 @@ Get-AzureVM -ServiceName <servicename> -Name <vmname> | Get-AzureDataDisk
 
 1. Observera DiskName och LUN.
 
-    ![DisknameAndLUN][2]
-1. Fjärr skrivbord till den virtuella datorn. Gå sedan till **dator hantering** | **Enhetshanteraren** | **disk enheter**. Titta på egenskaperna för var och en av de "Microsoft Virtual disks"
+    ![DisknamnOchLUN][2]
+1. Fjärrskrivbord till den virtuella datorn. Gå sedan till **Diskenheter** | för**Enhetshanteraren** | **för**datorhantering . Titta på egenskaperna för var och en av "Microsoft Virtual Disks"
 
-    ![VirtualDiskProperties][3]
-1. LUN-numret här är en referens till det LUN-nummer som du anger när du kopplar den virtuella hård disken till den virtuella datorn.
-1. För "Microsoft Virtual Disk" går du till fliken **information** . i **egenskaps** listan går du sedan till **driv rutins nyckel**. I **värdet**noterar du **förskjutningen**, som är 0002 i följande skärm bild. 0002 anger de PhysicalDisk2 som lagringspoolen refererar till.
+    ![VirtualDisk-egenskaper][3]
+1. LUN-numret här är en referens till det LUN-nummer som du anger när den virtuella hårddisken kopplas till den virtuella datorn.
+1. För "Microsoft Virtual Disk" gå till fliken **Detaljer,** sedan i **egenskapslistan,** gå till **Drivrutinsnyckel**. I **värdet**noterar du **Offset**, som är 0002 i följande skärmbild. 0002 betecknar PhysicalDisk2 som lagringspoolen refererar till.
 
     ![VirtualDiskPropertyDetails][4]
-1. Dumpa ut de kopplade diskarna för varje lagringspool:
+1. För varje lagringspool dumpar du de associerade diskarna:
 
 ```powershell
 Get-StoragePool -FriendlyName AMS1pooldata | Get-PhysicalDisk
@@ -157,30 +157,30 @@ Get-StoragePool -FriendlyName AMS1pooldata | Get-PhysicalDisk
 
 ![GetStoragePool][5]
 
-Nu kan du använda den här informationen för att associera anslutna virtuella hård diskar till fysiska diskar i lagringspooler.
+Nu kan du använda den här informationen för att associera kopplade virtuella hårddiskar till fysiska diskar i lagringspooler.
 
-När du har mappat virtuella hård diskar till fysiska diskar i lagringspooler kan du koppla bort och kopiera dem till ett Premium Storage konto och sedan koppla dem till rätt cache-inställning. Se exemplet i [tillägget](#appendix-migrating-a-multisite-always-on-cluster-to-premium-storage)steg 8 till 12. De här stegen visar hur du extraherar en VM-ansluten VHD-serverkonfiguration till en CSV-fil, kopierar de virtuella hård diskarna, ändrar cache-inställningarna för disk konfigurationen och slutligen distribuerar om den virtuella datorn som en virtuell dator med DS-serien med alla anslutna diskar.
+När du har mappat virtuella hårddiskar till fysiska diskar i lagringspooler kan du sedan koppla från och kopiera dem till ett Premium Storage-konto och sedan bifoga dem med rätt cacheinställning. Se exemplet i [tillägget](#appendix-migrating-a-multisite-always-on-cluster-to-premium-storage), steg 8 till 12. De här stegen visar hur du extraherar en VM-ansluten VHD-diskkonfiguration till en CSV-fil, kopierar virtuella hårddiskar, ändrar diskkonfigurationscachens inställningar och slutligen distribuerar om den virtuella datorn som en VIRTUELLD-serie med alla anslutna diskar.
 
-### <a name="vm-storage-bandwidth-and-vhd-storage-throughput"></a>Bandbredd för VM-lagring och data flöde för VHD-lagring
+### <a name="vm-storage-bandwidth-and-vhd-storage-throughput"></a>VM-lagringsbandbredd och VHD-lagringsdataflöde
 
-Mängden lagrings prestanda beror på storleken på de virtuella datorerna i DS * och VHD-storlekarna. De virtuella datorerna har olika avdrag för antalet virtuella hård diskar som kan anslutas och den maximala bandbredd som de stöder (MB/s). För de angivna bandbredds numren, se [storlekar för virtuella datorer och moln tjänster för Azure](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Mängden lagringsprestanda beror på den angivna DS*VM-storleken och VHD-storlekarna. De virtuella datorerna har olika utsläppsrätter för antalet virtuella hårddiskar som kan kopplas och den maximala bandbredd som de stöder (MB/s). Information om specifika bandbreddsnummer finns i [Storlekar för virtuella datorer och molntjänster för Azure](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
-Ökad IOPS uppnås med större disk storlekar. Du bör tänka på detta när du tycker om din migrerings Sök väg. Mer information [finns i tabellen för IOPS-och disk typer](../disks-types.md#premium-ssd).
+Ökad IOPS uppnås med större diskstorlekar. Du bör tänka på detta när du tänker på din migreringsväg. Mer information [finns i tabellen för IOPS och Disktyper](../disks-types.md#premium-ssd).
 
-Tänk slutligen på att de virtuella datorerna har olika maximala disk bandbredder som de stöder för alla diskar som är anslutna. Under hög belastning kan du fylla den maximala disk bandbredden som är tillgänglig för den virtuella dator rollen. Till exempel en Standard_DS14 stöder upp till 512 MB/s; med tre P30-diskar kan du därför fylla disk bandbredden för den virtuella datorn. I det här exemplet kan data flödes gränsen överskridas beroende på blandningen av Läs-och skriv-IOs.
+Slutligen anser du att virtuella datorer har olika maximala diskbandbredder som de stöder för alla anslutna diskar. Under hög belastning kan du mätta den maximala diskbandbredden som är tillgänglig för den virtuella datorns rollstorlek. Till exempel stöder en Standard_DS14 upp till 512 MB/s. Därför, med tre P30-diskar kan du mätta diskbandbredden för den virtuella datorn. Men i det här exemplet kan dataflödesgränsen överskridas beroende på blandningen av läs- och skriv-IOs.
 
 ## <a name="new-deployments"></a>Nya distributioner
 
-Följande två avsnitt visar hur du kan distribuera SQL Server virtuella datorer till Premium Storage. Som tidigare nämnts behöver du inte nödvändigt vis placera OS-disken på Premium Storage. Du kan välja att göra detta om du inte vill placera några intensiva IO-arbetsbelastningar på OS-VHD: n.
+De följande två avsnitten visar hur du kan distribuera virtuella SQL Server-datorer till Premium Storage. Som tidigare nämnts behöver du inte nödvändigtvis placera OS-disken på Premium-lagring. Du kan välja att göra detta om du har för avsikt att placera några intensiva IO-arbetsbelastningar på OS VHD.
 
-Det första exemplet demonstrerar användningen av befintliga Azure Gallery-avbildningar. Det andra exemplet visar hur du använder en anpassad virtuell dator avbildning som du har i ett befintligt standard lagrings konto.
+Det första exemplet visar hur du använder befintliga Azure Gallery-avbildningar. Det andra exemplet visar hur du använder en anpassad VM-avbildning som du har i ett befintligt standardlagringskonto.
 
 > [!NOTE]
 > Dessa exempel förutsätter att du redan har skapat ett regionalt VNET.
 
-### <a name="create-a-new-vm-with-premium-storage-with-gallery-image"></a>Skapa en ny virtuell dator med Premium Storage med Galleri avbildning
+### <a name="create-a-new-vm-with-premium-storage-with-gallery-image"></a>Skapa en ny virtuell dator med Premium Storage med galleriavbildning
 
-Exemplet nedan visar hur du placerar OS-VHD: n på Premium Storage och ansluter Premium Storage virtuella hård diskar. Du kan dock också placera OS-disken på ett standard lagrings konto och sedan ansluta virtuella hård diskar som finns i ett Premium Storage konto. Båda scenarierna visas.
+Exemplet nedan visar hur du placerar OS VHD på premiumlagring och bifogar virtuella hårddiskar för Premium Storage. Du kan dock också placera OS-disken i ett standardlagringskonto och sedan bifoga virtuella hårddiskar som finns i ett Premium Storage-konto. Båda scenarierna visas.
 
 ```powershell
 $mysubscription = "DansSubscription"
@@ -191,7 +191,7 @@ Set-AzureSubscription -SubscriptionName $mysubscription
 Select-AzureSubscription -SubscriptionName $mysubscription -Current  
 ```
 
-#### <a name="step-1-create-a-premium-storage-account"></a>Steg 1: skapa ett Premium Storage konto
+#### <a name="step-1-create-a-premium-storage-account"></a>Steg 1: Skapa ett Premium-lagringskonto
 
 ```powershell
 #Create Premium Storage account, note Type
@@ -199,14 +199,14 @@ $newxiostorageaccountname = "danspremsams"
 New-AzureStorageAccount -StorageAccountName $newxiostorageaccountname -Location $location -Type "Premium_LRS"  
 ```
 
-#### <a name="step-2-create-a-new-cloud-service"></a>Steg 2: skapa en ny moln tjänst
+#### <a name="step-2-create-a-new-cloud-service"></a>Steg 2: Skapa en ny molntjänst
 
 ```powershell
 $destcloudsvc = "danNewSvcAms"
 New-AzureService $destcloudsvc -Location $location
 ```
 
-#### <a name="step-3-reserve-a-cloud-service-vip-optional"></a>Steg 3: reservera en moln tjänst VIP (valfritt)
+#### <a name="step-3-reserve-a-cloud-service-vip-optional"></a>Steg 3: Boka en Cloud Service VIP (valfritt)
 
 ```powershell
 #check exisitng reserved VIP
@@ -216,7 +216,7 @@ $reservedVIPName = "sqlcloudVIP"
 New-AzureReservedIP –ReservedIPName $reservedVIPName –Label $reservedVIPName –Location $location
 ```
 
-#### <a name="step-4-create-a-vm-container"></a>Steg 4: skapa en VM-behållare
+#### <a name="step-4-create-a-vm-container"></a>Steg 4: Skapa en VM-behållare
 
 ```powershell
 #Generate storage keys for later
@@ -230,7 +230,7 @@ $containerName = 'vhds'
 New-AzureStorageContainer -Name $containerName -Context $xioContext
 ```
 
-#### <a name="step-5-placing-os-vhd-on-standard-or-premium-storage"></a>Steg 5: placera OS VHD på standard-eller Premium Storage
+#### <a name="step-5-placing-os-vhd-on-standard-or-premium-storage"></a>Steg 5: Placera virtuell hårddisk för os på standard- eller premiumlagring
 
 ```powershell
 #NOTE: Set up subscription and default storage account which is used to place the OS VHD in
@@ -244,7 +244,7 @@ $standardstorageaccountname = "danstdams"
 Set-AzureSubscription -SubscriptionName $mysubscription -CurrentStorageAccount  $standardstorageaccountname
 ```
 
-#### <a name="step-6-create-vm"></a>Steg 6: skapa en virtuell dator
+#### <a name="step-6-create-vm"></a>Steg 6: Skapa virtuell dator
 
 ```powershell
 #Get list of available SQL Server Images from the Azure Image Gallery.
@@ -291,9 +291,9 @@ Get-AzureVM -ServiceName $destcloudsvc -Name $vmName |Get-AzureOSDisk
 
 ### <a name="create-a-new-vm-to-use-premium-storage-with-a-custom-image"></a>Skapa en ny virtuell dator för att använda Premium Storage med en anpassad avbildning
 
-Det här scenariot visar var du har befintliga anpassade avbildningar som finns på ett standard lagrings konto. Som det anges om du vill placera OS-VHD: n på Premium Storage måste du kopiera avbildningen som finns i standard lagrings kontot och överföra dem till en Premium Storage innan den kan användas. Om du har en avbildning lokalt kan du också använda den här metoden för att kopiera direkt till Premium Storage-kontot.
+Det här scenariot visar var du har befintliga anpassade avbildningar som finns i ett Standard Storage-konto. Som nämnts om du vill placera OS VHD på Premium Storage måste du kopiera bilden som finns i standardlagringskontot och överföra dem till en Premium Storage innan den kan användas. Om du har en lokal bild kan du också använda den här metoden för att kopiera den direkt till Premium Storage-kontot.
 
-#### <a name="step-1-create-storage-account"></a>Steg 1: skapa lagrings konto
+#### <a name="step-1-create-storage-account"></a>Steg 1: Skapa lagringskonto
 
 ```powershell
 $mysubscription = "DansSubscription"
@@ -307,16 +307,16 @@ New-AzureStorageAccount -StorageAccountName $newxiostorageaccountname -Location 
 $origstorageaccountname = "danstdams"
 ```
 
-#### <a name="step-2-create-cloud-service"></a>Steg 2 Skapa moln tjänst
+#### <a name="step-2-create-cloud-service"></a>Steg 2 Skapa molntjänst
 
 ```powershell
 $destcloudsvc = "danNewSvcAms"
 New-AzureService $destcloudsvc -Location $location
 ```
 
-#### <a name="step-3-use-existing-image"></a>Steg 3: Använd en befintlig avbildning
+#### <a name="step-3-use-existing-image"></a>Steg 3: Använda befintlig bild
 
-Du kan använda en befintlig avbildning. Du kan också [ta en bild av en befintlig dator](../classic/capture-image-classic.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json). Observera att datorn som du avbildningen inte behöver vara DS * Machine. När du har avbildningen visar följande steg hur du kopierar den till Premium Storage-kontot med **AzureStorageBlobCopy PowerShell-** kommandot.
+Du kan använda en befintlig avbildning. Du kan också [ta en bild av en befintlig dator](../classic/capture-image-classic.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json). Observera att maskinen som du avbildning inte behöver vara DS*-maskin. När du har bilden visar följande steg hur du kopierar den till Premium **Storage-kontot med PowerShell-powerleten Start-AzureStorageBlobCopy.**
 
 ```powershell
 #Get storage account keys:
@@ -330,7 +330,7 @@ $origContext = New-AzureStorageContext  –StorageAccountName $origstorageaccoun
 $destContext = New-AzureStorageContext  –StorageAccountName $newxiostorageaccountname -StorageAccountKey $xiostorage.Primary  
 ```
 
-#### <a name="step-4-copy-blob-between-storage-accounts"></a>Steg 4: kopiera blobben mellan lagrings konton
+#### <a name="step-4-copy-blob-between-storage-accounts"></a>Steg 4: Kopiera Blob mellan lagringskonton
 
 ```powershell
 #Get Image VHD
@@ -343,13 +343,13 @@ $blob = Start-AzureStorageBlobCopy -SrcBlob $myImageVHD -SrcContainer $container
 -Context $origContext -DestContext $destContext  
 ```
 
-#### <a name="step-5-regularly-check-copy-status"></a>Steg 5: kontrol lera kopierings statusen regelbundet:
+#### <a name="step-5-regularly-check-copy-status"></a>Steg 5: Kontrollera regelbundet kopieringsstatus:
 
 ```powershell
 $blob | Get-AzureStorageBlobCopyState
 ```
 
-#### <a name="step-6-add-image-disk-to-azure-disk-repository-in-subscription"></a>Steg 6: Lägg till avbildnings disk till Azure disk-lagringsplatsen i prenumerationen
+#### <a name="step-6-add-image-disk-to-azure-disk-repository-in-subscription"></a>Steg 6: Lägga till avbildningsdiskett i Azure-diskarkiv i Prenumeration
 
 ```powershell
 $imageMediaLocation = $destContext.BlobEndPoint+"/"+$myImageVHD
@@ -359,11 +359,11 @@ Add-AzureVMImage -ImageName $newimageName -MediaLocation $imageMediaLocation
 ```
 
 > [!NOTE]
-> Det kan hända att du fortfarande får ett disk låne fel om status rapporterna är lyckade. Vänta i det här fallet cirka 10 minuter.
+> Du kanske upptäcker att även om statusrapporterna är framgångsrika kan du fortfarande få ett disklånefel. I det här fallet, vänta ca 10 minuter.
 
 #### <a name="step-7--build-the-vm"></a>Steg 7: Bygg den virtuella datorn
 
-Här skapar du den virtuella datorn från avbildningen och ansluter två Premium Storage virtuella hård diskar:
+Här skapar du den virtuella datorn från avbildningen och bifogar två virtuella hårddiskar för Premium Storage:
 
 ```powershell
 $newimageName = "prem"+"dansoldonorsql2k14"
@@ -398,244 +398,244 @@ $vmConfigsl2 | Add-AzureDataDisk -CreateNew -DiskSizeInGB 1023 -LUN 1 -HostCachi
 $vmConfigsl2 | New-AzureVM –ServiceName $destcloudsvc -VNetName $vnet
 ```
 
-## <a name="existing-deployments-that-do-not-use-always-on-availability-groups"></a>Befintliga distributioner som inte använder tillgänglighets grupper som alltid är tillgängliga
+## <a name="existing-deployments-that-do-not-use-always-on-availability-groups"></a>Befintliga distributioner som inte använder alltid på tillgänglighetsgrupper
 
 > [!NOTE]
-> För befintliga distributioner läser du först avsnittet [krav](#prerequisites-for-premium-storage) i den här artikeln.
+> För befintliga distributioner finns först i avsnittet [Förutsättningar i](#prerequisites-for-premium-storage) den här artikeln.
 
-Det finns olika överväganden för SQL Server distributioner som inte använder alltid tillgänglighets grupper och de som gör. Om du inte använder Always on och har en befintlig fristående SQL Server, kan du uppgradera till Premium Storage med hjälp av en ny moln tjänst och ett nytt lagrings konto. Överväg följande alternativ:
+Det finns olika överväganden för SQL Server-distributioner som inte använder alltid på tillgänglighetsgrupper och de som gör det. Om du inte använder Always On och har en befintlig fristående SQL Server kan du uppgradera till Premium Storage med hjälp av ett nytt molntjänst- och lagringskonto. Tänk på följande alternativ:
 
-* **Skapa en ny SQL Server VM**. Du kan skapa en ny SQL Server VM som använder ett Premium Storage konto, enligt beskrivningen i nya distributioner. Säkerhetskopiera och återställ sedan SQL Server-konfigurationen och användar databaserna. Programmet måste uppdateras för att referera till det nya SQL Server om det används internt eller externt. Du måste kopiera alla "out of dB"-objekt som om du utförde en sida vid sida (SxS) SQL Server migrering. Detta inkluderar objekt som inloggningar, certifikat och länkade servrar.
-* **Migrera en befintlig SQL Server VM**. Detta kräver att du tar SQL Server VM offline och sedan överför den till en ny moln tjänst, som inkluderar kopiering av alla anslutna virtuella hård diskar till Premium Storage-kontot. När den virtuella datorn är online refererar programmet till serverns värdnamn som tidigare. Tänk på att storleken på den befintliga disken påverkar prestanda egenskaperna. Till exempel blir en 400 GB-disk avrundad till en P20. Om du vet att du inte behöver disk prestanda kan du återskapa den virtuella datorn som en virtuell dator i VM-serien och bifoga Premium Storage virtuella hård diskar med den storlek/prestanda-specifikation som du behöver. Sedan kan du koppla från och återansluta SQL DB-filerna.
-
-> [!NOTE]
-> När du kopierar de virtuella hård diskarna bör du vara medveten om storleken, beroende på storleken betyder vad Premium Storage disk typen de använder, vilket fastställer disk prestanda specifikation. Azure avrundar upp till närmaste disk storlek, så om du har en 400 GB disk avrundas detta uppåt till en P20. Beroende på dina befintliga IO-krav för OS-VHD: n behöver du kanske inte migrera det till ett Premium Storage-konto.
-
-Om din SQL Server används externt ändras moln tjänstens VIP-ändringar. Du måste också uppdatera slut punkter, ACL: er och DNS-inställningar.
-
-## <a name="existing-deployments-that-use-always-on-availability-groups"></a>Befintliga distributioner som använder Always on-tillgänglighetsgrupper
+* **Skapa en ny VIRTUELL SQL Server**. Du kan skapa en ny virtuell SQL Server-dator som använder ett Premium Storage-konto, som dokumenterats i Nya distributioner. Säkerhetskopiera och återställ sedan SQL Server-konfigurationen och användardatabaserna. Programmet måste uppdateras för att referera till den nya SQL Server om den används internt eller externt. Du skulle behöva kopiera alla "av db" objekt som om du gjorde en Sida vid sida (SxS) SQL Server migrering. Detta inkluderar objekt som inloggningar, certifikat och länkade servrar.
+* **Migrera en befintlig VIRTUELL SQL Server**. Detta kräver att du tar den virtuella datorn för SQL Server offline och sedan överför den till en ny molntjänst, vilket inkluderar att kopiera alla anslutna virtuella hårddiskar till Premium Storage-kontot. När den virtuella datorn är online refererar programmet till servervärdens namn som tidigare. Tänk på att storleken på den befintliga disken påverkar prestandaegenskaperna. En disk på 400 GB avrundas till exempel uppåt till en P20.For example, a 400 GB disk gets rounded up to a P20. Om du vet att du inte behöver diskprestanda kan du återskapa den virtuella datorn som en VIRTUELLD DS-serie och bifoga virtuella virtuella hårddiskar i Premium Storage med den storleks-/prestandaspecifikation som du behöver. Då kan du koppla loss och sätta tillbaka SQL DB-filer.
 
 > [!NOTE]
-> För befintliga distributioner läser du först avsnittet [krav](#prerequisites-for-premium-storage) i den här artikeln.
+> När du kopierar VHD-diskarna bör du vara medveten om storleken, beroende på storleken betyder vilken Premium Storage Disk-typ de tillhör, detta avgör diskprestandaspecifikationen. Azure avrundar upp till närmaste diskstorlek, så om du har en 400 GB-disk avrundas detta uppåt till en P20. Beroende på dina befintliga IO-krav för virtuell hårddisk för operativsystemet kanske du inte behöver migrera detta till ett Premium Storage-konto.
 
-Från början i det här avsnittet tittar vi på hur Always on interagerar med Azure-nätverk. Vi bryter sedan migreringarna i till två scenarier: migreringar där viss nedtid kan tolereras och migreringar där du måste uppnå minimal stillestånds tid.
+Om din SQL Server används externt ändras molntjänsten VIP. Du måste också uppdatera slutpunkter, ACL:er och DNS-inställningar.
 
-Lokala SQL Server Always on-tillgänglighetsgrupper använder en lyssnare lokalt som registrerar ett virtuellt DNS-namn tillsammans med en IP-adress som delas mellan en eller flera SQL-servrar. När klienterna ansluter de dirigeras genom lyssnar-IP: n till den primära SQL Server. Detta är den server som äger Always on IP-resursen vid den tidpunkten.
-
-![DeploymentsUseAlways på][6]
-
-I Microsoft Azure kan du bara ha en IP-adress tilldelad till ett nätverkskort på den virtuella datorn, så för att kunna uppnå samma skikt för abstraktion som lokalt, använder Azure den IP-adress som är tilldelad intern/extern belastningsutjämnare (ILB/ELB). IP-resursen som delas mellan-servrarna har angetts till samma IP som ILB/ELB. Detta publiceras i DNS och klient trafik skickas via ILB/ELB till den primära SQL Server repliken. ILB/ELB vet vilken SQL Server är primär eftersom den använder avsökningar för att avsöka den Always på IP-resursen. I det tidigare exemplet avsöker den varje nod som har en slut punkt som refereras av ELB/ILB, beroende på vilka svar som är primär SQL Server.
+## <a name="existing-deployments-that-use-always-on-availability-groups"></a>Befintliga distributioner som använder alltid på tillgänglighetsgrupper
 
 > [!NOTE]
-> ILB och ELB är båda tilldelade till en viss Azure-moln tjänst, och därför innebär en moln migrering i Azure förmodligen att den Load Balancer IP-adressen ändras.
+> För befintliga distributioner finns först i avsnittet [Förutsättningar i](#prerequisites-for-premium-storage) den här artikeln.
+
+Inledningsvis i det här avsnittet tittar vi på hur Always On interagerar med Azure Networking. Vi bryter sedan ner migreringar i två scenarier: migreringar där vissa driftstopp kan tolereras och migreringar där du måste uppnå minimal stilleståndstid.
+
+Lokala SQL Server Alltid på tillgänglighetsgrupper använder en lokal lyssnare som registrerar ett virtuellt DNS-namn tillsammans med en IP-adress som delas mellan en eller flera SQL-servrar. När klienter ansluter dirigeras de via lyssnar-IP till den primära SQL Server. Det här är den server som äger alltid på IP-resursen vid den tidpunkten.
+
+![DistributionerAnvända Alltid på][6]
+
+I Microsoft Azure kan du bara ha en IP-adress tilldelad till ett nätverkskort på den virtuella datorn, så för att uppnå samma abstraktionslager som lokalt använder Azure IP-adressen som har tilldelats ILB/ELB (Internal/External Load Balancers). IP-resursen som delas mellan servrarna är inställd på samma IP som ILB/ELB. Detta publiceras i DNS och klienttrafik skickas via ILB/ELB till den primära SQL Server-repliken. ILB/ELB vet vilken SQL Server som är primär eftersom den använder avsökningar för att avsöka alltid på IP-resursen. I föregående exempel avsöker den varje nod som har en slutpunkt som refereras av ELB/ILB, beroende på vilket som svaren är primär SQL Server.
+
+> [!NOTE]
+> ILB och ELB tilldelas båda till en viss Azure-molntjänst, därför innebär varje molnmigrering i Azure troligen att belastningsutjämnaren IP-ändringar.
 >
 >
 
-### <a name="migrating-always-on-deployments-that-can-allow-some-downtime"></a>Migrera Always on-distributioner som kan tillåta viss nedtid
+### <a name="migrating-always-on-deployments-that-can-allow-some-downtime"></a>Migrera alltid vid distributioner som kan tillåta vissa driftstopp
 
-Det finns två strategier för att migrera Always on-distributioner som tillåter vissa avbrott:
+Det finns två strategier för att migrera Alltid på distributioner som möjliggör vissa driftstopp:
 
-1. **Lägg till fler sekundära repliker till ett befintligt Always on-kluster**
-2. **Migrera till ett nytt Always on-kluster**
+1. **Lägga till fler sekundära repliker i ett befintligt Always On Cluster**
+2. **Migrera till ett nytt Always On Cluster**
 
-#### <a name="1-add-more-secondary-replicas-to-an-existing-always-on-cluster"></a>1. Lägg till fler sekundära repliker till ett befintligt Always on-kluster
+#### <a name="1-add-more-secondary-replicas-to-an-existing-always-on-cluster"></a>1. Lägga till fler sekundära repliker i ett befintligt alltid i kluster
 
-En strategi är att lägga till fler zoner i tillgänglighets gruppen Always On. Du måste lägga till dessa i en ny moln tjänst och uppdatera lyssnaren med den nya IP-adressen för belastnings utjämning.
+En strategi är att lägga till fler sekundärer i gruppen Alltid på tillgänglighet. Du måste lägga till dessa i en ny molntjänst och uppdatera lyssnaren med den nya belastningsutjämnaren IP.
 
-##### <a name="points-of-downtime"></a>Drifts punkter:
+##### <a name="points-of-downtime"></a>Driftstopp:
 
-* Kluster validering.
-* Testa alltid vid redundans för nya sekundära servrar.
+* Klustervalidering.
+* Testa alltid på redundans för nya sekundärer.
 
-Om du använder Windows-lagringspooler i den virtuella datorn för högre IO-genomflöde, kopplas dessa till varandra under en fullständig kluster validering. Verifierings testet krävs när du lägger till noder i klustret. Hur lång tid det tar att köra testet kan variera, så du bör testa detta i din representativa test miljö för att få en ungefärlig tid på hur lång tid det tar.
+Om du använder Windows Storage Pools i den virtuella datorn för högre IO-dataflöde, då dessa tas offline under en fullständig klustervalidering. Valideringstestet krävs när du lägger till noder i klustret. Hur lång tid det tar att köra testet kan variera, så du bör testa detta i din representativa testmiljö för att få en ungefärlig tid på hur lång tid det tar.
 
-Du bör fastställa i vilken tid du kan utföra manuella redundans-och kaos-tester på de nyligen tillagda noderna för att säkerställa att funktioner för hög tillgänglighet alltid fungerar som förväntat.
+Du bör etablera tid där du kan utföra manuell redundans- och kaostestning på de nyligen tillagda noderna för att säkerställa alltid funktioner med hög tillgänglighet som förväntat.
 
-![DeploymentUseAlways On2][7]
+![DeploymentUseAnyways On2][7]
 
 > [!NOTE]
-> Du bör stoppa alla instanser av SQL Server där lagringspooler används innan valideringen körs.
+> Du bör stoppa alla instanser av SQL Server där lagringspoolerna används innan valideringen körs.
 >
 > ##### <a name="high-level-steps"></a>Övergripande steg
 >
 
-1. Skapa två nya SQL-servrar i ny moln tjänst med bifogade Premium Storage.
-2. Kopiera över fullständiga säkerhets kopieringar och Återställ med **NORECOVERY**.
-3. Kopiera över "out of User DB" beroende objekt, till exempel inloggningar osv.
-4. Skapa en ny intern Load Balancer (ILB) eller Använd en extern Load Balancer (ELB) och ställ sedan in belastningsutjämnade slut punkter på båda nya noderna.
+1. Skapa två nya SQL-servrar i ny molntjänst med ansluten Premium Storage.
+2. Kopiera över fullständiga säkerhetskopior och återställ med **NORECOVERY**.
+3. Kopiera över "ur användaren DB" beroende objekt, såsom inloggningar etc.
+4. Skapa ny en ny intern belastningsutjämnare (ILB) eller använd en extern belastningsutjämnare (ELB) och ställ sedan in belastningsbalanserade slutpunkter på båda de nya noderna.
 
    > [!NOTE]
-   > Kontrol lera att alla noder har rätt slut punkts konfiguration innan du fortsätter
+   > Kontrollera att alla noder har rätt slutpunktskonfiguration innan du fortsätter
    >
    >
-5. Stoppa användar-/program åtkomst till SQL Server (om du använder lagringspooler).
-6. Stoppa SQL Server motor tjänster på alla noder (om du använder lagringspooler).
-7. Lägg till nya noder i klustret och kör fullständig verifiering.
-8. Starta alla SQL Server-tjänster när verifieringen är klar.
-9. Säkerhetskopiera transaktions loggar och Återställ användar databaser.
-10. Lägg till nya noder i tillgänglighets gruppen Always on och placera replikeringen i **synkront**.
-11. Lägg till IP-adressresursen för den nya moln tjänsten ILB/ELB via PowerShell för Always on baserat på exemplet på flera platser i [bilagan](#appendix-migrating-a-multisite-always-on-cluster-to-premium-storage). I Windows-klustring ställer du in **möjliga ägare** av **IP** -adressresursen till de nya noderna gamla. Se avsnittet "lägga till IP-adressresurs i samma undernät" i [bilagan](#appendix-migrating-a-multisite-always-on-cluster-to-premium-storage).
-12. Redundansväxla till en av de nya noderna.
-13. Gör de nya noderna till automatisk redundansväxling och testa redundansväxlingen.
-14. Ta bort ursprungliga noder från tillgänglighets gruppen.
+5. Stoppa användar-/programåtkomst till SQL Server (om du använder lagringspooler).
+6. Stoppa SQL Server Engine Services på alla noder (om du använder lagringspooler).
+7. Lägg till nya noder i klustret och kör fullständig validering.
+8. Starta alla SQL Server Services när valideringen har slutförts.
+9. Säkerhetskopierar transaktionsloggar och återställer användardatabaser.
+10. Lägg till nya noder i gruppen Alltid på tillgänglighet och placera replikering i **Synkron**.
+11. Lägg till IP-adressresursen för den nya molntjänsten ILB/ELB via PowerShell för alltid på baserat på exemplet med flera webbplatser i [tillägget](#appendix-migrating-a-multisite-always-on-cluster-to-premium-storage). I Windows-kluster anger du **de möjliga ägarna** till **IP-adressresursen** till de nya noderna gamla. Se avsnittet "Lägga till IP-adressresurs i samma undernät" i [tillägget](#appendix-migrating-a-multisite-always-on-cluster-to-premium-storage).
+12. Redundans till en av de nya noderna.
+13. Gör de nya noderna Auto Redundanspartner och testa redundans.
+14. Ta bort ursprungliga noder från tillgänglighetsgruppen.
 
 ##### <a name="advantages"></a>Fördelar
 
-* Nya SQL-servrar kan testas (SQL Server och program) innan de läggs till i Always On.
-* Du kan ändra storleken på den virtuella datorn och anpassa lagringen efter dina specifika krav. Det skulle dock vara fördelaktigt att behålla alla sökvägar till SQL-filer.
-* Du kan kontrol lera när överföringen av DB-säkerhetskopieringarna till de sekundära replikerna har startats. Det skiljer sig från att använda Azure **Start-AzureStorageBlobCopy-** kommandot för att kopiera virtuella hård diskar, eftersom det är en asynkron kopia.
+* Nya SQL-servrar kan testas (SQL Server och Application) innan de läggs till i Always On.
+* Du kan ändra den virtuella datorns storlek och anpassa lagringen efter dina exakta behov. Det skulle dock vara fördelaktigt att hålla alla SQL-filsökvägar samma.
+* Du kan styra när överföringen av DB-säkerhetskopior till sekundära repliker startas. Detta skiljer sig från att använda Azure **Start-AzureStorageBlobCopy** commandlet för att kopiera virtuella hårddiskar, eftersom det är en asynkron kopia.
 
 ##### <a name="disadvantages"></a>Nackdelar
 
-* När du använder Windows-lagringspooler uppstår ett kluster avbrott under den fullständiga kluster verifieringen för de nya noderna.
-* Beroende på SQL Server version och det befintliga antalet sekundära repliker kanske du inte kan lägga till fler sekundära repliker utan att ta bort befintliga sekundära.
-* Det kan finnas lång tid för SQL-dataöverföring när sekundär inställningarna skulle skapas.
-* Det finns ytterligare kostnader under migreringen medan nya datorer körs parallellt.
+* När du använder Windows Storage Pools finns det klusterstopp under fullständig klustervalidering för de nya ytterligare noderna.
+* Beroende på SQL Server-versionen och det befintliga antalet sekundära repliker kanske du inte kan lägga till fler sekundära repliker utan att ta bort befintliga sekundärfiler.
+* Det kan finnas lång SQL-dataöverföringstid när du ställer in sekundärerna.
+* Det tillkommer extra kostnader under migreringen medan du har nya maskiner som körs parallellt.
 
-#### <a name="2-migrate-to-a-new-always-on-cluster"></a>2. migrera till ett nytt Always on-kluster
+#### <a name="2-migrate-to-a-new-always-on-cluster"></a>2. Migrera till ett nytt Always On Cluster
 
-En annan strategi är att skapa ett helt nytt Always on-kluster med helt nya noder i en ny moln tjänst och sedan omdirigera klienterna så att de använder den.
+En annan strategi är att skapa en helt ny Always On Cluster med helt nya noder i ny molntjänst och sedan omdirigera klienterna att använda den.
 
-##### <a name="points-of-downtime"></a>Drifts punkter
+##### <a name="points-of-downtime"></a>Driftpunkter
 
-Det finns avbrott när du överför program och användare till den nya Always on-lyssnaren. Stillestånds tiden beror på:
+Det finns driftstopp när du överför program och användare till den nya Alltid på lyssnaren. Driftstopp beror på:
 
-* Den tid det tar att återställa slutgiltiga transaktions logg säkerhets kopior till databaser på nya servrar.
-* Den tid det tar att uppdatera klient program för att använda ny Always on-lyssnare.
+* Den tid det tar att återställa slutförda transaktionsloggsäkerheter till databaser på nya servrar.
+* Det tar att uppdatera klientprogram för att använda nya Always On lyssnare.
 
 ##### <a name="advantages"></a>Fördelar
 
-* Du kan testa den faktiska produktions miljön, SQL Server och operativ systemets build-ändringar.
-* Du kan anpassa lagringen och eventuellt minska storleken på den virtuella datorn. Detta kan leda till kostnads minskning.
-* Du kan uppdatera SQL Server version eller version under den här processen. Du kan också uppgradera operativ systemet.
-* Föregående Always on-kluster kan fungera som ett fast återställnings mål.
+* Du kan testa den faktiska produktionsmiljön, SQL Server och OS-byggändringar.
+* Du har möjlighet att anpassa lagringen och eventuellt minska storleken på den virtuella datorn. Detta kan leda till kostnadsminskningar.
+* Du kan uppdatera din SQL Server-version under den här processen. Du kan också uppgradera operativsystemet.
+* Det tidigare Alltid på klustret kan fungera som ett stabilt återställningsmål.
 
 ##### <a name="disadvantages"></a>Nackdelar
 
-* Du måste ändra DNS-namnet på lyssnaren om du vill att båda ska vara alltid i kluster som körs samtidigt. Detta lägger till administrations kostnader under migreringen eftersom klient program strängarna måste återspegla det nya lyssnar namnet.
-* Du måste implementera en mekanism för synkronisering mellan de två miljöerna för att hålla dem så nära som möjligt för att minimera de slutliga kraven för synkronisering före migreringen.
-* Det finns extra kostnad under migreringen medan den nya miljön körs.
+* Du måste ändra DNS-namnet på lyssnaren om du vill att båda Alltid på kluster som körs samtidigt. Detta lägger till administrationskostnader under migreringen som klientprogramsträngar måste återspegla det nya lyssnarnamnet.
+* Du måste implementera en synkroniseringsmekanism mellan de två miljöerna för att hålla dem så nära som möjligt för att minimera de slutliga synkroniseringskraven före migreringen.
+* Det tillkommer kostnader under migreringen medan du har den nya miljön igång.
 
-### <a name="migrating-always-on-deployments-for-minimal-downtime"></a>Migrera Always on-distributioner för minimal stillestånds tid
+### <a name="migrating-always-on-deployments-for-minimal-downtime"></a>Migrera alltid vid distributioner för minimal stilleståndstid
 
-Det finns två strategier för migrering av Always on-distributioner för minimal nedtid:
+Det finns två strategier för att migrera Alltid på distributioner för minimal stilleståndstid:
 
-1. **Använd en befintlig sekundär: enskild plats**
-2. **Använd befintliga sekundära repliker: flera platser**
+1. **Använda en befintlig sekundär: En webbplats**
+2. **Utnyttja befintliga sekundära repliker: Flera webbplatser**
 
-#### <a name="1-utilize-an-existing-secondary-single-site"></a>1. Använd en befintlig sekundär: enskild plats
+#### <a name="1-utilize-an-existing-secondary-single-site"></a>1. Utnyttja en befintlig sekundär: Single-Site
 
-En strategi för minimal nedtid är att ta en befintlig moln sekundär och ta bort den från den aktuella moln tjänsten. Kopiera sedan de virtuella hård diskarna till det nya Premium Storage-kontot och skapa den virtuella datorn i den nya moln tjänsten. Uppdatera sedan lyssnaren i kluster och redundans.
+En strategi för minimal stilleståndstid är att ta ett befintligt moln sekundärt och ta bort den från den aktuella molntjänsten. Kopiera sedan de virtuella hårddiskarna till det nya Premium Storage-kontot och skapa den virtuella datorn i den nya molntjänsten. Uppdatera sedan lyssnaren i klustring och redundans.
 
-##### <a name="points-of-downtime"></a>Drifts punkter
+##### <a name="points-of-downtime"></a>Driftpunkter
 
-* Det finns avbrott när du uppdaterar den sista noden med den belastningsutjämnade slut punkten.
-* Din klient åter anslutning kan vara fördröjd beroende på din klient/DNS-konfiguration.
-* Det finns ytterligare stillestånds tid om du väljer att ta alltid på kluster gruppen offline för att byta ut IP-adresserna. Du kan undvika detta genom att använda ett eller beroende och möjliga ägare för den tillagda IP-adressresursen. Se avsnittet "lägga till IP-adressresurs i samma undernät" i [bilagan](#appendix-migrating-a-multisite-always-on-cluster-to-premium-storage).
+* Det finns driftstopp när du uppdaterar den sista noden med slutpunkten Belastningsutjämning.
+* Klientens återanslutning kan fördröjas beroende på klient-DNS-konfigurationen.
+* Det finns ytterligare driftstopp om du väljer att ta gruppen Alltid på kluster offline för att byta ut IP-adresserna. Du kan undvika detta genom att använda ett ELLER-beroende och möjliga ägare för den tillagda IP-adressresursen. Se avsnittet "Lägga till IP-adressresurs i samma undernät" i [tillägget](#appendix-migrating-a-multisite-always-on-cluster-to-premium-storage).
 
 > [!NOTE]
-> När du vill att noden som ska läggas till ska partake i som en Always on-redundansrelation måste du lägga till en Azure-slutpunkt med en referens till den belastningsutjämnade uppsättningen. När du kör kommandot **Add-AzureEndpoint** för att göra detta är aktuella anslutningar fortfarande öppna, men det går inte att upprätta nya anslutningar till lyssnaren förrän belastningsutjämnaren har uppdaterats. Under testningen visade det senaste 90-120seconds. Detta bör testas.
+> När du vill att den tillagda noden ska delta som en Alltid på redundanspartner måste du lägga till en Azure-slutpunkt med en referens till belastningsbalanserad uppsättning. När du kör kommandot **Add-AzureEndpoint** för att göra detta kan aktuella anslutningar vara öppna, men nya anslutningar till lyssnaren kan inte upprättas förrän belastningsutjämnaren har uppdaterats. Vid testning detta sågs pågå 90-120seconds, detta bör testas.
 
 ##### <a name="advantages"></a>Fördelar
 
 * Inga extra kostnader som uppstår under migreringen.
-* En en-till-en-migrering.
+* En 1:1-migrering.
 * Minskad komplexitet.
-* Tillåter ökad IOPS från Premium Storage SKU: er. När diskarna kopplas bort från den virtuella datorn och kopieras till den nya moln tjänsten kan ett verktyg från tredje part användas för att öka storleken på den virtuella hård disken, vilket ger högre data flöden. För att öka VHD-storlekar, se den här [Forum diskussionen](https://social.msdn.microsoft.com/Forums/azure/4a9bcc9e-e5bf-4125-9994-7c154c9b0d52/resizing-azure-data-disk?forum=WAVirtualMachinesforWindows).
+* Möjliggör ökad IOPS från Premium Storage SKU: er. När diskarna tas bort från den virtuella datorn och kopieras till den nya molntjänsten kan ett 3:e parts verktyg användas för att öka VHD-storleken, vilket ger högre dataflöde. För att öka VHD storlekar, se detta [forum diskussion](https://social.msdn.microsoft.com/Forums/azure/4a9bcc9e-e5bf-4125-9994-7c154c9b0d52/resizing-azure-data-disk?forum=WAVirtualMachinesforWindows).
 
 ##### <a name="disadvantages"></a>Nackdelar
 
-* Det finns en temporär förlust av HA och DR under migreringen.
-* Eftersom det här är en 1:1-migrering måste du använda en minsta VM-storlek som stöder ditt antal virtuella hård diskar, så du kanske inte kan downsize dina virtuella datorer.
-* I det här scenariot används Azure **Start-AzureStorageBlobCopy-** kommandot, som är asynkron. Det finns inget service avtal för slutförd kopiering. Tiden för kopiorna varierar, men detta beror på hur mycket data som ska överföras. Kopierings tiden ökar om överföringen skickas till ett annat Azure-datacenter som stöder Premium Storage i en annan region. Om du bara har två noder bör du överväga en eventuell minskning om kopian tar längre tid än under testningen. Detta kan innefatta följande idéer.
-  * Lägg till en tillfällig tredje SQL Server nod för HA innan migreringen med överenskommet avbrott.
-  * Kör migreringen utanför schemalagt Azure-underhåll.
-  * Se till att du har konfigurerat klustrets kvorum korrekt.  
+* Det finns en tillfällig förlust av HA och DR under migreringen.
+* Eftersom det här är en 1:1-migrering måste du använda en minsta vm-storlek som stöder antalet virtuella hårddiskar, så du kanske inte kan minska storleken på dina virtuella datorer.
+* Det här scenariot skulle använda Azure **Start-AzureStorageBlobCopy** commandlet, som är asynkron. Det finns inget serviceavtal när kopian är klar. Tiden för kopiorna varierar, medan detta beror på vänta i kö det beror också på mängden data som ska överföras. Kopieringstiden ökar om överföringen går till ett annat Azure-datacenter som stöder Premium Storage i en annan region. Om du bara har 2 noder, överväga en möjlig begränsning om kopian tar längre tid än i testning. Detta skulle kunna omfatta följande idéer.
+  * Lägg till en tillfällig 3:e SQL Server-nod för HA före migreringen med överenskomna driftstopp.
+  * Kör migreringen utanför Azures schemalagda underhåll.
+  * Kontrollera att du har konfigurerat klustrets kvorum korrekt.  
 
 ##### <a name="high-level-steps"></a>Övergripande steg
 
-Det här dokumentet visar inte en fullständig end to end-exempel, men [bilagan](#appendix-migrating-a-multisite-always-on-cluster-to-premium-storage) innehåller information som kan utnyttjas för att utföra detta.
+Det här dokumentet visar inte ett fullständigt exempel från till, men [tillägget](#appendix-migrating-a-multisite-always-on-cluster-to-premium-storage) innehåller information som kan utnyttjas för att utföra detta.
 
-![MinimalDowntime][8]
+![Minimaldowntime][8]
 
-* Samla in disk konfiguration och ta bort noden (ta inte bort anslutna virtuella hård diskar).
-* Skapa ett Premium Storage konto och kopiera virtuella hård diskar från standard lagrings kontot
-* Skapa en ny moln tjänst och distribuera om den virtuella SQL2-datorn i moln tjänsten. Skapa den virtuella datorn med den kopierade ursprungliga OS-VHD: n och bifoga de kopierade virtuella hård diskarna.
-* Konfigurera ILB/ELB och Lägg till slut punkter.
-* Uppdatera lyssnare genom att antingen:
-  * Ta alltid på gruppen offline och uppdatera Always on-lyssnaren med New ILB/ELB IP-adress.
-  * Eller lägga till IP-adressresursen för nya Cloud Service-ILB/ELB via PowerShell i Windows-klustring. Ange sedan möjliga ägare av IP-adressresursen till den migrerade noden, SQL2 och ange detta som eller beroende i nätverks namnet. Se avsnittet "lägga till IP-adressresurs i samma undernät" i [bilagan](#appendix-migrating-a-multisite-always-on-cluster-to-premium-storage).
-* Kontrol lera DNS-konfigurationen/spridningen till klienterna.
+* Samla in diskkonfiguration och ta bort noden (ta inte bort anslutna virtuella hårddiskar).
+* Skapa ett Premium Storage-konto och kopiera virtuella hårddiskar från standardlagringskontot
+* Skapa ny molntjänst och distribuera om SQL2-virtuella datorn i den molntjänsten. Skapa den virtuella datorn med den kopierade ursprungliga os-hårddisken och bifoga de kopierade virtuella hårddiskarna.
+* Konfigurera ILB / ELB och lägg till slutpunkter.
+* Uppdatera Lyssnaren av antingen:
+  * Med alltid på grupp offline och uppdatera Alltid på lyssnaren med nya ILB / ELB IP-adress.
+  * Eller lägga till IP-adressresursen för nya Molntjänsten ILB/ELB via PowerShell i Windows-klustring. Ange sedan de möjliga ägarna för IP-adressresursen till den migrerade noden, SQL2, och ange detta som ELLER-beroende i nätverksnamnet. Se avsnittet "Lägga till IP-adressresurs i samma undernät" i [tillägget](#appendix-migrating-a-multisite-always-on-cluster-to-premium-storage).
+* Kontrollera DNS-konfigurationen/spridningen till klienterna.
 * Migrera SQL1 VM och gå igenom steg 2 – 4.
-* Om du använder steg 5ii lägger du till SQL1 som möjlig ägare för den tillagda IP-adressresursen
-* Redundanstest.
+* Om du använder steg 5ii lägger du till SQL1 som en möjlig ägare för den tillagda IP-adressresursen
+* Testa redundans.
 
-#### <a name="2-utilize-existing-secondary-replicas-multi-site"></a>2. Använd befintliga sekundära repliker: flera platser
+#### <a name="2-utilize-existing-secondary-replicas-multi-site"></a>2. Utnyttja befintliga sekundära repliker: Multi-Site
 
-Om du har noder i fler än ett Azure-datacenter (DC) eller om du har en hybrid miljö kan du använda en Always On-konfiguration i den här miljön för att minimera stillestånds tiden.
+Om du har noder i mer än ett Azure datacenter (DC) eller om du har en hybridmiljö kan du använda en Alltid på-konfiguration i den här miljön för att minimera driftstopp.
 
-Metoden är att ändra Always on-synkronisering till synkront för den lokala eller sekundära Azure-DOMÄNKONTROLLANTen och sedan redundansväxla till den SQL Server. Kopiera sedan de virtuella hård diskarna till ett Premium Storage-konto och distribuera om datorn till en ny moln tjänst. Uppdatera lyssnaren och växla sedan tillbaka.
+Metoden är att ändra synkroniseringen Alltid vid synkronisering till synkron för den lokala eller sekundära Azure DC och sedan växla över till den SQL Server. Kopiera sedan de virtuella hårddiskarna till ett Premium Storage-konto och distribuera om datorn till en ny molntjänst. Uppdatera lyssnaren och växla sedan tillbaka.
 
-##### <a name="points-of-downtime"></a>Drifts punkter
+##### <a name="points-of-downtime"></a>Driftpunkter
 
-Stillestånds tiden består av tiden för redundans till den alternativa DOMÄNKONTROLLANTen och tillbaka. Det beror också på din klient-/DNS-konfiguration och din klient åter anslutning kan vara fördröjd.
-Tänk på följande exempel på en hybrid Always On-konfiguration:
+Driftstoppet består av tiden för att växla över till den alternativa DC och tillbaka. Det beror också på din klient/DNS-konfiguration och klientåteranslutningen kan fördröjas.
+Tänk på följande exempel på en hybrid always on-konfiguration:
 
 ![MultiSite1][9]
 
 ##### <a name="advantages"></a>Fördelar
 
-* Du kan använda en befintlig infrastruktur.
-* Du har möjlighet att innan du uppgraderar Azure Storage på DR Azure-DOMÄNKONTROLLANTen först.
+* Du kan använda befintlig infrastruktur.
+* Du har möjlighet att föruppgradera Azure-lagringen på DR Azure DC först.
 * DR Azure DC-lagringen kan konfigureras om.
-* Det finns minst två redundanser under migreringen, med undantag för redundanstest.
-* Du behöver inte flytta SQL Server data med säkerhets kopiering och återställning.
+* Det finns minst två redundans under migreringen, exklusive testundansväxlingar.
+* Du behöver inte flytta SQL Server-data med säkerhetskopiering och återställning.
 
 ##### <a name="disadvantages"></a>Nackdelar
 
-* Beroende på klient åtkomsten till SQL Server kan det öka svars tiden när SQL Server körs i en alternativ DOMÄNKONTROLLANT till programmet.
-* Kopierings tiden för virtuella hård diskar till Premium Storage kan vara lång. Detta kan påverka ditt beslut om du vill behålla noden i tillgänglighets gruppen. Överväg detta för när logg intensiv arbets belastning körs under migreringen krävs, eftersom den primära noden måste behålla de replikerade transaktionerna i transaktions loggen. Detta kan därför växa avsevärt.
-* I det här scenariot används Azure **Start-AzureStorageBlobCopy-** kommandot, som är asynkron. Det finns inget service avtal för slut för ande. Tiden för kopiorna varierar, medan detta beror på vänta i kö, det beror också på mängden data som ska överföras. Därför har du bara en nod i ditt andra data Center. du bör vidta åtgärder för att undvika att kopian tar längre tid än under testningen. De här minsknings stegen omfattar följande idéer:
-  * Lägg till en tillfällig SQL-nod för HA innan migreringen med överenskommet avbrott.
-  * Kör migreringen utanför schemalagt Azure-underhåll.
-  * Se till att du har konfigurerat klustrets kvorum korrekt.
+* Beroende på klientåtkomst till SQL Server kan det finnas en ökad svarstid när SQL Server körs i en alternativ DOMÄNKONTROLLANT till programmet.
+* Kopieringstiden för virtuella hårddiskar till Premium-lagring kan vara lång. Detta kan påverka ditt beslut om du vill behålla noden i tillgänglighetsgruppen. Tänk på detta när loggintensiva arbetsbelastningar körs under migreringen krävs, eftersom den primära noden måste behålla de oreglerade transaktionerna i transaktionsloggen. Därför kan detta växa betydligt.
+* Det här scenariot skulle använda Azure **Start-AzureStorageBlobCopy** commandlet, som är asynkron. Det finns inget serviceavtal när det är klart. Tiden för kopiorna varierar, medan detta beror på vänta i kö, beror det också på mängden data som ska överföras. Därför har du bara en nod i ditt 2: a datacenter, bör du vidta åtgärder för att mildra om kopian tar längre tid än att testa. Dessa begränsningssteg innehåller följande idéer:
+  * Lägg till en tillfällig 2:a SQL-nod för HA före migreringen med överenskomna driftstopp.
+  * Kör migreringen utanför Azures schemalagda underhåll.
+  * Kontrollera att du har konfigurerat klustrets kvorum korrekt.
 
-I det här scenariot förutsätter vi att du har dokumenterat din installation och vet hur lagrings utrymmet mappas för att göra ändringar för optimala cacheinställningar.
+Det här scenariot förutsätter att du har dokumenterat installationen och vet hur lagringen mappas för att göra ändringar för optimala diskcacheinställningar.
 
 ##### <a name="high-level-steps"></a>Övergripande steg
 
 ![Multisite2][10]
 
-* Gör den lokala/alternativa Azure-DOMÄNKONTROLLANTen till SQL Server primär, och gör den till den andra automatiska redundansväxlingen (AFP).
-* Samla in disk konfigurations information från SQL2 och ta bort noden (ta inte bort anslutna virtuella hård diskar).
-* Skapa ett Premium Storage konto och kopiera virtuella hård diskar från standard lagrings kontot.
-* Skapa en ny moln tjänst och skapa den virtuella SQL2-datorn med dess Premium Storage-diskar.
-* Konfigurera ILB/ELB och Lägg till slut punkter.
-* Uppdatera Always on-lyssnare med ny ILB-/ELB-IP-adress och redundanstest.
-* Kontrol lera DNS-konfigurationen.
+* Gör den lokala/alternativa Azure DC till SQL Server Primary och gör den till den andra automatiska redundanspartnern (AFP).
+* Samla in diskkonfigurationsinformation från SQL2 och ta bort noden (ta inte bort anslutna virtuella hårddiskar).
+* Skapa ett Premium Storage-konto och kopiera virtuella hårddiskar från standardlagringskontot.
+* Skapa en ny molntjänst och skapa DEN VIRTUELLA SQL2-datorn med sina Premiums Storage-diskar anslutna.
+* Konfigurera ILB / ELB och lägg till slutpunkter.
+* Uppdatera alltid lyssnaren med ny ILB / ELB IP-adress och testa redundans.
+* Kontrollera DNS-konfigurationen.
 * Ändra AFP till SQL2 och migrera sedan SQL1 och gå igenom steg 2 – 5.
-* Redundanstest.
-* Ändra AFP tillbaka till SQL1 och SQL2
+* Testa redundans.
+* Växla tillbaka AFP till SQL1 och SQL2
 
-## <a name="appendix-migrating-a-multisite-always-on-cluster-to-premium-storage"></a>Bilaga: migrerar en multisite alltid på kluster till Premium Storage
+## <a name="appendix-migrating-a-multisite-always-on-cluster-to-premium-storage"></a>Tillägg: Migrera en multisite alltid på kluster till Premium Storage
 
-Resten av den här artikeln innehåller ett detaljerat exempel på hur du konverterar en multi-site Always on-kluster till Premium Storage. Den konverterar också lyssnaren från att använda en extern belastningsutjämnare (ELB) till en intern belastningsutjämnare (ILB).
+Resten av den här artikeln innehåller ett detaljerat exempel på hur du konverterar ett multi-site Always On-kluster till Premium-lagring. Den konverterar också lyssnaren från att använda en extern belastningsutjämnare (ELB) till en intern belastningsutjämnare (ILB).
 
 ### <a name="environment"></a>Miljö
 
-* Windows-2k12/SQL-2k12
+* Windows 2k12 / SQL 2k12 Windows 2k12 Windows 2k12 Windows 2k12 / SQL 2k12 Windows 2
 * 1 DB-filer på SP
 * 2 x lagringspooler per nod
 
-![Appendix1][11]
+![Tillägg1][11]
 
-### <a name="vm"></a>DATORN
+### <a name="vm"></a>VM:
 
-I det här exemplet ska vi demonstrera flytt från en ELB till ILB. ELB var tillgänglig före ILB, så detta visar hur du växlar till ILB under migreringen.
+I det här exemplet kommer vi att visa att vi går från en ELB till ILB. ELB var tillgängligt före ILB, så detta visar hur du byter till ILB under migreringen.
 
-![Appendix2][12]
+![Tillägg2][12]
 
-### <a name="pre-steps-connect-to-subscription"></a>Förberedande steg: Anslut till prenumeration
+### <a name="pre-steps-connect-to-subscription"></a>Försteg: Anslut till prenumeration
 
 ```powershell
 Add-AzureAccount
@@ -644,7 +644,7 @@ Add-AzureAccount
 Get-AzureSubscription
 ```
 
-#### <a name="step-1-create-new-storage-account-and-cloud-service"></a>Steg 1: skapa ett nytt lagrings konto och en moln tjänst
+#### <a name="step-1-create-new-storage-account-and-cloud-service"></a>Steg 1: Skapa nytt lagringskonto och molntjänst
 
 ```powershell
 $mysubscription = "DansSubscription"
@@ -681,43 +681,43 @@ $destcloudsvc = "danNewSvcAms"
 New-AzureService $destcloudsvc -Location $location
 ```
 
-#### <a name="step-2-increase-the-permitted-failures-on-resources-optional"></a>Steg 2: öka antalet tillåtna problem på resurser \<valfria >
+#### <a name="step-2-increase-the-permitted-failures-on-resources-optional"></a>Steg 2: Öka tillåtna \<fel på valfria resurser>
 
-På vissa resurser som tillhör din Always tillgänglighets grupp finns det begränsningar för hur många fel som kan inträffa under en period, där kluster tjänsten försöker starta om resurs gruppen. Vi rekommenderar att du ökar detta medan du går igenom den här proceduren, eftersom om du inte manuellt redundansväxlas och utlöser redundans genom att stänga av datorer som du kan komma nära den här gränsen.
+På vissa resurser som tillhör gruppen Alltid på tillgänglighet finns det gränser för hur många fel som kan uppstå under en period, där klustertjänsten försöker starta om resursgruppen. Vi rekommenderar att du ökar detta medan du går igenom den här proceduren, eftersom om du inte manuellt redundans och utlöser redundans genom att stänga av maskiner kan du komma nära den här gränsen.
 
-Det skulle vara försiktig med att göra detta i Klusterhanteraren för växling vid fel genom att gå till egenskaperna för Always on-resurs gruppen:
+Det vore klokt att fördubbla felersättningen, för att göra detta i Redundansklusterhanteraren, gå till egenskaperna för resursgruppen Alltid på:
 
-![Appendix3][13]
+![Tillägg3][13]
 
-Ändra Max felen till 6.
+Ändra maximala fel till 6.
 
-#### <a name="step-3-addition-ip-address-resource-for-cluster-group-optional"></a>Steg 3: lägga till IP-adressresurs för kluster grupp \<valfria >
+#### <a name="step-3-addition-ip-address-resource-for-cluster-group-optional"></a>Steg 3: Addition IP-adressresurs för klustergrupp \<valfri>
 
-Om du bara har en IP-adress för kluster gruppen och detta är justerat till moln under nätet, är du uppmärksam på om du oavsiktligt tar offline alla klusternoder i molnet i nätverket, så kan klustrets IP-resurs och kluster nätverks namn inte anslutas. I den här situationen förhindrar den uppdateringar till andra kluster resurser.
+Om du bara har en IP-adress för klustergruppen och detta är anpassat till molnundernätet, se upp, om du av misstag tar alla klusternoder i molnet i nätverket offline kan inte kluster-IP-resursen och klusternätverksnamnet anslutas. I det här fallet förhindrar det uppdateringar till andra klusterresurser.
 
 #### <a name="step-4-dns-configuration"></a>Steg 4: DNS-konfiguration
 
-Hur du implementerar en smidig över gång beror på hur DNS används och uppdateras.
-När Always On är installerat skapas en resurs grupp för Windows-kluster, om du öppnar Klusterhanteraren för växling vid fel, ser du att minst en av dem har tre resurser, de två som dokumentet refererar till:
+Implementera en smidig övergång beror på hur DNS används och uppdateras.
+När Always On är installerat skapas en Windows-klusterresursgrupp, om du öppnar Redundansklusterhanteraren ser du att den åtminstone har tre resurser, de två som dokumentet refererar till är:
 
-* Virtual Network namn (VNN) – DNS-namnet som klienterna ansluter till när de vill ansluta till SQL-servrar via Always On.
-* IP-adressresurs – IP-adressen som är associerad med VNN, du kan ha mer än en, och i en multisitedistribution har du en IP-adress per plats/undernät.
+* VNN (Virtual Network Name) – DET DNS-namn som klienter ansluter till när de vill ansluta till SQL-servrar via Always On.
+* IP-adressresurs – IP-adressen som är associerad med VNN, kan du ha mer än en, och i en konfiguration på flera webbplatser har du en IP-adress per plats/undernät.
 
-När du ansluter till SQL Server hämtar SQL Server klient driv rutinen de DNS-poster som är associerade med lyssnaren och försöker ansluta till varje Always på tillhör ande IP-adress. Nu diskuterar vi vissa faktorer som kan påverka detta.
+När sql server-klientdrivrutinen ansluter till SQL Server hämtas DNS-posterna som är associerade med lyssnaren och försöker ansluta till varje Alltid på associerad IP-adress. Därefter diskuterar vi några faktorer som kan påverka detta.
 
-Antalet samtidiga DNS-poster som är associerade med lyssnar namnet beror inte bara på antalet associerade IP-adresser, men RegisterAllIpProviders'setting i kluster för växling vid fel för Always ON-VNN-resursen.
+Antalet samtidiga DNS-poster som är associerade med lyssnarnamnet beror inte bara på antalet ASSOCIERADE IP-adresser, utan inställningen RegisterAllIpProviders i Redundanskluster för resursen Alltid PÅ VNN.
 
-När du distribuerar Always on i Azure finns det olika steg för att skapa lyssnare och IP-adresser. du måste konfigurera "RegisterAllIpProviders" manuellt till 1. Detta skiljer sig från en lokal Always on-distribution där det redan har angetts till 1.
+När du distribuerar Alltid på i Azure finns det olika steg för att skapa lyssnaren och IP-adresserna, du måste manuellt konfigurera "RegisterAllIpProviders" till 1, detta skiljer sig från en lokal Alltid på distribution där den redan är inställd på 1.
 
-Om ' RegisterAllIpProviders ' är 0 visas bara en DNS-post i DNS som är associerad med lyssnaren:
+Om "RegisterAllIpProviders" är 0 ser du bara en DNS-post i DNS som är associerad med lyssnaren:
 
-![Appendix4][14]
+![Tillägg4][14]
 
-Om ' RegisterAllIpProviders ' är 1:
+Om "RegisterAllIpProviders" är 1:
 
-![Appendix5][15]
+![Tillägg5][15]
 
-Koden nedan dumpar ut VNN-inställningarna och ställer in den åt dig. För att ändringen ska börja gälla måste du koppla från VNN och sätta tillbaka den online. Detta gör att lyssnaren offline orsakar avbrott i klient anslutningen.
+Koden nedan dumpar ut VNN-inställningarna och ställer in den åt dig. För att ändringen ska börja gälla måste du ta VNN offline och slå på den igen. Detta tar lyssnaren offline orsakar störningar klientanslutning.
 
 ```powershell
 ##Always On Listener Name
@@ -728,11 +728,11 @@ Get-ClusterResource $ListenerName| Get-ClusterParameter
 Get-ClusterResource $ListenerName| Set-ClusterParameter RegisterAllProvidersIP  1
 ```
 
-I ett senare steg i migreringen måste du uppdatera Always on Listener med en uppdaterad IP-adress som refererar till en belastningsutjämnare, vilket innebär att en IP-adressresurs tas bort och läggs till. Efter IP-uppdateringen måste du se till att den nya IP-adressen har uppdaterats i DNS-zonen och att klienterna uppdaterar sin lokala DNS-cache.
+I ett senare migreringssteg måste du uppdatera alltid på lyssnaren med en uppdaterad IP-adress som refererar till en belastningsutjämnare, vilket innebär borttagning och tillägg av IP-adressresurser. Efter IP-uppdateringen måste du se till att den nya IP-adressen har uppdaterats i DNS-zonen och att klienterna uppdaterar sin lokala DNS-cache.
 
-Om dina klienter finns i ett annat nätverks segment och refererar till en annan DNS-server, måste du fundera över vad som händer om överföring av DNS-zoner under migreringen, eftersom tiden för återkoppling av program begränsas av minst zon överförings tiden för alla nya IP-adresser adresser för lyssnaren. Om du använder en tids gräns här bör du diskutera och testa en stegvis zon överföring med dina Windows-team och även placera DNS-postposten i låg tid till Live (TTL) så att klienterna uppdateras. Mer information finns i [stegvisa zon överföringar](https://technet.microsoft.com/library/cc958973.aspx) och [Start-DnsServerZoneTransfer](https://docs.microsoft.com/powershell/module/dnsserver/start-dnsserverzonetransfer).
+Om klienterna finns i ett annat nätverkssegment och refererar till en annan DNS-server måste du överväga vad som händer med DNS Zone Transfer under migreringen, eftersom programmets återanslutningstid begränsas av minst zonöverföringstiden för en ny IP-adress adresser till lyssnaren. Om du är under tidsbegränsning här bör du diskutera och testa att tvinga fram en inkrementell zonöverföring med dina Windows-team, och även placera DNS-värdposten till en lägre Time To Live (TTL), så att klienterna uppdateras. Mer information finns i [Inkrementella zonöverföringar](https://technet.microsoft.com/library/cc958973.aspx) och [Start-DnsServerZoneTransfer](https://docs.microsoft.com/powershell/module/dnsserver/start-dnsserverzonetransfer).
 
-Som standard är TTL för DNS-posten som är associerad med lyssnaren i Always on i Azure 1200 sekunder. Du kanske vill minska detta om du befinner dig under en tids gräns under migreringen för att se till att klienterna uppdaterar sin DNS med den uppdaterade IP-adressen för lyssnaren. Du kan se och ändra konfigurationen genom att dumpa konfigurationen av VNN:
+Som standard är TTL för DNS-post som är associerad med lyssnaren i Always On i Azure 1200 sekunder. Du kanske vill minska detta om du är under tidsbegränsning under migreringen för att säkerställa att klienterna uppdaterar sin DNS med den uppdaterade IP-adressen för lyssnaren. Du kan se och ändra konfigurationen genom att dumpa konfigurationen av VNN:
 
 ```powershell
 $AGName = "myProductionAG"
@@ -745,25 +745,25 @@ Get-ClusterResource $ListenerName| Set-ClusterParameter -Name "HostRecordTTL" 12
 ```
 
 > [!NOTE]
-> Ju lägre HostRecordTTL, desto högre mängd DNS-trafik.
+> Ju lägre "HostRecordTTL", en högre mängd DNS-trafik inträffar.
 
-##### <a name="client-application-settings"></a>Inställningar för klient program
+##### <a name="client-application-settings"></a>Inställningar för klientprogram
 
-Om ditt SQL-klientprogram stöder .NET 4,5 SQLClient kan du använda nyckelordet "MULTISUBNETFAILOVER = TRUE". Det här nyckelordet ska tillämpas eftersom det tillåter snabbare anslutning till SQL Always on-tillgänglighetsgrupper under redundansväxlingen. Den räknar igenom alla IP-adresser som är kopplade till Always on-lyssnare parallellt, och utför en mer aggressiv TCP-anslutning för att försöka igen under en redundansväxling.
+Om SQL-klientprogrammet stöder SQLClient .NET 4.5 kan du använda nyckelordet MULTISUBNETFAILOVER=TRUE. Det här nyckelordet bör användas, eftersom det möjliggör snabbare anslutning till SQL Always On Availability Group under redundans. Den räknar upp genom alla IP-adresser som är associerade med Alltid på lyssnaren parallellt och utför en mer aggressiv hastighet för återförsök i TCP-anslutning under en redundansväxling.
 
-Mer information om de tidigare inställningarna finns i [MultiSubnetFailover-nyckelord och tillhör ande funktioner](https://msdn.microsoft.com/library/hh213080.aspx#MultiSubnetFailover). Se även [stöd för hög tillgänglighet och katastrof återställning](https://msdn.microsoft.com/library/hh205662\(v=vs.110\).aspx).
+Mer information om tidigare inställningar finns i [MultiSubnetFailover Keyword och Associated Features](https://msdn.microsoft.com/library/hh213080.aspx#MultiSubnetFailover). Se även [SqlClient-stöd för hög tillgänglighet, haveriberedskap](https://msdn.microsoft.com/library/hh205662\(v=vs.110\).aspx).
 
-#### <a name="step-5-cluster-quorum-settings"></a>Steg 5: inställningar för klusterkvorum
+#### <a name="step-5-cluster-quorum-settings"></a>Steg 5: Inställningar för klusterkvorum
 
-När du ska ta minst en SQL Server nedåt i taget bör du ändra inställningen för klusterkvorum, om du använder fil resurs vittne (FSW) med två noder, ska du ställa in kvorumet så att det tillåter Node majoritet och använder dynamisk röstning , så att en enskild nod förblir stående.
+Eftersom du kommer att ta ut minst en SQL Server ner i taget, bör du ändra klustret kvorum inställningen, om du använder File Share Witness (FSW) med två noder, bör du ställa in kvorum för att tillåta nod majoritet och använda dynamisk röstning , vilket gör det möjligt för en enda nod att förbli stående.
 
 ```powershell
 Set-ClusterQuorum -NodeMajority  
 ```
 
-Mer information om hur du hanterar och konfigurerar klusterkvorum finns i [Konfigurera och hantera kvorum i ett redundanskluster för Windows Server 2012](https://technet.microsoft.com/library/jj612870.aspx).
+Mer information om hur du hanterar och konfigurerar klusterkvorumet finns [i Konfigurera och hantera kvorumet i ett Redundanskluster för Windows Server 2012](https://technet.microsoft.com/library/jj612870.aspx).
 
-#### <a name="step-6-extract-existing-endpoints-and-acls"></a>Steg 6: extrahera befintliga slut punkter och ACL: er
+#### <a name="step-6-extract-existing-endpoints-and-acls"></a>Steg 6: Extrahera befintliga slutpunkter och åtkomstpunkter
 
 ```powershell
 #GET Endpoint info
@@ -774,15 +774,15 @@ Get-AzureVM -ServiceName $destcloudsvc -Name $vmNameToMigrate | Get-AzureAclConf
 
 Spara den här texten i en fil.
 
-#### <a name="step-7-change-failover-partners-and-replication-modes"></a>Steg 7: ändra Redundansrelationer och replikeringsalternativ
+#### <a name="step-7-change-failover-partners-and-replication-modes"></a>Steg 7: Ändra redundanspartner och replikeringslägen
 
-Om du har fler än två SQL-servrar bör du ändra redundansväxlingen för en annan sekundär i en annan DOMÄNKONTROLLANT eller lokalt till "synkron" och göra den till en automatisk växlings partner (AFP), så det är så att du kan underhålla HA medan du gör ändringar. Du kan göra detta genom TSQL ändrings-SSMS:
+Om du har fler än två SQL-servrar bör du ändra redundansen för en annan sekundär i en annan domänkontrollant eller lokal till "Synkron" och göra den till en automatisk redundanspartner (AFP), det här är så att du behåller HA medan du gör ändringar. Du kan göra detta genom TSQL av ändra om SSMS:
 
-![Appendix6][16]
+![Tillägg6][16]
 
-#### <a name="step-8-remove-secondary-vm-from-cloud-service"></a>Steg 8: ta bort sekundär virtuell dator från moln tjänsten
+#### <a name="step-8-remove-secondary-vm-from-cloud-service"></a>Steg 8: Ta bort sekundär virtuell dator från molntjänsten
 
-Du bör planera att migrera en sekundär moln-nod först. Om den här noden för närvarande är primär, bör du starta en manuell redundansväxling.
+Du bör planera att migrera en sekundär molnnod först. Om den här noden för närvarande är primär bör du initiera en manuell redundans.
 
 ```powershell
 $vmNameToMigrate="dansqlams2"
@@ -833,15 +833,15 @@ Get-AzureVM -ServiceName $sourceSvc -Name  $vmNameToMigrate
 Remove-AzureVM -ServiceName $sourceSvc -Name $vmNameToMigrate
 ```
 
-#### <a name="step-9-change-disk-caching-settings-in-csv-file-and-save"></a>Steg 9: ändra inställningarna för diskcachelagring i CSV-filen och spara
+#### <a name="step-9-change-disk-caching-settings-in-csv-file-and-save"></a>Steg 9: Ändra inställningar för cachelagring av disk i CSV-filen och spara
 
-För data volymer ska dessa ställas in på READONLY.
+För datavolymer bör dessa ställas in på READONLY.
 
-För TLOG-volymer ska dessa ställas in på ingen.
+För TLOG-volymer bör dessa ställas in på NONE.
 
-![Appendix7][17]
+![Tillägg7][17]
 
-#### <a name="step-10-copy-vhds"></a>Steg 10: kopiera virtuella hård diskar
+#### <a name="step-10-copy-vhds"></a>Steg 10: Kopiera VIRTUELLA HÅRDDISKAR
 
 ```powershell
 #Ensure you have created the container for these:
@@ -871,7 +871,7 @@ ForEach ($disk in $diskobjects)
 ```
 
 
-Du kan kontrol lera kopierings statusen för de virtuella hård diskarna till Premium Storage-kontot:
+Du kan kontrollera kopieringsstatusen för de virtuella hårddiskarna till Premium Storage-kontot:
 
 ```powershell
 ForEach ($disk in $diskobjects)
@@ -887,17 +887,17 @@ ForEach ($disk in $diskobjects)
 }
 ```
 
-![Appendix8][18]
+![Tillägg8][18]
 
-Vänta tills alla dessa registreras som slutförda.
+Vänta tills alla dessa registreras som framgång.
 
-För information om enskilda blobbar:
+För information för enskilda blobbar:
 
 ```powershell
 Get-AzureStorageBlobCopyState -Blob "blobname.vhd" -Container $containerName -Context $xioContext
 ```
 
-#### <a name="step-11-register-os-disk"></a>Steg 11: registrera OS-disk
+#### <a name="step-11-register-os-disk"></a>Steg 11: Registrera OS-disk
 
 ```powershell
 #Change storage account
@@ -914,9 +914,9 @@ $xioDiskName = $osdiskforbuild + "xio"
 Add-AzureDisk -DiskName $xioDiskName -MediaLocation  "https://$newxiostorageaccountname.blob.core.windows.net/vhds/$osvhd"  -Label "BootDisk" -OS "Windows"
 ```
 
-#### <a name="step-12-import-secondary-into-new-cloud-service"></a>Steg 12: importera sekundär till ny moln tjänst
+#### <a name="step-12-import-secondary-into-new-cloud-service"></a>Steg 12: Importera sekundärt till ny molntjänst
 
-I koden nedan används även det tillagda alternativet här för att importera datorn och använda den kvarhållna VIP.
+Koden nedan använder också det tillagda alternativet här kan du importera maskinen och använda det behållbara VIP.
 
 ```powershell
 #Build VM Config
@@ -952,7 +952,7 @@ ForEach ( $attachdatadisk in $datadiskimport)
 $vmConfig  | New-AzureVM –ServiceName $destcloudsvc –Location $location -VNetName $vnet ## Optional (-ReservedIPName $reservedVIPName)
 ```
 
-#### <a name="step-13-create-ilb-on-new-cloud-svc-add-load-balanced-endpoints-and-acls"></a>Steg 13: skapa ILB på nya Cloud SVC, Lägg till belastningsutjämnade slut punkter och ACL: er
+#### <a name="step-13-create-ilb-on-new-cloud-svc-add-load-balanced-endpoints-and-acls"></a>Steg 13: Skapa ILB på nya molnstäckor, lägg till belastningsbalanserade slutpunkter och ACL:er
 
 ```powershell
 #Check for existing ILB
@@ -977,7 +977,7 @@ Get-AzureVM –ServiceName $destcloudsvc –Name $vmNameToMigrate  | Add-AzureEn
 ####WAIT FOR FULL AlwaysOn RESYNCRONISATION!!!!!!!!!#####
 ```
 
-#### <a name="step-14-update-always-on"></a>Steg 14: uppdatera alltid på
+#### <a name="step-14-update-always-on"></a>Steg 14: Uppdatera alltid på
 
 ```powershell
 #Code to be executed on a Cluster Node
@@ -1000,21 +1000,21 @@ Get-ClusterGroup $AGName | Get-ClusterResource -Name "IP Address $newCloudServic
 #Make sure no static records in DNS
 ```
 
-![Appendix9][19]
+![Tillägg9][19]
 
-Ta nu bort den gamla IP-adressen för moln tjänsten.
+Ta nu bort den gamla IP-adressen för molntjänsten.
 
-![Appendix10][20]
+![Tillägg10][20]
 
-#### <a name="step-15-dns-update-check"></a>Steg 15: kontroll av DNS-uppdatering
+#### <a name="step-15-dns-update-check"></a>Steg 15: DNS-uppdateringskontroll
 
-Nu bör du kontrol lera DNS-servrarna i SQL Server klient nätverk och se till att kluster har lagt till den extra värd posten för den tillagda IP-adressen. Om dessa DNS-servrar inte har uppdaterats, Överväg att tvinga fram en DNS-zon överföring och se till att klienterna i ett undernät kan matcha både på IP-adresser, så du behöver inte vänta på automatisk DNS-replikering.
+Du bör nu kontrollera DNS-servrar i SQL Server-klientnätverken och se till att klustring har lagt till den extra värdposten för den tillagda IP-adressen. Om dessa DNS-servrar inte har uppdaterats kan du överväga att tvinga fram en DNS-zonöverföring och se till att klienterna i det undernätet kan matcha till båda alltid på IP-adresser, så du behöver inte vänta på automatisk DNS-replikering.
 
-#### <a name="step-16-reconfigure-always-on"></a>Steg 16: konfigurera om Always on
+#### <a name="step-16-reconfigure-always-on"></a>Steg 16: Konfigurera alltid på
 
-I det här skedet väntar du på att den sekundära noden som migrerades till fullständig omsynkronisering med den lokala noden och växlar till synkron replikering-noden och gör den till en AFP.  
+Nu väntar du på den sekundära noden som migrerades till att synkroniseras helt med den lokala noden och växla till synkron replikeringsnod och göra den till AFP.  
 
-#### <a name="step-17-migrate-second-node"></a>Steg 17: Migrera andra noden
+#### <a name="step-17-migrate-second-node"></a>Steg 17: Migrera den andra noden
 
 ```powershell
 $vmNameToMigrate="dansqlams1"
@@ -1066,15 +1066,15 @@ Get-AzureVM -ServiceName $sourceSvc -Name  $vmNameToMigrate
 Remove-AzureVM -ServiceName $sourceSvc -Name $vmNameToMigrate
 ```
 
-#### <a name="step-18-change-disk-caching-settings-in-csv-file-and-save"></a>Steg 18: ändra inställningarna för diskcachelagring i CSV-filen och spara
+#### <a name="step-18-change-disk-caching-settings-in-csv-file-and-save"></a>Steg 18: Ändra inställningar för cachelagring av disk i CSV-filen och spara
 
-För data volymer ska cacheinställningar anges till READONLY.
+För datavolymer bör cacheinställningarna ställas in på READONLY.
 
-För TLOG-volymer ska cache-inställningarna anges till ingen.
+För TLOG-volymer ska cacheinställningarna ställas in på NONE.
 
-![Appendix11][21]
+![Tillägg11][21]
 
-#### <a name="step-19-create-new-independent-storage-account-for-secondary-node"></a>Steg 19: skapa ett nytt oberoende lagrings konto för sekundär nod
+#### <a name="step-19-create-new-independent-storage-account-for-secondary-node"></a>Steg 19: Skapa nytt oberoende lagringskonto för sekundär nod
 
 ```powershell
 $newxiostorageaccountnamenode2 = "danspremsams2"
@@ -1094,7 +1094,7 @@ Set-AzureSubscription -SubscriptionName $mysubscription -CurrentStorageAccount $
 Select-AzureSubscription -SubscriptionName $mysubscription -Current
 ```
 
-#### <a name="step-20-copy-vhds"></a>Steg 20: kopiera virtuella hård diskar
+#### <a name="step-20-copy-vhds"></a>Steg 20: Kopiera VIRTUELLA HÅRDDISKAR
 
 ```powershell
 #Ensure you have created the container for these:
@@ -1128,7 +1128,7 @@ ForEach ($disk in $diskobjects)
 Get-AzureStorageBlobCopyState -Blob "danRegSvcAms-dansqlams1-2014-07-03.vhd" -Container $containerName -Context $xioContext
 ```
 
-Du kan kontrol lera VHD-kopians status för alla virtuella hård diskar:
+Du kan kontrollera vhd-kopieringsstatus för alla virtuella hårddiskar:
 
 ```powershell
 ForEach ($disk in $diskobjects)
@@ -1144,18 +1144,18 @@ ForEach ($disk in $diskobjects)
 }
 ```
 
-![Appendix12][22]
+![Tillägg12][22]
 
-Vänta tills alla dessa registreras som slutförda.
+Vänta tills alla dessa registreras som framgång.
 
-För information om enskilda blobbar:
+För information för enskilda blobbar:
 
 ```powershell
 #Check individual blob status
 Get-AzureStorageBlobCopyState -Blob "danRegSvcAms-dansqlams1-2014-07-03.vhd" -Container $containerName -Context $xioContextnode2
 ```
 
-#### <a name="step-21-register-os-disk"></a>Steg 21: registrera OS-disk
+#### <a name="step-21-register-os-disk"></a>Steg 21: Registrera OS-disk
 
 ```powershell
 #change storage account to the new XIO storage account
@@ -1202,7 +1202,7 @@ ForEach ( $attachdatadisk in $datadiskimport)
 $vmConfig  | New-AzureVM –ServiceName $destcloudsvc –Location $location -VNetName $vnet -Verbose
 ```
 
-#### <a name="step-22-add-load-balanced-endpoints-and-acls"></a>Steg 22: Lägg till belastningsutjämnade slut punkter och ACL: er
+#### <a name="step-22-add-load-balanced-endpoints-and-acls"></a>Steg 22: Lägga till belastningsbalanserade slutpunkter och ACL:er
 
 ```powershell
 #Endpoints
@@ -1220,37 +1220,37 @@ Get-AzureVM –ServiceName $destcloudsvc –Name $vmNameToMigrate  | Add-AzureEn
 #https://msdn.microsoft.com/library/azure/dn495192.aspx
 ```
 
-#### <a name="step-23-test-failover"></a>Steg 23: redundanstest
+#### <a name="step-23-test-failover"></a>Steg 23: Testa redundans
 
-Vänta tills den migrerade noden synkroniseras med den lokala noden Always On. Placera det i synkront replikeringsläget och vänta tills det är synkroniserat. Sedan växlar du från lokalt till den första noden som migrerades, vilket är AFP. När den har fungerat, ändra den senast migrerade noden till AFP.
+Vänta tills den migrerade noden synkroniseras med den lokala alltid på noden. Placera den i synkront replikeringsläge och vänta tills den är synkroniserad. Sedan redundans från lokalt till den första noden migreras, som är AFP. När det har fungerat ändrar du den senast migrerade noden till AFP.
 
-Du bör testa redundans mellan alla noder och köra även om kaos-tester för att säkerställa att redundansväxlingen fungerar som förväntat och i en tid som Manor.
+Du bör testa redundans mellan alla noder och köra om kaos tester för att säkerställa redundans fungerar som förväntat och i en tid herrgård.
 
-#### <a name="step-24-put-back-cluster-quorum-settings--dns-ttl--failover-pntrs--sync-settings"></a>Steg 24: sätt tillbaka inställningarna för klusterkvorum/DNS TTL/redundans Pntrs/Sync Settings
+#### <a name="step-24-put-back-cluster-quorum-settings--dns-ttl--failover-pntrs--sync-settings"></a>Steg 24: Sätt tillbaka klusterkvoruminställningar / DNS TTL / Redundans Pntrs / Sync Settings
 
-##### <a name="adding-ip-address-resource-on-same-subnet"></a>Lägger till IP-adressresurs i samma undernät
+##### <a name="adding-ip-address-resource-on-same-subnet"></a>Lägga till IP-adressresurs i samma undernät
 
-Om du bara har två SQL-servrar och vill migrera dem till en ny moln tjänst, men vill behålla dem i samma undernät, kan du undvika att ta bort lyssnaren offline och ta bort den ursprungliga alltid på IP-adressen och lägga till den nya IP-adressen. Om du migrerar de virtuella datorerna till ett annat undernät behöver du inte göra detta eftersom det finns ytterligare ett kluster nätverk som refererar till det under nätet.
+Om du bara har två SQL-servrar och vill migrera dem till en ny molntjänst, men vill behålla dem i samma undernät, kan du undvika att ta lyssnaren offline för att ta bort den ursprungliga alltid på IP-adressen och lägga till den nya IP-adressen. Om du migrerar de virtuella datorerna till ett annat undernät behöver du inte göra detta eftersom det finns ytterligare ett klusternätverk som refererar till det undernätet.
 
-När du har skapat den migrerade sekundära och lagt till i den nya IP-adressresursen för den nya moln tjänsten innan du redundansväxlas den befintliga primära, bör du utföra dessa steg i klustret Redundanshanteraren:
+När du har tagit upp den migrerade sekundära och lagt till i den nya IP-adressresursen för den nya molntjänsten före redundans den befintliga primärtjänsten, bör du vidta följande åtgärder i Cluster Failover Manager:
 
 För att lägga till i IP-adress, se tillägget, steg 14.
 
-1. För den aktuella IP-adressresursen ändrar du den möjliga ägaren till befintlig primär SQL Server, i exemplet "dansqlams4":
+1. För den aktuella IP-adressresursen ändrar du den möjliga ägaren till Befintlig primär SQL-server i exemplet "dansqlams4":
 
-    ![Appendix13][23]
-2. För den nya IP-adressresursen ändrar du den möjliga ägaren till migrerad sekundär SQL Server, i exemplet "dansqlams5":
+    ![Tillägg13][23]
+2. För den nya IP-adressresursen ändrar du den möjliga ägaren till "Migrerad sekundär SQL Server", i exemplet "dansqlams5":
 
-    ![Appendix14][24]
-3. När den här inställningen är aktive rad kan du redundansväxla, och när den sista noden migreras, ska möjliga ägare redige ras så att noden läggs till som möjlig ägare:
+    ![Tillägg14][24]
+3. När detta är inställt kan du redundans, och när den sista noden migreras ska möjliga ägare redigeras så att noden läggs till som en möjlig ägare:
 
-    ![Appendix15][25]
+    ![Tillägg15][25]
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Azure Premium Storage](../disks-types.md)
+* [Azure Premium-lagring](../disks-types.md)
 * [Virtuella datorer](https://azure.microsoft.com/services/virtual-machines/)
-* [SQL Server i Azure Virtual Machines](../sql/virtual-machines-windows-sql-server-iaas-overview.md)
+* [SQL Server i virtuella Azure-datorer](../sql/virtual-machines-windows-sql-server-iaas-overview.md)
 
 <!-- IMAGES -->
 [1]: ./media/virtual-machines-windows-classic-sql-server-premium-storage/1_VNET_Portal.png

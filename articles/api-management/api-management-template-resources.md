@@ -1,6 +1,6 @@
 ---
-title: Resurser för Azure API Management-mallar | Microsoft Docs
-description: Lär dig mer om vilka typer av resurser som är tillgängliga för användning i mallar för utvecklare i Azure API Management.
+title: Mallresurser för Azure API Management | Microsoft-dokument
+description: Lär dig mer om vilka typer av resurser som är tillgängliga för användning i utvecklarportalmallar i Azure API Management.
 services: api-management
 documentationcenter: ''
 author: vladvino
@@ -14,62 +14,62 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: c3b6123c63bf530463379a175745ef86baf2c5a3
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79249508"
 ---
-# <a name="azure-api-management-template-resources"></a>Resurser för Azure API Management-mallar
-Azure API Management tillhandahåller följande typer av resurser som du kan använda i Developer Portal-mallarna.  
+# <a name="azure-api-management-template-resources"></a>Mallresurser för Azure API Management
+Azure API Management innehåller följande typer av resurser som kan användas i utvecklarportalmallarna.  
   
--   [Sträng resurser](#strings)  
+-   [Strängresurser](#strings)  
   
--   [Glyph-resurser](#glyphs)  
+-   [Glyfer-resurser](#glyphs)  
 
 [!INCLUDE [api-management-portal-legacy.md](../../includes/api-management-portal-legacy.md)]
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
   
-##  <a name="strings"></a>Sträng resurser  
- API Management tillhandahåller en omfattande uppsättning sträng resurser som du kan använda i Developer-portalen. De här resurserna är lokaliserade till alla språk som stöds av API Management. Standard uppsättningen mallar använder dessa resurser för sidhuvuden, etiketter och eventuella konstanta strängar som visas i Developer-portalen. Om du vill använda en sträng resurs i dina mallar, anger du prefixet för resurs strängen följt av sträng namnet, som du ser i följande exempel.  
+##  <a name="string-resources"></a><a name="strings"></a>Strängresurser  
+ API Management innehåller en omfattande uppsättning strängresurser som kan användas i utvecklarportalen. Dessa resurser är lokaliserade till alla språk som stöds av API Management. Standarduppsättningen med mallar använder dessa resurser för sidhuvuden, etiketter och alla konstanta strängar som visas i utvecklarportalen. Om du vill använda en strängresurs i mallarna anger du resurssträngprefixet följt av strängnamnet, som visas i följande exempel.  
   
 ```  
 {% localized "Prefix|Name" %}  
   
 ```  
   
- Följande exempel är från produkt list mal len och visar **produkter** överst på sidan.  
+ Följande exempel kommer från mallen Produktlista och visar **Produkter** högst upp på sidan.  
   
 ```  
 <h2>{% localized "ProductsStrings|PageTitleProducts" %}</h2>  
   
 ```  
   
-Följande lokaliserings alternativ stöds:
+Följande lokaliseringsalternativ stöds:
 
 | Nationell inställning    | Språk               |
 |-----------|------------------------|
-| ”sv”      | Amerikanska              |
-| östasiatisk      | "Čeština"              |
-| tillförsel      | "Deutsch"              |
-| ES      | "Español"              |
-| fr      | "Français"             |
-| "hu"      | "Magyar"               |
-| företaget      | Italiano             |
-| "ja-JP"   | "日本語"                |
-| "ko"      | "한국어"                |
-| nederländska      | "Nederlands"           |
-| pl      | "Polski"               |
+| ”en”      | "Engelska"              |
+| "Cs"      | "Čeština"              |
+| "De"      | "Deutsch"              |
+| "es"      | "Español"              |
+| "fr"      | "Français"             |
+| "Hu"      | "Magyar"               |
+| "Det"      | "Italiano"             |
+| "Ja-JP"   | "中ンン"                |
+| "ko"      | "" ""                |
+| "Det är inte så här"      | "Nederlands"           |
+| "Mycket bra"      | "Polski"               |
 | "pt-br"   | "Português (Brasil)"   |
 | "pt-pt"   | "Português (Portugal)" |
-| "ru"      | "Русский"              |
+| "Ru"      | "Русский"              |
 | "sv"      | "Svenska"              |
-| TR      | "Türkçe"               |
-| "zh-hans" | "中文(简体)"           |
-| "zh-Hant" | "中文(繁體)"           |
+| "tr"      | "Türkçe"               |
+| "zh-hans" | "中ンンン)"           |
+| "zh-hant" | "中ンン)"           |
 
- Se följande tabeller för de sträng resurser som är tillgängliga för användning i dina Developer Portal-mallar. Använd tabell namnet som prefix för sträng resurserna i tabellen.  
+ Se följande tabeller för de strängresurser som är tillgängliga för användning i utvecklarportalmallarna. Använd tabellnamnet som prefix för strängresurserna i tabellen.  
   
 -   [ApisStrings](#ApisStrings)  
   
@@ -77,13 +77,13 @@ Följande lokaliserings alternativ stöds:
   
 -   [AppDetailsStrings](#AppDetailsStrings)  
   
--   [AppStrings](#AppStrings)  
+-   [AppStrings (800)](#AppStrings)  
   
--   [CommonResources](#CommonResources)  
+-   [CommonResources (Gemensamma Resurser)](#CommonResources)  
   
--   [CommonStrings](#CommonStrings)  
+-   [CommonStrings (vanliga egenskaper)](#CommonStrings)  
   
--   [Handlingar](#Documentation)  
+-   [Dokumentation](#Documentation)  
   
 -   [ErrorPageStrings](#ErrorPageStrings)  
   
@@ -93,515 +93,515 @@ Följande lokaliserings alternativ stöds:
   
 -   [ProductDetailsStrings](#ProductDetailsStrings)  
   
--   [ProductsStrings](#ProductsStrings)  
+-   [ProdukterSträngar](#ProductsStrings)  
   
 -   [ProviderInfoStrings](#ProviderInfoStrings)  
   
--   [SigninResources](#SigninResources)  
+-   [Logga inResurser](#SigninResources)  
   
--   [SigninStrings](#SigninStrings)  
+-   [TeckeninStrings](#SigninStrings)  
   
--   [SignupStrings](#SignupStrings)  
+-   [Registreringsstrubbningar](#SignupStrings)  
   
--   [SubscriptionListStrings](#SubscriptionListStrings)  
+-   [PrenumerationslistaSträngar](#SubscriptionListStrings)  
   
--   [SubscriptionStrings](#SubscriptionStrings)  
+-   [PrenumerationStrings](#SubscriptionStrings)  
   
 -   [UpdateProfileStrings](#UpdateProfileStrings)  
   
 -   [UserProfile](#UserProfile)  
   
-###  <a name="ApisStrings"></a>ApisStrings  
+###  <a name="apisstrings"></a><a name="ApisStrings"></a>ApisStrings  
   
 |Namn|Text|  
 |----------|----------|  
 |PageTitleApis|API:er|  
   
-###  <a name="AppDetailsStrings"></a>AppDetailsStrings  
+###  <a name="appdetailsstrings"></a><a name="AppDetailsStrings"></a>AppDetailsStrings  
   
 |Namn|Text|  
 |----------|----------|  
-|WebApplicationsDetailsTitle|Program för hands version|  
+|WebApplicationsDetailsTitle|Förhandsgranskning av program|  
 |WebApplicationsRequirementsHeader|Krav|  
-|WebApplicationsScreenshotAlt|Skärm bild|  
+|WebApplicationsScreenshotAlt|Skärmbild|  
 |WebApplicationsScreenshotsHeader|Skärmbilder|  
   
-###  <a name="ApplicationListStrings"></a>ApplicationListStrings  
+###  <a name="applicationliststrings"></a><a name="ApplicationListStrings"></a>ApplicationListStrings  
   
 |Namn|Text|  
 |----------|----------|  
-|WebDevelopersAppDeleteConfirmation|Är du säker på att du vill ta bort programmet?|  
-|WebDevelopersAppNotPublished|Inte publicerad|  
+|WebDevelopersAppDeleteKonfirmation|Vill du ta bort programmet?|  
+|WebDevelopersAppNotPublished|Ej publicerad|  
 |WebDevelopersAppNotSubmitted|Inte skickat|  
 |WebDevelopersAppTableCategoryHeader|Kategori|  
 |WebDevelopersAppTableNameHeader|Namn|  
 |WebDevelopersAppTableStateHeader|Status|  
 |WebDevelopersEditLink|Redigera|  
 |WebDevelopersRegisterAppLink|Registrera program|  
-|WebDevelopersRemoveLink|Ta bort|  
+|WebDevelopersTa bortLänk|Ta bort|  
 |WebDevelopersSubmitLink|Skicka|  
 |WebDevelopersYourApplicationsHeader|Dina program|  
   
-###  <a name="AppStrings"></a>AppStrings  
+###  <a name="appstrings"></a><a name="AppStrings"></a>AppStrings (800)  
   
 |Namn|Text|  
 |----------|----------|  
 |WebApplicationsHeader|Program|  
   
-###  <a name="CommonResources"></a>CommonResources  
+###  <a name="commonresources"></a><a name="CommonResources"></a>CommonResources (Gemensamma Resurser)  
   
 |Namn|Text|  
 |----------|----------|  
 |NoItemsToDisplay|Inga resultat hittades.|  
-|GeneralExceptionMessage|Något är inte rätt. Det kan vara ett tillfälligt fel eller ett fel. Försök igen.|  
-|GeneralJsonExceptionMessage|Något är inte rätt. Det kan vara ett tillfälligt fel eller ett fel. Läs in sidan på nytt och försök igen.|  
-|ConfirmationMessageUnsavedChanges|Det finns några ändringar som inte har sparats. Är du säker på att du vill avbryta och ta bort ändringarna?|  
+|AllmäntUtsespråk|Något är inte rätt. Det kan vara ett tillfälligt tekniskt fel eller en bugg. Snälla, försök igen.|  
+|AllmäntJsonExceptionMessage|Något är inte rätt. Det kan vara ett tillfälligt tekniskt fel eller en bugg. Ladda om sidan och försök igen.|  
+|BekräftelseMessageUnsavedChanges|Det finns några ändringar som inte sparats. Vill du avbryta och ignorera ändringarna?|  
 |AzureActiveDirectory|Azure Active Directory|  
-|HttpLargeRequestMessage|Http-frågans brödtext är för stor.|  
+|HttpLargeRequestMessage|Http Begär kroppen för stor.|  
   
-###  <a name="CommonStrings"></a>CommonStrings  
+###  <a name="commonstrings"></a><a name="CommonStrings"></a>CommonStrings (vanliga egenskaper)  
   
 |Namn|Text|  
 |----------|----------|  
-|ButtonLabelCancel|Avbryt|  
-|ButtonLabelSave|Spara|  
-|GeneralExceptionMessage|Något är inte rätt. Det kan vara ett tillfälligt fel eller ett fel. Försök igen.|  
+|KnappLabelCancel|Avbryt|  
+|KnapplabelSave|Spara|  
+|AllmäntUtsespråk|Något är inte rätt. Det kan vara ett tillfälligt tekniskt fel eller en bugg. Snälla, försök igen.|  
 |NoItemsToDisplay|Det finns inga objekt att visa.|  
-|PagerButtonLabelFirst|Förstagångskörningen|  
-|PagerButtonLabelLast|Sista|  
-|PagerButtonLabelNext|Nästa|  
-|PagerButtonLabelPrevious|Föregående|  
-|PagerLabelPageNOfM|Sidan {0} av {1}|  
-|PasswordTooShort|Lösen ordet är för kort|  
-|EmailAsPassword|Använd inte ditt e-postmeddelande som lösen ord|  
-|PasswordSameAsUserName|Ditt lösen ord får inte innehålla ditt användar namn|  
-|PasswordTwoCharacterClasses|Använd olika Character-klasser|  
-|PasswordTooManyRepetitions|För många upprepningar|  
-|PasswordSequenceFound|Ditt lösen ord innehåller sekvenser|  
-|PagerLabelPageSize|Sid storlek|  
-|CurtainLabelLoading|Läser in...|  
-|TablePlaceholderNothingToDisplay|Det finns inga data för den valda perioden och omfattningen|  
-|ButtonLabelClose|Stäng|  
+|PersonsökareButtonLabelFirst|Första|  
+|PersonsökareButtonLabelLast|Sista|  
+|PersonsökareButtonLabelNext|Nästa|  
+|PersonsökareButtonLabelFörbäd|Föregående|  
+|PagerLabelPageNOfM|Sida {0} av {1}|  
+|PasswordTooKort|Lösenordet är för kort|  
+|E-postAsPassword|Använd inte din e-post som lösenord|  
+|PasswordSameAsUserName|Ditt lösenord får inte innehålla ditt användarnamn|  
+|PasswordTwoCharacterClasses|Använda olika teckenklasser|  
+|PasswordTooManyRepetitions|För många repetitioner|  
+|PasswordSequenceFound (LösenordSequenceFound)|Ditt lösenord innehåller sekvenser|  
+|PagerLabelPageSize|Sidstorlek|  
+|CurtainLabelLastning|Läser in ...|  
+|TabellplatshållareIng inte för attdisplay|Det finns inga data för den valda perioden och|  
+|KnappLabelClose|Stäng|  
   
-###  <a name="Documentation"></a>Handlingar  
+###  <a name="documentation"></a><a name="Documentation"></a>Dokumentation  
   
 |Namn|Text|  
 |----------|----------|  
-|WebDocumentationInvalidHeaderErrorMessage|Ogiltigt huvud{0}|  
-|WebDocumentationInvalidRequestErrorMessage|Ogiltig URL för begäran|  
+|WebDokumentationInvalidHeaderErrorMessage|Ogiltigt{0}huvud ' '|  
+|WebDokumentationInvalidRequestErrorMessage|Url för ogiltig begäran|  
 |TextboxLabelAccessToken|Åtkomsttoken *|  
-|DropdownOptionPrimaryKeyFormat|Primär-{0}|  
-|DropdownOptionSecondaryKeyFormat|Sekundär-{0}|  
-|WebDocumentationSubscriptionKeyText|Din prenumerations nyckel|  
-|WebDocumentationTemplatesAddHeaders|Lägg till nödvändiga HTTP-huvuden|  
-|WebDocumentationTemplatesBasicAuthSample|Exempel på grundläggande auktorisering|  
-|WebDocumentationTemplatesCurlForBasicAuth|för grundläggande auktorisering använder du:--Användare {username}: {Password}|  
-|WebDocumentationTemplatesCurlValuesForPath|Ange värden för Sök vägs parametrar (visas som {...}), din prenumerations nyckel och värden för frågeparametrar|  
-|WebDocumentationTemplatesDeveloperKey|Ange din prenumerations nyckel|  
-|WebDocumentationTemplatesJavaApache|I det här exemplet används Apache HTTP-klienten från HTTP-komponenter (http://hc.apache.org/httpcomponents-client-ga/)|  
-|WebDocumentationTemplatesOptionalParams|Ange värden för valfria parametrar efter behov|  
-|WebDocumentationTemplatesPhpPackage|I det här exemplet används HTTP_Request2-paketet. (mer information: https://pear.php.net/package/HTTP_Request2)|  
-|WebDocumentationTemplatesPythonValuesForPath|Ange värden för Sök vägs parametrar (visas som {...}) och begär ande text om det behövs|  
-|WebDocumentationTemplatesRequestBody|Ange brödtext för begäran|  
+|Rullgardinsmenyn|Primär-{0}|  
+|RullgardinsmenynOptionSecondaryKeyFormat|Sekundär-{0}|  
+|WebDokumentationAbonnemangKeyText|Din prenumerationsnyckel|  
+|WebDocumentationTemplatesLägga tilldheaders|Lägga till nödvändiga HTTP-huvuden|  
+|WebDokumentationTemplatesBasicAuthSample|Exempel på grundläggande auktorisering|  
+|WebDokumentationTemplatesCurlForBasicAuth|För grundläggande auktorisering: --user {username}:{password}|  
+|WebDocumentationTemplatesCurlValuesForPath|Ange värden för sökvägsparametrar (visas som {...}), din prenumerationsnyckel och dina värden för frågeparametrar|  
+|WebDocumentationTemplatesDeveloperKey|Ange din prenumerationsnyckel|  
+|WebDokumentationTemplatesJavaApache|I det här exemplet används Apache HTTP-klienten från HTTP-komponenter (http://hc.apache.org/httpcomponents-client-ga/)|  
+|WebDokumentationTemplatesOptionalParams|Ange värden för valfria parametrar efter behov|  
+|WebDokumentationTemplatesPhpPackage|I det här exemplet används HTTP_Request2-paketet. (För mer information:https://pear.php.net/package/HTTP_Request2)|  
+|WebDocumentationTemplatesPythonValuesForPath|Ange värden för sökvägsparametrar (visas som {...}) och begärandetext om det behövs|  
+|WebDokumentationTemplatesRequestBody|Ange förfrå underställe|  
 |WebDocumentationTemplatesRequiredParams|Ange värden för följande obligatoriska parametrar|  
-|WebDocumentationTemplatesValuesForPath|Ange värden för Sök vägs parametrar (visas som {...})|  
-|OAuth2AuthorizationEndpointDescription|Slut punkten för auktorisering används för att interagera med resurs ägaren och erhålla en auktorisering.|  
-|OAuth2AuthorizationEndpointName|Behörighets slut punkt|  
-|OAuth2TokenEndpointDescription|Token-slutpunkten används av klienten för att hämta en åtkomsttoken genom att presentera dess Authorization Grant-eller Refresh-token.|  
-|OAuth2TokenEndpointName|Token-slutpunkt|  
-|OAuth2Flow_AuthorizationCodeGrant_Step_AuthorizationRequest_Description|< p\> klienten initierar flödet genom att dirigera resurs ägarens användar agent till behörighets slut punkten.  Klienten innehåller klient-ID, begärt omfång, lokalt tillstånd och en omdirigerings-URI som auktoriseringsservern skickar tillbaka användar agenten till när åtkomst beviljas (eller nekas).     </p\> < p\> verifierings servern autentiserar resurs ägaren (via användaren-agenten) och anger om resurs ägaren beviljar eller nekar klientens åtkomstbegäran.     </p\> < p\> under förutsättning att resurs ägaren beviljar åtkomst, dirigerar auktoriseringsservern om användar agenten tillbaka till klienten med hjälp av den omdirigerings-URI som tillhandahölls tidigare (i förfrågan eller under klient registreringen).  Omdirigerings-URI: n innehåller en auktoriseringskod och alla lokala tillstånd som tillhandahålls av klienten tidigare.     </p\>|  
-|OAuth2Flow_AuthorizationCodeGrant_Step_AuthorizationRequest_ErrorDescription|< p\> om användaren nekar åtkomstbegäran om begäran är ogiltig, kommer klienten att informeras med följande parametrar som läggs till i omdirigeringen: </p\>|  
-|OAuth2Flow_AuthorizationCodeGrant_Step_AuthorizationRequest_Name|Auktoriseringsbegäran|  
-|OAuth2Flow_AuthorizationCodeGrant_Step_AuthorizationRequest_RequestDescription|< p\>-klient appen måste skicka användaren till behörighets slut punkten för att kunna initiera OAuth-processen.          Användaren autentiserar och beviljar eller nekar åtkomst till appen på slut punkten för auktoriseringen.     </p\>|  
-|OAuth2Flow_AuthorizationCodeGrant_Step_AuthorizationRequest_ResponseDescription|< p\> under förutsättning att resurs ägaren beviljar åtkomst, omdirigerar auktoriseringsservern tillbaka användar agenten till klienten med hjälp av den omdirigerings-URI som tillhandahölls tidigare (i förfrågan eller under klient registreringen).  Omdirigerings-URI: n innehåller en auktoriseringskod och alla lokala tillstånd som tillhandahålls av klienten tidigare. </p\>|  
-|OAuth2Flow_AuthorizationCodeGrant_Step_TokenRequest_Description|< p\> klienten begär en åtkomsttoken från Authorization-serverns token-slutpunkt genom att inkludera den auktoriseringskod som togs emot i föregående steg.  När begäran görs autentiseras klienten med auktoriseringsservern.  Klienten inkluderar den omdirigerings-URI som används för att hämta verifierings koden. </p\> < p\> auktoriserings servern autentiserar klienten, validerar auktoriseringskod och säkerställer att omdirigerings-URI: n tas emot matchar den URI som används för att omdirigera klienten i steg (C).  Om detta är giltigt, svarar auktoriseringsservern igen med en åtkomsttoken och eventuellt en uppdateringstoken. </p\>|  
-|OAuth2Flow_AuthorizationCodeGrant_Step_TokenRequest_ErrorDescription|< p\> om autentiseringen av begär ande klienten misslyckades eller är ogiltig, svarar auktoriseringsservern med status koden HTTP 400 (felaktig begäran) (om inget annat anges) och innehåller följande parametrar med svaret. </p\>|  
-|OAuth2Flow_AuthorizationCodeGrant_Step_TokenRequest_RequestDescription|< p\> klienten gör en begäran till token-slutpunkten genom att skicka följande parametrar med hjälp av formatet "Application/x-www-form-urlencoded" med en tecken kodning av UTF-8 i entiteten HTTP-begäran. </p\>|  
-|OAuth2Flow_AuthorizationCodeGrant_Step_TokenRequest_ResponseDescription|< p\> auktoriseringsservern utfärdar en åtkomsttoken och en valfri uppdateringstoken, och skapar svaret genom att lägga till följande parametrar till entitetens brödtext i HTTP-svaret med en 200 (OK) status kod. </p\>|  
-|OAuth2Flow_ClientCredentialsGrant_Step_TokenRequest_Description|< p\> klienten autentiseras med auktoriseringsservern och begär en åtkomsttoken från slut punkten för token. </p\> < p\> auktoriserings servern autentiserar klienten, och om det är giltigt utfärdar en åtkomsttoken. </p\>|  
-|OAuth2Flow_ClientCredentialsGrant_Step_TokenRequest_ErrorDescription|< p\> om begäran misslyckades med klientautentisering eller om den är ogiltig, svarar på en HTTP 400 (felaktig begäran) status kod (om inget annat anges) och innehåller följande parametrar med svaret. </p\>|  
-|OAuth2Flow_ClientCredentialsGrant_Step_TokenRequest_RequestDescription|< p\> klienten gör en begäran till token-slutpunkten genom att lägga till följande parametrar med hjälp av formatet "Application/x-www-form-urlencoded" med en tecken kodning av UTF-8 i entiteten HTTP-begäran-brödtext. </p\>|  
-|OAuth2Flow_ClientCredentialsGrant_Step_TokenRequest_ResponseDescription|< p\> om åtkomsttokenbegäran är giltig och auktoriserad, utfärdar auktoriseringsservern en åtkomsttoken och valfri uppdateringstoken, och skapar svaret genom att lägga till följande parametrar till entitetens brödtext för HTTP-svaret med en 200 (OK)-status kod. </p\>|  
-|OAuth2Flow_ImplicitGrant_Step_AuthorizationRequest_Description|< p\> klienten initierar flödet genom att dirigera resurs ägarens användar agent till behörighets slut punkten.  Klienten innehåller klient-ID, begärt omfång, lokalt tillstånd och en omdirigerings-URI som auktoriseringsservern skickar tillbaka användar agenten till när åtkomst beviljas (eller nekas). </p\> < p\> verifierings servern autentiserar resurs ägaren (via användaren-agenten) och anger om resurs ägaren beviljar eller nekar klientens åtkomstbegäran. </p\> < p\> under förutsättning att resurs ägaren beviljar åtkomst, omdirigerar auktoriseringsservern tillbaka användar agenten till klienten med hjälp av den omdirigerings-URI som tillhandahölls tidigare.  URI: n för omdirigering inkluderar åtkomsttoken i URI-fragmentet. </p\>|  
-|OAuth2Flow_ImplicitGrant_Step_AuthorizationRequest_ErrorDescription|< p\> om resurs ägaren nekar åtkomstbegäran eller om begäran Miss lyckas av andra orsaker än en saknad eller ogiltig omdirigerings-URI, informerar auktoriseringsservern klienten genom att lägga till följande parametrar till komponenten fragment i omdirigerings-URI: n med hjälp av formatet "Application/x-www-form-urlencoded". </p\>|  
-|OAuth2Flow_ImplicitGrant_Step_AuthorizationRequest_RequestDescription|< p\>-klient appen måste skicka användaren till behörighets slut punkten för att kunna initiera OAuth-processen.      Användaren autentiserar och beviljar eller nekar åtkomst till appen på slut punkten för auktoriseringen. </p\>|  
-|OAuth2Flow_ImplicitGrant_Step_AuthorizationRequest_ResponseDescription|< p\> om resurs ägaren beviljar åtkomstbegäran, utfärdar auktoriseringsservern en åtkomsttoken och levererar den till klienten genom att lägga till följande parametrar i fragment-komponenten för omdirigerings-URI: n med hjälp av formatet "Application/x-www-form-urlencoded". </p\>|  
-|OAuth2Flow_ObtainAuthorization_AuthorizationCodeGrant_Description|Auktoriseringskod-flödet är optimerat för klienter som kan upprätthålla sekretessen för sina autentiseringsuppgifter (t. ex. webb serverprogram som implementeras med PHP, Java, python, ruby, ASP.NET osv.).|  
-|OAuth2Flow_ObtainAuthorization_AuthorizationCodeGrant_Name|Tillåt auktoriseringskod|  
-|OAuth2Flow_ObtainAuthorization_ClientCredentialsGrant_Description|Flöde för klientautentiseringsuppgifter är lämpligt i fall där klienten (ditt program) begär åtkomst till de skyddade resurserna under dess kontroll. Klienten betraktas som en resurs ägare, så det krävs ingen åtgärd från slutanvändaren.|  
+|WebDocumentationTemplatesVärdeesForPath|Ange värden för sökvägsparametrar (visas som {...})|  
+|OAuth2AuthorizationEndpointDescription|Auktoriseringsslutpunkten används för att interagera med resursägaren och erhålla ett auktoriseringsbidrag.|  
+|OAuth2AuthorizationEndpointName|Slutpunkt för auktorisering|  
+|OAuth2TokenEndpointDescription|Tokenslutpunkten används av klienten för att hämta en åtkomsttoken genom att presentera dess auktoriseringsbidrag eller uppdateringstoken.|  
+|OAuth2TokenEndpointName|Tokenslutpunkt|  
+|OAuth2Flow_AuthorizationCodeGrant_Step_AuthorizationRequest_Description|<p\> Klienten initierar flödet genom att dirigera resursägarens användaragent till auktoriseringsslutpunkten.  Klienten innehåller klientidentifieraren, det begärda scopet, det lokala tillståndet och en uri för omdirigering som auktoriseringsservern skickar tillbaka användaragenten när åtkomsten har beviljats (eller nekats).     </p\> <p\> Auktoriseringsservern autentiserar resursägaren (via användaragenten) och fastställer om resursägaren beviljar eller nekar klientens åtkomstbegäran.     </p\> <p\> Förutsatt att resursägaren beviljar åtkomst omdirigerar auktoriseringsservern tillbaka användaren och agenten till klienten med hjälp av den omdirigerings-URI som angavs tidigare (i begäran eller under klientregistrering).  Omdirigerings-URI innehåller en auktoriseringskod och alla lokala tillstånd som tillhandahållits av klienten tidigare.     </p\>|  
+|OAuth2Flow_AuthorizationCodeGrant_Step_AuthorizationRequest_ErrorDescription|<p\> Om användaren nekar åtkomstbegäran om begäran är ogiltig, kommer klienten att informeras med hjälp av följande parametrar som lagts till i omdirigeringen: </p\>|  
+|OAuth2Flow_AuthorizationCodeGrant_Step_AuthorizationRequest_Name|Begäran om auktorisering|  
+|OAuth2Flow_AuthorizationCodeGrant_Step_AuthorizationRequest_RequestDescription|<p\> Klientappen måste skicka användaren till auktoriseringsslutpunkten för att kunna initiera OAuth-processen.          Vid auktoriseringsslutpunkten autentiserar användaren och beviljar eller nekar sedan åtkomst till appen.     </p\>|  
+|OAuth2Flow_AuthorizationCodeGrant_Step_AuthorizationRequest_ResponseDescription|<p\> Förutsatt att resursägaren beviljar åtkomst omdirigerar auktoriseringsservern tillbaka användaren och agenten till klienten med hjälp av den omdirigerings-URI som angavs tidigare (i begäran eller under klientregistrering).  Omdirigerings-URI innehåller en auktoriseringskod och alla lokala tillstånd som tillhandahållits av klienten tidigare. </p\>|  
+|OAuth2Flow_AuthorizationCodeGrant_Step_TokenRequest_Description|<p\> Klienten begär en åtkomsttoken från auktoriseringsserverns tokenslutpunkt genom att inkludera auktoriseringskoden som togs emot i föregående steg.  När begäran görs autentiserar klienten med auktoriseringsservern.  Klienten innehåller den omdirigerings-URI som används för att hämta auktoriseringskoden för verifiering. </p\> <p\> Auktoriseringsservern autentiserar klienten, validerar auktoriseringskoden och ser till att omdirigerings-URI:n har fått matchar den URI som används för att omdirigera klienten i steg (C).  Om det är giltigt svarar auktoriseringsservern tillbaka med en åtkomsttoken och eventuellt en uppdateringstoken. </p\>|  
+|OAuth2Flow_AuthorizationCodeGrant_Step_TokenRequest_ErrorDescription|<p\> Om klientautentiseringen för begäran misslyckades eller är ogiltig svarar auktoriseringsservern med statuskoden HTTP 400 (Bad Request) (om inget annat anges) och innehåller följande parametrar med svaret. </p\>|  
+|OAuth2Flow_AuthorizationCodeGrant_Step_TokenRequest_RequestDescription|<p\> Klienten gör en begäran till tokenslutpunkten genom att skicka följande parametrar med formatet "application/x-www-form-urlencoded" med en teckenkodning av UTF-8 i http-begäranhetstexten. </p\>|  
+|OAuth2Flow_AuthorizationCodeGrant_Step_TokenRequest_ResponseDescription|<p\> Auktoriseringsservern utfärdar en åtkomsttoken och valfri uppdateringstoken och konstruerar svaret genom att lägga till följande parametrar i entiteten för HTTP-svaret med statuskoden 200 (OK). </p\>|  
+|OAuth2Flow_ClientCredentialsGrant_Step_TokenRequest_Description|<p\> Klienten autentiserar med auktoriseringsservern och begär en åtkomsttoken från tokenslutpunkten. </p\> <p\> Auktoriseringsservern autentiserar klienten och utfärdar, om den är giltig, en åtkomsttoken. </p\>|  
+|OAuth2Flow_ClientCredentialsGrant_Step_TokenRequest_ErrorDescription|<p\> Om begäran misslyckades klientautentisering eller är ogiltig auktoriseringsservern svarar med en HTTP 400 (Bad Request) statuskod (om inte annat anges) och innehåller följande parametrar med svaret. </p\>|  
+|OAuth2Flow_ClientCredentialsGrant_Step_TokenRequest_RequestDescription|<p\> Klienten gör en begäran till tokenslutpunkten genom att lägga till följande parametrar med formatet "application/x-www-form-urlencoded" med en teckenkodning av UTF-8 i http-begäranhetenhet-body. </p\>|  
+|OAuth2Flow_ClientCredentialsGrant_Step_TokenRequest_ResponseDescription|<p\> Om begäran om åtkomsttoken är giltig och auktoriserad utfärdar auktoriseringsservern en åtkomsttoken och valfri uppdateringstoken och konstruerar svaret genom att lägga till följande parametrar i entiteten för HTTP-svaret med statuskoden 200 (OK). </p\>|  
+|OAuth2Flow_ImplicitGrant_Step_AuthorizationRequest_Description|<p\> Klienten initierar flödet genom att dirigera resursägarens användaragent till auktoriseringsslutpunkten.  Klienten innehåller klientidentifieraren, det begärda scopet, det lokala tillståndet och en uri för omdirigering som auktoriseringsservern skickar tillbaka användaragenten när åtkomsten har beviljats (eller nekats). </p\> <p\> Auktoriseringsservern autentiserar resursägaren (via användaragenten) och fastställer om resursägaren beviljar eller nekar klientens åtkomstbegäran. </p\> <p\> Förutsatt att resursägaren beviljar åtkomst omdirigerar auktoriseringsservern tillbaka användaren och agenten till klienten med hjälp av den omdirigerings-URI som angavs tidigare.  Omdirigerings-URI innehåller åtkomsttoken i URI-fragmentet. </p\>|  
+|OAuth2Flow_ImplicitGrant_Step_AuthorizationRequest_ErrorDescription|<p\> Om resursägaren nekar åtkomstbegäran eller om begäran misslyckas av andra skäl än en saknad eller ogiltig omdirigering URI, informerar auktoriseringsservern klienten genom att lägga till följande parametrar i fragmentkomponenten i omdirigerings-URI med hjälp av formatet "application/x-www-form-urlencoded". </p\>|  
+|OAuth2Flow_ImplicitGrant_Step_AuthorizationRequest_RequestDescription|<p\> Klientappen måste skicka användaren till auktoriseringsslutpunkten för att kunna initiera OAuth-processen.      Vid auktoriseringsslutpunkten autentiserar användaren och beviljar eller nekar sedan åtkomst till appen. </p\>|  
+|OAuth2Flow_ImplicitGrant_Step_AuthorizationRequest_ResponseDescription|<p\> Om resursägaren beviljar åtkomstbegäran utfärdar auktoriseringsservern en åtkomsttoken och levererar den till klienten genom att lägga till följande parametrar i fragmentkomponenten i omdirigerings-URI med formatet "application/x-www-form-urlencoded". </p\>|  
+|OAuth2Flow_ObtainAuthorization_AuthorizationCodeGrant_Description|Auktoriseringskodflödet är optimerat för klienter som kan upprätthålla sekretessen för sina autentiseringsuppgifter (t.ex. webbserverprogram som implementeras med PHP, Java, Python, Ruby, ASP.NET, etc.).|  
+|OAuth2Flow_ObtainAuthorization_AuthorizationCodeGrant_Name|Bidrag till auktoriseringskod|  
+|OAuth2Flow_ObtainAuthorization_ClientCredentialsGrant_Description|Klientautentiseringsflödet är lämpligt i de fall då klienten (ditt program) begär åtkomst till de skyddade resurserna under dess kontroll. Klienten betraktas som en resursägare, så ingen slutanvändares interaktion krävs.|  
 |OAuth2Flow_ObtainAuthorization_ClientCredentialsGrant_Name|Beviljande av klientautentiseringsuppgifter|  
-|OAuth2Flow_ObtainAuthorization_ImplicitGrant_Description|Implicit flöde är optimerat för klienter som inte kan bibehålla konfidentialiteten för sina autentiseringsuppgifter som är kända för att använda en viss omdirigerings-URI. Dessa klienter är vanligt vis implementerade i en webbläsare med hjälp av ett skript språk, till exempel Java Script.|  
-|OAuth2Flow_ObtainAuthorization_ImplicitGrant_Name|Implicit beviljande|  
-|OAuth2Flow_ObtainAuthorization_ResourceOwnerPasswordCredentialsGrant_Description|Flöde för autentiseringsuppgifter för resurs ägare är lämpligt i fall där resurs ägaren har en förtroende relation med klienten (ditt program), till exempel enhetens operativ system eller ett program med hög privilegier. Det här flödet är lämpligt för klienter som kan erhålla resurs ägarens autentiseringsuppgifter (användar namn och lösen ord, vanligt vis med hjälp av ett interaktivt formulär).|  
-|OAuth2Flow_ObtainAuthorization_ResourceOwnerPasswordCredentialsGrant_Name|Tilldela autentiseringsuppgifter för resurs ägarens lösen ord|  
-|OAuth2Flow_ResourceOwnerPasswordCredentialsGrant_Step_TokenRequest_Description|< p\> resurs ägaren förser klienten med sitt användar namn och lösen ord. </p\> < p\> klienten begär en åtkomsttoken från token för auktoriseringsservern genom att inkludera de autentiseringsuppgifter som tagits emot från resurs ägaren.  När begäran görs autentiseras klienten med auktoriseringsservern. </p\> < p\> auktoriserings servern autentiserar klienten och verifierar autentiseringsuppgifter för resurs ägare, och om det är giltigt utfärdar en åtkomsttoken. </p\>|  
-|OAuth2Flow_ResourceOwnerPasswordCredentialsGrant_Step_TokenRequest_ErrorDescription|< p\> om begäran misslyckades med klientautentisering eller om den är ogiltig, svarar på en HTTP 400 (felaktig begäran) status kod (om inget annat anges) och innehåller följande parametrar med svaret. </p\>|  
-|OAuth2Flow_ResourceOwnerPasswordCredentialsGrant_Step_TokenRequest_RequestDescription|< p\> klienten gör en begäran till token-slutpunkten genom att lägga till följande parametrar med hjälp av formatet "Application/x-www-form-urlencoded" med en tecken kodning av UTF-8 i entiteten HTTP-begäran-brödtext. </p\>|  
-|OAuth2Flow_ResourceOwnerPasswordCredentialsGrant_Step_TokenRequest_ResponseDescription|< p\> om åtkomsttokenbegäran är giltig och auktoriserad, utfärdar auktoriseringsservern en åtkomsttoken och valfri uppdateringstoken, och skapar svaret genom att lägga till följande parametrar till entitetens brödtext för HTTP-svaret med en 200 (OK)-status kod. </p\>|  
+|OAuth2Flow_ObtainAuthorization_ImplicitGrant_Description|Implicit flöde är optimerat för klienter som inte kan upprätthålla sekretessen för sina autentiseringsuppgifter kända för att driva en viss omdirigering URI. Dessa klienter implementeras vanligtvis i en webbläsare med ett skriptspråk som JavaScript.|  
+|OAuth2Flow_ObtainAuthorization_ImplicitGrant_Name|Implicit bidrag|  
+|OAuth2Flow_ObtainAuthorization_ResourceOwnerPasswordCredentialsGrant_Description|Flödet för lösenord för resursägare är lämpligt i de fall där resursägaren har en förtroenderelation med klienten (ditt program), till exempel enhetsoperativsystemet eller ett mycket privilegierat program. Det här flödet är lämpligt för klienter som kan hämta resursägarens autentiseringsuppgifter (användarnamn och lösenord, vanligtvis med hjälp av ett interaktivt formulär).|  
+|OAuth2Flow_ObtainAuthorization_ResourceOwnerPasswordCredentialsGrant_Name|Beviljande av lösenord för resursägare|  
+|OAuth2Flow_ResourceOwnerPasswordCredentialsGrant_Step_TokenRequest_Description|<p\> Resursägaren förser klienten med sitt användarnamn och lösenord. </p\> <p\> Klienten begär en åtkomsttoken från auktoriseringsserverns tokenslutpunkt genom att inkludera autentiseringsuppgifterna som tas emot från resursägaren.  När begäran görs autentiserar klienten med auktoriseringsservern. </p\> <p\> Auktoriseringsservern autentiserar klienten och validerar resursägarens autentiseringsuppgifter och utfärdar en åtkomsttoken om det är giltigt. </p\>|  
+|OAuth2Flow_ResourceOwnerPasswordCredentialsGrant_Step_TokenRequest_ErrorDescription|<p\> Om begäran misslyckades klientautentisering eller är ogiltig auktoriseringsservern svarar med en HTTP 400 (Bad Request) statuskod (om inte annat anges) och innehåller följande parametrar med svaret. </p\>|  
+|OAuth2Flow_ResourceOwnerPasswordCredentialsGrant_Step_TokenRequest_RequestDescription|<p\> Klienten gör en begäran till tokenslutpunkten genom att lägga till följande parametrar med formatet "application/x-www-form-urlencoded" med en teckenkodning av UTF-8 i http-begäranhetenhet-body. </p\>|  
+|OAuth2Flow_ResourceOwnerPasswordCredentialsGrant_Step_TokenRequest_ResponseDescription|<p\> Om begäran om åtkomsttoken är giltig och auktoriserad utfärdar auktoriseringsservern en åtkomsttoken och valfri uppdateringstoken och konstruerar svaret genom att lägga till följande parametrar i entiteten för HTTP-svaret med statuskoden 200 (OK). </p\>|  
 |OAuth2Step_AccessTokenRequest_Name|Begäran om åtkomsttoken|  
-|OAuth2Step_AuthorizationRequest_Name|Auktoriseringsbegäran|  
-|OAuth2AccessToken_AuthorizationCodeGrant_TokenResponse|Kunna. Den åtkomsttoken som utfärdats av auktoriseringsservern.|  
-|OAuth2AccessToken_ClientCredentialsGrant_TokenResponse|Kunna. Den åtkomsttoken som utfärdats av auktoriseringsservern.|  
-|OAuth2AccessToken_ImplicitGrant_AuthorizationResponse|Kunna. Den åtkomsttoken som utfärdats av auktoriseringsservern.|  
-|OAuth2AccessToken_ResourceOwnerPasswordCredentialsGrant_TokenResponse|Kunna. Den åtkomsttoken som utfärdats av auktoriseringsservern.|  
-|OAuth2ClientId_AuthorizationCodeGrant_AuthorizationRequest|Kunna. Klient-ID.|  
-|OAuth2ClientId_AuthorizationCodeGrant_TokenRequest|KRÄVS om klienten inte autentiseras med auktoriseringsservern.|  
-|OAuth2ClientId_ImplicitGrant_AuthorizationRequest|Kunna. Klient-ID.|  
-|OAuth2Code_AuthorizationCodeGrant_AuthorizationResponse|Kunna. Den auktoriseringskod som genereras av auktoriseringsservern.|  
-|OAuth2Code_AuthorizationCodeGrant_TokenRequest|Kunna. Auktoriseringskod som togs emot från auktoriseringsservern.|  
-|OAuth2ErrorDescription_AuthorizationCodeGrant_AuthorizationErrorResponse|Valfritt. Läsbar ASCII-text som ger ytterligare information.|  
-|OAuth2ErrorDescription_AuthorizationCodeGrant_TokenErrorResponse|Valfritt. Läsbar ASCII-text som ger ytterligare information.|  
-|OAuth2ErrorDescription_ClientCredentialsGrant_TokenErrorResponse|Valfritt. Läsbar ASCII-text som ger ytterligare information.|  
-|OAuth2ErrorDescription_ImplicitGrant_AuthorizationErrorResponse|Valfritt. Läsbar ASCII-text som ger ytterligare information.|  
-|OAuth2ErrorDescription_ResourceOwnerPasswordCredentialsGrant_TokenErrorResponse|Valfritt. Läsbar ASCII-text som ger ytterligare information.|  
-|OAuth2ErrorUri_AuthorizationCodeGrant_AuthorizationErrorResponse|Valfritt. En URI som identifierar en webb sida som är läslig med information om felet.|  
-|OAuth2ErrorUri_AuthorizationCodeGrant_TokenErrorResponse|Valfritt. En URI som identifierar en webb sida som är läslig med information om felet.|  
-|OAuth2ErrorUri_ClientCredentialsGrant_TokenErrorResponse|Valfritt. En URI som identifierar en webb sida som är läslig med information om felet.|  
-|OAuth2ErrorUri_ImplicitGrant_AuthorizationErrorResponse|Valfritt. En URI som identifierar en webb sida som är läslig med information om felet.|  
-|OAuth2ErrorUri_ResourceOwnerPasswordCredentialsGrant_TokenErrorResponse|Valfritt. En URI som identifierar en webb sida som är läslig med information om felet.|  
-|OAuth2Error_AuthorizationCodeGrant_AuthorizationErrorResponse|Kunna. En enkel ASCII-felkod från följande: invalid_request, unauthorized_client, access_denied, unsupported_response_type, invalid_scope, server_error, temporarily_unavailable.|  
-|OAuth2Error_AuthorizationCodeGrant_TokenErrorResponse|Kunna. En enkel ASCII-felkod från följande: invalid_request, invalid_client, invalid_grant, unauthorized_client, unsupported_grant_type, invalid_scope.|  
-|OAuth2Error_ClientCredentialsGrant_TokenErrorResponse|Kunna. En enkel ASCII-felkod från följande: invalid_request, invalid_client, invalid_grant, unauthorized_client, unsupported_grant_type, invalid_scope.|  
-|OAuth2Error_ImplicitGrant_AuthorizationErrorResponse|Kunna. En enkel ASCII-felkod från följande: invalid_request, unauthorized_client, access_denied, unsupported_response_type, invalid_scope, server_error, temporarily_unavailable.|  
-|OAuth2Error_ResourceOwnerPasswordCredentialsGrant_TokenErrorResponse|Kunna. En enkel ASCII-felkod från följande: invalid_request, invalid_client, invalid_grant, unauthorized_client, unsupported_grant_type, invalid_scope.|  
-|OAuth2ExpiresIn_AuthorizationCodeGrant_TokenResponse|Rekommenderas. Livs längden i sekunder för åtkomsttoken.|  
-|OAuth2ExpiresIn_ClientCredentialsGrant_TokenResponse|Rekommenderas. Livs längden i sekunder för åtkomsttoken.|  
-|OAuth2ExpiresIn_ImplicitGrant_AuthorizationResponse|Rekommenderas. Livs längden i sekunder för åtkomsttoken.|  
-|OAuth2ExpiresIn_ResourceOwnerPasswordCredentialsGrant_TokenResponse|Rekommenderas. Livs längden i sekunder för åtkomsttoken.|  
-|OAuth2GrantType_AuthorizationCodeGrant_TokenRequest|Kunna. Värdet måste anges till authorization_code.|  
-|OAuth2GrantType_ClientCredentialsGrant_TokenRequest|Kunna. Värdet måste anges till client_credentials.|  
-|OAuth2GrantType_ResourceOwnerPasswordCredentialsGrant_TokenRequest|Kunna. Värdet måste anges till "Password".|  
-|OAuth2Password_ResourceOwnerPasswordCredentialsGrant_TokenRequest|Kunna. Resurs ägarens lösen ord.|  
-|OAuth2RedirectUri_AuthorizationCodeGrant_AuthorizationRequest|Valfritt. Slut punktens URI för omdirigering måste vara en absolut URI.|  
-|OAuth2RedirectUri_AuthorizationCodeGrant_TokenRequest|KRÄVS om parametern "redirect_uri" ingår i auktoriseringsbegäran och deras värden måste vara identiska.|  
-|OAuth2RedirectUri_ImplicitGrant_AuthorizationRequest|Valfritt. Slut punktens URI för omdirigering måste vara en absolut URI.|  
-|OAuth2RefreshToken_AuthorizationCodeGrant_TokenResponse|Valfritt. Uppdateringstoken som kan användas för att hämta nya åtkomsttoken.|  
-|OAuth2RefreshToken_ClientCredentialsGrant_TokenResponse|Valfritt. Uppdateringstoken som kan användas för att hämta nya åtkomsttoken.|  
-|OAuth2RefreshToken_ResourceOwnerPasswordCredentialsGrant_TokenResponse|Valfritt. Uppdateringstoken som kan användas för att hämta nya åtkomsttoken.|  
-|OAuth2ResponseType_AuthorizationCodeGrant_AuthorizationRequest|Kunna. Värdet måste anges till Code.|  
-|OAuth2ResponseType_ImplicitGrant_AuthorizationRequest|Kunna. Värdet måste anges till token.|  
-|OAuth2Scope_AuthorizationCodeGrant_AuthorizationRequest|Valfritt. Omfattningen för åtkomstbegäran.|  
-|OAuth2Scope_AuthorizationCodeGrant_TokenResponse|VALFRITT om identiskt med det scope som begärs av klienten. Annars krävs.|  
-|OAuth2Scope_ClientCredentialsGrant_TokenRequest|Valfritt. Omfattningen för åtkomstbegäran.|  
-|OAuth2Scope_ClientCredentialsGrant_TokenResponse|VALFRITT, om det är identiskt med det omfång som begärs av klienten. Annars krävs.|  
-|OAuth2Scope_ImplicitGrant_AuthorizationRequest|Valfritt. Omfattningen för åtkomstbegäran.|  
-|OAuth2Scope_ImplicitGrant_AuthorizationResponse|VALFRITT om identiskt med det scope som begärs av klienten. Annars krävs.|  
-|OAuth2Scope_ResourceOwnerPasswordCredentialsGrant_TokenRequest|Valfritt. Omfattningen för åtkomstbegäran.|  
-|OAuth2Scope_ResourceOwnerPasswordCredentialsGrant_TokenResponse|VALFRITT, om det är identiskt med det omfång som begärs av klienten. Annars krävs.|  
-|OAuth2State_AuthorizationCodeGrant_AuthorizationErrorResponse|KRÄVS om "State"-parametern fanns i begäran om klient godkännande.  Det exakta värde som tagits emot från klienten.|  
-|OAuth2State_AuthorizationCodeGrant_AuthorizationRequest|Rekommenderas. Ett ogenomskinligt värde som används av klienten för att bevara tillstånd mellan begäran och motringning.  Auktoriseringsservern innehåller det här värdet när du omdirigerar användar agenten till klienten igen.  Parametern ska användas för att förhindra förfalskning av begäran mellan webbplatser.|  
-|OAuth2State_AuthorizationCodeGrant_AuthorizationResponse|KRÄVS om "State"-parametern fanns i begäran om klient godkännande.  Det exakta värde som tagits emot från klienten.|  
-|OAuth2State_ImplicitGrant_AuthorizationErrorResponse|KRÄVS om "State"-parametern fanns i begäran om klient godkännande.  Det exakta värde som tagits emot från klienten.|  
-|OAuth2State_ImplicitGrant_AuthorizationRequest|Rekommenderas. Ett ogenomskinligt värde som används av klienten för att bevara tillstånd mellan begäran och motringning.  Auktoriseringsservern innehåller det här värdet när du omdirigerar användar agenten till klienten igen.  Parametern ska användas för att förhindra förfalskning av begäran mellan webbplatser.|  
-|OAuth2State_ImplicitGrant_AuthorizationResponse|KRÄVS om "State"-parametern fanns i begäran om klient godkännande.  Det exakta värde som tagits emot från klienten.|  
-|OAuth2TokenType_AuthorizationCodeGrant_TokenResponse|Kunna. Typ av token som utfärdats.|  
-|OAuth2TokenType_ClientCredentialsGrant_TokenResponse|Kunna. Typ av token som utfärdats.|  
-|OAuth2TokenType_ImplicitGrant_AuthorizationResponse|Kunna. Typ av token som utfärdats.|  
-|OAuth2TokenType_ResourceOwnerPasswordCredentialsGrant_TokenResponse|Kunna. Typ av token som utfärdats.|  
-|OAuth2UserName_ResourceOwnerPasswordCredentialsGrant_TokenRequest|Kunna. Resurs ägarens användar namn.|  
-|OAuth2UnsupportedTokenType|Tokentyp{0}stöds inte.|  
-|OAuth2InvalidState|Ogiltigt svar från auktoriseringsservern|  
-|OAuth2GrantType_AuthorizationCode|auktoriseringskod|  
-|OAuth2GrantType_Implicit|Uttrycklig|  
+|OAuth2Step_AuthorizationRequest_Name|Begäran om auktorisering|  
+|OAuth2AccessToken_AuthorizationCodeGrant_TokenResponse|Krävs. Åtkomsttoken som utfärdats av auktoriseringsservern.|  
+|OAuth2AccessToken_ClientCredentialsGrant_TokenResponse|Krävs. Åtkomsttoken som utfärdats av auktoriseringsservern.|  
+|OAuth2AccessToken_ImplicitGrant_AuthorizationResponse|Krävs. Åtkomsttoken som utfärdats av auktoriseringsservern.|  
+|OAuth2AccessToken_ResourceOwnerPasswordCredentialsGrant_TokenResponse|Krävs. Åtkomsttoken som utfärdats av auktoriseringsservern.|  
+|OAuth2ClientId_AuthorizationCodeGrant_AuthorizationRequest|Krävs. Klientidentifierare.|  
+|OAuth2ClientId_AuthorizationCodeGrant_TokenRequest|Krävs om klienten inte autentiserar med auktoriseringsservern.|  
+|OAuth2ClientId_ImplicitGrant_AuthorizationRequest|Krävs. Klientidentifieraren.|  
+|OAuth2Code_AuthorizationCodeGrant_AuthorizationResponse|Krävs. Auktoriseringskoden som genereras av auktoriseringsservern.|  
+|OAuth2Code_AuthorizationCodeGrant_TokenRequest|Krävs. Auktoriseringskoden som tas emot från auktoriseringsservern.|  
+|OAuth2ErrorDescription_AuthorizationCodeGrant_AuthorizationErrorResponse|Valfri. Läsbar ASCII-text som ger ytterligare information.|  
+|OAuth2ErrorDescription_AuthorizationCodeGrant_TokenErrorResponse|Valfri. Läsbar ASCII-text som ger ytterligare information.|  
+|OAuth2ErrorDescription_ClientCredentialsGrant_TokenErrorResponse|Valfri. Läsbar ASCII-text som ger ytterligare information.|  
+|OAuth2ErrorDescription_ImplicitGrant_AuthorizationErrorResponse|Valfri. Läsbar ASCII-text som ger ytterligare information.|  
+|OAuth2ErrorDescription_ResourceOwnerPasswordCredentialsGrant_TokenErrorResponse|Valfri. Läsbar ASCII-text som ger ytterligare information.|  
+|OAuth2ErrorUri_AuthorizationCodeGrant_AuthorizationErrorResponse|Valfri. En URI som identifierar en webbsida som kan läsas av människor med information om felet.|  
+|OAuth2ErrorUri_AuthorizationCodeGrant_TokenErrorResponse|Valfri. En URI som identifierar en webbsida som kan läsas av människor med information om felet.|  
+|OAuth2ErrorUri_ClientCredentialsGrant_TokenErrorResponse|Valfri. En URI som identifierar en webbsida som kan läsas av människor med information om felet.|  
+|OAuth2ErrorUri_ImplicitGrant_AuthorizationErrorResponse|Valfri. En URI som identifierar en webbsida som kan läsas av människor med information om felet.|  
+|OAuth2ErrorUri_ResourceOwnerPasswordCredentialsGrant_TokenErrorResponse|Valfri. En URI som identifierar en webbsida som kan läsas av människor med information om felet.|  
+|OAuth2Error_AuthorizationCodeGrant_AuthorizationErrorResponse|Krävs. En enda ASCII-felkod från följande: invalid_request, unauthorized_client, access_denied, unsupported_response_type, invalid_scope, server_error, temporarily_unavailable.|  
+|OAuth2Error_AuthorizationCodeGrant_TokenErrorResponse|Krävs. En enda ASCII-felkod från följande: invalid_request, invalid_client, invalid_grant, unauthorized_client, unsupported_grant_type, invalid_scope.|  
+|OAuth2Error_ClientCredentialsGrant_TokenErrorResponse|Krävs. En enda ASCII-felkod från följande: invalid_request, invalid_client, invalid_grant, unauthorized_client, unsupported_grant_type, invalid_scope.|  
+|OAuth2Error_ImplicitGrant_AuthorizationErrorResponse|Krävs. En enda ASCII-felkod från följande: invalid_request, unauthorized_client, access_denied, unsupported_response_type, invalid_scope, server_error, temporarily_unavailable.|  
+|OAuth2Error_ResourceOwnerPasswordCredentialsGrant_TokenErrorResponse|Krävs. En enda ASCII-felkod från följande: invalid_request, invalid_client, invalid_grant, unauthorized_client, unsupported_grant_type, invalid_scope.|  
+|OAuth2ExpiresIn_AuthorizationCodeGrant_TokenResponse|Rekommenderas. Livstiden i sekunder för åtkomsttoken.|  
+|OAuth2ExpiresIn_ClientCredentialsGrant_TokenResponse|Rekommenderas. Livstiden i sekunder för åtkomsttoken.|  
+|OAuth2ExpiresIn_ImplicitGrant_AuthorizationResponse|Rekommenderas. Livstiden i sekunder för åtkomsttoken.|  
+|OAuth2ExpiresIn_ResourceOwnerPasswordCredentialsGrant_TokenResponse|Rekommenderas. Livstiden i sekunder för åtkomsttoken.|  
+|OAuth2GrantType_AuthorizationCodeGrant_TokenRequest|Krävs. Värdet MÅSTE anges till "authorization_code".|  
+|OAuth2GrantType_ClientCredentialsGrant_TokenRequest|Krävs. Värdet MÅSTE anges till "client_credentials".|  
+|OAuth2GrantType_ResourceOwnerPasswordCredentialsGrant_TokenRequest|Krävs. Värdet MÅSTE ställas in på "lösenord".|  
+|OAuth2Password_ResourceOwnerPasswordCredentialsGrant_TokenRequest|Krävs. Lösenordet för resursägaren.|  
+|OAuth2RedirectUri_AuthorizationCodeGrant_AuthorizationRequest|Valfri. Omdirigeringsslutpunkten URI måste vara en absolut URI.|  
+|OAuth2RedirectUri_AuthorizationCodeGrant_TokenRequest|KRÄVS om parametern "redirect_uri" ingick i auktoriseringsbegäran och deras värden måste vara identiska.|  
+|OAuth2RedirectUri_ImplicitGrant_AuthorizationRequest|Valfri. Omdirigeringsslutpunkten URI måste vara en absolut URI.|  
+|OAuth2RefreshToken_AuthorizationCodeGrant_TokenResponse|Valfri. Uppdateringstoken, som kan användas för att hämta nya åtkomsttoken.|  
+|OAuth2RefreshToken_ClientCredentialsGrant_TokenResponse|Valfri. Uppdateringstoken, som kan användas för att hämta nya åtkomsttoken.|  
+|OAuth2RefreshToken_ResourceOwnerPasswordCredentialsGrant_TokenResponse|Valfri. Uppdateringstoken, som kan användas för att hämta nya åtkomsttoken.|  
+|OAuth2ResponseType_AuthorizationCodeGrant_AuthorizationRequest|Krävs. Värdet MÅSTE anges till "kod".|  
+|OAuth2ResponseType_ImplicitGrant_AuthorizationRequest|Krävs. Värdet MÅSTE anges till "token".|  
+|OAuth2Scope_AuthorizationCodeGrant_AuthorizationRequest|Valfri. Omfattningen av åtkomstbegäran.|  
+|OAuth2Scope_AuthorizationCodeGrant_TokenResponse|VALFRITT om det är identiskt med det scope som begärs av klienten. annars krävs.|  
+|OAuth2Scope_ClientCredentialsGrant_TokenRequest|Valfri. Omfattningen av åtkomstbegäran.|  
+|OAuth2Scope_ClientCredentialsGrant_TokenResponse|FRIVILLIGT, om det är identiskt med det scope som begärs av klienten; annars krävs.|  
+|OAuth2Scope_ImplicitGrant_AuthorizationRequest|Valfri. Omfattningen av åtkomstbegäran.|  
+|OAuth2Scope_ImplicitGrant_AuthorizationResponse|VALFRITT om det är identiskt med det scope som begärs av klienten. annars krävs.|  
+|OAuth2Scope_ResourceOwnerPasswordCredentialsGrant_TokenRequest|Valfri. Omfattningen av åtkomstbegäran.|  
+|OAuth2Scope_ResourceOwnerPasswordCredentialsGrant_TokenResponse|FRIVILLIGT, om det är identiskt med det scope som begärs av klienten; annars krävs.|  
+|OAuth2State_AuthorizationCodeGrant_AuthorizationErrorResponse|Krävs om parametern "tillstånd" fanns i klientauktoriseringsbegäran.  Det exakta värdet som mottagits från klienten.|  
+|OAuth2State_AuthorizationCodeGrant_AuthorizationRequest|Rekommenderas. Ett ogenomskinligt värde som används av klienten för att upprätthålla tillståndet mellan begäran och motringning.  Auktoriseringsservern innehåller det här värdet när du omdirigerar användaren och agenten tillbaka till klienten.  Parametern BÖR användas för att förhindra förfalskning av begäranden mellan webbplatser.|  
+|OAuth2State_AuthorizationCodeGrant_AuthorizationResponse|Krävs om parametern "tillstånd" fanns i klientauktoriseringsbegäran.  Det exakta värdet som mottagits från klienten.|  
+|OAuth2State_ImplicitGrant_AuthorizationErrorResponse|Krävs om parametern "tillstånd" fanns i klientauktoriseringsbegäran.  Det exakta värdet som mottagits från klienten.|  
+|OAuth2State_ImplicitGrant_AuthorizationRequest|Rekommenderas. Ett ogenomskinligt värde som används av klienten för att upprätthålla tillståndet mellan begäran och motringning.  Auktoriseringsservern innehåller det här värdet när du omdirigerar användaren och agenten tillbaka till klienten.  Parametern BÖR användas för att förhindra förfalskning av begäranden mellan webbplatser.|  
+|OAuth2State_ImplicitGrant_AuthorizationResponse|Krävs om parametern "tillstånd" fanns i klientauktoriseringsbegäran.  Det exakta värdet som mottagits från klienten.|  
+|OAuth2TokenType_AuthorizationCodeGrant_TokenResponse|Krävs. Typen av token som utfärdas.|  
+|OAuth2TokenType_ClientCredentialsGrant_TokenResponse|Krävs. Typen av token som utfärdas.|  
+|OAuth2TokenType_ImplicitGrant_AuthorizationResponse|Krävs. Typen av token som utfärdas.|  
+|OAuth2TokenType_ResourceOwnerPasswordCredentialsGrant_TokenResponse|Krävs. Typen av token som utfärdas.|  
+|OAuth2UserName_ResourceOwnerPasswordCredentialsGrant_TokenRequest|Krävs. Resursägarens användarnamn.|  
+|OAuth2OstöddTokenType|Tokentyp{0}' ' stöds inte.|  
+|OAuth2InvalidState|Ogiltigt svar från auktoriseringsserver|  
+|OAuth2GrantType_AuthorizationCode|Authorization code (Auktoriseringskod)|  
+|OAuth2GrantType_Implicit|Implicit|  
 |OAuth2GrantType_ClientCredentials|Klientautentiseringsuppgifter|  
-|OAuth2GrantType_ResourceOwnerPassword|Resurs ägar lösen ord|  
-|WebDocumentation302Code|302 hittades|  
-|WebDocumentation400Code|400 (felaktig begäran)|  
-|OAuth2SendingMethod_AuthHeader|Authorization-huvud|  
-|OAuth2SendingMethod_QueryParam|Frågeparameter|  
-|OAuth2AuthorizationServerGeneralException|Ett fel uppstod vid auktorisering av åtkomst via {0}|  
-|OAuth2AuthorizationServerCommunicationException|Det gick inte att upprätta en HTTP-anslutning till auktoriseringsservern eller så har den stängts av på oväntad sätt.|  
-|WebDocumentationOAuth2GeneralErrorMessage|Ett oväntat fel inträffade.|  
-|AuthorizationServerCommunicationException|Ett fel inträffade i kommunikations servern. Kontakta administratören.|  
-|TextblockSubscriptionKeyHeaderDescription|Prenumerations nyckel som ger åtkomst till detta API. Hittades i din < a href = '/Developer '\>Profile </a\>.|  
-|TextblockOAuthHeaderDescription|OAuth 2,0-åtkomsttoken hämtades från < i\>{0}</i\>. Beviljande typer som stöds: < jag\>{1}</i\>.|  
-|TextblockContentTypeHeaderDescription|Medietyp för texten som skickas till API: et.|  
-|ErrorMessageApiNotAccessible|Det API som du försöker anropa är inte tillgängligt just nu. Kontakta API-utgivaren < a href = "/issues"\>här </a\>.|  
-|ErrorMessageApiTimedout|Det API som du försöker anropa tar längre tid än normalt för att få svar tillbaka. Kontakta API-utgivaren < a href = "/issues"\>här </a\>.|  
-|BadRequestParameterExpected|parametern "{0}" förväntas|  
+|OAuth2GrantType_ResourceOwnerPassword|Lösenord för resursägare|  
+|WebDokumentation302Code|302 Hittade|  
+|WebDokumentation400Code|400 (Dålig begäran)|  
+|OAuth2SendingMethod_AuthHeader|Auktoriseringshuvud|  
+|OAuth2SendingMethod_QueryParam|Parameter för fråga|  
+|OAuth2AuthorizationServerGeneralException|Ett fel uppstod när åtkomst tillåts via{0}|  
+|OAuth2AuthorizationServerCommunicationException|Det gick inte att upprätta en HTTP-anslutning till auktoriseringsserver eller så har den oväntat stängts.|  
+|WebDokumentationOAuth2GeneralErrorMessage|Ett oväntat fel uppstod.|  
+|AuktoriseringServerkommunikationUttöste|Meddelandeserverkommunikationsundantag har inträffat. Kontakta administratören.|  
+|TextblockAbonnemangKeyHeaderDescription|Prenumerationsnyckel som ger åtkomst till det här API:et. Finns i din <en href='/developer'\>Profil</a\>.|  
+|TextblockOAuthHeaderDescription|OAuth 2.0-åtkomsttoken som erhållits från <i\> {0}</i\>. Bidragstyper som stöds:\> {1} <i</i\>.|  
+|TextblockContentTypeHeaderDescription|Medietyp för brödtexten som skickas till API:et.|  
+|ErrorMessageApiNAccessible|API:et som du försöker anropa är inte tillgängligt just nu. Kontakta API-utgivaren <a href="/issues"\>här</a\>.|  
+|ErrorMessageApiTimedout|API:et som du försöker anropa tar längre tid än normalt att få tillbaka svaret. Kontakta API-utgivaren <a href="/issues"\>här</a\>.|  
+|BadRequestParameterExpecterad|"'{0}' parameter förväntas"|  
 |TooltipTextDoubleClickToSelectAll|Dubbelklicka för att markera alla.|  
-|TooltipTextHideRevealSecret|Visa/Dölj|  
+|TooltipTextHideRevealSecret|Visa/dölj|  
 |ButtonLinkOpenConsole|Prova|  
-|SectionHeadingRequestBody|Begärandetext|  
-|SectionHeadingRequestParameters|Parametrar för begäran|  
-|SectionHeadingRequestUrl|URL för begäran|  
-|SectionHeadingResponse|Svar|  
-|SectionHeadingRequestHeaders|Begärandehuvud|  
-|FormLabelSubtextOptional|valfritt|  
+|AvsnittHuvudEnRequestBody|Begärandetext|  
+|AvsnittHuvudEnRequestParameters|Parametrar för begäran|  
+|AvsnittHuvudEnRequestUrl|URL för begäran|  
+|AvsnittHuvudsvar|Svar|  
+|AvsnittHuvudenRequestHeaders|Begärandehuvuden|  
+|FormulärLabelSubtextOptional|valfri|  
 |SectionHeadingCodeSamples|Kodexempel|  
-|TextblockOpenidConnectHeaderDescription|OpenID Connect ID-token hämtades från < i\>{0}</i\>. Beviljande typer som stöds: < jag\>{1}</i\>.|  
+|TextblockOpenidConnectHeaderDescription|OpenID Connect ID-token som hämtats från <i\> {0}</i\>. Bidragstyper som stöds:\> {1} <i</i\>.|  
   
-###  <a name="ErrorPageStrings"></a>ErrorPageStrings  
+###  <a name="errorpagestrings"></a><a name="ErrorPageStrings"></a>ErrorPageStrings  
   
 |Namn|Text|  
 |----------|----------|  
-|LinkLabelBack|undantag|  
-|LinkLabelHomePage|Start sida|  
+|LänkLabel Tillbaka|tillbaka|  
+|LinkLabelHomePage|hemsida|  
 |LinkLabelSendUsEmail|Skicka oss ett e-postmeddelande|  
-|PageTitleError|Det gick tyvärr inte att betjäna den begärda sidan|  
-|TextblockPotentialCauseIntermittentIssue|Detta kan vara ett tillfälligt problem med data åtkomst som redan är borta.|  
+|PageTitleError|Tyvärr uppstod ett problem med att visa den begärda sidan|  
+|TextblockPotentialCauseIntermittentIssue|Detta kan vara ett återkommande dataåtkomstproblem som redan är borta.|  
 |TextblockPotentialCauseOldLink|Länken du har klickat på kan vara gammal och inte peka på rätt plats längre.|  
 |TextblockPotentialCauseTechnicalProblem|Det kan finnas ett tekniskt problem på vår sida.|  
-|TextblockPotentialSolutionRefresh|Försök att uppdatera sidan.|  
-|TextblockPotentialSolutionStartOver|Börja om från vår {0}.|  
-|TextblockPotentialSolutionTryAgain|Gå {0} och försök utföra åtgärden igen.|  
-|TextReportProblem|{0} som beskriver vad som gick fel och vi kommer att titta på det så snart vi kan.|  
-|TitlePotentialCause|Möjlig orsak|  
-|TitlePotentialSolution|Det är förmodligen bara ett tillfälligt problem, några saker att prova|  
+|TextblockPotentialLösningRefresh|Prova med att uppdatera sidan.|  
+|TextblockPotentialSolutionStartOver|Börja om {0}från vår .|  
+|TextblockPotentialSolutionTryAgain|Gå {0} och prova åtgärden du utförde igen.|  
+|TextReportProblem|{0}beskriver vad som gick fel och vi kommer att titta på det så snart vi kan.|  
+|TitlePotentialCause|Potentiell orsak|  
+|TitelPotentialLösning|Det är kanske bara en tillfällig fråga, några saker att prova|  
   
-###  <a name="IssuesStrings"></a>IssuesStrings  
+###  <a name="issuesstrings"></a><a name="IssuesStrings"></a>IssuesStrings  
   
 |Namn|Text|  
 |----------|----------|  
 |WebIssuesIndexTitle|Problem|  
-|WebIssuesNoActiveSubscriptions|Du har inga aktiva prenumerationer. Du måste prenumerera på en produkt för att rapportera ett problem.|  
-|WebIssuesNotSignin|Du är inte inloggad. {0} om du vill rapportera ett problem eller publicera en kommentar.|  
-|WebIssuesReportIssueButton|Rapportera problem|  
+|WebIssuesNoActiveAbonnemang|Du har inga aktiva prenumerationer. Du måste prenumerera på en produkt för att rapportera ett problem.|  
+|WebIssuesNotSignin|Du är inte inloggad. Vänligen {0} rapportera ett problem eller skriva en kommentar.|  
+|WebIssuesReportIssueButton|Rapportproblem|  
 |WebIssuesSignIn|logga in|  
-|WebIssuesStatusReportedBy|Status: {0} &#124; rapporteras av {1}|  
+|WebIssuesStatusReportedBy|Status: {0} &#124; rapporterat av{1}|  
   
-###  <a name="NotFoundStrings"></a>NotFoundStrings  
+###  <a name="notfoundstrings"></a><a name="NotFoundStrings"></a>NotFoundStrings  
   
 |Namn|Text|  
 |----------|----------|  
-|LinkLabelHomePage|Start sida|  
-|LinkLabelSendUsEmail|Skicka oss ett e-postmeddelande|  
-|PageTitleNotFound|Vi kan tyvärr inte hitta sidan du letar efter|  
-|TextblockPotentialCauseMisspelledUrl|Du kan ha felstavat URL-adressen om du har angett den i.|  
+|LinkLabelHomePage|hemsida|  
+|LinkLabelSendUsEmail|skicka oss ett e-postmeddelande|  
+|PageTitleNotFound|Tyvärr kan vi inte hitta den sida du letar efter|  
+|TextblockPotentialCauseMisspelledUrl|Du kan ha felstavat webbadressen om du skrev in den.|  
 |TextblockPotentialCauseOldLink|Länken du har klickat på kan vara gammal och inte peka på rätt plats längre.|  
-|TextblockPotentialSolutionRetype|Försök att skriva om URL: en.|  
-|TextblockPotentialSolutionStartOver|Börja om från vår {0}.|  
-|TextReportProblem|{0} som beskriver vad som gick fel och vi kommer att titta på det så snart vi kan.|  
-|TitlePotentialCause|Möjlig orsak|  
-|TitlePotentialSolution|Potentiell lösning|  
+|TextblockPotentialLösningRetyp|Försök att skriva in webbadressen igen.|  
+|TextblockPotentialSolutionStartOver|Börja om {0}från vår .|  
+|TextReportProblem|{0}beskriver vad som gick fel och vi kommer att titta på det så snart vi kan.|  
+|TitlePotentialCause|Potentiell orsak|  
+|TitelPotentialLösning|Potentiell lösning|  
   
-###  <a name="ProductDetailsStrings"></a>ProductDetailsStrings  
-  
-|Namn|Text|  
-|----------|----------|  
-|WebProductsAgreement|Genom att prenumerera på {0} produkt godkänner jag `<a data-toggle='modal' href='#legal-terms'\>Terms of Use</a\>`.|  
-|WebProductsLegalTermsLink|Villkor för användning|  
-|WebProductsSubscribeButton|Prenumerera på|  
-|WebProductsUsageLimitsHeader|Användnings gränser|  
-|WebProductsYouAreNotSubscribed|Du prenumererar på den här produkten.|  
-|WebProductsYouRequestedSubscription|Du begärde prenumerationen på den här produkten.|  
-|ErrorYouNeedToAgreeWithLegalTerms|Du måste godkänna användnings villkoren innan du kan fortsätta.|  
-|ButtonLabelAddSubscription|Lägg till en prenumeration|  
-|LinkLabelChangeSubscriptionName|ändrade|  
-|ButtonLabelConfirm|Bekräfta|  
-|TextblockMultipleSubscriptionsCount|Du har {0} prenumerationer på den här produkten:|  
-|TextblockSingleSubscriptionsCount|Du har {0} prenumeration på den här produkten:|  
-|TextblockSingleApisCount|Den här produkten innehåller {0}-API:|  
-|TextblockMultipleApisCount|Den här produkten innehåller {0}-API: er:|  
-|TextblockHeaderSubscribe|Prenumerera på produkt|  
-|TextblockSubscriptionDescription|En ny prenumeration kommer att skapas på följande sätt:|  
-|TextblockSubscriptionLimitReached|Prenumerations gränsen har nåtts.|  
-  
-###  <a name="ProductsStrings"></a>ProductsStrings  
+###  <a name="productdetailsstrings"></a><a name="ProductDetailsStrings"></a>ProductDetailsStrings  
   
 |Namn|Text|  
 |----------|----------|  
-|PageTitleProducts|Produkter|  
+|WebProductsAgreement|Genom att {0} prenumerera på produkten, godkänner jag `<a data-toggle='modal' href='#legal-terms'\>Terms of Use</a\>`.|  
+|WebProductsLegalTermsLink|Användningsvillkor|  
+|WebProductsSubscribeButton|Prenumerera|  
+|WebProductsUsageLimitsHeader|Användningsgränser|  
+|WebProductsYouAreNotSprenumerera|Du prenumererar på denna produkt.|  
+|WebProductsYouRequestedAbonnemang|Du har begärt prenumeration på den här produkten.|  
+|ErrorYouNeedToAgreeWithLegalTerms|Du måste godkänna användarvillkoren innan du kan fortsätta.|  
+|KnappLabelAddAbonnemang|Lägg till en prenumeration|  
+|LinkLabelChangeSubscriptionName|ändra|  
+|ButtonLabelKonkrök|Bekräfta|  
+|TextblockMultipleSubscriptionsCount|Du {0} har prenumerationer på den här produkten:|  
+|TextblockSingleSubscriptionsCount|Du {0} har prenumeration på den här produkten:|  
+|TextblockSingleApisCount|Den här {0} produkten innehåller API:|  
+|TextblockMultipleApisCount|Den här {0} produkten innehåller API:er:|  
+|TextblockHeaderPrenumerera|Prenumerera på produkten|  
+|TextblockAbonnemangBeskrivning|En ny prenumeration skapas på följande sätt:|  
+|TextblockAbonnemangLimitReached|Gränsen för prenumerationer har nåtts.|  
   
-###  <a name="ProviderInfoStrings"></a>ProviderInfoStrings  
+###  <a name="productsstrings"></a><a name="ProductsStrings"></a>ProdukterSträngar  
   
 |Namn|Text|  
 |----------|----------|  
-|TextboxExternalIdentitiesDisabled|Inloggning har inaktiverats av administratörerna för tillfället.|  
-|TextboxExternalIdentitiesSigninInvitation|Du kan också logga in med|  
-|TextboxExternalIdentitiesSigninInvitationPrimary|Logga in med:|  
+|PageTitleProdukter|Produkter|  
   
-###  <a name="SigninResources"></a>SigninResources  
+###  <a name="providerinfostrings"></a><a name="ProviderInfoStrings"></a>ProviderInfoStrings  
   
 |Namn|Text|  
 |----------|----------|  
-|PrincipalNotFound|Det gick inte att hitta huvud kontot eller så är signaturen ogiltig|  
-|ErrorSsoAuthenticationFailed|SSO-Autentiseringen misslyckades|  
-|ErrorSsoAuthenticationFailedDetailed|Ogiltig token har angetts eller också går det inte att verifiera signaturen.|  
+|TextboxExternalId-enheterDisabled|Logga in är inaktiverat av administratörerna för tillfället.|  
+|TextboxExternalId-enheterSigninInvitation|Alternativt kan du logga in med|  
+|TextboxExternalId-enheterSigninIninvitationPrimary|Logga in med:|  
+  
+###  <a name="signinresources"></a><a name="SigninResources"></a>Logga inResurser  
+  
+|Namn|Text|  
+|----------|----------|  
+|PrincipalNotFound (Huvudsakligt Saknar inte)|Huvudnamn hittades inte eller signaturen är ogiltig|  
+|ErrorSsoAuthenticationFailed|SSO-autentisering misslyckades|  
+|ErrorSsoAuthenticationFailedDetailed|Ogiltig token eller signatur kan inte verifieras.|  
 |ErrorSsoTokenInvalid|SSO-token är ogiltig|  
-|ValidationErrorSpecificEmailAlreadyExists|E-postmeddelandet "{0}" är redan registrerat|  
-|ValidationErrorSpecificEmailInvalid|E-postmeddelandet '{0}' är ogiltigt|  
-|ValidationErrorPasswordInvalid|Lösen ordet är ogiltigt. Korrigera felen och försök igen.|  
-|PropertyTooShort|{0} är för kort|  
+|ValideringErrorSpecificEmailAlreadyExister|E-post '{0}' redan registrerad|  
+|ValideringErrorSpecificEmailInvalid|E-post '{0}' är ogiltigt|  
+|ValideringErrorPasswordInvalid|Lösenordet är ogiltigt. Korrigera felen och försök igen.|  
+|Fastighetsförmedling|{0}är för kort|  
 |WebAuthenticationAddresserEmailInvalidErrorMessage|Ogiltig e-postadress.|  
-|ValidationMessageNewPasswordConfirmationRequired|Bekräfta nytt lösen ord|  
-|ValidationErrorPasswordConfirmationRequired|Bekräfta lösen ord är tomt|  
-|WebAuthenticationEmailChangeNotice|Ändra e-postbekräftelsen är på väg att {0}. Följ anvisningarna i den för att bekräfta din nya e-postadress. Om e-postmeddelandet inte kommer till din inkorg inom några minuter kan du kontrol lera mappen skräp post.|  
-|WebAuthenticationEmailChangeNoticeHeader|Din begäran om e-poständring har bearbetats|  
-|WebAuthenticationEmailChangeNoticeTitle|E-poständring begärd|  
-|WebAuthenticationEmailHasBeenRevertedNotice|E-postmeddelandet finns redan. Begäran har återställts|  
-|ValidationErrorEmailAlreadyExists|E-postmeddelandet finns redan|  
-|ValidationErrorEmailInvalid|Ogiltig e-postadress|  
+|ValideringMessageNewPasswordConfirmationRequired|Bekräfta nytt lösenord|  
+|ValideringErrorPasswordConfirmationRequired|Bekräfta att lösenordet är tomt|  
+|WebAuthenticationEmailChangeNotice|Ändra bekräftelse e-post {0}är på väg till . Följ instruktionerna i den för att bekräfta din nya e-postadress. Om e-postmeddelandet inte kommer till din inkorg inom de närmaste minuterna, kontrollera din skräppostmapp.|  
+|WebAuthenticationEmailChangeNoticeHeader|Begäran om e-poständring har bearbetats|  
+|WebAuthenticationEmailChangeNoticeTitle|Begärd e-poständring|  
+|WebauthenticationEmailHasBeenRevertedNotice|Du e-post finns redan. Begäran har återställts|  
+|ValideringErrorEmailAltörerExister|E-post finns redan|  
+|ValideringErrorEmailInvalid|Ogiltig e-postadress|  
 |TextboxLabelEmail|E-post|  
-|ValidationErrorEmailRequired|E-postadress krävs.|  
+|ValideringErrorEmailRequired|E-postadress måste anges.|  
 |WebAuthenticationErrorNoticeHeader|Fel|  
-|WebAuthenticationFieldLengthErrorMessage|{0} måste vara en maximal längd på {1}|  
+|WebAuthenticationFieldLengthErrorMessage|{0}måste vara en maximal längd på{1}|  
 |TextboxLabelEmailFirstName|Förnamn|  
-|ValidationErrorFirstNameRequired|Förnamn måste anges.|  
-|ValidationErrorFirstNameInvalid|Ogiltigt förnamn|  
-|NoticeInvalidInvitationToken|Observera att bekräftelse länkar endast är giltiga i 48 timmar. Om du fortfarande befinner dig i den här tids perioden ser du till att länken är korrekt. Om länken har upphört att gälla upprepar du åtgärden som du försöker bekräfta.|  
-|NoticeHeaderInvalidInvitationToken|Ogiltig token för inbjudan|  
-|NoticeTitleInvalidInvitationToken|Bekräftelse fel|  
-|WebAuthenticationLastNameInvalidErrorMessage|Ogiltigt efter namn|  
-|TextboxLabelEmailLastName|Efternamn|  
-|ValidationErrorLastNameRequired|Efter namn måste anges.|  
-|WebAuthenticationLinkExpiredNotice|En bekräftelse länk som skickats till dig har upphört att gälla. `<a href={0}?token={1}>Resend confirmation email.</a\>`|  
-|NoticePasswordResetLinkInvalidOrExpired|Länken för lösen ords återställning är ogiltig eller har upphört att gälla.|  
-|WebAuthenticationLinkExpiredNoticeTitle|Länk skickat|  
-|WebAuthenticationNewPasswordLabel|Nytt lösen ord|  
-|ValidationMessageNewPasswordRequired|Nytt lösen ord krävs.|  
-|TextboxLabelNotificationsSenderEmail|E-postmeddelande om avsändare|  
-|TextboxLabelOrganizationName|Organisations namn|  
-|WebAuthenticationOrganizationRequiredErrorMessage|Organisations namnet är tomt|  
-|WebAuthenticationPasswordChangedNotice|Lösen ordet har uppdaterats|  
-|WebAuthenticationPasswordChangedNoticeTitle|Lösen ordet uppdaterat|  
-|WebAuthenticationPasswordCompareErrorMessage|Lösen orden matchar inte|  
+|ValidationErrorFirstNameRequired|Förnamn krävs.|  
+|ValideringErrorFirstNameInvalid|Ogiltigt förnamn|  
+|NoticeInvalidInvitationToken|Observera att bekräftelselänkar endast gäller i 48 timmar. Om du fortfarande befinner dig inom denna tidsram, se till att din länk är korrekt. Om din länk har gått ut upprepar du åtgärden som du försöker bekräfta.|  
+|MeddelandeHeaderInvalidInvitationToken|Ogiltig inbjudningstoken|  
+|NoticeTitleInvalidInvitationToken|Bekräftelsefel|  
+|WebAuthenticationLastNameInvalidErrorMessage|Ogiltigt efternamn|  
+|TextboxLabelEmailLästernamn|Efternamn|  
+|ValidationErrorLastNameRequired|Efternamn krävs.|  
+|WebAuthenticationLinkExpiredNotice|Bekräftelselänken som skickats till dig har upphört att gälla. `<a href={0}?token={1}>Resend confirmation email.</a\>`|  
+|NoticePasswordResetLinkInvalidOrExpirerad|Länken för återställning av lösenord är ogiltig eller har upphört att gälla.|  
+|WebAuthenticationLinkExpiredNoticeTitle|Länk skickad|  
+|WebAuthenticationNewPasswordLabel|Nytt lösenord|  
+|ValideringMessageNewPasswordRequired|Nytt lösenord krävs.|  
+|TextboxLabelAnmälandeSenderEmail|E-post till meddelanden|  
+|TextboxLabelOrganizationName|Organisationsnamn|  
+|WebAuthenticationOrganizationRequiredErrorMessage|Organisationsnamnet är tomt|  
+|WebAuthenticationPasswordChangedNotice|Lösenordet har uppdaterats|  
+|WebAuthenticationPasswordChangedNoticeTitle|Lösenordet har uppdaterats|  
+|WebAuthenticationPasswordCompareErrorMessage|Lösenord matchar inte|  
 |WebAuthenticationPasswordConfirmLabel|Bekräfta lösenord|  
-|ValidationErrorPasswordInvalidDetailed|Lösen ordet är för svagt.|  
-|WebAuthenticationPasswordLabel|lösenord|  
-|ValidationErrorPasswordRequired|Lösen ord måste anges.|  
-|WebAuthenticationPasswordResetSendNotice|E-postbekräftelsen för ändring av lösen ord är på väg att {0}. Följ anvisningarna i e-postmeddelandet för att fortsätta med processen för lösen ords ändring.|  
-|WebAuthenticationPasswordResetSendNoticeHeader|Din begäran om lösen ords återställning har bearbetats|  
-|WebAuthenticationPasswordResetSendNoticeTitle|Lösen ords återställning begärdes|  
-|WebAuthenticationRequestNotFoundNotice|Förfrågan hittades inte|  
-|WebAuthenticationSenderEmailRequiredErrorMessage|E-postmeddelandets avsändare är tomt|  
-|WebAuthenticationSigninPasswordLabel|Bekräfta ändringen genom att ange ett lösen ord|  
-|WebAuthenticationSignupConfirmNotice|E-postbekräftelsen är på väg att {0}. < br/\> Följ instruktionerna i e-postmeddelandet för att aktivera ditt konto. < br/\> om e-postmeddelandet inte kommer in i din inkorg inom de kommande minuterna, kontrol lera mappen skräp post.|  
+|ValideringErrorPasswordInvalidDetailed|Lösenordet är för svagt.|  
+|WebauthenticationPasswordLabel|lösenord|  
+|ValideringErrorPasswordRequired|Lösenord måste anges.|  
+|WebAuthenticationPasswordResetSendNotice|Ändra e-post för lösenordsbekräftelse är på väg till {0}. Följ instruktionerna i e-postmeddelandet för att fortsätta din lösenordsändringsprocess.|  
+|WebAuthenticationPasswordResetSendNoticeHeader|Begäran om återställning av lösenord har bearbetats|  
+|WebAuthenticationPasswordResetSendNoticeTitle|Lösenordsåterställning begärd|  
+|WebAuthenticationRequestNotFoundNotice|Begäran hittades inte|  
+|WebAuthenticationSenderEmailRequiredErrorMessage|E-postmeddelandet är tomt|  
+|WebAuthenticationSigninPasswordLabel|Bekräfta ändringen genom att ange ett lösenord|  
+|WebAuthenticationSignupConfirmNotice|Registreringsbekräftelse {0}e-post är på\> väg till .<br / Följ instruktionerna i\> e-postmeddelandet för att aktivera ditt konto.<br / Om e-postmeddelandet inte kommer i din inkorg inom de närmaste minuterna, kontrollera din skräppostmapp.|  
 |WebAuthenticationSignupConfirmNoticeHeader|Ditt konto har skapats|  
-|WebAuthenticationSignupConfirmNoticeRepeatHeader|Ett e-postmeddelande för registrerings bekräftelse skickades igen|  
-|WebAuthenticationSignupConfirmNoticeTitle|Kontot har skapats|  
+|WebAuthenticationSignupConfirmNoticeRepeatHeader|E-post för registreringsbekräftelse skickades igen|  
+|WebAuthenticationSignupKonfirmEratIntsTitle|Skapat konto|  
 |WebAuthenticationTokenRequiredErrorMessage|Token är tom|  
-|WebAuthenticationUserAlreadyRegisteredNotice|Det verkar som om en användare med det här e-postmeddelandet redan är registrerad i systemet. Om du har glömt ditt lösen ord kan du försöka att återställa det eller kontakta vårt support team.|  
-|WebAuthenticationUserAlreadyRegisteredNoticeHeader|Användaren är redan registrerad|  
-|WebAuthenticationUserAlreadyRegisteredNoticeTitle|Redan registrerad|  
-|ButtonLabelChangePassword|Ändra lösen ord|  
-|ButtonLabelChangeAccountInfo|Ändra konto information|  
+|WebAuthenticationUserAlreadyRegisteredNotice|Det verkar en användare med detta mail är redan registrerad i systemet. Om du har glömt ditt lösenord, försök att återställa det eller kontakta vårt supportteam.|  
+|WebAuthenticationUserAlreadyRegisteredNoticeHeader|Användaren har redan registrerats|  
+|WebAuthenticationUserAlreadyRegistreradNoticeTitle|Redan registrerad|  
+|KnappLabelChangePassword|Ändra lösenord|  
+|KnappLabelChangeAccountInfo|Ändra kontoinformation|  
 |ButtonLabelCloseAccount|Stäng konto|  
-|WebAuthenticationInvalidCaptchaErrorMessage|Texten som anges matchar inte texten på bilden. Försök igen.|  
-|ValidationErrorCredentialsInvalid|E-postadressen eller lösen ordet är ogiltigt. Korrigera felen och försök igen.|  
-|WebAuthenticationRequestIsNotValid|Begäran är inte giltig|  
-|WebAuthenticationUserIsNotConfirm|Bekräfta registreringen innan du försöker logga in.|  
-|WebAuthenticationInvalidEmailFormated|E-postmeddelandet är ogiltigt: {0}|  
-|WebAuthenticationUserNotFound|Användaren kunde inte hittas|  
-|WebAuthenticationTenantNotRegistered|Ditt konto tillhör en Azure Active Directory-klient som inte har behörighet att komma åt den här portalen.|  
+|WebAuthenticationInvalidCaptchaErrorMessage|Texten som skrivs in matchar inte texten på bilden. Försök igen.|  
+|ValideringErrorCredentialsInvalid|E-post eller lösenord är ogiltigt. Korrigera felen och försök igen.|  
+|WebAuthenticationRequestIsNotValid|Begäran är ogiltig|  
+|WebAuthenticationUserIsNotConfirm|Bekräfta din registrering innan du försöker logga in.|  
+|WebauthenticationInvalidemailFormaterad|E-post är ogiltig:{0}|  
+|WebAuthenticationUserIntenelse|Användaren kunde inte hittas|  
+|WebAuthenticationTenantNotRegistrerad|Ditt konto tillhör en Azure Active Directory-klient som inte har behörighet att komma åt den här portalen.|  
 |WebAuthenticationAuthenticationFailed|Autentiseringen misslyckades.|  
-|WebAuthenticationGooglePlusNotEnabled|Autentiseringen misslyckades. Kontakta administratören för att kontrol lera att Google-autentisering är korrekt konfigurerat om du har auktoriserat programmet.|  
-|ValidationErrorAllowedTenantIsRequired|Tillåten klient måste anges|  
-|ValidationErrorTenantIsNotValid|Azure Active Directory klienten{0}är inte giltig.|  
+|WebAuthenticationGooglePlusNotEnabled|Autentiseringen misslyckades. Om du har auktoriserat programmet kontaktar du administratören för att se till att Googles autentisering är korrekt konfigurerad.|  
+|ValidationErrorTillämptATenantIsRequired|Tillåten klient krävs|  
+|ValideringErrorTenantIsNotValid|Azure Active Directory-klienten '{0}' är ogiltig.|  
 |WebAuthenticationActiveDirectoryTitle|Azure Active Directory|  
-|WebAuthenticationLoginUsingYourProvider|Logga in med ditt {0}-konto|  
-|WebAuthenticationUserLimitNotice|Den här tjänsten har uppnått det maximala antalet tillåtna användare. `<a href="mailto:{0}"\>contact the administrator</a\>` för att uppgradera tjänsten och aktivera användar registrering igen.|  
-|WebAuthenticationUserLimitNoticeHeader|Användar registrering inaktiverat|  
-|WebAuthenticationUserLimitNoticeTitle|Användar registrering inaktiverat|  
-|WebAuthenticationUserRegistrationDisabledNotice|Registrering av användare har inaktiverats av administratören. Logga in med extern identitetsprovider.|  
-|WebAuthenticationUserRegistrationDisabledNoticeHeader|Användar registrering inaktiverat|  
-|WebAuthenticationUserRegistrationDisabledNoticeTitle|Användar registrering inaktiverat|  
-|WebAuthenticationSignupPendingConfirmationNotice|Innan vi kan slutföra skapandet av ditt konto måste vi verifiera din e-postadress. Vi har skickat ett e-postmeddelande till {0}. Följ anvisningarna inuti e-postmeddelandet för att aktivera ditt konto. Om e-postmeddelandet inte tas emot inom några minuter kan du kontrol lera mappen skräp post.|  
-|WebAuthenticationSignupPendingConfirmationAccountFoundNotice|Vi hittade ett obekräftat konto för e-postadressen {0}. För att slutföra skapandet av ditt konto måste vi verifiera din e-postadress. Vi har skickat ett e-postmeddelande till {0}. Följ anvisningarna inuti e-postmeddelandet för att aktivera ditt konto. Om e-postmeddelandet inte tas emot inom några minuter kan du kontrol lera mappen skräp post|  
-|WebAuthenticationSignupConfirmationAlmostDone|Nästan klart|  
-|WebAuthenticationSignupConfirmationEmailSent|Vi har skickat ett e-postmeddelande till {0}. Följ anvisningarna inuti e-postmeddelandet för att aktivera ditt konto. Om e-postmeddelandet inte tas emot inom några minuter kan du kontrol lera mappen skräp post.|  
-|WebAuthenticationEmailSentNotificationMessage|E-postmeddelandet har skickats till {0}|  
-|WebAuthenticationNoAadTenantConfigured|Ingen Azure Active Directory klient har kon figurer ATS för tjänsten.|  
-|CheckboxLabelUserRegistrationTermsConsentRequired|Jag samtycker till `<a data-toggle="modal" href="#" data-target="#terms"\>Terms of Use</a\>`.|  
-|TextblockUserRegistrationTermsProvided|Granska `<a data-toggle="modal" href="#" data-target="#terms"\>Terms of Use.</a\>`|  
-|DialogHeadingTermsOfUse|Villkor för användning|  
-|ValidationMessageConsentNotAccepted|Du måste godkänna användnings villkoren innan du kan fortsätta.|  
+|WebAuthenticationLoginAnvändandeDinprovider|Logga in {0} med ditt konto|  
+|WebAuthenticationUserLimitNotice|Den här tjänsten har nått det maximala antalet tillåtna användare. Uppgradera `<a href="mailto:{0}"\>contact the administrator</a\>` deras tjänst och återaktivera användarregistreringen.|  
+|WebAuthenticationUserLimitNoticeHeader|Användarregistrering inaktiverad|  
+|WebAuthenticationUserLimitNoticeTitle|Användarregistrering inaktiverad|  
+|WebAuthenticationAnvändarnaVisaVislandDisabledNotice|Registrering av användare har inaktiverats av administratören. Logga in hos extern identitetsleverantör.|  
+|WebAuthenticationAnvändarnaVisaVislandDisabledNoticeHeader|Användarregistrering inaktiverad|  
+|WebAuthenticationAnvändarregistrationDisabledNoticeTitle|Användarregistrering inaktiverad|  
+|WebAuthenticationSignupPendingConfirmationNotice|Innan vi kan slutföra skapandet av ditt konto måste vi verifiera din e-postadress. Vi har skickat ett e-postmeddelande till {0}. Följ instruktionerna i e-postmeddelandet för att aktivera ditt konto. Om e-postmeddelandet inte kommer inom de närmaste minuterna, kontrollera din skräppostmapp.|  
+|WebAuthenticationSignupPendingConfirmationAccountFoundNotice|Vi hittade ett obekräftat konto {0}för e-postadressen. För att slutföra skapandet av ditt konto måste vi verifiera din e-postadress. Vi har skickat ett e-postmeddelande till {0}. Följ instruktionerna i e-postmeddelandet för att aktivera ditt konto. Om e-postmeddelandet inte kommer inom de närmaste minuterna, kontrollera din skräppostmapp|  
+|WebAuthenticationSignupConfirmationNästanDone|Nästan klar|  
+|WebAuthenticationSignupConfirmationEmailSent|Vi har skickat ett e-postmeddelande till {0}. Följ instruktionerna i e-postmeddelandet för att aktivera ditt konto. Om e-postmeddelandet inte kommer inom de närmaste minuterna, kontrollera din skräppostmapp.|  
+|WebAuthenticationEmailSentAnmälelseMessage|E-post som skickats till{0}|  
+|WebAuthenticationNoAadTenantKonfigurerad|Ingen Azure Active Directory-klient som konfigurerats för tjänsten.|  
+|KryssrutaLabelUserRegistrationTermsConsentRequired|Jag går `<a data-toggle="modal" href="#" data-target="#terms"\>Terms of Use</a\>`med på .|  
+|TextblockUserRegistrationTermsProvided|Läs igenom`<a data-toggle="modal" href="#" data-target="#terms"\>Terms of Use.</a\>`|  
+|DialogHeadingTermsOfUse|Användningsvillkor|  
+|ValideringMessageConsentNotAccepted|Du måste godkänna användarvillkoren innan du kan fortsätta.|  
   
-###  <a name="SigninStrings"></a>SigninStrings  
+###  <a name="signinstrings"></a><a name="SigninStrings"></a>TeckeninStrings  
   
 |Namn|Text|  
 |----------|----------|  
 |WebAuthenticationForgotPassword|Glömt ditt lösenord?|  
-|WebAuthenticationIfAdministrator|Om du är administratör måste du logga in `<a href="{0}"\>here</a\>`.|  
-|WebAuthenticationNotAMember|Är du inte medlem ännu? `<a href="/signup"\>Sign up now</a\>`|  
+|WebAuthenticationIfAdministrator|Om du är administratör måste `<a href="{0}"\>here</a\>`du logga in .|  
+|WebAuthenticationNotAMember|Inte medlem ännu? `<a href="/signup"\>Sign up now</a\>`|  
 |WebAuthenticationRemember|Kom ihåg mig på den här datorn|  
-|WebAuthenticationSigininWithPassword|Logga in med ditt användar namn och lösen ord|  
+|WebauthenticationSiginWithPassword|Logga in med ditt användarnamn och lösenord|  
 |WebAuthenticationSigninTitle|Logga in|  
 |WebAuthenticationSignUpNow|Registrera dig nu|  
   
-###  <a name="SignupStrings"></a>SignupStrings  
+###  <a name="signupstrings"></a><a name="SignupStrings"></a>Registreringsstrubbningar  
   
 |Namn|Text|  
 |----------|----------|  
 |PageTitleSignup|Registrera dig|  
-|WebAuthenticationAlreadyAMember|Är du redan medlem?|  
-|WebAuthenticationCreateNewAccount|Skapa ett nytt API Management konto|  
+|WebAuthenticationAlreadyAMember|Redan medlem?|  
+|WebAuthenticationSkapNewAccount|Skapa ett nytt API Management-konto|  
 |WebAuthenticationSigninNow|Logga in nu|  
-|ButtonLabelSignup|Registrera dig|  
+|KnappLabelSignup|Registrera dig|  
   
-###  <a name="SubscriptionListStrings"></a>SubscriptionListStrings  
+###  <a name="subscriptionliststrings"></a><a name="SubscriptionListStrings"></a>PrenumerationslistaSträngar  
   
 |Namn|Text|  
 |----------|----------|  
-|SubscriptionCancelConfirmation|Är du säker på att du vill avbryta den här prenumerationen?|  
-|SubscriptionRenewConfirmation|Är du säker på att du vill förnya den här prenumerationen?|  
-|WebDevelopersManageSubscriptions|Hantera prenumerationer|  
-|WebDevelopersPrimaryKey|Primär nyckel|  
+|PrenumerationKancelBekräfta|Vill du avbryta prenumerationen?|  
+|PrenumerationFörnyaKonkrök|Vill du förnya prenumerationen?|  
+|WebDevelopersManageAbonnemang|Hantera prenumerationer|  
+|WebDevelopersPrimaryKey|Primärnyckel|  
 |WebDevelopersRegenerateLink|Återskapa|  
 |WebDevelopersSecondaryKey|Sekundär nyckel|  
 |ButtonLabelShowKey|Visa|  
-|ButtonLabelRenewSubscription|Förnya|  
-|WebDevelopersSubscriptionRequested|Begärd på {0}|  
+|KnappLabelRenewAbonnemang|Förnya|  
+|WebDevelopersAbonnemangBegräserad|Begärd den{0}|  
 |WebDevelopersSubscriptionRequestedState|Begärd|  
 |WebDevelopersSubscriptionTableNameHeader|Namn|  
 |WebDevelopersSubscriptionTableStateHeader|Status|  
-|WebDevelopersUsageStatisticsLink|Analys rapporter|  
+|WebDevelopersUsageStatisticsLink|Analytics-rapporter|  
 |WebDevelopersYourSubscriptions|Dina prenumerationer|  
-|SubscriptionPropertyLabelRequestedDate|Begärd|  
-|SubscriptionPropertyLabelStartedDate|Startades|  
-|PageTitleRenameSubscription|Byt namn på prenumeration|  
-|SubscriptionPropertyLabelName|Prenumerationens namn|  
+|PrenumerationFörslagSmanet begärsDate|Begärd den|  
+|PrenumerationFörslagSabelStartedDate|Började på|  
+|PageTitleRenameAbonnemang|Byt namn på prenumeration|  
+|PrenumerationErtyLabelName|Prenumerationens namn|  
   
-###  <a name="SubscriptionStrings"></a>SubscriptionStrings  
+###  <a name="subscriptionstrings"></a><a name="SubscriptionStrings"></a>PrenumerationStrings  
   
 |Namn|Text|  
 |----------|----------|  
-|SectionHeadingCloseAccount|Vill du stänga ditt konto?|  
+|AvsnittRubrikErSknäckkonto|Vill du stänga ditt konto?|  
 |PageTitleDeveloperProfile|Profil|  
-|ButtonLabelHideKey|Hide|  
-|ButtonLabelRegenerateKey|Återskapa|  
-|InformationMessageKeyWasRegenerated|Är du säker på att du vill återskapa den här nyckeln?|  
+|ButtonLabelHideKey|Dölj|  
+|KnappLabelRegenerateKey|Återskapa|  
+|InformationMessageKeyVarregent|Är du säker på att du vill återskapa den här nyckeln?|  
 |ButtonLabelShowKey|Visa|  
   
-###  <a name="UpdateProfileStrings"></a>UpdateProfileStrings  
+###  <a name="updateprofilestrings"></a><a name="UpdateProfileStrings"></a>UpdateProfileStrings  
   
 |Namn|Text|  
 |----------|----------|  
 |ButtonLabelUpdateProfile|Uppdatera profil|  
-|PageTitleUpdateProfile|Uppdatera konto information|  
+|PageTitleUpdateProfile|Uppdatera kontoinformation|  
   
-###  <a name="UserProfile"></a>UserProfile  
+###  <a name="userprofile"></a><a name="UserProfile"></a>Userprofile  
   
 |Namn|Text|  
 |----------|----------|  
-|ButtonLabelChangeAccountInfo|Ändra konto information|  
-|ButtonLabelChangePassword|Ändra lösen ord|  
+|KnappLabelChangeAccountInfo|Ändra kontoinformation|  
+|KnappLabelChangePassword|Ändra lösenord|  
 |ButtonLabelCloseAccount|Stäng konto|  
 |TextboxLabelEmail|E-post|  
 |TextboxLabelEmailFirstName|Förnamn|  
-|TextboxLabelEmailLastName|Efternamn|  
-|TextboxLabelNotificationsSenderEmail|E-postmeddelande om avsändare|  
-|TextboxLabelOrganizationName|Organisations namn|  
-|SubscriptionStateActive|Aktiv|  
-|SubscriptionStateCancelled|Har avbrutits|  
+|TextboxLabelEmailLästernamn|Efternamn|  
+|TextboxLabelAnmälandeSenderEmail|E-post till meddelanden|  
+|TextboxLabelOrganizationName|Organisationsnamn|  
+|SubscriptionStateActive|Active|  
+|SubscriptionStateKancelled|Avbrutet|  
 |SubscriptionStateExpired|Upphörd|  
-|SubscriptionStateRejected|Avslagen|  
+|SubscriptionStateRejected|Avvisad|  
 |SubscriptionStateRequested|Begärd|  
-|SubscriptionStateSuspended|Uppehåll|  
-|DefaultSubscriptionNameTemplate|{0} (standard)|  
-|SubscriptionNameTemplate|Åtkomst till utvecklare #{0}|  
+|PrenumerationStatSanvändare|Inaktiverad|  
+|StandardAbonnemangNameTemplate|{0}(standard)|  
+|SubscriptionNameTemplate|Tillgång till utvecklare #{0}|  
 |TextboxLabelSubscriptionName|Prenumerationens namn|  
-|ValidationMessageSubscriptionNameRequired|Prenumerations namnet får inte vara tomt.|  
-|ApiManagementUserLimitReached|Den här tjänsten har uppnått det maximala antalet tillåtna användare. Uppgradera till en högre pris nivå.|  
+|ValideringMessageSubscriptionNameRequired|Prenumerationsnamnet får inte vara tomt.|  
+|ApiManagementUserLimitReached|Den här tjänsten har nått det maximala antalet tillåtna användare. Uppgradera till en högre prisnivå.|  
   
-##  <a name="glyphs"></a>Glyph-resurser  
- API Management Developer Portal-mallar kan använda specialtecknen från [Glyphicons från bootstrap](https://getbootstrap.com/components/#glyphicons). Den här uppsättningen med glyfer innehåller över 250 tecken i teckensnitts formatet från [Glyphicon](https://glyphicons.com/) Halflings-uppsättningen. Använd följande syntax om du vill använda ett tecken från den här uppsättningen.  
+##  <a name="glyph-resources"></a><a name="glyphs"></a>Glyfer-resurser  
+ API Management developer portal mallar kan använda glyfer från [Glyphicons från Bootstrap](https://getbootstrap.com/components/#glyphicons). Denna uppsättning glyfer innehåller över 250 glyfer i teckensnittsformat från [Glyphicon](https://glyphicons.com/) Halflings-uppsättningen. Om du vill använda en glyf från den här uppsättningen använder du följande syntax.  
   
 ```html  
 <span class="glyphicon glyphicon-user">  
 ```  
   
- En fullständig lista över glyfer finns i [Glyphicons från bootstrap](https://getbootstrap.com/components/#glyphicons).
+ För den fullständiga listan över glyfer, se [Glyphicons från Bootstrap](https://getbootstrap.com/components/#glyphicons).
 
 ## <a name="next-steps"></a>Nästa steg
-Mer information om hur du arbetar med mallar finns i [anpassa API Management Developer-portalen med hjälp av mallar](api-management-developer-portal-templates.md).
+Mer information om hur du arbetar med mallar finns i [Så här anpassar du utvecklarportalen](api-management-developer-portal-templates.md)för API Management med hjälp av mallar .

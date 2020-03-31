@@ -1,101 +1,101 @@
 ---
-title: Översikt över konsulär
-description: Få en översikt över konsulär
+title: Översikt över konsuln
+description: Få en översikt över konsuln
 author: paulbouwer
 ms.topic: article
 ms.date: 10/09/2019
 ms.author: pabouwer
 ms.openlocfilehash: c518985b360fa3264bd5ac1e3fe76d61b2810b9b
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77594217"
 ---
-# <a name="consul"></a>Konsulat
+# <a name="consul"></a>Konsul
 
 ## <a name="overview"></a>Översikt
 
-[Konsulär][consul] är en nätverks lösning med flera data Center som är medveten om att ansluta och säkra tjänster mellan körnings plattformar. [Connect][consul-features] är den komponent som tillhandahåller funktioner för service nät.
+[Consul][consul] är en multi datacentermedveten servicenätverkslösning för att ansluta och säkra tjänster mellan runtime-plattformar. [Connect][consul-features] är den komponent som tillhandahåller servicenätfunktioner.
 
 ## <a name="architecture"></a>Arkitektur
 
-Konsulär tillhandahåller ett data plan som består av [mottagare][envoy-proxy]-baserade [sidvagn][consul-sidecar] som standard. Konsulär har en pluggbar proxy-arkitektur. Dessa intelligenta proxyservrar styr all nätverks trafik in i och ut ur dina nätappar och arbets belastningar.
+Konsuln tillhandahåller ett dataplan som består av [Envoy-baserade][envoy-proxy] [sidovagnar][consul-sidecar] som standard. Konsuln har en proxyarkitektur som kan anslutas. Dessa intelligenta proxyservrar styr all nätverkstrafik in och ut ur dina mesh-appar och arbetsbelastningar.
 
-Kontroll planet hanterar konfigurationen och principen via följande [komponenter][consul-architecture]:
+Kontrollplanet hanterar konfigurationen och principen via följande [komponenter:][consul-architecture]
 
-- **Server** – en konsulär agent som körs i server läge och som upprätthåller konsulärt kluster tillstånd.
+- **Server** - En konsulagent som körs i serverläge och som upprätthåller consul-klustertillstånd.
 
-- **Client** – en konsulär agent som körs i läget för Lightweight-klienter. Varje Compute-nod måste ha en klient agent som kör. Den här klient anordnings konfigurationen och principen mellan arbets belastningarna och konsulär konfiguration. 
+- **Klient** - En konsulagent som körs i lätt klientläge. Varje beräkningsnod måste ha en klientagent igång. Den här konfigurationen och principen för klientmäklare mellan arbetsbelastningarna och konsulkonfigurationen. 
 
-Följande arkitektur diagram visar hur de olika komponenterna i data planet och kontroll planet interagerar.
+Följande arkitekturdiagram visar hur de olika komponenterna i dataplanet och kontrollplanet interagerar.
 
-![Översikt över konsulära komponenter och arkitektur.](media/servicemesh/consul/about-architecture.png)
+![Översikt över consulkomponenter och arkitektur.](media/servicemesh/consul/about-architecture.png)
 
 
-## <a name="selection-criteria"></a>Urvals villkor
+## <a name="selection-criteria"></a>Urvalskriterier
 
-Det är viktigt att förstå och ta hänsyn till följande områden när du bedömer konsulär för dina arbets belastningar:
+Det är viktigt att förstå och tänka på följande områden när du utvärderar konsuln för dina arbetsbelastningar:
 
-- [Konsulära principer](#consul-principles)
-- [Trådlösa](#capabilities)
+- [Consul Principer](#consul-principles)
+- [Funktioner](#capabilities)
 - [Scenarier](#scenarios)
 
 
-### <a name="consul-principles"></a>Konsulära principer
+### <a name="consul-principles"></a>Konsulprinciper
 
-Följande principer [vägleder][consul-principles] konsulärt projekt:
+Följande principer [är vägledande för][consul-principles] konsulprojektet:
 
-- **API-driven** -Codify all konfiguration och princip.
+- **API-Driven** - Kodifiera all konfiguration och princip.
 
-- **Kör och Anslut var som helst** – Anslut arbets belastningar mellan körnings plattformar (Kubernetes, virtuella datorer, utan server).
+- **Kör och anslut var som helst** – Anslut arbetsbelastningar över körningsplattformar (Kubernetes, virtuella datorer, serverlösa).
 
-- **Utöka och integrera** säker anslutning av arbets belastningar i infrastrukturen.
+- **Utöka och integrera** – Anslut arbetsbelastningar på ett säkert sätt mellan infrastrukturen.
 
 
 ### <a name="capabilities"></a>Funktioner
 
-Konsulär tillhandahåller följande uppsättning funktioner:
+Konsuln innehåller följande uppsättning funktioner:
 
-- **Nät** – Gateway (flera data Center), virtuella datorer (out-of-Cluster Nodes), service Sync, skapat fel söknings alternativ
+- **Mesh** – gateway (multi datacenter), virtuella datorer (av klusternoder), synkronisering av tjänster, inbyggt felsökningsalternativ
 
-- **Proxyservrar** – mottagare, inbyggd proxy, pluggable, L4 proxy tillgänglig för Windows-arbetsbelastningar
+- **Proxyservrar** – Sändebud, inbyggd proxy, plugable, l4-proxy tillgänglig för Windows-arbetsbelastningar
 
-- **Trafik hantering** – routning, delning, upplösning
+- **Trafikledning** – routning, delning, upplösning
 
-- **Princip** – avsikter, ACL: er
+- **Politik** – avsikter, ACL:er
 
-- **Säkerhet** – auktorisering, autentisering, kryptering, SPIFFE-baserade identiteter, extern certifikat utfärdare (valv), certifikat hantering och rotation
+- **Säkerhet** – auktorisering, autentisering, kryptering, SPIFFE-baserade identiteter, extern certifikatutfärdare (Arkiv), certifikathantering och rotation
 
-- **Iakttagithet** – mått, UI-instrumentpanel, Prometheus, Grafana
+- **Observerbarhet** – mätvärden, ui instrumentbräda, prometheus, grafana
 
 
 ### <a name="scenarios"></a>Scenarier
 
-Konsulär är väl lämpad för och föreslås i följande scenarier:
+Konsuln är väl lämpad och föreslåd för följande scenarier:
 
-- Utöka befintliga konsulära anslutna arbets belastningar
+- Utöka befintliga arbetsbelastningar för konsulkopplade arbetsbelastningar
 
-- Krav på efterlevnad kring certifikat hantering
+- Efterlevnadskrav kring certifikathantering
 
-- Nätverk med flera kluster tjänster
+- Tjänstnät för flera kluster
 
-- VM-baserade arbets belastningar som ska ingå i tjänst nätet
+- VM-baserade arbetsbelastningar som ska ingå i tjänstnätet
 
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-I följande dokumentation beskrivs hur du kan installera konsulär på Azure Kubernetes service (AKS):
+I följande dokumentation beskrivs hur du kan installera konsul på Azure Kubernetes Service (AKS):
 
 > [!div class="nextstepaction"]
-> [Installera konsulär i Azure Kubernetes service (AKS)][consul-install]
+> [Installera konsul i Azure Kubernetes Service (AKS)][consul-install]
 
-Du kan också utforska konsulära funktioner och arkitektur ytterligare:
+Du kan också utforska consul-funktioner och arkitektur ytterligare:
 
-- [Konsulära funktioner][consul-features]
-- [Konsulär arkitektur][consul-architecture]
-- [Konsulär – Hur ansluter fungerar][consul-how-connect-works]
+- [Konsulfunktioner][consul-features]
+- [Konsularkitektur][consul-architecture]
+- [Consul - Hur Connect fungerar][consul-how-connect-works]
 
 <!-- LINKS - external -->
 [consul]: https://www.consul.io/mesh.html

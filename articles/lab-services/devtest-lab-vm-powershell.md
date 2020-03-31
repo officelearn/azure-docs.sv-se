@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 01/16/2020
 ms.author: spelluru
 ms.openlocfilehash: 13014c39641203bddadf858c34cff67462b3a4b3
-ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76167114"
 ---
 # <a name="create-a-virtual-machine-with-devtest-labs-using-azure-powershell"></a>Skapa en virtuell dator med DevTest Labs med Azure PowerShell
@@ -27,10 +27,10 @@ Den här artikeln visar hur du skapar en virtuell dator i Azure DevTest Labs med
 Innan du börjar:
 
 - [Skapa ett labb](devtest-lab-create-lab.md) om du inte vill använda ett befintligt labb för att testa skriptet eller kommandona i den här artikeln. 
-- [Installera Azure PowerShell](/powershell/azure/install-az-ps?view=azps-1.7.0) eller Använd Azure Cloud Shell som är integrerat i Azure Portal. 
+- [Installera Azure PowerShell](/powershell/azure/install-az-ps?view=azps-1.7.0) eller använd Azure Cloud Shell som är integrerat i Azure-portalen. 
 
 ## <a name="powershell-script"></a>PowerShell-skript
-Exempel skriptet i det här avsnittet använder cmdleten [Invoke-AzResourceAction](/powershell/module/az.resources/invoke-azresourceaction?view=azps-1.7.0) .  Den här cmdleten tar Labbets resurs-ID, namnet på åtgärden som ska utföras (`createEnvironment`) och de parametrar som krävs för att utföra åtgärden. Parametrarna finns i en hash-tabell som innehåller alla egenskaper för den virtuella datorns beskrivning. 
+Exempelskriptet i det här avsnittet använder cmdleten [Invoke-AzResourceAction.](/powershell/module/az.resources/invoke-azresourceaction?view=azps-1.7.0)  Den här cmdleten tar labbets resurs-ID,`createEnvironment`namnet på åtgärden för att utföra ( ) och de parametrar som krävs för att utföra den åtgärden. Parametrarna finns i en hash-tabell som innehåller alla egenskaper för beskrivning av virtuella datorer. 
 
 ```powershell
 [CmdletBinding()]
@@ -115,29 +115,29 @@ finally {
 }
 ```
 
-Egenskaperna för den virtuella datorn i skriptet ovan gör att vi kan skapa en virtuell dator med Windows Server 2016 Data Center som operativ system. För varje typ av virtuell dator är dessa egenskaper något annorlunda. Avsnittet [definiera virtuell dator](#define-virtual-machine) visar hur du avgör vilka egenskaper som ska användas i det här skriptet.
+Egenskaperna för den virtuella datorn i skriptet ovan gör det möjligt för oss att skapa en virtuell dator med Windows Server 2016 DataCenter som operativsystem. För varje typ av virtuell dator kommer dessa egenskaper att vara något olika. Avsnittet [Definiera virtuell dator](#define-virtual-machine) visar hur du avgör vilka egenskaper som ska användas i det här skriptet.
 
-Följande kommando innehåller ett exempel på att köra skriptet som sparats i ett fil namn: Create-LabVirtualMachine. ps1. 
+Följande kommando är ett exempel på hur skriptet har körts i ett filnamn: Create-LabVirtualMachine.ps1. 
 
 ```powershell
  PS> .\Create-LabVirtualMachine.ps1 -ResourceGroupName 'MyLabResourceGroup' -LabName 'MyLab' -userName 'AdminUser' -password 'Password1!' -VMName 'MyLabVM'
 ```
 
 ## <a name="define-virtual-machine"></a>Definiera virtuell dator
-I det här avsnittet visas hur du hämtar egenskaperna som är speciella för en typ av virtuell dator som du vill skapa. 
+I det här avsnittet visas hur du hämtar de egenskaper som är specifika för en typ av virtuell dator som du vill skapa. 
 
-### <a name="use-azure-portal"></a>Använd Azure Portal
-Du kan skapa en Azure Resource Manager-mall när du skapar en virtuell dator i Azure Portal. Du behöver inte slutföra processen med att skapa den virtuella datorn. Du följer bara anvisningarna tills du ser mallen. Detta är det bästa sättet att få den nödvändiga JSON-beskrivningen om du inte redan har skapat en virtuell labb dator. 
+### <a name="use-azure-portal"></a>Använda Azure-portalen
+Du kan generera en Azure Resource Manager-mall när du skapar en virtuell dator i Azure-portalen. Du behöver inte slutföra processen med att skapa den virtuella datorn. Du följer bara stegen tills du ser mallen. Detta är det bästa sättet att få den nödvändiga JSON-beskrivningen om du inte redan har skapat en labb-VM. 
 
 1. Navigera till [Azure-portalen](https://portal.azure.com).
-2. Välj **alla tjänster** i den vänstra navigerings menyn.
+2. Välj **Alla tjänster** på menyn till vänster.
 3. Sök efter och välj **DevTest Labs** i listan över tjänster. 
-4. På sidan **DevTest Labs** väljer du ditt labb i listan med labb.
-5. På Start sidan för ditt labb väljer du **+ Lägg till** i verktygsfältet. 
-6. Välj en **bas avbildning** för den virtuella datorn. 
-7. Välj **automatiserings alternativ** längst ned på sidan ovanför knappen **Skicka** . 
+4. På sidan **DevTest Labs** väljer du ditt labb i listan över labb.
+5. På labbets startsida väljer du **+ Lägg till** i verktygsfältet. 
+6. Välj en **basavbildning** för den virtuella datorn. 
+7. Välj **automatiseringsalternativ** längst ned på sidan ovanför knappen **Skicka.** 
 8. Du ser **Azure Resource Manager-mallen** för att skapa den virtuella datorn. 
-9. JSON-segmentet i avsnittet **Resources** har definitionen för den avbildnings typ som du valde tidigare. 
+9. JSON-segmentet i **avsnittet Resurser** har definitionen för den bildtyp som du valde tidigare. 
 
     ```json
     {
@@ -177,22 +177,22 @@ Du kan skapa en Azure Resource Manager-mall när du skapar en virtuell dator i A
     }
     ```
 
-I det här exemplet får du se hur du får en definition av en Azure-avbildning på marknaden. Du kan få en definition av en anpassad avbildning, en formel eller en miljö på samma sätt. Lägg till eventuella artefakter som krävs för den virtuella datorn och ange avancerade inställningar som krävs. När du har angett värden för de obligatoriska fälten, och eventuella valfria fält, innan du väljer knappen **automatiserings alternativ** .
+I det här exemplet ser du hur du får en definition av en Azure Market Place-avbildning. Du kan få en definition av en anpassad bild, en formel eller en miljö på samma sätt. Lägg till alla artefakter som behövs för den virtuella datorn och ange eventuella avancerade inställningar som krävs. När du har ange värden för de obligatoriska fälten och eventuella valfria fält innan du väljer knappen **Alternativ för automatisering.**
 
-### <a name="use-azure-rest-api"></a>Använd Azure REST API
-Följande procedur ger dig anvisningar om hur du hämtar egenskaper för en avbildning med hjälp av REST API: de här stegen fungerar bara för en befintlig virtuell dator i ett labb. 
+### <a name="use-azure-rest-api"></a>Använda Azure REST API
+Följande procedur ger dig steg för att hämta egenskaper för en avbildning med hjälp av REST API: Dessa steg fungerar endast för en befintlig virtuell dator i ett labb. 
 
-1. Gå till sidan [Virtual Machines-lista](/rest/api/dtl/virtualmachines/list) och välj knappen **prova** . 
+1. Navigera till den [virtuella datorer - lista](/rest/api/dtl/virtualmachines/list) sida, välj Prova **den** knappen. 
 2. Välj din **Azure-prenumeration**.
-3. Ange **resurs gruppen för labbet**.
+3. Ange **resursgruppen för labbet**.
 4. Ange **namnet på labbet**. 
 5. Välj **Kör**.
-6. Du ser **egenskaperna för den avbildning** som är baserad på vilken den virtuella datorn skapades. 
+6. Du ser **egenskaperna för avbildningen** baserat på vilken den virtuella datorn skapades. 
 
-## <a name="set-expiration-date"></a>Ange förfallo datum
-I scenarier som utbildning, demonstrationer och test versioner kanske du vill skapa virtuella datorer och ta bort dem automatiskt efter en fast varaktighet så att du inte debiteras onödiga kostnader. Du kan ange ett förfallo datum för en virtuell dator när du skapar den med PowerShell, som du ser i avsnittet exempel på [PowerShell-skript](#powershell-script) .
+## <a name="set-expiration-date"></a>Ange utgångsdatum
+I scenarier som utbildning, demonstrationer och utvärderingsversioner kanske du vill skapa virtuella datorer och ta bort dem automatiskt efter en fast varaktighet så att du inte ådrar dig onödiga kostnader. Du kan ange ett utgångsdatum för en virtuell dator när du skapar det med PowerShell som visas i exemplet [PowerShell-skriptavsnittet.](#powershell-script)
 
-Här är ett exempel på ett PowerShell-skript som anger förfallo datum för alla befintliga virtuella datorer i ett labb:
+Här är ett exempel på PowerShell-skript som anger utgångsdatum för alla befintliga virtuella datorer i ett labb:
 
 ```powershell
 # Values to change
@@ -225,4 +225,4 @@ Set-AzureRmResource -ResourceId $VmResourceId -Properties $VmProperties -Force
 
 
 ## <a name="next-steps"></a>Nästa steg
-Se följande innehåll: [Azure PowerShell dokumentation för Azure DevTest Labs](/powershell/module/az.devtestlabs/)
+Se följande innehåll: [Azure PowerShell-dokumentation för Azure DevTest Labs](/powershell/module/az.devtestlabs/)

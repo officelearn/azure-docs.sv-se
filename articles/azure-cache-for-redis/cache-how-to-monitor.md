@@ -1,120 +1,120 @@
 ---
-title: Så här övervakar du Azure cache för Redis
-description: Lär dig hur du övervakar hälsa och prestanda för Azure-cache för Redis-instanser
+title: Övervaka Azure Cache för Redis
+description: Lär dig hur du övervakar hälso- och prestanda i Azure Cache för Redis-instanser
 author: yegu-ms
 ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 07/13/2017
 ms.openlocfilehash: 86cbeddba699e89ce1127dbac72dac81dcc41449
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76547497"
 ---
-# <a name="how-to-monitor-azure-cache-for-redis"></a>Så här övervakar du Azure cache för Redis
+# <a name="how-to-monitor-azure-cache-for-redis"></a>Övervaka Azure Cache för Redis
 
-Azure cache för Redis använder [Azure Monitor](../azure-monitor/index.yml) för att tillhandahålla flera alternativ för att övervaka dina cache-instanser. Du kan visa mått, fästa mått diagram på Start sidan, anpassa datum-och tidsintervallet för övervaknings diagram, lägga till och ta bort mått från diagrammen och ange aviseringar när vissa villkor uppfylls. Med de här verktygen kan du övervaka Azure-cachens hälso tillstånd för Redis-instanser och hjälpa dig att hantera dina cachelagring-program.
+Azure Cache för Redis använder [Azure Monitor](../azure-monitor/index.yml) för att tillhandahålla flera alternativ för övervakning av cacheinstanser. Du kan visa mått, fästa måttdiagram på Startboard, anpassa datum- och tidsintervallet för övervakningsdiagram, lägga till och ta bort mått från diagrammen och ange aviseringar när vissa villkor uppfylls. Med de här verktygen kan du övervaka hälsotillståndet för dina Azure-cache för Redis-instanser och hjälpa dig att hantera dina cachelagringsprogram.
 
-Mått för Azure cache för Redis-instanser samlas in med hjälp av kommandot Redis [information](https://redis.io/commands/info) cirka två gånger per minut och lagras automatiskt i 30 dagar (se [Exportera cache-mått](#export-cache-metrics) för att konfigurera en annan bevarande princip) så att de kan visas i mått diagram och utvärderas av varnings regler. Mer information om de olika informations värden som används för varje cache-mått finns i [tillgängliga mått och rapporterings intervall](#available-metrics-and-reporting-intervals).
+Mått för Azure Cache för Redis-instanser samlas in med kommandot Redis [INFO](https://redis.io/commands/info) ungefär två gånger per minut och lagras automatiskt i 30 dagar (se [Exportera cachemått](#export-cache-metrics) för att konfigurera en annan bevarandeprincip) så att de kan visas i måttdiagrammen och utvärderas av varningsregler. Mer information om de olika INFO-värden som används för varje cachemått finns i [Tillgängliga mått och rapporteringsintervall](#available-metrics-and-reporting-intervals).
 
 <a name="view-cache-metrics"></a>
 
-Om du vill visa cache-mått [bläddrar](cache-configure.md#configure-azure-cache-for-redis-settings) du till din cache-instans i [Azure Portal](https://portal.azure.com).  Azure cache för Redis innehåller några inbyggda diagram på bladet **Översikt** och **Redis mått** bladet. Varje diagram kan anpassas genom att lägga till eller ta bort mått och ändra rapporterings intervallet.
+Om du vill visa cachemått [bläddrar du](cache-configure.md#configure-azure-cache-for-redis-settings) till cacheinstansen i [Azure-portalen](https://portal.azure.com).  Azure Cache för Redis innehåller några inbyggda diagram på **bladet Översikt** och **Redis-måttbladet.** Varje diagram kan anpassas genom att lägga till eller ta bort mått och ändra rapporteringsintervallet.
 
-![Redis mått](./media/cache-how-to-monitor/redis-cache-redis-metrics-blade.png)
+![Redis-mått](./media/cache-how-to-monitor/redis-cache-redis-metrics-blade.png)
 
-## <a name="view-pre-configured-metrics-charts"></a>Visa förkonfigurerade mått diagram
+## <a name="view-pre-configured-metrics-charts"></a>Visa förkonfigurerade måttdiagram
 
-**Översikts** bladet har följande förkonfigurerade övervaknings diagram.
+**Bladet Översikt** har följande förkonfigurerade övervakningsdiagram.
 
-* [Övervaknings diagram](#monitoring-charts)
-* [Användnings diagram](#usage-charts)
+* [Övervakningsdiagram](#monitoring-charts)
+* [Användningsdiagram](#usage-charts)
 
-### <a name="monitoring-charts"></a>Övervaknings diagram
+### <a name="monitoring-charts"></a>Övervakningsdiagram
 
-Avsnittet **övervakning** i bladet **Översikt** har **träffar och har träffar**, **hämtar och ställer in**, **anslutningar**och **Totalt antal kommando** diagram.
+Avsnittet **Övervakning** i **bladet Översikt** har diagram över träffar och **missar,** hämtar och **anger,** **anslutningar**och totalt **antal kommandon.**
 
-![Övervaknings diagram](./media/cache-how-to-monitor/redis-cache-monitoring-part.png)
+![Övervakningsdiagram](./media/cache-how-to-monitor/redis-cache-monitoring-part.png)
 
-### <a name="usage-charts"></a>Användnings diagram
+### <a name="usage-charts"></a>Användningsdiagram
 
-**Användnings** avsnittet på bladet **Översikt** har **redis server belastning**, **minnes användning**, **nätverks bandbredd**och **CPU-användning** och visar även **pris nivån** för cache-instansen.
+Avsnittet **Användning** i **bladet Översikt** har **Redis Server Load**, Memory **Usage**, **Network Bandwidth**och CPU **Usage** diagram, och visar även **prisnivån** för cacheinstansen.
 
-![Användnings diagram](./media/cache-how-to-monitor/redis-cache-usage-part.png)
+![Användningsdiagram](./media/cache-how-to-monitor/redis-cache-usage-part.png)
 
-**Pris** nivån visar cache-pris nivån och kan användas för att [skala](cache-how-to-scale.md) cachen till en annan pris nivå.
+**Prisnivån** visar cacheprisnivån och kan användas för att [skala](cache-how-to-scale.md) cachen till en annan prisnivå.
 
-## <a name="view-metrics-with-azure-monitor"></a>Visa mått med Azure Monitor
+## <a name="view-metrics-with-azure-monitor"></a>Visa mått med Azure-övervakare
 
-Om du vill visa Redis-mått och skapa anpassade diagram med Azure Monitor klickar du på **mått** på **resurs-menyn**och anpassar ditt diagram med önskade mått, rapporterings intervall, diagram typ med mera.
+Om du vill visa Redis-mått och skapa anpassade diagram med Azure Monitor klickar du på Mått från **resursmenyn**och **anpassar** diagrammet med önskat mått, rapporteringsintervall, diagramtyp med mera.
 
-![Redis mått](./media/cache-how-to-monitor/redis-cache-monitor.png)
+![Redis-mått](./media/cache-how-to-monitor/redis-cache-monitor.png)
 
-Mer information om hur du arbetar med mått med Azure Monitor finns i [Översikt över mått i Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md).
+Mer information om hur du arbetar med mått med Azure Monitor finns [i Översikt över mått i Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md).
 
 <a name="how-to-view-metrics-and-customize-chart"></a>
 <a name="enable-cache-diagnostics"></a>
-## <a name="export-cache-metrics"></a>Exportera cache-mått
+## <a name="export-cache-metrics"></a>Exportera cachemått
 
-Som standard lagras cache-mått i Azure Monitor i [30 dagar](../azure-monitor/platform/data-platform-metrics.md) och tas sedan bort. Om du vill spara dina cache-mått i mer än 30 dagar kan du ange [ett lagrings konto](../azure-monitor/platform/archive-diagnostic-logs.md) och ange en princip för **bevarande (dagar)** för dina cache-mått. 
+Som standard lagras cachemått i Azure Monitor i [30 dagar](../azure-monitor/platform/data-platform-metrics.md) och tas sedan bort. Om du vill spara cachemåtten längre än 30 dagar kan du [ange ett lagringskonto](../azure-monitor/platform/archive-diagnostic-logs.md) och ange en princip för **kvarhållning (dagar)** för cachemåtten. 
 
-Så här konfigurerar du ett lagrings konto för dina cache-mått:
+Så här konfigurerar du ett lagringskonto för cachemåtten:
 
-1. På sidan **Azure cache för Redis** , under **övervaknings** rubriken väljer du **diagnostik**.
-2. Välj **+ Lägg till diagnostisk inställning**.
-3. Ge inställningarna ett namn.
-4. Markera **Arkivera till ett lagringskonto**. Du debiteras normala data avgifter för lagring och transaktioner när du skickar diagnostik till ett lagrings konto.
-4. Välj **Konfigurera** för att välja det lagrings konto där du vill lagra cache-måtten.
-5. Under tabell rubrikens **mått**markerar du kryss rutan bredvid de rad objekt som du vill lagra, till exempel **AllMetrics**. Ange en princip för **bevarande (dagar)** . Det maximala antalet dagars kvarhållning du kan ange är **365 dagar**. Men om du vill behålla mått data permanent ställer du in **kvarhållning (dagar)** på **0**.
+1. Välj **Diagnostik**under rubriken **Övervakning** på sidan Azure Cache **för Redis** .
+2. Välj **+ Lägg till diagnostikinställning**.
+3. Namnge inställningarna.
+4. Markera **Arkivera till ett lagringskonto**. Du debiteras normala datahastigheter för lagring och transaktioner när du skickar diagnostik till ett lagringskonto.
+4. Välj **Konfigurera** om du vill välja vilket lagringskonto som cachemåtten ska lagras i.
+5. Under **tabellrubrikmåttet**visas kryssrutan bredvid de radartiklar som du vill lagra, till exempel **AllMetrics**. Ange en **princip för kvarhållning (dagar).** Den maximala kvarhållning av dagar som du kan ange är **365 dagar**. Men om du vill behålla måttdata för alltid anger du **Kvarhållning (dagar)** till **0**.
 6. Klicka på **Spara**.
 
 
-![Redis-diagnostik](./media/cache-how-to-monitor/redis-cache-diagnostics.png)
+![Redis diagnostik](./media/cache-how-to-monitor/redis-cache-diagnostics.png)
 
 >[!NOTE]
->Förutom att arkivera dina cache-mått till lagring kan du också [strömma dem till en händelsehubben eller skicka dem till Azure Monitor loggar](../azure-monitor/platform/rest-api-walkthrough.md#retrieve-metric-values).
+>Förutom att arkivera cachemåtten till lagring kan du också [strömma dem till en händelsenav eller skicka dem till Azure Monitor-loggar](../azure-monitor/platform/rest-api-walkthrough.md#retrieve-metric-values).
 >
 
-Du kan få åtkomst till dina mått genom att visa dem i Azure Portal som tidigare beskrivits i den här artikeln och du kan också komma åt dem med hjälp av [Azure Monitor mått REST API](../azure-monitor/platform/stream-monitoring-data-event-hubs.md).
+För att komma åt dina mått kan du visa dem i Azure-portalen som tidigare beskrivits i den här artikeln, och du kan också komma åt dem med hjälp av [AZURE Monitor Metrics REST API](../azure-monitor/platform/stream-monitoring-data-event-hubs.md).
 
 > [!NOTE]
-> Om du ändrar lagrings konton är data i det tidigare konfigurerade lagrings kontot fortfarande tillgängliga för nedladdning, men det visas inte i Azure Portal.  
+> Om du ändrar lagringskonton förblir data i det tidigare konfigurerade lagringskontot tillgängliga för hämtning, men de visas inte i Azure-portalen.  
 > 
 
-## <a name="available-metrics-and-reporting-intervals"></a>Tillgängliga mått och rapporterings intervall
+## <a name="available-metrics-and-reporting-intervals"></a>Tillgängliga mått och rapporteringsintervall
 
-Cache-mått rapporteras med hjälp av flera rapport intervall, inklusive den **senaste timmen**, **idag**, **senaste veckan**och **anpassad**. **Mått** bladet för varje mått diagram visar medelvärde, lägsta och högsta värden för varje mått i diagrammet, och vissa mått visar total summan för rapporterings intervallet. 
+Cachemått rapporteras med flera rapporteringsintervall, inklusive **föregående timme**, **Idag**, **Föregående vecka**och **Anpassad**. **Bladet Mått** för varje måttdiagram visar medelvärdena, minimi- och maximivärdena för varje mått i diagrammet, och vissa mått visar en summa för rapporteringsintervallet. 
 
-Varje mått innehåller två versioner. Ett mått mäter prestanda för hela cacheminnet, och för cacheminnen som använder [kluster](cache-how-to-premium-clustering.md), en andra version av måttet som innehåller `(Shard 0-9)` i namnet mäter prestanda för en enskild Shard i en cache. Om till exempel en cache har fyra Shards är `Cache Hits` det totala antalet träffar för hela cacheminnet, och `Cache Hits (Shard 3)` är bara träffarna för Shard i cacheminnet.
+Varje mått innehåller två versioner. Ett mått mäter prestanda för hela cacheminnet och för cacheminnen som `(Shard 0-9)` använder [klustring](cache-how-to-premium-clustering.md), en andra version av måttet som ingår i namnet mäter prestanda för en enskild fragment i en cache. Till exempel om en cache har `Cache Hits` fyra shards, är det `Cache Hits (Shard 3)` totala antalet träffar för hela cachen, och är bara träffar för att fragmentet av cachen.
 
 > [!NOTE]
-> Även om cachen är inaktiv utan anslutna aktiva klient program kan du se viss cache-aktivitet, till exempel anslutna klienter, minnes användning och åtgärder som utförs. Den här aktiviteten är normal under driften av en Azure-cache för Redis-instans.
+> Även när cacheminnet är inaktivt utan anslutna aktiva klientprogram kan du se viss cacheaktivitet, till exempel anslutna klienter, minnesanvändning och åtgärder som utförs. Den här aktiviteten är normal under driften av en Azure-cache för Redis-instans.
 > 
 > 
 
 | Mått | Beskrivning |
 | --- | --- |
-| Cacheträffar |Antalet lyckade nyckels ökningar under det angivna rapporterings intervallet. Det här talet mappar till `keyspace_hits` från Redis [information](https://redis.io/commands/info) -kommandot. |
-| Fördröjning för cache (för hands version) | Svars tiden för cachen beräknas utifrån mellannodens svars tid för cachen. Det här måttet mäts i mikrosekunder och har tre dimensioner: `Avg`, `Min`och `Max`, som representerar den genomsnittliga, minsta och högsta svars tiden för cachen under det angivna rapporterings intervallet. |
-| Cachemissar |Antalet misslyckade nyckels ökningar under det angivna rapporterings intervallet. Det här talet mappar till `keyspace_misses` från Redis information-kommandot. Missar i cacheminnet innebär inte nödvändigt vis att det finns ett problem med cachen. Till exempel, när du använder programmerings mönstret för cacheminnet, ser ett program först i cachen för ett objekt. Om objektet inte är där (cache saknas) hämtas objektet från databasen och läggs till i cacheminnet för nästa gången. Cachemissar är normalt beteendet för programmerings mönstret cache-undan. Om antalet Cachemissar är högre än förväntat granskar du program logiken som fylls i och läser från cachen. Om objekt tas bort från cachen på grund av minnes belastning kan det finnas vissa Cachemissar, men ett bättre mått för att övervaka minnes belastningen är `Used Memory` eller `Evicted Keys`. |
-| Läsning cache |Mängden data som läses från cachen i megabyte per sekund (MB/s) under det angivna rapporterings intervallet. Det här värdet härleds från de nätverkskort som har stöd för den virtuella datorn som är värd för cachen och som inte är Redis. **Det här värdet motsvarar den nätverks bandbredd som används av denna cache. Om du vill konfigurera aviseringar för nätverks bandbredds gränser på Server sidan skapar du den med hjälp av den här `Cache Read` räknaren. Se [den här tabellen](cache-faq.md#cache-performance) för de observerade bandbredds gränserna för olika cache-pris nivåer och storlekar.** |
-| Skrivcache |Mängden data som skrivs till cachen i megabyte per sekund (MB/s) under det angivna rapporterings intervallet. Det här värdet härleds från de nätverkskort som har stöd för den virtuella datorn som är värd för cachen och som inte är Redis. Det här värdet motsvarar nätverks bandbredden för data som skickas till cacheminnet från klienten. |
-| Anslutna klienter |Antalet klient anslutningar till cacheminnet under det angivna rapporterings intervallet. Det här talet mappar till `connected_clients` från Redis information-kommandot. När [anslutnings gränsen](cache-configure.md#default-redis-server-configuration) har uppnåtts kommer efterföljande anslutnings försök till cacheminnet att Miss lyckas. Även om det inte finns några aktiva klient program kan det fortfarande finnas några instanser av anslutna klienter på grund av interna processer och anslutningar. |
-| Processor |CPU-användningen av Azure-cachen för Redis-servern som en procent andel under det angivna rapporterings intervallet. Det här värdet mappar till operativ systemets `\Processor(_Total)\% Processor Time` prestanda räknare. |
-| Fel | Specifika fel och prestanda problem som cachen kan ha under ett angivet rapporterings intervall. Det här måttet har åtta dimensioner som representerar olika fel typer, men kan ha fler tillägg i framtiden. De fel typer som visas nu är följande: <br/><ul><li>**Redundans** – när en cache växlar över (underordnad till Master)</li><li>**DataLoss** – när det finns data förlust i cacheminnet</li><li>**UnresponsiveClients** – när klienterna inte läser data från servern tillräckligt snabbt</li><li>**AOF** – när det finns ett problem relaterat till AOF persistence</li><li>**RDB** – när det finns ett problem relaterat till RDB persistence</li><li>**Importera** – när det finns ett problem som rör import RDB</li><li>**Exportera** – när det finns ett problem som rör export RDB</li></ul> |
-| Avlägsnade nycklar |Antalet objekt som tagits bort från cacheminnet under det angivna rapporterings intervallet på grund av `maxmemory` gränsen. Det här talet mappar till `evicted_keys` från Redis information-kommandot. |
-| Förfallna nycklar |Antalet objekt som har upphört att gälla från cachen under det angivna rapporterings intervallet. Det här värdet mappar till `expired_keys` från Redis information-kommandot.|
-| Sparas |Antalet get-åtgärder från cachen under det angivna rapporterings intervallet. Det här värdet är summan av följande värden från Redis-informationen alla: `cmdstat_get`, `cmdstat_hget`, `cmdstat_hgetall`, `cmdstat_hmget`, `cmdstat_mget`, `cmdstat_getbit`och `cmdstat_getrange`, och motsvarar summan av cacheträffar och missar under rapporterings intervallet. |
-| Åtgärder per sekund | Det totala antalet kommandon som bearbetas per sekund av cache-servern under det angivna rapporterings intervallet.  Det här värdet mappar till "instantaneous_ops_per_sec" från kommandot Redis INFO. |
-| Redis server-belastning |Procent andelen cykler där Redis-servern är upptagen och väntar inte på inaktivitet för meddelanden. Om den här räknaren når 100 innebär det att Redis-servern har uppnått ett prestanda tak och att processorn inte kan bearbeta arbetet snabbare. Om du ser hög redis server belastning visas timeout-undantag i klienten. I detta fall bör du överväga att skala upp eller partitionera data i flera cacheminnen. |
-| Uppsättningar |Antalet set-åtgärder som ska cachelagras under det angivna rapporterings intervallet. Det här värdet är summan av följande värden från Redis information all-kommando: `cmdstat_set`, `cmdstat_hset`, `cmdstat_hmset`, `cmdstat_hsetnx`, `cmdstat_lset`, `cmdstat_mset`, `cmdstat_msetnx`, `cmdstat_setbit`, `cmdstat_setex`, `cmdstat_setrange`och `cmdstat_setnx`. |
-| Totalt antal nycklar  | Det maximala antalet nycklar i cacheminnet under den förflutna tids perioden för rapportering. Det här talet mappar till `keyspace` från Redis information-kommandot. På grund av en begränsning i det underliggande mått systemet, returnerar totalt antal nycklar det maximala antalet nycklar för Shard som hade det maximala antalet nycklar under rapporterings intervallet.  |
-| Totalt antal åtgärder |Det totala antalet kommandon som bearbetas av cache-servern under det angivna rapporterings intervallet. Det här värdet mappar till `total_commands_processed` från Redis information-kommandot. När Azure cache för Redis används rent för pub/sub, kommer det inte att finnas några mått för `Cache Hits`, `Cache Misses`, `Gets`eller `Sets`, men det kommer att `Total Operations` mått som återspeglar cache-användningen för pub/sub-åtgärder. |
-| Använt minne |Mängden cache-minne som används för nyckel/värde-par i cacheminnet i MB under det angivna rapporterings intervallet. Det här värdet mappar till `used_memory` från Redis information-kommandot. Det här värdet inkluderar inte metadata eller fragmentering. |
-| Använd minnes procent | % Av den totala mängden minne som används under det angivna rapporterings intervallet.  Det här värdet refererar till `used_memory`-värdet från kommandot Redis information för att beräkna procent andelen. |
-| RSS för använt minne |Mängden cache-minne som används i MB under det angivna rapporterings intervallet, inklusive fragmentering och metadata. Det här värdet mappar till `used_memory_rss` från Redis information-kommandot. |
+| Cache träffar |Antalet lyckade nyckelsökningar under det angivna rapporteringsintervallet. Det här `keyspace_hits` numret mappas från kommandot Redis [INFO.](https://redis.io/commands/info) |
+| Cache latency (förhandsgranskning) | Svarstiden för cachen beräknas baserat på internode svarstiden för cacheminnet. Det här måttet mäts i mikrosekoner `Avg` `Min`och `Max`har tre dimensioner: , och , som representerar medelvärdet, minimi- och maximifördröjningen för cacheminnet under det angivna rapporteringsintervallet. |
+| Cache missar |Antalet misslyckade nyckelsökningar under det angivna rapporteringsintervallet. Det här `keyspace_misses` numret mappas från kommandot Redis INFO. Cache missar betyder inte nödvändigtvis att det finns ett problem med cachen. När du till exempel använder programmeringsmönstret för cache-aside söker ett program först i cacheminnet efter ett objekt. Om objektet inte finns där (cachefel) hämtas objektet från databasen och läggs till i cacheminnet till nästa gång. Cache missar är normalt beteende för cache-aside programmering mönster. Om antalet cachemissar är högre än förväntat undersöker du programlogiken som fyller i och läser från cacheminnet. Om objekt håller på att vräkas från cachen på grund av minnestryck, kan det finnas `Used Memory` vissa `Evicted Keys`cache missar, men ett bättre mått att övervaka för minnestryck skulle vara eller . |
+| Cache läsa |Mängden data som läses från cacheminnet i Megabytes per sekund (MB/s) under det angivna rapporteringsintervallet. Det här värdet härleds från nätverkskorten som stöder den virtuella datorn som är värd för cacheminnet och är inte Redis-specifik. **Det här värdet motsvarar den nätverksbandbredd som används av den här cachen. Om du vill ställa in aviseringar för bandbreddsbegränsningar på `Cache Read` serversidan skapar du den med den här räknaren. Se [den här tabellen](cache-faq.md#cache-performance) för de observerade bandbreddsgränserna för olika cacheprisnivåer och storlekar.** |
+| Cache skriva |Mängden data som skrivs till cacheminnet i Megabytes per sekund (MB/s) under det angivna rapporteringsintervallet. Det här värdet härleds från nätverkskorten som stöder den virtuella datorn som är värd för cacheminnet och är inte Redis-specifik. Det här värdet motsvarar nätverksbandbredden för data som skickas till cachen från klienten. |
+| Anslutna klienter |Antalet klientanslutningar till cacheminnet under det angivna rapporteringsintervallet. Det här `connected_clients` numret mappas från kommandot Redis INFO. När [anslutningsgränsen](cache-configure.md#default-redis-server-configuration) har uppnåtts misslyckas efterföljande anslutningsförsök till cachen. Även om det inte finns några aktiva klientprogram kan det fortfarande finnas några instanser av anslutna klienter på grund av interna processer och anslutningar. |
+| Processor |CPU-användningen av Azure Cache for Redis-servern i procent under det angivna rapporteringsintervallet. Det här värdet mappas till prestandaräknaren för operativsystemet. `\Processor(_Total)\% Processor Time` |
+| Fel | Specifika fel och prestandaproblem som cachen kan uppleva under ett angivet rapporteringsintervall. Det här måttet har åtta dimensioner som representerar olika feltyper, men kan ha lagts till mer i framtiden. De feltyper som representeras nu är följande: <br/><ul><li>**Redundans** – när en cache växlar över (underordnad befordras till master)</li><li>**Dataloss** – när det finns dataförlust på cacheminnet</li><li>**Svarar inteClients** – när klienterna inte läser data från servern tillräckligt snabbt</li><li>**AOF** - när det finns ett problem som rör AOF uthållighet</li><li>**RDB** - när det finns ett problem som rör RDB uthållighet</li><li>**Importera** – när det finns ett problem som rör import RDB</li><li>**Exportera** – när det finns ett problem som rör export RDB</li></ul> |
+| Vräkta nycklar |Antalet objekt som har vräkas från cacheminnet under `maxmemory` det angivna rapporteringsintervallet på grund av gränsen. Det här `evicted_keys` numret mappas från kommandot Redis INFO. |
+| Utgångna nycklar |Antalet objekt har upphört att gälla från cacheminnet under det angivna rapporteringsintervallet. Det här `expired_keys` värdet mappas från kommandot Redis INFO.|
+| Får |Antalet hämta åtgärder från cacheminnet under det angivna rapporteringsintervallet. Det här värdet är summan av följande värden från `cmdstat_get` `cmdstat_hget`kommandot `cmdstat_hgetall` `cmdstat_hmget`Redis INFO all: , , , `cmdstat_mget` `cmdstat_getbit`, och `cmdstat_getrange`, och motsvarar summan av cacheträffar och missar under rapporteringsintervallet. |
+| Operationer per sekund | Det totala antalet kommandon som bearbetas per sekund av cacheservern under det angivna rapporteringsintervallet.  Det här värdet mappas till "instantaneous_ops_per_sec" från kommandot Redis INFO. |
+| Inläsning av Redis-server |Procentandelen cykler där Redis-servern är upptagen med att bearbeta och inte väntar inaktiv för meddelanden. Om den här räknaren når 100 betyder det att Redis-servern har träffat ett prestandatak och processorn kan inte bearbeta arbetet snabbare. Om du ser hög Redis Server Load, då kommer du att se timeout undantag i klienten. I det här fallet bör du överväga att skala upp eller partitionera dina data till flera cacheminnen. |
+| Uppsättningar |Antalet inställda åtgärder till cacheminnet under det angivna rapporteringsintervallet. Det här värdet är summan av följande värden från `cmdstat_set` `cmdstat_hset`kommandot `cmdstat_hmset` `cmdstat_hsetnx`Redis `cmdstat_msetnx`INFO `cmdstat_setbit` `cmdstat_setex`all: , , , , `cmdstat_setrange` `cmdstat_setnx` `cmdstat_lset` `cmdstat_mset`, , , , , , och . |
+| Totalt antal nycklar  | Det maximala antalet nycklar i cacheminnet under den senaste rapporteringsperioden. Det här `keyspace` numret mappas från kommandot Redis INFO. På grund av en begränsning av det underliggande måttsystemet returnerar Total Keys det maximala antalet nycklar för shard som hade det maximala antalet nycklar under rapporteringsintervallet för cacheminnen aktiverat.  |
+| Totala operationer |Det totala antalet kommandon som bearbetas av cacheservern under det angivna rapporteringsintervallet. Det här `total_commands_processed` värdet mappas från kommandot Redis INFO. När Azure Cache för Redis används enbart för pub/sub `Cache Hits` `Cache Misses`kommer `Gets`det `Sets`inte att `Total Operations` finnas några mått för , , eller , men det kommer att finnas mått som återspeglar cacheanvändningen för pub/delåtgärder. |
+| Använt minne |Mängden cacheminne som används för nyckel-/värdepar i cacheminnet i MB under det angivna rapporteringsintervallet. Det här `used_memory` värdet mappas från kommandot Redis INFO. Det här värdet innehåller inte metadata eller fragmentering. |
+| Använd minnesprocent | % av det totala minne som används under det angivna rapporteringsintervallet.  Det här värdet `used_memory` refererar till värdet från kommandot Redis INFO för att beräkna procentsatsen. |
+| Använt minne RSS |Mängden cacheminne som används i MB under det angivna rapporteringsintervallet, inklusive fragmentering och metadata. Det här `used_memory_rss` värdet mappas från kommandot Redis INFO. |
 
 <a name="operations-and-alerts"></a>
 ## <a name="alerts"></a>Aviseringar
@@ -125,19 +125,19 @@ Du kan konfigurera för att ta emot varningar baserat på mått och aktivitetslo
 * Anropa en webbhook
 * Anropa en Azure Logic App
 
-Om du vill konfigurera aviserings regler för din cache klickar du på **varnings regler** på **resurs menyn**.
+Om du vill konfigurera varningsregler för cacheminnet klickar du på **Varningsregler** på **resursmenyn**.
 
 ![Övervakning](./media/cache-how-to-monitor/redis-cache-monitoring.png)
 
 Mer information om hur du konfigurerar och använder aviseringar finns i [Översikt över aviseringar](../monitoring-and-diagnostics/insights-alerts-portal.md).
 
 ## <a name="activity-logs"></a>Aktivitetsloggar
-Aktivitets loggar ger insikt i de åtgärder som utfördes på Azure-cachen för Redis-instanser. Det kallades tidigare för "gransknings loggar" eller "drift loggar". Med aktivitets loggar kan du fastställa "vad, vem och när" för alla Skriv åtgärder (skicka, posta och ta bort) som utförs på Azure-cachen för Redis-instanser. 
+Aktivitetsloggar ger insikt i de åtgärder som utfördes på dina Azure-cache för Redis-instanser. Det var tidigare känt som "granskningsloggar" eller "operativa loggar". Med hjälp av aktivitetsloggar kan du bestämma vilka, vem och när för alla skrivåtgärder (PUT, POST, DELETE) som tas på dina Azure-cache för Redis-instanser. 
 
 > [!NOTE]
-> Aktivitets loggar innehåller inte Läs åtgärder (GET).
+> Aktivitetsloggar innehåller inte läsåtgärder (GET).
 >
 
-Om du vill visa aktivitets loggar för cacheminnet klickar du på **aktivitets loggar** på **resurs menyn**.
+Om du vill visa aktivitetsloggar för cacheminnet klickar du på **Aktivitetsloggar** på **Resurs-menyn**.
 
-Mer information om aktivitets loggar finns i [Översikt över Azure aktivitets loggen](../azure-monitor/platform/platform-logs-overview.md).
+Mer information om aktivitetsloggar finns [i Översikt över Azure Activity Log](../azure-monitor/platform/platform-logs-overview.md).

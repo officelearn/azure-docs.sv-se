@@ -9,17 +9,17 @@ ms.date: 03/05/2020
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 5190804180612e885b226f9b00d82b8d2f528a8a
-ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78669185"
 ---
 >[!NOTE]
->Vi arbetar hårt för att lägga till ytterligare regioner. När en region läggs till läggs den till i listan.
+>Vi arbetar hårt för att lägga till ytterligare regioner. När en region läggs till lägger vi till den i den här listan.
 >
 
-**Amerika**
+**Americas**
 * Brasilien, södra
 * Kanada, centrala
 * USA, centrala
@@ -34,7 +34,7 @@ ms.locfileid: "78669185"
 **Europa**
 * Frankrike, centrala
 * Europa, norra
-* Östra Norge
+* Norge Öst
 * Storbritannien, södra
 * Storbritannien, västra
 * Europa, västra
@@ -52,8 +52,8 @@ ms.locfileid: "78669185"
 * Indien, västra
 
 **Mellanöstern och Afrika**
-* Sydafrika, norra
-* Förenade Arabemiraten Central
+* Sydafrika North
+* Centrala Förenade Arabemiraten
 
 **Azure Government**
 * USA DoD, centrala

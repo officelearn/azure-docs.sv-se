@@ -8,12 +8,12 @@ metadata:
   ms.date: 09/03/2019
   ms.service: mysql
   ms.topic: landing-page
-  ms.openlocfilehash: 6ccf544b524ad1ccd45b0aa814610902d54c0fd9
-  ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+  ms.openlocfilehash: 27da8c70dc64312506269cd1a15aa5b669842dfd
+  ms.sourcegitcommit: 07d62796de0d1f9c0fa14bfcc425f852fdb08fb1
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 03/24/2020
-  ms.locfileid: "70309293"
+  ms.lasthandoff: 03/27/2020
+  ms.locfileid: "80365436"
 landingContent:
 - title: Om Azure Database for MySQL
   linkLists:
@@ -23,13 +23,13 @@ landingContent:
       url: overview.md
   - linkListType: whats-new
     links:
-    - text: Ta en titt på vår blogg
+    - text: Ta en titt på bloggen
       url: https://techcommunity.microsoft.com/t5/Azure-Database-for-MySQL/bg-p/ADforMySQL
 - title: Skapa en server
   linkLists:
   - linkListType: quickstart
     links:
-    - text: Skapa en server med Azure-portalen
+    - text: Skapa en server med Azure Portal
       url: quickstart-create-mysql-server-database-using-azure-portal.md
     - text: Skapa en server med Azure CLI
       url: quickstart-create-mysql-server-database-using-azure-cli.md
@@ -47,7 +47,7 @@ landingContent:
       url: concepts-high-availability.md
   - linkListType: tutorial
     links:
-    - text: Utforma en databas med hjälp av Azure-portalen
+    - text: Utforma en databas med hjälp av Azure Portal
       url: tutorial-design-database-using-portal.md
     - text: Utforma en databas med hjälp av Azure CLI
       url: tutorial-design-database-using-cli.md
@@ -67,7 +67,7 @@ landingContent:
       url: concepts-migrate-import-export.md
   - linkListType: how-to-guide
     links:
-    - text: Återställa en server med hjälp av Azure-portalen
+    - text: Återställa en server med hjälp av Azure Portal
       url: howto-restore-server-portal.md
     - text: Återställa en server med hjälp av Azure CLI
       url: howto-restore-server-cli.md
@@ -129,7 +129,7 @@ landingContent:
       url: howto-data-in-replication.md
     - text: Skapa en skrivskyddad replik med hjälp av Azure Portal
       url: howto-read-replicas-portal.md
-- title: 'Kod med programmerings-API: er'
+- title: 'Skriva kod med programmerings-API: er'
   linkLists:
   - linkListType: get-started
     links:
@@ -138,8 +138,8 @@ landingContent:
   - linkListType: reference
     links:
     - text: Referens för Azure CLI-utvecklare
-      url: /rest/api/mysql/
-    - text: Referens för REST API-utvecklare
       url: /cli/azure/mysql
+    - text: Referens för REST API-utvecklare
+      url: /rest/api/mysql/
     - text: Azure Resource Manager-mallar
       url: /azure/templates/microsoft.dbformysql/allversions

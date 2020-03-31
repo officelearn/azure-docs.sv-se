@@ -1,6 +1,6 @@
 ---
 title: Kopiera data från Netezza med hjälp av Azure Data Factory
-description: Lär dig hur du kopierar data från Netezza till mottagarens datalager genom att använda en Kopieringsaktivitet i en Azure Data Factory-pipeline.
+description: Lär dig hur du kopierar data från Netezza till sink-datalager som stöds med hjälp av en kopieringsaktivitet i en Azure Data Factory-pipeline.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -12,59 +12,59 @@ ms.topic: conceptual
 ms.date: 09/02/2019
 ms.author: jingwang
 ms.openlocfilehash: c51469997af23be7a5e1b88677ecadb37e10ac64
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79244542"
 ---
 # <a name="copy-data-from-netezza-by-using-azure-data-factory"></a>Kopiera data från Netezza med hjälp av Azure Data Factory
 
-Den här artikeln beskrivs hur du använder Kopieringsaktivitet i Azure Data Factory för att kopiera data från Netezza. Artikeln bygger på [kopierings aktivitet i Azure Data Factory](copy-activity-overview.md), som visar en översikt över kopierings aktiviteten.
+I den här artikeln beskrivs hur du använder Kopiera aktivitet i Azure Data Factory för att kopiera data från Netezza. Artikeln bygger på [Kopiera aktivitet i Azure Data Factory](copy-activity-overview.md), som presenterar en allmän översikt över kopiera aktivitet.
 
 >[!TIP]
->För data migrations scenario från Netezza till Azure kan du läsa mer i [använda Azure Data Factory för att migrera data från den lokala Netezza-servern till Azure](data-migration-guidance-netezza-azure-sqldw.md).
+>För scenario med datamigrering från Netezza till Azure kan du läsa mer från [Använd Azure Data Factory för att migrera data från lokal Netezza-server till Azure](data-migration-guidance-netezza-azure-sqldw.md).
 
 ## <a name="supported-capabilities"></a>Funktioner som stöds
 
-Den här Netezza-anslutningen stöds för följande aktiviteter:
+Den här Netezza-kopplingen stöds för följande aktiviteter:
 
-- [Kopierings aktivitet](copy-activity-overview.md) med [matrisen source/Sink som stöds](copy-activity-overview.md)
-- [Sökningsaktivitet](control-flow-lookup-activity.md)
+- [Kopiera aktivitet](copy-activity-overview.md) med [käll-/sink-matris som stöds](copy-activity-overview.md)
+- [Uppslagsaktivitet](control-flow-lookup-activity.md)
 
 
-Du kan kopiera data från Netezza till alla datalager för mottagare som stöds. En lista över data lager som kopierings aktiviteten stöder som källor och mottagare finns i [data lager och format som stöds](copy-activity-overview.md#supported-data-stores-and-formats).
+Du kan kopiera data från Netezza till alla sink-datalager som stöds. En lista över datalager som Kopierar aktivitet stöder som källor och sänkor finns i [Datalager och format som stöds](copy-activity-overview.md#supported-data-stores-and-formats).
 
-Netezza-anslutaren stöder parallell kopiering från källan. Mer information finns i avsnittet [parallell kopiering från Netezza](#parallel-copy-from-netezza) .
+Netezza-anslutning stöder parallellkopiering från källan. Se [avsnittet Parallellkopia från Netezza](#parallel-copy-from-netezza) för mer information.
 
-Azure Data Factory tillhandahåller en inbyggd drivrutin om du vill aktivera anslutningen. Du behöver inte installera en drivrutin för att använda den här anslutningen manuellt.
+Azure Data Factory tillhandahåller en inbyggd drivrutin för anslutning. Du behöver inte installera någon drivrutin manuellt för att använda den här kontakten.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 [!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
 
-## <a name="get-started"></a>Kom igång
+## <a name="get-started"></a>Komma igång
 
-Du kan skapa en pipeline som använder en Kopieringsaktivitet med hjälp av .NET SDK, Python SDK, Azure PowerShell, REST API eller en Azure Resource Manager-mall. I [självstudien om kopierings aktiviteten](quickstart-create-data-factory-dot-net.md) finns stegvisa anvisningar om hur du skapar en pipeline med en kopierings aktivitet.
+Du kan skapa en pipeline som använder en kopieringsaktivitet med hjälp av .NET SDK, Python SDK, Azure PowerShell, REST API eller en Azure Resource Manager-mall. Se [självstudien Kopiera aktivitet](quickstart-create-data-factory-dot-net.md) för steg-för-steg-instruktioner om hur du skapar en pipeline som har en kopieringsaktivitet.
 
-Följande avsnitt innehåller information om egenskaper som du kan använda för att definiera Data Factory-entiteter som är specifika för Netezza-anslutningsappen.
+I följande avsnitt finns information om egenskaper som du kan använda för att definiera datafabrikentiteter som är specifika för Netezza-kopplingen.
 
 ## <a name="linked-service-properties"></a>Länkade tjänstegenskaper
 
-Följande egenskaper har stöd för Netezza länkade tjänsten:
+Följande egenskaper stöds för den Netezza-länkade tjänsten:
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Egenskapen **Type** måste anges till **Netezza**. | Ja |
-| connectionString | En ODBC-anslutningssträng att ansluta till Netezza. <br/>Du kan också ange lösen ord i Azure Key Vault och hämta `pwd`-konfigurationen från anslutnings strängen. Se följande exempel och [lagra autentiseringsuppgifter i Azure Key Vault](store-credentials-in-key-vault.md) artikel med mer information. | Ja |
-| connectVia | [Integration runtime](concepts-integration-runtime.md) som ska användas för att ansluta till data lagret. Läs mer från avsnittet [krav](#prerequisites) . Om den inte anges används standard Azure Integration Runtime. |Nej |
+| Connectionstring | En ODBC-anslutningssträng som ska anslutas till Netezza. <br/>Du kan också placera lösenord i `pwd` Azure Key Vault och dra ut konfigurationen ur anslutningssträngen. Mer information finns i följande exempel och [Store-autentiseringsuppgifter i](store-credentials-in-key-vault.md) azure key vault-artikeln. | Ja |
+| connectVia (på) | [Den integrationskörning som](concepts-integration-runtime.md) ska användas för att ansluta till datalagret. Läs mer från avsnittet [Förutsättningar.](#prerequisites) Om inget anges används standardkörningen för Azure Integration Runtime. |Inga |
 
-En typisk anslutnings sträng är `Server=<server>;Port=<port>;Database=<database>;UID=<user name>;PWD=<password>`. I följande tabell beskrivs fler egenskaper som du kan ange:
+En typisk anslutningssträng är `Server=<server>;Port=<port>;Database=<database>;UID=<user name>;PWD=<password>`. I följande tabell beskrivs fler egenskaper som du kan ange:
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| SecurityLevel | Nivån på security (SSL/TLS) som drivrutinen använder för anslutning till datalagret. Exempel: `SecurityLevel=preferredSecured`. Värden som stöds är:<br/>- **Endast oskyddade** (**onlyUnSecured**): driv rutinen använder inte SSL.<br/>- **föredras som standard (preferredUnSecured) (standard)** : om servern har ett alternativ använder driv rutinen inte SSL. <br/>- **önskad skyddad (preferredSecured)** : om servern har ett alternativ använder driv rutinen SSL. <br/>**endast - skyddade (onlySecured)** : driv rutinen ansluter inte om en SSL-anslutning är tillgänglig. | Nej |
-| CaCertFile | Den fullständiga sökvägen till SSL-certifikatet som används av servern. Exempel: `CaCertFile=<cert path>;`| Ja, om SSL är aktiverat |
+| SäkerhetNivå | Den säkerhetsnivå (SSL/TLS) som drivrutinen använder för anslutningen till datalagret. Exempel: `SecurityLevel=preferredSecured`. Värden som stöds är:<br/>- **Endast osäker** **(endastOSecured):** Drivrutinen använder inte SSL.<br/>- **Föredragen oskyddad (preferredUnSecured) (standard):** Om servern ger ett val använder drivrutinen inte SSL. <br/>- **Önskad säker (preferredSecured):** Om servern ger ett val använder drivrutinen SSL. <br/>- **Endast säker (onlySecured)**: Drivrutinen ansluter inte om inte en SSL-anslutning är tillgänglig. | Inga |
+| CaCertFile (cacertfile) | Den fullständiga sökvägen till SSL-certifikatet som används av servern. Exempel: `CaCertFile=<cert path>;`| Ja, om SSL är aktiverat |
 
 **Exempel**
 
@@ -84,7 +84,7 @@ En typisk anslutnings sträng är `Server=<server>;Port=<port>;Database=<databas
 }
 ```
 
-**Exempel: lagra lösen ord i Azure Key Vault**
+**Exempel: lagra lösenord i Azure Key Vault**
 
 ```json
 {
@@ -112,18 +112,18 @@ En typisk anslutnings sträng är `Server=<server>;Port=<port>;Database=<databas
 
 ## <a name="dataset-properties"></a>Egenskaper för datamängd
 
-Det här avsnittet innehåller en lista över egenskaper som har stöd för Netezza-datauppsättningen.
+Det här avsnittet innehåller en lista över egenskaper som Netezza-datauppsättningen stöder.
 
-En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera data uppsättningar finns i [data uppsättningar](concepts-datasets-linked-services.md).
+En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera datauppsättningar finns i [Datauppsättningar](concepts-datasets-linked-services.md).
 
-Om du vill kopiera data från Netezza anger du egenskapen **Type** för data uppsättningen till **NetezzaTable**. Följande egenskaper stöds:
+Om du vill kopiera data från Netezza anger du **egenskapen type** för datauppsättningen till **NetezzaTable**. Följande egenskaper stöds:
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Data uppsättningens typ-egenskap måste anges till: **NetezzaTable** | Ja |
-| schema | Schemats namn. |Nej (om ”query” i aktivitetskälla har angetts)  |
-| table | Namnet på tabellen. |Nej (om ”query” i aktivitetskälla har angetts)  |
-| tableName | Namnet på tabellen med schemat. Den här egenskapen stöds för bakåtkompatibilitet. Använd `schema` och `table` för nya arbets belastningar. | Nej (om ”query” i aktivitetskälla har angetts) |
+| typ | Datauppsättningens typegenskap måste ställas in på: **NetezzaTable** | Ja |
+| Schemat | Namnet på schemat. |Nej (om "fråga" i aktivitetskällan har angetts)  |
+| tabell | Tabellens namn. |Nej (om "fråga" i aktivitetskällan har angetts)  |
+| tableName | Namn på tabellen med schema. Den här egenskapen stöds för bakåtkompatibilitet. Använd `schema` `table` och för ny arbetsbelastning. | Nej (om "fråga" i aktivitetskällan har angetts) |
 
 **Exempel**
 
@@ -143,26 +143,26 @@ Om du vill kopiera data från Netezza anger du egenskapen **Type** för data upp
 
 ## <a name="copy-activity-properties"></a>Kopiera egenskaper för aktivitet
 
-Det här avsnittet innehåller en lista över egenskaper som har stöd för Netezza-källan.
+Det här avsnittet innehåller en lista över egenskaper som Netezza-källan stöder.
 
-En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera aktiviteter finns i [pipelines](concepts-pipelines-activities.md).
+En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera aktiviteter finns i [Pipelines](concepts-pipelines-activities.md).
 
 ### <a name="netezza-as-source"></a>Netezza som källa
 
 >[!TIP]
->Om du vill läsa in data från Netezza effektivt genom att använda data partitionering kan du läsa mer från [parallell kopiering från Netezza](#parallel-copy-from-netezza) -avsnittet.
+>Om du vill läsa in data från Netezza effektivt med hjälp av datapartitionering kan du läsa mer från [avsnittet Parallellkopia från Netezza.](#parallel-copy-from-netezza)
 
-Om du vill kopiera data från Netezza anger du **käll** typen i kopierings aktivitet till **NetezzaSource**. Följande egenskaper stöds i avsnittet Kopiera aktivitets **källa** :
+Om du vill kopiera data från Netezza anger du **källtypen** i Kopiera aktivitet till **NetezzaSource**. Följande egenskaper stöds i **källavsnittet** Kopiera aktivitet:
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | **Typ** egenskapen för kopierings aktivitets källan måste anges till **NetezzaSource**. | Ja |
-| query | Använda anpassade SQL-frågan för att läsa data. Exempel: `"SELECT * FROM MyTable"` | Nej (om ”tableName” i datauppsättningen har angetts) |
-| partitionOptions | Anger de data partitionerings alternativ som används för att läsa in data från Netezza. <br>Tillåtna värden är: **ingen** (standard), **DataSlice**och **DynamicRange**.<br>När ett partitions alternativ är aktiverat (dvs. inte `None`), styrs graden av parallellitet för data från en Netezza-databas av [`parallelCopies`](copy-activity-performance.md#parallel-copy) inställningen på kopierings aktiviteten. | Nej |
-| partitionSettings | Ange gruppen med inställningar för data partitionering. <br>Använd när alternativet partition inte `None`. | Nej |
-| partitionColumnName | Ange namnet på den käll kolumn **i Integer-typ** som ska användas av intervall partitionering för parallell kopiering. Om den inte anges identifieras primär nyckeln för tabellen automatiskt och används som partition-kolumn. <br>Använd när alternativet partition är `DynamicRange`. Om du använder en fråga för att hämta källdata, Hook-`?AdfRangePartitionColumnName` i WHERE-satsen. Se exempel i [parallell kopiering från avsnittet Netezza](#parallel-copy-from-netezza) . | Nej |
-| partitionUpperBound | Det maximala värdet för partition-kolumnen för att kopiera data. <br>Använd när alternativet partition är `DynamicRange`. Om du använder Query för att hämta källdata, Hook-`?AdfRangePartitionUpbound` i WHERE-satsen. Ett exempel finns i avsnittet [parallell kopiering från Netezza](#parallel-copy-from-netezza) . | Nej |
-| partitionLowerBound | Det minimala värdet för kolumnen partition som ut data ska kopieras. <br>Använd när alternativet partition är `DynamicRange`. Om du använder en fråga för att hämta källdata, Hook-`?AdfRangePartitionLowbound` i WHERE-satsen. Ett exempel finns i avsnittet [parallell kopiering från Netezza](#parallel-copy-from-netezza) . | Nej |
+| typ | **Egenskapen Type** property för källan Kopiera aktivitet måste anges till **NetezzaSource**. | Ja |
+| DocumentDB | Använd den anpassade SQL-frågan för att läsa data. Exempel: `"SELECT * FROM MyTable"` | Nej (om "tableName" i datauppsättningen har angetts) |
+| partitionOptions | Anger de datapartitionsalternativ som används för att läsa in data från Netezza. <br>Tillåt värden är: **Ingen** (standard), **DataSlice**och **DynamicRange**.<br>När ett partitionsalternativ är aktiverat (det vill ha ), `None`styrs graden av parallellitet till samtidig inläsning av data från en Netezza-databas genom [`parallelCopies`](copy-activity-performance.md#parallel-copy) att ange på kopieringsaktiviteten. | Inga |
+| partitionSätta | Ange gruppen för inställningarna för datapartitionering. <br>Använd när partitionsalternativet `None`inte är . | Inga |
+| partitionColumnName | Ange namnet på källkolumnen **i heltalstyp** som ska användas av områdespartitionering för parallellkopia. Om inget anges, är den primära nyckeln i tabellen automatisktdet och används som partitionskolumnen. <br>Använd när partitionsalternativet är `DynamicRange`. Om du använder en fråga för `?AdfRangePartitionColumnName` att hämta källdata ansluter du WHERE-satsen. Se exempel i [Parallellkopia från avsnittet Netezza.](#parallel-copy-from-netezza) | Inga |
+| partitionUpperBound | Det maximala värdet för partitionskolumnen för att kopiera data ut. <br>Använd när partitionsalternativet är `DynamicRange`. Om du använder frågan för `?AdfRangePartitionUpbound` att hämta källdata ansluter du WHERE-satsen. Ett exempel finns i avsnittet [Parallellkopia från Netezza.](#parallel-copy-from-netezza) | Inga |
+| partitionLowerBound | Det minsta värdet för partitionskolumnen för att kopiera data ut. <br>Använd när partitionsalternativet är `DynamicRange`. Om du använder en fråga för `?AdfRangePartitionLowbound` att hämta källdata ansluter du WHERE-satsen. Ett exempel finns i avsnittet [Parallellkopia från Netezza.](#parallel-copy-from-netezza) | Inga |
 
 **Exempel:**
 
@@ -196,23 +196,23 @@ Om du vill kopiera data från Netezza anger du **käll** typen i kopierings akti
 ]
 ```
 
-## <a name="parallel-copy-from-netezza"></a>Parallell kopiering från Netezza
+## <a name="parallel-copy-from-netezza"></a>Parallell kopia från Netezza
 
-Data Factory Netezza-anslutningsprogrammet tillhandahåller inbyggd data partitionering för att kopiera data från Netezza parallellt. Du kan hitta data partitionerings alternativ i **käll** tabellen för kopierings aktiviteten.
+Data Factory Netezza-anslutningen tillhandahåller inbyggd datapartitionering för att kopiera data från Netezza parallellt. Du hittar alternativ för datapartitionering i **källtabellen** för kopieringsaktiviteten.
 
-![Skärm bild av partitionsalternativ](./media/connector-netezza/connector-netezza-partition-options.png)
+![Skärmbild av partitionsalternativ](./media/connector-netezza/connector-netezza-partition-options.png)
 
-När du aktiverar partitionerad kopiering körs Data Factory parallella frågor mot din Netezza-källa för att läsa in data efter partitioner. Den parallella graden styrs av [`parallelCopies`s](copy-activity-performance.md#parallel-copy) inställningen på kopierings aktiviteten. Om du till exempel ställer in `parallelCopies` till fyra, Data Factory samtidigt genererar och kör fyra frågor baserat på ditt angivna partitionsalternativ och inställningar, och varje fråga hämtar en del av data från Netezza-databasen.
+När du aktiverar partitionerad kopia kör Data Factory parallella frågor mot Netezza-källan för att läsa in data efter partitioner. Den parallella graden [`parallelCopies`](copy-activity-performance.md#parallel-copy) styrs av inställningen på kopieringsaktiviteten. Om du till `parallelCopies` exempel anger fyra genererar och kör Data Factory samtidigt fyra frågor baserat på det angivna partitionsalternativet och inställningarna, och varje fråga hämtar en del data från Netezza-databasen.
 
-Du rekommenderas att aktivera parallell kopiering med data partitionering, särskilt när du läser in stora mängder data från din Netezza-databas. Följande är föreslagna konfigurationer för olika scenarier. När du kopierar data till filbaserat data lager, skrivs de om för att skriva till en mapp som flera filer (ange bara mappnamn), i vilket fall prestandan är bättre än att skriva till en enda fil.
+Du föreslås aktivera parallellkopiering med datapartitionering, särskilt när du läser in stora mängder data från Netezza-databasen. Följande är föreslagna konfigurationer för olika scenarier. När du kopierar data till filbaserat datalager rekommenderas att skriva till en mapp som flera filer (ange bara mappnamn), i vilket fall prestandan är bättre än att skriva till en enda fil.
 
-| Scenario                                                     | Föreslagna inställningar                                           |
+| Scenario                                                     | Inställningar för förslag                                           |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| Fullständig belastning från stor tabell.                                   | **Partitions alternativ**: data sektor. <br><br/>Under körningen partitionerar Data Factory automatiskt data baserat på de [inbyggda data sektorerna i Netezza](https://www.ibm.com/support/knowledgecenter/en/SSULQD_7.2.1/com.ibm.nz.adm.doc/c_sysadm_data_slices_parts_disks.html)och kopierar data efter partitioner. |
-| Läs in stora mängder data med hjälp av en anpassad fråga.                 | **Partitions alternativ**: data sektor.<br>**Fråga**: `SELECT * FROM <TABLENAME> WHERE mod(datasliceid, ?AdfPartitionCount) = ?AdfDataSliceCondition AND <your_additional_where_clause>`.<br>Under körningen ersätter Data Factory `?AdfPartitionCount` (med parallell kopians nummer som angetts för kopierings aktiviteten) och `?AdfDataSliceCondition` med data sektorns partition logik och skickar till Netezza. |
-| Läs in stora mängder data med hjälp av en anpassad fråga med en heltals kolumn med jämnt distribuerat värde för intervall partitionering. | **Partitions alternativ**: partition med dynamiskt intervall.<br>**Fråga**: `SELECT * FROM <TABLENAME> WHERE ?AdfRangePartitionColumnName <= ?AdfRangePartitionUpbound AND ?AdfRangePartitionColumnName >= ?AdfRangePartitionLowbound AND <your_additional_where_clause>`.<br>**Partitionstabell**: Ange den kolumn som används för att partitionera data. Du kan partitionera mot kolumnen med data typen Integer.<br>**Partitionens övre gränser** och **partition nedre gränser**: Ange om du vill filtrera mot kolumnen partition för att endast hämta data mellan det nedre och övre intervallet.<br><br>Under körningen ersätter Data Factory `?AdfRangePartitionColumnName`, `?AdfRangePartitionUpbound`och `?AdfRangePartitionLowbound` med det faktiska kolumn namnet och värde intervallet för varje partition och skickar till Netezza. <br>Om t. ex. partitionens kolumn "ID" har angetts med den nedre gränser som 1 och den övre gränser som 80, med parallell kopierings uppsättning som 4, Data Factory hämtar data med 4 partitioner. Deras ID: n är mellan [1, 20], [21, 40], [41, 60] och [61, 80]. |
+| Full belastning från stort bord.                                   | **Partition alternativ**: Data Slice. <br><br/>Under körningen partitionerar Data Factory automatiskt data baserat på [Netezzas inbyggda datasegment](https://www.ibm.com/support/knowledgecenter/en/SSULQD_7.2.1/com.ibm.nz.adm.doc/c_sysadm_data_slices_parts_disks.html)och kopierar data efter partitioner. |
+| Läs in stora mängder data med hjälp av en anpassad fråga.                 | **Partition alternativ**: Data Slice.<br>**Fråga** `SELECT * FROM <TABLENAME> WHERE mod(datasliceid, ?AdfPartitionCount) = ?AdfDataSliceCondition AND <your_additional_where_clause>`: .<br>Under körningen ersätter `?AdfPartitionCount` Data Factory (med parallellkopieringsnummer inställt på kopieringsaktivitet) och `?AdfDataSliceCondition` med partitionslogiken för datasegmentet och skickas till Netezza. |
+| Läs in stora mängder data med hjälp av en anpassad fråga med en heltalskolumn med jämnt fördelat värde för intervallpartitionering. | **Partitionsalternativ**: Partitionering med dynamiskt omfång.<br>**Fråga** `SELECT * FROM <TABLENAME> WHERE ?AdfRangePartitionColumnName <= ?AdfRangePartitionUpbound AND ?AdfRangePartitionColumnName >= ?AdfRangePartitionLowbound AND <your_additional_where_clause>`: .<br>**Partitionskolumnen**: Ange den kolumn som används för att partitionera data. Du kan partitionera mot kolumnen med heltalsdatatyp.<br>**Partitionens övre gräns** och **partitionens nedre gräns:** Ange om du vill filtrera mot partitionskolumnen för att hämta data endast mellan det nedre och det övre intervallet.<br><br>Under körningen ersätter `?AdfRangePartitionColumnName` `?AdfRangePartitionUpbound`Data `?AdfRangePartitionLowbound` Factory , och med de faktiska kolumnnamn- och värdeintervallen för varje partition och skickas till Netezza. <br>Om partitionskolumnen "ID" har angetts med den nedre gränsen som 1 och den övre gränsen som 80, med parallellkopiering inställd som 4, hämtar Data Factory data med 4 partitioner. Deras ID är mellan [1,20], [21, 40], [41, 60] respektive [61, 80]. |
 
-**Exempel: fråga med data sektor partition**
+**Exempel: fråga med datasegmentpartition**
 
 ```json
 "source": {
@@ -222,7 +222,7 @@ Du rekommenderas att aktivera parallell kopiering med data partitionering, särs
 }
 ```
 
-**Exempel: fråga med Dynamic Range-partition**
+**Exempel: fråga med partition för dynamiskt omfång**
 
 ```json
 "source": {
@@ -237,11 +237,11 @@ Du rekommenderas att aktivera parallell kopiering med data partitionering, särs
 }
 ```
 
-## <a name="lookup-activity-properties"></a>Egenskaper för Sök aktivitet
+## <a name="lookup-activity-properties"></a>Egenskaper för uppslagsaktivitet
 
-Om du vill veta mer om egenskaperna kontrollerar du [söknings aktiviteten](control-flow-lookup-activity.md).
+Om du vill veta mer om egenskaperna kontrollerar du [uppslagsaktivitet](control-flow-lookup-activity.md).
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-En lista över data lager som kopierings aktiviteten stöder som källor och handfat i Azure Data Factory finns i [data lager och format som stöds](copy-activity-overview.md#supported-data-stores-and-formats).
+En lista över datalager som kopierar aktivitet stöder som källor och sänkor i Azure Data Factory finns [i Datalager och format som stöds](copy-activity-overview.md#supported-data-stores-and-formats).

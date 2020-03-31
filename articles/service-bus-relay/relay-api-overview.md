@@ -1,6 +1,6 @@
 ---
-title: Översikt över Azure Relay API | Microsoft Docs
-description: 'Den här artikeln innehåller en översikt över tillgängliga Azure Relay-API: er (.NET standard, .NET Framework, Node. js osv.)'
+title: Översikt över Azure Relay API | Microsoft-dokument
+description: Den här artikeln innehåller en översikt över tillgängliga Azure Relay API:er (.NET Standard, .NET Framework, Node.js, etc.)
 services: event-hubs
 documentationcenter: na
 author: spelluru
@@ -15,48 +15,48 @@ ms.workload: na
 ms.date: 01/21/2020
 ms.author: spelluru
 ms.openlocfilehash: 41d9e2026c19c959dc6fe2546b0ef699571ec7cd
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76513974"
 ---
-# <a name="available-relay-apis"></a>Tillgängliga relä-API: er
+# <a name="available-relay-apis"></a>Tillgängliga relay-API:er
 
-## <a name="runtime-apis"></a>Körnings-API: er
+## <a name="runtime-apis"></a>Körnings-API:er
 
-I följande tabell visas alla tillgängliga relä körnings klienter.
+I följande tabell visas alla tillgängliga Relay runtime-klienter.
 
-Avsnittet [Ytterligare information](#additional-information) innehåller mer information om status för varje körnings bibliotek.
+Avsnittet [med ytterligare information](#additional-information) innehåller mer information om status för varje körningsbibliotek.
 
 | Språk/plattform | Tillgänglig funktion | Klientpaketet | Lagringsplats |
 | --- | --- | --- | --- |
 | .NET Standard | Hybridanslutningar | [Microsoft.Azure.Relay](https://www.nuget.org/packages/Microsoft.Azure.Relay/) | [GitHub](https://github.com/azure/azure-relay-dotnet) |
-| .NET Framework | WCF Relay | [WindowsAzure.ServiceBus](https://www.nuget.org/packages/WindowsAzure.ServiceBus/) | Gäller inte |
-| Nod | Hybridanslutningar | [WebSockets: `hyco-ws`](https://www.npmjs.com/package/hyco-ws)<br/>[WebSockets: `hyco-websocket`](https://www.npmjs.com/package/hyco-websocket)<br/>[HTTP-begäranden: `hyco-https`](https://www.npmjs.com/package/hyco-https) | [GitHub](https://github.com/Azure/azure-relay-node) |
+| .NET Framework | WCF-relä | [WindowsAzure.ServiceBus](https://www.nuget.org/packages/WindowsAzure.ServiceBus/) | Ej tillämpligt |
+| Node | Hybridanslutningar | [Websockets:`hyco-ws`](https://www.npmjs.com/package/hyco-ws)<br/>[Websockets:`hyco-websocket`](https://www.npmjs.com/package/hyco-websocket)<br/>[HTTP-begäranden:`hyco-https`](https://www.npmjs.com/package/hyco-https) | [GitHub](https://github.com/Azure/azure-relay-node) |
 
 ### <a name="additional-information"></a>Ytterligare information
 
 #### <a name="net"></a>.NET
 
-.NET-eko systemet har flera körningar, och därför finns det flera .NET-bibliotek för reläet. Du kan köra .NET standard-biblioteket med hjälp av antingen .NET Core eller .NET Framework, medan .NET Frameworks biblioteket bara kan köras i en .NET Framework miljö. Mer information om .NET Framework finns i Framework- [versioner](/dotnet/articles/standard/frameworks).
+.NET-ekosystemet har flera körningar, därför finns det flera .NET-bibliotek för relayen. .NET Standard-biblioteket kan köras med antingen .NET Core eller .NET Framework, medan .NET Framework-biblioteket bara kan köras i en .NET Framework-miljö. Mer information om .NET Frameworks finns i [ramversioner](/dotnet/articles/standard/frameworks).
 
-.NET Framework bibliotek stöder bara WCF-programmerings modellen och förlitar sig på ett patentskyddat binärt protokoll baserat på WCF `net.tcp`-transport. Det här protokollet och biblioteket upprätthålls för bakåtkompatibilitet med befintliga program.
+.NET Framework-biblioteket stöder endast WCF-programmeringsmodellen och förlitar sig på `net.tcp` ett eget binärt protokoll baserat på WCF-transporten. Det här protokollet och biblioteket underhålls för bakåtkompatibilitet med befintliga program.
 
-.NET standard-biblioteket baseras på Open Protocol-definitionen för det Hybridanslutningar reläet som bygger på HTTP och WebSockets. Biblioteket har stöd för en Stream-abstraktion över WebSockets och en enkel API-gest för Request-Response för att besvara HTTP-förfrågningar. I [webb-API-](https://github.com/Azure/azure-relay-dotnet) exemplet visas hur du integrerar Hybridanslutningar med ASP.net Core för webb tjänster.
+.NET Standard-biblioteket baseras på den öppna protokolldefinitionen för hybridanslutningsreläet som bygger på HTTP och WebSockets. Biblioteket stöder en stream abstraktion över Websockets och en enkel begäran-svar API gest för att svara http-förfrågningar. Exemplet [webb-API](https://github.com/Azure/azure-relay-dotnet) visar hur du integrerar hybridanslutningar med ASP.NET Core för webbtjänster.
 
 #### <a name="nodejs"></a>Node.js
 
-De Hybridanslutningar modulerna som anges i tabellen ovan ersätter eller ändrar befintliga Node. js-moduler med alternativa implementeringar som lyssnar på tjänsten Azure Relay i stället för den lokala nätverks stacken.
+Hybridanslutningsmodulerna som anges i tabellen ovan ersätter eller ändrar befintliga Node.js-moduler med alternativa implementeringar som lyssnar på Azure Relay-tjänsten i stället för den lokala nätverksstacken.
 
-`hyco-https`-modulen ändrar och delvis åsidosätter modulerna Core Node. js `http` och `https`, vilket ger en HTTPS-lyssnare som är kompatibel med många befintliga Node. js-moduler och program som är beroende av dessa grundläggande moduler.
+Modulen `hyco-https` ändrar och åsidosätter delvis core Node.js-modulerna `http` och `https`tillhandahåller en HTTPS-lyssnarimplementering som är kompatibel med många befintliga Node.js-moduler och program som är beroende av dessa kärnmoduler.
 
-Modulerna `hyco-ws` och `hyco-websocket` ändrar de populära `ws` och `websocket` modulerna för Node. js, vilket ger alternativa lyssnar implementeringar som gör att moduler och program som förlitar sig på någon av modulerna fungerar bakom Hybridanslutningar reläet.
+`hyco-ws` Modulerna `hyco-websocket` och ändrar `ws` `websocket` populära moduler och moduler för Node.js, vilket ger alternativa lyssnarimplementeringar som gör det möjligt för moduler och program som förlitar sig på någon av modulerna att fungera bakom Hybrid Connections Relay.
 
-Information om dessa moduler finns i [Azure-relä-Node GitHub-](https://github.com/Azure/azure-relay-node) lagringsplatsen.
+Information om dessa moduler finns i [azure-relay-noden](https://github.com/Azure/azure-relay-node) GitHub-databasen.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Om du vill veta mer om Azure Relay går du till följande länkar:
+Mer information om Azure Relay finns i följande länkar:
 * [Vad är Azure Relay?](relay-what-is-it.md)
 * [Vanliga frågor och svar om Relay](relay-faq.md)

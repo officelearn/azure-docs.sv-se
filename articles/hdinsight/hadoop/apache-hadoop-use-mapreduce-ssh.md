@@ -1,5 +1,5 @@
 ---
-title: MapReduce och SSH-anslutning med Apache Hadoop – Azure HDInsight
+title: MapReduce och SSH-anslutning med Apache Hadoop - Azure HDInsight
 description: Lär dig hur du använder SSH för att köra MapReduce-jobb med Apache Hadoop på HDInsight.
 author: hrasheed-msft
 ms.author: hrasheed
@@ -9,28 +9,28 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 01/10/2020
 ms.openlocfilehash: 543bc29adc85bd767de9479607d067fadf7b0078
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/14/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75934703"
 ---
-# <a name="use-mapreduce-with-apache-hadoop-on-hdinsight-with-ssh"></a>Använda MapReduce med Apache Hadoop på HDInsight med SSH
+# <a name="use-mapreduce-with-apache-hadoop-on-hdinsight-with-ssh"></a>Använd MapReduce med Apache Hadoop på HDInsight med SSH
 
 [!INCLUDE [mapreduce-selector](../../../includes/hdinsight-selector-use-mapreduce.md)]
 
 Lär dig hur du skickar MapReduce-jobb från en SSH-anslutning (Secure Shell) till HDInsight.
 
 > [!NOTE]
-> Om du redan är bekant med att använda Linux-baserade Apache Hadoop-servrar, men du är nybörjare på HDInsight, se [Linux-baserade HDInsight-tips](../hdinsight-hadoop-linux-information.md).
+> Om du redan är bekant med att använda Linux-baserade Apache Hadoop-servrar, men du är ny på HDInsight, se [Linux-baserade HDInsight tips](../hdinsight-hadoop-linux-information.md).
 
 ## <a name="prerequisites"></a>Krav
 
-Ett Apache Hadoop kluster i HDInsight. Se [skapa Apache Hadoop kluster med hjälp av Azure Portal](../hdinsight-hadoop-create-linux-clusters-portal.md).
+En Apache Hadoop kluster på HDInsight. Se [Skapa Apache Hadoop-kluster med Azure-portalen](../hdinsight-hadoop-create-linux-clusters-portal.md).
 
 ## <a name="use-hadoop-commands"></a>Använda Hadoop-kommandon
 
-1. Använd [SSH-kommandot](../hdinsight-hadoop-linux-use-ssh-unix.md) för att ansluta till klustret. Redigera kommandot nedan genom att ersätta kluster namn med namnet på klustret och ange sedan kommandot:
+1. Använd kommandot ssh för att ansluta till [klustret.](../hdinsight-hadoop-linux-use-ssh-unix.md) Redigera kommandot nedan genom att ersätta CLUSTERNAME med namnet på klustret och ange sedan kommandot:
 
     ```cmd
     ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.net
@@ -42,12 +42,12 @@ Ett Apache Hadoop kluster i HDInsight. Se [skapa Apache Hadoop kluster med hjäl
     yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar wordcount /example/data/gutenberg/davinci.txt /example/data/WordCountOutput
     ```
 
-    Det här kommandot startar `wordcount`-klassen, som finns i `hadoop-mapreduce-examples.jar`s filen. Det använder `/example/data/gutenberg/davinci.txt` dokumentet som indata och utdata lagras på `/example/data/WordCountOutput`.
+    Det här `wordcount` kommandot startar klassen, som `hadoop-mapreduce-examples.jar` finns i filen. Den använder `/example/data/gutenberg/davinci.txt` dokumentet som indata och `/example/data/WordCountOutput`utdata lagras vid .
 
     > [!NOTE]
-    > Mer information om det här MapReduce-jobbet och exempel data finns i [använda MapReduce i Apache Hadoop i HDInsight](hdinsight-use-mapreduce.md).
+    > Mer information om det här MapReduce-jobbet och exempeldata finns [i Använd MapReduce i Apache Hadoop på HDInsight](hdinsight-use-mapreduce.md).
 
-    Jobbet avger information som bearbetas och returnerar information som liknar följande text när jobbet har slutförts:
+    Jobbet avger information när det bearbetas och returnerar information som liknar följande text när jobbet är slutfört:
 
     ```output
     File Input Format Counters
@@ -56,16 +56,16 @@ Ett Apache Hadoop kluster i HDInsight. Se [skapa Apache Hadoop kluster med hjäl
     Bytes Written=337623
     ```
 
-1. När jobbet har slutförts använder du följande kommando för att Visa utdatafilerna:
+1. När jobbet är klart använder du följande kommando för att lista utdatafilerna:
 
     ```bash
     hdfs dfs -ls /example/data/WordCountOutput
     ```
 
-    Det här kommandot visar två filer, `_SUCCESS` och `part-r-00000`. `part-r-00000`-filen innehåller utdata för det här jobbet.
+    Det här kommandot `_SUCCESS` visar `part-r-00000`två filer och . Filen `part-r-00000` innehåller utdata för det här jobbet.
 
     > [!NOTE]  
-    > Vissa MapReduce-jobb kan dela resultaten i flera **del-r-#** # # #-filer. I så fall använder du # # # # suffix för att ange filernas ordning.
+    > Vissa MapReduce-jobb kan dela upp resultaten mellan flera **del-r-########-filer.** Om så är fallet använder du suffixet ##### för att ange ordningen på filerna.
 
 1. Om du vill visa utdata använder du följande kommando:
 
@@ -73,7 +73,7 @@ Ett Apache Hadoop kluster i HDInsight. Se [skapa Apache Hadoop kluster med hjäl
     hdfs dfs -cat /example/data/WordCountOutput/part-r-00000
     ```
 
-    Det här kommandot visar en lista över de ord som finns i **wasbs://example/data/Gutenberg/DaVinci.txt** -filen och antalet gånger som varje ord har inträffat. Följande text är ett exempel på de data som finns i filen:
+    Det här kommandot visar en lista över de ord som finns i **wasbs://example/data/gutenberg/davinci.txt** filen och antalet gånger varje ord har inträffat. Följande text är ett exempel på de data som finns i filen:
 
     ```output
     wreathed        3
@@ -87,7 +87,7 @@ Ett Apache Hadoop kluster i HDInsight. Se [skapa Apache Hadoop kluster med hjäl
 
 ## <a name="next-steps"></a>Nästa steg
 
-Som du kan se ger Hadoop-kommandon ett enkelt sätt att köra MapReduce-jobb i ett HDInsight-kluster och sedan Visa jobbets utdata. Information om andra sätt att arbeta med Hadoop i HDInsight:
+Som du kan se ger Hadoop-kommandon ett enkelt sätt att köra MapReduce-jobb i ett HDInsight-kluster och sedan visa jobbutdata. Mer information om andra sätt kan du arbeta med Hadoop på HDInsight:
 
-* [Använda MapReduce på HDInsight Hadoop](hdinsight-use-mapreduce.md)
-* [Använda Apache Hive med Apache Hadoop på HDInsight](hdinsight-use-hive.md)
+* [Använd MapReduce på HDInsight Hadoop](hdinsight-use-mapreduce.md)
+* [Använd Apache Hive med Apache Hadoop på HDInsight](hdinsight-use-hive.md)

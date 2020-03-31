@@ -5,22 +5,22 @@ ms.service: app-service-mobile
 ms.topic: include
 ms.date: 08/23/2018
 ms.openlocfilehash: a53d2b259bc4ece12c4ccb1cf47409cd2f0af86f
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67188028"
 ---
-**Objective-C**:
+**Mål C**:
 
-1. I **QSAppDelegate.m**, importera iOS SDK och **QSTodoService.h**:
+1. Importera iOS SDK och **QSTodoService.h**i **QSAppDelegate.m**:
 
     ```objc
     #import <MicrosoftAzureMobile/MicrosoftAzureMobile.h>
     #import "QSTodoService.h"
     ```
 
-2. I `didFinishLaunchingWithOptions` i **QSAppDelegate.m**, infoga följande linjer precis före `return YES;`:
+2. I `didFinishLaunchingWithOptions` **QSAppDelegate.m**infogar du följande `return YES;`rader precis före:
 
     ```objc
     UIUserNotificationSettings* notificationSettings = [UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert | UIUserNotificationTypeBadge | UIUserNotificationTypeSound categories:nil];
@@ -28,7 +28,7 @@ ms.locfileid: "67188028"
     [[UIApplication sharedApplication] registerForRemoteNotifications];
     ```
 
-3. I **QSAppDelegate.m**, Lägg till följande metoder för hanteraren. Din app har uppdaterats för att stödja push-meddelanden. 
+3. Lägg till följande hanterare i **QSAppDelegate.m.** Din app uppdateras nu för att stödja push-meddelanden. 
 
     ```objc
     // Registration with APNs is successful
@@ -97,9 +97,9 @@ ms.locfileid: "67188028"
     }
     ```
 
-**Swift**:
+**Swift:**
 
-1. Lägg till fil **ClientManager.swift** med följande innehåll. Ersätt *% AppUrl %* med Webbadressen för serverdelen för Mobilappen i Azure.
+1. Lägg till fil **ClientManager.swift** med följande innehåll. Ersätt *%AppUrl%* med URL:en för Azure Mobile App-backend.
 
     ```swift
     class ClientManager {
@@ -107,13 +107,13 @@ ms.locfileid: "67188028"
     }
     ```
 
-2. I **ToDoTableViewController.swift**, ersätter den `let client` rad som initierar en `MSClient` med den här raden:
+2. I **ToDoTableViewController.swift**ersätter du raden `MSClient` som initierar en med den `let client` här raden:
 
     ```swift
     let client = ClientManager.sharedClient
     ```
 
-3. I **AppDelegate.swift**, Ersätt innehållet i `func application` på följande sätt:
+3. I **AppDelegate.swift**, ersätta `func application` kroppen av följande:
 
     ```swift
     func application(application: UIApplication,
@@ -126,7 +126,7 @@ ms.locfileid: "67188028"
     }
     ```
 
-4. I **AppDelegate.swift**, Lägg till följande metoder för hanteraren. Din app har uppdaterats för att stödja push-meddelanden.
+4. Lägg till följande hanterare i **AppDelegate.swift.** Din app uppdateras nu för att stödja push-meddelanden.
 
     ```swift
     func application(application: UIApplication,

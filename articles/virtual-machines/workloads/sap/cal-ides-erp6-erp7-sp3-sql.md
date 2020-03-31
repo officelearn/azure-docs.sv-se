@@ -1,6 +1,6 @@
 ---
-title: 'Distribuera SAP IDE: er EHP7 SP3 för SAP ERP 6,0 på Azure | Microsoft Docs'
-description: 'Distribuera SAP IDE: er EHP7 SP3 för SAP ERP 6,0 på Azure'
+title: Distribuera SAP IDES EHP7 SP3 för SAP ERP 6.0 på Azure | Microsoft-dokument
+description: Distribuera SAP IDES EHP7 SP3 för SAP ERP 6.0 på Azure
 services: virtual-machines-windows
 documentationcenter: ''
 author: hermanndms
@@ -16,43 +16,43 @@ ms.workload: infrastructure-services
 ms.date: 09/16/2016
 ms.author: hermannd
 ms.openlocfilehash: 3efd92226b7c69590f3960458ffec49b63b8364f
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77616692"
 ---
-# <a name="deploy-sap-ides-ehp7-sp3-for-sap-erp-60-on-azure"></a>Distribuera SAP IDE: er EHP7 SP3 för SAP ERP 6,0 på Azure
-I den här artikeln beskrivs hur du distribuerar ett SAP IDE: er-system som körs med SQL Server och Windows-operativsystemet på Azure via bibliotek för SAP Cloud Library (SAP CAL) 3,0. Skärm bilderna visar steg för steg-processen. Följ samma steg om du vill distribuera en annan lösning.
+# <a name="deploy-sap-ides-ehp7-sp3-for-sap-erp-60-on-azure"></a>Distribuera SAP IDES EHP7 SP3 för SAP ERP 6.0 på Azure
+I den hÃ¤r artikeln beskrivs hur du distribuerar ett SAP IDES-system som fÃ¶rsÃ¶rsÃ¶r med SQL Server och Windows-operativsystemet på Azure via SAP Cloud Appliance Library (SAP CAL) 3.0. Skärmbilderna visar steg-för-steg-processen. Om du vill distribuera en annan lösning följer du samma steg.
 
-Börja med SAP CAL genom att gå till webbplatsen [SAP Cloud Library Library Library](https://cal.sap.com/) . SAP har också en blogg om den nya [SAP Cloud-biblioteket 3,0](https://scn.sap.com/community/cloud-appliance-library/blog/2016/05/27/sap-cloud-appliance-library-30-came-with-a-new-user-experience). 
+Till att börja med SAP CAL går du till [SAP Cloud Appliance Librarys](https://cal.sap.com/) webbplats. SAP har också en blogg om den nya [SAP Cloud Appliance Library 3.0](https://scn.sap.com/community/cloud-appliance-library/blog/2016/05/27/sap-cloud-appliance-library-30-came-with-a-new-user-experience). 
 
 > [!NOTE]
-> Från och med den 29 maj 2017 kan du använda Azure Resource Manager distributions modell utöver den enklare klassiska distributions modellen för att distribuera SAP CAL. Vi rekommenderar att du använder den nya distributions modellen för Resource Manager och ignorerar den klassiska distributions modellen.
+> Från och med den 29 maj 2017 kan du använda distributionsmodellen för Azure Resource Manager utöver den klassiska distributionsmodellen som föredras för att distribuera SAP CAL. Vi rekommenderar att du använder den nya Resurshanterarens distributionsmodell och bortser från den klassiska distributionsmodellen.
 
-Om du redan har skapat ett SAP CAL-konto som använder den klassiska modellen *måste du skapa ett annat SAP Cal-konto*. Det här kontot behöver endast distribueras till Azure med hjälp av Resource Manager-modellen.
+Om du redan har skapat ett SAP CAL-konto som använder den klassiska modellen *måste du skapa ett annat SAP CAL-konto*. Det här kontot behöver distribueras exklusivt till Azure med hjälp av Resource Manager-modellen.
 
-När du har loggat in på SAP CAL, leder den första sidan vanligt vis till **lösnings** sidan. Lösningarna som erbjuds i SAP-CAL ökar ständigt, så du kan behöva rulla en aning lite lite för att hitta den lösning som du vill ha. Den markerade Windows-baserade SAP IDE: er-lösningen som är tillgänglig exklusivt i Azure demonstrerar distributions processen:
+När du har loggat in på SAP CAL leder den första sidan vanligtvis dig till sidan **Lösningar.** De lösningar som erbjuds på SAP CAL ökar stadigt, så du kan behöva bläddra en hel del för att hitta den lösning du vill ha. Den markerade Windows-baserade SAP IDES-lösningen som är tillgänglig exklusivt på Azure visar distributionsprocessen:
 
 ![SAP CAL-lösningar](./media/cal-ides-erp6-ehp7-sp3-sql/ides-pic1.jpg)
 
 ### <a name="create-an-account-in-the-sap-cal"></a>Skapa ett konto i SAP CAL
-1. För att logga in på SAP CAL för första gången använder du din SAP S-användare eller andra användare som har registrerats med SAP. Definiera sedan ett SAP CAL-konto som används av SAP CAL för att distribuera enheter på Azure. I konto definitionen måste du:
+1. Om du vill logga in på SAP CAL för första gången använder du din SAP S-User eller någon annan användare som är registrerad hos SAP. Definiera sedan ett SAP CAL-konto som används av SAP CAL för att distribuera enheter på Azure. I kontodefinitionen måste du:
 
-    a. Välj distributions modell på Azure (Resource Manager eller klassisk).
+    a. Välj distributionsmodellen på Azure (Resource Manager eller classic).
 
-    b. Ange din Azure-prenumeration. Ett SAP CAL-konto kan bara tilldelas till en prenumeration. Om du behöver mer än en prenumeration måste du skapa ett annat SAP CAL-konto.
+    b. Ange din Azure-prenumeration. Ett SAP CAL-konto kan endast tilldelas en prenumeration. Om du behöver mer än en prenumeration måste du skapa ett annat SAP CAL-konto.
     
-    c. Ge SAP CAL-behörighet att distribuera till din Azure-prenumeration.
+    c. Ge SAP CAL-behörigheten att distribuera till din Azure-prenumeration.
 
    > [!NOTE]
-   >  Nästa steg visar hur du skapar ett SAP CAL-konto för Resource Manager-distributioner. Om du redan har ett SAP CAL-konto som är länkat till den klassiska distributions modellen, *måste* du följa de här stegen för att skapa ett nytt SAP Cal-konto. Det nya SAP CAL-kontot måste distribueras i Resource Manager-modellen.
+   >  Nästa steg visar hur du skapar ett SAP CAL-konto för Resource Manager-distributioner. Om du redan har ett SAP CAL-konto som är länkat till den klassiska distributionsmodellen *måste* du följa dessa steg för att skapa ett nytt SAP CAL-konto. Det nya SAP CAL-kontot måste distribueras i Resource Manager-modellen.
 
-1. Om du vill skapa ett nytt SAP CAL-konto visar sidan **konton** två alternativ för Azure: 
+1. Om du vill skapa ett nytt SAP CAL-konto visar sidan **Konton** två alternativ för Azure: 
 
-    a. **Microsoft Azure (klassisk)** är den klassiska distributions modellen och är inte längre önskad.
+    a. **Microsoft Azure (klassisk)** är den klassiska distributionsmodellen och är inte längre att föredra.
 
-    b. **Microsoft Azure** är den nya distributions modellen för Resource Manager.
+    b. **Microsoft Azure** är den nya resurshanterarens distributionsmodell.
 
     ![SAP CAL-konton](./media/cal-ides-erp6-ehp7-sp3-sql/s4h-pic-2a.PNG)
 
@@ -60,68 +60,68 @@ När du har loggat in på SAP CAL, leder den första sidan vanligt vis till **l�
 
     ![SAP CAL-konton](./media/cal-ides-erp6-ehp7-sp3-sql/s4h-pic3c.PNG)
 
-1. Ange det ID för Azure **-prenumeration** som finns på Azure Portal. 
+1. Ange **Azure-prenumerations-ID** som finns på Azure-portalen. 
 
-    ![Prenumerations-ID för SAP CAL](./media/cal-ides-erp6-ehp7-sp3-sql/s4h-pic3c.PNG)
+    ![PRENUMERATIONS-ID för SAP CAL](./media/cal-ides-erp6-ehp7-sp3-sql/s4h-pic3c.PNG)
 
-1. Om du vill ge SAP-CAL att distribuera till den Azure-prenumeration som du har definierat klickar du på **auktorisera**. Följande sida visas på fliken webbläsare:
+1. Om du vill auktorisera SAP CAL att distribuera till den Azure-prenumeration du definierade klickar du på **Auktorisera**. Följande sida visas på webbläsarfliken:
 
-    ![Internet Explorer Cloud Services-inloggning](./media/cal-ides-erp6-ehp7-sp3-sql/s4h-pic4c.PNG)
+    ![Logga in i internet explorer-molntjänster](./media/cal-ides-erp6-ehp7-sp3-sql/s4h-pic4c.PNG)
 
-1. Om det finns fler än en användare i listan väljer du den Microsoft-konto som är länkad till som medadministratör för den Azure-prenumeration som du har valt. Följande sida visas på fliken webbläsare:
+1. Om mer än en användare visas väljer du det Microsoft-konto som är länkat för att vara medadministrator för den Azure-prenumeration du valde. Följande sida visas på webbläsarfliken:
 
-    ![Bekräftelse av Internet Explorer Cloud Services](./media/cal-ides-erp6-ehp7-sp3-sql/s4h-pic5a.PNG)
+    ![Bekräftelse av molntjänster i Internet Explorer](./media/cal-ides-erp6-ehp7-sp3-sql/s4h-pic5a.PNG)
 
-1. Klicka på **acceptera**. Om auktoriseringen lyckas visas en konto definition för SAP CAL igen. Efter en kort stund bekräftar ett meddelande att auktoriseringen lyckades.
+1. Klicka på **Acceptera**. Om auktoriseringen lyckas visas SAP CAL-kontodefinitionen igen. Efter en kort tid bekräftar ett meddelande att auktoriseringsprocessen lyckades.
 
-1. Om du vill tilldela det nya SAP CAL-kontot till användaren anger du ditt **användar-ID** i text rutan till höger och klickar på **Lägg till**. 
+1. Om du vill tilldela det nyskapade SAP CAL-kontot till användaren anger du ditt **användar-ID** i textrutan till höger och klickar på **Lägg till**. 
 
-    ![Konto till användar Association](./media/cal-ides-erp6-ehp7-sp3-sql/s4h-pic8a.PNG)
+    ![Konto till användarassociation](./media/cal-ides-erp6-ehp7-sp3-sql/s4h-pic8a.PNG)
 
-1. Klicka på **Granska**om du vill koppla ditt konto till den användare som du använder för att logga in på SAP Cal. 
+1. Om du vill koppla ditt konto till den användare som du använder för att logga in på SAP CAL klickar du på **Granska**. 
 
-1. Klicka på **skapa**om du vill skapa kopplingen mellan din användare och det nyligen skapade SAP Cal-kontot.
+1. Om du vill skapa kopplingen mellan användaren och det nyligen skapade SAP CAL-kontot klickar du på **Skapa**.
 
-    ![Användare till konto-Association](./media/cal-ides-erp6-ehp7-sp3-sql/s4h-pic9b.PNG)
+    ![Användare till kontoassociation](./media/cal-ides-erp6-ehp7-sp3-sql/s4h-pic9b.PNG)
 
 Du har skapat ett SAP CAL-konto som kan:
 
-- Använd distributions modellen för Resource Manager.
-- Distribuera SAP-system i din Azure-prenumeration.
+- Använd Resource Manager-distributionsmodellen.
+- Distribuera SAP-system till din Azure-prenumeration.
 
 > [!NOTE]
-> Innan du kan distribuera SAP IDE: er-lösningen som baseras på Windows och SQL Server kan du behöva registrera dig för en SAP CAL-prenumeration. Annars kan lösningen visas som **låst** på översikts sidan.
+> Innan du kan distribuera SAP IDES-lösningen baserat på Windows och SQL Server kan du behöva registrera dig för en SAP CAL-prenumeration. Annars kan lösningen visas som **låst** på översiktssidan.
 
 ### <a name="deploy-a-solution"></a>Distribuera en lösning
-1. När du har konfigurerat ett SAP CAL-konto väljer **du lösningen SAP IDE: er på Windows och SQL Server** lösning. Klicka på **skapa instans**och bekräfta villkoren för användning och villkor. 
+1. När du har konfigurerat ett SAP CAL-konto väljer du **SAP IDES-lösningen på Windows- och SQL Server-lösningen.** Klicka på **Skapa instans**och bekräfta användnings- och villkoren. 
 
-1. På sidan **Basic-läge: skapa instans** måste du:
+1. På sidan **Grundläge: Skapa instans** måste du:
 
-    a. Ange ett instans **namn**.
+    a. Ange ett **förekomstnamn**.
 
-    b. Välj en Azure- **region**. Du kan behöva en SAP CAL-prenumeration för att få flera tillgängliga Azure-regioner.
+    b. Välj en **Azure-region**. Du kan behöva en SAP CAL-prenumeration för att få flera Azure-regioner som erbjuds.
 
-    c.  Ange huvud **lösen ordet** för lösningen som det visas:
+    c.  Ange **huvudlösenordet** för lösningen, som visas:
 
-    ![SAP CAL Basic-läge: skapa instans](./media/cal-ides-erp6-ehp7-sp3-sql/ides-pic10a.png)
+    ![SAP CAL Basic Mode: Skapa instans](./media/cal-ides-erp6-ehp7-sp3-sql/ides-pic10a.png)
 
-1. Klicka på **Skapa**. Efter en stund, beroende på lösningens storlek och komplexitet (SAP CAL tillhandahåller en uppskattning), visas statusen aktive ras och klar för användning: 
+1. Klicka på **Skapa**. Efter en tid, beroende på lösningens storlek och komplexitet (SAP CAL ger en uppskattning), visas statusen som aktiv och klar för användning: 
 
     ![SAP CAL-instanser](./media/cal-ides-erp6-ehp7-sp3-sql/ides-pic12a.png)
 
-1. Om du vill hitta resurs gruppen och alla objekt som har skapats av SAP CAL går du till Azure Portal. Den virtuella datorn kan hittas från och med samma instans namn som angavs i SAP CAL.
+1. Om du vill hitta resursgruppen och alla dess objekt som har skapats av SAP CAL går du till Azure-portalen. Den virtuella datorn kan hittas från och med samma instansnamn som angavs i SAP CAL.
 
-    ![Resurs grupps objekt](./media/cal-ides-erp6-ehp7-sp3-sql/ides_resource_group.PNG)
+    ![Objekt för resursgrupp](./media/cal-ides-erp6-ehp7-sp3-sql/ides_resource_group.PNG)
 
 1. Gå till de distribuerade instanserna på SAP CAL-portalen och klicka på **Anslut**. Följande popup-fönster visas: 
 
     ![Anslut till instansen](./media/cal-ides-erp6-ehp7-sp3-sql/ides-pic14a.PNG)
 
-1. Innan du kan använda något av alternativen för att ansluta till de distribuerade systemen klickar du på **komma igång guide**. Dokumentationen namnger användarna för var och en av anslutnings metoderna. Lösen orden för dessa användare anges till det huvud lösen ord som du definierade i början av distributions processen. I dokumentationen visas andra mer funktionella användare med sina lösen ord, som du kan använda för att logga in på det distribuerade systemet.
+1. Innan du kan använda något av alternativen för att ansluta till de distribuerade systemen klickar du på **Komma igång guide**. Dokumentationen namnger användarna för var och en av anslutningsmetoderna. Lösenorden för dessa användare är inställda på huvudlösenordet som du definierade i början av distributionsprocessen. I dokumentationen visas andra mer funktionella användare med sina lösenord, som du kan använda för att logga in på det distribuerade systemet.
 
-    ![Dokumentation om SAP Welcome](./media/cal-ides-erp6-ehp7-sp3-sql/ides-pic15.jpg)
+    ![Dokumentation för VÄLKOMMEN TILL SAP](./media/cal-ides-erp6-ehp7-sp3-sql/ides-pic15.jpg)
 
-Inom några timmar distribueras ett felfritt SAP IDE: er-system i Azure.
+Inom några timmar distribueras ett nyttigt SAP IDES-system i Azure.
 
-Om du har köpt en SAP CAL-prenumeration stöder SAP fullständigt distributioner via SAP CAL på Azure. Support kön är BC-VCM-CAL.
+Om du har köpt en SAP CAL-prenumeration stöder SAP distributioner fullt ut via SAP CAL på Azure. Supportkön är BC-VCM-CAL.
 

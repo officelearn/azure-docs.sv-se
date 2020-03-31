@@ -1,7 +1,7 @@
 ---
-title: Distribution och användning
+title: Distribution och förbrukning
 titleSuffix: ML Studio (classic) - Azure
-description: Du kan använda Azure Machine Learning Studio (klassisk) för att distribuera Machine Learning-arbetsflöden och-modeller som webb tjänster. Dessa webbtjänster kan sedan användas för att anropa maskininlärningsmodeller från program via internet för att göra förutsägelser i realtid eller i batchläge.
+description: Du kan använda Azure Machine Learning Studio (klassisk) för att distribuera arbetsflöden och modeller för maskininlärning som webbtjänster. Dessa webbtjänster kan sedan användas för att anropa maskininlärningsmodeller från program över Internet för att göra förutsägelser i realtid eller i batch-läge.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
@@ -11,62 +11,62 @@ ms.author: keli19
 ms.custom: seodec18
 ms.date: 04/19/2017
 ms.openlocfilehash: ff6ae0de0bbd8c47b81fa5066a97eb0b3e0cf6bc
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79204400"
 ---
-# <a name="azure-machine-learning-studio-classic-web-services-deployment-and-consumption"></a>Azure Machine Learning Studio (klassiska) webb tjänster: distribution och användning
+# <a name="azure-machine-learning-studio-classic-web-services-deployment-and-consumption"></a>Azure Machine Learning Studio (klassiska) Webbtjänster: Distribution och förbrukning
 
 [!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
-Du kan använda Azure Machine Learning Studio (klassisk) för att distribuera Machine Learning-arbetsflöden och-modeller som webb tjänster. Dessa webbtjänster kan sedan användas för att anropa maskininlärningsmodeller från program via Internet för att göra förutsägelser i realtid eller i batchläge. Eftersom webbtjänsterna är RESTful, kan du anropa dem från olika programmeringsspråk och plattformar, till exempel .NET och Java och program, till exempel Excel.
+Du kan använda Azure Machine Learning Studio (klassisk) för att distribuera arbetsflöden och modeller för maskininlärning som webbtjänster. Dessa webbtjänster kan sedan användas för att anropa maskininlärningsmodellerna från program via Internet för att göra förutsägelser i realtid eller i batch-läge. Eftersom webbtjänsterna är RESTful kan du anropa dem från olika programmeringsspråk och plattformar, till exempel .NET och Java, och från program, till exempel Excel.
 
-I nästa avsnitt innehåller länkar till genomgångar, kod och dokumentation som hjälper dig att komma igång.
+I nästa avsnitt finns länkar till genomgångar, kod och dokumentation som hjälper dig att komma igång.
 
 ## <a name="deploy-a-web-service"></a>Distribuera en webbtjänst
 
 ### <a name="with-azure-machine-learning-studio-classic"></a>Med Azure Machine Learning Studio (klassisk)
 
-Studio-portalen (klassisk) och Microsoft Azure Machine Learning Web Services-portalen hjälper dig att distribuera och hantera en webb tjänst utan att skriva kod.
+Studio-portalen (klassisk) och Microsoft Azure Machine Learning Web Services-portalen hjälper dig att distribuera och hantera en webbtjänst utan att skriva kod.
 
-Följande länkar ger allmän Information om hur du distribuerar en ny webbtjänst:
+Följande länkar innehåller allmän information om hur du distribuerar en ny webbtjänst:
 
-* En översikt över hur du distribuerar en ny webb tjänst som är baserad på Azure Resource Manager finns i [distribuera en ny webb tjänst](deploy-a-machine-learning-web-service.md).
-* En genom gång av hur du distribuerar en webb tjänst finns i [distribuera en Azure Machine Learning-webbtjänst](deploy-a-machine-learning-web-service.md).
-* För en fullständig genom gång av hur du skapar och distribuerar en webb tjänst börjar du med [självstudie 1: Förutsäg kredit risk](tutorial-part1-credit-risk.md).
-* Specifika exempel som distribuerar en webbtjänst finns:
+* En översikt över hur du distribuerar en ny webbtjänst som baseras på Azure Resource Manager finns i [Distribuera en ny webbtjänst](deploy-a-machine-learning-web-service.md).
+* En genomgång av hur du distribuerar en webbtjänst finns i [Distribuera en azure machine learning-webbtjänst](deploy-a-machine-learning-web-service.md).
+* För en fullständig genomgång om hur du skapar och distribuerar en webbtjänst, börja med [handledning 1: Förutsäga kreditrisk](tutorial-part1-credit-risk.md).
+* Specifika exempel som distribuerar en webbtjänst finns i:
 
-  * [Självstudie 3: Distribuera kredit risk modell](tutorial-part3-credit-risk-deploy.md)
-  * [Så här distribuerar du en webb tjänst till flera regioner](deploy-a-machine-learning-web-service.md#multi-region)
+  * [Handledning 3: Distribuera kreditriskmodell](tutorial-part3-credit-risk-deploy.md)
+  * [Distribuera en webbtjänst till flera regioner](deploy-a-machine-learning-web-service.md#multi-region)
 
-### <a name="with-web-services-resource-provider-apis-azure-resource-manager-apis"></a>Med web services-resursprovidern API: er (Azure Resource Manager API: er)
+### <a name="with-web-services-resource-provider-apis-azure-resource-manager-apis"></a>Med API:er för resursprovider för webbtjänster (Azure Resource Manager API:er)
 
-Den Azure Machine Learning Studio (klassiska) resurs leverantören för webb tjänster möjliggör distribution och hantering av webb tjänster genom att använda REST API-anrop. Mer information finns i referens för [Machine Learning-webbtjänsten (rest)](/rest/api/machinelearning/index) .
+Azure Machine Learning Studio (klassisk) resursleverantör för webbtjänster möjliggör distribution och hantering av webbtjänster med hjälp av REST API-anrop. Mer information finns i [REST-referensen (Machine Learning Web Service).](/rest/api/machinelearning/index)
 
 <!-- [Machine Learning Web Service (REST)](https://msdn.microsoft.com/library/azure/mt767538.aspx) reference. -->
 
-### <a name="with-powershell-cmdlets"></a>Med PowerShell-cmdletar
+### <a name="with-powershell-cmdlets"></a>Med PowerShell-cmdlets
 
-Den Azure Machine Learning Studio (klassiska) resurs leverantören för webb tjänster möjliggör distribution och hantering av webb tjänster med hjälp av PowerShell-cmdletar.
+Azure Machine Learning Studio (klassisk) resursleverantör för webbtjänster möjliggör distribution och hantering av webbtjänster med hjälp av PowerShell-cmdlets.
 
-Om du vill använda cmdlets måste du först logga in på ditt Azure-konto från PowerShell-miljön med hjälp av cmdleten [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) . Om du inte är bekant med hur du anropar PowerShell-kommandon som baseras på Resource Manager kan du läsa [använda Azure PowerShell med Azure Resource Manager](../../azure-resource-manager/management/manage-resources-powershell.md).
+Om du vill använda cmdlets måste du först logga in på ditt Azure-konto inifrån PowerShell-miljön med hjälp av cmdleten [Connect-AzAccount.](/powershell/module/az.accounts/connect-azaccount) Om du inte är bekant med hur du anropar PowerShell-kommandon som baseras på Resource Manager läser [du Använda Azure PowerShell med Azure Resource Manager](../../azure-resource-manager/management/manage-resources-powershell.md).
 
-Använd [den här exempel koden](https://github.com/ritwik20/AzureML-WebServices)om du vill exportera förutsägande experiment. När du har skapat .exe-fil från kod som kan du skriva:
+Om du vill exportera förutsägelseexperimentet använder du [den här exempelkoden](https://github.com/ritwik20/AzureML-WebServices). När du har skapat EXE-filen från koden kan du skriva:
 
     C:\<folder>\GetWSD <experiment-url> <workspace-auth-token>
 
-Kör programmet skapar en mall för JSON web. Om du vill använda mallen för att distribuera en webbtjänst, måste du lägga till följande information:
+Om du kör programmet skapas en JSON-mall för webbtjänsten. Om du vill använda mallen för att distribuera en webbtjänst måste du lägga till följande information:
 
-* Lagringskontonamn och nyckel
+* Namn och nyckel för lagringskonto
 
-    Du kan hämta lagrings kontots namn och nyckel från [Azure Portal](https://portal.azure.com/).
-* Åtagande plans-ID:
+    Du kan hämta namnet och nyckeln för lagringskontot från [Azure-portalen](https://portal.azure.com/).
+* Id för åtagandeplan
 
-    Du kan hämta plan-ID: t från [Azure Machine Learning Web Services-](https://services.azureml.net) portalen genom att logga in och klicka på ett plan namn.
+    Du kan hämta plan-ID:t från Azure [Machine Learning Web Services-portalen](https://services.azureml.net) genom att logga in och klicka på ett plannamn.
 
-Lägg till dem i JSON-mallen som underordnade till noden *Egenskaper* på samma nivå som *MachineLearningWorkspace* -noden.
+Lägg till dem i JSON-mallen som underordnade till *properties-noden* på samma nivå som *machinelearningworkspace-noden.*
 
 Här är ett exempel:
 
@@ -78,28 +78,28 @@ Här är ett exempel:
         "id": "subscriptions/YouSubscriptionID/resourceGroups/YourResourceGroupID/providers/Microsoft.MachineLearning/commitmentPlans/YourPlanName"
     }
 
-Se följande artiklar och exempelkod för ytterligare information:
+Mer information finns i följande artiklar och exempelkod:
 
-* [Azure Machine Learning Studio (klassisk) cmdlets](https://docs.microsoft.com/powershell/module/az.machinelearning) -referens på MSDN
-* Exempel [på](https://github.com/raymondlaghaeian/azureml-webservices-arm-powershell/blob/master/sample-commands.txt) GitHub
+* [Azure Machine Learning Studio (klassisk) Cmdlets](https://docs.microsoft.com/powershell/module/az.machinelearning) referens på MSDN
+* Exempel på [genomgång](https://github.com/raymondlaghaeian/azureml-webservices-arm-powershell/blob/master/sample-commands.txt) på GitHub
 
-## <a name="consume-the-web-services"></a>Använda webbtjänsterna
+## <a name="consume-the-web-services"></a>Konsumera webbtjänster
 
-### <a name="from-the-azure-machine-learning-web-services-ui-testing"></a>Från Azure Machine Learning Web Services Användargränssnittet (test)
+### <a name="from-the-azure-machine-learning-web-services-ui-testing"></a>Från Azure Machine Learning Web Services UI (Testning)
 
-Du kan testa din webbtjänst från Azure Machine Learning Web Services-portalen. Detta inkluderar testning Request-Response service (RR) och BES-tjänsten i Batch Execution-gränssnitt.
+Du kan testa webbtjänsten från Azure Machine Learning Web Services-portalen. Detta inkluderar testning av BES-gränssnitt (Request-Response Service) och BES-gränssnitt (Batch Execution Service).
 
 * [Distribuera en ny webbtjänst](deploy-a-machine-learning-web-service.md)
 * [Distribuera en Azure Machine Learning-webbtjänst](deploy-a-machine-learning-web-service.md)
-* [Självstudie 3: Distribuera kredit risk modell](tutorial-part3-credit-risk-deploy.md)
+* [Handledning 3: Distribuera kreditriskmodell](tutorial-part3-credit-risk-deploy.md)
 
 ### <a name="from-excel"></a>Från Excel
 
-Du kan hämta en Excel-mall som förbrukar webbtjänsten:
+Du kan hämta en Excel-mall som använder webbtjänsten:
 
-* [Använda en Azure Machine Learning webb tjänst från Excel](consuming-from-excel.md)
-* [Excel-tillägg för Azure Machine Learning webb tjänster](excel-add-in-for-web-services.md)
+* [Använda en azure machine learning-webbtjänst från Excel](consuming-from-excel.md)
+* [Excel-tillägg för Azure Machine Learning Web Services](excel-add-in-for-web-services.md)
 
 ### <a name="from-a-rest-based-client"></a>Från en REST-baserad klient
 
-Azure Machine Learning-webbtjänster är RESTful API: er. Du kan använda dessa API: er från olika plattformar, till exempel .NET, python, R, Java osv. **Förbruknings** sidan för din webb tjänst på [Microsoft Azure Machine Learning Web Services-portalen](https://services.azureml.net) innehåller exempel kod som hjälper dig att komma igång. Mer information finns i [Använda Azure Machine Learning-webbtjänster](consume-web-services.md).
+Azure Machine Learning Web Services är RESTful API:er. Du kan använda dessa API:er från olika plattformar, till exempel .NET, Python, R, Java, etc. Sidan **Förbruka** för din webbtjänst på [Portalen Microsoft Azure Machine Learning Web Services](https://services.azureml.net) har exempelkod som kan hjälpa dig att komma igång. Mer information finns i [Använda Azure Machine Learning-webbtjänster](consume-web-services.md).

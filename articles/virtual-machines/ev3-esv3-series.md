@@ -1,6 +1,6 @@
 ---
-title: Ev3-serien och Esv3-serien – Azure Virtual Machines
-description: Specifikationer för virtuella datorer med Ev3 och Esv3-serien.
+title: Ev3-serien och Esv3-serien – virtuella Azure-datorer
+description: Specifikationer för ev3- och Esv3-seriens virtuella datorer.
 services: virtual-machines
 author: joelpelley
 ms.service: virtual-machines
@@ -8,33 +8,33 @@ ms.topic: article
 ms.date: 02/03/2020
 ms.author: lahugh
 ms.openlocfilehash: aad4610a44c59ed95cf1ad9777329097886c5bed
-ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78164380"
 ---
 # <a name="ev3-and-esv3-series"></a>Ev3- och Esv3-serien
 
-Ev3-och Esv3-serien har Intel® Xeon® 8171M 2,1 GHz (Skylake) eller Intel® Xeon® E5-2673 v4 2,3 GHz (Broadwell) processor i en Hyper-threadd konfiguration, vilket ger ett bättre värde för de flesta allmänna arbets belastningar och tar Ev3 till justering med generella virtuella datorer i de flesta andra moln.  Minnet har utökats (från 7 GiB/vCPU till 8 GiB/vCPU) medan disk-och nätverks gränser har justerats per kärna för att justeras med flytten till hyperthreading. Ev3 är en uppföljning av de virtuella datorerna med hög minnes storlek för D/Dv2-familjer.
+Ev3- och Esv3-serien har Intel® Xeon® 8171M 2,1 GHz (Skylake) eller Intel® Xeon® E5-2673 v4 2,3 GHz (Broadwell) i en hypertrådad konfiguration, vilket ger ett bättre värde för de flesta allmänna arbetsbelastningar och ger Ev3 i linje med det allmänna syftet virtuella datorer i de flesta andra moln.  Minnet har utökats (från 7 GiB/vCPU till 8 GiB/vCPU) medan disk- och nätverksgränser har justerats per kärna för att anpassa sig till övergången till hyperthreading. Ev3 är uppföljningen av det höga minnet VM storlekar av D / Dv2 familjer.
 
 ## <a name="ev3-series"></a>Ev3-serien
 
-Instanserna i Ev3-serien baseras på funktionen Intel® Xeon® 8171M 2,1 GHz (Skylake) eller Intel® Xeon® E5-2673 v4 2,3 GHz (Broadwell) och Intel Turbo Boost Technology 2,0. Instanserna i Ev3-serien är idealiska för minnesintensiva företagsprogram.
+Ev3-serien instanser är baserade på funktionen Intel® Xeon® 8171M 2,1 GHz (Skylake) eller Intel® Xeon® E5-2673 v4 2,3 GHz (Broadwell) processor och Intel Turbo Boost Technology 2.0. Instanserna i Ev3-serien är idealiska för minnesintensiva företagsprogram.
 
 Datadisklagring faktureras separat från virtuella datorer. Om du vill använda premiumlagringsdiskar använder du ESv3-storlekarna. Pris- och debiteringsmätarna för ESv3-storlekar är samma som för Ev3-serien.
 
-Ev3 för virtuella datorer i serien Intel® Hyper-Threading-teknik.
+Ev3-serien VM har Intel® Hyper-Threading Technology.
 
 ACU: 160–190
 
-Premium Storage: stöds inte
+Premium-lagring: Stöds inte
 
-Premium Storage caching: stöds inte
+Cachelagring av premiumlagring: Stöds inte
 
-Direktmigrering: stöds
+Live Migration: Stöds
 
-Minnes bebetjänings uppdateringar: stöds
+Minneskonering av uppdateringar: Stöds
 
 | Storlek | Virtuell processor | Minne: GiB | Temporär lagring (SSD) GiB | Maximalt antal datadiskar | Maximalt genomflöde för temporär lagring: IOPS / Mbit/s för läsning / M/bit/s för skrivning | Maximalt antal nätverkskort/nätverksbandbredd |
 |---|---|---|---|---|---|---|
@@ -46,29 +46,29 @@ Minnes bebetjänings uppdateringar: stöds
 | Standard_E32_v3 | 32 | 256 | 800  | 32 | 48 000/750/375  | 8/16000 |
 | Standard_E48_v3 | 48 | 384 | 1200 | 32 | 96 000/1 000/500 | 8/24000 |
 | Standard_E64_v3 | 64 | 432 | 1600 | 32 | 96 000/1 000/500 | 8/30000 |
-| Standard_E64i_v3 <sup>1, 2</sup> | 64 | 432 | 1600 | 32 | 96 000/1 000/500 | 8/30000 |
+| Standard_E64i_v3 <sup>1,2</sup> | 64 | 432 | 1600 | 32 | 96 000/1 000/500 | 8/30000 |
 
-<sup>1</sup> begränsad kärn storlek är tillgänglig.
+<sup>1</sup> Begränsade kärnstorlekar finns tillgängliga.
 
-<sup>2</sup> -instansen är isolerad till maskin vara som är dedikerad till en enda kund.
+<sup>2</sup> Instansen är isolerad till maskinvara som är avsedd för en enskild kund.
 
 ## <a name="esv3-series"></a>Esv3-serien
 
-Instanserna i Esv3-serien baseras på funktionen Intel® Xeon® 8171M 2,1 GHz (Skylake) eller Intel® Xeon® E5-2673 v4 2,3 GHz (Broadwell), Intel Turbo Boost Technology 2,0 och Använd Premium Storage. Esv3-seriens instanser är idealiska för minnes intensiva företags program.
+Esv3-serien instanser är baserade på funktionen Intel® Xeon® 8171M 2.1 GHz (Skylake) eller Intel® Xeon® E5-2673 v4 2.3 GHz (Broadwell) processor, Intel Turbo Boost Technology 2.0, och använda premium lagring. Esv3-serien instanser är idealiska för minnesintensiva företagsprogram.
 
-Esv3 för virtuella datorer i serien Intel® Hyper-Threading-teknik.
+VM-funktionen Intel® Hyper-Threading Technology i Esv3-serien.
 
 ACU: 160–190
 
-Premium Storage: stöds
+Premium-lagring: Stöds
 
-Premium Storage caching: stöds
+Cachelagring av premiumlagring: Stöds
 
-Direktmigrering: stöds
+Live Migration: Stöds
 
-Minnes bebetjänings uppdateringar: stöds
+Minneskonering av uppdateringar: Stöds
 
-| Storlek | Virtuell processor | Minne: GiB | Temporär lagring (SSD) GiB | Maximalt antal datadiskar | Högsta cachelagrade data flöde för cache och temporär lagring: IOPS/Mbit/s (cachestorlek i GiB) | Maximalt antal cachelagrade diskar: IOPS/MBps | Högsta antal nätverkskort/förväntad nätverks bandbredd (Mbit/s) |
+| Storlek | Virtuell processor | Minne: GiB | Temporär lagring (SSD) GiB | Maximalt antal datadiskar | Max cachelagrat och temp-lagringsdataflöde: IOPS/MBps (cachestorlek i GiB) | Max oankopplat diskdataflöde: IOPS/MBps | Max nätverkskort/förväntad nätverksbandbredd (Mbps) |
 |---|---|---|---|---|---|---|---|
 | Standard_E2s_v3 | 2 | 16 | 32 | 4 | 4000/32 (50) | 3200/48 | 2/1000 |
 | Standard_E4s_v3 <sup>1</sup>  | 4  | 32  | 64  | 8  | 8000/64 (100)   | 6400/96   | 2/2000 |
@@ -80,9 +80,9 @@ Minnes bebetjänings uppdateringar: stöds
 | Standard_E64s_v3 <sup>1</sup>  | 64 | 432 | 864 | 32 | 128000/1024 (1600) | 80000/1200 | 8/30000 |
 | Standard_E64is_v3 <sup>2</sup> | 64 | 432 | 864 | 32 | 128000/1024 (1600) | 80000/1200 | 8/30000 |
 
-<sup>1</sup> begränsad kärn storlek är tillgänglig.
+<sup>1</sup> Begränsade kärnstorlekar finns tillgängliga.
 
-<sup>2</sup> -instansen är isolerad till maskin vara som är dedikerad till en enda kund.
+<sup>2</sup> Instansen är isolerad till maskinvara som är avsedd för en enskild kund.
 
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
 
@@ -97,4 +97,4 @@ Minnes bebetjänings uppdateringar: stöds
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig mer om hur [Azure Compute Units (ACU)](acu.md) kan hjälpa dig att jämföra beräknings prestanda i Azure SKU: er.
+Läs mer om hur [Azure compute units (ACU)](acu.md) kan hjälpa dig att jämföra beräkningsprestanda över Azure SKU:er.

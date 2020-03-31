@@ -1,6 +1,6 @@
 ---
-title: 'Azure AD Connect Cloud Provisioning agent: automatisk uppgradering | Microsoft Docs'
-description: Den här artikeln beskriver den inbyggda funktionen för automatisk uppgradering i Azure AD Connect Cloud Provisioning-agenten.
+title: 'Azure AD Connect molnetableringsagent: Automatisk uppgradering | Microsoft-dokument'
+description: I den här artikeln beskrivs den inbyggda automatiska uppgraderingsfunktionen i Azure AD Connect-molnetableringsagenten.
 services: active-directory
 documentationcenter: ''
 author: billmath
@@ -16,39 +16,39 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f09b2fc685881aa8a7bd87b6a855c657af9ef43d
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78190321"
 ---
-# <a name="azure-ad-connect-cloud-provisioning-agent-automatic-upgrade"></a>Azure AD Connect Cloud Provisioning agent: automatisk uppgradering
+# <a name="azure-ad-connect-cloud-provisioning-agent-automatic-upgrade"></a>Azure AD Connect molnetableringsagent: Automatisk uppgradering
 
-Att se till att din Azure Active Directory (Azure AD) Connect-agenten för att ansluta till molnet är alltid uppdaterad är enkelt med funktionen för automatisk uppgradering.
+Det är enkelt att se till att installationen av din Azure Active Directory (Azure Active Directory) Connect-molnetableringsagent alltid är uppdaterad med den automatiska uppgraderingsfunktionen.
 
-Agenten installeras här: "program files\Azure AD Connect Agent\AADConnectProvisioningAgent.exe"
+Agenten installeras här: "Programfiler\Azure AD Connect Provisioning Agent\AADConnectProvisioningAgent.exe"
 
-Kontrol lera din version genom att högerklicka på den körbara filen och välja egenskaper och sedan information.
+Om du vill verifiera din version högerklickar du på den körbara filen och väljer egenskaper och sedan information.
 
-![Agent fil version](media/how-to-automatic-upgrade/agent1.png)
+![Agent-filversion](media/how-to-automatic-upgrade/agent1.png)
 
-Agent uppdatering installeras här: "program files\Azure AD Connect Provisioning agent Updater\AzureADConnectAgentUpdater.exe"
+Agentuppdateringaren installeras här: "Programfiler\Azure AD Connect Provisioning Agent Updater\AzureADConnectAgentUpdater.exe"
 
-Kontrol lera din version genom att högerklicka på den körbara filen och välja egenskaper och sedan information.
+Om du vill verifiera din version högerklickar du på den körbara filen och väljer egenskaper och sedan information.
 
-![Agent uppdaterings version](media/how-to-automatic-upgrade/agent2.png)
+![Agent updater version](media/how-to-automatic-upgrade/agent2.png)
 
 ## <a name="uninstall-the-agent"></a>Avinstallera agenten
-Om du vill ta bort agenten går du till **Avinstallera eller ändra ett program** och avinstallerar följande:
+Om du vill ta bort agenten går du till **Avinstallera eller ändrar ett program** och avinstallerar följande:
 
-- **Microsoft Azure AD ansluta Agent uppdatering**
-- **Microsoft Azure AD ansluta etablerings agent**
-- **Microsoft Azure AD ansluta Agent paket för etablering**
+- **Uppdatering av Microsoft Azure AD Connect-agent**
+- **Etableringsagent för Microsoft Azure AD Connect**
+- **Etableringsagentpaket för Microsoft Azure AD Connect**
 
 ![Borttagning av agent](media/how-to-automatic-upgrade/agent3.png)
 
 ## <a name="next-steps"></a>Nästa steg 
 
 - [Vad är etablering?](what-is-provisioning.md)
-- [Vad är Azure AD Connect Cloud revisioner?](what-is-cloud-provisioning.md)
+- [Vad är Azure AD Connect-molnetablering?](what-is-cloud-provisioning.md)
 

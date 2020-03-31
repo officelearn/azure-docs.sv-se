@@ -1,97 +1,97 @@
 ---
 title: Distributionshistorik
-description: Beskriver hur du visar Azure Resource Manager distributions åtgärder med portalen, PowerShell, Azure CLI och REST API.
+description: Beskriver hur du visar Azure Resource Manager-distributionsåtgärder med portalen, PowerShell, Azure CLI och REST API.
 tags: top-support-issue
 ms.topic: conceptual
 ms.date: 11/26/2019
-ms.openlocfilehash: 753071a3edca62690b772f7b8d34fec43641466f
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: b0f196f86bed05094b04bfc20c7cef2248a91c65
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75477868"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79460304"
 ---
-# <a name="view-deployment-history-with-azure-resource-manager"></a>Visa distributions historik med Azure Resource Manager
+# <a name="view-deployment-history-with-azure-resource-manager"></a>Visa distributionshistorik med Azure Resource Manager
 
-Med Azure Resource Manager kan du Visa distributions historiken och granska vissa åtgärder i tidigare distributioner. Du kan se de resurser som har distribuerats och få information om eventuella fel.
+Med Azure Resource Manager kan du visa din distributionshistorik och undersöka specifika åtgärder i tidigare distributioner. Du kan se de resurser som har distribuerats och få information om eventuella fel.
 
-Information om hur du löser specifika distributions fel finns i [lösa vanliga fel när du distribuerar resurser till Azure med Azure Resource Manager](common-deployment-errors.md).
+Mer information om hur du löser vissa distributionsfel finns i [Lösa vanliga fel när du distribuerar resurser till Azure med Azure Resource Manager](common-deployment-errors.md).
 
 ## <a name="get-deployments-and-correlation-id"></a>Hämta distributioner och korrelations-ID
 
-Du kan visa information om en distribution via Azure Portal, PowerShell, Azure CLI eller REST API. Varje distribution har ett korrelations-ID som används för att spåra relaterade händelser. Det kan vara användbart när du arbetar med teknisk support för att felsöka en distribution.
+Du kan visa information om en distribution via Azure-portalen, PowerShell, Azure CLI eller REST API. Varje distribution har ett korrelations-ID som används för att spåra relaterade händelser. Det kan vara användbart när du arbetar med teknisk support för att felsöka en distribution.
 
-# <a name="portaltabazure-portal"></a>[Portalen](#tab/azure-portal)
+# <a name="portal"></a>[Portal](#tab/azure-portal)
 
-1. Välj den resurs grupp som du vill undersöka.
+1. Markera den resursgrupp som du vill undersöka.
 
-1. Välj länken under **distributioner**.
+1. Välj länken under **Distributioner**.
 
-   ![Välj distributions historik](./media/deployment-history/select-deployment-history.png)
+   ![Välj distributionshistorik](./media/deployment-history/select-deployment-history.png)
 
-1. Välj en av distributionerna från distributions historiken.
+1. Välj en av distributionerna från distributionshistoriken.
 
    ![Välj distribution](./media/deployment-history/select-details.png)
 
-1. En sammanfattning av distributionen visas, inklusive korrelations-ID: t. 
+1. En sammanfattning av distributionen visas, inklusive korrelations-ID.
 
     ![Distributionssammanfattning](./media/deployment-history/show-correlation-id.png)
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[Powershell](#tab/azure-powershell)
 
-Om du vill visa en lista över alla distributioner för en resurs grupp använder du kommandot [Get-AzResourceGroupDeployment](/powershell/module/az.resources/Get-AzResourceGroupDeployment) .
+Om du vill visa en lista över alla distributioner för en resursgrupp använder du kommandot [Get-AzResourceGroupDeployment.](/powershell/module/az.resources/Get-AzResourceGroupDeployment)
 
 ```azurepowershell-interactive
 Get-AzResourceGroupDeployment -ResourceGroupName ExampleGroup
 ```
 
-Om du vill hämta en speciell distribution från en resurs grupp lägger du till parametern **DeploymentName** .
+Om du vill hämta en viss distribution från en resursgrupp lägger du till parametern **DeploymentName.**
 
 ```azurepowershell-interactive
 Get-AzResourceGroupDeployment -ResourceGroupName ExampleGroup -DeploymentName ExampleDeployment
 ```
 
-Använd följande för att hämta korrelations-ID:
+För att få korrelations-ID:
 
 ```azurepowershell-interactive
 (Get-AzResourceGroupDeployment -ResourceGroupName ExampleGroup -DeploymentName ExampleDeployment).CorrelationId
 ```
 
-# <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-Om du vill visa en lista över distributionen av en resurs grupp använder du [AZ Group Deployment List](/cli/azure/group/deployment?view=azure-cli-latest#az-group-deployment-list).
-
-```azurecli-interactive
-az group deployment list --resource-group ExampleGroup
-```
-
-Om du vill hämta en enskild distribution använder du [AZ Group Deployment show](/cli/azure/group/deployment?view=azure-cli-latest#az-group-deployment-show).
+Om du vill visa distributionen för en resursgrupp använder du [listan över az-distributionsgrupper](/cli/azure/group/deployment?view=azure-cli-latest#az-deployment-group-list).
 
 ```azurecli-interactive
-az group deployment show --resource-group ExampleGroup --name ExampleDeployment
+az deployment group list --resource-group ExampleGroup
 ```
-  
-Använd följande för att hämta korrelations-ID:
+
+Om du vill få en viss distribution använder du [az-distributionsgruppen show](/cli/azure/group/deployment?view=azure-cli-latest#az-deployment-group-show).
 
 ```azurecli-interactive
-az group deployment show --resource-group ExampleGroup --name ExampleDeployment --query properties.correlationId
+az deployment group show --resource-group ExampleGroup --name ExampleDeployment
 ```
 
-# <a name="httptabhttp"></a>[HTTP](#tab/http)
+För att få korrelations-ID:
 
-Om du vill visa en lista över distributioner för en resurs grupp använder du följande åtgärd. För det senaste API-versions numret som ska användas i begäran, se [distributioner – lista efter resurs grupp](/rest/api/resources/deployments/listbyresourcegroup). 
+```azurecli-interactive
+az deployment group show --resource-group ExampleGroup --name ExampleDeployment --query properties.correlationId
+```
+
+# <a name="http"></a>[HTTP](#tab/http)
+
+Om du vill visa distributioner för en resursgrupp använder du följande åtgärd. Det senaste API-versionsnumret som ska användas i begäran finns i [Distributioner - Lista efter resursgrupp](/rest/api/resources/deployments/listbyresourcegroup).
 
 ```
 GET https://management.azure.com/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.Resources/deployments/?api-version={api-version}
 ```
 
-För att få en speciell distribution. Använd följande åtgärd. Det senaste API-versions numret som ska användas i begäran finns i [distributioner-get](/rest/api/resources/deployments/get).
+För att få en specifik distribution. använda följande åtgärd. Det senaste API-versionsnumret som ska användas i begäran finns i [Distributioner - Hämta](/rest/api/resources/deployments/get).
 
 ```
 GET https://management.azure.com/subscriptions/{subscription-id}/resourcegroups/{resource-group-name}/providers/microsoft.resources/deployments/{deployment-name}?api-version={api-version}
 ```
 
-Svaret innehåller korrelations-ID: t.
+Svaret innehåller korrelations-ID.
 
 ```json
 {
@@ -109,69 +109,69 @@ Svaret innehåller korrelations-ID: t.
 
 ---
 
-## <a name="get-deployment-operations-and-error-message"></a>Hämta distributions åtgärder och fel meddelande
+## <a name="get-deployment-operations-and-error-message"></a>Hämta distributionsåtgärder och felmeddelanden
 
-Varje distribution kan innehålla flera åtgärder. Visa distributions åtgärder om du vill ha mer information om en distribution. När en distribution Miss lyckas innehåller distributions åtgärderna ett fel meddelande.
+Varje distribution kan innehålla flera åtgärder. Om du vill se mer information om en distribution kan du visa distributionsåtgärderna. När en distribution misslyckas innehåller distributionsåtgärderna ett felmeddelande.
 
-# <a name="portaltabazure-portal"></a>[Portalen](#tab/azure-portal)
+# <a name="portal"></a>[Portal](#tab/azure-portal)
 
-1. I sammanfattningen för en distribution väljer du **Åtgärds information**.
+1. Välj **Åtgärdsinformation**i sammanfattningen för en distribution .
 
-    ![Välj distributions åtgärder](./media/deployment-history/get-operation-details.png)
+    ![Välj distributionsåtgärder](./media/deployment-history/get-operation-details.png)
 
-1. Du ser informationen för det steget i distributionen. När ett fel uppstår innehåller informationen fel meddelandet.
+1. Du ser information om det steget i distributionen. När ett fel uppstår innehåller informationen felmeddelandet.
 
-    ![Visa åtgärds information](./media/deployment-history/see-operation-details.png)
+    ![Visa åtgärdsinformation](./media/deployment-history/see-operation-details.png)
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[Powershell](#tab/azure-powershell)
 
-Om du vill visa distributions åtgärderna för distribution till en resurs grupp använder du kommandot [Get-AzResourceGroupDeploymentOperation](/powershell/module/az.resources/get-azdeploymentoperation) .
+Om du vill visa distributionsåtgärderna för distribution till en resursgrupp använder du kommandot [Get-AzResourceGroupDeploymentOperation.](/powershell/module/az.resources/get-azdeploymentoperation)
 
 ```azurepowershell-interactive
 Get-AzResourceGroupDeploymentOperation -ResourceGroupName ExampleGroup -DeploymentName ExampleDeploy
 ```
 
-Om du vill visa misslyckade åtgärder filter åtgärder med **felaktigt** tillstånd.
+Om du vill visa misslyckade åtgärder filtrerar du åtgärder med **tillståndet Misslyckades.**
 
 ```azurepowershell-interactive
 (Get-AzResourceGroupDeploymentOperation -ResourceGroupName ExampleGroup -DeploymentName ExampleDeploy).Properties | Where-Object ProvisioningState -eq Failed
 ```
 
-Använd följande kommando för att hämta status meddelandet för misslyckade åtgärder:
+Om du vill hämta statusmeddelandet för misslyckade åtgärder använder du följande kommando:
 
 ```azurepowershell-interactive
 ((Get-AzResourceGroupDeploymentOperation -ResourceGroupName ExampleGroup -DeploymentName ExampleDeploy ).Properties | Where-Object ProvisioningState -eq Failed).StatusMessage.error
 ```
 
-# <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-Om du vill visa distributions åtgärderna för distribution till en resurs grupp använder du kommandot [AZ Group Deployment operation List](/cli/azure/group/deployment/operation?view=azure-cli-latest#az-group-deployment-operation-list) .
-
-```azurecli-interactive
-az group deployment operation list --resource-group ExampleGroup --name ExampleDeployment
-```
-
-Om du vill visa misslyckade åtgärder filter åtgärder med **felaktigt** tillstånd.
+Om du vill visa distributionsåtgärderna för distribution till en resursgrupp använder du kommandot [för driftslist för az deployment-grupp.](/cli/azure/group/deployment/operation?view=azure-cli-latest#az-deployment-group-operation-list)
 
 ```azurecli-interactive
-az group deployment operation list --resource-group ExampleGroup --name ExampleDeploy --query "[?properties.provisioningState=='Failed']"
+az deployment group operation list --resource-group ExampleGroup --name ExampleDeployment
 ```
 
-Använd följande kommando för att hämta status meddelandet för misslyckade åtgärder:
+Om du vill visa misslyckade åtgärder filtrerar du åtgärder med **tillståndet Misslyckades.**
 
 ```azurecli-interactive
-az group deployment operation list --resource-group ExampleGroup --name ExampleDeploy --query "[?properties.provisioningState=='Failed'].properties.statusMessage.error"
+az deployment group operation list --resource-group ExampleGroup --name ExampleDeploy --query "[?properties.provisioningState=='Failed']"
 ```
 
-# <a name="httptabhttp"></a>[HTTP](#tab/http)
+Om du vill hämta statusmeddelandet för misslyckade åtgärder använder du följande kommando:
 
-Använd följande åtgärd för att hämta distributions åtgärder. Det senaste API-versions numret som ska användas i begäran finns i [distributions åtgärder-lista](/rest/api/resources/deploymentoperations/list).
+```azurecli-interactive
+az deployment group operation list --resource-group ExampleGroup --name ExampleDeploy --query "[?properties.provisioningState=='Failed'].properties.statusMessage.error"
+```
+
+# <a name="http"></a>[HTTP](#tab/http)
+
+Använd följande åtgärd för att hämta distributionsåtgärder. Det senaste API-versionsnumret som ska användas i begäran finns i [Deployment Operations - List](/rest/api/resources/deploymentoperations/list).
 
 ```
 GET https://management.azure.com/subscriptions/{subscription-id}/resourcegroups/{resource-group-name}/providers/microsoft.resources/deployments/{deployment-name}/operations?$skiptoken={skiptoken}&api-version={api-version}
 ```
 
-Svaret innehåller ett fel meddelande.
+Svaret innehåller ett felmeddelande.
 
 ```json
 {
@@ -209,7 +209,7 @@ Svaret innehåller ett fel meddelande.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Information om hur du löser specifika distributions fel finns i [lösa vanliga fel när du distribuerar resurser till Azure med Azure Resource Manager](common-deployment-errors.md).
-* Information om hur du använder aktivitets loggarna för att övervaka andra typer av åtgärder finns i [Visa aktivitets loggar för att hantera Azure-resurser](../management/view-activity-logs.md).
-* Om du vill verifiera distributionen innan du kör den, se [distribuera en resurs grupp med Azure Resource Manager mall](deploy-powershell.md).
+* Mer information om hur du löser vissa distributionsfel finns i [Lösa vanliga fel när du distribuerar resurser till Azure med Azure Resource Manager](common-deployment-errors.md).
+* Mer information om hur du använder aktivitetsloggarna för att övervaka andra typer av åtgärder finns i [Visa aktivitetsloggar för att hantera Azure-resurser](../management/view-activity-logs.md).
+* Information om hur du validerar distributionen innan du kör den finns i [Distribuera en resursgrupp med Azure Resource Manager-mallen](deploy-powershell.md).
 

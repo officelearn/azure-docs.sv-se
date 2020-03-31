@@ -1,29 +1,29 @@
 ---
-title: Distribuera resurser mellan prenumerationer & resurs grupp
-description: Visar hur du riktar in mer än en Azure-prenumeration och resurs grupp under distributionen.
+title: Distribuera resurser över prenumeration & resursgrupp
+description: Visar hur du inriktar dig på mer än en Azure-prenumeration och resursgrupp under distributionen.
 ms.topic: conceptual
 ms.date: 12/09/2019
-ms.openlocfilehash: 3cc31e64e9595c637a23fc54d9d02274ded40dda
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.openlocfilehash: 70868f5a3598c26ffff81f0ad3536a6c5c0a7e53
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/09/2020
-ms.locfileid: "78944037"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79460355"
 ---
-# <a name="deploy-azure-resources-to-more-than-one-subscription-or-resource-group"></a>Distribuera Azure-resurser till mer än en prenumeration eller resurs grupp
+# <a name="deploy-azure-resources-to-more-than-one-subscription-or-resource-group"></a>Distribuera Azure-resurser till mer än en prenumeration eller resursgrupp
 
-Normalt distribuerar du alla resurser i mallen till en enda [resurs grupp](../management/overview.md). Det finns dock scenarier där du vill distribuera en uppsättning resurser tillsammans, men placera dem i olika resurs grupper eller prenumerationer. Du kanske till exempel vill distribuera den virtuella datorn för säkerhets kopiering för Azure Site Recovery till en separat resurs grupp och plats. Med Resource Manager kan du använda kapslade mallar för att hantera mer än en prenumeration och resurs grupp.
+Vanligtvis distribuerar du alla resurser i mallen till en enda [resursgrupp](../management/overview.md). Det finns dock scenarier där du vill distribuera en uppsättning resurser tillsammans men placera dem i olika resursgrupper eller prenumerationer. Du kanske till exempel vill distribuera den virtuella säkerhetskopieringsmaskinen för Azure Site Recovery till en separat resursgrupp och plats. Med Resurshanteraren kan du använda kapslade mallar för att rikta in dig på mer än en prenumerations- och resursgrupp.
 
 > [!NOTE]
-> Du kan bara distribuera till fem resurs grupper i en enda distribution. Den här begränsningen innebär vanligt vis att du kan distribuera till en resurs grupp som angetts för den överordnade mallen och upp till fyra resurs grupper i kapslade eller länkade distributioner. Men om den överordnade mallen bara innehåller kapslade eller länkade mallar och inte själv distribuerar några resurser, kan du inkludera upp till fem resurs grupper i kapslade eller länkade distributioner.
+> Du kan distribuera till endast fem resursgrupper i en enda distribution. Den här begränsningen innebär vanligtvis att du kan distribuera till en resursgrupp som angetts för den överordnade mallen och upp till fyra resursgrupper i kapslade eller länkade distributioner. Om den överordnade mallen bara innehåller kapslade eller länkade mallar och inte själv distribuerar några resurser, kan du inkludera upp till fem resursgrupper i kapslade eller länkade distributioner.
 
-## <a name="specify-subscription-and-resource-group"></a>Ange prenumeration och resurs grupp
+## <a name="specify-subscription-and-resource-group"></a>Ange prenumeration och resursgrupp
 
-Om du vill rikta en annan resurs grupp eller prenumeration använder du en [kapslad eller länkad mall](linked-templates.md). Resurs typen `Microsoft.Resources/deployments` innehåller parametrar för `subscriptionId` och `resourceGroup`, vilket gör att du kan ange prenumeration och resurs grupp för den kapslade distributionen. Om du inte anger prenumerations-ID eller resurs grupp används prenumerationen och resurs gruppen från den överordnade mallen. Alla resurs grupper måste finnas innan du kör distributionen.
+Om du vill rikta in dig på en annan resursgrupp eller prenumeration använder du en [kapslad eller länkad mall](linked-templates.md). Resurstypen `Microsoft.Resources/deployments` innehåller `subscriptionId` parametrar `resourceGroup`för och , som gör att du kan ange prenumerations- och resursgruppen för den kapslade distributionen. Om du inte anger prenumerations-ID eller resursgrupp används prenumerations- och resursgruppen från den överordnade mallen. Alla resursgrupper måste finnas innan distributionen körs.
 
-Det konto som du använder för att distribuera mallen måste ha behörighet att distribuera till det angivna prenumerations-ID: t. Om den angivna prenumerationen finns i en annan Azure Active Directory klient organisation måste du [lägga till gäst användare från en annan katalog](../../active-directory/active-directory-b2b-what-is-azure-ad-b2b.md).
+Kontot som du använder för att distribuera mallen måste ha behörighet att distribuera till det angivna prenumerations-ID:et. Om den angivna prenumerationen finns i en annan Azure Active Directory-klient måste du [lägga till gästanvändare från en annan katalog](../../active-directory/active-directory-b2b-what-is-azure-ad-b2b.md).
 
-Om du vill ange en annan resurs grupp och prenumeration använder du:
+Om du vill ange en annan resursgrupp och prenumeration använder du:
 
 ```json
 "resources": [
@@ -38,9 +38,9 @@ Om du vill ange en annan resurs grupp och prenumeration använder du:
 ]
 ```
 
-Om dina resurs grupper finns i samma prenumeration kan du ta bort **subscriptionId** -värdet.
+Om resursgrupperna finns i samma prenumeration kan du ta bort **värdet för subscriptionId.**
 
-I följande exempel distribueras två lagrings konton. Det första lagrings kontot distribueras till den resurs grupp som anges under distributionen. Det andra lagrings kontot distribueras till den resurs grupp som anges i `secondResourceGroup` och `secondSubscriptionID` parametrar:
+I följande exempel distribueras två lagringskonton. Det första lagringskontot distribueras till resursgruppen som anges under distributionen. Det andra lagringskontot distribueras till `secondResourceGroup` resursgruppen som anges i parametrarna och: `secondSubscriptionID`
 
 ```json
 {
@@ -115,13 +115,13 @@ I följande exempel distribueras två lagrings konton. Det första lagrings kont
 }
 ```
 
-Om du anger `resourceGroup` till namnet på en resurs grupp som inte finns, Miss lyckas distributionen.
+Om du `resourceGroup` anger namnet på en resursgrupp som inte finns misslyckas distributionen.
 
-Testa föregående mall och se resultatet med PowerShell eller Azure CLI.
+Om du vill testa föregående mall och se resultaten använder du PowerShell eller Azure CLI.
 
-# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[Powershell](#tab/azure-powershell)
 
-Om du vill distribuera två lagrings konton till två resurs grupper i **samma prenumeration**använder du:
+Om du vill distribuera två lagringskonton till två resursgrupper i **samma prenumeration**använder du:
 
 ```azurepowershell-interactive
 $firstRG = "primarygroup"
@@ -138,7 +138,7 @@ New-AzResourceGroupDeployment `
   -secondStorageLocation eastus
 ```
 
-Om du vill distribuera två lagrings konton till **två prenumerationer**använder du:
+Om du vill distribuera två **lagringskonton**till två prenumerationer använder du:
 
 ```azurepowershell-interactive
 $firstRG = "primarygroup"
@@ -164,7 +164,7 @@ New-AzResourceGroupDeployment `
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-Om du vill distribuera två lagrings konton till två resurs grupper i **samma prenumeration**använder du:
+Om du vill distribuera två lagringskonton till två resursgrupper i **samma prenumeration**använder du:
 
 ```azurecli-interactive
 firstRG="primarygroup"
@@ -172,14 +172,14 @@ secondRG="secondarygroup"
 
 az group create --name $firstRG --location southcentralus
 az group create --name $secondRG --location eastus
-az group deployment create \
+az deployment group create \
   --name ExampleDeployment \
   --resource-group $firstRG \
   --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/crosssubscription.json \
   --parameters storagePrefix=tfstorage secondResourceGroup=$secondRG secondStorageLocation=eastus
 ```
 
-Om du vill distribuera två lagrings konton till **två prenumerationer**använder du:
+Om du vill distribuera två **lagringskonton**till två prenumerationer använder du:
 
 ```azurecli-interactive
 firstRG="primarygroup"
@@ -194,7 +194,7 @@ az group create --name $secondRG --location eastus
 az account set --subscription $firstSub
 az group create --name $firstRG --location southcentralus
 
-az group deployment create \
+az deployment group create \
   --name ExampleDeployment \
   --resource-group $firstRG \
   --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/crosssubscription.json \
@@ -205,20 +205,20 @@ az group deployment create \
 
 ## <a name="use-functions"></a>Använda funktioner
 
-Funktionerna [resourceGroup ()](template-functions-resource.md#resourcegroup) och [Subscription ()](template-functions-resource.md#subscription) löses på olika sätt beroende på hur du anger mallen. När du länkar till en extern mall, matchas alltid funktionerna med omfånget för mallen. När du kapslar in en mall i en överordnad mall använder du egenskapen `expressionEvaluationOptions` för att ange om funktionerna ska matcha till resurs gruppen och prenumerationen för den överordnade mallen eller den kapslade mallen. Ange egenskapen till `inner` för att matcha omfånget för den kapslade mallen. Ställ in egenskapen på `outer` för att matcha omfånget för den överordnade mallen.
+Funktionerna [resourceGroup()](template-functions-resource.md#resourcegroup) och [subscription()](template-functions-resource.md#subscription) matchas på olika sätt beroende på hur du anger mallen. När du länkar till en extern mall löser funktionerna alltid till omfånget för mallen. När du kapsla en mall `expressionEvaluationOptions` i en överordnad mall använder du egenskapen för att ange om funktionerna ska matchas till resursgruppen och prenumerationen för den överordnade mallen eller den kapslade mallen. Ange egenskapen `inner` så att den ska matcha till omfånget för den kapslade mallen. Ange egenskapen `outer` som den ska matcha till omfattningen av den överordnade mallen.
 
-Följande tabell visar om funktionerna matchas med den överordnade eller inbäddade resurs gruppen och prenumerationen.
+I följande tabell visas om funktionerna matchas till den överordnade eller inbäddade resursgruppen och prenumerationen.
 
 | Malltyp | Omfång | Lösning |
 | ------------- | ----- | ---------- |
-| Nest        | yttre (standard) | Överordnad resurs grupp |
-| Nest        | innersta | Under resurs grupp |
-| länkade        | Ej tillämpligt   | Under resurs grupp |
+| Kapslade        | yttre (standard) | Överordnad resursgrupp |
+| Kapslade        | Inre | Resursgrupp för underresurs |
+| Länkade        | Ej tillämpligt   | Resursgrupp för underresurs |
 
-Följande [exempel-mall](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/crossresourcegroupproperties.json) visar:
+Följande [exempelmall](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/crossresourcegroupproperties.json) visar:
 
-* kapslad mall med standard omfång (yttre)
-* kapslad mall med inre omfång
+* kapslad mall med standardomfång (yttre)
+* kapslad mall med inre scope
 * länkad mall
 
 ```json
@@ -315,9 +315,9 @@ Följande [exempel-mall](https://github.com/Azure/azure-docs-json-samples/blob/m
 }
 ```
 
-Testa föregående mall och se resultatet med PowerShell eller Azure CLI.
+Om du vill testa föregående mall och se resultaten använder du PowerShell eller Azure CLI.
 
-# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[Powershell](#tab/azure-powershell)
 
 ```azurepowershell-interactive
 New-AzResourceGroup -Name parentGroup -Location southcentralus
@@ -347,7 +347,7 @@ az group create --name parentGroup --location southcentralus
 az group create --name inlineGroup --location southcentralus
 az group create --name linkedGroup --location southcentralus
 
-az group deployment create \
+az deployment group create \
   --name ExampleDeployment \
   --resource-group parentGroup \
   --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/crossresourcegroupproperties.json
@@ -380,6 +380,6 @@ Utdata från föregående exempel är:
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Information om hur du definierar parametrar i din mall finns i [förstå strukturen och syntaxen för Azure Resource Manager mallar](template-syntax.md).
-* Tips om hur du löser vanliga distributions fel finns i [Felsöka vanliga problem med Azure-distribution med Azure Resource Manager](common-deployment-errors.md).
-* Information om hur du distribuerar en mall som kräver en SAS-token finns i [distribuera privat mall med SAS-token](secure-template-with-sas-token.md).
+* Information om hur du definierar parametrar i mallen finns i [Förstå strukturen och syntaxen för Azure Resource Manager-mallar](template-syntax.md).
+* Tips om hur du löser vanliga distributionsfel finns i [Felsöka vanliga Azure-distributionsfel med Azure Resource Manager](common-deployment-errors.md).
+* Information om hur du distribuerar en mall som kräver en SAS-token finns i [Distribuera privat mall med SAS-token](secure-template-with-sas-token.md).

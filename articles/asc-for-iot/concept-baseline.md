@@ -1,6 +1,6 @@
 ---
-title: Förstå Azure Security Center för IoT-bas linje | Microsoft Docs
-description: Lär dig mer om begreppet Azure Security Center för IoT-bas linjen.
+title: Förstå Azure Security Center för IoT-baslinje| Microsoft-dokument
+description: Lär dig mer om konceptet Azure Security Center för IoT-baslinje.
 services: asc-for-iot
 ms.service: asc-for-iot
 documentationcenter: na
@@ -16,35 +16,35 @@ ms.workload: na
 ms.date: 10/07/2019
 ms.author: mlottner
 ms.openlocfilehash: ce5a0625a16c5a02d03ee74f894c585820414fa4
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72176622"
 ---
-# <a name="azure-security-center-for-iot-baseline-and-custom-checks"></a>Azure Security Center för IoT-bas linje och anpassade kontroller
+# <a name="azure-security-center-for-iot-baseline-and-custom-checks"></a>Azure Security Center för IoT-baslinje och anpassade kontroller
 
-I den här artikeln beskrivs Azure Security Center för IoT-slutpunkten och sammanfattas alla tillhör ande egenskaper för anpassade bas linje kontroller.
+I den här artikeln beskrivs Azure Security Center för IoT-baslinje och alla associerade egenskaper för anpassade kontroller från baslinjen summeras.
 
 ## <a name="baseline"></a>Baslinje
 
-En bas linje fastställer standard beteendet för varje enhet och gör det lättare att fastställa ovanliga beteenden eller avvikelser från förväntade normer.  
+En baslinje upprättar standardbeteende för varje enhet och gör det lättare att etablera ovanligt beteende eller avvikelse från förväntade normer.  
 
-## <a name="baseline-custom-checks"></a>Bas linje anpassade kontroller
+## <a name="baseline-custom-checks"></a>Anpassade kontroller av originalbaslinjen
 
-Med anpassade bas kontroller upprättas en anpassad lista över kontroller för varje enhets bas linje med hjälp av **modulens identitet** på enhets nivå. 
+Anpassade kontroller vid baslinjen upprättar en anpassad lista med kontroller för varje enhets baslinje med hjälp av **enhetens modulidentitetstvilling.** 
 
-## <a name="setting-baseline-properties"></a>Ange egenskaper för bas linje
+## <a name="setting-baseline-properties"></a>Ange baslinjeegenskaper
 
-1. Leta upp och välj den enhet som du vill ändra i IoT Hub.
-1. Klicka på enheten och klicka sedan på **azureiotsecurity** -modulen.
-1. Klicka på **modul identitet, dubbel**.
-1. Ladda upp **bas linje filen för anpassade kontroller** till enheten.
-1. Lägg till egenskaper för bas linje i säkerhetsmodulen och klicka på **Spara**.
+1. Leta reda på och välj den enhet du vill ändra i IoT Hub.
+1. Klicka på enheten och klicka sedan på **azureiotsecurity-modulen.**
+1. Klicka på **Modulidentitet Twin**.
+1. Ladda upp **den anpassade referensfilen** för baslinjen till enheten.
+1. Lägg till baslinjeegenskaper i säkerhetsmodulen och klicka på **Spara**.
 
-### <a name="baseline-custom-check-file-example"></a>Exempel på anpassad kontroll fil för bas linje
+### <a name="baseline-custom-check-file-example"></a>Exempel på anpassad checkfil för baslinje
 
-Så här konfigurerar du anpassade bas kontroller:
+Så här konfigurerar du anpassade kontroller vid baslinjen:
 
    ```json
     "desired": {
@@ -62,19 +62,19 @@ Så här konfigurerar du anpassade bas kontroller:
     },
    ```
 
-## <a name="baseline-custom-check-properties"></a>Egenskaper för anpassad kontroll bas linje
+## <a name="baseline-custom-check-properties"></a>Anpassade kontrollegenskaper för baslinjen
 
 | Namn| Status | Giltiga värden| Standardvärden| Beskrivning |
 |----------|------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------|---------------|
-|baselineCustomChecksEnabled|Krävs: sant |Giltiga värden: **Boolean** |Standardvärde: **falskt** |Max tidsintervall innan meddelanden med hög prioritet skickas.|
-|baselineCustomChecksFilePath |Krävs: sant|Giltiga värden: **sträng**, **Null** |Standardvärde: **Null** |Fullständig sökväg till bas linje XML-konfigurationen|
-|baselineCustomChecksFileHash |Krävs: sant|Giltiga värden: **sträng**, **Null** |Standardvärde: **Null** |`sha256sum` i XML-konfigurationsfilen. Använd [sha256sum-referensen](https://linux.die.net/man/1/sha256sum) om du vill ha mer information. |
+|baslinjeCustomChecksEnabled|Obligatoriskt: sant |Giltiga värden: **Boolean** |Standardvärde: **falskt** |Maxtidsintervall innan meddelanden med hög prioritet skickas.|
+|baslinjeCustomChecksFilePath |Obligatoriskt: sant|Giltiga värden: **Sträng**, **null** |Standardvärde: **null** |Fullständig sökväg för xml-konfigurationen för baslinjen|
+|baslinjeCustomChecksFileHash |Obligatoriskt: sant|Giltiga värden: **Sträng**, **null** |Standardvärde: **null** |`sha256sum`xml-konfigurationsfilen. Använd [sha256sum-referensen](https://linux.die.net/man/1/sha256sum) för ytterligare information. |
 
-Om du vill granska fler bas linje exempel, se [anpassade bas linje exempel-1](https://ascforiot.blob.core.windows.net/public/custom_baseline_example_hyperv_ubuntu1804.xml) och [anpassad bas linje exempel-2](https://ascforiot.blob.core.windows.net/public/oms_audits.xml).
+Om du vill granska ytterligare baslinjeexempel läser du [anpassade baslinjeexempel -1](https://ascforiot.blob.core.windows.net/public/custom_baseline_example_hyperv_ubuntu1804.xml) och [anpassat baslinjeexempel -2](https://ascforiot.blob.core.windows.net/public/oms_audits.xml).
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Få åtkomst till dina [rå säkerhets data](how-to-security-data-access.md)
-- [Undersök en enhet](how-to-investigate-device.md)
-- Förstå och utforska [säkerhets rekommendationer](concept-recommendations.md)
-- Förstå och utforska [säkerhets aviseringar](concept-security-alerts.md)
+- Få tillgång till [rådata](how-to-security-data-access.md)
+- [Undersöka en enhet](how-to-investigate-device.md)
+- Förstå och utforska [säkerhetsrekommendationer](concept-recommendations.md)
+- Förstå och utforska [säkerhetsvarningar](concept-security-alerts.md)

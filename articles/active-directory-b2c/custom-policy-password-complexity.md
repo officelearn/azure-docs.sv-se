@@ -1,7 +1,7 @@
 ---
-title: Konfigurera lösen ords komplexitet med anpassade principer
+title: Konfigurera lösenordskomplexitet med hjälp av anpassade principer
 titleSuffix: Azure AD B2C
-description: Så här konfigurerar du krav för lösen ords komplexitet med en anpassad princip i Azure Active Directory B2C.
+description: Konfigurera krav på lösenordskomplexitet med hjälp av en anpassad princip i Azure Active Directory B2C.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
@@ -12,30 +12,30 @@ ms.date: 03/10/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: b16790e288f6569f08ce14e5a7c751bbd8083faf
-ms.sourcegitcommit: d322d0a9d9479dbd473eae239c43707ac2c77a77
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79138442"
 ---
-# <a name="configure-password-complexity-using-custom-policies-in-azure-active-directory-b2c"></a>Konfigurera lösen ords komplexitet med anpassade principer i Azure Active Directory B2C
+# <a name="configure-password-complexity-using-custom-policies-in-azure-active-directory-b2c"></a>Konfigurera lösenordskomplexitet med hjälp av anpassade principer i Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-I Azure Active Directory B2C (Azure AD B2C) kan du konfigurera komplexitets kraven för lösen ord som tillhandahålls av en användare när ett konto skapas. Som standard använder Azure AD B2C **starka** lösen ord. Den här artikeln visar hur du konfigurerar lösen ords komplexitet i [anpassade principer](custom-policy-overview.md). Det är också möjligt att konfigurera lösen ords komplexitet i [användar flöden](user-flow-password-complexity.md).
+I Azure Active Directory B2C (Azure AD B2C) kan du konfigurera komplexitetskraven för lösenord som tillhandahålls av en användare när du skapar ett konto. Som standard använder Azure AD B2C **starka** lösenord. Den här artikeln visar hur du konfigurerar lösenordskomplexitet i [anpassade principer](custom-policy-overview.md). Det är också möjligt att konfigurera lösenordskomplexitet i [användarflöden](user-flow-password-complexity.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-Slutför stegen i [Kom igång med anpassade principer](custom-policy-get-started.md). Du bör ha en fungerande anpassad princip för registrering och inloggning med lokala konton.
+Slutför stegen i [Komma igång med anpassade principer](custom-policy-get-started.md). Du bör ha en fungerande anpassad princip för registrering och inloggning med lokala konton.
 
 
 ## <a name="add-the-elements"></a>Lägg till elementen
 
-Om du vill konfigurera lösen ords komplexiteten åsidosätter du `newPassword` och `reenterPassword` [anspråks typer](claimsschema.md) med en referens till [predikat valideringar](predicates.md#predicatevalidations). PredicateValidations-elementet grupperar en uppsättning predikat som utgör en verifiering av användarindata som kan tillämpas på en anspråks typ. Öppna tilläggs filen för principen. Till exempel <em>`SocialAndLocalAccounts/` **`TrustFrameworkExtensions.xml`** </em>  .
+Om du vill konfigurera lösenordskomplexiteten åsidosätter du `newPassword` `reenterPassword` [typerna](claimsschema.md) och anspråk med en referens till [predikatvalningar](predicates.md#predicatevalidations). Elementet Predikatvalidationer grupperar en uppsättning predikat för att bilda en verifiering av indata från användaren som kan tillämpas på en anspråkstyp. Öppna filen för tillägg i principen. Till exempel <em> `SocialAndLocalAccounts/` </em>.
 
-1. Sök efter [BuildingBlocks](buildingblocks.md) -elementet. Om elementet inte finns lägger du till det.
-1. Leta upp [ClaimsSchema](claimsschema.md) -elementet. Om elementet inte finns lägger du till det.
-1. Lägg till `newPassword` och `reenterPassword` anspråk till **ClaimsSchema** -elementet.
+1. Sök efter elementet [BuildingBlocks.](buildingblocks.md) Om elementet inte finns lägger du till det.
+1. Leta reda på elementet [ClaimsSchema.](claimsschema.md) Om elementet inte finns lägger du till det.
+1. Lägg `newPassword` till `reenterPassword` och anspråk i **elementet ClaimsSchema.**
 
     ```XML
     <ClaimType Id="newPassword">
@@ -46,7 +46,7 @@ Om du vill konfigurera lösen ords komplexiteten åsidosätter du `newPassword` 
     </ClaimType>
     ```
 
-1. [Predikat](predicates.md) definierar en grundläggande verifiering för att kontrol lera värdet för en anspråks typ och returnerar true eller false. Verifieringen görs med hjälp av ett angivet metod element och en uppsättning parametrar som är relevanta för metoden. Lägg till följande predikat i **BuildingBlocks** -elementet, omedelbart efter stängningen av `</ClaimsSchema>`-elementet:
+1. [Predikat definierar](predicates.md) en grundläggande validering för att kontrollera värdet för en anspråkstyp och returnerar sant eller falskt. Valideringen görs med hjälp av ett angivet metodelement och en uppsättning parametrar som är relevanta för metoden. Lägg till följande predikater i **Elementet BuildingBlocks,** omedelbart `</ClaimsSchema>` efter stängningen av elementet:
 
     ```XML
     <Predicates>
@@ -84,7 +84,7 @@ Om du vill konfigurera lösen ords komplexiteten åsidosätter du `newPassword` 
     </Predicates>
     ```
 
-1. Lägg till följande predikat verifieringar i **BuildingBlocks** -elementet, omedelbart efter stängningen av `</Predicates>`-elementet:
+1. Lägg till följande predikatvalider i **Elementet BuildingBlocks,** `</Predicates>` omedelbart efter stängningen av elementet:
 
     ```XML
     <PredicateValidations>
@@ -109,7 +109,7 @@ Om du vill konfigurera lösen ords komplexiteten åsidosätter du `newPassword` 
     </PredicateValidations>
     ```
 
-1. Följande tekniska profiler är [Active Directory tekniska profiler](active-directory-technical-profile.md)som läser och skriver data till Azure Active Directory. Åsidosätt dessa tekniska profiler i tilläggs filen. Använd `PersistedClaims` för att inaktivera principen för starkt lösen ord. Hitta **ClaimsProviders** -elementet.  Lägg till följande anspråks leverantörer enligt följande:
+1. Följande tekniska profiler är [tekniska profiler i Active Directory](active-directory-technical-profile.md), som läser och skriver data till Azure Active Directory. Åsidosätt dessa tekniska profiler i tilläggsfilen. Används `PersistedClaims` för att inaktivera principen för starkt lösenord. Leta reda på elementet **ClaimsProviders.**  Lägg till följande anspråksleverantörer enligt följande:
 
     ```XML
     <ClaimsProvider>
@@ -129,28 +129,28 @@ Om du vill konfigurera lösen ords komplexiteten åsidosätter du `newPassword` 
     </ClaimsProvider>
     ```
 
-1. Spara princip filen.
+1. Spara principfilen.
 
-## <a name="test-your-policy"></a>Testa principen
+## <a name="test-your-policy"></a>Testa din policy
 
 ### <a name="upload-the-files"></a>Ladda upp filerna
 
-1. Logga in på [Azure Portal](https://portal.azure.com/).
-2. Kontrol lera att du använder den katalog som innehåller din Azure AD B2C klient genom att välja filtret **katalog + prenumeration** på den översta menyn och välja den katalog som innehåller din klient.
-3. Välj **Alla tjänster** på menyn uppe till vänster i Azure Portal. Sök sedan efter och välj **Azure AD B2C**.
-4. Välj **ramverk för identitets upplevelse**.
-5. På sidan anpassade principer klickar du på **Ladda upp princip**.
-6. Välj **Skriv över principen om den finns**och Sök sedan efter och välj *TrustFrameworkExtensions. XML-* filen.
+1. Logga in på [Azure-portalen](https://portal.azure.com/).
+2. Kontrollera att du använder katalogen som innehåller din Azure AD B2C-klient genom att välja **katalog + prenumerationsfilter** i den övre menyn och välja den katalog som innehåller din klient.
+3. Välj **Alla tjänster** på menyn högst upp till vänster i Azure-portalen och sök efter och välj **Azure AD B2C**.
+4. Välj **Identity Experience Framework**.
+5. Klicka på **Ladda upp princip**på sidan Anpassade principer.
+6. Välj **Skriv över principen om den finns**och sök sedan efter och välj filen *TrustFrameworkExtensions.xml.*
 7. Klicka på **Överför**.
 
 ### <a name="run-the-policy"></a>Kör principen
 
-1. Öppna registrerings-eller inloggnings principen. Till exempel *B2C_1A_signup_signin*.
-2. För **program**väljer du ditt program som du har registrerat tidigare. Om du vill se token ska **svars-URL:** en Visa `https://jwt.ms`.
+1. Öppna registrerings- eller inloggningsprincipen. Till exempel *B2C_1A_signup_signin*.
+2. För **Ansökan**väljer du det program som du tidigare har registrerat. Om du vill visa token `https://jwt.ms`ska **svars-URL:en** visas .
 3. Klicka på **Kör nu**.
-4. Välj **Registrera dig nu**, ange en e-postadress och ange ett nytt lösen ord. Vägledning ges om lösen ords begränsningar. Ange användar informationen och klicka sedan på **skapa**. Du bör se innehållet i den token som returnerades.
+4. Välj **Registrera dig nu,** ange en e-postadress och ange ett nytt lösenord. Vägledning presenteras om lösenordsbegränsningar. Slutför inmatningen av användarinformationen och klicka sedan på **Skapa**. Du bör se innehållet i token som returnerades.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Lär dig hur du [konfigurerar ändring av lösen ord med anpassade principer i Azure Active Directory B2C](custom-policy-password-change.md).
-- Lär dig mer om [predikat](predicates.md) och [PredicateValidations](predicates.md#predicatevalidations) -elementen i IEF-referensen.
+- Lär dig hur du [konfigurerar lösenordsändring med hjälp av anpassade principer i Azure Active Directory B2C](custom-policy-password-change.md).
+- Läs mer om elementen [Predikater](predicates.md) och [Predikatvalidationer](predicates.md#predicatevalidations) i IEF-referensen.

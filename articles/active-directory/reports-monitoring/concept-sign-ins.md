@@ -13,62 +13,66 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 02/26/2020
+ms.date: 03/24/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ffb2ff87eb78ed4088225f832b6df55726196493
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: 2910933e2c57a8bc80a220726462b02915c4a8eb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77656650"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80246525"
 ---
 # <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Rapporter om inloggningsaktiviteter i Azure Active Directory-portalen
 
-Rapporterings arkitekturen i Azure Active Directory (Azure AD) består av följande komponenter:
+Rapporteringsarkitekturen i Azure Active Directory (Azure AD) består av följande komponenter:
 
 - **Aktivitet** 
-    - **Inloggningar** – information om användningen av hanterade program och användar inloggnings aktiviteter.
-    - **Gransknings loggar** - [gransknings loggar](concept-audit-logs.md) innehåller information om system aktivitet för användare och grupp hantering, hanterade program och katalog aktiviteter.
+    - **Inloggningar** – Information om användningen av hanterade program och användarloggningsaktiviteter.
+    - **Granskningsloggar** - [Granskningsloggar](concept-audit-logs.md) ger information om systemaktivitet om användare och grupphantering, hanterade program och katalogaktiviteter.
 - **Säkerhet** 
-    - **Riskfyllda inloggningar** – en [riskfylld inloggning](concept-risky-sign-ins.md) är en indikator för ett inloggnings försök av någon som inte är legitim ägare till ett användar konto.
-    - **Användare som har flaggats för risk** – en [riskfylld användare](concept-user-at-risk.md) är en indikator för ett användar konto som kan ha komprometterats.
+    - **Riskfyllda inloggningar** – En [riskfylld inloggning](concept-risky-sign-ins.md) är en indikator för ett inloggningsförsök av någon som inte är den legitima ägaren av ett användarkonto.
+    - **Användare som flaggats för risk** – En [riskfylld användare](concept-user-at-risk.md) är en indikator för ett användarkonto som kan ha komprometterats.
 
-Den här artikeln ger en översikt över inloggnings rapporten.
+I den här artikeln får du en översikt över inloggningsrapporten.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 ### <a name="who-can-access-the-data"></a>Vem kan komma åt dessa data?
 
-* Användare i rollerna säkerhets administratör, säkerhets läsare, global läsare och rapport läsare
+* Användare i rollerna Säkerhetsadministratör, Säkerhetsläsare, Global Reader och Rapportläsare
 * Globala administratörer
 * Alla användare (icke-administratörer) kan komma åt sina egna inloggningar 
 
 ### <a name="what-azure-ad-license-do-you-need-to-access-sign-in-activity"></a>Vilken Azure AD-licens behöver du för att komma åt inloggningsaktiviteter?
 
-* Din klient organisation måste ha en Azure AD Premium licens kopplad till sig för att kunna se rapporten all inloggnings aktivitet. Se [Komma igång med Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) för att uppgradera din version av Azure Active Directory. Det tar några dagar för data att visas i rapporterna efter att du har uppgraderat till en Premium-licens utan data aktiviteter före uppgraderingen.
+- Aktivitetsrapporten för inloggning är tillgänglig i [alla versioner av Azure AD](reference-reports-data-retention.md#how-long-does-azure-ad-store-the-data).
+
+- Om du vill komma åt inloggningsdata med ett API måste din klient ha en [Azure Active Directory Premium-licens](../fundamentals/active-directory-get-started-premium.md) associerad med sig.
+
+
 
 ## <a name="sign-ins-report"></a>Rapport över inloggningar
 
-Rapporten användar inloggning innehåller svar på följande frågor:
+Rapporten för användarloggningar ger svar på följande frågor:
 
 * Vilket inloggningsmönster har en användare?
 * Hur många användare har loggat in under en vecka?
 * Vad är status för dessa inloggningar?
 
-Välj **Azure Active Directory**på [Azure Portal](https://portal.azure.com) -menyn eller sök efter och välj **Azure Active Directory** från vilken sida som helst.
+På [Azure-portalmenyn](https://portal.azure.com) väljer du **Azure Active Directory**eller söker efter och väljer Azure Active **Directory** på valfri sida.
 
 ![Välj Azure Active Directory](./media/concept-sign-ins/select-azure-active-directory.png "Azure Active Directory")
 
-Öppna [inloggnings rapporten](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/SignIns)genom att välja **inloggningar** under **övervakning**.
+Under **Övervakning**väljer du **Inloggningar** för att öppna [rapporten Inloggningar](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/SignIns).
 
-![Inloggnings aktivitet](./media/concept-sign-ins/monitoring-sign-ins-in-azure-active-directory.png "Inloggningsaktivitet")
+![Inloggningsaktivitet](./media/concept-sign-ins/monitoring-sign-ins-in-azure-active-directory.png "Inloggningsaktivitet")
 
-Det kan ta upp till två timmar innan några inloggnings poster visas i portalen.
+Det kan ta upp till två timmar innan vissa inloggningsposter visas i portalen.
 
 > [!IMPORTANT]
-> Inloggnings rapporten visar bara de **interaktiva** inloggningarna, det vill säga inloggningar där användaren manuellt loggar in med sitt användar namn och lösen ord. Icke-interaktiva inloggnings program, till exempel tjänst-till-tjänst-autentisering, visas inte i inloggnings rapporten. 
+> Inloggningsrapporten visar bara interaktiva **interactive** inloggningar, det vill veta logga in där en användare manuellt loggar in med sitt användarnamn och lösenord. Icke-interaktiva inloggningar, till exempel autentisering mellan tjänst och tjänst, visas inte i inloggningsrapporten. 
 
 En inloggningslogg har en standardlistvy som visar:
 
@@ -79,106 +83,110 @@ En inloggningslogg har en standardlistvy som visar:
 - status för riskidentifieringen
 - status för MFA-kravet (multifaktorautentisering).
 
-![Inloggnings aktivitet](./media/concept-sign-ins/sign-in-activity.png "Inloggningsaktivitet")
+![Inloggningsaktivitet](./media/concept-sign-ins/sign-in-activity.png "Inloggningsaktivitet")
 
 Du kan anpassa listvyn genom att klicka på **Kolumner** i verktygsfältet.
 
-![Inloggnings aktivitet](./media/concept-sign-ins/19.png "Inloggningsaktivitet")
+![Inloggningsaktivitet](./media/concept-sign-ins/19.png "Inloggningsaktivitet")
 
-Dialog rutan **kolumner** ger dig till gång till de valbara attributen. I en inloggnings rapport kan du inte ha fält som har fler än ett värde för en specifik inloggnings förfrågan som kolumn. Detta är till exempel sant för autentiseringsinformation, villkorliga åtkomst data och nätverks plats.   
+I dialogrutan **Kolumner** får du tillgång till de valbara attributen. I en inloggningsrapport kan du inte ha fält som har mer än ett värde för en viss inloggningsbegäran som kolumn. Detta gäller till exempel för autentiseringsinformation, villkorade åtkomstdata och nätverksplats.   
 
-![Inloggnings aktivitet](./media/concept-sign-ins/columns.png "Inloggningsaktivitet")
+![Inloggningsaktivitet](./media/concept-sign-ins/columns.png "Inloggningsaktivitet")
 
 Välj ett objekt i listvyn om du vill ha mer detaljerad information.
 
-![Inloggnings aktivitet](./media/concept-sign-ins/basic-sign-in.png "Inloggningsaktivitet")
+![Inloggningsaktivitet](./media/concept-sign-ins/basic-sign-in.png "Inloggningsaktivitet")
 
 > [!NOTE]
-> Kunder kan nu felsöka principer för villkorlig åtkomst via alla inloggnings rapporter. Genom att klicka på fliken **villkorlig åtkomst** för en inloggnings post kan kunder granska status för villkorlig åtkomst och se information om de principer som tillämpas på inloggningen och resultatet för varje princip.
-> Mer information finns i [vanliga frågor och svar om ca-information i alla inloggningar](reports-faq.md#conditional-access).
+> Kunder kan nu felsöka principer för villkorlig åtkomst genom alla inloggningsrapporter. Genom att klicka på fliken **Villkorlig åtkomst** för en inloggningspost kan kunderna granska statusen Villkorlig åtkomst och ange information om de principer som tillämpas på inloggningen och resultatet för varje princip.
+> Mer information finns i vanliga [frågor om CA-information i alla inloggningar](reports-faq.md#conditional-access).
 
 
 
 ## <a name="filter-sign-in-activities"></a>Filtrera inloggningsaktivitet
 
-Först begränsar du de rapporterade data till en nivå som passar dig. Andra, filtrera inloggnings data med hjälp av datum fältet som standard filter. Azure AD ger dig ett brett utbud av ytterligare filter som du kan ställa in:
+Först begränsa de rapporterade data till en nivå som fungerar för dig. För det andra filtrerar du inloggningsdata med datumfältet som standardfilter. Azure AD ger dig ett brett utbud av ytterligare filter som du kan ställa in:
 
-![Inloggnings aktivitet](./media/concept-sign-ins/04.png "Inloggningsaktivitet")
+![Inloggningsaktivitet](./media/concept-sign-ins/04.png "Inloggningsaktivitet")
 
-ID för **begäran** : ID för den begäran du bryr dig om.
+**Begär ID** - ID för den begäran du bryr dig om.
 
-**Användare** – namnet eller User Principal Name (UPN) för den användare som du bryr dig om.
+**Användare** - Namnet eller användarens huvudnamn (UPN) för den användare du bryr dig om.
 
-**Program** – namnet på mål programmet.
+**Program** - Namnet på målprogrammet.
  
-**Status** – den inloggnings status du bryr dig om:
+**Status** - Inloggningsstatus du bryr dig om:
 
 - Lyckades
 
 - Fel
 
-- Avbröts
+- Avbruten
 
 
-**IP-adress** – IP-adressen för den enhet som används för att ansluta till din klient organisation.
+**IP-adress** - IP-adressen för den enhet som används för att ansluta till din klientorganisation.
 
-**Plats** – platsen som anslutningen initierades från:
+**Platsen** - Platsen anslutningen initierades från:
 
 - Ort
 
-- Delstat/provins
+- Stat /Provins
 
 - Land/region
 
 
-**Resurs** – namnet på den tjänst som används för inloggningen.
+**Resurs** - Namnet på den tjänst som används för inloggningen.
 
 
-**Resurs-ID** – ID för tjänsten som används för inloggningen.
+**Resurs-ID** - ID för den tjänst som används för inloggningen.
 
 
-**Klient program** – typen av klient program som används för att ansluta till din klient organisation:
+**Klientapp** - Den typ av klientapp som används för att ansluta till din klient:
 
-![Filter för klient program](./media/concept-sign-ins/client-app-filter.png)
+![Filter för klientapp](./media/concept-sign-ins/client-app-filter.png)
 
 
 |Namn|Modern autentisering|Beskrivning|
 |---|:-:|---|
-|Autentiserad SMTP| |Används av POP-och IMAP-klienten för att skicka e-postmeddelanden.|
-|Tjänsten automatisk upptäckt| |Används av Outlook och EAS-klienter för att hitta och ansluta till post lådor i Exchange Online.|
-|Exchange ActiveSync| |Det här filtret visar alla inloggnings försök där EAS-protokollet har gjorts.|
-|Webbläsare|![Markera](./media/concept-sign-ins/check.png)|Visar alla inloggnings försök från användare som använder webbläsare|
-|Exchange ActiveSync| | Visar alla inloggnings försök från användare med klient program som använder Exchange-ActiceSync för att ansluta till Exchange Online|
-|Exchange Online PowerShell| |Används för att ansluta till Exchange Online med fjärr-PowerShell. Om du blockerar grundläggande autentisering för Exchange Online PowerShell måste du använda Exchange Online PowerShell-modulen för att ansluta. Mer information finns i [ansluta till Exchange Online PowerShell med Multi-Factor Authentication](https://docs.microsoft.com/powershell/exchange/exchange-online/connect-to-exchange-online-powershell/mfa-connect-to-exchange-online-powershell).|
-|Exchange-webbtjänster| |Ett programmerings gränssnitt som används av Outlook, Outlook för Mac och appar från tredje part.|
-|IMAP| |En äldre e-postklient som använder IMAP för att hämta e-post.|
+|Autentiserat SMTP| |Används av POP och IMAP-klientens för att skicka e-postmeddelanden.|
+|Autodiscover| |Används av Outlook- och EAS-klienter för att hitta och ansluta till postlådor i Exchange Online.|
+|Exchange ActiveSync| |Det här filtret visar alla inloggningsförsök där EAS-protokollet har gjorts.|
+|Webbläsare|![Markera](./media/concept-sign-ins/check.png)|Visar alla inloggningsförsök från användare som använder webbläsare|
+|Exchange ActiveSync| | Visar alla inloggningsförsök från användare med klientappar med Exchange ActiceSync för att ansluta till Exchange Online|
+|Exchange Online PowerShell| |Används för att ansluta till Exchange Online med fjärr-PowerShell. Om du blockerar grundläggande autentisering för Exchange Online PowerShell måste du använda Exchange Online PowerShell-modulen för att ansluta. Instruktioner finns i [Anslut till Exchange Online PowerShell med multifaktorautentisering](https://docs.microsoft.com/powershell/exchange/exchange-online/connect-to-exchange-online-powershell/mfa-connect-to-exchange-online-powershell).|
+|Exchange-webbtjänster| |Ett programmeringsgränssnitt som används av Outlook, Outlook för Mac och appar från tredje part.|
+|IMAP4| |En äldre e-postklient som använder IMAP för att hämta e-post.|
 |MAPI över HTTP| |Används av Outlook 2010 och senare.|
-|Mobila appar och skrivbordsklienter|![Markera](./media/concept-sign-ins/check.png)|Visar alla inloggnings försök från användare som använder mobilappar och skriv bords klienter.|
-|Offline-adressboken| |En kopia av adress list samlingar som hämtas och används av Outlook.|
-|Outlook överallt (RPC över HTTP)| |Används av Outlook 2016 och tidigare.|
-|Outlook-tjänst| |Används av appen e-post och kalender för Windows 10.|
+|Mobilappar och skrivbordsklienter|![Markera](./media/concept-sign-ins/check.png)|Visar alla inloggningsförsök från användare som använder mobilappar och skrivbordsklienter.|
+|Offlineadressbok| |En kopia av adresslistsamlingar som hämtas och används av Outlook.|
+|Outlook var som helst (RPC över HTTP)| |Används av Outlook 2016 och tidigare.|
+|Outlook-tjänsten| |Används av appen E-post och Kalender för Windows 10.|
 |POP3| |En äldre e-postklient som använder POP3 för att hämta e-post.|
-|Rapport webb tjänster| |Används för att hämta rapport data i Exchange Online.|
-|Övriga klienter| |Visar alla inloggnings försök från användare där klient programmet inte är inkluderat eller okänt.|
+|Rapportera webbtjänster| |Används för att hämta rapportdata i Exchange Online.|
+|Övriga klienter| |Visar alla inloggningsförsök från användare där klientappen inte ingår eller är okänd.|
 
 
 
-**Operativ system** – operativ systemet som körs på enheten som använder inloggning till din klient organisation. 
+**Operativsystem** - Operativsystemet som körs på enheten använde inloggning till din klient. 
 
 
-**Enhets läsare** – om anslutningen initierades från en webbläsare kan du använda det här fältet för att filtrera efter namn på webbläsare.
+**Enhetswebbläsare** - Om anslutningen initierades från en webbläsare kan du i det här fältet filtrera efter webbläsarnamn.
 
 
-**Korrelations-ID** – aktivitetens KORRELATIONS-ID.
+**Korrelations-ID** - Aktivitetens korrelations-ID.
 
 
-**Villkorlig åtkomst** – status för tillämpade regler för villkorlig åtkomst
 
-- Används inte 
 
-- Lyckades
+**Villkorlig åtkomst** - Status för de tillämpade reglerna för villkorlig åtkomst
 
-- Fel
+- **Används inte**: Ingen princip tillämpas på användaren och programmet under inloggningen.
+
+- **Framgång**: En eller flera principer för villkorlig åtkomst som tillämpas på användaren och programmet (men inte nödvändigtvis de andra villkoren) under inloggningen. 
+
+- **Fel:** En eller flera principer för villkorlig åtkomst tillämpades och uppfylldes inte under inloggningen.
+
+
 
 
 
@@ -188,28 +196,28 @@ ID för **begäran** : ID för den begäran du bryr dig om.
 
 ## <a name="download-sign-in-activities"></a>Ladda ned inloggningsaktivitet
 
-Klicka på **hämtnings** alternativet för att skapa en CSV-eller JSON-fil med de senaste 250 000 posterna. Börja med [att hämta inloggnings data](quickstart-download-sign-in-report.md) om du vill arbeta med dem utanför Azure Portal.  
+Klicka på alternativet **Hämta** om du vill skapa en CSV- eller JSON-fil för de senaste 250 000 posterna. Börja med [att hämta inloggningsdata](quickstart-download-sign-in-report.md) om du vill arbeta med dem utanför Azure-portalen.  
 
 ![Ladda ned](./media/concept-sign-ins/71.png "Ladda ned")
 
 > [!IMPORTANT]
-> Antalet poster som du kan hämta begränsas av [Azure Active Directory bevarande principer för rapporter](reference-reports-data-retention.md).  
+> Antalet poster som du kan hämta begränsas av [Azure Active Directory-rapportlagringsprinciperna](reference-reports-data-retention.md).  
 
 
-## <a name="sign-ins-data-shortcuts"></a>Genvägar till inloggnings data
+## <a name="sign-ins-data-shortcuts"></a>Inloggningar datagenvägar
 
-Azure AD och Azure Portal ger båda ytterligare start punkter för inloggnings data:
+Azure AD och Azure-portalen ger dig båda ytterligare startpunkter till inloggningsdata:
 
-- Översikt över identitetens säkerhets skydd
+- Översikt över identitetsskydd
 - Användare
 - Grupper
 - Företagsprogram
 
-### <a name="users-sign-ins-data-in-identity-security-protection"></a>Användarens inloggnings data i säkerhets skydd för identitet
+### <a name="users-sign-ins-data-in-identity-security-protection"></a>Användare loggar in data i identitetsskydd
 
-Användar inloggnings diagrammet på översikts sidan för **identitetens säkerhets skydd** visar vecko agg regeringar för inloggningar. Standardvärdet för tids perioden är 30 dagar.
+I diagrammet för användarloggning i översiktssidan för **identitetsskydd** visas veckovisa aggregeringar av inloggningar. Standardinställningen för tidsperioden är 30 dagar.
 
-![Inloggnings aktivitet](./media/concept-sign-ins/06.png "Inloggningsaktivitet")
+![Inloggningsaktivitet](./media/concept-sign-ins/06.png "Inloggningsaktivitet")
 
 När du klickar på en dag i inloggningsdiagrammet visas en översikt över inloggningsaktiviteterna för den dagen.
 
@@ -228,34 +236,34 @@ När du klickar på ett objekt visas mer information om inloggningen:
 - Program-ID:t
 - Program
 - Client
-- plats.
+- Location
 - IP-adress
-- Date
+- Datum
 - MFA krävs
 - Inloggningsstatus
 
 > [!NOTE]
-> IP-adresser utfärdas på ett sådant sätt att det inte finns någon slutgiltig anslutning mellan en IP-adress och där datorn med den adressen är fysiskt placerad. Mappning av IP-adresser är krångligt i det faktum att mobila leverantörer och VPN-nätverk utfärdar IP-adresser från centrala pooler som ofta är mycket från var klient enheten faktiskt används. För närvarande i Azure AD-rapporter är det bästa sättet att konvertera IP-adress till en fysisk plats baserat på spår, register data, omvänd sökning och annan information.
+> IP-adresser utfärdas på ett sådant sätt att det inte finns något definitivt samband mellan en IP-adress och där datorn med den adressen är fysiskt belägen. Kartläggning IP-adresser kompliceras av det faktum att mobiloperatörer och VPN utfärda IP-adresser från centrala pooler som ofta är mycket långt från där klientenheten faktiskt används. För närvarande i Azure AD-rapporter, konvertera IP-adress till en fysisk plats är en bästa insats baserat på spår, registerdata, omvänd slå upp-enheter och annan information.
 
 På sidan **Användare** visas en fullständig översikt över alla användarinloggningar om du klickar på **Inloggningar** i avsnittet **Aktivitet**.
 
-![Inloggnings aktivitet](./media/concept-sign-ins/08.png "Inloggningsaktivitet")
+![Inloggningsaktivitet](./media/concept-sign-ins/08.png "Inloggningsaktivitet")
 
 ## <a name="usage-of-managed-applications"></a>Användning av hanterade program
 
 Med en programcentrerad vy över dina inloggningsuppgifter kan du få svar på frågor som:
 
 * Vem använder mina program?
-* Vilka är de tre främsta programmen i organisationen?
-* Hur fungerar mitt nyaste program?
+* Vilka är de tre bästa programmen i din organisation?
+* Hur går det med min senaste ansökan?
 
-Start punkten för dessa data är de tre främsta programmen i din organisation. Informationen finns i rapporten de senaste 30 dagarna i **översikts** avsnittet under **företags program**.
+Startpunkten för dessa data är de tre bästa programmen i organisationen. Data finns i rapporten de senaste 30 dagarna i avsnittet **Översikt** under **Företagsprogram**.
 
-![Inloggnings aktivitet](./media/concept-sign-ins/10.png "Inloggningsaktivitet")
+![Inloggningsaktivitet](./media/concept-sign-ins/10.png "Inloggningsaktivitet")
 
-Grafen för app-Usage vecko Visa insamlingar av inloggningar för de tre främsta programmen under en viss tids period. Standardvärdet för tidsperioden är 30 dagar.
+Appanvändningsdiagrammen varje vecka aggregeringar av inloggningar för dina tre bästa program under en viss tidsperiod. Standardvärdet för tidsperioden är 30 dagar.
 
-![Inloggnings aktivitet](./media/concept-sign-ins/graph-chart.png "Inloggningsaktivitet")
+![Inloggningsaktivitet](./media/concept-sign-ins/graph-chart.png "Inloggningsaktivitet")
 
 Om du vill kan du ange att fokusera på ett visst program.
 
@@ -265,15 +273,15 @@ När du klickar på en dag i programanvändningsdiagrammet kan du få en detalje
 
 Alternativet **Inloggningar** ger dig en fullständig översikt över alla inloggningshändelser för dina program.
 
-## <a name="office-365-activity-logs"></a>Office 365-aktivitets loggar
+## <a name="office-365-activity-logs"></a>Aktivitetsloggar för Office 365
 
-Du kan visa Office 365-aktivitets loggar från [Microsoft 365 administrations Center](https://docs.microsoft.com/office365/admin/admin-overview/about-the-admin-center). Betrakta den punkt som, Office 365-aktivitet och Azure AD-aktivitets loggar som delar ett stort antal katalog resurser. Endast Microsoft 365 administrations Center innehåller en fullständig vy över aktivitets loggarna för Office 365. 
+Du kan visa Aktivitetsloggar för Office 365 från [administrationscentret för Microsoft 365](https://docs.microsoft.com/office365/admin/admin-overview/about-the-admin-center). Tänk på den punkt som, Office 365 aktivitet och Azure AD aktivitetsloggar delar ett betydande antal av katalogresurser. Endast Microsoft 365-administrationscentret ger en fullständig bild av office 365-aktivitetsloggarna. 
 
-Du kan också få åtkomst till Office 365-aktivitets loggarna via programmering med hjälp av [office 365 Management-API: er](https://docs.microsoft.com/office/office-365-management-api/office-365-management-apis-overview).
+Du kan också komma åt Office 365-aktivitetsloggarna programmässigt med hjälp av [Api:erna för Office 365-hantering](https://docs.microsoft.com/office/office-365-management-api/office-365-management-apis-overview).
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Felkoder för inloggnings aktivitet](reference-sign-ins-error-codes.md)
-* [Principer för data lagring i Azure AD](reference-reports-data-retention.md)
-* [Azure AD-rapportens fördröjning](reference-reports-latencies.md)
+* [Felkoder för inloggningsaktivitetsrapport](reference-sign-ins-error-codes.md)
+* [Azure AD-principer för lagring av data](reference-reports-data-retention.md)
+* [Svarstider för Azure AD-rapport](reference-reports-latencies.md)
 

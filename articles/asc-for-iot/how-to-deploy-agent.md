@@ -1,5 +1,5 @@
 ---
-title: Välj och Distribuera Azure Security Center för IoT-agenten | Microsoft Docs
+title: Välj och distribuera Azure Security Center för IoT-agent| Microsoft-dokument
 description: Lär dig mer om hur du väljer och distribuerar Azure Security Center för IoT-säkerhetsagenter på IoT-enheter.
 services: asc-for-iot
 ms.service: asc-for-iot
@@ -16,73 +16,73 @@ ms.workload: na
 ms.date: 07/23/2019
 ms.author: mlottner
 ms.openlocfilehash: d70f2f3ec87c8673013bcf7b6f70ebcbb8d06f08
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75770024"
 ---
-# <a name="select-and-deploy-a-security-agent-on-your-iot-device"></a>Välj och distribuera en säkerhets agent på din IoT-enhet
+# <a name="select-and-deploy-a-security-agent-on-your-iot-device"></a>Välja och distribuera en säkerhetsagent på din IoT-enhet
 
-Azure Security Center for IoT innehåller referens arkitekturer för säkerhets agenter som övervakar och samlar in data från IoT-enheter.
-Mer information finns i [referens arkitektur för säkerhets agenter](security-agent-architecture.md).
+Azure Security Center för IoT tillhandahåller referensarkitekturer för säkerhetsagenter som övervakar och samlar in data från IoT-enheter.
+Mer information finns i [Referensarkitektur för säkerhetsagenter](security-agent-architecture.md).
 
-Agenter utvecklas som projekt med öppen källkod och är tillgängliga i två varianter: <br> [C](https://aka.ms/iot-security-github-c)och [C#](https://aka.ms/iot-security-github-cs).
+Agenter utvecklas som projekt med öppen källkod och finns i två smaker: <br> [C](https://aka.ms/iot-security-github-c)och [C#](https://aka.ms/iot-security-github-cs).
 
 I den här artikeln kan du se hur du: 
 > [!div class="checklist"]
-> * Jämför säkerhets agentens varianter
-> * Identifiera agent plattformar som stöds
-> * Välj rätt agent-smak för din lösning
+> * Jämför smaker av säkerhetsagenter
+> * Upptäck agentplattformar som stöds
+> * Välj rätt agent smak för din lösning
 
-## <a name="understand-security-agent-options"></a>Förstå alternativ för säkerhets agent
+## <a name="understand-security-agent-options"></a>Förstå alternativ för säkerhetsagenter
 
-Alla Azure Security Center för IoT Security Agent-smak erbjuder samma uppsättning funktioner och har stöd för liknande konfigurations alternativ. 
+Varje Azure Security Center för IoT-säkerhetsagentsmak erbjuder samma uppsättning funktioner och stöder liknande konfigurationsalternativ. 
 
-Den C-baserade säkerhets agenten har ett mindre minnes utrymme och är det idealiska valet för enheter med färre tillgängliga resurser. 
+Den C-baserade säkerhetsagenten har ett lägre minnesavtryck och är det perfekta valet för enheter med färre tillgängliga resurser. 
 
-|     | C-baserad säkerhets agent | C#-baserad säkerhets agent |
+|     | C-baserad säkerhetsagent | C#-baserad säkerhetsagent |
 | --- | ----------- | --------- |
-| Öppen källkod | Tillgängligt under [MIT-licens](https://en.wikipedia.org/wiki/MIT_License) i [GitHub](https://aka.ms/iot-security-github-cs) | Tillgängligt under [MIT-licens](https://en.wikipedia.org/wiki/MIT_License) i [GitHub](https://aka.ms/iot-security-github-c) |
+| Öppen källkod | Tillgänglig under [MIT-licens](https://en.wikipedia.org/wiki/MIT_License) i [GitHub](https://aka.ms/iot-security-github-cs) | Tillgänglig under [MIT-licens](https://en.wikipedia.org/wiki/MIT_License) i [GitHub](https://aka.ms/iot-security-github-c) |
 | Utvecklingsspråk    | C | C# |
 | Windows-plattformar som stöds? | Inga | Ja |
-| Windows-krav | --- | [WMI](https://docs.microsoft.com/windows/desktop/wmisdk/) |
-| Linux-plattformar som stöds? | Ja, x64 och x86 | Ja, endast x64 |
-| Förutsättningar för Linux | libunwind8, libcurl3, UUID-körning, granskad, audispd-plugin-program | libunwind8, libcurl3, UUID-körning, granskad, audispd-plugin-program, sudo, netstat, program varan iptables |
-| Disk utrymme | 10,5 MB | 90 MB |
-| Minnes storlek (i genomsnitt) | 5,5 MB | 33 MB |
-| [Autentisering](concept-security-agent-authentication-methods.md) till IoT Hub | Ja | Ja |
-| [Insamling](how-to-agent-configuration.md#supported-security-events) av säkerhets data | Ja | Ja |
+| Förutsättningar för Windows | --- | [WMI](https://docs.microsoft.com/windows/desktop/wmisdk/) |
+| Stöds Linux-plattformar? | Ja, x64 och x86 | Endast ja, x64 |
+| Förutsättningar för Linux | libunwind8, libcurl3, uuid-runtime, auditade, audispd-plugins | libunwind8, libcurl3, uuid-runtime, auditade, audispd-plugins, sudo, netstat, iptables |
+| Diskfotavtryck | 10,5 MB | 90 MB |
+| Minnesavtryck (i genomsnitt) | 5,5 MB | 33 MB |
+| [Autentisering](concept-security-agent-authentication-methods.md) till IoT-hubb | Ja | Ja |
+| [Insamling](how-to-agent-configuration.md#supported-security-events) av säkerhetsdata | Ja | Ja |
 | Händelsesammansättning | Ja | Ja |
-| Fjärrkonfiguration genom [säkerhetsmodulen dubbla](concept-security-module.md) | Ja | Ja |
+| Fjärrkonfiguration via [tvilling av säkerhetsmodul](concept-security-module.md) | Ja | Ja |
 |
 
-## <a name="security-agent-installation-guidelines"></a>Installations rikt linjer för säkerhets agent
+## <a name="security-agent-installation-guidelines"></a>Riktlinjer för installation av säkerhetsagenter
 
-För **Windows**: skriptet install SecurityAgent. ps1 måste köras från ett administratörs PowerShell-fönster. 
+För **Windows:** Skriptet Install SecurityAgent.ps1 måste köras från ett PowerShell-administratörsfönster. 
 
-För **Linux**: InstallSecurityAgent.sh måste köras som superanvändare. Vi rekommenderar att du förkorrigerar installations kommandot med "sudo".
+För **Linux:** InstallSecurityAgent.sh måste köras som superanvändare. Vi rekommenderar att du prefixar installationskommandot med "sudo".
 
 
 ## <a name="choose-an-agent-flavor"></a>Välj en agent smak 
 
-Besvara följande frågor om dina IoT-enheter för att välja rätt agent:
+Svara på följande frågor om dina IoT-enheter för att välja rätt agent:
 
-- Använder du _Windows Server_ eller _Windows IoT Core_? 
+- Använder du _Windows Server_ eller Windows _IoT Core?_ 
 
-    [Distribuera en C#-baserad säkerhets agent för Windows](how-to-deploy-windows-cs.md).
+    [Distribuera en C#-baserad säkerhetsagent för Windows](how-to-deploy-windows-cs.md).
 
-- Använder du en Linux-distribution med x86-arkitekturen? 
+- Använder du en Linux-distribution med x86-arkitektur? 
 
-    [Distribuera en C-baserad säkerhets agent för Linux](how-to-deploy-linux-c.md).
+    [Distribuera en C-baserad säkerhetsagent för Linux](how-to-deploy-linux-c.md).
 
-- Använder du en Linux-distribution med x64-arkitekturen?
+- Använder du en Linux-distribution med x64-arkitektur?
 
-    Båda agent varianter kan användas. <br>
-    [Distribuera en C-baserad säkerhets agent för Linux](how-to-deploy-linux-c.md) och/eller [distribuera en C#-baserad säkerhets agent för Linux](how-to-deploy-linux-cs.md).
+    Båda agent smaker kan användas. <br>
+    [Distribuera en C-baserad säkerhetsagent för Linux](how-to-deploy-linux-c.md) och/eller [distribuera en C#-baserad säkerhetsagent för Linux](how-to-deploy-linux-cs.md).
 
-Båda agent varianter erbjuder samma uppsättning funktioner och stöder liknande konfigurations alternativ.
-Mer information finns i [jämförelse av säkerhets agenter](how-to-deploy-agent.md#understand-security-agent-options) .
+Båda agent smaker erbjuder samma uppsättning funktioner och stödja liknande konfigurationsalternativ.
+Se [Jämförelsen säkerhetsagent](how-to-deploy-agent.md#understand-security-agent-options) om du vill veta mer.
 
 ## <a name="supported-platforms"></a>Plattformar som stöds
 
@@ -97,11 +97,11 @@ Följande lista innehåller alla plattformar som stöds för närvarande.
 |C#|Ubuntu 18.04    |x64, ARMv7|
 |C#|Debian 9    |x64|
 |C#|Windows Server 2016|    X64|
-|C#|Windows 10 IoT Core, build 17763    |x64|
+|C#|Windows 10 IoT Core, bygg 17763    |x64|
 |
 
 ## <a name="next-steps"></a>Nästa steg
 
-Om du vill veta mer om konfigurations alternativ fortsätter du till instruktions guiden för agent konfiguration. 
+Om du vill veta mer om konfigurationsalternativ fortsätter du till den programväga som gäller för agentkonfiguration. 
 > [!div class="nextstepaction"]
-> [Konfigurations guide för agent](./how-to-agent-configuration.md)
+> [Agent konfiguration hur man guidar](./how-to-agent-configuration.md)

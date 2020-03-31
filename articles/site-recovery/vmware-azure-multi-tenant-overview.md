@@ -1,6 +1,6 @@
 ---
-title: Katastrof återställning av VMware VM för flera innehavare med Azure Site Recovery
-description: Innehåller en översikt över Azure Site Recovery stöd för haveri beredskap i VMWare till Azure i ett CSP-program (Multi-Tenant Environment).
+title: VMware VM-haveriberedskap för flera innehavare med flera innehavare med Azure Site Recovery
+description: Ger en översikt över Azure Site Recovery-stöd för VMWare-haveriberedskap till Azure i ett CSP-program (Multi-Tenant Environment).
 author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
@@ -8,135 +8,135 @@ ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: mayg
 ms.openlocfilehash: 840049265d3b6e4d2fddd794646bfd5691aab9a1
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74083994"
 ---
-# <a name="overview-of-multi-tenant-support-for-vmware-disaster-recovery-to-azure-with-csp"></a>Översikt över stöd för flera innehavare för haveri beredskap i VMware till Azure med CSP
+# <a name="overview-of-multi-tenant-support-for-vmware-disaster-recovery-to-azure-with-csp"></a>Översikt över stöd för flera innehavare för VMware-haveriberedskap till Azure med CSP
 
-[Azure Site Recovery](site-recovery-overview.md) stöder miljöer med flera klienter för klient prenumerationer. Den har också stöd för flera innehavare för klient prenumerationer som skapas och hanteras via CSP-programmet (Microsoft Cloud Solution Provider).
+[Azure Site Recovery](site-recovery-overview.md) stöder miljöer med flera innehavare för klientprenumerationer. Den stöder också flera innehavare för klientprenumerationer som skapas och hanteras via Programmet Microsoft Cloud Solution Provider (CSP).
 
-Den här artikeln innehåller en översikt över hur du implementerar och hanterar VMware till Azure-replikering med flera innehavare.
+Den här artikeln innehåller en översikt över implementering och hantering av VMware med flera innehavare till Azure-replikering.
 
-## <a name="multi-tenant-environments"></a>Miljöer med flera klienter
+## <a name="multi-tenant-environments"></a>Miljöer med flera innehavare
 
-Det finns tre större modeller med flera klienter:
+Det finns tre stora modeller för flera innehavare:
 
-* **HSP (Shared Hosting Services Provider)** : partnern äger den fysiska infrastrukturen och använder delade resurser (vCenter, data Center, fysisk lagring osv.) som värd för flera virtuella klient datorer i samma infrastruktur. Partnern kan tillhandahålla hantering av haveri beredskap som en hanterad tjänst, eller så kan klienten utföra en egen haveri beredskap som en självbetjänings lösning.
+* **HSP (Shared Hosting Services Provider)**: Partnern äger den fysiska infrastrukturen och använder delade resurser (vCenter, datacenter, fysisk lagring och så vidare) för att vara värd för flera virtuella klientenheter på samma infrastruktur. Partnern kan tillhandahålla hantering av katastrofåterställning som en hanterad tjänst, eller så kan klienten äga haveriberedskap som en självbetjäningslösning.
 
-* **Dedikerad värd tjänst leverantör**: partnern äger den fysiska infrastrukturen, men använder dedikerade resurser (flera vCenter, fysiska data lager och så vidare) som värd för varje klients virtuella datorer på en separat infrastruktur. Partnern kan tillhandahålla hantering av katastrof återställning som en hanterad tjänst, eller så kan klienten äga den som en självbetjänings lösning.
+* **Dedikerad värdtjänstleverantör:** Partnern äger den fysiska infrastrukturen, men använder dedikerade resurser (flera vCenters, fysiska datalager och så vidare) för att vara värd för varje klients virtuella datorer på en separat infrastruktur. Partnern kan tillhandahålla hantering av katastrofåterställning som en hanterad tjänst, eller så kan klienten äga den som en självbetjäningslösning.
 
-* **(Managed Services Provider)** : kunden äger den fysiska infrastruktur som är värd för de virtuella datorerna och partnern tillhandahåller haveri beredskap och hantering.
+* **Managed Services Provider (MSP)**: Kunden äger den fysiska infrastruktur som är värd för de virtuella datorerna och partnern tillhandahåller aktivering och hantering av katastrofåterställning.
 
-## <a name="shared-hosting-services-provider-hsp"></a>HSP (Shared Hosting Services Provider)
+## <a name="shared-hosting-services-provider-hsp"></a>Leverantör av delade värdtjänster (HSP)
 
-De andra två scenarierna är del mängder av det delade värd scenariot och de använder samma principer. Skillnaderna beskrivs i slutet av den delade värd vägledningen.
+De andra två scenarierna är delmängder av scenariot med delad värd och de använder samma principer. Skillnaderna beskrivs i slutet av vägledningen för delad värd.
 
-Grundläggande krav i ett scenario med flera innehavare är att klienterna måste vara isolerade. En klient bör inte kunna observera vad en annan klient organisation har. I en partner hanterad miljö är detta krav inte lika viktigt som i en självbetjänings miljö, där det kan vara kritiskt. Den här artikeln förutsätter att klient isolering krävs.
+Det grundläggande kravet i ett scenario med flera innehavare är att klienter måste isoleras. En klient ska inte kunna observera vad en annan klient har värd. I en partnerhanterad miljö är detta krav inte lika viktigt som det är i en självbetjäningsmiljö, där det kan vara kritiskt. Den här artikeln förutsätter att klientisolering krävs.
 
 Arkitekturen visas i följande diagram.
 
-![Delade HSP med en vCenter](./media/vmware-azure-multi-tenant-overview/shared-hosting-scenario.png)  
+![Delad HSP med ett vCenter](./media/vmware-azure-multi-tenant-overview/shared-hosting-scenario.png)  
 
-**Delad-värd med en vCenter-Server**
+**Delad hosting med en vCenter-server**
 
-I diagrammet har varje kund en separat hanterings Server. Den här konfigurationen begränsar klient åtkomsten till klient datorer och aktiverar klient isolering. VMware VM-replikering använder konfigurations servern för att identifiera virtuella datorer och installera agenter. Samma principer gäller för miljöer med flera klienter, med tillägg av begränsning av identifiering av virtuella datorer med vCenter Access Control.
+I diagrammet har varje kund en separat hanteringsserver. Den här konfigurationen begränsar klientåtkomst till klientspecifika virtuella datorer och aktiverar klientisolering. VMware VM-replikering använder konfigurationsservern för att identifiera virtuella datorer och installera agenter. Samma principer gäller för miljöer med flera innehavare, med tillägg av att begränsa vm-identifiering med hjälp av vCenter-åtkomstkontroll.
 
-Kravet på data isolering innebär att all känslig infrastruktur information (t. ex. autentiseringsuppgifter för åtkomst) inte är hemlig till klienter. Därför rekommenderar vi att alla komponenter i hanterings servern förblir under den exklusiva kontrollen av partnern. Hanterings serverns komponenter är:
+Kravet på dataisolering innebär att all känslig infrastrukturinformation (t.ex. åtkomstautentiseringsuppgifter) förblir hemlig för klienter. Därför rekommenderar vi att alla komponenter i hanteringsservern förblir under partnerns exklusiva kontroll. Komponenterna för hanteringsserver är:
 
 * Konfigurationsserver
-* Processerver
-* Huvud mål Server
+* Bearbeta server
+* Huvudmålservern
 
-En separat uppskalad processerver ingår också i partnerns kontroll.
+En separat utskalad processserver är också under partnerns kontroll.
 
-## <a name="configuration-server-accounts"></a>Konfigurations Server konton
+## <a name="configuration-server-accounts"></a>Konfigurationsserverkonton
 
-Varje konfigurations server i scenariot för flera innehavare använder två konton:
+Varje konfigurationsserver i scenariot med flera innehavare använder två konton:
 
-- **vCenter-åtkomst konto**: det här kontot används för att identifiera virtuella klient datorer. Den har tilldelats åtkomst behörigheter för vCenter. För att undvika åtkomst läckor rekommenderar vi att partners anger dessa autentiseringsuppgifter själva i konfigurations verktyget.
+- **vCenter-åtkomstkonto:** Det här kontot används för att identifiera virtuella klient-datorer. Den har vCenter-åtkomstbehörigheter som tilldelats den. För att undvika åtkomstläckor rekommenderar vi att partner själva anger dessa autentiseringsuppgifter i konfigurationsverktyget.
 
-- **Åtkomst konto för virtuell dator**: det här kontot används för att installera mobilitets tjänst agenten på virtuella klient datorer, med en automatisk push. Det är vanligt vis ett domän konto som en klient kan ge till en partner, eller ett konto som partnern kan hantera direkt. Om en klient inte vill dela informationen med partnern direkt, kan de ange autentiseringsuppgifterna via begränsad åtkomst till konfigurations servern. Eller, med partnerns hjälp, kan de installera mobilitets tjänst agenten manuellt.
+- **Åtkomstkonto för virtuella**datorer : Det här kontot används för att installera mobilitetstjänstens agent på virtuella klientenheter, med en automatisk push. Det är vanligtvis ett domänkonto som en klient kan tillhandahålla en partner eller ett konto som partnern kan hantera direkt. Om en klient inte vill dela informationen med partnern direkt kan de ange autentiseringsuppgifterna genom begränsad åtkomst till konfigurationsservern. Eller, med partnerns hjälp, kan de installera Mobility-serviceagenten manuellt.
 
-## <a name="vcenter-account-requirements"></a>krav för vCenter-konto
+## <a name="vcenter-account-requirements"></a>krav på vCenter-konto
 
-Konfigurera konfigurations servern med ett konto som har en särskild roll tilldelad till sig.
+Konfigurera konfigurationsservern med ett konto som har en särskild roll tilldelad.
 
-- Roll tilldelningen måste tillämpas på vCenter-kontot för varje vCenter-objekt och inte spridas till de underordnade objekten. Den här konfigurationen säkerställer klient isoleringen eftersom åtkomst spridningen kan leda till oavsiktlig åtkomst till andra objekt.
+- Rolltilldelningen måste tillämpas på vCenter-åtkomstkontot för varje vCenter-objekt och inte spridas till de underordnade objekten. Den här konfigurationen säkerställer klientisolering, eftersom åtkomstspridning kan resultera i oavsiktlig åtkomst till andra objekt.
 
     ![Alternativet Sprid till underordnade objekt](./media/vmware-azure-multi-tenant-overview/assign-permissions-without-propagation.png)
 
-- Den alternativa metoden är att tilldela användar kontot och rollen till datacenter-objektet och sprida dem till underordnade objekt. Ge sedan kontot **Ingen åtkomst** roll för varje objekt (till exempel virtuella datorer som tillhör andra klienter) som inte ska vara tillgängliga för en viss klient. Den här konfigurationen är besvärlig. Det visar oavsiktlig åtkomst kontroll, eftersom varje nytt underordnat objekt automatiskt beviljas åtkomst som ärvs från den överordnade. Därför rekommenderar vi att du använder den första metoden.
+- Den alternativa metoden är att tilldela användarkontot och rollen i datacenterobjektet och sprida dem till de underordnade objekten. Ge sedan kontot en **ingen åtkomstroll** för varje objekt (till exempel virtuella datorer som tillhör andra klienter) som ska vara otillgängliga för en viss klient. Den här konfigurationen är besvärlig. Den exponerar oavsiktliga åtkomstkontroller, eftersom varje nytt underordnat objekt också automatiskt beviljas åtkomst som ärvs från det överordnade objektet. Därför rekommenderar vi att du använder den första metoden.
 
 ### <a name="create-a-vcenter-account"></a>Skapa ett vCenter-konto
 
-1. Skapa en ny roll genom att klona den fördefinierade *skrivskyddade* rollen och ge den ett bekvämt namn (till exempel Azure_Site_Recovery, som du ser i det här exemplet).
+1. Skapa en ny roll genom att klona den fördefinierade *skrivskyddade* rollen och ge den ett bekvämt namn (till exempel Azure_Site_Recovery, som visas i det här exemplet).
 2. Tilldela följande behörigheter till den här rollen:
 
-   * **Data lager**: allokera utrymme, bläddra i data lager, lågnivå fil åtgärder, ta bort fil, uppdatera filer för virtuella datorer
-   * **Nätverk**: nätverks tilldelning
-   * **Resurs**: tilldela en virtuell dator till en resurspool, migrera avstängd virtuell dator, migrera från virtuell dator
-   * **Aktiviteter**: Skapa uppgift, uppdatera uppgift
-   * **VM-konfiguration**: alla
-   * **VM-interaktion** > svars fråga, enhets anslutning, konfigurera CD-medium, konfigurera diskett medium, Stäng av, slå på, VMware-verktyg installera
-   * **VM-inventering** > Skapa från en befintlig, skapa ny, registrera, avregistrera
-   * **VM-etablering** > Tillåt nedladdning av virtuell dator, Tillåt uppladdning av filer för virtuella datorer
-   * **Hantering av VM-ögonblicksbild** > ta bort ögonblicks bilder
+   * **Datastore**: Allokera utrymme, Bläddra datalager, Låg nivå filåtgärder, Ta bort fil, Uppdatera virtuella datorfiler
+   * **Nätverk**: Nätverkstilldelare
+   * **Resurs:** Tilldela virtuell dator till resurspool, Migrera avstängd virtuell dator, Migrera på den virtuella datorn
+   * **Uppgifter**: Skapa uppgift, Uppdatera uppgift
+   * **VM - Konfiguration:** Alla
+   * **VM - Interaktion** > Svarsfråga, Enhetsanslutning, Konfigurera CD-media, Konfigurera diskettmedia, Avstängning, Power on, VMware-verktyg installeras
+   * **VM - Lager** > Skapa från befintliga, Skapa nya, Registrera, Avregistrera
+   * **VM - Etablering** > Tillåt nedladdning av virtuella datorer, Tillåt överföring av filer till virtuella datorer
+   * **VM - Hantering av ögonblicksbilder** > ta bort ögonblicksbilder
 
-       ![Dialog rutan Redigera roll](./media/vmware-azure-multi-tenant-overview/edit-role-permissions.png)
+       ![Dialogrutan Redigera roll](./media/vmware-azure-multi-tenant-overview/edit-role-permissions.png)
 
-3. Tilldela åtkomst nivåer till vCenter-kontot (används i klient konfigurations servern) för olika objekt enligt följande:
+3. Tilldela åtkomstnivåer till vCenter-kontot (används i klientkonfigurationsservern) för olika objekt enligt följande:
 
->| Objekt | Roll | Kommentarer |
+>| Objekt | Roll | Anmärkningar |
 >| --- | --- | --- |
->| vCenter | Skrivskyddad | Krävs endast för att tillåta vCenter-åtkomst för hantering av olika objekt. Du kan ta bort den här behörigheten om kontot aldrig kommer att tillhandahållas till en klient eller används för hanterings åtgärder på vCenter. |
+>| vCenter | Skrivskyddad | Behövs bara för att tillåta vCenter-åtkomst för hantering av olika objekt. Du kan ta bort den här behörigheten om kontot aldrig kommer att tillhandahållas till en klient eller användas för någon hanteringsåtgärder på vCenter. |
 >| Datacenter | Azure_Site_Recovery |  |
->| Värd-och värd kluster | Azure_Site_Recovery | Säkerställer att åtkomsten finns på objekt nivå, så att endast tillgängliga värdar har virtuella klient datorer före redundans och efter återställning efter fel. |
->| Data lager och data lager kluster | Azure_Site_Recovery | Samma som föregående. |
+>| Värd- och värdkluster | Azure_Site_Recovery | Säkerställer att åtkomsten finns på objektnivå, så att endast tillgängliga värdar har virtuella klient-datorer före redundans och efter återställning efter återställning. |
+>| Datalager- och datalagerkluster | Azure_Site_Recovery | Samma som föregående. |
 >| Nätverk | Azure_Site_Recovery |  |
->| Hanterings Server | Azure_Site_Recovery | Inkluderar åtkomst till alla komponenter (CS, PS och MT) utanför CS-datorn. |
->| Virtuella klient datorer | Azure_Site_Recovery | Säkerställer att alla nya klient-VM: ar för en viss klient också får den här åtkomsten, eller att de inte kan identifieras via Azure Portal. |
+>| Hanteringsserver | Azure_Site_Recovery | Inkluderar åtkomst till alla komponenter (CS, PS och MT) utanför CS-maskinen. |
+>| Virtuella klienter | Azure_Site_Recovery | Säkerställer att alla nya virtuella klient-datorer för en viss klient också får den här åtkomsten, eller så kan de inte identifieras via Azure-portalen. |
 
-Åtkomst till vCenter-kontot är nu slutfört. Det här steget uppfyller minimi kraven för behörigheter för att slutföra återställnings åtgärder. Du kan också använda de här åtkomst behörigheterna med dina befintliga principer. Ändra bara dina befintliga behörigheter så att de innehåller roll behörigheter från steg 2, tidigare.
+Åtkomsten till vCenter-kontot är nu klar. Det här steget uppfyller minimikravet för behörigheter för att slutföra återställningsåtgärder. Du kan också använda dessa åtkomstbehörigheter med dina befintliga principer. Ändra bara dina befintliga behörigheter som ska innehålla rollbehörigheter från steg 2, som tidigare beskrivits.
 
 ### <a name="failover-only"></a>Endast redundans
-För att begränsa haveri beredskaps åtgärder upp till endast växling vid fel (det vill säga utan failback-funktioner), använder du föregående procedur, med följande undantag:
+Om du vill begränsa katastrofåterställningsåtgärder fram till endast redundans (det vill än återställningsfunktioner utan återställning) använder du den föregående proceduren med följande undantag:
 
-- I stället för att tilldela *Azure_Site_Recovery* rollen till vCenter-kontot tilldelar du bara en *skrivskyddad* roll till det kontot. Den här behörighets uppsättningen tillåter VM-replikering och redundans och tillåter inte återställning efter fel.
-- Allt annat i föregående process förblir i befintligt skick. För att säkerställa att klient isoleringen och begränsar VM-identifieringen, är varje behörighet fortfarande tilldelad på objekt nivå och inte sprids till underordnade objekt.
+- I stället för att tilldela *Azure_Site_Recovery-rollen* till vCenter-åtkomstkontot tilldelar du bara en *skrivskyddad* roll till det kontot. Den här behörighetsgruppen tillåter VM-replikering och redundans, och den tillåter inte återställning efter fel.
+- Allt annat i föregående process förblir som det är. För att säkerställa klientisolering och begränsa vm-identifiering tilldelas alla behörigheter fortfarande endast på objektnivå och sprids inte till underordnade objekt.
 
-### <a name="deploy-resources-to-the-tenant-subscription"></a>Distribuera resurser till klient prenumerationen
+### <a name="deploy-resources-to-the-tenant-subscription"></a>Distribuera resurser till klientprenumerationen
 
-1. Skapa en resurs grupp på Azure Portal och distribuera sedan ett Recovery Services-valv enligt den vanliga processen.
+1. Skapa en resursgrupp på Azure-portalen och distribuera sedan ett Recovery Services-valv enligt den vanliga processen.
 2. Ladda ned valvregistreringsnyckeln.
-3. Registrera CS för klienten med hjälp av valv registrerings nyckeln.
-4. Ange autentiseringsuppgifterna för de två åtkomst kontona, kontot för åtkomst till vCenter-servern och kontot för att komma åt den virtuella datorn.
+3. Registrera CS för klienten med hjälp av valvregistreringsnyckeln.
+4. Ange autentiseringsuppgifterna för de två åtkomstkontona, kontot för att komma åt vCenter-servern och kontot för att komma åt den virtuella datorn.
 
-    ![Hanterarens konfigurations Server konton](./media/vmware-azure-multi-tenant-overview/config-server-account-display.png)
+    ![Konfigurationsserverkonton för hanteraren](./media/vmware-azure-multi-tenant-overview/config-server-account-display.png)
 
 ### <a name="register-servers-in-the-vault"></a>Registrera servrar i valvet
 
-1. I det Azure Portal i valvet som du skapade tidigare registrerar du vCenter-servern på konfigurations servern med det vCenter-konto som du skapade.
-2. Slutför processen "prepare Infrastructure" för Site Recovery per den vanliga processen.
-3. De virtuella datorerna är nu redo att replikeras. Kontrol lera att bara klientens virtuella datorer visas i **replikera** > **väljer du virtuella datorer**.
+1. I Azure-portalen, i valvet som du skapade tidigare, registrerar du vCenter-servern till konfigurationsservern med hjälp av det vCenter-konto som du skapade.
+2. Slutför processen "Förbered infrastruktur" för platsåterställning enligt den vanliga processen.
+3. De virtuella datorerna är nu redo att replikeras. Kontrollera att endast klientens virtuella datorer visas i**virtuella datorer för** **replikera** > select .
 
-## <a name="dedicated-hosting-solution"></a>Dedikerad värd lösning
+## <a name="dedicated-hosting-solution"></a>Dedikerad värdlösning
 
-Som du ser i följande diagram är arkitektur skillnaden i en dedikerad värd lösning att varje klient organisations infrastruktur har kon figurer ATS för den klienten.
+Som visas i följande diagram är den arkitektoniska skillnaden i en dedikerad värdlösning att varje klients infrastruktur endast ställs in för den klienten.
 
-![Architecture-Shared-HSP](./media/vmware-azure-multi-tenant-overview/dedicated-hosting-scenario.png)  
-**Dedikerat värd scenario med flera vCenter**
+![arkitektur-delad-hsp](./media/vmware-azure-multi-tenant-overview/dedicated-hosting-scenario.png)  
+**Dedikerat värdscenario med flera vCenters**
 
-## <a name="managed-service-solution"></a>Hanterad tjänst lösning
+## <a name="managed-service-solution"></a>Lösning för hanterade tjänster
 
-Som du ser i följande diagram är arkitektur skillnaden i en hanterad tjänst lösning att varje klients infrastruktur också är fysiskt åtskild från andra innehavares infrastruktur. Det här scenariot finns vanligt vis när klienten äger infrastrukturen och vill att en lösnings leverantör ska kunna hantera haveri beredskap.
+Som visas i följande diagram är den arkitektoniska skillnaden i en hanterad tjänstlösning att varje klients infrastruktur också är fysiskt åtskild från andra klienters infrastruktur. Det här scenariot finns vanligtvis när klienten äger infrastrukturen och vill ha en lösningsprovider för att hantera haveriberedskap.
 
-![Architecture-Shared-HSP](./media/vmware-azure-multi-tenant-overview/managed-service-scenario.png)  
-**Hanterat tjänst scenario med flera vCenter**
+![arkitektur-delad-hsp](./media/vmware-azure-multi-tenant-overview/managed-service-scenario.png)  
+**Hanterad tjänstscenario med flera vCenters**
 
 ## <a name="next-steps"></a>Nästa steg
-- [Lär dig mer](site-recovery-role-based-linked-access-control.md) om rollbaserad åtkomst kontroll i Site Recovery.
-- Lär dig hur du [konfigurerar haveri beredskap för virtuella VMware-datorer till Azure](vmware-azure-tutorial.md).
-- Lär dig mer om [flera innehavare med CSP för virtuella VMware-datorer](vmware-azure-multi-tenant-csp-disaster-recovery.md).
+- [Läs mer](site-recovery-role-based-linked-access-control.md) om rollbaserad åtkomstkontroll i Site Recovery.
+- Lär dig hur du [konfigurerar haveriberedskap för virtuella virtuella datorer med VMware till Azure](vmware-azure-tutorial.md).
+- Läs mer om [flerargsinnehavare med CSP för virtuella VMWare-datorer](vmware-azure-multi-tenant-csp-disaster-recovery.md).

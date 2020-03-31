@@ -1,6 +1,6 @@
 ---
 title: Skala Azure HDInsight-kluster automatiskt
-description: Använd funktionen automatisk skalning i Azure HDInsight för att automatiskt Apache Hadoop skalnings kluster
+description: Använda azure HDInsight Autoscale-funktionen för att automatiskt rensa Kluster för Apache Hadoop-skala
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -9,121 +9,121 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 03/05/2020
 ms.openlocfilehash: 68bc30d08d95fe8e3d20a8ecb7af6c9710951921
-ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78399711"
 ---
 # <a name="automatically-scale-azure-hdinsight-clusters"></a>Skala Azure HDInsight-kluster automatiskt
 
 > [!Important]
-> Funktionen automatisk skalning i Azure HDInsight släpptes för allmän tillgänglighet den 7 november 2019 för Spark-och Hadoop-kluster och inkluderar förbättringar som inte är tillgängliga i för hands versionen av funktionen. Om du har skapat ett Spark-kluster före den 7 november 2019 och vill använda funktionen för autoskalning i klustret, är den rekommenderade sökvägen att skapa ett nytt kluster och aktivera autoskalning på det nya klustret.
+> Azure HDInsight Autoscale-funktionen släpptes för allmän tillgänglighet den 7 november 2019 för Spark- och Hadoop-kluster och inkluderade förbättringar som inte är tillgängliga i förhandsversionen av funktionen. Om du skapade ett Spark-kluster före den 7 november 2019 och vill använda funktionen Automatisk skalning i klustret är den rekommenderade sökvägen att skapa ett nytt kluster och aktivera Automatisk skalning i det nya klustret.
 >
-> Autoskalning för interaktiv Query (LLAP) och HBase-kluster är fortfarande i för hands version. Autoskalning är endast tillgängligt i Spark-, Hadoop-, Interactive Query-och HBase-kluster.
+> Automatisk skalning för LLAP-kluster (Interactive Query) och HBase är fortfarande i förhandsgranskning. Automatisk skalning är endast tillgängligt på Spark-, Hadoop-, Interactive Query- och HBase-kluster.
 
-Azure HDInsights kluster funktion för automatisk skalning skalar automatiskt antalet arbetsnoder i ett kluster upp och ned. Andra typer av noder i klustret kan inte skalas för närvarande.  När du skapar ett nytt HDInsight-kluster kan du ange ett minsta och högsta antal arbets noder. Autoskalning övervakar sedan resurs kraven för analys belastningen och skalar antalet arbetsnoder uppåt eller nedåt. Den här funktionen kostar inget extra.
+Azure HDInsights kluster-funktion för automatisk skalning skalar automatiskt antalet arbetsnoder i ett kluster upp och ned. Andra typer av noder i klustret kan inte skalas för närvarande.  När ett nytt HDInsight-kluster skapas kan ett minsta och högsta antal arbetsnoder anges. Automatisk skalning övervakar sedan resurskraven för analysbelastningen och skalar antalet arbetsnoder uppåt eller nedåt. Det finns ingen extra kostnad för den här funktionen.
 
-## <a name="cluster-compatibility"></a>Kluster kompatibilitet
+## <a name="cluster-compatibility"></a>Klusterkompatibilitet
 
-I följande tabell beskrivs de kluster typer och versioner som är kompatibla med funktionen för autoskalning.
+I följande tabell beskrivs de klustertyper och versioner som är kompatibla med funktionen Automatisk skalning.
 
-| Version | Spark | Hive | LLAP | HBase | Kafka | Storm | ML |
+| Version | Spark | Hive | LLAP (PÅ ANDRA) | HBase | Kafka | Storm | ML |
 |---|---|---|---|---|---|---|---|
-| HDInsight 3,6 utan ESP | Ja | Ja | Ja | Ja* | Nej | Nej | Nej |
-| HDInsight 4,0 utan ESP | Ja | Ja | Ja | Ja* | Nej | Nej | Nej |
-| HDInsight 3,6 med ESP | Ja | Ja | Ja | Ja* | Nej | Nej | Nej |
-| HDInsight 4,0 med ESP | Ja | Ja | Ja | Ja* | Nej | Nej | Nej |
+| HDInsight 3,6 utan ESP | Ja | Ja | Ja | Ja* | Inga | Inga | Inga |
+| HDInsight 4.0 utan ESP | Ja | Ja | Ja | Ja* | Inga | Inga | Inga |
+| HDInsight 3.6 med ESP | Ja | Ja | Ja | Ja* | Inga | Inga | Inga |
+| HDInsight 4.0 med ESP | Ja | Ja | Ja | Ja* | Inga | Inga | Inga |
 
-\* HBase-kluster kan bara konfigureras för schemabaserade skalning, inte för inläsnings-baserade.
+\*HBase-kluster kan bara konfigureras för schemabaserad skalning, inte belastningsbaserad.
 
 ## <a name="how-it-works"></a>Hur det fungerar
 
-Du kan välja inläsnings-baserad skalning eller schema-baserad skalning för ditt HDInsight-kluster. Vid belastnings utjämning ändras antalet noder i klustret, inom ett intervall som du anger, för att säkerställa optimal CPU-användning och minimera löpande kostnad.
+Du kan välja belastningsbaserad skalning eller schemabaserad skalning för ditt HDInsight-kluster. Belastningsbaserad skalning ändrar antalet noder i klustret, inom ett intervall som du anger, för att säkerställa optimal CPU-användning och minimera driftskostnaderna.
 
-Schemabaserade skalningar ändrar antalet noder i klustret baserat på villkor som börjar gälla vid vissa tidpunkter. Dessa villkor skalar klustret till ett önskat antal noder.
+Schemabaserad skalning ändrar antalet noder i klustret baserat på villkor som börjar gälla vid specifika tidpunkter. Dessa villkor skalar klustret till ett önskat antal noder.
 
-### <a name="metrics-monitoring"></a>Mått övervakning
+### <a name="metrics-monitoring"></a>Övervakning av mätvärden
 
-Autoskalning övervakar kontinuerligt klustret och samlar in följande mått:
+Automatisk skalning övervakar klustret kontinuerligt och samlar in följande mått:
 
 |Mått|Beskrivning|
 |---|---|
-|Total väntande processor|Det totala antalet kärnor som krävs för att starta körningen av alla väntande behållare.|
+|Totalt väntande processor|Det totala antalet kärnor som krävs för att starta körningen av alla väntande behållare.|
 |Totalt väntande minne|Det totala minne (i MB) som krävs för att starta körningen av alla väntande behållare.|
-|Total ledig CPU|Summan av alla oanvända kärnor på aktiva arbetsnoder.|
-|Totalt ledigt minne|Summan av oanvänt minne (i MB) på aktiva arbetsnoder.|
-|Använt minne per nod|Belastningen på en arbets nod. En arbetsnoden där 10 GB minne används, anses vara under mer belastning än en arbets tagare med 2 GB använt minne.|
-|Antal program huvud per nod|Antalet program huvud behållare som körs på en arbetsnod. En arbetsnoden som är värd för två AM-behållare anses vara viktigare än en arbetsnoden som är värd för noll AM-behållare.|
+|Totalt gratis CPU|Summan av alla oanvända kärnor på de aktiva arbetsnoderna.|
+|Totalt ledigt minne|Summan av oanvänt minne (i MB) på de aktiva arbetsnoderna.|
+|Använt minne per nod|Belastningen på en arbetsnod. En arbetsnod där 10 GB minne används, anses vara under mer belastning än en arbetare med 2 GB använt minne.|
+|Antal programbakgrunder per nod|Antalet APPLICATION Master-behållare (AM) som körs på en arbetsnod. En arbetarnod som är värd för två AM-behållare anses viktigare än en arbetarnod som är värd för noll AM-behållare.|
 
-Ovanstående mått kontrol leras var 60: e sekund. Med autoskalning kan du skala upp och skala ned beslut baserat på dessa mått.
+Ovanstående mått kontrolleras var 60:e sekund. Automatisk skalning gör uppskalning och nedskalning beslut baserat på dessa mått.
 
-### <a name="load-based-scale-conditions"></a>Belastnings beroende skalnings villkor
+### <a name="load-based-scale-conditions"></a>Belastningsbaserade skalningsförhållanden
 
-När följande villkor upptäcks kommer autoskalning att utfärda en skalnings förfrågan:
+När följande villkor upptäcks utfärdar automatisk skalning en skalningsbegäran:
 
-|Skala upp|Skala ned|
+|Skala upp|Skala nedåt|
 |---|---|
-|Den totala väntande processorn är större än den totala kostnads fria processorn i mer än 3 minuter.|Den totala väntande processorn är mindre än den totala lediga processorn i mer än 10 minuter.|
-|Totalt minne som väntar är större än det totala lediga minnet i mer än 3 minuter.|Totalt minne som väntar är mindre än det totala lediga minnet i mer än 10 minuter.|
+|Totalt väntande CPU är större än total gratis CPU i mer än 3 minuter.|Totalt väntande CPU är mindre än totalt gratis CPU i mer än 10 minuter.|
+|Totalt väntande minne är större än totalt ledigt minne i mer än 3 minuter.|Totalt väntande minne är mindre än totalt ledigt minne i mer än 10 minuter.|
 
-HDInsight-tjänsten beräknar hur många nya arbetsnoder som behövs för att uppfylla de aktuella processor-och minnes kraven, och utfärdar sedan en skalnings förfrågan för att lägga till antalet noder som krävs.
+För uppskalning beräknar HDInsight-tjänsten hur många nya arbetsnoder som behövs för att uppfylla de aktuella CPU- och minneskraven och utfärdar sedan en uppskalningsbegäran för att lägga till det antal noder som krävs.
 
-För nedskalning, baserat på antalet AM-behållare per nod och de aktuella processor-och minnes kraven, utfärdar autoskalning en begäran om att ta bort ett visst antal noder. Tjänsten identifierar också vilka noder som ska tas bort, baserat på den aktuella jobb körningen. Åtgärden för att skala ned inaktiverar först noderna och tar sedan bort dem från klustret.
+För nedskalning, baserat på antalet AM-behållare per nod och de aktuella CPU- och minneskraven, utfärdar automatisk skalning en begäran om att ta bort ett visst antal noder. Tjänsten identifierar också vilka noder som är kandidater för borttagning baserat på aktuell jobbkörning. Nedskalningsåtgärden inaktiverar först noderna och tar sedan bort dem från klustret.
 
-## <a name="get-started"></a>Kom igång
+## <a name="get-started"></a>Komma igång
 
-### <a name="create-a-cluster-with-load-based-autoscaling"></a>Skapa ett kluster med load-based autoskalning
+### <a name="create-a-cluster-with-load-based-autoscaling"></a>Skapa ett kluster med belastningsbaserad automatisk skalning
 
-Om du vill aktivera funktionen för automatisk skalning med belastningsutjämnad skalning utför du följande steg som en del av processen för att skapa ett vanligt kluster:
+Så här aktiverar du funktionen Automatisk skalning med belastningsbaserad skalning genom att utföra följande steg som en del av den normala processen för att skapa kluster:
 
-1. På fliken **konfiguration och priser** väljer du kryss rutan **Aktivera autoskalning** .
-1. Välj **load-based** under **typ av autoskalning**.
+1. Markera kryssrutan **Aktivera automatisk skalning** på fliken **Konfiguration + prissättning.**
+1. Välj **Läsinbaserad** under **Typ För automatisk skalning**.
 1. Ange önskade värden för följande egenskaper:  
 
-    * Initialt **antal noder** för **arbetsnoden**.
-    * **Minsta** antal arbetsnoder.
-    * **Högsta** antal arbetsnoder.
+    * Initialt **antal noder** för **arbetarnod**.
+    * **Min** antal arbetsnoder.
+    * **Max** antal arbetsnoder.
 
-    ![Aktivera inläsnings-baserad autoskalning för arbetsnoden](./media/hdinsight-autoscale-clusters/azure-portal-cluster-configuration-pricing-autoscale.png)
+    ![Aktivera inläsningsbaserad automatisk skalning av arbetsnod](./media/hdinsight-autoscale-clusters/azure-portal-cluster-configuration-pricing-autoscale.png)
 
-Det första antalet arbetsnoder måste ligga mellan minimum och maximum, inklusive. Det här värdet definierar den ursprungliga storleken på klustret när den skapas. Det minsta antalet arbetsnoder måste anges till tre eller fler. Om du skalar klustret till färre än tre noder kan det bli fastnat i fel säkert läge på grund av otillräcklig filreplikering.  Mer information finns i avsnittet [komma fastna i fel säkert läge](./hdinsight-scaling-best-practices.md#getting-stuck-in-safe-mode).
+Det ursprungliga antalet arbetsnoder måste minska mellan minimum och högsta, inklusive. Det här värdet definierar den ursprungliga storleken på klustret när det skapas. Det minsta antalet arbetsnoder bör anges till tre eller fler. Skalning av klustret till färre än tre noder kan leda till att det fastnar i felsäkert läge på grund av otillräcklig filreplikering.  Mer information finns [i Fastna i felsäkert läge](./hdinsight-scaling-best-practices.md#getting-stuck-in-safe-mode).
 
-### <a name="create-a-cluster-with-schedule-based-autoscaling"></a>Skapa ett kluster med hjälp av schemabaserade autoskalning
+### <a name="create-a-cluster-with-schedule-based-autoscaling"></a>Skapa ett kluster med schemabaserad automatisk skalning
 
-Om du vill aktivera funktionen för automatisk skalning med schemabaserade skalning utför du följande steg som en del av processen för att skapa ett vanligt kluster:
+Så här aktiverar du funktionen Automatisk skalning med schemabaserad skalning genom att utföra följande steg som en del av den normala processen för att skapa kluster:
 
-1. Markera kryss rutan **Aktivera autoskalning** på fliken **konfiguration + prissättning** .
-1. Ange **antalet noder** för **arbetsnoden**, som styr gränsen för att skala upp klustret.
-1. Välj alternativet **schema – baserat** på **typ av autoskalning**.
-1. Välj **Konfigurera** för att öppna fönstret för **Automatisk skalnings konfiguration** .
-1. Välj din tidszon och klicka sedan på **+ Lägg till villkor**
-1. Välj vecko dagarna som det nya villkoret ska gälla för.
-1. Redigera den tid då villkoret ska börja gälla och antalet noder som klustret ska skalas till.
+1. Kontrollera kryssrutan **Aktivera automatisk skalning** på fliken **Konfiguration + prissättning.**
+1. Ange **noderna Antal** för **arbetarnoden**, som styr gränsen för att skala upp klustret.
+1. Välj alternativet **Schemabaserad** under **Typ För automatisk skalning**.
+1. Välj **Konfigurera** om du vill öppna **konfigurationsfönstret för automatisk skalning.**
+1. Markera tidszonen och klicka sedan på **+ Lägg till villkor**
+1. Välj de veckodagar som det nya villkoret ska gälla för.
+1. Redigera den tid som villkoret ska börja gälla och antalet noder som klustret ska skalas till.
 1. Lägg till fler villkor om det behövs.
 
-    ![Aktivera schema skapande för arbetsnoden](./media/hdinsight-autoscale-clusters/hdinsight-autoscale-clusters-schedule-creation.png)
+    ![Aktivera schemabaserad skapande av arbetsnoder](./media/hdinsight-autoscale-clusters/hdinsight-autoscale-clusters-schedule-creation.png)
 
-Antalet noder måste vara mellan 3 och det högsta antalet arbetsnoder som du angav innan du lägger till villkor.
+Antalet noder måste vara mellan 3 och det maximala antalet arbetsnoder som du angav innan du lägger till villkor.
 
-### <a name="final-creation-steps"></a>Slutliga skapande steg
+### <a name="final-creation-steps"></a>Steg för att skapa det slutliga
 
-För både belastnings beroende och schemabaserade skalning väljer du VM-typen för arbetsnoder genom att välja en virtuell dator i list rutan under Node- **storlek**. När du har valt VM-typen för varje nodtyp kan du se det beräknade kostnads intervallet för hela klustret. Justera VM-typerna så att de passar din budget.
+För både inläsningsbaserad och schemabaserad skalning väljer du vm-typen för arbetsnoder genom att välja en virtuell dator i listrutan under **Nodstorlek**. När du har valt den virtuella datorn-typen för varje nodtyp kan du se det uppskattade kostnadsintervallet för hela klustret. Justera vm-typerna så att de passar din budget.
 
-![Aktivera schemaläggning av noden för den automatiska skalnings storleken på arbetsnoden](./media/hdinsight-autoscale-clusters/azure-portal-cluster-configuration-pricing-vmsize.png)
+![Aktivera nodsschemabaserad nodstorlek för arbetsnod](./media/hdinsight-autoscale-clusters/azure-portal-cluster-configuration-pricing-vmsize.png)
 
-Din prenumeration har en kapacitets kvot för varje region. Det totala antalet kärnor i head-noderna kombinerat med det maximala antalet arbetsnoder får inte överstiga kapacitets kvoten. Den här kvoten är dock en mjuk gräns. Du kan alltid skapa ett support ärende så att det blir lättare att öka.
+Din prenumeration har en kapacitetskvot för varje region. Det totala antalet kärnor i huvudet noder i kombination med det maximala antalet arbetarnoder kan inte överstiga kapacitetskvoten. Denna kvot är dock en mjuk gräns. Du kan alltid skapa en supportbiljett för att få den ökad lätt.
 
 > [!Note]  
-> Om du överskrider den totala kvot gränsen visas ett fel meddelande om att den maximala noden har överskridit de tillgängliga kärnorna i den här regionen, Välj en annan region eller kontakta supporten för att öka kvoten.
+> Om du överskrider den totala kärnkvotgränsen visas ett felmeddelande om att "den maximala noden har överskridit de tillgängliga kärnorna i den här regionen, välj en annan region eller kontakta supporten för att öka kvoten".
 
-Mer information om hur du skapar HDInsight-kluster med hjälp av Azure Portal finns i [skapa Linux-baserade kluster i HDInsight med hjälp av Azure Portal](hdinsight-hadoop-create-linux-clusters-portal.md).  
+Mer information om hur du skapar HDInsight-kluster med Azure-portalen finns [i Skapa Linux-baserade kluster i HDInsight med Azure-portalen](hdinsight-hadoop-create-linux-clusters-portal.md).  
 
 ### <a name="create-a-cluster-with-a-resource-manager-template"></a>Skapa ett kluster med en Resource Manager-mall
 
-#### <a name="load-based-autoscaling"></a>Load-based autoskalning
+#### <a name="load-based-autoscaling"></a>Uppläsningsbaserad automatisk skalning
 
-Du kan skapa ett HDInsight-kluster med belastningsutjämnad autoskalning av en Azure Resource Manager mall genom att lägga till en `autoscale`-nod i `computeProfile` > `workernode`-avsnittet med egenskaperna `minInstanceCount` och `maxInstanceCount` som visas i JSON-kodfragmentet nedan.
+Du kan skapa ett HDInsight-kluster med inläsningsbaserad automatisk skalning `autoscale` av en `computeProfile`  >  `workernode` Azure Resource `minInstanceCount` `maxInstanceCount` Manager-mall genom att lägga till en nod i avsnittet med egenskaperna och som visas i json-kodavsnittet nedan.
 
 ```json
 {
@@ -149,11 +149,11 @@ Du kan skapa ett HDInsight-kluster med belastningsutjämnad autoskalning av en A
 }
 ```
 
-Mer information om hur du skapar kluster med Resource Manager-mallar finns i [skapa Apache Hadoop kluster i HDInsight med hjälp av Resource Manager-mallar](hdinsight-hadoop-create-linux-clusters-arm-templates.md).  
+Mer information om hur du skapar kluster med Resource Manager-mallar finns [i Skapa Apache Hadoop-kluster i HDInsight med hjälp av Resource Manager-mallar](hdinsight-hadoop-create-linux-clusters-arm-templates.md).  
 
-#### <a name="schedule-based-autoscaling"></a>Schema-baserad autoskalning
+#### <a name="schedule-based-autoscaling"></a>Schemabaserad automatisk skalning
 
-Du kan skapa ett HDInsight-kluster med schemabaserade autoskalning av en Azure Resource Manager mall genom att lägga till en `autoscale`-nod i avsnittet `computeProfile` > `workernode`. `autoscale`-noden innehåller en `recurrence` som har en `timezone` och `schedule` som beskriver när ändringen ska äga rum.
+Du kan skapa ett HDInsight-kluster med schemabaserad automatisk skalning av `autoscale` en Azure `computeProfile`  >  `workernode` Resource Manager-mall genom att lägga till en nod i avsnittet. Noden `autoscale` innehåller en `recurrence` som `timezone` har `schedule` en och som beskriver när ändringen ska äga rum.
 
 ```json
 {
@@ -183,83 +183,83 @@ Du kan skapa ett HDInsight-kluster med schemabaserade autoskalning av en Azure R
 }
 ```
 
-### <a name="enable-and-disable-autoscale-for-a-running-cluster"></a>Aktivera och inaktivera autoskalning för ett kluster som körs
+### <a name="enable-and-disable-autoscale-for-a-running-cluster"></a>Aktivera och inaktivera Automatisk skalning för ett kluster som körs
 
 #### <a name="using-the-azure-portal"></a>Använda Azure Portal
 
-Om du vill aktivera autoskalning på ett kluster som körs väljer du **kluster storlek** under **Inställningar**. Välj sedan **Aktivera autoskalning**. Välj den typ av autoskalning som du vill använda och ange alternativ för belastnings beroende eller schemabaserade skalningar. Välj slutligen **Spara**.
+Om du vill aktivera Automatisk skalning i ett kluster som körs väljer du **Klusterstorlek** under **Inställningar**. Välj sedan **Aktivera automatisk skalning**. Välj den typ av automatisk skalning som du vill använda och ange alternativen för belastningsbaserad eller schemabaserad skalning. Slutligen väljer du **Spara**.
 
-![Aktivera schemabaserade autoskalning för arbetsnoden och köra kluster](./media/hdinsight-autoscale-clusters/azure-portal-settings-autoscale.png)
+![Aktivera arbetsnodens schemabaserade kluster som körs automatiskt](./media/hdinsight-autoscale-clusters/azure-portal-settings-autoscale.png)
 
 #### <a name="using-the-rest-api"></a>Använda REST API
 
-Om du vill aktivera eller inaktivera autoskalning på ett kluster som körs med hjälp av REST API gör du en POST-begäran till slut punkten för autoskalning enligt kodfragmentet nedan:
+Om du vill aktivera eller inaktivera Automatisk skalning i ett kluster som körs med REST API gör du en POST-begäran till slutpunkten För automatisk skalning enligt kodavsnittet nedan:
 
 ```
 https://management.azure.com/subscriptions/{subscription Id}/resourceGroups/{resourceGroup Name}/providers/Microsoft.HDInsight/clusters/{CLUSTERNAME}/roles/workernode/autoscale?api-version=2018-06-01-preview
 ```
 
-Använd lämpliga parametrar i nytto lasten för begäran. JSON-nyttolasten nedan kan användas för att aktivera autoskalning. Använd nytto Last `{autoscale: null}` för att inaktivera autoskalning.
+Använd lämpliga parametrar i begäran nyttolast. Den json nyttolast nedan kan användas för att aktivera Automatisk skalning. Använd nyttolasten `{autoscale: null}` för att inaktivera Automatisk skalning.
 
 ```json
 { autoscale: { capacity: { minInstanceCount: 3, maxInstanceCount: 2 } } }
 ```
 
-Se föregående avsnitt om hur du [aktiverar belastningsutjämnad autoskalning](#load-based-autoscaling) för en fullständig beskrivning av alla nytto Last parametrar.
+Se föregående avsnitt om [hur du aktiverar belastningsbaserad automatisk skalning](#load-based-autoscaling) för en fullständig beskrivning av alla nyttolastparametrar.
 
 ## <a name="best-practices"></a>Bästa praxis
 
-### <a name="choosing-load-based-or-schedule-based-scaling"></a>Välja inload-baserad eller schema-baserad skalning
+### <a name="choosing-load-based-or-schedule-based-scaling"></a>Välja belastningsbaserad eller schemabaserad skalning
 
-Tänk på följande faktorer innan du fattar ett beslut om vilket läge som ska väljas:
+Tänk på följande faktorer innan du fattar ett beslut om vilket läge du ska välja:
 
-* Aktivera autoskalning när klustret skapas.
+* Aktivera Automatisk skalning när klustret skapas.
 * Det minsta antalet noder bör vara minst tre.
-* Inläsnings varians: belastningen på klustret följer ett konsekvent mönster vid vissa tidpunkter på vissa dagar. Om inte, är belastnings beroende schemaläggning ett bättre alternativ.
-* SLA-krav: autoskalning av skalning är aktiv i stället för förutsägelse. Kommer det att finnas en tillräcklig fördröjning mellan när belastningen börjar öka och när klustret måste ha en mål storlek? Om det finns strikta SLA-krav och belastningen är ett fast känt mönster, är schema-based ett bättre alternativ.
+* Belastningsvarians: följer belastningen på klustret ett konsekvent mönster vid specifika tidpunkter, på specifika dagar. Om inte, är belastningsbaserad schemaläggning ett bättre alternativ.
+* SLA-krav: Skalning av automatisk skalning är reaktiv i stället för prediktiv. Kommer det att finnas en tillräcklig fördröjning mellan när belastningen börjar öka och när klustret måste vara på sin målstorlek? Om det finns strikta SLA-krav och belastningen är ett fast känt mönster är "schemabaserad" ett bättre alternativ.
 
-### <a name="consider-the-latency-of-scale-up-or-scale-down-operations"></a>Beakta svars tiden för skalning upp-eller nedskalning
+### <a name="consider-the-latency-of-scale-up-or-scale-down-operations"></a>Tänk på svarstiden för skala upp eller skala ner operationer
 
-Det kan ta 10 till 20 minuter för en skalnings åtgärd att slutföras. När du ställer in ett anpassat schema bör du planera för den här fördröjningen. Om du till exempel behöver kluster storleken 20 kl. 9:00 kan du ange schema utlösaren till en tidigare tidpunkt, till exempel 8:30 AM, så att skalnings åtgärden slutförs med 9:00.
+Det kan ta 10 till 20 minuter innan en skalningsåtgärd har slutförts. Planera för den här fördröjningen när du ställer in ett anpassat schema. Om du till exempel behöver klusterstorleken 20 vid 09:00, anger du schemautlösaren till en tidigare tid, till exempel 08:30 så att skalningsåtgärden har slutförts klockan 9:00.
 
-### <a name="preparation-for-scaling-down"></a>Förberedelse för skalning
+### <a name="preparation-for-scaling-down"></a>Förberedelser för nedskalning
 
-Under processen för kluster skalning nedåt inaktiverar autoskalning noderna för att uppfylla mål storleken. Om det finns aktiviteter som körs på dessa noder, väntar autoskalning tills aktiviteterna har slutförts. Eftersom varje arbetsnoden också betjänar en roll i HDFS, flyttas temporära data till de återstående noderna. Därför bör du se till att det finns tillräckligt med utrymme på de återstående noderna som är värdar för alla temporära data.
+Under klusterskalningsprocessen inaktiverar Automatisk skalning noderna för att uppfylla målstorleken. Om det körs aktiviteter på dessa noder väntar automatisk skalning tills aktiviteterna har slutförts. Eftersom varje arbetsnod också fungerar som en roll i HDFS flyttas temp-data till de återstående noderna. Så du bör se till att det finns tillräckligt med utrymme på de återstående noderna för att vara värd för alla temp-data.
 
-De jobb som körs fortsätter att köras och avslutas. Väntande jobb väntar på att schemaläggas som normalt med färre tillgängliga arbetsnoder.
+De löpande jobben fortsätter att köras och avslutas. De väntande jobben väntar på att schemaläggas som vanligt med färre tillgängliga arbetsnoder.
 
-### <a name="minimum-cluster-size"></a>Minsta kluster storlek
+### <a name="minimum-cluster-size"></a>Minsta klusterstorlek
 
-Skala inte upp klustret till färre än tre noder. Om du skalar klustret till färre än tre noder kan det bli fastnat i fel säkert läge på grund av otillräcklig filreplikering.  Mer information finns i avsnittet [komma fastna i fel säkert läge](./hdinsight-scaling-best-practices.md#getting-stuck-in-safe-mode).
+Skala inte klustret till färre än tre noder. Skalning av klustret till färre än tre noder kan leda till att det fastnar i felsäkert läge på grund av otillräcklig filreplikering.  Mer information finns [i Fastna i felsäkert läge](./hdinsight-scaling-best-practices.md#getting-stuck-in-safe-mode).
 
 ## <a name="monitoring"></a>Övervakning
 
 ### <a name="cluster-status"></a>Klusterstatus
 
-Kluster statusen som visas i Azure Portal kan hjälpa dig att övervaka automatiska skalnings aktiviteter.
+Klusterstatusen i Azure-portalen kan hjälpa dig att övervaka aktiviteter för automatisk skalning.
 
-![Aktivera belastnings utjämning av arbetsnodens kluster status för automatisk skalning](./media/hdinsight-autoscale-clusters/hdinsight-autoscale-clusters-cluster-status.png)
+![Aktivera klusterstatus för arbetsnodinläsningsbaserad klusterstatus för automatisk skalning](./media/hdinsight-autoscale-clusters/hdinsight-autoscale-clusters-cluster-status.png)
 
-Alla de kluster status meddelanden som du kan se förklaras i listan nedan.
+Alla klusterstatusmeddelanden som du kan se förklaras i listan nedan.
 
 | Klusterstatus | Beskrivning |
 |---|---|
-| Körs | Klustret fungerar normalt. Alla tidigare autoskalning-aktiviteter har slutförts. |
-| Uppdatering  | Konfigurationen för automatisk skalning av klustret uppdateras.  |
-| HDInsight-konfiguration  | En åtgärd för att skala upp eller skala upp i klustret pågår.  |
-| Uppdaterings fel  | HDInsight påträffade problem under konfigurations uppdateringen för automatisk skalning. Kunder kan välja att antingen försöka uppdatera igen eller inaktivera autoskalning.  |
-| Fel  | Något är fel med klustret och det kan inte användas. Ta bort det här klustret och skapa ett nytt.  |
+| Körs | Klustret fungerar normalt. Alla tidigare aktiviteter för automatisk skalning har slutförts. |
+| Uppdatera  | Konfigurationen för automatisk skalning av klustret uppdateras.  |
+| HDInsight-konfiguration  | En klusterskala upp eller skala ned-åtgärd pågår.  |
+| Uppdateringsfel  | HDInsight stötte på problem under konfigurationsuppdateringen för automatisk skalning. Kunder kan välja att antingen försöka uppdatera igen eller inaktivera automatisk skalning.  |
+| Fel  | Något är fel med klustret, och det är inte användbart. Ta bort det här klustret och skapa ett nytt.  |
 
-Om du vill visa det aktuella antalet noder i klustret går du till diagrammet **kluster storlek** på sidan **Översikt** för klustret, eller väljer **kluster storlek** under **Inställningar**.
+Om du vill visa det aktuella antalet noder i klustret går du till **klusterstorleksdiagrammet** på **sidan Översikt** för klustret eller väljer **Klusterstorlek** under **Inställningar**.
 
-### <a name="operation-history"></a>Åtgärds historik
+### <a name="operation-history"></a>Drifthistorik
 
-Du kan visa klustrets skalnings-och skalnings historik som en del av kluster måtten. Du kan också Visa alla skalnings åtgärder under den senaste dagen, veckan eller en annan tids period.
+Du kan visa klusterskalnings- och skalningshistoriken som en del av klustermåtten. Du kan också visa alla skalningsåtgärder under den senaste dagen, veckan eller annan tidsperiod.
 
-Välj **mått** under **övervakning**. Välj sedan **Lägg till mått** och **Antal aktiva arbetare** från List rutan **mått** . Välj knappen i det övre högra hörnet för att ändra tidsintervallet.
+Välj **Mått** under **Övervakning**. Välj sedan **Lägg till mått** och Antal aktiva **arbetare** i listrutan **Mått.** Välj knappen längst upp till höger om du vill ändra tidsintervallet.
 
-![Aktivera schema baserat på arbetsnodens mått för autoskalning](./media/hdinsight-autoscale-clusters/hdinsight-autoscale-clusters-chart-metric.png)
+![Aktivera mått för schemabaserad automatisk skalning av arbetarenod](./media/hdinsight-autoscale-clusters/hdinsight-autoscale-clusters-chart-metric.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-Läs om metod tips för att skala kluster manuellt i [metod tips för skalning](hdinsight-scaling-best-practices.md)
+Läs mer om metodtips för skalning av kluster manuellt i [Metodtips för skalning](hdinsight-scaling-best-practices.md)

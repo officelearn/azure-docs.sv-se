@@ -1,76 +1,76 @@
 ---
-title: Zoomnings nivåer och panels rutnät | Microsoft Azure Maps
-description: I den här artikeln får du lära dig om zoomnings nivåer och panel rutnät i Microsoft Azure Maps.
-author: jingjing-z
+title: Zoomnivåer och panelrutnät | Microsoft Azure Maps
+description: I den här artikeln får du lära dig mer om zoomnivåer och panelrutnät i Microsoft Azure Maps.
+author: jinzh-azureiot
 ms.author: jinzh
 ms.date: 01/22/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: 6ee697ac9b7849a0231d9916c6fa8bc73ef7f9b7
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: d58c9f6940dceefdc25211f4540b34522aec935d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76765846"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79530299"
 ---
 # <a name="zoom-levels-and-tile-grid"></a>Zoomningsnivåer och rutnät
 
-Azure Maps använda det sfäriska Mercator i projekt koordinatsystemet (EPSG: 3857). En projektion är den matematiska modell som används för att omvandla den sfäriska jordgloben till en plan karta. Den sfäriska Mercator-projektionen sträcker ut kartan på staven för att skapa en kvadratisk karta. Den här projektionen förvränger skalan och ytan på kartan markant, men har två viktiga egenskaper som uppväger denna förvrängning:
+Azure Maps använder koordinatsystemet för sfärisk mercatorprojektion (EPSG: 3857). En projektion är den matematiska modell som används för att omvandla den sfäriska jordklotet till en platt karta. Den sfäriska Mercator projektion sträcker kartan vid polerna för att skapa en fyrkantig karta. Denna projektion snedvrider avsevärt kartans skala och område men har två viktiga egenskaper som uppväger denna förvrängning:
 
-- Det är en proformerad projektion, vilket innebär att den bevarar formen på relativt små objekt. Att bevara formen på små objekt är särskilt viktigt när du visar flyg bilder. Vi vill till exempel undvika att förvränga formen på byggnader. Kvadratiska byggnader ska visas i fyrkant, inte rektangulära.
-- Det är en cylindrisk projektion. Norra och syd är alltid uppåt och nedåt, och väst och öst är alltid vänster och höger. 
+- Det är en konformal projektion, vilket innebär att den bevarar formen på relativt små objekt. Att bevara formen på små objekt är särskilt viktigt när du visar flygbilder. Vi vill till exempel undvika att förvränga byggnadernas form. Fyrkantiga byggnader ska se fyrkantiga ut, inte rektangulära.
+- Det är en cylindrisk projektion. Norr och söder är alltid upp och ner, och väst och öst är alltid vänster och höger. 
 
-För att optimera prestanda för kart hämtning och visning är kartan indelad i fyrkantiga paneler. Azure Maps SDK: s användnings paneler som har en storlek på 512 x 512 pixlar för väg kartor och mindre 256 x 256 pixlar för satellit-bilder. Azure Maps innehåller raster-och vektor paneler för 23 zoomnings nivåer, numrerade 0 till och med 22. På zoomnings nivå 0 passar hela världen på en enda panel:
-
-<center>
-
-![global kart panel](./media/zoom-levels-and-tile-grid/world0.png)</center>
-
-Zoomnings nivå 1 använder fyra paneler för att rendera världen: en fyrkant på 2 x 2
+För att optimera prestanda för karthämtning och visning är kartan uppdelad i fyrkantiga paneler. Azure Maps SDK använder paneler som har en storlek på 512 x 512 pixlar för vägkartor och mindre 256 x 256 pixlar för satellitbilder. Azure Maps tillhandahåller raster- och vektorpaneler för 23 zoomnivåer, numrerade 0 till 22. På zoomnivå 0 passar hela världen på en enda bricka:
 
 <center>
 
-layout för ![2x2 Map-panel](media/zoom-levels-and-tile-grid/map-2x2-tile-layout.png)</center>
+![Panel för världskarta](./media/zoom-levels-and-tile-grid/world0.png)</center>
 
-Varje ytterligare zoomnings nivå är fyra delar av panelerna i föregående, vilket skapar ett rutnät med 2<sup>zoom</sup> x 2-<sup>zoomning</sup>. Zoomnings nivå 22 är ett rutnät 2<sup>22</sup> x 2<sup>22</sup>eller 4 194 304 x 4 194 304 paneler (17 592 186 044 416 paneler totalt).
+Zoom nivå 1 använder fyra brickor för att återge världen: en 2 x 2 kvadrat
 
-Azure Maps interaktiva kart kontroller för webb-och Android-stöd 25 zoomnings nivåer, numrerade 0 till 24. Även om vägtrafiks data bara kommer att vara tillgängliga på zoomnings nivåerna i när panelerna är tillgängliga.
+<center>
 
-I följande tabell visas en fullständig lista över värden för zoomnings nivåer där panel storleken är 512 bild punkter fyrkant:
+![Layout för 2x2 kartpaneler](media/zoom-levels-and-tile-grid/map-2x2-tile-layout.png)</center>
 
-|Zoomnings nivå|Mätare/bild punkter|Mätare/panel sida|
+Varje ytterligare zoomnivå fyrdelar brickorna i den föregående, vilket skapar ett rutnät med 2<sup>zoom</sup> x 2<sup>zoom</sup>. Zoomnivå 22 är ett rutnät 2<sup>22</sup> x 2<sup>22</sup>eller 4 194 304 x 4 194 304 brickor (totalt 17 592 186 044 416 brickor).
+
+Azure Maps interaktiva kartkontroller för webb- och Android-stöd för 25 zoomnivåer, numrerade 0 till 24. Även om vägdata endast kommer att vara tillgängliga på zoomnivåerna när panelerna är tillgängliga.
+
+I följande tabell visas en fullständig lista med värden för zoomnivåer där panelstorleken är 512 pixlar fyrkantig:
+
+|Zoomnivå|Meter/pixel|Mätare/kakelsida|
 |--- |--- |--- |
 |0|156543|40075008|
-|1|78271,5|20037504|
-|2|39135,8|10018764.8|
-|3|19567,9|5009382,4|
-|4|9783,9|2504678,4|
+|1|78271.5|20037504|
+|2|39135.8|10018764.8|
+|3|19567.9|5009382.4|
+|4|9783.9|2504678.4|
 |5|4892|1252352|
 |6|2446|626176|
 |7|1223|313088|
-|8|611,5|156544|
-|9|305,7|78259,2|
-|10|152,9|39142,4|
-|11|76,4|19558,4|
-|12|38,2|9779,2|
-|13|19,1|4889,6|
-|14|9.6|2457,6|
-|15|4.8|1228,8|
-|16|2.4|614,4|
-|17|1.2|307,2|
-|18|0.6|152,8|
-|19|0,3|76,4|
-|20|0,15|38,2|
-|21|0,075|19,1|
-|22|0,0375|9,55|
-|23|0,01875|4,775|
-|24|0,009375|2,3875|
+|8|611.5|156544|
+|9|305.7|78259.2|
+|10|152.9|39142.4|
+|11|76.4|19558.4|
+|12|38.2|9779.2|
+|13|19.1|4889.6|
+|14|9.6|2457.6|
+|15|4.8|1228.8|
+|16|2.4|614.4|
+|17|1.2|307.2|
+|18|0.6|152.8|
+|19|0.3|76.4|
+|20|0,15|38.2|
+|21|0.075|19.1|
+|22|0.0375|9.55|
+|23|0.01875|4.775|
+|24|0.009375|2.3875|
 
-## <a name="pixel-coordinates"></a>Pixel koordinater
+## <a name="pixel-coordinates"></a>Pixelkoordinater
 
-Om du har valt projektion och skala för att använda på varje zoomnings nivå kan vi konvertera geografiska koordinater till pixel koordinater. Den fullständiga bild punkts bredden och höjden på en kart bild av världen för en viss zoomnings nivå beräknas som:
+Efter att ha valt projektion och skala att använda på varje zoomnivå, kan vi konvertera geografiska koordinater till pixelkoordinater. Hela pixelbredden och höjden på en kartbild av världen för en viss zoomnivå beräknas som:
 
 ```javascript
 var mapWidth = tileSize * Math.pow(2, zoom);
@@ -78,15 +78,15 @@ var mapWidth = tileSize * Math.pow(2, zoom);
 var mapHeight = mapWidth;
 ```
 
-Eftersom kart bredd och höjd skiljer sig på varje zoomnings nivå, så är pixel koordinaterna. Bild punkten i det övre vänstra hörnet av kartan har alltid pixel koordinater (0, 0). Bild punkten i det nedre högra hörnet av kartan har pixel koordinater *(bredd-1, höjd-1)* eller hänvisar till ekvationerna i föregående avsnitt *(tileSize \* 2<sup>zoom</sup>– 1, tileSize \* 2<sup>zoom</sup>– 1)* . Om du till exempel använder 512 fyrkantiga paneler på nivå 2, sträcker sig pixel koordinaterna från (0, 0) till (2047, 2047), så här:
+Eftersom kartans bredd och höjd är olika på varje zoomnivå, så är pixelkoordinaterna också. Pixeln längst upp till vänster på kartan har alltid pixelkoordinater (0, 0). Pixeln längst ned till höger på kartan har pixelkoordinater *(bredd-1, höjd-1)* eller som refererar till ekvationerna i föregående avsnitt *(tileSize \* 2<sup>zoom</sup>–1, tileSize \* 2<sup>zoom</sup>–1)*. När du till exempel använder 512 kvadratiska paneler på nivå 2 varierar pixelkoordinaterna från (0, 0) till (2047, 2047), så här:
 
 <center>
 
-![Karta som visar pixel dimensioner](media/zoom-levels-and-tile-grid/map-width-height.png)
+![Karta som visar pixeldimensioner](media/zoom-levels-and-tile-grid/map-width-height.png)
 
 </center>
 
-Med hänsyn till latitud och longitud i grader, och detalj nivån, beräknas pixlarnas XY-koordinater på följande sätt:
+Med tanke på latitud och longitud i grader, och detaljnivån, beräknas pixel XY-koordinaterna enligt följande:
 
 ```javascript
 var sinLatitude = Math.sin(latitude * Math.PI/180);
@@ -96,11 +96,11 @@ var pixelX = ((longitude + 180) / 360) * tileSize * Math.pow(2, zoom);
 var pixelY = (0.5 – Math.log((1 + sinLatitude) / (1 – sinLatitude)) / (4 * Math.PI)) * tileSize * Math.pow(2, zoom);
 ```
 
-Värdena för latitud och longitud antas vara på WGS 84-datum. Även om Azure Maps använder en sfärisk projektion är det viktigt att konvertera alla geografiska koordinater till ett gemensamt datum. WGS 84 är det valda datumet. Värdet longitud antas vara mellan-180 grader och + 180 grader, och Latitude-värdet måste klippas in i intervallet från-85,05112878 till 85,05112878. Genom att följa dessa värden undviker du en ojämnhet på stavarna och ser till att den projicerade kartan är en kvadrat-form.
+Latitud- och longitudvärdena antas finnas på WGS 84-datumen. Även om Azure Maps använder en sfärisk projektion är det viktigt att konvertera alla geografiska koordinater till ett gemensamt datum. WGS 84 är det valda datumet. Longitudvärdet antas variera från -180 grader till +180 grader, och latitudvärdet måste klippas ut för att variera från -85,05112878 till 85,05112878. Att följa dessa värden undviker en singularitet vid polerna, och det säkerställer att den projicerade kartan är en fyrkantig form.
 
-## <a name="tile-coordinates"></a>Panel koordinater
+## <a name="tile-coordinates"></a>Koordinater för paneler
 
-Den renderade kartan klipps ut i paneler för att optimera prestanda för kart hämtning och visning. Antalet bild punkter och antalet paneler varierar på varje zoomnings nivå:
+För att optimera prestanda för karthämtning och visning, är den renderade kartan inskuren i paneler. Antalet pixlar och antalet paneler skiljer sig åt på varje zoomnivå:
 
 ```javascript
 var numberOfTilesWide = Math.pow(2, zoom);
@@ -108,13 +108,13 @@ var numberOfTilesWide = Math.pow(2, zoom);
 var numberOfTilesHigh = numberOfTilesWide;
 ```
 
-Varje bricka tilldelas XY-koordinater från (0, 0) i det övre vänstra hörnet till *(2<sup>zoom</sup>– 1, 2<sup>zoom</sup>– 1)* längst ned till höger. Till exempel, vid zoomnings nivå 2, sträcker sig panelerna från (0, 0) till (7, 7) enligt följande:
+Varje bricka får XY-koordinater från (0, 0) i det övre vänstra till *(2<sup>zoom</sup>-1, 2<sup>zoom</sup>-1)* i det nedre högra. På zoomnivå 2 varierar till exempel panelkoordinaterna från (0, 0) till (7, 7) enligt följande:
 
 <center>
 
-![karta över panel koordinater](media/zoom-levels-and-tile-grid/map-tiles-x-y-coordinates-7x7.png)</center>
+![Karta över panelkoordinater](media/zoom-levels-and-tile-grid/map-tiles-x-y-coordinates-7x7.png)</center>
 
-Om du har ett par med punkt-koordinater för pixlar kan du enkelt fastställa panelernas XY-koordinater i panelen som innehåller den pixeln:
+Med tanke på ett par pixel XY-koordinater kan du enkelt bestämma panelens XY-koordinater för panelen som innehåller pixeln:
 
 ```javascript
 var tileX = Math.floor(pixelX / tileSize);
@@ -122,30 +122,30 @@ var tileX = Math.floor(pixelX / tileSize);
 var tileY = Math.floor(pixelY / tileSize);
 ```
 
-Paneler kallas för zoomnings nivå. X-och y-koordinaterna motsvarar panelens position i rutnätet för den zoomnings nivån.
+Paneler anropas av zoomnivå. X- och y-koordinaterna motsvarar panelens position på rutnätet för den zoomnivån.
 
-När du bestämmer vilken zoomnings nivå som ska användas, kommer du ihåg att varje plats har en fast position på sin panel. Det innebär att antalet paneler som behövs för att visa en bestämd expanse område är beroende av den exakta placeringen av zoomnings rutnätet på världs kartan. Om det t. ex. finns två punkter 900 meters avstånd *kan* det bara ta tre paneler att visa en väg mellan dem i zoomnings nivå 17. Men om den västerländska punkten är till höger om dess panel och den östra punkten till vänster om panelen, kan det ta fyra paneler:
-
-<center>
-
-![zooma demo skala](media/zoom-levels-and-tile-grid/zoomdemo_scaled.png)</center>
-
-När zoomnings nivån har fastställts kan x-och y-värdena beräknas. Den övre vänstra panelen i varje zoom-rutnät är x = 0, y = 0; den nedre högra panelen är x = 2<sup>Zoom-1</sup>, y = 2<sup>Zoom-1</sup>.
-
-Här är zoomnings rutnätet för zoomnings nivå 1:
+När du bestämmer vilken zoomnivå som ska användas bör du komma ihåg att varje plats är i en fast position på panelen. Som ett resultat är antalet brickor som behövs för att visa en viss yta av territorium beroende av den specifika placeringen av zoom rutnät på världskartan. Till exempel, om det finns två punkter 900 meter från varandra, *kan* det bara ta tre brickor för att visa en rutt mellan dem på zoomnivå 17. Men om den västra punkten är till höger om sin bricka, och den östra punkten till vänster om sin bricka, kan det ta fyra brickor:
 
 <center>
 
-![zoomnings rutnät för zoomnings nivå 1](media/zoom-levels-and-tile-grid/api_x_y.png)</center>
+![Zoom demo skala](media/zoom-levels-and-tile-grid/zoomdemo_scaled.png)</center>
 
-## <a name="quadkey-indices"></a>Quadkey index
+När zoomnivån har bestämts kan x- och y-värdena beräknas. Den övre vänstra panelen i varje zoomrutnät är x=0, y=0; den nedre högra panelen är på x = 2<sup>zoom-1</sup>, y = 2<sup>zoom-1</sup>.
 
-Vissa mappnings plattformar använder sig av en `quadkey` index namngivnings konvention som kombinerar panel ZY koordinater till en sträng med en dimension som kallas `quadtree` nycklar eller `quadkeys` för kort. Varje `quadkey` identifierar unikt en enskild panel på en viss detalj nivå och kan användas som en nyckel i vanliga index i databas B-träd. Azure Maps-SDK: er har stöd för överlägg av panel lager som använder `quadkey` namngivnings konvention, förutom andra namngivnings konventioner som dokumenteras i dokumentet [Lägg till ett panel lager](map-add-tile-layer.md) .
+Här är zoomrutnätet för zoomnivå 1:
+
+<center>
+
+![Zooma rutnät för zoomnivå 1](media/zoom-levels-and-tile-grid/api_x_y.png)</center>
+
+## <a name="quadkey-indices"></a>Quadkey-index
+
+Vissa mappningsplattformar använder en `quadkey` indexeringsnamnningskonvention som kombinerar `quadtree` zy-koordinaterna för paneler till en sträng med en dimension som kallas nycklar eller `quadkeys` för korta. Varje `quadkey` unikt identifierar en enda panel på en viss detaljnivå, och den kan användas som en nyckel i vanliga databas B-träd index. Azure Maps SDK-filer stöder överlagring av `quadkey` panellager som använder namngivningskonvention utöver andra namngivningskonventioner som dokumenteras i dokumentet [Lägg till ett panellager.](map-add-tile-layer.md)
 
 > [!NOTE]
-> Namngivnings konventionen för `quadkeys` fungerar bara för zoomnings nivåer av en eller flera. Azure Maps SDK: s support zoomnings nivå 0, som är en enda kart panel för hela världen. 
+> Namngivningskonventionen `quadkeys` fungerar bara för zoomnivåer på en eller flera. Azure Maps SDK:s stödzoomnivå 0 som är en enda kartpanel för hela världen. 
 
-Om du vill konvertera panel koordinater till en `quadkey`, är bitarna i Y-och X-koordinaterna överplacerade och resultatet tolkas som ett bas-4-tal (med inledande nollor) och konverteras till en sträng. Om du till exempel har placerat Brick koordinaterna (3, 5) på nivå 3, bestäms `quadkey` på följande sätt:
+Om du vill konvertera `quadkey`panelkoordinater till a är bitarna i Y- och X-koordinaterna interfolierade och resultatet tolkas som ett bas-4-tal (med inledande nollor bibehållna) och konverteras till en sträng. Till exempel, med tanke kakel XY koordinater (3, `quadkey` 5) på nivå 3, bestäms enligt följande:
 
 ```
 tileX = 3 = 011 (base 2)
@@ -155,19 +155,19 @@ tileY = 5 = 1012 (base 2)
 quadkey = 100111 (base 2) = 213 (base 4) = "213"
 ```
 
-`Qquadkeys` ha flera intressanta egenskaper. För det första är längden på en `quadkey` (antalet siffror) lika med zoomnings nivån för motsvarande panel. Därefter börjar `quadkey` på en panel med `quadkey` av den överordnade panelen (den som innehåller panelen på föregående nivå). Som du ser i exemplet nedan är panel 2 överordnad panel 20 till 23:
+`Qquadkeys`har flera intressanta egenskaper. För det första `quadkey` är längden på en (antalet siffror) lika med zoomnivån för motsvarande panel. För det `quadkey` andra börjar en `quadkey` bricka med den överordnade panelen (den innehållande panelen på föregående nivå). Som visas i exemplet nedan är panel 2 överordnad panel 20 till 23:
 
 <center>
 
-![Quadkey panel](media/zoom-levels-and-tile-grid/quadkey-tile-pyramid.png)</center>
+![Quadkey kakel pyramid](media/zoom-levels-and-tile-grid/quadkey-tile-pyramid.png)</center>
 
-Slutligen `quadkeys` tillhandahålla en endimensionell index nyckel som vanligt vis bevarar avståndet mellan brickorna i XY-utrymmet. Två brickor som har nära XY-koordinater har med andra ord vanligt vis `quadkeys` som är relativt nära varandra. Detta är viktigt för att optimera databas prestanda eftersom intilliggande paneler ofta begärs i grupper, och det är önskvärt att behålla dessa paneler på samma disk block, för att minimera antalet disk läsningar.
+Slutligen, `quadkeys` ge en endimensionell indexnyckel som vanligtvis bevarar närheten till plattor i XY utrymme. Med andra ord, två brickor som har `quadkeys` närliggande XY koordinater har oftast som är relativt nära varandra. Detta är viktigt för att optimera databasprestanda, eftersom närliggande paneler ofta efterfrågas i grupper, och det är önskvärt att behålla dessa paneler på samma diskblock, för att minimera antalet diskavläsningar.
 
-## <a name="tile-math-source-code"></a>Panel, matematik Källkod
+## <a name="tile-math-source-code"></a>Ursprungskod för rittext för paneler
 
-Följande exempel kod visar hur du implementerar de funktioner som beskrivs i det här dokumentet. Dessa funktioner kan enkelt översättas till andra programmeringsspråk vid behov.
+Följande exempelkod visar hur du implementerar de funktioner som beskrivs i det här dokumentet. Dessa funktioner kan enkelt översättas till andra programmeringsspråk efter behov.
 
-#### <a name="ctabcsharp"></a>[C#](#tab/csharp)
+#### <a name="c"></a>[C#](#tab/csharp)
 
 ```csharp
 using System;
@@ -566,7 +566,7 @@ namespace AzureMaps
 }
 ```
 
-#### <a name="typescripttabtypescript"></a>[TypeScript](#tab/typescript)
+#### <a name="typescript"></a>[TypeScript](#tab/typescript)
 
 ```typescript
 module AzureMaps {
@@ -948,23 +948,23 @@ module AzureMaps {
 * * *
 
 > [!NOTE]
-> De interaktiva kart kontrollerna i Azure Maps SDK: n har hjälp funktioner för att konvertera mellan geospatiala positioner och visnings bild punkter. 
-> - [Webb-SDK: mappa pixel-och positions beräkningar](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map#pixelstopositions-pixel---)
+> De interaktiva kartkontrollerna i Azure Maps SDK har hjälpfunktioner för att konvertera mellan geospatiala positioner och vyportpixlar. 
+> - [Web SDK: Kartpixel- och positionsberäkningar](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map#pixelstopositions-pixel---)
 
 ## <a name="next-steps"></a>Nästa steg
 
-Direkt åtkomst till kart paneler från Azure Maps REST-tjänster:
+Direkt åtkomst till kartpaneler från Azure Maps REST-tjänsterna:
 
 > [!div class="nextstepaction"]
-> [Hämta kart paneler](https://docs.microsoft.com/rest/api/maps/render/getmaptile)
+> [Hämta kartpaneler](https://docs.microsoft.com/rest/api/maps/render/getmaptile)
 
 > [!div class="nextstepaction"]
-> [Hämta trafik flödes paneler](https://docs.microsoft.com/rest/api/maps/traffic/gettrafficflowtile)
+> [Hämta trafikflödespaneler](https://docs.microsoft.com/rest/api/maps/traffic/gettrafficflowtile)
 
 > [!div class="nextstepaction"]
-> [Hämta incident paneler för trafik](https://docs.microsoft.com/rest/api/maps/traffic/gettrafficincidenttile)
+> [Hämta paneler för trafikincidenter](https://docs.microsoft.com/rest/api/maps/traffic/gettrafficincidenttile)
 
-Lär dig mer om geospatiala koncept:
+Läs mer om geospatiala begrepp:
 
 > [!div class="nextstepaction"]
-> [Azure Maps ord lista](glossary.md)
+> [Azure Maps-ordlista](glossary.md)

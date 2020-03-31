@@ -14,12 +14,12 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 02/12/2020
 ms.author: shvija
-ms.openlocfilehash: 51b69e8b7f6c980fd851cdf3e60ecfe0ade29e71
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: 0b20c73ed0590f3afc19db43b4b55dd3ff6bde8e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77187335"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79453878"
 ---
 # <a name="create-a-namespace-with-event-hub-and-enable-capture-using-a-template"></a>Skapa en namnrymd med händelsehubb och aktivera avbildning med hjälp av en mall
 
@@ -27,17 +27,17 @@ Den här artikeln visar hur du använder en Azure Resource Manager-mall som skap
 
 Den här artikeln visar även hur du anger att händelser ska samlas in i Azure Storage Blobs eller en Azure Data Lake Store, utifrån det mål som du väljer.
 
-Mer information om hur du skapar mallar finns i [redigera Azure Resource Manager mallar][Authoring Azure Resource Manager templates]. Den JSON-syntax och de egenskaper som ska användas i en mall finns i avsnittet om [Microsoft.EventGrid-resurstyper](/azure/templates/microsoft.eventhub/allversions).
+Mer information om att skapa mallar finns i [Redigera Azure Resource Manager-mallar][Authoring Azure Resource Manager templates]. Den JSON-syntax och de egenskaper som ska användas i en mall finns i avsnittet om [Microsoft.EventGrid-resurstyper](/azure/templates/microsoft.eventhub/allversions).
 
-Mer information om mönster och metoder för namngivnings konventioner för Azure-resurser finns i [namngivnings konventioner för Azure-resurser][Azure Resources naming conventions].
+Mer information om mönster och praxis för namnkonventioner för Azure-resurser finns i [Azure Resources Naming Conventions][Azure Resources naming conventions] (Namnkonventioner för Azure-resurser).
 
 För fullständiga mallar, klicka på följande GitHub-länkar:
 
-- [Händelsehubben och aktivera avbildning till Storage-mall][Event Hub and enable Capture to Storage template] 
-- [Händelsehubben och aktivera avbildning till Azure Data Lake Store mall][Event Hub and enable Capture to Azure Data Lake Store template]
+- [Händelsehubb och aktivera mallen Capture to Storage (Avbildning till Storage)][Event Hub and enable Capture to Storage template] 
+- [Händelsehubb och aktivera mallen Capture to Azure Data Lake Store (Avbildning till Azure Data Lake Store)][Event Hub and enable Capture to Azure Data Lake Store template]
 
 > [!NOTE]
-> Om du vill söka efter de senaste mallarna går du till galleriet för [Azure snabb starts mallar][Azure Quickstart Templates] och söker efter Event Hubs.
+> Om du vill söka efter de senaste mallarna kan du gå till galleriet [Azure-snabbstartsmallar][Azure Quickstart Templates] och söka efter Event Hubs.
 > 
 > 
 
@@ -235,7 +235,7 @@ Blobcontainern dit du kan avbilda dina händelsedata.
 }
 ```
 
-Använd följande parametrar om du väljer Azure Data Lake Store gen 1 som mål. Du måste ange behörigheter för den Data Lake Store-sökväg som du vill avbilda händelsen på. Om du vill ange behörigheter, se [samla in data till Azure Data Lake Storage gen 1](event-hubs-capture-enable-through-portal.md#capture-data-to-azure-data-lake-storage-gen-1).
+Använd följande parametrar om du väljer Azure Data Lake Store Gen 1 som mål. Du måste ange behörigheter för den Data Lake Store-sökväg som du vill avbilda händelsen på. Information om hur du anger behörigheter finns [i Samla in data till Azure Data Lake Storage Gen 1](event-hubs-capture-enable-through-portal.md#capture-data-to-azure-data-lake-storage-gen-1).
 
 ### <a name="subscriptionid"></a>subscriptionId
 
@@ -414,17 +414,13 @@ New-AzResourceGroupDeployment -ResourceGroupName \<resource-group-name\> -Templa
 Azure Blob Storage som mål:
 
 ```azurecli
-azure config mode arm
-
-azure group deployment create \<my-resource-group\> \<my-deployment-name\> --template-uri [https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-eventhubs-create-namespace-and-enable-capture/azuredeploy.json][]
+az group deployment create \<my-resource-group\> \<my-deployment-name\> --template-uri [https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-eventhubs-create-namespace-and-enable-capture/azuredeploy.json][]
 ```
 
 Azure Data Lake Store som mål:
 
 ```azurecli
-azure config mode arm
-
-azure group deployment create \<my-resource-group\> \<my-deployment-name\> --template-uri [https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-eventhubs-create-namespace-and-enable-capture-for-adls/azuredeploy.json][]
+az group deployment create \<my-resource-group\> \<my-deployment-name\> --template-uri [https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-eventhubs-create-namespace-and-enable-capture-for-adls/azuredeploy.json][]
 ```
 
 ## <a name="next-steps"></a>Nästa steg
@@ -433,8 +429,8 @@ Du kan även konfigurera Event Hubs Capture via [Azure Portal](https://portal.az
 
 Du kan lära dig mer om Event Hubs genom att gå till följande länkar:
 
-* [Event Hubs-översikt](event-hubs-what-is-event-hubs.md)
-* [Skapa en Event Hub](event-hubs-create.md)
+* [Översikt över Event Hubs](event-hubs-what-is-event-hubs.md)
+* [Skapa en händelsehubb](event-hubs-create.md)
 * [Vanliga frågor och svar om Event Hubs](event-hubs-faq.md)
 
 [Authoring Azure Resource Manager templates]: ../azure-resource-manager/templates/template-syntax.md

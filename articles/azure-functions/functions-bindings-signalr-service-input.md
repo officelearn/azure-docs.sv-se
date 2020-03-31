@@ -1,30 +1,30 @@
 ---
-title: Bindnings bindning för Azure Functions SignalR-tjänst
-description: Lär dig att returnera en URL för en Signals service-slutpunkt och åtkomsttoken i Azure Functions.
+title: Indatabindning av Azure Functions SignalR-tjänst
+description: Lär dig att returnera en Url för SignalR-tjänstslutpunkt och åtkomsttoken i Azure Functions.
 author: craigshoemaker
 ms.topic: reference
 ms.date: 02/20/2020
 ms.author: cshoe
 ms.openlocfilehash: 53d336aff3177a76c5e02266ffb8484bd9945119
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77530268"
 ---
-# <a name="signalr-service-input-binding-for-azure-functions"></a>Signal bindning för signal tjänst för Azure Functions
+# <a name="signalr-service-input-binding-for-azure-functions"></a>Indatabindning av SignalR-tjänst för Azure-funktioner
 
-Innan en klient kan ansluta till Azure SignalR service måste den Hämta tjänstens slut punkts-URL och en giltig åtkomsttoken. *SignalRConnectionInfo* -databindningen genererar URL: en för SignalR-tjänstens slut punkt och en giltig token som används för att ansluta till tjänsten. Eftersom token är tidsbegränsad och kan användas för att autentisera en viss användare för en anslutning, ska du inte cachelagra token eller dela den mellan klienter. En HTTP-utlösare som använder denna bindning kan användas av klienter för att hämta anslutnings informationen.
+Innan en klient kan ansluta till Azure SignalR-tjänsten måste den hämta tjänstslutpunkts-URL:en och en giltig åtkomsttoken. Indatabindningen *SignalRConnectionInfo* producerar slutpunkts-URL:en för SignalR-tjänsten och en giltig token som används för att ansluta till tjänsten. Eftersom token är tidsbegränsad och kan användas för att autentisera en viss användare till en anslutning, bör du inte cachelagra token eller dela den mellan klienter. En HTTP-utlösare som använder den här bindningen kan användas av klienter för att hämta anslutningsinformationen.
 
-Mer information om hur den här bindningen används för att skapa en "Negotiate"-funktion som kan användas av en Signals-klient-SDK finns i [artikeln Azure Functions utveckling och konfiguration](../azure-signalr/signalr-concept-serverless-development-config.md) i dokumentationen för SignalR-tjänstens begrepp.
+Mer information om hur den här bindningen används för att skapa en "förhandla"-funktion som kan förbrukas av en SignalR-klient SDK finns i [utvecklings- och konfigurationsartikeln](../azure-signalr/signalr-concept-serverless-development-config.md) för Azure Functions i dokumentationen för SignalR-tjänstbegrepp.
 
-Information om konfiguration och konfigurations information finns i [översikten](functions-bindings-signalr-service.md).
+Information om inställnings- och konfigurationsinformation finns i [översikten](functions-bindings-signalr-service.md).
 
 ## <a name="example"></a>Exempel
 
 # <a name="c"></a>[C#](#tab/csharp)
 
-I följande exempel visas en [ C# funktion](functions-dotnet-class-library.md) som hämtar anslutnings information för signaler med hjälp av den inkommande bindningen och returnerar den över http.
+I följande exempel visas en [C#-funktion](functions-dotnet-class-library.md) som hämtar SignalR-anslutningsinformation med hjälp av indatabindningen och returnerar den via HTTP.
 
 ```cs
 [FunctionName("negotiate")]
@@ -36,13 +36,13 @@ public static SignalRConnectionInfo Negotiate(
 }
 ```
 
-# <a name="c-script"></a>[C#Över](#tab/csharp-script)
+# <a name="c-script"></a>[C# Skript](#tab/csharp-script)
 
-I följande exempel visas en signal för anslutnings information om signalering i en *Function. JSON* -fil och en [ C# skript funktion](functions-reference-csharp.md) som använder bindningen för att returnera anslutnings informationen.
+I följande exempel visas en Indatabindning av SignalR-anslutningsinformation i en *function.json-fil* och en [C#Script-funktion](functions-reference-csharp.md) som använder bindningen för att returnera anslutningsinformationen.
 
-Här är bindnings data i *Function. JSON* -filen:
+Här är bindningsdata i *filen function.json:*
 
-Exempel funktion. JSON:
+Exempel function.json:
 
 ```json
 {
@@ -54,7 +54,7 @@ Exempel funktion. JSON:
 }
 ```
 
-Här är C# skript koden:
+Här är C # Script kod:
 
 ```cs
 #r "Microsoft.Azure.WebJobs.Extensions.SignalRService"
@@ -66,13 +66,13 @@ public static SignalRConnectionInfo Run(HttpRequest req, SignalRConnectionInfo c
 }
 ```
 
-# <a name="javascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[Javascript](#tab/javascript)
 
-I följande exempel visas en signal information om en Signals-anslutnings bindning i en *Function. JSON* -fil och en [JavaScript-funktion](functions-reference-node.md) som använder bindningen för att returnera anslutnings informationen.
+I följande exempel visas en Indatabindning av SignalR-anslutningsinformation i en *function.json-fil* och en [JavaScript-funktion](functions-reference-node.md) som använder bindningen för att returnera anslutningsinformationen.
 
-Här är bindnings data i *Function. JSON* -filen:
+Här är bindningsdata i *filen function.json:*
 
-Exempel funktion. JSON:
+Exempel function.json:
 
 ```json
 {
@@ -84,7 +84,7 @@ Exempel funktion. JSON:
 }
 ```
 
-Här är JavaScript-kod:
+Här är JavaScript-koden:
 
 ```javascript
 module.exports = async function (context, req, connectionInfo) {
@@ -94,11 +94,11 @@ module.exports = async function (context, req, connectionInfo) {
 
 # <a name="python"></a>[Python](#tab/python)
 
-I följande exempel visas en signal information om en Signals-anslutnings bindning i en *Function. JSON* -fil och en [python-funktion](functions-reference-python.md) som använder bindningen för att returnera anslutnings informationen.
+I följande exempel visas en SignalR-anslutningsinformationsinmatningsbindning i en *function.json-fil* och en [Python-funktion](functions-reference-python.md) som använder bindningen för att returnera anslutningsinformationen.
 
-Här är bindnings data i *Function. JSON* -filen:
+Här är bindningsdata i *filen function.json:*
 
-Exempel funktion. JSON:
+Exempel function.json:
 
 ```json
 {
@@ -110,7 +110,7 @@ Exempel funktion. JSON:
 }
 ```
 
-Här är python-koden:
+Här är Python-koden:
 
 ```python
 def main(req: func.HttpRequest, connectionInfoJson: str) -> func.HttpResponse:
@@ -125,7 +125,7 @@ def main(req: func.HttpRequest, connectionInfoJson: str) -> func.HttpResponse:
 
 # <a name="java"></a>[Java](#tab/java)
 
-I följande exempel visas en [Java-funktion](functions-reference-java.md) som hämtar anslutnings information för signaler med hjälp av den inkommande bindningen och returnerar den över http.
+I följande exempel visas en [Java-funktion](functions-reference-java.md) som hämtar SignalR-anslutningsinformation med hjälp av indatabindningen och returnerar den via HTTP.
 
 ```java
 @FunctionName("negotiate")
@@ -143,15 +143,15 @@ public SignalRConnectionInfo negotiate(
 
 ---
 
-## <a name="authenticated-tokens"></a>Autentiserade tokens
+## <a name="authenticated-tokens"></a>Autentiserade token
 
-Om funktionen utlöses av en autentiserad klient kan du lägga till ett användar-ID-anspråk till den genererade token. Du kan enkelt lägga till autentisering i en Function-app med hjälp av [App Service autentisering](../app-service/overview-authentication-authorization.md).
+Om funktionen utlöses av en autentrad klient kan du lägga till ett användar-ID-anspråk i den genererade token. Du kan enkelt lägga till autentisering i en funktionsapp med [apptjänstautentisering](../app-service/overview-authentication-authorization.md).
 
-App Service autentisering anger HTTP-huvuden med namnet `x-ms-client-principal-id` och `x-ms-client-principal-name` som innehåller den autentiserade användarens huvud-ID respektive namn.
+App Service Authentication anger `x-ms-client-principal-id` HTTP-huvuden namngivna och `x-ms-client-principal-name` som innehåller den autentiserade användarens klienthuvudnamn respektive namn.
 
 # <a name="c"></a>[C#](#tab/csharp)
 
-Du kan ange egenskapen `UserId` för bindningen till värdet från endera sidhuvudet med ett [bindnings uttryck](./functions-bindings-expressions-patterns.md): `{headers.x-ms-client-principal-id}` eller `{headers.x-ms-client-principal-name}`.
+Du kan `UserId` ange egenskapen för bindningen till värdet från `{headers.x-ms-client-principal-id}` `{headers.x-ms-client-principal-name}`antingen huvudet med hjälp av ett [bindningsuttryck](./functions-bindings-expressions-patterns.md): eller .
 
 ```cs
 [FunctionName("negotiate")]
@@ -166,11 +166,11 @@ public static SignalRConnectionInfo Negotiate(
 }
 ```
 
-# <a name="c-script"></a>[C#Över](#tab/csharp-script)
+# <a name="c-script"></a>[C# Skript](#tab/csharp-script)
 
-Du kan ange egenskapen `userId` för bindningen till värdet från endera sidhuvudet med ett [bindnings uttryck](./functions-bindings-expressions-patterns.md): `{headers.x-ms-client-principal-id}` eller `{headers.x-ms-client-principal-name}`.
+Du kan `userId` ange egenskapen för bindningen till värdet från `{headers.x-ms-client-principal-id}` `{headers.x-ms-client-principal-name}`antingen huvudet med hjälp av ett [bindningsuttryck](./functions-bindings-expressions-patterns.md): eller .
 
-Exempel funktion. JSON:
+Exempel function.json:
 
 ```json
 {
@@ -183,7 +183,7 @@ Exempel funktion. JSON:
 }
 ```
 
-Här är C# skript koden:
+Här är C # Script kod:
 
 ```cs
 #r "Microsoft.Azure.WebJobs.Extensions.SignalRService"
@@ -197,11 +197,11 @@ public static SignalRConnectionInfo Run(HttpRequest req, SignalRConnectionInfo c
 }
 ```
 
-# <a name="javascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[Javascript](#tab/javascript)
 
-Du kan ange egenskapen `userId` för bindningen till värdet från endera sidhuvudet med ett [bindnings uttryck](./functions-bindings-expressions-patterns.md): `{headers.x-ms-client-principal-id}` eller `{headers.x-ms-client-principal-name}`.
+Du kan `userId` ange egenskapen för bindningen till värdet från `{headers.x-ms-client-principal-id}` `{headers.x-ms-client-principal-name}`antingen huvudet med hjälp av ett [bindningsuttryck](./functions-bindings-expressions-patterns.md): eller .
 
-Exempel funktion. JSON:
+Exempel function.json:
 
 ```json
 {
@@ -214,7 +214,7 @@ Exempel funktion. JSON:
 }
 ```
 
-Här är JavaScript-kod:
+Här är JavaScript-koden:
 
 ```javascript
 module.exports = async function (context, req, connectionInfo) {
@@ -226,9 +226,9 @@ module.exports = async function (context, req, connectionInfo) {
 
 # <a name="python"></a>[Python](#tab/python)
 
-Du kan ange egenskapen `userId` för bindningen till värdet från endera sidhuvudet med ett [bindnings uttryck](./functions-bindings-expressions-patterns.md): `{headers.x-ms-client-principal-id}` eller `{headers.x-ms-client-principal-name}`.
+Du kan `userId` ange egenskapen för bindningen till värdet från `{headers.x-ms-client-principal-id}` `{headers.x-ms-client-principal-name}`antingen huvudet med hjälp av ett [bindningsuttryck](./functions-bindings-expressions-patterns.md): eller .
 
-Exempel funktion. JSON:
+Exempel function.json:
 
 ```json
 {
@@ -241,7 +241,7 @@ Exempel funktion. JSON:
 }
 ```
 
-Här är python-koden:
+Här är Python-koden:
 
 ```python
 def main(req: func.HttpRequest, connectionInfoJson: str) -> func.HttpResponse:
@@ -258,7 +258,7 @@ def main(req: func.HttpRequest, connectionInfoJson: str) -> func.HttpResponse:
 
 # <a name="java"></a>[Java](#tab/java)
 
-Du kan ange egenskapen `userId` för bindningen till värdet från endera sidhuvudet med ett [bindnings uttryck](./functions-bindings-expressions-patterns.md): `{headers.x-ms-client-principal-id}` eller `{headers.x-ms-client-principal-name}`.
+Du kan `userId` ange egenskapen för bindningen till värdet från `{headers.x-ms-client-principal-id}` `{headers.x-ms-client-principal-name}`antingen huvudet med hjälp av ett [bindningsuttryck](./functions-bindings-expressions-patterns.md): eller .
 
 ```java
 @FunctionName("negotiate")
@@ -279,4 +279,4 @@ public SignalRConnectionInfo negotiate(
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Skicka signal tjänst meddelanden (utgående bindning)](./functions-bindings-signalr-service-output.md) 
+- [Skicka SignalR-tjänstmeddelanden (utdatabindning)](./functions-bindings-signalr-service-output.md) 

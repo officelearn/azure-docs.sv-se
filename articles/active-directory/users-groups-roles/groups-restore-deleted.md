@@ -1,5 +1,5 @@
 ---
-title: Återställa en borttagen Office 365-grupp – Azure AD | Microsoft Docs
+title: Återställa en borttagen Office 365-grupp – Azure AD | Microsoft-dokument
 description: Så återställer du en borttagen grupp, visar återställningsbara grupper och tar bort en grupp permanent i Azure Active Directory
 services: active-directory
 author: curtand
@@ -14,15 +14,15 @@ ms.reviewer: krbain
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 96d212df51a58125e3b959a18f5cf2ac9d391d30
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/23/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "74422371"
 ---
 # <a name="restore-a-deleted-office-365-group-in-azure-active-directory"></a>Återställa en borttagen Office 365-grupp i Azure Active Directory
 
-När du tar bort en Office 365-grupp i Azure Active Directory (Azure AD) bevaras den borttagna gruppen, men visas inte, i 30 dagar räknat från borttagningsdatumet. På så sätt kan gruppen och dess innehåll återställas om det behövs. Den här funktionen är begränsad till Office 365-grupper i Azure AD. Den är inte tillgänglig för säkerhetsgrupper och distributionsgrupper. Observera att återställnings perioden på 30 dagar inte kan anpassas.
+När du tar bort en Office 365-grupp i Azure Active Directory (Azure AD) bevaras den borttagna gruppen, men visas inte, i 30 dagar räknat från borttagningsdatumet. På så sätt kan gruppen och dess innehåll återställas om det behövs. Den här funktionen är begränsad till Office 365-grupper i Azure AD. Den är inte tillgänglig för säkerhetsgrupper och distributionsgrupper. Observera att 30-dagars grupprestaureringsperioden inte är anpassningsbar.
 
 > [!NOTE]
 > Använd inte `Remove-MsolGroup` eftersom det gör att gruppen tas bort permanent. Använd alltid `Remove-AzureADMSGroup` för att ta bort en Office 365-grupp.
@@ -31,17 +31,17 @@ Behörigheterna som krävs för att återställa en grupp kan vara någon av fö
 
 Roll | Behörigheter
 --------- | ---------
-Global administratör, grupp administratör, partner – nivå 2-stöd och Intune-administratör | Kan återställa alla borttagna Office 365-grupper
-Stöd för användar administratör och partner 1 | Kan återställa alla borttagna Office 365-grupper utom de grupper som tilldelats till rollen Företagsadministratör
-Användare | Kan återställa borttagna Office 365-grupper som de äger
+Global administratör, gruppadministratör, support för Partner Tier2 och Intune-administratör | Kan återställa alla borttagna Office 365-grupper
+Stöd för användaradministratör och partnernivå1 | Kan återställa alla borttagna Office 365-grupper utom de grupper som tilldelats till rollen Företagsadministratör
+Användare | Kan återställa en borttagen Office 365-grupp som de äger
 
 ## <a name="view-and-manage-the-deleted-office-365-groups-that-are-available-to-restore"></a>Visa och hantera de borttagna Office 365-grupper som är tillgängliga för återställning
 
-1. Logga in på [administrations centret för Azure AD](https://aad.portal.azure.com) med ett användar administratörs konto.
+1. Logga in på [Azure AD-administrationscentret](https://aad.portal.azure.com) med ett användarkonto för användaradministratör.
 
 2. Välj **Grupper** och sedan **Borttagna grupper** för att visa de borttagna grupper som är tillgängliga för återställning.
 
-    ![Visa grupper som är tillgängliga för återställning](media/groups-lifecycle/deleted-groups3.png)
+    ![visa grupper som är tillgängliga för att återställa](media/groups-lifecycle/deleted-groups3.png)
 
 3. På bladet **Borttagna grupper** kan du:
 

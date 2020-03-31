@@ -1,6 +1,6 @@
 ---
-title: Azure Cosmos DB tabell-API för Java
-description: Läs mer om Azure Cosmos DB Table API inklusive frisläppningsdatum, dras tillbaka datum och ändringar som gjorts mellan varje version.
+title: Azure Cosmos DB Tabell API för Java
+description: Lär dig allt om Azure Cosmos DB Table API, inklusive utgivningsdatum, pensioneringsdatum och ändringar som görs mellan varje version.
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.devlang: java
@@ -9,16 +9,16 @@ ms.date: 11/20/2018
 author: sakash279
 ms.author: akshanka
 ms.openlocfilehash: b9b5d51d0d35284d9854bd048396df84881266d2
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/28/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76771413"
 ---
-# <a name="azure-cosmos-db-table-api-for-java-release-notes-and-resources"></a>Azure Cosmos DB Table API för Java: viktig information och resurser
+# <a name="azure-cosmos-db-table-api-for-java-release-notes-and-resources"></a>Azure Cosmos DB Table API för Java: Versionsanteckningar och resurser
 > [!div class="op_single_selector"]
 > * [.NET](table-sdk-dotnet.md)
-> * [.NET-standard](table-sdk-dotnet-standard.md)
+> * [.NET Standard](table-sdk-dotnet-standard.md)
 > * [Java](table-sdk-java.md)
 > * [Node.js](table-sdk-nodejs.md)
 > * [Python](table-sdk-python.md)
@@ -26,8 +26,8 @@ ms.locfileid: "76771413"
 
 |   |   |
 |---|---|
-|**Hämta SDK**|[Hämta alternativ](https://github.com/azure/azure-storage-java#download)|
-|**API-dokumentation**|[Java API-referensdokumentation](https://azure.github.io/azure-storage-java/)|
+|**SDK nedladdning**|[Hämta alternativ](https://github.com/azure/azure-storage-java#download)|
+|**API-dokumentation**|[Dokumentation för Java API-referens](https://azure.github.io/azure-storage-java/)|
 |**Bidra till SDK**|[GitHub](https://github.com/Azure/azure-storage-java#contribute-code-or-provide-feedback)|
 
 > [!IMPORTANT]
@@ -36,21 +36,21 @@ ms.locfileid: "76771413"
 
 ## <a name="release-notes"></a>Viktig information
 
-### <a name="a-name100100"></a><a name="1.0.0"/>1.0.0
-* Allmänt tillgänglig version
+### <a name="100"></a><a name="1.0.0"/>1.0.0
+* Allmän tillgänglighetsfrigång
 
-## <a name="release-and-retirement-dates"></a>Versionen och dras tillbaka datum
-Microsoft meddelar meddelande minst **12 månader** förväg dra tillbaka en SDK för att utjämna övergången till en nyare/stöds version.
+## <a name="release-and-retirement-dates"></a>Utgivnings- och pensionsdatum
+Microsoft kommer att meddela minst **12 månader** innan du går i pension en SDK för att underlätta övergången till en nyare / stöds version.
 
-Nya funktioner och funktionalitet och optimeringar läggs endast till den aktuella SDK, så vi rekommenderar att du alltid uppgraderar till den senaste SDK-versionen så tidigt som möjligt. 
+Nya funktioner och funktioner och optimeringar läggs bara till i den aktuella SDK, som sådan rekommenderas att du alltid uppgraderar till den senaste SDK-versionen så tidigt som möjligt. 
 
-| Version | Utgivningsdatum | Slutdatum |
+| Version | Utgivningsdatum | Pensionering Datum |
 | --- | --- | --- |
-| [1.0.0](#1.0.0) |Den 15 november 2017 |--- |
+| [1.0.0](#1.0.0) |15 november 2017 |--- |
 
-## <a name="faq"></a>FAQ
+## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
-## <a name="see-also"></a>Se också
-Mer information om Cosmos DB finns [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) service-sidan. 
+## <a name="see-also"></a>Se även
+Mer information om Cosmos DB finns på tjänstsidan [för Microsoft Azure Cosmos DB.](https://azure.microsoft.com/services/cosmos-db/) 
 

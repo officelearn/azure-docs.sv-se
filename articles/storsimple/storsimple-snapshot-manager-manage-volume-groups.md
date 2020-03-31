@@ -1,6 +1,6 @@
 ---
-title: StorSimple Snapshot Manager volym grupper | Microsoft Docs
-description: Beskriver hur du använder snapin-modulen StorSimple Snapshot Manager MMC för att skapa och hantera volym grupper.
+title: Volymgrupper för StorSimple Snapshot Manager | Microsoft-dokument
+description: Beskriver hur du använder MMC-snapin-modulen StorSimple Snapshot Manager för att skapa och hantera volymgrupper.
 services: storsimple
 documentationcenter: NA
 author: twooley
@@ -15,117 +15,117 @@ ms.workload: TBD
 ms.date: 06/05/2017
 ms.author: twooley
 ms.openlocfilehash: 5198729cf96fb48c5dcd05096c04ea4d77c26de5
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/14/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75931497"
 ---
-# <a name="use-storsimple-snapshot-manager-to-create-and-manage-volume-groups"></a>Använd StorSimple Snapshot Manager för att skapa och hantera volym grupper
+# <a name="use-storsimple-snapshot-manager-to-create-and-manage-volume-groups"></a>Använda StorSimple Snapshot Manager för att skapa och hantera volymgrupper
 ## <a name="overview"></a>Översikt
-Du kan använda noden **volym grupper** i fönstret **omfattning** för att tilldela volymer till volym grupper, Visa information om en volym grupp, schemalägga säkerhets kopior och redigera volym grupper.
+Du kan använda noden **Volymgrupper** i **fönstret Omfattning** för att tilldela volymer till volymgrupper, visa information om en volymgrupp, schemalägga säkerhetskopior och redigera volymgrupper.
 
-Volym grupper är pooler med relaterade volymer som används för att säkerställa att säkerhets kopiorna är programkonsekventa. Mer information finns i [volymer och volym grupper](storsimple-what-is-snapshot-manager.md#volumes-and-volume-groups) och [integrering med Windows tjänsten Volume Shadow Copy](storsimple-what-is-snapshot-manager.md#integration-with-windows-volume-shadow-copy-service).
+Volymgrupper är pooler med relaterade volymer som används för att säkerställa att säkerhetskopior är programkonsekventa. Mer information finns i [Volymer och volymgrupper](storsimple-what-is-snapshot-manager.md#volumes-and-volume-groups) och [Integration med Windows Volume Shadow Copy Service](storsimple-what-is-snapshot-manager.md#integration-with-windows-volume-shadow-copy-service).
 
 > [!IMPORTANT]
-> * Alla volymer i en volym grupp måste komma från en enda moln tjänst leverantör.
-> * När du konfigurerar volym grupper ska du inte blanda CSV: er (Cluster-Shared Volumes) och icke-CSV: er i samma volym grupp. StorSimple Snapshot Manager har inte stöd för en blandning av CSV: er och icke-CSV: er i samma ögonblicks bild.
+> * Alla volymer i en volymgrupp måste komma från en enda molntjänstleverantör.
+> * När du konfigurerar volymgrupper ska du inte blanda klusterdelade volymer (CSV: ar) och icke-CSV:er i samma volymgrupp. StorSimple Snapshot Manager stöder inte en blandning av CSV:er och icke-CSV:er i samma ögonblicksbild.
 
-![Noden volym grupper](./media/storsimple-snapshot-manager-manage-volume-groups/HCS_SSM_Volume_groups.png)
+![Nod för volymgrupper](./media/storsimple-snapshot-manager-manage-volume-groups/HCS_SSM_Volume_groups.png)
 
-**Bild 1: StorSimple Snapshot Manager volym grupps nod** 
+**Bild 1: StorSimple-volymgruppsnod för ögonblicksbildhanterare** 
 
-I den här självstudien beskrivs hur du kan använda StorSimple-Snapshot Manager för att:
+I den här självstudien beskrivs hur du kan använda StorSimple Snapshot Manager för att:
 
-* Visa information om dina volym grupper
-* Skapa en volym grupp
-* Säkerhetskopiera en volym grupp
-* Redigera en volym grupp
-* Ta bort en volym grupp
+* Visa information om dina volymgrupper
+* Skapa en volymgrupp
+* Säkerhetskopiera en volymgrupp
+* Redigera en volymgrupp
+* Ta bort en volymgrupp
 
-Alla dessa åtgärder är också tillgängliga i **Åtgärds** fönstret.
+Alla dessa åtgärder är också tillgängliga i fönstret **Åtgärder.**
 
-## <a name="view-volume-groups"></a>Visa volym grupper
-Om du klickar på noden **volym grupper** visar **resultat** fönstret följande information om varje volym grupp, beroende på vilka kolumn val du gör. (Kolumnerna i **resultat** fönstret kan konfigureras. Högerklicka på noden **volymer** , Välj **Visa**och välj sedan **Lägg till/ta bort kolumner**.)
+## <a name="view-volume-groups"></a>Visa volymgrupper
+Om du klickar på noden **Volymgrupper** visas följande information om varje volymgrupp i fönstret **Resultat,** beroende på vilka kolumnval du gör. (Kolumnerna i **resultatfönstret** kan konfigureras. Högerklicka på **noden Volymer,** välj **Visa**och välj sedan **Lägg till/ta bort kolumner**.)
 
-| Resultat kolumn | Beskrivning |
+| Kolumnen Resultat | Beskrivning |
 |:--- |:--- |
-| Namn |Kolumnen **Name** innehåller namnet på volym gruppen. |
-| Program |I kolumnen **program** visas antalet VSS-skrivare som är installerade och körs på Windows-värden. |
-| Vald |Den **markerade** kolumnen visar antalet volymer som finns i volym gruppen. Noll (0) anger att inget program är associerat med volymerna i volym gruppen. |
-| Importerad |Den **importerade** kolumnen visar antalet importerade volymer. När värdet är **True**anger den här kolumnen att en volym grupp importerades från Azure Portal och inte skapades i StorSimple Snapshot Manager. |
+| Namn |Kolumnen **Namn** innehåller namnet på volymgruppen. |
+| Program |Kolumnen **Program** visar antalet VSS-författare som för närvarande är installerade och körs på Windows-värden. |
+| Vald |I kolumnen **Markerad** visas antalet volymer som finns i volymgruppen. En nolla (0) anger att inget program är associerat med volymerna i volymgruppen. |
+| Importerade |Kolumnen **Importerad** visar antalet importerade volymer. När den här kolumnen är **true**anger den att en volymgrupp har importerats från Azure-portalen och inte skapades i StorSimple Snapshot Manager. |
 
 > [!NOTE]
-> StorSimple Snapshot Manager volym grupper visas också på fliken **principer för säkerhets kopiering** i Azure Portal.
+> Volymgrupper för StorSimple Snapshot Manager visas också på fliken **Principer för säkerhetskopiering** i Azure-portalen.
 > 
 > 
 
-## <a name="create-a-volume-group"></a>Skapa en volym grupp
-Använd följande procedur för att skapa en volym grupp.
+## <a name="create-a-volume-group"></a>Skapa en volymgrupp
+Använd följande procedur för att skapa en volymgrupp.
 
-#### <a name="to-create-a-volume-group"></a>Så här skapar du en volym grupp
-1. Klicka på Skriv bords ikonen för att starta StorSimple Snapshot Manager.
-2. I fönstret **omfattning** högerklickar du på **volym grupper**och klickar sedan på **Skapa volym grupp**.
+#### <a name="to-create-a-volume-group"></a>Så här skapar du en volymgrupp
+1. Klicka på skrivbordsikonen för att starta StorSimple Snapshot Manager.
+2. Högerklicka på **Volymgrupper**i **fönstret Omfattning** och klicka sedan på **Skapa volymgrupp**.
    
-    ![Skapa volym grupp](./media/storsimple-snapshot-manager-manage-volume-groups/HCS_SSM_Create_volume_group.png)
+    ![Skapa volymgrupp](./media/storsimple-snapshot-manager-manage-volume-groups/HCS_SSM_Create_volume_group.png)
    
-    Dialog rutan **skapa en volym grupp** visas.
+    Dialogrutan **Skapa en volymgrupp** visas.
    
-    ![Dialog rutan skapa en volym grupp](./media/storsimple-snapshot-manager-manage-volume-groups/HCS_SSM_CreateVolumeGroup_dialog.png)
+    ![Skapa en dialogruta för en volymgrupp](./media/storsimple-snapshot-manager-manage-volume-groups/HCS_SSM_CreateVolumeGroup_dialog.png)
 3. Ange följande information:
    
-   1. I rutan **namn** anger du ett unikt namn för den nya volym gruppen.
-   2. I rutan **program** väljer du program som är associerade med de volymer som du ska lägga till i volym gruppen.
+   1. Skriv ett unikt namn för den nya volymgruppen i rutan **Namn.**
+   2. I rutan **Program** väljer du program som är associerade med de volymer som du ska lägga till i volymgruppen.
       
-       I rutan **program** visas endast de program som använder StorSimple-volymer och som har VSS-skrivare aktiverade för dem. En VSS-skrivare är bara aktive rad om alla volymer som skrivaren är medveten om är StorSimple-volymer. Om program rutan är tom installeras inga program som använder Azure StorSimple-volymer och VSS-skrivare som stöds. (För närvarande stöder Azure StorSimple Microsoft Exchange och SQL Server.) Mer information om VSS-skrivare finns i [integrering med Windows tjänsten Volume Shadow Copy](storsimple-what-is-snapshot-manager.md#integration-with-windows-volume-shadow-copy-service).
+       I rutan **Program** visas endast de program som använder StorSimple-volymer och har VSS-skribenter aktiverade för dem. En VSS-skrivare aktiveras endast om alla volymer som författaren känner till är StorSimple-volymer. Om rutan Program är tom installeras inga program som använder Azure StorSimple-volymer och som stöds av VSS-skribenter. (Azure StorSimple stöder för närvarande Microsoft Exchange och SQL Server.) Mer information om VSS-författare finns i [Integration med Windows Volume Shadow Copy Service](storsimple-what-is-snapshot-manager.md#integration-with-windows-volume-shadow-copy-service).
       
-       Om du väljer ett program väljs alla volymer som är kopplade till det automatiskt. Om du väljer volymer som är associerade med ett särskilt program, väljs programmet automatiskt i rutan **program** . 
-   3. I rutan **volymer** väljer du StorSimple-volymer som ska läggas till i volym gruppen. 
+       Om du väljer ett program markeras alla associerade volymer automatiskt. Om du däremot väljer volymer som är associerade med ett visst program markeras programmet automatiskt i rutan **Program.** 
+   3. I rutan **Volymer** väljer du StorSimple-volymer att lägga till i volymgruppen. 
       
-      * Du kan inkludera volymer med en eller flera partitioner. (Flera partition volymer kan vara dynamiska diskar eller grundläggande diskar med flera partitioner.) En volym som innehåller flera partitioner behandlas som en enskild enhet. Om du bara lägger till en av partitionerna i en volym grupp läggs alla andra partitioner automatiskt till i den volym gruppen samtidigt. När du har lagt till en partition med flera partitioner i en volym grupp fortsätter den flera partition volymen att behandlas som en enda enhet.
-      * Du kan skapa tomma volym grupper genom att inte tilldela dem några volymer. 
-      * Blanda inte kluster delade volymer (CSV: er) och icke-CSV: er i samma volym grupp. StorSimple Snapshot Manager har inte stöd för en blandning av CSV-volymer och volymer som inte är CSV i samma ögonblicks bild.
-4. Spara volym gruppen genom att klicka på **OK** .
+      * Du kan inkludera volymer med enstaka eller flera partitioner. (Flera partitionsvolymer kan vara dynamiska diskar eller grundläggande diskar med flera partitioner.) En volym som innehåller flera partitioner behandlas som en enda enhet. Om du bara lägger till en av partitionerna i en volymgrupp läggs därför alla andra partitioner automatiskt till i den volymgruppen samtidigt. När du har lagt till en multipel partitionsvolym i en volymgrupp fortsätter volymen för flera partitioner att behandlas som en enda enhet.
+      * Du kan skapa tomma volymgrupper genom att inte tilldela några volymer till dem. 
+      * Blanda inte klusterdelade volymer (CSV) och icke-CSV:er i samma volymgrupp. StorSimple Snapshot Manager stöder inte en blandning av CSV-volymer och icke-CSV-volymer i samma ögonblicksbild.
+4. Spara volymgruppen genom att klicka på **OK.**
 
-## <a name="back-up-a-volume-group"></a>Säkerhetskopiera en volym grupp
-Använd följande procedur för att säkerhetskopiera en volym grupp.
+## <a name="back-up-a-volume-group"></a>Säkerhetskopiera en volymgrupp
+Använd följande procedur för att säkerhetskopiera en volymgrupp.
 
-#### <a name="to-back-up-a-volume-group"></a>Säkerhetskopiera en volym grupp
-1. Klicka på Skriv bords ikonen för att starta StorSimple Snapshot Manager.
-2. I fönstret **omfattning** expanderar du noden **volym grupper** , högerklickar på ett volym grupp namn och klickar sedan på **gör säkerhets kopiering**.
+#### <a name="to-back-up-a-volume-group"></a>Så här säkerhetskopierar du en volymgrupp
+1. Klicka på skrivbordsikonen för att starta StorSimple Snapshot Manager.
+2. Expandera noden **Volymgrupper** i **fönstret Omfattning,** högerklicka på ett volymgruppsnamn och klicka sedan på **Ta upp säkerhetskopiering**.
    
-    ![Säkerhetskopiera volym gruppen omedelbart](./media/storsimple-snapshot-manager-manage-volume-groups/HCS_SSM_Take_backup.png)
-3. I dialog rutan **skapa säkerhets kopia** väljer du **lokal ögonblicks bild** eller **moln ögonblicks bild**och klickar sedan på **skapa**.
+    ![Säkerhetskopiera volymgruppen omedelbart](./media/storsimple-snapshot-manager-manage-volume-groups/HCS_SSM_Take_backup.png)
+3. I dialogrutan **Ta säkerhetskopiering** väljer du **Lokal ögonblicksbild** eller Ögonblicksbild **i molnet**och klickar sedan på **Skapa**.
    
-    ![Dialog rutan för säkerhets kopiering](./media/storsimple-snapshot-manager-manage-volume-groups/HCS_SSM_TakeBackup_dialog.png)
-4. Bekräfta att säkerhets kopieringen körs genom att expandera noden **jobb** och klicka sedan på **Kör**. Säkerhets kopian ska visas.
-5. Visa den slutförda ögonblicks bilden genom att expandera noden **säkerhets kopierings katalog** , expandera volym gruppens namn och klicka på **lokal ögonblicks bild** eller **moln ögonblicks bild**. Säkerhets kopian visas i listan om den har slutförts.
+    ![Dialogrutan Ta med säkerhetskopiering](./media/storsimple-snapshot-manager-manage-volume-groups/HCS_SSM_TakeBackup_dialog.png)
+4. Om du vill bekräfta att säkerhetskopian körs expanderar du noden **Jobb** och klickar sedan på **Kör**. Säkerhetskopian bör anges.
+5. Om du vill visa den slutförda ögonblicksbilden expanderar du **noden Säkerhetskopieringskatalog,** expanderar volymgruppnamnet och klickar sedan på **Lokal ögonblicksbild** eller **Ögonblicksbild av molnet**. Säkerhetskopian visas om den har slutförts.
 
-## <a name="edit-a-volume-group"></a>Redigera en volym grupp
-Använd följande procedur för att redigera en volym grupp.
+## <a name="edit-a-volume-group"></a>Redigera en volymgrupp
+Använd följande procedur för att redigera en volymgrupp.
 
-#### <a name="to-edit-a-volume-group"></a>Redigera en volym grupp
-1. Klicka på Skriv bords ikonen för att starta StorSimple Snapshot Manager.
-2. I fönstret **omfattning** expanderar du noden **volym grupper** , högerklickar på ett volym grupp namn och klickar sedan på **Redigera**.
-3. Dialog rutan * * skapa en volym grupp * * visas. Du kan ändra poster för **namn**, **program**och **volymer** .
+#### <a name="to-edit-a-volume-group"></a>Så här redigerar du en volymgrupp
+1. Klicka på skrivbordsikonen för att starta StorSimple Snapshot Manager.
+2. Expandera noden **Volymgrupper** i **fönstret Omfattning,** högerklicka på ett volymgruppsnamn och klicka sedan på **Redigera**.
+3. Dialogrutan **Skapa en volymgrupp **visas. Du kan ändra posterna **Namn,** **Program**och **Volymer.**
 4. Spara ändringarna genom att klicka på **OK**.
 
-## <a name="delete-a-volume-group"></a>Ta bort en volym grupp
-Använd följande procedur för att ta bort en volym grupp. 
+## <a name="delete-a-volume-group"></a>Ta bort en volymgrupp
+Använd följande procedur för att ta bort en volymgrupp. 
 
 > [!WARNING]
-> Detta tar även bort alla säkerhets kopior som är associerade med volym gruppen.
+> Detta tar också bort alla säkerhetskopior som är associerade med volymgruppen.
 > 
 > 
 
-#### <a name="to-delete-a-volume-group"></a>Ta bort en volym grupp
-1. Klicka på Skriv bords ikonen för att starta StorSimple Snapshot Manager.
-2. I fönstret **omfattning** expanderar du noden **volym grupper** , högerklickar på ett volym grupp namn och klickar sedan på **ta bort**.
-3. Dialog rutan **ta bort volym grupp** visas. Skriv **Confirm** i text rutan och klicka sedan på **OK**.
+#### <a name="to-delete-a-volume-group"></a>Så här tar du bort en volymgrupp
+1. Klicka på skrivbordsikonen för att starta StorSimple Snapshot Manager.
+2. Expandera noden **Volymgrupper** i **fönstret Omfattning,** högerklicka på ett volymgruppsnamn och klicka sedan på **Ta bort**.
+3. Dialogrutan **Ta bort volymgrupp** visas. Skriv **Bekräfta** i textrutan och klicka sedan på **OK**.
    
-    Den borttagna volym gruppen försvinner från listan i **resultat** fönstret och alla säkerhets kopior som är associerade med den volym gruppen tas bort från säkerhets kopierings katalogen.
+    Den borttagna volymgruppen försvinner från listan i **resultatfönstret** och alla säkerhetskopior som är associerade med den volymgruppen tas bort från säkerhetskopieringskatalogen.
 
 ## <a name="next-steps"></a>Nästa steg
 * Lär dig hur du [använder StorSimple Snapshot Manager för att administrera din StorSimple-lösning](storsimple-snapshot-manager-admin.md).
-* Lär dig hur du [använder StorSimple Snapshot Manager för att skapa och hantera säkerhets kopierings principer](storsimple-snapshot-manager-manage-backup-policies.md).
+* Lär dig hur du [använder StorSimple Snapshot Manager för att skapa och hantera principer för säkerhetskopiering](storsimple-snapshot-manager-manage-backup-policies.md).
 

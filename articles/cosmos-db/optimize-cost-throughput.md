@@ -1,71 +1,71 @@
 ---
-title: Optimera data flödes kostnaden i Azure Cosmos DB
-description: Den här artikeln förklarar hur du optimerar data flödes kostnader för data som lagras i Azure Cosmos DB.
+title: Optimera kostnaden för dataflöde i Azure Cosmos DB
+description: I den här artikeln beskrivs hur du optimerar dataflödeskostnaderna för data som lagras i Azure Cosmos DB.
 author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 02/07/2020
-ms.openlocfilehash: c6c3e9462b26b44857eea6b53092baeeb5034364
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.openlocfilehash: c80ab4acd745717e2e68ae7d9dc818594ad1ce9e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/08/2020
-ms.locfileid: "77087084"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79501461"
 ---
-# <a name="optimize-provisioned-throughput-cost-in-azure-cosmos-db"></a>Optimera etablerade data flödes kostnader i Azure Cosmos DB
+# <a name="optimize-provisioned-throughput-cost-in-azure-cosmos-db"></a>Optimera kostnaden för etablerat dataflöde i Azure Cosmos DB
 
-Genom att erbjuda en etablerad data flödes modell erbjuder Azure Cosmos DB förutsägbar prestanda i vilken skala som helst. Reservering eller etablering av genom strömning i förväg eliminerar den "störningarnas grann effekt" i prestandan. Du anger den exakta mängden data flöde som du behöver och Azure Cosmos DB garanterar det konfigurerade genomflödet, som backas upp av SLA.
+Genom att erbjuda etablerad dataflödesmodell erbjuder Azure Cosmos DB förutsägbara prestanda i valfri skala. Reservera eller etablera dataflöde i förväg eliminerar "bullriga granne effekt" på din prestation. Du anger exakt hur mycket dataflöde du behöver och Azure Cosmos DB garanterar det konfigurerade dataflödet, som backas upp av SLA.
 
-Du kan börja med ett minsta data flöde på 400 RU/s och skala upp till flera miljoner begär Anden per sekund eller till och med. Varje begäran som du skickar till din Azure Cosmos-behållare eller-databas, till exempel en Read-begäran, skrivbegäran, fråge förfrågning, lagrade procedurer har en motsvarande kostnad som dras av från ditt etablerade data flöde. Om du etablerar 400 RU/s och utfärdar en fråga som kostar 40 ru: er kommer du att kunna skicka 10 frågor per sekund. Alla begär Anden utöver detta får en hastighets begränsning och du bör försöka utföra begäran igen. Om du använder klient driv rutiner stöder de automatiskt logiken för omförsök.
+Du kan börja med ett minimum av dataflöde på 400 RU/sek och skala upp till tiotals miljoner begäranden per sekund eller ännu mer. Varje begäran som du utfärdar mot din Azure Cosmos-behållare eller databas, till exempel en läsbegäran, skrivbegäran, frågebegäran, lagrade procedurer har en motsvarande kostnad som dras av från ditt etablerade dataflöde. Om du etablerar 400 RU/s och utfärdar en fråga som kostar 40 ru: er, kommer du att kunna utfärda 10 sådana frågor per sekund. Varje begäran utöver det kommer att få rate-limited och du bör försöka begäran igen. Om du använder klientdrivrutiner stöder de logiken för automatiskt återförsök.
 
 Du kan etablera dataflöden för databaser och containrar, och de olika strategierna kan ge besparingar beroende på scenariot.
 
-## <a name="optimize-by-provisioning-throughput-at-different-levels"></a>Optimera genom att tillhandahålla data flöde på olika nivåer
+## <a name="optimize-by-provisioning-throughput-at-different-levels"></a>Optimera genom att etablera dataflöde på olika nivåer
 
-* Om du etablerar data flöde för en databas kan alla behållare, till exempel samlingar/tabeller/grafer i den databasen, dela data flödet baserat på belastningen. Data flödet som reserver ATS på databas nivå delas ojämnt, beroende på arbets belastningen på en speciell uppsättning behållare.
+* Om du etablerar dataflöde i en databas kan alla behållare, till exempel samlingar/tabeller/diagram i databasen, dela dataflödet baserat på inläsningen. Dataflöde som reserverats på databasnivå delas ojämnt, beroende på arbetsbelastningen på en viss uppsättning behållare.
 
-* Om du etablerar data flöde på en behållare, garanteras data flödet för den behållaren, som backas upp av service avtalet. Valet av logisk partitionsnyckel är avgörande för jämn fördelning av belastningen över alla logiska partitioner i en behållare. Mer information finns i artiklar om [partitionering](partitioning-overview.md) och [horisontell skalning](partition-data.md) .
+* Om du etablerar dataflöde på en behållare garanteras dataflödet för den behållaren, som backas upp av serviceavtalet. Valet av en logisk partitionsnyckel är avgörande för jämn fördelning av belastningen över alla logiska partitioner i en behållare. Mer information finns i artiklar om [partitionering](partitioning-overview.md) och [vågrät skalning.](partition-data.md)
 
-Här följer några rikt linjer som du kan välja för en etablerad data flödes strategi:
+Följande är några riktlinjer för att besluta om en etablerad strategi för dataflöde:
 
-**Överväg att tillhandahålla data flöde för en Azure Cosmos-databas (som innehåller en uppsättning behållare) om**:
+**Överväg att etablera dataflöde i en Azure Cosmos-databas (som innehåller en uppsättning behållare) om:**
 
-1. Du har några dussin Azure Cosmos-behållare och vill dela data flödet i vissa eller alla. 
+1. Du har några dussin Azure Cosmos-behållare och vill dela dataflöde över vissa eller alla av dem. 
 
-2. Du migrerar från en databas med en enda klient som är utformad för att köras på virtuella datorer med IaaS eller lokalt, till exempel NoSQL eller Relations databaser för att Azure Cosmos DB. Och om du har många samlingar/tabeller/grafer och du inte vill göra några ändringar i din data modell. Obs! Du kan behöva kompromissa med några av fördelarna som Azure Cosmos DB om du inte uppdaterar din data modell när du migrerar från en lokal databas. Vi rekommenderar att du alltid får till gång till din data modell för att få ut mesta möjliga av prestanda och också för att optimera kostnaderna. 
+2. Du migrerar från en databas med en enda klient som är utformad för att köras på IaaS-värddatorn eller lokala, till exempel NoSQL eller relationsdatabaser till Azure Cosmos DB. Och om du har många samlingar / tabeller / grafer och du inte vill göra några ändringar i din datamodell. Du kanske måste kompromettera några av fördelarna med Azure Cosmos DB om du inte uppdaterar datamodellen när du migrerar från en lokal databas. Vi rekommenderar att du alltid åternjerar din datamodell för att få ut det mesta när det gäller prestanda och även för att optimera för kostnader. 
 
-3. Du vill absorbera oplanerade toppar i arbets belastningar genom att använda poolbaserade data flöde på databas nivå som omfattas av oväntad insamling i arbets belastningen. 
+3. Du vill absorbera oplanerade toppar i arbetsbelastningar på grund av poolat dataflöde på databasnivå som utsätts för oväntade ökningar i arbetsbelastningen. 
 
-4. I stället för att ställa in specifikt data flöde på enskilda behållare, är det viktigt att du hämtar det sammanställda data flödet i en uppsättning behållare i databasen.
+4. I stället för att ange specifikt dataflöde på enskilda behållare bryr du dig om hur du hämtar det samlade dataflödet över en uppsättning behållare i databasen.
 
-**Överväg att konfigurera data flödet på en enskild behållare om:**
+**Överväg att etablera dataflöde på en enskild behållare om:**
 
-1. Du har några Azure Cosmos-behållare. Eftersom Azure Cosmos DB är schema-oberoende kan en behållare innehålla objekt som har heterogena scheman och inte kräver att kunder skapar flera behållar typer, en för varje entitet. Det är alltid ett alternativ att överväga om gruppering av separata 10-20-behållare i en enda behållare är meningsfull. Med en ru: er på minst 400 för behållare kan pooler med alla 10-20-behållare till en vara mer kostnads effektivt. 
+1. Du har några Azure Cosmos-behållare. Eftersom Azure Cosmos DB är schemaoberoende kan en behållare innehålla objekt som har heterogena scheman och inte kräver att kunderna skapar flera behållartyper, en för varje entitet. Det är alltid ett alternativ att överväga om gruppering separat säga 10-20 behållare i en enda behållare är vettigt. Med en 400 RU minimum för behållare, pooling alla 10-20 behållare i en kan vara mer kostnadseffektivt. 
 
-2. Du vill styra data flödet för en specifik behållare och få det garanterade data flödet på en specifik behållare som backas upp av SLA.
+2. Du vill styra dataflödet på en viss behållare och få det garanterade dataflödet på en viss behållare som backas upp av SLA.
 
-**Överväg en hybrid av ovanstående två strategier:**
+**Tänk på en hybrid av ovanstående två strategier:**
 
-1. Som tidigare nämnts kan du med Azure Cosmos DB blanda och matcha ovanstående två strategier, så att du nu kan ha några behållare i Azure Cosmos Database, som kan dela data flödet som har skapats i databasen samt vissa behållare i samma databas , som kan ha dedikerade mängder allokerat data flöde. 
+1. Som tidigare nämnts kan du med Azure Cosmos DB blanda och matcha ovanstående två strategier, så att du nu kan ha några behållare i Azure Cosmos-databasen, som kan dela dataflödet som etablerats i databasen samt vissa behållare i samma databas , som kan ha särskilda mängder av avsedd dataflöde. 
 
-2. Du kan använda ovanstående strategier för att komma igång med en hybrid konfiguration där du har ett data flöde med en databas nivå som har allokerats med vissa behållare som har dedikerat data flöde.
+2. Du kan använda ovanstående strategier för att komma med en hybridkonfiguration, där du har både databasnivå etablerat dataflöde med vissa behållare som har dedikerat dataflöde.
 
-Som du ser i följande tabell, beroende på valet av API, kan du etablera data flöde med olika granularitet.
+Som visas i följande tabell, beroende på valet av API, kan du etablera dataflöde på olika granularities.
 
-|API|För **delat** data flöde konfigurerar du |För **dedikerat** data flöde konfigurerar du |
+|API|Konfigurera **shared** |Konfigurera **dedicated** |
 |----|----|----|
 |API för SQL|Databas|Container|
 |API för Azure Cosmos DB för MongoDB|Databas|Samling|
 |Cassandra-API|Nyckelutrymme|Tabell|
-|Gremlin-API|Databas konto|Graph|
-|Tabell-API|Databas konto|Tabell|
+|Gremlin-API|Databaskonto|Graph|
+|Tabell-API|Databaskonto|Tabell|
 
-Genom att tillhandahålla data flöde på olika nivåer kan du optimera dina kostnader baserat på arbets Belastningens egenskaper. Som tidigare nämnts kan du program mässigt och när som helst öka eller minska ditt etablerade data flöde för antingen enskilda behållare eller kollektivt i en uppsättning behållare. Genom att elastiskt skala data flöde när din arbets belastning ändras betalar du bara för det data flöde som du har konfigurerat. Om din behållare eller en uppsättning behållare distribueras över flera regioner, garanteras det data flöde som du konfigurerar på behållaren eller en uppsättning behållare som görs tillgängliga i alla regioner.
+Genom att etablera dataflöde på olika nivåer kan du optimera dina kostnader baserat på egenskaperna för din arbetsbelastning. Som tidigare nämnts kan du programmässigt och när som helst öka eller minska det etablerade dataflödet för antingen enskilda behållare eller tillsammans över en uppsättning behållare. Genom att elastiskt skala dataflödet när arbetsbelastningen ändras betalar du bara för det dataflöde som du har konfigurerat. Om din behållare eller en uppsättning behållare är fördelade över flera regioner, är det garanterat att dataflödet som du konfigurerar på behållaren eller en uppsättning behållare görs tillgängligt i alla regioner.
 
-## <a name="optimize-with-rate-limiting-your-requests"></a>Optimera med Rate-begränsa dina begär Anden
+## <a name="optimize-with-rate-limiting-your-requests"></a>Optimera med hastighetsbegränsande dina begäranden
 
-För arbets belastningar som inte är känsliga för svars tider kan du etablera mindre genom strömning och låta program hantera begränsningen när det faktiska data flödet överskrider det etablerade data flödet. Servern kommer att förebyggande syfte avsluta begäran med `RequestRateTooLarge` (HTTP-statuskod 429) och returnera `x-ms-retry-after-ms`-rubriken som visar hur lång tid i millisekunder som användaren måste vänta innan begäran försöker igen. 
+För arbetsbelastningar som inte är känsliga för svarstid kan du etablera mindre dataflöde och låta programmet hantera hastighetsbegränsande när det faktiska dataflödet överskrider det etablerade dataflödet. Servern avslutar begäran i förebyggande syfte `RequestRateTooLarge` med (HTTP-statuskod 429) och returnerar `x-ms-retry-after-ms` huvudet som anger hur lång tid, i millisekunder, som användaren måste vänta innan han eller hon försöker igen begäran. 
 
 ```html
 HTTP Status 429, 
@@ -73,13 +73,13 @@ HTTP Status 429,
  x-ms-retry-after-ms :100
 ```
 
-### <a name="retry-logic-in-sdks"></a>Omprövnings logik i SDK: er 
+### <a name="retry-logic-in-sdks"></a>Återförsökslogik i SDK:er 
 
-De ursprungliga SDK: erna (.NET/.NET Core, Java, Node. js och python) fångar implicit detta svar, och den server-specificerade återförsöket-efter-rubriken och gör om begäran. Om ditt konto inte kan nås samtidigt av flera klienter kommer nästa försök att lyckas.
+De inbyggda SDK:erna (.NET/.NET Core, Java, Node.js och Python) fångar implicit det här svaret, respekterar det serverspecificerade återförsöks-efter-huvudet och försöker igen begäran. Om inte ditt konto nås samtidigt av flera klienter, kommer nästa återförsök att lyckas.
 
-Om du har mer än en klient ackumulerad på ett konsekvent sätt över begär ande frekvensen, kanske standard antalet nya försök, som för närvarande är 9, inte räcker. I sådana fall genererar klienten ett `RequestRateTooLargeException` med status kod 429 till programmet. Standard antalet återförsök kan ändras genom att ange `RetryOptions` på ConnectionPolicy-instansen. Som standard returneras `RequestRateTooLargeException` med status kod 429 efter en ackumulerad vänte tid på 30 sekunder om begäran fortsätter att köras över begär ande frekvensen. Detta inträffar även om det aktuella antalet återförsök är mindre än max antalet försök, måste det vara standardvärdet 9 eller ett användardefinierat värde. 
+Om du har mer än en klient som är kumulativt konsekvent arbetar över begäranden, kanske standardantalet för återförsök, som för närvarande är inställt på 9, inte är tillräckligt. I sådana fall kastar klienten en `RequestRateTooLargeException` med statuskod 429 till programmet. Standardantalet för återförsök kan `RetryOptions` ändras genom att ange på ConnectionPolicy-instansen. Som standard `RequestRateTooLargeException` returneras med statuskoden 429 efter en sammanlagd väntetid på 30 sekunder om begäran fortsätter att fungera över begäranden. Detta inträffar även när det aktuella antalet försök på nytt är mindre än antalet försök per max, oavsett om det är standardvärdet 9 eller ett användardefinierat värde. 
 
-[MaxRetryAttemptsOnThrottledRequests](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.retryoptions.maxretryattemptsonthrottledrequests?view=azure-dotnet) är inställt på 3, så i det här fallet, om en begär ande åtgärd är begränsad genom att överskrida det reserverade data flödet för behållaren, försöker åtgärden tre gånger innan undantaget utlöses till programmet. [MaxRetryWaitTimeInSeconds](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.retryoptions.maxretrywaittimeinseconds?view=azure-dotnet#Microsoft_Azure_Documents_Client_RetryOptions_MaxRetryWaitTimeInSeconds) är inställt på 60, så i det här fallet om den ackumulerade återförsöks tiden i sekunder sedan den första begäran överskrider 60 sekunder, genereras undantaget.
+[MaxRetryAttemptsOnThrottledRequests](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.retryoptions.maxretryattemptsonthrottledrequests?view=azure-dotnet) är satt till 3, så i det här fallet, om en begäran operation är hastighet begränsas genom att överskrida reserverat dataflöde för behållaren, begäran åtgärden försöker tre gånger innan du kastar undantaget till programmet. [MaxRetryWaitTimeInSeconds](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.retryoptions.maxretrywaittimeinseconds?view=azure-dotnet#Microsoft_Azure_Documents_Client_RetryOptions_MaxRetryWaitTimeInSeconds) är inställd på 60, så i det här fallet om den kumulativa väntetiden för återförsök i sekunder sedan den första begäran överstiger 60 sekunder genereras undantaget.
 
 ```csharp
 ConnectionPolicy connectionPolicy = new ConnectionPolicy(); 
@@ -87,100 +87,100 @@ connectionPolicy.RetryOptions.MaxRetryAttemptsOnThrottledRequests = 3;
 connectionPolicy.RetryOptions.MaxRetryWaitTimeInSeconds = 60;
 ```
 
-## <a name="partitioning-strategy-and-provisioned-throughput-costs"></a>Partitionerings strategi och etablerade data flödes kostnader
+## <a name="partitioning-strategy-and-provisioned-throughput-costs"></a>Partitioneringsstrategi och kostnader för etablerat dataflöde
 
-En bra partitionerings strategi är viktig för att optimera kostnader i Azure Cosmos DB. Se till att det inte finns någon sned partition, som exponeras genom lagrings mått. Se till att det inte finns någon sned data flöde för en partition, som exponeras med data flödes mått. Se till att det inte finns någon snedhet mot särskilda partitionsnyckel. Dominerande nycklar i lagringen exponeras med hjälp av mått, men nyckeln kommer att vara beroende av ditt program åtkomst mönster. Det är bäst att tänka på rätt logisk partitionsnyckel. En lämplig partitionsnyckel förväntas ha följande egenskaper:
+Bra partitioneringsstrategi är viktigt för att optimera kostnaderna i Azure Cosmos DB. Kontrollera att det inte finns någon skevhet av partitioner som exponeras via lagringsmått. Kontrollera att det inte finns någon skevhet av dataflöde för en partition, som exponeras med dataflödesmått. Se till att det inte finns någon skevhet mot vissa partitionsnycklar. Dominerande nycklar i lagring exponeras via mått, men nyckeln kommer att vara beroende av ditt programåtkomstmönster. Det är bäst att tänka på rätt logisk partitionsnyckel. En bra partitionsnyckel förväntas ha följande egenskaper:
 
-* Välj en partitionsnyckel som sprider arbets belastningen jämnt över alla partitioner och jämnt över tid. Med andra ord får du inte ha några nycklar till med merparten av data och vissa nycklar med mindre eller inga data. 
+* Välj en partitionsnyckel som sprider arbetsbelastningen jämnt över alla partitioner och jämnt över tid. Med andra ord bör du inte ha några nycklar till med majoriteten av data och vissa nycklar med mindre eller inga data. 
 
-* Välj en partitionsnyckel som gör att åtkomst mönster kan spridas jämnt över logiska partitioner. Arbets belastningen är rimlig med alla nycklar. Merparten av arbets belastningen bör med andra ord vara fokuserad på några få olika nycklar. 
+* Välj en partitionsnyckel som gör att åtkomstmönster kan spridas jämnt över logiska partitioner. Arbetsbelastningen är någorlunda jämn över alla nycklar. Med andra ord bör majoriteten av arbetsbelastningen inte fokuseras på några specifika nycklar. 
 
-* Välj en partitionsnyckel som har en mängd olika värden. 
+* Välj en partitionsnyckel som har ett brett spektrum av värden. 
 
-Den grundläggande idén är att sprida data och aktiviteten i din behållare över en uppsättning logiska partitioner, så att resurser för data lagring och data flöde kan distribueras mellan de logiska partitionerna. Kandidater för partitionsalternativ kan innehålla de egenskaper som visas ofta som ett filter i dina frågor. Frågor kan effektivt dirigeras genom att inkludera partitionsnyckel i filtrets predikat. Med en sådan partitionerings strategi är det mycket enklare att optimera det etablerade data flödet. 
+Grundtanken är att sprida data och aktiviteten i behållaren över uppsättningen logiska partitioner, så att resurser för datalagring och dataflöde kan distribueras över de logiska partitionerna. Kandidater för partitionsnycklar kan innehålla de egenskaper som ofta visas som ett filter i dina frågor. Frågor kan dirigeras effektivt genom att inkludera partitionsnyckeln i filterpredicatet. Med en sådan partitionering strategi, optimera etablerat dataflöde kommer att bli mycket enklare. 
 
-### <a name="design-smaller-items-for-higher-throughput"></a>Utforma mindre objekt för högre data flöde 
+### <a name="design-smaller-items-for-higher-throughput"></a>Utforma mindre objekt för högre dataflöde 
 
-Begär ande avgiften eller begärans bearbetnings kostnad för en specifik åtgärd är direkt korrelerad med objektets storlek. Åtgärder på stora objekt kommer att kosta mer än åtgärder på mindre objekt. 
+Begärandeavgiften eller kostnaden för begäran bearbetning för en viss operation är direkt korrelerad till artikelns storlek. Operationer på stora artiklar kostar mer än operationer på mindre artiklar. 
 
-## <a name="data-access-patterns"></a>Data åtkomst mönster 
+## <a name="data-access-patterns"></a>Dataåtkomstmönster 
 
-Det är alltid en bra idé att logiskt separera dina data till logiska kategorier baserat på hur ofta du kommer åt dina data. Genom att kategorisera den som frekvent, medelhög eller kall data kan du finjustera förbrukad lagring och det data flöde som krävs. Beroende på åtkomst frekvensen kan du placera data i separata behållare (till exempel tabeller, grafer och samlingar) och finjustera det etablerade data flödet på dem för att tillgodose behoven hos det data segmentet. 
+Det är alltid bra att logiskt separera dina data i logiska kategorier baserat på hur ofta du kommer åt data. Genom att kategorisera dem som heta, medelstora eller kalla data kan du finjustera den lagring som förbrukas och det dataflöde som krävs. Beroende på åtkomstfrekvensen kan du placera data i separata behållare (till exempel tabeller, diagram och samlingar) och finjustera det etablerade dataflödet på dem för att tillgodose behoven hos det datasegmentet. 
 
-Om du använder Azure Cosmos DB och du vet att du inte kommer att söka efter vissa data värden eller sällan kommer åt dem, bör du lagra de komprimerade värdena för dessa attribut. Med den här metoden sparar du på lagrings utrymme, index utrymme och etablerade data flöden och ger lägre kostnader.
+Om du använder Azure Cosmos DB och du vet att du inte kommer att söka efter vissa datavärden eller sällan kommer åt dem, bör du lagra de komprimerade värdena för dessa attribut. Med den här metoden sparar du på lagringsutrymme, indexutrymme och etablerat dataflöde och resulterar i lägre kostnader.
 
-## <a name="optimize-by-changing-indexing-policy"></a>Optimera genom att ändra indexerings princip 
+## <a name="optimize-by-changing-indexing-policy"></a>Optimera genom att ändra indexeringsprincipen 
 
-Som standard indexerar Azure Cosmos DB automatiskt varje egenskap för varje post. Detta är avsett för att under lätta utvecklingen och säkerställa utmärkta prestanda för många olika typer av ad hoc-frågor. Om du har stora poster med tusentals egenskaper kanske du betalar data flödes kostnaden för indexering av varje egenskap som inte är användbar, särskilt om du bara frågar mot 10 eller 20 av dessa egenskaper. I takt med att du får en referens till din speciella arbets belastning är vår vägledning att justera din index princip. Fullständig information om Azure Cosmos DB indexerings princip finns [här](indexing-policies.md). 
+Som standard indexerar Azure Cosmos DB automatiskt varje egenskap för varje post. Detta är avsett att underlätta utvecklingen och säkerställa utmärkt prestanda för många olika typer av ad hoc-frågor. Om du har stora poster med tusentals egenskaper kan det hända att betala dataflödeskostnaden för indexering av varje egenskap, särskilt om du bara frågar mot 10 eller 20 av dessa egenskaper. När du kommer närmare att få grepp om din specifika arbetsbelastning är vår vägledning att justera din indexpolicy. Fullständig information om Azure Cosmos DB indexeringsprincip finns [här](indexing-policies.md). 
 
-## <a name="monitoring-provisioned-and-consumed-throughput"></a>Övervaka etablerade och förbrukade data flöden 
+## <a name="monitoring-provisioned-and-consumed-throughput"></a>Övervakning av etablerat och förbrukat dataflöde 
 
-Du kan övervaka det totala antalet ru: er som tillhandahålls, antalet avgiftsbelagda begär Anden samt antalet ru: er som du har förbrukat i Azure Portal. Följande bild visar ett exempel på användnings mått:
+Du kan övervaka det totala antalet ru:er som etablerats, antalet hastighetsbegränsade begäranden samt antalet ru:er som du har förbrukat i Azure-portalen. Följande bild visar ett exempel användningsmått:
 
-![Övervaka enheter för programbegäran i Azure Portal](./media/optimize-cost-throughput/monitoring.png)
+![Övervaka förfrådeenheter i Azure-portalen](./media/optimize-cost-throughput/monitoring.png)
 
-Du kan också ställa in aviseringar för att kontrol lera om antalet avgiftsbelagda begär Anden överskrider ett visst tröskelvärde. Mer information finns i [övervaka Azure Cosmos DB](use-metrics.md) -artikeln. De här aviseringarna kan skicka ett e-postmeddelande till konto administratörer eller anropa en anpassad HTTP-webhook eller en Azure-funktion för att automatiskt öka det etablerade data flödet. 
+Du kan också ställa in aviseringar för att kontrollera om antalet hastighetsbegränsade begäranden överskrider ett visst tröskelvärde. Mer information finns i Hur du övervakar Azure [Cosmos](use-metrics.md) DB-artikel. Dessa aviseringar kan skicka ett e-postmeddelande till kontoadministratörerna eller anropa en anpassad HTTP Webhook eller en Azure-funktion för att automatiskt öka etablerat dataflöde. 
 
-## <a name="scale-your-throughput-elastically-and-on-demand"></a>Skala ditt genomflöde elastiskt och på begäran 
+## <a name="scale-your-throughput-elastically-and-on-demand"></a>Skala dataflödet elastiskt och på begäran 
 
-Eftersom du debiteras för det data flöde som har allokerats kan du med hjälp av det etablerade data flödet för dina behov hjälpa dig att undvika avgifter för det oanvända genomflödet. Du kan skala ditt etablerade data flöde upp eller ned när som helst, efter behov. Om dina data flödes behov är förutsägbara kan du använda Azure Functions och använda en timer-utlösare för att [öka eller minska data flödet enligt ett schema](scale-on-schedule.md). 
+Eftersom du faktureras för dataflödet som etablerats kan det etablerade dataflödet hjälpa dig att undvika avgifterna för det oanvända dataflödet. Du kan skala upp eller ned det etablerade dataflödet när som helst efter behov. Om dina dataflödesbehov är mycket förutsägbara kan du använda Azure Functions och använda en timerutlösare för att [öka eller minska dataflödet enligt ett schema](scale-on-schedule.md). 
 
-* Övervakning av förbrukningen av dina ru: er och förhållandet mellan avgiftsbelagda begär Anden kan avslöja att du inte behöver fortsätta att vara etablerad under hela dagen eller veckan. Du kan få mindre trafik på natten eller under helgen. Genom att använda antingen Azure Portal eller Azure Cosmos DB inbyggda SDK: er eller REST API kan du skala ditt etablerade data flöde när som helst. Azure Cosmos DB REST API tillhandahåller slut punkter för att program mässigt uppdatera prestanda nivån för dina behållare, vilket gör det enkelt att justera data flödet från din kod beroende på tidpunkten för dagen eller vecko dagen. Åtgärden utförs utan drift avbrott och börjar normalt gälla i mindre än en minut. 
+* Övervakning av förbrukningen av dina ru:er och förhållandet mellan hastighetsbegränsade begäranden kan visa att du inte behöver hålla etablerat under hela konstanten under hela dagen eller veckan. Du kan få mindre trafik på natten eller under helgen. Genom att använda azure-portalen eller Azure Cosmos DB native SDK:er eller REST API kan du skala ditt etablerade dataflöde när som helst. Azure Cosmos DB:s REST API tillhandahåller slutpunkter för att programmässigt uppdatera prestandanivån för dina behållare, vilket gör det enkelt att justera dataflödet från koden beroende på tid på dagen eller veckodagen. Åtgärden utförs utan avbrott och börjar vanligtvis gälla på mindre än en minut. 
 
-* Ett av de områden som du bör skala data flödet i är när du matar in data i Azure Cosmos DB, till exempel under datamigrering. När du har slutfört migreringen kan du skala etablerad data flöde nedåt för att hantera lösningens stabila tillstånd.  
+* Ett av de områden som du bör skala dataflödet är när du intar data i Azure Cosmos DB, till exempel under datamigrering. När du har slutfört migreringen kan du skala etablerat dataflöde nedåt för att hantera lösningens steady state.  
 
-* Kom ihåg att faktureringen är i en timmes kornig het, så du kommer inte att spara pengar om du ändrar ditt etablerade data flöde oftare än en timme i taget.
+* Kom ihåg att faktureringen är på granulariteten på en timme, så du sparar inga pengar om du ändrar ditt etablerade dataflöde oftare än en timme i taget.
 
-## <a name="determine-the-throughput-needed-for-a-new-workload"></a>Bestäm vilket data flöde som behövs för en ny arbets belastning 
+## <a name="determine-the-throughput-needed-for-a-new-workload"></a>Fastställa vilket dataflöde som behövs för en ny arbetsbelastning 
 
-Du kan använda följande steg för att fastställa det etablerade data flödet för en ny arbets belastning: 
+Om du vill ta reda på det etablerade dataflödet för en ny arbetsbelastning kan du använda följande steg: 
 
-1. Genomför en första, grov utvärdering med kapacitets planeraren och justera dina uppskattningar med hjälp av Azure Cosmos Explorer i Azure Portal. 
+1. Utför en första, grov utvärdering med hjälp av kapacitetsplaneraren och justera dina uppskattningar med hjälp av Azure Cosmos Explorer i Azure-portalen. 
 
-2. Vi rekommenderar att du skapar behållarna med högre data flöde än förväntat och sedan skalar ned efter behov. 
+2. Vi rekommenderar att du skapar behållarna med högre dataflöde än förväntat och sedan skalas ned efter behov. 
 
-3. Vi rekommenderar att du använder en av de interna Azure Cosmos DB SDK: er för att dra nytta av automatiska återförsök när begär Anden får en begränsad hastighet. Om du arbetar på en plattform som inte stöds och använder Cosmos DB REST API implementerar du din egen princip för återförsök med hjälp av `x-ms-retry-after-ms`-huvudet. 
+3. Vi rekommenderar att du använder en av de inbyggda Azure Cosmos DB SDK:erna för att dra nytta av automatiska återförsök när begäranden blir begränsad. Om du arbetar på en plattform som inte stöds och använder Cosmos DB:s REST `x-ms-retry-after-ms` API implementerar du din egen princip för återförsök med hjälp av huvudet. 
 
-4. Kontrol lera att program koden har stöd för fallet när alla återförsök inte fungerar. 
+4. Kontrollera att programkoden är smidigt stöd för ärendet när alla försök misslyckas. 
 
-5. Du kan konfigurera aviseringar från Azure Portal för att få meddelanden om hastighets begränsning. Du kan börja med restriktiva gränser som 10 Rate-begränsade begär Anden under de senaste 15 minuterna och växla till fler Eager-regler när du har fastställt den faktiska förbrukningen. Tillfälliga hastighets begränsningar är bra, de visar att du spelar med de gränser som du har angett och precis vad du vill göra. 
+5. Du kan konfigurera aviseringar från Azure-portalen för att få meddelanden för hastighetsbegränsning. Du kan börja med konservativa gränser som 10 rate-begränsad förfrågningar under de senaste 15 minuterna och byta till mer ivriga regler när du räkna ut din faktiska konsumtion. Tillfälliga hastighetsgränser är bra, de visar att du spelar med de gränser du har angett och det är precis vad du vill göra. 
 
-6. Använd övervakning för att förstå ditt trafik mönster så att du kan överväga att dynamiskt justera din data flödes etablering under dagen eller veckan. 
+6. Använd övervakning för att förstå ditt trafikmönster, så att du kan överväga behovet av att dynamiskt justera dataflödet etablering under dagen eller en vecka. 
 
-7. Övervaka ditt etablerade kontra förbrukade data flödes kvot regelbundet för att se till att du inte har allokerat mer än nödvändigt antal behållare och databaser. Att ha ett litet överallokerat data flöde är en lämplig säkerhets kontroll.  
+7. Övervaka ditt etablerade kontra förbrukade dataflödesförhållande regelbundet för att se till att du inte har etablerat mer än önskat antal behållare och databaser. Att ha lite över etablerad genomströmning är en bra säkerhetskontroll.  
 
-### <a name="best-practices-to-optimize-provisioned-throughput"></a>Metod tips för att optimera det etablerade data flödet 
+### <a name="best-practices-to-optimize-provisioned-throughput"></a>Metodtips för att optimera etablerat dataflöde 
 
-Följande steg hjälper dig att göra dina lösningar mycket skalbara och kostnads effektivt när du använder Azure Cosmos DB.  
+Följande steg hjälper dig att göra dina lösningar mycket skalbara och kostnadseffektiva när du använder Azure Cosmos DB.  
 
-1. Om du har betydligt över ett insamlat data flöde i behållare och databaser bör du granska ru: er-etablerade vs-förbrukade ru: er och finjustera arbets belastningarna.  
+1. Om du har betydligt över etablerat dataflöde över behållare och databaser bör du granska ru:er som etablerats jämfört med förbrukade ru:er och finjustera arbetsbelastningarna.  
 
-2. En metod för att uppskatta mängden reserverat data flöde som krävs av ditt program är att registrera begär ande enhet RU-avgift som är kopplad till att köra vanliga åtgärder mot en representativ Azure Cosmos-behållare eller databas som används av ditt program och beräkna sedan antalet åtgärder som du förväntar dig att utföra varje sekund. Se till att du mäter och inkluderar även vanliga frågor och deras användning. Information om hur du uppskattar RU-kostnader för frågor via programmering eller med hjälp av portalen finns i [optimera kostnaden för frågor](online-backup-and-restore.md). 
+2. En metod för att uppskatta mängden reserverat dataflöde som krävs av ditt program är att registrera den RU-avgift för begäranhet som är associerad med att köra typiska åtgärder mot en representativ Azure Cosmos-behållare eller databas som används av ditt program och sedan uppskatta antalet åtgärder som du räknar med att utföra varje sekund. Var noga med att mäta och inkludera typiska frågor och deras användning också. Mer information om hur du beräknar RU-kostnader för frågor programmässigt eller använder [portalen](../synapse-analytics/sql-data-warehouse/backup-and-restore.md)finns Optimera kostnaden för frågor . 
 
-3. Ett annat sätt att få fram åtgärder och deras kostnader i ru: er är genom att aktivera Azure Monitor loggar, vilket ger dig en uppdelning av drift/varaktighet och begär ande avgiften. Azure Cosmos DB tillhandahåller en begär ande avgift för varje åtgärd, så varje åtgärds avgift kan lagras tillbaka från svaret och sedan användas för analys. 
+3. Ett annat sätt att få åtgärder och deras kostnader i RU: er är genom att aktivera Azure Monitor-loggar, vilket ger dig uppdelning av drift / varaktighet och begäran avgift. Azure Cosmos DB tillhandahåller begärandeavgift för varje åtgärd, så att varje åtgärdsavgift kan lagras tillbaka från svaret och sedan användas för analys. 
 
-4. Du kan skala upp och ned det etablerade data flödet elastiskt när du behöver för att tillgodose dina arbets belastnings behov. 
+4. Du kan elastiskt skala upp och ned etablerat dataflöde som du behöver för att tillgodose dina arbetsbelastningsbehov. 
 
-5. Du kan lägga till och ta bort regioner som är kopplade till ditt Azure Cosmos-konto när du behöver och kontrol lera kostnader. 
+5. Du kan lägga till och ta bort regioner som är associerade med ditt Azure Cosmos-konto när du behöver och kontrollera kostnader. 
 
-6. Kontrol lera att du har till och med distribution av data och arbets belastningar över logiska partitioner i dina behållare. Om du har en jämn partitions distribution kan detta medföra högre mängd data flöde än värdet som behövs. Om du upptäcker att du har en skevad fördelning rekommenderar vi att du distribuerar arbets belastningen jämnt över partitionerna eller partitionerar om data. 
+6. Se till att du har jämn distribution av data och arbetsbelastningar över logiska partitioner av dina behållare. Om du har ojämn partitionsfördelning kan detta leda till att det etablerar en högre mängd dataflöde än det värde som behövs. Om du identifierar att du har en skev distribution rekommenderar vi att du distribuerar arbetsbelastningen jämnt över partitionerna eller partitionerar om data. 
 
-7. Om du har många behållare och dessa behållare inte kräver service avtal kan du använda det databasbaserade erbjudandet för de fall där data flödet per container service avtal inte gäller. Du bör identifiera vilken av de Azure Cosmos-behållare som du vill migrera till data flödes erbjudandet på databas nivå och sedan migrera dem med hjälp av en ändra feed-baserad lösning. 
+7. Om du har många behållare och dessa behållare inte kräver SLA, kan du använda det databasbaserade erbjudandet för de fall där sla-systemen per behållaredataflöde inte gäller. Du bör identifiera vilka av Azure Cosmos-behållarna som du vill migrera till dataflödeserbjudandet på databasnivå och sedan migrera dem med hjälp av en ändringsfeedbaserad lösning. 
 
-8. Överväg att använda "Cosmos DB kostnads fri nivå" (kostnads fritt i ett år), prova Cosmos DB (upp till tre regioner) eller nedladdnings bar Cosmos DB emulator för utvecklings-och test scenarier. Genom att använda de här alternativen för test-dev kan du avsevärt sänka kostnaderna.  
+8. Överväg att använda "Cosmos DB Free Tier" (gratis i ett år), Prova Cosmos DB (upp till tre regioner) eller nedladdningsbara Cosmos DB-emulatorn för utvecklings-/testscenarier. Genom att använda dessa alternativ för test-dev, kan du avsevärt sänka dina kostnader.  
 
-9. Du kan ytterligare utföra kostnads optimeringar för arbets belastningen, till exempel öka batch-storlek, belastnings Utjämnings läsningar i flera regioner och avduplicerade data, om tillämpligt.
+9. Du kan utföra arbetsbelastningsspecifika kostnadsoptimeringar ytterligare, till exempel öka batchstorlek, belastningsutjämningsläsningar över flera regioner och de-duplicera data, om tillämpligt.
 
-10. Med Azure Cosmos DB reserverad kapacitet kan du få avsevärda rabatter i upp till 65% i tre år. Azure Cosmos DB reserverad kapacitets modell är ett överliggande åtagande för enheter med begär Anden som behövs över tid. Rabatterna är på nivå av, så att fler enheter för enheter som du använder under en längre period blir mer rabatt. Rabatterna tillämpas omedelbart. Alla ru: er som används ovanför dina etablerade värden debiteras baserat på den icke-reserverade kapacitets kostnaden. Mer information finns i [Cosmos DB reserverad kapacitet](cosmos-db-reserved-capacity.md)). Överväg att köpa reserverad kapacitet för att ytterligare minska dina allokerade data flödes kostnader.  
+10. Med Azure Cosmos DB reserverad kapacitet kan du få betydande rabatter för upp till 65% i tre år. Azure Cosmos DB reserverad kapacitet modell är ett förskott åtagande på begäranden enheter som behövs över tiden. Rabatterna är nivåindelade så att ju fler begäranheter du använder under en längre period, desto mer blir din rabatt. Dessa rabatter tillämpas omedelbart. Alla ru:er som används ovanför dina etablerade värden debiteras baserat på den icke-reserverade kapacitetskostnaden. Se [Cosmos DB reserverad kapacitet](cosmos-db-reserved-capacity.md)) för mer information. Överväg att köpa reserverad kapacitet för att ytterligare sänka dina etablerade dataflödeskostnader.  
 
 ## <a name="next-steps"></a>Nästa steg
 
-Härnäst kan du fortsätta med att lära dig mer om kostnads optimering i Azure Cosmos DB med följande artiklar:
+Därefter kan du fortsätta att lära dig mer om kostnadsoptimering i Azure Cosmos DB med följande artiklar:
 
-* Läs mer om [optimering för utveckling och testning](optimize-dev-test.md)
-* Lär dig mer om [att förstå din Azure Cosmos DB faktura](understand-your-bill.md)
-* Läs mer om hur du [optimerar lagrings kostnader](optimize-cost-storage.md)
-* Läs mer om hur [du optimerar kostnaden för läsningar och skrivningar](optimize-cost-reads-writes.md)
-* Lär dig mer om hur [du optimerar kostnaden för frågor](optimize-cost-queries.md)
-* Läs mer om hur [du optimerar kostnaden för Azure Cosmos-konton med flera regioner](optimize-cost-regions.md)
+* Läs mer om [Optimering för utveckling och testning](optimize-dev-test.md)
+* Läs mer om [att förstå din Azure Cosmos DB-faktura](understand-your-bill.md)
+* Läs mer om [att optimera lagringskostnaden](optimize-cost-storage.md)
+* Läs mer om [att optimera kostnaden för läsningar och skrivningar](optimize-cost-reads-writes.md)
+* Läs mer om [att optimera kostnaden för frågor](optimize-cost-queries.md)
+* Läs mer om [att optimera kostnaden för Azure Cosmos-konton med flera regioner](optimize-cost-regions.md)
 

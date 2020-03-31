@@ -1,6 +1,6 @@
 ---
-title: Översikt över Azure Application Gateway Resource Health
-description: Den här artikeln är en översikt över resource health-funktionen för Azure Application Gateway
+title: Hälsoöversikt över Azure Application Gateway Resource
+description: Den här artikeln är en översikt över resurshälsofunktionen för Azure Application Gateway
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
@@ -8,57 +8,57 @@ ms.topic: article
 ms.date: 7/9/2019
 ms.author: victorh
 ms.openlocfilehash: db29551a8150b70e797d45fe659482470c8aca2a
-ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67659507"
 ---
-# <a name="azure-application-gateway-resource-health-overview"></a>Översikt över Azure Application Gateway Resource Health
+# <a name="azure-application-gateway-resource-health-overview"></a>Hälsoöversikt över Azure Application Gateway Resource
 
-[Azure Resource Health](../service-health/resource-health-overview.md) hjälper dig att diagnostisera och få support när ett Azure-tjänst-problem påverkar dina resurser. Informerar dig om nya och gamla hälsotillståndet för dina resurser. Och du får teknisk support för att hjälpa dig att lösa problem.
+[Azure Resource Health](../service-health/resource-health-overview.md) hjälper dig att diagnostisera och lösa problem med Azure-tjänster som påverkar dina resurser. Det informerar dig om den nuvarande och tidigare hälsa dina resurser. Och det ger teknisk support som hjälper dig att minska problem.
 
-För Application Gateway förlitar sig Resource Health på signaler som genereras av gateway för att utvärdera om den är felfri eller inte. Om gatewayen är i feltillstånd, analyserar Resource Health ytterligare information för att fastställa orsaken till problemet. Den identifierar också åtgärder som Microsoft tar eller vad du kan göra för att åtgärda problemet.
+För Application Gateway är Resource Health beroende av signaler som skickas av gatewayen för att bedöma om det är felfritt eller inte. Om gatewayen är felfritt analyserar Resource Health ytterligare information för att fastställa orsaken till problemet. Den identifierar också åtgärder som Microsoft vidtar eller vad du kan göra för att åtgärda problemet.
 
-För ytterligare information om hur hälsotillstånd bedöms, Läs den fullständiga listan över resurstyper och hälsokontroller i [Azure Resource Health](../service-health/resource-health-checks-resource-types.md#microsoftnetworkapplicationgateways).
+Mer information om hur hälsotillstånd bedöms finns i den fullständiga listan över resurstyper och hälsokontroller i [Azure Resource Health](../service-health/resource-health-checks-resource-types.md#microsoftnetworkapplicationgateways).
 
 
-Hälsostatus för Application Gateway visas som en av följande statusar:
+Hälsostatusen för Application Gateway visas som en av följande status:
 
 ## <a name="available"></a>Tillgängligt
 
-En **tillgänglig** status innebär att tjänsten inte har identifierats eventuella händelser som påverkar hälsotillståndet för resursen. Du ser den **nyligen löst** meddelande i fall där gatewayen har återställts från oplanerade driftstopp under de senaste 24 timmarna.
+En **tillgänglig** status innebär att tjänsten inte har upptäckt några händelser som påverkar resursens hälsotillstånd. Du ser nyligen **löst** meddelande i fall där gatewayen har återställts från oplanerade driftstopp under de senaste 24 timmarna.
 
-![Tillgängliga hälsostatus](media/resource-health-overview/available-full.png)
+![Tillgänglig hälsostatus](media/resource-health-overview/available-full.png)
 
-## <a name="unavailable"></a>Ej tillgänglig
+## <a name="unavailable"></a>Inte tillgänglig
 
-En **ej tillgänglig** status innebär att tjänsten har identifierat en pågående eller icke-plattformen händelse som påverkar hälsotillståndet för gatewayen.
+En **status som inte är tillgänglig** innebär att tjänsten har upptäckt en pågående plattform eller icke-plattformshändelse som påverkar gatewayens hälsa.
 
-### <a name="platform-events"></a>Plattformshändelser
+### <a name="platform-events"></a>Plattformsevenemang
 
-Plattformshändelser har utlösts av flera komponenter i Azure-infrastrukturen. De omfattar både schemalagda åtgärder (till exempel planerat underhåll) och oväntade händelser (till exempel en omstart för oplanerad värden).
+Plattformshändelser utlöses av flera komponenter i Azure-infrastrukturen. De omfattar både schemalagda åtgärder (till exempel planerat underhåll) och oväntade incidenter (till exempel en oplanerad värdomstart).
 
-Resource Health finns ytterligare information om händelsen och återställningsprocessen. Du kan också kontakta support även om du inte har en aktiv Microsoft supportavtal.
+Resource Health innehåller ytterligare information om händelsen och återställningsprocessen. Du kan också kontakta supporten även om du inte har ett aktivt Microsoft-supportavtal.
 
-![Status otillgänglig](media/resource-health-overview/unavailable.png)
+![Status som inte är tillgänglig](media/resource-health-overview/unavailable.png)
 
 ## <a name="unknown"></a>Okänt
 
-Den **okänd** hälsostatus anger Resource Health har inte mottagit information om gatewayen för mer än 10 minuter. Denna status är inte en slutgiltig indikation på tillståndet för gatewayen. Men det är en viktig datapunkt i felsökningen.
+Den **okända** hälsostatusen anger att Resource Health inte har fått information om gatewayen på mer än 10 minuter. Den här statusen är inte en definitiv indikation på gatewayens tillstånd. Men det är en viktig datapunkt i felsökningsprocessen.
 
-Om gatewayen körs som förväntat, status ändras till **tillgänglig** efter ett par minuter.
+Om gatewayen körs som förväntat ändras statusen till **Tillgänglig** efter några minuter.
 
-Om du har problem, de **okänd** hälsostatus kan det vara att en händelse i plattformen påverkar gatewayen.
+Om du har problem kan **okänd** hälsostatus tyna på att en händelse på plattformen påverkar gatewayen.
 
 ![Okänd status](media/resource-health-overview/unknown.png)
 
 ## <a name="degraded"></a>Degraderad
 
-Den **degraderad** hälsostatus anger din gateway har upptäckt en förlust i prestanda, även om det är fortfarande tillgängliga för användning.
+**Hälsotillståndet Försämrad** anger att gatewayen har upptäckt en prestandaförlust, även om den fortfarande är tillgänglig för användning.
 
-![Degrated status](media/resource-health-overview/degraded.png)
+![Inaktiverad status](media/resource-health-overview/degraded.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-Läs om hur du felsöker Application Gateway Web Application Firewall (WAF) i [felsöka Web Application Firewall (WAF) för Azure Application Gateway](web-application-firewall-troubleshoot.md).
+Mer information om felsökning av brandvägg för webbprogram för programgateway (WAF) finns i [Felsöka brandvägg för webbprogram (WAF) för Azure Application Gateway](web-application-firewall-troubleshoot.md).

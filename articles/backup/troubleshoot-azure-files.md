@@ -4,10 +4,10 @@ description: Den här artikeln kan användas som felsökningsinformation om det 
 ms.date: 08/20/2019
 ms.topic: troubleshooting
 ms.openlocfilehash: 050df5b96c265e468346535ff011e1baf7d86ad5
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79252394"
 ---
 # <a name="troubleshoot-problems-backing-up-azure-file-shares"></a>Felsöka problem med att säkerhetskopiera Azure-filresurser
@@ -21,26 +21,26 @@ Säkerhetskopiering för Azure-filresurser finns i förhandsversion. Azure-filre
 - Det finns ingen tillgänglig CLI som skyddar Azure Files med hjälp av Azure Backup.
 - Det maximala antalet schemalagda säkerhetskopieringar per dag är en.
 - Det maximala antalet säkerhetskopieringar på begäran per dag är fyra.
-- Förhindra att säkerhetskopior i Recovery Services-valvet oavsiktligt tas bort genom att använda [resurslås](https://docs.microsoft.com/cli/azure/resource/lock?view=azure-cli-latest) på lagringskontot.
+- Använd [resurslås](https://docs.microsoft.com/cli/azure/resource/lock?view=azure-cli-latest) på lagringskontot för att förhindra oavsiktlig borttagning av säkerhetskopior i ditt Recovery Services-valv.
 - Ta inte bort ögonblicksbilder som skapats av Azure Backup. Om du tar bort ögonblicksbilder kan du förlora återställningspunkter och/eller drabbas av återställningsfel.
 - Ta inte bort filresurser som skyddas av Azure Backup. Den aktuella lösningen tar bort alla ögonblicksbilder som har tagits av Azure Backup när filresursen har tagits bort och förlorar därför alla återställningspunkter
 
 Säkerhetskopiering av Azure-filresurser i lagringskonton med replikering med [zonredundant lagring](../storage/common/storage-redundancy-zrs.md) (ZRS) är för närvarande endast tillgängligt i USA, centrala (CUS), USA, östra (EUS), USA, östra 2 (EUS2), Europa, norra (NE), Sydostasien (SEA), Europa, västra (WE) och USA, västra 2 (WUS2).
 
-## <a name="configuring-backup"></a>Konfigurerar säkerhets kopiering
+## <a name="configuring-backup"></a>Konfigurera säkerhetskopiering
 
 Följande tabell används för att konfigurera säkerhetskopieringen:
 
 | Felmeddelanden | Lösningstips |
 | ------------------ | ----------------------------- |
-| Jag kunde inte hitta mitt lagringskonto när jag skulle konfigurera säkerhetskopiering för en Azure-filresurs | <ul><li>Vänta tills identifieringen har slutförts. <li>Kontrollera om någon filresurs i lagringskontot redan skyddas med ett annat Recovery Services-valv. **Obs!** Alla filresurser i ett lagringskonto kan endast skyddas med ett Recovery Services-valv. <li>Kontrollera att filresursen inte finns i något av de lagringskonton som inte stöds.<li> Kontrol lera att kryss rutan **Tillåt att betrodda Microsoft-tjänster har åtkomst till det här lagrings kontot** är markerad i lagrings kontot. [Läs mer.](../storage/common/storage-network-security.md)|
+| Jag kunde inte hitta mitt lagringskonto när jag skulle konfigurera säkerhetskopiering för en Azure-filresurs | <ul><li>Vänta tills identifieringen har slutförts. <li>Kontrollera om någon filresurs i lagringskontot redan skyddas med ett annat Recovery Services-valv. **Obs!** Alla filresurser i ett lagringskonto kan endast skyddas med ett Recovery Services-valv. <li>Kontrollera att filresursen inte finns i något av de lagringskonton som inte stöds.<li> Kontrollera att kryssrutan **Tillåt betrodda Microsoft-tjänster för åtkomst till det här lagringskontot** är markerad i lagringskontot. [Läs mer.](../storage/common/storage-network-security.md)|
 | Fel i Portal anger att identifieringen av lagringskonton misslyckades. | Om din prenumeration är CSP-aktiverad (partner) kan du ignorera felet. Kontakta support om prenumerationen inte är CSP-aktiverad och dina lagringskonton inte kan identifieras.|
 | Vald lagringskontoverifiering eller registrering misslyckades.| Försök utföra åtgärden på nytt. Kontakta support om problemet kvarstår.|
 | Det gick inte att visa eller hitta filresurserna i det valda lagringskontot. | <ul><li> Kontrollera att lagringskontot finns i resursgruppen (och inte har tagits bort eller flyttats efter den senaste verifieringen/registreringen i valvet).<li>Kontrollera att filresursen du vill skydda inte har tagits bort. <li>Kontrollera att ditt lagringskonto är ett lagringskonto som stöder säkerhetskopiering av filresurser.<li>Kontrollera om filresursen redan skyddas i samma Recovery Services-valv.|
 | Det går inte att konfigurera säkerhetskopiering av filresursen (eller konfigurera skyddsprincipen). | <ul><li>Försök igen och se om problemet kvarstår. <li> Kontrollera att filresursen du vill skydda inte har tagits bort. <li> Om du skyddar flera filresurser samtidigt och säkerhetskopieringen av vissa av filresurserna misslyckas, kan du prova igen att konfigurera säkerhetskopieringen för de filresurser som misslyckas. |
-| Det går inte att ta bort Recovery Services-valvet efter att skyddet för en filresurs har tagits bort. | I Azure Portal öppnar du ditt valv > **Infrastruktur för säkerhetskopiering** > **Lagringskonton** och klickar på **Avregistrera** för att ta bort lagringskontot från Recovery Services-valvet.|
+| Det går inte att ta bort Recovery Services-valvet efter att skyddet för en filresurs har tagits bort. | Öppna dina Arkiv-konton >**Lagringsinfrastruktur för** **säkerhetskopieringsinfrastruktur** > i Azure-portalen och klicka på **Avregistrera** för att ta bort lagringskontot från Recovery Services-valvet.|
 
-## <a name="error-messages-for-backup-or-restore-job-failures"></a>Fel meddelanden för säkerhets kopiering eller återställning av jobb fel
+## <a name="error-messages-for-backup-or-restore-job-failures"></a>Felmeddelanden för säkerhetskopiering eller återställning av jobbfel
 
 | Felmeddelanden | Lösningstips |
 | -------------- | ----------------------------- |

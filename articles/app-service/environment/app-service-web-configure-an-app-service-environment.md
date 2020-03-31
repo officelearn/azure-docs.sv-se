@@ -1,6 +1,6 @@
 ---
 title: Konfigurera ASE v1
-description: Konfiguration, hantering och övervakning av App Service-miljön v1. Detta dokument tillhandahålls endast för kunder som använder den äldre v1-ASE.
+description: Konfiguration, hantering och övervakning av App Service Environment v1. Det här dokumentet tillhandahålls endast för kunder som använder den äldre v1 ASE.
 author: ccompy
 ms.assetid: b5a1da49-4cab-460d-b5d2-edd086ec32f4
 ms.topic: article
@@ -8,184 +8,184 @@ ms.date: 07/11/2017
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: b37708e27887b20604a1fe921f14e51387793737
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/02/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74687263"
 ---
-# <a name="configuring-an-app-service-environment-v1"></a>Konfigurera en App Service-miljön v1
+# <a name="configuring-an-app-service-environment-v1"></a>Konfigurera en apptjänstmiljö v1
 
 > [!NOTE]
-> Den här artikeln gäller App Service-miljön v1.  Det finns en nyare version av App Service-miljön som är enklare att använda och som körs på en kraftfullare infrastruktur. Om du vill veta mer om den nya versionen börjar [du med introduktionen till App Service-miljön](intro.md).
+> Den här artikeln handlar om App Service Environment v1.  Det finns en nyare version av App Service Environment som är enklare att använda och körs på mer kraftfull infrastruktur. Om du vill veta mer om den nya versionen börjar med [introduktionen till App Service Environment](intro.md).
 > 
 
 ## <a name="overview"></a>Översikt
-På en hög nivå består en Azure App Service-miljön av flera huvud komponenter:
+På en hög nivå består en Azure App Service-miljö av flera huvudkomponenter:
 
-* Beräknings resurser som körs i den App Service-miljön värdbaserade tjänsten
+* Beräkna resurser som körs i tjänsten Värd för App Service-miljö
 * Lagring
 * En databas
-* En klassisk (v1) eller Resource Manager (v2) Azure-Virtual Network (VNet) 
-* Ett undernät med den App Service-miljön värdbaserade tjänsten som körs i det
+* Ett klassiskt(V1) eller Resurshanteraren(V2) Virtuellt nätverk (VNet) 
+* Ett undernät med apptjänstmiljön som finns värd för den som körs i det
 
-### <a name="compute-resources"></a>Beräknings resurser
-Du använder beräknings resurserna för dina fyra resurspooler.  Varje App Service-miljön (ASE) har en uppsättning klient delar och tre möjliga pooler för arbets grupper. Du behöver inte använda alla tre Worker-poolerna, om du vill kan du bara använda en eller två.
+### <a name="compute-resources"></a>Beräkna resurser
+Du använder beräkningsresurserna för dina fyra resurspooler.  Varje App Service Environment (ASE) har en uppsättning främre ändar och tre möjliga arbetspooler. Du behöver inte använda alla tre arbetspooler - om du vill kan du bara använda en eller två.
 
-Värdarna i resurspooler (klient delar och arbetare) är inte direkt tillgängliga för klienter. Du kan inte använda Remote Desktop Protocol (RDP) för att ansluta till dem, ändra deras etablering eller agera som administratör på dem.
+Värdarna i resurspoolerna (klientdelar och arbetare) är inte direkt tillgängliga för klienter. Du kan inte använda RDP (Remote Desktop Protocol) för att ansluta till dem, ändra deras etablering eller fungera som administratör för dem.
 
-Du kan ange antal och storlek för resurspoolen. I en ASE har du fyra storleks alternativ som heter P1 till P4. Mer information om de storlekar och deras priser finns i [App Service prissättning](https://azure.microsoft.com/pricing/details/app-service/).
-Ändring av kvantitet eller storlek kallas för en skalnings åtgärd.  Endast en skalnings åtgärd kan pågå åt gången.
+Du kan ange resurspoolens kvantitet och storlek. I en ASE har du fyra storleksalternativ, som är märkta P1 till P4. Mer information om dessa storlekar och priser finns i [Priser för App Service](https://azure.microsoft.com/pricing/details/app-service/).
+Att ändra kvantitet eller storlek kallas en skalningsåtgärd.  Endast en skalningsåtgärd kan vara pågående åt gången.
 
-**Klient**delar: klient delens slut punkter är http/https-slutpunkterna för dina appar som lagras i din ASE. Du kör inte arbets belastningar på klient delen.
+**Klientdelar:** Frontändarna är HTTP/HTTPS-slutpunkterna för dina appar som finns i DIN ASE. Du kör inte arbetsbelastningar i frontändarna.
 
-* En ASE börjar med två P2s, vilket är tillräckligt för arbets belastningar för utveckling/testning och produktions arbets belastningar på låg nivå. Vi rekommenderar starkt P3s för måttlig till tung produktions arbets belastningar.
-* För måttliga till tunga produktions arbets belastningar rekommenderar vi att du har minst fyra P3s för att se till att det finns tillräckligt med klient ändar när det schemalagda underhållet sker. Schemalagda underhålls aktiviteter kommer att ta en klient del åt gången. Detta minskar den övergripande tillgängliga klient delens kapacitet under underhålls aktiviteter.
-* Klient delar kan ta upp till en timme att etablera. 
-* För att finjustera fin justeringen bör du övervaka processor procent, minnes procent och aktiva begär ande mått för frontend-poolen. Om processor-eller minnes procenten är över 70 procent när du kör P3s, lägger du till fler klient delar. Om värdet för aktiva begär Anden löper ut till 15 000 och 20 000 begär Anden per klient del bör du även lägga till fler klient delar. Det övergripande målet är att hålla processor-och minnes procenten under 70% och aktiva begär Anden som är i genomsnitt upp till under 15 000 begär Anden per klient del när du kör P3s.  
+* En ASE börjar med två P2:er, vilket är tillräckligt för utvecklings-/testarbetsbelastningar och produktionsarbetsbelastningar på låg nivå. Vi rekommenderar starkt P3s för måttliga till tunga produktionsarbetsbelastningar.
+* För måttliga till tunga produktionsarbetsbelastningar rekommenderar vi att du har minst fyra P3:er för att säkerställa att det finns tillräckligt med frontändar som körs när schemalagt underhåll inträffar. Schemalagda underhållsaktiviteter kommer att få ner en front i taget. Detta minskar den totala tillgängliga frontend-kapaciteten under underhållsaktiviteter.
+* Frontändarna kan ta upp till en timme att etablera. 
+* För ytterligare skalnings finjustering bör du övervaka måtten CPU-procent, Minnesprocent och Aktiva begäranden för frontend-poolen. Om processor- eller minnesprocenten är över 70 procent när P3-enheter körs lägger du till fler klientdelar. Om värdet för aktiva begäranden i genomsnitt ut till 15 000 till 20 000 begäranden per klientdel bör du också lägga till fler klientdelar. Det övergripande målet är att hålla CPU och minne procentsatser under 70%, och aktiva begäranden genomsnitt ut till under 15.000 förfrågningar per front end när du kör P3s.  
 
-**Arbetare**: arbetarna är de appar som faktiskt körs. När du skalar upp dina App Service-planer, används arbets tagarna i den associerade arbets gruppen.
+**Arbetare**: Arbetarna är där dina appar faktiskt körs. När du skalar upp apptjänstplanerna använder du upp arbetare i den associerade arbetarpoolen.
 
-* Du kan inte lägga till arbetare direkt. Det kan ta upp till en timme att etablera.
-* Att skala storleken på en beräknings resurs för en pool tar < 1 timme per uppdaterings domän. Det finns 20 uppdaterings domäner i en ASE. Om du skalade beräknings storleken för en arbets grupp med 10 instanser kan det ta upp till 10 timmar att slutföra.
-* Om du ändrar storleken på de beräknings resurser som används i en arbets grupp kommer du att orsaka att appar som körs i den aktuella arbets gruppen startas.
+* Du kan inte omedelbart lägga till arbetare. Det kan ta upp till en timme att etablera sig.
+* Skala storleken på en beräkningsresurs för en pool tar < 1 timme per uppdateringsdomän. Det finns 20 uppdateringsdomäner i en ASE. Om du skalade beräkningsstorleken för en arbetarpool med 10 instanser kan det ta upp till 10 timmar att slutföra.
+* Om du ändrar storleken på de beräkningsresurser som används i en arbetspool kommer du att orsaka kalla starter av de appar som körs i den arbetarpoolen.
 
-Det snabbaste sättet att ändra beräknings resurs storleken för en arbets grupp som inte kör några appar är att:
+Det snabbaste sättet att ändra beräkningsresursstorleken för en arbetspool som inte kör några appar är att:
 
-* Skala ned antalet arbetare till 2.  Minimi storleken på nedskalning i portalen är 2. Det tar några minuter att frigöra dina instanser. 
-* Välj den nya beräknings storleken och antalet instanser. Härifrån tar det upp till 2 timmar att slutföra.
+* Skala ner antalet arbetare till 2.  Den minsta nedskalningsstorleken i portalen är 2. Det tar några minuter att dela upp dina instanser. 
+* Välj den nya beräkningsstorleken och antalet instanser. Härifrån tar det upp till 2 timmar att slutföra.
 
-Om dina appar kräver en större beräknings resurs storlek kan du inte utnyttja den tidigare vägledningen. I stället för att ändra storleken på den arbets grupp som är värd för dessa appar kan du fylla i en annan arbets grupp med arbetare med önskad storlek och flytta dina appar till poolen.
+Om dina appar kräver en större beräkningsresursstorlek kan du inte dra nytta av den tidigare vägledningen. I stället för att ändra storleken på arbetspoolen som är värd för dessa appar kan du fylla en annan arbetspool med arbetare av önskad storlek och flytta dina appar över till poolen.
 
-* Skapa ytterligare instanser av den nödvändiga beräknings storleken i en annan arbets grupp. Det tar upp till en timme att slutföra.
-* Omtilldela dina App Service planer som är värdar för de appar som behöver en större storlek på den nykonfigurerade arbets gruppen. Det här är en snabb åtgärd som tar mindre än en minut att slutföra.  
-* Skala ned den första Worker-poolen om du inte behöver de oanvända instanserna längre. Det tar några minuter att slutföra den här åtgärden.
+* Skapa ytterligare instanser av den beräkningsstorlek som behövs i en annan arbetspool. Detta tar upp till en timme att slutföra.
+* Tilldela om apptjänstplanerna som är värdar för de appar som behöver en större storlek till den nyligen konfigurerade arbetspoolen. Detta är en snabb operation som bör ta mindre än en minut att slutföra.  
+* Skala ned den första arbetarpoolen om du inte längre behöver de oanvända instanserna. Den här åtgärden tar några minuter att slutföra.
 
-Automatisk **skalning**: ett av de verktyg som kan hjälpa dig att hantera förbrukningen av beräknings resurser är automatisk skalning. Du kan använda autoskalning för klient delen eller arbets grupper. Du kan t. ex. öka dina instanser av valfri typ av pool på morgon och minska den på kvällen. Eller så kanske du kan lägga till instanser när antalet arbetare som är tillgängliga i en arbets pool sjunker under ett visst tröskelvärde.
+**Automatisk skalning:** Ett av de verktyg som kan hjälpa dig att hantera förbrukningen av beräkningsresurser är automatisk skalning. Du kan använda automatisk skalning för frontend- eller arbetspooler. Du kan göra saker som att öka dina instanser av någon pooltyp på morgonen och minska den på kvällen. Eller kanske du kan lägga till instanser när antalet arbetare som är tillgängliga i en arbetspool sjunker under ett visst tröskelvärde.
 
-Om du vill ange regler för autoskalning runt mått för Compute-resurspoolen ska du tänka på hur lång tid etableringen kräver. Mer information om autoskalning App Service miljöer finns i [så här konfigurerar du automatisk skalning i en app service-miljön][ASEAutoscale].
+Om du vill ange regler för automatisk skalning runt beräkningsresurspoolmått bör du tänka på den tid som etableringen kräver. Mer information om automatisk skalning av apptjänstmiljöer finns i [Konfigurera automatisk skalning i en apptjänstmiljö][ASEAutoscale].
 
 ### <a name="storage"></a>Lagring
-Varje ASE konfigureras med 500 GB lagrings utrymme. Det här utrymmet används i alla appar i ASE. Det här lagrings utrymmet ingår i ASE och kan för närvarande inte växlas till att använda lagrings utrymmet. Om du gör justeringar av routning eller säkerhet för virtuellt nätverk måste du ändå tillåta åtkomst till Azure Storage-eller att ASE inte fungerar.
+Varje ASE är konfigurerad med 500 GB lagringsutrymme. Det här utrymmet används i alla appar i ASE. Det här lagringsutrymmet är en del av ASE och kan för närvarande inte växlas för att använda lagringsutrymmet. Om du gör justeringar i din virtuella nätverksroutning eller säkerhet måste du fortfarande tillåta åtkomst till Azure Storage – eller så kan inte ASE fungera.
 
 ### <a name="database"></a>Databas
-Databasen innehåller den information som definierar miljön, samt information om de appar som körs i den. Detta är också en del av Azure-prenumerationen. Det är inte något som du har direkt möjlighet att manipulera. Om du gör justeringar av routning eller säkerhet för virtuellt nätverk måste du ändå tillåta åtkomst till SQL Azure-eller att ASE inte fungerar.
+Databasen innehåller den information som definierar miljön, samt information om de appar som körs i den. Även detta är en del av den Azure-ägda prenumerationen. Det är inte något som du har en direkt förmåga att manipulera. Om du gör justeringar i din virtuella nätverksroutning eller säkerhet måste du fortfarande tillåta åtkomst till SQL Azure – eller så kan inte ASE fungera.
 
 ### <a name="network"></a>Nätverk
-Det virtuella nätverket som används med din ASE kan vara ett som du gjorde när du skapade ASE eller en som du gjorde i förväg. När du skapar under nätet när ASE skapas tvingar det ASE att finnas i samma resurs grupp som det virtuella nätverket. Om du behöver den resurs grupp som används av din ASE för att vara en annan än den för ditt VNet måste du skapa din ASE med hjälp av en Resource Manager-mall.
+Det virtuella nätverket som används med din ASE kan vara ett som du gjorde när du skapade ASE eller ett som du gjorde i förväg. När du skapar undernätet när ASE skapas, tvingar det ASE att vara i samma resursgrupp som det virtuella nätverket. Om du behöver resursgruppen som används av ASE för att vara annorlunda än ditt virtuella nätverk måste du skapa din ASE med hjälp av en resurshanterares mall.
 
-Det finns vissa begränsningar för det virtuella nätverk som används för en ASE:
+Det finns vissa begränsningar för det virtuella nätverket som används för en ASE:
 
 * Det virtuella nätverket måste vara ett regionalt virtuellt nätverk.
 * Det måste finnas ett undernät med 8 eller fler adresser där ASE distribueras.
-* När ett undernät används för att vara värd för en ASE kan inte adress intervallet för under nätet ändras. Därför rekommenderar vi att under nätet innehåller minst 64 adresser för att kunna hantera framtida ASE tillväxt.
-* Det kan finnas någonting annat i under nätet, men ASE.
+* När ett undernät har använts för att vara värd för ett ASE kan inte undernätets adressintervall ändras. Därför rekommenderar vi att undernätet innehåller minst 64 adresser för att rymma eventuell framtida ASE-tillväxt.
+* Det kan inte finnas något annat i undernätet än ASE.
 
-Till skillnad från den värdbaserade tjänsten som innehåller ASE, finns det [virtuella nätverket][virtualnetwork] och under nätet under användar kontroll.  Du kan administrera ditt virtuella nätverk via Virtual Network gränssnittet eller PowerShell.  En ASE kan distribueras i ett klassiskt eller Resource Manager VNet.  Portal-och API-upplevelsen skiljer sig något från de klassiska och Resource Manager-virtuella nätverk, men ASE-upplevelsen är densamma.
+Till skillnad från den värdbaserade tjänsten som innehåller ASE är det [virtuella nätverket][virtualnetwork] och undernätet under användarkontroll.  Du kan administrera ditt virtuella nätverk via användargränssnittet för virtuellt nätverk eller PowerShell.  En ASE kan distribueras i ett virtuella nätverk för klass- eller resurshanteraren.  Portal- och API-upplevelserna skiljer sig något mellan virtuella nätverk för Klassiska och Resource Manager, men ASE-upplevelsen är densamma.
 
-Det VNet som används som värd för en ASE kan använda antingen privata RFC1918-IP-adresser eller så kan den använda offentliga IP-adresser.  Om du vill använda ett IP-intervall som inte täcks av RFC1918 (10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16) måste du skapa ditt VNet och undernät som ska användas av din ASE före skapande av ASE.
+Det virtuella nätverk som används för att vara värd för ett ASE kan använda antingen privata RFC1918 IP-adresser eller använda offentliga IP-adresser.  Om du vill använda ett IP-intervall som inte omfattas av RFC1918 (10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16) måste du skapa ditt virtuella nätverk och undernät som ska användas av din ASE innan ASE skapas.
 
-Eftersom den här funktionen placerar Azure App Service i det virtuella nätverket, innebär det att dina appar som finns i din ASE nu kan komma åt resurser som är tillgängliga via ExpressRoute eller virtuella privata nätverk (VPN) från plats till plats direkt. De appar som finns inom App Service-miljön behöver inte fler nätverksfunktioner för att få åtkomst till resurser som är tillgängliga för det virtuella nätverk som är värd för din App Service-miljön. Det innebär att du inte behöver använda VNET-integration eller Hybridanslutningar för att komma åt resurser i eller anslutna till det virtuella nätverket. Du kan fortfarande använda båda dessa funktioner för att få åtkomst till resurser i nätverk som inte är anslutna till ditt virtuella nätverk.
+Eftersom den här funktionen placerar Azure App Service i ditt virtuella nätverk, betyder det att dina appar som finns i din ASE nu kan komma åt resurser som görs tillgängliga via ExpressRoute eller plats-till-plats virtuella privata nätverk (VPN) direkt. Apparna som finns i apptjänstmiljön kräver inte ytterligare nätverksfunktioner för att komma åt resurser som är tillgängliga för det virtuella nätverket som är värd för din App Service-miljö. Det innebär att du inte behöver använda VNET-integrering eller hybridanslutningar för att komma åt resurser i eller ansluten till det virtuella nätverket. Du kan fortfarande använda båda dessa funktioner men för att komma åt resurser i nätverk som inte är anslutna till ditt virtuella nätverk.
 
-Du kan till exempel använda VNET-integration för att integrera med ett virtuellt nätverk som finns i din prenumeration, men inte är anslutet till det virtuella nätverk som din ASE finns i. Du kan fortfarande använda Hybridanslutningar för att få åtkomst till resurser i andra nätverk, precis som du vanligt vis kan.  
+Du kan till exempel använda VNET-integrering för att integrera med ett virtuellt nätverk som finns i din prenumeration men som inte är anslutet till det virtuella nätverk som DIN ASE finns i. Du kan fortfarande också använda hybridanslutningar för att komma åt resurser som finns i andra nätverk, precis som vanligt.  
 
-Om du har konfigurerat det virtuella nätverket med en ExpressRoute VPN bör du vara medveten om några av de olika Dirigerings behoven som en ASE har. Det finns vissa UDR-konfigurationer (User Defined Route) som är inkompatibla med en ASE. Mer information om hur du kör en ASE i ett virtuellt nätverk med ExpressRoute finns i [köra ett App Service-miljön i ett virtuellt nätverk med ExpressRoute][ExpressRoute].
+Om du har konfigurerat ditt virtuella nätverk med en ExpressRoute VPN bör du vara medveten om några av de routningsbehov som en ASE har. Det finns några användardefinierade vägkonfigurationer (UDR) som är inkompatibla med en ASE. Mer information om hur du kör en ASE i ett virtuellt nätverk med ExpressRoute finns [i Köra en apptjänstmiljö i ett virtuellt nätverk med ExpressRoute][ExpressRoute].
 
-#### <a name="securing-inbound-traffic"></a>Skydda inkommande trafik
-Det finns två primära metoder för att styra inkommande trafik till din ASE.  Du kan använda nätverks säkerhets grupper (NSG: er) för att kontrol lera vilka IP-adresser som har åtkomst till din ASE enligt beskrivningen här [så här kontrollerar du inkommande trafik i en app service-miljön](app-service-app-service-environment-control-inbound-traffic.md) och du kan också konfigurera din ASE med en intern load BALANCER (ILB).  Dessa funktioner kan också användas tillsammans om du vill begränsa åtkomsten med NSG: er till din ILB-ASE.
+#### <a name="securing-inbound-traffic"></a>Säkra inkommande trafik
+Det finns två primära metoder för att styra inkommande trafik till din ASE.  Du kan använda Nätverkssäkerhetsgrupper (NSG) för att styra vilka IP-adresser som kan komma åt din ASE enligt beskrivningen här Så här styr du [inkommande trafik i en App Service-miljö](app-service-app-service-environment-control-inbound-traffic.md) och du kan också konfigurera din ASE med en intern belastningsutjämnare (ILB).  Dessa funktioner kan också användas tillsammans om du vill begränsa åtkomsten med NSG till din ILB ASE.
 
-När du skapar en ASE skapas en VIP i ditt VNet.  Det finns två VIP-typer, externa och interna.  När du skapar en ASE med en extern VIP kommer dina appar i din ASE att vara tillgängliga via en IP-adress med Internet. När du väljer intern kommer ASE att konfigureras med en ILB och kommer inte att vara tillgänglig direkt från Internet.  En ILB-ASE kräver fortfarande en extern VIP men den används endast för Azure-hantering och underhålls åtkomst.  
+När du skapar en ASE skapas en VIP i ditt virtuella nätverk.  Det finns två VIP-typer, externa och interna.  När du skapar en ASE med en extern VIP kommer dina appar i din ASE att vara tillgängliga via en internetdigerbar IP-adress. När du väljer Intern kommer din ASE att konfigureras med en ILB och kommer inte att vara direkt tillgänglig för internet.  En ILB ASE kräver fortfarande en extern VIP men den används bara för Azure-hantering och underhållsåtkomst.  
 
-Under ILB ASE skapar du den under domän som används av ILB-ASE och måste hantera din egen DNS för den under domän som du anger.  Eftersom du anger namnet på under domänen måste du också hantera certifikatet som används för HTTPS-åtkomst.  När ASE har skapats uppmanas du att ange certifikatet.  Mer information om hur du skapar och använder en ILB-ASE finns i [använda ett internt Load Balancer med ett App Service-miljön][ILBASE]. 
+Under ILB ASE skapas du ange underdomän som används av ILB ASE och måste hantera din egen DNS för underdomänen du anger.  Eftersom du anger underdomännamnet måste du också hantera certifikatet som används för HTTPS-åtkomst.  När ASE har skapats uppmanas du att ange certifikatet.  Mer information om hur du skapar och använder en ILB ASE [läser använda en intern belastningsutjämnare med en App Service Environment][ILBASE]. 
 
 ## <a name="portal"></a>Portalen
-Du kan hantera och övervaka dina App Service-miljön med hjälp av användar gränssnittet i Azure Portal. Om du har en ASE kan du förmodligen se App Service symbolen på din marginal List. Den här symbolen används för att representera App Service miljöer i Azure Portal:
+Du kan hantera och övervaka din App Service-miljö med hjälp av användargränssnittet i Azure-portalen. Om du har en ASE kommer det troligen att visas symbolen för App Service i sidofältet. Den här symbolen används för att representera App Service-miljöer i Azure-portalen:
 
-![App Service-miljön symbol][1]
+![Symbol för App Service-miljö][1]
 
-Om du vill öppna användar gränssnittet som visar alla dina App Service-miljöer kan du använda ikonen eller genom att välja ikonen för» (">") längst ned på sid panelen för att välja App Service miljöer. Genom att välja ett av de ASE som visas i listan öppnar du det användar gränssnitt som används för att övervaka och hantera det.
+Om du vill öppna användargränssnittet som visar alla apptjänstmiljöer kan du använda ikonen eller välja symbolen Chevron (">") längst ned i sidofältet för att välja App servicemiljöer. Genom att välja ett av de ASE-listade öppnar du användargränssnittet som används för att övervaka och hantera det.
 
-![Användar gränssnitt för övervakning och hantering av dina App Service-miljön][2]
+![Användargränssnitt för övervakning och hantering av din App Service-miljö][2]
 
-Det första bladet visar vissa egenskaper för din ASE, tillsammans med ett mått diagram per resurspool. Några av egenskaperna som visas i **Essentials** -blocket är också hyperlänkar som öppnar det blad som är associerat med det. Du kan till exempel välja **Virtual Network** namn för att öppna det användar gränssnitt som är associerat med det virtuella nätverk som din ASE körs i. **App Service planer** och **appar** varje öppna blad som visar de objekt som finns i din ASE.  
+Det här första bladet visar vissa egenskaper för DIN ASE, tillsammans med ett måttdiagram per resurspool. Några av de egenskaper som visas i **Essentials-blocket** är också hyperlänkar som öppnar bladet som är associerat med det. Du kan till exempel välja namnet på **det virtuella nätverket** för att öppna användargränssnittet som är associerat med det virtuella nätverk som ASE körs i. **App Service planer** och **apps** varje öppna blad som listar dessa objekt som finns i din ASE.  
 
 ### <a name="monitoring"></a>Övervakning
-Med diagrammen kan du se olika prestanda mått i varje resurspool. För frontend-poolen kan du övervaka genomsnitts processor och minne. För Worker-pooler kan du övervaka den kvantitet som används och den kvantitet som är tillgänglig.
+Diagrammen gör att du kan se en mängd olika prestandamått i varje resurspool. För frontend-poolen kan du övervaka den genomsnittliga processorn och minnet. För arbetspooler kan du övervaka den kvantitet som används och den kvantitet som är tillgänglig.
 
-Flera App Services planer kan använda arbets tagarna i en arbets grupp. Arbets belastningen distribueras inte på samma sätt som frontend-servrarna, så CPU-och minnes användningen ger inte mycket bra information. Det är viktigt att spåra hur många arbetare som du har använt och är tillgängliga – särskilt om du hanterar systemet så att andra kan använda den.  
+Flera App Service-planer kan använda arbetarna i en arbetspool. Arbetsbelastningen distribueras inte på samma sätt som med frontend-servrarna, så cpu- och minnesanvändningen ger inte mycket i vägen för användbar information. Det är viktigare att spåra hur många arbetare som du har använt och är tillgängliga - särskilt om du hanterar det här systemet för andra att använda.  
 
-Du kan också använda alla mät värden som kan spåras i diagrammen för att ställa in aviseringar. Att ställa in aviseringar här fungerar på samma sätt som andra i App Service. Du kan ställa in en avisering från antingen **aviserings** gränssnittets del eller från att gå in i ett mått användar gränssnitt och välja **Lägg till avisering**.
+Du kan också använda alla mått som kan spåras i diagrammen för att ställa in aviseringar. Att ställa in aviseringar här fungerar på samma sätt som på andra ställen i App Service. Du kan ange en avisering från antingen **gränssnittsdelen Aviseringar** eller från att borra i ett användargränssnitt för mått och välja **Lägg till avisering**.
 
-![Mått användar gränssnitt][3]
+![Användargränssnitt för mått][3]
 
-Måtten som precis har diskuterats är de App Service-miljön måtten. Det finns också mått som är tillgängliga på App Service plan nivå. Det är här som övervakar CPU och minne är mycket bra.
+De mått som just har diskuterats är måtten för App Service Environment. Det finns också mått som är tillgängliga på apptjänstplansnivå. Det är där övervakning CPU och minne gör mycket vettigt.
 
-I en ASE är alla App Service planer dedikerade App Service planer. Det innebär att de enda appar som körs på värdarna som är allokerade till den App Service plan är apparna i App Service plan. Om du vill se information om din App Service plan kan du hämta App Service plan från någon av listorna i användar gränssnittet för ASE eller **bläddra App Service planer** (som visar en lista över alla).   
+I en ASE är alla App Service-planer dedikerade App Service-planer. Det innebär att de enda appar som körs på värdarna som tilldelats apptjänstplanen är apparna i apptjänstplanen. Om du vill se information om appserviceplanen tar du upp appserviceplanen från någon av listorna i ASE-användargränssnittet eller från **Appens tjänstplaner** (som listar dem alla).   
 
 ### <a name="settings"></a>Inställningar
-I bladet ASE finns det ett **inställnings** avsnitt som innehåller flera viktiga funktioner:
+I ASE-bladet finns ett **inställningsavsnitt** som innehåller flera viktiga funktioner:
 
-**Inställningar** > **Egenskaper**: **inställnings** bladet öppnas automatiskt när du hämtar ditt ASE-blad. Högst upp är **Egenskaper**. Det finns ett antal objekt som är överflödiga till det du ser i **Essentials**, men vad är mycket användbart för **virtuella IP**-adresser, samt **utgående IP-adresser**.
+**Egenskaper** > **för**inställningar : Bladet **Inställningar** öppnas automatiskt när du tar upp ASE-bladet. Högst upp finns **Egenskaper**. Det finns ett antal objekt här som är överflödiga för vad du ser i **Essentials**, men vad som är mycket användbart är **virtuell IP-adress**, samt **utgående IP-adresser**.
 
-![Bladet inställningar och egenskaper][4]
+![Inställningar blad och egenskaper][4]
 
-**Inställningar** > **IP-adresser**: när du skapar en app för IP-Secure Sockets Layer (SSL) i din ASE behöver du en IP SSL-adress. Din ASE behöver IP SSL adresser som det äger som kan allokeras för att kunna hämta en. När en ASE skapas har den en IP SSL-adress för det här ändamålet, men du kan lägga till fler. Det finns en avgift för ytterligare IP SSL adresser, som du ser i [App Service priser][AppServicePricing] (i avsnittet om SSL-anslutningar). Det ytterligare priset är IP SSL priset.
+**Inställningar** > **IP-adresser:** När du skapar en SSL-app (IP Secure Sockets Layer) i DIN ASE behöver du en IP SSL-adress. För att få en behöver din ASE IP SSL-adresser som den äger som kan allokeras. När en ASE skapas har den en IP SSL-adress för detta ändamål, men du kan lägga till fler. Det finns en avgift för ytterligare IP SSL-adresser, som visas i [App Service-priser][AppServicePricing] (i avsnittet om SSL-anslutningar). Det extra priset är IP SSL-priset.
 
-**Inställningar** > **klient delens** / **Worker-pooler**: var och en av de här mallarna för resurspooler ger möjlighet att bara se information i den resurspoolen, förutom att tillhandahålla kontroller för att skala resurspoolen fullständigt.  
+**Inställningar** > **Front End Pool** / **Worker Pools:** Var och en av dessa resurspoolblad ger möjlighet att bara se information om resurspoolen, förutom att tillhandahålla kontroller för att fullt ut skala den resurspoolen.  
 
-Bas bladet för varje resurspool ger ett diagram med mät värden för den resurspoolen. Precis som med diagrammen från bladet ASE kan du gå till diagrammet och ställa in aviseringar efter behov. Att ställa in en avisering från ASE-bladet för en speciell resurspool gör samma sak som att göra den från resurspoolen. Från bladet **Inställningar** för arbets grupp har du åtkomst till alla appar eller App Service planer som körs i den här arbets gruppen.
+Basbladet för varje resurspool ger ett diagram med mått för resurspoolen. Precis som med diagrammen från ASE-bladet kan du gå in i diagrammet och ställa in varningar som önskat. Ställa in en avisering från ASE-bladet för en viss resurspool gör samma sak som att göra det från resurspoolen. Från **bladet Inställningar för arbetspoolen** har du tillgång till alla appar eller apptjänstplaner som körs i den här arbetarpoolen.
 
-![Användar gränssnitt för arbets grupp inställningar][5]
+![Användargränssnitt för arbetspoolinställningar][5]
 
-### <a name="portal-scale-capabilities"></a>Funktioner för Portal skalning
-Det finns tre skalnings åtgärder:
+### <a name="portal-scale-capabilities"></a>Funktioner för portalskala
+Det finns tre skaloperationer:
 
 * Ändra antalet IP-adresser i ASE som är tillgängliga för IP SSL-användning.
-* Ändra storleken på den beräknings resurs som används i en resurspool.
-* Ändra antalet beräknings resurser som används i en resurspool, antingen manuellt eller genom automatisk skalning.
+* Ändra storleken på beräkningsresursen som används i en resurspool.
+* Ändra antalet beräkningsresurser som används i en resurspool, antingen manuellt eller genom automatisk skalning.
 
-I portalen finns det tre sätt att kontrol lera hur många servrar som finns i dina resurspooler:
+I portalen finns det tre sätt att styra hur många servrar du har i resurspoolerna:
 
-* En skalnings åtgärd från huvud bladet ASE överst. Du kan göra flera skalnings konfigurations ändringar i frontend-och Worker-poolerna. Alla används som en enda åtgärd.
-* En manuell skalnings åtgärd från bladet enskilda resurspooler **skala** , som finns under **Inställningar**.
-* Automatisk skalning, som du ställer in från bladet för **skalning** av en resurspool.
+* En skalning från huvudsasssbladet upptill. Du kan göra konfigurationsändringar i flera skalningskonfigurationer i frontend- och arbetspoolerna. De tillämpas alla som en enda operation.
+* En manuell skalningsåtgärd från det enskilda **resurspoolen Skala** blad, som är under **Inställningar**.
+* Automatisk skalning, som du ställer in från det enskilda **resurspoolen Skala** bladet.
 
-Om du vill använda skalnings åtgärden på bladet ASE drar du skjutreglaget till den kvantitet som du vill ha och sparar. Det här gränssnittet stöder även ändring av storleken.  
+Om du vill använda skalningsåtgärden på ASE-bladet drar du skjutreglaget till den kvantitet du vill ha och sparar. Det här användargränssnittet stöder också att ändra storleken.  
 
-![Skalnings gränssnitt][6]
+![Skala användargränssnitt][6]
 
-Om du vill använda funktionerna för manuell eller autoskalning i en speciell resurspool går du till **inställningar** > **klient delens pool** / **Worker-pooler** efter behov. Öppna sedan den pool som du vill ändra. Gå till **inställningar** > **skala ut** eller **Inställningar** > **skala upp**. På bladet **skala ut** kan du kontrol lera instans antal. Genom att **skala upp** kan du kontrol lera resursens storlek.  
+Om du vill använda funktionerna för manuell skalning eller automatisk skalning i en viss resurspool går du till **Inställningar** > **Front End Pool** / **Worker Pools** efter behov. Öppna sedan poolen som du vill ändra. Gå till **Inställningar** > **Skala ut** eller **inställningar** > skala**upp**. Med bladet **Scale Out** kan du styra instanskvantiteten. **Skala upp** kan du styra resursstorleken.  
 
-![Skalnings inställningar gränssnitt][7]
+![Användargränssnitt för skalningsinställningar][7]
 
-## <a name="fault-tolerance-considerations"></a>Överväganden vid fel tolerans
-Du kan konfigurera en App Service-miljön att använda upp till 55 totala beräknings resurser. För dessa 55-beräknings resurser kan endast 50 användas för att hantera arbets belastningar. Orsaken till detta är Twofold. Det finns minst 2 beräknings resurser på klient sidan.  Det innebär att upp till 53 har stöd för tilldelningen av resurspool. För att kunna tillhandahålla fel tolerans måste du ha en ytterligare beräknings resurs som tilldelas enligt följande regler:
+## <a name="fault-tolerance-considerations"></a>Feltoleransöverväganden
+Du kan konfigurera en apptjänstmiljö så att den använder upp till 55 totala beräkningsresurser. Av dessa 55 beräkningsresurser kan endast 50 användas för att vara värd för arbetsbelastningar. Anledningen till detta är dubbelt. Det finns minst 2 frontend-beräkningsresurser.  Det lämnar upp till 53 för att stödja fördelningen av arbetarpooler. För att kunna ge feltolerans måste du ha ytterligare en beräkningsresurs som allokeras enligt följande regler:
 
-* Varje arbets grupp måste ha minst 1 ytterligare beräknings resurs som inte är tillgänglig för att tilldelas en arbets belastning.
-* När antalet beräknings resurser i en arbets grupp hamnar över ett visst värde, krävs en annan beräknings resurs för fel tolerans. Detta är inte fallet i front-end-poolen.
+* Varje arbetspool behöver minst 1 ytterligare beräkningsresurs som inte är tillgänglig för att tilldelas en arbetsbelastning.
+* När antalet beräkningsresurser i en arbetarpool går över ett visst värde krävs en annan beräkningsresurs för feltolerans. Detta är inte fallet i front-end poolen.
 
-I en enskild arbets pool är fel tolerans kraven för ett angivet värde på X-resurser tilldelade till en arbets grupp:
+Inom en enskild arbetspool är kraven för feltolerans som gäller för ett givet värde på X-resurser som tilldelats en arbetspool:
 
-* Om X är mellan 2 och 20 är mängden användbara beräknings resurser som du kan använda för arbets belastningar X-1.
-* Om X är mellan 21 och 40 är mängden användbara beräknings resurser som du kan använda för arbets belastningar X-2.
-* Om X är mellan 41 och 53 är mängden användbara beräknings resurser som du kan använda för arbets belastningar X-3.
+* Om X är mellan 2 och 20 är mängden användbara beräkningsresurser som du kan använda för arbetsbelastningar X-1.
+* Om X är mellan 21 och 40 är mängden användbara beräkningsresurser som du kan använda för arbetsbelastningar X-2.
+* Om X är mellan 41 och 53 är mängden användbara beräkningsresurser som du kan använda för arbetsbelastningar X-3.
 
-Det minsta utrymmet har 2 frontend-servrar och 2 arbetare.  Med ovanstående instruktioner är det några exempel att klargöra följande:  
+Minsta fotavtryck har 2 front-end servrar och 2 arbetare.  Med ovanstående uttalanden då, här är några exempel för att klargöra:  
 
-* Om du har 30 arbetare i en enda pool kan du använda 28 av dem som värd för arbets belastningar.
-* Om du har två arbetare i en enda pool kan 1 användas som värd för arbets belastningar.
-* Om du har 20 arbetare i en enda pool kan 19 användas som värd för arbets belastningar.  
-* Om du har 21 arbetare i en enda pool är det fortfarande bara 19 som kan användas som värd för arbets belastningar.  
+* Om du har 30 arbetare i en enda pool kan 28 av dem användas som värd för arbetsbelastningar.
+* Om du har 2 arbetare i en enda pool kan 1 användas för att vara värd för arbetsbelastningar.
+* Om du har 20 arbetare i en enda pool kan 19 användas för att vara värd för arbetsbelastningar.  
+* Om du har 21 arbetare i en enda pool kan fortfarande bara 19 användas för att vara värd för arbetsbelastningar.  
 
-Fel tolerans aspekten är viktig, men du måste ha den i åtanke när du skalar över vissa tröskelvärden. Om du vill lägga till mer kapacitet från 20 instanser går du till 22 eller högre eftersom 21 inte lägger till fler kapaciteter. Samma sak går över 40, där nästa nummer som lägger till kapacitet är 42.  
+Feltolerans aspekten är viktigt, men du måste hålla det i åtanke när du skala över vissa tröskelvärden. Om du vill lägga till mer kapacitet som går från 20 instanser går du sedan till 22 eller högre eftersom 21 inte lägger till någon mer kapacitet. Detsamma gäller att gå över 40, där nästa nummer som lägger till kapacitet är 42.  
 
-## <a name="deleting-an-app-service-environment"></a>Ta bort en App Service-miljön
-Om du vill ta bort en App Service-miljön använder du bara åtgärden **ta bort** högst upp på bladet App Service-miljön. När du gör det uppmanas du att ange namnet på din App Service-miljön för att bekräfta att du verkligen vill göra detta. Observera att när du tar bort en App Service-miljön tar du även bort allt innehåll i det.  
+## <a name="deleting-an-app-service-environment"></a>Ta bort en apptjänstmiljö
+Om du vill ta bort en App Service-miljö använder du helt enkelt åtgärden **Ta bort** högst upp i bladet App Service Environment. När du gör detta uppmanas du att ange namnet på apptjänstmiljön för att bekräfta att du verkligen vill göra detta. Observera att när du tar bort en App Service-miljö tar du bort allt innehåll även i den.  
 
-![Ta bort ett App Service-miljön användar gränssnitt][9]  
+![Ta bort ett användargränssnitt för apptjänstmiljö][9]  
 
 ## <a name="getting-started"></a>Komma igång
-Information om hur du kommer igång med App Service miljöer finns i [så här skapar du en app service-miljön](app-service-web-how-to-create-an-app-service-environment.md).
+Lär dig hur du skapar [en apptjänstmiljö](app-service-web-how-to-create-an-app-service-environment.md).
 
 [!INCLUDE [app-service-web-try-app-service](../../../includes/app-service-web-try-app-service.md)]
 

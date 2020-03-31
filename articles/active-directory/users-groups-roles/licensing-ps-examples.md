@@ -1,6 +1,6 @@
 ---
-title: PowerShell-och Graph-exempel för grupp licensiering – Azure AD | Microsoft Docs
-description: PowerShell + graf-exempel och scenarier för Azure Active Directory gruppbaserad licensiering
+title: PowerShell- och Graph-exempel för grupplicensiering – Azure AD | Microsoft-dokument
+description: Exempel på och scenarier för Azure Active Directory-gruppbaserad licensiering i PowerShell + Graph
 services: active-directory
 keywords: Azure AD-licensiering
 documentationcenter: ''
@@ -15,25 +15,25 @@ ms.author: curtand
 ms.reviewer: sumitp
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5387daffcd3dd231aef5eade1c896db50947b386
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/20/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77484867"
 ---
-# <a name="powershell-and-graph-examples-for-group-based-licensing-in-azure-ad"></a>PowerShell-och Graph-exempel för gruppbaserad licensiering i Azure AD
+# <a name="powershell-and-graph-examples-for-group-based-licensing-in-azure-ad"></a>PowerShell- och Graph-exempel för gruppbaserad licensiering i Azure AD
 
-Fullständig funktionalitet för gruppbaserad licensiering är tillgänglig via [Azure Portal](https://portal.azure.com), och för närvarande är PowerShell-och Microsoft Graph-supporten begränsad till skrivskyddade åtgärder. Det finns dock några användbara uppgifter som kan utföras med hjälp av de befintliga [MSOnline PowerShell-cmdletarna](https://docs.microsoft.com/powershell/msonline/v1/azureactivedirectory) och Microsoft Graph. Det här dokumentet innehåller exempel på vad som är möjligt.
+Fullständig funktionalitet för gruppbaserad licensiering är tillgänglig via [Azure-portalen](https://portal.azure.com)och för närvarande är Supporten för PowerShell och Microsoft Graph begränsad till skrivskyddade åtgärder. Det finns dock några användbara uppgifter som kan utföras med hjälp av de befintliga [MSOnline PowerShell-cmdlets och](https://docs.microsoft.com/powershell/msonline/v1/azureactivedirectory) Microsoft Graph. Det här dokumentet innehåller exempel på vad som är möjligt.
 
 > [!NOTE]
-> Innan du börjar köra cmdlet: ar, se till att du först ansluter till din organisation genom att köra cmdleten `Connect-MsolService` .
+> Innan du börjar köra cmdlets, se till att du `Connect-MsolService`  ansluter till din organisation först, genom att köra cmdlet.
 
 > [!WARNING]
-> Den här koden anges som ett exempel i demonstrations syfte. Om du tänker använda den i din miljö kan du testa den först på en liten skala eller i en separat test klient. Du kan behöva justera koden för att uppfylla de speciella behoven i din miljö.
+> Denna kod tillhandahålls som ett exempel för demonstrationsändamål. Om du tänker använda den i din miljö bör du överväga att testa den först i liten skala eller i en separat testklient. Du kan behöva justera koden för att uppfylla de specifika behoven i din miljö.
 
-## <a name="view-product-licenses-assigned-to-a-group"></a>Visa produkt licenser som har tilldelats en grupp
+## <a name="view-product-licenses-assigned-to-a-group"></a>Visa produktlicenser som tilldelats en grupp
 
-[Get-MsolGroup](/powershell/module/msonline/get-msolgroup?view=azureadps-1.0) -cmdlet: en kan användas för att hämta gruppobjektet och kontrol lera *licens* egenskapen: den visar alla produkt licenser som är tilldelade till gruppen.
+Cmdleten [Get-MsolGroup](/powershell/module/msonline/get-msolgroup?view=azureadps-1.0) kan användas för att hämta gruppobjektet och kontrollera egenskapen Licenser: den *listar* alla produktlicenser som för närvarande har tilldelats gruppen.
 
 ```powershell
 (Get-MsolGroup -ObjectId 99c4216a-56de-42c4-a4ac-e411cd8c7c41).Licenses
@@ -48,7 +48,7 @@ EMSPREMIUM
 ```
 
 > [!NOTE]
-> Informationen är begränsad till produkt information (SKU). Det går inte att visa en lista över de tjänst planer som inaktiverats i licensen.
+> Data är begränsade till produktinformation (SKU). Det går inte att lista de serviceplaner som är inaktiverade i licensen.
 
 Använd följande exempel för att hämta samma data från Microsoft Graph.
 
@@ -80,7 +80,7 @@ HTTP/1.1 200 OK
 
 ## <a name="get-all-groups-with-licenses"></a>Hämta alla grupper med licenser
 
-Du kan hitta alla grupper med licens tilldelning genom att köra följande kommando:
+Du kan hitta alla grupper med valfri licens som tilldelats genom att köra följande kommando:
 ```powershell
 Get-MsolGroup -All | Where {$_.Licenses}
 ```
@@ -102,7 +102,7 @@ cf41f428-3b45-490b-b69f-a349c8a4c38e PowerBi - Licensed users POWER\_BI\_STANDAR
 c2652d63-9161-439b-b74e-fcd8228a7074 EMSandOffice             {ENTERPRISEPREMIUM,EMSPREMIUM}
 ```
 
-## <a name="get-statistics-for-groups-with-licenses"></a>Hämta statistik för grupper med licenser
+## <a name="get-statistics-for-groups-with-licenses"></a>Få statistik för grupper med licenser
 Du kan rapportera grundläggande statistik för grupper med licenser. I exemplet nedan visar skriptet det totala antalet användare, antalet användare med licenser som redan har tilldelats av gruppen och antalet användare för vilka licenser inte kunde tilldelas av gruppen.
 
 ```powershell
@@ -160,8 +160,8 @@ O365 E5 - EXO     102fb8f4-bbe7-462b-83ff-2145e7cdd6ed ENTERPRISEPREMIUM        
 Access to Offi... 11151866-5419-4d93-9141-0603bbf78b42 STANDARDPACK                     4                 3                 1
 ```
 
-## <a name="get-all-groups-with-license-errors"></a>Hämta alla grupper med licens fel
-För att hitta grupper som innehåller vissa användare för vilka licenser inte kunde tilldelas:
+## <a name="get-all-groups-with-license-errors"></a>Hämta alla grupper med licensfel
+Så här hittar du grupper som innehåller vissa användare för vilka licenser inte kunde tilldelas:
 ```powershell
 Get-MsolGroup -All -HasLicenseErrorsOnly $true
 ```
@@ -199,9 +199,9 @@ HTTP/1.1 200 OK
 ```
 
 
-## <a name="get-all-users-with-license-errors-in-a-group"></a>Hämta alla användare med licens fel i en grupp
+## <a name="get-all-users-with-license-errors-in-a-group"></a>Få alla användare med licensfel i en grupp
 
-Om du har en grupp som innehåller vissa licensbaserade fel kan du nu visa en lista över alla användare som påverkas av dessa fel. En användare kan också ha fel från andra grupper. I det här exemplet begränsar vi dock endast resultat till fel som är relevanta för den aktuella gruppen genom att kontrol lera egenskapen **ReferencedObjectId** för varje **IndirectLicenseError** -post på användaren.
+Med tanke på en grupp som innehåller vissa licensrelaterade fel kan du nu lista alla användare som påverkas av dessa fel. En användare kan också ha fel från andra grupper. I det här exemplet begränsar vi dock endast resultat till fel som är relevanta för gruppen i fråga genom att kontrollera egenskapen **ReferencedObjectId** för varje **IndirectLicenseError-post** på användaren.
 
 ```powershell
 #a sample group with errors
@@ -251,12 +251,12 @@ HTTP/1.1 200 OK
 
 ```
 
-## <a name="get-all-users-with-license-errors-in-the-entire-tenant"></a>Hämta alla användare med licens fel i hela klient organisationen
+## <a name="get-all-users-with-license-errors-in-the-entire-tenant"></a>Få alla användare med licensfel i hela klienten
 
-Följande skript kan användas för att hämta alla användare som har licens fel från en eller flera grupper. Skriptet skriver ut en rad per användare, per licens fel, som gör att du tydligt kan identifiera källan för varje fel.
+Följande skript kan användas för att hämta alla användare som har licensfel från en eller flera grupper. Skriptet skriver ut en rad per användare, per licensfel, vilket gör att du tydligt kan identifiera källan till varje fel.
 
 > [!NOTE]
-> Det här skriptet räknar upp alla användare i klienten som kanske inte är optimala för stora klienter.
+> Det här skriptet räknar upp alla användare i klienten, vilket kanske inte är optimalt för stora klienter.
 
 ```powershell
 Get-MsolUser -All | Where {$_.IndirectLicenseErrors } | % {   
@@ -282,7 +282,7 @@ Catherine Gibson 6d325baf-22b7-46fa-a2fc-a2500613ca15 11151866-5419-4d93-9141-06
 Drew Fogarty     f2af28fc-db0b-4909-873d-ddd2ab1fd58c 1ebd5028-6092-41d0-9668-129a3c471332 MutuallyExclusiveViolation
 ```
 
-Här är en annan version av skriptet som bara söker igenom grupper som innehåller licens fel. Det kan vara mer optimerat för scenarier där du förväntar dig att få grupper med problem.
+Här är en annan version av skriptet som bara söker igenom grupper som innehåller licensfel. Det kan vara mer optimerad för scenarier där du förväntar dig att ha få grupper med problem.
 
 ```powershell
 $groupIds = Get-MsolGroup -All -HasLicenseErrorsOnly $true
@@ -297,11 +297,11 @@ $groupIds = Get-MsolGroup -All -HasLicenseErrorsOnly $true
     } 
 ``` 
 
-## <a name="check-if-user-license-is-assigned-directly-or-inherited-from-a-group"></a>Kontrol lera om användar licensen har tilldelats direkt eller ärvts från en grupp
+## <a name="check-if-user-license-is-assigned-directly-or-inherited-from-a-group"></a>Kontrollera om användarlicensen har tilldelats direkt eller ärvts från en grupp
 
-För ett användar objekt är det möjligt att kontrol lera om en viss produkt licens har tilldelats från en grupp eller om den tilldelas direkt.
+För ett användarobjekt är det möjligt att kontrollera om en viss produktlicens tilldelas från en grupp eller om den tilldelas direkt.
 
-De två exempel funktionerna nedan kan användas för att analysera tilldelnings typen för en enskild användare:
+De två exempelfunktionerna nedan kan användas för att analysera typen av tilldelning på en enskild användare:
 
 ```powershell
 #Returns TRUE if the user has the license assigned directly
@@ -364,7 +364,7 @@ function UserHasLicenseAssignedFromGroup
 }
 ```
 
-Det här skriptet kör dessa funktioner på varje användare i klienten och använder SKU-ID: t som indata – i det här exemplet är vi intresserade av licensen för *Enterprise Mobility + Security*, som i vår klient representeras av ID *contoso: EMS*:
+Det här skriptet kör dessa funktioner på varje användare i klienten med SKU-ID som indata - i det här exemplet är vi intresserade av licensen för *Enterprise Mobility + Security*, som i vår klient är representerad med ID *contoso:EMS:*
 
 ```powershell
 #the license SKU we are interested in. use Get-MsolAccountSku to see a list of all identifiers in your tenant
@@ -388,7 +388,7 @@ ObjectId                             SkuId       AssignedDirectly AssignedFromGr
 240622ac-b9b8-4d50-94e2-dad19a3bf4b5 contoso:EMS             True              True
 ```
 
-Graph har inget enkelt sätt att visa resultatet, men det kan ses från det här API: et:
+Graph har inte ett enkelt sätt att visa resultatet, men det kan ses från detta API:
 
 ```powershell
 GET https://graph.microsoft.com/v1.0/users/e61ff361-5baf-41f0-b2fd-380a6a5e406a?$select=licenseAssignmentStates
@@ -443,11 +443,11 @@ HTTP/1.1 200 OK
 
 ```
 
-## <a name="remove-direct-licenses-for-users-with-group-licenses"></a>Ta bort direkt licenser för användare med grupp licenser
+## <a name="remove-direct-licenses-for-users-with-group-licenses"></a>Ta bort direktlicenser för användare med grupplicenser
 
-Syftet med det här skriptet är att ta bort onödiga direkt licenser från användare som redan ärver samma licens från en grupp. som en del av en [över gång till gruppbaserad licensiering](https://docs.microsoft.com/azure/active-directory/active-directory-licensing-group-migration-azure-portal).
+Syftet med det här skriptet är att ta bort onödiga direktlicenser från användare som redan ärver samma licens från en grupp. till exempel som en del av en [övergång till gruppbaserad licensiering](https://docs.microsoft.com/azure/active-directory/active-directory-licensing-group-migration-azure-portal).
 > [!NOTE]
-> Det är viktigt att först validera att de direkta licenser som ska tas bort inte aktiverar fler tjänst funktioner än de ärvda licenserna. Annars kan borttagning av direkt licensen inaktivera åtkomst till tjänster och data för användare. För närvarande går det inte att kontrol lera via PowerShell vilka tjänster är aktiverade via ärvda licenser eller direkt. I skriptet anger vi vilken minimi nivå av tjänster vi vet ärvs från grupper och kontrollerar mot det för att se till att användarna inte har förlorat åtkomsten till tjänster.
+> Det är viktigt att först verifiera att de direkta licenser som ska tas bort inte aktiverar fler tjänstfunktioner än de ärvda licenserna. Annars kan det inaktivera åtkomst till tjänster och data för användare om du tar bort den direkta licensen. För närvarande är det inte möjligt att kontrollera via PowerShell vilka tjänster som är aktiverade via ärvda licenser vs direkt. I skriptet anger vi den lägsta nivån av tjänster som vi vet ärvs från grupper och kontrollerar mot det för att se till att användarna inte oväntat förlorar åtkomst till tjänster.
 
 ```powershell
 #BEGIN: Helper functions used by the script
@@ -617,16 +617,16 @@ UserId                               OperationResult
 aadbe4da-c4b5-4d84-800a-9400f31d7371 User has no direct license to remove. Skipping.
 ```
 > [!NOTE]
-> Uppdatera värdena för variablerna `$skuId` och `$groupId` som är avsedda för borttagning av direkta licenser enligt test miljön innan du kör skriptet ovan. 
+> Uppdatera värdena för `$skuId` variablerna `$groupId`  och som är avsedda för borttagning av direktlicenser enligt din testmiljö innan du kör ovanstående skript. 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om funktions uppsättningen för licens hantering via grupper finns i följande artiklar:
+Mer information om funktionsuppsättningen för licenshantering via grupper finns i följande artiklar:
 
 * [Vad är gruppbaserad licensiering i Azure Active Directory?](../fundamentals/active-directory-licensing-whatis-azure-portal.md)
 * [Tilldela licenser till en grupp i Azure Active Directory](licensing-groups-assign.md)
 * [Identifiera och lösa licensproblem för en grupp i Azure Active Directory](licensing-groups-resolve-problems.md)
 * [Migrera enskilda licensierade användare till gruppbaserad licensiering i Azure Active Directory](licensing-groups-migrate-users.md)
-* [Så här migrerar du användare mellan produkt licenser med gruppbaserad licensiering i Azure Active Directory](../users-groups-roles/licensing-groups-change-licenses.md)
+* [Migrera användare mellan produktlicenser med gruppbaserad licensiering i Azure Active Directory](../users-groups-roles/licensing-groups-change-licenses.md)
 * [Fler scenarier med gruppbaserad licensiering i Azure Active Directory](licensing-group-advanced.md)
 * [PowerShell-exempel för gruppbaserad licensiering i Azure Active Directory](../users-groups-roles/licensing-ps-examples.md)

@@ -1,77 +1,77 @@
 ---
-title: Visualisera data från Azure Datautforskaren med Kibana
-description: I den här artikeln får du lära dig hur du konfigurerar Azure Datautforskaren som en data källa för Kibana
+title: Visualisera data från Azure Data Explorer med Kibana
+description: I den här artikeln får du lära dig hur du konfigurerar Azure Data Explorer som datakälla för Kibana
 author: orspod
 ms.author: orspodek
 ms.reviewer: guregini
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 03/12/2020
-ms.openlocfilehash: 30d74f36c6462d1fba039595d2ed6fe722b742e8
-ms.sourcegitcommit: d322d0a9d9479dbd473eae239c43707ac2c77a77
+ms.openlocfilehash: fac9c78607e50dca384670bf4cc08b50f723312b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2020
-ms.locfileid: "79164818"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80065602"
 ---
-# <a name="visualize-data-from-azure-data-explorer-in-kibana-with-the-k2bridge-open-source-connector"></a>Visualisera data från Azure Datautforskaren i Kibana med K2Bridge-anslutningen med öppen källkod
+# <a name="visualize-data-from-azure-data-explorer-in-kibana-with-the-k2bridge-open-source-connector"></a>Visualisera data från Azure Data Explorer i Kibana med anslutningsappen för öppen källkod till K2Bridge
 
-K2Bridge (Kibana-Kusto Bridge) gör att du kan använda Azure Datautforskaren som data källa och visualisera dessa data i Kibana. K2Bridge är ett behållar program med [öppen källkod](https://github.com/microsoft/K2Bridge) som fungerar som en proxy mellan en Kibana-instans och ett Azure datautforskaren-kluster. Den här artikeln beskriver hur du använder K2Bridge för att skapa anslutningen.
+Med K2Bridge (Kibana-Kusto Bridge) kan du använda Azure Data Explorer som datakälla och visualisera dessa data i Kibana. K2Bridge är ett containerprogram med öppen källkod som fungerar som en proxy mellan en Kibana-instans och ett Azure Data [Explorer-kluster.](https://github.com/microsoft/K2Bridge) I den här artikeln beskrivs hur du använder K2Bridge för att skapa den anslutningen.
 
-K2Bridge översätter Kibana-frågor till Kusto frågespråket (KQL) och skickar tillbaka Azure-Datautforskaren tillbaka till Kibana. 
+K2Bridge översätter Kibana-frågor till Kusto Query Language (KQL) och skickar tillbaka Azure Data Explorer-resultaten till Kibana. 
 
    ![diagram](media/k2bridge/k2bridge-chart.png)
 
-K2Bridge stöder Kibana-fliken identifiering där du kan:
+K2Bridge stöder Kibanas fliken Upptäck, där du kan:
 * Sök och utforska data
 * Filtrera resultat
-* Lägga till eller ta bort fält i resultat rutnätet
-* Visa post innehåll
+* Lägga till eller ta bort fält i resultatrutnätet
+* Visa postinnehåll
 * Spara och dela sökningar
 
-Bilden nedan visar en Kibana-instans som är kopplad till Azure Datautforskaren av K2Bridge. Användar upplevelsen i Kibana har inte ändrats.
+Avbildningen nedan visar en Kibana-instans bunden till Azure Data Explorer av K2Bridge. Användarupplevelsen i Kibana är oförändrad.
 
-   [Sidan ![Kibana](media/k2bridge/k2bridge-kibana-page.png)](media/k2bridge/k2bridge-kibana-page.png#lightbox)
+   [![Kibana Sida](media/k2bridge/k2bridge-kibana-page.png)](media/k2bridge/k2bridge-kibana-page.png#lightbox)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-Innan du kan visualisera data från Azure Datautforskaren i Kibana, har du följande klart:
+Innan du kan visualisera data från Azure Data Explorer i Kibana ska du ha följande redo:
 
-* [Helm v3](https://github.com/helm/helm#install), Kubernetes Package Manager
-* Azure Kubernetes service-kluster (AKS) eller något annat Kubernetes-kluster (version 1,14 till version 1,16 har testats och verifierats). Om du behöver ett AKS-kluster kan du läsa distribuera ett AKS-kluster [med hjälp av Azure CLI](https://docs.microsoft.com/azure/aks/kubernetes-walkthrough) eller [genom att använda Azure Portal](https://docs.microsoft.com/azure/aks/kubernetes-walkthrough-portal)
-* Ett [Azure datautforskaren-kluster](create-cluster-database-portal.md), inklusive:
-    * Azure Datautforskaren-klustrets URL 
-    * Databas namnet
+* [Helm V3](https://github.com/helm/helm#install), Kubernetes pakethanterare
+* Azure Kubernetes Service (AKS) kluster, eller någon annan Kubernetes kluster (version 1.14 till version 1.16 har testats och verifierats). Om du behöver ett AKS-kluster läser du Distribuera ett AKS-kluster [med Azure CLI](https://docs.microsoft.com/azure/aks/kubernetes-walkthrough) eller använder [Azure-portalen](https://docs.microsoft.com/azure/aks/kubernetes-walkthrough-portal)
+* Ett [Azure Data Explorer-kluster,](create-cluster-database-portal.md)inklusive:
+    * Url:en för Azure Data Explorer-klustret 
+    * Databasnamnet
     
-* Ett huvud namn för Azure AD-tjänsten som har behörighet att visa data i Azure Datautforskaren, inklusive:
-    * Klient-ID 
-    * Klient hemlighet
+* Ett Azure AD-tjänsthuvudnamn som auktoriserats för att visa data i Azure Data Explorer, inklusive:
+    * Klient-ID:et 
+    * Klienthemligheten
 
-    Ett huvud namn för tjänsten med visnings behörighet rekommenderas. Det rekommenderas inte att använda högre behörigheter.
+    Ett tjänsthuvudnamn med behörigheten Viewer rekommenderas. Det rekommenderas att använda högre behörigheter.
 
-    * [Ange klustrets visnings behörigheter för Azure AD-tjänstens huvud namn](https://docs.microsoft.com/azure/data-explorer/manage-database-permissions#manage-permissions-in-the-azure-portal).
+    * [Ange klustrets vybehörigheter för Azure AD-tjänstens huvudnamn](https://docs.microsoft.com/azure/data-explorer/manage-database-permissions#manage-permissions-in-the-azure-portal).
 
-    Mer information om Azure AD-tjänstens huvud namn finns i [skapa ett tjänst huvud namn för Azure AD](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#create-an-azure-active-directory-application).
+    Mer information om Huvudnamnen för Azure AD-tjänsten finns i [Skapa ett huvudnamn för Azure AD-tjänsten](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#create-an-azure-active-directory-application).
 
-## <a name="run-k2bridge-on-azure-kubernetes-service-aks"></a>Köra K2Bridge på Azure Kubernetes service (AKS)
+## <a name="run-k2bridge-on-azure-kubernetes-service-aks"></a>Kör K2Bridge på Azure Kubernetes Service (AKS)
 
-Som standard refererar K2Bridges's Helm-diagrammet till en offentligt tillgänglig bild som finns på Microsofts Container Registry (MCR). MCR kräver inte några autentiseringsuppgifter och fungerar direkt.
+Som standard refererar K2Bridges Helm-diagram till en allmänt tillgänglig avbildning som finns i Microsofts MCR (Container Registry). MCR kräver inga autentiseringsuppgifter och fungerar utanför boxen.
 
-1. Ladda ned de Helm diagram som krävs.
+1. Ladda ner de nödvändiga Helm-diagrammen.
 
-1. Lägg till ElasticSearch-beroendet i Helm. 
-    Orsaken till ElasticSearch-beroendet är att K2Bridge använder en intern liten ElasticSearch-instans för att betjäna metadata-relaterade begär Anden (till exempel index-mönster och sparade frågor). Inga affärs data sparas i den här interna instansen och kan betraktas som en implementerings information. 
+1. Lägg till Elasticsearch-beroendet i Helm. 
+    Orsaken till Elasticsearch-beroendet är att K2Bridge använder en intern liten Elasticsearch-instans för att betjäna metadatarelaterade begäranden (till exempel indexmönster och sparade frågor). Inga affärsdata sparas i den här interna instansen och kan betraktas som en implementeringsdetalj. 
 
-    1. Så här lägger du till ElasticSearch-beroendet till Helm:
+    1. Så här lägger du till Elasticsearch-beroendet i Helm:
 
         ```bash
         helm repo add elastic https://helm.elastic.co
         helm repo update
         ```
 
-    1. Så här hämtar du K2Bridge-diagrammet från katalogen Charts i GitHub-lagringsplatsen:
-        1. Klona lagrings platsen från [GitHub](https://github.com/microsoft/K2Bridge).
-        1. Gå till K2Bridges rot databas katalog.
+    1. Så här hämtar du K2Bridge-diagrammet från diagramkatalogen i GitHub-databasen:
+        1. Klona databasen från [GitHub](https://github.com/microsoft/K2Bridge).
+        1. Gå till katalogen K2Bridges-rotdatabas.
         1. Kör:
 
             ```bash
@@ -90,8 +90,8 @@ Som standard refererar K2Bridges's Helm-diagrammet till en offentligt tillgängl
         ADX_TENANT_ID=[SERVICE_PRINCIPAL_TENANT_ID]
         ```
 
-    1. Valfritt Aktivera Azure Application Insights-telemetri. 
-        Om det är första gången du använder Azure Application insikter bör du först [skapa en Application Insights resurs](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource). Du måste [Kopiera Instrumentation-nyckeln](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource#copy-the-instrumentation-key) till en variabel: 
+    1. (Valfritt) Aktivera telemetri för Azure Application Insights. 
+        Om det är första gången du använder Azure Application Insights bör du först [skapa en Application Insights-resurs](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource). Du måste [kopiera instrumenteringsnyckeln](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource#copy-the-instrumentation-key) till en variabel: 
 
         ```bash
         APPLICATION_INSIGHTS_KEY=[INSTRUMENTATION_KEY]
@@ -104,104 +104,106 @@ Som standard refererar K2Bridges's Helm-diagrammet till en offentligt tillgängl
         helm install k2bridge charts/k2bridge -n k2bridge --set image.repository=$REPOSITORY_NAME/$CONTAINER_NAME --set settings.adxClusterUrl="$ADX_URL" --set settings.adxDefaultDatabaseName="$ADX_DATABASE" --set settings.aadClientId="$ADX_CLIENT_ID" --set settings.aadClientSecret="$ADX_CLIENT_SECRET" --set settings.aadTenantId="$ADX_TENANT_ID" [--set image.tag=latest] [--set privateRegistry="$IMAGE_PULL_SECRET_NAME"] [--set settings.collectTelemetry=$COLLECT_TELEMETRY]
         ```
 
-        I [konfigurationen](https://github.com/microsoft/K2Bridge/blob/master/docs/configuration.md) kan du hitta en fullständig uppsättning konfigurations alternativ.
+        I [Konfiguration](https://github.com/microsoft/K2Bridge/blob/master/docs/configuration.md) hittar du den fullständiga uppsättningen konfigurationsalternativ.
 
-    1. Kommandots utdata kommer att föreslå nästa Helm-kommando som ska köras för att distribuera Kibana. Du kan också köra:
+    1. Kommandoutdata föreslår nästa Helm-kommando som ska köras för att distribuera Kibana. Du kan också köra:
 
         ```bash
         helm install kibana elastic/kibana -n k2bridge --set image=docker.elastic.co/kibana/kibana-oss --set imageTag=6.8.5 --set elasticsearchHosts=http://k2bridge:8080
         ```
-    1. Använd port vidarebefordring för att få åtkomst till Kibana på localhost: 
+        
+    1. Använd portsedering för att komma åt Kibana på localhost: 
 
         ```bash
         kubectl port-forward service/kibana-kibana 5601 --namespace k2bridge
         ```
-    1. Anslut till Kibana genom att bläddra till http://127.0.0.1:5601.
+        
+    1. Anslut till Kibana genom http://127.0.0.1:5601att bläddra till .
 
-    1. Exponera Kibana för slutanvändarna. Det finns flera metoder att göra det. Vilken metod du använder är i stort sett beroende av ditt användnings fall.
+    1. Exponera Kibana för slutanvändarna. Det finns flera metoder för att göra det. Vilken metod du använder beror till stor del på ditt användningsfall.
 
-        Exempel:
+        Ett exempel:
 
-        Exponera tjänsten som en LoadBalancer-tjänst. Det gör du genom att lägga till följande parameter i K2Bridge Helm install-kommandot ([ovan](#install-k2bridge-chart)):
-
-        `--set service.type=LoadBalancer`
+        Exponera tjänsten som en LoadBalancer-tjänst. För att göra `--set service.type=LoadBalancer` det, lägga till parametern i K2Bridge Helm installationskommandot ([ovan](#install-k2bridge-chart)).        
     
         Kör sedan:
-
-           ```bash
-           kubectl get service -w -n k2bridge
-           ```   
-        Utdata bör se ut så här: 
+        
+        ```bash
+        kubectl get service -w -n k2bridge
+        ```
+        
+        Utdata ska se ut så här: 
 
         ```bash
         NAME            TYPE           CLUSTER-IP     EXTERNAL-IP   PORT(S)          AGE
         kibana-kibana   LoadBalancer   xx.xx.xx.xx   <pending>      5601:30128/TCP   4m24s
         ```
-        Du kan sedan använda den genererade externa IP-adressen som visas och använda den för att få åtkomst till Kibana genom att öppna en webbläsare för att: `\<EXTERNAL-IP>:5601`.
+ 
+        Du kan sedan använda den genererade EXTERN-IP som visas och använda `<EXTERNAL-IP>:5601`den för att komma åt Kibana genom att öppna en webbläsare för .
 
-1. Konfigurera index mönster för att få åtkomst till dina data:  
+1. Konfigurera indexmönster för att komma åt dina data:  
 I en ny Kibana-instans:
      1. Öppna Kibana.
      1. Navigera till hantering.
-     1. Välj **index mönster**. 
-     1. Skapa ett index mönster.
-Namnet på indexet måste exakt matcha tabell namnet eller funktions namnet, utan en asterisk. Du kan kopiera den relevanta raden från listan.
+     1. Välj **Indexmönster**. 
+     1. Skapa ett indexmönster.
+Namnet på indexet måste exakt matcha tabellnamnet eller funktionsnamnet, utan en asterisk. Du kan kopiera den relevanta raden från listan.
 
 > [!Note]
-> Om du vill köra andra Kubernetes-leverantörer ändrar du ElasticSearch-storageClassName i `values.yaml` så att den passar den som föreslås av providern.
+> Om du vill köra på andra Kubernetes-providers `values.yaml` ändrar du Elasticsearch storageClassName så att den passar den som föreslås av providern.
 
 ## <a name="visualize-data"></a>Visualisera data
 
-När Azure Datautforskaren har kon figurer ATS som en data källa för Kibana kan du använda Kibana för att utforska data. 
+När Azure Data Explorer har konfigurerats som en datakälla för Kibana kan du använda Kibana för att utforska data. 
 
-1. I Kibana väljer du fliken **identifiera** på den vänstra menyn.
+1. Välj fliken **Upptäck** på den vänstra menyn i Kibana.
 
-1. I den vänstra List rutan väljer du ett index mönster (i det här fallet en Azure Datautforskaren-tabell), som definierar den data källa som du vill utforska.
+1. Välj ett indexmönster (i det här fallet en Azure Data Explorer-tabell) i den vänstra listrutan som definierar den datakälla som du vill utforska.
     
-   ![Välj ett index mönster](media/k2bridge/k2bridge-select-an-index-pattern.png)
+   ![Välj ett indexmönster](media/k2bridge/k2bridge-select-an-index-pattern.png)
 
-1. Om dina data har ett tids filter fält kan du ange tidsintervallet. Ange ett tids filter längst upp till höger på sidan. Som standard visar identifieringen data under de senaste 15 minuterna.
+1. Om dina data har ett tidsfilterfält kan du ange tidsintervallet. Ställ in ett tidsfilter längst upp till höger på sidan. Som standard visar Upptäck data för de senaste 15 minuterna.
 
-   ![Tids filter](media/k2bridge/k2bridge-time-filter.png)
+   ![Tidsfilter](media/k2bridge/k2bridge-time-filter.png)
     
-1. I resultat tabellen visas de första 500 posterna. Du kan expandera ett dokument för att undersöka dess fält data i JSON-eller tabell format.
+1. Resultattabellen visar de första 500 posterna. Du kan expandera ett dokument för att granska dess fältdata i antingen JSON- eller tabellformat.
 
    ![Expandera en post](media/k2bridge/k2bridge-expand-record.png)
 
-1. Tabellen Results innehåller som standard kolumner för dokumentet _source och fältet Time (om det finns). Du kan välja vilka kolumner som ska läggas till i resultat tabellen genom att välja **Lägg till** bredvid fält namnet i den vänstra sid panelen.
+1. Som standard innehåller resultattabellen kolumner för dokumentet _source och tidsfältet (om det finns). Du kan välja specifika kolumner som ska läggas till i resultattabellen genom att välja **Lägg** till bredvid fältnamnet i det vänstra sidofältet.
 
-   ![Vissa kolumner](media/k2bridge/k2bridge-specific-columns.png)
+   ![Specifika kolumner](media/k2bridge/k2bridge-specific-columns.png)
     
-1. I frågefönstret kan du söka i data efter:
+1. I frågefältet kan du söka efter data genom att:
     * Ange en sökterm
-    * Använder frågesyntaxen för Lucene. 
-    Exempel:
-        * Sök efter "fel" för att hitta alla poster som innehåller det här värdet. 
-        * Sök efter "status: 200" för att hämta alla poster med status-värdet 200. 
-    * Använda logiska operatorer (och, eller, inte)
-    * Använda jokertecken (asterisk "\*" eller frågetecken "?") Exempel:
-        * Frågan `"destination_city: L*"` matchar poster där målets Orts värde börjar med "l" (K2Bridge är inte Skift läges känsligt).
+    * Använda syntaxen för Lucene-frågan. 
+    Ett exempel:
+        * Sök "fel" för att hitta alla poster som innehåller det här värdet. 
+        * Sök efter "status: 200", för att få alla poster med ett statusvärde på 200. 
+    * Använda logiska operatorer (OCH, ELLER, INTE)
+    * Använda jokertecken (asterisk \* " " eller frågetecken "?") Till exempel:
+        * Frågan `"destination_city: L*"` matchar poster där målstadsvärdet börjar med "l" (K2Bridge är inte skiftlägeskänslig).
 
     ![Kör frågan](media/k2bridge/k2bridge-run-query.png)
     
     > [!Tip]
-    > I [sökningen](https://github.com/microsoft/K2Bridge/blob/master/docs/searching.md)kan du hitta fler Sök regler och logik.
+    > I [Söka](https://github.com/microsoft/K2Bridge/blob/master/docs/searching.md)hittar du fler sökregler och logik.
 
-1. Om du vill filtrera Sök resultaten använder du **fält listan** i den högra sid List sidan. 
-    Fält listan är där du kan se:
+1. Om du vill filtrera sökresultaten använder du **fältlistan** till höger på sidan. 
+    Fältlistan är där du kan se:
     * De fem översta värdena för fältet
     * Antalet poster som innehåller fältet
-    * Procent andelen poster som innehåller varje värde. 
+    * Procentandelen poster som innehåller varje värde. 
     
     >[!Tip]
-    > Använd skärm förstorarens ikon (+) för att hitta alla poster som har ett angivet värde.
+    > Använd ikonen (+) förstoringsglas för att hitta alla poster som har ett visst värde.
     
-    ![Fält lista](media/k2bridge/k2bridge-field-list.png)
+    ![Fältlista](media/k2bridge/k2bridge-field-list.png)
    
-    Du kan också filtrera resultaten med hjälp av (+) skärm förstoraren i vyn resultat tabell format för varje post i resultat tabellen.
+    Du kan också filtrera resultaten med hjälp av ikonen (+) förstoringsglas i resultattabellformatvyn för varje post i resultattabellen.
     
-     ![Tabell lista](media/k2bridge/k2bridge-table-list.png)
+     ![Tabelllista](media/k2bridge/k2bridge-table-list.png)
     
-1. Välj antingen för att **Spara** eller **dela** din sökning.
+1. Välj antingen om du vill **spara** eller **dela** din sökning.
 
      ![Spara sökning](media/k2bridge/k2bridge-save-search.png)

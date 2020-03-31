@@ -1,6 +1,6 @@
 ---
-title: Visualisera data från Azure Datautforskaren med en Power BI importerad fråga
-description: 'I den här artikeln får du lära dig hur du använder ett av de tre alternativen för visualisering av data i Power BI: importera en fråga från Azure Datautforskaren.'
+title: Visualisera data från Azure Data Explorer med en Power BI-importerad fråga
+description: 'I den här artikeln får du lära dig hur du använder ett av de tre alternativen för att visualisera data i Power BI: importera en fråga från Azure Data Explorer.'
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
@@ -8,27 +8,27 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 07/10/2019
 ms.openlocfilehash: ff156ab3fe74115bce8f7d6bdd3ba47b514f5ff5
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/22/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77562487"
 ---
-# <a name="visualize-data-using-a-query-imported-into-power-bi"></a>Visualisera data med en fråga som importer ATS till Power BI
+# <a name="visualize-data-using-a-query-imported-into-power-bi"></a>Visualisera data med hjälp av en fråga som importeras till Power BI
 
 Azure Data Explorer är en snabb och mycket skalbar datautforskningstjänst för logg- och telemetridata. Power BI är en lösning för företagsanalys där du kan visualisera dina data och dela resultaten i hela organisationen.
 
-Azure Data Explorer ger tre alternativ för att ansluta till data i Power BI: använda den inbyggda anslutningsappen, importera en fråga från Azure Data Explorer eller använda en SQL-fråga. Den här artikeln visar hur du importerar en fråga så att du kan hämta data och visualisera dem i en Power BI rapport.
+Azure Data Explorer ger tre alternativ för att ansluta till data i Power BI: använda den inbyggda anslutningsappen, importera en fråga från Azure Data Explorer eller använda en SQL-fråga. I den här artikeln visas hur du importerar en fråga så att du kan hämta data och visualisera den i en Power BI-rapport.
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt Azure-konto](https://azure.microsoft.com/free/) innan du börjar.
+Om du inte har en Azure-prenumeration skapar du ett [kostnadsfritt Azure-konto](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Du behöver följande för att slutföra den här artikeln:
 
 * En organisations e-postkonto som är medlem i Azure Active directory, så att du kan ansluta till [Azure Data Explorer-hjälpklustret](https://dataexplorer.azure.com/clusters/help/databases/samples).
 
-* [Power BI Desktop](https://powerbi.microsoft.com/get-started/) (klicka på **DOWNLOAD FREE**) (LADDA NED KOSTNADSFRITT)
+* [Power BI Desktop](https://powerbi.microsoft.com/get-started/) (välj **DOWNLOAD FREE**) (Ladda ned kostnadsfritt)
 
 * [Azure Data Explorer-skrivbordsapp](/azure/kusto/tools/kusto-explorer)
 
@@ -36,7 +36,7 @@ Du behöver följande för att slutföra den här artikeln:
 
 Först skapar du en fråga i Azure Data Explorer-skrivbordsappen och exporterar den för användning i Power BI. Sedan ansluter du till Azure Data Explorer-hjälpklustret, och hämtar du en delmängd av data från tabellen *StormEvents*. [!INCLUDE [data-explorer-storm-events](../../includes/data-explorer-storm-events.md)]
 
-1. I en webbläsare går du till [https://help.kusto.windows.net/](https://help.kusto.windows.net/) för att starta Azure Data Explorer-skrivbordsappen.
+1. I en webbläsare [https://help.kusto.windows.net/](https://help.kusto.windows.net/) går du till för att starta azure data explorer-skrivbordsappen.
 
 1. I skrivbordsappen kopierar du följande fråga i det övre högra frågefönstret och kör den.
 
@@ -78,8 +78,8 @@ Först skapar du en fråga i Azure Data Explorer-skrivbordsappen och exporterar 
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Om du inte längre behöver rapporten som du skapade för den här artikeln tar du bort Power BI Desktop-filen (. pbix).
+Om du inte längre behöver rapporten som du skapade för den här artikeln tar du bort Power BI Desktop -filen (.pbix).
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Visualisera data med Azure Datautforskaren Connector för Power BI](power-bi-connector.md)
+[Visualisera data med Azure Data Explorer-anslutningen för Power BI](power-bi-connector.md)

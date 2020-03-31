@@ -1,6 +1,6 @@
 ---
-title: Återställ eller ta bort nyligen borttagen användare – Azure AD
-description: Så här att visa återställningsbara användare, Återställ en borttagen användare eller permanent ta bort en användare med Azure Active Directory.
+title: Återställa eller permanent ta bort nyligen borttagen användare - Azure AD
+description: Visa återställningsbara användare, återställa en borttagen användare eller ta bort en användare permanent med Azure Active Directory.
 services: active-directory
 author: msaburnley
 manager: daveba
@@ -14,73 +14,73 @@ ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 573269da1ca6b9ee09b493f4e758e78121d6c2f2
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75422869"
 ---
-# <a name="restore-or-remove-a-recently-deleted-user-using-azure-active-directory"></a>Återställa eller ta bort en nyligen borttagna användare som använder Azure Active Directory
-När du tar bort en användare kan fortfarande kontot i ett väntetillstånd i 30 dagar. Under den 30-dagars fönstret kan användarkontot återställas, tillsammans med alla dess egenskaper. När 30-dagars fönstret skickar bort användaren automatiskt och permanent.
+# <a name="restore-or-remove-a-recently-deleted-user-using-azure-active-directory"></a>Återställa eller ta bort en nyligen borttagen användare med Azure Active Directory
+När du har tagit bort en användare förblir kontot i ett pausat tillstånd i 30 dagar. Under det 30-dagarsfönstret kan användarkontot återställas, tillsammans med alla dess egenskaper. Efter att 30-dagarsfönstret passerar, användaren automatiskt, och permanent, tas bort.
 
-Du kan visa dina återställningsbara användare, Återställ en borttagen användare eller permanent ta bort en användare med Azure Active Directory (AD Azure) i Azure-portalen.
+Du kan visa dina återställningsbara användare, återställa en borttagen användare eller permanent ta bort en användare med Azure Active Directory (Azure AD) i Azure-portalen.
 
 >[!Important]
->Varken du eller Microsofts kundsupport kan återställa en användare som har tagits bort permanent.
+>Varken du eller Microsofts kundsupport kan återställa en permanent borttagen användare.
 
 ## <a name="required-permissions"></a>Nödvändiga behörigheter
-Du måste ha något av följande roller för att återställa och ta bort användarna permanent.
+Du måste ha en av följande roller för att återställa och permanent ta bort användare.
 
 - Global administratör
 
-- Partnersupport, nivå 1
+- Support för partnernivå1
 
-- Partnersupport, nivå 2
+- Support för partnernivå2
 
-- Användar administratör
+- Användaradministratör
 
 ## <a name="view-your-restorable-users"></a>Visa dina återställningsbara användare
-Du kan se alla användare som har tagits bort mindre än 30 dagar sedan. Dessa användare kan återställas.
+Du kan se alla användare som togs bort för mindre än 30 dagar sedan. Dessa användare kan återställas.
 
-### <a name="to-view-your-restorable-users"></a>Visa dina återställningsbara användare
-1. Logga in på [Azure Portal](https://portal.azure.com/) med ett globalt administratörs konto för organisationen.
+### <a name="to-view-your-restorable-users"></a>Så här visar du dina återställningsbara användare
+1. Logga in på [Azure-portalen](https://portal.azure.com/) med ett globalt administratörskonto för organisationen.
 
-2. Välj **Azure Active Directory**väljer **användare**, och välj sedan **borttagna användare**.
+2. Välj **Azure Active Directory**, välj **Användare**och välj sedan **Borttagna användare**.
 
     Granska listan över användare som är tillgängliga för återställning.
 
-    ![Användare – sidan borttagen användare med användare som fortfarande kan återställas](media/active-directory-users-restore/users-deleted-users-view-restorable.png)
+    ![Användare - Borttagna användare sida, med användare som fortfarande kan återställas](media/active-directory-users-restore/users-deleted-users-view-restorable.png)
 
-## <a name="restore-a-recently-deleted-user"></a>Återställa en nyligen borttagna användare
+## <a name="restore-a-recently-deleted-user"></a>Återställa en nyligen borttagen användare
 
-När ett användar konto tas bort från organisationen är kontot i ett inaktiverat tillstånd och all relaterad organisations information bevaras. När du återställer en användare återställs även den här organisations informationen.
+När ett användarkonto tas bort från organisationen är kontot i ett pausat tillstånd och all relaterad organisationsinformation bevaras. När du återställer en användare återställs även den här organisationsinformationen.
 
 > [!Note]
-> När en användare återställs återställs även licenser som tilldelats användaren vid tidpunkten för borttagning även om det inte finns några platser tillgängliga för dessa licenser. Om du sedan förbrukar fler licenser mer än vad du har köpt kan din organisation tillfälligt vara inkompatibel med licens användningen.
+> När en användare har återställts återställs även licenser som tilldelats användaren vid tidpunkten för borttagningen, även om det inte finns några tillgängliga platser för dessa licenser. Om du sedan konsumerar fler licenser mer än du har köpt kan din organisation vara tillfälligt utanför överensstämmelse för licensanvändning.
 
-### <a name="to-restore-a-user"></a>Att återställa en användare
-1. På den **användare – borttagna användare** , söka efter och välj en av de tillgängliga användarna. Till exempel _Mary Parker_.
+### <a name="to-restore-a-user"></a>Så här återställer du en användare
+1. På sidan **Användare - Borttagna användare** söker du efter och väljer en av de tillgängliga användarna. Till exempel _Mary Parker_.
 
-2. Välj **återställning användaren**.
+2. Välj **Återställ användare**.
 
-    ![Användare – sidan borttagna användare med återställning användare alternativet är markerat](media/active-directory-users-restore/users-deleted-users-restore-user.png)
+    ![Sidan Användare - Borttagna användare, med alternativet Återställ användare markerat](media/active-directory-users-restore/users-deleted-users-restore-user.png)
 
 ## <a name="permanently-delete-a-user"></a>Ta bort en användare permanent
-Du kan ta bort en användare från din organisation Permanent utan att vänta 30 dagar för automatisk borttagning. En permanent borttagen användare kan inte återställas av dig, en annan administratör eller av Microsoft kundsupport.
+Du kan ta bort en användare från organisationen permanent utan att vänta på 30 dagar för automatisk borttagning. En permanent borttagen användare kan inte återställas av dig, en annan administratör eller av Microsofts kundsupport.
 
 >[!Note]
->Om du permanent ta bort en användare av misstag, måste du skapa en ny användare och manuellt ange all information som tidigare. Mer information om hur du skapar en ny användare finns i [Lägg till eller ta bort användare](add-users-azure-active-directory.md).
+>Om du tar bort en användare permanent av misstag måste du skapa en ny användare och ange all tidigare information manuellt. Mer information om hur du skapar en ny användare finns i [Lägga till eller ta bort användare](add-users-azure-active-directory.md).
 
-### <a name="to-permanently-delete-a-user"></a>Permanent ta bort en användare
+### <a name="to-permanently-delete-a-user"></a>Så här tar du bort en användare permanent
 
-1. På den **användare – borttagna användare** , söka efter och välj en av de tillgängliga användarna. Till exempel _Rae Huff_.
+1. På sidan **Användare - Borttagna användare** söker du efter och väljer en av de tillgängliga användarna. Till _exempel, Rae Huff_.
 
-2. Välj **ta bort permanent**.
+2. Välj **Ta bort permanent**.
 
-    ![Användare – sidan borttagna användare med återställning användare alternativet är markerat](media/active-directory-users-restore/users-deleted-users-permanent-delete-user.png)
+    ![Sidan Användare - Borttagna användare, med alternativet Återställ användare markerat](media/active-directory-users-restore/users-deleted-users-permanent-delete-user.png)
 
 ## <a name="next-steps"></a>Nästa steg
-När du har återställt eller ta bort användarna, kan du utföra följande basic-processer:
+När du har återställt eller tagit bort användarna kan du utföra följande grundläggande processer:
 
 - [Lägga till eller ta bort användare](add-users-azure-active-directory.md)
 
@@ -88,6 +88,6 @@ När du har återställt eller ta bort användarna, kan du utföra följande bas
 
 - [Lägga till eller ändra profilinformation](active-directory-users-profile-azure-portal.md)
 
-- [Lägga till gäst användare från en annan organisation](../b2b/what-is-b2b.md)
+- [Lägga till gästanvändare från en annan organisation](../b2b/what-is-b2b.md)
 
-Mer information om andra tillgängliga användar hanterings uppgifter, [dokumentation om användar hantering i Azure AD](../users-groups-roles/index.yml).
+Om du vill ha mer information om andra tillgängliga användarhanteringsuppgifter finns [dokumentation för Azure AD-användarhantering](../users-groups-roles/index.yml).

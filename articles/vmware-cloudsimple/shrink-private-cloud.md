@@ -1,6 +1,6 @@
 ---
-title: Minska Azure VMware-lösningar (AVS) privat moln
-description: Beskriver hur du krymper ett privat moln moln.
+title: Krympa Azure VMware-lösning av CloudSimple Private Cloud
+description: Beskriver hur du krymper ett CloudSimple Private Cloud.
 author: sharaths-cs
 ms.author: b-shsury
 ms.date: 07/01/2019
@@ -8,60 +8,59 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 0ea764081cd0b4d5c6d44cd7364d1e9a89a3cec3
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 602dca105e91c55c591388a833a36e71f951da8b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77014274"
 ---
-# <a name="shrink-an-avs-private-cloud"></a>Krymp ett privat AVS-moln
+# <a name="shrink-a-cloudsimple-private-cloud"></a>Krympa ett cloudsimple privat moln
 
-AVS ger flexibiliteten att dynamiskt minska ett privat moln i AVS. Ett privat AVS-moln består av ett eller flera vSphere-kluster. Varje kluster kan ha 3 till 16 noder. När du krymper ett privat moln moln tar du bort en nod från det befintliga klustret eller tar bort ett helt kluster. 
+CloudSimple ger flexibiliteten att dynamiskt krympa ett privat moln.  Ett privat moln består av ett eller flera vSphere-kluster. Varje kluster kan ha 3 till 16 noder. När du krymper ett privat moln tar du bort en nod från det befintliga klustret eller tar bort ett helt kluster. 
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
-Följande villkor måste vara uppfyllda innan du krymper ett privat moln. Hanterings klustret (det första klustret) skapas när det privata moln molnet skapades. Det går inte att ta bort den.
+Följande villkor måste uppfyllas för krympning av ett privat moln.  Hanteringskluster (första klustret) som skapades när ett privat moln skapades kan inte tas bort.
 
-* Ett vSphere-kluster måste ha tre noder. Det går inte att krympa ett kluster med tre noder.
-* Den totala förbrukade lagringen bör inte överskrida den totala kapaciteten efter krympning av klustret.
-* Kontrol lera om några DRS-regler (Distributed Resource Scheduler) förhindrar vMotion av en virtuell dator. Om det finns regler inaktiverar eller tar du bort reglerna. DRS-regler inkluderar virtuell dator som värd tillhörighets regler.
-
+* Ett vSphere-kluster måste ha tre noder.  Det går inte att krympa ett kluster med endast tre noder.
+* Totalt lagringsutrymme som förbrukas bör inte överstiga den totala kapaciteten efter krympning av klustret.
+* Kontrollera om några DRS-regler (Distributed Resource Scheduler) förhindrar vMotion av en virtuell dator.  Om det finns regler inaktiverar eller tar du bort reglerna.  DRS-regler inkluderar virtuella datorer som värd för tillhörighetsregler.
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 
-Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.com).
+Logga in på Azure-portalen på [https://portal.azure.com](https://portal.azure.com).
 
-## <a name="shrinking-an-avs-private-cloud"></a>Minska ett privat AVS-moln
+## <a name="shrink-a-private-cloud"></a>Krympa ett privat moln
 
-1. [Få åtkomst till AVS-portalen](access-cloudsimple-portal.md).
+1. [Öppna CloudSimple-portalen](access-cloudsimple-portal.md).
 
-2. Öppna sidan **resurser** .
+2. Öppna sidan **Resurser.**
 
-3. Klicka på det AVS-privata moln som du vill krympa
+3. Klicka på det privata molnet som du vill krympa
 
-4. På sidan Sammanfattning klickar du på **Krymp**.
+4. Klicka på **Förminska**på sammanfattningssidan.
 
-    ![Minska det privata molnet i AVS-molnet](media/shrink-private-cloud.png)
+    ![Förminska privat moln](media/shrink-private-cloud.png)
 
-5. Välj det kluster som du vill krympa eller ta bort. 
+5. Markera det kluster som du vill förminska eller ta bort. 
 
-    ![Krymp molnets privata moln – Välj kluster](media/shrink-private-cloud-select-cluster.png)
+    ![Förminska privat moln – välj kluster](media/shrink-private-cloud-select-cluster.png)
 
-6. Välj **ta bort en nod** eller **ta bort hela klustret**. 
+6. Välj **Ta bort en nod** eller Ta bort hela **klustret**. 
 
-7. Verifiera kluster kapaciteten
+7. Verifiera klusterkapaciteten
 
-8. Klicka på **Skicka** för att krympa det privata moln molnet.
+8. Klicka på **Skicka** om du vill förminska det privata molnet.
 
-Minskning av molnets privata moln startar. Du kan övervaka förloppet i aktiviteterna. Krympnings processen kan ta några timmar beroende på vilka data som behöver synkroniseras om på virtuellt San.
+Krympa av det privata molnet startar.  Du kan övervaka förloppet i aktiviteter.  Krympprocessen kan ta några timmar beroende på data, som måste synkroniseras på vSAN.
 
 > [!NOTE]
-> 1. Om du krymper ett privat moln genom att ta bort det sista eller det enda klustret i data centret tas data centret inte bort.
-> 2. Om någon DRS regel överträdelse uppstår tas noden inte bort från klustret och uppgifts beskrivningen visar att borttagning av en nod bryter mot DRS-regler i klustret.    
+> 1. Om du krymper ett privat moln genom att ta bort det sista eller det enda klustret i datacentret tas inte datacentret bort.
+> 2. Om någon DRS-regelöverträdelse inträffar tas noden inte bort från klustret och uppgiftsbeskrivningen visar att om du tar bort en nod bryter du mot DRS-reglerna i klustret.    
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Använda virtuella VMware-datorer i Azure](quickstart-create-vmware-virtual-machine.md)
-* Lär dig mer om [moln privata moln](cloudsimple-private-cloud.md)
+* [Använda virtuella VMware-datorer på Azure](quickstart-create-vmware-virtual-machine.md)
+* Läs mer om [privata moln](cloudsimple-private-cloud.md)

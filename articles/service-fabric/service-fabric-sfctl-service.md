@@ -1,591 +1,591 @@
 ---
-title: Azure Service Fabric CLI – sfctl-tjänst
-description: Lär dig mer om sfctl, Azure Service Fabric Command Line Interface. Innehåller en lista med kommandon för att hantera tjänster, tjänst typer och service paket.
+title: Azure Service Fabric CLI- sfctl-tjänst
+description: Lär dig mer om sfctl, kommandoradsgränssnittet i Azure Service Fabric. Innehåller en lista över kommandon för hantering av tjänster, tjänsttyper och servicepaket.
 author: jeffj6123
 ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
 ms.openlocfilehash: 696de713129ca71dd7f2451501a7cc9eca0ee9b9
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76906234"
 ---
 # <a name="sfctl-service"></a>sfctl service
-Skapa, ta bort och hantera tjänst, tjänst typer och service paket.
+Skapa, ta bort och hantera tjänst, tjänsttyper och servicepaket.
 
 ## <a name="commands"></a>Kommandon
 
 |Kommando|Beskrivning|
 | --- | --- |
-| App-Name | Hämtar namnet på Service Fabric program för en tjänst. |
-| kod-paket lista | Hämtar listan över kod paket som har distribuerats på en Service Fabric-nod. |
-| skapa | Skapar den angivna Service Fabrics tjänsten. |
+| app-namn | Hämtar namnet på Service Fabric-programmet för en tjänst. |
+| lista över kodpaket | Hämtar listan över kodpaket som distribueras på en Service Fabric-nod. |
+| skapa | Skapar den angivna tjänsten Service Fabric. |
 | delete | Tar bort en befintlig Service Fabric-tjänst. |
-| distribuerad-typ | Hämtar information om en angiven tjänste typ för det program som distribuerats på en nod i ett Service Fabric kluster. |
-| distribuerad-typ lista | Hämtar listan med information om tjänst typer från de program som distribueras på en nod i ett Service Fabric kluster. |
+| distribuerad typ | Hämtar information om en angiven tjänsttyp för programmet som distribueras på en nod i ett Service Fabric-kluster. |
+| distribuerad-typ-lista | Hämtar listan som innehåller information om tjänsttyper från de program som distribueras på en nod i ett Service Fabric-kluster. |
 | description | Hämtar beskrivningen av en befintlig Service Fabric-tjänst. |
-| Get-container – loggar | Hämtar behållar loggarna för container som distribuerats på en Service Fabric-nod. |
-| hälsa | Hämtar hälso tillståndet för den angivna Service Fabrics tjänsten. |
-| info | Hämtar information om den specifika tjänst som hör till Service Fabric programmet. |
-| lista | Hämtar information om alla tjänster som tillhör programmet som anges av program-ID: t. |
-| manifest | Hämtar manifestet som beskriver en tjänst typ. |
-| paketera distribution | Laddar ned paket som är associerade med angivet tjänst manifest till avbildningens cacheminne på den angivna noden. |
-| paket-hälsa | Hämtar information om hälso tillståndet för ett tjänst paket för ett särskilt program som har distribuerats för en Service Fabric nod och program. |
-| package-info | Hämtar listan över tjänst paket som har distribuerats på en Service Fabric nod som matchar exakt det angivna namnet. |
-| paket lista | Hämtar listan över tjänst paket som har distribuerats på en Service Fabric-nod. |
-| recover | Anger Service Fabric kluster som det ska försöka återställa den angivna tjänsten som för närvarande fastnar i kvorum. |
-| report-health | Skickar en hälso rapport i Service Fabrics tjänsten. |
-| försvinner | Lös en Service Fabric partition. |
-| type-list | Hämtar listan med information om tjänst typer som stöds av en etablerad program typ i ett Service Fabric kluster. |
-| update | Uppdaterar den angivna tjänsten med den angivna uppdaterings beskrivningen. |
+| få-behållare-loggar | Hämtar behållarloggarna för behållare som distribueras på en Service Fabric-nod. |
+| Hälsa | Hämtar hälsotillståndet för den angivna Service fabric-tjänsten. |
+| information | Hämtar information om den specifika tjänst som tillhör Programmet Service Fabric. |
+| lista | Hämtar information om alla tjänster som tillhör programmet som anges av program-ID. |
+| manifest | Hämtar manifestet som beskriver en tjänsttyp. |
+| paket-distribuera | Hämtar paket som är associerade med angivet tjänstmanifest till avbildningscachen på angiven nod. |
+| paket-hälsa | Hämtar information om hälsotillståndet för ett tjänstpaket för ett visst program som distribueras för en Service Fabric-nod och ett program. |
+| paket-info | Hämtar listan över tjänstpaket som distribueras på en Service Fabric-nod som matchar exakt det angivna namnet. |
+| paketlista | Hämtar listan över tjänstpaket som distribueras på en Service Fabric-nod. |
+| recover | Anger för servicetygsklustret att det ska försöka återställa den angivna tjänsten som för närvarande har fastnat i kvorumförlust. |
+| rapport-hälsa | Skickar en hälsorapport om tjänsten Service Fabric. |
+| Lösa | Lös en Partition för service fabric. |
+| typlista | Hämtar listan som innehåller information om tjänsttyper som stöds av en etablerad programtyp i ett Service Fabric-kluster. |
+| update | Uppdaterar den angivna tjänsten med den angivna uppdateringsbeskrivningen. |
 
-## <a name="sfctl-service-app-name"></a>sfctl-tjänstens App-Name
-Hämtar namnet på Service Fabric program för en tjänst.
+## <a name="sfctl-service-app-name"></a>sfctl tjänst app-namn
+Hämtar namnet på Service Fabric-programmet för en tjänst.
 
-Hämtar namnet på programmet för den angivna tjänsten. Ett 404 FABRIC_E_SERVICE_DOES_NOT_EXIST-fel returneras om en tjänst med det angivna tjänst-ID: t inte finns.
-
-### <a name="arguments"></a>Argument
-
-|Argument|Beskrivning|
-| --- | --- |
-| --tjänst-ID [obligatoriskt] | Tjänstens identitet. Detta ID är vanligt vis det fullständiga namnet på tjänsten utan URI-schemat "Fabric\:". Från och med version 6,0 avgränsas hierarkiska namn med "\~"-tecknen. Om tjänst namnet till exempel är "Fabric\:/MyApp/APP1/svc1" blir tjänst identiteten "MyApp\~APP1\~svc1" i 6.0 + och "MyApp/APP1/svc1" i tidigare versioner. |
-| --timeout-t | Tids gränsen för servern för att utföra åtgärden på några sekunder. Denna timeout anger den tids period som klienten vill vänta tills den begärda åtgärden har slutförts. Standardvärdet för den här parametern är 60 sekunder.  Standard\: 60. |
-
-### <a name="global-arguments"></a>Globala argument
-
-|Argument|Beskrivning|
-| --- | --- |
-| --Felsök | Öka loggnings utförligheten för att visa alla fel söknings loggar. |
-| --hjälp-h | Visa det här hjälp meddelandet och avsluta. |
-| --utdata-o | Utdataformat.  Tillåtna värden\: JSON, jsonc, Table, TSV.  Standard\: JSON. |
-| --fråga | Frågesträngen JMESPath. Mer information och exempel finns i http\://jmespath.org/. |
-| --utförlig | Öka loggningens utförlighet. Använd--debug för fullständiga fel söknings loggar. |
-
-## <a name="sfctl-service-code-package-list"></a>sfctl service code-Package-List
-Hämtar listan över kod paket som har distribuerats på en Service Fabric-nod.
-
-Hämtar listan över kod paket som har distribuerats på en Service Fabric-nod för det aktuella programmet.
+Hämtar namnet på programmet för den angivna tjänsten. Ett fel på 404 FABRIC_E_SERVICE_DOES_NOT_EXIST returneras om det inte finns någon tjänst med det angivna service-ID:t.
 
 ### <a name="arguments"></a>Argument
 
 |Argument|Beskrivning|
 | --- | --- |
-| --program-ID [obligatoriskt] | Programmets identitet. Detta är vanligt vis det fullständiga namnet på programmet utan URI-schemat "Fabric\:. Från och med version 6,0 avgränsas hierarkiska namn med "\~"-tecknen. Om program namnet till exempel är "Fabric\:/MyApp/APP1" blir program identiteten "MyApp\~APP1" i 6.0 + och "MyApp/APP1" i tidigare versioner. |
-| --Node-Name [required] | Nodens namn. |
-| --kod-paket namn | Namnet på kod paketet som anges i tjänst manifestet som är registrerat som en del av en program typ i ett Service Fabric kluster. |
-| --tjänst-manifest-namn | Namnet på ett tjänst manifest som är registrerat som en del av en program typ i ett Service Fabric kluster. |
-| --timeout-t | Tids gränsen för servern för att utföra åtgärden på några sekunder. Denna timeout anger den tids period som klienten vill vänta tills den begärda åtgärden har slutförts. Standardvärdet för den här parametern är 60 sekunder.  Standard\: 60. |
+| --service-id [Obligatoriskt] | Tjänstens identitet. Detta ID är vanligtvis det fullständiga namnet\:på tjänsten utan URI-schemat för tyg. Från och med version 6.0 avgränsas hierarkiska\~namn med " " tecken. Om tjänstnamnet till exempel är\:"fabric /myapp/app1/svc1", skulle tjänstidentiteten vara "myapp\~app1\~svc1" i 6.0+ och "myapp/app1/svc1" i tidigare versioner. |
+| --timeout -t | Tidsgränsen för servern för att utföra åtgärden på några sekunder. Den här timeouten anger den tid som klienten är villig att vänta på att den begärda åtgärden har slutförts. Standardvärdet för den här parametern är 60 sekunder.  Standard\: 60. |
 
 ### <a name="global-arguments"></a>Globala argument
 
 |Argument|Beskrivning|
 | --- | --- |
-| --Felsök | Öka loggnings utförligheten för att visa alla fel söknings loggar. |
-| --hjälp-h | Visa det här hjälp meddelandet och avsluta. |
-| --utdata-o | Utdataformat.  Tillåtna värden\: JSON, jsonc, Table, TSV.  Standard\: JSON. |
-| --fråga | Frågesträngen JMESPath. Mer information och exempel finns i http\://jmespath.org/. |
-| --utförlig | Öka loggningens utförlighet. Använd--debug för fullständiga fel söknings loggar. |
+| --debug | Öka loggningsverbaliteten för att visa alla felsökningsloggar. |
+| --hjälp -h | Visa det här hjälpmeddelandet och avsluta. |
+| --utgång -o | Utdataformat.  Tillåtna\: värden json, jsonc, tabell, tsv.  Standard\: json. |
+| --fråga | JMESPath-frågesträng. Mer\:information och exempel finns på http //jmespath.org/. |
+| --utförlig | Öka loggningsverbaliteten. Använd --debug för fullständiga felsökningsloggar. |
 
-## <a name="sfctl-service-create"></a>Skapa sfctl-tjänst
-Skapar den angivna Service Fabrics tjänsten.
+## <a name="sfctl-service-code-package-list"></a>sfctl tjänstkod-paket-lista
+Hämtar listan över kodpaket som distribueras på en Service Fabric-nod.
+
+Hämtar listan över kodpaket som distribueras på en Service Fabric-nod för det angivna programmet.
 
 ### <a name="arguments"></a>Argument
 
 |Argument|Beskrivning|
 | --- | --- |
-| --app-ID [required] | Programmets identitet. Detta är vanligt vis det fullständiga namnet på programmet utan URI-schemat "Fabric\:. Från och med version 6,0 avgränsas hierarkiska namn med "\~"-tecknen. Om program namnet exempelvis är Fabric\:/MyApp/APP1, skulle program identiteten vara "MyApp\~APP1" i 6.0 + och "MyApp/APP1" i tidigare versioner. |
-| --namn [obligatoriskt] | Namnet på tjänsten. Detta bör vara underordnat program-ID: t. Detta är det fullständiga namnet, inklusive `fabric\:`-URI. Exempel på tjänst `fabric\:/A/B` är underordnad till program `fabric\:/A`. |
-| --tjänst-typ [obligatoriskt] | Namnet på tjänst typen. |
-| --aktiverings läge | Tjänst paketets aktiverings läge. |
-| --begränsningar | Placeringen är begränsad som en sträng. Placerings begränsningar är booleska uttryck för Node-egenskaper och möjliggör begränsning av en tjänst till särskilda noder baserat på tjänst kraven. Om du till exempel vill placera en tjänst på noder där NodeType är blått anger du följande\:"NodeColor = = blått". |
-| --correlated-service | Namnet på mål tjänsten som ska korreleras med. |
-| --korrelation | Korrelera tjänsten med en befintlig tjänst med en justerings tilldelning. |
-| --dns-name | DNS-namnet på den tjänst som ska skapas. Den Service Fabric DNS-systemtjänsten måste vara aktive rad för den här inställningen. |
-| --antal instanser | Antalet instanser. Detta gäller endast för tillstånds lösa tjänster. |
-| --int-scheme | Anger att tjänsten ska vara enhetligt partitionerad i ett intervall med osignerade heltal. |
-| --int-scheme-count | Antalet partitioner i heltals nyckel intervallet som ska skapas, om ett enhetligt heltals-partitions schema används. |
-| --int-scheme-high | Slutet av heltals intervallet för nyckeln, om ett enhetligt heltals-partitions schema används. |
-| --int-scheme-low | Början av heltals intervallet för nyckeln, om ett enhetligt heltals-partitions schema används. |
-| --Load – Metrics | JSON-kodad lista över mått som används vid belastnings utjämning av tjänster mellan noder. |
-| --min-replica-set-size | Den minsta replik uppsättningens storlek som ett tal. Detta gäller endast för tillstånds känsliga tjänster. |
-| --flytta – kostnad | Anger flytt kostnaden för tjänsten. Möjliga värden är\: ' Zero ', ' Low ', ' medium ', ' High ', ' VeryHigh '. |
-| --named-scheme | Anger att tjänsten ska ha flera namngivna partitioner. |
-| --named-scheme-list | JSON-kodad lista med namn för att partitionera tjänsten över, om du använder det namngivna partitionsnamnet. |
-| --inget beständigt tillstånd | Om värdet är true betyder det att tjänsten inte har något beständigt tillstånd lagrad på den lokala disken, eller att den bara lagrar tillstånd i minnet. |
-| --placement-policy-list | JSON-kodad lista över placerings principer för tjänsten och alla associerade domän namn. Principer kan vara en eller flera av\: `NonPartiallyPlaceService`, `PreferPrimaryDomain`, `RequireDomain`, `RequireDomainDistribution`. |
-| --kvorum-förlust-vänta | Den längsta tid i sekunder som en partition kan vara i status för kvorum. Detta gäller endast för tillstånds känsliga tjänster. |
-| --replica-restart-wait | Tiden, i sekunder, mellan när en replik kraschar och när en ny replik skapas. Detta gäller endast för tillstånds känsliga tjänster. |
-| --scaling-policies | JSON-kodad lista över skalnings principer för den här tjänsten. |
-| --service-placement-Time | Varaktigheten för vilka repliker kan vara inbygga innan rapportering som skapas fastnar. Detta gäller endast för tillstånds känsliga tjänster. |
-| --Singleton-schema | Anger att tjänsten ska ha en enda partition eller vara en icke-partitionerad tjänst. |
-| --Behåll-för-replik-Behåll | Maximal varaktighet, i sekunder, för vilken StandBy-repliker ska behållas innan de tas bort. Detta gäller endast för tillstånds känsliga tjänster. |
-| --tillstånds känslig | Anger att tjänsten är en tillstånds känslig tjänst. |
-| --tillstånds lös | Anger att tjänsten är en tillstånds lös tjänst. |
-| --target-replica-set-size | Målets replik uppsättnings storlek som ett tal. Detta gäller endast för tillstånds känsliga tjänster. |
-| --timeout-t | Standard\: 60. |
+| --application-id [Obligatoriskt] | Programmets identitet. Detta är vanligtvis det fullständiga namnet på\:programmet utan "fabric" URI-schemat. Från och med version 6.0 avgränsas hierarkiska\~namn med " " tecken. Om programnamnet till exempel är\:"fabric /myapp/app1" skulle programidentiteten vara "myapp\~app1" i 6.0+ och "myapp/app1" i tidigare versioner. |
+| --nodnamn [Obligatoriskt] | Namnet på noden. |
+| --kod-paket-namn | Namnet på kodpaketet som anges i tjänstmanifestet som registrerats som en del av en programtyp i ett Service Fabric-kluster. |
+| --service-manifest-namn | Namnet på ett tjänstmanifest som registrerats som en del av en programtyp i ett Service Fabric-kluster. |
+| --timeout -t | Tidsgränsen för servern för att utföra åtgärden på några sekunder. Den här timeouten anger den tid som klienten är villig att vänta på att den begärda åtgärden har slutförts. Standardvärdet för den här parametern är 60 sekunder.  Standard\: 60. |
 
 ### <a name="global-arguments"></a>Globala argument
 
 |Argument|Beskrivning|
 | --- | --- |
-| --Felsök | Öka loggnings utförligheten för att visa alla fel söknings loggar. |
-| --hjälp-h | Visa det här hjälp meddelandet och avsluta. |
-| --utdata-o | Utdataformat.  Tillåtna värden\: JSON, jsonc, Table, TSV.  Standard\: JSON. |
-| --fråga | Frågesträngen JMESPath. Mer information och exempel finns i http\://jmespath.org/. |
-| --utförlig | Öka loggningens utförlighet. Använd--debug för fullständiga fel söknings loggar. |
+| --debug | Öka loggningsverbaliteten för att visa alla felsökningsloggar. |
+| --hjälp -h | Visa det här hjälpmeddelandet och avsluta. |
+| --utgång -o | Utdataformat.  Tillåtna\: värden json, jsonc, tabell, tsv.  Standard\: json. |
+| --fråga | JMESPath-frågesträng. Mer\:information och exempel finns på http //jmespath.org/. |
+| --utförlig | Öka loggningsverbaliteten. Använd --debug för fullständiga felsökningsloggar. |
 
-## <a name="sfctl-service-delete"></a>ta bort sfctl-tjänst
+## <a name="sfctl-service-create"></a>sfctl-tjänsten skapar
+Skapar den angivna tjänsten Service Fabric.
+
+### <a name="arguments"></a>Argument
+
+|Argument|Beskrivning|
+| --- | --- |
+| --app-id [Obligatoriskt] | Programmets identitet. Detta är vanligtvis det fullständiga namnet på\:programmet utan "fabric" URI-schemat. Från och med version 6.0 avgränsas hierarkiska\~namn med tecknet ' ' . Om programnamnet till exempel är\:"fabric /myapp/app1" skulle programidentiteten vara "myapp\~app1" i 6.0+ och 'myapp/app1' i tidigare versioner. |
+| --namn [Obligatoriskt] | Tjänstens namn. Detta bör vara ett underordnat program-ID. Det här är det `fabric\:` fullständiga namnet inklusive URI:n. Till exempel `fabric\:/A/B` tjänst är `fabric\:/A`ett underordnat program . |
+| --service-typ [Obligatoriskt] | Namnet på tjänsttypen. |
+| --aktivering-läge | Aktiveringsläget för servicepaketet. |
+| --begränsningar | Placeringsbegränsningarna som en sträng. Placeringsbegränsningar är booleska uttryck för nodegenskaper och gör det möjligt att begränsa en tjänst till vissa noder baserat på servicekraven. Om du till exempel vill placera en tjänst på noder där NodeType är blå anger du följande\:"NodeColor == blue". |
+| --korrelerad-tjänst | Namn på måltjänsten att korrelera med. |
+| --korrelation | Korrelera tjänsten med en befintlig tjänst med hjälp av en justeringstillhörighet. |
+| --dns-namn | DNS-namnet på den tjänst som ska skapas. Tjänsten Service Fabric DNS-system måste vara aktiverad för den här inställningen. |
+| --instans-antal | Instansen räknas. Detta gäller endast tillståndslösa tjänster. |
+| --int-system | Anger att tjänsten ska vara jämnt partitionerad över ett intervall av osignerade heltal. |
+| --int-scheme-count --int-scheme-count --int-scheme-count -- | Antalet partitioner i heltalstangentintervallet som ska skapas, om du använder ett enhetligt heltalspartitionsschema. |
+| --int-system-hög | Slutet av nyckel heltalsområdet, om du använder ett enhetligt heltalspartitionsschema. |
+| --int-scheme-låg | Början av nyckel heltalsområdet, om du använder ett enhetligt heltalspartitionsschema. |
+| --load-metrics | JSON kodade lista över mått som används vid belastningsutjämningstjänster över noder. |
+| --min-replica-set-storlek | Minsta replikuppsättningsstorlek som ett tal. Detta gäller endast tillståndskänsliga tjänster. |
+| --move-kostnad | Anger flyttkostnaden för tjänsten. Möjliga värden\: är "Noll", "Låg", "Medium", "Hög", "VeryHigh". |
+| --namngivna-schema | Anger att tjänsten ska ha flera namngivna partitioner. |
+| --namngiven schemalista | JSON kodade lista med namn att partitionera tjänsten över, om du använder det namngivna partitionsschemat. |
+| --ingen-ihållande-tillstånd | Om värdet är true anger detta att tjänsten inte har något beständigt tillstånd lagrat på den lokala disken, eller så lagrar den bara tillstånd i minnet. |
+| --placement-policy-lista | JSON kodade lista över placeringsprinciper för tjänsten och eventuella associerade domännamn. Principer kan vara en\: `NonPartiallyPlaceService` `PreferPrimaryDomain`eller `RequireDomain` `RequireDomainDistribution`flera av , , , . |
+| --kvorum-förlust-vänta | Den maximala varaktigheten, i sekunder, för vilken en partition tillåts vara i ett tillstånd av kvorumförlust. Detta gäller endast tillståndskänsliga tjänster. |
+| --replica-restart-wait --replica-restart-wait --replica-restart-wait -- | Varaktigheten, i sekunder, mellan när en replik går ner och när en ny replik skapas. Detta gäller endast tillståndskänsliga tjänster. |
+| --skala-principer | JSON kodade lista över skalningsprinciper för den här tjänsten. |
+| --service-placement-tid | Varaktigheten för vilka repliker kan stanna i InBuild innan du rapporterar att bygga har fastnat. Detta gäller endast tillståndskänsliga tjänster. |
+| --singleton-system | Anger att tjänsten ska ha en enda partition eller vara en icke-partitionerad tjänst. |
+| --stand-by-replica-keep | Den maximala varaktigheten, i sekunder, för vilken StandBy-repliker kommer att underhållas innan de tas bort. Detta gäller endast tillståndskänsliga tjänster. |
+| --stateful | Anger att tjänsten är en tillståndskänslig tjänst. |
+| --statslös | Anger att tjänsten är en tillståndslös tjänst. |
+| --target-replica-set-size -target-replica-set-size -target-replica-set-size --target- | Målrepliken anger storlek som ett tal. Detta gäller endast tillståndskänsliga tjänster. |
+| --timeout -t | Standard\: 60. |
+
+### <a name="global-arguments"></a>Globala argument
+
+|Argument|Beskrivning|
+| --- | --- |
+| --debug | Öka loggningsverbaliteten för att visa alla felsökningsloggar. |
+| --hjälp -h | Visa det här hjälpmeddelandet och avsluta. |
+| --utgång -o | Utdataformat.  Tillåtna\: värden json, jsonc, tabell, tsv.  Standard\: json. |
+| --fråga | JMESPath-frågesträng. Mer\:information och exempel finns på http //jmespath.org/. |
+| --utförlig | Öka loggningsverbaliteten. Använd --debug för fullständiga felsökningsloggar. |
+
+## <a name="sfctl-service-delete"></a>sfctl-tjänsten ta bort
 Tar bort en befintlig Service Fabric-tjänst.
 
-En tjänst måste skapas innan den kan tas bort. Som standard kommer Service Fabric att försöka stänga tjänst repliker på ett korrekt sätt och sedan ta bort tjänsten. Men om tjänsten har problem med att stänga av repliken kan borttagnings åtgärden ta lång tid eller bli fastnad. Använd den valfria ForceRemove-flaggan för att hoppa över den korrekt stängnings ordningen och framtvinga borttagning av tjänsten.
+En tjänst måste skapas innan den kan tas bort. Som standard försöker Service Fabric stänga tjänstrepliker på ett graciöst sätt och sedan ta bort tjänsten. Men om tjänsten har problem med att stänga repliken på ett smidigt sätt kan borttagningsåtgärden ta lång tid eller fastna. Använd den valfria ForceRemove-flaggan för att hoppa över den graciösa stängningssekvensen och kraftfullt ta bort tjänsten.
 
 ### <a name="arguments"></a>Argument
 
 |Argument|Beskrivning|
 | --- | --- |
-| --tjänst-ID [obligatoriskt] | Tjänstens identitet. Detta ID är vanligt vis det fullständiga namnet på tjänsten utan URI-schemat "Fabric\:". Från och med version 6,0 avgränsas hierarkiska namn med "\~"-tecknen. Om tjänst namnet till exempel är "Fabric\:/MyApp/APP1/svc1" blir tjänst identiteten "MyApp\~APP1\~svc1" i 6.0 + och "MyApp/APP1/svc1" i tidigare versioner. |
-| --Framtvinga-ta bort | Ta bort ett Service Fabric program eller en tjänst framtvingar utan att gå igenom den korrekt avstängnings ordningen. Den här parametern kan användas för att framtvinga borttagning av ett program eller en tjänst för vilken borttagning har nått tids gränsen på grund av problem i Service koden som förhindrar en korrekt stängning av repliker. |
-| --timeout-t | Tids gränsen för servern för att utföra åtgärden på några sekunder. Denna timeout anger den tids period som klienten vill vänta tills den begärda åtgärden har slutförts. Standardvärdet för den här parametern är 60 sekunder.  Standard\: 60. |
+| --service-id [Obligatoriskt] | Tjänstens identitet. Detta ID är vanligtvis det fullständiga namnet\:på tjänsten utan URI-schemat för tyg. Från och med version 6.0 avgränsas hierarkiska\~namn med " " tecken. Om tjänstnamnet till exempel är\:"fabric /myapp/app1/svc1", skulle tjänstidentiteten vara "myapp\~app1\~svc1" i 6.0+ och "myapp/app1/svc1" i tidigare versioner. |
+| --force-remove | Ta bort ett Service Fabric-program eller en tjänst med kraft utan att gå igenom den graciösa avstängningssekvensen. Den här parametern kan användas för att kraftfullt ta bort ett program eller en tjänst som tar bort är tidsgränsen på grund av problem i tjänstkoden som förhindrar graciös stängning av repliker. |
+| --timeout -t | Tidsgränsen för servern för att utföra åtgärden på några sekunder. Den här timeouten anger den tid som klienten är villig att vänta på att den begärda åtgärden har slutförts. Standardvärdet för den här parametern är 60 sekunder.  Standard\: 60. |
 
 ### <a name="global-arguments"></a>Globala argument
 
 |Argument|Beskrivning|
 | --- | --- |
-| --Felsök | Öka loggnings utförligheten för att visa alla fel söknings loggar. |
-| --hjälp-h | Visa det här hjälp meddelandet och avsluta. |
-| --utdata-o | Utdataformat.  Tillåtna värden\: JSON, jsonc, Table, TSV.  Standard\: JSON. |
-| --fråga | Frågesträngen JMESPath. Mer information och exempel finns i http\://jmespath.org/. |
-| --utförlig | Öka loggningens utförlighet. Använd--debug för fullständiga fel söknings loggar. |
+| --debug | Öka loggningsverbaliteten för att visa alla felsökningsloggar. |
+| --hjälp -h | Visa det här hjälpmeddelandet och avsluta. |
+| --utgång -o | Utdataformat.  Tillåtna\: värden json, jsonc, tabell, tsv.  Standard\: json. |
+| --fråga | JMESPath-frågesträng. Mer\:information och exempel finns på http //jmespath.org/. |
+| --utförlig | Öka loggningsverbaliteten. Använd --debug för fullständiga felsökningsloggar. |
 
-## <a name="sfctl-service-deployed-type"></a>sfctl-tjänsten har distribuerats-typ
-Hämtar information om en angiven tjänste typ för det program som distribuerats på en nod i ett Service Fabric kluster.
+## <a name="sfctl-service-deployed-type"></a>sfctl-tjänst distribuerad typ
+Hämtar information om en angiven tjänsttyp för programmet som distribueras på en nod i ett Service Fabric-kluster.
 
-Hämtar listan med information om en angiven tjänst typ från de program som distribueras på en nod i ett Service Fabric kluster. Svaret innehåller namnet på tjänst typen, dess registrerings status, kod paketet som registrerade det och aktiverings-ID: t för tjänste paketet. Varje post representerar en aktivering av en tjänst typ, differentierad med aktiverings-ID: t.
+Hämtar listan som innehåller information om en viss tjänsttyp från de program som distribueras på en nod i ett Service Fabric-kluster. Svaret innehåller namnet på tjänsttypen, dess registreringsstatus, kodpaketet som registrerade det och aktiverings-ID för servicepaketet. Varje post representerar en aktivering av en tjänsttyp, differentierad av aktiverings-ID.
 
 ### <a name="arguments"></a>Argument
 
 |Argument|Beskrivning|
 | --- | --- |
-| --program-ID [obligatoriskt] | Programmets identitet. Detta är vanligt vis det fullständiga namnet på programmet utan URI-schemat "Fabric\:. Från och med version 6,0 avgränsas hierarkiska namn med "\~"-tecknen. Om program namnet till exempel är "Fabric\:/MyApp/APP1" blir program identiteten "MyApp\~APP1" i 6.0 + och "MyApp/APP1" i tidigare versioner. |
-| --Node-Name [required] | Nodens namn. |
-| --tjänst-typ-namn [obligatoriskt] | Anger namnet på en Service Fabric tjänst typ. |
-| --tjänst-manifest-namn | Namnet på tjänst manifestet som används för att filtrera listan över distribuerad tjänst typs information. Om det här alternativet anges innehåller svaret bara information om tjänst typer som har definierats i tjänst manifestet. |
-| --timeout-t | Tids gränsen för servern för att utföra åtgärden på några sekunder. Denna timeout anger den tids period som klienten vill vänta tills den begärda åtgärden har slutförts. Standardvärdet för den här parametern är 60 sekunder.  Standard\: 60. |
+| --application-id [Obligatoriskt] | Programmets identitet. Detta är vanligtvis det fullständiga namnet på\:programmet utan "fabric" URI-schemat. Från och med version 6.0 avgränsas hierarkiska\~namn med " " tecken. Om programnamnet till exempel är\:"fabric /myapp/app1" skulle programidentiteten vara "myapp\~app1" i 6.0+ och "myapp/app1" i tidigare versioner. |
+| --nodnamn [Obligatoriskt] | Namnet på noden. |
+| --service-type-name [Obligatoriskt] | Anger namnet på en tjänsttyp för Service Fabric. |
+| --service-manifest-namn | Namnet på tjänstmanifestet för att filtrera listan över distribuerad tjänsttypsinformation. Om det anges innehåller svaret bara information om tjänsttyper som har definierats i det här tjänstmanifestet. |
+| --timeout -t | Tidsgränsen för servern för att utföra åtgärden på några sekunder. Den här timeouten anger den tid som klienten är villig att vänta på att den begärda åtgärden har slutförts. Standardvärdet för den här parametern är 60 sekunder.  Standard\: 60. |
 
 ### <a name="global-arguments"></a>Globala argument
 
 |Argument|Beskrivning|
 | --- | --- |
-| --Felsök | Öka loggnings utförligheten för att visa alla fel söknings loggar. |
-| --hjälp-h | Visa det här hjälp meddelandet och avsluta. |
-| --utdata-o | Utdataformat.  Tillåtna värden\: JSON, jsonc, Table, TSV.  Standard\: JSON. |
-| --fråga | Frågesträngen JMESPath. Mer information och exempel finns i http\://jmespath.org/. |
-| --utförlig | Öka loggningens utförlighet. Använd--debug för fullständiga fel söknings loggar. |
+| --debug | Öka loggningsverbaliteten för att visa alla felsökningsloggar. |
+| --hjälp -h | Visa det här hjälpmeddelandet och avsluta. |
+| --utgång -o | Utdataformat.  Tillåtna\: värden json, jsonc, tabell, tsv.  Standard\: json. |
+| --fråga | JMESPath-frågesträng. Mer\:information och exempel finns på http //jmespath.org/. |
+| --utförlig | Öka loggningsverbaliteten. Använd --debug för fullständiga felsökningsloggar. |
 
-## <a name="sfctl-service-deployed-type-list"></a>sfctl tjänst distribuerad – typ lista
-Hämtar listan med information om tjänst typer från de program som distribueras på en nod i ett Service Fabric kluster.
+## <a name="sfctl-service-deployed-type-list"></a>sfctl tjänst distribuerad-typ-lista
+Hämtar listan som innehåller information om tjänsttyper från de program som distribueras på en nod i ett Service Fabric-kluster.
 
-Hämtar listan med information om tjänst typer från de program som distribueras på en nod i ett Service Fabric kluster. Svaret innehåller namnet på tjänst typen, dess registrerings status, kod paketet som registrerade det och aktiverings-ID: t för tjänste paketet.
+Hämtar listan som innehåller information om tjänsttyper från de program som distribueras på en nod i ett Service Fabric-kluster. Svaret innehåller namnet på tjänsttypen, dess registreringsstatus, kodpaketet som registrerade det och aktiverings-ID för servicepaketet.
 
 ### <a name="arguments"></a>Argument
 
 |Argument|Beskrivning|
 | --- | --- |
-| --program-ID [obligatoriskt] | Programmets identitet. Detta är vanligt vis det fullständiga namnet på programmet utan URI-schemat "Fabric\:. Från och med version 6,0 avgränsas hierarkiska namn med "\~"-tecknen. Om program namnet till exempel är "Fabric\:/MyApp/APP1" blir program identiteten "MyApp\~APP1" i 6.0 + och "MyApp/APP1" i tidigare versioner. |
-| --Node-Name [required] | Nodens namn. |
-| --tjänst-manifest-namn | Namnet på tjänst manifestet som används för att filtrera listan över distribuerad tjänst typs information. Om det här alternativet anges innehåller svaret bara information om tjänst typer som har definierats i tjänst manifestet. |
-| --timeout-t | Tids gränsen för servern för att utföra åtgärden på några sekunder. Denna timeout anger den tids period som klienten vill vänta tills den begärda åtgärden har slutförts. Standardvärdet för den här parametern är 60 sekunder.  Standard\: 60. |
+| --application-id [Obligatoriskt] | Programmets identitet. Detta är vanligtvis det fullständiga namnet på\:programmet utan "fabric" URI-schemat. Från och med version 6.0 avgränsas hierarkiska\~namn med " " tecken. Om programnamnet till exempel är\:"fabric /myapp/app1" skulle programidentiteten vara "myapp\~app1" i 6.0+ och "myapp/app1" i tidigare versioner. |
+| --nodnamn [Obligatoriskt] | Namnet på noden. |
+| --service-manifest-namn | Namnet på tjänstmanifestet för att filtrera listan över distribuerad tjänsttypsinformation. Om det anges innehåller svaret bara information om tjänsttyper som har definierats i det här tjänstmanifestet. |
+| --timeout -t | Tidsgränsen för servern för att utföra åtgärden på några sekunder. Den här timeouten anger den tid som klienten är villig att vänta på att den begärda åtgärden har slutförts. Standardvärdet för den här parametern är 60 sekunder.  Standard\: 60. |
 
 ### <a name="global-arguments"></a>Globala argument
 
 |Argument|Beskrivning|
 | --- | --- |
-| --Felsök | Öka loggnings utförligheten för att visa alla fel söknings loggar. |
-| --hjälp-h | Visa det här hjälp meddelandet och avsluta. |
-| --utdata-o | Utdataformat.  Tillåtna värden\: JSON, jsonc, Table, TSV.  Standard\: JSON. |
-| --fråga | Frågesträngen JMESPath. Mer information och exempel finns i http\://jmespath.org/. |
-| --utförlig | Öka loggningens utförlighet. Använd--debug för fullständiga fel söknings loggar. |
+| --debug | Öka loggningsverbaliteten för att visa alla felsökningsloggar. |
+| --hjälp -h | Visa det här hjälpmeddelandet och avsluta. |
+| --utgång -o | Utdataformat.  Tillåtna\: värden json, jsonc, tabell, tsv.  Standard\: json. |
+| --fråga | JMESPath-frågesträng. Mer\:information och exempel finns på http //jmespath.org/. |
+| --utförlig | Öka loggningsverbaliteten. Använd --debug för fullständiga felsökningsloggar. |
 
-## <a name="sfctl-service-description"></a>Beskrivning av sfctl-tjänsten
+## <a name="sfctl-service-description"></a>sfctl tjänst beskrivning
 Hämtar beskrivningen av en befintlig Service Fabric-tjänst.
 
-Hämtar beskrivningen av en befintlig Service Fabric-tjänst. En tjänst måste skapas innan dess beskrivning kan hämtas.
+Hämtar beskrivningen av en befintlig Service Fabric-tjänst. En tjänst måste skapas innan dess beskrivning kan erhållas.
 
 ### <a name="arguments"></a>Argument
 
 |Argument|Beskrivning|
 | --- | --- |
-| --tjänst-ID [obligatoriskt] | Tjänstens identitet. Detta ID är vanligt vis det fullständiga namnet på tjänsten utan URI-schemat "Fabric\:". Från och med version 6,0 avgränsas hierarkiska namn med "\~"-tecknen. Om tjänst namnet till exempel är "Fabric\:/MyApp/APP1/svc1" blir tjänst identiteten "MyApp\~APP1\~svc1" i 6.0 + och "MyApp/APP1/svc1" i tidigare versioner. |
-| --timeout-t | Tids gränsen för servern för att utföra åtgärden på några sekunder. Denna timeout anger den tids period som klienten vill vänta tills den begärda åtgärden har slutförts. Standardvärdet för den här parametern är 60 sekunder.  Standard\: 60. |
+| --service-id [Obligatoriskt] | Tjänstens identitet. Detta ID är vanligtvis det fullständiga namnet\:på tjänsten utan URI-schemat för tyg. Från och med version 6.0 avgränsas hierarkiska\~namn med " " tecken. Om tjänstnamnet till exempel är\:"fabric /myapp/app1/svc1", skulle tjänstidentiteten vara "myapp\~app1\~svc1" i 6.0+ och "myapp/app1/svc1" i tidigare versioner. |
+| --timeout -t | Tidsgränsen för servern för att utföra åtgärden på några sekunder. Den här timeouten anger den tid som klienten är villig att vänta på att den begärda åtgärden har slutförts. Standardvärdet för den här parametern är 60 sekunder.  Standard\: 60. |
 
 ### <a name="global-arguments"></a>Globala argument
 
 |Argument|Beskrivning|
 | --- | --- |
-| --Felsök | Öka loggnings utförligheten för att visa alla fel söknings loggar. |
-| --hjälp-h | Visa det här hjälp meddelandet och avsluta. |
-| --utdata-o | Utdataformat.  Tillåtna värden\: JSON, jsonc, Table, TSV.  Standard\: JSON. |
-| --fråga | Frågesträngen JMESPath. Mer information och exempel finns i http\://jmespath.org/. |
-| --utförlig | Öka loggningens utförlighet. Använd--debug för fullständiga fel söknings loggar. |
+| --debug | Öka loggningsverbaliteten för att visa alla felsökningsloggar. |
+| --hjälp -h | Visa det här hjälpmeddelandet och avsluta. |
+| --utgång -o | Utdataformat.  Tillåtna\: värden json, jsonc, tabell, tsv.  Standard\: json. |
+| --fråga | JMESPath-frågesträng. Mer\:information och exempel finns på http //jmespath.org/. |
+| --utförlig | Öka loggningsverbaliteten. Använd --debug för fullständiga felsökningsloggar. |
 
-## <a name="sfctl-service-get-container-logs"></a>sfctl service get-container-Logs
-Hämtar behållar loggarna för container som distribuerats på en Service Fabric-nod.
+## <a name="sfctl-service-get-container-logs"></a>sfctl service get-container-loggar
+Hämtar behållarloggarna för behållare som distribueras på en Service Fabric-nod.
 
-Hämtar behållar loggarna för container som distribuerats på en Service Fabric-nod för det aktuella kod paketet.
+Hämtar behållarloggarna för behållare som distribueras på en Service Fabric-nod för det angivna kodpaketet.
 
 ### <a name="arguments"></a>Argument
 
 |Argument|Beskrivning|
 | --- | --- |
-| --program-ID [obligatoriskt] | Programmets identitet. Detta är vanligt vis det fullständiga namnet på programmet utan URI-schemat "Fabric\:. Från och med version 6,0 avgränsas hierarkiska namn med "\~"-tecknen. Om program namnet till exempel är "Fabric\:/MyApp/APP1" blir program identiteten "MyApp\~APP1" i 6.0 + och "MyApp/APP1" i tidigare versioner. |
-| --kod-paket namn [obligatoriskt] | Namnet på kod paketet som anges i tjänst manifestet som är registrerat som en del av en program typ i ett Service Fabric kluster. |
-| --Node-Name [required] | Nodens namn. |
-| --tjänst-manifest-namn [obligatoriskt] | Namnet på ett tjänst manifest som är registrerat som en del av en program typ i ett Service Fabric kluster. |
-| --föregående | Anger om behållar loggar ska hämtas från avslutade/döda behållare för kod paket instansen. |
-| --pilslut | Antal rader som ska visas från slutet av loggarna. Standardvärdet är 100. all för att visa fullständiga loggar. |
-| --timeout-t | Tids gränsen för servern för att utföra åtgärden på några sekunder. Denna timeout anger den tids period som klienten vill vänta tills den begärda åtgärden har slutförts. Standardvärdet för den här parametern är 60 sekunder.  Standard\: 60. |
+| --application-id [Obligatoriskt] | Programmets identitet. Detta är vanligtvis det fullständiga namnet på\:programmet utan "fabric" URI-schemat. Från och med version 6.0 avgränsas hierarkiska\~namn med " " tecken. Om programnamnet till exempel är\:"fabric /myapp/app1" skulle programidentiteten vara "myapp\~app1" i 6.0+ och "myapp/app1" i tidigare versioner. |
+| --kod-paket-namn [Obligatoriskt] | Namnet på kodpaketet som anges i tjänstmanifestet som registrerats som en del av en programtyp i ett Service Fabric-kluster. |
+| --nodnamn [Obligatoriskt] | Namnet på noden. |
+| --service-manifest-namn [Obligatoriskt] | Namnet på ett tjänstmanifest som registrerats som en del av en programtyp i ett Service Fabric-kluster. |
+| --föregående | Anger om behållarloggar ska hämtas från utsända/döda behållare för kodpaketinstansen. |
+| --svans | Antal rader som ska visas från slutet av loggarna. Standard är 100. "alla" för att visa hela loggarna. |
+| --timeout -t | Tidsgränsen för servern för att utföra åtgärden på några sekunder. Den här timeouten anger den tid som klienten är villig att vänta på att den begärda åtgärden har slutförts. Standardvärdet för den här parametern är 60 sekunder.  Standard\: 60. |
 
 ### <a name="global-arguments"></a>Globala argument
 
 |Argument|Beskrivning|
 | --- | --- |
-| --Felsök | Öka loggnings utförligheten för att visa alla fel söknings loggar. |
-| --hjälp-h | Visa det här hjälp meddelandet och avsluta. |
-| --utdata-o | Utdataformat.  Tillåtna värden\: JSON, jsonc, Table, TSV.  Standard\: JSON. |
-| --fråga | Frågesträngen JMESPath. Mer information och exempel finns i http\://jmespath.org/. |
-| --utförlig | Öka loggningens utförlighet. Använd--debug för fullständiga fel söknings loggar. |
+| --debug | Öka loggningsverbaliteten för att visa alla felsökningsloggar. |
+| --hjälp -h | Visa det här hjälpmeddelandet och avsluta. |
+| --utgång -o | Utdataformat.  Tillåtna\: värden json, jsonc, tabell, tsv.  Standard\: json. |
+| --fråga | JMESPath-frågesträng. Mer\:information och exempel finns på http //jmespath.org/. |
+| --utförlig | Öka loggningsverbaliteten. Använd --debug för fullständiga felsökningsloggar. |
 
-## <a name="sfctl-service-health"></a>sfctl-tjänstens hälsa
-Hämtar hälso tillståndet för den angivna Service Fabrics tjänsten.
+## <a name="sfctl-service-health"></a>sfctl tjänsten hälsa
+Hämtar hälsotillståndet för den angivna Service fabric-tjänsten.
 
-Hämtar hälso informationen för den angivna tjänsten. Använd EventsHealthStateFilter för att filtrera insamling av hälso händelser som rapporter ATS för tjänsten baserat på hälso tillståndet. Använd PartitionsHealthStateFilter för att filtrera samlingen med returnerade partitioner. Om du anger en tjänst som inte finns i hälso lagret returnerar den här begäran ett fel.
+Hämtar hälsoinformationen för den angivna tjänsten. Använd EventsHealthStateFilter för att filtrera insamlingen av hälsohändelser som rapporterats på tjänsten baserat på hälsotillståndet. Använd PartitionsHealthStateFilter för att filtrera samlingen av partitioner som returneras. Om du anger en tjänst som inte finns i hälsoarkivet returnerar den här begäran ett fel.
 
 ### <a name="arguments"></a>Argument
 
 |Argument|Beskrivning|
 | --- | --- |
-| --tjänst-ID [obligatoriskt] | Tjänstens identitet. Detta ID är vanligt vis det fullständiga namnet på tjänsten utan URI-schemat "Fabric\:". Från och med version 6,0 avgränsas hierarkiska namn med "\~"-tecknen. Om tjänst namnet till exempel är "Fabric\:/MyApp/APP1/svc1" blir tjänst identiteten "MyApp\~APP1\~svc1" i 6.0 + och "MyApp/APP1/svc1" i tidigare versioner. |
-| --events-health-state-filter | Tillåter filtrering av samlingen av HealthEvent-objekt som returneras baserat på hälso tillstånd. De möjliga värdena för den här parametern är heltals värde för något av följande hälso tillstånd. Endast händelser som matchar filtret returneras. Alla händelser används för att utvärdera det sammanlagda hälso tillståndet. Om inget anges returneras alla poster. Tillstånds värden är flaggning-baserad uppräkning, så värdet kan vara en kombination av dessa värden, erhållna med hjälp av den bitvisa operatorn eller. Om det angivna värdet till exempel är 6 returneras alla händelser med hälso tillstånd svärdet OK (2) och varning (4).  <br> -Standard-standardvärdet. Matchar alla hälso tillstånd. Värdet är noll.  <br> -Inget – filter som inte matchar något värde för hälso tillstånd. Används för att returnera inga resultat för en specifik samling av tillstånd. Värdet är 1.  <br> – OK-filter som matchar inmatade hälso tillstånds värden OK. Värdet är 2.  <br> -Varnings filter som matchar inmatade värde varningar för hälso tillstånd. Värdet är 4.  <br> -Fel-filter som matchar InInformationen med hälso tillstånds värde fel. Värdet är 8.  <br> – Alla – filter som matchar indatamängden med ett värde för hälso tillstånd. Värdet är 65535. |
-| --Exkludera-hälso statistik | Anger om hälso statistik ska returneras som en del av frågeresultatet. Falskt som standard. Statistiken visar antalet underordnade entiteter i hälso tillståndet OK, varning och fel. |
-| --partitions-health-state-filter | Tillåter filtrering av de partitioner hälso tillstånds objekt som returneras i resultatet av tjänstens hälso tillstånd baserat på deras hälso tillstånd. De möjliga värdena för den här parametern är heltals värde för något av följande hälso tillstånd. Endast partitioner som matchar filtret returneras. Alla partitioner används för att utvärdera det sammanlagda hälso tillståndet. Om inget anges returneras alla poster. Tillstånds värden är flaggning-baserad uppräkning, vilket innebär att värdet kan vara en kombination av dessa värden som erhålls med hjälp av bitvis-eller-operator. Om det tillhandahållna värdet till exempel är 6 returneras hälso tillståndet för partitioner med värdet OK (2) och varning (4).  <br> -Standard-standardvärdet. Matchar alla hälso tillstånd. Värdet är noll.  <br> -Inget – filter som inte matchar något värde för hälso tillstånd. Används för att returnera inga resultat för en specifik samling av tillstånd. Värdet är 1.  <br> – OK-filter som matchar inmatade hälso tillstånds värden OK. Värdet är 2.  <br> -Varnings filter som matchar inmatade värde varningar för hälso tillstånd. Värdet är 4.  <br> -Fel-filter som matchar InInformationen med hälso tillstånds värde fel. Värdet är 8.  <br> – Alla – filter som matchar indatamängden med ett värde för hälso tillstånd. Värdet är 65535. |
-| --timeout-t | Tids gränsen för servern för att utföra åtgärden på några sekunder. Denna timeout anger den tids period som klienten vill vänta tills den begärda åtgärden har slutförts. Standardvärdet för den här parametern är 60 sekunder.  Standard\: 60. |
+| --service-id [Obligatoriskt] | Tjänstens identitet. Detta ID är vanligtvis det fullständiga namnet\:på tjänsten utan URI-schemat för tyg. Från och med version 6.0 avgränsas hierarkiska\~namn med " " tecken. Om tjänstnamnet till exempel är\:"fabric /myapp/app1/svc1", skulle tjänstidentiteten vara "myapp\~app1\~svc1" i 6.0+ och "myapp/app1/svc1" i tidigare versioner. |
+| --events-health-state-filter | Gör det möjligt att filtrera samlingen av HealthEvent-objekt som returneras baserat på hälsotillstånd. De möjliga värdena för den här parametern inkluderar heltalsvärdet för något av följande hälsotillstånd. Endast händelser som matchar filtret returneras. Alla händelser används för att utvärdera det aggregerade hälsotillståndet. Om inget anges returneras alla transaktioner. Tillståndsvärdena är flaggbaserad uppräkning, så värdet kan vara en kombination av dessa värden, som erhålls med hjälp av operatorn "ELLER". Om det angivna värdet till exempel är 6 returneras alla händelser med HealthState-värdet OK (2) och Varning (4).  <br> - Standard - Standardvärde. Matchar alla HealthState. Värdet är noll.  <br> - Ingen - Filter som inte matchar något HealthState-värde. Används för att returnera inga resultat på en viss samling av stater. Värdet är 1.  <br> - Ok - Filter som matchar indata med HealthState-värdet Ok. Värdet är 2.  <br> - Varning - Filter som matchar indata med HealthState-värde Varning. Värdet är 4.  <br> - Fel - Filter som matchar indata med HealthState-värdefel. Värdet är 8.  <br> - Alla - Filter som matchar indata med alla HealthState-värde. Värdet är 65535. |
+| --exklude-hälso-statistik | Anger om hälsostatistiken ska returneras som en del av frågeresultatet. Falskt som standard. Statistiken visar antalet underordnade entiteter i hälsotillståndet Ok, Varning och Fel. |
+| --partitioner-hälsotillstånd-filter | Tillåter filtrering av hälsotillståndsobjekt för partitioner som returneras i resultatet av tjänsthälsofrågan baserat på deras hälsotillstånd. De möjliga värdena för den här parametern inkluderar heltalsvärdet för något av följande hälsotillstånd. Endast partitioner som matchar filtret returneras. Alla partitioner används för att utvärdera det aggregerade hälsotillståndet. Om inget anges returneras alla transaktioner. Tillståndsvärdena är flaggbaserad uppräkning, så värdet kan vara en kombination av dessa värden som erhålls med hjälp av bitvis "ELLER"-operator. Om värdet till exempel är 6 returneras hälsotillståndet för partitioner med HealthState-värdet OK (2) och Varning (4).  <br> - Standard - Standardvärde. Matchar alla HealthState. Värdet är noll.  <br> - Ingen - Filter som inte matchar något HealthState-värde. Används för att returnera inga resultat på en viss samling av stater. Värdet är 1.  <br> - Ok - Filter som matchar indata med HealthState-värdet Ok. Värdet är 2.  <br> - Varning - Filter som matchar indata med HealthState-värde Varning. Värdet är 4.  <br> - Fel - Filter som matchar indata med HealthState-värdefel. Värdet är 8.  <br> - Alla - Filter som matchar indata med alla HealthState-värde. Värdet är 65535. |
+| --timeout -t | Tidsgränsen för servern för att utföra åtgärden på några sekunder. Den här timeouten anger den tid som klienten är villig att vänta på att den begärda åtgärden har slutförts. Standardvärdet för den här parametern är 60 sekunder.  Standard\: 60. |
 
 ### <a name="global-arguments"></a>Globala argument
 
 |Argument|Beskrivning|
 | --- | --- |
-| --Felsök | Öka loggnings utförligheten för att visa alla fel söknings loggar. |
-| --hjälp-h | Visa det här hjälp meddelandet och avsluta. |
-| --utdata-o | Utdataformat.  Tillåtna värden\: JSON, jsonc, Table, TSV.  Standard\: JSON. |
-| --fråga | Frågesträngen JMESPath. Mer information och exempel finns i http\://jmespath.org/. |
-| --utförlig | Öka loggningens utförlighet. Använd--debug för fullständiga fel söknings loggar. |
+| --debug | Öka loggningsverbaliteten för att visa alla felsökningsloggar. |
+| --hjälp -h | Visa det här hjälpmeddelandet och avsluta. |
+| --utgång -o | Utdataformat.  Tillåtna\: värden json, jsonc, tabell, tsv.  Standard\: json. |
+| --fråga | JMESPath-frågesträng. Mer\:information och exempel finns på http //jmespath.org/. |
+| --utförlig | Öka loggningsverbaliteten. Använd --debug för fullständiga felsökningsloggar. |
 
-## <a name="sfctl-service-info"></a>information om sfctl-tjänsten
-Hämtar information om den specifika tjänst som hör till Service Fabric programmet.
+## <a name="sfctl-service-info"></a>sfctl tjänst info
+Hämtar information om den specifika tjänst som tillhör Programmet Service Fabric.
 
-Returnerar information om den angivna tjänsten som tillhör det angivna Service Fabric programmet.
+Returnerar informationen om den angivna tjänsten som tillhör det angivna Service Fabric-programmet.
 
 ### <a name="arguments"></a>Argument
 
 |Argument|Beskrivning|
 | --- | --- |
-| --program-ID [obligatoriskt] | Programmets identitet. Detta är vanligt vis det fullständiga namnet på programmet utan URI-schemat "Fabric\:. Från och med version 6,0 avgränsas hierarkiska namn med "\~"-tecknen. Om program namnet till exempel är "Fabric\:/MyApp/APP1" blir program identiteten "MyApp\~APP1" i 6.0 + och "MyApp/APP1" i tidigare versioner. |
-| --tjänst-ID [obligatoriskt] | Tjänstens identitet. Detta ID är vanligt vis det fullständiga namnet på tjänsten utan URI-schemat "Fabric\:". Från och med version 6,0 avgränsas hierarkiska namn med "\~"-tecknen. Om tjänst namnet till exempel är "Fabric\:/MyApp/APP1/svc1" blir tjänst identiteten "MyApp\~APP1\~svc1" i 6.0 + och "MyApp/APP1/svc1" i tidigare versioner. |
-| --timeout-t | Tids gränsen för servern för att utföra åtgärden på några sekunder. Denna timeout anger den tids period som klienten vill vänta tills den begärda åtgärden har slutförts. Standardvärdet för den här parametern är 60 sekunder.  Standard\: 60. |
+| --application-id [Obligatoriskt] | Programmets identitet. Detta är vanligtvis det fullständiga namnet på\:programmet utan "fabric" URI-schemat. Från och med version 6.0 avgränsas hierarkiska\~namn med " " tecken. Om programnamnet till exempel är\:"fabric /myapp/app1" skulle programidentiteten vara "myapp\~app1" i 6.0+ och "myapp/app1" i tidigare versioner. |
+| --service-id [Obligatoriskt] | Tjänstens identitet. Detta ID är vanligtvis det fullständiga namnet\:på tjänsten utan URI-schemat för tyg. Från och med version 6.0 avgränsas hierarkiska\~namn med " " tecken. Om tjänstnamnet till exempel är\:"fabric /myapp/app1/svc1", skulle tjänstidentiteten vara "myapp\~app1\~svc1" i 6.0+ och "myapp/app1/svc1" i tidigare versioner. |
+| --timeout -t | Tidsgränsen för servern för att utföra åtgärden på några sekunder. Den här timeouten anger den tid som klienten är villig att vänta på att den begärda åtgärden har slutförts. Standardvärdet för den här parametern är 60 sekunder.  Standard\: 60. |
 
 ### <a name="global-arguments"></a>Globala argument
 
 |Argument|Beskrivning|
 | --- | --- |
-| --Felsök | Öka loggnings utförligheten för att visa alla fel söknings loggar. |
-| --hjälp-h | Visa det här hjälp meddelandet och avsluta. |
-| --utdata-o | Utdataformat.  Tillåtna värden\: JSON, jsonc, Table, TSV.  Standard\: JSON. |
-| --fråga | Frågesträngen JMESPath. Mer information och exempel finns i http\://jmespath.org/. |
-| --utförlig | Öka loggningens utförlighet. Använd--debug för fullständiga fel söknings loggar. |
+| --debug | Öka loggningsverbaliteten för att visa alla felsökningsloggar. |
+| --hjälp -h | Visa det här hjälpmeddelandet och avsluta. |
+| --utgång -o | Utdataformat.  Tillåtna\: värden json, jsonc, tabell, tsv.  Standard\: json. |
+| --fråga | JMESPath-frågesträng. Mer\:information och exempel finns på http //jmespath.org/. |
+| --utförlig | Öka loggningsverbaliteten. Använd --debug för fullständiga felsökningsloggar. |
 
-## <a name="sfctl-service-list"></a>lista över sfctl-tjänster
-Hämtar information om alla tjänster som tillhör programmet som anges av program-ID: t.
+## <a name="sfctl-service-list"></a>sfctl-tjänstlista
+Hämtar information om alla tjänster som tillhör programmet som anges av program-ID.
 
-Returnerar information om alla tjänster som tillhör programmet som anges av program-ID: t.
+Returnerar informationen om alla tjänster som hör till programmet som anges av program-ID.
 
 ### <a name="arguments"></a>Argument
 
 |Argument|Beskrivning|
 | --- | --- |
-| --program-ID [obligatoriskt] | Programmets identitet. Detta är vanligt vis det fullständiga namnet på programmet utan URI-schemat "Fabric\:. Från och med version 6,0 avgränsas hierarkiska namn med "\~"-tecknen. Om program namnet till exempel är "Fabric\:/MyApp/APP1" blir program identiteten "MyApp\~APP1" i 6.0 + och "MyApp/APP1" i tidigare versioner. |
-| --fortsättnings-token | Parametern för fortsatt token används för att hämta nästa uppsättning resultat. En fortsättnings-token med ett värde som inte är tom inkluderas i svaret på API: et när resultatet från systemet inte passar i ett enda svar. När det här värdet skickas till nästa API-anrop returnerar API nästa uppsättning resultat. Om det inte finns några ytterligare resultat innehåller inte fortsättnings-token ett värde. Värdet för den här parametern får inte vara URL-kodat. |
-| --tjänst-typ-namn | Tjänst typs namnet som används för att filtrera tjänsterna att fråga efter. |
-| --timeout-t | Tids gränsen för servern för att utföra åtgärden på några sekunder. Denna timeout anger den tids period som klienten vill vänta tills den begärda åtgärden har slutförts. Standardvärdet för den här parametern är 60 sekunder.  Standard\: 60. |
+| --application-id [Obligatoriskt] | Programmets identitet. Detta är vanligtvis det fullständiga namnet på\:programmet utan "fabric" URI-schemat. Från och med version 6.0 avgränsas hierarkiska\~namn med " " tecken. Om programnamnet till exempel är\:"fabric /myapp/app1" skulle programidentiteten vara "myapp\~app1" i 6.0+ och "myapp/app1" i tidigare versioner. |
+| --fortsättning-token | Parametern för fortsättningstoken används för att hämta nästa uppsättning resultat. En fortsättningstoken med ett icke-tomt värde inkluderas i svaret på API:et när resultaten från systemet inte får plats i ett enda svar. När det här värdet skickas till nästa API-anrop returnerar API:et nästa uppsättning resultat. Om det inte finns några ytterligare resultat innehåller fortsättningstoken inget värde. Värdet för den här parametern bör inte URL-kodas. |
+| --service-type-name --service-type-name --service-type-name -- | Det tjänsttypsnamn som används för att filtrera de tjänster som ska efterfrågas. |
+| --timeout -t | Tidsgränsen för servern för att utföra åtgärden på några sekunder. Den här timeouten anger den tid som klienten är villig att vänta på att den begärda åtgärden har slutförts. Standardvärdet för den här parametern är 60 sekunder.  Standard\: 60. |
 
 ### <a name="global-arguments"></a>Globala argument
 
 |Argument|Beskrivning|
 | --- | --- |
-| --Felsök | Öka loggnings utförligheten för att visa alla fel söknings loggar. |
-| --hjälp-h | Visa det här hjälp meddelandet och avsluta. |
-| --utdata-o | Utdataformat.  Tillåtna värden\: JSON, jsonc, Table, TSV.  Standard\: JSON. |
-| --fråga | Frågesträngen JMESPath. Mer information och exempel finns i http\://jmespath.org/. |
-| --utförlig | Öka loggningens utförlighet. Använd--debug för fullständiga fel söknings loggar. |
+| --debug | Öka loggningsverbaliteten för att visa alla felsökningsloggar. |
+| --hjälp -h | Visa det här hjälpmeddelandet och avsluta. |
+| --utgång -o | Utdataformat.  Tillåtna\: värden json, jsonc, tabell, tsv.  Standard\: json. |
+| --fråga | JMESPath-frågesträng. Mer\:information och exempel finns på http //jmespath.org/. |
+| --utförlig | Öka loggningsverbaliteten. Använd --debug för fullständiga felsökningsloggar. |
 
-## <a name="sfctl-service-manifest"></a>sfctl-tjänst manifest
-Hämtar manifestet som beskriver en tjänst typ.
+## <a name="sfctl-service-manifest"></a>sfctl tjänst manifest
+Hämtar manifestet som beskriver en tjänsttyp.
 
-Hämtar manifestet som beskriver en tjänst typ. Svaret innehåller tjänst Manifestets XML som en sträng.
+Hämtar manifestet som beskriver en tjänsttyp. Svaret innehåller tjänstmanifestet XML som en sträng.
 
 ### <a name="arguments"></a>Argument
 
 |Argument|Beskrivning|
 | --- | --- |
-| --program-typ-namn [obligatoriskt] | Namnet på program typen. |
-| --program-Type-version [required] | Versionen av program typen. |
-| --tjänst-manifest-namn [obligatoriskt] | Namnet på ett tjänst manifest som är registrerat som en del av en program typ i ett Service Fabric kluster. |
-| --timeout-t | Tids gränsen för servern för att utföra åtgärden på några sekunder. Denna timeout anger den tids period som klienten vill vänta tills den begärda åtgärden har slutförts. Standardvärdet för den här parametern är 60 sekunder.  Standard\: 60. |
+| --application-type-name [Obligatoriskt] | Namnet på programtypen. |
+| --application-type-version [Obligatoriskt] | Versionen av programtypen. |
+| --service-manifest-namn [Obligatoriskt] | Namnet på ett tjänstmanifest som registrerats som en del av en programtyp i ett Service Fabric-kluster. |
+| --timeout -t | Tidsgränsen för servern för att utföra åtgärden på några sekunder. Den här timeouten anger den tid som klienten är villig att vänta på att den begärda åtgärden har slutförts. Standardvärdet för den här parametern är 60 sekunder.  Standard\: 60. |
 
 ### <a name="global-arguments"></a>Globala argument
 
 |Argument|Beskrivning|
 | --- | --- |
-| --Felsök | Öka loggnings utförligheten för att visa alla fel söknings loggar. |
-| --hjälp-h | Visa det här hjälp meddelandet och avsluta. |
-| --utdata-o | Utdataformat.  Tillåtna värden\: JSON, jsonc, Table, TSV.  Standard\: JSON. |
-| --fråga | Frågesträngen JMESPath. Mer information och exempel finns i http\://jmespath.org/. |
-| --utförlig | Öka loggningens utförlighet. Använd--debug för fullständiga fel söknings loggar. |
+| --debug | Öka loggningsverbaliteten för att visa alla felsökningsloggar. |
+| --hjälp -h | Visa det här hjälpmeddelandet och avsluta. |
+| --utgång -o | Utdataformat.  Tillåtna\: värden json, jsonc, tabell, tsv.  Standard\: json. |
+| --fråga | JMESPath-frågesträng. Mer\:information och exempel finns på http //jmespath.org/. |
+| --utförlig | Öka loggningsverbaliteten. Använd --debug för fullständiga felsökningsloggar. |
 
-## <a name="sfctl-service-package-deploy"></a>sfctl service-paket – distribuera
-Laddar ned paket som är associerade med angivet tjänst manifest till avbildningens cacheminne på den angivna noden.
+## <a name="sfctl-service-package-deploy"></a>sfctl tjänst paket-distribuera
+Hämtar paket som är associerade med angivet tjänstmanifest till avbildningscachen på angiven nod.
 
 ### <a name="arguments"></a>Argument
 
 |Argument|Beskrivning|
 | --- | --- |
-| --app-Type-Name [required] | Namnet på applikations manifestet för motsvarande begärd tjänst manifest. |
-| --app-Type-version [required] | Versionen av applikations manifestet för motsvarande begärda tjänst manifest. |
-| --Node-Name [required] | Nodens namn. |
-| --tjänst-manifest-namn [obligatoriskt] | Namnet på tjänst manifestet som är associerat med de paket som ska hämtas. |
-| --Dela-princip | JSON-kodad lista över delnings principer. Varje delnings princip element består av ett "name" och "scope". Namnet motsvarar namnet på koden, konfigurationen eller data paketet som ska delas. Omfånget kan vara antingen none, all, Code, config eller data. |
-| --timeout-t | Standard\: 60. |
+| --app-type-name [Obligatoriskt] | Namnet på programmanifestet för motsvarande begärda tjänstmanifest. |
+| --app-type-version [Obligatoriskt] | Versionen av programmanifestet för motsvarande begärda tjänstmanifest. |
+| --nodnamn [Obligatoriskt] | Namnet på noden. |
+| --service-manifest-namn [Obligatoriskt] | Namnet på tjänstmanifestet som är associerat med paketen som ska hämtas. |
+| --share-policy | JSON kodade lista över delningsprinciper. Varje delningsprincipelement består av ett "namn" och "omfattning". Namnet motsvarar namnet på koden, konfigurationen eller datapaketet som ska delas. Tillämpningsområdet kan vara antingen "Ingen", "Alla", "Kod", "Config" eller "Data". |
+| --timeout -t | Standard\: 60. |
 
 ### <a name="global-arguments"></a>Globala argument
 
 |Argument|Beskrivning|
 | --- | --- |
-| --Felsök | Öka loggnings utförligheten för att visa alla fel söknings loggar. |
-| --hjälp-h | Visa det här hjälp meddelandet och avsluta. |
-| --utdata-o | Utdataformat.  Tillåtna värden\: JSON, jsonc, Table, TSV.  Standard\: JSON. |
-| --fråga | Frågesträngen JMESPath. Mer information och exempel finns i http\://jmespath.org/. |
-| --utförlig | Öka loggningens utförlighet. Använd--debug för fullständiga fel söknings loggar. |
+| --debug | Öka loggningsverbaliteten för att visa alla felsökningsloggar. |
+| --hjälp -h | Visa det här hjälpmeddelandet och avsluta. |
+| --utgång -o | Utdataformat.  Tillåtna\: värden json, jsonc, tabell, tsv.  Standard\: json. |
+| --fråga | JMESPath-frågesträng. Mer\:information och exempel finns på http //jmespath.org/. |
+| --utförlig | Öka loggningsverbaliteten. Använd --debug för fullständiga felsökningsloggar. |
 
-## <a name="sfctl-service-package-health"></a>sfctl Service Package-Health
-Hämtar information om hälso tillståndet för ett tjänst paket för ett särskilt program som har distribuerats för en Service Fabric nod och program.
+## <a name="sfctl-service-package-health"></a>sfctl servicepaket-hälsa
+Hämtar information om hälsotillståndet för ett tjänstpaket för ett visst program som distribueras för en Service Fabric-nod och ett program.
 
-Hämtar information om hälso tillståndet för ett tjänst paket för ett enskilt program som distribuerats på en Service Fabric-nod. Använd EventsHealthStateFilter om du vill filtrera efter samlingen av HealthEvent-objekt som rapporteras i det distribuerade tjänst paketet baserat på hälso tillstånd.
+Hämtar information om hälsotillståndet för ett tjänstpaket för ett visst program som distribueras på en Service Fabric-nod. Använd EventsHealthStateFilter för att filtrera för insamlingen av HealthEvent-objekt som rapporterats på det distribuerade tjänstpaketet baserat på hälsotillstånd.
 
 ### <a name="arguments"></a>Argument
 
 |Argument|Beskrivning|
 | --- | --- |
-| --program-ID [obligatoriskt] | Programmets identitet. Detta är vanligt vis det fullständiga namnet på programmet utan URI-schemat "Fabric\:. Från och med version 6,0 avgränsas hierarkiska namn med "\~"-tecknen. Om program namnet till exempel är "Fabric\:/MyApp/APP1" blir program identiteten "MyApp\~APP1" i 6.0 + och "MyApp/APP1" i tidigare versioner. |
-| --Node-Name [required] | Nodens namn. |
-| --tjänst-paket-namn [obligatoriskt] | Namnet på tjänst paketet. |
-| --events-health-state-filter | Tillåter filtrering av samlingen av HealthEvent-objekt som returneras baserat på hälso tillstånd. De möjliga värdena för den här parametern är heltals värde för något av följande hälso tillstånd. Endast händelser som matchar filtret returneras. Alla händelser används för att utvärdera det sammanlagda hälso tillståndet. Om inget anges returneras alla poster. Tillstånds värden är flaggning-baserad uppräkning, så värdet kan vara en kombination av dessa värden, erhållna med hjälp av den bitvisa operatorn eller. Om det angivna värdet till exempel är 6 returneras alla händelser med hälso tillstånd svärdet OK (2) och varning (4).  <br> -Standard-standardvärdet. Matchar alla hälso tillstånd. Värdet är noll.  <br> -Inget – filter som inte matchar något värde för hälso tillstånd. Används för att returnera inga resultat för en specifik samling av tillstånd. Värdet är 1.  <br> – OK-filter som matchar inmatade hälso tillstånds värden OK. Värdet är 2.  <br> -Varnings filter som matchar inmatade värde varningar för hälso tillstånd. Värdet är 4.  <br> -Fel-filter som matchar InInformationen med hälso tillstånds värde fel. Värdet är 8.  <br> – Alla – filter som matchar indatamängden med ett värde för hälso tillstånd. Värdet är 65535. |
-| --timeout-t | Tids gränsen för servern för att utföra åtgärden på några sekunder. Denna timeout anger den tids period som klienten vill vänta tills den begärda åtgärden har slutförts. Standardvärdet för den här parametern är 60 sekunder.  Standard\: 60. |
+| --application-id [Obligatoriskt] | Programmets identitet. Detta är vanligtvis det fullständiga namnet på\:programmet utan "fabric" URI-schemat. Från och med version 6.0 avgränsas hierarkiska\~namn med " " tecken. Om programnamnet till exempel är\:"fabric /myapp/app1" skulle programidentiteten vara "myapp\~app1" i 6.0+ och "myapp/app1" i tidigare versioner. |
+| --nodnamn [Obligatoriskt] | Namnet på noden. |
+| --service-paket-namn [Obligatoriskt] | Namnet på servicepaketet. |
+| --events-health-state-filter | Gör det möjligt att filtrera samlingen av HealthEvent-objekt som returneras baserat på hälsotillstånd. De möjliga värdena för den här parametern inkluderar heltalsvärdet för något av följande hälsotillstånd. Endast händelser som matchar filtret returneras. Alla händelser används för att utvärdera det aggregerade hälsotillståndet. Om inget anges returneras alla transaktioner. Tillståndsvärdena är flaggbaserad uppräkning, så värdet kan vara en kombination av dessa värden, som erhålls med hjälp av operatorn "ELLER". Om det angivna värdet till exempel är 6 returneras alla händelser med HealthState-värdet OK (2) och Varning (4).  <br> - Standard - Standardvärde. Matchar alla HealthState. Värdet är noll.  <br> - Ingen - Filter som inte matchar något HealthState-värde. Används för att returnera inga resultat på en viss samling av stater. Värdet är 1.  <br> - Ok - Filter som matchar indata med HealthState-värdet Ok. Värdet är 2.  <br> - Varning - Filter som matchar indata med HealthState-värde Varning. Värdet är 4.  <br> - Fel - Filter som matchar indata med HealthState-värdefel. Värdet är 8.  <br> - Alla - Filter som matchar indata med alla HealthState-värde. Värdet är 65535. |
+| --timeout -t | Tidsgränsen för servern för att utföra åtgärden på några sekunder. Den här timeouten anger den tid som klienten är villig att vänta på att den begärda åtgärden har slutförts. Standardvärdet för den här parametern är 60 sekunder.  Standard\: 60. |
 
 ### <a name="global-arguments"></a>Globala argument
 
 |Argument|Beskrivning|
 | --- | --- |
-| --Felsök | Öka loggnings utförligheten för att visa alla fel söknings loggar. |
-| --hjälp-h | Visa det här hjälp meddelandet och avsluta. |
-| --utdata-o | Utdataformat.  Tillåtna värden\: JSON, jsonc, Table, TSV.  Standard\: JSON. |
-| --fråga | Frågesträngen JMESPath. Mer information och exempel finns i http\://jmespath.org/. |
-| --utförlig | Öka loggningens utförlighet. Använd--debug för fullständiga fel söknings loggar. |
+| --debug | Öka loggningsverbaliteten för att visa alla felsökningsloggar. |
+| --hjälp -h | Visa det här hjälpmeddelandet och avsluta. |
+| --utgång -o | Utdataformat.  Tillåtna\: värden json, jsonc, tabell, tsv.  Standard\: json. |
+| --fråga | JMESPath-frågesträng. Mer\:information och exempel finns på http //jmespath.org/. |
+| --utförlig | Öka loggningsverbaliteten. Använd --debug för fullständiga felsökningsloggar. |
 
-## <a name="sfctl-service-package-info"></a>sfctl service-paket – info
-Hämtar listan över tjänst paket som har distribuerats på en Service Fabric nod som matchar exakt det angivna namnet.
+## <a name="sfctl-service-package-info"></a>sfctl tjänst paket-info
+Hämtar listan över tjänstpaket som distribueras på en Service Fabric-nod som matchar exakt det angivna namnet.
 
-Returnerar information om de tjänst paket som har distribuerats på en Service Fabric-nod för det aktuella programmet. De här resultaten är av tjänst paket vars namn matchar exakt det tjänste paket namn som anges som parameter.
+Returnerar informationen om tjänstpaketen som distribueras på en Service Fabric-nod för det angivna programmet. Dessa resultat är av servicepaket vars namn matchar exakt det tjänstpaketnamn som anges som parameter.
 
 ### <a name="arguments"></a>Argument
 
 |Argument|Beskrivning|
 | --- | --- |
-| --program-ID [obligatoriskt] | Programmets identitet. Detta är vanligt vis det fullständiga namnet på programmet utan URI-schemat "Fabric\:. Från och med version 6,0 avgränsas hierarkiska namn med "\~"-tecknen. Om program namnet till exempel är "Fabric\:/MyApp/APP1" blir program identiteten "MyApp\~APP1" i 6.0 + och "MyApp/APP1" i tidigare versioner. |
-| --Node-Name [required] | Nodens namn. |
-| --tjänst-paket-namn [obligatoriskt] | Namnet på tjänst paketet. |
-| --timeout-t | Tids gränsen för servern för att utföra åtgärden på några sekunder. Denna timeout anger den tids period som klienten vill vänta tills den begärda åtgärden har slutförts. Standardvärdet för den här parametern är 60 sekunder.  Standard\: 60. |
+| --application-id [Obligatoriskt] | Programmets identitet. Detta är vanligtvis det fullständiga namnet på\:programmet utan "fabric" URI-schemat. Från och med version 6.0 avgränsas hierarkiska\~namn med " " tecken. Om programnamnet till exempel är\:"fabric /myapp/app1" skulle programidentiteten vara "myapp\~app1" i 6.0+ och "myapp/app1" i tidigare versioner. |
+| --nodnamn [Obligatoriskt] | Namnet på noden. |
+| --service-paket-namn [Obligatoriskt] | Namnet på servicepaketet. |
+| --timeout -t | Tidsgränsen för servern för att utföra åtgärden på några sekunder. Den här timeouten anger den tid som klienten är villig att vänta på att den begärda åtgärden har slutförts. Standardvärdet för den här parametern är 60 sekunder.  Standard\: 60. |
 
 ### <a name="global-arguments"></a>Globala argument
 
 |Argument|Beskrivning|
 | --- | --- |
-| --Felsök | Öka loggnings utförligheten för att visa alla fel söknings loggar. |
-| --hjälp-h | Visa det här hjälp meddelandet och avsluta. |
-| --utdata-o | Utdataformat.  Tillåtna värden\: JSON, jsonc, Table, TSV.  Standard\: JSON. |
-| --fråga | Frågesträngen JMESPath. Mer information och exempel finns i http\://jmespath.org/. |
-| --utförlig | Öka loggningens utförlighet. Använd--debug för fullständiga fel söknings loggar. |
+| --debug | Öka loggningsverbaliteten för att visa alla felsökningsloggar. |
+| --hjälp -h | Visa det här hjälpmeddelandet och avsluta. |
+| --utgång -o | Utdataformat.  Tillåtna\: värden json, jsonc, tabell, tsv.  Standard\: json. |
+| --fråga | JMESPath-frågesträng. Mer\:information och exempel finns på http //jmespath.org/. |
+| --utförlig | Öka loggningsverbaliteten. Använd --debug för fullständiga felsökningsloggar. |
 
-## <a name="sfctl-service-package-list"></a>sfctl Service Package-List
-Hämtar listan över tjänst paket som har distribuerats på en Service Fabric-nod.
+## <a name="sfctl-service-package-list"></a>sfctl tjänst paket-lista
+Hämtar listan över tjänstpaket som distribueras på en Service Fabric-nod.
 
-Returnerar information om de tjänst paket som har distribuerats på en Service Fabric-nod för det aktuella programmet.
+Returnerar informationen om tjänstpaketen som distribueras på en Service Fabric-nod för det angivna programmet.
 
 ### <a name="arguments"></a>Argument
 
 |Argument|Beskrivning|
 | --- | --- |
-| --program-ID [obligatoriskt] | Programmets identitet. Detta är vanligt vis det fullständiga namnet på programmet utan URI-schemat "Fabric\:. Från och med version 6,0 avgränsas hierarkiska namn med "\~"-tecknen. Om program namnet till exempel är "Fabric\:/MyApp/APP1" blir program identiteten "MyApp\~APP1" i 6.0 + och "MyApp/APP1" i tidigare versioner. |
-| --Node-Name [required] | Nodens namn. |
-| --timeout-t | Tids gränsen för servern för att utföra åtgärden på några sekunder. Denna timeout anger den tids period som klienten vill vänta tills den begärda åtgärden har slutförts. Standardvärdet för den här parametern är 60 sekunder.  Standard\: 60. |
+| --application-id [Obligatoriskt] | Programmets identitet. Detta är vanligtvis det fullständiga namnet på\:programmet utan "fabric" URI-schemat. Från och med version 6.0 avgränsas hierarkiska\~namn med " " tecken. Om programnamnet till exempel är\:"fabric /myapp/app1" skulle programidentiteten vara "myapp\~app1" i 6.0+ och "myapp/app1" i tidigare versioner. |
+| --nodnamn [Obligatoriskt] | Namnet på noden. |
+| --timeout -t | Tidsgränsen för servern för att utföra åtgärden på några sekunder. Den här timeouten anger den tid som klienten är villig att vänta på att den begärda åtgärden har slutförts. Standardvärdet för den här parametern är 60 sekunder.  Standard\: 60. |
 
 ### <a name="global-arguments"></a>Globala argument
 
 |Argument|Beskrivning|
 | --- | --- |
-| --Felsök | Öka loggnings utförligheten för att visa alla fel söknings loggar. |
-| --hjälp-h | Visa det här hjälp meddelandet och avsluta. |
-| --utdata-o | Utdataformat.  Tillåtna värden\: JSON, jsonc, Table, TSV.  Standard\: JSON. |
-| --fråga | Frågesträngen JMESPath. Mer information och exempel finns i http\://jmespath.org/. |
-| --utförlig | Öka loggningens utförlighet. Använd--debug för fullständiga fel söknings loggar. |
+| --debug | Öka loggningsverbaliteten för att visa alla felsökningsloggar. |
+| --hjälp -h | Visa det här hjälpmeddelandet och avsluta. |
+| --utgång -o | Utdataformat.  Tillåtna\: värden json, jsonc, tabell, tsv.  Standard\: json. |
+| --fråga | JMESPath-frågesträng. Mer\:information och exempel finns på http //jmespath.org/. |
+| --utförlig | Öka loggningsverbaliteten. Använd --debug för fullständiga felsökningsloggar. |
 
-## <a name="sfctl-service-recover"></a>återställa sfctl-tjänst
-Anger Service Fabric kluster som det ska försöka återställa den angivna tjänsten som för närvarande fastnar i kvorum.
+## <a name="sfctl-service-recover"></a>sfctl tjänsten återställa
+Anger för servicetygsklustret att det ska försöka återställa den angivna tjänsten som för närvarande har fastnat i kvorumförlust.
 
-Anger Service Fabric kluster som det ska försöka återställa den angivna tjänsten som för närvarande fastnar i kvorum. Den här åtgärden bör endast utföras om det är känt att de repliker som är nere inte kan återställas. Felaktig användning av detta API kan orsaka potentiell data förlust.
+Anger för servicetygsklustret att det ska försöka återställa den angivna tjänsten som för närvarande har fastnat i kvorumförlust. Den här åtgärden bör endast utföras om det är känt att replikerna som är nere inte kan återställas. Felaktig användning av detta API kan orsaka potentiell dataförlust.
 
 ### <a name="arguments"></a>Argument
 
 |Argument|Beskrivning|
 | --- | --- |
-| --tjänst-ID [obligatoriskt] | Tjänstens identitet. Detta ID är vanligt vis det fullständiga namnet på tjänsten utan URI-schemat "Fabric\:". Från och med version 6,0 avgränsas hierarkiska namn med "\~"-tecknen. Om tjänst namnet till exempel är "Fabric\:/MyApp/APP1/svc1" blir tjänst identiteten "MyApp\~APP1\~svc1" i 6.0 + och "MyApp/APP1/svc1" i tidigare versioner. |
-| --timeout-t | Tids gränsen för servern för att utföra åtgärden på några sekunder. Denna timeout anger den tids period som klienten vill vänta tills den begärda åtgärden har slutförts. Standardvärdet för den här parametern är 60 sekunder.  Standard\: 60. |
+| --service-id [Obligatoriskt] | Tjänstens identitet. Detta ID är vanligtvis det fullständiga namnet\:på tjänsten utan URI-schemat för tyg. Från och med version 6.0 avgränsas hierarkiska\~namn med " " tecken. Om tjänstnamnet till exempel är\:"fabric /myapp/app1/svc1", skulle tjänstidentiteten vara "myapp\~app1\~svc1" i 6.0+ och "myapp/app1/svc1" i tidigare versioner. |
+| --timeout -t | Tidsgränsen för servern för att utföra åtgärden på några sekunder. Den här timeouten anger den tid som klienten är villig att vänta på att den begärda åtgärden har slutförts. Standardvärdet för den här parametern är 60 sekunder.  Standard\: 60. |
 
 ### <a name="global-arguments"></a>Globala argument
 
 |Argument|Beskrivning|
 | --- | --- |
-| --Felsök | Öka loggnings utförligheten för att visa alla fel söknings loggar. |
-| --hjälp-h | Visa det här hjälp meddelandet och avsluta. |
-| --utdata-o | Utdataformat.  Tillåtna värden\: JSON, jsonc, Table, TSV.  Standard\: JSON. |
-| --fråga | Frågesträngen JMESPath. Mer information och exempel finns i http\://jmespath.org/. |
-| --utförlig | Öka loggningens utförlighet. Använd--debug för fullständiga fel söknings loggar. |
+| --debug | Öka loggningsverbaliteten för att visa alla felsökningsloggar. |
+| --hjälp -h | Visa det här hjälpmeddelandet och avsluta. |
+| --utgång -o | Utdataformat.  Tillåtna\: värden json, jsonc, tabell, tsv.  Standard\: json. |
+| --fråga | JMESPath-frågesträng. Mer\:information och exempel finns på http //jmespath.org/. |
+| --utförlig | Öka loggningsverbaliteten. Använd --debug för fullständiga felsökningsloggar. |
 
-## <a name="sfctl-service-report-health"></a>sfctl service-rapport – hälsa
-Skickar en hälso rapport i Service Fabrics tjänsten.
+## <a name="sfctl-service-report-health"></a>sfctl service report-health sfctl service report-health sfctl service report-health sfc
+Skickar en hälsorapport om tjänsten Service Fabric.
 
-Rapporterar hälso tillståndet för den angivna Service Fabrics tjänsten. Rapporten måste innehålla information om källan till hälso rapporten och egenskapen som den rapporteras om. Rapporten skickas till en Service Fabric Gateway-tjänst som vidarebefordrar till hälso lagret. Rapporten kan godkännas av gatewayen, men avvisas av hälso lagret efter extra verifiering. Hälso lagret kan till exempel avvisa rapporten på grund av en ogiltig parameter, t. ex. ett inaktuellt ordnings nummer. Om du vill se om rapporten har använts i hälso lagret kontrollerar du att rapporten visas i tjänstens hälso tillstånds händelser.
+Rapporterar hälsotillståndet för den angivna tjänsten Service Fabric. Rapporten måste innehålla information om källan till hälsorapporten och egenskapen som den rapporteras till. Rapporten skickas till en service fabric gateway service, som vidarebefordras till hälsoarkivet. Rapporten kan accepteras av gatewayen, men avvisas av hälsoarkivet efter extra validering. Hälsoarkivet kan till exempel avvisa rapporten på grund av en ogiltig parameter, till exempel ett inaktuellt sekvensnummer. Om du vill se om rapporten har tillämpats i hälsoarkivet kontrollerar du att rapporten visas i tjänstens hälsohändelser.
 
 ### <a name="arguments"></a>Argument
 
 |Argument|Beskrivning|
 | --- | --- |
-| --Health-Property [required] | Hälso informationens egenskaper. <br><br> En entitet kan ha hälso rapporter för olika egenskaper. Egenskapen är en sträng och inte en fast uppräkning som tillåter rapportörens flexibilitet att kategorisera det tillstånds villkor som utlöser rapporten. Till exempel kan en rapportör med SourceId "LocalWatchdog" övervaka statusen för den tillgängliga disken på en nod, så att den kan rapportera egenskapen "AvailableDisk" på noden. Samma rapportör kan övervaka nodens anslutning, så att den kan rapportera en egenskap "anslutning" på samma nod. I hälso lagret behandlas dessa rapporter som separata hälso händelser för den angivna noden. Tillsammans med värdet för SourceId kan egenskapen unikt identifiera hälso informationen. |
-| --hälso tillstånd [krävs] | Möjliga värden är\: "ogiltig", "OK", "varning", "Error", "okänd". |
-| --tjänst-ID [obligatoriskt] | Tjänstens identitet. <br><br> Detta är vanligt vis det fullständiga namnet på tjänsten utan URI-schemat "Fabric\:. Från och med version 6,0 avgränsas hierarkiska namn med "\~"-tecknen. Om tjänst namnet till exempel är Fabric\:/MyApp/APP1/svc1, skulle tjänst identiteten vara "MyApp\~APP1\~svc1" i 6.0 + och "MyApp/APP1/svc1" i tidigare versioner. |
-| --Käll-ID [obligatoriskt] | Det käll namn som identifierar klient/övervaknings-/system komponenten som genererade hälso informationen. |
-| --Beskrivning | Beskrivning av hälso informationen. <br><br> Den representerar fritext som används för att lägga till läsbar information om rapporten. Den maximala sträng längden för beskrivningen är 4096 tecken. Om den angivna strängen blir längre trunkeras den automatiskt. Vid trunkering innehåller de sista tecknen i beskrivningen en markör, "[trunkerad]" och den totala sträng storleken är 4096 tecken. Förekomsten av markören anger för användare som har trunkerats. Observera att beskrivningen innehåller färre än 4096 tecken från den ursprungliga strängen när den trunkeras. |
-| --omedelbar | En flagga som anger om rapporten ska skickas omedelbart. <br><br> En hälso rapport skickas till ett Service Fabric Gateway-program, som vidarebefordrar till hälso lagret. Om omedelbar är inställt på Sant skickas rapporten omedelbart från HTTP-gatewayen till hälso lagret, oavsett vilka klient inställningar för klient program varan som HTTP-gatewayen använder. Detta är användbart för kritiska rapporter som ska skickas så snart som möjligt. Beroende på tids inställningar och andra villkor kan det hända att det fortfarande inte går att skicka rapporten, till exempel om HTTP-gatewayen är stängd eller om meddelandet inte når gatewayen. Om omedelbar är inställt på false skickas rapporten baserat på hälso klient inställningarna från HTTP-gatewayen. Därför kommer den att grupperas enligt HealthReportSendInterval-konfigurationen. Detta är den rekommenderade inställningen eftersom den gör det möjligt för hälso klienten att optimera hälso rapporterings meddelanden till hälso Arkiv och bearbetning av hälso rapporter. Som standard skickas inte rapporter direkt. |
-| --remove-when-expired | Värde som anger om rapporten tas bort från hälso arkivet när den upphör att gälla. <br><br> Om värdet är True tas rapporten bort från hälso arkivet när den har gått ut. Om värdet är false behandlas rapporten som ett fel när den upphör att gälla. Värdet för den här egenskapen är falskt som standard. När klienter rapporterar regelbundet ska de ange RemoveWhenExpired false (standard). På så sätt har rapportören problem (t. ex. död läge) och kan inte rapportera. enheten utvärderas vid fel när hälso rapporten upphör att gälla. Den här flaggan anger att entiteten har fel hälso tillstånd. |
-| --sekvens-nummer | Serie numret för den här hälso rapporten som en numerisk sträng. <br><br> Rapportens sekvensnummer används av hälso lagret för att identifiera inaktuella rapporter. Om inget värde anges genereras ett sekvensnummer automatiskt av hälso klienten när en rapport läggs till. |
-| --timeout-t | Standard\: 60. |
-| --TTL | Varaktigheten för vilken den här hälso rapporten är giltig. I det här fältet används ISO8601-format för att ange varaktighet. <br><br> När klienter rapporterar regelbundet bör de skicka rapporter med högre frekvens än tid till Live. Om klienterna rapporterar över över gången kan de ställa in tiden till oändligt. När TTL-tiden förfaller, tas den hälso händelse som innehåller hälso informationen antingen bort från hälso lagret, om RemoveWhenExpired är sant eller om den utvärderas som fel, om RemoveWhenExpired false. Om inget värde anges, är Time to Live standardvärdet oändligt. |
+| --health-property [Obligatoriskt] | Egenskapen av hälsoinformationen. <br><br> En entitet kan ha hälsorapporter för olika egenskaper. Egenskapen är en sträng och inte en fast uppräkning för att tillåta reporterflexibilitet att kategorisera tillståndsvillkoret som utlöser rapporten. En reporter med SourceId "LocalWatchdog" kan till exempel övervaka tillståndet för den tillgängliga disken på en nod, så att den kan rapportera egenskapen "AvailableDisk" på den noden. Samma reporter kan övervaka nodanslutningen, så att den kan rapportera en egenskap "Anslutning" på samma nod. I hälsoarkivet behandlas dessa rapporter som separata hälsohändelser för den angivna noden. Tillsammans med SourceId identifierar egenskapen hälsoinformationen unikt. |
+| --hälsotillstånd [Krävs] | Möjliga värden\: är "Ogiltig", "Ok", "Varning", "Fel", "Okänd". |
+| --service-id [Obligatoriskt] | Tjänstens identitet. <br><br> Detta är vanligtvis det fullständiga namnet på\:tjänsten utan "fabric" URI-schemat. Från och med version 6.0 avgränsas hierarkiska\~namn med tecknet ' ' . Om tjänstnamnet till exempel är\:"fabric /myapp/app1/svc1", skulle tjänstidentiteten vara "myapp\~app1\~svc1" i 6.0+ och 'myapp/app1/svc1' i tidigare versioner. |
+| --source-id [Obligatoriskt] | Källnamnet som identifierar komponenten klient/watchdog/system som genererade hälsoinformationen. |
+| --beskrivning | Beskrivningen av hälsoinformationen. <br><br> Den representerar fritext som används för att lägga till läsbar information om rapporten. Den maximala stränglängden för beskrivningen är 4096 tecken. Om den angivna strängen är längre trunkeras den automatiskt. När de sista tecknen i beskrivningen trunkeras innehåller de sista tecknen i beskrivningen en markör "[Trunkerad]" och den totala strängstorleken 4096 tecken. Förekomsten av markören anger för användarna att trunkering inträffade. Observera att när beskrivningen trunkeras har den mindre än 4096 tecken från den ursprungliga strängen. |
+| --omedelbar | En flagga som anger om rapporten ska skickas omedelbart. <br><br> En hälsorapport skickas till ett service fabric-gatewayprogram som vidarebefordras till hälsoarkivet. Om Omedelbar är inställd på true skickas rapporten omedelbart från HTTP Gateway till hälsoarkivet, oavsett de inställningar för fabric-klient som HTTP Gateway-programmet använder. Detta är användbart för kritiska rapporter som ska skickas så snart som möjligt. Beroende på tidpunkten och andra villkor kan det fortfarande misslyckas att skicka rapporten, till exempel om HTTP-gatewayen är stängd eller om meddelandet inte når gatewayen. Om Omedelbar är inställd på false skickas rapporten baserat på hälsoklientinställningarna från HTTP Gateway. Därför kommer den att batchas enligt HealthReportSendInterval-konfigurationen. Det här är den rekommenderade inställningen eftersom hälsoklienten kan optimera hälsorapporteringsmeddelanden till hälsoarkivet samt bearbetning av hälsorapporter. Som standard skickas inte rapporter omedelbart. |
+| --remove-when-expired --remove-when-expired --remove-when-expired -- | Värde som anger om rapporten tas bort från hälsoarkivet när den upphör att gälla. <br><br> Om värdet är true tas rapporten bort från hälsoarkivet när den har upphört att gälla. Om den är inställd på false behandlas rapporten som ett fel när den har upphört att gälla. Värdet för den här egenskapen är falskt som standard. När klienter rapporterar regelbundet bör de ange RemoveWhenExpired false (standard). På så sätt har reportern problem (t.ex. dödläge) och kan inte rapportera, entiteten utvärderas vid fel när hälsorapporten upphör att gälla. Detta flaggar entiteten som i felhälsotillstånd. |
+| --sekvens-nummer | Sekvensnumret för den här hälsorapporten som en numerisk sträng. <br><br> Rapportsekvensnumret används av hälsoarkivet för att identifiera inaktuella rapporter. Om inget anges genereras ett sekvensnummer automatiskt av hälsoklienten när en rapport läggs till. |
+| --timeout -t | Standard\: 60. |
+| --ttl | Den varaktighet för vilken hälsorapporten är giltig. I det här fältet används ISO8601-format för att ange varaktigheten. <br><br> När klienter rapporterar regelbundet bör de skicka rapporter med högre frekvens än tid att leva. Om klienter rapporterar om övergången kan de ange att tiden ska vara oändlig. När tiden för att leva går ut tas hälsohändelsen som innehåller hälsoinformationen antingen bort från hälsoarkivet, om RemoveWhenExpired är sant eller utvärderas vid fel, om RemoveWhenExpired false. Om inget anges kan tid att leva som standard oändligt värde. |
 
 ### <a name="global-arguments"></a>Globala argument
 
 |Argument|Beskrivning|
 | --- | --- |
-| --Felsök | Öka loggnings utförligheten för att visa alla fel söknings loggar. |
-| --hjälp-h | Visa det här hjälp meddelandet och avsluta. |
-| --utdata-o | Utdataformat.  Tillåtna värden\: JSON, jsonc, Table, TSV.  Standard\: JSON. |
-| --fråga | Frågesträngen JMESPath. Mer information och exempel finns i http\://jmespath.org/. |
-| --utförlig | Öka loggningens utförlighet. Använd--debug för fullständiga fel söknings loggar. |
+| --debug | Öka loggningsverbaliteten för att visa alla felsökningsloggar. |
+| --hjälp -h | Visa det här hjälpmeddelandet och avsluta. |
+| --utgång -o | Utdataformat.  Tillåtna\: värden json, jsonc, tabell, tsv.  Standard\: json. |
+| --fråga | JMESPath-frågesträng. Mer\:information och exempel finns på http //jmespath.org/. |
+| --utförlig | Öka loggningsverbaliteten. Använd --debug för fullständiga felsökningsloggar. |
 
-## <a name="sfctl-service-resolve"></a>lösa sfctl-tjänst
-Lös en Service Fabric partition.
+## <a name="sfctl-service-resolve"></a>sfctl-tjänsten lösa
+Lös en Partition för service fabric.
 
-Lös en Service Fabric-diskpartition för att hämta slut punkterna för tjänst replikerna.
+Lös en tjänstpartition för service fabric för att hämta slutpunkterna för tjänstrepliker.
 
 ### <a name="arguments"></a>Argument
 
 |Argument|Beskrivning|
 | --- | --- |
-| --tjänst-ID [obligatoriskt] | Tjänstens identitet. Detta ID är vanligt vis det fullständiga namnet på tjänsten utan URI-schemat "Fabric\:". Från och med version 6,0 avgränsas hierarkiska namn med "\~"-tecknen. Om tjänst namnet till exempel är "Fabric\:/MyApp/APP1/svc1" blir tjänst identiteten "MyApp\~APP1\~svc1" i 6.0 + och "MyApp/APP1/svc1" i tidigare versioner. |
-| --partition-key-type | Nyckel typ för partitionen. Den här parametern krävs om partitions schema för tjänsten är Int64Range eller namngett. De möjliga värdena är följande. -Ingen (1)-anger att parametern PartitionKeyValue inte har angetts. Detta gäller för partitionerna med partitionerings schema som singleton. Detta är standardvärdet. Värdet är 1. -Int64Range (2)-anger att parametern PartitionKeyValue är en Int64-partitionsnyckel. Detta gäller för partitionerna med partitionerings schema som Int64Range. Värdet är 2. -Named (3) – anger att parametern PartitionKeyValue är ett namn på partitionen. Detta är giltigt för partitionerna med partitionerings schema enligt namnet. Värdet är 3. |
-| --partition-key-value | Partitionsnyckel. Detta krävs om partitions schema för tjänsten är Int64Range eller namngett. Detta är inte partitions-ID: t, utan i stället heltals nyckel svärdet eller namnet på partitions-ID: t. Om till exempel din tjänst använder intervallbaserade partitioner från 0 till 10, skulle de PartitionKeyValue vara ett heltal inom intervallet. Fråga tjänst beskrivning för att se intervallet eller namnet. |
-| --previous-rsp-version | Värdet i fältet version för det svar som togs emot tidigare. Detta krävs om användaren vet att resultatet som tidigare har infallit är inaktuellt. |
-| --timeout-t | Tids gränsen för servern för att utföra åtgärden på några sekunder. Denna timeout anger den tids period som klienten vill vänta tills den begärda åtgärden har slutförts. Standardvärdet för den här parametern är 60 sekunder.  Standard\: 60. |
+| --service-id [Obligatoriskt] | Tjänstens identitet. Detta ID är vanligtvis det fullständiga namnet\:på tjänsten utan URI-schemat för tyg. Från och med version 6.0 avgränsas hierarkiska\~namn med " " tecken. Om tjänstnamnet till exempel är\:"fabric /myapp/app1/svc1", skulle tjänstidentiteten vara "myapp\~app1\~svc1" i 6.0+ och "myapp/app1/svc1" i tidigare versioner. |
+| --partition-nyckel-typ | Nyckeltyp för partitionen. Den här parametern krävs om partitionsschemat för tjänsten är Int64Range eller Named. De möjliga värdena följer. - Ingen (1) - Anger att parametern PartitionKeyValue inte har angetts. Detta gäller för partitioner med partitioneringsschema som Singleton. Detta är standardvärdet. Värdet är 1. - Int64Range (2) - Anger att parametern PartitionKeyValue är en int64-partitionsnyckel. Detta gäller för partitioner med partitioneringsschema som Int64Range. Värdet är 2. - Namngivet (3) - Anger att parametern PartitionKeyValue är ett namn på partitionen. Detta gäller för partitioner med partitioneringsschema som namngivet. Värdet är 3. |
+| --partition-nyckel-värde | Partitionsnyckel. Detta krävs om partitionsschemat för tjänsten är Int64Range eller Named. Detta är inte partitions-ID, utan snarare antingen heltalsnyckelvärdet eller namnet på partitions-ID. Om din tjänst till exempel använder varierade partitioner från 0 till 10, skulle de PartitionKeyValue vara ett heltal i det intervallet. Frågetjänstbeskrivning för att se intervallet eller namnet. |
+| --föregående-rsp-version | Värdet i fältet Version för svaret som togs emot tidigare. Detta krävs om användaren vet att resultatet som har fåtts tidigare är inaktuellt. |
+| --timeout -t | Tidsgränsen för servern för att utföra åtgärden på några sekunder. Den här timeouten anger den tid som klienten är villig att vänta på att den begärda åtgärden har slutförts. Standardvärdet för den här parametern är 60 sekunder.  Standard\: 60. |
 
 ### <a name="global-arguments"></a>Globala argument
 
 |Argument|Beskrivning|
 | --- | --- |
-| --Felsök | Öka loggnings utförligheten för att visa alla fel söknings loggar. |
-| --hjälp-h | Visa det här hjälp meddelandet och avsluta. |
-| --utdata-o | Utdataformat.  Tillåtna värden\: JSON, jsonc, Table, TSV.  Standard\: JSON. |
-| --fråga | Frågesträngen JMESPath. Mer information och exempel finns i http\://jmespath.org/. |
-| --utförlig | Öka loggningens utförlighet. Använd--debug för fullständiga fel söknings loggar. |
+| --debug | Öka loggningsverbaliteten för att visa alla felsökningsloggar. |
+| --hjälp -h | Visa det här hjälpmeddelandet och avsluta. |
+| --utgång -o | Utdataformat.  Tillåtna\: värden json, jsonc, tabell, tsv.  Standard\: json. |
+| --fråga | JMESPath-frågesträng. Mer\:information och exempel finns på http //jmespath.org/. |
+| --utförlig | Öka loggningsverbaliteten. Använd --debug för fullständiga felsökningsloggar. |
 
-## <a name="sfctl-service-type-list"></a>sfctl Service Type-List
-Hämtar listan med information om tjänst typer som stöds av en etablerad program typ i ett Service Fabric kluster.
+## <a name="sfctl-service-type-list"></a>sfctl tjänsttyp-lista
+Hämtar listan som innehåller information om tjänsttyper som stöds av en etablerad programtyp i ett Service Fabric-kluster.
 
-Hämtar listan med information om tjänst typer som stöds av en etablerad program typ i ett Service Fabric kluster. Den angivna program typen måste finnas. Annars returneras en 404-status.
+Hämtar listan som innehåller information om tjänsttyper som stöds av en etablerad programtyp i ett Service Fabric-kluster. Den angivna programtypen måste finnas. Annars returneras en 404-status.
 
 ### <a name="arguments"></a>Argument
 
 |Argument|Beskrivning|
 | --- | --- |
-| --program-typ-namn [obligatoriskt] | Namnet på program typen. |
-| --program-Type-version [required] | Versionen av program typen. |
-| --timeout-t | Tids gränsen för servern för att utföra åtgärden på några sekunder. Denna timeout anger den tids period som klienten vill vänta tills den begärda åtgärden har slutförts. Standardvärdet för den här parametern är 60 sekunder.  Standard\: 60. |
+| --application-type-name [Obligatoriskt] | Namnet på programtypen. |
+| --application-type-version [Obligatoriskt] | Versionen av programtypen. |
+| --timeout -t | Tidsgränsen för servern för att utföra åtgärden på några sekunder. Den här timeouten anger den tid som klienten är villig att vänta på att den begärda åtgärden har slutförts. Standardvärdet för den här parametern är 60 sekunder.  Standard\: 60. |
 
 ### <a name="global-arguments"></a>Globala argument
 
 |Argument|Beskrivning|
 | --- | --- |
-| --Felsök | Öka loggnings utförligheten för att visa alla fel söknings loggar. |
-| --hjälp-h | Visa det här hjälp meddelandet och avsluta. |
-| --utdata-o | Utdataformat.  Tillåtna värden\: JSON, jsonc, Table, TSV.  Standard\: JSON. |
-| --fråga | Frågesträngen JMESPath. Mer information och exempel finns i http\://jmespath.org/. |
-| --utförlig | Öka loggningens utförlighet. Använd--debug för fullständiga fel söknings loggar. |
+| --debug | Öka loggningsverbaliteten för att visa alla felsökningsloggar. |
+| --hjälp -h | Visa det här hjälpmeddelandet och avsluta. |
+| --utgång -o | Utdataformat.  Tillåtna\: värden json, jsonc, tabell, tsv.  Standard\: json. |
+| --fråga | JMESPath-frågesträng. Mer\:information och exempel finns på http //jmespath.org/. |
+| --utförlig | Öka loggningsverbaliteten. Använd --debug för fullständiga felsökningsloggar. |
 
-## <a name="sfctl-service-update"></a>uppdatering av sfctl-tjänsten
-Uppdaterar den angivna tjänsten med den angivna uppdaterings beskrivningen.
+## <a name="sfctl-service-update"></a>sfctl tjänst uppdatering
+Uppdaterar den angivna tjänsten med den angivna uppdateringsbeskrivningen.
 
 ### <a name="arguments"></a>Argument
 
 |Argument|Beskrivning|
 | --- | --- |
-| --tjänst-ID [obligatoriskt] | Tjänstens identitet. Detta är vanligt vis det fullständiga namnet på tjänsten utan URI-schemat "Fabric\:. Från och med version 6,0 avgränsas hierarkiska namn med "\~"-tecknen. Om tjänst namnet till exempel är Fabric\:/MyApp/APP1/svc1, skulle tjänst identiteten vara "MyApp\~APP1\~svc1" i 6.0 + och "MyApp/APP1/svc1" i tidigare versioner. |
-| --begränsningar | Placeringen är begränsad som en sträng. Placerings begränsningar är booleska uttryck för Node-egenskaper och möjliggör begränsning av en tjänst till särskilda noder baserat på tjänst kraven. Om du till exempel vill placera en tjänst på noder där NodeType är blått anger du följande\: "NodeColor = = blått". |
-| --correlated-service | Namnet på mål tjänsten som ska korreleras med. |
-| --korrelation | Korrelera tjänsten med en befintlig tjänst med en justerings tilldelning. |
-| --antal instanser | Antalet instanser. Detta gäller endast för tillstånds lösa tjänster. |
-| --Load – Metrics | JSON-kodad lista över mått som används vid belastnings utjämning på noder. |
-| --min-replica-set-size | Den minsta replik uppsättningens storlek som ett tal. Detta gäller endast för tillstånds känsliga tjänster. |
-| --flytta – kostnad | Anger flytt kostnaden för tjänsten. Möjliga värden är\: ' Zero ', ' Low ', ' medium ', ' High ', ' VeryHigh '. |
-| --placement-policy-list | JSON-kodad lista över placerings principer för tjänsten och alla associerade domän namn. Principer kan vara en eller flera av\: `NonPartiallyPlaceService`, `PreferPrimaryDomain`, `RequireDomain`, `RequireDomainDistribution`. |
-| --kvorum-förlust-vänta | Den längsta tid i sekunder som en partition kan vara i status för kvorum. Detta gäller endast för tillstånds känsliga tjänster. |
-| --replica-restart-wait | Tiden, i sekunder, mellan när en replik kraschar och när en ny replik skapas. Detta gäller endast för tillstånds känsliga tjänster. |
-| --scaling-policies | JSON-kodad lista över skalnings principer för den här tjänsten. |
-| --service-placement-Time | Varaktigheten för vilka repliker kan vara inbygga innan rapportering som skapas fastnar. Detta gäller endast för tillstånds känsliga tjänster. |
-| --Behåll-för-replik-Behåll | Maximal varaktighet, i sekunder, för vilken StandBy-repliker ska behållas innan de tas bort. Detta gäller endast för tillstånds känsliga tjänster. |
-| --tillstånds känslig | Anger att mål tjänsten är en tillstånds känslig tjänst. |
-| --tillstånds lös | Anger att mål tjänsten är en tillstånds lös tjänst. |
-| --target-replica-set-size | Målets replik uppsättnings storlek som ett tal. Detta gäller endast för tillstånds känsliga tjänster. |
-| --timeout-t | Standard\: 60. |
+| --service-id [Obligatoriskt] | Tjänstens identitet. Detta är vanligtvis det fullständiga namnet på\:tjänsten utan "fabric" URI-schemat. Från och med version 6.0 avgränsas hierarkiska\~namn med " " tecken. Om tjänstnamnet till exempel är\:"fabric /myapp/app1/svc1", skulle tjänstidentiteten vara "myapp\~app1\~svc1" i 6.0+ och 'myapp/app1/svc1' i tidigare versioner. |
+| --begränsningar | Placeringsbegränsningarna som en sträng. Placeringsbegränsningar är booleska uttryck för nodegenskaper och gör det möjligt att begränsa en tjänst till vissa noder baserat på servicekraven. Om du till exempel vill placera en tjänst på noder där NodeType är blå anger du följande\: "NodeColor == blue". |
+| --korrelerad-tjänst | Namn på måltjänsten att korrelera med. |
+| --korrelation | Korrelera tjänsten med en befintlig tjänst med hjälp av en justeringstillhörighet. |
+| --instans-antal | Instansen räknas. Detta gäller endast tillståndslösa tjänster. |
+| --load-metrics | JSON kodade lista över mått som används vid belastningsutjämning över noder. |
+| --min-replica-set-storlek | Minsta replikuppsättningsstorlek som ett tal. Detta gäller endast tillståndskänsliga tjänster. |
+| --move-kostnad | Anger flyttkostnaden för tjänsten. Möjliga värden\: är "Noll", "Låg", "Medium", "Hög", "VeryHigh". |
+| --placement-policy-lista | JSON kodade lista över placeringsprinciper för tjänsten och eventuella associerade domännamn. Principer kan vara en\: `NonPartiallyPlaceService` `PreferPrimaryDomain`eller `RequireDomain` `RequireDomainDistribution`flera av , , , . |
+| --kvorum-förlust-vänta | Den maximala varaktigheten, i sekunder, för vilken en partition tillåts vara i ett tillstånd av kvorumförlust. Detta gäller endast tillståndskänsliga tjänster. |
+| --replica-restart-wait --replica-restart-wait --replica-restart-wait -- | Varaktigheten, i sekunder, mellan när en replik går ner och när en ny replik skapas. Detta gäller endast tillståndskänsliga tjänster. |
+| --skala-principer | JSON kodade lista över skalningsprinciper för den här tjänsten. |
+| --service-placement-tid | Varaktigheten för vilka repliker kan stanna i InBuild innan du rapporterar att bygga har fastnat. Detta gäller endast tillståndskänsliga tjänster. |
+| --stand-by-replica-keep | Den maximala varaktigheten, i sekunder, för vilken StandBy-repliker kommer att underhållas innan de tas bort. Detta gäller endast tillståndskänsliga tjänster. |
+| --stateful | Anger att måltjänsten är en tillståndskänslig tjänst. |
+| --statslös | Anger att måltjänsten är en tillståndslös tjänst. |
+| --target-replica-set-size -target-replica-set-size -target-replica-set-size --target- | Målrepliken anger storlek som ett tal. Detta gäller endast tillståndskänsliga tjänster. |
+| --timeout -t | Standard\: 60. |
 
 ### <a name="global-arguments"></a>Globala argument
 
 |Argument|Beskrivning|
 | --- | --- |
-| --Felsök | Öka loggnings utförligheten för att visa alla fel söknings loggar. |
-| --hjälp-h | Visa det här hjälp meddelandet och avsluta. |
-| --utdata-o | Utdataformat.  Tillåtna värden\: JSON, jsonc, Table, TSV.  Standard\: JSON. |
-| --fråga | Frågesträngen JMESPath. Mer information och exempel finns i http\://jmespath.org/. |
-| --utförlig | Öka loggningens utförlighet. Använd--debug för fullständiga fel söknings loggar. |
+| --debug | Öka loggningsverbaliteten för att visa alla felsökningsloggar. |
+| --hjälp -h | Visa det här hjälpmeddelandet och avsluta. |
+| --utgång -o | Utdataformat.  Tillåtna\: värden json, jsonc, tabell, tsv.  Standard\: json. |
+| --fråga | JMESPath-frågesträng. Mer\:information och exempel finns på http //jmespath.org/. |
+| --utförlig | Öka loggningsverbaliteten. Använd --debug för fullständiga felsökningsloggar. |
 
 
 ## <a name="next-steps"></a>Nästa steg
-- [Konfigurera](service-fabric-cli.md) Service Fabric cli.
-- Lär dig hur du använder Service Fabric CLI med hjälp av [exempel skripten](/azure/service-fabric/scripts/sfctl-upgrade-application).
+- [Ställ in](service-fabric-cli.md) Service Fabric CLI.
+- Lär dig hur du använder Service Fabric CLI med hjälp av [exempelskripten](/azure/service-fabric/scripts/sfctl-upgrade-application).

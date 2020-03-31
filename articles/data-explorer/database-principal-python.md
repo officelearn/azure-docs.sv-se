@@ -1,6 +1,6 @@
 ---
-title: Lägg till databasens huvud namn för Azure Datautforskaren med hjälp av python
-description: I den här artikeln får du lära dig hur du lägger till databasens huvud namn för Azure Datautforskaren med hjälp av python.
+title: Lägga till databasobjekt för Azure Data Explorer med hjälp av Python
+description: I den här artikeln får du lära dig hur du lägger till databashuvudnamn för Azure Data Explorer med hjälp av Python.
 author: lucygoldbergmicrosoft
 ms.author: lugoldbe
 ms.reviewer: orspodek
@@ -8,29 +8,29 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.openlocfilehash: 8b9c4f4d5427b326c273558db0bff808068b192a
-ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/02/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76965013"
 ---
-# <a name="add-database-principals-for-azure-data-explorer-by-using-python"></a>Lägg till databasens huvud namn för Azure Datautforskaren med hjälp av python
+# <a name="add-database-principals-for-azure-data-explorer-by-using-python"></a>Lägga till databasobjekt för Azure Data Explorer med hjälp av Python
 
 > [!div class="op_single_selector"]
 > * [C#](database-principal-csharp.md)
 > * [Python](database-principal-python.md)
 > * [Azure Resource Manager-mall](database-principal-resource-manager.md)
 
-Azure Data Explorer är en snabb och mycket skalbar datautforskningstjänst för logg- och telemetridata. I den här artikeln lägger du till databas huvud namn för Azure Datautforskaren med hjälp av python.
+Azure Data Explorer är en snabb och mycket skalbar datautforskningstjänst för logg- och telemetridata. I den här artikeln lägger du till databasobjekt för Azure Data Explorer med hjälp av Python.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-* Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt Azure-konto](https://azure.microsoft.com/free/) innan du börjar.
+* Om du inte har en Azure-prenumeration skapar du ett [kostnadsfritt Azure-konto](https://azure.microsoft.com/free/) innan du börjar.
 * [Skapa ett kluster och en databas](create-cluster-database-python.md)
 
 ## <a name="install-python-package"></a>Installera Python-paketet
 
-Om du vill installera python-paketet för Azure Datautforskaren (Kusto) öppnar du en kommando tolk med python i sökvägen. Kör följande kommando:
+Om du vill installera Python-paketet för Azure Data Explorer (Kusto) öppnar du en kommandotolk som har Python i sökvägen. Kör följande kommando:
 
 ```
 pip install azure-common
@@ -39,9 +39,9 @@ pip install azure-mgmt-kusto
 
 [!INCLUDE [data-explorer-authentication](../../includes/data-explorer-authentication.md)]
 
-## <a name="add-a-database-principal"></a>Lägg till ett databas huvud namn
+## <a name="add-a-database-principal"></a>Lägga till ett huvudnamn för databasen
 
-I följande exempel visas hur du lägger till ett databas huvud objekt program mässigt.
+I följande exempel visas hur du lägger till en huvudnamn för en databas programmässigt.
 
 ```Python
 from azure.mgmt.kusto import KustoManagementClient
@@ -81,19 +81,19 @@ poller = kusto_management_client.database_principal_assignments.create_or_update
 
 |**Inställning** | **Föreslaget värde** | **Fältbeskrivning**|
 |---|---|---|
-| tenant_id | *xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx* | Ditt klient-ID. Även känt som katalog-ID.|
-| subscription_id | *xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx* | Det prenumerations-ID som du använder för att skapa resurser.|
-| client_id | *xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx* | Klient-ID för programmet som har åtkomst till resurser i din klient organisation.|
-| client_secret | *xxxxxxxxxxxxxx* | Klient hemligheten för programmet som har åtkomst till resurser i din klient organisation. |
-| resource_group_name | *testrg* | Namnet på resurs gruppen som innehåller klustret.|
-| cluster_name | *mykustocluster* | Namnet på klustret.|
-| database_name | *mykustodatabase* | Namn på databasen.|
-| principal_assignment_name | *databasePrincipalAssignment1* | Namnet på din databas huvud resurs.|
-| principal_id | *xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx* | Ägar-ID: t, som kan vara användarens e-post, program-ID eller namn på säkerhets grupp.|
-| roll | *Innehavaradministration* | Rollen som databasens säkerhets objekt, som kan vara admin, "inmatnings", "Monitor", "User", "UnrestrictedViewers", "Viewer".|
-| tenant_id_for_principal | *xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx* | Innehavarens ID för huvud kontot.|
-| principal_type | *App* | Typ av huvud konto, som kan vara User, app eller Group|
+| tenant_id | *xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx* | Ditt klient-ID. Kallas även katalog-ID.|
+| subscription_id | *xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx* | Prenumerations-ID som du använder för att skapa resurser.|
+| client_id | *xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx* | Klient-ID för programmet som kan komma åt resurser i din klient.|
+| client_secret | *xxxxxxxxxxxxxx* | Klienthemligheten för programmet som kan komma åt resurser i din klientorganisation. |
+| resource_group_name | *testrg* | Namnet på resursgruppen som innehåller klustret.|
+| cluster_name | *mykustocluster (en)* | Namnet på klustret.|
+| database_name | *mykustodatabas* | Namn på databasen.|
+| principal_assignment_name | *databasPrincipatilldelning1* | Namnet på databasens huvudresurs.|
+| principal_id | *xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx* | Huvud-ID: t, som kan vara användar-E-post, program-ID eller säkerhetsgruppnamn.|
+| roll | *Administratör* | Rollen för din databas huvudnamn, som kan vara "Admin", "Ingestor", "Monitor", "Användare", "ObegränsadViewers", "Viewer".|
+| tenant_id_for_principal | *xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx* | Klient-ID för huvudmannen.|
+| principal_type | *App* | Typen av huvudnamn, som kan vara "Användare", "App" eller "Grupp"|
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Mata in data med Azure Datautforskaren python-biblioteket](python-ingest-data.md)
+* [Mata in data med hjälp av Python-biblioteket i Azure Data Explorer](python-ingest-data.md)

@@ -1,6 +1,6 @@
 ---
-title: Distribuera Azure-brandväggen med en mall
-description: Distribuera Azure-brandväggen med en mall. Det skapade nätverket har ett virtuellt nätverk med tre undernät. Två virtuella Windows Server-datorer med två kärnor distribueras.
+title: Distribuera Azure Firewall med hjälp av en mall
+description: Distribuera Azure-brandväggen med hjälp av en mall. Det skapade nätverket har ett virtuella nätverk med tre undernät. Virtuella datorer med två kärnor distribueras.
 services: firewall
 author: vhorne
 ms.service: firewall
@@ -8,66 +8,66 @@ ms.topic: article
 ms.date: 11/19/2019
 ms.author: victorh
 ms.openlocfilehash: b9e82998283bf44eede88148a12d88aae521b1ca
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74169205"
 ---
-# <a name="deploy-azure-firewall-using-a-template"></a>Distribuera Azure-brandväggen med en mall
+# <a name="deploy-azure-firewall-using-a-template"></a>Distribuera Azure Firewall med hjälp av en mall
 
-[Installations mal len skapa AzureFirewall sandbox](https://github.com/Azure/azure-quickstart-templates/tree/master/101-azurefirewall-with-zones-sandbox) skapar en test nätverks miljö med en brand vägg. Nätverket har ett virtuellt nätverk (VNet) med tre undernät: *AzureFirewallSubnet*, *ServersSubnet*och *JumpboxSubnet*. *ServersSubnet* -och *JumpboxSubnet* -undernätet har en enda virtuell Windows Server-dator med två kärnor.
+[Installationsmallen Skapa AzureFirewall-sandlåda](https://github.com/Azure/azure-quickstart-templates/tree/master/101-azurefirewall-with-zones-sandbox) skapar en testnätverksmiljö med en brandvägg. Nätverket har ett virtuellt nätverk (VNet) med tre undernät: *AzureFirewallSubnet*, *ServersSubnet*och *JumpboxSubnet*. Undernätet *ServersSubnet* och *JumpboxSubnet* har var och en en virtuell dator med två kärnor.
 
-Brand väggen finns i *AzureFirewallSubnet* -undernätet och har en samlad program regel med en regel som ger åtkomst till `www.microsoft.com`.
+Brandväggen finns i *undernätet AzureFirewallSubnet* och har en programregelsamling med `www.microsoft.com`en enda regel som ger åtkomst till .
 
-En användardefinierad väg pekar nätverks trafik från *ServersSubnet* -undernätet via brand väggen, där brand Väggs reglerna tillämpas.
+En användardefinierad väg pekar nätverkstrafik från *ServersSubnet-undernätet* genom brandväggen, där brandväggsreglerna tillämpas.
 
-Mer information om Azure-brandväggen finns i [distribuera och konfigurera Azure-brandväggen med hjälp av Azure Portal](tutorial-firewall-deploy-portal.md).
+Mer information om Azure-brandväggen finns i [Distribuera och konfigurera Azure-brandväggen med Azure-portalen](tutorial-firewall-deploy-portal.md).
 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="use-the-template-to-deploy-azure-firewall"></a>Använd mallen för att distribuera Azure-brandväggen
+## <a name="use-the-template-to-deploy-azure-firewall"></a>Använda mallen för att distribuera Azure-brandväggen
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
 
-**Installera och Distribuera Azure-brandväggen med hjälp av mallen:**
+**Så här installerar och distribuerar du Azure-brandväggen med hjälp av mallen:**
 
-1. Öppna mallen på [https://github.com/Azure/azure-quickstart-templates/tree/master/101-azurefirewall-with-zones-sandbox](https://github.com/Azure/azure-quickstart-templates/tree/master/101-azurefirewall-with-zones-sandbox).
+1. Öppna mallen [https://github.com/Azure/azure-quickstart-templates/tree/master/101-azurefirewall-with-zones-sandbox](https://github.com/Azure/azure-quickstart-templates/tree/master/101-azurefirewall-with-zones-sandbox)på .
    
-1. Läs introduktionen och välj **distribuera till Azure**när du är redo att distribuera.
+1. Läs introduktionen och välj Distribuera **till Azure**när du är redo att distribuera .
    
-1. Logga in på Azure Portal vid behov. 
+1. Om det behövs loggar du in på Azure-portalen. 
 
-1. I portalen, på sidan **skapa en sandbox-installation av AzureFirewall** , skriver eller väljer du följande värden:
+1. Skriv eller välj följande värden på sidan Skapa en sandbox på sidan Skapa en sandbox på sidan **AzureFirewall:**
    
-   - **Resurs grupp**: Välj **Skapa ny**, Skriv ett namn för resurs gruppen och välj **OK**. 
-   - **Virtual Network namn**: Ange ett namn för det nya virtuella nätverket. 
-   - **Admin-användar namn**: Ange ett användar namn för administratörs användar kontot.
-   - **Administratörs lösen ord**: Ange ett administratörs lösen ord. 
+   - **Resursgrupp**: Välj **Skapa nytt**, skriv ett namn för resursgruppen och välj **OK**. 
+   - **Namn på virtuellt nätverk:** Skriv ett namn på det nya virtuella nätverket. 
+   - **Administratörsanvändarnamn**: Skriv ett användarnamn för administratörsanvändarkontot.
+   - **Admin Lösenord:** Skriv ett administratörslösenord. 
    
-1. Läs de allmänna villkoren och välj sedan **Jag accepterar villkoren som anges ovan**.
+1. Läs villkoren och välj sedan **jag godkänner de villkor som anges ovan**.
    
 1. Välj **Köp**.
    
    Det tar några minuter att skapa resurserna. 
    
-1. Utforska de resurser som har skapats med brand väggen. 
+1. Utforska de resurser som har skapats med brandväggen. 
 
-Information om JSON-syntaxen och egenskaperna för en brand vägg i en mall finns i [Microsoft. Network/azureFirewalls](/azure/templates/microsoft.network/azurefirewalls).
+Mer information om JSON-syntaxen och egenskaperna för en brandvägg i en mall finns i [Microsoft.Network/azureFirewalls](/azure/templates/microsoft.network/azurefirewalls).
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-När du inte längre behöver dem kan du ta bort resurs gruppen, brand väggen och alla relaterade resurser genom att köra PowerShell [-kommandot Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) . Om du vill ta bort en resurs grupp med namnet *MyResourceGroup*kör du: 
+När du inte längre behöver dem kan du ta bort resursgruppen, brandväggen och alla relaterade resurser genom att köra kommandot [Ta bort AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) PowerShell. Så här tar du bort en resursgrupp med namnet *MyResourceGroup:* 
 
 ```azurepowershell-interactive
 Remove-AzResourceGroup -Name MyResourceGroup
 ```
-Ta inte bort resurs gruppen och brand väggen ännu, om du planerar att fortsätta till själv studie kursen om brand Väggs övervakning. 
+Ta inte bort resursgruppen och brandväggen ännu, om du planerar att fortsätta till brandväggen övervakning handledning. 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Sedan kan du övervaka Azure Firewall-loggarna:
+Därefter kan du övervaka Azure-brandväggsloggarna:
 
 > [!div class="nextstepaction"]
 > [Självstudie: Övervaka Azure Firewall-loggar](./tutorial-diagnostics.md)

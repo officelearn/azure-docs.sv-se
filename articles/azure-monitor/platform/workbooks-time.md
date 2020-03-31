@@ -1,6 +1,6 @@
 ---
-title: Tids parametrar för Azure Monitor arbets böcker
-description: Förenkla komplex rapportering med förbyggda och anpassade parameterstyrda arbets böcker
+title: Tidsparametrar för Azure Monitor-arbetsböcker
+description: Förenkla komplex rapportering med färdiga och anpassade parameteriserade arbetsböcker
 services: azure-monitor
 author: mrbullwinkle
 manager: carmonm
@@ -10,69 +10,69 @@ ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: mbullwin
 ms.openlocfilehash: 380b8a7ce286ab06b6935bf63bf3a0e82f371c2f
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77658021"
 ---
-# <a name="workbook-time-parameters"></a>Tids parametrar för arbets bok
+# <a name="workbook-time-parameters"></a>Tidsparametrar för arbetsbok
 
-Med tids parametrar kan användarna ange tids kontexten för analysen och det används av nästan alla rapporter. Det är relativt enkelt att konfigurera och använda – så att författarna kan ange de tidsintervall som ska visas i list rutan, inklusive alternativet för anpassade tidsintervall. 
+Tidsparametrar tillåter användare att ställa in tidskontexten för analys och används av nästan alla rapporter. Det är relativt enkelt att ställa in och använda - så att författarna kan ange de tidsintervall som ska visas i listrutan, inklusive alternativet för anpassade tidsintervall. 
 
-## <a name="creating-a-time-parameter"></a>Skapa en tids parameter
-1. Börja med en tom arbets bok i redigerings läge.
-2. Välj _Lägg till parametrar_ från länkarna i arbets boken.
-3. Klicka på knappen blå _Lägg till parameter_ .
-4. I fönstret ny parameter som öppnas anger du:
-    1. Parameter namn: `TimeRange`
-    2. Parameter typ: `Time range picker`
-    3. Krävs: `checked`
-    4. Tillgängliga tidsintervall: senaste timmen, de senaste 12 timmarna, de senaste 24 timmarna, de senaste 48 timmarna, de senaste 3 dagarna, senaste 7 dagarna och alternativet Tillåt anpassat tidsintervall
-5. Skapa parametern genom att välja Spara i verktygsfältet.
+## <a name="creating-a-time-parameter"></a>Skapa en tidsparameter
+1. Börja med en tom arbetsbok i redigeringsläge.
+2. Välj _Lägg till parametrar_ i länkarna i arbetsboken.
+3. Klicka på knappen _Lägg till parameter._
+4. I det nya parameterfönstret som dyker upp anger du:
+    1. Parameternamn:`TimeRange`
+    2. Parametertyp:`Time range picker`
+    3. Krävs:`checked`
+    4. Tillgängliga tidsintervall: Senaste timmen, Senaste 12 timmarna, Senaste 24 timmarna, Senaste 48 timmarna, Senaste 3 dagarna, Senaste 7 dagarna och Tillåt val av anpassat tidsintervall
+5. Välj Spara i verktygsfältet för att skapa parametern.
 
-    ![Bild som visar skapandet av en tids intervalls parameter](./media/workbooks-time/time-settings.png)
+    ![Bild som visar skapandet av en parameter för tidsintervall](./media/workbooks-time/time-settings.png)
 
-Så här kommer arbets boken att se ut i Read-mode.
+Så här kommer arbetsboken att se ut i läsläge.
 
-![Bild som visar en tids intervall parameter i läsläge](./media/workbooks-time/parameters-time.png)
+![Bild som visar en parameter för tidsintervall i läsläge](./media/workbooks-time/parameters-time.png)
 
-## <a name="referencing-a-time-parameter"></a>Referera till en tids parameter
+## <a name="referencing-a-time-parameter"></a>Referera till en tidsparameter
 ### <a name="via-bindings"></a>Via bindningar
-1. Lägg till en frågeplan i arbets boken och välj en Application Insights resurs.
-2. De flesta arbets boks kontroller stöder en intervall väljare för _tidsintervall_ . Öppna den nedrullningsbara List rutan tidsintervall och välj `{TimeRange}` i gruppen _Tidsintervalls_ parametrar längst ned.
-3. Detta binder tids intervall parametern till tidsintervallet för diagrammet. Tidsintervallet för exempel frågan är nu de senaste 24 timmarna.
-4. Kör fråga för att visa resultaten
+1. Lägg till en frågekontroll i arbetsboken och välj en Application Insights-resurs.
+2. De flesta arbetsbokskontroller stöder en _tidsintervallväljare._ Öppna listrutan _Tidsintervall_ och `{TimeRange}` välj gruppen parametrar för tids ringde längst ned.
+3. Detta binder parametern tidsintervall till diagrammets tidsintervall. Tidsomfånget för exempelfrågan är nu senaste 24 timmarna.
+4. Kör fråga för att se resultaten
 
-    ![Bild som visar en tidsintervalls parameter som refereras via bindningar](./media/workbooks-time/time-binding.png)
+    ![Bild som visar en tidsintervallparameter som refereras via bindningar](./media/workbooks-time/time-binding.png)
 
 ### <a name="in-kql"></a>I KQL
-1. Lägg till en frågeplan i arbets boken och välj en Application Insights resurs.
-2. I KQL anger du ett tids omfattnings filter med parametern: `| where timestamp {TimeRange}`
-3. Detta utökar den tids period som `| where timestamp > ago(1d)`, vilket är värdet för tids intervallet för parametern.
-4. Kör fråga för att visa resultaten
+1. Lägg till en frågekontroll i arbetsboken och välj en Application Insights-resurs.
+2. Ange ett tidsomfattningsfilter i KQL med parametern:`| where timestamp {TimeRange}`
+3. Detta utökar frågeutvärderingstiden `| where timestamp > ago(1d)`till , vilket är parameterns tidsintervallvärde.
+4. Kör fråga för att se resultaten
 
     ![Bild som visar ett tidsintervall som refereras i KQL](./media/workbooks-time/time-in-code.png)
 
 ### <a name="in-text"></a>I text 
-1. Lägg till en text kontroll i arbets boken.
-2. I markdown anger du `The chosen time range is {TimeRange:label}`
-3. Välj _klar redigering_
-4. Text kontrollen visar text: _det valda tidsintervallet är de senaste 24 timmarna_
+1. Lägg till en textkontroll i arbetsboken.
+2. I markeringsgränsen anger du`The chosen time range is {TimeRange:label}`
+3. Välj _Klar redigering_
+4. Textkontrollen visar text: _Det valda tidsintervallet är Senaste 24 timmarna_
 
-## <a name="time-parameter-options"></a>Alternativ för tids parameter
+## <a name="time-parameter-options"></a>Alternativ för tidsparameter
 | Parameter | Förklaring | Exempel |
 | ------------- |:-------------|:-------------|
-| `{TimeRange}` | Intervall etikett | Senaste 24 timmarna |
-| `{TimeRange:label}` | Intervall etikett | Senaste 24 timmarna |
-| `{TimeRange:value}` | Tids intervalls värde | > sedan (1d) |
-| `{TimeRange:query}` | Fråga för tidsintervall | > sedan (1d) |
-| `{TimeRange:start}` | Start tid för tidsintervall | 3/20/2019 4:18 PM |
-| `{TimeRange:end}` | Slut tid för tidsintervall | 3/21/2019 4:18 PM |
-| `{TimeRange:grain}` | Kornigt tidsintervall | 30 m |
+| `{TimeRange}` | Etikett för tidsintervall | Senaste 24 timmarna |
+| `{TimeRange:label}` | Etikett för tidsintervall | Senaste 24 timmarna |
+| `{TimeRange:value}` | Värde för tidsintervall | > sedan(1d) |
+| `{TimeRange:query}` | Fråga om tidsintervall | > sedan(1d) |
+| `{TimeRange:start}` | Starttid för tidsintervall | 2019-03-20 16:18 |
+| `{TimeRange:end}` | Sluttid för tidsintervall | 2019-03-21 16:18 |
+| `{TimeRange:grain}` | Tidsintervall korn | 30 m |
 
 
-### <a name="using-parameter-options-in-a-query"></a>Använda parameter alternativ i en fråga
+### <a name="using-parameter-options-in-a-query"></a>Använda parameteralternativ i en fråga
 ```kusto
 requests
 | make-series Requests = count() default = 0 on timestamp from {TimeRange:start} to {TimeRange:end} step {TimeRange:grain}
@@ -80,5 +80,5 @@ requests
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Kom igång](workbooks-visualizations.md) lär dig mer om arbets böcker många avancerade visualiserings alternativ.
-* [Kontrol lera](workbooks-access-control.md) och dela åtkomst till dina arbets boks resurser.
+* [Kom igång](workbooks-visualizations.md) med att lära dig mer om arbetsböcker många avancerade visualiseringar alternativ.
+* [Kontrollera](workbooks-access-control.md) och dela åtkomst till arbetsboksresurserna.

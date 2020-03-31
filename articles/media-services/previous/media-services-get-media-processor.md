@@ -1,6 +1,6 @@
 ---
-title: Så här skapar du en medieprocessor med Azure Media Services SDK för .NET | Microsoft Docs
-description: Lär dig hur du skapar ett media processorkomponenten för att koda, konvertera formatet, kryptera eller dekryptera medieinnehåll för Azure Media Services. Kodexemplen är skrivna C# och använda Media Services SDK för .NET.
+title: Skapa en medieprocessor med Hjälp av SDK för Azure Media Services för .NET| Microsoft-dokument
+description: Lär dig hur du skapar en medieprocessorkomponent för att koda, konvertera format, kryptera eller dekryptera medieinnehåll för Azure Media Services. Kodexempel skrivs i C# och använder Media Services SDK för .NET.
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -15,32 +15,32 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: af6badda426f1bb81d8528cfda9b8c02d55712b3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "61463862"
 ---
-# <a name="how-to-get-a-media-processor-instance"></a>Anvisningar: Hämta en Medieprocessor-instans
+# <a name="how-to-get-a-media-processor-instance"></a>Så här hämtar du en mediaprocessorinstans
 > [!div class="op_single_selector"]
-> * [NET](media-services-get-media-processor.md)
-> * [REST](media-services-rest-get-media-processor.md)
+> * [.NET](media-services-get-media-processor.md)
+> * [Resten](media-services-rest-get-media-processor.md)
 > 
 > 
 
 ## <a name="overview"></a>Översikt
-Formatera konvertering, kryptering eller dekryptering medieinnehåll i en medieprocessor är en komponent som hanterar en specifik bearbetning aktivitet, till exempel kodning, medietjänster. Du skapar vanligtvis en medieprocessor när du skapar en uppgift att koda, kryptera eller konvertera formatet för medieinnehåll.
+I Media Services är en medieprocessor en komponent som hanterar en viss bearbetningsuppgift, till exempel kodning, formatkonvertering, kryptering eller dekryptering av medieinnehåll. Du skapar vanligtvis en medieprocessor när du skapar en uppgift för att koda, kryptera eller konvertera formatet för medieinnehåll.
 
-## <a name="azure-media-processors"></a>Azure media-processorer 
+## <a name="azure-media-processors"></a>Azure-mediebehandlare 
 
-Följande avsnitt innehåller en lista över mediebearbetare:
+Följande avsnitt innehåller listor över medieprocessorer:
 
 * [Mediebearbetare för kodning](scenarios-and-availability.md#encoding-media-processors)
 * [Mediebearbetare för analys](scenarios-and-availability.md#analytics-media-processors)
 
-## <a name="get-media-processor"></a>Hämta Mediebearbetare
+## <a name="get-media-processor"></a>Hämta medieprocessor
 
-Följande metod som visar hur du hämtar en media processorinstans. Kodexemplet förutsätter användning av en modul på servernivå variabel med namnet **_context** referera serverkontext enligt beskrivningen i avsnittet [så här: Ansluta till Media Services programmässigt](media-services-use-aad-auth-to-access-ams-api.md).
+Följande metod visar hur du skaffar en medieprocessorinstans. Kodexemplet förutsätter att en variabel på modulnivå med namnet **_context** refererar till serverkontexten enligt beskrivningen i avsnittet [Så här ansluter du till Media Services Programmatiskt](media-services-use-aad-auth-to-access-ams-api.md).
 
     private static IMediaProcessor GetLatestMediaProcessorByName(string mediaProcessorName)
     {
@@ -60,6 +60,6 @@ Följande metod som visar hur du hämtar en media processorinstans. Kodexemplet 
 ## <a name="provide-feedback"></a>Ge feedback
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
-## <a name="next-steps"></a>Nästa steg
-Nu när du vet hur du hämtar en media processorinstans går du till den [koda en tillgång](media-services-dotnet-encode-with-media-encoder-standard.md) avsnittet som visar hur du använder Media Encoder Standard för att koda en tillgång.
+## <a name="next-steps"></a>Efterföljande moment
+Nu när du vet hur du hämtar en medieprocessorinstans går du till avsnittet [Så här kodar du ett tillgångsämne](media-services-dotnet-encode-with-media-encoder-standard.md) som visar hur du använder Media Encoder Standard för att koda en tillgång.
 

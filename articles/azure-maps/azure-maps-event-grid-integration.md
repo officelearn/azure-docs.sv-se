@@ -1,40 +1,40 @@
 ---
-title: Reagera på mappa händelser med Event Grid | Microsoft Azure Maps
+title: Reagera på karthändelser med hjälp av Händelserutnät | Microsoft Azure Maps
 description: I den här artikeln får du lära dig hur du reagerar på Microsoft Azure Maps-händelser med hjälp av Event Grid.
-author: farah-alyasari
-ms.author: v-faalya
+author: philmea
+ms.author: philmea
 ms.date: 02/08/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: f7e5be8d4aca85c9574db18ec9df8a7f30850d06
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.openlocfilehash: 9c9483af191e5439af0c0b5e433187d6475c178c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77210114"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80335719"
 ---
-# <a name="react-to-azure-maps-events-by-using-event-grid"></a>Reagera på Azure Maps händelser med Event Grid 
+# <a name="react-to-azure-maps-events-by-using-event-grid"></a>Reagera på Azure Maps-händelser med hjälp av Event Grid 
 
-Azure Maps integreras med Azure Event Grid, så att användarna kan skicka händelse meddelanden till andra tjänster och utlösa efterföljande processer. Syftet med den här artikeln är att hjälpa dig att konfigurera dina affärs program så att de lyssnar på Azure Maps händelser. Detta gör att användarna kan reagera på kritiska händelser på ett tillförlitligt, skalbart och säkert sätt. Användare kan till exempel skapa ett program för att uppdatera en databas, skapa en biljett och leverera ett e-postmeddelande varje gång en enhet går in på en inhägnad.
+Azure Maps integreras med Azure Event Grid, så att användare kan skicka händelsemeddelanden till andra tjänster och utlösa underordnade processer. Syftet med den här artikeln är att hjälpa dig att konfigurera dina företagsprogram för att lyssna på Azure Maps-händelser. På så sätt kan användarna reagera på kritiska händelser på ett tillförlitligt, skalbart och säkert sätt. Användare kan till exempel skapa ett program för att uppdatera en databas, skapa en biljett och leverera ett e-postmeddelande, varje gång en enhet går in i en geofence.
 
-Azure Event Grid är en helt hanterad tjänst för händelse dirigering som använder en publicerings prenumerations modell. Event Grid har inbyggt stöd för Azure-tjänster som [Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-overview) och [Azure Logic Apps](https://docs.microsoft.com/azure/azure-functions/functions-overview). Den kan leverera händelse aviseringar till icke-Azure-tjänster som använder Webhooks. En fullständig lista över de händelse hanterare som Event Grid stöder finns i [en introduktion till Azure Event Grid](https://docs.microsoft.com/azure/event-grid/overview).
-
-
-![Azure Event Grid funktionell modell](./media/azure-maps-event-grid-integration/azure-event-grid-functional-model.png)
+Azure Event Grid är en fullständigt hanterad händelseroutningstjänst som använder en publiceringsprenumerera-modell. Event Grid har inbyggt stöd för Azure-tjänster som [Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-overview) och Azure [Logic Apps](https://docs.microsoft.com/azure/azure-functions/functions-overview). Det kan leverera händelseaviseringar till icke-Azure-tjänster med webhooks. En fullständig lista över de händelsehanterare som Event Grid stöder finns [i En introduktion till Azure Event Grid](https://docs.microsoft.com/azure/event-grid/overview).
 
 
-## <a name="azure-maps-events-types"></a>Typer av Azure Maps händelser
+![Funktionell modell för Azure Event Grid](./media/azure-maps-event-grid-integration/azure-event-grid-functional-model.png)
 
-Event Grid använder [händelse prenumerationer](https://docs.microsoft.com/azure/event-grid/concepts#event-subscriptions) för att dirigera händelse meddelanden till prenumeranter. Ett Azure Maps konto avger följande händelse typer: 
 
-| eventType | Beskrivning |
+## <a name="azure-maps-events-types"></a>Evenemangstyper för Azure Maps
+
+Event grid använder [händelseprenumerationer](https://docs.microsoft.com/azure/event-grid/concepts#event-subscriptions) för att dirigera händelsemeddelanden till prenumeranter. Ett Azure Maps-konto avger följande händelsetyper: 
+
+| Händelsetyp | Beskrivning |
 | ---------- | ----------- |
-| Microsoft.Maps.GeofenceEntered | Utlöses när mottagna koordinater har flyttats från utsidan av ett angivet geografiskt avgränsnings tecken till inom |
-| Microsoft.Maps.GeofenceExited | Utlöses när mottagna koordinater har flyttats inifrån ett angivet geografiskt avgränsnings tecken utanför |
-| Microsoft.Maps.GeofenceResult | Genereras varje gång en inhägnad fråga returnerar ett resultat, oavsett tillstånd |
+| Microsoft.Maps.Geofence har angetts | Upphöjda när mottagna koordinater har flyttat från utsidan av en given geofence till inom |
+| Microsoft.Maps.GeofenceExiterad | Upphöjda när mottagna koordinater har flyttats inifrån en given geofence till utsidan |
+| Microsoft.Maps.GeofenceResult | Utlöses varje gång en geofencing-fråga returnerar ett resultat, oavsett tillstånd |
 
 ## <a name="event-schema"></a>Händelseschema
 
@@ -78,15 +78,15 @@ I följande exempel visas schemat för GeofenceResult:
 
 ## <a name="tips-for-consuming-events"></a>Tips för att konsumera händelser
 
-Program som hanterar Azure Mapss gräns händelser bör följa några rekommenderade metoder:
+Program som hanterar Geofence-händelser i Azure Maps bör följa några rekommenderade metoder:
 
-* Konfigurera flera prenumerationer för att dirigera händelser till samma händelse hanterare. Det är viktigt att inte anta att händelser kommer från en viss källa. Kontrol lera alltid meddelande ämnet för att se till att meddelandet kommer från den källa som du förväntar dig.
-* Använd fältet `X-Correlation-id` i svars huvudet för att ta reda på om informationen om objekt är aktuell. Meddelanden kan tas emot i rätt ordning eller efter en fördröjning.
-* När en GET-eller a POST-begäran i det geometriska API: t anropas med parametern mode inställd på `EnterAndExit`, genereras en retur-eller Exit-händelse för varje geometri i det avgränsnings värde som statusen har ändrats från det föregående API-anropet för polystängsel.
+* Konfigurera flera prenumerationer för att dirigera händelser till samma händelsehanterare. Det är viktigt att inte anta att händelser kommer från en viss källa. Kontrollera alltid meddelandeavsnittet för att se till att meddelandet kommer från den källa som du förväntar dig.
+* Använd `X-Correlation-id` fältet i svarshuvudet för att förstå om din information om objekt är uppdaterad. Meddelanden kan komma i oordning eller efter en fördröjning.
+* När en GET- eller POST-begäran i Geofence-API:et anropas med parametern läge inställd på `EnterAndExit`genereras en Enter- eller Exit-händelse för varje geometri i den geofence som statusen har ändrats från det tidigare Geofence API-anropet.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om hur du använder polystaket för att styra åtgärder på en Bygg plats finns i:
+Mer information om hur du använder geofencing för att styra verksamheten på en byggarbetsplats finns i:
 
 > [!div class="nextstepaction"] 
-> [Konfigurera ett geografiskt avgränsnings tecken genom att använda Azure Maps](tutorial-geofence.md)
+> [Konfigurera en geofence med hjälp av Azure Maps](tutorial-geofence.md)

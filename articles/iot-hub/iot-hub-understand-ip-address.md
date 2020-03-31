@@ -1,6 +1,6 @@
 ---
-title: Förstå IP-adressen för din IoT Hub | Microsoft Docs
-description: Lär dig hur du frågar din IP-adress för IoT Hub och dess egenskaper. IP-adressen för din IoT Hub kan ändras under vissa scenarier som haveri beredskap eller regional redundans.
+title: Så här fungerar IP-adressen för din IoT-hubb | Microsoft-dokument
+description: Förstå hur du frågar din IoT-hubb-IP-adress och dess egenskaper. IP-adressen för din IoT-hubb kan ändras under vissa scenarier, till exempel haveriberedskap eller regional redundans.
 author: philmea
 ms.author: philmea
 ms.service: iot-hub
@@ -8,48 +8,48 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 11/21/2019
 ms.openlocfilehash: c609f2a3843481442e97061739a806de60a680b5
-ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/14/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79367575"
 ---
-# <a name="iot-hub-ip-addresses"></a>IoT Hub IP-adresser
+# <a name="iot-hub-ip-addresses"></a>IP-adresser för IoT Hub
 
-IP-adressprefix för IoT Hub offentliga slut punkter publiceras regelbundet under _AzureIoTHub_ [service tag](../virtual-network/service-tags-overview.md).
+IP-adressprefixen för offentliga IoT Hub-slutpunkter publiceras regelbundet under _AzureIoTHub-tjänsttaggen_ [service tag](../virtual-network/service-tags-overview.md).
 
 > [!NOTE]
-> För enheter som distribueras i lokala nätverk stöder Azure IoT Hub VNET-anslutning med privata slut punkter. Mer information finns i [IoT Hub stöd för VNet](./virtual-network-support.md#ingress-connectivity-to-iot-hub-using-private-endpoints) .
+> För enheter som distribueras i lokala nätverk stöder Azure IoT Hub VNET-anslutningsintegrering med privata slutpunkter. Mer information finns i [IoT Hub-stöd för VNET:s.](./virtual-network-support.md#ingress-connectivity-to-iot-hub-using-private-endpoints)
 
 
-Du kan använda dessa IP-adressprefix för att kontrol lera anslutningen mellan IoT Hub och dina enheter eller nätverks till gångar för att implementera en mängd olika mål för nätverks isolering:
+Du kan använda dessa IP-adressprefix för att styra anslutningen mellan IoT Hub och dina enheter eller nätverkstillgångar för att implementera en mängd olika nätverksisoleringsmål:
 
-| Mål | Tillämpliga scenarier | Metoden |
+| Mål | Tillämpliga scenarier | Metod |
 |------|-----------|----------|
-| Se till att enheter och tjänster endast kommunicerar med IoT Hub slut punkter | [Enhets-till-moln](./iot-hub-devguide-messaging.md)-meddelanden och meddelanden från [moln till enhet](./iot-hub-devguide-messages-c2d.md) , [direkta metoder](./iot-hub-devguide-direct-methods.md), [enhet och modul, dubbla](./iot-hub-devguide-device-twins.md) metoder och [enhets strömmar](./iot-hub-device-streams-overview.md) | Använd _AzureIoTHub_ och _EventHub_ service-taggar för att identifiera IoT Hub och prefix för IP-adressprefix i Event Hub och konfigurera Tillåt regler på inställningarna för enhetens och tjänsternas brand vägg för dessa IP-adressprefix enligt detta; släpp trafik till andra mål-IP-adresser som du inte vill att enheterna eller tjänsterna ska kommunicera med. |
-| Se till att din IoT Hub enhets slut punkt tar emot anslutningar enbart från dina enheter och nätverks till gångar | [Enhets-till-moln](./iot-hub-devguide-messaging.md)-meddelanden och meddelanden från [moln till enhet](./iot-hub-devguide-messages-c2d.md) , [direkta metoder](./iot-hub-devguide-direct-methods.md), [enhet och modul, dubbla](./iot-hub-devguide-device-twins.md) metoder och [enhets strömmar](./iot-hub-device-streams-overview.md) | Använd IoT Hub [IP filter-funktion](iot-hub-ip-filtering.md) för att tillåta anslutningar från dina enheter och nätverks till gångens IP-adresser (se avsnittet [begränsningar](#limitations-and-workarounds) ). | 
-| Se till att dina vägars anpassade slut punkts resurser (lagrings konton, Service Bus-och Event Hub) går att komma åt från dina nätverks till gångar | [Meddelanderoutning](./iot-hub-devguide-messages-d2c.md) | Följ resursens vägledning om hur du begränsar anslutningen (till exempel via [brand Väggs regler](../storage/common/storage-network-security.md), [privata länkar](../private-link/private-endpoint-overview.md)eller [tjänst slut punkter](../virtual-network/virtual-network-service-endpoints-overview.md)). Använd _AzureIoTHub_ service-taggar för att identifiera IoT Hub IP-adressprefix och Lägg till Tillåt-regler för dessa IP-prefix i din resurs brand Väggs konfiguration (se avsnittet [begränsningar](#limitations-and-workarounds) ). |
+| Se till att dina enheter och tjänster endast kommunicerar med IoT Hub-slutpunkter | [Enhet-till-moln-](./iot-hub-devguide-messaging.md)och [moln-till-enhet-meddelanden,](./iot-hub-devguide-messages-c2d.md) [direkta metoder,](./iot-hub-devguide-direct-methods.md) [enhets- och modultvillingar](./iot-hub-devguide-device-twins.md) och [enhetsströmmar](./iot-hub-device-streams-overview.md) | Använd _AzureIoTHub-_ och _EventHub-tjänsttaggar_ för att identifiera IP-adressprefix för IoT-hubben och IP-adressprefix för eventhubben och konfigurera ALLOW-regler för enheternas brandväggsinställning för dessa IP-adressprefix i enlighet med detta. släpp trafik till andra mål-IP-adresser som du inte vill att enheterna eller tjänsterna ska kommunicera med. |
+| Se till att slutpunkten för IoT Hub-enheten endast tar emot anslutningar från dina enheter och nätverkstillgångar | [Enhet-till-moln-](./iot-hub-devguide-messaging.md)och [moln-till-enhet-meddelanden,](./iot-hub-devguide-messages-c2d.md) [direkta metoder,](./iot-hub-devguide-direct-methods.md) [enhets- och modultvillingar](./iot-hub-devguide-device-twins.md) och [enhetsströmmar](./iot-hub-device-streams-overview.md) | Använd IoT Hub [IP-filterfunktionen](iot-hub-ip-filtering.md) för att tillåta anslutningar från dina enheter och IP-adresser för nätverkstillgångar (se avsnittet [begränsningar).](#limitations-and-workarounds) | 
+| Se till att dina rutters anpassade slutpunktsresurser (lagringskonton, servicebuss och händelsehubbar) endast kan nås från dina nätverksresurser | [Meddelanderoutning](./iot-hub-devguide-messages-d2c.md) | Följ resursens anvisningar om hur du begränsar anslutningen (till exempel via [brandväggsregler,](../storage/common/storage-network-security.md) [privata länkar](../private-link/private-endpoint-overview.md)eller [tjänstslutpunkter](../virtual-network/virtual-network-service-endpoints-overview.md)). använda _AzureIoTHub-tjänsttaggar_ för att identifiera IP-adressprefix för IoT Hub och lägga till ALLOW-regler för dessa IP-prefix på resursens brandväggskonfiguration (se avsnittet [begränsningar).](#limitations-and-workarounds) |
 
 
 
 ## <a name="best-practices"></a>Bästa praxis
 
-* När du lägger till Tillåt-regler i enhetens brand Väggs konfiguration, är det bäst att tillhandahålla vissa [portar som används av tillämpliga protokoll](./iot-hub-devguide-protocols.md#port-numbers).
+* När du lägger till ALLOW-regler i enhetens brandväggskonfiguration är det bäst att tillhandahålla specifika [portar som används av tillämpliga protokoll](./iot-hub-devguide-protocols.md#port-numbers).
 
-* IP-adressprefix för IoT Hub kan komma att ändras. Dessa ändringar publiceras regelbundet via service tag innan de börjar att fungera. Det är därför viktigt att du utvecklar processer för att regelbundet hämta och använda de senaste service taggarna. Den här processen kan automatiseras via [API: et för identifiering av service märken](../virtual-network/service-tags-overview.md#service-tags-on-premises). Observera att API för identifiering av service märken fortfarande är i för hands version och i vissa fall får du inte skapa en fullständig lista över taggar och IP-adresser. Innan identifierings-API: et är allmänt tillgängligt, kan du överväga att använda [tjänst taggarna i nedladdnings Bart JSON](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) 
+* IP-adressprefixen för IoT-hubb kan komma att ändras. Dessa ändringar publiceras regelbundet via tjänsttaggar innan de börjar gälla. Det är därför viktigt att du utvecklar processer för att regelbundet hämta och använda de senaste servicetaggarna. Den här processen kan automatiseras via [API:et för identifiering av tjänsttaggar](../virtual-network/service-tags-overview.md#service-tags-on-premises). Observera att IDENTIFIERINGS-API för identifiering av tjänsttaggar fortfarande är i förhandsversion och i vissa fall kanske inte ger en fullständig lista över taggar och IP-adresser. Tills identifiering API är allmänt tillgänglig, överväga att använda [tjänsten taggar i nedladdningsbara JSON-format](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files). 
 
-* Använd *AzureIoTHub. [ region namn]* -tagg för att identifiera IP-prefix som används av IoT Hub-slutpunkter i en speciell region. För att konto för haveri beredskap för data Center, eller [regional redundans](iot-hub-ha-dr.md) garanterar anslutning till IP-prefix för din IoT Hubs region för geo-par är också aktive rad.
+* Använd *AzureIoTHub.[ regionnamn]* tagg för att identifiera IP-prefix som används av IoT-hubbslutpunkter i en viss region. För att ta hänsyn till datacenterkatastrofåterställning eller [regional redundans](iot-hub-ha-dr.md) säkerställer du att anslutningen till IP-prefix för IoT Hub:s geoparregion också är aktiverad.
 
-* Genom att konfigurera brand Väggs regler i IoT Hub kan du blockera anslutningen som krävs för att köra Azure CLI-och PowerShell-kommandon mot din IoT Hub. För att undvika detta kan du lägga till regler för klienternas IP-adressprefix för att återaktivera CLI-eller PowerShell-klienter för att kommunicera med din IoT Hub.  
+* Om du konfigurerar brandväggsregler i IoT Hub kan anslutningen blockeras som behövs för att köra Azure CLI- och PowerShell-kommandon mot din IoT Hub. För att undvika detta kan du lägga till ALLOW-regler för klienternas IP-adressprefix för att återaktivera CLI- eller PowerShell-klienter för att kommunicera med din IoT Hub.  
 
 
 ## <a name="limitations-and-workarounds"></a>Begränsningar och lösningar
 
-* IoT Hub IP-filter-funktionen har en gräns på 10 regler. Den här gränsen och kan höjas via förfrågningar via Azure-kundsupport. 
+* IoT Hub IP-filterfunktionen har en gräns på 10 regler. Den här gränsen och kan höjas via begäranden via Azure Customer Support. 
 
-* De konfigurerade [reglerna för IP-filtrering](iot-hub-ip-filtering.md) tillämpas bara på dina IoT Hub IP-slutpunkter och inte i IoT Hub: s inbyggda Event Hub-slutpunkt. Om du även behöver använda IP-filtrering på den Händelsehubben där dina meddelanden lagras, kan du göra det genom att ta med din egen Event Hub-resurs där du kan konfigurera önskade IP-filtrerings regler direkt. För att göra det måste du etablera en egen Event Hub-resurs och konfigurera [meddelanderoutning](./iot-hub-devguide-messages-d2c.md) för att skicka meddelanden till den resursen i stället för din IoT Hub inbyggda händelsehubben. Slutligen, som beskrivs i tabellen ovan, för att aktivera funktionen för meddelanderoutning måste du också tillåta anslutning från IoT Hub IP-adressprefix till din etablerade Event Hub-resurs.
+* Dina konfigurerade [IP-filtreringsregler](iot-hub-ip-filtering.md) tillämpas endast på IP-slutpunkterna för IoT Hub och inte på IoT-hubbens inbyggda eventhubbslutpunkt. Om du också kräver att IP-filtrering tillämpas på händelsehubben där dina meddelanden lagras kan du göra det genom att ta med din egen Event Hub-resurs där du kan konfigurera önskade IP-filtreringsregler direkt. För att göra det måste du etablera din egen Event Hub-resurs och konfigurera [meddelanderoutning](./iot-hub-devguide-messages-d2c.md) för att skicka dina meddelanden till den resursen i stället för IoT Hubs inbyggda eventhubb. Slutligen, som beskrivs i tabellen ovan, för att aktivera funktionen för meddelanderoutning måste du också tillåta anslutning från IoT Hub IP-adressprefix till din etablerade Event Hub-resurs.
 
-* Vid routning till ett lagrings konto är det bara möjligt att tillåta trafik från IoT Hub IP-adressprefix när lagrings kontot finns i en annan region som IoT Hub.
+* När du dirigerar till ett lagringskonto är det bara möjligt att tillåta trafik från IoT Hub IP-adressprefix när lagringskontot finns i en annan region som din IoT Hub.
 
 ## <a name="support-for-ipv6"></a>Stöd för IPv6 
 

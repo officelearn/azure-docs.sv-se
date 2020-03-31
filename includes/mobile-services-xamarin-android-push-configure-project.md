@@ -5,20 +5,20 @@ ms.service: app-service-mobile
 ms.topic: include
 ms.date: 08/23/2018
 ms.openlocfilehash: 69dc0e1c14bc88cdbf0aa48700f95058ba759cc0
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "67187849"
 ---
-1. I vyn lösning (eller **Solution Explorer** i Visual Studio), högerklicka på den **komponenter** mapp, klickar du på **få fler komponenter...** , Sök efter den **Google Cloud Messaging-klienten** komponenten och Lägg till den i projektet.
-2. Öppna filen ToDoActivity.cs projektet och Lägg till följande användningsinstruktion klassen:
+1. Högerklicka på mappen **Komponenter** i lösningsvyn (eller **Solution Explorer** i Visual Studio), klicka på Hämta **fler komponenter...**, sök efter komponenten **Google Cloud Messaging-klient** och lägg till den i projektet.
+2. Öppna ToDoActivity.cs projektfilen och lägg till följande med hjälp av satsen i klassen:
 
     ```csharp
     using Gcm.Client;
     ```
 
-3. I den **ToDoActivity** klass, Lägg till följande nya kod: 
+3. Lägg till följande nya kod i klassen **ToDoActivity:** 
 
     ```csharp
     // Create a new instance field for this activity.
@@ -42,8 +42,8 @@ ms.locfileid: "67187849"
     }
     ```
 
-    På så sätt kan du komma åt mobilklient-instansen från tjänstprocessen för push-hanteraren.
-4. Lägg till följande kod till den **OnCreate** metod, efter den **MobileServiceClient** skapas:
+    På så sätt kan du komma åt den mobila klientinstansen från push-hanterartjänsten.
+4. Lägg till följande kod i **Metoden OnCreate** när **MobileServiceClient** har skapats:
 
     ```csharp
     // Set the current instance of TodoActivity.
@@ -57,4 +57,4 @@ ms.locfileid: "67187849"
     GcmClient.Register(this, ToDoBroadcastReceiver.senderIDs);
     ```
 
-Din **ToDoActivity** förbereds nu för att lägga till push-meddelanden.
+**Din ToDoActivity** är nu förberedd för att lägga till push-meddelanden.

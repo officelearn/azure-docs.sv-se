@@ -1,5 +1,5 @@
 ---
-title: Snabb start – Visa grupper & medlemmar – Azure AD
+title: Snabbstart - Visa grupper & medlemmar - Azure AD
 description: Anvisningar om hur du söker efter och visar organisationens grupper och deras tilldelade medlemmar.
 services: active-directory
 author: msaburnley
@@ -14,10 +14,10 @@ ms.custom: it-pro, seodec18, seo-update-azuread-jan
 ms.reviewer: krbain
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d52c90db5414c39c4e916bbab19c43739d9ea904
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "75423020"
 ---
 <!--As a brand-new Azure AD administrator, I need to view my organization’s groups along with the assigned members, so I can manage permissions to apps and services for people in my organization-->
@@ -27,7 +27,7 @@ Du kan visa organisationens befintliga grupper och gruppmedlemmar med hjälp av 
 
 I den här snabbstarten visar du alla organisationens befintliga grupper och visar de tilldelade medlemmarna.
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar. 
+Om du inte har en Azure-prenumeration skapar du ett [kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar. 
 
 ## <a name="prerequisites"></a>Krav
 Innan du börjar måste du:
@@ -53,7 +53,7 @@ Skapa en ny grupp med namnet _MDM policy – West_. Mer information om hur du sk
 3. Välj **Skapa**.
 
 ## <a name="create-a-new-user"></a>Skapa en ny användare
-Skapa en ny användare med namnet _Alain Charon_. En användare måste finnas innan den läggs till som gruppmedlem. Kontrol lera fliken "anpassade domän namn" först för att hämta det verifierade domän namnet som användarna ska skapas i. Mer information om hur du skapar en användare finns i [Lägga till eller ta bort användare](add-users-azure-active-directory.md).
+Skapa en ny användare med namnet _Alain Charon_. En användare måste finnas innan den läggs till som gruppmedlem. Kontrollera fliken "Anpassade domännamn" först för att få det verifierade domännamnet där du vill skapa användare. Mer information om hur du skapar en användare finns i [Lägga till eller ta bort användare](add-users-azure-active-directory.md).
 
 1. Välj **Azure Active Directory**, **Användare** och välj sedan **Ny användare**.
 
@@ -61,14 +61,14 @@ Skapa en ny användare med namnet _Alain Charon_. En användare måste finnas in
 
     - **Namn:** skriv _Alain Charon_.
 
-    - **Användar namn:** Skriv *alain\@contoso.com*.
+    - **Användarnamn:** Skriv *alain\@contoso.com*.
 
 3. Kopiera det automatiskt genererade lösenordet som anges i rutan **Lösenord** och välj sedan **Skapa**.
 
 ## <a name="add-a-group-member"></a>Lägga till en gruppmedlem
 Nu när du har en grupp och en användare kan du lägga till _Alain Charon_ som medlem i gruppen _MDM policy – West_. Mer information om hur du lägger till gruppmedlemmar finns i [Lägga till eller ta bort gruppmedlemmar](active-directory-groups-members-azure-portal.md).
 
-1. Välj **Azure Active Directory** > **Grupper**.
+1. Välj **Azure Active Directory** > **Groups**.
 
 2. På sidan **Grupper – Alla grupper** söker du efter och väljer gruppen **MDM policy – West**.
 
@@ -81,7 +81,7 @@ Nu när du har en grupp och en användare kan du lägga till _Alain Charon_ som 
 ## <a name="view-all-groups"></a>Visa alla grupper
 Du kan se alla grupper för din organisation på sidan **Grupper – Alla grupper** i Azure-portalen.
 
-- Välj **Azure Active Directory** > **Grupper**.
+- Välj Azure **Active Directory** > **Groups**.
 
     Sidan **Grupper – Alla grupper** visas, med alla dina aktiva grupper.
 

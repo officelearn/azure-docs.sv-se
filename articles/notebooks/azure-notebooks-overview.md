@@ -1,16 +1,16 @@
 ---
-title: Översikt över Azure Notebooks för hands version
-description: Kör Jupyter Notebooks i molnet med den kostnads fria Azure Notebooks för hands versions tjänsten, där ingen konfiguration eller konfiguration krävs.
+title: Översikt över förhandsversionen av Azure-anteckningsböcker
+description: Kör Jupyter-anteckningsböcker i molnet med den kostnadsfria förhandsversionen av Azure Notebooks, där ingen konfiguration eller konfiguration krävs.
 ms.topic: overview
 ms.date: 04/05/2019
 ms.openlocfilehash: bd2355bdefcedca5026a25915dc1da55fdc33a36
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "75646338"
 ---
-# <a name="overview-of-azure-notebooks-preview"></a>Översikt över Azure Notebooks för hands version
+# <a name="overview-of-azure-notebooks-preview"></a>Översikt över förhandsversionen av Azure-anteckningsböcker
 
 Azure Notebooks är en kostnadsfri värdbaserad tjänst som används för att utveckla och köra Jupyter Notebooks i molnet utan installation. [Jupyter](https://jupyter.org/) (tidigare IPython) är ett projekt med öppen källkod som gör att du enkelt kan kombinera Markdown-text, körbar kod, beständiga data, grafik och visualiseringar på en enda delbar arbetsyta, *notebook-filen* (bilden tillhör jupyter.org):
 
@@ -51,7 +51,7 @@ Azure Notebooks är en kostnadsfri tjänst, men varje projekt är begränsat til
 
 Släpp alla gränser genom att logga in på Azure Notebooks med ett konto med Azure Active Directory (till exempel ett företagskonto). Om kontot är associerat med en Azure-prenumeration kan du ansluta till valfria Azure Data Science Virtual Machine-instanser i den prenumerationen. Mer information finns i avsnittet om att [hantera och konfigurera projekt på beräkningsnivån](configure-manage-azure-notebooks-projects.md#compute-tier).
 
-Notebook-servrar garanterar att de finns i högst 8 timmar. I de flesta fall omfattas din behållare inte av denna gräns och fortsätter att köras efter den här tiden, men långvariga sessioner kan ibland stängas av för system stabilitet.
+Servrar för bärbara datorer finns garanterat i högst 8 timmar. I de flesta fall är din behållare inte föremål för denna gräns och fortsätter att köras efter denna tid, men långlivade sessioner kan ibland stängas av för systemstabilitet.
 
 ## <a name="available-kernels-and-environments"></a>Tillgängliga kernels och miljöer
 

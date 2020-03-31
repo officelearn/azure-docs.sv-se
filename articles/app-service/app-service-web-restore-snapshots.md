@@ -1,66 +1,66 @@
 ---
-title: Återställa appen från en ögonblicks bild
-description: Lär dig hur du återställer din app från en ögonblicks bild. Återställ från oväntad data förlust i Premium-nivån med automatiska skugg kopior.
+title: Återställa appen från en ögonblicksbild
+description: Läs om hur du återställer appen från en ögonblicksbild. Återställ från oväntad dataförlust på Premium-nivå med automatiska skuggkopior.
 ms.assetid: 4164f9b5-f735-41c6-a2bb-71f15cdda417
 ms.topic: article
 ms.date: 04/04/2018
 ms.reviewer: nicking
 ms.custom: seodec18
 ms.openlocfilehash: b17a49535541c8f75f65cdbe9986a895427f3877
-ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/03/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78255137"
 ---
-# <a name="restore-an-app-in-azure-from-a-snapshot"></a>Återställa en app i Azure från en ögonblicks bild
-Den här artikeln visar hur du återställer en app i [Azure App Service](../app-service/overview.md) från en ögonblicks bild. Du kan återställa din app till ett tidigare tillstånd baserat på en av appens ögonblicks bilder. Du behöver inte aktivera säkerhets kopiering av ögonblicks bilder, plattformen sparar automatiskt en ögonblicks bild av alla appar för data återställnings syfte.
+# <a name="restore-an-app-in-azure-from-a-snapshot"></a>Återställa en app i Azure från en ögonblicksbild
+Den här artikeln visar hur du återställer en app i [Azure App Service](../app-service/overview.md) från en ögonblicksbild. Du kan återställa appen till ett tidigare tillstånd, baserat på en av appens ögonblicksbilder. Du behöver inte aktivera säkerhetskopiering av ögonblicksbilder, plattformen sparar automatiskt en ögonblicksbild av alla appar för dataåterställning.
 
-Ögonblicks bilder är stegvisa skugg kopior och de ger flera fördelar jämfört med regelbundna [säkerhets kopieringar](manage-backup.md):
-- Inga fil kopierings fel på grund av fillås.
-- Ingen begränsning för lagrings storlek.
+Ögonblicksbilder är inkrementella skuggkopior, och de erbjuder flera fördelar jämfört med vanliga [säkerhetskopior:](manage-backup.md)
+- Inga filkopieringsfel på grund av fillås.
+- Ingen begränsning av lagringsstorleken.
 - Ingen konfiguration krävs.
 
-Att återställa från ögonblicks bilder är tillgängligt för appar som körs i **Premium** -nivån eller högre. Information om hur du skalar upp din app finns i [skala upp en app i Azure](manage-scale-up.md).
+Återställning från ögonblicksbilder är tillgängligt för appar som körs på **Premium-nivå** eller högre. Information om hur du skalar upp din app finns [i Skala upp en app i Azure](manage-scale-up.md).
 
 ## <a name="limitations"></a>Begränsningar
 
-- Funktionen är för närvarande en för hands version.
-- Du kan bara återställa till samma app eller till en plats som hör till appen.
-- App Service stoppar mål programmet eller mål platsen under återställningen.
-- App Service behåller tre månader av ögonblicks bilder för plattforms data återställnings syfte.
-- Du kan bara återställa ögonblicks bilder under de senaste 30 dagarna.
-- App Services som körs på en App Service-miljön har inte stöd för ögonblicks bilder.
+- Funktionen är för närvarande i förhandsgranskning.
+- Du kan bara återställa till samma app eller till en plats som tillhör den appen.
+- AppTjänsten stoppar målappen eller målplatsen medan återställningen.
+- App Service håller tre månader värde av ögonblicksbilder för plattform dataåterställning.
+- Du kan bara återställa ögonblicksbilder under de senaste 30 dagarna.
+- App Services som körs på en App Service-miljö stöder inte ögonblicksbilder.
  
 
-## <a name="restore-an-app-from-a-snapshot"></a>Återställa en app från en ögonblicks bild
+## <a name="restore-an-app-from-a-snapshot"></a>Återställa en app från en ögonblicksbild
 
-1. På sidan **Inställningar** i appen i [Azure Portal](https://portal.azure.com)klickar du på **säkerhets kopiering** för att visa sidan **säkerhets kopior** . Klicka sedan på **Återställ** under avsnittet **ögonblicks bild (för hands version)** .
+1. På sidan **Inställningar** i din app i [Azure-portalen](https://portal.azure.com)klickar du på **Säkerhetskopior** för att visa sidan **Säkerhetskopior.** Klicka sedan på **Återställ** under avsnittet **Ögonblicksbild(Förhandsgranska).**
    
     ![](./media/app-service-web-restore-snapshots/1.png)
 
-2. På sidan **Återställ** väljer du den ögonblicks bild som ska återställas.
+2. Markera ögonblicksbilden som ska återställas på sidan **Återställ.**
    
     ![](./media/app-service-web-restore-snapshots/2.png)
    
-3. Ange målet för appen Återställ i **återställnings målet**.
+3. Ange målet för appåterställning i **Återställ mål**.
    
     ![](./media/app-service-web-restore-snapshots/3.png)
    
    > [!WARNING]
-   > Om du väljer **Skriv över**raderas och ersätts alla befintliga data i appens aktuella fil system. Kontrol lera att det är det du vill göra innan du klickar på **OK**.
+   > Om du väljer **Skriv över**raderas alla befintliga data i appens aktuella filsystem och skrivs över. Innan du klickar på **OK**kontrollerar du att det är det du vill göra.
    > 
    > 
       
    > [!Note]
-   > På grund av aktuella tekniska begränsningar kan du bara återställa till appar i samma skalnings enhet. Den här begränsningen tas bort i en framtida version.
+   > På grund av aktuella tekniska begränsningar kan du bara återställa till appar i samma skalningsenhet. Den här begränsningen kommer att tas bort i en framtida version.
    > 
    > 
    
-    Du kan välja en **befintlig app** för att återställa till en plats. Innan du använder det här alternativet bör du redan ha skapat en plats i din app.
+    Du kan välja **Befintlig app** som du vill återställa till en plats. Innan du använder det här alternativet bör du redan ha skapat en plats i appen.
 
-4. Du kan välja att återställa plats konfigurationen.
+4. Du kan välja att återställa webbplatskonfigurationen.
    
     ![](./media/app-service-web-restore-snapshots/4.png)
 
-5. Klicka på **OK**
+5. Klicka på **OK**.

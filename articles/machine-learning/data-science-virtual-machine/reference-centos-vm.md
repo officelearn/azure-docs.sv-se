@@ -1,7 +1,7 @@
 ---
-title: 'Referens: CentOS Data Science Virtual Machine'
+title: 'Referens: Virtual Machine för CentOS Data Science'
 titleSuffix: Azure Data Science Virtual Machine
-description: Information om verktyg som ingår i CentOS-Data Science Virtual Machine
+description: Information om verktyg som ingår i Virtual Machine för CentOS Data Science
 author: gvashishtha
 ms.service: machine-learning
 ms.subservice: data-science-vm
@@ -9,78 +9,78 @@ ms.author: gopalv
 ms.date: 09/11/2019
 ms.topic: reference
 ms.openlocfilehash: db49a9f5e0e6675d93cb58d6af9c92fac21e8b74
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77525846"
 ---
-# <a name="reference-centos-linux-data-science-virtual-machine"></a>Referens: CentOS (Linux) Data Science Virtual Machine
+# <a name="reference-centos-linux-data-science-virtual-machine"></a>Referens: CentOS (Linux) Virtual Machine för datavetenskap
 
-Linux-Data Science Virtual Machine (DSVM) är en CentOS-baserad virtuell Azure-dator. Linux-DSVM levereras med en samling förinstallerade verktyg som du kan använda för data analys och maskin inlärning. 
+Linux Data Science Virtual Machine (DSVM) är en virtuell Azure-baserad Azure-dator. Linux DSVM levereras med en samling förinstallerade verktyg som du kan använda för dataanalys och maskininlärning. 
 
-Viktiga program varu komponenter som ingår i en Linux-DSVM är:
+De viktigaste programvarukomponenterna som ingår i en Linux DSVM är:
 
-* Linux-CentOS distributions operativ system.
+* Linux CentOS distribution operativsystem.
 * Microsoft Machine Learning Server.
-* Anaconda python-distribution (version 3,5 och 2,7), inklusive populära data analys bibliotek.
-* JuliaPro, en granskad distribution av Julia-språket och populära vetenskapliga och data analys bibliotek.
-* Spark fristående instans och Hadoop med en nod (HDFS, garn).
-* JupyterHub, en Jupyter Notebook-server som stöder R-, python-, PySpark-och Julia-kärnor.
-* Azure Storage Explorer.
-* Azure CLI, Azures kommando rads gränssnitt för att hantera Azure-resurser.
-* PostgresSQL-databas.
-* Machine Learning-verktyg:
-  * [Microsoft Cognitive Toolkit](https://github.com/Microsoft/CNTK) (CNTK), ett djup inlärnings program verktyg från Microsoft Research.
-  * [Vowpal Wabbit](https://github.com/JohnLangford/vowpal_wabbit), ett snabbt Machine Learning-system som stöder metoder som online, hashing, allreduce, reduktioner, learning2search, aktiv och interaktiv utbildning.
-  * [XGBoost](https://xgboost.readthedocs.org/en/latest/), ett verktyg som ger snabb och korrekt utökat träd implementering.
-  * [Rattle](https://togaware.com/rattle/)är ett verktyg som gör det enkelt att komma igång med data analys och maskin inlärning. Rattle erbjuder både GUI-baserad data utforskning och modellering genom att använda automatisk R-kod generation.
-* Azure SDK i Java, python, Node. js, ruby och PHP.
-* Bibliotek i R och python som ska användas i Azure Machine Learning och andra Azure-tjänster.
-* Utvecklingsverktyg och redigerare (RStudio, pycharm med, IntelliJ, emacs, gedit, vi).
+* Anaconda Python-distribution (version 3.5 och 2.7), inklusive populära dataanalysbibliotek.
+* JuliaPro, en kurerad distribution av Julia-språket och populära vetenskapliga och dataanalysbibliotek.
+* Spark Fristående förekomst och ennod Hadoop (HDFS, YARN).
+* JupyterHub, en fleranvändarserver för Jupyter som stöder R-, Python-, PySpark- och Julia-kärnor.
+* Utforskaren för Azure Storage.
+* Azure CLI, Azure-kommandoradsgränssnittet för hantering av Azure-resurser.
+* PostgresSQL databas.
+* Verktyg för maskininlärning:
+  * [Microsoft Cognitive Toolkit](https://github.com/Microsoft/CNTK) (CNTK), en verktygslåda för djupinlärningsprogram från Microsoft Research.
+  * [Vowpal Wabbit](https://github.com/JohnLangford/vowpal_wabbit), ett snabbt maskininlärningssystem som stöder tekniker som online, hashing, allreduce, minskningar, learning2search, aktiv och interaktivt lärande.
+  * [XGBoost](https://xgboost.readthedocs.org/en/latest/), ett verktyg som ger snabb och exakt förstärkt trädimplementering.
+  * [Rattle](https://togaware.com/rattle/), ett verktyg som gör det enkelt att komma igång med dataanalys och maskininlärning i R. Rattle erbjuder både GUI-baserad datautforskning och modellering med hjälp av automatisk R-kodgenerering.
+* Azure SDK i Java, Python, Node.js, Ruby och PHP.
+* Bibliotek i R och Python som ska användas i Azure Machine Learning och andra Azure-tjänster.
+* Utvecklingsverktyg och redaktörer (RStudio, PyCharm, IntelliJ, Emacs, gedit, vi).
 
-Datavetenskap omfattar iteration av en serie uppgifter:
+Datavetenskap innebär att iterera på en sekvens av uppgifter:
 
-1. Hitta, Läs in och Förbearbeta data.
-1. Skapa och testa modeller.
-1. Distribuera modeller för användning i intelligenta program.
+1. Hitta, läsa in och förbehandla data.
+1. Bygg- och testmodeller.
+1. Distribuera modeller för förbrukning i intelligenta program.
 
-Dataexperter använda olika verktyg för att utföra dessa uppgifter. Det kan vara tids krävande att hitta rätt versioner av program varan och sedan ladda ned, kompilera och installera program varan.
+Dataforskare använder olika verktyg för att slutföra dessa uppgifter. Det kan vara tidskrävande att hitta rätt versioner av programvaran och sedan ladda ner, kompilera och installera programvaran.
 
-Linux-DSVM kan under lätta den här belastningen avsevärt. Använd Linux-DSVM för att komma igång med ditt analys projekt. Linux-DSVM hjälper dig att arbeta med uppgifter på olika språk, inklusive R, python, SQL, Java och C++. Sol förmörkelse tillhandahåller en lättanvänd IDE för utveckling och testning av koden. Azure SDK, som ingår i DSVM, hjälper dig att bygga dina program med hjälp av olika tjänster i Linux för Microsofts moln plattform. Andra språk är förinstallerade, inklusive ruby, perl, PHP och Node. js.
+Linux DSVM kan minska denna börda avsevärt. Använd Linux DSVM för att få fart på ditt analysprojekt. Linux DSVM hjälper dig att arbeta med uppgifter på olika språk, inklusive R, Python, SQL, Java och C++. Eclipse ger en lätt att använda IDE för att utveckla och testa din kod. Azure SDK, som ingår i DSVM, hjälper dig att skapa dina program med hjälp av olika tjänster på Linux för Microsofts molnplattform. Andra språk är förinstallerade, inklusive Ruby, Perl, PHP och Node.js.
 
-Det finns inga program varu avgifter för DSVM-avbildningen. Du betalar bara de avgifter för Azure-maskinvara som utvärderas utifrån storleken på den virtuella dator som du etablerar med DSVM-avbildningen. Mer information om beräknings avgifter finns i [listan data science Virtual Machine för Linux (CentOS)](https://azure.microsoft.com/marketplace/partners/microsoft-ads/linux-data-science-vm/) på Azure Marketplace.
+Det tillkommer inga programvaruavgifter för DSVM-avbildningen. Du betalar bara de Azure-maskinvaruanvändningsavgifter som bedöms baserat på storleken på den virtuella datorn som du etablerar med DSVM-avbildningen. Mer information om beräkningsavgifterna finns i [data science virtual machine for Linux (CentOS) i](https://azure.microsoft.com/marketplace/partners/microsoft-ads/linux-data-science-vm/) Azure Marketplace.
 
 
 ## <a name="machine-learning-server"></a>Machine Learning Server
 
-R är ett av de mest populära språk för dataanalys och maskininlärning. Om du vill använda R för din analys har DSVM Machine Learning Server med Microsoft R Open och Math kernel-biblioteket. I matematiskt kernel-bibliotek optimeras vanliga matematiska åtgärder i analytiska algoritmer. R Open är helt kompatibelt med CRAN R. Alla R-bibliotek som publiceras i CRAN kan installeras på R Open. 
+R är ett av de mest populära språken för dataanalys och maskininlärning. Om du vill använda R för dina analyser har DSVM Machine Learning Server med Microsoft R Open och Math Kernel Library. Math Kernel Library optimerar vanliga matematiska åtgärder i analytiska algoritmer. R Open är fullt kompatibelt med CRAN R. Alla R-bibliotek som publiceras i CRAN kan installeras på R Open. 
 
-Du kan använda Machine Learning Server för att skala och operationalisera R-modeller till webb tjänster. Du kan redigera din R-program i ett standard-redigerare som RStudio, vi och Emacs. Emacs-redigeraren är förinstallerad på DSVM. Paketet emacs ESS (emacs pratar Statistics) fören klar arbetet med R-filer i emacs-redigeraren.
+Du kan använda Machine Learning Server för att skala och operationalisera R-modeller till webbtjänster. Du kan redigera dina R-program i en av standardredigerarna, till exempel RStudio, vi eller Emacs. Emacs-redigeraren är förinstallerad på DSVM. Emacs ESS-paketet (Emacs Speaks Statistics) förenklar arbetet med R-filer i Emacs-redigeraren.
 
-Om du vill öppna R-konsolen går du till gränssnittet och anger **R**. Det här kommandot tar dig till en interaktiv miljö. För att utveckla R-programmet använder du vanligt vis ett redigerings program som emacs eller vi och kör sedan skripten i R. RStudio erbjuder en fullständig grafisk IDE för att utveckla R-programmet.
+Om du vill öppna R-konsolen anger du **R**i skalet . Det här kommandot tar dig till en interaktiv miljö. För att utveckla ditt R-program använder du vanligtvis en redigerare som Emacs eller vi och kör sedan skripten i R. RStudio erbjuder en fullständig grafisk IDE för att utveckla ditt R-program.
 
-Ett R-skript som du kan använda för att installera de [översta 20 R-paketen](https://www.kdnuggets.com/2015/06/top-20-r-packages.html) ingår i DSVM. Du kan köra det här skriptet när du är i det interaktiva R-gränssnittet. Som tidigare nämnts öppnar du det gränssnittet genom att skriva **R**i gränssnittet.  
+Ett R-skript som du kan använda för att installera de [översta 20 R-paketen](https://www.kdnuggets.com/2015/06/top-20-r-packages.html) ingår i DSVM. Du kan köra det här skriptet när du är i R interaktiva gränssnittet. Som tidigare nämnts, för att öppna det gränssnittet, i skalet, ange **R**.  
 
 ## <a name="python"></a>Python
 
-Anaconda python installeras med python 3,5-och 2,7-miljöerna. 2,7-miljön kallas _rot_ och 3,5-miljön kallas _py35_. Den här distributionen innehåller grundläggande Python tillsammans med ungefär 300 av de mest populära analyspaket matematiska, teknik och data.
+Anaconda Python installeras med Python 3.5- och 2.7-miljöerna. 2,7-miljön kallas _rot_ och 3,5-miljön kallas _py35_. Den här distributionen innehåller bas python tillsammans med cirka 300 av de mest populära matematik-, teknik- och dataanalyspaketen.
 
-Py35 miljön är standardinställningen. Använd följande kommando för att aktivera rot miljön (2,7):
+Py35-miljön är standard. Om du vill aktivera rotmiljön (2.7) använder du det här kommandot:
 
 ```bash
 source activate root
 ```
 
-Använd följande kommando för att aktivera py35-miljön igen:
+Om du vill aktivera py35-miljön igen använder du det här kommandot:
 
 ```bash
 source activate py35
 ```
 
-Om du vill anropa en python-interaktiv session skriver du **python**i gränssnittet. 
+Om du vill anropa en interaktiv Python-session anger du **python**i skalet . 
 
-Installera ytterligare python-bibliotek med Conda eller pip. För pip aktiverar du rätt miljö först om du inte vill använda standardvärdet:
+Installera ytterligare Python-bibliotek med Conda eller pip. För pip, aktivera rätt miljö först om du inte vill ha standard:
 
 ```bash
 source activate root
@@ -93,43 +93,43 @@ Eller ange den fullständiga sökvägen till pip:
 /anaconda/bin/pip install <package>
 ```
 
-För Conda ska du alltid ange miljö namnet (py35 eller root):
+För Conda bör du alltid ange miljönamnet (py35 eller root):
 
 ```bash
 conda install <package> -n py35
 ```
 
-Om du har ett grafiskt gränssnitt eller har konfigurerat begäran om x11-vidarebefordran kan du ange **pycharm med** för att öppna PYCHARM med python IDE. Du kan använda standard-textredigerare. Dessutom kan du använda Spyder, en python IDE som är paketerad med Anaconda python-distributioner. Spyder måste en grafisk desktop eller X11 vidarebefordran. Det grafiska Skriv bordet har en genväg till Spyder.
+Om du använder ett grafiskt gränssnitt eller har konfigurerat X11-vidarebefordran kan du ange **pycharm** för att öppna PyCharm Python IDE. Du kan använda standardtextredigerarna. Dessutom kan du använda Spyder, en Python IDE som levereras med Anaconda Python-distributioner. Spyder behöver en grafisk skrivbord eller X11 vidarebefordran. Det grafiska skrivbordet har en genväg till Spyder.
 
 ## <a name="jupyter-notebook"></a>Jupyter Notebook
 
-Anaconda-distributionen levereras också med en Jupyter Notebook, en miljö för att dela kod och analys. Få åtkomst till Jupyter Notebook via JupyterHub. Du loggar in med ditt lokala Linux-användarnamn och lösen ord.
+Den Anaconda distributionen kommer också med en Jupyter Notebook, en miljö för att dela kod och analys. Öppna Jupyter Notebook via JupyterHub. Du loggar in med ditt lokala Användarnamn och lösenord för Linux.
 
-Jupyter Notebook servern är förkonfigurerad med python 2, python 3 och R-kernel. Använd **Jupyter Notebook** Skriv bords ikonen för att öppna webbläsaren och komma åt Jupyter Notebook-servern. Om du har åtkomst till DSVM via SSH-eller X2Go-klienten, kan du också komma åt Jupyter Notebook server på https:\//localhost: 8000/.
+Jupyter Notebook-servern är förkonfigurerad med Python 2-, Python 3- och R-kärnor. Använd **jupyter notebook-ikonen** för att öppna webbläsaren och komma åt Jupyter Notebook-servern. Om du öppnar DSVM via SSH eller X2Go-klienten kan du även\/komma åt Jupyter Notebook-servern på https: /localhost:8000/.
 
 > [!NOTE]
 > Fortsätt om du får några certifikatvarningar.
 
-Du kan komma åt Jupyter notebook-server från valfri värddator. Ange **https:\//\<DSVM DNS-namn eller IP-adress\>: 8000/** .
+Du kan komma åt Jupyter notebook server från någon värd. Ange **\//\<https: DSVM DNS-namn eller IP-adress\>:8000/**.
 
 > [!NOTE]
-> Port 8000 öppnas i brand väggen som standard när DSVM är etablerad. 
+> Port 8000 öppnas som standard i brandväggen när DSVM etableras. 
 
-Microsoft har paketerade exempel antecknings böcker, en i python och en i R. Du kan se länken till exemplen på Jupyter Notebook start sida när du har autentiserat dig för Jupyter Notebook med hjälp av ditt lokala Linux-användarnamn och lösen ord. Om du vill skapa en ny antecknings bok väljer du **ny**och väljer sedan den språk-kernel som du vill använda. Om du inte ser knappen **nytt** väljer du ikonen **Jupyter** längst upp till vänster för att gå till hem sidan för notebook-servern.
+Microsoft har paketerat exempelböcker, en i Python och en i R. Du kan se länken till exemplen på Jupyter Notebook hemsida när du autentisera till Jupyter Notebook med hjälp av din lokala Linux användarnamn och lösenord. Om du vill skapa en ny anteckningsbok väljer du **Ny**och väljer sedan den språkkärna som du vill använda. Om knappen **Ny** inte visas väljer du **Jupyter-ikonen** längst upp till vänster för att gå till startsidan för den bärbara servern.
 
-## <a name="spark-standalone"></a>Spark fristående 
+## <a name="spark-standalone"></a>Spark Fristående 
 
-En instans av läget Spark standalone är förinstallerad på Linux-DSVM för att hjälpa dig att utveckla Spark-program lokalt innan du testar och distribuerar dem i stora kluster. 
+En instans av Spark Fristående läge är förinstallerad på Linux DSVM för att hjälpa dig att utveckla Spark-program lokalt innan du testar och distribuerar dem på stora kluster. 
 
-Du kan köra PySpark program via Jupyter-kernel. När du öppnar Jupyter väljer du knappen **nytt** och du bör se en lista över tillgängliga kernels. **Spark – python** är PySpark-kärnan som gör att du kan bygga Spark-program med hjälp av python-språket. Du kan också använda en python IDE som pycharm med eller Spyder för att bygga Spark-programmet. 
+Du kan köra PySpark-program via Jupyter-kärnan. När du öppnar Jupyter väljer du knappen **Nytt** och du bör se en lista över tillgängliga kärnor. **Spark - Python** är PySpark-kärnan som låter dig skapa Spark-program med hjälp av Python-språket. Du kan också använda en Python IDE som PyCharm eller Spyder för att bygga din Spark program. 
 
-I den här fristående instansen körs Spark-stacken i det anropande klient programmet. Den här funktionen gör det snabbare och enklare att felsöka problem jämfört med att utveckla i ett Spark-kluster.
+I den här fristående instansen körs Spark-stacken i det anropande klientprogrammet. Den här funktionen gör det snabbare och enklare att felsöka problem jämfört med att utveckla på ett Spark-kluster.
 
-Jupyter tillhandahåller en exempel PySpark Notebook. Du hittar den i katalogen SparkML under arbets katalogen för Jupyter ($HOME/notebooks/SparkML/pySpark). 
+Jupyter tillhandahåller ett exempel på pysparks anteckningsbok. Du hittar den i SparkML-katalogen under hemkatalogen för Jupyter ($HOME/bärbara datorer/SparkML/pySpark). 
 
-Om du använder programmering i R för Spark kan du använda Machine Learning Server, sparker eller sparklyr. 
+Om du programmerar i R för Spark kan du använda Machine Learning Server, SparkR eller Sparklyr. 
 
-Innan du kör i en spark-kontext i Machine Learning Server måste du göra ett engångs steg för att aktivera en lokal instans av Hadoop HDFS och garn för en enda nod. Som standard är Hadoop-tjänster installerat men inaktiverat på DSVM. Om du vill aktivera Hadoop-tjänster kör du följande kommandon som rot första gången:
+Innan du kör i en Spark-kontext i Machine Learning Server måste du göra ett engångsinställningssteg för att aktivera en lokal ennod Hadoop HDFS- och YARN-instans. Som standard installeras Hadoop-tjänster men inaktiveras på DSVM. Om du vill aktivera Hadoop-tjänster kör du följande kommandon som root första gången:
 
 ```bash
 echo -e 'y\n' | ssh-keygen -t rsa -P '' -f ~hadoop/.ssh/id_rsa
@@ -141,129 +141,129 @@ chown hadoop:hadoop ~hadoop/.ssh/authorized_keys
 systemctl start hadoop-namenode hadoop-datanode hadoop-yarn
 ```
 
-Du kan stoppa de Hadoop-relaterade tjänsterna när du inte behöver dem genom att köra `systemctl stop hadoop-namenode hadoop-datanode hadoop-yarn`.
+Du kan stoppa Hadoop-relaterade tjänster när du inte `systemctl stop hadoop-namenode hadoop-datanode hadoop-yarn`behöver dem genom att köra .
 
-/Dsvm/samples/MRS-katalogen innehåller ett exempel som visar hur du utvecklar och testar Machine Learning Server i en fjärr Spark-kontext (den fristående Spark-instansen på DSVM).
+Katalogen /dsvm/samples/MRS innehåller ett exempel som visar hur du utvecklar och testar Machine Learning Server i en fjärr spark-kontext (den fristående Spark-instansen på DSVM).
 
-## <a name="ides-and-editors"></a>IDE: er och redigeringsprogram
+## <a name="ides-and-editors"></a>ID:er och redaktörer
 
-Du kan välja bland flera kod redigerare, inklusive vi/VIM, emacs, gedit, pycharm med, RStudio, Sol förmörkelse, LaTeX och IntelliJ. 
+Du kan välja mellan flera kodredigerare, inklusive vi/VIM, Emacs, gedit, PyCharm, RStudio, Eclipse, LaTeX och IntelliJ. 
 
-* gedit, Sol förmörkelse, IntelliJ, R Studio och pycharm med är grafiska redigerings program. Om du vill använda dem måste du vara inloggad på ett grafiskt skriv bord. Du öppnar dem med hjälp av meny gen vägar för Skriv bordet och program.
+* gedit, Eclipse, IntelliJ, R Studio och PyCharm är grafiska redaktörer. Om du vill använda dem måste du vara inloggad på ett grafiskt skrivbord. Du öppnar dem med hjälp av genvägar till skrivbords- och programmenyn.
 
-* Vim och emacs är textbaserade redigerare. I emacs fungerar ESS tilläggs paketet med R i emacs-redigeraren enklare. Du hittar mer information på ess- [webbplatsen](https://ess.r-project.org/).
+* Vim och Emacs är textbaserade redaktörer. På Emacs gör ESS-tilläggspaketet det enklare att arbeta med R i Emacs-redigeraren. Du hittar mer information på [ESS webbplats](https://ess.r-project.org/).
 
-* Sol förmörkelse är en utöknings bar IDE med öppen källkod som har stöd för flera språk. Sol förmörkelse IDE för Java-utvecklare är versionen som är installerad på DSVM. Du kan installera plugin-program för flera populära språk för att utöka miljön. 
+* Eclipse är en öppen källkod, utökningsbar IDE som stöder flera språk. Eclipse IDE för Java-utvecklare är den version som är installerad på DSVM. Du kan installera plugin-program för flera populära språk för att utöka miljön. 
 
-  Plugin-programmet Azure Toolkit for Eclipse installeras med Sol förmörkelse på DSVM. Du kan använda Azure Toolkit for Eclipse för att skapa, utveckla, testa och Distribuera Azure-program med hjälp av utvecklings miljön för Sol förmörkelse som stöder språk som Java.
+  Plugin-programmet Azure Toolkit for Eclipse installeras med Eclipse på DSVM. Du kan använda Azure Toolkit for Eclipse för att skapa, utveckla, testa och distribuera Azure-program med hjälp av eclipse-utvecklingsmiljön som stöder språk som Java.
 
-  Azure SDK för Java installeras också med Azure Toolkit for Eclipse på DSVM. Azure SDK för Java ger dig till gång till olika Azure-tjänster inifrån en Java-miljö. 
+  Azure SDK för Java installeras också med Azure Toolkit för Eclipse på DSVM. Azure SDK för Java ger dig tillgång till olika Azure-tjänster inifrån en Java-miljö. 
   
   Mer information finns i [Azure Toolkit for Eclipse](/java/azure/eclipse/azure-toolkit-for-eclipse).
 
-* LaTeX installeras via texlive-paketet, tillsammans med ett Emacs tilläggs paket som kallas [auctex](https://www.gnu.org/software/auctex/manual/auctex/auctex.html). Det här paketet fören klar redigeringen av dina LaTeX-dokument i emacs. 
+* LaTeX installeras via texlive-paketet, tillsammans med ett Emacs-tilläggspaket som heter [AUCTeX](https://www.gnu.org/software/auctex/manual/auctex/auctex.html). Det här paketet gör det enklare att redigera dina LaTeX-dokument i Emacs. 
 
 ## <a name="databases"></a>Databaser
 
-Linux-DSVM ger dig åtkomst till flera databas-och kommando rads verktyg.
+Linux DSVM ger dig tillgång till flera databas- och kommandoradsverktyg.
 
 ### <a name="postgressql"></a>PostgresSQL
 
-Databasen med öppen källkod är PostgresSQL tillgänglig på DSVM, där tjänster som kör och initdb har slutförts. Du måste skapa databaser och användare. Mer information finns i PostgresSQL- [dokumentationen](https://www.postgresql.org/docs/).  
+PostgresSQL med öppen källkod finns tillgänglig på DSVM, med tjänster som körs och initdb slutförda. Du måste skapa databaser och användare. Mer information finns i [PostgresSQL-dokumentationen](https://www.postgresql.org/docs/).  
 
 ### <a name="squirrel-sql"></a>SQuirreL SQL
 
-SQuirreL SQL är en grafisk SQL-klient som kan ansluta till olika databaser (inklusive SQL Server, PostgresSQL och MySQL) och köra SQL-frågor. Du kan köra SQuirreL SQL från en grafisk fjärrskrivbordssession (till exempel via X2Go-klienten) genom att använda en Skriv bords ikon. Eller så kan du köra-klienten med hjälp av följande kommando i gränssnittet:
+SQuirreL SQL är en grafisk SQL-klient som kan ansluta till olika databaser (inklusive SQL Server, PostgresSQL och MySQL) och köra SQL-frågor. Du kan köra SQuirreL SQL från en grafisk skrivbordssession (till exempel via X2Go-klienten) med hjälp av en skrivbordsikon. Du kan också köra klienten med hjälp av följande kommando i skalet:
 
 ```bash
 /usr/local/squirrel-sql-3.7/squirrel-sql.sh /usr/local/squirrel-sql-3.7/squirrel-sql.sh
 ```
 
-Ställa in din drivrutiner och databasen alias innan den första användningen. JDBC-drivrutinerna finns på/usr/share/Java/jdbcdrivers.
+Innan den första användningen konfigurerar du drivrutiner och databasalias. JDBC-drivrutinerna finns på /usr/share/java/jdbcdrivers.
 
-Mer information finns i [SQUIRREL SQL](http://squirrel-sql.sourceforge.net/index.php?page=screenshots).
+Mer information finns i [SQuirreL SQL](http://squirrel-sql.sourceforge.net/index.php?page=screenshots).
 
-### <a name="command-line-tools-for-accessing-sql-server"></a>Kommando rads verktyg för att komma åt SQL Server
+### <a name="command-line-tools-for-accessing-sql-server"></a>Kommandoradsverktyg för åtkomst till SQL Server
 
-Paketets ODBC-drivrutinen för SQL Server levereras med två kommandoradsverktyg:
+ODBC-drivrutinspaketet för SQL Server levereras också med två kommandoradsverktyg:
 
-* **BCP**: BCP-verktyget Mass kopiering av data mellan en instans av SQL Server och en datafil i ett användardefinierat format. Du kan använda BCP-verktyget för att importera ett stort antal nya rader till SQL Server tabeller eller för att exportera data från tabeller till datafiler. Om du vill importera data till en tabell måste du använda en format fil som skapats för tabellen. Eller så måste du förstå tabell strukturen och vilka typer av data som är giltiga för kolumnerna.
+* **bcp**: Bcp-verktyget kopierar data mellan en instans av SQL Server och en datafil i ett användarspecificerat format. Du kan använda bcp-verktyget för att importera ett stort antal nya rader till SQL Server-tabeller eller för att exportera data från tabeller till datafiler. Om du vill importera data till en tabell måste du använda en formatfil som skapats för den tabellen. Du måste också förstå tabellens struktur och vilka typer av data som är giltiga för dess kolumner.
 
-  Mer information finns i [ansluta till BCP](https://msdn.microsoft.com/library/hh568446.aspx).
+  Mer information finns i [Ansluta med bcp](https://msdn.microsoft.com/library/hh568446.aspx).
 
-* **SQLCMD**: du kan använda verktyget sqlcmd för att ange Transact-SQL-uttryck, system procedurer och skriptfiler i kommando tolken. Verktyget sqlcmd använder ODBC för att köra Transact-SQL-batchar.
+* **sqlcmd**: Du kan använda sqlcmd-verktyget för att ange Transact-SQL-uttryck, systemprocedurer och skriptfiler i kommandotolken. Sqlcmd-verktyget använder ODBC för att köra Transact-SQL-batchar.
 
-  Mer information finns i [ansluta med SQLCMD](https://msdn.microsoft.com/library/hh568447.aspx).
+  Mer information finns i [Ansluta med sqlcmd](https://msdn.microsoft.com/library/hh568447.aspx).
 
   > [!NOTE]
-  > Det finns vissa skillnader i det här verktyget mellan Linux-och Windows-plattformar. Se dokumentationen för mer information.
+  > Det finns vissa skillnader i det här verktyget mellan Linux och Windows-plattformar. Mer information finns i dokumentationen.
 
-### <a name="database-access-libraries"></a>Bibliotek för åtkomst av databasen
+### <a name="database-access-libraries"></a>Databasåtkomstbibliotek
 
-Bibliotek för databas åtkomst är tillgängliga i R och python:
+Bibliotek för databasåtkomst är tillgängliga i R och Python:
 
-* I R kan du använda RODBC-paketet eller dplyr-paketet för att fråga eller köra SQL-uttryck på databas servern.
-* I python ger pyodbc-biblioteket databas åtkomst med ODBC som underliggande lager.
+* I R kan du använda RODBC-paketet eller dplyr-paketet för att fråga eller köra SQL-uttryck på databasservern.
+* I Python ger pyodbc-biblioteket databasåtkomst med ODBC som underliggande lager.
 
 ## <a name="azure-tools"></a>Azure-verktyg
 
 Följande Azure-verktyg är installerade på DSVM:
 
-* **Azure CLI**: du kan använda kommando rads gränssnittet i Azure för att skapa och hantera Azure-resurser via Shell-kommandon. Öppna Azure-verktygen genom att ange **Azure-hjälpen**. Mer information finns på sidan med [Azure CLI-dokumentation](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2).
-* **Azure Storage Explorer**: Azure Storage Explorer är ett grafiskt verktyg som du kan använda för att bläddra bland de objekt som du har lagrat på ditt Azure Storage-konto och för att ladda upp och ladda ned data till och från Azure-blobbar. Du kan komma åt Storage Explorer från ikonen genvägen på skrivbordet. Du kan också öppna den från en Shell-prompt genom att ange **StorageExplorer**. Du måste vara inloggad från en X2Go-klient eller konfigurera begäran om x11-vidarebefordring.
-* **Azure-bibliotek**: följande bibliotek förinstalleras på DSVM:
+* **Azure CLI**: Du kan använda kommandoradsgränssnittet i Azure för att skapa och hantera Azure-resurser via skalkommandon. Om du vill öppna Azure-verktygen anger du **azure-hjälp**. Mer information finns på [sidan Azure CLI-dokumentation](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2).
+* **Azure Storage Explorer:** Azure Storage Explorer är ett grafiskt verktyg som du kan använda för att bläddra igenom de objekt som du har lagrat i ditt Azure-lagringskonto och för att ladda upp och hämta data till och från Azure-blobbar. Du kan komma åt Storage Explorer från genvägsikonen på skrivbordet. Du kan också öppna den från en skalfråga genom att ange **StorageExplorer**. Du måste vara inloggad från en X2Go-klient eller ha X11-vidarebefordran inställd.
+* **Azure-bibliotek**: Följande bibliotek är förinstallerade på DSVM:
   
-  * **Python**: Azure-relaterade bibliotek i python är *Azure*, *azureml*, *pydocumentdb*och *pyodbc*. Med de tre första biblioteken kan du komma åt Azure storage-tjänster, Azure Machine Learning och Azure Cosmos DB (en NoSQL-databas på Azure). Fjärde biblioteket pyodbc (tillsammans med Microsoft ODBC-drivrutinen för SQL Server), ger åtkomst till SQL Server, Azure SQL Database och Azure SQL Data Warehouse från Python med hjälp av en ODBC-gränssnittet. Ange **pip-listan** för att visa alla bibliotek i listan. Glöm inte att köra det här kommandot i både Python 2.7 och 3,5 miljöer.
-  * **R**: Azure-relaterade bibliotek i R är AZUREML och RODBC.
-  * **Java**: listan med Azure Java-bibliotek finns i katalogen/DSVM/SDK/AZURESDKJAVA på dsvm. Viktiga bibliotek är Azure lagring och hantering av API: er, Azure Cosmos DB och JDBC-drivrutiner för SQL Server.  
+  * **Python**: Azure-relaterade bibliotek i Python är *azure,* *azureml*, *pydocumentdb*och *pyodbc*. Med de tre första biblioteken kan du komma åt Azure-lagringstjänster, Azure Machine Learning och Azure Cosmos DB (en NoSQL-databas på Azure). Det fjärde biblioteket, pyodbc (tillsammans med Microsoft ODBC-drivrutinen för SQL Server) ger åtkomst till SQL Server, Azure SQL Database och Azure SQL Data Warehouse från Python med hjälp av ett ODBC-gränssnitt. Ange **pip-listan** för att se alla bibliotek i listan. Var noga med att köra det här kommandot i både Python 2.7- och 3.5-miljöerna.
+  * **R**: Azure-relaterade bibliotek i R är AzureML och RODBC.
+  * **Java**: Listan över Azure Java-bibliotek finns i katalogen /dsvm/sdk/AzureSDKJava på DSVM. De viktigaste biblioteken är Azure-api:er för lagring och hantering, Azure Cosmos DB och JDBC-drivrutiner för SQL Server.  
 
-Du kan komma åt [Azure Portal](https://portal.azure.com) från den förinstallerade Firefox-webbläsaren. I Azure Portal kan du skapa, hantera och övervaka Azure-resurser.
+Du kan komma åt [Azure-portalen](https://portal.azure.com) från den förinstallerade Webbläsaren Firefox. I Azure-portalen kan du skapa, hantera och övervaka Azure-resurser.
 
 ## <a name="azure-machine-learning"></a>Azure Machine Learning
 
-Azure Machine Learning är en helt hanterad moln tjänst som du kan använda för att bygga, distribuera och dela lösningar för förutsägelse analys. Du skapar experiment och modeller från Azure Machine Learning Studio (klassisk). Om du vill komma åt Azure Machine Learning från en webbläsare på DSVM går du till [Microsoft Azure Machine Learning](https://studio.azureml.net).
+Azure Machine Learning är en fullständigt hanterad molntjänst som du kan använda för att skapa, distribuera och dela lösningar för prediktiv analys. Du skapar dina experiment och modeller från Azure Machine Learning Studio (klassisk). Om du vill komma åt Azure Machine Learning från en webbläsare på DSVM går du till [Microsoft Azure Machine Learning](https://studio.azureml.net).
 
-När du har loggat in på Azure Machine Learning Studio (klassisk) kan du använda en experiment arbets yta för att bygga ett logiskt flöde för Machine Learning-algoritmer. Du har också till gång till en Jupyter Notebook som finns på Azure Machine Learning. Antecknings boken kan arbeta sömlöst med experimenten i Azure Machine Learning Studio (klassisk). 
+När du har loggat in på Azure Machine Learning Studio (klassisk) kan du använda en experimentarbetsyta för att skapa ett logiskt flöde för maskininlärningsalgoritmerna. Du har också tillgång till en Jupyter-anteckningsbok som finns på Azure Machine Learning. Anteckningsboken kan fungera sömlöst med experimenten i Azure Machine Learning Studio (klassisk). 
 
-Operationalisera de maskin inlärnings modeller som du skapar genom att figursätta dem i ett webb tjänst gränssnitt. Genom att använda Machine Learning-modeller kan klienter skrivna på valfritt språk för att anropa förutsägelser från dessa modeller. Mer information finns i Machine Learning- [dokumentationen](https://azure.microsoft.com/documentation/services/machine-learning/).
+Operationalize de maskininlärningsmodeller som du skapar genom att slå in dem i ett webbtjänstgränssnitt. Operationalisering av maskininlärningsmodeller gör det möjligt för klienter som är skrivna på alla språk att anropa förutsägelser från dessa modeller. Mer information finns i [machine learning-dokumentationen](https://azure.microsoft.com/documentation/services/machine-learning/).
 
-Du kan också bygga dina modeller i R eller python på DSVM och sedan distribuera dem i produktion på Azure Machine Learning. Microsoft har installerat bibliotek i R (**azureml**) och python (**azureml**) för att stödja den här funktionen.
+Du kan också skapa dina modeller i R eller Python på DSVM och sedan distribuera dem i produktion på Azure Machine Learning. Microsoft har installerat bibliotek i R (**AzureML**) och Python (**azureml**) för att stödja den här funktionen.
 
-Information om hur du distribuerar modeller i R och python till Azure Machine Learning finns i [tio saker du kan göra på data science Virtual Machine](vm-do-ten-things.md).
+Information om hur du distribuerar modeller i R och Python till Azure Machine Learning finns i [Tio saker du kan göra på den virtuella datorn för datavetenskap](vm-do-ten-things.md).
 
 > [!NOTE]
-> Anvisningarna i [tio saker du kan göra på data science Virtual Machine](vm-do-ten-things.md) skrevs för Windows-versionen av DSVM. Men information om distribution av modeller till Azure Machine Learning gäller även för Linux-DSVM.
+> Instruktionerna i [tio saker du kan göra på Data Science Virtual Machine](vm-do-ten-things.md) skrevs för Windows-versionen av DSVM. Informationen om hur du distribuerar modeller till Azure Machine Learning gäller dock även för Linux DSVM.
 
-## <a name="machine-learning-tools"></a>Machine learning-verktyg
+## <a name="machine-learning-tools"></a>Verktyg för maskininlärning
 
-DSVM levereras med några maskin inlärnings verktyg och algoritmer som är förkompilerade och förinstallerade lokalt. Exempel på dessa är:
+DSVM levereras med några verktygsinlärningsverktyg och algoritmer som är förkompilerade och förinstallerade lokalt. Exempel på dessa är:
 
-* **Microsoft Cognitive Toolkit**: ett djup inlärnings verktyg.
-* **Vowpal Wabbit**: en snabb onlineutbildning för inlärning.
-* **XGBoost**: ett verktyg som tillhandahåller optimerade, förstärkta träd algoritmer.
-* **Python**: Anaconda python kommer att paketeras med Machine Learning-algoritmer med bibliotek som Scikit-lär. Du kan installera andra bibliotek med hjälp av kommandot `pip install`.
-* **R**: ett omfattande bibliotek med Machine Learning-funktioner är tillgängligt för R. förinstallerade bibliotek omfattar lm, GLM, randomForest och rpart. Du kan installera andra bibliotek genom att köra `install.packages(<lib name>)`.
+* **Microsoft Cognitive Toolkit**: En djupinlärningsverktygslåda.
+* **Vowpal Wabbit**: En snabb online lärande algoritm.
+* **XGBoost**: Ett verktyg som ger optimerade, förstärkta trädalgoritmer.
+* **Python**: Anaconda Python levereras med maskininlärningsalgoritmer med bibliotek som Scikit-learn. Du kan installera andra bibliotek `pip install` med kommandot.
+* **R**: Ett omfattande bibliotek med maskininlärningsfunktioner är tillgängligt för R. Förinstallerade bibliotek inkluderar lm, glm, randomForest och rpart. Du kan installera andra `install.packages(<lib name>)`bibliotek genom att köra .
 
-Microsoft Cognitive Toolkit, Vowpal Wabbit och XGBoost diskuteras i detalj i nästa avsnitt.
+Microsoft Cognitive Toolkit, Vowpal Wabbit och XGBoost diskuteras mer i detalj i nästa avsnitt.
 
 ### <a name="microsoft-cognitive-toolkit"></a>Microsoft Cognitive Toolkit
 
-Microsoft Cognitive Toolkit är ett djup inlärnings verktyg med öppen källkod. Det är ett kommando rads verktyg (CNTK) och finns redan i sökvägen.
+Microsoft Cognitive Toolkit är en deep learning-verktygslåda med öppen källkod. Det är ett kommandoradsverktyg (CNTK) och finns redan i PATH.
 
-Kör följande kommandon i gränssnittet för att köra ett grundläggande exempel:
+Om du vill köra ett grundläggande exempel kör du följande kommandon i skalet:
 
 ```bash
 cd /home/[USERNAME]/notebooks/CNTK/HelloWorld-LogisticRegression
 cntk configFile=lr_bs.cntk makeMode=false command=Train
 ```
 
-Mer information finns i [GITHUB CNTK-lagringsplatsen](https://github.com/Microsoft/CNTK) och [CNTK wiki](https://github.com/Microsoft/CNTK/wiki).
+Mer information finns i [GitHub CNTK-databasen](https://github.com/Microsoft/CNTK) och [CNTK-wikin](https://github.com/Microsoft/CNTK/wiki).
 
 ### <a name="vowpal-wabbit"></a>Vowpal Wabbit
 
-Vowpal Wabbit är ett maskin inlärnings system som använder tekniker som online, hashing, allreduce, reduktioner, learning2search, aktiv och interaktiv utbildning.
+Vowpal Wabbit är ett maskininlärningssystem som använder tekniker som online, hashing, allreduce, reduktioner, learning2search, aktiv och interaktivt lärande.
 
-Kör följande kommandon för att köra verktyget på ett Basic-exempel:
+Om du vill köra verktyget i ett grundläggande exempel kör du följande kommandon:
 
 ```bash
 cp -r /dsvm/tools/VowpalWabbit/demo vwdemo
@@ -271,17 +271,17 @@ cd vwdemo
 vw house_dataset
 ```
 
-Vowpal Wabbit-demo katalogen innehåller andra, större demonstrationer. Mer information om Vowpal-Wabbit finns i [GitHub Vowpal Wabbit-lagringsplatsen](https://github.com/JohnLangford/vowpal_wabbit) och [Vowpal Wabbit wiki](https://github.com/JohnLangford/vowpal_wabbit/wiki).
+Den Vowpal Wabbit demo katalog innehåller andra, större demos. För mer information om Vowpal Wabbit, se [GitHub Vowpal Wabbit förvaret](https://github.com/JohnLangford/vowpal_wabbit) och [Vowpal Wabbit wiki](https://github.com/JohnLangford/vowpal_wabbit/wiki).
 
 ### <a name="xgboost"></a>XGBoost
 
-XGBoost-biblioteket är utformat och optimerat för förstärkta algoritmer (Tree). Målet med XGBoost-biblioteket är att skicka datorernas beräknings gränser till de extrem värden som krävs för att skapa storskaliga träd förstärkningar som är skalbara, bärbara och korrekta.
+XGBoost-biblioteket är utformat och optimerat för förstärkta (träd) algoritmer. Målet med XGBoost biblioteket är att driva beräkningsgränser för maskiner till de ytterligheter som behövs för att ge storskaliga träd öka som är skalbar, bärbar och korrekt.
 
-XGBoost tillhandahålls som en kommando rad och som ett R-bibliotek.
+XGBoost tillhandahålls som en kommandorad och som ett R-bibliotek.
 
-Om du vill använda XGBoost-biblioteket i R startar du en interaktiv R-session (i gränssnittet, anger **R**) och läser sedan in biblioteket.
+Om du vill använda XGBoost-biblioteket i R startar du en interaktiv R-session (i skalet, anger **R**) och läser sedan in biblioteket.
 
-Här är ett enkelt exempel som du kan köra i R-prompten:
+Här är ett enkelt exempel som du kan köra på R-prompten:
 
 ```R
 library(xgboost)
@@ -295,7 +295,7 @@ bst <- xgboost(data = train$data, label = train$label, max.depth = 2,
 pred <- predict(bst, test$data)
 ```
 
-Kör följande kommandon i gränssnittet för att köra XGBoost-kommando raden:
+Om du vill köra XGBoost-kommandoraden kör du dessa kommandon i skalet:
 
 ```bash
 cp -r /dsvm/tools/xgboost/demo/binary_classification/ xgboostdemo
@@ -303,46 +303,46 @@ cd xgboostdemo
 xgboost mushroom.conf
 ```
 
-En modell fil skrivs till den angivna katalogen. Information om det här demonstrations exemplet på GitHub finns i [binära klassificeringar](https://github.com/dmlc/xgboost/tree/master/demo/binary_classification).
+En MODELLFIL skrivs till den angivna katalogen. Information om det här demoexemplet på GitHub finns i [Binärklassificering](https://github.com/dmlc/xgboost/tree/master/demo/binary_classification).
 
-Mer information om XGBoost finns i XGBoost- [dokumentationen](https://xgboost.readthedocs.org/en/latest/) och [XGBoost GitHub-lagringsplatsen](https://github.com/dmlc/xgboost).
+Mer information om XGBoost finns i [XGBoost-dokumentationen](https://xgboost.readthedocs.org/en/latest/) och [XGBoost GitHub-databasen](https://github.com/dmlc/xgboost).
 
-### <a name="rattle"></a>Spännen
+### <a name="rattle"></a>Rattle
 
-Rattle (*R* *A*nalysdatamängd *t*OOL *t*o *L*Erhåll *E*-asily) använder GUI-baserad data utforskning och modellering. Rattle:
-- Visar statistiska och visuella sammanfattningar av data.
-- Transformerar data som kan modelleras.
-- Skapar både inövervakade och övervakade modeller från data.
-- Visar prestanda för modeller grafiskt.
-- Resultat av nya data uppsättningar.
+Rattle (*R* *A*nalytical *T*ool *T*o *L*tjäna *E*asily) använder GUI-baserade data prospektering och modellering. Skallra:
+- Presenterar statistiska och visuella sammanfattningar av data.
+- Omvandlar data som lätt kan modelleras.
+- Bygger både oövervakade och övervakade modeller från data.
+- Presenterar prestanda modeller grafiskt.
+- Betyg på nya datauppsättningar.
 - Genererar R-kod.
-- Replikerar åtgärder i användar gränssnittet som kan köras direkt i R eller används som utgångs punkt för mer analys.
+- Replikerar åtgärder i användargränssnittet som kan köras direkt i R eller användas som utgångspunkt för mer analys.
 
-Om du vill köra Rattle måste du vara inloggad på en grafiskt fjärrskrivbordssession. I en Terminal anger du **r** för att öppna r-miljön. Ange följande kommandon i R-Kommandotolken:
+Om du vill köra Rattle måste du vara inloggad på en grafisk skrivbordssession. I en terminal anger du **R** för att öppna R-miljön. Ange följande kommandon i R-prompten:
 
 ```R
 library(rattle)
 rattle()
 ```
 
-Ett grafiskt gränssnitt som har en uppsättning flikar öppnas. Använd följande snabb starts steg i Rattle för att använda en exempel data uppsättning för väder och skapa en modell. I vissa av stegen uppmanas du att automatiskt installera och läsa in vissa nödvändiga R-paket som inte redan finns i systemet.
+Ett grafiskt gränssnitt med en uppsättning flikar öppnas. Använd följande snabbstartssteg i Rattle för att använda en exempelvädersdatauppsättning och skapa en modell. I några av stegen uppmanas du att automatiskt installera och läsa in några nödvändiga R-paket som inte redan finns på systemet.
 
 > [!NOTE]
-> Om du inte har behörighet att installera paketet i system katalogen (standard) kan du se en prompt i R-konsolens fönster för att installera paket i ditt personliga bibliotek. Om du ser dessa prompter anger du **y**.
+> Om du inte har behörighet att installera paketet i systemkatalogen (standard) kan du se en uppmaning i R-konsolfönstret om att installera paket i ditt personliga bibliotek. Om dessa uppmaningar visas anger du **y**.
 
 1. Välj **Kör**.
-1. En dialog ruta där du blir ombedd att läsa in exempel data uppsättningen för väder. Välj **Ja** om du vill läsa in exemplet.
-1. Välj fliken **modell** .
-1. Välj **Kör** för att bygga ett besluts träd.
-1. Välj **rit** för att Visa besluts trädet.
-1. Välj alternativet **skog** och välj sedan **Kör** för att bygga en slumpmässig skog.
-1. Välj fliken **utvärdera** .
-1. Välj alternativet **risk** och välj sedan **Kör** för att visa två **riskhanterings diagram (kumulativa)** .
-1. Välj fliken **logg** för att visa den genererade R-koden för föregående åtgärder. (På grund av ett fel i den aktuella versionen av Rattle måste du infoga ett **#** tecken framför **Exportera loggen** i texten i loggen.)
-1. Välj knappen **Exportera** för att spara R-skript filen med namnet *weather_script. R* till arbetsmappen.
+1. I en dialogruta uppmanas du att läsa in exempelviten för väderdata. Välj **Ja** om du vill läsa in exemplet.
+1. Välj fliken **Modell.**
+1. Välj **Kör för** att skapa ett beslutsträd.
+1. Välj **Rita** om du vill visa beslutsträdet.
+1. Välj alternativet **Skog** och välj sedan **Kör** för att skapa en slumpmässig skog.
+1. Välj fliken **Utvärdera.**
+1. Välj alternativet **Risk** och välj sedan **Kör** för att visa två **prestandadiagram för risk (kumulativa).**
+1. Välj fliken **Logg** om du vill visa den genererade R-koden för föregående operationer. (På grund av ett fel i den aktuella **#** versionen av Rattle måste du infoga ett tecken framför Exportera den **här loggen** i loggens text.)
+1. Välj knappen **Exportera** om du vill spara R-skriptfilen *weather_script. R* till hemmappen.
 
-Du kan avsluta Rattle och R. Nu kan du ändra det genererade R-skriptet. Du kan också använda skriptet som det är och köra det när som helst för att upprepa allt som utfördes i Rattle-ANVÄNDARGRÄNSSNITTET. I synnerhet för nybörjare i R är detta ett sätt att snabbt utföra analyser och maskin inlärning i ett enkelt grafiskt gränssnitt, samtidigt som kod skapas automatiskt i R för att ändra eller för inlärning.
+Du kan avsluta Rattle och R. Nu kan du ändra det genererade R-skriptet. Eller använd skriptet som det är och kör det när som helst för att upprepa allt som gjordes i Rattle UI. Speciellt för nybörjare i R, är detta ett sätt att snabbt göra analys och maskininlärning i ett enkelt grafiskt gränssnitt, samtidigt som automatiskt generera kod i R för att ändra eller för lärande.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Har du fler frågor? Överväg att skapa ett [support ärende](https://azure.microsoft.com/support/create-ticket/).
+Har du fler frågor? Överväg att skapa en [supportbiljett](https://azure.microsoft.com/support/create-ticket/).

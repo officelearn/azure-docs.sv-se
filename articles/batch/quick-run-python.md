@@ -1,6 +1,6 @@
 ---
-title: Använd python API för att köra ett Azure Batch jobb
-description: Kör snabbt ett Azure Batch exempel jobb och aktiviteter med hjälp av batch python-klientprogrammet. Lär dig viktiga begrepp i batch-tjänsten.
+title: Använda Python API för att köra ett Azure Batch-jobb
+description: Kör snabbt ett Azure Batch-exempeljobb och uppgifter med hjälp av Batch Python-klientbiblioteket. Lär dig de viktigaste begreppen i batch-tjänsten.
 services: batch
 author: LauraBrenner
 manager: evansma
@@ -13,41 +13,41 @@ ms.custom:
 - seo-python-october2019
 - mvc
 ms.openlocfilehash: 140ae0fc9f9a8daba193aa05e0800d83b7b6b963
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/08/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77086041"
 ---
-# <a name="quickstart-use-python-api-to-run-an-azure-batch-job"></a>Snabb start: Använd python API för att köra ett Azure Batch jobb
+# <a name="quickstart-use-python-api-to-run-an-azure-batch-job"></a>Snabbstart: Använd Python API för att köra ett Azure Batch-jobb
 
-I den här snabb starten använder du python-API: et för att köra ett Azure Batch jobb från en app. Appen laddar upp indata-filer till Azure Storage och skapar en *pool* med batch-datornoder (virtuella datorer). Sedan skapas ett *jobb* som kör *aktiviteter* för att bearbeta varje indatafil i poolen med hjälp av ett grundläggande kommando.
+I den här snabbstarten använder du Python-API:et för att köra ett Azure Batch-jobb från en app. Appen överför indatafiler till Azure Storage och skapar en *pool* av batchberäkningsnoder (virtuella datorer). Sedan skapas ett *jobb* som kör *uppgifter* för att bearbeta varje indatafil i poolen med hjälp av ett grundläggande kommando.
 
-Här lär du dig viktiga begrepp i batch-tjänsten och är redo att testa batch med mer realistiska arbets belastningar i större skala.
+Här får du lära dig viktiga begrepp för batch-tjänsten och vara redo att prova Batch med mer realistiska arbetsbelastningar i större skala.
 
-![Översikt över Azure Batch arbets flöde](./media/quick-run-python/overview-of-the-azure-batch-workflow.png)
+![Översikt över Azure Batch-arbetsflödet](./media/quick-run-python/overview-of-the-azure-batch-workflow.png)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-- Ett Azure-konto med en aktiv prenumeration. [Skapa ett konto kostnads fritt](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-- Ett **Azure Batch** konto och länkat **Azure Storage** konto. Använd [Azure Portal](quick-create-portal.md) eller [CLI](quick-create-cli.md) för att skapa dessa konton.
-- [Python](https://python.org/downloads), version 2,7 eller 3,3 eller senare, inklusive [pip](https://pip.pypa.io/en/stable/installing/) -paket hanteraren
+- Ett Azure-konto med en aktiv prenumeration. [Skapa ett konto gratis](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+- Ett **Azure Batch-konto** och länkat **Azure Storage-konto.** Använd [Azure-portalen](quick-create-portal.md) eller [CLI](quick-create-cli.md) för att skapa dessa konton.
+- [Python](https://python.org/downloads), version 2.7 eller 3.3 eller senare, inklusive [pip-pakethanteraren](https://pip.pypa.io/en/stable/installing/)
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 
-Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.com).
+Logga in på Azure-portalen på [https://portal.azure.com](https://portal.azure.com).
 
 [!INCLUDE [batch-common-credentials](../../includes/batch-common-credentials.md)]
 
 ## <a name="download-the-sample"></a>Hämta exemplet
 
-[Hämta eller klona exempelappen](https://github.com/Azure-Samples/batch-python-quickstart) från GitHub. Om du vill klona exempellagringsplatsen med en Git-klient använder du följande kommando:
+[Ladda ned eller klona exempelappen](https://github.com/Azure-Samples/batch-python-quickstart) från GitHub. Om du vill klona lagringsplatsen för exempelappen med en Git-klient använder du följande kommando:
 
 ```bash
 git clone https://github.com/Azure-Samples/batch-python-quickstart.git
 ```
 
-Gå till den katalog som innehåller python-skriptet `python_quickstart_client.py`.
+Gå till katalogen som innehåller `python_quickstart_client.py`Python-skriptet .
 
 I Python-miljön installerar du de nödvändiga paketen med `pip`.
 
@@ -55,7 +55,7 @@ I Python-miljön installerar du de nödvändiga paketen med `pip`.
 pip install -r requirements.txt
 ```
 
-Öppna filen `config.py`. Uppdatera autentiseringssträngarna med Batch- och lagringskontouppgifter med värdena för dina konton. Exempel:
+Öppna filen `config.py`. Uppdatera autentiseringssträngarna med Batch- och lagringskontouppgifter med värdena för dina konton. Ett exempel:
 
 ```Python
 _BATCH_ACCOUNT_NAME = 'mybatchaccount'
@@ -75,7 +75,7 @@ python python_quickstart_client.py
 
 Granska koden för att lära dig vad varje del av appen gör när skriptet har körts. 
 
-När du kör exempelappen ser konsolens utdata ut ungefär så här. Under körningen uppstår det en paus vid `Monitoring all tasks for 'Completed' state, timeout in 00:30:00...` medan poolens beräkningsnoder startas. Aktiviteter köas för att köras när den första beräkningsnoden körs. Gå till Batch-kontot i [Azure-portalen](https://portal.azure.com) för att övervaka poolen, beräkningsnoderna, jobbet och aktiviteterna på Batch-kontot.
+När du kör exempelappen ser utdata i konsolen ut ungefär så här. Under körningen uppstår det en paus vid `Monitoring all tasks for 'Completed' state, timeout in 00:30:00...` medan poolens beräkningsnoder startas. Aktiviteter köas för att köras när den första beräkningsnoden körs. Gå till Batch-kontot i [Azure-portalen](https://portal.azure.com) för att övervaka poolen, beräkningsnoderna, jobbet och aktiviteterna på Batch-kontot.
 
 ```output
 Sample start: 11/26/2018 4:02:54 PM
@@ -124,7 +124,7 @@ blob_client = azureblob.BlockBlobService(
     account_key=config._STORAGE_ACCOUNT_KEY)
 ```
 
-Appen använder referensen `blob_client` för att skapa en container i lagringskontot och för att överföra filer till containern. De lagrade filerna har definierats som Batch [ResourceFile](/python/api/azure-batch/azure.batch.models.resourcefile)-objekt som Batch kan hämta senare till beräkningsnoder.
+Appen använder referensen `blob_client` för att skapa en container i lagringskontot och för att överföra filer till containern. De lagrade filerna har definierats som Batch [ResourceFile](/python/api/azure-batch/azure.batch.models.resourcefile)-objekt som Batch senare kan hämta till beräkningsnoder.
 
 ```python
 input_file_paths = [os.path.join(sys.path[0], 'taskdata0.txt'),
@@ -174,7 +174,7 @@ batch_service_client.pool.add(new_pool)
 
 ### <a name="create-a-batch-job"></a>Skapa ett Batch-jobb
 
-Ett Batch-jobb är en logisk gruppering av en eller flera aktiviteter. Ett jobb omfattar inställningar som är gemensamma för aktiviteter, till exempel prioritet och vilken pool som aktiviteterna ska köras på. Appen använder klassen [JobAddParameter](/python/api/azure-batch/azure.batch.models.jobaddparameter) för att skapa ett jobb på din pool. Metoden [Job. Add](/python/api/azure-batch/azure.batch.operations.joboperations) lägger till ett jobb till det angivna batch-kontot. Från början har jobbet inga aktiviteter.
+Ett Batch-jobb är en logisk gruppering av en eller flera aktiviteter. Ett jobb omfattar inställningar som är gemensamma för aktiviteter, till exempel prioritet och vilken pool som aktiviteterna ska köras på. Appen använder klassen [JobAddParameter](/python/api/azure-batch/azure.batch.models.jobaddparameter) för att skapa ett jobb på din pool. Metoden [job.add](/python/api/azure-batch/azure.batch.operations.joboperations) lägger till ett jobb i det angivna batchkontot. Från början har jobbet inga uppgifter.
 
 ```python
 job = batch.models.JobAddParameter(
@@ -183,7 +183,7 @@ job = batch.models.JobAddParameter(
 batch_service_client.job.add(job)
 ```
 
-### <a name="create-tasks"></a>Skapa aktiviteter
+### <a name="create-tasks"></a>Skapa uppgifter
 
 Appen skapar en lista med aktivitetsobjekt med hjälp av klassen [TaskAddParameter](/python/api/azure-batch/azure.batch.models.taskaddparameter). Varje aktivitet bearbetar ett indata `resource_files`-objekt med en `command_line`-parameter. I det här exemplet kör kommandoraden Bash-gränssnittskommandot `cat` för att visa textfilen. Detta kommando är ett enkelt exempel i demonstrationssyfte. När du använder Batch är det på kommandoraden som du anger din app eller ditt skript. Batch tillhandahåller ett antal sätt att distribuera appar och skript till beräkningsnoder.
 
@@ -203,7 +203,7 @@ for idx, input_file in enumerate(input_files):
 batch_service_client.task.add_collection(job_id, tasks)
 ```
 
-### <a name="view-task-output"></a>Visa utdata för uppgiften
+### <a name="view-task-output"></a>Visa aktivitetens utdata
 
 Appen övervakar aktivitetstillståndet för att säkerställa att aktiviteterna slutförs. Sedan visar appen den `stdout.txt`-fil som skapats av varje slutförd aktivitet. När aktiviteten körs skrivs utdata från aktivitetskommandot till `stdout.txt`:
 
@@ -230,7 +230,7 @@ for task in tasks:
 
 Appen tar automatiskt bort den lagringscontainer den skapar och ger dig möjlighet att ta bort Batch-poolen och jobbet. Du debiteras för poolen medan noderna körs, även om inga jobb är schemalagda. Ta bort poolen när du inte längre behöver den. När du tar bort poolen raderas alla aktivitetsutdata på noderna. 
 
-När de inte längre behövs tar du bort resursgruppen, Batch-kontot och lagringskontot. Om du vill göra det i Azure Portal väljer du resurs gruppen för batch-kontot och väljer **ta bort resurs grupp**.
+När de inte längre behövs tar du bort resursgruppen, Batch-kontot och lagringskontot. Om du vill göra det i Azure-portalen väljer du resursgruppen för batchkontot och väljer **Ta bort resursgrupp**.
 
 ## <a name="next-steps"></a>Nästa steg
 

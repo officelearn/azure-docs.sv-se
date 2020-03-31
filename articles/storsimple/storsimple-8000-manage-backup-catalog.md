@@ -1,6 +1,6 @@
 ---
-title: Hantera din StorSimple-säkerhetskopieringskatalogen | Microsoft Docs
-description: Beskriver hur du använder sidan StorSimple Device Manager säkerhetskopieringskatalogen listan, Välj och ta bort säkerhetskopior.
+title: Hantera din Säkerhetskatalog för StorSimple | Microsoft-dokument
+description: I artikeln beskrivs hur du ankar katalogsidan för säkerhetskopiering av Tjänsten StorSimple Device Manager för att lista, välja och ta bort säkerhetskopior.
 services: storsimple
 documentationcenter: NA
 author: alkohli
@@ -15,101 +15,101 @@ ms.workload: TBD
 ms.date: 06/29/2017
 ms.author: alkohli
 ms.openlocfilehash: 07d9e03f1631ebce88a7a7c2e33be62f21dda522
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60319691"
 ---
-# <a name="use-the-storsimple-device-manager-service-to-manage-your-backup-catalog"></a>Använda StorSimple Device Manager-tjänsten för att hantera din säkerhetskopieringskatalogen
+# <a name="use-the-storsimple-device-manager-service-to-manage-your-backup-catalog"></a>Använda Tjänsten StorSimple Device Manager för att hantera din säkerhetskopieringskatalog
 ## <a name="overview"></a>Översikt
-StorSimple Device Manager-tjänsten **säkerhetskopieringskatalogen** bladet visar alla säkerhetskopior som skapas när manuell eller schemalagd säkerhetskopiering utförs. Du kan använda den här sidan för att lista alla säkerhetskopior för en princip för säkerhetskopiering eller en volym, Välj eller ta bort säkerhetskopior eller Använd en säkerhetskopia att återställa eller klona en volym.
+Bladet StorSimple Device **Manager-tjänst Backup Catalog** visar alla säkerhetskopieringsuppsättningar som skapas när manuella eller schemalagda säkerhetskopior tas. Du kan använda den här sidan för att visa alla säkerhetskopior för en säkerhetskopieringsprincip eller en volym, markera eller ta bort säkerhetskopior eller använda en säkerhetskopia för att återställa eller klona en volym.
 
-Den här självstudien beskrivs hur du väljer, och ta bort en säkerhetskopia. Om du vill veta hur du återställer din enhet från en säkerhetskopia kan du gå till [återställa din enhet från en säkerhetskopia](storsimple-8000-restore-from-backup-set-u2.md). Om du vill lära dig mer om att klona en volym, gå till [klona en StorSimple-volym](storsimple-8000-clone-volume-u2.md).
+I den här självstudien beskrivs hur du listar, markerar och tar bort en säkerhetskopia. Om du vill veta hur du återställer enheten från säkerhetskopiering går du till [Återställ enheten från en säkerhetskopia](storsimple-8000-restore-from-backup-set-u2.md). Om du vill veta hur du klonar en volym går du till [Klona en StorSimple-volym](storsimple-8000-clone-volume-u2.md).
 
-![Säkerhetskopieringskatalogen](./media/storsimple-8000-manage-backup-catalog/bucatalog.png) 
+![Katalog för säkerhetskopiering](./media/storsimple-8000-manage-backup-catalog/bucatalog.png) 
 
-Den **säkerhetskopieringskatalogen** bladet ger ange en fråga för att begränsa din säkerhetskopia. Du kan filtrera de säkerhetskopior som hämtas, baserat på följande parametrar:
+**Bladet Säkerhetskopieringskatalog** innehåller en fråga för att begränsa markeringen för säkerhetskopian. Du kan filtrera de säkerhetskopieringsuppsättningar som hämtas, baserat på följande parametrar:
 
-* **Enheten** – enheten där säkerhetskopian skapades.
-* **Princip för säkerhetskopiering eller volym** – den princip för säkerhetskopiering eller en volym som är associerade med den här säkerhetskopian.
-* **Från och till** – intervallet datum och tid när säkerhetskopian skapades.
+* **Enhet** – Enheten där säkerhetskopian skapades.
+* **Säkerhetskopieringsprincip eller Volym** – Säkerhetskopieringsprincipen eller volymen som är associerad med den här säkerhetskopian.
+* **Från och till** – Datum- och tidsintervallet när säkerhetskopian skapades.
 
-Filtrerade säkerhetskopiorna visas sedan som en tabell baserat på följande attribut:
+De filtrerade säkerhetskopieringsuppsättningarna tabuleras sedan baserat på följande attribut:
 
-* **Namn på** – namnet på den princip för säkerhetskopiering eller en volym som är associerade med säkerhetskopian.
-* **Storlek** – den verkliga storleken hos säkerhetskopierade.
-* **Skapad den** – datum och tid när säkerhetskopiorna som har skapats. 
-* **Typ** – säkerhetskopior kan lokala ögonblicksbilder eller molnbaserade ögonblicksbilder. En lokal ögonblicksbild är en säkerhetskopia av din volymdata som lagras lokalt på enheten, medan en ögonblicksbild i molnet som refererar till säkerhetskopian av volymdata som finns i molnet. Lokala ögonblicksbilder ger snabbare åtkomst medan väljs ögonblicksbilder av molndata för dataåterhämtning.
-* **Initierat av** – säkerhetskopieringar kan initieras automatiskt av ett schema eller manuellt av en användare. Du kan använda en princip för säkerhetskopiering för att schemalägga säkerhetskopieringar. Du kan också använda den **säkerhetskopiera** kan ta en manuell säkerhetskopiering.
+* **Namn** – Namnet på säkerhetskopieringsprincipen eller volymen som är associerad med säkerhetskopian.
+* **Storlek** – Den faktiska storleken på säkerhetskopian.
+* **Skapad på** – Datum och tid då säkerhetskopieringarna skapades. 
+* **Typ** – Säkerhetskopieringsuppsättningar kan vara lokala ögonblicksbilder eller ögonblicksbilder av molnet. En lokal ögonblicksbild är en säkerhetskopia av alla volymdata som lagras lokalt på enheten, medan en ögonblicksbild i molnet refererar till säkerhetskopiering av volymdata som finns i molnet. Lokala ögonblicksbilder ger snabbare åtkomst, medan ögonblicksbilder i molnet väljs för dataåtersåterkoppling.
+* **Initieras av** – Säkerhetskopiorna kan initieras automatiskt genom ett schema eller manuellt av en användare. Du kan använda en princip för säkerhetskopiering för att schemalägga säkerhetskopior. Du kan också använda alternativet **Ta säkerhetskopiera** för att göra en manuell säkerhetskopiering.
 
-## <a name="list-backup-sets-for-a-backup-policy"></a>Lista över säkerhetskopior för en princip för säkerhetskopiering
-Utför följande steg om du vill visa alla säkerhetskopior för en princip för säkerhetskopiering.
+## <a name="list-backup-sets-for-a-backup-policy"></a>Lista säkerhetskopior för en säkerhetskopieringsprincip
+Slutför följande steg för att lista alla säkerhetskopior för en säkerhetskopieringsprincip.
 
-#### <a name="to-list-backup-sets"></a>Att lista säkerhetskopior
-1. Gå till StorSimple Device Manager-tjänsten och klicka på **säkerhetskopieringskatalog**.
+#### <a name="to-list-backup-sets"></a>Så här listar du säkerhetskopior
+1. Gå till tjänsten StorSimple Device Manager och klicka på **Säkerhetskopieringskatalog**.
 
-2. Filtrera valen på följande sätt:
+2. Filtrera markeringarna enligt följande:
    
    1. Ange tidsintervallet.
-   2. Välj rätt enhet.
-   3. Filtrera efter **säkerhetskopieringspolicy** att visa motsvarande säkerhetskopiorna.
-   3. I listrutan för säkerhetskopieringsprincipen väljer **alla** att visa alla säkerhetskopior på den valda enheten.
-   4. Klicka på **tillämpa** att köra frågan.
+   2. Välj lämplig enhet.
+   3. Filtrera **efter säkerhetskopieringsprincip** om du vill visa motsvarande säkerhetskopior.
+   3. I listrutan säkerhetskopieringsprincip väljer du **Alla** om du vill visa alla säkerhetskopior på den valda enheten.
+   4. Klicka på **Använd** för att köra den här frågan.
       
-      De säkerhetskopior som är associerade med den valda säkerhetskopieringsprincipen ska visas i listan över säkerhetskopieringsuppsättningar.
+      De säkerhetskopior som är associerade med den valda säkerhetskopieringsprincipen ska visas i listan över säkerhetskopior.
 
       ![Gå till säkerhetskopieringskatalogen](./media/storsimple-8000-manage-backup-catalog/bucatalog1.png)
 
 ## <a name="select-a-backup-set"></a>Välj en säkerhetskopia
-Utför följande steg för att välja en säkerhetskopia för en volym eller en princip för säkerhetskopiering.
+Slutför följande steg för att välja en säkerhetskopia för en volym- eller säkerhetskopieringsprincip.
 
-#### <a name="to-select-a-backup-set"></a>Att välja en säkerhetskopia
-1. Gå till StorSimple Device Manager-tjänsten och klicka på **säkerhetskopieringskatalog**.
-2. Filtrera valen på följande sätt:
+#### <a name="to-select-a-backup-set"></a>Så här väljer du en säkerhetskopia
+1. Gå till tjänsten StorSimple Device Manager och klicka på **Säkerhetskopieringskatalog**.
+2. Filtrera markeringarna enligt följande:
    
    1. Ange tidsintervallet. 
-   2. Välj rätt enhet. 
-   3. Filtrera efter volym eller backup-principen för säkerhetskopian som du vill välja.
-   4. Klicka på **tillämpa** att köra frågan.
+   2. Välj lämplig enhet. 
+   3. Filtrera efter volym- eller säkerhetskopieringsprincip för den säkerhetskopia som du vill välja.
+   4. Klicka på **Använd** för att köra den här frågan.
       
-      Säkerhetskopiorna som är associerade med den valda volymen eller princip för säkerhetskopiering ska visas i listan över säkerhetskopieringsuppsättningar.
+      De säkerhetskopior som är associerade med den valda volym- eller säkerhetskopieringsprincipen ska visas i listan över säkerhetskopior.
 
       ![Gå till säkerhetskopieringskatalogen](./media/storsimple-8000-manage-backup-catalog/bucatalog1.png)
 
-3. Markera och utöka en säkerhetskopia. Du kan nu se de säkerhetskopior som är fördelade på de volymer som den innehåller. Den **återställa** och **ta bort** alternativ är tillgängliga via snabbmenyn (högerklicka) för säkerhetskopian. Du kan utföra någon av dessa åtgärder på den säkerhetskopia som du har valt.
+3. Markera och expandera en säkerhetskopia. Du kan nu se säkerhetskopieringsuppsättningarna uppdelade efter de volymer som den innehåller. Alternativen **Återställ** och **ta bort** är tillgängliga via snabbmenyn (högerklicka) för säkerhetskopian. Du kan utföra någon av dessa åtgärder på säkerhetskopian som du har valt.
 
     ![Gå till säkerhetskopieringskatalogen](./media/storsimple-8000-manage-backup-catalog/bucatalog2.png)
 
 ## <a name="delete-a-backup-set"></a>Ta bort en säkerhetskopia
-Ta bort en säkerhetskopia när du inte längre vill behålla data som är associerade med den. Utför följande steg för att ta bort en säkerhetskopia.
+Ta bort en säkerhetskopia när du inte längre vill behålla de data som är associerade med den. Gör följande för att ta bort en säkerhetskopia.
 
-#### <a name="to-delete-a-backup-set"></a>Att ta bort en säkerhetskopia
- Gå till StorSimple Device Manager-tjänsten och klicka på **säkerhetskopieringskatalog**.
-1. Filtrera valen på följande sätt:
+#### <a name="to-delete-a-backup-set"></a>Så här tar du bort en säkerhetskopia
+ Gå till tjänsten StorSimple Device Manager och klicka på **Säkerhetskopieringskatalog**.
+1. Filtrera markeringarna enligt följande:
    
    1. Ange tidsintervallet. 
-   2. Välj rätt enhet. 
-   3. Filtrera efter volym eller backup-principen för säkerhetskopian som du vill välja.
-   4. Klicka på **tillämpa** att köra frågan.
+   2. Välj lämplig enhet. 
+   3. Filtrera efter volym- eller säkerhetskopieringsprincip för den säkerhetskopia som du vill välja.
+   4. Klicka på **Använd** för att köra den här frågan.
       
-      Säkerhetskopiorna som är associerade med den valda volymen eller princip för säkerhetskopiering ska visas i listan över säkerhetskopieringsuppsättningar.
+      De säkerhetskopior som är associerade med den valda volym- eller säkerhetskopieringsprincipen ska visas i listan över säkerhetskopior.
 
       ![Gå till säkerhetskopieringskatalogen](./media/storsimple-8000-manage-backup-catalog/bucatalog1.png)
 
-1. Markera och utöka en säkerhetskopia. Du kan nu se de säkerhetskopior som är fördelade på de volymer som den innehåller. Den **återställa** och **ta bort** alternativ är tillgängliga via snabbmenyn (högerklicka) för säkerhetskopian. Högerklicka på den valda säkerhetskopian och på snabbmenyn väljer **ta bort**.
+1. Markera och expandera en säkerhetskopia. Du kan nu se säkerhetskopieringsuppsättningarna uppdelade efter de volymer som den innehåller. Alternativen **Återställ** och **ta bort** är tillgängliga via snabbmenyn (högerklicka) för säkerhetskopian. Högerklicka på den markerade säkerhetskopian och välj **Ta bort**på snabbmenyn .
 
     ![Gå till säkerhetskopieringskatalogen](./media/storsimple-8000-manage-backup-catalog/bucatalog3.png)
 
-1. När du uppmanas att bekräfta granska informationen som visas och klicka på **ta bort**. Den valda säkerhetskopian tas bort permanent.
+1. När du uppmanas att bekräfta, granska den visade informationen och klicka på **Ta bort**. Den valda säkerhetskopian tas bort permanent.
 
     ![Gå till säkerhetskopieringskatalogen](./media/storsimple-8000-manage-backup-catalog/bucatalog4.png)  
 
-1. Du meddelas när borttagningen är pågående och när den har slutförts. När borttagningen är klar kan du uppdatera frågan på den här sidan. Den borttagna säkerhetskopierade visas inte längre i listan över säkerhetskopior.
+1. Du får ett meddelande när borttagningen pågår och när den har slutförts. När borttagningen är klar uppdaterar du frågan på den här sidan. Den borttagna säkerhetskopian visas inte längre i listan över säkerhetskopior.
 
     ![Gå till säkerhetskopieringskatalogen](./media/storsimple-8000-manage-backup-catalog/bucatalog7.png)
 
 ## <a name="next-steps"></a>Nästa steg
-* Lär dig hur du [använda säkerhetskopieringskatalogen för att återställa din enhet från en säkerhetskopia](storsimple-8000-restore-from-backup-set-u2.md).
-* Lär dig hur du [använda StorSimple Device Manager-tjänsten för att administrera din StorSimple-enhet](storsimple-8000-manager-service-administration.md).
+* Lär dig hur du [använder säkerhetskopieringskatalogen för att återställa enheten från en säkerhetskopia](storsimple-8000-restore-from-backup-set-u2.md).
+* Lär dig hur du [använder Tjänsten StorSimple Device Manager för att administrera din StorSimple-enhet](storsimple-8000-manager-service-administration.md).
 

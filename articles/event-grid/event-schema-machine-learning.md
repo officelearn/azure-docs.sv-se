@@ -1,6 +1,6 @@
 ---
-title: Händelse schema för Azure Event Grid Machine Learning
-description: Beskriver de egenskaper som har angetts för Machine Learning-arbetsyta händelser med Azure Event Grid
+title: Evenemangsschema för Azure Event Grid Machine Learning
+description: Beskriver de egenskaper som tillhandahålls för Machine Learning Workspace-händelser med Azure Event Grid
 services: event-grid
 author: jenns
 ms.service: event-grid
@@ -8,37 +8,37 @@ ms.topic: reference
 ms.date: 10/18/2019
 ms.author: jenns
 ms.openlocfilehash: 4051598a9abd787f6707e67a8c4dab12fc6d626a
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79202152"
 ---
-# <a name="azure-event-grid-event-schema-for-azure-machine-learning"></a>Azure Event Grid händelse schema för Azure Machine Learning
+# <a name="azure-event-grid-event-schema-for-azure-machine-learning"></a>Azure Event Grid-händelseschema för Azure Machine Learning
 
-Den här artikeln innehåller egenskaper och schema för händelser i Machine Learning-arbetsytan. En introduktion till händelse scheman finns i [Azure Event Grid händelse schema](event-schema.md).
+Den här artikeln innehåller egenskaper och schema för maskininlärningsarbetsytahändelser. En introduktion till händelsescheman finns i [Azure Event Grid-händelseschema](event-schema.md).
 
-En lista över exempel på skript och självstudier finns i [händelse källan för azureml](event-sources.md#azure-machine-learning).
+En lista över exempelskript och självstudier finns i [AzureML-händelsekälla](event-sources.md#azure-machine-learning).
 
-## <a name="available-event-types"></a>Tillgängliga händelse typer
+## <a name="available-event-types"></a>Tillgängliga händelsetyper
 
-Azure Machine Learning avger följande händelse typer:
+Azure Machine Learning avger följande händelsetyper:
 
-| eventType | Beskrivning |
+| Händelsetyp | Beskrivning |
 | ---------- | ----------- |
-| Microsoft. MachineLearningServices. ModelRegistered | Utlöses när en ny modell eller modell version har registrerats. |
-| Microsoft. MachineLearningServices. ModelDeployed | Utlöses när modell (er) har distribuerats till en slut punkt. |
-| Microsoft. MachineLearningServices. RunCompleted | Utlöses när en körning har slutförts. |
-| Microsoft. MachineLearningServices. DatasetDriftDetected | Utlöses när en data uppsättnings drivgarn identifierar driften. |
-| Microsoft. MachineLearningServices. RunStatusChanged | Utlöses när en körnings status ändras till "misslyckades". |
+| Microsoft.MachineLearningServices.ModelRegistrerad | Utlöses när en ny modell eller modellversion har registrerats. |
+| Microsoft.MachineLearningServices.ModelDeployed | Utlöses när modeller har distribuerats till en slutpunkt. |
+| Microsoft.MachineLearningServices.RunCompleted | Utlöses när en körning har slutförts. |
+| Microsoft.MachineLearningServices.DatasetDriftDetected | Utlöses när en Dataset drift monitor upptäcker drift. |
+| Microsoft.MachineLearningServices.RunStatusChanged Microsoft.MachineLearningServices.RunStatusChanged Microsoft.MachineLearningServices.RunStatusChanged Microsoft. | Utlöses när en körningsstatus ändras till "misslyckades". |
 
-## <a name="the-contents-of-an-event-response"></a>Innehållet i ett händelse svar
+## <a name="the-contents-of-an-event-response"></a>Innehållet i ett händelsesvar
 
-När en händelse utlöses skickar Event Grid-tjänsten data om händelsen för att prenumerera på slut punkten.
+När en händelse utlöses skickar tjänsten Event Grid data om händelsen för att prenumerera på slutpunkten.
 
-Det här avsnittet innehåller ett exempel på hur data ska se ut för varje händelse.
+Det här avsnittet innehåller ett exempel på hur dessa data skulle se ut för varje händelse.
 
-### <a name="microsoftmachinelearningservicesmodelregistered-event"></a>Microsoft. MachineLearningServices. ModelRegistered-händelse
+### <a name="microsoftmachinelearningservicesmodelregistered-event"></a>Microsoft.MachineLearningServices.ModelRegistrerad händelse
 
 ```json
 [{
@@ -63,7 +63,7 @@ Det här avsnittet innehåller ett exempel på hur data ska se ut för varje hä
 }]
 ```
 
-### <a name="microsoftmachinelearningservicesmodeldeployed-event"></a>Microsoft. MachineLearningServices. ModelDeployed-händelse
+### <a name="microsoftmachinelearningservicesmodeldeployed-event"></a>Microsoft.MachineLearningServices.ModelDeployed händelse
 
 ```json
 [{
@@ -89,7 +89,7 @@ Det här avsnittet innehåller ett exempel på hur data ska se ut för varje hä
 }]
 ```
 
-### <a name="microsoftmachinelearningservicesruncompleted-event"></a>Microsoft. MachineLearningServices. RunCompleted-händelse
+### <a name="microsoftmachinelearningservicesruncompleted-event"></a>Microsoft.MachineLearningServices.RunCompleted-händelse
 
 ```json
 [{
@@ -125,7 +125,7 @@ Det här avsnittet innehåller ett exempel på hur data ska se ut för varje hä
 }]
 ```
 
-### <a name="microsoftmachinelearningservicesdatasetdriftdetected-event"></a>Microsoft. MachineLearningServices. DatasetDriftDetected-händelse
+### <a name="microsoftmachinelearningservicesdatasetdriftdetected-event"></a>Microsoft.MachineLearningServices.DatasetDriftDetected händelse
 
 ```json
 [{
@@ -149,7 +149,7 @@ Det här avsnittet innehåller ett exempel på hur data ska se ut för varje hä
 }]
 ```
 
-### <a name="microsoftmachinelearningservicesrunstatuschanged-event"></a>Microsoft. MachineLearningServices. RunStatusChanged-händelse
+### <a name="microsoftmachinelearningservicesrunstatuschanged-event"></a>Microsoft.MachineLearningServices.RunStatusChanged händelse
 
 ```json
 [{
@@ -189,81 +189,81 @@ Det här avsnittet innehåller ett exempel på hur data ska se ut för varje hä
 
 
 
-## <a name="event-properties"></a>Händelse egenskaper
+## <a name="event-properties"></a>Händelseegenskaper
 
-En händelse har följande data på översta nivån:
-
-| Egenskap | Typ | Beskrivning |
-| -------- | ---- | ----------- |
-| ämne | sträng | Fullständig resurs Sök väg till händelse källan. Det går inte att skriva till det här fältet. Event Grid ger det här värdet. |
-| subject | sträng | Publisher-definierad sökväg till händelsens ämne. |
-| eventType | sträng | En av de registrerade händelse typerna för den här händelse källan. |
-| eventTime | sträng | Tiden då händelsen genereras baserat på providerns UTC-tid. |
-| id | sträng | Unikt ID för händelsen. |
-| data | objekt | Händelse data för Blob Storage. |
-| dataVersion | sträng | Data objektets schema version. Utgivaren definierar schema versionen. |
-| metadataVersion | sträng | Schema versionen för händelsens metadata. Event Grid definierar schemat för de högsta nivå egenskaperna. Event Grid ger det här värdet. |
-
-Data-objektet har följande egenskaper för varje händelse typ:
-
-### <a name="microsoftmachinelearningservicesmodelregistered"></a>Microsoft. MachineLearningServices. ModelRegistered
+En händelse har följande data på den högsta nivån:
 
 | Egenskap | Typ | Beskrivning |
 | -------- | ---- | ----------- |
-| ModelName | sträng | Namnet på den modell som har registrerats. |
-| ModelVersion | sträng | Den version av modellen som har registrerats. |
-| ModelTags | objekt | Taggarna för den modell som har registrerats. |
-| ModelProperties | objekt | Egenskaperna för den modell som har registrerats. |
+| ämne | sträng | Fullständig resurssökväg till händelsekällan. Det här fältet kan inte skrivas. Event Grid ger det här värdet. |
+| Ämne | sträng | Utgivardefinierad sökväg till händelseobjektet. |
+| Händelsetyp | sträng | En av de registrerade händelsetyperna för den här händelsekällan. |
+| Händelsetid | sträng | Den tid som händelsen genereras baserat på leverantörens UTC-tid. |
+| id | sträng | Unik identifierare för händelsen. |
+| data | objekt | Händelsedata för bloblagring. |
+| Dataversion | sträng | Dataobjektets schemaversion. Utgivaren definierar schemaversion. |
+| Metadataversion | sträng | Schemaversionen av händelsens metadata. Event Grid definierar schemat för de översta egenskaperna. Event Grid ger det här värdet. |
 
-### <a name="microsoftmachinelearningservicesmodeldeployed"></a>Microsoft. MachineLearningServices. ModelDeployed
+Dataobjektet har följande egenskaper för varje händelsetyp:
+
+### <a name="microsoftmachinelearningservicesmodelregistered"></a>Microsoft.MachineLearningServices.ModelRegistrerad
+
+| Egenskap | Typ | Beskrivning |
+| -------- | ---- | ----------- |
+| ModelName | sträng | Namnet på modellen som registrerades. |
+| ModellVersion | sträng | Den version av modellen som registrerades. |
+| ModelTags (ModellTaggar) | objekt | Taggarna för modellen som registrerades. |
+| ModellEgenskaper | objekt | Egenskaperna för modellen som registrerades. |
+
+### <a name="microsoftmachinelearningservicesmodeldeployed"></a>Microsoft.MachineLearningServices.ModelDeployed
 
 | Egenskap | Typ | Beskrivning |
 | -------- | ---- | ----------- |
 | ServiceName | sträng | Namnet på den distribuerade tjänsten. |
-| ServiceComputeType | sträng | Compute-typen (t. ex. ACI, AKS) för den distribuerade tjänsten. |
-  | ModelIds | sträng | En kommaavgränsad lista med modell-ID: n. ID: na för de modeller som distribueras i tjänsten. |
-| ServiceTags | objekt | Den distribuerade tjänstens taggar. |
-| ServiceProperties | objekt | Egenskaperna för den distribuerade tjänsten. |
+| ServiceComputeType | sträng | Beräkningstypen (t.ex. |
+  | ModelIds (Modellera) | sträng | En kommaavgränsad lista över modell-ID: er. ID:erna för de modeller som distribueras i tjänsten. |
+| ServiceTaggar | objekt | Taggarna för den distribuerade tjänsten. |
+| ServiceEgenskaper | objekt | Egenskaperna för den distribuerade tjänsten. |
 
-### <a name="microsoftmachinelearningservicesruncompleted"></a>Microsoft. MachineLearningServices. RunCompleted
-
-| Egenskap | Typ | Beskrivning |
-| -------- | ---- | ----------- |
-| ExperimentId | sträng | ID för experimentet som körningen tillhör. |
-| ExperimentName | sträng | Namnet på experimentet som körningen tillhör. |
-| RunId | sträng | ID för körningen som har slutförts. |
-| RunType | sträng | Körnings typen för den slutförda körningen. |
-| RunTags | objekt | Taggarna för den slutförda körningen. |
-| RunProperties | objekt | Egenskaperna för den slutförda körningen. |
-
-### <a name="microsoftmachinelearningservicesdatasetdriftdetected"></a>Microsoft. MachineLearningServices. DatasetDriftDetected
+### <a name="microsoftmachinelearningservicesruncompleted"></a>Microsoft.MachineLearningServices.RunCompleted
 
 | Egenskap | Typ | Beskrivning |
 | -------- | ---- | ----------- |
-| DataDriftId | sträng | ID för data avvikelse övervakaren som utlöste händelsen. |
-| DataDriftName | sträng | Namnet på den data avvikelse Övervakare som utlöste händelsen. |
-| RunId | sträng | ID: t för den körning som identifierade data drift. |
-| BaseDatasetId | sträng | ID för bas data uppsättningen som används för att identifiera driften. |
-| TargetDatasetId | sträng | ID: t för den mål data uppsättning som används för att identifiera driften. |
-| DriftCoefficient | double | Det koefficients resultat som utlöste händelsen. |
-| StartTime | datetime | Start tiden för den mål data uppsättnings tids serie som ledde till drifts identifiering.  |
-| EndTime | datetime | Slut tiden för mål data uppsättningens tids serier som ledde till drifts identifiering. |
+| ExperimentId (På) | sträng | ID:et för experimentet som körningen tillhör. |
+| ExperimentName (ExperimentName) | sträng | Namnet på experimentet som körningen tillhör. |
+| RunId (på) | sträng | ID:et för körningen som slutfördes. |
+| RunType (olikartade) | sträng | Körningstypen för den slutförda körningen. |
+| RunTags (kör) | objekt | Taggarna för den slutförda körningen. |
+| RunProperties (Lö tillbakaEgenskaper) | objekt | Egenskaperna för den slutförda körningen. |
 
-### <a name="microsoftmachinelearningservicesrunstatuschanged"></a>Microsoft. MachineLearningServices. RunStatusChanged
+### <a name="microsoftmachinelearningservicesdatasetdriftdetected"></a>Microsoft.MachineLearningServices.DatasetDriftDetected
 
 | Egenskap | Typ | Beskrivning |
 | -------- | ---- | ----------- |
-| ExperimentId | sträng | ID för experimentet som körningen tillhör. |
-| ExperimentName | sträng | Namnet på experimentet som körningen tillhör. |
-| RunId | sträng | ID för körningen som har slutförts. |
-| RunType | sträng | Körnings typen för den slutförda körningen. |
-| RunTags | objekt | Taggarna för den slutförda körningen. |
-| RunProperties | objekt | Egenskaperna för den slutförda körningen. |
-| RunStatus | sträng | Status för körningen. |
+| DataDriftId (DataDriftId) | sträng | ID:t för dataavdriftövervakaren som utlöste händelsen. |
+| DataDriftName | sträng | Namnet på dataavdrift övervakaren som utlöste händelsen. |
+| RunId (på) | sträng | ID:et för körningen som identifierade data driver. |
+| BaseDatasetId | sträng | ID:n för basdatauppsättningen som används för att identifiera drift. |
+| TargetDatasetId | sträng | ID för målet Dataset som används för att identifiera drift. |
+| DriftKoefficient | double | Koefficientens resultat som utlöste händelsen. |
+| StartTime | datetime | Starttiden för måldatauppsättningens tidsserier som resulterade i driftidentifiering.  |
+| EndTime | datetime | Sluttiden för måldatauppsättningens tidsserier som resulterade i driftidentifiering. |
+
+### <a name="microsoftmachinelearningservicesrunstatuschanged"></a>Microsoft.MachineLearningServices.RunStatusChanged Microsoft.MachineLearningServices.RunStatusChanged Microsoft.MachineLearningServices.RunStatusChanged Microsoft.
+
+| Egenskap | Typ | Beskrivning |
+| -------- | ---- | ----------- |
+| ExperimentId (På) | sträng | ID:et för experimentet som körningen tillhör. |
+| ExperimentName (ExperimentName) | sträng | Namnet på experimentet som körningen tillhör. |
+| RunId (på) | sträng | ID:et för körningen som slutfördes. |
+| RunType (olikartade) | sträng | Körningstypen för den slutförda körningen. |
+| RunTags (kör) | objekt | Taggarna för den slutförda körningen. |
+| RunProperties (Lö tillbakaEgenskaper) | objekt | Egenskaperna för den slutförda körningen. |
+| Körstatus | sträng | Status för körningen. |
 
 ## <a name="next-steps"></a>Nästa steg
 
-* En introduktion till Azure Event Grid finns i [Vad är event Grid?](overview.md)
-* Mer information om hur du skapar en Azure Event Grid-prenumeration finns i [Event Grid prenumerations schema](subscription-creation-schema.md)
-* En introduktion till att använda Azure Event Grid med Azure Machine Learning finns i [använda Azure Machine Learning händelser](/azure/machine-learning/service/concept-event-grid-integration)
-* Ett exempel på hur du använder Azure Event Grid med Azure Machine Learning finns i [Skapa event drived Machine Learning-arbetsflöden](/azure/machine-learning/service/how-to-use-event-grid)
+* En introduktion till Azure Event Grid finns i [Vad är Event Grid?](overview.md)
+* Mer information om hur du skapar en Azure Event Grid-prenumeration finns i [Prenumerationsschema för Event Grid](subscription-creation-schema.md)
+* En introduktion till hur du använder Azure Event Grid med Azure Machine Learning finns [i Använda Azure Machine Learning-händelser](/azure/machine-learning/service/concept-event-grid-integration)
+* Ett exempel på hur du använder Azure Event Grid med Azure Machine Learning finns i [Skapa händelsedrivna maskininlärningsarbetsflöden](/azure/machine-learning/service/how-to-use-event-grid)

@@ -1,6 +1,6 @@
 ---
-title: Dehydratisera BLOB-data från Arkiv lag rings nivå
-description: Gör om dina blobbar från Arkiv lag ring så att du kan komma åt data.
+title: Rehydrera blobdata från arkivnivån
+description: Rehydrera dina blobbar från arkivlagring så att du kan komma åt data.
 services: storage
 author: mhopkins-msft
 ms.author: mhopkins
@@ -10,68 +10,68 @@ ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: hux
 ms.openlocfilehash: 0a7012d9daa808933a51ac05862a8a9aa4cfcf77
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77614803"
 ---
-# <a name="rehydrate-blob-data-from-the-archive-tier"></a>Dehydratisera BLOB-data från Arkiv lag rings nivå
+# <a name="rehydrate-blob-data-from-the-archive-tier"></a>Rehydrera blobdata från arkivnivån
 
-När en BLOB finns i Arkiv åtkomst nivån anses den vara offline och kan inte läsas eller ändras. BLOB-metadata är online och tillgängliga, så att du kan lista bloben och dess egenskaper. Läsning och ändring av BLOB-data är bara tillgängligt med online-nivåer som frekvent eller låg frekvent. Det finns två alternativ för att hämta och komma åt data som lagras i Arkiv åtkomst nivån.
+Medan en blob finns på arkivåtkomstnivån betraktas den som offline och kan inte läsas eller ändras. Blobmetadata är fortfarande online och tillgängliga, så att du kan lista blob och dess egenskaper. Läsa och ändra blob-data är endast tillgängligt med onlinenivåer som heta eller svala. Det finns två alternativ för att hämta och komma åt data som lagras på arkivåtkomstnivån.
 
-1. [Dehydratiserar en arkiverad blob till en online-nivå](#rehydrate-an-archived-blob-to-an-online-tier) – reserverar en Arkiv-blob till frekvent eller låg frekvent genom att ändra dess nivå med hjälp av åtgärden [Ange BLOB-nivå](https://docs.microsoft.com/rest/api/storageservices/set-blob-tier) .
-2. [Kopiera en arkiverad blob till en online-nivå](#copy-an-archived-blob-to-an-online-tier) – skapa en ny kopia av en Arkiv-BLOB med hjälp av åtgärden [Kopiera BLOB](https://docs.microsoft.com/rest/api/storageservices/copy-blob) . Ange ett annat BLOB-namn och en mål nivå för frekvent eller låg frekvent.
+1. [Rehydrera en arkiverad blob till en online-nivå](#rehydrate-an-archived-blob-to-an-online-tier) - Rehydrera en arkivblob för att vara varm eller cool genom att ändra sin nivå med hjälp av åtgärden [Ange Blob-nivå.](https://docs.microsoft.com/rest/api/storageservices/set-blob-tier)
+2. [Kopiera en arkiverad blob till en onlinenivå](#copy-an-archived-blob-to-an-online-tier) – Skapa en ny kopia av en arkivblob med hjälp av åtgärden [Kopiera blob.](https://docs.microsoft.com/rest/api/storageservices/copy-blob) Ange ett annat blob-namn och en målnivå för frekvent eller cool.
 
- Mer information om nivåer finns i [Azure Blob Storage: frekvent åtkomst, låg frekvent åtkomst och Arkiv](storage-blob-storage-tiers.md)lag rings nivåer.
+ Mer information om nivåer finns i [Azure Blob storage: hot, cool och archive access tiers](storage-blob-storage-tiers.md).
 
-## <a name="rehydrate-an-archived-blob-to-an-online-tier"></a>Retorkade en arkiverad blob till en onlinenivå
+## <a name="rehydrate-an-archived-blob-to-an-online-tier"></a>Rehydrera en arkiverad blob till en onlinenivå
 
 [!INCLUDE [storage-blob-rehydration](../../../includes/storage-blob-rehydrate-include.md)]
 
-## <a name="copy-an-archived-blob-to-an-online-tier"></a>Kopiera en arkiverad blob till en onlinenivå
+## <a name="copy-an-archived-blob-to-an-online-tier"></a>Kopiera en arkiverad blob till onlinenivå
 
-Om du inte vill skapa en nytorkad Arkiv-BLOB kan du välja att göra en [kopierings-BLOB](https://docs.microsoft.com/rest/api/storageservices/copy-blob) -åtgärd. Den ursprungliga blobben förblir oförändrad i arkivet medan en ny BLOB skapas på låg frekvent eller låg frekvent nivå så att du kan arbeta med. I åtgärden Kopiera BLOB kan du också ange den valfria egenskapen *x-MS-rehydratiserat-Priority* till standard eller hög (för hands version) för att ange den prioritet som du vill att din BLOB-kopia ska skapas i.
+Om du inte vill rehydrera arkivbloben kan du välja att utföra en [kopiera blob-åtgärd.](https://docs.microsoft.com/rest/api/storageservices/copy-blob) Den ursprungliga blobben förblir oförändrad i arkivet medan en ny blob skapas på den aktiva eller svala nivån online som du kan arbeta med. I åtgärden Kopiera blob kan du också ange egenskapen *x-ms-rehydrate-priority* till Standard eller Hög (förhandsversion) för att ange den prioritet som du vill att blob-kopian ska skapas.
 
-Arkiv-blobbar kan bara kopieras till mål nivåerna online inom samma lagrings konto. Det finns inte stöd för att kopiera en Arkiv-blob till en annan Archive-blob.
+Arkivblobar kan bara kopieras till målnivåer online inom samma lagringskonto. Det går inte att kopiera en arkivblob till en annan arkivblob.
 
-Det kan ta flera timmar att kopiera en BLOB från arkivet, beroende på vilken rehydratiserad prioritet som har valts. I bakgrunden läser **kopierings-BLOB** -åtgärden din Arkiv käll-BLOB för att skapa en ny online-BLOB på den valda mål nivån. Den nya blobben kan vara synlig när du listar blobbar, men data är inte tillgängliga förrän läsningen från källans Arkiv-BLOB har slutförts och data skrivs till den nya online-målcachen. Den nya blobben är som en oberoende kopia och eventuella ändringar eller borttagningar av den påverkar inte källans Arkiv-blob.
+Det kan ta timmar att kopiera en blob från arkivet beroende på vilken bördiga prioritet som valts. Bakom kulisserna läser **åtgärden Kopiera blob** din arkivkällblob för att skapa en ny onlineblob på den valda målnivån. Den nya blobben kan vara synlig när du listar blobbar men data är inte tillgängliga förrän läsningen från källarkivets blob är klar och data skrivs till den nya onlinemålblobben. Den nya blobben är som en oberoende kopia och alla ändringar eller borttagningar av den påverkar inte källarkivets blob.
 
 ## <a name="pricing-and-billing"></a>Priser och fakturering
 
-Återuppväcks blobs från arkivet till frekventa eller låg frekventa nivåer debiteras som Läs åtgärder och data hämtning. Användning av hög prioritet (för hands version) har högre kostnader för drift och data hämtning jämfört med standard prioritet. Hög prioritet ÅTERUPPVÄCKNING visas som ett separat rad objekt på fakturan. Om en begäran om hög prioritet för att returnera en Arkiv-blob av några få gigabyte tar över 5 timmar debiteras du inte den hög prioritets hämtnings takten. Dock gäller standard avgifter för hämtning fortfarande när ÅTERUPPVÄCKNING prioriteras för andra förfrågningar.
+Rehydrating blobbar från arkivet till heta eller kalla nivåer debiteras som läsåtgärder och datahämtning. Med hög prioritet (förhandsversion) har högre drift- och datahämtningskostnader jämfört med standardprioritet. Hög prioritet rehydrering dyker upp som en separat rad post på din faktura. Om en begäran med hög prioritet om att returnera en arkivblob på några gigabyte tar över 5 timmar debiteras du inte den högprioriterade hämtningshastigheten. Standardhämtningshastigheter gäller dock fortfarande eftersom rehydrering prioriterades framför andra begäranden.
 
-Att kopiera blobbar från arkivet till frekventa eller låg frekventa nivåer debiteras som Läs åtgärder och data hämtning. En Skriv åtgärd debiteras för att skapa den nya BLOB-kopian. Avgifter för tidig borttagning gäller inte när du kopierar till en online-BLOB eftersom käll-bloben förblir oförändrad på Arkiv nivån. Högprioriterade hämtnings avgifter gäller om de valts.
+Kopiering av blobbar från arkiv till heta eller kalla nivåer debiteras som läsåtgärder och datahämtning. En skrivåtgärd debiteras för att skapa den nya blob-kopian. Avgifter för tidig borttagning gäller inte när du kopierar till en onlineblolob eftersom källbloben förblir oförändrad på arkivnivån. Avgifter för hämtning med hög prioritet tillkommer om det här alternativet är markerat.
 
-Blobbar i Arkiv lag rings nivån lagras i minst 180 dagar. Om du tar bort eller återuppväcks arkiverade blobbar innan 180 dagar påförs avgifter för tidig borttagning.
+Blobbar i arkivnivån bör lagras i minst 180 dagar. Om du tar bort eller återfuktar arkiverade blobbar före 180 dagar kommer avgifter för tidig borttagning att tas bort.
 
 > [!NOTE]
-> Mer information om priser för block-blobar och data ÅTERUPPVÄCKNING finns [Azure Storage prissättning](https://azure.microsoft.com/pricing/details/storage/blobs/). Mer information om avgifter för utgående data överföringar finns i [pris uppgifter för data överföring](https://azure.microsoft.com/pricing/details/data-transfers/).
+> Mer information om priser för blockblobar och rehydrering av data finns i [Azure Storage Pricing](https://azure.microsoft.com/pricing/details/storage/blobs/). Mer information om utgående dataöverföringsavgifter finns i [Informationsöverföringar Prisinformation](https://azure.microsoft.com/pricing/details/data-transfers/).
 
 ## <a name="quickstart-scenarios"></a>Snabbstartsscenarier
 
-### <a name="rehydrate-an-archive-blob-to-an-online-tier"></a>Dehydratiserar en Arkiv-blob till en onlinenivå
-# <a name="portal"></a>[Portalen](#tab/azure-portal)
+### <a name="rehydrate-an-archive-blob-to-an-online-tier"></a>Rehydrera en arkivblob till en onlinenivå
+# <a name="portal"></a>[Portal](#tab/azure-portal)
 1. Logga in på [Azure-portalen](https://portal.azure.com).
 
-1. Sök efter och välj **alla resurser**i Azure Portal.
+1. Sök efter och välj **Alla resurser**i Azure-portalen .
 
 1. Välj ditt lagringskonto.
 
-1. Välj din behållare och välj sedan din BLOB.
+1. Markera din behållare och välj sedan din blob.
 
-1. I **BLOB-egenskaperna**väljer du **ändra nivå**.
+1. Välj **Ändra nivå**i **Blob-egenskaperna**.
 
-1. Välj frekvent **eller** låg **frekvent åtkomst nivå** . 
+1. Välj nivån **Hot** eller **Cool** access. 
 
-1. Välj en rehydratiserad prioritet på **standard** eller **hög**.
+1. Välj en rehydrerad prioritet för **standard** eller **hög**.
 
 1. Välj **Spara** längst ned.
 
-![Ändra lagrings konto nivå](media/storage-tiers/blob-access-tier.png)
+![Ändra lagringskontonivå](media/storage-tiers/blob-access-tier.png)
 
-# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
-Följande PowerShell-skript kan användas för att ändra BLOB-nivån för en Arkiv-blob. Variabeln `$rgName` måste initieras med resurs gruppens namn. `$accountName` variabeln måste initieras med ditt lagrings konto namn. `$containerName`-variabeln måste initieras med ditt container namn. `$blobName`-variabeln måste initieras med ditt BLOB-namn. 
+# <a name="powershell"></a>[Powershell](#tab/azure-powershell)
+Följande PowerShell-skript kan användas för att ändra blob-nivån för en arkivblob. Variabeln `$rgName` måste initieras med resursgruppsnamnet. Variabeln `$accountName` måste initieras med ditt lagringskontonamn. Variabeln `$containerName` måste initieras med ditt behållarnamn. Variabeln `$blobName` måste initieras med blobnamnet. 
 ```powershell
 #Initialize the following with your resource group, storage account, container, and blob names
 $rgName = ""
@@ -91,8 +91,8 @@ $blob.ICloudBlob.SetStandardBlobTier("Hot", “Standard”)
 ```
 ---
 
-### <a name="copy-an-archive-blob-to-a-new-blob-with-an-online-tier"></a>Kopiera en Arkiv-blob till en ny BLOB med en onlinenivå
-Följande PowerShell-skript kan användas för att kopiera en Arkiv-blob till en ny BLOB inom samma lagrings konto. Variabeln `$rgName` måste initieras med resurs gruppens namn. `$accountName` variabeln måste initieras med ditt lagrings konto namn. Variablerna `$srcContainerName` och `$destContainerName` måste initieras med dina behållar namn. Variablerna `$srcBlobName` och `$destBlobName` måste initieras med dina BLOB-namn. 
+### <a name="copy-an-archive-blob-to-a-new-blob-with-an-online-tier"></a>Kopiera en arkivblob till en ny blob med en onlinenivå
+Följande PowerShell-skript kan användas för att kopiera en arkivblob till en ny blob i samma lagringskonto. Variabeln `$rgName` måste initieras med resursgruppsnamnet. Variabeln `$accountName` måste initieras med ditt lagringskontonamn. `$srcContainerName` Variablerna `$destContainerName` och måste initieras med behållarnamnen. `$srcBlobName` Variablerna `$destBlobName` och måste initieras med blobnamnen. 
 ```powershell
 #Initialize the following with your resource group, storage account, container, and blob names
 $rgName = ""
@@ -110,9 +110,9 @@ $ctx = $storageAccount.Context
 Start-AzStorageBlobCopy -SrcContainer $srcContainerName -SrcBlob $srcBlobName -DestContainer $destContainerName -DestBlob $destBlobName -StandardBlobTier Hot -RehydratePriority Standard -Context $ctx
 ```
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 
-* [Lär dig mer om Blob Storage nivåer](storage-blob-storage-tiers.md)
+* [Läs mer om Blob Storage-nivåer](storage-blob-storage-tiers.md)
 * [Kontrollera priser för frekvent/lågfrekvent lagring och arkivlagring i Blob Storage-/GPv2-konton efter region](https://azure.microsoft.com/pricing/details/storage/)
 * [Hantera Azure Blob Storage-livscykeln](storage-lifecycle-management-concepts.md)
 * [Se priser för dataöverföring](https://azure.microsoft.com/pricing/details/data-transfers/)

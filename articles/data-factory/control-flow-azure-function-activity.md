@@ -1,6 +1,6 @@
 ---
-title: Azure Function-aktivitet i Azure Data Factory
-description: Lär dig hur du använder Azure Function-aktiviteten för att köra en Azure-funktion i en Data Factory pipeline
+title: Azure-funktionsaktivitet i Azure Data Factory
+description: Lär dig hur du använder Azure-funktionsaktiviteten för att köra en Azure-funktion i en Data Factory-pipeline
 services: data-factory
 documentationcenter: ''
 author: djpmsft
@@ -12,57 +12,57 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/09/2019
 ms.openlocfilehash: ffb610634399594788afcb9b600ba00c6803dfdd
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77207033"
 ---
-# <a name="azure-function-activity-in-azure-data-factory"></a>Azure Function-aktivitet i Azure Data Factory
+# <a name="azure-function-activity-in-azure-data-factory"></a>Azure-funktionsaktivitet i Azure Data Factory
 
-Med Azure Function-aktiviteten kan du köra [Azure Functions](../azure-functions/functions-overview.md) i en Data Factory pipeline. Om du vill köra en Azure-funktion måste du skapa en länkad tjänst anslutning och en aktivitet som anger den Azure-funktion som du vill köra.
+Med Azure-funktionsaktiviteten kan du köra [Azure-funktioner](../azure-functions/functions-overview.md) i en Data Factory-pipeline. Om du vill köra en Azure-funktion måste du skapa en länkad tjänstanslutning och en aktivitet som anger den Azure-funktion som du planerar att köra.
 
-I en åtta minuters introduktion och demonstration av den här funktionen kan du titta på följande video:
+För en åtta minuters introduktion och demonstration av den här funktionen, titta på följande video:
 
 > [!VIDEO https://channel9.msdn.com/shows/azure-friday/Run-Azure-Functions-from-Azure-Data-Factory-pipelines/player]
 
-## <a name="azure-function-linked-service"></a>Länkad Azure Function-tjänst
+## <a name="azure-function-linked-service"></a>Azure-funktionslänkade tjänst
 
-Retur typen för Azure-funktionen måste vara en giltig `JObject`. (Tänk på att [JArray](https://www.newtonsoft.com/json/help/html/T_Newtonsoft_Json_Linq_JArray.htm) *inte* är ett `JObject`.) Andra retur typer än `JObject` Miss lyckas och det går inte att skicka användar fel *svars innehållet är inte ett giltigt JObject*.
+Returtypen för Azure-funktionen måste `JObject`vara en giltig . (Tänk på att [JArray](https://www.newtonsoft.com/json/help/html/T_Newtonsoft_Json_Linq_JArray.htm) `JObject` *inte* är en .) Alla returtyper `JObject` som inte fungerar som den misslyckas och höjer användarfelet *Svarsinnehåll är inte ett giltigt JObject*.
 
-| **Egenskap** | **Beskrivning** | **Kunna** |
+| **Egenskap** | **Beskrivning** | **Obligatoriskt** |
 | --- | --- | --- |
-| typ   | Egenskapen Type måste anges till: **AzureFunction** | ja |
-| URL till Function-app | URL för Azure-Funktionsapp. Formatet är `https://<accountname>.azurewebsites.net`. URL: en är värdet under **URL** -avsnittet när du visar Funktionsapp i Azure Portal  | ja |
-| funktions nyckel | Åtkomst nyckel för Azure-funktionen. Klicka på **Hantera** -avsnittet för respektive funktion och kopiera antingen **funktions nyckeln** eller **värd nyckeln**. Läs mer här: [Azure Functions HTTP-utlösare och bindningar](../azure-functions/functions-bindings-http-webhook-trigger.md#authorization-keys) | ja |
+| typ   | Typegenskapen måste anges till: **AzureFunction** | ja |
+| url till funktionsapp | URL för Azure Function App. Formatet `https://<accountname>.azurewebsites.net`är . Den här URL:en är värdet under **URL-avsnittet** när du visar din funktionsapp i Azure-portalen  | ja |
+| funktionsnyckel | Åtkomstnyckel för Azure-funktionen. Klicka på avsnittet **Hantera** för respektive funktion och kopiera antingen **funktionsnyckeln** eller **värdnyckeln**. Läs mer här: [Azure Functions HTTP-utlösare och bindningar](../azure-functions/functions-bindings-http-webhook-trigger.md#authorization-keys) | ja |
 |   |   |   |
 
-## <a name="azure-function-activity"></a>Azure Function-aktivitet
+## <a name="azure-function-activity"></a>Azure-funktionsaktivitet
 
-| **Egenskap**  | **Beskrivning** | **Tillåtna värden** | **Kunna** |
+| **Egenskap**  | **Beskrivning** | **Tillåtna värden** | **Obligatoriskt** |
 | --- | --- | --- | --- |
-| namn  | Namn på aktiviteten i pipelinen  | Sträng | ja |
-| typ  | Typ av aktivitet är ' AzureFunctionActivity ' | Sträng | ja |
-| länkad tjänst | Den länkade Azure Function-tjänsten för motsvarande Azure-Funktionsapp  | Länkad tjänst referens | ja |
-| Funktions namn  | Namnet på funktionen i Azure-Funktionsapp som den här aktiviteten anropar | Sträng | ja |
-| metod  | REST API metod för funktions anropet | Strängar som stöds: "GET", "POST", "placera"   | ja |
-| sidhuvud  | Huvuden som skickas till begäran. Om du till exempel vill ange språk och typ på en begäran: "huvuden": {"Accept-language": "en-US", "innehålls typ": "Application/JSON"} | Sträng (eller uttryck med resultType för sträng) | Nej |
-| brödtext  | brödtext som skickas tillsammans med begäran till API-metoden för funktioner  | Sträng (eller uttryck med resultType för sträng) eller objekt.   | Krävs för metoder för att skicka/publicera |
+| namn  | Namnet på den verksamhet som är på gång  | String | ja |
+| typ  | Typ av aktivitet är "AzureFunctionActivity" | String | ja |
+| länkad tjänst | Azure-funktionslänkade tjänsten för motsvarande Azure Function App  | Länkad tjänstreferens | ja |
+| funktionsnamn  | Namnet på funktionen i Azure Function App som den här aktiviteten anropar | String | ja |
+| metod  | REST API-metod för funktionsanropet | Typer som stöds av sträng: "GET", "POST", "PUT"   | ja |
+| sidhuvud  | Rubriker som skickas till begäran. Om du till exempel vill ange språk och skriva på en begäran: "rubriker": { "Acceptera-språk": "en-us", "Content-Type": "application/json" } | Sträng (eller uttryck med resultType av sträng) | Inga |
+| body  | som skickas tillsammans med begäran till funktion api-metoden  | Sträng (eller uttryck med resultType av sträng) eller objekt.   | Krävs för PUT/POST-metoder |
 |   |   |   | |
 
-Se schemat för nytto lasten för begäran i [nytto Last schema](control-flow-web-activity.md#request-payload-schema) avsnittet.
+Se schemat för nyttolasten för begäran i  [schemaavsnittet Begär nyttolastschema.](control-flow-web-activity.md#request-payload-schema)
 
 ## <a name="routing-and-queries"></a>Routning och frågor
 
-Azure Function-aktiviteten stöder **routning**. Om din Azure-funktion exempelvis har slut punkten `https://functionAPP.azurewebsites.net/api/<functionName>/<value>?code=<secret>`, är `functionName` att använda i Azure Function-aktiviteten `<functionName>/<value>`. Du kan Parameterisera den här funktionen för att tillhandahålla önskad `functionName` vid körning.
+Azure-funktionsaktiviteten stöder **routning**. Om din Azure-funktion till exempel `https://functionAPP.azurewebsites.net/api/<functionName>/<value>?code=<secret>`har `functionName` slutpunkten är `<functionName>/<value>`att använda i Azure-funktionsaktiviteten . Du kan parameterisera den här `functionName` funktionen för att ge önskad vid körning.
 
-Azure Function-aktiviteten stöder också **frågor**. En fråga måste inkluderas som en del av `functionName`. Om funktions namnet till exempel är `HttpTriggerCSharp` och den fråga som du vill inkludera är `name=hello`, kan du skapa `functionName` i Azure Function-aktiviteten som `HttpTriggerCSharp?name=hello`. Den här funktionen kan vara parameterstyrda så att värdet kan fastställas vid körning.
+Azure-funktionsaktiviteten stöder också **frågor**. En fråga måste inkluderas som `functionName`en del av . Till `HttpTriggerCSharp` exempel när funktionsnamnet är och frågan som `name=hello`du vill ta `functionName` med är , `HttpTriggerCSharp?name=hello`kan du konstruera i Azure-funktionsaktiviteten som . Den här funktionen kan parameteriseras så att värdet kan bestämmas vid körning.
 
-## <a name="timeout-and-long-running-functions"></a>Tids gräns och tids krävande funktioner
+## <a name="timeout-and-long-running-functions"></a>Timeout och långvariga funktioner
 
-Azure Functions nådde tids gränsen efter 230 sekunder, oavsett `functionTimeout`s inställning som du har konfigurerat i inställningarna. Mer information finns i [den här artikeln](../azure-functions/functions-versions.md#timeout). Undvik det här problemet genom att följa ett asynkront mönster eller använda Durable Functions. Fördelen med Durable Functions är att de erbjuder sin egen tillstånds spårnings funktion så att du inte behöver implementera din egen.
+Azure Functions time out efter 230 `functionTimeout` sekunder oavsett den inställning du har konfigurerat i inställningarna. Mer information finns i [den här artikeln](../azure-functions/functions-versions.md#timeout). För att komma runt detta beteende, följ ett async mönster eller använda varaktiga funktioner. Fördelen med varaktiga funktioner är att de erbjuder sin egen tillståndsspårningsmekanism, så du behöver inte implementera din egen.
 
-Läs mer om Durable Functions i [den här artikeln](../azure-functions/durable/durable-functions-overview.md). Du kan konfigurera en Azure Function-aktivitet för att anropa en varaktig funktion som returnerar ett svar med en annan URI, till exempel [det här exemplet](../azure-functions/durable/durable-functions-http-features.md#http-api-url-discovery). Eftersom `statusQueryGetUri` returnerar HTTP-status 202 när funktionen körs, kan du avsöka funktionens status med hjälp av en webb aktivitet. Konfigurera bara en webb aktivitet med `url` fältet inställt på `@activity('<AzureFunctionActivityName>').output.statusQueryGetUri`. När den varaktiga funktionen har slutförts blir utdata från funktionen resultatet av webb aktiviteten.
+Läs mer om varaktiga funktioner i [den här artikeln](../azure-functions/durable/durable-functions-overview.md). Du kan ställa in en Azure-funktionsaktivitet för att anropa funktionen Varaktig funktion, som returnerar ett svar med en annan URI, till exempel [det här exemplet](../azure-functions/durable/durable-functions-http-features.md#http-api-url-discovery). Eftersom `statusQueryGetUri` returnerar HTTP-status 202 medan funktionen körs kan du avsöka funktionens status med hjälp av en webbaktivitet. Ställ bara in en `url` webbaktivitet `@activity('<AzureFunctionActivityName>').output.statusQueryGetUri`med fältet inställt på . När funktionen Varaktig funktion är klar kommer utdata för funktionen att vara utdata från webbaktiviteten.
 
 
 ## <a name="sample"></a>Exempel
@@ -71,4 +71,4 @@ Du kan hitta ett exempel på en Data Factory som använder en Azure-funktion fö
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig mer om aktiviteter i Data Factory i [pipelines och aktiviteter i Azure Data Factory](concepts-pipelines-activities.md).
+Läs mer om aktiviteter i Data Factory i [pipelines och aktiviteter i Azure Data Factory](concepts-pipelines-activities.md).

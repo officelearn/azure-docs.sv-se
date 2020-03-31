@@ -1,6 +1,6 @@
 ---
-title: Koppla en datadisk till en virtuell Linux-dator
-description: Använd portalen för att koppla en ny eller befintlig datadisk till en virtuell Linux-dator.
+title: Koppla en datadisk till en Virtuell Linux-dator
+description: Använd portalen för att koppla ny eller befintlig datadisk till en Virtuell Linux-dator.
 author: cynthn
 ms.service: virtual-machines-linux
 ms.topic: article
@@ -8,69 +8,69 @@ ms.date: 07/12/2018
 ms.author: cynthn
 ms.subservice: disks
 ms.openlocfilehash: 746cef8dfe026c731a677cbf77f729d36342f007
-ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/10/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78969362"
 ---
-# <a name="use-the-portal-to-attach-a-data-disk-to-a-linux-vm"></a>Använd portalen för att koppla en datadisk till en virtuell Linux-dator 
-Den här artikeln visar hur du ansluter både nya och befintliga diskar till en virtuell Linux-dator via Azure Portal. Du kan också [ansluta en datadisk till en virtuell Windows-dator i Azure Portal](../windows/attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
+# <a name="use-the-portal-to-attach-a-data-disk-to-a-linux-vm"></a>Använda portalen för att koppla en datadisk till en Virtuell Linux-dator 
+Den här artikeln visar hur du ansluter både nya och befintliga diskar till en virtuell Linux-dator via Azure-portalen. Du kan också [koppla en datadisk till en Windows-virtuell dator i Azure-portalen](../windows/attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
 
-Innan du kopplar diskar till din virtuella dator kan du läsa följande tips:
+Innan du bifogar diskar till den virtuella datorn läser du följande tips:
 
-* Storleken på den virtuella datorn styr hur många data diskar du kan koppla. Mer information finns i [storlekar för virtuella datorer](sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-* Diskar som är anslutna till virtuella datorer är faktiskt VHD-filer som lagras i Azure. Mer information finns i [Introduktion till Managed disks](managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-* När du har anslutit disken måste du [ansluta till den virtuella Linux-datorn för att montera den nya disken](#connect-to-the-linux-vm-to-mount-the-new-disk).
+* Storleken på den virtuella datorn styr hur många datadiskar du kan koppla. Mer information finns i [Storlekar för virtuella datorer](sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+* Diskar som är anslutna till virtuella datorer är i själva verket VHD-filer som lagras i Azure. Mer information finns i vår [Introduktion till hanterade diskar](managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+* När du har anslutit disken måste du [ansluta till Linux-vm för att montera den nya disken](#connect-to-the-linux-vm-to-mount-the-new-disk).
 
 
 ## <a name="find-the-virtual-machine"></a>Hitta den virtuella datorn
-1. Gå till [Azure Portal](https://portal.azure.com/) för att hitta den virtuella datorn. Sök efter och välj **virtuella datorer**.
+1. Gå till [Azure-portalen](https://portal.azure.com/) för att hitta den virtuella datorn. Sök efter och välj **Virtuella datorer**.
 2. Välj den virtuella datorn i listan.
-3. På sidan **Virtual Machines** Page ( **Inställningar**) väljer du **diskar**.
+3. Välj **Diskar**under **Inställningar**i sidpanelen **För virtuella datorer** .
    
-    ![Öppna disk inställningar](./media/attach-disk-portal/find-disk-settings.png)
+    ![Öppna diskinställningar](./media/attach-disk-portal/find-disk-settings.png)
 
 
-## <a name="attach-a-new-disk"></a>Koppla en ny disk
+## <a name="attach-a-new-disk"></a>Bifoga en ny disk
 
-1. Klicka på **+ Lägg till data disk**i fönstret **diskar** .
-2. Klicka på den nedrullningsbara menyn för **namn** och välj **skapa disk**:
+1. Klicka på **+ Lägg till datadisk i**fönstret **Diskar** .
+2. Klicka på den nedrullningsbara menyn för **Namn** och välj **Skapa disk:**
 
-    ![Skapa en Azure-hanterad disk](./media/attach-disk-portal/create-new-md.png)
+    ![Skapa Azure-hanterad disk](./media/attach-disk-portal/create-new-md.png)
 
-3. Ange ett namn för den hanterade disken. Granska standardinställningarna, uppdatera vid behov och klicka sedan på **skapa**.
+3. Ange ett namn på den hanterade disken. Granska standardinställningarna, uppdatera efter behov och klicka sedan på **Skapa**.
    
-   ![Granska disk inställningar](./media/attach-disk-portal/create-new-md-settings.png)
+   ![Granska diskinställningar](./media/attach-disk-portal/create-new-md-settings.png)
 
-4. Klicka på **Spara** för att skapa den hanterade disken och uppdatera konfigurationen för den virtuella datorn:
+4. Klicka på **Spara** om du vill skapa den hanterade disken och uppdatera vm-konfigurationen:
 
-   ![Spara ny Azure-hanterad disk](./media/attach-disk-portal/confirm-create-new-md.png)
+   ![Spara ny Hanterad Azure-disk](./media/attach-disk-portal/confirm-create-new-md.png)
 
-5. När Azure har skapat disken och bifogat den till den virtuella datorn visas den nya disken i den virtuella datorns disk inställningar under **data diskar**. Eftersom Managed disks är en resurs på den översta nivån visas disken i roten för resurs gruppen:
+5. När Azure har skapat disken och bifogat den till den virtuella datorn visas den nya disken i den virtuella datorns diskinställningar under **Datadiskar**. Eftersom hanterade diskar är en resurs på den högsta nivån visas disken i resursgruppens rot:
 
-   ![Azure-hanterad disk i resurs gruppen](./media/attach-disk-portal/view-md-resource-group.png)
+   ![Hanterad azure-disk i resursgrupp](./media/attach-disk-portal/view-md-resource-group.png)
 
 ## <a name="attach-an-existing-disk"></a>Ansluta en befintlig disk
-1. Klicka på **+ Lägg till data disk**i fönstret **diskar** .
-2. Klicka på den nedrullningsbara menyn för **namn** om du vill visa en lista över befintliga hanterade diskar som är tillgängliga för din Azure-prenumeration. Välj den hanterade disk som ska bifogas:
+1. Klicka på **+ Lägg till datadisk i**fönstret **Diskar** .
+2. Klicka på den nedrullningsliga menyn för **Namn** om du vill visa en lista över befintliga hanterade diskar som är tillgängliga för din Azure-prenumeration. Välj den hanterade disken som ska bifogas:
 
-   ![Bifoga befintlig Azure-hanterad disk](./media/attach-disk-portal/select-existing-md.png)
+   ![Koppla befintlig Azure-hanterad disk](./media/attach-disk-portal/select-existing-md.png)
 
-3. Klicka på **Spara** för att koppla den befintliga hanterade disken och uppdatera VM-konfigurationen:
+3. Klicka på **Spara** om du vill bifoga den befintliga hanterade disken och uppdatera vm-konfigurationen:
    
-   ![Spara uppdateringar för Azure Managed disk](./media/attach-disk-portal/confirm-attach-existing-md.png)
+   ![Spara Uppdateringar av Azure Managed Disk](./media/attach-disk-portal/confirm-attach-existing-md.png)
 
-4. När Azure har kopplat disken till den virtuella datorn visas den i den virtuella datorns disk inställningar under **data diskar**.
+4. När Azure har bifogat disken till den virtuella datorn visas den i den virtuella datorns diskinställningar under **Datadiskar**.
 
-## <a name="connect-to-the-linux-vm-to-mount-the-new-disk"></a>Ansluta till den virtuella Linux-datorn för att montera den nya disken
-För att partitionera, formatera och montera den nya disken så att din virtuella Linux-dator kan använda den, SSH i den virtuella datorn. Mer information finns i [Så här använder du SSH med Linux på Azure](mac-create-ssh-keys.md). Följande exempel ansluter till en virtuell dator med den offentliga DNS-posten för *mypublicdns.westus.cloudapp.Azure.com* med användar namnet *azureuser*: 
+## <a name="connect-to-the-linux-vm-to-mount-the-new-disk"></a>Anslut till Linux-vm för att montera den nya disken
+För att partitionera, formatera och montera din nya disk så att din Linux VM kan använda den, SSH i din virtuella dator. Mer information finns i [Så här använder du SSH med Linux på Azure](mac-create-ssh-keys.md). Följande exempel ansluter till en virtuell dator med den offentliga DNS-posten *för mypublicdns.westus.cloudapp.azure.com* med användarnamnet *azureuser:* 
 
 ```bash
 ssh azureuser@mypublicdns.westus.cloudapp.azure.com
 ```
 
-När du är ansluten till den virtuella datorn är du redo att ansluta en disk. Börja med att leta upp disken med `dmesg` (den metod som du använder för att identifiera den nya disken kan variera). I följande exempel används dmesg för att filtrera på *SCSI-* diskar:
+När du är ansluten till den virtuella datorn är du redo att ansluta en disk. Först, hitta disken med `dmesg` (den metod du använder för att upptäcka din nya disk kan variera). I följande exempel används dmesg för att filtrera på *SCSI-diskar:*
 
 ```bash
 dmesg | grep SCSI
@@ -89,18 +89,18 @@ Utdata ser ut ungefär så här:
 Här är *SDC* den disk som vi vill ha. 
 
 ### <a name="partition-a-new-disk"></a>Partitionera en ny disk
-Om du använder en befintlig disk som innehåller data kan du gå vidare till montera disken. Om du ansluter till en ny disk måste du partitionera disken.
+Om du använder en befintlig disk som innehåller data går du till att montera disken. Om du ansluter en ny disk måste du partitionera disken.
 
 > [!NOTE]
-> Vi rekommenderar att du använder de senaste versionerna av fdisk eller delar av som är tillgängliga för din distribution.
+> Vi rekommenderar att du använder de senaste versionerna av fdisk eller parted som är tillgängliga för din distribution.
 
-Partitionera disken med `fdisk`. Om disk storleken är 2 tebibyte (TiB) eller större måste du använda GPT-partitionering, men du kan använda `parted` för att utföra GPT-partitionering. Om disk storleken är under 2TiB kan du använda antingen MBR-eller GPT-partitionering. Gör den till en primär disk på partition 1 och godkänn de andra standardvärdena. I följande exempel startar processen `fdisk` på */dev/SDC*:
+Partitionera disken med `fdisk`. Om diskstorleken är 2 tebibyte (TiB) eller större måste du `parted` använda GPT-partitionering, du kan använda för att utföra GPT-partitionering. Om diskstorleken är under 2TiB kan du använda antingen MBR- eller GPT-partitionering. Gör den till en primär disk på partition 1 och acceptera de andra standardinställningarna. I följande exempel `fdisk` startar processen på */dev/sdc:*
 
 ```bash
 sudo fdisk /dev/sdc
 ```
 
-Använd `n`-kommandot för att lägga till en ny partition. I det här exemplet väljer vi också `p` för en primär partition och accepterar resten av standardvärdena. Utdata ser ut ungefär som i följande exempel:
+Använd kommandot `n` för att lägga till en ny partition. I det här exemplet `p` väljer vi också för en primär partition och accepterar resten av standardvärdena. Utdatan blir något som liknar följande exempel:
 
 ```bash
 Device contains neither a valid DOS partition table, nor Sun, SGI or OSF disklabel
@@ -122,7 +122,7 @@ Last sector, +sectors or +size{K,M,G} (2048-10485759, default 10485759):
 Using default value 10485759
 ```
 
-Skriv ut partitionstabellen genom att skriva `p` och Använd `w` för att skriva tabellen till disk och avsluta. Utdata bör se ut ungefär som i följande exempel:
+Skriv ut partitionstabellen genom att `p` skriva och använd `w` sedan för att skriva tabellen till disk och avsluta. Utdata bör se ut ungefär som följande exempel:
 
 ```bash
 Command (m for help): p
@@ -144,7 +144,7 @@ Calling ioctl() to re-read partition table.
 Syncing disks.
 ```
 
-Skriv nu ett fil system till partitionen med kommandot `mkfs`. Ange fil Systems typ och enhets namn. I följande exempel skapas ett *ext4* -filsystem på den */dev/sdc1* -partition som skapades i föregående steg:
+Nu skriver du ett filsystem `mkfs` till partitionen med kommandot. Ange filsystemtypen och enhetsnamnet. I följande exempel skapas ett *ext4-filsystem* på partitionen */dev/sdc1* som skapades i föregående steg:
 
 ```bash
 sudo mkfs -t ext4 /dev/sdc1
@@ -175,34 +175,34 @@ Creating journal (32768 blocks): done
 Writing superblocks and filesystem accounting information: done
 ```
 
-#### <a name="alternate-method-using-parted"></a>Alternativ metod med hjälp av del
-FDISK-verktyget behöver interaktiva ingångar och är därför inte perfekt för användning i Automation-skript. Men [det går att skriva](https://www.gnu.org/software/parted/) skript för det verktyg som används, och därför lämpar sig självt bättre i automatiserings scenarier. Det delvis använda verktyget kan användas för att partitionera och formatera en datadisk. I genom gången nedan använder vi en ny datadisk/dev/SDC och formaterar den med hjälp av [xfs](https://xfs.wiki.kernel.org/) -fil systemet.
+#### <a name="alternate-method-using-parted"></a>Alternativ metod med hjälp av skildes
+Den fdisk verktyget behöver interaktiv input och därmed är inte idealisk för användning inom automation skript. Det [skildes](https://www.gnu.org/software/parted/) verktyget kan skript och därmed lämpar sig bättre i automatisering scenarier. Det avdelade verktyget kan användas för att partitionera och formatera en datadisk. För genomgången nedan använder vi en ny datadisk /dev/sdc [XFS](https://xfs.wiki.kernel.org/) och formaterar den med XFS-filsystemet.
 ```bash
 sudo parted /dev/sdc --script mklabel gpt mkpart xfspart xfs 0% 100%
 partprobe /dev/sdc1
 ```
-Som vi sett ovan använder vi [partprobe](https://linux.die.net/man/8/partprobe) -verktyget för att kontrol lera att kärnan är direkt medveten om den nya partitionen och fil systemet. Om du inte använder partprobe kan blkid-eller lslbk-kommandona inte returnera UUID: t för det nya fil systemet omedelbart.
+Som vi ser ovan använder vi [verktyget partprobe](https://linux.die.net/man/8/partprobe) för att se till att kärnan omedelbart är medveten om den nya partitionen och filsystemet. Om du inte använder partprobe kan kommandona blkid eller lslbk inte returnera UUID för det nya filsystemet omedelbart.
 
 ### <a name="mount-the-disk"></a>Montera disken
-Skapa en katalog för att montera fil systemet med `mkdir`. I följande exempel skapas en katalog på */datadrive*:
+Skapa en katalog för att `mkdir`montera filsystemet med . I följande exempel skapas en katalog på */datadrive:*
 
 ```bash
 sudo mkdir /datadrive
 ```
 
-Använd `mount` för att montera fil systemet. I följande exempel monteras */dev/sdc1* -partitionen till */datadrive* -monterings punkten:
+Används `mount` för att sedan montera filsystemet. I följande exempel monteras *partitionen /dev/sdc1* på *monteringspunkten /datadrive:*
 
 ```bash
 sudo mount /dev/sdc1 /datadrive
 ```
 
-För att säkerställa att enheten monteras om automatiskt efter en omstart måste den läggas till i */etc/fstab* -filen. Det rekommenderas också starkt att UUID (Universal Unique IDentifier) används i */etc/fstab* för att referera till enheten i stället för bara enhets namnet (t. ex. */dev/sdc1*). Om operativ systemet upptäcker ett diskfel under starten undviker du att den felaktiga disken monteras på en specifik plats med hjälp av UUID: n. Återstående data diskar tilldelas sedan samma enhets-ID. Använd `blkid`-verktyget för att hitta UUID för den nya enheten:
+För att säkerställa att enheten monteras automatiskt efter en omstart måste den läggas till i filen */etc/fstab.* Det rekommenderas också starkt att UUID (Universally Unique IDentifier) används i */etc/fstab* för att referera till enheten i stället för bara enhetsnamnet (till exempel */dev/sdc1*). Om operativsystemet upptäcker ett diskfel vid start och använder UUID undviker du att den felaktiga disken monteras på en viss plats. Återstående datadiskar tilldelas sedan samma enhets-ID:n. Du kan hitta UUID för den nya enheten med verktyget `blkid`:
 
 ```bash
 sudo -i blkid
 ```
 
-Utdata ser ut ungefär som i följande exempel:
+Utdata liknar följande exempel:
 
 ```bash
 /dev/sda1: UUID="11111111-1b1b-1c1c-1d1d-1e1e1e1e1e1e" TYPE="ext4"
@@ -211,36 +211,36 @@ Utdata ser ut ungefär som i följande exempel:
 ```
 
 > [!NOTE]
-> Felaktig redigering av **/etc/fstab** -filen kan leda till ett system som inte kan startas. Om du vill veta mer om hur du redigerar den här filen i distributionens dokumentation. Vi rekommenderar också att du skapar en säkerhets kopia av/etc/fstab-filen innan du redigerar.
+> Felaktig redigering av **/etc/fstab-filen** kan resultera i ett system som inte kan booterbara. Om du är osäker läser du distributionens dokumentation för att få information om hur du redigerar filen på rätt sätt. Det rekommenderas också att en säkerhetskopia av filen /etc/fstab skapas före redigering.
 
-Öppna sedan */etc/fstab* -filen i en text redigerare enligt följande:
+Öppna sedan filen */etc/fstab* i en textredigerare enligt följande:
 
 ```bash
 sudo vi /etc/fstab
 ```
 
-I det här exemplet använder du UUID-värdet för den */dev/sdc1* -enhet som skapades i föregående steg och monterings punkt för */datadrive*. Lägg till följande rad i slutet av */etc/fstab* -filen:
+I det här exemplet använder du UUID-värdet för enheten */dev/sdc1* som skapades i föregående steg och monteringspunkten för */datadrive*. Lägg till följande rad i slutet av *filen /etc/fstab:*
 
 ```bash
 UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   ext4   defaults,nofail   1   2
 ```
-När du är klar sparar du */etc/fstab* -filen och startar om systemet.
+När du är klar sparar du filen */etc/fstab* och startar om systemet.
 > [!NOTE]
-> Om du senare tar bort en datadisk utan att redigera fstab kan det hända att den virtuella datorn inte kan starta. De flesta distributioner ger antingen alternativen *nomisslyckande* och/eller *nobootwait* fstab. De här alternativen gör det möjligt för ett system att starta även om disken inte kan monteras vid start. Mer information om dessa parametrar finns i distributionens dokumentation.
+> Senare tar du bort en datadisk utan att redigera fstab kan orsaka att den virtuella datorn inte startar. De flesta distributioner ger antingen *nofail* och / eller *nobootwait* fstab alternativ. Dessa alternativ gör det möjligt för ett system att starta även om disken inte kan monteras vid uppstart. Mer information om dessa parametrar finns i dokumentationen till distributionen.
 > 
-> Alternativet *nomisslyckande* ser till att den virtuella datorn startar även om fil systemet är skadat eller om disken inte finns vid start. Utan det här alternativet kan du stöta på det sätt som beskrivs i [kan inte användas med SSH till Linux på grund av FSTAB-fel](https://blogs.msdn.microsoft.com/linuxonazure/2016/07/21/cannot-ssh-to-linux-vm-after-adding-data-disk-to-etcfstab-and-rebooting/)
+> Alternativet *nofail* säkerställer att den virtuella datorn startar även om filsystemet är skadat eller om disken inte finns vid start. Utan det här alternativet kan du stöta på beteende som beskrivs i [Kan inte SSH till Linux VM på grund av FSTAB-fel](https://blogs.msdn.microsoft.com/linuxonazure/2016/07/21/cannot-ssh-to-linux-vm-after-adding-data-disk-to-etcfstab-and-rebooting/)
 
-### <a name="trimunmap-support-for-linux-in-azure"></a>Stöd för trimning/MAPPNING för Linux i Azure
-Vissa Linux-Kernels stöder TRIMNINGs-/MAPPNINGs åtgärder för att ta bort oanvända block på disken. Den här funktionen är främst användbar i standard lagring för att informera Azure om att borttagna sidor inte längre är giltiga och kan tas bort och du kan spara pengar om du skapar stora filer och sedan tar bort dem.
+### <a name="trimunmap-support-for-linux-in-azure"></a>TRIM/UNMAP-stöd för Linux i Azure
+Vissa Linux-kärnor stöder TRIM/UNMAP-åtgärder för att ignorera oanvända block på disken. Den här funktionen är främst användbar i standardlagring för att informera Azure om att borttagna sidor inte längre är giltiga och kan ignoreras och kan spara pengar om du skapar stora filer och sedan ta bort dem.
 
-Det finns två sätt att aktivera TRIMNINGs stöd i din virtuella Linux-dator. Som vanligt kan du kontakta din distribution för den rekommenderade metoden:
+Det finns två sätt att aktivera TRIM-stöd i din Virtuella Linux-dator. Som vanligt, konsultera din distribution för den rekommenderade metoden:
 
-* Använd `discard` monterings alternativ i */etc/fstab*, till exempel:
+* Använd `discard` monteringsalternativet i */etc/fstab,* till exempel:
 
     ```bash
     UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   ext4   defaults,discard   1   2
     ```
-* I vissa fall kan `discard` alternativet ha prestanda konsekvenser. Du kan också köra kommandot `fstrim` manuellt från kommando raden eller lägga till det i din CRONTAB för att köra regelbundet:
+* I vissa fall `discard` kan alternativet få prestandakonsekvenser. Du kan också köra `fstrim` kommandot manuellt från kommandoraden eller lägga till det i crontab för att köras regelbundet:
   
     **Ubuntu**
   
@@ -257,4 +257,4 @@ Det finns två sätt att aktivera TRIMNINGs stöd i din virtuella Linux-dator. S
     ```
 
 ## <a name="next-steps"></a>Nästa steg
-Du kan också [ansluta en datadisk](add-disk.md) med hjälp av Azure CLI.
+Du kan också [bifoga en datadisk](add-disk.md) med Azure CLI.

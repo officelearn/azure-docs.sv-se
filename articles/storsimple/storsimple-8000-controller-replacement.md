@@ -1,6 +1,6 @@
 ---
-title: Ersätta en enhets styrenhet för StorSimple 8000-serien | Microsoft Docs
-description: Förklarar hur du tar bort och ersätter en eller båda Controller-modulerna på din enhet med StorSimple 8000-serien.
+title: Byt ut en enhetsstyrenhet i StorSimple 8000-serien | Microsoft-dokument
+description: I artikeln beskrivs hur du tar bort och ersätter en eller båda styrenhetsmodulerna på storsimple 8000-serien.
 services: storsimple
 documentationcenter: ''
 author: alkohli
@@ -15,80 +15,80 @@ ms.workload: TBD
 ms.date: 06/05/2017
 ms.author: alkohli
 ms.openlocfilehash: dd2f6fcc9b2f5d716566e91e89487969613d1005
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79267929"
 ---
-# <a name="replace-a-controller-module-on-your-storsimple-device"></a>Ersätta en Controller-modul på din StorSimple-enhet
+# <a name="replace-a-controller-module-on-your-storsimple-device"></a>Byt ut en styrenhetsmodul på StorSimple-enheten
 ## <a name="overview"></a>Översikt
-I den här självstudien beskrivs hur du tar bort och ersätter en eller båda Controller-modulerna på en StorSimple enhet. Den beskriver också den underliggande logiken för ett utbytes scenarier med en och två styrenheter.
+I den här självstudien beskrivs hur du tar bort och ersätter en eller båda styrenhetsmodulerna i en StorSimple-enhet. Den diskuterar också den underliggande logiken för scenarier för ersättning av en och två kontroller.
 
 > [!NOTE]
-> Innan du utför en kontroll enhet rekommenderar vi att du alltid uppdaterar den inbyggda program varan till den senaste versionen.
+> Innan du utför en ersättare för handkontrollen rekommenderar vi att du alltid uppdaterar styrenhetens inbyggda programvara till den senaste versionen.
 > 
-> För att förhindra skada på din StorSimple-enhet ska du inte mata ut kontroll enheten förrän lysdioderna visas som något av följande:
+> För att förhindra skador på Din StorSimple-enhet ska du inte mata ut handkontrollen förrän lysdioderna visas som något av följande:
 > 
-> * Alla lampor är av.
-> * INDIKATOR 3, ![grön kryss](./media/storsimple-controller-replacement/HCS_GreenCheckIcon.png)och ![röda kryss](./media/storsimple-controller-replacement/HCS_RedCrossIcon.png) blinkar och LAMPAn 0 och lampa 7 är **på**.
+> * Alla lampor är släckta.
+> * LED ![3, Green](./media/storsimple-controller-replacement/HCS_GreenCheckIcon.png)check ![ikon](./media/storsimple-controller-replacement/HCS_RedCrossIcon.png) , och Röda korset ikonen blinkar, och LED 0 och LED 7 är **på**.
 
 
-I följande tabell visas de scenarier som stöds vid utbyte av styrenheter.
+I följande tabell visas de scenarier för ersättningsscenarier som stöds.
 
-| Enskilt | Ersättnings scenario | Tillämplig procedur |
+| Ärende | Ersättningsscenario | Tillämpligt förfarande |
 |:--- |:--- |:--- |
-| 1 |En styrenhet är i ett felaktigt tillstånd, den andra styrenheten är felfri och aktiv. |[Utbyte av en enda styrenhet](#replace-a-single-controller), som beskriver [logiken bakom en utbyte av en enhet](#single-controller-replacement-logic), samt [ersättnings stegen](#single-controller-replacement-steps). |
-| 2 |Båda styrenheterna har misslyckats och behöver bytas ut. Chassit, diskarna och disk kabinettet är felfria. |[Utbyte av dubbla styrenheter](#replace-both-controllers), som beskriver [logiken bakom en utbyte av dubbla styrenheter](#dual-controller-replacement-logic), samt [ersättnings steg](#dual-controller-replacement-steps). |
-| 3 |Styrenheter från samma enhet eller från olika enheter byts ut. Chassin, diskar och disk höljen är felfria. |Ett varnings meddelande om fel plats fel visas. |
-| 4 |En kontrollant saknas och den andra styrenheten Miss lyckas. |[Utbyte av dubbla styrenheter](#replace-both-controllers), som beskriver [logiken bakom en utbyte av dubbla styrenheter](#dual-controller-replacement-logic), samt [ersättnings steg](#dual-controller-replacement-steps). |
-| 5 |En eller båda styrenheterna har misslyckats. Du kan inte komma åt enheten via serie konsolen eller Windows PowerShell-fjärrkommunikation. |[Kontakta Microsoft Support](storsimple-8000-contact-microsoft-support.md) om du vill ha en manuell metod för utbyte av styrenheter. |
-| 6 |Kontroll enheterna har en annan version som kan bero på att:<ul><li>Kontrollanter har en annan program varu version.</li><li>Kontrollanter har olika versioner av inbyggd program vara.</li></ul> |Om styrenhetens program varu versioner skiljer sig, identifierar ersättnings logiken att och uppdaterar program versionen på ersättnings styrenheten.<br><br>Om styrenheterna för den inbyggda program varan är olika och den gamla versionen av den inbyggda program varan **inte** kan uppgraderas automatiskt, visas ett varnings meddelande i Azure Portal. Du bör söka efter uppdateringar och installera uppdateringar av inbyggd program vara.</br></br>Om styrenheterna för den inbyggda program varan är olika och den gamla versionen av inbyggd program vara automatiskt kan uppgraderas, identifierar styrenhetens ersättnings logik detta, och när styrenheten startar uppdateras den inbyggda program varan automatiskt. |
+| 1 |En styrenhet är i ett misslyckat tillstånd, den andra styrenheten är felfri och aktiv. |[Byte av en enda styrenhet](#replace-a-single-controller), som beskriver [logiken bakom en enda styrenhetsersättning](#single-controller-replacement-logic), samt [ersättningsstegen](#single-controller-replacement-steps). |
+| 2 |Båda styrenheterna har misslyckats och kräver ersättning. Chassit, diskarna och diskhöljet är felfria. |[Byte av dubbla styrenheter](#replace-both-controllers), som beskriver [logiken bakom en dubbel styrenhetsersättning](#dual-controller-replacement-logic), samt [ersättningsstegen](#dual-controller-replacement-steps). |
+| 3 |Styrenheter från samma enhet eller från olika enheter byts ut. Chassit, diskarna och diskhöljena är felfria. |Ett varningsmeddelande för en plats som inte matchar visas. |
+| 4 |En handkontroll saknas och den andra handkontrollen misslyckas. |[Byte av dubbla styrenheter](#replace-both-controllers), som beskriver [logiken bakom en dubbel styrenhetsersättning](#dual-controller-replacement-logic), samt [ersättningsstegen](#dual-controller-replacement-steps). |
+| 5 |En eller båda styrenheterna har misslyckats. Du kan inte komma åt enheten via den seriella konsolen eller Windows PowerShell-ommotkoppling. |[Kontakta Microsoft Support](storsimple-8000-contact-microsoft-support.md) för en manuell ersättningsprocedur för handkontrollen. |
+| 6 |Styrenheterna har en annan byggversion, vilket kan bero på:<ul><li>Styrenheter har en annan programvaruversion.</li><li>Styrenheter har en annan firmware-version.</li></ul> |Om styrenhetens programvaruversioner är olika identifierar ersättningslogiken den och uppdaterar programversionen på ersättningsstyrenheten.<br><br>Om den inbyggda programvaran för styrenheten är olika och den gamla firmwareversionen **inte** kan uppgraderas automatiskt visas ett varningsmeddelande i Azure-portalen. Du bör söka efter uppdateringar och installera uppdateringar av den inbyggda programvaran.</br></br>Om den inbyggda programvaran för styrenheten är olika och den gamla firmware-versionen automatiskt kan uppgraderas, kommer styrenhetens ersättningslogik att upptäcka detta, och när styrenheten startar uppdateras den inbyggda programvaran automatiskt. |
 
-Du måste ta bort en Controller-modul om den har misslyckats. En eller båda styrenhets modulerna kan inte köras, vilket kan resultera i en eller flera styrenheter. För ersättnings procedurer och logiken bakom dem, se följande:
+Du måste ta bort en styrenhetsmodul om den har misslyckats. En eller båda styrenheterna kan misslyckas, vilket kan resultera i en enda styrenhet ersättning eller dubbla styrenhet ersättning. För ersättningsprocedurer och logiken bakom dem, se följande:
 
 * [Ersätta en enskild domänkontrollant](#replace-a-single-controller)
-* [Ersätt båda styrenheterna](#replace-both-controllers)
-* [Ta bort en kontrollant](#remove-a-controller)
-* [Infoga en kontrollant](#insert-a-controller)
-* [Identifiera den aktiva kontrollanten på enheten](#identify-the-active-controller-on-your-device)
+* [Byt ut båda styrenheterna](#replace-both-controllers)
+* [Ta bort en styrenhet](#remove-a-controller)
+* [Infoga en styrenhet](#insert-a-controller)
+* [Identifiera den aktiva handkontrollen på enheten](#identify-the-active-controller-on-your-device)
 
 > [!IMPORTANT]
-> Innan du tar bort och ersätter en kontrollant bör du gå igenom säkerhets informationen i [StorSimple för maskin varu komponenter](storsimple-8000-hardware-component-replacement.md).
+> Innan du tar bort och byter ut en styrenhet bör du läsa säkerhetsinformationen i [StorSimples maskinvarukomponentersättning](storsimple-8000-hardware-component-replacement.md).
 > 
 > 
 
-## <a name="replace-a-single-controller"></a>Ersätta en enskild styrenhet
-Om någon av de två styrenheterna på den Microsoft Azure StorSimple enheten har misslyckats, fungerar dåligt eller saknas, måste du ersätta en enda kontroll enhet.
+## <a name="replace-a-single-controller"></a>Ersätta en enskild domänkontrollant
+När en av de två styrenheterna på Microsoft Azure StorSimple-enheten har misslyckats, inte fungerar eller saknas måste du byta ut en enda styrenhet.
 
-### <a name="single-controller-replacement-logic"></a>Ersättnings logik för enskild styrenhet
-Du bör först ta bort den misslyckade styrenheten. (Den återstående styrenheten i enheten är den aktiva styrenheten.) När du infogar en ersättnings kontroll utförs följande åtgärder:
+### <a name="single-controller-replacement-logic"></a>Ersättningslogik för en enda styrenhet
+I en enda handkontroll ersättning, bör du först ta bort den misslyckade styrenheten. (Den återstående styrenheten i enheten är den aktiva styrenheten.) När du infogar ersättningsstyrenheten inträffar följande åtgärder:
 
-1. Ersättnings styrenheten börjar direkt kommunicera med StorSimple-enheten.
-2. En ögonblicks bild av den virtuella hård disken (VHD) för den aktiva styrenheten kopieras till ersättnings styrenheten.
-3. Ögonblicks bilden ändras så att när den nya styrenheten startar från den här virtuella hård disken identifieras den som en vänte läges styrenhet.
-4. När ändringarna har slutförts startar ersättnings styrenheten som vänte läge.
-5. När båda kontroll enheterna körs kommer klustret att vara online.
+1. Ersättningsstyrenheten börjar omedelbart kommunicera med StorSimple-enheten.
+2. En ögonblicksbild av den virtuella hårddisken (VHD) för den aktiva styrenheten kopieras på ersättningsstyrenheten.
+3. Ögonblicksbilden ändras så att när ersättningsstyrenheten startar från den här virtuella hårddisken känns den igen som en standby-styrenhet.
+4. När ändringarna är klara startar ersättningsstyrenheten som standby-styrenhet.
+5. När båda styrenheterna körs är klustret online.
 
-### <a name="single-controller-replacement-steps"></a>Ersättnings steg för en kontroll
-Utför följande steg om en av styrenheterna i Microsoft Azure StorSimple enheten Miss lyckas. (Den andra kontrollanten måste vara aktiv och körs. Om båda styrenheterna inte fungerar eller inte fungerar kan du gå till [åtgärder med dubbla styrenheter](#dual-controller-replacement-steps).)
+### <a name="single-controller-replacement-steps"></a>Ersättningssteg för en handkontroll
+Gör följande om någon av styrenheterna i Microsoft Azure StorSimple-enheten misslyckas. (Den andra styrenheten måste vara aktiv och igång. Om båda styrenheterna misslyckas eller inte fungerar går du till [ersättningssteg med dubbla styrenheter](#dual-controller-replacement-steps).)
 
 > [!NOTE]
-> Det kan ta 30 – 45 minuter för styrenheten att starta om och helt återställa från den enskilda styrenhetens ersättnings procedur. Den totala tiden för hela proceduren, inklusive anslutning av kablar, är cirka 2 timmar.
+> Det kan ta 30 – 45 minuter för styrenheten att starta om och helt återhämta sig från den enda styrenhetens ersättningsprocedur. Den totala tiden för hela proceduren, inklusive att ansluta kablarna, är cirka 2 timmar.
 
 
-#### <a name="to-remove-a-single-failed-controller-module"></a>Ta bort en enskild felande Controller-modul
-1. I Azure Portal går du till tjänsten StorSimple Enhetshanteraren, klickar på **enheter**och klickar sedan på namnet på den enhet som du vill övervaka.
-2. Gå till **övervaka > maskin varu hälsa**. Status för antingen Controller 0 eller Controller 1 måste vara röd, vilket tyder på ett haveri.
+#### <a name="to-remove-a-single-failed-controller-module"></a>Så här tar du bort en enda misslyckad styrenhetsmodul
+1. Gå till Tjänsten StorSimple Device Manager i Azure-portalen, klicka på **Enheter**och klicka sedan på namnet på den enhet som du vill övervaka.
+2. Gå till **Övervaka > maskinvaruhälsa**. Statusen för antingen Controller 0 eller Controller 1 ska vara röd, vilket indikerar ett fel.
    
    > [!NOTE]
-   > Den felande styrenheten i en ersättning för en enda styrenhet är alltid en reserv styrenhet.
+   > Den misslyckade styrenheten i en enda styrenhet ersättning är alltid en standby-styrenhet.
    
-3. Använd bild 1 och följande tabell för att leta reda på modulen för styrenheten som misslyckades.
+3. Använd bild 1 och följande tabell för att hitta den misslyckade styrenhetsmodulen.
    
-    ![Bakplanering av enhetens primära inne slutnings moduler](./media/storsimple-controller-replacement/IC740994.png)
+    ![Bakplan av enhetens primära kapslingsmoduler](./media/storsimple-controller-replacement/IC740994.png)
    
-    **Bild 1** Tillbaka till StorSimple-enheten
+    **Bild 1** Baksidan av StorSimple-enheten
    
    | Label (Etikett) | Beskrivning |
    |:--- |:--- |
@@ -96,146 +96,146 @@ Utför följande steg om en av styrenheterna i Microsoft Azure StorSimple enhete
    | 2 |PCM 1 |
    | 3 |Kontrollant 0 |
    | 4 |Kontrollant 1 |
-4. Ta bort alla anslutna nätverks kablar från data portarna på den felande styrenheten. Om du använder en 8600-modell tar du även bort SAS-kablar som ansluter styrenheten till EBOD-styrenheten.
-5. Följ stegen i [ta bort en kontrollant](#remove-a-controller) för att ta bort den misslyckade styrenheten.
-6. Installera fabriks ersättningen på samma plats som den felande styrenheten togs bort från. Detta utlöser den enskilda styrenhetens ersättnings logik. Mer information finns i [en ersättnings logik för enskilda styrenheter](#single-controller-replacement-logic).
-7. När den enskilda styrenhetens ersättnings logik går ut i bakgrunden ansluter du kablarna igen. Var noga med att ansluta alla kablar exakt på samma sätt som de var anslutna före ersättningen.
-8. När kontrollanten har startats om kontrollerar du **styrenhetens status** och **kluster status** i Azure Portal för att kontrol lera att styrenheten är tillbaka till felfritt tillstånd och är i vänte läge.
+4. På den misslyckade styrenheten tar du bort alla anslutna nätverkskablar från dataportarna. Om du använder en 8600-modell tar du även bort SAS-kablarna som ansluter styrenheten till EBOD-styrenheten.
+5. Följ stegen i [ta bort en styrenhet](#remove-a-controller) för att ta bort den felaktiga styrenheten.
+6. Installera fabriksbytet på samma plats där den misslyckade styrenheten togs bort. Detta utlöser ersättningslogiken för en enda styrenhet. Mer information finns i [ersättningslogik för en styrenhet](#single-controller-replacement-logic).
+7. Medan ersättningslogiken för en enda styrenhet fortskrider i bakgrunden ansluter du kablarna igen. Var noga med att ansluta alla kablar exakt på samma sätt som de var anslutna innan bytet.
+8. När styrenheten har startats om kontrollerar du **controller-status** och **klusterstatusen** i Azure-portalen för att kontrollera att styrenheten är tillbaka i felfritt tillstånd och är i vänteläge.
 
 > [!NOTE]
-> Om du övervakar enheten via serie konsolen kan du se flera omstarter medan styrenheten återställs från ersättnings proceduren. När menyn för serie konsolen visas, vet du att ersättningen är klar. [Kontakta Microsoft Support](storsimple-8000-contact-microsoft-support.md)om menyn inte visas inom två timmar efter att du börjat byta kontrollant.
+> Om du övervakar enheten via seriekonsolen kan du se flera omstarter medan handkontrollen återställs från ersättningsproceduren. När den seriella konsolmenyn visas vet du att ersättningen är klar. Om menyn inte visas inom två timmar efter att du har startat bytet av handkontrollen kontaktar du [Microsoft Support](storsimple-8000-contact-microsoft-support.md).
 >
-> Om du startar uppdatering 4 kan du också använda cmdleten `Get-HCSControllerReplacementStatus` i Windows PowerShell-gränssnittet på enheten för att övervaka status för kontrollantens ersättnings process.
+> Starta uppdatering 4 kan du också `Get-HCSControllerReplacementStatus` använda cmdleten i Windows PowerShell-gränssnittet på enheten för att övervaka status för styrenhetens ersättningsprocess.
 > 
 
-## <a name="replace-both-controllers"></a>Ersätt båda styrenheterna
-När båda styrenheterna på den Microsoft Azure StorSimple enheten har misslyckats, fungerar dåligt eller saknas, måste du ersätta båda styrenheterna. 
+## <a name="replace-both-controllers"></a>Byt ut båda styrenheterna
+När båda styrenheterna på Microsoft Azure StorSimple-enheten har misslyckats, inte fungerar eller saknas måste du ersätta båda styrenheterna. 
 
-### <a name="dual-controller-replacement-logic"></a>Ersättnings logik med dubbla styrenheter
-I en byte med dubbla styrenheter tar du först bort både felande kontrollanter och infogar sedan ersättningar. När de två ersättnings styrenheterna infogas inträffar följande:
+### <a name="dual-controller-replacement-logic"></a>Ersättningslogik med dubbla styrenheter
+I en ersättning med dubbla styrenheter tar du först bort båda de felaktiga styrenheterna och infogar sedan ersättningar. När de två ersättningskontrollanterna infogas in in sker följande åtgärder:
 
-1. Ersättnings styrenheten i fack 0 kontrollerar följande:
+1. Utbytesregulatorn i fack 0 kontrollerar följande:
    
-   1. Används de aktuella versionerna av den inbyggda program varan och program varan?
+   1. Är det med nuvarande versioner av firmware och programvara?
    2. Är det en del av klustret?
-   3. Körs peer-styrenheten och klustras den?
+   3. Körs peer-styrenheten och är den klustrade?
       
-      Om inget av dessa villkor är uppfyllt söker kontrollanten efter den senaste dagliga säkerhets kopieringen (som finns i **nonDOMstorage** på enhet S). Kontrollanten kopierar den senaste ögonblicks bilden av den virtuella hård disken från säkerhets kopian.
-2. Kontrollanten i fack 0 använder ögonblicks bilden för att själva bilden.
-3. Under tiden väntar kontrollanten i fack 1 på att styrenhet 0 ska slutföra avbildningen och starta.
-4. När styrenhet 0 startar identifierar kontrollanten det kluster som skapats av Controller 0, som utlöser den enskilda styrenhetens ersättnings logik. Mer information finns i [en ersättnings logik för enskilda styrenheter](#single-controller-replacement-logic).
-5. Därefter körs båda styrenheterna och klustret kommer att anslutas.
+      Om inget av dessa villkor är sant söker handkontrollen efter den senaste dagliga säkerhetskopieringen (finns i **ickeDOMstorage** på enhet S). Styrenheten kopierar den senaste ögonblicksbilden av den virtuella hårddisken från säkerhetskopian.
+2. Styrenheten i fack 0 använder ögonblicksbilden för att avbilda sig själv.
+3. Under tiden väntar handkontrollen i fack 1 på att handkontrollen 0 ska slutföra avbildningen och starta.
+4. När styrenheten 0 startar identifierar styrenhet 1 klustret som skapats av styrenheten 0, vilket utlöser ersättningslogiken för en enda styrenhet. Mer information finns i [ersättningslogik för en styrenhet](#single-controller-replacement-logic).
+5. Efteråt kommer båda styrenheterna att köras och klustret kommer att anslutas.
 
 > [!IMPORTANT]
-> Efter en utbyte av dubbla styrenheter när StorSimple-enheten har kon figurer ATS är det viktigt att du tar en manuell säkerhets kopiering av enheten. Säkerhets kopiering av daglig enhets konfiguration utlöses inte förrän 24 timmar har förflutit. Arbeta med [Microsoft Support](storsimple-8000-contact-microsoft-support.md) för att göra en manuell säkerhets kopiering av enheten.
+> Efter en dubbel styrenhet ersättning, efter StorSimple enheten är konfigurerad, är det viktigt att du tar en manuell säkerhetskopia av enheten. Dagliga säkerhetskopieringar av enhetskonfiguration utlöses inte förrän efter 24 timmar har förflutit. Arbeta med [Microsoft Support](storsimple-8000-contact-microsoft-support.md) för att göra en manuell säkerhetskopiering av enheten.
 
 
-### <a name="dual-controller-replacement-steps"></a>Steg för utbyte av dubbla styrenheter
-Det här arbets flödet krävs när båda styrenheterna i Microsoft Azure StorSimples enheten har misslyckats. Detta kan inträffa i ett Data Center där kyl systemet slutar fungera, och därför går det inte att köra styrenheterna inom en kort tids period. Beroende på om StorSimple-enheten är avstängd eller inte, och om du använder en 8600-eller 8100-modell, krävs en annan uppsättning steg.
+### <a name="dual-controller-replacement-steps"></a>Ersättningssteg med dubbla styrenheter
+Det här arbetsflödet krävs när båda styrenheterna i Microsoft Azure StorSimple-enheten har misslyckats. Detta kan inträffa i ett datacenter där kylsystemet slutar fungera, och som ett resultat misslyckas båda styrenheterna inom en kort tidsperiod. Beroende på om StorSimple-enheten är avstängd eller påslagen, och om du använder en 8600- eller 8100-modell, krävs en annan uppsättning steg.
 
 > [!IMPORTANT]
-> Det kan ta 45 minuter till 1 timme för kontrollanten att startas om och helt återställas från en utbytes process med dubbla styrenheter. Den totala tiden för hela proceduren, inklusive anslutning av kablar, är cirka 2,5 timmar.
+> Det kan ta 45 minuter till 1 timme för styrenheten att starta om och helt återhämta sig från en dubbel styrenhet ersättningsprocedur. Den totala tiden för hela proceduren, inklusive att ansluta kablarna, är cirka 2,5 timmar.
 
-#### <a name="to-replace-both-controller-modules"></a>Så här ersätter du båda Controller-modulerna
-1. Om enheten är avstängd hoppar du över det här steget och fortsätter till nästa steg. Om enheten är aktive rad stänger du av enheten.
+#### <a name="to-replace-both-controller-modules"></a>Så här byter du ut båda styrenhetsmodulerna
+1. Om enheten är avstängd hoppar du över det här steget och går vidare till nästa steg. Om enheten är påslagen stänger du av enheten.
    
-   1. Om du använder en 8600-modell stänger du först av den primära inne slutningen och stänger sedan av EBOD-höljet.
-   2. Vänta tills enheten har stängts av helt. Alla lysdioder på bak sidan av enheten kommer att inaktive ras.
-2. Ta bort alla nätverks kablar som är anslutna till data portarna. Om du använder en 8600-modell tar du även bort SAS-kablar som ansluter den primära inne slutningen till EBOD-höljet.
-3. Ta bort båda styrenheterna från StorSimple-enheten. Mer information finns i [ta bort en kontrollant](#remove-a-controller).
-4. Sätt fabriks ersättningen för Controller 0 först och sätt sedan in Controller 1. Mer information finns i [Infoga en kontrollant](#insert-a-controller). Detta utlöser den utbytes logiken med dubbla styrenheter. Mer information finns i en [ersättnings logik för dubbla styrenheter](#dual-controller-replacement-logic).
-5. När styrenhetens ersättnings logik går ut i bakgrunden ansluter du kablarna igen. Var noga med att ansluta alla kablar exakt på samma sätt som de var anslutna före ersättningen. Se de detaljerade anvisningarna för din modell i avsnittet Kontakta din enhet för att [installera din StorSimple 8100-enhet](storsimple-8100-hardware-installation.md) eller [installera din StorSimple 8600-enhet](storsimple-8600-hardware-installation.md).
-6. Aktivera StorSimple-enheten. Om du använder en 8600-modell:
+   1. Om du använder en 8600-modell stänger du av den primära höljet först och stänger sedan av EBOD-höljet.
+   2. Vänta tills enheten har stängts av helt. Alla lysdioder på baksidan av enheten kommer att vara avstängda.
+2. Ta bort alla nätverkskablar som är anslutna till dataportarna. Om du använder en 8600-modell tar du även bort SAS-kablarna som ansluter det primära höljet till EBOD-höljet.
+3. Ta bort båda styrenheterna från StorSimple-enheten. Mer information finns i [ta bort en styrenhet](#remove-a-controller).
+4. Sätt i fabriksbytet för Controller 0 först och sätt sedan in Controller 1. Mer information finns i [infoga en styrenhet](#insert-a-controller). Detta utlöser ersättningslogiken för dubbla styrenheter. Mer information finns i [ersättningslogik med dubbla styrenheter](#dual-controller-replacement-logic).
+5. Medan styrenhetens ersättningslogik fortskrider i bakgrunden ansluter du kablarna igen. Var noga med att ansluta alla kablar exakt på samma sätt som de var anslutna innan bytet. Se detaljerade instruktioner för din modell i avsnittet Kabel din enhet installera [din StorSimple 8100-enhet](storsimple-8100-hardware-installation.md) eller [installera din StorSimple 8600-enhet](storsimple-8600-hardware-installation.md).
+6. Slå på StorSimple-enheten. Om du använder en 8600-modell:
    
-   1. Se till att EBOD-kammaren är aktive rad först.
-   2. Vänta tills EBOD-kabinettet körs.
-   3. Aktivera den primära inne slutningen.
-   4. När den första styrenheten har startats om och är i felfritt tillstånd kommer systemet att köras.
+   1. Kontrollera att EBOD-höljet är aktiverat först.
+   2. Vänta tills EBOD-höljet är igång.
+   3. Slå på den primära höljet.
+   4. När den första styrenheten startas om och är i felfritt tillstånd körs systemet.
       
       > [!NOTE]
-      > Om du övervakar enheten via serie konsolen kan du se flera omstarter medan styrenheten återställs från ersättnings proceduren. När menyn serie konsol visas, vet du att ersättningen är klar. [Kontakta Microsoft Support](storsimple-8000-contact-microsoft-support.md)om menyn inte visas inom 2,5 timmar efter att du har startat om kontrollanten.
+      > Om du övervakar enheten via seriekonsolen kan du se flera omstarter medan handkontrollen återställs från ersättningsproceduren. När den seriella konsolmenyn visas vet du att ersättningen är klar. Om menyn inte visas inom 2,5 timmar efter att du har startat bytet av handkontrollen kontaktar du [Microsoft Support](storsimple-8000-contact-microsoft-support.md).
      
-## <a name="remove-a-controller"></a>Ta bort en kontrollant
-Använd följande procedur för att ta bort en felkod från din StorSimple-enhet.
+## <a name="remove-a-controller"></a>Ta bort en styrenhet
+Använd följande procedur för att ta bort en felaktig styrenhetsmodul från StorSimple-enheten.
 
 > [!NOTE]
-> Följande illustrationer gäller för Controller 0. För kontrollant 1 återförs dessa.
+> Följande illustrationer är avsedda för styrenhet 0. För controller 1 skulle dessa vändas.
 
 
-#### <a name="to-remove-a-controller-module"></a>Ta bort en Controller-modul
-1. Grepp i modulen mellan skjutreglaget och pekfingret.
-2. Håll försiktigt upp ditt tumm-och pekfingret för att frisläppa styrenhets spärren.
+#### <a name="to-remove-a-controller-module"></a>Så här tar du bort en styrenhetsmodul
+1. Ta tag i modulspärren mellan tummen och pekfingret.
+2. Tryck försiktigt ihop tummen och pekfingret för att lossa handkontrollens spärr.
    
-    ![Frigör lås för styrenhet](./media/storsimple-controller-replacement/IC741047.png)
+    ![Släppa kontrollantspärr](./media/storsimple-controller-replacement/IC741047.png)
    
-    **Bild 2** Frigör lås för styrenhet
-3. Använd lås som en referens för att dra ut styrenheten från chassit.
+    **Bild 2** Släppa kontrollantspärr
+3. Använd spärren som handtag för att skjuta ut handkontrollen ur chassit.
    
-    ![Ta bort styrenhet utanför chassit](./media/storsimple-controller-replacement/IC741048.png)
+    ![Glidande handkontroll av chassit](./media/storsimple-controller-replacement/IC741048.png)
    
-    **Bild 3** Skjuta ut styrenheten från chassit
+    **Bild 3** Att skjuta ut handkontrollen ur chassit
 
-## <a name="insert-a-controller"></a>Infoga en kontrollant
-Använd följande procedur för att installera en modul som är en fabriks kontroll när du tar bort en felaktig modul från din StorSimple-enhet.
+## <a name="insert-a-controller"></a>Infoga en styrenhet
+Använd följande procedur för att installera en modul medföljer styrenhet när du har tagit bort en felaktig modul från StorSimple-enheten.
 
-#### <a name="to-install-a-controller-module"></a>Så här installerar du en Controller-modul
-1. Kontrol lera om det finns någon skada på gränssnitts kopplingarna. Installera inte modulen om något av anslutnings stiften är skadade eller böjda.
-2. Dra Controller-modulen till chassit medan låsningen är helt fri.
+#### <a name="to-install-a-controller-module"></a>Så här installerar du en styrenhetsmodul
+1. Kontrollera om det finns några skador på gränssnittskontakterna. Installera inte modulen om någon av kontaktstiften är skadad eller böjd.
+2. Skjut in styrenhetsmodulen i chassit medan spärren är helt frigjord.
    
-    ![Glidande styrenhet i chassit](./media/storsimple-controller-replacement/IC741053.png)
+    ![Skjut in handkontrollen i chassit](./media/storsimple-controller-replacement/IC741053.png)
    
-    **Bild 4** Glidande styrenhet i chassit
-3. När modulen Controller har infogats börjar du stänga spärren och fortsätter att skicka modulen Controller till chassit. Låsningen kommer att leda kontrollanten på plats.
+    **Bild 4** Skjut in handkontrollen i chassit
+3. När styrenhetens modul är isatt börjar du stänga spärren samtidigt som du fortsätter att trycka in styrenhetsmodulen i chassit. Spärren kommer att aktiveras för att styra handkontrollen på plats.
    
-    ![Stänger styrenhets spärr](./media/storsimple-controller-replacement/IC741054.png)
+    ![Stängningskontrollantspärr](./media/storsimple-controller-replacement/IC741054.png)
    
-    **Figur 5** Stänger styrenhets spärren
-4. Du är klar när låsningen fästs på plats. Indikatorn **OK** bör nu vara på.
+    **Bild 5** Stänga kontrollkontrollens spärr
+4. Du är klar när spärren snäpper på plats. OK-lysdioden ska nu vara på. **OK**
    
    > [!NOTE]
-   > Det kan ta upp till 5 minuter för styrenheten och LYSDIODen att aktivera.
+   > Det kan ta upp till 5 minuter innan handkontrollen och lysdioden aktiveras.
   
-5. Verifiera att ersättningen lyckades genom att gå till din enhet i Azure Portal och sedan gå till **övervaka** > **maskin varu hälsa**och kontrol lera att både styrenhet 0 och styrenhet 1 är felfria (status är grön).
+5. För att kontrollera att ersättningen lyckas går du till enheten i Azure-portalen och navigerar sedan till **Övervaka** > **maskinvarans hälsa**och se till att både styrenheten 0 och styrenheten 1 är felfria (statusen är grön).
 
-## <a name="identify-the-active-controller-on-your-device"></a>Identifiera den aktiva kontrollanten på enheten
-Det finns många situationer, till exempel första enhets registrering eller styrenhets ersättning, som kräver att du hittar den aktiva styrenheten på en StorSimple-enhet. Den aktiva styrenheten bearbetar all inbyggd disk-och nätverks åtgärder. Du kan använda någon av följande metoder för att identifiera den aktiva styrenheten:
+## <a name="identify-the-active-controller-on-your-device"></a>Identifiera den aktiva handkontrollen på enheten
+Det finns många situationer, till exempel registrering av enheter för första gången eller byte av styrenhet, som kräver att du hittar den aktiva handkontrollen på en StorSimple-enhet. Den aktiva styrenheten bearbetar alla diskens inbyggda programvara och nätverksåtgärder. Du kan använda någon av följande metoder för att identifiera den aktiva styrenheten:
 
-* [Använd Azure Portal för att identifiera den aktiva kontrollanten](#use-the-azure-portal-to-identify-the-active-controller)
-* [Använd Windows PowerShell för StorSimple för att identifiera den aktiva kontrollanten](#use-windows-powershell-for-storsimple-to-identify-the-active-controller)
-* [Kontrol lera den fysiska enheten för att identifiera den aktiva styrenheten](#check-the-physical-device-to-identify-the-active-controller)
+* [Använd Azure-portalen för att identifiera den aktiva styrenheten](#use-the-azure-portal-to-identify-the-active-controller)
+* [Använda Windows PowerShell för StorSimple för att identifiera den aktiva styrenheten](#use-windows-powershell-for-storsimple-to-identify-the-active-controller)
+* [Kontrollera den fysiska enheten för att identifiera den aktiva styrenheten](#check-the-physical-device-to-identify-the-active-controller)
 
-Var och en av dessa procedurer beskrivs härnäst.
+Var och en av dessa förfaranden beskrivs därefter.
 
-### <a name="use-the-azure-portal-to-identify-the-active-controller"></a>Använd Azure Portal för att identifiera den aktiva kontrollanten
-I Azure Portal navigerar du till din enhet och **övervakar** > **maskin varu hälsa**och bläddrar till avsnittet **kontrollanter** . Här kan du kontrol lera vilken kontrollant som är aktiv.
+### <a name="use-the-azure-portal-to-identify-the-active-controller"></a>Använd Azure-portalen för att identifiera den aktiva styrenheten
+I Azure-portalen navigerar du till enheten och **övervakar** > sedan**maskinvaruhälsan**och bläddrar till avsnittet **Controllers.** Här kan du kontrollera vilken styrenhet som är aktiv.
 
-![Identifiera aktiv kontrollant i Azure Portal](./media/storsimple-controller-replacement/IC752072.png)
+![Identifiera aktiv styrenhet i Azure-portalen](./media/storsimple-controller-replacement/IC752072.png)
 
-**Bild 6** Azure Portal som visar den aktiva kontrollanten
+**Bild 6** Azure-portal som visar den aktiva styrenheten
 
-### <a name="use-windows-powershell-for-storsimple-to-identify-the-active-controller"></a>Använd Windows PowerShell för StorSimple för att identifiera den aktiva kontrollanten
-När du ansluter till enheten via serie konsolen visas ett informations meddelande. Informations meddelandet innehåller grundläggande enhets information, till exempel modell, namn, installerad program version och status för den kontroll enhet som du ansluter till. Följande bild visar ett exempel på ett informations meddelande:
+### <a name="use-windows-powershell-for-storsimple-to-identify-the-active-controller"></a>Använda Windows PowerShell för StorSimple för att identifiera den aktiva styrenheten
+När du öppnar enheten via seriekonsolen visas ett bannermeddelande. Banderollmeddelandet innehåller grundläggande enhetsinformation som modell, namn, installerad programvaruversion och status för den styrenhet som du använder. Följande bild visar ett exempel på ett banderollmeddelande:
 
-![Serie informations meddelande](./media/storsimple-controller-replacement/IC741098.png)
+![Meddelande om seriell banderoll](./media/storsimple-controller-replacement/IC741098.png)
 
-**Figur 7** Informations meddelande som visar styrenhet 0 som aktiv
+**Bild 7** Banderollmeddelande som visar styrenhet 0 som aktiv
 
-Du kan använda informations meddelandet för att avgöra om den enhet som du är ansluten till är aktiv eller passiv.
+Du kan använda banderollmeddelandet för att avgöra om handkontrollen du är ansluten till är aktiv eller passiv.
 
-### <a name="check-the-physical-device-to-identify-the-active-controller"></a>Kontrol lera den fysiska enheten för att identifiera den aktiva styrenheten
-Identifiera den aktiva kontrollanten på enheten genom att leta upp den blå INDIKATORn ovanför DATA 5-porten på bak sidan av den primära inne slutningen.
+### <a name="check-the-physical-device-to-identify-the-active-controller"></a>Kontrollera den fysiska enheten för att identifiera den aktiva styrenheten
+Om du vill identifiera den aktiva styrenheten på enheten letar du reda på den blå lysdioden ovanför DATA 5-porten på baksidan av den primära höljet.
 
-Om den här INDIKATORn blinkar är kontrollanten aktiv och den andra kontrollanten är i vänte läge. Använd följande diagram och tabell som ett stöd.
+Om denna lysdiod blinkar är handkontrollen aktiv och den andra handkontrollen i vänteläge. Använd följande diagram och tabell som hjälpmedel.
 
-![Enhetens primära hölje-omplanering med dataportar](./media/storsimple-controller-replacement/IC741055.png)
+![Enhetens primära hölje backplan med dataportar](./media/storsimple-controller-replacement/IC741055.png)
 
-**Figur 8** Tillbaka till primärt hölje med data portar och övervaknings indikatorer
+**Bild 8** Baksidan av primärhölje med dataportar och övervakningslysdioder
 
 | Label (Etikett) | Beskrivning |
 |:--- |:--- |
-| 1-6 |DATA 0 – 5 nätverks portar |
-| 7 |Blå indikator |
+| 1-6 |DATA 0 – 5 nätverksportar |
+| 7 |Blå LED |
 
 ## <a name="next-steps"></a>Nästa steg
-Läs mer om [StorSimple av maskin varu komponenter](storsimple-8000-hardware-component-replacement.md).
+Läs mer om byte av [Maskinvarukomponent i StorSimple](storsimple-8000-hardware-component-replacement.md).
 

@@ -1,6 +1,6 @@
 ---
-title: Microsoft Azure StorSimple Virtual Array säkerhetskopiering självstudien | Microsoft Docs
-description: Beskriver hur du säkerhetskopierar StorSimple Virtual Array resurserna och volymerna.
+title: Microsoft Azure StorSimple Virtual Array backup tutorial | Microsoft-dokument
+description: Beskriver hur du säkerhetskopierar StorSimple Virtual Array-resurser och volymer.
 services: storsimple
 documentationcenter: NA
 author: alkohli
@@ -16,103 +16,103 @@ ms.date: 02/27/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: a61dcca1f78b6ba444a2deefcf6b8bb4fd5c5087
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60581402"
 ---
-# <a name="back-up-shares-or-volumes-on-your-storsimple-virtual-array"></a>Säkerhetskopiera resurser eller volymer på StorSimple Virtual Array
+# <a name="back-up-shares-or-volumes-on-your-storsimple-virtual-array"></a>Säkerhetskopiera resurser eller volymer på din StorSimple Virtual Array
 
 ## <a name="overview"></a>Översikt
 
-StorSimple Virtual Array är en hybrid cloud storage lokala virtuell enhet som kan konfigureras som en filserver eller en iSCSI-server. Den virtuella matrisen tillåter användare att skapa schemalagda säkerhetskopieringar och manuella säkerhetskopieringar av alla resurser eller volymer på enheten. När konfigurerad som en filserver, kan också objektnivååterställning. Den här självstudien beskrivs hur du skapar schemalagda säkerhetskopieringar och manuella säkerhetskopieringar och utföra återställning på objektnivå om du vill återställa en borttagen fil på din virtuella matris.
+StorSimple Virtual Array är en lokal virtuell hybridlagringsenhet som kan konfigureras som en filserver eller en iSCSI-server. Den virtuella matrisen gör det möjligt för användaren att skapa schemalagda och manuella säkerhetskopior av alla resurser eller volymer på enheten. När den konfigureras som en filserver tillåter den också återställning på objektnivå. I den här självstudien beskrivs hur du skapar schemalagda och manuella säkerhetskopior och utför återställning på objektnivå för att återställa en borttagen fil på den virtuella matrisen.
 
-Den här självstudiekursen gäller för de StorSimple Virtual Array endast. För information om 8000-serien, går du till [skapar en säkerhetskopia för enheten i 8000-serien](storsimple-manage-backup-policies-u2.md)
+Den här självstudien gäller endast storsimple-virtuella matriser. Information om 8000-serien finns i [Skapa en säkerhetskopia för 8000-seriens enhet](storsimple-manage-backup-policies-u2.md)
 
-## <a name="back-up-shares-and-volumes"></a>Säkerhetskopiering av filresurser och volymer
+## <a name="back-up-shares-and-volumes"></a>Säkerhetskopiera aktier och volymer
 
-Säkerhetskopieringar ger point-in-time-skydd, förbättrar återställningsmöjligheterna och minimera återställningstiderna för resurserna och volymerna. Du kan säkerhetskopiera en resurs eller en volym på StorSimple-enheten på två sätt: **Schemalagda** eller **manuell**. Var och en av metoderna som beskrivs i följande avsnitt.
+Säkerhetskopior ger punkt-i-tid skydd, förbättra återvinningsbarheten och minimera återställningstider för resurser och volymer. Du kan säkerhetskopiera en resurs eller volym på Din StorSimple-enhet på två sätt: **Schemalagd** eller **Manuell**. Var och en av metoderna diskuteras i följande avsnitt.
 
-## <a name="change-the-backup-start-time"></a>Ändra starttid för säkerhetskopiering
+## <a name="change-the-backup-start-time"></a>Ändra starttiden för säkerhetskopian
 
 > [!NOTE]
-> I den här versionen skapas schemalagda säkerhetskopieringar av en standardprincip som körs varje dag vid en viss tidpunkt och säkerhetskopierar den filresurser eller volymer på enheten. Det går inte att skapa anpassade principer för schemalagda säkerhetskopieringar just nu.
+> I den här versionen skapas schemalagda säkerhetskopior av en standardprincip som körs dagligen vid en viss tidpunkt och säkerhetskopierar alla resurser eller volymer på enheten. Det går inte att skapa anpassade principer för schemalagda säkerhetskopieringar just nu.
 
 
-StorSimple Virtual Array har en standardprincip för säkerhetskopiering som börjar vid en angiven tid på dagen (22:30) och säkerhetskopierar den filresurser eller volymer på enheten en gång om dagen. Du kan ändra den tid då säkerhetskopiering startar, men frekvensen och kvarhållning (som anger antalet säkerhetskopior som ska kvarhållas) inte kan ändras. Hela virtuella enheten har säkerhetskopierats under dessa säkerhetskopior. Detta kan potentiellt påverka prestandan för enheten och påverkar arbetsbelastningar som distribuerats på enheten. Därför rekommenderar vi att du schemalägger säkerhetskopiorna för låg belastning.
+Din StorSimple Virtual Array har en standardprincip för säkerhetskopiering som startar vid en angiven tid på dagen (22:30) och säkerhetskopierar alla resurser eller volymer på enheten en gång om dagen. Du kan ändra den tid då säkerhetskopian startar, men frekvensen och kvarhållningen (som anger antalet säkerhetskopior som ska behållas) kan inte ändras. Under dessa säkerhetskopior säkerhetskopieras hela den virtuella enheten. Detta kan potentiellt påverka enhetens prestanda och påverka arbetsbelastningarna som distribueras på enheten. Därför rekommenderar vi att du schemalägger dessa säkerhetskopior för lågtrafik.
 
- Ändra starttid för standard säkerhetskopiering genom att utföra följande steg i den [Azure-portalen](https://portal.azure.com/).
+ Om du vill ändra standardstarttiden för säkerhetskopiering utför du följande steg i [Azure-portalen](https://portal.azure.com/).
 
-#### <a name="to-change-the-start-time-for-the-default-backup-policy"></a>Ändra starttiden för standardprincip för säkerhetskopiering
+#### <a name="to-change-the-start-time-for-the-default-backup-policy"></a>Så här ändrar du starttiden för standardprincipen för säkerhetskopiering
 
-1. Gå till **enheter**. I listan med enheter som registreras med StorSimple Device Manager-tjänsten visas. 
+1. Gå till **Enheter**. Listan över enheter som är registrerade hos Tjänsten StorSimple Device Manager visas. 
    
-    ![Gå till enheter](./media/storsimple-virtual-array-backup/changebuschedule1.png)
+    ![navigera till enheter](./media/storsimple-virtual-array-backup/changebuschedule1.png)
 
-2. Välj och klicka på din enhet. Den **inställningar** bladet visas. Gå till **hantera > principer för säkerhetskopiering**.
+2. Markera och klicka på enheten. **Bladet Inställningar** visas. Gå till **Hantera principer för > säkerhetskopiering**.
    
-    ![Välj din enhet](./media/storsimple-virtual-array-backup/changebuschedule2.png)
+    ![välj enhet](./media/storsimple-virtual-array-backup/changebuschedule2.png)
 
-3. I den **principer för säkerhetskopiering** bladet starttiden som standard är 22:30. Du kan ange nya starttiden för dagligt schema i enhetens tidszon.
+3. I bladet **Principer för säkerhetskopiering** är standardstarttiden 22:30. Du kan ange den nya starttiden för det dagliga schemat i enhetens tidszon.
    
-    ![Gå till principer för säkerhetskopiering](./media/storsimple-virtual-array-backup/changebuschedule5.png)
+    ![navigera till principer för säkerhetskopiering](./media/storsimple-virtual-array-backup/changebuschedule5.png)
 
 4. Klicka på **Spara**.
 
-### <a name="take-a-manual-backup"></a>Gör en manuell säkerhetskopia
+### <a name="take-a-manual-backup"></a>Gör en manuell säkerhetskopiering
 
-Förutom schemalagda säkerhetskopieringar, kan du utföra en manuell (på begäran) säkerhetskopiering av enhetsdata när som helst.
+Förutom schemalagda säkerhetskopior kan du när som helst säkerhetskopiera enhetsdata (on-demand) av enhetsdata.
 
 #### <a name="to-create-a-manual-backup"></a>Så här skapar du en manuell säkerhetskopia
 
-1. Gå till **enheter**. Välj din enhet och högerklicka på **...**  längst till höger i den markerade raden. På snabbmenyn väljer **säkerhetskopiera**.
+1. Gå till **Enheter**. Välj din enhet och högerklicka **...** längst till höger i den valda raden. Välj **Ta backup**på snabbmenyn .
    
-    ![Navigera för att säkerhetskopiera](./media/storsimple-virtual-array-backup/takebackup1m.png)
+    ![navigera för att ta backup](./media/storsimple-virtual-array-backup/takebackup1m.png)
 
-2. I den **säkerhetskopiera** bladet klickar du på **säkerhetskopiera**. Detta kommer att säkerhetskopiera alla resurser på servern eller alla volymer på iSCSI-servern. 
+2. Klicka på **Ta förstärkning**i bladet Ta **förstärkning.** Detta kommer att säkerhetskopiera alla resurser på filservern eller alla volymer på din iSCSI-server. 
    
-    ![säkerhetskopieringen från](./media/storsimple-virtual-array-backup/takebackup2m.png)
+    ![säkerhetskopiering startar](./media/storsimple-virtual-array-backup/takebackup2m.png)
    
-    Startar en säkerhetskopiering på begäran och du ser att ett säkerhetskopieringsjobb har startats.
+    En säkerhetskopiering på begäran startar och du ser att ett säkerhetskopieringsjobb har startat.
    
-    ![säkerhetskopieringen från](./media/storsimple-virtual-array-backup/takebackup3m.png) 
+    ![säkerhetskopiering startar](./media/storsimple-virtual-array-backup/takebackup3m.png) 
    
-    När jobbet har slutförts, meddelas du igen. Säkerhetskopieringen startas.
+    När jobbet har slutförts meddelas du igen. Säkerhetskopieringen startar sedan.
    
-    ![säkerhetskopieringsjobbet har skapats](./media/storsimple-virtual-array-backup/takebackup4m.png)
+    ![säkerhetskopieringsjobb som skapats](./media/storsimple-virtual-array-backup/takebackup4m.png)
 
-3. Klicka på meddelandet för att följa förloppet för säkerhetskopiorna och titta på Jobbinformationen. Då kommer du till **Jobbdetaljer**.
+3. Om du vill spåra förloppet för säkerhetskopiorna och titta på jobbinformationen klickar du på meddelandet. Detta tar dig till **Jobbinformation**.
    
      ![information om säkerhetskopieringsjobb](./media/storsimple-virtual-array-backup/takebackup5m.png)
 
-4. När säkerhetskopieringen är klar, går du till **Management > säkerhetskopieringskatalog**. En molnögonblicksbild av alla resurser (eller volymer) visas på din enhet.
+4. När säkerhetskopieringen är klar går du till **Hantering > Säkerhetskopieringskatalog .** Du kommer att se en ögonblicksbild av alla resurser (eller volymer) på din enhet.
    
-    ![Slutförda säkerhetskopiering](./media/storsimple-virtual-array-backup/takebackup19m.png) 
+    ![Slutförd säkerhetskopiering](./media/storsimple-virtual-array-backup/takebackup19m.png) 
 
-## <a name="view-existing-backups"></a>Visa befintliga säkerhetskopieringar
-Utför följande steg om du vill visa befintliga säkerhetskopior i Azure-portalen.
+## <a name="view-existing-backups"></a>Visa befintliga säkerhetskopior
+Om du vill visa befintliga säkerhetskopior utför du följande steg i Azure-portalen.
 
-#### <a name="to-view-existing-backups"></a>Visa befintliga säkerhetskopior
+#### <a name="to-view-existing-backups"></a>Så här visar du befintliga säkerhetskopior
 
-1. Gå till **enheter** bladet. Välj och klicka på din enhet. I den **inställningar** gå till bladet **Management > säkerhetskopieringskatalog**.
+1. Gå till **bladet Enheter.** Markera och klicka på enheten. Gå till **Hantering > säkerhetskopieringskatalog i**bladet **Inställningar** .
    
-    ![Gå till säkerhetskopieringskatalogen](./media/storsimple-virtual-array-backup/viewbackups1.png)
+    ![Navigera till säkerhetskopieringskatalog](./media/storsimple-virtual-array-backup/viewbackups1.png)
 2. Ange följande villkor som ska användas för filtrering:
    
-   - **Tidsintervall** – kan vara **senaste 1 timme**, **senaste 24 timmarna**, **senaste 7 dagarna**, **de senaste 30 dagarna**, **senaste året** , och **anpassade datum**.
+   - **Tidsintervall** – kan vara **senaste 1 timme,** **senaste 24 timmarna**, **Senaste 7 dagarna**, **Senaste 30 dagarna,** **Föregående år**och **Anpassat datum**.
     
-   - **Enheter** – Välj i listan över filservrar eller iSCSI-servrar som är registrerade med StorSimple Device Manager-tjänsten.
+   - **Enheter** – välj från listan över filservrar eller iSCSI-servrar som är registrerade med tjänsten StorSimple Device Manager.
    
-   - **Initierade** – kan vara automatiskt **schemalagd** (genom en princip för säkerhetskopiering) eller **manuellt** initieras (av du).
+   - **Initierad** – kan **schemaläggas** automatiskt (av en säkerhetskopieringsprincip) eller **initieras manuellt** (av dig).
    
      ![Filtrera säkerhetskopior](./media/storsimple-virtual-array-backup/viewbackups2.png)
 
-3. Klicka på **Verkställ**. Den filtrerade listan över säkerhetskopieringar visas i den **säkerhetskopieringskatalog** bladet. Obs endast 100 säkerhetskopierade element kan visas vid en given tidpunkt.
+3. Klicka på **Använd**. Den filtrerade listan över säkerhetskopior visas i **bladet Säkerhetskopieringskatalog.** Endast 100 säkerhetskopieringselement kan visas vid en viss tidpunkt.
    
-    ![Uppdaterade säkerhetskopieringskatalogen](./media/storsimple-virtual-array-backup/viewbackups3.png)
+    ![Uppdaterad säkerhetskopieringskatalog](./media/storsimple-virtual-array-backup/viewbackups3.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-Läs mer om [administrera StorSimple Virtual Array](storsimple-ova-web-ui-admin.md).
+Läs mer om [hur du administrerar den virtuella storsimple-matrisen](storsimple-ova-web-ui-admin.md).
 

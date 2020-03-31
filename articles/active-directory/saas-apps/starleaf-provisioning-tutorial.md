@@ -1,6 +1,6 @@
 ---
-title: 'Självstudie: Konfigurera StarLeaf för automatisk användar etablering med Azure Active Directory | Microsoft Docs'
-description: Lär dig hur du konfigurerar Azure Active Directory att automatiskt etablera och avetablera användar konton till StarLeaf.
+title: 'Självstudiekurs: Konfigurera StarLeaf för automatisk användaretablering med Azure Active Directory | Microsoft-dokument'
+description: Lär dig hur du konfigurerar Azure Active Directory för att automatiskt etablera och avetablera användarkonton till StarLeaf.
 services: active-directory
 documentationcenter: ''
 author: zchia
@@ -16,145 +16,145 @@ ms.topic: article
 ms.date: 07/19/2019
 ms.author: zhchia
 ms.openlocfilehash: 520373fc6a05bcaada973273e3553f9da623c669
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77064314"
 ---
-# <a name="tutorial-configure-starleaf-for-automatic-user-provisioning"></a>Självstudie: Konfigurera StarLeaf för automatisk användar etablering
+# <a name="tutorial-configure-starleaf-for-automatic-user-provisioning"></a>Självstudiekurs: Konfigurera StarLeaf för automatisk etablering av användare
 
-Syftet med den här självstudien är att demonstrera de steg som ska utföras i StarLeaf och Azure Active Directory (Azure AD) för att konfigurera Azure AD att automatiskt etablera och avetablera användare och/eller grupper till StarLeaf.
+Syftet med den här självstudien är att demonstrera de steg som ska utföras i StarLeaf och Azure Active Directory (Azure AD) för att konfigurera Azure AD för att automatiskt etablera och avetablera användare och/eller grupper till StarLeaf.
 
 > [!NOTE]
->  I den här självstudien beskrivs en koppling som skapats ovanpå Azure AD-tjänsten för användar etablering. Viktig information om vad den här tjänsten gör, hur det fungerar och vanliga frågor finns i [Automatisera användar etablering och avetablering för SaaS-program med Azure Active Directory](../app-provisioning/user-provisioning.md).
+>  Den här självstudien beskriver en anslutningsapp som skapats ovanpå Azure AD-tjänsten för användaretablering. Viktig information om vad den här tjänsten gör, hur den fungerar och vanliga frågor finns i [Automatisera etablering av användare och avetablering till SaaS-program med Azure Active Directory](../app-provisioning/user-provisioning.md).
 >
-> Den här kopplingen är för närvarande en för hands version. Mer information om allmänna Microsoft Azure användnings villkor för för hands versions funktioner finns i kompletterande användnings [villkor för Microsoft Azure för](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)hands versioner.
+> Den här kopplingen är för närvarande i förhandsversion. Mer information om de allmänna användningsvillkoren för förhandsversionen av Microsoft Azure finns i [Tilläggsvillkor för Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-Det scenario som beskrivs i den här självstudien förutsätter att du redan har följande krav:
+Det scenario som beskrivs i den här självstudien förutsätter att du redan har följande förutsättningar:
 
 * En Azure AD-klientorganisation.
-* [En StarLeaf-klient](https://www.starleaf.com/solutions/).
-* Ett användar konto i StarLeaf med administratörs behörighet.
+* [En StarLeaf hyresgäst](https://www.starleaf.com/solutions/).
+* Ett användarkonto i StarLeaf med administratörsbehörighet.
 
 ## <a name="assign-users-to-starleaf"></a>Tilldela användare till StarLeaf
-Azure Active Directory använder ett begrepp som kallas tilldelningar för att avgöra vilka användare som ska få åtkomst till valda appar. I kontexten för automatisk användar etablering synkroniseras endast de användare och/eller grupper som har tilldelats till ett program i Azure AD.
+Azure Active Directory använder ett koncept som kallas tilldelningar för att avgöra vilka användare som ska få åtkomst till valda appar. I samband med automatisk användaretablering synkroniseras endast användare och/eller grupper som har tilldelats ett program i Azure AD.
 
-Innan du konfigurerar och aktiverar automatisk användar etablering bör du bestämma vilka användare och grupper i Azure AD som behöver åtkomst till StarLeaf. Sedan kan du tilldela användare och grupper till StarLeaf genom att följa [dessa anvisningar](../manage-apps/assign-user-or-group-access-portal.md).
+Innan du konfigurerar och aktiverar automatisk användaretablering bör du bestämma vilka användare och grupper i Azure AD som behöver åtkomst till StarLeaf. Sedan kan du tilldela användare och grupper till StarLeaf genom att följa [dessa instruktioner](../manage-apps/assign-user-or-group-access-portal.md).
 
 ## <a name="important-tips-for-assigning-users-to-starleaf"></a>Viktiga tips för att tilldela användare till StarLeaf
 
-* Vi rekommenderar att en enda Azure AD-användare tilldelas StarLeaf för att testa den automatiska konfigurationen av användar etablering. Ytterligare användare och grupper kan tilldelas senare.
+* Vi rekommenderar att en enda Azure AD-användare tilldelas StarLeaf för att testa konfigurationen för automatisk användaretablering. Ytterligare användare och grupper kan tilldelas senare.
 
-* När du tilldelar en användare till StarLeaf måste du välja en giltig programspecifik roll (om tillgängligt) i tilldelnings dialog rutan. Användare med standard åtkomst rollen undantas från etablering.
+* När du tilldelar en användare till StarLeaf måste du välja en giltig programspecifik roll (om sådan finns) i tilldelningsdialogrutan. Användare med rollen Standardåtkomst är undantagna från etablering.
 
-## <a name="set-up-starleaf-for-provisioning"></a>Konfigurera StarLeaf för etablering
+## <a name="set-up-starleaf-for-provisioning"></a>Ställ in StarLeaf för etablering
 
-Innan du konfigurerar StarLeaf för automatisk användar etablering med Azure AD måste du konfigurera SCIM-etablering i StarLeaf:
+Innan du konfigurerar StarLeaf för automatisk användaretablering med Azure AD måste du konfigurera SCIM-etablering i StarLeaf:
 
-1. Logga in på din [StarLeaf-administratörs konsol](https://portal.starleaf.com/#page=login). Navigera till **integrationer** > **Lägg till integrering**.
+1. Logga in på [din StarLeaf-administratörskonsol](https://portal.starleaf.com/#page=login). Navigera till **Integrationer** > **Lägg till integrering**.
 
-    ![StarLeaf Lägg till SCIM](media/starleaf-provisioning-tutorial/image00.png)
+    ![StarLeaf Lägg TILL SCIM](media/starleaf-provisioning-tutorial/image00.png)
 
-2. Välj den **typ** som ska Microsoft Azure Active Directory. Ange ett lämpligt namn i **namn**. Klicka på **Verkställ**.
+2. Välj den **typ som** ska vara Microsoft Azure Active Directory. Ange ett lämpligt namn i **Namn**. Klicka på **Använd**.
 
-    ![StarLeaf Lägg till SCIM](media/starleaf-provisioning-tutorial/image01.png)
+    ![StarLeaf Lägg TILL SCIM](media/starleaf-provisioning-tutorial/image01.png)
 
-3.  Värdena för **bas-URL: en för scim** och **åtkomsttoken** visas sedan. Dessa värden anges i fälten klient- **URL** och **hemligt token** på fliken etablering i StarLeaf-programmet i Azure Portal. 
+3.  **SCIM-bas-URL:en** och **Åtkomsttokens** värden visas sedan. Dessa värden anges i fälten **Klient-URL** och **Hemlig token** på fliken Etablering i ditt StarLeaf-program i Azure-portalen. 
 
     ![Skapa token för StarLeaf](media/starleaf-provisioning-tutorial/image02.png)
 
 ## <a name="add-starleaf-from-the-gallery"></a>Lägg till StarLeaf från galleriet
 
-Om du vill konfigurera StarLeaf för automatisk användar etablering med Azure AD måste du lägga till StarLeaf från Azure AD-programgalleriet i listan över hanterade SaaS-program.
+Om du vill konfigurera StarLeaf för automatisk användaretablering med Azure AD måste du lägga till StarLeaf från Azure AD-programgalleriet i listan över hanterade SaaS-program.
 
-**Utför följande steg för att lägga till StarLeaf från Azure AD-programgalleriet:**
+**Så här lägger du till StarLeaf från Azure AD-programgalleriet:**
 
-1. Välj **Azure Active Directory**i den vänstra navigerings panelen i **[Azure Portal](https://portal.azure.com)** .
+1. Välj **Azure Active Directory**i **[Azure-portalen](https://portal.azure.com)** i den vänstra navigeringspanelen .
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
-2. Gå till **företags program**och välj sedan **alla program**.
+2. Gå till **Enterprise-program**och välj sedan **Alla program**.
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-3. Om du vill lägga till ett nytt program väljer du knappen **nytt program** överst i fönstret.
+3. Om du vill lägga till ett nytt program väljer du knappen **Nytt program** högst upp i fönstret.
 
     ![Knappen Nytt program](common/add-new-app.png)
 
-4. I sökrutan anger du **StarLeaf**och väljer **StarLeaf** i panelen resultat.
-    ![StarLeaf i resultat listan](common/search-new-app.png)
+4. I sökrutan anger du **StarLeaf**, välj **StarLeaf** på resultatpanelen.
+    ![StarLeaf i resultatlistan](common/search-new-app.png)
 
-## <a name="configure-automatic-user-provisioning-to-starleaf"></a>Konfigurera automatisk användar etablering till StarLeaf
+## <a name="configure-automatic-user-provisioning-to-starleaf"></a>Konfigurera automatisk användaretablering till StarLeaf
 
-Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Provisioning-tjänsten för att skapa, uppdatera och inaktivera användare och/eller grupper i StarLeaf baserat på användar-och/eller grupp tilldelningar i Azure AD.
+I det här avsnittet får du hjälp med stegen för att konfigurera Azure AD-etableringstjänsten för att skapa, uppdatera och inaktivera användare och/eller grupper i StarLeaf baserat på användar- och/eller grupptilldelningar i Azure AD.
 
-1. Logga in på [Azure Portal](https://portal.azure.com). Välj **företags program**och välj sedan **alla program**.
+1. Logga in på [Azure-portalen](https://portal.azure.com). Välj **Företagsprogram**och välj sedan **Alla program**.
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-2. I listan program väljer du **StarLeaf**.
+2. Välj **StarLeaf**i programlistan .
 
-    ![StarLeaf-länken i program listan](common/all-applications.png)
+    ![StarLeaf-länken i programlistan](common/all-applications.png)
 
-3. Välj fliken **etablering** .
+3. Välj fliken **Etablering.**
 
-    ![Fliken etablering](common/provisioning.png)
+    ![Fliken Etablering](common/provisioning.png)
 
-4. Ställ in **etablerings läget** på **automatiskt**.
+4. Ställ in **etableringsläget** på **Automatiskt**.
 
-    ![Fliken etablering](common/provisioning-automatic.png)
+    ![Fliken Etablering](common/provisioning-automatic.png)
 
-5. Under avsnittet admin credentials, mata in **scim grundläggande URL** och **åtkomsttoken** som hämtades tidigare i **klient-URL** respektive **hemlig token** . Klicka på **Testa anslutning** för att se till att Azure AD kan ansluta till StarLeaf. Om anslutningen Miss lyckas kontrollerar du att StarLeaf-kontot har administratörs behörighet och försöker igen.
+5. Under avsnittet Administratörsautentiseringsuppgifter anger du **SCIM-bas-URL:en** och **åtkomsttokenvärden** som hämtats tidigare i **klient-URL** respektive **Hemlig token.** Klicka på **Testa anslutning** för att säkerställa att Azure AD kan ansluta till StarLeaf. Om anslutningen misslyckas kontrollerar du att ditt StarLeaf-konto har administratörsbehörighet och försöker igen.
 
-    ![Klient-URL + token](common/provisioning-testconnection-tenanturltoken.png)
+    ![Url till klient + token](common/provisioning-testconnection-tenanturltoken.png)
 
-6. I fältet **e-postavisering** anger du e-postadressen till den person eller grupp som ska få etablerings fel meddelanden och markerar rutan **Skicka ett e-postmeddelande när ett fel uppstår** .
+6. I fältet **E-post för meddelanden** anger du e-postadressen till en person eller grupp som ska få meddelanden om etableringsfel och markerar rutan **Skicka ett e-postmeddelande när ett fel inträffar.**
 
     ![E-postmeddelande](common/provisioning-notification-email.png)
 
-7. Klicka på **Save** (Spara).
+7. Klicka på **Spara**.
 
-8. Under avsnittet **mappningar** väljer du **Synkronisera Azure Active Directory användare till StarLeaf**.
+8. Under avsnittet **Mappningar** väljer du **Synkronisera Azure Active Directory-användare till StarLeaf**.
 
     ![Skapa token för StarLeaf](media/starleaf-provisioning-tutorial/usermapping.png)
 
-9. Granska de användarattribut som synkroniseras från Azure AD till StarLeaf i avsnittet **Mappning av attribut** . Attributen som väljs som **matchande** egenskaper används för att matcha användar kontona i StarLeaf för uppdaterings åtgärder. Välj knappen **Spara** för att spara ändringarna.
+9. Granska användarattributen som synkroniseras från Azure AD till StarLeaf i avsnittet **Attributmappning.** De attribut som valts som **matchande** egenskaper används för att matcha användarkontona i StarLeaf för uppdateringsåtgärder. Välj knappen **Spara** om du vill utföra eventuella ändringar.
 
     ![Skapa token för StarLeaf](media/starleaf-provisioning-tutorial/userattribute.png)
 
 
-10. Information om hur du konfigurerar omfångs filter finns i följande instruktioner i [kursen omfångs filter](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
+10. Information om hur du konfigurerar omfångsfilter finns i följande instruktioner i [självstudiefilatkursen För att visa omfånget](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
 
-11. Om du vill aktivera Azure AD Provisioning-tjänsten för StarLeaf ändrar du **etablerings statusen** till **på** i avsnittet **Inställningar** .
+11. Om du vill aktivera Azure AD-etableringstjänsten för StarLeaf ändrar **du etableringsstatusen** till **På** i avsnittet **Inställningar.**
 
-    ![Etablerings status växlad på](common/provisioning-toggle-on.png)
+    ![Etableringsstatus växlad på](common/provisioning-toggle-on.png)
 
-12. Definiera de användare och/eller grupper som du vill etablera till StarLeaf genom att välja önskade värden i **omfång** i avsnittet **Inställningar** .
+12. Definiera de användare och/eller grupper som du vill etablera till StarLeaf genom att välja önskade värden i **Scope** i avsnittet **Inställningar.**
 
-    ![Etablerings omfång](common/provisioning-scope.png)
+    ![Etableringsomfång](common/provisioning-scope.png)
 
 13. När du är redo att etablera klickar du på **Spara**.
 
-    ![Etablerings konfigurationen sparas](common/provisioning-configuration-save.png)
+    ![Spara etableringskonfiguration](common/provisioning-configuration-save.png)
 
-Den här åtgärden startar den första synkroniseringen av alla användare och/eller grupper som definierats i **området** i avsnittet **Inställningar** . Den inledande synkroniseringen tar längre tid att utföra än efterföljande synkroniseringar, vilket inträffar ungefär var 40: e minut så länge Azure AD Provisioning-tjänsten körs. Du kan använda avsnittet **synkroniseringsinformation** för att övervaka förloppet och följa länkar till etablerings aktivitets rapporten, som beskriver alla åtgärder som utförs av Azure AD Provisioning-tjänsten på StarLeaf.
+Den här åtgärden startar den första synkroniseringen av alla användare och/eller grupper som **definierats** i Scope i avsnittet **Inställningar.** Den första synkroniseringen tar längre tid att utföra än efterföljande synkroniseringar, som inträffar ungefär var 40:e minut så länge Azure AD-etableringstjänsten körs. Du kan använda avsnittet **Synkroniseringsinformation** för att övervaka förloppet och följa länkar till etableringsaktivitetsrapporten, som beskriver alla åtgärder som utförs av Azure AD-etableringstjänsten på StarLeaf.
 
-Mer information om hur du läser etablerings loggarna i Azure AD finns i [rapportering om automatisk etablering av användar konton](../app-provisioning/check-status-user-account-provisioning.md)
+Mer information om hur du läser Azure AD-etableringsloggarna finns i [Rapportera om automatisk etablering av användarkonton](../app-provisioning/check-status-user-account-provisioning.md)
 
-## <a name="connector-limitations"></a>Kopplings begränsningar
+## <a name="connector-limitations"></a>Begränsningar för anslutning
 
-* StarLeaf stöder för närvarande inte grupp etablering. 
-* StarLeaf kräver att värdena för **e-post** och **användar namn** har samma käll värde.
+* StarLeaf stöder för närvarande inte gruppetablering. 
+* StarLeaf kräver **e-post** och **userName-värden** för att ha samma källvärde.
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Hantera användar konto etablering för företags program](../app-provisioning/configure-automatic-user-provisioning-portal.md)
+* [Hantera etablering av användarkonton för företagsappar](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Lär dig hur du [granskar loggar och hämtar rapporter om etablerings aktivitet](../app-provisioning/check-status-user-account-provisioning.md).
+* Läs om hur du [granskar loggar och hämtar rapporter om etableringsaktivitet](../app-provisioning/check-status-user-account-provisioning.md).

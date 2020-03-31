@@ -1,5 +1,5 @@
 ---
-title: Använd Java för att skapa ett chattrum med Azure Functions-och SignalR-tjänsten
+title: Använda Java för att skapa ett chattrum med Azure Functions and SignalR Service
 description: En snabbstart för att använda Azure SignalR Service och Azure Functions för att skapa ett chattrum.
 author: sffamily
 ms.service: signalr
@@ -8,30 +8,30 @@ ms.topic: quickstart
 ms.date: 03/04/2019
 ms.author: zhshang
 ms.openlocfilehash: 890fc381afe0146e721e084e2dcd7eae9215d004
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/08/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77083198"
 ---
-# <a name="quickstart-use-java-to-create-a-chat-room-with-azure-functions-and-signalr-service"></a>Snabb start: Använd Java för att skapa ett chattrum med Azure Functions-och SignalR-tjänsten
+# <a name="quickstart-use-java-to-create-a-chat-room-with-azure-functions-and-signalr-service"></a>Snabbstart: Använd Java för att skapa ett chattrum med Azure Functions and SignalR Service
 
-Med Azure SignalR service kan du enkelt lägga till real tids funktioner i ditt program och Azure Functions är en plattform utan server som gör att du kan köra din kod utan att behöva hantera någon infrastruktur. I den här snabb starten använder du Java för att bygga ett Server lös chatt-program i real tid med hjälp av SignalR service och functions.
+Med Azure SignalR-tjänsten kan du enkelt lägga till funktioner i realtid i ditt program och Azure Functions är en serverlös plattform som gör att du kan köra din kod utan att hantera någon infrastruktur. I den här snabbstarten använder du Java för att skapa ett serverlöst chattprogram i realtid med SignalR-tjänsten och -funktioner.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-- En kod redigerare, till exempel [Visual Studio Code](https://code.visualstudio.com/)
-- Ett Azure-konto med en aktiv prenumeration. [Skapa ett konto kostnads fritt](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-- [Azure Functions Core tools](https://github.com/Azure/azure-functions-core-tools#installing). Används för att köra Azure Function Apps lokalt.
-
-   > [!NOTE]
-   > De nödvändiga bindningarna för SignalR-tjänsten i Java stöds bara i Azure Function Core tools version 2.4.419 (värd version 2.0.12332) eller senare.
+- En kodredigerare, till exempel [Visual Studio Code](https://code.visualstudio.com/)
+- Ett Azure-konto med en aktiv prenumeration. [Skapa ett konto gratis](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+- [Azure Functions core tools](https://github.com/Azure/azure-functions-core-tools#installing). Används för att köra Azure Function-appar lokalt.
 
    > [!NOTE]
-   > Om du vill installera tillägg måste [.net Core SDK](https://www.microsoft.com/net/download) vara installerat på Azure Functions Core tools. Dock krävs ingen kunskap om .NET för att skapa Azure Functions-appar med JavaScript.
+   > De signalR-bindningar som krävs i Java stöds endast i Azure Function Core Tools version 2.4.419 (värdversion 2.0.12332) eller senare.
+
+   > [!NOTE]
+   > För att installera tillägg kräver Azure Functions Core Tools [.NET Core SDK](https://www.microsoft.com/net/download) installerat. Dock krävs ingen kunskap om .NET för att skapa Azure Functions-appar med JavaScript.
 
 - [Java Developer Kit](https://www.azul.com/downloads/zulu/), version 8
-- [Apache maven](https://maven.apache.org), version 3,0 eller senare
+- [Apache Maven](https://maven.apache.org), version 3.0 eller senare
 
 > [!NOTE]
 > Den här snabbstarten kan köras på macOS, Windows eller Linux.
@@ -56,24 +56,24 @@ Logga in på Azure-portalen på <https://portal.azure.com/> med ditt Azure-konto
 
     ![Skapa SignalR Service](media/signalr-quickstart-azure-functions-javascript/signalr-quickstart-keys.png)
 
-1. Öppna mappen *src/Chat/Java* i den klonade lagrings platsen i kod redigeraren.
+1. Öppna *mappen src/chat/java* i den klonade databasen i kodredigeraren.
 
 1. Byt namn på *local.settings.sample.json* till *local.settings.json*.
 
 1. I **local.settings.json** klistrar du in anslutningssträngen i värdet för inställningen **AzureSignalRConnectionString**. Spara filen.
 
-1. Huvud filen som innehåller funktionerna finns i *src/Chat/Java/src/main/Java/com/Function/functions. java*:
+1. Huvudfilen som innehåller funktionerna finns i *src/chat/java/src/main/java/com/function/Functions.java*:
 
     - **negotiate** (förhandla) – använder indatabindningen *SignalRConnectionInfo* för att skapa och returnera giltig anslutningsinformation.
-    - **SendMessage** – tar emot ett chatt meddelande i begär ande texten och använder *signalens* utgående bindning för att skicka meddelandet till alla anslutna klient program.
+    - **sendMessage** - Tar emot ett chattmeddelande i begäran kroppen och använder *SignalR* utdata bindande för att sända meddelandet till alla anslutna klientprogram.
 
-1. Se till att du finns i mappen *src/Chat/Java* i terminalen. Bygg in Function-appen.
+1. I terminalen, se till att du är i *src / chat / java* mapp. Skapa funktionsappen.
 
     ```bash
     mvn clean package
     ```
 
-1. Kör Function-appen lokalt.
+1. Kör funktionsappen lokalt.
 
     ```bash
     mvn azure-functions:run
@@ -85,7 +85,7 @@ Logga in på Azure-portalen på <https://portal.azure.com/> med ditt Azure-konto
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabb starten har du skapat och kört ett program utan server i real tid med hjälp av Maven. Nu kan du läsa om hur du skapar Java-Azure Functions från grunden.
+I den här snabbstarten har du skapat och kört ett serverlöst program i realtid med Maven. Läs sedan om hur du skapar Java Azure-funktioner från grunden.
 
 > [!div class="nextstepaction"]
-> [Skapa din första funktion med Java och maven](../azure-functions/functions-create-first-java-maven.md)
+> [Skapa din första funktion med Java och Maven](../azure-functions/functions-create-first-java-maven.md)

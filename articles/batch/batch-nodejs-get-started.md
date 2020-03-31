@@ -12,10 +12,10 @@ ms.workload: big-compute
 ms.date: 05/22/2017
 ms.author: shg
 ms.openlocfilehash: c112fb0b2d0eb3b8a66731948f48c8038a2296f8
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77023658"
 ---
 # <a name="get-started-with-batch-sdk-for-nodejs"></a>Kom igång med Batch SDK för Node.js
@@ -43,7 +43,7 @@ Node.js-klienten distribuerar ett batch-jobb med en förberedande aktivitet (bes
 
 > [!TIP]
 > Node.js-klienten i den angivna länken innehåller ingen kod som kan distribueras som en Azure-funktionsapp. Se följande länkar för att få anvisningar om hur du skapar en sådan.
-> - [Skapa funktionsappar](../azure-functions/functions-create-first-azure-function.md)
+> - [Skapa funktionsappen](../azure-functions/functions-create-first-azure-function.md)
 > - [Skapa timerutlösare](../azure-functions/functions-bindings-timer.md)
 >
 >
@@ -67,7 +67,7 @@ Med hjälp av det här kommandot installerar du den senaste versionen av azure-b
 
 ### <a name="step-2-create-an-azure-batch-account"></a>Steg 2: Skapa ett Azure Batch-konto
 
-Du kan skapa den från [Azure Portal](batch-account-create-portal.md) eller från kommando raden ([POWERSHELL](batch-powershell-cmdlets-get-started.md) /[Azure CLI](/cli/azure)).
+Du kan skapa den från [Azure-portalen](batch-account-create-portal.md) eller från kommandoraden[(PowerShell](batch-powershell-cmdlets-get-started.md) /[Azure CLI](/cli/azure)).
 
 Nedan beskrivs kommandon som kan användas för att skapa ett sådant med hjälp av Azure CLI.
 
@@ -353,6 +353,6 @@ Portalen har detaljerade vyer för aktiviteter och jobbstatusar. Du kan också a
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Läs artikeln [Översikt över Azure Batch-funktioner](batch-api-basics.md), som vi rekommenderar om du inte har använt tjänsten.
+- Läs artikeln [Översikt över Azure Batch-funktioner](batch-api-basics.md), som vi  rekommenderar om du inte har använt tjänsten.
 - Se [Batch Node.js-referens](/javascript/api/overview/azure/batch) om du vill utforska Batch API.
 

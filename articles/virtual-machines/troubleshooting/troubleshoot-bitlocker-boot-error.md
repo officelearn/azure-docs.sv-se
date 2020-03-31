@@ -1,6 +1,6 @@
 ---
-title: Felsöka start fel i BitLocker på en virtuell Azure-dator | Microsoft Docs
-description: Lär dig hur du felsöker start fel i BitLocker i en virtuell Azure-dator
+title: Felsöka bitlockerstartfel på en virtuell Azure-dator | Microsoft-dokument
+description: Lär dig hur du felsöker BitLocker-startfel i en Virtuell Azure-dator
 services: virtual-machines-windows
 documentationCenter: ''
 author: genlin
@@ -13,13 +13,13 @@ ms.workload: infrastructure
 ms.date: 08/23/2019
 ms.author: genli
 ms.openlocfilehash: 80fd91106530c0150a85d508b24041b2263da925
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79250015"
 ---
-# <a name="bitlocker-boot-errors-on-an-azure-vm"></a>BitLocker-startfel på en virtuell Azure-dator
+# <a name="bitlocker-boot-errors-on-an-azure-vm"></a>BitLocker-startfel på en Virtuell Azure-dator
 
  I den här artikeln beskrivs BitLocker-fel som kan uppstå när du startar en virtuell Windows-dator (VM) i Microsoft Azure.
 
@@ -27,29 +27,29 @@ ms.locfileid: "79250015"
 
 ## <a name="symptom"></a>Symptom
 
- En virtuell Windows-dator startar inte. När du kontrollerar skärm bilderna i fönstret [Boot Diagnostics](../windows/boot-diagnostics.md) visas något av följande fel meddelanden:
+ En Virtuell Windows-dator startar inte. NÃ¤1s ã¤skontroll av skärmbilderna i fönstret [Starta diagnostik](../windows/boot-diagnostics.md) visas nÃ¤ringar av fÃ¶ringar:
 
-- Anslut USB-drivrutinen som har BitLocker-nyckeln
+- Koppla in USB-drivrutinen som har BitLocker-tangenten
 
-- Du är låst! Ange återställnings nyckeln för att komma igång igen (tangentbordslayout: US) fel inloggnings information har angetts för många gånger, så att datorn var låst för att skydda din integritet. Om du vill hämta återställnings nyckeln går du till https://windows.microsoft.com/recoverykeyfaq från en annan dator eller mobil enhet. Om du behöver det är nyckel-ID: t XXXXXXX. Du kan också återställa datorn.
+- Du är utelåst! Ange återställningsnyckeln för att komma igång igen (Tangentbordslayout: USA) Fel inloggningsinformation har angetts för många gånger, så din dator låstes för att skydda din integritet. Om du vill hämta https://windows.microsoft.com/recoverykeyfaq återställningsnyckeln går du till från en annan dator eller mobil enhet. Om du behöver det är nyckel-ID XXXXXXX. Du kan också återställa datorn.
 
-- Ange lösen ordet för att låsa upp enheten [] Tryck på INSERT-tangenten för att se lösen ordet när du skriver.
-- Ange återställnings nyckeln Läs in din återställnings nyckel från en USB-enhet.
+- Ange lösenordet för att låsa upp den här enheten [ ] Tryck på Infoga tangenten för att se lösenordet medan du skriver.
+- Ange återställningsnyckeln Ladda återställningsnyckeln från en USB-enhet.
 
 ## <a name="cause"></a>Orsak
 
-Det här problemet kan inträffa om den virtuella datorn inte kan hitta filen med återställnings nyckeln för BitLocker (BEK) för att dekryptera den krypterade disken.
+Det hÃ¤r problemet kan uppstÃ¥ om den virtuella datorn inte kan hitta BEK-filen (BitLocker Recovery Key) fÃ¥r för att dekryptera den krypterade disken.
 
 ## <a name="solution"></a>Lösning
 
-Lös problemet genom att stoppa och frigöra den virtuella datorn och sedan starta om den. Den här åtgärden tvingar den virtuella datorn att hämta BEK-filen från Azure Key Vault och placerar den på den krypterade disken. 
+Lös problemet genom att stoppa och frigöra den virtuella datorn och sedan starta om den. Den här åtgärden tvingar den virtuella datorn att hämta BEK-filen från Azure Key Vault och sedan lägga den på den krypterade disken. 
 
-Om den här metoden inte löser problemet följer du dessa steg för att återställa BEK-filen manuellt:
+Om den här metoden inte löser problemet gör du så här för att återställa BEK-filen manuellt:
 
-1. Ta en ögonblicks bild av system disken för den berörda virtuella datorn som en säkerhets kopia. Mer information finns i [ögonblicks bilder av en disk](../windows/snapshot-copy-managed-disk.md).
-2. [Anslut system disken till en virtuell återställnings dator](troubleshoot-recovery-disks-portal-windows.md). Om du vill köra kommandot [manage-bde](https://docs.microsoft.com/windows-server/administration/windows-commands/manage-bde) i steg 7 måste **BitLocker-diskkryptering** funktionen vara aktive rad i den virtuella återställnings datorn.
+1. Ta en ögonblicksbild av systemdisken för den berörda virtuella datorn som en säkerhetskopia. Mer information finns i [Ögonblicksbild en disk](../windows/snapshot-copy-managed-disk.md).
+2. [Koppla systemdisken till en återställnings-VM](troubleshoot-recovery-disks-portal-windows.md). Om du vill köra [kommandot manage-bde](https://docs.microsoft.com/windows-server/administration/windows-commands/manage-bde) i steg 7 måste **funktionen BitLocker-diskkryptering** vara aktiverad i återställningsdatorn.
 
-    När du ansluter en hanterad disk kan du få ett fel meddelande om att "innehåller krypterings inställningar och inte kan användas som en data disk". I den här situationen kör du följande skript för att försöka ansluta disken:
+    När du ansluter en hanterad disk kan felmeddelandet "innehåller krypteringsinställningar och därför inte kan användas som en datadisk". I det här fallet kör du följande skript för att försöka igen för att ansluta disken:
 
     ```Powershell
     $rgName = "myResourceGroup"
@@ -67,17 +67,17 @@ Om den här metoden inte löser problemet följer du dessa steg för att återst
 
     Update-AzVM -VM $vm -ResourceGroupName $recoveryVMRG
     ```
-     Det går inte att ansluta en hanterad disk till en virtuell dator som har återställts från en BLOB-avbildning.
+     Du kan inte koppla en hanterad disk till en virtuell dator som återställdes från en blob-avbildning.
 
-3. När disken är ansluten gör du en fjärr skrivbords anslutning till den virtuella återställnings datorn så att du kan köra vissa Azure PowerShell skript. Kontrol lera att du har den [senaste versionen av Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) installerad på den virtuella återställnings datorn.
+3. När disken har anslutits gör du en fjärrskrivbordsanslutning till återställningsdatorn så att du kan köra vissa Azure PowerShell-skript. Kontrollera att du har den [senaste versionen av Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) installerad på återställningsdatorn.
 
-4. Öppna en förhöjd Azure PowerShell-session (kör som administratör). Kör följande kommandon för att logga in på Azure-prenumerationen:
+4. Öppna en förhöjd Azure PowerShell-session (Kör som administratör). Kör följande kommandon för att logga in på Azure-prenumeration:
 
     ```Powershell
     Add-AzAccount -SubscriptionID [SubscriptionID]
     ```
 
-5. Kör följande skript för att kontrol lera namnet på filen BEK:
+5. Kör följande skript för att kontrollera namnet på BEK-filen:
 
     ```powershell
     $vmName = "myVM"
@@ -90,7 +90,7 @@ Om den här metoden inte löser problemet följer du dessa steg för att återst
                 @{Label ="DiskEncryptionKeyFileName"; Expression = {$_.Tags.DiskEncryptionKeyFileName}}
     ```
 
-    Följande är exempel på utdata. Leta upp fil namnet BEK för den anslutna disken. I det här fallet förutsätter vi att enhets beteckningen för den anslutna disken är F och att BEK-filen är EF7B2F5A-50C6-4637-9F13-7F599C12F85C. Bek.
+    Följande är ett urval av utdata. Leta reda på BEK-filnamnet för den bifogade disken. I det här fallet antar vi att enhetsbeteckningen för den bifogade disken är F och BEK-filen är EF7B2F5A-50C6-4637-9F13-7F599C12F85C. Bek.
 
     ```
     Created             Content Type Volume DiskEncryptionKeyFileName               
@@ -101,13 +101,13 @@ Om den här metoden inte löser problemet följer du dessa steg för att återst
     4/7/2018 7:26:26 PM Wrapped BEK  H:\    5745719F-4886-4940-9B51-C98AFABE5305.BEK
     ```
 
-    Om du ser två duplicerade volymer är volymen som har den nya tidsstämpeln den aktuella BEK-filen som används av den virtuella återställnings datorn.
+    Om du ser två dubblerade volymer är volymen som har den nyare tidsstämpeln den aktuella BEK-filen som används av återställningsdatorn.
 
-    Om värdet för **innehålls typen** är **figursatt Bek**går du till [KEK-scenarierna (Key Encryption Key)](#key-encryption-key-scenario).
+    Om värdet **för innehållstyp** är **inslaget BEK**går du till [KEK-scenarierna (Key Encryption Key Key- och nyckelkrypteringsnyckeln).](#key-encryption-key-scenario)
 
-    Nu när du har namnet på BEK-filen för enheten måste du skapa hemlighet-File-name. BEK-fil för att låsa upp enheten.
+    Nu när du har namnet på BEK-filen för enheten måste du skapa det hemliga filnamnet. BEK-fil för att låsa upp enheten.
 
-6.  Hämta filen BEK till återställnings disken. I följande exempel sparas filen BEK i mappen C:\BEK. Kontrol lera att `C:\BEK\` sökvägen finns innan du kör skripten.
+6.  Hämta BEK-filen till återställningsdisken. I följande exempel sparas BEK-filen i mappen C:\BEK. Kontrollera att `C:\BEK\` sökvägen finns innan du kör skripten.
 
     ```powershell
     $vault = "myKeyVault"
@@ -119,21 +119,21 @@ Om den här metoden inte löser problemet följer du dessa steg för att återst
     [System.IO.File]::WriteAllBytes($path,$bekFileBytes)
     ```
 
-7.  Om du vill låsa upp den anslutna disken med hjälp av BEK-filen kör du följande kommando.
+7.  Om du vill låsa upp den bifogade disken med hjälp av BEK-filen kör du följande kommando.
 
     ```powershell
     manage-bde -unlock F: -RecoveryKey "C:\BEK\EF7B2F5A-50C6-4637-9F13-7F599C12F85C.BEK
     ```
-    I det här exemplet är den anslutna OS-disken enhet F. kontrol lera att du använder rätt enhets beteckning. 
+    I det här exemplet är den anslutna OS-disken enhet F. Kontrollera att du använder rätt enhetsbeteckning. 
 
-8. När disken har låsts upp med BEK-nyckeln kopplar du bort disken från den virtuella återställnings datorn och återskapar sedan den virtuella datorn med hjälp av den nya OS-disken.
+8. När disken har låsts upp med hjälp av BEK-nyckeln kopplar du bort disken från återställningsdatorn och återskapar sedan den virtuella datorn med den här nya OS-disken.
 
     > [!NOTE]
-    > Växling av operativ system disk stöds inte för virtuella datorer som använder disk kryptering.
+    > Att byta OS-disk stöds inte för virtuella datorer med diskkryptering.
 
-9. Om den nya virtuella datorn fortfarande inte kan starta normalt kan du prova något av följande när du har låst upp enheten:
+9. Om den nya virtuella datorn fortfarande inte kan starta normalt kan du prova något av följande steg när du har låst upp enheten:
 
-    - Pausa skyddet för att tillfälligt stänga av BitLocker genom att köra följande:
+    - Pausa skyddet för att tillfälligt stänga av BitLocker OFF genom att köra följande:
 
                     manage-bde -protectors -disable F: -rc 0
            
@@ -141,12 +141,12 @@ Om den här metoden inte löser problemet följer du dessa steg för att återst
 
                     manage-bde -off F:
 
-### <a name="key-encryption-key-scenario"></a>Nyckel krypterings nyckel scenario
+### <a name="key-encryption-key-scenario"></a>Scenario för nyckelkrypteringsnyckel
 
-Följ dessa steg för ett scenario med nyckel krypterings nyckel:
+SÃ¥Ã¤r ett nyckelkrypteringsnyckelscenario:
 
-1. Se till att det inloggade användar kontot kräver behörigheten "unwrap" i Key Vault åtkomst principer i **användaren | Nyckel behörigheter | Kryptografiska åtgärder | Unwrap-nyckel**.
-2. Spara följande skript till en. PS1-fil:
+1. Kontrollera att det inloggade användarkontot kräver behörigheten "oförpackade" i principerna för åtkomst till Key Vault i **USER| Viktiga behörigheter| Kryptografiska operationer| Packa upp nyckel**.
+2. Spara följande skript i en . PS1-fil:
 
     ```powershell
     #Set the Parameters for the script
@@ -232,7 +232,7 @@ Följ dessa steg för ett scenario med nyckel krypterings nyckel:
     $bekFileBytes = [System.Convert]::FromBase64String($base64Bek);
     [System.IO.File]::WriteAllBytes($bekFilePath,$bekFileBytes)
     ```
-3. Ange parametrarna. Skriptet bearbetar KEK-hemligheten för att skapa BEK-nyckeln och sparar den sedan i en lokal mapp på den virtuella återställnings datorn. Om du får fel meddelanden när du kör skriptet, se avsnittet [skript fel sökning](#script-troubleshooting) .
+3. Ställ in parametrarna. Skriptet bearbetar KEK-hemligheten för att skapa BEK-nyckeln och sparar den sedan i en lokal mapp på återställningsdatorn. Om du får felmeddelanden när du kör skriptet läser du felsökningsavsnittet för [skriptet.](#script-troubleshooting)
 
 4. Följande utdata visas när skriptet börjar:
 
@@ -241,52 +241,52 @@ Följ dessa steg för ett scenario med nyckel krypterings nyckel:
         False  v4.0.30319     C:\Program Files\WindowsPowerShell\Modules\Az.Accounts\...
         False  v4.0.30319     C:\Program Files\WindowsPowerShell\Modules\Az.Accounts\...
 
-    När skriptet har slutförts visas följande utdata:
+    När skriptet är klart visas följande utdata:
 
         VERBOSE: POST https://myvault.vault.azure.net/keys/rondomkey/<KEY-ID>/unwrapkey?api-
         version=2015-06-01 with -1-byte payload
         VERBOSE: received 360-byte response of content type application/json; charset=utf-8
 
 
-5. Om du vill låsa upp den anslutna disken med hjälp av BEK-filen kör du följande kommando:
+5. Om du vill låsa upp den bifogade disken med hjälp av BEK-filen kör du följande kommando:
 
     ```powershell
     manage-bde -unlock F: -RecoveryKey "C:\BEK\EF7B2F5A-50C6-4637-9F13-7F599C12F85C.BEK
     ```
-    I det här exemplet är den anslutna OS-disken enhet F. kontrol lera att du använder rätt enhets beteckning. 
+    I det här exemplet är den anslutna OS-disken enhet F. Kontrollera att du använder rätt enhetsbeteckning. 
 
-6. När disken har låsts upp med BEK-nyckeln kopplar du bort disken från den virtuella återställnings datorn och återskapar sedan den virtuella datorn med hjälp av den nya OS-disken. 
+6. När disken har låsts upp med hjälp av BEK-nyckeln kopplar du bort disken från återställningsdatorn och återskapar sedan den virtuella datorn med den här nya OS-disken. 
 
     > [!NOTE]
-    > Växling av operativ system disk stöds inte för virtuella datorer som använder disk kryptering.
+    > Att byta OS-disk stöds inte för virtuella datorer med diskkryptering.
 
-7. Om den nya virtuella datorn fortfarande inte kan starta normalt kan du prova något av följande när du har låst upp enheten:
+7. Om den nya virtuella datorn fortfarande inte kan starta normalt kan du prova något av följande steg när du har låst upp enheten:
 
-    - Pausa skyddet för att tillfälligt stänga av BitLocker genom att köra följande kommando:
+    - Pausa skyddet för att tillfälligt aktivera BitLocker OFF genom att köra följande kommando:
 
              manage-bde -protectors -disable F: -rc 0
            
     - Dekryptera enheten helt. Gör detta genom att köra följande kommando:
 
                     manage-bde -off F:
-## <a name="script-troubleshooting"></a>Skript fel sökning
+## <a name="script-troubleshooting"></a>Felsökning av skript
 
-**Fel: det gick inte att läsa in filen eller sammansättningen**
+**Fel: Det gick inte att läsa in filen eller sammansättningen**
 
-Felet beror på att Sök vägarna för ADAL-sammansättningarna är felaktiga. Om AZ-modulen bara är installerad för den aktuella användaren, finns ADAL-sammansättningarna i `C:\Users\<username>\Documents\WindowsPowerShell\Modules\Az.Accounts\<version>`.
+Det här felet beror på att sökvägarna för ADAL-sammansättningarna är felaktiga. Om AZ-modulen bara är installerad för den aktuella användaren `C:\Users\<username>\Documents\WindowsPowerShell\Modules\Az.Accounts\<version>`finns ADAL-sammansättningarna i .
 
-Du kan också söka efter `Az.Accounts` mapp för att hitta rätt sökväg.
+Du kan också `Az.Accounts` söka efter mapp för att hitta rätt sökväg.
 
-**Fel: get-AzKeyVaultSecret eller get-AzKeyVaultSecret känns inte igen som namnet på en cmdlet**
+**Fel: Get-AzKeyVaultSecret eller Get-AzKeyVaultSecret känns inte igen som namnet på en cmdlet**
 
-Om du använder den gamla AZ PowerShell-modulen måste du ändra de två kommandona till `Get-AzureKeyVaultSecret` och `Get-AzureKeyVaultSecret`.
+Om du använder den gamla AZ PowerShell-modulen måste `Get-AzureKeyVaultSecret` `Get-AzureKeyVaultSecret`du ändra de två kommandona till och .
 
-**Parameter exempel**
+**Exempel på parametrar**
 
-| Parametrar  | Värde exempel  |Kommentarer   |
+| Parametrar  | Exempel på värde  |Kommentarer   |
 |---|---|---|
-|  $keyVaultName | myKeyVault2112852926  | Namnet på nyckel valvet som lagrar nyckeln |
-|$kekName   |mykey   | Namnet på den nyckel som används för att kryptera den virtuella datorn|
-|$secretName   |7EB4F531-5FBA-4970-8E2D-C11FD6B0C69D  | Namnet på hemligheten för den virtuella dator nyckeln|
-|$bekFilePath   |c:\bek\7EB4F531-5FBA-4970-8E2D-C11FD6B0C69D. BEK |Sökvägen för att skriva BEK-filen.|
-|$adTenant  |contoso.onmicrosoft.com   | FQDN eller GUID för Azure Active Directory som är värd för nyckel valvet |
+|  $keyVaultName | myKeyVault2112852926  | Namnet på nyckeln Arkiv som lagrar nyckeln |
+|$kekName   |Mykey   | Namnet på nyckeln som används för att kryptera den virtuella datorn|
+|$secretName   |7EB4F531-5FBA-4970-8E2D-C11FD6B0C69D  | Namnet på hemligheten med vm-nyckeln|
+|$bekFilePath   |c:\bek\7EB4F531-5FBA-4970-8E2D-C11FD6B0C69D. Bek |Sökvägen för att skriva BEK-fil.|
+|$adTenant  |contoso.onmicrosoft.com   | FQDN eller GUID för din Azure Active Directory som är värd för nyckelvalvet |

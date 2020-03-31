@@ -1,105 +1,105 @@
 ---
-title: Övervaka Kubernetes kluster hälsa med Azure Monitor för behållare | Microsoft Docs
-description: Den här artikeln beskriver hur du kan visa och analysera hälso tillståndet för dina AKS-och icke-AKS-kluster med Azure Monitor för behållare.
+title: Övervaka Kubernetes klusterhälsa med Azure Monitor för behållare | Microsoft-dokument
+description: I den här artikeln beskrivs hur du kan visa och analysera hälsotillståndet för dina AKS- och icke-AKS-kluster med Azure Monitor för behållare.
 ms.topic: conceptual
 ms.date: 12/01/2019
 ms.openlocfilehash: f50ef13efca78bbb5285b99759b8111dc1915ad0
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76843998"
 ---
-# <a name="understand-kubernetes-cluster-health-with-azure-monitor-for-containers"></a>Förstå hälsotillstånd för Kubernetes-kluster med Azure Monitor för containrar
+# <a name="understand-kubernetes-cluster-health-with-azure-monitor-for-containers"></a>Förstå Kubernetes klusterhälsa med Azure Monitor för behållare
 
-Med Azure Monitor för behållare övervakas och rapporteras hälso status för de hanterade infrastruktur komponenterna och alla noder som körs på ett Kubernetes-kluster som stöds av Azure Monitor for containers. Den här upplevelsen överskrider kluster hälso statusen som beräknas och rapporteras i [vyn multi-Cluster](container-insights-analyze.md#multi-cluster-view-from-azure-monitor), där nu kan du förstå om en eller flera noder i klustret är begränsade eller om en nod eller Pod inte är tillgänglig som kan påverka ett program som körs i klustret baserat på granskade mått.
+Med Azure Monitor för behållare övervakar och rapporterar den hälsostatus för de hanterade infrastrukturkomponenterna och alla noder som körs på alla Kubernetes-kluster som stöds av Azure Monitor för behållare. Den här upplevelsen sträcker sig bortom klusterhälsostatus som beräknas och rapporteras i [flerklustervyn](container-insights-analyze.md#multi-cluster-view-from-azure-monitor), där du nu kan förstå om en eller flera noder i klustret är resursbegränsade eller att en nod eller pod inte är tillgänglig som kan påverka ett program som körs i klustret baserat på kurerade mått.
 
 >[!NOTE]
->Hälso funktionen finns nu i offentlig för hands version.
+>Hälsofunktionen är i offentlig förhandsversion just nu.
 >
 
-Information om hur du aktiverar Azure Monitor för behållare finns i [Onboard Azure Monitor for containers](container-insights-onboard.md).
+Information om hur du aktiverar Azure Monitor för behållare finns [i Onboard Azure Monitor för behållare](container-insights-onboard.md).
 
 >[!NOTE]
->Om du vill ha stöd för AKS-motor kluster kontrollerar du att det uppfyller följande:
->- Den använder den senaste versionen av Helm- [klienten](https://helm.sh/docs/using_helm/).
->- Agent versionen för behållare är *Microsoft/OMS: ciprod11012019*. Information om hur du uppgraderar agenten finns i [Uppgradera agent på Kubernetes-kluster](container-insights-manage-agent.md#upgrade-agent-on-monitored-kubernetes-cluster).
+>Kontrollera att aks-motorkluster stöds genom att kontrollera att de uppfyller följande:
+>- Den använder den senaste versionen av [HELM-klienten](https://helm.sh/docs/using_helm/).
+>- Den containeriserade agentversionen är *microsoft/oms:ciprod11012019*. Om du vill uppgradera agenten finns i [uppgraderingsagenten i Kubernetes-klustret](container-insights-manage-agent.md#upgrade-agent-on-monitored-kubernetes-cluster).
 >
 
 ## <a name="overview"></a>Översikt
 
-I Azure Monitor för behållare ger funktionen Health (förhands granskning) proaktiv hälso övervakning av ditt Kubernetes-kluster för att hjälpa dig att identifiera och diagnostisera problem. Det ger dig möjlighet att Visa viktiga problem som har identifierats. Övervakare utvärderar hälso tillståndet för klustret som körs på behållarens agent i klustret och hälso data skrivs till tabellen **KubeHealth** i din Log Analytics-arbetsyta. 
+I Azure Monitor för behållare ger funktionen Hälsa (förhandsversion) proaktiv hälsoövervakning av kubernetes-klustret som hjälper dig att identifiera och diagnostisera problem. Det ger dig möjlighet att visa betydande problem som upptäckts. Övervakar utvärdera hälsotillståndet för klustret körs på behållaren agent i klustret och hälsodata skrivs till **KubeHealth** tabellen i logganalysarbetsytan. 
 
-Kubernetes-klustrets hälsa är baserat på ett antal övervaknings scenarier ordnade efter följande Kubernetes-objekt och abstraktioner:
+Kubernetes klusterhälsa baseras på ett antal övervakningsscenarier som organiseras av följande Kubernetes-objekt och abstraktioner:
 
-- Kubernetes-infrastruktur – innehåller en sammanställning av Kubernetes API-servern, ReplicaSets och DaemonSets som körs på noder som distribueras i klustret genom att utvärdera processor-och minnes användning och en poddar-tillgänglighet
+- Kubernetes-infrastruktur – tillhandahåller en sammanslagning av Kubernetes API-server, ReplicaSets och DaemonSets som körs på noder som distribueras i klustret genom att utvärdera CPU- och minnesanvändning och en pods-tillgänglighet
 
-    ![Vy över Kubernetes Infrastructure Health Health](./media/container-insights-health/health-view-kube-infra-01.png)
+    ![Kubernetes hälsosammanslagningsvy för infrastruktur](./media/container-insights-health/health-view-kube-infra-01.png)
 
-- Noder – tillhandahåller en sammanställning av nodernas pooler och status för enskilda noder i varje pool, genom att utvärdera processor-och minnes användning och en nods status som rapporteras av Kubernetes.
+- Noder - ger en sammanslagning av nodpoolerna och tillståndet för enskilda noder i varje pool, genom att utvärdera CPU- och minnesanvändning och en nods status som rapporterats av Kubernetes.
 
-    ![Vy över hälso tillstånd för noder](./media/container-insights-health/health-view-nodes-01.png)
+    ![Hälsosammadrfällningsvyn noder](./media/container-insights-health/health-view-nodes-01.png)
 
-För närvarande stöds endast statusen för en virtuell kubelet. Hälso tillståndet för processor-och minnes användning för virtuella kublet-noder rapporteras som **Okänt**, eftersom en signal inte tas emot från dem.
+För närvarande stöds endast status för en virtuell kubelet. Hälsotillståndet för CPU- och minnesanvändning av virtuella kubletnoder rapporteras som **Okänd**, eftersom en signal inte tas emot från dem.
 
-Alla Övervakare visas i en hierarkisk layout i fönstret hälsohierarki, där en sammanställd Övervakare som representerar Kubernetes-objektet eller abstraktionen (det vill säga Kubernetes-infrastruktur eller noder) är den högsta övervakade hälso tillståndet för alla underordnade övervakare. De nyckel övervaknings scenarier som används för att härleda hälsan är:
+Alla övervakare visas i en hierarkisk layout i fönstret Hälsohierarki, där en aggregerad övervakare som representerar Kubernetes-objektet eller abstraktionen (det vill än Kubernetes-infrastruktur eller Noder) är den översta övervakaren som återspeglar den kombinerade hälsan för alla underordnade övervakare. De viktigaste övervakningsscenarierna som används för att härleda hälsa är:
 
-* Utvärdera processor användningen från noden och behållaren.
-* Utvärdera minnes användningen från noden och behållaren.
-* Status för poddar och noder baserat på beräkningen av deras färdiga tillstånd som rapporteras av Kubernetes.
+* Utvärdera CPU-användning från noden och behållaren.
+* Utvärdera minnesanvändning från noden och behållaren.
+* Status för poddar och noder baserat på beräkning av deras färdiga tillstånd som rapporterats av Kubernetes.
 
-Ikonerna som används för att indikera tillstånd är följande:
+Följande ikoner används för att visa status:
 
 |Ikon|Betydelse|  
 |--------|-----------|  
-|![Grön kryss indikator anger felfri](./media/container-insights-health/healthyicon.png)|Lyckades, hälso tillståndet är OK (grönt)|  
-|![Gul triangel och utrops tecken är varning](./media/container-insights-health/warningicon.png)|Varning (gul)|  
+|![Grön kryssruteikon är lika med felfri](./media/container-insights-health/healthyicon.png)|Fungerar, hälsotillståndet är bra (grönt)|  
+|![Gul triangel och utropstecken innebär en varning](./media/container-insights-health/warningicon.png)|Varning (gul)|  
 |![Röd knapp med vitt X anger kritiskt tillstånd](./media/container-insights-health/criticalicon.png)|Kritisk (röd)|  
-|![Nedtonad ikon](./media/container-insights-health/grayicon.png)|Okänt (grått)|  
+|![Ikon för nedtonad uttonad](./media/container-insights-health/grayicon.png)|Okänd (grå)|  
 
-## <a name="monitor-configuration"></a>Övervaka konfiguration
+## <a name="monitor-configuration"></a>Bildskärmskonfiguration
 
-För att förstå beteendet och konfigurationen av varje Övervakare som stöder Azure Monitor för behållares hälso funktion, se [konfigurations guide för hälso övervakning](container-insights-health-monitors-config.md).
+Information om hur och konfigurerar varje bildskärm som stöder Azure Monitor för behållare Hälsofunktion finns i [konfigurationsguide för hälsoövervakare](container-insights-health-monitors-config.md).
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
-Logga in på [Azure Portal](https://portal.azure.com). 
+Logga in på [Azure-portalen](https://portal.azure.com). 
 
-## <a name="view-health-of-an-aks-or-non-aks-cluster"></a>Visa hälso tillståndet för ett AKS-eller icke-AKS-kluster
+## <a name="view-health-of-an-aks-or-non-aks-cluster"></a>Visa hälsotillstånd för ett AKS- eller icke-AKS-kluster
 
-Åtkomst till funktionen Azure Monitor för behållare hälsa (för hands version) är tillgänglig direkt från ett AKS-kluster genom att välja **insikter** i den vänstra rutan i Azure Portal. Under den **Insights** väljer **behållare**. 
+Åtkomst till Azure Monitor for containers Health (preview) funktionen är tillgänglig direkt från ett AKS-kluster genom att välja **Insikter** från den vänstra rutan i Azure-portalen. Under avsnittet **Insikter** väljer du **Behållare**. 
 
-Om du vill visa hälso tillståndet från ett icke-AKS kluster, det vill säga ett AKS-motor kluster lokalt eller på Azure Stack väljer **Azure Monitor** i det vänstra fönstret i Azure Portal. Under den **Insights** väljer **behållare**.  På sidan flera kluster väljer du det icke-AKS klustret i listan.
+Om du vill visa hälsotillstånd från ett icke-AKS-kluster, det vill veta ett AKS-motorkluster som finns lokalt eller på Azure Stack, väljer du **Azure Monitor** från den vänstra rutan i Azure-portalen. Under avsnittet **Insikter** väljer du **Behållare**.  På sidan med flera kluster väljer du icke-AKS-klustret i listan.
 
-På sidan **kluster** i Azure Monitor för behållare väljer du **hälsa**.
+Välj **Hälsa**på sidan **Kluster** i Azure Monitor för behållare .
 
-![Exempel på kluster hälso instrument panel](./media/container-insights-health/container-insights-health-page.png)
+![Exempel på klusterhälsainstrumentpanel](./media/container-insights-health/container-insights-health-page.png)
 
-## <a name="review-cluster-health"></a>Granska kluster hälsa
+## <a name="review-cluster-health"></a>Granska klusterhälsa
 
-När sidan hälsa öppnas, väljs som standard **Kubernetes-infrastruktur** i **hälso aspekt** rutnätet.  Rutnätet sammanfattar det aktuella tillståndet för hälso sammanslagning för Kubernetes-infrastruktur och klusternoder. Om du väljer hälso aspekt uppdaterar du resultatet i fönstret hälsohierarki (det vill säga i mitten-fönstret) och visar alla underordnade övervakare i en hierarkisk layout och visar deras aktuella hälso tillstånd. Om du vill visa mer information om en beroende övervakare, kan du välja en och ett egenskaps fönster visas automatiskt till höger på sidan. 
+När sidan Hälsa öppnas väljs **kubernetes-infrastruktur** som standard i rutnätet **Hälsoaspekt.**  Rutnätet sammanfattar det aktuella hälsosamma sammanslagningstillståndet för Kubernetes infrastruktur och klusternoder. Om du väljer antingen hälsoaspekten uppdateras resultaten i fönstret Hälsohierarki (det vill säga mittrutan) och alla underordnade övervakare visas i en hierarkisk layout som visar deras aktuella hälsotillstånd. Om du vill visa mer information om en beroende bildskärm kan du välja en och ett egenskapsfönster visas automatiskt till höger på sidan. 
 
-![Egenskaps fönstret för kluster hälsa](./media/container-insights-health/health-view-property-pane.png)
+![Egenskapsfönstret Klusterhälsa](./media/container-insights-health/health-view-property-pane.png)
 
-I egenskaps fönstret får du lära dig följande:
+I egenskapsfönstret får du lära dig följande:
 
-- På fliken **Översikt** visas det aktuella läget för den valda övervakaren, när övervakaren senast beräknades och när den senaste tillstånds ändringen skedde. Ytterligare information visas beroende på vilken typ av Övervakare som valts i hierarkin.
+- På fliken **Översikt** visas det aktuella tillståndet för den valda övervakaren, när övervakaren senast beräknades och när den senaste tillståndsändringen inträffade. Ytterligare information visas beroende på vilken typ av övervakare som valts i hierarkin.
 
-    Om du väljer en sammanställd övervakare i fönstret hälsohierarki, på fliken **Översikt** i egenskaps fönstret, visas en sammanställning av det totala antalet underordnade övervakare i hierarkin och hur många aggregerade Övervakare som är i ett kritiskt, varnings-och felfritt tillstånd. 
+    Om du väljer en aggregerad övervakare i fönstret Hälsohierarki visas en sammanslagning av det totala antalet underordnade övervakare i hierarkin under fliken **Översikt** i egenskapsfönstret och hur många aggregerade övervakare som är i kritiskt, varnings- och felfritt tillstånd. 
 
-    ![Fliken Översikt för hälso egenskaps fönstret för sammanställd övervakare](./media/container-insights-health/health-overview-aggregate-monitor.png)
+    ![Fliken Översiktsfönster för hälsogenskapsmall för aggregerad övervakare](./media/container-insights-health/health-overview-aggregate-monitor.png)
 
-    Om du väljer en enhets övervakare i fönstret hälsohierarki visas även under **senaste tillstånd att ändra** de tidigare exemplen som beräknats och rapporter ATS av agent agenten under de senaste fyra timmarna. Detta baseras på enhets övervakarens beräkning för att jämföra flera värden i följd för att fastställa dess status. Om du till exempel valde Pod-övervakaren för *klar läges* enhet visar den de senaste två exemplen som kontrol leras av parametern *ConsecutiveSamplesForStateTransition*. Mer information finns i den detaljerade beskrivningen av [enhets övervakare](container-insights-health-monitors-config.md#unit-monitors).
+    Om du väljer en enhetsövervakare i fönstret Hälsohierarki visas också under **Senaste tillståndsändring** av de tidigare exemplen som beräknats och rapporterats av behållarens agent inom de senaste fyra timmarna. Detta baseras på enheten övervakar beräkningen för att jämföra flera på varandra följande värden för att bestämma dess tillstånd. Om du till exempel har valt övervakaren för redo *lägesenhet* för pod visas de två sista exemplen som styrs av parametern *ConsecutiveSamplesForStateTransition*. Mer information finns i den detaljerade beskrivningen av [enhetsövervakare](container-insights-health-monitors-config.md#unit-monitors).
     
-    ![Fliken Översikt för hälso egenskaps fönstret](./media/container-insights-health/health-overview-unit-monitor.png)
+    ![Fliken Översiktsfönster för hälsoegenskap](./media/container-insights-health/health-overview-unit-monitor.png)
 
-    Om tiden som rapporteras av **senaste tillstånds ändringen** är en dag eller äldre är det resultatet av inga ändringar i status för övervakaren. Men om det senaste exemplet som togs emot för en enhets övervakare är mer än fyra timmar gammalt, indikerar detta sannolikt att den behållare som agenten inte har skickat data. Om agenten vet att en viss resurs finns, till exempel en nod, men inte har tagit emot data från nodens processor-eller minnes användnings övervakare (som ett exempel), är hälso tillståndet för övervakaren inställt på **okänd**.  
+    Om tiden som rapporteras av **Senaste tillståndsändring** är en dag eller äldre, är det resultatet av inga ändringar i tillståndet för övervakaren. Men om det sista exemplet som tas emot för en enhetsövervakare är mer än fyra timmar gammalt, indikerar detta sannolikt att behållaren inte har skickat data. Om agenten vet att det finns en viss resurs, till exempel en nod, men den inte har tagit emot data från nodens CPU- eller minnesanvändningsövervakare (som ett exempel), är övervakarens hälsotillstånd inställt på **Okänd**.  
 
-- På fliken**konfiguration** visas standard konfigurations parameter inställningarna (endast för enhets övervakare, inte sammanställda övervakare) och deras värden.
-- På fliken **kunskap** innehåller den information som förklarar hur övervakaren fungerar och hur den utvärderar för fel tillstånd.
+- På fliken**Config** visas standardinställningarna för konfigurationsparameter (endast för enhetsövervakare, inte aggregerade övervakare) och deras värden.
+- På fliken **Kunskap** innehåller den information som förklarar bildskärmens beteende och hur den utvärderar för det felaktiga tillståndet.
 
-Övervakning av data på den här sidan uppdateras inte automatiskt och du måste välja **Uppdatera** överst på sidan för att se det senaste hälso tillståndet som tas emot från klustret.
+Övervakningsdata på den här sidan uppdateras inte automatiskt och du måste välja **Uppdatera** högst upp på sidan för att se det senaste hälsotillståndet som tagits emot från klustret.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Visa [exempel på logg frågor](container-insights-log-search.md#search-logs-to-analyze-data) för att se fördefinierade frågor och exempel för att utvärdera eller anpassa till avisering, visualisera eller analysera dina kluster.
+Visa [exempel på loggfrågor](container-insights-log-search.md#search-logs-to-analyze-data) om du vill visa fördefinierade frågor och exempel som du kan utvärdera eller anpassa för att avisera, visualisera eller analysera kluster.

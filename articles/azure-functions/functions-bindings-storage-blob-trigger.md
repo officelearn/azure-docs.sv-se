@@ -1,48 +1,48 @@
 ---
-title: Azure Blob Storage-utlösare för Azure Functions
-description: Lär dig hur du kör en Azure-funktion när Azure Blob Storage-data ändras.
+title: Azure Blob-lagringsutlösare för Azure-funktioner
+description: Lär dig hur du kör en Azure-funktion när Azure Blob-lagringsdata ändras.
 author: craigshoemaker
 ms.topic: reference
 ms.date: 02/13/2020
 ms.author: cshoe
-ms.openlocfilehash: 0cdff3ac6eb2faed0c0b6b8796fdb3b6b0411018
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 39e3521339947263161979033406fb39e397373f
+ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79277367"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80348979"
 ---
-# <a name="azure-blob-storage-trigger-for-azure-functions"></a>Azure Blob Storage-utlösare för Azure Functions
+# <a name="azure-blob-storage-trigger-for-azure-functions"></a>Azure Blob-lagringsutlösare för Azure-funktioner
 
-Blob Storage-utlösaren startar en funktion när en ny eller uppdaterad BLOB identifieras. BLOB-innehållet tillhandahålls som [indata till funktionen](./functions-bindings-storage-blob-input.md).
+Blob-lagringsutlösaren startar en funktion när en ny eller uppdaterad blob identifieras. Blob-innehållet tillhandahålls som [indata till funktionen](./functions-bindings-storage-blob-input.md).
 
-Azure Blob Storage-utlösaren kräver ett allmänt lagrings konto. Om du vill använda ett enbart BLOB-konto, eller om ditt program har särskilda behov, granskar du alternativen för att använda den här utlösaren.
+Azure Blob-lagringsutlösaren kräver ett allmänt lagringskonto. Om du vill använda ett blob-konto, eller om ditt program har särskilda behov, går du igenom alternativen för att använda den här utlösaren.
 
-Information om konfiguration och konfigurations information finns i [översikten](./functions-bindings-storage-blob.md).
+Information om inställnings- och konfigurationsinformation finns i [översikten](./functions-bindings-storage-blob.md).
 
 ## <a name="alternatives"></a>Alternativ
 
-### <a name="event-grid-trigger"></a>Event Grid utlösare
+### <a name="event-grid-trigger"></a>Utlösare av händelserutnät
 
-[Event Grid-utlösaren](functions-bindings-event-grid.md) har också inbyggt stöd för [BLOB-händelser](../storage/blobs/storage-blob-event-overview.md). Använd Event Grid i stället för Blob Storage-utlösaren i följande scenarier:
+[Utlösaren för händelserutnät](functions-bindings-event-grid.md) har också inbyggt stöd för [blob-händelser](../storage/blobs/storage-blob-event-overview.md). Använd händelserutnät i stället för Blob-lagringsutlösaren för följande scenarier:
 
-- **Enbart BLOB-lagrings konton**: [BLOB-endast lagrings konton](../storage/common/storage-account-overview.md#types-of-storage-accounts) stöds för BLOB-indata och utgående bindningar, men inte för BLOB-utlösare.
+- **Lagringskonton med endast blob:** [Lagringskonton med endast Blob](../storage/common/storage-account-overview.md#types-of-storage-accounts) stöds för blob-indata- och utdatabindningar men inte för blob-utlösare.
 
-- **Hög skala**: hög skala kan lösas fritt som behållare som har fler än 100 000 blobbar i dem eller lagrings konton som har fler än 100 BLOB-uppdateringar per sekund.
+- **Hög skala:** Hög skala kan definieras löst som behållare som har mer än 100 000 blobbar i dem eller lagringskonton som har fler än 100 blob-uppdateringar per sekund.
 
-- **Minimera latens**: om din Function-app är i förbruknings planen kan det vara upp till 10 minuter att bearbeta nya blobbar om en Function-app har varit inaktiv. För att undvika den här fördröjningen kan du växla till en App Service plan med Always on Enabled. Du kan också använda en [Event Grid-utlösare](functions-bindings-event-grid.md) med ditt Blob Storage-konto. Ett exempel finns i [Event Grid själv studie kursen](../event-grid/resize-images-on-storage-blob-upload-event.md?toc=%2Fazure%2Fazure-functions%2Ftoc.json).
+- **Minimera svarstiden**: Om din funktionsapp finns i förbrukningsplanen kan det ta upp till 10 minuters fördröjning i bearbetningen av nya blobbar om en funktionsapp har gått inaktiv. För att undvika den här svarstiden kan du växla till en App Service-plan med Always On aktiverat. Du kan också använda en [event grid-utlösare](functions-bindings-event-grid.md) med ditt Blob-lagringskonto. Ett exempel finns i [självstudien Händelserutnät](../event-grid/resize-images-on-storage-blob-upload-event.md?toc=%2Fazure%2Fazure-functions%2Ftoc.json).
 
-Se [bild storleken med event Grid](../event-grid/resize-images-on-storage-blob-upload-event.md) själv studie kurs om ett event Grid exempel.
+Se [bildstorleken med händelserutnätssjälvstudien](../event-grid/resize-images-on-storage-blob-upload-event.md) för ett exempel på händelserutnät.
 
 ### <a name="queue-storage-trigger"></a>Kölagringsutlösare
 
-En annan metod för att bearbeta blobbar är att skriva Kömeddelanden som motsvarar blobbar som skapas eller ändras och sedan använda en [kö Storage-utlösare](./functions-bindings-storage-queue.md) för att påbörja bearbetningen.
+En annan metod för bearbetning av blobbar är att skriva kömeddelanden som motsvarar blobbar som skapas eller ändras och sedan använda en [kölagringsutlösare](./functions-bindings-storage-queue.md) för att börja bearbeta.
 
 ## <a name="example"></a>Exempel
 
 # <a name="c"></a>[C#](#tab/csharp)
 
-I följande exempel visas en [ C# funktion](functions-dotnet-class-library.md) som skriver en logg när en BLOB läggs till eller uppdateras i `samples-workitems` container.
+I följande exempel visas en [C#-funktion](functions-dotnet-class-library.md) som skriver en logg `samples-workitems` när en blob läggs till eller uppdateras i behållaren.
 
 ```csharp
 [FunctionName("BlobTriggerCSharp")]        
@@ -52,15 +52,15 @@ public static void Run([BlobTrigger("samples-workitems/{name}")] Stream myBlob, 
 }
 ```
 
-Sträng `{name}` i sökvägen till BLOB-utlösaren `samples-workitems/{name}` skapar ett [bindnings uttryck](./functions-bindings-expressions-patterns.md) som du kan använda i funktions koden för att komma åt fil namnet för den Utlös ande blobben. Mer information finns i [BLOB Name-mönster](#blob-name-patterns) längre fram i den här artikeln.
+Strängen `{name}` i blob-utlösarbanan `samples-workitems/{name}` skapar ett [bindningsuttryck](./functions-bindings-expressions-patterns.md) som du kan använda i funktionskod för att komma åt filnamnet på den utlösande blobben. Mer information finns i [Blob-namnmönster](#blob-name-patterns) senare i den här artikeln.
 
-Mer information om attributet `BlobTrigger` finns i [attribut och anteckningar](#attributes-and-annotations).
+Mer information om `BlobTrigger` attributet finns i [attribut och anteckningar](#attributes-and-annotations).
 
-# <a name="c-script"></a>[C#Över](#tab/csharp-script)
+# <a name="c-script"></a>[C# Skript](#tab/csharp-script)
 
-I följande exempel visas en BLOB-utlösnings bindning i en *Function. JSON* -fil och kod som använder bindningen. Funktionen skriver en logg när en BLOB läggs till eller uppdateras i `samples-workitems` [containern](../storage/blobs/storage-blobs-introduction.md#blob-storage-resources).
+I följande exempel visas en blob-utlösare som binder i en *function.json-fil* och kod som använder bindningen. Funktionen skriver en logg när en blob läggs `samples-workitems` till eller uppdateras i [behållaren](../storage/blobs/storage-blobs-introduction.md#blob-storage-resources).
 
-Här är bindnings data i *Function. JSON* -filen:
+Här är bindningsdata i *filen function.json:*
 
 ```json
 {
@@ -77,11 +77,11 @@ Här är bindnings data i *Function. JSON* -filen:
 }
 ```
 
-Sträng `{name}` i sökvägen till BLOB-utlösaren `samples-workitems/{name}` skapar ett [bindnings uttryck](./functions-bindings-expressions-patterns.md) som du kan använda i funktions koden för att komma åt fil namnet för den Utlös ande blobben. Mer information finns i [BLOB Name-mönster](#blob-name-patterns) längre fram i den här artikeln.
+Strängen `{name}` i blob-utlösarbanan `samples-workitems/{name}` skapar ett [bindningsuttryck](./functions-bindings-expressions-patterns.md) som du kan använda i funktionskod för att komma åt filnamnet på den utlösande blobben. Mer information finns i [Blob-namnmönster](#blob-name-patterns) senare i den här artikeln.
 
-Mer information om egenskaper för *Function. JSON* -filen finns i [konfigurations](#configuration) avsnittet förklarar dessa egenskaper.
+Mer information om *function.json-filegenskaper* finns i avsnittet [Konfiguration](#configuration) som förklarar dessa egenskaper.
 
-Här är C# skript koden som binder till en `Stream`:
+Här är C # skriptkod som `Stream`binder till en:
 
 ```cs
 public static void Run(Stream myBlob, string name, ILogger log)
@@ -90,7 +90,7 @@ public static void Run(Stream myBlob, string name, ILogger log)
 }
 ```
 
-Här är C# skript koden som binder till en `CloudBlockBlob`:
+Här är C # skriptkod som `CloudBlockBlob`binder till en:
 
 ```cs
 #r "Microsoft.WindowsAzure.Storage"
@@ -103,11 +103,11 @@ public static void Run(CloudBlockBlob myBlob, string name, ILogger log)
 }
 ```
 
-# <a name="javascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[Javascript](#tab/javascript)
 
-I följande exempel visas en BLOB-utlösnings bindning i en *Function. JSON* -fil och [JavaScript-kod](functions-reference-node.md) som använder bindningen. Funktionen skriver en logg när en BLOB läggs till eller uppdateras i `samples-workitems` containern.
+I följande exempel visas en blob-utlösare som binder i en *function.json-fil* och [JavaScript-kod](functions-reference-node.md) som använder bindningen. Funktionen skriver en logg när en blob läggs `samples-workitems` till eller uppdateras i behållaren.
 
-Här är *Function. JSON* -filen:
+Här är *filen function.json:*
 
 ```json
 {
@@ -124,11 +124,11 @@ Här är *Function. JSON* -filen:
 }
 ```
 
-Sträng `{name}` i sökvägen till BLOB-utlösaren `samples-workitems/{name}` skapar ett [bindnings uttryck](./functions-bindings-expressions-patterns.md) som du kan använda i funktions koden för att komma åt fil namnet för den Utlös ande blobben. Mer information finns i [BLOB Name-mönster](#blob-name-patterns) längre fram i den här artikeln.
+Strängen `{name}` i blob-utlösarbanan `samples-workitems/{name}` skapar ett [bindningsuttryck](./functions-bindings-expressions-patterns.md) som du kan använda i funktionskod för att komma åt filnamnet på den utlösande blobben. Mer information finns i [Blob-namnmönster](#blob-name-patterns) senare i den här artikeln.
 
-Mer information om egenskaper för *Function. JSON* -filen finns i [konfigurations](#configuration) avsnittet förklarar dessa egenskaper.
+Mer information om *function.json-filegenskaper* finns i avsnittet [Konfiguration](#configuration) som förklarar dessa egenskaper.
 
-Här är JavaScript-kod:
+Här är JavaScript-koden:
 
 ```javascript
 module.exports = function(context) {
@@ -139,9 +139,9 @@ module.exports = function(context) {
 
 # <a name="python"></a>[Python](#tab/python)
 
-I följande exempel visas en BLOB-utlösnings bindning i en *Function. JSON* -fil och [python-kod](functions-reference-python.md) som använder bindningen. Funktionen skriver en logg när en BLOB läggs till eller uppdateras i `samples-workitems` [containern](../storage/blobs/storage-blobs-introduction.md#blob-storage-resources).
+I följande exempel visas en blob-utlösare som binder i en *function.json-fil* och [Python-kod](functions-reference-python.md) som använder bindningen. Funktionen skriver en logg när en blob läggs `samples-workitems` till eller uppdateras i [behållaren](../storage/blobs/storage-blobs-introduction.md#blob-storage-resources).
 
-Här är *Function. JSON* -filen:
+Här är *filen function.json:*
 
 ```json
 {
@@ -159,11 +159,11 @@ Här är *Function. JSON* -filen:
 }
 ```
 
-Sträng `{name}` i sökvägen till BLOB-utlösaren `samples-workitems/{name}` skapar ett [bindnings uttryck](./functions-bindings-expressions-patterns.md) som du kan använda i funktions koden för att komma åt fil namnet för den Utlös ande blobben. Mer information finns i [BLOB Name-mönster](#blob-name-patterns) längre fram i den här artikeln.
+Strängen `{name}` i blob-utlösarbanan `samples-workitems/{name}` skapar ett [bindningsuttryck](./functions-bindings-expressions-patterns.md) som du kan använda i funktionskod för att komma åt filnamnet på den utlösande blobben. Mer information finns i [Blob-namnmönster](#blob-name-patterns) senare i den här artikeln.
 
-Mer information om egenskaper för *Function. JSON* -filen finns i [konfigurations](#configuration) avsnittet förklarar dessa egenskaper.
+Mer information om *function.json-filegenskaper* finns i avsnittet [Konfiguration](#configuration) som förklarar dessa egenskaper.
 
-Här är python-koden:
+Här är Python-koden:
 
 ```python
 import logging
@@ -176,7 +176,7 @@ def main(myblob: func.InputStream):
 
 # <a name="java"></a>[Java](#tab/java)
 
-Den här funktionen skriver en logg när en BLOB läggs till eller uppdateras i `myblob` container.
+Den här funktionen skriver en logg när en `myblob` blob läggs till eller uppdateras i behållaren.
 
 ```java
 @FunctionName("blobprocessor")
@@ -198,11 +198,11 @@ public void run(
 
 # <a name="c"></a>[C#](#tab/csharp)
 
-I [ C# klass bibliotek](functions-dotnet-class-library.md)använder du följande attribut för att konfigurera en BLOB-utlösare:
+I [klassbibliotek för C#](functions-dotnet-class-library.md)använder du följande attribut för att konfigurera en blob-utlösare:
 
-* [BlobTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.Extensions.Storage/Blobs/BlobTriggerAttribute.cs)
+* [BlobTriggerAttribut](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.Extensions.Storage/Blobs/BlobTriggerAttribute.cs)
 
-  Attributets konstruktor tar en Sök vägs sträng som visar behållaren för att titta på och eventuellt ett [BLOB Name-mönster](#blob-name-patterns). Här är ett exempel:
+  Attributets konstruktor tar en sökvägssträng som anger behållaren att titta på och eventuellt ett [blobnamnsmönster](#blob-name-patterns). Här är ett exempel:
 
   ```csharp
   [FunctionName("ResizeImage")]
@@ -214,7 +214,7 @@ I [ C# klass bibliotek](functions-dotnet-class-library.md)använder du följande
   }
   ```
 
-  Du kan ställa in egenskapen `Connection` för att ange det lagrings konto som ska användas, som du ser i följande exempel:
+  Du kan `Connection` ange egenskapen för att ange vilket lagringskonto som ska användas, som visas i följande exempel:
 
    ```csharp
   [FunctionName("ResizeImage")]
@@ -226,11 +226,11 @@ I [ C# klass bibliotek](functions-dotnet-class-library.md)använder du följande
   }
    ```
 
-  Ett fullständigt exempel finns i [utlösare exempel](#example).
+  Ett fullständigt exempel finns i [exempel på utlösare](#example).
 
-* [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs)
+* [LagringKontoAttribut](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs)
 
-  Ger ett annat sätt att ange det lagrings konto som ska användas. Konstruktorn tar namnet på en app-inställning som innehåller en lagrings anslutnings sträng. Attributet kan användas på parametern, metoden eller klassnivå. I följande exempel visas klassen och metoden:
+  Här kan du ange vilket lagringskonto som ska användas. Konstruktorn tar namnet på en appinställning som innehåller en lagringsanslutningssträng. Attributet kan användas på parameter-, metod- eller klassnivå. I följande exempel visas klassnivå och metodnivå:
 
   ```csharp
   [StorageAccount("ClassLevelStorageAppSetting")]
@@ -244,43 +244,43 @@ I [ C# klass bibliotek](functions-dotnet-class-library.md)använder du följande
   }
   ```
 
-Lagrings kontot som ska användas fastställs i följande ordning:
+Det lagringskonto som ska användas bestäms i följande ordning:
 
-* `BlobTrigger` attributets `Connection` egenskap.
-* Attributet `StorageAccount` som används för samma parameter som attributet `BlobTrigger`.
-* Det `StorageAccount` attribut som används för funktionen.
-* Det `StorageAccount` attribut som används för klassen.
-* Standard lagrings kontot för app-inställningen ("AzureWebJobsStorage").
+* Egenskapen `BlobTrigger` för `Connection` attributet.
+* Attributet `StorageAccount` som tillämpas på `BlobTrigger` samma parameter som attributet.
+* Attributet `StorageAccount` som används för funktionen.
+* Attributet `StorageAccount` som används för klassen.
+* Standardlagringskontot för funktionsappen ("AzureWebJobsStorage"-appinställningen).
 
-# <a name="c-script"></a>[C#Över](#tab/csharp-script)
+# <a name="c-script"></a>[C# Skript](#tab/csharp-script)
 
-Attribut stöds inte av C# skript.
+Attribut stöds inte av C# Script.
 
-# <a name="javascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[Javascript](#tab/javascript)
 
-Attribut stöds inte av Java Script.
+Attribut stöds inte av JavaScript.
 
 # <a name="python"></a>[Python](#tab/python)
 
-Attribut stöds inte av python.
+Attribut stöds inte av Python.
 
 # <a name="java"></a>[Java](#tab/java)
 
-`@BlobTrigger`-attributet används för att ge dig åtkomst till den blob som utlöste funktionen. Mer information finns i [utlösnings exemplet](#example) .
+Attributet `@BlobTrigger` används för att ge dig åtkomst till bloben som utlöste funktionen. Mer information finns i [utlösarexempeln.](#example)
 
 ---
 
 ## <a name="configuration"></a>Konfiguration
 
-I följande tabell förklaras de egenskaper för bindnings konfiguration som du anger i filen *Function. JSON* och `BlobTrigger`-attributet.
+I följande tabell beskrivs de bindningskonfigurationsegenskaper som `BlobTrigger` du anger i *filen function.json* och attributet.
 
-|Function.JSON egenskap | Attributegenskapen |Beskrivning|
+|egenskapen function.json | Egenskapen Attribute |Beskrivning|
 |---------|---------|----------------------|
-|**typ** | Saknas | Måste anges till `blobTrigger`. Den här egenskapen anges automatiskt när du skapar utlösaren i Azure-portalen.|
-|**riktning** | Saknas | Måste anges till `in`. Den här egenskapen anges automatiskt när du skapar utlösaren i Azure-portalen. Undantag anges i [användnings](#usage) avsnittet. |
-|**Namn** | Saknas | Namnet på variabeln som representerar blobben i funktions koden. |
-|**path** | **BlobPath** |Den [behållare](../storage/blobs/storage-blobs-introduction.md#blob-storage-resources) som ska övervakas.  Kan vara ett [BLOB Name-mönster](#blob-name-patterns). |
-|**anslutningen** | **Anslutning** | Namnet på en app-inställning som innehåller den lagrings anslutnings sträng som ska användas för den här bindningen. Om appens inställnings namn börjar med "AzureWebJobs" kan du bara ange resten av namnet här. Om du till exempel ställer in `connection` till "telestorage" söker Functions-körningen efter en app-inställning med namnet "AzureWebJobsMyStorage". Om du lämnar `connection` tomt använder Functions-körningen standard anslutnings strängen för lagring i den app-inställning som heter `AzureWebJobsStorage`.<br><br>Anslutnings strängen måste vara för ett allmänt lagrings konto, inte ett [Blob Storage-konto](../storage/common/storage-account-overview.md#types-of-storage-accounts).|
+|**Typ** | Saknas | Måste ställas `blobTrigger`in på . Den här egenskapen ställs in automatiskt när du skapar utlösaren i Azure-portalen.|
+|**riktning** | Saknas | Måste ställas `in`in på . Den här egenskapen ställs in automatiskt när du skapar utlösaren i Azure-portalen. Undantag anges i [avsnittet användning.](#usage) |
+|**Namn** | Saknas | Namnet på variabeln som representerar blobben i funktionskoden. |
+|**Sökvägen** | **BlobPath** |[Behållaren](../storage/blobs/storage-blobs-introduction.md#blob-storage-resources) att övervaka.  Kan vara ett [blobnamnsmönster](#blob-name-patterns). |
+|**Anslutning** | **Anslutning** | Namnet på en appinställning som innehåller anslutningssträngen Lagring som ska användas för den här bindningen. Om appinställningsnamnet börjar med "AzureWebJobs" kan du bara ange resten av namnet här. Om du till `connection` exempel anger "MyStorage" söker körtiden Funktioner efter en appinställning med namnet "AzureWebJobsMyStorage". Om du `connection` lämnar tom använder körtiden Funktioner standardanslutningssträngen för `AzureWebJobsStorage`lagring i appinställningen som heter .<br><br>Anslutningssträngen måste vara för ett allmänt lagringskonto, inte ett [Blob-lagringskonto](../storage/common/storage-account-overview.md#types-of-storage-accounts).|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -290,65 +290,65 @@ I följande tabell förklaras de egenskaper för bindnings konfiguration som du 
 
 [!INCLUDE [functions-bindings-blob-storage-trigger](../../includes/functions-bindings-blob-storage-trigger.md)]
 
-# <a name="c-script"></a>[C#Över](#tab/csharp-script)
+# <a name="c-script"></a>[C# Skript](#tab/csharp-script)
 
 [!INCLUDE [functions-bindings-blob-storage-trigger](../../includes/functions-bindings-blob-storage-trigger.md)]
 
-# <a name="javascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[Javascript](#tab/javascript)
 
-Få åtkomst till BLOB-data med `context.bindings.<NAME>` där `<NAME>` matchar värdet som definierats i *Function. JSON*.
+Åtkomst blob `context.bindings.<NAME>` data `<NAME>` med var matchar det värde som definieras i *function.json*.
 
 # <a name="python"></a>[Python](#tab/python)
 
-Få åtkomst till BLOB-data via parametern som anges som [InputStream](https://docs.microsoft.com/python/api/azure-functions/azure.functions.inputstream?view=azure-python). Mer information finns i [utlösnings exemplet](#example) .
+Få åtkomst till blob-data via parametern som skrivs som [InputStream](https://docs.microsoft.com/python/api/azure-functions/azure.functions.inputstream?view=azure-python). Mer information finns i [utlösarexempeln.](#example)
 
 # <a name="java"></a>[Java](#tab/java)
 
-`@BlobTrigger`-attributet används för att ge dig åtkomst till den blob som utlöste funktionen. Mer information finns i [utlösnings exemplet](#example) .
+Attributet `@BlobTrigger` används för att ge dig åtkomst till bloben som utlöste funktionen. Mer information finns i [utlösarexempeln.](#example)
 
 ---
 
-## <a name="blob-name-patterns"></a>BLOB Name-mönster
+## <a name="blob-name-patterns"></a>Blob-namnmönster
 
-Du kan ange ett BLOB Name-mönster i egenskapen `path` i *Function. JSON* eller i konstruktorn `BlobTrigger` attribut. Namn mönstret kan vara ett [filter eller ett bindnings uttryck](./functions-bindings-expressions-patterns.md). I följande avsnitt finns exempel.
+Du kan ange ett blobnamnsmönster i egenskapen `path` i *function.json* eller i `BlobTrigger` attributkonstruktorn. Namnmönstret kan vara ett [filter eller ett bindningsuttryck](./functions-bindings-expressions-patterns.md). Följande avsnitt innehåller exempel.
 
-### <a name="get-file-name-and-extension"></a>Hämta fil namn och tillägg
+### <a name="get-file-name-and-extension"></a>Hämta filnamn och filtillägg
 
-I följande exempel visas hur du binder till BLOB-filens namn och tillägg separat:
+I följande exempel visas hur du binder till blob-filnamnet och tillägget separat:
 
 ```json
 "path": "input/{blobname}.{blobextension}",
 ```
 
-Om blobben heter *original-Blob1. txt*, är värdena för `blobname` och `blobextension` variabler i funktions koden *ursprungliga – Blob1* och *txt*.
+Om blobben heter *original-Blob1.txt*är `blobname` värdena för och `blobextension` variablerna i funktionskoden *original-Blob1* och *txt*.
 
-### <a name="filter-on-blob-name"></a>Filtrera på BLOB-namn
+### <a name="filter-on-blob-name"></a>Filtrera efter blobnamn
 
-Följande exempel utlöser bara blobar i `input` behållare som börjar med strängen "original-":
+Följande exempel utlöser endast blobbar `input` i behållaren som börjar med strängen "original-":
 
 ```json
 "path": "input/original-{name}",
 ```
 
-Om BLOB-namnet är *original-Blob1. txt*, är värdet för variabeln `name` i funktions koden `Blob1`.
+Om blobnamnet är *original-Blob1.txt*är `Blob1` `name` värdet för variabeln i funktionskoden .
 
-### <a name="filter-on-file-type"></a>Filtrera efter filtyp
+### <a name="filter-on-file-type"></a>Filtrera på filtyp
 
-Följande exempel utlöser endast på *png* -filer:
+I följande exempel utlöses endast *PNG-filer:*
 
 ```json
 "path": "samples/{name}.png",
 ```
 
-### <a name="filter-on-curly-braces-in-file-names"></a>Filtrera på klammerparenteser i fil namn
+### <a name="filter-on-curly-braces-in-file-names"></a>Filtrera på klammerparenteser i filnamn
 
-Om du vill söka efter klammerparenteser i fil namn, escapea klammerparenteser med två klammerparenteser. I följande exempel filtreras blobbar som har klammerparenteser i namnet:
+Om du vill leta efter klammerparenteser i filnamnen kan du escape klammerparenteserna med hjälp av två klammerparenteser. I följande exempel filtreras blobbar som har klammerparenteser i namnet:
 
 ```json
 "path": "images/{{20140101}}-{name}",
 ```
 
-Om blobben heter *{20140101}-Soundfile. mp3*, är `name` variabelt värde i funktions koden *Soundfile. mp3*.
+Om blobben heter `name` * {20140101}-soundfile.mp3*är variabelvärdet i funktionskoden *soundfile.mp3*.
 
 ## <a name="metadata"></a>Metadata
 
@@ -356,11 +356,11 @@ Om blobben heter *{20140101}-Soundfile. mp3*, är `name` variabelt värde i funk
 
 [!INCLUDE [functions-bindings-blob-storage-trigger](../../includes/functions-bindings-blob-storage-metadata.md)]
 
-# <a name="c-script"></a>[C#Över](#tab/csharp-script)
+# <a name="c-script"></a>[C# Skript](#tab/csharp-script)
 
 [!INCLUDE [functions-bindings-blob-storage-trigger](../../includes/functions-bindings-blob-storage-metadata.md)]
 
-# <a name="javascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[Javascript](#tab/javascript)
 
 ```javascript
 module.exports = function (context, myBlob) {
@@ -371,59 +371,59 @@ module.exports = function (context, myBlob) {
 
 # <a name="python"></a>[Python](#tab/python)
 
-Metadata är inte tillgängliga i python.
+Metadata är inte tillgängligt i Python.
 
 # <a name="java"></a>[Java](#tab/java)
 
-Metadata är inte tillgängliga i Java.
+Metadata är inte tillgängligt i Java.
 
 ---
 
-## <a name="blob-receipts"></a>BLOB-kvitton
+## <a name="blob-receipts"></a>Blob-kvitton
 
-Azure Functions runtime ser till att ingen BLOB-utlösnings funktion anropas mer än en gång för samma nya eller uppdaterade blob. För att avgöra om en specifik blob-version har bearbetats upprätthåller *BLOB-kvitton*.
+Azure Functions-körningen säkerställer att ingen blob-utlösarfunktion anropas mer än en gång för samma nya eller uppdaterade blob. För att avgöra om en viss blob-version har bearbetats underhålls *blobinleveranser*.
 
-Azure Functions lagrar BLOB-kvitton i en behållare med namnet *Azure-WebJobs-hosts* i Azure Storage-kontot för din Function-app (definieras av appens inställning `AzureWebJobsStorage`). Ett BLOB-kvitto har följande information:
+Azure Functions lagrar blob-kvitton i en behållare med namnet *azure-webjobs-hosts* i `AzureWebJobsStorage`Azure storage-account for your function-appen (definierad av appinställningen ). Ett blob-kvitto har följande information:
 
-* Den Utlös ande funktionen (" *&lt;Function app name >* . Funktionen. *&lt;funktions namn >* ", till exempel:" MyFunctionApp. functions. CopyBlob ")
-* Behållarens namn
-* Blob-typ ("BlockBlob" eller "PageBlob")
-* BLOB-namnet
-* ETag (en BLOB versions identifierare, till exempel: "0x8D1DC6E70A277EF")
+* Den utlösta funktionen ("*&lt;funktionsappnamn>*. Funktioner. funktionsnamn>", till exempel: "MyFunctionApp.Functions.CopyBlob") * &lt; *
+* Behållarnamnet
+* Blob-typen ("BlockBlob" eller "PageBlob")
+* Blob-namnet
+* ETag (en blob-versionsidentifierare, till exempel: "0x8D1DC6E70A277EF")
 
-Om du vill framtvinga en ombearbetning av en BLOB tar du bort BLOB-kvittot för blobben från behållaren *Azure-WebJobs-hosts* manuellt. Det kan hända att ombearbetningen inte sker omedelbart, men det är garanterat att det sker vid en senare tidpunkt.
+Om du vill tvinga fram upparbetning av en blob tar du bort blob-inleveransen för bloben från behållaren *azure-webjobs-hosts* manuellt. Även om upparbetning kanske inte sker omedelbart, är det garanterat att ske vid en senare tidpunkt.
 
-## <a name="poison-blobs"></a>Poison-blobbar
+## <a name="poison-blobs"></a>Giftblobar
 
-När en BLOB-utlösare Miss lyckas för en specifik BLOB, Azure Functions försök som fungerar totalt 5 gånger som standard.
+När en blob-utlösarfunktion misslyckas för en viss blob, försöker Azure Functions som fungerar totalt 5 gånger som standard.
 
-Om alla fem försöken inte fungerar lägger Azure Functions till ett meddelande i en lagrings kö med namnet *WebJobs-en-Poison*. Queue-meddelandet för Poison-blobbar är ett JSON-objekt som innehåller följande egenskaper:
+Om alla 5 försök misslyckas lägger Azure Functions till ett meddelande i en lagringskö med namnet *webjobs-blobtrigger-poison*. Det maximala antalet återförsök kan konfigureras. Samma MaxDequeueCount-inställning används för hantering av giftblobbhantering och hantering av giftkömeddelande. Kömeddelandet för giftblobar är ett JSON-objekt som innehåller följande egenskaper:
 
-* FunctionId (i formatet *&lt;funktion appens namn >* . Funktionen. *&lt;funktions namn >* )
+* FunctionId (i * &lt;formatfunktionsappens namn>*. Funktioner. funktionsnamn>) * &lt; *
 * BlobType ("BlockBlob" eller "PageBlob")
 * ContainerName
-* BlobName
-* ETag (en BLOB versions identifierare, till exempel: "0x8D1DC6E70A277EF")
+* BlobName (BlobName)
+* ETag (en blob-versionsidentifierare, till exempel: "0x8D1DC6E70A277EF")
 
-## <a name="concurrency-and-memory-usage"></a>Samtidighet och minnes användning
+## <a name="concurrency-and-memory-usage"></a>Samtidighet och minnesanvändning
 
-BLOB-utlösaren använder en kö internt, så det maximala antalet samtidiga funktions anrop styrs av [köernas konfiguration i Host. JSON](functions-host-json.md#queues). Standardinställnings gränsen samtidighet till 24 anrop. Den här gränsen gäller separat för varje funktion som använder en BLOB-utlösare.
+Blob-utlösaren använder en kö internt, så det maximala antalet samtidiga funktionsanrop styrs av [kökonfigurationen i host.json](functions-host-json.md#queues). Standardinställningarna begränsar samtidighet till 24 anrop. Den här gränsen gäller separat för varje funktion som använder en blob-utlösare.
 
-[Förbruknings planen](functions-scale.md#how-the-consumption-and-premium-plans-work) begränsar en Function-app på en virtuell dator (VM) till 1,5 GB minne. Minne används av varje intern körning av funktions instansen och av Functions-körningen. Om en BLOB-utlöst funktion läser in hela blobben i minnet är den maximala mängd minne som används av den funktionen bara för blobbar 24 * maximal BLOB-storlek. Till exempel skulle en Function-app med tre BLOB-utlöst funktioner och standardinställningarna ha ett maximalt antal per VM-concurrency på 3 * 24 = 72 funktions anrop.
+[Förbrukningsplanen](functions-scale.md#how-the-consumption-and-premium-plans-work) begränsar en funktionsapp på en virtuell dator (VM) till 1,5 GB minne. Minne används av varje samtidigt köra funktionsinstans och av själva funktionerkörningen. Om en blob-utlöst funktion läser in hela blobben i minnet, är det maximala minne som används av den funktionen bara för blobbar 24 * maximal blob-storlek. Till exempel skulle en funktionsapp med tre blob-utlösta funktioner och standardinställningarna ha en maximal samtidighet per virtuell dator på 3*24 = 72 funktionsangeringar.
 
-Java Script och Java Functions läser in hela blobben i minnet C# och fungerar om du binder till `string`, `Byte[]`eller Poco.
+JavaScript- och Java-funktioner läser in hela blobben i minnet, och C#-funktioner gör det om du binder till `string`, `Byte[]`eller POCO.
 
-## <a name="polling"></a>Avsöknings
+## <a name="polling"></a>Polling
 
-Avsökning fungerar som en hybrid mellan att inspektera loggar och köra regelbundna behållar genomsökningar. Blobbar genomsöks i grupper om 10 000 i taget med en fortsättnings-token som används mellan intervall.
+Avsökning fungerar som en hybrid mellan att inspektera loggar och köra periodiska behållarsökningar. Blobbar skannas i grupper om 10 000 åt gången med en fortsättningstoken som används mellan intervallen.
 
 > [!WARNING]
-> Dessutom [skapas lagrings loggar på grund av "bästa prestanda"](/rest/api/storageservices/About-Storage-Analytics-Logging) . Det finns ingen garanti för att alla händelser har registrerats. Under vissa omständigheter kan loggarna missas.
+> Dessutom [skapas lagringsloggar på "bästa ansträngning"-basis.](/rest/api/storageservices/About-Storage-Analytics-Logging) Det finns ingen garanti för att alla händelser fångas. Under vissa förhållanden kan loggar missas.
 > 
-> Om du behöver en snabbare eller mer tillförlitlig BLOB-bearbetning bör du överväga att skapa ett [Queue-meddelande](../storage/queues/storage-dotnet-how-to-use-queues.md) när du skapar blobben. Använd sedan en [Queue-utlösare](functions-bindings-storage-queue.md) i stället för en BLOB-utlösare för att bearbeta blobben. Ett annat alternativ är att använda Event Grid; i självstudien får du [automatiskt ändra storlek på överförda bilder med hjälp av event Grid](../event-grid/resize-images-on-storage-blob-upload-event.md).
+> Om du behöver snabbare eller mer tillförlitlig blob-bearbetning kan du överväga att skapa ett [kömeddelande](../storage/queues/storage-dotnet-how-to-use-queues.md) när du skapar blobben. Använd sedan en [köutlösare](functions-bindings-storage-queue.md) i stället för en blob-utlösare för att bearbeta blobben. Ett annat alternativ är att använda Händelserutnät. se självstudien [Automatisera storleksändring uppladdade bilder med Event Grid](../event-grid/resize-images-on-storage-blob-upload-event.md).
 >
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Läsa Blob Storage-data när en funktion körs](./functions-bindings-storage-blob-input.md)
-- [Skriv Blob Storage-data från en funktion](./functions-bindings-storage-blob-output.md)
+- [Läsa bloblagringsdata när en funktion körs](./functions-bindings-storage-blob-input.md)
+- [Skriva bloblagringsdata från en funktion](./functions-bindings-storage-blob-output.md)

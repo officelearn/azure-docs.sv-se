@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 06/05/2017
 ms.author: ramankum
-ms.openlocfilehash: 12b6c2abc9641f884cf1b90216cc1db0c53d0260
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: e8a141710b9011fc46eb8df594725bf76c3d69cf
+ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75368733"
+ms.lasthandoff: 03/29/2020
+ms.locfileid: "80385137"
 ---
 # <a name="exportcopy-managed-snapshots-as-vhd-to-a-storage-account-in-different-region-with-powershell"></a>Exportera/kopiera hanterade ögonblicksbilder som VHD till ett lagringskonto i en annan region med PowerShell
 
@@ -43,8 +43,8 @@ Det här skriptet använder följande kommandon för att generera SAS-URI för e
 | Kommando | Anteckningar |
 |---|---|
 | [Grant-AzSnapshotAccess](https://docs.microsoft.com/powershell/module/az.compute/New-AzDisk) | Skapar SAS-URI för den ögonblicksbild som används vid kopiering till ett lagringskonto. |
-| [New-AzureStorageContext](https://docs.microsoft.com/powershell/module/azure.storage/New-AzureStorageContext) | Skapar en lagringskontokontext med kontonamnet och nyckeln. Den här kontexten kan användas för att utföra läs-/skrivåtgärder på lagringskontot. |
-| [Start-AzureStorageBlobCopy](https://docs.microsoft.com/powershell/module/azure.storage/Start-AzureStorageBlobCopy) | Kopierar den underliggande virtuella hårddisken för en ögonblicksbild till ett lagringskonto |
+| [New-AzStorageContext](https://docs.microsoft.com/powershell/module/az.storage/new-azstoragecontext) | Skapar en lagringskontokontext med kontonamnet och nyckeln. Den här kontexten kan användas för att utföra läs-/skrivåtgärder på lagringskontot. |
+| [Start-AzStorageBlobCopy](https://docs.microsoft.com/powershell/module/az.storage/start-azstorageblobcopy) | Kopierar den underliggande virtuella hårddisken för en ögonblicksbild till ett lagringskonto |
 
 ## <a name="next-steps"></a>Nästa steg
 

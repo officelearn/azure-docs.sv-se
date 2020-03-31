@@ -1,7 +1,7 @@
 ---
-title: Mappa en anpassad domän till en Azure Blob Storage-slutpunkt
+title: Mappa en anpassad domän till en slutpunkt för Azure Blob Storage
 titleSuffix: Azure Storage
-description: Mappa en anpassad domän till en Blob Storage eller en webb slut punkt i ett Azure Storage-konto.
+description: Mappa en anpassad domän till en Blob Storage- eller webbslutpunkt i ett Azure-lagringskonto.
 author: normesta
 ms.service: storage
 ms.topic: conceptual
@@ -10,249 +10,249 @@ ms.author: normesta
 ms.reviewer: dineshm
 ms.subservice: blobs
 ms.openlocfilehash: 9d05677ec47851557594ef47499da653accad141
-ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/14/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79370482"
 ---
-# <a name="map-a-custom-domain-to-an-azure-blob-storage-endpoint"></a>Mappa en anpassad domän till en Azure Blob Storage-slutpunkt
+# <a name="map-a-custom-domain-to-an-azure-blob-storage-endpoint"></a>Mappa en anpassad domän till en slutpunkt för Azure Blob Storage
 
-Du kan mappa en anpassad domän till en BLOB service-slutpunkt eller en [statisk webbplats](storage-blob-static-website.md) slut punkt. 
+Du kan mappa en anpassad domän till en blob-tjänstslutpunkt eller en [statisk webbplatsslutpunkt.](storage-blob-static-website.md) 
 
 [!INCLUDE [updated-for-az](../../../includes/storage-data-lake-gen2-support.md)]
 
 > [!NOTE] 
-> Den här mappningen fungerar bara för under domäner (till exempel: `www.contoso.com`). Om du vill att webb slut punkten ska vara tillgänglig på rot domänen (till exempel: `contoso.com`) måste du använda Azure CDN. Vägledning finns i avsnittet [Mappa en anpassad domän med https aktiverat](#enable-https) i den här artikeln. Eftersom du går till avsnittet i den här artikeln för att aktivera rot domänen för din anpassade domän, är steget i avsnittet för att aktivera HTTPS valfritt. 
+> Den här mappningen fungerar endast för `www.contoso.com`underdomäner (till exempel: ). Om du vill att webbslutpunkten ska vara tillgänglig `contoso.com`på rotdomänen (till exempel: ) måste du använda Azure CDN. Vägledning finns i [mappningen av en anpassad domän med avsnittet HTTPS-aktiverad](#enable-https) i den här artikeln. Eftersom du går till den delen av den här artikeln för att aktivera rotdomänen för din anpassade domän är steget i det avsnittet för att aktivera HTTPS valfritt. 
 
 <a id="enable-http" />
 
 ## <a name="map-a-custom-domain-with-only-http-enabled"></a>Mappa en anpassad domän med endast HTTP aktiverat
 
-Den här metoden är enklare, men aktiverar endast HTTP-åtkomst. Om lagrings kontot har kon figurer ATS för att [kräva säker överföring](../common/storage-require-secure-transfer.md) över HTTPS måste du Aktivera HTTPS-åtkomst för din anpassade domän. 
+Den här metoden är enklare, men möjliggör endast HTTP-åtkomst. Om lagringskontot är konfigurerat för att [kräva säker överföring](../common/storage-require-secure-transfer.md) via HTTPS måste du aktivera HTTPS-åtkomst för din anpassade domän. 
 
-Information om hur du aktiverar HTTPS-åtkomst finns i avsnittet [Mappa en anpassad domän med https aktiverat](#enable-https) i den här artikeln. 
+Information om hur du aktiverar HTTPS-åtkomst finns i [mappningen av en anpassad domän med avsnittet HTTPS-aktiverad](#enable-https) i den här artikeln. 
 
 <a id="map-a-domain" />
 
 ### <a name="map-a-custom-domain"></a>Mappa en anpassad domän
 
 > [!IMPORTANT]
-> Den anpassade domänen är en kort användare som inte är tillgänglig för användarna när du har slutfört konfigurationen. Om din domän för närvarande har stöd för ett program med ett service nivå avtal som kräver noll avbrotts tid följer du stegen i avsnittet [Mappa en anpassad domän med noll stillestånds](#zero-down-time) tid i den här artikeln för att se till att användarna kan komma åt din domän när DNS-mappningen äger rum.
+> Din anpassade domän kommer att vara kort otillgänglig för användare när du slutför konfigurationen. Om din domän för närvarande stöder ett program med ett servicenivåavtal (SLA) som kräver noll driftstopp följer du stegen i [mappningen av en anpassad domän med noll driftstopp](#zero-down-time) i den här artikeln för att säkerställa att användarna kan komma åt din domän medan DNS-mappningen sker.
 
-Om du inte är orolig över att domänen inte är tillgänglig för användarna följer du de här stegen.
+Om du inte är oroad över att domänen inte är tillgänglig för användarna gör du så här.
 
-: heavy_check_mark: steg 1: Hämta värd namnet för din lagrings slut punkt.
+:heavy_check_mark: Steg 1: Hämta värdnamnet för lagringsslutpunkten.
 
-: heavy_check_mark: steg 2: skapa en post för kanoniskt namn (CNAME) med din domän leverantör.
+:heavy_check_mark: Steg 2: Skapa en kanonisk namn (CNAME) post med din domänleverantör.
 
-: heavy_check_mark: steg 3: registrera den anpassade domänen med Azure. 
+:heavy_check_mark: Steg 3: Registrera den anpassade domänen med Azure. 
 
-: heavy_check_mark: steg 4: testa din anpassade domän.
+: heavy_check_mark: Steg 4: Testa din anpassade domän.
 
 <a id="endpoint" />
 
-#### <a name="step-1-get-the-host-name-of-your-storage-endpoint"></a>Steg 1: Hämta värd namnet för din lagrings slut punkt 
+#### <a name="step-1-get-the-host-name-of-your-storage-endpoint"></a>Steg 1: Hämta värdnamnet för lagringsslutpunkten 
 
-Värd namnet är URL: en för lagrings slut punkt utan protokoll-ID och avslutande snedstreck. 
+Värdnamnet är url:en för lagringsslutpunkt utan protokollidentifieraren och det efterföljande snedstrecket. 
 
-1. I [Azure Portal](https://portal.azure.com)går du till ditt lagrings konto.
+1. Gå till ditt lagringskonto i [Azure-portalen.](https://portal.azure.com)
 
-2. I meny fönstret, under **Inställningar**, väljer du **Egenskaper**.  
+2. Välj **Egenskaper**under **Inställningar**i menyfönstret .  
 
-3. Kopiera värdet för den **primära BLOB service-slutpunkten** eller den **primära statiska webbplats slut punkten** till en textfil. 
+3. Kopiera värdet för **slutpunkten för primär blob-tjänst** eller den **primära statiska webbplatsslutpunkten** till en textfil. 
 
-4. Ta bort protokoll identifieraren (*t. ex.* https) och avslutande snedstreck från den strängen. Följande tabell innehåller exempel.
+4. Ta bort protokollidentifieraren (*t.ex.* https) och det efterföljande snedstrecket från strängen. Följande tabell innehåller exempel.
 
-   | Typ av slut punkt |  slutpunkt | Värdnamn |
+   | Typ av slutpunkt |  slutpunkt | värdnamn |
    |------------|-----------------|-------------------|
-   |BLOB service  | `https://mystorageaccount.blob.core.windows.net/` | `mystorageaccount.blob.core.windows.net` |
+   |blob-tjänst  | `https://mystorageaccount.blob.core.windows.net/` | `mystorageaccount.blob.core.windows.net` |
    |statisk webbplats  | `https://mystorageaccount.z5.web.core.windows.net/` | `mystorageaccount.z5.web.core.windows.net` |
   
-   Ange det här värdet undan för senare.
+   Avsätt det här värdet åt sidan för senare.
 
 <a id="create-cname-record" />
 
-#### <a name="step-2-create-a-canonical-name-cname-record-with-your-domain-provider"></a>Steg 2: skapa en post för kanoniskt namn (CNAME) med din domän leverantör
+#### <a name="step-2-create-a-canonical-name-cname-record-with-your-domain-provider"></a>Steg 2: Skapa en CNAME-post (Canonical Name) med domänleverantören
 
-Skapa en CNAME-post för att peka på värd namnet. En CNAME-post är en typ av DNS-post som mappar ett källdomännamn till ett måldomännamn.
+Skapa en CNAME-post för att peka på värdnamnet. En CNAME-post är en typ av DNS-post som mappar ett källdomännamn till ett måldomännamn.
 
-1. Logga in på din domän registrators webbplats och gå sedan till sidan för att hantera DNS-inställningar.
+1. Logga in på domänregistratorerns webbplats och gå sedan till sidan för att hantera DNS-inställningen.
 
-   Du kan hitta sidan i ett avsnitt med namnet **domän namn**, **DNS**eller **namn server hantering**.
+   Sidan kan hittas i ett avsnitt med namnet **Domännamn,** **DNS**eller **Name Server Management**.
 
-2. Hitta avsnittet för att hantera CNAME-poster. 
+2. Leta reda på avsnittet för hantering av CNAME-poster. 
 
-   Du kanske måste gå till sidan Avancerade inställningar och leta efter **CNAME**, **alias**eller under **domäner**.
+   Du kanske måste gå till en avancerad inställningssida och leta efter **CNAME,** **Alias**eller **Underdomäner**.
 
-3. Skapa en CNAME-post. Ange följande objekt som en del av posten: 
+3. Skapa en CNAME-post. Som en del av den posten anger du följande objekt: 
 
-   - Under domänens alias, till exempel `www` eller `photos`. Under domänen måste anges. rot domäner stöds inte. 
+   - Underdomänaliaset, `www` till `photos`exempel eller . Underdomänen krävs, rotdomäner stöds inte. 
       
-   - Det värdnamn som du hämtade i avsnittet [Hämta värd namnet för din lagrings slut punkt](#endpoint) tidigare i den här artikeln. 
+   - Värdnamnet som du fick i avsnittet [Hämta värdnamnet för lagringsslutpunkten](#endpoint) tidigare i den här artikeln. 
 
 <a id="register" />
 
-#### <a name="step-3-register-your-custom-domain-with-azure"></a>Steg 3: registrera din anpassade domän med Azure
+#### <a name="step-3-register-your-custom-domain-with-azure"></a>Steg 3: Registrera din anpassade domän med Azure
 
-1. I [Azure Portal](https://portal.azure.com)går du till ditt lagrings konto.
+1. Gå till ditt lagringskonto i [Azure-portalen.](https://portal.azure.com)
 
-2. I meny fönstret, under **BLOB service**, väljer du **anpassad domän**.  
+2. Välj **Anpassad domän**under **Blob-tjänst**i menyfönstret.  
 
-   ![alternativ för anpassad domän](./media/storage-custom-domain-name/custom-domain-button.png "anpassad domän")
+   ![anpassat domänalternativ](./media/storage-custom-domain-name/custom-domain-button.png "anpassad domän")
 
-   Fönstret **anpassad domän** öppnas.
+   Fönstret **Anpassad domän** öppnas.
 
-3. I text rutan **domän namn** anger du namnet på din anpassade domän, inklusive under domänen  
+3. I textrutan **Domännamn** anger du namnet på din anpassade domän, inklusive underdomänen  
    
-   Om din domän till exempel är *contoso.com* och ditt under domän Ali Aset är *www*, anger du `www.contoso.com`. Om din under domän är *foton*, anger du `photos.contoso.com`.
+   Om domänen till exempel *är contoso.com* och underdomänaliaset `www.contoso.com`är *www*anger du . Om underdomänen *photos*är foton `photos.contoso.com`anger du .
 
-4. Registrera den anpassade domänen genom att välja knappen **Spara** .
+4. Om du vill registrera den anpassade domänen väljer du knappen **Spara.**
 
-   När CNAME-posten har spridits via DNS-servrar (Domain Name servers), och om dina användare har rätt behörigheter, kan de Visa BLOB-data med hjälp av den anpassade domänen.
+   När CNAME-posten har spridits via DNS (Domain Name Servers), och om användarna har rätt behörighet kan de visa blob-data med hjälp av den anpassade domänen.
 
-#### <a name="step-4-test-your-custom-domain"></a>Steg 4: testa din anpassade domän
+#### <a name="step-4-test-your-custom-domain"></a>Steg 4: Testa din anpassade domän
 
-För att bekräfta att din anpassade domän är mappad till BLOB service-slutpunkten skapar du en BLOB i en offentlig behållare i ditt lagrings konto. I en webbläsare öppnar du sedan bloben med hjälp av en URI i följande format: `http://<subdomain.customdomain>/<mycontainer>/<myblob>`
+Skapa en blob i en offentlig behållare i ditt lagringskonto för att bekräfta att din anpassade domän är mappad till din blob-tjänstslutpunkt. Öppna sedan bloben i en webbläsare med hjälp av en URI i följande format:`http://<subdomain.customdomain>/<mycontainer>/<myblob>`
 
-Om du till exempel vill komma åt ett webb formulär i behållaren mina *former* i den anpassade under domänen *photos.contoso.com* kan du använda följande URI: `http://photos.contoso.com/myforms/applicationform.htm`
+Om du till exempel vill komma åt ett webbformulär i *my forms-behållaren* i *photos.contoso.com* anpassade underdomänen kan du använda följande URI:`http://photos.contoso.com/myforms/applicationform.htm`
 
 <a id="zero-down-time" />
 
-### <a name="map-a-custom-domain-with-zero-downtime"></a>Mappa en anpassad domän med noll avbrotts tid
+### <a name="map-a-custom-domain-with-zero-downtime"></a>Mappa en anpassad domän med noll driftstopp
 
 > [!NOTE]
-> Om du inte är bekymrad om att domänen inte är tillgänglig för dina användare kan du överväga att följa stegen i avsnittet [Mappa en anpassad domän](#map-a-domain) i den här artikeln. Det är en enklare metod med färre steg.  
+> Om du inte är oroad över att domänen är kort otillgänglig för användarna bör du överväga att följa stegen i avsnittet [Mappa en anpassad domän](#map-a-domain) i den här artikeln. Det är ett enklare tillvägagångssätt med färre steg.  
 
-Om din domän för närvarande har stöd för ett program med ett service nivå avtal som kräver noll avbrotts tid följer du de här stegen för att se till att användarna kan komma åt din domän när DNS-mappningen äger rum. 
+Om din domän för närvarande stöder ett program med ett servicenivåavtal (SLA) som kräver noll driftstopp följer du dessa steg för att säkerställa att användarna kan komma åt din domän medan DNS-mappningen sker. 
 
-: heavy_check_mark: steg 1: Hämta värd namnet för din lagrings slut punkt.
+:heavy_check_mark: Steg 1: Hämta värdnamnet för lagringsslutpunkten.
 
-: heavy_check_mark: steg 2: skapa en CNAME-post (intermediat kanoniskt namn) med din domän leverantör.
+:heavy_check_mark: Steg 2: Skapa en cname-post (Intermediary Canonical Name) hos domänleverantören.
 
-: heavy_check_mark: steg 3: för att registrera den anpassade domänen med Azure.
+:heavy_check_mark: Steg 3: Förregistrera den anpassade domänen med Azure.
 
-: heavy_check_mark: steg 4: skapa en CNAME-post med din domän leverantör.
+:heavy_check_mark: Steg 4: Skapa en CNAME-post med domänleverantören.
 
-: heavy_check_mark: steg 5: testa din anpassade domän.
+: heavy_check_mark: Steg 5: Testa din anpassade domän.
 
 <a id="endpoint-2" />
 
-#### <a name="step-1-get-the-host-name-of-your-storage-endpoint"></a>Steg 1: Hämta värd namnet för din lagrings slut punkt 
+#### <a name="step-1-get-the-host-name-of-your-storage-endpoint"></a>Steg 1: Hämta värdnamnet för lagringsslutpunkten 
 
-Värd namnet är URL: en för lagrings slut punkt utan protokoll-ID och avslutande snedstreck. 
+Värdnamnet är url:en för lagringsslutpunkt utan protokollidentifieraren och det efterföljande snedstrecket. 
 
-1. I [Azure Portal](https://portal.azure.com)går du till ditt lagrings konto.
+1. Gå till ditt lagringskonto i [Azure-portalen.](https://portal.azure.com)
 
-2. I meny fönstret, under **Inställningar**, väljer du **Egenskaper**.  
+2. Välj **Egenskaper**under **Inställningar**i menyfönstret .  
 
-3. Kopiera värdet för den **primära BLOB service-slutpunkten** eller den **primära statiska webbplats slut punkten** till en textfil. 
+3. Kopiera värdet för **slutpunkten för primär blob-tjänst** eller den **primära statiska webbplatsslutpunkten** till en textfil. 
 
-4. Ta bort protokoll identifieraren (*t. ex.* https) och avslutande snedstreck från den strängen. Följande tabell innehåller exempel.
+4. Ta bort protokollidentifieraren (*t.ex.* https) och det efterföljande snedstrecket från strängen. Följande tabell innehåller exempel.
 
-   | Typ av slut punkt |  slutpunkt | Värdnamn |
+   | Typ av slutpunkt |  slutpunkt | värdnamn |
    |------------|-----------------|-------------------|
-   |BLOB service  | `https://mystorageaccount.blob.core.windows.net/` | `mystorageaccount.blob.core.windows.net` |
+   |blob-tjänst  | `https://mystorageaccount.blob.core.windows.net/` | `mystorageaccount.blob.core.windows.net` |
    |statisk webbplats  | `https://mystorageaccount.z5.web.core.windows.net/` | `mystorageaccount.z5.web.core.windows.net` |
   
-   Ange det här värdet undan för senare.
+   Avsätt det här värdet åt sidan för senare.
 
-#### <a name="step-2-create-a-intermediary-canonical-name-cname-record-with-your-domain-provider"></a>Steg 2: skapa en CNAME-post (intermediat kanoniskt namn) med din domän leverantör
+#### <a name="step-2-create-a-intermediary-canonical-name-cname-record-with-your-domain-provider"></a>Steg 2: Skapa en CNAME-post (Intermediary Canonical Name) hos domänleverantören
 
-Skapa en tillfällig CNAME-post för att peka på värd namnet. En CNAME-post är en typ av DNS-post som mappar ett källdomännamn till ett måldomännamn.
+Skapa en tillfällig CNAME-post för att peka på värdnamnet. En CNAME-post är en typ av DNS-post som mappar ett källdomännamn till ett måldomännamn.
 
-1. Logga in på din domän registrators webbplats och gå sedan till sidan för att hantera DNS-inställningar.
+1. Logga in på domänregistratorerns webbplats och gå sedan till sidan för att hantera DNS-inställningen.
 
-   Du kan hitta sidan i ett avsnitt med namnet **domän namn**, **DNS**eller **namn server hantering**.
+   Sidan kan hittas i ett avsnitt med namnet **Domännamn,** **DNS**eller **Name Server Management**.
 
-2. Hitta avsnittet för att hantera CNAME-poster. 
+2. Leta reda på avsnittet för hantering av CNAME-poster. 
 
-   Du kanske måste gå till sidan Avancerade inställningar och leta efter **CNAME**, **alias**eller under **domäner**.
+   Du kanske måste gå till en avancerad inställningssida och leta efter **CNAME,** **Alias**eller **Underdomäner**.
 
-3. Skapa en CNAME-post. Ange följande objekt som en del av posten: 
+3. Skapa en CNAME-post. Som en del av den posten anger du följande objekt: 
 
-   - Under domänens alias, till exempel `www` eller `photos`. Under domänen måste anges. rot domäner stöds inte.
+   - Underdomänaliaset, `www` till `photos`exempel eller . Underdomänen krävs, rotdomäner stöds inte.
 
-     Lägg till under domänen `asverify` i aliaset. Till exempel: `asverify.www` eller `asverify.photos`.
+     Lägg `asverify` till underdomänen i aliaset. Till `asverify.www` exempel: `asverify.photos`eller .
        
-   - Det värdnamn som du hämtade i avsnittet [Hämta värd namnet för din lagrings slut punkt](#endpoint) tidigare i den här artikeln. 
+   - Värdnamnet som du fick i avsnittet [Hämta värdnamnet för lagringsslutpunkten](#endpoint) tidigare i den här artikeln. 
 
-     Lägg till under domänen `asverify` till värd namnet. Till exempel: `asverify.mystorageaccount.blob.core.windows.net`.
+     Lägg till underdomänen `asverify` i värdnamnet. Till exempel: `asverify.mystorageaccount.blob.core.windows.net`.
 
-4. Registrera den anpassade domänen genom att välja knappen **Spara** .
+4. Om du vill registrera den anpassade domänen väljer du knappen **Spara.**
 
-   Om registreringen lyckas meddelar portalen dig att ditt lagrings konto har uppdaterats. Din anpassade domän har verifierats av Azure, men trafik till din domän har ännu inte dirigerats till ditt lagrings konto.
+   Om registreringen lyckas meddelar portalen dig att ditt lagringskonto har uppdaterats. Din anpassade domän har verifierats av Azure, men trafiken till din domän dirigeras ännu inte till ditt lagringskonto.
 
-#### <a name="step-3-pre-register-your-custom-domain-with-azure"></a>Steg 3: för att registrera din anpassade domän med Azure
+#### <a name="step-3-pre-register-your-custom-domain-with-azure"></a>Steg 3: Förregistrera din anpassade domän med Azure
 
-När du förregistrerar din anpassade domän med Azure tillåter du att Azure känner igen din anpassade domän utan att behöva ändra DNS-posten för domänen. På så sätt kommer den att mappas till BLOB-slutpunkten utan avbrott när du ändrar DNS-posten för domänen.
+När du förregistrerar din anpassade domän med Azure tillåter du att Azure känner igen din anpassade domän utan att behöva ändra DNS-posten för domänen. På så sätt, när du ändrar DNS-posten för domänen, kommer den att mappas till blobslutpunkten utan driftstopp.
 
-1. I [Azure Portal](https://portal.azure.com)går du till ditt lagrings konto.
+1. Gå till ditt lagringskonto i [Azure-portalen.](https://portal.azure.com)
 
-2. I meny fönstret, under **BLOB service**, väljer du **anpassad domän**.  
+2. Välj **Anpassad domän**under **Blob-tjänst**i menyfönstret.  
 
-   ![alternativ för anpassad domän](./media/storage-custom-domain-name/custom-domain-button.png "anpassad domän")
+   ![anpassat domänalternativ](./media/storage-custom-domain-name/custom-domain-button.png "anpassad domän")
 
-   Fönstret **anpassad domän** öppnas.
+   Fönstret **Anpassad domän** öppnas.
 
-3. I text rutan **domän namn** anger du namnet på din anpassade domän, inklusive under domänen  
+3. I textrutan **Domännamn** anger du namnet på din anpassade domän, inklusive underdomänen  
    
-   Om din domän till exempel är *contoso.com* och ditt under domän Ali Aset är *www*, anger du `www.contoso.com`. Om din under domän är *foton*, anger du `photos.contoso.com`.
+   Om domänen till exempel *är contoso.com* och underdomänaliaset `www.contoso.com`är *www*anger du . Om underdomänen *photos*är foton `photos.contoso.com`anger du .
 
-4. Markera kryss rutan **Använd indirekt CNAME-validering** .
+4. Markera kryssrutan **Använd indirekt CNAME-validering.**
 
-5. Registrera den anpassade domänen genom att välja knappen **Spara** .
+5. Om du vill registrera den anpassade domänen väljer du knappen **Spara.**
   
-   När CNAME-posten har spridits via DNS-servrar (Domain Name servers), och om dina användare har rätt behörigheter, kan de Visa BLOB-data med hjälp av den anpassade domänen.
+   När CNAME-posten har spridits via DNS (Domain Name Servers), och om användarna har rätt behörighet kan de visa blob-data med hjälp av den anpassade domänen.
 
-#### <a name="step-4-create-a-cname-record-with-your-domain-provider"></a>Steg 4: skapa en CNAME-post med din domän leverantör
+#### <a name="step-4-create-a-cname-record-with-your-domain-provider"></a>Steg 4: Skapa en CNAME-post med domänleverantören
 
-Skapa en tillfällig CNAME-post för att peka på värd namnet.
+Skapa en tillfällig CNAME-post för att peka på värdnamnet.
 
-1. Logga in på din domän registrators webbplats och gå sedan till sidan för att hantera DNS-inställningar.
+1. Logga in på domänregistratorerns webbplats och gå sedan till sidan för att hantera DNS-inställningen.
 
-   Du kan hitta sidan i ett avsnitt med namnet **domän namn**, **DNS**eller **namn server hantering**.
+   Sidan kan hittas i ett avsnitt med namnet **Domännamn,** **DNS**eller **Name Server Management**.
 
-2. Hitta avsnittet för att hantera CNAME-poster. 
+2. Leta reda på avsnittet för hantering av CNAME-poster. 
 
-   Du kanske måste gå till sidan Avancerade inställningar och leta efter **CNAME**, **alias**eller under **domäner**.
+   Du kanske måste gå till en avancerad inställningssida och leta efter **CNAME,** **Alias**eller **Underdomäner**.
 
-3. Skapa en CNAME-post. Ange följande objekt som en del av posten: 
+3. Skapa en CNAME-post. Som en del av den posten anger du följande objekt: 
 
-   - Under domänens alias, till exempel `www` eller `photos`. Under domänen måste anges. rot domäner stöds inte.
+   - Underdomänaliaset, `www` till `photos`exempel eller . Underdomänen krävs, rotdomäner stöds inte.
       
-   - Det värdnamn som du hämtade i avsnittet [Hämta värd namnet för din lagrings slut punkt](#endpoint-2) tidigare i den här artikeln. 
+   - Värdnamnet som du fick i avsnittet [Hämta värdnamnet för lagringsslutpunkten](#endpoint-2) tidigare i den här artikeln. 
 
-#### <a name="step-5-test-your-custom-domain"></a>Steg 5: testa din anpassade domän
+#### <a name="step-5-test-your-custom-domain"></a>Steg 5: Testa din anpassade domän
 
-För att bekräfta att din anpassade domän är mappad till BLOB service-slutpunkten skapar du en BLOB i en offentlig behållare i ditt lagrings konto. I en webbläsare öppnar du sedan bloben med hjälp av en URI i följande format: `http://<subdomain.customdomain>/<mycontainer>/<myblob>`
+Skapa en blob i en offentlig behållare i ditt lagringskonto för att bekräfta att din anpassade domän är mappad till din blob-tjänstslutpunkt. Öppna sedan bloben i en webbläsare med hjälp av en URI i följande format:`http://<subdomain.customdomain>/<mycontainer>/<myblob>`
 
-Om du till exempel vill komma åt ett webb formulär i behållaren mina *former* i den anpassade under domänen *photos.contoso.com* kan du använda följande URI: `http://photos.contoso.com/myforms/applicationform.htm`
+Om du till exempel vill komma åt ett webbformulär i *my forms-behållaren* i *photos.contoso.com* anpassade underdomänen kan du använda följande URI:`http://photos.contoso.com/myforms/applicationform.htm`
 
-### <a name="remove-a-custom-domain-mapping"></a>Ta bort en anpassad domän mappning
+### <a name="remove-a-custom-domain-mapping"></a>Ta bort en anpassad domänmappning
 
-Om du vill ta bort en anpassad domän mappning avregistrerar du den anpassade domänen. Använd någon av följande procedurer.
+Om du vill ta bort en anpassad domänmappning avregistrerar du den anpassade domänen. Använd någon av följande procedurer.
 
 #### <a name="portal"></a>[Portal](#tab/azure-portal)
 
-Om du vill ta bort den anpassade domän inställningen gör du följande:
+Så här tar du bort den anpassade domäninställningen:
 
-1. I [Azure Portal](https://portal.azure.com)går du till ditt lagrings konto.
+1. Gå till ditt lagringskonto i [Azure-portalen.](https://portal.azure.com)
 
-2. I meny fönstret, under **BLOB service**, väljer du **anpassad domän**.  
-   Fönstret **anpassad domän** öppnas.
+2. Välj **Anpassad domän**under **Blob-tjänst**i menyfönstret.  
+   Fönstret **Anpassad domän** öppnas.
 
-3. Ta bort innehållet i text rutan som innehåller ditt anpassade domän namn.
+3. Ta bort innehållet i textrutan som innehåller ditt eget domännamn.
 
 4. Välj knappen **Spara**.
 
-När den anpassade domänen har tagits bort visas ett Portal meddelande om att ditt lagrings konto har uppdaterats
+När den anpassade domänen har tagits bort visas ett portalmeddelande om att ditt lagringskonto har uppdaterats
 
 #### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-Om du vill ta bort en anpassad domän registrering använder du kommandot [AZ Storage Account Update](https://docs.microsoft.com/cli/azure/storage/account) CLI och anger sedan en tom sträng (`""`) för värdet för argumentet `--custom-domain`.
+Om du vill ta bort en anpassad domänregistrering använder du KOMMANDOT`""`AZ Storage `--custom-domain` [Account Update](https://docs.microsoft.com/cli/azure/storage/account) CLI och anger sedan en tom sträng ( ) för argumentvärdet.
 
-* Kommando format:
+* Kommandoformat:
 
   ```azurecli
   az storage account update \
@@ -261,7 +261,7 @@ Om du vill ta bort en anpassad domän registrering använder du kommandot [AZ St
       --custom-domain ""
   ```
 
-* Kommando exempel:
+* Kommandoexempel:
 
   ```azurecli
   az storage account update \
@@ -270,13 +270,13 @@ Om du vill ta bort en anpassad domän registrering använder du kommandot [AZ St
       --custom-domain ""
   ```
 
-#### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+#### <a name="powershell"></a>[Powershell](#tab/azure-powershell)
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Om du vill ta bort en anpassad domän registrering använder du PowerShell-cmdleten [set-AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount) och anger sedan en tom sträng (`""`) för värdet för argumentet `-CustomDomainName`.
+Om du vill ta bort en anpassad domänregistrering använder du PowerShell-cmdleten`""` [Set-AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount) och anger sedan en tom sträng ( ) för `-CustomDomainName` argumentvärdet.
 
-* Kommando format:
+* Kommandoformat:
 
   ```powershell
   Set-AzStorageAccount `
@@ -285,7 +285,7 @@ Om du vill ta bort en anpassad domän registrering använder du PowerShell-cmdle
       -CustomDomainName ""
   ```
 
-* Kommando exempel:
+* Kommandoexempel:
 
   ```powershell
   Set-AzStorageAccount `
@@ -299,33 +299,33 @@ Om du vill ta bort en anpassad domän registrering använder du PowerShell-cmdle
 
 ## <a name="map-a-custom-domain-with-https-enabled"></a>Mappa en anpassad domän med HTTPS aktiverat
 
-Den här metoden omfattar fler steg, men det aktiverar HTTPS-åtkomst. 
+Den här metoden innebär fler steg, men det möjliggör HTTPS-åtkomst. 
 
-Om du inte behöver användare åtkomst till ditt BLOB-eller webb innehåll med hjälp av HTTPS kan du läsa avsnittet [Mappa en anpassad domän med endast http aktiverat](#enable-http) i den här artikeln. 
+Om du inte behöver användare för att komma åt blob eller webbinnehåll med https läser du [avsnittet Mappa en anpassad domän med endast HTTP-aktiverat](#enable-http) avsnitt i den här artikeln. 
 
-Gör följande för att mappa en anpassad domän och Aktivera HTTPS-åtkomst:
+Så här mappar du en anpassad domän och aktiverar HTTPS-åtkomst:
 
-1. Aktivera [Azure CDN](../../cdn/cdn-overview.md) på BLOB-eller webb slut punkten. 
+1. Aktivera [Azure CDN](../../cdn/cdn-overview.md) på din blob eller webbslutpunkt. 
 
-   En Blob Storage slut punkt finns i [integrera ett Azure Storage-konto med Azure CDN](../../cdn/cdn-create-a-storage-account-with-cdn.md). 
+   En slutpunkt för Blob Storage finns i [Integrera ett Azure-lagringskonto med Azure CDN](../../cdn/cdn-create-a-storage-account-with-cdn.md). 
 
-   För en statisk webbplats slut punkt, se [integrera en statisk webbplats med Azure CDN](static-website-content-delivery-network.md).
+   En statisk webbplatsslutpunkt finns i [Integrera en statisk webbplats med Azure CDN](static-website-content-delivery-network.md).
 
-2. [Mappa Azure CDN innehåll till en anpassad domän](../../cdn/cdn-map-content-to-custom-domain.md).
+2. [Mappa Azure CDN-innehåll till en anpassad domän](../../cdn/cdn-map-content-to-custom-domain.md).
 
-3. [Aktivera HTTPS på en Azure CDN anpassad domän](../../cdn/cdn-custom-ssl.md).
+3. [Aktivera HTTPS på en anpassad Azure CDN-domän](../../cdn/cdn-custom-ssl.md).
 
    > [!NOTE] 
-   > När du uppdaterar din statiska webbplats måste du ta bort det cachelagrade innehållet på CDN Edge-servrarna genom att rensa CDN-slutpunkten. Mer information finns i [Purge an Azure CDN endpoint](../../cdn/cdn-purge-endpoint.md) (Rensa en Azure CDN-slutpunkt).
+   > När du uppdaterar den statiska webbplatsen måste du rensa cachelagrat innehåll på CDN-edge-servrarna genom att rensa CDN-slutpunkten. Mer information finns i [Purge an Azure CDN endpoint](../../cdn/cdn-purge-endpoint.md) (Rensa en Azure CDN-slutpunkt).
 
-4. Valfritt Läs följande rikt linjer:
+4. (Valfritt) Läs igenom följande vägledning:
 
-   * [Token för signatur för delad åtkomst (SAS) med Azure CDN](https://docs.microsoft.com/azure/cdn/cdn-storage-custom-domain-https#shared-access-signatures).
+   * [SAS-token (Shared Access Signature) med Azure CDN](https://docs.microsoft.com/azure/cdn/cdn-storage-custom-domain-https#shared-access-signatures).
 
-   * [Http-till-https-omdirigering med Azure CDN](https://docs.microsoft.com/azure/cdn/cdn-storage-custom-domain-https#http-to-https-redirection).
+   * [HTTP-till-HTTPS-omdirigering med Azure CDN](https://docs.microsoft.com/azure/cdn/cdn-storage-custom-domain-https#http-to-https-redirection).
 
-   * [Priser och fakturering när du använder Blob Storage med Azure CDN](https://docs.microsoft.com/azure/cdn/cdn-storage-custom-domain-https#http-to-https-redirection).
+   * [Prissättning och fakturering när du använder Blob Storage med Azure CDN](https://docs.microsoft.com/azure/cdn/cdn-storage-custom-domain-https#http-to-https-redirection).
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Lär dig mer om den statiska webbplats som är värd för Azure Blob Storage](storage-blob-static-website.md)
+* [Lär dig mer om statisk webbplatshosting i Azure Blob-lagring](storage-blob-static-website.md)

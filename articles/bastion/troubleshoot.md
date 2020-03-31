@@ -1,6 +1,6 @@
 ---
-title: Felsöka Azure-skydds | Microsoft Docs
-description: I den här artikeln får du lära dig hur du felsöker Azure-skydds.
+title: Felsöka Azure Bastion | Microsoft-dokument
+description: I den här artikeln får du lära dig hur du felsöker Azure Bastion.
 services: bastion
 author: cherylmc
 ms.service: bastion
@@ -8,38 +8,38 @@ ms.topic: conceptual
 ms.date: 10/16/2019
 ms.author: cherylmc
 ms.openlocfilehash: de112ff441bb53a0b3bc7f4ffa4456f1c241682c
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73512956"
 ---
-# <a name="troubleshoot-azure-bastion"></a>Felsöka Azure-skydds
+# <a name="troubleshoot-azure-bastion"></a>Felsöka Azure Bastion
 
-Den här artikeln visar hur du felsöker Azure-skydds.
+Den här artikeln visar hur du felsöker Azure Bastion.
 
-## <a name="nsg"></a>Det gick inte att skapa en NSG på AzureBastionSubnet
+## <a name="unable-to-create-an-nsg-on-azurebastionsubnet"></a><a name="nsg"></a>Det går inte att skapa en NSG på AzureBastionSubnet
 
-**F:** När jag försöker skapa en NSG i Azure skydds-undernätet visas följande fel: *"nätverks säkerhets grupp <NSG name> har inte de regler som krävs för Azure skydds Subnet AzureBastionSubnet"* .
+**F:** När jag försöker skapa en NSG på undernätet För Azure Bastion får jag följande felmeddelande: *"Nätverkssäkerhetsgruppen <NSG name> har inga nödvändiga regler för Azure Bastion Subnet AzureBastionSubnet".*
 
-**A:** Om du skapar och använder en NSG för *AzureBastionSubnet*kontrollerar du att du har lagt till följande regler i din NSG. Om du inte lägger till de här reglerna går det inte att skapa eller uppdatera NSG.
+**A.** Om du skapar och tillämpar en NSG på *AzureBastionSubnet*kontrollerar du att du har lagt till följande regler i NSG. Om du inte lägger till dessa regler misslyckas NSG-skapandet/uppdateringen.
 
-1. Kontroll Plans anslutning – inkommande den 443 från GatewayManager
-2. Diagnostikloggning och andra – utgående på 443 till AzureCloud (regionala Taggar i denna service tag stöds inte ännu.)
+1. Kontrollplansanslutning – Inkommande på 443 från GatewayManager
+2. Diagnostikloggning och andra – Utgående på 443 till AzureCloud (Regionala taggar i det här tjänstmärket stöds inte ännu.)
 3. Mål-VM – utgående för 3389 och 22 till VirtualNetwork
 
-Det finns ett exempel på NSG-reglerna för referens i [snabb starts mal len](https://github.com/Azure/azure-quickstart-templates/tree/master/101-azure-bastion).
-Mer information finns i [NSG-vägledning för Azure skydds](bastion-nsg.md).
+Ett exempel på NSG-reglerna finns att referera till i [snabbstartsmallen](https://github.com/Azure/azure-quickstart-templates/tree/master/101-azure-bastion).
+Mer information finns i [NSG-vägledning för Azure Bastion](bastion-nsg.md).
 
-## <a name="sshkey"></a>Det går inte att använda min SSH-nyckel med Azure skydds
+## <a name="unable-to-use-my-ssh-key-with-azure-bastion"></a><a name="sshkey"></a>Det går inte att använda min SSH-nyckel med Azure Bastion
 
-**F:** När jag försöker bläddra i min SSH-nyckelfil får du följande fel meddelande: *"den privata SSH-nyckeln måste börja med-----starta RSA Private-nyckel-----och avslutas med-----End RSA New key-----"* .
+**F:** När jag försöker bläddra i min SSH-nyckelfil får jag följande felmeddelande: *"SSH Private key must start with -----BEGIN RSA PRIVATE KEY----- and ends with -----END RSA PRIVATE KEY-----"*.
 
-**A:** Azure skydds stöder bara RSA SSH-nycklar, vid den här tidpunkten. Se till att du bläddrar i en nyckel fil som är en privat RSA-nyckel för SSH, med offentlig nyckel etablerad på den virtuella mål datorn. 
+**A.** Azure Bastion stöder endast RSA SSH-nycklar, vid denna tidpunkt. Se till att du bläddrar i en nyckelfil som är RSA-privat nyckel för SSH, med offentlig nyckel etablerad på måldatorn. 
 
-Du kan till exempel använda följande kommando för att skapa en ny RSA SSH-nyckel:
+Som ett exempel kan du använda följande kommando för att skapa en ny RSA SSH-nyckel:
 
-**ssh-keygen-t RSA-b 4096-C "email@domain.com"**
+**ssh-keygen -t rsa -b 4096 -C "email@domain.com"**
 
 Resultat:
 
@@ -67,24 +67,24 @@ The key's randomart image is:
 +----[SHA256]-----+
 ```
 
-## <a name="domain"></a>Det går inte att logga in på en Windows-domänansluten virtuell dator
+## <a name="unable-to-sign-in-to-my-windows-domain-joined-virtual-machine"></a><a name="domain"></a>Det går inte att logga in på min virtuella dator med Windows-domän
 
-**F:** Jag kan inte ansluta till den virtuella Windows-datorn som är domänansluten.
+**F:** Jag kan inte ansluta till min virtuella Windows-dator som är domänansluten.
 
-**A:** Azure skydds stöder domänanslutna VM-inloggning för användar namn – lösen ords baserad domän inloggning. När du anger domänautentiseringsuppgifter i Azure Portal använder du UPN-formatet (username@domain) i stället för formatet *domän \ användar namn* för att logga in. Detta stöds för domänanslutna eller hybrid-anslutna (både domänanslutna och Azure AD-anslutna) virtuella datorer. Det finns inte stöd för virtuella Azure AD-anslutna datorer.
+**A.** Azure Bastion stöder domänansluten VM-inloggning för endast användarnamnslösenordsbaserad domän inloggning. När du anger domänautentiseringsuppgifterna i Azure-portalen använder du UPN-formatet (username@domaini stället för *domän\användarnamn* för att logga in. Detta stöds för domänanslutna eller hybridans anslutna (både domänanslutna och Azure AD-anslutna) virtuella datorer. Det stöds inte för virtuella Azure AD-anslutna datorer.
 
-## <a name="filetransfer"></a>Fil överförings problem
+## <a name="file-transfer-issues"></a><a name="filetransfer"></a>Problem med filöverföring
 
-**F:** Stöds fil överföring med Azure-skydds?
+**F:** Stöds filöverföring med Azure Bastion?
 
-**A:** Fil överföring stöds inte för tillfället. Vi arbetar med att lägga till stöd.
+**A.** Filöverföring stöds inte just nu. Vi arbetar på att lägga till stöd.
 
-## <a name="blackscreen"></a>Svart skärm i Azure Portal
+## <a name="black-screen-in-the-azure-portal"></a><a name="blackscreen"></a>Svart skärm i Azure-portalen
 
-**F:** När jag försöker ansluta med Azure skydds får jag en svart skärm i Azure Portal.
+**F:** När jag försöker ansluta med Azure Bastion får jag en svart skärm i Azure-portalen.
 
-**A:** Detta inträffar när det finns ett problem med nätverks anslutningen mellan webbläsaren och Azure-skydds (din klients Internet brand vägg kan blockera WebSockets-trafik eller liknande), eller mellan Azure-skydds och den virtuella mål datorn. De flesta fall innehåller en NSG som tillämpas antingen på AzureBastionSubnet eller på ditt virtuella mål-undernät som blockerar RDP/SSH-trafiken i det virtuella nätverket. Tillåt WebSocket-trafik på klientens Internet brand vägg och kontrol lera NSG: er på ditt mål-VM-undernät.
+**A.** Detta händer när det antingen finns ett problem med nätverksanslutningen mellan din webbläsare och Azure Bastion (din klient-Internet-brandvägg kan blockera WebSockets-trafik eller liknande) eller mellan Azure Bastion och din virtuella mål.This happens when there is either a network connectivity issue between your web browser and Azure Bastion (your client Internet firewall may be blocking WebSockets traffic or similar), or between the Azure Bastion and your target VM. De flesta fall inkluderar en NSG som tillämpas antingen på AzureBastionSubnet eller på ditt virtuella mål-VM-undernät som blockerar RDP/SSH-trafiken i det virtuella nätverket. Tillåt WebSockets-trafik på klientens internetbrandvägg och kontrollera NSG:erna i mål-VM-undernätet.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information finns i [vanliga frågor och svar om skydds](bastion-faq.md).
+Mer information finns i [Vanliga frågor om Bastion](bastion-faq.md).

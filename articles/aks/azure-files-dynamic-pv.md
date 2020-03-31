@@ -1,45 +1,45 @@
 ---
-title: Skapa en fil volym dynamiskt för flera poddar i Azure Kubernetes service (AKS)
-description: Lär dig att dynamiskt skapa en permanent volym med Azure Files för användning med flera samtidiga poddar i Azure Kubernetes service (AKS)
+title: Skapa en filvolym dynamiskt för flera poddar i Azure Kubernetes Service (AKS)
+description: Lär dig hur du dynamiskt skapar en beständig volym med Azure-filer för användning med flera samtidiga poddar i Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
 ms.date: 09/12/2019
-ms.openlocfilehash: ef9ef10a5523bd91b346e16e105c5ff5cd9cb669
-ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
+ms.openlocfilehash: 3628a9243d849cdb2f3143209dc239be5ac846b9
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2020
-ms.locfileid: "78897712"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80297780"
 ---
-# <a name="dynamically-create-and-use-a-persistent-volume-with-azure-files-in-azure-kubernetes-service-aks"></a>Skapa och använda en beständig volym dynamiskt med Azure Files i Azure Kubernetes service (AKS)
+# <a name="dynamically-create-and-use-a-persistent-volume-with-azure-files-in-azure-kubernetes-service-aks"></a>Skapa och använda en beständig volym dynamiskt med Azure Files i Azure Kubernetes Service (AKS)
 
-En beständig volym representerar en lagrings enhet som har etablerats för användning med Kubernetes poddar. En permanent volym kan användas av en eller flera poddar och kan vara dynamiskt eller statiskt etablerad. Om flera poddar behöver samtidig åtkomst till samma lagrings volym kan du använda Azure Files för att ansluta med [SMB-protokollet (Server Message Block)][smb-overview]. Den här artikeln visar hur du skapar en Azure Files-resurs dynamiskt för användning av flera poddar i ett Azure Kubernetes service-kluster (AKS).
+En beständig volym representerar en lagringsdel som har etablerats för användning med Kubernetes poddar. En beständig volym kan användas av en eller flera poddar och kan etableras dynamiskt eller statiskt. Om flera poddar behöver samtidig åtkomst till samma lagringsvolym kan du använda Azure Files för att ansluta med [SMB-protokollet (Server Message Block).][smb-overview] Den här artikeln visar hur du dynamiskt skapar en Azure-filresurs för användning av flera poddar i ett AKS-kluster (Azure Kubernetes Service).
 
-Mer information om Kubernetes-volymer finns i [lagrings alternativ för program i AKS][concepts-storage].
+Mer information om Kubernetes volymer finns i [Lagringsalternativ för program i AKS][concepts-storage].
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
-Den här artikeln förutsätter att du har ett befintligt AKS-kluster. Om du behöver ett AKS-kluster kan du läsa snabb starten för AKS [med hjälp av Azure CLI][aks-quickstart-cli] eller [Azure Portal][aks-quickstart-portal].
+Den här artikeln förutsätter att du har ett befintligt AKS-kluster. Om du behöver ett AKS-kluster läser du SNABBSTARTen för AKS [med Azure CLI][aks-quickstart-cli] eller använder [Azure-portalen][aks-quickstart-portal].
 
-Du måste också ha Azure CLI-versionen 2.0.59 eller senare installerad och konfigurerad. Kör  `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI][install-azure-cli].
+Du behöver också Azure CLI version 2.0.59 eller senare installerad och konfigurerad. Kör  `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa  [Installera Azure CLI 2.0][install-azure-cli].
 
-## <a name="create-a-storage-class"></a>Skapa en lagrings klass
+## <a name="create-a-storage-class"></a>Skapa en lagringsklass
 
-En lagrings klass används för att definiera hur en Azure-filresurs skapas. Ett lagrings konto skapas automatiskt i [resurs gruppen nod][node-resource-group] för användning med lagrings klassen för att lagra Azure-filresurserna. Välj följande [Azure Storage-redundans][storage-skus] för *skuName*:
+En lagringsklass används för att definiera hur en Azure-filresurs skapas. Ett lagringskonto skapas automatiskt i [nodresursgruppen][node-resource-group] för användning med lagringsklassen för att lagra Azure-filresurserna. Välj följande [Azure-lagringsredundans][storage-skus] för *skuName:*
 
-* *Standard_LRS* -standard lokalt redundant lagring (LRS)
-* *Standard_GRS* -standard Geo-redundant lagring (GRS)
-* *Standard_ZRS* -standard zon redundant lagring (GRS)
-* *Standard_RAGRS* -standard Geo-redundant lagring med Läs behörighet (RA-GRS)
-* *Premium_LRS* – Premium lokalt redundant lagring (LRS)
-* *Premium_ZRS* -Premium Zone-redundant lagring (GRS)
+* *Standard_LRS* - standard lokalt redundant lagring (LRS)
+* *Standard_GRS* - geoupptundret standardlagring (GRS)
+* *Standard_ZRS* - standardzon redundant lagring (ZRS)
+* *Standard_RAGRS* - geo redundant lagring av läsåtkomst (RA-GRS)
+* *Premium_LRS* - premium lokalt redundant lagring (LRS)
+* *Premium_ZRS* - premiumzon redundant lagring (GRS)
 
 > [!NOTE]
-> Azure Files support Premium Storage i AKS-kluster som kör Kubernetes 1,13 eller högre, är den minsta Premium-filresursen 100 GB
+> Azure Files stöder premiumlagring i AKS-kluster som kör Kubernetes 1.13 eller senare, minsta premiumfilresurs är 100 GB
 
-Mer information om Kubernetes lagrings klasser för Azure Files finns i [Kubernetes Storage-klasser][kubernetes-storage-classes].
+Mer information om Kubernetes lagringsklasser för Azure-filer finns i [Kubernetes Storage Classes][kubernetes-storage-classes].
 
-Skapa en fil med namnet `azure-file-sc.yaml` och kopiera i följande exempel manifest. Mer information om *mountOptions*finns i avsnittet [monterings alternativ][mount-options] .
+Skapa en `azure-file-sc.yaml` fil med namnet och kopiera i följande exempelmanifest. Mer information om *mountOptions*finns i avsnittet [Montera alternativ.][mount-options]
 
 ```yaml
 kind: StorageClass
@@ -58,17 +58,17 @@ parameters:
   skuName: Standard_LRS
 ```
 
-Skapa lagrings klassen med kommandot [kubectl Apply][kubectl-apply] :
+Skapa lagringsklassen med kommandot [kubectl apply:][kubectl-apply]
 
 ```console
 kubectl apply -f azure-file-sc.yaml
 ```
 
-## <a name="create-a-persistent-volume-claim"></a>Skapa ett beständigt volym anspråk
+## <a name="create-a-persistent-volume-claim"></a>Skapa ett beständigt volymanspråk
 
-Ett permanent volym anspråk (PVC) använder lagrings klass objekt för att dynamiskt etablera en Azure-filresurs. Följande YAML kan användas för att skapa ett beständigt volym anspråk *5 GB* i storlek med *ReadWriteMany* -åtkomst. Mer information om åtkomst lägen finns i dokumentationen för [Kubernetes-beständig volym][access-modes] .
+Ett beständigt volymanspråk (PVC) använder lagringsklassobjektet för att dynamiskt etablera en Azure-filresurs. Följande YAML kan användas för att skapa ett beständigt volymanspråk *5 GB* i storlek med *ReadWriteMany-åtkomst.* Mer information om åtkomstlägen finns i [kubernetes beständiga][access-modes] volymdokumentation.
 
-Skapa nu en fil med namnet `azure-file-pvc.yaml` och kopiera i följande YAML. Kontrol lera att *storageClassName* matchar lagrings klassen som skapades i det senaste steget:
+Nu skapa en `azure-file-pvc.yaml` fil som heter och kopiera i följande YAML. Kontrollera att *storageClassName* matchar lagringsklassen som skapades i det sista steget:
 
 ```yaml
 apiVersion: v1
@@ -85,15 +85,15 @@ spec:
 ```
 
 > [!NOTE]
-> Om du använder *Premium_LRS* SKU för lagrings klassen måste det lägsta värdet för *lagring* vara *100Gi*.
+> Om du använder *Premium_LRS* sku för din lagringsklass måste minimivärdet för *lagring* vara *100Gi*.
 
-Skapa ett beständigt volym anspråk med kommandot [kubectl Apply][kubectl-apply] :
+Skapa det beständiga volymanspråket med kommandot [kubectl apply:][kubectl-apply]
 
 ```console
 kubectl apply -f azure-file-pvc.yaml
 ```
 
-När den är klar skapas fil resursen. En Kubernetes-hemlighet skapas också som innehåller anslutnings information och autentiseringsuppgifter. Du kan använda kommandot [kubectl get][kubectl-get] för att visa status för PVC: n:
+När filresursen är klar skapas den. En Kubernetes hemlighet skapas också som innehåller anslutningsinformation och autentiseringsuppgifter. Du kan använda kommandot [kubectl get][kubectl-get] för att visa status för PVC:
 
 ```console
 $ kubectl get pvc azurefile
@@ -102,11 +102,11 @@ NAME        STATUS    VOLUME                                     CAPACITY   ACCE
 azurefile   Bound     pvc-8436e62e-a0d9-11e5-8521-5a8664dc0477   5Gi        RWX            azurefile      5m
 ```
 
-## <a name="use-the-persistent-volume"></a>Använd beständig volym
+## <a name="use-the-persistent-volume"></a>Använd den beständiga volymen
 
-Följande YAML skapar en pod som använder den beständiga volym anspråks *azurefile* för att montera Azure-filresursen på */mnt/Azure* -sökvägen. För Windows Server-behållare (för närvarande i för hands version i AKS) anger du en *mountPath* med hjälp av Windows Sök vägs konvention, till exempel *":"* .
+Följande YAML skapar en pod som använder den beständiga volymen anspråk *azurefile* att montera Azure-filresursen på */mnt/azure* sökvägen. För Windows Server-behållare (för närvarande i förhandsversionen i AKS) anger du en *mountPath* med hjälp av Windows-sökvägskonventionen, till exempel *"D:".*
 
-Skapa en fil med namnet `azure-pvc-files.yaml`och kopiera i följande YAML. Kontrol lera att *claimName* matchar den PVC som skapades i det sista steget.
+Skapa en `azure-pvc-files.yaml`fil med namnet och kopiera i följande YAML. Kontrollera att *anspråksnamnet* matchar DEN PVC som skapades i det sista steget.
 
 ```yaml
 kind: Pod
@@ -133,13 +133,13 @@ spec:
         claimName: azurefile
 ```
 
-Skapa Pod med kommandot [kubectl Apply][kubectl-apply] .
+Skapa podden med kommandot [kubectl apply.][kubectl-apply]
 
 ```console
 kubectl apply -f azure-pvc-files.yaml
 ```
 
-Nu har du en aktiv Pod med din Azure Files resurs som är monterad i katalogen */mnt/Azure* . Den här konfigurationen kan ses när du inspekterar Pod via `kubectl describe pod mypod`. I följande komprimerade exempel utdata visas den volym som är monterad i behållaren:
+Du har nu en pod som körs med din Azure Files-resurs monterad i katalogen */mnt/azure.* Den här konfigurationen kan ses `kubectl describe pod mypod`när du inspekterar din pod via . Följande kondenserade exempelutgång visar volymen som är monterad i behållaren:
 
 ```
 Containers:
@@ -162,9 +162,9 @@ Volumes:
 [...]
 ```
 
-## <a name="mount-options"></a>Monterings alternativ
+## <a name="mount-options"></a>Monteringsalternativ
 
-Standardvärdet för *fileMode* och *dirMode* är *0777* för Kubernetes version 1.13.0 och senare. Om du dynamiskt skapar den permanenta volymen med en lagrings klass kan monterings alternativ anges för objektet lagrings klass. I följande exempel anges *0777*:
+Standardvärdet för *fileMode* och *dirMode* är *0777* för Kubernetes version 1.13.0 och senare. Om du dynamiskt skapar den beständiga volymen med en lagringsklass kan monteringsalternativ anges på lagringsklassobjektet. Följande exempel anger *0777:*
 
 ```yaml
 kind: StorageClass
@@ -185,12 +185,12 @@ parameters:
 
 ## <a name="next-steps"></a>Nästa steg
 
-För associerade metod tips, se [metod tips för lagring och säkerhets kopiering i AKS][operator-best-practices-storage].
+Information om associerade metodtips finns [i Metodtips för lagring och säkerhetskopiering i AKS][operator-best-practices-storage].
 
-Läs mer om Kubernetes-beständiga volymer med Azure Files.
+Läs mer om Kubernetes beständiga volymer med Azure Files.
 
 > [!div class="nextstepaction"]
-> [Kubernetes-plugin-program för Azure Files][kubernetes-files]
+> [Kubernetes plugin för Azure-filer][kubernetes-files]
 
 <!-- LINKS - external -->
 [access-modes]: https://kubernetes.io/docs/concepts/storage/persistent-volumes

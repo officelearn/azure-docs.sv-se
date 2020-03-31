@@ -1,124 +1,125 @@
 ---
-title: Konfigurera Avancerat skydd
+title: Konfigurera avancerat hotskydd
 titleSuffix: Azure Storage
-description: Konfigurera Avancerat skydd för Azure Storage för att identifiera avvikelser i konto aktivitet och få meddelanden om potentiellt skadliga försök att komma åt ditt konto.
+description: Konfigurera avancerat skydd mot hot för Azure Storage för att identifiera avvikelser i kontoaktiviteten och meddelas om potentiellt skadliga försök att komma åt ditt konto.
 services: storage
 author: tamram
 ms.service: storage
+ms.subservice: common
 ms.topic: conceptual
 ms.date: 02/04/2020
 ms.author: tamram
 ms.reviewer: cbrooks
-ms.openlocfilehash: d97b63aa87bfd8cf8ca1a3f5b213d6b16ca066df
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.openlocfilehash: 27860b8761c565c45a604253efdff5f77606606e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77616853"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80061305"
 ---
-# <a name="configure-advanced-threat-protection-for-azure-storage"></a>Konfigurera Avancerat skydd för Azure Storage
+# <a name="configure-advanced-threat-protection-for-azure-storage"></a>Konfigurera avancerat hotskydd för Azure Storage
 
-Avancerat skydd för Azure Storage ger ytterligare ett lager med säkerhets information som identifierar ovanliga och potentiellt skadliga försök att komma åt eller utnyttja lagrings konton. Med det här skydds lagret kan du åtgärda hot utan att vara säkerhets expert eller hantera säkerhets övervaknings system.
+Avancerat hotskydd för Azure Storage ger ett extra lager av säkerhetsinformation som identifierar ovanliga och potentiellt skadliga försök att komma åt eller utnyttja lagringskonton. Med det här skyddslageret kan du hantera hot utan att vara säkerhetsexpert eller hantera säkerhetsövervakningssystem.
 
-Säkerhets varningar utlöses när avvikelser i aktivitet inträffar. Dessa säkerhets aviseringar är integrerade med [Azure Security Center](https://azure.microsoft.com/services/security-center/)och skickas också via e-post till prenumerations administratörer med information om misstänkt aktivitet och rekommendationer om hur du undersöker och åtgärdar hot.
+Säkerhetsaviseringar utlöses när avvikelser i aktivitet inträffar. Dessa säkerhetsaviseringar är integrerade med [Azure Security Center](https://azure.microsoft.com/services/security-center/)och skickas även via e-post till prenumerationsadministratörer, med information om misstänkt aktivitet och rekommendationer om hur du undersöker och åtgärdar hot.
 
 > [!NOTE]
-> Avancerat skydd för Azure Storage är för närvarande endast tillgängligt för Blob Storage. Den är inte tillgänglig i moln regioner i Azure myndigheter och suveräna regioner. För pris information, inklusive en kostnads fri 30-dagars utvärderings version, se [sidan Azure Security Center prissättning]( https://azure.microsoft.com/pricing/details/security-center/).
+> Avancerat hotskydd för Azure Storage är för närvarande endast tillgängligt för Blob-lagring. Den är inte tillgänglig i Azure-myndigheter och suveräna molnregioner. Information om priser, inklusive en kostnadsfri utvärderingsversion på 30 dagar, finns på [prissidan för Azure Security Center]( https://azure.microsoft.com/pricing/details/security-center/).
 
-Avancerat skydd för Azure Storage matar in diagnostikloggar för Läs-, skriv-och borttagnings förfrågningar till Blob Storage för hot identifiering. Om du vill undersöka aviseringar från Avancerat skydd kan du Visa relaterad lagrings aktivitet med hjälp av Lagringsanalys loggning. Mer information finns i **Konfigurera loggning** i [övervaka ett lagrings konto i Azure Portal](storage-monitor-storage-account.md#configure-logging).
+Avancerat skydd mot hot för Azure Storage intar diagnostikloggar med läs-, skriv- och borttagningsbegäranden till Blob-lagring för hotidentifiering. Om du vill undersöka aviseringarna från avancerat hotskydd kan du visa relaterad lagringsaktivitet med Lagringsanalys. Mer information finns i **Konfigurera loggning** i [Övervaka ett lagringskonto i Azure-portalen](storage-monitor-storage-account.md#configure-logging).
 
-## <a name="set-up-advanced-threat-protection"></a>Konfigurera Avancerat skydd
+## <a name="set-up-advanced-threat-protection"></a>Konfigurera avancerat hotskydd
 
-Du kan konfigurera Avancerat skydd på flera sätt, som beskrivs i följande avsnitt.
+Du kan konfigurera avancerat hotskydd på något av flera sätt, som beskrivs i följande avsnitt.
 
-### <a name="portal"></a>[Portalen](#tab/azure-portal)
+### <a name="portal"></a>[Portal](#tab/azure-portal)
 
-1. Starta [Azure Portal](https://portal.azure.com/).
-1. Navigera till ditt Azure Storage-konto. Under **Inställningar**väljer du **avancerad säkerhet**.
-1. Välj länken **Inställningar** på sidan Avancerad säkerhets konfiguration.
-1. Ange **avancerad säkerhet** till **på**.
-1. Klicka på **Spara** för att spara den nya eller uppdaterade principen.
+1. Starta [Azure-portalen](https://portal.azure.com/).
+1. Navigera till ditt Azure Storage-konto. Under **Inställningar**väljer du **Avancerad säkerhet**.
+1. Välj länken **Inställningar** på den avancerade säkerhetskonfigurationssidan.
+1. Ställ in **avancerad säkerhet** **på PÅ**.
+1. Klicka på **Spara** om du vill spara den nya eller uppdaterade principen.
 
-    ![Aktivera Azure Storage Avancerat skydd](./media/storage-advanced-threat-protection/storage-advanced-threat-protection-turn-on.png)
+    ![Aktivera avancerat hotskydd för Azure Storage](./media/storage-advanced-threat-protection/storage-advanced-threat-protection-turn-on.png)
 
 ### <a name="azure-security-center"></a>[Azure Security Center](#tab/azure-security-center)
 
-När du prenumererar på standard nivån i Azure Security Center konfigureras Avancerat skydd automatiskt på alla dina lagrings konton. Du kan aktivera eller inaktivera Avancerat skydd för dina lagrings konton under en speciell prenumeration på följande sätt:
+När du prenumererar på standardnivån i Azure Security Center konfigureras automatiskt avancerat hotskydd på alla dina lagringskonton. Du kan aktivera eller inaktivera avancerat hotskydd för dina lagringskonton under en viss prenumeration enligt följande:
 
-1. Starta **Azure Security Center** i [Azure Portal](https://portal.azure.com).
-1. Klicka på **priser & inställningar**på huvud menyn.
-1. Klicka på den prenumeration som du vill aktivera eller inaktivera hot skydd för dess lagrings konton.
+1. Starta **Azure Security Center** i [Azure-portalen](https://portal.azure.com).
+1. Klicka på Priser **& inställningar på**huvudmenyn .
+1. Klicka på den prenumeration som du vill aktivera eller inaktivera hotskydd för sina lagringskonton.
 
     ![Välj en prenumeration](./media/storage-advanced-threat-protection/storage-advanced-threat-protection-subscription.png)
 
-1. Klicka på **pris nivå**.
-1. I avsnittet **Välj pris nivå efter resurs typ** klickar du på **aktive** rad eller **inaktive**rad på raden **lagrings konton** .
+1. Klicka på **Prisnivå**.
+1. Klicka på Aktiverat eller **Inaktiverat**i raden **Lagringskonton** i avsnittet **Välj prisnivå efter resurstyp.** **Enabled**
 
-    ![Aktivera ATP i Security Center](./media/storage-advanced-threat-protection/storage-advanced-threat-protection-pricing2.png)
-1. Klicka på **Save** (Spara).
+    ![Aktivera ATP i Säkerhetscenter](./media/storage-advanced-threat-protection/storage-advanced-threat-protection-pricing2.png)
+1. Klicka på **Spara**.
 
 ### <a name="template"></a>[Mall](#tab/template)
 
-Använd en Azure Resource Manager mall för att distribuera ett Azure Storage konto med avancerat skydd aktiverat. Mer information finns i [lagrings konto med avancerat skydd](https://azure.microsoft.com/resources/templates/201-storage-advanced-threat-protection-create/).
+Använd en Azure Resource Manager-mall för att distribuera ett Azure Storage-konto med avancerat skydd mot hot. Mer information finns i [Lagringskonto med avancerat skydd mot hot](https://azure.microsoft.com/resources/templates/201-storage-advanced-threat-protection-create/).
 
 ### <a name="azure-policy"></a>[Azure Policy](#tab/azure-policy)
 
-Använd en Azure Policy för att aktivera avancerat skydd mellan lagrings konton under en speciell prenumeration eller resurs grupp.
+Använd en Azure-princip för att aktivera avancerat skydd mot hot över lagringskonton under en viss prenumeration eller resursgrupp.
 
-1. Starta sidan Azure **policy-definitions** .
+1. Starta sidan Azure **Policy - Definitioner.**
 
-1. Sök efter principen **distribuera Avancerat skydd på lagrings konton** .
+1. Sök efter principen **Distribuera avancerat skydd mot skydd för lagringskonton.**
 
-     ![Sök princip](./media/storage-advanced-threat-protection/storage-atp-policy-definitions.png)
+     ![Sökpolicy](./media/storage-advanced-threat-protection/storage-atp-policy-definitions.png)
 
-1. Välj en Azure-prenumeration eller resurs grupp.
+1. Välj en Azure-prenumeration eller resursgrupp.
 
     ![Välj prenumeration eller grupp](./media/storage-advanced-threat-protection/storage-atp-policy2.png)
 
 1. Tilldela principen.
 
-    ![Sidan princip definitioner](./media/storage-advanced-threat-protection/storage-atp-policy1.png)
+    ![Sidan Principdefinitioner](./media/storage-advanced-threat-protection/storage-atp-policy1.png)
 
-### <a name="rest-api"></a>[REST-API](#tab/rest-api)
+### <a name="rest-api"></a>[REST API](#tab/rest-api)
 
-Använd REST API-kommandon för att skapa, uppdatera eller Hämta inställningen för avancerat skydd för ett angivet lagrings konto.
+Använd Rest API-kommandon för att skapa, uppdatera eller hämta den avancerade inställningen för skydd mot hot för ett visst lagringskonto.
 
-* [Avancerat skydd – skapa](https://docs.microsoft.com/rest/api/securitycenter/advancedthreatprotection/create)
-* [Avancerat skydd – Hämta](https://docs.microsoft.com/rest/api/securitycenter/advancedthreatprotection/get)
+* [Avancerat hotskydd - Skapa](https://docs.microsoft.com/rest/api/securitycenter/advancedthreatprotection/create)
+* [Avancerat skydd mot hot - Få](https://docs.microsoft.com/rest/api/securitycenter/advancedthreatprotection/get)
 
-### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+### <a name="powershell"></a>[Powershell](#tab/azure-powershell)
 
-Använd följande PowerShell-cmdletar:
+Använd följande PowerShell-cmdlets:
 
-* [Aktivera avancerat skydd](https://docs.microsoft.com/powershell/module/az.security/enable-azsecurityadvancedthreatprotection)
-* [Hämta Avancerat skydd](https://docs.microsoft.com/powershell/module/az.security/get-azsecurityadvancedthreatprotection)
-* [Inaktivera Avancerat skydd](https://docs.microsoft.com/powershell/module/az.security/disable-azsecurityadvancedthreatprotection)
+* [Aktivera avancerat hotskydd](https://docs.microsoft.com/powershell/module/az.security/enable-azsecurityadvancedthreatprotection)
+* [Få avancerat hotskydd](https://docs.microsoft.com/powershell/module/az.security/get-azsecurityadvancedthreatprotection)
+* [Inaktivera avancerat hotskydd](https://docs.microsoft.com/powershell/module/az.security/disable-azsecurityadvancedthreatprotection)
 
 ---
 
-## <a name="explore-security-anomalies"></a>Utforska säkerhets avvikelser
+## <a name="explore-security-anomalies"></a>Utforska säkerhetsavvikelser
 
-När avvikelser i lagrings aktiviteter inträffar får du ett e-postmeddelande med information om den misstänkta säkerhets händelsen. Information om händelsen är:
+När avvikelser i lagringsaktiviteten inträffar får du ett e-postmeddelande med information om den misstänkta säkerhetshändelsen. Information om evenemanget inkluderar:
 
-* Avvikelsens karaktär
-* Lagrings kontots namn
-* Händelse tiden
-* Lagrings typ
-* Möjliga orsaker
-* Undersöknings stegen
-* Reparations stegen
+* Anomalins natur
+* Lagringskontots namn
+* Händelsetiden
+* Lagringstypen
+* De potentiella orsakerna
+* Utredningen kliver
+* Reparationsstegen
 
-E-postmeddelandet innehåller också information om möjliga orsaker och rekommenderade åtgärder för att undersöka och minimera det potentiella hotet.
+E-postmeddelandet innehåller också information om möjliga orsaker och rekommenderade åtgärder för att undersöka och minska det potentiella hotet.
 
-![Azure Storage e-postadress för avancerat skydds avisering](./media/storage-advanced-threat-protection/storage-advanced-threat-protection-alert-email.png)
+![E-postmeddelande med avancerad hotskyddsavisering i Azure Storage](./media/storage-advanced-threat-protection/storage-advanced-threat-protection-alert-email.png)
 
-Du kan granska och hantera dina aktuella säkerhets aviseringar från Azure Security Center [rutan säkerhets aviseringar](../../security-center/security-center-managing-and-responding-alerts.md). Om du klickar på en enskild avisering visas information och åtgärder för att undersöka det aktuella hotet och åtgärda framtida hot.
+Du kan granska och hantera dina aktuella säkerhetsaviseringar från [panelen Säkerhetsaviseringar i](../../security-center/security-center-managing-and-responding-alerts.md)Azure Security Alert. Genom att klicka på en specifik avisering finns information och åtgärder för att undersöka det aktuella hotet och ta itu med framtida hot.
 
-![Azure Storage e-postadress för avancerat skydds avisering](./media/storage-advanced-threat-protection/storage-advanced-threat-protection-alert.png)
+![E-postmeddelande med avancerad hotskyddsavisering i Azure Storage](./media/storage-advanced-threat-protection/storage-advanced-threat-protection-alert.png)
 
 ## <a name="security-alerts"></a>Säkerhetsaviseringar
 
-Aviseringar genereras av ovanliga och potentiellt skadliga försök att komma åt eller utnyttja lagrings konton. En lista över aviseringar för Azure Storage finns i avsnittet **lagring** i [skydd mot data tjänster i Azure Security Center](https://docs.microsoft.com/azure/security-center/alerts-reference#alerts-azurestorage).
+Aviseringar genereras av ovanliga och potentiellt skadliga försök att komma åt eller utnyttja lagringskonton. En lista över aviseringar för Azure Storage finns i avsnittet **Lagring** i [Skydd mot hot för datatjänster i Azure Security Center](https://docs.microsoft.com/azure/security-center/alerts-reference#alerts-azurestorage).
 
 ## <a name="next-steps"></a>Nästa steg
 

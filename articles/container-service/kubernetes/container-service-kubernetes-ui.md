@@ -1,6 +1,6 @@
 ---
-title: FÖRÅLDRAD Hantera Azure Kubernetes-kluster med webb gränssnittet
-description: Använda Kubernetes-webbgränssnittet i Azure Container Service
+title: (FÖRÅLDRAD) Hantera Azure Kubernetes-kluster med webbgränssnittet
+description: Använda webbgränssnittet Kubernetes i Azure Container Service
 author: bburns
 ms.service: container-service
 ms.topic: conceptual
@@ -8,40 +8,40 @@ ms.date: 02/21/2017
 ms.author: bburns
 ms.custom: mvc
 ms.openlocfilehash: 01abcc961d1c2ad9d3e2cf35f82e62929bc2fb89
-ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/14/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79371145"
 ---
-# <a name="deprecated-using-the-kubernetes-web-ui-with-azure-container-service"></a>FÖRÅLDRAD Använda Kubernetes-webbgränssnittet med Azure Container Service
+# <a name="deprecated-using-the-kubernetes-web-ui-with-azure-container-service"></a>(FÖRÅLDRAD) Använda webbgränssnittet Kubernetes med Azure Container Service
 
 > [!TIP]
-> Den uppdaterade versionen av den här artikeln som använder Azure Kubernetes-tjänsten finns i [komma åt Kubernetes-webbinstrumentpanelen i Azure Kubernetes service (AKS)](../../aks/kubernetes-dashboard.md).
+> Den uppdaterade versionen som används i den här artikeln som använder Azure Kubernetes-tjänsten finns [i Komma åt Kubernetes webbinstrumentpanel i Azure Kubernetes Service (AKS)](../../aks/kubernetes-dashboard.md).
 
 [!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
-I den här genom gången förutsätter vi att du har [skapat ett Kubernetes-kluster med Azure Container Service](container-service-kubernetes-walkthrough.md).
+## <a name="prerequisites"></a>Krav
+Den här genomgången förutsätter att du har [skapat ett Kubernetes-kluster med Azure Container Service](container-service-kubernetes-walkthrough.md).
 
 
-Det förutsätter också att du har installerat Azure CLI och `kubectl` verktyg.
+Det förutsätter också att du `kubectl` har Azure CLI och verktyg installerade.
 
-Du kan testa om du har installerat `az`-verktyget genom att köra:
+Du kan testa om `az` du har verktyget installerat genom att köra:
 
 ```azurecli
 az --version
 ```
 
-Om du inte har installerat `az`-verktyget finns det instruktioner [här](https://github.com/azure/azure-cli#installation).
+Om du inte har `az` verktyget installerat finns det instruktioner [här](https://github.com/azure/azure-cli#installation).
 
-Du kan testa om du har installerat `kubectl`-verktyget genom att köra:
+Du kan testa om `kubectl` du har verktyget installerat genom att köra:
 
 ```console
 kubectl version
 ```
 
-Om du inte har `kubectl` installerat kan du köra:
+Om du inte `kubectl` har installerat kan du köra:
 
 ```azurecli
 az acs kubernetes install-cli
@@ -49,83 +49,83 @@ az acs kubernetes install-cli
 
 ## <a name="overview"></a>Översikt
 
-### <a name="connect-to-the-web-ui"></a>Anslut till webb gränssnittet
-Du kan starta Kubernetes-webbgränssnittet genom att köra:
+### <a name="connect-to-the-web-ui"></a>Ansluta till webbgränssnittet
+Du kan starta webbgränssnittet Kubernetes genom att köra:
 
 ```azurecli
 az acs kubernetes browse -g [Resource Group] -n [Container service instance name]
 ```
 
-Detta bör öppna en webbläsare som kon figurer ATS för att kommunicera med en säker proxy som ansluter din lokala dator till Kubernetes-webbgränssnittet.
+Detta bör öppna en webbläsare konfigurerad för att prata med en säker proxy som ansluter din lokala dator till Kubernetes webbgränssnitt.
 
 ### <a name="create-and-expose-a-service"></a>Skapa och exponera en tjänst
-1. Klicka på knappen **skapa** i det övre högra fönstret i Kubernetes-webbgränssnittet.
+1. Klicka på **Knappen Skapa** i det övre högra fönstret i webbgränssnittet Kubernetes.
 
-    ![Skapa användar gränssnitt för Kubernetes](./media/container-service-kubernetes-ui/create.png)
+    ![Skapa användargränssnitt i Kubernetes](./media/container-service-kubernetes-ui/create.png)
 
-    En dialog ruta öppnas där du kan börja skapa ditt program.
+    En dialogruta öppnas där du kan börja skapa programmet.
 
-2. Ge den namnet `hello-nginx`. Använd [`nginx` container från Docker](https://hub.docker.com/_/nginx/) och distribuera tre repliker av webb tjänsten.
+2. Ge det `hello-nginx`namnet . Använd [ `nginx` behållaren från Docker](https://hub.docker.com/_/nginx/) och distribuera tre repliker av den här webbtjänsten.
 
-    ![Kubernetes Pod skapa dialog](./media/container-service-kubernetes-ui/nginx.png)
+    ![Dialogrutan Skapa kubernetes pod](./media/container-service-kubernetes-ui/nginx.png)
 
-3. Under **tjänst**väljer du **extern** och anger port 80.
+3. Under **Tjänst**väljer du **Extern** och anger port 80.
 
-    Den här inställningen läser in belastnings Utjämnings trafik till de tre replikerna.
+    Den här inställningen belastningsutjämnar trafik till de tre replikerna.
 
-    ![Dialog rutan skapa Kubernetes-tjänst](./media/container-service-kubernetes-ui/service.png)
+    ![Dialogrutan Skapa kubernetes-tjänst](./media/container-service-kubernetes-ui/service.png)
 
-4. Klicka på **distribuera** för att distribuera de här behållarna och tjänsterna.
+4. Klicka på **Distribuera** om du vill distribuera dessa behållare och tjänster.
 
     ![Kubernetes-distribution](./media/container-service-kubernetes-ui/deploy.png)
 
 ### <a name="view-your-containers"></a>Visa dina behållare
-När du har klickat på **distribuera**visar användar gränssnittet en vy över tjänsten när den distribueras:
+När du har **klickat**på Distribuera visas en vy av tjänsten när den distribuerar:
 
-![Status för Kubernetes](./media/container-service-kubernetes-ui/status.png)
+![Kubernetes-status](./media/container-service-kubernetes-ui/status.png)
 
-Du kan se status för varje Kubernetes-objekt i cirkeln till vänster i användar gränssnittet under **poddar**. Om det är en delvis fullständig cirkel, distribueras objektet fortfarande. När ett objekt är fullständigt distribuerat visas en grön bock markering:
+Du kan se status för varje Kubernetes-objekt i cirkeln till vänster i användargränssnittet under **Poddar**. Om det är en delvis full cirkel distribueras objektet fortfarande. När ett objekt är helt distribuerat visas en grön bock:
 
-![Kubernetes distribueras](./media/container-service-kubernetes-ui/deployed.png)
+![Kubernetes har distribuerats](./media/container-service-kubernetes-ui/deployed.png)
 
-När allt är igång klickar du på en av poddar för att se information om den webb tjänst som körs.
+När allt är igång klickar du på en av dina poddar för att se information om den löpande webbtjänsten.
 
-![Kubernetes poddar](./media/container-service-kubernetes-ui/pods.png)
+![Kubernetes skida](./media/container-service-kubernetes-ui/pods.png)
 
-I vyn **poddar** kan du se information om behållare i pod samt de processor-och minnes resurser som används av dessa behållare:
+I vyn **Poddar** kan du se information om behållarna i podden samt de CPU- och minnesresurser som används av dessa behållare:
 
 ![Kubernetes-resurser](./media/container-service-kubernetes-ui/resources.png)
 
-Om du inte ser resurserna kan du behöva vänta några minuter på att övervaknings data ska spridas.
+Om du inte ser resurserna kan du behöva vänta några minuter på att övervakningsdata ska spridas.
 
-Klicka på **Visa loggar**om du vill se en behållares loggar.
+Klicka på **Visa loggar**om du vill visa loggarna för din behållare .
 
-![Kubernetes-loggar](./media/container-service-kubernetes-ui/logs.png)
+![Kubernetes loggar](./media/container-service-kubernetes-ui/logs.png)
 
 ### <a name="viewing-your-service"></a>Visa din tjänst
-Förutom att köra dina behållare har Kubernetes-gränssnittet skapat en extern `Service` som etablerar en belastningsutjämnare för att överföra trafik till behållarna i klustret.
+Förutom att köra dina behållare har kubernetes-användargränssnittet skapat en extern `Service` som avväger en belastningsutjämnare för att föra trafik till behållarna i klustret.
 
-I det vänstra navigerings fönstret klickar du på **tjänster** för att visa alla tjänster (det får bara finnas en).
+I det vänstra navigeringsfönstret klickar du på **Tjänster** för att visa alla tjänster (det bör bara finnas en).
 
 ![Kubernetes Services](./media/container-service-kubernetes-ui/service-deployed.png)
 
-I den vyn bör du se en extern slut punkt (IP-adress) som har allokerats till din tjänst.
-Om du klickar på den här IP-adressen bör du se din nginx-behållare som körs bakom belastningsutjämnaren.
+I den vyn bör du se en extern slutpunkt (IP-adress) som har allokerats till din tjänst.
+Om du klickar på ip-adressen bör du se din Nginx-behållare som körs bakom belastningsutjämnaren.
 
-![nginx vy](./media/container-service-kubernetes-ui/nginx-page.png)
+![nginx-vy](./media/container-service-kubernetes-ui/nginx-page.png)
 
-### <a name="resizing-your-service"></a>Ändra storlek på din tjänst
-Förutom att visa dina objekt i användar gränssnittet kan du redigera och uppdatera Kubernetes API-objekt.
+### <a name="resizing-your-service"></a>Ändra storlek på tjänsten
+Förutom att visa dina objekt i användargränssnittet kan du redigera och uppdatera Kubernetes API-objekt.
 
-Klicka först på **distributioner** i det vänstra navigerings fönstret för att se distributionen av tjänsten.
+Klicka först på Distributioner i det vänstra **navigeringsfönstret** för att se distributionen för tjänsten.
 
-När du är i vyn klickar du på replik uppsättningen och sedan på **Redigera** i det övre navigerings fältet:
+När du är i vyn klickar du på replikuppsättningen och klickar sedan på **Redigera** i det övre navigeringsfältet:
 
-![Redigera Kubernetes](./media/container-service-kubernetes-ui/edit.png)
+![Kubernetes Redigera](./media/container-service-kubernetes-ui/edit.png)
 
-Redigera fältet `spec.replicas` som ska `2`s och klicka på **Uppdatera**.
+Redigera `spec.replicas` fältet så `2`att det är och klicka på **Uppdatera**.
 
-Detta gör att antalet repliker kan släppas till två genom att en av dina poddar tas bort.
+Detta medför att antalet repliker att sjunka till två genom att ta bort en av dina poddar.
 
  
 

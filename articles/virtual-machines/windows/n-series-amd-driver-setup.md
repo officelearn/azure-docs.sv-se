@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 12/4/2019
 ms.author: vikancha
-ms.openlocfilehash: 164f07f6545c1c225814958bba5722536b11a9b4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 883dbc95ee77d03aee4c3231c6ab8c03f9f7f6e4
+ms.sourcegitcommit: d0fd35f4f0f3ec71159e9fb43fcd8e89d653f3f2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78269425"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80387843"
 ---
 # <a name="install-amd-gpu-drivers-on-n-series-vms-running-windows"></a>Installera AMD GPU-drivrutiner på virtuella datorer i N-serien som kör Windows
 
@@ -40,7 +40,7 @@ Grundläggande specifikationer, lagringskapacitet och diskinformation finns i [G
 
 2. Om du är en NVv4 förhandsgranska kund sedan stoppa den virtuella datorn och vänta tills den ska flytta till Stoppad (Deallocated) tillstånd.
 
-3. Starta den virtuella datorn och avinstallera sedan förhandsgranskningsdrivrutinen genom att köra "amdcleanuputility-x64.exe" som finns i mappen "...\AMDCleanUninstallUtility". Den exakta sökvägen varierar beroende på var de tidigare installationsfilerna för drivrutiner finns.  
+3. Starta den virtuella datorn och ladda ner den senaste [AMD Cleanup Utility](https://download.microsoft.com/download/4/f/1/4f19b714-9304-410f-9c64-826404e07857/AMDCleanupUtilityni.exe). Avinstallera den befintliga drivrutinen genom att köra "amdcleanuputility-x64.exe". Använd INTE något exisitng rensningsverktyg som installerades med den tidigare drivrutinen.  
 
 4. Ladda ner och installera den senaste drivrutinen.
 

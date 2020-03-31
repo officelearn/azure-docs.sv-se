@@ -1,33 +1,33 @@
 ---
-title: Omfattning för att koda | Microsoft Azure Maps
-description: Processen att konvertera plats adressen till latitud-och longitud-koordinater kallas för att koda. I den här artikeln får du lära dig om regioner med distrikts täckning i Microsoft Azure Maps.
-author: farah-alyasari
-ms.author: v-faalya
+title: Geokodningstäckning | Microsoft Azure Maps
+description: Processen att konvertera platsadress till latitud- och longitudkoordinater kallas geokodning. I den här artikeln får du lära dig mer om regioner med geokodningstäckning i Microsoft Azure Maps.
+author: philmea
+ms.author: philmea
 ms.date: 12/31/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 149dd0a3e709bbf4660aaae176f76f560de873e2
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.openlocfilehash: 9836bd35b16c4c308b7c9d096b104c0cec68a34c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77210063"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80335655"
 ---
-# <a name="azure-maps-geocoding-coverage"></a>Azure Maps för att avkoda täckning
+# <a name="azure-maps-geocoding-coverage"></a>Geokodning av Azure Maps
 
-När du söker efter en plats med Azure Maps Sök tjänsten, till exempel Sök [adress](https://docs.microsoft.com/rest/api/maps/search/getsearchaddress), tar dina Sök villkor och returnerar koordinaterna för latitud och longitud. Den här processen kallas för kodning. Azure Maps har dock inte samma nivå av information och noggrannhet för alla regioner och länder. Använd den här artikeln för att avgöra vilken typ av platser du kan söka efter på ett tillförlitligt sätt i varje region. 
+När du söker efter en plats med Azure Maps tar söktjänsten, till exempel [Hämta sökadress,](https://docs.microsoft.com/rest/api/maps/search/getsearchaddress)dina söktermer och returnerar latitud- och longitudkoordinaterna. Denna process kallas geokodning. Azure Maps har dock inte samma nivå av information och noggrannhet för alla regioner och länder. Använd den här artikeln för att avgöra vilken typ av platser du kan söka efter på ett tillförlitligt sätt i varje region. 
 
-Möjligheten att koda i ett land/en region är beroende av vägtrafikens data täckning och den landsspecifika precisionen i den landsspecifika tjänsten. Följande kategoriseringar används specificerar nivån för stöd för landsspecifika i varje land/region.
-* **Adress punkter** – adresser data kan matchas mot en latitud-eller longitud-koordinat inom adress skiftena (egenskaps gränser). Kallas ibland "Rooftop". Detta är den högsta möjliga noggrannhets nivån för adresser. 
-* **Hus siffror** – adresser interpoleras till en Latitude/longitud-koordinat på gatan.
-* **Gata** – adresser matchas mot latitud/longitud-koordinaten för gatan som innehåller adressen. Hus numret kan inte bearbetas.
-* **Ort-nivå** – Orts plats namn stöds.
+Möjligheten att geokoda i ett land/en region är beroende av vägdatatäckningen och geokodningsprecisionen för geokodningstjänsten. Följande kategoriseringar används anger nivån för geokodningsstöd i varje land/region.
+* **Adresspunkter** - Adressdata kan matchas till en latitud-/longitudkoordinat inom adresspaketet (egenskapsgräns). Ibland kallas "Rooftop" korrekt. Detta är den högsta noggrannhetsnivån som är tillgänglig för adresser. 
+* **Husnummer** - Adresser interpoleras till en latitud/longitudkoordinat på gatan.
+* **Gatunivå** - Adresser matchas till latitud/longitudkoordinaten för gatan som innehåller adressen. Husnumret får inte bearbetas.
+* **Stadsnivå** - Ortnamn stöds.
 
 ## <a name="americas"></a>Nord- och Sydamerika
 
-| Land/region                                       | Adress punkter | Hus nummer | Gatu nivå | Stads nivå | Intressanta punkter |
+| Land/region                                       | Adresspunkter | Husnummer | Gatunivå | Stadsnivå | Intressanta platser |
 |-----------------------------------------------------|:---------------:|:--------------:|:------------:|:----------:|:------------------:|
 | Anguilla                                            |                 |                |              |      ✓     |          ✓         |
 | Antarktis                                          |                 |                |              |      ✓     |          ✓         |
@@ -37,7 +37,7 @@ Möjligheten att koda i ett land/en region är beroende av vägtrafikens data t�
 | Bahamas                                             |                 |                |       ✓      |      ✓     |          ✓         |
 | Barbados                                            |                 |                |       ✓      |      ✓     |          ✓         |
 | Belize                                              |                 |                |              |      ✓     |          ✓         |
-| Snygg                                             |                 |                |       ✓      |      ✓     |          ✓         |
+| Bermuda                                             |                 |                |       ✓      |      ✓     |          ✓         |
 | Bolivia                                             |                 |                |       ✓      |      ✓     |          ✓         |
 | Bonaire, Sint Eustatius och Saba                   |                 |                |              |      ✓     |          ✓         |
 | Brasilien                                              |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
@@ -48,10 +48,10 @@ Möjligheten att koda i ett land/en region är beroende av vägtrafikens data t�
 | Costa Rica                                          |                 |                |       ✓      |      ✓     |          ✓         |
 | Kuba                                                |                 |                |       ✓      |      ✓     |          ✓         |
 | Dominica                                            |                 |                |       ✓      |      ✓     |          ✓         |
-| Dominicana                                          |                 |                |       ✓      |      ✓     |          ✓         |
+| Dominikanska                                          |                 |                |       ✓      |      ✓     |          ✓         |
 | Ecuador                                             |                 |                |       ✓      |      ✓     |          ✓         |
 | El Salvador                                         |                 |                |       ✓      |      ✓     |          ✓         |
-| Falk lands öarna                                    |                 |                |              |      ✓     |          ✓         |
+| Falklandsöarna                                    |                 |                |              |      ✓     |          ✓         |
 | Franska Guyana                                       |                 |                |       ✓      |      ✓     |          ✓         |
 | Grenada                                             |                 |                |       ✓      |      ✓     |          ✓         |
 | Guadeloupe                                          |                 |        ✓       |       ✓      |      ✓     |          ✓         |
@@ -76,43 +76,43 @@ Möjligheten att koda i ett land/en region är beroende av vägtrafikens data t�
 | Saint Pierre och Miquelon                           |                 |                |       ✓      |      ✓     |          ✓         |
 | Saint Vincent och Grenadinerna                    |                 |                |              |      ✓     |          ✓         |
 | Sint Maarten                                        |                 |                |       ✓      |      ✓     |          ✓         |
-| Södra Georgien och Sydsandwichöarna        |                 |                |              |      ✓     |          ✓         |
+| Sydgeorgien och Sydsandwichöarna        |                 |                |              |      ✓     |          ✓         |
 | Surinam                                            |                 |                |              |      ✓     |          ✓         |
 | Trinidad och Tobago                                 |                 |                |       ✓      |      ✓     |          ✓         |
-| USA mindre öar                |                 |                |              |      ✓     |          ✓         |
-| USA i Amerika                            |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
+| Usa mindre outlying öar                |                 |                |              |      ✓     |          ✓         |
+| Amerikas förenta stater                            |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Uruguay                                             |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Venezuela                                           |                 |                |       ✓      |      ✓     |          ✓         |
-| Brittiska Jungfru öarna                              |                 |                |              |      ✓     |          ✓         |
-| Amerikanska jungfru öarna                                 |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
+| Brittiska Jungfruöarna                              |                 |                |              |      ✓     |          ✓         |
+| Amerikanska Jungfruöarna                                 |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 
 ## <a name="asia-pacific"></a>Asien och stillahavsområdet
 
-| Land/region                                      | Adress punkter |Hus nummer | Gatu nivå | Stads nivå | Intressanta punkter |
+| Land/region                                      | Adresspunkter |Husnummer | Gatunivå | Stadsnivå | Intressanta platser |
 |-----------------------------------------------------|:---------------:|:--------------:|:------------:|:----------:|:------------------:|
 | Amerikanska Samoa                                      |                 |                |       ✓      |      ✓     |          ✓         |
 | Australien                                           |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Bangladesh                                          |                 |                |              |      ✓     |          ✓         |
 | Bhutan                                              |                 |                |              |      ✓     |          ✓         |
-| Brittiska territoriet i Indiska oceanen                      |                 |                |              |      ✓     |          ✓         |
+| Brittiska territoriet i Indiska Oceanen                      |                 |                |              |      ✓     |          ✓         |
 | Brunei                                              |        ✓        |                |       ✓      |      ✓     |          ✓         |
 | Kambodja                                            |                 |                |              |      ✓     |          ✓         |
 | Kina                                               |                 |                |              |      ✓     |          ✓         |
 | Julön                                    |        ✓        |                |       ✓      |      ✓     |          ✓         |
-| Kokos öarna                             |                 |                |              |      ✓     |          ✓         |
+| Kokosöarna                             |                 |                |              |      ✓     |          ✓         |
 | Komorerna                                             |                 |                |              |      ✓     |          ✓         |
 | Cooköarna                                        |                 |                |              |      ✓     |          ✓         |
 | Fiji                                                |                  |                |              |      ✓     |          ✓        |
 | Franska Polynesien                                    |                 |                |              |      ✓     |          ✓         |
-| Heard-och McDonaldöarna                   |                 |                |              |      ✓     |          ✓         |
-| Hongkong SAR                                       |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
+| Heardön och McDonaldöarna                   |                 |                |              |      ✓     |          ✓         |
+| Hongkong                                       |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Indonesien                                           |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Indien                                               |        ✓        |        ✓       |       ✓      |      ✓     |                   |
 | Japan                                               |                 |                |              |      ✓     |          ✓         |
 | Kiribati                                            |                 |                |              |      ✓     |          ✓         |
 | Korea                                         |                 |                |              |      ✓     |          ✓         |
 | Laos                                                |                 |                |              |      ✓     |          ✓         |
-| Macao SAR                                           |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
+| Folkrepubliken Kinas särskilda administrativa region Macao                                           |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Malaysia                                            |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Mikronesien                                          |                 |                |              |      ✓     |          ✓         |
 | Mongoliet                                            |                 |                |              |      ✓     |          ✓         |
@@ -122,18 +122,18 @@ Möjligheten att koda i ett land/en region är beroende av vägtrafikens data t�
 | Nya Zeeland                                         |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Niue                                                |                 |                |              |      ✓     |          ✓         |
 | Norfolkön                                      |                 |                |              |      ✓     |          ✓         |
-| Nord Korea                                         |                 |                |              |      ✓     |          ✓         |
+| Nordkorea                                         |                 |                |              |      ✓     |          ✓         |
 | Nordmarianerna                            |                 |                |       ✓      |      ✓     |          ✓         |
 | Pakistan                                            |                 |                |              |      ✓     |          ✓         |
 | Palau                                               |                 |                |              |      ✓     |          ✓         |
 | Papua Nya Guinea                                    |                 |                |              |      ✓     |          ✓         |
 | Filippinerna                                         |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Pitcairn                                            |                 |                |              |      ✓     |          ✓         |
-| Samoaöarna                                               |                 |                |              |      ✓     |          ✓         |
-| Senkaku-öarna/Diaoyutai-öarna i Oceanien och Västindien                                     |        ✓        |                |              |      ✓     |          ✓         |
+| Samoa                                               |                 |                |              |      ✓     |          ✓         |
+| Senkakuöarna                                     |        ✓        |                |              |      ✓     |          ✓         |
 | Singapore                                           |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
-| Salomonöarna                                     |                 |                |              |      ✓     |          ✓         |
-| Södra Kurils                                     |        ✓        |                |              |      ✓     |          ✓         |
+| Solomonöarna                                     |                 |                |              |      ✓     |          ✓         |
+| Södra Kuriler                                     |        ✓        |                |              |      ✓     |          ✓         |
 | Sri Lanka                                           |                 |                |              |      ✓     |          ✓         |
 | Taiwan                                              |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Thailand                                            |        ✓        |                |       ✓      |      ✓     |          ✓         |
@@ -147,7 +147,7 @@ Möjligheten att koda i ett land/en region är beroende av vägtrafikens data t�
 
 ## <a name="europe"></a>Europa
 
-| Land/region                                      | Adress punkter |Hus nummer | Gatu nivå | Stads nivå | Intressanta punkter |
+| Land/region                                      | Adresspunkter |Husnummer | Gatunivå | Stadsnivå | Intressanta platser |
 |-----------------------------------------------------|:---------------:|:--------------:|:------------:|:----------:|:------------------:|
 | Albanien                                             |                 |                |       ✓      |      ✓     |          ✓         |
 | Andorra                                             |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
@@ -170,12 +170,12 @@ Möjligheten att koda i ett land/en region är beroende av vägtrafikens data t�
 | Tyskland                                             |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Gibraltar                                           |                 |        ✓       |       ✓      |      ✓     |          ✓         |
 | Grekland                                              |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
-| Grönland (Danmark)                                           |                 |                |              |      ✓     |          ✓         |
-| Guernseypund                                            |                 |        ✓       |       ✓      |      ✓     |          ✓         |
+| Grönland                                           |                 |                |              |      ✓     |          ✓         |
+| Guernsey                                            |                 |        ✓       |       ✓      |      ✓     |          ✓         |
 | Ungern                                             |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Island                                             |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Irland                                             |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
-| Isle of man                                         |                 |        ✓       |       ✓      |      ✓     |          ✓         |
+| Isle Of Man                                         |                 |        ✓       |       ✓      |      ✓     |          ✓         |
 | Italien                                               |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Jan Mayen                                           |        ✓        |                |              |      ✓     |          ✓         |
 | Jersey                                              |                 |        ✓       |       ✓      |      ✓     |          ✓         |
@@ -195,7 +195,7 @@ Möjligheten att koda i ett land/en region är beroende av vägtrafikens data t�
 | Norge                                              |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Polen                                              |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Portugal                                            |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
-| \+ Azorerna och Madeira                                 |                 |                |       ✓      |      ✓     |          ✓         |
+| +Azorerna och Madeira                                 |                 |                |       ✓      |      ✓     |          ✓         |
 | Rumänien                                             |                 |        ✓       |       ✓      |      ✓     |          ✓         |
 | Ryska federationen                                  |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | San Marino                                          |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
@@ -217,7 +217,7 @@ Möjligheten att koda i ett land/en region är beroende av vägtrafikens data t�
 
 ## <a name="middle-east-and-africa"></a>Mellanöstern och Afrika
 
-| Land/region                                      | Adress punkter |Hus nummer | Gatu nivå | Stads nivå | Intressanta punkter |
+| Land/region                                      | Adresspunkter |Husnummer | Gatunivå | Stadsnivå | Intressanta platser |
 |-----------------------------------------------------|:---------------:|:--------------:|:------------:|:----------:|:------------------:|
 | Afghanistan                                         |                 |                |              |      ✓     |          ✓         |
 | Algeriet                                             |                 |                |       ✓      |      ✓     |          ✓         |
@@ -225,22 +225,22 @@ Möjligheten att koda i ett land/en region är beroende av vägtrafikens data t�
 | Bahrain                                             |        ✓        |       ✓        |       ✓      |      ✓     |          ✓         |
 | Benin                                               |                 |                |       ✓      |      ✓     |          ✓         |
 | Botswana                                            |                 |                |       ✓      |      ✓     |          ✓         |
-| Bouvet-ön                                       |                 |                |              |      ✓     |          ✓         |
+| Bouvetön                                       |                 |                |              |      ✓     |          ✓         |
 | Burkina Faso                                        |                 |                |       ✓      |      ✓     |          ✓         |
 | Burundi                                             |                 |                |       ✓      |      ✓     |          ✓         |
 | Kamerun                                            |                 |                |       ✓      |      ✓     |          ✓         |
-| Kap Verde                                          |                 |                |       ✓      |      ✓     |          ✓         |
+| Cabo Verde                                          |                 |                |       ✓      |      ✓     |          ✓         |
 | Centralafrikanska republiken                            |                 |                |       ✓      |      ✓     |          ✓         |
 | Tchad                                                |                 |                |       ✓      |      ✓     |          ✓         |
-| Demokratiska                                               |                 |                |       ✓      |      ✓     |          ✓         |
-| Côte D' Ivoire                                       |                 |                |       ✓      |      ✓     |          ✓         |
+| Kongo                                               |                 |                |       ✓      |      ✓     |          ✓         |
+| Côte d'Ivoire                                       |                 |                |       ✓      |      ✓     |          ✓         |
 | Demokratiska republiken Kongo                    |                 |                |       ✓      |      ✓     |          ✓         |
 | Djibouti                                            |                 |                |       ✓      |      ✓     |          ✓         |
 | Egypten                                               |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Ekvatorialguinea, Republiken                      |                 |                |       ✓      |      ✓     |          ✓         |
 | Eritrea                                             |                 |                |       ✓      |      ✓     |          ✓         |
 | Etiopien                                            |                 |                |       ✓      |      ✓     |          ✓         |
-| Franska södra territorier|                        |                |              |      ✓     |          ✓         |
+| Franska sydterritorierna|                        |                |              |      ✓     |          ✓         |
 | Gabon                                               |                 |                |       ✓      |      ✓     |          ✓         |
 | Gambia                                              |                 |                |              |      ✓     |          ✓         |
 | Ghana                                               |                 |                |       ✓      |      ✓     |          ✓         |
@@ -260,7 +260,7 @@ Möjligheten att koda i ett land/en region är beroende av vägtrafikens data t�
 | Malawi                                              |                 |                |       ✓      |      ✓     |          ✓         |
 | Maldiverna                                            |                 |                |              |      ✓     |          ✓         |
 | Mali                                                |                 |                |       ✓      |      ✓     |          ✓         |
-| Marshall öarna                                    |                 |                |              |      ✓     |          ✓         |
+| Marshallöarna                                    |                 |                |              |      ✓     |          ✓         |
 | Mauretanien                                          |                 |                |       ✓      |      ✓     |          ✓         |
 | Mauritius                                           |                 |                |       ✓      |      ✓     |          ✓         |
 | Mayotte                                             |                 |                |       ✓      |      ✓     |          ✓         |
@@ -274,7 +274,7 @@ Möjligheten att koda i ett land/en region är beroende av vägtrafikens data t�
 | Qatar                                               |        ✓        |                |       ✓      |      ✓     |          ✓         |
 | Réunion                                             |                 |        ✓       |       ✓      |      ✓     |          ✓         |
 | Rwanda                                              |                 |                |       ✓      |      ✓     |          ✓         |
-| Sankta Helena                                        |                 |                |              |      ✓     |          ✓         |
+| Sankt Helena                                        |                 |                |              |      ✓     |          ✓         |
 | Saudiarabien                                        |                 |        ✓       |       ✓      |      ✓     |          ✓         |
 | Senegal                                             |                 |                |       ✓      |      ✓     |          ✓         |
 | Seychellerna                                          |                 |                |       ✓      |      ✓     |          ✓         |
@@ -299,7 +299,7 @@ Möjligheten att koda i ett land/en region är beroende av vägtrafikens data t�
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om Azure Maps-kod finns på [Sök](https://docs.microsoft.com/rest/api/maps/search) referens sidorna.
+Mer information om Azure Maps-geokodning finns på [referenssidorna Sök.](https://docs.microsoft.com/rest/api/maps/search)
 
-Lär dig mer om [täcknings områden för trafik tjänsten Maps](traffic-coverage.md). 
+Läs mer om [täckningsområdena för trafiktjänsten Kartor](traffic-coverage.md). 
 

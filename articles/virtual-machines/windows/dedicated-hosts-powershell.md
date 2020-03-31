@@ -1,44 +1,44 @@
 ---
-title: Distribuera Azure-dedikerade värdar med hjälp av Azure PowerShell
-description: Distribuera virtuella datorer till dedikerade värdar med hjälp av Azure PowerShell.
+title: Distribuera Azure-dedikerade värdar med Azure PowerShell
+description: Distribuera virtuella datorer till dedikerade värdar med Azure PowerShell.
 author: cynthn
 ms.service: virtual-machines-windows
 ms.topic: article
 ms.workload: infrastructure
 ms.date: 08/01/2019
 ms.author: cynthn
-ms.openlocfilehash: 30d15970b00a81ab85cdb85d2c0a27ee23ed1b92
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.openlocfilehash: a228a83d711c84d2aa994e6de7d90af48cca7f28
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79130319"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79530945"
 ---
-# <a name="deploy-vms-to-dedicated-hosts-using-the-azure-powershell"></a>Distribuera virtuella datorer till dedikerade värdar med hjälp av Azure PowerShell
+# <a name="deploy-vms-to-dedicated-hosts-using-the-azure-powershell"></a>Distribuera virtuella datorer till dedikerade värdar med Azure PowerShell
 
-Den här artikeln vägleder dig genom hur du skapar en dedikerad Azure- [värd](dedicated-hosts.md) som värd för dina virtuella datorer. 
+Den här artikeln guidar dig genom hur du skapar en [Azure-dedikerad värd](dedicated-hosts.md) som värd för dina virtuella datorer. 
 
-Kontrol lera att du har installerat Azure PowerShell version 2.8.0 eller senare och att du är inloggad på ett Azure-konto i med `Connect-AzAccount`. 
+Kontrollera att du har installerat Azure PowerShell version 2.8.0 eller senare och `Connect-AzAccount`att du är inloggad på ett Azure-konto med . 
 
 ## <a name="limitations"></a>Begränsningar
 
-- Skalnings uppsättningar för virtuella datorer stöds för närvarande inte på dedikerade värdar.
-- De storlekar och maskin varu typer som är tillgängliga för dedikerade värdar varierar beroende på region. Mer information hittar du på [prissättnings sidan](https://aka.ms/ADHPricing) för värden.
+- Skalningsuppsättningar för virtuella datorer stöds för närvarande inte på dedikerade värdar.
+- Storleken och maskinvarutyperna som är tillgängliga för dedikerade värdar varierar mellan olika regioner. Läs [värdprissidan](https://aka.ms/ADHPricing) om du vill veta mer.
 
 ## <a name="create-a-host-group"></a>Skapa en värdgrupp
 
-En **värd grupp** är en resurs som representerar en samling dedikerade värdar. Du skapar en värd grupp i en region och en tillgänglighets zon och lägger till värdar i den. När du planerar för hög tillgänglighet finns det ytterligare alternativ. Du kan använda ett eller båda av följande alternativ med dina dedikerade värdar: 
-- Sträck över flera tillgänglighets zoner. I så fall måste du ha en värd grupp i var och en av de zoner som du vill använda.
-- Sträck över flera fel domäner som är mappade till fysiska rack. 
+En **värdgrupp** är en resurs som representerar en samling dedikerade värdar. Du skapar en värdgrupp i en region och en tillgänglighetszon och lägger till värdar i den. När du planerar för hög tillgänglighet finns det ytterligare alternativ. Du kan använda ett eller båda av följande alternativ med dina dedikerade värdar: 
+- Sträcker sig över flera tillgänglighetszoner. I det här fallet måste du ha en värdgrupp i var och en av de zoner som du vill använda.
+- Span över flera feldomäner som mappas till fysiska rack. 
  
-I båda fallen måste du ange antalet fel domäner för värd gruppen. Om du inte vill spänna över fel domäner i gruppen använder du antalet fel domäner 1. 
+I båda fallen måste du ange antalet feldomäner för värdgruppen. Om du inte vill spänna över feldomäner i gruppen använder du ett antal feldomäner på 1. 
 
-Du kan också välja att använda både tillgänglighets zoner och fel domäner. I det här exemplet skapas en värd grupp i zon 1, med 2 fel domäner. 
+Du kan också välja att använda både tillgänglighetszoner och feldomäner. I det här exemplet skapas en värdgrupp i zon 1 med två feldomäner. 
 
 
-```powershell
+```azurepowershell-interactive
 $rgName = "myDHResourceGroup"
-$location = "East US"
+$location = "EastUS"
 
 New-AzResourceGroup -Location $location -Name $rgName
 $hostGroup = New-AzHostGroup `
@@ -51,14 +51,14 @@ $hostGroup = New-AzHostGroup `
 
 ## <a name="create-a-host"></a>Skapa en värd
 
-Nu ska vi skapa en dedikerad värd i värd gruppen. Förutom ett namn för värden måste du ange SKU för värden. Värd-SKU: n samlar in de VM-serier som stöds samt maskin varu generering för den dedikerade värden.
+Nu ska vi skapa en dedikerad värd i värdgruppen. Förutom ett namn för värden måste du ange SKU för värden. Host SKU fångar den VM-serien som stöds samt maskinvarugenereringen för din dedikerade värd.
 
-Mer information om värd-SKU: er och priser finns i [prissättning för Azure-dedikerad värd](https://aka.ms/ADHPricing).
+Mer information om värdsskrona och priser finns i [Azure Dedicated Host pricing](https://aka.ms/ADHPricing).
 
-Om du anger ett fel domän antal för värd gruppen uppmanas du att ange fel domänen för värden. I det här exemplet ställer vi in fel domänen för värden på 1.
+Om du anger ett antal feldomäner för värdgruppen blir du ombedd att ange feldomänen för värden. I det här exemplet ställer vi in feldomänen för värden till 1.
 
 
-```powershell
+```azurepowershell-interactive
 $dHost = New-AzHost `
    -HostGroupName $hostGroup.Name `
    -Location $location -Name myHost `
@@ -72,10 +72,10 @@ $dHost = New-AzHost `
 
 Skapa en virtuell dator på den dedikerade värden. 
 
-Om du har angett en tillgänglighets zon när du skapar värd gruppen måste du använda samma zon när du skapar den virtuella datorn. För det här exemplet måste vi skapa den virtuella datorn i zon 1, eftersom vår värd grupp finns i zon 1.  
+Om du angav en tillgänglighetszon när du skapar värdgruppen måste du använda samma zon när du skapar den virtuella datorn. I det här exemplet, eftersom vår värdgrupp är i zon 1, måste vi skapa den virtuella datorn i zon 1.  
 
 
-```powershell
+```azurepowershell-interactive
 $cred = Get-Credential
 New-AzVM `
    -Credential $cred `
@@ -89,13 +89,13 @@ New-AzVM `
 ```
 
 > [!WARNING]
-> Om du skapar en virtuell dator på en värd som inte har tillräckligt med resurser, kommer den virtuella datorn att skapas i ett felaktigt tillstånd. 
+> Om du skapar en virtuell dator på en värd som inte har tillräckligt med resurser skapas den virtuella datorn i ett misslyckat tillstånd. 
 
-## <a name="check-the-status-of-the-host"></a>Kontrol lera status för värden
+## <a name="check-the-status-of-the-host"></a>Kontrollera värdens status
 
-Du kan kontrol lera värdets hälso status och hur många virtuella datorer du kan distribuera till värden med hjälp av [GetAzHost](/powershell/module/az.compute/get-azhost) med parametern `-InstanceView`.
+Du kan kontrollera värdens hälsostatus och hur många virtuella datorer du fortfarande `-InstanceView` kan distribuera till värden med [GetAzHost](/powershell/module/az.compute/get-azhost) med parametern.
 
-```
+```azurepowershell-interactive
 Get-AzHost `
    -ResourceGroupName $rgName `
    -Name myHost `
@@ -103,7 +103,7 @@ Get-AzHost `
    -InstanceView
 ```
 
-Resultatet kommer att se ut ungefär så här:
+Utdata kommer att se ut ungefär så här:
 
 ```
 ResourceGroupName      : myDHResourceGroup
@@ -164,29 +164,75 @@ Location               : eastus
 Tags                   : {}
 ```
 
+## <a name="add-an-existing-vm"></a>Lägga till en befintlig virtuell dator 
+
+Du kan lägga till en befintlig virtuell dator till en dedikerad värd, men den virtuella datorn måste först vara Stop\Deallocated. Innan du flyttar en virtuell dator till en dedikerad värd kontrollerar du att vm-konfigurationen stöds:
+
+- Den virtuella datorns storlek måste vara i samma storlek som den dedikerade värden. Om din dedikerade värd är DSv3 kan storleken på den virtuella datorn vara Standard_D4s_v3, men det kan inte vara en Standard_A4_v2. 
+- Den virtuella datorn måste finnas i samma region som den dedikerade värden.
+- Den virtuella datorn kan inte ingå i en närhetsplaceringsgrupp. Ta bort den virtuella datorn från proximityplaceringsgruppen innan du flyttar den till en dedikerad värd. Mer information finns i [Flytta en virtuell dator från en närhetsplaceringsgrupp](https://docs.microsoft.com/azure/virtual-machines/windows/proximity-placement-groups#move-an-existing-vm-out-of-a-proximity-placement-group)
+- Den virtuella datorn kan inte vara i en tillgänglighetsuppsättning.
+- Om den virtuella datorn finns i en tillgänglighetszon måste den vara samma tillgänglighetszon som värdgruppen. Tillgänglighetszoninställningarna för den virtuella datorn och värdgruppen måste matcha.
+
+Ersätt variablernas värden med din egen information.
+
+```azurepowershell-interactive
+$vmRGName = "movetohost"
+$vmName = "myVMtoHost"
+$dhRGName = "myDHResourceGroup"
+$dhGroupName = "myHostGroup"
+$dhName = "myHost"
+
+$myDH = Get-AzHost `
+   -HostGroupName $dhGroupName `
+   -ResourceGroupName $dhRGName `
+   -Name $dhName
+   
+$myVM = Get-AzVM `
+   -ResourceGroupName $vmRGName `
+   -Name $vmName
+   
+$myVM.Host = New-Object Microsoft.Azure.Management.Compute.Models.SubResource
+
+$myVM.Host.Id = "$myDH.Id"
+
+Stop-AzVM `
+   -ResourceGroupName $vmRGName `
+   -Name $vmName -Force
+   
+Update-AzVM `
+   -ResourceGroupName $vmRGName `
+   -VM $myVM -Debug
+   
+Start-AzVM `
+   -ResourceGroupName $vmRGName `
+   -Name $vmName
+```
+
+
 ## <a name="clean-up"></a>Rensa
 
-Du debiteras för dina dedikerade värdar även om inga virtuella datorer distribueras. Du bör ta bort alla värdar som du för närvarande inte använder för att spara kostnader.  
+Du debiteras för dina dedikerade värdar även när inga virtuella datorer distribueras. Du bör ta bort alla värdar som du för närvarande inte använder för att spara kostnader.  
 
-Du kan bara ta bort en värd när det inte finns några längre virtuella datorer som använder den. Ta bort de virtuella datorerna med [Remove-AzVM](/powershell/module/az.compute/remove-azvm).
+Du kan bara ta bort en värd när det inte längre finns virtuella datorer som använder den. Ta bort de virtuella datorerna med [Ta bort AzVM](/powershell/module/az.compute/remove-azvm).
 
-```powershell
+```azurepowershell-interactive
 Remove-AzVM -ResourceGroupName $rgName -Name myVM
 ```
 
-När du har tagit bort de virtuella datorerna kan du ta bort värden med hjälp av [Remove-AzHost](/powershell/module/az.compute/remove-azhost).
+När du har tagit bort de virtuella datorerna kan du ta bort värden med [Ta bort AzHost](/powershell/module/az.compute/remove-azhost).
 
-```powershell
+```azurepowershell-interactive
 Remove-AzHost -ResourceGroupName $rgName -Name myHost
 ```
 
-När du har tagit bort alla värdar kan du ta bort värd gruppen med hjälp av [Remove-AzHostGroup](/powershell/module/az.compute/remove-azhostgroup). 
+När du har tagit bort alla dina värdar kan du ta bort värdgruppen med [Ta bort AzHostGroup](/powershell/module/az.compute/remove-azhostgroup). 
 
-```powershell
+```azurepowershell-interactive
 Remove-AzHost -ResourceGroupName $rgName -Name myHost
 ```
 
-Du kan också ta bort hela resurs gruppen i ett enda kommando med hjälp av [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup). Detta tar bort alla resurser som skapats i gruppen, inklusive alla virtuella datorer, värdar och värd grupper.
+Du kan också ta bort hela resursgruppen i ett enda kommando med [Ta bort AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup). Detta tar bort alla resurser som skapats i gruppen, inklusive alla virtuella datorer, värdar och värdgrupper.
  
 ```azurepowershell-interactive
 Remove-AzResourceGroup -Name $rgName
@@ -195,6 +241,6 @@ Remove-AzResourceGroup -Name $rgName
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Det finns en exempel mall som du hittar [här](https://github.com/Azure/azure-quickstart-templates/blob/master/201-vm-dedicated-hosts/README.md), som använder både zoner och fel domäner för maximal återhämtning i en region.
+- Det finns exempelmall, som finns [här](https://github.com/Azure/azure-quickstart-templates/blob/master/201-vm-dedicated-hosts/README.md), som använder både zoner och feldomäner för maximal återhämtning i en region.
 
-- Du kan också distribuera dedikerade värdar med hjälp av [Azure Portal](dedicated-hosts-portal.md).
+- Du kan också distribuera dedikerade värdar med [Azure-portalen](dedicated-hosts-portal.md).

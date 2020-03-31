@@ -1,7 +1,7 @@
 ---
-title: 'Välj kolumn omvandling: modulreferens'
+title: 'Välj kolumntransformering: Modulreferens'
 titleSuffix: Azure Machine Learning
-description: Lär dig hur du använder Transform-modulen Välj kolumner i Azure Machine Learning för att skapa en omvandling som väljer samma del av kolumner som i den aktuella data uppsättningen.
+description: Lär dig hur du använder modulen Välj kolumner omvandla i Azure Machine Learning för att skapa en omvandling som väljer samma delmängd av kolumner som i den angivna datauppsättningen.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,50 +9,50 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/10/2019
-ms.openlocfilehash: c8d58180b11c12afb256dc888406c7c0d58fb119
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: a5264c14294f84858cd489f5892b8cdd19e117d0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76314325"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79455918"
 ---
 # <a name="select-columns-transform"></a>Välja kolumntranformering
 
-Den här artikeln beskriver hur du använder Transform-modulen Välj kolumner i Azure Machine Learning designer. Syftet med modulen Välj kolumn omvandling är att säkerställa att en förutsägbar, konsekvent uppsättning kolumner används i efterföljande Machine Learning-åtgärder.
+I den här artikeln beskrivs hur du använder modulen Välj kolumntransformering i Azure Machine Learning designer (förhandsversion). Syftet med modulen Välj kolumner omforma är att säkerställa att en förutsägbar, konsekvent uppsättning kolumner används i nedströms maskininlärningsåtgärder.
 
-Den här modulen är användbar för uppgifter som poängsättning, som kräver vissa kolumner. Ändringar i de tillgängliga kolumnerna kan bryta pipelinen eller ändra resultatet.
+Den här modulen är användbar för uppgifter som bedömning, som kräver specifika kolumner. Ändringar i de tillgängliga kolumnerna kan bryta pipelinen eller ändra resultatet.
 
-Du använder transformeringen Välj kolumner för att skapa och spara en uppsättning kolumner. Använd sedan modulen [Använd omvandling](apply-transformation.md) för att tillämpa dessa val på nya data.
+Du kan använda Markera kolumner omformning för att skapa och spara en uppsättning kolumner. Använd sedan modulen [Använd omformning](apply-transformation.md) för att tillämpa dessa val på nya data.
 
-## <a name="how-to-use-select-columns-transform"></a>Så här använder du Välj kolumner-transformering
+## <a name="how-to-use-select-columns-transform"></a>Så här använder du Omforma markera kolumner
 
-Det här scenariot förutsätter att du vill använda funktions val för att generera en dynamisk uppsättning kolumner som ska användas för att träna en modell. För att se till att kolumn valen är desamma för bedömnings processen använder du modulen Välj kolumner för att avbilda kolumn valen och tillämpa dem på andra platser i pipelinen.
+Det här scenariot förutsätter att du vill använda funktionsval för att generera en dynamisk uppsättning kolumner som ska användas för att träna en modell. Om du vill vara säkra på att kolumnvalen är desamma för bedömningsprocessen använder du modulen Välj kolumner för att samla in kolumnvalen och använda dem någon annanstans på pipelinen.
 
-1. Lägg till en data uppsättning i din pipeline i designern.
+1. Lägg till en indatauppsättning i pipelinen i designern.
 
-2. Lägg till en instans av [filtrering baserat funktions val](filter-based-feature-selection.md).
+2. Lägg till en förekomst av [filterbaserad funktionsval](filter-based-feature-selection.md).
 
-3. Anslut modulerna och konfigurera modulen för funktions val för att automatiskt hitta ett antal bästa funktioner i indata-datauppsättningen.
+3. Anslut modulerna och konfigurera funktionsvalsmodulen för att automatiskt hitta ett antal de bästa funktionerna i indatauppsättningen.
 
-4. Lägg till en instans av [träna modell](train-model.md) och Använd utmatningen av [filter baserat funktions val](filter-based-feature-selection.md) som indata för träning.
+4. Lägg till en instans av [Tågmodell](train-model.md) och använd utdata från [filterbaserat funktionsval](filter-based-feature-selection.md) som indata för träning.
 
     > [!IMPORTANT]
-    > Eftersom funktions prioriteten baseras på värdena i kolumnen kan du inte veta i förväg vilka kolumner som kan vara tillgängliga för inmatningen till [träna modell](train-model.md).  
-5. Koppla en instans av modulen Välj kolumner Transform. 
+    > Eftersom funktionsbetydelse baseras på värdena i kolumnen kan du inte i förväg veta vilka kolumner som kan vara tillgängliga för indata till [Tågmodell](train-model.md).  
+5. Bifoga en förekomst av modulen Markera kolumner. 
 
-    Det här steget genererar en kolumn markering som en omvandling som kan sparas eller tillämpas på andra data uppsättningar. Det här steget ser till att kolumnerna som identifieras i funktions val sparas för andra moduler för åter användning.
+    Det här steget genererar en kolumnval som en omvandling som kan sparas eller tillämpas på andra datauppsättningar. Det här steget säkerställer att kolumnerna som identifieras i funktionsvalet sparas för andra moduler att återanvända.
 
-6. Lägg till modulen [Poäng modell](score-model.md) . 
+6. Lägg till modulen [Poängmodell.](score-model.md) 
 
-   *Anslut inte data uppsättningen för indata.* Lägg i stället till modulen [Använd omvandling](apply-transformation.md) och Anslut utdata från omvandling av funktions val.
+   *Anslut inte indatauppsättningen.* Lägg i stället till modulen [Använd omformning](apply-transformation.md) och anslut utdata för funktionsvalsomformningen.
 
    > [!IMPORTANT]
-   > Du kan inte vänta på att använda [filter baserat funktions val](filter-based-feature-selection.md) för poängsättnings data uppsättningen och få samma resultat. Eftersom val av funktioner baseras på värden kan det välja en annan uppsättning kolumner, vilket skulle resultera i att åtgärden misslyckades.
-7. Köra en pipeline.
+   > Du kan inte förvänta dig att använda [filterbaserad funktionsval](filter-based-feature-selection.md) på bedömningsdatauppsättningen och få samma resultat. Eftersom funktionsval baseras på värden kan det välja en annan uppsättning kolumner, vilket skulle leda till att bedömningsåtgärden misslyckas.
+7. Skicka pipelinen.
 
-Den här processen för att spara och tillämpa en kolumn markering säkerställer att samma data schema är tillgängligt för utbildning och bedömning.
+Den här processen att spara och sedan använda en kolumnval säkerställer att samma dataschema är tillgängligt för utbildning och poängsättning.
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Se en [uppsättning moduler som är tillgängliga](module-reference.md) för Azure Machine Learning. 
+Se uppsättningen [moduler som är tillgängliga](module-reference.md) för Azure Machine Learning. 

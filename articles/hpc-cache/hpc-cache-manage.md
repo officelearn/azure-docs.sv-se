@@ -1,93 +1,93 @@
 ---
 title: Hantera och uppdatera Azure HPC-cache
-description: Hantera och uppdatera Azure HPC-cache med hjälp av Azure Portal
+description: Hantera och uppdatera Azure HPC-cache med Azure-portalen
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
 ms.date: 1/29/2020
 ms.author: rohogue
 ms.openlocfilehash: da260074fc69fac9e98d3698bb2d40fdf80d7118
-ms.sourcegitcommit: 79cbd20a86cd6f516acc3912d973aef7bf8c66e4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77252050"
 ---
-# <a name="manage-your-cache-from-the-azure-portal"></a>Hantera din cache från Azure Portal
+# <a name="manage-your-cache-from-the-azure-portal"></a>Hantera cacheminnet från Azure-portalen
 
-På sidan cache-översikt i Azure Portal visas projekt information, cache-status och grundläggande statistik för cacheminnet. Den har också kontroller för att stoppa eller starta cacheminnet, ta bort cachen, tömma data till långsiktig lagring och uppdatera program vara.
+Cacheöversiktssidan i Azure-portalen visar projektinformation, cachestatus och grundläggande statistik för cacheminnet. Den har också kontroller för att stoppa eller starta cacheminnet, ta bort cachen, spola data till långsiktig lagring och uppdatera programvara.
 
-Öppna översikts sidan genom att välja din cache-resurs i Azure Portal. Läs till exempel sidan **alla resurser** och klicka på cache-namnet.
+Om du vill öppna översiktssidan väljer du cacheresursen i Azure-portalen. Läs till exempel in sidan **Alla resurser** och klicka på cachenamnet.
 
-![skärm bild av översikts sidan för Azure HPC-instansen](media/hpc-cache-overview.png)
+![skärmbild av en översiktssida för Azure HPC-cacheinstans](media/hpc-cache-overview.png)
 
-Knapparna överst på sidan kan hjälpa dig att hantera cachen:
+Knapparna högst upp på sidan kan hjälpa dig att hantera cacheminnet:
 
-* **Starta** och [**stoppa**](#stop-the-cache) – inaktiverar cache-åtgärd
-* [**Flush**](#flush-cached-data) -skriver ändrade data till lagrings mål
-* [**Uppgradera**](#upgrade-cache-software) – uppdaterar cache-programvaran
-* **Uppdatera** – Läs in sidan Översikt igen
-* [**Ta bort**](#delete-the-cache) – förstör cachen permanent
+* **Start** och [**stopp**](#stop-the-cache) - Pausar cacheåtgärd
+* [**Flush**](#flush-cached-data) - Skriver ändrade data till lagringsmål
+* [**Uppgradering**](#upgrade-cache-software) - Uppdaterar cacheprogramvaran
+* **Uppdatera** - Laddar om översiktssidan
+* [**Ta bort**](#delete-the-cache) - Permanent förstör cacheminnet
 
-Läs mer om de här alternativen nedan.
+Läs mer om dessa alternativ nedan.
 
-## <a name="stop-the-cache"></a>Stoppa cachen
+## <a name="stop-the-cache"></a>Stoppa cacheminnet
 
-Du kan stoppa cacheminnet för att minska kostnaderna under en inaktiv period. Du debiteras inte för drift tid medan cachen stoppas, men du debiteras för cachens allokerade disk lagring. (Mer information finns på sidan med [priser](https://aka.ms/hpc-cache-pricing) .)
+Du kan stoppa cacheminnet för att minska kostnaderna under en inaktiv period. Du debiteras inte för drifttid medan cacheminnet stoppas, men du debiteras för cachens allokerade disklagring. (Mer [pricing](https://aka.ms/hpc-cache-pricing) information finns på prissidan.)
 
-Ett stoppat cacheminne svarar inte på klient begär Anden. Du bör demontera klienter innan du stoppar cacheminnet.
+En stoppad cache svarar inte på klientbegäranden. Du bör avmontera klienter innan du stoppar cacheminnet.
 
-**Stopp** knappen pausar en aktiv cache. **Stopp** knappen är tillgänglig när statusen för ett cacheminne är **felfri** eller **försämrad**.
+**Stopp-knappen** pausar en aktiv cache. **Stoppknappen** är tillgänglig när en cachestatus är **Felfri** eller **Försämrad**.
 
-![skärm bild av de översta knapparna med stoppa markerat och ett popup-meddelande som beskriver stopp åtgärden och där vill du fortsätta? med Ja (standard) och inga knappar](media/stop-cache.png)
+![skärmdump av de översta knapparna med Stopp markerat och ett popup-meddelande som beskriver stoppåtgärden och frågar "vill du fortsätta?" med knapparna Ja (standard) och Inga](media/stop-cache.png)
 
-När du har klickat på Ja för att bekräfta att du vill stoppa cacheminnet tömmer cachen automatiskt innehållet till lagrings målen. Den här processen kan ta lite tid, men den garanterar data konsekvens. Slutligen ändras cachens status till **stoppad**.
+När du klickar på Ja för att bekräfta att cacheminnet stoppas töms innehållet automatiskt i lagringsmålen. Den här processen kan ta lite tid, men den säkerställer datakonsekvens. Slutligen ändras cachestatusen till **Stoppad**.
 
-Om du vill återaktivera en stoppad cache klickar du på knappen **Starta** . Ingen bekräftelse krävs.
+Om du vill återaktivera en stoppad cache klickar du på **Start-knappen.** Ingen bekräftelse behövs.
 
-![skärm bild av de översta knapparna med start markerat](media/start-cache.png)
+![skärmbild av de översta knapparna med Start markerad](media/start-cache.png)
 
 ## <a name="flush-cached-data"></a>Rensa cachelagrade data
 
-Knappen **Töm** på översikts sidan visar cacheminnet för att omedelbart skriva alla ändrade data som lagras i cacheminnet till backend-lagrings målen. Cachen sparar regelbundet data till lagrings målen, så det är inte nödvändigt att göra detta manuellt, såvida du inte vill se till att Server delens lagrings system är aktuellt. Du kan till exempel använda **Flush** innan du tar en lagrings ögonblicks bild eller kontrollerar data uppsättningens storlek.
+Knappen **Spolning** på översiktssidan talar om för cacheminnet att omedelbart skriva alla ändrade data som lagras i cacheminnet till backend-lagringsmålen. Cachen sparar rutinmässigt data till lagringsmålen, så det är inte nödvändigt att göra detta manuellt om du inte vill se till att backend-lagringssystemet är uppdaterat. Du kan till exempel använda **Flush** innan du tar en ögonblicksbild av lagring eller kontrollerar datauppsättningsstorleken.
 
 > [!NOTE]
-> Under tömnings processen kan cachen inte hantera klient begär Anden. Cache-åtkomst är inaktive rad och återupptas när åtgärden har slutförts.
+> Under tömningsprocessen kan cachen inte betjäna klientbegäranden. Cacheåtkomsten pausas och återupptas när åtgärden har slutförts.
 
-![skärm bild av de översta knapparna med Flush markerat och ett popup-meddelande som beskriver tömnings åtgärden och där du ombeds att fortsätta? med Ja (standard) och inga knappar](media/hpc-cache-flush.png)
+![skärmbild av de översta knapparna med Flush markerat och ett popup-meddelande som beskriver färgåtgärden och frågar "vill du fortsätta?" med knapparna Ja (standard) och Inga](media/hpc-cache-flush.png)
 
-När du startar rensningen av cachen slutar cachen att acceptera klient begär Anden och cache-statusen på översikts sidan ändras till **tömning**.
+När du startar cachens infällningsåtgärd slutar cachen att acceptera klientbegäranden och cachestatusen på översiktssidan ändras till **Tömning**.
 
-Data i cacheminnet sparas till lämpliga lagrings mål. Beroende på hur mycket data som behöver tömmas kan processen ta några minuter eller mer än en timme.
+Data i cacheminnet sparas i lämpliga lagringsmål. Beroende på hur mycket data som behöver rensas kan processen ta några minuter eller över en timme.
 
-När alla data har sparats på lagrings målen börjar cachen automatiskt ta emot klient begär Anden. Cache-statusen återgår till **felfritt**.
+När alla data har sparats i lagringsmål börjar cachen automatiskt att ta klientbegäranden igen. Cachestatusen återgår till **Felfri**.
 
-## <a name="upgrade-cache-software"></a>Uppgradera cache-programvara
+## <a name="upgrade-cache-software"></a>Uppgradera cacheprogram
 
-Om det finns en ny program varu version blir **uppgraderings** knappen aktiv. Du bör också se ett meddelande längst upp på sidan om uppdatering av program vara.
+Om det finns en ny programvaruversion blir **uppgraderingsknappen** aktiv. Du bör också se ett meddelande högst upp på sidan om att uppdatera programvara.
 
-![skärm bild av den översta raden med knappar med uppgraderings knappen aktive rad](media/hpc-cache-upgrade-button.png)
+![skärmbild av den översta raden med knappar med knappen Uppgradera aktiverad](media/hpc-cache-upgrade-button.png)
 
-Klient åtkomst avbryts inte under en program uppgradering, men cache-prestandan går långsamt. Planera för att uppgradera program vara under tider med låg belastning eller under en planerad underhålls period.
+Klientåtkomsten avbryts inte under en uppgradering av programvaran, men cacheprestandan försämras. Planera att uppgradera programvara under icke-rusningstid eller under en planerad underhållsperiod.
 
-Program uppdateringen kan ta flera timmar. Cacheminnen som kon figurer ATS med högre genomflöde tar längre tid att uppgradera än cacheminnen med mindre högsta data flödes värden.
+Programuppdateringen kan ta flera timmar. Cacheminnen som konfigurerats med högre dataflöde tar längre tid att uppgradera än cacheminnen med mindre toppdataflödesvärden.
 
-När en program uppgradering är tillgänglig, kommer du att ha en vecka eller så tillämpar du den manuellt. Slutdatumet anges i uppgraderings meddelandet. Om du inte uppgraderar under den tiden tillämpar Azure automatiskt uppdateringen i cacheminnet. Det går inte att konfigurera tids inställningen för automatisk uppgradering. Om du är orolig över prestanda påverkan från cachen bör du uppgradera program varan själv innan tids perioden går ut.
+När en uppgradering av programvaran är tillgänglig har du en vecka eller så att tillämpa den manuellt. Slutdatumet visas i uppgraderingsmeddelandet. Om du inte uppgraderar under den tiden tillämpar Azure automatiskt uppdateringen på din cache. Tidpunkten för den automatiska uppgraderingen kan inte konfigureras. Om du är orolig för cacheprestandapåverkan bör du uppgradera programvaran själv innan tidsperioden löper ut.
 
-Om cacheminnet stoppas när slutdatumet passerat, uppgraderar cachen automatiskt program varan nästa gång den startas. (Uppdateringen kanske inte startar direkt, men den kommer att starta den första timmen.)
+Om cacheminnet stoppas när slutdatumet går, uppgraderar cachen automatiskt programvara nästa gång den startas. (Uppdateringen kanske inte startar omedelbart, men den startar under den första timmen.)
 
-Klicka på **Uppgradera** om du vill starta program uppdateringen. Cachens status ändras till **uppgraderingen** tills åtgärden har slutförts.
+Klicka på **knappen Uppgradera** för att starta programuppdateringen. Cachestatusen ändras till **Uppgradering** tills åtgärden är klar.
 
-## <a name="delete-the-cache"></a>Ta bort cachen
+## <a name="delete-the-cache"></a>Ta bort cacheminnet
 
-Med knappen **ta bort** förstörs cachen. När du tar bort en cache förstörs alla dess resurser och debiteras inte längre.
+Knappen **Ta bort** förstör cacheminnet. När du tar bort en cache förstörs alla dess resurser och ådrar sig inte längre kontoavgifter.
 
-De Server dels lagrings volymer som används som lagrings mål påverkas inte när du tar bort cacheminnet. Du kan lägga till dem i en framtida cache senare eller ställa av dem separat.
+De backend-lagringsvolymer som används som lagringsmål påverkas inte när du tar bort cachen. Du kan lägga till dem i en framtida cache senare eller inaktivera dem separat.
 
 > [!NOTE]
-> Azure HPC cache skriver inte automatiskt över ändrade data från cacheminnet till backend Storage-System innan cachen tas bort.
+> Azure HPC Cache skriver inte automatiskt ändrade data från cacheminnet till backend-lagringssystemen innan cachen tas bort.
 >
-> För att se till att alla data i cacheminnet har skrivits till långsiktig lagring [stoppar du cacheminnet](#stop-the-cache) innan du tar bort det. Kontrol lera att den visar statusen **stoppad** innan du klickar på knappen Ta bort.
+> Om du vill vara säker på att alla data i cacheminnet har skrivits till långtidslagring [stoppar du cachen](#stop-the-cache) innan du tar bort den. Kontrollera att statusen **har stoppats** innan du klickar på borttagningsknappen.
 <!--... written to long-term storage, follow this procedure:
 >
 > 1. [Remove](hpc-cache-edit-storage.md#remove-a-storage-target) each storage target from the Azure HPC Cache by using the delete button on the Storage targets page. The system automatically writes any changed data from the cache to the back-end storage system before removing the target.
@@ -96,16 +96,16 @@ De Server dels lagrings volymer som används som lagrings mål påverkas inte n�
 >
 > Alternatively, you can use the [flush](#flush-cached-data) option to save cached data, but there is a small risk of losing work if a client writes a change to the cache after the flush completes but before the cache instance is destroyed.-->
 
-## <a name="cache-metrics-and-monitoring"></a>Cachelagra mått och övervakning
+## <a name="cache-metrics-and-monitoring"></a>Cachemått och övervakning
 
-På sidan Översikt visas diagram för viss grundläggande cache-statistik – cache-genomflöde, åtgärder per sekund och svars tid.
+Översiktssidan visar diagram för grundläggande cachestatistik - cachedataflöde, åtgärder per sekund och svarstid.
 
-![skärm bild av tre linje diagram som visar ovanstående statistik för ett exempel-cache](media/hpc-cache-overview-stats.png)
+![skärmdump av tre linjediagram som visar den statistik som nämns ovan för ett urval cache](media/hpc-cache-overview-stats.png)
 
-Dessa diagram ingår i Azures inbyggda verktyg för övervakning och analys. Det finns ytterligare verktyg och aviseringar på sidorna under **övervaknings** rubriken i portalens marginal List. Läs mer i avsnittet portal i [Azures övervaknings dokumentation](../azure-monitor/insights/monitor-azure-resource.md#monitoring-in-the-azure-portal).
+Dessa diagram är en del av Azures inbyggda övervaknings- och analysverktyg. Ytterligare verktyg och varningar finns tillgängliga från sidorna under rubriken **Övervakning** i portalens sidofält. Läs mer i portalavsnittet i [Azure Monitoring-dokumentationen](../azure-monitor/insights/monitor-azure-resource.md#monitoring-in-the-azure-portal).
 
 ## <a name="next-steps"></a>Nästa steg
 
 <!-- * Learn more about metrics and statistics for hpc cache -->
-* Lär dig mer om [Azures mått och statistik verktyg](../azure-monitor/index.yml)
-* Få [hjälp med Azure HPC-cache](hpc-cache-support-ticket.md)
+* Läs mer om [Azure-mått och statistikverktyg](../azure-monitor/index.yml)
+* Få [hjälp med din Azure HPC-cache](hpc-cache-support-ticket.md)

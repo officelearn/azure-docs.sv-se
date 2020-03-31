@@ -1,6 +1,6 @@
 ---
-title: Funktionstekniker i datavetenskap - Team Data Science Process
-description: Förklarar syftet funktionsframställning och innehåller exempel på dess roll i processen för data förbättring av machine learning.
+title: Funktionsteknik inom datavetenskap - Team Data Science Process
+description: Förklarar syftet med funktionsteknik och ger exempel på dess roll i dataförbättringsprocessen för maskininlärning.
 services: machine-learning
 author: marktab
 manager: marktab
@@ -12,82 +12,82 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 02f109f250fa9bcd4c77cecd0b1b3e4514ecd8bc
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76721140"
 ---
-# <a name="feature-engineering-in-data-science"></a>Funktionstekniker i datavetenskap
-Den här artikeln förklarar syftet funktionsframställning och innehåller exempel på dess roll i processen för data förbättring av machine learning. I exemplen som används för att illustrera denna process hämtas från Azure Machine Learning Studio. 
+# <a name="feature-engineering-in-data-science"></a>Funktionsteknik inom datavetenskap
+I den här artikeln beskrivs syftet med funktionsteknik och exempel på dess roll i dataförbättringsprocessen för maskininlärning. Exemplen som används för att illustrera den här processen hämtas från Azure Machine Learning Studio. 
 
-Den här uppgiften är ett steg i [TDSP (Team data science process)](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/).
+Den här uppgiften är ett steg i [Team Data Science Process (TDSP)](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/).
 
-Funktionen engineering försöker ökar förutsägande learning-algoritmer genom att skapa funktioner från rådata som underlättar learning processen. Teknikerna och valet av funktioner är en del av TDSP som beskrivs i [livs cykeln för team data science process?](overview.md) Funktions teknik och urval är delar av steget **utveckla funktioner** i TDSP. 
+Funktionsteknik försöker öka inlärningsalgoritmernas prediktiva kraft genom att skapa funktioner från rådata som underlättar inlärningsprocessen. Teknik och urval av funktioner är en del av TDSP som beskrivs i [livscykeln för Team Data Science Process?](overview.md) Funktionsteknik och val är delar av steget **Utveckla funktioner** i TDSP. 
 
-* **funktions teknik**: den här processen försöker skapa ytterligare relevanta funktioner från befintliga obearbetade funktioner i datan och öka den förutsägande kraften hos inlärnings algoritmen.
-* **Val av funktion**: den här processen väljer en nyckel del av de ursprungliga data funktionerna i ett försök att minska inlärnings problemets dimensionalitet.
+* **funktionsteknik:** Den här processen försöker skapa ytterligare relevanta funktioner från de befintliga råfunktionerna i data och öka inlärningsalgoritmens prediktiva kraft.
+* **funktionsval:** Den här processen väljer den viktigaste delmängden av ursprungliga datafunktioner i ett försök att minska dimensionaliteten i utbildningsproblemet.
 
-Normalt **används funktionerna först** för att generera ytterligare funktioner och sedan utförs **funktions urvalet** för att eliminera irrelevanta, redundanta eller mycket korrelerade funktioner.
+Normalt **funktionsteknik** tillämpas först för att generera ytterligare funktioner, och sedan funktionen **urvalssteget** utförs för att eliminera irrelevanta, redundanta eller starkt korrelerade funktioner.
 
-Träningsdata som används vid maskininlärning kan ofta förbättras extrahering av funktioner från rådata som samlas in. Ett exempel på en bakåtkompilerade funktion i samband med att lära dig hur du klassificerar bilder av handskriven tecken är skapandet av lite densitet kartan konstrueras från rådata bitars distributionsdata. Den här kartan kan hitta kanter tecknen mer effektivt än att bara använda raw distributionen direkt.
+De utbildningsdata som används i maskininlärning kan ofta förbättras genom extrahering av funktioner från de insamlade rådata. Ett exempel på en konstruerad funktion i samband med att lära sig att klassificera bilder av handskrivna tecken är att skapa en bitdensitetskarta som är konstruerad från råbitdistributionsdata. Den här kartan kan hjälpa till att hitta kanterna på tecknen mer effektivt än att bara använda råfördelningen direkt.
 
-För att skapa funktioner för data i specifika miljöer finns i följande artiklar:
+Information om hur du skapar funktioner för data i specifika miljöer finns i följande artiklar:
 
 * [Skapa funktioner för data i SQL Server](create-features-sql-server.md)
 * [Skapa funktioner för data i ett Hadoop-kluster med Hive-frågor](create-features-hive.md)
 
-## <a name="create-features-from-your-data---feature-engineering"></a>Skapa funktioner från dina data – funktionstekniker
-Träningsdata består av en matris bestående av exempel (poster eller observationer som lagras i rader) som har en uppsättning funktioner (variabler eller fält som lagrats i kolumner). Funktioner som anges i den experimentella designen förväntas beskriva mönster i data. Även om många av fälten rådata kan inkluderas direkt i den valda funktionsuppsättning som används för att träna en modell, men det är ofta fallet att extrafunktioner (bakåtkompilerade) måste konstrueras från funktionerna i rådata för att generera en förbättrad utbildning-datauppsättning.
+## <a name="create-features-from-your-data---feature-engineering"></a>Skapa funktioner från dina data - funktionsteknik
+Träningsdata består av en matris som består av exempel (poster eller observationer som lagras i rader), som var och en har en uppsättning funktioner (variabler eller fält som lagras i kolumner). De funktioner som anges i den experimentella designen förväntas karakterisera mönstren i data. Även om många av rådatafälten direkt kan inkluderas i den valda funktionsuppsättningen som används för att träna en modell, är det ofta så att ytterligare (konstruerade) funktioner måste konstrueras från funktionerna i rådata för att generera en förbättrad träningsdatauppsättning.
 
-Vilken typ av funktioner ska skapas för att förbättra datauppsättningen när träna en modell? Bakåtkompilerade funktioner som förbättrar utbildningen ger information som särskiljer bättre mönster i data. De nya funktionerna förväntas innehåller ytterligare information som inte är tydligt avbildade eller enkelt tydligt i den ursprungliga eller en befintlig funktionsuppsättningen. Men den här processen är ungefär en bild. Ljud-och produktiva kräver ofta vissa expertis.
+Vilken typ av funktioner bör skapas för att förbättra datauppsättningen när du tränar en modell? Konstruerade funktioner som förbättrar utbildningen ger information som bättre skiljer mönstren i data. De nya funktionerna förväntas ge ytterligare information som inte är tydligt fångad eller lätt att syna i den ursprungliga eller befintliga funktionsuppsättningen. Men denna process är något av en konst. Sunda och produktiva beslut kräver ofta viss domänexpertis.
 
-När du börjar med Azure Machine Learning är det enklast att förstå själva processen concretely med hjälp av exemplen i Studio. Två exempel visas här:
+När du börjar med Azure Machine Learning är det lättast att förstå den här processen konkret med hjälp av exempel som finns i Studion. Två exempel presenteras här:
 
-* Ett Regressions exempel som [förutsäger antalet cykel hyror](https://gallery.cortanaintelligence.com/Experiment/Regression-Demand-estimation-4) i ett övervakat experiment där mål värden är kända
-* Ett exempel på en text utvinnings klassificering som använder [funktionen hash](https://msdn.microsoft.com/library/azure/c9a82660-2d9c-411d-8122-4d9e0b3ce92a/)
+* Ett regressionsexempel [Förutsägelse av antalet cykeluthyrning](https://gallery.cortanaintelligence.com/Experiment/Regression-Demand-estimation-4) i ett övervakat experiment där målvärdena är kända
+* Ett exempel på klassificering av textbrytning med [funktions hashing](https://msdn.microsoft.com/library/azure/c9a82660-2d9c-411d-8122-4d9e0b3ce92a/)
 
-## <a name="example-1-add-temporal-features-for-a-regression-model"></a>Exempel 1: Lägg till den temporala funktioner för en regressionsmodell
-Vi använder experimentet "prognoser för efter frågan av cyklar" i Azure Machine Learning Studio (klassisk) för att demonstrera funktioner för en Regressions uppgift. Målet med det här experimentet är att förutse behovet av cyklar, det vill säga antalet uthyrda cyklar inom en viss månad/dag/timme. Datauppsättningen ”cykel hyra cykeluthyrningsdata från datauppsättningen” används som indata rådata. Den här datauppsättningen är baserad på verkliga data från kapital Bikeshare företaget som underhåller ett cykel hyra nätverk i Washington DC i USA. Datauppsättningen representerar antalet uthyrda cyklar inom en viss timme per dag under år 2011 och år 2012 och innehåller 17379 rader och 17 kolumner. Rå funktionsuppsättningen innehåller väderförhållanden (temperatur/fuktighet/vindhastighet) och vilken typ av dagen (helgdag/veckodag). Fältet att Förutsäg är antalet CNT, som representerar cykel hyrarna inom en angiven timme och vilka sträcker sig från 1 till 977.
+## <a name="example-1-add-temporal-features-for-a-regression-model"></a>Exempel 1: Lägga till tidsfunktioner för en regressionsmodell
+Låt oss använda experimentet "Demand forecasting of bikes" i Azure Machine Learning Studio (klassiskt) för att visa hur du skapar funktioner för en regressionsuppgift. Syftet med detta experiment är att förutsäga efterfrågan på cyklar, det vill än antalet cykeluthyrning inom en viss månad / dag / timme. Datauppsättningen "Bike Rental UCI-datauppsättning" används som råindata. Denna datauppsättning är baserad på verkliga data från Capital Bikeshare företag som upprätthåller en cykel hyra nätverk i Washington DC i USA. Datauppsättningen representerar antalet cykeluthyrning inom en viss timme på dagen under åren 2011 och år 2012 och innehåller 17379 rader och 17 kolumner. Råfunktionen innehåller väderförhållanden (temperatur/luftfuktighet/vindhastighet) och dagens typ (semester/veckodag). Fältet att förutsäga är "cnt" räkna, som representerar cykeluthyrning inom en viss timme och som varierar från 1 till 977.
 
-Med målet att konstruera effektiva funktioner i träningsdata fyra regression modeller skapas med samma algoritm men med datauppsättningar för fyra olika utbildning. De fyra datauppsättningarna representerar samma inkommande rådata, men med ett större antal funktioner. Dessa funktioner är grupperade i fyra kategorier:
+Med målet att konstruera effektiva funktioner i träningsdata byggs fyra regressionsmodeller med samma algoritm men med fyra olika träningsdatauppsättningar. De fyra datauppsättningarna representerar samma råa indata, men med ett ökande antal funktioner inställda. Dessa funktioner är grupperade i fyra kategorier:
 
-1. A = väder + helgdag + veckodag + helgen funktioner för den förväntade dagen
-2. B = antal cyklar som har hyrs i var och en av de senaste 12 timmarna
-3. C = antal cyklar som har hyrs i var och en av de senaste 12 dagarna i en och samma timme
-4. D = antal cyklar som har hyrs i var och en av de föregående 12 veckorna på en och samma timme och samma dag
+1. A = väder + semester + veckodag + helgfunktioner för den förväntade dagen
+2. B = antal cyklar som hyrdes under var och en av de föregående 12 timmarna
+3. C = antal cyklar som hyrdes under var och en av de föregående 12 dagarna vid samma tidpunkt
+4. D = antal cyklar som hyrdes under var och en av de föregående 12 veckorna vid samma timme och samma dag
 
-Förutom funktionen set A, som redan finns i den ursprungliga rådata, skapas de andra tre uppsättningarna med funktioner via funktionen tekniska processen. Funktions uppsättning B fångar upp senaste efter frågan för cyklarna. Funktionen Ange C insamlingar behovet av cyklar på en viss timme. D insamlingar behovet av cyklar funktionsuppsättning på viss timme och viss dag i veckan. De fyra datauppsättningar för utbildning varje innehåller funktionen uppsättning A, A + B, A + B och C och A + B + C + D.
+Förutom funktionsuppsättning A, som redan finns i de ursprungliga rådata, skapas de andra tre uppsättningarna funktioner genom funktionsteknikprocessen. Funktionsuppsättning B fångar den senaste tidens efterfrågan på cyklarna. Funktionsuppsättning C fångar efterfrågan på cyklar vid en viss timme. Funktionsuppsättning D fångar efterfrågan på cyklar vid viss tidpunkt och viss veckodag. De fyra träningsdatauppsättningarna innehåller vardera funktionsuppsättningen A, A+B, A+B+C respektive A+B+C+D.
 
-I Azure Machine Learning-experiment bildas dessa fyra datauppsättningar för utbildning via fyra grenar från förbearbetade datauppsättningen för indata. Förutom grenen längst till vänster innehåller var och en av dessa grenar en modul för att [köra R-skript](https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/) där de härledda funktionerna (funktions uppsättning B, C och D) skapas och läggs till i den importerade data uppsättningen. Följande bild visar R-skript som används för att skapa funktionsuppsättningen B i andra vänstra grenen.
+I Azure Machine Learning-experimentet bildas dessa fyra utbildningsdatauppsättningar via fyra grenar från den förbehandlade indatauppsättningen. Förutom grenen längst till vänster innehåller var och en av dessa grenar en [körning r-skriptmodul,](https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/) där de härledda funktionerna (funktionsuppsättningen B, C och D) respektive är konstruerade och bifogade till den importerade datauppsättningen. Följande bild visar R-skriptet som används för att skapa funktionsuppsättning B i den andra vänstra grenen.
 
-![Skapa funktioner](./media/create-features/addFeature-Rscripts.png)
+![skapa funktioner](./media/create-features/addFeature-Rscripts.png)
 
-En jämförelse av de fyra modellerna prestandaresultat sammanfattas i tabellen nedan: 
+En jämförelse av prestandaresultaten för de fyra modellerna sammanfattas i följande tabell: 
 
 ![jämförelse av resultat](./media/create-features/result1.png)
 
-Bästa resultat visas för funktionerna A + B + C. Fel frekvensen minskar när ytterligare funktions uppsättning ingår i tränings data. Verifierar antagandet att funktionsuppsättningen B, C ger ytterligare relevant information för aktiviteten regression. Men att lägga till funktionen D verkar inte ger någon ytterligare sänkning Felfrekvensen.
+De bästa resultaten visas med funktionerna A+B+C. Felfrekvensen minskar när ytterligare funktionsuppsättning ingår i träningsdata. Den verifierar presumtionen att funktionsuppsättningen B, C ger ytterligare relevant information för regressionsuppgiften. Men att lägga till D-funktionen verkar inte ge någon ytterligare minskning av felprocenten.
 
-## <a name="example2"></a>Exempel 2: skapa funktioner i text utvinning
-Funktionsframställning används ofta i uppgifter som rör text-utvinning, till exempel dokument klassificering och sentiment analys. Till exempel när du vill klassificera dokument i flera kategorier, är en typisk antagandet att word/fraser som ingår i en kategori för doc mindre sannolikt kan förekomma i en annan doc-kategori. Frekvensen för ord/fraser distribution kan med andra ord att beskriva olika kategorierna. I text-utvinning program, eftersom enskilda delar av text-innehållet är vanligtvis indata, behövs funktionen tekniska processen för att skapa funktioner som involverar ord eller en viss fras frekvenser.
+## <a name="example-2-creating-features-in-text-mining"></a><a name="example2"></a>Exempel 2: Skapa funktioner i textutvinning
+Funktionsteknik används i stor utsträckning i uppgifter som rör textbrytning, till exempel dokumentklassificering och sentimentanalys. När du till exempel vill klassificera dokument i flera kategorier är ett typiskt antagande att ord/fraser som ingår i en dokumentkategori är mindre benägna att inträffa i en annan dokumentkategori. Med andra ord kan frekvensen för ord-/frasfördelningen karakterisera olika dokumentkategorier. I text mining applikationer, eftersom enskilda bitar av text-innehåll vanligtvis fungerar som indata, funktionen engineering processen behövs för att skapa funktioner som involverar ord / fras frekvenser.
 
-För att uppnå den här uppgiften används en teknik som kallas **funktion-hash** för att effektivt aktivera godtycklig text funktioner i index. I stället för att koppla varje text-funktionen (ord/fraser) till en viss index, den här metoden fungerar med hjälp av en hash-funktionen till funktioner och direkt med sina hash-värden som index i förväg.
+För att uppnå den här uppgiften används en teknik som kallas **funktionshämtning** för att effektivt omvandla godtyckliga textfunktioner till index. I stället för att associera varje textfunktion (ord/fraser) till ett visst index fungerar den här metoden genom att använda en hash-funktion på funktionerna och använda deras hash-värden som index direkt.
 
-I Azure Machine Learning finns en modul för [hashing av funktioner](https://msdn.microsoft.com/library/azure/c9a82660-2d9c-411d-8122-4d9e0b3ce92a/) som skapar ord/fras-funktioner bekvämt. Följande bild visar ett exempel på hur du använder den här modulen. Den inkommande datauppsättningen innehåller två kolumner: boken omdömet mellan 1 och 5, och det faktiska granska innehållet. Målet med den här modulens [hashing](https://msdn.microsoft.com/library/azure/c9a82660-2d9c-411d-8122-4d9e0b3ce92a/) -modul är att hämta en massa nya funktioner som visar förekomst frekvensen för motsvarande Word-/phrase i en viss bok granskning. Utför följande steg för att använda den här modulen:
+I Azure Machine Learning finns det en [funktionshagemodul](https://msdn.microsoft.com/library/azure/c9a82660-2d9c-411d-8122-4d9e0b3ce92a/) som skapar word/phrase-funktioner bekvämt. Följande bild visar ett exempel på hur du använder den här modulen. Indatauppsättningen innehåller två kolumner: bokklassificeringen från 1 till 5 och det faktiska granskningsinnehållet. Målet med den här [funktionshagemodulen](https://msdn.microsoft.com/library/azure/c9a82660-2d9c-411d-8122-4d9e0b3ce92a/) är att hämta en massa nya funktioner som visar förekomstfrekvensen för motsvarande ord/fraser i den aktuella bokrecensionen. Så här använder du den här modulen:
 
-* Börja med att välja den kolumn som innehåller indatatexten (”Col2” i det här exemplet).
-* Andra värdet ”Hashing bitsize” 8, vilket innebär att 2 ^ 8 = 256-funktioner kommer att skapas. Word/fas i all text ska kodas till 256 index. Parametern ”Hashing bitsize” mellan 1 och 31. Ord / fraser används är mindre troligt att kodas till samma index om att den ska vara ett större antal.
-* Det tredje värdet parametern ”N-gram” 2. Det här värdet får förekomsten frekvensen för unigrams (en funktion för varje enstaka ord) och bigrams (en funktion för varje par av intilliggande ord) från den inmatade texten. Parametern ”N-gram” mellan 0 och 10, som anger det maximala antalet sekventiella ord som ska ingå i en funktion.  
+* Markera först den kolumn som innehåller indatatexten ("Col2" i det här exemplet).
+* För det andra ställer du in "Hashing bitsize" till 8, vilket innebär att 2 ^8=256-funktioner kommer att skapas. Ordet/fasen i all text kommer att hasheras till 256 index. Parametern "Hashing bitsize" varierar från 1 till 31. Ordet/fraserna är mindre benägna att hasheras i samma index om du ställer in det som ett större tal.
+* För det tredje ställer du in parametern "N-gram" på 2. Det här värdet hämtar förekomstfrekvensen av unigram (en funktion för varje ord) och bigrams (en funktion för varje par av intilliggande ord) från indatatexten. Parametern "N-gram" varierar från 0 till 10, vilket anger det maximala antalet sekventiella ord som ska ingå i en funktion.  
 
-![”Funktion Hashing” modul](./media/create-features/feature-Hashing1.png)
+!["Feature Hashing"-modul](./media/create-features/feature-Hashing1.png)
 
-Följande bild visar vad de här nya funktionen ser ut.
+Följande bild visar hur den här nya funktionen ser ut.
 
-![”Funktion Hashing” exempel](./media/create-features/feature-Hashing2.png)
+!["Feature Hashing"-exempel](./media/create-features/feature-Hashing2.png)
 
-## <a name="conclusion"></a>Sammanfattning
-Bakåtkompilerade och valda funktioner öka effektiviteten för utbildning-processen, som försöker att extrahera den viktiga informationen i data. De kan även förbättra kraften hos dessa modeller att klassificera indata korrekt och att förutsäga resultat av intresse mer kraftigare. Funktioner och egenskapsval kan också kombinera för att göra utbildningsresurser mer beräkningsmässigt tractable. Detta sker genom bättre och minskar antalet funktioner som behövs för att kalibrera eller tränar en modell. De funktioner som valts för att träna modellen är matematiskt sett en minimal uppsättning oberoende variabler som förklarar mönster i data och förutsäga resultat har.
+## <a name="conclusion"></a>Slutsats
+Konstruerade och valda funktioner ökar effektiviteten i utbildningsprocessen, som försöker extrahera viktig information som finns i data. De förbättrar också kraften i dessa modeller för att klassificera indata korrekt och förutsäga resultat av intresse mer robust. Funktionsteknik och val kan också kombineras för att göra lärandet mer beräkningsmässigt tractable. Det gör det genom att förbättra och sedan minska antalet funktioner som behövs för att kalibrera eller träna en modell. Matematiskt sett är de funktioner som valts för att träna modellen en minimal uppsättning oberoende variabler som förklarar mönstren i data och sedan förutsäga resultaten framgångsrikt.
 
-Det är inte alltid nödvändigtvis för val av teknik eller funktion av funktioner. Om det behövs eller inte beror på informationen för hand eller som samlas in, den algoritm som valts och syftet med experimentet.
+Det är inte alltid nödvändigtvis att utföra funktionsteknik eller funktionsval. Om det behövs eller inte beror på vilka data som ska lämnas till hands eller samlas in, vilken algoritm som valts och syftet med experimentet.
 

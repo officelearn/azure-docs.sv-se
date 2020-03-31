@@ -1,5 +1,5 @@
 ---
-title: Skapa en Azure Application Gateway & skriva om HTTP-huvuden
+title: Skapa en Azure Application Gateway-& skriva om HTTP-huvuden
 description: Den här artikeln innehåller information om hur du skapar en Azure Application Gateway och skriver om HTTP-huvuden med Azure PowerShell
 services: application-gateway
 author: vhorne
@@ -8,15 +8,15 @@ ms.topic: article
 ms.date: 11/19/2019
 ms.author: absha
 ms.openlocfilehash: 2663c049245a7025b5948a64fc5008bb9e7dee90
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74173722"
 ---
-# <a name="create-an-application-gateway-and-rewrite-http-headers"></a>Skapa en Application Gateway och skriv om HTTP-huvuden
+# <a name="create-an-application-gateway-and-rewrite-http-headers"></a>Skapa en programgateway och skriva om HTTP-huvuden
 
-Du kan använda Azure PowerShell för att konfigurera [regler för att skriva om HTTP-begäran och svarshuvuden](rewrite-http-headers.md) när du skapar den nya [autoskalning och den Zone-redundanta Application Gateway-SKU: n](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant)
+Du kan använda Azure PowerShell för att konfigurera [regler för att skriva om HTTP-begärande- och svarshuvuden](rewrite-http-headers.md) när du skapar den nya [automatiska skalning och zon redundanta programgateway-SKU](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant)
 
 I den här artikeln kan du se hur du:
 
@@ -25,16 +25,16 @@ I den här artikeln kan du se hur du:
 > * Skapa ett virtuellt nätverk för autoskalning
 > * Skapa en reserverad offentlig IP-adress
 > * Konfigurera infrastrukturen för din application gateway
-> * Ange en regel konfiguration för att skriva över HTTP-huvud
+> * Ange konfiguration av regeln för http-rubriks skriva om
 > * Ange automatisk skalning
 > * Skapa programgatewayen
 > * Testa programgatewayen
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
 
 ## <a name="prerequisites"></a>Krav
 
-Den här artikeln kräver att du kör Azure PowerShell lokalt. Du måste ha AZ-modul version 1.0.0 eller senare installerad. Kör `Import-Module Az` och`Get-Module Az` för att hitta versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps) (Installera Azure PowerShell-modul). När du har verifierat PowerShell-versionen kör du `Login-AzAccount` för att skapa en anslutning till Azure.
+Den här artikeln kräver att du kör Azure PowerShell lokalt. Du måste ha Az modul version 1.0.0 eller senare installerat. Kör `Import-Module Az` och`Get-Module Az` sedan för att hitta versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps) (Installera Azure PowerShell-modul). När du har verifierat PowerShell-versionen kör du `Login-AzAccount` för att skapa en anslutning till Azure.
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 
@@ -89,7 +89,7 @@ $gwSubnet = Get-AzVirtualNetworkSubnetConfig -Name "AppGwSubnet" -VirtualNetwork
 
 ## <a name="configure-the-infrastructure"></a>Konfigurera infrastrukturen
 
-Konfigurera IP-konfigurationen, klient delens IP-konfiguration, backend-pool, HTTP-inställningar, certifikat, port och lyssnare i ett identiskt format till den befintliga standard Application Gateway. Den nya SKU:n följer samma objektmodell som standard-SKU:n.
+Konfigurera IP-config, frontend IP config, backend-pool, HTTP-inställningar, certifikat, port och lyssnare i ett identiskt format som den befintliga standardprogramgatewayen. Den nya SKU:n följer samma objektmodell som standard-SKU:n.
 
 ```azurepowershell
 $ipconfig = New-AzApplicationGatewayIPConfiguration -Name "IPConfig" -Subnet $gwSubnet
@@ -105,15 +105,15 @@ $setting = New-AzApplicationGatewayBackendHttpSettings -Name "BackendHttpSetting
           -Port 80 -Protocol Http -CookieBasedAffinity Disabled
 ```
 
-## <a name="specify-your-http-header-rewrite-rule-configuration"></a>Ange en regel konfiguration för att skriva över HTTP-huvud
+## <a name="specify-your-http-header-rewrite-rule-configuration"></a>Ange omskrivningsregelkonfiguration för HTTP-huvudet
 
-Konfigurera de nya objekt som krävs för att skriva om HTTP-huvudena:
+Konfigurera de nya objekt som krävs för att skriva om http-huvudena:
 
-- **RequestHeaderConfiguration**: det här objektet används för att ange de begär ande huvud fält som du tänker skriva om och det nya värdet som de ursprungliga huvudena måste skrivas om till.
-- **ResponseHeaderConfiguration**: det här objektet används för att ange de svars huvud fält som du tänker skriva om och det nya värdet som de ursprungliga huvudena måste skrivas om till.
-- **ActionSet**: det här objektet innehåller konfigurationerna för de begär ande och svars rubriker som anges ovan. 
-- **RewriteRule**: det här objektet innehåller alla *actionSets* som anges ovan. 
-- **RewriteRuleSet**– det här objektet innehåller alla *rewriteRules* och måste kopplas till en regel för routning av förfrågningar – Basic eller Path-based.
+- **RequestHeaderConfiguration**: Det här objektet används för att ange de fält för begäranhuvud som du tänker skriva om och det nya värdet som de ursprungliga rubrikerna måste skrivas om till.
+- **ResponseHeaderConfiguration**: det här objektet används för att ange de svarshuvudfält som du tänker skriva om och det nya värdet som de ursprungliga rubrikerna måste skrivas om till.
+- **ActionSet**: det här objektet innehåller konfigurationerna för de begärande- och svarshuvuden som anges ovan. 
+- **Skriv omRule:** det här objektet innehåller alla *actionSets* som anges ovan. 
+- **Skriv omRuleSet**- det här objektet innehåller alla *omskrivningsrules* och måste kopplas till en routningsregel för begäran - grundläggande eller sökvägsbaserade.
 
    ```azurepowershell
    $requestHeaderConfiguration = New-AzApplicationGatewayRewriteRuleHeaderConfiguration -HeaderName "X-isThroughProxy" -HeaderValue "True"
@@ -123,9 +123,9 @@ Konfigurera de nya objekt som krävs för att skriva om HTTP-huvudena:
    $rewriteRuleSet = New-AzApplicationGatewayRewriteRuleSet -Name rewriteRuleSet1 -RewriteRule $rewriteRule
    ```
 
-## <a name="specify-the-routing-rule"></a>Ange regel för routning
+## <a name="specify-the-routing-rule"></a>Ange routningsregeln
 
-Skapa en regel för routning av begäran. När den här konfigurationen har skapats kopplas den här omskrivnings konfigurationen till käll lyssnaren via regeln för routning. När du använder en regel för grundläggande routning associeras konfigurationen för omskrivning av huvuden med en käll lyssnare och är en omskrivning av globala huvuden. När en sökväg baserad routningsregler används definieras konfigurationen för att skriva över rubriker i sökvägen till URL-sökvägen. Detta gäller endast för det speciella Sök vägs området på en plats. Nedan skapas en grundläggande routningsprincip och den omskrivnings regel uppsättningen är kopplad.
+Skapa en routningsregel för begäran. När den här omskrivningskonfigurationen har skapats är den kopplad till källlyssnaren via routningsregeln. När du använder en grundläggande routningsregel associeras konfigurationen för huvudreformat med en källavlyssnare och en global rubrikskrivning. När en sökvägsbaserad routningsregel används definieras konfigurationen för rubrikreda på URL-sökvägen. Så gäller det bara för det specifika sökvägsområdet på en webbplats. Nedan skapas en grundläggande routningsregel och omskrivningsregeluppsättningen bifogas.
 
 ```azurepowershell
 $rule01 = New-AzApplicationGatewayRequestRoutingRule -Name "Rule1" -RuleType basic `
@@ -159,7 +159,7 @@ $appgw = New-AzApplicationGateway -Name "AutoscalingAppGw" -Zone 1,2,3 -Resource
 
 ## <a name="test-the-application-gateway"></a>Testa programgatewayen
 
-Använd Get-AzPublicIPAddress för att hämta den offentliga IP-adressen för Application Gateway. Kopiera den offentliga IP-adressen eller DNS-namnet och klistra in det i webbläsarens adressfält.
+Använd Get-AzPublicIPAddress för att hämta den offentliga IP-adressen för programgatewayen. Kopiera den offentliga IP-adressen eller DNS-namnet och klistra in det i webbläsarens adressfält.
 
 ```azurepowershell
 Get-AzPublicIPAddress -ResourceGroupName $rg -Name AppGwVIP

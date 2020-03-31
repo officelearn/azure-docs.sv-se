@@ -1,6 +1,6 @@
 ---
-title: Kopiera data från Salesforce marknadsförings moln
-description: Lär dig hur du kopierar data från Salesforce Marketing Cloud till mottagarens datalager genom att använda en Kopieringsaktivitet i en Azure Data Factory-pipeline.
+title: Kopiera data från Salesforce Marketing Cloud
+description: Lär dig hur du kopierar data från Salesforce Marketing Cloud till sink-datalager som stöds med hjälp av en kopieringsaktivitet i en Azure Data Factory-pipeline.
 services: data-factory
 documentationcenter: ''
 ms.author: jingwang
@@ -13,48 +13,48 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 10/25/2019
 ms.openlocfilehash: aa996ae14276ecf246104d8778fbb6b723448e04
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74931722"
 ---
 # <a name="copy-data-from-salesforce-marketing-cloud-using-azure-data-factory"></a>Kopiera data från Salesforce Marketing Cloud med Azure Data Factory
 
-Den här artikeln beskrivs hur du använder Kopieringsaktivitet i Azure Data Factory för att kopiera data från Salesforce Marketing Cloud. Den bygger på den [översikt över Kopieringsaktivitet](copy-activity-overview.md) artikel som ger en allmän översikt över Kopieringsaktivitet.
+I den här artikeln beskrivs hur du använder kopieringsaktiviteten i Azure Data Factory för att kopiera data från Salesforce Marketing Cloud. Den bygger på [kopian aktivitet översikt](copy-activity-overview.md) artikeln som presenterar en allmän översikt över kopieringsaktivitet.
 
 ## <a name="supported-capabilities"></a>Funktioner som stöds
 
-Den här Salesforce Marketing Cloud Connector stöds för följande aktiviteter:
+Den här Salesforce Marketing Cloud-kopplingen stöds för följande aktiviteter:
 
-- [Kopierings aktivitet](copy-activity-overview.md) med [matrisen source/Sink som stöds](copy-activity-overview.md)
-- [Sökningsaktivitet](control-flow-lookup-activity.md)
+- [Kopiera aktivitet](copy-activity-overview.md) med [käll-/sink-matris som stöds](copy-activity-overview.md)
+- [Uppslagsaktivitet](control-flow-lookup-activity.md)
 
-Du kan kopiera data från Salesforce Marketing Cloud till alla datalager för mottagare som stöds. En lista över datalager som stöds som källor/mottagare av Kopieringsaktivitet finns i den [datalager som stöds](copy-activity-overview.md#supported-data-stores-and-formats) tabell.
+Du kan kopiera data från Salesforce Marketing Cloud till alla sink-datalager som stöds. En lista över datalager som stöds som källor/sänkor av kopieringsaktiviteten finns i tabellen [Datalager som stöds.](copy-activity-overview.md#supported-data-stores-and-formats)
 
-Salesforce Marketing Cloud Connector stöder OAuth 2-autentisering. Den är byggd på [Salesforce Marketing REST API](https://developer.salesforce.com/docs/atlas.en-us.mc-apis.meta/mc-apis/index-api.htm).
+Salesforce Marketing Cloud-anslutningen stöder OAuth 2-autentisering. Den är byggd ovanpå [Salesforce Marketing Cloud REST API](https://developer.salesforce.com/docs/atlas.en-us.mc-apis.meta/mc-apis/index-api.htm).
 
 >[!NOTE]
->Den här kopplingen stöder inte hämtning av anpassade objekt eller anpassade data tillägg.
+>Den här kopplingen stöder inte hämtning av anpassade objekt eller anpassade datatillägg.
 
 ## <a name="getting-started"></a>Komma igång
 
-Du kan skapa en pipeline med en Kopieringsaktivitet med hjälp av .NET SDK, Python SDK, Azure PowerShell, REST API eller Azure Resource Manager-mall. Se [kopiera aktivitet självstudien](quickstart-create-data-factory-dot-net.md) för stegvisa instruktioner för att skapa en pipeline med en Kopieringsaktivitet.
+Du kan skapa en pipeline med kopieringsaktivitet med .NET SDK, Python SDK, Azure PowerShell, REST API eller Azure Resource Manager-mall. Se [Kopiera aktivitetshandledning](quickstart-create-data-factory-dot-net.md) för steg-för-steg-instruktioner för att skapa en pipeline med en kopieringsaktivitet.
 
-Följande avsnitt innehåller information om egenskaper som används för att definiera Data Factory-entiteter som är specifika för Salesforce Marketing Cloud connector.
+I följande avsnitt finns information om egenskaper som används för att definiera Data Factory-entiteter som är specifika för Salesforce Marketing Cloud-anslutningsappen.
 
 ## <a name="linked-service-properties"></a>Länkade tjänstegenskaper
 
-Följande egenskaper har stöd för Salesforce Marketing Cloud länkade tjänsten:
+Följande egenskaper stöds för Salesforce Marketing Cloud-länkad tjänst:
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Type-egenskapen måste anges till: **SalesforceMarketingCloud** | Ja |
-| clientId | Klient-ID som är associerade med Salesforce Marketing Cloud-programmet.  | Ja |
-| clientSecret | Klienthemlighet som är kopplade till Salesforce Marketing Cloud-programmet. Du kan välja att markera det här fältet som en SecureString för att lagra det på ett säkert sätt i ADF eller lagra lösen ord i Azure Key Vault och låta ADF kopierings aktivitet hämta från där när data kopian ska utföras – Läs mer från [lagra autentiseringsuppgifter i Key Vault](store-credentials-in-key-vault.md). | Ja |
-| useEncryptedEndpoints | Anger om käll-slutpunkter data krypteras med HTTPS. Standardvärdet är sant.  | Nej |
-| useHostVerification | Anger om värdnamnet i servercertifikatet så att de matchar värdnamnet för servern när du ansluter via SSL. Standardvärdet är sant.  | Nej |
-| usePeerVerification | Anger om du vill kontrollera identiteten på servern när du ansluter via SSL. Standardvärdet är sant.  | Nej |
+| typ | Egenskapen type måste anges till: **SalesforceMarketingCloud** | Ja |
+| ClientID | Klient-ID som är associerat med Salesforce Marketing Cloud-programmet.  | Ja |
+| clientSecret (klientSecret) | Klienthemligheten som är associerad med Salesforce Marketing Cloud-programmet. Du kan välja att markera det här fältet som en SecureString för att lagra det säkert i ADF, eller lagra lösenord i Azure Key Vault och låta ADF kopiera aktivitet hämta därifrån när du utför datakopiering - läs mer från [Store-autentiseringsuppgifter i Key Vault](store-credentials-in-key-vault.md). | Ja |
+| användaKrypteradeEndpoints | Anger om slutpunkterna för datakällan är krypterade med HTTPS. Standardvärdet är True.  | Inga |
+| useHostVerification | Anger om värdnamnet i serverns certifikat ska behövas för att matcha serverns värdnamn när den ansluter via SSL. Standardvärdet är True.  | Inga |
+| användaUppvering | Anger om serverns identitet ska verifieras när den ansluter via SSL. Standardvärdet är True.  | Inga |
 
 **Exempel:**
 
@@ -80,14 +80,14 @@ Följande egenskaper har stöd för Salesforce Marketing Cloud länkade tjänste
 
 ## <a name="dataset-properties"></a>Egenskaper för datamängd
 
-En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera datauppsättningar finns i den [datauppsättningar](concepts-datasets-linked-services.md) artikeln. Det här avsnittet innehåller en lista över egenskaper som stöds av Salesforce Marketing Cloud-datauppsättningen.
+En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera datauppsättningar finns i [datauppsättningsartikeln.](concepts-datasets-linked-services.md) Det här avsnittet innehåller en lista över egenskaper som stöds av Salesforce Marketing Cloud-datauppsättningen.
 
-Om du vill kopiera data från Salesforce Marketing Cloud, ange typegenskapen på datauppsättningen till **SalesforceMarketingCloudObject**. Följande egenskaper stöds:
+Om du vill kopiera data från Salesforce Marketing Cloud anger du egenskapen type för datauppsättningen till **SalesforceMarketingCloudObject**. Följande egenskaper stöds:
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Type-egenskapen för datauppsättningen måste anges till: **SalesforceMarketingCloudObject** | Ja |
-| tableName | Namnet på tabellen. | Nej (om ”query” i aktivitetskälla har angetts) |
+| typ | Egenskapen Type property för datauppsättningen måste anges till: **SalesforceMarketingCloudObject** | Ja |
+| tableName | Tabellens namn. | Nej (om "fråga" i aktivitetskällan har angetts) |
 
 **Exempel**
 
@@ -108,16 +108,16 @@ Om du vill kopiera data från Salesforce Marketing Cloud, ange typegenskapen på
 
 ## <a name="copy-activity-properties"></a>Kopiera egenskaper för aktivitet
 
-En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera aktiviteter finns i den [Pipelines](concepts-pipelines-activities.md) artikeln. Det här avsnittet innehåller en lista över egenskaper som stöds av Salesforce Marketing Cloud-källa.
+En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera aktiviteter finns i artikeln [Pipelines.](concepts-pipelines-activities.md) Det här avsnittet innehåller en lista över egenskaper som stöds av Salesforce Marketing Cloud-källan.
 
 ### <a name="salesforce-marketing-cloud-as-source"></a>Salesforce Marketing Cloud som källa
 
-Om du vill kopiera data från Salesforce Marketing Cloud, ange typ av datakälla i kopieringsaktiviteten till **SalesforceMarketingCloudSource**. Följande egenskaper stöds i kopieringsaktiviteten **source** avsnittet:
+Om du vill kopiera data från Salesforce Marketing Cloud anger du källtypen i kopieringsaktiviteten till **SalesforceMarketingCloudSource**. Följande egenskaper stöds i källavsnittet för **kopieringsaktivitet:**
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Type-egenskapen för aktiviteten kopieringskälla måste anges till: **SalesforceMarketingCloudSource** | Ja |
-| DocumentDB | Använda anpassade SQL-frågan för att läsa data. Till exempel: `"SELECT * FROM MyTable"`. | Nej (om ”tableName” i datauppsättningen har angetts) |
+| typ | Egenskapen Type property för kopians aktivitetskälla måste anges till: **SalesforceMarketingCloudSource** | Ja |
+| DocumentDB | Använd den anpassade SQL-frågan för att läsa data. Till exempel: `"SELECT * FROM MyTable"`. | Nej (om "tableName" i datauppsättningen har angetts) |
 
 **Exempel:**
 
@@ -151,9 +151,9 @@ Om du vill kopiera data från Salesforce Marketing Cloud, ange typ av datakälla
 ]
 ```
 
-## <a name="lookup-activity-properties"></a>Egenskaper för Sök aktivitet
+## <a name="lookup-activity-properties"></a>Egenskaper för uppslagsaktivitet
 
-Om du vill veta mer om egenskaperna kontrollerar du [söknings aktiviteten](control-flow-lookup-activity.md).
+Om du vill veta mer om egenskaperna kontrollerar du [uppslagsaktivitet](control-flow-lookup-activity.md).
 
 ## <a name="next-steps"></a>Nästa steg
-En lista över datalager som stöds som källor och mottagare av kopieringsaktiviteten i Azure Data Factory finns i [datalager som stöds](copy-activity-overview.md#supported-data-stores-and-formats).
+En lista över datalager som stöds som källor och sänkor av kopieringsaktiviteten i Azure Data Factory finns i [datalager som stöds](copy-activity-overview.md#supported-data-stores-and-formats).

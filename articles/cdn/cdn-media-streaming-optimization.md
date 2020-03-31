@@ -1,6 +1,6 @@
 ---
-title: Mediedirektuppspelning optimering med Azure CDN
-description: Optimera strömning mediefiler för smidig leverans
+title: Optimering av direktuppspelning av media med Azure CDN
+description: Optimera strömmande mediefiler för smidig leverans
 services: cdn
 documentationcenter: ''
 author: mdgattuso
@@ -15,97 +15,97 @@ ms.topic: article
 ms.date: 05/01/2018
 ms.author: magattus
 ms.openlocfilehash: c6ed546735058e330368151adb0df7323f943050
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67593658"
 ---
-# <a name="media-streaming-optimization-with-azure-cdn"></a>Mediedirektuppspelning optimering med Azure CDN 
+# <a name="media-streaming-optimization-with-azure-cdn"></a>Optimering av direktuppspelning av media med Azure CDN 
  
-Användning av högupplöst video ökar på internet, vilket skapar problem för effektiv leverans av stora filer. Kunderna förväntar sig smidig uppspelning av video på begäran eller live videotillgångar på en rad olika nätverk och klienter över hela världen. En snabb och effektiv leveransmekanism för direktuppspelning filer är viktigt att säkerställa en smidig och roligare användarfunktioner.  
+Användningen av HD-video ökar på Internet, vilket skapar svårigheter för effektiv leverans av stora filer. Kunderna förväntar sig smidig uppspelning av video on demand eller live video tillgångar på en mängd olika nätverk och kunder över hela världen. En snabb och effektiv leveransmekanism för mediestreamingfiler är avgörande för att säkerställa en smidig och trevlig konsumentupplevelse.  
 
-Live strömmande media är särskilt svårt att leverera på grund av stora storlekar och antalet samtidiga användare. Långa fördröjningar orsaka användare att lämna. Eftersom direktsända strömmar inte kan cachelagras förbereds i förväg och stor fördröjning inte är acceptabel för visning, att video fragment leverera i tid. 
+Live streaming media är särskilt svårt att leverera på grund av de stora storlekarna och antalet samtidiga tittare. Långa förseningar gör att användarna lämnar. Eftersom livestreamar inte kan cachelagras i förväg och stora fördröjningar inte är acceptabla för tittarna, måste videofragment levereras i tid. 
 
-Begäran-mönster för strömning ger också några nya utmaningar. När en populära direktsänd dataström eller en ny serie släpps för video på begäran, begära tusentals till miljontals tittare dataströmmen på samma gång. I det här fallet är smart begäran konsolidering viktigt att inte överbelastar ursprungsservrar om resurserna som inte cachelagras ännu.
+Förfrågemönstren ger också några nya utmaningar. När en populär livestream eller en ny serie släpps för video på begäran kan tusentals till miljontals tittare begära strömmen samtidigt. I det här fallet är konsolidering av smarta begäranden avgörande för att inte överbelasta ursprungsservrarna när tillgångarna inte cachelagras ännu.
  
 
-## <a name="media-streaming-optimizations-for-azure-cdn-from-microsoft"></a>Mediedirektuppspelning optimeringar för Azure CDN från Microsoft
+## <a name="media-streaming-optimizations-for-azure-cdn-from-microsoft"></a>Optimering av media för Azure CDN från Microsoft
 
-**Azure CDN Standard från Microsoft** slutpunkter leverera strömmande medietillgångar direkt med hjälp av allmän optimering Leveranstyp. 
+**Azure CDN Standard från** Microsoft-slutpunkter levererar direktuppspelade medietillgångar med hjälp av den allmänna optimeringstypen för webbleverans. 
 
-Mediedirektuppspelning optimering för **Azure CDN Standard från Microsoft** är effektiva för live eller video på begäran strömmande media som använder enskilda media fragment för leverans. Den här processen skiljer sig från en enda stor tillgång som överförs via progressiv nedladdning eller med hjälp av begäranden om byte-intervall. Information om det formatet för leverans av media finns i [optimering för nedladdning av stora filer med Azure CDN](cdn-large-file-optimization.md).
+Optimering av media för **Azure CDN Standard från Microsoft** gäller för direktuppspelade media eller video på begäran som använder enskilda mediefragment för leverans. Den här processen skiljer sig från en enda stor tillgång som överförs via progressiv nedladdning eller genom att använda byte-range-begäranden. Information om den typen av medieleverans finns i [Stor optimering av filhämtning med Azure CDN](cdn-large-file-optimization.md).
 
-Allmänna leverans- eller video på begäran media leverans optimering medietyper använda Azure Content Delivery Network (CDN) med backend-optimeringar för att leverera medieinnehåll snabbare. De kan också använda konfigurationer för medietillgångar baserat på bästa metoderna lärt dig över tid.
+De allmänna medieleverans- eller video-on-demand-optimeringstyperna för medieleverans använder Azure Content Delivery Network (CDN) med backend-optimering för att leverera medietillgångar snabbare. De använder också konfigurationer för medietillgångar baserat på bästa praxis som har lärts in över tid.
 
-### <a name="partial-cache-sharing"></a>Partiell cache delning
-Partiell cache innebär att CDN för att hantera delvis cachelagrat innehåll till nya begäranden. Om den första begäran till CDN resulterar i en cachemiss, till exempel skickas begäran till ursprunget. Även om det här ofullständig innehållet läses in i CDN-cachen, kan övriga förfrågningar till CDN börja hämta dessa data. 
+### <a name="partial-cache-sharing"></a>Partiell cachedelning
+Partiell cachedelning gör att CDN kan betjäna delvis cachelagrat innehåll till nya begäranden. Om till exempel den första begäran till CDN resulterar i en cachemiss, skickas begäran till ursprunget. Även om det här ofullständiga innehållet läses in i CDN-cachen kan andra begäranden till CDN börja hämta dessa data. 
 
 
-## <a name="media-streaming-optimizations-for-azure-cdn-from-verizon"></a>Mediedirektuppspelning optimeringar för Azure CDN från Verizon
+## <a name="media-streaming-optimizations-for-azure-cdn-from-verizon"></a>Optimering av media för Azure CDN från Verizon
 
-**Azure CDN Standard från Verizon** och **Azure CDN Premium från Verizon** slutpunkter leverera strömmande medietillgångar direkt med hjälp av allmän optimering Leveranstyp. Några funktioner i CDN kan direkt leverans av medieinnehåll som standard.
+**Azure CDN Standard från Verizon** och **Azure CDN Premium från Verizon** slutpunkter leverera strömmande medietillgångar direkt med hjälp av den allmänna webbleverans optimeringstypen. Några funktioner på CDN hjälper direkt till att leverera medietillgångar som standard.
 
-### <a name="partial-cache-sharing"></a>Partiell cache delning
+### <a name="partial-cache-sharing"></a>Partiell cachedelning
 
-Partiell cache innebär att CDN för att hantera delvis cachelagrat innehåll till nya begäranden. Om den första begäran till CDN resulterar i en cachemiss, till exempel skickas begäran till ursprunget. Även om det här ofullständig innehållet läses in i CDN-cachen, kan övriga förfrågningar till CDN börja hämta dessa data. 
+Partiell cachedelning gör att CDN kan betjäna delvis cachelagrat innehåll till nya begäranden. Om till exempel den första begäran till CDN resulterar i en cachemiss, skickas begäran till ursprunget. Även om det här ofullständiga innehållet läses in i CDN-cachen kan andra begäranden till CDN börja hämta dessa data. 
 
-### <a name="cache-fill-wait-time"></a>Väntetid för cache fyllning
+### <a name="cache-fill-wait-time"></a>Väntetid för cachefyllning
 
- Funktionen cache fyllning vänta tid tvingar edge-servern för alla efterföljande begäranden för samma resurs tills HTTP-svarshuvuden tas emot från den ursprungliga servern. Om HTTP-svarshuvuden från ursprunget tas emot innan timern upphör att gälla, hanteras alla förfrågningar som har spärra från växande cachen. På samma gång fylls cachen med data från ursprunget. Väntetid för cache fyllning är som standard till 3 000 millisekunder. 
+ Funktionen för cachefyllningsberedskap tvingar kantservern att hålla alla efterföljande begäranden om samma resurs tills HTTP-svarshuvuden anländer från ursprungsservern. Om HTTP-svarshuvuden från ursprunget anländer innan timern upphör att gälla visas alla begäranden som spärrades av från den växande cachen. Samtidigt fylls cachen av data från ursprunget. Som standard är cachefyllningsvändtiden inställd på 3 000 millisekunder. 
 
  
-## <a name="media-streaming-optimizations-for-azure-cdn-from-akamai"></a>Mediedirektuppspelning optimeringar för Azure CDN från Akamai
+## <a name="media-streaming-optimizations-for-azure-cdn-from-akamai"></a>Optimering av media för Azure CDN från Akamai
  
-**Azure CDN Standard från Akamai** erbjuder en funktion som levererar media tillgångar effektivt till användare över hela världen i stor skala. Funktionen minskar svarstiderna eftersom det minskar belastningen på ursprungsservrar. Den här funktionen är tillgänglig med standard Akamai prisnivå. 
+**Azure CDN Standard från Akamai** erbjuder en funktion som levererar direktuppspelade medietillgångar effektivt till användare över hela världen i stor skala. Funktionen minskar fördröjningar eftersom det minskar belastningen på ursprungsservrarna. Den här funktionen är tillgänglig med standardnivån för Akamai-priser. 
 
-Mediedirektuppspelning optimering för **Azure CDN Standard från Akamai** är effektiva för live eller video på begäran strömmande media som använder enskilda media fragment för leverans. Den här processen skiljer sig från en enda stor tillgång som överförs via progressiv nedladdning eller med hjälp av begäranden om byte-intervall. Information om det formatet för leverans av media finns i [optimering av stora filer](cdn-large-file-optimization.md).
+Optimering av media för **Azure CDN Standard från Akamai** är effektiv för direktuppspelade media som använder enskilda mediefragment för leverans. Den här processen skiljer sig från en enda stor tillgång som överförs via progressiv nedladdning eller genom att använda byte-range-begäranden. Information om den typen av medieleverans finns i [Stor filoptimering](cdn-large-file-optimization.md).
 
-Allmänna leverans- eller video på begäran media leverans optimering medietyper använda ett CDN med backend-optimeringar för att leverera medieinnehåll snabbare. De kan också använda konfigurationer för medietillgångar baserat på bästa metoderna lärt dig över tid.
+De allmänna medieleveranstyperna eller optimeringstyperna för medieleverans på begäran använder ett CDN med backend-optimering för att leverera medietillgångar snabbare. De använder också konfigurationer för medietillgångar baserat på bästa praxis som har lärts in över tid.
 
-### <a name="configure-an-akamai-cdn-endpoint-to-optimize-media-streaming"></a>Konfigurera en Akamai CDN-slutpunkt för att optimera mediedirektuppspelning
+### <a name="configure-an-akamai-cdn-endpoint-to-optimize-media-streaming"></a>Konfigurera en Akamai CDN-slutpunkt för att optimera direktuppspelning av media
  
-Du kan konfigurera din slutpunkt med content delivery network (CDN) för att optimera leverans av stora filer via Azure portal. Du kan också använda REST-API: er eller någon av klient-SDK: er för att göra detta. Följande steg visar hur via Azure portal för en **Azure CDN Standard från Akamai** profil:
+Du kan konfigurera cdn-slutpunkten (Content Delivery Network) för att optimera leveransen för stora filer via Azure-portalen. Du kan också använda REST-API:erna eller någon av klient-SDK:erna för att göra detta. Följande steg visar processen via Azure-portalen för en **Azure CDN Standard från Akamai-profil:**
 
-1. Lägga till en ny slutpunkt på en Akamai **CDN-profil** väljer **Endpoint**.
+1. Om du vill lägga till en ny slutpunkt väljer du **Slutpunkt**på en Akamai **CDN-profilsida** .
   
     ![Ny slutpunkt](./media/cdn-media-streaming-optimization/cdn-new-akamai-endpoint.png)
 
-2. I den **optimerade för** listrutan, väljer **Video på begäran** för video på begäran tillgångar. Om du gör en kombination av live och strömning av video på begäran, Välj **allmän mediedirektuppspelning**.
+2. I **listrutan Optimerad för** listruta väljer du **Video on demand media streaming** för video-on-demand-tillgångar. Om du gör en kombination av direktuppspelning av live och video på begäran väljer du **Allmän mediestreaming**.
 
-    ![Strömning valt](./media/cdn-media-streaming-optimization/02_Creating.png) 
+    ![Streaming markerat](./media/cdn-media-streaming-optimization/02_Creating.png) 
  
-När du har skapat slutpunkten gäller optimering för alla filer som matchar vissa kriterier. I följande avsnitt beskrivs den här processen. 
+När du har skapat slutpunkten tillämpas optimeringen för alla filer som matchar vissa villkor. I följande avsnitt beskrivs den här processen. 
 
-### <a name="caching"></a>Cachelagring
+### <a name="caching"></a>Caching
 
-Om **Azure CDN Standard från Akamai** känner av att tillgången är ett manifest för direktuppspelning eller fragment den använder olika tidpunkter för cachelagring upphör att gälla från allmän webbleverans. (Se en fullständig lista i tabellen nedan.) Som alltid respekteras cache-control eller Expires-huvuden som skickas från ursprunget. Om tillgången inte är en tillgång med media, cachelagrar den med hjälp av förfallodatum tiderna för allmän webbleverans.
+Om **Azure CDN Standard från Akamai** upptäcker att tillgången är ett streamingmanifest eller fragment, använder den olika cachelagringsförfallider från allmän webbleverans. (Se hela listan i följande tabell.) Som alltid, cache-kontroll eller upphör rubriker som skickas från ursprunget respekteras. Om tillgången inte är en medietillgång cachelagras den med hjälp av utgångsdatum för allmän webbleverans.
 
-Kort negativ cachelagring tiden är användbart för ursprung avlastning när många användare begär ett fragment som inte finns ännu. Ett exempel är en direktsänd dataström där paketen inte är tillgängliga från ursprunget den andra. Längre cachelagring intervallet hjälper också till att förflytta begäranden från ursprunget eftersom videoinnehåll inte ändras normalt.
+Den korta negativa cachelagringstiden är användbar för ursprungsladdning när många användare begär ett fragment som inte finns ännu. Ett exempel är en livestream där paketen inte är tillgängliga från det andra. Det längre cachelagringsintervallet hjälper också till att avlasta begäranden från ursprunget eftersom videoinnehåll vanligtvis inte ändras.
  
 
-|   | Allmän webbleverans | Allmän mediedirektuppspelning | Direktuppspelning av video på begäran  
+|   | Allmän webbleverans | Allmän medieströmning | Video-on-demand media streaming  
 --- | --- | --- | ---
-Caching: positivt <br> HTTP 200, 203, 300, <br> 301, 302 och 410 | 7 dagar |365 dagar | 365 dagar   
-Caching: negativt <br> HTTP 204, 305, 404, <br> och 405 | Inga | 1 sekund | 1 sekund
+Caching: Positivt <br> HTTP 200, 203, 300, <br> 301, 302 och 410 | 7 dagar |365 dagar | 365 dagar   
+Caching: Negativ <br> HTTP 204, 305, 404, <br> och 405 | Inget | 1 sekund | 1 sekund
  
-### <a name="deal-with-origin-failure"></a>Hantera ursprung fel  
+### <a name="deal-with-origin-failure"></a>Hantera ursprungsfel  
 
-Allmän och video på begäran media leverans har också ursprung tidsgränser och en återförsök logg baserat på bästa praxis för begäran om vanliga mönster. Till exempel eftersom allmän leveransen är för live och leverans av video på begäran media, använder en kortare tidsgräns för anslutning på grund av den tid natur liveuppspelning.
+Allmän medieleverans och video-on-demand media leverans har också ursprung timeout och en återförsök logg baserat på bästa praxis för typiska begäran mönster. Eftersom allmän medieleverans till exempel är för direkt- och video-on-demand-medieleverans, använder den en kortare tidsgränsen för anslutning på grund av den tidskänsliga karaktären hos livestreaming.
 
-När en anslutning tidsgränsen återförsök CDN flera gånger innan den skickar ett ”504 - Gatewaytimeout”-fel till klienten. 
+När en anslutning timeout försöker CDN igen ett antal gånger innan den skickar ett "504 - Gateway Timeout"-fel till klienten. 
 
-När en fil matchar typ och storlek villkor fillistan, använder CDN beteendet för direktuppspelning av media. I annat fall används allmän webbleverans.
+När en fil matchar listan över filtyp och storleksvillkor används beteendet för direktuppspelning av media. Annars används allmän webbleverans.
    
-### <a name="conditions-for-media-streaming-optimization"></a>Villkor för optimering av mediedirektuppspelning 
+### <a name="conditions-for-media-streaming-optimization"></a>Villkor för optimering av direktuppspelning av media 
 
-I följande tabell visas en uppsättning kriterier uppfyllas för optimering av mediedirektuppspelning: 
+I följande tabell visas de kriterier som ska uppfyllas för optimering av direktuppspelning av media: 
  
 Strömmande typer som stöds | Filnamnstillägg  
 --- | ---  
 Apple HLS | m3u8, m3u, m3ub, nyckel, ts, aac
-Adobe HDS | f4m, f4x, drmmeta, bootstrap, f4f,<br>Godtogs Fragm URL-struktur <br> (matchar regex: ^(/.*)Seq(\d+)-Frag(\d+)
-DASH | MPD, streck, divx, ismv, m4s, m4v, mp4, mp4v, <br> sidx, webm, mp4a, m4a, isma
-Smooth streaming | / manifest//QualityLevels/fragment /
+Adobe HDS | f4m, f4x, drmmeta, bootstrap, f4f,<br>Url-struktur för Seg-Frag <br> (matchande regex: ^(/.*)Seq(\d+)-Frag(\d+)
+Dash | mpd, dash, divx, ismv, m4s, m4v, mp4, mp4v, <br> sidx, webm, mp4a, m4a, isma
+Jämn strömning | /manifest/, /QualityLevels/Fragment/
   
  

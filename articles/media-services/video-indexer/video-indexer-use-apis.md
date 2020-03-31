@@ -1,7 +1,7 @@
 ---
 title: Använda Video Indexer-API:et
 titleSuffix: Azure Media Services
-description: Den här artikeln beskriver hur du kommer igång med Azure Media Services Video Indexer API.
+description: I den här artikeln beskrivs hur du kommer igång med Azure Media Services Video Indexer API.
 services: media-services
 author: Juliako
 manager: femila
@@ -11,17 +11,17 @@ ms.topic: article
 ms.date: 02/03/2020
 ms.author: juliako
 ms.openlocfilehash: 8b6d160f71bfe8b2e5c447296d511b54ce6542c8
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79245855"
 ---
 # <a name="tutorial-use-the-video-indexer-api"></a>Självstudie: Använda Video Indexer-API:t
 
-Video Indexer konsoliderar olika funktioner för ljud-och video artificiell intelligens (AI) som erbjuds av Microsoft till en integrerad tjänst, vilket gör det enklare att utveckla. API: erna är utformade så att utvecklare kan fokusera på att använda Media AI-tekniker utan att behöva oroa sig för skalning, global räckvidd, tillgänglighet och pålitlighet för moln plattformarna. Du kan använda API: t för att ladda upp filer, få detaljerad information om video insikter, Hämta URL: er för inbäddnings bara insikter och uppspelnings-widgetar med mera.
+Video Indexer konsoliderar olika ljud- och videotekniker för artificiell intelligens (AI) som erbjuds av Microsoft till en integrerad tjänst, vilket gör utvecklingen enklare. API:erna är utformade för att göra det möjligt för utvecklare att fokusera på att konsumera Media AI-teknik utan att oroa dig för skala, global räckvidd, tillgänglighet och tillförlitlighet för molnplattformar. Du kan använda API:et för att ladda upp dina filer, få detaljerade videoinsikter, få webbadresser med inbäddningsbara insikter och widgets för spelare med mera.
 
-När du skapar ett Video Indexer konto kan du välja ett kostnads fritt utvärderings konto (där du får ett visst antal kostnads fria indexerings minuter) eller ett betalt alternativ (där du inte är begränsad till kvoten). Med en kostnads fri utvärderings version tillhandahåller Video Indexer upp till 600 minuter kostnads fri indexering för webbplats användare och upp till 2400 minuter kostnads fri indexering för API-användare. Med ett betalt alternativ skapar du ett Video Indexer-konto som [är kopplat till din Azure-prenumeration och ett Azure Media Services-konto](connect-to-azure.md). Du betalar för minuter som indexeras samt kostnader relaterade till Azure Media Services-kontot.
+När du skapar ett videoindexerkonto kan du välja ett kostnadsfritt utvärderingskonto (där du får ett visst antal kostnadsfria indexeringsminuter) eller ett betalt alternativ (där du inte begränsas av kvoten). Med en gratis testperiod ger Video Indexer upp till 600 minuters gratis indexering till webbplatsanvändare och upp till 2400 minuters gratis indexering till API-användare. Med ett betalt alternativ skapar du ett videoindexerkonto som är [kopplat till din Azure-prenumeration och ett Azure Media Services-konto](connect-to-azure.md). Du betalar för minuter som indexeras samt kostnader relaterade till Azure Media Services-kontot.
 
 Den här artikeln visar hur utvecklarna kan dra nytta av [Video Indexer-API:t](https://api-portal.videoindexer.ai/).
 
@@ -29,46 +29,46 @@ Den här artikeln visar hur utvecklarna kan dra nytta av [Video Indexer-API:t](h
 
 1. Logga in på [Video Indexer-utvecklarportalen](https://api-portal.videoindexer.ai/).
     
-    ![Logga in på Video Indexer Developer-portalen](./media/video-indexer-use-apis/video-indexer-api01.png)
+    ![Logga in på Utvecklarportalen för Video Indexer](./media/video-indexer-use-apis/video-indexer-api01.png)
 
    > [!Important]
    > * Du måste använda samma provider som du använde när du registrerade dig för Video Indexer.
-   > * Personliga Google-och Microsoft-konton (Outlook/Live) kan bara användas för utvärderings konton. Konton som är anslutna till Azure kräver Azure AD.
-   > * Det kan bara finnas ett aktivt konto per e-post. Om en användare försöker logga in med user@gmail.com för LinkedIn och senare med user@gmail.com för Google, visas ett fel meddelande om att användaren redan finns på den senare.
+   > * Personliga Google- och Microsoft-konton (Outlook/Live) kan endast användas för utvärderingskonton. Konton som är anslutna till Azure kräver Azure AD.
+   > * Det kan bara finnas ett aktivt konto per e-post. Om en användare försöker user@gmail.com logga in med user@gmail.com för LinkedIn och senare med för Google visas en felsida på den senare och säger att användaren redan finns.
 
 2. Prenumerera.
 
-    Välj fliken [produkter](https://api-portal.videoindexer.ai/products) . Välj sedan auktorisering och prenumerera.
+    Välj fliken [Produkter.](https://api-portal.videoindexer.ai/products) Välj sedan Auktorisering och prenumerera.
     
-    ![Fliken produkter i Video Indexer Developer-portalen](./media/video-indexer-use-apis/video-indexer-api02.png)
+    ![Fliken Produkter i utvecklarportalen för videoindexerare](./media/video-indexer-use-apis/video-indexer-api02.png)
 
     > [!NOTE]
     > Nya användare prenumererar automatiskt på Auktorisering.
     
-    När du prenumererar kan du se din prenumeration och dina primära och sekundära nycklar. Nycklarna ska vara skyddade. Nycklarna ska bara användas av din serverkod. De bör inte vara tillgängliga på klient sidan (. js,. html och så vidare).
+    När du prenumererar kan du se din prenumeration och dina primära och sekundära nycklar. Nycklarna ska vara skyddade. Nycklarna ska bara användas av din serverkod. De bör inte vara tillgängliga på klientsidan (.js, .html och så vidare).
 
-    ![Prenumeration och nycklar i Video Indexer Developer-portalen](./media/video-indexer-use-apis/video-indexer-api03.png)
+    ![Prenumeration och nycklar i Utvecklarportalen för Video Indexer](./media/video-indexer-use-apis/video-indexer-api03.png)
 
 > [!TIP]
 > Video Indexer-användare kan använda en enstaka prenumerationsnyckel för att ansluta till flera Video Indexer-konton. Sedan kan du länka dessa Video Indexer-konton till olika Media Services-konton.
 
 ## <a name="obtain-access-token-using-the-authorization-api"></a>Hämta åtkomsttoken med hjälp av auktoriserings-API:t
 
-När du prenumererar på API: et för auktorisering kan du hämta åtkomsttoken. Dessa åtkomsttoken används för att autentisera mot åtgärds-API:t.
+När du prenumererar på API:et för auktorisering kan du hämta åtkomsttoken. Dessa åtkomsttoken används för att autentisera mot åtgärds-API:t.
 
 Varje anrop till åtgärds-API:t ska associeras med en åtkomsttoken, som matchar auktoriseringsområdet för anropet.
 
-- Användar nivå: åtkomsttoken på användar nivå gör att du kan utföra åtgärder på **användar** nivå. Till exempel hämta associerade konton.
-- Konto nivå: med åtkomst-token på konto nivå kan du utföra åtgärder på **konto** nivå eller **video** nivå. Du kan till exempel Ladda upp video, Visa alla videor, få video insikter och så vidare.
-- Video nivå: med åtkomst-token på video nivå kan du utföra åtgärder på en enskild **video**. Du kan till exempel få video insikter, Hämta under texter, Hämta widgetar och så vidare.
+- Användarnivå: Med åtkomsttoken på användarnivå kan du utföra åtgärder på **användarnivå.** Till exempel hämta associerade konton.
+- Kontonivå: Med åtkomsttoken på kontonivå kan du utföra åtgärder på **kontonivå** eller **videonivå.** Ladda till exempel upp video, lista alla videor, få videoinsikter och så vidare.
+- Videonivå: Med åtkomsttoken på videonivå kan du utföra åtgärder på en viss **video**. Till exempel, få video insikter, ladda ner bildtexter, få widgets och så vidare.
 
-Du kan kontrol lera om dessa tokens är skrivskyddade eller om de tillåter redigering genom att ange **AllowEdit = TRUE/FALSE**.
+Du kan styra om dessa token är skrivskyddade eller om de tillåter redigering genom att ange **allowEdit=true/false**.
 
-För de flesta server-till-Server-scenarier använder du förmodligen samma **konto** -token eftersom det täcker både **konto** åtgärder och **video** åtgärder. Men om du planerar att göra klient sidans anrop till Video Indexer (till exempel från Java Script) vill du **använda en videoåtkomsttoken för** att förhindra att klienter får åtkomst till hela kontot. Det beror också på att när du bäddar in Video Indexer klient kod i klienten (till exempel med hjälp av **Hämta insikts-widget** eller **Hämta Player-widget**) måste du ange en **video** åtkomst-token.
+För de flesta server-till-server-scenarier använder du förmodligen samma **kontotoken** eftersom den täcker både **kontoåtgärder** och **videoåtgärder.** Men om du planerar att ringa appeller på klientsidan till Video Indexer (till **video** exempel från JavaScript) vill du använda en videoåtkomsttoken för att förhindra att klienter får åtkomst till hela kontot. Det är också anledningen till att när du bäddar in videoindexeringsklientkod i klienten (till exempel med **widgeten Hämta statistik** eller **Widgeten Hämta spelare)** måste du ange en videoåtkomsttoken. **video**
 
 Du kan göra det lättare genom att använda **Auktoriserings**-API:t > **GetAccounts** för att hämta dina konton utan att erhålla en användartoken först. Du kan också begära att få kontona med giltiga token, så att du kan hoppa över ett ytterligare anrop för att få en kontotoken.
 
-Åtkomsttoken upphör att gälla efter 1 timme. Kontrollera att din åtkomsttoken är giltig innan du använder åtgärds-API:t. Om den går ut anropar du API: et för auktorisering igen för att få en ny åtkomsttoken.
+Åtkomsttoken upphör att gälla efter 1 timme. Kontrollera att din åtkomsttoken är giltig innan du använder åtgärds-API:t. Om den upphör att gälla anropar du API:et för auktorisering igen för att få en ny åtkomsttoken.
 
 Du är redo att börja integrera med API: et. Se [den detaljerade beskrivningen av varje Video Indexer-REST API](https://api-portal.videoindexer.ai/).
 
@@ -82,11 +82,11 @@ Parametern Konto-ID krävs i alla åtgärds-API-anrop. Konto-ID är ett GUID som
     2. Gå till sidan **Inställningar**.
     3. Kopiera konto-ID:t.
 
-        ![Video Indexer inställningar och konto-ID](./media/video-indexer-use-apis/account-id.png)
+        ![Inställningar och konto-ID för videoindexerare](./media/video-indexer-use-apis/account-id.png)
 
 * Använd **Video Indexer-utvecklarportalen** och hämta konto-ID:t programmatiskt.
 
-    Använd [Hämta konto](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Get-Account?) -API.
+    Använd [API:et för hämta konto.](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Get-Account?)
 
     > [!TIP]
     > Du kan generera åtkomsttoken för kontona genom att definiera `generateAccessTokens=true`.
@@ -103,9 +103,9 @@ Parametern Konto-ID krävs i alla åtgärds-API-anrop. Konto-ID är ett GUID som
 
 Det här avsnittet innehåller några rekommendationer när du använder Video Indexer-API:t.
 
-- Om du planerar att ladda upp en video rekommenderas att placera filen i en offentlig nätverks plats (till exempel OneDrive). Hämta länken till videon och ange URL:en som parameter för uppladdningsfil.
+- Om du planerar att ladda upp en video rekommenderar vi att filen placeras på en plats i det offentliga nätverket (till exempel OneDrive). Hämta länken till videon och ange URL:en som parameter för uppladdningsfil.
 
-    URL:en som skickas till Video Indexer måste peka på en mediefil (ljud eller video). Vissa av länkarna som genereras av OneDrive är till en HTML-sida som innehåller filen. En enkel verifiering för URL: en är att klistra in den i en webbläsare – om filen börjar hämtas är det förmodligen en bra URL. Om webbläsaren återger viss visualisering är det troligt vis inte en länk till en fil, men till en HTML-sida.
+    URL:en som skickas till Video Indexer måste peka på en mediefil (ljud eller video). Vissa av länkarna som genereras av OneDrive är till en HTML-sida som innehåller filen. En enkel verifiering av webbadressen är att klistra in den i en webbläsare, om filen börjar ladda ner, är det sannolikt en bra webbadress. Om webbläsaren återger viss visualisering är det sannolikt inte en länk till en fil utan till en HTML-sida.
 
 - När du anropar API:t som hämtar videoinsikter för den angivna videon får du detaljerade JSON-utdata som svarsinnehåll. [Information om returnerad JSON finns i det här avsnittet](video-indexer-output-json-v2.md).
 
@@ -214,6 +214,6 @@ Debug.WriteLine(playerWidgetLink);
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Granska information om JSON för utdata](video-indexer-output-json-v2.md)
-- Kolla in [exempel koden](https://github.com/Azure-Samples/media-services-video-indexer/tree/master/API) som visar viktig aspekt av att ladda upp och indexera en video. Efter koden kunna får du en bra uppfattning om hur du använder vårt API för grundläggande funktioner. Se till att läsa de infogade kommentarerna och Lägg märke till våra bästa praxis råd.
+- [Undersök detaljer om produktionen JSON](video-indexer-output-json-v2.md)
+- Kolla in [exempelkoden](https://github.com/Azure-Samples/media-services-video-indexer/tree/master/API) som visar viktig aspekt av att ladda upp och indexera en video. Genom att följa koden ger du dig en god uppfattning om hur du använder vårt API för grundläggande funktioner. Se till att läsa inline kommentarer och märker våra bästa praxis råd.
 

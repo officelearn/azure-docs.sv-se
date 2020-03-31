@@ -1,6 +1,6 @@
 ---
-title: Installera en huvud mål server för återställning av virtuella Linux-datorer med Azure Site Recovery
-description: Lär dig hur du konfigurerar en Linux-huvud mål server för återställning efter fel till en lokal plats under haveri beredskap för virtuella VMware-datorer till Azure med hjälp av Azure Site Recovery.
+title: Installera en huvudmålserver för återställning av virtuella Linux-datorer med Azure Site Recovery
+description: Lär dig hur du konfigurerar en Målserver för Linux-huvudhanteraren för återställning av återställning av återställning av en lokal plats vid haveriberedskap av virtuella datorer med VMware till Azure med Hjälp av Azure Site Recovery.
 author: mayurigupta13
 services: site-recovery
 manager: rochakm
@@ -9,272 +9,272 @@ ms.topic: conceptual
 ms.date: 03/06/2019
 ms.author: mayg
 ms.openlocfilehash: 5b4d625d28584bb601905e9439c112c845219e54
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73954382"
 ---
-# <a name="install-a-linux-master-target-server-for-failback"></a>Installera en Linux-huvud mål server för återställning efter fel
-När du har växlat över dina virtuella datorer till Azure kan du återställa de virtuella datorerna till den lokala platsen. Om du vill återställa den virtuella datorn från Azure till den lokala platsen måste du återställa den virtuella datorn från Azure. För den här processen behöver du en lokal huvud mål server för att ta emot trafiken. 
+# <a name="install-a-linux-master-target-server-for-failback"></a>Konfigurera en Linux-huvudmålserver för återställning efter fel
+När du har växlat över dina virtuella datorer till Azure kan du återställa de virtuella datorerna till den lokala platsen. För att växla tillbaka måste du rotera den virtuella datorn från Azure till den lokala platsen. För den här processen behöver du en lokal huvudmålserver för att ta emot trafiken. 
 
-Om den skyddade virtuella datorn är en virtuell Windows-dator behöver du ett Windows huvud mål. För en virtuell Linux-dator behöver du ett Linux-huvud mål. Läs följande steg för att lära dig hur du skapar och installerar ett Linux-huvud mål.
+Om din skyddade virtuella dator är en virtuell Windows-dator behöver du ett Windows-huvudmål. För en virtuell Linux-maskin behöver du ett Linux-huvudmål. Läs följande steg för att lära dig hur du skapar och installerar ett Linux-huvudmål.
 
 > [!IMPORTANT]
-> Från och med lanseringen av 9.10.0 huvud mål servern kan den senaste huvud mål servern bara installeras på en Ubuntu 16,04-Server. Nya installationer är inte tillåtna på CentOS 6.6-servrar. Du kan dock fortsätta att uppgradera dina gamla huvud mål servrar med hjälp av 9.10.0-versionen.
-> Huvud mål servern på LVM stöds inte.
+> Från och med lanseringen av målservern 9.10.0 kan den senaste huvudmålservern endast installeras på en Ubuntu 16.04-server. Nya installationer är inte tillåtna på CentOS6.6-servrar. Du kan dock fortsätta att uppgradera dina gamla huvudmålservrar med hjälp av 9.10.0-versionen.
+> Huvudmålserver på LVM stöds inte.
 
 ## <a name="overview"></a>Översikt
-Den här artikeln innehåller anvisningar för hur du installerar ett Linux-huvud mål.
+Den här artikeln innehåller instruktioner för hur du installerar ett Linux-huvudmål.
 
-Publicera kommentarer eller frågor i slutet av den här artikeln eller i [Azure Recovery Services-forumet](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
+Skicka kommentarer eller frågor i slutet av den här artikeln eller på [Azure Recovery Services Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
 ## <a name="prerequisites"></a>Krav
 
-* Om du vill välja den värd som ska användas för att distribuera huvud målet kontrollerar du om återställning efter fel återställningen kommer till en befintlig lokal virtuell dator eller till en ny virtuell dator. 
-    * För en befintlig virtuell dator ska värden för huvud målet ha åtkomst till den virtuella datorns data lager.
-    * Om den lokala virtuella datorn inte finns (i händelse av en alternativ plats återställning) skapas en virtuell dator för återställning efter fel på samma värd som huvud mål servern. Du kan välja valfri ESXi-värd för att installera huvud målet.
-* Huvud målet bör finnas i ett nätverk som kan kommunicera med processervern och konfigurations servern.
-* Huvud mål serverns version måste vara lika med eller tidigare än versioner av processervern och konfigurations servern. Om versionen av konfigurations servern till exempel är 9,4 kan huvud målets version vara 9,4 eller 9,3, men inte 9,5.
-* Huvud målet kan bara vara en virtuell VMware-dator och inte en fysisk server.
+* Om du vill välja den värd där huvudmålet ska distribueras avgör du om återställningen av återställningen ska vara till en befintlig lokal virtuell dator eller till en ny virtuell dator. 
+    * För en befintlig virtuell dator bör värden för huvudmålet ha åtkomst till datalager för den virtuella datorn.
+    * Om den lokala virtuella datorn inte finns (vid återställning av alternativ plats) skapas den virtuella återställningsdatorn på samma värd som huvudmålet. Du kan välja vilken ESXi-värd som helst för att installera huvudmålet.
+* Huvudmålet ska vara i ett nätverk som kan kommunicera med processservern och konfigurationsservern.
+* Versionen av huvudmålet måste vara lika med eller tidigare än versionerna av processservern och konfigurationsservern. Om till exempel versionen av konfigurationsservern är 9.4 kan versionen av huvudmålet vara 9.4 eller 9.3 men inte 9.5.
+* Huvudmålet kan bara vara en virtuell VMware-dator och inte en fysisk server.
 
-## <a name="sizing-guidelines-for-creating-master-target-server"></a>Storleks rikt linjer för att skapa en huvud mål Server
+## <a name="sizing-guidelines-for-creating-master-target-server"></a>Ändra riktlinjer för att skapa huvudmålserver
 
-Skapa huvud målet enligt följande storleks rikt linjer:
-- **RAM-minne**: 6 GB eller mer
-- **OS-disk storlek**: 100 GB eller mer (för att installera OS)
-- **Ytterligare disk storlek för kvarhållning av enhet**: 1 TB
-- **Processor kärnor**: 4 kärnor eller mer
+Skapa huvudmålet i enlighet med följande storleksriktlinjer:
+- **RAM:** 6 GB eller mer
+- **OS diskstorlek:** 100 GB eller mer (för att installera OS)
+- **Ytterligare diskstorlek för kvarhållningsenhet:** 1 TB
+- **CPU-kärnor:** 4 kärnor eller mer
 
-Följande Ubuntu-kerneler stöds.
+Följande Ubuntu-kärnor stöds.
 
 
-|Kernel-serie  |Stöd för upp till  |
+|Kernel-serien  |Stöd upp till  |
 |---------|---------|
-|4.4      |4.4.0-81-generic         |
-|4.8      |4.8.0-56-generic         |
-|4.10     |4.10.0 – 24-generiskt        |
+|4.4      |4.4.0-81-generisk         |
+|4.8      |4.8.0-56-generisk         |
+|4.10     |4.10.0-24-generisk        |
 
 
-## <a name="deploy-the-master-target-server"></a>Distribuera huvud mål servern
+## <a name="deploy-the-master-target-server"></a>Distribuera huvudmålservern
 
-### <a name="install-ubuntu-16042-minimal"></a>Installera Ubuntu 16.04.2 minimal
+### <a name="install-ubuntu-16042-minimal"></a>Installera Ubuntu 16.04.2 Minimal
 
-Vidta följande steg för att installera Ubuntu 16.04.2 64-bitars operativ system.
+Gör så här för att installera Ubuntu 16.04.2 64-bitars operativsystem.
 
-1.   Gå till [nedladdnings länken](http://old-releases.ubuntu.com/releases/16.04.2/ubuntu-16.04.2-server-amd64.iso), Välj den närmaste speglingen och ladda ned en Ubuntu 16.04.2 med minimal 64-bitars ISO.
-Behåll en Ubuntu 16.04.2 minimal 64-bitars ISO i DVD-enheten och starta systemet.
+1.   Gå till [nedladdningslänken,](http://old-releases.ubuntu.com/releases/16.04.2/ubuntu-16.04.2-server-amd64.iso)välj den närmaste spegeln och ladda ner en Ubuntu 16.04.2 minimal 64-bitars ISO.
+Håll en Ubuntu 16.04.2 minimal 64-bitars ISO i DVD-enheten och starta systemet.
 
-1.  Välj **engelska** som önskat språk och välj sedan **RETUR**.
+1.  Välj **engelska** som önskat språk och välj sedan **Retur**.
     
     ![Välj ett språk](./media/vmware-azure-install-linux-master-target/image1.png)
-1. Välj **Installera Ubuntu Server**och välj sedan **RETUR**.
+1. Välj **Installera Ubuntu Server**och välj sedan **Retur**.
 
-    ![Välj Installera Ubuntu-Server](./media/vmware-azure-install-linux-master-target/image2.png)
+    ![Välj Installera Ubuntu-server](./media/vmware-azure-install-linux-master-target/image2.png)
 
-1.  Välj **engelska** som önskat språk och välj sedan **RETUR**.
+1.  Välj **engelska** som önskat språk och välj sedan **Retur**.
 
     ![Välj engelska som önskat språk](./media/vmware-azure-install-linux-master-target/image3.png)
 
-1. Välj lämpligt alternativ i listan alternativ för **tidszon** och välj sedan **RETUR**.
+1. Välj lämpligt alternativ i alternativlistan **För tidszon** och välj sedan **Retur**.
 
     ![Välj rätt tidszon](./media/vmware-azure-install-linux-master-target/image4.png)
 
-1. Välj **Nej** (standard alternativet) och välj sedan **RETUR**.
+1. Välj **Nej** (standardalternativet) och välj sedan **Retur**.
 
-     ![Konfigurera tangent bordet](./media/vmware-azure-install-linux-master-target/image5.png)
-1. Välj **engelska (US)** som ursprungsland/region för tangent bordet och välj sedan **RETUR**.
+     ![Konfigurera tangentbordet](./media/vmware-azure-install-linux-master-target/image5.png)
+1. Välj **engelska (USA)** som ursprungsland/ursprungsregion för tangentbordet och välj sedan **Retur**.
 
-1. Välj **engelska (US)** som tangentbordslayout och välj sedan **RETUR**.
+1. Välj **engelska (USA)** som tangentbordslayout och välj sedan **Retur**.
 
-1. Ange värd namnet för servern i rutan **värdnamn** och välj sedan **Fortsätt**.
+1. Ange värdnamnet för servern i rutan **Värdnamn** och välj sedan **Fortsätt**.
 
-1. Om du vill skapa ett användar konto anger du användar namnet och väljer sedan **Fortsätt**.
+1. Om du vill skapa ett användarkonto anger du användarnamnet och väljer sedan **Fortsätt**.
 
-      ![Skapa ett användar konto](./media/vmware-azure-install-linux-master-target/image9.png)
+      ![Skapa ett användarkonto](./media/vmware-azure-install-linux-master-target/image9.png)
 
-1. Ange lösen ordet för det nya användar kontot och välj sedan **Fortsätt**.
+1. Ange lösenordet för det nya användarkontot och välj sedan **Fortsätt**.
 
-1.  Bekräfta lösen ordet för den nya användaren och välj sedan **Fortsätt**.
+1.  Bekräfta lösenordet för den nya användaren och välj sedan **Fortsätt**.
 
-    ![Bekräfta lösen orden](./media/vmware-azure-install-linux-master-target/image11.png)
+    ![Bekräfta lösenorden](./media/vmware-azure-install-linux-master-target/image11.png)
 
-1.  I nästa val för att kryptera din arbets katalog väljer du **Nej** (standard alternativet) och väljer sedan **RETUR**.
+1.  I nästa val för att kryptera din hemkatalog väljer du **Nej** (standardalternativet) och väljer sedan **Retur**.
 
-1. Om tids zonen som visas är korrekt väljer du **Ja** (standard alternativet) och väljer sedan **RETUR**. Om du vill konfigurera om din tidszon väljer du **Nej**.
+1. Om tidszonen som visas är korrekt väljer du **Ja** (standardalternativet) och väljer sedan **Retur**. Om du vill konfigurera om tidszonen väljer du **Nej**.
 
-1. I alternativ för partitionerings metod väljer du **guidad-Använd hel disk**och väljer sedan **RETUR**.
+1. Välj **Guidad**i alternativen för partitioneringsmetoden och välj sedan **Retur**.
 
-     ![Välj alternativet partitionerings metod](./media/vmware-azure-install-linux-master-target/image14.png)
+     ![Välj alternativet partitioneringsmetod](./media/vmware-azure-install-linux-master-target/image14.png)
 
-1.  Välj lämplig disk i alternativen **Välj disk till partition** och välj sedan **RETUR**.
+1.  Välj lämplig disk på **alternativen Välj disk till partition** och välj sedan **Retur**.
 
-    ![Välj disken](./media/vmware-azure-install-linux-master-target/image15.png)
+    ![Markera disken](./media/vmware-azure-install-linux-master-target/image15.png)
 
-1.  Välj **Ja** om du vill skriva ändringarna på disk och välj sedan **RETUR**.
+1.  Välj **Ja** om du vill skriva ändringarna till disken och välj sedan **Retur**.
 
-    ![Välj standard alternativet](./media/vmware-azure-install-linux-master-target/image16-ubuntu.png)
+    ![Välj standardalternativ](./media/vmware-azure-install-linux-master-target/image16-ubuntu.png)
 
-1.  I valet konfigurera proxy väljer du standard alternativet, väljer **Fortsätt**och väljer sedan **RETUR**.
+1.  I konfigurationsproxyvalet väljer du standardalternativet, väljer **Fortsätt**och väljer sedan **Retur**.
      
-     ![Välj hur du vill hantera uppgraderingar](./media/vmware-azure-install-linux-master-target/image17-ubuntu.png)
+     ![Välj hur du ska hantera uppgraderingar](./media/vmware-azure-install-linux-master-target/image17-ubuntu.png)
 
-1.  Välj alternativet **inga automatiska uppdateringar** i valet för att hantera uppgraderingar på systemet och välj sedan **RETUR**.
+1.  Välj **Alternativet Inga automatiska uppdateringar** i valet för att hantera uppgraderingar på datorn och välj sedan **Retur**.
 
-     ![Välj hur du vill hantera uppgraderingar](./media/vmware-azure-install-linux-master-target/image18-ubuntu.png)
+     ![Välj hur du ska hantera uppgraderingar](./media/vmware-azure-install-linux-master-target/image18-ubuntu.png)
 
     > [!WARNING]
-    > Eftersom Azure Site Recovery huvud mål servern kräver en särskilt version av Ubuntu, måste du se till att kernel-uppgraderingar är inaktiverade för den virtuella datorn. Om de är aktiverade kommer alla vanliga uppgraderingar att orsaka fel på huvud mål servern. Se till att du väljer alternativet **inga automatiska uppdateringar** .
+    > Eftersom målservern för Azure Site Recovery kräver en mycket specifik version av Ubuntu måste du se till att kärnuppgraderingarna är inaktiverade för den virtuella datorn. Om de är aktiverade, orsakar alla regelbundna uppgraderingar huvudmålservern att fungera fel. Se till att du väljer alternativet **Inga automatiska uppdateringar.**
 
-1.  Välj standard alternativ. Om du vill använda openSSH för SSH Connect väljer du alternativet **openSSH Server** och väljer sedan **Fortsätt**.
+1.  Välj standardalternativ. Om du vill öppnaSSH för SSH-anslutning väljer du alternativet **OpenSSH-server** och väljer sedan **Fortsätt**.
 
-    ![Välj program vara](./media/vmware-azure-install-linux-master-target/image19-ubuntu.png)
+    ![Välj programvara](./media/vmware-azure-install-linux-master-target/image19-ubuntu.png)
 
-1. Välj **Ja**i valet för att installera GRUB-startläsaren och välj sedan **RETUR**.
+1. I valet för installation av GRUB-starthanteraren väljer du **Ja**och väljer sedan **Retur**.
      
-    ![GRUB start installations program](./media/vmware-azure-install-linux-master-target/image20.png)
+    ![GRUB startinstallationsprogram](./media/vmware-azure-install-linux-master-target/image20.png)
 
 
-1. Välj lämplig enhet för start inläsnings installationen (helst **/dev/SDA**) och välj sedan **RETUR**.
+1. Välj lämplig enhet för startlastarinstallationen (helst **/dev/sda)** och välj sedan **Retur**.
      
     ![Välj lämplig enhet](./media/vmware-azure-install-linux-master-target/image21.png)
 
-1. Välj **Fortsätt**och välj sedan **RETUR** för att slutföra installationen.
+1. Välj **Fortsätt**och välj sedan **Retur** för att slutföra installationen.
 
     ![Slutför installationen](./media/vmware-azure-install-linux-master-target/image22.png)
 
-1. När installationen har slutförts loggar du in på den virtuella datorn med de nya autentiseringsuppgifterna för användaren. (Mer information hittar du i **steg 10** .)
+1. När installationen är klar loggar du in på den virtuella datorn med de nya användarautentiseringsuppgifterna. (Se **steg 10** för mer information.)
 
-1. Använd stegen som beskrivs i följande skärm bild för att ange lösen ordet för rot användaren. Logga in som rot användare.
+1. Använd stegen som beskrivs i följande skärmbild för att ange ROOT-användarlösenordet. Logga sedan in som ROOT-användare.
 
-    ![Ange rot användarens lösen ord](./media/vmware-azure-install-linux-master-target/image23.png)
+    ![Ange root-användarlösenord](./media/vmware-azure-install-linux-master-target/image23.png)
 
 
-### <a name="configure-the-machine-as-a-master-target-server"></a>Konfigurera datorn som en huvud mål Server
+### <a name="configure-the-machine-as-a-master-target-server"></a>Konfigurera datorn som en huvudmålserver
 
-För att hämta ID för varje SCSI-hårddisk på en virtuell Linux-dator, **disken. Parametern Enableuuid är = TRUE** måste vara aktive rad. Utför följande steg för att aktivera den här parametern:
+För att få ID för varje SCSI-hårddisk i en virtuell Linux-dator, **disken. EnableUUID = TRUE-parametern** måste aktiveras. Så här aktiverar du den här parametern:
 
 1. Stäng av den virtuella datorn.
 
 2. Högerklicka på posten för den virtuella datorn i den vänstra rutan och välj sedan **Redigera inställningar**.
 
-3. Välj fliken **alternativ** .
+3. Välj fliken **Alternativ.**
 
-4. I den vänstra rutan väljer du **avancerad** > **Allmänt**och väljer sedan knappen **konfigurations parametrar** på den nedre högra delen av skärmen.
+4. I den vänstra rutan väljer du **Avancerat** > **allmänt**och väljer sedan knappen **Konfigurationsparametrar** längst ned till höger på skärmen.
 
-    ![Öppna konfigurations parameter](./media/vmware-azure-install-linux-master-target/image24-ubuntu.png) 
+    ![Öppna konfigurationsparametern](./media/vmware-azure-install-linux-master-target/image24-ubuntu.png) 
 
-    Alternativet **konfigurations parametrar** är inte tillgängligt när datorn körs. Om du vill aktivera den här fliken stänger du den virtuella datorn.
+    Alternativet **Konfigurationsparametrar** är inte tillgängligt när datorn körs. Om du vill aktivera den här fliken stänger du av den virtuella datorn.
 
-5. Se om en rad med **disk. Enableuuid är** finns redan.
+5. Se om en rad med **disk. EnableUUID** finns redan.
 
-   - Om värdet finns och är inställt på **falskt**, ändra värdet till **Sant**. (Värdena är inte Skift läges känsliga.)
+   - Om värdet finns och är inställt på **Falskt**ändrar du värdet till **Sant**. (Värdena är inte skiftlägeskänsliga.)
 
    - Om värdet finns och är inställt på **Sant**väljer du **Avbryt**.
 
    - Om värdet inte finns väljer du **Lägg till rad**.
 
-   - I kolumnen namn, Lägg till **disk. Enableuuid är**och Ställ in värdet på **Sant**.
+   - Lägg till disk i **namnkolumnen. EnableUUID**och ange sedan värdet till **SANT**.
 
-     ![Kontrollerar om disken. Enableuuid är finns redan](./media/vmware-azure-install-linux-master-target/image25.png)
+     ![Kontrollera om disk. EnableUUID finns redan](./media/vmware-azure-install-linux-master-target/image25.png)
 
-#### <a name="disable-kernel-upgrades"></a>Inaktivera kernel-uppgraderingar
+#### <a name="disable-kernel-upgrades"></a>Inaktivera kärnuppgraderingar
 
-Azure Site Recovery huvud mål servern kräver en speciell version av Ubuntu, se till att kernel-uppgraderingar är inaktiverade för den virtuella datorn. Om kernel-uppgraderingar är aktiverade kan det orsaka att huvud mål servern inte fungerar.
+Azure Site Recovery-huvudmålservern kräver en specifik version av Ubuntu, se till att kärnuppgraderingarna är inaktiverade för den virtuella datorn. Om kärnuppgraderingar är aktiverade kan det leda till att huvudmålservern inte fungerar.
 
-#### <a name="download-and-install-additional-packages"></a>Hämta och installera ytterligare paket
+#### <a name="download-and-install-additional-packages"></a>Ladda ned och installera ytterligare paket
 
 > [!NOTE]
-> Kontrol lera att du har Internet anslutning för att ladda ned och installera ytterligare paket. Om du inte har någon Internet anslutning måste du hitta dessa deb-paket manuellt och installera dem.
+> Kontrollera att du har Internet-anslutning för att hämta och installera ytterligare paket. Om du inte har Internet-anslutning måste du manuellt hitta dessa Deb-paket och installera dem.
 
  `apt-get install -y multipath-tools lsscsi python-pyasn1 lvm2 kpartx`
 
-### <a name="get-the-installer-for-setup"></a>Hämta installations programmet för
+### <a name="get-the-installer-for-setup"></a>Skaffa installationsprogrammet för installation
 
-Om huvud målet har Internet anslutning kan du hämta installations programmet genom att följa stegen nedan. Annars kan du kopiera installations programmet från processervern och sedan installera det.
+Om huvudmålet har Internet-anslutning kan du använda följande steg för att hämta installationsprogrammet. Annars kan du kopiera installationsprogrammet från processservern och sedan installera det.
 
-#### <a name="download-the-master-target-installation-packages"></a>Hämta installations paket för huvud mål
+#### <a name="download-the-master-target-installation-packages"></a>Hämta installationspaketen för huvudmål
 
-[Hämta de senaste installations bitarna för Linux Master Target](https://aka.ms/latestlinuxmobsvc).
+[Ladda ner de senaste Linux-huvudmålinstallationsbitarna](https://aka.ms/latestlinuxmobsvc).
 
-Om du vill ladda ned det med Linux skriver du:
+Om du vill hämta den med Linux skriver du:
 
 `wget https://aka.ms/latestlinuxmobsvc -O latestlinuxmobsvc.tar.gz`
 
 > [!WARNING]
-> Kontrol lera att du laddar ned och zippa installations programmet i din Hem Katalog. Om du packar upp på **/usr/local**Miss lyckas installationen.
+> Se till att du hämtar och packar upp installationsprogrammet i din hemkatalog. Om du packa upp till **/usr/Local**misslyckas installationen.
 
 
-#### <a name="access-the-installer-from-the-process-server"></a>Få åtkomst till installations programmet från processervern
+#### <a name="access-the-installer-from-the-process-server"></a>Få tillgång till installationsprogrammet från processservern
 
-1. På processervern går du till **C:\Program Files (x86) \Microsoft Azure Site Recovery\home\svsystems\pushinstallsvc\repository**.
+1. Gå till **C:\Program Files (x86)\Microsoft Azure Site Recovery\home\svsystems\pushinstallsvc\repository**.
 
-2. Kopiera den nödvändiga installations filen från processervern och spara den som **latestlinuxmobsvc. tar. gz** i din Hem Katalog.
+2. Kopiera den nödvändiga installationsfilen från processservern och spara den som **latestlinuxmobsvc.tar.gz** i din hemkatalog.
 
 
-### <a name="apply-custom-configuration-changes"></a>Använd anpassade konfigurations ändringar
+### <a name="apply-custom-configuration-changes"></a>Använda anpassade konfigurationsändringar
 
-Använd följande steg som rot användare om du vill använda anpassade konfigurations ändringar:
+Om du vill använda anpassade konfigurationsändringar använder du följande steg som ROOT-användare:
 
-1. Kör följande kommando för att untar binärfilen.
+1. Kör följande kommando för att ta bort binärfilen.
 
     `tar -xvf latestlinuxmobsvc.tar.gz`
 
-    ![Skärm bild av kommandot som ska köras](./media/vmware-azure-install-linux-master-target/image16.png)
+    ![Skärmbild av kommandot som ska köras](./media/vmware-azure-install-linux-master-target/image16.png)
 
 2. Kör följande kommando för att ge behörighet.
 
     `chmod 755 ./ApplyCustomChanges.sh`
 
 
-3. Kör följande kommando för att köra skriptet.
+3. Kör skriptet med hjälp av följande kommando.
     
     `./ApplyCustomChanges.sh`
 
 > [!NOTE]
-> Kör bara skriptet en gång på servern. Stäng sedan av servern. Starta om servern när du har lagt till en disk enligt beskrivningen i nästa avsnitt.
+> Kör skriptet bara en gång på servern. Stäng sedan av servern. Starta om servern när du har lagt till en disk enligt beskrivningen i nästa avsnitt.
 
-### <a name="add-a-retention-disk-to-the-linux-master-target-virtual-machine"></a>Lägg till en lagrings disk till den virtuella Linux-huvudmål datorn
+### <a name="add-a-retention-disk-to-the-linux-master-target-virtual-machine"></a>Lägga till en kvarhållningsdisk till virtuell virtuell dator för Linux-huvudmål
 
-Använd följande steg för att skapa en lagrings disk:
+Så här skapar du en kvarhållningsdisk:
 
-1. Koppla en ny 1 TB-disk till den virtuella Linux-huvudmål datorn och starta sedan datorn.
+1. Koppla en ny 1 TB-disk till den virtuella datorn för Linux-huvudmål och starta sedan datorn.
 
-2. Använd kommandot **multipath-lla** för att lära dig om Multipath-ID: t för lagrings disken: **multipath-lla**
+2. Använd kommandot **multipath -ll** för att lära dig multipath-ID:et för kvarhållningsdisken: **multipath -ll**
 
     ![Multipath-ID](./media/vmware-azure-install-linux-master-target/image27.png)
 
-3. Formatera enheten och skapa sedan ett fil system på den nya enheten: **mkfs. ext4/dev/mapper/\<behållar-id >** .
+3. Formatera enheten och skapa sedan ett filsystem på den nya enheten: **mkfs.ext4 /dev/mapper/\<Retention-diskens multipath-ID>**.
     
     ![Filsystem](./media/vmware-azure-install-linux-master-target/image23-centos.png)
 
-4. När du har skapat fil systemet monterar du lagrings disken.
+4. När du har skapat filsystemet monterar du kvarhållningsdisken.
 
     ```
     mkdir /mnt/retention
     mount /dev/mapper/<Retention disk's multipath id> /mnt/retention
     ```
 
-5. Skapa **fstab** -posten för att montera lagrings enheten varje gång systemet startar.
+5. Skapa **fstab** posten för att montera kvarhållningsenheten varje gång systemet startar.
     
     `vi /etc/fstab`
     
-    Välj **Infoga** för att börja redigera filen. Skapa en ny rad och infoga sedan följande text. Redigera disk-multipath-ID: t baserat på det markerade multipath-ID: t från föregående kommando.
+    Välj **Infoga** om du vill börja redigera filen. Skapa en ny rad och infoga sedan följande text. Redigera diskmultett-ID:et baserat på det markerade multipath-ID:t från föregående kommando.
 
-    **/dev/mapper/\<kvarhållning diskar multisökvägs-ID >/mnt/retention ext4 RW 0 0**
+    **/dev/mapper/\<Retention diskar multipath id> /mnt/retention ext4 rw 0 0**
 
-    Välj **ESC**och skriv **: Wq** (Skriv och avsluta) för att stänga redigerings fönstret.
+    Välj **Esc**och skriv sedan **:wq** (skriv och avsluta) för att stänga redigeringsfönstret.
 
-### <a name="install-the-master-target"></a>Installera huvud målet
+### <a name="install-the-master-target"></a>Installera huvudmålet
 
 > [!IMPORTANT]
-> Huvud mål serverns version måste vara lika med eller tidigare än versioner av processervern och konfigurations servern. Om det här villkoret inte är uppfyllt lyckas skydd, men replikeringen Miss lyckas.
+> Versionen av huvudmålservern måste vara lika med eller tidigare än versionerna av processservern och konfigurationsservern. Om det här villkoret inte uppfylls lyckas reprotect, men replikeringen misslyckas.
 
 
 > [!NOTE]
-> Innan du installerar huvud mål servern kontrollerar du att **/etc/hosts** -filen på den virtuella datorn innehåller poster som mappar det lokala värd namnet till IP-adresserna som är associerade med alla nätverkskort.
+> Innan du installerar huvudmålservern kontrollerar du att filen **/etc/hosts** på den virtuella datorn innehåller poster som mappar det lokala värdnamnet till de IP-adresser som är associerade med alla nätverkskort.
 
-1. Kopiera lösen frasen från **C:\Programdata\Microsoft Azure Site Recovery\private\connection.Passphrase** på konfigurations servern. Spara den som **lösen fras. txt** i samma lokala katalog genom att köra följande kommando:
+1. Kopiera lösenfrasen från **C:\ProgramData\Microsoft Azure Site Recovery\private\connection.passphrase** på konfigurationsservern. Spara den sedan som **lösenfras.txt** i samma lokala katalog genom att köra följande kommando:
 
     `echo <passphrase> >passphrase.txt`
 
@@ -283,7 +283,7 @@ Använd följande steg för att skapa en lagrings disk:
        `echo itUx70I47uxDuUVY >passphrase.txt`
     
 
-2. Anteckna konfigurations serverns IP-adress. Kör följande kommando för att installera huvud mål servern och registrera servern med konfigurations servern.
+2. Anteckna konfigurationsserverns IP-adress. Kör följande kommando för att installera huvudmålservern och registrera servern med konfigurationsservern.
 
     ```
     /usr/local/ASR/Vx/bin/UnifiedAgentConfigurator.sh -i <ConfigurationServer IP Address> -P passphrase.txt
@@ -295,26 +295,26 @@ Använd följande steg för att skapa en lagrings disk:
     /usr/local/ASR/Vx/bin/UnifiedAgentConfigurator.sh -i 104.40.75.37 -P passphrase.txt
     ```
 
-Vänta tills skriptet har slutförts. Om huvud mål servern registreras visas huvud målet på sidan **Site Recovery infrastruktur** i portalen.
+Vänta tills skriptet är klart. Om huvudmålet registreras visas huvudmålet på sidan Infrastruktur för infrastruktur för **platsåterställning** i portalen.
 
 
-#### <a name="install-the-master-target-by-using-interactive-installation"></a>Installera huvud målet med hjälp av interaktiv installation
+#### <a name="install-the-master-target-by-using-interactive-installation"></a>Installera huvudmålet med hjälp av interaktiv installation
 
-1. Kör följande kommando för att installera huvud målet. Välj **huvud mål**för agent rollen.
+1. Kör följande kommando för att installera huvudmålet. För agentrollen väljer du **huvudmål**.
 
     ```
     ./install
     ```
 
-2. Välj standard platsen för installation och välj sedan **RETUR** för att fortsätta.
+2. Välj standardplatsen för installationen och välj sedan **Retur** för att fortsätta.
 
-    ![Välja en standard plats för installation av huvud mål](./media/vmware-azure-install-linux-master-target/image17.png)
+    ![Välja en standardplats för installation av huvudmål](./media/vmware-azure-install-linux-master-target/image17.png)
 
-När installationen är slutförd registrerar du konfigurations servern med hjälp av kommando raden.
+När installationen är klar registrerar du konfigurationsservern med hjälp av kommandoraden.
 
-1. Notera konfigurations serverns IP-adress. Du behöver det i nästa steg.
+1. Observera konfigurationsserverns IP-adress. Du behöver det i nästa steg.
 
-2. Kör följande kommando för att installera huvud mål servern och registrera servern med konfigurations servern.
+2. Kör följande kommando för att installera huvudmålservern och registrera servern med konfigurationsservern.
 
     ```
     ./install -q -d /usr/local/ASR -r MT -v VmWare
@@ -326,35 +326,35 @@ När installationen är slutförd registrerar du konfigurations servern med hjä
     /usr/local/ASR/Vx/bin/UnifiedAgentConfigurator.sh -i 104.40.75.37 -P passphrase.txt
     ```
 
-     Vänta tills skriptet har slutförts. Om huvud mål servern har registrerats visas huvud målet på sidan **Site Recovery infrastruktur** i portalen.
+     Vänta tills skriptet är klart. Om huvudmålet har registrerats visas huvudmålet på sidan Infrastruktur för infrastruktur för **platsåterställning** i portalen.
 
 
-### <a name="install-vmware-tools--open-vm-tools-on-the-master-target-server"></a>Installera VMware-verktyg/open-vm – tools på huvud mål servern
+### <a name="install-vmware-tools--open-vm-tools-on-the-master-target-server"></a>Installera VMware-verktyg / open-vm-verktyg på huvudmålservern
 
-Du måste installera VMware-verktyg eller öppna-VM-verktyg på huvud målet så att det kan identifiera data lager. Om verktygen inte är installerade visas inte skärmen för att skydda i data lager. När du har installerat VMware-verktygen måste du starta om.
+Du måste installera VMware-verktyg eller öppna vm-verktyg på huvudmålet så att de kan identifiera datalager. Om verktygen inte är installerade visas inte återrotectskärmen i datalagret. Efter installationen av VMware-verktygen måste du starta om.
 
-### <a name="upgrade-the-master-target-server"></a>Uppgradera huvud mål servern
+### <a name="upgrade-the-master-target-server"></a>Uppgradera huvudmålservern
 
-Kör installations programmet. Den identifierar automatiskt att agenten är installerad på huvud mål servern. Om du vill uppgradera väljer du **Y**.  När installationen har slutförts kontrollerar du vilken version av huvud målet som installerats med hjälp av följande kommando:
+Kör installationsprogrammet. Det identifieras automatiskt att agenten är installerad på huvudmålet. Om du vill uppgradera väljer du **Y**.  När installationen har slutförts kontrollerar du versionen av huvudmålet som installerats med hjälp av följande kommando:
 
 `cat /usr/local/.vx_version`
 
 
-Du ser att **versions** fältet innehåller versions numret för huvud mål servern.
+Du kommer att se att fältet **Version** anger versionsnumret för huvudmålet.
 
 ## <a name="common-issues"></a>Vanliga problem
 
-* Se till att du inte aktiverar Storage-vMotion på alla hanterings komponenter, till exempel huvud mål. Om huvud målet flyttas efter en lyckad återaktivering går det inte att koppla från de virtuella dator diskarna (VMDK: er). I detta fall Miss lyckas failback.
+* Kontrollera att du inte aktiverar Storage vMotion på några hanteringskomponenter, till exempel ett huvudmål. Om huvudmålet flyttas efter en lyckad reprotect kan inte virtuella datordiskar (VMDK: er) tas bort. I det här fallet misslyckas återställningen av återställningen.
 
-* Huvud målet ska inte ha några ögonblicks bilder på den virtuella datorn. Om det finns ögonblicks bilder, Miss lyckas failback.
+* Huvudmålet bör inte ha några ögonblicksbilder på den virtuella datorn. Om det finns ögonblicksbilder misslyckas återställningen av återställningen.
 
-* På grund av vissa anpassade NIC-konfigurationer inaktive ras nätverks gränssnittet under starten och huvud mål agenten kan inte initieras. Kontrol lera att följande egenskaper har angetts korrekt. Kontrol lera dessa egenskaper i Ethernet-kort filens/etc/sysconfig/Network-scripts/ifcfg-ETH *.
-    * BOOTPROTO = DHCP
-    * ONBOOT = Ja
+* På grund av vissa anpassade nätverkskortskonfigurationer inaktiveras nätverksgränssnittet under start och huvudmålagenten kan inte initiera. Kontrollera att följande egenskaper är korrekt inställda. Kontrollera dessa egenskaper i Ethernet-kortfilens /etc/sysconfig/network-scripts/ifcfg-eth*.
+    * BOOTPROTO=dhcp
+    * ONBOOT =ja
 
 
 ## <a name="next-steps"></a>Nästa steg
-När du har slutfört installationen och registreringen av huvud målet kan du se huvud målet i avsnittet **huvud mål** i **Site Recovery infrastruktur**, under översikt över konfigurations servern.
+När installationen och registreringen av huvudmålet har slutförts kan du se huvudmålet visas i **huvudmålavsnittet** i **Infrastruktur för platsåterställning**under översikten över konfigurationsservern.
 
-Nu kan du fortsätta med [återskydd](vmware-azure-reprotect.md), följt av failback.
+Du kan nu fortsätta med [återskydd](vmware-azure-reprotect.md), följt av återställning efter fel.
 

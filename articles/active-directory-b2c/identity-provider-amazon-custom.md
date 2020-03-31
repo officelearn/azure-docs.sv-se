@@ -1,7 +1,7 @@
 ---
-title: Konfigurera inloggning med ett Amazon-konto med anpassade principer
+title: Konfigurera inloggning med ett Amazon-konto med hjälp av anpassade principer
 titleSuffix: Azure AD B2C
-description: Konfigurera inloggning med ett Amazon-konto i Azure Active Directory B2C att använda anpassade principer.
+description: Konfigurera inloggning med ett Amazon-konto i Azure Active Directory B2C med hjälp av anpassade principer.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
@@ -12,59 +12,59 @@ ms.date: 10/05/2018
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 2de891ee109677f92ff603759701f7732f5951ba
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78188519"
 ---
 # <a name="set-up-sign-in-with-an-amazon-account-using-custom-policies-in-azure-active-directory-b2c"></a>Konfigurera inloggning med ett Amazon-konto med anpassade principer i Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Den här artikeln visar hur du aktiverar inloggning för användare från ett Amazon-konto genom att använda [anpassade principer](custom-policy-overview.md) i Azure Active Directory B2C (Azure AD B2C).
+Den här artikeln visar hur du aktiverar inloggning för användare från ett Amazon-konto med hjälp av [anpassade principer](custom-policy-overview.md) i Azure Active Directory B2C (Azure AD B2C).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-- Slutför stegen i [Kom igång med anpassade principer](custom-policy-get-started.md).
+- Slutför stegen i [Komma igång med anpassade principer](custom-policy-get-started.md).
 - Om du inte redan har ett Amazon-konto skapar du ett på [https://www.amazon.com/](https://www.amazon.com/).
 
-## <a name="register-the-application"></a>Registrera programmet
+## <a name="register-the-application"></a>Registrera ansökan
 
 Om du vill aktivera inloggning för användare från ett Amazon-konto måste du skapa ett Amazon-program.
 
-1. Logga in på [Amazon Developer Center](https://login.amazon.com/) med dina Amazon-kontoautentiseringsuppgifter.
-2. Om du inte redan har gjort det klickar du på **Registrera**, följer utvecklings registrerings stegen och godkänner principen.
-3. Välj **Registrera nytt program**.
-4. Ange ett **namn**, en **Beskrivning**och **en URL för sekretess meddelande**och klicka sedan på **Spara**. Sekretess meddelandet är en sida som du hanterar som ger sekretess information till användarna.
-5. I avsnittet **webb inställningar** kopierar du värdena för **klient-ID**. Välj **Visa hemlighet** för att hämta klient hemligheten och kopiera den sedan. Du behöver båda dessa för att konfigurera ett Amazon-konto som en identitets leverantör i din klient organisation. **Klient hemlighet** är en viktig säkerhets autentiseringsuppgift.
-6. I avsnittet **webb inställningar** väljer du **Redigera**och anger sedan `https://your-tenant-name.b2clogin.com` i **tillåtna JavaScript-ursprung** och `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp` i **tillåtna retur-URL: er**. Ersätt `your-tenant-name` med namnet på din klient. Använd gemener när du anger ditt klientnamn även om klienten har definierats med versaler i Azure AD B2C.
-7. Klicka på **Save** (Spara).
+1. Logga in på [Amazon Developer Center](https://login.amazon.com/) med dina Amazon-kontouppgifter.
+2. Om du inte redan har gjort det klickar du på **Registrera dig,** följer stegen för registrering av utvecklare och accepterar principen.
+3. Välj **Registrera ett nytt program**.
+4. Ange **url:en namn,** **beskrivning**och **sekretessmeddelande**och klicka sedan på **Spara**. Sekretessmeddelandet är en sida som du hanterar och som ger sekretessinformation till användarna.
+5. Kopiera värdena för **klient-ID**i avsnittet **Webbinställningar** . Välj **Visa hemlighet** om du vill få klienten hemlig och kopiera den sedan. Du behöver båda för att konfigurera ett Amazon-konto som en identitetsleverantör i din klientorganisation. **Klienthemlighet** är en viktig säkerhetsautentiseringsinformation.
+6. I avsnittet **Webbinställningar** **Edit**väljer du Redigera `https://your-tenant-name.b2clogin.com` och anger sedan `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp` i **Tillåtna JavaScript-ursprung** och i **Tillåtna returadresser**. Ersätt `your-tenant-name` med namnet på din klient. Använd alla gemener när du anger ditt klientnamn även om klienten definieras med versaler i Azure AD B2C.
+7. Klicka på **Spara**.
 
-## <a name="create-a-policy-key"></a>Skapa en princip nyckel
+## <a name="create-a-policy-key"></a>Skapa en principnyckel
 
-Du måste lagra klient hemligheten som du tidigare registrerade i Azure AD B2C-klienten.
+Du måste lagra klienthemligheten som du tidigare har registrerat i din Azure AD B2C-klientorganisation.
 
 1. Logga in på [Azure-portalen](https://portal.azure.com/).
-2. Kontrol lera att du använder den katalog som innehåller din Azure AD B2C klient genom att välja filtret **katalog + prenumeration** på den översta menyn och välja den katalog som innehåller din klient.
-3. Välj **Alla tjänster** på menyn uppe till vänster i Azure Portal. Sök sedan efter och välj **Azure AD B2C**.
-4. På sidan Översikt väljer du **ID för identitets miljö**.
-5. Välj **princip nycklar** och välj sedan **Lägg till**.
-6. För **alternativ**väljer du `Manual`.
-7. Ange ett **namn** för princip nyckeln. Till exempel `AmazonSecret`. Prefixet `B2C_1A_` läggs automatiskt till namnet på din nyckel.
-8. I **hemlighet**anger du din klient hemlighet som du tidigare har spelat in.
-9. För **nyckel användning**väljer du `Signature`.
+2. Kontrollera att du använder katalogen som innehåller din Azure AD B2C-klient genom att välja **katalog + prenumerationsfilter** i den övre menyn och välja den katalog som innehåller din klient.
+3. Välj **Alla tjänster** på menyn högst upp till vänster i Azure-portalen och sök efter och välj **Azure AD B2C**.
+4. På sidan Översikt väljer du **Identity Experience Framework**.
+5. Välj **Principnycklar** och välj sedan **Lägg till**.
+6. För **Alternativ** `Manual`väljer du .
+7. Ange ett **namn** för principnyckeln. Till exempel `AmazonSecret`. Prefixet `B2C_1A_` läggs automatiskt till i namnet på nyckeln.
+8. I **Secret**anger du din klienthemlighet som du tidigare spelat in.
+9. För **nyckelanvändning** `Signature`väljer du .
 10. Klicka på **Skapa**.
 
-## <a name="add-a-claims-provider"></a>Lägg till en anspråks leverantör
+## <a name="add-a-claims-provider"></a>Lägga till en anspråksleverantör
 
-Om du vill att användarna ska logga in med ett Amazon-konto måste du definiera kontot som en anspråks leverantör som Azure AD B2C kan kommunicera med via en slut punkt. Slut punkten innehåller en uppsättning anspråk som används av Azure AD B2C för att verifiera att en speciell användare har autentiserats.
+Om du vill att användare ska logga in med ett Amazon-konto måste du definiera kontot som en anspråksleverantör som Azure AD B2C kan kommunicera med via en slutpunkt. Slutpunkten innehåller en uppsättning anspråk som används av Azure AD B2C för att verifiera att en viss användare har autentiserats.
 
-Du kan definiera ett Amazon-konto som en anspråks leverantör genom att lägga till det i **ClaimsProviders** -elementet i principens tilläggs fil.
+Du kan definiera ett Amazon-konto som en anspråksleverantör genom att lägga till det i elementet **ClaimsProviders i förlängningsfilen** för din princip.
 
 
-1. Öppna *TrustFrameworkExtensions. XML*.
-2. Hitta **ClaimsProviders** -elementet. Om den inte finns lägger du till den under rot elementet.
+1. Öppna *TrustFrameworkExtensions.xml*.
+2. Leta reda på elementet **ClaimsProviders.** Om den inte finns lägger du till den under rotelementet.
 3. Lägg till en ny **ClaimsProvider** enligt följande:
 
     ```xml
@@ -106,33 +106,33 @@ Du kan definiera ett Amazon-konto som en anspråks leverantör genom att lägga 
     </ClaimsProvider>
     ```
 
-4. Ange **client_id** till program-ID: t från program registreringen.
+4. Ange **client_id** till program-ID:et från programregistreringen.
 5. Spara filen.
 
-### <a name="upload-the-extension-file-for-verification"></a>Ladda upp tilläggs filen för verifiering
+### <a name="upload-the-extension-file-for-verification"></a>Ladda upp tilläggsfilen för verifiering
 
-Nu har du konfigurerat principen så att Azure AD B2C vet hur de kan kommunicera med Azure AD-katalogen. Försök att ladda upp tilläggs filen för principen för att bekräfta att den inte har några problem hittills.
+Vid det här laget har du konfigurerat din princip så att Azure AD B2C vet hur du kommunicerar med din Azure AD-katalog. Prova att ladda upp förlängningsfilen för din policy bara för att bekräfta att den inte har några problem hittills.
 
-1. På sidan **anpassade principer** i Azure AD B2C klienten väljer du **Ladda upp princip**.
-2. Aktivera **Skriv över principen om den finns**och bläddra sedan till och välj filen *TrustFrameworkExtensions. XML* .
+1. På sidan **Anpassade principer** i din Azure AD B2C-klient väljer du **Överför princip**.
+2. Aktivera **Skriv över principen om den finns**och bläddra sedan till och välj filen *TrustFrameworkExtensions.xml.*
 3. Klicka på **Överför**.
 
-## <a name="register-the-claims-provider"></a>Registrera anspråks leverantören
+## <a name="register-the-claims-provider"></a>Registrera anspråksleverantören
 
-Nu har identitets leverantören kon figurer ATS, men den är inte tillgänglig på någon av inloggnings-och inloggnings skärmarna. Om du vill göra det tillgängligt skapar du en dubblett av en befintlig användar resa och ändrar den så att den även har Amazon Identity-providern.
+Nu har identitetsprovidern konfigurerats, men den är inte tillgänglig på någon av inloggnings-/inloggningsskärmarna. Om du vill göra den tillgänglig skapar du en dubblett av en befintlig mallanvändarresa och ändrar den så att den också har Amazon-identitetsprovidern.
 
-1. Öppna filen *TrustFrameworkBase. XML* från start paketet.
-2. Sök efter och kopiera hela innehållet i **UserJourney** -elementet som innehåller `Id="SignUpOrSignIn"`.
-3. Öppna *TrustFrameworkExtensions. XML* och hitta **UserJourneys** -elementet. Om elementet inte finns lägger du till ett.
-4. Klistra in hela innehållet i **UserJourney** -elementet som du kopierade som ett underordnat objekt till **UserJourneys** -elementet.
-5. Byt namn på användar resans ID. Till exempel `SignUpSignInAmazon`.
+1. Öppna filen *TrustFrameworkBase.xml* från startpaketet.
+2. Leta reda på och kopiera hela innehållet `Id="SignUpOrSignIn"`i **UserJourney-elementet** som innehåller .
+3. Öppna *TrustFrameworkExtensions.xml* och leta reda på **Elementet UserJourneys.** Om elementet inte finns lägger du till ett.
+4. Klistra in hela innehållet i **UserJourney-elementet** som du kopierade som underordnade **elementet UserJourneys.**
+5. Byt namn på ID för användarens färd. Till exempel `SignUpSignInAmazon`.
 
 ### <a name="display-the-button"></a>Visa knappen
 
-**ClaimsProviderSelection** -elementet är detsamma som en identitetsprovider på en registrerings-och inloggnings skärm. Om du lägger till ett **ClaimsProviderSelection** -element för ett Amazon-konto visas en ny knapp när en användare hamnar på sidan.
+Elementet **ClaimsProviderSelection** är analogt med en identitetsleverantörsknapp på en inloggnings-/inloggningsskärm. Om du lägger till ett **ClaimsProviderSelection-element** för ett Amazon-konto visas en ny knapp när en användare hamnar på sidan.
 
-1. Hitta **OrchestrationStep** -elementet som innehåller `Order="1"` i användar resan som du skapade.
-2. Lägg till följande-element under **ClaimsProviderSelects**. Ange värdet för **TargetClaimsExchangeId** till ett lämpligt värde, till exempel `AmazonExchange`:
+1. Leta reda på **orchestrationStep-elementet** som ingår `Order="1"` i användarfärden som du skapade.
+2. Lägg till följande element under **ClaimsProviderSelects.** Ange värdet för **TargetClaimsExchangeId** till ett `AmazonExchange`lämpligt värde, till exempel:
 
     ```XML
     <ClaimsProviderSelection TargetClaimsExchangeId="AmazonExchange" />
@@ -140,32 +140,32 @@ Nu har identitets leverantören kon figurer ATS, men den är inte tillgänglig p
 
 ### <a name="link-the-button-to-an-action"></a>Länka knappen till en åtgärd
 
-Nu när du har en knapp på plats måste du länka den till en åtgärd. Åtgärden, i det här fallet, är att Azure AD B2C kommunicera med ett Amazon-konto för att ta emot en token.
+Nu när du har en knapp på plats måste du länka den till en åtgärd. Åtgärden, i det här fallet, är för Azure AD B2C att kommunicera med ett Amazon-konto för att ta emot en token.
 
-1. Hitta **OrchestrationStep** som innehåller `Order="2"` i användar resan.
-2. Lägg till följande **ClaimsExchange** -element och kontrol lera att du använder samma värde för det ID som du använde för **TargetClaimsExchangeId**:
+1. Hitta **OrchestrationStep** som `Order="2"` ingår i användarfärden.
+2. Lägg till följande **ClaimsExchange-element** och se till att du använder samma värde för ID:et som du använde för **TargetClaimsExchangeId:**
 
     ```XML
     <ClaimsExchange Id="AmazonExchange" TechnicalProfileReferenceId="Amazon-OAuth" />
     ```
 
-    Uppdatera värdet för **TechnicalProfileReferenceId** till ID: t för den tekniska profil som du skapade tidigare. Till exempel `Amazon-OAuth`.
+    Uppdatera värdet för **TechnicalProfileReferenceId** till ID för den tekniska profil som du skapade tidigare. Till exempel `Amazon-OAuth`.
 
-3. Spara filen *TrustFrameworkExtensions. XML* och ladda upp den igen för verifiering.
+3. Spara *filen TrustFrameworkExtensions.xml* och ladda upp den igen för verifiering.
 
-## <a name="create-an-azure-ad-b2c-application"></a>Skapa ett Azure AD B2C program
+## <a name="create-an-azure-ad-b2c-application"></a>Skapa ett Azure AD B2C-program
 
-Kommunikation med Azure AD B2C sker via ett program som du registrerar i B2C-klienten. Det här avsnittet innehåller valfria steg som du kan utföra för att skapa ett testprogram om du inte redan har gjort det.
+Kommunikation med Azure AD B2C sker via ett program som du registrerar i din B2C-klientorganisation. I det här avsnittet visas valfria steg som du kan slutföra för att skapa ett testprogram om du inte redan har gjort det.
 
 [!INCLUDE [active-directory-b2c-appreg-idp](../../includes/active-directory-b2c-appreg-idp.md)]
 
-## <a name="update-and-test-the-relying-party-file"></a>Uppdatera och testa den förlitande part filen
+## <a name="update-and-test-the-relying-party-file"></a>Uppdatera och testa den förlitande partfilen
 
-Uppdatera den förlitande parten (RP) som initierar användar resan som du har skapat.
+Uppdatera den förlitande partens (RP) fil som initierar användarens färd som du skapade.
 
-1. Gör en kopia av *SignUpOrSignIn. XML* i din arbets katalog och Byt namn på den. Byt till exempel namnet till *SignUpSignInAmazon. XML*.
-2. Öppna den nya filen och uppdatera värdet för attributet **PolicyId** för **TrustFrameworkPolicy** med ett unikt värde. Till exempel `SignUpSignInAmazon`.
-3. Uppdatera värdet för **PublicPolicyUri** med URI: n för principen. Till exempel`http://contoso.com/B2C_1A_signup_signin_amazon`
-4. Uppdatera värdet för attributet **ReferenceId** i **DefaultUserJourney** för att matcha ID för den nya användar resan som du skapade (SignUpSignAmazon).
+1. Gör en kopia av *SignUpOrSignIn.xml* i arbetskatalogen och byt namn på den. Byt till exempel namn på den till *SignUpSignInAmazon.xml*.
+2. Öppna den nya filen och uppdatera värdet för **Attributet PolicyId** för **TrustFrameworkPolicy** med ett unikt värde. Till exempel `SignUpSignInAmazon`.
+3. Uppdatera värdet för **PublicPolicyUri** med URI för principen. Exempel:`http://contoso.com/B2C_1A_signup_signin_amazon`
+4. Uppdatera värdet för **Attributet ReferenceId** i **DefaultUserJourney** så att det matchar ID:t för den nya användarresan som du skapade (SignUpSignAmazon).
 5. Spara ändringarna, ladda upp filen och välj sedan den nya principen i listan.
-6. Kontrol lera att Azure AD B2C programmet som du har skapat är markerat i fältet **Välj program** och testa det genom att klicka på **Kör nu**.
+6. Kontrollera att Azure AD B2C-program som du har skapat har valts i fältet **Välj program** och testa det sedan genom att klicka på **Kör nu**.

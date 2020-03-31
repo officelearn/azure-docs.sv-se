@@ -1,6 +1,6 @@
 ---
-title: Mappningar av Azure Automation-och Log Analytics-arbetsyta
-description: I den här artikeln beskrivs de mappningar som tillåts mellan ett Automation-konto och en Log Analytics arbets yta som stöder lösningen
+title: Azure Automation och Log Analytics arbetsytemappningar
+description: I den här artikeln beskrivs de mappningar som tillåts mellan ett Automation-konto och en Log Analytics-arbetsyta för att stödja lösningen
 services: automation
 ms.service: automation
 ms.subservice: process-automation
@@ -10,83 +10,83 @@ ms.date: 05/20/2019
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: 965d6b206bb64e90fe59798ce0c37ccf029117f5
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74849521"
 ---
-# <a name="workspace-mappings"></a>Mappningar för arbets ytor
+# <a name="workspace-mappings"></a>Mappningar av arbetsytor
 
-När du aktiverar lösningar som Uppdateringshantering, Ändringsspårning och inventering eller Starta/stoppa virtuella datorer när de inte används lösning, stöds bara vissa regioner för att länka en Log Analytics arbets yta och ett Automation-konto. Den här mappningen gäller endast Automation-kontot och Log Analytics-arbetsytan. Resurserna som rapporterar till ditt Automation-konto eller Log Analytics arbets ytan kan finnas i andra regioner.
+När du aktiverar lösningar som uppdateringshantering, ändringsspårning och lager, eller start-/stopp-virtuella datorer under ledig tid, stöds endast vissa regioner för att länka en Log Analytics-arbetsyta och ett automationskonto. Den här mappningen gäller endast för Automation-kontot och logganalysarbetsytan. Resurserna som rapporterar till ditt Automation-konto eller Log Analytics-arbetsyta kan finnas i andra regioner.
 
 ## <a name="supported-mappings"></a>Mappningar som stöds
 
-Följande tabell visar de mappningar som stöds:
+I följande tabell visas de mappningar som stöds:
 
-|**Region för Log Analytics arbets yta**|**Azure Automation Region**|
+|**Arbetsyta för logganalys**|**Azure Automation-region**|
 |---|---|
 |**USA**||
-|Östra USA<sup>1</sup>|EastUS2|
-|WestUS2|WestUS2|
+|EastUS<sup>1</sup>|ÖstraUS2|
+|WestUS2 (På andra sätt)|WestUS2 (På andra sätt)|
 |WestCentralUS<sup>2</sup>|WestCentralUS<sup>2</sup>|
 |**Kanada**||
-|Indiensödra|Indiensödra|
+|CanadaCentral|CanadaCentral|
 |**Asien och stillahavsområdet**||
-|AustraliaSoutheast|AustraliaSoutheast|
-|Sydostasien|Sydostasien|
-|Kanada|Kanada|
-|Japanöstra|Japanöstra|
+|AustralienSyster|AustralienSyster|
+|Sydöstran|Sydöstran|
+|CentralIndia (centralindia)|CentralIndia (centralindia)|
+|JapanEast|JapanEast|
 |**Europa**||
-|UKSouth|UKSouth|
+|UkSouth (svenska)|UkSouth (svenska)|
 |Västeuropa|Västeuropa|
 |**US Gov**||
-|USGovVirginia|USGovVirginia|
+|USGovVirginia (olikartade)|USGovVirginia (olikartade)|
 
-<sup>1</sup> "östasiatisk mappning för Log Analytics-arbetsytor till Automation-konton är inte en exakt region till regions mappning, men är rätt mappning.
+<sup>1</sup> EastUS-mappning för Log Analytics-arbetsytor till Automation-konton är inte en exakt region till regionmappning men är rätt mappning.
 
-<sup>2</sup> på grund av kapacitets begränsningar är regionen inte tillgänglig när du skapar nya resurser. Detta inkluderar Automation-konton och Log Analytics arbets ytor. Befintliga länkade resurser i regionen bör dock fortsätta att fungera.
+<sup>2</sup> På grund av kapacitetsbegränsningar är regionen inte tillgänglig när du skapar nya resurser. Detta inkluderar automationskonton och logganalysarbetsytor. Befintliga kopplade resurser i regionen bör dock fortsätta att fungera.
 
-## <a name="unlink-workspace"></a>Ta bort länk till arbets yta
+## <a name="unlink-workspace"></a>Ta bort arbetsytans länk
 
-Om du inte längre vill integrera ditt Automation-konto med en Log Analytics arbets yta kan du ta bort länken till ditt konto direkt från Azure Portal. Innan du fortsätter måste du först ta bort Uppdateringshantering, Ändringsspårning och inventering eller Starta/stoppa virtuella datorer när de inte används lösningar om du använder dem. Om du inte tar bort dem kommer den här processen att förhindras från att fortsätta. Läs artikeln för den specifika lösning som du har importerat för att förstå de steg som krävs för att ta bort den.
+Om du bestämmer dig för att du inte längre vill integrera ditt Automation-konto med en Log Analytics-arbetsyta kan du ta bort länken till ditt konto direkt från Azure-portalen. Innan du fortsätter måste du först ta bort uppdateringshantering, ändringsspårning och lager eller start-/stopp-virtuella datorer under lösningar utanför arbetstid om du använder dem. Om du inte tar bort dem förhindras den här processen från att fortsätta. Läs artikeln för den specifika lösning som du har importerat för att förstå de steg som krävs för att ta bort den.
 
 När du har tagit bort dessa lösningar kan du utföra följande steg för att ta bort länken till ditt Automation-konto.
 
 > [!NOTE]
-> Vissa lösningar inklusive tidigare versioner av Azure SQL-övervaknings lösningen kan ha skapat Automation-till gångar och kan också behöva tas bort innan du tar bort länken till arbets ytan.
+> Vissa lösningar, inklusive tidigare versioner av Azure SQL-övervakningslösningen, kan ha skapat automatiseringsresurser och kan också behöva tas bort innan arbetsytan tas bort.
 
-1. Öppna ditt Automation-konto från Azure Portal och välj **länkad arbets yta** under avsnittet **relaterade resurser** till vänster på sidan Automation-konto.
+1. Öppna ditt Automation-konto på sidan Automation-konto på sidan Automation-konto **under** avsnittet **Relaterade resurser** till vänster.
 
-2. På sidan ta bort länk till arbets yta klickar du på **ta bort arbets ytan**. Du får ett meddelande som bekräftar att du vill fortsätta.
+2. Klicka på **Ta bort länk arbetsyta**på sidan Ta bort länk. Du får en uppmaning som verifierar att du vill fortsätta.
 
-3. Medan Azure Automation försöker ta bort länken till kontot Log Analytics arbets ytan, kan du följa förloppet under **meddelanden** på menyn.
+3. Medan Azure Automation försöker ta bort länken till kontot din Log Analytics-arbetsyta kan du spåra förloppet under **Meddelanden** från menyn.
 
-Om du använde Uppdateringshantering-lösningen kanske du vill ta bort följande objekt som inte längre behövs efter att du har tagit bort lösningen.
+Om du använde lösningen Update Management kanske du vill ta bort följande objekt som inte längre behövs när du har tagit bort lösningen.
 
-* Uppdaterings scheman-varje kommer att ha namn som matchar de uppdaterings distributioner som du har skapat)
+* Uppdateringsscheman - Var och en kommer att ha namn som matchar de uppdateringsdistributioner du skapade)
 
-* Hybrid Worker-grupper som har skapats för lösningen – var och en får samma namn som `machine1.contoso.com_9ceb8108-26c9-4051-b6b3-227600d715c8`).
+* Hybridarbetsgrupp som skapats för lösningen - `machine1.contoso.com_9ceb8108-26c9-4051-b6b3-227600d715c8`Var och en namnges på samma sätt som ).
 
-Om du använde Starta/stoppa virtuella datorer när de inte används-lösningen kanske du vill ta bort följande objekt som inte längre behövs efter att du har tagit bort lösningen.
+Om du använde start-/stopp-virtuella datorer under ledig tid kanske du vill ta bort följande objekt som inte längre behövs när du har tagit bort lösningen.
 
-* Starta och stoppa virtuella dator Runbook-scheman
-* Starta och stoppa VM-Runbooks
+* Starta och stoppa VM-runbookscheman
+* Starta och stoppa VM-runbooks
 * Variabler
 
-Du kan också ta bort länken till arbets ytan från ditt Automation-konto från din Log Analytics-arbetsyta. På arbets ytan väljer du **Automation-konto** under **relaterade resurser**. På sidan Automation-konto väljer du **ta bort länk till konto**.
+Du kan också ta bort länken till arbetsytan från ditt Automation-konto från logganalysarbetsytan. På arbetsytan väljer du **Automation-konto** under **Relaterade resurser**. På sidan Automation-konto väljer du **Ta bort länkkonto**.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig att publicera följande lösningar:
+Läs om hur du ar ombord på följande lösningar:
 
-Uppdateringshantering och Ändringsspårning och inventering:
+Uppdatera hantering och ändringsspårning och lager:
 
 * Från en [virtuell dator](../automation-onboard-solutions-from-vm.md)
 * Från ditt [Automation-konto](../automation-onboard-solutions-from-automation-account.md)
-* När du [bläddrar flera datorer](../automation-onboard-solutions-from-browse.md)
-* Från en [Runbook](../automation-onboard-solutions.md)
+* När [du surfar på flera datorer](../automation-onboard-solutions-from-browse.md)
+* Från en [runbook](../automation-onboard-solutions.md)
 
 Starta/stoppa virtuella datorer utanför arbetstid
 
-* [Distribuera Starta/stoppa virtuella datorer när de inte används](../automation-solution-vm-management.md)
+* [Distribuera start-/stopp-virtuella datorer under ledig tid](../automation-solution-vm-management.md)

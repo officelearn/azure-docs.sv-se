@@ -1,7 +1,7 @@
 ---
-title: Kända problem & fel sökning
+title: Kända problem & felsökning
 titleSuffix: Azure Machine Learning
-description: Hämta en lista över kända problem, lösningar och fel sökning för Azure Machine Learning.
+description: Få en lista över kända problem, lösningar och felsökning för Azure Machine Learning.
 services: machine-learning
 author: j-martens
 ms.author: jmartens
@@ -10,133 +10,133 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 2522b31788df294c37db4326985edd6c85774561
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: d5525c02edb30eff0ee8971a382f2acb8f2e57ee
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78191851"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79455731"
 ---
-# <a name="known-issues-and-troubleshooting-azure-machine-learning"></a>Kända problem och fel söknings Azure Machine Learning
+# <a name="known-issues-and-troubleshooting-azure-machine-learning"></a>Kända problem och felsökning av Azure Machine Learning
 
-Den här artikeln hjälper dig att hitta och korrigera fel eller fel som uppstår när du använder Azure Machine Learning.
+Den här artikeln hjälper dig att hitta och korrigera fel eller fel som påträffats när du använder Azure Machine Learning.
 
-## <a name="sdk-installation-issues"></a>SDK-installationsproblem
+## <a name="sdk-installation-issues"></a>Problem med SDK-installation
 
-**Fel meddelande: det går inte att avinstallera ' PyYAML '**
+**Felmeddelande: Det går inte att avinstallera "PyYAML"**
 
-Azure Machine Learning-SDK för Python: PyYAML är ett projekt för distutils installerad. Därför kan vi inte korrekt avgöra vilka filer som tillhör den om det finns en delvis avinstallation. Om du vill fortsätta installerar denna SDK när du ignorera det här felet, använder du:
+Azure Machine Learning SDK för Python: PyYAML är ett distutils installerat projekt. Därför kan vi inte exakt avgöra vilka filer som tillhör den om det finns en partiell avinstallation. Om du vill fortsätta installera SDK medan du ignorerar det här felet använder du:
 
 ```Python
 pip install --upgrade azureml-sdk[notebooks,automl] --ignore-installed PyYAML
 ```
 
-**Felmeddelande: `ERROR: No matching distribution found for azureml-dataprep-native`**
+**Felmeddelande:`ERROR: No matching distribution found for azureml-dataprep-native`**
 
-Anacondas python 3.7.4-distribution har ett fel som bryter azureml-SDK-installationen. Det här problemet beskrivs i det här [GitHub-problemet](https://github.com/ContinuumIO/anaconda-issues/issues/11195) som kan åtgärdas genom att skapa en ny Conda-miljö med det här kommandot:
+Anacondas Python 3.7.4-distribution har en bugg som bryter azureml-sdk-installationen. Det här problemet beskrivs i det här [problemet med GitHub](https://github.com/ContinuumIO/anaconda-issues/issues/11195) Detta kan bearbetas genom att skapa en ny Conda-miljö med det här kommandot:
 ```bash
 conda create -n <env-name> python=3.7.3
 ```
-Som skapar en Conda-miljö med python 3.7.3, som inte har installations problemet som finns i 3.7.4.
+Vilket skapar en Conda-miljö med Python 3.7.3, som inte har installationsproblemet som finns i 3.7.4.
 
-## <a name="training-and-experimentation-issues"></a>Problem med utbildning och experimentering
+## <a name="training-and-experimentation-issues"></a>Utbildning och experimentfrågor
 
-### <a name="metric-document-is-too-large"></a>Mått dokumentet är för stort
-Azure Machine Learning har interna gränser för storleken på mått objekt som kan loggas samtidigt från en utbildnings körning. Om ett "Metric-dokument är för stort"-fel vid loggning av ett List värdes mått kan du försöka dela listan i mindre segment, till exempel:
+### <a name="metric-document-is-too-large"></a>Metriskt dokument är för stort
+Azure Machine Learning har interna gränser för storleken på måttobjekt som kan loggas samtidigt från en utbildningskörning. Om du stöter på ett "Metriskt dokument är för stort" när du loggar ett listvärdesmått kan du prova att dela upp listan i mindre segment, till exempel:
 
 ```python
 run.log_list("my metric name", my_metric[:N])
 run.log_list("my metric name", my_metric[N:])
 ```
 
-Internt sammanfogar Azure ML blocken med samma mått namn i en sammanhängande lista.
+Internt sammanfogar Azure ML blocken med samma måttnamn i en sammanhängande lista.
 
-### <a name="moduleerrors-no-module-named"></a>ModuleErrors (ingen modul med namnet)
-Om du kör i ModuleErrors när du skickar experiment i Azure ML, innebär det att utbildnings skriptet förväntar sig att ett paket ska installeras men inte läggs till. När du har angett paket namnet kommer Azure ML att installera paketet i den miljö som används för att köra din utbildning. 
+### <a name="moduleerrors-no-module-named"></a>ModuleErrors (Ingen modul namngiven)
+Om du stöter på ModuleErrors när du skickar in experiment i Azure ML betyder det att utbildningsskriptet förväntar sig att ett paket ska installeras men det läggs inte till. När du har ange paketnamnet installerar Azure ML paketet i den miljö som används för din träningskörning. 
 
-Om du använder [uppskattningar](concept-azure-machine-learning-architecture.md#estimators) för att skicka experiment kan du ange ett paket namn via `pip_packages` eller `conda_packages` parameter i uppskattningen baserat på från vilken källa du vill installera paketet. Du kan också ange en YML-fil med alla dina beroenden med `conda_dependencies_file`eller lista alla dina pip-krav i en txt-fil med hjälp av `pip_requirements_file` parameter. Om du har ett eget Azure ML-miljö objekt som du vill åsidosätta standard avbildningen som används av uppskattaren, kan du ange den miljön via `environment`-parametern för den uppskattade konstruktorn.
+Om du använder [Estimator för](concept-azure-machine-learning-architecture.md#estimators) att skicka experiment kan `pip_packages` `conda_packages` du ange ett paketnamn via eller parameter i uppskattningsmannen baserat på från vilken källa du vill installera paketet. Du kan också ange en yml-fil `conda_dependencies_file`med alla dina beroenden med eller `pip_requirements_file` lista alla dina pipkrav i en txt-fil med parametern. Om du har ett eget Azure ML Environment-objekt som du vill åsidosätta standardavbildningen `environment` som används av kalkylatorn kan du ange den miljön via parametern för uppskattningskonstruktorn.
 
-Azure ML tillhandahåller också branschspecifika uppskattningar för Tensorflow, PyTorch, Kedjorer och SKLearn. Genom att använda dessa uppskattningar ser du till att de viktigaste Ramverks beroendena är installerade för din räkning i miljön som används för utbildning. Du kan välja att ange extra beroenden enligt beskrivningen ovan. 
+Azure ML tillhandahåller också ramspecifika kalkylatorer för Tensorflow, PyTorch, Chainer och SKLearn. Med hjälp av dessa skattningsatorer kommer att se till att de viktigaste ramverksberoendena installeras för din räkning i den miljö som används för utbildning. Du har möjlighet att ange extra beroenden enligt beskrivningen ovan. 
  
-Azure ML-underhållna Docker-avbildningar och deras innehåll kan visas i [azureml-behållare](https://github.com/Azure/AzureML-Containers).
-De Ramverks-/regionsspecifika beroendena visas i respektive Framework-dokumentation – [kedjar](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py#remarks), [PyTorch](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.pytorch?view=azure-ml-py#remarks), [TensorFlow](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py#remarks), [SKLearn](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.sklearn.sklearn?view=azure-ml-py#remarks).
+Azure ML underhållna dockeravbildningar och deras innehåll kan ses i [AzureML Containers](https://github.com/Azure/AzureML-Containers).
+Ramspecifika beroenden visas i respektive ramdokumentation - [Chainer](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py#remarks), [PyTorch](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.pytorch?view=azure-ml-py#remarks), [TensorFlow](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py#remarks), [SKLearn](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.sklearn.sklearn?view=azure-ml-py#remarks).
 
 > [!Note]
-> Om du tror att ett visst paket är tillräckligt vanligt för att läggas till i Azure ML-underhållna bilder och miljöer kan du generera ett GitHub-problem i [azureml-behållare](https://github.com/Azure/AzureML-Containers). 
+> Om du tror att ett visst paket är tillräckligt vanligt för att läggas till i Azure ML-underhållna avbildningar och miljöer kan du ta upp ett GitHub-problem i [AzureML Containers](https://github.com/Azure/AzureML-Containers). 
  
-### <a name="nameerror-name-not-defined-attributeerror-object-has-no-attribute"></a>NameError (namn har inte definierats), AttributeError (objektet har inget attribut)
-Detta undantag bör komma från dina utbildnings skript. Du kan titta på loggfilerna från Azure Portal för att få mer information om det angivna namnet inte är definierat eller ett attributvärde. Från SDK kan du använda `run.get_details()` för att titta på fel meddelandet. Detta visar även alla loggfiler som genererats för din körning. Se till att ta en titt på ditt utbildnings skript och åtgärda felet innan du skickar om körningen. 
+### <a name="nameerror-name-not-defined-attributeerror-object-has-no-attribute"></a>NameError (Namn har inte definierats), AttributeError (Objektet har inget attribut)
+Det här undantaget bör komma från dina utbildningsskript. Du kan titta på loggfilerna från Azure-portalen för att få mer information om det specifika namn som inte har definierats eller attributfel. Från SDK kan du `run.get_details()` använda för att titta på felmeddelandet. Detta kommer också att lista alla loggfiler som genereras för din körning. Se till att ta en titt på ditt träningsskript och åtgärda felet innan du skickar in körningen igen. 
 
-### <a name="horovod-has-been-shut-down"></a>Horovod har avslut ATS
-I de flesta fall om du stöter på "AbortedError: Horovod" har stängts av "det här undantaget innebär det ett underliggande undantag i en av de processer som orsakade att Horovod stängdes av. Varje rang i MPI-jobbet hämtar den egna dedikerade logg filen i Azure ML. De här loggarna heter `70_driver_logs`. I händelse av distribuerad utbildning suffixs logg namnen med `_rank` för att göra det enklare att skilja loggarna åt. Om du vill ta reda på det exakta felet som orsakade att Horovod stängts går du igenom alla loggfiler och letar efter `Traceback` i slutet av driver_log-filerna. Med en av de här filerna får du det faktiska underliggande undantaget. 
+### <a name="horovod-has-been-shut-down"></a>Horovod har stängts av
+I de flesta fall om du stöter på "AbortedError: Horovod har stängts av" innebär detta undantag att det fanns ett underliggande undantag i en av de processer som orsakade Horovod att stänga. Varje rang i MPI-jobbet får den egna dedikerade loggfilen i Azure ML. Dessa loggar heter `70_driver_logs`. Vid distribuerad utbildning suffixeras loggnamnen `_rank` med för att göra det lättare att skilja loggarna åt. För att hitta det exakta felet som orsakade Horovod att stänga `Traceback` av, gå igenom alla loggfiler och leta efter i slutet av driver_log filer. En av dessa filer ger dig det faktiska underliggande undantaget. 
 
-### <a name="sr-iov-availability-on-ncv3-machines-in-amlcompute-for-distributed-training"></a>SR-IOV-tillgänglighet på NCv3-datorer i AmlCompute för distribuerad utbildning
-Azure Compute har lanserat en [SR-IOV-uppgradering](https://azure.microsoft.com/updates/sriov-availability-on-ncv3-virtual-machines-sku/) av NCv3-datorer, som kunder kan använda med Azure MLS hanterade Compute-erbjudande (AmlCompute). Uppdateringarna kommer att möjliggöra stöd för hela MPI-stacken och användningen av InfiniBand RDMA-nätverk för förbättrade prestanda för distribuerade utbildningar i flera noder, särskilt för djup inlärning.
+### <a name="sr-iov-availability-on-ncv3-machines-in-amlcompute-for-distributed-training"></a>SR-IOV-tillgänglighet på NCv3-maskiner i AmlCompute för distribuerad utbildning
+Azure Compute har rullat ut en [SR-IOV-uppgradering](https://azure.microsoft.com/updates/sriov-availability-on-ncv3-virtual-machines-sku/) av NCv3-datorer, som kunder kan utnyttja med Azure ML:s hanterade beräkningserbjudande (AmlCompute). Uppdateringarna kommer att möjliggöra stöd för hela MPI stacken och användningen av Infiniband RDMA-nätverk för förbättrad multi-nod distribuerad utbildning prestanda, särskilt för djupinlärning.
 
-Visa [uppdaterings schemat](https://azure.microsoft.com/updates/sr-iov-availability-schedule-on-ncv3-virtual-machines-sku/) för att se när supporten distribueras för din region.
+Visa [uppdateringsschemat](https://azure.microsoft.com/updates/sr-iov-availability-schedule-on-ncv3-virtual-machines-sku/) för att se när supporten ska distribueras för din region.
 
-### <a name="run-or-experiment-deletion"></a>Körning eller experiment borttagning
-Experiment kan arkiveras med hjälp av metoden [experiment. Archive](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment(class)?view=azure-ml-py#archive--) eller från fliken experiment i Azure Machine Learning Studio-klienten via knappen "arkivera experiment". Den här åtgärden döljer experimentet från List frågor och vyer, men tar inte bort den.
+### <a name="run-or-experiment-deletion"></a>Kör eller experimentera borttagning
+Experiment kan arkiveras med metoden [Experiment.archive](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment(class)?view=azure-ml-py#archive--) eller från fliken Experiment i Azure Machine Learning studio-klienten via knappen "Arkivexperiment". Den här åtgärden döljer experimentet från listfrågor och vyer, men tar inte bort det.
 
-Permanent borttagning av enskilda experiment eller körningar stöds inte för närvarande. Mer information om hur du tar bort arbets ytans till gångar finns i [Exportera eller ta bort data för Machine Learning service-arbetsytan](how-to-export-delete-data.md).
+Permanent borttagning av enskilda experiment eller körningar stöds för närvarande inte. Mer information om hur du tar bort resurser för arbetsyta finns i [Exportera eller ta bort arbetsytedata för Machine Learning-tjänsten](how-to-export-delete-data.md).
 
-## <a name="azure-machine-learning-compute-issues"></a>Azure Machine Learning beräknings problem
+## <a name="azure-machine-learning-compute-issues"></a>Beräkningsproblem för Azure Machine Learning
 Kända problem med att använda Azure Machine Learning Compute (AmlCompute).
 
 ### <a name="trouble-creating-amlcompute"></a>Problem med att skapa AmlCompute
 
-Det är en sällsynt chans att vissa användare som har skapat sin Azure Machine Learning-arbetsyta från Azure Portal innan GA-versionen inte kan skapa AmlCompute på arbets ytan. Du kan antingen utlösa en supportbegäran mot tjänsten eller skapa en ny arbets yta via portalen eller SDK för att häva blockeringen direkt.
+Det finns en sällsynt chans att vissa användare som har skapat sin Azure Machine Learning-arbetsyta från Azure-portalen innan GA-versionen kanske inte kan skapa AmlCompute på arbetsytan. Du kan antingen höja en supportbegäran mot tjänsten eller skapa en ny arbetsyta via portalen eller SDK för att häva blockeringen omedelbart.
 
-### <a name="outage-sr-iov-upgrade-to-ncv3-machines-in-amlcompute"></a>Avbrott: SR-IOV-uppgradering till NCv3-datorer i AmlCompute
+### <a name="outage-sr-iov-upgrade-to-ncv3-machines-in-amlcompute"></a>Avbrott: SR-IOV uppgraderar till NCv3-maskiner i AmlCompute
 
-Azure Compute uppdaterar NCv3 SKU: er som startar tidigt november 2019 för att ge stöd för alla MPI-implementeringar och-versioner samt RDMA-verb för InfiniBand-utrustade virtuella datorer. Detta kräver kort stillestånds tid – [Läs mer om SR-IOV-uppgraderingen](https://azure.microsoft.com/updates/sriov-availability-on-ncv3-virtual-machines-sku).
+Azure Compute kommer att uppdatera NCv3 SKU:er från början av november 2019 för att stödja alla MPI-implementeringar och versioner och RDMA-verb för InfiniBand-utrustade virtuella datorer. Detta kommer att kräva en kort driftstopp - [läs mer om SR-IOV uppgradering](https://azure.microsoft.com/updates/sriov-availability-on-ncv3-virtual-machines-sku).
 
-Som kund av Azure Machine Learnings hanterade Compute-erbjudande (AmlCompute) behöver du inte göra några ändringar för tillfället. Utifrån [uppdaterings schemat](https://azure.microsoft.com/updates/sr-iov-availability-schedule-on-ncv3-virtual-machines-sku) skulle du behöva planera för en kort rast i utbildningen. Tjänsten tar ansvar för att uppdatera VM-avbildningarna på klusternoderna och skala automatiskt upp klustret. När uppgraderingen är klar kan du använda alla andra MPI-distributioner (t. ex. OpenMPI med Pytorch), förutom att få större InfiniBand-bandbredd, lägre fördröjning och bättre prestanda för distribuerade program.
+Som kund hos Azure Machine Learnings hanterade beräkningserbjudande (AmlCompute) behöver du inte göra några ändringar just nu. Baserat på [uppdateringsschemat](https://azure.microsoft.com/updates/sr-iov-availability-schedule-on-ncv3-virtual-machines-sku) måste du planera för en kort paus i din träning. Tjänsten tar ansvar för att uppdatera vm-avbildningarna på klusternoderna och automatiskt skala upp klustret. När uppgraderingen är klar kanske du kan använda alla andra MPI-distributioner (som OpenMPI med Pytorch) förutom att få högre InfiniBand bandbredd, lägre latenser och bättre distribuerade programprestanda.
 
-## <a name="azure-machine-learning-designer-issues"></a>Problem med Azure Machine Learning designer
+## <a name="azure-machine-learning-designer-issues"></a>Problem med Designern i Azure Machine Learning
 
 Kända problem med designern.
 
-### <a name="long-compute-preparation-time"></a>Förberedelse tid för lång beräkning
+### <a name="long-compute-preparation-time"></a>Lång beräkningsförberedelsetid
 
-Det kan ta några minuter eller till och med längre tid att skapa en ny beräknings-eller använda. Teamet arbetar för optimering.
+Skapa ny beräkning eller framkalla lämnar beräkning tar tid, kan vara några minuter eller ännu längre. Teamet arbetar för optimering.
 
 
-### <a name="cannot-run-an-experiment-only-contains-a-dataset"></a>Det går inte att köra ett experiment som bara innehåller en data uppsättning 
+### <a name="cannot-run-an-experiment-only-contains-a-dataset"></a>Det går inte att köra ett experiment som bara innehåller en datauppsättning 
 
-Du kanske vill köra ett experiment endast innehåller data uppsättning för att visualisera data uppsättningen. Men det är inte tillåtet att köra ett experiment som bara innehåller data uppsättningar idag. Vi åtgärdar det här problemet aktivt.
+Du kanske bara vill köra ett experiment innehåller datauppsättning för att visualisera datauppsättningen. Det är dock inte tillåtet att köra ett experiment innehåller bara datauppsättning idag. Vi håller aktivt på att lösa denna fråga.
  
-Före korrigeringen kan du ansluta data uppsättningen till en datatransformerings-modul (Välj kolumner i data uppsättning, redigera metadata, dela data osv.) och köra experimentet. Sedan kan du visualisera data uppsättningen. 
+Innan korrigeringen kan du ansluta datauppsättningen till valfri dataomvandlingsmodul (Välj kolumner i datauppsättning, Redigera metadata, dela data etc.) och köra experimentet. Sedan kan du visualisera datauppsättningen. 
 
-Bilden nedan visar hur: ![visulize-data](./media/resource-known-issues/aml-visualize-data.png)
+Nedanstående bild ![visar hur: visulize-data](./media/resource-known-issues/aml-visualize-data.png)
 
-## <a name="image-building-failure"></a>Bild byggnad fel
+## <a name="image-building-failure"></a>Fel på bildbygget
 
-Bild för att skapa fel när du distribuerar webbtjänsten. Lösningen är att lägga till ”pynacl == 1.2.1” som ett pip beroende till Conda-fil för konfiguration av avbildningen.
+Fel på bildbygge vid distribution av webbtjänst. Lösning är att lägga till "pynacl==1.2.1" som pipberoende till Conda-fil för avbildningskonfiguration.
 
-## <a name="deployment-failure"></a>Distributions problem
+## <a name="deployment-failure"></a>Distributionsfel
 
-Om du ser `['DaskOnBatch:context_managers.DaskOnBatch', 'setup.py']' died with <Signals.SIGKILL: 9>`ändrar du SKU: n för virtuella datorer som används i distributionen till en som har mer minne.
+Om du `['DaskOnBatch:context_managers.DaskOnBatch', 'setup.py']' died with <Signals.SIGKILL: 9>`observerar ändrar du SKU för virtuella datorer som används i distributionen till en som har mer minne.
 
 ## <a name="fpgas"></a>FPGA:er
 
-Du kommer inte att kunna distribuera modeller på FPGA förrän du har begärt och godkänts för FPGA kvot. Om du vill begära åtkomst fyller du i formuläret kvot förfrågan: https://aka.ms/aml-real-time-ai
+Du kommer inte att kunna distribuera modeller på FPGA förrän du har begärt och godkänts för FPGA-kvot. Om du vill begära åtkomst fyller du i formuläret för kvotbegäran:https://aka.ms/aml-real-time-ai
 
 ## <a name="automated-machine-learning"></a>Automatiserad maskininlärning
 
-Den automatiska maskin inlärningen i styrkorts flöde stöder för närvarande inte flödes flödes version 1,13. Om den här versionen installeras kommer paket beroenden att sluta fungera. Vi arbetar för att åtgärda det här problemet i en framtida version. 
+Tensor Flow Automatiserad maskininlärning stöder för närvarande inte tensorflöde version 1.13. Om du installerar den här versionen slutar paketberoenden att fungera. Vi arbetar för att åtgärda problemet i en framtida version.
 
-### <a name="experiment-charts"></a>Experiment diagram
+### <a name="experiment-charts"></a>Experimentdiagram
 
-Binära klassificerings diagram (precisions återkallning, ROC, kurva osv.) som visas i automatiserade ML experiment-iterationer återges inte korrekt i användar gränssnittet sedan 4/12. Diagram observationer visar för närvarande inversa resultat, där modeller med bättre prestanda visas med lägre resultat. En lösning är under undersökning.
+Binära klassificeringsdiagram (precision-recall, ROC, gain curve etc.) som visas i automatiserade ML-experimentiterationer återges inte korrekt i användargränssnittet sedan 4/12. Diagramdiagram visar för närvarande omvända resultat, där bättre presterande modeller visas med lägre resultat. En resolution är under utredning.
 
-## <a name="datasets-and-data-preparation"></a>Data uppsättningar och förberedelse av data
+## <a name="datasets-and-data-preparation"></a>Datamängder och databeredning
 
-Detta är kända problem för Azure Machine Learning data uppsättningar.
+Dessa är kända problem för Azure Machine Learning Dataset.
 
-### <a name="typeerror-filenotfound-no-such-file-or-directory"></a>TypeError: FileNotFound: ingen sådan fil eller katalog
+### <a name="typeerror-filenotfound-no-such-file-or-directory"></a>TypeError: FileNotFound: Ingen sådan fil eller katalog
 
-Det här felet uppstår om fil Sök vägen som du anger inte är den plats där filen finns. Du måste kontrol lera att det sätt som du refererar till filen är konsekvent med var du monterade data uppsättningen på beräknings målet. För att säkerställa ett deterministiskt tillstånd rekommenderar vi att du använder den abstrakta sökvägen när du monterar en data uppsättning till ett beräknings mål. I följande kod monterar du till exempel data uppsättningen under roten i fil systemet för beräknings målet `/tmp`. 
+Det här felet uppstår om filsökvägen som du anger inte finns där filen finns. Du måste se till att hur du refererar till filen är förenligt med var du monterade datauppsättningen på beräkningsmålet. För att säkerställa ett deterministiskt tillstånd rekommenderar vi att du använder den abstrakta sökvägen när du monterar en datauppsättning till ett beräkningsmål. I följande kod monterar vi till exempel datauppsättningen under roten i `/tmp`beräkningsmålets filsystem. 
 
 ```python
 # Note the leading / in '/tmp/dataset'
@@ -145,19 +145,19 @@ script_params = {
 } 
 ```
 
-Om du inte tar med det inledande snedstrecket "/" måste du ange ett prefix till arbets katalogen, t. ex. `/mnt/batch/.../tmp/dataset` på beräknings målet för att ange var du vill att data uppsättningen ska monteras. 
+Om du inte inkluderar det inledande snedstrecket framåt, "/", måste du `/mnt/batch/.../tmp/dataset` prefix arbetskatalogen, t.ex.
 
-### <a name="fail-to-read-parquet-file-from-http-or-adls-gen-2"></a>Det gick inte att läsa Parquet-filen från HTTP eller ADLS gen 2
+### <a name="fail-to-read-parquet-file-from-http-or-adls-gen-2"></a>Det går inte att läsa parquet-filen från HTTP eller ADLS Gen 2
 
-Det finns ett känt problem i AzureML nu SDK-1.1.25 som orsakar ett fel när du skapar en data uppsättning genom att läsa Parquet-filer från HTTP eller ADLS gen 2. Det går inte att `Cannot seek once reading started.`. Åtgärda problemet genom att uppgradera `azureml-dataprep` till en högre version än 1.1.26 eller nedgradera till en lägre version än 1.1.24.
+Det finns ett känt problem i AzureML DataPrep SDK version 1.1.25 som orsakar ett fel när du skapar en datauppsättning genom att läsa Parquet-filer från HTTP eller ADLS Gen 2. Det kommer `Cannot seek once reading started.`att misslyckas med . Lös problemet genom att `azureml-dataprep` uppgradera till en version som är högre än 1.1.26 eller nedgradera till en version som är lägre än 1.1.24.
 
 ```python
 pip install --upgrade azureml-dataprep
 ```
 
-### <a name="typeerror-mount-got-an-unexpected-keyword-argument-invocation_id"></a>TypeError: Mount () fick ett oväntat nyckelords argument invocation_id
+### <a name="typeerror-mount-got-an-unexpected-keyword-argument-invocation_id"></a>TypeError: mount() fick ett oväntat sökordsargument "invocation_id"
 
-Det här felet uppstår om du har en inkompatibel version mellan `azureml-core` och `azureml-dataprep`. Om det här felet visas uppgraderar du `azureml-dataprep`-paketet till en nyare version (större än eller lika med 1.1.29).
+Det här felet uppstår om du `azureml-core` `azureml-dataprep`har en inkompatibel version mellan och . Om det här felet `azureml-dataprep` visas uppgraderar du paketet till en nyare version (större än eller lika med 1.1.29).
 
 ```python
 pip install --upgrade azureml-dataprep
@@ -165,89 +165,89 @@ pip install --upgrade azureml-dataprep
 
 ## <a name="databricks"></a>Databricks
 
-Databricks och Azure Machine Learning-problem.
+Problem med Databricks och Azure Machine Learning.
 
-### <a name="failure-when-installing-packages"></a>Det gick inte att installera paket
+### <a name="failure-when-installing-packages"></a>Fel vid installation av paket
 
-Azure Machine Learning SDK-installationen Miss lyckas på Azure Databricks när fler paket är installerade. Vissa paket, till exempel `psutil`, kan orsaka konflikter. Undvik installations fel genom att installera paket genom att frysa biblioteks versionen. Det här problemet är relaterat till Databricks och inte till Azure Machine Learning SDK. Du kan också uppleva det här problemet med andra bibliotek. Exempel:
+Azure Machine Learning SDK-installationen misslyckas på Azure Databricks när fler paket installeras. Vissa paket, till `psutil`exempel , kan orsaka konflikter. För att undvika installationsfel installerar du paket genom att frysa biblioteksversionen. Det här problemet är relaterat till Databricks och inte till Azure Machine Learning SDK. Det här problemet kan också uppstå med andra bibliotek. Exempel:
 
 ```python
 psutil cryptography==1.5 pyopenssl==16.0.0 ipython==2.2.0
 ```
 
-Du kan också använda init-skript om du behåller problem med att installera mot python-bibliotek. Den här metoden stöds inte officiellt. Mer information finns i [kluster omfång init-skript](https://docs.azuredatabricks.net/user-guide/clusters/init-scripts.html#cluster-scoped-init-scripts).
+Du kan också använda init-skript om du fortsätter att ställas inför installationsproblem med Python-bibliotek. Den här metoden stöds inte officiellt. Mer information finns [i Kluster-scoped init-skript](https://docs.azuredatabricks.net/user-guide/clusters/init-scripts.html#cluster-scoped-init-scripts).
 
-### <a name="cancel-an-automated-machine-learning-run"></a>Avbryta en automatiserad Machine Learning-körning
+### <a name="cancel-an-automated-machine-learning-run"></a>Avbryta en automatisk maskininlärningskörning
 
-När du använder automatiserade maskin inlärnings funktioner på Azure Databricks för att avbryta körningen och starta en ny experiment körning startar du om Azure Databricks klustret.
+När du använder automatiserade machine learning-funktioner på Azure Databricks, för att avbryta en körning och starta en ny experimentkörning, starta om ditt Azure Databricks-kluster.
 
-### <a name="10-iterations-for-automated-machine-learning"></a>> 10 iterationer för automatisk maskin inlärning
+### <a name="10-iterations-for-automated-machine-learning"></a>>10 iterationer för automatiserad maskininlärning
 
-I automatiska inställningar för maskin inlärning, om du har fler än 10 iterationer, ställer du in `show_output` till `False` när du skickar körningen.
+I automatiska maskininlärningsinställningar, om du har `show_output` `False` fler än 10 iterationer, inställd på när du skickar körningen.
 
-### <a name="widget-for-the-azure-machine-learning-sdk-and-automated-machine-learning"></a>Widget för Azure Machine Learning SDK och automatisk maskin inlärning
+### <a name="widget-for-the-azure-machine-learning-sdk-and-automated-machine-learning"></a>Widget för Azure Machine Learning SDK och automatiserad maskininlärning
 
-Widgeten Azure Machine Learning SDK stöds inte i en Databricks Notebook eftersom antecknings böckerna inte kan parsa HTML-widgetar. Du kan visa widgeten i portalen genom att använda den här python-koden i din Azure Databricks Notebook-cell:
+Azure Machine Learning SDK-widgeten stöds inte i en Databricks-anteckningsbok eftersom anteckningsböckerna inte kan tolka HTML-widgetar. Du kan visa widgeten i portalen med den här Python-koden i din Azure Databricks-anteckningsbokscell:
 
 ```
 displayHTML("<a href={} target='_blank'>Azure Portal: {}</a>".format(local_run.get_portal_url(), local_run.id))
 ```
 
-### <a name="import-error-cannot-import-name-timedelta-from-pandas_libstslibs"></a>Import fel: det går inte att importera namnet timedelta från Pandas. _libs. tslibs
+### <a name="import-error-cannot-import-name-timedelta-from-pandas_libstslibs"></a>Importfel: kan inte importera namnet "Timedelta" från "pandas._libs.tslibs"
 
-Om du ser det här felet när du använder automatisk maskin inlärning, kör du två följande rader i din bärbara dator:
+Om det här felet visas när du använder automatisk maskininlärning kör du följande två rader i anteckningsboken:
 ```
 %sh rm -rf /databricks/python/lib/python3.7/site-packages/pandas-0.23.4.dist-info /databricks/python/lib/python3.7/site-packages/pandas
 %sh /databricks/python/bin/pip install pandas==0.23.4
 ```
 
-### <a name="import-error-no-module-named-pandascoreindexes"></a>Import fel: ingen modul med namnet Pandas. Core. indexs
+### <a name="import-error-no-module-named-pandascoreindexes"></a>Importfel: Ingen modul med namnet 'pandas.core.indexes'
 
-Om du ser det här felet när du använder automatisk maskin inlärning:
+Om det här felet visas när du använder automatiserad maskininlärning:
 
-1. Kör det här kommandot för att installera två paket i Azure Databricks klustret: 
+1. Kör det här kommandot om du vill installera två paket i Azure Databricks-klustret:
 
-   ```
+   ```bash
    scikit-learn==0.19.1
    pandas==0.22.0
    ```
 
-1. Koppla från och återanslut sedan klustret till din bärbara dator. 
+1. Koppla loss och sätt sedan tillbaka klustret i anteckningsboken.
 
-Om de här stegen inte löser problemet kan du försöka med att starta om klustret.
+Om de här stegen inte löser problemet kan du prova att starta om klustret.
 
 ### <a name="failtosendfeather"></a>FailToSendFeather
 
-Om du ser ett `FailToSendFeather` fel när du läser data på Azure Databricks kluster kan du läsa följande lösningar:
+Om du `FailToSendFeather` ser ett fel när du läser data i Azure Databricks-klustret läser du följande lösningar:
 
-* Uppgradera `azureml-sdk[automl]`-paketet till den senaste versionen.
-* Lägg till `azureml-dataprep` version 1.1.8 eller senare.
-* Lägg till `pyarrow` version 0,11 eller senare.
+* Uppgradera `azureml-sdk[automl]` paketet till den senaste versionen.
+* Lägg `azureml-dataprep` till version 1.1.8 eller högre.
+* Lägg `pyarrow` till version 0.11 eller högre.
 
-## <a name="azure-portal"></a>Azure-portalen
+## <a name="azure-portal"></a>Azure Portal
 
-Om du går direkt för att visa din arbetsyta från en delningslänk från SDK: N eller portalen kan du inte visa normala översikt översiktssidan med prenumerationsinformation i tillägget. Du kommer inte heller att kunna växla till en annan arbetsyta. Om du behöver visa en annan arbets yta är lösningen att gå direkt till [Azure Machine Learning Studio](https://ml.azure.com) och söka efter namnet på arbets ytan.
+Om du går direkt för att visa arbetsytan från en delningslänk från SDK eller portalen kan du inte visa den vanliga översiktssidan med prenumerationsinformation i tillägget. Du kommer inte heller att kunna växla till en annan arbetsyta. Om du behöver visa en annan arbetsyta är lösningen att gå direkt till [Azure Machine Learning studio](https://ml.azure.com) och söka efter arbetsytans namn.
 
 ## <a name="diagnostic-logs"></a>Diagnostikloggar
 
-Ibland kan det vara bra om du kan ange diagnostisk information när du frågar om du behöver hjälp. Om du vill se några loggar går du till [Azure Machine Learning Studio](https://ml.azure.com) och går till din arbets yta och väljer **arbets yta > Experiment > Kör > loggar**.  
+Ibland kan det vara användbart om du kan ange diagnostikinformation när du ber om hjälp. Om du vill se några loggar besöker du [Azure Machine Learning studio](https://ml.azure.com) och går till arbetsytan och väljer Arbetsyta > Experiment > Kör > **loggar**.  
 
 > [!NOTE]
-> Azure Machine Learning loggar information från en rad olika källor under utbildningen, till exempel AutoML eller Docker-behållaren som kör övnings jobbet. Många av dessa loggar dokumenteras inte. Om du stöter på problem och kontaktar Microsoft-supporten kan det hända att de kan använda dessa loggar under fel sökning.
+> Azure Machine Learning loggar information från en mängd olika källor under utbildningen, till exempel AutoML eller Docker-behållaren som kör utbildningsjobbet. Många av dessa loggar är inte dokumenterade. Om du stöter på problem och kontaktar Microsoft-supporten kan de kanske använda dessa loggar under felsökningen.
 
 ## <a name="activity-logs"></a>Aktivitetsloggar
 
-Vissa åtgärder i Azure Machine Learning-arbetsytan loggar inte information i __aktivitets loggen__. Du kan till exempel starta en utbildning för att köra eller registrera en modell.
+Vissa åtgärder på arbetsytan Azure Machine Learning loggar inte information till __aktivitetsloggen__. Till exempel starta en träningskörning eller registrera en modell.
 
-Några av de här åtgärderna visas i området __aktiviteter__ i din arbets yta, men de visar inte vem som initierade aktiviteten.
+Vissa av dessa åtgärder visas i området __Aktiviteter__ på arbetsytan, men de anger inte vem som initierade aktiviteten.
 
 ## <a name="resource-quotas"></a>Resurskvoter
 
-Lär dig mer om [resurs kvoter](how-to-manage-quotas.md) som du kan stöta på när du arbetar med Azure Machine Learning.
+Lär dig mer om [de resurskvoter](how-to-manage-quotas.md) du kan stöta på när du arbetar med Azure Machine Learning.
 
 ## <a name="authentication-errors"></a>Autentiseringsfel
 
-Om du utför en hanterings åtgärd på ett beräknings mål från ett Fjärrjobb får du ett av följande fel:
+Om du utför en hanteringsåtgärd på ett beräkningsmål från ett fjärrjobb visas något av följande fel:
 
 ```json
 {"code":"Unauthorized","statusCode":401,"message":"Unauthorized","details":[{"code":"InvalidOrExpiredToken","message":"The request token was either invalid or expired. Please try again with a valid token."}]}
@@ -257,27 +257,27 @@ Om du utför en hanterings åtgärd på ett beräknings mål från ett Fjärrjob
 {"error":{"code":"AuthenticationFailed","message":"Authentication failed."}}
 ```
 
-Till exempel visas ett fel meddelande om du försöker skapa eller ansluta ett beräknings mål från en ML-pipeline som skickas för fjärrkörning.
+Du får till exempel ett felmeddelande om du försöker skapa eller koppla ett beräkningsmål från en ML-pipeline som skickas för fjärrkörning.
 
-## <a name="overloaded-azurefile-storage"></a>Överlagrad AzureFile-lagring
+## <a name="overloaded-azurefile-storage"></a>Överbelastad AzureFile-lagring
 
-Använd följande lösningar om du får ett fel meddelande `Unable to upload project files to working directory in AzureFile because the storage is overloaded`.
+Om du får `Unable to upload project files to working directory in AzureFile because the storage is overloaded`ett felmeddelande använder du följande lösningar.
 
-Om du använder fil resurs för andra arbets belastningar, till exempel data överföring, är rekommendationen att använda blobbar så att fil resursen är kostnads fri att användas för att skicka körningar. Du kan också dela upp arbets belastningen mellan två olika arbets ytor.
+Om du använder filresurs för andra arbetsbelastningar, till exempel dataöverföring, är rekommendationen att använda blobbar så att filresursen är gratis att använda för att skicka körningar. Du kan också dela arbetsbelastningen mellan två olika arbetsytor.
 
-## <a name="webservices-in-azure-kubernetes-service-failures"></a>Webservice i Azure Kubernetes service-problem 
+## <a name="webservices-in-azure-kubernetes-service-failures"></a>Webbtjänster i Azure Kubernetes-tjänstfel
 
-Många WebService-fel i Azure Kubernetes-tjänsten kan felsökas genom att ansluta till klustret med hjälp av `kubectl`. Du kan hämta `kubeconfig.json` för ett Azure Kubernetes service-kluster genom att köra
+Många webbtjänstfel i Azure Kubernetes-tjänsten kan avsökas genom `kubectl`att ansluta till klustret med . Du kan `kubeconfig.json` hämta för ett Azure Kubernetes-tjänstkluster genom att köra
 
-```bash
+```azurecli-interactive
 az aks get-credentials -g <rg> -n <aks cluster name>
 ```
 
 ## <a name="updating-azure-machine-learning-components-in-aks-cluster"></a>Uppdatera Azure Machine Learning-komponenter i AKS-kluster
 
-Uppdateringar av Azure Machine Learning-komponenter som är installerade i ett Azure Kubernetes service-kluster måste appliceras manuellt. 
+Uppdateringar av Azure Machine Learning-komponenter som är installerade i ett Azure Kubernetes-tjänstkluster måste tillämpas manuellt. 
 
-Du kan tillämpa dessa uppdateringar genom att koppla från klustret från arbets ytan Azure Machine Learning och sedan återansluta klustret till arbets ytan. Om SSL är aktiverat i klustret måste du ange SSL-certifikatet och den privata nyckeln när du återansluter klustret. 
+Du kan installera dessa uppdateringar genom att koppla från klustret från Azure Machine Learning-arbetsytan och sedan återansluta klustret till arbetsytan. Om SSL är aktiverat i klustret måste du ange SSL-certifikatet och den privata nyckeln när du sätter tillbaka klustret. 
 
 ```python
 compute_target = ComputeTarget(workspace=ws, name=clusterWorkspaceName)
@@ -298,36 +298,36 @@ compute_target = ComputeTarget.attach(workspace=ws, name=args.clusterWorkspaceNa
 compute_target.wait_for_completion(show_output=True)
 ```
 
-Om du inte längre har SSL-certifikatet och den privata nyckeln, eller om du använder ett certifikat som har genererats av Azure Machine Learning, kan du hämta filerna innan du kopplar från klustret genom att ansluta till klustret med `kubectl` och hämta hemligheten `azuremlfessl`.
+Om du inte längre har SSL-certifikatet och den privata nyckeln, eller om du använder ett certifikat som genereras av Azure `kubectl` Machine Learning, kan `azuremlfessl`du hämta filerna innan du kopplar från klustret genom att ansluta till klustret med hjälp av och hämta hemligheten .
 
 ```bash
 kubectl get secret/azuremlfessl -o yaml
 ```
 
 >[!Note]
->Kubernetes lagrar hemligheterna i Base-64-kodat format. Du måste basera-64-avkoda `cert.pem` och `key.pem` komponenter i hemligheterna innan de kan `attach_config.enable_ssl`. 
+>Kubernetes lagrar hemligheterna i base-64 kodat format. Du kommer att behöva basera-64 avkoda `cert.pem` och `key.pem` komponenter `attach_config.enable_ssl`i hemligheter innan de ger dem till . 
 
-## <a name="labeling-projects-issues"></a>Problem med att märka projekt
+## <a name="labeling-projects-issues"></a>Märka projektfrågor
 
-Kända problem med att märka projekt.
+Kända problem med märkning av projekt.
 
-### <a name="only-datasets-created-on-blob-datastores-can-be-used"></a>Det går bara att använda data uppsättningar som skapats på BLOB-datalager
+### <a name="only-datasets-created-on-blob-datastores-can-be-used"></a>Endast datauppsättningar som skapas på blob-datalager kan användas
 
-Detta är en känd begränsning i den aktuella versionen. 
+Detta är en känd begränsning av den aktuella versionen.
 
-### <a name="after-creation-the-project-shows-initializing-for-a-long-time"></a>När projektet har skapats visar projektet "initiera" under en längre tid
+### <a name="after-creation-the-project-shows-initializing-for-a-long-time"></a>När projektet har skapats visas "Initiera" under lång tid
 
-Uppdatera sidan manuellt. Initieringen bör fortsätta ungefär 20 Datapoints per sekund. Bristen på Autouppdatering är ett känt problem. 
+Uppdatera sidan manuellt. Initieringen bör fortsätta med ungefär 20 datapunkter per sekund. Bristen på autorefresh är ett känt problem. 
 
-### <a name="when-reviewing-images-newly-labeled-images-are-not-shown"></a>När du visar bilder visas nyligen märkta bilder inte
+### <a name="when-reviewing-images-newly-labeled-images-are-not-shown"></a>När du granskar bilder visas inte nyligen märkta bilder
 
-Om du vill läsa in alla märkta bilder väljer du den **första** knappen. Den **första** knappen tar dig tillbaka till början av listan, men läser in alla etiketterade data.
+Om du vill läsa in alla märkta bilder väljer du knappen **Första.** Den **första** knappen tar dig tillbaka till framsidan av listan, men laddar alla märkta data.
 
-### <a name="pressing-esc-key-while-labeling-for-object-detection-creates-a-zero-size-label-on-the-top-left-corner-submitting-labels-in-this-state-fails"></a>Tryck på ESC-tangenten när etiketter för objekt identifiering skapar en etikett för noll storlek i det övre vänstra hörnet. Det går inte att skicka etiketter i det här läget.
+### <a name="pressing-esc-key-while-labeling-for-object-detection-creates-a-zero-size-label-on-the-top-left-corner-submitting-labels-in-this-state-fails"></a>Om du trycker på Esc-tangenten när du etiketterar för objektidentifiering skapas en nollstorleksetikett i det övre vänstra hörnet. Det går inte att skicka etiketter i det här tillståndet.
 
-Ta bort etiketten genom att klicka på kryss rutan bredvid det.
+Ta bort etiketten genom att klicka på korsmarkeringen bredvid den.
 
-## <a name="moving-the-workspace"></a>Flytta arbets ytan
+## <a name="moving-the-workspace"></a>Flytta arbetsytan
 
 > [!WARNING]
-> Det finns inte stöd för att flytta Azure Machine Learning arbets ytan till en annan prenumeration eller flytta den ägande prenumerationen till en ny klient. Detta kan orsaka fel.
+> Det går inte att flytta din Azure Machine Learning-arbetsyta till en annan prenumeration, eller flytta den ägande prenumerationen till en ny klientorganisation. Om du gör det kan det orsaka fel.

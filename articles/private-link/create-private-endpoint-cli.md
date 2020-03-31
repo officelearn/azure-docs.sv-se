@@ -1,6 +1,6 @@
 ---
-title: Snabb start – skapa en privat Azure-slutpunkt med Azure CLI
-description: Läs om den privata Azure-slutpunkten i den här snabb starten
+title: Snabbstart – Skapa en privat Azure-slutpunkt med Azure CLI
+description: Lär dig mer om Azures privata slutpunkt i den här snabbstarten
 services: private-link
 author: malopMSFT
 ms.service: private-link
@@ -8,14 +8,14 @@ ms.topic: quickstart
 ms.date: 09/16/2019
 ms.author: allensu
 ms.openlocfilehash: dbcb833e6f8b90cebd3d013e58168558bcd96827
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "75459970"
 ---
-# <a name="quickstart-create-a-private-endpoint-using-azure-cli"></a>Snabb start: skapa en privat slut punkt med Azure CLI
-Privat slut punkt är det grundläggande Bygg blocket för privat länk i Azure. Den gör det möjligt för Azure-resurser, t. ex. virtuella datorer, att kommunicera privat med privata länk resurser. I den här snabb starten får du lära dig hur du skapar en virtuell dator i ett virtuellt nätverk, en SQL Database-Server med en privat slut punkt med hjälp av Azure CLI. Sedan kan du komma åt den virtuella datorn till och säkert komma åt den privata länk resursen (en privat Azure SQL Database Server i det här exemplet). 
+# <a name="quickstart-create-a-private-endpoint-using-azure-cli"></a>Snabbstart: Skapa en privat slutpunkt med Azure CLI
+Privat slutpunkt är den grundläggande byggstenen för Privat länk i Azure. Det gör det möjligt för Azure-resurser, som virtuella datorer ( VMs), att kommunicera privat med Private Link Resources. I den här snabbstarten får du lära dig hur du skapar en virtuell dator i ett virtuellt nätverk, en SQL Database Server med en privat slutpunkt med Azure CLI. Sedan kan du komma åt den virtuella datorn till och säkert komma åt den privata länkresursen (en privat Azure SQL Database-server i det här exemplet). 
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -23,14 +23,14 @@ Om du väljer att installera och använda CLI lokalt i stället, måste du köra
 
 ## <a name="create-a-resource-group"></a>Skapa en resursgrupp
 
-Innan du kan skapa en resurs måste du skapa en resurs grupp som är värd för Virtual Network. Skapa en resursgrupp med [az group create](/cli/azure/group). I det här exemplet skapas en resurs grupp med namnet *myResourceGroup* på *westcentralus* -platsen:
+Innan du kan skapa en resurs måste du skapa en resursgrupp som är värd för det virtuella nätverket. Skapa en resursgrupp med [az group create](/cli/azure/group). I det här exemplet skapas en resursgrupp med namnet *myResourceGroup* på *platsen för westcentralus:*
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location westcentralus
 ```
 
 ## <a name="create-a-virtual-network"></a>Skapa ett virtuellt nätverk
-Skapa en Virtual Network med [AZ Network VNet Create](/cli/azure/network/vnet). I det här exemplet skapas en standard Virtual Network med namnet *myVirtualNetwork* med ett undernät med namnet *undernät*:
+Skapa ett virtuellt nätverk med [az nätverk vnet skapa](/cli/azure/network/vnet). I det här exemplet skapas ett virtuellt standardnätverk med namnet *myVirtualNetwork* med ett undernät med namnet *mySubnet:*
 
 ```azurecli-interactive
 az network vnet create \
@@ -38,8 +38,8 @@ az network vnet create \
  --resource-group myResourceGroup \
  --subnet-name mySubnet
 ```
-## <a name="disable-subnet-private-endpoint-policies"></a>Inaktivera privata slut punkts principer för undernät 
-Azure distribuerar resurser till ett undernät i ett virtuellt nätverk, så du måste skapa eller uppdatera under nätet för att inaktivera nätverks principer för privata slut punkter. Uppdatera en under näts konfiguration med namnet *mitt undernät* med [AZ Network VNet Subnet Update](https://docs.microsoft.com/cli/azure/network/vnet/subnet?view=azure-cli-latest#az-network-vnet-subnet-update):
+## <a name="disable-subnet-private-endpoint-policies"></a>Inaktivera privata slutpunktsprinciper för undernät 
+Azure distribuerar resurser till ett undernät i ett virtuellt nätverk, så du måste skapa eller uppdatera undernätet för att inaktivera privata principer för slutpunktsnätverk. Uppdatera en undernätskonfiguration med namnet *mySubnet* med [az network vnet subnet update:](https://docs.microsoft.com/cli/azure/network/vnet/subnet?view=azure-cli-latest#az-network-vnet-subnet-update)
 
 ```azurecli-interactive
 az network vnet subnet update \
@@ -49,7 +49,7 @@ az network vnet subnet update \
  --disable-private-endpoint-network-policies true
 ```
 ## <a name="create-the-vm"></a>Skapa den virtuella datorn 
-Skapa en virtuell dator med AZ VM Create. När du uppmanas anger du ett lösen ord som ska användas som inloggnings uppgifter för den virtuella datorn. I det här exemplet skapas en virtuell dator med namnet *myVm*: 
+Skapa en virtuell dator med az vm skapa. Ange ett lösenord som ska användas som inloggningsuppgifter för den virtuella datorn när du uppmanas att göra det. I det här exemplet skapas en virtuell dator med namnet *myVm:* 
 ```azurecli-interactive
 az vm create \
   --resource-group myResourceGroup \
@@ -58,8 +58,8 @@ az vm create \
 ```
  Observera den offentliga IP-adressen för den virtuella datorn. Du kommer att använda den här adressen när du ansluter till den virtuella datorn från Internet i nästa steg.
 
-## <a name="create-a-sql-database-server"></a>Skapa en SQL Database-Server 
-Skapa en SQL Database-Server med kommandot AZ SQL Server Create. Kom ihåg att namnet på din SQL Server måste vara unikt i Azure, så Ersätt plats hållarens värde inom hakparenteser med ditt eget unika värde: 
+## <a name="create-a-sql-database-server"></a>Skapa en SQL Database Server 
+Skapa en SQL Database Server med kommandot az sql server create. Kom ihåg att namnet på din SQL Server måste vara unikt i Hela Azure, så ersätt platshållarvärdet inom parentes med ditt eget unika värde: 
 
 ```azurecli-interactive
 # Create a logical server in the resource group 
@@ -81,10 +81,10 @@ az sql db create \
     --capacity 1 
 ```
 
-Observera att SQL Server-ID: t liknar ```/subscriptions/subscriptionId/resourceGroups/myResourceGroup/providers/Microsoft.Sql/servers/myserver.``` du kommer att använda SQL Server-ID i nästa steg. 
+SQL Server-ID:et ```/subscriptions/subscriptionId/resourceGroups/myResourceGroup/providers/Microsoft.Sql/servers/myserver.``` liknar du kommer att använda SQL Server-ID i nästa steg. 
 
-## <a name="create-the-private-endpoint"></a>Skapa den privata slut punkten 
-Skapa en privat slut punkt för SQL Database-servern i Virtual Network: 
+## <a name="create-the-private-endpoint"></a>Skapa den privata slutpunkten 
+Skapa en privat slutpunkt för SQL Database-servern i det virtuella nätverket: 
 ```azurecli-interactive
 az network private-endpoint create \  
     --name myPrivateEndpoint \  
@@ -95,8 +95,8 @@ az network private-endpoint create \
     --group-ids sqlServer \  
     --connection-name myConnection  
  ```
-## <a name="configure-the-private-dns-zone"></a>Konfigurera Privat DNS zon 
-Skapa en Privat DNS zon för SQL Database-Server domän och skapa en kopplings länk med Virtual Network. 
+## <a name="configure-the-private-dns-zone"></a>Konfigurera den privata DNS-zonen 
+Skapa en privat DNS-zon för SQL Database-serverdomän och skapa en associationslänk med det virtuella nätverket. 
 ```azurecli-interactive
 az network private-dns zone create --resource-group myResourceGroup \ 
    --name  "privatelink.database.windows.net" 
@@ -121,22 +121,22 @@ az network private-dns record-set a add-record --record-set-name myserver --zone
 
 ## <a name="connect-to-a-vm-from-the-internet"></a>Ansluta till en virtuell dator från Internet
 
-Anslut till VM- *myVm* från Internet på följande sätt:
+Anslut till VM *myVm* från internet enligt följande:
 
-1. Skriv *myVm*i portalens Sök fält.
+1. I portalens sökfält anger du *myVm*.
 
 1. Välj knappen **Anslut**. När du har valt knappen **Anslut** öppnas **Anslut till den virtuella datorn**.
 
 1. Välj **Ladda ned RDP-fil**. Azure skapar en *.rdp*-fil (Remote Desktop Protocol) och laddar ned den till datorn.
 
-1. Öppna den nedladdade RDP *-filen.
+1. Öppna filen downloaded.rdp*.
 
     1. Välj **Anslut** om du uppmanas att göra det.
 
-    1. Ange det användar namn och lösen ord som du angav när du skapade den virtuella datorn.
+    1. Ange det användarnamn och lösenord som du angav när du skapade den virtuella datorn.
 
         > [!NOTE]
-        > Du kan behöva välja **Fler alternativ** > **Använd ett annat konto** för att ange autentiseringsuppgifterna du angav när du skapade den virtuella datorn.
+        > Du kan behöva välja **Fler alternativ** > **Använd ett annat konto**för att ange de autentiseringsuppgifter du angav när du skapade den virtuella datorn.
 
 1. Välj **OK**.
 
@@ -144,12 +144,12 @@ Anslut till VM- *myVm* från Internet på följande sätt:
 
 1. När virtuella datorns skrivbord visas kan du minimera det att gå tillbaka till din lokala dator.  
 
-## <a name="access-sql-database-server-privately-from-the-vm"></a>Åtkomst SQL Database Server privat från den virtuella datorn
+## <a name="access-sql-database-server-privately-from-the-vm"></a>Access SQL Database Server privat från den virtuella datorn
 
-I det här avsnittet ska du ansluta till SQL Database servern från den virtuella datorn med hjälp av den privata slut punkten.
+I det här avsnittet ansluter du till SQL Database Server från den virtuella datorn med hjälp av den privata slutpunkten.
 
- 1. Öppna PowerShell i fjärr skrivbordet för *myVM*.
- 2. Ange nslookup-myserver.database.windows.net  du får ett meddelande som liknar detta: 
+ 1. Öppna PowerShell i fjärrskrivbordet *för myVM.*
+ 2. Ange nslookup myserver.database.windows.net  Du får ett meddelande som liknar detta: 
 
 ```
       Server:  UnKnown 
@@ -160,22 +160,22 @@ I det här avsnittet ska du ansluta till SQL Database servern från den virtuell
       Aliases:  myserver.database.windows.net 
 ```
  3. Installera SQL Server Management Studio 
- 4. I Anslut till server anger eller väljer du följande information: Server Typ: Välj databas motor.
- Server Namn: Välj myserver.database.windows.net användar namn: Ange ett användar namn som angavs när du skapar.
- Lösen ord: Ange ett lösen ord som anges när du skapar.
- Kom ihåg lösen ord: Välj Ja.
+ 4. Ange eller välj den här informationen i Anslut till servern: Servertyp: Välj Databasmotor.
+ Servernamn: Välj användarnamn myserver.database.windows.net: Ange ett användarnamn som anges när du skapar det.
+ Lösenord: Ange ett lösenord som anges när du skapar det.
+ Kom ihåg lösenord: Välj Ja.
  
  5. Välj **Anslut**.
- 6. Bläddra bland **databaser** från menyn till vänster.
- 7. Du kan också Skapa eller fråga efter information från en *databas*
- 8. Stäng fjärr skrivbords anslutningen till *myVm*.
+ 6. Bläddra **i databaser** från vänstermeny.
+ 7. (Valfritt) Skapa eller fråga information från *min databas*
+ 8. Stäng fjärrskrivbordsanslutningen till *myVm*.
 
 ## <a name="clean-up-resources"></a>Rensa resurser 
-När de inte längre behövs kan du använda AZ Group Delete för att ta bort resurs gruppen och alla resurser den har: 
+När det inte längre behövs kan du använda az-gruppborttagning för att ta bort resursgruppen och alla resurser den har: 
 
 ```azurecli-interactive
 az group delete --name myResourceGroup --yes 
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-- Läs mer om [Azures privata länk](private-link-overview.md)
+- Läs mer om [Azure Private Link](private-link-overview.md)

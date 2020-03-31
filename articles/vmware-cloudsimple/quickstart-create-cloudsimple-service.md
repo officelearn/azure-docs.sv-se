@@ -1,7 +1,7 @@
 ---
-title: Azure VMware-lösningar (AVS) snabb start – skapa tjänst
-description: Lär dig hur du skapar AVS-tjänsten, Purchase Nodes och Reserve Nodes
-titleSuffix: Azure VMware Solutions (AVS)
+title: 'Snabbstart: Skapa VMware CloudSimple-tjänst'
+titleSuffix: Azure VMware Solution by CloudSimple
+description: Lär dig hur du skapar CloudSimple-tjänsten, köper noder och reserverar noder
 author: sharaths-cs
 ms.author: dikamath
 ms.date: 08/16/2019
@@ -9,51 +9,51 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: e7eb414e51ca38f524ab83bfb51f80f771524287
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 8ca8c5cacd2b1a1a7b4f70615831d2901510045e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77024440"
 ---
-# <a name="quickstart---create-azure-vmware-solutions-avs-service"></a>Snabb start – skapa Azure VMware-lösningar (AVS)-tjänst
+# <a name="quickstart---create-azure-vmware-solution-by-cloudsimple-service"></a>Snabbstart - Skapa Azure VMware-lösning via CloudSimple-tjänst
 
-Kom igång genom att skapa Azure VMware-lösningarna (AVS) i Azure Portal.
+För att komma igång, skapa Azure VMware-lösningen av CloudSimple i Azure-portalen.
 
-## <a name="vmware-solutions-avs---service-overview"></a>VMware-lösningar (AVS) – Översikt över tjänster
+## <a name="vmware-solution-by-cloudsimple---service-overview"></a>VMware-lösning från CloudSimple - Service översikt
 
-Med AVS-tjänsten kan du använda Azure VMware-lösningen enligt AVS. Genom att skapa tjänsten kan du etablera noder, reservera noder och skapa moln privata moln. Du lägger till AVS-tjänsten i varje Azure-region där AVS-tjänsten är tillgänglig. Tjänsten definierar Edge-nätverket för Azure VMware-lösningen enligt AVS. Det här Edge-nätverket används för tjänster som omfattar VPN, ExpressRoute och Internet anslutning till dina moln privata moln.
+Med CloudSimple-tjänsten kan du använda Azure VMware-lösning från CloudSimple.  Genom att skapa tjänsten kan du etablera noder, reservera noder och skapa privata moln.  Du lägger till CloudSimple-tjänsten i varje Azure-region där CloudSimple-tjänsten är tillgänglig.  Tjänsten definierar edge-nätverket för Azure VMware-lösning av CloudSimple.  Det här edge-nätverket används för tjänster som inkluderar VPN, ExpressRoute och Internet-anslutning till dina privata moln.
 
-Om du vill lägga till AVS-tjänsten måste du skapa ett Gateway-undernät. Gateway-undernätet används när du skapar Edge-nätverket och kräver ett/28 CIDR-block. Adress utrymmet för Gateway-under nätet måste vara unikt. Det får inte överlappa något av dina lokala nätverks adress utrymmen eller adress utrymmet för det virtuella Azure-nätverket.
+Om du vill lägga till CloudSimple-tjänsten måste du skapa ett gateway-undernät. Gateway-undernätet används när edge-nätverket skapas och kräver ett /28 CIDR-block. Gateway-undernätsadressutrymmet måste vara unikt. Den kan inte överlappa med något av dina lokala nätverksadressutrymmen eller Azure-adressutrymme för virtuella nätverk.
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
-Allokera ett/28 CIDR-block för gateway-undernät. Ett Gateway-undernät krävs per AVS-tjänst och är unikt för den region där det skapats. Gateway-undernätet används för Azure VMware-lösning av AVS Edge-nätverkstjänster och kräver ett/28 CIDR-block. Adress utrymmet för Gateway-under nätet måste vara unikt. Det får inte överlappa något nätverk som kommunicerar med AVS-miljön. De nätverk som kommunicerar med AVS inkluderar lokala nätverk och virtuella Azure-nätverk.
+Allokera ett /28 CIDR-block för gateway-undernät.  Ett gateway-undernät krävs per CloudSimple-tjänst och är unikt för den region där den skapas. Gateway-undernätet används för Azure VMware-lösning av CloudSimple edge-nätverkstjänster och kräver ett /28 CIDR-block. Gateway-undernätsadressutrymmet måste vara unikt. Den får inte överlappa med något nätverk som kommunicerar med CloudSimple-miljön.  De nätverk som kommunicerar med CloudSimple inkluderar lokala nätverk och virtuella Azure-nätverk.
 
-Granska [nätverks krav](cloudsimple-network-checklist.md). 
+Granska [nätverksförutsättning .](cloudsimple-network-checklist.md) 
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 
-Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.com).
+Logga in på Azure-portalen på [https://portal.azure.com](https://portal.azure.com).
 
 ## <a name="create-the-service"></a>Skapa tjänsten
 
 1. Välj **Alla tjänster**.
-2. Sök efter **AVS-tjänst**.
+2. Sök efter **CloudSimple Service**.
 
-    ![Sök efter AVS-tjänst](media/create-cloudsimple-service-search.png)
+    ![Sök CloudSimple-tjänst](media/create-cloudsimple-service-search.png)
 
-3. Välj **AVS-tjänster**.
-4. Klicka på **Lägg till** för att skapa en ny tjänst.
+3. Välj **CloudSimple Services**.
+4. Klicka på **Lägg till** om du vill skapa en ny tjänst.
 
-    ![Lägg till AVS-tjänst](media/create-cloudsimple-service-add.png)
+    ![Lägg till CloudSimple-tjänst](media/create-cloudsimple-service-add.png)
 
-5. Välj den prenumeration där du vill skapa AVS-tjänsten.
-6. Välj resurs grupp för tjänsten. Om du vill lägga till en ny resurs grupp klickar du på **Skapa ny**.
-7. Ange namnet för att identifiera tjänsten.
-8. Ange CIDR för service Gateway. Ange ett/28-undernät som inte överlappar med något av dina lokala undernät, Azure-undernät eller planerade AVS-undernät. Du kan inte ändra CIDR när tjänsten har skapats.
+5. Välj den prenumeration där du vill skapa CloudSimple-tjänsten.
+6. Välj resursgruppen för tjänsten. Om du vill lägga till en ny resursgrupp klickar du på **Skapa ny**.
+7. Ange namn för att identifiera tjänsten.
+8. Ange CIDR för tjänstgatewayen. Ange ett /28-undernät som inte överlappar något av dina lokala undernät, Azure-undernät eller planerade CloudSimple-undernät. Du kan inte ändra CIDR när tjänsten har skapats.
 
-    ![Skapa AVS-tjänsten](media/create-cloudsimple-service.png)
+    ![Skapa CloudSimple-tjänsten](media/create-cloudsimple-service.png)
 
 9. Klicka på **OK**.
 
@@ -61,30 +61,30 @@ Tjänsten skapas och läggs till i listan över tjänster.
 
 ## <a name="provision-nodes"></a>Etablera noder
 
-Om du vill ställa in betala per användning-kapacitet för en moln miljö i molnet, etablerar du först noder i Azure Portal.
+Om du vill konfigurera betalningskapacitet för en CloudSimple Private Cloud-miljö måste du först etablera noder i Azure-portalen.
 
 1. Välj **Alla tjänster**.
-2. Sök efter **AVS-noder**.
+2. Sök efter **CloudSimple Noder**.
 
-    ![Sök i AVS-noder](media/create-cloudsimple-node-search.png)
+    ![Sök CloudSimple-noder](media/create-cloudsimple-node-search.png)
 
-3. Välj **AVS-noder**.
-4. Klicka på **Lägg till** för att skapa noder.
+3. Välj **CloudSimple-noder**.
+4. Klicka på **Lägg till** om du vill skapa noder.
 
-    ![Lägg till AVS-noder](media/create-cloudsimple-node-add.png)
+    ![Lägg till CloudSimple-noder](media/create-cloudsimple-node-add.png)
 
-5. Välj den prenumeration där du vill etablera AVS-noder.
-6. Välj resurs grupp för noderna. Om du vill lägga till en ny resurs grupp klickar du på **Skapa ny**.
+5. Välj den prenumeration där du vill etablera CloudSimple-noder.
+6. Välj resursgruppen för noderna. Om du vill lägga till en ny resursgrupp klickar du på **Skapa ny**.
 7. Ange prefixet för att identifiera noderna.
-8. Välj platsen för nodens resurser.
-9. Välj den dedikerade plats som ska vara värd för nodens resurser.
-10. Välj [nodtyp](cloudsimple-node.md).
+8. Välj plats för nodresurserna.
+9. Välj den dedikerade platsen som ska vara värd för nodresurserna.
+10. Välj [nodtypen](cloudsimple-node.md).
 11. Välj antalet noder som ska etableras.
 12. Välj **Granska + Skapa**.
-13. Granska inställningarna. Klicka på **föregående**om du vill ändra inställningarna.
+13. Granska inställningarna. Om du vill ändra inställningar klickar du på **Föregående**.
 14. Välj **Skapa**.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Skapa ett privat AVS-moln och konfigurera miljön](quickstart-create-private-cloud.md)
-* Läs mer om [AVS-tjänsten](https://docs.azure.cloudsimple.com/cloudsimple-service)
+* [Skapa privat moln och konfigurera miljö](quickstart-create-private-cloud.md)
+* Läs mer om [CloudSimple-tjänsten](https://docs.azure.cloudsimple.com/cloudsimple-service)

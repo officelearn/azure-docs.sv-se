@@ -1,6 +1,6 @@
 ---
-title: Skapa principer med hjälp av Azure Datautforskaren C# SDK
-description: I den här artikeln får du lära dig hur du skapar principer med C#hjälp av.
+title: Skapa principer med hjälp av Azure Data Explorer C# SDK
+description: I den här artikeln får du lära dig hur du skapar principer med hjälp av C#.
 author: lucygoldbergmicrosoft
 ms.author: lugoldbe
 ms.reviewer: orspodek
@@ -8,39 +8,39 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 09/24/2019
 ms.openlocfilehash: 17312840b0081056ad04723f2b2c241c47902021
-ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/02/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74667298"
 ---
-# <a name="create-database-and-table-policies-for-azure-data-explorer-by-using-c"></a>Skapa databas-och tabell principer för Azure Datautforskaren med hjälp avC#
+# <a name="create-database-and-table-policies-for-azure-data-explorer-by-using-c"></a>Skapa databas- och tabellprinciper för Azure Data Explorer med hjälp av C #
 
 > [!div class="op_single_selector"]
 > * [C#](database-table-policies-csharp.md)
 > * [Python](database-table-policies-python.md)
 >
 
-Azure Data Explorer är en snabb och mycket skalbar datautforskningstjänst för logg- och telemetridata. I den här artikeln skapar du databas-och tabell principer för Azure Datautforskaren med hjälp C#av.
+Azure Data Explorer är en snabb och mycket skalbar datautforskningstjänst för logg- och telemetridata. I den här artikeln ska du skapa databas- och tabellprinciper för Azure Data Explorer med C#.
 
 ## <a name="prerequisites"></a>Krav
 
-* Visual Studio 2019. Om du inte har Visual Studio 2019 kan du hämta och använda den *kostnads fria* [Visual studio-gruppen 2019](https://www.visualstudio.com/downloads/). Se till att välja **Azure-utveckling** under installationen av Visual Studio.
-* En Azure-prenumeration. Om du behöver kan du skapa ett [kostnads fritt Azure-konto](https://azure.microsoft.com/free/) innan du börjar.
-* [Ett test kluster och en databas](create-cluster-database-csharp.md).
-* [En test tabell](net-standard-ingest-data.md#create-a-table-on-your-test-cluster).
+* Visual Studio 2019. Om du inte har Visual Studio 2019 kan du ladda ned och använda den *kostnadsfria* [Visual Studio Community 2019.](https://www.visualstudio.com/downloads/) Var noga med att välja **Azure-utveckling** under Visual Studio-installationen.
+* En Azure-prenumeration. Om du behöver kan du skapa ett [kostnadsfritt Azure-konto](https://azure.microsoft.com/free/) innan du börjar.
+* [Ett testkluster och en databas](create-cluster-database-csharp.md).
+* [En testtabell](net-standard-ingest-data.md#create-a-table-on-your-test-cluster).
 
 ## <a name="install-c-nuget"></a>Installera C# NuGet
 
-* Installera [Azure datautforskaren (Kusto) NuGet-paketet](https://www.nuget.org/packages/Microsoft.Azure.Management.Kusto/).
-* Installera [Microsoft. Azure. Kusto. data. Netstandard NuGet-paketet](https://www.nuget.org/packages/Microsoft.Azure.Kusto.Data.NETStandard/). (Valfritt, för att ändra tabell principer.)
-* Installera [Microsoft. IdentityModel. clients. ActiveDirectory NuGet-paketet](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory/)för autentisering.
+* Installera [Azure Data Explorer (Kusto) NuGet-paketet](https://www.nuget.org/packages/Microsoft.Azure.Management.Kusto/).
+* Installera [paketet Microsoft.Azure.Kusto.Data.NETStandard NuGet](https://www.nuget.org/packages/Microsoft.Azure.Kusto.Data.NETStandard/). (Valfritt för att ändra tabellprinciper.)
+* Installera [paketet Microsoft.IdentityModel.Clients.ActiveDirectory NuGet](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory/)för autentisering.
 
 ## <a name="authentication"></a>Autentisering
-Om du vill köra exemplen i den här artikeln behöver du ett Azure Active Directory (Azure AD)-program och tjänstens huvud namn som kan komma åt resurser. Du kan använda samma Azure AD-program för autentisering från [ett test kluster och en databas](create-cluster-database-csharp.md#authentication). Om du vill använda en annan Azure AD-App kan du läsa [skapa ett Azure AD](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal) -program för att skapa ett kostnads fritt Azure AD-program och lägga till roll tilldelning i prenumerations omfånget. Den här artikeln visar också hur du hämtar `Directory (tenant) ID`, `Application ID`och `Client secret`. Du kan behöva lägga till det nya Azure AD-programmet som huvud konto i databasen. Mer information finns i [Hantera behörigheter för Azure datautforskaren Database](https://docs.microsoft.com/azure/data-explorer/manage-database-permissions).
+Om du vill köra exemplen i den här artikeln behöver du ett Azure Active Directory-program och tjänsthuvudnamn som kan komma åt resurser. Du kan använda samma Azure AD-program för autentisering från [ett testkluster och databas](create-cluster-database-csharp.md#authentication). Om du vill använda ett annat Azure AD-program läser du [skapa ett Azure AD-program](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal) för att skapa ett kostnadsfritt Azure AD-program och lägga till rolltilldelning i prenumerationsomfånget. Den här artikeln visar `Directory (tenant) ID`också `Application ID`hur `Client secret`du får , och . Du kan behöva lägga till det nya Azure AD-programmet som ett huvudnamn i databasen. Mer information finns i [Hantera Azure Data Explorer-databasbehörigheter](https://docs.microsoft.com/azure/data-explorer/manage-database-permissions).
 
-## <a name="alter-database-retention-policy"></a>Ändra bevarande princip för databasen
-Ställer in en bevarande princip med en period på 10 dagar för mjuk borttagning.
+## <a name="alter-database-retention-policy"></a>Ändra principen för lagring av databaser
+Anger en bevarandeprincip med en 10-dagars mjuk borttagningsperiod.
     
 ```csharp
 var tenantId = "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx";//Directory (tenant) ID
@@ -65,8 +65,8 @@ var databaseName = "mykustodatabase";
 await kustoManagementClient.Databases.UpdateAsync(resourceGroupName, clusterName, databaseName, new DatabaseUpdate(softDeletePeriod: TimeSpan.FromDays(10)));
 ```
 
-## <a name="alter-database-cache-policy"></a>Alter Database cache-princip
-Anger en princip för cachelagring för databasen. De tidigare fem dagarnas data kommer att finnas på klustrets SSD.
+## <a name="alter-database-cache-policy"></a>Ändra princip för databascache
+Anger en cacheprincip för databasen. De senaste fem dagarnas data kommer att finnas i klustret SSD.
 
 ```csharp
 var tenantId = "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx";//Directory (tenant) ID
@@ -91,8 +91,8 @@ var databaseName = "mykustodatabase";
 await kustoManagementClient.Databases.UpdateAsync(resourceGroupName, clusterName, databaseName, new DatabaseUpdate(hotCachePeriod: TimeSpan.FromDays(5)));
 ```
 
-## <a name="alter-table-cache-policy"></a>Ändra Table cache-princip
-Anger en princip för cachelagring för tabellen. De tidigare fem dagarnas data kommer att finnas på klustrets SSD.
+## <a name="alter-table-cache-policy"></a>Ändra princip för tabellcache
+Anger en cacheprincip för tabellen. De senaste fem dagarnas data kommer att finnas i klustret SSD.
 
 ```csharp
 var kustoUri = "https://<ClusterName>.<Region>.kusto.windows.net:443/";
@@ -123,8 +123,8 @@ using (var kustoClient = KustoClientFactory.CreateCslAdminProvider(kustoConnecti
 }
 ```
 
-## <a name="add-a-new-principal-for-the-database"></a>Lägg till ett nytt huvud namn för databasen
-Lägger till ett nytt Azure AD-program som administratörs huvud för databasen.
+## <a name="add-a-new-principal-for-the-database"></a>Lägga till ett nytt huvudnamn för databasen
+Lägger till ett nytt Azure AD-program som administratörsnamn för databasen.
 
 ```csharp
 var tenantId = "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx";//Directory (tenant) ID
@@ -158,4 +158,4 @@ await kustoManagementClient.Databases.AddPrincipalsAsync(resourceGroupName, clus
 ```
 ## <a name="next-steps"></a>Nästa steg
 
-* [Läs mer om databas-och tabell principer](https://docs.microsoft.com/azure/kusto/management/policies)
+* [Läs mer om databas- och tabellprinciper](https://docs.microsoft.com/azure/kusto/management/policies)

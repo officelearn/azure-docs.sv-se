@@ -1,6 +1,6 @@
 ---
-title: Använd Azure Datautforskaren Control-kommandon i Azure Data Factory
-description: I det här avsnittet använder du Azure Datautforskaren Control-kommandon i Azure Data Factory
+title: Använda Azure Data Explorer-kontrollkommandon i Azure Data Factory
+description: I det här avsnittet använder du Azure Data Explorer-kontrollkommandon i Azure Data Factory
 services: data-explorer
 author: orspod
 ms.author: orspodek
@@ -9,89 +9,89 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 09/15/2019
 ms.openlocfilehash: 20da2d54ea54674656b2c1006d094c63133baf79
-ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72264488"
 ---
-# <a name="use-azure-data-factory-command-activity-to-run-azure-data-explorer-control-commands"></a>Använd Azure Data Factory kommando aktivitet för att köra Azure Datautforskaren Control-kommandon
+# <a name="use-azure-data-factory-command-activity-to-run-azure-data-explorer-control-commands"></a>Använda kommandoaktiviteten i Azure Data Factory för att köra Azure Data Explorer-kontrollkommandon
 
-[Azure Data Factory](/azure/data-factory/) (ADF) är en molnbaserad data integrerings tjänst som gör att du kan utföra en kombination av aktiviteter på data. Använd ADF för att skapa data drivna arbets flöden för att dirigera och automatisera data förflyttning och data omvandling. Med **azure datautforskaren kommando** aktiviteten i Azure Data Factory kan du köra [Azure datautforskaren kontroll kommandon](/azure/kusto/concepts/#control-commands) i ett ADF-arbetsflöde. Den här artikeln lär dig hur du skapar en pipeline med en söknings aktivitet och en förgrunds aktivitet som innehåller en Azure Datautforskaren-kommando aktivitet.
+[Azure Data Factory](/azure/data-factory/) (ADF) är en molnbaserad dataintegrationstjänst som gör att du kan utföra en kombination av aktiviteter på data. Använd ADF för att skapa datadrivna arbetsflöden för att dirigera och automatisera dataförflyttning och dataomvandling. Med **kommandoaktiviteten för Azure Data Explorer** i Azure Data Factory kan du köra Azure Data [Explorer-kontrollkommandon](/azure/kusto/concepts/#control-commands) i ett ADF-arbetsflöde. I den här artikeln får du lära dig hur du skapar en pipeline med en uppslagsaktivitet och ForEach-aktivitet som innehåller en kommandoaktivitet för Azure Data Explorer.
 
 ## <a name="prerequisites"></a>Krav
 
-* Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt Azure-konto](https://azure.microsoft.com/free/) innan du börjar.
-* [Ett Azure Datautforskaren-kluster och-databas](create-cluster-database-portal.md)
-* En data källa.
-* [En data fabrik](data-factory-load-data.md#create-a-data-factory)
+* Om du inte har en Azure-prenumeration skapar du ett [kostnadsfritt Azure-konto](https://azure.microsoft.com/free/) innan du börjar.
+* [Ett Azure Data Explorer-kluster och -databas](create-cluster-database-portal.md)
+* En datakälla.
+* [En datafabrik](data-factory-load-data.md#create-a-data-factory)
 
 ## <a name="create-a-new-pipeline"></a>Skapa en ny pipeline
 
-1. Välj Penn verktyget **Author** . 
-1. Skapa en ny pipeline genom att välja **+** och välj sedan **pipeline** i list rutan.
+1. Välj **Author** verktyget Författarpenna. 
+1. Skapa en ny pipeline **+** genom att välja och välj sedan **Pipeline** i listrutan.
 
-   ![Skapa ny pipeline](media/data-factory-command-activity/create-pipeline.png)
+   ![skapa ny pipeline](media/data-factory-command-activity/create-pipeline.png)
 
-## <a name="create-a-lookup-activity"></a>Skapa en söknings aktivitet
+## <a name="create-a-lookup-activity"></a>Skapa en uppslagsaktivitet
 
-En [söknings aktivitet](/azure/data-factory/control-flow-lookup-activity) kan hämta en data uppsättning från alla Azure Data Factory-stödda data källor. Utdata från lookup-aktiviteten kan användas i en eller flera aktiviteter.
+En [uppslagsaktivitet](/azure/data-factory/control-flow-lookup-activity) kan hämta en datauppsättning från alla Azure Data Factory-stödda datakällor. Utdata från uppslagsaktiviteten kan användas i en ForEach eller annan aktivitet.
 
-1. I rutan **aktiviteter** under **Allmänt**väljer du **Lookup** -aktiviteten. Dra och släpp det i huvud arbets ytan till höger.
+1. Välj **uppslagsaktiviteten** under **Allmänt**i fönstret **Aktiviteter.** Dra och släpp den i huvudduken till höger.
  
-    ![Välj söknings aktivitet](media/data-factory-command-activity/select-activity.png)
+    ![välj uppslagsaktivitet](media/data-factory-command-activity/select-activity.png)
 
-1. Arbets ytan innehåller nu den uppslags aktivitet som du har skapat. Använd flikarna under arbets ytan för att ändra relevanta parametrar. I **allmänhet**byter du namn på aktiviteten. 
+1. Arbetsytan innehåller nu den uppslagsaktivitet som du har skapat. Använd flikarna under arbetsytan för att ändra eventuella relevanta parametrar. Byt namn på aktiviteten i **allmänhet.** 
 
-    ![redigera söknings aktivitet](media/data-factory-command-activity/edit-lookup-activity.PNG)
+    ![redigera uppslagsaktivitet](media/data-factory-command-activity/edit-lookup-activity.PNG)
 
     > [!TIP]
-    > Klicka på det tomma arbets området om du vill visa egenskaperna för pipelinen. Använd fliken **Allmänt** för att byta namn på pipelinen. Vår pipeline heter *pipeline-4-dokument*.
+    > Klicka på det tomma arbetsytan för att visa pipeline-egenskaperna. Använd fliken **Allmänt** för att byta namn på pipelinen. Vår pipeline heter *pipeline-4-docs.*
 
-### <a name="create-an-azure-data-explorer-dataset-in-lookup-activity"></a>Skapa en data uppsättning för Azure Datautforskaren i lookup-aktivitet
+### <a name="create-an-azure-data-explorer-dataset-in-lookup-activity"></a>Skapa en Azure Data Explorer-datauppsättning i uppslagsaktivitet
 
-1. I **Inställningar**väljer du den redan skapade **käll data uppsättningen**för Azure datautforskaren eller väljer **+ ny** för att skapa en ny data uppsättning.
+1. I **Inställningar**väljer du den förskapade Azure Data Explorer **Source-datauppsättningen**eller väljer **+ Ny** för att skapa en ny datauppsättning.
  
-    ![Lägg till data uppsättning i uppslags inställningar](media/data-factory-command-activity/lookup-settings.png)
+    ![lägga till datauppsättning i uppslagsinställningar](media/data-factory-command-activity/lookup-settings.png)
 
-1. Välj data uppsättningen **Azure datautforskaren (Kusto)** från fönstret **ny data uppsättning** . Välj **Fortsätt** för att lägga till den nya data uppsättningen.
+1. Välj **Data Explorer -datauppsättningen (Azure Data Explorer)** från fönstret **Ny datauppsättning.** Välj **Fortsätt** om du vill lägga till den nya datauppsättningen.
 
-   ![Välj ny data mängd](media/data-factory-command-activity/select-new-dataset.png) 
+   ![välj ny datauppsättning](media/data-factory-command-activity/select-new-dataset.png) 
 
-1. De nya parametrarna för Azure Datautforskaren data uppsättningen visas i **Inställningar**. Om du vill uppdatera parametrarna väljer du **Redigera**.
+1. De nya Azure Data Explorer-datauppsättningsparametrarna visas i **Inställningar**. Om du vill uppdatera parametrarna väljer du **Redigera**.
 
-    ![Sök inställningar med Azure Datautforskaren data uppsättning](media/data-factory-command-activity/lookup-settings-with-adx-dataset.png)
+    ![uppslagsinställningar med Azure Data Explorer-datauppsättning](media/data-factory-command-activity/lookup-settings-with-adx-dataset.png)
 
-1. Fliken **AzureDataExplorerTable** ny öppnas på huvud arbets ytan. 
-    * Välj **Allmänt** och redigera data uppsättningens namn. 
-    * Välj **anslutning** för att redigera egenskaperna för data uppsättningen. 
-    * Välj den **länkade tjänsten** i list rutan eller Välj **+ ny** för att skapa en ny länkad tjänst.
+1. Fliken **AzureDataExplorerTable** öppnas på huvudarbetsytan. 
+    * Välj **Allmänt** och redigera datauppsättningsnamnet. 
+    * Välj **Anslutning** om du vill redigera datauppsättningsegenskaperna. 
+    * Välj den **länkade tjänsten** i listrutan eller välj **+ Ny** om du vill skapa en ny länkad tjänst.
 
-    ![Redigera egenskaper för Azure Datautforskaren-datauppsättning](media/data-factory-command-activity/adx-dataset-properties-edit-connections.png)
+    ![Redigera datauppsättningsegenskaper för Azure Data Explorer](media/data-factory-command-activity/adx-dataset-properties-edit-connections.png)
 
-1. När du skapar en ny länkad tjänst öppnas sidan **ny länkad tjänst (Azure datautforskaren)** :
+1. När du skapar en ny länkad tjänst öppnas sidan **Ny länkad tjänst (Azure Data Explorer):**
 
     ![ADX ny länkad tjänst](media/data-factory-command-activity/adx-new-linked-service.png)
 
-   * Välj **namn** för den länkade tjänsten Azure-datautforskaren. Lägg till **Beskrivning** vid behov.
-   * Ändra aktuella inställningar vid behov i **Anslut via integration runtime**. 
-   * I **Val av konto** väljer du klustret med hjälp av någon av följande två metoder: 
-        * Välj alternativ knappen **från Azure-prenumerationen** och välj ditt **Azure-prenumerations** konto. Välj sedan **klustret**. Obs! List rutan visar bara kluster som tillhör användaren.
-        * Välj i stället **Ange** en alternativ knapp manuellt och ange din **slut punkt** (kluster-URL).
-    * Ange **klient organisation**.
-    * Ange **tjänstens huvud namns-ID**. Ägar-ID: t måste ha tillräcklig behörighet, enligt den behörighets nivå som krävs för det kommando som används.
-    * Välj **nyckel för tjänstens huvud namn** och ange **nyckel för tjänstens huvud namn**.
-    * Välj din **databas** i list menyn. Du kan också välja **Redigera** kryss rutan och ange ditt databas namn.
-    * Välj **test anslutning** för att testa den länkade tjänst anslutningen som du skapade. Om du kan ansluta till installationen visas en grön bock- **anslutning** som är klar.
-    * Klicka på **Slutför** om du vill slutföra skapandet av länkade tjänster.
+   * Välj **Namn** för azure data explorer-länkad tjänst. Lägg till **beskrivning** om det behövs.
+   * Ändra aktuella inställningar om det behövs i **Anslut via integreringskörning.** 
+   * I **Kontovalsmetod** väljer du ditt kluster med en av två metoder: 
+        * Välj knappen **Från Azure-prenumerationsradio** och välj ditt **Azure-prenumerationskonto.** Välj sedan ditt **kluster**. Listrutan listar bara kluster som tillhör användaren.
+        * Välj i stället alternativknappen **Ange manuellt** och ange **slutpunkten** (kluster-URL: en).
+    * Ange **klienten**.
+    * Ange **tjänstens huvud-ID**. Huvud-ID:t måste ha tillräcklig behörighet, enligt den behörighetsnivå som krävs av kommandot som används.
+    * Välj **knappen Huvudnyckel** för Tjänsten och ange **Nyckel till tjänstens huvudnamn**.
+    * Välj **databasen** på rullgardinsmenyn. Du kan också markera **kryssrutan Redigera** och ange databasnamnet.
+    * Välj **Testa anslutning** om du vill testa den länkade tjänstanslutning som du skapade. Om du kan ansluta till konfigurationen visas en grön bock **Anslutning.**
+    * Välj **Slutför** om du vill skapa länkade tjänster.
 
-1. När du har konfigurerat en länkad tjänst går du till **AzureDataExplorerTable** > -**anslutning**och lägger till **tabell** namn. Välj **Förhandsgranska data**för att se till att data visas korrekt.
+1. När du har konfigurerat en länkad tjänst lägger du till **tabellnamn** i **AzureDataExplorerTable-anslutning.** > **Connection** Välj **Förhandsgranska data**för att kontrollera att data visas korrekt.
 
-   Din data uppsättning är nu klar och du kan fortsätta att redigera din pipeline.
+   Datauppsättningen är nu klar och du kan fortsätta redigera pipelinen.
 
-### <a name="add-a-query-to-your-lookup-activity"></a>Lägg till en fråga till din söknings aktivitet
+### <a name="add-a-query-to-your-lookup-activity"></a>Lägga till en fråga i uppslagsaktiviteten
 
-1. I **pipeline – 4-dokument** > **Inställningar** Lägg till en fråga i text rutan **fråga** , till exempel:
+1. I **pipeline-4-docs-inställningar** > **Settings** lägger du till en fråga **i** frågetextrutan, till exempel:
 
     ```kusto
     ClusterQueries
@@ -99,39 +99,39 @@ En [söknings aktivitet](/azure/data-factory/control-flow-lookup-activity) kan h
     | summarize count() by Database
     ```
 
-1. Ändra **timeout för fråga** eller **ingen trunkering** och **endast första raden** , efter behov. I det här flödet behåller vi standardvärdet **för frågan** och avmarkerar kryss rutorna. 
+1. Ändra egenskaperna **Fråga timeout** eller **Inga trunkering** och **Första raden bara,** efter behov. I det här flödet behåller vi **standardtidsgränsen för fråga** och avmarkerar kryssrutorna. 
 
-    ![Slutgiltiga inställningar för söknings aktivitet](media/data-factory-command-activity/lookup-activity-final-settings.png)
+    ![Slutliga inställningar för uppslagsaktivitet](media/data-factory-command-activity/lookup-activity-final-settings.png)
 
-## <a name="create-a-for-each-activity"></a>Skapa en for-each-aktivitet 
+## <a name="create-a-for-each-activity"></a>Skapa en för varje aktivitet 
 
-[For-each-](/azure/data-factory/control-flow-for-each-activity) aktiviteten används för att iterera över en samling och köra angivna aktiviteter i en slinga. 
+[För-varje-aktiviteten](/azure/data-factory/control-flow-for-each-activity) används för att iterera över en samling och utföra angivna aktiviteter i en loop. 
 
-1. Nu lägger du till en for-each-aktivitet till pipelinen. Den här aktiviteten bearbetar data som returneras från söknings aktiviteten. 
-    * I rutan **aktiviteter** under **iteration & villkorliger** **väljer du aktiviteten** för aktiviteter och drar och släpper den på arbets ytan.
-    * Rita en linje mellan resultatet av uppslags aktiviteten och indata för den förgrunds aktiviteten på arbets ytan för att ansluta dem.
+1. Nu kan du lägga till en för varje aktivitet i pipelinen. Den här aktiviteten bearbetar data som returneras från uppslagsaktiviteten. 
+    * Markera **aktiviteten ForEach** under **Iteration & villkor i**fönstret **Aktiviteter** och dra och släppa den i arbetsytan.
+    * Rita en linje mellan utdata för uppslagsaktiviteten och indata för forEach-aktiviteten på arbetsytan för att ansluta dem.
 
-        ![Förgrunds aktivitet](media/data-factory-command-activity/for-each-activity.png)
+        ![ForEach-aktivitet](media/data-factory-command-activity/for-each-activity.png)
 
-1.  Välj aktiviteten förgrunds aktivitet på arbets ytan. På fliken **Inställningar** nedan:
-    * Markera kryss rutan **sekventiell** för sekventiell bearbetning av Sök resultaten eller lämna den omarkerad för att skapa parallell bearbetning.
+1.  Välj forEach-aktiviteten på arbetsytan. På fliken **Inställningar** nedan:
+    * Markera kryssrutan **Sekventiell** för en sekventiell bearbetning av uppslagsresultaten eller lämna den avmarkerad för att skapa parallell bearbetning.
     * Ange **antal batchar**.
-    * I **objekt**, anger du följande referens till utdata-värdet: *@activity (' Lookup1 '). output. Value*
+    * I **Objekt**anger du följande referens till utdatavärdet: * @activity('Lookup1').output.value*
 
        ![ForEach-aktivitetsinställning](media/data-factory-command-activity/for-each-activity-settings.png)
 
-## <a name="create-an-azure-data-explorer-command-activity-within-the-foreach-activity"></a>Skapa en Azure Datautforskaren-kommando aktivitet i en förgrunds aktivitet
+## <a name="create-an-azure-data-explorer-command-activity-within-the-foreach-activity"></a>Skapa en kommandoaktivitet för Azure Data Explorer i forEach-aktiviteten
 
-1. Dubbelklicka på aktiviteten aktiviteter på arbets ytan för att öppna den på en ny arbets yta för att ange aktiviteterna i förväg.
-1. I rutan **aktiviteter** under **Azure datautforskaren**väljer du **kommandot Azure datautforskaren kommando** aktivitet och drar och släpper den på arbets ytan.
+1. Dubbelklicka på forEach-aktiviteten på arbetsytan för att öppna den på en ny arbetsyta för att ange aktiviteterna i ForEach.
+1. Välj kommandoaktiviteten för Azure Data **Explorer** under **Azure**Data Explorer i fönstret **Aktiviteter** och dra och släppa den på arbetsytan.
 
-    ![Azure Datautforskaren kommando aktivitet](media/data-factory-command-activity/adx-command-activity.png)
+    ![Kommandoaktivitet i Azure Data Explorer](media/data-factory-command-activity/adx-command-activity.png)
 
-1.  På fliken **anslutning** väljer du samma länkade tjänst som du skapade tidigare.
+1.  Välj samma länkade tjänst som tidigare skapats på fliken **Anslutning.**
 
-    ![fliken anslutning för Azure Data Explorer-kommando för aktivitet](media/data-factory-command-activity/adx-command-activity-connection-tab.png)
+    ![fliken kommandoaktivitetsanslutning för azure-datautforskare](media/data-factory-command-activity/adx-command-activity-connection-tab.png)
 
-1. På fliken **kommando** anger du följande kommando:
+1. Ange följande kommando på fliken **Kommando:**
 
     ```kusto
     .export
@@ -143,34 +143,34 @@ En [söknings aktivitet](/azure/data-factory/control-flow-lookup-activity) kan h
     <| ClusterQueries | where Database == "@{item().Database}"
     ```
 
-    **Kommandot** instruerar Azure datautforskaren att exportera resultatet av en specifik fråga till en blob-lagring i ett komprimerat format. Den körs asynkront (med hjälp av async-modifieraren).
-    Frågan behandlar databas kolumnen för varje rad i resultatet av Sök aktiviteten. **Tids gränsen för kommandot** kan lämnas oförändrad.
+    **Kommandot** instruerar Azure Data Explorer att exportera resultaten av en viss fråga till en blob-lagring, i ett komprimerat format. Den körs asynkront (med hjälp av async modifieraren).
+    Frågan behandlar databaskolumnen för varje rad i uppslagsaktivitetsresultatet. **Tidsgränsen för kommandot** kan lämnas oförändrad.
 
-    ![kommando aktivitet](media/data-factory-command-activity/command.png)   
+    ![kommandoaktivitet](media/data-factory-command-activity/command.png)   
 
     > [!NOTE]
-    > Kommando aktiviteten har följande gränser:
-    > * Storleks gräns: 1 MB svars storlek
-    > * Tids gräns: 20 minuter (standard), 1 timme (max).
-    > * Om det behövs kan du lägga till en fråga till resultatet med hjälp av [AdminThenQuery](/azure/kusto/management/index#combining-queries-and-control-commands), för att minska den resulterande storleken/tiden.
+    > Kommandoaktiviteten har följande gränser:
+    > * Storleksgräns: 1 MB svarsstorlek
+    > * Tidsgräns: 20 minuter (standard), 1 timme (max).
+    > * Om det behövs kan du lägga till en fråga i resultatet med [AdminThenQuery](/azure/kusto/management/index#combining-queries-and-control-commands)för att minska den resulterande storleken/tiden.
 
-1.  Nu är pipelinen klar. Du kan gå tillbaka till den huvudsakliga pipeline-vyn genom att klicka på pipelinens namn.
+1.  Nu är pipelinen klar. Du kan gå tillbaka till huvudpipelinen genom att klicka på pipelinenamnet.
 
-    ![Pipeline för Azure Datautforskaren-kommandot](media/data-factory-command-activity/adx-command-pipeline.png)
+    ![Kommandopipeline för Azure Data Explorer](media/data-factory-command-activity/adx-command-pipeline.png)
 
-1. Välj **Felsök** innan du publicerar pipelinen. Pipeline-förloppet kan övervakas på fliken **utdata** .
+1. Välj **Felsöka** innan du publicerar pipelinen. Pipelinens förlopp kan övervakas på fliken **Utdata.**
 
-    ![utdata för kommando aktivitet i Azure Data Explorer](media/data-factory-command-activity/command-activity-output.png)
+    ![kommandoaktivitetsutdatadatadatadata för azure data explorer](media/data-factory-command-activity/command-activity-output.png)
 
-1. Du kan **publicera alla** och sedan **lägga till utlösare** för att köra pipelinen. 
+1. Du kan **publicera alla** och sedan lägga **till utlösare** för att köra pipelinen. 
 
-## <a name="control-command-outputs"></a>Styr kommandoutdata
+## <a name="control-command-outputs"></a>Utdata för kontrollkommando
 
-Strukturen på kommando aktivitetens utdata beskrivs nedan. Dessa utdata kan användas av nästa aktivitet i pipelinen.
+Strukturen för kommandoaktivitetsutdata beskrivs nedan. Den här utdata kan användas av nästa aktivitet i pipelinen.
 
-### <a name="returned-value-of-a-non-async-control-command"></a>Returnerade värdet för ett icke-asynkront kontroll kommando
+### <a name="returned-value-of-a-non-async-control-command"></a>Returnerat värde för ett icke-asynkron kontrollkommando
 
-I ett icke-asynkront kontroll kommando är strukturen för det returnerade värdet detsamma som strukturen för Sök aktivitetens resultat. I fältet `count` anges antalet returnerade poster. Ett fast mat ris fält `value` innehåller en lista med poster. 
+I ett icke-asynkron kontrollkommando liknar strukturen för det returnerade värdet strukturen för uppslagsaktivitetsresultatet. Fältet `count` anger antalet returnerade poster. Ett fast `value` matrisfält innehåller en lista med poster. 
 
 ```json
 { 
@@ -190,9 +190,9 @@ I ett icke-asynkront kontroll kommando är strukturen för det returnerade värd
 } 
 ```
  
-### <a name="returned-value-of-an-async-control-command"></a>Returnerade värdet för ett asynkront kontroll kommando
+### <a name="returned-value-of-an-async-control-command"></a>Returnerat värde för ett asynkronkontrollkommando
 
-I ett kommando för asynkron kontroll avsöker aktiviteten Operations-tabellen i bakgrunden, tills den asynkrona åtgärden har slutförts eller är timeout. Det returnerade värdet kommer därför att innehålla resultatet från `.show operations OperationId` för den aktuella **OperationId** -egenskapen. Kontrol lera värdena för **tillstånd** och **status** egenskaper för att kontrol lera att åtgärden har slutförts.
+I ett async-kontrollkommando avföljer aktivitetstabellen bakom kulisserna tills asynkron åtgärden har slutförts eller time-out. Därför kommer det returnerade värdet `.show operations OperationId` att innehålla resultatet av för den angivna **OperationId-egenskapen.** Kontrollera värdena för **statusegenskaper** och **status** för att kontrollera att åtgärden har slutförts.
 
 ```json
 { 
@@ -219,5 +219,5 @@ I ett kommando för asynkron kontroll avsöker aktiviteten Operations-tabellen i
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Lär dig hur du [kopierar data till Azure datautforskaren med hjälp av Azure Data Factory](data-factory-load-data.md).
-* Lär dig mer om [att använda Azure Data Factory mall för Mass kopiering från databas till Azure datautforskaren](data-factory-template.md).
+* Lär dig mer om hur du [kopierar data till Azure Data Explorer med Azure Data Factory](data-factory-load-data.md).
+* Lär dig mer om hur du använder [Azure Data Factory-mall för masskopia från databas till Azure Data Explorer](data-factory-template.md).

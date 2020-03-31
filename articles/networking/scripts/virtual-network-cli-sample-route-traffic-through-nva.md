@@ -13,13 +13,13 @@ ms.workload: infrastructure
 ms.date: 07/07/2017
 ms.author: kumud
 ms.openlocfilehash: 55b9c9cba4a34fc9e209e03565861885ea192cc1
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73890226"
 ---
-# <a name="route-traffic-through-a-network-virtual-appliance"></a>Dirigera trafik via en virtuell nätverks installation
+# <a name="route-traffic-through-a-network-virtual-appliance"></a>Dirigera trafik via en virtuell nätverksinstallation
 
 Det här skriptexemplet skapar ett virtuellt nätverk med klient- och serverdelsundernät. Det skapar också en virtuell dator med aktiverad IP-vidarebefordran för att dirigera trafik mellan de två undernäten. När du kört skriptet kan du distribuera nätverksprogramvara, till exempel ett brandväggsprogram, till den virtuella datorn.
 
@@ -50,7 +50,7 @@ I det här skriptet används följande kommandon för att skapa en resursgrupp, 
 | [az group create](/cli/azure/group) | Skapar en resursgrupp där alla resurser lagras. |
 | [az network vnet create](/cli/azure/network/vnet) | Skapar ett virtuellt Azure-nätverk och klientdelsundernät. |
 | [az network subnet create](/cli/azure/network/vnet/subnet) | Skapar serverdels- och DMZ-undernät. |
-| [az network public-ip create](/cli/azure/network/public-ip) | Skapar en offentlig IP-adress för att få åtkomst till den virtuella datorn från Internet. |
+| [az network public-ip create](/cli/azure/network/public-ip) | Skapar en offentlig IP-adress för att komma åt den virtuella datorn från Internet. |
 | [az network nic create](/cli/azure/network/nic) | Skapar ett virtuellt nätverksgränssnitt och aktiverar IP-vidarebefordran för det. |
 | [az network nsg create](/cli/azure/network/nsg) | Skapar en nätverkssäkerhetsgrupp (NSG). |
 | [az network nsg rule create](/cli/azure/network/nsg/rule) | Skapar NSG-regler som tillåter inkommande HTTP- och HTTPS-portar till den virtuella datorn. |
@@ -64,4 +64,4 @@ I det här skriptet används följande kommandon för att skapa en resursgrupp, 
 
 Mer information om Azure CLI finns i [Azure CLI-dokumentationen](/cli/azure).
 
-Ytterligare Network CLI-skript exempel finns i [översikts dokumentationen för Azure-nätverk](../cli-samples.md)
+Ytterligare cli-skriptexempel för nätverk finns i dokumentationen för [Azure Networking Overview](../cli-samples.md)

@@ -1,6 +1,6 @@
 ---
-title: Hantera DNS-postuppsättningar och-poster med Azure DNS
-description: Azure DNS ger möjlighet att hantera DNS-postuppsättningar och-poster när du är värd för din domän.
+title: Hantera DNS-postuppsättningar och -poster med Azure DNS
+description: Azure DNS ger möjlighet att hantera DNS-postuppsättningar och poster när du är värd för din domän.
 services: dns
 author: rohinkoul
 ms.service: dns
@@ -8,108 +8,108 @@ ms.topic: article
 ms.date: 10/6/2018
 ms.author: rohink
 ms.openlocfilehash: 4012b32eb2684126b8dc64b9e86bf35a016e9fba
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76936845"
 ---
-# <a name="manage-dns-records-and-record-sets-by-using-the-azure-portal"></a>Hantera DNS-poster och post uppsättningar med hjälp av Azure Portal
+# <a name="manage-dns-records-and-record-sets-by-using-the-azure-portal"></a>Hantera DNS-poster och postuppsättningar med hjälp av Azure-portalen
 
-Den här artikeln visar hur du hanterar post uppsättningar och poster för din DNS-zon med hjälp av Azure Portal.
+Den här artikeln visar hur du hanterar postuppsättningar och poster för DIN DNS-zon med hjälp av Azure-portalen.
 
-Det är viktigt att förstå skillnaden mellan DNS-postuppsättningar och enskilda DNS-poster. En post uppsättning är en samling poster i en zon som har samma namn och är av samma typ. Mer information finns i [Skapa DNS-postuppsättningar och poster med hjälp av Azure Portal](dns-getstarted-create-recordset-portal.md).
+Det är viktigt att förstå skillnaden mellan DNS-postuppsättningar och enskilda DNS-poster. En postuppsättning är en samling poster i en zon som har samma namn och har samma typ. Mer information finns i [Skapa DNS-postuppsättningar och poster med hjälp av Azure-portalen](dns-getstarted-create-recordset-portal.md).
 
-## <a name="create-a-new-record-set-and-record"></a>Skapa en ny post uppsättning och post
+## <a name="create-a-new-record-set-and-record"></a>Skapa en ny postuppsättning och post
 
-Om du vill skapa en post uppsättning i Azure Portal, se [Skapa DNS-poster med hjälp av Azure Portal](dns-getstarted-create-recordset-portal.md).
+Information om hur du skapar en postuppsättning i Azure-portalen finns i [Skapa DNS-poster med hjälp av Azure-portalen](dns-getstarted-create-recordset-portal.md).
 
-## <a name="view-a-record-set"></a>Visa en post uppsättning
+## <a name="view-a-record-set"></a>Visa en postuppsättning
 
-1. Gå till bladet **DNS-zon** i Azure Portal.
-2. Sök efter post uppsättningen och markera den. Detta öppnar egenskaperna för post uppsättningen.
+1. Gå till **DNS-zonbladet** i Azure-portalen.
+2. Sök efter postuppsättningen och välj den. Då öppnas egenskaperna för postuppsättningen.
 
-    ![Sök efter en post uppsättning](./media/dns-operations-recordsets-portal/searchset500.png)
+    ![Sök efter en postuppsättning](./media/dns-operations-recordsets-portal/searchset500.png)
 
-## <a name="add-a-new-record-to-a-record-set"></a>Lägg till en ny post i en post uppsättning
+## <a name="add-a-new-record-to-a-record-set"></a>Lägga till en ny post i en postuppsättning
 
-Du kan lägga till upp till 20 poster i alla post uppsättningar. En post uppsättning får inte innehålla två identiska poster. Tomma post uppsättningar (med noll poster) kan skapas, men visas inte på Azure DNS namnservrar. Post uppsättningar av typen CNAME kan innehålla en post högst.
+Du kan lägga till upp till 20 poster i valfri postuppsättning. En postuppsättning får inte innehålla två identiska poster. Tomma postuppsättningar (med noll poster) kan skapas, men visas inte på Azure DNS-namnservrarna. Postuppsättningar av typen CNAME kan innehålla högst en post.
 
-1. På bladet för **post uppsättningens egenskaper** för din DNS-zon klickar du på den post uppsättning som du vill lägga till en post i.
+1. Klicka på den postuppsättning som du vill lägga till en post i i egenskapsbladet För **postuppsättningen** för DNS-zonen.
 
-    ![Välj en post uppsättning](./media/dns-operations-recordsets-portal/selectset500.png)
+    ![Välj en postuppsättning](./media/dns-operations-recordsets-portal/selectset500.png)
 
-2. Ange egenskaperna för post uppsättningen genom att fylla i fälten.
+2. Ange postuppsättningsegenskaperna genom att fylla i fälten.
 
-    ![Lägg till en post](./media/dns-operations-recordsets-portal/addrecord500.png)
+    ![Lägga till en post](./media/dns-operations-recordsets-portal/addrecord500.png)
 
-3. Spara inställningarna genom att klicka på **Spara** överst på bladet. Stäng sedan bladet.
-4. I hörnet visas att posten sparas.
+3. Klicka på **Spara** högst upp på bladet för att spara inställningarna. Stäng sedan bladet.
+4. I hörnet ser du att posten sparar.
 
-    ![Sparar uppsättning av poster](./media/dns-operations-recordsets-portal/saving150.png)
+    ![Spara postuppsättning](./media/dns-operations-recordsets-portal/saving150.png)
 
-När posten har sparats kommer värdena på bladet **DNS-zon** att återspegla den nya posten.
+När posten har sparats återspeglar värdena på **DNS-zonbladet** den nya posten.
 
 ## <a name="update-a-record"></a>Uppdatera en post
 
-När du uppdaterar en post i en befintlig post uppsättning beror de fält som du kan uppdatera beroende på vilken typ av post du arbetar med.
+När du uppdaterar en post i en befintlig postuppsättning beror de fält som du kan uppdatera på vilken typ av post du arbetar med.
 
-1. Sök efter posten på bladet **post uppsättnings egenskaper** för din post uppsättning.
-2. Ändra posten. När du ändrar en post kan du ändra de tillgängliga inställningarna för posten. I följande exempel är fältet **IP-adress** MARKERAT och IP-adressen håller på att ändras.
+1. Sök efter posten i **egenskapsbladet För postuppsättning** för posten.
+2. Ändra posten. När du ändrar en post kan du ändra de tillgängliga inställningarna för posten. I följande exempel väljs **IP-adressfältet** och IP-adressen håller på att ändras.
 
     ![Ändra en post](./media/dns-operations-recordsets-portal/modifyrecord500.png)
 
-3. Spara inställningarna genom att klicka på **Spara** överst på bladet. I det övre högra hörnet visas ett meddelande om att posten har sparats.
+3. Klicka på **Spara** högst upp på bladet för att spara inställningarna. I det övre högra hörnet visas meddelandet om att posten har sparats.
 
-    ![Sparad uppsättning av poster](./media/dns-operations-recordsets-portal/saved150.png)
+    ![Sparad postuppsättning](./media/dns-operations-recordsets-portal/saved150.png)
 
-När posten har sparats kommer värdena för post uppsättningen på bladet **DNS-zon** att återspegla den uppdaterade posten.
+När posten har sparats återspeglar värdena för posten som angetts på **DNS-zonbladet** den uppdaterade posten.
 
-## <a name="remove-a-record-from-a-record-set"></a>Ta bort en post från en post uppsättning
+## <a name="remove-a-record-from-a-record-set"></a>Ta bort en post från en postuppsättning
 
-Du kan använda Azure Portal för att ta bort poster från en post uppsättning. Observera att om du tar bort den sista posten från en post uppsättning tas inte post uppsättningen bort.
+Du kan använda Azure-portalen för att ta bort poster från en postuppsättning. Observera att om du tar bort den sista posten från en postuppsättning tas inte postuppsättningen bort.
 
-1. Sök efter posten på bladet **post uppsättnings egenskaper** för din post uppsättning.
-2. Klicka på den post som du vill ta bort. Välj sedan **ta bort**.
+1. Sök efter posten i **egenskapsbladet För postuppsättning** för posten.
+2. Klicka på den post som du vill ta bort. Välj sedan **Ta bort**.
 
     ![Ta bort en post](./media/dns-operations-recordsets-portal/removerecord500.png)
 
-3. Spara inställningarna genom att klicka på **Spara** överst på bladet.
-4. När posten har tagits bort kommer värdena för posten på bladet **DNS-zon** att återspegla borttagningen.
+3. Klicka på **Spara** högst upp på bladet för att spara inställningarna.
+4. När posten har tagits bort återspeglar värdena för posten på **DNS-zonbladet** borttagningen.
 
-## <a name="delete"></a>Ta bort en post uppsättning
+## <a name="delete-a-record-set"></a><a name="delete"></a>Ta bort en postuppsättning
 
-1. Klicka på **ta bort**på bladet **post uppsättnings egenskaper** för din post uppsättning.
+1. Klicka på **Ta bort**i egenskapsbladet **För postuppsättning** för postuppsättningen .
 
-    ![Ta bort en post uppsättning](./media/dns-operations-recordsets-portal/deleterecordset500.PNG)
+    ![Ta bort en postuppsättning](./media/dns-operations-recordsets-portal/deleterecordset500.PNG)
 
-2. Ett meddelande visas där du tillfrågas om du vill ta bort post uppsättningen.
-3. Kontrol lera att namnet matchar den post uppsättning som du vill ta bort och klicka sedan på **Ja**.
-4. På bladet **DNS-zon** kontrollerar du att post uppsättningen inte längre visas.
+2. Ett meddelande visas som frågar om du vill ta bort postuppsättningen.
+3. Kontrollera att namnet matchar den postuppsättning som du vill ta bort och klicka sedan på **Ja**.
+4. Kontrollera att postuppsättningen inte längre är synlig på **DNS-zonbladet.**
 
-## <a name="work-with-ns-and-soa-records"></a>Arbeta med NS-och SOA-poster
+## <a name="work-with-ns-and-soa-records"></a>Arbeta med NS- och SOA-poster
 
-NS-och SOA-poster som skapas automatiskt hanteras annorlunda än andra post typer.
+NS- och SOA-poster som skapas automatiskt hanteras på ett annat sätt än andra posttyper.
 
 ### <a name="modify-soa-records"></a>Ändra SOA-poster
 
-Det går inte att lägga till eller ta bort poster från den automatiskt skapade SOA-postuppsättningen vid zonens Apex (namn = "\@"). Du kan dock ändra någon av parametrarna i SOA-posten (förutom "värd") och post uppsättningens TTL.
+Du kan inte lägga till eller ta bort poster från den automatiskt\@skapade SOA-postuppsättningen vid zonapexen (namn = " "). Du kan dock ändra någon av parametrarna i SOA-posten (förutom "Host") och posten som TTL.
 
-### <a name="modify-ns-records-at-the-zone-apex"></a>Ändra NS-poster vid zonens Apex
+### <a name="modify-ns-records-at-the-zone-apex"></a>Ändra NS-poster i zonsponsen
 
-NS-postuppsättningen på zon Apex skapas automatiskt med varje DNS-zon. Den innehåller namnen på de Azure DNS namnservrar som har tilldelats zonen.
+NS-posten som anges vid zonapexen skapas automatiskt med varje DNS-zon. Den innehåller namnen på Azure DNS-namnservrar som tilldelats zonen.
 
-Du kan lägga till fler namnservrar i den här NS-postuppsättningen för att stödja samvärdbaserade domäner med fler än en DNS-Provider. Du kan också ändra TTL och metadata för den här post uppsättningen. Du kan dock inte ta bort eller ändra de förifyllda Azure DNS namnservrarna.
+Du kan lägga till ytterligare namnservrar i den här NS-postuppsättningen för att stödja samhostingdomäner med mer än en DNS-provider. Du kan också ändra TTL och metadata för den här postuppsättningen. Du kan dock inte ta bort eller ändra de förifyllda Azure DNS-namnservrarna.
 
-Observera att detta endast gäller för NS-postuppsättningen i zonens Apex. Andra NS-postuppsättningar i din zon (som används för att delegera underordnade zoner) kan ändras utan begränsning.
+Observera att detta endast gäller för NS-posten som anges vid zonsponsan. Andra NS-postuppsättningar i zonen (som används för att delegera underordnade zoner) kan ändras utan begränsning.
 
-### <a name="delete-soa-or-ns-record-sets"></a>Ta bort SOA-eller NS-postuppsättningar
+### <a name="delete-soa-or-ns-record-sets"></a>Ta bort SOA- eller NS-postuppsättningar
 
-Du kan inte ta bort SOA-och NS-postuppsättningarna i zonens Apex (namn = "\@") som skapas automatiskt när zonen skapas. De tas bort automatiskt när du tar bort zonen.
+Du kan inte ta bort SOA- och NS-postuppsättningarna vid zonapexen (namn = "\@") som skapas automatiskt när zonen skapas. De tas bort automatiskt när du tar bort zonen.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Mer information om Azure DNS finns i [Översikt över Azure DNS](dns-overview.md).
-* Mer information om hur du automatiserar DNS finns i [Skapa DNS-zoner och post uppsättningar med hjälp av .NET SDK](dns-sdk.md).
+* Mer information om Azure DNS finns i [Azure DNS översikt](dns-overview.md).
+* Mer information om hur du automatiserar DNS finns i [Skapa DNS-zoner och postuppsättningar med .NET SDK](dns-sdk.md).
 * Mer information om omvända DNS-poster finns i [Översikt över omvänd DNS och support i Azure](dns-reverse-dns-overview.md).
-* Mer information om Azure DNS Ali Aset-poster finns i [Översikt över Azure DNS Ali Aset-poster](dns-alias.md).
+* Mer information om Azure DNS-aliasposter finns i [översikt över Azure DNS-aliasposter](dns-alias.md).

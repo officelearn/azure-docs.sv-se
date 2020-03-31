@@ -1,19 +1,19 @@
 ---
-title: Vad är Azure SignalR-tjänsten?
-description: Lär dig mer om vanliga scenarier för användnings fall som använder Azure-Signalerare och lär dig viktiga fördelar med Azure SignalR.
+title: Vad är Azure SignalR-tjänst?
+description: Bättre förstå vad typiska användningsscenarier för att använda Azure SignalR och lär dig de viktigaste fördelarna med Azure SignalR.
 author: sffamily
 ms.service: signalr
 ms.topic: overview
 ms.date: 11/13/2019
 ms.author: zhshang
 ms.openlocfilehash: 31cb4570dd0952f60fbff2fa1131b3af36c278cb
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/18/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "74157589"
 ---
-# <a name="what-is-azure-signalr-service"></a>Vad är Azure SignalR-tjänsten?
+# <a name="what-is-azure-signalr-service"></a>Vad är Azure SignalR-tjänst?
 
 Azure SignalR Service förenklar arbetet med att lägga till webbfunktioner i realtid för program via HTTP. Denna realtidsfunktion gör att tjänsten kan skicka innehållsuppdateringar till anslutna klienter, till exempel en webbplats med en sida eller ett mobilt program. Därmed uppdateras klienterna utan att man behöver avsöka servern eller skicka nya HTTP-begäranden om uppdateringar.
 
@@ -22,55 +22,55 @@ Den här artikeln ger en översikt över Azure SignalR Service.
 
 ## <a name="what-is-azure-signalr-service-used-for"></a>Vad används Azure SignalR Service till?
 
-Alla scenarier som kräver data överföring från servern till klienten i real tid kan använda Azure SignalR-tjänsten.
+Alla scenarier som kräver att data ska skjutas från server till klient i realtid kan använda Azure SignalR-tjänsten.
 
-Traditionella funktioner i real tid som ofta kräver avsökning från servern, kan också använda Azure SignalR-tjänsten.
+Traditionella realtidsfunktioner som ofta kräver avsökning från servern kan också använda Azure SignalR-tjänsten.
 
-Azure SignalR service har använts i en mängd olika branscher, för alla program typer som kräver innehålls uppdateringar i real tid. Vi listar några exempel som är lämpliga att använda Azure SignalR-tjänsten:
+Azure SignalR-tjänsten har använts i en mängd olika branscher, för alla programtyper som kräver innehållsuppdateringar i realtid. Vi listar några exempel som är bra att använda Azure SignalR Service:
 
-* **Data uppdateringar med hög frekvens:** spel, röstning, avsökning, auktion.
-* **Instrument paneler och övervakning:** företags instrument panel, finansiell marknads information, direkt försäljnings uppdatering, spel tavla för flera spelare och IoT-övervakning.
-* **Chatt:** Live chatt-rummet, chat-robot, online-kundsupport, real tids shopping Assistant, Messenger, spel-chatt och så vidare.
-* **Real tids plats på kartan:** logistisk spårning, leverans status spårning, transport status uppdateringar, GPS-appar.
-* **Real tids mål för annonser:** personliga real tids push-annonser och erbjudanden, interaktiva annonser.
-* **Samarbets program:** samprojektering, whiteboard-appar och team Mötes program.
-* **Push-meddelanden:** sociala nätverk, e-post, spel, rese avisering.
-* **Sändning i real tid:** direkt sändning av ljud/video, direkt textning, översättning, händelser/diskussions grupps sändningar.
-* **IoT och anslutna enheter:** real tids statistik för IoT, fjärr styrning, real tids status och plats spårning.
-* **Automation:** real tids utlösare från överordnade händelser.
+* **Högfrekventa datauppdateringar:** spel, röstning, röstning, auktion.
+* **Instrumentpaneler och övervakning:** företagets instrumentpanel, finansmarknadsdata, omedelbar försäljningsuppdatering, spelledartavla för flera spelare och IoT-övervakning.
+* **Chatt:** chattrum, chattrobot, kundsupport online, shoppingassistent i realtid, messenger, chatt i spelet och så vidare.
+* **Plats i realtid på kartan:** logistikspårning, spårning av leveransstatus, uppdateringar av transportstatus, GPS-appar.
+* **Riktade annonser i realtid:** anpassade realtids push-annonser och erbjudanden, interaktiva annonser.
+* **Samarbetsappar:** samtidig redigering, whiteboardappar och teammötesprogram.
+* **Push-meddelanden:** sociala nätverk, e-post, spel, resevarning.
+* **Sändning i realtid:** direktsända ljud-/videosändningar, live-textning, översättning, evenemang/nyhetssändningar.
+* **IoT och anslutna enheter:** IoT-mått i realtid, fjärrkontroll, realtidsstatus och platsspårning.
+* **Automatisering:** realtidsutlösare från händelser uppströms.
 
-## <a name="what-are-the-benefits-using-azure-signalr-service"></a>Vad är fördelarna med att använda Azure SignalR-tjänsten?
+## <a name="what-are-the-benefits-using-azure-signalr-service"></a>Vilka är fördelarna med Azure SignalR-tjänsten?
 
-**Standard-baserat:**
+**Standardbaserad:**
 
 SignalR ger en abstrakt samling tekniker som används för att skapa webbappar av realtidstyp. [WebSockets](https://wikipedia.org/wiki/WebSocket) är den optimala transportmetoden, men andra metoder som [Server-Sent Events (SSE)](https://wikipedia.org/wiki/Server-sent_events) och lång avsökning används när andra alternativ inte är tillgängliga. SignalR identifierar och initierar automatiskt lämplig transportmetod baserat på de funktioner som stöds på servern och klienten.
 
-**Stöd för inbyggd ASP.NET Core:**
+**Stöd för ASP.NET Core:**
 
-SignalR-tjänsten tillhandahåller inbyggd programmering med ASP.NET Core-och ASP.NET. Det krävs minimalt arbete för att utveckla ett nytt signal program med signal tjänst eller migrering från befintlig Signalbaserade program till SignalR-tjänsten.
-SignalR service stöder också ASP.NET Cores nya funktion, blixt på Server sidan.
+SignalR Service ger inbyggd programmeringsupplevelse med ASP.NET Core och ASP.NET. Utveckla nya SignalR-program med SignalR Service, eller migrera från befintliga SignalR-baserade program till SignalR Service kräver minimala ansträngningar.
+SignalR Service stöder också ASP.NET Cores nya funktion, Server-side Blazor.
 
-**Omfattande klient support:**
+**Brett kundstöd:**
 
-SignalR-tjänsten fungerar med en mängd olika klienter, till exempel webb-och mobil webbläsare, skrivbordsappar, mobilappar, Server processer, IoT-enheter och spel konsoler. SignalR-tjänsten erbjuder SDK: er på olika språk. Förutom interna ASP.NET Core-och ASP.NET C# SDK: er tillhandahåller signal service även Java Script client SDK, för att aktivera webb klienter och många JavaScript-ramverk. Java-klient-SDK stöds också för Java-program, inklusive Android-inbyggda appar. SignalR service stöder REST API och Server lös genom integreringar med Azure Functions och Event Grid.
+SignalR Service fungerar med ett brett spektrum av klienter, till exempel webb- och mobilwebbläsare, skrivbordsappar, mobilappar, serverprocess, IoT-enheter och spelkonsoler. SignalR Service erbjuder SDK:er på olika språk. Förutom inbyggda ASP.NET Core eller ASP.NET C# SDK: er, ger SignalR Service också JavaScript-klient SDK, för att aktivera webbklienter och många JavaScript-ramverk. Java-klient SDK stöds också för Java-program, inklusive Android-inbyggda appar. SignalR-tjänsten stöder REST API och serverlös via integreringar med Azure Functions och Event Grid.
 
-**Hantera storskaliga klient anslutningar:**
+**Hantera storskaliga klientanslutningar:**
 
-SignalR service är utformad för storskaliga program i real tid. Med SignalR service kan flera instanser fungera tillsammans för att skala till miljon tals klient anslutningar. Tjänsten stöder också flera globala regioner för horisontell partitionering, hög tillgänglighet eller katastrof återställning.
+SignalR Service är utformad för storskaliga realtidsprogram. SignalR-tjänsten gör att flera instanser kan arbeta tillsammans för att skala till miljontals klientanslutningar. Tjänsten stöder också flera globala regioner för fragmentering, hög tillgänglighet eller katastrofåterställning.
 
-**Ta bort belastningen till självbetjänings signalering:**
+**Ta bort bördan till självvärd SignalR:**
 
-Jämfört med egen värdbaserade SignalR-program, kan du växla till signal tjänsten för att ta bort behovet av att hantera back plan som hanterar skalningarna och klient anslutningarna. Den fullständigt hanterade tjänsten fören klar också webb program och sparar värd kostnader. SignalR service erbjuder global räckvidd och data Center och nätverk i världs klass, som kan skalas till miljon tals anslutningar, garanterar SLA och ger all efterlevnad och säkerhet på Azure standard.
+Jämfört med självvärderade SignalR-program tar om du byter till SignalR-tjänsten bort behovet av att hantera tillbaka plan som hanterar skalor och klientanslutningar. Den fullständigt hanterade tjänsten förenklar också webbprogram och sparar värdkostnader. SignalR-tjänsten erbjuder global räckvidd och datacenter och nätverk i världsklass, skalor till miljontals anslutningar, garanterar serviceavtal och ger all efterlevnad och säkerhet på Azure-standarden.
 
-![Hanterad signal tjänst](./media/signalr-overview/managed-signalr-service.png)
+![Hanterad signalr-tjänst](./media/signalr-overview/managed-signalr-service.png)
 
-**Erbjud omfattande API: er för olika meddelande mönster:**
+**Erbjud rika API:er för olika meddelandemönster:**
 
 Med SignalR-tjänsten kan servern skicka meddelanden till en viss anslutning, alla anslutningar eller en delmängd av anslutningar som tillhör en viss användare eller har placerats i en godtycklig grupp.
 
 ## <a name="how-to-use-azure-signalr-service"></a>Så använder du Azure SignalR Service
 
-Det finns många olika sätt att program med Azure SignalR service, som några av de exempel som visas här:
+Det finns många olika sätt att programmera med Azure SignalR Service, som några av de exempel som anges här:
 
 - **[Skala en ASP.NET Core SignalR-App](signalr-concept-scale-aspnet-core.md)** – Integrera Azure SignalR Service med ett ASP.NET Core SignalR-program för att skala ut till hundratusentals anslutningar.
 - **[Skapa serverlösa realtidsappar](signalr-concept-azure-functions.md)** – Använd Azure Functions-integrering med Azure SignalR Service för att skapa serverlösa realtidsprogram med språk som JavaScript, C# och Java.

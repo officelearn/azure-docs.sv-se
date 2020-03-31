@@ -1,26 +1,26 @@
 ---
-title: Singleton för Durable Functions – Azure
-description: Använda singleton i Durable Functions-tillägget för Azure Functions.
+title: Singletons för varaktiga funktioner - Azure
+description: Så här använder du singletons i tillägget Varaktiga funktioner för Azure Functions.
 author: cgillum
 ms.topic: conceptual
 ms.date: 11/03/2019
 ms.author: azfuncdf
 ms.openlocfilehash: 4eff7c4c91ed664fcf1f4fc7a8be2d43d24e5c6b
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76262817"
 ---
-# <a name="singleton-orchestrators-in-durable-functions-azure-functions"></a>Singleton-Dirigerare i Durable Functions (Azure Functions)
+# <a name="singleton-orchestrators-in-durable-functions-azure-functions"></a>Singleton orchestrators i varaktiga funktioner (Azure Functions)
 
-För bakgrunds jobb måste du ofta se till att endast en instans av en viss Orchestrator körs i taget. Du kan se till att den här typen av singleton-beteende i [Durable Functions](durable-functions-overview.md) genom att tilldela ett särskilt instans-ID till en Orchestrator när du skapar den.
+För bakgrundsjobb måste du ofta se till att endast en instans av en viss orchestrator körs åt gången. Du kan säkerställa den här typen av singleton-beteende i [varaktiga funktioner](durable-functions-overview.md) genom att tilldela ett specifikt instans-ID till en orchestrator när du skapar det.
 
-## <a name="singleton-example"></a>Singleton-exempel
+## <a name="singleton-example"></a>Singleton exempel
 
-I följande exempel visas en funktion för HTTP-utlösare som skapar en singleton-dirigering av bakgrunds jobb. Koden ser till att det bara finns en instans för ett angivet instans-ID.
+I följande exempel visas en HTTP-trigger-funktion som skapar en singleton-bakgrundsjobborkestrering. Koden säkerställer att det bara finns en instans för ett angivet instans-ID.
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 ```cs
 [FunctionName("HttpStartSingle")]
@@ -52,11 +52,11 @@ public static async Task<HttpResponseMessage> RunSingle(
 ```
 
 > [!NOTE]
-> Föregående C# kod är för Durable Functions 2. x. För Durable Functions 1. x måste du använda `OrchestrationClient` attribut i stället för attributet `DurableClient` och du måste använda `DurableOrchestrationClient` parameter typ i stället för `IDurableOrchestrationClient`. Mer information om skillnaderna mellan versioner finns i artikeln [Durable Functions versioner](durable-functions-versions.md) .
+> Den tidigare C#-koden är avsedd för varaktiga funktioner 2.x. För varaktiga funktioner 1.x `OrchestrationClient` måste du `DurableClient` använda attributet i `DurableOrchestrationClient` stället för `IDurableOrchestrationClient`attributet och du måste använda parametertypen i stället för . Mer information om skillnaderna mellan versioner finns i artikeln [Över huvudversioner för varaktiga funktioner.](durable-functions-versions.md)
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[Javascript](#tab/javascript)
 
-**function.json**
+**funktion.json**
 
 ```json
 {
@@ -83,7 +83,7 @@ public static async Task<HttpResponseMessage> RunSingle(
 }
 ```
 
-**index. js**
+**index.js**
 
 ```javascript
 const df = require("durable-functions");
@@ -114,14 +114,14 @@ module.exports = async function(context, req) {
 
 ---
 
-Instans-ID: n är som standard slumpmässigt genererade GUID. I föregående exempel skickas instans-ID: t i flödes data från URL: en. Koden anropar `GetStatusAsync`(C#) eller `getStatus` (Java Script) för att kontrol lera om en instans med det angivna ID: t redan körs. Om ingen sådan instans körs skapas en ny instans med detta ID.
+Som standard genereras instans-ID slumpmässigt GUID:er. I föregående exempel skickas dock instans-ID:t i flödesdata från URL:en. Koden anropar `GetStatusAsync`(C#) eller `getStatus` (JavaScript) för att kontrollera om en instans med angivet ID redan körs. Om ingen sådan instans körs skapas en ny instans med det ID:t.
 
 > [!NOTE]
-> Det finns ett möjligt konkurrens villkor i det här exemplet. Om två instanser av **HttpStartSingle** körs samtidigt, rapporterar båda funktions anropen att de lyckas, men endast en Dirigerings instans kommer att starta. Detta kan ha oönskade sido effekter, beroende på dina behov. Därför är det viktigt att se till att det inte finns två begär Anden som kan köra den här utlösnings funktionen samtidigt.
+> Det finns en potentiell ras villkor i detta prov. Om två instanser av **HttpStartSingle** körs samtidigt kommer båda funktionsanropen att rapportera framgång, men bara en orchestration-instans startar faktiskt. Beroende på dina krav, Detta kan ha oönskade biverkningar. Därför är det viktigt att se till att inga två begäranden kan köra den här utlösarfunktionen samtidigt.
 
-Implementerings informationen för Orchestrator-funktionen spelar ingen roll. Det kan vara en vanlig Orchestrator-funktion som startar och slutförs, eller så kan det vara en som kör för alltid (det vill säga ett [Eternal-Orchestration](durable-functions-eternal-orchestrations.md)). Den viktiga punkten är att det bara finns en instans som körs i taget.
+Implementeringsdetaljerna för orchestrator-funktionen spelar egentligen ingen roll. Det kan vara en vanlig orchestrator funktion som startar och slutförs, eller det kan vara en som löper för evigt (det vill säga en [evig orkestrering).](durable-functions-eternal-orchestrations.md) Det viktiga är att det bara finns en instans i taget.
 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Lär dig mer om de ursprungliga HTTP-funktionerna i Orchestration](durable-functions-http-features.md)
+> [Lär dig mer om de inbyggda HTTP-funktionerna i orkestreringar](durable-functions-http-features.md)

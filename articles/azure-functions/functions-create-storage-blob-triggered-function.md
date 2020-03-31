@@ -1,15 +1,15 @@
 ---
-title: Skapa en funktion i Azure som utlöses av Blob Storage
+title: Skapa en funktion i Azure som utlöses av Blob-lagring
 description: Använd Azure Functions till att skapa en serverfri funktion som anropas när objekt läggs till i Azure Blob Storage.
 ms.assetid: d6bff41c-a624-40c1-bbc7-80590df29ded
 ms.topic: quickstart
 ms.date: 10/01/2018
 ms.custom: mvc, cc996988-fb4f-47
 ms.openlocfilehash: 65717e4373f64ae38a324fd19624f049dba9dfb1
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "75769310"
 ---
 # <a name="create-a-function-triggered-by-azure-blob-storage"></a>Skapa en funktion som utlöses av Azure Blob Storage
@@ -21,7 +21,7 @@ Lär dig hur du skapar en funktion som utlöses när filer överförs till eller
 ## <a name="prerequisites"></a>Krav
 
 + Hämta och installera [Microsoft Azure Storage Explorer](https://storageexplorer.com/).
-+ En Azure-prenumeration. Om du inte har ett konto kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
++ En Azure-prenumeration. Om du inte har ett, skapa ett [gratis konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 ## <a name="create-an-azure-function-app"></a>Skapa en Azure Functions-app
 
@@ -35,7 +35,7 @@ Därefter skapar du en funktion i den nya funktionsappen.
 
 ## <a name="create-a-blob-storage-triggered-function"></a>Skapa en funktion som utlöses av Blob Storage
 
-1. Expandera funktionsappen och klicka på knappen **+** bredvid **Funktioner**. Om det här är den första funktionen i din funktionsapp väljer du **I portalen** och sedan **Fortsätt**. Annars går du till steg tre.
+1. Expandera funktionsappen **+** och klicka på knappen bredvid **Funktioner**. Om det här är den första funktionen i din funktionsapp väljer du **I portalen** och sedan **Fortsätt**. Annars går du till steg tre.
 
    ![Sidan snabbstart för funktioner i Azure Portal](./media/functions-create-storage-blob-triggered-function/function-app-quickstart-choose-portal.png)
 
@@ -45,7 +45,7 @@ Därefter skapar du en funktion i den nya funktionsappen.
 
 1. Skriv `blob` i sökfältet och välj sedan mallen **Blob-utlösare**.
 
-1. Om du uppmanas till det väljer du **Installera** för att installera Azure Storage-tillägget och eventuella beroenden i Function-appen. När installationen är klar väljer du **Fortsätt**.
+1. Om du uppmanas till det väljer du **Installera** för att installera Azure Storage-tillägget och eventuella beroenden i funktionsappen. När installationen är klar väljer du **Fortsätt**.
 
     ![Installera bindningstillägg](./media/functions-create-storage-blob-triggered-function/functions-create-blob-storage-trigger-portal.png)
 
@@ -77,7 +77,7 @@ Anslut sedan till ditt Azure Storage-konto och skapa containern **samples-workit
 
     ![Ange autentiseringsuppgifter för lagringskontot och anslut.](./media/functions-create-storage-blob-triggered-function/functions-storage-manager-connect-2.png)
 
-1. Expandera det anslutna lagrings kontot, högerklicka på **BLOB-behållare**, klicka på **skapa BLOB-behållare**, skriv `samples-workitems`och tryck sedan på RETUR.
+1. Expandera det bifogade lagringskontot, högerklicka på **Blob Containers,** klicka på **Skapa blobcontainer**, skriv `samples-workitems`och tryck sedan på retur.
 
     ![Skapa en lagringskö.](./media/functions-create-storage-blob-triggered-function/functions-storage-manager-create-blob-container.png)
 
@@ -85,9 +85,9 @@ Nu när du har en blobcontainer kan du testa funktionen genom att ladda upp en f
 
 ## <a name="test-the-function"></a>Testa funktionen
 
-1. Gå till Azure Portal igen, bläddra till din funktion, expandera **Loggar** längst ned på sidan och se till att loggströmningen inte är pausad.
+1. Tillbaka i Azure-portalen, bläddra till din funktion expandera **loggarna** längst ner på sidan och se till att loggströmning inte pausas.
 
-1. I Storage Explorer expanderar du lagrings kontot, **BLOB-behållare**och **samples-WorkItems**. Klicka på **Ladda upp** och sedan på **Ladda upp filer**.
+1. Expandera ditt lagringskonto, **Blob Containers**och **exempel-arbetsyter**i Storage Explorer. Klicka på **Ladda upp** och sedan på **Ladda upp filer**.
 
     ![Ladda upp en fil till blobcontainern.](./media/functions-create-storage-blob-triggered-function/functions-storage-manager-upload-file-blob.png)
 

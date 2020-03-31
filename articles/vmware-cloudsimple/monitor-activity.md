@@ -1,7 +1,7 @@
 ---
-title: Azure VMware-lösningar (AVS) – övervaka molnets privata moln aktivitet
-description: Beskriver den information som är tillgänglig för aktiviteter i Azure VMware-lösningen per AVS-miljö, inklusive aviseringar, händelser, uppgifter och granskning.
-titleSuffix: Azure VMware Solutions (AVS)
+title: Övervaka privat molnaktivitet
+titleSuffix: Azure VMware Solution by CloudSimple
+description: Beskriver informationen som är tillgänglig för aktivitet i Azure VMware-lösningen efter CloudSimple-miljö, inklusive aviseringar, händelser, uppgifter och granskning.
 author: sharaths-cs
 ms.author: b-shsury
 ms.date: 08/13/2019
@@ -9,108 +9,108 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 5d6fd1b92db62ab7cc9edd47c601910b8148bb95
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 1228f3a54e02d4fe7a5133e2bfba55c38e34718a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77019680"
 ---
-# <a name="monitor-vmware-solutions-avs-activity"></a>Övervaka aktiviteter för VMware-lösningar (AVS)
+# <a name="monitor-vmware-solution-by-cloudsimple-activity"></a>Övervaka VMware-lösning efter CloudSimple-aktivitet
 
-I AVS-aktivitets loggar får du en insikt i de åtgärder som utförs på AVS-portalen. Listan innehåller aviseringar, händelser, uppgifter och granskning. Använd aktivitets loggarna för att avgöra vem, när och vilka åtgärder som utfördes. Aktivitets loggar innehåller inte några Läs åtgärder som utförs av en användare.
+CloudSimple-aktivitetsloggar ger en inblick i åtgärder som utförs på CloudSimple-portalen.  Listan innehåller aviseringar, händelser, uppgifter och granskning.  Använd aktivitetsloggarna för att avgöra vem, när och vilka åtgärder som utfördes.  Aktivitetsloggar innehåller inga läsåtgärder som utförs av en användare.
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 
-Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.com).
+Logga in på Azure-portalen på [https://portal.azure.com](https://portal.azure.com).
 
-## <a name="access-the-avs-portal"></a>Åtkomst till AVS-portalen
+## <a name="access-the-cloudsimple-portal"></a>Få åtkomst till CloudSimple-portalen
 
-Få åtkomst till [AVS-portalen](access-cloudsimple-portal.md).
+Öppna [CloudSimple-portalen](access-cloudsimple-portal.md).
 
-## <a name="activity-information"></a>Aktivitets information
+## <a name="activity-information"></a>Aktivitetsinformation
 
-Välj **aktivitet** på menyn på sidan för att komma åt aktivitets sidorna.
+Om du vill komma åt aktivitetssidorna väljer du **Aktivitet** på sidomenyn.
 
-![Översikt över aktivitets Sidan](media/activity-page-overview.png)
+![Översikt över sidans aktivitet](media/activity-page-overview.png)
 
-Om du vill visa information om någon av aktiviteterna på sidan aktivitet väljer du aktiviteten. En informations panel öppnas till höger. Åtgärder i panelen beror på typen av aktivitet. Klicka på **X** för att stänga panelen.
+Om du vill visa information om någon av aktiviteterna på aktivitetssidan väljer du aktiviteten. En detaljpanel öppnas till höger. Åtgärderna i panelen beror på typen av aktivitet. Stäng panelen genom att klicka på **X.**
 
-Klicka på en kolumn rubrik för att sortera visningen. Du kan filtrera kolumner för att visa vissa värden. Hämta aktivitets rapporten genom att klicka på **Hämta som CSV** -ikon.
+Klicka på en kolumnrubrik för att sortera skärmen.  Du kan filtrera kolumner för specifika värden som ska visas.  Ladda ner aktivitetsrapport genom att klicka på **Ladda ner som CSV-ikon.**
 
 ## <a name="alerts"></a>Aviseringar
 
-Aviseringar är aviseringar om eventuella betydande aktiviteter i din AVS-miljö. Aviseringar innehåller händelser som påverkar fakturerings-eller användar åtkomst.
+Aviseringar är aviseringar om någon betydande aktivitet i din CloudSimple-miljö.  Aviseringar inkluderar händelser som påverkar fakturering eller användaråtkomst.
 
-Om du vill bekräfta aviseringar och ta bort dem från listan väljer du en eller flera i listan och klickar på **Bekräfta**.
+Om du vill bekräfta aviseringar och ta bort dem från listan markerar du en eller flera i listan och klickar på **Bekräfta**.
 
-Följande kolumner med information är tillgängliga för aviseringar. Klicka på **Redigera kolumner** och Välj kolumner som du vill visa.
+Följande informationskolumner är tillgängliga för aviseringar. Klicka på **Redigera kolumner** och markera kolumner som du vill visa.
 
 | Kolumn | Beskrivning |
 ------------ | ------------- |
-| Aviserings typ | Aviserings kategori.|
-| Tid | Tiden då aviseringen inträffade. |
-| Allvarsgrad | Betydelsen av aviseringen.|
-| Resursnamn | Namnet som tilldelats resursen, till exempel namnet på den privata AVS-molnet. |
-| Resurstyp | Resurs kategori: molnets privata moln, moln rack. |
+| Typ av varning | Kategori av varning.|
+| Tid | När aviseringen inträffade. |
+| Severity | Varningens betydelse.|
+| Resursnamn | Namn som tilldelats resursen, till exempel namnet private cloud. |
+| Resurstyp | Resurskategori: Privat moln, molnrack. |
 | Resurs-ID | Identifierare för resursen. |
 | Beskrivning | Beskrivning av vad som utlöste aviseringen. |
-| Godkänt | Indikerar om aviseringen har bekräftats. |
+| Bekräftad | Uppgift om huruvida varningen är bekräftad. |
 
-## <a name="events"></a>Events
+## <a name="events"></a>Händelser
 
-Händelser visar användar-och system aktivitet på AVS-portalen. På sidan händelser visas den aktivitet som är associerad med en speciell resurs och påverkannas allvarlighets grad.
+Händelser visar användar- och systemaktivitet på CloudSimple-portalen. På sidan Händelser visas den aktivitet som är associerad med en viss resurs och hur allvarlig påverkan är.
 
-Följande kolumner med information är tillgängliga för aviseringar. Klicka på **Redigera kolumner** och Välj kolumner som du vill visa.
+Följande informationskolumner är tillgängliga för aviseringar. Klicka på **Redigera kolumner** och markera kolumner som du vill visa.
 
 | Kolumn | Beskrivning |
 ------------ | ------------- |
 | Tid | Datum och tid då händelsen inträffade. |
-| Händelse typ | Numerisk kod som identifierar händelsen. |
-| Allvarsgrad | Allvarlighets grad för händelse.|
-| Resursnamn | Namnet som tilldelats resursen, till exempel namnet på den privata AVS-molnet. |
-| Resurstyp | Resurs kategori: molnets privata moln, moln rack. |
+| Händelsetyp | Numerisk kod som identifierar händelsen. |
+| Severity | Allvarlighetsgrad för händelser.|
+| Resursnamn | Namn som tilldelats resursen, till exempel namnet private cloud. |
+| Resurstyp | Resurskategori: Privat moln, molnrack. |
 | Beskrivning | Beskrivning av vad som utlöste aviseringen. |
 
 ## <a name="tasks"></a>Aktiviteter
 
-Aktiviteter är moln aktiviteter i molnet som förväntas ta 30 sekunder eller mer att slutföra. (Aktiviteter som förväntas ta mindre än 30 sekunder rapporteras endast som händelser.) Öppna sidan aktiviteter för att spåra förloppet för aktiviteterna för ditt AVS-privata moln.
+Uppgifter är privata molnaktiviteter som förväntas ta 30 sekunder eller mer att slutföra. (Aktiviteter som förväntas ta mindre än 30 sekunder rapporteras endast som händelser.) Öppna sidorna Uppgifter för att spåra förloppet för uppgifter för ditt privata moln.
 
-Följande kolumner med information är tillgängliga för aviseringar. Klicka på **Redigera kolumner** och Välj kolumner som du vill visa.
+Följande informationskolumner är tillgängliga för aviseringar. Klicka på **Redigera kolumner** och markera kolumner som du vill visa.
 
 | Kolumn | Beskrivning |
 ------------ | ------------- |
-| Aktivitets-ID | Unikt ID för uppgiften. |
-| Åtgärd | Åtgärd som ska utföras av uppgiften. |
+| Aktivitets-ID | Unik identifierare för aktiviteten. |
+| Åtgärd | Åtgärd som uppgiften utför. |
 | Användare | Användaren har tilldelats för att slutföra uppgiften. |
 | Resursnamn | Namn som tilldelats resursen. |
-| Resurstyp | Resurs kategori: molnets privata moln, moln rack. |
+| Resurstyp | Resurskategori: Privat moln, molnrack. |
 | Resurs-ID | Identifierare för resursen. |
-| Start | Start tid för aktiviteten. |
-| Slut | Slut tid för aktiviteten. |
-| Status | Aktuell uppgifts status. |
-| Förfluten tid | Tid som aktiviteten tog att slutföra (om den har slutförts) eller håller på att tas (om den pågår). |
-| Beskrivning | Uppgifts beskrivning. |
+| Start | Starttid för aktiviteten. |
+| Slut | Sluttid för aktiviteten. |
+| Status | Aktuell aktivitetsstatus. |
+| Förfluten tid | Tid som aktiviteten tog att slutföra (om den är klar) eller som för närvarande tar (om pågående). |
+| Beskrivning | Uppgiftsbeskrivning. |
 
 ## <a name="audit"></a>Granska
 
-Gransknings loggar håller reda på användar aktivitet. Du kan använda gransknings loggar för att övervaka användar aktivitet för alla användare.
+Granskningsloggar håller reda på användaraktivitet. Du kan använda granskningsloggar för att övervaka användaraktivitet för alla användare.
 
-Följande kolumner med information är tillgängliga för aviseringar. Klicka på **Redigera kolumner** och Välj kolumner som du vill visa.
+Följande informationskolumner är tillgängliga för aviseringar. Klicka på **Redigera kolumner** och markera kolumner som du vill visa.
 
 | Kolumn | Beskrivning |
 ------------ | ------------- |
-| Tid | Tid för gransknings posten. |
-| Åtgärd | Åtgärd som ska utföras av uppgiften. |
-| Användare | Användaren har tilldelats uppgiften. |
+| Tid | Tidpunkten för granskningsposten. |
+| Åtgärd | Åtgärd som uppgiften utför. |
+| Användare | Användare som tilldelats uppgiften. |
 | Resursnamn | Namn som tilldelats resursen. |
-| Resurstyp | Resurs kategori: molnets privata moln, moln rack. |
+| Resurstyp | Resurskategori: Privat moln, molnrack. |
 | Resurs-ID | Identifierare för resursen. |
-| Resultat | Resultat av aktiviteten, till exempel **lyckad**. |
-| Åtgången tid | Tid för att slutföra uppgiften. |
+| Resultat | Resultatet av aktiviteten, till exempel **Framgång**. |
+| Tidsåtgång | Dags att slutföra uppgiften. |
 | Beskrivning | Beskrivning av åtgärden. |
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Använda virtuella VMware-datorer i Azure](quickstart-create-vmware-virtual-machine.md)
-* Lär dig mer om [moln privata moln](cloudsimple-private-cloud.md)
+* [Använda virtuella VMware-datorer på Azure](quickstart-create-vmware-virtual-machine.md)
+* Läs mer om [privata moln](cloudsimple-private-cloud.md)

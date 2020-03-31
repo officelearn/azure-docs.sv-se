@@ -1,6 +1,6 @@
 ---
 title: Hantera Azure Data Lake Analytics med Azure CLI
-description: Den här artikeln beskriver hur du använder Azure CLI för att hantera Data Lake Analytics jobb, data källor & användare.
+description: I den här artikeln beskrivs hur du använder Azure CLI för att hantera Data Lake Analytics-jobb, datakällor & användare.
 services: data-lake-analytics
 author: jasonwhowell
 ms.author: jasonh
@@ -8,18 +8,18 @@ ms.assetid: 4e5a3a0a-6d7f-43ed-aeb5-c3b3979a1e0a
 ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.date: 01/29/2018
-ms.openlocfilehash: d66926d8ba87096537800d22a9c116b7b10d23cf
-ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
+ms.openlocfilehash: 69a48952ef273acb8cf7eb0ec5968e12b962b622
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71309745"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79454371"
 ---
-# <a name="manage-azure-data-lake-analytics-using-the-azure-command-line-interface-cli"></a>Hantera Azure Data Lake Analytics med hjälp av Azures kommando rads gränssnitt (CLI)
+# <a name="manage-azure-data-lake-analytics-using-the-azure-command-line-interface-cli"></a>Hantera Azure Data Lake Analytics med hjälp av AZURE Command-line Interface (CLI)
 
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
 
-Lär dig hur du hanterar Azure Data Lake Analytics-konton, data källor, användare och jobb med hjälp av Azure CLI. Klicka på fliken ovan om du vill se hanterings ämnen med andra verktyg.
+Lär dig hur du hanterar Azure Data Lake Analytics-konton, datakällor, användare och jobb med Hjälp av Azure CLI. Om du vill se hanteringsämnen med andra verktyg klickar du på fliken välj ovan.
 
 
 **Krav**
@@ -32,14 +32,14 @@ Innan du påbörjar den här självstudien måste du ha följande resurser:
 
    * Hämta och installera **förhandsversionen** [Azure CLI-verktyg](https://github.com/MicrosoftBigData/AzureDataLake/releases) för att kunna slutföra den här demon.
 
-* Autentisera med hjälp `az login` av kommandot och välj den prenumeration som du vill använda. Mer information om autentisering med ett arbets- eller skolkonto finns i [Anslut till en Azure-prenumeration från Azure CLI](/cli/azure/authenticate-azure-cli).
+* Autentisera med `az login` kommandot och välj den prenumeration som du vill använda. Mer information om autentisering med ett arbets- eller skolkonto finns i [Anslut till en Azure-prenumeration från Azure CLI](/cli/azure/authenticate-azure-cli).
 
    ```azurecli
    az login
    az account set --subscription <subscription id>
    ```
 
-   Nu kan du komma åt Data Lake Analytics-och Data Lake Store kommandon. Kör följande kommando för att Visa Data Lake Store och Data Lake Analytics kommandon:
+   Nu kan du komma åt kommandona DataSjöanalys och DataSjö store. Kör följande kommando för att lista kommandona DataSjölagring och DataSjöanalys:
 
    ```azurecli
    az dls -h
@@ -48,11 +48,11 @@ Innan du påbörjar den här självstudien måste du ha följande resurser:
 
 ## <a name="manage-accounts"></a>Hantera konton
 
-Innan du kör Data Lake Analytics jobb måste du ha ett Data Lake Analytics-konto. Till skillnad från Azure HDInsight betalar du inte för ett analys konto när det inte kör ett jobb. Du betalar bara för den tid då jobbet körs.  Mer information finns i [Azure Data Lake Analytics översikt](data-lake-analytics-overview.md).  
+Innan du kör några DataSjöanalysjobb måste du ha ett DataSjöanalyskonto. Till skillnad från Azure HDInsight betalar du inte för ett Analytics-konto när det inte kör ett jobb. Du betalar bara för den tid då det körs ett jobb.  Mer information finns i [Översikt över Azure Data Lake Analytics](data-lake-analytics-overview.md).  
 
 ### <a name="create-accounts"></a>Skapa konton
 
-Kör följande kommando för att skapa ett Data Lake-konto, 
+Kör följande kommando för att skapa ett DataSjö-konto, 
 
    ```azurecli
    az dla account create --account "<Data Lake Analytics account name>" --location "<Location Name>" --resource-group "<Resource Group Name>" --default-data-lake-store "<Data Lake Store account name>"
@@ -60,21 +60,21 @@ Kör följande kommando för att skapa ett Data Lake-konto,
 
 ### <a name="update-accounts"></a>Uppdatera konton
 
-Följande kommando uppdaterar egenskaperna för ett befintligt Data Lake Analytics-konto
+Följande kommando uppdaterar egenskaperna för ett befintligt DataSjöanalyskonto
 
    ```azurecli
    az dla account update --account "<Data Lake Analytics Account Name>" --firewall-state "Enabled" --query-store-retention 7
    ```
 
-### <a name="list-accounts"></a>Lista konton
+### <a name="list-accounts"></a>Lista över konton
 
-Lista Data Lake Analytics konton inom en angiven resurs grupp
+Lista DataSjöanalyskonton inom en viss resursgrupp
 
    ```azurecli
    az dla account list "<Resource group name>"
    ```
 
-## <a name="get-details-of-an-account"></a>Hämta information om ett konto
+## <a name="get-details-of-an-account"></a>Få information om ett konto
 
    ```azurecli
    az dla account show --account "<Data Lake Analytics account name>" --resource-group "<Resource group name>"
@@ -86,80 +86,80 @@ Lista Data Lake Analytics konton inom en angiven resurs grupp
    az dla account delete --account "<Data Lake Analytics account name>" --resource-group "<Resource group name>"
    ```
 
-## <a name="manage-data-sources"></a>Hantera data källor
+## <a name="manage-data-sources"></a>Hantera datakällor
 
-Data Lake Analytics stöder för närvarande följande två data Källor:
+DataSjöanalys stöder för närvarande följande två datakällor:
 
 * [Azure Data Lake Store](../data-lake-store/data-lake-store-overview.md)
-* [Azure Storage](../storage/common/storage-introduction.md)
+* [Azure-lagring](../storage/common/storage-introduction.md)
 
-När du skapar ett analys konto måste du ange ett Azure Data Lake Storage-konto som standard lagrings konto. Standard Data Lake lagrings kontot används för att lagra jobb-metadata och jobb gransknings loggar. När du har skapat ett analys konto kan du lägga till ytterligare Data Lake Storage konton och/eller Azure Storage konto. 
+När du skapar ett Analytics-konto måste du ange att ett Azure Data Lake Storage-konto ska vara standardlagringskontot. Standardkontot för lagring av DataSjö används för att lagra jobbmetadata och jobbgranskningsloggar. När du har skapat ett Analytics-konto kan du lägga till ytterligare DataSjölagringskonton och/eller Azure Storage-konto. 
 
-### <a name="find-the-default-data-lake-store-account"></a>Hitta standard Data Lake Stores kontot
+### <a name="find-the-default-data-lake-store-account"></a>Hitta standardkontot för DataSjölagring
 
-Du kan visa standard data Lake Store kontot som används genom att `az dla account show` köra kommandot. Standard konto namnet visas under egenskapen defaultDataLakeStoreAccount.
+Du kan visa standardkontot för Datasjölagring som används genom att köra `az dla account show` kommandot. Standardkontonamnet visas under egenskapen defaultDataLakeStoreAccount.
 
    ```azurecli
    az dla account show --account "<Data Lake Analytics account name>"
    ```
 
-### <a name="add-additional-blob-storage-accounts"></a>Lägg till ytterligare Blob Storage-konton
+### <a name="add-additional-blob-storage-accounts"></a>Lägga till ytterligare Blob-lagringskonton
 
    ```azurecli
    az dla account blob-storage add --access-key "<Azure Storage Account Key>" --account "<Data Lake Analytics account name>" --storage-account-name "<Storage account name>"
    ```
 
 > [!NOTE]
-> Endast korta Blob Storage-namn stöds. Använd inte FQDN, till exempel "myblob.blob.core.windows.net".
+> Endast korta Blob-lagringsnamn stöds. Använd inte FQDN, till exempel "myblob.blob.core.windows.net".
 > 
 
-### <a name="add-additional-data-lake-store-accounts"></a>Lägg till ytterligare Data Lake Store konton
+### <a name="add-additional-data-lake-store-accounts"></a>Lägga till ytterligare datasjölagringskonton
 
-Följande kommando uppdaterar det angivna Data Lake Analytics-kontot med ett ytterligare Data Lake Store-konto:
+Följande kommando uppdaterar det angivna DataSjöanalyskontot med ytterligare ett DataSjölagringskonto:
 
    ```azurecli
    az dla account data-lake-store add --account "<Data Lake Analytics account name>" --data-lake-store-account-name "<Data Lake Store account name>"
    ```
 
-### <a name="update-existing-data-source"></a>Uppdatera befintlig data Källa
+### <a name="update-existing-data-source"></a>Uppdatera befintlig datakälla
 
-Så här uppdaterar du en befintlig Blob Storage-konto nyckel:
+Så här uppdaterar du en befintlig Blob-lagringskontonyckel:
 
    ```azurecli
    az dla account blob-storage update --access-key "<New Blob Storage Account Key>" --account "<Data Lake Analytics account name>" --storage-account-name "<Data Lake Store account name>"
    ```
 
-### <a name="list-data-sources"></a>Visa en lista över data Källor:
+### <a name="list-data-sources"></a>Lista datakällor:
 
-Så här visar du Data Lake Store-konton:
+Så här listar du datasjölagringskontona:
 
    ```azurecli
    az dla account data-lake-store list --account "<Data Lake Analytics account name>"
    ```
 
-Så här visar du Blob Storage-kontot:
+Så här listar du Blob-lagringskontot:
 
    ```azurecli
    az dla account blob-storage list --account "<Data Lake Analytics account name>"
    ```
 
-![Data källa för Data Lake Analytics lista](./media/data-lake-analytics-manage-use-cli/data-lake-analytics-list-data-source.png)
+![Datakälla för datakälla för datasjöanalys i datasjöanalys](./media/data-lake-analytics-manage-use-cli/data-lake-analytics-list-data-source.png)
 
-### <a name="delete-data-sources"></a>Ta bort data Källor:
-Ta bort ett Data Lake Store-konto:
+### <a name="delete-data-sources"></a>Ta bort datakällor:
+Så här tar du bort ett DataSjölagringskonto:
 
    ```azurecli
    az dla account data-lake-store delete --account "<Data Lake Analytics account name>" --data-lake-store-account-name "<Azure Data Lake Store account name>"
    ```
 
-Ta bort ett Blob Storage-konto:
+Så här tar du bort ett Blob-lagringskonto:
 
    ```azurecli
    az dla account blob-storage delete --account "<Data Lake Analytics account name>" --storage-account-name "<Data Lake Store account name>"
    ```
 
 ## <a name="manage-jobs"></a>Hantera jobb
-Du måste ha ett Data Lake Analytics-konto innan du kan skapa ett jobb.  Mer information finns i [hantera data Lake Analytics-konton](#manage-accounts).
+Du måste ha ett DataSjöanalyskonto innan du kan skapa ett jobb.  Mer information finns i [Hantera DataSjöanalyskonton](#manage-accounts).
 
 ### <a name="list-jobs"></a>Lista jobb
 
@@ -167,9 +167,9 @@ Du måste ha ett Data Lake Analytics-konto innan du kan skapa ett jobb.  Mer inf
    az dla job list --account "<Data Lake Analytics account name>"
    ```
 
-   ![Data källa för Data Lake Analytics lista](./media/data-lake-analytics-manage-use-cli/data-lake-analytics-list-jobs.png)
+   ![Datakälla för datakälla för datasjöanalys i datasjöanalys](./media/data-lake-analytics-manage-use-cli/data-lake-analytics-list-jobs.png)
 
-### <a name="get-job-details"></a>Hämta jobb information
+### <a name="get-job-details"></a>Få jobbinformation
 
    ```azurecli
    az dla job show --account "<Data Lake Analytics account name>" --job-identity "<Job Id>"
@@ -178,14 +178,14 @@ Du måste ha ett Data Lake Analytics-konto innan du kan skapa ett jobb.  Mer inf
 ### <a name="submit-jobs"></a>Skicka jobb
 
 > [!NOTE]
-> Standard prioriteten för ett jobb är 1000 och standard graden av parallellitet för ett jobb är 1.
+> Standardprioriteten för ett jobb är 1000 och standardgraden för parallellitet för ett jobb är 1.
 > 
 >    ```azurecli
 >    az dla job submit --account "<Data Lake Analytics account name>" --job-name "<Name of your job>" --script "<Script to submit>"
 >    ```
 
-### <a name="cancel-jobs"></a>Annullera jobb
-Använd list kommandot för att hitta jobb-ID och Använd sedan Avbryt för att avbryta jobbet.
+### <a name="cancel-jobs"></a>Avbryta jobb
+Använd kommandot List för att hitta jobb-ID:et och använd sedan avbryt för att avbryta jobbet.
 
    ```azurecli
    az dla job cancel --account "<Data Lake Analytics account name>" --job-identity "<Job Id>"
@@ -197,7 +197,7 @@ Använd list kommandot för att hitta jobb-ID och Använd sedan Avbryt för att 
 
 Använd `az dla job pipeline`-kommandon för att visa information om pipeline för jobb som skickats tidigare.
 
-```
+```azurecli
 az dla job pipeline list --account "<Data Lake Analytics Account Name>"
 
 az dla job pipeline show --account "<Data Lake Analytics Account Name>" --pipeline-identity "<Pipeline ID>"
@@ -205,15 +205,15 @@ az dla job pipeline show --account "<Data Lake Analytics Account Name>" --pipeli
 
 Använd `az dla job recurrence`-kommandon för att visa information om upprepningar för jobb som skickats tidigare.
 
-```
+```azurecli
 az dla job recurrence list --account "<Data Lake Analytics Account Name>"
 
 az dla job recurrence show --account "<Data Lake Analytics Account Name>" --recurrence-identity "<Recurrence ID>"
 ```
 
-## <a name="see-also"></a>Se också
+## <a name="see-also"></a>Se även
 * [Översikt över Microsoft Azure Data Lake Analytics](data-lake-analytics-overview.md)
 * [Kom igång med Data Lake Analytics med hjälp av Azure-portalen](data-lake-analytics-get-started-portal.md)
-* [Hantera Azure Data Lake Analytics med hjälp av Azure Portal](data-lake-analytics-manage-use-portal.md)
+* [Hantera Azure Data Lake Analytics med Azure-portal](data-lake-analytics-manage-use-portal.md)
 * [Övervaka och felsök Azure Data Lake Analytics-jobb med hjälp av Azure Portal](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
 

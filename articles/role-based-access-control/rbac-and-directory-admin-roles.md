@@ -1,5 +1,5 @@
 ---
-title: Klassiska prenumerations administratörs roller, Azure RBAC-roller och Azure AD-roller
+title: Klassiska prenumerationsadministratörsroller, Azure RBAC-roller och Azure AD-roller
 description: Beskriver de olika rollerna i Azure – administratörsroller för klassiska prenumerationer, roller för rollbaserad åtkomstkontroll i Azure (RBAC) och administratörsroller för Azure Active Directory (AD Azure)
 services: active-directory
 documentationcenter: ''
@@ -16,10 +16,10 @@ ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro;
 ms.openlocfilehash: e8d82011fe4fdd40bb07c77411ad0e948ddad049
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "79240102"
 ---
 # <a name="classic-subscription-administrator-roles-azure-rbac-roles-and-azure-ad-administrator-roles"></a>Administratörsroller för klassiska prenumerationer, Azure RBAC-roller och administratörsroller för Azure AD
@@ -64,7 +64,7 @@ Ett Azure-konto representerar en faktureringsrelation. Ett Azure-konto är en an
 
 Azure-prenumerationer hjälper dig att organisera åtkomst till Azure-resurser. samt styra hur resursanvändningen rapporteras, faktureras och betalas. Olika prenumerationer kan ha olika fakturerings- och betalningskonfiguration, vilket betyder att du kan ha olika faktureringsplaner beroende på kontor, avdelning, projekt och så vidare. Varje tjänst tillhör en prenumeration, och prenumerations-ID kan krävas för programmässiga åtgärder.
 
-Varje prenumeration är associerad med en Azure AD-katalog. Du hittar katalogen som prenumerationen är kopplad till genom att öppna **prenumerationer** i Azure Portal och sedan välja en prenumeration för att se katalogen.
+Varje prenumeration är associerad med en Azure AD-katalog. Om du vill hitta den katalog som prenumerationen är associerad med öppnar du **Prenumerationer** i Azure-portalen och väljer sedan en prenumeration för att se katalogen.
 
 Konton och prenumerationer hanteras i [Azure-kontocentret](https://account.azure.com/Subscriptions).
 
@@ -83,7 +83,7 @@ Resten av de inbyggda rollerna tillåter hantering av specifika Azure-resurser. 
 
 Endast Azure-portalen och Azure Resource Manager-API:er stöder RBAC. Användare, grupper och program som tilldelas RBAC-roller kan inte använda [API:er för Azures klassiska distributionsmodell](../azure-resource-manager/management/deployment-models.md).
 
-I Azure-portalen visas rolltilldelningar som använder RBAC på bladet **Åtkomstkontroll (IAM)** . Du hittar det här bladet i hela portalen, till exempel hanterings grupper, prenumerationer, resurs grupper och olika resurser.
+I Azure-portalen visas rolltilldelningar som använder RBAC på bladet **Åtkomstkontroll (IAM)**. Det här bladet finns i hela portalen, till exempel hanteringsgrupper, prenumerationer, resursgrupper och olika resurser.
 
 ![Bladet Åtkomstkontroll (IAM) i Azure-portalen](./media/rbac-and-directory-admin-roles/access-control-role-assignments.png)
 
@@ -116,7 +116,7 @@ På en övergripande nivå kontrollerar Azure RBAC-roller behörigheter för att
 | Hantera åtkomst till Azure-resurser | Hantera åtkomst till Azure Active Directory-resurser |
 | Stöder anpassade roller | Stöder anpassade roller |
 | Omfånget kan anges på flera nivåer (hanteringsgrupp, prenumeration, resursgrupp och resurs) | Omfånget är på klientorganisationsnivån |
-| Rollinformation kan nås i Azure-portalen, Azure CLI, Azure PowerShell, Azure Resource Manager-mallar samt REST API | Du kan komma åt roll information i Azure Admin Portal, Microsoft 365 administrations Center, Microsoft Graph, AzureAD PowerShell |
+| Rollinformation kan nås i Azure-portalen, Azure CLI, Azure PowerShell, Azure Resource Manager-mallar samt REST API | Rollinformation kan nås i Azure admin portal, Microsoft 365 admin center, Microsoft Graph, AzureAD PowerShell |
 
 ### <a name="do-azure-rbac-roles-and--azure-ad-administrator-roles-overlap"></a>Överlappar Azure RBAC-rollerna och Azure AD-administratörsrollerna?
 

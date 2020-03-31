@@ -1,6 +1,6 @@
 ---
-title: IS_NUMBER i Azure Cosmos DB frågespråk
-description: Lär dig mer om SQL system-funktionen IS_NUMBER i Azure Cosmos DB.
+title: IS_NUMBER i Azure Cosmos DB-frågespråk
+description: Lär dig mer om SQL-systemfunktion IS_NUMBER i Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
@@ -8,14 +8,14 @@ ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: c019424241bc07d5a5d2cc19a64685c476f94548
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78303825"
 ---
 # <a name="is_number-azure-cosmos-db"></a>IS_NUMBER (Azure Cosmos DB)
- Returnerar ett booleskt värde som anger om det angivna uttrycket är ett tal.  
+ Returnerar ett booleskt värde som anger om typen av det angivna uttrycket är ett tal.  
   
 ## <a name="syntax"></a>Syntax
   
@@ -25,16 +25,16 @@ IS_NUMBER(<expr>)
   
 ## <a name="arguments"></a>Argument
   
-*uttrycks*  
-   Är ett valfritt uttryck.  
+*Uttryck*  
+   Är vilket uttryck som helst.  
   
-## <a name="return-types"></a>Retur typer
+## <a name="return-types"></a>Returtyper
   
   Returnerar ett booleskt uttryck.  
   
 ## <a name="examples"></a>Exempel
   
-  I följande exempel kontrol leras objekt av JSON Boolean, Number, String, null, Object, array och odefinierade typer med hjälp av funktionen `IS_NUMBER`.  
+  I följande exempel kontrollerar objekt av JSON Boolean, tal, sträng, null, `IS_NUMBER` objekt, matris och odefinierade typer med hjälp av funktionen.  
   
 ```sql
 SELECT   
@@ -55,10 +55,10 @@ SELECT
 
 ## <a name="remarks"></a>Anmärkningar
 
-Den här systemfunktionen kommer att ha nytta av ett [intervall index](index-policy.md#includeexclude-strategy).
+Denna systemfunktion kommer att dra nytta av ett [intervallindex](index-policy.md#includeexclude-strategy).
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Typ kontroll funktioner Azure Cosmos DB](sql-query-type-checking-functions.md)
-- [System funktioner Azure Cosmos DB](sql-query-system-functions.md)
+- [Typkontrollfunktioner Azure Cosmos DB](sql-query-type-checking-functions.md)
+- [Systemfunktioner Azure Cosmos DB](sql-query-system-functions.md)
 - [Introduktion till Azure Cosmos DB](introduction.md)

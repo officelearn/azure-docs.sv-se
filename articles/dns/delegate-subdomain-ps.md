@@ -1,6 +1,6 @@
 ---
-title: Delegera en under domän – Azure PowerShell-Azure DNS
-description: Med den här utbildnings vägen börjar du delegera en Azure DNS under domän med hjälp av Azure PowerShell.
+title: Delegera en underdomän - Azure PowerShell - Azure DNS
+description: Med den här utbildningssökvägen kommer du igång med att delegera en Azure DNS-underdomän med Azure PowerShell.
 services: dns
 author: rohinkoul
 ms.service: dns
@@ -8,50 +8,50 @@ ms.topic: article
 ms.date: 2/7/2019
 ms.author: rohink
 ms.openlocfilehash: 7e019afaae98422b8d5a3c8fa7a5f79e26c6a149
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76937710"
 ---
-# <a name="delegate-an-azure-dns-subdomain-using-azure-powershell"></a>Delegera en Azure DNS under domän med hjälp av Azure PowerShell
+# <a name="delegate-an-azure-dns-subdomain-using-azure-powershell"></a>Delegera en Azure DNS-underdomän med Azure PowerShell
 
-Du kan använda Azure PowerShell för att delegera en DNS-under domän. Om du till exempel äger contoso.com-domänen kan du delegera en under domän som heter *teknik* till en annan, separat zon som du kan administrera separat från zonen contoso.com.
+Du kan använda Azure PowerShell för att delegera en DNS-underdomän. Om du till exempel äger contoso.com domänen kan du delegera en underdomän som kallas *teknik* till en annan, separat zon som du kan administrera separat från zonen contoso.com.
 
-Om du vill kan du delegera en under domän med hjälp av [Azure Portal](delegate-subdomain.md).
+Om du vill kan du delegera en underdomän med hjälp av [Azure Portal](delegate-subdomain.md).
 
 > [!NOTE]
-> Contoso.com används som ett exempel i den här artikeln. Använd ditt eget domännamn i stället för contoso.com.
+> Contoso.com används som exempel i hela den här artikeln. Använd ditt eget domännamn i stället för contoso.com.
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har en Azure-prenumeration skapar du ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## <a name="prerequisites"></a>Krav
 
-Om du vill delegera en Azure DNS under domän måste du först delegera din offentliga domän till Azure DNS. Mer information om hur du konfigurerar namnservrar för delegering finns i [delegera en domän till Azure DNS](./dns-delegate-domain-azure-dns.md) . När din domän har delegerats till din Azure DNS zon kan du delegera din under domän.
+Om du vill delegera en Azure DNS-underdomän måste du först delegera din offentliga domän till Azure DNS. Se [Delegera en domän till Azure DNS](./dns-delegate-domain-azure-dns.md) för instruktioner om hur du konfigurerar dina namnservrar för delegering. När domänen har delegerats till din Azure DNS-zon kan du delegera underdomänen.
 
-## <a name="create-a-zone-for-your-subdomain"></a>Skapa en zon för under domänen
+## <a name="create-a-zone-for-your-subdomain"></a>Skapa en zon för underdomänen
 
-Skapa först zonen för under domänen **teknik** .
+Skapa först zonen för **den tekniska** underdomänen.
 
 `New-AzDnsZone -ResourceGroupName <resource group name> -Name engineering.contoso.com`
 
-## <a name="note-the-name-servers"></a>Anteckna namnservrarna
+## <a name="note-the-name-servers"></a>Observera namnservrarna
 
-Notera sedan de fyra namnservrarna för under domänen teknik.
+Observera sedan de fyra namnservrarna för underdomänen för teknik.
 
 `Get-AzDnsRecordSet -ZoneName engineering.contoso.com -ResourceGroupName <resource group name> -RecordType NS`
 
-## <a name="create-a-test-record"></a>Skapa en test post
+## <a name="create-a-test-record"></a>Skapa en testpost
 
-Skapa en **A** -post i den tekniska zon som ska användas för testning.
+Skapa en **A-post** i den tekniska zonen som ska användas för testning.
 
    `New-AzDnsRecordSet -ZoneName engineering.contoso.com -ResourceGroupName <resource group name> -Name www -RecordType A -ttl 3600 -DnsRecords (New-AzDnsRecordConfig -IPv4Address 10.10.10.10)`.
 
 ## <a name="create-an-ns-record"></a>Skapa en NS-post
 
-Skapa sedan en namnserver post (NS) för den **tekniska** zonen i contoso.com-zonen.
+Skapa sedan en namnserverpost (NS) för **teknikzonen** i zonen contoso.com.
 
 ```azurepowershell
 $Records = @()
@@ -67,7 +67,7 @@ $RecordSet = New-AzDnsRecordSet -Name engineering -RecordType NS -ResourceGroupN
 Använd nslookup för att testa delegeringen.
 
 1. Öppna ett PowerShell-fönster.
-2. Skriv `nslookup www.engineering.contoso.com.` i kommando tolken
+2. Skriv i kommandotolken`nslookup www.engineering.contoso.com.`
 3. Du bör få ett icke-auktoritativt svar som visar adressen **10.10.10.10**.
 
 ## <a name="next-steps"></a>Nästa steg

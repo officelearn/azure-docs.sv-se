@@ -9,17 +9,17 @@ ms.topic: overview
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 03/02/2020
 ms.openlocfilehash: 24981c10985cd353fcd476f416e89c94ad6b6cc6
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/04/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "78271904"
 ---
 # <a name="what-is-apache-storm-on-azure-hdinsight"></a>Vad är Apache Storm på Azure HDInsight?
 
-[Apache Storm](https://storm.apache.org/) är ett distribuerat, feltolerant beräkningssystem med öppen källkod. Du kan använda Storm för att bearbeta data strömmar i real tid med [Apache Hadoop](https://hadoop.apache.org/). Storm-lösningar kan även tillhandahålla garanterad bearbetning av data, med möjlighet att spela upp data som inte kunde bearbetas första gången.
+[Apache Storm](https://storm.apache.org/) är ett distribuerat, feltolerant beräkningssystem med öppen källkod. Du kan använda Storm för att bearbeta dataströmmar i realtid med [Apache Hadoop](https://hadoop.apache.org/). Stormlösningar kan också ge garanterad bearbetning av data, med möjlighet att spela upp data som inte har bearbetats första gången.
 
-## <a name="why-use-apache-storm-on-hdinsight"></a>Varför ska jag använda Apache Storm på HDInsight?
+## <a name="why-use-apache-storm-on-hdinsight"></a>Varför använda Apache Storm på HDInsight?
 
 Storm på HDInsight har följande funktioner:
 
@@ -35,15 +35,15 @@ Storm på HDInsight har följande funktioner:
 
 * **Dynamisk skalning**: Du kan lägga till eller ta bort arbetsnoder utan att det påverkar de Storm-topologier som körs. Du måste inaktivera och återaktivera topologier som körs för att kunna utnyttja de nya noderna som läggs till genom skalningsåtgärder.
 
-* **Skapa strömmande pipelines med flera Azure-tjänster**: storm på HDInsight integreras med andra Azure-tjänster som Event Hubs, SQL Database, Azure Storage och Azure Data Lake Storage. En exempel lösning som kan integreras med Azure-tjänster finns i [process händelser från Event Hubs med Apache storm på HDInsight](https://github.com/Azure-Samples/hdinsight-java-storm-eventhub).
+* **Skapa strömningspipeldrar med flera Azure-tjänster:** Storm on HDInsight integreras med andra Azure-tjänster som Event Hubs, SQL Database, Azure Storage och Azure Data Lake Storage. En exempellösning som integreras med Azure-tjänster finns i [Bearbeta händelser från eventhubbar med Apache Storm på HDInsight](https://github.com/Azure-Samples/hdinsight-java-storm-eventhub).
 
 En lista över företag som använder Apache Storm för sina lösningar för analys i realtid finns i [Företag som använder Apache Storm](https://storm.apache.org/Powered-By.html).
 
-Information om hur du kommer igång med storm finns i [skapa och övervaka en Apache Storm topologi i Azure HDInsight](apache-storm-quickstart.md).
+Information om hur du kommer igång med Storm finns [i Skapa och övervaka en Apache Storm-topologi i Azure HDInsight](apache-storm-quickstart.md).
 
 ## <a name="how-does-apache-storm-work"></a>Hur fungerar Apache Storm
 
-Storm kör topologier i stället för de [Apache Hadoop MapReduce](https://hadoop.apache.org/docs/r1.2.1/mapred_tutorial.html) -jobb som du kanske känner till. Storm-topologier består av flera komponenter som är ordnade i en riktad acyklisk graf (DAG). Data flödar mellan komponenter i diagrammet. Varje komponent använder en eller flera dataströmmar och kan du generera en eller flera strömmar. Följande diagram illustrerar hur data flödar mellan komponenterna i en grundläggande ordräkningstopologi:
+Storm kör topologier istället för [Apache Hadoop MapReduce](https://hadoop.apache.org/docs/r1.2.1/mapred_tutorial.html) jobb som du kanske är bekant med. Storm-topologier består av flera komponenter som är ordnade i en riktad acyklisk graf (DAG). Data flödar mellan komponenter i diagrammet. Varje komponent använder en eller flera dataströmmar och kan du generera en eller flera strömmar. Följande diagram illustrerar hur data flödar mellan komponenterna i en grundläggande ordräkningstopologi:
 
 ![Exempel på hur komponenter är ordnade i en Storm-topologi](./media/apache-storm-overview/example-apache-storm-topology-diagram.png)
 
@@ -55,7 +55,7 @@ Storm kör topologier i stället för de [Apache Hadoop MapReduce](https://hadoo
 
 Apache Storm ser till att varje inkommande meddelande alltid bearbetas helt, även om dataanalysen är utspridd över hundratals noder.
 
-Nimbus-noden innehåller funktioner som liknar Apache Hadoop JobTracker och tilldelar uppgifter till andra noder i ett kluster via [Apache ZooKeeper](https://zookeeper.apache.org/). Zookeeper-noder samordnar kluster och underlättar kommunikationen mellan Nimbus och övervakarprocessen på arbetsnoderna. Om en nod för bearbetning kraschar informeras Nimbus-noden och uppgiften och tillhörande data tilldelas till en annan nod.
+Noden Nimbus innehåller funktioner som liknar Apache Hadoop JobTracker och tilldelar uppgifter till andra noder i ett kluster via [Apache ZooKeeper](https://zookeeper.apache.org/). Zookeeper-noder samordnar kluster och underlättar kommunikationen mellan Nimbus och övervakarprocessen på arbetsnoderna. Om en nod för bearbetning kraschar informeras Nimbus-noden och uppgiften och tillhörande data tilldelas till en annan nod.
 
 Standardkonfigurationen för Apache Storm är att bara ha en Nimbus-nod. Storm på HDInsight kör två Nimbus-noder. Om den primära noden kraschar växlar Storm-klustret till den sekundära noden medan den primära noden återställs. Följande diagram illustrerar konfigurationen av uppgiftsflödet för Storm i HDInsight:
 
@@ -63,20 +63,20 @@ Standardkonfigurationen för Apache Storm är att bara ha en Nimbus-nod. Storm p
 
 ## <a name="ease-of-creation"></a>Enkelt att skapa
 
-Du kan skapa ett nytt Storm-kluster i HDInsight på några minuter. Mer information om hur du skapar ett Storm-kluster finns i [skapa Apache Hadoop kluster med hjälp av Azure Portal](../hdinsight-hadoop-create-linux-clusters-portal.md).
+Du kan skapa ett nytt Storm-kluster i HDInsight på några minuter. Mer information om hur du skapar ett Storm-kluster finns i [Skapa Apache Hadoop-kluster med Azure-portalen](../hdinsight-hadoop-create-linux-clusters-portal.md).
 
 ## <a name="ease-of-use"></a>Användbarhet
 
 |Användning |Beskrivning |
 |---|---|
-|Secure Shell (SSH)-anslutning|Du kan komma åt huvudnoderna i ditt Storm-kluster via Internet med hjälp av SSH. Du kan köra kommandon direkt i klustret med hjälp av SSH. Mer information finns i [Use SSH with HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md) (Använda SSH med HDInsight).|
-|Webb anslutning|Alla HDInsight-kluster tillhandahåller Ambari-webbgränssnittet. Du kan enkelt övervaka, konfigurera och hantera tjänster i klustret med hjälp av Ambari-webbanvändargränssnittet. Storm-kluster ger också Storm-användargränssnitt. Du kan övervaka och hantera Storm-topologier som körs från din webbläsare med hjälp av Storm-användargränssnittet. Mer information finns i [Hantera HDInsight med hjälp av Apache Ambari-WEBBgränssnittet](../hdinsight-hadoop-manage-ambari.md) och [övervaka och hantera med hjälp av Apache Storm UI](apache-storm-deploy-monitor-topology-linux.md#monitor-and-manage-a-topology-using-the-storm-ui) -dokument.|
-|Azure PowerShell och Azure CLI|PowerShell och Azure CLI tillhandahåller båda kommando rads verktyg som du kan använda från ditt klient system för att arbeta med HDInsight och andra Azure-tjänster.|
-|Integrering med Visual Studio|Azure Data Lake Tools för Visual Studio innehåller projektmallar för att skapa C# Storm-topologier med SCP.net-ramverket. Data Lake Tools innehåller också verktyg för att distribuera, övervaka och hantera lösningar med Storm i HDInsight. Mer information finns i [Develop C# Storm topologies with the HDInsight Tools for Visual Studio](apache-storm-develop-csharp-visual-studio-topology.md) (Utveckla Storm-topologier i C# med HDInsight Tools för Visual Studio).|
+|Säker SSH-anslutning (Shell)|Du kan komma åt huvudnoderna i stormklustret via Internet med hjälp av SSH. Du kan köra kommandon direkt i klustret med hjälp av SSH. Mer information finns i [Använda SSH med HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).|
+|Webbanslutning|Alla HDInsight-kluster tillhandahåller Ambari webbgränssnittet. Du kan enkelt övervaka, konfigurera och hantera tjänster i klustret med hjälp av Ambari-webbanvändargränssnittet. Storm-kluster ger också Storm-användargränssnitt. Du kan övervaka och hantera Storm-topologier som körs från din webbläsare med hjälp av Storm-användargränssnittet. Mer information finns i [Hantera HDInsight med hjälp av Apache Ambari Web UI](../hdinsight-hadoop-manage-ambari.md) och [Monitor och hantera med hjälp av Apache Storm UI-dokument.](apache-storm-deploy-monitor-topology-linux.md#monitor-and-manage-a-topology-using-the-storm-ui)|
+|Azure PowerShell och Azure CLI|PowerShell och Azure CLI tillhandahåller båda kommandoradsverktyg som du kan använda från klientsystemet för att arbeta med HDInsight och andra Azure-tjänster.|
+|Integrering med Visual Studio|Azure Data Lake Tools för Visual Studio innehåller projektmallar för att skapa C# Storm-topologier med hjälp av SCP.NET ramverket. Data Lake Tools innehåller också verktyg för att distribuera, övervaka och hantera lösningar med Storm i HDInsight. Mer information finns i [Develop C# Storm topologies with the HDInsight Tools for Visual Studio](apache-storm-develop-csharp-visual-studio-topology.md) (Utveckla Storm-topologier i C# med HDInsight Tools för Visual Studio).|
 
 ## <a name="integration-with-other-azure-services"></a>Integration med andra Azure-tjänster
 
-* __Azure Data Lake Storage__: ett exempel på hur du använder data Lake Storage med ett Storm-kluster finns i [använda Azure Data Lake Storage med Apache storm på HDInsight](apache-storm-write-data-lake-store.md).
+* __Azure Data Lake Storage:__ Ett exempel på att använda DataSjölagring med ett Storm-kluster finns i [Använda Azure Data Lake Storage med Apache Storm på HDInsight](apache-storm-write-data-lake-store.md).
 
 * __Event Hubs__: Ett exempel på hur du använder Event Hubs med Storm-kluster finns i följande exempel:
 
@@ -84,7 +84,7 @@ Du kan skapa ett nytt Storm-kluster i HDInsight på några minuter. Mer informat
 
     * [Bearbeta händelser från Azure Event Hubs med Apache Storm på HDInsight (C#)](apache-storm-develop-csharp-event-hub-topology.md)
 
-* __SQL Database__, __Cosmos DB__, __Event Hubs__ och __HBase__: Mallexempel ingår i Data Lake Tools för Visual Studio. Mer information finns i [utveckla en C# topologi för Apache storm i HDInsight](apache-storm-develop-csharp-visual-studio-topology.md).
+* __SQL Database__, __Cosmos DB__, __Event Hubs__ och __HBase__: Mallexempel ingår i Data Lake Tools för Visual Studio. Mer information finns i [Utveckla en C#-topologi för Apache Storm på HDInsight](apache-storm-develop-csharp-visual-studio-topology.md).
 
 ## <a name="support"></a>Support
 
@@ -99,28 +99,28 @@ Nedan följer några vanliga scenarier där du kan använda Storm i HDInsight:
 * Sociala analyser
 * Extrahering, transformering och inläsning (ETL)
 * Nätverksövervakning
-* Söka
+* Search
 * Mobile engagement
 
-Information om verkliga scenarier finns i [hur företag använder Apache Storm](https://storm.apache.org/Powered-By.html) -dokument.
+Information om verkliga scenarier finns i [hur företag använder Apache Storm-dokument.](https://storm.apache.org/Powered-By.html)
 
 ## <a name="development"></a>Utveckling
 
 .NET-utvecklare kan utforma och implementera topologier i C# med hjälp av Data Lake Tools för Visual Studio. Du kan också skapa hybridtopologier som använder Java- och C#-komponenter. Mer information finns i [Utveckla C#-topologier för Apache Storm på HDInsight med Visual Studio](apache-storm-develop-csharp-visual-studio-topology.md).
 
-Du kan också skapa Java-lösningar med hjälp av valfri IDE. Mer information finns i [utveckla Java-topologier för Apache storm i HDInsight](apache-storm-develop-java-topology.md).
+Du kan också skapa Java-lösningar med hjälp av valfri IDE. Mer information finns i [Utveckla Java-topologier för Apache Storm på HDInsight](apache-storm-develop-java-topology.md).
 
-Du kan också utveckla Storm-komponenter med Python. Mer information finns i [utveckla Apache Storm topologier med python i HDInsight](apache-storm-develop-python-topology.md).
+Du kan också utveckla Storm-komponenter med Python. Mer information finns i [Utveckla Apache Storm-topologier med Python på HDInsight](apache-storm-develop-python-topology.md).
 
 ## <a name="common-development-patterns"></a>Vanliga utvecklingsmönster
 
 ### <a name="guaranteed-message-processing"></a>Garanterad meddelandebehandling
 
-Apache Storm kan ge olika nivåer av garanterad meddelandebehandling. Ett Basic Storm-program kan till exempel garantera minst en gång och [Trident](https://storm.apache.org/releases/current/Trident-API-Overview.html) kan garantera exakt en gång. Mer information finns i [Garantier om databearbetning](https://storm.apache.org/about/guarantees-data-processing.html) på apache.org.
+Apache Storm kan ge olika nivåer av garanterad meddelandebehandling. Till exempel kan en grundläggande Storm-applikation garantera minst en gång bearbetning, och [Trident](https://storm.apache.org/releases/current/Trident-API-Overview.html) kan garantera exakt en gång bearbetning. Mer information finns i [Garantier om databearbetning](https://storm.apache.org/about/guarantees-data-processing.html) på apache.org.
 
 ### <a name="ibasicbolt"></a>IBasicBolt
 
-Ett mönster för att läsa en tupel, som avger noll eller flera tupler, och sedan bekräfta att indataströmmen omedelbart i slutet av Execute-metoden är vanlig. Storm innehåller ett [IBasicBolt](https://storm.apache.org/releases/current/javadocs/org/apache/storm/topology/IBasicBolt.html)-gränssnitt för att automatisera detta mönster.
+Mönstret för att läsa en indatatuppel, avge noll eller fler tupplar och sedan bekräfta indatatuppslutningen omedelbart i slutet av körningsmetoden är vanligt. Storm innehåller ett [IBasicBolt](https://storm.apache.org/releases/current/javadocs/org/apache/storm/topology/IBasicBolt.html)-gränssnitt för att automatisera detta mönster.
 
 ### <a name="joins"></a>Kopplingar
 
@@ -150,13 +150,13 @@ Ett exempel på en beräkning av ett ”högsta N”-värde finns i [RollingTopW
 
 ## <a name="logging"></a>Loggning
 
-Storm använder [Apache log4j 2](https://logging.apache.org/log4j/2.x/) för att logga information. Stora mängder data loggas som standard och det kan vara svårt att gå igenom informationen. Du kan ta med en konfigurationsfil för loggning som en del av Storm-topologin för att styra loggningsbeteendet.
+Storm använder [Apache Log4j 2](https://logging.apache.org/log4j/2.x/) för att logga information. Stora mängder data loggas som standard och det kan vara svårt att gå igenom informationen. Du kan ta med en konfigurationsfil för loggning som en del av Storm-topologin för att styra loggningsbeteendet.
 
 En exempeltopologi som visar hur du konfigurerar loggning finns i ett exempel på [Java-baserad WordCount](apache-storm-develop-java-topology.md) för Storm på HDInsight.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig mer om analys lösningar i real tid med Apache Storm på HDInsight:
+Läs mer om analyslösningar i realtid med Apache Storm på HDInsight:
 
-* [Skapa och övervaka en Apache Storm topologi i Azure HDInsight](apache-storm-quickstart.md)
+* [Skapa och övervaka en Apache Storm-topologi i Azure HDInsight](apache-storm-quickstart.md)
 * [Exempeltopologier för Apache Storm på HDInsight](apache-storm-example-topology.md)

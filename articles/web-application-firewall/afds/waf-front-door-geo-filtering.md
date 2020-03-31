@@ -1,5 +1,5 @@
 ---
-title: Geo-filtrering på en domän för Azure-tjänsten för front dörr
+title: Geofiltrering på en domän för Azure Front Door Service
 description: I den här artikeln får du lära dig om geofiltreringprinciper för Azure Front Door Service
 services: web-application-firewall
 author: vhorne
@@ -8,24 +8,24 @@ ms.topic: conceptual
 ms.date: 03/10/2020
 ms.author: victorh
 ms.reviewer: tyao
-ms.openlocfilehash: 7c49892f97d9c15efcaecccb6133c67133e81c87
-ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
-ms.translationtype: HT
+ms.openlocfilehash: e287da94a71fccabddb90f3f5a3699f4c4cf22a5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2020
-ms.locfileid: "79137568"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79472613"
 ---
-# <a name="what-is-geo-filtering-on-a-domain-for-azure-front-door"></a>Vad är geo-filtrering på en domän för Azures front dörr?
+# <a name="what-is-geo-filtering-on-a-domain-for-azure-front-door"></a>Vad är geofiltrering på en domän för Azure Front Door?
 
-Som standard svarar Azure Front Door Service på användarnas begäranden oavsett var användaren som skickar begäran finns. Men i vissa fall kanske du vill begränsa åtkomsten till dina webb program efter land/region. Med brand vägg för webbaserade program (WAF) i front dörren kan du definiera en princip med hjälp av anpassade åtkomst regler för en viss sökväg på slut punkten för att tillåta eller blockera åtkomst från angivna länder/regioner. 
+Som standard svarar Azure Front Door Service på användarnas begäranden oavsett var användaren som skickar begäran finns. I vissa fall kanske du vill begränsa åtkomsten till dina webbprogram efter land/region. Med WAF-tjänsten (Web Application Firewall) vid Ytterdörren kan du definiera en princip med hjälp av anpassade åtkomstregler för specifik sökväg på slutpunkten för att tillåta eller blockera åtkomst från angivna länder/regioner. 
 
-En WAF-princip innehåller vanligt vis en uppsättning anpassade regler. En regel består av matchningsvillkor, en åtgärd och en prioritet. I matchningsvillkor definierar du en matchningsvariabel, en operator och ett matchningsvärde.  För en geofiltreringsregel är matchningsvariabeln REMOTE_ADDR, operatorn är GeoMatch och värdet är landskoden på två bokstäver av intresse. Du kan kombinera ett GeoMatch-villkor och ett matchningsvillkor för REQUEST_URI-sträng för att skapa en sökvägsbaserad geofiltreringsregel.
+En WAF-princip innehåller vanligtvis en uppsättning anpassade regler. En regel består av matchningsvillkor, en åtgärd och en prioritet. I matchningsvillkor definierar du en matchningsvariabel, en operator och ett matchningsvärde.  För en geofiltreringsregel är matchningsvariabeln REMOTE_ADDR, operatorn är GeoMatch och värdet är landskoden på två bokstäver av intresse. Du kan kombinera ett GeoMatch-villkor och ett matchningsvillkor för REQUEST_URI-sträng för att skapa en sökvägsbaserad geofiltreringsregel.
 
-Du kan konfigurera en princip för geo-filtrering för din front dörr med hjälp av Azure Portal, [Azure PowerShell](waf-front-door-tutorial-geo-filtering.md) eller vår [snabb starts mall](https://github.com/Azure/azure-quickstart-templates/tree/master/101-front-door-geo-filtering).
+Du kan konfigurera en geofiltreringsprincip för din ytterdörr genom att antingen använda [Azure PowerShell](waf-front-door-tutorial-geo-filtering.md) eller genom att använda vår [snabbstartsmall](https://github.com/Azure/azure-quickstart-templates/tree/master/101-front-door-geo-filtering).
 
-## <a name="country-code-reference"></a>Lands kods referens
+## <a name="country-code-reference"></a>Landskodsreferens
 
-|Landskod | Lands namn |
+|Landskod | Landsnamn |
 | ----- | ----- |
 | AD | Andorra |
 | AE | Förenade Arabemiraten|
@@ -68,7 +68,7 @@ Du kan konfigurera en princip för geo-filtrering för din front dörr med hjäl
 | CO | Colombia|
 | CR | Costa Rica|
 | CU | Kuba|
-| CV | Kap Verde|
+| CV | Cabo Verde|
 | CY | Cypern|
 | CZ | Tjeckien|
 | DE | Tyskland|
@@ -93,7 +93,7 @@ Du kan konfigurera en princip för geo-filtrering för din front dörr med hjäl
 | GR | Grekland|
 | GT | Guatemala|
 | GY | Guyana|
-| HK | Hongkong SAR|
+| HK | Hongkong|
 | HN | Honduras|
 | HR | Kroatien|
 | HT | Haiti|
@@ -132,11 +132,11 @@ Du kan konfigurera en princip för geo-filtrering för din front dörr med hjäl
 | MA | Marocko|
 | MD | Moldavien|
 | MG | Madagaskar|
-| MK | Makedonien|
+| MK | Nordmakedonien|
 | ML | Mali|
 | MM | Myanmar|
 | MN | Mongoliet|
-| MO | Macao SAR|
+| MO | Folkrepubliken Kinas särskilda administrativa region Macao|
 | MQ | Martinique|
 | MR | Mauretanien|
 | MT | Malta|

@@ -9,13 +9,13 @@ ms.topic: how-to
 ms.service: storage
 ms.subservice: blobs
 ms.openlocfilehash: 93a146e481e6bb8b9180012d8c569d45521b4450
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79269320"
 ---
-# <a name="quickstart-route-storage-events-to-web-endpoint-with-azure-cli"></a>Snabb start: dirigera lagrings händelser till webb slut punkt med Azure CLI
+# <a name="quickstart-route-storage-events-to-web-endpoint-with-azure-cli"></a>Snabbstart: Dirigera lagringshändelser till webbslutpunkt med Azure CLI
 
 Azure Event Grid är en händelsetjänst för molnet. I den här artikeln använder du Azure CLI för att prenumerera på Blob Storage-händelser och utlösa händelsen för att visa resultatet.
 
@@ -45,9 +45,9 @@ I följande exempel skapas en resursgrupp med namnet `<resource_group_name>` på
 az group create --name <resource_group_name> --location westcentralus
 ```
 
-## <a name="create-a-storage-account"></a>skapar ett lagringskonto
+## <a name="create-a-storage-account"></a>Skapa ett lagringskonto
 
-Blob storage-händelser är tillgängliga i storage-konton för generell användning v2 och Blob storage-konton. **General Purpose v2**-lagringskonton stöder alla funktionerna för alla lagringstjänster, som blobbar, filer, köer och tabeller. Ett **Blob Storage-konto** är ett specialiserat lagringskonto för lagring av ostrukturerade data som blobbar (objekt) i Azure Storage. Blob Storage-konton liknar allmänna lagringskonton och har samma höga hållbarhet, tillgänglighet, skalbarhet och prestanda som du använder idag, inklusive 100 % API-konsekvens för blockblobbar och tilläggsblobbar. Mer information finns i [kontoöversikten för Azure Storage](../common/storage-account-overview.md).
+Blob storage-händelser är tillgängliga i storage-konton för generell användning v2 och Blob storage-konton. **General Purpose v2**-lagringskonton stöder alla funktionerna för alla lagringstjänster, som blobbar, filer, köer och tabeller. Ett **Blob-lagringskonto** är ett specialiserat lagringskonto för att lagra dina ostrukturerade data som blobbar (objekt) i Azure Storage. Blob Storage-konton liknar allmänna lagringskonton och har samma höga hållbarhet, tillgänglighet, skalbarhet och prestanda som du använder idag, inklusive 100 % API-konsekvens för blockblobbar och tilläggsblobbar. Mer information finns i [kontoöversikten för Azure Storage](../common/storage-account-overview.md).
 
 Ersätt `<storage_account_name>` med ett unikt namn på ditt lagringskonto och `<resource_group_name>` med resursgruppen du skapade tidigare.
 

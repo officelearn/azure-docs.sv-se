@@ -1,6 +1,6 @@
 ---
-title: Lösen ords skydd i Azure AD – Azure Active Directory
-description: Förbjuda svaga lösen ord i lokala Active Directory med hjälp av lösen ords skydd i Azure AD
+title: Lösenordsskydd för Azure AD - Azure Active Directory
+description: Spärra svaga lösenord i lokal Active Directory med hjälp av Azure AD-lösenordsskydd
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
@@ -12,84 +12,84 @@ manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1b9d07099f8de996181948921330ef6744b302a8
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74848654"
 ---
-# <a name="enforce-azure-ad-password-protection-for-windows-server-active-directory"></a>Använd Azure AD Password Protection för Windows Server Active Directory
+# <a name="enforce-azure-ad-password-protection-for-windows-server-active-directory"></a>Kräv Azure AD-lösenordsskydd för Windows Server Active Directory
 
-Lösen ords skydd i Azure AD är en funktion som förbättrar lösen ords principerna i en organisation. Lokal distribution av lösen ords skydd använder både globala och anpassade listor över blockerade lösen ord som lagras i Azure AD. Det sker samma kontroller lokalt som i Azure AD för molnbaserade ändringar. Dessa kontroller utförs under scenarier med lösen ords ändringar och lösen ords återställning.
+Azure AD lösenordsskydd är en funktion som förbättrar lösenordsprinciper i en organisation. Lokal distribution av lösenordsskydd använder både globala och anpassade listor med förbjudna lösenord som lagras i Azure AD. Det gör samma kontroller lokalt som Azure AD gör för molnbaserade ändringar. Dessa kontroller utförs under lösenordsändringar och scenarier för återställning av lösenord.
 
 ## <a name="design-principles"></a>Designprinciper
 
-Lösen ords skyddet i Azure AD har utformats med dessa principer i åtanke:
+Azure AD lösenordsskydd är utformat med dessa principer i åtanke:
 
-* Domänkontrollanter behöver aldrig kommunicera direkt med Internet.
-* Inga nya nätverks portar öppnas på domän kontrol Lanterna.
-* Inga Active Directory schema ändringar krävs. Program varan använder den befintliga Active Directory **containern** och schema objekt för **serviceConnectionPoint** .
-* Ingen minsta Active Directory domän-eller skogs funktions nivå (DFL/FFL) krävs.
-* Program varan skapar eller kräver inte konton i Active Directory domäner som den skyddar.
-* Användarens lösen ord för klartext lämnar aldrig domänkontrollanten, antingen under åtgärder för lösen ords validering eller vid någon annan tidpunkt.
-* Program varan är inte beroende av andra funktioner i Azure AD. till exempel är inte är relaterat till Azure AD Password hash Sync och krävs inte för att lösen ords skydd i Azure AD ska fungera.
-* Stegvis distribution stöds, men lösen ords principen tillämpas bara om domänkontrollantens agent (DC-agent) är installerad. Mer information finns i nästa avsnitt.
+* Domänkontrollanter behöver aldrig kommunicera direkt med internet.
+* Inga nya nätverksportar öppnas på domänkontrollanter.
+* Inga Active Directory-schemaändringar krävs. Programmet använder befintliga Active **Directory-behållare och** **serviceConnectionPoint-schemaobjekt.**
+* Ingen lägsta Active Directory-domän eller skogsfunktionsnivå (DFL/FFL) krävs.
+* Programvaran skapar eller kräver inte konton i Active Directory-domäner som den skyddar.
+* Användarens lösenord för klartext lämnar aldrig domänkontrollanten, antingen under lösenordsverifieringsåtgärder eller vid någon annan tidpunkt.
+* Programvaran är inte beroende av andra Azure AD-funktioner. Till exempel Azure AD lösenord hash sync är inte relaterad och krävs inte för att Azure AD lösenordsskydd ska fungera.
+* Inkrementell distribution stöds, men lösenordsprincipen tillämpas endast där DOMÄNKONTROLLANTAGENTEN (DC Agent) är installerad. Se nästa avsnitt för mer information.
 
-## <a name="incremental-deployment"></a>Stegvis distribution
+## <a name="incremental-deployment"></a>Inkrementell distribution
 
-Azure AD Password Protection stöder stegvis distribution över domänkontrollanter i en Active Directory domän, men det är viktigt att förstå vad det innebär och vad kompromisserna är.
+Azure AD-lösenordsskydd stöder inkrementell distribution över domänkontrollanter i en Active Directory-domän, men det är viktigt att förstå vad detta egentligen innebär och vad kompromisserna är.
 
-Azure AD Password Protection-agentprogram varan kan endast verifiera lösen ord när det är installerat på en domänkontrollant och endast för lösen ords ändringar som skickas till den domänkontrollanten. Det går inte att kontrol lera vilka domänkontrollanter som väljs av Windows-klientdatorer för bearbetning av ändringar av användar lösen ord. För att garantera konsekvent användning av säkerhet och för universellt lösen ords skydd måste DC-agentens program vara installeras på alla domänkontrollanter i en domän.
+Azure AD-lösenordsskydd dc-agentprogramvara kan bara validera lösenord när det installeras på en domänkontrollant och endast för lösenordsändringar som skickas till domänkontrollanten. Det går inte att styra vilka domänkontrollanter som väljs av Windows-klientdatorer för bearbetning av ändringar av användarlösenord. För att garantera konsekvent beteende och universell lösenordsskydd säkerhet verkställighet, DC agent programvara måste installeras på alla domänkontrollanter i en domän.
 
-Många organisationer vill göra noggrann testning av lösen ords skydd i Azure AD på en delmängd av deras domänkontrollanter innan en fullständig distribution görs. Lösen ords skydd i Azure AD stöder delvis distribution, IE-agentens program vara på en viss DOMÄNKONTROLLANT kommer aktivt att verifiera lösen ord även om andra domänkontrollanter i domänen inte har installerat DC-agenten. Partiella distributioner av den här typen är inte säkra och rekommenderas inte, förutom för test ändamål.
+Många organisationer kommer att vilja göra noggrann testning av Azure AD lösenordsskydd på en delmängd av sina domänkontrollanter innan de gör en fullständig distribution. Azure AD lösenordsskydd stöder partiell distribution, dvs DC agent programvara på en viss DOMÄNKONTROLLANT kommer aktivt validera lösenord även när andra DOMÄNEN i domänen inte har DC agent programvara installerad. Partiella distributioner av den här typen är INTE säkra och rekommenderas INTE annat än för testning.
 
-## <a name="architectural-diagram"></a>arkitekturdiagram
+## <a name="architectural-diagram"></a>Arkitektoniskt diagram
 
-Det är viktigt att förstå de underliggande design-och funktions begreppen innan du distribuerar Azure AD Password Protection i en lokal Active Directory miljö. Följande diagram visar hur komponenterna i lösen ords skydd fungerar tillsammans:
+Det är viktigt att förstå de underliggande design- och funktionskoncepten innan du distribuerar Azure AD-lösenordsskydd i en lokal Active Directory-miljö. Följande diagram visar hur komponenterna i lösenordsskydd fungerar tillsammans:
 
-![Så här fungerar Azure AD Password Protection-komponenter tillsammans](./media/concept-password-ban-bad-on-premises/azure-ad-password-protection.png)
+![Så här fungerar Azure AD-lösenordsskyddskomponenter tillsammans](./media/concept-password-ban-bad-on-premises/azure-ad-password-protection.png)
 
-* Proxy tjänsten Azure AD Password Protection körs på alla domänanslutna datorer i den aktuella Active Directory skogen. Det primära syftet är att vidarebefordra begär Anden om hämtning av lösen ords principer från domänkontrollanter till Azure AD. Den returnerar sedan svaren från Azure AD till domänkontrollanten.
-* Lösen ords filter-DLL: en för DC-agenten tar emot förfrågningar om användar lösen ord från operativ systemet. Den vidarebefordrar dem till DC-agenttjänsten som körs lokalt på domänkontrollanten.
-* DC-agenttjänsten för lösen ords skydd tar emot lösen ords verifierings begär Anden från DLL-filen med lösen ords filter för DC-agenten. Den bearbetar dem med hjälp av den aktuella (lokalt tillgängliga) lösen ords principen och returnerar resultatet: *pass* eller *misslyckande*.
+* Azure AD Password Protection Proxy-tjänsten körs på alla domänanslutna datorer i den aktuella Active Directory-skogen. Dess främsta syfte är att vidarebefordra begäranden om hämtning av lösenordsprinciper från domänkontrollanter till Azure AD. Sedan returneras svaren från Azure AD till domänkontrollanten.
+* DLL-filen för lösenordsfilter för DC-agenten tar emot begäranden om lösenordsverifiering från operativsystemet. Den vidarebefordrar dem till dc-agenttjänsten som körs lokalt på domänkontrollanten.
+* DC Agent-tjänsten för lösenordsskydd tar emot begäranden om lösenordsverifiering från DLL-agentens lösenordsfilter. Den bearbetar dem med hjälp av den aktuella (lokalt tillgängliga) lösenordsprincipen och returnerar resultatet: *godkänd* eller *misslyckad*.
 
-## <a name="how-password-protection-works"></a>Så här fungerar lösen ords skydd
+## <a name="how-password-protection-works"></a>Så här fungerar lösenordsskydd
 
-Varje Azure AD Password Protection proxy-tjänstinstans meddelar sig själv om domän kontrol Lanterna i skogen genom att skapa ett **serviceConnectionPoint** -objekt i Active Directory.
+Varje Azure AD Password Protection Proxy-tjänstinstans annonserar sig till domänkontrollanterna i skogen genom att skapa ett **serviceConnectionPoint-objekt** i Active Directory.
 
-Varje DC-agenttjänsten för lösen ords skydd skapar också ett **serviceConnectionPoint** -objekt i Active Directory. Det här objektet används främst för rapportering och diagnostik.
+Varje DC-agenttjänst för lösenordsskydd skapar också ett **serviceConnectionPoint-objekt** i Active Directory. Det här objektet används främst för rapportering och diagnostik.
 
-DC-agenttjänsten ansvarar för att initiera hämtningen av en ny lösen ords princip från Azure AD. Det första steget är att leta upp en Azure AD-proxy för lösen ords skydd genom att fråga skogen efter objekt i **serviceConnectionPoint** för proxy. När en tillgänglig proxyvärd hittas skickar DC-agenten en begäran om att hämta en lösen ords princip till proxyservern. Proxy-tjänsten i sin tur skickar begäran till Azure AD. Proxy-tjänsten returnerar sedan svaret till DC-agenttjänsten.
+DC-agenttjänsten ansvarar för att initiera hämtningen av en ny lösenordsprincip från Azure AD. Det första steget är att hitta en Azure AD Password Protection Proxy-tjänst genom att fråga skogen efter **proxytjänstenConnectionPoint-objekt.** När en tillgänglig proxytjänst hittas skickar DC-agenten en begäran om hämtning av lösenordsprincip till proxytjänsten. Proxytjänsten skickar i sin tur begäran till Azure AD. Proxytjänsten returnerar sedan svaret till DC Agent-tjänsten.
 
-När DC-agenttjänsten tar emot en ny lösen ords princip från Azure AD, lagrar tjänsten principen i en särskild mapp i roten för *SYSVOL* -mappens resurs resurs. DC-agenttjänsten övervakar även den här mappen om nyare principer replikeras från andra DC agent-tjänster i domänen.
+När DC Agent-tjänsten har fått en ny lösenordsprincip från Azure AD lagrar tjänsten principen i en dedikerad mapp roten till *domänen sysvol-mappresursen.* Dc Agent-tjänsten övervakar även den här mappen om nyare principer replikeras från andra DC Agent-tjänster i domänen.
 
-DC-agenttjänsten begär alltid en ny princip när tjänsten startas. När DC-agenttjänsten har startats kontrollerar den åldern för den aktuella lokalt tillgängliga principen varje timme. Om principen är äldre än en timme begär DC-agenten en ny princip från Azure AD via proxyservern, enligt beskrivningen ovan. Om den aktuella principen inte är äldre än en timme fortsätter DC-agenten att använda den principen.
+DC Agent-tjänsten begär alltid en ny princip vid start av tjänsten. När DC-agenttjänsten har startats kontrollerar den åldern på den aktuella lokalt tillgängliga principen varje timme. Om principen är äldre än en timme begär DC-agenten en ny princip från Azure AD via proxytjänsten, som beskrivits tidigare. Om den aktuella principen inte är äldre än en timme fortsätter DC-agenten att använda den principen.
 
-När en lösen ords princip för lösen ords skydd i Azure AD laddas ned, är den principen unik för en klient. Lösen ords principer är med andra ord alltid en kombination av den globala listan över blockerade lösen ord och per klient, anpassad lista över blockerade lösen ord.
+När en Azure AD lösenordsskydd lösenordsprincip hämtas, är den principen specifik för en klient. Med andra ord är lösenordsprinciper alltid en kombination av Microsofts globala lista över förbjudna lösenord och listan över anpassade förbjudna lösenord per klient.
 
-DC-agenten kommunicerar med proxyservern via RPC via TCP. Proxy-tjänsten lyssnar efter dessa anrop på en dynamisk eller statisk RPC-port, beroende på konfigurationen.
+DC-agenten kommunicerar med proxytjänsten via RPC via TCP. Proxytjänsten lyssnar efter dessa anrop på en dynamisk eller statisk RPC-port, beroende på konfigurationen.
 
-DC-agenten lyssnar aldrig på en nätverks tillgänglig port.
+DC-agenten lyssnar aldrig på en nätverkstillgängande port.
 
-Proxy-tjänsten anropar aldrig DC-agenttjänsten.
+Proxytjänsten anropar aldrig dc-agenttjänsten.
 
-Proxy-tjänsten är tillstånds lös. De cachelagrar aldrig principer eller andra tillstånd som hämtats från Azure.
+Proxytjänsten är tillståndslös. Den cachelagrar aldrig principer eller någon annan stat som hämtats från Azure.
 
-DC-agenttjänsten använder alltid den senaste lokalt tillgängliga lösen ords principen för att utvärdera en användares lösen ord. Om ingen lösen ords princip är tillgänglig på den lokala DOMÄNKONTROLLANTen godkänns lösen ordet automatiskt. När detta inträffar loggas ett händelse meddelande som varnar administratören.
+Dc Agent-tjänsten använder alltid den senaste lokalt tillgängliga lösenordsprincipen för att utvärdera en användares lösenord. Om det inte finns någon lösenordsprincip på den lokala domänkontrollanten accepteras lösenordet automatiskt. När det händer loggas ett händelsemeddelande för att varna administratören.
 
-Lösen ords skydd i Azure AD är inte en tillämpnings motor för real tids principer. Det kan finnas en fördröjning mellan när en konfigurations ändring av lösen ords principen görs i Azure AD och när ändringen når och tillämpas på alla domänkontrollanter.
+Azure AD lösenordsskydd är inte en realtidsprincipprogrammotor. Det kan finnas en fördröjning mellan när en lösenordsprincipkonfigurationsändring görs i Azure AD och när ändringen når och tillämpas på alla domänkontrollanter.
 
-Azure AD Password Protection fungerar som ett tillägg till befintliga Active Directory lösen ords principer, inte en ersättning. Detta inkluderar eventuella andra tredjeparts lösen ords filter från tredje part som kan installeras. Active Directory kräver alltid att alla lösen ords verifierings komponenter samtycker till innan ett lösen ord accepteras.
+Azure AD lösenordsskydd fungerar som ett komplement till de befintliga Active Directory lösenordsprinciper, inte en ersättning. Detta inkluderar alla andra lösenordsdyller från tredje part som kan installeras. Active Directory kräver alltid att alla lösenordsverifieringskomponenter godkänner innan du accepterar ett lösenord.
 
-## <a name="foresttenant-binding-for-password-protection"></a>Skog/klient bindning för lösen ords skydd
+## <a name="foresttenant-binding-for-password-protection"></a>Skogs-/klientbindning för lösenordsskydd
 
-Distribution av lösen ords skydd i Azure AD i en Active Directory skog kräver registrering av den skogen med Azure AD. Varje proxy-tjänst som distribueras måste också registreras med Azure AD. Dessa skogar och proxy-registreringar är kopplade till en särskild Azure AD-klient, som identifieras implicit av de autentiseringsuppgifter som används under registreringen.
+Distribution av Azure AD lösenordsskydd i en Active Directory-skog kräver registrering av den skogen med Azure AD. Varje proxytjänst som distribueras måste också registreras med Azure AD. Dessa skogs- och proxyregistreringar är associerade med en specifik Azure AD-klientorganisation, som identifieras implicit av de autentiseringsuppgifter som används vid registreringen.
 
-Active Directory skogen och alla distribuerade Proxy tjänster i en skog måste registreras med samma klient organisation. Det finns inte stöd för att en Active Directory skog eller några Proxy-tjänster i skogen registreras på olika Azure AD-klienter. Symptom på en sådan mis-konfigurerad distribution är möjligheten att ladda ned lösen ords principer.
+Active Directory-skogen och alla distribuerade proxytjänster i en skog måste registreras hos samma klient. Det stöds inte att ha en Active Directory-skog eller proxytjänster i den skogen som registreras på olika Azure AD-klienter. Symptom på en sådan felaktig konfigurerad distribution inkluderar oförmåga att hämta lösenordsprinciper.
 
 ## <a name="download"></a>Ladda ned
 
-De två agent installations program som krävs för Azure AD Password Protection är tillgängliga från [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=57071).
+De två nödvändiga agentinstallationsinstituten för azure AD-lösenordsskydd är tillgängliga från [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=57071).
 
 ## <a name="next-steps"></a>Nästa steg
 [Distribuera Azure AD-lösenordsskydd](howto-password-ban-bad-on-premises-deploy.md)

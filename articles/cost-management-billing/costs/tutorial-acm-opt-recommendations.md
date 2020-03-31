@@ -3,21 +3,25 @@ title: Självstudie – Minska kostnaderna i Azure med rekommendationer
 description: Den här självstudien hjälper dig att minska kostnaderna för Azure med hjälp av optimeringsrekommendationer.
 author: bandersmsft
 ms.author: banders
-ms.date: 03/02/2020
+ms.date: 03/24/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: adwise
 ms.custom: seodec18
-ms.openlocfilehash: 6f84b3fb75a3774dc14fd1ea045ab9cf1eeb5451
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: de558ddad37e1621c633d26fff51d1506c237577
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78245401"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80155927"
 ---
 # <a name="tutorial-optimize-costs-from-recommendations"></a>Självstudier: Optimera kostnader utifrån rekommendationer
 
 Azure Cost Management tillhandahåller tillsammans med Azure Advisor rekommendationer för kostnadsoptimering. Azure Advisor hjälper dig att optimera och förbättra effektiviteten genom att identifiera inaktiva och underutnyttjade resurser. Självstudien vägleder dig genom ett exempel där du identifierar underutnyttjade Azure-resurser och sedan vidtar åtgärder för att minska kostnaderna.
+
+Titta på videon om [hur du optimerar molninvesteringar i Azure Cost Management](https://www.youtube.com/watch?v=cSNPoAb-TNc) och lär dig mer om hur du använder Advisor för att optimera kostnaderna.
+
+>[!VIDEO https://www.youtube.com/embed/cSNPoAb-TNc]
 
 I den här guiden får du lära dig att:
 

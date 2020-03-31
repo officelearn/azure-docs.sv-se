@@ -1,38 +1,38 @@
 ---
-title: Montera AVERT vFXT – Azure
-description: Montera klienter med AVERT vFXT för Azure
+title: Montera Avere vFXT - Azure
+description: Så här monterar du klienter med Avere vFXT för Azure
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 12/16/2019
 ms.author: rohogue
 ms.openlocfilehash: b8486b5a33226b1faa5e3874144129dbe7a1a2f2
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76153419"
 ---
 # <a name="mount-the-avere-vfxt-cluster"></a>Montera Avere vFXT-klustret
 
-Följ de här stegen för att ansluta klient datorer till ditt vFXT-kluster.
+Följ dessa steg för att ansluta klientdatorer till ditt vFXT-kluster.
 
-1. Bestäm hur du ska belastningsutjämna klient trafik mellan klusternoderna. Läs [utjämning klient belastning](#balance-client-load)nedan för mer information.
-1. Identifiera IP-adressen och kopplings Sök vägen som ska monteras.
-1. Utfärda [monterings kommandot](#mount-command-arguments)med lämpliga argument.
+1. Bestäm hur klienttrafiken mellan klusternoderna ska belastningsbalanseras. Läs [Balans klient belastning](#balance-client-load), nedan, för mer information.
+1. Identifiera IP-adressen och kopplingssökvägen som ska monteras.
+1. Utfärda [kommandot Montera](#mount-command-arguments)med lämpliga argument.
 
-## <a name="balance-client-load"></a>Utjämna klient belastning
+## <a name="balance-client-load"></a>Balansera klientbelastning
 
-För att balansera klient begär Anden mellan alla noder i klustret, bör du montera klienter till alla IP-adresser som klienten riktas mot. Det finns flera enkla sätt att automatisera den här uppgiften.
+Om du vill balansera klientbegäranden mellan alla noder i klustret bör du montera klienter till alla klientinriktade IP-adresser. Det finns flera enkla sätt att automatisera den här uppgiften.
 
 > [!TIP]
-> Andra metoder för belastnings utjämning kan vara lämpliga för stora eller komplicerade system. [öppna ett support ärende](avere-vfxt-open-ticket.md#open-a-support-ticket-for-your-avere-vfxt) om du behöver hjälp.)
+> Andra belastningsutjämningsmetoder kan vara lämpliga för stora eller komplicerade system. [öppna en supportbiljett](avere-vfxt-open-ticket.md#open-a-support-ticket-for-your-avere-vfxt) för hjälp.)
 >
-> Om du föredrar att använda en DNS-server för automatisk belastnings utjämning på Server sidan måste du konfigurera och hantera din egen DNS-server i Azure. I så fall kan du konfigurera resursallokering (Round-Robin) för vFXT-klustret enligt detta dokument: [AVERT kluster-DNS-konfiguration](avere-vfxt-configure-dns.md).
+> Om du föredrar att använda en DNS-server för automatisk belastningsutjämning på serversidan måste du konfigurera och hantera din egen DNS-server i Azure. I så fall kan du konfigurera round-robin DNS för vFXT-klustret enligt det här dokumentet: [Avere cluster DNS-konfiguration](avere-vfxt-configure-dns.md).
 
-### <a name="sample-balanced-client-mounting-script"></a>Exempel på balanserat klient monterings skript
+### <a name="sample-balanced-client-mounting-script"></a>Provbalanserad klientmonteringsskript
 
-I det här kod exemplet används klient-IP-adresser som ett slumpmässigt element för att distribuera klienter till alla vFXT-klustrets tillgängliga IP-adresser.
+I det här kodexemplet används klient-IP-adresser som ett randomiseringselement för att distribuera klienter till alla vFXT-klustrets tillgängliga IP-adresser.
 
 ```bash
 function mount_round_robin() {
@@ -57,62 +57,62 @@ function mount_round_robin() {
 }
 ```
 
-Funktionen ovan är en del av batch-exemplet som är tillgängligt i exempel webbplatsen för [aver-vFXT](https://github.com/Azure/Avere#tutorials) .
+Funktionen ovan är en del av exemplet Batch som finns på exempelwebbplatsen [Avere vFXT.](https://github.com/Azure/Avere#tutorials)
 
-## <a name="create-the-mount-command"></a>Skapa monterings kommandot
+## <a name="create-the-mount-command"></a>Skapa kommandot montera
 
 > [!NOTE]
-> Om du inte skapade en ny BLOB-behållare när du skapade ditt AVERT vFXT-kluster, lägger du till lagrings system enligt beskrivningen i [Konfigurera lagring](avere-vfxt-add-storage.md) innan du försöker montera klienter.
+> Om du inte skapade en ny Blob-behållare när du skapade Avere vFXT-klustret lägger du till lagringssystem enligt beskrivningen i [Konfigurera lagring](avere-vfxt-add-storage.md) innan du försöker montera klienter.
 
-Från klienten mappar ``mount`` kommandot den virtuella servern (vserver) i vFXT-klustret till en sökväg i det lokala fil systemet. Formatet är ``mount <vFXT path> <local path> {options}``
+Från klienten ``mount`` mappar kommandot den virtuella servern (vserver) i vFXT-klustret till en sökväg i det lokala filsystemet. Formatet är``mount <vFXT path> <local path> {options}``
 
-Monterings kommandot har tre element:
+Kommandot montera har tre element:
 
-* vFXT-sökväg – en kombination av en sökväg för en IP-adress och en namn områdes korsning på klustrets 9described nedan)
-* lokal sökväg – sökvägen till klienten
-* Monterings kommando alternativ – visas i [kommando argumenten för montering](#mount-command-arguments)
+* vFXT-sökväg - en kombination av en IP-adress och namnområdeskorsningssökväg i klustret 9deskriven nedan)
+* lokal sökväg - sökvägen till klienten
+* kommandoty alternativ - som visas i [kommandot argument för Montera](#mount-command-arguments)
 
-### <a name="junction-and-ip"></a>Knut punkt och IP
+### <a name="junction-and-ip"></a>Korsning och IP
 
-Vserver-sökvägen är en kombination av dess *IP-adress* plus sökvägen till en *Knut punkt för namn områden*. Namn områdes knuten är en virtuell sökväg som definierades när lagrings systemet lades till.
+Vserver-sökvägen är en kombination av dess *IP-adress* plus sökvägen till en *namnområdeskorsning*. Namnområdeskopplingen är en virtuell sökväg som definierades när lagringssystemet lades till.
 
-Om klustret skapades med Blob Storage, är namn områdets sökväg till den behållaren `/msazure`
+Om klustret skapades med Blob-lagring är namnområdessökvägen till den behållaren`/msazure`
 
 Exempel: ``mount 10.0.0.12:/msazure /mnt/vfxt``
 
-Om du har lagt till lagring efter att klustret har skapats, är sökvägen för namn områdes korsning det värde som du anger i **namn områdes Sök** vägen när du skapar Knut punkten. Om du till exempel använde ``/avere/files`` som namn områdes Sök väg monteras klienterna *ip_address*:/avere/Files till sin lokala monterings punkt.
+Om du har lagt till lagringsutrymme när du har skapat klustret är namnområdeskorsningssökvägen det värde som du anger i **namnområdessökvägen** när du skapar korsningen. Om du till ``/avere/files`` exempel använde som namnområdessökväg skulle klienterna montera *IP_address*:/avere/files till deras lokala monteringspunkt.
 
-![Dialog rutan Lägg till ny Knut punkt med/avere/Files i fältet namn områdes Sök väg](media/avere-vfxt-create-junction-example.png) <!-- to do - change example and screenshot to vfxt/files instead of avere -->
+![Dialogrutan "Lägg till ny korsning" med /avere/files i namnområdessökvägen](media/avere-vfxt-create-junction-example.png) <!-- to do - change example and screenshot to vfxt/files instead of avere -->
 
-IP-adressen är en av klientens IP-adresser som har definierats för vserver. Du hittar intervallet för klientbaserade IP-adresser på två platser i kontroll panelen aver:
+IP-adressen är en av de klientvända IP-adresser som definierats för vservern. Du hittar utbudet av klientinriktade IPs på två ställen på Avere Kontrollpanelen:
 
-* **VServers** -tabell (fliken instrument panel) –
+* **VServers-tabell** (fliken Instrumentpanel) -
 
-  ![Fliken instrument panel på kontroll panelen för att kontrol lera att fliken VServer har marker ATS i data tabellen under grafen och avsnittet IP-adress är inringat](media/avere-vfxt-ip-addresses-dashboard.png)
+  ![Fliken Instrumentpanel på Kontrollpanelen i Avere med fliken VServer markerad i datatabellen under diagrammet och avsnittet IP-adress inringad](media/avere-vfxt-ip-addresses-dashboard.png)
 
-* Sidan **klient nätverks** inställningar-
+* **Sidan Inställningar för klientvändiga nätverk** -
 
-  ![Inställningar > VServer > klient med en cirkel runt avsnittet adress intervall i tabellen för en viss vserver](media/avere-vfxt-ip-addresses-settings.png)
+  ![Inställningar > VServer > konfigurationssida för klientvänt nätverks med en cirkel runt avsnittet Adressintervall i tabellen för en viss vserver](media/avere-vfxt-ip-addresses-settings.png)
 
-Förutom Sök vägarna inkluderar du [kommando argumenten för montering](#mount-command-arguments) som beskrivs nedan när du monterar varje klient.
+Förutom sökvägarna, inkludera [kommandot argument för montering](#mount-command-arguments) som beskrivs nedan när varje klient monteras.
 
-### <a name="mount-command-arguments"></a>Montera kommando argument
+### <a name="mount-command-arguments"></a>Kommandoargument för Montera
 
-För att säkerställa en sömlös klient montering måste du överföra dessa inställningar och argument i monterings kommandot:
+För att säkerställa en sömlös klientmontering, skicka dessa inställningar och argument i ditt monteringskommando:
 
 ``mount -o hard,proto=tcp,mountproto=tcp,retry=30 ${VSERVER_IP_ADDRESS}:/${NAMESPACE_PATH} ${LOCAL_FILESYSTEM_MOUNT_POINT}``
 
 | Nödvändiga inställningar | |
 --- | ---
-``hard`` | Mjuka monteringar till vFXT-klustret är kopplade till program fel och eventuell data förlust.
-``proto=netid`` | Det här alternativet stöder lämplig hantering av NFS-nätverks fel.
-``mountproto=netid`` | Det här alternativet stöder lämplig hantering av nätverks fel för monterings åtgärder.
-``retry=n`` | Ange ``retry=30`` för att undvika tillfälliga monterings problem. (Ett annat värde rekommenderas i förgrunds monteringar.)
+``hard`` | Mjuka fästen till vFXT-klustret är associerade med programfel och eventuell dataförlust.
+``proto=netid`` | Det här alternativet stöder lämplig hantering av NFS-nätverksfel.
+``mountproto=netid`` | Det här alternativet stöder lämplig hantering av nätverksfel för monteringsåtgärder.
+``retry=n`` | Ställ ``retry=30`` in för att undvika tillfälliga monteringsfel. (Ett annat värde rekommenderas i förgrundsfästen.)
 
 ## <a name="next-steps"></a>Nästa steg
 
-När du har monterat klienter kan du använda dem för att kopiera data till en ny Blob Storage-behållare i klustret. Om du inte behöver fylla i nya lagrings enheter läser du de andra länkarna för att lära dig mer om ytterligare konfigurations aktiviteter:
+När du har klienter monterade kan du använda dem för att kopiera data till en ny Blob-lagringsbehållare i klustret. Om du inte behöver fylla i ny lagring läser du de andra länkarna om du vill veta mer om ytterligare inställningsuppgifter:
 
-* [Flytta data till ett kluster kärnor](avere-vfxt-data-ingest.md) – så här använder du flera klienter och trådar för att effektivt Ladda upp dina data till ett nytt kärnor
-* [Anpassa kluster justering](avere-vfxt-tuning.md) – skräddarsy kluster inställningarna så att de passar din arbets belastning
-* [Hantera klustret](avere-vfxt-manage-cluster.md) – så här startar eller stoppar du klustret och hanterar noder
+* [Flytta data till en klusterkärna filer](avere-vfxt-data-ingest.md) - Hur man använder flera klienter och trådar för att effektivt ladda upp dina data till en ny kärna filer
+* [Anpassa klusterjustering](avere-vfxt-tuning.md) - Anpassa klusterinställningarna så att de passar din arbetsbelastning
+* [Hantera klustret](avere-vfxt-manage-cluster.md) - Så här startar eller stoppar du klustret och hanterar noder

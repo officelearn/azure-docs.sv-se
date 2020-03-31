@@ -1,7 +1,7 @@
 ---
-title: Använda webb tjänsten i Excel
+title: Använda webbtjänst i Excel
 titleSuffix: ML Studio (classic) - Azure
-description: Azure Machine Learning Studio (klassisk) gör det enkelt att anropa webb tjänster direkt från Excel utan att behöva skriva någon kod.
+description: Azure Machine Learning Studio (klassisk) gör det enkelt att ringa webbtjänster direkt från Excel utan att behöva skriva någon kod.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
@@ -11,60 +11,60 @@ ms.author: keli19
 ms.custom: seodec18
 ms.date: 02/01/2018
 ms.openlocfilehash: 333ed411ab818cff77a7cba6c7de4f42c36f5b6b
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79218218"
 ---
-# <a name="consuming-an-azure-machine-learning-studio-classic-web-service-from-excel"></a>Använda en Azure Machine Learning Studio (klassisk) webb tjänst från Excel
+# <a name="consuming-an-azure-machine-learning-studio-classic-web-service-from-excel"></a>Använda en webbkameratjänst för Azure Machine Learning Studio (klassisk) från Excel
 
 [!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
-Azure Machine Learning Studio (klassisk) gör det enkelt att anropa webb tjänster direkt från Excel utan att behöva skriva någon kod.
+Azure Machine Learning Studio (klassisk) gör det enkelt att ringa webbtjänster direkt från Excel utan att behöva skriva någon kod.
 
-Om du använder Excel 2013 (eller senare) eller Excel Online rekommenderar vi att du använder Excel [Excel Excel-tillägget](excel-add-in-for-web-services.md).
+Om du använder Excel 2013 (eller senare) eller Excel Online rekommenderar vi att du använder [excel Excel-tillägget](excel-add-in-for-web-services.md).
 
 
 
 ## <a name="steps"></a>Steg
-Publicera en webbtjänst. [Självstudie 3: Distribuera kredit risk modell](tutorial-part3-credit-risk-deploy.md) förklarar hur du gör det. Excel-arbetsbok funktionen stöds för närvarande endast för begäran/svar-tjänster som har ett enda utflöde (det vill säga en enda bedömnings-etiketten). 
+Publicera en webbtjänst. [Självstudiekurs 3: Distribuera kreditriskmodell](tutorial-part3-credit-risk-deploy.md) förklarar hur man gör det. För närvarande stöds Excel-arbetsboksfunktionen endast för tjänster för begäran/svar som har en enda utdata (det vill ha en enda poängetikett). 
 
-När du har en webb tjänst klickar du på avsnittet **webb tjänster** till vänster om Studio och väljer sedan den webb tjänst som du vill använda från Excel.
+När du har en webbtjänst klickar du på avsnittet **WEBBTJÄNSTER** till vänster om studion och väljer sedan den webbtjänst som ska förbrukas från Excel.
 
-**Klassisk webb tjänst**
+**Klassisk webbtjänst**
 
-1. På fliken **instrument panel** för webb tjänsten finns en rad för tjänsten **Request/Response** . Om tjänsten hade en enda utdata bör du se länken **Hämta Excel-arbetsbok** på den raden.
+1. På fliken **INSTRUMENTPANEL** för webbtjänsten finns en rad för tjänsten **REQUEST/RESPONSE.** Om den här tjänsten hade en enda utdata bör länken **Hämta Excel-arbetsbok** visas på den raden.
 
-    ![Hämta Excel-arbetsboken med hjälp av webb tjänst portalen Studio (klassisk)](./media/consuming-from-excel/excellink.png)
+    ![Ladda ned Excel-arbetsbok med hjälp av webbtjänstportalen Studio (klassiskt)](./media/consuming-from-excel/excellink.png)
 2. Klicka på **Hämta Excel-arbetsbok**.
 
-**Ny webb tjänst**
+**Ny webbtjänst**
 
-1. I Azure Machine Learning-webbtjänst-portalen väljer du **förbruka**.
-2. På sidan konsumera i avsnittet alternativ för **webb tjänst användning** klickar du på Excel-ikonen.
+1. I webbtjänstportalen för Azure Machine Learning väljer du **Förbruka**.
+2. Klicka på Excel-ikonen i avsnittet Alternativ för **förbrukningsalternativ** för webbtjänster på sidan Förbruka.
 
-**Använda arbets boken**
+**Använda arbetsboken**
 
 1. Öppna arbetsboken.
-2. En säkerhets varning visas. Klicka på knappen **Aktivera redigering** .
+2. En säkerhetsvarning visas. klicka på knappen **Aktivera redigering.**
 
-    ![Aktivera redigering för att ta bort säkerhets varningen skyddad vy](./media/consuming-from-excel/enableeditting.png)
-3. En säkerhetsvarning visas. Klicka på knappen **Aktivera innehåll** för att köra makron i kalkyl bladet.
+    ![Aktivera redigering för att ta bort säkerhetsvarningen för skyddad vy](./media/consuming-from-excel/enableeditting.png)
+3. En säkerhetsvarning visas. Klicka på knappen **Aktivera innehåll** om du vill köra makron i kalkylbladet.
 
-    ![Aktivera innehåll för att stänga säkerhets varningen genom att inaktivera makron](./media/consuming-from-excel/enablecontent.png)
-4. När makron är aktiverade, skapas en tabell. Kolumner i blått krävs som inmatade i webb tjänsten resurs resurs, eller **parametrar**. Notera resultatet av resurs resurs tjänsten, **förutsägande värden** i grönt. När alla kolumner för en viss rad är fyllda arbetsboken automatiskt bedömnings-API: n och visar poängsatta resultat.
+    ![Aktivera innehåll för att stänga av säkerhetsvarningen som inaktiverar makron](./media/consuming-from-excel/enablecontent.png)
+4. När makron har aktiverats genereras en tabell. Kolumner i blått krävs som indata i RRS-webbtjänsten eller **PARAMETRAR**. Observera utgången av RRS-tjänsten, **FÖRVÄNTADE VÄRDEN** i grönt. När alla kolumner för en viss rad är fyllda anropar arbetsboken automatiskt poäng-API:et och visar de poängsatta resultaten.
 
-    ![Tabell för parameter indata och resulterande förutsägande värden](./media/consuming-from-excel/sampletable.png)
-5. För att bedöma mer än en rad, Fyll den andra raden med data och de förväntade värdena produceras. Du kan även klistra in flera rader på samma gång.
+    ![Tabell för parameterindata och de resulterande förväntade värdena](./media/consuming-from-excel/sampletable.png)
+5. Om du vill göra mer än en rad fyller du den andra raden med data och de förväntade värdena produceras. Du kan även klistra in flera rader samtidigt.
 
-Du kan använda någon av funktionerna i Excel (diagram, power map, villkorsstyrd formatering, osv.) med de förväntade värdena för att visualisera data.
+Du kan använda någon av Excel-funktionerna (diagram, power map, villkorsstyrd formatering, etc.) med de förväntade värdena för att visualisera data.
 
-## <a name="sharing-your-workbook"></a>Dela din arbetsbok
-Om makron ska fungera måste måste din API-nyckel ingå i kalkylbladet. Det innebär att du ska dela arbetsboken endast med entiteter/personer som du litar på.
+## <a name="sharing-your-workbook"></a>Dela arbetsboken
+För att makrona ska fungera måste API-nyckeln vara en del av kalkylbladet. Det innebär att du endast bör dela arbetsboken med entiteter/personer som du litar på.
 
 ## <a name="automatic-updates"></a>Automatiska uppdateringar
-En RRS-anrop görs i de här två situationer:
+Ett RRS-samtal görs i dessa två situationer:
 
-1. Första gången en rad har innehåll i alla dess **parametrar**
-2. När någon av **parametrarna** ändras i en rad där alla **parametrar** har angetts.
+1. Första gången en rad har innehåll i alla sina **PARAMETRAR**
+2. Varje gång någon av **parametrarna ändras** i en rad som hade alla dess **parametrar** in.

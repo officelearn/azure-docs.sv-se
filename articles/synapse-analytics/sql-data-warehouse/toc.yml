@@ -16,12 +16,12 @@
       href: sql-data-warehouse-service-capacity-limits.md
     - name: VANLIGA FRÅGOR OCH SVAR
       href: sql-data-warehouse-overview-faq.md
-- name: Viktig information
-  items:
-    - name: Senaste versionen
-      href: release-notes-10-0-10106-0.md
-    - name: Uppgraderingsschema för Gen2-regionen
-      href: gen2-migration-schedule.md
+    - name: Viktig information
+      items:
+        - name: Senaste versionen
+          href: release-notes-10-0-10106-0.md
+        - name: Uppgraderingsschema för Gen2-regionen
+          href: gen2-migration-schedule.md
 - name: Snabbstarter
   expanded: true
   items:

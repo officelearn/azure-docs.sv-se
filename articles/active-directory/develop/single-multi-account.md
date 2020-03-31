@@ -1,6 +1,6 @@
 ---
-title: Offentliga klient program för enskilda och flera konton | Azure
-description: En översikt över offentliga klient program för enskilda och flera konton.
+title: Offentliga klientappar för ett och flera konton | Azure
+description: En översikt över offentliga klientappar för ett och flera konton.
 services: active-directory
 documentationcenter: ''
 author: shoatman
@@ -17,42 +17,42 @@ ms.author: shoatman
 ms.custom: aaddev
 ms.reviewer: shoatman
 ms.openlocfilehash: f2ce993b8fbf2a1b04ea4ad9d992ba278dbc964e
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76701424"
 ---
-# <a name="single-and-multiple-account-public-client-apps"></a>Offentliga klient program för enskilda och flera konton
+# <a name="single-and-multiple-account-public-client-apps"></a>Offentliga klientappar för ett och flera konton
 
-Den här artikeln hjälper dig att förstå de typer som används i en och flera offentliga klient program, med fokus på offentliga klient program för enskilda konton. 
+Den här artikeln hjälper dig att förstå vilka typer som används i offentliga klientappar för ett och flera konton, med fokus på offentliga klientappar för ett konto. 
 
-ADAL (Azure Active Directory Authentication Library) modellerar servern.  Microsoft Authentication Library (MSAL) i stället modellerar ditt klient program.  Majoriteten av Android-appar betraktas som offentliga klienter. En offentlig klient är en app som inte kan behålla hemligheten på ett säkert sätt.  
+I ADAL -autentiseringsbiblioteket (Azure Active Directory Authentication Library) modelleras servern.  I Microsoft Authentication Library (MSAL) modelleras klientprogrammet i stället.  Majoriteten av Android-appar betraktas som offentliga klienter. En offentlig klient är en app som inte kan hålla en hemlighet på ett säkert sätt.  
 
-MSAL specialiserar API-ytan på `PublicClientApplication` för att förenkla och klargöra utvecklings upplevelsen för appar som endast tillåter att ett konto används i taget. `PublicClientApplication` underklassas av `SingleAccountPublicClientApplication` och `MultipleAccountPublicClientApplication`.  I följande diagram visas relationen mellan dessa klasser.
+MSAL specialiserar API-ytan på `PublicClientApplication` för att förenkla och förtydliga utvecklingsupplevelsen för appar som tillåter att endast ett konto används åt gången. `PublicClientApplication`är underklassad `SingleAccountPublicClientApplication` `MultipleAccountPublicClientApplication`av och .  Följande diagram visar förhållandet mellan dessa klasser.
 
-![Diagram över SingleAccountPublicClientApplication UML-klass](./media/single-multi-account/single-and-multiple-account.png)
+![Klassdiagram för SingleAccountPublicClientApplication UML](./media/single-multi-account/single-and-multiple-account.png)
 
-## <a name="single-account-public-client-application"></a>Offentligt klient program för ett enda konto
+## <a name="single-account-public-client-application"></a>Offentligt klientprogram för ett konto
 
-Med klassen `SingleAccountPublicClientApplication` kan du skapa en MSAL-baserad app som endast tillåter att ett enda konto är inloggat i taget. `SingleAccountPublicClientApplication` skiljer sig från `PublicClientApplication` på följande sätt:
+Med `SingleAccountPublicClientApplication` klassen kan du skapa en MSAL-baserad app som bara tillåter att ett enda konto loggas in åt gången. `SingleAccountPublicClientApplication`skiljer sig `PublicClientApplication` från på följande sätt:
 
-- MSAL spårar det för tillfället inloggade kontot.
-  - Om din app använder en Service Broker (standardinställningen under Azure Portal app Registration) och installeras på en enhet där en Broker finns, verifierar MSAL att kontot fortfarande är tillgängligt på enheten.
-- med `signIn` kan du logga in ett konto explicit och separat från begär ande omfattningar.
-- `acquireTokenSilent` kräver ingen konto parameter.  Om du anger ett konto och det konto som du anger inte matchar det aktuella kontot som spåras av MSAL, genereras en `MsalClientException`.
-- `acquireToken` tillåter inte att användaren växlar konton. Om användaren försöker växla till ett annat konto genereras ett undantag.
-- `getCurrentAccount` returnerar ett resultat objekt som tillhandahåller följande:
-  - Ett booleskt värde som anger om kontot har ändrats. Ett konto kan till exempel ändras på grund av att det har tagits bort från enheten.
-  - Föregående konto. Detta är användbart om du behöver göra några lokala data rensningar när kontot tas bort från enheten eller när ett nytt konto har loggats in.
-  - CurrentAccount.
-- `signOut` tar bort alla token som är associerade med din klient från enheten.  
+- MSAL spårar det inloggade kontot.
+  - Om din app använder en mäklare (standard under Azure portal app registrering) och är installerad på en enhet där en mäklare är närvarande, kommer MSAL kontrollera att kontot fortfarande är tillgängligt på enheten.
+- `signIn`kan du logga in på ett konto uttryckligen och separat från att begära scope.
+- `acquireTokenSilent`kräver ingen kontoparameter.  Om du tillhandahåller ett konto och kontot du anger inte matchar det aktuella `MsalClientException` kontot som spåras av MSAL, genereras ett.
+- `acquireToken`tillåter inte att användaren byter konto. Om användaren försöker växla till ett annat konto genereras ett undantag.
+- `getCurrentAccount`returnerar ett resultatobjekt som ger följande:
+  - En boolesk som anger om kontot har ändrats. Ett konto kan till exempel ändras till följd av att det tas bort från enheten.
+  - Det tidigare kontot. Detta är användbart om du behöver göra någon lokal datarensning när kontot tas bort från enheten eller när ett nytt konto är inloggad.
+  - Aktuelltkonto.
+- `signOut`tar bort alla token som är associerade med din klient från enheten.  
 
-När en Android-autentiseringsprovider som Microsoft Authenticator eller Intune-företagsportal är installerad på enheten och din app har kon figurer ATS för att använda Broker, tar `signOut` inte bort kontot från enheten.
+När en Android-autentiseringsmäklare som Microsoft Authenticator eller Intune Company Portal är installerad `signOut` på enheten och appen är konfigurerad för att använda mäklaren tas inte kontot bort från enheten.
 
-## <a name="single-account-scenario"></a>Scenario med enskilt konto
+## <a name="single-account-scenario"></a>Scenario med ett enda konto
 
-Följande pseudo-kod illustrerar användningen av `SingleAccountPublicClientApplication`.
+Följande pseudokod illustrerar `SingleAccountPublicClientApplication`användningen av .
 
 ```java
 // Construct Single Account Public Client Application
@@ -109,30 +109,30 @@ if (app.signOut())
 }
 ```
 
-## <a name="multiple-account-public-client-application"></a>Offentligt klient program för flera konton
+## <a name="multiple-account-public-client-application"></a>Offentligt klientprogram för flera konton
 
-Klassen `MultipleAccountPublicClientApplication` används för att skapa MSAL-baserade appar som gör att flera konton kan vara inloggade på samma gång. Det gör att du kan hämta, lägga till och ta bort konton på följande sätt:
+Klassen `MultipleAccountPublicClientApplication` används för att skapa MSAL-baserade appar som tillåter att flera konton loggas in samtidigt. Det låter dig hämta, lägga till och ta bort konton enligt följande:
 
 ### <a name="add-an-account"></a>Lägga till ett konto
 
-Använd ett eller flera konton i ditt program genom att anropa `acquireToken` en eller flera gånger.  
+Använd ett eller flera konton `acquireToken` i programmet genom att ringa en eller flera gånger.  
 
 ### <a name="get-accounts"></a>Hämta konton
 
-- Anropa `getAccount` för att få ett speciellt konto.
-- Anropa `getAccounts`för att hämta en lista över konton som är kända för appen.
+- Ring `getAccount` för att få ett specifikt konto.
+- Ring `getAccounts`för att få en lista över konton som för närvarande är kända för appen.
 
-Din app kan inte räkna upp alla Microsoft Identity Platform-konton på enheten som är känd för Service Broker-appen. Det kan bara räkna upp konton som har använts av din app.  Konton som har tagits bort från enheten returneras inte av dessa funktioner.
+Din app kan inte räkna upp alla Microsoft-identitetsplattformskonton på den enhet som mäklaren har känt till. Den kan bara räkna upp konton som har använts av din app.  Konton som har tagits bort från enheten returneras inte av dessa funktioner.
 
 ### <a name="remove-an-account"></a>Ta bort ett konto
 
-Ta bort ett konto genom att anropa `removeAccount` med ett konto-ID.
+Ta bort ett `removeAccount` konto genom att ringa med en kontoidentifierare.
 
-Om din app har kon figurer ATS för att använda en Broker och en Broker är installerad på enheten, tas kontot inte bort från Service Broker när du anropar `removeAccount`.  Endast tokens som är kopplade till klienten tas bort.
+Om din app är konfigurerad för att använda en mäklare och en mäklare är installerad på `removeAccount`enheten tas kontot inte bort från mäklaren när du ringer .  Endast token som är associerade med klienten tas bort.
 
-## <a name="multiple-account-scenario"></a>Scenario med flera konton
+## <a name="multiple-account-scenario"></a>Scenario för flera konton
 
-Följande pseudo-kod visar hur du skapar en app för flera konton, listar konton på enheten och hämtar tokens.
+Följande pseudokod visar hur du skapar en app med flera konton, listar konton på enheten och hämtar token.
 
 ```java
 // Construct Multiple Account Public Client Application

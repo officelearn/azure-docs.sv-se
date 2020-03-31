@@ -1,15 +1,15 @@
 ---
-title: Skapa en Linux container-app på Service Fabric i Azure
+title: Skapa en Linux-behållarapp på Service Fabric i Azure
 description: I den här snabbstarten skapar du en Docker-avbildning med din app, överför avbildningen till ett containerregister och distribuerar sedan containern till ett Service Fabric-kluster.
 ms.topic: quickstart
 ms.date: 07/22/2019
 ms.author: suhuruli
 ms.custom: mvc
 ms.openlocfilehash: eb0a83d0110002cc32998af4083d06cf6e86e16a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "75372694"
 ---
 # <a name="quickstart-deploy-linux-containers-to-service-fabric"></a>Snabbstart: Distribuera Linux-containrar till Service Fabric
@@ -82,7 +82,7 @@ az sf cluster create --resource-group $ResourceGroupName --location $Location --
 
 ## <a name="configure-your-environment"></a>Konfigurera din miljö
 
-Service Fabric innehåller flera verktyg som du kan använda för att hantera ett kluster och dess program:
+I Service Fabric finns flera verktyg för att hantera kluster och dess program:
 
 - Service Fabric Explorer, ett webbläsarbaserat verktyg.
 - Service Fabric CLI (kommandoradsgränssnitt) som körs ovanpå Azure CLI. 
@@ -92,7 +92,7 @@ I den här snabbstarten använder du Service Fabric CLI och Service Fabric Explo
 
 Mozilla Firefox är standardwebbläsaren i Ubuntu 16.04. Klicka på menyknappen i det övre högra hörnet i webbläsaren om du vill importera certifikatet till Firefox. Klicka sedan på **Alternativ**. På sidan **Inställningar** söker du efter ”certifikat” i sökrutan. Klicka på **Visa certifikat** och välj fliken **Dina certifikat**. Klicka på **Importera** och följ anvisningarna för att importera certifikatet.
 
-   ![Installera certifikat i Firefox](./media/service-fabric-quickstart-containers-linux/install-cert-firefox.png)
+   ![Installera certifikat på Firefox](./media/service-fabric-quickstart-containers-linux/install-cert-firefox.png)
 
 ## <a name="deploy-the-service-fabric-application"></a>Distribuera Service Fabric-programmet
 
@@ -108,7 +108,7 @@ Mozilla Firefox är standardwebbläsaren i Ubuntu 16.04. Klicka på menyknappen 
     ./install.sh
     ```
 
-3. Öppna en webbläsare och gå till Service Fabric Explorer-slutpunkten för klustret. Slutpunkten har följande format: **https://\<url-till-mitt-azure-service-fabric-kluster>:19080/Explorer**, till exempel `https://containertestcluster.eastus.cloudapp.azure.com:19080/Explorer`. </br>
+3. Öppna en webbläsare och gå till Service Fabric Explorer-slutpunkten för klustret. Slutpunkten har följande format: **https://\<min azure-service-fabric-cluster-url>:19080/Explorer**; till exempel `https://containertestcluster.eastus.cloudapp.azure.com:19080/Explorer`. </br>
 
 4. Expandera noden **Program** för att se att det nu finns en post för röstningsprogramtypen och instansen som du skapade.
 
@@ -157,7 +157,7 @@ Gör så här om du vill skala frontwebbtjänsten:
 
     Du kan nu se att tjänsten har två instanser. I trädvyn kan du se vilka noder instanserna körs på.
 
-Med den här enkla hanteringsåtgärden har du dubblerat tillgängliga resurser för bearbetning av användarbelastningen i frontwebbtjänsten. Det är viktigt att förstå att du inte behöver flera instanser av en tjänst för att den ska kunna köras på ett tillförlitligt sätt. Om en tjänst misslyckas ser Service Fabric till att en ny tjänstinstans körs i klustret.
+Med den här enkla hanteringsåtgärden har du dubblerat tillgängliga resurser för bearbetning av användarbelastningen i frontwebbtjänsten. Det är viktigt att förstå att du inte behöver flera instanser av en tjänst för att den ska kunna köras på ett tillförlitligt sätt. Om ett fel uppstår för en tjänst ser Service Fabric till att en ny tjänstinstans körs i klustret.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 

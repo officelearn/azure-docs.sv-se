@@ -1,6 +1,6 @@
 ---
-title: Skapa en strömmande lokaliserare och skapa URL-adresser – Azure Media Services
-description: 'Den här artikeln visar hur du skapar en strömmande lokaliserare och skapar URL: er.'
+title: Skapa en streamingpositionerare och skapa webbadresser - Azure Media Services
+description: Den här artikeln visar hur du skapar en streaming locator och bygga webbadresser.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -12,21 +12,21 @@ ms.topic: article
 ms.date: 03/04/2020
 ms.author: juliako
 ms.openlocfilehash: 2972c60aa5874c21a6f7bce21020ad58b5f3b556
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78304568"
 ---
-# <a name="create-a-streaming-locator-and-build-urls"></a>Skapa en strömmande lokaliserare och skapa URL: er
+# <a name="create-a-streaming-locator-and-build-urls"></a>Skapa en streamingpositionerare och skapa webbadresser
 
-För att skapa en strömmande URL i Azure Media Services måste du först skapa en [strömmande Locator](streaming-locators-concept.md). Sedan sammanfogas värd namnet för [direkt uppspelnings slut punkten](https://docs.microsoft.com/rest/api/media/streamingendpoints) och sökvägen för **streaming Locator** . I det här exemplet används *standard* **slut punkten för direkt uppspelning** . När du först skapar ett medie tjänst konto kommer den här *standard* **slut punkten för direkt uppspelning** att vara i ett stoppat tillstånd, så du måste anropa **Start** för att starta direkt uppspelning.
+Om du vill skapa en url för direktuppspelning i Azure Media Services måste du först skapa en [streamingpositionerare](streaming-locators-concept.md). Du sammanfogar sedan [slutpunktsvärden](https://docs.microsoft.com/rest/api/media/streamingendpoints) för direktuppspelning och sökvägen **för strömmar positionerare.** I det här exemplet används *standardvärdet* **Slutpunkt för direktuppspelning**. När du först skapar ett Media Service-konto kommer den här *standardslutpunkten* för **direktuppspelning** att vara i ett stoppat tillstånd, så du måste ringa **Start** för att starta direktuppspelningen.
 
-Den här artikeln visar hur du skapar en strömmande lokaliserare och skapar en strömmande URL med Java-och .NET-SDK: er.
+Den här artikeln visar hur du skapar en streaming locator och bygga en strömmande URL med Java och .NET SDKs.
 
 ## <a name="prerequisite"></a>Krav 
 
-Förhandsgranska [dynamisk paketering](dynamic-packaging-overview.md)
+Förhandsgranska [dynamiska förpackningar](dynamic-packaging-overview.md)
 
 ## <a name="java"></a>Java
 
@@ -85,7 +85,7 @@ private static List<String> getStreamingUrls(MediaManager manager, String resour
 }
 ```
 
-Se fullständig kod exempel: [EncodingWithMESPredefinedPreset](https://github.com/Azure-Samples/media-services-v3-java/blob/master/VideoEncoding/EncodingWithMESPredefinedPreset/src/main/java/sample/EncodingWithMESPredefinedPreset.java)
+Se hela kodexemplet: [KodningMedMESPredefinedPreset](https://github.com/Azure-Samples/media-services-v3-java/blob/master/VideoEncoding/EncodingWithMESPredefinedPreset/src/main/java/sample/EncodingWithMESPredefinedPreset.java)
 
 ## <a name="net"></a>.NET
 
@@ -158,7 +158,7 @@ private static async Task<IList<string>> GetStreamingUrlsAsync(
 }
 ```
 
-Se fullständig kod exempel: [EncodingWithMESPredefinedPreset](https://github.com/Azure-Samples/media-services-v3-dotnet/blob/master/VideoEncoding/EncodingWithMESPredefinedPreset/Program.cs)
+Se hela kodexemplet: [KodningMedMESPredefinedPreset](https://github.com/Azure-Samples/media-services-v3-dotnet/blob/master/VideoEncoding/EncodingWithMESPredefinedPreset/Program.cs)
 
 ## <a name="see-also"></a>Se även
 

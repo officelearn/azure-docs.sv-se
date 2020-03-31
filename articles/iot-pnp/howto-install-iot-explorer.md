@@ -1,35 +1,35 @@
 ---
-title: Installera och använda Azure IoT Explorer | Microsoft Docs
-description: Installera Azure IoT Explorer-verktyget och Använd det för att interagera med IoT-Plug and Play förhands gransknings enheter anslutna till min IoT-hubb.
+title: Installera och använda Azure IoT explorer | Microsoft-dokument
+description: Installera Azure IoT explorer-verktyget och använd det för att interagera med IoT Plug and Play Preview-enheter som är anslutna till min IoT-hubb.
 author: miagdp
 ms.author: miag
 ms.date: 12/27/2019
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
-ms.openlocfilehash: fd180404ca18b5ea84c745a543ae7e87bf16c27d
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: 963421fa1ef06599448c9a4197f0d7a6ad2e142d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75529634"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80159191"
 ---
 # <a name="install-and-use-azure-iot-explorer"></a>Installera och använda Azure IoT Explorer
 
-Azure IoT Explorer är ett grafiskt verktyg för att interagera med och testa din IoT Plug and Play Preview-enheter. När du har installerat verktyget på den lokala datorn kan du använda det för att ansluta till en enhet. Du kan använda verktyget för att Visa telemetri som enheten skickar, arbeta med enhets egenskaper och anropa kommandon.
+Azure IoT Explorer är ett grafiskt verktyg för att interagera med och testa dina IoT Plug and Play Preview-enheter. När du har installerat verktyget på den lokala datorn kan du använda det för att ansluta till en enhet. Du kan använda verktyget för att visa den telemetri som enheten skickar, arbetar med enhetsegenskaper och samtalskommandon.
 
 Den här artikeln visar hur du:
 
-- Installera och konfigurera Azure IoT Explorer-verktyget.
+- Installera och konfigurera Azure IoT explorer-verktyget.
 - Använd verktyget för att interagera med och testa dina enheter.
 
 ## <a name="prerequisites"></a>Krav
 
-Om du vill använda Azure IoT Explorer-verktyget behöver du:
+Om du vill använda Azure IoT explorer-verktyget behöver du:
 
-- En Azure IoT-hubb. Det finns många sätt att lägga till en IoT-hubb i din Azure-prenumeration, till exempel [skapa en IoT-hubb med hjälp av Azure CLI](../iot-hub/iot-hub-create-using-cli.md). Du behöver den IoT Hub-anslutningssträngen för att köra Azure IoT Explorer-verktyget. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
-- En enhet som är registrerad i IoT Hub. Du kan registrera en enhet med hjälp av följande Azure CLI-kommando. Se till att ersätta `{YourIoTHubName}` och `{YourDeviceID}` plats hållarna med dina värden:
+- En Azure IoT-hubb. Det finns många sätt att lägga till en IoT-hubb i din Azure-prenumeration, till exempel [Skapa en IoT-hubb med hjälp av Azure CLI](../iot-hub/iot-hub-create-using-cli.md). Du behöver anslutningssträngen för IoT-hubb för att kunna köra Azure IoT Explorer-verktyget. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
+- En enhet som är registrerad i din IoT-hubb. Du kan använda följande Azure CLI-kommando för att registrera en enhet. Var noga med `{YourIoTHubName}` `{YourDeviceID}` att ersätta och platshållare med dina värden:
 
     ```azurecli-interactive
     az iot hub device-identity create --hub-name {YourIoTHubName} --device-id {YourDeviceID}
@@ -37,91 +37,91 @@ Om du vill använda Azure IoT Explorer-verktyget behöver du:
 
 ## <a name="install-azure-iot-explorer"></a>Installera Azure IoT Explorer
 
-Gå till [Azure IoT Explorer-versioner](https://github.com/Azure/azure-iot-explorer/releases) och expandera listan med till gångar för den senaste versionen. Hämta och installera den senaste versionen av programmet.
+Gå till [Azure IoT explorer-versioner](https://github.com/Azure/azure-iot-explorer/releases) och expandera listan över tillgångar för den senaste versionen. Hämta och installera den senaste versionen av programmet.
 
 ## <a name="use-azure-iot-explorer"></a>Använda Azure IoT Explorer
 
-För en enhet kan du antingen ansluta din egen enhet eller använda en av våra exempel simulerade enheter. Följ [de här anvisningarna](https://github.com/Azure/azure-iot-sdk-c/tree/public-preview/iothub_client/samples) för att köra exemplet på simulerad enhet.
+För en enhet kan du antingen ansluta din egen enhet eller använda en av våra exempelsimulerade enheter. Följ [dessa instruktioner](https://github.com/Azure/azure-iot-sdk-c/tree/public-preview/iothub_client/samples) för att köra det simulerade enhetsprovet.
 
-### <a name="connect-to-your-hub"></a>Anslut till hubben
+### <a name="connect-to-your-hub"></a>Anslut till navet
 
-Första gången du kör Azure IoT Explorer uppmanas du att ange anslutnings strängen för IoT Hub. När du har lagt till anslutnings strängen väljer du **Anslut**. Du kan använda verktygets inställningar för att växla till en annan IoT-hubb genom att uppdatera anslutnings strängen.
+Första gången du kör Azure IoT Explorer uppmanas du att ange ioT-hubbens anslutningssträng. När du har lagt till anslutningssträngen väljer du **Anslut**. Du kan använda verktygets inställningar för att växla till en annan IoT-hubb genom att uppdatera anslutningssträngen.
 
-Modell definitionen för en IoT Plug and Play-enhet lagras antingen i det offentliga lagret, i företags databasen eller på den anslutna enheten. Som standard letar verktyget efter din modell definition i lagrings platsen för den offentliga modellen och den anslutna enheten. Du kan lägga till och ta bort källor eller konfigurera prioriteten för källorna i **inställningarna**:
+Modelldefinitionen för en IoT Plug and Play-enhet lagras i antingen den offentliga databasen, en företagsdatabas eller i den anslutna enheten. Som standard söker verktyget efter modelldefinitionen i den offentliga modelldatabasen och den anslutna enheten. Du kan lägga till och ta bort källor eller konfigurera prioriteten för källorna i **Inställningar:**
 
 Så här lägger du till en källa:
 
 1. Gå till **Inställningar**.
-1. Välj **nytt** och välj källa.
-1. Om du lägger till din företags modell databas anger du anslutnings strängen.
+1. Välj **Ny** och välj källa.
+1. Om du lägger till företagets modelldatabas anger du anslutningssträngen.
 
 Så här tar du bort en källa:
 
 1. Gå till **Inställningar**.
-1. Hitta källan som du vill ta bort.
-1. Välj **X** för att ta bort den. Du kan inte ta bort lagrings platsen för den offentliga modellen eftersom de gemensamma gränssnitts definitionerna kommer från den här databasen.
+1. Leta reda på den källa som du vill ta bort.
+1. Välj **X** för att ta bort den. Du kan inte ta bort den offentliga modelldatabasen eftersom de vanliga gränssnittsdefinitionerna kommer från den här databasen.
 
-Ändra käll prioriteringarna:
+Ändra källprioriteringar:
 
-Du kan dra och släppa en av modell definitions källorna till en annan rangordning i listan. Om det uppstår en konflikt åsidosätter definitions källor med högre ranknings källor med lägre rangordning.
+Du kan dra och släppa en av modelldefinitionskällorna till en annan rangordning i listan. Om det finns en konflikt åsidosätter definitionskällor med högre rankning källor med lägre rankning.
 
 ### <a name="view-devices"></a>Visa enheter
 
-När verktyget har anslutit till din IoT-hubb visas **sidan enhets lista med** en lista över enhets identiteter som registrerats med IoT Hub. Du kan expandera alla poster i listan om du vill se mer information.
+När verktyget har anslutits till IoT-hubben visas listsidan **Enheter** som visar enhetsidentiteterna som är registrerade med din IoT-hubb. Du kan expandera alla inlägg i listan om du vill se mer information.
 
-På sidan **enhets** lista kan du:
+På listsidan **Enheter** kan du:
 
-- Välj **Lägg till** för att registrera en ny enhet med hubben. Ange sedan ett enhets-ID. Använd standardinställningarna för att automatiskt generera autentiseringsinställningar och aktivera anslutningen till hubben.
-- Välj en enhet och välj sedan **ta bort** för att ta bort en enhets identitet. Granska enhets detaljerna innan du slutför den här åtgärden för att vara säker på att du tar bort rätt enhets identitet.
-- Fråga efter `capabilityID` och `interfaceID`. Lägg till antingen `capabilityID` eller `interfaceID` som en parameter för att skicka frågor till dina enheter.
+- Välj **Lägg till** om du vill registrera en ny enhet med navet. Ange sedan ett enhets-ID. Använd standardinställningarna för att automatiskt generera autentiseringsnycklar och aktivera anslutningen till navet.
+- Markera en enhet och välj sedan **Ta bort** om du vill ta bort en enhetsidentitet. Granska enhetsinformationen innan du slutför den här åtgärden för att vara säker på att du tar bort rätt enhetsidentitet.
+- Fråga `capabilityID` efter `interfaceID`och . Lägg till `capabilityID` `interfaceID` antingen din eller som en parameter för att fråga dina enheter.
 
 ## <a name="interact-with-a-device"></a>Interagera med en enhet
 
-På sidan enhets **lista väljer** du ett värde i kolumnen **enhets-ID** för att Visa informations sidan för den registrerade enheten. Det finns två avsnitt: **enhet** och **digital**, för varje enhet.
+På listsidan **Enheter** väljer du ett värde i kolumnen **Enhets-ID** för att visa detaljsidan för den registrerade enheten. För varje enhet finns två sektioner: **Device** och **Digital Twin**.
 
 ### <a name="device"></a>Enhet
 
-Det här avsnittet innehåller flikarna **enhets identitet**, **enhets**-ID, **telemetri**, **direkt metod** och **meddelande från moln till enhet** .
+Det här avsnittet innehåller flikarna **Enhetsidentitet,** **Enhetstvilling,** **Telemetri,** **Direkt och** **Meddelandeflikar från molnet till enhet.**
 
-- Du kan visa och uppdatera [enhetens identitets](../iot-hub/iot-hub-devguide-identity-registry.md) information på fliken **enhets identitet** .
-- Du kan komma åt [enhetens dubbla](../iot-hub/iot-hub-devguide-device-twins.md) information på fliken **enhets dubbla** .
-- Om en enhet är ansluten och aktivt skickar data, kan du Visa [Telemetrin](../iot-hub/iot-hub-devguide-messages-read-builtin.md) på fliken **telemetri** .
-- Du kan anropa en [direkt metod](../iot-hub/iot-hub-devguide-direct-methods.md) på enheten på fliken **direkt metod** .
-- Du kan skicka ett [meddelande från moln till enhet](../iot-hub/iot-hub-devguide-messages-c2d.md) på fliken **meddelanden från molnet till enheten** .
+- Du kan visa och uppdatera [enhetsidentitetsinformationen](../iot-hub/iot-hub-devguide-identity-registry.md) på fliken **Enhetsidentitet.**
+- Du kan komma åt [enhetstvillinginformationen](../iot-hub/iot-hub-devguide-device-twins.md) på fliken **Enhetstvilling.**
+- Om en enhet är ansluten och aktivt skickar data kan du visa [telemetrin](../iot-hub/iot-hub-devguide-messages-read-builtin.md) på fliken **Telemetri.**
+- Du kan anropa en [direkt metod](../iot-hub/iot-hub-devguide-direct-methods.md) på enheten på **fliken Direkt-metod.**
+- Du kan skicka ett [meddelande från molnet till enheten](../iot-hub/iot-hub-devguide-messages-c2d.md) på fliken Meddelanden från molnet till **enheten.**
 
-### <a name="digital-twin"></a>Digital, dubbel
+### <a name="digital-twin"></a>Digital tvilling
 
-Du kan använda verktyget för att visa en digital, delad instans av enheten. För en IoT Plug and Play-enhet visas alla gränssnitt som är associerade med enhets kapacitets modellen i det här avsnittet av verktyget. Välj ett gränssnitt för att expandera motsvarande [IoT plug and Play-primitiver](https://github.com/Azure/IoTPlugandPlay/tree/master/DTDL).
+Du kan använda verktyget för att visa digital tvillinginstans av enheten. För en IoT Plug and Play-enhet visas alla gränssnitt som är associerade med enhetskapacitetsmodellen i det här avsnittet av verktyget. Välj ett gränssnitt för att utöka motsvarande [IoT Plug and Play primitiver](https://github.com/Azure/IoTPlugandPlay/tree/master/DTDL).
 
 ### <a name="interface"></a>Gränssnitt
 
-På sidan **gränssnitt** kan du Visa JSON-definitionen för gränssnittet.
+På **sidan Gränssnitt** kan du visa JSON-definitionen av gränssnittet.
 
 #### <a name="properties"></a>Egenskaper
 
-Du kan visa de skrivskyddade egenskaperna som definierats i ett gränssnitt på sidan **egenskaper som inte är skrivbara** . Du kan uppdatera de skrivbara egenskaper som definierats i ett gränssnitt på sidan **skrivbara egenskaper** :
+Du kan visa de skrivskyddade egenskaper som definierats i ett gränssnitt på sidan **Egenskaper som inte kan skrivas.** Du kan uppdatera de skrivbara egenskaper som definierats i ett gränssnitt på sidan **Skrivbara egenskaper:**
 
-1. Gå till sidan **skrivbara egenskaper** .
+1. Gå till sidan **Skrivbara egenskaper.**
 1. Klicka på den egenskap som du vill uppdatera.
 1. Ange det nya värdet för egenskapen.
-1. Förhandsgranska nytto lasten som ska skickas till enheten.
+1. Förhandsgranska nyttolasten som ska skickas till enheten.
 1. Skicka ändringen.
 
-När du har skickat in en ändring kan du spåra uppdaterings statusen: **synkronisering**, **lyckades**eller **fel**. När synkroniseringen är klar visas det nya värdet för egenskapen i kolumnen **rapporterad egenskap** . Om du navigerar till andra sidor innan synkroniseringen är klar meddelar verktyget fortfarande dig när uppdateringen är klar. Du kan också använda verktygets meddelande Center för att se meddelande historiken.
+När du har skickat in en ändring kan du spåra uppdateringsstatus: **synkronisering,** **framgång**eller **fel**. När synkroniseringen är klar visas det nya värdet för egenskapen i kolumnen **Rapporterad egenskap.** Om du navigerar till andra sidor innan synkroniseringen är klar meddelar verktyget dig fortfarande när uppdateringen är klar. Du kan också använda verktygets meddelandecenter för att se meddelandehistoriken.
 
 #### <a name="commands"></a>Kommandon
 
-Om du vill skicka ett kommando till en enhet går du till **kommando** sidan:
+Om du vill skicka ett kommando till en enhet går du till sidan **Kommandon:**
 
-1. I listan med kommandon expanderar du kommandot som du vill utlösa.
-1. Ange de värden som krävs för kommandot.
-1. Förhandsgranska nytto lasten som ska skickas till enheten.
+1. Expandera det kommando som du vill utlösa i listan med kommandon.
+1. Ange eventuella värden som krävs för kommandot.
+1. Förhandsgranska nyttolasten som ska skickas till enheten.
 1. Skicka kommandot.
 
 #### <a name="telemetry"></a>Telemetri
 
-Om du vill visa telemetri för det valda gränssnittet går du till sidan **telemetri** .
+Om du vill visa telemetrin för det valda gränssnittet går du till sidan **Telemetri.**
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här instruktions artikeln har du lärt dig hur du installerar och använder Azure IoT Explorer för att interagera med IoT Plug and Play-enheter. Ett förslag till nästa steg är att lära dig hur du [installerar och använder Azure CLI-tillägg](./howto-install-pnp-cli.md).
+I den här artikeln om hur du installerar och använder Azure IoT Explorer för att interagera med dina IoT Plug and Play-enheter. Ett förslag till nästa steg är att lära sig hur [du installerar och använder Azure CLI-tillägg](./howto-install-pnp-cli.md).

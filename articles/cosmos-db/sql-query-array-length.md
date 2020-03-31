@@ -1,6 +1,6 @@
 ---
-title: ARRAY_LENGTH i Azure Cosmos DB frågespråk
-description: Lär dig mer om hur mat ris längden i SQL system-funktionen i Azure Cosmos DB Returnerar antalet element i det angivna mat ris uttrycket
+title: ARRAY_LENGTH i Azure Cosmos DB-frågespråk
+description: Lär dig mer om hur SQL-systemfunktionen För matrislängd i Azure Cosmos DB returnerar antalet element i det angivna matrisuttrycket
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
@@ -8,10 +8,10 @@ ms.date: 03/03/2020
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: 3596ce4bc702d5e54225d8c90db2f9563feab670
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78303995"
 ---
 # <a name="array_length-azure-cosmos-db"></a>ARRAY_LENGTH (Azure Cosmos DB)
@@ -26,15 +26,15 @@ ARRAY_LENGTH(<arr_expr>)
 ## <a name="arguments"></a>Argument
   
 *arr_expr*  
-   Är ett mat ris uttryck.  
+   Är ett arrayuttryck.  
   
-## <a name="return-types"></a>Retur typer
+## <a name="return-types"></a>Returtyper
   
   Returnerar ett numeriskt uttryck.  
   
 ## <a name="examples"></a>Exempel
   
-  I följande exempel kan du hämta längden på en matris med `ARRAY_LENGTH`.  
+  Följande exempel på hur du får `ARRAY_LENGTH`längden på en matris med .  
   
 ```sql
 SELECT ARRAY_LENGTH(["apples", "strawberries", "bananas"]) AS len  
@@ -48,10 +48,10 @@ SELECT ARRAY_LENGTH(["apples", "strawberries", "bananas"]) AS len
   
 ## <a name="remarks"></a>Anmärkningar
 
-Den här system funktionen kommer inte att använda indexet.
+Den här systemfunktionen kommer inte att använda indexet.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Array Functions Azure Cosmos DB](sql-query-array-functions.md)
-- [System funktioner Azure Cosmos DB](sql-query-system-functions.md)
+- [Matrisfunktioner Azure Cosmos DB](sql-query-array-functions.md)
+- [Systemfunktioner Azure Cosmos DB](sql-query-system-functions.md)
 - [Introduktion till Azure Cosmos DB](introduction.md)

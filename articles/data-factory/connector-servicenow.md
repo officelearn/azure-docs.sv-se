@@ -1,6 +1,6 @@
 ---
 title: Kopiera data från ServiceNow
-description: Lär dig hur du kopierar data från ServiceNow till mottagarens datalager genom att använda en Kopieringsaktivitet i en Azure Data Factory-pipeline.
+description: Lär dig hur du kopierar data från ServiceNow till sink-datalager som stöds med hjälp av en kopieringsaktivitet i en Azure Data Factory-pipeline.
 services: data-factory
 ms.author: jingwang
 author: linda33wj
@@ -12,49 +12,49 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 08/01/2019
 ms.openlocfilehash: dabcc5afe4a092e4919c854071a698c6e6ebf0b3
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74926175"
 ---
 # <a name="copy-data-from-servicenow-using-azure-data-factory"></a>Kopiera data från ServiceNow med Azure Data Factory
 
-Den här artikeln beskrivs hur du använder Kopieringsaktivitet i Azure Data Factory för att kopiera data från ServiceNow. Den bygger på den [översikt över Kopieringsaktivitet](copy-activity-overview.md) artikel som ger en allmän översikt över Kopieringsaktivitet.
+I den här artikeln beskrivs hur du använder kopieringsaktiviteten i Azure Data Factory för att kopiera data från ServiceNow. Den bygger på [kopian aktivitet översikt](copy-activity-overview.md) artikeln som presenterar en allmän översikt över kopieringsaktivitet.
 
 ## <a name="supported-capabilities"></a>Funktioner som stöds
 
 Den här ServiceNow-anslutningen stöds för följande aktiviteter:
 
-- [Kopierings aktivitet](copy-activity-overview.md) med [matrisen source/Sink som stöds](copy-activity-overview.md)
-- [Sökningsaktivitet](control-flow-lookup-activity.md)
+- [Kopiera aktivitet](copy-activity-overview.md) med [käll-/sink-matris som stöds](copy-activity-overview.md)
+- [Uppslagsaktivitet](control-flow-lookup-activity.md)
 
-Du kan kopiera data från ServiceNow till alla datalager för mottagare som stöds. En lista över datalager som stöds som källor/mottagare av Kopieringsaktivitet finns i den [datalager som stöds](copy-activity-overview.md#supported-data-stores-and-formats) tabell.
+Du kan kopiera data från ServiceNow till alla sink-datalager som stöds. En lista över datalager som stöds som källor/sänkor av kopieringsaktiviteten finns i tabellen [Datalager som stöds.](copy-activity-overview.md#supported-data-stores-and-formats)
 
-Azure Data Factory tillhandahåller en inbyggd drivrutin för att aktivera anslutning, måste du därför inte att manuellt installera en drivrutin som använder den här anslutningen.
+Azure Data Factory tillhandahåller en inbyggd drivrutin för att aktivera anslutning, därför behöver du inte installera någon drivrutin manuellt med den här anslutningen.
 
 ## <a name="getting-started"></a>Komma igång
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
-Följande avsnitt innehåller information om egenskaper som används för att definiera Data Factory-entiteter som är specifika för ServiceNow-anslutning.
+I följande avsnitt finns information om egenskaper som används för att definiera Data Factory-entiteter som är specifika för ServiceNow-anslutningsappen.
 
 ## <a name="linked-service-properties"></a>Länkade tjänstegenskaper
 
-Följande egenskaper har stöd för ServiceNow länkade tjänsten:
+Följande egenskaper stöds för ServiceNow-länkade tjänsten:
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Type-egenskapen måste anges till: **ServiceNow** | Ja |
-| slutpunkt | Slutpunkten för ServiceNow-server (`http://<instance>.service-now.com`).  | Ja |
-| authenticationType | Autentiseringstypen som ska användas. <br/>Tillåtna värden är: **grundläggande**, **OAuth2** | Ja |
-| användarnamn | Användarnamnet som används för att ansluta till ServiceNow-servern för Basic och OAuth2-autentisering.  | Ja |
-| lösenord | Lösenordet för användarnamnet för Basic- och OAuth2-autentisering. Markera det här fältet som en SecureString ska lagras på ett säkert sätt i Data Factory, eller [refererar till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
-| clientId | Klient-ID för OAuth2-autentisering.  | Nej |
-| clientSecret | Klienthemlighet för OAuth2-autentisering. Markera det här fältet som en SecureString ska lagras på ett säkert sätt i Data Factory, eller [refererar till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Nej |
-| useEncryptedEndpoints | Anger om käll-slutpunkter data krypteras med HTTPS. Standardvärdet är sant.  | Nej |
-| useHostVerification | Anger om värdnamnet i servercertifikatet så att de matchar värdnamnet för servern när du ansluter via SSL. Standardvärdet är sant.  | Nej |
-| usePeerVerification | Anger om du vill kontrollera identiteten på servern när du ansluter via SSL. Standardvärdet är sant.  | Nej |
+| typ | Egenskapen type måste anges till: **ServiceNow** | Ja |
+| slutpunkt | Slutpunkten för ServiceNow-servern`http://<instance>.service-now.com`( ).  | Ja |
+| authenticationType | Den autentiseringstyp som ska användas. <br/>Tillåtna värden är: **Grundläggande**, **OAuth2** | Ja |
+| användarnamn | Användarnamnet som används för att ansluta till ServiceNow-servern för enkel och OAuth2-autentisering.  | Ja |
+| password | Lösenordet som motsvarar användarnamnet för grundläggande autentisering och OAuth2-autentisering. Markera det här fältet som en SecureString för att lagra det säkert i Data Factory, eller [referera till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
+| ClientID | Klient-ID för OAuth2-autentisering.  | Inga |
+| clientSecret (klientSecret) | Klienthemligheten för OAuth2-autentisering. Markera det här fältet som en SecureString för att lagra det säkert i Data Factory, eller [referera till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Inga |
+| användaKrypteradeEndpoints | Anger om slutpunkterna för datakällan är krypterade med HTTPS. Standardvärdet är True.  | Inga |
+| useHostVerification | Anger om värdnamnet i serverns certifikat ska behövas för att matcha serverns värdnamn när den ansluter via SSL. Standardvärdet är True.  | Inga |
+| användaUppvering | Anger om serverns identitet ska verifieras när den ansluter via SSL. Standardvärdet är True.  | Inga |
 
 **Exempel:**
 
@@ -78,14 +78,14 @@ Följande egenskaper har stöd för ServiceNow länkade tjänsten:
 
 ## <a name="dataset-properties"></a>Egenskaper för datamängd
 
-En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera datauppsättningar finns i den [datauppsättningar](concepts-datasets-linked-services.md) artikeln. Det här avsnittet innehåller en lista över egenskaper som stöds av ServiceNow-datauppsättningen.
+En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera datauppsättningar finns i [datauppsättningsartikeln.](concepts-datasets-linked-services.md) Det här avsnittet innehåller en lista över egenskaper som stöds av ServiceNow-datauppsättningen.
 
-Kopiera data från ServiceNow genom att ange typegenskapen på datauppsättningen till **ServiceNowObject**. Följande egenskaper stöds:
+Om du vill kopiera data från ServiceNow anger du egenskapen typ för datauppsättningen till **ServiceNowObject**. Följande egenskaper stöds:
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Type-egenskapen för datauppsättningen måste anges till: **ServiceNowObject** | Ja |
-| tableName | Namnet på tabellen. | Nej (om ”query” i aktivitetskälla har angetts) |
+| typ | Datauppsättningens typegenskap måste anges till: **ServiceNowObject** | Ja |
+| tableName | Tabellens namn. | Nej (om "fråga" i aktivitetskällan har angetts) |
 
 **Exempel**
 
@@ -106,24 +106,24 @@ Kopiera data från ServiceNow genom att ange typegenskapen på datauppsättninge
 
 ## <a name="copy-activity-properties"></a>Kopiera egenskaper för aktivitet
 
-En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera aktiviteter finns i den [Pipelines](concepts-pipelines-activities.md) artikeln. Det här avsnittet innehåller en lista över egenskaper som stöds av ServiceNow-källa.
+En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera aktiviteter finns i artikeln [Pipelines.](concepts-pipelines-activities.md) Det här avsnittet innehåller en lista över egenskaper som stöds av ServiceNow-källan.
 
 ### <a name="servicenow-as-source"></a>ServiceNow som källa
 
-Om du vill kopiera data från ServiceNow, ange typ av datakälla i kopieringsaktiviteten till **ServiceNowSource**. Följande egenskaper stöds i kopieringsaktiviteten **source** avsnittet:
+Om du vill kopiera data från ServiceNow anger du källtypen i kopieringsaktiviteten till **ServiceNowSource**. Följande egenskaper stöds i källavsnittet för **kopieringsaktivitet:**
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Type-egenskapen för aktiviteten kopieringskälla måste anges till: **ServiceNowSource** | Ja |
-| DocumentDB | Använda anpassade SQL-frågan för att läsa data. Till exempel: `"SELECT * FROM Actual.alm_asset"`. | Nej (om ”tableName” i datauppsättningen har angetts) |
+| typ | Egenskapen Type property för kopians aktivitetskälla måste anges till: **ServiceNowSource** | Ja |
+| DocumentDB | Använd den anpassade SQL-frågan för att läsa data. Till exempel: `"SELECT * FROM Actual.alm_asset"`. | Nej (om "tableName" i datauppsättningen har angetts) |
 
-Tänk på följande när du anger schemat och kolumnen för ServiceNow i fråga och **avser [prestandatips](#performance-tips) på Kopiera prestanda de**.
+Observera följande när du anger schemat och kolumnen för ServiceNow i frågan och **se [Prestandatips](#performance-tips) om om hur du får kopiera prestandakonsekvenser**.
 
-- **Schema:** ange scheman som `Actual` eller `Display` i ServiceNow-frågan, vilket du kan titta på det som parameter för `sysparm_display_value` som SANT eller FALSKT när du anropar [ServiceNow restful API: er](https://developer.servicenow.com/app.do#!/rest_api_doc?v=jakarta&id=r_AggregateAPI-GET). 
-- **Kolumn:** kolumnnamn för faktiska värden under `Actual` schemat är `[column name]_value`, och för visningsvärde under `Display` schemat är `[column name]_display_value`. Obs kolumnnamnet måste mappas till schemat som används i frågan.
+- **Schema:** Ange schemat `Actual` `Display` som eller i ServiceNow-frågan, som du `sysparm_display_value` kan se det som parametern som sant eller falskt när du [anropar ServiceNow vilsamma API:er](https://developer.servicenow.com/app.do#!/rest_api_doc?v=jakarta&id=r_AggregateAPI-GET). 
+- **Kolumn:** Kolumnnamnet för det `Actual` faktiska `[column name]_value`värdet under schemat `Display` är `[column name]_display_value`, medan för visningsvärde under schemat är . Kolumnnamnet behöver mappas till schemat som används i frågan.
 
 **Exempelfråga:** 
- `SELECT col_value FROM Actual.alm_asset` eller 
+ `SELECT col_value FROM Actual.alm_asset` ELLER 
 `SELECT col_display_value FROM Display.alm_asset`
 
 **Exempel:**
@@ -161,18 +161,18 @@ Tänk på följande när du anger schemat och kolumnen för ServiceNow i fråga 
 
 ### <a name="schema-to-use"></a>Schema som ska användas
 
-ServiceNow har 2 olika scheman, en är **”faktiskt”** som returnerar faktiska data, den andra är **”visas”** som returnerar visningsvärden av data. 
+ServiceNow har 2 olika scheman, en är **"Faktisk"** som returnerar faktiska data, den andra är **"Display"** som returnerar visningsvärden för data. 
 
-Om du har ett filter i frågan, använder du ”faktiskt” schema som har bättre kopiera prestanda. Vid frågor mot ”faktiskt” schema, ServiceNow har inbyggt stöd för filter vid hämtningen av data för att bara returnera filtrerad resultatuppsättning, medan vid frågor till ”Visa” schema ADF hämta alla data och använda filter internt.
+Om du har ett filter i frågan använder du "Faktiskt" schema som har bättre kopieringsprestanda. När du frågar mot "Faktiskt" schema stöder ServiceNow inbyggt filter när data hämtas för att bara returnera den filtrerade resultatuppsättningen, medan ADF vid frågor om "Display"-schema hämtar alla data och använder filtret internt.
 
 ### <a name="index"></a>Index
 
-ServiceNow-Tabellindex kan hjälpa att förbättra frågeprestanda, referera till [skapa ett Tabellindex](https://docs.servicenow.com/bundle/geneva-servicenow-platform/page/administer/table_administration/task/t_CreateCustomIndex.html).
+ServiceNow tabellindex kan bidra till att förbättra frågeprestanda, se [Skapa ett tabellindex](https://docs.servicenow.com/bundle/geneva-servicenow-platform/page/administer/table_administration/task/t_CreateCustomIndex.html).
 
-## <a name="lookup-activity-properties"></a>Egenskaper för Sök aktivitet
+## <a name="lookup-activity-properties"></a>Egenskaper för uppslagsaktivitet
 
-Om du vill veta mer om egenskaperna kontrollerar du [söknings aktiviteten](control-flow-lookup-activity.md).
+Om du vill veta mer om egenskaperna kontrollerar du [uppslagsaktivitet](control-flow-lookup-activity.md).
 
 
 ## <a name="next-steps"></a>Nästa steg
-En lista över datalager som stöds som källor och mottagare av kopieringsaktiviteten i Azure Data Factory finns i [datalager som stöds](copy-activity-overview.md#supported-data-stores-and-formats).
+En lista över datalager som stöds som källor och sänkor av kopieringsaktiviteten i Azure Data Factory finns i [datalager som stöds](copy-activity-overview.md#supported-data-stores-and-formats).

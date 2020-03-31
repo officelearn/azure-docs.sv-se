@@ -1,30 +1,30 @@
 ---
-title: Mall funktioner – resurser
-description: Beskriver funktionerna du använder i en Azure Resource Manager-mall för att hämta värden om resurser.
+title: Mallfunktioner - resurser
+description: Beskriver de funktioner som ska användas i en Azure Resource Manager-mall för att hämta värden om resurser.
 ms.topic: conceptual
 ms.date: 02/10/2020
-ms.openlocfilehash: 10476f5a29c12d7437beb9a9f707feda815d7ba1
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: e9e1d700282652304f0bede5e697ba8625f5a5d6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79248676"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80156301"
 ---
-# <a name="resource-functions-for-azure-resource-manager-templates"></a>Resursfunktioner för Azure Resource Manager-mallar
+# <a name="resource-functions-for-arm-templates"></a>Resursfunktioner för ARM-mallar
 
-Resource Manager tillhandahåller följande funktioner för att hämta resurs-värden:
+Resource Manager innehåller följande funktioner för att hämta resursvärden i din AZURE Resource Manager-mall (ARM):
 
 * [extensionResourceId](#extensionresourceid)
-* [lista](#list)
-* [finansiär](#providers)
-* [förhållande](#reference)
-* [resourceGroup](#resourcegroup)
-* [resourceId](#resourceid)
-* [prenumeration](#subscription)
+* [lista*](#list)
+* [Leverantörer](#providers)
+* [Referens](#reference)
+* [resursGrupp](#resourcegroup)
+* [resourceId (resourceId)](#resourceid)
+* [Prenumeration](#subscription)
 * [subscriptionResourceId](#subscriptionresourceid)
 * [tenantResourceId](#tenantresourceid)
 
-För att hämta värden från parametrar, variabler eller aktuell distribution, se [distributions värde funktioner](template-functions-deployment.md).
+Om du vill hämta värden från parametrar, variabler eller den aktuella distributionen finns [i Distributionsvärdesfunktioner](template-functions-deployment.md).
 
 ## <a name="extensionresourceid"></a>extensionResourceId
 
@@ -32,56 +32,56 @@ För att hämta värden från parametrar, variabler eller aktuell distribution, 
 extensionResourceId(resourceId, resourceType, resourceName1, [resourceName2], ...)
 ```
 
-Returnerar resurs-ID för en [tilläggs resurs](../management/extension-resource-types.md), som är en resurs typ som används på en annan resurs för att lägga till dess funktioner.
+Returnerar resurs-ID:et för en [tilläggsresurs](../management/extension-resource-types.md), som är en resurstyp som tillämpas på en annan resurs för att lägga till dess funktioner.
 
 ### <a name="parameters"></a>Parametrar
 
 | Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| resourceId |Ja |sträng |Resurs-ID för resursen som tilläggs resursen tillämpas på. |
-| resourceType |Ja |sträng |Typ av resurs, inklusive resursproviderns namnområde. |
-| resourceName1 |Ja |sträng |Namnet på resursen. |
-| resourceName2 |Nej |sträng |Nästa resurs namns segment, om det behövs. |
+| resourceId |Ja |sträng |Resurs-ID:et för resursen som tilläggsresursen tillämpas på. |
+| resourceType |Ja |sträng |Typ av resurs inklusive resursproviderns namnområde. |
+| resourceName1 |Ja |sträng |Namn på resurs. |
+| resourceName2 |Inga |sträng |Nästa resursnamnssegment, om det behövs. |
 
-Fortsätt att lägga till resurs namn som parametrar när resurs typen innehåller fler segment.
+Fortsätt att lägga till resursnamn som parametrar när resurstypen innehåller fler segment.
 
 ### <a name="return-value"></a>Returvärde
 
-Det grundläggande formatet för resurs-ID: t som returnerades av den här funktionen är:
+Det grundläggande formatet för det resurs-ID som returneras av den här funktionen är:
 
 ```json
 {scope}/providers/{extensionResourceProviderNamespace}/{extensionResourceType}/{extensionResourceName}
 ```
 
-Omfattnings segmentet varierar beroende på vilken resurs som utökas.
+Scopesegmentet varierar beroende på att resursen utökas.
 
-När tilläggs resursen används för en **resurs**returneras resurs-ID i följande format:
+När tilläggsresursen tillämpas på en **resurs**returneras resurs-ID:n i följande format:
 
 ```json
 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{baseResourceProviderNamespace}/{baseResourceType}/{baseResourceName}/providers/{extensionResourceProviderNamespace}/{extensionResourceType}/{extensionResourceName}
 ```
 
-När tilläggs resursen tillämpas på en **resurs grupp**är formatet:
+När tilläggsresursen tillämpas på en **resursgrupp**är formatet:
 
 ```json
 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{extensionResourceProviderNamespace}/{extensionResourceType}/{extensionResourceName}
 ```
 
-När tilläggs resursen används för en **prenumeration**är formatet:
+När tilläggsresursen tillämpas på en **prenumeration**är formatet:
 
 ```json
 /subscriptions/{subscriptionId}/providers/{extensionResourceProviderNamespace}/{extensionResourceType}/{extensionResourceName}
 ```
 
-När tilläggs resursen används för en **hanterings grupp**är formatet:
+När tilläggsresursen tillämpas på en **hanteringsgrupp**är formatet:
 
 ```json
 /providers/Microsoft.Management/managementGroups/{managementGroupName}/providers/{extensionResourceProviderNamespace}/{extensionResourceType}/{extensionResourceName}
 ```
 
-### <a name="extensionresourceid-example"></a>extensionResourceId-exempel
+### <a name="extensionresourceid-example"></a>exempel på extensionResourceId
 
-I följande exempel returneras resurs-ID för ett resurs grupp lås.
+I följande exempel returneras resurs-ID:t för ett resursgrupplås.
 
 ```json
 {
@@ -106,151 +106,151 @@ I följande exempel returneras resurs-ID för ett resurs grupp lås.
 <a id="listkeys" />
 <a id="list" />
 
-## <a name="list"></a>lista
+## <a name="list"></a>lista*
 
 ```json
 list{Value}(resourceName or resourceIdentifier, apiVersion, functionValues)
 ```
 
-Syntaxen för den här funktionen varierar beroende på namnet på list åtgärderna. Varje implementering returnerar värden för den resurs typ som har stöd för en List åtgärd. Åtgärds namnet måste börja med `list`. Några vanliga användnings områden är `listKeys` och `listSecrets`.
+Syntaxen för den här funktionen varierar beroende på namnet på listoperationerna. Varje implementering returnerar värden för den resurstyp som stöder en liståtgärd. Åtgärdsnamnet måste `list`börja med . Några vanliga användningsområden är `listKeys` och `listSecrets`.
 
 ### <a name="parameters"></a>Parametrar
 
 | Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
 | resourceName eller resourceIdentifier |Ja |sträng |Unik identifierare för resursen. |
-| apiVersion |Ja |sträng |API-versionen av resursen runtime-tillståndet. Normalt i formatet **åååå-mm-dd**. |
-| functionValues |Nej |objekt | Ett objekt som har värden för funktionen. Ange bara det här objektet för funktioner som stöder mottagning av ett objekt med parameter värden, t. ex. **listAccountSas** på ett lagrings konto. Ett exempel på att skicka funktions värden visas i den här artikeln. |
+| apiVersion |Ja |sträng |API-version av resurskörningstillstånd. Vanligtvis, i formatet, **yyyy-mm-dd**. |
+| funktionVärderar |Inga |objekt | Ett objekt som har värden för funktionen. Ange endast det här objektet för funktioner som stöder mottagande av ett objekt med parametervärden, till exempel **listAccountSas** på ett lagringskonto. Ett exempel på övergående funktionsvärden visas i den här artikeln. |
 
-### <a name="valid-uses"></a>Giltig användning
+### <a name="valid-uses"></a>Giltiga användningsområden
 
-List funktionerna kan bara användas i egenskaperna för en resurs definition och avsnittet utdata i en mall eller distribution. När du använder med [egenskap upprepning](copy-properties.md)kan du använda List funktionerna för `input` eftersom uttrycket har tilldelats till resurs egenskapen. Du kan inte använda dem med `count` eftersom antalet måste bestämmas innan List funktionen har åtgärd ATS.
+Listfunktionerna kan bara användas i egenskaperna för en resursdefinition och utdataavsnittet i en mall eller distribution. När du används med [egenskapsiteration](copy-properties.md) `input` kan du använda listfunktionerna för eftersom uttrycket är tilldelat resursegenskapen. Du kan inte använda `count` dem med eftersom antalet måste bestämmas innan listfunktionen har lösts.
 
 ### <a name="implementations"></a>Implementeringar
 
-Den möjliga användningen av List * visas i följande tabell.
+Möjliga användningsområden för listan* visas i följande tabell.
 
-| Resurstyp | Funktions namn |
+| Resurstyp | Funktionsnamn |
 | ------------- | ------------- |
-| Microsoft.AnalysisServices/servers | [listGatewayStatus](/rest/api/analysisservices/servers/listgatewaystatus) |
-| Microsoft. AppConfiguration/configurationStores | Listnycklar |
-| Microsoft. Automation/automationAccounts | [Listnycklar](/rest/api/automation/keys/listbyautomationaccount) |
-| Microsoft.Batch/batchAccounts | [listnycklar](/rest/api/batchmanagement/batchaccount/getkeys) |
-| Microsoft. BatchAI/arbets ytor/experiment/jobb | [listoutputfiles](/rest/api/batchai/jobs/listoutputfiles) |
-| Microsoft.Blockchain/blockchainMembers | [listApiKeys](/rest/api/blockchain/2019-06-01-preview/blockchainmembers/listapikeys) |
-| Microsoft.Blockchain/blockchainMembers/transactionNodes | [listApiKeys](/rest/api/blockchain/2019-06-01-preview/transactionnodes/listapikeys) |
-| Microsoft.Cache/redis | [Listnycklar](/rest/api/redis/redis/listkeys) |
-| Microsoft.CognitiveServices/accounts | [Listnycklar](/rest/api/cognitiveservices/accountmanagement/accounts/listkeys) |
-| Microsoft. ContainerRegistry/register | [listBuildSourceUploadUrl](/rest/api/containerregistry/registries%20(tasks)/getbuildsourceuploadurl) |
-| Microsoft. ContainerRegistry/register | [listCredentials](/rest/api/containerregistry/registries/listcredentials) |
-| Microsoft. ContainerRegistry/register | [listUsages](/rest/api/containerregistry/registries/listusages) |
-| Microsoft.ContainerRegistry/registries/webhooks | [listEvents](/rest/api/containerregistry/webhooks/listevents) |
-| Microsoft. ContainerRegistry/register/kör | [listLogSasUrl](/rest/api/containerregistry/runs/getlogsasurl) |
-| Microsoft. ContainerRegistry/register/uppgifter | [listDetails](/rest/api/containerregistry/tasks/getdetails) |
-| Microsoft. container service/managedClusters | [listClusterAdminCredential](/rest/api/aks/managedclusters/listclusteradmincredentials) |
-| Microsoft. container service/managedClusters | [listClusterUserCredential](/rest/api/aks/managedclusters/listclusterusercredentials) |
-| Microsoft.ContainerService/managedClusters/accessProfiles | [listCredential](/rest/api/aks/managedclusters/getaccessprofile) |
-| Microsoft. data-och-jobb | listCredentials |
-| Microsoft. DataFactory/datafactories/gateways | listauthkeys |
-| Microsoft.DataFactory/factories/integrationruntimes | [listauthkeys](/rest/api/datafactory/integrationruntimes/listauthkeys) |
-| Microsoft. DataLakeAnalytics/Accounts/storageAccounts/containers | [listSasTokens](/rest/api/datalakeanalytics/storageaccounts/listsastokens) |
-| Microsoft. DataShare/konton/resurser | [listSynchronizations](/rest/api/datashare/shares/listsynchronizations) |
-| Microsoft. DataShare/Accounts/shareSubscriptions | [listSourceShareSynchronizationSettings](/rest/api/datashare/sharesubscriptions/listsourcesharesynchronizationsettings) |
-| Microsoft. DataShare/Accounts/shareSubscriptions | [listSynchronizationDetails](/rest/api/datashare/sharesubscriptions/listsynchronizationdetails) |
-| Microsoft. DataShare/Accounts/shareSubscriptions | [listSynchronizations](/rest/api/datashare/sharesubscriptions/listsynchronizations) |
+| Microsoft.AnalysisServices/servrar | [listaGatewayStatus](/rest/api/analysisservices/servers/listgatewaystatus) |
+| Microsoft.AppKonfigurering/configurationStores | Listtangenter |
+| Microsoft.Automation/automationKonton | [listTangenter](/rest/api/automation/keys/listbyautomationaccount) |
+| Microsoft.Batch/batchKonton | [listnycklar](/rest/api/batchmanagement/batchaccount/getkeys) |
+| Microsoft.BatchAI/arbetsytor/experiment/jobb | [listoutputfiler](/rest/api/batchai/jobs/listoutputfiles) |
+| Microsoft.Blockchain/blockchainMedlem | [listaApiTangenter](/rest/api/blockchain/2019-06-01-preview/blockchainmembers/listapikeys) |
+| Microsoft.Blockchain/blockchainMedlem/transaktionNoder | [listaApiTangenter](/rest/api/blockchain/2019-06-01-preview/transactionnodes/listapikeys) |
+| Microsoft.Cache/redis | [listTangenter](/rest/api/redis/redis/listkeys) |
+| Microsoft.CognitiveServices/konton | [listTangenter](/rest/api/cognitiveservices/accountmanagement/accounts/listkeys) |
+| Microsoft.Container-register/register | [listBuildSourceUploadUrl](/rest/api/containerregistry/registries%20(tasks)/getbuildsourceuploadurl) |
+| Microsoft.Container-register/register | [listaCredentials](/rest/api/containerregistry/registries/listcredentials) |
+| Microsoft.Container-register/register | [listaAnvändarna](/rest/api/containerregistry/registries/listusages) |
+| Microsoft.ContainerRegistry/register/webhooks | [listaHändelser](/rest/api/containerregistry/webhooks/listevents) |
+| Microsoft.ContainerRegistry/register/runs | [listaLogSasUrl](/rest/api/containerregistry/runs/getlogsasurl) |
+| Microsoft.ContainerRegistry/register/uppgifter | [listDetaljer](/rest/api/containerregistry/tasks/getdetails) |
+| Microsoft.ContainerService/managedClusters | [listaKlusterAdminCredential](/rest/api/aks/managedclusters/listclusteradmincredentials) |
+| Microsoft.ContainerService/managedClusters | [listaKlusterKredential](/rest/api/aks/managedclusters/listclusterusercredentials) |
+| Microsoft.ContainerService/managedClusters/accessProfiles Microsoft.ContainerService/managedClusters/accessProfiles Microsoft.ContainerService/managedClusters/accessProfiles Microsoft. | [listaKnsiktigt](/rest/api/aks/managedclusters/getaccessprofile) |
+| Microsoft.DataBox/jobb | listaCredentials |
+| Microsoft.DataFactory/datafactories/gateways | listauthkeys |
+| Microsoft.DataFactory/fabriker/integrationruntimes | [listauthkeys](/rest/api/datafactory/integrationruntimes/listauthkeys) |
+| Microsoft.DataLakeAnalytics/accounts/storageAccounts/Containers | [listaSasTokens](/rest/api/datalakeanalytics/storageaccounts/listsastokens) |
+| Microsoft.DataShare/konton/resurser | [listaSynchronizations](/rest/api/datashare/shares/listsynchronizations) |
+| Microsoft.DataShare/accounts/shareSubscriptions Microsoft.DataShare/accounts/shareSubscriptions Microsoft.DataShare/accounts/shareSubscriptions Microsoft. | [listaSourceShareSynchronizationInställningar](/rest/api/datashare/sharesubscriptions/listsourcesharesynchronizationsettings) |
+| Microsoft.DataShare/accounts/shareSubscriptions Microsoft.DataShare/accounts/shareSubscriptions Microsoft.DataShare/accounts/shareSubscriptions Microsoft. | [listaSynchronizationDetails](/rest/api/datashare/sharesubscriptions/listsynchronizationdetails) |
+| Microsoft.DataShare/accounts/shareSubscriptions Microsoft.DataShare/accounts/shareSubscriptions Microsoft.DataShare/accounts/shareSubscriptions Microsoft. | [listaSynchronizations](/rest/api/datashare/sharesubscriptions/listsynchronizations) |
 | Microsoft.Devices/iotHubs | [listnycklar](/rest/api/iothub/iothubresource/listkeys) |
-| Microsoft. Devices/iotHubs/iotHubKeys | [listnycklar](/rest/api/iothub/iothubresource/getkeysforkeyname) |
+| Microsoft.Devices/iotHubs/iotHubKeys | [listnycklar](/rest/api/iothub/iothubresource/getkeysforkeyname) |
 | Microsoft.Devices/provisioningServices/keys | [listnycklar](/rest/api/iot-dps/iotdpsresource/listkeysforkeyname) |
-| Microsoft.Devices/provisioningServices | [listnycklar](/rest/api/iot-dps/iotdpsresource/listkeys) |
-| Microsoft.DevTestLab/labs | [ListVhds](/rest/api/dtl/labs/listvhds) |
-| Microsoft.DevTestLab/labs/schedules | [ListApplicable](/rest/api/dtl/schedules/listapplicable) |
-| Microsoft.DevTestLab/labs/users/serviceFabrics | [ListApplicableSchedules](/rest/api/dtl/servicefabrics/listapplicableschedules) |
-| Microsoft.DevTestLab/labs/virtualMachines | [ListApplicableSchedules](/rest/api/dtl/virtualmachines/listapplicableschedules) |
-| Microsoft. DocumentDB/databaseAccounts | [listConnectionStrings](/rest/api/cosmos-db-resource-provider/databaseaccounts/listconnectionstrings) |
-| Microsoft. DocumentDB/databaseAccounts | [Listnycklar](/rest/api/cosmos-db-resource-provider/databaseaccounts/listkeys) |
-| Microsoft.DomainRegistration | [listDomainRecommendations](/rest/api/appservice/domains/listrecommendations) |
-| Microsoft.DomainRegistration/topLevelDomains | [listAgreements](/rest/api/appservice/topleveldomains/listagreements) |
-| Microsoft. EventGrid/Domains | [Listnycklar](/rest/api/eventgrid/domains/listsharedaccesskeys) |
-| Microsoft. EventGrid/ämnen | [Listnycklar](/rest/api/eventgrid/topics/listsharedaccesskeys) |
+| Microsoft.Devices/provisioningServices Microsoft.Devices/provisioningServices Microsoft.Devices/provisioningServices Microsoft. | [listnycklar](/rest/api/iot-dps/iotdpsresource/listkeys) |
+| Microsoft.DevTestLab/labs | [ListVhds (ListVhds)](/rest/api/dtl/labs/listvhds) |
+| Microsoft.DevTestLab/labs/scheman | [ListaTilläms](/rest/api/dtl/schedules/listapplicable) |
+| Microsoft.DevTestLab/labs/users/serviceFabrics Microsoft.DevTestLab/labs/users/serviceFabrics Microsoft.DevTestLab/labs/users/serviceFabrics Microsoft. | [ListaApplicableSchedules](/rest/api/dtl/servicefabrics/listapplicableschedules) |
+| Microsoft.DevTestLab/labs/virtualMachines | [ListaApplicableSchedules](/rest/api/dtl/virtualmachines/listapplicableschedules) |
+| Microsoft.DocumentDB/databasKonton | [listaAnslutningssträngar](/rest/api/cosmos-db-resource-provider/databaseaccounts/listconnectionstrings) |
+| Microsoft.DocumentDB/databasKonton | [listTangenter](/rest/api/cosmos-db-resource-provider/databaseaccounts/listkeys) |
+| Microsoft.DomainRegistration | [listaDomänerKommendationer](/rest/api/appservice/domains/listrecommendations) |
+| Microsoft.DomainRegistration/topLevelDomains | [listaAvtal](/rest/api/appservice/topleveldomains/listagreements) |
+| Microsoft.EventGrid/domäner | [listTangenter](/rest/api/eventgrid/domains/listsharedaccesskeys) |
+| Ämnen för Microsoft.EventGrid/Event | [listTangenter](/rest/api/eventgrid/topics/listsharedaccesskeys) |
 | Microsoft.EventHub/namespaces/authorizationRules | [listnycklar](/rest/api/eventhub/namespaces/listkeys) |
 | Microsoft.EventHub/namespaces/disasterRecoveryConfigs/authorizationRules | [listnycklar](/rest/api/eventhub/disasterrecoveryconfigs/listkeys) |
 | Microsoft.EventHub/namespaces/eventhubs/authorizationRules | [listnycklar](/rest/api/eventhub/eventhubs/listkeys) |
-| Microsoft. ImportExport/Jobs | [listBitLockerKeys](/rest/api/storageimportexport/bitlockerkeys/list) |
-| Microsoft. Kusto/kluster/databaser | [ListPrincipals](/rest/api/azurerekusto/databases/listprincipals) |
-| Microsoft. LabServices/användare | [ListEnvironments](/rest/api/labservices/globalusers/listenvironments) |
-| Microsoft. LabServices/användare | [ListLabs](/rest/api/labservices/globalusers/listlabs) |
-| Microsoft.Logic/integrationAccounts/agreements | [listContentCallbackUrl](/rest/api/logic/agreements/listcontentcallbackurl) |
-| Microsoft.Logic/integrationAccounts/assemblies | [listContentCallbackUrl](/rest/api/logic/integrationaccountassemblies/listcontentcallbackurl) |
-| Microsoft.Logic/integrationAccounts | [listCallbackUrl](/rest/api/logic/integrationaccounts/getcallbackurl) |
-| Microsoft.Logic/integrationAccounts | [listKeyVaultKeys](/rest/api/logic/integrationaccounts/listkeyvaultkeys) |
-| Microsoft. Logic/integrationAccounts/Maps | [listContentCallbackUrl](/rest/api/logic/maps/listcontentcallbackurl) |
-| Microsoft.Logic/integrationAccounts/partners | [listContentCallbackUrl](/rest/api/logic/partners/listcontentcallbackurl) |
-| Microsoft.Logic/integrationAccounts/schemas | [listContentCallbackUrl](/rest/api/logic/schemas/listcontentcallbackurl) |
-| Microsoft.Logic/workflows | [listCallbackUrl](/rest/api/logic/workflows/listcallbackurl) |
-| Microsoft.Logic/workflows | [listSwagger](/rest/api/logic/workflows/listswagger) |
-| Microsoft. Logic/-arbets flöden/körningar/åtgärder | [listExpressionTraces](/rest/api/logic/workflowrunactions/listexpressiontraces) |
-| Microsoft. Logic/-arbets flöden/körningar/åtgärder/upprepningar | [listExpressionTraces](/rest/api/logic/workflowrunactionrepetitions/listexpressiontraces) |
-| Microsoft. Logic/arbets flöden/utlösare | [listCallbackUrl](/rest/api/logic/workflowtriggers/listcallbackurl) |
-| Microsoft.Logic/workflows/versions/triggers | [listCallbackUrl](/rest/api/logic/workflowversions/listcallbackurl) |
+| Microsoft.ImportExport/jobb | [listaBitLockerKeys](/rest/api/storageimportexport/bitlockerkeys/list) |
+| Microsoft.Kusto/Kluster/Databaser | [ListPrincipals](/rest/api/azurerekusto/databases/listprincipals) |
+| Microsoft.LabServices/användare | [ListaMiljöer](/rest/api/labservices/globalusers/listenvironments) |
+| Microsoft.LabServices/användare | [ListLabs (ListLabs)](/rest/api/labservices/globalusers/listlabs) |
+| Microsoft.Logic/integrationKonton/avtal | [listaContentCallbackUrl](/rest/api/logic/agreements/listcontentcallbackurl) |
+| Microsoft.Logic/integrationKonto/sammansättningar | [listaContentCallbackUrl](/rest/api/logic/integrationaccountassemblies/listcontentcallbackurl) |
+| Microsoft.Logic/integrationKonton | [listaCallbackUrl](/rest/api/logic/integrationaccounts/getcallbackurl) |
+| Microsoft.Logic/integrationKonton | [listKeyVaultKeys](/rest/api/logic/integrationaccounts/listkeyvaultkeys) |
+| Microsoft.Logic/integrationKonton/kartor | [listaContentCallbackUrl](/rest/api/logic/maps/listcontentcallbackurl) |
+| Microsoft.Logic/integrationKonton/partner | [listaContentCallbackUrl](/rest/api/logic/partners/listcontentcallbackurl) |
+| Microsoft.Logic/integrationKonton/scheman | [listaContentCallbackUrl](/rest/api/logic/schemas/listcontentcallbackurl) |
+| Microsoft.Logic/arbetsflöden | [listaCallbackUrl](/rest/api/logic/workflows/listcallbackurl) |
+| Microsoft.Logic/arbetsflöden | [listaSwagger](/rest/api/logic/workflows/listswagger) |
+| Microsoft.Logic/workflows/runs/actions | [listaUttrycktTraces](/rest/api/logic/workflowrunactions/listexpressiontraces) |
+| Microsoft.Logic/workflows/runs/actions/repetitions | [listaUttrycktTraces](/rest/api/logic/workflowrunactionrepetitions/listexpressiontraces) |
+| Microsoft.Logic/arbetsflöden/utlösare | [listaCallbackUrl](/rest/api/logic/workflowtriggers/listcallbackurl) |
+| Microsoft.Logic/arbetsflöden/versioner/utlösare | [listaCallbackUrl](/rest/api/logic/workflowversions/listcallbackurl) |
 | Microsoft.MachineLearning/webServices | [listnycklar](/rest/api/machinelearning/webservices/listkeys) |
 | Microsoft.MachineLearning/Workspaces | listworkspacekeys |
-| Microsoft. MachineLearningServices/arbets ytor/beräkningar | [Listnycklar](/rest/api/azureml/workspacesandcomputes/machinelearningcompute/listkeys) |
-| Microsoft. MachineLearningServices/arbets ytor/beräkningar | [listNodes](/rest/api/azureml/workspacesandcomputes/machinelearningcompute/listnodes) |
-| Microsoft.MachineLearningServices/workspaces | [Listnycklar](/rest/api/azureml/workspacesandcomputes/workspaces/listkeys) |
-| Microsoft. Maps/konton | [Listnycklar](/rest/api/maps-management/accounts/listkeys) |
-| Microsoft. Media/Media Services/assets | [listContainerSas](/rest/api/media/assets/listcontainersas) |
-| Microsoft. Media/Media Services/assets | [listStreamingLocators](/rest/api/media/assets/liststreaminglocators) |
-| Microsoft. Media/Media Services/streamingLocators | [listContentKeys](/rest/api/media/streaminglocators/listcontentkeys) |
-| Microsoft. Media/Media Services/streamingLocators | [listPaths](/rest/api/media/streaminglocators/listpaths) |
+| Microsoft.MachineLearningServices/arbetsytor/beräkningar | [listTangenter](/rest/api/azureml/workspacesandcomputes/machinelearningcompute/listkeys) |
+| Microsoft.MachineLearningServices/arbetsytor/beräkningar | [listaNoder](/rest/api/azureml/workspacesandcomputes/machinelearningcompute/listnodes) |
+| Microsoft.MachineLearningServices/arbetsytor | [listTangenter](/rest/api/azureml/workspacesandcomputes/workspaces/listkeys) |
+| Microsoft.Maps/konton | [listTangenter](/rest/api/maps-management/accounts/listkeys) |
+| Microsoft.Media/mediaservices/resurser | [listaContainerSas](/rest/api/media/assets/listcontainersas) |
+| Microsoft.Media/mediaservices/resurser | [listaStreamingLocators](/rest/api/media/assets/liststreaminglocators) |
+| Microsoft.Media/mediaservices/streamingLocators | [listaInnehållstangenter](/rest/api/media/streaminglocators/listcontentkeys) |
+| Microsoft.Media/mediaservices/streamingLocators | [listPaths](/rest/api/media/streaminglocators/listpaths) |
 | Microsoft.Network/applicationSecurityGroups | listIpConfigurations |
 | Microsoft.NotificationHubs/Namespaces/authorizationRules | [listnycklar](/rest/api/notificationhubs/namespaces/listkeys) |
 | Microsoft.NotificationHubs/Namespaces/NotificationHubs/authorizationRules | [listnycklar](/rest/api/notificationhubs/notificationhubs/listkeys) |
-| Microsoft. OperationalInsights/arbets ytor | [Listnycklar](/rest/api/loganalytics/workspaces%202015-03-20/listkeys) |
-| Microsoft.PolicyInsights/remediations | [listDeployments](/rest/api/policy-insights/remediations/listdeploymentsatresourcegroup) |
+| Microsoft.OperationalInsights/arbetsytor | [listTangenter](/rest/api/loganalytics/workspaces%202015-03-20/listkeys) |
+| Microsoft.PolicyInsights/remediations | [listaDeployments](/rest/api/policy-insights/remediations/listdeploymentsatresourcegroup) |
 | Microsoft.Relay/namespaces/authorizationRules | [listnycklar](/rest/api/relay/namespaces/listkeys) |
 | Microsoft.Relay/namespaces/disasterRecoveryConfigs/authorizationRules | listnycklar |
 | Microsoft.Relay/namespaces/HybridConnections/authorizationRules | [listnycklar](/rest/api/relay/hybridconnections/listkeys) |
 | Microsoft.Relay/namespaces/WcfRelays/authorizationRules | [listnycklar](/rest/api/relay/wcfrelays/listkeys) |
-| Microsoft.Search/searchServices | [listAdminKeys](/rest/api/searchmanagement/adminkeys/get) |
+| Microsoft.Search/searchServices | [listaFöramintangenter](/rest/api/searchmanagement/adminkeys/get) |
 | Microsoft.Search/searchServices | [listQueryKeys](/rest/api/searchmanagement/querykeys/listbysearchservice) |
 | Microsoft.ServiceBus/namespaces/authorizationRules | [listnycklar](/rest/api/servicebus/namespaces/listkeys) |
 | Microsoft.ServiceBus/namespaces/disasterRecoveryConfigs/authorizationRules | [listnycklar](/rest/api/servicebus/disasterrecoveryconfigs/listkeys) |
 | Microsoft.ServiceBus/namespaces/queues/authorizationRules | [listnycklar](/rest/api/servicebus/queues/listkeys) |
 | Microsoft.ServiceBus/namespaces/topics/authorizationRules | [listnycklar](/rest/api/servicebus/topics/listkeys) |
 | Microsoft.SignalRService/SignalR | [listnycklar](/rest/api/signalr/signalr/listkeys) |
-| Microsoft.Storage/storageAccounts | [listAccountSas](/rest/api/storagerp/storageaccounts/listaccountsas) |
+| Microsoft.Storage/storageAccounts | [listaAS](/rest/api/storagerp/storageaccounts/listaccountsas) |
 | Microsoft.Storage/storageAccounts | [listnycklar](/rest/api/storagerp/storageaccounts/listkeys) |
-| Microsoft.Storage/storageAccounts | [listServiceSas](/rest/api/storagerp/storageaccounts/listservicesas) |
-| Microsoft. StorSimple/chefer/Devices | [listFailoverSets](/rest/api/storsimple/devices/listfailoversets) |
-| Microsoft. StorSimple/chefer/Devices | [listFailoverTargets](/rest/api/storsimple/devices/listfailovertargets) |
-| Microsoft.StorSimple/managers | [listActivationKey](/rest/api/storsimple/managers/getactivationkey) |
-| Microsoft.StorSimple/managers | [listPublicEncryptionKey](/rest/api/storsimple/managers/getpublicencryptionkey) |
-| Microsoft. Web/connectionGateways | ListStatus |
-| microsoft.web/connections | listconsentlinks |
-| Microsoft. Web/customApis | listWsdlInterfaces |
-| Microsoft. Web/locations | listwsdlinterfaces |
-| microsoft.web/apimanagementaccounts/apis/connections | listconnectionkeys |
+| Microsoft.Storage/storageAccounts | [listaServiceSas](/rest/api/storagerp/storageaccounts/listservicesas) |
+| Microsoft.StorSimple/managers/devices Microsoft.StorSimple/managers/devices Microsoft.StorSimple/managers/devices Microsoft. | [listaFailoverSets](/rest/api/storsimple/devices/listfailoversets) |
+| Microsoft.StorSimple/managers/devices Microsoft.StorSimple/managers/devices Microsoft.StorSimple/managers/devices Microsoft. | [listaFailoverTargets](/rest/api/storsimple/devices/listfailovertargets) |
+| Microsoft.StorSimple/managers | [listaActivationKey](/rest/api/storsimple/managers/getactivationkey) |
+| Microsoft.StorSimple/managers | [listaPublicEncryptionKey](/rest/api/storsimple/managers/getpublicencryptionkey) |
+| Microsoft.Web/connectionGateways | ListaStatus |
+| microsoft.web/anslutningar | listmedanslänkar |
+| Microsoft.Web/customApis | listaWsdlInterfaces |
+| microsoft.web/platser | listwsdlinterfaces |
+| microsoft.web/apimanagementaccounts/apis/connections | listanslutningsnycklar |
 | microsoft.web/apimanagementaccounts/apis/connections | listsecrets |
-| Microsoft. Web/Sites/Backups | [list](/rest/api/appservice/webapps/listbackups) |
-| Microsoft.Web/sites/config | [list](/rest/api/appservice/webapps/listconfigurations) |
-| Microsoft. Web/Sites/Functions | [listnycklar](/rest/api/appservice/webapps/listfunctionkeys)
-| Microsoft. Web/Sites/Functions | [listsecrets](/rest/api/appservice/webapps/listfunctionsecrets) |
-| Microsoft. Web/Sites/hybridconnectionnamespaces/relays | [listnycklar](/rest/api/appservice/appserviceplans/listhybridconnectionkeys) |
-| microsoft.web/sites | [listsyncfunctiontriggerstatus](/rest/api/appservice/webapps/listsyncfunctiontriggers) |
-| Microsoft. Web/Sites/lotss/Functions | [listsecrets](/rest/api/appservice/webapps/listfunctionsecretsslot) |
+| microsoft.web/sites/backups | [list](/rest/api/appservice/webapps/listbackups) |
+| Microsoft.Webbplatser/config | [list](/rest/api/appservice/webapps/listconfigurations) |
+| microsoft.web/sites/functions | [listnycklar](/rest/api/appservice/webapps/listfunctionkeys)
+| microsoft.web/sites/functions | [listsecrets](/rest/api/appservice/webapps/listfunctionsecrets) |
+| microsoft.web/sites/hybridconnectionnamespaces/relays | [listnycklar](/rest/api/appservice/appserviceplans/listhybridconnectionkeys) |
+| microsoft.web/webbplatser | [listsyncfunctiontriggerstatus](/rest/api/appservice/webapps/listsyncfunctiontriggers) |
+| microsoft.web/sites/slots/functions | [listsecrets](/rest/api/appservice/webapps/listfunctionsecretsslot) |
 | microsoft.web/sites/slots/backups | [list](/rest/api/appservice/webapps/listbackupsslot) |
-| Microsoft.Web/sites/slots/config | [list](/rest/api/appservice/webapps/listconfigurationsslot) |
-| Microsoft. Web/Sites/lotss/Functions | [listsecrets](/rest/api/appservice/webapps/listfunctionsecretsslot) |
+| Microsoft.Webbplatser/platser/config | [list](/rest/api/appservice/webapps/listconfigurationsslot) |
+| microsoft.web/sites/slots/functions | [listsecrets](/rest/api/appservice/webapps/listfunctionsecretsslot) |
 
-För att avgöra vilka resurstyper som har en liståtgärden, har du följande alternativ:
+För att avgöra vilka resurstyper som har en liståtgärd har du följande alternativ:
 
-* Visa [REST API åtgärder](/rest/api/) för en resurs leverantör och leta efter List åtgärder. Till exempel har lagrings konton [listnycklar-åtgärden](/rest/api/storagerp/storageaccounts).
-* Använd cmdleten [Get-AzProviderOperation](/powershell/module/az.resources/get-azprovideroperation) PowerShell. I följande exempel hämtas alla åtgärder i listan för storage-konton:
+* Visa [REST API-åtgärder](/rest/api/) för en resursprovider och leta efter liståtgärder. Lagringskonton har till exempel [åtgärden listKeys](/rest/api/storagerp/storageaccounts).
+* Använd [Cmdleten Get-AzProviderOperation](/powershell/module/az.resources/get-azprovideroperation) PowerShell. I följande exempel får alla liståtgärder för lagringskonton:
 
   ```powershell
   Get-AzProviderOperation -OperationSearchString "Microsoft.Storage/*" | where {$_.Operation -like "*list*"} | FT Operation
   ```
-* Använd följande Azure CLI-kommando för att filtrera endast Liståtgärder:
+* Använd följande Azure CLI-kommando för att filtrera endast liståtgärderna:
 
   ```azurecli
   az provider operation show --namespace Microsoft.Storage --query "resourceTypes[?name=='storageAccounts'].operations[].name | [?contains(@, 'list')]"
@@ -258,7 +258,7 @@ För att avgöra vilka resurstyper som har en liståtgärden, har du följande a
 
 ### <a name="return-value"></a>Returvärde
 
-Det returnerade objektet varierar beroende på vilken List funktion du använder. Till exempel returnerar Listnycklar för ett lagrings konto följande format:
+Det returnerade objektet varierar beroende på den listfunktion du använder. ListKeys för ett lagringskonto returnerar till exempel följande format:
 
 ```json
 {
@@ -277,19 +277,19 @@ Det returnerade objektet varierar beroende på vilken List funktion du använder
 }
 ```
 
-Andra listfunktioner har olika returnerade format. Om du vill se formatet för en funktion, inkludera den i outputs-avsnittet som visas i exemplet mallen.
+Andra listfunktioner har olika returformat. Om du vill visa formatet för en funktion tar du med den i utdataavsnittet enligt exempelmallen.
 
 ### <a name="remarks"></a>Anmärkningar
 
-Ange resursen genom att antingen använda resurs namnet eller ResourceID- [funktionen](#resourceid). Använd resurs namnet när du använder en List funktion i samma mall som distribuerar den refererade resursen.
+Ange resursen med hjälp av resursnamnet eller [resursfunktionen](#resourceid). När du använder en listfunktion i samma mall som distribuerar den refererade resursen använder du resursnamnet.
 
-Om du använder en **list** funktion i en resurs som är villkorligt distribuerad utvärderas funktionen även om resursen inte har distribuerats. Du får ett fel meddelande om **list** funktionen hänvisar till en resurs som inte finns. Använd funktionen **IF** för att se till att funktionen endast utvärderas när resursen distribueras. Se [funktionen IF](template-functions-logical.md#if) för en exempel mall som använder IF och list med en villkorligt distribuerad resurs.
+Om du använder en **listfunktion** i en resurs som distribueras villkorligt utvärderas funktionen även om resursen inte distribueras. Du får ett felmeddelande om **listfunktionen** refererar till en resurs som inte finns. Använd **funktionen om** för att kontrollera att funktionen bara utvärderas när resursen distribueras. Se [om-funktionen](template-functions-logical.md#if) för en exempelmall som använder om och lista med en villkorligt distribuerad resurs.
 
-### <a name="list-example"></a>Lista exempel
+### <a name="list-example"></a>Exempel på lista
 
-I följande [exempel mall](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/listkeys.json) visas hur du returnerar de primära och sekundära nycklarna från ett lagrings konto i avsnittet utdata. Den returnerar också en SAS-token för storage-kontot.
+Följande [exempelmall](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/listkeys.json) visar hur du returnerar de primära och sekundära nycklarna från ett lagringskonto i utdataavsnittet. Den returnerar också en SAS-token för lagringskontot.
 
-Om du vill hämta SAS-token skickar du ett objekt för förfallo tiden. Förfallo tiden måste ligga i framtiden. Det här exemplet är avsedd att visa hur du använder funktionerna lista. Normalt du skulle använda SAS-token i ett resursvärde i stället returneras som ett utdatavärde. Utdatavärden lagras i distributionshistoriken och är inte säker.
+Om du vill hämta SAS-token skickar du ett objekt för utgångstiden. Utgångstiden måste vara i framtiden. Det här exemplet är avsett att visa hur du använder listfunktionerna. Vanligtvis använder du SAS-token i ett resursvärde i stället för att returnera den som ett utdatavärde. Utdatavärden lagras i distributionshistoriken och är inte säkra.
 
 ```json
 {
@@ -354,20 +354,20 @@ Om du vill hämta SAS-token skickar du ett objekt för förfallo tiden. Förfall
 }
 ```
 
-## <a name="providers"></a>Providers
+## <a name="providers"></a>Leverantörer
 
 ```json
 providers(providerNamespace, [resourceType])
 ```
 
-Returnerar information om en resursprovider och dess resurstyper som stöds. Om du inte anger en resurstyp, returnerar funktionen typerna som stöds för resursprovidern.
+Returnerar information om en resursprovider och dess resurstyper som stöds. Om du inte anger någon resurstyp returnerar funktionen alla typer som stöds för resursleverantören.
 
 ### <a name="parameters"></a>Parametrar
 
 | Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| providerNamespace |Ja |sträng |Namespace av providern |
-| resourceType |Nej |sträng |Typ av resurs i det angivna namnområdet. |
+| providerNamespace |Ja |sträng |Namnområde för providern |
+| resourceType |Inga |sträng |Resurstypen inom det angivna namnområdet. |
 
 ### <a name="return-value"></a>Returvärde
 
@@ -381,11 +381,11 @@ Varje typ som stöds returneras i följande format:
 }
 ```
 
-Matris sorteringen av de returnerade värdena är inte garanterad.
+Matrisordning för de returnerade värdena garanteras inte.
 
 ### <a name="providers-example"></a>Exempel på leverantörer
 
-I följande [exempel mall](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/providers.json) visas hur du använder Provider-funktionen:
+Följande [exempelmall](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/providers.json) visar hur du använder providerfunktionen:
 
 ```json
 {
@@ -409,7 +409,7 @@ I följande [exempel mall](https://github.com/Azure/azure-docs-json-samples/blob
 }
 ```
 
-För resurs typen **Microsoft. Web** Resource Provider och **Sites** returnerar föregående exempel ett objekt i följande format:
+För **resurstypen Microsoft.Web-resurs** och **platser** returnerar föregående exempel ett objekt i följande format:
 
 ```json
 {
@@ -437,25 +437,25 @@ För resurs typen **Microsoft. Web** Resource Provider och **Sites** returnerar 
 reference(resourceName or resourceIdentifier, [apiVersion], ['Full'])
 ```
 
-Returnerar ett objekt som representerar en resurs runtime-tillståndet.
+Returnerar ett objekt som representerar en resurs körningstillstånd.
 
 ### <a name="parameters"></a>Parametrar
 
 | Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| resourceName eller resourceIdentifier |Ja |sträng |Namn eller unik identifierare för en resurs. När du refererar till en resurs i den aktuella mallen, anger du bara resursnamn som en parameter. Ange resurs-ID när du refererar till en tidigare distribuerad resurs eller när namnet på resursen är tvetydigt. |
-| apiVersion |Nej |sträng |API-versionen av den angivna resursen. Inkludera den här parametern när resursen inte är tillhandahållits i samma mall. Normalt i formatet **åååå-mm-dd**. Giltiga API-versioner för din resurs finns i [referens för mallar](/azure/templates/). |
-| ”Fullständig” |Nej |sträng |Värde som anger om du vill returnera fullständiga resurs-objekt. Om du inte anger `'Full'`returneras endast resursens egenskaps objekt. Fullständig objektet innehåller värden som resurs-ID och plats. |
+| resourceName eller resourceIdentifier |Ja |sträng |Namn eller unik identifierare för en resurs. När du refererar till en resurs i den aktuella mallen anger du bara resursnamnet som en parameter. När du refererar till en tidigare distribuerad resurs eller när namnet på resursen är tvetydigt anger du resurs-ID: t. |
+| apiVersion |Inga |sträng |API-version av den angivna resursen. Inkludera den här parametern när resursen inte etableras i samma mall. Vanligtvis, i formatet, **yyyy-mm-dd**. Giltiga API-versioner för resursen finns i [mallreferens](/azure/templates/). |
+| "Full" |Inga |sträng |Värde som anger om hela resursobjektet ska returneras. Om du inte `'Full'`anger returneras endast egenskapsobjektet för resursen. Det fullständiga objektet innehåller värden som resurs-ID och plats. |
 
 ### <a name="return-value"></a>Returvärde
 
-Alla resurstyper returnerar olika egenskaper för funktionen referens. Funktionen returnerar inte ett enda, fördefinierade format. Dessutom varierar det returnerade värdet beroende på om du har angett det fullständiga objektet. Om du vill visa egenskaperna för en resurstyp, returnerar du objektet i outputs-avsnittet som visas i exemplet.
+Varje resurstyp returnerar olika egenskaper för referensfunktionen. Funktionen returnerar inte ett enda, fördefinierat format. Det returnerade värdet skiljer sig också beroende på om du har angett det fullständiga objektet. Om du vill visa egenskaperna för en resurstyp returnerar du objektet i utdataavsnittet som visas i exemplet.
 
 ### <a name="remarks"></a>Anmärkningar
 
-Funktionen referens hämtar körtiden för en tidigare distribuerad resurs eller en resurs som distribuerats i den aktuella mallen. Den här artikeln visar exempel på båda scenarierna.
+Referensfunktionen hämtar körningstillståndet för antingen en tidigare distribuerad resurs eller en resurs som distribuerats i den aktuella mallen. Den här artikeln visar exempel för båda scenarierna.
 
-Normalt använder du funktionen **Reference** för att returnera ett visst värde från ett objekt, t. ex. blob-slutpunktens URI eller ett fullständigt kvalificerat domän namn.
+Vanligtvis använder du **referensfunktionen** för att returnera ett visst värde från ett objekt, till exempel blob-slutpunkten URI eller fullständigt kvalificerat domännamn.
 
 ```json
 "outputs": {
@@ -470,7 +470,7 @@ Normalt använder du funktionen **Reference** för att returnera ett visst värd
 }
 ```
 
-Använd `'Full'` när du behöver resurs värden som inte är en del av schemat för egenskaper. Till exempel om du vill ställa in åtkomstprinciper för nyckelvalvet, få identitetsegenskaperna för en virtuell dator.
+Använd `'Full'` när du behöver resursvärden som inte ingår i egenskapsschemat. Om du till exempel vill ange nyckelvalvsåtkomstprinciper hämtar du identitetsegenskaperna för en virtuell dator.
 
 ```json
 {
@@ -494,61 +494,61 @@ Använd `'Full'` när du behöver resurs värden som inte är en del av schemat 
     ...
 ```
 
-### <a name="valid-uses"></a>Giltig användning
+### <a name="valid-uses"></a>Giltiga användningsområden
 
-Referens-funktionen kan endast användas i egenskaperna för en resursdefinition och outputs-avsnittet av en mall eller distribution. När det används med [egenskapen iteration](copy-properties.md), kan du använda funktionen reference för `input` eftersom uttrycket har tilldelats till resurs egenskapen. Du kan inte använda den med `count` eftersom antalet måste bestämmas innan referens funktionen har åtgärd ATS.
+Referensfunktionen kan bara användas i egenskaperna för en resursdefinition och utdataavsnittet i en mall eller distribution. När du används med [egenskapsiteration](copy-properties.md) `input` kan du använda referensfunktionen för eftersom uttrycket är tilldelat resursegenskapen. Du kan inte använda `count` den med eftersom antalet måste bestämmas innan referensfunktionen har lösts.
 
-Du kan inte använda funktionen reference i utdata för en [kapslad mall](linked-templates.md#nested-template) för att returnera en resurs som du har distribuerat i den kapslade mallen. Använd i stället en [länkad mall](linked-templates.md#linked-template).
+Du kan inte använda referensfunktionen i utdata för en [kapslad mall](linked-templates.md#nested-template) för att returnera en resurs som du har distribuerat i den kapslade mallen. Använd i stället en [länkad mall](linked-templates.md#linked-template).
 
-Om du använder funktionen **Reference** i en resurs som är villkorligt distribuerad utvärderas funktionen även om resursen inte har distribuerats.  Du får ett fel meddelande om **referens** funktionen hänvisar till en resurs som inte finns. Använd funktionen **IF** för att se till att funktionen endast utvärderas när resursen distribueras. Se [funktionen IF](template-functions-logical.md#if) för en exempel mall som använder IF och Reference med en villkorligt distribuerad resurs.
+Om du använder **referensfunktionen** i en resurs som distribueras villkorligt utvärderas funktionen även om resursen inte distribueras.  Du får ett felmeddelande om **referensfunktionen** refererar till en resurs som inte finns. Använd **funktionen om** för att kontrollera att funktionen bara utvärderas när resursen distribueras. Se [om-funktionen](template-functions-logical.md#if) för en exempelmall som använder om och refererar till en villkorligt distribuerad resurs.
 
 ### <a name="implicit-dependency"></a>Implicit beroende
 
-Med hjälp av funktionen referens deklarera du implicit att en resurs beror på en annan resurs om refererade resursen har tillhandahållits i samma mall och du referera till resursen med sitt namn (inte resurs-ID). Du behöver inte också använda egenskapen dependsOn. Funktionen utvärderas inte förrän den refererade resursen har slutfört distributionen.
+Genom att använda referensfunktionen deklarerar du implicit att en resurs är beroende av en annan resurs om den refererade resursen etableras i samma mall och du refererar till resursen med dess namn (inte resurs-ID). Du behöver inte också använda egenskapen dependsOn. Funktionen utvärderas inte förrän den refererade resursen har slutfört distributionen.
 
-### <a name="resource-name-or-identifier"></a>Resurs namn eller identifierare
+### <a name="resource-name-or-identifier"></a>Resursnamn eller identifierare
 
-Ange namnet på resursen när du refererar till en resurs som har distribuerats i samma mall.
+När du refererar till en resurs som distribueras i samma mall anger du namnet på resursen.
 
 ```json
 "value": "[reference(parameters('storageAccountName'))]"
 ```
 
-Ange resurs-ID när du refererar till en resurs som inte har distribuerats i samma mall.
+När du refererar till en resurs som inte distribueras i samma mall anger du resurs-ID: t.
 
 ```json
 "value": "[reference(resourceId(parameters('storageResourceGroup'), 'Microsoft.Storage/storageAccounts', parameters('storageAccountName')), '2018-07-01')]"
 ```
 
-För att undvika tvetydighet om vilken resurs du refererar till, kan du ange en fullständigt kvalificerad resurs identifierare.
+Om du vill undvika tvetydighet om vilken resurs du refererar till kan du ange en fullständigt kvalificerad resursidentifierare.
 
 ```json
 "value": "[reference(resourceId('Microsoft.Network/publicIPAddresses', parameters('ipAddressName')))]"
 ```
 
-När du skapar en fullständigt kvalificerad referens till en resurs, är ordningen för att kombinera segment från typ och namn inte bara en sammanfogning av de två. Använd i stället en sekvens av *typnamn/namn* -par från minst för de mest aktuella för namn området:
+När du skapar en fullständigt kvalificerad referens till en resurs är ordningen för att kombinera segment från typen och namnet inte bara en sammanfogning av de två. Efter namnområdet använder du i stället en sekvens av *typ/namnpar* från minst specifika till mest specifika:
 
-**{Resource-Provider-namespace}/{Parent-Resource-Type}/{Parent-Resource-Name} [/{Child-Resource-Type}/{Child-Resource-Name}]**
+**{resource-provider-namespace}/{parent-resource-type}/{parent-resource-name}[/{child-resource-type}/{child-resource-name}] {resource-provider-namespace}/{parent-resource-type}/{parent-resource-type}/{parent-resource-type}/{parent-resource-type}/{parent-resource-type}/{parent-resource-type}/{parent-resource-type}/{parent-resource-type}/{parent-resource-type}/{parent-resource-**
 
-Exempel:
+Ett exempel:
 
-`Microsoft.Compute/virtualMachines/myVM/extensions/myExt` är rätt `Microsoft.Compute/virtualMachines/extensions/myVM/myExt` fel
+`Microsoft.Compute/virtualMachines/myVM/extensions/myExt`är `Microsoft.Compute/virtualMachines/extensions/myVM/myExt` korrekt är inte korrekt
 
-För att förenkla skapandet av eventuella resurs-ID använder du `resourceId()` funktioner som beskrivs i det här dokumentet i stället för funktionen `concat()`.
+Om du vill förenkla skapandet av `resourceId()` ett resurs-ID använder `concat()` du de funktioner som beskrivs i det här dokumentet i stället för funktionen.
 
 ### <a name="get-managed-identity"></a>Hämta hanterad identitet
 
-[Hanterade identiteter för Azure-resurser](../../active-directory/managed-identities-azure-resources/overview.md) är [tilläggs resurs typer](../management/extension-resource-types.md) som skapas implicit för vissa resurser. Eftersom den hanterade identiteten inte uttryckligen definieras i mallen måste du referera till den resurs som identiteten tillämpas på. Använd `Full` för att hämta alla egenskaper, inklusive den implicit skapade identiteten.
+[Hanterade identiteter för Azure-resurser](../../active-directory/managed-identities-azure-resources/overview.md) är [tilläggsresurstyper](../management/extension-resource-types.md) som skapas implicit för vissa resurser. Eftersom den hanterade identiteten inte uttryckligen definieras i mallen måste du referera till den resurs som identiteten tillämpas på. Används `Full` för att hämta alla egenskaper, inklusive den implicit skapade identiteten.
 
-Om du till exempel vill hämta klient-ID: t för en hanterad identitet som används för en skalnings uppsättning för virtuella datorer använder du:
+Om du till exempel vill hämta klient-ID:t för en hanterad identitet som tillämpas på en skaluppsättning för virtuella datorer använder du:
 
 ```json
 "tenantId": "[reference(resourceId('Microsoft.Compute/virtualMachineScaleSets',  variables('vmNodeType0Name')), '2019-03-01', 'Full').Identity.tenantId]"
 ```
 
-### <a name="reference-example"></a>Referens exempel
+### <a name="reference-example"></a>Exempel på referens
 
-Följande [exempel-mall](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/referencewithstorage.json) distribuerar en resurs och refererar till resursen.
+Följande [exempelmall](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/referencewithstorage.json) distribuerar en resurs och refererar till resursen.
 
 ```json
 {
@@ -587,7 +587,7 @@ Följande [exempel-mall](https://github.com/Azure/azure-docs-json-samples/blob/m
 }
 ```
 
-Föregående exempel returnerar de två objekten. För egenskapsobjektet är i följande format:
+I föregående exempel returneras de två objekten. Egenskapsobjektet är i följande format:
 
 ```json
 {
@@ -605,7 +605,7 @@ Föregående exempel returnerar de två objekten. För egenskapsobjektet är i f
 }
 ```
 
-Fullständig objektet är i följande format:
+Det fullständiga objektet är i följande format:
 
 ```json
 {
@@ -642,7 +642,7 @@ Fullständig objektet är i följande format:
 }
 ```
 
-Följande [exempel mal len refererar till](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/reference.json) ett lagrings konto som inte har distribuerats i den här mallen. Lagringskontot finns redan i samma prenumeration.
+I följande [exempelmall](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/reference.json) refererar ett lagringskonto som inte distribueras i den här mallen. Lagringskontot finns redan i samma prenumeration.
 
 ```json
 {
@@ -693,13 +693,13 @@ Det returnerade objektet är i följande format:
 }
 ```
 
-Egenskapen **managedBy** returneras bara för resurs grupper som innehåller resurser som hanteras av en annan tjänst. För hanterade program, Databricks och AKS är egenskapens värde resurs-ID för hanterings resursen.
+Egenskapen **managedBy** returneras endast för resursgrupper som innehåller resurser som hanteras av en annan tjänst. För hanterade program, Databricks och AKS är värdet för egenskapen resurs-ID för hanteringsresursen.
 
 ### <a name="remarks"></a>Anmärkningar
 
-Det går inte att använda funktionen `resourceGroup()` i en mall som har [distribuerats på prenumerations nivån](deploy-to-subscription.md). Den kan bara användas i mallar som har distribuerats till en resurs grupp. Du kan använda funktionen `resourceGroup()` i en [länkad eller kapslad mall (med inre omfång)](linked-templates.md) som är riktad mot en resurs grupp, även när den överordnade mallen distribueras till prenumerationen. I det scenariot distribueras den länkade eller kapslade mallen på resurs grupps nivå. Mer information om hur du riktar in en resurs grupp på en prenumerations nivå distribution finns i [Distribuera Azure-resurser till mer än en prenumeration eller resurs grupp](cross-resource-group-deployment.md).
+Funktionen `resourceGroup()` kan inte användas i en mall som [distribueras på prenumerationsnivå](deploy-to-subscription.md). Den kan bara användas i mallar som distribueras till en resursgrupp. Du kan `resourceGroup()` använda funktionen i en [länkad eller kapslad mall (med inre omfattning)](linked-templates.md) som riktar sig till en resursgrupp, även när den överordnade mallen distribueras till prenumerationen. I det fallet distribueras den länkade eller kapslade mallen på resursgruppsnivå. Mer information om hur du inriktar dig på en resursgrupp i en prenumerationsnivådistribution finns i [Distribuera Azure-resurser till mer än en prenumeration eller resursgrupp](cross-resource-group-deployment.md).
 
-Ett vanligt användningsområde för resourceGroup-funktionen är att skapa resurser på samma plats som resursgruppen. I följande exempel används resurs grupps platsen för ett standard parameter värde.
+En vanlig användning av resursgruppsfunktionen är att skapa resurser på samma plats som resursgruppen. I följande exempel används resursgruppsplatsen för ett standardparametervärde.
 
 ```json
 "parameters": {
@@ -710,13 +710,13 @@ Ett vanligt användningsområde för resourceGroup-funktionen är att skapa resu
 }
 ```
 
-Du kan också använda funktionen resourceGroup för att lägga till taggar från resurs gruppen till en resurs. Mer information finns i [använda taggar från resurs gruppen](../management/tag-resources.md#apply-tags-from-resource-group).
+Du kan också använda resursgruppsfunktionen för att använda taggar från resursgruppen på en resurs. Mer information finns i [Använda taggar från resursgruppen](../management/tag-resources.md#apply-tags-from-resource-group).
 
-När du använder kapslade mallar för att distribuera till flera resurs grupper kan du ange omfånget för att utvärdera funktionen resourceGroup. Mer information finns i [Distribuera Azure-resurser till mer än en prenumeration eller resurs grupp](cross-resource-group-deployment.md).
+När du använder kapslade mallar för att distribuera till flera resursgrupper kan du ange omfånget för utvärdering av resursgruppsfunktionen. Mer information finns i [Distribuera Azure-resurser till mer än en prenumeration eller resursgrupp](cross-resource-group-deployment.md).
 
-### <a name="resource-group-example"></a>Exempel på resurs grupp
+### <a name="resource-group-example"></a>Exempel på resursgrupp
 
-I följande [exempel mall](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/resourcegroup.json) returneras egenskaperna för resurs gruppen.
+I följande [exempelmall](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/resourcegroup.json) returneras resursgruppens egenskaper.
 
 ```json
 {
@@ -732,7 +732,7 @@ I följande [exempel mall](https://github.com/Azure/azure-docs-json-samples/blob
 }
 ```
 
-Föregående exempel returnerar ett objekt i följande format:
+I föregående exempel returneras ett objekt i följande format:
 
 ```json
 {
@@ -752,41 +752,41 @@ Föregående exempel returnerar ett objekt i följande format:
 resourceId([subscriptionId], [resourceGroupName], resourceType, resourceName1, [resourceName2], ...)
 ```
 
-Returnerar den unika identifieraren för en resurs. Du använder den här funktionen när resursnamnet är tvetydigt eller ej etablerad inom samma mall. Formatet för den returnerade identifieraren varierar beroende på om distributionen sker i omfånget för en resurs grupp, prenumeration, hanterings grupp eller klient.
+Returnerar den unika identifieraren för en resurs. Du använder den här funktionen när resursnamnet är tvetydigt eller inte etablerat i samma mall. Formatet på den returnerade identifieraren varierar beroende på om distributionen sker i omfattningen av en resursgrupp, prenumeration, hanteringsgrupp eller klient.
 
 ### <a name="parameters"></a>Parametrar
 
 | Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| subscriptionId |Nej |sträng (i GUID-format) |Standardvärdet är den aktuella prenumerationen. Ange det här värdet när du behöver hämta en resurs i en annan prenumeration. Ange bara det här värdet när du distribuerar i omfånget för en resurs grupp eller prenumeration. |
-| resourceGroupName |Nej |sträng |Standardvärdet är aktuella resursgruppen. Ange det här värdet när du behöver hämta en resurs i en annan resursgrupp. Ange bara det här värdet när du distribuerar i omfånget för en resurs grupp. |
-| resourceType |Ja |sträng |Typ av resurs, inklusive resursproviderns namnområde. |
-| resourceName1 |Ja |sträng |Namnet på resursen. |
-| resourceName2 |Nej |sträng |Nästa resurs namns segment, om det behövs. |
+| subscriptionId |Inga |sträng (i GUID-format) |Standardvärdet är den aktuella prenumerationen. Ange det här värdet när du behöver hämta en resurs i en annan prenumeration. Ange endast det här värdet när du distribuerar i omfattningen av en resursgrupp eller prenumeration. |
+| resourceGroupName |Inga |sträng |Standardvärdet är aktuell resursgrupp. Ange det här värdet när du behöver hämta en resurs i en annan resursgrupp. Ange endast det här värdet när du distribuerar i en resursgrupps omfattning. |
+| resourceType |Ja |sträng |Typ av resurs inklusive resursproviderns namnområde. |
+| resourceName1 |Ja |sträng |Namn på resurs. |
+| resourceName2 |Inga |sträng |Nästa resursnamnssegment, om det behövs. |
 
-Fortsätt att lägga till resurs namn som parametrar när resurs typen innehåller fler segment.
+Fortsätt att lägga till resursnamn som parametrar när resurstypen innehåller fler segment.
 
 ### <a name="return-value"></a>Returvärde
 
-När mallen distribueras i omfånget för en resurs grupp, returneras resurs-ID i följande format:
+När mallen distribueras i en resursgrupps omfattning returneras resurs-ID:n i följande format:
 
 ```json
 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 ```
 
-När det används i en [distribution på prenumerations nivå](deploy-to-subscription.md)returneras resurs-ID i följande format:
+När [resurs-ID](deploy-to-subscription.md)används i en prenumerationsnivå returneras resurs-ID i följande format:
 
 ```json
 /subscriptions/{subscriptionId}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 ```
 
-När det används i en distribution på [hanterings grupps nivå](deploy-to-management-group.md) eller på klient nivå, returneras resurs-ID i följande format:
+När resurs-ID används i en [distribution på hanteringsgruppsnivå](deploy-to-management-group.md) eller distribution på klientnivå returneras resurs-ID i följande format:
 
 ```json
 /providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 ```
 
-Information om hur du hämtar ID i andra format finns i:
+Så här hämtar du ID:et i andra format:
 
 * [extensionResourceId](#extensionresourceid)
 * [subscriptionResourceId](#subscriptionresourceid)
@@ -794,33 +794,33 @@ Information om hur du hämtar ID i andra format finns i:
 
 ### <a name="remarks"></a>Anmärkningar
 
-Antalet parametrar som du anger varierar beroende på om resursen är en överordnad eller underordnad resurs och om resursen finns i samma prenumeration eller resurs grupp.
+Antalet parametrar som du anger varierar beroende på om resursen är en överordnad eller underordnad resurs och om resursen finns i samma prenumeration eller resursgrupp.
 
-Om du vill hämta resurs-ID för en överordnad resurs i samma prenumeration och resurs grupp anger du resursens typ och namn.
+Om du vill hämta resurs-ID:n för en överordnad resurs i samma prenumerations- och resursgrupp anger du resursens typ och namn.
 
 ```json
 "[resourceId('Microsoft.ServiceBus/namespaces', 'namespace1')]"
 ```
 
-Om du vill hämta resurs-ID för en underordnad resurs, bör du tänka på antalet segment i resurs typen. Ange ett resurs namn för varje segment av resurs typen. Namnet på segmentet motsvarar den resurs som finns för den delen av hierarkin.
+Om du vill hämta resurs-ID:et för en underordnad resurs bör du vara uppmärksam på antalet segment i resurstypen. Ange ett resursnamn för varje segment i resurstypen. Namnet på segmentet motsvarar den resurs som finns för den delen av hierarkin.
 
 ```json
 "[resourceId('Microsoft.ServiceBus/namespaces/queues/authorizationRules', 'namespace1', 'queue1', 'auth1')]"
 ```
 
-Om du vill hämta resurs-ID för en resurs i samma prenumeration, men i en annan resurs grupp, anger du resurs gruppens namn.
+Om du vill hämta resurs-ID:n för en resurs i samma prenumeration men en annan resursgrupp anger du resursgruppsnamnet.
 
 ```json
 "[resourceId('otherResourceGroup', 'Microsoft.Storage/storageAccounts', 'examplestorage')]"
 ```
 
-Om du vill hämta resurs-ID för en resurs i en annan prenumeration och resurs grupp anger du prenumerations-ID och resurs gruppens namn.
+Om du vill hämta resurs-ID:n för en resurs i en annan prenumerations- och resursgrupp anger du prenumerations-ID: n och resursgruppsnamnet.
 
 ```json
 "[resourceId('xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx', 'otherResourceGroup', 'Microsoft.Storage/storageAccounts','examplestorage')]"
 ```
 
-Du behöver ofta, Använd den här funktionen när du använder ett lagringskonto eller ett virtuellt nätverk i en annan resursgrupp. I följande exempel visas hur en resurs från en extern resursgrupp enkelt kan användas:
+Ofta måste du använda den här funktionen när du använder ett lagringskonto eller ett virtuellt nätverk i en alternativ resursgrupp. I följande exempel visas hur en resurs från en extern resursgrupp enkelt kan användas:
 
 ```json
 {
@@ -866,7 +866,7 @@ Du behöver ofta, Använd den här funktionen när du använder ett lagringskont
 
 ### <a name="resource-id-example"></a>Exempel på resurs-ID
 
-Följande [exempel-mall](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/resourceid.json) returnerar resurs-ID för ett lagrings konto i resurs gruppen:
+I följande [exempelmall](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/resourceid.json) returneras resurs-ID:t för ett lagringskonto i resursgruppen:
 
 ```json
 {
@@ -898,10 +898,10 @@ Utdata från föregående exempel med standardvärdena är:
 
 | Namn | Typ | Värde |
 | ---- | ---- | ----- |
-| sameRGOutput | String | /subscriptions/{Current-Sub-ID}/resourceGroups/examplegroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
-| differentRGOutput | String | /subscriptions/{Current-Sub-ID}/resourceGroups/otherResourceGroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
-| differentSubOutput | String | /subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/otherResourceGroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
-| nestedResourceOutput | String | /subscriptions/{Current-Sub-ID}/resourceGroups/examplegroup/providers/Microsoft.SQL/Servers/ServerName/Databases/databaseName |
+| sameRGOutput | String | /subscriptions/{current-sub-id}/resourceGroups/examplegroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
+| olikaRGOutput | String | /subscriptions/{current-sub-id}/resourceGroups/otherResourceGroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
+| differentSubOutput | String | /subscriptions/1111111-1111-1111-1111-111111111111111/resourceGroups/otherResourceGroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
+| nestedResourceOutput | String | /subscriptions/{current-sub-id}/resourceGroups/examplegroup/providers/Microsoft.SQL/servers/serverName/databases/databaseName |
 
 ## <a name="subscription"></a>prenumeration
 
@@ -926,11 +926,11 @@ Funktionen returnerar följande format:
 
 ### <a name="remarks"></a>Anmärkningar
 
-När du använder kapslade mallar för att distribuera till flera prenumerationer kan du ange omfattningen för utvärdering av prenumerations funktionen. Mer information finns i [Distribuera Azure-resurser till mer än en prenumeration eller resurs grupp](cross-resource-group-deployment.md).
+När du använder kapslade mallar för att distribuera till flera prenumerationer kan du ange omfånget för utvärdering av prenumerationsfunktionen. Mer information finns i [Distribuera Azure-resurser till mer än en prenumeration eller resursgrupp](cross-resource-group-deployment.md).
 
 ### <a name="subscription-example"></a>Exempel på prenumeration
 
-I följande [exempel mall](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/subscription.json) visas prenumerations funktionen som anropas i avsnittet utdata.
+I följande [exempelmall](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/subscription.json) visas prenumerationsfunktionen som anropas i utdataavsnittet.
 
 ```json
 {
@@ -952,18 +952,18 @@ I följande [exempel mall](https://github.com/Azure/azure-docs-json-samples/blob
 subscriptionResourceId([subscriptionId], resourceType, resourceName1, [resourceName2], ...)
 ```
 
-Returnerar den unika identifieraren för en resurs som distribueras på prenumerations nivå.
+Returnerar den unika identifieraren för en resurs som distribueras på prenumerationsnivå.
 
 ### <a name="parameters"></a>Parametrar
 
 | Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| subscriptionId |Nej |sträng (i GUID-format) |Standardvärdet är den aktuella prenumerationen. Ange det här värdet när du behöver hämta en resurs i en annan prenumeration. |
-| resourceType |Ja |sträng |Typ av resurs, inklusive resursproviderns namnområde. |
-| resourceName1 |Ja |sträng |Namnet på resursen. |
-| resourceName2 |Nej |sträng |Nästa resurs namns segment, om det behövs. |
+| subscriptionId |Inga |sträng (i GUID-format) |Standardvärdet är den aktuella prenumerationen. Ange det här värdet när du behöver hämta en resurs i en annan prenumeration. |
+| resourceType |Ja |sträng |Typ av resurs inklusive resursproviderns namnområde. |
+| resourceName1 |Ja |sträng |Namn på resurs. |
+| resourceName2 |Inga |sträng |Nästa resursnamnssegment, om det behövs. |
 
-Fortsätt att lägga till resurs namn som parametrar när resurs typen innehåller fler segment.
+Fortsätt att lägga till resursnamn som parametrar när resurstypen innehåller fler segment.
 
 ### <a name="return-value"></a>Returvärde
 
@@ -975,11 +975,11 @@ Identifieraren returneras i följande format:
 
 ### <a name="remarks"></a>Anmärkningar
 
-Du använder den här funktionen för att hämta resurs-ID för resurser som [distribueras till prenumerationen](deploy-to-subscription.md) i stället för en resurs grupp. Det returnerade ID: t skiljer sig från värdet som returnerades av [resourceId](#resourceid) -funktionen genom att inte inkludera ett resurs grupps värde.
+Du använder den här funktionen för att hämta resurs-ID:et för resurser som [distribueras till prenumerationen](deploy-to-subscription.md) i stället för en resursgrupp. Det returnerade ID:et skiljer sig från värdet som returneras av [resursfunktionen Genom](#resourceid) att inte inkludera ett resursgruppsvärde.
 
-### <a name="subscriptionresourceid-example"></a>subscriptionResourceID-exempel
+### <a name="subscriptionresourceid-example"></a>subscriptionResourceID exempel
 
-Följande mall tilldelar en inbyggd roll. Du kan distribuera den till antingen en resurs grupp eller en prenumeration. Funktionen subscriptionResourceId används för att hämta resurs-ID för inbyggda roller.
+Följande mall tilldelar en inbyggd roll. Du kan distribuera den till antingen en resursgrupp eller prenumeration. Den använder funktionen subscriptionResourceId för att hämta resurs-ID för inbyggda roller.
 
 ```json
 {
@@ -1036,17 +1036,17 @@ Följande mall tilldelar en inbyggd roll. Du kan distribuera den till antingen e
 tenantResourceId(resourceType, resourceName1, [resourceName2], ...)
 ```
 
-Returnerar den unika identifieraren för en resurs som distribueras på klient nivå.
+Returnerar den unika identifieraren för en resurs som distribueras på klientnivå.
 
 ### <a name="parameters"></a>Parametrar
 
 | Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| resourceType |Ja |sträng |Typ av resurs, inklusive resursproviderns namnområde. |
-| resourceName1 |Ja |sträng |Namnet på resursen. |
-| resourceName2 |Nej |sträng |Nästa resurs namns segment, om det behövs. |
+| resourceType |Ja |sträng |Typ av resurs inklusive resursproviderns namnområde. |
+| resourceName1 |Ja |sträng |Namn på resurs. |
+| resourceName2 |Inga |sträng |Nästa resursnamnssegment, om det behövs. |
 
-Fortsätt att lägga till resurs namn som parametrar när resurs typen innehåller fler segment.
+Fortsätt att lägga till resursnamn som parametrar när resurstypen innehåller fler segment.
 
 ### <a name="return-value"></a>Returvärde
 
@@ -1058,12 +1058,12 @@ Identifieraren returneras i följande format:
 
 ### <a name="remarks"></a>Anmärkningar
 
-Du använder den här funktionen för att hämta resurs-ID för en resurs som distribueras till klienten. Det returnerade ID: t skiljer sig från värdena som returneras av andra resurs-ID-funktioner, inklusive resurs grupps-eller prenumerations värden.
+Du använder den här funktionen för att hämta resurs-ID:et för en resurs som distribueras till klienten. Det returnerade ID:t skiljer sig från de värden som returneras av andra resurs-ID-funktioner genom att inte inkludera resursgrupps- eller prenumerationsvärden.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* En beskrivning av avsnitten i en Azure Resource Manager mall finns i [redigera Azure Resource Manager mallar](template-syntax.md).
-* Information om hur du sammanfogar flera mallar finns i [använda länkade mallar med Azure Resource Manager](linked-templates.md).
-* Om du vill iterera ett visst antal gånger när du skapar en typ av resurs, se [skapa flera instanser av resurser i Azure Resource Manager](copy-resources.md).
-* Information om hur du distribuerar mallen som du har skapat finns i [distribuera ett program med Azure Resource Manager mall](deploy-powershell.md).
+* En beskrivning av avsnitten i en Azure Resource Manager-mall finns i [Redigera Azure Resource Manager-mallar](template-syntax.md).
+* Information om hur du sammanfogar flera mallar finns [i Använda länkade mallar med Azure Resource Manager](linked-templates.md).
+* Information om hur du itererar ett angivet antal gånger när du skapar en typ av resurs finns [i Skapa flera instanser av resurser i Azure Resource Manager](copy-resources.md).
+* Information om hur du distribuerar mallen som du har skapat finns i [Distribuera ett program med Azure Resource Manager-mallen](deploy-powershell.md).
 

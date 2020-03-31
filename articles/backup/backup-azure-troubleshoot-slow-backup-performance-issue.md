@@ -1,97 +1,101 @@
 ---
-title: Felsöka långsam säkerhets kopiering av filer och mappar
-description: Innehåller fel söknings vägledning som hjälper dig att diagnostisera orsaken till Azure Backup prestanda problem
+title: Felsöka långsam säkerhetskopiering av filer och mappar
+description: Innehåller felsökningsvägledning som hjälper dig att diagnostisera orsaken till prestandaproblem för Azure Backup
 ms.reviewer: saurse
 ms.topic: troubleshooting
 ms.date: 07/05/2019
-ms.openlocfilehash: ed91a1cd8600f4e1ac208b0036c3d4ba74c0e6bb
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.openlocfilehash: 6c650ee735ffcdd50f4361a867fa592f4965ab68
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78295971"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79408700"
 ---
 # <a name="troubleshoot-slow-backup-of-files-and-folders-in-azure-backup"></a>Felsökning av långsam säkerhetskopiering av filer och mappar i Azure Backup
 
-Den här artikeln innehåller fel söknings vägledning som hjälper dig att diagnostisera orsaken till långsamma säkerhets kopierings prestanda för filer och mappar när du använder Azure Backup. När du använder Azure Backup Agent för att säkerhetskopiera filer kan säkerhets kopieringen ta längre tid än förväntat. Den här fördröjningen kan ha orsakats av ett eller flera av följande:
+Den här artikeln innehåller felsökningsvägledning som hjälper dig att diagnostisera orsaken till långsamma säkerhetskopieringsprestanda för filer och mappar när du använder Azure Backup. När du använder Azure Backup-agenten för att säkerhetskopiera filer kan säkerhetskopieringsprocessen ta längre tid än förväntat. Den här fördröjningen kan orsakas av något av följande:
 
-* [Det finns prestanda Flask halsar på datorn som säkerhets kopie ras.](#cause1)
-* [En annan process eller ett antivirus program stör Azure Backup processen.](#cause2)
-* [Säkerhets kopierings agenten körs på en virtuell Azure-dator (VM).](#cause3)  
-* [Du säkerhetskopierar ett stort antal filer.](#cause4)
+* [Det finns flaskhalsar i prestanda på datorn som säkerhetskopieras.](#cause1)
+* [En annan process eller antivirusprogram stör Azure Backup-processen.](#cause2)
+* [Säkerhetskopieringsagenten körs på en virtuell Azure-dator (VM).](#cause3)  
+* [Du säkerhetskopierar ett stort antal (miljoner) filer.](#cause4)
 
-Innan du börjar felsöka problem rekommenderar vi att du hämtar och installerar den [senaste Azure Backup agenten](https://aka.ms/azurebackup_agent). Vi gör frekventa uppdateringar av säkerhets kopierings agenten för att åtgärda olika problem, lägga till funktioner och förbättra prestandan.
+Innan du börjar felsöka problem rekommenderar vi att du hämtar och installerar den [senaste Azure Backup-agenten](https://aka.ms/azurebackup_agent). Vi gör frekventa uppdateringar av säkerhetskopieringsagenten för att åtgärda olika problem, lägga till funktioner och förbättra prestanda.
 
-Vi rekommenderar också starkt att du läser igenom [vanliga frågor om Azure Backup-tjänsten](backup-azure-backup-faq.md) för att se till att du inte har några vanliga konfigurations problem.
+Vi rekommenderar också starkt att du granskar [vanliga frågor om Azure Backup-tjänsten](backup-azure-backup-faq.md) för att se till att du inte har några av de vanliga konfigurationsproblemen.
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
-## <a name="cause-backup-job-running-in-unoptimized-mode"></a>Orsak: säkerhets kopierings jobb körs i ej optimerat läge
+## <a name="cause-backup-job-running-in-unoptimized-mode"></a>Orsak: Säkerhetskopieringsjobb som körs i opoptimeiserat läge
 
-* MARS-agenten kan köra säkerhets kopierings jobbet i **optimerat läge** med hjälp av USN (Update Sequence Number) ändra journal eller ej **optimerat läge** genom att söka efter ändringar i kataloger eller filer genom att genomsöka hela volymen.
-* Icke-optimerat läge är långsamt eftersom agenten måste genomsöka varje fil och varje fil på volymen och jämföra med metadata för att fastställa de ändrade filerna.
-* Du kan kontrol lera detta genom att öppna **jobb information** från mars agent-konsolen och kontrol lera statusen för att se om det står att **överföring av data (ej optimerad, kan ta längre tid)** enligt nedan:
+* MARS-agenten kan köra säkerhetskopieringsjobbet i **optimerat läge** med hjälp av USN-ändringsjournal (uppdateringssekvensnummer) eller **ooptimerat läge** genom att söka efter ändringar i kataloger eller filer genom att skanna hela volymen.
+* Ooptimeiserat läge är långsamt eftersom agenten måste skanna varje fil på volymen och jämföra med metadata för att bestämma de ändrade filerna.
+* För att kontrollera detta, öppna **Jobbinformation** från MARS-agentkonsolen och kontrollera statusen för att se om det står **Överföring av data (ooptimeras, kan ta längre tid)** som visas nedan:
 
-    ![Körs i ej optimerat läge](./media/backup-azure-troubleshoot-slow-backup-performance-issue/unoptimized-mode.png)
+    ![Köra i opoptimeiserat läge](./media/backup-azure-troubleshoot-slow-backup-performance-issue/unoptimized-mode.png)
 
-* Följande villkor kan orsaka att säkerhets kopierings jobbet körs i ej optimerat läge:
-  * Den första säkerhets kopieringen (kallas även inledande replikering) körs alltid i ej optimerat läge
-  * Om det tidigare säkerhets kopierings jobbet Miss lyckas körs nästa schemalagda säkerhets kopierings jobb som inte optimerat.
+* Följande villkor kan leda till att säkerhetskopieringsjobbet körs i opoptimeiserat läge:
+  * Första säkerhetskopieringen (kallas även initial replikering) körs alltid i opoptimeiserat läge
+  * Om det tidigare säkerhetskopieringsjobbet misslyckas körs nästa schemalagda säkerhetskopieringsjobb som ooptimetiserat.
 
 <a id="cause1"></a>
 
-## <a name="cause-performance-bottlenecks-on-the-computer"></a>Orsak: prestanda Flask halsar på datorn
+## <a name="cause-performance-bottlenecks-on-the-computer"></a>Orsak: Flaskhalsar i prestanda på datorn
 
-Flask halsar på datorn som säkerhets kopie ras kan orsaka fördröjningar. Till exempel kan datorns möjlighet att läsa eller skriva till disk, eller tillgänglig bandbredd för att skicka data via nätverket, orsaka Flask halsar.
+Flaskhalsar på datorn som säkerhetskopieras kan orsaka förseningar. Datorns möjlighet att läsa eller skriva till disk, eller tillgänglig bandbredd för att skicka data över nätverket, kan till exempel orsaka flaskhalsar.
 
-Windows innehåller ett inbyggt verktyg som kallas [prestanda övervakaren](https://techcommunity.microsoft.com/t5/ask-the-performance-team/windows-performance-monitor-overview/ba-p/375481) (PerfMon) för att identifiera Flask halsar.
+Windows tillhandahåller ett inbyggt verktyg som kallas [Performance Monitor](https://techcommunity.microsoft.com/t5/ask-the-performance-team/windows-performance-monitor-overview/ba-p/375481) (Perfmon) för att upptäcka dessa flaskhalsar.
 
-Här följer några prestanda räknare och intervall som kan vara till hjälp vid diagnostisering av flask halsar för optimala säkerhets kopieringar.
+Här är några prestandaräknare och intervall som kan vara till hjälp för att diagnostisera flaskhalsar för optimala säkerhetskopior.
 
-| Medelvärde | Status |
+| Räknare | Status |
 | --- | --- |
-| Logisk disk (fysisk disk)--% inaktiv |* 100% inaktiv till 50% Idle = felfri</br>* 49% inaktiv till 20% inaktiv = varning eller Övervakare</br>* 19% inaktiv till 0% inaktiv = kritisk eller ur specifikation |
-| Logisk disk (fysisk disk)--% medel s disk läsning eller skrivning |* 0,001 MS till 0,015 MS = felfri</br>* 0,015 MS till 0,025 MS = varning eller Övervakare</br>* 0,026 MS eller längre = kritisk eller ur specifikationen |
-| Logisk disk (fysisk disk)--Aktuell diskkölängd (för alla instanser) |80 förfrågningar i mer än 6 minuter |
-| Minne – icke växlings Bart system minne-byte |* Mindre än 60% av poolen förbrukade = felfri<br>* 61% till 80% av poolen förbrukat = varning eller övervaka</br>* Större än 80% pool förbrukat = kritisk eller från specifikation |
-| Minne--växlings Bart system minne-byte |* Mindre än 60% av poolen förbrukade = felfri</br>* 61% till 80% av poolen förbrukat = varning eller övervaka</br>* Större än 80% pool förbrukat = kritisk eller från specifikation |
-| Minne – tillgängliga megabyte |* 50% ledigt minne tillgängligt eller mer = felfri</br>* 25% ledigt minne tillgängligt = övervaka</br>* 10% ledigt minne tillgängligt = varning</br>* Mindre än 100 MB eller 5% ledigt minne tillgängligt = kritiskt eller ur specifikationen |
-| Processor –\%processor tid (alla instanser) |* Mindre än 60% förbrukat = felfri</br>* 61% till 90% förbrukat = övervaka eller varning</br>* 91% till 100% förbrukat = kritisk |
+| Logisk disk(fysisk disk)--%inaktiv |* 100% tomgång till 50% tomgång = Friska</br>* 49% tomgång till 20% tomgång = Varning eller monitor</br>* 19% inaktiv till 0% tomgång = Kritisk eller out of Spec |
+| Logisk disk(fysisk disk)--%Genomsnittlig disksek läs- eller skrivning |* 0,001 ms till 0,015 ms = Friska</br>* 0,015 ms till 0,025 ms = Varning eller monitor</br>* 0,026 ms eller längre = Kritisk eller out of Spec |
+| Logisk disk(fysisk disk)--Aktuell diskkölängd (för alla instanser) |80 förfrågningar om mer än 6 minuter |
+| Minne - Pool icke-växlingsbara byte |* Mindre än 60% av poolen konsumeras = Friska<br>* 61% till 80% av poolen förbrukas = Varning eller monitor</br>* Större än 80% pool förbrukas = Kritisk eller Out of Spec |
+| Minne - Pool växlingar |* Mindre än 60% av poolen konsumeras = Friska</br>* 61% till 80% av poolen förbrukas = Varning eller monitor</br>* Större än 80% pool förbrukas = Kritisk eller Out of Spec |
+| Minnes- Tillgängliga Megabyte |* 50% av ledigt minne tillgängligt eller mer = Friska</br>* 25% av ledigt minne tillgängligt = Monitor</br>* 10% av ledigt minne tillgängligt = Varning</br>* Mindre än 100 MB eller 5% av ledigt minne tillgängligt = Kritisk eller out of Spec |
+| Processor-\%Processortid (alla instanser) |* Mindre än 60% konsumeras = Friska</br>* 61% till 90% konsumeras = Övervaka eller försiktighet</br>* 91% till 100% konsumeras = Kritisk |
 
 > [!NOTE]
-> Om du fastställer att infrastrukturen är orsaken rekommenderar vi att du defragmenterar diskarna regelbundet för bättre prestanda.
+> Om du anser att infrastrukturen är den skyldige rekommenderar vi att du defragmenterar diskarna regelbundet för bättre prestanda.
 >
 >
 
 <a id="cause2"></a>
 
-## <a name="cause-another-process-or-antivirus-software-interfering-with-azure-backup"></a>Orsak: en annan process eller ett antivirus program som stör Azure Backup
+## <a name="cause-another-process-or-antivirus-software-interfering-with-azure-backup"></a>Orsak: En annan process eller ett antivirusprogram som stör Azure Backup
 
-Vi har sett flera instanser där andra processer i Windows-systemet har negativt prestanda för Azure Backup Agent processen. Om du till exempel använder både Azure Backup-agenten och ett annat program för att säkerhetskopiera data, eller om antivirus programmet körs och har låst filer som ska säkerhets kopie ras, kan flera lås på filer orsaka konkurrens. I den här situationen kan säkerhets kopieringen Miss Miss kan, eller så kan det ta längre tid än förväntat.
+Vi har sett flera instanser där andra processer i Windows-systemet har påverkat prestandan för Azure Backup-agentprocessen negativt. Om du till exempel använder både Azure Backup-agenten och ett annat program för att säkerhetskopiera data, eller om antivirusprogram körs och har ett lås på filer som ska säkerhetskopieras, kan flera lås på filer orsaka konkurrens. I det här fallet kan säkerhetskopian misslyckas eller så kan jobbet ta längre tid än förväntat.
 
-Den bästa rekommendationen i det här scenariot är att stänga av det andra säkerhets kopierings programmet för att se om säkerhets kopierings tiden för Azure Backup agenten ändras. Att se till att flera säkerhets kopierings jobb inte körs samtidigt är tillräckligt för att förhindra att de påverkar varandra.
+Den bästa rekommendationen i det här scenariot är att stänga av det andra säkerhetskopieringsprogrammet för att se om säkerhetskopieringstiden för Azure Backup-agenten ändras. Vanligtvis är det tillräckligt att se till att flera säkerhetskopieringsjobb inte körs samtidigt för att förhindra att de påverkar varandra.
 
-För antivirus program rekommenderar vi att du undantar följande filer och platser:
+För antivirusprogram rekommenderar vi att du utesluter följande filer och platser:
 
 * C:\Program\Microsoft Azure Recovery Services Agent\bin\cbengine.exe som en process
-* C:\Program\Microsoft Azure Recovery Services agent \ mappar
-* Arbets plats (om du inte använder standard platsen)
+* C:\Program\Microsoft Azure Recovery Services Agent\mappar
+* Scratch-plats (om du inte använder standardplatsen)
 
 <a id="cause3"></a>
 
-## <a name="cause-backup-agent-running-on-an-azure-virtual-machine"></a>Orsak: säkerhets kopierings agenten körs på en virtuell Azure-dator
+## <a name="cause-backup-agent-running-on-an-azure-virtual-machine"></a>Orsak: Säkerhetskopieringsagent som körs på en virtuell Azure-dator
 
-Om du kör säkerhets kopierings agenten på en virtuell dator blir prestandan långsammare än när du kör den på en fysisk dator. Detta förväntas på grund av IOPS-begränsningar.  Du kan dock optimera prestanda genom att växla data enheter som säkerhets kopie ras till Azure Premium Storage. Vi arbetar med att åtgärda det här problemet och korrigeringen är tillgänglig i en framtida version.
+Om du kör säkerhetskopieringsagenten på en virtuell dator blir prestandan långsammare än när du kör den på en fysisk dator. Detta förväntas på grund av IOPS begränsningar.  Du kan dock optimera prestanda genom att växla de dataenheter som säkerhetskopieras till Azure Premium Storage. Vi arbetar med att åtgärda problemet och korrigeringen kommer att vara tillgänglig i en framtida version.
 
 <a id="cause4"></a>
 
-## <a name="cause-backing-up-a-large-number-millions-of-files"></a>Orsak: säkerhetskopiera ett stort antal filer
+## <a name="cause-backing-up-a-large-number-millions-of-files"></a>Orsak: Säkerhetskopiera ett stort antal (miljoner) filer
 
-Det tar längre tid att flytta en stor mängd data än att flytta en mindre data volym. I vissa fall är säkerhets kopierings tiden relaterad till inte bara storleken på data, utan också antalet filer eller mappar. Detta gäller särskilt när miljon tals små filer (några byte till några kilobyte) säkerhets kopie ras.
+Det tar längre tid att flytta en stor mängd data än att flytta en mindre mängd data. I vissa fall är säkerhetskopieringstiden inte bara relaterad till inte bara storleken på data, men också antalet filer eller mappar. Detta gäller särskilt när miljontals små filer (några byte till några kilobyte) säkerhetskopieras.
 
-Det här problemet beror på att när du säkerhetskopierar data och flyttar dem till Azure, katalogiserar Azure samtidigt dina filer. I vissa sällsynta fall kan katalog åtgärden ta längre tid än förväntat.
+Detta beror på att när du säkerhetskopierar data och flyttar dem till Azure katalogiserar Azure dina filer samtidigt. I vissa sällsynta fall kan katalogåtgärden ta längre tid än förväntat.
 
-Följande indikatorer kan hjälpa dig att förstå Flask halsen och därefter arbeta på nästa steg:
+Följande indikatorer kan hjälpa dig att förstå flaskhalsen och därmed arbeta med nästa steg:
 
-* **UI visar förloppet för data överföringen**. Data överförs fortfarande. Nätverks bandbredden eller data storleken kan orsaka fördröjningar.
-* **Användar gränssnittet visar inte förloppet för data överföringen**. Öppna loggfilerna som finns i C:\Program\Microsoft Azure Recovery Services Agent\Temp och kontrol lera sedan posten FileProvider:: EndData i loggarna. Den här posten indikerar att data överföringen är slutförd och att katalog åtgärden sker. Avbryt inte säkerhets kopierings jobben. Vänta i stället lite längre tills katalog åtgärden har slutförts. Kontakta [Azure-supporten](https://portal.azure.com/#create/Microsoft.Support)om problemet kvarstår.
+* **Användargränssnittet visar förloppet för dataöverföringen**. Uppgifterna överförs fortfarande. Nätverkets bandbredd eller storleken på data kan orsaka förseningar.
+* **Användargränssnittet visar inte förloppet för dataöverföringen**. Öppna loggarna som finns på C:\Program Files\Microsoft Azure Recovery Services Agent\Temp och kontrollera sedan om filenProvider::EndData-posten i loggarna. Den här posten betyder att dataöverföringen har slutförts och att katalogåtgärden pågår. Avbryt inte säkerhetskopieringsjobben. Vänta i stället lite längre på att katalogåtgärden ska slutföras. Om problemet kvarstår kontaktar du [Azure-supporten](https://portal.azure.com/#create/Microsoft.Support).
+
+## <a name="next-steps"></a>Nästa steg
+
+* [Vanliga frågor om säkerhetskopiering av filer och mappar](backup-azure-file-folder-backup-faq.md)

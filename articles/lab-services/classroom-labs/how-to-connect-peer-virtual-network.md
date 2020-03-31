@@ -1,6 +1,6 @@
 ---
-title: Ansluta till ett peer-nätverk i Azure Lab Services | Microsoft Docs
-description: Lär dig hur du ansluter ditt labb nätverk till ett annat nätverk som en peer. Du kan till exempel ansluta ditt lokala skol-/University-nätverk med Labbets virtuella nätverk i Azure.
+title: Ansluta till ett peer-nätverk i Azure Lab Services | Microsoft-dokument
+description: Lär dig hur du ansluter labbnätverket till ett annat nätverk som peer. Anslut till exempel ditt lokala skol-/universitetsnätverk med Labs virtuella nätverk i Azure.
 services: lab-services
 documentationcenter: na
 author: spelluru
@@ -13,51 +13,54 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/14/2020
 ms.author: spelluru
-ms.openlocfilehash: 5e013011f81542aa279ba9276a6a1aac01eb9e41
-ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
+ms.openlocfilehash: d2115b1dc7e9f3150e44eb5ee9417e88ebeaa279
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77443214"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80370833"
 ---
-# <a name="connect-your-labs-network-with-a-peer-virtual-network-in-azure-lab-services"></a>Anslut ditt labb nätverk till ett peer-virtuellt nätverk i Azure Lab Services 
-Den här artikeln innehåller information om peering The Labs Network med ett annat nätverk. 
+# <a name="connect-your-labs-network-with-a-peer-virtual-network-in-azure-lab-services"></a>Ansluta labbets nätverk med ett virtuellt peer-nätverk i Azure Lab Services 
+Den här artikeln innehåller information om peering ditt labbnätverk med ett annat nätverk. 
 
 ## <a name="overview"></a>Översikt
-Med peering för virtuella nätverk kan du sömlöst ansluta virtuella Azure-nätverk. När de virtuella nätverken har peer-kopplats visas de som ett nätverk för anslutningsändamål. Trafiken mellan virtuella datorer i peer-kopplat virtuella nätverk dirigeras via Microsoft stamnät-infrastrukturen, ungefär som trafik dirigeras mellan virtuella datorer i samma virtuella nätverk, via privata IP-adresser. Mer information finns i [peering för virtuella nätverk](../../virtual-network/virtual-network-peering-overview.md).
+Med virtual network peering kan du sömlöst ansluta virtuella Azure-nätverk. När de virtuella nätverken har peer-kopplats visas de som ett nätverk för anslutningsändamål. Trafiken mellan virtuella datorer i peered virtuella nätverk dirigeras genom Microsofts stamnätsinfrastruktur, ungefär som trafiken dirigeras mellan virtuella datorer i samma virtuella nätverk, endast via privata IP-adresser. Mer information finns i [Virtual Network peering](../../virtual-network/virtual-network-peering-overview.md).
 
-Du kan behöva ansluta ditt labbs nätverk till ett peer-virtuellt nätverk i vissa scenarier, inklusive följande:
+Du kan behöva ansluta labbets nätverk till ett virtuellt peer-nätverk i vissa scenarier, inklusive följande:
 
-- De virtuella datorerna i labbet har program vara som ansluter till lokala licens servrar för att erhålla licens
-- De virtuella datorerna i labbet behöver åtkomst till data uppsättningar (eller andra filer) på Universitys nätverks resurser. 
+- De virtuella datorerna i labbet har programvara som ansluter till lokala licensservrar för att förvärva licens
+- De virtuella datorerna i labbet behöver åtkomst till datauppsättningar (eller andra filer) på universitetets nätverksresurser. 
 
-Vissa lokala nätverk är anslutna till Azure Virtual Network antingen via [ExpressRoute](../../expressroute/expressroute-introduction.md) eller [Virtual Network Gateway](../../vpn-gateway/vpn-gateway-about-vpngateways.md). Dessa tjänster måste konfigureras utanför Azure Lab Services. Mer information om hur du ansluter ett lokalt nätverk till Azure med hjälp av ExpressRoute finns i [Översikt över ExpressRoute](../../expressroute/expressroute-introduction.md). För lokal anslutning med en Virtual Network Gateway måste gatewayen, det angivna virtuella nätverket och labb kontot vara i samma region.
+Vissa lokala nätverk är anslutna till Azure Virtual Network antingen via [ExpressRoute](../../expressroute/expressroute-introduction.md) eller [Virtual Network Gateway](../../vpn-gateway/vpn-gateway-about-vpngateways.md). Dessa tjänster måste ställas in utanför Azure Lab Services. Mer information om hur du ansluter ett lokalt nätverk till Azure med ExpressRoute finns i [Översikt över ExpressRoute](../../expressroute/expressroute-introduction.md). För lokal anslutning med hjälp av en virtuell nätverksgateway måste gatewayen, det angivna virtuella nätverket och labbkontot alla finnas i samma region.
 
-## <a name="configure-at-the-time-of-lab-account-creation"></a>Konfigurera när labb kontot skapas
-När du skapar ett nytt labb konto kan du välja ett befintligt virtuellt nätverk som visas i list rutan **peer Virtual Network** på fliken **Avancerat** . Det valda virtuella nätverket är anslutet (peer-kopplat) till labb som skapats under labb kontot. Alla virtuella datorer i labb som skapas när den här ändringen har gjorts har till gång till resurserna i det peer-virtuella nätverket. 
+> [!NOTE]
+> När du skapar ett virtuellt Azure-nätverk som ska peeras med ett labbkonto är det viktigt att förstå hur det virtuella nätverkets region påverkar var klassrumslabb skapas.  Mer information finns i administratörsguidens avsnitt om [regioner\platser](https://docs.microsoft.com/azure/lab-services/classroom-labs/administrator-guide#regions-or-locations).
+
+## <a name="configure-at-the-time-of-lab-account-creation"></a>Konfigurera vid tidpunkten för skapandet av labbkonto
+När det nya labbkontot skapas kan du välja ett befintligt virtuellt nätverk som visas i listrutan **Peer-virtuellt nätverk** på fliken **Avancerat.** Det valda virtuella nätverket är anslutet (peer-peer) till labb som skapats under labbkontot. Alla virtuella datorer i labb som skapas efter att den här ändringen har åtkomst till resurserna i det peer-indelade virtuella nätverket. 
 
 ![Välj VNet till peer](../media/how-to-connect-peer-virtual-network/select-vnet-to-peer.png)
 
 > [!NOTE]
-> Detaljerade steg-för-steg-instruktioner för att skapa ett labb konto finns i [Konfigurera ett labb konto](tutorial-setup-lab-account.md)
+> Detaljerade steg-för-steg-instruktioner för att skapa ett labbkonto finns i [Konfigurera ett labbkonto](tutorial-setup-lab-account.md)
 
 
 ## <a name="configure-after-the-lab-is-created"></a>Konfigurera när labbet har skapats
-Du kan aktivera samma egenskap på fliken labb **konfiguration** på sidan **labb konto** om du inte har konfigurerat ett peer-nätverk när du skapade labb kontot. Ändringar som görs i den här inställningen gäller bara för de labb som skapas efter ändringen. Som du kan se i avbildningen kan du aktivera eller inaktivera ett **virtuellt dator nätverk** för labb i labb kontot. 
+Samma egenskap kan aktiveras från **fliken Labs-konfiguration** på sidan **Labbkonto** om du inte har konfigurerat ett peer-nätverk när labbkontot skapades. Ändringen av den här inställningen gäller endast för de övningar som skapas efter ändringen. Som du kan se i bilden kan du aktivera eller inaktivera **virtuella peer-nätverk** för labb i labbkontot. 
 
 ![Aktivera eller inaktivera VNet-peering när labbet har skapats](../media/how-to-connect-peer-virtual-network/select-vnet-to-peer-existing-lab.png) 
 
-När du väljer ett virtuellt nätverk för det **virtuella peer-nätverket** är alternativet **Tillåt att labb skaparen att välja labb plats** inaktiverat. Det beror på att labb i labb kontot måste finnas i samma region som labb kontot för att de ska kunna ansluta till resurser i det virtuella peer-nätverket. 
+När du väljer ett virtuellt nätverk för fältet **Virtuellt peer-nätverk** inaktiveras alternativet **Tillåt labbskapare att välja labbplats.** Det beror på att labben i labbkontot måste vara i samma region som labbkontot för att de ska kunna ansluta med resurser i det virtuella peer-nätverket. 
 
 > [!IMPORTANT]
-> Den här inställningen gäller bara för labb som skapas när ändringen har gjorts, inte i de befintliga labben. 
+> Den här inställningsändringen gäller endast för labb som skapas när ändringen har gjorts, inte för de befintliga labben. 
 
 
 ## <a name="next-steps"></a>Nästa steg
 Se följande artiklar:
 
-- [Tillåt labb skapare att välja labb plats](allow-lab-creator-pick-lab-location.md)
-- [Koppla ett delat avbildnings galleri till ett labb](how-to-attach-detach-shared-image-gallery.md)
-- [Lägg till en användare som labb ägare](how-to-add-user-lab-owner.md)
-- [Visa brand Väggs inställningar för ett labb](how-to-configure-firewall-settings.md)
+- [Tillåt labbets skapare att välja plats för labbet](allow-lab-creator-pick-lab-location.md)
+- [Bifoga ett delat bildgalleri i ett labb](how-to-attach-detach-shared-image-gallery.md)
+- [Lägga till en användare som labbägare](how-to-add-user-lab-owner.md)
+- [Visa brandväggsinställningar för ett labb](how-to-configure-firewall-settings.md)
 - [Konfigurera andra inställningar för ett labb](how-to-configure-lab-accounts.md)

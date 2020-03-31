@@ -1,6 +1,6 @@
 ---
-title: 'Snabb start: skicka anpassade händelser till webb slut punkt – Event Grid, PowerShell'
-description: 'Snabb start: Använd Azure Event Grid och PowerShell för att publicera ett anpassat ämne och prenumerera på händelser för ämnet. Händelserna hanteras av en webbapp.'
+title: 'Snabbstart: Skicka anpassade händelser till webbslutpunkten - Event Grid, PowerShell'
+description: 'Snabbstart: Använd Azure Event Grid och PowerShell för att publicera ett anpassat ämne och prenumerera på händelser för det ämnet. Händelserna hanteras av en webbapp.'
 services: event-grid
 keywords: ''
 author: spelluru
@@ -10,13 +10,13 @@ ms.topic: quickstart
 ms.service: event-grid
 ms.custom: seodec18
 ms.openlocfilehash: bc92e0cf579bc008fdb09c9cbb576d8cac0191cb
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "73721430"
 ---
-# <a name="quickstart-route-custom-events-to-web-endpoint-with-powershell-and-event-grid"></a>Snabb start: dirigera anpassade händelser till webb slut punkt med PowerShell och Event Grid
+# <a name="quickstart-route-custom-events-to-web-endpoint-with-powershell-and-event-grid"></a>Snabbstart: Dirigera anpassade händelser till webbslutpunkt med PowerShell och Event Grid
 
 Azure Event Grid är en händelsetjänst för molnet. I den här artikeln använder du Azure PowerShell för att skapa ett anpassat ämne, prenumerera på ämnet och utlösa händelsen för att visa resultatet. Normalt kan du skicka händelser till en slutpunkt som bearbetar informationen om händelsen och utför åtgärder. Men för att enkelt beskriva den här artikeln kan skicka du händelser till en webbapp som samlar in och visar meddelanden.
 
@@ -46,7 +46,7 @@ New-AzResourceGroup -Name gridResourceGroup -Location westus2
 
 ## <a name="create-a-custom-topic"></a>Skapa en anpassat ämne
 
-Ett event grid-ämne tillhandahåller en användardefinierad slutpunkt där du publicerar dina händelser. I följande exempel skapas det anpassade ämnet i din resursgrupp. Ersätt `<your-topic-name>` med ett unikt namn för ditt ämne. Ämnesnamnet måste vara unikt eftersom det är en del av DNS-posten. Dessutom måste det bestå av mellan 3 och 50 tecken och bara innehålla a-z, A-Z, 0-9 och "-"
+Ett event grid-ämne tillhandahåller en användardefinierad slutpunkt där du publicerar dina händelser. I följande exempel skapas det anpassade ämnet i din resursgrupp. Ersätt `<your-topic-name>` med ett unikt namn för ditt ämne. Ämnesnamnet måste vara unikt eftersom det är en del av DNS-posten. Dessutom måste det bestå av mellan 3 och 50 tecken och bara innehålla a–z, A–Z, 0–9 och "-"
 
 ```powershell-interactive
 $topicname="<your-topic-name>"

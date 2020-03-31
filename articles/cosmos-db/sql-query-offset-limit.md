@@ -1,5 +1,5 @@
 ---
-title: OFFSET LIMIT-sats i Azure Cosmos DB
+title: OFFSET LIMIT-satsen i Azure Cosmos DB
 description: Lär dig hur du använder OFFSET LIMIT-satsen för att hoppa över och ta vissa värden när du frågar i Azure Cosmos DB
 author: timsander1
 ms.service: cosmos-db
@@ -7,17 +7,17 @@ ms.topic: conceptual
 ms.date: 06/10/2019
 ms.author: mjbrown
 ms.openlocfilehash: 3d23676885323e370cee1e9cc9e98c7128faf2e0
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/28/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76771576"
 ---
-# <a name="offset-limit-clause-in-azure-cosmos-db"></a>OFFSET LIMIT-sats i Azure Cosmos DB
+# <a name="offset-limit-clause-in-azure-cosmos-db"></a>OFFSET LIMIT-satsen i Azure Cosmos DB
 
-OFFSET LIMIT-satsen är en optional-sats att hoppa över och sedan ta ett visst antal värden från frågan. Antalet OFFSET och LIMIT-antalet krävs i OFFSET LIMIT-satsen.
+OFFSET LIMIT-satsen är en valfri sats att hoppa över och sedan ta ett antal värden från frågan. Förskjutningsantalet och antalet LIMIT krävs i OFFSET LIMIT-satsen.
 
-När OFFSET-gränsen används tillsammans med en ORDER BY-sats skapas resultat uppsättningen genom att hoppa över och ta på de beställda värdena. Om ingen ORDER BY-sats används kommer den att resultera i en deterministisk ordning med värden.
+När OFFSET LIMIT används tillsammans med en ORDER BY-sats produceras resultatuppsättningen genom att hoppa över och ta på de beställda värdena. Om ingen ORDER BY-sats används resulterar den i en deterministisk värdeordning.
 
 ## <a name="syntax"></a>Syntax
   
@@ -29,23 +29,23 @@ OFFSET <offset_amount> LIMIT <limit_amount>
 
 - `<offset_amount>`
 
-   Anger det heltals antal objekt som frågeresultaten ska hoppa över.
+   Anger heltalsantalet objekt som frågeresultatet ska hoppa över.
 
 - `<limit_amount>`
   
-   Anger det heltals antal objekt som frågeresultaten ska innehålla
+   Anger heltalsantalet objekt som frågeresultatet ska innehålla
 
 ## <a name="remarks"></a>Anmärkningar
   
-  Både antalet `OFFSET` och antalet `LIMIT` måste anges i `OFFSET LIMIT`-satsen. Om en valfri `ORDER BY`-sats används skapas resultat uppsättningen genom att hoppa över de beställda värdena. Annars returnerar frågan en fast ordning med värden.
+  Både `OFFSET` antal och `LIMIT` antal krävs `OFFSET LIMIT` i satsen. Om en `ORDER BY` valfri sats används skapas resultatuppsättningen genom att hoppa över de ordnade värdena. Annars returnerar frågan en fast orderordning med värden.
 
-  Avgiften för en fråga med `OFFSET LIMIT` kommer att öka när antalet förskjutningar ökar. För frågor som har flera resultat sidor rekommenderar vi vanligt vis att du använder fortsättnings-token. Fortsättnings-token är ett "bok märke" för platsen där frågan senare kan återupptas. Om du använder `OFFSET LIMIT`finns inget bok märke. Om du vill returnera nästa sida för frågan måste du starta från början.
+  RU-avgiften för en `OFFSET LIMIT` fråga med ökar i takt med att antalet termer som förskjuts ökar. För frågor som har flera resultatsidor rekommenderar vi vanligtvis att du använder fortsättningstoken. Fortsättningstoken är ett "bokmärke" för den plats där frågan senare kan återupptas. Om du `OFFSET LIMIT`använder finns det inget "bokmärke". Om du vill returnera frågans nästa sida måste du börja från början.
   
-  Du bör använda `OFFSET LIMIT` för fall när du vill hoppa över dokumenten helt och spara klient resurser. Du bör till exempel använda `OFFSET LIMIT` om du vill hoppa över till 1000th-frågeresultaten och inte behöver visa resultat 1 till 999. På Server delen läser `OFFSET LIMIT` fortfarande varje dokument, inklusive de som hoppas över. Prestanda fördelarna är ett besparingar i klient resurser genom att undvika bearbetnings dokument som inte behövs.
+  Du bör `OFFSET LIMIT` använda för fall när du vill hoppa över dokument helt och spara klientresurser. Du bör till `OFFSET LIMIT` exempel använda om du vill hoppa till det 1000:e frågeresultatet och inte behöver visa resultat 1 till 999. På backend `OFFSET LIMIT` läser fortfarande varje dokument, inklusive de som hoppas över. Prestandafördelen är en besparing i klientresurser genom att undvika bearbetning av dokument som inte behövs.
 
 ## <a name="examples"></a>Exempel
 
-Här är ett exempel på en fråga som hoppar över det första värdet och returnerar det andra värdet (i den inhemska ortens namn):
+Här är till exempel en fråga som hoppar över det första värdet och returnerar det andra värdet (i ordning efter den inhemska stadens namn):
 
 ```sql
     SELECT f.id, f.address.city
@@ -54,7 +54,7 @@ Här är ett exempel på en fråga som hoppar över det första värdet och retu
     OFFSET 1 LIMIT 1
 ```
 
-Resultaten är:
+Resultatet är:
 
 ```json
     [
@@ -65,7 +65,7 @@ Resultaten är:
     ]
 ```
 
-Här är en fråga som hoppar över det första värdet och returnerar det andra värdet (utan ordning):
+Här är en fråga som hoppar över det första värdet och returnerar det andra värdet (utan att beställa):
 
 ```sql
    SELECT f.id, f.address.city
@@ -73,7 +73,7 @@ Här är en fråga som hoppar över det första värdet och returnerar det andra
     OFFSET 1 LIMIT 1
 ```
 
-Resultaten är:
+Resultatet är:
 
 ```json
     [
@@ -87,5 +87,5 @@ Resultaten är:
 ## <a name="next-steps"></a>Nästa steg
 
 - [Komma igång](sql-query-getting-started.md)
-- [SELECT-satsen](sql-query-select.md)
-- [ORDER BY-sats](sql-query-order-by.md)
+- [SELECT-sats](sql-query-select.md)
+- [ORDER BY-satsen](sql-query-order-by.md)

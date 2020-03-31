@@ -1,5 +1,5 @@
 ---
-title: Parallell massimport av data i SQL-partitionstabeller - Team Data Science Process
+title: Parallell massimport av massdata i SQL-partitionstabeller - Team Data Science Process
 description: Skapa partitionerade tabeller för snabb parallell massimport av data till en SQL Server-databas.
 services: machine-learning
 author: marktab
@@ -12,28 +12,28 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 673a801e218d055bf482dc97972e36584cddd402
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76721344"
 ---
-# <a name="build-and-optimize-tables-for-fast-parallel-import-of-data-into-a-sql-server-on-an-azure-vm"></a>Skapa och optimera tabeller för snabb parallella import av data till en SQL Server på en Azure VM
+# <a name="build-and-optimize-tables-for-fast-parallel-import-of-data-into-a-sql-server-on-an-azure-vm"></a>Skapa och optimera tabeller för snabb parallellimport av data till en SQL Server på en virtuell Azure-dator
 
-Den här artikeln beskriver hur du skapar partitionerade tabeller för snabb parallell massimport av data till en SQL Server-databas. För stor data inläsning/överföring till en SQL-databas kan du förbättra data importen till SQL DB och efterföljande frågor genom att använda *partitionerade tabeller och vyer*. 
+I den här artikeln beskrivs hur du skapar partitionerade tabeller för snabb parallell massimport av data till en SQL Server-databas. För inläsning/överföring av stordata till en SQL-databas kan importen av data till SQL DB och efterföljande frågor förbättras med hjälp av *partitionerade tabeller och vyer*. 
 
 ## <a name="create-a-new-database-and-a-set-of-filegroups"></a>Skapa en ny databas och en uppsättning filgrupper
 * [Skapa en ny databas](https://technet.microsoft.com/library/ms176061.aspx), om den inte redan finns.
-* Lägg till databas filgrupper i databasen, som innehåller de partitionerade fysiska filerna. 
-* Detta kan göras med [skapa databas](https://technet.microsoft.com/library/ms176061.aspx) om det redan finns en ny databas eller [Alter Database](https://msdn.microsoft.com/library/bb522682.aspx) .
-* Lägga till en eller flera filer (om det behövs) i varje filgrupp för databasen.
+* Lägg till databasfilgrupper i databasen, som innehåller de partitionerade fysiska filerna. 
+* Detta kan göras med [SKAPA DATABAS](https://technet.microsoft.com/library/ms176061.aspx) om ny eller [ÄNDRA DATABAS](https://msdn.microsoft.com/library/bb522682.aspx) om databasen redan finns.
+* Lägg till en eller flera filer (efter behov) i varje databasfilgrupp.
   
   > [!NOTE]
-  > Ange mål-filgrupp, som innehåller data för den här partitionen och den fysiska databasen filnamn filgruppsdata ska lagras.
+  > Ange målfilgruppen, som innehåller data för den här partitionen och de fysiska databasfilnamnen där filgruppsdata lagras.
   > 
   > 
 
-I följande exempel skapas en ny databas med tre filgrupper än primärt och loggrupper, som innehåller en fysisk fil i var och en. Databasfilerna skapas i standardmappen för SQL Server-Data som konfigurerats i SQL Server-instansen. Mer information om standard Sök vägarna finns i [fil platser för standard-och namngivna instanser av SQL Server](https://msdn.microsoft.com/library/ms143547.aspx).
+I följande exempel skapas en ny databas med tre andra filgrupper än primär- och logggrupperna, som innehåller en fysisk fil i varje. Databasfilerna skapas i standardmappen FÖR SQL Server-data, som konfigurerats i SQL Server-instansen. Mer information om standardfilplatser finns i [Filplatser för standard- och namngivna instanser av SQL Server](https://msdn.microsoft.com/library/ms143547.aspx).
 
     DECLARE @data_path nvarchar(256);
     SET @data_path = (SELECT SUBSTRING(physical_name, 1, CHARINDEX(N'master.mdf', LOWER(physical_name)) - 1)
@@ -55,10 +55,10 @@ I följande exempel skapas en ny databas med tre filgrupper än primärt och log
     ')
 
 ## <a name="create-a-partitioned-table"></a>Skapa en partitionerad tabell
-Om du vill skapa partitionerade tabeller enligt dataschemat mappad till databasen-filgrupper som skapades i föregående steg, måste du först skapa en partitionsfunktion och schema. När data samtidigt som importerats till partitionerade tabeller är poster fördelade på filgrupper enligt ett partitionsschema enligt beskrivningen nedan.
+Om du vill skapa partitionerade tabeller enligt dataschemat, mappade till de databasfilgrupper som skapats i föregående steg, måste du först skapa en partitionsfunktion och schema. När data massimporteras till de partitionerade tabellerna fördelas poster mellan filgrupperna enligt ett partitionsschema enligt beskrivningen nedan.
 
-### <a name="1-create-a-partition-function"></a>1. skapa en partitions funktion
-[Skapa en partitions funktion](https://msdn.microsoft.com/library/ms187802.aspx) Den här funktionen definierar det värde/gränser som ska inkluderas i varje enskild partitionstabell, till exempel för att begränsa partitioner efter månad (vissa\_datetime-\_fältet) under året 2013:
+### <a name="1-create-a-partition-function"></a>1. Skapa en partitionsfunktion
+[Skapa en partitionsfunktion](https://msdn.microsoft.com/library/ms187802.aspx) Den här funktionen definierar det intervall av värden/gränser som ska ingå i varje enskild\_partitionstabell, till exempel för att begränsa partitioner per månad (något datetime-fält)\_år 2013:
   
         CREATE PARTITION FUNCTION <DatetimeFieldPFN>(<datetime_field>)  
         AS RANGE RIGHT FOR VALUES (
@@ -66,8 +66,8 @@ Om du vill skapa partitionerade tabeller enligt dataschemat mappad till database
             '20130501', '20130601', '20130701', '20130801',
             '20130901', '20131001', '20131101', '20131201' )
 
-### <a name="2-create-a-partition-scheme"></a>2. skapa ett partitionsschema
-[Skapa ett partitionsschema](https://msdn.microsoft.com/library/ms179854.aspx). Det här schemat mappar varje partition intervallet i partitionsfunktionen till en fysisk filgrupp, till exempel:
+### <a name="2-create-a-partition-scheme"></a>2. Skapa ett partitionsschema
+[Skapa ett partitionsschema](https://msdn.microsoft.com/library/ms179854.aspx). Det här schemat mappar varje partitionsintervall i partitionsfunktionen till en fysisk filgrupp, till exempel:
   
         CREATE PARTITION SCHEME <DatetimeFieldPScheme> AS  
         PARTITION <DatetimeFieldPFN> TO (
@@ -75,7 +75,7 @@ Om du vill skapa partitionerade tabeller enligt dataschemat mappad till database
         <filegroup_5>, <filegroup_6>, <filegroup_7>, <filegroup_8>,
         <filegroup_9>, <filegroup_10>, <filegroup_11>, <filegroup_12> )
   
-  Kör följande fråga för att verifiera intervall gäller i varje partition enligt följande funktion /-schema:
+  Om du vill verifiera de intervall som gäller i varje partition enligt funktionen/schemat kör du följande fråga:
   
         SELECT psch.name as PartitionScheme,
             prng.value AS PartitionValue,
@@ -85,21 +85,21 @@ Om du vill skapa partitionerade tabeller enligt dataschemat mappad till database
         INNER JOIN sys.partition_range_values prng ON prng.function_id=pfun.function_id
         WHERE pfun.name = <DatetimeFieldPFN>
 
-### <a name="3-create-a-partition-table"></a>3. skapa en partitionstabell
-[Skapa partitionerade tabeller](https://msdn.microsoft.com/library/ms174979.aspx)enligt ditt data schema och ange det partitionsschema och det begränsnings fält som används för att partitionera tabellen, till exempel:
+### <a name="3-create-a-partition-table"></a>3. Skapa en partitionstabell
+[Skapa partitionerade tabeller](https://msdn.microsoft.com/library/ms174979.aspx)enligt ditt dataschema och ange det partitionsschema och villkorsfält som används för att partitionera tabellen, till exempel:
   
         CREATE TABLE <table_name> ( [include schema definition here] )
         ON <TablePScheme>(<partition_field>)
 
-Mer information finns i [skapa partitionerade tabeller och index](https://msdn.microsoft.com/library/ms188730.aspx).
+Mer information finns i [Skapa partitionerade tabeller och index](https://msdn.microsoft.com/library/ms188730.aspx).
 
 ## <a name="bulk-import-the-data-for-each-individual-partition-table"></a>Massimportera data för varje enskild partitionstabell
 
-* Du kan använda BCP, BULK INSERT eller andra metoder som [SQL Server migreringsguiden](https://sqlazuremw.codeplex.com/). Följande exempel används metoden BCP.
-* Ändra [databasen](https://msdn.microsoft.com/library/bb522682.aspx) för att ändra transaktions loggnings schema till BULK_LOGGED för att minimera kostnaderna för loggning, till exempel:
+* Du kan använda BCP, BULK INSERT eller andra metoder, till exempel [guiden SQL Server-migrering](https://sqlazuremw.codeplex.com/). I exemplet används BCP-metoden.
+* [Ändra databasen](https://msdn.microsoft.com/library/bb522682.aspx) för att ändra transaktionsloggningsschemat till BULK_LOGGED för att minimera omkostnaderna för loggning, till exempel:
   
         ALTER DATABASE <database_name> SET RECOVERY BULK_LOGGED
-* Starta import massåtgärder parallellt för att bearbeta för inläsning av data. Tips om hur du påskyndar Mass import av Big data i SQL Server-databaser finns [i load 1 TB på mindre än 1 timme](https://blogs.msdn.com/b/sqlcat/archive/2006/05/19/602142.aspx).
+* Om du vill påskynda datainläsningen startar du massimportåtgärderna parallellt. Tips om hur du snabbt importerar stordata till SQL Server-databaser finns [i Läs in 1 TB](https://blogs.msdn.com/b/sqlcat/archive/2006/05/19/602142.aspx)på mindre än 1 timme .
 
 Följande PowerShell-skript är ett exempel på parallella datainläsning med BCP.
 
@@ -166,21 +166,21 @@ Följande PowerShell-skript är ett exempel på parallella datainläsning med BC
 
 
 ## <a name="create-indexes-to-optimize-joins-and-query-performance"></a>Skapa index för att optimera kopplingar och frågeprestanda
-* Om du extraherar data för modellering från flera tabeller, kan du skapa index för koppling för att förbättra prestanda för koppling.
-* [Skapa index](https://technet.microsoft.com/library/ms188783.aspx) (klustrade eller icke-klustrade) för att rikta in samma filgrupp för varje partition, till exempel:
+* Om du extraherar data för modellering från flera tabeller skapar du index på kopplingsnycklarna för att förbättra kopplingsprestanda.
+* [Skapa index](https://technet.microsoft.com/library/ms188783.aspx) (klustrade eller icke-klustrade) som är inriktade på samma filgrupp för varje partition, till exempel:
   
         CREATE CLUSTERED INDEX <table_idx> ON <table_name>( [include index columns here] )
         ON <TablePScheme>(<partition)field>)
-  eller,
+  Eller
   
         CREATE INDEX <table_idx> ON <table_name>( [include index columns here] )
         ON <TablePScheme>(<partition)field>)
   
   > [!NOTE]
-  > Du kan välja att skapa index innan bulk import av data. Skapandet av index innan massimport saktar ned inläsning av data.
+  > Du kan välja att skapa indexen innan du importerar data i grupp. Index skapas innan massimportering saktar ner datainläsningen.
   > 
   > 
 
-## <a name="advanced-analytics-process-and-technology-in-action-example"></a>Processen för avancerad analys och teknik i åtgärden exempel
-För en fullständig genom gång av exempel som använder team data science-processen med en offentlig data uppsättning, se [team data science process i praktiken: använda SQL Server](sql-walkthrough.md).
+## <a name="advanced-analytics-process-and-technology-in-action-example"></a>Exempel på avancerad analysprocess och teknik i åtgärd
+Ett exempel på genomgång från på nytt med hjälp av Team Data Science Process med en offentlig datauppsättning finns [i Team Data Science Process in Action: använda SQL Server](sql-walkthrough.md).
 

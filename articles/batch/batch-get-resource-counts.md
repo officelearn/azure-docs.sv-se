@@ -1,6 +1,6 @@
 ---
-title: Antal tillstånd för aktiviteter och noder – Azure Batch | Microsoft Docs
-description: Räkna antalet Azure Batch uppgifter och Compute-noder för att hantera och övervaka batch-lösningar.
+title: Antal tillstånd för uppgifter och noder – Azure Batch | Microsoft-dokument
+description: Räkna tillståndet för Azure Batch-uppgifter och beräkna noder för att hantera och övervaka batch-lösningar.
 services: batch
 author: LauraBrenner
 manager: evansma
@@ -10,37 +10,37 @@ ms.date: 09/07/2018
 ms.author: labrenne
 ms.custom: seodec18
 ms.openlocfilehash: a7b58e96918d26851812aa96c18043121c081e94
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77023930"
 ---
-# <a name="monitor-batch-solutions-by-counting-tasks-and-nodes-by-state"></a>Övervaka batch-lösningar genom att räkna aktiviteter och noder efter tillstånd
+# <a name="monitor-batch-solutions-by-counting-tasks-and-nodes-by-state"></a>Övervaka batchlösningar genom att räkna uppgifter och noder efter tillstånd
 
-För att övervaka och hantera storskaliga Azure Batch-lösningar måste du ha exakt räkning av resurser i olika tillstånd. Azure Batch tillhandahåller effektiva åtgärder för att få dessa antal för batch- *aktiviteter* och *Compute-noder*. Använd de här åtgärderna i stället för ibland tids krävande List frågor som returnerar detaljerad information om stora mängder av aktiviteter eller noder.
+För att övervaka och hantera storskaliga Azure Batch-lösningar behöver du korrekta antal resurser i olika tillstånd. Azure Batch tillhandahåller effektiva åtgärder för att hämta dessa antal för *batch-uppgifter* och *beräkningsnoder*. Använd dessa åtgärder i stället för potentiellt tidskrävande listfrågor som returnerar detaljerad information om stora samlingar av uppgifter eller noder.
 
-* [Hämta aktivitets antal][rest_get_task_counts] får ett sammanlagt antal aktiva, pågående och slutförda aktiviteter i ett jobb, samt uppgifter som har lyckats eller misslyckats. 
+* [Hämta antal aktivitetsantal][rest_get_task_counts] får ett samlat antal aktiva, kör och slutförda aktiviteter i ett jobb och uppgifter som lyckades eller misslyckades. 
 
-  Genom att räkna aktiviteter i varje tillstånd kan du enklare Visa jobb förloppet för en användare eller upptäcka oväntade fördröjningar eller fel som kan påverka jobbet. Hämta aktivitets antal är tillgängligt som batch service API-version 2017 -06-01.5.1 och relaterade SDK: er och verktyg.
+  Genom att räkna aktiviteter i varje tillstånd kan du lättare visa jobbförloppet för en användare eller upptäcka oväntade fördröjningar eller fel som kan påverka jobbet. Hämta aktivitetsantal är tillgängligt från och med Batch Service API version 2017-06-01.5.1 och relaterade SDK:er och verktyg.
 
-* Antal noder i en [adresspool visar][rest_get_node_counts] antalet dedikerade och låg prioritets-datornoder i varje pool i olika tillstånd: skapa, inaktiv, offline, omstart, omstart, avbildning, start och andra. 
+* [List Pool Nod Counts][rest_get_node_counts] får antalet dedikerade och lågprioriterade beräkningsnoder i varje pool som finns i olika lägen: skapa, inaktiv, offline, föregripa, starta om, återskapa, starta och starta och andra. 
 
-  Genom att räkna noder i varje tillstånd kan du fastställa när du har tillräckliga beräknings resurser för att köra dina jobb och identifiera eventuella problem med dina pooler. Antalet noder i en adresspool är tillgängligt som batch service API-version 2018 -03-01.6.1 och relaterade SDK: er och verktyg.
+  Genom att räkna noder i varje tillstånd kan du bestämma när du har tillräckliga beräkningsresurser för att köra dina jobb och identifiera potentiella problem med dina pooler. Antal listpoolnoder är tillgängligt från och med Batch Service API-version 2018-03-01.6.1 och relaterade SDK:er och verktyg.
 
-Om du använder en version av tjänsten som inte stöder åtgärderna antal aktiviteter eller antal noder, använder du en lista i stället för att räkna resurserna. Använd också en List fråga för att få information om andra batch-resurser, till exempel program, filer och jobb. Mer information om hur du använder filter för att lista frågor finns i [skapa frågor för att lista batch-resurser effektivt](batch-efficient-list-queries.md).
+Om du använder en version av tjänsten som inte stöder åtgärder för antalet aktiviteter eller nodräkna åtgärder, använder du en listfråga i stället för att räkna dessa resurser. Använd också en listfråga för att hämta information om andra batchresurser, till exempel program, filer och jobb. Mer information om hur du använder filter på listfrågor finns i [Skapa frågor för att lista batchresurser effektivt](batch-efficient-list-queries.md).
 
-## <a name="task-state-counts"></a>Antal uppgifts tillstånd
+## <a name="task-state-counts"></a>Antal aktivitetstillstånd
 
-Åtgärden hämta antal aktiviteter räknas i följande tillstånd:
+Åtgärden Hämta aktivitetsräkn räknar aktiviteter enligt följande tillstånd:
 
-- **Aktiv** – en uppgift som är i kö och kan köras, men som för närvarande inte är kopplad till en Compute-nod. En aktivitet `active` även om den är [beroende av en överordnad aktivitet](batch-task-dependencies.md) som ännu inte har slutförts. 
-- **Körs** – en aktivitet som har tilldelats till en Compute-nod, men som ännu inte har slutförts. En aktivitet räknas som `running` när dess tillstånd är antingen `preparing` eller `running`, vilket anges i [Hämta information om en uppgifts][rest_get_task] åtgärd.
-- **Slutförd** – en aktivitet som inte längre är berättigad att köras, eftersom den antingen har slutförts eller slutat fungera och även förbrukat gränsen för återförsök. 
-- **Lyckades** – en uppgift vars resultat av uppgifts körning är `success`. Batch avgör om en aktivitet har lyckats eller misslyckats genom att kontrol lera egenskapen `TaskExecutionResult` för egenskapen [executionInfo][rest_get_exec_info] .
-- **Misslyckades** En uppgift vars resultat av uppgifts körning är `failure`.
+- **Aktiv** - En aktivitet som står i kö och kan köras, men som för närvarande inte har tilldelats en beräkningsnod. En aktivitet `active` är också om den är [beroende av en överordnad aktivitet](batch-task-dependencies.md) som ännu inte har slutförts. 
+- **Kör** - En aktivitet som har tilldelats en beräkningsnod, men som ännu inte har slutförts. En aktivitet räknas `running` som när `preparing` dess `running`tillstånd är antingen eller , som anges av [Hämta information om en aktivitetsåtgärd.][rest_get_task]
+- **Slutförd** - En uppgift som inte längre kan köras, eftersom den antingen har slutförts eller slutförts utan framgång och även uttömt gränsen för återförsök. 
+- **Lyckades** - En uppgift vars `success`resultat av körning av uppgiften är . Batch avgör om en aktivitet har lyckats `TaskExecutionResult` eller misslyckats genom att kontrollera egenskapen [för egenskapen executionInfo.][rest_get_exec_info]
+- **Det gick inte att** En uppgift vars resultat `failure`av körning av uppgifter är .
 
-Följande exempel på .NET-kod visar hur du hämtar antal aktiviteter efter status: 
+Följande .NET-kodexempel visar hur du hämtar aktivitetsantal efter tillstånd: 
 
 ```csharp
 var taskCounts = await batchClient.JobOperations.GetJobTaskCountsAsync("job-1");
@@ -52,31 +52,31 @@ Console.WriteLine("Succeeded task count: {0}", taskCounts.Succeeded);
 Console.WriteLine("Failed task count: {0}", taskCounts.Failed);
 ```
 
-Du kan använda ett liknande mönster för REST och andra språk som stöds för att hämta aktivitets antal för ett jobb. 
+Du kan använda ett liknande mönster för REST och andra språk som stöds för att få aktivitetsantal för ett jobb. 
 
 > [!NOTE]
-> API-versioner för batch-tjänsten innan 2018 -08-01.7.0 returnerar också en `validationStatus`-egenskap i svars antalet hämta uppgifter. Den här egenskapen anger om batch kontrollerade antalet tillstånd för konsekvens med de tillstånd som rapporteras i API: et för List aktiviteter. Värdet `validated` anger bara att batchen har kontrollerat konsekvensen minst en gång för jobbet. Värdet för egenskapen `validationStatus` anger inte om antalet som erhåller aktivitets antal returnerar är aktuellt.
+> Api-versioner för batchtjänst före 2018-08-01.7.0 returnerar också en `validationStatus` egenskap i svaret Hämta aktivitetsantal. Den här egenskapen anger om Batch kontrollerat tillståndsantalet för konsekvens med de tillstånd som rapporterats i API:et för listaktiviteter. Värdet anger `validated` endast att Batch kontrolleras efter konsekvens minst en gång för jobbet. Värdet för `validationStatus` egenskapen anger inte om antalet som hämta aktivitetsantal returnerar för närvarande är uppdaterade.
 >
 
-## <a name="node-state-counts"></a>Antal Node-tillstånd
+## <a name="node-state-counts"></a>Antal nodtillstånd
 
-Antalet noder i noden lista räknar antalet beräknade noder efter följande tillstånd i varje pool. Separata mängd antal anges för dedikerade noder och noder med låg prioritet i varje pool.
+Åtgärden Lista poolnod räknar beräkningsnoder med följande tillstånd i varje pool. Separata aggregerade antal tillhandahålls för dedikerade noder och noder med låg prioritet i varje pool.
 
-- **Skapa** – en Azure-ALLOKERAD virtuell dator som ännu inte har börjat anslutas till en pool.
-- **Inaktiv** – en tillgänglig Compute-nod som inte kör en aktivitet för tillfället.
-- **LeavingPool** – en nod som lämnar poolen, antingen på grund av att användaren uttryckligen har tagit bort den eller eftersom poolen ändrar storlek eller skalar ned igen.
-- **Offline** – en nod som batchen inte kan använda för att schemalägga nya aktiviteter.
-- I **förväg –** en nod med låg prioritet som har tagits bort från poolen eftersom Azure frigjorde den virtuella datorn. En `preempted` nod kan återinitieras när den virtuella datorns kapacitet med låg prioritet är tillgänglig.
-- Startar **om** en nod som startar om.
-- **Reavbildning** – en nod där operativ systemet installeras om.
-- **Kör** en nod som kör en eller flera aktiviteter (förutom start aktiviteten).
-- **Starta** en nod där batch-tjänsten startas. 
-- **StartTaskFailed** – en nod där [Start uppgiften][rest_start_task] misslyckades och förtömde alla återförsök och på vilken `waitForSuccess` har angetts för start aktiviteten. Noden kan inte användas för att köra uppgifter.
-- **Okänd** -en nod som tappade kontakten med batch-tjänsten och vars tillstånd inte är känt.
-- **Oanvändbar** -en nod som inte kan användas för uppgifts körning på grund av fel.
-- **WaitingForStartTask** – en nod där start aktiviteten började köras, men `waitForSuccess` har angetts och start aktiviteten inte har slutförts.
+- **Skapa** - En Azure-allokerad virtuell dator som ännu inte har börjat ansluta till en pool.
+- **Inaktiv** - En tillgänglig beräkningsnod som för närvarande inte kör en aktivitet.
+- **LeavingPool** - En nod som lämnar poolen, antingen för att användaren uttryckligen tagit bort den eller för att poolen ändrar storlek eller ändrar ned automatiskt.
+- **Offline** - En nod som batch inte kan använda för att schemalägga nya aktiviteter.
+- **Preempted** - En nod med låg prioritet som togs bort från poolen eftersom Azure återtog den virtuella datorn. En `preempted` nod kan initieras igen när ersättningshögprioriterad VM-kapacitet är tillgänglig.
+- **Omstart** - En nod som startar om.
+- **Reimaging** - En nod som operativsystemet installeras om på.
+- **Köra** - En nod som kör en eller flera aktiviteter (förutom startaktiviteten).
+- **Start** - En nod som batch-tjänsten startar på. 
+- **StartTaskFailed** - En nod där [startaktiviteten][rest_start_task] misslyckades och tog `waitForSuccess` ut alla återförsök och som anges på startaktiviteten. Noden kan inte kan köras för aktiviteter.
+- **Okänd** - En nod som förlorat kontakten med batch-tjänsten och vars tillstånd inte är känt.
+- **Oersättlig** - En nod som inte kan användas för körning av uppgifter på grund av fel.
+- **WaitingForStartTask** - En nod där startaktiviteten `waitForSuccess` började köras, men är inställd och startaktiviteten har inte slutförts.
 
-Följande C# fragment visar hur du anger antal noder för alla pooler i det aktuella kontot:
+Följande C#-kodavsnitt visar hur du listar nodantal för alla pooler i det aktuella kontot:
 
 ```csharp
 foreach (var nodeCounts in batchClient.PoolOperations.ListPoolNodeCounts())
@@ -96,7 +96,7 @@ foreach (var nodeCounts in batchClient.PoolOperations.ListPoolNodeCounts())
     Console.WriteLine("Low-priority node count in Preempted state: {0}", nodeCounts.LowPriority.Preempted);
 }
 ```
-Följande C# fragment visar hur du anger antal noder för en specifik pool i det aktuella kontot.
+Följande C#-kodavsnitt visar hur du listar nodantal för en viss pool i det aktuella kontot.
 
 ```csharp
 foreach (var nodeCounts in batchClient.PoolOperations.ListPoolNodeCounts(new ODATADetailLevel(filterClause: "poolId eq 'testpool'")))
@@ -116,13 +116,13 @@ foreach (var nodeCounts in batchClient.PoolOperations.ListPoolNodeCounts(new ODA
     Console.WriteLine("Low-priority node count in Preempted state: {0}", nodeCounts.LowPriority.Preempted);
 }
 ```
-Du kan använda ett liknande mönster för REST och andra språk som stöds för att hämta antal noder för pooler.
+Du kan använda ett liknande mönster för REST och andra språk som stöds för att få nodantal för pooler.
  
 ## <a name="next-steps"></a>Nästa steg
 
-* Mer information om begrepp och funktioner relaterade till Batch-tjänsten finns i [funktionsöversikten för Batch](batch-api-basics.md). I artikeln beskrivs de primära batch-resurserna som pooler, datornoder, jobb och uppgifter och en översikt över tjänstens funktioner.
+* Mer information om begrepp och funktioner relaterade till Batch-tjänsten finns i [funktionsöversikten för Batch](batch-api-basics.md). I artikeln beskrivs de primära batchresurserna, till exempel pooler, beräkningsnoder, jobb och uppgifter, och en översikt över tjänstens funktioner.
 
-* Information om hur du använder filter för frågor som visar batch-resurser finns i [skapa frågor för att lista batch-resurser effektivt](batch-efficient-list-queries.md).
+* Information om hur du använder filter på frågor som listar batchresurser finns i [Skapa frågor för att lista batchresurser effektivt](batch-efficient-list-queries.md).
 
 
 [rest_get_task_counts]: /rest/api/batchservice/job/gettaskcounts

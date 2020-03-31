@@ -1,7 +1,7 @@
 ---
-title: Vad är en Azure Machine Learning beräknings instans?
+title: Vad är en Azure Machine Learning-beräkningsinstans?
 titleSuffix: Azure Machine Learning
-description: Lär dig mer om Azure Machine Learning Compute-instansen, en fullständigt hanterad molnbaserad arbets Station.
+description: Lär dig mer om Azure Machine Learning-beräkningsinstansen, en fullständigt hanterad molnbaserad arbetsstation.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,144 +10,144 @@ ms.author: sgilley
 author: sdgilley
 ms.date: 12/13/2019
 ms.openlocfilehash: 280851b2fea0b8100a7d0f8ec8105109a41c8c83
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79283932"
 ---
-# <a name="what-is-an-azure-machine-learning-compute-instance"></a>Vad är en Azure Machine Learning beräknings instans?
+# <a name="what-is-an-azure-machine-learning-compute-instance"></a>Vad är en Azure Machine Learning-beräkningsinstans?
 
-En Azure Machine Learning beräknings instans (för hands version) är en fullständigt hanterad molnbaserad arbets station för data forskare. 
+En Azure Machine Learning-beräkningsinstans (förhandsversion) är en fullständigt hanterad molnbaserad arbetsstation för dataforskare. 
 
-Med beräknings instanser är det enkelt att komma igång med Azure Machine Learning utveckling samt tillhandahålla funktioner för hantering och företags beredskap för IT-administratörer.  
+Beräkningsinstanser gör det enkelt att komma igång med Azure Machine Learning-utveckling samt tillhandahålla funktioner för hantering och företagsberedskap för IT-administratörer.  
 
-Använd en beräknings instans som din fullständigt konfigurerade och hanterade utvecklings miljö i molnet.
+Använd en beräkningsinstans som din fullständigt konfigurerade och hanterade utvecklingsmiljö i molnet.
 
-Beräknings instanser används vanligt vis som utvecklings miljöer.  De kan också användas som beräknings mål för utbildning och inferencing för utveckling och testning.  För stora aktiviteter är ett [Azure Machine Learning beräknings kluster](how-to-set-up-training-targets.md#amlcompute) med skalnings funktioner för flera noder ett bättre beräknings måls val.
+Beräkningsinstanser används vanligtvis som utvecklingsmiljöer.  De kan också användas som ett beräkningsmål för utbildning och inferencing för utveckling och testning.  För stora uppgifter är ett [Azure Machine Learning-beräkningskluster](how-to-set-up-training-targets.md#amlcompute) med flernodskalningsfunktioner ett bättre val av beräkningsmål.
 
 
-## <a name="why-use-a-compute-instance"></a>Varför ska man använda en beräknings instans?
+## <a name="why-use-a-compute-instance"></a>Varför använda en beräkningsinstans?
 
-En beräknings instans är en fullständigt hanterad molnbaserad arbets station som är optimerad för din Machine Learning Development-miljö. Det ger följande fördelar:
+En beräkningsinstans är en fullständigt hanterad molnbaserad arbetsstation som är optimerad för din maskininlärningsutvecklingsmiljö. Det ger följande fördelar:
 
 |Viktiga fördelar||
 |----|----|
-|Produktivitet|Data forskare kan bygga och distribuera modeller med integrerade antecknings böcker och följande verktyg i webbläsaren:<br/>– Jupyter<br/>- JupyterLab<br/>– RStudio|
-|Hanterad & säker|Minska din säkerhets storlek och Lägg till efterlevnad med företagets säkerhets krav. Beräknings instanser ger robusta hanterings principer och säkra nätverkskonfigurationer som:<br/><br/>– Automatisk etablering från Resource Manager-mallar eller Azure Machine Learning SDK<br/>- [rollbaserad åtkomst kontroll (RBAC)](/azure/role-based-access-control/overview)<br/>stöd för - [virtuellt nätverk](how-to-enable-virtual-network.md#compute-instance)<br/>– SSH-princip för att aktivera/inaktivera SSH-åtkomst|
-|Förkonfigurerad&nbsp;eller&nbsp;ML|Spara tid på installations aktiviteter med förkonfigurerade och uppdaterade ML-paket, ramverk för djup inlärning, GPU-drivrutiner.|
-|Helt anpassningsbar|Brett stöd för virtuella Azure-datorer, inklusive GPU: er och beständiga anpassningar på låg nivå, till exempel installation av paket och driv rutiner gör avancerade scenarier till en enkelt. |
+|Produktivitet|Dataforskare kan skapa och distribuera modeller med hjälp av integrerade bärbara datorer och följande verktyg i sin webbläsare:<br/>- Jupyter.<br/>- JupyterLab.<br/>- RStudio|
+|Hanterad & säker|Minska ditt säkerhetsavtryck och lägg till efterlevnad av företagets säkerhetskrav. Beräkningsinstanser ger robusta hanteringsprinciper och säkra nätverkskonfigurationer, till exempel:<br/><br/>- Automatisk etablering från Resource Manager-mallar eller Azure Machine Learning SDK<br/>- [Rollbaserad åtkomstkontroll (RBAC)](/azure/role-based-access-control/overview)<br/>- [Stöd för virtuella nätverk](how-to-enable-virtual-network.md#compute-instance)<br/>- SSH-princip för att aktivera/inaktivera SSH-åtkomst|
+|Förkonfigurerad&nbsp;&nbsp;eller ML|Spara tid på installationsuppgifter med förkonfigurerade och uppdaterade ML-paket, ramverk för djupinlärning, GPU-drivrutiner.|
+|Helt anpassningsbar|Brett stöd för Azure VM-typer, inklusive GPU:er och beständig anpassning på låg nivå, till exempel installera paket och drivrutiner, gör avancerade scenarier enkelt. |
 
-## <a name="contents"></a>Verktyg och miljöer
+## <a name="tools-and-environments"></a><a name="contents"></a>Verktyg och miljöer
 
-Med Azure Machine Learning Compute-instansen kan du skapa, träna och distribuera modeller i en helt integrerad Notebook-miljö i din arbets yta.
+Azure Machine Learning-beräkningsinstansen gör att du kan skapa, träna och distribuera modeller i en helt integrerad anteckningsboksupplevelse på arbetsytan.
 
 
-De här verktygen och miljöerna är installerade på beräknings instansen: 
+Dessa verktyg och miljöer installeras på beräkningsinstansen: 
 
-|Allmänna verktyg & miljöer|Detaljer|
+|Allmänna verktyg & miljöer|Information|
 |----|:----:|
 |Drivrutiner|`CUDA`</br>`cuDNN`</br>`NVIDIA`</br>`Blob FUSE` |
 |Intel MPI-bibliotek||
 |Azure CLI ||
-|Azure Machine Learning exempel ||
-|Azure Machine Learning EDAT-motor ||
+|Exempel på Azure Machine Learning ||
+|EDAT-motor för Azure Machine Learning ||
 |Docker||
 |Nginx||
-|NCCL 2,0 ||
+|NCCL 2.0 ||
 |Protobuf|| 
 
-|**R** -verktyg & miljöer|Detaljer|
+|**R-verktyg** & miljöer|Information|
 |----|:----:|
-|RStudio server med öppen källkod||
-|R-kernel||
+|RStudio Server Open Source Edition||
+|R-kärna||
 |Azure Machine Learning SDK för R|[azuremlsdk](https://azure.github.io/azureml-sdk-for-r/reference/index.html)</br>SDK-exempel|
 
-|**Python** -verktyg & miljöer|Detaljer|
+|**PYTHON-verktyg** & miljöer|Information|
 |----|----|
-|Anaconda python||
-|Jupyter och tillägg||
-|Jupyterlab och tillägg||
-|Visual Studio Code ||
-[Azure Machine Learning SDK för python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)</br>från PyPI|`azureml-sdk[notebooks,contrib,automl,explain]`</br>`azureml-contrib-datadrift`</br>`azureml-telemetry`</br>`azureml-tensorboard`</br>`azureml-contrib-opendatasets`</br>`azureml-opendatasets`</br>`azureml-contrib-reinforcementlearning`</br>`azureml-mlflow`</br>`azureml-contrib-interpret` |
+|Anaconda Python||
+|Jupyter och förlängningar||
+|Jupyterlab och förlängningar||
+|Visual Studio-koden ||
+[Azure Machine Learning-SDK för Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)</br>från PyPI|`azureml-sdk[notebooks,contrib,automl,explain]`</br>`azureml-contrib-datadrift`</br>`azureml-telemetry`</br>`azureml-tensorboard`</br>`azureml-contrib-opendatasets`</br>`azureml-opendatasets`</br>`azureml-contrib-reinforcementlearning`</br>`azureml-mlflow`</br>`azureml-contrib-interpret` |
 |Andra PyPI-paket|`jupytext`</br>`jupyterlab-git`</br>`tensorboard`</br>`nbconvert`</br>`notebook`</br>`Pillow`|
 |Conda-paket|`cython`</br>`numpy`</br>`ipykernel`</br>`scikit-learn`</br>`matplotlib`</br>`tqdm`</br>`joblib`</br>`nodejs`</br>`nb_conda_kernels`|
-|Djup inlärnings paket|`PyTorch`</br>`TensorFlow`</br>`Keras`</br>`Horovod`</br>`MLFlow`</br>`pandas-ml`</br>`scrapbook`|
+|Paket med djupinlärning|`PyTorch`</br>`TensorFlow`</br>`Keras`</br>`Horovod`</br>`MLFlow`</br>`pandas-ml`</br>`scrapbook`|
 |ONNX-paket|`keras2onnx`</br>`onnx`</br>`onnxconverter-common`</br>`skl2onnx`</br>`onnxmltools`|
-|Azure Machine Learning python & R SDK-exempel||
+|Azure Machine Learning Python & R SDK-exempel||
 
-Python-paketen installeras i **python 3,6-azureml-** miljön.  
+Python-paket är alla installerade i **Python 3.6 - AzureML-miljön.**  
 
-Beräknings instanser används vanligt vis som utvecklings miljöer.  De kan också användas som beräknings mål för utbildning och inferencing för utveckling och testning.  För stora aktiviteter är ett [Azure Machine Learning beräknings kluster](how-to-set-up-training-targets.md#amlcompute) med skalnings funktioner för flera noder ett bättre beräknings måls val.
+Beräkningsinstanser används vanligtvis som utvecklingsmiljöer.  De kan också användas som ett beräkningsmål för utbildning och inferencing för utveckling och testning.  För stora uppgifter är ett [Azure Machine Learning-beräkningskluster](how-to-set-up-training-targets.md#amlcompute) med flernodskalningsfunktioner ett bättre val av beräkningsmål.
 
 ### <a name="installing-packages"></a>Installera paket
 
-Du kan installera paket direkt i en Jupyter Notebook eller RStudio:
+Du kan installera paket direkt i en Jupyter-anteckningsbok eller Rstudio:
 
-* RStudio Använd fliken **paket** längst ned till höger eller fliken **konsol** längst upp till vänster.  
-* Python: Lägg till installations kod och kör i en Jupyter Notebook-cell.
+* RStudio Använd fliken **Paket** längst ned till höger eller fliken **Konsol** längst upp till vänster.  
+* Python: Lägg till installationskod och kör i en Jupyter-anteckningsbokscell.
 
 Eller så kan du komma åt ett terminalfönster på något av följande sätt:
 
 * RStudio: Välj fliken **Terminal** längst upp till vänster.
-* Jupyter Lab: Välj panelen **Terminal** under den **andra** rubriken på fliken Start.
-* Jupyter: Välj **ny > Terminal** överst till höger på fliken filer.
-* SSH till datorn.  Installera sedan python-paket i **Python 3,6-azureml-** miljön.  Installera R-paket i **R** -miljön.
+* Jupyter Lab: Välj **terminalpanelen** under den **andra** rubriken på fliken Startprogrammet.
+* Jupyter: Välj **Ny>Terminal** längst upp till höger på fliken Filer.
+* SSH till maskinen.  Installera sedan Python-paket i **Python 3.6 - AzureML-miljön.**  Installera R-paket i **R-miljön.**
 
 ## <a name="accessing-files"></a>Komma åt filer
 
-Antecknings böcker och R-skript lagras på arbets ytans standard lagrings konto i Azure-filresursen.  Dessa filer finns under katalogen "användarfiler". Den här lagringen gör det enkelt att dela antecknings böcker mellan beräknings instanser. Lagrings kontot sparar också dina antecknings böcker på ett säkert sätt när du stoppar eller tar bort en beräknings instans.
+Anteckningsböcker och R-skript lagras i standardlagringskontot för din arbetsyta i Azure-filresursen.  Dessa filer finns under katalogen "Användarfiler". Den här lagringen gör det enkelt att dela anteckningsböcker mellan beräkningsinstanser. Lagringskontot bevarar även dina anteckningsböcker på ett säkert sätt när du stoppar eller tar bort en beräkningsinstans.
 
-Azure-filresursen på din arbets yta monteras som en enhet på beräknings instansen. Den här enheten är standard arbets katalogen för Jupyter, Jupyter Labs och RStudio.
+Azure-filresurskontot för din arbetsyta är monterat som en enhet på beräkningsinstansen. Den här enheten är standardarbetskatalogen för Jupyter, Jupyter Labs och RStudio.
 
-Filerna i fil resursen är tillgängliga från alla beräknings instanser i samma arbets yta. Eventuella ändringar av de här filerna på beräknings instansen kommer att bli tillförlitligt bestående tillbaka till fil resursen.
+Filerna i filresursen är tillgängliga från alla beräkningsinstanser på samma arbetsyta. Alla ändringar av dessa filer i beräkningsinstansen sparas på ett tillförlitligt sätt tillbaka till filresursen.
 
-Du kan också klona de senaste Azure Machine Learning exemplen till din mapp under katalogen användarfiler i fil resursen för arbets ytan.
+Du kan också klona de senaste Azure Machine Learning-exemplen till mappen under användarfilkatalogen i arbetsytefilresursen.
 
-Att skriva små filer kan vara långsammare på nätverks enheter än att skriva till den virtuella datorn.  Om du skriver många små filer kan du försöka använda en katalog direkt på beräknings instansen, till exempel en `/tmp` katalog. Observera att de här filerna inte är tillgängliga från andra beräknings instanser i arbets ytan.
+Skriva små filer kan vara långsammare på nätverksenheter än att skriva till den virtuella datorn själv.  Om du skriver många små filer kan du prova att använda `/tmp` en katalog direkt på beräkningsinstansen, till exempel en katalog. Observera att dessa filer inte kommer att vara tillgängliga från andra beräkningsinstanser på arbetsytan.
 
-## <a name="managing-a-compute-instance"></a>Hantera en beräknings instans
+## <a name="managing-a-compute-instance"></a>Hantera en beräkningsinstans
 
-I arbets ytan i Azure Machine Learning Studio väljer du **Compute**och sedan **beräknings instans** överst.
+På arbetsytan i Azure Machine Learning studio väljer du **Beräkna**och väljer sedan **Beräkningsinstans** högst upp.
 
-![Hantera en beräknings instans](./media/concept-compute-instance/manage-compute-instance.png)
+![Hantera en beräkningsinstans](./media/concept-compute-instance/manage-compute-instance.png)
 
 Du kan utföra följande åtgärder:
 
-* Skapa en beräknings instans. Ange namn, typ av virtuell Azure-dator inklusive GPU: er (antecknings typ för virtuell dator kan inte ändras efter att du har skapat), aktivera/inaktivera SSH-åtkomst och konfigurera inställningar för virtuellt nätverk. Du kan också skapa en instans direkt från integrerade antecknings böcker, Azure Portal, Resource Manager-mall eller Azure Machine Learning SDK. De dedikerade kärnorna per regions kvot som används för att skapa beräknings instanser är enhetliga och delas med Azure Machine Learning beräknings kluster kvot.
-* Uppdatera fliken beräknings instanser
-* Starta, stoppa och starta om en beräknings instans
-* Ta bort en beräknings instans
+* Skapa en beräkningsinstans. Ange namnet, Azure VM-typ inklusive GPU:er (observera att VM-typ inte kan ändras när du har skapat), aktivera/inaktivera SSH-åtkomst och konfigurera virtuella nätverksinställningar som tillval. Du kan också skapa en instans direkt från integrerade anteckningsböcker, Azure-portal, Resource Manager-mall eller Azure Machine Learning SDK. De dedikerade kärnorna per regionkvot som gäller för att skapa beräkningsinstanser är enhetlig och delas med Azure Machine Learning-beräkningsklusterkvoten.
+* Uppdatera fliken beräkningsinstanser
+* Starta, stoppa och starta om en beräkningsinstans
+* Ta bort en beräkningsinstans
 
-För varje beräknings instans i din arbets yta kan du:
+För varje beräkningsinstans på arbetsytan kan du:
 
-* Åtkomst Jupyter, JupyterLab, RStudio på beräknings instansen
-* SSH till beräknings instans. SSH-åtkomst är inaktive rad som standard men kan aktive ras vid skapande av beräknings instanser. SSH-åtkomst sker via en funktion för offentlig/privat nyckel. På fliken får du information om SSH-anslutning, till exempel IP-adress, användar namn och port nummer.
-* Hämta information om en angiven beräknings instans, till exempel IP-adress och region.
+* Tillgång Jupyter, JupyterLab, RStudio på beräkningsinstansen
+* SSH till beräkningsinstans. SSH-åtkomst är inaktiverad som standard men kan aktiveras vid skapande av beräkningsinstans. SSH-åtkomst sker via offentlig/privat nyckelmekanism. Fliken ger dig information om SSH-anslutning som IP-adress, användarnamn och portnummer.
+* Få information om en specifik beräkningsinstans som IP-adress och region.
 
-Med [RBAC](/azure/role-based-access-control/overview) kan du styra vilka användare i arbets ytan som kan skapa, ta bort, starta, stoppa och starta om en beräknings instans. Alla användare i arbets ytans deltagare och ägar roll kan skapa, ta bort, starta, stoppa och starta om beräknings instanser i arbets ytan. Det är dock bara skaparen av en angiven beräknings instans som tillåts komma åt Jupyter, JupyterLab och RStudio på den beräknings instansen. Instanserna av beräknings instansen har en beräknings instans som är dedikerad till dem, har rot åtkomst och kan terminalen i Jupyter. Compute-instansen kommer att ha en användar inloggning av skapare-användare och alla åtgärder använder den användarens identitet för RBAC och behörighet för experiment körningar. SSH-åtkomsten styrs via mekanismen för offentlig/privat nyckel.
+[Med RBAC](/azure/role-based-access-control/overview) kan du styra vilka användare på arbetsytan som kan skapa, ta bort, starta, stoppa, starta om en beräkningsinstans. Alla användare i arbetsytans deltagare och ägarroll kan skapa, ta bort, starta, stoppa och starta om beräkningsinstanser över arbetsytan. Endast skaparen av en specifik beräkningsinstans får dock komma åt Jupyter, JupyterLab och RStudio på den beräkningsinstansen. Skaparen av beräkningsinstansen har beräkningsinstansen dedikerad till dem, har root-åtkomst och kan terminala in genom Jupyter. Beräkningsinstansen har enanvändarinloggning av skaparanvändare och alla åtgärder kommer att använda användarens identitet för RBAC och attribution av experimentkörningar. SSH-åtkomst kontrolleras genom offentlig/privat nyckelmekanism.
 
 Du kan också skapa en instans
-* Direkt från den integrerade Notebook-upplevelsen
-* I Azure Portal
-* Från Azure Resource Manager mall
+* Direkt från den integrerade bärbara datorupplevelsen
+* I Azure-portalen
+* Från Azure Resource Manager-mall
 * Med Azure Machine Learning SDK
 
-De dedikerade kärnorna per region kvot, som gäller för skapande av beräknings instanser, är enhetliga och delade med Azure Machine Learning utbildnings kluster kvot. 
+De dedikerade kärnorna per regionkvot, som gäller för att skapa beräkningsinstanser, är enhetlig och delas med Azure Machine Learning-utbildningsklusterkvoten. 
 
-## <a name="compute-target"></a>Compute Target
+## <a name="compute-target"></a>Beräkningsmål
 
-Du kan använda beräknings instanser som ett [utbildnings mål](concept-compute-target.md#train) som liknar Azure Machine Learning Compute Training-kluster. Etablera en virtuell dator med flera GPU: n för att köra distribuerade utbildnings jobb med TensorFlow/PyTorch-uppskattningar. Du kan också skapa en körnings konfiguration och använda den för att köra experimentet på beräknings instansen. Du kan använda Compute instance som ett lokalt inferencing distributions mål för testning/fel söknings scenarier.
+Beräkningsinstanser kan användas som ett [utbildningsberäkningsmål](concept-compute-target.md#train) som liknar Azure Machine Learning-beräkningsutbildningskluster. Etablera en virtuell dator med flera GPU för att köra distribuerade utbildningsjobb med TensorFlow/PyTorch-skattningsanordningar. Du kan också skapa en körningskonfiguration och använda den för att köra experimentet på beräkningsinstansen. Du kan använda beräkningsinstans som ett lokalt distributionsmål för testning/felsökning.
 
-## <a name="notebookvm"></a>Vad hände med den virtuella Notebook-datorn?
+## <a name="what-happened-to-notebook-vm"></a><a name="notebookvm"></a>Vad har hänt med den virtuella datorn för bärbara datorer?
 
-Beräknings instanser ersätter den virtuella Notebook-datorn.  
+Beräkningsinstanser ersätter den virtuella datorn för bärbara datorer.  
 
-Alla notebook-filer som lagras i fil resursen och data i arbets ytans data lager kommer att vara tillgängliga från en beräknings instans. Alla anpassade paket som tidigare har installerats på en VM-baserad virtuell dator måste dock installeras på nytt på beräknings instansen. Kvot begränsningar som gäller för att skapa beräknings kluster gäller även för skapande av beräknings instanser. 
+Alla anteckningsfiler som lagras i arbetsytans filresurs och data i datalager för arbetsytan kan nås från en beräkningsinstans. Alla anpassade paket som tidigare installerats på en virtuell dator för bärbara datorer måste dock installeras om på beräkningsinstansen. Kvotbegränsningar som gäller för skapande av beräkningskluster gäller även för att skapa beräkningsinstans. 
 
-Det går inte att skapa nya virtuella dator datorer. Men du kan fortfarande komma åt och använda de virtuella datorerna som du har skapat, med fullständig funktionalitet. Du kan skapa beräknings instanser i samma arbets yta som de befintliga virtuella datorerna. 
+Det går inte att skapa nya virtuella datorer för bärbara datorer. Du kan dock fortfarande komma åt och använda virtuella datorer för bärbara datorer som du har skapat, med full funktionalitet. Beräkningsinstanser kan skapas på samma arbetsyta som de befintliga virtuella datorerna för bärbara datorer. 
 
 
 ## <a name="next-steps"></a>Nästa steg
 
- * [Självstudie: träna din första ml-modell](tutorial-1st-experiment-sdk-train.md) visar hur du använder en beräknings instans med en integrerad antecknings bok.
+ * [Självstudiekurs: Träna din första ML-modell](tutorial-1st-experiment-sdk-train.md) visar hur du använder en beräkningsinstans med en integrerad anteckningsbok.

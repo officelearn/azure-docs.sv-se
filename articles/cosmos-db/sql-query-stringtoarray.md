@@ -1,6 +1,6 @@
 ---
-title: StringToArray i Azure Cosmos DB frågespråk
-description: Lär dig mer om SQL system Function StringToArray i Azure Cosmos DB.
+title: StringToArray i Azure Cosmos DB-frågespråk
+description: Lär dig mer om SQL-systemfunktionen StringToArray i Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
@@ -8,14 +8,14 @@ ms.date: 03/03/2020
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: 18acbd94fa3d717fc20b9e1020b9bf7c6db7744d
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78302924"
 ---
 # <a name="stringtoarray-azure-cosmos-db"></a>StringToArray (Azure Cosmos DB)
- Returnerar uttryck som har översatts till en matris. Om uttrycket inte kan översättas returneras undefined.  
+ Returnerar uttryck översatt till en matris. Om uttrycket inte kan översättas returnerar det odefinierade.  
   
 ## <a name="syntax"></a>Syntax
   
@@ -26,20 +26,20 @@ StringToArray(<str_expr>)
 ## <a name="arguments"></a>Argument
   
 *str_expr*  
-   Är ett sträng uttryck som ska tolkas som ett JSON-mat ris uttryck. 
+   Är ett stränguttryck som ska tolkas som ett JSON-arrayuttryck. 
   
-## <a name="return-types"></a>Retur typer
+## <a name="return-types"></a>Returtyper
   
-  Returnerar ett mat ris uttryck eller odefinierat. 
+  Returnerar ett matrisuttryck eller odefinierat. 
   
 ## <a name="remarks"></a>Anmärkningar
-  Kapslade sträng värden måste skrivas med dubbla citat tecken för att vara giltiga JSON. Mer information om JSON-formatet finns i [JSON.org](https://json.org/)
+  Kapslade strängvärden måste skrivas med dubbla citattecken för att vara giltiga JSON. Mer information om JSON-formatet finns [i json.org](https://json.org/)
   
 ## <a name="examples"></a>Exempel
   
-  I följande exempel visas hur `StringToArray` beter sig mellan olika typer. 
+  I följande exempel `StringToArray` visas hur det fungerar mellan olika typer. 
   
- Följande är exempel på giltiga indatatyper.
+ Följande är exempel med giltig indata.
 
 ```sql
 SELECT 
@@ -56,10 +56,10 @@ Här är resultatuppsättningen.
 [{"a1": [], "a2": [1,2,3], "a3": ["str",2,3], "a4": [["5","6","7"],["8"],["9"]], "a5": [1,2,3,"[4,5,6]",[7,8]]}]
 ```
 
-Följande är ett exempel på ogiltiga indatatyper. 
+Följande är ett exempel på ogiltig indata. 
    
- Enkla citat tecken i matrisen är inte giltiga JSON.
-Även om de är giltiga i en fråga går de inte att parsa till giltiga matriser. Strängar i mat ris strängen måste antingen föregås av [\\\\] eller så måste det omgivande citatet vara en enstaka ["]".
+ Enstaka citattecken i matrisen är inte giltiga JSON.
+Även om de är giltiga i en fråga, kommer de inte att tolka till giltiga matriser. Strängar i matrissträngen måste antingen fly\\\\"[ " "]" eller det omgivande citatet måste vara en enda "["]'.
 
 ```sql
 SELECT
@@ -72,9 +72,9 @@ Här är resultatuppsättningen.
 [{}]
 ```
 
-Följande är exempel på ogiltiga indatatyper.
+Följande är exempel på ogiltig indata.
    
- Det överförda uttrycket kommer att parsas som en JSON-matris. följande utvärderar inte till typ mat ris och returnerar således odefinierad.
+ Uttrycket som skickas tolkas som en JSON-matris. Följande utvärderar inte att skriva matris och därmed returnera odefinierad.
    
 ```sql
 SELECT
@@ -93,10 +93,10 @@ Här är resultatuppsättningen.
 
 ## <a name="remarks"></a>Anmärkningar
 
-Den här system funktionen kommer inte att använda indexet.
+Den här systemfunktionen kommer inte att använda indexet.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Sträng funktioner Azure Cosmos DB](sql-query-string-functions.md)
-- [System funktioner Azure Cosmos DB](sql-query-system-functions.md)
+- [Strängfunktioner Azure Cosmos DB](sql-query-string-functions.md)
+- [Systemfunktioner Azure Cosmos DB](sql-query-system-functions.md)
 - [Introduktion till Azure Cosmos DB](introduction.md)

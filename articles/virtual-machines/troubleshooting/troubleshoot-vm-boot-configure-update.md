@@ -1,6 +1,6 @@
 ---
-title: Starten av den virtuella datorn har fastnat i "komma igång med Windows. Stäng inte av datorn i Azure | Microsoft Docs
-description: Introducera stegen för att felsöka problemet där VM-start fastnar på "komma igång med Windows. Stäng inte av datorn”.
+title: VM-start har fastnat på "Getting Windows ready. Stäng inte av datorn" i Azure | Microsoft-dokument
+description: Introducera stegen för att felsöka problemet där VM-start har fastnat på "Förbereda Windows. Stäng inte av datorn”.
 services: virtual-machines-windows
 documentationcenter: ''
 author: Deland-Han
@@ -14,56 +14,56 @@ ms.topic: article
 ms.date: 09/18/2018
 ms.author: delhan
 ms.openlocfilehash: da45e24898bc3b5aead250077af69a61bdb33bab
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73749635"
 ---
-# <a name="vm-startup-is-stuck-on-getting-windows-ready-dont-turn-off-your-computer-in-azure"></a>Starten av den virtuella datorn har fastnat i "komma igång med Windows. Stäng inte av datorn i Azure
+# <a name="vm-startup-is-stuck-on-getting-windows-ready-dont-turn-off-your-computer-in-azure"></a>VM-start har fastnat på "Getting Windows ready. Stäng inte av datorn" i Azure
 
-Den här artikeln beskriver skärmarna "komma igång" och "komma igång med Windows" som du kan stöta på när du startar en virtuell Windows-dator (VM) i Microsoft Azure. Den innehåller steg som hjälper dig att samla in data för ett support ärende.
+I den här artikeln beskrivs skärmarna "Förbereda" och "Förbereda Windows" som du kan stöta på när du startar en virtuell Dator (VM) i Microsoft Azure. Det innehåller steg som hjälper dig att samla in data för en supportbiljett.
 
  
 
 ## <a name="symptoms"></a>Symtom
 
-En virtuell Windows-dator startar inte. När du använder **startdiagnostik** för att hämta skärm bilden av den virtuella datorn kan du se att den virtuella datorn visar meddelandet "förbereder redo" eller "komma igång med Windows".
+En Windows VM startar inte. När du använder **Boot diagnostik** för att få skärmdump av den virtuella datorn, kan du se att den virtuella datorn visar meddelandet "Redo" eller "Förbereda Windows".
 
-![Meddelande exempel för Windows Server 2012 R2](./media/troubleshoot-vm-configure-update-boot/message1.png)
+![Meddelandeexempel för Windows Server 2012 R2](./media/troubleshoot-vm-configure-update-boot/message1.png)
 
-![Meddelande exempel](./media/troubleshoot-vm-configure-update-boot/message2.png)
+![Exempel på meddelande](./media/troubleshoot-vm-configure-update-boot/message2.png)
 
 ## <a name="cause"></a>Orsak
 
-Det här problemet uppstår vanligt vis när servern utför den slutliga omstarten när konfigurationen har ändrats. Konfigurations ändringen kan initieras av Windows-uppdateringar eller av ändringarna på serverns roller/funktion. För Windows Update, om Uppdateringens storlek var stor, behöver operativ systemet mer tid för att omkonfigurera ändringarna.
+Vanligtvis uppstår det här problemet när servern gör den slutliga omstarten efter att konfigurationen har ändrats. Konfigurationsändringen kan initieras av Windows-uppdateringar eller av ändringarna i serverns roller/funktion. Om storleken på uppdateringarna var stor för Windows Update behöver operativsystemet mer tid för att konfigurera om ändringarna.
 
-## <a name="collect-an-os-memory-dump"></a>Samla in en minnesdump för operativ system
+## <a name="collect-an-os-memory-dump"></a>Samla in en os-minnesdump
 
-Om problemet inte löses när du väntar på att ändringarna ska bearbetas måste du samla in en minnesdumpfil och kontakta supporten. Samla in dumpfilen genom att följa dessa steg:
+Om problemet inte löser efter att ha väntat på att ändringarna ska bearbetas måste du samla in en minnesdumpfil och kontaktsupport. Så här samlar du in dumpfilen:
 
-### <a name="attach-the-os-disk-to-a-recovery-vm"></a>Koppla OS-disken till en virtuell dator för återställning
+### <a name="attach-the-os-disk-to-a-recovery-vm"></a>Koppla OS-disken till en återställnings-VM
 
-1. Ta en ögonblicks bild av OS-disken för den berörda virtuella datorn som en säkerhets kopia. Mer information finns i [ögonblicks bilder av en disk](../windows/snapshot-copy-managed-disk.md).
-2. [Koppla OS-disken till en virtuell dator för återställning](../windows/troubleshoot-recovery-disks-portal.md).
-3. Fjärr skrivbord till den virtuella återställnings datorn. 
-4. Om operativ system disken är krypterad måste du stänga av krypteringen innan du går vidare till nästa steg. Mer information finns i [dekryptera den krypterade OS-disken på den virtuella datorn som inte kan starta](troubleshoot-bitlocker-boot-error.md#solution).
+1. Ta en ögonblicksbild av OS-disken för den berörda virtuella datorn som en säkerhetskopia. Mer information finns i [Ögonblicksbild en disk](../windows/snapshot-copy-managed-disk.md).
+2. [Koppla OS-disken till en återställnings-VM](../windows/troubleshoot-recovery-disks-portal.md).
+3. Fjärrskrivbord till återställningsdass. 
+4. Om OS-disken är krypterad måste du stänga av krypteringen innan du går vidare till nästa steg. Mer information finns [i Dekryptera den krypterade OS-disken i den virtuella datorn som inte kan starta](troubleshoot-bitlocker-boot-error.md#solution).
 
-### <a name="locate-dump-file-and-submit-a-support-ticket"></a>Hitta en dumpfil och skicka ett support ärende
+### <a name="locate-dump-file-and-submit-a-support-ticket"></a>Hitta dumpfil och skicka en supportbiljett
 
-1. På den virtuella datorn för återställning går du till Windows-mappen på den anslutna OS-disken. Om den driv rutins beteckning som har tilldelats till den anslutna OS-disken är F, måste du gå till F:\Windows.
-2. Leta upp filen Memory. dmp och skicka sedan [ett support ärende](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) med dumpfilen. 
+1. På återställningsdatorn går du till windowsmappen i den anslutna OS-disken. Om drivrutinsbrevet som är tilldelat till den anslutna OS-disken är F måste du gå till F:\Windows.
+2. Leta reda på filen memory.dmp och skicka sedan [en supportbiljett](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) med dumpfilen. 
 
-Om du inte hittar dumpfilen går du vidare till nästa steg för att aktivera dumpa logg och seriell konsol.
+Om du inte hittar dumpfilen flyttar du nästa steg för att aktivera dumplogg och seriekonsol.
 
-### <a name="enable-dump-log-and-serial-console"></a>Aktivera dumpa logg och seriell konsol
+### <a name="enable-dump-log-and-serial-console"></a>Aktivera dumplogg och seriekonsol
 
-Kör följande skript för att aktivera dumpa logg och seriell konsol.
+Om du vill aktivera dumplogg och seriekonsol kör du följande skript.
 
-1. Öppna en upphöjd kommando tolk session (kör som administratör).
+1. Öppna förhöjd kommandotolkssession (Kör som administratör).
 2. Kör följande skript:
 
-    I det här skriptet antar vi att enhets beteckningen som är kopplad till den anslutna OS-disken är F.  Ersätt det med lämpligt värde i den virtuella datorn.
+    I det här skriptet antar vi att enhetsbeteckningen som är tilldelad den bifogade OS-disken är F.  Ersätt den med rätt värde i den virtuella datorn.
 
     ```powershell
     reg load HKLM\BROKENSYSTEM F:\windows\system32\config\SYSTEM.hiv
@@ -87,8 +87,8 @@ Kör följande skript för att aktivera dumpa logg och seriell konsol.
     reg unload HKLM\BROKENSYSTEM
     ```
 
-    1. Kontrol lera att det finns tillräckligt med utrymme på disken för att allokera så mycket minne som RAM-minnet, vilket beror på den storlek som du väljer för den här virtuella datorn.
-    2. Om det inte finns tillräckligt med utrymme eller om det här är en stor virtuell dator (G, GS eller E-serien) kan du sedan ändra den plats där filen kommer att skapas och se om det finns någon annan datadisk som är kopplad till den virtuella datorn. För att göra detta måste du ändra följande nyckel:
+    1. Se till att det finns tillräckligt med utrymme på disken för att allokera lika mycket minne som RAM-minnet, vilket beror på storleken som du väljer för den här virtuella datorn.
+    2. Om det inte finns tillräckligt med utrymme eller om det är en virtuell dator med stor storlek (G, GS eller E-serien) kan du sedan ändra platsen där filen skapas och hänvisa den till alla andra datadiskar som är kopplade till den virtuella datorn. För att göra detta måste du ändra följande nyckel:
 
             reg load HKLM\BROKENSYSTEM F:\windows\system32\config\SYSTEM.hiv
 
@@ -97,12 +97,12 @@ Kör följande skript för att aktivera dumpa logg och seriell konsol.
 
             reg unload HKLM\BROKENSYSTEM
 
-3. [Koppla från OS-disken och återanslut sedan OS-disken till den berörda virtuella datorn](../windows/troubleshoot-recovery-disks-portal.md).
-4. Starta den virtuella datorn och få åtkomst till serie konsolen.
-5. Välj **skicka icke-Maskbart avbrott (NMI)** för att utlösa minnesdumpen.
-    ![bilden om var du vill skicka ett icke-Maskbart avbrott](./media/troubleshoot-vm-configure-update-boot/run-nmi.png)
-6. Koppla OS-disken till en återställnings-VM igen och samla in dump-filen.
+3. [Koppla från OS-disken och anslut sedan OS-disken igen till den berörda virtuella datorn](../windows/troubleshoot-recovery-disks-portal.md).
+4. Starta den virtuella datorn och öppna seriekonsolen.
+5. Välj **Skicka icke-maskerbara avbrott(NMI)** för att utlösa minnesdumpen.
+    ![bilden om var du ska skicka icke-maskerbart avbrott](./media/troubleshoot-vm-configure-update-boot/run-nmi.png)
+6. Bifoga OS-disken till en återställnings-VM igen, samla dumpfil.
 
 ## <a name="contact-microsoft-support"></a>Kontakta Microsoft-supporten
 
-När du har samlat in dumpfilen kontaktar du [Microsoft Support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) för att analysera rotor saken.
+När du har samlat in dumpfilen kontaktar du [Microsoft-supporten](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) för att analysera grundorsaken.

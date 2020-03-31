@@ -1,6 +1,6 @@
 ---
-title: 'Skapa principer för Azure Datautforskaren-kluster och-databas med Azure Datautforskaren python-biblioteket '
-description: I den här artikeln får du lära dig hur du skapar principer med hjälp av python.
+title: 'Skapa principer för Azure Data Explorer-kluster och databas med Azure Data Explorer Python-biblioteket '
+description: I den här artikeln får du lära dig hur du skapar principer med Python.
 author: lucygoldbergmicrosoft
 ms.author: lugoldbe
 ms.reviewer: orspodek
@@ -8,28 +8,28 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 09/24/2019
 ms.openlocfilehash: a0fe86e2dcb802b822cb08ed0922b5da9c5cfd1c
-ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/02/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74667285"
 ---
-# <a name="create-database-and-table-policies-for-azure-data-explorer-by-using-python"></a>Skapa databas-och tabell principer för Azure Datautforskaren med hjälp av python
+# <a name="create-database-and-table-policies-for-azure-data-explorer-by-using-python"></a>Skapa databas- och tabellprinciper för Azure Data Explorer med hjälp av Python
 
 > [!div class="op_single_selector"]
 > * [C#](database-table-policies-csharp.md)
 > * [Python](database-table-policies-python.md)
 >
 
-Azure Data Explorer är en snabb och mycket skalbar datautforskningstjänst för logg- och telemetridata. I den här artikeln skapar du databas-och tabell principer för Azure Datautforskaren med hjälp av python.
+Azure Data Explorer är en snabb och mycket skalbar datautforskningstjänst för logg- och telemetridata. I den här artikeln skapar du databas- och tabellprinciper för Azure Data Explorer med Python.
 
 ## <a name="prerequisites"></a>Krav
 
-* Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt Azure-konto](https://azure.microsoft.com/free/) innan du börjar.
+* Om du inte har en Azure-prenumeration skapar du ett [kostnadsfritt Azure-konto](https://azure.microsoft.com/free/) innan du börjar.
 * [Ett testkluster och en databas](create-cluster-database-python.md)
-* [En test tabell](python-ingest-data.md#create-a-table-on-your-cluster)
+* [En testtabell](python-ingest-data.md#create-a-table-on-your-cluster)
 
-## <a name="install-the-data-libraries"></a>Installera data biblioteken
+## <a name="install-the-data-libraries"></a>Installera databiblioteken
 
 ```
 pip install azure-common
@@ -38,10 +38,10 @@ pip install azure-kusto-data (Optional, for changing table's policies)
 ```
 
 ## <a name="authentication"></a>Autentisering
-För att kunna köra exemplen i den här artikeln behöver vi ett Azure AD-program och tjänstens huvud namn som kan komma åt resurser. Du kan använda samma Azure AD-program för autentisering från [ett test kluster och en databas](create-cluster-database-csharp.md#authentication). Om du vill använda en annan Azure AD-App kan du läsa [skapa ett Azure AD](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal) -program för att skapa ett kostnads fritt Azure AD-program och lägga till roll tilldelning i prenumerations omfånget. Det visar också hur du hämtar `Directory (tenant) ID`, `Application ID`och `Client Secret`. Du kan behöva lägga till det nya Azure AD-programmet som huvud konto i databasen. mer information finns i [Hantera behörigheter för azure datautforskaren Database](https://docs.microsoft.com/azure/data-explorer/manage-database-permissions).    
+För att köra exemplen i den här artikeln behöver vi ett Azure AD-program och tjänsthuvudnamn som kan komma åt resurser. Du kan använda samma Azure AD-program för autentisering från [ett testkluster och databas](create-cluster-database-csharp.md#authentication). Om du vill använda ett annat Azure AD-program läser du [skapa ett Azure AD-program](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal) för att skapa ett kostnadsfritt Azure AD-program och lägga till rolltilldelning i prenumerationsomfånget. Det visar också hur `Directory (tenant) ID` `Application ID`man `Client Secret`får , och . Du kan behöva lägga till det nya Azure AD-programmet som ett huvudnamn i databasen, se [Hantera Azure Data Explorer-databasbehörigheter](https://docs.microsoft.com/azure/data-explorer/manage-database-permissions).    
 
-## <a name="alter-database-retention-policy"></a>Ändra bevarande princip för databasen
-Anger en bevarande princip med en period av mjuk borttagning på 10 dagar.
+## <a name="alter-database-retention-policy"></a>Ändra principen för lagring av databaser
+Anger en bevarandeprincip med en 10 dagars mjuk borttagningsperiod.
 
 ```python
 from azure.mgmt.kusto import KustoManagementClient
@@ -73,8 +73,8 @@ poller = kustoManagementClient.databases.update(resource_group_name=resource_gro
                                            parameters=DatabaseUpdate(soft_delete_period=datetime.timedelta(days=10)))
 ```
 
-## <a name="alter-database-cache-policy"></a>Alter Database cache-princip
-Anger en cache-princip för databasen som de sista fem dagarnas data kommer att finnas på klustrets SSD.
+## <a name="alter-database-cache-policy"></a>Ändra princip för databascache
+Anger en cacheprincip för databasen att de senaste fem dagarnas data ska finnas i klustret SSD.
 
 ```python
 from azure.mgmt.kusto import KustoManagementClient
@@ -106,8 +106,8 @@ poller = kustoManagementClient.databases.update(resource_group_name=resource_gro
                                            parameters=DatabaseUpdate(hot_cache_period=datetime.timedelta(days=5)))
 ```
 
-## <a name="alter-table-cache-policy"></a>Ändra Table cache-princip
-Anger en cache-princip för tabellen som de sista fem dagarnas data kommer att finnas på klustrets SSD.
+## <a name="alter-table-cache-policy"></a>Ändra princip för tabellcache
+Anger en cacheprincip för tabellen att de senaste fem dagarnas data ska finnas i klustret SSD.
 
 ```python
 from azure.kusto.data.request import KustoClient, KustoConnectionStringBuilder
@@ -131,8 +131,8 @@ command = '.alter table {} policy caching '.format(table_name) +  caching_policy
 kusto_client.execute_mgmt(database_name, command)
 ```
 
-## <a name="add-a-new-principal-for-database"></a>Lägg till ett nytt huvud namn för databasen
-Lägg till ett nytt Azure AD-program som administratörs huvud objekt för databasen
+## <a name="add-a-new-principal-for-database"></a>Lägga till ett nytt huvudnamn för databasen
+Lägga till ett nytt Azure AD-program som administratörsnamn för databasen
 
 ```python
 from azure.mgmt.kusto import KustoManagementClient
@@ -168,4 +168,4 @@ kustoManagementClient.databases.add_principals(resource_group_name=resource_grou
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Läs mer om databas-och tabell principer](https://docs.microsoft.com/azure/kusto/management/policies)
+* [Läs mer om databas- och tabellprinciper](https://docs.microsoft.com/azure/kusto/management/policies)

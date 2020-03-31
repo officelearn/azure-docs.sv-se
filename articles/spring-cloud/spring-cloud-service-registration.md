@@ -1,26 +1,26 @@
 ---
-title: Automatisera tjänst registret och identifiering
-description: Lär dig hur du automatiserar tjänst identifiering och registrering med hjälp av vår moln tjänst register
+title: Automatisera tjänstregistret och identifieringen
+description: Lär dig hur du automatiserar identifiering och registrering av tjänster med Spring Cloud Service-registret
 author: bmitchell287
 ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 10/05/2019
 ms.author: brendm
 ms.openlocfilehash: 6c217096f0ba4200f49bd1fd8056768a6f6f6dbd
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76278862"
 ---
-# <a name="discover-and-register-your-spring-cloud-services"></a>Identifiera och registrera dina våren Cloud-tjänster
+# <a name="discover-and-register-your-spring-cloud-services"></a>Upptäck och registrera dina Spring Cloud-tjänster
 
-Tjänst identifiering är ett nyckel krav för en mikroservad arkitektur.  Det tar tid att konfigurera varje klient manuellt och vi presenterar risken för mänskligt fel.  Azure våren Cloud Service-registret löser det här problemet.  När den har kon figurer ATS kommer en tjänst register server att styra registreringen och identifieringen av programmets mikrotjänster. Tjänst register servern hanterar ett register med de distribuerade mikrotjänster, aktiverar belastnings utjämning på klient sidan och tar bort tjänst leverantörer från klienter utan att behöva använda DNS.
+Service Discovery är ett viktigt krav för en mikrotjänstbaserad arkitektur.  Konfigurera varje klient manuellt tar tid och introducerar risken för mänskliga fel.  Azure Spring Cloud Service Registry löser problemet.  När en tjänstregisterserver har konfigurerats styr du tjänstens registrering och identifiering för programmets mikrotjänster. Service-registerservern underhåller ett register över de distribuerade mikrotjänsterna, möjliggör belastningsutjämning på klientsidan och frikopplar tjänstleverantörer från klienter utan att förlita sig på DNS.
 
-## <a name="register-your-application-using-spring-cloud-service-registry"></a>Registrera ditt program med vår moln tjänst register
+## <a name="register-your-application-using-spring-cloud-service-registry"></a>Registrera ditt program med Spring Cloud Service-registret
 
-Innan ditt program kan hantera registrering och identifiering av tjänster med hjälp av våren Cloud Service Registry måste flera beroenden ingå i programmets *Pom. XML-* fil.
-Inkludera beroenden för *våren-Cloud-starter-Netflix-Eureka-client* och *våren-Cloud-starter-Azure-våren-Cloud-client* till din *Pom. XML*
+Innan ditt program kan hantera tjänstregistrering och identifiering med Spring Cloud Service-registret måste flera beroenden inkluderas i programmets *pom.xml-fil.*
+Inkludera beroenden för *våren-moln-starter-netflix-eureka-klient* och *fjäder-moln-starter-azure-spring-cloud-klient* till din *pom.xml*
 
 ```xml
     <dependency>
@@ -34,9 +34,9 @@ Inkludera beroenden för *våren-Cloud-starter-Netflix-Eureka-client* och *våre
     </dependency>
 ```
 
-## <a name="update-the-top-level-class"></a>Uppdatera den översta nivån-klassen
+## <a name="update-the-top-level-class"></a>Uppdatera klassen på den högsta nivån
 
-Slutligen lägger vi till en anteckning till den översta klassen i programmet
+Slutligen lägger vi till en anteckning till klassen på den högsta nivån i ditt program
 
  ```java
     package foo.bar;
@@ -52,6 +52,6 @@ Slutligen lägger vi till en anteckning till den översta klassen i programmet
     }
  ```
 
-Källan till moln tjänstens register server kommer att matas in som en miljö variabel i ditt program.  Mikrotjänster kommer nu att kunna registrera sig själva med tjänstens register Server och identifiera andra beroende mikrotjänster.
+Slutpunkten för Spring Cloud Service-registerservern kommer att injiceras som en miljövariabel i ditt program.  Mikrotjänster kommer nu att kunna registrera sig hos serviceregisterservern och upptäcka andra beroende mikrotjänster.
 
 Observera att det kan ta några minuter innan ändringarna sprids från servern till alla mikrotjänster.

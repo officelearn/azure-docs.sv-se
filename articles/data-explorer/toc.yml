@@ -15,6 +15,8 @@
       href: web-query-data.md
 - name: Självstudier
   items:
+    - name: Skriva frågor
+      href: write-queries.md
     - name: E2E-programmatisk blob-inmatning
       items:
         - name: 'C#'
@@ -32,14 +34,22 @@
         - name: Översikt över datainmatning
           displayName: 'pipelines, connectors, plugins, Python, .NET, Java, Node, REST'
           href: ingest-data-overview.md
+        - name: Egenskaper för datainmatning
+          href: ingestion-properties.md
+        - name: Format för datainmatning
+          href: ingestion-supported-formats.md
     - name: Kusto-frågespråk
       items:
         - name: Vägledning för snabbreferens
           href: kql-quick-reference.md
     - name: Översikt över datavisualisering
       href: viz-overview.md
-    - name: Säkerhetsöversikt
-      href: security.md
+    - name: Säkerhet
+      items:
+        - name: Säkerhetsöversikt
+          href: security.md
+        - name: Säkerhetsbaslinje
+          href: security-baseline.md
 - name: Anvisningar
   items:
     - name: Skapa ett kluster och en databas
@@ -60,6 +70,8 @@
           href: ingest-data-one-click.md
         - name: Strömningsinmatning
           href: ingest-data-streaming.md
+        - name: Använda LightIngest
+          href: lightingest.md
         - name: Händelsehubb
           items:
             - name: Azure Portal
@@ -106,8 +118,6 @@
           href: ingest-json-formats.md
     - name: Söka i data
       items:
-        - name: Skriva frågor
-          href: write-queries.md
         - name: Fråga data i Azure Data Lake
           href: data-lake-query-data.md
         - name: Fråga efter data i Azure Monitor
@@ -158,12 +168,22 @@
           href: k2bridge.md
     - name: Skydda
       items:
+        - name: Nätverksisolering (VNet)
+          items:
+            - name: Skapa ett kluster i ett VNet – portalen
+              href: vnet-create-cluster-portal.md
+            - name: Distribuera klustret till ett virtuellt nätverk
+              href: vnet-deployment.md
+            - name: 'Felsöka skapande, anslutning och drift av VNet-kluster'
+              href: vnet-deploy-troubleshoot.md
         - name: Hantera klustersäkerhet
           href: manage-cluster-security.md
         - name: Konfigurera hanterade identiteter
           href: managed-identities.md
         - name: Konfigurera kundhanterade nycklar
           items:
+            - name: Portalen
+              href: customer-managed-keys-portal.md
             - name: 'C#'
               href: customer-managed-keys-csharp.md
             - name: Azure Resource Manager-mall
@@ -214,10 +234,6 @@
               href: delete-data.md
             - name: Hantera duplicerade data
               href: dealing-with-duplicates.md
-    - name: Distribuera
-      items:
-        - name: Distribuera ditt kluster i ett virtuellt nätverk
-          href: vnet-deployment.md
     - name: Övervaka
       items:
         - name: Använda diagnostikloggar för att övervaka datainmatning
@@ -236,6 +252,12 @@
               href: data-factory-template.md
             - name: Köra kontrollkommandon med Azure Data Factory
               href: data-factory-command-activity.md
+        - name: Microsoft Flow-anslutningsprogram
+          items:
+            - name: Microsoft Flow-anslutningsprogram
+              href: flow.md
+            - name: Användningsexempel på Microsoft Flow-anslutningsprogram
+              href: flow-usage.md
         - name: Apache Spark-anslutningsapp
           href: spark-connector.md
         - name: Ansluta från Databricks med hjälp av Python

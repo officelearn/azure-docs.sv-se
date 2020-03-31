@@ -1,7 +1,7 @@
 ---
-title: Slut punkter för direkt uppspelning (ursprung)
+title: Slutpunkter för direktuppspelning (ursprung)
 titleSuffix: Azure Media Services
-description: Lär dig mer om strömnings slut punkter (ursprung), en dynamisk paketerings-och strömnings tjänst som levererar innehåll direkt till en app i klient programmet eller till en Content Delivery Network (CDN).
+description: Lär dig mer om Strömmande slutpunkter (Origin), en dynamisk paketerings- och streamingtjänst som levererar innehåll direkt till en klientspelarapp eller till ett CDN (Content Delivery Network).
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -12,154 +12,160 @@ ms.workload: ''
 ms.topic: article
 ms.date: 02/13/2020
 ms.author: juliako
-ms.openlocfilehash: c71643adf3b34954ea5ce020351559abbfc60fab
-ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
+ms.openlocfilehash: 1a2a370ac92ea3edf925d97af6f5e721c79d0d2d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79298945"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79529704"
 ---
-# <a name="streaming-endpoints-origin-in-azure-media-services"></a>Slut punkter för direkt uppspelning (ursprung) i Azure Media Services
+# <a name="streaming-endpoints-origin-in-azure-media-services"></a>Strömmande slutpunkter (Origin) i Azure Media Services
 
-I Microsoft Azure Media Services representerar en [strömmande slut punkt](https://docs.microsoft.com/rest/api/media/streamingendpoints) en dynamisk (just-in-Time)-paketering och ursprungs tjänst som kan leverera Live och innehåll på begäran direkt till en app i klient spelaren med ett av de vanliga protokollen för strömnings mediet (HLS eller tank streck). Dessutom tillhandahåller **direkt uppspelnings slut punkten** dynamisk kryptering (just-in-Time) för att branschledande DRM: er.
+I Microsoft Azure Media Services representerar en slutpunkt för [direktuppspelning](https://docs.microsoft.com/rest/api/media/streamingendpoints) en dynamisk (just-in-time)-förpackning och ursprungstjänst som kan leverera ditt live- och on-demand-innehåll direkt till en klientspelarapp med hjälp av ett av de vanliga HLS- eller DASH-protokollen (streamingmedia). Dessutom ger **slutpunkten för direktuppspelning** dynamisk (just-in-time) kryptering till branschledande DRM-moduler. 
 
-När du skapar ett Media Services konto skapas en **standard** slut punkt för direkt uppspelning när du har stoppat tillstånd. Det går inte att ta bort **standard** slut punkten för direkt uppspelning. Fler slut punkter för direkt uppspelning kan skapas under kontot (se [kvoter och begränsningar](limits-quotas-constraints.md)).
+När du skapar ett Media Services-konto skapas en **standardslutpunkt** för direktuppspelning för dig i ett stoppat tillstånd. Du kan inte ta bort **standardslutpunkten** för direktuppspelning. Fler slutpunkter för direktuppspelning kan skapas under kontot (se [Kvoter och begränsningar](limits-quotas-constraints.md)).
 
 > [!NOTE]
-> Om du vill starta strömmande videor måste du starta den **strömnings slut punkt** från vilken du vill strömma videon.
+> För att börja strömma videor måste du starta den slutpunkt för **direktuppspelning** som du vill strömma videon från.
 >
-> Du faktureras bara när slut punkten för direkt uppspelning är i körnings läge.
+> Du faktureras bara när slutpunkten för direktuppspelning körs.
 
-## <a name="naming-convention"></a>Namngivnings konvention
+Se till att även granska avsnittet [Dynamisk förpackning.](dynamic-packaging-overview.md) 
 
-Värd namn formatet för strömnings-URL: en är: `{servicename}-{accountname}-{regionname}.streaming.media.azure.net`, där `servicename` = direkt uppspelningens slut punkts namn eller Live-händelsens namn.
+## <a name="naming-convention"></a>Namnkonvention
 
-När du använder standard slut punkten för direkt uppspelning utelämnas `servicename` så att URL: en är: `{accountname}-{regionname}.streaming.azure.net`.
+Värdnamnsformatet för den `{servicename}-{accountname}-{regionname}.streaming.media.azure.net`strömmande `servicename` URL:en är: , där = slutpunktsnamnet för direktuppspelning eller livehändelsenamnet.
+
+När du använder standardslutpunkten `servicename` för direktuppspelning utelämnas `{accountname}-{regionname}.streaming.azure.net`så att webbadressen är: .
 
 ### <a name="limitations"></a>Begränsningar
 
-* Slut punktens namn för direkt uppspelning har ett max värde på 24 tecken.
-* Namnet ska följa detta [regex](https://docs.microsoft.com/dotnet/standard/base-types/regular-expression-language-quick-reference) -mönster: `^[a-zA-Z0-9]+(-*[a-zA-Z0-9])*$`.
+* Slutpunktsnamnet för direktuppspelning har ett maxvärde på 24 tecken.
+* Namnet ska följa detta [regex](https://docs.microsoft.com/dotnet/standard/base-types/regular-expression-language-quick-reference) mönster: `^[a-zA-Z0-9]+(-*[a-zA-Z0-9])*$`.
 
 ## <a name="types"></a>Typer
 
-Det finns två typer av **direkt uppspelnings slut punkter** : **standard** (för hands version) och **Premium**. Typen definieras av antalet skalnings enheter (`scaleUnits`) som du allokerar för slut punkten för direkt uppspelning.
+Det finns två **slutpunktstyper för direktuppspelning:** **Standard** (förhandsversion) och **Premium**. Typen definieras av antalet skalenheter (`scaleUnits`) som du allokerar för slutpunkten för direktuppspelning.
 
 I tabellen beskrivs typerna:
 
 |Typ|Skalningsenheter|Beskrivning|
 |--------|--------|--------|  
-|**Standard**|0|Standard slut punkten för direkt uppspelning är en **standard** typ – den kan ändras till Premium-typen genom att justera `scaleUnits`.|
-|**Premium**|> 0|**Premium** Slut punkter för direkt uppspelning passar för avancerade arbets belastningar och tillhandahåller dedikerad och skalbar bandbredds kapacitet. Du flyttar till en **Premium** -typ genom att justera `scaleUnits` (enheter för strömning). `scaleUnits` ger dig dedikerad utgående kapacitet som kan köpas i steg om 200 Mbit/s. När du använder **Premium** -typen ger varje aktive rad enhet ytterligare bandbredds kapacitet till appen. |
+|**Standard**|0|Standardslutpunkten för direktuppspelning är en **standardtyp** – den kan `scaleUnits`ändras till Premium-typen genom att justera .|
+|**Premium**|> 0|**Premie** Slutpunkter för direktuppspelning är lämpliga för avancerade arbetsbelastningar och ger dedikerad och skalbar bandbreddskapacitet. Du flyttar till en **Premium-typ** genom att `scaleUnits` justera (strömningsenheter). `scaleUnits`förse dig med dedikerad utgående kapacitet som kan köpas i steg om 200 Mbps. När du använder **Premium-typen** ger varje aktiverad enhet ytterligare bandbreddskapacitet till appen. |
 
 > [!NOTE]
-> För kunder som vill leverera innehåll till stora Internet-åhörare rekommenderar vi att du aktiverar CDN på slut punkten för direkt uppspelning.
+> För kunder som vill leverera innehåll till stora internetpublik rekommenderar vi att du aktiverar CDN på slutpunkten för direktuppspelning.
 
-Information om SLA finns i [prissättning och service avtal](https://azure.microsoft.com/pricing/details/media-services/).
+SLA-information finns i [Prissättning och SLA](https://azure.microsoft.com/pricing/details/media-services/).
 
-## <a name="comparing-streaming-types"></a>Jämföra strömnings typer
+## <a name="comparing-streaming-types"></a>Jämföra direktuppspelningstyper
 
 Funktion|Standard|Premium
 ---|---|---
-Dataflöde |Upp till 600 Mbit/s och kan ge ett mycket mer effektivt data flöde när ett CDN används.|200 Mbit/s per strömnings enhet (SU). Kan ge ett mycket högre effektivt data flöde när ett CDN används.
-CDN|Azure CDN, CDN för tredje part eller ingen CDN.|Azure CDN, CDN för tredje part eller ingen CDN.
-Faktureringen beräknas proportionellt| Varje dag|Varje dag
+Dataflöde |Upp till 600 Mbit/s och kan ge ett mycket högre effektivt dataflöde när ett CDN används.|200 Mbit/s per streamingenhet (SU). Kan ge ett mycket högre effektivt dataflöde när ett CDN används.
+CDN|Azure CDN, CDN från tredje part eller ingen CDN.|Azure CDN, CDN från tredje part eller ingen CDN.
+Faktureringen är proportionell| Varje dag|Varje dag
 Dynamisk kryptering|Ja|Ja
 Dynamisk paketering|Ja|Ja
-Skala|Skalar upp till det riktade data flödet automatiskt.|Ytterligare SUs
-IP-filtrering/G20/anpassad värd <sup>1</sup>|Ja|Ja
+Skalning|Auto skalas upp till det riktade dataflödet.|Ytterligare SUs
+IP-filtrering/G20/Anpassad värd <sup>1</sup>|Ja|Ja
 Progressiv nedladdning|Ja|Ja
-Rekommenderad användning |Rekommenderas för de flesta strömnings scenarier.|Professional-användning.
+Rekommenderad användning |Rekommenderas för de allra flesta streamingscenarier.|Professionell användning.
 
-<sup>1</sup> används endast direkt på slut punkten för direkt uppspelning när CDN inte är aktiverat på slut punkten.<br/>
+<sup>1</sup> Används endast direkt på slutpunkten för direktuppspelning när CDN inte är aktiverat på slutpunkten.<br/>
 
-## <a name="streaming-endpoint-properties"></a>Egenskaper för strömnings slut punkt
+## <a name="streaming-endpoint-properties"></a>Egenskaper för direktuppspelning av slutpunkt
 
-Det här avsnittet innehåller information om några av egenskaperna för strömnings slut punkten. Exempel på hur du skapar en ny slut punkt för direkt uppspelning och beskrivningar av alla egenskaper finns i [direkt uppspelnings slut punkt](https://docs.microsoft.com/rest/api/media/streamingendpoints/create).
+I det här avsnittet finns information om några av slutpunkten för direktuppspelning. Exempel på hur du skapar en ny slutpunkt för direktuppspelning och beskrivningar av alla egenskaper finns i [Slutpunkten för direktuppspelning](https://docs.microsoft.com/rest/api/media/streamingendpoints/create).
 
-- `accessControl`: används för att konfigurera följande säkerhets inställningar för den här strömnings slut punkten: Akamai för signatur huvud och IP-adresser som tillåts att ansluta till den här slut punkten. Den här egenskapen kan bara anges när `cdnEnabled` har angetts till false.
+- `accessControl`: Används för att konfigurera följande säkerhetsinställningar för den här slutpunkten för direktuppspelning: Akamai Signature Header Authentication keys och IP-adresser som tillåts ansluta till den här slutpunkten. Den här egenskapen `cdnEnabled` kan bara ställas in när den är inställd på false.
 
-- `cdnEnabled`: anger om Azure CDN-integrering för slut punkten för direkt uppspelning är aktive rad (inaktive rad som standard). Om du anger `cdnEnabled` till sant inaktive ras följande konfigurationer: `customHostNames` och `accessControl`.
+- `cdnEnabled`: Anger om Azure CDN-integreringen för den här slutpunkten för direktuppspelning är aktiverad (inaktiverad som standard). Om du `cdnEnabled` ställer in på true inaktiveras följande konfigurationer: `customHostNames` och `accessControl`.
 
-    Alla data Center stöder inte Azure CDN-integrering. Gör så här för att kontrol lera om data centret har Azure CDN-integrering tillgänglig:
+    Alla datacenter stöder inte Azure CDN-integrering. Så här kontrollerar du om ditt datacenter har Azure CDN-integreringen tillgänglig:
 
-  - Försök att ange `cdnEnabled` till sant.
-  - Kontrol lera det returnerade resultatet för en `HTTP Error Code 412` (PreconditionFailed) med ett meddelande om att egenskapen CdnEnabled för strömnings slut punkt inte kan anges till True eftersom CDN-funktionen inte är tillgänglig i den aktuella regionen.
+  - Försök att `cdnEnabled` ställa in den till true.
+  - Kontrollera det returnerade `HTTP Error Code 412` resultatet för ett (Förutsättningstyrt) med ett meddelande om "Egenskapen Streaming endpoint CdnEnabled can't be set to true as CDN-kapacitet är inte tillgänglig i den aktuella regionen."Check the returned result for an (Förutsättningarstyrt) med ett meddelande om "Egenskapen Streaming endpoint CdnEnabled can't be set to true as CDN-capability is not available in the current region".
 
-    Om du får det här felet stöder inte data centret det. Prova ett annat data Center.
+    Om du får det här felet stöder inte datacentret det. Prova ett annat datacenter.
 
-- `cdnProfile`: när `cdnEnabled` har angetts till true kan du också skicka `cdnProfile` värden. `cdnProfile` är namnet på CDN-profilen där CDN-slutpunkten kommer att skapas. Du kan ange en befintlig cdnProfile eller använda en ny. Om värdet är NULL och `cdnEnabled` är sant används standardvärdet "AzureMediaStreamingPlatformCdnProfile". Om den tillhandahållna `cdnProfile` redan finns skapas en slut punkt under den. Om profilen inte finns skapas en ny profil automatiskt.
-- `cdnProvider`: när CDN har Aktiver ATS kan du också skicka `cdnProvider` värden. `cdnProvider` styr vilken provider som ska användas. För närvarande stöds tre värden: "StandardVerizon", "PremiumVerizon" och "StandardAkamai". Om inget värde anges och `cdnEnabled` är sant används "StandardVerizon" (det är standardvärdet).
-- `crossSiteAccessPolicies`: används för att ange åtkomst principer mellan platser för olika klienter. Mer information finns i [Specifikation över domän princip fil](https://www.adobe.com/devnet/articles/crossdomain_policy_file_spec.html) och [göra en tjänst tillgänglig över domän gränser](https://msdn.microsoft.com/library/cc197955\(v=vs.95\).aspx). Inställningarna gäller endast för Smooth Streaming.
-- `customHostNames`: används för att konfigurera en slut punkt för direkt uppspelning för att acceptera trafik som dirigerats till ett anpassat värdnamn. Den här egenskapen är giltig för slut punkter för standard-och Premium-direktuppspelning och kan ställas in när `cdnEnabled`: false.
+- `cdnProfile`: `cdnEnabled` När är inställt på true `cdnProfile` kan du också skicka värden. `cdnProfile`är namnet på CDN-profilen där CDN-slutpunktspunkten ska skapas. Du kan ange en befintlig cdnProfile eller använda en ny. Om värdet är `cdnEnabled` NULL och är sant används standardvärdet "AzureMediaStreamingPlatformCdnProfile". Om den `cdnProfile` angivna redan finns skapas en slutpunkt under den. Om profilen inte finns skapas en ny profil automatiskt.
+- `cdnProvider`: När CDN är aktiverat kan `cdnProvider` du också skicka värden. `cdnProvider`kontroller som leverantören kommer att användas. För närvarande stöds tre värden: "StandardVerizon", "PremiumVerizon" och "StandardAkamai". Om inget värde `cdnEnabled` anges och är sant används "StandardVerizon" (det är standardvärdet).
+- `crossSiteAccessPolicies`: Används för att ange principer för åtkomst mellan webbplatser för olika klienter. Mer information finns i [Filspecifikationen för principen mellan domäner](https://www.adobe.com/devnet/articles/crossdomain_policy_file_spec.html) och [göra en tjänst tillgänglig över domängränser](https://msdn.microsoft.com/library/cc197955\(v=vs.95\).aspx). Inställningarna gäller endast för jämn direktuppspelning.
+- `customHostNames`: Används för att konfigurera en slutpunkt för direktuppspelning för att acceptera trafik som dirigeras till ett anpassat värdnamn. Den här egenskapen gäller för standard- och premiumstreamingslutpunkter och kan ställas in när: `cdnEnabled`falskt.
 
-    Ägande rätten till domän namnet måste bekräftas av Media Services. Media Services verifierar domän namnet ägarskap genom att kräva en `CName`s post som innehåller Media Services-konto-ID som en komponent som ska läggas till i domänen som används. Som exempel, för att "sports.contoso.com" ska användas som ett anpassat värdnamn för strömnings slut punkten, måste en post för `<accountId>.contoso.com` konfigureras för att peka på ett av Media Services verifierings värd namn. Verifierings värd namnet består av verifydns.\<Media Services-DNS-Zone >.
+    Äganderätten till domännamnet måste bekräftas av Media Services. Media Services verifierar domännamnsägarskapet genom att kräva en `CName` post som innehåller Media Services-konto-ID som en komponent som ska läggas till i den domän som används. För att "sports.contoso.com" ska användas som ett anpassat värdnamn för slutpunkten för `<accountId>.contoso.com` direktuppspelning måste en post för konfigureras så att den pekar på ett av Medie services-verifieringsvärdnamn. Verifieringsvärdnamnet består av verifierade. \<mediaservices-dns-zon>.
 
-    Följande är de DNS-zoner som förväntas användas i verifiera-posten för olika Azure-regioner.
+    Följande är de förväntade DNS-zoner som ska användas i verifiera posten för olika Azure-regioner.
   
   - Nordamerika, Europa, Singapore, Hong Kong SAR, Japan:
 
     - `media.azure.net`
     - `verifydns.media.azure.net`
 
-  - Porslin
+  - Kina:
 
     - `mediaservices.chinacloudapi.cn`
     - `verifydns.mediaservices.chinacloudapi.cn`
 
-    Till exempel bevisar en `CName` post som mappar "945a4c4e-28ea-45cd-8ccb-a519f6b700ad.contoso.com" till "verifydns.media.azure.net" att Media Services-ID 945a4c4e-28ea-45cd-8ccb-a519f6b700ad har ägandet av contoso.com-domänen, vilket innebär att alla namn under contoso.com kan användas som ett anpassat värdnamn för en strömmande slut punkt under det kontot. Om du vill hitta medie tjänstens ID-värde går du till [Azure Portal](https://portal.azure.com/) och väljer ditt medie tjänst konto. **Konto-ID** visas längst upp till höger på sidan.
+    En `CName` post som mappar "945a4c4e-28ea-45cd-8ccb-a519f6b700ad.contoso.com" till "verifydns.media.azure.net" bevisar till exempel att Media Services ID 945a4c4e-28ea-45cd-8ccb-a519f6b700ad har äganderätten till contoso.com domänen, vilket gör att alla namn under contoso.com kan användas som ett anpassat värdnamn för en slutpunkt för direktuppspelning under det kontot. Om du vill hitta värdet för medietjänst-ID går du till [Azure-portalen](https://portal.azure.com/) och väljer ditt Media Service-konto. **Konto-ID:et** visas längst upp till höger på sidan.
 
-    Om det finns ett försök att ange ett anpassat värdnamn utan en korrekt verifiering av `CName`s posten, kommer DNS-svaret att Miss lyckas och cachelagras under en viss tid. När en riktig post är på plats kan det ta en stund tills det cachelagrade svaret har verifierats igen. Beroende på DNS-providern för den anpassade domänen tar det var som helst från några minuter till en timme för att omverifiera posten.
+    Om det finns ett försök att ange ett anpassat `CName` värdnamn utan en korrekt verifiering av posten misslyckas DNS-svaret och cachelagras sedan under en viss tid. När en korrekt post är på plats kan det ta ett tag tills det cachelagrade svaret har återställts. Beroende på DNS-providern för den anpassade domänen tar det allt från några minuter till en timme att förnya posten.
 
-    Förutom `CName` som mappar `<accountId>.<parent domain>` till `verifydns.<mediaservices-dns-zone>`måste du skapa en annan `CName` som mappar det anpassade värd namnet (till exempel `sports.contoso.com`) till din Media Services streaming-slutpunkts värdnamn (till exempel `amstest-usea.streaming.media.azure.net`).
+    Förutom `CName` den som `<accountId>.<parent domain>` mappar `verifydns.<mediaservices-dns-zone>`till måste `CName` du skapa en annan som `sports.contoso.com`mappar det anpassade värdnamnet (till exempel) till `amstest-usea.streaming.media.azure.net`din Media Services Streaming Endpoints värdnamn (till exempel ).
 
     > [!NOTE]
-    > Slut punkter för direkt uppspelning som finns i samma data Center kan inte dela samma anpassade värd namn.
+    > Strömmande slutpunkter som finns i samma datacenter kan inte dela samma anpassade värdnamn.
 
-    Media Services stöder för närvarande inte SSL med anpassade domäner.
+    För närvarande stöder Media Services inte SSL med anpassade domäner.
 
-- `maxCacheAge`-åsidosätter standardvärdet för max-ålder för HTTP-cachen som angetts av slut punkten för direkt uppspelning av medie fragment och manifest på begäran. Värdet anges i sekunder.
+- `maxCacheAge`- Åsidosätter standard max-age HTTP-cache kontroll huvudet som anges av strömmande slutpunkt på mediefragment och on-demand manifest. Värdet anges på några sekunder.
 - `resourceState` -
 
-    - Stoppades: initialt tillstånd för en strömmande slut punkt efter skapandet
-    - Startar: övergår till körnings tillstånd
-    - Körs: kan strömma innehåll till klienter
-    - Skalning: skalnings enheterna ökas eller minskas
-    - Stoppar: övergår till stoppat tillstånd
-    - Tar bort: tas bort
+    - Stoppad: det ursprungliga tillståndet för en slutpunkt för direktuppspelning efter att ha skapats
+    - Från och med: övergår till körtillståndet
+    - Köra: kan strömma innehåll till klienter
+    - Skalning: skalenheterna ökas eller minskas
+    - Stoppa: övergår till det stoppade tillståndet
+    - Ta bort: tas bort
 
-- `scaleUnits`: ge dig dedikerad utgående kapacitet som kan köpas i steg om 200 Mbit/s. Om du behöver flytta till en **Premium** -typ justerar du `scaleUnits`.
+- `scaleUnits`: Ge dig dedikerad utgående kapacitet som kan köpas i steg om 200 Mbit/s. Om du behöver flytta till en `scaleUnits` **Premium-typ** justerar du .
 
-## <a name="why-use-multiple-streaming-endpoints"></a>Varför ska jag använda flera slut punkter för direkt uppspelning?
+## <a name="why-use-multiple-streaming-endpoints"></a>Varför använda flera slutpunkter för direktuppspelning?
 
-En enda slut punkt för direkt uppspelning kan strömma både direktsända videor och på begäran och de flesta kunder använder bara en slut punkt för direkt uppspelning. Det här avsnittet innehåller några exempel på varför du kan behöva använda flera slut punkter för direkt uppspelning.
+En enda slutpunkt för direktuppspelning kan strömma både live- och on-demand-videor och de flesta kunder använder bara en slutpunkt för direktuppspelning. Det här avsnittet innehåller några exempel på varför du kan behöva använda flera slutpunkter för direktuppspelning.
 
-* Varje reserverad enhet tillåter 200 Mbps bandbredd. Om du behöver mer än 2 000 Mbit/s (2 Gbit/s) bandbredd kan du använda den andra strömnings slut punkten och belastnings utjämning för att ge dig ytterligare bandbredd.
+* Varje reserverad enhet tillåter 200 Mbit/s bandbredd. Om du behöver mer än 2 000 Mbit/s bandbredd kan du använda den andra slutpunkten för direktuppspelning och belastningsbalansen för att ge dig ytterligare bandbredd.
 
-    CDN är dock det bästa sättet att skala ut för strömning av innehåll, men om du levererar så mycket innehåll som CDN hämtar mer än 2 Gbit/s kan du lägga till ytterligare slut punkter för direkt uppspelning (ursprung). I det här fallet skulle du behöva lämna ut innehålls-URL: er som är balanserade över de två slut punkterna för direkt uppspelning. Den här metoden ger bättre cachelagring än att försöka skicka begär anden till varje ursprung slumpmässigt (till exempel via en Traffic Manager). 
+    CDN är dock det bästa sättet att uppnå skala ut för strömmande innehåll, men om du levererar så mycket innehåll att CDN drar mer än 2 Gbps kan du lägga till ytterligare slutpunkter för direktuppspelning (ursprung). I det här fallet måste du dela ut innehållsadresser som är balanserade över de två slutpunkterna för direktuppspelning. Den här metoden ger bättre cachelagring än att slumpmässigt försöka skicka förfrågningar till varje ursprung (till exempel via en trafikhanterare). 
     
     > [!TIP]
-    > Vanligt vis om CDN hämtar fler än 2 Gbit/s kan något vara felaktigt konfigurerat (till exempel ingen ursprungs avskärmning).
+    > Vanligtvis om CDN drar mer än 2 Gbps då något kan vara felkonfigurerad (till exempel inget ursprung skärmning).
     
-* Belastnings utjämning av olika CDN-providrar. Du kan till exempel ställa in standard slut punkten för direkt uppspelning för att använda Verizon CDN och skapa en andra för att använda Akamai. Lägg sedan till en belastnings utjämning mellan de två för att uppnå multi-CDN-balansering. 
+* Belastningsutjämning av olika CDN-providers. Du kan till exempel ställa in standardslutpunkten för direktuppspelning så att den använder Verizon CDN och skapar en andra för att använda Akamai. Lägg sedan till lite belastningsutjämning mellan de två för att uppnå multi-CDN-balansering. 
 
-    Men kunden använder ofta belastnings utjämning över flera CDN-providrar med ett enda ursprung.
-* Strömma blandat innehåll: Live och video på begäran. 
+    Kunden gör dock ofta belastningsutjämning mellan flera CDN-leverantörer med ett enda ursprung.
+* Strömmande blandat innehåll: Live och Video on Demand. 
 
-    Åtkomst mönster för Live-och på-begäran-innehåll är väldigt olika. Live-innehållet tenderar att få mycket behov av samma innehåll på samma gång. Video innehåll på begäran (långt slut på Arkiv innehåll för instans) har låg användning av samma innehåll. Därför fungerar cachelagring mycket bra på Live-innehållet men inte även på det långa innehållet.
+    Åtkomstmönstren för live- och on-demand-innehåll är mycket olika. Det levande innehållet tenderar att få en stor efterfrågan på samma innehåll på en gång. Videoinnehållet på begäran (till exempel långt arkivinnehåll) har låg användning på samma innehåll. Således caching fungerar mycket bra på levande innehåll men inte lika bra på den långa svansen innehåll.
 
-    Överväg ett scenario där dina kunder huvudsakligen tittar på Live-innehåll, men som bara kan titta på innehåll på begäran och som hanteras från samma slut punkt för direkt uppspelning. Den låga användningen av innehåll på begäran skulle uppta cacheminnet som skulle vara bättre sparat för Live-innehållet. I det här scenariot rekommenderar vi att du betjänar Live-innehållet från en slut punkt för direkt uppspelning och det långa innehållet från en annan slut punkt för strömning. Detta förbättrar prestandan för live event-innehållet.
+    Tänk dig ett scenario där dina kunder främst tittar på liveinnehåll men bara ibland tittar på innehåll på begäran och det visas från samma slutpunkt för direktuppspelning. Den låga användningen av innehåll på begäran skulle uppta cacheutrymme som skulle vara bättre sparas för live-innehåll. I det här fallet rekommenderar vi att du visar liveinnehållet från en slutpunkt för direktuppspelning och det långa svansinnehållet från en annan slutpunkt för direktuppspelning. Detta kommer att förbättra prestanda för live-händelseinnehållet.
     
 ## <a name="scaling-streaming-with-cdn"></a>Skala direktuppspelning med CDN
 
 Se följande artiklar:
 
-- [Översikt över CDN](../../cdn/cdn-overview.md)
-- [Skalar strömma med CDN](scale-streaming-cdn.md)
+- [CDN-översikt](../../cdn/cdn-overview.md)
+- [Skala direktuppspelning med CDN](scale-streaming-cdn.md)
 
-## <a name="ask-questions-give-feedback-get-updates"></a>Ställ frågor, ge feedback, hämta uppdateringar
+## <a name="ask-questions-and--get-updates"></a>Ställ frågor och få uppdateringar
 
-Kolla in [Azure Media Services community](media-services-community.md) -artikeln för att se olika sätt att ställa frågor, lämna feedback och få uppdateringar om Media Services.
+Kolla in [communityartikeln i Azure Media Services](media-services-community.md) för att se olika sätt att ställa frågor, ge feedback och få uppdateringar om Medietjänster.
+
+## <a name="see-also"></a>Se även
+
+[Dynamisk paketering](dynamic-packaging-overview.md)
 
 ## <a name="next-steps"></a>Nästa steg
 

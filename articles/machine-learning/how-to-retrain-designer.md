@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.author: keli19
 author: likebupt
 ms.date: 02/24/2020
-ms.openlocfilehash: 264b169eefde18880f50feae2554aa3ca7037b1f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c8791e933882832dc7b0037c860a4c4e1e9a54c7
+ms.sourcegitcommit: 0553a8b2f255184d544ab231b231f45caf7bbbb0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79368170"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80389043"
 ---
 # <a name="retrain-models-with-azure-machine-learning-designer-preview"></a>Omträningsmodeller med Azure Machine Learning Designer (förhandsversion)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -54,14 +54,14 @@ För att träna om en modell behöver du en första modell. I det här avsnittet
    I det här exemplet lagras data i ett [Azure-datacenter](how-to-access-data.md). Om du inte redan har ett datalager kan du skapa ett nu genom att välja **Nytt datalager**.
 
 1. Ange sökvägen till dina data. Du kan också välja **Bläddra sökväg** för att bläddra till ditt datalager. 
-1. Välj **Kör** högst upp på arbetsytan.
+1. Välj **Skicka** högst upp på arbetsytan.
     
    > [!NOTE]
    > Om du redan har angett en standardberäkning för det här pipeline-utkastet körs pipelinen automatiskt. Annars kan du följa anvisningarna i inställningsfönstret för att ställa in en nu.
 
 ### <a name="find-your-trained-model"></a>Hitta din tränade modell
 
-Designern sparar alla pipelineutdata, inklusive tränade modeller, till standardlagringskontot. Du kan också komma åt den tränade modellen direkt i designern:
+Designern sparar alla pipelineutdata, inklusive tränade modeller, till standardlagringskontot. Du kan dock också komma åt utbildade modeller direkt i designern:
 
 1. Vänta tills pipelinen är klar.
 1. Välj **träningsmodellmodulen**.

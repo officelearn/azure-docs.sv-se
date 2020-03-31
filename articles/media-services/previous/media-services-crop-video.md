@@ -1,6 +1,6 @@
 ---
-title: Så här beskär du videor med Media Encoder Standard – Azure | Microsoft Docs
-description: Beskärning är en process där du väljer ett rektangulärt fönster i video ramen och bara kodar pixlarna i det fönstret. Den här artikeln visar hur du beskär videor med Media Encoder Standard.
+title: Så här beskär du videor med Media Encoder Standard - Azure | Microsoft-dokument
+description: Beskärning är processen att välja ett rektangulärt fönster i videoramen och bara koda pixlarna i det fönstret. Den här artikeln visar hur du beskära videor med Media Encoder Standard.
 services: media-services
 documentationcenter: ''
 author: anilmur
@@ -15,34 +15,34 @@ ms.date: 03/18/2019
 ms.author: anilmur
 ms.reviewer: juliako
 ms.openlocfilehash: 059816284e39c65bb772bd02f066d73da624722f
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74887772"
 ---
 # <a name="crop-videos-with-media-encoder-standard"></a>Beskär videoklipp med Media Encoder Standard  
 
-Du kan använda Media Encoder Standard (en gång) för att beskära din InVideo. Beskärning är en process där du väljer ett rektangulärt fönster i video ramen och bara kodar pixlarna i det fönstret. Följande diagram hjälper dig att illustrera processen.
+Du kan använda MEDIA Encoder Standard (MES) för att beskära indatavideon. Beskärning är processen att välja ett rektangulärt fönster i videoramen och bara koda pixlarna i det fönstret. Följande diagram illustrerar processen.
 
-![Beskär en video](./media/media-services-crop-video/media-services-crop-video01.png)
+![Beskära en video](./media/media-services-crop-video/media-services-crop-video01.png)
 
-Anta att du har angett en video som har en upplösning på 1920x1080 bild punkter (16:9-höjd-breddförhållandet), men har svarta fält (pelare rutor) till vänster och höger, så att bara ett 4:3-fönster eller 1440x1080 bild punkter innehåller aktiv video. Du kan använda peka på att beskära eller redigera ut de svarta fälten och koda 1440x1080-regionen.
+Anta att du har som indata en video som har en upplösning på 1920x1080 pixlar (16:9 bildförhållande), men har svarta staplar (pelare lådor) till vänster och höger, så att endast en 4:3 fönster eller 1440x1080 pixlar innehåller aktiv video. Du kan använda MES för att beskära eller redigera ut de svarta fälten och koda regionen 1440x1080.
 
-Att beskära i gång är ett för bearbetnings steg, så beskärnings parametrarna i kodnings för inställningen gäller för den ursprungliga indata-videon. Encoding är ett efterföljande steg och inställningarna för bredd/höjd gäller för den *förädlade* videon och inte till den ursprungliga videon. När du utformar din för inställning måste du göra följande: (a) Välj beskärnings parametrarna baserat på den ursprungliga Indataporten och (b) Välj dina kodnings inställningar baserat på den beskurna videon. Om du inte matchar dina kodnings inställningar till den beskurna videon visas inte utdata som du förväntar dig.
+Beskärning i MES är ett förbearbetningssteg, så beskärningsparametrarna i kodningsförinställningen gäller för den ursprungliga indatavideon. Kodning är ett efterföljande steg och inställningarna för bredd/höjd gäller för den *förbearbetade* videon och inte på den ursprungliga videon. När du utformar förinställningen måste du göra följande: (a) välj beskärningsparametrar baserat på den ursprungliga indatavideon och (b) välja kodinställningarna baserat på den beskurna videon. Om du inte matchar kodinställningarna med den beskurna videon blir utdata inte som du förväntar dig.
 
-I [följande](media-services-custom-mes-presets-with-dotnet.md#encoding_with_dotnet) avsnitt visas hur du skapar ett kodnings jobb med aktiviteter och hur du anger en anpassad för inställning för kodnings uppgiften. 
+[I följande](media-services-custom-mes-presets-with-dotnet.md#encoding_with_dotnet) avsnitt visas hur du skapar ett kodningsjobb med MES och hur du anger en anpassad förinställning för kodningsaktiviteten. 
 
-## <a name="creating-a-custom-preset"></a>Skapa en anpassad för inställning
+## <a name="creating-a-custom-preset"></a>Skapa en anpassad förinställning
 I exemplet som visas i diagrammet:
 
-1. Den ursprungliga indatamängden är 1920x1080
-2. Den måste beskäras till utdata från 1440x1080, som centreras i inmatnings ramen
-3. Detta innebär en X-förskjutning (1920 – 1440)/2 = 240 och en Y-förskjutning på noll
-4. Beskärnings Rektangelns bredd och höjd är 1440 respektive 1080
-5. I kodnings fasen är frågan att producera tre lager, är lösningarna 1440x1080, 960x720 och 480x360
+1. Originalingång är 1920x1080
+2. Den måste beskäras till en utgång på 1440x1080, som är centrerad i inmatningsramen
+3. Detta innebär en X-förskjutning på (1920 – 1440)/2 = 240 och en Y-förskjutning på noll
+4. Grödarektangelns bredd och höjd är 1440 respektive 1080
+5. I kodstadiet är asken att producera tre lager, är upplösningar 1440x1080, 960x720 respektive 480x360
 
-### <a name="json-preset"></a>JSON-förinställning
+### <a name="json-preset"></a>JSON förinställda
     {
       "Version": 1.0,
       "Sources": [
@@ -128,19 +128,19 @@ I exemplet som visas i diagrammet:
 
 
 ## <a name="restrictions-on-cropping"></a>Begränsningar för beskärning
-Beskärnings funktionen är avsedd att vara manuell. Du måste läsa in Indataporten i ett lämpligt redigerings verktyg där du kan välja intresse ramar, placera markören för att bestämma förskjutningar för beskärnings rektangeln för att fastställa kodnings inställningen som är justerad för just den videon osv. Den här funktionen är inte avsedd att göra det möjligt för saker som: automatisk igenkänning och borttagning av svarta Letterbox/pelare-ramar i din inspelnings video.
+Beskärningsfunktionen är avsedd att vara manuell. Du skulle behöva ladda indatavideon till ett lämpligt redigeringsverktyg som låter dig välja ramar av intresse, placera markören för att bestämma förskjutningar för beskärningsrektangeln, för att bestämma kodningsförinställningen som är inställd för just den videon, etc. Den här funktionen är inte avsedd att aktivera saker som: automatisk identifiering och borttagning av svarta brevlåde-/pelarboxkanter i indatavideon.
 
-Följande begränsningar gäller för beskärnings funktionen. Om detta inte är uppfyllt, kan Omkodnings uppgiften misslyckats eller generera oväntade utdata.
+Följande begränsningar gäller för beskärningsfunktionen. Om dessa inte uppfylls kan kodningsaktiviteten misslyckas eller skapa ett oväntat utdata.
 
-1. Beskärnings områdets storlek och storlek måste anpassas i Indataporten
-2. Som vi nämnt ovan måste bredden & höjden i koda inställningarna motsvara den beskurna videon
-3. Beskärning gäller videor som fångats i liggande läge (dvs. inte tillgängligt för videor som registrerats med en smartphone som hålls lodrätt eller i stående läge)
-4. Fungerar bäst med progressiv video som samlas in med fyrkantiga pixlar
+1. Samkräxinaterna och storleken på croprektangeln måste passa in i indatavideon
+2. Som nämnts ovan måste bredden & höjd i kodinställningarna motsvara den beskurna videon
+3. Beskärning gäller videor som tagits i liggande läge (dvs. inte tillämplig på videor som spelats in med en smartphone som hålls vertikalt eller i stående läge)
+4. Fungerar bäst med progressiv video som fångas med fyrkantiga pixlar
 
 ## <a name="provide-feedback"></a>Ge feedback
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="next-step"></a>Nästa steg
-Se Azure Media Services inlärnings vägar som hjälper dig att lära dig mer om fantastiska funktioner som erbjuds av AMS.  
+Se Utbildningsvägarna för Azure Media Services som hjälper dig att lära dig mer om fantastiska funktioner som erbjuds av AMS.  
 
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

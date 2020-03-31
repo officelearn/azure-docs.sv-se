@@ -5,100 +5,109 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: overview
-ms.date: 10/18/2019
+ms.date: 03/17/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7e928d67ba7102df3d342e77705ea895f9230ff3
-ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
+ms.openlocfilehash: d2b1d9748b243dcc2104ce7b8e0e8735a7b7276f
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72887662"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79497673"
 ---
 # <a name="what-is-azure-active-directory-identity-protection"></a>Vad är Azure Active Directory Identity Protection?
 
-Identity Protection är ett verktyg som gör det möjligt för organisationer att utföra tre viktiga uppgifter:
+Identitetsskydd är ett verktyg som gör det möjligt för organisationer att utföra tre viktiga uppgifter:
 
 - Automatisera identifiering och reparation av identitetsbaserade risker.
 - Undersök risker med hjälp av data i portalen.
-- Exportera risk identifierings data till tredje parts verktyg för ytterligare analys.
+- Exportera riskidentifieringsdata till verktyg från tredje part för vidare analys.
 
-Identitets skydd använder den information som Microsoft har förvärvat från sin ståndpunkt i organisationer med Azure AD, konsument utrymmet med Microsoft-konton och i spel med Xbox för att skydda dina användare. Microsoft analyserar 6 500 000 000 000-signaler per dag för att identifiera och skydda kunder mot hot.
+Identity Protection använder de lärdomar som Microsoft har förvärvat från sin position i organisationer med Azure AD, konsumentutrymmet med Microsoft-konton och i spel med Xbox för att skydda dina användare. Microsoft analyserar 6,5 biljoner signaler per dag för att identifiera och skydda kunder från hot.
 
-Signalerna som genereras av och matas till identitets skydd kan matas in ytterligare i verktyg som villkorlig åtkomst för att fatta åtkomst beslut eller komma tillbaka till ett SIEM-verktyg (Security information and Event Management) för ytterligare undersökningar baserat på organisationens tillämpade principer.
+De signaler som genereras av och matas till Identity Protection, kan matas vidare in i verktyg som villkorlig åtkomst för att fatta åtkomstbeslut, eller matas tillbaka till ett verktyg för säkerhetsinformation och händelsehantering (SIEM) för vidare undersökning baserat på din organisations påtvingad politik.
 
 ## <a name="why-is-automation-important"></a>Varför är automatisering viktigt?
 
-I sitt [blogg inlägg i oktober 2018](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Eight-essentials-for-hybrid-identity-3-Securing-your-identity/ba-p/275843) Alex Weinert, som leder till Microsofts identitets skydds-och skydds team, förklarar varför automatisering är så viktigt vid hantering av mängden händelser:
+I sitt [blogginlägg i oktober 2018](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Eight-essentials-for-hybrid-identity-3-Securing-your-identity/ba-p/275843) förklarar Alex Weinert, som leder Microsofts identity security and protection-team, varför automatisering är så viktigt när det handlar om händelsevolymen:
 
-> Varje dag ger våra maskin inlärnings-och heuristiska system risk Poäng för 18 000 000 000 inloggnings försök för över 800 000 000 distinkta konton, 300 000 000 av vilka discernibly görs av angripare (entiteter som: kriminella aktörer, hackare).
+> Varje dag, vår maskininlärning och heuristiska system ger riskpoäng för 18 miljarder inloggningsförsök för över 800 miljoner olika konton, varav 300 miljoner är märkbart gjort av motståndare (enheter som: kriminella aktörer, hackare).
 >
-> Vid det senaste året har jag ekrar på de 3 främsta attackerna i våra identitets system. Här är den senaste volymen av dessa attacker
+> På Ignite förra året talade jag om de tre största attackerna mot våra identitetssystem. Här är den senaste volymen av dessa attacker
 >   
->   - **Risk repetition**: 4.6 BN-attacker som identifieras i maj 2018
->   - **Lösen ords spridning**: 350K i april 2018
->   - **Nätfiske**: det är svårt att kvantifiera exakt, men vi såg 23M risk händelser i mars 2018, många av dessa är Phish relaterade
+>   - **Brott repris:** 4.6BN attacker upptäcktes i maj 2018
+>   - **Lösenord spray**: 350k i april 2018
+>   - **Phishing**: Detta är svårt att kvantifiera exakt, men vi såg 23M riskhändelser i mars 2018, varav många är phish relaterade
 
-## <a name="risk-detection-and-remediation"></a>Identifiering och reparation av risker
+## <a name="risk-detection-and-remediation"></a>Riskdetektering och reparation
 
-Identitets skyddet identifierar risker i följande klassificeringar:
+Identitetsskydd identifierar risker i följande klassificeringar:
 
-| Typ av risk identifiering | Beskrivning |
+| Typ av riskidentifiering | Beskrivning |
 | --- | --- |
-| Ovanlig-resa | Logga in från en ovanlig-plats baserat på användarens senaste inloggningar. |
-| Anonym IP-adress | Logga in från en anonym IP-adress (t. ex. Tor webbläsare, Anonymizer VPN). |
-| Okända inloggnings egenskaper | Logga in med egenskaper som vi inte har sett nyligen för den angivna användaren. |
-| Länkad IP-adress för skadlig kod | Logga in från en länkad IP-adress med skadlig kod |
-| Läckta autentiseringsuppgifter | Den här risk identifieringen visar att användarens giltiga autentiseringsuppgifter har läckts |
-| Azure AD Threat Intelligence | Microsofts interna och externa hot informations källor har identifierat ett känt angrepps mönster |
+| Atypiska resor | Logga in från en atypisk plats baserat på användarens senaste inloggningar. |
+| Anonym IP-adress | Logga in från en anonym IP-adress (till exempel: Tor browser, anonymizer VPN). |
+| Okända inloggningsegenskaper | Logga in med egenskaper som vi inte har sett nyligen för den angivna användaren. |
+| Skadlig kod länkad IP-adress | Logga in från en kopplad IP-adress för skadlig kod |
+| Läckta autentiseringsuppgifter | Den här riskidentifieringen indikerar att användarens giltiga autentiseringsuppgifter har läckt ut |
+| Azure AD-hotinformation | Microsofts interna och externa hotinformationskällor har identifierat ett känt attackmönster |
 
-Mer information om dessa risker och hur/när de beräknas finns i artikeln, [Vad är risk](concept-identity-protection-risks.md).
+Mer information om dessa risker och hur / när de beräknas finns i artikeln, [Vad är risk](concept-identity-protection-risks.md).
 
-Risk signalerna kan utlösa reparations åtgärder som att kräva att användarna ska kunna: utföra Azure-Multi-Factor Authentication, återställa sina lösen ord med hjälp av lösen ords återställning via självbetjäning eller blockera tills en administratör vidtar åtgärder.
+Risksignalerna kan utlösa reparationsinsatser som att kräva att användare: utföra Azure Multi-Factor-autentisering, återställa sitt lösenord med självbetjäningslösenordsåterställning eller blockera tills en administratör vidtar åtgärder.
 
-## <a name="risk-investigation"></a>Riskbedömning
+## <a name="risk-investigation"></a>Riskundersökning
 
-Administratörer kan granska identifieringar och vidta manuella åtgärder på dem om det behövs. Det finns tre viktiga rapporter som administratörer använder för att utredningar i identitets skydd:
+Administratörer kan granska identifieringar och vidta manuella åtgärder på dem om det behövs. Det finns tre viktiga rapporter som administratörer använder för undersökningar i Identitetsskydd:
 
 - Riskfyllda användare
 - Riskfyllda inloggningar
 - Riskidentifieringar
 
-Mer information finns i artikeln [så här gör du: Undersök risker](howto-identity-protection-investigate-risk.md).
+Mer information finns i artikeln, [Hur: Undersöka risk](howto-identity-protection-investigate-risk.md).
 
-## <a name="exporting-risk-data"></a>Exportera risk data
+## <a name="exporting-risk-data"></a>Exportera riskdata
 
-Data från identitets skydd kan exporteras till andra verktyg för arkivering och ytterligare undersökning och samrelation. Microsoft Graph baserade API: er gör det möjligt för organisationer att samla in data för vidare bearbetning i ett verktyg som deras SIEM. Information om hur du kommer åt Identity Protection-API: et finns i artikeln, [Kom igång med Azure Active Directory Identity Protection och Microsoft Graph](howto-identity-protection-graph-api.md)
+Data från Identitetsskydd kan exporteras till andra verktyg för arkiv och vidare utredning och samrelation. Med Microsoft Graph-baserade API:er kan organisationer samla in dessa data för vidare bearbetning i ett verktyg som deras SIEM. Information om hur du kommer åt API:et för identitetsskydd finns i artikeln, [Kom igång med Azure Active Directory Identity Protection och Microsoft Graph](howto-identity-protection-graph-api.md)
 
-Information om hur du integrerar identitets skydds information med Azure Sentinel finns i artikeln [koppla data från Azure AD Identity Protection](../../sentinel/connect-azure-ad-identity-protection.md).
+Information om hur du integrerar identitetsskyddsinformation med Azure Sentinel finns i artikeln [Connect data from Azure AD Identity Protection](../../sentinel/connect-azure-ad-identity-protection.md).
 
 ## <a name="permissions"></a>Behörigheter
 
-Identitets skydd kräver att användare är en säkerhets läsare, säkerhets operatör, säkerhets administratör, global läsare eller global administratör för att få åtkomst.
+Identitetsskydd kräver att användarna är säkerhetsläsare, säkerhetsoperatör, säkerhetsadministratör, global läsare eller global administratör för att komma åt.
+
+| Roll | Kan göra | Kan inte göra |
+| --- | --- | --- |
+| Global administratör | Fullständig tillgång till identitetsskydd |   |
+| Säkerhetsadministratör | Fullständig tillgång till identitetsskydd | Återställa lösenord för en användare |
+| Säkerhetsoperatör | Visa alla identitetsskyddsrapporter och översiktsblad <br><br> Avfärda användarrisk, bekräfta säker inloggning, bekräfta kompromiss | Konfigurera eller ändra principer <br><br> Återställa lösenord för en användare <br><br> Konfigurera varningar |
+| Säkerhetsläsare | Visa alla identitetsskyddsrapporter och översiktsblad | Konfigurera eller ändra principer <br><br> Återställa lösenord för en användare <br><br> Konfigurera varningar <br><br> Ge feedback på upptäckter |
+
+Villkorlig åtkomstadministratörer kan också skapa principer som inrålningsrisk som ett villkor, hitta mer information i artikeln [Villkorlig åtkomst: Villkor](../conditional-access/concept-conditional-access-conditions.md#sign-in-risk).
 
 ## <a name="license-requirements"></a>Licenskrav
 
 [!INCLUDE [Active Directory P2 license](../../../includes/active-directory-p2-license.md)]
 
-| Kapacitet | Information | Azure AD Premium P2 | Azure AD Premium P1 | Azure AD Basic/kostnads fri |
+| Funktion | Information | Azure AD Premium P2 | Azure AD Premium P1 | Azure AD Basic/Gratis |
 | --- | --- | --- | --- | --- |
-| Risk principer | Användar risk princip (via identitets skydd) | Ja | Nej | Nej |
-| Risk principer | Inloggnings risk princip (via identitets skydd eller villkorlig åtkomst) | Ja | Nej | Nej |
-| Säkerhetsrapporter | Översikt | Ja | Nej | Nej |
+| Riskpolicyer | Användarriskprincip (via identitetsskydd) | Ja | Inga | Inga |
+| Riskpolicyer | Princip för inloggningsrisk (via identitetsskydd eller villkorlig åtkomst) | Ja | Inga | Inga |
+| Säkerhetsrapporter | Översikt | Ja | Inga | Inga |
 | Säkerhetsrapporter | Riskfyllda användare | Fullständig åtkomst | Begränsad information | Begränsad information |
 | Säkerhetsrapporter | Riskfyllda inloggningar | Fullständig åtkomst | Begränsad information | Begränsad information |
-| Säkerhetsrapporter | Riskidentifieringar | Fullständig åtkomst | Begränsad information | Nej |
-| Meddelanden | Varningar för användare med risk identifiering | Ja | Nej | Nej |
-| Meddelanden | Vecko sammandrag | Ja | Nej | Nej |
-| | Princip för MFA-registrering | Ja | Nej | Nej |
+| Säkerhetsrapporter | Riskidentifieringar | Fullständig åtkomst | Begränsad information | Inga |
+| Meddelanden | Användare i riskzonen upptäckta aviseringar | Ja | Inga | Inga |
+| Meddelanden | Veckovis sammandrag | Ja | Inga | Inga |
+| | MFA-registreringspolicy | Ja | Inga | Inga |
 
 ## <a name="next-steps"></a>Nästa steg
 
 - [Säkerhetsöversikt](concept-identity-protection-security-overview.md)
 
-- [Vad är risk?](concept-identity-protection-risks.md)
+- [Vad är risk](concept-identity-protection-risks.md)
 
-- [Principer som är tillgängliga för att minimera risker](concept-identity-protection-policies.md)
+- [Policyer tillgängliga för att minska riskerna](concept-identity-protection-policies.md)

@@ -1,108 +1,105 @@
 ---
-title: Använd Azure IoT-tillägget för Azure CLI för att interagera med IoT Plug and Play Preview-enheter | Microsoft Docs
-description: Installera Azure IoT-tillägget för Azure CLI och Använd det för att interagera med IoT-Plug and Play enheter som är anslutna till min IoT-hubb.
+title: Använda Azure IoT-tillägget för Azure CLI för att interagera med IoT Plug and Play Preview-enheter | Microsoft-dokument
+description: Installera Azure IoT-tillägget för Azure CLI och använd det för att interagera med IoT Plug and Play-enheter som är anslutna till min IoT-hubb.
 author: ChrisGMsft
 ms.author: chrisgre
 ms.date: 12/26/2019
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
-ms.openlocfilehash: 8dead08017f15a7429655b4bf17b6e8c8e481114
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: b5907c0fb127947e90352e68b2726a22f5afea0d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78251016"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80234688"
 ---
 # <a name="install-and-use-the-azure-iot-extension-for-the-azure-cli"></a>Installera och använda Azure IoT-tillägget för Azure CLI
 
-[Azure CLI](https://docs.microsoft.com/cli/azure?view=azure-cli-latest) är ett kommando rads verktyg med öppen källkod för flera plattformar för att hantera Azure-resurser som IoT Hub. Azure CLI är tillgängligt på Windows, Linux och MacOS. Azure CLI är också förinstallerat i [Azure Cloud Shell](https://shell.azure.com). Med Azure CLI kan du hantera Azure IoT Hub-resurser, enhets etablerings tjänst instanser och länkade hubbar utan att installera några tillägg.
+[Azure CLI](https://docs.microsoft.com/cli/azure?view=azure-cli-latest) är ett kommandoradsverktyg med flera plattformar med öppen källkod för hantering av Azure-resurser som IoT Hub. Azure CLI är tillgängligt på Windows, Linux och MacOS. Azure CLI är också förinstallerat i [Azure Cloud Shell](https://shell.azure.com). Med Azure CLI kan du hantera Azure IoT Hub-resurser, instanser av enhetsetableringstjänst och länkade hubbar utan att installera några tillägg.
 
-Azure IoT-tillägget för Azure CLI är ett kommando rads verktyg för att interagera med och testa IoT Plug and Play Preview-enheter. Du kan använda tillägget för att:
+Azure IoT-tillägget för Azure CLI är ett kommandoradsverktyg för att interagera med och testa IoT Plug and Play Preview-enheter. Du kan använda tillägget för att:
 
 - Anslut till en enhet.
 - Visa den telemetri som enheten skickar.
-- Arbeta med enhets egenskaper.
-- Anropa enhets kommandon.
+- Arbeta med enhetsegenskaper.
+- Anropa enhetskommandon.
 
 Den här artikeln visar hur du:
 
 - Installera och konfigurera Azure IoT-tillägget för Azure CLI.
 - Använd tillägget för att interagera med och testa dina enheter.
-- Använd tillägget för att hantera gränssnitt i modell databasen.
+- Använd tillägget för att hantera gränssnitt i modelldatabasen.
 
-## <a name="install-azure-iot-extension-for-the-azure-cli"></a>Installera Azure IoT-tillägget för Azure CLI
+## <a name="install-azure-iot-extension-for-the-azure-cli"></a>Installera Azure IoT-tillägg för Azure CLI
 
-### <a name="step-1---install-the-azure-cli"></a>Steg 1 – installera Azure CLI
+### <a name="step-1---install-the-azure-cli"></a>Steg 1 – Installera Azure CLI
 
-Följ [installations anvisningarna](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) för att konfigurera Azure CLI i din miljö. Om du vill använda alla kommandon nedan måste din Azure CLI-version vara version 2.0.73 eller senare. Validera med `az -–version`.
+Följ [installationsanvisningarna](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) för att konfigurera Azure CLI i din miljö. Om du vill använda alla kommandon nedan måste din Azure CLI-version vara version 2.0.73 eller högre. Validera med `az -–version`.
 
-### <a name="step-2---install-iot-extension"></a>Steg 2 – Installera IoT-tillägg
+### <a name="step-2---install-iot-extension"></a>Steg 2 - Installera IoT-tillägg
 
 I [IoT-tilläggets Viktigt-fil](https://github.com/Azure/azure-iot-cli-extension) beskrivs olika sätt att installera tillägget. Det enklaste sättet är att köra `az extension add --name azure-iot`. Efter installationen kan du använda `az extension list` för att verifiera de tillägg som finns installerade för närvarande eller `az extension show --name azure-iot` för att se information om IoT-tillägget. Om du vill ta bort tillägget kan du använda `az extension remove --name azure-iot`.
 
-## <a name="use-azure-iot-extension-for-the-azure-cli"></a>Använda Azure IoT-tillägget för Azure CLI
+## <a name="use-azure-iot-extension-for-the-azure-cli"></a>Använda Azure IoT-tillägg för Azure CLI
 
-### <a name="prerequisites"></a>Förutsättningar
+### <a name="prerequisites"></a>Krav
 
-Logga in på din Azure-prenumeration genom att köra följande kommando:
+Om du vill logga in på din Azure-prenumeration kör du följande kommando:
 
-```cmd/sh
+```azurecli
 az login
 ```
 
 > [!NOTE]
-> Om du använder Azure Cloud Shell loggas du automatiskt in och du behöver inte köra föregående kommando.
+> Om du använder Azure-molnskalet loggas du automatiskt in och behöver inte köra föregående kommando.
 
 Om du vill använda Azure IoT-tillägget för Azure CLI behöver du:
 
-- En Azure IoT-hubb. Det finns många sätt att lägga till en IoT-hubb i din Azure-prenumeration, till exempel [skapa en IoT-hubb med Azure CLI](../iot-hub/iot-hub-create-using-cli.md). Du behöver IoT-hubbens anslutnings sträng för att köra Azure IoT Extension-kommandona. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+- En Azure IoT-hubb. Det finns många sätt att lägga till en IoT-hubb i din Azure-prenumeration, till exempel [Skapa en IoT-hubb med Azure CLI](../iot-hub/iot-hub-create-using-cli.md). Du behöver IoT-hubbens anslutningssträng för att köra Azure IoT-tilläggskommandona. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
 
-    > [!NOTE]
-    > Under den offentliga för hands versionen är IoT Plug and Play-funktioner bara tillgängliga på IoT-hubbar som skapats i regionerna **Central USA**, **Nord Europa**och **Östra Japan** .
+- En enhet som är registrerad i din IoT-hubb. Du kan använda följande Azure CLI-kommando för att `{YourIoTHubName}` registrera `{YourDeviceID}` en enhet, se till att ersätta och platshållarna med dina värden:
 
-- En enhet som är registrerad i IoT Hub. Du kan använda följande Azure CLI-kommando för att registrera en enhet, se till att ersätta `{YourIoTHubName}` och `{YourDeviceID}` plats hållarna med dina värden:
-
-    ```cmd/sh
+    ```azurecli
     az iot hub device-identity create --hub-name {YourIoTHubName} --device-id {YourDeviceID}
     ```
 
-- Vissa kommandon behöver anslutnings strängen för en företags modell databas. Ett modell lager för ditt företag skapas när du först registrerar dig [på Azure-certifierad för IoT-portalen](howto-onboard-portal.md). En tredje part kan dela sin anslutnings sträng för modell databasen med dig för att ge dig åtkomst till gränssnitt och modeller.
+- Vissa kommandon behöver anslutningssträngen för en företagsmodelldatabas. En modelldatabas för ditt företag skapas när du först [gick ombord till Azure Certified for IoT-portalen](howto-onboard-portal.md). En tredje part kan dela sin anslutningssträng för modelllagringsplats med dig för att ge dig tillgång till deras gränssnitt och modeller.
 
 ### <a name="interact-with-a-device"></a>Interagera med en enhet
 
-Du kan använda tillägget för att visa och interagera med IoT Plug and Play enheter som är anslutna till en IoT-hubb. Tillägget fungerar med den digitala dubbla som representerar IoT Plug and Play-enheten.
+Du kan använda tillägget för att visa och interagera med IoT Plug and Play-enheter som är anslutna till en IoT-hubb. Tillägget fungerar med den digitala tvillingen som representerar IoT Plug and Play-enheten.
 
 #### <a name="list-devices-and-interfaces"></a>Lista enheter och gränssnitt
 
 Lista alla enheter på en IoT Hub:
 
-```cmd/sh
+```azurecli
 az iot hub device-identity list --hub-name {YourIoTHubName}
 ```
 
 Lista alla gränssnitt som registrerats av en IoT Plug and Play-enhet:
 
-```cmd/sh
+```azurecli
 az iot dt list-interfaces --hub-name {YourIoTHubName} --device-id {YourDeviceID}
 ```
 
 #### <a name="properties"></a>Egenskaper
 
-Lista alla egenskaper och egenskaps värden för ett gränssnitt på en enhet:
+Lista alla egenskaper och egenskapsvärden för ett gränssnitt på en enhet:
 
-```cmd/sh
+```azurecli
 az iot dt list-properties --hub-name {YourIoTHubName} --device-id {YourDeviceID} --interface {YourInterfaceID} --source private --repo-login "{YourCompanyModelRepoConnectionString}"
 ```
 
-Ange värdet för en Read-Write-egenskap:
+Ange värdet för en läs-skriv-egenskap:
 
-```cmd/sh
+```azurecli
 az iot dt update-property --hub-name {YourIoTHubName} --device-id {YourDeviceID} --interface-payload {JSONPayload or FilePath}
 ```
 
-Ett exempel på en nytto Last fil som anger **namn** egenskapen på en enhets **sensor** gränssnitt till **contoso** ser ut så här:
+En exempeluppladdningsfil **name** för att ange namnegenskapen på **sensorgränssnittet** för en enhet till **Contoso** ser ut så här:
 
 ```json
 {
@@ -120,114 +117,114 @@ Ett exempel på en nytto Last fil som anger **namn** egenskapen på en enhets **
 
 #### <a name="commands"></a>Kommandon
 
-Visa en lista med alla kommandon för ett gränssnitt på en enhet:
+Lista alla kommandon för ett gränssnitt på en enhet:
 
-```cmd/sh
+```azurecli
 az iot dt list-commands --hub-name {YourIoTHubName} --device-id {YourDeviceID} --interface {YourInterfaceID} --source private --repo-login {YourCompanyModelRepoConnectionString}
 ```
 
-Utan parametern `--repo-login` använder det här kommandot den offentliga modellens lagrings plats.
+Utan `--repo-login` parametern använder det här kommandot den offentliga modelldatabasen.
 
 Anropa ett kommando:
 
-```cmd/sh
+```azurecli
 az iot dt invoke-command --hub-name {YourIoTHubName} --device-id {YourDeviceID} --interface {YourInterfaceID} --cn {CommandName} --command-payload {CommandPayload or FilePath}
 ```
 
-#### <a name="digital-twin-events"></a>Digitala dubbla händelser
+#### <a name="digital-twin-events"></a>Digitala tvillingevenemang
 
-Övervaka alla IoT Plug and Play digitala dubbla händelser från en speciell enhet och gränssnitt till **$default** Event Hub-konsument gruppen:
+Övervaka alla IoT Plug and Play digitala tvillinghändelser från en specifik enhet och ett visst gränssnitt som går till **konsumentgruppen för $Default** händelsehubben:
 
-```cmd/sh
+```azurecli
 az iot dt monitor-events --hub-name {YourIoTHubName} --device-id {YourDeviceID} --interface {YourInterfaceID}
 ```
 
-Övervaka alla IoT Plug and Play digitala dubbla händelser från en speciell enhet och gränssnitt som går till en speciell konsument grupp:
+Övervaka alla IoT Plug and Play digitala tvillinghändelser från en viss enhet och ett specifikt gränssnitt och gå till en viss konsumentgrupp:
 
-```cmd/sh
+```azurecli
 az iot dt monitor-events --hub-name {YourIoTHubName} --device-id {YourDeviceID} --interface {YourInterfaceID} --consumer-group {YourConsumerGroup}
 ```
 
-### <a name="manage-interfaces-in-a-model-repository"></a>Hantera gränssnitt i en modell databas
+### <a name="manage-interfaces-in-a-model-repository"></a>Hantera gränssnitt i en modelldatabas
 
-Följande kommandon använder den offentliga IoT Plug and Play Model-lagringsplatsen. Om du vill använda en företags modell databas lägger du till argumentet `--login` med anslutnings strängen för modell databasen.
+Följande kommandon använder den offentliga IoT Plug and Play-modelldatabasen. Om du vill använda en `--login` företagsmodelldatabas lägger du till argumentet med anslutningssträngen för modelldatabasen.
 
-Visa en lista över gränssnitt i den offentliga IoT-Plug and Play modell databasen:
+Lista gränssnitt i den offentliga IoT Plug and Play-modellens databas:
 
-```cmd/sh
+```azurecli
 az iot pnp interface list
 ```
 
-Visa ett gränssnitt i den offentliga IoT-Plug and Play modell databasen:
+Visa ett gränssnitt i den offentliga IoT Plug and Play-modellens databas:
 
-```cmd/sh
+```azurecli
 az iot pnp interface show --interface {YourInterfaceId}
 ```
 
-Skapa ett gränssnitt i IoT-Plug and Play företagets modell databas:
+Skapa ett gränssnitt i ioT Plug and Play-företagsmodellarkivet:
 
-```cmd/sh
+```azurecli
 az iot pnp interface create --definition {JSONPayload or FilePath} --login {YourCompanyModelRepoConnectionString}
 ```
 
-Du kan inte skapa ett gränssnitt direkt i den offentliga modellens lagrings plats.
+Du kan inte skapa ett gränssnitt direkt i den offentliga modelldatabasen.
 
-Uppdatera ett gränssnitt i IoT-Plug and Play företagets modell databas:
+Uppdatera ett gränssnitt i ioT Plug and Play-företagsmodellarkivet:
 
-```cmd/sh
+```azurecli
 az iot pnp interface update --definition {JSONPayload or FilePath} --login {YourCompanyModelRepoConnectionString}
 ```
 
-Du kan inte uppdatera ett gränssnitt direkt i den offentliga modellens lagrings plats.
+Du kan inte uppdatera ett gränssnitt direkt i den offentliga modelldatabasen.
 
-Publicera ett gränssnitt från IoT-Plug and Play företagets modell databas till den offentliga modellens lagrings plats. Den här åtgärden gör gränssnittet oföränderligt:
+Publicera ett gränssnitt från ioT Plug and Play-företagsmodellarkivet i den offentliga modelldatabasen. Den här åtgärden gör gränssnittet oföränderligt:
 
-```cmd/sh
+```azurecli
 az iot pnp interface publish --interface {YourInterfaceID} --login {YourCompanyModelRepoConnectionString}
 ```
 
-Endast Microsoft-partner kan publicera gränssnitt till den offentliga modellens lagrings plats.
+Endast Microsoft-partner kan publicera gränssnitt till den offentliga modelldatabasen.
 
-### <a name="manage-device-capability-models-in-a-model-repository"></a>Hantera enhets kapacitets modeller i en modell databas
+### <a name="manage-device-capability-models-in-a-model-repository"></a>Hantera enhetskapacitetsmodeller i en modelldatabas
 
-Följande kommandon använder den offentliga IoT Plug and Play Model-lagringsplatsen. Om du vill använda en företags modell databas lägger du till argumentet `--login` med anslutnings strängen för modell databasen.
+Följande kommandon använder den offentliga IoT Plug and Play-modelldatabasen. Om du vill använda en `--login` företagsmodelldatabas lägger du till argumentet med anslutningssträngen för modelldatabasen.
 
-Visa lista över enhets kapacitets modeller i IoT Plug and Play offentliga modell databasen:
+Lista enhetsfunktioner modeller i IoT Plug and Play offentliga modellarkivet:
 
-```cmd/sh
+```azurecli
 az iot pnp capability-model list
 ```
 
-Visa en enhets kapacitets modell i IoT Plug and Play offentliga modell databasen:
+Visa en enhetskapacitetsmodell i ioT Plug and Play offentliga modellarkivet:
 
-```cmd/sh
+```azurecli
 az iot pnp capability-model show --model {YourModelID}
 ```
 
-Skapa en enhets kapacitets modell i en IoT Plug and Play företags modell databas:
+Skapa en enhetskapacitetsmodell i en IoT Plug and Play-företagsmodellarkiv:
 
-```cmd/sh
+```azurecli
 az iot pnp capability-model create --definition {JSONPayload or FilePath} --login {YourCompanyModelRepoConnectionString}
 ```
 
-Du kan inte skapa en modell direkt i den offentliga modellens lagrings plats.
+Du kan inte skapa en modell direkt i den offentliga modelldatabasen.
 
-Uppdatera en enhets kapacitets modell i IoT Plug and Play företags modellens lagrings plats:
+Uppdatera en enhetskapacitetsmodell i IoT Plug and Play-företagsmodellarkivet:
 
-```cmd/sh
+```azurecli
 az iot pnp capability-model update --definition {JSONPayload or FilePath} --login {YourCompanyModelRepoConnectionString}
 ```
 
-Du kan inte uppdatera en modell direkt i den offentliga modellens lagrings plats.
+Du kan inte uppdatera en modell direkt i den offentliga modelldatabasen.
 
-Publicera en enhets kapacitets modell från IoT Plug and Play företagets modell databas till den offentliga modellens lagrings plats. Den här åtgärden gör modellen oföränderlig:
+Publicera en enhetskapacitetsmodell från ioT Plug and Play-företagsmodellarkivet till den offentliga modelldatabasen. Den här åtgärden gör modellen oföränderlig:
 
-```cmd/sh
+```azurecli
 az iot pnp capability-model publish --model {YourModelID} --login {YourCompanyModelRepoConnectionString}
 ```
 
-Endast Microsoft-partner kan publicera modeller till den offentliga modellens lagrings plats.
+Endast Microsoft-partner kan publicera modeller i den offentliga modelldatabasen.
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här instruktions artikeln har du lärt dig hur du installerar och använder Azure IoT-tillägget för Azure CLI för att interagera med dina Plug and Play-enheter. Ett förslag till nästa steg är att lära dig hur du [hanterar modeller](./howto-manage-models.md).
+I den här artikeln har du lärt dig hur du installerar och använder Azure IoT-tillägget för Azure CLI för att interagera med dina Plug and Play-enheter. Ett förslag på nästa steg är att lära sig [att hantera modeller](./howto-manage-models.md).

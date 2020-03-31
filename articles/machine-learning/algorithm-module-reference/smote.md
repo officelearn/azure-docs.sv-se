@@ -1,7 +1,7 @@
 ---
 title: SMOTE
 titleSuffix: Azure Machine Learning
-description: Lär dig hur du använder SMOTE-modulen i Azure Machine Learning för att öka antalet exempel med låg frekvens i en data uppsättning genom att använda översampling.
+description: Lär dig hur du använder SMOTE-modulen i Azure Machine Learning för att öka antalet exempel med låg incidens i en datauppsättning med hjälp av översampling.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,95 +9,95 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/16/2019
-ms.openlocfilehash: 4b6944f7703500a2c3859e8e3111eceefbd5ff10
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: ed6d9e86143c3a5d6c97c4bd92a07c258bbd1bbc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76311418"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79477467"
 ---
 # <a name="smote"></a>SMOTE
 
-Den här artikeln beskriver hur du använder modulen SMOTE i Azure Machine Learning designer för att öka antalet undervisade ärenden i en data uppsättning som används för maskin inlärning. SMOTE är ett bättre sätt att öka antalet sällsynta fall än att helt enkelt duplicera befintliga fall.  
+I den här artikeln beskrivs hur du använder SMOTE-modulen i Azure Machine Learning designer (förhandsversion) för att öka antalet underrepresenterade ärenden i en datauppsättning som används för maskininlärning. SMOTE är ett bättre sätt att öka antalet sällsynta fall än att bara duplicera befintliga fall.  
 
-Du ansluter SMOTE-modulen till en data uppsättning som är *obalanserad*. Det finns många orsaker till varför en data uppsättning kan vara obalanserat. Den kategori som du är mål för kan till exempel vara sällsynt i populationen, eller så kan det vara svårt att samla in data. Normalt använder du SMOTE när *klassen* som du vill analysera är underordnad. 
+Du ansluter SMOTE-modulen till en datauppsättning som är *obalanserad*. Det finns många anledningar till att en datauppsättning kan vara obalanserad. Den kategori du riktar in dig på kan till exempel vara sällsynt i populationen eller så kan data vara svåra att samla in. Vanligtvis använder du SMOTE när *klassen* som du vill analysera är underrepresenterad. 
   
-Modulen returnerar en data uppsättning som innehåller de ursprungliga exemplen. Det returnerar också ett antal syntetiska minoritets exempel, beroende på procent andelen som du anger.  
+Modulen returnerar en datauppsättning som innehåller de ursprungliga exemplen. Det returnerar också ett antal syntetiska minoritetsprover, beroende på den procentandel som du anger.  
   
 ## <a name="more-about-smote"></a>Mer om SMOTE
 
-Syntetisk minoritets teknik för översampling (SMOTE) är en statistisk teknik för att öka antalet fall i data uppsättningen på ett balanserat sätt. Modulen fungerar genom att generera nya instanser från befintliga minoritets fall som du anger som inmatade. Den här implementeringen av SMOTE ändrar *inte* antalet majoritets fall.
+Synthetic Minority Oversampling Technique (SMOTE) är en statistisk teknik för att öka antalet fall i din datauppsättning på ett balanserat sätt. Modulen fungerar genom att generera nya instanser från befintliga minoritetsärenden som du tillhandahåller som indata. Detta genomförande av SMOTE ändrar *inte* antalet majoritetsfall.
 
-De nya instanserna är inte bara kopior av befintliga minoritets fall. Algoritmen tar i stället prover av *funktions utrymmet* för varje målklass och dess närmsta grannar. Algoritmen genererar sedan nya exempel som kombinerar funktioner i mål fallet med funktioner i dess grannar. Den här metoden ökar funktionerna som är tillgängliga för varje klass och gör exemplen mer generella.
+De nya fallen är inte bara kopior av befintliga minoritetsfall. I stället tar algoritmen exempel på *funktionsutrymmet* för varje målklass och dess närmaste grannar. Algoritmen genererar sedan nya exempel som kombinerar funktioner i målfallet med funktioner i sina grannar. Den här metoden ökar de funktioner som är tillgängliga för varje klass och gör proverna mer allmänna.
   
-SMOTE tar hela data uppsättningen som indata, men det ökar bara procent andelen av minoritets fallen. Anta till exempel att du har en överbalanserad data uppsättning där bara 1 procent av fallen har målvärdet A (minoritets klassen) och 99 procent av fallen har värdet B. Om du vill öka procent andelen minoritets fall till två gånger den föregående procent andelen, anger du **200** för **SMOTE procent** i modulens egenskaper.  
+SMOTE tar hela datauppsättningen som indata, men ökar andelen endast minoritetsfallen. Anta till exempel att du har en obalanserad datauppsättning där bara 1 procent av fallen har målvärdet A (minoritetsklassen) och 99 procent av fallen har värdet B. Om du vill öka procentandelen minoritetsfall till två gånger den tidigare procentsatsen anger du **200** för **SMOTE-procent** i modulens egenskaper.  
   
 ## <a name="examples"></a>Exempel  
 
-Vi rekommenderar att du provar att använda SMOTE med en liten data uppsättning för att se hur det fungerar. I följande exempel används den data uppsättning för blod donation som finns i Azure Machine Learning designer.
+Vi rekommenderar att du försöker använda SMOTE med en liten datauppsättning för att se hur det fungerar. I följande exempel används datauppsättningen Blodgivning som är tillgänglig i Azure Machine Learning-designern.
   
-Om du lägger till data uppsättningen i en pipeline och väljer **visualisera** på data uppsättningens utdata kan du se att de 748 raderna eller fallen i data uppsättningen, 570 fall (76 procent) är av klass 0 och 178-fall (24 procent) är klass 1. Även om det här resultatet inte är terribly, representerar klass 1 de personer som har donerat blod, så dessa rader innehåller det *funktions utrymme* som du vill modellera.
+Om du lägger till datauppsättningen i en pipeline och väljer **Visualisera** datauppsättningens utdata kan du se att av de 748 raderna eller ärendena i datauppsättningen är 570 ärenden (76 procent) av klass 0 och 178 ärenden (24 procent) av klass 1. Även om detta resultat inte är särskilt obalanserad, representerar klass 1 de personer som donerade blod, så dessa rader innehåller *det funktionsutrymme* som du vill modellera.
  
-Om du vill öka antalet fall kan du ange värdet **SMOTE procent**, genom att använda multiplar av 100, enligt följande:
+Om du vill öka antalet ärenden kan du ange värdet för **SMOTE-procentsatsen**med hjälp av multiplar av 100 enligt följande:
 
 ||Klass 0|Klass 1|totalt|  
 |-|-------------|-------------|-----------|  
-|Ursprunglig data uppsättning<br /><br /> (motsvarar **SMOTE procent** = **0**)|570<br /><br /> 76%|178<br /><br /> 24.1|748|  
+|Ursprunglig datauppsättning<br /><br /> (motsvarande **SMOTE-procentsats** = **0**)|570<br /><br /> 76%|178<br /><br /> 24%|748|  
 |**SMOTE procent** = **100**|570<br /><br /> 62%|356<br /><br /> 38%|926|  
-|**SMOTE procent** = **200**|570<br /><br /> 52 %|534<br /><br /> 48%|1 104|  
-|**SMOTE procent** = **300**|570<br /><br /> 44%|712<br /><br /> 56%|1 282|  
+|**SMOTE procent** = **200**|570<br /><br /> 52 %|534<br /><br /> 48%|1,104|  
+|**SMOTE procent** = **300**|570<br /><br /> 44%|712<br /><br /> 56%|1,282|  
   
 > [!WARNING]
-> Att öka antalet fall genom att använda SMOTE är inte garanterat att skapa mer exakta modeller. Prova pipelinen med olika procent satser, olika funktions uppsättningar och olika antal närmsta grannar för att se hur du lägger till fall som påverkar din modell.  
+> Att öka antalet fall genom att använda SMOTE är inte garanterat att producera mer exakta modeller. Prova pipelining med olika procentsatser, olika funktionsuppsättningar och olika antal närmaste grannar för att se hur lägga till ärenden påverkar din modell.  
   
-## <a name="how-to-configure-smote"></a>Så här konfigurerar du SMOTE
+## <a name="how-to-configure-smote"></a>Konfigurera SMOTE
   
-1.  Lägg till SMOTE-modulen i din pipeline. Du hittar modulen under **datatransformering-moduler**i kategorin **modifiering** .
+1.  Lägg till SMOTE-modulen i pipelinen. Du hittar modulen under Moduler för **dataomvandling**i kategorin **Manipulation.**
 
-2. Anslut den data uppsättning som du vill öka. Om du vill ange funktions utrymmet för att skapa nya ärenden, antingen genom att endast använda vissa kolumner eller utesluta vissa, använder du modulen [Välj kolumner i data uppsättning](select-columns-in-dataset.md) . Du kan sedan isolera de kolumner som du vill använda innan du använder SMOTE.
+2. Anslut den datauppsättning som du vill marknadsföra. Om du vill ange funktionsutrymmet för att skapa de nya ärendena, antingen genom att bara använda specifika kolumner eller genom att utesluta vissa, använder du modulen [Välj kolumner i datauppsättning.](select-columns-in-dataset.md) Du kan sedan isolera de kolumner som du vill använda innan du använder SMOTE.
   
-    Annars baseras skapandet av nya ärenden via SMOTE på *alla* kolumner som du anger som indata. Minst en kolumn i funktions kolumnerna är numerisk.
+    Annars baseras skapandet av nya ärenden via SMOTE på *alla* kolumner som du anger som indata. Minst en kolumn i funktionskolumnerna är numerisk.
   
-3.  Kontrol lera att kolumnen som innehåller etiketten eller mål klassen är markerad. SMOTE accepterar endast binära etiketter.
+3.  Kontrollera att kolumnen som innehåller etiketten, eller målklassen, är markerad. SMOTE accepterar endast binära etiketter.
   
-4.  SMOTE-modulen identifierar automatiskt minoritets klassen i kolumnen etikett och hämtar sedan alla exempel för klassen minoritet. Alla kolumner kan inte ha NaN-värden.
+4.  SMOTE-modulen identifierar automatiskt minoritetsklassen i etikettkolumnen och hämtar sedan alla exempel för minoritetsklassen. Alla kolumner kan inte ha NaN-värden.
   
-5.  I **SMOTE procent** anger du ett heltal som anger mål procent andelen av minoritets fall i data uppsättningen för utdata. Ett exempel:  
+5.  I alternativet **SMOTE-procent** anger du ett heltal som anger målprocenten för minoritetsfall i utdatauppsättningen. Ett exempel:  
   
-    - Ange **0**. SMOTE-modulen returnerar exakt samma data uppsättning som du angav som indata. Den lägger inte till några nya minoritets fall. I den här data uppsättningen har klassens proportion inte ändrats.  
+    - Du anger **0**. SMOTE-modulen returnerar exakt samma datauppsättning som du angav som indata. Det tillför inga nya minoritetsfall. I den här datauppsättningen har klassproportionen inte ändrats.  
   
-    - Du anger **100**. SMOTE-modulen genererar nya minoritets fall. Det lägger till samma antal minoritets fall som fanns i den ursprungliga data uppsättningen. Eftersom SMOTE inte ökar antalet majoritets fall, har andelen av varje klass ändrats.  
+    - Du anger **100**. SMOTE-modulen genererar nya minoritetsfall. Den lägger till samma antal minoritetsfall som fanns i den ursprungliga datauppsättningen. Eftersom SMOTE inte ökar antalet majoritetsfall har andelen fall av varje klass ändrats.  
   
-    - Du anger **200**. Modulen fördubblar procent andelen minoritets fall jämfört med den ursprungliga data uppsättningen. Detta resulterar *inte* i att ha två gånger så många minoritets fall som tidigare. I stället ökas storleken på data uppsättningen på ett sådant sätt att antalet majoritets fall förblir desamma. Antalet minoritets fall ökar tills det matchar det önskade procent värdet.  
+    - Du anger **200**. Modulen fördubblar andelen minoritetsfall jämfört med den ursprungliga datauppsättningen. Detta *leder inte* till att de har dubbelt så många minoritetsfall som tidigare. Snarare ökar datauppsättningens storlek på ett sådant sätt att antalet majoritetsfall förblir detsamma. Antalet minoritetsfall ökas tills det matchar önskat procentvärde.  
   
     > [!NOTE]
-    > Använd endast multiplar av 100 för SMOTE procent.
+    > Använd endast multiplar av 100 för SMOTE-procentsatsen.
 
-6.  Använd **antalet närmsta grannar** för att bestämma storleken på det funktions utrymme som SMOTE-algoritmen använder i att skapa nya fall. En närmaste granne är en rad med data (ett fall) som liknar ett mål fall. Avståndet mellan två fall mäts genom att kombinera de viktade vektorerna för alla funktioner.  
+6.  Använd alternativet **Antal närmaste grannar** för att bestämma storleken på det funktionsutrymme som SMOTE-algoritmen använder för att skapa nya ärenden. En närmaste granne är en rad med data (ett ärende) som liknar ett målfall. Avståndet mellan två fall mäts genom att kombinera de viktade vektorerna för alla funktioner.  
   
-    + Genom att öka antalet närmsta grannar får du funktioner från fler fall.
-    + Genom att behålla antalet närmsta grannar, använder du funktioner som är fler som de i det ursprungliga exemplet.  
+    + Genom att öka antalet närmaste grannar får du funktioner från fler fall.
+    + Genom att hålla antalet närmaste grannar lågt använder du funktioner som är mer som de i det ursprungliga provet.  
   
-7. Ange ett värde i rutan **slumpvis utsäde** om du vill se till att samma resultat överlappar samma pipeline, med samma data. Annars genererar modulen ett slumpmässigt Seed baserat på processorns klock värden när pipelinen distribueras. Genereringen av ett slumpmässigt Seed kan orsaka något annorlunda resultat över körningar.
+7. Ange ett värde i rutan **Slumpmässigt frö** om du vill säkerställa samma resultat över körningar av samma pipeline, med samma data. Annars genererar modulen ett slumpmässigt utsprön baserat på processorklockvärden när pipelinen distribueras. Genereringen av ett slumpmässigt frö kan orsaka lite olika resultat över körningar.
 
-8. Köra en pipeline.  
+8. Skicka pipelinen.  
   
-   Utdata från modulen är en data uppsättning som innehåller de ursprungliga raderna plus ett antal tillagda rader med minoritets fall.  
+   Utdata för modulen är en datauppsättning som innehåller de ursprungliga raderna plus ett antal tillagda rader med minoritetsfall.  
 
-## <a name="technical-notes"></a>Tekniska anteckningar
+## <a name="technical-notes"></a>Tekniska anmärkningar
 
-+ När du publicerar en modell som använder modulen **SMOTE** tar du bort **SMOTE** från den förutsägande pipelinen innan den publiceras som en webb tjänst. Anledningen är att SMOTE är avsedd för att förbättra en modell under utbildning, inte för att göra något. Du kan få ett fel meddelande om en publicerad förutsägbar pipeline innehåller SMOTE-modulen.
++ När du publicerar en modell som använder **SMOTE-modulen** tar du bort **SMOTE** från den prediktiva pipelinen innan den publiceras som en webbtjänst. Anledningen är att SMOTE är avsett att förbättra en modell under träning, inte för poängsättning. Du kan få ett felmeddelande om en publicerad prediktiv pipeline innehåller SMOTE-modulen.
 
-+ Du kan ofta få bättre resultat om du rensar saknade värden eller använder andra omvandlingar för att åtgärda data innan du använder SMOTE. 
++ Du kan ofta få bättre resultat om du rensar värden som saknas eller använder andra omvandlingar för att åtgärda data innan du använder SMOTE. 
 
-+ Vissa forskare har undersökt om SMOTE är effektivt på högdimensionella eller glesa data, t. ex. data som används i text klassificering eller genomiks data uppsättningar. Det här dokumentet innehåller en översikt över effekterna och den teoretiska giltighets tiden för att tillämpa SMOTE i sådana fall: [Blagus och Lusa: SMOTE för storskaliga klass data](https://bmcbioinformatics.biomedcentral.com/articles/10.1186/1471-2105-14-106).
++ Vissa forskare har undersökt om SMOTE är effektivt på högdimensionella eller glesa data, till exempel data som används i textklassificering eller genomikdatamängder. Detta dokument har en bra sammanfattning av effekterna och av den teoretiska giltigheten av att tillämpa SMOTE i sådana fall: [Blagus och Lusa: SMOTE för högdimensionella klassobalansdata](https://bmcbioinformatics.biomedcentral.com/articles/10.1186/1471-2105-14-106).
 
-+ Om SMOTE inte är effektivt i din data uppsättning kan andra metoder som du kan tänka på vara:
-  + Metoder för att översampla minoritets fallen eller undersampling av de flesta fall.
-  + Ensemble-tekniker som hjälper eleven direkt genom att använda kluster, bagage eller anpassningsbar förstärkning.
++ Om SMOTE inte är effektivt i datauppsättningen kan andra metoder som du kan tänka dig vara:
+  + Metoder för att förenkla minoritetsfallen eller undersampling av majoritetsfallen.
+  + Ensemble tekniker som hjälper eleven direkt genom att använda klustring, uppsamlare, eller adaptiv öka.
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Se en [uppsättning moduler som är tillgängliga](module-reference.md) för Azure Machine Learning. 
+Se uppsättningen [moduler som är tillgängliga](module-reference.md) för Azure Machine Learning. 
 

@@ -1,7 +1,7 @@
 ---
 title: Utvecklingsverktyg
 titleSuffix: Azure Data Science Virtual Machine
-description: Lär dig mer om de verktyg och integrerade utvecklings miljöer som är tillgängliga på Data Science Virtual Machine.
+description: Lär dig mer om de verktyg och integrerade utvecklingsmiljöer som finns på Virtual Machine för datavetenskap.
 keywords: data science tools, data science virtual machine, tools for data science, linux data science
 services: machine-learning
 ms.service: machine-learning
@@ -10,78 +10,78 @@ author: lobrien
 ms.author: laobri
 ms.topic: conceptual
 ms.date: 12/12/2019
-ms.openlocfilehash: bc1f40760c1602d81da042bf6909e44a540d35de
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: c48cf6a7a82e90d3c9d8dc4c35e37dfb944af99f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79283763"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80282689"
 ---
-# <a name="development-tools-on-the-azure-data-science-virtual-machine"></a>Utvecklingsverktyg på Azure-Data Science Virtual Machine
+# <a name="development-tools-on-the-azure-data-science-virtual-machine"></a>Utvecklingsverktyg på Virtual Machine för Azure Data Science
 
-Data Science Virtual Machine (DSVM) paketerar flera populära verktyg i ett mycket produktivt Integrated Development Environment (IDE). Här är några verktyg som finns på DSVM.
+Data Science Virtual Machine (DSVM) innehåller flera populära verktyg i en mycket produktiv integrerad utvecklingsmiljö (IDE). Här är några verktyg som finns på DSVM.
 
 ## <a name="visual-studio-community-edition"></a>Visual Studio Community Edition
 
 |    |           |
 | ------------- | ------------- |
-| Vad är det?   | Generell användning IDE      |
-| DSVM-versioner som stöds      | Windows: Visual Studio 2017, Windows 2019 (för hands version): Visual Studio 2019      |
-| Vanliga användningsområden      | Program varu utveckling    |
-| Hur konfigureras den och installeras på DSVM?      | Arbets belastningen data vetenskap (python och R-verktyg), Azure-arbetsbelastningar (Hadoop, Data Lake), Node. js, SQL Server verktyg [Azure Machine Learning för Visual Studio Code](https://github.com/Microsoft/vs-tools-for-ai)    |
-| Använda och köra den      | Skriv bords gen väg (`C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\devenv.exe`). Du kan grafiskt öppna Visual Studio med hjälp av Skriv bords ikonen eller **Start** -menyn. Sök efter program (Windows-tangenten + S) följt av **Visual Studio**. Därifrån kan du skapa projekt på språk som C#, python, R och Node. js.   |
-| Relaterade verktyg på DSVM      |     Visual Studio Code, RStudio, Juno  |
+| Vad är detta?   | Allmänt ändamål IDE      |
+| DSVM-versioner som stöds      | Windows: Visual Studio 2017, Windows 2019 : Visual Studio 2019      |
+| Typiska användningsområden      | Utveckling av programvara    |
+| Hur är det konfigurerat och installerat på DSVM?      | Data Science Workload (Python och R-verktyg), Azure-arbetsbelastning (Hadoop, DataSjö), Node.js, SQL Server-verktyg, [Azure Machine Learning för Visual Studio-kod](https://github.com/Microsoft/vs-tools-for-ai)    |
+| Så här använder och kör du den      | Genväg på`C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\devenv.exe`skrivbordet ( ). Öppna Visual Studio grafiskt med hjälp av skrivbordsikonen eller **Start-menyn.** Sök efter program (Windows-tangenten+S), följt av **Visual Studio**. Därifrån kan du skapa projekt på språk som C#, Python, R och Node.js.   |
+| Relaterade verktyg på DSVM      |     Visual Studio-kod, RStudio, Juno  |
 
 > [!NOTE]
-> Du kan få ett meddelande om att utvärderingsperioden har upphört att gälla. Ange autentiseringsuppgifterna för ditt Microsoft-konto. Eller skapa ett nytt kostnadsfritt konto för att få åtkomst till Visual Studio Community.
+> Du kan få ett meddelande om att utvärderingsperioden har gått ut. Ange dina Microsoft-kontouppgifter. Eller skapa ett nytt kostnadsfritt konto för att få tillgång till Visual Studio Community.
 
-## <a name="visual-studio-code"></a>Visual Studio Code 
+## <a name="visual-studio-code"></a>Visual Studio-koden 
 
 |    |           |
 | ------------- | ------------- |
-| Vad är det?   | Generell användning IDE      |
+| Vad är detta?   | Allmänt ändamål IDE      |
 | DSVM-versioner som stöds      | Windows, Linux     |
-| Vanliga användningsområden      | Kodredigeraren och Git-integrering   |
-| Använda och köra den      | Skriv bords gen väg (`C:\Program Files (x86)\Microsoft VS Code\Code.exe`) i Windows, skriv bords gen väg eller Terminal (`code`) i Linux    |
+| Typiska användningsområden      | Kodredigerare och Git-integrering   |
+| Så här använder och kör du den      | Genväg på`C:\Program Files (x86)\Microsoft VS Code\Code.exe`skrivbordet ( ) i`code`Windows, genväg på skrivbordet eller terminal ( ) i Linux    |
 | Relaterade verktyg på DSVM      |     Visual Studio, RStudio, Juno  |
 
 ## <a name="rstudio-desktop"></a>RStudio Desktop
 
 |    |           |
 | ------------- | ------------- |
-| Vad är det?   | Client IDE för R-språk   |
+| Vad är detta?   | Klient-IDE för R-språk   |
 | DSVM-versioner som stöds      | Windows, Linux      |
-| Vanliga användningsområden      |  R-utveckling     |
-| Använda och köra den      | Skriv bords gen väg (`C:\Program Files\RStudio\bin\rstudio.exe`) på Windows, skriv bords gen väg (`/usr/bin/rstudio`) på Linux      |
-| Relaterade verktyg på DSVM      |   Visual Studio, Visual Studio Code, Juno      |
+| Typiska användningsområden      |  R utveckling     |
+| Så här använder och kör du den      | Genväg till`C:\Program Files\RStudio\bin\rstudio.exe`skrivbordet ( )`/usr/bin/rstudio`på Windows, genväg på skrivbordet ( ) på Linux      |
+| Relaterade verktyg på DSVM      |   Visual Studio, Visual Studio-kod, Juno      |
 
-## <a name="rstudio-server"></a>RStudio-Server
+## <a name="rstudio-server"></a>RStudio Server
 
 |    |           |
 | ------------- | ------------- |
-| Vad är det?   | Client IDE för R-språk   |
-| Vad är det?   | Webbaserad IDE för R    |
+| Vad är detta?   | Klient-IDE för R-språk   |
+| Vad är detta?   | Webbaserad IDE för R    |
 | DSVM-versioner som stöds      | Linux      |
-| Vanliga användningsområden      |  R-utveckling     |
-| Använda och köra den      | Aktivera tjänsten med _systemctl aktivera RStudio-Server_och starta sedan tjänsten med _systemctl start RStudio-Server_. Logga sedan in på RStudio-servern på http:\//Your-VM-IP: 8787.       |
-| Relaterade verktyg på DSVM      |   Visual Studio, Visual Studio Code, RStudio Desktop      |
+| Typiska användningsområden      |  R utveckling     |
+| Så här använder och kör du den      | Aktivera tjänsten med _systemctl aktivera rstudio-server_och starta sedan tjänsten med _systemctl start rstudio-server_. Logga sedan in på RStudio\/Server på http: /your-vm-ip:8787.       |
+| Relaterade verktyg på DSVM      |   Visual Studio, Visual Studio-kod, RStudio-skrivbord      |
 
 ## <a name="juno"></a>Juno 
 
 |    |           |
 | ------------- | ------------- |
-| Vad är det?   | Klienten IDE för Julia-språket   |
+| Vad är detta?   | Klient-IDE för Julia   |
 | DSVM-versioner som stöds      | Windows, Linux      |
-| Vanliga användningsområden      |  Julia-utveckling     |
-| Använda och köra den      | Skriv bords gen väg (`C:\JuliaPro-0.5.1.1\Juno.bat`) på Windows, skriv bords gen väg (`/opt/JuliaPro-VERSION/Juno`) på Linux      |
-| Relaterade verktyg på DSVM      |   Visual Studio, Visual Studio Code, RStudio      |
+| Typiska användningsområden      |  Julia utveckling     |
+| Så här använder och kör du den      | Genväg till`C:\JuliaPro-0.5.1.1\Juno.bat`skrivbordet ( )`/opt/JuliaPro-VERSION/Juno`på Windows, genväg på skrivbordet ( ) på Linux      |
+| Relaterade verktyg på DSVM      |   Visual Studio, Visual Studio-kod, RStudio      |
 
-## <a name="pycharm"></a>Pycharm
+## <a name="pycharm"></a>Pycharm (pycharm)
 
 |    |           |
 | ------------- | ------------- |
-| Vad är det?   | Klienten IDE för Python-språk    |
-| DSVM-versioner som stöds      | Windows 2019 (för hands version), Linux      |
-| Vanliga användningsområden      |  Python-utveckling     |
-| Använda och köra den      | Skriv bords gen väg (`C:\Program Files\tk`) i Windows. Skriv bords gen väg (`/usr/bin/pycharm`) på Linux      |
-| Relaterade verktyg på DSVM      |   Visual Studio, Visual Studio Code, RStudio      |
+| Vad är detta?   | Klient-IDE för Python-språk    |
+| DSVM-versioner som stöds      | Windows 2019, Linux      |
+| Typiska användningsområden      |  Python utveckling     |
+| Så här använder och kör du den      | Genväg till`C:\Program Files\tk`skrivbordet ( ) i Windows. Genväg till`/usr/bin/pycharm`skrivbordet ( ) på Linux      |
+| Relaterade verktyg på DSVM      |   Visual Studio, Visual Studio-kod, RStudio      |

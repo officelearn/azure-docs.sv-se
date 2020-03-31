@@ -1,86 +1,85 @@
 ---
-title: Regions koder för medförsäljning | Azure Marketplace
-description: Använd dessa delstat-/provins koder när du tillhandahåller kontakt information på ditt erbjudandes samarbets sida.
-author: MaggiePucciEvans
-manager: evansma
-ms.author: evansma
+title: Medsälja statliga koder | Azure Marketplace
+description: Använd dessa tillstånds-/provinskoder när du tillhandahåller kontaktinformation på erbjudandets sida för samförsäljning.
+author: dsindona
+ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 08/27/2019
-ms.openlocfilehash: c64fc161108560e893ef7b207782d79b6c3c01d4
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: f87014a599afd6d1c56d175b92d4da1ea49d9470
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75934369"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80277047"
 ---
-# <a name="co-sell-state-codes"></a>Status koder för samförsäljning
+# <a name="co-sell-state-codes"></a>Sälj tillståndskoder för försäljning
 
-Om det är tillämpligt använder du dessa koder för att ange information om delstat/provins när [du tillhandahåller kontakt information på ditt erbjudandes samarbets sida](commercial-marketplace-co-sell.md#contacts).
+Om tillämpligt, använd dessa koder för att ge information om stat/provins när [du tillhandahåller kontaktinformation på erbjudandets sida för samförsäljning.](commercial-marketplace-co-sell.md#contacts)
 
-## <a name="stateprovince-table"></a>Stat/provins tabell
+## <a name="stateprovince-table"></a>Tabell över delstat/provins
 
-|   Namn på region               |   Programmera    |
+|   Namn på stat/provins               |   Kod    |
 |-------------------------------------|-----------|
 | Alabama                             | USA-AL     |
-| Alaska                              | US-AK     |
-| Arizona                             | US-AZ     |
-| Arkansas                            | USA – AR     |
-| Kalifornien                          | US-CA     |
-| Colorado                            | US-CO     |
-| Connecticut                         | US-CT     |
+| Alaska                              | USA-AK     |
+| Arizona                             | USA-AZ     |
+| Arkansas                            | USA-AR     |
+| California                          | USA-CA     |
+| Colorado                            | USA-CO     |
+| Connecticut                         | USA-CT     |
 | Delaware                            | USA-DE     |
-| Florida                             | USA – FL     |
-| Georgien                             | USA – GA     |
-| Hawaii                              | USA – HÖG     |
-| Idaho                               | US-ID     |
-| Illinois                            | USA – IL     |
-| Indiana                             | USA – IN     |
-| Iowa                                | US-IA     |
-| Kansas                              | US-KS     |
-| Kentucky                            | US-KY     |
-| Louisiana                           | US-LA     |
-| Maine                               | OSS – MIG     |
-| Maryland                            | US-MD     |
-| Massachusetts                       | USA – MA     |
-| Michigan                            | US-MI     |
-| Minnesota                           | US-MN     |
-| Mississippi                         | USA – MS     |
-| Missouri                            | US-MO     |
-| Montana                             | US-MT     |
-| Nebraska                            | US-NE     |
-| Nevada                              | US-NV     |
-| New Hampshire                       | US-NH     |
-| New Jersey                          | US-NJ     |
-| New Mexico                          | USA – NM     |
-| New York                            | USA – NY     |
-| North Carolina                      | USA – NC     |
-| North Dakota                        | US-ND     |
-| Ohio                                | OSS-OH     |
-| Oklahoma                            | US – OK     |
-| Oregon                              | USA ELLER     |
-| Pennsylvania                        | USA – PA     |
-| Rhode Island                        | USA – RI     |
+| Florida                             | USA-FL     |
+| Georgien                             | USA-GA     |
+| Hawaii                              | USA-HEJ     |
+| Idaho                               | USA-ID     |
+| Illinois                            | USA-IL     |
+| Indiana                             | USA-IN     |
+| Iowa                                | USA-IA     |
+| Kansas                              | USA-KS     |
+| Kentucky                            | USA-KY     |
+| Louisiana                           | USA-LA     |
+| Maine                               | USA-ME     |
+| Maryland                            | USA-VD     |
+| Massachusetts                       | USA-MA     |
+| Michigan                            | USA-MI     |
+| Minnesota                           | USA-MN     |
+| Mississippi                         | USA-MEDLEMSSTAT     |
+| Missouri                            | USA-MO     |
+| Montana                             | USA-MT     |
+| Nebraska                            | USA-NE     |
+| Nevada                              | USA-NV     |
+| New Hampshire                       | USA-NH     |
+| New Jersey                          | USA-NJ     |
+| New Mexico                          | USA-NM     |
+| New York                            | USA-NY     |
+| North Carolina                      | USA-NC     |
+| North Dakota                        | USA-ND     |
+| Ohio                                | USA-OH     |
+| Oklahoma                            | USA-OK     |
+| Oregon                              | USA-ELLER     |
+| Pennsylvania                        | USA-PA     |
+| Rhode Island                        | USA-RI     |
 | South Carolina                      | US-SC     |
-| South Dakota                        | USA – SD     |
-| Tennessee                           | USA – TN     |
-| Texas                               | US-TX     |
-| Utah                                | US-UT     |
-| Vermont                             | US – VT     |
+| South Dakota                        | USA-SD     |
+| Tennessee                           | USA-TN     |
+| Texas                               | USA-TX     |
+| Utah                                | USA-UT     |
+| Vermont                             | USA-VT     |
 | Virginia                            | USA-VA     |
-| Washington                          | USA – WA     |
+| Washington                          | USA-WA     |
 | West Virginia                       | US-WV     |
-| Wisconsin                           | USA – WI     |
-| Wyoming                             | US-WY     |
-| District of Columbia                | USA – DC     |
-| Amerikanska Samoa                      | USA – SOM     |
-| Guam                                | US-GU     |
-| Nordmarianerna            | USA – MP     |
-| Puerto Rico                         | US-PR     |
-| Förenta staternas mindre öar | USA – UM    |
-|Jungfruöarna, USA                 | USA – VI     |
+| Wisconsin                           | USA-WI     |
+| Wyoming                             | USA-WY     |
+| District of Columbia                | USA-DC     |
+| Amerikanska Samoa                      | USA-AS     |
+| Guam                                | USA-GU     |
+| Nordmarianerna            | USA-MP     |
+| Puerto Rico                         | USA-PR     |
+| Usa mindre outlying öar | USA-UM    |
+|Jungfruöarna, USA                 | USA-VI     |
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Lär dig mer om [alternativet Co-Sälj i Partner Center](./commercial-marketplace-co-sell.md).
+- Läs mer om [samförsäljningsalternativet i Partner Center](./commercial-marketplace-co-sell.md).

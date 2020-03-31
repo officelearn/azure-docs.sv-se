@@ -1,81 +1,84 @@
 ---
-title: Anslut privat till en webbapp med hjälp av privat Azure-slutpunkt
-description: Anslut privat till en webbapp med hjälp av privat Azure-slutpunkt
+title: Ansluta privat till en webbapp med Azure Private Endpoint
+description: Ansluta privat till en webbapp med Azure Private Endpoint
 author: ericgre
 ms.assetid: 2dceac28-1ba6-4904-a15d-9e91d5ee162c
 ms.topic: article
-ms.date: 03/12/2020
+ms.date: 03/18/2020
 ms.author: ericg
 ms.service: app-service
 ms.workload: web
-ms.openlocfilehash: ad7e04d611129766fe9fb72285fe35ccfbb17626
-ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
+ms.custom: fasttrack-edit
+ms.openlocfilehash: c2717b1f29af39c6fdc4602b11acba131d959f03
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2020
-ms.locfileid: "79136680"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79534396"
 ---
-# <a name="using-private-endpoints-for-azure-web-app-preview"></a>Använda privata slut punkter för Azure Web App (för hands version)
+# <a name="using-private-endpoints-for-azure-web-app-preview"></a>Använda privata slutpunkter för Azure Web App (förhandsversion)
 
-Du kan använda privat slut punkt för din Azure-webbapp för att tillåta klienter som finns i ditt privata nätverk att på ett säkert sätt få åtkomst till appen via privat länk. Den privata slut punkten använder en IP-adress från ditt Azure VNet-adressutrymme. Nätverks trafiken mellan klienten i ditt privata nätverk och webbappen passerar över VNet och en privat länk i Microsoft stamnät nätverket, vilket eliminerar exponering från det offentliga Internet.
+> [!Note]
+> Förhandsversionen är tillgänglig i östra USA och västra USA 2 regioner för alla PremiumV2 Windows och Linux Web Apps och Elastic Premium Functions. 
 
-Med hjälp av privat slut punkt för din webbapp kan du:
+Du kan använda Privat slutpunkt för din Azure Web App för att tillåta klienter som finns i ditt privata nätverk att på ett säkert sätt komma åt appen via Private Link. Den privata slutpunkten använder en IP-adress från ditt Azure VNet-adressutrymme. Nätverkstrafik mellan en klient i ditt privata nätverk och webbappen passerar över det virtuella nätverket och en privat länk i Microsofts stamnätsnätverk, vilket eliminerar exponering från det offentliga Internet.
 
-- Skydda din webbapp genom att konfigurera tjänstens slut punkt, vilket eliminerar offentlig exponering
-- Anslut säkert till en webbapp från lokala nätverk som ansluter till VNet med en VPN-eller ExpressRoute-peering.
+Med hjälp av privat slutpunkt för din webbapp kan du:
 
-Om du bara behöver en säker anslutning mellan ditt VNet och din webbapp är tjänst slut punkten den enklaste lösningen. Om du också behöver komma åt webbappen från en lokal plats via en Azure-Gateway är det en privat, privat slut punkt som är lösningen.  
+- Skydda din webbapp genom att konfigurera tjänstens slutpunkt, vilket eliminerar offentlig exponering.
+- Anslut till Webbapp från lokala nätverk som ansluter till det virtuella nätverket med hjälp av en privat peer-enhet för VPN eller ExpressRoute.
 
-Mer information om [tjänst slut punkt][serviceendpoint]
+Om du bara behöver en säker anslutning mellan ditt virtuella nätverk och din webbapp är en tjänstslutpunkt den enklaste lösningen. Om du också behöver nå webbappen lokalt via en Azure-gateway, ett regionalt peered-nätverk eller ett globalt peered-nätverk, är Private Endpoint lösningen.  
+
+Mer information finns i [Tjänstslutpunkter][serviceendpoint].
 
 ## <a name="conceptual-overview"></a>Konceptuell översikt
 
-En privat slut punkt är ett särskilt nätverks gränssnitt (NIC) för din Azure-webbapp i ditt undernät i din Virtual Network (VNet).
-När du skapar en privat slut punkt för din webbapp ger den en säker anslutning mellan klienter i ditt privata nätverk och din webbapp. Den privata slut punkten tilldelas en IP-adress från det virtuella nätverkets IP-adressintervall.
-Anslutningen mellan den privata slut punkten och webb programmet använder en säker [privat länk][privatelink]. Privat slut punkt används endast för inkommande flöden till din webbapp. Utgående flöden använder inte den här privata slut punkten, men du kan mata in utgående flöden till nätverket i ett annat undernät med [funktionen för VNet-integrering][vnetintegrationfeature].
+En privat slutpunkt är ett särskilt nätverksgränssnitt (NIC) för din Azure Web App i ett undernät i det virtuella nätverket (VNet).
+När du skapar en privat slutpunkt för din webbapp ger den säker anslutning mellan klienter i det privata nätverket och din webbapp. Den privata slutpunkten tilldelas en IP-adress från IP-adressintervallet för ditt virtuella nätverk.
+Anslutningen mellan den privata slutpunkten och webbappen använder en säker [privat länk][privatelink]. Privat slutpunkt används endast för inkommande flöden till din webbapp. Utgående flöden kommer inte att använda den här privata slutpunkten, men du kan injicera utgående flöden i nätverket i ett annat undernät via [VNet-integrationsfunktionen][vnetintegrationfeature].
 
-Under nätet där du ansluter den privata slut punkten kan ha andra resurser, du behöver inte ett dedikerat tomt undernät.
-Du kan distribuera privat slut punkt i en annan region än webbappen. 
+Undernätet där du ansluter den privata slutpunkten kan ha andra resurser i det, du behöver inte ett dedikerat tomt undernät.
+Du kan också distribuera den privata slutpunkten i en annan region än webbappen. 
 
 > [!Note]
->Funktionen för VNet-integrering kan inte använda samma undernät än privat slut punkt, detta är en begränsning för funktionen för VNet-integrering
+>VNet-integrationsfunktionen kan inte använda samma undernät som private endpoint, detta är en begränsning av VNet-integrationsfunktionen.
 
-Från säkerhets perspektivet:
+Ur ett säkerhetsperspektiv:
 
-- När du aktiverar tjänstens slut punkt för din webbapp inaktiverar du all offentlig åtkomst
-- Du kan aktivera flera privata slut punkter i andra virtuella nätverk och undernät, inklusive virtuella nätverk i andra regioner
-- IP-adressen för det privata slut punkts NÄTVERKSKORTet måste vara dynamisk, men den är densamma tills du tar bort den privata slut punkten
-- NÄTVERKSKORTet för den privata slut punkten kan inte ha en associerad NSG
-- Under nätet som är värd för den privata slut punkten kan ha en NSG associerad, men du måste inaktivera principerna för nätverks principer för den privata slut punkten i [den här artikeln][disablesecuritype]. Därför går det inte att filtrera efter NSG åtkomst till din privata slut punkt
-- När du aktiverar privat slut punkt till din webbapp utvärderas inte konfigurationen av [åtkomst begränsningar][accessrestrictions] för webbappen.
-- Du kan minska risken för data exfiltrering från VNet genom att ta bort alla NSG-regler där målet är tagga Internet eller Azure-tjänster. Men om du lägger till en webb App Service-slutpunkt i ditt undernät, kan du komma åt alla webbappar som finns i samma stämpel och exponeras för Internet.
+- När du aktiverar privata slutpunkter i din webbapp inaktiverar du all offentlig åtkomst.
+- Du kan aktivera flera privata slutpunkter i andra virtuella nätverk och undernät, inklusive virtuella nätverk i andra regioner.
+- IP-adressen för det privata slutpunktskortet måste vara dynamisk, men förblir densamma tills du tar bort den privata slutpunkten.
+- Nätverkskortet för den privata slutpunkten kan inte ha en NSG associerad.
+- Undernätet som är värd för den privata slutpunkten kan ha en NSG associerad, men du måste inaktivera efterlevnaden av nätverksprinciper för den privata slutpunkten: se [Inaktivera nätverksprinciper för privata slutpunkter][disablesecuritype]. Därför kan du inte filtrera av någon NSG åtkomst till din privata slutpunkt.
+- När du aktiverar privat slutpunkt i din webbapp utvärderas inte konfigurationen av [åtkomstbegränsningar][accessrestrictions] för webbappen.
+- Du kan minska risken för dataexfiltration från det virtuella nätverket genom att ta bort alla NSG-regler där målet är taggen Internet eller Azure-tjänster. Men om du lägger till en privat slutpunkt för webbappar i undernätet kan du nå alla webbprogram som finns i samma distributionsstämpel och som exponeras för Internet.
 
-Privat slut punkt för Web App är tillgänglig för nivå PremiumV2 och isolerad med en extern ASE.
+I webb-HTTP-loggarna för din webbapp hittar du klientkällans IP. Detta implementeras med hjälp av TCP Proxy-protokollet och vidarebefordrar klient-IP-egenskapen upp till Web App. Mer information finns i [Hämta anslutningsinformation med TCP Proxy v2][tcpproxy].
 
-I webb-http-loggfilerna för din webbapp hittar du klientens käll-IP. Vi implementerade TCP-proxy-protokollet, som vidarebefordrar till webbappens klientens IP-egenskap. Mer information finns i [den här artikeln][tcpproxy].
 
-![Global översikt][1]
-
+  > [!div class="mx-imgBorder"]
+  > ![Översikt över privat slutpunkt i Web App](media/private-endpoint/global-schema-web-app.png)
 
 ## <a name="dns"></a>DNS
 
-Eftersom den här funktionen är i för hands version ändrar vi inte DNS-posten under för hands versionen. Du måste hantera DNS-posten i din privata DNS-server eller Azure DNS privat zon. Om du behöver använda ett anpassat DNS-namn måste du lägga till det anpassade namnet i din webbapp. Under för hands versionen måste det anpassade namnet verifieras som valfritt anpassat namn med hjälp av offentlig DNS-matchning. [Teknisk referens för anpassad DNS-validering][dnsvalidation]
+Eftersom den här funktionen är i förhandsversion ändrar vi inte DNS-posten under förhandsgranskningen. Du måste själv hantera DNS-posten i din privata DNS-server eller Azure DNS-zon.
+Om du behöver använda ett anpassat DNS-namn måste du lägga till det anpassade namnet i webappen. Under förhandsgranskningen måste det anpassade namnet valideras som vilket eget namn som helst med hjälp av offentlig DNS-matchning. Mer information finns i [anpassad DNS-validering.][dnsvalidation]
 
-## <a name="pricing"></a>Priser
+## <a name="pricing"></a>Prissättning
 
-Pris information finns i [priser för privata Azure-länkar][pricing].
+Information om priser finns i [Azure Private Link-priser][pricing].
 
 ## <a name="limitations"></a>Begränsningar
 
-Vi förbättrar den privata länk funktionen och den privata slut punkten regelbundet. Läs [den här artikeln][pllimitations] för uppdaterad information om begränsningar.
+Vi förbättrar funktionen Privat länk och privat slutpunkt regelbundet, kontrollera [den här artikeln][pllimitations] för aktuell information om begränsningar.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Så här distribuerar du en privat slut punkt för din webbapp via portalen se [så här ansluter du privat till en webbapp][howtoguide]
+Information om hur du distribuerar privat slutpunkt för din webbapp via portalen finns i [Så här ansluter du privat till en webbapp][howtoguide]
 
 
-<!--Image references-->
-[1]: ./media/private-endpoint/schemaglobaloverview.png
+
 
 <!--Links-->
 [serviceendpoint]: https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview

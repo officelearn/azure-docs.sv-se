@@ -1,5 +1,5 @@
 ---
-title: CLI-skript – ändra server parametrar – Azure Database for MySQL
+title: CLI-skript - Ändra serverparametrar - Azure Database för MySQL
 description: Det här CLI-skriptexemplet visar en lista med alla tillgängliga serverkonfigurationer och uppdaterar värdet för innodb_lock_wait_timeout.
 author: ajlam
 ms.author: andrela
@@ -9,10 +9,10 @@ ms.topic: sample
 ms.custom: mvc
 ms.date: 12/02/2019
 ms.openlocfilehash: c8781ec34cb54afc4040d858722b28e10d68bccd
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74765804"
 ---
 # <a name="list-and-update-configurations-of-an-azure-database-for-mysql-server-using-azure-cli"></a>Visa och uppdatera konfigurationer av en Azure Database for MySQL-server med Azure CLI
@@ -33,7 +33,7 @@ När skriptet har körts kan följande kommando användas för att ta bort resur
 ## <a name="script-explanation"></a>Förklaring av skript
 Det här skriptet använder de kommandon som beskrivs i följande tabell:
 
-| **Kommando** | **Anteckningar** |
+| **Kommandot** | **Obs!** |
 |---|---|
 | [az group create](/cli/azure/group#az-group-create) | Skapar en resursgrupp där alla resurser lagras. |
 | [az mysql server create](/cli/azure/mysql/server#az-mysql-server-create) | Skapar en MySQL-server som är värd för databaserna. |

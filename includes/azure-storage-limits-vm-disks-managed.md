@@ -8,25 +8,25 @@ ms.topic: include
 ms.date: 12/12/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: f7c73d7d07bdfaa4fbbd7eeca4f00895c5add354
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: 2766ea87544f2a21fb654f687eb62dee3c0714ab
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76548240"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80334802"
 ---
-**Standard HDD Managed disks**  
+**Vanliga hårddiskar med hårddiskar**  
 [!INCLUDE [disk-storage-standard-hdd-sizes](disk-storage-standard-hdd-sizes.md)]
 
-**Standard SSD Managed disks**  
+**Standardiserade SSD-hanterade diskar**  
 [!INCLUDE [disk-storage-standard-ssd-sizes](disk-storage-standard-ssd-sizes.md)]
 
-**Premium SSD Managed disks: begränsningar per disk**  
+**Premium SSD-hanterade diskar: Gränser per disk**  
 [!INCLUDE [disk-storage-premium-ssd-sizes](disk-storage-premium-ssd-sizes.md)]
 
-**Premium SSD Managed disks: gränser per virtuell dator**
+**Premium SSD-hanterade diskar: Gränser per virtuell dator**
 
-| Resurs | Standardgräns |
+| Resurs | Gräns |
 | --- | --- |
-| Maximalt antal IOPS per virtuell dator |80 000 IOPS med GS5 VM |
-| Maximalt data flöde per virtuell dator |2 000 MB/s med GS5 VM |
+| Maximalt IOPS per virtuell dator |80 000 IOPS med GS5 VM |
+| Maximalt dataflöde per virtuell dator |2 000 MB/s med GS5 VM |

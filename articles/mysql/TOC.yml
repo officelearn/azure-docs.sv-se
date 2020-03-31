@@ -97,6 +97,8 @@
           href: concepts-data-encryption-mysql.md
         - name: Azure AD-autentisering
           href: concepts-azure-ad-authentication.md
+        - name: Säkerhetsbaslinje
+          href: security-baseline.md
     - name: Verksamhetskontinuitet
       items:
         - name: Introduktion till affärskontinuitet
@@ -176,6 +178,8 @@
           href: howto-configure-ssl.md
         - name: Webbappar
           href: howto-connect-webapp.md
+        - name: Ansluta med omdirigering
+          href: howto-redirection.md
     - name: Konfigurera serverparametrar
       items:
         - name: Azure Portal
@@ -246,6 +250,10 @@
       items:
         - name: Konfigurera Azure AD-integrering
           href: howto-configure-sign-in-azure-ad-authentication.md
+    - name: Neka åtkomst till offentligt nätverk
+      items:
+        - name: Azure Portal
+          href: howto-deny-public-network-access.md
     - name: Starta om servern
       items:
         - name: Azure Portal

@@ -1,6 +1,6 @@
 ---
-title: Ändra livstid för token-standardvärden för anpassade Azure AD-appar | Microsoft Docs
-description: Så här uppdaterar du livs längd principer för ditt program som du utvecklar på Azure AD
+title: Ändra standardvärden för tokenlivstid för anpassade Azure AD-appar | Microsoft-dokument
+description: Så här uppdaterar du principer för tokenlivstid för ditt program som du utvecklar på Azure AD
 services: active-directory
 documentationcenter: ''
 author: rwike77
@@ -16,22 +16,22 @@ ms.date: 04/08/2019
 ms.author: ryanwi
 ms.custom: aaddev, seoapril2019
 ms.openlocfilehash: 431f18b9babb52b5000d3bf4cca75a0f5e29bb93
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76702818"
 ---
-# <a name="how-to-change-the-token-lifetime-defaults-for-a-custom-developed-application"></a>Ändra standardvärdena för token för token för ett anpassat, utvecklat program
+# <a name="how-to-change-the-token-lifetime-defaults-for-a-custom-developed-application"></a>Så här ändrar du standardvärden för tokenlivstid för ett specialutvecklat program
 
-Den här artikeln visar hur du använder Azure AD PowerShell för att ange en livs längd princip för token. Azure AD Premium tillåter utvecklare av appar och klient administratörer att konfigurera livs längden för token som utfärdas för icke-konfidentiella klienter. Livs längds principer för token anges per klient eller de resurser som nås.
+Den här artikeln visar hur du använder Azure AD PowerShell för att ange en princip för tokenlivslängd. Azure AD Premium gör det möjligt för apputvecklare och klientadministratörer att konfigurera livslängden för token som utfärdats för icke-konfidentiella klienter. Principer för tokenlivstid anges på klientomfattande basis eller de resurser som används.
 
-1. Om du vill ange en livstids princip för token måste du ladda ned [Azure AD PowerShell-modulen](https://www.powershellgallery.com/packages/AzureADPreview).
-1. Kör kommandot **Connect-AzureAD-Confirm** .
+1. Om du vill ange en princip för tokenlivstid måste du hämta [Azure AD PowerShell-modulen](https://www.powershellgallery.com/packages/AzureADPreview).
+1. Kör kommandot **Connect-AzureAD -Confirm.**
 
-    Här är en exempel princip som anger den högsta ålders uppdaterings-token. Skapa principen: ```New-AzureADPolicy -Definition @('{"TokenLifetimePolicy":{"Version":1, "MaxAgeSingleFactor":"until-revoked"}}') -DisplayName "OrganizationDefaultPolicyScenario" -IsOrganizationDefault $true -Type "TokenLifetimePolicy"```
+    Här är en exempelprincip som anger uppdateringstoken för en enda faktor med högsta ålder. Skapa principen:```New-AzureADPolicy -Definition @('{"TokenLifetimePolicy":{"Version":1, "MaxAgeSingleFactor":"until-revoked"}}') -DisplayName "OrganizationDefaultPolicyScenario" -IsOrganizationDefault $true -Type "TokenLifetimePolicy"```
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Lär dig hur du konfigurerar livs längder för token som utfärdats av Azure AD, inklusive hur du ställer in livs längd för token för alla appar i din organisation, för en app med flera klienter, eller för ett särskilt tjänst huvud namn i din organisation, i [Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-configurable-token-lifetimes) . 
+* Se [Konfigurerbara tokenlivstider i Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-configurable-token-lifetimes) om du vill lära dig hur du konfigurerar tokenlivslängder som utfärdats av Azure AD, inklusive hur du anger tokenlivstid för alla appar i organisationen, för en app med flera innehavare eller för ett specifikt tjänsthuvudnamn i organisationen. 
 * [Referens för Azure AD-token](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims)

@@ -1,51 +1,51 @@
 ---
-title: Ansluta till en tjänst för webb funktions tjänsten (WFS) | Microsoft Azure Maps
-description: Lär dig hur du ansluter till en WFS-tjänst och frågar WFS-tjänsten med hjälp av Azure Maps Web SDK och den spatiala IO-modulen.
-author: farah-alyasari
-ms.author: v-faalya
+title: Ansluta till en WFS-tjänst (Web Feature Service) | Microsoft Azure Maps
+description: Lär dig hur du ansluter till en WFS-tjänst och frågar sedan WFS-tjänsten med Azure Maps web SDK och spatial IO-modulen.
+author: philmea
+ms.author: philmea
 ms.date: 03/03/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 18ac583837c7cb8b2dabbfa6f7d7210c8afe3fcb
-ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
+ms.openlocfilehash: 8b511395eb61e8845aaa11e5ca7a490dc461424d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78402766"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80334209"
 ---
 # <a name="connect-to-a-wfs-service"></a>Ansluta till en WFS-tjänst
 
-En webb funktions tjänst (WFS) är en webb tjänst för att fråga spatialdata som har ett standardiserat API, som har definierats av Open Geospatial Consortium (OGC). `WfsClient`-klassen i den spatiala IO-modulen gör det möjligt för utvecklare att ansluta till en WFS-tjänst och fråga efter data från tjänsten.
+WFS (Web Feature Service) är en webbtjänst för att fråga rumsliga data som har ett standardiserat API som definieras av OGC (Open Geospatial Consortium). Klassen `WfsClient` i den rumsliga IO-modulen gör att utvecklare kan ansluta till en WFS-tjänst och fråga data från tjänsten.
 
-Följande funktioner stöds av klassen `WfsClient`:
+Följande funktioner stöds av `WfsClient` klassen:
 
-- Versioner som stöds: `1.0.0`, `1.1.0`och `2.0.0`
-- Filter operatorer som stöds: binära jämförelser, logik, matematik, värde och `bbox`.
-- Begär Anden görs endast med `HTTP GET`.
+- Versioner som `1.0.0` `1.1.0`stöds: , och`2.0.0`
+- Filteroperatorer som stöds: binära jämförelser, logik, matematik, värde och `bbox`.
+- Förfrågningar görs `HTTP GET` endast med hjälp av.
 - Åtgärder som stöds:
 
     | | |
     | :-- | :-- |
-    | GetCapabilities | Genererar ett Metadatadokumentet med giltiga WFS-åtgärder och-parametrar |
-    | GetFeature | Returnerar ett urval av funktioner från en data Källa |
-    | DescribeFeatureType | Returnerar de funktions typer som stöds |
+    | GetCapabilities | Genererar ett metadatadokument med giltiga WFS-åtgärder och parametrar |
+    | FåFeature | Returnerar ett urval av funktioner från en datakälla |
+    | BeskrivFeatureType | Returnerar de funktionstyper som stöds |
 
 ## <a name="using-the-wfs-client"></a>Använda WFS-klienten
 
-`atlas.io.ogc.WfsClient`-klassen i den spatiala i/o-modulen gör det enkelt att fråga en WFS-tjänst och konvertera Svaren till netjson-objekt. Detta interjson-objekt kan sedan användas för andra mappnings syfte.
+Klassen `atlas.io.ogc.WfsClient` i den rumsliga IO-modulen gör det enkelt att fråga en WFS-tjänst och konvertera svaren till GeoJSON-objekt. Detta GeoJSON-objekt kan sedan användas för andra mappningsändamål.
 
 Följande kod frågar en WFS-tjänst och återger de returnerade funktionerna på kartan.
 
 <br/>
 
-<iframe height='700' scrolling='no' title='Enkelt WFS-exempel' src='//codepen.io/azuremaps/embed/MWwvVYY/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Se det <a href='https://codepen.io/azuremaps/pen/MWwvVYY/'>enkla WFS-exemplet</a> genom att Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) på <a href='https://codepen.io'>CodePen</a>.
+<iframe height='700' scrolling='no' title='Enkelt WFS-exempel' src='//codepen.io/azuremaps/embed/MWwvVYY/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Se exemplet med <a href='https://codepen.io/azuremaps/pen/MWwvVYY/'>Penn simple WFS</a> från Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) på <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 ## <a name="supported-filters"></a>Filter som stöds
 
-Specifikationen för WFS-standarden använder OGC-filter. Filtren nedan stöds av WFS-klienten, förutsatt att den tjänst som anropas också stöder dessa filter. Anpassade filter strängar kan skickas till `CustomFilter`-klassen.
+Specifikationen för WFS-standarden använder sig av OGC-filter. Filtren nedan stöds av WFS-klienten, förutsatt att tjänsten som anropas också stöder dessa filter. Anpassade filtersträngar kan skickas `CustomFilter` till klassen.
 
 **Logiska operatorer**
 
@@ -53,19 +53,19 @@ Specifikationen för WFS-standarden använder OGC-filter. Filtren nedan stöds a
 - `Or`
 - `Not`
 
-**Värde operatorer**
+**Värdeoperatorer**
 
 - `GmlObjectId`
 - `ResourceId`
 
-**Matematik operatorer**
+**Matematiska operatorer**
 
 - `Add`
 - `Sub`
 - `Mul`
 - `Div`
 
-**Jämförelse operatorer**
+**Jämförelseoperatorer**
 
 - `PropertyIsEqualTo`
 - `PropertyIsNotEqualTo`
@@ -78,48 +78,30 @@ Specifikationen för WFS-standarden använder OGC-filter. Filtren nedan stöds a
 - `PropertyIsNil`
 - `PropertyIsBetween`
 
-Följande kod visar hur du använder olika filter med WFS-klienten.
+Följande kod visar användningen av olika filter med WFS-klienten.
 
 <br/>
 
-<iframe height='500' scrolling='no' title= 'WFS filter exempel' src='//codepen.io/azuremaps/embed/NWqvYrV/?height=500&theme-id=0&default-tab=result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Se <a href='https://codepen.io/azuremaps/pen/NWqvYrV/'>exemplen för WFS filter</a> genom Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) på <a href='https://codepen.io'>CodePen</a>.
+<iframe height='500' scrolling='no' title= 'Exempel på WFS-filter' src='//codepen.io/azuremaps/embed/NWqvYrV/?height=500&theme-id=0&default-tab=result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Se exempel på Pen <a href='https://codepen.io/azuremaps/pen/NWqvYrV/'>WFS-filter</a> från Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) på <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-## <a name="wfs-service-explorer"></a>WFS service Explorer
+## <a name="wfs-service-explorer"></a>WFS-tjänstutforskaren
 
-I följande kod används WFS-klienten för att utforska WFS Services. Välj ett egenskaps typ lager i tjänsten och se den associerade förklaringen.
+Följande kod använder WFS-klienten för att utforska WFS-tjänster. Välj ett egenskapstypslagret i tjänsten och se den associerade förklaringen.
 
 <br/>
 
-<iframe height='700' style='width: 100%;' scrolling='no' title= 'WFS service Explorer' src='//codepen.io/azuremaps/embed/bGdrvmG/?height=700&theme-id=0&default-tab=result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Se <a href='https://codepen.io/azuremaps/pen/bGdrvmG/'>service Explorer</a> för pen-WFS (@azuremaps) genom att Azure Maps (<a href='https://codepen.io/azuremaps'> </a>) på <a href='https://codepen.io'>CodePen</a>.
+<iframe height='700' style='width: 100%;' scrolling='no' title= 'WFS-tjänstutforskaren' src='//codepen.io/azuremaps/embed/bGdrvmG/?height=700&theme-id=0&default-tab=result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Se Pen <a href='https://codepen.io/azuremaps/pen/bGdrvmG/'>WFS-tjänstutforskaren</a> av Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) på <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-Du kan också använda en proxyserver för att läsa in resurser som finns i domäner som inte är CORs-aktiverade. Du måste först definiera en variabel som ska innehålla proxy-tjänstens URL och ange alternativet `proxyService` för WFS-klienten. Om du vill rendera ett alternativ för proxy-tjänsten för användaren lägger du till en användarindata i användar gränssnittet. Läs in tjänstens URL när du klickar på den. Följande kodfragment visar hur du använder proxy-tjänsten.
+För att komma åt WFS-tjänster som finns på icke-CORS-aktiverade slutpunkter `proxyService` kan en CORS-aktiverad proxytjänst skickas till alternativet för WFS-klienten enligt nedan. 
 
 ```JavaScript
-
-//A variable to hold the URL of the proxy service
-var proxyServiceUrl = window.location.origin + 'CorsEnabledProxyService.ashx?url=';
-
 //Create the WFS client to access the service and use the proxy service settings
 client = new atlas.io.ogc.WfsClient({
     url: url,
-    proxyService: (document.getElementById('useProxyService').checked) ? proxyServiceUrl : null
+    proxyService: window.location.origin + '/YourCorsEnabledProxyService.ashx?url='
 });
-
-function proxyOptionChanged() {
-    if (currentServiceUrl) {
-        loadClient(currentServiceUrl);
-    }
-}
-
-```
-
-HTML-kodfragmentet nedan motsvarar JavaScript-koden ovan:
-
-```html
-<!-- use the proxy service -->
-<input id="useProxyService" type="checkbox" onclick="proxyOptionChanged()"/>
 ```
 
 ## <a name="next-steps"></a>Nästa steg
@@ -127,15 +109,15 @@ HTML-kodfragmentet nedan motsvarar JavaScript-koden ovan:
 Läs mer om de klasser och metoder som används i den här artikeln:
 
 > [!div class="nextstepaction"]
-> [WfsClient](https://docs.microsoft.com/JavaScript/api/azure-maps-spatial-io/atlas.io.ogc.wfsclient)
+> [WfsClient (WfsClient)](https://docs.microsoft.com/JavaScript/api/azure-maps-spatial-io/atlas.io.ogc.wfsclient)
 
 > [!div class="nextstepaction"]
 > [WfsServiceOptions](https://docs.microsoft.com/JavaScript/api/azure-maps-spatial-io/atlas.wfsserviceoptions)
 
-Se följande artiklar för fler kod exempel som du kan lägga till i dina kartor:
+Se följande artiklar för fler kodexempel att lägga till i dina kartor:
 
 > [!div class="nextstepaction"]
-> [Utnyttja kärn åtgärder](spatial-io-core-operations.md)
+> [Utnyttja kärnverksamheten](spatial-io-core-operations.md)
 
 > [!div class="nextstepaction"]
-> [Information om data format som stöds](spatial-io-supported-data-format-details.md)
+> [Information om dataformat som stöds](spatial-io-supported-data-format-details.md)

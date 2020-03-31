@@ -1,6 +1,6 @@
 ---
-title: 'Självstudie: Konfigurera jives för automatisk användar etablering med Azure Active Directory | Microsoft Docs'
-description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och jives.
+title: 'Självstudiekurs: Konfigurera Jive för automatisk användaretablering med Azure Active Directory | Microsoft-dokument'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Jive.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -16,92 +16,92 @@ ms.date: 01/26/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 602eed65745eea1fd9096508c442a27ea79bcba9
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77057742"
 ---
-# <a name="tutorial-configure-jive-for-automatic-user-provisioning"></a>Självstudie: Konfigurera jives för automatisk användar etablering
+# <a name="tutorial-configure-jive-for-automatic-user-provisioning"></a>Självstudiekurs: Konfigurera Jive för automatisk etablering av användare
 
-Syftet med den här självstudien är att visa de steg du behöver utföra i jives och Azure AD för att automatiskt etablera och avetablera användar konton från Azure AD till jives.
+Syftet med den här självstudien är att visa de steg du behöver för att utföra i Jive och Azure AD för att automatiskt etablera och avetableras användarkonton från Azure AD till Jive.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Det scenario som beskrivs i den här självstudien förutsätter att du redan har följande objekt:
 
-*   En Azure Active Directory-klient.
-*   En jives-aktiverad prenumeration med enkel inloggning.
-*   Ett användar konto i jives med grupp administratörs behörighet.
+*   En Azure Active-katalogklient.
+*   En Jive enkel inloggning aktiverad prenumeration.
+*   Ett användarkonto i Jive med behörigheten Teamadministratör.
 
-## <a name="assigning-users-to-jive"></a>Tilldela användare till jives
+## <a name="assigning-users-to-jive"></a>Tilldela användare till Jive
 
-Azure Active Directory använder ett begrepp som kallas "tilldelningar" för att avgöra vilka användare som ska få åtkomst till valda appar. I kontexten för automatisk användar konto etablering synkroniseras endast de användare och grupper som har tilldelats till ett program i Azure AD.
+Azure Active Directory använder ett koncept som kallas "tilldelningar" för att avgöra vilka användare som ska få åtkomst till valda appar. I samband med automatisk etablering av användarkonto synkroniseras endast användare och grupper som har "tilldelats" till ett program i Azure AD.
 
-Innan du konfigurerar och aktiverar etablerings tjänsten måste du bestämma vilka användare och/eller grupper i Azure AD som representerar de användare som behöver åtkomst till jives-appen. När du har bestämt dig kan du tilldela dessa användare till jives-appen genom att följa anvisningarna här:
+Innan du konfigurerar och aktiverar etableringstjänsten måste du bestämma vilka användare och/eller grupper i Azure AD som representerar de användare som behöver åtkomst till din Jive-app. När du har bestämt dig kan du tilldela dessa användare till din Jive-app genom att följa instruktionerna här:
 
-[Tilldela en användare eller grupp till en företags app](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal)
+[Tilldela en användare eller grupp till en företagsapp](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal)
 
-### <a name="important-tips-for-assigning-users-to-jive"></a>Viktiga tips för att tilldela användare till jives
+### <a name="important-tips-for-assigning-users-to-jive"></a>Viktiga tips för att tilldela användare till Jive
 
-*   Vi rekommenderar att en enda Azure AD-användare tilldelas till jives för att testa etablerings konfigurationen. Ytterligare användare och/eller grupper kan tilldelas senare.
+*   Vi rekommenderar att en enda Azure AD-användare tilldelas Jive för att testa etableringskonfigurationen. Ytterligare användare och/eller grupper kan tilldelas senare.
 
-*   När du tilldelar en användare till jives måste du välja en giltig användar roll. Rollen "standard åtkomst" fungerar inte för etablering.
+*   När du tilldelar en användare till Jive måste du välja en giltig användarroll. Rollen "Standardåtkomst" fungerar inte för etablering.
 
-## <a name="enable-user-provisioning"></a>Aktivera användar etablering
+## <a name="enable-user-provisioning"></a>Aktivera etablering av användare
 
-Det här avsnittet vägleder dig genom att ansluta din Azure AD till jives-API för användar konto och konfigurera etablerings tjänsten för att skapa, uppdatera och inaktivera tilldelade användar konton i jives baserat på användar-och grupp tilldelning i Azure AD.
+Det här avsnittet hjälper dig att ansluta din Azure AD till Jives API för etablering av användarkonton och konfigurera etableringstjänsten för att skapa, uppdatera och inaktivera tilldelade användarkonton i Jive baserat på användar- och grupptilldelning i Azure AD.
 
 > [!TIP]
-> Du kan också välja att aktivera SAML-baserad enkel inloggning för jives enligt anvisningarna i [Azure Portal](https://portal.azure.com). Enkel inloggning kan konfigureras oberoende av automatisk etablering, även om dessa två funktioner är gemensamt.
+> Du kan också välja att aktivera SAML-baserad enkel inloggning för Jive, enligt instruktionerna i [Azure portal](https://portal.azure.com). Enkel inloggning kan konfigureras oberoende av automatisk etablering, även om dessa två funktioner kompletterar varandra.
 
-### <a name="to-configure-user-account-provisioning"></a>Konfigurera användar konto etablering:
+### <a name="to-configure-user-account-provisioning"></a>Så här konfigurerar du etablering av användarkonton:
 
-Syftet med det här avsnittet är att skapa en översikt över hur du aktiverar användar etablering av Active Directory användar konton till jives.
+Syftet med det här avsnittet är att beskriva hur du aktiverar användaretablering av Active Directory-användarkonton till Jive.
 Som en del av den här proceduren måste du ange en säkerhetstoken för användare som du måste begära från Jive.com.
 
-1. I [Azure Portal](https://portal.azure.com)bläddrar du till avsnittet **Azure Active Directory > Enterprise-appar > alla program** .
+1. I [Azure-portalen](https://portal.azure.com)bläddrar du till **avsnittet Azure Active Directory > Enterprise Apps > Alla program.**
 
-1. Om du redan har konfigurerat jives för enkel inloggning söker du efter din instans av jives med hjälp av Sök fältet. Annars väljer du **Lägg till** och söker efter **jives** i program galleriet. Välj jives från Sök resultaten och Lägg till den i listan över program.
+1. Om du redan har konfigurerat Jive för enkel inloggning söker du efter din förekomst av Jive med hjälp av sökfältet. Annars väljer du **Lägg till** och söker efter **Jive** i programgalleriet. Välj Jive från sökresultaten och lägg till det i listan över program.
 
-1. Välj din instans av jives och välj sedan fliken **etablering** .
+1. Välj din förekomst av Jive och välj sedan fliken **Etablering.**
 
-1. Ställ in **etablerings läget** på **automatiskt**. 
+1. Ställ in **etableringsläget** på **Automatiskt**. 
 
-    ![etablerings](./media/jive-provisioning-tutorial/provisioning.png)
+    ![Etableringen](./media/jive-provisioning-tutorial/provisioning.png)
 
-1. Ange följande konfigurations inställningar under avsnittet **admin credentials** :
+1. Ange följande konfigurationsinställningar under avsnittet **Administratörsautentiseringsuppgifter:**
    
-    a. I text rutan **Administratörs användar namn för jives** anger du ett jives-kontonamn som har **system administratörs** profilen i Jive.com tilldelad.
+    a. Skriv ett Jive-kontonamn i textrutan Användarnamn för **Jive Admin** som har **systemadministratörsprofilen** i Jive.com tilldelad.
    
-    b. I text rutan **Administratörs lösen ord för jives** anger du lösen ordet för det här kontot.
+    b. Skriv lösenordet för det här kontot i textrutan Lösenord för **Jive Admin.**
    
-    c. I text rutan för **jives-klientens URL** anger du URL: en för jives-klienten.
+    c. Skriv url:en för Jive Tenant URL i textrutan **Jive Tenant.**
       
       > [!NOTE]
-      > Jives-klientens URL är URL som används av din organisation för att logga in på jives.  
-      > URL: en har vanligt vis följande format: **www.\<organisation\>. Jive.com**.          
+      > Jive-klientadressen är URL som används av din organisation för att logga in på Jive.  
+      > Vanligtvis har webbadressen följande format: **www.\< organisation\>.jive.com**.          
 
-1. I Azure Portal klickar du på **Testa anslutning** för att se till att Azure AD kan ansluta till din jives-app.
+1. Klicka på Testa **anslutning** i Azure-portalen för att säkerställa att Azure AD kan ansluta till din Jive-app.
 
-1. Ange e-postadressen till en person eller grupp som ska få etablerings fel meddelanden i fältet **e-postavisering** och markera kryss rutan nedan.
-
-1. Klicka på **Spara.**
-
-1. Under avsnittet mappningar väljer du **synkronisera Azure Active Directory användare till jives.**
-
-1. I avsnittet **mappningar för attribut** granskar du de användarattribut som synkroniseras från Azure AD till jives. Attributen som väljs som **matchande** egenskaper används för att matcha användar kontona i jives för uppdaterings åtgärder. Välj knappen Spara för att genomföra ändringarna.
-
-1. Om du vill aktivera Azure AD Provisioning-tjänsten för jives ändrar du **etablerings statusen** till **på** i avsnittet Inställningar
+1. Ange e-postadressen till en person eller grupp som ska få etableringsfelmeddelanden i fältet **E-postmeddelande** och markera kryssrutan nedan.
 
 1. Klicka på **Spara.**
 
-Den första synkroniseringen av alla användare och/eller grupper som är kopplade till jives startas i avsnittet användare och grupper. Den första synkroniseringen tar längre tid att genomföra än efterföljande synkroniseringar som sker ungefär var 40 minut så länge som tjänsten körs. Du kan använda avsnittet **synkroniseringsinformation** för att övervaka förloppet och följa länkar till etablering av aktivitets loggar, som beskriver alla åtgärder som utförs av etablerings tjänsten i jives-appen.
+1. Under avsnittet Mappningar väljer du **Synkronisera Azure Active Directory-användare till Jive.**
 
-Mer information om hur du läser etablerings loggarna i Azure AD finns i [rapportering om automatisk etablering av användar konton](../app-provisioning/check-status-user-account-provisioning.md).
+1. I avsnittet **Attributmappningar** granskar du de användarattribut som synkroniseras från Azure AD till Jive. De attribut som valts som **matchande** egenskaper används för att matcha användarkontona i Jive för uppdateringsåtgärder. Välj knappen Spara om du vill utföra eventuella ändringar.
+
+1. Om du vill aktivera Azure AD-etableringstjänsten för Jive ändrar **du etableringsstatusen** till **På** i avsnittet Inställningar
+
+1. Klicka på **Spara.**
+
+Den startar den första synkroniseringen av alla användare och/eller grupper som tilldelats Jive i avsnittet Användare och grupper. Den första synkroniseringen tar längre tid att utföra än efterföljande synkroniseringar, som inträffar ungefär var 40:e minut så länge tjänsten körs. Du kan använda avsnittet **Synkroniseringsinformation** för att övervaka förloppet och följa länkar till etablering av aktivitetsloggar, som beskriver alla åtgärder som utförs av etableringstjänsten i din Jive-app.
+
+Mer information om hur du läser Azure AD-etableringsloggarna finns i [Rapportera om automatisk etablering av användarkonton](../app-provisioning/check-status-user-account-provisioning.md).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Hantera användar konto etablering för företags program](tutorial-list.md)
+* [Hantera etablering av användarkonton för Enterprise Apps](tutorial-list.md)
 * [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 * [Konfigurera enkel inloggning](jive-tutorial.md)

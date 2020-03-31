@@ -1,92 +1,91 @@
 ---
-title: Cloud Partner Portal navigering för Azure Marketplace
-description: Förklaring till navigeringen i Cloud Partner Portal för Azure Marketplace.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: v-miclar
+title: Cloud Partner Portal-navigering för Azure Marketplace
+description: Förklaring av navigeringen i Cloud Partner Portal för Azure Marketplace.
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/09/2018
-ms.author: pabutler
-ms.openlocfilehash: 57ccc7fb738dc23956e56e70c68405cc995a9a99
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 2c1d0eafe96d6e1533bb980ae0e4fd3c43f0e56b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73821477"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80278424"
 ---
-# <a name="cloud-partner-portal-navigation"></a>Cloud Partner Portal navigering
+# <a name="cloud-partner-portal-navigation"></a>Navigering i Molnpartnerportalen
 
-Det finns två funktioner för primär användar gränssnitt (UI) för att navigera runt i [Cloud Partner Portal](https://cloudpartner.azure.com): det översta meny fältet och navigerings fönstret på den vänstra sidan.  Dessa GRÄNSSNITTs element är invariant, tillgängliga oavsett vilken sida på portalen du navigerar till.
+Det finns två primära gränssnittsmekanismer (UI) för navigering i [Cloud Partner Portal:](https://cloudpartner.azure.com)den övre menyraden och navigeringsfönstret på vänster sida.  Dessa gränssnittselement är invarianta, tillgängliga oavsett vilken sida på portalen du navigerar till.
 
 
-## <a name="menu-bar"></a>Menyrad
+## <a name="menu-bar"></a>Menyraden
 
-Meny raden körs högst upp på Portal webbplatsen.  Den har följande fyra aktiva områden:
+Menyraden går överst på portalwebbplatsen.  Den har följande fyra aktiva områden:
 
-![Menyrad](./media/top-menubar1.png)
+![Menyraden](./media/top-menubar1.png)
 
-Om du klickar på dessa områden visas följande åtgärder:
+Om du klickar på dessa områden resulterar följande åtgärder:
 
-1. Rubrik områden – navigerar till portalens start sida.
-2. **Hjälp** -knappen – visar Hjälp-menyn, som innehåller resurser för att hjälpa användaren.
-3. **Feedback** -knapp – visar formuläret **skicka oss feedback** .
-4. **Publisher** -knapp – visar en meny som gör att användaren kan hantera sin profil.
+1. Rubrikområde - navigerar till portalens startsida.
+2. **Hjälpknapp** - visar hjälpmenyn, som ger resurser för att hjälpa användaren.
+3. **Knappen Feedback** - visar **feedbackformuläret Skicka oss.**
+4. **Publisher-knappen** - visar en meny som gör att användaren kan hantera sin profil.
 
-Dessa menyer och formulär beskrivs härnäst.
+Dessa menyer och formulär beskrivs nedan.
 
 ### <a name="help-menu"></a>Hjälp-menyn
 
-**Hjälp** -menyn innehåller resurser som hjälper användaren med Cloud Partner Portal.
+**Hjälp-menyn** innehåller resurser som hjälper användaren med Cloud Partner Portal.
 
-![Översta meny raden](./media/top-menubar2.png)
+![Övre menyrad](./media/top-menubar2.png)
 
-Hjälp-menyn innehåller följande objekt:
+Hjälpmenyn innehåller följande:
 
-- **Dokumentation** – öppnar en ny flik i webbläsaren och navigerar till start sidan för dokumentation för Cloud Partner Portal. 
-- **Forum** – öppnar en ny flik och navigerar till webb sidan för dokumentation för partner samhället för AppSource och Azure Marketplace.
-- **Support** – öppnar en ny flik och navigerar till support sidan för Marketplace-publicering, där du kan skapa en incident rapport.  Vi prioritering och granskar all feedback och vi alltid respekterar din integritet. Vi kontaktar dig bara om du begär eller ber om mer information.
+- **Dokumentation** - Startar en ny flik i webbläsaren och navigerar till dokumentationens startsida för Cloud Partner Portal. 
+- **Forum** – Startar en ny flik och navigerar till dokumentationsstartsidan för partnercommunityn för AppSource- och Azure Marketplaces.
+- **Support** – Startar en ny flik och navigerar till supportsidan för Marketplace Publishing, där du kan skapa en incidentrapport.  Vi triage och granska all feedback, och vi kommer alltid att respektera din integritet. Vi kontaktar dig endast om du begär eller ber om mer information.
 
 
-### <a name="send-us-feedback-form"></a>Skicka feedback från oss
+### <a name="send-us-feedback-form"></a>Skicka feedbackformulär till oss
 
-Formuläret **skicka oss feedback** ger dig en direkt metod för att ge feedback till Marketplace-utgivarens onboarding-team.  Vi kontaktar dig bara för ytterligare information om du har markerat kryss rutan **OK för att kontakta dig om din feedback** .
+Feedbackformuläret **Skicka oss** ger dig en direkt metod för att ge feedback till Marketplace Publisher Onboarding Team.  Vi kontaktar dig bara för ytterligare information om du har kontrollerat **OK för att kontakta dig om din feedback.**
 
-![Feedback-formulär](./media/feedback-form.png)
+![Formulär för feedback](./media/feedback-form.png)
 
 > [!TIP]
-> Om din feedback gäller en speciell sida på Cloud Partner Portal, navigerar du till den sidan innan du klickar på **feedback** -knappen.  Kontrol lera att kryss rutan **Inkludera skärm bild** är markerad innan du skickar in din feedback så att SESSIONens UI-tillstånd kan fångas. 
+> Om din feedback handlar om en viss sida på Cloud Partner Portal, **Feedback** navigera till den sidan innan du klickar på feedback-knappen.  Kontrollera att kryssrutan **Inkludera skärmbild** är markerad innan du skickar feedback så att sessionens gränssnittstillstånd kan fångas. 
 
 
-### <a name="publisher-menu"></a>Publisher-menyn
+### <a name="publisher-menu"></a>Menyn Utgivare
 
-Med den här menyn kan du hantera din profil och session: direkt åtkomst till Publisher-profil sidan, Visa Microsoft Publisher-avtalet eller logga ut från den aktuella sessionen. 
+På den här menyn kan du hantera din profil och session: direkt åtkomst till din utgivarprofilsida, visa Microsoft Publisher-avtalet eller logga ut från den aktuella sessionen. 
 
-![Publisher-menyn](./media/publisher-menu.png)
-
-
-## <a name="left-navigation-pane"></a>Vänster navigerings fönster
-
-Ett komprimerbart navigerings fönster upptar vänster sida av portalen.  Den innehåller en meny med följande objekt som gör att partner kan:
+![Menyn Utgivare](./media/publisher-menu.png)
 
 
-|    **Meny alternativ**     |      **Beskrivning**                       |
+## <a name="left-navigation-pane"></a>Vänster navigeringsfönster
+
+Ett hopfällbart navigeringsfönster upptar portalens vänstra sida.  Den innehåller en menyrad med följande objekt som gör det möjligt för partner att:
+
+
+|    **Menyalternativet**     |      **Beskrivning**                       |
 |    -------------     |      ---------------                       |
-| ![Nytt erbjudande objekt](./media/left-navbar1.png) | [Ny erbjudande meny](./cpp-new-offer-menu.md) för att skapa nya erbjudanden av den angivna typen. |
-| ![Alla erbjudanden-objekt](./media/left-navbar2.png) | Sidan [alla erbjudanden](./cpp-all-offers-page.md) om du vill visa alla skickade erbjudanden och några av deras primära egenskaper. |
-| ![Godkännande objekt](./media/left-navbar3.png) | Sidan [godkännanden](./cpp-approvals-page.md) om du vill visa alla aktuella godkända erbjudanden. |
-| ![Alla utgivare objekt](./media/left-navbar4.png) | Sidan [alla utgivare](./cpp-all-publishers-page.md) visar alla aktuella registrerade moln partner utgivare. |
-| ![Användar objekt](./media/left-navbar5.png) | Sidan [användare](./cpp-users-page.md) visar alla aktuella användar konton som är kopplade till registrerade moln partner. |
-| ![Historik objekt](./media/left-navbar6.png) | Sidan [Historik](./cpp-history-page.md) listar publicerings-och ändrings händelser för alla utgivare. |
-| ![Insights-objekt](./media/left-navbar7.png) | Sidan [insikter](./cpp-insights-page.md) innehåller olika instrument paneler som utgörs av funktionen för *säljare insikter* på den här portalen. |
-| ![Dokumentations objekt](./media/left-navbar8.png) | Startar en ny flik till dokumentations start sidan för Cloud Partner Portal (dubbletter i **Hjälp** menyn). |
-| ![Forum objekt](./media/left-navbar9.png)  | Öppnar en ny flik i dokumentations start sidan för partner samhället för AppSource-och Azure Marketplace-platser (dubbletter av posten i **Hjälp** -menyn). |
+| ![Nytt erbjudande objekt](./media/left-navbar1.png) | [Ny erbjudandemeny](./cpp-new-offer-menu.md) för att skapa nya erbjudanden av den angivna typen. |
+| ![Alla erbjudanden objekt](./media/left-navbar2.png) | [Alla erbjudanden](./cpp-all-offers-page.md) sida för att visa alla inskickade erbjudanden och några av deras primära egenskaper. |
+| ![Artikeln Godkännanden](./media/left-navbar3.png) | [Sidan Godkännanden](./cpp-approvals-page.md) för att visa alla deras erbjudanden som för närvarande godkänts. |
+| ![Alla Publishers-objekt](./media/left-navbar4.png) | [På](./cpp-all-publishers-page.md) sidan Alla utgivare visas alla aktuella registrerade molnpartnerutgivare. |
+| ![Objekt för användare](./media/left-navbar5.png) | [På](./cpp-users-page.md) sidan Användare visas alla aktuella användarkonton som är associerade med registrerade molnpartner. |
+| ![Historikobjekt](./media/left-navbar6.png) | [På historiksidan](./cpp-history-page.md) visas offerpublicerings- och ändringshändelser för alla utgivare. |
+| ![Objekt för insikter](./media/left-navbar7.png) | [sidan insikter](./cpp-insights-page.md) innehåller de olika instrumentpaneler som utgör *funktionen Säljarstatistik* i den här portalen. |
+| ![Artikel i dokumentationen](./media/left-navbar8.png) | Startar en ny flik på dokumentationshemsidan för Cloud Partner Portal (dubbletter i **hjälpmenyn).** |
+| ![Forum objekt](./media/left-navbar9.png)  | Startar en ny flik på startsidan för dokumentationen för partnerkoncommunityn för AppSource- och Azure Marketplaces (dubbletter på **hjälpmenyn).** |
 |  |  |
 
 > [!NOTE]
-> Eftersom den här meny raden uppdateras regelbundet för att avspegla nya funktioner i portalen, kanske de objekt som visas inte exakt matchar dem i tabellen ovan.
+> Eftersom den här menyraden uppdateras regelbundet för att återspegla nya funktioner i portalen kanske de objekt som visas inte exakt matchar dem i tabellen ovan.
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nästa artikel, [menyn ny erbjudande](./cpp-new-offer-menu.md), listar de typer av erbjudanden som du kan skapa med menyn **ny erbjudande** .
+I nästa artikel, [menyn Nytt erbjudande,](./cpp-new-offer-menu.md)visas de typer av erbjudanden som du kan skapa med menyn **Nytt erbjudande.**

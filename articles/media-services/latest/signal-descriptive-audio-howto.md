@@ -1,6 +1,6 @@
 ---
-title: Signalera beskrivande ljud spår med Azure Media Services v3 | Microsoft Docs
-description: Följ stegen i den här självstudien för att ladda upp en fil, koda videon, lägga till beskrivande ljud spår och strömma ditt innehåll med Media Services v3.
+title: Signal beskrivande ljudspår med Azure Media Services v3 | Microsoft-dokument
+description: Följ stegen i den här självstudien för att ladda upp en fil, koda videon, lägga till beskrivande ljudspår och strömma ditt innehåll med Media Services v3.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -13,30 +13,30 @@ ms.custom: ''
 ms.date: 09/25/2019
 ms.author: juliako
 ms.openlocfilehash: 0d8f88e6c2fe273efa969278146de67ba18eaecf
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72392194"
 ---
-# <a name="signal-descriptive-audio-tracks"></a>Signals beskrivande ljud spår
+# <a name="signal-descriptive-audio-tracks"></a>Signal beskrivande ljudspår
 
-Du kan lägga till en berättarröst i videon för att hjälpa visuellt synskadade klienter att följa videoinspelningen genom att lyssna på berättarrösten. I Media Services v3 signalerar du beskrivande ljud spår genom att kommentera ljud spåret i manifest filen.
+Du kan lägga till ett berättarspår i videon så att synskadade klienter kan följa videoinspelningen genom att lyssna på berättarrösten. I Media Services v3 signalerar du beskrivande ljudspår genom att kommentera ljudspåret i manifestfilen.
 
-Den här artikeln visar hur du kodar en video, laddar upp en ljudfil med enbart ljudfiler (AAC-codec) som innehåller beskrivande ljud i utmatnings till gången och redigerar. ISM-filen för att inkludera det beskrivande ljudet.
+Den här artikeln visar hur du kodar en video, laddar upp en MP4-fil (endast ljud) som innehåller beskrivande ljud i utdatatillgången och redigerar ism-filen så att den innehåller det beskrivande ljudet.
 
 ## <a name="prerequisites"></a>Krav
 
 - [Skapa ett Media Services-konto](create-account-cli-how-to.md).
 - Följ stegen i [Access Azure Media Services API with the Azure CLI](access-api-cli-how-to.md) (Få åtkomst till Azure Media Services-API med Azure CLI) och spara autentiseringsuppgifterna. Du behöver använda dem för att få åtkomst till API.
-- Granska [dynamisk paketering](dynamic-packaging-overview.md).
-- Läs själv studie kursen [Ladda upp, koda och strömma videor](stream-files-tutorial-with-api.md) .
+- Granska [dynamisk förpackning](dynamic-packaging-overview.md).
+- Granska [självstudiekursen Ladda upp, koda och strömma videor.](stream-files-tutorial-with-api.md)
 
 ## <a name="create-an-input-asset-and-upload-a-local-file-into-it"></a>Skapa en indatatillgång och ladda upp en lokal fil till den 
 
-Funktionen **CreateInputAsset** skapar en ny [indatatillgång](https://docs.microsoft.com/rest/api/media/assets) och laddar upp den angivna lokala videofilen till den. **Tillgången** används som indata för kodningsjobbet. I Media Services v3 kan indata till ett **jobb** antingen vara en **tillgång** eller innehåll som du gör tillgängligt för Media Services-kontot via HTTPS-webbadresser. 
+Funktionen **CreateInputAsset** skapar en ny [indatatillgång](https://docs.microsoft.com/rest/api/media/assets) och överför den angivna lokala videofilen till den. Den här **tillgången** används som indata till ditt kodningsjobb. I Media Services v3 kan indata till ett **jobb** antingen vara en **tillgång** eller innehåll som du gör tillgängligt för Media Services-kontot via HTTPS-webbadresser. 
 
-Om du vill lära dig hur du kodar från en HTTPS-URL, se [den här artikeln](job-input-from-http-how-to.md) .  
+Om du vill lära dig att koda från en HTTPS-URL läser du [den här artikeln](job-input-from-http-how-to.md) .  
 
 I Media Services v3 använder du Azure Storage-API:er till att ladda upp filer. I följande .NET-kodfragment visas hur du gör detta.
 
@@ -48,23 +48,23 @@ Den här funktionen utför följande åtgärder:
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#CreateInputAsset)]
 
-Om du behöver skicka namnet på den skapade indatamängden till andra metoder ska du se till att använda egenskapen `Name` på objektet till gångs objekt som returnerades från `CreateInputAssetAsync`, till exempel inputAsset.Name. 
+Om du behöver skicka namnet på den skapade indatatillgången `Name` till andra metoder, se `CreateInputAssetAsync`till att använda egenskapen på tillgångsobjektet som returneras från, till exempel inputAsset.Name. 
 
-## <a name="create-an-output-asset-to-store-the-result-of-the-encoding-job"></a>Skapa en utgående till gång för att lagra resultatet av kodnings jobbet
+## <a name="create-an-output-asset-to-store-the-result-of-the-encoding-job"></a>Skapa en utdatatillgång för att lagra resultatet av kodningsjobbet
 
-[Utdatatillgången](https://docs.microsoft.com/rest/api/media/assets) lagrar resultatet av ditt kodningsjobb. Följande funktion visar hur du skapar en utmatnings till gång.
+[Utdatatillgången](https://docs.microsoft.com/rest/api/media/assets) lagrar resultatet av kodningsjobbet. Följande funktion visar hur du skapar en utdatatillgång.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#CreateOutputAsset)]
 
-Om du behöver skicka namnet på den skapade till gången till andra metoder ska du se till att använda egenskapen `Name` på objektet till gångs objekt som returnerades från `CreateIOutputAssetAsync`, till exempel outputAsset.Name. 
+Om du behöver skicka namnet på den skapade utdatatillgången `Name` till andra metoder, se `CreateIOutputAssetAsync`till att använda egenskapen på tillgångsobjektet som returneras från, till exempel outputAsset.Name. 
 
-När det gäller den här artikeln skickar du `outputAsset.Name` värde till `SubmitJobAsync` och `UploadAudioIntoOutputAsset` funktioner.
+När det gäller den här `outputAsset.Name` artikeln, `SubmitJobAsync` `UploadAudioIntoOutputAsset` skicka värdet till och funktioner.
 
-## <a name="create-a-transform-and-a-job-that-encodes-the-uploaded-file"></a>Skapa en transformering och ett jobb som kodar den överförda filen
+## <a name="create-a-transform-and-a-job-that-encodes-the-uploaded-file"></a>Skapa en transformering och ett jobb som kodar den uppladdade filen
 
 När kodningen eller bearbetningen av innehåll i Media Services görs, konfigureras vanligtvis kodningsinställningarna som ett recept. Du skickar sedan ett **Jobb** som tillämpar receptet på en video. Genom att skicka nya jobb för varje ny video tillämpar du receptet på alla videor i biblioteket. Ett recept i Media Services kallas för en **Transformering**. Mer information finns i [Transformeringar och jobb](transform-concept.md). Det exempel som beskrivs i självstudien definierar ett recept som kodar videon för att strömma den till olika iOS- och Android-enheter. 
 
-I följande exempel skapas en transformering (om det inte finns någon).
+I följande exempel skapas en transformering (om det inte finns någon sådan).
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#EnsureTransformExists)]
 
@@ -74,15 +74,15 @@ Följande funktion skickar ett jobb.
 
 ## <a name="wait-for-the-job-to-complete"></a>Vänta tills jobbet är klart
 
-Jobbet tar en stund att slutföra och du meddelas när detta sker. Vi rekommenderar att du använder Event Grid för att vänta tills jobbet har slutförts.
+Jobbet tar en stund att slutföra och du meddelas när detta sker. Vi rekommenderar att du använder Event Grid för att vänta på att jobbet ska slutföras.
 
-Jobbet går vanligt vis igenom följande tillstånd: **schemalagda**, **köade**, **bearbetar**, **slutförda** (slutligt tillstånd). Om jobbet har påträffat ett fel visas tillståndet **Fel**. Om jobbet avbryts visas **Avbryter** och **Avbruten** när det är klart.
+Jobbet går vanligtvis igenom följande tillstånd: **Schemalagd ,** **Kö,** **Bearbetning**, **Färdig** (det slutliga tillståndet). Om jobbet har påträffat ett fel visas tillståndet **Fel**. Om jobbet avbryts visas **Avbryter** och **Avbruten** när det är klart.
 
-Mer information finns i [hantera Event Grid händelser](reacting-to-media-services-events.md).
+Mer information finns i [Hantera händelser i händelserutnätet](reacting-to-media-services-events.md).
 
-## <a name="upload-the-audio-only-mp4-file"></a>Ladda upp en MP4-fil med enbart ljud
+## <a name="upload-the-audio-only-mp4-file"></a>Ladda upp MP4-filen endast för ljud
 
-Ladda upp den ytterligare endast ljudmp4-filen (AAC-codec) som innehåller beskrivande ljud i utmatnings till gången.  
+Ladda upp den extra MP4-filen (endast för ljud) (AAC-codec) som innehåller beskrivande ljud till utdatatillgången.  
 
 ```csharp
 private static async Task UpoadAudioIntoOutputAsset(
@@ -127,22 +127,22 @@ private static async Task UpoadAudioIntoOutputAsset(
 }
 ```
 
-Här är ett exempel på ett anrop till funktionen `UpoadAudioIntoOutputAsset`:
+Här är ett exempel på `UpoadAudioIntoOutputAsset` ett anrop till funktionen:
 
 ```csharp
 await UpoadAudioIntoOutputAsset(client, config.ResourceGroup, config.AccountName, outputAsset.Name, "audio_description.m4a");
 ```
 
-## <a name="edit-the-ism-file"></a>Redigera. ISM-filen
+## <a name="edit-the-ism-file"></a>Redigera ism-filen
 
-När ditt kodnings jobb är färdigt innehåller utmatnings till gången de filer som genereras av kodnings jobbet. 
+När kodningsjobbet är klart innehåller utdatatillgången de filer som genereras av kodningsjobbet. 
 
-1. I Azure Portal navigerar du till det lagrings konto som är associerat med ditt Media Services-konto. 
-1. Hitta behållaren med namnet på din utmatnings till gång. 
-1. Leta upp. ISM-filen i behållaren och klicka på **Redigera BLOB** (i det högra fönstret). 
-1. Redigera. ISM-filen genom att lägga till information om den överförda MP4-filen (AAC-codec) som innehåller beskrivande ljud och trycka på **Spara** när du är färdig.
+1. Navigera till det lagringskonto som är kopplat till ditt Media Services-konto i Azure-portalen. 
+1. Leta reda på behållaren med namnet på utdatatillgången. 
+1. Leta reda på ISM-filen i behållaren och klicka på **Redigera blob** (i det högra fönstret). 
+1. Redigera ISM-filen genom att lägga till information om den uppladdade MP4-filen (endast för ljud) (AAC-codec) som innehåller beskrivande ljud och tryck på **Spara** när den är klar.
 
-    För att signalera de beskrivande ljud spåren måste du lägga till parametrarna "hjälpmedel" och "roll" i. ISM-filen. Det är ditt ansvar att ange dessa parametrar korrekt för att signalera ljud spår som ljud beskrivning. Lägg till exempel till `<param name="accessibility" value="description" />` och `<param name="role" value="alternate" />` till. ISM-filen för ett särskilt ljud spår, som du ser i följande exempel.
+    Om du vill signalera de beskrivande ljudspåren måste du lägga till parametrar för "tillgänglighet" och "roll" i .ism-filen. Det är ditt ansvar att ställa in dessa parametrar korrekt för att signalera ett ljudspår som ljudbeskrivning. Lägg till `<param name="accessibility" value="description" />` och `<param name="role" value="alternate" />` till exempel till och i ISM-filen för ett visst ljudspår, som visas i följande exempel.
  
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -200,13 +200,13 @@ När ditt kodnings jobb är färdigt innehåller utmatnings till gången de file
 </smil>
 ```
 
-## <a name="get-a-streaming-locator"></a>Hämta en utströmnings Locator
+## <a name="get-a-streaming-locator"></a>Skaffa en streaming locator
 
 När kodningen är klar är nästa steg att göra videon i utdatatillgången tillgänglig för uppspelning av klienterna. Du kan göra detta i två steg: Först skapar du en [positionerare för direktuppspelning](https://docs.microsoft.com/rest/api/media/streaminglocators) och därefter skapar du de strömmande URL:er som klienterna ska använda. 
 
 Processen att skapa en **positionerare för direktuppspelning** kallas för publicering. Som standard kan din **positionerare för direktuppspelning** användas omedelbart efter API-anropen. Den fungerar tills den tas bort, såvida du inte konfigurerar valfria start- och sluttider. 
 
-När du skapar en [StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglocators) måste du ange önskat **StreamingPolicyName**. I det här exemplet strömmar du rensat (eller icke-krypterat innehåll), så den fördefinierade rensningsströmningsprincipen **PredefinedStreamingPolicy.ClearStreamingOnly** används.
+När du skapar en [StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglocators) måste du ange önskat **StreamingPolicyName**. I det här exemplet kommer du att strömma in-the-clear (eller icke-krypterat innehåll) så den fördefinierade rensa streamingprincipen **(PredefinedStreamingPolicy.ClearStreamingOnly**) används.
 
 > [!IMPORTANT]
 > Om du använder en anpassad [strömningsprincip](https://docs.microsoft.com/rest/api/media/streamingpolicies) bör du skapa en begränsad uppsättning av sådana principer för ditt Media Service-konto, och återanvända dem för dina StreamingLocators när samma krypterings- och protokollalternativ krävs. Media Service-kontot har en kvot för antalet strömningsprincipposter. Du bör inte skapa en ny strömningsprincip för varje positionerare för direktuppspelning.
@@ -219,7 +219,7 @@ Följande kod förutsätter att du anropar funktionen med ett unikt locatorName.
 
 ### <a name="get-streaming-urls"></a>Hämta strömnings-URL:er
 
-Nu när [positioneraren för direktuppspelning](https://docs.microsoft.com/rest/api/media/streaminglocators) har skapats kan du hämta direktuppspelnings-URL:erna, som du ser i **GetStreamingURLs**. För att skapa en webbadress måste du sammanfoga [strömningsslutpunktens](https://docs.microsoft.com/rest/api/media/streamingendpoints) värdnamn och sökvägen för **positioneraren för direktuppspelning**. I det här exemplet används *standardvärdet* **Slutpunkt för direktuppspelning**. När du skapar ett Media Service-konto första gången kommer detta *standardvärde* för **StreamingEndpoint** vara i ett stoppat tillstånd, så du måste anropa **Starta**.
+Nu när [positioneraren för direktuppspelning](https://docs.microsoft.com/rest/api/media/streaminglocators) har skapats kan du hämta direktuppspelnings-URL:erna, som du ser i **GetStreamingURLs**. För att skapa en webbadress måste du sammanfoga [strömningsslutpunktens](https://docs.microsoft.com/rest/api/media/streamingendpoints) värdnamn och sökvägen för **positioneraren för direktuppspelning**. I det här exemplet används *standardvärdet* **Slutpunkt för direktuppspelning**. När du skapar ett Media Service-konto första gången kommer detta *standardvärde för * **StreamingEndpoint** vara i ett stoppat tillstånd, så du måste anropa **Starta**.
 
 > [!NOTE]
 > I den här metoden behöver du det locatorName som användes när du skapade **positioneraren för direktuppspelning** för utdatatillgången.
@@ -233,8 +233,8 @@ I den här artikeln används Azure Media Player till att testa strömningen.
 > [!NOTE]
 > Om en spelare finns på en HTTPS-webbplats uppdaterar du URL:en till ”HTTPS”.
 
-1. Öppna en webbläsare och navigera till [https://aka.ms/azuremediaplayer/](https://aka.ms/azuremediaplayer/).
-2. I rutan **URL:** klistrar du in en av de strömmande URL-värdena som du fick från ditt program. 
+1. Öppna en webbläsare och [https://aka.ms/azuremediaplayer/](https://aka.ms/azuremediaplayer/)navigera till .
+2. I rutan **URL:** klistrar du in ett av de url-värden för direktuppspelning som du fick från programmet. 
  
      Du kan klistra in URL:en i formatet HLS, Dash eller Smooth så växlar Azure Media Player automatiskt till ett lämpligt strömningsprotokoll för uppspelning på din enhet.
 3. Tryck på **Uppdatera spelare**.

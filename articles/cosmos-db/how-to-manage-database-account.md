@@ -1,16 +1,16 @@
 ---
 title: Lär dig hur du hanterar databaskonton i Azure Cosmos DB
-description: Lär dig hur du hanterar Azure Cosmos DB-resurser med hjälp av mallarna Azure Portal, PowerShell, CLI och Azure Resource Manager
+description: Lär dig hur du hanterar Azure Cosmos DB-resurser med hjälp av azure-portal-, PowerShell-, CLI- och Azure Resource Manager-mallarna
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/02/2019
 ms.author: mjbrown
 ms.openlocfilehash: 61670d757611bd0c1dd11c389282b18edb3d7fa1
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79247389"
 ---
 # <a name="manage-an-azure-cosmos-account"></a>Hantera ett Azure Cosmos-konto
@@ -19,31 +19,31 @@ Den här artikeln beskriver hur du hanterar olika uppgifter i ett Azure Cosmos-k
 
 ## <a name="create-an-account"></a>Skapa ett konto
 
-### <a id="create-database-account-via-portal"></a>Azure-portalen
+### <a name="azure-portal"></a><a id="create-database-account-via-portal"></a>Azure-portal
 
 [!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
-### <a id="create-database-account-via-cli"></a>Azure CLI
+### <a name="azure-cli"></a><a id="create-database-account-via-cli"></a>Azure CLI
 
-Information om hur du [skapar ett Azure Cosmos DB konto med Azure CLI](manage-with-cli.md#create-an-azure-cosmos-db-account)
+Se [Skapa ett Azure Cosmos DB-konto med Azure CLI](manage-with-cli.md#create-an-azure-cosmos-db-account)
 
-### <a id="create-database-account-via-ps"></a>Azure PowerShell
+### <a name="azure-powershell"></a><a id="create-database-account-via-ps"></a>Azure PowerShell
 
-Information om hur du [skapar ett Azure Cosmos DB konto med PowerShell](manage-with-powershell.md#create-account)
+Se [Skapa ett Azure Cosmos DB-konto med Powershell](manage-with-powershell.md#create-account)
 
-### <a id="create-database-account-via-arm-template"></a>Azure Resource Manager mall
+### <a name="azure-resource-manager-template"></a><a id="create-database-account-via-arm-template"></a>Azure Resource Manager-mall
 
-Den här Azure Resource Manager-mallen skapar ett Azure Cosmos-konto för SQL-API som kon figurer ATS med två regioner och alternativ för att välja konsekvens nivå, automatisk redundans och flera huvud servrar. Om du vill distribuera den här mallen klickar du på distribuera till Azure på sidan viktigt och [skapar ett Azure Cosmos-konto](https://github.com/Azure/azure-quickstart-templates/tree/master/101-cosmosdb-sql)
+Den här Azure Resource Manager-mallen skapar ett Azure Cosmos-konto för SQL API som konfigurerats med två regioner och alternativ för att välja konsekvensnivå, automatisk redundans och multi-master. Om du vill distribuera den här mallen klickar du på Distribuera till Azure på lässidan, [Skapa Azure Cosmos-konto](https://github.com/Azure/azure-quickstart-templates/tree/master/101-cosmosdb-sql)
 
 ## <a name="addremove-regions-from-your-database-account"></a>Lägga till/ta bort regioner från ditt databaskonto
 
-### <a id="add-remove-regions-via-portal"></a>Azure-portalen
+### <a name="azure-portal"></a><a id="add-remove-regions-via-portal"></a>Azure-portal
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 
-1. Gå till ditt Azure Cosmos-konto och öppna menyn **replikera data globalt** .
+1. Gå till ditt Azure Cosmos-konto och öppna menyn **Replikera data globalt.**
 
-1. Om du vill lägga till regioner väljer du sexhörningarna på kartan med **+** etiketten som motsvarar din önskade region (er). Om du vill lägga till en region väljer du alternativet **+ Lägg till region** och väljer en region i den nedrullningsbara menyn.
+1. Om du vill lägga till regioner markerar **+** du hexagonerna på kartan med etiketten som motsvarar önskade regioner. Om du vill lägga till en region väljer du alternativet **+ Lägg till region** och väljer en region på den nedrullningsbara menyn.
 
 1. Om du vill ta bort regioner avmarkerar du en eller flera regioner från kartan genom att välja de blå sexhörningarna med kryssmarkeringar. Eller välj ”papperskorgsikonen” (🗑) intill regionen på höger sida.
 
@@ -55,33 +55,33 @@ I skrivläge för en enstaka region kan du inte ta bort skrivregionen. Du måste
 
 I skrivläge för flera regioner kan du lägga till eller ta bort vilka regioner som helst förutsatt att du har minst en region.
 
-### <a id="add-remove-regions-via-cli"></a>Azure CLI
+### <a name="azure-cli"></a><a id="add-remove-regions-via-cli"></a>Azure CLI
 
-Se [lägga till eller ta bort regioner med Azure CLI](manage-with-cli.md#add-or-remove-regions)
+Se [Lägga till eller ta bort regioner med Azure CLI](manage-with-cli.md#add-or-remove-regions)
 
-### <a id="add-remove-regions-via-ps"></a>Azure PowerShell
+### <a name="azure-powershell"></a><a id="add-remove-regions-via-ps"></a>Azure PowerShell
 
-Se [lägga till eller ta bort regioner med PowerShell](manage-with-powershell.md#update-account)
+Se [Lägga till eller ta bort regioner med Powershell](manage-with-powershell.md#update-account)
 
-## <a id="configure-multiple-write-regions"></a>Konfigurera flera Skriv-regioner
+## <a name="configure-multiple-write-regions"></a><a id="configure-multiple-write-regions"></a>Konfigurera flera skrivregioner
 
-### <a id="configure-multiple-write-regions-portal"></a>Azure-portalen
+### <a name="azure-portal"></a><a id="configure-multiple-write-regions-portal"></a>Azure-portal
 
-Öppna fliken **replikera data globalt** och välj **Aktivera** för att aktivera flera regioner. När du har aktiverat skrivningar i flera regioner blir alla Läs regioner som du för närvarande har på kontot Läs-och skriv regioner.
+Öppna fliken **Replikera data globalt** och välj **Aktivera** för att aktivera skrivningar med flera regioner. När du har aktiverat skrivningar med flera regioner läsregioner lässer och skrivs alla lästa regioner som du för närvarande har för kontot.
 
-![Azure Cosmos-konto konfigurerar skärm bild med flera huvud servrar](./media/how-to-manage-database-account/single-to-multi-master.png)
+![Azure Cosmos-konto konfigurerar skärmbild av flera mallar](./media/how-to-manage-database-account/single-to-multi-master.png)
 
-### <a id="configure-multiple-write-regions-cli"></a>Azure CLI
+### <a name="azure-cli"></a><a id="configure-multiple-write-regions-cli"></a>Azure CLI
 
-Se [aktivera flera-Write-regioner med Azure CLI](manage-with-cli.md#enable-multiple-write-regions)
+Se [Aktivera regioner med flera skrivningar med Azure CLI](manage-with-cli.md#enable-multiple-write-regions)
 
-### <a id="configure-multiple-write-regions-ps"></a>Azure PowerShell
+### <a name="azure-powershell"></a><a id="configure-multiple-write-regions-ps"></a>Azure PowerShell
 
-Se [aktivera flera-Write-regioner med PowerShell](manage-with-powershell.md#multi-master)
+Se [Aktivera flerskrivningsregioner med Powershell](manage-with-powershell.md#multi-master)
 
-### <a id="configure-multiple-write-regions-arm"></a>Resource Manager-mall
+### <a name="resource-manager-template"></a><a id="configure-multiple-write-regions-arm"></a>Mall för Resurshanteraren
 
-Ett konto kan migreras från en huvud server till flera Masters genom att distribuera Resource Manager-mallen som används för att skapa kontot och ange `enableMultipleWriteLocations: true`. Följande Azure Resource Manager mall är en minimal mall som används för att distribuera ett Azure Cosmos-konto för SQL-API med två regioner och flera Skriv platser är aktiverade.
+Ett konto kan migreras från enstängt till multi-master genom att distribuera `enableMultipleWriteLocations: true`resource manager-mallen som används för att skapa kontot och inställningen . Följande Azure Resource Manager-mall är en minimal mall som kommer att distribuera ett Azure Cosmos-konto för SQL API med två regioner och flera skrivplatser aktiverade.
 
 ```json
 {
@@ -139,13 +139,13 @@ Ett konto kan migreras från en huvud server till flera Masters genom att distri
 }
 ```
 
-## <a id="automatic-failover"></a>Aktivera automatisk redundans för ditt Azure Cosmos-konto
+## <a name="enable-automatic-failover-for-your-azure-cosmos-account"></a><a id="automatic-failover"></a>Aktivera automatisk redundans för ditt Azure Cosmos-konto
 
-Med alternativet automatisk redundans kan Azure Cosmos DB redundansväxla till den region som har den högsta prioriteten för redundans utan användar åtgärd om en region blir otillgänglig. När automatisk redundans har Aktiver ATS kan du ändra region prioriteten. Kontot måste ha två eller flera regioner för att aktivera automatisk redundans.
+Alternativet Automatisk redundans gör att Azure Cosmos DB kan redundans till den region som har högst redundansprioritet utan användaråtgärd om en region blir otillgänglig. När automatisk redundans är aktiverat kan regionprioriteten ändras. Kontot måste ha två eller flera regioner för att aktivera automatisk redundans.
 
-### <a id="enable-automatic-failover-via-portal"></a>Azure-portalen
+### <a name="azure-portal"></a><a id="enable-automatic-failover-via-portal"></a>Azure-portal
 
-1. Öppna fönstret **replikera data globalt** från ditt Azure Cosmos-konto.
+1. Öppna fönstret **Replikera data globalt** från ditt Azure Cosmos-konto.
 
 2. Längst upp i fönsterrutan väljer du **Automatisk redundans**.
 
@@ -157,24 +157,24 @@ Med alternativet automatisk redundans kan Azure Cosmos DB redundansväxla till d
 
    ![Menyn Automatisk redundans i portalen](./media/how-to-manage-database-account/automatic-failover.png)
 
-### <a id="enable-automatic-failover-via-cli"></a>Azure CLI
+### <a name="azure-cli"></a><a id="enable-automatic-failover-via-cli"></a>Azure CLI
 
-Läs [Aktivera automatisk redundans med Azure CLI](manage-with-cli.md#enable-automatic-failover)
+Se [Aktivera automatisk redundans med Azure CLI](manage-with-cli.md#enable-automatic-failover)
 
-### <a id="enable-automatic-failover-via-ps"></a>Azure PowerShell
+### <a name="azure-powershell"></a><a id="enable-automatic-failover-via-ps"></a>Azure PowerShell
 
-Läs [Aktivera automatisk redundans med PowerShell](manage-with-powershell.md#enable-automatic-failover)
+Se [Aktivera automatisk redundans med Powershell](manage-with-powershell.md#enable-automatic-failover)
 
 ## <a name="set-failover-priorities-for-your-azure-cosmos-account"></a>Ange redundansprioritet för ditt Azure Cosmos-konto
 
-När ett Cosmos-konto har kon figurer ATS för automatisk redundans kan växlings prioriteten för regioner ändras.
+När ett Cosmos-konto har konfigurerats för automatisk redundans kan redundansprioriteten för regioner ändras.
 
 > [!IMPORTANT]
-> Du kan inte ändra Skriv regionen (växlings prioriteten är noll) när kontot har kon figurer ATS för automatisk redundans. Om du vill ändra Skriv regionen måste du inaktivera automatisk redundans och göra en manuell redundansväxling.
+> Du kan inte ändra skrivregionen (redundansprioritet noll) när kontot har konfigurerats för automatisk redundans. Om du vill ändra skrivområdet måste du inaktivera automatisk redundans och göra en manuell redundans.
 
-### <a id="set-failover-priorities-via-portal"></a>Azure-portalen
+### <a name="azure-portal"></a><a id="set-failover-priorities-via-portal"></a>Azure-portal
 
-1. Öppna fönstret **replikera data globalt** från ditt Azure Cosmos-konto.
+1. Öppna fönstret **Replikera data globalt** från ditt Azure Cosmos-konto.
 
 2. Längst upp i fönsterrutan väljer du **Automatisk redundans**.
 
@@ -188,27 +188,27 @@ När ett Cosmos-konto har kon figurer ATS för automatisk redundans kan växling
 
    ![Menyn Automatisk redundans i portalen](./media/how-to-manage-database-account/automatic-failover.png)
 
-### <a id="set-failover-priorities-via-cli"></a>Azure CLI
+### <a name="azure-cli"></a><a id="set-failover-priorities-via-cli"></a>Azure CLI
 
-Se [ange prioritet för redundans med Azure CLI](manage-with-cli.md#set-failover-priority)
+Se [Ange redundansprioritet med Azure CLI](manage-with-cli.md#set-failover-priority)
 
-### <a id="set-failover-priorities-via-ps"></a>Azure PowerShell
+### <a name="azure-powershell"></a><a id="set-failover-priorities-via-ps"></a>Azure PowerShell
 
-Se [ange prioritet för redundans med PowerShell](manage-with-powershell.md#modify-failover-priority)
+Se [Ange redundansprioritet med Powershell](manage-with-powershell.md#modify-failover-priority)
 
-## <a id="manual-failover"></a>Utföra manuell redundans på ett Azure Cosmos-konto
+## <a name="perform-manual-failover-on-an-azure-cosmos-account"></a><a id="manual-failover"></a>Utför manuell redundansväxling för ett Azure Cosmos-konto
 
 > [!IMPORTANT]
-> Azure Cosmos-kontot måste konfigureras för manuell redundansväxling för att åtgärden ska lyckas.
+> Azure Cosmos-kontot måste konfigureras för manuell redundans för att den här åtgärden ska lyckas.
 
-Processen för att utföra en manuell redundansväxling innebär att ändra kontots Skriv region (redundans prioritet = 0) till en annan region som kon figurer ATS för kontot.
+Processen för att utföra en manuell redundans innebär att ändra kontots skrivregion (redundansprioritet = 0) till en annan region som konfigurerats för kontot.
 
 > [!NOTE]
-> Flera huvud konton kan inte växlas över manuellt. För program som använder Azure Cosmos SDK identifierar SDK när en region blir otillgänglig och dirigerar sedan automatiskt till nästa närmaste region om du använder API för flera värdar i SDK.
+> Multi-master-konton kan inte skickas över manuellt. För program som använder Azure Cosmos SDK identifierar SDK när en region blir otillgänglig och omdirigeras sedan automatiskt till nästa närmaste region om du använder API för flera målningar i SDK.
 
-### <a id="enable-manual-failover-via-portal"></a>Azure-portalen
+### <a name="azure-portal"></a><a id="enable-manual-failover-via-portal"></a>Azure-portal
 
-1. Gå till ditt Azure Cosmos-konto och öppna menyn **replikera data globalt** .
+1. Gå till ditt Azure Cosmos-konto och öppna menyn **Replikera data globalt.**
 
 2. Längst upp på menyn väljer du **Manuell redundans**.
 
@@ -220,13 +220,13 @@ Processen för att utföra en manuell redundansväxling innebär att ändra kont
 
    ![Menyn Manuell redundans i portalen](./media/how-to-manage-database-account/manual-failover.png)
 
-### <a id="enable-manual-failover-via-cli"></a>Azure CLI
+### <a name="azure-cli"></a><a id="enable-manual-failover-via-cli"></a>Azure CLI
 
-Se [Utlös manuell redundans med Azure CLI](manage-with-cli.md#trigger-manual-failover)
+Se [Utlösa manuell redundans med Azure CLI](manage-with-cli.md#trigger-manual-failover)
 
-### <a id="enable-manual-failover-via-ps"></a>Azure PowerShell
+### <a name="azure-powershell"></a><a id="enable-manual-failover-via-ps"></a>Azure PowerShell
 
-Se [Utlös manuell redundans med PowerShell](manage-with-powershell.md#trigger-manual-failover)
+Se [Utlösa manuell redundans med Powershell](manage-with-powershell.md#trigger-manual-failover)
 
 ## <a name="next-steps"></a>Nästa steg
 

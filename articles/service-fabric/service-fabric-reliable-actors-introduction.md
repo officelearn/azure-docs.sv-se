@@ -1,71 +1,71 @@
 ---
-title: Översikt för Reliable Actors i Service Fabric
-description: Introduktion till Service Fabric Reliable Actors programmerings modellen baserat på mönstret för virtuell aktör.
+title: Översikt över pålitliga aktörer för serviceinfrastruktur
+description: Introduktion till programmeringsmodellen Service Fabric Reliable Actors, baserad på mönstret För virtuell aktör.
 author: vturecek
 ms.topic: conceptual
 ms.date: 11/01/2017
 ms.author: vturecek
 ms.openlocfilehash: 6aafa2a3372c431f8afa7fad41051c26c3fe5fcd
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75645573"
 ---
-# <a name="introduction-to-service-fabric-reliable-actors"></a>Introduktion till Service Fabric Reliable Actors
-Reliable Actors är ett Service Fabric program ramverk baserat på mönstret för [virtuell aktör](https://research.microsoft.com/en-us/projects/orleans/) . Reliable Actors-API: et tillhandahåller en enda trådad programmerings modell som bygger på de skalbarhets-och Tillförlitlighets garantier som tillhandahålls av Service Fabric.
+# <a name="introduction-to-service-fabric-reliable-actors"></a>Introduktion till Service Fabric Pålitliga aktörer
+Reliable Actors är ett service fabric-programramverk baserat på mönstret [för den virtuella aktören.](https://research.microsoft.com/en-us/projects/orleans/) Reliable Actors API ger en programmeringsmodell med en tråd som bygger på skalbarhets- och tillförlitlighetsgarantier som tillhandahålls av Service Fabric.
 
-## <a name="what-are-actors"></a>Vad är aktörer?
-En aktör är en isolerad, oberoende enhet av beräkning och tillstånd med en enkel tråd körning. [Aktörs mönstret](https://en.wikipedia.org/wiki/Actor_model) är en beräknings modell för samtidiga eller distribuerade system där ett stort antal av dessa aktörer kan köras samtidigt och oberoende av varandra. Aktörer kan kommunicera med varandra och de kan skapa fler aktörer.
+## <a name="what-are-actors"></a>Vad är skådespelare?
+En aktör är en isolerad, oberoende enhet för beräkning och tillstånd med entrådad körning. [Aktörsmönstret](https://en.wikipedia.org/wiki/Actor_model) är en beräkningsmodell för samtidiga eller distribuerade system där ett stort antal av dessa aktörer kan köra samtidigt och oberoende av varandra. Aktörer kan kommunicera med varandra och de kan skapa fler aktörer.
 
-### <a name="when-to-use-reliable-actors"></a>När du ska använda Reliable Actors
-Service Fabric Reliable Actors är en implementering av aktörens design mönster. Precis som med ett mönster för program varu design görs beslutet om att använda ett speciellt mönster baserat på om ett program design problem passar mönstret eller inte.
+### <a name="when-to-use-reliable-actors"></a>När ska reliable actors användas
+Service Fabric Reliable Actors är en implementering av aktörens designmönster. Som med alla mönster för programvarudesign fattas beslutet om du vill använda ett visst mönster baserat på om ett problem med programvarudesign passar mönstret eller inte.
 
-Även om form givnings mönstret för aktören kan vara en bra anpassning till ett antal distribuerade system problem och scenarier, bör du tänka över begränsningarna i mönstret och ramverket som implementerar det. Som allmän vägledning bör du ta hänsyn till aktörens mönster för att modellera ditt problem eller scenariot om:
+Även om aktörens designmönster kan passa ett antal problem och scenarier för distribuerade system, måste man noggrant överväga mönstrets begränsningar och det ramverk som implementerar det. Som allmän vägledning bör du tänka på aktörsmönstret för att modellera ditt problem eller scenario om:
 
-* Ditt problem utrymme innebär ett stort antal (tusentals eller mer) av små, oberoende och isolerade enheter av tillstånd och logik.
-* Du vill arbeta med entrådade objekt som inte kräver betydande interaktion från externa komponenter, inklusive fråga om tillstånd i en uppsättning aktörer.
-* Dina aktörs instanser blockerar inte anropare med oförutsägbara fördröjningar genom att skicka I/O-åtgärder.
+* Ditt problemutrymme innebär ett stort antal (tusentals eller fler) av små, oberoende och isolerade enheter av tillstånd och logik.
+* Du vill arbeta med objekt med en tråd som inte kräver betydande interaktion från externa komponenter, inklusive frågetillstånd över en uppsättning aktörer.
+* Dina aktörsinstanser blockerar inte anropare med oförutsägbara fördröjningar genom att utfärda I/O-åtgärder.
 
-## <a name="actors-in-service-fabric"></a>Aktörer i Service Fabric
-I Service Fabric implementeras aktörer i Reliable Actors Framework: ett mönsterbaserade program ramverk som bygger på [Service Fabric Reliable Services](service-fabric-reliable-services-introduction.md). Varje tillförlitlig aktörs tjänst du skriver är i själva verket en partitionerad, tillstånds känslig tillförlitlig tjänst.
+## <a name="actors-in-service-fabric"></a>Aktörer i servicetyg
+I Service Fabric implementeras aktörer i reliable actors-ramverket: Ett programramverk som bygger på [Service Fabric Reliable Services.](service-fabric-reliable-services-introduction.md) Varje tjänst för en tillförlitlig aktör som du skriver är faktiskt en partitionerad, tillståndskänslig tillförlitlig tjänst.
 
-Varje aktör definieras som en instans av en aktörs typ, som är identisk med hur ett .NET-objekt är en instans av en .NET-typ. Det kan till exempel finnas en aktörs typ som implementerar funktionerna i en kalkylator och det kan finnas många aktörer av den typen som distribueras på olika noder i ett kluster. Varje sådan aktör identifieras unikt av ett skådespelare-ID.
+Varje aktör definieras som en förekomst av en aktörstyp, identisk med hur ett .NET-objekt är en förekomst av en .NET-typ. Det kan till exempel finnas en aktörstyp som implementerar funktionerna i en kalkylator och det kan finnas många aktörer av den typen som distribueras på olika noder över ett kluster. Varje sådan aktör identifieras unikt av ett aktörs-ID.
 
-## <a name="actor-lifetime"></a>Aktörs livs längd
-Service Fabric aktörer är virtuella, vilket innebär att deras livs längd inte är kopplad till sin minnes intern representation. Därför behöver de inte skapas eller förstöras explicit. Reliable Actors runtime aktiverar automatiskt en aktör första gången den får en begäran om detta skådespelare-ID. Om en aktör inte används under en viss tids period samlas det in i minnet av Reliable Actors runtime-skräpe. Den kommer också att ha kunskap om aktörens existens om den måste återaktiveras senare. Mer information finns i [livs cykel för aktör och skräp insamling](service-fabric-reliable-actors-lifecycle.md).
+## <a name="actor-lifetime"></a>Skådespelare Livstid
+Service Fabric-aktörer är virtuella, vilket innebär att deras livstid inte är knuten till deras representation i minnet. Som ett resultat behöver de inte uttryckligen skapas eller förstöras. Körningen Tillförlitliga aktörer aktiverar automatiskt en aktör första gången den tar emot en begäran om det aktörs-ID. Om en aktör inte används under en viss tid samlar det tillförlitliga skådespelarna skräpet in i minnesobjektet. Det kommer också att upprätthålla kunskap om skådespelarens existens om det skulle behöva återaktiveras senare. Mer information finns i [Skådespelares livscykel och skräpinsamling](service-fabric-reliable-actors-lifecycle.md).
 
-Den här virtuella aktörens livs längds abstraktion medför vissa varningar till följd av den virtuella aktörs modellen, och i själva verket är den Reliable Actors implementeringen avvikande vid tillfällen från den här modellen.
+Denna virtuella aktör livstid abstraktion bär några varningar som ett resultat av den virtuella aktören modellen, och i själva verket Reliable Actors genomförandet avviker ibland från denna modell.
 
-* En aktör aktive ras automatiskt (vilket gör att ett aktörs objekt kan konstrueras) första gången ett meddelande skickas till dess skådespelare-ID. Efter en viss tids period har aktörens objekt skräp insamlat. I framtiden, med hjälp av skådespelare-ID igen, gör ett nytt aktörs objekt konstruerat. En aktörs tillstånd utlevererar objektets livs längd när den lagras i tillstånds hanteraren.
-* Att anropa en aktörs metod för ett skådespelare-ID aktiverar aktören. Av den anledningen har aktörs typen konstruktorn som anropas implicit av körnings miljön. Därför kan klient koden inte skicka parametrar till aktörs typens konstruktor, men parametrar kan skickas till aktörens konstruktor av själva tjänsten. Resultatet är att aktörerna kan konstrueras i ett delvis initierat tillstånd med tiden som andra metoder anropas, om aktören kräver initierings parametrar från klienten. Det finns ingen enkel start punkt för aktivering av en aktör från klienten.
-* Även om Reliable Actors implicit skapa aktörs objekt; Du kan uttryckligen ta bort en aktör och dess tillstånd.
+* En aktör aktiveras automatiskt (vilket gör att ett aktörsobjekt skapas) första gången ett meddelande skickas till dess aktörs-ID. Efter en viss tid samlas aktörsobjektet skräp. I framtiden, med hjälp av aktören ID igen, orsakar en ny aktör objekt som ska konstrueras. En aktörs tillstånd överlever objektets livstid när det lagras i tillståndshanteraren.
+* Om du anropar en aktörsmetod för ett aktörs-ID aktiveras aktören. Av denna anledning har aktörstyper sin konstruktor som anropas implicit av körningen. Klientkoden kan därför inte skicka parametrar till aktörstypens konstruktor, även om parametrar kan skickas till aktörens konstruktor av själva tjänsten. Resultatet är att aktörer kan konstrueras i ett delvis initierat tillstånd när andra metoder anropas, om aktören kräver initieringsparametrar från klienten. Det finns ingen enskild startpunkt för aktivering av en aktör från klienten.
+* Även om reliable actors implicit skapar aktörsobjekt; Du har möjlighet att uttryckligen ta bort en aktör och dess tillstånd.
 
 ## <a name="distribution-and-failover"></a>Distribution och redundans
-För att tillhandahålla skalbarhet och tillförlitlighet distribuerar Service Fabric aktörerna i klustret och migrerar automatiskt dem från felaktiga noder till felfria som nödvändiga. Detta är en abstraktion över en [partitionerad, tillstånds känslig tillförlitlig tjänst](service-fabric-concepts-partitioning.md). Distribution, skalbarhet, tillförlitlighet och automatisk redundans tillhandahålls på grund av det faktum att aktörerna körs i en tillstånds känslig tillförlitlig tjänst som kallas *aktörs tjänst*.
+För att ge skalbarhet och tillförlitlighet distribuerar Service Fabric aktörer i hela klustret och migrerar dem automatiskt från misslyckade noder till felfria efter behov. Detta är en abstraktion över en [partitionerad, tillståndskänslig tillförlitlig tjänst](service-fabric-concepts-partitioning.md). Distribution, skalbarhet, tillförlitlighet och automatisk redundans tillhandahålls alla på grund av att aktörer körs inuti en tillståndskänslig reliable service som kallas *Aktörstjänsten*.
 
-Aktörerna distribueras över-partitionerna i aktörs tjänsten och dessa partitioner distribueras mellan noderna i ett Service Fabric kluster. Varje tjänstmall innehåller en uppsättning aktörer. Service Fabric hanterar distribution och redundans för-tjänstepartitioner.
+Aktörer distribueras över partitionerna i aktörstjänsten och dessa partitioner distribueras över noderna i ett Service Fabric-kluster. Varje tjänstpartition innehåller en uppsättning aktörer. Service Fabric hanterar distribution och redundans av tjänstpartitionerna.
 
-Till exempel skulle en aktörs tjänst med nio partitioner som distribueras till tre noder som använder standardplaceringen av aktörs partition distribueras på rätt sätt:
+En aktörstjänst med nio partitioner som distribueras till tre noder med standardpartitionsplacering för aktören distribueras till exempel:
 
-![Reliable Actors distribution][2]
+![Distribution av pålitliga aktörer][2]
 
-Aktörs ramverket hanterar partition schema-och nyckel intervalls inställningar åt dig. Detta gör det enklare att välja några alternativ, men det innebär också en del överväganden:
+Aktörsramen hanterar partitionsschema och nyckelintervallinställningar åt dig. Detta förenklar vissa val men har också en viss hänsyn:
 
-* Med Reliable Services kan du välja ett partitionerings schema, nyckel intervall (när du använder ett intervall partitionerings schema) och antalet partitioner. Reliable Actors är begränsat till intervall partitionerings schemat (det enhetliga Int64-schemat) och kräver att du använder det fullständiga Int64-nyckel intervallet.
-* Som standard placeras aktörer slumpmässigt i partitioner som resulterar i enhetlig distribution.
-* Eftersom aktörerna placeras slumpmässigt, bör det förväntas att aktörs åtgärder alltid ska kräva nätverkskommunikation, inklusive serialisering och deserialisering av metod anrops data, vilket ger svars tid och kostnader.
-* I avancerade scenarier är det möjligt att kontrol lera placeringen av aktörens partition genom att använda Int64 skådespelare-ID: n som mappar till vissa partitioner. Detta kan dock leda till en obalanserad distribution av aktörer mellan partitioner.
+* Med Reliable Services kan du välja ett partitioneringsschema, nyckelintervall (när du använder ett intervallpartitioneringsschema) och partitionsantal. Reliable Actors är begränsat till intervallet partitionering systemet (den enhetliga Int64 schema) och kräver att du använder hela Int64 nyckelintervall.
+* Som standard placeras aktörer slumpmässigt i partitioner vilket resulterar i enhetlig distribution.
+* Eftersom aktörer placeras slumpmässigt, bör det förväntas att aktörsåtgärder alltid kräver nätverkskommunikation, inklusive serialisering och deserialisering av metodanropsdata, ådra sig svarstid och omkostnader.
+* I avancerade scenarier är det möjligt att styra aktörspartitionsplacering med hjälp av Int64-aktörs-ID:er som mappar till specifika partitioner. Om du gör det kan det dock leda till en obalanserad distribution av aktörer över partitioner.
 
-Mer information om hur aktörs tjänster partitioneras finns i [partitionerings koncept för aktörer](service-fabric-reliable-actors-platform.md#service-fabric-partition-concepts-for-actors).
+Mer information om hur aktörstjänster partitioneras finns i [partitioneringsbegrepp för aktörer](service-fabric-reliable-actors-platform.md#service-fabric-partition-concepts-for-actors).
 
-## <a name="actor-communication"></a>Aktörs kommunikation
-Aktörs interaktioner definieras i ett gränssnitt som delas av aktören som implementerar gränssnittet och klienten som hämtar en proxy till en aktör via samma gränssnitt. Eftersom det här gränssnittet används för att anropa aktörs metoder asynkront måste varje metod i gränssnittet vara uppgifts RETUR.
+## <a name="actor-communication"></a>Kommunikation av skådespelare
+Aktörsinteraktioner definieras i ett gränssnitt som delas av aktören som implementerar gränssnittet och klienten som får en proxy till en aktör via samma gränssnitt. Eftersom det här gränssnittet används för att anropa aktörsmetoder asynkront måste varje metod i gränssnittet returneras.
 
-Metod anrop och deras svar resulterar i slut på nätverks begär anden i klustret, så argumenten och resultat typerna för de uppgifter som de returnerar måste serialiseras av plattformen. De måste särskilt vara serialiserbara med [data kontrakt](service-fabric-reliable-actors-notes-on-actor-type-serialization.md).
+Metodanrop och deras svar resulterar i slutändan i nätverksbegäranden i klustret, så argumenten och resultattyperna för de uppgifter som de returnerar måste vara serialiserbara av plattformen. I synnerhet måste de vara [datakontrakt serialiserbara](service-fabric-reliable-actors-notes-on-actor-type-serialization.md).
 
-### <a name="the-actor-proxy"></a>Aktörens proxy
-Reliable Actors klient-API: et tillhandahåller kommunikation mellan en aktörs instans och en aktörs klient. För att kommunicera med en aktör skapar en klient ett aktörs objekt som implementerar aktörs gränssnittet. Klienten interagerar med aktören genom att anropa metoder på objektet proxy. Aktörs-proxyn kan användas för kommunikation mellan klient och skådespelare och aktör.
+### <a name="the-actor-proxy"></a>Skådespelaren proxy
+Reliable Actors-klient-API:et tillhandahåller kommunikation mellan en aktörsinstans och en aktörsklient. Om du vill kommunicera med en aktör skapar en klient ett proxyobjekt för aktör som implementerar aktörsgränssnittet. Klienten interagerar med aktören genom att anropa metoder på proxyobjektet. Aktörsproxyn kan användas för kommunikation mellan klient och aktör och aktör.
 
 ```csharp
 // Create a randomly distributed actor ID
@@ -90,54 +90,54 @@ myActor.DoWorkAsync().get();
 ```
 
 
-Observera att de två informations delarna som används för att skapa aktörs-proxyobjekt är skådespelare-ID och program namn. Aktörs-ID: t identifierar aktören unikt, medan program namnet identifierar det [Service Fabric program](service-fabric-reliable-actors-platform.md#application-model) där aktören distribueras.
+Observera att de två informationsdelar som används för att skapa aktörsproxyobjektet är aktörs-ID och programnamnet. Aktörs-ID:n identifierar aktören unikt, medan programnamnet identifierar [programmet Service Fabric](service-fabric-reliable-actors-platform.md#application-model) där aktören distribueras.
 
-Klassen `ActorProxy`(C#)/`ActorProxyBase`(Java) på klient sidan utför den nödvändiga lösningen för att hitta aktören efter ID och öppna en kommunikations kanal med den. Det försöker också att hitta aktören i händelse av kommunikations fel och redundans. Det innebär att meddelande leveransen har följande egenskaper:
+Klassen `ActorProxy`(C#) `ActorProxyBase`/ (Java) på klientsidan utför den upplösning som krävs för att hitta aktören efter ID och öppna en kommunikationskanal med den. Det försöker också att hitta aktören i fall av kommunikationsfel och redundans. Därför har meddelandeleverans följande egenskaper:
 
-* Leverans av meddelanden är bästa möjliga.
-* Aktörer kan få dubbla meddelanden från samma klient.
+* Meddelandeleverans är bäst.
+* Aktörer kan ta emot dubblettmeddelanden från samma klient.
 
 ## <a name="concurrency"></a>Samtidighet
-Reliable Actors runtime ger en enkel, aktiv åtkomst modell för åtkomst till aktörs metoder. Det innebär att det inte går att aktivera mer än en tråd i en aktörs objekt kod när som helst. Med den här snabb åtkomsten fören Klars samtidiga system eftersom det inte behövs några synkroniseringsprogram för data åtkomst. Det innebär också att systemen måste utformas med särskilda överväganden för den enda trådbaserade åtkomst typen för varje aktörs instans.
+Körningen Reliable Actors ger en enkel turbaserad åtkomstmodell för åtkomst till aktörsmetoder. Det innebär att högst en tråd kan vara aktiv inuti ett aktörsobjekts kod när som helst. Turbaserad åtkomst förenklar i hög grad samtidiga system eftersom det inte finns något behov av synkroniseringsmekanismer för dataåtkomst. Det innebär också att system måste utformas med särskilda överväganden för varje aktörs entrådiga åtkomstkaraktär.
 
-* En enskild aktörs instans kan inte bearbeta mer än en begäran åt gången. En aktörs instans kan orsaka en Flask hals i data flödet om den förväntas hantera samtidiga begär Anden.
-* Aktörer kan död lägen på varandra om det finns en cirkulär begäran mellan två aktörer när en extern begäran görs till en av aktörerna samtidigt. Aktörens körnings tid upphör automatiskt att svara på aktör samtal och genererar ett undantag till anroparen för att avbryta eventuella död situationer.
+* En instans av en aktör kan inte bearbeta mer än en begäran åt gången. En aktörsinstans kan orsaka en flaskhals genom dataflöde om den förväntas hantera samtidiga begäranden.
+* Aktörer kan dödläge på varandra om det finns en cirkulär begäran mellan två aktörer medan en extern begäran görs till en av aktörerna samtidigt. Aktören runtime kommer automatiskt time out på skådespelare samtal och kasta ett undantag till den som ringer för att avbryta eventuella dödläge situationer.
 
-![Reliable Actors kommunikation][3]
+![Tillförlitlig kommunikation mellan aktörer][3]
 
-### <a name="turn-based-access"></a>Turn-baserad åtkomst
-En tur består av den fullständiga körningen av en aktörs metod som svar på en begäran från andra aktörer eller klienter, eller en fullständig körning av en [timer/påminnelse](service-fabric-reliable-actors-timers-reminders.md) motringning. Även om dessa metoder och återanrop är asynkrona, översätts inte aktörernas körningar. En tur måste slutföras helt innan en ny aktivering tillåts. Med andra ord måste en aktörs metod eller återanrop för timer/påminnelse som körs helt slutföras innan ett nytt anrop till en metod eller ett motanrop tillåts. En metod eller ett motanrop anses ha slutförts om körningen har returnerats från metoden eller återanropet och uppgiften som returnerades av metoden eller återanropet har slutförts. Det är värt att framhäva att den vridna samtidigheten respekteras på olika sätt, timers och återanrop.
+### <a name="turn-based-access"></a>Turbaserad åtkomst
+En sväng består av fullständig körning av en aktörsmetod som svar på en begäran från andra aktörer eller klienter, eller en fullständig körning av en [timer/påminnelse](service-fabric-reliable-actors-timers-reminders.md) motringning. Även om dessa metoder och motringningar är asynkrona, interleave inte skådespelarna körningen dem. En sväng måste vara helt klar innan en ny sväng tillåts. Med andra ord måste en aktörsmetod eller en timer/påminnelse-motringning som körs för närvarande vara helt klar innan ett nytt anrop till en metod eller motringning tillåts. En metod eller motringning anses ha slutförts om körningen har returnerats från metoden eller motringningen och aktiviteten som returneras med metoden eller motringningen har slutförts. Det är värt att betona att tur-baserade samtidighet respekteras även över olika metoder, timers och motringningar.
 
-Aktörs körningen tvingar fram en fast samtidighet genom att förvärva ett lås per aktör i början av en turn och släppa låset i slutet av tur och släpp. Det innebär att den tillvändiga samtidigheten tillämpas på per aktör och inte mellan aktörer. Aktörs metoder och återanrop till timer/påminnelser kan köras samtidigt för olika aktörer.
+Skådespelarna runtime upprätthåller tur-baserade samtidighet genom att förvärva en per-aktör lås i början av en tur och släppa låset i slutet av turn. Således är tur-baserade samtidighet verkställas per aktör och inte över aktörer. Aktörsmetoder och timer-/påminnelseåterklädnad kan köras samtidigt för olika aktörers räkning.
 
-I följande exempel visas begreppen ovan. Överväg en aktörs typ som implementerar två asynkrona metoder (t. ex. *Method1* och *Method2*), en timer och en påminnelse. Diagrammet nedan visar ett exempel på en tids linje för körning av dessa metoder och återanrop åt två aktörer (*ActorId1* och *ActorId2*) som tillhör den här aktörs typen.
+Följande exempel illustrerar ovanstående begrepp. Tänk dig en aktörstyp som implementerar två asynkrona metoder (t.ex. *metod 1* och *metod2*), en timer och en påminnelse. Diagrammet nedan visar ett exempel på en tidslinje för körningen av dessa metoder och motringningar för två aktörer (*ActorId1* och *ActorId2*) som tillhör den här aktörstypen.
 
-![Reliable Actors runtime-baserad samtidighet och åtkomst][1]
+![Pålitliga aktörer körtid tur-baserade samtidighet och tillgång][1]
 
-Det här diagrammet följer dessa konventioner:
+Detta diagram följer dessa konventioner:
 
-* Varje lodrät linje visar det logiska flödet för körning av en metod eller ett återanrop för en viss aktörs räkning.
-* De händelser som marker ATS på varje lodrät linje sker i kronologisk ordning, med nyare händelser som inträffar under äldre.
-* Olika färger används för tids linjer som motsvarar olika aktörer.
-* Markering används för att ange varaktigheten för när låset per aktör hålls för en metod eller ett motanrop.
+* Varje lodrät linje visar det logiska flödet för körning av en metod eller en motringning för en viss aktörs räkning.
+* De händelser som markeras på varje vertikal linje inträffar i kronologisk ordning, med nyare händelser som inträffar under äldre händelser.
+* Olika färger används för tidslinjer som motsvarar olika aktörer.
+* Markering används för att ange hur länge låset per aktör hålls på uppdrag av en metod eller motringning.
 
-Några viktiga saker att tänka på:
+Några viktiga punkter att tänka på:
 
-* Även om *Method1* körs på uppdrag av *ActorId2* som svar på klient begär ande *xyz789*, kommer en annan klientbegäran (*vi abc123*) att kräva att *Method1* körs av *ActorId2*. Den andra körningen av *Method1* startar dock inte förrän den tidigare körningen har slutförts. På samma sätt utlöses en påminnelse som registrerats av *ActorId2* medan *Method1* körs som svar på klient begär ande *xyz789*. Återanropet av påminnelsen utförs först när båda körningarna av *Method1* har slutförts. Allt detta beror på att den tidsbaserade samtidiga samtidigheten för *ActorId2*är aktive rad.
-* På samma sätt tillämpas den ombaserade samtidigheten också för *ActorId1*, som demonstreras av körningen av *Method1*, *Method2*och timer-återanropet för *ActorId1* händer i serie.
-* Körningen av *Method1* på uppdrag av *ActorId1* överlappar körningen på uppdrag av *ActorId2*. Detta beror på att den omvända samtidigheten endast tillämpas inom en aktör och inte mellan aktörer.
-* I vissa av metoderna/callback-körningarna är `Task`(C#)/`CompletableFuture`(Java) som returnerades av metoden/motringningen slutförs när metoden returnerar. I vissa andra har den asynkrona åtgärden redan slutförts när metoden/motringningen returnerar. I båda fallen frigörs låset per aktör bara när både metoden/motringningen returnerar och den asynkrona åtgärden har slutförts.
+* Medan *Metod1* körs på uppdrag av *ActorId2* som svar på klientbegäran *xyz789*, en annan klient begäran (*abc123*) anländer som också kräver *metod1* som ska utföras av *ActorId2*. Den andra körningen av *metod1* börjar dock inte förrän föregående körning har slutförts. På samma sätt utlöses en påminnelse som registrerats av *ActorId2* medan *Metod1* körs som svar på klientbegäran *xyz789*. Påminnelseuppringningen körs först när båda körningarna av *metod1* har slutförts. Allt detta beror på tur-baserade samtidighet verkställas för *ActorId2*.
+* På samma sätt tillämpas även turbaserad samtidighet för *ActorId1*, vilket framgår av körningen av *metod1*, *metod2*, och timeradrering på uppdrag av *ActorId1* som sker på ett seriellt sätt.
+* Körning av *metod1* på uppdrag av *ActorId1* överlappar dess körning på uppdrag av *ActorId2*. Detta beror på att tur-baserade samtidighet upprätthålls endast inom en aktör och inte över aktörer.
+* I vissa av metod-/motringningskörningarna avslutas `Task`(C#) / `CompletableFuture`(Java) som returneras med metoden/motringningen när metoden returneras. I vissa andra har den asynkrona åtgärden redan avslutats när metoden/motringningsreturer returneras. I båda fallen frisläpps spärren per aktör först när både metoden/motringningsreturer och den asynkrona åtgärden har slutförts.
 
 ### <a name="reentrancy"></a>Återinträde
-I aktörernas körnings miljö tillåts återinträde som standard. Det innebär att om aktörs metoden *aktör a* anropar en metod på *aktör B*, som i sin tur anropar en annan metod på *aktör a*, tillåts den metoden att köras. Detta beror på att det är en del av samma logiska anrop i kontexten. Alla timer-och påminnelse anrop börjar med det nya logiska anrops sammanhanget. Se [Reliable Actors-återinträde](service-fabric-reliable-actors-reentrancy.md) för mer information.
+Skådespelarnas körning tillåter reentrancy som standard. Det innebär att om en aktörsmetod för *aktör A* anropar en metod för *aktör B*, som i sin tur anropar en annan metod på aktör *A*, tillåts den metoden att köras. Detta beror på att det är en del av samma logiska call chain-kontext. Alla timer- och påminnelsesamtal börjar med den nya logiska samtalskontexten. Mer information [finns i reliable actors-reentrancyen.](service-fabric-reliable-actors-reentrancy.md)
 
-### <a name="scope-of-concurrency-guarantees"></a>Omfattning av samtidighets garantier
-Aktörernas körningar ger dessa samtidighets garantier i situationer där det styr anropet av dessa metoder. Den ger till exempel dessa garantier för de metod anrop som utförs som svar på en klientbegäran, samt för återanrop till timer och påminnelser. Men om aktörs koden direkt anropar dessa metoder utanför de mekanismer som tillhandahålls av aktörs körningen, kan körnings miljön inte tillhandahålla några samtidighet-garantier. Om metoden till exempel anropas i kontexten för en uppgift som inte är associerad med den uppgift som returneras av aktörs metoderna, kan körnings miljön inte tillhandahålla samtidighets garantier. Om metoden anropas från en tråd som aktören skapar på egen hand kan inte körningen heller tillhandahålla samtidighets garantier. För att du ska kunna utföra bakgrunds åtgärder bör därför aktörerna använda [aktörens timers och aktörs påminnelser](service-fabric-reliable-actors-timers-reminders.md) som respekterar en turn samtidighet.
+### <a name="scope-of-concurrency-guarantees"></a>Omfattningen av samtidighetsgarantier
+Aktörernas körning ger dessa samtidighetsgarantier i situationer där den kontrollerar åkallan av dessa metoder. Det ger till exempel dessa garantier för metodanrop som görs som svar på en klientbegäran, samt för timer- och påminnelseåterkallelser. Men om aktörskoden direkt anropar dessa metoder utanför de mekanismer som tillhandahålls av Actors-körningen, kan körningen inte ge några samtidiga garantier. Om metoden till exempel anropas i kontexten för en aktivitet som inte är associerad med aktiviteten som returneras av aktörsmetoderna, kan körningen inte ge samtidiga garantier. Om metoden anropas från en tråd som aktören skapar på egen hand, kan körningen inte heller ge samtidiga garantier. För att utföra bakgrundsåtgärder bör aktörer därför använda [aktörs timers och aktörspåminnelser](service-fabric-reliable-actors-timers-reminders.md) som respekterar turbaserad samtidighet.
 
 ## <a name="next-steps"></a>Nästa steg
-Kom igång genom att skapa din första Reliable Actors-tjänst:
+Kom igång genom att bygga din första tjänst för Reliable Actors:
    * [Komma igång med Reliable Actors på .NET](service-fabric-reliable-actors-get-started.md)
-   * [Komma igång med Reliable Actors i Java](service-fabric-reliable-actors-get-started-java.md)
+   * [Komma igång med Reliable Actors på Java](service-fabric-reliable-actors-get-started-java.md)
 
 <!--Image references-->
 [1]: ./media/service-fabric-reliable-actors-introduction/concurrency.png

@@ -1,6 +1,6 @@
 ---
-title: Läs in inläsningar i alla format med anpassade .NET-deserialiserare i Azure Stream Analytics
-description: I den här artikeln beskrivs Serialization-formatet och de gränssnitt som definierar anpassade .NET-deserialiserare för Azure Stream Analytics moln-och Edge-jobb.
+title: Läs indata i alla format med .NET-anpassade deserializers i Azure Stream Analytics
+description: I den här artikeln beskrivs serialiseringsformatet och gränssnitten som definierar anpassade .NET-deserialiserare för Azure Stream Analytics-moln- och kantjobb.
 author: mamccrea
 ms.author: mamccrea
 ms.reviewer: mamccrea
@@ -8,21 +8,21 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 1/28/2020
 ms.openlocfilehash: 270e9a31c28e7209cfe43ea8307b928ed3257a35
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76845255"
 ---
-# <a name="read-input-in-any-format-using-net-custom-deserializers"></a>Läs in inläsningar i alla format med anpassade .NET-deserialiserare
+# <a name="read-input-in-any-format-using-net-custom-deserializers"></a>Läs indata i valfritt format med .NET-anpassade deserializers
 
-Med anpassade deserialiserade .NET kan ditt Azure Stream Analytics jobb läsa data från format utanför de tre [inbyggda data formaten](stream-analytics-parsing-json.md). I den här artikeln beskrivs Serialization-formatet och de gränssnitt som definierar anpassade deserialiserare i .NET för Azure Stream Analytics moln-och Edge-jobb. Det finns också exempel på deserialiserare för Protocol buffer och CSV-format.
+Med .NET-anpassade deserializers kan ditt Azure Stream Analytics-jobb läsa data från format utanför de tre [inbyggda dataformaten](stream-analytics-parsing-json.md). I den här artikeln beskrivs serialiseringsformatet och gränssnitten som definierar .NET-anpassade deserializers för Azure Stream Analytics-moln- och kantjobb. Det finns också exempel deserializers för protokollbuffert och CSV-format.
 
-## <a name="net-custom-deserializer"></a>Anpassad deserialiserare för .NET
+## <a name="net-custom-deserializer"></a>.NET anpassad deserializer
 
-Följande kod exempel är de gränssnitt som definierar den anpassade deserialiseraren och implementerar `StreamDeserializer<T>`.
+Följande kodexempel är de gränssnitt som definierar `StreamDeserializer<T>`den anpassade deserializern och implementerar .
 
-`UserDefinedOperator` är Bask Lassen för alla anpassade streaming-operatörer. Den initierar `StreamingContext`, som innehåller en kontext som omfattar mekanismen för att publicera diagnostik för vilken du behöver felsöka eventuella problem med Avserialiseringen.
+`UserDefinedOperator`är basklassen för alla anpassade streamingoperatörer. Det initierar `StreamingContext`, vilket ger sammanhang som innehåller mekanism för publicering av diagnostik som du måste felsöka eventuella problem med din deserializer.
 
 ```csharp
     public abstract class UserDefinedOperator
@@ -31,21 +31,21 @@ Följande kod exempel är de gränssnitt som definierar den anpassade deserialis
     }
 ```
 
-Följande kodfragment är deserialiseringen för strömmande data. 
+Följande kodavsnitt är deserialisering för strömmande data. 
 
-Överhoppade fel ska genereras med `IStreamingDiagnostics` passerat genom `UserDefinedOperator`s initierings metod. Alla undantag behandlas som fel och deserialiseraren kommer att återskapas. Efter ett visst antal fel, kommer jobbet att hamna i fel tillstånd.
+Överhoppningsbara fel bör `IStreamingDiagnostics` avges med hjälp av att skickas genom `UserDefinedOperator`'s Initialize-metoden. Alla undantag behandlas som fel och deserializer kommer att återskapas. Efter ett visst antal fel går jobbet till en misslyckad status.
 
-`StreamDeserializer<T>` deserialiserar en data ström till objekt av typen `T`. Följande villkor måste vara uppfyllda:
+`StreamDeserializer<T>`deserialiserar en ström till `T`objekt av typen . Följande villkor skall vara uppfyllda:
 
-1. T är en klass eller en struktur.
+1. T är en klass eller en struct.
 1. Alla offentliga fält i T är antingen
-    1. En av [SByte-, byte-, Short-, ushort-, int-, uint-, Long-, DateTime-, String-, Float-, Double]-eller deras null-motsvarigheter.
-    1. En annan struct eller klass som följer samma regler.
-    1. Matris av typen `T2` som följer samma regler.
+    1. En av [sbyte, byte, kort, ushort, int, uint, lång, DateTime, sträng, flyta, dubbel] eller deras nullable motsvarigheter.
+    1. En annan struktur eller klass som följer samma regler.
+    1. Matris av `T2` typ som följer samma regler.
     1. IList`T2` där T2 följer samma regler.
-    1. Saknar rekursiva typer.
+    1. Har inga rekursiva typer.
 
-Parametern `stream` är den data ström som innehåller det serialiserade objektet. `Deserialize` returnerar en samling `T` instanser.
+Parametern `stream` är den ström som innehåller det serialiserade objektet. `Deserialize`returnerar en `T` samling instanser.
 
 ```csharp
     public abstract class StreamDeserializer<T> : UserDefinedOperator
@@ -54,7 +54,7 @@ Parametern `stream` är den data ström som innehåller det serialiserade objekt
     }
 ```
 
-`StreamingContext` innehåller en kontext som innehåller mekanismen för att publicera diagnostik för användar operatörer.
+`StreamingContext`tillhandahåller sammanhang som innehåller en mekanism för publicering av diagnostik för användaroperator.
 
 ```csharp
     public abstract class StreamingContext
@@ -63,13 +63,13 @@ Parametern `stream` är den data ström som innehåller det serialiserade objekt
     }
 ```
 
-`StreamingDiagnostics` är diagnostiken för användardefinierade operatorer inklusive serialiserare, deserialiserare och användardefinierade funktioner.
+`StreamingDiagnostics`är diagnostiken för användardefinierade operatorer, inklusive serialiserare, deserializer och användardefinierade funktioner.
 
-`WriteError` skriver ett fel meddelande till diagnostikloggar och skickar felet till diagnostik.
+`WriteError`skriver ett felmeddelande till diagnostikloggar och skickar felet till diagnostik.
 
-`briefMessage` är ett kort fel meddelande. Det här meddelandet visas i diagnostik och används av produkt teamet för fel sökning. Ta inte med känslig information och se till att meddelandet innehåller färre än 200 tecken
+`briefMessage`är ett kort felmeddelande. Det här meddelandet visas i diagnostik och används av produktteamet för felsökning. Ta inte med känslig information och behåll meddelandet mindre än 200 tecken
 
-`detailedMessage` är ett detaljerat fel meddelande som bara läggs till i dina diagnostikloggar i din lagring. Det här meddelandet bör innehålla färre än 2000 tecken.
+`detailedMessage`är ett detaljerat felmeddelande som bara läggs till i dina diagnostikloggar i ditt lagringsutrymme. Det här meddelandet bör vara mindre än 2000 tecken.
 
 ```csharp
     public abstract class StreamingDiagnostics
@@ -80,13 +80,13 @@ Parametern `stream` är den data ström som innehåller det serialiserade objekt
 
 ## <a name="deserializer-examples"></a>Exempel på deserialiserare
 
-I det här avsnittet visas hur du skriver anpassade deserialiserare för protobuf och CSV. Fler exempel, till exempel AVRO-format för Event Hub-insamling, finns [på Azure Stream Analytics på GitHub](https://github.com/Azure/azure-stream-analytics/tree/master/CustomDeserializers).
+I det här avsnittet visas hur du skriver anpassade deserializers för Protobuf och CSV. Ytterligare exempel, till exempel AVRO-format för Event Hub Capture, finns i [Azure Stream Analytics på GitHub](https://github.com/Azure/azure-stream-analytics/tree/master/CustomDeserializers).
 
-### <a name="protocol-buffer-protobuf-format"></a>Protobuf-format (Protocol buffer)
+### <a name="protocol-buffer-protobuf-format"></a>Format för protokollbuffert (Protobuf)
 
-Detta är ett exempel som använder Protocol buffer format.
+Det här är ett exempel med hjälp av protokollbuffertformat.
 
-Antag följande Protocol buffer definition.
+Anta följande definition av protokollbuffert.
 
 ```proto
 syntax = "proto3";
@@ -112,9 +112,9 @@ message MessageBodyProto {
 }
 ```
 
-Om du kör `protoc.exe` från **Google. protobuf. Tools** -NuGet skapas en. CS-fil med definitionen. Den genererade filen visas inte här.
+Om `protoc.exe` du kör från **Google.Protobuf.Tools** NuGet genereras en CS-fil med definitionen. Den genererade filen visas inte här.
 
-Följande kodfragment är deserialiserings-implementeringen som förutsätter att den genererade filen ingår i projektet. Den här implementeringen är bara en tunn omslutning över den genererade filen.
+Följande kodavsnitt är deserializer-implementeringen förutsatt att den genererade filen ingår i projektet. Denna implementering är bara ett tunt omslag över den genererade filen.
 
 ```csharp
     public class MessageBodyDeserializer : StreamDeserializer<SimulatedTemperatureSensor.MessageBodyProto>
@@ -135,7 +135,7 @@ Följande kodfragment är deserialiserings-implementeringen som förutsätter at
 
 ### <a name="csv"></a>CSV
 
-Följande kodfragment är en enkel CSV-deserialiserare som också visar spridnings fel.
+Följande kodavsnitt är en enkel CSV-deserializer som också visar spridningsfel.
 
 ```csharp
 using System.Collections.Generic;
@@ -198,11 +198,11 @@ namespace ExampleCustomCode.Serialization
 
 ```
 
-## <a name="serialization-format-for-rest-apis"></a>Serialization-format för REST API: er
+## <a name="serialization-format-for-rest-apis"></a>Serialiseringsformat för REST-API:er
 
-Alla Stream Analytics-indatatyper har ett **serialiserings-format**. För ytterligare information om indata-alternativ, se REST API dokumentation om [indata](https://docs.microsoft.com/rest/api/streamanalytics/stream-analytics-input) .
+Varje Stream Analytics-indata har ett **serialiseringsformat**. Mer information om inmatningsalternativ finns i dokumentationen [för INgående REST API.](https://docs.microsoft.com/rest/api/streamanalytics/stream-analytics-input)
 
-Följande JavaScript-kod är ett exempel på formatet .NET deserialiserare när du använder REST API:
+Följande Javascript-kod är ett exempel på serialiseringsformatet .NET deserializer när REST API:et ska användas:
 
 ```javascript
 {    
@@ -219,9 +219,9 @@ Följande JavaScript-kod är ett exempel på formatet .NET deserialiserare när 
 }  
 ```
 
-`serializationClassName` ska vara en klass som implementerar `StreamDeserializer<T>`. Detta beskrivs i följande avsnitt.
+`serializationClassName`bör vara en klass `StreamDeserializer<T>`som implementerar . Detta beskrivs i följande avsnitt.
 
-## <a name="region-support"></a>Regions stöd
+## <a name="region-support"></a>Stöd för regionen
 
 Den här funktionen är tillgänglig i följande regioner:
 
@@ -234,20 +234,20 @@ Den här funktionen är tillgänglig i följande regioner:
 
 Du kan [begära stöd](https://aka.ms/ccodereqregion) för ytterligare regioner.
 
-## <a name="frequently-asked-questions"></a>Vanliga frågor
+## <a name="frequently-asked-questions"></a>Vanliga frågor och svar
 
-### <a name="when-will-this-feature-be-available-in-all-azure-regions"></a>När kommer den här funktionen vara tillgänglig i alla Azure-regioner?
+### <a name="when-will-this-feature-be-available-in-all-azure-regions"></a>När är den här funktionen tillgänglig i alla Azure-regioner?
 
-Den här funktionen är tillgänglig i [6 regioner](https://docs.microsoft.com/azure/stream-analytics/custom-deserializer-examples#region-support). Om du är intresse rad av att använda den här funktionen i en annan region kan du [skicka en begäran](https://aka.ms/ccodereqregion). Support för alla Azure-regioner finns i översikten.
+Den här funktionen är tillgänglig i [6 regioner](https://docs.microsoft.com/azure/stream-analytics/custom-deserializer-examples#region-support). Om du är intresserad av att använda den här funktionen i en annan region kan du [skicka en begäran](https://aka.ms/ccodereqregion). Stöd för alla Azure-regioner finns i översikten.
 
-### <a name="can-i-access-metadatapropertyvalue-from-my-inputs-similar-to-getmetadatapropertyvalue-function"></a>Kan jag få åtkomst till MetadataPropertyValue från mina indata som liknar funktionen GetMetadataPropertyValue?
+### <a name="can-i-access-metadatapropertyvalue-from-my-inputs-similar-to-getmetadatapropertyvalue-function"></a>Kan jag komma åt MetadataPropertyValue från mina indata som liknar GetMetadataPropertyValue-funktionen?
 
-Den här funktionen stöds inte. Om du behöver den här funktionen kan du rösta på den här begäran på [UserVoice](https://feedback.azure.com/forums/270577-stream-analytics/suggestions/38779801-accessing-input-metadata-properties-in-custom-dese).
+Den här funktionen stöds inte. Om du behöver den här funktionen kan du rösta för den här begäran på [UserVoice](https://feedback.azure.com/forums/270577-stream-analytics/suggestions/38779801-accessing-input-metadata-properties-in-custom-dese).
 
-### <a name="can-i-share-my-deserializer-implementation-with-the-community-so-that-others-can-benefit"></a>Kan jag dela min avserialiserings implementering med-gruppen så att andra kan dra nytta av dem?
+### <a name="can-i-share-my-deserializer-implementation-with-the-community-so-that-others-can-benefit"></a>Kan jag dela min deserializer implementering med communityn så att andra kan dra nytta av det?
 
-När du har implementerat deserialiseraren kan du hjälpa andra genom att dela den med communityn. Skicka in din kod till [Azure Stream Analytics GitHub-lagrings platsen](https://github.com/Azure/azure-stream-analytics/tree/master/CustomDeserializers).
+När du har implementerat din deserializer kan du hjälpa andra genom att dela den med communityn. Skicka in koden till [Azure Stream Analytics GitHub repo](https://github.com/Azure/azure-stream-analytics/tree/master/CustomDeserializers).
 
 ## <a name="next-steps"></a>Efterföljande moment
 
-* [.NET-anpassade deserialiserare för Azure Stream Analytics moln jobb](custom-deserializer.md)
+* [.NET-anpassade deserializers för Azure Stream Analytics-molnjobb](custom-deserializer.md)

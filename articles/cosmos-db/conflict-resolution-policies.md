@@ -1,6 +1,6 @@
 ---
-title: Konflikt lösnings typer och lösnings principer i Azure Cosmos DB
-description: I den här artikeln beskrivs de olika kategorierna och konflikt lösnings principerna i Azure Cosmos DB.
+title: Konfliktlösningstyper och lösningsprinciper i Azure Cosmos DB
+description: I den här artikeln beskrivs konfliktkategorier och konfliktlösningsprinciper i Azure Cosmos DB.
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
@@ -8,48 +8,48 @@ ms.date: 08/05/2019
 ms.author: mjbrown
 ms.reviewer: sngun
 ms.openlocfilehash: a8ee72f46e1789088e779c10a0824262469ffde8
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75441992"
 ---
 # <a name="conflict-types-and-resolution-policies"></a>Konflikttyper och matchningsprinciper
 
-Konflikter och principer för konflikt lösning gäller om ditt Azure Cosmos DB-konto har kon figurer ATS med flera Skriv regioner.
+Konflikt- och konfliktlösningsprinciper gäller om ditt Azure Cosmos DB-konto är konfigurerat med flera skrivregioner.
 
-För Azure Cosmos-konton som kon figurer ATS med flera Skriv regioner kan uppdaterings konflikter uppstå när skribenter uppdaterar samma objekt i flera regioner samtidigt. Uppdaterings konflikter kan vara av följande tre typer:
+För Azure Cosmos-konton som konfigurerats med flera skrivregioner kan uppdateringskonflikter uppstå när författare samtidigt uppdaterar samma objekt i flera regioner. Uppdateringskonflikter kan vara av följande tre typer:
 
-* **Infognings konflikter**: dessa konflikter kan uppstå när ett program infogar två eller flera objekt samtidigt med samma unika index i två eller flera regioner. Den här konflikten kan till exempel inträffa med en ID-egenskap.
+* **Infoga konflikter**: Dessa konflikter kan uppstå när ett program infogar två eller flera objekt samtidigt med samma unika index i två eller flera regioner. Den här konflikten kan till exempel uppstå med en ID-egenskap.
 
-* **Ersätt konflikter**: dessa konflikter kan uppstå när ett program uppdaterar samma objekt samtidigt i två eller flera regioner.
+* **Ersätt konflikter**: Dessa konflikter kan uppstå när ett program uppdaterar samma objekt samtidigt i två eller flera regioner.
 
-* **Ta bort konflikter**: dessa konflikter kan uppstå när ett program samtidigt tar bort ett objekt i en region och uppdaterar det i en annan region.
+* **Ta bort konflikter**: Dessa konflikter kan uppstå när ett program samtidigt tar bort ett objekt i en region och uppdaterar det i en annan region.
 
 ## <a name="conflict-resolution-policies"></a>Konfliktlösningsprinciper
 
-Azure Cosmos DB erbjuder en flexibel princip driven mekanism för att lösa Skriv konflikter. Du kan välja mellan två principer för konflikt lösning på en Azure Cosmos-behållare:
+Azure Cosmos DB erbjuder en flexibel principdriven mekanism för att lösa skrivkonflikter. Du kan välja mellan två konfliktlösningsprinciper på en Azure Cosmos-behållare:
 
-* **Senaste Skriv WINS (LWW)** : den här lösnings principen använder som standard en systemdefinierad timestamp-egenskap. Den baseras på Time-Synchronize Clock-protokollet. Om du använder SQL-API: et kan du ange andra anpassade numeriska egenskaper (t. ex. det egna begreppet tidstämpel) som ska användas för konflikt lösning. En anpassad numerisk egenskap kallas även för *konflikt lösnings Sök vägen*. 
+* **Senaste skriv wins (LWW)**: Den här lösningsprincipen använder som standard en systemdefinierad tidsstämpelegenskap. Det är baserat på tidssynkroniseringsprotokollet. Om du använder SQL API kan du ange vilken annan anpassad numerisk egenskap som helst (t.ex. din egen uppfattning om en tidsstämpel) som ska användas för konfliktlösning. En anpassad numerisk egenskap kallas också *konfliktlösningssökvägen*. 
 
-  Om två eller flera objekt står i konflikt med åtgärderna Infoga eller Ersätt, blir objektet med det högsta värdet för matchnings Sök vägen för konflikten den vinnare. Systemet fastställer vinnare om flera objekt har samma numeriska värde för matchnings Sök vägen för konflikten. Alla regioner är garanterat konvergerade till en enda vinnare och har samma version av det allokerade objektet. När borttagnings konflikter är inblandade är den borttagna versionen alltid WINS över antingen infoga eller Ersätt konflikter. Detta inträffar oavsett vad värdet för konflikt lösnings Sök vägen är.
-
-  > [!NOTE]
-  > Senaste Skriv-WINS är standard lösnings principen för konflikt lösning och använder tidsstämpel-`_ts` för följande API: er: SQL, MongoDB, Cassandra, Gremlin och Table. Anpassad numerisk egenskap är endast tillgänglig för SQL API.
-
-  Läs mer i [exempel som använder LWW konflikt lösnings principer](how-to-manage-conflicts.md).
-
-* **Anpassad**: den här lösnings principen är utformad för programdefinierade semantik för avstämning av konflikter. När du ställer in den här principen på din Azure Cosmos-behållare måste du också registrera en *lagrad lagrad procedur*. Den här proceduren anropas automatiskt när konflikter identifieras under en databas transaktion på servern. Systemet innehåller exakt en gång garanterar för körning av en merge-procedur som en del av protokollet åtagande.  
-
-  Om du konfigurerar din behållare med alternativet för anpassad upplösning och du inte kan registrera en sammanfognings procedur på behållaren eller om sammanfognings proceduren genererar ett undantag vid körningen, skrivs konflikterna till den *konflikter*som uppstår. Ditt program måste sedan manuellt lösa konflikterna i den motstridiga feeden. Mer information finns i [exempel på hur du använder den anpassade lösnings principen och hur du använder den här feeden](how-to-manage-conflicts.md).
+  Om två eller flera objekt står i konflikt vid infognings- eller ersättningsåtgärder blir objektet med det högsta värdet för konfliktlösningsvägen vinnaren. Systemet avgör vinnaren om flera objekt har samma numeriska värde för konfliktlösningsvägen. Alla regioner är garanterade att konvergera till en enda vinnare och sluta med samma version av det infästa objektet. När det är inblandade i borttagningskonflikter vinner den borttagna versionen alltid över antingen infoga eller ersätta konflikter. Det här resultatet inträffar oavsett värdet på konfliktlösningsvägen.
 
   > [!NOTE]
-  > Anpassad lösning för konflikt lösning är endast tillgängligt för SQL API-konton.
+  > Senaste skriv wins är standard konfliktlösningsprincipen `_ts` och använder tidsstämpel för följande API:er: SQL, MongoDB, Cassandra, Gremlin och Table. Anpassad numerisk egenskap är endast tillgänglig för SQL API.
+
+  Mer information finns i [exempel som använder LWW konfliktlösningsprinciper](how-to-manage-conflicts.md).
+
+* **Anpassad**: Den här lösningsprincipen är utformad för programdefinierad semantik för avstämning av konflikter. När du anger den här principen för din Azure Cosmos-behållare måste du också registrera en *kopplad lagrad procedur*. Den här proceduren anropas automatiskt när konflikter upptäcks under en databastransaktion på servern. Systemet ger exakt en gång garanti för genomförandet av ett sammanfogningsförfarande som en del av åtagandeprotokollet.  
+
+  Om du konfigurerar behållaren med alternativet anpassad upplösning och du inte kan registrera en kopplingsprocedur på behållaren eller så genererar kopplingsproceduren ett undantag vid körning, skrivs konflikterna till *konfliktflödet*. Programmet måste sedan lösa konflikterna manuellt i konfliktflödet. Mer information finns [i exempel på hur du använder principen om anpassad lösning och hur du använder konfliktflödet](how-to-manage-conflicts.md).
+
+  > [!NOTE]
+  > Anpassad konfliktlösningsprincip är endast tillgänglig för SQL API-konton.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig hur du konfigurerar principer för konflikt lösning:
+Lär dig hur du konfigurerar konfliktlösningsprinciper:
 
-* [Så här konfigurerar du flera huvud i dina program](how-to-multi-master.md)
-* [Hantera principer för konflikt lösning](how-to-manage-conflicts.md)
-* [Läsa från feeden för konflikter](how-to-manage-conflicts.md#read-from-conflict-feed)
+* [Konfigurera multi-master i dina program](how-to-multi-master.md)
+* [Så här hanterar du konfliktlösningsprinciper](how-to-manage-conflicts.md)
+* [Så här läser du från konfliktflödet](how-to-manage-conflicts.md#read-from-conflict-feed)

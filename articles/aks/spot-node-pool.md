@@ -1,6 +1,6 @@
 ---
-title: För hands version – Lägg till en adresspool för en plats i ett Azure Kubernetes service-kluster (AKS)
-description: Lär dig hur du lägger till en adresspool för en plats i ett Azure Kubernetes service-kluster (AKS).
+title: Preview - Lägga till en punktnodpool i ett AKS-kluster (Azure Kubernetes Service)
+description: Lär dig hur du lägger till en spotnodpool i ett AKS-kluster (Azure Kubernetes Service).
 services: container-service
 author: zr-msft
 ms.service: container-service
@@ -8,66 +8,66 @@ ms.topic: article
 ms.date: 02/25/2020
 ms.author: zarhoads
 ms.openlocfilehash: 466ad7c88547b6676ba0ae263b74d14059322f1c
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77622047"
 ---
-# <a name="preview---add-a-spot-node-pool-to-an-azure-kubernetes-service-aks-cluster"></a>För hands version – Lägg till en adresspool för en plats i ett Azure Kubernetes service-kluster (AKS)
+# <a name="preview---add-a-spot-node-pool-to-an-azure-kubernetes-service-aks-cluster"></a>Preview - Lägga till en punktnodpool i ett AKS-kluster (Azure Kubernetes Service)
 
-En adresspool för plats är en resurspool som backas upp av en [skalnings uppsättning för en virtuell dator][vmss-spot]. Genom att använda virtuella dator datorer för noder med ditt AKS-kluster kan du dra nytta av outnyttjad kapacitet i Azure till en betydande kostnads besparingar. Mängden tillgänglig outnyttjad kapacitet kan variera beroende på många faktorer, inklusive Node-storlek, region och tid på dagen.
+En punktnodpool är en nodpool som backas upp av en [skalan för en dekor virtuell dator.][vmss-spot] Genom att använda spot-datorer för noder med AKS-klustret kan du dra nytta av outnyttjad kapacitet i Azure till en betydande kostnadsbesparingar. Mängden tillgänglig outnyttjad kapacitet varierar beroende på många faktorer, inklusive nodstorlek, region och tid på dagen.
 
-När du distribuerar en adresspool, allokerar Azure dekor noderna om det finns tillgänglig kapacitet. Men det finns inget service avtal för de här plats-noderna. En punkt skalnings uppsättning som backar upp lagringspoolen distribueras i en enskild feldomän och ger inga garantier för hög tillgänglighet. När som helst när Azure behöver kapaciteten tillbaka, tar Azure-infrastrukturen bort dekor noder.
+När du distribuerar en spotnodpool allokerar Azure spotnoderna om det finns tillgänglig kapacitet. Men det finns inget serviceavtal för spotnoderna. En punktskalauppsättning som stöder spotnodpoolen distribueras i en enda feldomän och inte erbjuder några höga tillgänglighetsgarantier. När som helst när Azure behöver tillbaka kapaciteten kommer Azure-infrastrukturen att ta bort spotnoder.
 
-Dekor noder är fantastiska för arbets belastningar som kan hantera avbrott, tidiga uppsägningar eller avvisningar. Till exempel kan arbets belastningar som batch-bearbetning av jobb, utvecklings-och testnings miljöer och stora beräknings arbets belastningar vara bra för att schemaläggas på en Node-pool.
+Spotnoder är bra för arbetsbelastningar som kan hantera avbrott, tidiga uppsägningar eller vräkningar. Arbetsbelastningar som batchbearbetningsjobb, utvecklings- och testmiljöer och stora beräkningsarbetsbelastningar kan till exempel vara bra kandidater som ska schemaläggas på en spotnodpool.
 
-I den här artikeln lägger du till en sekundär Node-adresspool i ett befintligt Azure Kubernetes service-kluster (AKS).
+I den här artikeln lägger du till en sekundär punktnodpool i ett befintligt AKS-kluster (Azure Kubernetes Service).
 
-Den här artikeln förutsätter grundläggande kunskaper om Kubernetes och Azure Load Balancer koncept. Mer information finns i [Kubernetes Core Concepts for Azure Kubernetes service (AKS)][kubernetes-concepts].
+Den här artikeln förutsätter en grundläggande förståelse av kubernetes och Azure Load Balancer begrepp. Mer information finns i [Viktiga koncept för Azure Kubernetes Service (AKS)][kubernetes-concepts].
 
 Den här funktionen är för närvarande en förhandsversion.
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
-När du skapar ett kluster för att använda en adresspool, måste klustret också använda Virtual Machine Scale Sets för Node-pooler och *standard* -SKU-belastningsutjämnaren. Du måste också lägga till ytterligare en Node-pool när du har skapat klustret för att använda en resurspool för en plats. Att lägga till ytterligare en Node-pool beskrivs i ett senare steg, men du måste först aktivera en för hands versions funktion.
+När du skapar ett kluster för att använda en dekornodpool måste det klustret också använda skalningsuppsättningar för virtuell dator för nodpooler och *standard* SKU-belastningsutjämnaren. Du måste också lägga till ytterligare en nodpool när du har skapat klustret för att använda en punktnodpool. Att lägga till ytterligare en nodpool täcks i ett senare steg, men du måste först aktivera en förhandsgranskningsfunktion.
 
 > [!IMPORTANT]
-> AKS för hands versions funktionerna är självbetjänings-och deltagande. De erbjuds att samla in feedback och buggar från vår community. I för hands versionen är dessa funktioner inte avsedda att användas för produktion. Funktioner i offentlig för hands version har stöd för bästa prestanda. Hjälp från AKS Technical Support Teams är endast tillgängligt under kontors tid Pacific-timezone (PST). Mer information finns i följande support artiklar:
+> AKS-förhandsgranskningsfunktioner är självbetjäning, opt-in. De tillhandahålls för att samla in feedback och buggar från vårt samhälle. I förhandsversion är dessa funktioner inte avsedda för produktionsanvändning. Funktioner i offentlig förhandsversion faller under "bästa möjliga" stöd. Hjälp från AKS tekniska supportteam är endast tillgänglig under kontorstid stillahavstid (PST). Mer information finns i följande supportartiklar:
 >
-> * [Support principer för AKS][aks-support-policies]
-> * [Vanliga frågor och svar om support för Azure][aks-faq]
+> * [Aks-supportpolicyer][aks-support-policies]
+> * [Vanliga frågor och svar om Azure-support][aks-faq]
 
-### <a name="register-spotpoolpreview-preview-feature"></a>Registrera spotpoolpreview Preview-funktion
+### <a name="register-spotpoolpreview-preview-feature"></a>Registrera förhandsgranskningsfunktionen för spotpoolpreview
 
-Om du vill skapa ett AKS-kluster som använder en Node-adresspool måste du aktivera funktions flaggan *spotpoolpreview* i din prenumeration. Den här funktionen ger den senaste uppsättningen tjänst förbättringar när du konfigurerar ett kluster.
+Om du vill skapa ett AKS-kluster som använder en punktnodpool måste du aktivera flaggan *för spotpoolpreview-funktioner* i din prenumeration. Den här funktionen innehåller den senaste uppsättningen serviceförbättringar när du konfigurerar ett kluster.
 
 > [!CAUTION]
-> När du registrerar en funktion på en prenumeration kan du för närvarande inte avregistrera funktionen. När du har aktiverat vissa för hands versions funktioner kan standarderna användas för alla AKS-kluster och sedan skapas i prenumerationen. Aktivera inte för hands versions funktioner för produktions prenumerationer. Använd en separat prenumeration för att testa för hands versions funktionerna och samla in feedback.
+> När du registrerar en funktion på en prenumeration kan du för närvarande inte registrera den funktionen. När du har aktiverat vissa förhandsversionsfunktioner kan standardvärden användas för alla AKS-kluster som sedan skapas i prenumerationen. Aktivera inte förhandsgranskningsfunktioner på produktionsprenumerationer. Använd en separat prenumeration för att testa förhandsgranskningsfunktioner och samla in feedback.
 
-Registrera funktions flaggan *spotpoolpreview* med [funktions registrerings kommandot AZ][az-feature-register] som visas i följande exempel:
+Registrera flaggan *spotpoolpreview-funktion* med kommandot [az-funktionsregister][az-feature-register] som visas i följande exempel:
 
 ```azurecli-interactive
 az feature register --namespace "Microsoft.ContainerService" --name "spotpoolpreview"
 ```
 
-Det tar några minuter för statusen att visa *registrerad*. Du kan kontrol lera registrerings statusen med hjälp av kommandot [AZ feature list][az-feature-list] :
+Det tar några minuter innan statusen *visas.* Du kan kontrollera registreringsstatus med kommandot [az-funktionslista:][az-feature-list]
 
 ```azurecli-interactive
 az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/spotpoolpreview')].{Name:name,State:properties.state}"
 ```
 
-När du är klar uppdaterar du registreringen av resurs leverantören *Microsoft. container service* med hjälp av [AZ Provider register][az-provider-register] kommando:
+När du är klar uppdaterar du registreringen av *Microsoft.ContainerService-resursprovidern* med kommandot [az provider register:][az-provider-register]
 
 ```azurecli-interactive
 az provider register --namespace Microsoft.ContainerService
 ```
 
-### <a name="install-aks-preview-cli-extension"></a>Installera AKS-Preview CLI-tillägg
+### <a name="install-aks-preview-cli-extension"></a>Installera CLI-tillägg för förhandsversion
 
-Om du vill skapa ett AKS-kluster som använder en Node-adresspool, behöver du *AKS-Preview CLI-* tillägget version 0.4.32 eller högre. Installera *AKS-Preview* Azure CLI-tillägget med kommandot [AZ Extension Add][az-extension-add] och Sök efter eventuella tillgängliga uppdateringar med kommandot [AZ Extension Update][az-extension-update] :
+Om du vill skapa ett AKS-kluster som använder en dekornodpool behöver du *CLI-tilläggsversionen* 0.4.32 eller senare. Installera Azure *CLI-tillägget aks-preview* med kommandot [az extension add][az-extension-add] och sök sedan efter tillgängliga uppdateringar med kommandot az extension [update:][az-extension-update]
 
 ```azurecli-interactive
 # Install the aks-preview extension
@@ -79,22 +79,22 @@ az extension update --name aks-preview
 
 ### <a name="limitations"></a>Begränsningar
 
-Följande begränsningar gäller när du skapar och hanterar AKS-kluster med en adresspool för en plats:
+Följande begränsningar gäller när du skapar och hanterar AKS-kluster med en punktnodpool:
 
-* En adresspool för en plats kan inte vara klustrets standardnode-pool. En adresspool för en plats kan bara användas för en sekundär pool.
-* Du kan inte uppgradera en adresspool för en resurspool eftersom det inte går att garantera Cordon och tömma noden. Du måste ersätta din befintliga Node-adresspool med en ny för att utföra åtgärder som att uppgradera Kubernetes-versionen. Om du vill ersätta en adresspool för flera noder skapar du en ny Kubernetes med en annan version av, väntar tills dess status är *klar*och tar sedan bort den gamla noden.
-* Det går inte att uppgradera kontroll planet och Node-pooler samtidigt. Du måste uppgradera dem separat eller ta bort noden för att kunna uppgradera kontroll planet och återstående noder på samma tid.
-* En Node-pool måste använda Virtual Machine Scale Sets.
+* En spotnodpool kan inte vara klustrets standardnodpool. En punktnodpool kan bara användas för en sekundär pool.
+* Du kan inte uppgradera en spotnodpool eftersom dekornodpooler inte kan garantera avspärrning och avlopp. Du måste ersätta din befintliga spotnodpool med en ny för att kunna utföra åtgärder, till exempel uppgradera Kubernetes-versionen. Om du vill ersätta en spotnodpool skapar du en ny spotnodpool med en annan version av Kubernetes, väntar tills dess status är *Klar*och tar sedan bort den gamla nodpoolen.
+* Kontrollplanet och nodpoolerna kan inte uppgraderas samtidigt. Du måste uppgradera dem separat eller ta bort spotnodpoolen för att uppgradera kontrollplanet och återstående nodpooler samtidigt.
+* En dekornodspool måste använda skaluppsättningar för virtuella datorer.
 * Du kan inte ändra ScaleSetPriority eller SpotMaxPrice när du har skapat.
-* När du anger SpotMaxPrice måste värdet vara-1 eller ett positivt värde med upp till fem decimaler.
-* En kubernetes.azure.com/scalesetpriority:spot har etiketten, *Kubernetes.Azure.com/scalesetpriority=spot:NoSchedule*och system poddar har anti-tillhörighet.
-* Du måste lägga till en [motsvarande tolererande][spot-toleration] för att schemalägga arbets belastningar på en resurspool för en plats.
+* När spotmaxprice ställs in måste värdet vara -1 eller ett positivt värde med upp till fem decimaler.
+* En spotnodpool har etiketten *kubernetes.azure.com/scalesetpriority:spot,* den *kubernetes.azure.com/scalesetpriority=spot:NoSchedule*och systemkapslar har anti-affinitet.
+* Du måste lägga till en [motsvarande tolerans för att][spot-toleration] schemalägga arbetsbelastningar på en spotnodpool.
 
-## <a name="add-a-spot-node-pool-to-an-aks-cluster"></a>Lägga till en adresspool för en plats i ett AKS-kluster
+## <a name="add-a-spot-node-pool-to-an-aks-cluster"></a>Lägga till en punktnodpool i ett AKS-kluster
 
-Du måste lägga till en adresspool för en plats i ett befintligt kluster som har flera aktiverade noder. Mer information om hur du skapar ett AKS-kluster med flera noder finns [här][use-multiple-node-pools].
+Du måste lägga till en punktnodpool i ett befintligt kluster som har flera nodpooler aktiverade. Mer information om hur du skapar ett AKS-kluster med flera nodpooler finns [här][use-multiple-node-pools].
 
-Skapa en Node-pool med hjälp av [AZ AKS nodepool Add][az-aks-nodepool-add].
+Skapa en nodpool med [az aks-nodpoolen][az-aks-nodepool-add]add .
 ```azurecli-interactive
 az aks nodepool add \
     --resource-group myResourceGroup \
@@ -109,24 +109,24 @@ az aks nodepool add \
     --no-wait
 ```
 
-Som standard skapar du en Node-pool med en *prioritet* som är *vanlig* i ditt AKS-kluster när du skapar ett kluster med flera noder i pooler. Kommandot ovan lägger till en extra Node-pool i ett befintligt AKS-kluster med en *prioritet* på *plats*. *Prioriteten* för *dekor* gör Node-poolen till en plats för Node. Parametern Delete *-policy* är inställd på *ta bort* i exemplet ovan, vilket är standardvärdet. När du *anger borttagnings* [principen][eviction-policy] tas noderna i den underliggande skalnings uppsättningen i noden bort när de avlägsnas. Du kan också ange att principen för borttagning skafrigöras. När du ställer in principen för att *frigöra*, anges noder i den underliggande skalnings uppsättningen till stoppad-frigjord-tillstånd vid borttagning. Noder i det stoppade-friallokerade tillstånds antalet mot din beräknings kvot och kan orsaka problem med kluster skalning eller uppgradering. *Prioriteten* och *avtagningen – princip* värden kan bara anges när du skapar en resurspool. Dessa värden kan inte uppdateras senare.
+Som standard skapar du en nodpool med *prioriteten* *Normal* i AKS-klustret när du skapar ett kluster med flera nodpooler. Kommandot ovan lägger till en hjälpnodspool i ett befintligt AKS-kluster med *prioriteten* *Spot*. *Prioriteten* *för Spot* gör nodpoolen till en spotnodpool. Parametern *vräkning-princip* är inställd på *Ta bort* i exemplet ovan, vilket är standardvärdet. När du anger att [vräkningsprincipen][eviction-policy] ska *tas bort*tas noder i den underliggande skalningsuppsättningen för nodpoolen bort när de vräkas. Du kan också ställa in vräkningsprincipen till *Deallocate*. När du ställer in vräkningsprincipen till *Deallocate*anges noder i den underliggande skalningsuppsättningen till tillståndet stoppad deallocated vid vräkning. Noder i tillståndet stoppad deallocated mot beräkningskvoten och kan orsaka problem med klusterskalning eller uppgradering. *Prioritets-* och *vräkningsprincipvärdena* kan bara anges när nodpoolen skapas. Dessa värden kan inte uppdateras senare.
 
-Kommandot aktiverar också [klustrets autoskalning][cluster-autoscaler], vilket rekommenderas att användas med resurspooler för plats-noder. Med hjälp av de arbets belastningar som körs i klustret skalar klustret autoskalning upp och skalar upp antalet noder i Node-poolen. För resurspooler för flera noder skalar klustret autoskalning upp antalet noder efter en avtagning om ytterligare noder fortfarande behövs. Om du ändrar det maximala antalet noder som en Node-pool kan ha måste du också justera `maxCount`-värdet som är associerat med klustrets autoskalning. Om du inte använder en kluster autoskalning, vid borttagning, kommer lagringspoolen att minska till noll och kräver en manuell åtgärd för att ta emot ytterligare noder.
+Kommandot aktiverar också [kluster automatisk skalbar][cluster-autoscaler], som rekommenderas att använda med dekornodpooler. Baserat på arbetsbelastningarna som körs i klustret skalas klusterautomaten upp och skalar ned antalet noder i nodpoolen. För spotnodpooler skalar klusterautomatiskskalning upp antalet noder efter en vräkning om ytterligare noder fortfarande behövs. Om du ändrar det maximala antalet noder som en nodpool kan ha måste du också justera `maxCount` värdet som är associerat med klusterautomatskalningen. Om du inte använder en automatisk skalning av kluster minskar platspoolen så småningom till noll och kräver en manuell åtgärd för att ta emot ytterligare spotnoder.
 
 > [!Important]
-> Schemalägg bara arbets belastningar på platsbaserade noder som kan hantera avbrott, till exempel jobb för batch-bearbetning och testnings miljöer. Vi rekommenderar att du konfigurerar färgare [och tolererar][taints-tolerations] på din plats för att se till att endast arbets belastningar som kan hantera nod-avvisningar schemaläggs på en adresspool. Till exempel kan kommandot ovan vara standard lägga till en *Kubernetes.Azure.com/scalesetpriority=spot:NoSchedule* , så att endast poddar med motsvarande tolerera är schemalagda på den här noden.
+> Schemalägg endast arbetsbelastningar på spotnodpooler som kan hantera avbrott, till exempel batchbearbetningsjobb och testmiljöer. Vi rekommenderar att du ställer in [taints och tolerations][taints-tolerations] på spotnodpoolen för att säkerställa att endast arbetsbelastningar som kan hantera nodvräkningar schemaläggs på en spotnodpool. Till exempel lägger kommandot ovan ny standard en fläck av *kubernetes.azure.com/scalesetpriority=spot:NoSchedule* så att endast poddar med motsvarande tolerans schemaläggs på den här noden.
 
-## <a name="verify-the-spot-node-pool"></a>Verifiera lagringspoolen för den här noden
+## <a name="verify-the-spot-node-pool"></a>Verifiera den punktnodspoolen
 
-Så här kontrollerar du att Node-poolen har lagts till som en adresspool för plats:
+Så här kontrollerar du att nodpoolen har lagts till som en punktnodpool:
 
 ```azurecli
 az aks nodepool show --resource-group myResourceGroup --cluster-name myAKSCluster --name spotnodepool
 ```
 
-Bekräfta att *scaleSetPriority* är *dekor*.
+Bekräfta *scaleSetPriority* är *Spot*.
 
-Om du vill schemalägga en pod som ska köras på en-nod, lägger du till ett tolererande som motsvarar den färg som används på din datornod. I följande exempel visas en del av en yaml-fil som definierar en tolererande som motsvarar en *Kubernetes.Azure.com/scalesetpriority=spot:NoSchedule* -smak som används i föregående steg.
+Om du vill schemalägga en pod som ska köras på en spotnod lägger du till en toleration som motsvarar den befläckning som tillämpas på spotnoden. I följande exempel visas en del av en yaml-fil som definierar en tolerans som motsvarar en *kubernetes.azure.com/scalesetpriority=spot:NoSchedule* behäftning som används i föregående steg.
 
 ```yaml
 spec:
@@ -140,16 +140,16 @@ spec:
    ...
 ```
 
-När en POD med denna tolerera har distribuerats kan Kubernetes schemalägga Pod på noderna med den använda bismaken.
+När en pod med den här toleransen distribueras kan Kubernetes schemalägga podden på noderna med den behäftade.
 
-## <a name="max-price-for-a-spot-pool"></a>Högsta pris för en lagringspool
-[Priser för punkt instanser är varierande][pricing-spot], baserat på region och SKU. Mer information finns i avsnittet om priser för [Linux][pricing-linux] och [Windows][pricing-windows].
+## <a name="max-price-for-a-spot-pool"></a>Max pris för en plats pool
+[Prissättningen för spotinstanser är variabel][pricing-spot], baserat på region och SKU. Mer information finns i priser för [Linux][pricing-linux] och [Windows][pricing-windows].
 
-Med varierande priser har du möjlighet att ange ett högsta pris i USD (USD) med upp till 5 decimaler. Värdet *0,98765* skulle till exempel vara ett max pris på $0,98765 USD per timme. Om du ställer in Max priset på *-1*avlägsnas instansen utifrån pris. Priset för instansen är det aktuella priset för dekor pris eller priset för en standard instans, beroende på vilket som är mindre, så länge det finns kapacitet och tillgänglig kvot.
+Med rörlig prissättning har du möjlighet att ange ett maxpris, i US-dollar (USD), med upp till 5 decimaler. Värdet *0,98765* skulle till exempel vara ett maxpris på 0,98765 USD per timme. Om du ställer in maxpriset till *-1*kommer instansen inte att vräkas baserat på pris. Priset för instansen blir det aktuella priset för Spot eller priset för en standardinstans, beroende på vilket som är lägst, så länge det finns kapacitet och kvot tillgänglig.
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här artikeln har du lärt dig hur du lägger till en adresspool för en plats i ett AKS-kluster. Mer information om hur du styr poddar över Node-pooler finns i [metod tips för avancerade funktioner i Schemaläggaren i AKS][operator-best-practices-advanced-scheduler].
+I den här artikeln lärde du dig hur du lägger till en spotnodpool i ett AKS-kluster. Mer information om hur du styr poddar över nodpooler finns [i Metodtips för avancerade schemaläggarfunktioner i AKS][operator-best-practices-advanced-scheduler].
 
 <!-- LINKS - External -->
 [kubernetes-services]: https://kubernetes.io/docs/concepts/services-networking/service/

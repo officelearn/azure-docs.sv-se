@@ -1,6 +1,6 @@
 ---
-title: Anslut till Microsoft Translator
-description: 'Översätt text och utföra andra språk uppgifter med Microsoft Translator REST-API: er och Azure Logic Apps'
+title: Ansluta till Microsoft Translator
+description: Översätta text och utföra andra språkuppgifter med Microsoft Translator REST API:er och Azure Logic Apps
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
@@ -8,20 +8,20 @@ ms.topic: article
 ms.date: 11/07/2016
 tags: connectors
 ms.openlocfilehash: ec809a897ce2579125c8797dc8c1d8c7d30a8f9c
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74789541"
 ---
-# <a name="get-started-with-the-microsoft-translator-connector"></a>Kom igång med Microsoft Translator Connector
+# <a name="get-started-with-the-microsoft-translator-connector"></a>Komma igång med Microsoft Translator-kopplingen
 
-Anslut till Microsoft Translator för att översätta text, identifiera ett språk och mycket annat. Med Microsoft Translator kan du: 
+Anslut till Microsoft Translator för att översätta text, identifiera ett språk med mera. Med Microsoft Translator kan du: 
 
-* Skapa ditt affärs flöde baserat på de data du får från Microsoft Translator. 
-* Använd åtgärder för att översätta text, identifiera ett språk och mycket annat. De här åtgärderna får ett svar och gör sedan resultatet tillgängligt för andra åtgärder. När en ny fil skapas i Dropbox kan du till exempel översätta texten i filen till ett annat språk med Microsoft Translator.
+* Skapa ditt affärsflöde baserat på de data du får från Microsoft Translator. 
+* Använd åtgärder för att översätta text, identifiera ett språk med mera. Dessa åtgärder får ett svar och gör sedan utdata tillgängliga för andra åtgärder. När en ny fil till exempel skapas i Dropbox kan du översätta texten i filen till ett annat språk med Hjälp av Microsoft Translator.
 
-Du kan komma igång genom att skapa en Logic app nu, se [skapa en Logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+Du kan komma igång genom att skapa en logikapp nu, se [Skapa en logikapp](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="create-a-connection-to-microsoft-translator"></a>Skapa en anslutning till Microsoft Translator
 
@@ -29,9 +29,9 @@ Du kan komma igång genom att skapa en Logic app nu, se [skapa en Logic app](../
 > 
 > 
 
-## <a name="connector-specific-details"></a>Anslutningsspecifika Detaljer
+## <a name="connector-specific-details"></a>Anslutningsspecifik information
 
-Visa eventuella utlösare och åtgärder som definierats i Swagger och se även eventuella begränsningar i [anslutnings informationen](/connectors/microsofttranslator/).
+Visa alla utlösare och åtgärder som definierats i skryt, och se även eventuella gränser i [anslutningsinformationen](/connectors/microsofttranslator/).
 
-## <a name="more-connectors"></a>Fler anslutningar
-Gå tillbaka till [listan med API: er](apis-list.md).
+## <a name="more-connectors"></a>Fler kontakter
+Gå tillbaka till [LISTAN API:er](apis-list.md).

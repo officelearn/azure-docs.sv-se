@@ -1,6 +1,6 @@
 ---
-title: 'Azure AD Connect: Enhetsalternativ | Microsoft Docs'
-description: Det här dokumentet beskriver Enhetsalternativ som är tillgängliga i Azure AD Connect
+title: 'Azure AD Connect: Enhetsalternativ | Microsoft-dokument'
+description: Det här dokumentet innehåller enhetsalternativ som är tillgängliga i Azure AD Connect
 services: active-directory
 documentationcenter: ''
 author: billmath
@@ -17,34 +17,34 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 96ddcdb67ef079cfa23902a1dcb03b0ec61077fe
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67109534"
 ---
 # <a name="azure-ad-connect-device-options"></a>Azure AD Connect: Enhetsalternativ
 
-Följande dokumentation innehåller information om de olika enhet alternativen som är tillgängliga i Azure AD Connect. Du kan använda Azure AD Connect för att konfigurera följande två åtgärder: 
-* **Hybrid Azure AD-anslutning**: Om din miljö har en lokal AD-fotavtryck och du vill att fördelarna med Azure AD, du kan implementera hybrid Azure AD-anslutna enheter. Dessa enheter är anslutna både till din lokala Active Directory och Azure Active Directory.
-* **Tillbakaskrivning av enhet**: Tillbakaskrivning av enhet som används för att aktivera villkorlig åtkomst baserat på enheter till AD FS (2012 R2 eller senare) skyddade enheter
+Följande dokumentation innehåller information om de olika enhetsalternativ som finns i Azure AD Connect. Du kan använda Azure AD Connect för att konfigurera följande två åtgärder: 
+* **Hybrid Azure AD-koppling:** Om din miljö har ett lokalt AD-fotavtryck och du vill ha fördelarna med Azure AD kan du implementera hybrid-Azure AD-anslutna enheter. Dessa enheter är anslutna både till din lokala Active Directory och din Azure Active Directory.
+* **Enhetsreskript tillbaka:** Enhetsreskript tillbaka används för att aktivera villkorlig åtkomst baserat på enheter till AD FS (2012 R2 eller högre) skyddade enheter
 
-## <a name="configure-device-options-in-azure-ad-connect"></a>Konfigurera Enhetsalternativ i Azure AD Connect
+## <a name="configure-device-options-in-azure-ad-connect"></a>Konfigurera enhetsalternativ i Azure AD Connect
 
-1.  Kör Azure AD Connect. I den **ytterligare uppgifter** väljer **konfigurera Enhetsalternativ**.  Klicka på **Nästa**.
-    ![Konfigurera Enhetsalternativ](./media/how-to-connect-device-options/deviceoptions.png) 
+1.  Kör Azure AD Connect. På sidan **Ytterligare uppgifter** väljer du **Konfigurera enhetsalternativ**.  Klicka på **Nästa**.
+    ![Konfigurera enhetsalternativ](./media/how-to-connect-device-options/deviceoptions.png) 
 
-    Den **översikt** sidan visar information.
+    På sidan **Översikt** visas information.
     ![Översikt](./media/how-to-connect-device-options/deviceoverview.png)
 
     >[!NOTE]
-    > De nya konfigurera Enhetsalternativ är endast tillgängliga i version 1.1.819.0 och nyare.
+    > De nya konfigurera enhetsalternativen är endast tillgängliga i version 1.1.819.0 och nyare.
 
-2.  Du kan välja åtgärden som ska utföras på alternativsidan för enheten när du har angett autentiseringsuppgifterna för Azure AD.
-    ![Åtgärder](./media/how-to-connect-device-options/deviceoptionsselection.png)
+2.  När du har angett autentiseringsuppgifterna för Azure AD kan du välja vilken åtgärd som ska utföras på sidan Enhetsalternativ.
+    ![Enhetsåtgärder](./media/how-to-connect-device-options/deviceoptionsselection.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Konfigurera Hybrid Azure AD-anslutning](../device-management-hybrid-azuread-joined-devices-setup.md)
-* [Konfigurera / inaktivera tillbakaskrivning av enhet](how-to-connect-device-writeback.md)
+* [Konfigurera Hybrid Azure AD-koppling](../device-management-hybrid-azuread-joined-devices-setup.md)
+* [Konfigurera/ inaktivera tillbakaskrivning av enheten](how-to-connect-device-writeback.md)
 

@@ -1,81 +1,81 @@
 ---
 title: Ta bort ett Azure Migrate-projekt
-description: Beskriver hur du skapar ett Azure Migrate-projekt och lägger till ett verktyg för bedömning/migrering.
+description: Beskriver hur du skapar ett Azure Migrate-projekt och lägger till ett utvärderings-/migreringsverktyg.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: article
 ms.date: 10/22/2019
 ms.author: raynew
 ms.openlocfilehash: 55842d36cddb2a7851ff5bd7002c20e9873158f5
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73512735"
 ---
 # <a name="delete-an-azure-migrate-project"></a>Ta bort ett Azure Migrate-projekt
 
-I den här artikeln beskrivs hur du tar bort ett [Azure Migrate](migrate-overview.md) -projekt.
+I den här artikeln beskrivs hur du tar bort ett [Azure Migrate-projekt.](migrate-overview.md)
 
 
 ## <a name="before-you-start"></a>Innan du börjar
 
 Innan du tar bort ett projekt:
 
-- När du tar bort ett projekt raderas projektet och identifierade datorns metadata.
-- Om du har kopplat en Log Analytics arbets yta till verktyget för Server utvärdering för beroende analys bestämmer du om du vill ta bort arbets ytan. 
-    - Arbets ytan tas inte bort automatiskt. Ta bort den manuellt.
-    - Kontrol lera vilken arbets yta som används innan du tar bort den. Samma Log Analytics arbets yta kan användas för flera scenarier.
-    - Innan du tar bort projektet hittar du en länk till arbets ytan i **Azure Migrate-servrar** > **Azure Migrate-Server-utvärdering**, under **OMS-arbetsyta**.
-    - Om du vill ta bort en arbets yta efter att du har tagit bort ett projekt söker du efter arbets ytan i relevant resurs grupp och följer [de här anvisningarna](../azure-monitor/platform/delete-workspace.md).
+- När du tar bort ett projekt tas metadata för projektet och identifierade datorn bort.
+- Om du har anslutit en Log Analytics-arbetsyta till serverbedömningsverktyget för beroendeanalys bestämmer du om du vill ta bort arbetsytan. 
+    - Arbetsytan tas inte bort automatiskt. Ta bort den manuellt.
+    - Kontrollera vad en arbetsyta används för innan du tar bort den. Samma Log Analytics-arbetsyta kan användas för flera scenarier.
+    - Innan du tar bort projektet kan du hitta en länk till arbetsytan i **Azure Migrate - Servers** > **Azure Migrate - Server Assessment**, under **OMS Workspace**.
+    - Om du vill ta bort en arbetsyta när du har tagit bort ett projekt hittar du arbetsytan i den relevanta resursgruppen och följer [dessa instruktioner](../azure-monitor/platform/delete-workspace.md).
 
 
 ## <a name="delete-a-project"></a>Ta bort ett projekt
 
 
-1. Öppna resurs gruppen där projektet skapades i Azure Portal.
-2. På sidan resurs grupp väljer du **Visa dolda typer**.
-3. Markera projektet och de associerade resurserna som du vill ta bort.
-    - Resurs typen för Azure Migrate projekt är **Microsoft. Migrate/migrateprojects**.
-    - I nästa avsnitt granskar du de resurser som har skapats för identifiering, utvärdering och migrering i ett Azure Migrate projekt.
-    - Om resurs gruppen bara innehåller Azure Migrate projektet kan du ta bort hela resurs gruppen.
-    - Om du vill ta bort ett projekt från den tidigare versionen av Azure Migrate, är stegen desamma. Resurs typen för dessa projekt är ett **migreringsjobb**.
+1. Öppna resursgruppen där projektet skapades i Azure-portalen.
+2. På resursgruppssidan väljer du **Visa dolda typer**.
+3. Markera projektet och de associerade resurser som du vill ta bort.
+    - Resurstypen för Azure Migrate-projekt är **Microsoft.Migrate/migrateprojects**.
+    - I nästa avsnitt granskar du de resurser som skapats för identifiering, utvärdering och migrering i ett Azure Migrate-projekt.
+    - Om resursgruppen bara innehåller Azure Migrate-projektet kan du ta bort hela resursgruppen.
+    - Om du vill ta bort ett projekt från den tidigare versionen av Azure Migrate är stegen desamma. Resurstypen för dessa projekt är **Migreringsprojekt**.
 
 
 ## <a name="created-resources"></a>Skapade resurser
 
-Dessa tabeller sammanfattar resurserna som skapats för identifiering, utvärdering och migrering i ett Azure Migrate projekt.
+Dessa tabeller sammanfattar de resurser som skapats för identifiering, utvärdering och migrering i ett Azure Migrate-projekt.
 
 > [!NOTE]
-> Ta bort nyckel valvet med försiktighet eftersom det kan innehålla säkerhets nycklar.
+> Ta bort nyckelvalvet med försiktighet eftersom det kan innehålla säkerhetsnycklar.
 
 ### <a name="vmwarephysical-server"></a>VMware/fysisk server
 
 **Resurs** | **Typ**
 --- | ---
-"Appliancename" kv | Nyckelvalv
-"Appliancename"-webbplats | Microsoft. OffAzure/VMwareSites
-ProjectName | Microsoft. Migrate/migrateprojects
-"ProjectName"-projekt | Microsoft. Migrate/assessmentProjects
-"ProjectName" rsvault | Recovery Services-valv
-"ProjectName"-MigrateVault-* | Recovery Services-valv
-migrateappligwsa* | Lagringskonto
-migrateapplilsa* | Lagringskonto
-migrateapplicsa* | Lagringskonto
-migrateapplikv* | Nyckelvalv
-migrateapplisbns16041 | Service Bus-namnområde
+"Apparatnamn"kv | Nyckelvalv
+Webbplats för "Apparatnamn" | Microsoft.offAzure/VMwareSites Microsoft.offAzure/VMwareSites Microsoft.offAzure/VMwareSites Microsoft.
+"Projektnamn" | Microsoft.Migrera/migrera projekt
+Projektet "ProjectName" | Microsoft.Migrera/bedöma projekt
+"ProjectName"rsvault | Recovery Services-valv
+"ProjectName"-MigreraVault-* | Recovery Services-valv
+migreratillämpningsbarawsa* | Lagringskonto
+migreraapplilsa* | Lagringskonto
+migreratilläms* | Lagringskonto
+migreraapplikv* | Nyckelvalv
+migrerar till 16041 | Service Bus-namnområde
 
-### <a name="hyper-v-vm"></a>Virtuell Hyper-V-dator 
+### <a name="hyper-v-vm"></a>Hyper-V VM 
 
 **Resurs** | **Typ**
 --- | ---
-ProjectName | Microsoft. Migrate/migrateprojects
-"ProjectName"-projekt | Microsoft. Migrate/assessmentProjects
-HyperV * kv | Nyckelvalv
-HyperV *-webbplats | Microsoft. OffAzure/HyperVSites
-"ProjectName"-MigrateVault-* | Recovery Services-valv
+"Projektnamn" | Microsoft.Migrera/migrera projekt
+Projektet "ProjectName" | Microsoft.Migrera/bedöma projekt
+HyperV*kv | Nyckelvalv
+HyperV*-webbplats | Microsoft.offAzure/HyperVSites Microsoft.OffAzure/HyperVSites Microsoft.offAzure/HyperVSites Microsoft.
+"ProjectName"-MigreraVault-* | Recovery Services-valv
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig hur du lägger till ytterligare verktyg för [bedömning](how-to-assess.md) och [migrering](how-to-migrate.md) . 
+Läs om hur du lägger till ytterligare [bedömnings-](how-to-assess.md) och [migreringsverktyg.](how-to-migrate.md) 

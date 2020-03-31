@@ -1,45 +1,45 @@
 ---
-title: Utöka lagringen automatiskt – Azure Portal – Azure Database for MariaDB
-description: I den här artikeln beskrivs hur du kan aktivera lagring med automatisk storleks ökning för Azure Database for MariaDB med Azure Portal
+title: Lagring med automatisk tillväxt – Azure-portal - Azure Database för MariaDB
+description: I den här artikeln beskrivs hur du kan aktivera lagring med automatisk tillväxt för Azure Database för MariaDB med Azure-portal
 author: ambhatna
 ms.author: ambhatna
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 12/02/2019
-ms.openlocfilehash: 5c5e9154260a255d9e9b8bc5775a479df7e41522
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.date: 3/18/2020
+ms.openlocfilehash: 7ec4c7a61725fa02f00bf38048182d640666ae8f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74767508"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79528905"
 ---
-# <a name="auto-grow-storage-in-azure-database-for-mariadb-using-the-azure-portal"></a>Utöka lagringen automatiskt i Azure Database for MariaDB att använda Azure Portal
-I den här artikeln beskrivs hur du kan konfigurera en Azure Database for MariaDB Server lagring så att den växer utan att arbets belastningen påverkas.
+# <a name="auto-grow-storage-in-azure-database-for-mariadb-using-the-azure-portal"></a>Automatiskt utöka lagringsutrymmet i Azure Database för MariaDB med Azure-portalen
+I den här artikeln beskrivs hur du kan konfigurera en Azure-databas för MariaDB-serverlagring så att den växer utan att påverka arbetsbelastningen.
 
-När en server når den tilldelade lagrings gränsen markeras servern som skrivskyddad. Men om du aktiverar automatisk storleks ökning ökar server lagringen för att rymma växande data. För servrar med mindre än 100 GB allokerat lagrings utrymme ökas den allokerade lagrings storleken med 5 GB så snart det lediga lagrings utrymmet är lägre än eller lika med 1 GB eller 10% av det allokerade lagrings utrymmet. För servrar som har mer än 100 GB allokerat lagrings utrymme ökas den allokerade lagrings storleken med 5% när det lediga lagrings utrymmet är under 5% av den allokerade lagrings storleken. De maximala lagrings gränser som anges [här](https://docs.microsoft.com/azure/mariadb/concepts-pricing-tiers#storage) gäller.
+När en server når den allokerade lagringsgränsen markeras servern som skrivskyddad. Men om du aktiverar automatisk lagringslagring ökar serverlagringen för att hantera växande data. För servrar med mindre än 100 GB etablerad lagring ökas den etablerade lagringsstorleken med 5 GB så snart det kostnadsfria lagringsutrymmet är lägre än 1 GB eller 10 % av den etablerade lagringen. För servrar med mer än 100 GB av etablerad lagring ökas den etablerade lagringsstorleken med 5 % när det lediga lagringsutrymmet är mindre än 5 % av den etablerade lagringsstorleken. Maximala lagringsgränser som anges [här](https://docs.microsoft.com/azure/mariadb/concepts-pricing-tiers#storage) gäller.
 
 ## <a name="prerequisites"></a>Krav
-För att slutföra den här instruktions guiden behöver du:
-- En [Azure Database for MariaDB-Server](./quickstart-create-mariadb-server-database-using-azure-portal.md)
+För att slutföra den här guiden behöver du:
+- En [Azure-databas för MariaDB-server](./quickstart-create-mariadb-server-database-using-azure-portal.md)
 
-## <a name="enable-storage-auto-grow"></a>Aktivera automatisk storleks ökning för lagring 
+## <a name="enable-storage-auto-grow"></a>Aktivera automatisk lagringsodling 
 
-Följ de här stegen för att ställa in MariaDB Server Storage Auto:
+Så här ställer du in automatisk odling av MariaDB-serverlagring:
 
-1. I [Azure Portal](https://portal.azure.com/)väljer du din befintliga Azure Database for MariaDB-Server.
+1. Välj [Azure portal](https://portal.azure.com/)din befintliga Azure-databas för MariaDB-server i Azure-portalen.
 
-2. På sidan MariaDB-Server under **inställnings** rubrik klickar du på **pris nivå** för att öppna sidan pris nivå.
+2. Klicka på **Prisnivå** under rubriken Inställningar på sidan MariaDB-server för att öppna prisnivåsidan under rubriken **Inställningar.**
 
-3. I avsnittet automatisk utökning väljer du **Ja** för att aktivera automatisk storleks ökning.
+3. I avsnittet Automatisk tillväxt väljer du **Ja** för att aktivera automatisk lagringsökning.
 
-    ![Azure Database for MariaDB-Settings_Pricing_tier-Auto-EXPTREND](./media/howto-auto-grow-storage-portal/3-auto-grow.png)
+    ![Azure-databas för MariaDB - Settings_Pricing_tier - Automatisk tillväxt](./media/howto-auto-grow-storage-portal/3-auto-grow.png)
 
 4. Spara ändringarna genom att klicka på **OK**.
 
-5. Ett meddelande bekräftar att den automatiska utökningen har Aktiver ATS.
+5. Ett meddelande bekräftar att automatisk odling har aktiverats.
 
-    ![Azure Database for MariaDB-automatisk tillväxt lyckades](./media/howto-auto-grow-storage-portal/5-auto-grow-successful.png)
+    ![Azure Database för MariaDB - framgång för automatisk tillväxt](./media/howto-auto-grow-storage-portal/5-auto-grow-successful.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig mer om [hur du skapar aviseringar för mått](howto-alert-metric.md).
+Läs mer om hur du [skapar aviseringar om mått](howto-alert-metric.md).

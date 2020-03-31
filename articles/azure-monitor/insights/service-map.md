@@ -1,497 +1,497 @@
 ---
-title: Använda Tjänstkarta lösning i Azure | Microsoft Docs
-description: Tjänstkarta är en lösning i Azure som automatiskt identifierar programkomponenter i Windows- och Linux-system och mappar kommunikationen mellan olika tjänster. Den här artikeln innehåller information för att distribuera Service Map i din miljö och använder den på en mängd olika scenarier.
+title: Använda Service Map-lösning i Azure | Microsoft-dokument
+description: Tjänstkarta är en lösning i Azure som automatiskt identifierar programkomponenter i Windows- och Linux-system och mappar kommunikationen mellan olika tjänster. Den här artikeln innehåller information om hur du distribuerar Service Map i din miljö och använder den i en mängd olika scenarier.
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/24/2019
-ms.openlocfilehash: c177589bea76770f8f72dd3267b856b00d57699c
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: f2f3e84462307f43ffe432fe878476d979f489f0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79275248"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79480920"
 ---
-# <a name="using-service-map-solution-in-azure"></a>Använda Tjänstkarta lösning i Azure
+# <a name="using-service-map-solution-in-azure"></a>Använda lösningen Tjänstkarta i Azure
 
 Tjänstkarta identifierar automatiskt programkomponenter i Windows- och Linux-system och mappar kommunikationen mellan olika tjänster. Med Tjänstkarta kan du se dina servrar på samma sätt som du tänker på dem, dvs. som sammankopplade system som levererar kritiska tjänster. Tjänstkarta visar anslutningar mellan servrar, processer, inkommande och utgående anslutningssvarstid, samt portar i valfri TCP-ansluten arkitektur, utan att det krävs någon konfiguration förutom installationen av en agent.
 
-I den här artikeln beskrivs hur du onboarding och använder Tjänstkarta. Information om hur du konfigurerar krav för den här lösningen finns i [aktivera Azure Monitor for VMS översikt](vminsights-enable-overview.md#prerequisites). För att sammanfatta behöver du följande:
+I den här artikeln beskrivs information om introduktion och användning av Service Map. Information om hur du konfigurerar förutsättningarna för den här lösningen finns i [Aktivera översikten över Azure Monitor för virtuella datorer](vminsights-enable-overview.md#prerequisites). Sammanfattningsvis behöver du följande:
 
-* En Log Analytics arbets yta för att aktivera den här lösningen.
+* En Log Analytics-arbetsyta för att aktivera den här lösningen.
 
-* Log Analytics-agenten som är installerad på Windows-datorn eller Linux-servern har kon figurer ATS för att rapportera samma arbets yta som du aktiverade lösningen med.
+* Log Analytics-agenten som är installerad på Windows-datorn eller Linux-servern som konfigurerats för att rapportera samma arbetsyta som du aktiverade lösningen med.
 
-* Beroende agenten som är installerad på Windows-datorn eller Linux-servern.
+* Beroendeagenten som är installerad på Windows-datorn eller Linux-servern.
 
 >[!NOTE]
->Om du redan har distribuerat Tjänstkarta kan du nu även visa dina kartor i Azure Monitor for VMs, som innehåller ytterligare funktioner för att övervaka hälso tillstånd och prestanda för virtuella datorer. Läs mer i [Azure Monitor for VMS översikt](../../azure-monitor/insights/vminsights-overview.md). Mer information om skillnaderna mellan Tjänstkarta lösning och Azure Monitor for VMs kart funktion finns i följande [vanliga frågor och svar](../faq.md#azure-monitor-for-vms-preview).
+>Om du redan har distribuerat Service Map kan du nu även visa dina kartor i Azure Monitor för virtuella datorer, som innehåller ytterligare funktioner för att övervaka vm-hälsa och prestanda. Mer information finns i [översikt över Azure Monitor för virtuella datorer](../../azure-monitor/insights/vminsights-overview.md). Mer information om skillnaderna mellan servicemappningslösningen och Azure Monitor för virtuella datorer kartfunktionen finns i följande [vanliga frågor](../faq.md#azure-monitor-for-vms)och svar .
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 
-Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.com).
+Logga in på Azure-portalen på [https://portal.azure.com](https://portal.azure.com).
 
-## <a name="enable-service-map"></a>Aktivera Tjänstkarta
+## <a name="enable-service-map"></a>Aktivera tjänstöversikt
 
-1. Aktivera Tjänstkarta-lösningen från [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ServiceMapOMS?tab=Overview) eller genom att använda processen som beskrivs i [Lägg till övervaknings lösningar från Lösningsgalleriet](solutions.md).
-1. [Installera beroende agenten på Windows](vminsights-enable-hybrid-cloud.md#install-the-dependency-agent-on-windows) eller [Installera beroende agenten i Linux](vminsights-enable-hybrid-cloud.md#install-the-dependency-agent-on-linux) på varje dator där du vill hämta data. Beroendeagenten kan övervaka anslutningar till omedelbara grannar, så du behöver kanske inte ha en agent på varje dator.
+1. Aktivera servicemappningslösningen från [Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ServiceMapOMS?tab=Overview) eller genom att använda den process som beskrivs i [Lägg till övervakningslösningar från lösningsgalleriet](solutions.md).
+1. [Installera beroendeagenten i Windows](vminsights-enable-hybrid-cloud.md#install-the-dependency-agent-on-windows) eller [Installera beroendeagenten på Linux](vminsights-enable-hybrid-cloud.md#install-the-dependency-agent-on-linux) på varje dator där du vill hämta data. Beroendeagenten kan övervaka anslutningar till omedelbara grannar, så du behöver kanske inte ha en agent på varje dator.
 
-Du kommer åt Tjänstkarta i Azure Portal från arbets ytan Log Analytics och väljer alternativ **lösningar** i den vänstra rutan.<br><br> ![Välj lösnings alternativ i arbets ytan](./media/service-map/select-solution-from-workspace.png).<br> I listan med lösningar väljer du **ServiceMap (workspaceName)** och på översikts sidan för tjänstkarta lösning klickar du på panelen sammanfattning av tjänstkarta.<br><br> ![Tjänstkarta sammanfattnings panelen](./media/service-map/service-map-summary-tile.png).
+Du öppnar Service Map i Azure-portalen från din Log Analytics-arbetsyta och väljer alternativet **Lösningar** i den vänstra rutan.<br><br> ![Välj lösningsalternativ på](./media/service-map/select-solution-from-workspace.png)arbetsytan .<br> Välj **ServiceMap(workspaceName)** i listan över lösningar och klicka på panelen Sammanfattning av Service Map på panelen Sammanfattning av Service Map.<br><br> ![Sammanfattningspanel](./media/service-map/service-map-summary-tile.png)för Service Map .
 
-## <a name="use-cases-make-your-it-processes-dependency-aware"></a>Användnings fall: gör din IT-process beroende medveten
+## <a name="use-cases-make-your-it-processes-dependency-aware"></a>Användningsfall: Gör dina IT-processer beroende
 
 ### <a name="discovery"></a>Identifiering
 
-Tjänstkarta skapar automatiskt en gemensam referens karta över beroenden för dina servrar, processer och tjänster från tredje part. Den identifierar och mappar alla TCP-beroenden, identifierar överrasknings anslutningar, fjärranslutna system från tredje part som du är beroende av och beroenden till traditionella mörka delar av nätverket, till exempel Active Directory. Tjänstkarta identifierar misslyckade nätverks anslutningar som hanteras av dina hanterade system, vilket hjälper dig att identifiera potentiell Server fel konfiguration, avbrott i tjänsten och nätverks problem.
+Service Map skapar automatiskt en gemensam referenskarta över beroenden över dina servrar, processer och tjänster från tredje part. Den upptäcker och mappar alla TCP-beroenden, identifierar överraskningsanslutningar, fjärrsystem från tredje part som du är beroende av och beroenden till traditionella mörka områden i nätverket, till exempel Active Directory. Service Map identifierar misslyckade nätverksanslutningar som dina hanterade system försöker skapa, vilket hjälper dig att identifiera potentiella felkonfigurationer av servrar, avbrott i tjänsten och nätverksproblem.
 
-### <a name="incident-management"></a>incidenthantering
+### <a name="incident-management"></a>Incidenthantering
 
-Tjänstkarta hjälper till att undvika att isolera problem genom att visa hur systemen är anslutna och påverkar varandra. Förutom att identifiera misslyckade anslutningar hjälper det till att identifiera felkonfigurerade belastningsutjämnare, överraskande eller överdriven belastning på kritiska tjänster och falska klienter, till exempel utvecklare som utvecklar datorer som kommunicerar med produktions systemen. Genom att använda integrerade arbets flöden med Ändringsspårning kan du också se om en ändrings händelse på en backend-dator eller-tjänst förklarar rotor saken till en incident.
+Service Map hjälper till att eliminera gissningar av problemisolering genom att visa hur system är anslutna och påverkar varandra. Förutom att identifiera misslyckade anslutningar hjälper det till att identifiera felkonfigurerade belastningsutjämnare, överraskande eller överdriven belastning på kritiska tjänster och oseriösa klienter, till exempel utvecklardatorer som pratar med produktionssystem. Genom att använda integrerade arbetsflöden med ändringsspårning kan du också se om en ändringshändelse på en backend-dator eller tjänst förklarar orsaken till en incident.
 
-### <a name="migration-assurance"></a>Migration Assurance
+### <a name="migration-assurance"></a>Migrationsgaranti
 
-Genom att använda Tjänstkarta kan du effektivt planera, påskynda och validera Azure-migreringar, vilket hjälper till att se till att inget är kvar bakom och oväntade avbrott sker inte. Du kan identifiera alla beroende system som behöver migreras tillsammans, utvärdera systemets konfiguration och kapacitet och identifiera om ett system som är igång fortfarande betjänar användare eller är en kandidat för avställning i stället för migrering. När flyttningen är klar kan du kontrol lera klient belastning och identitet för att kontrol lera att test system och kunder ansluter. Om under nätets planering och brand Väggs definitioner har problem, misslyckade anslutningar i Tjänstkarta Maps, pekar du på de system som behöver anslutning.
+Genom att använda Service Map kan du effektivt planera, påskynda och validera Azure-migreringar, vilket hjälper till att säkerställa att ingenting lämnas kvar och att överrasknings avbrott inte inträffar. Du kan identifiera alla system som är beroende av varandra och som behöver migrera tillsammans, bedöma systemkonfiguration och kapacitet och identifiera om ett system som körs fortfarande betjänar användare eller är en kandidat för att inaktivera i stället för migrering. När flytten är klar kan du kontrollera klientbelastning och identitet för att kontrollera att testsystem och kunder ansluter. Om planeringen och brandväggsdefinitionerna för undernätet har problem pekar misslyckade anslutningar i Service Map-kartor dig till de system som behöver anslutas.
 
 ### <a name="business-continuity"></a>Verksamhetskontinuitet
 
-Om du använder Azure Site Recovery och behöver hjälp med att definiera återställnings ordningen för din program miljö kan Tjänstkarta automatiskt visa hur systemen förlitar sig på varandra för att säkerställa att din återställnings plan är tillförlitlig. Genom att välja en kritisk Server eller grupp och visa dess klienter kan du identifiera vilka klient dels system som ska återställas efter att servern har återställts och är tillgänglig. Genom att titta på kritiska servrars backend-beroenden kan du identifiera vilka system som ska återställas innan dina fokus system återställs.
+Om du använder Azure Site Recovery och behöver hjälp med att definiera återställningssekvensen för din programmiljö kan Service Map automatiskt visa hur system förlitar sig på varandra för att säkerställa att återställningsplanen är tillförlitlig. Genom att välja en kritisk server eller grupp och visa dess klienter kan du identifiera vilka frontend-system som ska återställas när servern har återställts och är tillgänglig. Genom att titta på kritiska servrars backend-beroenden kan du däremot identifiera vilka system som ska återställas innan fokussystemen återställs.
 
 ### <a name="patch-management"></a>Uppdateringshantering
 
-Tjänstkarta förbättrar din användning av system uppdaterings utvärderingen genom att visa vilka andra team och servrar som är beroende av tjänsten, så att du kan meddela dem i förväg innan du tar bort dina system för korrigering. Tjänstkarta förbättrar också korrigerings hanteringen genom att visa om dina tjänster är tillgängliga och korrekt anslutna efter att de har korrigerats och startats om.
+Service Map förbättrar din användning av systemuppdateringsutvärderingen genom att visa vilka andra team och servrar som är beroende av din tjänst, så att du kan meddela dem i förväg innan du tar ner dina system för korrigering. Service Map förbättrar också korrigeringshanteringen genom att visa om dina tjänster är tillgängliga och korrekt anslutna efter att de har korrigerats och startats om.
 
 ## <a name="mapping-overview"></a>Översikt över mappning
 
-Tjänstkarta agenter samlar in information om alla TCP-anslutna processer på den server där de är installerade och information om inkommande och utgående anslutningar för varje process.
+Service Map-agenter samlar in information om alla TCP-anslutna processer på servern där de är installerade och information om inkommande och utgående anslutningar för varje process.
 
-I listan i det vänstra fönstret kan du välja datorer eller grupper som har Tjänstkarta agenter för att visualisera deras beroenden under ett visst tidsintervall. Dator beroende mappar fokuserar på en angiven dator och visar alla datorer som är direkt TCP-klienter eller servrar på den datorn.  Dator grupps kartor visar uppsättningar av servrar och deras beroenden.
+I listan i den vänstra rutan kan du välja datorer eller grupper som har Service Map-agenter för att visualisera sina beroenden över ett angivet tidsintervall. Maskinberoendekartor fokuserar på en viss dator och de visar alla datorer som är direkta TCP-klienter eller servrar på den datorn.  Machine Group-kartor visar uppsättningar av servrar och deras beroenden.
 
-![Översikt över Tjänstkarta](media/service-map/service-map-overview.png)
+![Översikt över servicekarta](media/service-map/service-map-overview.png)
 
-Datorer kan expanderas i kartan för att visa de process grupper och processer som körs med aktiva nätverks anslutningar under det valda tidsintervallet. När en fjärrdator med en Tjänstkarta-agent expanderas för att Visa process information visas bara de processer som kommunicerar med fokus datorn. Antalet klient datorer som körs utan agent och som ansluter till fokus datorn visas till vänster om de processer som de ansluter till. Om fokus datorn gör en anslutning till en backend-dator som inte har någon agent, ingår backend-servern i en server port grupp, tillsammans med andra anslutningar till samma port nummer.
+Maskiner kan expanderas på kartan för att visa de processgrupper och processer som körs med aktiva nätverksanslutningar under det valda tidsintervallet. När en fjärrdator med en Service Map-agent utökas för att visa processinformation visas endast de processer som kommunicerar med fokusdatorn. Antalet agentlösa frontend-maskiner som ansluter till fokusmaskinen anges till vänster om de processer de ansluter till. Om fokusdatorn gör en anslutning till en backend-dator som inte har någon agent, ingår backend-servern i en serverportgrupp, tillsammans med andra anslutningar till samma portnummer.
 
-Som standard visar Tjänstkarta Maps de senaste 30 minuterna beroende information. Genom att använda tids kontrollerna längst upp till vänster kan du fråga kartor efter historiska tidsintervall på upp till en timme för att visa hur beroenden som tittat tidigare (till exempel under en incident eller innan en ändring inträffade). Tjänstkarta data lagras i 30 dagar i betalda arbets ytor och i 7 dagar i kostnads fria arbets ytor.
+Som standard visar Service Map-kartor de senaste 30 minuternas beroendeinformation. Genom att använda tidskontrollerna längst upp till vänster kan du fråga kartor efter historiska tidsintervall på upp till en timme för att visa hur beroenden såg ut tidigare (till exempel under en incident eller innan en ändring inträffade). Service Map-data lagras i 30 dagar i betalda arbetsytor och i 7 dagar på lediga arbetsytor.
 
-## <a name="status-badges-and-border-coloring"></a>Status skylter och kant linje färgning
+## <a name="status-badges-and-border-coloring"></a>Statusmärken och kantfärg
 
-Längst ned på varje server i kartan kan vara en lista över status skyltar som förmedlar statusinformation om servern. Aktivitets ikonerna anger att det finns viss relevant information för servern från en av lösnings integreringarna. Om du klickar på en flagga tas du direkt till information om statusen i den högra rutan. De status märken som är tillgängliga för närvarande är aviseringar, Service Desk, ändringar, säkerhet och uppdateringar.
+Längst ned på varje server på kartan kan vara en lista över statusmärken som förmedlar statusinformation om servern. Märkena visar att det finns viss relevant information för servern från en av lösningsintegrationerna. Om du klickar på ett märke går du direkt till informationen om statusen i den högra rutan. De statusmärken som för närvarande är tillgängliga är aviseringar, servicedesk, ändringar, säkerhet och uppdateringar.
 
-Beroende på status märkenas allvarlighets grad kan datorns Node-kantlinjes vara röd (kritisk), gul (varning) eller blå (information). Färgen representerar de mest allvarliga statusvärdena för alla status märken. En grå kant linje visar en nod som inte har några status indikatorer.
+Beroende på statusmärkenas allvarlighetsgrad kan maskinnodens kantlinjer färgas röda (kritiska), gula (varning) eller blå (informativa). Färgen representerar den allvarligaste statusen för någon av statusmärkena. En grå kantlinje anger en nod som inte har några statusindikatorer.
 
-![Status skyltar](media/service-map/status-badges.png)
+![Statusmärken](media/service-map/status-badges.png)
 
-## <a name="process-groups"></a>Process grupper
+## <a name="process-groups"></a>Processgrupper
 
-Process grupper kombinerar processer som associeras med en gemensam produkt eller tjänst till en process grupp.  När en datornod expanderas visas fristående processer tillsammans med process grupper.  Om inkommande och utgående anslutningar till en process i en process grupp har misslyckats visas anslutningen som misslyckad för hela process gruppen.
+Processgrupper kombinerar processer som är associerade med en gemensam produkt eller tjänst till en processgrupp.  När en maskinnod expanderas visas fristående processer tillsammans med processgrupper.  Om några inkommande och utgående anslutningar till en process inom en processgrupp har misslyckats visas anslutningen som misslyckad för hela processgruppen.
 
 ## <a name="machine-groups"></a>Datorgrupper
 
-Med dator grupper kan du se kartor som är centrerade runt en uppsättning servrar, inte bara en så att du kan se alla medlemmar i ett program i flera nivåer eller ett Server kluster på en karta.
+Med maskingrupper kan du se kartor centrerade kring en uppsättning servrar, inte bara en så att du kan se alla medlemmar i ett program- eller serverkluster på flera nivåer på en karta.
 
-Användare väljer vilka servrar som ska ingå i en grupp och väljer ett namn för gruppen.  Du kan sedan välja att Visa gruppen med alla dess processer och anslutningar, eller Visa den med bara de processer och anslutningar som är direkt relaterade till de andra medlemmarna i gruppen.
+Användarna väljer vilka servrar som hör hemma i en grupp tillsammans och väljer ett namn för gruppen.  Du kan sedan välja att visa gruppen med alla dess processer och anslutningar, eller visa den med endast de processer och anslutningar som direkt relaterar till de andra medlemmarna i gruppen.
 
-![Dator grupp](media/service-map/machine-group.png)
+![Maskingrupp](media/service-map/machine-group.png)
 
-### <a name="creating-a-machine-group"></a>Skapa en dator grupp
+### <a name="creating-a-machine-group"></a>Skapa en maskingrupp
 
-Om du vill skapa en grupp väljer du den dator eller de datorer som du vill använda i listan datorer och klickar på **Lägg till i grupp**.
+Om du vill skapa en grupp markerar du den eller de datorer du vill använda i listan Datorer och klickar på **Lägg till i gruppen**.
 
 ![Skapa grupp](media/service-map/machine-groups-create.png)
 
-Där kan du välja **Skapa ny** och ge gruppen ett namn.
+Där kan du välja **Skapa nytt** och ge gruppen ett namn.
 
-![Namn grupp](media/service-map/machine-groups-name.png)
+![Namngrupp](media/service-map/machine-groups-name.png)
 
 >[!NOTE]
->Dator grupper är begränsade till 10 servrar.
+>Maskingrupper är begränsade till 10 servrar.
 
 ### <a name="viewing-a-group"></a>Visa en grupp
 
-När du har skapat några grupper kan du visa dem genom att välja fliken grupper.
+När du har skapat vissa grupper kan du visa dem genom att välja fliken Grupper.
 
-![Fliken grupper](media/service-map/machine-groups-tab.png)
+![Fliken Grupper](media/service-map/machine-groups-tab.png)
 
-Välj sedan grupp namnet för att visa kartan för den dator gruppen.
-![dator grupp](media/service-map/machine-group.png) de datorer som tillhör gruppen beskrivs i vitt i kartan.
+Välj sedan gruppnamnet om du vill visa kartan för den maskingruppen.
+![Maskingrupp](media/service-map/machine-group.png) De maskiner som tillhör gruppen beskrivs i vitt på kartan.
 
-Om du expanderar gruppen visas en lista över de datorer som utgör dator gruppen.
+Om du expanderar koncernen listas de maskiner som utgör maskingruppen.
 
-![Dator grupp datorer](media/service-map/machine-groups-machines.png)
+![Maskiner i maskingrupp](media/service-map/machine-groups-machines.png)
 
 ### <a name="filter-by-processes"></a>Filtrera efter processer
 
-Du kan växla mellan att visa alla processer och anslutningar i gruppen och bara de som är direkt relaterade till dator gruppen.  Standardvyn är att visa alla processer.  Du kan ändra vyn genom att klicka på filter ikonen ovanför kartan.
+Du kan växla kartvyn mellan att visa alla processer och anslutningar i gruppen och bara de som direkt relaterar till maskingruppen.  Standardvyn är att visa alla processer.  Du kan ändra vyn genom att klicka på filterikonen ovanför kartan.
 
-![Filtrera grupp](media/service-map/machine-groups-filter.png)
+![Filtergrupp](media/service-map/machine-groups-filter.png)
 
-När **alla processer** är markerad kommer kartan att inkludera alla processer och anslutningar på var och en av datorerna i gruppen.
+När **alla processer** är valda innehåller kartan alla processer och anslutningar på var och en av datorerna i gruppen.
 
-![Dator grupp alla processer](media/service-map/machine-groups-all.png)
+![Maskingrupp alla processer](media/service-map/machine-groups-all.png)
 
-Om du ändrar vyn så att endast **grupp anslutna processer**visas begränsas kartan endast till de processer och anslutningar som är direkt anslutna till andra datorer i gruppen, vilket skapar en förenklad vy.
+Om du ändrar vyn för att bara visa **gruppanslutna processer**begränsas kartan till endast de processer och anslutningar som är direkt kopplade till andra datorer i gruppen, vilket skapar en förenklad vy.
 
-![Filtrerade processer för dator grupper](media/service-map/machine-groups-filtered.png)
+![Maskingrupp filtrerade processer](media/service-map/machine-groups-filtered.png)
  
-### <a name="adding-machines-to-a-group"></a>Lägga till datorer i en grupp
+### <a name="adding-machines-to-a-group"></a>Lägga till maskiner i en grupp
 
-Om du vill lägga till datorer i en befintlig grupp markerar du kryss rutorna bredvid de datorer som du vill använda och klickar sedan på **Lägg till i grupp**.  Välj sedan den grupp som du vill lägga till datorerna i.
+Om du vill lägga till datorer i en befintlig grupp markerar du rutorna bredvid de datorer du vill använda och klickar sedan på **Lägg till i grupp**.  Välj sedan den grupp som du vill lägga till datorerna i.
  
 ### <a name="removing-machines-from-a-group"></a>Ta bort datorer från en grupp
 
-I listan grupper expanderar du grupp namnet för att visa en lista över datorerna i dator gruppen.  Klicka sedan på ellips-menyn bredvid den dator som du vill ta bort och välj **ta bort**.
+Expandera gruppnamnet i grupplistan för att lista datorerna i maskingruppen i grupplistan.  Klicka sedan på ellipsmenyn bredvid den maskin du vill ta bort och välj **Ta bort**.
 
-![Ta bort dator från grupp](media/service-map/machine-groups-remove.png)
+![Ta bort maskin från grupp](media/service-map/machine-groups-remove.png)
 
 ### <a name="removing-or-renaming-a-group"></a>Ta bort eller byta namn på en grupp
 
-Klicka på menyn med tre punkter bredvid grupp namnet i grupp listan.
+Klicka på ellipsmenyn bredvid gruppnamnet i grupplistan.
 
-![Menyn dator grupp](media/service-map/machine-groups-menu.png)
+![Menyn Maskingrupp](media/service-map/machine-groups-menu.png)
 
 
-## <a name="role-icons"></a>Roll ikoner
+## <a name="role-icons"></a>Rollikoner
 
-Vissa processer har särskilda roller på datorer: webb servrar, program servrar, databas och så vidare. Tjänstkarta anteckningar i process-och dator rutor med roll ikoner för att snabbt kunna identifiera en process eller servers roll.
+Vissa processer har särskilda roller på datorer: webbservrar, programservrar, databas och så vidare. Service Map kommenterar process- och maskinrutor med rollikoner för att snabbt identifiera vilken roll en process eller server spelar.
 
-| Rollikon | Beskrivning |
+| Ikon för roll | Beskrivning |
 |:--|:--|
 | ![Webbserver](media/service-map/role-web-server.png) | Webbserver |
-| ![App Server](media/service-map/role-application-server.png) | Program Server |
-| ![Databas server](media/service-map/role-database.png) | Databas server |
+| ![Appserver](media/service-map/role-application-server.png) | Programserver |
+| ![Databasserver](media/service-map/role-database.png) | Databasserver |
 | ![LDAP-server](media/service-map/role-ldap.png) | LDAP-server |
 | ![SMB-server](media/service-map/role-smb.png) | SMB-server |
 
-![Roll ikoner](media/service-map/role-icons.png)
+![Rollikoner](media/service-map/role-icons.png)
 
 
 ## <a name="failed-connections"></a>Misslyckade anslutningar
 
-Misslyckade anslutningar visas i Tjänstkarta Maps för processer och datorer, med en streckad röd linje som visar att ett klient system inte kan komma åt en process eller port. Misslyckade anslutningar rapporteras från alla system med en distribuerad Tjänstkarta-Agent om den här datorn försöker ansluta till den misslyckade anslutningen. Tjänstkarta mäter den här processen genom att observera TCP-socketar som inte upprättar en anslutning. Det här felet kan bero på en brand vägg, en felaktig konfiguration i klienten eller servern eller en fjärrtjänst som inte är tillgänglig.
+Misslyckade anslutningar visas i Service Map-kartor för processer och datorer, med en streckad röd linje som anger att ett klientsystem inte når en process eller port. Misslyckade anslutningar rapporteras från alla system med en distribuerad Service Map-agent om det systemet är det som försöker ansluta den misslyckade anslutningen. Service Map mäter den här processen genom att observera TCP-socketar som inte kan upprätta en anslutning. Det här felet kan bero på att en brandvägg, en felkonfiguration i klienten eller servern eller en fjärrtjänst inte är tillgänglig.
 
 ![Misslyckade anslutningar](media/service-map/failed-connections.png)
 
-Att förstå misslyckade anslutningar kan hjälpa till med fel sökning, verifiering av migrering, säkerhets analys och övergripande arkitektur förståelse. Misslyckade anslutningar är ibland ofarliga, men de leder ofta direkt till ett problem, t. ex. en växlings miljö som plötsligt inte går att komma åt, eller två program nivåer som inte kan kommunicera efter en molnbaserad migrering.
+Att förstå misslyckade anslutningar kan hjälpa till med felsökning, migreringsvalidering, säkerhetsanalys och övergripande arkitektonisk förståelse. Misslyckade anslutningar är ibland ofarliga, men de pekar ofta direkt på ett problem, till exempel att en redundansmiljö plötsligt blir onåbar eller två programnivåer som inte kan prata efter en molnmigrering.
 
-## <a name="client-groups"></a>Klient grupper
+## <a name="client-groups"></a>Klientgrupper
 
-Klient grupper är rutor på kartan som representerar klient datorer som inte har beroende agenter. En enda klient grupp representerar klienterna för en enskild process eller dator.
+Klientgrupper är rutor på kartan som representerar klientdatorer som inte har beroendeagenter. En enskild kundgrupp representerar klienterna för en enskild process eller dator.
 
-![Klient grupper](media/service-map/client-groups.png)
+![Klientgrupper](media/service-map/client-groups.png)
 
-Välj gruppen om du vill se IP-adresserna för servrarna i en klient grupp. Innehållet i gruppen visas i fönstret **Egenskaper för klient grupp** .
+Om du vill visa IP-adresserna för servrarna i en klientgrupp väljer du gruppen. Innehållet i gruppen visas i fönstret **Egenskaper för klientgrupp.**
 
-![Egenskaper för klient grupp](media/service-map/client-group-properties.png)
+![Egenskaper för klientgrupp](media/service-map/client-group-properties.png)
 
-## <a name="server-port-groups"></a>Server Port grupper
+## <a name="server-port-groups"></a>Serverportgrupper
 
-Server Port grupper är rutor som representerar Server portar på servrar som inte har beroende agenter. Rutan innehåller Server porten och antalet servrar med anslutningar till den porten. Expandera rutan om du vill se enskilda servrar och anslutningar. Om det bara finns en-server i rutan visas namnet eller IP-adressen i listan.
+Serverportgrupper är rutor som representerar serverportar på servrar som inte har beroendeagenter. Rutan innehåller serverporten och antalet servrar med anslutningar till den porten. Expandera rutan för att se de enskilda servrarna och anslutningarna. Om det bara finns en server i rutan visas namnet eller IP-adressen.
 
-![Server Port grupper](media/service-map/server-port-groups.png)
+![Serverportgrupper](media/service-map/server-port-groups.png)
 
 ## <a name="context-menu"></a>Snabbmeny
 
-Om du klickar på ellipsen (...) längst upp till höger på en server visas snabb menyn för servern.
+Om du klickar på ellipsen (...) längst upp till höger på en server visas snabbmenyn för den servern.
 
 ![Misslyckade anslutningar](media/service-map/context-menu.png)
 
-### <a name="load-server-map"></a>Läsa in Server karta
+### <a name="load-server-map"></a>Ladda serverkarta
 
-Genom att klicka på **Läs in Server karta** går du till en ny karta med den valda servern som den nya fokus datorn.
+Om du klickar **på Läs in serverkartan** kommer du till en ny karta med den valda servern som ny fokusdator.
 
-### <a name="show-self-links"></a>Visa själv länkar
+### <a name="show-self-links"></a>Visa självlänkar
 
-Om du klickar på **Visa själv länkar** ritas noden om, inklusive eventuella själv länkar, som är TCP-anslutningar som börjar och slutar med processer på servern. Om själv länkar visas, ändras meny kommandot för att **dölja själv länkar**så att du kan inaktivera dem.
+Om du klickar på **Visa självlänkar** du servernoden, inklusive eventuella självlänkar, som är TCP-anslutningar som startar och slutar på processer på servern. Om självlänkar visas ändras menykommandot till **Dölj självlänkar**så att du kan stänga av dem.
 
-## <a name="computer-summary"></a>Sammanfattning av dator
+## <a name="computer-summary"></a>Sammanfattning av datorn
 
-Fönstret **dator Sammanfattning** innehåller en översikt över en servers operativ system, antal beroenden och data från andra lösningar. Dessa data omfattar prestanda mått, Service Desk-biljetter, ändrings spårning, säkerhet och uppdateringar.
+Fönstret **Sammanfattning av datorer** innehåller en översikt över en servers operativsystem, beroendeantal och data från andra lösningar. Sådana data omfattar prestandamått, servicedesk-biljetter, ändringsspårning, säkerhet och uppdateringar.
 
-![Fönstret dator Sammanfattning](media/service-map/machine-summary.png)
+![Fönstret Sammanfattning av datorer](media/service-map/machine-summary.png)
 
-## <a name="computer-and-process-properties"></a>Egenskaper för dator och process
+## <a name="computer-and-process-properties"></a>Dator- och processegenskaper
 
-När du navigerar en Tjänstkarta karta kan du välja datorer och processer för att få ytterligare kontext om deras egenskaper. Datorer tillhandahåller information om DNS-namn, IPv4-adresser, processor-och minnes kapacitet, VM-typ, operativ system och version, senaste omstart och ID för deras OMS-och Tjänstkartas agenter.
+När du navigerar på en tjänstkarta kan du välja datorer och processer för att få ytterligare kontext om deras egenskaper. Datorer ger information om DNS-namn, IPv4-adresser, CPU och minneskapacitet, VM-typ, operativsystem och version, senaste omstartstid och ID:n för deras OMS- och Service Map-agenter.
 
-![Rutan dator egenskaper](media/service-map/machine-properties.png)
+![Fönstret Datoregenskaper](media/service-map/machine-properties.png)
 
-Du kan samla in process information från operativ systemets metadata om att köra processer, inklusive process namn, process beskrivning, användar namn och domän (i Windows), företags namn, produkt namn, produkt version, arbets katalog, kommando rad och process Start tid.
+Du kan samla in processinformation från operativsystemmetadata om processer som körs, inklusive processnamn, processbeskrivning, användarnamn och domän (i Windows), företagsnamn, produktnamn, produktversion, arbetskatalog, kommandorad och process starttid.
 
-![Fönstret process egenskaper](media/service-map/process-properties.png)
+![Fönstret Bearbeta egenskaper](media/service-map/process-properties.png)
 
-I fönstret **process Sammanfattning** får du ytterligare information om processens anslutnings barhet, inklusive dess bundna portar, inkommande och utgående anslutningar och misslyckade anslutningar.
+Fönstret **Processsammanfattning** innehåller ytterligare information om processens anslutning, inklusive dess bundna portar, inkommande och utgående anslutningar och misslyckade anslutningar.
 
-![Process sammanfattnings fönster](media/service-map/process-summary.png)
+![Fönstret Sammanfattning av processen](media/service-map/process-summary.png)
 
-## <a name="alerts-integration"></a>Aviserings integrering
+## <a name="alerts-integration"></a>Integrering av aviseringar
 
-Tjänstkarta integreras med Azure-aviseringar för att Visa utlöst aviseringar för den valda servern i det valda tidsintervallet. Servern visar en ikon om det finns aktuella aviseringar och fönstret med **dator aviseringar** visar aviseringarna.
+Service Map integreras med Azure-aviseringar för att visa avfyrade aviseringar för den valda servern i det valda tidsintervallet. Servern visar en ikon om det finns aktuella aviseringar och fönstret **Maskinvarningar** visar aviseringarna.
 
-![Fönstret för dator aviseringar](media/service-map/machine-alerts.png)
+![Fönstret Maskinvarningar](media/service-map/machine-alerts.png)
 
-Om du vill aktivera Tjänstkarta Visa relevanta aviseringar skapar du en varnings regel som utlöses för en speciell dator. Så här skapar du korrekta aviseringar:
-- Inkludera en sats att gruppera efter dator (till exempel **efter dator intervall 1 minut**).
-- Välj att avisera utifrån mått mått.
+Om du vill att Service Map ska kunna visa relevanta aviseringar skapar du en varningsregel som utlöses för en viss dator. Så här skapar du lämpliga aviseringar:
+- Inkludera en sats som ska grupperas efter dator (t.ex. **efter datorintervall 1 minut**).
+- Välj att avisera baserat på måttmätning.
 
-## <a name="log-events-integration"></a>Logg händelse integrering
+## <a name="log-events-integration"></a>Integrering av logghändelser
 
-Tjänstkarta integreras med loggs ökningen för att visa antalet tillgängliga logg händelser för den valda servern under det valda tidsintervallet. Du kan klicka på valfri rad i listan över antal händelser för att hoppa till loggs ökningen och se enskilda logg händelser.
+Service Map integreras med Loggsökning för att visa antalet tillgängliga logghändelser för den valda servern under det valda tidsintervallet. Du kan klicka på valfri rad i listan över händelseantal för att hoppa till Loggsökning och se de enskilda logghändelserna.
 
-![Fönster för logg händelser i Machine](media/service-map/log-events.png)
+![Fönstret Händelser för maskinlogg](media/service-map/log-events.png)
 
-## <a name="service-desk-integration"></a>Service Desk-integrering
+## <a name="service-desk-integration"></a>Integrering av servicedesk
 
-Tjänstkarta integration med Anslutningsprogram för hantering av IT-tjänster (ITSM) sker automatiskt när båda lösningarna är aktiverade och konfigurerade i din Log Analytics-arbetsyta. Integrationen i Tjänstkarta är märkt med "Service Desk". Mer information finns i [Central hantering av ITSM arbets objekt med hjälp av anslutningsprogram för hantering av IT-tjänster (ITSM)](https://docs.microsoft.com/azure/log-analytics/log-analytics-itsmc-overview).
+Service Map-integrering med IT Service Management Connector sker automatiskt när båda lösningarna är aktiverade och konfigurerade på logganalysarbetsytan. Integreringen i Service Map är märkt "Service Desk". Mer information finns i [Centralt hantera ITSM-arbetsobjekt med HJÄLP av IT Service Management Connector](https://docs.microsoft.com/azure/log-analytics/log-analytics-itsmc-overview).
 
-**Skriv bords fönstret för Machine service** visar alla IT Service Management-händelser för den valda servern i det valda tidsintervallet. Servern visar en ikon om det finns aktuella objekt och dator tjänstens Skriv bords fönster visar dem.
+I fönstret **Maskinservicedesk** visas alla IT Service Management-händelser för den valda servern inom det valda tidsintervallet. Servern visar en ikon om det finns aktuella objekt och i fönstret Maskinservicedisk visas dem.
 
-![Skriv bords fönstret för Machine service](media/service-map/service-desk.png)
+![Fönstret Skrivbord för maskinservice](media/service-map/service-desk.png)
 
-Om du vill öppna objektet i din anslutna ITSM-lösning klickar du på **Visa arbets objekt**.
+Om du vill öppna objektet i den anslutna ITSM-lösningen klickar du på **Visa arbetsobjekt**.
 
-Om du vill visa information om objektet i loggs ökningen klickar du på **Visa i loggs ökning**.
-Anslutnings mått skrivs till två nya tabeller i Log Analytics 
+Om du vill visa information om objektet i Loggsökning klickar du på **Visa i Loggsökning**.
+Anslutningsmått skrivs till två nya tabeller i Log Analytics 
 
-## <a name="change-tracking-integration"></a>Ändringsspårning-integrering
+## <a name="change-tracking-integration"></a>Integrering av ändringsspårning
 
-Tjänstkarta integration med Ändringsspårning sker automatiskt när båda lösningarna är aktiverade och konfigurerade i din Log Analytics-arbetsyta.
+Service Map-integrering med ändringsspårning sker automatiskt när båda lösningarna är aktiverade och konfigurerade på logganalysarbetsytan.
 
-I rutan **dator ändringsspårning** visas alla ändringar, med den senaste först, tillsammans med en länk för att gå nedåt till loggs ökning för ytterligare information.
+I fönstret **Spårning av maskinändringar** visas alla ändringar, med den senaste först, tillsammans med en länk för att öka detaljnivån till Loggsökning för ytterligare information.
 
-![Dator Ändringsspårnings fönstret](media/service-map/change-tracking.png)
+![Fönstret Spårning av datorändringar](media/service-map/change-tracking.png)
 
-Följande bild är en detaljerad vy över en ConfigurationChange-händelse som du kan se när du har valt **Visa i Log Analytics**.
+Följande bild är en detaljerad vy av en ConfigurationChange-händelse som du kan se när du har valt **Visa i Logganalys**.
 
 ![ConfigurationChange-händelse](media/service-map/configuration-change-event-01.png)
 
-## <a name="performance-integration"></a>Prestanda integrering
+## <a name="performance-integration"></a>Integrering av prestanda
 
-Fönstret **dator prestanda** visar standard prestanda mått för den valda servern. Måtten innefattar processor användning, minnes användning, nätverks byte som skickats och tagits emot och en lista över de högsta processerna efter skickade och mottagna nätverks byte.
+I fönstret **Maskinprestanda** visas standardprestandamått för den valda servern. Måtten omfattar CPU-användning, minnesanvändning, nätverksbyte som skickas och tas emot och en lista över de bästa processerna efter nätverksbyte som skickas och tas emot.
 
-![Fönstret dator prestanda](media/service-map/machine-performance.png)
+![Fönstret Maskinprestanda](media/service-map/machine-performance.png)
 
-Om du vill visa prestanda data kan du behöva [Aktivera lämpliga Log Analytics prestanda räknare](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-sources-performance-counters).  De räknare som du vill aktivera:
+Om du vill visa prestandadata kan du behöva [aktivera lämpliga prestandaräknare för Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-sources-performance-counters).  De räknare som du vill aktivera:
 
 Windows:
-- Processor (*)\\% processor tid
-- Minnes\\% allokerade byte som används
-- Nätverkskort (*)\\skickade byte per sekund
-- Nätverkskort (*)\\mottagna byte/SEK
+- Processor(*)\\% processortid
+- Minne\\% bekräftade byte som används
+- Nätverkskort(*)\\Skickade byte/sek
+- Nätverkskort(*)\\mottagna byte/sek
 
 Linux:
-- Processor (*)\\% processor tid
-- Minne (*)\\% använt minne
-- Nätverkskort (*)\\skickade byte per sekund
-- Nätverkskort (*)\\mottagna byte/SEK
+- Processor(*)\\% processortid
+- Minne(*)\\% använt minne
+- Nätverkskort(*)\\Skickade byte/sek
+- Nätverkskort(*)\\mottagna byte/sek
 
-Om du vill hämta data om nätverks prestanda måste du också ha aktiverat Wire Data 2.0-lösningen i din arbets yta.
+För att få nätverksprestandadata måste du också ha aktiverat Wire Data 2.0-lösningen på arbetsytan.
  
-## <a name="security-integration"></a>Säkerhets integrering
+## <a name="security-integration"></a>Integrering av säkerhet
 
-Tjänstkarta integration med Säkerhet och granskning sker automatiskt när båda lösningarna är aktiverade och konfigurerade i din Log Analytics-arbetsyta.
+Service Map-integrering med säkerhet och granskning sker automatiskt när båda lösningarna är aktiverade och konfigurerade på logganalysarbetsytan.
 
-I fönstret **dator säkerhet** visas data från säkerhet och granskning-lösningen för den valda servern. Rutan visar en sammanfattning av eventuella utestående säkerhets problem för servern under det valda tidsintervallet. Om du klickar på någon av säkerhets problemen går du vidare till loggs ökningen.
+Fönstret **Datorsäkerhet** visar data från säkerhets- och granskningslösningen för den valda servern. I fönstret visas en sammanfattning av eventuella kvarstående säkerhetsproblem för servern under det valda tidsintervallet. Om du klickar på något av säkerhetsproblemen går du närmare in på en loggsökning efter information om dem.
 
-![Fönstret dator säkerhet](media/service-map/machine-security.png)
+![Fönstret Maskinsäkerhet](media/service-map/machine-security.png)
 
-## <a name="updates-integration"></a>Uppdaterings integrering
+## <a name="updates-integration"></a>Uppdaterar integrering
 
-Tjänstkarta integration med Uppdateringshantering sker automatiskt när båda lösningarna är aktiverade och konfigurerade i din Log Analytics-arbetsyta.
+Service Map-integrering med Uppdateringshantering sker automatiskt när båda lösningarna är aktiverade och konfigurerade på logganalysarbetsytan.
 
-I fönstret **dator uppdateringar** visas data från uppdateringshantering-lösningen för den valda servern. Rutan visar en sammanfattning av eventuella uppdateringar som saknas för servern under det valda tidsintervallet.
+I fönstret **Datoruppdateringar** visas data från lösningen för uppdateringshantering för den valda servern. I fönstret visas en sammanfattning av eventuella uppdateringar som saknas för servern under det valda tidsintervallet.
 
-![Dator Ändringsspårnings fönstret](media/service-map/machine-updates.png)
+![Fönstret Spårning av datorändringar](media/service-map/machine-updates.png)
 
 ## <a name="log-analytics-records"></a>Log Analytics-poster
 
-Tjänstkarta dator-och process inventerings data är tillgängliga för [sökning](../../azure-monitor/log-query/log-query-overview.md) i Log Analytics. Du kan använda dessa data i scenarier som omfattar migrerings planering, kapacitets analys, identifiering och prestanda fel sökning på begäran.
+Service Map-dator- och processlagerdata är tillgängliga för [sökning](../../azure-monitor/log-query/log-query-overview.md) i Logganalys. Du kan använda dessa data på scenarier som omfattar migreringsplanering, kapacitetsanalys, identifiering och felsökning av prestanda på begäran.
 
-En post skapas per timme för varje unik dator och process, förutom de poster som genereras när en process eller dator startar eller aktive ras för att Tjänstkarta. Dessa poster har egenskaperna i följande tabeller. Fälten och värdena i ServiceMapComputer_CL händelser mappar till fält i dator resursen i ServiceMap Azure Resource Manager API. Fälten och värdena i ServiceMapProcess_CL händelser mappar till fälten i process resursen i ServiceMap Azure Resource Manager API. Fältet ResourceName_s matchar fältet namn i motsvarande Resource Manager-resurs. 
+En post genereras per timme för varje unik dator och process, utöver de poster som genereras när en process eller dator startar eller är inbyggd i Service Map. Dessa poster har egenskaperna i följande tabeller. Fälten och värdena i ServiceMapComputer_CL händelser mappas till fält för datorresursen i Api:et för ServiceMap Azure Resource Manager. Fälten och värdena i ServiceMapProcess_CL händelser mappas till fälten för processresursen i Api:et för ServiceMap Azure Resource Manager. Fältet ResourceName_s matchar namnfältet i motsvarande Resurshanteraren-resurs. 
 
 >[!NOTE]
->När Tjänstkarta funktioner växer kan dessa fält ändras.
+>I takt med att servicemappningsfunktionerna växer kan dessa fält ändras.
 
 Det finns internt genererade egenskaper som du kan använda för att identifiera unika processer och datorer:
 
-- Dator: Använd *ResourceID* eller *ResourceName_s* för att unikt identifiera en dator i en Log Analytics arbets yta.
-- Process: Använd *ResourceID* för att unikt identifiera en process inom en Log Analytics-arbetsyta. *ResourceName_s* är unikt inom kontexten för den dator där processen körs (MachineResourceName_s) 
+- Dator: Använd *ResourceId* eller *ResourceName_s* för att unikt identifiera en dator i en Log Analytics-arbetsyta.
+- Process: Använd *ResourceId* för att unikt identifiera en process inom en Log Analytics-arbetsyta. *ResourceName_s* är unik inom ramen för den maskin som processen körs på (MachineResourceName_s) 
 
-Eftersom det kan finnas flera poster för en angiven process och dator inom ett angivet tidsintervall, kan frågor returnera fler än en post för samma dator eller process. Om du bara vill ta med den senaste posten lägger du till | deduplicera ResourceId "till frågan.
+Eftersom det kan finnas flera poster för en angiven process och dator i ett angivet tidsintervall, kan frågor returnera mer än en post för samma dator eller process. Om du bara vill ta med den senaste posten lägger du till "| dedup ResourceId" till frågan.
 
 ### <a name="connections"></a>Anslutningar
 
-Anslutnings mått skrivs till en ny tabell i Log Analytics-VMConnection. Den här tabellen innehåller information om anslutningarna för en dator (inkommande och utgående). Anslutnings måtten exponeras också med API: er som gör det möjligt att hämta ett mått i ett tids fönster.  TCP-anslutningar som orsakas av att de godkänns på en lyssnande socket är inkommande, medan de som skapas genom att ansluta till en specifik IP-adress och port är utgående. Riktningen för en anslutning representeras av egenskapen Direction, som kan anges till antingen **inkommande** eller **utgående**. 
+Anslutningsmått skrivs till en ny tabell i Log Analytics - VMConnection. Den här tabellen innehåller information om anslutningarna för en dator (inkommande och utgående). Anslutningsmått visas också med API:er som ger möjlighet att hämta ett visst mått under ett tidsfönster.  TCP-anslutningar som härrör från att acceptera på en lyssningsuttag är inkommande, medan de som skapas genom att ansluta till en viss IP och port är utgående. Riktningen för en anslutning representeras av egenskapen Riktning, som kan ställas in på antingen **inkommande** eller **utgående**. 
 
-Poster i dessa tabeller genereras från data som rapporteras av beroende agenten. Varje post representerar en observation över ett tidsintervall med en minut. Egenskapen TimeGenerated anger start tiden för tidsintervallet. Varje post innehåller information för att identifiera respektive entitet, det vill säga anslutning eller port, samt mått som är associerade med den entiteten. För närvarande rapporteras endast nätverks aktivitet som sker med TCP över IPv4.
+Poster i dessa tabeller genereras från data som rapporteras av beroendeagenten. Varje post representerar en observation över en minuts tidsintervall. Egenskapen TimeGenerated anger början av tidsintervallet. Varje post innehåller information för att identifiera respektive entitet, det vill ha, anslutning eller port, samt mått som är associerade med den entiteten. För närvarande rapporteras endast nätverksaktivitet som inträffar med TCP över IPv4.
 
-För att hantera kostnader och komplexitet representerar anslutnings posterna inte enskilda fysiska nätverks anslutningar. Flera fysiska nätverks anslutningar är grupperade i en logisk anslutning, som sedan återspeglas i respektive tabell.  Det innebär att poster i *VMConnection* -tabellen representerar en logisk gruppering och inte de enskilda fysiska anslutningar som observeras. Den fysiska nätverks anslutningen som delar samma värde för följande attribut under ett angivet minut intervall sammanställs i en enda logisk post i *VMConnection*. 
+För att hantera kostnader och komplexitet representerar anslutningsposter inte enskilda fysiska nätverksanslutningar. Flera fysiska nätverksanslutningar grupperas i en logisk anslutning, vilket sedan återspeglas i respektive tabell.  Det betyder att poster i *tabellen VMConnection* representerar en logisk gruppering och inte de enskilda fysiska anslutningar som observeras. Fysisk nätverksanslutning som delar samma värde för följande attribut under ett givet enminutsintervall aggregeras till en enda logisk post i *VMConnection*. 
 
 | Egenskap | Beskrivning |
 |:--|:--|
 | `Direction` |Anslutningens riktning, värdet är *inkommande* eller *utgående* |
-| `Machine` |Datorns FQDN |
-| `Process` |Identitet för process eller grupper av processer, initierar/accepterar anslutningen |
+| `Machine` |Datorn FQDN |
+| `Process` |Identitet för process eller grupper av processer, initiera/acceptera anslutningen |
 | `SourceIp` |Källans IP-adress |
 | `DestinationIp` |Målets IP-adress |
-| `DestinationPort` |Port nummer för målet |
-| `Protocol` |Protokoll som används för anslutningen.  Värdena är *TCP*. |
+| `DestinationPort` |Destinationens portnummer |
+| `Protocol` |Protokoll som används för anslutningen.  Värden är *tcp*. |
 
-För att kunna utnyttja gruppens påverkan finns information om antalet grupperade fysiska anslutningar i följande egenskaper för posten:
+För att ta hänsyn till effekten av gruppering finns information om antalet grupperade fysiska anslutningar i postens följande egenskaper:
 
 | Egenskap | Beskrivning |
 |:--|:--|
-| `LinksEstablished` |Antalet fysiska nätverks anslutningar som har upprättats under rapport tids perioden |
-| `LinksTerminated` |Antalet fysiska nätverks anslutningar som har avbrutits under rapport tids perioden |
-| `LinksFailed` |Antalet fysiska nätverks anslutningar som har misslyckats under rapporterings tids perioden. Den här informationen är för närvarande endast tillgänglig för utgående anslutningar. |
-| `LinksLive` |Antalet fysiska nätverks anslutningar som öppnades i slutet av tids perioden för rapportering|
+| `LinksEstablished` |Antalet fysiska nätverksanslutningar som har upprättats under rapporteringstidsfönstret |
+| `LinksTerminated` |Antalet fysiska nätverksanslutningar som har avslutats under rapporteringstidsfönstret |
+| `LinksFailed` |Antalet fysiska nätverksanslutningar som har misslyckats under rapporteringstidsfönstret. Den här informationen är för närvarande endast tillgänglig för utgående anslutningar. |
+| `LinksLive` |Antalet fysiska nätverksanslutningar som var öppna i slutet av rapporteringstidsfönstret|
 
 #### <a name="metrics"></a>Mått
 
-Förutom antalet anslutningar räknas information om mängden data som skickas och tas emot på en specifik logisk anslutning eller nätverks port också med följande egenskaper för posten:
+Förutom mått för antalet anslutningar inkluderas även information om mängden data som skickas och tas emot på en viss logisk anslutnings- eller nätverksport i postens följande egenskaper:
 
 | Egenskap | Beskrivning |
 |:--|:--|
-| `BytesSent` |Totalt antal byte som har skickats under rapport tids perioden |
-| `BytesReceived` |Totalt antal byte som har tagits emot under rapport tids perioden |
-| `Responses` |Antalet svar som observerats under rapporterings tids perioden. 
-| `ResponseTimeMax` |Den största svars tid (millisekunder) som observeras under rapporterings tids perioden.  Om inget värde anges är egenskapen tom.|
-| `ResponseTimeMin` |Den minsta svars tid (millisekunder) som observeras under rapporterings tids perioden.  Om inget värde anges är egenskapen tom.|
-| `ResponseTimeSum` |Summan av alla svars tider (millisekunder) som observeras under rapporterings tids perioden.  Om inget värde anges är egenskapen tom|
+| `BytesSent` |Totalt antal byte som har skickats under rapporteringstidsfönstret |
+| `BytesReceived` |Totalt antal byte som har tagits emot under rapporteringstidsfönstret |
+| `Responses` |Antalet svar som observerats under rapporteringstidsfönstret. 
+| `ResponseTimeMax` |Den största svarstiden (millisekunder) som observerats under rapporteringstidsfönstret.  Om inget värde är egenskapen tom.|
+| `ResponseTimeMin` |Den minsta svarstiden (millisekunder) som observerats under rapporteringstidsfönstret.  Om inget värde är egenskapen tom.|
+| `ResponseTimeSum` |Summan av alla svarstider (millisekunder) som observerats under rapporteringstidsfönstret.  Om inget värde är egenskapen tom|
 
-Den tredje typen av data som rapporteras är svars tid – hur lång tid en anropare ägnar åt att vänta på att en begäran skickas över en anslutning som ska bearbetas och besvaras av Fjärrslutpunkten. Svars tiden som rapporteras är en uppskattning av den sanna svars tiden för det underliggande applikations protokollet. Den beräknas med hjälp av heuristik baserat på observationen av data flödet mellan käll-och mål slutet av en fysisk nätverks anslutning. Konceptuellt är skillnaden mellan den tid då den sista byten av en begäran lämnar avsändaren och den tid då den sista byten av svaret kommer tillbaka till den. Dessa två tidsstämplar används för att avgränsa begär ande-och svars händelser på en specifik fysisk anslutning. Skillnaden mellan dem representerar svars tiden för en enskild begäran. 
+Den tredje typen av data som rapporteras är svarstid - hur länge spenderar en uppringare på att vänta på att en begäran som skickas över en anslutning ska bearbetas och besvaras av fjärrslutpunkten. Den rapporterade svarstiden är en uppskattning av den verkliga svarstiden för det underliggande programprotokollet. Det beräknas med heuristik baserat på observation av flödet av data mellan källan och målslutet för en fysisk nätverksanslutning. Begreppsmässigt är det skillnaden mellan den tidpunkt då den sista bytet av en begäran lämnar avsändaren och den tidpunkt då den sista bytet av svaret kommer tillbaka till den. Dessa två tidsstämplar används för att avgränsa begärande- och svarshändelser på en viss fysisk anslutning. Skillnaden mellan dem representerar svarstiden för en enskild begäran. 
 
-I den här första versionen av den här funktionen är vår algoritm en uppskattning som kan fungera med varierande grad av lyckade beroende på det faktiska program protokollet som används för en viss nätverks anslutning. Till exempel fungerar den aktuella metoden bra för Request-Response-baserade protokoll som t. ex. HTTP (S), men fungerar inte med envägs-eller Message Queue-baserade protokoll.
+I den här första versionen av den här funktionen är vår algoritm en approximation som kan fungera med varierande grad av framgång beroende på det faktiska programprotokollet som används för en viss nätverksanslutning. Den aktuella metoden fungerar till exempel bra för protokoll baserade på begäransvar, till exempel HTTP(S), men fungerar inte med enkelriktade eller meddelandeköbaserade protokoll.
 
-Här är några viktiga saker att tänka på:
+Här är några viktiga punkter att tänka på:
 
-1. Om en process accepterar anslutningar på samma IP-adress men över flera nätverks gränssnitt rapporteras en separat post för varje gränssnitt. 
-2. Poster med IP-adress med jokertecken kommer inte att innehålla någon aktivitet. De är inkluderade för att representera det faktum att en port på datorn är öppen för inkommande trafik.
-3. För att minska utförligheten och data volymen utelämnas poster med IP-adress med jokertecken när det finns en matchande post (för samma process, port och protokoll) med en speciell IP-adress. När en IP-post med jokertecken utelämnas, anges IsWildcardBind Record-egenskapen med den angivna IP-adressen till "true" för att indikera att porten exponeras för varje gränssnitt på rapporterings datorn.
-4. Portar som endast är kopplade till ett speciellt gränssnitt har IsWildcardBind inställt på "false".
+1. Om en process accepterar anslutningar på samma IP-adress men via flera nätverksgränssnitt rapporteras en separat post för varje gränssnitt. 
+2. Poster med jokertecken-IP innehåller ingen aktivitet. De ingår för att representera det faktum att en port på maskinen är öppen för inkommande trafik.
+3. För att minska verbositeten och datavolymen utelämnas poster med jokertecken-IP när det finns en matchande post (för samma process, port och protokoll) med en specifik IP-adress. När en IP-post med jokertecken utelämnas ställs egenskapen IsWildcardBind-post med den specifika IP-adressen in på "True" för att ange att porten exponeras över alla gränssnitt på rapporteringsdatorn.
+4. Portar som endast är bundna på ett visst gränssnitt har IsWildcardBind inställt på "False".
 
-#### <a name="naming-and-classification"></a>Namn och klassificering
+#### <a name="naming-and-classification"></a>Namngivning och klassificering
 
-IP-adressen för fjärran sluten av en anslutning ingår i egenskapen RemoteIp för att under lätta. För inkommande anslutningar är RemoteIp detsamma som SourceIp, medan för utgående anslutningar är det samma som DestinationIp. Egenskapen RemoteDnsCanonicalNames representerar DNS-kanoniska namn som rapporteras av datorn för RemoteIp. Egenskaperna RemoteDnsQuestions och RemoteClassification är reserverade för framtida användning. 
+För enkelhetens skull ingår IP-adressen för fjärrslutet av en anslutning i egenskapen RemoteIp. För inkommande anslutningar är RemoteIp samma som SourceIp, medan för utgående anslutningar är det samma som DestinationIp. Egenskapen RemoteDnsCanonicalNames representerar de DNS-kanoniska namn som rapporteras av datorn för RemoteIp. Egenskaperna RemoteDnsQuestions och RemoteClassification är reserverade för framtida användning. 
 
-#### <a name="geolocation"></a>Geoplats
+#### <a name="geolocation"></a>Geolocation
 
-*VMConnection* innehåller också information om geolokalisering för fjärrparten av varje anslutnings post i följande egenskaper för posten: 
+*VMConnection* innehåller även geolokaliseringsinformation för fjärrslutet av varje anslutningspost i följande egenskaper för posten: 
 
 | Egenskap | Beskrivning |
 |:--|:--|
-| `RemoteCountry` |Namnet på det land/den region som är värd för RemoteIp.  Till exempel *USA* |
-| `RemoteLatitude` |Den geolokalisering på latitud.  Till exempel *47,68* |
-| `RemoteLongitude` |Longituden för den här platsen.  Till exempel *– 122,12* |
+| `RemoteCountry` |Namnet på det land/den region som är värd för RemoteIp.  Till exempel *kan USA* |
+| `RemoteLatitude` |Geolocation latitud.  Till exempel *47,68* |
+| `RemoteLongitude` |Geolocation longituden.  Till exempel *-122,12* |
 
 #### <a name="malicious-ip"></a>Skadlig IP
 
-Varje RemoteIp-egenskap i *VMConnection* -tabellen kontrol leras mot en uppsättning IP-adresser med känd skadlig aktivitet. Om RemoteIp identifieras som skadlig kommer följande egenskaper att fyllas i (de är tomma, om IP-adressen inte betraktas som skadlig) i följande egenskaper för posten:
+Varje RemoteIp-egenskap i *VMConnection-tabellen* kontrolleras mot en uppsättning IP-adresser med känd skadlig aktivitet. Om RemoteIp identifieras som skadliga fylls följande egenskaper i (de är tomma, när IP-adressen inte anses vara skadlig) i postens följande egenskaper:
 
 | Egenskap | Beskrivning |
 |:--|:--|
 | `MaliciousIp` |RemoteIp-adressen |
-| `IndicatorThreadType` |En hot indikator upptäcktes av följande värden: *botnät*, *C2*, *CryptoMining*, *Darknet*, *DDoS*, *MaliciousUrl*, *malware*, *phishing*, *proxy*, *oönskade program*, *visnings lista*.   |
+| `IndicatorThreadType` |Hotindikator som upptäckts är ett av följande värden, *Botnet*, *C2*, *CryptoMining*, *Darknet*, *DDos*, *MaliciousUrl*, *Malware*, *Phishing*, *Proxy*, *PUA*, *Watchlist*.   |
 | `Description` |Beskrivning av det observerade hotet. |
-| `TLPLevel` |TLP-nivån (trafik ljus protokoll) är en av de definierade värdena, *vitt*, *grönt*, *gult*, *rött*. |
+| `TLPLevel` |TLP-nivå (Traffic Light Protocol) är ett av de definierade värdena, *Vit,* *Grön*, *Gul*, *Röd*. |
 | `Confidence` |Värdena är *0 – 100*. |
-| `Severity` |Värdena är *0 – 5*, där *5* är det allvarligaste och *0* inte är allvarligt. Standardvärdet är *3*.  |
-| `FirstReportedDateTime` |Första gången som providern rapporterade indikatorn. |
-| `LastReportedDateTime` |Den senaste gången indikatorn visades vid ett flöde. |
-| `IsActive` |Anger att indikatorer inaktive ras med värdet *True* eller *false* . |
-| `ReportReferenceLink` |Länkar till rapporter som är relaterade till en bestämd som kan observeras. |
-| `AdditionalInformation` |Innehåller ytterligare information om det observerade hotet. |
+| `Severity` |Värdena är *0 – 5*, där *5* är den allvarligaste och *0* inte är allvarlig alls. Standardvärdet är *3*.  |
+| `FirstReportedDateTime` |Första gången leverantören rapporterade indikatorn. |
+| `LastReportedDateTime` |Senast indikatorn sågs av Interflow. |
+| `IsActive` |Anger att indikatorer inaktiveras med *sant* eller *falskt* värde. |
+| `ReportReferenceLink` |Länkar till rapporter relaterade till en viss observerbar. |
+| `AdditionalInformation` |Ger ytterligare information, om tillämpligt, om det observerade hotet. |
 
 ### <a name="servicemapcomputer_cl-records"></a>ServiceMapComputer_CL poster
 
-Poster med en typ av *ServiceMapComputer_CL* har inventerings data för servrar med Tjänstkartas agenter. Dessa poster har egenskaper i följande tabell:
+Poster med en typ av *ServiceMapComputer_CL* har lagerdata för servrar med Service Map-agenter. Dessa poster har egenskaperna i följande tabell:
 
 | Egenskap | Beskrivning |
 |:--|:--|
 | `Type` | *ServiceMapComputer_CL* |
 | `SourceSystem` | *OpsManager* |
-| `ResourceId` | Den unika identifieraren för en dator på arbets ytan |
-| `ResourceName_s` | Den unika identifieraren för en dator på arbets ytan |
-| `ComputerName_s` | Datorns FQDN |
+| `ResourceId` | Den unika identifieraren för en maskin inom arbetsytan |
+| `ResourceName_s` | Den unika identifieraren för en maskin inom arbetsytan |
+| `ComputerName_s` | Datorn FQDN |
 | `Ipv4Addresses_s` | En lista över serverns IPv4-adresser |
 | `Ipv6Addresses_s` | En lista över serverns IPv6-adresser |
 | `DnsNames_s` | En matris med DNS-namn |
 | `OperatingSystemFamily_s` | Windows eller Linux |
-| `OperatingSystemFullName_s` | Det fullständiga namnet på operativ systemet  |
-| `Bitness_s` | Bitness för datorn (32-bitars eller 64-bitars)  |
-| `PhysicalMemory_d` | Fysiskt minne i MB |
+| `OperatingSystemFullName_s` | Operativsystemets fullständiga namn  |
+| `Bitness_s` | Maskinens bitighet (32- eller 64-bitars)  |
+| `PhysicalMemory_d` | Det fysiska minnet i MB |
 | `Cpus_d` | Antalet processorer |
 | `CpuSpeed_d` | CPU-hastigheten i MHz|
 | `VirtualizationState_s` | *okänd*, *fysisk*, *virtuell*, *hypervisor* |
-| `VirtualMachineType_s` | *HyperV*, *VMware*och så vidare |
-| `VirtualMachineNativeMachineId_g` | Det VM-ID som tilldelats av dess hypervisor |
+| `VirtualMachineType_s` | *hyperv*, *vmware*, och så vidare |
+| `VirtualMachineNativeMachineId_g` | VM-ID:et som tilldelats av dess hypervisor |
 | `VirtualMachineName_s` | Namnet på den virtuella datorn |
-| `BootTime_t` | Start tiden |
+| `BootTime_t` | Starttiden |
 
-### <a name="servicemapprocess_cl-type-records"></a>ServiceMapProcess_CL Skriv poster
+### <a name="servicemapprocess_cl-type-records"></a>ServiceMapProcess_CL typposter
 
-Poster med en typ av *ServiceMapProcess_CL* har inventerings data för TCP-anslutna processer på servrar med Tjänstkartas agenter. Dessa poster har egenskaper i följande tabell:
+Poster med en typ av *ServiceMapProcess_CL* har lagerdata för TCP-anslutna processer på servrar med Service Map-agenter. Dessa poster har egenskaperna i följande tabell:
 
 | Egenskap | Beskrivning |
 |:--|:--|
 | `Type` | *ServiceMapProcess_CL* |
 | `SourceSystem` | *OpsManager* |
-| `ResourceId` | Den unika identifieraren för en process inom arbets ytan |
-| `ResourceName_s` | Den unika identifieraren för en process på den dator där den körs|
-| `MachineResourceName_s` | Datorns resurs namn |
+| `ResourceId` | Den unika identifieraren för en process inom arbetsytan |
+| `ResourceName_s` | Den unika identifieraren för en process i den maskin som den körs på|
+| `MachineResourceName_s` | Maskinens resursnamn |
 | `ExecutableName_s` | Namnet på den körbara processen |
-| `StartTime_t` | Start tid för process bassäng |
-| `FirstPid_d` | Det första PID i lagringspoolen |
-| `Description_s` | Beskrivning av processen |
-| `CompanyName_s` | Företagets namn |
+| `StartTime_t` | Processpoolens starttid |
+| `FirstPid_d` | Det första PID i processpoolen |
+| `Description_s` | Processbeskrivningen |
+| `CompanyName_s` | Namnet på företaget |
 | `InternalName_s` | Det interna namnet |
 | `ProductName_s` | Produktens namn |
-| `ProductVersion_s` | Produkt versionen |
-| `FileVersion_s` | Fil versionen |
-| `CommandLine_s` | Kommando raden |
+| `ProductVersion_s` | Produktversionen |
+| `FileVersion_s` | Filversionen |
+| `CommandLine_s` | Kommandoraden |
 | `ExecutablePath _s` | Sökvägen till den körbara filen |
-| `WorkingDirectory_s` | Arbets katalogen |
+| `WorkingDirectory_s` | Arbetskatalogen |
 | `UserName` | Kontot under vilket processen körs |
-| `UserDomain` | Domänen som processen körs under |
+| `UserDomain` | Den domän under vilken processen körs |
 
 ## <a name="sample-log-searches"></a>Exempel på loggsökningar
 
-### <a name="list-all-known-machines"></a>Visa en lista med alla kända datorer
+### <a name="list-all-known-machines"></a>Lista alla kända maskiner
 
-ServiceMapComputer_CL | sammanfatta arg_max (TimeGenerated, *) efter ResourceId
+ServiceMapComputer_CL | sammanfatta arg_max(TimeGenerated, *) efter ResourceId
 
-### <a name="list-the-physical-memory-capacity-of-all-managed-computers"></a>Ange kapaciteten för fysiskt minne för alla hanterade datorer.
+### <a name="list-the-physical-memory-capacity-of-all-managed-computers"></a>Lista den fysiska minneskapaciteten för alla hanterade datorer.
 
-ServiceMapComputer_CL | sammanfatta arg_max (TimeGenerated, *) enligt ResourceId | projekt PhysicalMemory_d ComputerName_s
+ServiceMapComputer_CL | sammanfatta arg_max (TimeGenerated, *) av ResourceId | projekt PhysicalMemory_d, ComputerName_s
 
-### <a name="list-computer-name-dns-ip-and-os"></a>Visa dator namn, DNS, IP och OS.
+### <a name="list-computer-name-dns-ip-and-os"></a>Lista datornamn, DNS, IP och OS.
 
-ServiceMapComputer_CL | sammanfatta arg_max (TimeGenerated, *) enligt ResourceId | projekt ComputerName_s, OperatingSystemFullName_s, DnsNames_s, Ipv4Addresses_s
+ServiceMapComputer_CL | sammanfatta arg_max (TimeGenerated, *) av ResourceId | projekt ComputerName_s, OperatingSystemFullName_s, DnsNames_s, Ipv4Addresses_s
 
-### <a name="find-all-processes-with-sql-in-the-command-line"></a>Hitta alla processer med "SQL" på kommando raden
+### <a name="find-all-processes-with-sql-in-the-command-line"></a>Hitta alla processer med "sql" på kommandoraden
 
-ServiceMapProcess_CL | där CommandLine_s contains_cs SQL | sammanfatta arg_max (TimeGenerated, *) efter ResourceId
+ServiceMapProcess_CL | där CommandLine_s contains_cs "sql" | sammanfatta arg_max(TimeGenerated, *) efter ResourceId
 
-### <a name="find-a-machine-most-recent-record-by-resource-name"></a>Hitta en dator (senaste posten) efter resurs namn
+### <a name="find-a-machine-most-recent-record-by-resource-name"></a>Hitta en dator (senaste posten) efter resursnamn
 
-Sök i (ServiceMapComputer_CL) "m-4b9c93f9-bc37-46DF-b43c-899ba829e07b" | sammanfatta arg_max (TimeGenerated, *) efter ResourceId
+sök i (ServiceMapComputer_CL) "m-4b9c93f9-bc37-46df-b43c-899ba829e07b" | sammanfatta arg_max(TimeGenerated, *) efter ResourceId
 
-### <a name="find-a-machine-most-recent-record-by-ip-address"></a>Hitta en dator (senaste posten) via IP-adress
+### <a name="find-a-machine-most-recent-record-by-ip-address"></a>Hitta en dator (senaste posten) efter IP-adress
 
-Sök i (ServiceMapComputer_CL) "10.229.243.232" | sammanfatta arg_max (TimeGenerated, *) efter ResourceId
+sök i (ServiceMapComputer_CL) "10.229.243.232" | sammanfatta arg_max(TimeGenerated, *) efter ResourceId
 
-### <a name="list-all-known-processes-on-a-specified-machine"></a>Visa en lista med alla kända processer på en angiven dator
+### <a name="list-all-known-processes-on-a-specified-machine"></a>Lista alla kända processer på en angiven dator
 
-ServiceMapProcess_CL | där MachineResourceName_s = = "m-559dbcd8-3130-454d-8d1d-f624e57961bc" | sammanfatta arg_max (TimeGenerated, *) efter ResourceId
+ServiceMapProcess_CL | där MachineResourceName_s == "m-559dbcd8-3130-454d-8d1d-f624e57961bc" | sammanfatta arg_max(TimeGenerated, *) efter ResourceId
 
 ### <a name="list-all-computers-running-sql"></a>Lista alla datorer som kör SQL
 
-ServiceMapComputer_CL | där ResourceName_s i ((Sök i (ServiceMapProcess_CL) "\*SQL\*" | distinkt MachineResourceName_s)) | distinkt ComputerName_s
+ServiceMapComputer_CL | där ResourceName_s i ((sök i (ServiceMapProcess_CL)\*"\*sql " | MachineResourceName_s) | distinkt ComputerName_s
 
-### <a name="list-all-unique-product-versions-of-curl-in-my-datacenter"></a>Visa en lista med alla unika produkt versioner av sväng i mitt Data Center
+### <a name="list-all-unique-product-versions-of-curl-in-my-datacenter"></a>Lista alla unika produktversioner av curl i mitt datacenter
 
-ServiceMapProcess_CL | där ExecutableName_s = = "sväng" | distinkt ProductVersion_s
+ServiceMapProcess_CL | där ExecutableName_s == "curl" | distinkt ProductVersion_s
 
-### <a name="create-a-computer-group-of-all-computers-running-centos"></a>Skapa en dator grupp för alla datorer som kör CentOS
+### <a name="create-a-computer-group-of-all-computers-running-centos"></a>Skapa en datorgrupp över alla datorer som kör CentOS
 
 ServiceMapComputer_CL | där OperatingSystemFullName_s contains_cs "CentOS" | distinkt ComputerName_s
 
@@ -538,68 +538,68 @@ let remoteMachines = remote | summarize by RemoteMachine;
 | summarize Remote=makeset(iff(isempty(RemoteMachine), todynamic('{}'), pack('Machine', RemoteMachine, 'Process', Process1, 'ProcessName', ProcessName1))) by ConnectionId, Direction, Machine, Process, ProcessName, SourceIp, DestinationIp, DestinationPort, Protocol
 ```
 
-## <a name="rest-api"></a>REST-API
+## <a name="rest-api"></a>REST API
 
-Alla Server-, process-och beroende data i Tjänstkarta är tillgängliga via [Tjänstkarta REST API](https://docs.microsoft.com/rest/api/servicemap/).
+Alla server-, process- och beroendedata i Service Map är tillgängliga via [REST-API:et för tjänstmappning](https://docs.microsoft.com/rest/api/servicemap/).
 
 ## <a name="diagnostic-and-usage-data"></a>Diagnostik- och användningsdata
 
-Microsoft samlar automatiskt in användnings- och data till din användning av tjänsten Tjänstkarta. Microsoft använder dessa data för att tillhandahålla och förbättra kvaliteten, säkerheten och integriteten för tjänsten Tjänstkarta. För att tillhandahålla korrekta och effektiva fel söknings funktioner innehåller data information om konfigurationen av program varan, till exempel operativ system och version, IP-adress, DNS-namn och arbets Stations namn. Microsoft samlar inte in namn, adresser eller annan kontakt information.
+Microsoft samlar automatiskt in användnings- och prestandadata genom din användning av tjänsten Service Map. Microsoft använder dessa data för att tillhandahålla och förbättra servicetjänstens kvalitet, säkerhet och integritet. För att tillhandahålla korrekta och effektiva felsökningsfunktioner innehåller data information om konfigurationen av programvaran, till exempel operativsystem och version, IP-adress, DNS-namn och arbetsstationsnamn. Microsoft samlar inte in namn, adresser eller annan kontaktinformation.
 
-Mer information om insamling och användning av data finns i [sekretess policy för Microsoft Online Services](https://go.microsoft.com/fwlink/?LinkId=512132).
+Mer information om insamling och användning av data finns i [sekretesspolicyn för Microsoft Online Services](https://go.microsoft.com/fwlink/?LinkId=512132).
 
 ## <a name="next-steps"></a>Nästa steg
 
-Läs mer om [loggs ökningar](../../azure-monitor/log-query/log-query-overview.md) i Log Analytics för att hämta data som samlas in av tjänstkarta.
+Läs mer om [loggsökningar](../../azure-monitor/log-query/log-query-overview.md) i Logganalys för att hämta data som samlas in av Service Map.
 
 ## <a name="troubleshooting"></a>Felsökning
 
-Om du får problem med installeras eller köras Tjänstkarta kan i det här avsnittet hjälpa dig. Kontakta Microsoft Support om du fortfarande inte kan lösa problemet.
+Om du har problem med att installera eller köra Service Map kan det här avsnittet hjälpa dig. Om du fortfarande inte kan lösa problemet kontaktar du Microsoft Support.
 
-### <a name="dependency-agent-installation-problems"></a>Problem med beroende agenten installationen
+### <a name="dependency-agent-installation-problems"></a>Installationsproblem för beroendeagent
 
-#### <a name="installer-prompts-for-a-reboot"></a>Installationsprogrammet frågar efter en omstart
-Beroende agenten kräver *vanligt vis* ingen omstart vid installation eller borttagning. I vissa sällsynta fall kräver dock Windows Server startas om för att fortsätta med en installation. Detta inträffar när ett beroende, vanligt vis krävs en omstart C++ av Microsoft Visual Redistributable Library på grund av en låst fil.
+#### <a name="installer-prompts-for-a-reboot"></a>Installationsprogrammet uppmanas till en omstart
+Beroendeagenten kräver *i allmänhet* ingen omstart vid installation eller borttagning. I vissa sällsynta fall kräver Windows Server dock en omstart för att fortsätta med en installation. Detta händer när ett beroende, vanligtvis Microsoft Visual C ++ Redistributable biblioteket kräver en omstart på grund av en låst fil.
 
-#### <a name="message-unable-to-install-dependency-agent-visual-studio-runtime-libraries-failed-to-install-code--code_number-appears"></a>Meddelandet ”Det går inte att installera beroendeagenten: Det gick inte att installera Visual Studio-Runtime-bibliotek (kod = [code_number])” visas
+#### <a name="message-unable-to-install-dependency-agent-visual-studio-runtime-libraries-failed-to-install-code--code_number-appears"></a>Meddelande "Det gick inte att installera Beroendeagent: Visual Studio Runtime-bibliotek kunde inte installeras (kod = [code_number])" visas
 
-Agenten Microsoft Dependency bygger på bibliotek för Microsoft Visual Studio-körning. Du får ett meddelande om ett problem har uppstått under installationen av biblioteken. 
+Microsoft Dependency-agenten bygger på Microsoft Visual Studio-körningsbiblioteken. Du får ett meddelande om det finns ett problem under installationen av biblioteken. 
 
-Installationsprogram för runtime-biblioteket skapar loggarna i mappen %LOCALAPPDATA%\temp. Filen är `dd_vcredist_arch_yyyymmddhhmmss.log`, där *båge* är `x86` eller `amd64` och *yyyymmddhhmmss* är datum och tid (24-timmarsformat) när loggen skapades. Loggen innehåller information om problem som blockerar installation.
+Installationsprogrammet för körningsbibliotek skapar loggar i mappen %LOCALAPPDATA%\temp. Filen är `dd_vcredist_arch_yyyymmddhhmmss.log`, där `x86` `amd64` *bågen* är eller och *yyyymmddhhmmss* är datum och tid (24-timmars klocka) när loggen skapades. Loggen innehåller information om problemet som blockerar installationen.
 
-Det kan vara praktiskt att installera de [senaste körnings biblioteken](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) först.
+Det kan vara användbart att installera de [senaste körningsbiblioteken](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) först.
 
-I följande tabell visas kodnummer och rekommenderade lösningar.
+I följande tabell visas kodnummer och föreslagna lösningar.
 
 | Kod | Beskrivning | Lösning |
 |:--|:--|:--|
-| 0x17 | Installationsprogrammet biblioteket kräver en Windows-uppdatering som inte är installerad. | Titta i den senaste biblioteket installer-loggen.<br><br>Om en referens till `Windows8.1-KB2999226-x64.msu` följs av en rad `Error 0x80240017: Failed to execute MSU package,` du inte kraven för att installera KB2999226. Följ anvisningarna i avsnittet krav i [Universal C runtime i Windows](https://support.microsoft.com/kb/2999226) -artikeln. Du kan behöva köra Windows Update och starta om flera gånger för att kunna installera nödvändiga komponenter.<br><br>Kör installationsprogrammet för Microsoft Dependency agenten igen. |
+| 0x17 | Biblioteksinstallationsprogrammet kräver en Windows-uppdatering som inte har installerats. | Titta i den senaste biblioteksinstallerarloggen.<br><br>Om en `Windows8.1-KB2999226-x64.msu` referens till följs av en rad `Error 0x80240017: Failed to execute MSU package,` som du inte har förutsättningar att installera KB2999226. Följ instruktionerna i avsnittet krav i [universal C Runtime i](https://support.microsoft.com/kb/2999226) Windows-artikeln. Du kan behöva köra Windows Update och starta om flera gånger för att kunna installera förutsättningarna.<br><br>Kör installationsprogrammet för Microsoft Dependency Agent igen. |
 
-### <a name="post-installation-issues"></a>Efter installationen problem
+### <a name="post-installation-issues"></a>Problem efter installationen
 
-#### <a name="server-doesnt-appear-in-service-map"></a>Servern visas inte i Tjänstkarta
+#### <a name="server-doesnt-appear-in-service-map"></a>Servern visas inte i servicemappning
 
-Om beroende Agent installationen lyckades, men du inte ser datorn i Tjänstkarta-lösningen:
-* Beroendeagenten installeras? Du kan kontrollera detta genom att markera om du vill se om tjänsten är installerad och körs.<br><br>
-**Windows**: Sök efter tjänsten med namnet **Microsoft Dependency agent**.
-**Linux**: leta efter den process som körs av **Microsoft-beroende-agenten**.
+Om installationen av beroendeagenten lyckades, men du inte ser din dator i servicemappningslösningen:
+* Är beroendeagenten installerad? Du kan validera detta genom att kontrollera om tjänsten är installerad och körs.<br><br>
+**Windows**: Leta efter tjänsten **Microsoft Dependency Agent**.
+**Linux**: Leta efter den pågående processen **microsoft-dependency-agent**.
 
-* Är du på den [Log Analytics kostnads fria nivån](https://azure.microsoft.com/pricing/details/monitor/)? Den kostnads fria planen tillåter upp till fem unika Tjänstkarta datorer. Eventuella efterföljande datorer visas inte i Tjänstkarta, även om de fem föregående fem inte längre skickar data.
+* Är du på [Log Analytics-kostnadsfria nivån?](https://azure.microsoft.com/pricing/details/monitor/) Den kostnadsfria planen tillåter upp till fem unika servicekartmaskiner. Efterföljande datorer visas inte i Service Map, även om de föregående fem inte längre skickar data.
 
-* Skickar servern logg-och perf-data till Azure Monitor loggar? Gå till Azure-Monitor\Logs och kör följande fråga för datorn: 
+* Skickar servern logg- och perf-data till Azure Monitor Logs? Gå till Azure Monitor\Loggar och kör följande fråga för datorn: 
 
     ```kusto
     Usage | where Computer == "admdemo-appsvr" | summarize sum(Quantity), any(QuantityUnit) by DataType
     ```
 
-Fick du en rad olika händelser i resultaten? Är data de senaste? I så fall fungerar din Log Analytics-agenten som den ska och kommunicerar med arbets ytan. Om inte, kontrol lera agenten på datorn: [Log Analytics agent för Windows fel sökning](../platform/agent-windows-troubleshoot.md) eller [Log Analytics agent för Linux-felsökning](../platform/agent-linux-troubleshoot.md).
+Fick du en mängd olika händelser i resultaten? Är uppgifterna aktuella? I så fall fungerar log Analytics-agenten korrekt och kommunicerar med arbetsytan. Om inte, kontrollera agenten på din dator: [Log Analytics agent för Windows felsökning](../platform/agent-windows-troubleshoot.md) eller Log Analytics agent för Linux [felsökning](../platform/agent-linux-troubleshoot.md).
 
-#### <a name="server-appears-in-service-map-but-has-no-processes"></a>Servern visas i Service Map men innehåller inga processer
+#### <a name="server-appears-in-service-map-but-has-no-processes"></a>Servern visas i Service Map men har inga processer
 
-Om du ser datorn i Tjänstkarta, men inte har någon process-eller anslutnings data, som anger att beroende agenten är installerad och körs, men kernel-drivrutinen inte lästes in. 
+Om du ser din dator i Service Map, men den inte har några process- eller anslutningsdata, betyder det att beroendeagenten är installerad och körs, men kärndrivrutinen läses inte in. 
 
-Kontrol lera `C:\Program Files\Microsoft Dependency Agent\logs\wrapper.log file` (Windows) eller `/var/opt/microsoft/dependency-agent/log/service.log file` (Linux). De sista raderna i filen ska indikera varför kernel lästes inte in. Till exempel kanske kernel inte kan användas i Linux om du har uppdaterat din kernel.
+Kontrollera `C:\Program Files\Microsoft Dependency Agent\logs\wrapper.log file` (Windows) `/var/opt/microsoft/dependency-agent/log/service.log file` eller (Linux). De sista raderna i filen bör ange varför kärnan inte laddas. Kärnan kanske till exempel inte stöds på Linux om du har uppdaterat din kärna.
 
 ## <a name="feedback"></a>Feedback
 
-Har du kommentarer till oss om Tjänstkarta eller den här dokumentationen?  Besök vår [användares röst sida](https://feedback.azure.com/forums/267889-log-analytics/category/184492-service-map)där du kan föreslå funktioner eller rösta på befintliga förslag.
+Har du någon feedback till oss om Service Map eller denna dokumentation?  Besök vår [User Voice sida](https://feedback.azure.com/forums/267889-log-analytics/category/184492-service-map), där du kan föreslå funktioner eller rösta upp befintliga förslag.

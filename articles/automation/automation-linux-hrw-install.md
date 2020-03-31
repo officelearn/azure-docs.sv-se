@@ -1,71 +1,71 @@
 ---
 title: Azure Automation Linux Hybrid Runbook Worker
-description: Den här artikeln innehåller information om hur du installerar en Azure Automation Hybrid Runbook Worker så att du kan köra Runbooks på Linux-baserade datorer i ditt lokala data Center eller i moln miljön.
+description: Den här artikeln innehåller information om hur du installerar en Azure Automation Hybrid Runbook Worker så att du kan köra runbooks på Linux-baserade datorer i ditt lokala datacenter eller molnmiljö.
 services: automation
 ms.subservice: process-automation
 ms.date: 03/02/2020
 ms.topic: conceptual
 ms.openlocfilehash: 2579748d9c68512e51fe46ec70084c30d06953bc
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79278771"
 ---
-# <a name="deploy-a-linux-hybrid-runbook-worker"></a>Distribuera ett Linux-Hybrid Runbook Worker
+# <a name="deploy-a-linux-hybrid-runbook-worker"></a>Distribuera en Linux Hybrid Runbook Worker
 
-Du kan använda Hybrid Runbook Worker funktionen i Azure Automation för att köra Runbooks direkt på datorn som är värd för rollen och mot resurser i miljön för att hantera de lokala resurserna. Linux-Hybrid Runbook Worker Kör Runbooks som en särskild användare som kan utökas för att köra kommandon som behöver förhöjda. Runbooks lagras och hanteras i Azure Automation och levereras sedan till en eller flera angivna datorer.
+Du kan använda hybridkörningsarbetsfunktionen i Azure Automation för att köra runbooks direkt på datorn som är värd för rollen och mot resurser i miljön för att hantera dessa lokala resurser. Linux Hybrid Runbook Worker kör runbooks som en speciell användare som kan höjas för att köra kommandon som behöver höjd. Runbooks lagras och hanteras i Azure Automation och levereras sedan till en eller flera angivna datorer.
 
-Den här artikeln beskriver hur du installerar Hybrid Runbook Worker på en Linux-dator.
+I den här artikeln beskrivs hur du installerar Hybrid Runbook Worker på en Linux-dator.
 
 ## <a name="supported-linux-operating-systems"></a>Linux-operativsystem som stöds
 
 Funktionen Hybrid Runbook Worker stöder följande distributioner:
 
-* Amazon Linux 2012,09 till 2015,09 (x86/x64)
-* CentOS Linux 5, 6, och 7 (x86/x64)
-* Oracle Linux 5, 6, och 7 (x86/x64)
-* Red Hat Enterprise Linux Server 5, 6, och 7 (x86/x64)
+* Amazon Linux 2012.09 till 2015.09 (x86/x64)
+* CentOS Linux 5, 6 och 7 (x86/x64)
+* Oracle Linux 5, 6 och 7 (x86/x64)
+* Red Hat Enterprise Linux Server 5, 6 och 7 (x86/x64)
 * Debian GNU/Linux 6, 7 och 8 (x86/x64)
-* Ubuntu 12,04 LTS, 14,04 LTS, 16,04 LTS och 18,04 (x86/x64)
+* Ubuntu 12.04 LTS, 14.04 LTS, 16.04 LTS och 18.04 (x86/x64)
 * SUSE Linux Enterprise Server 11 och 12 (x86/x64)
 
-## <a name="installing-a-linux-hybrid-runbook-worker"></a>Installera en Linux-Hybrid Runbook Worker
+## <a name="installing-a-linux-hybrid-runbook-worker"></a>Installera en Linux Hybrid Runbook Worker
 
-Om du vill installera och konfigurera en Hybrid Runbook Worker på Linux-datorn följer du en enkel process för att manuellt installera och konfigurera rollen. Det kräver att du aktiverar **Automation hybrid Worker** -lösningen i Azure Log Analytics-arbetsytan och sedan kör en uppsättning kommandon för att registrera datorn som en anställd och lägga till den i en grupp.
+Om du vill installera och konfigurera en Hybrid Runbook Worker på din Linux-dator följer du en enkel process för att manuellt installera och konfigurera rollen. Det kräver att aktivera **Automation Hybrid Worker-lösningen** i din Azure Log Analytics-arbetsyta och sedan köra en uppsättning kommandon för att registrera datorn som arbetare och lägga till den i en grupp.
 
-Minimi kraven för en Linux-Hybrid Runbook Worker är:
+Minimikraven för en Linux Hybrid Runbook Worker är:
 
 * Två kärnor
-* 4 GB RAM-minne
+* 4 GB RAM
 * Port 443 (utgående)
 
-### <a name="package-requirements"></a>Paket krav
+### <a name="package-requirements"></a>Paketkrav
 
-| **Nödvändigt paket** | **Beskrivning** | **Lägsta version**|
+| **Paketet krävs** | **Beskrivning** | **Lägsta version**|
 |--------------------- | --------------------- | -------------------|
 |Glibc |GNU C-bibliotek| 2.5-12 |
-|Openssl| OpenSSL-bibliotek | 1,0 (TLS 1,1 och TLS 1,2 stöds|
-|Klammerparentes | webb klient för sväng | 7.15.5|
-|Python – ctypes | Python 2. x krävs |
+|Openssl| OpenSSL-bibliotek | 1.0 (TLS 1.1 och TLS 1.2 stöds|
+|Curl | cURL-webbklient | 7.15.5|
+|Python-ctypes | Python 2.x krävs |
 |PAM | Pluggable Authentication Modules|
 | **Valfritt paket** | **Beskrivning** | **Lägsta version**|
-| PowerShell Core | För att köra PowerShell-Runbooks måste PowerShell installeras, se [Installera PowerShell Core på Linux](/powershell/scripting/install/installing-powershell-core-on-linux) för att lära dig hur du installerar det.  | 6.0.0 |
+| PowerShell Core | Om du vill köra PowerShell-runbooks måste PowerShell installeras, se [Installera PowerShell Core på Linux](/powershell/scripting/install/installing-powershell-core-on-linux) för att lära dig hur du installerar den.  | 6.0.0 |
 
 ### <a name="installation"></a>Installation
 
-Notera Log Analytics arbets ytan som ditt Automation-konto är länkat till innan du fortsätter. Observera också den primära nyckeln för ditt Automation-konto. Du kan hitta båda från Azure Portal genom att välja ditt Automation-konto, välja **arbets yta** för arbetsyte-ID och välja **nycklar** för den primära nyckeln. Information om portar och adresser som du behöver för Hybrid Runbook Worker finns i [Konfigurera nätverket](automation-hybrid-runbook-worker.md#network-planning).
+Innan du fortsätter bör du notera arbetsytan Log Analytics som ditt Automation-konto är länkat till. Observera också den primära nyckeln för ditt Automation-konto. Du kan hitta både från Azure-portalen genom att välja ditt Automation-konto, välja **Arbetsyta** för arbetsytan ID och välja **Nycklar** för primärnyckeln. Information om portar och adresser som du behöver för Hybrid Runbook Worker finns i [Konfigurera nätverket](automation-hybrid-runbook-worker.md#network-planning).
 
-1. Aktivera **Automation hybrid Worker** lösning i Azure med någon av följande metoder:
+1. Aktivera **Automation Hybrid Worker-lösningen** i Azure med någon av följande metoder:
 
-   * Lägg till **Automation hybrid Worker** -lösningen i din prenumeration genom att följa anvisningarna i [lägga till Azure Monitor loggar lösningar på din arbets yta](../log-analytics/log-analytics-add-solutions.md).
+   * Lägg till **Automation Hybrid Worker-lösningen** i din prenumeration med hjälp av proceduren på [Lägg till Azure Monitor-logglösningar på din arbetsyta](../log-analytics/log-analytics-add-solutions.md).
    * Kör följande cmdlet:
 
         ```azurepowershell-interactive
          Set-AzureRmOperationalInsightsIntelligencePack -ResourceGroupName  <ResourceGroupName> -WorkspaceName <WorkspaceName> -IntelligencePackName  "AzureAutomation" -Enabled $true
         ```
 
-1. Installera Log Analytics agent för Linux genom att köra följande kommando. Ersätt \<WorkspaceID\> och \<WorkspaceKey\> med lämpliga värden från din arbets yta.
+1. Installera Log Analytics-agenten för Linux genom att köra följande kommando. Ersätt \<\> WorkspaceID \<och\> WorkspaceKey med lämpliga värden från arbetsytan.
 
    [!INCLUDE [log-analytics-agent-note](../../includes/log-analytics-agent-note.md)]
 
@@ -73,20 +73,20 @@ Notera Log Analytics arbets ytan som ditt Automation-konto är länkat till inna
    wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -w <WorkspaceID> -s <WorkspaceKey>
    ```
 
-1. Kör följande kommando och ändra värdena för parametrarna *-w*, *-k*, *-g*och *-e*. För parametern *-g* ersätter du värdet med namnet på den hybrid Runbook Worker grupp som den nya Linux-hybrid Runbook Worker ska ansluta till. Om namnet inte finns i ditt Automation-konto görs en ny Hybrid Runbook Worker grupp med det namnet.
+1. Kör följande kommando och ändra värdena för parametrarna *-w*, *-k*, *-g*och *-e*. För parametern *-g* ersätter du värdet med namnet på gruppen Hybrid Runbook Worker som den nya Linux Hybrid Runbook Worker ska ansluta till. Om namnet inte finns i ditt Automation-konto görs en ny Hybrid Runbook Worker-grupp med det namnet.
 
    ```bash
    sudo python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/scripts/onboarding.py --register -w <LogAnalyticsworkspaceId> -k <AutomationSharedKey> -g <hybridgroupname> -e <automationendpoint>
    ```
 
-1. När kommandot har slutförts visar sidan **hybrid Worker grupper** i Azure Portal den nya gruppen och antalet medlemmar. Om det här är en befintlig grupp ökar antalet medlemmar. Du kan välja gruppen i listan på sidan **hybrid Worker grupper** och sedan välja panelen **hybrid personal** . På sidan **hybrid Worker** visas varje medlem i gruppen i listan.
+1. När kommandot har slutförts visar sidan **Hybrid worker Groups** i Azure-portalen den nya gruppen och antalet medlemmar. Om detta är en befintlig grupp ökas antalet medlemmar. Du kan välja gruppen i listan på sidan **Hybridarbetaregrupper** och välja panelen **Hybridarbetare.** På sidan **Hybridarbetare** visas varje medlem i gruppen i listan.
 
 > [!NOTE]
-> Om du använder tillägget Azure Monitor virtuell dator för Linux för en virtuell Azure-dator rekommenderar vi att du anger `autoUpgradeMinorVersion` till falskt eftersom automatiska uppgraderings versioner kan orsaka problem med Hybrid Runbook Worker. Information om hur du uppgraderar tillägget manuellt finns i [Azure CLI-distribution ](../virtual-machines/extensions/oms-linux.md#azure-cli-deployment).
+> Om du använder Azure Monitor-tillägget för virtuella datorer för `autoUpgradeMinorVersion` Linux för en Virtuell Azure rekommenderar vi att du ställer in för false som automatisk uppgradering av versioner kan orsaka problem som Hybrid Runbook Worker. Mer information om hur du uppgraderar tillägget manuellt finns i [Azure CLI-distributionen ](../virtual-machines/extensions/oms-linux.md#azure-cli-deployment).
 
-## <a name="turning-off-signature-validation"></a>Inaktiverar verifiering av signatur
+## <a name="turning-off-signature-validation"></a>Inaktivera signaturvalidering
 
-Som standard kräver Linux hybrid Runbook Worker verifiering av signatur. Om du kör en osignerad Runbook mot en arbets grupp visas ett fel meddelande om att det inte gick att validera signaturen. Kör följande kommando för att inaktivera verifiering av signatur. Ersätt den andra parametern med Log Analytics-arbetsyte-ID: t.
+Som standard kräver Linux Hybrid Runbook Workers signaturverifiering. Om du kör en osignerad runbook mot en arbetare visas ett felmeddelande med "Signaturvalidering misslyckades". Om du vill inaktivera signaturverifiering kör du följande kommando. Ersätt den andra parametern med ditt logganalysarbetsyte-ID.
 
  ```bash
  sudo python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/scripts/require_runbook_signature.py --false <LogAnalyticsworkspaceId>
@@ -94,24 +94,24 @@ Som standard kräver Linux hybrid Runbook Worker verifiering av signatur. Om du 
 
 ## <a name="supported-runbook-types"></a>Runbook-typer som stöds
 
-Linux hybrid Runbook Worker stöder inte den fullständiga uppsättningen av Run Book typer i Azure Automation.
+Linux Hybrid Runbook Workers stöder inte hela uppsättningen runbook-typer i Azure Automation.
 
-Följande Runbook-typer fungerar på en Linux-Hybrid Worker:
+Följande runbook-typer fungerar på en Linux Hybrid Worker:
 
-* Python 2
+* Python 2 (Svenska)
 * PowerShell
 
   > [!NOTE]
-  > PowerShell-Runbooks kräver att PowerShell Core installeras på Linux-datorn. Se [Installera PowerShell Core på Linux](/powershell/scripting/install/installing-powershell-core-on-linux) för att lära dig hur du installerar det.
+  > PowerShell-runbooks kräver att PowerShell Core installeras på Linux-datorn. Se [Installera PowerShell Core på Linux](/powershell/scripting/install/installing-powershell-core-on-linux) för att lära dig hur du installerar den.
 
-Följande Runbook-typer fungerar inte på en Linux-Hybrid Worker:
+Följande runbook-typer fungerar inte på en Linux Hybrid Worker:
 
 * PowerShell-arbetsflöde
-* Bild
+* Grafisk
 * Grafiskt PowerShell-arbetsflöde
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Information om hur du konfigurerar dina runbooks för att automatisera processer i ditt lokala data Center eller någon annan moln miljö finns i [köra Runbooks på en hybrid Runbook Worker](automation-hrw-run-runbooks.md).
-* Instruktioner för hur du tar bort hybrid Runbook Worker finns i [ta bort Azure Automation hybrid Runbook Worker](automation-hybrid-runbook-worker.md#remove-a-hybrid-runbook-worker).
-* Information om hur du felsöker dina hybrid Runbook Worker finns i [Felsöka Linux hybrid Runbook Worker](troubleshoot/hybrid-runbook-worker.md#linux)
+* Mer information om hur du konfigurerar runbooks för att automatisera processer i ditt lokala datacenter eller annan molnmiljö finns i [Kör runbooks på en Hybrid Runbook Worker](automation-hrw-run-runbooks.md).
+* Instruktioner om hur du tar bort Hybrid Runbook Workers finns i [Ta bort Azure Automation Hybrid Runbook Workers](automation-hybrid-runbook-worker.md#remove-a-hybrid-runbook-worker).
+* Mer information om hur du felsöker dina Hybrid Runbook-arbetare finns i [Felsöka Linux Hybrid Runbook Workers](troubleshoot/hybrid-runbook-worker.md#linux)

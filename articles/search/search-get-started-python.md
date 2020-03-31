@@ -1,7 +1,7 @@
 ---
-title: 'Snabb start: skapa ett Sök index i python med REST API: er'
+title: 'Snabbstart: Skapa ett sökindex i Python med REST-API:er'
 titleSuffix: Azure Cognitive Search
-description: Förklarar hur du skapar ett index, läser in data och kör frågor med python, Jupyter Notebooks och Azure Kognitiv sökning REST API.
+description: I artikeln beskrivs hur du skapar ett index, läser in data och kör frågor med Python, Jupyter-anteckningsböcker och AZURE Cognitive Search REST API.
 author: tchristiani
 manager: nitinme
 ms.author: terrychr
@@ -10,53 +10,53 @@ ms.topic: quickstart
 ms.devlang: rest-api
 ms.date: 02/10/2020
 ms.openlocfilehash: 93fb9ec735de1abf89eb217d0f4096fcfc0afe94
-ms.sourcegitcommit: 390cfe85629171241e9e81869c926fc6768940a4
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/02/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "78227104"
 ---
-# <a name="quickstart-create-an-azure-cognitive-search-index-in-python-using-jupyter-notebooks"></a>Snabb start: skapa ett Azure Kognitiv sökning-index i python med Jupyter-anteckningsböcker
+# <a name="quickstart-create-an-azure-cognitive-search-index-in-python-using-jupyter-notebooks"></a>Snabbstart: Skapa ett Azure Cognitive Search-index i Python med Jupyter-anteckningsböcker
 
 > [!div class="op_single_selector"]
 > * [Python (REST)](search-get-started-python.md)
 > * [PowerShell (REST)](search-create-index-rest-api.md)
 > * [C#](search-create-index-dotnet.md)
-> * [Postman (REST)](search-get-started-postman.md)
+> * [Brevbärare (REST)](search-get-started-postman.md)
 > * [Portal](search-create-index-portal.md)
 > 
 
-Skapa en Jupyter-anteckningsbok som skapar, läser in och skickar frågor till ett Azure Kognitiv sökning-index med python och [Azure KOGNITIV sökning REST-API: er](https://docs.microsoft.com/rest/api/searchservice/). Den här artikeln förklarar hur du skapar en antecknings bok steg för steg. Du kan också [Hämta och köra en färdig Jupyter python-anteckningsbok](https://github.com/Azure-Samples/azure-search-python-samples).
+Skapa en Jupyter-anteckningsbok som skapar, läser in och frågar efter ett Azure Cognitive Search-index med Python och [Azure Cognitive Search REST API:er](https://docs.microsoft.com/rest/api/searchservice/). I den här artikeln beskrivs hur du skapar en anteckningsbok steg för steg. Alternativt kan du [ladda ner och köra en färdig Jupyter Python notebook](https://github.com/Azure-Samples/azure-search-python-samples).
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-Följande tjänster och verktyg krävs för den här snabb starten. 
+Följande tjänster och verktyg krävs för den här snabbstarten. 
 
-+ [Anaconda 3. x](https://www.anaconda.com/distribution/#download-section)som tillhandahåller python 3. x-och Jupyter-anteckningsböcker.
++ [Anaconda 3.x](https://www.anaconda.com/distribution/#download-section), ger Python 3.x och Jupyter bärbara datorer.
 
-+ [Skapa en Azure kognitiv sökning-tjänst](search-create-service-portal.md) eller [hitta en befintlig tjänst](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under din aktuella prenumeration. Du kan använda den kostnads fria nivån för den här snabb starten. 
++ [Skapa en Azure Cognitive Search-tjänst](search-create-service-portal.md) eller [hitta en befintlig tjänst](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under din aktuella prenumeration. Du kan använda den kostnadsfria nivån för den här snabbstarten. 
 
-## <a name="get-a-key-and-url"></a>Hämta en nyckel och URL
+## <a name="get-a-key-and-url"></a>Hämta en nyckel och webbadress
 
-För att kunna göra REST-anrop behöver du tjänstens webbadress och en åtkomstnyckel för varje begäran. En Sök tjänst skapas med båda, så om du har lagt till Azure-Kognitiv sökning till din prenumeration följer du dessa steg för att få den information som krävs:
+För att kunna göra REST-anrop behöver du tjänstens webbadress och en åtkomstnyckel för varje begäran. En söktjänst skapas med båda, så om du har lagt till Azure Cognitive Search i din prenumeration följer du dessa steg för att få nödvändig information:
 
-1. [Logga](https://portal.azure.com/)in på Azure Portal och hämta URL: en på sidan **Översikt över** Sök tjänsten. Här följer ett exempel på hur en slutpunkt kan se ut: `https://mydemo.search.windows.net`.
+1. [Logga in på Azure-portalen](https://portal.azure.com/)och hämta webbadressen i söktjänstens **översiktssida.** Här följer ett exempel på hur en slutpunkt kan se ut: `https://mydemo.search.windows.net`.
 
-1. I **inställningar** > **nycklar**får du en administratörs nyckel för fullständiga rättigheter till tjänsten. Det finns två utbytbara administratörs nycklar, som tillhandahålls för affärs kontinuitet om du behöver rulla en över. Du kan använda antingen den primära eller sekundära nyckeln på begär Anden för att lägga till, ändra och ta bort objekt.
+1. I **Inställningsnycklar** > **Keys**får du en administratörsnyckel för fullständiga rättigheter på tjänsten. Det finns två utbytbara admin nycklar, som tillhandahålls för kontinuitet i verksamheten om du behöver rulla en över. Du kan använda antingen primär- eller sekundärnyckeln på begäranden om att lägga till, ändra och ta bort objekt.
 
-![Hämta en HTTP-slutpunkt och åtkomst nyckel](media/search-get-started-postman/get-url-key.png "Hämta en HTTP-slutpunkt och åtkomst nyckel")
+![Hämta en HTTP-slutpunkt och åtkomstnyckel](media/search-get-started-postman/get-url-key.png "Hämta en HTTP-slutpunkt och åtkomstnyckel")
 
-Alla begär Anden kräver en API-nyckel på varje begäran som skickas till din tjänst. En giltig nyckel upprättar förtroende, i varje begäran, mellan programmet som skickar begäran och tjänsten som hanterar den.
+Alla begäranden kräver en api-nyckel på varje begäran som skickas till din tjänst. En giltig nyckel upprättar förtroende, i varje begäran, mellan programmet som skickar begäran och tjänsten som hanterar den.
 
-## <a name="connect-to-azure-cognitive-search"></a>Ansluta till Azure Kognitiv sökning
+## <a name="connect-to-azure-cognitive-search"></a>Ansluta till Azure Cognitive Search
 
-I den här uppgiften startar du en Jupyter-anteckningsbok och kontrollerar att du kan ansluta till Azure Kognitiv sökning. Du gör detta genom att begära en lista över index från din tjänst. I Windows med Anaconda3 kan du använda Anaconda-navigatören för att starta en bärbar dator.
+Starta en Jupyter-anteckningsbok i den här uppgiften och kontrollera att du kan ansluta till Azure Cognitive Search. Du gör detta genom att begära en lista med index från din tjänst. I Windows med Anaconda3 kan du använda Anaconda Navigator för att starta en anteckningsbok.
 
-1. Skapa en ny python3 Notebook.
+1. Skapa en ny Python3-anteckningsbok.
 
-1. I den första cellen läser du in de bibliotek som används för att arbeta med JSON och att utforma HTTP-begäranden.
+1. I den första cellen läser du in de bibliotek som används för att arbeta med JSON och formulera HTTP-begäranden.
 
    ```python
    import json
@@ -64,7 +64,7 @@ I den här uppgiften startar du en Jupyter-anteckningsbok och kontrollerar att d
    from pprint import pprint
    ```
 
-1. I den andra cellen skriver du in de begär ande element som ska vara konstanter på varje begäran. Ersätt Sök tjänst namnet (ditt-SEARCH-SERVICE-NAME) och Admin API-nyckeln (din-ADMIN-API-nyckel) med giltiga värden. 
+1. I den andra cellen anger du de begärandeelement som kommer att vara konstanter på varje begäran. Ersätt söktjänstnamnet (YOUR-SEARCH-SERVICE-NAME) och admin API-nyckeln (YOUR-ADMIN-API-KEY) med giltiga värden. 
 
    ```python
    endpoint = 'https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/'
@@ -73,9 +73,9 @@ I den här uppgiften startar du en Jupyter-anteckningsbok och kontrollerar att d
            'api-key': '<YOUR-ADMIN-API-KEY>' }
    ```
 
-   Om du får ConnectionError `"Failed to establish a new connection"`kontrollerar du att API-nyckeln är en primär eller sekundär administratörs nyckel och att alla inledande och avslutande tecken (`?` och `/`) finns på plats.
+   Om du får ConnectionError `"Failed to establish a new connection"`kontrollerar du att api-nyckeln är en primär eller sekundär`?` `/`administratörsnyckel och att alla inledande och avslutande tecken ( och ) är på plats.
 
-1. Formulera begäran i den tredje cellen. Den här GET-begäran riktar in sig på index samlingen för Sök tjänsten och väljer egenskapen namn för befintliga index.
+1. Formulera begäran i den tredje cellen. Den här GET-begäran är inriktad på indexsamlingen för söktjänsten och väljer namnegenskapen för befintliga index.
 
    ```python
    url = endpoint + "indexes" + api_version + "&$select=name"
@@ -84,21 +84,21 @@ I den här uppgiften startar du en Jupyter-anteckningsbok och kontrollerar att d
    pprint(index_list)
    ```
 
-1. Kör varje steg. Om index finns innehåller svaret en lista över index namn. I skärm bilden nedan har tjänsten redan ett azureblob-index och ett realestate-exempel index.
+1. Kör varje steg. Om det finns index innehåller svaret en lista med indexnamn. I skärmbilden nedan har tjänsten redan ett azureblob-index och ett realestate-us-sample-index.
 
-   ![Python-skript i Jupyter Notebook med HTTP-begäranden till Azure Kognitiv sökning](media/search-get-started-python/connect-azure-search.png "Python-skript i Jupyter Notebook med HTTP-begäranden till Azure Kognitiv sökning")
+   ![Python-skript i Jupyter-anteckningsbok med HTTP-begäranden till Azure Cognitive Search](media/search-get-started-python/connect-azure-search.png "Python-skript i Jupyter-anteckningsbok med HTTP-begäranden till Azure Cognitive Search")
 
-   En tom index samling returnerar däremot följande svar: `{'@odata.context': 'https://mydemo.search.windows.net/$metadata#indexes(name)', 'value': []}`
+   En tom indexsamling returnerar däremot det här svaret:`{'@odata.context': 'https://mydemo.search.windows.net/$metadata#indexes(name)', 'value': []}`
 
 ## <a name="1---create-an-index"></a>1 – Skapa ett index
 
-Om du inte använder portalen måste det finnas ett index för tjänsten innan du kan läsa in data. I det här steget används [create Index REST API](https://docs.microsoft.com/rest/api/searchservice/create-index) för att skicka ett index schema till tjänsten.
+Om du inte använder portalen måste det finnas ett index på tjänsten innan du kan läsa in data. I det här steget används [REST-API:et Skapa index](https://docs.microsoft.com/rest/api/searchservice/create-index) för att skicka ett indexschema till tjänsten.
 
-Obligatoriska element i ett index inkluderar ett namn, en fält samling och en nyckel. Fält samlingen definierar strukturen för ett *dokument*. Varje fält har ett namn, typ och attribut som avgör hur fältet används (till exempel om det är full text sökbar, filtrerings bar eller hämtnings bar i Sök resultaten). I ett index måste ett av fälten av typen `Edm.String` anges som *nyckel* för dokument identitet.
+Obligatoriska element i ett index inkluderar ett namn, en fältsamling och en nyckel. Fältsamlingen definierar strukturen för ett *dokument*. Varje fält har ett namn, en typ och ett attribut som avgör hur fältet används (till exempel om det är fulltextsökbart, filterbart eller hämtat i sökresultaten). I ett index måste ett `Edm.String` av fälten av typen anges som *nyckel* för dokumentidentitet.
 
-Det här indexet heter "Hotels-snabb start" och innehåller fält definitionerna som visas nedan. Det är en del av ett större [hotell index](https://github.com/Azure-Samples/azure-search-sample-data/blob/master/hotels/Hotels_IndexDefinition.JSON) som används i andra genom gångar. Vi trimmade det i den här snabb starten för det kortfattat.
+Det här indexet heter "hotels-quickstart" och har de fältdefinitioner som visas nedan. Det är en delmängd av ett större [Hotels-index](https://github.com/Azure-Samples/azure-search-sample-data/blob/master/hotels/Hotels_IndexDefinition.JSON) som används i andra genomgångar. Vi trimmade den i denna snabbstart för korthet.
 
-1. I nästa cell klistrar du in följande exempel i en cell för att ange schemat. 
+1. Klistra in följande exempel i en cell i nästa cell för att tillhandahålla schemat. 
 
     ```python
     index_schema = {
@@ -126,7 +126,7 @@ Det här indexet heter "Hotels-snabb start" och innehåller fält definitionerna
     }
     ```
 
-2. Formulera begäran i en annan cell. Den här POST-begäran riktar in sig på index samlingen för Sök tjänsten och skapar ett index baserat på det index schema som du angav i föregående cell.
+2. Formulera begäran i en annan cell. Den här POST-begäran är inriktad på indexsamlingen för söktjänsten och skapar ett index baserat på indexschemat som du angav i föregående cell.
 
    ```python
    url = endpoint + "indexes" + api_version
@@ -137,20 +137,20 @@ Det här indexet heter "Hotels-snabb start" och innehåller fält definitionerna
 
 3. Kör varje steg.
 
-   Svaret innehåller en JSON-representation av schemat. Följande skärm bild visar bara en del av svaret.
+   Svaret innehåller JSON-representationen av schemat. Följande skärmdump visar bara en del av svaret.
 
     ![Begäran om att skapa ett index](media/search-get-started-python/create-index.png "Begäran om att skapa ett index")
 
 > [!Tip]
-> Ett annat sätt att kontrol lera att skapa index är att kontrol lera listan index i portalen.
+> Ett annat sätt att verifiera att index skapas är att kontrollera indexlistan i portalen.
 
 <a name="load-documents"></a>
 
-## <a name="2---load-documents"></a>2 Läs in dokument
+## <a name="2---load-documents"></a>2 - Ladda dokument
 
-Om du vill skicka dokument använder du en HTTP POST-begäran till indexets URL-slutpunkt. REST API [lägga till, uppdatera eller ta bort dokument](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents). Dokumenten kommer från [HotelsData](https://github.com/Azure-Samples/azure-search-sample-data/blob/master/hotels/HotelsData_toAzureSearch.JSON) på GitHub.
+Om du vill skicka dokument använder du en HTTP POST-begäran till indexets URL-slutpunkt. REST API är [Lägga till, uppdatera eller ta bort dokument](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents). Dokument kommer från [HotelsData](https://github.com/Azure-Samples/azure-search-sample-data/blob/master/hotels/HotelsData_toAzureSearch.JSON) på GitHub.
 
-1. I en ny cell, ange fyra dokument som stämmer överens med index schemat. Ange en uppladdnings åtgärd för varje dokument.
+1. I en ny cell anger du fyra dokument som överensstämmer med indexschemat. Ange en överföringsåtgärd för varje dokument.
 
     ```python
     documents = {
@@ -235,7 +235,7 @@ Om du vill skicka dokument använder du en HTTP POST-begäran till indexets URL-
     }
     ```   
 
-2. Formulera begäran i en annan cell. Den här POST-begäran riktar in dokument samlingen för hotell-snabb starts indexet och skickar dokumenten som tillhandahålls i föregående steg.
+2. Formulera begäran i en annan cell. Den här POST-begäran riktar sig till docs-samlingen av hotels-quickstart-indexet och skickar dokumenten som angavs i föregående steg.
 
    ```python
    url = endpoint + "indexes/hotels-quickstart/docs/index" + api_version
@@ -244,27 +244,27 @@ Om du vill skicka dokument använder du en HTTP POST-begäran till indexets URL-
    pprint(index_content)
    ```
 
-3. Kör varje steg för att skicka dokumenten till ett index i din Sök tjänst. Resultatet bör se ut som i följande exempel. 
+3. Kör varje steg för att skicka dokumenten till ett index i söktjänsten. Resultaten bör se ut ungefär som i följande exempel. 
 
     ![Skicka dokument till ett index](media/search-get-started-python/load-index.png "Skicka dokument till ett index")
 
 ## <a name="3---search-an-index"></a>3 – Söka i ett index
 
-Det här steget visar hur du frågar ett index med hjälp av [Sök dokument REST API](https://docs.microsoft.com/rest/api/searchservice/search-documents).
+I det här steget visas hur du frågar ett index med [REST API FÖR sökdokument](https://docs.microsoft.com/rest/api/searchservice/search-documents).
 
-1. I en cell anger du ett frågeuttryck som kör en tom sökning (search = *) och returnerar en lista med en lista med en lista (Sök poäng = 1,0) av godtyckliga dokument. Som standard returnerar Azure Kognitiv sökning 50 matchningar åt gången. Som strukturerad returnerar den här frågan en hel dokument struktur och-värden. Lägg till $count = sant för att få ett antal dokument i resultaten.
+1. I en cell anger du ett frågeuttryck som kör en tom sökning (search=*), som returnerar en oranerad lista (sökpoäng = 1,0) av godtyckliga dokument. Som standard returnerar Azure Cognitive Search 50 matchningar åt gången. Som strukturerad returnerar den här frågan en hel dokumentstruktur och alla värden. Lägg till $count=true för att få räkna alla dokument i resultatet.
 
    ```python
    searchstring = '&search=*&$count=true'
    ```
 
-1. I en ny cell anger du följande exempel för att söka efter termerna "Hotels" och "WiFi". Lägg till $select för att ange vilka fält som ska ingå i Sök resultaten.
+1. I en ny cell, ge följande exempel för att söka på termerna "hotell" och "wifi". Lägg till $select för att ange vilka fält som ska inkluderas i sökresultaten.
 
    ```python
    searchstring = '&search=hotels wifi&$count=true&$select=HotelId,HotelName'
    ```
 
-1. Formulera en begäran i en annan cell. Den här GET-begäran riktar in dokument samlingen för hotell-snabb starts indexet och kopplar frågan som du angav i föregående steg.
+1. Formulera en begäran i en annan cell. Den här GET-begäran riktar sig till dokumentsamlingen för snabbstartsindex för hotell och kopplar den fråga som du angav i föregående steg.
 
    ```python
    url = endpoint + "indexes/hotels-quickstart/docs" + api_version + searchstring
@@ -273,25 +273,25 @@ Det här steget visar hur du frågar ett index med hjälp av [Sök dokument REST
    pprint(query)
    ```
 
-1. Kör varje steg. Resultaten bör likna följande utdata. 
+1. Kör varje steg. Resultaten bör se ut ungefär som följande utdata. 
 
-    ![Söka i ett index](media/search-get-started-python/search-index.png "Sök i ett index")
+    ![Sök i ett index](media/search-get-started-python/search-index.png "Sök i ett index")
 
-1. Testa några andra exempel frågor för att få en känsla för syntaxen. Du kan ersätta `searchstring` med följande exempel och sedan köra Sök förfrågan igen. 
+1. Prova några andra frågeexempel för att få en känsla för syntaxen. Du kan `searchstring` ersätta med följande exempel och sedan köra sökbegäran igen. 
 
-   Använd ett filter: 
+   Använda ett filter: 
 
    ```python
    searchstring = '&search=*&$filter=Rating gt 4&$select=HotelId,HotelName,Description,Rating'
    ```
 
-   Ta de två främsta resultaten:
+   Ta de två bästa resultaten:
 
    ```python
    searchstring = '&search=boutique&$top=2&$select=HotelId,HotelName,Description,Category'
    ```
 
-    Sortera efter ett speciellt fält:
+    Order efter ett visst fält:
 
    ```python
    searchstring = '&search=pool&$orderby=Address/City&$select=HotelId, HotelName, Address/City, Address/StateProvince, Tags'
@@ -299,15 +299,15 @@ Det här steget visar hur du frågar ett index med hjälp av [Sök dokument REST
 
 ## <a name="clean-up"></a>Rensa
 
-När du arbetar med din egen prenumeration är det en bra idé i slutet av ett projekt för att identifiera om du fortfarande behöver de resurser som du har skapat. Resurser som har lämnats igång kostar dig pengar. Du kan ta bort resurser individuellt eller ta bort resurs gruppen för att ta bort hela uppsättningen resurser.
+När du arbetar i din egen prenumeration kan det dock vara klokt att i slutet av ett projekt kontrollera om du fortfarande behöver de resurser som du skapade. Resurser som fortsätter att köras kan medföra kostnader. Du kan ta bort enstaka resurser eller ta bort hela resursuppsättningen genom att ta bort resursgruppen.
 
-Du kan hitta och hantera resurser i portalen med hjälp av länken **alla resurser** eller **resurs grupper** i det vänstra navigerings fönstret.
+Du kan hitta och hantera resurser i portalen med hjälp av länken **Alla resurser** eller **Resursgrupper** i fönstret för vänsternavigering.
 
-Kom ihåg att du är begränsad till tre index, indexerare och data källor om du använder en kostnads fri tjänst. Du kan ta bort enskilda objekt i portalen för att hålla dig under gränsen. 
+Om du använder en kostnadsfri tjänst bör du komma ihåg att du är begränsad till tre index, indexerare och datakällor. Du kan ta bort enskilda objekt i portalen för att hålla dig under gränsen. 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Som en förenkling använder den här snabb starten en förkortad version av hotell indexet. Du kan skapa en fullständig version för att prova fler intressanta frågor. Om du vill hämta den fullständiga versionen och alla 50-dokument kör du guiden **Importera data** och väljer *hotell-exempel* från de inbyggda exempel data källorna.
+Som en förenkling använder denna snabbstart en förkortad version av Hotels index. Du kan skapa den fullständiga versionen för att prova mer intressanta frågor. Om du vill hämta den fullständiga versionen och alla 50 dokument kör du guiden **Importera data** och väljer exempel *på hotell* från de inbyggda exempeldatakällorna.
 
 > [!div class="nextstepaction"]
-> [Snabb start: skapa ett index i Azure Portal](search-get-started-portal.md)
+> [Snabbstart: Skapa ett index i Azure-portalen](search-get-started-portal.md)

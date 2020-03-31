@@ -1,6 +1,6 @@
 ---
 title: Schemamappning i kopieringsaktivitet
-description: Lär dig mer om hur kopierings aktivitet i Azure Data Factory mappar scheman och data typer från källdata för att ta med data när data kopieras.
+description: Lär dig mer om hur kopieringsaktivitet i Azure Data Factory mappar scheman och datatyper från källdata för att sänka data när data kopieras.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -12,27 +12,27 @@ ms.topic: conceptual
 ms.date: 02/13/2020
 ms.author: jingwang
 ms.openlocfilehash: 9ae07e2a471cc417b467092a2616a5a0cdafb1fe
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79260818"
 ---
 # <a name="schema-mapping-in-copy-activity"></a>Schemamappning i kopieringsaktivitet
 
-I den här artikeln beskrivs hur Azure Data Factory kopierings aktivitet använder schema mappning och data typs mappning från källdata för att visa data när data kopian körs.
+I den här artikeln beskrivs hur azure data factory-kopieringsaktiviteten gör schemamappning och mappning av datatyp från källdata för att sänka data när datakopian körs.
 
-## <a name="schema-mapping"></a>Schema mappning
+## <a name="schema-mapping"></a>Schemamappning
 
-Kolumn mappning gäller när du kopierar data från källa till mottagare. Som standard **konverteras aktivitets data till Sink efter kolumn namn**. Du kan ange [explicit mappning](#explicit-mapping) för att anpassa kolumn mappningen utifrån dina behov. Mer specifikt, kopierings aktivitet:
+Kolumnmappning gäller vid kopiering av data från källa till diskho. Som standard kopierar du information **om aktivitetsmappningskällan som ska sänkas efter kolumnnamn**. Du kan ange [explicit mappning](#explicit-mapping) för att anpassa kolumnmappningen baserat på dina behov. Mer specifikt kopierar aktivitet:
 
-1. Läs data från källan och fastställ käll schemat
-2. Använd standard kolumn mappning för att mappa kolumner efter namn eller Använd explicit kolumn mappning om det anges.
-3. Skriv data till Sink
+1. Läsa data från källan och bestämma källschemat
+2. Använd standardkolumnmappning för att mappa kolumner efter namn eller använd explicit kolumnmappning om det anges.
+3. Skriv data som ska sänkas
 
 ### <a name="explicit-mapping"></a>Explicit mappning
 
-Du kan ange vilka kolumner som ska mappas i kopierings aktiviteten – > `translator` -> `mappings` egenskap. I följande exempel definieras en kopierings aktivitet i en pipeline för att kopiera data från avgränsad text till Azure SQL Database.
+Du kan ange vilka kolumner som ska `translator`  ->  `mappings` mappas i kopieringsaktivitet -> egenskap. I följande exempel definieras en kopieringsaktivitet i en pipeline för att kopiera data från avgränsad text till Azure SQL Database.
 
 ```json
 {
@@ -85,33 +85,33 @@ Du kan ange vilka kolumner som ska mappas i kopierings aktiviteten – > `transl
 }
 ```
 
-Följande egenskaper stöds under `translator` -> `mappings`->-objekt med `source` och `sink`:
+Följande egenskaper stöds `translator`  ->  `mappings` under -> objekt `source` med `sink`och:
 
 | Egenskap | Beskrivning                                                  | Krävs |
 | -------- | ------------------------------------------------------------ | -------- |
-| namn     | Namnet på källan eller kolumnen Sink.                           | Ja      |
-| Numret  | Kolumn index. Börja med 1. <br>Använd och krävs när du använder avgränsad text utan rubrik rad. | Nej       |
-| path     | Uttryck för JSON-sökvägar för varje fält som ska extraheras eller mappas. Ansök om hierarkiska data, t. ex. MongoDB/REST.<br>För fält under rotobjektet börjar JSON-sökvägen med roten $; för fält i matrisen som valts av `collectionReference` egenskap börjar JSON-sökvägen från mat ris elementet. | Nej       |
-| typ     | Data Factory data typen datatyp för kolumnen källa eller mottagare. | Nej       |
-| culture  | Kultur för kolumnen källa eller mottagare. <br>Använd när typen är `Datetime` eller `Datetimeoffset`. Standardvärdet är `en-us`. | Nej       |
-| format   | Format strängen som ska användas när typen är `Datetime` eller `Datetimeoffset`. Referera till [anpassade datum-och tids format strängar](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings) för hur du formaterar DateTime. | Nej       |
+| namn     | Namn på käll- eller sinkkolumnen.                           | Ja      |
+| Ordinal  | Kolumnindex. Börja med 1. <br>Använd och krävs när du använder avgränsad text utan rubrikrad. | Inga       |
+| path     | JSON-banuttryck för varje fält som ska extraheras eller mappas. Ansök om hierarkiska data t ex MongoDB/REST.<br>För fält under rotobjektet börjar JSON-sökvägen med root $; För fält inuti den `collectionReference` matris som valts efter egenskap startar JSON-banan från matriselementet. | Inga       |
+| typ     | Data Factory interimdatatyp för käll- eller sinkkolumnen. | Inga       |
+| Kultur  | Kultur av källan eller sjunka kolonnen. <br>Använd när `Datetime` typen `Datetimeoffset`är eller . Standardvärdet är `en-us`. | Inga       |
+| format   | Formatera sträng som ska `Datetime` användas `Datetimeoffset`när typen är eller . Se [anpassade datum- och tidsformatsträngar](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings) om hur du formaterar datetime. | Inga       |
 
-Följande egenskaper stöds under `translator` -> `mappings` utöver objekt med `source` och `sink`:
+Följande egenskaper stöds `translator`  ->  `mappings` under förutom att `source` `sink`objekt med och:
 
 | Egenskap            | Beskrivning                                                  | Krävs |
 | ------------------- | ------------------------------------------------------------ | -------- |
-| collectionReference | Stöds bara när hierarkiska data, t. ex. MongoDB/REST är källa.<br>Om du vill iterera och extrahera data från objekten **inuti ett mat ris fält** med samma mönster och konvertera till per rad per objekt, anger du JSON-sökvägen för den matrisen för att göra kors koppling. | Nej       |
+| insamlingReference | Stöds endast när hierarkiska data t.ex.<br>Om du vill iterera och extrahera data från objekten **i ett matrisfält** med samma mönster och konvertera till per rad per objekt anger du JSON-sökvägen för den matrisen som ska korsanvändas. | Inga       |
 
-### <a name="alternative-column-mapping"></a>Alternativ kolumn mappning
+### <a name="alternative-column-mapping"></a>Alternativ kolumnmappning
 
-Du kan ange kopierings aktivitet – > `translator` -> `columnMappings` för att mappa mellan tabellbaserade data. I det här fallet krävs avsnittet "struktur" för både data uppsättningar för indata och utdata. Kolumn mappning stöder **Mappning av alla eller delmängd av kolumner i käll data uppsättningens struktur till alla kolumner i data uppsättningen för Sink-datauppsättningen**. Följande är fel villkor som resulterar i ett undantag:
+Du kan ange kopieringsaktivitet `translator`  ->  `columnMappings` -> för att mappa mellan tabellformade data . I det här fallet krävs avsnittet "struktur" för både indata- och utdatauppsättningar. Kolumnmappning stöder **mappning av alla eller delmängd av kolumner i källdatauppsättningen "struktur" till alla kolumner i sink-datauppsättningen "struktur".** Följande är felvillkor som resulterar i ett undantag:
 
-* Frågeresultatet för käll data lagret har inget kolumn namn som är angivet i avsnittet struktur för indata-DataSet.
-* Sink-datalagret (om med fördefinierat schema) inte har något kolumn namn som anges i "struktur"-avsnittet för utdata-datauppsättningen.
-* Antingen färre kolumner eller fler kolumner i "struktur" för mottagar data uppsättningen än vad som anges i mappningen.
-* Duplicera mappning.
+* Frågeresultatet för källdatalager har inget kolumnnamn som anges i avsnittet "struktur" för indatauppsättningen.
+* Sink datalagret (om med fördefinierat schema) inte har ett kolumnnamn som anges i avsnittet utdatadatauppsättning "struktur".
+* Antingen färre kolumner eller fler kolumner i "strukturen" för sink-datauppsättning än vad som anges i mappningen.
+* Dubblettmappning.
 
-I följande exempel har indata-datauppsättningen en struktur och den pekar på en tabell i en lokal Oracle-databas.
+I följande exempel har indatauppsättningen en struktur och pekar på en tabell i en lokal Oracle-databas.
 
 ```json
 {
@@ -135,7 +135,7 @@ I följande exempel har indata-datauppsättningen en struktur och den pekar på 
 }
 ```
 
-I det här exemplet har data uppsättningen för utdata en struktur och den pekar på en tabell i Salesfoce.
+I det här exemplet har utdatauppsättningen en struktur och pekar på en tabell i Salesfoce.
 
 ```json
 {
@@ -159,7 +159,7 @@ I det här exemplet har data uppsättningen för utdata en struktur och den peka
 }
 ```
 
-Följande JSON definierar en kopierings aktivitet i en pipeline. Kolumnerna från källan mappas till kolumner i Sink med hjälp av **Translator** - -> **columnMappings** -egenskapen.
+Följande JSON definierar en kopieringsaktivitet i en pipeline. Kolumnerna från källan mappas till kolumner i diskhon med hjälp av egenskapen **translator** -> **columnMappings.**
 
 ```json
 {
@@ -194,17 +194,17 @@ Följande JSON definierar en kopierings aktivitet i en pipeline. Kolumnerna frå
 }
 ```
 
-Om du använder syntaxen för `"columnMappings": "UserId: MyUserId, Group: MyGroup, Name: MyName"` för att ange kolumn mappning, stöds den fortfarande som-är.
+Om du använder syntaxen `"columnMappings": "UserId: MyUserId, Group: MyGroup, Name: MyName"` för att ange kolumnmappning stöds den fortfarande som den är.
 
-### <a name="alternative-schema-mapping"></a>Alternativ schema mappning
+### <a name="alternative-schema-mapping"></a>Alternativ schemamappning
 
-Du kan ange kopierings aktivitet – > `translator` -> `schemaMapping` för att mappa mellan hierarkiskt data och tabellbaserade data, t. ex. Kopiera från MongoDB/REST till textfil och kopiera från Oracle till Azure Cosmos DBs API för MongoDB. Följande egenskaper stöds i avsnittet Kopiera aktivitet `translator`:
+Du kan ange kopieringsaktivitet `translator`  ->  `schemaMapping` -> för att mappa mellan hierarkiska data och tabellformade data, t.ex. Följande egenskaper stöds i `translator` avsnittet kopiera aktivitet:
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Typ egenskapen för kopierings aktivitets översättaren måste anges till: **TabularTranslator** | Ja |
-| schemaMapping | En samling nyckel/värde-par som representerar mappnings relationen **från käll sidan till mottagar sidan**.<br/>- **nyckel:** representerar källa. För **tabell källa**anger du kolumn namnet som definierats i data uppsättnings strukturen. för **hierarkisk källa**anger du JSON-sökvägar för varje fält som ska extraheras och mappas.<br>- **värde:** representerar mottagare. För **tabell mottagare**anger du kolumn namnet enligt definitionen i data uppsättnings strukturen. för **hierarkisk mottagare**anger du JSON-sökvägar för varje fält som ska extraheras och mappas. <br>Om det finns hierarkiska data för fält under rot objekt börjar JSON-sökvägen med roten $; för fält i matrisen som valts av `collectionReference` egenskap börjar JSON-sökvägen från mat ris elementet.  | Ja |
-| collectionReference | Om du vill iterera och extrahera data från objekten **inuti ett mat ris fält** med samma mönster och konvertera till per rad per objekt, anger du JSON-sökvägen för den matrisen för att göra kors koppling. Den här egenskapen stöds endast när hierarkiska data är källa. | Nej |
+| typ | Egenskapen typ för översättaren för kopieringsaktivitet måste ställas in på: **TabularTranslator** | Ja |
+| schemaMappning | En samling nyckel-värde-par, som representerar mappningsrelationen **från källsida till diskbänkssida**.<br/>- **Nyckel:** representerar källa. För **tabellkälla**anger du kolumnnamnet som definierats i datauppsättningsstrukturen. För **hierarkisk källa**anger du JSON-banuttrycket för varje fält som ska extraheras och mappas.<br>- **Värde:** representerar diskbänk. För **tabellmottagare**anger du kolumnnamnet som definierats i datauppsättningsstrukturen. För **hierarkisk diskho**anger du JSON-banuttrycket för varje fält som ska extraheras och mappas. <br>När det gäller hierarkiska data börjar JSON-sökvägen med root $. För fält inuti den `collectionReference` matris som valts efter egenskap startar JSON-banan från matriselementet.  | Ja |
+| insamlingReference | Om du vill iterera och extrahera data från objekten **i ett matrisfält** med samma mönster och konvertera till per rad per objekt anger du JSON-sökvägen för den matrisen som ska korsanvändas. Den här egenskapen stöds endast när hierarkiska data är källa. | Inga |
 
 **Exempel: kopiera från MongoDB till Oracle:**
 
@@ -235,15 +235,15 @@ Om du till exempel har MongoDB-dokument med följande innehåll:
 }
 ```
 
-och du vill kopiera den till en Azure SQL-tabell i följande format, genom att förenkla data i matrisen *(order_pd och order_price)* och korsa anslutning med den gemensamma rot informationen *(nummer, datum och ort)* :
+och du vill kopiera den till en Azure SQL-tabell i följande format, genom att förenkla data i matrisen *(order_pd och order_price)* och korskoppling med den gemensamma rotinformationen *(tal, datum och ort):*
 
-| orderNumber | Datum | order_pd | order_price | city |
+| orderNummer | Orderdatum | order_pd | order_price | city |
 | --- | --- | --- | --- | --- |
 | 01 | 20170122 | P1 | 23 | Seattle |
 | 01 | 20170122 | P2 | 13 | Seattle |
 | 01 | 20170122 | P3 | 231 | Seattle |
 
-Konfigurera schema mappnings regeln som följande JSON-exempel för kopierings aktiviteter:
+Konfigurera schemamappningsregeln som följande JSON-exempel för kopieringsaktivitet:
 
 ```json
 {
@@ -271,27 +271,27 @@ Konfigurera schema mappnings regeln som följande JSON-exempel för kopierings a
 }
 ```
 
-## <a name="data-type-mapping"></a>Data typs mappning
+## <a name="data-type-mapping"></a>Datatypmappning
 
-Kopierings aktiviteten utför käll typer för att avbilda typ mappningar med följande 2-steg-metod:
+Kopieringsaktivitet utför källtyper för att sink-typer mappa med följande tvåstegsmetod:
 
-1. Konvertera från interna käll typer till Azure Data Factory interimistiska data typer
-2. Konvertera från Azure Data Factory interimistiska data typer till intern mottagar typ
+1. Konvertera från inbyggda källtyper till interimsdatatyper i Azure Data Factory
+2. Konvertera från Azure Data Factory mellanliggande datatyper till inbyggd sink-typ
 
-Du hittar mappningen mellan typ och typ i avsnittet "data typs mappning" i varje anslutnings ämne.
+Du kan hitta mappningen mellan den inbyggda typen till interimstyp i avsnittet "Mappning av datatyp" i varje kopplingsavsnitt.
 
-### <a name="supported-data-types"></a>Data typer som stöds
+### <a name="supported-data-types"></a>Datatyper som stöds
 
-Data Factory stöder följande Interimistiska data typer: du kan ange värden nedan när du konfigurerar typ information i [data uppsättnings struktur](concepts-datasets-linked-services.md#dataset-structure-or-schema) konfiguration:
+Data Factory stöder följande interimsdatatyper: Du kan ange nedanstående värden när du konfigurerar typinformation i [strukturkonfigurationen för datauppsättning:](concepts-datasets-linked-services.md#dataset-structure-or-schema)
 
 * Byte[]
 * Boolean
-* Datum/tid
-* DateTimeOffset
-* decimaltal
-* Double-värde
-* Guid
-* Int16
+* Datumtid
+* Datumtidsdatum
+* Decimal
+* Double
+* GUID
+* Int16 (int16)
 * Int32
 * Int64
 * Enkel
@@ -299,6 +299,6 @@ Data Factory stöder följande Interimistiska data typer: du kan ange värden ne
 * Tidsintervall
 
 ## <a name="next-steps"></a>Nästa steg
-Se de andra artiklarna i Kopieringsaktiviteten:
+Se de andra artiklarna för kopieringsaktivitet:
 
-- [Översikt över kopierings aktivitet](copy-activity-overview.md)
+- [Kopiera aktivitetsöversikt](copy-activity-overview.md)

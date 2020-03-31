@@ -1,6 +1,6 @@
 ---
-title: Skript exempel för Azure CLI – belastningsutjämna flera webbplatser med Azure CLI | Microsoft Docs
-description: Skript exempel för Azure CLI – belastningsutjämna flera webbplatser till samma virtuella dator
+title: Exempel på Azure CLI Script – Belastningsfördelning flera webbplatser med Azure CLI | Microsoft-dokument
+description: Azure CLI Script Sample - Belastningsutjämning flera webbplatser till samma virtuella dator
 services: load-balancer
 documentationcenter: load-balancer
 author: asudbring
@@ -13,15 +13,15 @@ ms.workload: infrastructure
 ms.date: 07/07/2017
 ms.author: allensu
 ms.openlocfilehash: 568934d6b5ecc2fbb3b6fc6588ecfd48c8306490
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73889459"
 ---
 # <a name="load-balance-multiple-websites"></a>Belastningsutjämning för flera webbplatser
 
-Det här skript exemplet skapar ett virtuellt nätverk med två virtuella datorer (VM) som är medlemmar i en tillgänglighets uppsättning. En lastbalanserare dirigerar trafik för två olika IP-adresser till de två virtuella datorerna. När du har kört skriptet kan du distribuera webbserverprogramvara för virtuella datorer och vara värd för flera webbplatser, var och en med egen IP-adress.
+Det här skriptexemplet skapar ett virtuellt nätverk med två virtuella datorer (VM) som är medlemmar i en tillgänglighetsuppsättning. En lastbalanserare dirigerar trafik för två olika IP-adresser till de två virtuella datorerna. När du har kört skriptet kan du distribuera webbserverprogramvara för virtuella datorer och vara värd för flera webbplatser, var och en med egen IP-adress.
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 

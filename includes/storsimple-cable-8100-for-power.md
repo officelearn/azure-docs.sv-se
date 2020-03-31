@@ -5,25 +5,25 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: db2104020e9478b1fedf68e1c9467f75e16044e2
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "67187380"
 ---
-#### <a name="to-cable-for-power"></a>Till power-kabel
-1. Se till att kraften växlar på varje kraften och kylning moduler (PCMs) är i OFF-läge.
-2. Anslut strömkablar till var och en av PCMs i primära höljet.
-3. Koppla strömkablar till rack kraftfördelningsenheter (PDU) enligt följande bild. Se till att två PCMs användning separata strömkällor.
+#### <a name="to-cable-for-power"></a>Till kabel för ström
+1. Se till att strömbrytarna på var och en av energi- och kylmodulerna (PCM) är i off-läge.
+2. Anslut nätsladdarna till var och en av pcm:erna i det primära höljet.
+3. Fäst nätsladdarna på rackeffektfördelningsenheterna (PD: er) enligt följande bild. Kontrollera att de två pcm-datorerna använder separata strömkällor.
    
    > [!IMPORTANT]
-   > För att säkerställa hög tillgänglighet för ditt system, rekommenderar vi att du följer strikt till potensen kablar schemat visas i följande diagram. 
+   > För att säkerställa hög tillgänglighet för ditt system rekommenderar vi att du strikt följer det effektkablarschema som visas i följande diagram. 
    > 
    > 
    
-    ![Kabelansluta den 2U kraft](./media/storsimple-cable-8100-for-power/HCSCableYour2UDeviceforPower.png)
+    ![Kabel din 2U-enhet för ström](./media/storsimple-cable-8100-for-power/HCSCableYour2UDeviceforPower.png)
    
-    **Power kablar på en 8100-enhet**
+    **Strömkablar på en 8100-enhet**
    
    | Label (Etikett) | Beskrivning |
    |:--- |:--- |
@@ -31,6 +31,6 @@ ms.locfileid: "67187380"
    | 2 |Kontrollant 1 |
    | 3 |Kontrollant 0 |
    | 4 |PCM 1 |
-   | 5 |PDU |
-4. Om du vill aktivera systemet Vänd power-växlar på båda PCMs till på plats.
+   | 5 |PD:er |
+4. Om du vill slå på systemet vrider du strömbrytarna på båda pcm-datorerna till påläge.
 

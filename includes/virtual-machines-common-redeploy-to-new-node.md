@@ -5,26 +5,26 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: 1c3996c3f40da496af0cd795d0873864667a1f19
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "67187348"
 ---
 ## <a name="use-the-azure-portal"></a>Använda Azure-portalen
-1. Välj den virtuella datorn som du vill distribuera om, och välj sedan den *omdistribuera* knappen i den *inställningar* bladet. Du kan behöva rulla ned för att se den **Support och felsökning** avsnitt som innehåller knappen ”distribuera om, som i följande exempel:
+1. Välj den virtuella dator som du vill distribuera om och välj sedan knappen *Distribuera om* i bladet *Inställningar.* Du kan behöva rulla nedåt för att se avsnittet **Support och felsökning** som innehåller knappen "Distribuera om" som i följande exempel:
    
-    ![Azure VM-bladet](./media/virtual-machines-common-redeploy-to-new-node/vmoverview.png)
-2. För att bekräfta åtgärden, Välj den *omdistribuera* knappen:
+    ![Azure VM-blad](./media/virtual-machines-common-redeploy-to-new-node/vmoverview.png)
+2. Om du vill bekräfta åtgärden väljer du knappen *Distribuera om:*
    
-    ![Distribuera om en VM-bladet](./media/virtual-machines-common-redeploy-to-new-node/redeployvm.png)
-3. Den **Status** för den virtuella datorn ändras till *uppdaterar* som den virtuella datorn förbereder att distribuera om, som visas i följande exempel:
+    ![Distribuera om ett VM-blad](./media/virtual-machines-common-redeploy-to-new-node/redeployvm.png)
+3. **Status för** den virtuella datorn *ändras* till Uppdatering när den virtuella datorn förbereder omdedeling, vilket visas i följande exempel:
    
-    ![Uppdatering av virtuell dator](./media/virtual-machines-common-redeploy-to-new-node/vmupdating.png)
-4. Den **Status** ändras till *startar* som den virtuella datorn som startas på en ny Azure-värd som du ser i följande exempel:
+    ![Uppdatering av den virtuella datorn](./media/virtual-machines-common-redeploy-to-new-node/vmupdating.png)
+4. **Status ändras** sedan till *Start* som den virtuella datorn startar på en ny Azure-värd, vilket visas i följande exempel:
    
-    ![Virtuell dator startar](./media/virtual-machines-common-redeploy-to-new-node/vmstarting.png)
-5. När den virtuella datorn är klar startprocessen, den **Status** återgår sedan till *kör*, som anger den virtuella datorn har varit distribuerades om:
+    ![Start av virtuella datorer](./media/virtual-machines-common-redeploy-to-new-node/vmstarting.png)
+5. När den virtuella datorn har slutfört startprocessen återgår **statusen** sedan till *Löpning*, vilket indikerar att den virtuella datorn har distribuerats om:
    
-    ![Virtuell dator som kör](./media/virtual-machines-common-redeploy-to-new-node/vmrunning.png)
+    ![Vm körs](./media/virtual-machines-common-redeploy-to-new-node/vmrunning.png)
 

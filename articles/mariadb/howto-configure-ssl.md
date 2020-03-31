@@ -1,70 +1,70 @@
 ---
-title: Konfigurera SSL – Azure Database for MariaDB
-description: Instruktioner för hur du konfigurerar Azure Database for MariaDB och associerade program korrekt för att använda SSL-anslutningar
+title: Konfigurera SSL - Azure Database för MariaDB
+description: Instruktioner för hur du korrekt konfigurerar Azure Database för MariaDB och associerade program för att korrekt använda SSL-anslutningar
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 12/02/2019
-ms.openlocfilehash: a0fb1bdf1aac9b3c5a2d8c83d0597326de38caaf
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.date: 3/18/2020
+ms.openlocfilehash: 668b72fa89916de6d2aa5971543b0ec085de8263
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74767372"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79530690"
 ---
-# <a name="configure-ssl-connectivity-in-your-application-to-securely-connect-to-azure-database-for-mariadb"></a>Konfigurera SSL-anslutning i ditt program för att ansluta säkert till Azure Database for MariaDB
-Azure Database for MariaDB stöder anslutning av Azure Database for MariaDB-servern till klient program med hjälp av Secure Sockets Layer (SSL). Framtvingande av SSL-anslutningar mellan databasservern och klientprogrammen hjälper till att skydda mot ”man in the middle”-attacker genom att kryptera dataströmmen mellan servern och programmet.
+# <a name="configure-ssl-connectivity-in-your-application-to-securely-connect-to-azure-database-for-mariadb"></a>Konfigurera SSL-anslutning i ditt program för att ansluta till Azure Database för MariaDB
+Azure Database för MariaDB stöder anslutning av din Azure-databas för MariaDB-server till klientprogram med SSL (Secure Sockets Layer). Framtvingande av SSL-anslutningar mellan databasservern och klientprogrammen hjälper till att skydda mot ”man in the middle”-attacker genom att kryptera dataströmmen mellan servern och programmet.
 
-## <a name="obtain-ssl-certificate"></a>Hämta SSL-certifikat
-Hämta det certifikat som krävs för att kommunicera via SSL med Azure Database for MariaDB-servern från [https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem) och spara certifikat filen på den lokala enheten (i den här självstudien används c:\ssl till exempel).
-**För Microsoft Internet Explorer och Microsoft Edge:** När hämtningen är klar byter du namn på certifikatet till BaltimoreCyberTrustRoot. CRT. pem.
+## <a name="obtain-ssl-certificate"></a>Skaffa SSL-certifikat
+Hämta certifikatet som behövs för att kommunicera via SSL [https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem) med din Azure-databas för MariaDB-server från och spara certifikatfilen på din lokala enhet (den här självstudien använder c:\ssl till exempel).
+**För Microsoft Internet Explorer och Microsoft Edge:** När nedladdningen har slutförts byter du namn på certifikatet till BaltimoreCyberTrustRoot.crt.pem.
 
 ## <a name="bind-ssl"></a>Bind SSL
 
-### <a name="connecting-to-server-using-mysql-workbench-over-ssl"></a>Ansluta till servern med MySQL Workbench över SSL
-Konfigurera MySQL Workbench för att ansluta säkert över SSL. 
+### <a name="connecting-to-server-using-mysql-workbench-over-ssl"></a>Ansluta till servern med MySQL Workbench via SSL
+Konfigurera MySQL Workbench så att den kan anslutas säkert via SSL. 
 
-1. I dialog rutan skapa ny anslutning navigerar du till fliken **SSL** . 
+1. Gå till fliken **Konfigurera** ny anslutning från dialogrutan Ny anslutning. 
 
-1. Uppdatera fältet **Använd SSL** till "kräver".
+1. Uppdatera fältet **Använd SSL** för att "Kräv".
 
-1. I fältet **SSL-ca-fil:** anger du sökvägen till filen **BaltimoreCyberTrustRoot. CRT. pem**. 
+1. I fältet **SSL CA::** anger du filplatsen för **BaltimoreCyberTrustRoot.crt.pem**. 
     
     ![Spara SSL-konfiguration](./media/howto-configure-ssl/mysql-workbench-ssl.png)
 
-För befintliga anslutningar kan du binda SSL genom att högerklicka på anslutnings ikonen och välja Redigera. Gå sedan till fliken **SSL** och bind certifikat filen.
+För befintliga anslutningar kan du binda SSL genom att högerklicka på anslutningsikonen och välja redigera. Navigera sedan till **fliken SSL** och bind cert-filen.
 
-### <a name="connecting-to-server-using-the-mysql-cli-over-ssl"></a>Ansluta till servern med hjälp av MySQL CLI över SSL
-Ett annat sätt att binda SSL-certifikatet är att använda kommando rads gränssnittet MySQL genom att köra följande kommandon. 
+### <a name="connecting-to-server-using-the-mysql-cli-over-ssl"></a>Ansluta till servern med MySQL CLI via SSL
+Ett annat sätt att binda SSL-certifikatet är att använda MySQL-kommandoradsgränssnittet genom att köra följande kommandon. 
 
 ```bash
 mysql.exe -h mydemoserver.mariadb.database.azure.com -u Username@mydemoserver -p --ssl-mode=REQUIRED --ssl-ca=c:\ssl\BaltimoreCyberTrustRoot.crt.pem
 ```
 
 > [!NOTE]
-> När du använder kommando rads gränssnittet MySQL i Windows kan du få ett fel `SSL connection error: Certificate signature check failed`. Om detta inträffar ersätter du `--ssl-mode=REQUIRED --ssl-ca={filepath}` parametrar med `--ssl`.
+> När du använder MySQL-kommandoradsgränssnittet i `SSL connection error: Certificate signature check failed`Windows kan ett felmeddelande visas . Om detta inträffar `--ssl-mode=REQUIRED --ssl-ca={filepath}` ersätter du parametrarna med `--ssl`.
 
-## <a name="enforcing-ssl-connections-in-azure"></a>Tvinga SSL-anslutningar i Azure 
+## <a name="enforcing-ssl-connections-in-azure"></a>Tvinga ssl-anslutningar i Azure 
 ### <a name="using-the-azure-portal"></a>Använda Azure Portal
-Använd Azure Portalen, gå till Azure Database for MariaDB-servern och klicka sedan på **anslutnings säkerhet**. Använd växlings knappen för att aktivera eller inaktivera inställningen **tvinga SSL-anslutning** och klicka sedan på **Spara**. Microsoft rekommenderar att alltid aktivera inställningen **tvinga SSL-anslutning** för förbättrad säkerhet.
-![Enable-SSL](./media/howto-configure-ssl/enable-ssl.png)
+Besök Azure-databasen för MariaDB-server med Azure-portalen och klicka sedan på **Anslutningssäkerhet**. Använd växlingsknappen för att aktivera eller inaktivera inställningen **Framtvinga SSL-anslutning** och klicka sedan på **Spara**. Microsoft rekommenderar att du alltid aktiverar inställningen **Framtvinga SSL-anslutning** för ökad säkerhet.
+![aktivera-ssl](./media/howto-configure-ssl/enable-ssl.png)
 
 ### <a name="using-azure-cli"></a>Använda Azure CLI
-Du kan aktivera eller inaktivera **SSL-tvångs** parametern genom att använda aktiverade eller inaktiverade värden i Azure CLI.
+Du kan aktivera eller inaktivera **parametern ssl-enforcement** genom att använda Aktiverade respektive inaktiverade värden i Azure CLI.
 ```azurecli-interactive
 az mariadb server update --resource-group myresource --name mydemoserver --ssl-enforcement Enabled
 ```
 
 ## <a name="verify-the-ssl-connection"></a>Verifiera SSL-anslutningen
-Kör kommandot MySQL **status** för att kontrol lera att du har anslutit till MariaDB-servern med SSL:
+Kör kommandot mysql **status** för att kontrollera att du har anslutit till Din MariaDB-server med SSL:
 ```sql
 status
 ```
-Bekräfta att anslutningen är krypterad genom att granska utdata som ska visas: **SSL: chiffrering som används är AES256-SHA** 
+Bekräfta att anslutningen är krypterad genom att granska utdata, som ska visa: **SSL: Chiffer som används är AES256-SHA** 
 
 ## <a name="sample-code"></a>Exempelkod
-Om du vill upprätta en säker anslutning till Azure Database for MariaDB via SSL från ditt program, se följande kod exempel:
+Om du vill upprätta en säker anslutning till Azure Database för MariaDB via SSL från ditt program läser du följande kodexempel:
 
 ### <a name="php"></a>PHP
 ```php
@@ -75,7 +75,7 @@ if (mysqli_connect_errno($conn)) {
 die('Failed to connect to MySQL: '.mysqli_connect_error());
 }
 ```
-### <a name="python-mysqlconnector-python"></a>Python (MySQLConnector python)
+### <a name="python-mysqlconnector-python"></a>Python (MySQLConnector Python)
 ```python
 try:
     conn = mysql.connector.connect(user='myadmin@mydemoserver',

@@ -1,6 +1,6 @@
 ---
-title: Vanliga start uppgifter för Cloud Services | Microsoft Docs
-description: Innehåller några exempel på vanliga start åtgärder som du kanske vill utföra i din webb roll eller arbets roll för Cloud Services.
+title: Vanliga startuppgifter för Molntjänster | Microsoft-dokument
+description: Innehåller några exempel på vanliga startuppgifter som du kanske vill utföra i webbrollen eller arbetsrollen för molntjänster.
 services: cloud-services
 documentationcenter: ''
 author: tgore03
@@ -9,23 +9,23 @@ ms.topic: article
 ms.date: 07/18/2017
 ms.author: tagore
 ms.openlocfilehash: 4fe1ee3ccf2849943959889838ba0f22fb64bb9a
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79273064"
 ---
-# <a name="common-cloud-service-startup-tasks"></a>Vanliga start uppgifter för moln tjänster
-Den här artikeln innehåller några exempel på vanliga start uppgifter som du kanske vill utföra i din moln tjänst. Du kan använda Start åtgärder för att utföra åtgärder innan en roll startar. Åtgärder som du kanske vill utföra är att installera en komponent, registrera COM-komponenter, ange register nycklar eller starta en tids krävande process. 
+# <a name="common-cloud-service-startup-tasks"></a>Vanliga startuppgifter för Molntjänsten
+Den här artikeln innehåller några exempel på vanliga startuppgifter som du kanske vill utföra i molntjänsten. Du kan använda startuppgifter för att utföra åtgärder innan en roll startar. Åtgärder som du kanske vill utföra är att installera en komponent, registrera COM-komponenter, ange registernycklar eller starta en tidskrävande process. 
 
-Se [den här artikeln](cloud-services-startup-tasks.md) för att förstå hur start aktiviteter fungerar och hur du skapar de poster som definierar en start uppgift.
+Se [den här artikeln](cloud-services-startup-tasks.md) om du vill veta hur startuppgifter fungerar och specifikt hur du skapar de poster som definierar en startuppgift.
 
 > [!NOTE]
-> Start aktiviteter kan inte tillämpas på Virtual Machines, endast för webb-och arbets roller i moln tjänster.
+> Startuppgifter är inte tillämpliga på virtuella datorer, bara på Molntjänstwebb- och arbetarroller.
 > 
 
-## <a name="define-environment-variables-before-a-role-starts"></a>Definiera miljövariabler innan en roll startas
-Om du behöver miljövariabler som definierats för en viss aktivitet, använder du [miljö] elementet i [Aktivitet] elementet.
+## <a name="define-environment-variables-before-a-role-starts"></a>Definiera miljövariabler innan en roll startar
+Om du behöver definiera miljövariabler för [Environment] en viss uppgift använder du miljöelementet i [aktivitetselementet.]
 
 ```xml
 <ServiceDefinition name="MyService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition">
@@ -42,7 +42,7 @@ Om du behöver miljövariabler som definierats för en viss aktivitet, använder
 </ServiceDefinition>
 ```
 
-Variabler kan också använda ett [giltigt Azure XPath-värde](cloud-services-role-config-xpath.md) för att referera till något om distributionen. I stället för att använda attributet `value` definierar du ett underordnat [RoleInstanceValue] -element.
+Variabler kan också använda ett [giltigt Azure XPath-värde](cloud-services-role-config-xpath.md) för att referera till något om distributionen. I stället `value` för att använda attributet definierar du ett [underordnat RoleInstanceValue-element.]
 
 ```xml
 <Variable name="PathToStartupStorage">
@@ -51,23 +51,23 @@ Variabler kan också använda ett [giltigt Azure XPath-värde](cloud-services-ro
 ```
 
 
-## <a name="configure-iis-startup-with-appcmdexe"></a>Konfigurera IIS-start med AppCmd. exe
-Kommando rads verktyget [Appcmd. exe](https://technet.microsoft.com/library/jj635852.aspx) kan användas för att hantera IIS-inställningar vid start på Azure. *Appcmd. exe* ger bekväm kommando rads åtkomst till konfigurations inställningar för användning i Start åtgärder på Azure. Med *Appcmd. exe*kan webbplats inställningar läggas till, ändras eller tas bort för program och platser.
+## <a name="configure-iis-startup-with-appcmdexe"></a>Konfigurera IIS-start med AppCmd.exe
+Kommandoradsverktyget [AppCmd.exe](https://technet.microsoft.com/library/jj635852.aspx) kan användas för att hantera IIS-inställningar vid start på Azure. *AppCmd.exe* ger bekväm kommandoradsåtkomst till konfigurationsinställningar för användning i startuppgifter på Azure. Med *AppCmd.exe*kan webbplatsinställningar läggas till, ändras eller tas bort för program och webbplatser.
 
-Det finns dock några saker att se för när du använder *Appcmd. exe* som en start åtgärd:
+Det finns dock några saker att se upp för i användningen av *AppCmd.exe* som en startuppgift:
 
-* Start aktiviteter kan köras mer än en gång mellan omstarter. Till exempel när en roll återanvänds.
-* Om en *Appcmd. exe* -åtgärd utförs mer än en gång kan det generera ett fel. Försök till exempel att lägga till ett avsnitt i *Web. config* två gånger kan generera ett fel.
-* Start aktiviteter fungerar inte om de returnerar en slutkod som inte är noll eller **errorlevel**. Till exempel när *Appcmd. exe* genererar ett fel.
+* Startuppgifter kan köras mer än en gång mellan omstarter. Till exempel när en roll återvinns.
+* Om en *AppCmd.exe-åtgärd* utförs mer än en gång kan den generera ett fel. Om du till exempel försöker lägga till ett avsnitt *i Web.config* två gånger kan det skapa ett fel.
+* Startaktiviteter misslyckas om de returnerar en utgångskod eller **felnivå**som inte är noll . Till exempel när *AppCmd.exe* genererar ett fel.
 
-Det är en bra idé att kontrol lera **errorlevel** när du har anropat *Appcmd. exe*, vilket är enkelt att göra om du omsluter anropet till *Appcmd. exe* med en *. cmd* -fil. Om du identifierar ett känt **errorlevel** -svar kan du ignorera det eller skicka tillbaka det.
+Det är en bra idé att kontrollera **felnivån** efter att ha *ringt AppCmd.exe*, vilket är lätt att göra om du radbryt samtalet till *AppCmd.exe* med en *CMD-fil.* Om du upptäcker ett känt **feltlevel-svar** kan du ignorera det eller skicka tillbaka det.
 
-ERRORLEVEL som returneras av *Appcmd. exe* visas i filen WinError. h och kan också visas på [MSDN](/windows/desktop/Debug/system-error-codes--0-499-).
+Den felnivå som returneras av *AppCmd.exe* visas i filen winerror.h och kan även ses på [MSDN](/windows/desktop/Debug/system-error-codes--0-499-).
 
-### <a name="example-of-managing-the-error-level"></a>Exempel på hur du hanterar fel nivån
-Det här exemplet lägger till ett komprimerings avsnitt och en komprimerings post för JSON till filen *Web. config* , med fel hantering och loggning.
+### <a name="example-of-managing-the-error-level"></a>Exempel på hantering av felnivån
+I det här exemplet läggs ett komprimeringsavsnitt och en komprimeringspost för JSON till *filen Web.config,* med felhantering och loggning.
 
-De relevanta avsnitten i filen [service definition. csdef] visas här, som inkluderar inställning av [ExecutionContext](/previous-versions/azure/reference/gg557552(v=azure.100)#task) -attributet till `elevated` att ge *Appcmd. exe* tillräcklig behörighet för att ändra inställningarna i filen *Web. config* :
+De relevanta avsnitten i [filen ServiceDefinition.csdef] visas här, vilket inkluderar `elevated` att ange attributet [executionContext](/previous-versions/azure/reference/gg557552(v=azure.100)#task) för att ge *AppCmd.exe* tillräcklig behörighet för att ändra inställningarna i *filen Web.config:*
 
 ```xml
 <ServiceDefinition name="MyService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition">
@@ -80,7 +80,7 @@ De relevanta avsnitten i filen [service definition. csdef] visas här, som inklu
 </ServiceDefinition>
 ```
 
-Kommando filen *Start. cmd* använder *Appcmd. exe* för att lägga till ett komprimerings avsnitt och en komprimerings post för JSON till filen *Web. config* . Den förväntade **errorlevel** på 183 är inställd på noll med verifiera. Kommando rads program för EXE. Oväntade errorlevels loggas i StartupErrorLog. txt.
+*Batchfilen Startup.cmd* använder *AppCmd.exe* för att lägga till ett komprimeringsavsnitt och en komprimeringspost för JSON i *filen Web.config.* Den förväntade **felnivån** på 183 är inställd på noll med hjälp av VERIFY. EXE-kommandoradsprogram. Oväntade felnivåer loggas till StartupErrorLog.txt.
 
 ```cmd
 REM   *** Add a compression section to the Web.config file. ***
@@ -118,14 +118,14 @@ ECHO An error occurred during startup. ERRORLEVEL = %ERRORLEVEL% >> "%TEMP%\Star
 EXIT %ERRORLEVEL%
 ```
 
-## <a name="add-firewall-rules"></a>Lägg till brand Väggs regler
-I Azure finns det effektiva två brand väggar. Den första brand väggen kontrollerar anslutningar mellan den virtuella datorn och den utanför världen. Den här brand väggen styrs av [Slut punkter] elementet i filen [service definition. csdef] .
+## <a name="add-firewall-rules"></a>Lägga till brandväggsregler
+I Azure finns det i själva verket två brandväggar. Den första brandväggen styr anslutningar mellan den virtuella datorn och omvärlden. Den här brandväggen styrs av [slutpunktselementet] i filen [ServiceDefinition.csdef.]
 
-Den andra brand väggen kontrollerar anslutningar mellan den virtuella datorn och processerna i den virtuella datorn. Den här brand väggen kan styras av kommando rads verktyget `netsh advfirewall firewall`.
+Den andra brandväggen styr anslutningar mellan den virtuella datorn och processerna inom den virtuella datorn. Den här brandväggen `netsh advfirewall firewall` kan styras av kommandoradsverktyget.
 
-Azure skapar brand Väggs regler för de processer som startas i dina roller. När du exempelvis startar en tjänst eller ett program skapar Azure automatiskt de nödvändiga brand Väggs reglerna för att tillåta tjänsten att kommunicera med Internet. Men om du skapar en tjänst som startas av en process utanför din roll (som en COM+-tjänst eller en schemalagd schemalagd aktivitet) måste du skapa en brand Väggs regel manuellt för att tillåta åtkomst till tjänsten. Dessa brand Väggs regler kan skapas med hjälp av en start åtgärd.
+Azure skapar brandväggsregler för de processer som startats i dina roller. När du till exempel startar en tjänst eller ett program skapar Azure automatiskt de brandväggsregler som krävs för att tjänsten ska kunna kommunicera med Internet. Om du skapar en tjänst som startas av en process utanför rollen (till exempel en COM+-tjänst eller en schemalagd aktivitet i Windows) måste du dock manuellt skapa en brandväggsregel för att tillåta åtkomst till den tjänsten. Dessa brandväggsregler kan skapas med hjälp av en startuppgift.
 
-En[Start åtgärd som] skapar en brand Väggs regel måste ha en [ExecutionContext]med **utökade privilegier**. Lägg till följande start åtgärd i filen [service definition. csdef] .
+En startuppgift som skapar en brandväggsregel måste ha en [körningKontextuppgift][Task] för **förhöjd**. Lägg till följande startuppgift i filen [ServiceDefinition.csdef.]
 
 ```xml
 <ServiceDefinition name="MyService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition">
@@ -138,7 +138,7 @@ En[Start åtgärd som] skapar en brand Väggs regel måste ha en [ExecutionConte
 </ServiceDefinition>
 ```
 
-Om du vill lägga till brand Väggs regeln måste du använda lämpliga `netsh advfirewall firewall`-kommandon i Start kommando filen. I det här exemplet kräver start åtgärden säkerhet och kryptering för TCP-port 80.
+Om du vill lägga till brandväggsregeln måste du använda lämpliga `netsh advfirewall firewall` kommandon i startbatchfilen. I det här exemplet kräver startuppgiften säkerhet och kryptering för TCP-port 80.
 
 ```cmd
 REM   Add a firewall rule in a startup task.
@@ -150,12 +150,12 @@ REM   If an error occurred, return the errorlevel.
 EXIT /B %errorlevel%
 ```
 
-## <a name="block-a-specific-ip-address"></a>Blockera en speciell IP-adress
-Du kan begränsa en Azure-webbrolls åtkomst till en uppsättning angivna IP-adresser genom att ändra IIS **Web. config** -filen. Du måste också använda en kommando fil som låser upp avsnittet **ipSecurity** i filen **ApplicationHost. config** .
+## <a name="block-a-specific-ip-address"></a>Blockera en specifik IP-adress
+Du kan begränsa en Azure-webbrollåtkomst till en uppsättning angivna IP-adresser genom att ändra filen IIS **web.config.** Du måste också använda en kommandofil som låser upp **ipSecurity-delen** av **filen ApplicationHost.config.**
 
-Om du vill låsa upp avsnittet **ipSecurity** i filen **ApplicationHost. config** skapar du en kommando fil som körs vid roll start. Skapa en mapp på rot nivån för din webbroll som heter **Start** och skapa sedan en kommando fil som heter **startup. cmd**i den här mappen. Lägg till den här filen i Visual Studio-projektet och ange att egenskaperna ska **kopieras alltid** för att säkerställa att de ingår i paketet.
+Om du vill låsa upp **ipSecurity-delen** i filen **ApplicationHost.config** skapar du en kommandofil som körs vid rollstart. Skapa en mapp på rotnivån i webbrollen som kallas **start** och skapa i den här mappen en kommandofil som heter **startup.cmd**. Lägg till den här filen i Visual Studio-projektet och ange egenskaperna till **Kopiera alltid** för att säkerställa att den ingår i paketet.
 
-Lägg till följande start åtgärd i filen [service definition. csdef] .
+Lägg till följande startuppgift i filen [ServiceDefinition.csdef.]
 
 ```xml
 <ServiceDefinition name="MyService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition">
@@ -168,7 +168,7 @@ Lägg till följande start åtgärd i filen [service definition. csdef] .
 </ServiceDefinition>
 ```
 
-Lägg till det här kommandot i filen **startup. cmd** :
+Lägg till det här kommandot i **startup.cmd-filen:**
 
 ```cmd
 @echo off
@@ -178,11 +178,11 @@ powershell -ExecutionPolicy Unrestricted -command "Install-WindowsFeature Web-IP
 %windir%\system32\inetsrv\AppCmd.exe unlock config -section:system.webServer/security/ipSecurity
 ```
 
-Den här uppgiften gör att **Start-. cmd** -konfigurationsfilen körs varje gång webb rollen initieras, vilket säkerställer att det nödvändiga **ipSecurity** -avsnittet är upplåst.
+Den här aktiviteten gör att **batchfilen startup.cmd** körs varje gång webbrollen initieras, vilket säkerställer att avsnittet **ipSecurity** som krävs låses upp.
 
-Slutligen ändrar du [avsnittet system. webserver](https://www.iis.net/configreference/system.webserver/security/ipsecurity#005) till webbrollens **Web. config** -fil för att lägga till en lista över IP-adresser som beviljas åtkomst, som du ser i följande exempel:
+Slutligen ändrar du [avsnittet system.webServer](https://www.iis.net/configreference/system.webserver/security/ipsecurity#005) i webbrollens **webrolls web.config-fil** för att lägga till en lista över IP-adresser som beviljas åtkomst, vilket visas i följande exempel:
 
-Det här exempel på konfigurationen **tillåter** att alla IP-adresser får åtkomst till servern, förutom de två definierade
+Med det här exemplet **kan** alla ÅTKOMST TILL servern utom de två definierade
 
 ```xml
 <system.webServer>
@@ -197,7 +197,7 @@ Det här exempel på konfigurationen **tillåter** att alla IP-adresser får åt
 </system.webServer>
 ```
 
-Den här exempel konfigurationen **nekar** alla IP-adresser från att komma åt servern, förutom de två definierade.
+Det här exemplet **konfigurerar** alla IPs från att komma åt servern förutom de två definierade.
 
 ```xml
 <system.webServer>
@@ -212,10 +212,10 @@ Den här exempel konfigurationen **nekar** alla IP-adresser från att komma åt 
 </system.webServer>
 ```
 
-## <a name="create-a-powershell-startup-task"></a>Skapa en start åtgärd för PowerShell
-Windows PowerShell-skript kan inte anropas direkt från filen [service definition. csdef] , men de kan anropas i en start kommando fil.
+## <a name="create-a-powershell-startup-task"></a>Skapa en startuppgift för PowerShell
+Det går inte att anropa Windows PowerShell-skript direkt från filen [ServiceDefinition.csdef,] men de kan anropas inifrån en startbatchfil.
 
-PowerShell (som standard) kör inte osignerade skript. Om du inte signerar skriptet måste du konfigurera PowerShell att köra osignerade skript. Om du vill köra osignerade skript måste **ExecutionPolicy** vara inställt på **obegränsad**. Den **ExecutionPolicy** -inställning som du använder baseras på Windows PowerShell-versionen.
+PowerShell (som standard) körs inte osignerade skript. Om du inte signerar skriptet måste du konfigurera PowerShell så att det körs osignerade skript. Om du vill köra osignerade skript måste **ExecutionPolicy** anges till **Obegränsad**. Inställningen **ExecutionPolicy** som du använder baseras på versionen av Windows PowerShell.
 
 ```cmd
 REM   Run an unsigned PowerShell script and log the output
@@ -225,7 +225,7 @@ REM   If an error occurred, return the errorlevel.
 EXIT /B %errorlevel%
 ```
 
-Om du använder ett gäst operativ system som kör PowerShell 2,0 eller 1,0 kan du tvinga version 2 att köras, och om den inte är tillgänglig, använder du version 1.
+Om du använder ett gästoperativsystem som kör PowerShell 2.0 eller 1.0 kan du tvinga version 2 att köras och om det inte är tillgängligt använder du version 1.
 
 ```cmd
 REM   Attempt to set the execution policy by using PowerShell version 2.0 syntax.
@@ -241,14 +241,14 @@ REM   If an error occurred, return the errorlevel.
 EXIT /B %errorlevel%
 ```
 
-## <a name="create-files-in-local-storage-from-a-startup-task"></a>Skapa filer i lokal lagring från en start aktivitet
-Du kan använda en lokal lagrings resurs för att lagra filer som skapats av en start åtgärd som du kan komma åt senare av ditt program.
+## <a name="create-files-in-local-storage-from-a-startup-task"></a>Skapa filer i lokal lagring från en startuppgift
+Du kan använda en lokal lagringsresurs för att lagra filer som skapats av startuppgiften och som används senare av ditt program.
 
-Om du vill skapa den lokala lagrings resursen lägger du till en [LocalResources] -sektion i filen [service definition. csdef] och lägger sedan till [localStorage] -underordnade elementet. Ge den lokala lagrings resursen ett unikt namn och lämplig storlek för start aktiviteten.
+Om du vill skapa den lokala lagringsresursen lägger du till avsnittet [LocalResources] i filen [ServiceDefinition.csdef] och lägger sedan till det underordnade elementet [LocalStorage.] Ge den lokala lagringsresursen ett unikt namn och en lämplig storlek för startaktiviteten.
 
-Om du vill använda en lokal lagrings resurs i Start aktiviteten måste du skapa en miljö variabel för att referera till den lokala lagrings resursens plats. Sedan kan start aktiviteten och programmet läsa och skriva filer till den lokala lagrings resursen.
+Om du vill använda en lokal lagringsresurs i startaktiviteten måste du skapa en miljövariabel för att referera till den lokala lagringsresursplatsen. Sedan kan startaktiviteten och programmet läsa och skriva filer till den lokala lagringsresursen.
 
-De relevanta avsnitten i filen **service definition. csdef** visas här:
+De relevanta avsnitten i **filen ServiceDefinition.csdef** visas här:
 
 ```xml
 <ServiceDefinition name="MyService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition">
@@ -272,7 +272,7 @@ De relevanta avsnitten i filen **service definition. csdef** visas här:
 </ServiceDefinition>
 ```
 
-Som exempel använder den här **Start. cmd** -konfigurationsfilen **PathToStartupStorage** -miljövariabeln för att skapa filen **test. txt** på den lokala lagrings platsen.
+Som ett exempel använder den här **startup.cmd-kommandofilen** miljövariabeln **PathToStartupStorage** för att skapa filen **MyTest.txt** på den lokala lagringsplatsen.
 
 ```cmd
 REM   Create a simple text file.
@@ -287,7 +287,7 @@ REM   Exit the batch file with ERRORLEVEL 0.
 EXIT /b 0
 ```
 
-Du kan komma åt den lokala lagringsmappen från Azure SDK med hjälp av metoden [GetLocalResource](/previous-versions/azure/reference/ee772845(v=azure.100)) .
+Du kan komma åt lokal lagringsmapp från Azure SDK med hjälp av metoden [GetLocalResource.](/previous-versions/azure/reference/ee772845(v=azure.100))
 
 ```csharp
 string localStoragePath = Microsoft.WindowsAzure.ServiceRuntime.RoleEnvironment.GetLocalResource("StartupLocalStorage").RootPath;
@@ -296,11 +296,11 @@ string fileContent = System.IO.File.ReadAllText(System.IO.Path.Combine(localStor
 ```
 
 ## <a name="run-in-the-emulator-or-cloud"></a>Kör i emulatorn eller molnet
-Du kan låta din start åtgärd utföra olika steg när den körs i molnet jämfört med när den finns i beräknings emulatorn. Till exempel kanske du vill använda en ny kopia av dina SQL-data endast när du kör i emulatorn. Eller så kanske du vill göra vissa prestanda optimeringar för molnet som du inte behöver göra när du kör i emulatorn.
+Du kan låta din startuppgift utföra olika steg när den fungerar i molnet jämfört med när den är i beräkningsemulatorn. Du kanske till exempel bara vill använda en ny kopia av dina SQL-data när du kör i emulatorn. Eller så kanske du vill göra några prestandaoptimeringar för molnet som du inte behöver göra när du kör i emulatorn.
 
-Den här möjligheten att utföra olika åtgärder i beräknings emulatorn och molnet kan åstadkommas genom att skapa en miljö variabel i filen [service definition. csdef] . Sedan testar du miljövariabeln för ett värde i Start aktiviteten.
+Den här möjligheten att utföra olika åtgärder på beräkningemulatorn och molnet kan utföras genom att skapa en miljövariabel i filen [ServiceDefinition.csdef.] Du testar sedan den miljövariabeln för ett värde i startuppgiften.
 
-Om du vill skapa miljövariabeln lägger du till [Variabel]/[RoleInstanceValue] -elementet och skapar ett XPath-värde för `/RoleEnvironment/Deployment/@emulated`. Värdet för miljövariabeln **% ComputeEmulatorRunning%** är `true` när det körs på beräknings-emulatorn och `false` vid körning i molnet.
+Om du vill skapa miljövariabeln lägger du till elementet `/RoleEnvironment/Deployment/@emulated` [Variable]/[RoleInstanceValue] och skapar ett XPath-värde för . Värdet för miljövariabeln **%ComputeEmulatorRunning%** körs `true` när den körs `false` på beräkningsemulatorn och när du kör på molnet.
 
 ```xml
 <ServiceDefinition name="MyService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition">
@@ -322,7 +322,7 @@ Om du vill skapa miljövariabeln lägger du till [Variabel]/[RoleInstanceValue] 
 </ServiceDefinition>
 ```
 
-Aktiviteten kan nu kontrol lera miljövariabeln **% ComputeEmulatorRunning%** för att utföra olika åtgärder baserat på om rollen körs i molnet eller emulatorn. Här är ett cmd-Shell-skript som söker efter miljövariabeln.
+Aktiviteten kan nu kontrollera miljövariabeln **%ComputeEmulatorRunning%** för att utföra olika åtgärder baserat på om rollen körs i molnet eller emulatorn. Här är ett CMD-skalskript som söker efter den miljövariabeln.
 
 ```cmd
 REM   Check if this task is running on the compute emulator.
@@ -336,9 +336,9 @@ IF "%ComputeEmulatorRunning%" == "true" (
 
 
 ## <a name="detect-that-your-task-has-already-run"></a>Identifiera att aktiviteten redan har körts
-Rollen kan återanvändas utan en omstart som gör att dina start aktiviteter körs igen. Det finns ingen flagga som indikerar att en aktivitet redan har körts på den virtuella värddatorn. Det kan finnas vissa uppgifter där det inte spelar någon roll att de körs flera gånger. Du kan dock stöta på en situation där du behöver förhindra att en aktivitet körs mer än en gång.
+Rollen kan återvinnas utan en omstart som gör att startuppgifterna körs igen. Det finns ingen flagga som anger att en aktivitet redan har körts på den virtuella värddatorn. Du kan ha vissa uppgifter där det inte spelar någon roll att de körs flera gånger. Du kan dock stöta på en situation där du måste förhindra att en aktivitet körs mer än en gång.
 
-Det enklaste sättet att identifiera att en aktivitet redan har körts är att skapa en fil i mappen **% Temp%** när uppgiften lyckas och leta efter den i början av uppgiften. Här är ett exempel på ett cmd Shell-skript som gör det åt dig.
+Det enklaste sättet att identifiera att en aktivitet redan har körts är att skapa en fil i mappen **%TEMP%** när aktiviteten lyckas och leta efter den i början av aktiviteten. Här är ett prov cmd skal skript som gör det åt dig.
 
 ```cmd
 REM   If Task1_Success.txt exists, then Application 1 is already installed.
@@ -373,19 +373,19 @@ REM   Exit normally.
 EXIT /B 0
 ```
 
-## <a name="task-best-practices"></a>Metod tips för aktiviteter
-Här följer några metod tips som du bör följa när du konfigurerar aktiviteter för din webb-eller arbets roll.
+## <a name="task-best-practices"></a>Metodtips för uppgifter
+Här är några metodtips som du bör följa när du konfigurerar uppgiften för din webb- eller arbetsroll.
 
-### <a name="always-log-startup-activities"></a>Logga alltid start aktiviteter
-Visual Studio tillhandahåller inte en fel sökare för att stega igenom kommandofiler, så det är bra att hämta så mycket information som möjligt för batch-filernas funktion. Loggning av utdata från kommandofiler, både **STDOUT** och **stderr**, kan ge dig viktig information när du försöker felsöka och åtgärda kommandofiler. Om du vill logga både **STDOUT** och **stderr** till filen StartupLog. txt i katalogen som refereras till av miljövariabeln **% Temp%** , lägger du till text `>>  "%TEMP%\\StartupLog.txt" 2>&1` till slutet av de rader som du vill logga. Om du till exempel vill köra Setup. exe i katalogen **% PathToApp1Install%** :
+### <a name="always-log-startup-activities"></a>Logga alltid startaktiviteter
+Visual Studio ger inte en felsökare för att gå igenom batchfiler, så det är bra att få så mycket data om driften av batch-filer som möjligt. Logga utdata från batchfiler, både **stdout** och **stderr**, kan ge dig viktig information när du försöker felsöka och åtgärda batchfiler. Om du vill logga både **stdout** och **stderr** till filen StartupLog.txt i katalogen `>>  "%TEMP%\\StartupLog.txt" 2>&1` som pekas ut av miljövariabeln **%TEMP%** lägger du till texten i slutet av specifika rader som du vill logga. Om du till exempel vill köra setup.exe i katalogen **%PathToApp1Install%:**
 
     "%PathToApp1Install%\setup.exe" >> "%TEMP%\StartupLog.txt" 2>&1
 
-För att förenkla XML-koden kan du skapa en *kommando* fil för omslutning som anropar alla dina start uppgifter tillsammans med loggning och ser till att varje underordnad aktivitet delar samma miljövariabler.
+Om du vill förenkla xml-koden kan du skapa en *cmd-fil* för omslag som anropar alla startuppgifter tillsammans med loggning och säkerställer att varje underordnad uppgift delar samma miljövariabler.
 
-Du kan upptäcka det irriterande om du använder `>> "%TEMP%\StartupLog.txt" 2>&1` i slutet av varje start åtgärd. Du kan framtvinga loggning av uppgifter genom att skapa en omslutning som hanterar loggningen åt dig. Den här omslutningen anropar den riktiga kommando filen som du vill köra. Utdata från mål kommando filen kommer att omdirigeras till filen *Startuplog. txt* .
+Du kan finna det `>> "%TEMP%\StartupLog.txt" 2>&1` irriterande men att använda i slutet av varje start uppgift. Du kan framtvinga uppgiftsloggning genom att skapa ett omslag som hanterar loggning åt dig. Det här omslaget anropar den riktiga kommandofilen som du vill köra. Alla utdata från målbatchfilen omdirigeras till filen *Startuplog.txt.*
 
-I följande exempel visas hur du omdirigerar alla utdata från en start kommando fil. I det här exemplet skapar filen ServerDefinition. csdef en start aktivitet som anropar *logwrap. cmd*. *logwrap. cmd* anropar *Startup2. cmd*, omdirigerar alla utdata till **% Temp%\\StartupLog. txt**.
+I följande exempel visas hur du omdirigerar alla utdata från en startbatchfil. I det här exemplet skapar filen ServerDefinition.csdef en startuppgift som anropar *logwrap.cmd*. *logwrap.cmd* *anropar Startup2.cmd*och omdirigerar all utdata till **%TEMP%\\StartupLog.txt**.
 
 ServiceDefinition.cmd:
 
@@ -395,7 +395,7 @@ ServiceDefinition.cmd:
 </Startup>
 ```
 
-**logwrap. cmd:**
+**logwrap.cmd:**
 
 ```cmd
 @ECHO OFF
@@ -429,7 +429,7 @@ IF %ERRORLEVEL% EQU 0 (
 )
 ```
 
-**Startup2. cmd:**
+**Start2.cmd:**
 
 ```cmd
 @ECHO OFF
@@ -447,7 +447,7 @@ ECHO [%date% %time%] Some more log information about this task
 EXIT %ERRORLEVEL%
 ```
 
-Exempel på utdata i filen **StartupLog. txt** :
+Exempel på utdata i **filen StartupLog.txt:**
 
 ```txt
 [Mon 10/17/2016 20:24:46.75] == START logwrap.cmd ============================================== 
@@ -459,59 +459,59 @@ Exempel på utdata i filen **StartupLog. txt** :
 ```
 
 > [!TIP]
-> Filen **StartupLog. txt** finns i mappen *C:\Resources\temp\\{Role Identifier} \RoleTemp* .
+> **Filen StartupLog.txt** finns i mappen *C:\Resources\temp\\{role identifier}\RoleTemp.*
 > 
 > 
 
-### <a name="set-executioncontext-appropriately-for-startup-tasks"></a>Ställ in executionContext korrekt för start åtgärder
-Ange privilegier för start åtgärden på lämpligt sätt. Ibland måste start aktiviteter köras med utökade privilegier även om rollen körs med normal behörighet.
+### <a name="set-executioncontext-appropriately-for-startup-tasks"></a>Ange körningKontext på rätt sätt för startuppgifter
+Ange privilegier på lämpligt sätt för startuppgiften. Ibland måste startaktiviteter köras med förhöjda privilegier även om rollen körs med normala privilegier.
 
-Attributet [ExecutionContext][] anger behörighets nivån för start aktiviteten. Att använda `executionContext="limited"` innebär att start aktiviteten har samma behörighets nivå som rollen. Att använda `executionContext="elevated"` innebär att start aktiviteten har administratörs behörighet, vilket gör att start aktiviteten kan utföra administratörs åtgärder utan att ge administratörs behörighet till din roll.
+[Attributet executionContext][Task] anger behörighetsnivån för startuppgiften. Med `executionContext="limited"` hjälp innebär att startuppgiften har samma behörighetsnivå som rollen. Med `executionContext="elevated"` hjälp av innebär att startuppgiften har administratörsbehörighet, vilket gör att startuppgiften kan utföra administratörsuppgifter utan att ge administratörsbehörighet till din roll.
 
-Ett exempel på en start aktivitet som kräver förhöjd behörighet är en start aktivitet som använder **Appcmd. exe** för att konfigurera IIS. **Appcmd. exe** kräver `executionContext="elevated"`.
+Ett exempel på en startuppgift som kräver förhöjda privilegier är en startuppgift som använder **AppCmd.exe** för att konfigurera IIS. **AppCmd.exe** `executionContext="elevated"`kräver .
 
-### <a name="use-the-appropriate-tasktype"></a>Använd lämplig taskType
-[TaskType][aktivitet] hur start aktiviteten körs. Det finns tre värden: **enkel**, **bakgrund**och **förgrund**. Bakgrunden och förgrunds aktiviteterna startas asynkront och sedan körs de enkla uppgifterna synkront en i taget.
+### <a name="use-the-appropriate-tasktype"></a>Använda lämplig taskType
+[Attributet taskType][Task] avgör hur startaktiviteten körs. Det finns tre värden: **enkel,** **bakgrund**och **förgrund**. Bakgrunds- och förgrundsaktiviteterna startas asynkront och sedan utförs de enkla aktiviteterna synkront en i taget.
 
-Med **enkla** start uppgifter kan du ange i vilken ordning aktiviteterna ska köras i den ordning som uppgifterna visas i listan i filen service definition. csdef. Om en **enkel** aktivitet slutar med en slutkod som inte är noll stoppas start proceduren och rollen startar inte.
+Med **enkla** startuppgifter kan du ange i vilken ordning aktiviteterna körs i den ordning som aktiviteterna visas i filen ServiceDefinition.csdef. Om en **enkel** aktivitet slutar med en slutkod som inte är noll stoppas startproceduren och rollen startar inte.
 
-Skillnaden mellan start **aktiviteter och start** aktiviteter i **förgrunden** är att **förgrunds** aktiviteterna håller rollen igång tills **förgrunds** aktiviteten slutar. Det innebär också att om **förgrunds** aktiviteten låser sig eller kraschar, kommer rollen inte att återvinna förrän **förgrunds** aktiviteten tvingas stängas. Därför rekommenderas **bakgrunds** aktiviteter för asynkrona start aktiviteter om du inte behöver den funktionen i **förgrunds** aktiviteten.
+Skillnaden mellan **startaktiviteter** i bakgrunden och **startaktiviteter för förgrunden** är att **förgrundsaktiviteter** håller rollen igång tills **förgrundsaktiviteten** avslutas. Detta innebär också att om **förgrundsaktiviteten** låser sig eller kraschar, kommer rollen inte att återvinnas förrän **förgrundsaktiviteten** tvingas stängas. Därför rekommenderas **bakgrundsaktiviteter** för asynkrona startaktiviteter om du inte behöver funktionen **i förgrundsaktiviteten.**
 
-### <a name="end-batch-files-with-exit-b-0"></a>Avsluta batch-filer med avsluta/B 0
-Rollen kommer bara att starta om **errorlevel** från var och en av dina enkla start aktiviteter är noll. Alla program ställer inte in **errorlevel** (slutkod) korrekt, så kommando filen bör avslutas med en `EXIT /B 0` om allt kördes korrekt.
+### <a name="end-batch-files-with-exit-b-0"></a>Avsluta batchfiler med EXIT /B 0
+Rollen startar bara om **felnivån** från var och en av dina enkla startuppgiftar är noll. Inte alla program ställa in **felnivå** (exit kod) korrekt, så `EXIT /B 0` batch-filen bör sluta med en om allt gick korrekt.
 
-En `EXIT /B 0` saknas i slutet av en start kommando fil är en vanlig orsak till roller som inte startar.
+En `EXIT /B 0` saknas i slutet av en startbatchfil är en vanlig orsak till roller som inte startar.
 
 > [!NOTE]
-> Jag har lagt märke till att kapslade batch-filer ibland låser sig när du använder parametern `/B`. Du kanske vill se till att problemet inte uppstår om en annan kommando fil anropar den aktuella kommando filen, t. ex. om du använder [logg omslutningen](#always-log-startup-activities). Du kan utelämna parametern `/B` i det här fallet.
+> Jag har märkt att kapslade batchfiler `/B` ibland hänger sig när du använder parametern. Du kanske vill vara säker på att det här låser problemet inte uppstår om en annan kommandofil anropar din aktuella kommandofil, som om du använder [loggomslaget](#always-log-startup-activities). Du kan utelämna `/B` parametern i det här fallet.
 > 
 > 
 
-### <a name="expect-startup-tasks-to-run-more-than-once"></a>Förväntar dig att start aktiviteter körs mer än en gång
-Alla roll återkallning inkluderar inte en omstart, men alla roll återkallning inkluderar körning av alla start aktiviteter. Det innebär att start aktiviteter måste kunna köras flera gånger mellan omstarter utan problem. Detta beskrivs i [föregående avsnitt](#detect-that-your-task-has-already-run).
+### <a name="expect-startup-tasks-to-run-more-than-once"></a>Förvänta dig att startaktiviteter ska köras mer än en gång
+Alla rollåtervinningar inkluderar inte en omstart, men alla rollåtervinning omfattar att köra alla startuppgifter. Detta innebär att startaktiviteter måste kunna köras flera gånger mellan omstarter utan problem. Detta beskrivs i [föregående avsnitt](#detect-that-your-task-has-already-run).
 
 ### <a name="use-local-storage-to-store-files-that-must-be-accessed-in-the-role"></a>Använd lokal lagring för att lagra filer som måste nås i rollen
-Om du vill kopiera eller skapa en fil under start aktiviteten som sedan är tillgänglig för din roll, måste filen placeras i lokal lagring. Se [föregående avsnitt](#create-files-in-local-storage-from-a-startup-task).
+Om du vill kopiera eller skapa en fil under startuppgiften som sedan är tillgänglig för din roll måste filen placeras i lokalt lagringsutrymme. Se [föregående avsnitt](#create-files-in-local-storage-from-a-startup-task).
 
 ## <a name="next-steps"></a>Nästa steg
-Granska moln [tjänst modellen och-paketet](cloud-services-model-and-package.md)
+Granska [molntjänstmodellen och -paketet](cloud-services-model-and-package.md)
 
-Lär dig mer om hur [aktiviteter](cloud-services-startup-tasks.md) fungerar.
+Läs mer om hur [uppgifter](cloud-services-startup-tasks.md) fungerar.
 
-[Skapa och distribuera](cloud-services-how-to-create-deploy-portal.md) ditt moln tjänst paket.
+[Skapa och distribuera](cloud-services-how-to-create-deploy-portal.md) ditt molntjänstpaket.
 
-[Service definition. csdef]: cloud-services-model-and-package.md#csdef
+[ServiceDefinition.csdef]: cloud-services-model-and-package.md#csdef
 [Aktivitet]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Task
 [Startup]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Startup
 [Runtime]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Runtime
 [Miljö]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Environment
 [Variabel]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Variable
-[RoleInstanceValue]: https://msdn.microsoft.com/library/azure/gg557552.aspx#RoleInstanceValue
+[RollInstanceVärde]: https://msdn.microsoft.com/library/azure/gg557552.aspx#RoleInstanceValue
 [RoleEnvironment]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.aspx
-[Slut punkter]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Endpoints
-[LocalStorage]: https://msdn.microsoft.com/library/azure/gg557552.aspx#LocalStorage
-[LocalResources]: https://msdn.microsoft.com/library/azure/gg557552.aspx#LocalResources
-[RoleInstanceValue]: https://msdn.microsoft.com/library/azure/gg557552.aspx#RoleInstanceValue
+[Slutpunkter]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Endpoints
+[Localstorage]: https://msdn.microsoft.com/library/azure/gg557552.aspx#LocalStorage
+[Lokala resurser]: https://msdn.microsoft.com/library/azure/gg557552.aspx#LocalResources
+[RollInstanceVärde]: https://msdn.microsoft.com/library/azure/gg557552.aspx#RoleInstanceValue
 
 
 

@@ -1,6 +1,6 @@
 ---
-title: Snabb start för Microsoft Identity Platform Windows Desktop | Microsoft Docs
-description: Lär dig hur ett Windows Desktop .NET-program (XAML) kan hämta en åtkomsttoken och anropa ett API som skyddas av en Microsoft Identity Platform-slutpunkt
+title: Snabbstart för Microsoft identity-plattformen för Windows-skrivbordet | Microsoft-dokument
+description: Lär dig hur ett XAML-program (Windows Desktop .NET) kan hämta en åtkomsttoken och anropa ett API som skyddas av en slutpunkt för Microsoft-identitetsplattform
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -12,15 +12,15 @@ ms.date: 12/12/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
 ms.openlocfilehash: 34d9af03b42df4a2806e82bb1e1fa376f099ae4c
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/04/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "78271066"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-from-a-windows-desktop-app"></a>Snabbstart: Hämta en token och anropa Microsoft Graph API från en Windows-skrivbordsapp
 
-I den här snabbstarten får du lära dig att skriva ett Windows-skrivbordsprogram med .NET (WPF) som kan logga in personliga konton och arbets- och skolkonton, hämta en åtkomsttoken samt anropa Microsoft Graph API. (Se [hur exemplet fungerar](#how-the-sample-works) för en illustration.)
+I den här snabbstarten får du lära dig att skriva ett Windows-skrivbordsprogram med .NET (WPF) som kan logga in personliga konton och arbets- och skolkonton, hämta en åtkomsttoken samt anropa Microsoft Graph API. (Se [Hur exemplet fungerar](#how-the-sample-works) för en illustration.)
 
 > [!div renderon="docs"]
 > ## <a name="register-and-download-your-quickstart-app"></a>Registrera och ladda ned snabbstartsappen
@@ -30,34 +30,34 @@ I den här snabbstarten får du lära dig att skriva ett Windows-skrivbordsprogr
 >
 > ### <a name="option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample"></a>Alternativ 1: Registrera och konfigurera appen automatiskt och ladda sedan ned ditt kodexempel
 >
-> 1. Gå till den nya [Azure Portal-Appregistreringar](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/WinDesktopQuickstartPage/sourceType/docs).
+> 1. Gå till den nya [Azure-portalen - Appregistreringar](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/WinDesktopQuickstartPage/sourceType/docs).
 > 1. Ange ett namn för programmet och välj **Registrera**.
 > 1. Följ anvisningarna för att ladda ned och konfigurera det nya programmet automatiskt med ett enda klick.
 >
-> ### <a name="option-2-register-and-manually-configure-your-application-and-code-sample"></a>Alternativ 2: Registrera och konfigurera programmet och kodexemplet manuellt
+> ### <a name="option-2-register-and-manually-configure-your-application-and-code-sample"></a>Alternativ 2: Registrera och konfigurera programmet och kodexemplet
 >
-> #### <a name="step-1-register-your-application"></a>Steg 1: Registrera din app
+> #### <a name="step-1-register-your-application"></a>Steg 1: Registrera ditt program
 > Du registrerar programmet och lägger till appens registreringsinformationen i lösningen manuellt med hjälp av följande steg:
 >
-> 1. Logga in på [Azure-portalen](https://portal.azure.com) med ett arbets- eller skolkonto eller ett personligt Microsoft-konto.
+> 1. Logga in på [Azure-portalen](https://portal.azure.com) med antingen ett arbets- eller skolkonto eller ett personligt Microsoft-konto.
 > 1. Om ditt konto ger dig tillgång till fler än en klientorganisation väljer du ditt konto i det övre högra hörnet och ställer in din portalsession på önskad Azure AD-klientorganisation.
-> 1. Gå till sidan Microsoft Identity Platform för utvecklare [Appregistreringar](https://aka.ms/MobileAppReg) .
-> 1. Välj **ny registrering**.
+> 1. Navigera till sidan Microsoft identity platform för utvecklare [Appregistreringar.](https://aka.ms/MobileAppReg)
+> 1. Välj **Ny registrering**.
 >      - I avsnittet **Namn** anger du ett beskrivande programnamn som ska visas för appens användare, till exempel `Win-App-calling-MsGraph`.
->      - I avsnittet **Kontotyper som stöds** väljer du **Konton alla organisationskataloger och personliga Microsoft-konton (till exempel Skype, Xbox och Outlook.com)** .
+>      - I avsnittet **Kontotyper som stöds** väljer du **Konton alla organisationskataloger och personliga Microsoft-konton (till exempel Skype, Xbox och Outlook.com)**.
 >      - Välj **Registrera** för att skapa programmet.
 > 1. I listan över sidor för appen väljer du **Autentisering**.
-> 1. I avsnittet **omdirigerings-URI: er** | **föreslagna omdirigerings-URI: er för offentliga klienter (Mobile, desktop)** använder **https://login.microsoftonline.com/common/oauth2/nativeclient** .
+> 1. Använd i avsnittet **Omdirigera URI:er** | **föreslagna omdirigering för offentliga klienter (mobila, stationära)** . **https://login.microsoftonline.com/common/oauth2/nativeclient**
 > 1. Välj **Spara**.
 
 > [!div class="sxs-lookup" renderon="portal"]
 > #### <a name="step-1-configure-your-application-in-azure-portal"></a>Steg 1: Konfigurera din app i Azure-portalen
-> För att kod exemplet för den här snabb starten ska fungera måste du lägga till en svars-URL som **https://login.microsoftonline.com/common/oauth2/nativeclient** .
+> För att kodexemplet för snabbstart ska fungera **https://login.microsoftonline.com/common/oauth2/nativeclient**måste du lägga till en svars-URL som .
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [Gör den här ändringen åt mig]()
 >
 > > [!div id="appconfigured" class="alert alert-info"]
-> > ![Redan konfigurerad](media/quickstart-v2-windows-desktop/green-check.png) Appen konfigureras med de här attributen.
+> > ![Redan konfigurerad](media/quickstart-v2-windows-desktop/green-check.png) Programmet konfigureras med de här attributen.
 
 #### <a name="step-2-download-your-visual-studio-project"></a>Steg 2: Ladda ned ditt Visual Studio-projekt
 
@@ -67,11 +67,11 @@ I den här snabbstarten får du lära dig att skriva ett Windows-skrivbordsprogr
 > [!div class="sxs-lookup" renderon="portal"]
 > Kör projektet med Visual Studio 2019.
 > [!div renderon="portal" id="autoupdate" class="nextstepaction"]
-> [Ladda ned kod exemplet](https://github.com/Azure-Samples/active-directory-dotnet-desktop-msgraph-v2/archive/msal3x.zip)
+> [Ladda ner kodexemplet](https://github.com/Azure-Samples/active-directory-dotnet-desktop-msgraph-v2/archive/msal3x.zip)
 
 > [!div class="sxs-lookup" renderon="portal"]
-> #### <a name="step-3-your-app-is-configured-and-ready-to-run"></a>Steg 3: appen har kon figurer ATS och är redo att köras
-> Vi har konfigurerat ditt projekt med värdena för appens egenskaper och är redo att köras. 
+> #### <a name="step-3-your-app-is-configured-and-ready-to-run"></a>Steg 3: Appen är konfigurerad och redo att köras
+> Vi har konfigurerat ditt projekt med värden för appens egenskaper och det är redo att köras. 
 
 > [!div class="sxs-lookup" renderon="portal"]
 > > [!NOTE]
@@ -96,15 +96,15 @@ I den här snabbstarten får du lära dig att skriva ett Windows-skrivbordsprogr
 >   - Om ditt program stöder **Konton i en valfri organisationskatalog och personliga Microsoft-konton** ersätter du värdet med `common`
 >
 > > [!TIP]
-> > För att hitta värdena för **program-ID (klient)** , **katalog-ID (klient)** och **Kontotyper som stöds** går du till appens **översiktssida** i Azure-portalen.
+> > För att hitta värdena för **program-ID (klient)**, **katalog-ID (klient)** och **Kontotyper som stöds** går du till appens **översiktssida** i Azure-portalen.
 
 ## <a name="more-information"></a>Mer information
 
 ### <a name="how-the-sample-works"></a>Så här fungerar exemplet
-![Visar hur exempel appen som genereras av den här snabb starten fungerar](media/quickstart-v2-windows-desktop/windesktop-intro.svg)
+![Visar hur exempelappen som genereras av den här snabbstarten fungerar](media/quickstart-v2-windows-desktop/windesktop-intro.svg)
 
 ### <a name="msalnet"></a>MSAL.NET
-MSAL ([Microsoft. Identity. client](https://www.nuget.org/packages/Microsoft.Identity.Client)) är det bibliotek som används för att logga in användare och begära token som används för att få åtkomst till ett API som skyddas av Microsoft Identity Platform. Du kan installera MSAL genom att köra följande kommando i **Package Manager-konsolen** i Visual Studio:
+MSAL ([Microsoft.Identity.Client](https://www.nuget.org/packages/Microsoft.Identity.Client)) är det bibliotek som används för att logga in användare och begära token som används för att komma åt ett API som skyddas av Microsofts identitetsplattform. Du kan installera MSAL genom att köra följande kommando i **Package Manager-konsolen** i Visual Studio:
 
 ```powershell
 Install-Package Microsoft.Identity.Client -IncludePrerelease
@@ -136,9 +136,9 @@ PublicClientApplicationBuilder.Create(ClientId)
 
 MSAL har två metoder för hämtning av token: `AcquireTokenInteractive` och `AcquireTokenSilent`.
 
-#### <a name="get-a-user-token-interactively"></a>Hämta en token interaktivt
+#### <a name="get-a-user-token-interactively"></a>Hämta en användartoken interaktivt
 
-Vissa situationer kräver tvingande användare att interagera med slut punkten för Microsoft Identity Platform via ett popup-fönster för att antingen verifiera sina autentiseringsuppgifter eller ge samtycke. Några exempel är:
+Vissa situationer kräver att användarna tvingar användarna att interagera med slutpunkten för Microsoft-identitetsplattformen via ett popup-fönster för att antingen validera sina autentiseringsuppgifter eller ge sitt samtycke. Några exempel är:
 
 - Första gången användaren loggar in på programmet
 - När användarna kan behöva ange sina autentiseringsuppgifter igen eftersom lösenordet har upphört att gälla
@@ -152,7 +152,7 @@ authResult = await App.PublicClientApp.AcquireTokenInteractive(_scopes)
 
 > |Där:||
 > |---------|---------|
-> | `_scopes` | Innehåller de omfång som begärs, som `{ "user.read" }` för Microsoft Graph eller `{ "api://<Application ID>/access_as_user" }` för anpassade webb-API:er. |
+> | `_scopes` | Innehåller de omfång som begärs, till exempel `{ "user.read" }` för Microsoft Graph eller `{ "api://<Application ID>/access_as_user" }` för anpassade webb-API:er. |
 
 #### <a name="get-a-user-token-silently"></a>Hämta en token obevakat
 
@@ -167,7 +167,7 @@ authResult = await App.PublicClientApp.AcquireTokenSilent(scopes, firstAccount)
 
 > |Där: ||
 > |---------|---------|
-> | `scopes` | Innehåller de omfång som begärs, som `{ "user.read" }` för Microsoft Graph eller `{ "api://<Application ID>/access_as_user" }` för anpassade webb-API:er. |
+> | `scopes` | Innehåller de omfång som begärs, till exempel `{ "user.read" }` för Microsoft Graph eller `{ "api://<Application ID>/access_as_user" }` för anpassade webb-API:er. |
 > | `firstAccount` | Anger den första användaren i cachen (MSAL stöder flera användare i en enda app). |
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
@@ -179,7 +179,7 @@ Prova att använda självstudien om Windows-skrivbordet för en komplett stegvis
 > [!div class="nextstepaction"]
 > [Självstudie om att anropa Graph API](https://docs.microsoft.com/azure/active-directory/develop/guidedsetups/active-directory-windesktop)
 
-Hjälp oss att förbättra Microsoft Identity Platform. Berätta för oss vad du tycker genom att slutföra en kort enkät med två frågor.
+Hjälp oss att förbättra Microsofts identitetsplattform. Berätta vad du tycker genom att fylla i en kort två-fråga undersökning.
 
 > [!div class="nextstepaction"]
-> [Microsoft Identity Platform-undersökning](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRyKrNDMV_xBIiPGgSvnbQZdUQjFIUUFGUE1SMEVFTkdaVU5YT0EyOEtJVi4u)
+> [Undersökning av Microsofts identitetsplattform](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRyKrNDMV_xBIiPGgSvnbQZdUQjFIUUFGUE1SMEVFTkdaVU5YT0EyOEtJVi4u)

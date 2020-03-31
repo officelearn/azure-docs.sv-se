@@ -1,6 +1,6 @@
 ---
-title: Tilldela Azure-resurs roller i Privileged Identity Management-Azure Active Directory | Microsoft Docs
-description: Lär dig hur du tilldelar Azure Resource roles i Azure AD Privileged Identity Management (PIM).
+title: Tilldela Azure-resursroller i Privilegierad identitetshantering - Azure Active Directory | Microsoft-dokument
+description: Lär dig hur du tilldelar Azure-resursroller i Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: curtand
@@ -16,115 +16,115 @@ ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 34051a31c6ccf69356f330d7c5ecb009f760857a
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79266564"
 ---
-# <a name="assign-azure-resource-roles-in-privileged-identity-management"></a>Tilldela Azure-resurs roller i Privileged Identity Management
+# <a name="assign-azure-resource-roles-in-privileged-identity-management"></a>Tilldela Azure-resursroller i Privilegierad identitetshantering
 
-Azure Active Directory (Azure AD) Privileged Identity Management (PIM) kan hantera de inbyggda Azure-resurs rollerna, samt anpassade roller, inklusive (men inte begränsat till):
+Azure Active Directory (Azure AD) Privilegierad identitetshantering (PIM) kan hantera de inbyggda Azure-resursrollerna, samt anpassade roller, inklusive (men inte begränsat till):
 
 - Ägare
 - Administratör för användaråtkomst
 - Deltagare
 - Säkerhetsadministratör
-- Säkerhets hanterare
+- Säkerhetschef
 
 > [!NOTE]
-> Användare eller medlemmar i en grupp som har tilldelats prenumerations rollerna ägare eller användar åtkomst administratör och globala Azure AD-administratörer som aktiverar prenumerations hantering i Azure AD har resurs administratörs behörighet som standard. Dessa administratörer kan tilldela roller, konfigurera roll inställningar och granska åtkomst med hjälp av Privileged Identity Management för Azure-resurser. En användare kan inte hantera Privileged Identity Management för resurser utan resurs administratörs behörighet. Visa listan över [inbyggda roller för Azure-resurser](../../role-based-access-control/built-in-roles.md).
+> Användare eller medlemmar i en grupp som tilldelats prenumerationsrollerna Ägare eller Användaråtkomstadministratör och Azure AD Global-administratörer som aktiverar prenumerationshantering i Azure AD har resursadministratörsbehörigheter som standard. Dessa administratörer kan tilldela roller, konfigurera rollinställningar och granska åtkomst med privilegierad identitetshantering för Azure-resurser. En användare kan inte hantera privilegierad identitetshantering för resurser utan resursadministratörsbehörighet. Visa listan över [inbyggda roller för Azure-resurser](../../role-based-access-control/built-in-roles.md).
 
 ## <a name="assign-a-role"></a>Tilldela en roll
 
-Följ dessa steg om du vill göra en användare tillgänglig för en Azure-resurs roll.
+Följ dessa steg för att göra en användare kvalificerad för en Azure-resursroll.
 
-1. Logga in på [Azure Portal](https://portal.azure.com/) med en användare som är medlem i rollen [privilegie rad roll administratör](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator) .
+1. Logga in på [Azure-portalen](https://portal.azure.com/) med en användare som är medlem i [rollen Privilegierad rolladministratör.](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator)
 
-    Information om hur du beviljar en annan administratörs åtkomst till att hantera Privileged Identity Management finns i [bevilja åtkomst till andra administratörer för att hantera Privileged Identity Management](pim-how-to-give-access-to-pim.md).
+    Information om hur du ger en annan administratör åtkomst till hantering av privilegierad identitetshantering finns i [Bevilja åtkomst till andra administratörer för att hantera privilegierad identitetshantering](pim-how-to-give-access-to-pim.md).
 
-1. Öppna **Azure AD Privileged Identity Management**.
+1. Öppna **Azure AD-privilegierad identitetshantering**.
 
 1. Välj **Azure-resurser**.
 
-1. Använd **resurs filtret** om du vill filtrera listan över hanterade resurser.
+1. Använd **resursfiltret** för att filtrera listan över hanterade resurser.
 
     ![Lista över Azure-resurser som ska hanteras](./media/pim-resource-roles-assign-roles/resources-list.png)
 
-1. Välj den resurs som du vill hantera, till exempel en prenumeration eller hanterings grupp.
+1. Välj den resurs som du vill hantera, till exempel en prenumeration eller hanteringsgrupp.
 
-1. Under hantera väljer du **roller** för att se listan över roller för Azure-resurser.
+1. Under Hantera väljer du **Roller** för att visa listan över roller för Azure-resurser.
 
-    ![Roller för Azure-resurser](./media/pim-resource-roles-assign-roles/resources-roles.png)
+    ![Azure-resursroller](./media/pim-resource-roles-assign-roles/resources-roles.png)
 
-1. Välj **Lägg till medlem** för att öppna fönstret nytt uppdrag.
+1. Välj **Lägg till medlem** om du vill öppna fönstret Nytt tilldelningsfönster.
 
-1. Välj **Välj en roll** för att öppna fönstret Välj en roll.
+1. Välj **Välj en roll** om du vill öppna fönstret Välj en roll.
 
-    ![Nytt tilldelnings fönster](./media/pim-resource-roles-assign-roles/resources-select-role.png)
+    ![Nytt tilldelningsfönster](./media/pim-resource-roles-assign-roles/resources-select-role.png)
 
-1. Välj en roll som du vill tilldela och klicka sedan på **Välj**.
+1. Välj en roll som du vill tilldela och klicka sedan på **Markera**.
 
     Fönstret Välj en medlem eller grupp öppnas.
 
-1. Välj en medlem eller grupp som du vill tilldela rollen och klicka sedan på **Välj**.
+1. Markera en medlem eller grupp som du vill tilldela rollen och klicka sedan på **Välj**.
 
-    ![Välj en medlem eller grupp fönster](./media/pim-resource-roles-assign-roles/resources-select-member-or-group.png)
+    ![Markera ett medlems- eller gruppfönster](./media/pim-resource-roles-assign-roles/resources-select-member-or-group.png)
 
-    Fönstret medlemskaps inställningar öppnas.
+    Fönstret Inställningar för medlemskap öppnas.
 
-1. I listan **tilldelnings typ** väljer du **kvalificerad** eller **aktiv**.
+1. Välj Kvalificerat eller **Aktivt**i listan **Tilldelningstyp** . **Eligible**
 
-    ![Fönstret medlemskaps inställningar](./media/pim-resource-roles-assign-roles/resources-membership-settings-type.png)
+    ![Fönstret Inställningar för medlemskap](./media/pim-resource-roles-assign-roles/resources-membership-settings-type.png)
 
-    Privileged Identity Management för Azure-resurser innehåller två olika tilldelnings typer:
+    Privilegierad identitetshantering för Azure-resurser innehåller två olika tilldelningstyper:
 
-    - **Berättigade** tilldelningar kräver att rollen medlem av rollen utför en åtgärd för att använda rollen. Det kan vara åtgärder som att utföra en kontroll av multifaktorautentisering (MFA), ange en affärsmotivering eller begära godkännande från utnämnda godkännare.
+    - **Kvalificerade** tilldelningar kräver att medlemmen i rollen utför en åtgärd för att använda rollen. Det kan vara åtgärder som att utföra en kontroll av multifaktorautentisering (MFA), ange en affärsmotivering eller begära godkännande från utnämnda godkännare.
 
-    - **Aktiva** tilldelningar kräver inte att medlemmen utför någon åtgärd för att använda rollen. Medlemmar som tilldelas som aktiva har behörigheten alltid tilldelade till rollen.
+    - **Aktiva** tilldelningar kräver inte att medlemmen utför någon åtgärd för att använda rollen. Medlemmar som har tilldelats som aktiva har de privilegier som tilldelats rollen hela tiden.
 
-1. Om tilldelningen ska vara permanent (permanent kvalificerad eller permanent tilldelad) markerar du kryss rutan **permanent** .
+1. Om tilldelningen ska vara permanent (permanent berättigad eller permanent tilldelad) markerar du kryssrutan **Permanent.**
 
-    Beroende på roll inställningarna kanske kryss rutan inte visas eller kan vara avändrings bar.
+    Beroende på rollinställningarna kanske kryssrutan inte visas eller kan vara omodifierbar.
 
-1. Om du vill ange en varaktighet för en speciell tilldelning avmarkerar du kryss rutan och ändrar rutorna start och/eller slutdatum och tid.
+1. Om du vill ange en viss tilldelningstid avmarkerar du kryssrutan och ändrar start- och/eller slutdatum- och tidsrutorna.
 
-    ![Medlemskaps inställningar-datum och tid](./media/pim-resource-roles-assign-roles/resources-membership-settings-date.png)
+    ![Inställningar för medlemskap - datum och tid](./media/pim-resource-roles-assign-roles/resources-membership-settings-date.png)
 
-1. När du är färdig väljer du **klart**.
+1. När du är klar väljer du **Klar**.
 
-    ![Ny tilldelning – Lägg till](./media/pim-resource-roles-assign-roles/resources-new-assignment-add.png)
+    ![Nytt uppdrag - Lägg till](./media/pim-resource-roles-assign-roles/resources-new-assignment-add.png)
 
-1. Välj **Lägg till**för att skapa den nya roll tilldelningen. Ett meddelande om status visas.
+1. Om du vill skapa den nya rolltilldelningen väljer du **Lägg till**. Ett meddelande om status visas.
 
-    ![Ny tilldelning – meddelande](./media/pim-resource-roles-assign-roles/resources-new-assignment-notification.png)
+    ![Nytt uppdrag - Anmälan](./media/pim-resource-roles-assign-roles/resources-new-assignment-notification.png)
 
-## <a name="update-or-remove-an-existing-role-assignment"></a>Uppdatera eller ta bort en befintlig roll tilldelning
+## <a name="update-or-remove-an-existing-role-assignment"></a>Uppdatera eller ta bort en befintlig rolltilldelning
 
-Följ dessa steg om du vill uppdatera eller ta bort en befintlig roll tilldelning.
+Följ dessa steg för att uppdatera eller ta bort en befintlig rolltilldelning.
 
-1. Öppna **Azure AD Privileged Identity Management**.
+1. Öppna **Azure AD-privilegierad identitetshantering**.
 
 1. Välj **Azure-resurser**.
 
-1. Välj den resurs som du vill hantera, till exempel en prenumeration eller hanterings grupp.
+1. Välj den resurs som du vill hantera, till exempel en prenumeration eller hanteringsgrupp.
 
-1. Under hantera väljer du **roller** för att se listan över roller för Azure-resurser.
+1. Under Hantera väljer du **Roller** för att visa listan över roller för Azure-resurser.
 
-    ![Azure-resurs roller – Välj roll](./media/pim-resource-roles-assign-roles/resources-update-select-role.png)
+    ![Azure-resursroller - Välj roll](./media/pim-resource-roles-assign-roles/resources-update-select-role.png)
 
 1. Välj den roll som du vill uppdatera eller ta bort.
 
-1. Hitta roll tilldelningen på flikarna **berättigade roller** eller **aktiva roller** .
+1. Hitta rolltilldelningen på flikarna **Kvalificerade roller** eller **Aktiva roller.**
 
-    ![Uppdatera eller ta bort roll tilldelning](./media/pim-resource-roles-assign-roles/resources-update-remove.png)
+    ![Uppdatera eller ta bort rolltilldelning](./media/pim-resource-roles-assign-roles/resources-update-remove.png)
 
-1. Välj **Uppdatera** eller **ta bort** om du vill uppdatera eller ta bort roll tilldelningen.
+1. Välj **Uppdatera** eller **Ta bort** om du vill uppdatera eller ta bort rolltilldelningen.
 
-    Information om hur du utökar en roll tilldelning finns i [utöka eller förnya Azures resurs roller i Privileged Identity Management](pim-resource-roles-renew-extend.md).
+    Information om hur du utökar en rolltilldelning finns i [Utöka eller förnya Azure-resursroller i Privilegierad identitetshantering](pim-resource-roles-renew-extend.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Utöka eller förnya Azures resurs roller i Privileged Identity Management](pim-resource-roles-renew-extend.md)
-- [Konfigurera inställningar för Azure-resurs roll i Privileged Identity Management](pim-resource-roles-configure-role-settings.md)
-- [Tilldela Azure AD-roller i Privileged Identity Management](pim-how-to-add-role-to-user.md)
+- [Utöka eller förnya Azure-resursroller i Privilegierad identitetshantering](pim-resource-roles-renew-extend.md)
+- [Konfigurera Azure-resursrollinställningar i Privilegierad identitetshantering](pim-resource-roles-configure-role-settings.md)
+- [Tilldela Azure AD-roller i privilegierad identitetshantering](pim-how-to-add-role-to-user.md)

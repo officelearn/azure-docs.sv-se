@@ -9,24 +9,24 @@ ms.date: 11/26/2019
 ms.author: tamram
 ms.custom: include
 ms.openlocfilehash: de79ea50d12ab322d1e28d0ad650df30ecc0c222
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "74806598"
 ---
-## <a name="install-client-library-packages"></a>Installera klient biblioteks paket
+## <a name="install-client-library-packages"></a>Installera klientbibliotekspaket
 
 > [!NOTE]
-> Exemplen som visas här använder Azure Storage klient bibliotek version 12. Version 12-klient biblioteket är en del av Azure SDK. Mer information om Azure SDK finns i Azure SDK-lagringsplatsen på [GitHub](https://github.com/Azure/azure-sdk).
+> De exempel som visas här använder Azure Storage-klientbiblioteket version 12. Klientbiblioteket version 12 är en del av Azure SDK. Mer information om Azure SDK finns i Azure SDK-databasen på [GitHub](https://github.com/Azure/azure-sdk).
 
-Installera Blob Storage-paketet genom att köra följande kommando från NuGet Package Manager-konsolen:
+Om du vill installera Blob-lagringspaketet kör du följande kommando från NuGet package manager-konsolen:
 
 ```powershell
 Install-Package Azure.Storage.Blobs
 ```
 
-Exemplen som visas här använder också den senaste versionen av [klient biblioteket för Azure Identity för .net](https://www.nuget.org/packages/Azure.Identity/) för att autentisera med Azure AD-autentiseringsuppgifter. Installera paketet genom att köra följande kommando från NuGet Package Manager-konsolen:
+Exemplen som visas här använder också den senaste versionen av [Azure Identity-klientbiblioteket för .NET för](https://www.nuget.org/packages/Azure.Identity/) att autentisera med Azure AD-autentiseringsuppgifter. Om du vill installera paketet kör du följande kommando från NuGet package manager-konsolen:
 
 ```powershell
 Install-Package Azure.Identity

@@ -1,6 +1,6 @@
 ---
-title: Konfigurera en domän oberoende arbets grupps tillgänglighets grupp
-description: Lär dig hur du konfigurerar en Active Directory-domän oberoende arbets grupps tillgänglighets grupp på en SQL Server virtuell dator i Azure.
+title: Konfigurera en domänoberoende resursgrupp för arbetsgrupp
+description: Lär dig hur du konfigurerar en Active Directory Domain-oberoende arbetsgrupp alltid på tillgänglighetsgrupp på en virtuell SQL Server-dator i Azure.
 services: virtual-machines-windows
 documentationcenter: na
 author: MashaMSFT
@@ -14,72 +14,72 @@ ms.workload: iaas-sql-server
 ms.date: 01/29/2020
 ms.author: mathoma
 ms.openlocfilehash: 72c04cf5e3e5fbdeac2d267dfc7b2703bd37a1c2
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77122680"
 ---
-# <a name="configure-a-workgroup-availability-group"></a>Konfigurera en tillgänglighets grupp för arbets gruppen 
+# <a name="configure-a-workgroup-availability-group"></a>Konfigurera en tillgänglighetsgrupp för arbetsgrupper 
 
-I den här artikeln beskrivs de steg som krävs för att skapa ett Active Directory domän oberoende kluster med en tillgänglighets grupp som alltid är tillgänglig. Detta kallas även för ett arbets grupps kluster. Den här artikeln fokuserar på de steg som är relevanta för att förbereda och konfigurera gruppen för arbets grupper och tillgänglighet, och ord listas över steg som beskrivs i andra artiklar, till exempel hur du skapar klustret eller distribuerar tillgänglighets gruppen. 
+I den här artikeln beskrivs de steg som krävs för att skapa ett Active Directory-domänoberoende kluster med en alltid på tillgänglighetsgrupp. Detta kallas även ett arbetsgruppskluster. Den här artikeln fokuserar på de steg som är relevanta för att förbereda och konfigurera arbetsgruppen och tillgänglighetsgruppen och glosses över steg som beskrivs i andra artiklar, till exempel hur du skapar klustret eller distribuerar tillgänglighetsgruppen. 
 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-Om du vill konfigurera en tillgänglighets grupp för arbets grupper behöver du följande:
-- Minst två virtuella datorer med Windows Server 2016 (eller högre) som kör SQL Server 2016 (eller högre), distribueras till samma tillgänglighets uppsättning eller olika tillgänglighets zoner med statiska IP-adresser. 
-- Ett lokalt nätverk med minst 4 lediga IP-adresser i under nätet. 
-- Ett konto på varje dator i gruppen Administratörer som också har sysadmin-behörighet inom SQL Server. 
+Om du vill konfigurera en tillgänglighetsgrupp för arbetsgrupper behöver du följande:
+- Minst två virtuella datorer med Windows Server 2016 (eller högre) som kör SQL Server 2016 (eller senare), som distribueras till samma tillgänglighetsuppsättning eller olika tillgänglighetszoner, med hjälp av statiska IP-adresser. 
+- Ett lokalt nätverk med minst 4 kostnadsfria IP-adresser i undernätet. 
+- Ett konto på varje dator i administratörsgruppen som också har sysadmin-rättigheter i SQL Server. 
 - Öppna portar: TCP 1433, TCP 5022, TCP 59999. 
 
-För referens används följande parametrar i den här artikeln, men kan ändras när det behövs: 
+Som referens används följande parametrar i den här artikeln, men kan ändras efter behov: 
 
-| **Namn** | **ProfileServiceApplicationProxy** |
+| **Namn** | **Parametern** |
 | :------ | :---------------------------------- |
 | **Nod1**   | AGNode1 (10.0.0.4) |
-| **NOD2**   | AGNode2 (10.0.0.5) |
+| **Nod2**   | AGNode2 (10.0.0.5) |
 | **Klusternamn** | AGWGAG (10.0.0.6) |
-| **Lyssnare** | AGListener (10.0.0.7) | 
+| **Lyssnaren** | AGListener (10.0.0.7) | 
 | **DNS-suffix** | ag.wgcluster.example.com | 
-| **Arbets grupps namn** | AGWorkgroup | 
+| **Namn på arbetsgrupp** | AGWorkgroup (AGWorkgroup) | 
 | &nbsp; | &nbsp; |
 
 ## <a name="set-dns-suffix"></a>Ange DNS-suffix 
 
-I det här steget konfigurerar du DNS-suffixet för båda servrarna. Till exempel `ag.wgcluster.example.com`. På så sätt kan du använda namnet på det objekt som du vill ansluta till som en fullständigt kvalificerad adress i nätverket, till exempel `AGNode1.ag.wgcluster.example.com`. 
+I det här steget konfigurerar du DNS-suffixet för båda servrarna. Till exempel `ag.wgcluster.example.com`. På så sätt kan du använda namnet på det objekt som du vill `AGNode1.ag.wgcluster.example.com`ansluta till som en fullständigt kvalificerad adress i nätverket, till exempel . 
 
-Följ dessa steg om du vill konfigurera DNS-suffixet:
+Så här konfigurerar du DNS-suffixet:
 
 1. RDP till din första nod och öppna Serverhanteraren. 
-1. Välj **lokal server** och välj sedan namnet på den virtuella datorn under **dator namn**. 
-1. Välj **ändra..** . under **för att byta namn på den här datorn.** .. 
-1. Ändra namnet på arbets grupps namnet så att det är något beskrivande, till exempel `AGWORKGROUP`: 
+1. Välj **Lokal server** och välj sedan namnet på den virtuella datorn under **Datornamn**. 
+1. Välj **Ändra...** under **Om du vill byta namn på den här datorn...**. 
+1. Ändra namnet på arbetsgruppens namn så att `AGWORKGROUP`det blir något meningsfullt, till exempel : 
 
-   ![Ändra arbets grupps namn](media/virtual-machines-windows-sql-workgroup-availability-group/1-change-workgroup-name.png)
+   ![Ändra arbetsgruppsnamn](media/virtual-machines-windows-sql-workgroup-availability-group/1-change-workgroup-name.png)
 
-1. Välj **mer...** för att öppna dialog rutan **DNS-suffix och NetBIOS-** datornamn. 
-1. Skriv namnet på DNS-suffixet under **primärt DNS-suffix för den här datorn**, till exempel `ag.wgcluster.example.com` och välj sedan **OK**: 
+1. Välj **Mer...** om du vill öppna dialogrutan **DNS-suffix och NetBIOS-datornamn.** 
+1. Skriv namnet på DNS-suffixet under **Den här datorns primära DNS-suffix,** till exempel `ag.wgcluster.example.com` och välj sedan **OK:** 
 
    ![Lägg till DNS-suffix](media/virtual-machines-windows-sql-workgroup-availability-group/2-add-dns-suffix.png)
 
-1. Bekräfta att det **fullständiga dator namnet** nu visar DNS-suffixet och välj sedan **OK** för att spara ändringarna: 
+1. Bekräfta att namnet på den **fullständiga datorn** nu visar DNS-suffixet och välj sedan **OK** för att spara ändringarna: 
 
    ![Lägg till DNS-suffix](media/virtual-machines-windows-sql-workgroup-availability-group/3-confirm-full-computer-name.png)
 
 1. Starta om servern när du uppmanas att göra det. 
-1. Upprepa de här stegen på alla andra noder som ska användas för tillgänglighets gruppen. 
+1. Upprepa dessa steg på andra noder som ska användas för tillgänglighetsgruppen. 
 
-## <a name="edit-host-file"></a>Redigera värd fil
+## <a name="edit-host-file"></a>Redigera värdfil
 
-Eftersom det inte finns någon Active Directory finns det inget sätt att autentisera Windows-anslutningar. Tilldela till exempel förtroende genom att redigera värd filen med en text redigerare. 
+Eftersom det inte finns någon active directory finns det inget sätt att autentisera Windows-anslutningar. Tilldela därför förtroende genom att redigera värdfilen med en textredigerare. 
 
-Följ dessa steg om du vill redigera värd filen:
+Så här redigerar du värdfilen:
 
-1. RDP till den virtuella datorn. 
-1. Använd **Utforskaren** för att gå till `c:\windows\system32\drivers\etc`. 
-1. Högerklicka på **hosts** -filen och öppna filen med **anteckningar** (eller någon annan text redigerare).
-1. I slutet av filen lägger du till en post för varje nod, tillgänglighets gruppen och lyssnaren i form av `IP Address, DNS Suffix #comment` som: 
+1. RDP till din virtuella dator. 
+1. Använd **Utforskaren** för `c:\windows\system32\drivers\etc`att gå till . 
+1. Högerklicka på **hosts-filen** och öppna filen med **Anteckningar** (eller någon annan textredigerare).
+1. I slutet av filen lägger du till en post för varje nod, tillgänglighetsgruppen och lyssnaren i form av `IP Address, DNS Suffix #comment` följande: 
 
    ```
    10.0.0.4 AGNode1.ag.wgcluster.example.com #Availability group node
@@ -88,11 +88,11 @@ Följ dessa steg om du vill redigera värd filen:
    10.0.0.7 AGListener.ag.wgcluster.example.com #Listener IP
    ```
  
-   ![Lägg till poster för IP-adress, kluster och lyssnare till värd filen](media/virtual-machines-windows-sql-workgroup-availability-group/4-host-file.png)
+   ![Lägga till poster för IP-adressen, klustret och lyssnaren i värdfilen](media/virtual-machines-windows-sql-workgroup-availability-group/4-host-file.png)
 
 ## <a name="set-permissions"></a>Ställa in behörigheter
 
-Eftersom det inte finns några Active Directory för att hantera behörigheter måste du manuellt tillåta ett lokalt administratörs konto som inte är fördefinierat för att skapa klustret. 
+Eftersom det inte finns någon Active Directory för att hantera behörigheter måste du manuellt tillåta att ett lokalt administratörskonto som inte är inbyggt kan skapa klustret manuellt. 
 
 Det gör du genom att köra följande PowerShell-cmdlet i en administrativ PowerShell-session på varje nod: 
 
@@ -103,46 +103,46 @@ new-itemproperty -path HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\
 
 ## <a name="create-the-failover-cluster"></a>Skapa redundansklustret
 
-I det här steget ska du skapa redundansklustret. Om du inte är bekant med de här stegen kan du följa anvisningarna i [själv studie kursen för redundanskluster](virtual-machines-windows-portal-sql-create-failover-cluster.md#step-2-configure-the-windows-server-failover-cluster-with-storage-spaces-direct).
+I det här steget skapar du redundansklustret. Om du inte känner till dessa steg kan du följa dem från [självstudien för redundanskluster](virtual-machines-windows-portal-sql-create-failover-cluster.md#step-2-configure-the-windows-server-failover-cluster-with-storage-spaces-direct).
 
-Viktiga skillnader mellan självstudien och vad som ska göras för ett arbets grupps kluster:
-- Avmarkera **lagringen**och **Lagringsdirigering** när du kör kluster verifieringen. 
+Anmärkningsvärda skillnader mellan självstudien och vad som ska göras för ett arbetsgruppskluster:
+- Avmarkera **Lagring**och **Lagringsutrymme direkt** när klustervalideringen körs. 
 - När du lägger till noderna i klustret lägger du till det fullständigt kvalificerade namnet, till exempel:
    - `AGNode1.ag.wgcluster.example.com`
    - `AGNode2.ag.wgcluster.example.com`
-- Avmarkera **Lägg till alla tillgängliga lagrings enheter i klustret**. 
+- Avmarkera **Lägg till all kvalificerad lagring i klustret**. 
 
-När klustret har skapats tilldelar du en statisk kluster-IP-adress. Det gör du genom att följa dessa steg:
+När klustret har skapats tilldelar du en statisk cluster-IP-adress. Det gör du på följande sätt:
 
-1. På en av noderna öppnar du **Klusterhanteraren för växling vid fel**, väljer klustret, högerklickar på **namnet: \<ClusterNam >** under **kluster kärn resurser** och väljer sedan **Egenskaper**. 
+1. Öppna **Redundansklusterhanteraren**på en av noderna, välj klustret, högerklicka på **Namnet: \<ClusterNam>** under **Klusterkärnresurser** och välj sedan **Egenskaper**. 
 
-   ![Start egenskaper för kluster namnet](media/virtual-machines-windows-sql-workgroup-availability-group/5-launch-cluster-name-properties.png)
+   ![Starta egenskaper för klusternamnet](media/virtual-machines-windows-sql-workgroup-availability-group/5-launch-cluster-name-properties.png)
 
-1. Välj IP-adressen under **IP-adresser** och välj **Redigera**. 
-1. Välj **Använd statisk**, ange IP-adressen för klustret och välj sedan **OK**: 
+1. Markera IP-adressen under **IP-adresser** och välj **Redigera**. 
+1. Välj **Använd statisk**, ange klustrets IP-adress och välj sedan **OK:** 
 
    ![Ange en statisk IP-adress för klustret](media/virtual-machines-windows-sql-workgroup-availability-group/6-provide-static-ip-for-cluster.png)
 
-1. Kontrol lera att inställningarna ser korrekta ut och välj sedan **OK** för att spara dem:
+1. Kontrollera att inställningarna ser korrekta ut och välj sedan **OK** för att spara dem:
 
-   ![Verifiera kluster egenskaper](media/virtual-machines-windows-sql-workgroup-availability-group/7-verify-cluster-properties.png)
+   ![Verifiera klusteregenskaper](media/virtual-machines-windows-sql-workgroup-availability-group/7-verify-cluster-properties.png)
 
-## <a name="create-a-cloud-witness"></a>Skapa ett moln vittne 
+## <a name="create-a-cloud-witness"></a>Skapa ett molnvittne 
 
-I det här steget konfigurerar du ett moln resurs vittne. Om du inte är bekant med stegen går du till [självstudien för redundanskluster](virtual-machines-windows-portal-sql-create-failover-cluster.md#create-a-cloud-witness). 
+I det här steget konfigurerar du ett molnresursvittne. Om du inte känner till stegen läser du [självstudien för redundanskluster](virtual-machines-windows-portal-sql-create-failover-cluster.md#create-a-cloud-witness). 
 
-## <a name="enable-availability-group-feature"></a>Aktivera tillgänglighets grupp funktion 
+## <a name="enable-availability-group-feature"></a>Aktivera funktionen för tillgänglighetsgrupp 
 
-I det här steget aktiverar du funktionen tillgänglighets grupp. Om du inte är bekant med stegen går du till [självstudien för tillgänglighets gruppen](virtual-machines-windows-portal-sql-availability-group-tutorial.md#enable-availability-groups). 
+Aktivera funktionen tillgänglighetsgrupp i det här steget. Om du inte känner till stegen läser du [självstudien för tillgänglighetsgruppen](virtual-machines-windows-portal-sql-availability-group-tutorial.md#enable-availability-groups). 
 
 ## <a name="create-keys-and-certificate"></a>Skapa nycklar och certifikat
 
-I det här steget skapar du certifikat som en SQL-inloggning använder på den krypterade slut punkten. Skapa en mapp på varje nod för att lagra säkerhets kopior av certifikatet, till exempel `c:\certs`. 
+Skapa i det här steget certifikat som en SQL-inloggning använder på den krypterade slutpunkten. Skapa en mapp på varje nod för att `c:\certs`hålla certifikatsäkerhetskopiorna, till exempel . 
 
-Följ dessa steg om du vill konfigurera den första noden: 
+Så här konfigurerar du den första noden: 
 
-1. Öppna **SQL Server Management Studio** och Anslut till din första nod, till exempel `AGNode1`. 
-1. Öppna ett **nytt frågefönster** och kör följande Transact-SQL-uttryck (T-SQL) efter att ha uppdaterat till ett komplext och säkert lösen ord:
+1. Öppna **SQL Server Management Studio** och anslut till `AGNode1`din första nod, till exempel . 
+1. Öppna ett **nytt frågefönster** och kör följande Transact-SQL-uttryck (T-SQL) efter uppdatering till ett komplext och säkert lösenord:
 
    ```sql
    USE master;  
@@ -160,7 +160,7 @@ Följ dessa steg om du vill konfigurera den första noden:
    GO  
    ```
 
-1. Skapa sedan HADR-slutpunkten och Använd certifikatet för autentisering genom att köra Transact-SQL-instruktionen (T-SQL):
+1. Skapa sedan HADR-slutpunkten och använda certifikatet för autentisering genom att köra det här T-SQL-uttrycket (Transact-SQL):
 
    ```sql
    --CREATE or ALTER the mirroring endpoint
@@ -178,13 +178,13 @@ Följ dessa steg om du vill konfigurera den första noden:
    GO  
    ```
 
-1. Använd **Utforskaren** för att gå till fil platsen där ditt certifikat är, t. ex. `c:\certs`. 
-1. Gör en kopia av certifikatet manuellt, till exempel `AGNode1Cert.crt`, från den första noden och överför det till samma plats på den andra noden. 
+1. Använd **Utforskaren** för att gå till den filplats där certifikatet finns, till exempel `c:\certs`. 
+1. Gör en kopia av certifikatet `AGNode1Cert.crt`manuellt, till exempel från den första noden, och överför det till samma plats på den andra noden. 
 
-Följ dessa steg om du vill konfigurera den andra noden: 
+Så här konfigurerar du den andra noden: 
 
-1. Anslut till den andra noden med **SQL Server Management Studio**, till exempel `AGNode2`. 
-1. I ett **nytt frågefönster** kör du följande Transact-SQL-uttryck (T-SQL) efter att ha uppdaterat till ett komplext och säkert lösen ord: 
+1. Anslut till den andra noden med SQL `AGNode2`Server Management **Studio,** till exempel . 
+1. I ett nytt **frågefönster** kör du följande Transact-SQL-uttryck (T-SQL) efter uppdatering till ett komplext och säkert lösenord: 
 
    ```sql
    USE master;  
@@ -201,7 +201,7 @@ Följ dessa steg om du vill konfigurera den andra noden:
    GO
    ```
 
-1. Skapa sedan HADR-slutpunkten och Använd certifikatet för autentisering genom att köra Transact-SQL-instruktionen (T-SQL):
+1. Skapa sedan HADR-slutpunkten och använda certifikatet för autentisering genom att köra det här T-SQL-uttrycket (Transact-SQL):
 
    ```sql
    --CREATE or ALTER the mirroring endpoint
@@ -219,16 +219,16 @@ Följ dessa steg om du vill konfigurera den andra noden:
    GO  
    ```
 
-1. Använd **Utforskaren** för att gå till fil platsen där ditt certifikat är, t. ex. `c:\certs`. 
-1. Gör en kopia av certifikatet manuellt, till exempel `AGNode2Cert.crt`, från den andra noden och överför det till samma plats på den första noden. 
+1. Använd **Utforskaren** för att gå till den filplats där certifikatet finns, till exempel `c:\certs`. 
+1. Gör en kopia av certifikatet `AGNode2Cert.crt`manuellt, till exempel från den andra noden, och överför det till samma plats på den första noden. 
 
-Om det finns några andra noder i klustret upprepar du de här stegen även och ändrar respektive certifikat namn. 
+Om det finns några andra noder i klustret upprepar du även dessa steg där och ändrar respektive certifikatnamn. 
 
 ## <a name="create-logins"></a>Skapa inloggningar
 
-Certifikatautentisering används för att synkronisera data mellan noder. Om du vill tillåta detta skapar du en inloggning för den andra noden, skapar en användare för inloggningen, skapar ett certifikat för inloggningen för att använda det säkerhetskopierade certifikatet och tilldelar sedan Connect på speglings slut punkten. 
+Certifikatautentisering används för att synkronisera data mellan noder. Om du vill tillåta detta skapar du en inloggning för den andra noden, skapar en användare för inloggningen, skapar ett certifikat för inloggningen för att använda säkerhetskopieringscertifikatet och beviljar sedan anslutning på speglingslutpunkten. 
 
-Det gör du genom att först köra följande Transact-SQL-fråga (T-SQL) på den första noden, till exempel `AGNode1`: 
+För att göra det, kör du först följande Transact-SQL (T-SQL) fråga på den första noden, till exempel: `AGNode1` 
 
 ```sql
 --create a login for the AGNode2
@@ -251,7 +251,7 @@ GRANT CONNECT ON ENDPOINT::hadr_endpoint TO [AGNode2_login];
 GO
 ```
 
-Kör sedan följande Transact-SQL-fråga (T-SQL) på den andra noden, till exempel `AGNode2`: 
+Kör sedan följande Transact-SQL-fråga (T-SQL) på den `AGNode2`andra noden, till exempel: 
 
 ```sql
 --create a login for the AGNode1
@@ -274,22 +274,22 @@ GRANT CONNECT ON ENDPOINT::hadr_endpoint TO [AGNode1_login];
 GO
 ```
 
-Om det finns andra noder i klustret upprepar du de här stegen också, och ändrar respektive certifikat och användar namn. 
+Om det finns några andra noder i klustret upprepar du även dessa steg där och ändrar respektive certifikat och användarnamn. 
 
-## <a name="configure-availability-group"></a>Konfigurera tillgänglighets grupp
+## <a name="configure-availability-group"></a>Konfigurera tillgänglighetsgrupp
 
-I det här steget konfigurerar du din tillgänglighets grupp och lägger till dina databaser i den. Skapa inte en lyssnare just nu. Om du inte är bekant med stegen går du till [självstudien för tillgänglighets gruppen](virtual-machines-windows-portal-sql-availability-group-tutorial.md#create-the-availability-group). Se till att initiera en redundansväxling och återställning efter fel för att kontrol lera att allt fungerar som det ska. 
+I det här steget konfigurerar du din tillgänglighetsgrupp och lägger till databaserna i den. Skapa inte en lyssnare just nu. Om du inte är bekant med stegen läser du [självstudien för tillgänglighetsgruppen](virtual-machines-windows-portal-sql-availability-group-tutorial.md#create-the-availability-group). Var noga med att inleda en redundans och failback för att kontrollera att allt fungerar som det ska vara. 
 
    > [!NOTE]
-   > Om det uppstår ett fel under synkroniseringsprocessen kan du behöva bevilja `NT AUTHORITY\SYSTEM` sysadmin-behörighet för att skapa kluster resurser på den första noden, till exempel `AGNode1` tillfälligt. 
+   > Om det finns ett fel under synkroniseringsprocessen kan `NT AUTHORITY\SYSTEM` du behöva bevilja sysadmin-rättigheter för att `AGNode1` skapa klusterresurser på den första noden, till exempel tillfälligt. 
 
 ## <a name="configure-load-balancer"></a>Konfigurera belastningsutjämnare
 
-I det sista steget konfigurerar du belastningsutjämnaren med hjälp av antingen [Azure Portal](virtual-machines-windows-portal-sql-alwayson-int-listener.md) eller [PowerShell](virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md)
+I det här sista steget konfigurerar du belastningsutjämnaren med hjälp av [Azure-portalen](virtual-machines-windows-portal-sql-alwayson-int-listener.md) eller [PowerShell](virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md)
 
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 
-Du kan också använda [AZ SQL CLI](virtual-machines-windows-sql-availability-group-cli.md) för att konfigurera en tillgänglighets grupp. 
+Du kan också använda [Az SQL VM CLI](virtual-machines-windows-sql-availability-group-cli.md) för att konfigurera en tillgänglighetsgrupp. 
 
 

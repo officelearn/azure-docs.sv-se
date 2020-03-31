@@ -1,6 +1,6 @@
 ---
 title: Samla in Windows VM-mått i Azure Monitor med mall
-description: Skicka gäst operativ systemets mått till Azure Monitor Metric Store med hjälp av en Resource Manager-mall för en virtuell Windows-dator
+description: Skicka gäst-OS-mått till Azure Monitor-måttarkivet med hjälp av en Resource Manager-mall för en virtuell Windows-dator
 author: anirudhcavale
 services: azure-monitor
 ms.topic: conceptual
@@ -8,57 +8,57 @@ ms.date: 09/24/2018
 ms.author: ancav
 ms.subservice: metrics
 ms.openlocfilehash: e747ca89912c36538bfb9d02986629fe57c5adcb
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77657375"
 ---
-# <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-using-a-resource-manager-template-for-a-windows-virtual-machine"></a>Skicka gäst operativ systemets mått till Azure Monitor Metric Store med hjälp av en Resource Manager-mall för en virtuell Windows-dator
+# <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-using-a-resource-manager-template-for-a-windows-virtual-machine"></a>Skicka svar om gästoperativsystem till Azure Monitor-måttarkivet med hjälp av en Resource Manager-mall för en virtuell Windows-dator
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Med hjälp av [tillägget Azure Monitor diagnostik](diagnostics-extension-overview.md)kan du samla in mått och loggar från gäst operativ systemet (gäst operativ system) som körs som en del av en virtuell dator, moln tjänst eller Service Fabric kluster. Tillägget kan skicka telemetri till [flera olika platser.](https://docs.microsoft.com/azure/monitoring/monitoring-data-collection?toc=/azure/azure-monitor/toc.json)
+Genom att använda tillägget Azure Monitor [Diagnostics](diagnostics-extension-overview.md)kan du samla in mått och loggar från gästoperativsystemet (Guest OS) som körs som en del av ett virtuellt dator-, molntjänst- eller Service Fabric-kluster. Tillägget kan skicka telemetri till [många olika platser.](https://docs.microsoft.com/azure/monitoring/monitoring-data-collection?toc=/azure/azure-monitor/toc.json)
 
-Den här artikeln beskriver processen för att skicka gäst operativ systemets prestanda mått för en virtuell Windows-dator till Azure Monitor data lager. Från och med diagnostik version 1,11 kan du skriva mått direkt till lagrings platsen Azure Monitor mått, där standard plattforms mått redan har samlats in.
+I den här artikeln beskrivs processen för att skicka prestandamått för gästoperativsystem för en virtuell Windows-dator till Azure Monitor-datalagret. Från och med Diagnostik version 1.11 kan du skriva mått direkt till Azure Monitor-måttarkivet, där standardplattformsmått redan har samlats in.
 
-Genom att lagra dem på den här platsen kan du komma åt samma åtgärder för plattforms mått. Åtgärder är nästan real tids avisering, diagram, Routning och åtkomst från en REST API med mera. Tidigare skrev diagnostikprogrammet-tillägget till Azure Storage, men inte till Azure Monitor data lager.
+Genom att lagra dem på den här platsen kan du komma åt samma åtgärder för plattformsmått. Åtgärderna omfattar aviseringar i nära realtid, diagram, routning och åtkomst från ett REST API med mera. Tidigare skrev diagnostiktillägget till Azure Storage, men inte till Azure Monitor-datalagringen.
 
-Om du är nybörjare på Resource Manager-mallar kan du läsa mer om [mall distributioner](../../azure-resource-manager/management/overview.md) och deras struktur och syntax.
+Om du inte har tidigare i Resource Manager-mallar kan du läsa om [malldistributioner](../../azure-resource-manager/management/overview.md) och deras struktur och syntax.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-- Din prenumeration måste vara registrerad med [Microsoft. Insights](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services).
+- Din prenumeration måste vara registrerad hos [Microsoft.Insights](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services).
 
-- Du måste antingen ha [Azure PowerShell](/powershell/azure) eller [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) installerat.
+- Du måste ha antingen [Azure PowerShell](/powershell/azure) eller [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) installerat.
 
-- Din VM-resurs måste finnas i en [region som stöder anpassade mått](metrics-custom-overview.md#supported-regions). 
+- Vm-resursen måste finnas i en [region som stöder anpassade mått](metrics-custom-overview.md#supported-regions). 
 
 
-## <a name="set-up-azure-monitor-as-a-data-sink"></a>Konfigurera Azure Monitor som en data mottagare
-Azure-diagnostik-tillägget använder en funktion som kallas "data mottagare" för att dirigera mått och loggar till olika platser. Följande steg visar hur du använder en Resource Manager-mall och PowerShell för att distribuera en virtuell dator med hjälp av den nya "Azure Monitor"-data mottagaren.
+## <a name="set-up-azure-monitor-as-a-data-sink"></a>Konfigurera Azure Monitor som en datamottagare
+Azure Diagnostics-tillägget använder en funktion som kallas "datamottagare" för att dirigera mått och loggar till olika platser. Följande steg visar hur du använder en Resource Manager-mall och PowerShell för att distribuera en virtuell dator med hjälp av den nya datamottagaren "Azure Monitor".
 
-## <a name="author-resource-manager-template"></a>Skapa Resource Manager-mall
-I det här exemplet kan du använda en offentligt tillgänglig exempel mall. Startmallarna finns https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows.
+## <a name="author-resource-manager-template"></a>Mall för Författarresurshanteraren
+I det här exemplet kan du använda en allmänt tillgänglig exempelmall. Startmallarna finns https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windowspå .
 
-- **Azuredeploy. JSON** är en förkonfigurerad Resource Manager-mall för distribution av en virtuell dator.
+- **Azuredeploy.json** är en förkonfigurerad Resource Manager-mall för distribution av en virtuell dator.
 
-- **Azuredeploy. Parameters. JSON** är en parameter fil som lagrar information, till exempel vilket användar namn och lösen ord som du vill ange för din virtuella dator. Under distributionen använder Resource Manager-mallen de parametrar som anges i den här filen.
+- **Azuredeploy.parameters.json** är en parameterfil som lagrar information som vilket användarnamn och lösenord du vill ange för den virtuella datorn. Under distributionen använder Resource Manager-mallen de parametrar som anges i den här filen.
 
 Ladda ned och spara båda filerna lokalt.
 
-### <a name="modify-azuredeployparametersjson"></a>Ändra azuredeploy. Parameters. JSON
-Öppna filen *azuredeploy. Parameters. JSON*
+### <a name="modify-azuredeployparametersjson"></a>Ändra azuredeploy.parameters.json
+Öppna filen *azuredeploy.parameters.json*
 
-1. Ange värden för **adminUsername** och **adminPassword** för den virtuella datorn. Dessa parametrar används för fjärråtkomst till den virtuella datorn. Använd inte värdena i den här mallen för att undvika att den virtuella datorn har kapats. Robotar Genomsök Internet efter användar namn och lösen ord i offentliga GitHub-databaser. De kommer förmodligen att testa virtuella datorer med dessa standardvärden.
+1. Ange värden för **adminUsername** och **adminPassword** för den virtuella datorn. Dessa parametrar används för fjärråtkomst till den virtuella datorn. Använd INTE värdena i den här mallen för att undvika att den virtuella datorn kapas. Robotar skannar internet efter användarnamn och lösenord i offentliga GitHub-databaser. De kommer sannolikt att testa virtuella datorer med dessa standardvärden.
 
-1. Skapa en unik dnsname för den virtuella datorn.
+1. Skapa ett unikt dnsname för den virtuella datorn.
 
-### <a name="modify-azuredeployjson"></a>Ändra azuredeploy. JSON
+### <a name="modify-azuredeployjson"></a>Ändra azuredeploy.json
 
-Öppna filen *azuredeploy. JSON*
+Öppna *filen azuredeploy.json*
 
-Lägg till ett lagrings konto-ID i avsnittet **variabler** i mallen efter posten för **storageAccountName.**
+Lägg till ett lagringskonto-ID i **variabelavsnittet** i mallen efter posten för **storageAccountName.**
 
 ```json
 // Find these lines.
@@ -69,7 +69,7 @@ Lägg till ett lagrings konto-ID i avsnittet **variabler** i mallen efter posten
     "accountid": "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))]",
 ```
 
-Lägg till det här Hanterad tjänstidentitet (MSI)-tillägget i mallen överst i avsnittet **resurser** . Tillägget säkerställer att Azure Monitor accepterar de mått som genereras.
+Lägg till det här MSI-tillägget (Managed Service **resources** Identity) i mallen högst upp i resursavsnittet. Tillägget säkerställer att Azure Monitor accepterar de mått som släpps ut.
 
 ```json
 //Find this code.
@@ -94,7 +94,7 @@ Lägg till det här Hanterad tjänstidentitet (MSI)-tillägget i mallen överst 
     },
 ```
 
-Lägg till **identitets** konfigurationen i VM-resursen för att säkerställa att Azure tilldelar en system identitet till MSI-tillägget. Det här steget säkerställer att den virtuella datorn kan generera gäst mått om sig själv för att Azure Monitor.
+Lägg **identity** till identitetskonfigurationen i vm-resursen för att säkerställa att Azure tilldelar en systemidentitet till MSI-tillägget. Det här steget säkerställer att den virtuella datorn kan avge gästmått om sig själv till Azure Monitor.
 
 ```json
 // Find this section
@@ -125,7 +125,7 @@ Lägg till **identitets** konfigurationen i VM-resursen för att säkerställa a
     ...
 ```
 
-Lägg till följande konfiguration för att aktivera diagnostikprogrammet-tillägget på en virtuell Windows-dator. För en enkel Resource Manager-baserad virtuell dator kan vi lägga till tilläggs konfigurationen till resurs-matrisen för den virtuella datorn. Raden "Sinks"&mdash; "AzMonSink" och motsvarande "SinksConfig" senare i avsnittet&mdash;aktiverar tillägget för att generera mått direkt till Azure Monitor. Du kan lägga till eller ta bort prestanda räknare efter behov.
+Lägg till följande konfiguration för att aktivera diagnostiktillägget på en virtuell Windows-dator. För en enkel Resource Manager-baserad virtuell dator kan vi lägga till tilläggskonfigurationen i resursmatrisen för den virtuella datorn. Raden "sänker"&mdash; "AzMonSink" och motsvarande "SinksConfig"&mdash;senare i avsnittet gör det möjligt för tillägget att släppa ut mått direkt till Azure Monitor. Lägg gärna till eller ta bort prestandaräknare efter behov.
 
 
 ```json
@@ -228,65 +228,65 @@ Lägg till följande konfiguration för att aktivera diagnostikprogrammet-tillä
 ```
 
 
-Spara och Stäng båda filerna.
+Spara och stäng båda filerna.
 
 
-## <a name="deploy-the-resource-manager-template"></a>Distribuera Resource Manager-mallen
+## <a name="deploy-the-resource-manager-template"></a>Distribuera resurshanteraren-mallen
 
 > [!NOTE]
-> Du måste köra Azure-diagnostik-tillägget version 1,5 eller högre och ha egenskapen **aktiverat autoupgrademinorversion**: inställd på True i Resource Manager-mallen. Azure läser sedan in rätt tillägg när den virtuella datorn startas. Om du inte har de här inställningarna i mallen ändrar du dem och distribuerar om mallen.
+> Du måste köra Azure Diagnostics-tilläggsversionen 1.5 eller senare OCH ha **autoUpgradeMinorVersion:** egenskapen inställd på "true" i resource manager-mallen. Azure läser sedan in rätt tillägg när den startar den virtuella datorn. Om du inte har de här inställningarna i mallen ändrar du dem och distribuerar om mallen.
 
 
-För att distribuera Resource Manager-mallen utnyttjar vi Azure PowerShell.
+Om du vill distribuera Resource Manager-mallen utnyttjar vi Azure PowerShell.
 
 1. Starta PowerShell.
-1. Logga in på Azure med `Login-AzAccount`.
-1. Hämta din lista över prenumerationer med hjälp av `Get-AzSubscription`.
+1. Logga in på `Login-AzAccount`Azure med .
+1. Få din lista över `Get-AzSubscription`prenumerationer med hjälp av .
 1. Ange den prenumeration som du använder för att skapa/uppdatera den virtuella datorn i:
 
    ```powershell
    Select-AzSubscription -SubscriptionName "<Name of the subscription>"
    ```
-1. Kör följande kommando för att skapa en ny resurs grupp för den virtuella dator som distribueras:
+1. Om du vill skapa en ny resursgrupp för den virtuella datorn som distribueras kör du följande kommando:
 
    ```powershell
     New-AzResourceGroup -Name "<Name of Resource Group>" -Location "<Azure Region>"
    ```
    > [!NOTE]
-   > Kom ihåg att [använda en Azure-region som är aktive rad för anpassade mått](metrics-custom-overview.md).
+   > Kom ihåg att [använda en Azure-region som är aktiverad för anpassade mått](metrics-custom-overview.md).
 
-1. Kör följande kommandon för att distribuera den virtuella datorn med Resource Manager-mallen.
+1. Kör följande kommandon för att distribuera den virtuella datorn med hjälp av Resource Manager-mallen.
    > [!NOTE]
-   > Om du vill uppdatera en befintlig virtuell dator, lägger du bara till *läges ökning* i slutet av följande kommando.
+   > Om du vill uppdatera en befintlig virtuell dator lägger du bara till *-Inkrementellt läge i* slutet av följande kommando.
 
    ```powershell
    New-AzResourceGroupDeployment -Name "<NameThisDeployment>" -ResourceGroupName "<Name of the Resource Group>" -TemplateFile "<File path of your Resource Manager template>" -TemplateParameterFile "<File path of your parameters file>"
    ```
 
-1. När distributionen har slutförts bör den virtuella datorn finnas i Azure Portal som avger mått till Azure Monitor.
+1. När distributionen lyckas bör den virtuella datorn finnas i Azure-portalen och avge mått till Azure Monitor.
 
    > [!NOTE]
-   > Du kan stöta på fel kring de valda vmSkuSize. Om detta händer går du tillbaka till filen azuredeploy. JSON och uppdaterar standardvärdet för parametern vmSkuSize. I det här fallet rekommenderar vi att du testar "Standard_DS1_v2").
+   > Du kan stöta på fel runt den valda vmSkuSize. Om detta inträffar går du tillbaka till filen azuredeploy.json och uppdaterar standardvärdet för parametern vmSkuSize. I det här fallet rekommenderar vi att du försöker "Standard_DS1_v2").
 
-## <a name="chart-your-metrics"></a>Diagrammets mått
+## <a name="chart-your-metrics"></a>Kartlägga dina mätvärden
 
 1. Logga in på Azure Portal.
 
-2. På den vänstra menyn väljer du **övervaka**.
+2. Välj **Övervaka**på den vänstra menyn .
 
-3. Välj **mått**på sidan övervaka.
+3. Välj **Mått**på sidan Övervakare .
 
-   ![Sidan mått](media/collect-custom-metrics-guestos-resource-manager-vm/metrics.png)
+   ![Sidan Mått](media/collect-custom-metrics-guestos-resource-manager-vm/metrics.png)
 
-4. Ändra agg regerings perioden till de **senaste 30 minuterna**.
+4. Ändra aggregeringsperioden till **Sista 30 minuterna**.
 
-5. I list menyn resurs väljer du den virtuella dator som du skapade. Om du inte ändrade namnet i mallen bör det vara *SimpleWinVM2*.
+5. Välj den virtuella dator som du skapade på den nedrullningsbara resursmenyn. Om du inte har ändrat namnet i mallen bör det vara *SimpleWinVM2*.
 
-6. I den nedrullningsbara menyn namn områden väljer du **Azure. VM. Windows. gäst**
+6. Välj **azure.vm.windows.guest** på den nedrullningsbara menyn namnområden
 
-7. I den nedrullningsbara menyn mått väljer du **minnes\%allokerade byte som används**.
+7. I den nedrullningsbara menyn Mått väljer du **Minnesrestaserade\%byte i Använd**.
 
 
 ## <a name="next-steps"></a>Nästa steg
-- Lär dig mer om [anpassade mått](metrics-custom-overview.md).
+- Läs mer om [anpassade mått](metrics-custom-overview.md).
 

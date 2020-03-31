@@ -1,6 +1,6 @@
 ---
-title: StorSimple lokalt fixerade volymer vanliga frågor och svar | Microsoft Docs
-description: Innehåller svar på vanliga frågor och svar om StorSimple lokalt fixerade volymer.
+title: StorSimple lokalt fästa volymer Vanliga frågor | Microsoft-dokument
+description: Ger svar på vanliga frågor om StorSimple lokalt fästa volymer.
 services: storsimple
 documentationcenter: NA
 author: manuaery
@@ -15,191 +15,191 @@ ms.workload: NA
 ms.date: 06/26/2017
 ms.author: manuaery
 ms.openlocfilehash: aa69d8b07d31b5cf0386e34c113475cbf4191891
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60319555"
 ---
-# <a name="storsimple-locally-pinned-volumes-frequently-asked-questions-faq"></a>StorSimple lokalt fixerade volymer: vanliga frågor (och svar FAQ)
+# <a name="storsimple-locally-pinned-volumes-frequently-asked-questions-faq"></a>StorSimple lokalt fästa volymer: vanliga frågor och svar (FAQ)
 ## <a name="overview"></a>Översikt
-Här följer frågor och svar som kan uppstå när du skapar en StorSimple lokalt Fäst volym, konvertera en nivåindelad volym till en lokalt Fäst volym (och vice versa), eller säkerhetskopiera och återställa en lokalt Fäst volym.
+Följande är frågor och svar som du kan ha när du skapar en StorSimple lokalt fäst volym, konvertera en nivåindelad volym till en lokalt fäst volym (och vice versa) eller säkerhetskopiera och återställa en lokalt fäst volym.
 
-Frågor och svar är ordnade i följande kategorier
+Frågor och svar ordnas i följande kategorier
 
-* Skapa en lokalt Fäst volym
-* Säkerhetskopiera en lokalt Fäst
-* Konvertera en nivåindelad volym till en lokalt Fäst volym
-* Återställa en lokalt Fäst volym
-* Redundansväxla en lokalt Fäst volym
+* Skapa en lokalt fäst volym
+* Säkerhetskopiera en lokalt fäst
+* Konvertera en nivåindelad volym till en lokalt fäst volym
+* Återställa en lokalt fäst volym
+* Misslyckas över en lokalt fäst volym
 
-## <a name="questions-about-creating-a-locally-pinned-volume"></a>Frågor om hur du skapar en lokalt Fäst volym
-**F.** Vad är den maximala storleken för en lokalt Fäst volym som jag kan skapa på 8000-serieenheter?
+## <a name="questions-about-creating-a-locally-pinned-volume"></a>Frågor om hur du skapar en lokalt fäst volym
+**F.** Vilken är den maximala storleken på en lokalt fäst volym som jag kan skapa på enheterna i 8000-serien?
 
-**En** på enheter som kör StorSimple 8000 Series Update 3.0 kan du etablera lokalt fästa volymer upp till 8,5 TB, eller nivåindelade volymer upp till 200 TB på 8100-enheten. På den större 8600-enheten kan du etablera lokalt fästa volymer upp till 22,5 TB, eller nivåindelade volymer upp till 500 TB.
+**A** På enheter som kör StorSimple 8000 Series Update 3.0 kan du etablera lokalt fästa volymer upp till 8,5 TB eller nivåindelad volym upp till 200 TB på 8100-enheten. På den större 8600-enheten kan du etablera lokalt fästa volymer upp till 22,5 TB, eller nivåindelade volymer upp till 500 TB.
 
-**F.** Jag har nyligen uppgraderat min 8100-enhet till Update 3.0 och när jag försöker skapa en lokalt Fäst volym, allt tillgängligt utrymme endast 6 TB och inte 8,5 TB. Varför kan jag skapa en volym på 8,5 TB?
+**F.** Jag uppgraderade nyligen min 8100-enhet till Uppdatering 3.0 och när jag försöker skapa en lokalt fäst volym är den maximala tillgängliga storleken bara 6 TB och inte 8,5 TB. Varför kan jag inte skapa en volym på 8,5 TB?
 
-**En** om enheten kör update 3.0, kan du etablera lokalt fästa volymer upp till 8,5 TB eller nivåindelade volymer upp till 200 TB på 8100-enheten. Om enheten redan har nivåindelade volymer, så det tillgängliga utrymmet för att skapa en lokalt Fäst volym kommer att vara proportionellt lägre än den här högsta gränsen. Till exempel om cirka 106 TB nivåindelade volymer har redan etablerats på din 8100-enhet (som är hälften av nivåindelad kapacitet), reduceras sedan den maximala storleken för en lokal volym som du kan skapa på 8100-enhet på motsvarande sätt till 4 TB (ungefär hälften av maximalt lokalt Fäst volymkapacitet).
+**A** Om enheten kör uppdatering 3.0 kan du etablera lokalt fästa volymer upp till 8,5 TB ELLER nivåindelad volym upp till 200 TB på 8100-enheten. Om enheten redan har nivåindelada volymer är det tillgängliga utrymmet för att skapa en lokalt fäst volym proportionellt lägre än den maximala gränsen. Om till exempel cirka 106 TB nivåindelad volymer redan har etablerats på din 8100-enhet (vilket är hälften av den nivåindelad kapaciteten), kommer den maximala storleken på en lokal volym som du kan skapa på 8100-enheten att minskas till 4 TB (ungefär hälften av den maximala lokalt fästa volymkapaciteten).
 
-Eftersom vissa lokalt utrymme på enheten används för att hålla arbetsuppsättningen med nivåindelade volymer, minskar det tillgängliga utrymmet för att skapa en lokalt Fäst volym om enheten har nivåindelade volymer. Däremot minskar skapa en lokalt Fäst volym proportionellt det tillgängliga utrymmet för nivåindelade volymer. Följande tabeller sammanfattar de tillgängliga nivåindelad kapaciteten på 8100 och 8600-enheter när lokalt fixerade volymer skapas.
+Eftersom en del lokalt utrymme på enheten används för att vara värd för arbetsuppsättningen med nivåindelade volymer, minskas det tillgängliga utrymmet för att skapa en lokalt fäst volym om enheten har nivåindelada volymer. Om du däremot skapar en lokalt fäst volym minskar det tillgängliga utrymmet för nivåindelade volymer. I följande tabeller sammanfattas den tillgängliga nivåindelade kapaciteten på enheterna 8100 och 8600 när lokalt fästa volymer skapas.
 
-#### <a name="update-30"></a>Uppdatera 3.0 
+#### <a name="update-30"></a>Uppdatering 3.0 
 
-| Lokalt fixerade volymer etablerad kapacitet | Tillgänglig kapacitet som ska etableras för nivåindelade volymer – 8100 | Tillgänglig kapacitet som ska etableras för nivåindelade volymer – 8600 |
+| Lokalt fäst volymer etablerad kapacitet | Tillgänglig kapacitet som ska etableras för nivåindelade volymer - 8100 | Tillgänglig kapacitet som ska etableras för nivåindelade volymer - 8600 |
 | --- | --- | --- |
 | 0 |200 TB |500 TB |
-| 1 TB |176.5 TB |477.8 TB |
-| 4 TB |105.9 TB |411.1 TB |
-| 8,5 TB |0 TB |311.1 TB |
-| 10 TB |Saknas |277.8 TB |
-| 15 TB |Saknas |166.7 TB |
-| 22,5 TB |Saknas |0 TB |
+| 1 TB |176,5 TB |477,8 TB |
+| 4 TB |105,9 TB |411,1 TB |
+| 8,5 TB |0 TB |311,1 TB |
+| 10 TB |Ej tillämpligt |277,8 TB |
+| 15 TB |Ej tillämpligt |166,7 TB |
+| 22,5 TB |Ej tillämpligt |0 TB |
 
-**F.** Varför är lokalt fixerade volymer kan skapas en tidskrävande åtgärd?
+**F.** Varför skapas lokalt fästa volym en tidskrävande åtgärd?
 
-**S.** Lokalt Fäst volym etableras tjockt. För att skapa utrymme på de lokala nivåerna för enheten, kan vissa data från befintliga nivåindelade volymer skickas till molnet under etableringen. Och eftersom detta beror på storleken på den volym som håller på att etableras, befintliga data på enheten och den tillgängliga bandbredden till molnet och den tid det tar att skapa en lokal volym kanske flera timmar.
+**A.** Lokalt fästa volymer etableras tjockt. Om du vill skapa utrymme på enhetens lokala nivåer kan vissa data från befintliga nivåindelade volymer skickas till molnet under etableringsprocessen. Och eftersom detta beror på storleken på volymen som etableras, befintliga data på din enhet och den tillgängliga bandbredden för molnet, kan den tid det tar att skapa en lokal volym vara flera timmar.
 
-**F.** Hur lång tid tar det för att skapa en lokalt Fäst volym?
+**F.** Hur lång tid tar det att skapa en lokalt fäst volym?
 
-**S.** Eftersom lokalt Fäst volym etableras tjockt, kan vissa befintliga data från nivåindelade volymer skickas till molnet under etableringen. Därför kan beror den tid det tar att skapa en lokalt Fäst volym på flera faktorer, bland annat paketets storlek på volymen, data på enheten och den tillgängliga bandbredden. På nyligen installerade enheter som har inga volymer, är tiden för att skapa en lokalt Fäst volym cirka 10 minuter per terabyte data. Skapandet av lokala volymer kan dock ta flera timmar beroende på faktorer som beskrivs ovan på en enhet som används.
+**A.** Eftersom lokalt fästa volymer är tjockt etablerade kan vissa befintliga data från nivåindelada volymer skickas till molnet under etableringsprocessen. Därför beror den tid det tar att skapa en lokalt fäst volym på flera faktorer, inklusive volymens storlek, data på enheten och den tillgängliga bandbredden. På en nyinstallerad enhet som inte har några volymer är tiden för att skapa en lokalt fäst volym cirka 10 minuter per terabyte data. Det kan dock ta flera timmar att skapa lokala volymer baserat på de faktorer som beskrivs ovan på en enhet som används.
 
-**F.** Jag vill skapa en lokalt Fäst volym. Finns det några metodtips som jag behöver känna till?
+**F.** Jag vill skapa en lokalt fäst volym. Finns det några bästa metoder jag behöver vara medveten om?
 
-**S.** Lokalt fixerade volymer är lämpliga för arbetsbelastningar som kräver lokala garantier av data vid alla tidpunkter och är känsliga för fördröjningar i molnet. Överväga var användning av lokala volymer för någon av dina arbetsbelastningar medveten om följande:
+**A.** Lokalt fästa volymer är lämpliga för arbetsbelastningar som kräver lokala garantier för data hela tiden och är känsliga för molntidsdämningar. När du överväger användning av lokala volymer för någon av dina arbetsbelastningar bör du tänka på följande:
 
-* Lokalt Fäst volym etableras tjockt och skapa lokala volymer påverkar det tillgängliga utrymmet för nivåindelade volymer. Därför kan föreslår vi att du börjar med mindre volymer och skala upp när dina storage krav ökar.
-* Etablering av lokala volymer är en tidskrävande åtgärd som kan handla om push-överför befintliga data från nivåindelade volymer till molnet. Därför kan uppstå det nedsatt prestanda på dessa volymer.
-* Etablering av lokala volymer är en tidskrävande åtgärd. Den faktiska tiden som är inblandade beror på flera faktorer: storleken på volymen som håller på att etableras, data på din enhet och tillgänglig bandbredd. Om du inte har säkerhetskopierat dina befintliga volymer till molnet är skapa volymer långsammare. Vi rekommenderar att du ta ögonblicksbilder av molnet för dina befintliga volymer innan du etablerar en lokal volym.
-* Du kan konvertera befintliga nivåindelade volymer till lokalt fixerade volymer och den här konverteringen innefattar etablering av utrymme på enheten för den resulterande lokalt fixerad volymen (förutom att stänga av nivåindelade data från molnet). Igen, det här är en tidskrävande åtgärd som beror på faktorer som har beskrivits här ovan. Vi rekommenderar att du säkerhetskopierar dina befintliga volymer innan konverteringen som processen kommer att även långsammare om befintliga volymer inte som säkerhetskopieras. Enheten kan även uppstå nedsatt prestanda under den här processen.
+* Lokalt fästa volymer etableras tjockt och lokala volymer påverkar det tillgängliga utrymmet för nivåindelade volymer. Därför föreslår vi att du börjar med mindre volymer och skala upp när ditt lagringskrav ökar.
+* Etablering av lokala volymer är en tidskrävande åtgärd som kan innebära att befintliga data från nivåindelad volymer till molnet. Som ett resultat kan du uppleva minskad prestanda på dessa volymer.
+* Etablering av lokala volymer är en tidskrävande åtgärd. Den faktiska tiden beror på flera faktorer: storleken på volymen som etableras, data på enheten och tillgänglig bandbredd. Om du inte har säkerhetskopierat dina befintliga volymer till molnet är volymgenereringen långsammare. Vi föreslår att du tar ögonblicksbilder av molnet av dina befintliga volymer innan du etablerar en lokal volym.
+* Du kan konvertera befintliga nivåindelada volymer till lokalt fästa volymer, och den här konverteringen innebär etablering av utrymme på enheten för den resulterande lokalt fästa volymen (förutom att eventuellt neddelat nivåindelad data ska komma från molnet). Återigen, detta är en långvarig operation som beror på faktorer som vi har diskuterat ovan. Vi föreslår att du säkerhetskopierar dina befintliga volymer före konverteringen eftersom processen blir ännu långsammare om befintliga volymer inte säkerhetskopieras. Enheten kan också få nedsatt prestanda under den här processen.
 
-Mer information om hur du [skapar en lokalt Fäst volym](storsimple-8000-manage-volumes-u2.md#add-a-volume)
+Mer information om hur du [skapar en lokalt fäst volym](storsimple-8000-manage-volumes-u2.md#add-a-volume)
 
-**F.** Kan jag skapa flera lokalt fixerade volymer på samma gång?
+**F.** Kan jag skapa flera lokalt fästa volymer samtidigt?
 
-**S.** Ja, men alla lokalt fixerad volym skapandet och expansion jobb utförs i ordningsföljd.
+**A.** Ja, men alla lokalt fästa volymskapande och expansionsjobb bearbetas sekventiellt.
 
-Lokalt Fäst volym etableras tjockt, vilket kräver skapandet av lokalt utrymme på enheten (vilket kan resultera i att befintliga data från nivåindelade volymer att överföras till molnet under etableringen). Därför, om en Etableringsjobbet pågår andra jobb för skapande av lokal volym placeras i kö tills jobbet har slutförts.
+Lokalt fästa volymer etableras tjockt och detta kräver att du skapar lokalt utrymme på enheten (vilket kan resultera i att befintliga data från nivåindelad volymer skickas till molnet under etableringsprocessen). Om ett etableringsjobb pågår kommer därför andra lokala skapandejobb att köas tills jobbet är klart.
 
-På samma sätt, om en befintlig lokal volym utökas eller en nivåindelad volym konverteras till en lokalt Fäst volym, sedan skapandet av en ny lokalt Fäst volym är i kö tills det föregående jobbet har slutförts. Utöka storleken på en lokalt Fäst volym innebär att du klickat på det befintliga lokala utrymmet för volymen. Konverteringen från nivåindelad till lokalt fixerade volymen omfattar även skapandet av lokalt utrymme för den resulterande lokalt Fäst volym. I båda dessa åtgärder, skapa eller expansion av lokalt utrymme lång körs jobbet.
+På samma sätt, om en befintlig lokal volym expanderas eller en nivåindelad volym konverteras till en lokalt fäst volym, köas skapandet av en ny lokalt fäst volym tills det föregående jobbet har slutförts. Att utöka storleken på en lokalt fäst volym innebär att det befintliga lokala utrymmet för den volymen utökas. Konvertering från en nivåindelad till lokalt fäst volym innebär också att skapa lokalt utrymme för den resulterande lokalt fästa volymen. I båda dessa operationer är skapandet eller utbyggnaden av det lokala utrymmet ett långvarigt jobb.
 
-Du kan visa dessa jobb i den **jobb** bladet för StorSimple Device Manager-tjänsten. Jobb som bearbetas aktivt uppdateras kontinuerligt för att återspegla förloppet för etablering av utrymme. De återstående lokalt fixerad volym-jobb är markerad som körs, men framstegen har stoppats och de plockas i den ordning som de har ställts i kö.
+Du kan visa dessa jobb i **jobbbladet** för Tjänsten StorSimple Device Manager. Jobbet som aktivt bearbetas uppdateras kontinuerligt för att återspegla förloppet för utrymmesetablering. De återstående lokalt fästa volymjobben markeras som körs, men deras förlopp har stoppats och de plockas i den ordning de köade.
 
-**F.** Jag har tagit bort en lokalt Fäst volym. Varför ser jag det återvunnet utrymmet som visas i det tillgängliga utrymmet när jag försöker skapa en ny volym?
+**F.** Jag har tagit bort en lokalt fäst volym. Varför ser jag inte det återvunna utrymmet som återspeglas i det tillgängliga utrymmet när jag försöker skapa en ny volym?
 
-**S.** Om du tar bort en lokalt Fäst volym kan det tillgängliga utrymmet för nya volymer inte uppdateras direkt. StorSimple Device Manager-tjänsten uppdaterar lokalt tillgängligt utrymme ungefär varje timme. Vi rekommenderar att du väntar på en timme innan du försöker skapa den nya volymen.
+**A.** Om du tar bort en lokalt fäst volym kanske det tillgängliga utrymmet för nya volymer inte uppdateras omedelbart. StorSimple Device Manager-tjänsten uppdaterar det lokala utrymme som är tillgängligt ungefär varje timme. Vi föreslår att du väntar i en timme innan du försöker skapa den nya volymen.
 
-**F.** Lokalt fixerade volymer stöds på molninstallationen?
+**F.** Stöds lokalt fästa volymer på molninstallationen?
 
-**S.** Lokalt fixerade volymer stöds inte för molninstallationen (8010 och 8020-enheter samlingsnamnet StorSimple-enhet).
+**A.** Lokalt fästa volymer stöds inte på molninstallationen (8010- och 8020-enheter som tidigare kallades StorSimples virtuella enhet).
 
-**F.** Kan jag använda Azure PowerShell-cmdlets för att skapa och hantera lokalt fixerade volymer?
+**F.** Kan jag använda Azure PowerShell-cmdletar för att skapa och hantera lokalt fästa volymer?
 
-**S.** Nej, du kan inte skapa lokalt fixerade volymer via Azure PowerShell-cmdletar (alla volymer som du skapar via Azure PowerShell är nivåindelad). Vi rekommenderar också att du inte använder Azure PowerShell-cmdletar för att ändra några egenskaper för en lokalt Fäst volym, eftersom det skulle ha oönskad leda till att volymtypen till nivåindelad.
+**A.** Nej, du kan inte skapa lokalt fästa volymer via Azure PowerShell-cmdlets (alla volymer som du skapar via Azure PowerShell är nivåindelade). Vi föreslår också att du inte använder Azure PowerShell-cmdletar för att ändra alla egenskaper för en lokalt fäst volym, eftersom det kommer att ha den oönskade effekten av att ändra volymtypen till nivåindelade.
 
-## <a name="questions-about-backing-up-a-locally-pinned-volume"></a>Frågor om hur du säkerhetskopierar en lokalt Fäst volym
-**F.** Är lokala ögonblicksbilder av lokalt fixerade volymer stöds?
+## <a name="questions-about-backing-up-a-locally-pinned-volume"></a>Frågor om säkerhetskopiering av en lokalt fäst volym
+**F.** Stöds lokala ögonblicksbilder av lokalt fästa volymer?
 
-**S.** Ja, kan du dra lokala ögonblicksbilder av dina lokalt fixerade volymer. Men rekommenderar vi starkt att du regelbundet säkerhetskopierar dina lokalt fixerade volymer med ögonblicksbilder av molnet så att dina data är skyddade i fall av ett haveri.
+**A.** Ja, du kan ta lokala ögonblicksbilder av dina lokalt fästa volymer. Vi rekommenderar dock starkt att du regelbundet säkerhetskopierar dina lokalt fästa volymer med ögonblicksbilder av molnet för att säkerställa att dina data skyddas i en katastrof.
 
-Observera att lokala ögonblicksbilder av lokalt fixerade volymer kan också dela nivåer ut till molnet och garanteras inte vara i den lokala nivån på enheten.
+Observera att lokala ögonblicksbilder av lokalt fästa volymer också kan nivå ut till molnet och är inte garanterade att stanna i den lokala nivån på enheten.
 
-**F.** Finns det några riktlinjer för att hantera lokala ögonblicksbilder för lokalt fästa volymer?
+**F.** Finns det några riktlinjer för hantering av lokala ögonblicksbilder för lokalt fästa volymer?
 
-**S.** Frekventa lokala ögonblicksbilder samt en hög andel dataomsättning i lokalt fixerad volym kan orsaka lokalt utrymme på enheten förbrukas snabbt och leda till data från nivåindelade volymer som läggs till molnet. Vi rekommenderar därför att du minimera antalet lokala ögonblicksbilder.
+**A.** Frekventa lokala ögonblicksbilder tillsammans med en hög frekvens av dataomsättning i den lokalt fästa volymen kan orsaka att lokalt utrymme på enheten förbrukas snabbt och resultera i att data från nivåindelad volymer skickas till molnet. Vi föreslår därför att du minimerar antalet lokala ögonblicksbilder.
 
-**F.** Jag har fått en varning om att min lokala ögonblicksbilder av lokalt fixerade volymer kan vara ogiltig. När kan detta inträffa?
+**F.** Jag fick en avisering om att mina lokala ögonblicksbilder av lokalt fästa volymer kan vara ogiltiga. När kan detta hända?
 
-**S.** Frekventa lokala ögonblicksbilder samt en hög andel dataomsättning i lokalt fixerad volym kan orsaka lokalt utrymme på enheten förbrukas snabbt. Om de lokala nivåerna för enheten används mycket, ett extra molnkontroll avbrott kan resultera i att enheten blir fulla och inkommande skrivning till volymen kan resultera i ogiltigförklaring av ögonblicksbilder (som finns inget utrymme för att uppdatera ögonblicksbilder att referera till de äldre block med data som har skrivits över). I en sådan situation skrivning till volymen kommer att fortsätta hanteras, men de lokala ögonblicksbilderna kan vara ogiltig. Det finns ingen inverkan på din befintliga ögonblicksbilder av molnet.
+**A.** Frekventa lokala ögonblicksbilder tillsammans med en hög dataomsättning i den lokalt fästa volymen kan orsaka att lokalt utrymme på enheten förbrukas snabbt. Om enhetens lokala nivåer används i stor utsträckning kan ett utökat molnavbrott resultera i att enheten blir full, och inkommande skrivningar till volymen kan leda till att ögonblicksbilderna blir ogiltiga (eftersom det inte finns något utrymme för att uppdatera ögonblicksbilderna för att referera till de äldre blocken i uppgifter som har skrivits över). I en sådan situation kommer skrivningar till volymen att fortsätta att serveras, men de lokala ögonblicksbilderna kan vara ogiltiga. Det finns ingen inverkan på dina befintliga ögonblicksbilder av molnet.
 
-Varning varning som meddelar dig att en sådan situation kan uppstå och se till att du har gått samma inom en rimlig genom att antingen granska dina lokala ögonblicksbilder scheman för att ta mindre frekventa lokala ögonblicksbilder eller ta bort äldre lokala ögonblicksbilder som inte längre behövs.
+Varningen är att meddela dig om att en sådan situation kan uppstå och se till att du tar itu med samma sak i tid genom att antingen granska dina lokala ögonblicksbilder scheman för att ta mindre frekventa lokala ögonblicksbilder eller ta bort äldre lokala ögonblicksbilder som inte längre behövs.
 
-Om de lokala ögonblicksbilderna är ogiltig, får du en avisering för information som meddelar dig om att de lokala ögonblicksbilderna för specifika säkerhetskopieringspolicyn har ogiltigförklarats tillsammans med listan över tidsstämplar lokala ögonblicksbilder som ogiltigförklarades. De här ögonblicksbilderna blir automatiskt tas bort och du kommer inte längre att kunna se dem i den **säkerhetskopiering kataloger** bladet i Azure-portalen.
+Om de lokala ögonblicksbilderna är ogiltiga får du en informationsavisering som meddelar dig om att de lokala ögonblicksbilderna för den specifika säkerhetskopieringsprincipen har ogiltigförklarats tillsammans med listan över tidsstämplar för de lokala ögonblicksbilder som har ogiltigförklarats. Dessa ögonblicksbilder tas bort automatiskt och du kommer inte längre att kunna visa dem i bladet **Säkerhetskopior** i Azure-portalen.
 
-## <a name="questions-about-converting-a-tiered-volume-to-a-locally-pinned-volume"></a>Frågor om hur du konverterar en nivåindelad volym till en lokalt Fäst volym
-**F.** Jag får vissa långsamhet på enheten vid konvertering av en nivåindelad volym till en lokalt Fäst volym. Varför är det fortfarande händer?
+## <a name="questions-about-converting-a-tiered-volume-to-a-locally-pinned-volume"></a>Frågor om hur du konverterar en nivåindelad volym till en lokalt fäst volym
+**F.** Jag observerar lite långsamhet på enheten när jag konverterar en nivåindelad volym till en lokalt fäst volym. Varför händer detta?
 
-**S.** Processen omfattar två steg:
+**A.** Konverteringsprocessen omfattar två steg:
 
-1. Etablering av utrymme på enheten för den snart-till--konverteras lokalt Fäst volym.
-2. Ladda ned alla nivåindelade data från molnet för att se till att lokala garanterar.
+1. Etablering av utrymme på enheten för den snart konverterade lokalt fästa volymen.
+2. Hämtar alla nivåindelade data från molnet för att säkerställa lokala garantier.
 
-Båda de här stegen är långa åtgärder som är beroende av storleken på volymen som konverteras data på enheten och tillgänglig bandbredd. Eftersom vissa data från befintliga nivåindelade volymer kan läcker över till molnet som en del av etableringen, kan enheten uppleva nedsatt prestanda under den här tiden. Dessutom kan processen kan ta längre tid om:
+Båda dessa steg är tidskrävande åtgärder som är beroende av storleken på volymen som konverteras, data på enheten och tillgänglig bandbredd. Eftersom vissa data från befintliga nivåindelade volymer kan spillas till molnet som en del av etableringsprocessen kan enheten uppleva minskad prestanda under den här tiden. Dessutom kan konverteringsprocessen vara långsammare om:
 
-* Befintliga volymer har inte säkerhetskopierats till molnet. så vi rekommenderar att du säkerhetskopierar dina volymer innan du påbörjar en konvertering.
-* Principer för begränsning av bandbredd har tillämpats, vilket kan begränsa den tillgängliga bandbredden till molnet. Vi rekommenderar därför att du har en dedikerad 40 Mbit/s eller mer anslutning till molnet.
-* Processen kan ta flera timmar beror på flera faktorer som beskrivs ovan. Vi rekommenderar därför att du utför den här åtgärden under icke-det högsta antalet gånger eller på en helg att undvika påverkan på slutet konsumenter.
+* Befintliga volymer har inte säkerhetskopierats till molnet. därför föreslår vi att du säkerhetskopierar dina volymer innan du påbörjar en konvertering.
+* Principer för begränsning av bandbredd har tillämpats, vilket kan begränsa den tillgängliga bandbredden till molnet. Vi rekommenderar därför att du har en dedikerad 40 Mbps eller mer anslutning till molnet.
+* Konverteringsprocessen kan ta flera timmar på grund av de flera faktorer som förklaras ovan; Därför föreslår vi att du utför den här åtgärden under icke-toppar gånger eller på en helg för att undvika påverkan på slutkonsumenterna.
 
-Mer information om hur du [konvertera en nivåindelad volym till en lokalt Fäst volym](storsimple-8000-manage-volumes-u2.md#change-the-volume-type)
+Mer information om hur du [konverterar en nivåindelad volym till en lokalt fäst volym](storsimple-8000-manage-volumes-u2.md#change-the-volume-type)
 
-**F.** Kan jag säga upp konvertering volymen?
+**F.** Kan jag avbryta volymkonverteringen?
 
-**S.** Nej, du kan inte Avbryt konvertering initieras en gång. Som beskrivs i föregående fråga kan var medveten om potentiella prestandaproblem som du kan stöta på under processen och följ rekommenderade metoder som anges ovan när du planerar din konvertering.
+**A.** Nej, du kan inte avbryta konverteringen när den har initierats. Som diskuterats i föregående fråga bör du vara medveten om de potentiella prestandaproblem som du kan stöta på under processen och följ de bästa metoderna som anges ovan när du planerar konverteringen.
 
-**F.** Vad händer med Mina volym om konvertering misslyckas?
+**F.** Vad händer med min volym om konverteringen misslyckas?
 
-**S.** Volymkonvertering kan misslyckas på grund av anslutningsproblem för molnet. Enheten kan upphöra processen när du har ett antal misslyckade försök att påverkar nivåindelade data från molnet. I ett sådant scenario volymtypen fortsätter att vara källtyp för volymen innan konverteringen, och:
+**A.** Volymkonvertering kan misslyckas på grund av problem med molnanslutningen. Enheten kan så småningom stoppa konverteringsprocessen efter en serie misslyckade försök att få ned nivåindelade data från molnet. I ett sådant scenario fortsätter volymtypen att vara källvolymtypen före konverteringen, och
 
-* En kritisk varning aktiveras för att meddela dig om felet för konvertering av volymen. Mer information om [aviseringar relaterade till lokalt fixerade volymer](storsimple-8000-manage-alerts.md#locally-pinned-volume-alerts)
-* Om du konverterar en nivåindelad till en lokalt Fäst volym, fortsätter volymen kan visa egenskaperna för en nivåindelad volym eftersom data kan fortfarande finnas i molnet. Vi rekommenderar att du löser problem med nätverksanslutningen och försök sedan konvertera igen.
-* När konvertering från en lokalt Fäst till en nivåindelad volym inte, även om volymen kommer att markeras som en lokalt Fäst volym, fungerar det på samma sätt som en nivåindelad volym (eftersom data kan ha hamnat i molnet). Men fortsätter att uppta utrymmet på de lokala nivåerna på enheten. Här är inte tillgänglig för andra lokalt fixerade volymer. Vi rekommenderar att du gör om åtgärden för att säkerställa att volymen konverteringen har slutförts och det lokala utrymmet på enheten kan vara frigöras.
+* En kritisk avisering utlöses för att meddela dig om volymkonverteringsfelet. Mer information om [aviseringar relaterade till lokalt fästa volymer](storsimple-8000-manage-alerts.md#locally-pinned-volume-alerts)
+* Om du konverterar en nivåindelade till en lokalt fäst volym fortsätter volymen att visa egenskaper för en nivåindelad volym eftersom data fortfarande kan finnas i molnet. Vi föreslår att du löser anslutningsproblemen och sedan försöker igen konverteringsåtgärden.
+* På samma sätt, när konvertering från en lokalt fäst till en nivåindelad volym misslyckas, även om volymen kommer att markeras som en lokalt fäst volym, kommer den att fungera som en nivåindelad volym (eftersom data kan ha spillts till molnet). Det kommer dock att fortsätta att uppta utrymme på de lokala nivåerna i enheten. Det här utrymmet är inte tillgängligt för andra lokalt fästa volymer. Vi föreslår att du försöker igen för att säkerställa att volymkonverteringen är klar och att det lokala utrymmet på enheten kan återkn återanvändas.
 
-## <a name="questions-about-restoring-a-locally-pinned-volume"></a>Frågor om hur du återställer en lokalt Fäst volym
-**F.** Är lokalt fixerade volymer återställs direkt?
+## <a name="questions-about-restoring-a-locally-pinned-volume"></a>Frågor om hur du återställer en lokalt fäst volym
+**F.** Återställs lokalt fästa volymer direkt?
 
-**S.** Ja, lokalt fixerade volymer återställs direkt. När metadata-information för volymen hämtas från molnet som en del av återställningen, volymen är online och kan nås av värden. Dock nedsatt lokala garantier för volymen data visas inte förrän alla data har hämtats från molnet och kan uppstå prestanda på dessa volymer under återställningen.
+**A.** Ja, lokalt fästa volymer återställs direkt. Så snart metadatainformationen för volymen hämtas från molnet som en del av återställningsåtgärden, är volymen online och kan nås av värden. Lokala garantier för volymdata kommer dock inte att finnas förrän alla data har hämtats från molnet, och du kan uppleva minskad prestanda på dessa volymer under återställningens varaktighet.
 
-**F.** Hur lång tid tar det för att återställa en lokalt Fäst volym?
+**F.** Hur lång tid tar det att återställa en lokalt fäst volym?
 
-**S.** Lokalt fixerade volymer återställs direkt och tas online när volyminformation för metadata har hämtats från molnet, medan volymdata fortsätter att laddas ned i bakgrunden. Den här senare delen av återställningen – få tillbaka de lokala garantierna för volymdata – är en tidskrävande åtgärd och kan ta flera timmar för alla data görs lokala igen. Den tid det tar att slutföra samma beror på flera faktorer, till exempel storleken på den volym som håller på att återställas och den tillgängliga bandbredden. Om den ursprungliga volymen som håller på att återställas har tagits bort, tas extra tid att skapa det lokala utrymmet på enheten som en del av återställningen.
+**A.** Lokalt fästa volymer återställs omedelbart och online så snart volymmetadatainformationen hämtas från molnet, medan volymdata fortsätter att hämtas i bakgrunden. Den senare delen av återställningsåtgärden – att få tillbaka de lokala garantierna för volymdata - är en tidskrävande åtgärd och kan ta flera timmar för alla data som ska göras lokala igen. Hur mycket tid det tar att slutföra detsamma beror på flera faktorer, till exempel storleken på volymen som återställs och den tillgängliga bandbredden. Om den ursprungliga volymen som återställs har tagits bort, kommer ytterligare tid att tas för att skapa det lokala utrymmet på enheten som en del av återställningen.
 
-**F.** Jag behöver återställa Mina befintliga lokalt fixerad volym till en äldre ögonblicksbilden (när volymen har nivåer). Volymen som ska återställas som nivåer i det här fallet?
+**F.** Jag måste återställa min befintliga lokalt fästa volym till en äldre ögonblicksbild (tas när volymen var nivåindelade). Återställs volymen som nivåindelade i det här fallet?
 
-**S.** Nej, kommer volymen att återställas som en lokalt Fäst volym. Även om datumen ögonblicksbild till den tidpunkt när volymen har nivåer, vid återställning befintliga volymer, StorSimple använder alltid typ av volym på disken eftersom den finns för närvarande.
+**A.** Nej, volymen återställs som en lokalt fäst volym. Även om ögonblicksbilden dateras till den tidpunkt då volymen nivåindelades, medan befintliga volymer återställs, använder StorSimple alltid den typ av volym på disken som den finns för närvarande.
 
-**F.** Jag nyligen utökade min lokalt Fäst volym, men jag nu måste du återställa data till en tidpunkt när volymen har mindre storlek. Ändras storleken återställning på den aktuella volymen och behöver jag utöka storleken på volymen när återställningen är klar?
+**F.** Jag utökade min lokalt fästa volym nyligen, men jag måste nu återställa data till en tid då volymen var mindre i storlek. Kommer att återställa storlek på den aktuella volymen och måste jag utöka volymens storlek när återställningen är klar?
 
-**S.** Ja, återställningen ändras storleken på volymen och måste du utöka storleken på volymen när återställningen är klar.
+**A.** Ja, återställningen ändrar storlek på volymen och du måste utöka volymens storlek när återställningen har slutförts.
 
-**F.** Kan jag ändra typen av en volym under återställning?
+**F.** Kan jag ändra typen av volym under återställningen?
 
-**S.** Nej, du kan inte ändra typ av volym under återställning.
+**A.** Nej, du kan inte ändra volymtypen under återställningen.
 
-* Volymer som har tagits bort återställs som den typ som sparades i ögonblicksbilden.
-* Befintliga volymer återställs baserat på aktuella typ, oberoende av vilken typ som sparades i ögonblicksbilden (se föregående två frågor).
+* Volymer som har tagits bort återställs som den typ som lagras i ögonblicksbilden.
+* Befintliga volymer återställs baserat på deras aktuella typ, oavsett vilken typ som lagras i ögonblicksbilden (se de två föregående frågorna).
 
-**F.** Jag behöver återställa Mina lokalt Fäst volym, men jag har valt en felaktig tidpunkt i ögonblicksbild. Kan jag säga upp återställningen?
+**F.** Jag måste återställa min lokalt fästa volym, men jag valde en felaktig ögonblicksbild av tidsgränsen. Kan jag avbryta den aktuella återställningen?
 
-**S.** Ja, du kan avbryta en pågående återställning. Status för volymen kommer att återställas till tillståndet i början av återställningen. Men går alla skrivningar som har gjorts för volymen under återställningen förlorade.
+**A.** Ja, du kan avbryta en pågående återställning. Volymens tillstånd återställs till tillståndet i början av återställningen. Alla skrivningar som gjordes på volymen medan återställningen pågick kommer dock att gå förlorad.
 
-**F.** Jag började en restore-åtgärd på en av Mina lokalt fixerade volymer och nu visas en ögonblicksbild i min eftersläpning för katalogen som jag inte recollect skapar. Vad används det för?
+**F.** Jag startade en återställningsåtgärd på en av mina lokalt fästa volymer, och nu ser jag en ögonblicksbild i min eftersläpningskatalog som jag inte minns att jag skapar. Vad används det här för?
 
-**S.** Det här är den tillfälliga ögonblicksbilden som skapades före återställningen och används för återställning om återställningen avbryts eller misslyckas. Ta inte bort den här ögonblicksbilden; det tas automatiskt bort när återställningen är slutförd. Detta kan inträffa om din Återställningsjobbet har endast lokalt fixerade volymer eller en blandning av lokalt fixerade och nivåindelade volymer. Om återställningsjobbet innehåller endast nivåindelade volymer, utförs inte det här beteendet.
+**A.** Detta är den tillfälliga ögonblicksbilden som skapas före återställningen och används för återställning om återställningen avbryts eller misslyckas. Ta inte bort den här ögonblicksbilden. Den tas bort automatiskt när återställningen är klar. Detta kan inträffa om återställningsjobbet bara har lokalt fästa volymer eller en blandning av lokalt fästa och nivåindelade volymer. Om återställningsjobbet endast innehåller nivåindelade volymer kommer det här beteendet inte att inträffa.
 
-**F.** Kan jag klona en lokalt Fäst volym?
+**F.** Kan jag klona en lokalt fäst volym?
 
-**S.** Ja, det kan du. Dock kommer lokalt fixerad volym att klonas när en nivåindelad volym som standard. Mer information om hur du [klona en lokalt Fäst volym](storsimple-8000-clone-volume-u2.md)
+**A.** Ja, det kan du. Den lokalt fästa volymen klonas dock som en nivåindelad volym som standard. Mer information om hur du [klonar en lokalt fäst volym](storsimple-8000-clone-volume-u2.md)
 
-## <a name="questions-about-failing-over-a-locally-pinned-volume"></a>Frågor om hur du återställer via en lokalt Fäst volym
-**F.** Jag vill redundansväxla enheten till en annan fysisk enhet. Min lokalt fästa volymer att växlas över lokalt fixerade eller nivåer?
+## <a name="questions-about-failing-over-a-locally-pinned-volume"></a>Frågor om att misslyckas över en lokalt fäst volym
+**F.** Jag måste växla över enheten till en annan fysisk enhet. Kommer mina lokalt fästa volymer att misslyckas som lokalt fästa eller nivåindelade?
 
-**S.** Lokalt fixerade volymer har redundansväxlats som lokalt fixerade om målenheten kör StorSimple 8000 uppdatering 3 eller högre.
+**A.** De lokalt fästa volymerna kan inte anges som Lokalt fästa om målenheten kör Uppdatering 3 av StorSimple 8000-serien 3 eller senare.
 
-Mer information om [redundans och DR av lokalt fixerade volymer mellan versioner](storsimple-8000-device-failover-disaster-recovery.md#device-failover-across-software-versions)
+Mer information om [redundans och DR för lokalt fästa volymer i olika versioner](storsimple-8000-device-failover-disaster-recovery.md#device-failover-across-software-versions)
 
-**F.** Återställs lokalt fixerade volymer direkt under haveriberedskap (DR)?
+**F.** Återställs lokalt fästa volymer omedelbart under haveriberedskap (DR)?
 
-**S.** Ja, lokalt fixerade volymer återställs direkt under redundansväxlingen. När metadata-information för volymen hämtas från molnet som en del av redundansväxlingen, volymen är online på målenheten och kan nås av värden. Under tiden kan volymdata fortsätter att ladda ned i bakgrunden och nedsatt prestanda på dessa volymer för varaktigheten för växling vid fel kan uppstå.
+**A.** Ja, lokalt fästa volymer återställs direkt under redundans. Så snart metadatainformationen för volymen hämtas från molnet som en del av redundansåtgärden, är volymen online på målenheten och kan nås av värden. Under tiden fortsätter volymdata att hämtas i bakgrunden och du kan uppleva försämrad prestanda på dessa volymer under redundansens varaktighet.
 
-**F.** Jag ser redundansväxlingen har slutförts, hur kan jag följa förloppet av lokalt fixerade volymer som återställs på målenheten?
+**F.** Jag ser redundansjobbet slutfört, hur kan jag spåra förloppet för lokalt fäst volym som återställs på målenheten?
 
-**S.** Under en redundansåtgärd har redundansväxlingen markerats som en gång slutföra alla volymer i redundansuppsättning har återställts och tas online på målenheten direkt. Detta inkluderar alla lokalt fixerade volymer som kanske har redundansväxlats; dock är lokala garantier av data endast tillgänglig när alla data på volymen har laddats ned. Du kan följa den här förloppet för varje lokalt fixerad volym som har inte över av övervakning av motsvarande återställningsjobb som skapas som en del av redundansen. Dessa enskilda återställningsjobb skapas endast för lokalt fästa volymer.
+**A.** Under en redundansåtgärd markeras redundansjobbet som slutfört när alla volymer i redundansuppsättningen har återställts omedelbart och online på målenheten. Detta inkluderar alla lokalt fästa volymer som kan ha misslyckats över. Lokala garantier för uppgifterna kommer dock endast att vara tillgängliga när alla data för volymen har hämtats. Du kan spåra den här förloppet för varje lokalt fäst volym som misslyckades genom att övervaka motsvarande återställningsjobb som skapas som en del av redundansen. Dessa enskilda återställningsjobb skapas endast för lokalt fästa volymer.
 
-**F.** Kan jag ändra typen av en volym under en redundansväxling?
+**F.** Kan jag ändra typ av volym under redundans?
 
-**S.** Nej, du kan inte ändra typ av volym under en redundansväxling. Om du inte importeras till en annan fysisk enhet som kör StorSimple 8000 series uppdatera 3, volymerna växlas över baserat på den volymtyp som sparades i ögonblicksbilden.
+**A.** Nej, du kan inte ändra volymtypen under en redundansväxling. Om du misslyckas med en annan fysisk enhet som kör Uppdatering 3 i StorSimple 8000-serien, kan volymerna överskridas baserat på den volymtyp som lagras i ögonblicksbilden.
 
-**F.** Kan jag växla över en volymcontainer med lokalt fixerade volymer till molninstallationen?
+**F.** Kan jag växla över en volymbehållare med lokalt fästa volymer till molninstallationen?
 
-**S.** Ja, det kan du. Lokalt fixerade volymer redundansväxlas som nivåindelade volymer. Mer information om [redundans och DR av lokalt fixerade volymer mellan versioner](storsimple-8000-device-failover-disaster-recovery.md#common-considerations-for-device-failover)
+**A.** Ja, det kan du. De lokalt fästa volymerna kommer att misslyckas över som nivåindelade volymer. Mer information om [redundans och DR för lokalt fästa volymer i olika versioner](storsimple-8000-device-failover-disaster-recovery.md#common-considerations-for-device-failover)
 

@@ -5,15 +5,15 @@ ms.topic: include
 ms.date: 02/09/2020
 ms.author: glenga
 ms.openlocfilehash: 1fc37c6f93fba34944caa7a91c2a89ce5dcdc398
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "78201943"
 ---
 ::: zone pivot="programming-language-python,programming-language-javascript,programming-language-powershell,programming-language-typescript"  
 > [!TIP]
-> Under starten hämtar värden och installerar [lagrings bindnings tillägget](../articles/azure-functions/functions-bindings-storage-queue.md#functions-2x-and-higher) och andra tillägg för Microsoft-bindning. Den här installationen sker eftersom bindnings tillägg är aktiverade som standard i *Host. JSON* -filen med följande egenskaper:
+> Under starten hämtar och installerar värden [tillägget Storage-bindning](../articles/azure-functions/functions-bindings-storage-queue.md#functions-2x-and-higher) och andra Microsoft-bindningstillägg. Den här installationen sker eftersom bindningstillägg är aktiverade som standard i *filen host.json* med följande egenskaper:
 >
 > ```json
 > {
@@ -25,5 +25,5 @@ ms.locfileid: "78201943"
 > }
 > ```
 >
-> Om du stöter på fel som rör bindnings tillägg kontrollerar du att egenskaperna ovan finns i *Host. JSON*.
+> Om du stöter på några fel relaterade till bindningstillägg kontrollerar du att ovanstående egenskaper finns i *host.json*.
 ::: zone-end  

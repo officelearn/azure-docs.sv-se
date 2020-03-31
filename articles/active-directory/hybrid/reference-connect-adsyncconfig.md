@@ -1,6 +1,6 @@
 ---
-title: 'Azure AD Connect: ADSyncConfig PowerShell-referens | Microsoft Docs'
-description: Det här dokumentet innehåller information för ADSyncConfig.psm1 PowerShell-modulen.
+title: 'Azure AD Connect: ADSyncConfig PowerShell-referens | Microsoft-dokument'
+description: Det här dokumentet innehåller referensinformation för ADSyncConfig.psm1 PowerShell-modulen.
 author: billmath
 manager: daveba
 ms.service: active-directory
@@ -11,20 +11,20 @@ ms.author: billmath
 ms.topic: reference
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 554bb99121190198982f64deb6ee0674aa8831ed
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60381203"
 ---
-# <a name="azure-ad-connect--adsyncconfig-powershell-reference"></a>Azure AD Connect:  ADSyncConfig PowerShell-referens
-Följande dokumentation innehåller information för ADSyncConfig.psm1 PowerShell-modul som ingår i Azure AD Connect.
+# <a name="azure-ad-connect--adsyncconfig-powershell-reference"></a>Azure AD Connect: ADSyncConfig PowerShell-referens
+Följande dokumentation innehåller referensinformation för ADSyncConfig.psm1 PowerShell-modulen som ingår i Azure AD Connect.
 
 
-## <a name="get-adsyncadconnectoraccount"></a>Get-ADSyncADConnectorAccount
+## <a name="get-adsyncadconnectoraccount"></a>Hämta ADSyncADConnectorAccount
 
 ### <a name="synopsis"></a>SAMMANFATTNING
-Hämtar de kontonamn och en domän som har konfigurerats i varje AD-koppling
+Hämtar kontonamnet och domänen som är konfigurerad i varje AD Connector
 
 ### <a name="syntax"></a>SYNTAX
 
@@ -33,7 +33,7 @@ Get-ADSyncADConnectorAccount
 ```
 
 ### <a name="description"></a>BESKRIVNING
-Den här funktionen används cmdleten ”Get-ADSyncConnector” som finns i AAD Connect för att hämta en tabell som visar koppling(ar) för AD-konto från anslutningen parametrar.
+Den här funktionen använder cmdleten Get-ADSyncConnector som finns i AAD Connect för att hämta från anslutningsparametrar en tabell som visar AD-anslutningskontot.
 
 ### <a name="examples"></a>EXEMPEL
 
@@ -45,7 +45,7 @@ Get-ADSyncADConnectorAccount
 ## <a name="get-adsyncobjectswithinheritancedisabled"></a>Get-ADSyncObjectsWithInheritanceDisabled
 
 ### <a name="synopsis"></a>SAMMANFATTNING
-Hämtar AD-objekt med ärvd behörighet har inaktiverats
+Hämtar AD-objekt med behörighetsarv inaktiverat
 
 ### <a name="syntax"></a>SYNTAX
 
@@ -54,7 +54,7 @@ Get-ADSyncObjectsWithInheritanceDisabled [-SearchBase] <String> [[-ObjectClass] 
 ```
 
 ### <a name="description"></a>BESKRIVNING
-Söker i AD med början från parametern sökbas och returnerar alla objekt, filtreras efter ObjectClass parametern, som har ACL-arv för närvarande inaktiverad.
+Söker i AD från parametern SearchBase och returnerar alla objekt, filtrerade efter parametern ObjectClass, som har ACL-arvet inaktiverat.
 
 ### <a name="examples"></a>EXEMPEL
 
@@ -63,26 +63,26 @@ Söker i AD med början från parametern sökbas och returnerar alla objekt, fil
 Find objects with disabled inheritance in 'Contoso' domain (by default returns 'organizationalUnit' objects only)
 ```
 
-Get-ADSyncObjectsWithInheritanceDisabled - sökbas ”Contoso”
+Get-ADSyncObjectsWithInheritanceDisabled -SearchBase 'Contoso'
 
 #### <a name="example-2"></a>EXEMPEL 2
 ```
 Find 'user' objects with disabled inheritance in 'Contoso' domain
 ```
 
-Get-ADSyncObjectsWithInheritanceDisabled - sökbas ”Contoso” - ObjectClass ”användare”
+Get-ADSyncObjectsWithInheritanceDisabled -SearchBase 'Contoso' -ObjectClass 'user'
 
 #### <a name="example-3"></a>EXEMPEL 3
 ```
 Find all types of objects with disabled inheritance in a OU
 ```
 
-Get-ADSyncObjectsWithInheritanceDisabled - sökbas OU = AzureAD, DC = Contoso, DC = com - objektklassen ' *'
+Get-ADSyncObjectsWithInheritanceDisabled -SearchBase OU=AzureAD,DC=Contoso,DC=com -ObjectClass '*'
 
 ### <a name="parameters"></a>PARAMETRAR
 
-#### <a name="-searchbase"></a>-Sökbas
-Sökbas för LDAP-frågan som kan vara en DistinguishedName för AD-domän eller ett fullständigt domännamn
+#### <a name="-searchbase"></a>-SearchBase (Sökbas)
+SearchBase för LDAP-frågan som kan vara ett AD-domän distinguishedName eller en FQDN
 
 ```yaml
 Type: String
@@ -96,8 +96,8 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-#### <a name="-objectclass"></a>-ObjectClass
-Klassen för objekt som ska söka som kan vara ”*” (för alla objektklasser), ”användare”, ”grupp”, ”behållare” osv. Som standard söker den här funktionen efter 'organizationalUnit' objektklassen.
+#### <a name="-objectclass"></a>-ObjectClass (Objektklass)
+Den klass av objekt som ska sökas och som kan vara '*' (för någon objektklass), "användare", "grupp", "behållare", etc. Som standard söker den här funktionen efter objektklassen "organizationalUnit".
 
 ```yaml
 Type: String
@@ -113,7 +113,7 @@ Accept wildcard characters: False
 
 #### <a name="commonparameters"></a>CommonParameters
 Denna cmdlet har stöd för parametrarna -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction och -WarningVariable.
-Mer information finns i about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216).
+Mer information finns i about_CommonParametershttps://go.microsoft.com/fwlink/?LinkID=113216)( .
 
 ## <a name="set-adsyncbasicreadpermissions"></a>Set-ADSyncBasicReadPermissions
 
@@ -122,7 +122,7 @@ Initiera din Active Directory-skog och domän för grundläggande läsbehörighe
 
 ### <a name="syntax"></a>SYNTAX
 
-#### <a name="userdomain"></a>UserDomain
+#### <a name="userdomain"></a>AnvändareDomän
 ```
 Set-ADSyncBasicReadPermissions -ADConnectorAccountName <String> -ADConnectorAccountDomain <String>
  [-ADobjectDN <String>] [-SkipAdminSdHolders] [-WhatIf] [-Confirm] [<CommonParameters>]
@@ -135,24 +135,24 @@ Set-ADSyncBasicReadPermissions -ADConnectorAccountDN <String> [-ADobjectDN <Stri
 ```
 
 ### <a name="description"></a>BESKRIVNING
-Funktionen Set-ADSyncBasicReadPermissions ger behörigheter som krävs för AD-synkronisering, bland annat följande:
+Funktionen Set-ADSyncBasicReadPermissions ger nödvändiga behörigheter till AD-synkroniseringskontot, som innehåller följande:
 1.
-Läs egenskapen åtkomst på alla attribut för alla underordnade datorobjekt
+Läsegenskapsåtkomst för alla attribut för alla underordnade datorobjekt
 2.
-Läs egenskapen åtkomst på alla attribut för alla underordnade enhetsobjekt
+Läsegenskapsåtkomst för alla attribut för alla underordnade enhetsobjekt
 3.
-Läs egenskapen åtkomst på alla attribut för alla underordnade foreignsecurityprincipal objekt
+Läs egenskapsåtkomst för alla attribut för alla underordnade utrikespolitiska objekt
 5.
-Läs egenskapen åtkomst på alla attribut för alla underordnade objekt
+Läsegenskapsåtkomst för alla attribut för alla underordnade användarobjekt
 6.
-Läs egenskapen åtkomst på alla attribut för alla underordnade inetorgperson-objekt
+Läs egenskapsåtkomst för alla attribut för alla underordnade inetorgpersonobjekt
 7.
-Läs egenskapen åtkomst på alla attribut för alla objekt för underordnad grupp
+Läsegenskapsåtkomst för alla attribut för alla underordnade gruppobjekt
 8.
-Läs egenskapen åtkomst på alla attribut för alla underordnade kontakta objekt
+Läsegenskapsåtkomst för alla attribut för alla underordnade kontaktobjekt
 
-Dessa behörigheter som tillämpas på alla domäner i skogen.
-Du kan också ange ett unikt namn i ADobjectDN-parametern för att ange dessa behörigheter för AD objektet endast (inklusive arv till underordnade objekt).
+Dessa behörigheter tillämpas på alla domäner i skogen.
+Du kan också ange parametern DistinguishedName i ADobjectDN för att ange dessa behörigheter för det AD-objektet (inklusive arv till underobjekt).
 
 ### <a name="examples"></a>EXEMPEL
 
@@ -179,7 +179,7 @@ Set-ADSyncBasicReadPermissions -ADConnectorAccountName 'ADConnector' -ADConnecto
 ### <a name="parameters"></a>PARAMETRAR
 
 #### <a name="-adconnectoraccountname"></a>-ADConnectorAccountName
-Namnet på det Active Directory-konto som är eller ska användas av Azure AD Connect Sync för att hantera objekt i katalogen.
+Namnet på Active Directory-kontot som används eller kommer att användas av Azure AD Connect Sync för att hantera objekt i katalogen.
 
 ```yaml
 Type: String
@@ -194,7 +194,7 @@ Accept wildcard characters: False
 ```
 
 #### <a name="-adconnectoraccountdomain"></a>-ADConnectorAccountDomain
-Domänen för Active Directory-konto som är eller ska användas av Azure AD Connect Sync för att hantera objekt i katalogen.
+Domänen för Active Directory-kontot som används eller kommer att användas av Azure AD Connect Sync för att hantera objekt i katalogen.
 
 ```yaml
 Type: String
@@ -209,7 +209,7 @@ Accept wildcard characters: False
 ```
 
 #### <a name="-adconnectoraccountdn"></a>-ADConnectorAccountDN
-Unikt namn för Active Directory-konto som är eller ska användas av Azure AD Connect Sync för att hantera objekt i katalogen.
+DistinguishedName för Active Directory-kontot som används eller kommer att användas av Azure AD Connect Sync för att hantera objekt i katalogen.
 
 ```yaml
 Type: String
@@ -224,7 +224,7 @@ Accept wildcard characters: False
 ```
 
 #### <a name="-adobjectdn"></a>-ADobjectDN
-Unikt namn för målobjektet AD för att ange behörigheter (valfritt)
+DistinguishedName för mål AD-objektet för att ange behörigheter (valfritt)
 
 ```yaml
 Type: String
@@ -239,7 +239,7 @@ Accept wildcard characters: False
 ```
 
 #### <a name="-skipadminsdholders"></a>-SkipAdminSdHolders
-Valfri parameter som anger om AdminSDHolder behållaren inte ska uppdateras med dessa behörigheter
+Valfri parameter för att ange om AdminSDHolder-behållaren inte ska uppdateras med dessa behörigheter
 
 ```yaml
 Type: SwitchParameter
@@ -270,7 +270,7 @@ Accept wildcard characters: False
 ```
 
 #### <a name="-confirm"></a>-Confirm
-Uppmanas du att bekräfta innan du kör cmdlet: en.
+Uppmanar dig att bekräfta innan du kör cmdleten.
 
 ```yaml
 Type: SwitchParameter
@@ -286,16 +286,16 @@ Accept wildcard characters: False
 
 #### <a name="commonparameters"></a>CommonParameters
 Denna cmdlet har stöd för parametrarna -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction och -WarningVariable.
-Mer information finns i about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216).
+Mer information finns i about_CommonParametershttps://go.microsoft.com/fwlink/?LinkID=113216)( .
 
 ## <a name="set-adsyncexchangehybridpermissions"></a>Set-ADSyncExchangeHybridPermissions
 
 ### <a name="synopsis"></a>SAMMANFATTNING
-Initiera din Active Directory-skog och domän för Exchange-Hybrid-funktionen.
+Initiera din Active Directory-skog och domän för Exchange Hybrid-funktionen.
 
 ### <a name="syntax"></a>SYNTAX
 
-#### <a name="userdomain"></a>UserDomain
+#### <a name="userdomain"></a>AnvändareDomän
 ```
 Set-ADSyncExchangeHybridPermissions -ADConnectorAccountName <String> -ADConnectorAccountDomain <String>
  [-ADobjectDN <String>] [-SkipAdminSdHolders] [-WhatIf] [-Confirm] [<CommonParameters>]
@@ -308,18 +308,18 @@ Set-ADSyncExchangeHybridPermissions -ADConnectorAccountDN <String> [-ADobjectDN 
 ```
 
 ### <a name="description"></a>BESKRIVNING
-Funktionen Set-ADSyncExchangeHybridPermissions ger behörigheter som krävs för AD-synkronisering, bland annat följande:
+Funktionen Set-ADSyncExchangeHybridPermissions ger nödvändiga behörigheter till AD-synkroniseringskontot, som innehåller följande:
 1.
-Läs/Skriv-egenskapen åtkomst på alla attribut för alla underordnade objekt
+Läs-/skrivegenskapsåtkomst för alla attribut för alla underordnade användarobjekt
 2.
-Läs/Skriv-egenskapen åtkomst på alla attribut för alla underordnade inetorgperson-objekt
+Läs-/skrivegenskapsåtkomst för alla attribut för alla underordnade inetorgpersonobjekt
 3.
-Läs/Skriv-egenskapen åtkomst på alla attribut för alla objekt för underordnad grupp
+Läs-/skrivegenskapsåtkomst för alla attribut för alla underordnade gruppobjekt
 4.
-Läs/Skriv-egenskapen åtkomst på alla attribut för alla underordnade kontakta objekt
+Läs-/skrivegenskapsåtkomst för alla attribut för alla underordnade kontaktobjekt
 
-Dessa behörigheter som tillämpas på alla domäner i skogen.
-Du kan också ange ett unikt namn i ADobjectDN-parametern för att ange dessa behörigheter för AD objektet endast (inklusive arv till underordnade objekt).
+Dessa behörigheter tillämpas på alla domäner i skogen.
+Du kan också ange parametern DistinguishedName i ADobjectDN för att ange dessa behörigheter för det AD-objektet (inklusive arv till underobjekt).
 
 ### <a name="examples"></a>EXEMPEL
 
@@ -346,7 +346,7 @@ Set-ADSyncExchangeHybridPermissions -ADConnectorAccountName 'ADConnector' -ADCon
 ### <a name="parameters"></a>PARAMETRAR
 
 #### <a name="-adconnectoraccountname"></a>-ADConnectorAccountName
-Namnet på det Active Directory-konto som är eller ska användas av Azure AD Connect Sync för att hantera objekt i katalogen.
+Namnet på Active Directory-kontot som används eller kommer att användas av Azure AD Connect Sync för att hantera objekt i katalogen.
 
 ```yaml
 Type: String
@@ -361,7 +361,7 @@ Accept wildcard characters: False
 ```
 
 #### <a name="-adconnectoraccountdomain"></a>-ADConnectorAccountDomain
-Domänen för Active Directory-konto som är eller ska användas av Azure AD Connect Sync för att hantera objekt i katalogen.
+Domänen för Active Directory-kontot som används eller kommer att användas av Azure AD Connect Sync för att hantera objekt i katalogen.
 
 ```yaml
 Type: String
@@ -376,7 +376,7 @@ Accept wildcard characters: False
 ```
 
 #### <a name="-adconnectoraccountdn"></a>-ADConnectorAccountDN
-Unikt namn för Active Directory-konto som är eller ska användas av Azure AD Connect Sync för att hantera objekt i katalogen.
+DistinguishedName för Active Directory-kontot som används eller kommer att användas av Azure AD Connect Sync för att hantera objekt i katalogen.
 
 ```yaml
 Type: String
@@ -391,7 +391,7 @@ Accept wildcard characters: False
 ```
 
 #### <a name="-adobjectdn"></a>-ADobjectDN
-Unikt namn för målobjektet AD för att ange behörigheter (valfritt)
+DistinguishedName för mål AD-objektet för att ange behörigheter (valfritt)
 
 ```yaml
 Type: String
@@ -406,7 +406,7 @@ Accept wildcard characters: False
 ```
 
 #### <a name="-skipadminsdholders"></a>-SkipAdminSdHolders
-Valfri parameter som anger om AdminSDHolder behållaren inte ska uppdateras med dessa behörigheter
+Valfri parameter för att ange om AdminSDHolder-behållaren inte ska uppdateras med dessa behörigheter
 
 ```yaml
 Type: SwitchParameter
@@ -437,7 +437,7 @@ Accept wildcard characters: False
 ```
 
 #### <a name="-confirm"></a>-Confirm
-Uppmanas du att bekräfta innan du kör cmdlet: en.
+Uppmanar dig att bekräfta innan du kör cmdleten.
 
 ```yaml
 Type: SwitchParameter
@@ -453,16 +453,16 @@ Accept wildcard characters: False
 
 #### <a name="commonparameters"></a>CommonParameters
 Denna cmdlet har stöd för parametrarna -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction och -WarningVariable.
-Mer information finns i about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216).
+Mer information finns i about_CommonParametershttps://go.microsoft.com/fwlink/?LinkID=113216)( .
 
 ## <a name="set-adsyncexchangemailpublicfolderpermissions"></a>Set-ADSyncExchangeMailPublicFolderPermissions
 
 ### <a name="synopsis"></a>SAMMANFATTNING
-Initiera din Active Directory-skog och domän för offentlig mapp för Exchange-e-post-funktion.
+Initiera funktionen Active Directory-skog och domän för exchange mail-mapp.
 
 ### <a name="syntax"></a>SYNTAX
 
-#### <a name="userdomain"></a>UserDomain
+#### <a name="userdomain"></a>AnvändareDomän
 ```
 Set-ADSyncExchangeMailPublicFolderPermissions -ADConnectorAccountName <String>
  -ADConnectorAccountDomain <String> [-ADobjectDN <String>] [-SkipAdminSdHolders] [-WhatIf] [-Confirm]
@@ -476,12 +476,12 @@ Set-ADSyncExchangeMailPublicFolderPermissions -ADConnectorAccountDN <String> [-A
 ```
 
 ### <a name="description"></a>BESKRIVNING
-Funktionen Set-ADSyncExchangeMailPublicFolderPermissions ger behörigheter som krävs för AD-synkronisering, bland annat följande:
+Funktionen Set-ADSyncExchangeMailPublicFolderPermissions ger nödvändiga behörigheter till AD-synkroniseringskontot, som innehåller följande:
 1.
-Läs egenskapen åtkomst på alla attribut för alla underordnade publicfolder objekt
+Läs egenskapsåtkomst för alla attribut för alla underordnade offentliga flerfaldigt objekt
 
-Dessa behörigheter som tillämpas på alla domäner i skogen.
-Du kan också ange ett unikt namn i ADobjectDN-parametern för att ange dessa behörigheter för AD objektet endast (inklusive arv till underordnade objekt).
+Dessa behörigheter tillämpas på alla domäner i skogen.
+Du kan också ange parametern DistinguishedName i ADobjectDN för att ange dessa behörigheter för det AD-objektet (inklusive arv till underobjekt).
 
 ### <a name="examples"></a>EXEMPEL
 
@@ -508,7 +508,7 @@ Set-ADSyncExchangeMailPublicFolderPermissions -ADConnectorAccountName 'ADConnect
 ### <a name="parameters"></a>PARAMETRAR
 
 #### <a name="-adconnectoraccountname"></a>-ADConnectorAccountName
-Namnet på det Active Directory-konto som är eller ska användas av Azure AD Connect Sync för att hantera objekt i katalogen.
+Namnet på Active Directory-kontot som används eller kommer att användas av Azure AD Connect Sync för att hantera objekt i katalogen.
 
 ```yaml
 Type: String
@@ -523,7 +523,7 @@ Accept wildcard characters: False
 ```
 
 #### <a name="-adconnectoraccountdomain"></a>-ADConnectorAccountDomain
-Domänen för Active Directory-konto som är eller ska användas av Azure AD Connect Sync för att hantera objekt i katalogen.
+Domänen för Active Directory-kontot som används eller kommer att användas av Azure AD Connect Sync för att hantera objekt i katalogen.
 
 ```yaml
 Type: String
@@ -538,7 +538,7 @@ Accept wildcard characters: False
 ```
 
 #### <a name="-adconnectoraccountdn"></a>-ADConnectorAccountDN
-Unikt namn för Active Directory-konto som är eller ska användas av Azure AD Connect Sync för att hantera objekt i katalogen.
+DistinguishedName för Active Directory-kontot som används eller kommer att användas av Azure AD Connect Sync för att hantera objekt i katalogen.
 
 ```yaml
 Type: String
@@ -553,7 +553,7 @@ Accept wildcard characters: False
 ```
 
 #### <a name="-adobjectdn"></a>-ADobjectDN
-Unikt namn för målobjektet AD för att ange behörigheter (valfritt)
+DistinguishedName för mål AD-objektet för att ange behörigheter (valfritt)
 
 ```yaml
 Type: String
@@ -568,7 +568,7 @@ Accept wildcard characters: False
 ```
 
 #### <a name="-skipadminsdholders"></a>-SkipAdminSdHolders
-Valfri parameter som anger om AdminSDHolder behållaren inte ska uppdateras med dessa behörigheter
+Valfri parameter för att ange om AdminSDHolder-behållaren inte ska uppdateras med dessa behörigheter
 
 ```yaml
 Type: SwitchParameter
@@ -599,7 +599,7 @@ Accept wildcard characters: False
 ```
 
 #### <a name="-confirm"></a>-Confirm
-Uppmanas du att bekräfta innan du kör cmdlet: en.
+Uppmanar dig att bekräfta innan du kör cmdleten.
 
 ```yaml
 Type: SwitchParameter
@@ -615,16 +615,16 @@ Accept wildcard characters: False
 
 #### <a name="commonparameters"></a>CommonParameters
 Denna cmdlet har stöd för parametrarna -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction och -WarningVariable.
-Mer information finns i about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216).
+Mer information finns i about_CommonParametershttps://go.microsoft.com/fwlink/?LinkID=113216)( .
 
 ## <a name="set-adsyncmsdsconsistencyguidpermissions"></a>Set-ADSyncMsDsConsistencyGuidPermissions
 
 ### <a name="synopsis"></a>SAMMANFATTNING
-Initiera din Active Directory-skog och domän för mS-DS-ConsistencyGuid funktion.
+Initiera din Active Directory-skog och domän för mS-DS-ConsistencyGuid-funktionen.
 
 ### <a name="syntax"></a>SYNTAX
 
-#### <a name="userdomain"></a>UserDomain
+#### <a name="userdomain"></a>AnvändareDomän
 ```
 Set-ADSyncMsDsConsistencyGuidPermissions -ADConnectorAccountName <String> -ADConnectorAccountDomain <String>
  [-ADobjectDN <String>] [-SkipAdminSdHolders] [-WhatIf] [-Confirm] [<CommonParameters>]
@@ -637,12 +637,12 @@ Set-ADSyncMsDsConsistencyGuidPermissions -ADConnectorAccountDN <String> [-ADobje
 ```
 
 ### <a name="description"></a>BESKRIVNING
-Funktionen Set-ADSyncMsDsConsistencyGuidPermissions ger behörigheter som krävs för AD-synkronisering, bland annat följande:
+Funktionen Set-ADSyncMsDsConsistencyGuidPermissions ger nödvändiga behörigheter till AD-synkroniseringskontot, som innehåller följande:
 1.
-Läs/Skriv-egenskapen åtkomst på mS-DS-ConsistencyGuid attribut för alla underordnade objekt
+Läs-/skrivegenskapsåtkomst på mS-DS-ConsistencyGuid-attribut för alla underordnade användarobjekt
 
-Dessa behörigheter som tillämpas på alla domäner i skogen.
-Du kan också ange ett unikt namn i ADobjectDN-parametern för att ange dessa behörigheter för AD objektet endast (inklusive arv till underordnade objekt).
+Dessa behörigheter tillämpas på alla domäner i skogen.
+Du kan också ange parametern DistinguishedName i ADobjectDN för att ange dessa behörigheter för det AD-objektet (inklusive arv till underobjekt).
 
 ### <a name="examples"></a>EXEMPEL
 
@@ -669,7 +669,7 @@ Set-ADSyncMsDsConsistencyGuidPermissions -ADConnectorAccountName 'ADConnector' -
 ### <a name="parameters"></a>PARAMETRAR
 
 #### <a name="-adconnectoraccountname"></a>-ADConnectorAccountName
-Namnet på det Active Directory-konto som är eller ska användas av Azure AD Connect Sync för att hantera objekt i katalogen.
+Namnet på Active Directory-kontot som används eller kommer att användas av Azure AD Connect Sync för att hantera objekt i katalogen.
 
 ```yaml
 Type: String
@@ -684,7 +684,7 @@ Accept wildcard characters: False
 ```
 
 #### <a name="-adconnectoraccountdomain"></a>-ADConnectorAccountDomain
-Domänen för Active Directory-konto som är eller ska användas av Azure AD Connect Sync för att hantera objekt i katalogen.
+Domänen för Active Directory-kontot som används eller kommer att användas av Azure AD Connect Sync för att hantera objekt i katalogen.
 
 ```yaml
 Type: String
@@ -699,7 +699,7 @@ Accept wildcard characters: False
 ```
 
 #### <a name="-adconnectoraccountdn"></a>-ADConnectorAccountDN
-Unikt namn för Active Directory-konto som är eller ska användas av Azure AD Connect Sync för att hantera objekt i katalogen.
+DistinguishedName för Active Directory-kontot som används eller kommer att användas av Azure AD Connect Sync för att hantera objekt i katalogen.
 
 ```yaml
 Type: String
@@ -714,7 +714,7 @@ Accept wildcard characters: False
 ```
 
 #### <a name="-adobjectdn"></a>-ADobjectDN
-Unikt namn för målobjektet AD för att ange behörigheter (valfritt)
+DistinguishedName för mål AD-objektet för att ange behörigheter (valfritt)
 
 ```yaml
 Type: String
@@ -729,7 +729,7 @@ Accept wildcard characters: False
 ```
 
 #### <a name="-skipadminsdholders"></a>-SkipAdminSdHolders
-Valfri parameter som anger om AdminSDHolder behållaren inte ska uppdateras med dessa behörigheter
+Valfri parameter för att ange om AdminSDHolder-behållaren inte ska uppdateras med dessa behörigheter
 
 ```yaml
 Type: SwitchParameter
@@ -760,7 +760,7 @@ Accept wildcard characters: False
 ```
 
 #### <a name="-confirm"></a>-Confirm
-Uppmanas du att bekräfta innan du kör cmdlet: en.
+Uppmanar dig att bekräfta innan du kör cmdleten.
 
 ```yaml
 Type: SwitchParameter
@@ -776,16 +776,16 @@ Accept wildcard characters: False
 
 #### <a name="commonparameters"></a>CommonParameters
 Denna cmdlet har stöd för parametrarna -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction och -WarningVariable.
-Mer information finns i about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216).
+Mer information finns i about_CommonParametershttps://go.microsoft.com/fwlink/?LinkID=113216)( .
 
 ## <a name="set-adsyncpasswordhashsyncpermissions"></a>Set-ADSyncPasswordHashSyncPermissions
 
 ### <a name="synopsis"></a>SAMMANFATTNING
-Initiera din Active Directory-skog och domän för synkronisering av lösenordshash.
+Initiera din Active Directory-skog och domän för synkronisering av lösenordsh hash.
 
 ### <a name="syntax"></a>SYNTAX
 
-#### <a name="userdomain"></a>UserDomain
+#### <a name="userdomain"></a>AnvändareDomän
 ```
 Set-ADSyncPasswordHashSyncPermissions -ADConnectorAccountName <String> -ADConnectorAccountDomain <String>
  [-WhatIf] [-Confirm] [<CommonParameters>]
@@ -797,11 +797,11 @@ Set-ADSyncPasswordHashSyncPermissions -ADConnectorAccountDN <String> [-WhatIf] [
 ```
 
 ### <a name="description"></a>BESKRIVNING
-Funktionen Set-ADSyncPasswordHashSyncPermissions ger behörigheter som krävs för AD-synkronisering, bland annat följande:
+Funktionen Set-ADSyncPasswordHashSyncPermissions ger nödvändiga behörigheter till AD-synkroniseringskontot, som innehåller följande:
 1.
 Replikera katalogändringar
 2.
-Replikera ändringar av alla
+Replikera katalogen ändrar alla
 
 Dessa behörigheter ges till alla domäner i skogen.
 
@@ -820,7 +820,7 @@ Set-ADSyncPasswordHashSyncPermissions -ADConnectorAccountDN 'CN=ADConnector,OU=A
 ### <a name="parameters"></a>PARAMETRAR
 
 #### <a name="-adconnectoraccountname"></a>-ADConnectorAccountName
-Namnet på det Active Directory-konto som ska användas av Azure AD Connect Sync för att hantera objekt i katalogen.
+Namnet på Active Directory-kontot som ska användas av Azure AD Connect Sync för att hantera objekt i katalogen.
 
 ```yaml
 Type: String
@@ -835,7 +835,7 @@ Accept wildcard characters: False
 ```
 
 #### <a name="-adconnectoraccountdomain"></a>-ADConnectorAccountDomain
-Domänen för Active Directory-konto som ska användas av Azure AD Connect Sync för att hantera objekt i katalogen.
+Domänen för Active Directory-kontot som ska användas av Azure AD Connect Sync för att hantera objekt i katalogen.
 
 ```yaml
 Type: String
@@ -850,7 +850,7 @@ Accept wildcard characters: False
 ```
 
 #### <a name="-adconnectoraccountdn"></a>-ADConnectorAccountDN
-Unikt namn för Active Directory-konto som ska användas av Azure AD Connect Sync för att hantera objekt i katalogen.
+DistinguishedName för Active Directory-kontot som ska användas av Azure AD Connect Sync för att hantera objekt i katalogen.
 
 ```yaml
 Type: String
@@ -881,7 +881,7 @@ Accept wildcard characters: False
 ```
 
 #### <a name="-confirm"></a>-Confirm
-Uppmanas du att bekräfta innan du kör cmdlet: en.
+Uppmanar dig att bekräfta innan du kör cmdleten.
 
 ```yaml
 Type: SwitchParameter
@@ -897,16 +897,16 @@ Accept wildcard characters: False
 
 #### <a name="commonparameters"></a>CommonParameters
 Denna cmdlet har stöd för parametrarna -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction och -WarningVariable.
-Mer information finns i about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216).
+Mer information finns i about_CommonParametershttps://go.microsoft.com/fwlink/?LinkID=113216)( .
 
 ## <a name="set-adsyncpasswordwritebackpermissions"></a>Set-ADSyncPasswordWritebackPermissions
 
 ### <a name="synopsis"></a>SAMMANFATTNING
-Initiera din Active Directory-skog och domän för tillbakaskrivning av lösenord från Azure AD.
+Initiera din Active Directory-skog och domän för återställning av lösenord från Azure AD.
 
 ### <a name="syntax"></a>SYNTAX
 
-#### <a name="userdomain"></a>UserDomain
+#### <a name="userdomain"></a>AnvändareDomän
 ```
 Set-ADSyncPasswordWritebackPermissions -ADConnectorAccountName <String> -ADConnectorAccountDomain <String>
  [-ADobjectDN <String>] [-SkipAdminSdHolders] [-WhatIf] [-Confirm] [<CommonParameters>]
@@ -919,16 +919,16 @@ Set-ADSyncPasswordWritebackPermissions -ADConnectorAccountDN <String> [-ADobject
 ```
 
 ### <a name="description"></a>BESKRIVNING
-Funktionen Set-ADSyncPasswordWritebackPermissions ger behörigheter som krävs för AD-synkronisering, bland annat följande:
+Funktionen Set-ADSyncPasswordWritebackPermissions ger nödvändiga behörigheter till AD-synkroniseringskontot, som innehåller följande:
 1.
-Återställa lösenord för underordnade objekt
+Återställa lösenord för underordnade användarobjekt
 2.
-Egenskapen skrivbehörighet på lockoutTime attribut för alla underordnade objekt
+Skrivegenskapsåtkomst vid lockoutTime-attribut för alla underordnade användarobjekt
 3.
-Egenskapen skrivbehörighet på pwdLastSet attribut för alla underordnade objekt
+Skrivegenskapsåtkomst på attributet pwdLastSet för alla underordnade användarobjekt
 
-Dessa behörigheter som tillämpas på alla domäner i skogen.
-Du kan också ange ett unikt namn i ADobjectDN-parametern för att ange dessa behörigheter för AD objektet endast (inklusive arv till underordnade objekt).
+Dessa behörigheter tillämpas på alla domäner i skogen.
+Du kan också ange parametern DistinguishedName i ADobjectDN för att ange dessa behörigheter för det AD-objektet (inklusive arv till underobjekt).
 
 ### <a name="examples"></a>EXEMPEL
 
@@ -955,7 +955,7 @@ Set-ADSyncPasswordWritebackPermissions -ADConnectorAccountName 'ADConnector' -AD
 ### <a name="parameters"></a>PARAMETRAR
 
 #### <a name="-adconnectoraccountname"></a>-ADConnectorAccountName
-Namnet på det Active Directory-konto som är eller ska användas av Azure AD Connect Sync för att hantera objekt i katalogen.
+Namnet på Active Directory-kontot som används eller kommer att användas av Azure AD Connect Sync för att hantera objekt i katalogen.
 
 ```yaml
 Type: String
@@ -970,7 +970,7 @@ Accept wildcard characters: False
 ```
 
 #### <a name="-adconnectoraccountdomain"></a>-ADConnectorAccountDomain
-Domänen för Active Directory-konto som är eller ska användas av Azure AD Connect Sync för att hantera objekt i katalogen.
+Domänen för Active Directory-kontot som används eller kommer att användas av Azure AD Connect Sync för att hantera objekt i katalogen.
 
 ```yaml
 Type: String
@@ -985,7 +985,7 @@ Accept wildcard characters: False
 ```
 
 #### <a name="-adconnectoraccountdn"></a>-ADConnectorAccountDN
-Unikt namn för Active Directory-konto som är eller ska användas av Azure AD Connect Sync för att hantera objekt i katalogen.
+DistinguishedName för Active Directory-kontot som används eller kommer att användas av Azure AD Connect Sync för att hantera objekt i katalogen.
 
 ```yaml
 Type: String
@@ -1000,7 +1000,7 @@ Accept wildcard characters: False
 ```
 
 #### <a name="-adobjectdn"></a>-ADobjectDN
-Unikt namn för målobjektet AD för att ange behörigheter (valfritt)
+DistinguishedName för mål AD-objektet för att ange behörigheter (valfritt)
 
 ```yaml
 Type: String
@@ -1015,7 +1015,7 @@ Accept wildcard characters: False
 ```
 
 #### <a name="-skipadminsdholders"></a>-SkipAdminSdHolders
-Valfri parameter som anger om AdminSDHolder behållaren inte ska uppdateras med dessa behörigheter
+Valfri parameter för att ange om AdminSDHolder-behållaren inte ska uppdateras med dessa behörigheter
 
 ```yaml
 Type: SwitchParameter
@@ -1046,7 +1046,7 @@ Accept wildcard characters: False
 ```
 
 #### <a name="-confirm"></a>-Confirm
-Uppmanas du att bekräfta innan du kör cmdlet: en.
+Uppmanar dig att bekräfta innan du kör cmdleten.
 
 ```yaml
 Type: SwitchParameter
@@ -1062,14 +1062,14 @@ Accept wildcard characters: False
 
 #### <a name="commonparameters"></a>CommonParameters
 Denna cmdlet har stöd för parametrarna -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction och -WarningVariable.
-Mer information finns i about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216).
+Mer information finns i about_CommonParametershttps://go.microsoft.com/fwlink/?LinkID=113216)( .
 
 ## <a name="set-adsyncrestrictedpermissions"></a>Set-ADSyncRestrictedPermissions
 
 ### <a name="synopsis"></a>SAMMANFATTNING
-Öka behörigheter för en AD-objekt som annars inte ingår i någon AD-säkerhetsgruppen skyddade.
-Ett typexempel är det AD Connect-konto (MSOL) som skapas automatiskt av AAD Connect.
-Det här kontot har replikera behörigheter på alla domäner, men lätt kan äventyras som inte skyddas.
+Dra åt behörigheter för ett AD-objekt som annars inte ingår i någon AD-skyddad säkerhetsgrupp.
+Ett typiskt exempel är AD Connect-kontot (MSOL) som skapas av AAD Connect automatiskt.
+Det här kontot har replikerade behörigheter för alla domäner, men kan enkelt komprometteras eftersom det inte är skyddat.
 
 ### <a name="syntax"></a>SYNTAX
 
@@ -1079,15 +1079,15 @@ Set-ADSyncRestrictedPermissions [-ADConnectorAccountDN] <String> [-Credential] <
 ```
 
 ### <a name="description"></a>BESKRIVNING
-Funktionen Set-ADSyncRestrictedPermissions kommer öka behörigheter säkerhetskopiering det konto som anges.
-Skärpa behörigheter omfattar följande steg:
+Funktionen Set-ADSyncRestrictedPermissions kommer att skärpa behörigheterna för kontot som tillhandahålls.
+Att skärpa behörigheterna omfattar följande steg:
 1.
-Inaktivera arv på det angivna-objektet
+Inaktivera arv på det angivna objektet
 2.
-Ta bort alla åtkomstkontrollposter på specifika objekt, utom åtkomstkontrollposter som är specifika för SJÄLVBETJÄNINGSPORTALEN.
-Vi vill hålla standardbehörigheterna intakt när det gäller att själv.
+Ta bort alla åtkomstkontrollistor på det specifika objektet, förutom AKU:er som är specifika för SELF.
+Vi vill behålla standardbehörigheterna intakta när det gäller SELF.
 3.
-Tilldela specifika behörigheter:
+Tilldela dessa specifika behörigheter:
 
         Type    Name                                        Access              Applies To
         =============================================================================================
@@ -1114,8 +1114,8 @@ Set-ADSyncRestrictedPermissions -ADConnectorAccountDN "CN=TestAccount1,CN=Users,
 ### <a name="parameters"></a>PARAMETRAR
 
 #### <a name="-adconnectoraccountdn"></a>-ADConnectorAccountDN
-Unikt namn för den Active Directory-konto vars behörigheter måste höjas.
-Detta är vanligtvis MSOL_nnnnnnnnnn-konto eller en anpassad domän-konto som har konfigurerats i AD-koppling.
+DistinguishedName för Active Directory-kontot vars behörigheter måste skärpas.
+Det här är vanligtvis MSOL_nnnnnnnnnn konto eller ett anpassat domänkonto som är konfigurerat i AD Connector.
 
 ```yaml
 Type: String
@@ -1130,7 +1130,7 @@ Accept wildcard characters: False
 ```
 
 #### <a name="-credential"></a>-Credential
-Administratörsautentiseringsuppgifter som har rätt behörighet för att begränsa behörigheten för kontot ADConnectorAccountDN. Detta är vanligtvis Enterprise- eller domänadministratören. Det fullständigt kvalificerade domännamnet för administratörskontot Undvik att använda lookup kontofel.
+Administratörsautentiseringsuppgifter som har de behörigheter som krävs för att begränsa behörigheterna för ADConnectorAccountDN-kontot. Detta är vanligtvis företags- eller domänadministratören. Använd det fullständigt kvalificerade domännamnet för administratörskontot för att undvika kontosökningsfel.
 Exempel: CONTOSO\admin
 
 ```yaml
@@ -1146,7 +1146,7 @@ Accept wildcard characters: False
 ```
 
 #### <a name="-disablecredentialvalidation"></a>-DisableCredentialValidation
-När DisableCredentialValidation används, funktionen kommer inte att kontrollera om de angivna autentiseringsuppgifterna i - autentiseringsuppgifterna är giltiga i AD och om det tillhandahållna kontot har rätt behörighet för att begränsa behörigheten för kontot ADConnectorAccountDN.
+När DisableCredentialValidation används, kontrollerar funktionen inte om autentiseringsuppgifterna i -Autentiseringsuppgifterna är giltiga i AD och om kontot som tillhandahålls har de behörigheter som krävs för att begränsa behörigheterna för ADConnectorAccountDN-kontot.
 
 ```yaml
 Type: SwitchParameter
@@ -1177,7 +1177,7 @@ Accept wildcard characters: False
 ```
 
 #### <a name="-confirm"></a>-Confirm
-Uppmanas du att bekräfta innan du kör cmdlet: en.
+Uppmanar dig att bekräfta innan du kör cmdleten.
 
 ```yaml
 Type: SwitchParameter
@@ -1193,16 +1193,16 @@ Accept wildcard characters: False
 
 #### <a name="commonparameters"></a>CommonParameters
 Denna cmdlet har stöd för parametrarna -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction och -WarningVariable.
-Mer information finns i about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216).
+Mer information finns i about_CommonParametershttps://go.microsoft.com/fwlink/?LinkID=113216)( .
 
 ## <a name="set-adsyncunifiedgroupwritebackpermissions"></a>Set-ADSyncUnifiedGroupWritebackPermissions
 
 ### <a name="synopsis"></a>SAMMANFATTNING
-Initiera din Active Directory-skog och domän för tillbakaskrivning av grupp från Azure AD.
+Initiera din Active Directory-skog och domän för gruppåterskrivning från Azure AD.
 
 ### <a name="syntax"></a>SYNTAX
 
-#### <a name="userdomain"></a>UserDomain
+#### <a name="userdomain"></a>AnvändareDomän
 ```
 Set-ADSyncUnifiedGroupWritebackPermissions -ADConnectorAccountName <String> -ADConnectorAccountDomain <String>
  [-ADobjectDN <String>] [-SkipAdminSdHolders] [-WhatIf] [-Confirm] [<CommonParameters>]
@@ -1215,13 +1215,13 @@ Set-ADSyncUnifiedGroupWritebackPermissions -ADConnectorAccountDN <String> [-ADob
 ```
 
 ### <a name="description"></a>BESKRIVNING
-Funktionen Set-ADSyncUnifiedGroupWritebackPermissions ger behörigheter som krävs för AD-synkronisering, bland annat följande:
+Funktionen Set-ADSyncUnifiedGroupWritebackPermissions ger nödvändiga behörigheter till AD-synkroniseringskontot, som innehåller följande:
 1.
-Allmän Läs/Skriv, ta bort, ta bort trädet och Create\Delete underordnade för alla gruppen objekttyper och underobjekt
+Allmän läsning/skrivning, borttagning, borttagningsträd och Skapa\Ta bort underordnad för alla gruppobjekttyper och underobjekt
 
-Dessa behörigheter som tillämpas på alla domäner i skogen.
-Du kan också ange ett unikt namn i ADobjectDN-parametern för att ange dessa behörigheter för AD objektet endast (inklusive arv till underordnade objekt).
-I det här fallet blir ADobjectDN det unika namnet på den behållare som du önskar att länka med funktionen GroupWriteback.
+Dessa behörigheter tillämpas på alla domäner i skogen.
+Du kan också ange parametern DistinguishedName i ADobjectDN för att ange dessa behörigheter för det AD-objektet (inklusive arv till underobjekt).
+I det här fallet kommer ADobjectDN att vara det unika namnet på behållaren som du vill länka till funktionen GroupWriteback.
 
 ### <a name="examples"></a>EXEMPEL
 
@@ -1248,7 +1248,7 @@ Set-ADSyncUnifiedGroupWritebackPermissions -ADConnectorAccountName 'ADConnector'
 ### <a name="parameters"></a>PARAMETRAR
 
 #### <a name="-adconnectoraccountname"></a>-ADConnectorAccountName
-Namnet på det Active Directory-konto som är eller ska användas av Azure AD Connect Sync för att hantera objekt i katalogen.
+Namnet på Active Directory-kontot som används eller kommer att användas av Azure AD Connect Sync för att hantera objekt i katalogen.
 
 ```yaml
 Type: String
@@ -1263,7 +1263,7 @@ Accept wildcard characters: False
 ```
 
 #### <a name="-adconnectoraccountdomain"></a>-ADConnectorAccountDomain
-Domänen för Active Directory-konto som är eller ska användas av Azure AD Connect Sync för att hantera objekt i katalogen.
+Domänen för Active Directory-kontot som används eller kommer att användas av Azure AD Connect Sync för att hantera objekt i katalogen.
 
 ```yaml
 Type: String
@@ -1278,7 +1278,7 @@ Accept wildcard characters: False
 ```
 
 #### <a name="-adconnectoraccountdn"></a>-ADConnectorAccountDN
-Unikt namn för Active Directory-konto som är eller ska användas av Azure AD Connect Sync för att hantera objekt i katalogen.
+DistinguishedName för Active Directory-kontot som används eller kommer att användas av Azure AD Connect Sync för att hantera objekt i katalogen.
 
 ```yaml
 Type: String
@@ -1293,7 +1293,7 @@ Accept wildcard characters: False
 ```
 
 #### <a name="-adobjectdn"></a>-ADobjectDN
-Unikt namn för målobjektet AD för att ange behörigheter (valfritt)
+DistinguishedName för mål AD-objektet för att ange behörigheter (valfritt)
 
 ```yaml
 Type: String
@@ -1308,7 +1308,7 @@ Accept wildcard characters: False
 ```
 
 #### <a name="-skipadminsdholders"></a>-SkipAdminSdHolders
-Valfri parameter som anger om AdminSDHolder behållaren inte ska uppdateras med dessa behörigheter
+Valfri parameter för att ange om AdminSDHolder-behållaren inte ska uppdateras med dessa behörigheter
 
 ```yaml
 Type: SwitchParameter
@@ -1339,7 +1339,7 @@ Accept wildcard characters: False
 ```
 
 #### <a name="-confirm"></a>-Confirm
-Uppmanas du att bekräfta innan du kör cmdlet: en.
+Uppmanar dig att bekräfta innan du kör cmdleten.
 
 ```yaml
 Type: SwitchParameter
@@ -1355,12 +1355,12 @@ Accept wildcard characters: False
 
 #### <a name="commonparameters"></a>CommonParameters
 Denna cmdlet har stöd för parametrarna -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction och -WarningVariable.
-Mer information finns i about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216).
+Mer information finns i about_CommonParametershttps://go.microsoft.com/fwlink/?LinkID=113216)( .
 
-## <a name="show-adsyncadobjectpermissions"></a>Show-ADSyncADObjectPermissions
+## <a name="show-adsyncadobjectpermissions"></a>Visa-ADSyncADObjectPermissions
 
 ### <a name="synopsis"></a>SAMMANFATTNING
-Visar behörigheterna för ett angivet AD-objekt.
+Visar behörigheter för ett angivet AD-objekt.
 
 ### <a name="syntax"></a>SYNTAX
 
@@ -1369,8 +1369,8 @@ Show-ADSyncADObjectPermissions [-ADobjectDN] <String> [<CommonParameters>]
 ```
 
 ### <a name="description"></a>BESKRIVNING
-Den här funktionen returnerar alla AD-behörigheter som ställts in för ett angivet AD-objekt som angetts i parametern - ADobjectDN.
-ADobjectDN måste anges i formatet DistinguishedName.
+Den här funktionen returnerar alla AD-behörigheter som för närvarande har angetts för ett visst AD-objekt som finns i parametern -ADobjectDN.
+ADobjectDN måste anges i ett DistinguishedName-format.
 
 ### <a name="examples"></a>EXEMPEL
 
@@ -1382,7 +1382,7 @@ Show-ADSyncADObjectPermissions -ADobjectDN 'OU=AzureAD,DC=Contoso,DC=com'
 ### <a name="parameters"></a>PARAMETRAR
 
 #### <a name="-adobjectdn"></a>-ADobjectDN
-{{Fyll ADobjectDN beskrivning}}
+{{Fyll adobjectdn beskrivning}}
 
 ```yaml
 Type: String
@@ -1398,4 +1398,4 @@ Accept wildcard characters: False
 
 #### <a name="commonparameters"></a>CommonParameters
 Denna cmdlet har stöd för parametrarna -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction och -WarningVariable.
-Mer information finns i about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216).
+Mer information finns i about_CommonParametershttps://go.microsoft.com/fwlink/?LinkID=113216)( .

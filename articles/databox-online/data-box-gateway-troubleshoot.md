@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: alkohli
 ms.openlocfilehash: 54f6473954c73de6ec29602c3d1563579b3e8cc6
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79265394"
 ---
 # <a name="troubleshoot-your-azure-data-box-gateway-issues"></a>Felsöka problem med din Azure Data Box Gateway 
@@ -31,11 +31,11 @@ Du kan köra de diagnostiska testerna för att diagnostisera och felsöka eventu
 
 1. I det lokala webbgränssnittet går du till **Felsökning > Diagnostiska tester**. Välj det test du vill köra och klicka på **Kör test**. Tester för att diagnostisera möjliga problem med nätverk, enhet, webbproxy, tid eller molninställningar körs då. Du får ett meddelande om att enheten kör testerna.
 
-    ![Klicka på Lägg till användare](media/data-box-gateway-troubleshoot/run-diag-1.png)
+    ![Klicka på lägg till användare](media/data-box-gateway-troubleshoot/run-diag-1.png)
  
 2. När testerna har slutförts visas resultatet. Om testet inte kan genomföras visas en URL för rekommenderad åtgärd. Du kan klicka på URL:en om du vill visa den rekommenderade åtgärden. 
  
-    ![Klicka på Lägg till användare](media/data-box-gateway-troubleshoot/run-diag-2.png)
+    ![Klicka på lägg till användare](media/data-box-gateway-troubleshoot/run-diag-2.png)
 
 
 ## <a name="collect-support-package"></a>Hämta supportpaket
@@ -46,11 +46,11 @@ Utför följande steg för att hämta ett supportpaket.
 
 1. I det lokala webbgränssnittet går du till **Felsökning > Support**. Klicka på **Skapa supportpaket**. Systemet börjar samla in supportpaket. Paketinsamlingen kan ta flera minuter.
 
-    ![Klicka på Lägg till användare](media/data-box-gateway-troubleshoot/collect-logs-1.png)
+    ![Klicka på lägg till användare](media/data-box-gateway-troubleshoot/collect-logs-1.png)
  
 2. När du har skapat supportpaketet klickar du på **Ladda ned supportpaket**. Ett komprimerat paket har laddats ned till den sökväg som du har valt. Du kan packa upp paketet.
 
-    ![Klicka på Lägg till användare](media/data-box-gateway-troubleshoot/collect-logs-2.png)
+    ![Klicka på lägg till användare](media/data-box-gateway-troubleshoot/collect-logs-2.png)
 
 ## <a name="use-logs-to-troubleshoot"></a>Använd loggar för att felsöka
 
@@ -58,7 +58,7 @@ Eventuella fel som uppstod under uppladdnings- och uppdateringsprocesserna ingå
 
 1. Om du vill visa felfilerna öppnar du resursen och klickar på den för att visa innehållet. 
 
-      ![Klicka på Lägg till användare](media/data-box-gateway-troubleshoot/troubleshoot-logs-1.png)
+      ![Klicka på lägg till användare](media/data-box-gateway-troubleshoot/troubleshoot-logs-1.png)
 
 2. Klicka på _mappen Microsoft Data Box Gateway_. Den här mappen innehåller två undermappar:
 

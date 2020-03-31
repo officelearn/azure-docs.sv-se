@@ -1,6 +1,6 @@
 ---
-title: VMware Disaster Recovery – konfigurations Server krav i Azure Site Recovery
-description: Den här artikeln beskriver support och krav vid distribution av konfigurations servern för VMware haveri beredskap till Azure med Azure Site Recovery
+title: VMware-serverkrav för haveriberedskapskonfiguration i Azure Site Recovery
+description: I den här artikeln beskrivs support och krav vid distribution av konfigurationsservern för VMware-haveriberedskap till Azure med Azure Site Recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
@@ -9,29 +9,29 @@ ms.topic: article
 ms.date: 09/09/2019
 ms.author: raynew
 ms.openlocfilehash: 0b0942b517c8dc83c048bd1203a58d9861515dfb
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79257412"
 ---
-# <a name="configuration-server-requirements-for-vmware-disaster-recovery-to-azure"></a>Konfigurations Server krav för VMware haveri beredskap till Azure
+# <a name="configuration-server-requirements-for-vmware-disaster-recovery-to-azure"></a>Konfigurationsserverkrav för VMware-haveriberedskap till Azure
 
-Du distribuerar en lokal konfigurations server när du använder [Azure Site Recovery](site-recovery-overview.md) för haveri beredskap för virtuella VMware-datorer och fysiska servrar till Azure.
+Du distribuerar en lokal konfigurationsserver när du använder [Azure Site Recovery](site-recovery-overview.md) för haveriberedskap av virtuella datorer och fysiska servrar till Azure.
 
-- Konfigurations servern samordnar kommunikationen mellan lokala VMware och Azure. Den hanterar också datareplikering.
-- [Läs mer](vmware-azure-architecture.md) om konfigurations serverns komponenter och processer.
+- Konfigurationsservern samordnar kommunikationen mellan lokala VMware och Azure. Den hanterar också datareplikering.
+- [Läs mer](vmware-azure-architecture.md) om konfigurationsserverns komponenter och processer.
 
-## <a name="configuration-server-deployment"></a>Distribution av konfigurations Server
+## <a name="configuration-server-deployment"></a>Distribution av konfigurationsserver
 
-För haveri beredskap för virtuella VMware-datorer till Azure distribuerar du konfigurations servern som en virtuell VMware-dator.
+För haveriberedskap av virtuella datorer med VMware till Azure distribuerar du konfigurationsservern som en virtuell virtuell VMware-dator.
 
-- Site Recovery innehåller en tjänstmall som du laddar ned från Azure Portal och importera till vCenter Server för att konfigurera den virtuella konfigurations servern.
-- När du distribuerar konfigurations servern med hjälp av mallen för ägg, uppfyller den virtuella datorn automatiskt kraven i den här artikeln.
-- Vi rekommenderar starkt att du konfigurerar konfigurations servern med hjälp av en ägg-mall. Men om du konfigurerar haveri beredskap för virtuella VMware-datorer och inte kan använda embryo-mallen kan du distribuera konfigurations servern med hjälp av [dessa instruktioner](physical-azure-set-up-source.md).
-- Om du distribuerar konfigurations servern för haveri beredskap för lokala fysiska datorer till Azure följer du anvisningarna i [den här artikeln](physical-azure-set-up-source.md). 
+- Site Recovery innehåller en OVA-mall som du hämtar från Azure-portalen och importerar till vCenter Server för att konfigurera konfigurationsservern VM.
+- När du distribuerar konfigurationsservern med OVA-mallen uppfyller den virtuella datorn automatiskt kraven i den här artikeln.
+- Vi rekommenderar starkt att du ställer in konfigurationsservern med hjälp av OVA-mallen. Men om du konfigurerar haveriberedskap för virtuella datorer med VMware och inte kan använda OVA-mallen kan du distribuera [konfigurationsservern](physical-azure-set-up-source.md)med hjälp av dessa instruktioner .
+- Om du distribuerar konfigurationsservern för haveriberedskap av lokala fysiska datorer till Azure följer du anvisningarna i den [här artikeln](physical-azure-set-up-source.md). 
 
 [!INCLUDE [site-recovery-configuration-server-requirements](../../includes/site-recovery-configuration-and-scaleout-process-server-requirements.md)]
 
 ## <a name="next-steps"></a>Nästa steg
-Konfigurera katastrof återställning av [virtuella VMware-datorer](vmware-azure-tutorial.md) till Azure.
+Konfigurera haveriberedskap av virtuella datorer med [VMware](vmware-azure-tutorial.md) till Azure.

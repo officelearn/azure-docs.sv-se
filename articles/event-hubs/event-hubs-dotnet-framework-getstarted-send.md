@@ -1,6 +1,6 @@
 ---
-title: Azure Event Hubs – skicka/ta emot händelser med hjälp av .NET Framework
-description: 'Snabb start: den här artikeln innehåller en genom gång av hur du skapar ett .NET Framework program som skickar händelser till Azure Event Hubs.'
+title: Azure Event Hubs - Skicka/ta emot händelser med .NET Framework
+description: 'Snabbstart: Den här artikeln innehåller en genomgång för att skapa ett .NET Framework-program som skickar händelser till Azure Event Hubs.'
 services: event-hubs
 documentationcenter: ''
 author: ShubhaVijayasarathy
@@ -16,29 +16,29 @@ ms.custom: seodec18
 ms.date: 12/20/2019
 ms.author: shvija
 ms.openlocfilehash: 385430d993afe8b7a0ad57991d3c93eebd46ddcb
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "79240956"
 ---
-# <a name="quickstart-send-events-to-or-receive-events-from-azure-event-hubs-using-net-framework"></a>Snabb start: skicka händelser till eller ta emot händelser från Azure Event Hubs med .NET Framework
+# <a name="quickstart-send-events-to-or-receive-events-from-azure-event-hubs-using-net-framework"></a>Snabbstart: Skicka händelser till eller ta emot händelser från Azure Event Hubs med .NET Framework
 Azure Event Hubs är en strömningstjänst för stordata och händelseinmatningstjänst som kan ta emot och bearbeta flera miljoner händelser per sekund. Event Hubs kan bearbeta och lagra händelser, data eller telemetri som producerats av distribuerade program och enheter. Data som skickas till en händelsehubb kan omvandlas och lagras med valfri provider för realtidsanalys eller batchbearbetnings-/lagringsadapter. En detaljerad översikt över Event Hubs finns i [Översikt över Event Hubs](event-hubs-about.md) och [Event Hubs-funktioner](event-hubs-features.md).
 
-Den här självstudien visar hur du skapar .NET Framework C# konsol program i för att skicka händelser till eller ta emot händelser från en eventhub. 
+Den här självstudien visar hur du skapar .NET Framework-konsolprogram i C# för att skicka händelser till eller ta emot händelser från en eventhub. 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 För att slutföra den här självstudien, finns följande förhandskrav:
 
 - [Microsoft Visual Studio 2019](https://visualstudio.com).
-- **Skapa ett Event Hubs-namnområde och en Event Hub**. Det första steget är att använda [Azure Portal](https://portal.azure.com) till att skapa ett namnområde av typen Event Hubs och hämta de autentiseringsuppgifter för hantering som programmet behöver för att kommunicera med händelsehubben. Om du behöver skapa ett namnområde och en händelsehubb följer du anvisningarna i [den här artikeln](event-hubs-create.md). Hämta sedan **anslutnings strängen för Event Hub-namnområdet** genom att följa anvisningarna i artikeln: [Hämta anslutnings sträng](event-hubs-get-connection-string.md#get-connection-string-from-the-portal). Du kan använda anslutningssträngen senare i den här självstudien.
+- **Skapa ett namnområde för händelsehubbar och en händelsehubb**. Det första steget är att använda [Azure-portalen](https://portal.azure.com) för att skapa ett namnområde av typen Event Hubs och hämta de hanteringsautentiseringsuppgifter som ditt program behöver för att kommunicera med händelsehubben. Om du behöver skapa ett namnområde och en händelsehubb följer du anvisningarna i [den här artikeln](event-hubs-create.md). Hämta sedan **anslutningssträngen för namnområdet för händelsehubben** genom att följa instruktionerna i artikeln: [Hämta anslutningssträng](event-hubs-get-connection-string.md#get-connection-string-from-the-portal). Du kan använda anslutningssträngen senare i den här självstudien.
 
 ## <a name="send-events"></a>Skicka händelser 
-Det här avsnittet visar hur du skapar ett .NET Framework-konsolprogram för att skicka händelser till en Event Hub. 
+I det här avsnittet visas hur du skapar ett .NET Framework-konsolprogram för att skicka händelser till en händelsehubb. 
 
 ### <a name="create-a-console-application"></a>Skapa ett konsolprogram
 
-I Visual Studio skapar du ett nytt Visual C#-skrivbordsapprojekt med hjälp av projektmallen **Konsolprogram**. Namnge projektet **Avsändare**.
+Skapa ett nytt Visual C# Desktop App-projekt i Visual Studio med projektmallen **Console Application.** Namnge projektet **Avsändare**.
    
 ![Skapa konsolprogram](./media/event-hubs-dotnet-framework-getstarted-send/create-sender-csharp1.png)
 
@@ -47,25 +47,25 @@ I Visual Studio skapar du ett nytt Visual C#-skrivbordsapprojekt med hjälp av p
 1. Högerklicka på projektet **Avsändare** i Solution Explorer och klicka sedan på **Hantera NuGet-paket för lösningen**. 
 2. Klicka på **Bläddra**-fliken och sök sedan efter `WindowsAzure.ServiceBus`. Klicka på **Installera** och godkänn användningsvillkoren. 
    
-    ![Installera Service Bus NuGet-paketet](./media/event-hubs-dotnet-framework-getstarted-send/create-sender-csharp2.png)
+    ![Installera servicebuss NuGet-paketet](./media/event-hubs-dotnet-framework-getstarted-send/create-sender-csharp2.png)
    
     Visual Studio laddar ned, installerar och lägger till en referens till [Azure Service Bus-bibliotekets NuGet-paket](https://www.nuget.org/packages/WindowsAzure.ServiceBus).
 
 ### <a name="write-code-to-send-messages-to-the-event-hub"></a>Skriva kod för att skicka meddelanden till händelsehubben
 
-1. Lägg till följande `using`-uttryck överst i **Program.cs**-filen:
+1. Lägg till `using` följande satser högst upp i **Program.cs-filen:**
    
     ```csharp
     using System.Threading;
     using Microsoft.ServiceBus.Messaging;
     ```
-2. Lägg till följande fält i klassen **Program**, och ersätt platshållarvärdena med namnet på den händelsehubb du skapade i föregående avsnitt samt anslutningssträngen på namnområdesnivå som du sparat tidigare. Du kan kopiera anslutnings strängen för händelsehubben från **anslutnings strängen – primär** nyckel under **RootManageSharedAccessKey** på sidan Event Hub i Azure Portal. Detaljerade anvisningar finns i [Hämta anslutnings sträng](event-hubs-get-connection-string.md#get-connection-string-from-the-portal).
+2. Lägg till följande fält i klassen **Program**, och ersätt platshållarvärdena med namnet på den händelsehubb du skapade i föregående avsnitt samt anslutningssträngen på namnområdesnivå som du sparat tidigare. Du kan kopiera anslutningssträngen för händelsehubben från **Connection string-primary** key under **RootManageSharedAccessKey** på sidan Event Hub i Azure-portalen. Detaljerade steg finns i [Hämta anslutningssträng](event-hubs-get-connection-string.md#get-connection-string-from-the-portal).
    
     ```csharp
     static string eventHubName = "Your Event Hub name";
     static string connectionString = "namespace connection string";
     ```
-3. Lägg till följande metod till **Program**-klassen:
+3. Lägg till följande metod i klassen **Program:**
    
       ```csharp
       static void SendingRandomMessages()
@@ -103,7 +103,7 @@ I Visual Studio skapar du ett nytt Visual C#-skrivbordsapprojekt med hjälp av p
 5. Kör programmet och kontrollera att det inte finns några fel.
   
 ## <a name="receive-events"></a>Ta emot händelser
-I det här avsnittet skriver du ett .NET Framework-konsol program som tar emot meddelanden från en händelsehubben med hjälp av [händelse bearbetnings värden](event-hubs-event-processor-host.md). [Värden för händelsebearbetning](event-hubs-event-processor-host.md) är en .NET-klass som förenklar mottagandet av händelser från händelsehubbar genom att hantera permanenta kontrollpunkter och parallella mottaganden från händelsehubbar. Med hjälp av värden för händelsebearbetning kan du dela upp händelser över flera olika mottagare, även när de ligger på olika noder. 
+I det här avsnittet skriver du ett .NET Framework-konsolprogram som tar emot meddelanden från en händelsehubb med [händelseprocessorvärden](event-hubs-event-processor-host.md). [Värden för händelsebearbetning](event-hubs-event-processor-host.md) är en .NET-klass som förenklar mottagandet av händelser från händelsehubbar genom att hantera permanenta kontrollpunkter och parallella mottaganden från händelsehubbar. Med hjälp av värden för händelsebearbetning kan du dela upp händelser över flera olika mottagare, även när de ligger på olika noder. 
 
 [!INCLUDE [event-hubs-create-storage](../../includes/event-hubs-create-storage.md)]
 
@@ -118,7 +118,7 @@ I Visual Studio skapar du ett nytt Visual C#-skrivbordsapprojekt med hjälp av p
 1. Högerklicka på projektet **Mottagare** i Solution Explorer och klicka sedan på **Hantera NuGet-paket för lösningen**.
 2. Klicka på **Bläddra**-fliken och sök sedan efter `Microsoft Azure Service Bus Event Hub - EventProcessorHost`. Klicka på **Installera** och godkänn användningsvillkoren.
    
-    ![Sök efter Event Processor Host NuGet-paketet](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-eph-csharp1.png)
+    ![Sök efter paketet För evenemangsprocessorvärd NuGet](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-eph-csharp1.png)
    
     Visual Studio laddar ned, installerar och lägger till en referens till [Azure Service Bus Event Hub –EventProcessorHost NuGet-paket ](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost), med alla sina beroenden.
 
@@ -126,7 +126,7 @@ I Visual Studio skapar du ett nytt Visual C#-skrivbordsapprojekt med hjälp av p
 
 1. Högerklicka på **Mottagare**-projektet, klicka på **Lägg till** och klicka sedan på **Klass**. Kalla den nya klassen för **SimpleEventProcessor** och klicka sedan på **Lägg till** för att skapa klassen.
    
-    ![Lägg till SimpleEventProcessor-klassen](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-receiver-csharp2.png)
+    ![Lägg till klassen SimpleEventProcessor](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-receiver-csharp2.png)
 2. Lägg till följande uttryck överst i filen SimpleEventProcessor.cs:
     
       ```csharp
@@ -134,7 +134,7 @@ I Visual Studio skapar du ett nytt Visual C#-skrivbordsapprojekt med hjälp av p
       using System.Diagnostics;
       ```
     
-3. Ersätt följande kod för innehållet i klassen:
+3. Ersätt följande kod för klassens brödtext:
     
       ```csharp
       class SimpleEventProcessor : IEventProcessor
@@ -188,7 +188,7 @@ I Visual Studio skapar du ett nytt Visual C#-skrivbordsapprojekt med hjälp av p
       using Microsoft.ServiceBus.Messaging;
       ```
     
-2. Ersätt `Main`-metoden i `Program`-klassen med följande kod, och ersätt namnet på händelsehubben och anslutnings strängen på namn områdes nivå som du sparade tidigare, samt lagrings kontot och nyckeln som du kopierade i föregående avsnitt. 
+2. Ersätt `Main` metoden i `Program` klassen med följande kod och ersätt händelsenavets namn och anslutningssträngen på namnområdesnivå som du sparade tidigare och det lagringskonto och den nyckel som du kopierade i föregående avsnitt. 
     
       ```csharp
       static void Main(string[] args)

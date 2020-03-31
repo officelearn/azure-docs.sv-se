@@ -1,6 +1,6 @@
 ---
-title: Distribuera moduler i skala i Azure Portal-Azure IoT Edge
-description: Använda Azure portal för att skapa automatiska distributioner för grupper av IoT Edge-enheter
+title: Distribuera moduler i stor skala i Azure Portal - Azure IoT Edge
+description: Använda Azure-portalen för att skapa automatiska distributioner för grupper av IoT Edge-enheter
 keywords: ''
 author: kgremban
 manager: philmea
@@ -10,23 +10,23 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: 0a20ea4236683e26c51bc75309435c65e24271d7
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79271439"
 ---
-# <a name="deploy-and-monitor-iot-edge-modules-at-scale-using-the-azure-portal"></a>Distribuera och övervaka IoT Edge-moduler i stor skala med Azure portal
+# <a name="deploy-and-monitor-iot-edge-modules-at-scale-using-the-azure-portal"></a>Distribuera och övervaka IoT Edge-moduler i stor skala med Azure-portalen
 
-Skapa en **IoT Edge automatisk distribution** i Azure Portal för att hantera pågående distributioner för många enheter samtidigt. Automatiska distributioner för IoT Edge ingår i funktionen [Automatisk enhets hantering](/azure/iot-hub/iot-hub-automatic-device-management) i IoT Hub. Distributioner är dynamiska processer som gör att du kan distribuera flera moduler till flera enheter, spåra status och hälsa för modulerna och göra ändringar när det behövs.
+Skapa en automatisk distribution i **IoT Edge** i Azure-portalen för att hantera pågående distributioner för många enheter samtidigt. Automatiska distributioner för IoT Edge är en del av den [automatiska enhetshanteringsfunktionen](/azure/iot-hub/iot-hub-automatic-device-management) i IoT Hub. Distributioner är dynamiska processer som gör att du kan distribuera flera moduler till flera enheter, spåra status och hälsotillstånd för modulerna och göra ändringar vid behov.
 
-Mer information finns i [förstå IoT Edge automatiska distributioner för enskilda enheter eller i skala](module-deployment-monitoring.md).
+Mer information finns i [Förstå IoT Edge automatiska distributioner för enskilda enheter eller i stor skala](module-deployment-monitoring.md).
 
 ## <a name="identify-devices-using-tags"></a>Identifiera enheter med hjälp av taggar
 
-Innan du kan skapa en distribution måste ha för att kunna ange vilka enheter som du vill påverka. Azure IoT Edge identifierar enheter med hjälp av **taggar** i enheten med dubbla. Varje enhet kan ha flera taggar som du definierar på ett sätt som passar din lösning.
+Innan du kan skapa en distribution måste du kunna ange vilka enheter du vill påverka. Azure IoT Edge identifierar enheter med hjälp av **taggar** i enhetstvillingen. Varje enhet kan ha flera taggar som du definierar på något sätt som är meningsfullt för din lösning.
 
-Om du till exempel hanterar ett campus-nätverk kan du lägga till plats, rums typ och miljö etiketter på en enhet:
+Om du till exempel hanterar ett campus med smarta byggnader kan du lägga till plats-, rumstyp- och miljötaggar på en enhet:
 
 ```json
 "tags":{
@@ -39,200 +39,200 @@ Om du till exempel hanterar ett campus-nätverk kan du lägga till plats, rums t
 }
 ```
 
-Mer information om enhets sammanflätade och taggar finns i [förstå och använda enhets uppIoT Hub](../iot-hub/iot-hub-devguide-device-twins.md).
+Mer information om enhetstvillingar och -taggar finns i [Förstå och använda enhetstvillingar i IoT Hub](../iot-hub/iot-hub-devguide-device-twins.md).
 
 ## <a name="create-a-deployment"></a>Skapa en distribution
 
-IoT Edge tillhandahåller två olika typer av automatiska distributioner som du kan använda för att anpassa ditt scenario. Du kan skapa en standard *distribution*, som innehåller system runtime-moduler och eventuella ytterligare moduler och vägar. Varje enhet kan bara använda en distribution. Du kan också skapa en *lager distribution*som bara innehåller anpassade moduler och vägar, inte systemets körnings miljö. Många lager distributioner kan kombineras på en enhet, ovanpå en standard distribution. Mer information om hur de två typerna av automatisk distribution fungerar tillsammans finns i [förstå IoT Edge automatiska distributioner för enskilda enheter eller i skala](module-deployment-monitoring.md).
+IoT Edge innehåller två olika typer av automatiska distributioner som du kan använda för att anpassa ditt scenario. Du kan skapa en *standarddistribution*, som innehåller systemkörningsmoduler och eventuella ytterligare moduler och vägar. Varje enhet kan bara använda en distribution. Du kan också skapa en *distribution i flera lager*, som bara innehåller anpassade moduler och vägar, inte systemets körning. Många distributioner i flera lager kan kombineras på en enhet, ovanpå en standarddistribution. Mer information om hur de två typerna av automatiska distributioner fungerar tillsammans finns i [Förstå IoT Edge automatiska distributioner för enskilda enheter eller i stor skala](module-deployment-monitoring.md).
 
-Stegen för att skapa en distribution och en lager distribution är mycket lika. Eventuella skillnader anropas i följande steg.
+Stegen för att skapa en distribution och en distribution i flera lager är mycket lika. Eventuella skillnader anropas i följande steg.
 
-1. I [Azure Portal](https://portal.azure.com)går du till din IoT Hub.
-1. I menyn i den vänstra rutan väljer du **IoT Edge** under **Automatisk enhets hantering**.
-1. I den övre stapeln väljer du **skapa distribution** eller **skapa lager distribution**.
+1. Gå till din IoT Hub i [Azure-portalen.](https://portal.azure.com)
+1. Välj **IoT Edge** under **Automatisk enhetshantering**på menyn i den vänstra rutan .
+1. I det övre fältet väljer du **Skapa distribution** eller **Skapa lagerdistribution**.
 
-Det finns fem steg för att skapa en distribution. I följande avsnitt beskriver var och en.
+Det finns fem steg för att skapa en distribution. Följande avsnitt går igenom var och en.
 
-### <a name="step-1-name-and-label"></a>Steg 1: namn och etikett
+### <a name="step-1-name-and-label"></a>Steg 1: Namn och etikett
 
-1. Ge distributionen ett unikt namn som är upp till 128 gemener. Undvik blank steg och följande ogiltiga tecken: `& ^ [ ] { } \ | " < > /`.
-1. Du kan lägga till etiketter som nyckel/värde-par som hjälper dig att spåra dina distributioner. Till exempel **HostPlatform** och **Linux**, eller **version** och **3.0.1**.
-1. Välj **Nästa: moduler** för att gå vidare till steg två.
+1. Ge distributionen ett unikt namn som är upp till 128 gemener. Undvik blanksteg och följande `& ^ [ ] { } \ | " < > /`ogiltiga tecken: .
+1. Du kan lägga till etiketter som nyckel-värde-par för att spåra dina distributioner. **HostPlatform** och **Linux**, eller **Version** och **3.0.1**.
+1. Välj **Nästa: Moduler** för att gå till steg två.
 
-### <a name="step-2-modules"></a>Steg 2: moduler
+### <a name="step-2-modules"></a>Steg 2: Moduler
 
-Du kan lägga till upp till 20 moduler i en distribution. Om du skapar en distribution utan moduler tas alla aktuella moduler bort från mål enheterna.
+Du kan lägga till upp till 20 moduler i en distribution. Om du skapar en distribution utan moduler tas alla aktuella moduler bort från målenheterna.
 
-I distributioner kan du hantera inställningarna för IoT Edge agent och IoT Edge Hub-moduler. Välj **körnings inställningar** för att konfigurera de två körnings modulerna. I skiktad distribution inkluderas inte runtime-modulerna så att de inte kan konfigureras.
+I distributioner kan du hantera inställningarna för IoT Edge-agenten och IoT Edge-hubbmodulerna. Välj **Körningsinställningar** om du vill konfigurera de två körningsmodulerna. I distributionen i flera lager ingår inte körningsmodulerna så det går inte att konfigurera.
 
 Du kan lägga till tre typer av moduler:
 
-* IoT Edge modul
+* IoT-kantmodul
 * Marketplace-modul
-* Azure Stream Analytics modul
+* Analysmodul för Azure Stream
 
-#### <a name="add-an-iot-edge-module"></a>Lägg till en IoT Edge-modul
+#### <a name="add-an-iot-edge-module"></a>Lägga till en IoT Edge-modul
 
-Lägga till anpassad kod som en modul, eller att manuellt lägga till en Azure-tjänst-modul, gör du följande:
+Så här lägger du till anpassad kod som en modul eller lägger till en Azure-tjänstmodul manuellt:
 
-1. I avsnittet **container Registry autentiseringsuppgifter** på sidan anger du namn och autentiseringsuppgifter för alla privata behållar register som innehåller modulens avbildningar för den här distributionen. IoT Edge-agenten rapporterar fel 500 om den inte kan hitta autentiseringsuppgifterna för behållar registret för en Docker-avbildning.
-1. I avsnittet **IoT Edge moduler** på sidan klickar du på **Lägg till**.
-1. Välj **IoT Edge modul** på den nedrullningsbara menyn.
-1. Ge modulen ett **IoT Edge modulens namn**.
-1. I fältet **bild-URI** anger du behållar avbildningen för modulen.
-1. Använd den nedrullningsbara menyn för att välja en **princip för omstart**. Välj bland följande alternativ:
-   * **Always** -modulen startar alltid om den stängs av av någon anledning.
-   * **aldrig** -modulen startar aldrig om, om den stängs av av någon anledning.
-   * **vid fel** – modulen startas om om den kraschar, men inte om den stängs av på ett säkert sätt.
-   * **on-ohälsosamt** -modulen startar om om den kraschar eller returnerar en felaktig status. Det är upp till varje modul att implementera funktionen hälsotillstånd status.
-1. Använd den nedrullningsbara menyn för att välja **önskad status** för modulen. Välj bland följande alternativ:
-   * **körning** – körs är standard alternativet. Modulen ska börja köras omedelbart efter att ha distribuerats.
-   * **stoppad** – när modulen har distribuerats förblir modulen inaktiv tills den anropas av dig eller någon annan modul.
-1. Ange eventuella **skapande alternativ för behållare** som ska skickas till behållaren. Mer information finns i [Docker skapa](https://docs.docker.com/engine/reference/commandline/create/).
-1. Välj **modul, dubbla inställningar** om du vill lägga till taggar eller andra egenskaper i modulen.
-1. Ange **miljövariabler** för den här modulen. Miljövariabler ger konfigurations information till en modul.
-1. Välj **Lägg till** för att lägga till modulen i distributionen.
+1. I avsnittet **Autentiseringsuppgifter för behållarregister** på sidan anger du namn och autentiseringsuppgifter för alla privata behållarregister som innehåller modulavbildningarna för den här distributionen. IoT Edge Agent rapporterar fel 500 om den inte kan hitta behållarregistrets autentiseringsuppgifter för en Docker-avbildning.
+1. Klicka på **Lägg till**i avsnittet **IoT-kantmoduler** på sidan .
+1. Välj **IoT Edge Module** på rullgardinsmenyn.
+1. Ge modulen ett **IoT Edge-modulnamn**.
+1. För fältet **Bild-URI** anger du behållaravbildningen för modulen.
+1. Använd den nedrullningsbara menyn för att välja en **omstartsprincip**. Välj bland följande alternativ:
+   * **alltid** - Modulen startar alltid om den stängs av någon anledning.
+   * **aldrig** - Modulen startar aldrig om den stängs av av någon anledning.
+   * **on-failure** - Modulen startar om den kraschar, men inte om den stängs av rent.
+   * **on-unhealthy** - Modulen startar om den kraschar eller returnerar en felaktig status. Det är upp till varje modul att implementera hälsostatusfunktionen.
+1. Använd rullgardinsmenyn för att välja **önskad status** för modulen. Välj bland följande alternativ:
+   * **köra** - Löpning är standardalternativet. Modulen börjar köras omedelbart efter att den har distribuerats.
+   * **stoppad** - Efter att ha distribuerats förblir modulen inaktiv tills den uppmanas att starta av dig eller en annan modul.
+1. Ange eventuella **alternativ för att skapa behållare** som ska skickas till behållaren. Mer information finns i [docker create](https://docs.docker.com/engine/reference/commandline/create/).
+1. Välj **Modultvillinginställningar** om du vill lägga till taggar eller andra egenskaper i modultvillingen.
+1. Ange **miljövariabler** för den här modulen. Miljövariabler ger konfigurationsinformation till en modul.
+1. Välj **Lägg till** om du vill lägga till modulen i distributionen.
 
-#### <a name="add-a-module-from-the-marketplace"></a>Lägg till en modul från Marketplace
+#### <a name="add-a-module-from-the-marketplace"></a>Lägga till en modul från Marketplace
 
-Följ dessa steg om du vill lägga till en modul från Azure Marketplace:
+Så här lägger du till en modul från Azure Marketplace:
 
-1. I avsnittet **IoT Edge moduler** på sidan klickar du på **Lägg till**.
+1. Klicka på **Lägg till**i avsnittet **IoT-kantmoduler** på sidan .
 1. Välj **Marketplace-modul** på den nedrullningsbara menyn.
-1. Välj en modul på sidan **IoT Edge modul Marketplace** . Den modul du väljer konfigureras automatiskt för din prenumeration, resurs grupp och enhet. Den visas sedan i listan med IoT Edge moduler. Vissa moduler kan kräva ytterligare konfiguration. Mer information finns i [distribuera moduler från Azure Marketplace](how-to-deploy-modules-portal.md#deploy-modules-from-azure-marketplace).
+1. Välj en modul på **marketplace-sidan IoT Edge Module** Marketplace. Modulen du väljer konfigureras automatiskt för din prenumeration, resursgrupp och enhet. Den visas sedan i din lista över IoT Edge-moduler. Vissa moduler kan kräva ytterligare konfiguration. Mer information finns i [Distribuera moduler från Azure Marketplace](how-to-deploy-modules-portal.md#deploy-modules-from-azure-marketplace).
 
-#### <a name="add-a-stream-analytics-module"></a>Lägg till en Stream Analytics-modul
+#### <a name="add-a-stream-analytics-module"></a>Lägga till en Stream Analytics-modul
 
-Följ dessa steg för att lägga till en modul från Azure Stream Analytics:
+Så här lägger du till en modul från Azure Stream Analytics:
 
-1. I avsnittet **IoT Edge moduler** på sidan klickar du på **Lägg till**.
-1. Välj **Azure Stream Analytics modul** på den nedrullningsbara menyn.
-1. Välj din **prenumeration**i den högra rutan.
+1. Klicka på **Lägg till**i avsnittet **IoT-kantmoduler** på sidan .
+1. Välj **Azure Stream Analytics-modul** på den nedrullningsbara menyn.
+1. Välj **prenumeration**i den högra rutan .
 1. Välj ditt IoT **Edge-jobb**.
-1. Välj **Spara** för att lägga till modulen i distributionen.
+1. Välj **Spara** om du vill lägga till modulen i distributionen.
 
-#### <a name="configure-module-settings"></a>Konfigurera inställningar för modul
+#### <a name="configure-module-settings"></a>Konfigurera modulinställningar
 
-När du har lagt till en modul i en distribution kan du välja dess namn för att öppna sidan **uppdatera IoT Edge-modul** . På den här sidan kan du redigera inställningarna för modulen, miljövariabler, skapa alternativ och modulens dubbla. Om du har lagt till en modul från Marketplace kanske den redan har en del av de här parametrarna ifyllda.
+När du har lagt till en modul i en distribution kan du välja dess namn för att öppna sidan **Uppdatera IoT Edge Module.** På den här sidan kan du redigera modulinställningar, miljövariabler, skapa alternativ och modultvilling. Om du har lagt till en modul från marknadsplatsen kan det redan ha några av dessa parametrar ifyllda.
 
-Om du skapar en lager distribution kan du konfigurera en modul som finns i andra distributioner som riktar sig mot samma enheter. Om du vill uppdatera modulen, utan att skriva över andra versioner, öppnar du fliken med **dubbla inställningar** . skapa en ny **modul, dubbel egenskap** med ett unikt namn för ett underavsnitt i modulens unika egenskaper, till exempel `properties.desired.settings`. Om du definierar egenskaper inom bara `properties.desired` fältet skrivs de önskade egenskaperna för modulen som definierats i eventuella distributioner med lägre prioritet.
+Om du skapar en distribution i flera lager kan du konfigurera en modul som finns i andra distributioner som är inriktade på samma enheter. Om du vill uppdatera modultvillingen utan att skriva **Module Twin Property** över andra versioner öppnar du fliken `properties.desired.settings` **Modultvillinginställningar.** Om du definierar `properties.desired` egenskaper inom bara fältet skrivs de önskade egenskaperna för modulen som definierats i alla distributioner med lägre prioritet över.
 
-![Ställ in modul, delad egenskap för lager distribution](./media/how-to-deploy-monitor/module-twin-property.png)
+![Ange egenskap för modultvilling för distribution i flera lager](./media/how-to-deploy-monitor/module-twin-property.png)
 
-Mer information om modulens dubbla konfiguration i lager distributioner finns i [lager distribution](module-deployment-monitoring.md#layered-deployment).
+Mer information om modultvillingkonfiguration i distributioner i flera lager finns i [Lagerbaserad distribution](module-deployment-monitoring.md#layered-deployment).
 
-När du har konfigurerat alla moduler för en konfigurerad distribution väljer du **Nästa: vägar** för att gå vidare till steg tre.
+När du har konfigurerat alla moduler för en distribution väljer du **Nästa: Vägar** för att gå till steg tre.
 
-### <a name="step-3-routes"></a>Steg 3: vägar
+### <a name="step-3-routes"></a>Steg 3: Rutter
 
-Vägar definierar hur moduler kommunicerar med varandra i en distribution. Som standard ger guiden en väg som kallas **överordnad** och definieras som **från/messages/\* till $upstream**, vilket innebär att alla meddelanden som skickas av alla moduler skickas till din IoT-hubb.  
+Vägar definierar hur moduler kommunicerar med varandra i en distribution. Som standard ger guiden dig en väg som anropas **uppströms** och definieras som **\* FRÅN /messages/ INTO $upstream**, vilket innebär att alla meddelanden som matas ut av alla moduler skickas till din IoT-hubb.  
 
-Lägg till eller uppdatera vägarna med information från [deklarera vägar](module-composition.md#declare-routes), och välj sedan **Nästa** för att fortsätta till gransknings avsnittet.
+Lägg till eller uppdatera flödena med information från [Deklarera vägar](module-composition.md#declare-routes)och välj sedan **Nästa** för att fortsätta till granskningsavsnittet.
 
-Välj **Nästa: mått**.
+Välj **Nästa: Mått**.
 
-### <a name="step-4-metrics"></a>Steg 4: mått
+### <a name="step-4-metrics"></a>Steg 4: Mått
 
-Mått tillhandahåller sammanfattande antal i de olika tillstånd som en enhet kan rapportera tillbaka till följd av att konfigurations innehåll tillämpas.
+Mått ger sammanfattningar av de olika tillstånd som en enhet kan rapportera tillbaka som ett resultat av att tillämpa konfigurationsinnehåll.
 
-1. Ange ett namn för **måttets namn**.
+1. Ange ett namn **för Måttnamn**.
 
-1. Ange en fråga för **mått villkor**. Frågan baseras på IoT Edge Hub-modulens dubbla [rapporterade egenskaper](module-edgeagent-edgehub.md#edgehub-reported-properties). Måttet representerar antalet rader som returneras av frågan.
+1. Ange en fråga för **måttvillkor**. Frågan baseras på IoT Edge hub module twin [rapporterade egenskaper](module-edgeagent-edgehub.md#edgehub-reported-properties). Måttet representerar antalet rader som returneras av frågan.
 
-   Exempel:
+   Ett exempel:
 
    ```sql
    SELECT deviceId FROM devices
      WHERE properties.reported.lastDesiredStatus.code = 200
    ```
 
-Välj **Nästa: mål enheter**.
+Välj **Nästa: Målenheter**.
 
-### <a name="step-5-target-devices"></a>Steg 5: mål enheter
+### <a name="step-5-target-devices"></a>Steg 5: Målenheter
 
-Använd egenskapen taggar från dina enheter för att fokusera på specifika enheter som ska ta emot den här distributionen.
+Använd egenskapen tags från dina enheter för att rikta in dig på de specifika enheter som ska ta emot den här distributionen.
 
-Eftersom flera distributioner kan samma enhet som mål, bör du ge varje distribution flera prioritet. Om det finns en konflikt är distributionen med högst prioritet (större värden anger högre prioritet) WINS. Om två distributioner har samma prioritetsnummer, det som har skapats i de flesta WINS-nyligen.
+Eftersom flera distributioner kan rikta samma enhet bör du ge varje distribution ett prioritetsnummer. Om det någonsin finns en konflikt vinner distributionen med högst prioritet (större värden anger högre prioritet). Om två distributioner har samma prioritetsnummer vinner den som skapades senast.
 
-Om flera distributioner riktar sig till samma enhet används bara den som har den högre prioriteten. Om flera lager distributioner riktar sig till samma enhet används alla. Men om några av egenskaperna dupliceras, som om det finns två vägar med samma namn, skrivs resten av med en lager med högre prioritet.
+Om flera distributioner är inriktade på samma enhet används bara den med högre prioritet. Om flera distributioner i flera lager riktar sig till samma enhet tillämpas alla. Men om några egenskaper dupliceras, som om det finns två vägar med samma namn, skriver den från distributionen med högre prioritet resten.
 
-Alla lager distributioner riktade till en enhet måste ha en högre prioritet än den grundläggande distributionen för att kunna tillämpas.
+Alla distributioner i flera lager som är inriktade på en enhet måste ha högre prioritet än basdistributionen för att kunna användas.
 
-1. Ange ett positivt heltal för distributions **prioriteten**.
-1. Ange ett **mål villkor** för att avgöra vilka enheter som ska vara mål för distributionen. Villkoret baseras på enhetens dubbla taggar eller enhets egenskaper med dubbla rapporter och ska överensstämma med uttrycks formatet. Till exempel `tags.environment='test'` eller `properties.reported.devicemodel='4000x'`.
+1. Ange ett positivt heltal för **distributionsprioritet**.
+1. Ange ett **målvillkor** för att avgöra vilka enheter som ska riktas med den här distributionen.Villkoret baseras på enhetstvillingtaggar eller enhetstvillingrapporterade egenskaper och bör matcha uttrycksformatet.Exempel: `tags.environment='test'` eller `properties.reported.devicemodel='4000x'`.
 
-Välj **Nästa: granska + skapa** för att gå vidare till det sista steget.
+Välj **Nästa: Granska + Skapa** om du vill gå vidare till det sista steget.
 
-### <a name="step-6-review-and-create"></a>Steg 6: granska och skapa
+### <a name="step-6-review-and-create"></a>Steg 6: Granska och skapa
 
-Granska distributions informationen och välj sedan **skapa**.
+Granska distributionsinformationen och välj sedan **Skapa**.
 
 ## <a name="monitor-a-deployment"></a>Övervaka en distribution
 
-Använd följande steg för att visa information om en distribution och övervakning av enheter som kör den:
+Så här visar du information om en distribution och övervakar de enheter som kör den:
 
-1. Logga in på [Azure Portal](https://portal.azure.com) och navigera till din IoT Hub.
+1. Logga in på [Azure-portalen](https://portal.azure.com) och navigera till din IoT Hub.
 1. Välj **IoT Edge**.
-1. Välj fliken **IoT Edge distributioner** .
+1. Välj fliken **IoT Edge-distributioner.**
 
    ![Visa IoT Edge-distributioner](./media/how-to-deploy-monitor/iot-edge-deployments.png)
 
-1. Granska listan över distributionen. För varje distribution kan du se följande information:
-   * **ID** – distributionens namn.
-   * **Typ** – typen av distribution, antingen **distribution** eller **lager distribution**.
-   * **Mål villkor** – den tagg som används för att definiera mål enheter.
-   * **Prioritet** – prioritets numret som tilldelats distributionen.
-   * **System mått** - Target anger antalet enheter i IoT Hub som matchar mål villkoret och **används** **anger det** antal enheter som har haft det distributions innehåll som tillämpats på deras modul i IoT Hub.
-   * **Enhets mått** – antalet IoT Edge enheter i distributions rapporteringen lyckades eller fel från IoT Edge klient körning.
-   * **Anpassade mått** – antalet IoT Edge enheter i distributions rapporterings data för alla mät värden som du har definierat för distributionen.
-   * **Skapelse tid** : tidsstämpeln från när distributionen skapades. Den här tidsstämpeln används för att bryta ties när två distributioner har samma prioritet.
-1. Välj distributionen som du vill övervaka.  
-1. Kontrollera distributionen. Du kan använda flikarna för att få mer information om distributionen.
+1. Kontrollera distributionslistan.För varje distribution kan du visa följande information:
+   * **ID** - namnet på distributionen.
+   * **Typ** - typ av distribution, antingen **distribution** eller **lagerdistribution**.
+   * **Målvillkor** - taggen som används för att definiera riktade enheter.
+   * **Prioritet** - prioritetsnumret som tilldelats distributionen.
+   * **Systemmått** - **Riktade** anger antalet enhetstvillingar i IoT Hub som matchar målvillkoret och **Applied** anger antalet enheter som har haft distributionsinnehållet tillämpat på deras modultvillingar i IoT Hub.
+   * **Enhetsmått** – antalet IoT Edge-enheter i distributionsrapporteringen lyckades eller fel från IoT Edge-klientkörningen.
+   * **Anpassade mått** – antalet IoT Edge-enheter i distributionsrapportningsdata för alla mått som du har definierat för distributionen.
+   * **Skapa tid** - tidsstämpeln från när distributionen skapades. Den här tidsstämpeln används för att bryta band när två distributioner har samma prioritet.
+1. Välj den distribution som du vill övervaka.  
+1. Kontrollera distributionsinformationen. Du kan använda flikar för att granska information om distributionen.
 
 ## <a name="modify-a-deployment"></a>Ändra en distribution
 
-När du ändrar en distribution kan replikera ändringarna direkt till alla målriktade enheter.
+När du ändrar en distribution replikeras ändringarna omedelbart till alla riktade enheter.
 
-Om du uppdaterar målvillkoret, inträffar följande uppdateringar:
+Om du uppdaterar målvillkoret sker följande uppdateringar:
 
-* Om en enhet inte uppfyllde gamla målvillkoret, men uppfyller nya målvillkor och den här distributionen är den högsta prioriteten för enheten, tillämpas den här distributionen på enheten.
-* Om en enhet som körs på den här distributionen inte längre uppfyller målvillkoret, avinstallerar den här distributionen och tar på nästa distributionen med högst prioritet.
-* Om en enhet som körs på den här distributionen inte längre uppfyller målvillkoret och uppfyller inte target villkoret för alla andra distributioner, sker ingen ändring på enheten. Enheten fortsätter att köra dess aktuella moduler i det aktuella tillståndet, men hanteras inte som en del av den här distributionen längre. När den uppfyller målvillkoret för alla andra distributioner, avinstallerar den här distributionen och tar på den nya servern.
+* Om en enhet inte uppfyllde det gamla målvillkoret, men uppfyller det nya målvillkoret och den här distributionen har högsta prioritet för den enheten, tillämpas den här distributionen på enheten.
+* Om en enhet som för närvarande kör den här distributionen inte längre uppfyller målvillkoret avinstalleras den här distributionen och får den näst högsta prioritetsdistributionen.
+* Om en enhet som för närvarande kör den här distributionen inte längre uppfyller målvillkoret och inte uppfyller målvillkoret för andra distributioner, sker ingen ändring på enheten. Enheten fortsätter att köra sina aktuella moduler i sitt aktuella tillstånd, men hanteras inte längre som en del av den här distributionen. När den uppfyller målvillkoret för en annan distribution avinstallerar den den här distributionen och tar sig an den nya.
 
-Om du vill ändra en distribution, använder du följande steg:
+Så här ändrar du en distribution:
 
-1. Logga in på [Azure Portal](https://portal.azure.com) och navigera till din IoT Hub.
+1. Logga in på [Azure-portalen](https://portal.azure.com) och navigera till din IoT Hub.
 1. Välj **IoT Edge**.
-1. Välj fliken **IoT Edge distributioner** .
+1. Välj fliken **IoT Edge Deployments.**
 
    ![Visa IoT Edge-distributioner](./media/how-to-deploy-monitor/iot-edge-deployments.png)
 
-1. Välj distributionen som du vill ändra.
+1. Markera den distribution som du vill ändra.
 1. Gör uppdateringar på följande flikar:
-   * **Mål villkor**
+   * **Målvillkor**
    * **Mått** – du kan ändra eller ta bort mått som du har definierat eller lägga till nya.
    * **Etiketter**
    * **Moduler**
-   * **Cirkulera**
+   * **Vägar**
    * **Distribution**
 
 1. Välj **Spara**.
-1. Följ stegen i [övervaka en distribution](#monitor-a-deployment) för att se att ändringarna distribueras.
+1. Följ stegen i [Övervaka en distribution](#monitor-a-deployment) för att se ändringarna distribueras.
 
 ## <a name="delete-a-deployment"></a>Ta bort en distribution
 
-När du tar bort en distribution börjar alla distribuerade enheter med sin näst högsta prioriterade distribution. Om din enhet inte uppfyller målvillkoret för alla andra distributioner, tas sedan moduler inte bort när distributionen har tagits bort.
+När du tar bort en distribution får alla distribuerade enheter sin nästa distribution med högsta prioritet. Om dina enheter inte uppfyller målvillkoret för någon annan distribution tas modulerna inte bort när distributionen tas bort.
 
-1. Logga in på [Azure Portal](https://portal.azure.com) och navigera till din IoT Hub.
+1. Logga in på [Azure-portalen](https://portal.azure.com) och navigera till din IoT Hub.
 1. Välj **IoT Edge**.
-1. Välj fliken **IoT Edge distributioner** .
+1. Välj fliken **IoT Edge Deployments.**
 
    ![Visa IoT Edge-distributioner](./media/how-to-deploy-monitor/iot-edge-deployments.png)
 
-1. Använd kryssrutan för att välja den distribution som du vill ta bort.
+1. Använd kryssrutan för att markera den distribution som du vill ta bort.
 1. Välj **Ta bort**.
-1. En uppmaning informerar om att den här åtgärden tar bort den här distributionen och återgå till det tidigare tillståndet för alla enheter.  Det innebär att en distribution med lägre prioritet kommer att gälla. Om ingen annan distribution är avsedd tas inga moduler bort. Om du vill ta bort alla moduler från din enhet, skapa en distribution med noll moduler och distribuera den till samma enheter. Välj **Ja** om du vill fortsätta.
+1. En uppmaning informerar dig om att den här åtgärden kommer att ta bort den här distributionen och återgå till det tidigare tillståndet för alla enheter.Det innebär att en distribution med lägre prioritet gäller.Om ingen annan distribution är riktad tas inga moduler bort. Om du vill ta bort alla moduler från enheten skapar du en distribution med nollmoduler och distribuerar den till samma enheter.Välj **Ja** om du vill fortsätta.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig mer om [att distribuera moduler till IoT Edge enheter](module-deployment-monitoring.md).
+Läs mer om [att distribuera moduler till IoT Edge-enheter](module-deployment-monitoring.md).

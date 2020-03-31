@@ -1,6 +1,6 @@
 ---
-title: WAF (Azure Web Application Firewall) v2 anpassade regler för Application Gateway
-description: Den här artikeln innehåller en översikt över anpassade regler för brand vägg för webbaserade program (WAF) V2 på Azure Application Gateway.
+title: Anpassade regler för Azure Web Application Firewall (WAF) v2-anpassade regler för Application Gateway
+description: Den här artikeln innehåller en översikt över WAF-anpassade regler för webbprogram brandvägg (WAF) v2 på Azure Application Gateway.
 services: web-application-firewall
 ms.topic: article
 author: vhorne
@@ -8,36 +8,36 @@ ms.service: web-application-firewall
 ms.date: 01/30/2020
 ms.author: victorh
 ms.openlocfilehash: 072c7bd5b5b292ca4f0e53c59fcb7e9771331a94
-ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77031739"
 ---
-# <a name="custom-rules-for-web-application-firewall-v2-on-azure-application-gateway"></a>Anpassade regler för WebApplication-brandväggen v2 på Azure Application Gateway
+# <a name="custom-rules-for-web-application-firewall-v2-on-azure-application-gateway"></a>Anpassade regler för brandvägg för webbprogram v2 på Azure Application Gateway
 
-Azure Application Gateway Web Application Firewall (WAF) v2 levereras med en förkonfigurerad, plattforms oberoende ruleset som ger skydd från många olika typer av attacker. Dessa attacker omfattar Cross Site Scripting, SQL-inmatning och andra. Om du är WAF-administratör kanske du vill skriva egna regler för att utöka reglerna för kärn regel uppsättning (DATORISERAde regler). Reglerna kan antingen blockera eller tillåta begärd trafik baserat på matchnings villkor.
+Azure Application Gateway Web Application Firewall (WAF) v2 levereras med en förkonfigurerad, plattformshanterad regeluppsättning som erbjuder skydd mot många olika typer av attacker. Dessa attacker inkluderar korslokalskript, SQL-injektion och andra. Om du är WAF-administratör kanske du vill skriva dina egna regler för att utöka grundläggande regeluppsättningsreglerna (CRS). Dina regler kan antingen blockera eller tillåta begärd trafik baserat på matchande kriterier.
 
-Med anpassade regler kan du skapa egna regler som utvärderas för varje begäran som passerar genom WAF. Dessa regler innehåller högre prioritet än resten av reglerna i de hanterade regel uppsättningarna. De anpassade reglerna innehåller ett regel namn, regel prioritet och en matris med matchnings villkor. Om dessa villkor är uppfyllda vidtas en åtgärd (för att tillåta eller blockera).
+Med anpassade regler kan du skapa egna regler som utvärderas för varje begäran som passerar genom WAF. Dessa regler har högre prioritet än resten av reglerna i de hanterade regeluppsättningarna. De anpassade reglerna innehåller ett regelnamn, regelprioritet och en matris med matchande villkor. Om dessa villkor är uppfyllda vidtas en åtgärd (för att tillåta eller blockera).
 
-Du kan till exempel blockera alla förfrågningar från en IP-adress i intervallet 192.168.5.4/24. I den här regeln är operatören *IPMatch*, MATCHVALUES är IP-adressintervallet (192.168.5.4/24) och åtgärden är att blockera trafiken. Du anger också regelns namn och prioritet.
+Du kan till exempel blockera alla begäranden från en IP-adress i intervallet 192.168.5.4/24. I den här regeln är operatören *IPMatch*, matchValues är IP-adressintervallet (192.168.5.4/24) och åtgärden är att blockera trafiken. Du anger också regelns namn och prioritet.
 
-Anpassade regler stöder användning av sammansatt logik för att skapa mer avancerade regler som åtgärdar dina säkerhets behov. Till exempel (villkor 1 **och** villkor 2) **eller** villkor 3). Det innebär att om villkoret 1 **och** villkor 2 är uppfyllda, **eller** om villkoret 3 är uppfyllt, bör WAF vidta den åtgärd som anges i den anpassade regeln.
+Anpassade regler stöder hur du använder kompounderingslogik för att skapa mer avancerade regler som tillgodoser dina säkerhetsbehov. Till exempel (villkor 1 **och** villkor 2) **eller** villkor 3). Det innebär att om villkor 1 **och** villkor 2 är uppfyllda, **eller** om villkor 3 är uppfyllt, bör WAF vidta den åtgärd som anges i den anpassade regeln.
 
-Olika matchnings villkor i samma regel är alltid sammansatta med **och**. Du kan till exempel blockera trafik från en specifik IP-adress och endast om de använder en viss webbläsare.
+Olika matchningsvillkor inom samma regel förvärras alltid med **och**. Blockera till exempel trafik från en viss IP-adress och endast om de använder en viss webbläsare.
 
-Om du vill **eller** två olika villkor måste de två villkoren finnas i olika regler. Blockera till exempel trafik från en speciell IP-adress eller blockera trafik om de använder en speciell webbläsare.
+Om du vill **eller** två olika villkor måste de två villkoren vara i olika regler. Blockera till exempel trafik från en viss IP-adress eller blockera trafik om de använder en viss webbläsare.
 
 > [!NOTE]
-> Det maximala antalet anpassade WAF-regler är 100. Mer information om Application Gateway gränser finns i [Azure-prenumerationer och tjänst begränsningar, kvoter och begränsningar](../../azure-resource-manager/management/azure-subscription-service-limits.md#application-gateway-limits).
+> Det maximala antalet ANPASSADE WAF-regler är 100. Mer information om begränsningar för Application Gateway finns i [Azure-prenumerations- och tjänstgränser, kvoter och begränsningar](../../azure-resource-manager/management/azure-subscription-service-limits.md#application-gateway-limits).
 
-Reguljära uttryck stöds också i anpassade regler, precis som i det datoriserade boknings systemet rulesets. Exempel finns i exempel 3 och 5 i [skapa och använda anpassade brand Väggs regler för webb program](create-custom-waf-rules.md).
+Reguljära uttryck stöds också i anpassade regler, precis som i CRS-regeluppsättningarna. Exempel på exempel finns i exempel 3 och 5 i [Skapa och använd anpassade brandväggsregler för webbprogram](create-custom-waf-rules.md).
 
-## <a name="allowing-vs-blocking"></a>Tillåta kontra blockera
+## <a name="allowing-vs-blocking"></a>Tillåta kontra blockering
 
-Det är enkelt att tillåta och blockera trafik med anpassade regler. Du kan till exempel blockera all trafik från ett intervall med IP-adresser. Du kan skapa en annan regel för att tillåta trafik om begäran kommer från en speciell webbläsare.
+Tillåta och blockera trafik är enkelt med anpassade regler. Du kan till exempel blockera all trafik som kommer från ett intervall av IP-adresser. Du kan göra en annan regel för att tillåta trafik om begäran kommer från en viss webbläsare.
 
-Se till att parametern `-Action` är inställd på **Tillåt**för att tillåta något. Om du vill blockera något kontrollerar du att parametern `-Action` är inställd på **blockera**.
+Om du vill tillåta `-Action` något kontrollerar du att parametern är inställd **på Tillåt**. Om du vill blockera `-Action` något kontrollerar du att parametern är inställd **på Blockera**.
 
 ```azurepowershell
 $AllowRule = New-AzApplicationGatewayFirewallCustomRule `
@@ -86,46 +86,46 @@ Föregående `$BlockRule` mappar till följande anpassade regel i Azure Resource
     ], 
 ```
 
-Den här anpassade regeln innehåller ett namn, en prioritet, en åtgärd och matrisen med matchnings villkor som måste uppfyllas för att åtgärden ska äga rum. Mer förklaringar av de här fälten finns i följande fält beskrivningar. Till exempel anpassade regler, se [skapa och använda anpassade brand Väggs regler för webb program](create-custom-waf-rules.md).
+Den här anpassade regeln innehåller ett namn, prioritet, en åtgärd och den matris med matchande villkor som måste uppfyllas för att åtgärden ska kunna utföras. Mer information om dessa fält finns i följande fältbeskrivningar. Till exempel anpassade regler, se [Skapa och använda anpassade webbprogram brandväggsregler](create-custom-waf-rules.md).
 
 ## <a name="fields-for-custom-rules"></a>Fält för anpassade regler
 
 ### <a name="name-optional"></a>Namn [valfritt]
 
-Regelns namn.  Den visas i loggarna.
+Namnet på regeln.  Den visas i loggarna.
 
 ### <a name="priority-required"></a>Prioritet [krävs]
 
-- Fastställer regel värderings ordningen. Ju lägre värde, den tidigare utvärderings versionen av regeln. Det tillåtna intervallet är från 1-100. 
-- Måste vara unikt för alla anpassade regler. En regel med prioritet 40 utvärderas före en regel med prioritet 80.
+- Bestämmer regelvärderingsordern. Ju lägre värde, desto tidigare utvärdering av regeln. Det tillåtna intervallet är från 1-100. 
+- Måste vara unikt i alla anpassade regler. En regel med prioritet 40 utvärderas före en regel med prioritet 80.
 
 ### <a name="rule-type-required"></a>Regeltyp [obligatoriskt]
 
-För närvarande måste vara **MatchRule**.
+För närvarande måste **vara MatchRule**.
 
-### <a name="match-variable-required"></a>Matcha variabel [obligatorisk]
+### <a name="match-variable-required"></a>Matchvariabel [obligatoriskt]
 
 Måste vara en av variablerna:
 
-- RemoteAddr – IP-adress/värdnamn för fjärran sluten dator anslutning
-- RequestMethod – HTTP-metod för begäran (Hämta, skicka, placera, ta bort och så vidare.)
-- QueryString – variabel i URI: n
-- PostArgs – argument skickas i POST-texten. Anpassade regler som använder den här matchnings variabeln används bara om Content-Type-huvudet är inställt på "Application/x-www-form-urlencoded" och "flerdelade/form-data".
+- RemoteAddr – IP-adress/värdnamn för fjärrdatoranslutningen
+- RequestMethod – HTTP-begäran (GET, POST, PUT, DELETE och så vidare.)
+- QueryString – variabel i URI
+- PostArgs - Argument skickas i POST kroppen. Anpassade regler som använder den här matchningsvariabeln tillämpas endast om rubriken "Content-Type" är inställt på "application/x-www-form-urlencoded" och "multipart/form-data".
 - RequestUri – URI för begäran
-- RequestHeaders – huvuden för begäran
-- RequestBody – detta innehåller hela begär ande texten som helhet. Anpassade regler som använder den här matchnings variabeln används bara om Content-Type-huvudet är inställt på ' Application/x-www-form-urlencoded '. 
-- RequestCookies – cookies för begäran
+- RequestHeaders – Rubriker för begäran
+- RequestBody – Detta innehåller hela begäran kroppen som helhet. Anpassade regler med den här matchningsvariabeln tillämpas endast om rubriken "Content-Type" är inställt på "application/x-www-form-urlencoded". 
+- RequestCookies – Cookies för begäran
 
-### <a name="selector-optional"></a>Väljar [valfritt]
+### <a name="selector-optional"></a>Väljare [valfritt]
 
-Beskriver fältet i matchVariable-samlingen. Om matchVariable till exempel är RequestHeaders kan väljaren finnas i *användar agentens* huvud.
+Beskriver fältet för den matchvarierbara samlingen. Om matchVariable till exempel är RequestHeaders kan väljaren finnas i *användaragenthuvudet.*
 
-### <a name="operator-required"></a>Operator [nödvändig]
+### <a name="operator-required"></a>Operatör [krävs]
 
-Måste vara någon av följande operatorer:
+Måste vara en av följande aktörer:
 
-- IPMatch – används endast när match-variabeln är *RemoteAddr*
-- Är lika med – indatamängden är samma som MatchValue
+- IPMatch - används endast när Match variabel är *RemoteAddr*
+- Lika med – indata är samma som MatchValue
 - Innehåller
 - LessThan
 - GreaterThan
@@ -133,38 +133,38 @@ Måste vara någon av följande operatorer:
 - GreaterThanOrEqual
 - BeginsWith
 - EndsWith
-- Verifiering
-- Övermatchning (för hands version)
+- Regex
+- Geomatch (förhandsgranskning)
 
-### <a name="negate-condition-optional"></a>Negera villkor [valfritt]
+### <a name="negate-condition-optional"></a>Förneka villkor [valfritt]
 
-Negerar det aktuella villkoret.
+Upphäver det aktuella tillståndet.
 
-### <a name="transform-optional"></a>Transformering [valfritt]
+### <a name="transform-optional"></a>Transformera [valfritt]
 
-En lista med strängar med namn på omvandlingar som ska utföras innan matchningen görs. Dessa omvandlingar kan vara följande:
+En lista med strängar med namn på omvandlingar att göra innan matchningen görs. Dessa kan vara följande omvandlingar:
 
 - Gemener
-- reducera
-- UrlDecode
-- UrlEncode 
-- RemoveNulls
+- Trim
+- UrlDecode (UrlDecode)
+- UrlEncode (UrlEncode) 
+- Ta bortUller
 - HtmlEntityDecode
 
-### <a name="match-values-required"></a>Matchnings värden [required]
+### <a name="match-values-required"></a>Matcha värden [obligatoriskt]
 
-Lista med värden som ska matchas mot, som kan betraktas som *eller*' ed '. Det kan till exempel vara IP-adresser eller andra strängar. Värde formatet beror på föregående operator.
+Lista över värden att matcha mot, som kan ses som *ELLER ed.* Det kan till exempel vara IP-adresser eller andra strängar. Värdeformatet beror på den tidigare operatorn.
 
 ### <a name="action-required"></a>Åtgärd [krävs]
 
-- Allow – auktoriserar transaktionen och hoppar över alla andra regler. Den angivna begäran läggs till i listan över tillåtna och när den har matchats avbryts begäran ytterligare utvärdering och skickas till backend-poolen. Regler som finns på listan över tillåtna utvärderas inte för några ytterligare anpassade regler eller hanterade regler.
-- Blockera – blockerar transaktionen baserat på *SecDefaultAction* (identifiering/skydds läge). Precis som med åtgärden Tillåt stoppas utvärderings versionen och begäran blockeras när begäran utvärderas och läggs till i blockeringslistan. Alla begär Anden som uppfyller samma villkor utvärderas inte och kommer bara att blockeras. 
-- Log – tillåter att regeln skriver till loggen, men låter resten av reglerna köras för utvärdering. De andra anpassade reglerna utvärderas i prioritetsordning, följt av de hanterade reglerna.
+- Tillåt – Godkänner transaktionen och hoppar över alla andra regler. Den angivna begäran läggs till i tillåt-listan och när den har matchats stoppas ytterligare utvärdering och skickas till serverdapoolen. Regler som finns i listan över tillåtna utvärderas inte för ytterligare anpassade regler eller hanterade regler.
+- Block – Blockerar transaktionen baserat på *SecDefaultAction* (identifierings-/förebyggande läge). Precis som åtgärden Tillåt stoppas utvärderingen när begäran har utvärderats och lagts till i blockeringslistan och begäran blockeras. Alla förfrågningar efter det uppfyller samma villkor kommer inte att utvärderas och kommer bara att blockeras. 
+- Log – Låter regeln skriva till loggen, men låter resten av reglerna köras för utvärdering. De andra anpassade reglerna utvärderas i prioritetsordning, följt av de hanterade reglerna.
 
-## <a name="geomatch-custom-rules-preview"></a>Ommatchnings anpassade regler (förhands granskning)
+## <a name="geomatch-custom-rules-preview"></a>Anpassade regler för Geomatch (förhandsgranskning)
 
-Med anpassade regler kan du skapa skräddarsydda regler som passar de exakta behoven för dina program och säkerhets principer. Du kan begränsa åtkomsten till dina webb program efter land/region. Mer information finns i [överensstämmelse med egna regler (för hands version)](geomatch-custom-rules.md).
+Med anpassade regler kan du skapa skräddarsydda regler som passar de exakta behoven hos dina program och säkerhetsprinciper. Du kan begränsa åtkomsten till dina webbprogram efter land/region. Mer information finns i [Geomatch anpassade regler (förhandsgranskning)](geomatch-custom-rules.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
-När du har lärt dig om anpassade regler [skapar du dina egna anpassade regler](create-custom-waf-rules.md).
+När du har lärt dig mer om anpassade regler [skapar du egna anpassade regler](create-custom-waf-rules.md).

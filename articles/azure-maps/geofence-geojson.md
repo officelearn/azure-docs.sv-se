@@ -1,48 +1,48 @@
 ---
-title: Geografiskt JSON-dataformat för geografiskt avgränsnings tecken | Microsoft Azure Maps
-description: I den här artikeln får du lära dig hur du förbereder de avgränsnings data som kan användas i Microsoft Azure Maps GET-och POST-API.
-author: farah-alyasari
-ms.author: v-faalya
+title: GeoJSON-dataformat för geofence | Microsoft Azure Maps
+description: I den här artikeln får du lära dig mer om hur du förbereder geofence-data som kan användas i MICROSOFT Azure Maps GET- och POST Geofence API.
+author: philmea
+ms.author: philmea
 ms.date: 02/14/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: 7d1c9a1587771a020f5c9f89e2497a25eb1bba70
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.openlocfilehash: 7b9860908dd3bdf3dcda727f350578a97b890cac
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77210029"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80335624"
 ---
-# <a name="geofencing-geojson-data"></a>Polystaket, polyjson-data
+# <a name="geofencing-geojson-data"></a>Geofencing GeoJSON-data
 
-Med API: erna Azure Maps [Hämta gräns](/rest/api/maps/spatial/getgeofence) -och [postbaserade gränser](/rest/api/maps/spatial/postgeofence) kan du hämta närhet av en koordinat i förhållande till ett givet geografiskt avgränsnings tecken eller en uppsättning avgränsningar. Den här artikeln beskriver hur du förbereder de avgränsnings data som kan användas i Azure Maps GET-och POST-API.
+Azure Maps [GET Geofence](/rest/api/maps/spatial/getgeofence) och [POST Geofence](/rest/api/maps/spatial/postgeofence) API:er kan du hämta närheten till en koordinat i förhållande till en medföljande geofence eller uppsättning staket. I den här artikeln beskrivs hur du förbereder geofence-data som kan användas i Azure Maps GET- och POST API.This article details how to prepare the geofence data that can be used in the Azure Maps GET and POST API.
 
-Data för avgränsning eller uppsättning av gränser representeras av `Feature` objekt och `FeatureCollection` objekt i `GeoJSON` format, som definieras i [rfc7946](https://tools.ietf.org/html/rfc7946). Förutom det:
+Data för geofence eller uppsättning geofences `Feature` representeras `FeatureCollection` av `GeoJSON` Objekt och Objekt i format, som definieras i [rfc7946](https://tools.ietf.org/html/rfc7946). Utöver det:
 
-* Typen av typen interjson kan vara ett `Feature`-objekt eller ett `FeatureCollection`-objekt.
-* Geometri objekt typen kan vara en `Point`, `MultiPoint`, `LineString`, `MultiLineString`, `Polygon`, `MultiPolygon`och `GeometryCollection`.
-* Alla funktions egenskaper måste innehålla en `geometryId`som används för att identifiera den här gränsen.
-* Funktionen med `Point`, `MultiPoint``LineString``MultiLineString` måste innehålla `radius` i egenskaper. `radius` svärdet mäts i meter, `radius` värde intervallet från 1 till 10000.
-* Funktionen med `polygon` och `multipolygon` geometri typen har ingen RADIUS-egenskap.
-* `validityTime` är en valfri egenskap som låter användaren ange utgångna tid och giltighets tid för de olika gräns uppgifterna. Om detta inte anges upphör data aldrig att gälla och är alltid giltigt.
-* `expiredTime` är utgångs datum och-tid för avgränsning av data. Om värdet för `userTime` i begäran är senare än det här värdet betraktas motsvarande avgränsnings data som utgångna data och inte efter frågas. Då kommer geometryId för dessa avgränsnings data att inkluderas i `expiredGeofenceGeometryId` matris inom ett gräns värde.
-* `validityPeriod` är en lista över tids perioden för giltighets tiden för den här gränsen. Om värdet för `userTime` i begäran faller utanför giltighets perioden, betraktas motsvarande avgränsnings information som ogiltig och kommer inte att frågas. GeometryId för dessa avgränsnings data ingår i `invalidPeriodGeofenceGeometryId` matris inom ett gräns värde. I följande tabell visas egenskaperna för validityPeriod-elementet.
+* GeoJSON-objekttypen kan `Feature` vara `FeatureCollection` ett objekt eller ett objekt.
+* Geometriobjekttypen kan `Point`vara `MultiPoint` `LineString`en `MultiLineString` `Polygon`, `MultiPolygon`, `GeometryCollection`, , , och .
+* Alla funktionsegenskaper `geometryId`ska innehålla en , som används för att identifiera geofence.
+* Funktionen `Point`med `MultiPoint` `LineString`, `MultiLineString` , `radius` måste innehålla egenskaper. `radius`mätvärdet mäts i `radius` mätare, varierar värdet från 1 till 10000.
+* Funktionen `polygon` med `multipolygon` och geometritypen har ingen radieegenskap.
+* `validityTime`är en valfri egenskap som gör att användaren kan ange utgångna tid och giltighetstid för geofence-data. Om inget anges upphör data aldrig att gälla och är alltid giltiga.
+* Det `expiredTime` är utgångsdatum och tid för geofencing data. Om värdet `userTime` i begäran är senare än det här värdet betraktas motsvarande geofence-data som utgångna data och efterfrågas inte. På vilken geometriId för dessa geofence data `expiredGeofenceGeometryId` kommer att ingå i matrisen i geofence svar.
+* Är `validityPeriod` en lista över giltighetstid för geofence. Om värdet `userTime` i begäran faller utanför giltighetsperioden betraktas motsvarande geofence-data som ogiltiga och kommer inte att efterfrågas. GeometryId för dessa geofence-data `invalidPeriodGeofenceGeometryId` ingår i matrisen i geofence-svaret. I följande tabell visas egenskaperna för validityPeriod-elementet.
 
 | Namn | Typ | Krävs  | Beskrivning |
 | :------------ |:------------: |:---------------:| :-----|
-| startTime | Datum/tid  | true | Start datum tiden för giltighets tids perioden. |
-| endTime   | Datum/tid  | true |  Slutdatumet för giltighets tids perioden. |
-| recurrenceType | sträng | false |   Periodens upprepnings typ. Värdet kan vara `Daily`, `Weekly`, `Monthly`eller `Yearly`. Standardvärdet är `Daily`.|
-| businessDayOnly | Boolesk | false |  Ange om data endast är giltiga under arbets dagar. Standardvärdet är `false`.|
+| startTime | Datumtid  | true | Startdatumtiden för giltighetstiden. |
+| endTime   | Datumtid  | true |  Slutdatumtiden för giltighetstiden. |
+| återkommandetyp | sträng | false |   Periodens återkommande typ. Värdet kan `Daily`vara `Weekly` `Monthly`, `Yearly`, eller . Standardvärdet `Daily`är .|
+| businessDayOnly | Boolean | false |  Ange om data bara är giltiga under arbetsdagar. Standardvärdet `false`är .|
 
 
-* Alla koordinater-värden representeras som [longitud, latitud] som definieras i `WGS84`.
-* För varje funktion, som innehåller `MultiPoint`, `MultiLineString`, `MultiPolygon` eller `GeometryCollection`, används egenskaperna för alla element. exempel: alla punkter i `MultiPoint` använder samma radie för att bilda ett geografiskt avgränsnings tecken på flera cirklar.
-* I punkt-cirkel-scenariot kan en cirkel geometri representeras med hjälp av ett `Point` Geometry-objekt med egenskaper som har [utökats i utökning av Geometries](https://docs.microsoft.com/azure/azure-maps/extend-geojson).      
+* Alla koordinatvärden representeras som [longitud, latitud] som definieras i `WGS84`.
+* För varje funktion, `MultiPoint`som `MultiLineString` `MultiPolygon` innehåller `GeometryCollection`, , eller , används egenskaperna på alla element. till exempel: Alla `MultiPoint` punkter i kommer att använda samma radie för att bilda en multipel cirkel geofence.
+* I punktcirkelscenario kan en cirkelgeometri `Point` representeras med hjälp av ett geometriobjekt med egenskaper som utarbetats i [Utöka GeoJSON-geometrier](https://docs.microsoft.com/azure/azure-maps/extend-geojson).      
 
-Följande är en exempel begär ande text för ett område som representeras som en cirkels geometrisk geometri i `GeoJSON` att använda en mitt punkt och en radie. Den giltiga tids perioden för avgränsnings data börjar från 2018-10-22, 9 till 17, upprepas varje dag förutom helgen. `expiredTime` indikerar att dessa gräns data kommer att anses vara förfallna, om `userTime` i begäran är senare än `2019-01-01`.  
+Följande är ett prov begäran organ för en geofence representeras `GeoJSON` som en cirkel geofence geometri i att använda en mittpunkt och en radie. Den giltiga perioden för geofence-data börjar från 2018-10-22, 9:00 till 17:00, upprepas varje dag utom för helgen. `expiredTime`anger att dessa geofence-data kommer `userTime` att anses vara `2019-01-01`utgångna, om det i begäran är senare än .  
 
 ```json
 {

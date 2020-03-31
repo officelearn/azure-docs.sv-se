@@ -8,13 +8,13 @@ ms.date: 11/06/2018
 ms.topic: quickstart
 ms.custom: mvc
 ms.openlocfilehash: 6c3ff10f37233294b75eceddd62c0a33f8864484
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "75421633"
 ---
-# <a name="configure-a-virtual-machine-with-desired-state-configuration"></a>Konfigurera en virtuell dator med önskad tillstånds konfiguration
+# <a name="configure-a-virtual-machine-with-desired-state-configuration"></a>Konfigurera en virtuell dator med önskad tillståndskonfiguration
 
 Genom att aktivera önskat tillstånd-konfiguration, DSC (Desired State Configuration), kan du hantera och övervaka konfigurationerna för dina Windows- och Linux-servrar. Konfigurationer som avviker från den önskade konfigurationen kan identifieras och korrigeras automatiskt. Den här snabbstarten går igenom registrering på en virtuell Linux-dator och distribution av en LAMP-stack med DSC.
 
@@ -22,7 +22,7 @@ Genom att aktivera önskat tillstånd-konfiguration, DSC (Desired State Configur
 
 Följande krävs för att slutföra den här snabbstarten:
 
-* En Azure-prenumeration. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/).
+* En Azure-prenumeration. Om du inte har en Azure-prenumeration [skapar du ett kostnadsfritt konto](https://azure.microsoft.com/free/).
 * Ett Azure Automation-konto. Instruktioner om hur du skapar ett Kör som-konto för Azure Automation finns i [Azure Kör som-konto](automation-sec-configure-azure-runas-account.md).
 * En virtuell Azure Resource Manager-dator (inte klassisk) med Red Hat Enterprise Linux, CentOS eller Oracle Linux. Instruktioner om hur du skapar en virtuell dator finns i [Skapa din första virtuella Linux-dator i Azure Portal](../virtual-machines/linux/quick-create-portal.md)
 
@@ -34,7 +34,7 @@ Det finns många olika metoder för att registrera en dator och aktivera DSC. I 
 
 1. I det vänstra fönstret i Azure Portal väljer du **Automation-konton**. Om det inte visas i det vänstra fönstret klickar du på **Alla tjänster** och söker efter den resulterande vyn.
 1. Välj ett Automation-konto i listan.
-1. I det vänstra fönstret i Automation-kontot väljer du **Tillståndskonfiguration (DSC)** .
+1. I det vänstra fönstret i Automation-kontot väljer du **Tillståndskonfiguration (DSC)**.
 2. Klicka på **Lägg till** att öppna sidan för att välja virtuell dator.
 3. Leta reda på den virtuella dator du vill aktivera DSC för. Du kan använda sökfältet och filteralternativ för att hitta en viss virtuell dator.
 4. Klicka på den virtuella datorn och välj sedan **Anslut**
@@ -108,7 +108,7 @@ DSC-konfigurationer måste kompileras till en nodkonfiguration (MOF-dokument) in
 
 Kompilera konfigurationen:
 
-1. I det vänstra fönstret i Automation-kontot väljer du **Tillståndskonfiguration (DSC)** och klickar sedan på fliken **Konfigurationer**.
+1. I den vänstra rutan i Automation-kontot väljer du **Tillståndskonfiguration (DSC)** och klickar sedan på fliken **Konfigurationer.**
 1. Välj konfigurationen du importerade i det föregående steg, "LAMPServer"
 1. I menyalternativen klickar du på **Kompilera** och sedan på **Ja**
 1. I konfigurationsvyn visas ett nytt *kompileringsjobb* i kö. När jobbet har slutförts kan du gå vidare till nästa steg. Om det finns några fel kan du klicka på kompileringsjobbet och få information.
@@ -120,7 +120,7 @@ En kompilerad *nodkonfiguration* kan tilldelas till DSC-noder. Tilldelningen til
 1. I det vänstra fönstret i Automation-kontot väljer du **Tillståndskonfiguration (DSC) och klickar sedan på fliken **Noder**.
 1. Välj den nod du vill tilldela en konfiguration till
 1. Klicka på **Tilldela nodkonfiguration**
-1. Välj *nodkonfigurationen* - **LAMPServer.localhost** – för att tilldela och klicka på **OK**
+1. Välj *nodkonfiguration* - **LAMPServer.localhost** - för att tilldela och klicka på **OK**
 1. Den kompilerade konfigurationen är nu tilldelad till noden och nodstatusen ändras till *Väntar*. Vid nästa periodiska kontroll hämtar noden konfigurationen, tillämpar den och rapporterar tillbaka statusen. Det kan ta upp till 30 minuter för noden att hämta konfigurationen, beroende på nodens inställningar. Om du vill tvinga fram en omedelbar kontroll kan du köra följande kommando lokalt på den virtuella Linux-datorn: `sudo /opt/microsoft/dsc/Scripts/PerformRequiredConfigurationChecks.py`
 
 ![Tilldela en nodkonfiguration](./media/automation-quickstart-dsc-configuration/dsc-assign-node-configuration.png)

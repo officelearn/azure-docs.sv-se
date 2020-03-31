@@ -1,82 +1,81 @@
 ---
-title: Få support för den kommersiella Marketplace-portalen i Partner Center
-description: Läs om dina support alternativ i Partner Center, inklusive hur du kan skicka en support förfrågan.
+title: Få support för portalen Commercial Marketplace i Partner Center
+description: Läs mer om dina supportalternativ i Partnercenter, inklusive hur du lämnar in en supportbegäran.
 author: qianw211
-manager: evansma
-ms.author: jamwall
+ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 03/07/2020
-ms.openlocfilehash: a85d9ebb03ea0c9ebe078ad49ce6bbf40a5b004d
-ms.sourcegitcommit: 9cbd5b790299f080a64bab332bb031543c2de160
+ms.openlocfilehash: fbfc8cc29a1584dbc9f7e4ff0b73513d85950f99
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/08/2020
-ms.locfileid: "78927542"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80281399"
 ---
-# <a name="support-for-the-commercial-marketplace-program-in-partner-center"></a>Stöd för programmet för kommersiella marknads platser i Partner Center
+# <a name="support-for-the-commercial-marketplace-program-in-partner-center"></a>Stöd för programmet Commercial Marketplace i Partner Center
 
-Microsoft tillhandahåller stöd för en mängd olika produkter och tjänster. Att hitta rätt support team är viktigt för att säkerställa en lämplig och korrekt svars tid. Överväg följande scenarier, som kan hjälpa dig att dirigera din fråga till lämpligt team: 
+Microsoft tillhandahåller support för en mängd olika produkter och tjänster. Att hitta rätt supportteam är viktigt för att säkerställa ett lämpligt och snabbt svar. Tänk på följande scenarier, som bör hjälpa dig att dirigera din fråga till rätt team: 
 
-- Om du är utgivare och har en fråga från en kund ber du kunden att be om support med hjälp av support länkarna i [Azure Portal](https://portal.azure.com/). 
+- Om du är utgivare och har en fråga från en kund ber du kunden att begära support med hjälp av supportlänkarna i [Azure-portalen](https://portal.azure.com/). 
 
-- Om du är utgivare och har en fråga som rör din app eller tjänst kan du läsa följande support alternativ.
+- Om du är utgivare och har en fråga som rör din app eller tjänst läser du följande supportalternativ.
 
-## <a name="support-options-for-publishers"></a>Support alternativ för utgivare
+## <a name="support-options-for-publishers"></a>Supportalternativ för utgivare
 
-1. Logga in på det [kommersiella Marketplace-programmet på Partner Center](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) med ditt arbets konto. (Om du ännu inte har gjort det måste du [skapa ett partner Center-konto](./create-account.md).)
+1. Logga in [på Commercial Marketplace-programmet på Partner Center](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) med ditt arbetskonto. (Om du ännu inte har gjort det måste du [skapa ett Partner Center-konto](./create-account.md).)
 
-2. I den övre menyn på höger sida av sidan väljer du **support** ikonen. 
+2. Välj **supportikonen** i den övre menyn till höger på sidan. 
  
-3. Rutan **Hjälp och support** visas på sidans högra sida. 
+3. **Hjälp- och supportfönstret** visas från sidans högra sida. 
  
-   ![List menyn stöd](./media/commercial-marketplace-support-pane.png)
+   ![Rullgardinsmenyn stöder](./media/commercial-marketplace-support-pane.png)
 
-    Eller gå till fönstret **Start sida** och välj **Hjälp och support**.
+    Eller gå till **startfönstret** och välj **Hjälp och stöd**.
 
-   ![Hjälp och support från start sidan](./media/homepage-help-support.png)
+   ![Hjälp och support från startsidan](./media/homepage-help-support.png)
 
-4. Välj **[dokumentation](../index.yml)** för att granska omfattande svar på frågor och resurser. 
+4. Välj **[Dokumentation](../index.yml)** om du vill granska omfattande svar på frågor och resurser. 
 
-5. Välj **[Marketplace partner community-forum](https://www.microsoftpartnercommunity.com/t5/Azure-Marketplace-and-AppSource/bd-p/2222)** för att besvara dina frågor genom att använda kunskap om andra Microsoft-utgivare. 
+5. Välj **[Marketplace Partner-communityforum](https://www.microsoftpartnercommunity.com/t5/Azure-Marketplace-and-AppSource/bd-p/2222)** för att svara på dina frågor genom att utnyttja kunskapen hos andra Microsoft-utgivare. 
 
-6. Välj **[ytterligare hjälp](https://aka.ms/marketplacepublishersupport)** för att öppna ett **nytt support ärende** .  
+6. Välj **[Ytterligare hjälp](https://aka.ms/marketplacepublishersupport)** för att öppna en ny **supportbegäran** biljett.  
 
-## <a name="how-to-open-a-support-ticket"></a>Så här öppnar du ett support ärende
+## <a name="how-to-open-a-support-ticket"></a>Så här öppnar du en supportbiljett
 
-Nu är du redo att öppna ett support ärende på skärmen **Hjälp och support** .
+Nu är du redo att öppna en supportbiljett på **hjälp- och** supportskärmen.
 
 ![Hjälp och support](./media/help-and-support.png)
 
 >[!Note]
->Om du är inloggad i Partner Center får du bättre upplevelse med support.
+>Om du är inloggad i Partner Center får du bättre erfarenhet av support.
 
-**Alternativ 1:** Ange nyckelord som Marketplace, Azure app, SaaS-erbjudande, konto hantering, lead management, distributions problem, utbetalning och så vidare.
+**Alternativ 1:** Ange nyckelord som: Marketplace, Azure-app, SaaS-erbjudande, kontohantering, leadhantering, distributionsproblem, utbetalning osv.
 
-**Alternativ 2:** Bläddra bland ämnen – > väljer du **kategori** = kommersiell marketplace – > väljer lämpligt **ämne** och **underavsnitt**.
+**Alternativ 2:** Bläddra bland ämnen -> väljer **Kategori** = kommersiell marknadsplats -> välj lämpligt **ämne** och sedan **Subtopic**.
 
-När du har hittat det avsnitt som du väljer väljer du **Granska lösningar**.
+När du har hittat det ämne du väljer väljer du **Granska lösningar**.
 
 ![Nästa steg](./media/next-step.png)
 
 Följande alternativ blir tillgängliga:
 
-* Om du vill välja ett annat ämne väljer du en annan ämnes länk under det **valda problemet**.
-* Granska beskrivningen av det här problemet, om det är tillgängligt.  Det är den text som visas ovanför de **rekommenderade stegen**.
-* Granska **rekommenderade steg**, om det är tillgängligt.
-* Granska **rekommenderade dokument**, om det är tillgängligt.
+* Om du vill välja ett annat ämne väljer du en annan ämneslänk under **det valda problemet**.
+* Granska beskrivningen för det här problemet, om tillgängligt.  Det är texten som visas ovan de **rekommenderade stegen**.
+* Granska **rekommenderade steg**, om sådana finns.
+* Granska **rekommenderade dokument**, om sådana finns tillgängliga.
 
 ![Rekommenderade lösningar](./media/recommended-solutions.png)
 
-Om du inte kan hitta ditt svar i **rekommenderade lösningar**klickar du på **Ange problem information**.  Fyll i formuläret och alla obligatoriska fält för att påskynda lösnings processen.  Klicka sedan på **Skicka**.
+Om du inte hittar ditt svar i **rekommenderade lösningar,** klicka på **ge probleminformation**.  Fyll i formuläret och alla obligatoriska fält för att påskynda upplösningsprocessen.  Klicka sedan på **skicka**.
 
 >[!Note]
->Om du inte har loggat in på Partner Center och ämnet kräver autentisering, uppmanas du att logga in innan du kan fortsätta.  För offentliga ämnen krävs ingen autentisering.
+>Om du inte har loggat in på Partner Center och ämnet kräver autentisering måste du logga in innan du kan fortsätta.  För offentliga ämnen krävs inte autentisering.
 
-## <a name="track-your-existing-support-requests"></a>Spåra dina befintliga support förfrågningar 
+## <a name="track-your-existing-support-requests"></a>Spåra dina befintliga supportförfrågningar 
 
-Om du vill granska alla öppna och stängda biljetter går du till **handels Marketplace** i det vänstra navigerings fältet och väljer sedan **support**.
+Om du vill granska alla dina öppna och stängda biljetter går du till **Commercial Marketplace** i det vänstra navigeringsfältet och väljer sedan **support**.
 
 ## <a name="next-steps"></a>Nästa steg
 

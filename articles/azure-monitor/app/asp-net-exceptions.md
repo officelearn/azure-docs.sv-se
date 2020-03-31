@@ -1,104 +1,106 @@
 ---
-title: Diagnostisera fel och undantag med Azure Application insikter
-description: Fånga undantag från ASP.NET-appar tillsammans med telemetri för begäran.
+title: Diagnostisera fel och undantag med Azure Application Insights
+description: Samla in undantag från ASP.NET appar tillsammans med begärandetelemetri.
 ms.topic: conceptual
 ms.date: 07/11/2019
-ms.openlocfilehash: 24b7acfa6610c2040daf0f7d8d25f25391140303
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: ccfcb354e27d36f40810b114a1729cf6addf8fb6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79276236"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80294694"
 ---
 # <a name="diagnose-exceptions-in-your-web-apps-with-application-insights"></a>Diagnostisera undantag i dina webbappar med Application Insights
-Undantag i din Live-webbapp rapporteras av [Application Insights](../../azure-monitor/app/app-insights-overview.md). Du kan korrelera misslyckade förfrågningar med undantag och andra händelser på både klienten och servern, så att du snabbt kan diagnostisera orsakerna.
+Undantag i din live-webbapp rapporteras av [Application Insights](../../azure-monitor/app/app-insights-overview.md). Du kan korrelera misslyckade begäranden med undantag och andra händelser på både klienten och servern, så att du snabbt kan diagnostisera orsakerna.
 
-## <a name="set-up-exception-reporting"></a>Konfigurera undantags rapportering
-* Så här har du undantag som rapporter ATS från din server app:
-  * Azure-Webbappar: Lägg till [Application Insights-tillägget](../../azure-monitor/app/azure-web-apps.md)
-  * Virtuella Azure-datorer och skalnings uppsättningar för virtuella Azure-datorer: Lägg till [tillägget för program övervakning](../../azure-monitor/app/azure-vm-vmss-apps.md)
-  * Installera [Application Insights SDK](../../azure-monitor/app/asp-net.md) i din app-kod eller
-  * IIS-webbservrar: kör [Application Insights agent](../../azure-monitor/app/monitor-performance-live-website-now.md); eller
-  * Java-webbappar: installera [Java-agenten](../../azure-monitor/app/java-agent.md)
-* Installera [JavaScript-kodfragmentet](../../azure-monitor/app/javascript.md) på dina webb sidor för att fånga webb läsar undantag.
-* I vissa program ramverk eller med vissa inställningar måste du vidta några extra steg för att fånga fler undantag:
-  * [Webb formulär](#web-forms)
+## <a name="set-up-exception-reporting"></a>Ställ in undantagsrapportering
+* Så här har du rapporterat undantag från serverappen:
+  * Azure-webbappar: Lägg till [tillägget Application Insights](../../azure-monitor/app/azure-web-apps.md)
+  * Azure VM och Azure virtual machine scale set IIS-värdappar: Lägg till [tillägget programövervakning](../../azure-monitor/app/azure-vm-vmss-apps.md)
+  * Installera [Application Insights SDK](../../azure-monitor/app/asp-net.md) i din appkod, eller
+  * IIS-webbservrar: Kör [Application Insights Agent](../../azure-monitor/app/monitor-performance-live-website-now.md); Eller
+  * Java-webbappar: Installera [Java-agenten](../../azure-monitor/app/java-agent.md)
+* Installera [JavaScript-kodavsnittet](../../azure-monitor/app/javascript.md) på webbsidorna för att fånga upp webbläsarundantag.
+* I vissa programramverk eller med vissa inställningar måste du vidta några extra åtgärder för att fånga fler undantag:
+  * [Webbformulär](#web-forms)
   * [MVC](#mvc)
-  * [Webb-API 1. *](#web-api-1x)
-  * [Webb-API 2. *](#web-api-2x)
+  * [Webb-API 1.*](#web-api-1x)
+  * [Webb-API 2.*](#web-api-2x)
   * [WCF](#wcf)
 
+  Den här artikeln är särskilt inriktad på .NET Framework-appar från ett kodexempelperspektiv. Vissa av de metoder som fungerar för .NET Framework är föråldrade i .NET Core SDK. Läsa [.NET Core SDK-dokumentationen](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core) om du har en .NET Core-app.
+
 ## <a name="diagnosing-exceptions-using-visual-studio"></a>Diagnostisera undantag med Visual Studio
-Öppna App-lösningen i Visual Studio för att få hjälp med fel sökning.
+Öppna applösningen i Visual Studio för att hjälpa till med felsökning.
 
-Kör appen, antingen på din server eller på din utvecklings dator med hjälp av F5.
+Kör appen, antingen på servern eller på utvecklingsdatorn med hjälp av F5.
 
-Öppna fönstret Application Insights sökning i Visual Studio och Ställ in det för att visa händelser från din app. När du felsöker kan du göra detta genom att klicka på knappen Application Insights.
+Öppna fönstret Sök i Application Insights i Visual Studio och ställ in det så att händelser från din app visas. Medan du felsöker kan du göra detta bara genom att klicka på knappen Programstatistik.
 
-![Högerklicka på projektet och välj Application Insights, öppna.](./media/asp-net-exceptions/34.png)
+![Högerklicka på projektet och välj Application Insights, Open.](./media/asp-net-exceptions/34.png)
 
-Observera att du kan filtrera rapporten så att endast undantag visas.
+Observera att du kan filtrera rapporten så att den bara visar undantag.
 
-*Visas inga undantag? Se [avbildnings undantag](#exceptions).*
+*Inga undantag visar? Se [Fånga undantag](#exceptions).*
 
-Klicka på en undantags rapport om du vill visa dess stack spårning.
-Klicka på en rad referens i stack spårningen för att öppna relevant kod fil.
+Klicka på en undantagsrapport om du vill visa dess stackspårning.
+Klicka på en radreferens i stackspårningen för att öppna relevant kodfil.
 
-Observera att CodeLens visar data om undantagen i koden:
+I koden märker du att CodeLens visar data om undantagen:
 
-![CodeLens meddelande om undantag.](./media/asp-net-exceptions/35.png)
+![CodeLens anmälan av undantag.](./media/asp-net-exceptions/35.png)
 
-## <a name="diagnosing-failures-using-the-azure-portal"></a>Diagnostisera fel med hjälp av Azure Portal
-Application Insights innehåller en granskad APM-upplevelse som hjälper dig att diagnostisera fel i dina övervakade program. Starta genom att klicka på alternativet för att Miss lyckas på Application Insights resurs-menyn som finns i avsnittet Undersök.
-Du bör se en hel skärms visning som visar fel frekvensen för dina begär Anden, hur många som är felaktiga och hur många användare som påverkas. Till höger ser du några av de mest användbara distributionerna som är speciella för den valda åtgärden som misslyckades, inklusive de tre översta svars koderna, de tre vanligaste undantags typerna och de tre vanligaste typerna av beroende typer.
+## <a name="diagnosing-failures-using-the-azure-portal"></a>Diagnostisera fel med Azure-portalen
+Application Insights levereras med en kurerad APM-upplevelse som hjälper dig att diagnostisera fel i dina övervakade program. Du vill starta genom att klicka på alternativet Fel på resursmenyn Programinsikter i avsnittet Undersök.
+Du bör se en helskärmsvy som visar felfrekvenstrenderna för dina begäranden, hur många av dem som misslyckas och hur många användare som påverkas. Till höger visas några av de mest användbara distributionerna som är specifika för den valda misslyckade åtgärden, inklusive de tre översta svarskoderna, de tre översta undantagstyperna och de tre översta beroendetyperna.
 
-![Prioritering visare (åtgärd-fliken)](./media/asp-net-exceptions/failures0719.png)
+![Triage-vyn för fel (fliken åtgärder)](./media/asp-net-exceptions/failures0719.png)
 
-I ett enda klick kan du granska representativa exempel för var och en av dessa under uppsättningar av åtgärder. För att diagnostisera undantag kan du i synnerhet Klicka på antalet för ett visst undantag som ska visas på fliken transaktions information från slut punkt till slut punkt, till exempel den här:
+Med ett enda klick kan du sedan granska representativa exempel för var och en av dessa delmängder av åtgärder. För att diagnostisera undantag kan du särskilt klicka på antalet ett visst undantag som ska visas med fliken Heltäckande transaktionsinformation, till exempel den här:
 
-![Fliken transaktions information från slut punkt till slut punkt](./media/asp-net-exceptions/end-to-end.png)
+![Fliken Fullständig transaktionsinformation](./media/asp-net-exceptions/end-to-end.png)
 
-**Alternativt** kan du, i stället för att titta på undantag för en åtgärd som inte kan utföras, starta från den övergripande vyn över undantag genom att växla till fliken undantag överst. Här kan du se alla undantag som har samlats in för din övervakade app.
+Alternativt kan **du,** i stället för att titta på undantag för en viss misslyckad åtgärd, utgå från den övergripande vyn av undantag genom att växla till fliken Undantag högst upp. Här kan du se alla undantag som samlats in för din övervakade app.
 
-*Visas inga undantag? Se [avbildnings undantag](#exceptions).*
+*Inga undantag visar? Se [Fånga undantag](#exceptions).*
 
 
-## <a name="custom-tracing-and-log-data"></a>Anpassad spårning och loggdata
-Om du vill hämta diagnostikdata som är specifika för din app kan du infoga kod för att skicka egna telemetridata. Detta visas i diagnostisk sökning tillsammans med begäran, sid visning och andra automatiskt insamlade data.
+## <a name="custom-tracing-and-log-data"></a>Anpassade spårnings- och loggdata
+Om du vill få diagnostikdata som är specifika för din app kan du infoga kod för att skicka egna telemetridata. Detta visas i diagnostiksökning tillsammans med begäran, sidvisning och andra automatiskt insamlade data.
 
 I det syftet har du flera alternativ:
 
-* [TrackEvent ()](../../azure-monitor/app/api-custom-events-metrics.md#trackevent) används vanligt vis för att övervaka användnings mönster, men data som skickas visas också under anpassade händelser i diagnostisk sökning. Händelser namnges och kan innehålla sträng egenskaper och numeriska mått som du kan använda för [att filtrera diagnostiska sökningar](../../azure-monitor/app/diagnostic-search.md).
-* Med [TrackTrace ()](../../azure-monitor/app/api-custom-events-metrics.md#tracktrace) kan du skicka längre data, till exempel post uppgifter.
-* [TrackException ()](#exceptions) skickar stack spår. [Mer om undantag](#exceptions).
-* Om du redan använder ett loggnings ramverk som Log4Net eller NLog kan du [samla in dessa loggar](asp-net-trace-logs.md) och se dem i diagnostisk sökning, tillsammans med förfrågningar och undantags data.
+* [TrackEvent()](../../azure-monitor/app/api-custom-events-metrics.md#trackevent) används vanligtvis för att övervaka användningsmönster, men de data som skickas visas också under Anpassade händelser i diagnostiksökning. Händelser namnges och kan innehålla strängegenskaper och numeriska mått som du kan [filtrera diagnostiksökningar](../../azure-monitor/app/diagnostic-search.md)på .
+* [TrackTrace()](../../azure-monitor/app/api-custom-events-metrics.md#tracktrace) kan du skicka längre data som POST-information.
+* [TrackException()](#exceptions) skickar stackspårningar. [Mer om undantag](#exceptions).
+* Om du redan använder ett loggningsramverk som Log4Net eller NLog kan du [samla in dessa loggar](asp-net-trace-logs.md) och se dem i diagnostiksökning tillsammans med begäran- och undantagsdata.
 
-Om du vill se de här händelserna öppnar du [Sök](../../azure-monitor/app/diagnostic-search.md) på menyn till vänster, väljer **händelse typerna**för List rutan och väljer sedan anpassad händelse, spårning eller undantag.
+Om du vill se dessa händelser öppnar du [Sök](../../azure-monitor/app/diagnostic-search.md) på den vänstra menyn, väljer den nedrullningsbara menyn **Händelsetyper**och väljer sedan Anpassad händelse, Spårning eller Undantag.
 
 ![Visa detaljerad information](./media/asp-net-exceptions/customevents.png)
 
 > [!NOTE]
-> Om din app genererar mycket telemetri minskar den anpassningsbara insamlingsmodulen automatiskt den mängd som skickas till portalen genom att bara skicka en representativ del av händelserna. Händelser som är en del av samma åtgärd markeras eller avmarkeras som en grupp, så att du kan navigera mellan relaterade händelser. [Lär dig mer om sampling.](../../azure-monitor/app/sampling.md)
+> Om din app genererar mycket telemetri minskar den anpassningsbara insamlingsmodulen automatiskt den mängd som skickas till portalen genom att bara skicka en representativ del av händelserna. Händelser som ingår i samma åtgärd väljs eller avmarkeras som en grupp, så att du kan navigera mellan relaterade händelser. [Läs mer om sampling.](../../azure-monitor/app/sampling.md)
 >
 >
 
-### <a name="how-to-see-request-post-data"></a>Så här visar du begäran om att publicera data
-Information om begäran innehåller inte de data som skickas till din app i ett POST-anrop. För att dessa data ska rapporteras:
+### <a name="how-to-see-request-post-data"></a>Så här visar du post-data för begäran
+Begär information inkluderar inte de data som skickas till din app i ett POST-samtal. Så här gör du om du vill att dessa data ska rapporteras:
 
-* [Installera SDK](../../azure-monitor/app/asp-net.md) i ditt program projekt.
-* Infoga kod i programmet för att anropa [Microsoft. ApplicationInsights. TrackTrace ()](../../azure-monitor/app/api-custom-events-metrics.md#tracktrace). Skicka POST-data i meddelande parametern. Det finns en gräns för tillåten storlek, så du bör försöka skicka enbart viktiga data.
+* [Installera SDK](../../azure-monitor/app/asp-net.md) i ditt programprojekt.
+* Infoga kod i programmet för att anropa [Microsoft.ApplicationInsights.TrackTrace()](../../azure-monitor/app/api-custom-events-metrics.md#tracktrace). Skicka POST-data i meddelandeparametern. Det finns en gräns för den tillåtna storleken, så du bör försöka skicka bara de viktigaste uppgifterna.
 * När du undersöker en misslyckad begäran hittar du de associerade spårningarna.
 
-## <a name="exceptions"></a>Fånga undantag och relaterade diagnostikdata
-Först visas inte i portalen alla undantag som orsakar fel i din app. Du ser eventuella webb läsar undantag (om du använder [JavaScript SDK](../../azure-monitor/app/javascript.md) på dina webb sidor). Men de flesta Server undantagen fångas av IIS och du måste skriva kod för att se dem.
+## <a name="capturing-exceptions-and-related-diagnostic-data"></a><a name="exceptions"></a>Samla in undantag och relaterade diagnostikdata
+Först ser du inte i portalen alla undantag som orsakar fel i din app. Du ser eventuella webbläsarundantag (om du använder [JavaScript SDK](../../azure-monitor/app/javascript.md) på dina webbsidor). Men de flesta server undantag fångas av IIS och du måste skriva lite kod för att se dem.
 
 Du kan:
 
-* **Logga undantag explicit** genom att infoga kod i undantags hanterare för att rapportera undantagen.
-* **Samla in undantag automatiskt** genom att konfigurera ASP.net-ramverket. De nödvändiga tilläggen skiljer sig mellan olika typer av ramverk.
+* **Logga uttryckligen undantag** genom att infoga kod i undantagshanterare för att rapportera undantagen.
+* **Samla in undantag automatiskt** genom att konfigurera ASP.NET ramverk. De nödvändiga tilläggen är olika för olika typer av ramar.
 
-## <a name="reporting-exceptions-explicitly"></a>Rapportera undantag uttryckligen
-Det enklaste sättet är att infoga ett anrop till TrackException () i en undantags hanterare.
+## <a name="reporting-exceptions-explicitly"></a>Rapporteringsund undantag uttryckligen
+Det enklaste sättet är att infoga ett anrop till TrackException() i en undantagshanterare.
 
 ```javascript
     try
@@ -150,19 +152,19 @@ Det enklaste sättet är att infoga ett anrop till TrackException () i en undant
     End Try
 ```
 
-Parametrarna för egenskaper och mätningar är valfria, men är användbara för [att filtrera och lägga till](../../azure-monitor/app/diagnostic-search.md) extra information. Om du till exempel har en app som kan köra flera spel kan du hitta alla undantags rapporter som är relaterade till ett visst spel. Du kan lägga till så många objekt som du vill i varje ord lista.
+Parametrarna för egenskaper och mått är valfria, men är användbara för [filtrering och extra](../../azure-monitor/app/diagnostic-search.md) information. Om du till exempel har en app som kan köra flera spel kan du hitta alla undantagsrapporter som är relaterade till ett visst spel. Du kan lägga till så många objekt som du vill i varje ordlista.
 
 ## <a name="browser-exceptions"></a>Webbläsarundantag
-De flesta webb läsar undantag rapporteras.
+De flesta webbläsarundantag rapporteras.
 
-Om din webb sida innehåller skriptfiler från nätverk för innehålls leverans eller andra domäner ser du till att skript tag gen har attributet ```crossorigin="anonymous"```och att servern skickar [CORS-huvuden](https://enable-cors.org/). På så sätt kan du hämta en stack spårning och information för ohanterade JavaScript-undantag från dessa resurser.
+Om webbsidan innehåller skriptfiler från innehållsleveransnätverk eller andra domäner ```crossorigin="anonymous"```kontrollerar du att skripttaggen har attributet och att servern skickar [CORS-huvuden](https://enable-cors.org/). Detta gör att du kan få en stack spårning och detalj för ohanterade JavaScript undantag från dessa resurser.
 
-## <a name="reuse-your-telemetry-client"></a>Återanvänd din telemetri-klient
+## <a name="reuse-your-telemetry-client"></a>Återanvända telemetriklienten
 
 > [!NOTE]
-> TelemetryClient rekommenderas att instansieras en gång och sedan återanvändas under hela livs längden för ett program.
+> TelemetriClient rekommenderas att instansieras en gång och återanvändas under hela livslängden för ett program.
 
-Nedan visas ett exempel som använder TelemetryClient korrekt.
+Nedan finns ett exempel med TelemetryClient korrekt.
 
 ```csharp
 public class GoodController : ApiController
@@ -178,10 +180,10 @@ public class GoodController : ApiController
 ```
 
 
-## <a name="web-forms"></a>Webb formulär
-För webb formulär kommer HTTP-modulen att kunna samla in undantag när det inte finns några omdirigeringar konfigurerade med CustomErrors.
+## <a name="web-forms"></a>Webbformulär
+För webbformulär kan HTTP-modulen samla in undantagen när det inte finns några omdirigeringar konfigurerade med CustomErrors.
 
-Men om du har aktiva omdirigeringar lägger du till följande rader i Application_Error-funktionen i Global.asax.cs. (Lägg till en global. ASAX-fil om du inte redan har en.)
+Men om du har aktiva omdirigeringar lägger du till följande rader i Application_Error funktion i Global.asax.cs. (Lägg till en Global.asax-fil om du inte redan har en.)
 
 ```csharp
     void Application_Error(object sender, EventArgs e)
@@ -195,24 +197,24 @@ Men om du har aktiva omdirigeringar lägger du till följande rader i Applicatio
     }
 ```
 ## <a name="mvc"></a>MVC
-Från och med Application Insights Web SDK version 2,6 (beta3 och senare), samlar Application Insights ut ohanterade undantag som har utlösts i metoderna MVC 5 + controllers automatiskt. Om du tidigare har lagt till en anpassad hanterare för att spåra sådana undantag (enligt beskrivningen i följande exempel) kan du ta bort den för att förhindra dubbel spårning av undantag.
+Från och med Application Insights Web SDK version 2.6 (beta3 och senare), samlar Application Insights unhandled undantag som genereras i MVC 5 + styrenheter metoder automatiskt. Om du tidigare har lagt till en anpassad hanterare för att spåra sådana undantag (enligt beskrivningen i följande exempel) kan du ta bort den för att förhindra dubbel spårning av undantag.
 
-Det finns ett antal fall som undantags filtren inte kan hantera. Exempel:
+Det finns ett antal fall som undantagsfiltren inte kan hantera. Ett exempel:
 
-* Undantag som har utlösts av styrenhets konstruktörer.
-* Undantag som har utlösts av meddelande hanterare.
-* Undantag som har utlösts under dirigering.
-* Undantag utlöst under serialisering av svars innehåll.
-* Ett undantag uppstod när programmet startades.
-* Ett undantag utlöstes i bakgrunds aktiviteter.
+* Undantag från styrenhetskonstruktorer.
+* Undantag som genereras från meddelandehanterare.
+* Undantag som genereras under routning.
+* Undantag som genereras under serialisering av svarsinnehåll.
+* Undantag som genereras vid start av program.
+* Undantag som genereras i bakgrundsuppgifter.
 
-Alla undantag som *hanteras* av programmet måste fortfarande spåras manuellt.
-Ohanterade undantag från kontrollanter resulterar vanligt vis i svar på 500 "internt Server fel". Om ett sådant svar manuellt konstrueras till följd av ett hanterat undantag (eller inget undantag alls) spåras det i motsvarande telemetri för begäran med `ResultCode` 500, men Application Insights SDK kan inte spåra motsvarande undantag.
+Alla undantag *som hanteras* av programmet måste fortfarande spåras manuellt.
+Ohanterade undantag från styrenheter resulterar vanligtvis i 500 "Internal Server Error" svar. Om ett sådant svar konstrueras manuellt som ett resultat av hanterat undantag (eller inget `ResultCode` undantag alls) spåras det i motsvarande begärantelemetri med 500, men Application Insights SDK kan inte spåra motsvarande undantag.
 
 ### <a name="prior-versions-support"></a>Stöd för tidigare versioner
-Om du använder MVC 4 (och tidigare) av Application Insights Web SDK 2,5 (och tidigare) kan du läsa följande exempel för att spåra undantag.
+Om du använder MVC 4 (och tidigare) i Application Insights Web SDK 2.5 (och föregående) läser du följande exempel för att spåra undantag.
 
-Om [customErrors](https://msdn.microsoft.com/library/h0hfz6fc.aspx) -konfigurationen är `Off`, kommer undantag att vara tillgängliga för [http-modulen](https://msdn.microsoft.com/library/ms178468.aspx) att samla in. Men om det är `RemoteOnly` (standard) eller `On`, raderas undantaget och är inte tillgängligt för Application Insights att samlas in automatiskt. Du kan åtgärda detta genom att åsidosätta [klassen system. Web. MVC. HandleErrorAttribute](https://msdn.microsoft.com/library/system.web.mvc.handleerrorattribute.aspx)och tillämpa den åsidosatta klassen som visas för de olika MVC-versionerna nedan ([GitHub source](https://github.com/AppInsightsSamples/Mvc2UnhandledExceptions/blob/master/MVC2App/Controllers/AiHandleErrorAttribute.cs)):
+Om [CustomErrors-konfigurationen](https://msdn.microsoft.com/library/h0hfz6fc.aspx) är `Off`kommer undantag att vara tillgängliga för [HTTP-modulen](https://msdn.microsoft.com/library/ms178468.aspx) att samla in. Men om det `RemoteOnly` är (standard), eller `On`, kommer undantaget att rensas och inte vara tillgängligt för Application Insights att automatiskt samla in. Du kan åtgärda det genom att åsidosätta [klassen System.Web.Mvc.HandleErrorAttribute](https://msdn.microsoft.com/library/system.web.mvc.handleerrorattribute.aspx)och tillämpa den åsidosatta klassen som visas för de olika MVC-versionerna nedan ([GitHub-källa):](https://github.com/AppInsightsSamples/Mvc2UnhandledExceptions/blob/master/MVC2App/Controllers/AiHandleErrorAttribute.cs)
 
 ```csharp
     using System;
@@ -242,7 +244,7 @@ Om [customErrors](https://msdn.microsoft.com/library/h0hfz6fc.aspx) -konfigurati
 ```
 
 #### <a name="mvc-2"></a>MVC 2
-Ersätt attributet HandleError med ditt nya attribut i dina styrenheter.
+Ersätt HandleError-attributet med det nya attributet i handkontrollerna.
 
 ```csharp
     namespace MVC2App.Controllers
@@ -253,10 +255,10 @@ Ersätt attributet HandleError med ditt nya attribut i dina styrenheter.
     ...
 ```
 
-[Exempel](https://github.com/AppInsightsSamples/Mvc2UnhandledExceptions)
+[Prov](https://github.com/AppInsightsSamples/Mvc2UnhandledExceptions)
 
 #### <a name="mvc-3"></a>MVC 3
-Registrera `AiHandleErrorAttribute` som ett globalt filter i Global.asax.cs:
+Registrera `AiHandleErrorAttribute` dig som ett globalt filter i Global.asax.cs:
 
 ```csharp
     public class MyMvcApplication : System.Web.HttpApplication
@@ -268,7 +270,7 @@ Registrera `AiHandleErrorAttribute` som ett globalt filter i Global.asax.cs:
      ...
 ```
 
-[Exempel](https://github.com/AppInsightsSamples/Mvc3UnhandledExceptionTelemetry)
+[Prov](https://github.com/AppInsightsSamples/Mvc3UnhandledExceptionTelemetry)
 
 #### <a name="mvc-4-mvc5"></a>MVC 4, MVC5
 Registrera AiHandleErrorAttribute som ett globalt filter i FilterConfig.cs:
@@ -284,28 +286,28 @@ Registrera AiHandleErrorAttribute som ett globalt filter i FilterConfig.cs:
     }
 ```
 
-[Exempel](https://github.com/AppInsightsSamples/Mvc5UnhandledExceptionTelemetry)
+[Prov](https://github.com/AppInsightsSamples/Mvc5UnhandledExceptionTelemetry)
 
 ## <a name="web-api"></a>Webb-API
-Från och med Application Insights Web SDK version 2,6 (beta3 och senare) samlar Application Insights ut ohanterade undantag som har utlösts i styrenhets metoderna automatiskt för WebAPI 2 +. Om du tidigare har lagt till en anpassad hanterare för att spåra sådana undantag (enligt beskrivningen i följande exempel) kan du ta bort den för att förhindra dubbel spårning av undantag.
+Från och med Application Insights Web SDK version 2.6 (beta3 och senare), samlar Application Insights ohanterade undantag som genereras i styrenheten metoder automatiskt för WebAPI 2 +. Om du tidigare har lagt till en anpassad hanterare för att spåra sådana undantag (enligt beskrivningen i följande exempel) kan du ta bort den för att förhindra dubbel spårning av undantag.
 
-Det finns ett antal fall som undantags filtren inte kan hantera. Exempel:
+Det finns ett antal fall som undantagsfiltren inte kan hantera. Ett exempel:
 
-* Undantag som har utlösts av styrenhets konstruktörer.
-* Undantag som har utlösts av meddelande hanterare.
-* Undantag som har utlösts under dirigering.
-* Undantag utlöst under serialisering av svars innehåll.
-* Ett undantag uppstod när programmet startades.
-* Ett undantag utlöstes i bakgrunds aktiviteter.
+* Undantag från styrenhetskonstruktorer.
+* Undantag som genereras från meddelandehanterare.
+* Undantag som genereras under routning.
+* Undantag som genereras under serialisering av svarsinnehåll.
+* Undantag som genereras vid start av program.
+* Undantag som genereras i bakgrundsuppgifter.
 
-Alla undantag som *hanteras* av programmet måste fortfarande spåras manuellt.
-Ohanterade undantag från kontrollanter resulterar vanligt vis i svar på 500 "internt Server fel". Om ett sådant svar manuellt konstrueras till följd av ett hanterat undantag (eller inget undantag alls) spåras det i en motsvarande telemetri för begäran med `ResultCode` 500, men Application Insights SDK kan inte spåra motsvarande undantag.
+Alla undantag *som hanteras* av programmet måste fortfarande spåras manuellt.
+Ohanterade undantag från styrenheter resulterar vanligtvis i 500 "Internal Server Error" svar. Om ett sådant svar konstrueras manuellt som ett resultat av hanterat undantag (eller inget undantag `ResultCode` alls) spåras det i en motsvarande begärantelemetri med 500, men Application Insights SDK kan inte spåra motsvarande undantag.
 
 ### <a name="prior-versions-support"></a>Stöd för tidigare versioner
-Om du använder WebAPI 1 (och tidigare) av Application Insights Web SDK 2,5 (och tidigare) kan du läsa följande exempel för att spåra undantag.
+Om du använder WebAPI 1 (och tidigare) av Application Insights Web SDK 2.5 (och föregående) läser du följande exempel för att spåra undantag.
 
-#### <a name="web-api-1x"></a>Webb-API 1. x
-Åsidosätt system. Web. http. filters. ExceptionFilterAttribute:
+#### <a name="web-api-1x"></a>Webb-API 1.x
+Åsidosätt system.web.http.filters.exceptionfilterAttribute:
 
 ```csharp
     using System.Web.Http.Filters;
@@ -328,7 +330,7 @@ Om du använder WebAPI 1 (och tidigare) av Application Insights Web SDK 2,5 (och
     }
 ```
 
-Du kan lägga till detta åsidosatta attribut till vissa styrenheter eller lägga till det i den globala filter konfigurationen i WebApiConfig-klassen:
+Du kan lägga till det här åsidosatta attributet till specifika styrenheter eller lägga till det i den globala filterkonfigurationen i klassen WebApiConfig:
 
 ```csharp
     using System.Web.Http;
@@ -352,9 +354,9 @@ Du kan lägga till detta åsidosatta attribut till vissa styrenheter eller lägg
     }
 ```
 
-[Exempel](https://github.com/AppInsightsSamples/WebApi_1.x_UnhandledExceptions)
+[Prov](https://github.com/AppInsightsSamples/WebApi_1.x_UnhandledExceptions)
 
-#### <a name="web-api-2x"></a>Webb-API 2. x
+#### <a name="web-api-2x"></a>Webb-API 2.x
 Lägg till en implementering av IExceptionLogger:
 
 ```csharp
@@ -407,15 +409,15 @@ Lägg till detta i tjänsterna i WebApiConfig:
      }
 ```
 
-[Exempel](https://github.com/AppInsightsSamples/WebApi_2.x_UnhandledExceptions)
+[Prov](https://github.com/AppInsightsSamples/WebApi_2.x_UnhandledExceptions)
 
 Som alternativ kan du:
 
-1. Ersätt den enda ExceptionHandler med en anpassad implementering av IExceptionHandler. Detta anropas endast när ramverket fortfarande kan välja vilket svarsmeddelande som ska skickas (inte när anslutningen avbryts för instansen)
-2. Undantags filter (enligt beskrivningen i avsnittet om webb-API 1. x styrenheter ovan) – inte anropat i samtliga fall.
+1. Ersätt den enda ExceptionHandler med en anpassad implementering av IExceptionHandler. Detta anropas bara när ramverket fortfarande kan välja vilket svarsmeddelande som ska skickas (inte när anslutningen avbryts till exempel)
+2. Undantagsfilter (enligt beskrivningen i avsnittet om Web API 1.x-styrenheter ovan) – anropas inte i alla fall.
 
 ## <a name="wcf"></a>WCF
-Lägg till en klass som utökar attribut och implementerar IErrorHandler och IServiceBehavior.
+Lägg till en klass som utökar attributet och implementerar IErrorHandler och IServiceBehavior.
 
 ```csharp
     using System;
@@ -477,18 +479,18 @@ Add the attribute to the service implementations:
          ...
 ```
 
-[Exempel](https://github.com/AppInsightsSamples/WCFUnhandledExceptions)
+[Prov](https://github.com/AppInsightsSamples/WCFUnhandledExceptions)
 
-## <a name="exception-performance-counters"></a>Prestanda räknare för undantag
-Om du har [installerat Application Insights agent](../../azure-monitor/app/monitor-performance-live-website-now.md) på servern kan du få ett diagram över undantags frekvensen, mätt av .net. Detta inkluderar både hanterade och ohanterade .NET-undantag.
+## <a name="exception-performance-counters"></a>Prestandaräknare för undantag
+Om du har [installerat Application Insights Agent](../../azure-monitor/app/monitor-performance-live-website-now.md) på servern kan du få ett diagram över undantagsfrekvensen, mätt med .NET. Detta inkluderar både hanterade och ohanterade .NET-undantag.
 
-Öppna fliken Metric Explorer, Lägg till ett nytt diagram och välj **undantags frekvens**i listan under prestanda räknare.
+Öppna fliken Metric Explorer, lägg till ett nytt diagram och välj **Undantagsfrekvens**, som visas under Prestandaräknare.
 
-.NET Framework beräknar frekvensen genom att räkna antalet undantag i ett intervall och dividera med längden på intervallet.
+.NET-ramverket beräknar hastigheten genom att räkna antalet undantag i ett intervall och dividera med intervallets längd.
 
-Detta skiljer sig från antalet undantag som beräknas av Application Insights portal som räknar TrackException-rapporter. Samplings intervallen är olika och SDK: n skickar inte TrackException-rapporter för alla hanterade och ohanterade undantag.
+Detta skiljer sig från antalet undantag som beräknas av Application Insights-portalen som räknar TrackException-rapporter. Samplingsintervallen är olika och SDK skickar inte TrackException-rapporter för alla hanterade och ohanterade undantag.
 
 ## <a name="next-steps"></a>Nästa steg
 * [Övervaka REST, SQL och andra anrop till beroenden](../../azure-monitor/app/asp-net-dependencies.md)
-* [Övervaka sid inläsnings tider, webb läsar undantag och AJAX-anrop](../../azure-monitor/app/javascript.md)
-* [Övervaka prestanda räknare](../../azure-monitor/app/performance-counters.md)
+* [Övervaka sidans laddningstider, webbläsarundantag och AJAX-anrop](../../azure-monitor/app/javascript.md)
+* [Övervaka prestandaräknare](../../azure-monitor/app/performance-counters.md)

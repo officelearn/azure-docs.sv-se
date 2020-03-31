@@ -1,6 +1,6 @@
 ---
-title: Konfigurera hur slutanvändare godkänner program med hjälp av Azure AD
-description: Lär dig hur du hanterar och när användare kan godkänna program som kommer att ha åtkomst till din organisations data.
+title: Konfigurera hur slutanvändare samtycker till program som använder Azure AD
+description: Läs om hur du hanterar hur och när användare kan samtycka till program som har åtkomst till organisationens data.
 services: active-directory
 author: msmimart
 manager: CelesteDG
@@ -13,70 +13,70 @@ ms.author: mimart
 ms.reviewer: arvindh
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5bd305d2943d1b12756171748f28d32300081d71
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75443397"
 ---
-# <a name="configure-how-end-users-consent-to-applications"></a>Konfigurera hur slutanvändare godkänner program
+# <a name="configure-how-end-users-consent-to-applications"></a>Konfigurera hur slutanvändare samtycker till program
 
-Program kan integreras med Microsoft Identity Platform så att användarna kan logga in med sitt arbets-eller skol konto i Azure Active Directory (Azure AD) och få åtkomst till din organisations data för att leverera omfattande data drivna upplevelser. Olika behörigheter tillåter programmet olika åtkomst nivåer till dina användare och din organisations data.
+Program kan integreras med Microsoft Identity-plattformen så att användare kan logga in med sitt arbets- eller skolkonto i Azure Active Directory (Azure AD) och för att komma åt organisationens data för att leverera omfattande datadrivna upplevelser. Olika behörigheter ger programmet olika åtkomstnivå till användarnas och organisationens data.
 
-Som standard kan användare godkänna program som har åtkomst till din organisations data, men endast för vissa behörigheter. Som standard kan en användare till exempel godkänna att en app får åtkomst till sin egen post låda eller team-konversationer för ett team som användaren äger, men inte kan godkänna att en app utan obevakad åtkomst kan läsa och skriva till alla SharePoint-webbplatser i din organisation. Samtidigt som användare kan godkänna själva kan användarna enkelt förvärva användbara program som integrerar med Microsoft 365, Azure och andra tjänster, men det kan representera en risk om den inte används och övervakas noggrant.
+Som standard kan användare samtycka till program som använder organisationens data, men bara för vissa behörigheter. Som standard kan en användare till exempel samtycka till att tillåta att en app får åtkomst till sin egen postlåda eller Teams-konversationerna för ett team som användaren äger, men kan inte samtycka till att tillåta att en app har obevakad åtkomst för att läsa och skriva till alla SharePoint-webbplatser i organisationen. Samtidigt som användare kan samtycka själva tillåter användare att enkelt skaffa användbara program som integreras med Microsoft 365, Azure och andra tjänster, kan det utgöra en risk om den inte används och övervakas noggrant.
 
-Microsoft rekommenderar att du inaktiverar framtida användar medgivande åtgärder för att minska din yta och minimera risken. Om användar medgivande är inaktiverat kommer tidigare medgivande bidrag fortfarande att bevaras, men alla framtida medgivande åtgärder måste utföras av en administratör. Administratörs medgivande för hela klienten kan begäras av användare via ett integrerat [administrativt medgivande arbets flöde](configure-admin-consent-workflow.md) eller genom egna support processer. Se [fem steg för att skydda din identitets infrastruktur](../../security/fundamentals/steps-secure-identity.md) för mer information.
+Microsoft rekommenderar att du inaktiverar framtida åtgärder för användargodkännande för att minska din yta och minska den här risken. Om användarens medgivande inaktiveras kommer tidigare medgivandebidrag fortfarande att respekteras, men alla framtida medgivandeåtgärder måste utföras av en administratör. Administratörsmedgivande för hela klienten kan begäras av användare via ett arbetsflöde för en integrerad [administratörsföryndebegäran](configure-admin-consent-workflow.md) eller genom dina egna supportprocesser. Mer information finns i Fem steg för [att skydda din identitetsinfrastruktur.](../../security/fundamentals/steps-secure-identity.md)
 
-## <a name="configure-user-consent-to-applications"></a>Konfigurera användar medgivande till program
-### <a name="disable-or-enable-user-consent-from-the-azure-portal"></a>Inaktivera eller aktivera användar medgivande från Azure Portal
+## <a name="configure-user-consent-to-applications"></a>Konfigurera användarens medgivande till program
+### <a name="disable-or-enable-user-consent-from-the-azure-portal"></a>Inaktivera eller aktivera användarmedgivande från Azure-portalen
 
-Du kan använda Azure Portal för att inaktivera eller aktivera användarnas möjlighet att godkänna program som har åtkomst till din organisations data:
+Du kan använda Azure-portalen för att inaktivera eller aktivera användarnas möjlighet att godkänna program som använder organisationens data:
 
-1. Logga in på [Azure Portal](https://portal.azure.com) som [Global administratör](../users-groups-roles/directory-assign-admin-roles.md#global-administrator--company-administrator).
-2. Välj **Azure Active Directory**, sedan **företags program**och sedan **användar inställningar**.
-3. Aktivera eller inaktivera användar medgivande med kontrollen märkta **användare kan godkänna appar som har åtkomst till företags information för deras räkning**.
-4. Valfritt Konfigurera [arbets flödet för administratörs godkännande av begäran](configure-admin-consent-workflow.md) för att se till att användare som inte har tillåtelse att godkänna en app kan begära godkännande.
+1. Logga in på [Azure-portalen](https://portal.azure.com) som [global administratör](../users-groups-roles/directory-assign-admin-roles.md#global-administrator--company-administrator).
+2. Välj **Azure Active Directory**och sedan **Företagsprogram**och sedan **Användarinställningar**.
+3. Aktivera eller inaktivera användarens medgivande med kontrollen som heter **Användare kan samtycka till att appar som får åtkomst till företagsdata för deras räkning**.
+4. (Valfritt) Konfigurera [arbetsflödet för administratörsförsyrkan för](configure-admin-consent-workflow.md) att säkerställa att användare som inte har tillstånd att samtycka till en app kan begära godkännande.
 
 > [!TIP]
-> Om du vill tillåta att användare begär en administratörs granskning av ett program som användaren inte har tillåtelse att godkänna till (till exempel eftersom användar medgivande har inaktiverats eller om programmet begär behörigheter som användaren inte har tillåtelse att bevilja) bör du överväga att [Konfigurera arbets flödet för administratörs medgivande](configure-admin-consent-workflow.md).
+> Om du vill tillåta användare att begära en administratörs granskning av ett program som användaren inte får samtycka till (till exempel på grund av att användarens medgivande har inaktiverats eller på grund av att programmet begär behörigheter som användaren inte får bevilja) bör du överväga att konfigurera arbetsflödet för [administratörssamtycke](configure-admin-consent-workflow.md).
 
-### <a name="disable-or-enable-user-consent-using-powershell"></a>Inaktivera eller aktivera användar medgivande med PowerShell
+### <a name="disable-or-enable-user-consent-using-powershell"></a>Inaktivera eller aktivera användarens medgivande med PowerShell
 
-Du kan använda Azure AD PowerShell v1-modulen ([MSOnline](https://docs.microsoft.com/powershell/module/msonline/?view=azureadps-1.0)) för att aktivera eller inaktivera användarnas möjlighet att godkänna program som har åtkomst till organisationens data.
+Du kan använda Azure AD PowerShell v1-modulen[(MSOnline](https://docs.microsoft.com/powershell/module/msonline/?view=azureadps-1.0)) för att aktivera eller inaktivera användarnas möjlighet att samtycka till program som använder organisationens data.
 
-1. Logga in på din organisation genom att köra den här cmdleten:
+1. Logga in på din organisation genom att köra den här cmdlet:
 
     ```powershell
     Connect-MsolService
     ```
 
-2. Kontrol lera om användar medgivande har Aktiver ATS genom att köra denna cmdlet:
+2. Kontrollera om användarens medgivande är aktiverat genom att köra den här cmdlet:
 
     ```powershell
     Get-MsolCompanyInformation | Format-List UsersPermissionToUserConsentToAppEnabled
     ```
 
-3. Aktivera eller inaktivera användar medgivande. Om du till exempel vill inaktivera användar medgivande kör du denna cmdlet:
+3. Aktivera eller inaktivera användarens medgivande. Om du till exempel vill inaktivera användarens medgivande kör du den här cmdleten:
 
     ```powershell
     Set-MsolCompanySettings -UsersPermissionToUserConsentToAppEnabled $false
     ```
 
-## <a name="configure-group-owner-consent-to-apps-accessing-group-data"></a>Konfigurera grupp ägare medgivande till appar som har åtkomst till grupp data
+## <a name="configure-group-owner-consent-to-apps-accessing-group-data"></a>Konfigurera gruppägares medgivande till appar som använder gruppdata
 
 > [!IMPORTANT]
-> Följande information gäller för en kommande funktion som gör det möjligt för grupp ägare att ge program åtkomst till sina gruppers data. När den här funktionen släpps, aktive ras den som standard. Även om den här funktionen ännu inte har släppts mycket, kan du använda dessa instruktioner för att inaktivera funktionen i förväg.
+> Följande information är för en kommande funktion som gör det möjligt för gruppägare att ge program åtkomst till sina gruppers data. När den här funktionen släpps aktiveras den som standard. Även om den här funktionen ännu inte har släppts i stor utsträckning kan du använda dessa instruktioner för att inaktivera funktionen före dess release.
 
-Grupp ägare kan auktorisera program (till exempel program som publicerats av tredjepartsleverantörer) för att komma åt din organisations data som är associerade med en grupp. Till exempel kan en grupp ägare (som är ägare av Office 365-gruppen för teamet) tillåta att en app läser alla team meddelanden i teamet eller visar den grundläggande profilen för en grupps medlemmar.
+Gruppägare kan auktorisera program (till exempel program som publiceras av tredjepartsleverantörer) för att komma åt organisationens data som är associerade med en grupp. En gruppägare (som är ägare till Office 365-gruppen för teamet) kan till exempel tillåta en app att läsa alla Teams-meddelanden i teamet eller lista den grundläggande profilen för en grupps medlemmar.
 
 > [!NOTE]
-> Oberoende av den här inställningen tillåts en grupp ägare alltid att lägga till andra användare eller appar direkt som grupp ägare.
+> Oberoende av den här inställningen kan en gruppägare alltid lägga till andra användare eller appar direkt som gruppägare.
 
-### <a name="configure-group-owner-consent-using-powershell"></a>Konfigurera grupp ägarens medgivande med PowerShell
+### <a name="configure-group-owner-consent-using-powershell"></a>Konfigurera gruppägare med hjälp av PowerShell
 
-Du kan använda Azure AD PowerShell Preview-modulen ([AzureADPreview](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview)) för att aktivera eller inaktivera grupp ägarens möjlighet att godkänna program som har åtkomst till organisationens data för de grupper som de äger.
+Du kan använda Azure AD PowerShell Preview-modulen[(AzureADPreview)](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview)för att aktivera eller inaktivera gruppägares möjlighet att godkänna program som använder organisationens data för de grupper de äger.
 
-1. Se till att du använder modulen [AzureADPreview](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview) (det här steget är viktigt om du har installerat både [AzureAD](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0) -modulen och [AzureADPreview](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview) -modulen).
+1. Se till att du använder [Modulen AzureADPreview](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview) (det här steget är viktigt om du har installerat både [AzureAD-modulen](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0) och [AzureADPreview-modulen).](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview)
 
     ```powershell
     Remove-Module AzureAD
@@ -89,7 +89,7 @@ Du kan använda Azure AD PowerShell Preview-modulen ([AzureADPreview](https://do
    Connect-AzureAD
    ```
 
-3. Hämta det aktuella värdet för katalog inställningarna för *medgivande princip inställningarna* i din klient organisation. Detta kräver att du kontrollerar om katalog inställningarna för den här funktionen har skapats, och om inte använder värdena från motsvarande katalog inställnings mall.
+3. Hämta det aktuella värdet för kataloginställningarna för inställningar för *consent-princip* i klienten. Detta kräver kontroll av om kataloginställningarna för den här funktionen har skapats, och om inte, med hjälp av värdena från motsvarande kataloginställningar mall.
 
     ```powershell
     $consentSettingsTemplateId = "dffd5d46-495d-40a9-8e21-954ff55e198a" # Consent Policy Settings
@@ -104,14 +104,14 @@ Du kan använda Azure AD PowerShell Preview-modulen ([AzureADPreview](https://do
     $limitedToValue = $settings.Values | ? { $_.Name -eq "ConstrainGroupSpecificConsentToMembersOfGroupId" }
     ```
 
-4. Förstå inställnings värden. Det finns två inställnings värden som definierar vilka användare som ska kunna tillåta en app åtkomst till deras grupp data:
+4. Förstå inställningsvärdena. Det finns två inställningsvärden som definierar vilka användare som skulle kunna tillåta en app att komma åt gruppens data:
 
     | Inställning       | Typ         | Beskrivning  |
     | ------------- | ------------ | ------------ |
-    | _EnableGroupSpecificConsent_   | Boolean |  Flagga som anger om grupp ägare tillåts att bevilja gruppdefinierade behörigheter. |
-    | _ConstrainGroupSpecificConsentToMembersOfGroupId_ | GUID | Om _EnableGroupSpecificConsent_ är inställt på "true" och det här värdet har angetts till en grupps objekt-ID, kommer medlemmar i gruppen som identifieras att kunna bevilja gruppspecifika behörigheter till de grupper som de äger. |
+    | _AktiveraGroupSpecificConsent_   | Boolean |  Flagga som anger om gruppägare tillåts bevilja gruppspecifika behörigheter. |
+    | _ConstrainGroupSpecificConsentToMembersOfGroupId_ | GUID | Om _EnableGroupSpecificConsent_ är inställt på "True" och det här värdet anges till en grupps objekt-ID, kommer medlemmar i den identifierade gruppen att ha behörighet att bevilja gruppspecifika behörigheter till de grupper de äger. |
 
-5. Uppdatera inställnings värden för önskad konfiguration:
+5. Uppdatera inställningsvärden för önskad konfiguration:
 
     ```powershell
     # Disable group-specific consent entirely
@@ -145,10 +145,10 @@ Du kan använda Azure AD PowerShell Preview-modulen ([AzureADPreview](https://do
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Konfigurera arbets flödet för administratörs medgivande](configure-admin-consent-workflow.md)
+[Konfigurera arbetsflödet för administratörsgodkännande](configure-admin-consent-workflow.md)
 
-[Bevilja ett program administratörs medgivande för hela klienten](grant-admin-consent.md)
+[Bevilja administratör för hela klienten till ett program](grant-admin-consent.md)
 
-[Behörigheter och medgivande i Microsoft Identity Platform](../develop/active-directory-v2-scopes.md)
+[Behörigheter och medgivande på Microsofts identitetsplattform](../develop/active-directory-v2-scopes.md)
 
 [Azure AD på StackOverflow](https://stackoverflow.com/questions/tagged/azure-active-directory)

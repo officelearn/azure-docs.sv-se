@@ -1,7 +1,7 @@
 ---
-title: Skalbarhets-och prestanda mål för Queue Storage
+title: Skalbarhets- och prestandamål för kölagring
 titleSuffix: Azure Storage
-description: Lär dig mer om skalbarhets-och prestanda mål för Queue Storage.
+description: Läs mer om skalbarhet och prestandamål för kölagring.
 services: storage
 author: tamram
 ms.service: storage
@@ -10,23 +10,23 @@ ms.date: 12/18/2019
 ms.author: tamram
 ms.subservice: queues
 ms.openlocfilehash: 464807a7bf4a20b540e2d5344b721c8844bd7bca
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75750479"
 ---
-# <a name="scalability-and-performance-targets-for-queue-storage"></a>Skalbarhets-och prestanda mål för Queue Storage
+# <a name="scalability-and-performance-targets-for-queue-storage"></a>Skalbarhets- och prestandamål för kölagring
 
 [!INCLUDE [storage-scalability-intro-include](../../../includes/storage-scalability-intro-include.md)]
 
-## <a name="scale-targets-for-queue-storage"></a>Skala mål för Queue Storage
+## <a name="scale-targets-for-queue-storage"></a>Skala mål för kölagring
 
 [!INCLUDE [storage-queues-scale-targets](../../../includes/storage-queues-scale-targets.md)]
 
-## <a name="see-also"></a>Se också
+## <a name="see-also"></a>Se även
 
-- [Check lista för prestanda och skalbarhet för Queue Storage](storage-performance-checklist.md)
-- [Skalbarhets mål för standard lagrings konton](../common/scalability-targets-standard-account.md)
-- [Skalbarhets mål för Azure Storage Resource Provider](../common/scalability-targets-resource-provider.md)
-- [Begränsningar och kvoter för Azure-prenumeration](../../azure-resource-manager/management/azure-subscription-service-limits.md)
+- [Checklista för prestanda och skalbarhet för kölagring](storage-performance-checklist.md)
+- [Skalbarhetsmål för standardlagringskonton](../common/scalability-targets-standard-account.md)
+- [Skalbarhetsmål för Azure Storage-resursprovidern](../common/scalability-targets-resource-provider.md)
+- [Azure-prenumerationsbegränsningar och kvoter](../../azure-resource-manager/management/azure-subscription-service-limits.md)

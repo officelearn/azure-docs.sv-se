@@ -9,10 +9,10 @@ ms.date: 03/05/2020
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: 3eec6583ebdff35d7e40d2eec305a947de0cb87c
-ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79299471"
 ---
 [!INCLUDE [virtual-machines-disks-incremental-snapshots-description](virtual-machines-disks-incremental-snapshots-description.md)]
@@ -26,17 +26,17 @@ ms.locfileid: "79299471"
 
 ## <a name="powershell"></a>PowerShell
 
-Du kan använda Azure PowerShell för att skapa en stegvis ögonblicks bild. Du behöver den senaste versionen av Azure PowerShell, följande kommando kommer antingen att installera den eller uppdatera den befintliga installationen till senaste:
+Du kan använda Azure PowerShell för att skapa en inkrementell ögonblicksbild. Du behöver den senaste versionen av Azure PowerShell, följande kommando kommer antingen att installera den eller uppdatera din befintliga installation till senaste:
 
 ```PowerShell
 Install-Module -Name Az -AllowClobber -Scope CurrentUser
 ```
 
-När den är installerad loggar du in på PowerShell-sessionen med `az login`.
+När det är installerat, logga in `az login`på din PowerShell-session med .
 
-Om du vill skapa en stegvis ögonblicks bild med Azure PowerShell anger du konfigurationen med [New-AzSnapShotConfig](https://docs.microsoft.com/powershell/module/az.compute/new-azsnapshotconfig?view=azps-2.7.0) med parametern `-Incremental` och skickar den som en variabel till [New-AzSnapshot](https://docs.microsoft.com/powershell/module/az.compute/new-azsnapshot?view=azps-2.7.0) via `-Snapshot`-parametern.
+Om du vill skapa en inkrementell ögonblicksbild med Azure PowerShell anger du `-Incremental` konfigurationen med [New-AzSnapShotConfig](https://docs.microsoft.com/powershell/module/az.compute/new-azsnapshotconfig?view=azps-2.7.0) med `-Snapshot` parametern och skickar den sedan som en variabel till [New-AzSnapshot](https://docs.microsoft.com/powershell/module/az.compute/new-azsnapshot?view=azps-2.7.0) genom parametern.
 
-Ersätt `<yourDiskNameHere>`, `<yourResourceGroupNameHere>`och `<yourDesiredSnapShotNameHere>` med dina värden. sedan kan du använda följande skript för att skapa en stegvis ögonblicks bild:
+Ersätt `<yourDiskNameHere>` `<yourResourceGroupNameHere>`, `<yourDesiredSnapShotNameHere>` och med dina värden kan du använda följande skript för att skapa en inkrementell ögonblicksbild:
 
 ```PowerShell
 # Get the disk that you need to backup by creating an incremental snapshot
@@ -47,9 +47,9 @@ $snapshotConfig=New-AzSnapshotConfig -SourceUri $yourDisk.Id -Location $yourDisk
 New-AzSnapshot -ResourceGroupName <yourResourceGroupNameHere> -SnapshotName <yourDesiredSnapshotNameHere> -Snapshot $snapshotConfig 
 ```
 
-Du kan identifiera stegvisa ögonblicks bilder från samma disk med `SourceResourceId` och `SourceUniqueId` egenskaper för ögonblicks bilder. `SourceResourceId` är Azure Resource Manager resurs-ID för den överordnade disken. `SourceUniqueId` är värdet som ärvts från diskens egenskap `UniqueId`. Om du skulle ta bort en disk och sedan skapa en ny disk med samma namn ändras värdet för egenskapen `UniqueId`.
+Du kan identifiera inkrementella ögonblicksbilder `SourceResourceId` från `SourceUniqueId` samma disk med egenskaperna för ögonblicksbilder. `SourceResourceId`är Azure Resource Manager-resurs-ID för den överordnade disken. `SourceUniqueId`är värdet som `UniqueId` ärvts från diskens egenskap. Om du skulle ta bort en disk och sedan skapa en `UniqueId` ny disk med samma namn ändras egenskapens värde.
 
-Du kan använda `SourceResourceId` och `SourceUniqueId` för att skapa en lista över alla ögonblicks bilder som är associerade med en viss disk. Ersätt `<yourResourceGroupNameHere>` med ditt värde och Använd sedan följande exempel för att visa en lista över dina befintliga stegvisa ögonblicks bilder:
+Du kan `SourceResourceId` `SourceUniqueId` använda och skapa en lista över alla ögonblicksbilder som är associerade med en viss disk. Ersätt `<yourResourceGroupNameHere>` med ditt värde och sedan kan du använda följande exempel för att lista dina befintliga inkrementella ögonblicksbilder:
 
 ```PowerShell
 $snapshots = Get-AzSnapshot -ResourceGroupName <yourResourceGroupNameHere>
@@ -69,7 +69,7 @@ $incrementalSnapshots
 
 ## <a name="resource-manager-template"></a>Resource Manager-mall
 
-Du kan också använda Azure Resource Manager mallar för att skapa en stegvis ögonblicks bild. Du måste kontrol lera att API version är inställt på **2019-03-01** och att den stegvisa egenskapen också har angetts till true. Följande fragment är ett exempel på hur du skapar en stegvis ögonblicks bild med Resource Manager-mallar:
+Du kan också använda Azure Resource Manager-mallar för att skapa en inkrementell ögonblicksbild. Du måste se till att apiVersion är inställt på **2019-03-01** och att den inkrementella egenskapen också är inställd på true. Följande kodavsnitt är ett exempel på hur du skapar en inkrementell ögonblicksbild med Resource Manager-mallar:
 
 ```json
 {
@@ -105,4 +105,4 @@ Du kan också använda Azure Resource Manager mallar för att skapa en stegvis �
 
 ## <a name="next-steps"></a>Nästa steg
 
-Om du vill se exempel kod som demonstrerar den differentiella kapaciteten för stegvisa ögonblicks bilder med hjälp av .NET, se [Kopiera Azure-Managed disks säkerhets kopior till en annan region med differentiella funktioner i stegvisa ögonblicks bilder](https://github.com/Azure-Samples/managed-disks-dotnet-backup-with-incremental-snapshots).
+Om du vill se exempelkod som visar differentiella funktioner för inkrementella ögonblicksbilder, med hjälp av .NET, se [Kopiera Azure Managed Disks säkerhetskopior till en annan region med differentiell kapacitet för inkrementella ögonblicksbilder](https://github.com/Azure-Samples/managed-disks-dotnet-backup-with-incremental-snapshots).

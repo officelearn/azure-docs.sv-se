@@ -1,6 +1,6 @@
 ---
-title: Skapa en Azure Notification Hub med PowerShell | Microsoft Docs
-description: Lär dig hur du använder ett PowerShell-skript för att skapa en Azure Notification Hub.
+title: Skapa en Azure-meddelandehubb med PowerShell | Microsoft-dokument
+description: Lär dig hur du använder ett PowerShell-skript för att skapa en Azure-meddelandehubb.
 author: dimazaid
 manager: femila
 services: notification-hubs
@@ -13,15 +13,15 @@ ms.topic: article
 ms.date: 01/14/2020
 ms.author: dimazaid
 ms.openlocfilehash: 01749e1ae5c29a7e77b2143939e25cf1ccd1aec2
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76263989"
 ---
-# <a name="use-powershell-to-create-an-azure-notification-hub"></a>Använd PowerShell för att skapa en Azure Notification Hub
+# <a name="use-powershell-to-create-an-azure-notification-hub"></a>Använda PowerShell för att skapa en Azure-meddelandehubb
 
-Det här exemplet på PowerShell-skriptet skapar ett exempel på en Azure Notification Hub. 
+Det här exemplet powershell-skript skapar ett exempel på Azure-meddelandehubb. 
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -37,7 +37,7 @@ Det här exemplet på PowerShell-skriptet skapar ett exempel på en Azure Notifi
 
 ## <a name="clean-up-deployment"></a>Rensa distribution
 
-När du har kört exempel skriptet kan du använda följande kommando för att ta bort resurs gruppen och alla resurser som är kopplade till den:
+När du har kört exempelskriptet kan du använda följande kommando för att ta bort resursgruppen och alla resurser som är associerade med det:
 
 ```powershell
 Remove-AzResourceGroup -ResourceGroupName $resourceGroupName
@@ -50,8 +50,8 @@ I det här skriptet används följande kommandon:
 | Kommando | Anteckningar |
 |---|---|
 | [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) | Skapar en resursgrupp där alla resurser lagras. |
-| [New-AzNotificationHubsNamespace](/powershell/module/az.notificationhubs/new-aznotificationhubsnamespace) | Skapar ett namn område för Notification Hub. |
-| [New-AzNotificationHub](/powershell/module/az.notificationhubs/new-aznotificationhub) | Skapar en Notification Hub. |
+| [Nytt-AzNotificationHubsNamespace](/powershell/module/az.notificationhubs/new-aznotificationhubsnamespace) | Skapar ett namnområde för meddelandehubben. |
+| [Ny-AzNotificationHub](/powershell/module/az.notificationhubs/new-aznotificationhub) | Skapar en meddelandehubb. |
 | [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Tar bort en resursgrupp, inklusive alla kapslade resurser. |
 |||
 

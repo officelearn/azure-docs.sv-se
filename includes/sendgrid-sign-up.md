@@ -5,17 +5,17 @@ ms.topic: include
 ms.date: 11/25/2018
 ms.author: gwallace
 ms.openlocfilehash: e38cecfe206f21f9189493e7ed6e8f0cadda9cd9
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "75463579"
 ---
-Azure-kunder kan låsa upp 25 000 kostnadsfria e-postmeddelanden varje månad. Med de här 25 000 kostnads fria e-postmeddelandena får du till gång till avancerad rapportering och analys och [alla API: er][all APIs] (webb, SMTP, evenemang, analys och annat). Information om ytterligare tjänster som tillhandahålls av SendGrid finns på sidan med [SendGrid-lösningar][SendGrid Solutions] .
+Azure-kunder kan låsa upp 25 000 kostnadsfria e-postmeddelanden varje månad. Dessa 25.000 gratis månatliga e-postmeddelanden ger dig tillgång till avancerad rapportering och analys och [alla API:er][all APIs] (Webb, SMTP, Event, Parse och mycket mer). Information om ytterligare tjänster från SendGrid finns på sidan om [SendGrid-lösningar][SendGrid Solutions].
 
 ### <a name="to-sign-up-for-a-sendgrid-account"></a>Registrera ett SendGrid-konto
 1. Logga in på [Azure-portalen][Azure portal].
-2. På Azure Portal-menyn eller start sidan väljer du **skapa en resurs**.
+2. På Azure-portalmenyn eller startsidan väljer du **Skapa en resurs**.
 
     ![command-bar-new][command-bar-new]
 3. Sök efter och välj **SendGrid**.
@@ -34,11 +34,11 @@ Azure-kunder kan låsa upp 25 000 kostnadsfria e-postmeddelanden varje månad. M
 10. Ange en **kampanjkod** om du har en.
 11. Ange dina **kontaktuppgifter**.
 12. Läs igenom och godkänn de **juridiska villkoren**.
-13. När du har bekräftat ditt köp ser du att **distributionen lyckades** och att ditt konto visas.
+13. När du har bekräftat ditt köp ser du ett popup-fönster för distribution som **har slutförts** och du ser ditt konto i listan.
 
     ![all-resources][all-resources]
 
-    När du har slutfört köpet och klickar på knappen **Hantera** för att starta processen med e-postverifiering så får du ett e-postmeddelande från SendGrid där du uppmanas att verifiera ditt konto. Om du inte får det här e-postmeddelandet eller om du har problem med att verifiera ditt konto kan du läsa vanliga frågor och svar.
+    När du har slutfört köpet och klickar på knappen **Hantera** för att starta processen med e-postverifiering så får du ett e-postmeddelande från SendGrid där du uppmanas att verifiera ditt konto. Om du inte får det här e-postmeddelandet, eller har problem med att verifiera ditt konto, se våra vanliga frågor och svar.
 
     ![manage][manage]
 
@@ -58,7 +58,7 @@ Azure-kunder kan låsa upp 25 000 kostnadsfria e-postmeddelanden varje månad. M
 
     ![api-keys][api-keys]
 
-3. Klicka på **skapa API-nyckel**.
+3. Klicka på **Skapa API-nyckel**.
 
     ![general-api-key][general-api-key]
 4. Ange minst **Name of this key** (Den här nyckelns namn), ge fullständig åtkomst till **Mail Send** (Skicka e-post) och välj **Spara**.
@@ -72,11 +72,11 @@ Azure-kunder kan låsa upp 25 000 kostnadsfria e-postmeddelanden varje månad. M
     ![key][key]
 2. Lösenordet är det du valde vid installationen. Om du vill ändra det så kan du välja **Ändra lösenord** eller **Återställ lösenord**.
 
-Om du vill hantera inställningarna för e-postleverans så klickar du på knappen **Hantera**. Detta kommer att omdirigeras till SendGrid-instrumentpanelen.
+Om du vill hantera inställningarna för e-postleverans så klickar du på knappen **Hantera**. Detta omdirigeras till din SendGrid-instrumentpanel.
 
 ![manage][manage]
 
-Mer information om hur du skickar e-post via SendGrid finns i [Översikt över e-post-API][Email API Overview].
+Mer information om hur du skickar e-post via SendGrid finns i [översikten över e-post-API.][Email API Overview]
 
 <!--images-->
 

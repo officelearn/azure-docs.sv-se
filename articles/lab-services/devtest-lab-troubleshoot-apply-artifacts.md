@@ -1,6 +1,6 @@
 ---
-title: Felsöka problem med artefakter i Azure DevTest Labs | Microsoft Docs
-description: Lär dig hur du felsöker problem som inträffar när du använder artefakter på en Azure DevTest Labs virtuell dator.
+title: Felsöka problem med artefakter i Azure DevTest Labs | Microsoft-dokument
+description: Lär dig hur du felsöker problem som uppstår vid användning av artefakter på en virtuell Azure DevTest Labs-dator.
 services: devtest-lab
 documentationcenter: na
 author: spelluru
@@ -13,27 +13,27 @@ ms.topic: article
 ms.date: 12/03/2019
 ms.author: spelluru
 ms.openlocfilehash: fc5051667100a2ebaa01b7815f825fadd766b08f
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75456984"
 ---
-# <a name="troubleshoot-issues-when-applying-artifacts-in-an-azure-devtest-labs-virtual-machine"></a>Felsöka problem när du använder artefakter på en Azure DevTest Labs virtuell dator
-Att tillämpa artefakter på en virtuell dator kan inte utföras av olika orsaker. Den här artikeln vägleder dig igenom några av metoderna för att identifiera möjliga orsaker.
+# <a name="troubleshoot-issues-when-applying-artifacts-in-an-azure-devtest-labs-virtual-machine"></a>Felsöka problem vid tillämpning av artefakter på en virtuell Azure DevTest Labs-dator
+Att tillämpa artefakter på en virtuell dator kan misslyckas av olika skäl. Den här artikeln guidar dig genom några av metoderna för att identifiera möjliga orsaker.
 
-Om du behöver mer hjälp när som helst i den här artikeln kan du kontakta experterna Azure DevTest Labs (DTL) i [MSDN Azure och Stack Overflow forum](https://azure.microsoft.com/support/forums/). Alternativt kan du arkivera en Azure-support-incident. Gå till [Support webbplatsen för Azure](https://azure.microsoft.com/support/options/) och välj få support.   
+Om du behöver mer hjälp när som helst i den här artikeln kan du kontakta DTL-experterna (Azure DevTest Labs) på [MSDN Azure- och Stack Overflow-forumen](https://azure.microsoft.com/support/forums/). Du kan också arkivera en Azure-supportincident. Gå till [Azure-supportwebbplatsen](https://azure.microsoft.com/support/options/) och välj Hämta support.   
 
 > [!NOTE]
-> Den här artikeln gäller för virtuella Windows-datorer och icke-Windows-datorer. Även om det finns vissa skillnader kommer de att anges uttryckligen i den här artikeln.
+> Den här artikeln gäller både virtuella datorer i Windows och andra datorer än Windows. Även om det finns vissa skillnader, kommer de att kallas ut uttryckligen i den här artikeln.
 
-## <a name="quick-troubleshooting-steps"></a>Snabb fel söknings steg
-Kontrol lera att den virtuella datorn körs. DevTest Labs kräver att den virtuella datorn körs och att den [Microsoft Azure virtuella dator agenten (VM-agenten)](../virtual-machines/extensions/agent-windows.md) är installerad och klar.
+## <a name="quick-troubleshooting-steps"></a>Snabba felsökningssteg
+Kontrollera att den virtuella datorn körs. DevTest Labs kräver att den virtuella datorn körs och att [Microsoft Azure Virtual Machine Agent (VM Agent)](../virtual-machines/extensions/agent-windows.md) är installerad och klar.
 
 > [!TIP]
-> I **Azure Portal**navigerar du till sidan **Hantera artefakter** för den virtuella datorn för att se om den virtuella datorn är redo för att tillämpa artefakter. Du ser ett meddelande längst upp på sidan. 
+> I **Azure-portalen**navigerar du till sidan **Hantera artefakter** för den virtuella datorn för att se om den virtuella datorn är klar för att tillämpa artefakter. Du ser ett meddelande högst upp på den sidan. 
 > 
-> Med hjälp av **Azure PowerShell**, inspektera flaggan **canApplyArtifacts**, som endast returneras när du expanderar en get-åtgärd. Se följande exempel kommando:
+> Med **Azure PowerShell**bör du inspektera flaggan **canApplyArtifacts**, som returneras endast när du expanderar på en GET-åtgärd. Se följande exempelkommando:
 
 ```powershell
 Select-AzSubscription -SubscriptionId $SubscriptionId | Out-Null
@@ -46,48 +46,48 @@ $vm = Get-AzResource `
 $vm.Properties.canApplyArtifacts
 ```
 
-## <a name="ways-to-troubleshoot"></a>Sätt att felsöka 
-Du kan felsöka virtuella datorer som skapats med DevTest Labs och distributions modellen för Resource Manager genom att använda någon av följande metoder:
+## <a name="ways-to-troubleshoot"></a>Felsöker olika sätt att felsöka 
+Du kan felsöka virtuella datorer som skapats med DevTest Labs och Resurshanterarens distributionsmodell med någon av följande metoder:
 
-- **Azure Portal** – bra om du snabbt behöver få ett visuellt tips om vad som kan orsaka problemet.
-- **Azure PowerShell** – om du är van att använda en PowerShell-prompt kan du snabbt fråga DevTest Labs-resurser med hjälp av Azure PowerShell-cmdletar.
+- **Azure portal** - bra om du snabbt behöver få en visuell antydan om vad som kan orsaka problemet.
+- **Azure PowerShell** – om du är bekväm med en PowerShell-prompt, fråga snabbt DevTest Labs-resurser med Azure PowerShell-cmdlets.
 
 > [!TIP]
-> Mer information om hur du granskar artefakt körningar i en virtuell dator finns i [diagnostisera artefakt fel i labbet](devtest-lab-troubleshoot-artifact-failure.md).
+> Mer information om hur du granskar artefaktkörning i en virtuell dator finns [i Diagnostisera artefaktfel i labbet](devtest-lab-troubleshoot-artifact-failure.md).
 
-## <a name="symptoms-causes-and-potential-resolutions"></a>Symptom, orsaker och potentiella lösningar 
+## <a name="symptoms-causes-and-potential-resolutions"></a>Symptom, orsaker och potentiella upplösningar 
 
-### <a name="artifact-appears-to-hang"></a>Artefakt verkar låsa sig   
-En artefakt visas som låser sig tills en fördefinierad timeout-period går ut och artefakten markeras som **misslyckad**.
+### <a name="artifact-appears-to-hang"></a>Artefakten verkar hänga   
+En artefakt verkar hänga tills en fördefinierad timeout-period löper ut och artefakten markeras som **Misslyckad**.
 
-När en artefakt verkar låsa sig måste du först avgöra var den fastnar. En artefakt kan blockeras vid något av följande steg under körningen:
+När en artefakt verkar hänga, först bestämma var den har fastnat. En artefakt kan blockeras vid något av följande steg under körningen:
 
-- **Under den första begäran**. DevTest Labs skapar en Azure Resource Manager-mall för att begära att det anpassade skript tillägget (CSE) används. I bakgrunden utlöses därför en resurs grupps distribution. När ett fel inträffar på den här nivån får du information i **aktivitets loggarna** för resurs gruppen för den virtuella datorn i fråga.  
-    - Du kan komma åt aktivitets loggen från navigerings fältet i Labbets virtuella dator sida. När du väljer det kan du se en post för **att antingen tillämpa artefakter på den virtuella datorn** (om åtgärden tillämpa artefakter utlöstes direkt) eller **lägga till eller ändra virtuella datorer** (om åtgärden tillämpa artefakter var en del av processen för att skapa virtuella datorer).
-    - Leta efter fel under dessa poster. Ibland märks felet inte i enlighet med detta och du måste undersöka varje post.
-    - När du undersöker informationen om varje post ser du till att granska innehållet i JSON-nyttolasten. Du kan se ett fel längst ned i dokumentet.
-- **Vid försök att köra artefakten**. Det kan bero på nätverks-eller lagrings problem. Mer information finns i respektive avsnitt längre fram i den här artikeln. Det kan också inträffa på grund av hur skriptet har skapats. Ett exempel:
-    - Ett PowerShell-skript har **obligatoriska parametrar**, men det går inte att skicka ett värde till det, antingen på grund av att du tillåter att användaren lämnar den tom eller eftersom du inte har ett standardvärde för egenskapen i definitions filen artifactfile. JSON. Skriptet kommer att låsa sig eftersom det väntar på användarindata.
-    - Ett PowerShell-skript **kräver indata från användaren** som en del av körningen. Skripten måste skrivas för att fungera tyst utan att användaren behöver vidta några åtgärder.
-- **Det tar lång tid för VM-agenten att bli redo**. När den virtuella datorn startas eller när det anpassade skript tillägget först installeras för att betjäna begäran om att tillämpa artefakter, kan den virtuella datorn behöva uppgradera VM-agenten eller vänta tills VM-agenten initieras. Det kan finnas tjänster där VM-agenten är beroende av att det tar lång tid att initiera. I sådana fall kan du läsa [Översikt över Azure Virtual Machine agent](../virtual-machines/extensions/agent-windows.md) för ytterligare fel sökning.
+- **Under den första begäran**. DevTest Labs skapar en Azure Resource Manager-mall för att begära användning av CSE (Custom Script Extension). Bakom kulisserna utlöses därför en resursgruppsdistribution. När ett fel på den här nivån inträffar får du information i **aktivitetsloggarna** för resursgruppen för den virtuella datorn i fråga.  
+    - Du kan komma åt aktivitetsloggen från navigeringsfältet för sidan för labbet. När du väljer den visas en post för **antingen att använda artefakter på den virtuella datorn** (om åtgärden tillämpa artefakter utlöstes direkt) eller Lägg till eller ändra virtuella **datorer** (om åtgärden tillämpa artefakter var en del av den virtuella datorns skapandeprocess).
+    - Leta efter fel under dessa poster. Ibland kommer felet inte att taggas i enlighet med detta, och du måste undersöka varje post.
+    - När du undersöker detaljerna för varje post, se till att granska innehållet i JSON nyttolasten. Du kan se ett fel längst ned i dokumentet.
+- **När du försöker utföra artefakten**. Det kan bero på nätverk eller lagringsproblem. Mer information finns i respektive avsnitt senare i den här artikeln. Det kan också hända på grund av hur skriptet är författat. Ett exempel:
+    - Ett PowerShell-skript har **obligatoriska parametrar**, men ett misslyckas med att skicka ett värde till det, antingen för att du tillåter användaren att lämna det tomt eller för att du inte har ett standardvärde för egenskapen i definitionsfilen artifactfile.json. Skriptet kommer att hängas eftersom det väntar på indata från användaren.
+    - Ett PowerShell-skript **kräver indata från användaren** som en del av körningen. Skript måste skrivas för att fungera tyst utan att användaren behöver ingripa.
+- **VM-agenten tar lång tid att vara redo**. När den virtuella datorn startas, eller när det anpassade skripttillägget först installeras för att hantera begäran om att tillämpa artefakter, kan den virtuella datorn kräva antingen uppgradering av VM-agenten eller vänta på att VM-agenten initieras. Det kan finnas tjänster som VM-agenten är beroende av som tar lång tid att initiera. I sådana fall läser du [Översikt över Azure Virtual Machine Agent](../virtual-machines/extensions/agent-windows.md) för ytterligare felsökning.
 
-### <a name="to-verify-if-the-artifact-appears-to-hang-because-of-the-script"></a>Så här kontrollerar du om artefakten verkar låsa sig på grund av skriptet
+### <a name="to-verify-if-the-artifact-appears-to-hang-because-of-the-script"></a>Så här kontrollerar du om artefakten verkar hängas på grund av skriptet
 
 1. Logga in på den virtuella datorn i fråga.
-2. Kopiera skriptet lokalt på den virtuella datorn eller leta upp det på den virtuella datorn under `C:\Packages\Plugins\Microsoft.Compute.CustomScriptExtension\<version>`. Det är den plats där artefakt skripten laddas ned.
-3. Använd en upphöjd kommando tolk och kör skriptet lokalt, vilket ger samma parameter värden som används för att orsaka problemet.
-4. Kontrol lera om skriptet lider av oönskade beteenden. I så fall, begär du en uppdatering av artefakten (om den kommer från den offentliga lagrings platsen). eller gör korrigeringarna själv (om det är från din privata lagrings platsen).
+2. Kopiera skriptet lokalt i den virtuella datorn eller `C:\Packages\Plugins\Microsoft.Compute.CustomScriptExtension\<version>`leta upp det på den virtuella datorn under . Det är platsen där artefaktskripten hämtas.
+3. Med hjälp av en upphöjd kommandotolk kör du skriptet lokalt, vilket ger samma parametervärden som används för att orsaka problemet.
+4. Ta reda på om skriptet lider av något oönskat beteende. Om så är fallet, antingen begära en uppdatering av artefakten (om det är från den offentliga repo). eller göra korrigeringarna själv (om det är från din privata repo).
 
 > [!TIP]
-> Du kan åtgärda problem med artefakter som finns i vår [offentliga lagrings platsen](https://github.com/Azure/azure-devtestlab) och skicka ändringarna för granskning och godkännande. Se avsnittet **bidrag** i [Readme.MD](https://github.com/Azure/azure-devtestlab/blob/master/Artifacts/README.md) -dokumentet.
+> Du kan korrigera problem med artefakter som finns i vår [offentliga repo](https://github.com/Azure/azure-devtestlab) och skicka in ändringarna för vår granskning och godkännande. Se avsnittet **Bidrag** i [README.md](https://github.com/Azure/azure-devtestlab/blob/master/Artifacts/README.md) dokumentet.
 > 
-> Information om hur du skriver dina egna artefakter finns i [AUTHORING.MD](https://github.com/Azure/azure-devtestlab/blob/master/Artifacts/AUTHORING.md) -dokument.
+> Information om hur du skriver egna artefakter finns [i AUTHORING.md](https://github.com/Azure/azure-devtestlab/blob/master/Artifacts/AUTHORING.md) dokument.
 
-### <a name="to-verify-if-the-artifact-appears-to-hang-because-of-the-vm-agent"></a>Så här kontrollerar du om artefakten verkar låsa på grund av den virtuella dator agenten:
+### <a name="to-verify-if-the-artifact-appears-to-hang-because-of-the-vm-agent"></a>Så här kontrollerar du om artefakten verkar hänga på grund av VM-agenten:
 1. Logga in på den virtuella datorn i fråga.
-2. Använd Utforskaren navigera till **C:\WindowsAzure\logs**.
-3. Leta upp och öppna filen **WaAppAgent. log**.
-4. Leta efter poster som visar när VM-agenten startar och när initieringen slutförs (d.v.s. det första pulsslaget skickas). Prioritera nyare poster eller mer specifikt runt den tids period som du upplever problemet för.
+2. Använda Utforskaren navigera till **C:\WindowsAzure\logs**.
+3. Leta upp och öppna filen **WaAppAgent.log**.
+4. Leta efter poster som visar när VM-agenten startar och när den slutför initieringen (det vill ha det första pulsslaget skickas). Gynna nyare poster eller specifikt de runt den tidsperiod som du upplever problemet.
 
     ```
     [00000006] [11/14/2019 05:52:13.44] [INFO]  WindowsAzureGuestAgent starting. Version 2.7.41491.949
@@ -98,43 +98,43 @@ När en artefakt verkar låsa sig måste du först avgöra var den fastnar. En a
     [00000006] [11/14/2019 06:02:33.43] [INFO]  StateExecutor initialization completed.
     [00000020] [11/14/2019 06:02:33.43] [HEART] WindowsAzureGuestAgent Heartbeat.
     ```
-    I det här exemplet kan du se att start tiden för VM-agenten tog 10 minuter och 20 sekunder eftersom ett pulsslag har skickats. Orsaken till det här fallet var att OOBE-tjänsten tog lång tid att starta.
+    I det här exemplet kan du se att vm-agentens starttid tog 10 minuter och 20 sekunder eftersom ett pulsslag skickades. Orsaken i det här fallet var att OOBE-tjänsten tog lång tid att starta.
 
 > [!TIP]
-> Allmän information om Azure-tillägg finns i [tillägg och funktioner för virtuella Azure-datorer](../virtual-machines/extensions/overview.md).
+> Allmän information om Azure-tillägg finns i [Azures tillägg och funktioner för virtuella datorer](../virtual-machines/extensions/overview.md).
 
-## <a name="storage-errors"></a>Lagrings fel
-DevTest Labs kräver åtkomst till Labbets lagrings konto som skapas för att cachelagra artefakter. När DevTest Labs tillämpar en artefakt, kommer den att läsa artefakt konfigurationen och dess filer från de konfigurerade databaserna. Som standard konfigurerar DevTest Labs åtkomst till den **offentliga artefakten lagrings platsen**.
+## <a name="storage-errors"></a>Lagringsfel
+DevTest Labs kräver åtkomst till labbets lagringskonto som skapas för att cachelagra artefakter. När DevTest Labs tillämpar en artefakt läser den artefaktkonfigurationen och dess filer från de konfigurerade databaserna. Som standard konfigurerar DevTest Labs åtkomst till den **offentliga artefaktrepon .**
 
-Beroende på hur en virtuell dator har kon figurer ATS kanske den inte har direkt åtkomst till den här lagrings platsen. Därför cachelagrar DevTest Labs artefakterna i ett lagrings konto som skapas när labbet först initieras.
+Beroende på hur en virtuell dator är konfigurerad kanske den inte har direkt åtkomst till den här fördelningen. Därför cachelagrar DevTest Labs artefakterna i ett lagringskonto som skapas när labbet först initieras.
 
-Om åtkomst till det här lagrings kontot blockeras på något sätt, som när trafik blockeras från den virtuella datorn till Azure Storage tjänsten, kan det hända att du ser ett fel som liknar följande:
+Om åtkomsten till det här lagringskontot blockeras på något sätt, som när trafiken blockeras från den virtuella datorn till Azure Storage-tjänsten, kan du se ett fel som liknar följande:
 
 ```shell
 CSE Error: Failed to download all specified files. Exiting. Exception: Microsoft.WindowsAzure.Storage.StorageException: The remote server returned an error: (403) Forbidden. ---> System.Net.WebException: The remote server returned an error: (403) Forbidden.
 ```
 
-Ovanstående fel visas i avsnittet **distributions meddelande** på sidan **artefakt resultat** under **Hantera artefakter**. Den visas också i **aktivitets loggarna** under resurs gruppen för den aktuella virtuella datorn.
+Ovanstående fel visas i avsnittet **Distributionsmeddelande** på sidan **Artefaktresultat** under **Hantera artefakter**. Det visas också i **aktivitetsloggarna** under resursgruppen för den virtuella datorn i fråga.
 
-### <a name="to-ensure-communication-to-the-azure-storage-service-isnt-being-blocked"></a>För att säkerställa kommunikation till den Azure Storage tjänsten blockeras inte:
+### <a name="to-ensure-communication-to-the-azure-storage-service-isnt-being-blocked"></a>Så här säkerställer du att kommunikationen till Azure Storage-tjänsten inte blockeras:
 
-- **Sök efter tillagda nätverks säkerhets grupper (NSG)** . Det kan bero på att en prenumerations princip har lagts till där NSG: er konfigureras automatiskt i alla virtuella nätverk. Det kan också påverka Labbets virtuella standard nätverk, om det används eller något annat virtuellt nätverk som kon figurer ATS i ditt labb, som används för att skapa virtuella datorer.
-- **Kontrol lera standard Labbets lagrings konto** (det vill säga det första lagrings konto som skapades när labbet skapades, vars namn vanligt vis börjar med bokstaven "a" och slutar med ett fyrsiffrigt tal som är ett\<labname\>#).
-    1. Navigera till Labbets resurs grupp.
-    2. Leta upp resursen av typen **lagrings konto**, vars namn matchar konventionen.
-    3. Navigera till lagrings konto sidan som kallas **brand väggar och virtuella nätverk**.
-    4. Kontrol lera att den är inställd på **alla nätverk**. Om alternativet **valda nätverk** är markerat kontrollerar du att Labbets virtuella nätverk som används för att skapa virtuella datorer läggs till i listan.
+- **Sök efter tillagda nätverkssäkerhetsgrupper (NSG)**. Det kan bero på att en prenumerationsprincip har lagts till där NSG:er konfigureras automatiskt i alla virtuella nätverk. Det skulle också påverka labbets standard virtuella nätverk, om det används, eller annat virtuellt nätverk som konfigurerats i labbet, som används för att skapa virtuella datorer.
+- **Kontrollera standardlabbets lagringskonto** (det vill säga det första lagringskontot som skapades när labbet skapades, vars namn vanligtvis\<börjar\>med bokstaven "a" och slutar med ett flersiffrigt nummer som är ett labbnamn #).
+    1. Navigera till labbets resursgrupp.
+    2. Leta reda på resursen för **typlagringskonto**, vars namn matchar konventionen.
+    3. Navigera till lagringskontosidan som kallas **Brandväggar och virtuella nätverk**.
+    4. Se till att den är inställd på **Alla nätverk**. Om alternativet **Markerade nätverk** är markerat kontrollerar du att labbets virtuella nätverk som används för att skapa virtuella datorer läggs till i listan.
 
-Mer djupgående fel sökning finns i [konfigurera Azure Storage brand väggar och virtuella nätverk](../storage/common/storage-network-security.md).
+Mer detaljerad felsökning finns i [Konfigurera Azure Storage-brandväggar och virtuella nätverk](../storage/common/storage-network-security.md).
 
 > [!TIP]
-> **Kontrol lera regler för nätverks säkerhets grupper**. Använd [kontrol lera IP-flöde](../network-watcher/diagnose-vm-network-traffic-filtering-problem.md#use-ip-flow-verify) för att bekräfta att en regel i en nätverks säkerhets grupp blockerar trafik till eller från en virtuell dator. Du kan också granska effektiva säkerhets grupps regler för att säkerställa att NSG-regeln för **inkommande trafik finns** . Mer information finns i [använda effektiva säkerhets regler för att felsöka trafik flöde för virtuella datorer](../virtual-network/diagnose-network-traffic-filter-problem.md).
+> **Verifiera regler för nätverkssäkerhetsgrupper**. Använd [IP-flödeskontroll](../network-watcher/diagnose-vm-network-traffic-filtering-problem.md#use-ip-flow-verify) för att bekräfta att en regel i en nätverkssäkerhetsgrupp blockerar trafik till eller från en virtuell dator. Du kan också granska effektiva säkerhetsgruppsregler för att säkerställa att det finns inkommande **tillåt** NSG-regel. Mer information finns i [Använda effektiva säkerhetsregler för att felsöka vm-trafikflöde](../virtual-network/diagnose-network-traffic-filter-problem.md).
 
-## <a name="other-sources-of-error"></a>Andra fel källor
-Det finns andra mindre frekventa möjliga fel källor. Var noga med att utvärdera var och en för att se om den gäller för ditt ärende. Här är en av dem: 
+## <a name="other-sources-of-error"></a>Andra felkällor
+Det finns andra mindre frekventa möjliga felkällor. Se till att utvärdera var och en för att se om det gäller för ditt fall. Här är en av dem: 
 
-- **En privat lagrings platsen har gått ut**. När den har upphört att gälla visas inte artefakten och skript som refererar till artefakter från en lagrings plats med en utgången privat åtkomsttoken kommer att Miss förfaller.
+- **Utgångna personlig åtkomsttoken för den privata repo.** När den har upphört att gälla visas inte artefakten och skript som refererar till artefakter från en databas med en förfallen privat åtkomsttoken misslyckas i enlighet med detta.
 
 ## <a name="next-steps"></a>Nästa steg
-Om ingen av dessa fel har inträffat och du fortfarande inte kan tillämpa artefakter, kan du skicka en support incident till Azure. Gå till [Support webbplatsen för Azure](https://azure.microsoft.com/support/options/) och välj **få support**.
+Om inget av dessa fel uppstod och du fortfarande inte kan använda artefakter kan du lämna in en Azure-supportincident. Gå till [Azure-supportwebbplatsen](https://azure.microsoft.com/support/options/) och välj **Hämta support**.
 

@@ -1,6 +1,6 @@
 ---
-title: Avisering om Azure AD Connect Health-hälso tjänst data är inte uppdaterade | Microsoft Docs
-description: I det här dokumentet beskrivs orsaken till aviseringen om att hälso tjänst data inte är uppdaterade och hur du felsöker den.
+title: Azure AD Connect Health – Hälsotjänstdata är inte uppdaterad | Microsoft-dokument
+description: I det här dokumentet beskrivs orsaken till aviseringen "Hälsotjänstdata är inte uppdaterade" och hur du felsöker den.
 services: active-directory
 documentationcenter: ''
 author: zhiweiwangmsft
@@ -16,59 +16,59 @@ ms.date: 02/26/2018
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a94bd07cf5020981cdf028ec0eccfa8fa531d240
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76897181"
 ---
-# <a name="health-service-data-is-not-up-to-date-alert"></a>Aviseringen för hälso tjänst informationen är inte uppdaterad
+# <a name="health-service-data-is-not-up-to-date-alert"></a>Hälsotjänstdata är inte uppdaterad varning
 
 ## <a name="overview"></a>Översikt
 
-Agenterna på de lokala datorerna som Azure AD Connect Health övervakar regelbundet laddar upp data till Azure AD Connect Health-tjänsten. Om tjänsten inte tar emot data från en agent, kommer den information som portalen presenterar vara inaktuell. För att markera problemet kommer tjänsten att höja **hälso tillstånds tjänstens data är inte uppdaterade** . Den här aviseringen skapas när tjänsten inte har tagit emot fullständiga data under de senaste två timmarna.  
+Agenterna på de lokala datorerna som Azure AD Connect Health övervakar överför regelbundet data till Azure AD Connect Health Service. Om tjänsten inte tar emot data från en agent är informationen som portalen presenterar inaktuell. För att belysa problemet kommer tjänsten att höja **hälsotjänstdata är inte uppdaterad** avisering. Den här aviseringen genereras när tjänsten inte har tagit emot fullständiga data under de senaste två timmarna.  
 
-- **Varnings** status varningen utlöses om Hälsotjänst har tagit emot endast **partiella** data typer som skickats från servern under de senaste två timmarna. Varnings status varningen utlöser inte e-postaviseringar till konfigurerade mottagare. 
-- **Fel** status varning utlöses om Hälsotjänst inte har tagit emot några data typer från servern under de senaste två timmarna. Aviseringen om fel status utlöser e-postaviseringar till konfigurerade mottagare.
+- **Varningsstatusvarningen** utlöses om hälsotjänsten endast har tagit emot **partiella** datatyper som skickats från servern under de senaste två timmarna. Varningsstatusvarningen utlöser inte e-postmeddelanden till konfigurerade mottagare. 
+- **Felstatusvarningen** utlöses om hälsotjänsten inte har tagit emot några datatyper från servern under de senaste två timmarna. Felstatusvarningen utlöser e-postmeddelanden till konfigurerade mottagare.
 
-Tjänsten hämtar data från agenter som körs på lokala datorer, beroende på tjänst typen. I följande tabell visas de agenter som körs på datorn, vad de gör och de data typer som tjänsten genererar. I vissa fall finns det flera tjänster som är inblandade i processen, så alla kan vara orsaken. 
+Tjänsten hämtar data från agenter som körs på de lokala datorerna, beroende på tjänsttypen. I följande tabell visas de agenter som körs på datorn, vad de gör och vilka datatyper som tjänsten genererar. I vissa fall finns det flera tjänster som deltar i processen, så någon av dem kan vara den skyldige. 
 
-## <a name="understanding-the-alert"></a>Förstå aviseringen
+## <a name="understanding-the-alert"></a>Förstå varningen
 
-Bladet **aviserings information** visar när aviseringen inträffade och senast upptäcktes. En bakgrunds process som körs varannan timme genererar och utvärderar aviseringen igen. I följande exempel inträffade den inledande aviseringen på 03/10 kl. 9:59. Aviseringen fanns fortfarande på 03/12 kl. 10:00 när aviseringen utvärderades igen. Bladet innehåller också information om när Hälsotjänst senast fick en viss datatyp. 
+Bladet **Aviseringsinformation** visas när aviseringen inträffade och senast upptäcktes. En bakgrundsprocess som körs varannan timme genererar och utvärderar aviseringen igen. I följande exempel inträffade den första aviseringen 03/10 klockan 09:59. Aviseringen fanns kvar på 03/12 klockan 10:00 när aviseringen utvärderades igen. Bladet beskriver också när hälsotjänsten senast tog emot en viss datatyp. 
  
- ![Azure AD Connect Health aviserings information](./media/how-to-connect-health-data-freshness/data-freshness-details.png)
+ ![Information om hälsoavisering i Azure AD Connect](./media/how-to-connect-health-data-freshness/data-freshness-details.png)
  
-Följande tabell mappar tjänst typer till motsvarande obligatoriska data typer:
+Följande tabell mappar tjänsttyper till motsvarande datatyper som krävs:
 
-| Typ av tjänst | Agent (Windows-tjänstens namn) | Syfte | Datatyp genererad  |
+| Typ av tjänst | Agent (Windows-tjänstnamn) | Syfte | Datatyp som genereras  |
 | --- | --- | --- | --- |  
-| Azure AD Connect (synkronisering) | Azure AD Connect Health Sync Insights Service | Samla in AAD Connect-Specific information (kopplingar, regler för synkronisering osv.) | - AadSyncService-SynchronizationRules <br />  -AadSyncService-kopplingar <br /> - AadSyncService-GlobalConfigurations  <br />  - AadSyncService-RunProfileResults <br /> - AadSyncService-ServiceConfigurations <br /> - AadSyncService-ServiceStatus   |
-|  | Azure AD Connect Health Sync Monitoring Service | Samla in AAD Connect-/regionsspecifika prestanda räknare, ETW-spår, filer | Prestanda räknare |
-| AD DS | Azure AD Connect Health AD DS Insights Service | Utför syntetiska tester, samla in information om topologi, metadata för replikering |  -Lägger till-TopologyInfo-JSON <br /> -Common-TestData-JSON (skapar test resultaten)   | 
-|  | Azure AD Connect Health AD DS Monitoring Service | Samla in tillägg – vissa prestanda räknare, ETW-spår, filer | – Prestanda räknare  <br /> -Common-TestData-JSON (laddar upp test resultaten)  |
-| AD FS | Azure AD Connect Health AD FS Diagnostics Service | Utför syntetiska tester | TestResult (skapar test resultaten) | 
-| | Azure AD Connect Health AD FS Insights Service  | Samla in användnings statistik i ADFS | Adfs-UsageMetrics |
-| | Azure AD Connect Health AD FS Monitoring Service | Samla in ADFS-/regionsspecifika prestanda räknare, ETW-spår, filer | TestResult (överför test resultaten) |
+| Azure AD Connect (synkronisering) | Azure AD Connect Health Sync Insights Service | Samla in AAD Connect-specifik information (kopplingar, synkroniseringsregler osv.) | - AadSyncService-synchronizationRules <br />  - AadSyncService-kopplingar <br /> - AadSyncService-GlobalConfigurations  <br />  - AadSyncService-RunProfileResults <br /> - AadSyncService-ServiceConfigurations <br /> - AadSyncService-ServiceStatus   |
+|  | Azure AD Connect Health Sync Monitoring Service | Samla AAD Connect-specifika perf-räknare, ETW-spår, filer | Prestandaräknare |
+| AD DS | Azure AD Connect Health AD DS Insights Service | Utföra syntetiska tester, samla in topologiinformation, replikeringsmetadata |  - Lägger till topologiInfo-Json <br /> - Common-TestData-Json (skapar testresultaten)   | 
+|  | Azure AD Connect Health AD DS Monitoring Service | Samla in ADD-specifika perf-räknare, ETW-spår, filer | - Prestandaräknare  <br /> - Common-TestData-Json (laddar upp testresultaten)  |
+| AD FS | Azure AD Connect Health AD FS Diagnostics Service | Utföra syntetiska tester | TestResult (skapar testresultaten) | 
+| | Azure AD Connect Health AD FS Insights Service  | Samla in ADFS-användningsmått | Adfs-UsageMetrics |
+| | Azure AD Connect Health AD FS Monitoring Service | Samla ADFS-specifika perf-räknare, ETW-spår, filer | TestResult (laddar upp testresultaten) |
 
 ## <a name="troubleshooting-steps"></a>Felsökningsanvisningar 
 
-De steg som krävs för att diagnostisera problemet anges nedan. Den första är en uppsättning grundläggande kontroller som är gemensamma för alla tjänst typer. 
+De steg som krävs för att diagnostisera problemet ges nedan. Den första är en uppsättning grundläggande kontroller som är gemensamma för alla tjänsttyper. 
 
 > [!IMPORTANT] 
-> Den här aviseringen följer [principen](reference-connect-health-user-privacy.md#data-retention-policy) för att ansluta hälso data
+> Den här varningen följer [principen om lagring av](reference-connect-health-user-privacy.md#data-retention-policy) Anslutningshälsa
 
-* Kontrol lera att de senaste versionerna av agenterna är installerade. Visa [versions historik](reference-connect-health-version-history.md). 
-* Kontrol lera att Azure AD Connect Health agents-tjänsterna **körs** på datorn. Till exempel bör Connect Health för AD FS ha tre tjänster.
-  ![verifiera Azure AD Connect Health](./media/how-to-connect-health-agent-install/install5.png)
+* Kontrollera att de senaste versionerna av agenterna är installerade. Visa [versionshistorik](reference-connect-health-version-history.md). 
+* Kontrollera att Azure AD Connect Health Agents-tjänsterna **körs** på datorn. Anslut hälsa för AD FS bör till exempel ha tre tjänster.
+  ![Verifiera Azure AD Connect Health](./media/how-to-connect-health-agent-install/install5.png)
 
-* Se till att gå över och uppfylla [avsnittet krav](how-to-connect-health-agent-install.md#requirements).
-* Använd [test anslutnings verktyget](how-to-connect-health-agent-install.md#test-connectivity-to-azure-ad-connect-health-service) för att identifiera anslutnings problem.
-* Följ dessa [konfigurations steg](how-to-connect-health-agent-install.md#configure-azure-ad-connect-health-agents-to-use-http-proxy)om du har en http-proxy. 
+* Se till att gå över och uppfylla [kraven avsnitt](how-to-connect-health-agent-install.md#requirements).
+* Använd [testanslutningsverktyget](how-to-connect-health-agent-install.md#test-connectivity-to-azure-ad-connect-health-service) för att identifiera anslutningsproblem.
+* Om du har en HTTP-proxy följer du dessa [konfigurationssteg](how-to-connect-health-agent-install.md#configure-azure-ad-connect-health-agents-to-use-http-proxy). 
 
 
 ## <a name="next-steps"></a>Nästa steg
-Om något av ovanstående steg har identifierat ett problem, korrigerar du det och väntar på att aviseringen ska lösas. Aviserings bakgrunds processen körs var 2: e timme, så det tar upp till 2 timmar att lösa aviseringen. 
+Om något av ovanstående steg identifierade ett problem åtgärdar du det och väntar på att aviseringen ska lösas. Aviseringsbakgrundsprocessen körs varannan timme, så det tar upp till 2 timmar att lösa aviseringen. 
 
-* [Azure AD Connect Health princip för data bevarande](reference-connect-health-user-privacy.md#data-retention-policy)
+* [Azure AD Connect-princip för lagring av datalagring](reference-connect-health-user-privacy.md#data-retention-policy)
 * [Vanliga frågor och svar om Azure AD Connect Health](reference-connect-health-faq.md)

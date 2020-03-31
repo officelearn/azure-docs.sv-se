@@ -1,6 +1,6 @@
 ---
-title: Felsöka Kusto Query Language On python using VS Code-Azure Datautforskaren
-description: Lär dig hur du felsöker Kusto Query Language (KQL) infogad python med VS Code.
+title: Felsöka Kusto-frågespråk infogad Python med VS-kod - Azure Data Explorer
+description: Lär dig hur du felsöker Kusto-frågespråk (KQL) infogad Python med VS-kod.
 author: orspod
 ms.author: orspodek
 ms.reviewer: adieldar
@@ -8,52 +8,52 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 12/04/2019
 ms.openlocfilehash: 96bd66f96b04bd7032d976ba9ebbbeb60c8415e7
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75444461"
 ---
-# <a name="debug-kusto-query-language-inline-python-using-vs-code"></a>Felsöka Kusto Query Language On python med VS Code
+# <a name="debug-kusto-query-language-inline-python-using-vs-code"></a>Debug Kusto frågespråk infogad Python med VS-kod
 
-Azure Datautforskaren stöder körning av python-kod som bäddats in i Kusto-frågespråk med [python ()-plugin-programmet](/azure/kusto/query/pythonplugin). Plugin-programmet finns i ett begränsat läge, en isolerad och säker python-miljö. Plugin-funktionen python () utökar Kusto-språkets inbyggda funktioner med det stora arkivet med OSS python-paket. Med det här tillägget kan du köra avancerade algoritmer, till exempel Machine Learning, artificiell intelligens, statistik och tids serier som en del av frågan.
+Azure Data Explorer stöder körning av Python-kod inbäddad i Kusto-frågespråk med [plugin-programmet python().](/azure/kusto/query/pythonplugin) Plugin-körningen finns i en sandlåda, en isolerad och säker Python-miljö. Plugin-funktionen python() utökar Kusto-frågespråkets modersmål med det enorma arkivet av OSS Python-paket. Med det här tillägget kan du köra avancerade algoritmer, till exempel maskininlärning, artificiell intelligens, statistik och tidsserier som en del av frågan.
 
-Språk verktygen för Kusto är inte praktiska för att utveckla och felsöka python-algoritmer. Därför ska du utveckla algoritmen på din favorit-Integrated Development Environment, till exempel Jupyter, pycharm med, VS eller VS Code. När algoritmen är klar kopierar du och klistrar in i KQL. För att förbättra och effektivisera det här arbets flödet stöder Azure Datautforskaren integration mellan Kusto Explorer-och webb GRÄNSSNITTs klienter och VS-kod för redigering och fel sökning av KQL i intern python-kod. 
+Kusto frågespråkverktyg är inte praktiska för att utveckla och felsöka Python-algoritmer. Därför kan du utveckla algoritmen på din favorith python-integrerad utvecklingsmiljö som Jupyter, PyCharm, VS eller VS-kod. När algoritmen är klar kopierar och klistrar du in i KQL. För att förbättra och effektivisera det här arbetsflödet stöder Azure Data Explorer integrering mellan Kusto Explorer- eller Webbgränssnittsklienter och VS-kod för redigering och felsökning av KQL-inline Python-kod. 
 
 > [!NOTE]
-> Det här arbets flödet kan bara användas för att felsöka relativt små ingångs tabeller (upp till några MB). Därför kan du behöva begränsa indatamängden för fel sökning.  Om du behöver bearbeta en stor tabell begränsar du den för fel sökning med hjälp av `| take`, `| sample`eller `where rand() < 0.x`.
+> Det här arbetsflödet kan bara användas för att felsöka relativt små indatatabeller (upp till få MB). Därför kan du behöva begränsa indata för felsökning.  Om du behöver bearbeta en stor tabell begränsar `| take`du `| sample`den `where rand() < 0.x`för felsökning med , eller .
 
 ## <a name="prerequisites"></a>Krav
 
-1. Installera python [Anaconda-distribution](https://www.anaconda.com/distribution/#download-section). I **Avancerade alternativ**väljer **du Lägg till Anaconda i miljövariabeln min sökväg**.
-2. Installera [Visual Studio Code](https://code.visualstudio.com/Download)
-3. Installera [python-tillägget för Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-python.python).
+1. Installera Python [Anaconda Distribution](https://www.anaconda.com/distribution/#download-section). I **Avancerade alternativ**väljer du Lägg till **Anaconda i miljövariabeln FÖR SÖKS.**
+2. Installera [Visual Studio-kod](https://code.visualstudio.com/Download)
+3. Installera [Python-tillägg för Visual Studio-kod](https://marketplace.visualstudio.com/items?itemName=ms-python.python).
 
-## <a name="run-your-query-in-your-client-application"></a>Kör din fråga i klient programmet
+## <a name="run-your-query-in-your-client-application"></a>Kör frågan i klientprogrammet
 
-1. I klient programmet ska du använda en fråga som innehåller infogad python med `set query_python_debug;`
+1. I klientprogrammet prefixar du en fråga som innehåller inline Python med`set query_python_debug;`
 1. Kör frågan.
-    * Kusto Explorer: VS Code startas automatiskt med skriptet *debug_python. py* .
-    * Kusto webb gränssnitt: 
-        1. Hämta och spara *debug_python. py*, *DF. txt*och *kargs. txt*. I fönstret väljer du **Tillåt**. **Spara** filer i den valda katalogen. 
+    * Kusto Explorer: VS Code startas automatiskt med *debug_python.py* skriptet.
+    * Kusto Webb-användargränssnitt: 
+        1. Ladda ner och spara *debug_python.py*, *df.txt*och *kargs.txt*. Välj **Tillåt**i fönstret . **Spara** filer i vald katalog. 
 
-            ![Webb gränssnitt laddar ned de infogade python-filerna](media/debug-inline-python/webui-inline-python.png)
+            ![Webbgränssnittet hämtar inline python-filer](media/debug-inline-python/webui-inline-python.png)
 
-        1. Högerklicka på *debug_python. py* och öppna med vs Code. 
-        Skriptet *debug_python. py* innehåller den infogade python-koden från frågan KQL, som föregås av mallkod för att initiera indatamängden dataframe från *DF. txt* och ord listan för parametrarna från *kargs. txt*.    
+        1. Högerklicka *debug_python.py* och öppna med VS-kod. 
+        Skriptet *debug_python.py* innehåller den infogade Python-koden från KQL-frågan, som föregås av mallkoden för att initiera indataramen från *df.txt* och ordlistan med parametrar från *kargs.txt*.    
             
-1. I VS Code startar du VS Code-felsökaren: **felsöka** > **Starta fel sökning (F5)** , Välj **python** -konfiguration. Fel söknings programmet startar och Bryt punkten automatiskt för att felsöka den infogade koden.
+1. Starta VS-kodfelsökaren: **Felsök** > **startfelsökning (F5) i VS-kod**och välj **Python-konfiguration.** Felsökaren startar och bryts automatiskt för att felsöka den infogade koden.
 
-### <a name="how-does-inline-python-debugging-in-vs-code-work"></a>Hur fungerar infogade python-fel i VS Code?
+### <a name="how-does-inline-python-debugging-in-vs-code-work"></a>Hur fungerar infogad Python-felsökning i VS-kod?
 
-1. Frågan parsas och körs på servern tills den nödvändiga `| evaluate python()`-satsen har nåtts.
-1. Sand boxen python anropas, men i stället för att köra koden serialiserar den indatalistan, parameter listan och koden och skickar tillbaka dem till klienten.
-1. Dessa tre objekt sparas i tre filer: *DF. txt*, *kargs. txt*och *debug_python. py* i den valda katalogen (webb gränssnitt) eller i klienten% Temp% Directory (Kusto Explorer).
-1. VS Code startas, förinstallerat med *debug_python. py* -filen som innehåller en prefixlängd för att initiera DF och kargs från sina respektive filer, följt av python-skriptet inbäddat i KQL-frågan.
+1. Frågan tolkas och körs på servern tills `| evaluate python()` den nödvändiga satsen har nåtts.
+1. Python-sandlådan anropas, men i stället för att köra koden serialiserar den indatatabellen, ordlistan med parametrar och koden och skickar tillbaka dem till klienten.
+1. Dessa tre objekt sparas i tre filer: *df.txt*, *kargs.txt*och *debug_python.py* i den valda katalogen (Webbgränssnitt) eller i klienten %TEMP% katalog (Kusto Explorer).
+1. VS-kod startas, förinstalleras med *filen debug_python.py* som innehåller en prefixkod för att initiera df och kargs från sina respektive filer, följt av Python-skriptet inbäddat i KQL-frågan.
 
-## <a name="query-example"></a>Exempel på frågor
+## <a name="query-example"></a>Exempel på fråga
 
-1. Kör följande KQL-fråga i klient programmet:
+1. Kör följande KQL-fråga i klientprogrammet:
 
     ```kusto
     range x from 1 to 4 step 1
@@ -66,14 +66,14 @@ Språk verktygen för Kusto är inte praktiska för att utveckla och felsöka py
 
     Se den resulterande tabellen:
 
-    | x  | 4  |
+    | x  | x4 (på andra)  |
     |---------|---------|
     | 1     |   1      |
     | 2     |   16      |
     | 3     |   81      |
     | 4     |    256     |
     
-1. Kör samma KQL-fråga i klient programmet med hjälp av `set query_python_debug;`:
+1. Kör samma KQL-fråga i `set query_python_debug;`klientprogrammet med:
 
     ```kusto
     set query_python_debug;
@@ -85,13 +85,13 @@ Språk verktygen för Kusto är inte praktiska för att utveckla och felsöka py
     , pack('exp', 4))
     ```
 
-1. VS Code startas:
+1. VS-koden lanseras:
 
-    ![Starta VS-kod](media/debug-inline-python/launch-vs-code.png)
+    ![starta VS-kod](media/debug-inline-python/launch-vs-code.png)
 
-1. VS kod fel och skriver ut resultat dataframe i fel söknings konsolen:
+1. VS-kod felsöker och skriver ut dataram för resultat i felsökningskonsolen:
 
-    ![VS Code-felsökning](media/debug-inline-python/debug-vs-code.png)
+    ![VS-kodfelsökning](media/debug-inline-python/debug-vs-code.png)
 
 > [!NOTE]
-> Det kan finnas skillnader mellan python sandbox-avbildningen och den lokala installationen. [Kontrol lera sandbox-avbildningen för vissa paket genom att fråga plugin-programmet](https://github.com/Azure/azure-kusto-analytics-lib/blob/master/Utils/functions/get_modules_version.csl).
+> Det kan finnas skillnader mellan Python-sandlådan och den lokala installationen. [Kontrollera sandlådebilden för specifika paket genom att fråga insticksprogrammet](https://github.com/Azure/azure-kusto-analytics-lib/blob/master/Utils/functions/get_modules_version.csl).

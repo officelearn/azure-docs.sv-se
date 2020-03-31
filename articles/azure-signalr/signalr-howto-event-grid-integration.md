@@ -1,6 +1,6 @@
 ---
-title: Så här skickar du Azure SignalR service-händelser till Event Grid
-description: En guide som visar hur du aktiverar Event Grid händelser för signal tjänsten och sedan skickar klient anslutning anslutna/frånkopplade händelser till ett exempel program.
+title: Så här skickar du Azure SignalR-tjänsthändelser till Event Grid
+description: En guide som visar hur du aktiverar händelserutnätshändelser för din SignalR-tjänst och skickar sedan klientanslutningsanslutna/frånkopplade händelser till ett exempelprogram.
 services: signalr
 author: chenyl
 ms.service: signalr
@@ -8,25 +8,25 @@ ms.topic: conceptual
 ms.date: 11/13/2019
 ms.author: chenyl
 ms.openlocfilehash: a76c9aaabf984723e2b60a7cd42425c9b29c916a
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76710827"
 ---
-# <a name="how-to-send-events-from-azure-signalr-service-to-event-grid"></a>Så här skickar du händelser från Azure SignalR-tjänsten till Event Grid
+# <a name="how-to-send-events-from-azure-signalr-service-to-event-grid"></a>Skicka händelser från Azure SignalR Service till Event Grid
 
-Azure Event Grid är en helt hanterad tjänst för händelse dirigering som tillhandahåller enhetlig händelse förbrukning med en pub-sub-modell. I den här guiden använder du Azure CLI för att skapa en Azure SignalR-tjänst, prenumererar på anslutnings händelser och distribuerar sedan ett exempel webb program för att ta emot händelserna. Slutligen kan du ansluta och koppla från och se händelse nytto lasten i exempel programmet.
+Azure Event Grid är en fullständigt hanterad händelseroutningstjänst som tillhandahåller enhetlig händelseförbrukning med hjälp av en pub-undermodell. I den här guiden använder du Azure CLI för att skapa en Azure SignalR-tjänst, prenumerera på anslutningshändelser och distribuera sedan ett exempelwebbprogram för att ta emot händelserna. Slutligen kan du ansluta och koppla från och se händelsenyttolasten i exempelprogrammet.
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto][azure-account] innan du börjar.
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt][azure-account] konto innan du börjar.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Azure CLI-kommandona i den här artikeln är formaterade för **bash** -gränssnittet. Om du använder ett annat gränssnitt som PowerShell eller kommando tolken kan du behöva justera rad fortsättnings tecken eller variabla tilldelnings rader i enlighet med detta. I den här artikeln används variabler för att minimera mängden kommando redigering som krävs.
+Azure CLI-kommandona i den här artikeln är formaterade för **Bash-skalet.** Om du använder ett annat skal som PowerShell eller Kommandotolk kan du behöva justera radförekommande tecken eller variabla tilldelningsrader därefter. I den här artikeln används variabler för att minimera mängden kommandoredigering som krävs.
 
 ## <a name="create-a-resource-group"></a>Skapa en resursgrupp
 
-En Azure-resurs grupp är en logisk behållare där du distribuerar och hanterar dina Azure-resurser. Följande [AZ Group Create][az-group-create] -kommando skapar en resurs grupp med namnet *myResourceGroup* i regionen *östra* . Om du vill använda ett annat namn för resurs gruppen anger du `RESOURCE_GROUP_NAME` till ett annat värde.
+En Azure-resursgrupp är en logisk behållare där du distribuerar och hanterar dina Azure-resurser. Följande kommando [för az-grupp skapa][az-group-create] skapar en resursgrupp med namnet *myResourceGroup* i *regionen eastus.* Om du vill använda ett annat namn `RESOURCE_GROUP_NAME` för resursgruppen anger du ett annat värde.
 
 ```azurecli-interactive
 RESOURCE_GROUP_NAME=myResourceGroup
@@ -36,14 +36,14 @@ az group create --name $RESOURCE_GROUP_NAME --location eastus
 
 ## <a name="create-a-signalr-service"></a>Skapa en Azure SignalR Service
 
-Distribuera sedan en Azure SignalR-tjänst till resurs gruppen med följande kommandon.
+Distribuera sedan en Azure Signalr-tjänst till resursgruppen med följande kommandon.
 ```azurecli-interactive
 SIGNALR_NAME=SignalRTestSvc
 
 az signalr create --resource-group $RESOURCE_GROUP_NAME --name $SIGNALR_NAME --sku Free_F1
 ```
 
-När signal tjänsten har skapats returnerar Azure CLI utdata som liknar följande:
+När SignalR-tjänsten har skapats returnerar Azure CLI utdata som liknar följande:
 
 ```json
 {
@@ -71,11 +71,11 @@ När signal tjänsten har skapats returnerar Azure CLI utdata som liknar följan
 
 ```
 
-## <a name="create-an-event-endpoint"></a>Skapa en händelse slut punkt
+## <a name="create-an-event-endpoint"></a>Skapa en slutpunkt för händelser
 
-I det här avsnittet använder du en Resource Manager-mall som finns på en GitHub-lagringsplats för att distribuera ett fördefinierat exempel webb program till Azure App Service. Senare prenumererar du på registrets Event Grid händelser och anger den här appen som den slut punkt som händelserna ska skickas till.
+I det här avsnittet använder du en Resource Manager-mall som finns i en GitHub-databas för att distribuera ett förbyggt exempelwebbprogram till Azure App Service. Senare prenumererar du på registrets Event Grid-händelser och anger den här appen som den slutpunkt som händelserna skickas till.
 
-Distribuera exempel appen genom att ange `SITE_NAME` till ett unikt namn för din webbapp och köra följande kommandon. Plats namnet måste vara unikt inom Azure eftersom det ingår i det fullständigt kvalificerade domän namnet (FQDN) för webbappen. I ett senare avsnitt går du till appens FQDN i en webbläsare för att visa dina register händelser.
+Om du vill distribuera `SITE_NAME` exempelappen anger du ett unikt namn för webbappen och kör följande kommandon. Webbplatsnamnet måste vara unikt i Azure eftersom det utgör en del av det fullständigt kvalificerade domännamnet (FQDN) för webbappen. I ett senare avsnitt navigerar du till appens FQDN i en webbläsare för att visa registrets händelser.
 
 ```azurecli-interactive
 SITE_NAME=<your-site-name>
@@ -86,15 +86,15 @@ az group deployment create \
     --parameters siteName=$SITE_NAME hostingPlanName=$SITE_NAME-plan
 ```
 
-När distributionen har slutförts (det kan ta några minuter) öppnar du en webbläsare och navigerar till din webbapp för att kontrol lera att den körs:
+När distributionen lyckas (det kan ta några minuter) öppnar du en webbläsare och navigerar till din webbapp för att se till att den körs:
 
 `http://<your-site-name>.azurewebsites.net`
 
 [!INCLUDE [event-grid-register-provider-cli.md](../../includes/event-grid-register-provider-cli.md)]
 
-## <a name="subscribe-to-registry-events"></a>Prenumerera på register händelser
+## <a name="subscribe-to-registry-events"></a>Prenumerera på registerhändelser
 
-I Event Grid prenumererar du på ett *ämne* för att berätta vilka händelser du vill spåra och var de ska skickas. Följande [AZ eventgrid Event-Subscription Create-][az-eventgrid-event-subscription-create] kommandot prenumererar på den Azure SignalR-tjänst som du skapade och anger webbappens URL som den slut punkt som den ska skicka händelser till. Miljövariablerna som du har fyllt i tidigare avsnitt återanvänds här, så inga ändringar krävs.
+I Event Grid prenumererar du på ett *ämne* för att berätta vilka händelser du vill spåra och var du ska skicka dem. Följande kommando för [att skapa domänhändelser][az-eventgrid-event-subscription-create] prenumererar på Azure SignalR-tjänsten som du skapade och anger webbappens URL som slutpunkt som den ska skicka händelser till. De miljövariabler som du har fyllt i i tidigare avsnitt återanvänds här, så inga ändringar krävs.
 
 ```azurecli-interactive
 SIGNALR_SERVICE_ID=$(az signalr show --resource-group $RESOURCE_GROUP_NAME --name $SIGNALR_NAME --query id --output tsv)
@@ -139,9 +139,9 @@ När prenumerationen är klar bör du se utdata som liknar följande:
 }
 ```
 
-## <a name="trigger-registry-events"></a>Utlös register händelser
+## <a name="trigger-registry-events"></a>Utlösa registerhändelser
 
-Växla till tjänst läget för att `Serverless Mode` och konfigurera en klient anslutning till signal tjänsten. Du kan ta [Server lös exempel](https://github.com/aspnet/AzureSignalR-samples/tree/master/samples/Serverless) som referens.
+Växla till serviceläget `Serverless Mode` till och konfigurera en klientanslutning till SignalR-tjänsten. Du kan ta [Serverless Sample](https://github.com/aspnet/AzureSignalR-samples/tree/master/samples/Serverless) som referens.
 
 ```bash
 git clone git@github.com:aspnet/AzureSignalR-samples.git
@@ -160,9 +160,9 @@ cd SignalRClient
 dotnet run
 ```
 
-## <a name="view-registry-events"></a>Visa register händelser
+## <a name="view-registry-events"></a>Visa registerhändelser
 
-Nu har du anslutit en klient till signal tjänsten. Navigera till din Event Grid Viewer-webbapp så bör du se en `ClientConnectionConnected`-händelse. Om du avbryter klienten visas också en `ClientConnectionDisconnected` händelse.
+Du har nu anslutit en klient till SignalR-tjänsten. Navigera till webbappen Loggboken och du `ClientConnectionConnected` bör se en händelse. Om du avslutar klienten visas `ClientConnectionDisconnected` även en händelse.
 
 <!-- LINKS - External -->
 [azure-account]: https://azure.microsoft.com/free/?WT.mc_id=A261C142F

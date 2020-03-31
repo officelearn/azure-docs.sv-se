@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: apimpm
 ms.openlocfilehash: bf8d8a2c11962467300ae8d65fe5bbbe9a65cf92
-ms.sourcegitcommit: f2149861c41eba7558649807bd662669574e9ce3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/07/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75708363"
 ---
 # <a name="add-caching-to-improve-performance-in-azure-api-management"></a>Förbättra prestanda i Azure API Management med cachelagring
@@ -46,17 +46,17 @@ För att slutföra den här kursen behöver du:
 + [Skapa en Azure API Management-instans](get-started-create-service-instance.md)
 + [Importera och publicera ett API](import-and-publish.md)
 
-## <a name="caching-policies"> </a>Lägg till principer för cachelagring
+## <a name="add-the-caching-policies"></a><a name="caching-policies"> </a>Lägg till cachelagringsprinciperna
 
 Med cachelagringsprinciperna i det här exemplet returnerar den första begäran till **GetSpeakers** ett svar från serverdeltjänsten. Svaret cachelagras och registreras av de angivna sidhuvudena och frågesträngsparametrarna. För efterföljande anrop till åtgärden, med matchande parametrar, returneras det cachelagrade svaret till cachlagringsintervallets slut.
 
-1. Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.com).
+1. Logga in på Azure-portalen på [https://portal.azure.com](https://portal.azure.com).
 2. Bläddra till APIM-instansen.
 3. Välj fliken **API**.
 4. Klicka på **Demo Conference API** i API-listan.
 5. Välj **GetSpeakers**.
 6. Överst på skärmen väljer du fliken **Design**.
-7. I avsnittet **Inkommande bearbetning** klickar du på ikonen **</>** .
+7. I avsnittet **Inkommande bearbetning** klickar du på ikonen **</>**.
 
     ![kodredigeraren](media/api-management-howto-cache/code-editor.png)
 
@@ -77,17 +77,17 @@ Med cachelagringsprinciperna i det här exemplet returnerar den första begäran
 > [!TIP]
 > Om du använder en extern cache enligt beskrivningen i [Använda en extern Azure Cache for Redis i Azure API Management](api-management-howto-cache-external.md) kan det vara bra att ange attributet `caching-type` för cachelagringsprinciperna. Mer information finns i [Principer för API Management-cachelagring](api-management-caching-policies.md).
 
-## <a name="test-operation"> </a>Anropa en åtgärd och testa cachelagringen
+## <a name="call-an-operation-and-test-the-caching"></a><a name="test-operation"> </a>Anropa en åtgärd och testa cachelagringen
 Om du vill se hur cachelagringen fungerar i praktiken kan du anropa åtgärden från utvecklarportalen.
 
 1. Bläddra till APIM-instansen i Azure Portal.
-2. Välj fliken **API:er**.
+2. Välj fliken **API:er.**
 3. Välj det API där du har lagt till cachelagringsprinciper.
 4. Välj åtgärden **GetSpeakers**.
 5. Klicka på fliken **Test** på menyn längst upp till höger.
 6. Tryck på **Skicka**.
 
-## <a name="next-steps"> </a>Nästa steg
+## <a name="next-steps"></a><a name="next-steps"> </a>Nästa steg
 * Mer information om cachelagringsprinciper finns i [Cachelagringsprinciper][Caching policies] i [Principreferens för API Management][API Management policy reference].
 * Mer information om hur du cachelagrar objekt med nycklar med hjälp av principuttryck finns i [Anpassad cachelagring i Azure API Management](api-management-sample-cache-by-key.md).
 * Mer information om hur du använder extern Azure Cache for Redis finns i [Använda en extern Azure Cache for Redis i Azure API Management](api-management-howto-cache-external.md).

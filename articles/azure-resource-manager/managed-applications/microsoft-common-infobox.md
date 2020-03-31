@@ -1,22 +1,22 @@
 ---
-title: GRÄNSSNITTs element för informations instans
-description: Beskriver användar gränssnitts elementet Microsoft. Common. info i Azure Portal. Använd för att lägga till text eller varningar när du distribuerar hanterade program.
+title: Gränssnittselement för InfoBox
+description: I artikeln beskrivs användargränssnittselementet Microsoft.Common.InfoBox för Azure portal. Används för att lägga till text eller varningar när du distribuerar hanterade program.
 author: tfitzmac
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: tomfitz
 ms.openlocfilehash: 6d1e4a84904ef7022d9ce85803bf10285bf0b8ac
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75652481"
 ---
-# <a name="microsoftcommoninfobox-ui-element"></a>Användar gränssnitts element för Microsoft. Common. info
+# <a name="microsoftcommoninfobox-ui-element"></a>Microsoft.Common.InfoBox UI-element
 
-En kontroll som lägger till en informations ruta. Rutan innehåller viktig text eller varningar som hjälper användarna att förstå de värden som de tillhandahåller. Den kan också länka till en URI för mer information.
+En kontroll som lägger till en informationsruta. Rutan innehåller viktig text eller varningar som hjälper användarna att förstå de värden de tillhandahåller. Det kan också länka till en URI för mer information.
 
-## <a name="ui-sample"></a>UI-exempel
+## <a name="ui-sample"></a>Exempel på användargränssnitt
 
 ![Microsoft.Common.InfoBox](./media/managed-application-elements/microsoft.common.infobox.png)
 
@@ -44,10 +44,10 @@ En kontroll som lägger till en informations ruta. Rutan innehåller viktig text
 
 ## <a name="remarks"></a>Anmärkningar
 
-* För `icon`, Använd **ingen**, **info**, **Warning**eller **Error**.
-* Egenskapen `uri` är valfri.
+* För `icon`använder **du Ingen**, **Info,** **Varning**eller **Fel**.
+* Boendet `uri` är valfritt.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* En introduktion till att skapa GRÄNSSNITTs definitioner finns i [komma igång med CreateUiDefinition](create-uidefinition-overview.md).
-* En beskrivning av gemensamma egenskaper i UI-element finns i [CreateUiDefinition-element](create-uidefinition-elements.md).
+* En introduktion till att skapa gränssnittsdefinitioner finns i [Komma igång med CreateUiDefinition](create-uidefinition-overview.md).
+* En beskrivning av vanliga egenskaper i gränssnittselement finns i [CreateUiDefinition-element](create-uidefinition-elements.md).

@@ -1,5 +1,5 @@
 ---
-title: Vad är händelsehubbar i Azure? – en tjänst för inmatning av stordata | Microsoft Docs
+title: Vad är Azure Event Hubs? – en tjänst för inmatning av stordata | Microsoft Docs
 description: Lär dig mer om Azure Event Hubs, en strömningstjänst för stordata som matar in flera miljoner händelser per sekund.
 services: event-hubs
 documentationcenter: na
@@ -10,12 +10,12 @@ ms.topic: overview
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: e8a91647d7532a9904901c247bb0b4096ffa0a1c
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
-ms.translationtype: MT
+ms.openlocfilehash: 9b3af6a6cee4375a110c894b6b72655605ad077d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77161706"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80372244"
 ---
 # <a name="azure-event-hubs--a-big-data-streaming-platform-and-event-ingestion-service"></a>Azure Event Hubs – en stordataströmningsplattform och händelseinmatningstjänst
 Azure Event Hubs är en stordataströmningsplattform och händelseinmatningstjänst. Den kan ta emot och behandla miljoner händelser per sekund. Data som skickas till en händelsehubb kan omvandlas och lagras med hjälp av valfri provider för realtidsanalys eller batchbearbetnings-/lagringsadaptrar.
@@ -61,7 +61,7 @@ Med Event Hubs kan du börja med dataströmmar i megabytestorlek och växa till 
 
 Med [Event Hubs för Apache Kafka-ekosystem](event-hubs-for-kafka-ecosystem-overview.md) kan [Apache Kafka-klienter och -program (1.0 och senare)](https://kafka.apache.org/) kommunicera med Event Hubs. Du behöver inte installera, konfigurera eller hantera några Kafka-kluster.
 
-Med ett brett eko system som är tillgängligt på olika [språk (.net, Java, python, go, Java Script)](https://github.com/Azure/azure-event-hubs)kan du enkelt börja bearbeta dina strömmar från Event Hubs. Alla klientspråk som stöds ger lågnivåintegrering. Ekosystemet innehåller också sömlös integrering med Azure-tjänster som Azure Stream Analytics och Azure Functions så att du kan skapa arkitekturer utan server.
+Med ett brett ekosystem tillgängligt på olika [språk (.NET, Java, Python, Go, JavaScript)](https://github.com/Azure/azure-event-hubs)kan du enkelt börja bearbeta dina strömmar från Event Hubs. Alla klientspråk som stöds ger lågnivåintegrering. Ekosystemet innehåller också sömlös integrering med Azure-tjänster som Azure Stream Analytics och Azure Functions så att du kan skapa arkitekturer utan server.
 
 ## <a name="key-architecture-components"></a>Nyckelkomponenter i arkitektur
 Event Hubs innehåller följande [viktiga element](event-hubs-features.md):
@@ -72,27 +72,27 @@ Event Hubs innehåller följande [viktiga element](event-hubs-features.md):
 - **Genomflödesenheter**: Förköpta kapacitetsenheter som styr genomflödeskapaciteten i Event Hubs.
 - **Händelsemottagare**: Alla entiteter som läser händelsedata från en händelsehubb. Alla Event Hubs-konsumenter ansluter via AMQP 1.0-session. Event Hubs-tjänsten levererar händelserna via en session när de blir tillgängliga. Alla Kafka-konsumenter ansluter via protokollet Kafka 1.0 och senare.
 
-Följande bild visar strömhanteringsarkitekturen för händelsehubbar:
+Följande bild visar strömhanteringsarkitekturen i Event Hubs:
 
-![Event Hubs](./media/event-hubs-about/event_hubs_architecture.png)
+![Händelsehubbar](./media/event-hubs-about/event_hubs_architecture.png)
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Information om hur du kommer igång med Event Hubs finns i självstudierna **skicka och ta emot händelser** :
+Information om hur du kommer igång med eventhubbar finns i självstudiekurserna **Skicka och ta emot händelser:**
 
 - [.NET Core](get-started-dotnet-standard-send-v2.md)
 - [Java](get-started-java-send-v2.md)
 - [Python](get-started-python-send-v2.md)
-- [JavaScript](get-started-java-send-v2.md)
-- [Go](event-hubs-go-get-started-send.md)
-- [C (endast sändning)](event-hubs-c-getstarted-send.md)
-- [Apache Storm (endast mottagning)](event-hubs-storm-getstarted-receive.md)
+- [Javascript](get-started-node-send-v2.md)
+- [Kör](event-hubs-go-get-started-send.md)
+- [C (skickar endast)](event-hubs-c-getstarted-send.md)
+- [Apache Storm (tar endast emot)](event-hubs-storm-getstarted-receive.md)
 
 
 Mer information om Event Hubs finns i följande artiklar:
 
 - [Översikt över Event Hubs-funktioner](event-hubs-features.md)
-- [Vanliga frågor och svar](event-hubs-faq.md).
+- [Vanliga frågor](event-hubs-faq.md)och svar .
 
 

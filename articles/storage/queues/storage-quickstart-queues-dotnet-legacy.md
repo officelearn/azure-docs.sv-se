@@ -1,5 +1,5 @@
 ---
-title: 'Snabb start: Använd Azure Storage V11 för .NET för att hantera en kö'
+title: 'Snabbstart: Använd Azure Storage v11 för .NET för att hantera en kö'
 description: I den här snabbstarten lär du dig hur du använder Azure Storage-klientbiblioteket för .NET för att skapa en kö och lägga till meddelanden i den. Därefter får du lära dig hur du läser och bearbetar meddelanden från kön.
 author: mhopkins-msft
 ms.author: mhopkins
@@ -9,17 +9,17 @@ ms.subservice: queues
 ms.topic: quickstart
 ms.reviewer: cbrooks
 ms.openlocfilehash: c327629f0c5e88520a8bb0b9c4ff68e6edc00c35
-ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "79137347"
 ---
-# <a name="quickstart-use-the-azure-storage-sdk-v11-for-net-to-manage-a-queue"></a>Snabb start: Använd Azure Storage SDK-V11 för .NET för att hantera en kö
+# <a name="quickstart-use-the-azure-storage-sdk-v11-for-net-to-manage-a-queue"></a>Snabbstart: Använd Azure Storage SDK v11 för .NET för att hantera en kö
 
-I den här snabb starten får du lära dig hur du använder Azure Storage klient bibliotek version 11 för .NET för att skapa en kö och lägga till meddelanden till den. Därefter får du lära dig hur du läser och bearbetar meddelanden från kön. 
+I den här snabbstarten får du lära dig hur du använder Azure Storage-klientbiblioteket version 11 för .NET för att skapa en kö och lägga till meddelanden i den. Därefter får du lära dig hur du läser och bearbetar meddelanden från kön. 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 [!INCLUDE [storage-quickstart-prereq-include](../../../includes/storage-quickstart-prereq-include.md)]
 
@@ -46,7 +46,7 @@ Information om hur du väljer mellan .NET Core och .NET Framework finns i [Välj
 
 Exempelprogrammet som används i den här snabbstarten är ett grundläggande konsolprogram. Du kan utforska exempelprogrammet på [GitHub](https://github.com/Azure-Samples/storage-queues-dotnet-quickstart).
 
-Använd [git](https://git-scm.com/) för att hämta en kopia av programmet till utvecklingsmiljön. 
+Använd [git](https://git-scm.com/) för att ladda ned en kopia av programmet till utvecklingsmiljön. 
 
 ```bash
 git clone https://github.com/Azure-Samples/storage-queues-dotnet-quickstart.git
@@ -182,13 +182,13 @@ Console.WriteLine("Created queue '{0}'", queue.Name);
 Console.WriteLine();
 ```
 
-### <a name="add-a-message"></a>Lägga till ett meddelande
+### <a name="add-a-message"></a>Lägg till ett meddelande
 
 Därefter lägger exemplet till ett meddelande sist i kön. 
 
-Ett meddelande måste har ett format som stöds av en XML-begäran med UTF-8-kodning, och kan vara upp till 64 kB stort. Om ett meddelande innehåller binära data, rekommenderar vi att du base64-kodar meddelandet.
+Ett meddelande måste har ett format som stöds av en XML-begäran med UTF-8-kodning, och kan vara upp till 64 kB stort. Om ett meddelande innehåller binära data rekommenderar vi att du Base64-kodar meddelandet.
 
-Som standard är den högsta livslängden för ett meddelande inställt på 7 dagar. Du kan ange ett positivt tal för Time-to-Live-meddelandet.
+Som standard är den högsta livslängden för ett meddelande inställt på 7 dagar. Du kan ange valfritt positivt tal för meddelandet time-to-live.
 
 ```csharp
 // Create a message and add it to the queue. Set expiration time to 14 days.
@@ -200,7 +200,7 @@ Console.WriteLine("Message expiration time: {0}", message.ExpirationTime.ToStrin
 Console.WriteLine();
 ```
 
-Om du vill lägga till ett meddelande som inte upphör att gälla använder du `Timespan.FromSeconds(-1)` i anropet till [AddMessageAsync](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.addmessageasync).
+Om du vill lägga till `Timespan.FromSeconds(-1)` ett meddelande som inte upphör att gälla använder du i anropet till [AddMessageAsync](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.addmessageasync).
 
 ```csharp
 await queue.AddMessageAsync(message, TimeSpan.FromSeconds(-1), null, null, null);
@@ -262,8 +262,8 @@ Se dessa ytterligare resurser för .NET-utveckling med Azure Queues:
 
 ### <a name="binaries-and-source-code"></a>Binärfiler och källkod
 
-- Hämta NuGet-paketen för den senaste versionen av [klient biblioteket för Azure Storage för .net](/dotnet/api/overview/azure/storage?view=azure-dotnet)
-    - [Logaritm](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/)
+- Ladda ned NuGet-paketen för den senaste versionen av [Azure Storage-klientbiblioteket för .NET](/dotnet/api/overview/azure/storage?view=azure-dotnet)
+    - [Gemensamma](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/)
     - [Köer](https://www.nuget.org/packages/Azure.Storage.Queues/)
 - Visa [källkoden för .NET-klientbiblioteket](https://github.com/Azure/azure-storage-net) på GitHub.
 

@@ -9,21 +9,21 @@ ms.date: 05/28/2019
 ms.author: lahugh
 ms.custom: include file
 ms.openlocfilehash: 22bfc3c86605f4c2eed4c022919b3643f394ea95
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "67080910"
 ---
-| **Resurs** | **Standardgräns** | **Övre gräns** |
+| **Resurs** | **Standardgräns** | **Högsta gräns** |
 | --- | --- | --- |
-| Azure Batch konton per region per prenumeration | 1-3 |50 |
+| Azure Batch-konton per region per prenumeration | 1-3 |50 |
 | Dedikerade kärnor per batch-konto | 90-900 | Kontakta supporten |
-| Låg prioritets kärnor per batch-konto | 10-100 | Kontakta supporten |
-| **[Aktiva](https://docs.microsoft.com/rest/api/batchservice/job/get#jobstate)** jobb och jobb scheman per batch-konto (**slutförda** jobb har ingen gräns) | 100-300 | 1 000<sup>1</sup> |
+| Lågprioriterade kärnor per batch-konto | 10-100 | Kontakta supporten |
+| **[Aktiva](https://docs.microsoft.com/rest/api/batchservice/job/get#jobstate)** jobb och jobbuppställningar per batchkonto **(slutförda** jobb har ingen gräns) | 100-300 | 1 000<sup>1</sup> |
 | Pooler per Batch-konto | 20-100 | 500<sup>1</sup> |
 
 > [!NOTE]
-> Standard gränserna varierar beroende på vilken typ av prenumeration du använder för att skapa ett batch-konto. Kärnor som visas är för batch-konton i batch-tjänstens läge. [Visa kvoterna i batch-kontot](../articles/batch/batch-quota-limit.md#view-batch-quotas).
+> Standardgränserna varierar beroende på vilken typ av prenumeration du använder för att skapa ett batchkonto. Kärnkvoter som visas gäller för Batch-konton i batchtjänstläge. [Visa kvoterna i ditt batchkonto](../articles/batch/batch-quota-limit.md#view-batch-quotas).
 
-<sup>1</sup> Kontakta Azure-supporten om du vill begära en ökning utöver den här gränsen.
+<sup>1.</sup> Om du vill begära en ökning utöver den här gränsen kontaktar du Azure Support.

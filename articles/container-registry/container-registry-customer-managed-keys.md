@@ -1,44 +1,44 @@
 ---
-title: Kryptering – rest med Kundhanterade nycklar
-description: Lär dig mer om kryptering – resten av Azure Container Registry och hur du krypterar registret med en kundhanterad nyckel som lagras i Azure Key Vault
+title: Kryptering i vila med kundhanterade nycklar
+description: Lär dig mer om kryptering i resten av ditt Azure-behållarregister och hur du krypterar registret med en kundhanterad nyckel som lagras i Azure Key Vault
 ms.topic: article
 ms.date: 03/10/2020
 ms.custom: ''
-ms.openlocfilehash: 7bfc4e9a73280ab330efbeeba51a5dcb0a80da10
-ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
+ms.openlocfilehash: fe0736f83db2ba5b872d50bcf1262ca423de9f09
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/14/2020
-ms.locfileid: "79365349"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79498948"
 ---
-# <a name="encryption-using-customer-managed-keys"></a>Kryptering med Kundhanterade nycklar
+# <a name="encryption-using-customer-managed-keys"></a>Kryptering med kundhanterade nycklar
 
-När du lagrar bilder och andra artefakter i ett Azure Container Registry krypterar Azure automatiskt register innehållet i vila med [tjänst hanterade nycklar](../security/fundamentals/encryption-atrest.md#data-encryption-models). Du kan komplettera standard kryptering med ytterligare ett krypterings lager med hjälp av en nyckel som du skapar och hanterar i Azure Key Vault. Den här artikeln vägleder dig genom stegen i Azure CLI och Azure Portal.
+När du lagrar avbildningar och andra artefakter i ett Azure-behållarregister krypterar Azure automatiskt registerinnehållet i vila med [tjänsthanterade nycklar](../security/fundamentals/encryption-atrest.md#data-encryption-models). Du kan komplettera standardkryptering med ett extra krypteringslager med en nyckel som du skapar och hanterar i Azure Key Vault. I den här artikeln får du hjälp med stegen med Azure CLI och Azure-portalen.
 
-Kryptering på Server sidan med Kundhanterade nycklar stöds genom integrering med [Azure Key Vault](../key-vault/key-vault-overview.md). Du kan skapa egna krypterings nycklar och lagra dem i ett nyckel valv, eller så kan du använda Azure Key Vault s API: er för att generera krypterings nycklar. Med Azure Key Vault kan du också granska nyckel användningen.
+Kryptering på serversidan med kundhanterade nycklar stöds genom integrering med [Azure Key Vault](../key-vault/key-vault-overview.md). Du kan skapa dina egna krypteringsnycklar och lagra dem i ett nyckelvalv, eller så kan du använda Azure Key Vault API:er för att generera krypteringsnycklar. Med Azure Key Vault kan du också granska nyckelanvändning.
 
-Den här funktionen är tillgänglig i tjänst nivån **Premium** container Registry. Information om nivåer och gränser för register tjänster finns i [Azure Container Registry SKU: er](container-registry-skus.md).
+Den här funktionen **Premium** är tillgänglig på premium-behållarregistertjänstnivån. Information om registertjänstnivåer och -begränsningar finns i [Azure Container Registry SKU: er](container-registry-skus.md).
 
 > [!IMPORTANT]
-> Den här funktionen är för närvarande en för hands version och vissa [begränsningar](#preview-limitations) gäller. Förhandsversioner görs tillgängliga för dig under förutsättning att du godkänner [kompletterande användningsvillkor][terms-of-use]. Vissa aspekter av funktionen kan ändras innan den är allmänt tillgänglig (GA).
+> Den här funktionen är för närvarande i förhandsversion och vissa [begränsningar](#preview-limitations) gäller. Förhandsversioner är tillgängliga för dig under förutsättning att du godkänner de [kompletterande användningsvillkoren][terms-of-use]. Vissa aspekter av funktionen kan ändras innan den är allmänt tillgänglig (GA).
 >
    
 ## <a name="preview-limitations"></a>Begränsningar för förhandsversion 
 
-* Du kan för närvarande endast aktivera den här funktionen när du skapar ett register.
+* Du kan för närvarande bara aktivera den här funktionen när du skapar ett register.
 * När du har aktiverat en kundhanterad nyckel i ett register kan du inte inaktivera den.
-* [Innehålls förtroende](container-registry-content-trust.md) stöds för närvarande inte i ett register som är krypterat med en kundhanterad nyckel.
-* I ett register som är krypterat med en kundhanterad nyckel behålls kör loggar för [ACR-aktiviteter](container-registry-tasks-overview.md) för närvarande endast i 24 timmar. Om du behöver behålla loggarna under en längre period, se rikt linjer för att [Exportera och lagra aktivitets körnings loggar](container-registry-tasks-logs.md#alternative-log-storage).
+* [Innehållsförtroende](container-registry-content-trust.md) stöds för närvarande inte i ett register krypterat med en kundhanterad nyckel.
+* I ett register krypterat med en kundhanterad nyckel behålls för närvarande körningsloggar för [ACR-uppgifter](container-registry-tasks-overview.md) i endast 24 timmar. Om du behöver behålla loggar under en längre period läser du vägledning för att [exportera och lagra aktivitetskörningsloggar](container-registry-tasks-logs.md#alternative-log-storage).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-Om du vill använda Azure CLI-stegen i den här artikeln måste du ha Azure CLI version 2.2.0 eller senare. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI](/cli/azure/install-azure-cli).
+Om du vill använda Azure CLI-stegen i den här artikeln behöver du Azure CLI version 2.2.0 eller senare. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI](/cli/azure/install-azure-cli).
 
-## <a name="enable-customer-managed-key---cli"></a>Aktivera kundhanterad nyckel-CLI
+## <a name="enable-customer-managed-key---cli"></a>Aktivera kundhanterad nyckel - CLI
 
 ### <a name="create-a-resource-group"></a>Skapa en resursgrupp
 
-Om det behövs kör du kommandot [AZ Group Create][az-group-create] för att skapa en resurs grupp för att skapa nyckel valvet, container Registry och andra nödvändiga resurser.
+Om det behövs kör du kommandot [az-grupp skapa][az-group-create] för att skapa en resursgrupp för att skapa nyckelvalvet, behållarregistret och andra nödvändiga resurser.
 
 ```azurecli
 az group create --name <resource-group-name> --location <location>
@@ -46,7 +46,7 @@ az group create --name <resource-group-name> --location <location>
 
 ### <a name="create-a-user-assigned-managed-identity"></a>Skapa en användartilldelad hanterad identitet
 
-Skapa en användardefinierad [hanterad identitet för Azure-resurser](../active-directory/managed-identities-azure-resources/overview.md) med kommandot [AZ Identity Create][az-identity-create] . Den här identiteten används av ditt register för att få åtkomst till tjänsten Key Vault.
+Skapa en användartilldelad [hanterad identitet för Azure-resurser](../active-directory/managed-identities-azure-resources/overview.md) med kommandot [az identity create.][az-identity-create] Den här identiteten används av registret för att komma åt tjänsten Key Vault.
 
 ```azurecli
 az identity create \
@@ -54,7 +54,7 @@ az identity create \
   --name <managed-identity-name> 
 ```
 
-I kommandot utdata noterar du följande värden: `id` och `principalId`. Du behöver dessa värden i senare steg för att konfigurera register åtkomst till nyckel valvet.
+I kommandoutdata bör du notera `id` följande `principalId`värden: och . Du behöver dessa värden i senare steg för att konfigurera registeråtkomst till nyckelvalvet.
 
 ```JSON
 {
@@ -71,7 +71,7 @@ I kommandot utdata noterar du följande värden: `id` och `principalId`. Du beh�
 }
 ```
 
-För enkelhetens skull kan du lagra dessa värden i miljövariabler:
+För enkelhetens skull, förvara dessa värden i miljövariabler:
 
 ```azurecli
 identityID=$(az identity show --resource-group <resource-group-name> --name <managed-identity-name> --query 'id' --output tsv)
@@ -81,9 +81,9 @@ identityPrincipalID=$(az identity show --resource-group <resource-group-name> --
 
 ### <a name="create-a-key-vault"></a>Skapa ett nyckelvalv
 
-Skapa ett nyckel valv med [AZ-valv skapa][az-keyvault-create] för att lagra en kundhanterad nyckel för register kryptering. 
+Skapa ett nyckelvalv med [az keyvault skapa][az-keyvault-create] för att lagra en kundhanterad nyckel för registerkryptering. 
 
-För att förhindra data förlust som orsakas av oavsiktlig nyckel eller nyckel valv borttagningar måste du aktivera följande inställningar: **mjuk borttagning** och **tömning av skydd**. Följande exempel innehåller parametrar för de här inställningarna: 
+Om du vill förhindra dataförlust orsakad av oavsiktliga borttagningar av nyckel- eller nyckelvalv måste du aktivera följande inställningar: **Mjukt borttagnings-** och **rensningsskydd**. Följande exempel innehåller parametrar för dessa inställningar: 
 
 ```azurecli
 az keyvault create --name <key-vault-name> \
@@ -92,9 +92,9 @@ az keyvault create --name <key-vault-name> \
   --enable-purge-protection
 ```
 
-### <a name="add-key-vault-access-policy"></a>Lägg till åtkomst princip för nyckel valv
+### <a name="add-key-vault-access-policy"></a>Lägg till åtkomstprincip för nyckelvalv
 
-Konfigurera en princip för nyckel valvet så att identiteten kan komma åt den. I följande AZ för nyckel [valv anger][az-keyvault-set-policy] du huvud-ID: t för den hanterade identitet som du har skapat, lagrad tidigare i en miljö variabel. Ange nyckel behörigheter för att **Hämta**, **unwrapKey**och **wrapKey**.  
+Konfigurera en princip för nyckelvalvet så att identiteten kan komma åt den. I följande [az keyvault-set-policy-kommando][az-keyvault-set-policy] skickar du huvud-ID:t för den hanterade identitet som du skapade och som lagrats tidigare i en miljövariabel. Ange nyckelbehörigheter för att **hämta,** **ta bort nyckeln**och **wrapKey**.  
 
 ```azurecli
 az keyvault set-policy \
@@ -106,7 +106,7 @@ az keyvault set-policy \
 
 ### <a name="create-key-and-get-key-id"></a>Skapa nyckel och hämta nyckel-ID
 
-Kör kommandot [AZ Key Vault Key Create][az-keyvault-key-create] för att skapa en nyckel i nyckel valvet.
+Kör kommandot [az keyvault-tangenten skapa][az-keyvault-key-create] för att skapa en nyckel i nyckelvalvet.
 
 ```azurecli
 az keyvault key create \
@@ -114,7 +114,7 @@ az keyvault key create \
   --vault-name <key-vault-name>
 ```
 
-I kommandot utdata noterar du nyckelns ID, `kid`. Du använder det här ID: t i nästa steg:
+I kommandoutdata bör du ta del av `kid`nyckelns ID. Du använder det här ID:et i nästa steg:
 
 ```JSON
 [...]
@@ -137,7 +137,7 @@ I kommandot utdata noterar du nyckelns ID, `kid`. Du använder det här ID: t i 
     "kty": "RSA",
 [...]
 ```
-För enkelhetens skull kan du lagra det här värdet i en miljö variabel:
+För enkelhetens skull, förvara det här värdet i en miljövariabel:
 
 ```azurecli
 keyID=$(az keyvault key show --name <keyname> --vault-name <key-vault-name> --query 'key.kid' --output tsv)
@@ -145,7 +145,7 @@ keyID=$(az keyvault key show --name <keyname> --vault-name <key-vault-name> --qu
 
 ### <a name="create-a-registry-with-customer-managed-key"></a>Skapa ett register med kundhanterad nyckel
 
-Kör kommandot [AZ ACR Create][az-acr-create] för att skapa ett register och aktivera den Kundhanterade nyckeln. Skicka det hanterade identitetens huvud-ID och nyckel-ID: t som tidigare fanns i miljövariabler:
+Kör kommandot [az acr create][az-acr-create] för att skapa ett register och aktivera den kundhanterade nyckeln. Skicka det hanterade identitetshuvudet och nyckel-ID:
 
 ```azurecli
 az acr create \
@@ -156,72 +156,72 @@ az acr create \
   --sku Premium
 ```
 
-### <a name="show-encryption-status"></a>Visa krypterings status
+### <a name="show-encryption-status"></a>Visa krypteringsstatus
 
-Om du vill visa om register kryptering med en kundhanterad nyckel är aktive rad kör du kommandot [AZ ACR Encryption show][az-acr-encryption-show] :
+Om du vill visa om registerkryptering med en kundhanterad nyckel är aktiverad kör du kommandot [az acr encryption show:][az-acr-encryption-show]
 
 ```azurecli
 az acr encryption show --name <registry-name> 
 ```
 
-## <a name="enable-customer-managed-key---portal"></a>Aktivera kundhanterad nyckel – Portal
+## <a name="enable-customer-managed-key---portal"></a>Aktivera kundhanterad nyckel - portal
 
 ### <a name="create-a-managed-identity"></a>Skapa en hanterad identitet
 
-Skapa en användardefinierad [hanterad identitet för Azure-resurser](../active-directory/managed-identities-azure-resources/overview.md) i Azure Portal. Anvisningar finns i [skapa en användardefinierad identitet](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md#create-a-user-assigned-managed-identity).
+Skapa en användartilldelad [hanterad identitet för Azure-resurser](../active-directory/managed-identities-azure-resources/overview.md) i Azure-portalen. Steg om du vill använda en [användartilldelad identitet](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md#create-a-user-assigned-managed-identity).
 
-Anteckna **resurs namnet** för den hanterade identiteten. Du behöver det här namnet i senare steg.
+Anteckna **resursnamnet** för den hanterade identiteten. Du behöver det här namnet i senare steg.
 
-![Skapa användardefinierad hanterad identitet i Azure Portal](./media/container-registry-customer-managed-keys/create-managed-identity.png)
+![Skapa användartilldelade hanterade identitet i Azure-portalen](./media/container-registry-customer-managed-keys/create-managed-identity.png)
 
 ### <a name="create-a-key-vault"></a>Skapa ett nyckelvalv
 
-Anvisningar för hur du skapar ett nyckel valv finns i [snabb start: Ange och hämta en hemlighet från Azure Key Vault med hjälp av Azure Portal](../key-vault/quick-create-portal.md).
+Steg för att skapa ett nyckelvalv finns i [Snabbstart: Ange och hämta en hemlighet från Azure Key Vault med Azure-portalen](../key-vault/quick-create-portal.md).
 
-När du skapar ett nyckel valv för en kundhanterad nyckel måste du aktivera följande skydds inställningar på fliken **grundläggande** : **mjuk borttagning** och tömning av **skydd**. De här inställningarna hjälper till att förhindra data förlust som orsakas av oavsiktlig nyckel eller nyckel valv borttagningar.
+När du skapar ett nyckelvalv för en kundhanterad nyckel måste du på fliken **Grunderna** aktivera följande skyddsinställningar: **Mjukt borttagnings-** och **rensningsskydd**. De här inställningarna förhindrar dataförlust som orsakas av oavsiktliga borttagningar av nyckel eller nyckelvalv.
 
-![Skapa nyckel valv i Azure Portal](./media/container-registry-customer-managed-keys/create-key-vault.png)
+![Skapa nyckelvalv i Azure-portalen](./media/container-registry-customer-managed-keys/create-key-vault.png)
 
-### <a name="add-key-vault-access-policy"></a>Lägg till åtkomst princip för nyckel valv
+### <a name="add-key-vault-access-policy"></a>Lägg till åtkomstprincip för nyckelvalv
 
-Konfigurera en princip för nyckel valvet så att identiteten kan komma åt den.
+Konfigurera en princip för nyckelvalvet så att identiteten kan komma åt den.
 
-1. Navigera till ditt nyckel valv.
-1. Välj **inställningar** > **åtkomst principer > + Lägg till åtkomst princip**.
-1. Välj **nyckel behörigheter**och välj **Hämta**, **unwrap Key**och **wrap Key**.
-1. Välj **Välj huvud** namn och Välj resurs namnet för den hanterade identiteten som tilldelats av användaren.  
+1. Navigera till ditt nyckelvalv.
+1. Välj **principer för inställningar** > **> +Lägg till åtkomstprincip**.
+1. Välj **Nyckelbehörigheter**och välj **Hämta,** **Ta bort nyckel**och **radbryt nyckel**.
+1. Välj **huvudnamn** och välj resursnamnet för den användartilldelade hanterade identiteten.  
 1. Välj **Lägg till**och välj sedan **Spara**.
 
-![Skapa åtkomst princip för nyckel valv](./media/container-registry-customer-managed-keys/add-key-vault-access-policy.png)
+![Skapa åtkomstprincip för nyckelvalv](./media/container-registry-customer-managed-keys/add-key-vault-access-policy.png)
 
 ### <a name="create-key"></a>Skapa nyckel
 
-1. Navigera till ditt nyckel valv.
-1. Välj **inställningar** > **nycklar**.
-1. Välj **+ generera/importera** och ange ett unikt namn för nyckeln.
-1. Acceptera återstående standardvärden och välj **skapa**.
-1. När du har skapat väljer du nyckeln och noterar den aktuella nyckel versionen.
+1. Navigera till ditt nyckelvalv.
+1. Välj **Inställningstangenter** > **Keys**.
+1. Välj **+Generera/importera** och ange ett unikt namn för nyckeln.
+1. Acceptera de återstående standardvärdena och välj **Skapa**.
+1. När du har skapat det väljer du nyckeln och noterar den aktuella nyckelversionen.
 
 ### <a name="create-azure-container-registry"></a>Skapa Azure Container Registry
 
-1. Välj **Skapa en resurs** > **Containers** > **Container Registry**.
-1. På fliken **grundläggande** , Välj eller skapa en resurs grupp och ange ett register namn. I **SKU**väljer du **Premium**.
-1. På fliken **kryptering** i **kundhanterad nyckel**väljer du **aktive rad**.
-1. I **identitet**väljer du den hanterade identitet som du skapade.
-1. I **krypterings nyckel**väljer du **Välj från Key Vault**.
-1. I fönstret **Välj nyckel från Azure Key Vault** väljer du nyckel valvet, nyckeln och versionen som du skapade i föregående avsnitt.
-1. På fliken **kryptering** väljer du **Granska + skapa**.
-1. Välj **skapa** för att distribuera register instansen.
+1. Välj **Skapa ett** > **behållareregister för resursbehållare** > **Container Registry**.
+1. Markera eller skapa en resursgrupp på fliken **Grunderna** och ange ett registernamn. Välj **Premium**i **SKU**.
+1. Välj Aktiverad i **Kundhanterad** **Enabled**nyckel på fliken **Kryptering** .
+1. Välj den hanterade identitet som du skapade i **Identity.**
+1. Välj **Välj från Nyckelvalv i** **krypteringsnyckel**.
+1. I fönstret **Välj nyckel från Azure Key Vault** väljer du nyckelvalvet, nyckeln och versionen som du skapade i föregående avsnitt.
+1. Välj Granska + **skapa**på fliken **Kryptering** .
+1. Välj **Skapa** om du vill distribuera registerinstansen.
 
 ![Skapa ett containerregister med Azure-portalen](./media/container-registry-customer-managed-keys/create-encrypted-registry.png)
 
-Om du vill se krypterings status för registret i portalen går du till registret. Under **Inställningar**väljer du **kryptering (för hands version)** .
+Om du vill se krypteringsstatus för registret i portalen navigerar du till registret. Under **Inställningar**väljer du **Kryptering (förhandsgranskning)**.
 
-## <a name="enable-customer-managed-key---template"></a>Aktivera kundhanterad nyckel-mall
+## <a name="enable-customer-managed-key---template"></a>Aktivera kundhanterad nyckel - mall
 
 Du kan också använda en Resource Manager-mall för att skapa ett register och aktivera kryptering med en kundhanterad nyckel. 
 
-Följande mall skapar ett nytt behållar register och en användardefinierad hanterad identitet. Kopiera följande innehåll till en ny fil och spara det med ett fil namn, till exempel `CMKtemplate.json`.
+I följande mall skapas ett nytt behållarregister och en användartilldelad hanterad identitet. Kopiera följande innehåll till en ny fil och spara `CMKtemplate.json`det med ett filnamn, till exempel .
 
 ```JSON
 {
@@ -329,10 +329,10 @@ Följande mall skapar ett nytt behållar register och en användardefinierad han
 
 Följ stegen i föregående avsnitt för att skapa följande resurser:
 
-* Nyckel valv, identifierat med namn
-* Nyckel valv nyckel, identifierad efter nyckel-ID
+* Nyckelvalv, identifierat med namn
+* Nyckelvalvsnyckel, identifierad med nyckel-ID
 
-Kör följande kommando för [AZ Group Deployment Create][az-group-deployment-create] för att skapa registret med hjälp av föregående mallfil. Ange ett nytt register namn och namn på den hanterade identiteten, samt namnet på nyckel valvet och nyckel-ID: t som du skapade. 
+Kör följande kommando för [att skapa az-gruppdistribution][az-group-deployment-create] för att skapa registret med hjälp av den föregående mallfilen. Ange ett nytt registernamn och ett nytt identitetsnamn samt nyckelvalvets namn och nyckel-ID som du skapade. 
 
 ```bash
 az group deployment create \
@@ -345,9 +345,9 @@ az group deployment create \
     kek_id=<key-vault-key-id>
 ```
 
-### <a name="show-encryption-status"></a>Visa krypterings status
+### <a name="show-encryption-status"></a>Visa krypteringsstatus
 
-Om du vill visa status för register kryptering kör du kommandot [AZ ACR Encryption show-status] [AZ-ACR-Encryption-show-status]:
+Om du vill visa status för registerkryptering kör du kommandot [az acr encryption show-status][az-acr-encryption-show-status] :
 
 ```azurecli
 az acr encryption show-status --name <registry-name> 
@@ -355,19 +355,19 @@ az acr encryption show-status --name <registry-name>
 
 ## <a name="use-the-registry"></a>Använda registret
 
-När du har aktiverat ett register för att kryptera data med en kundhanterad nyckel kan du utföra samma register åtgärder som du utför i ett register som inte är krypterat med en kundhanterad nyckel. Du kan till exempel autentisera med registret och push Docker-avbildningar. Se exempel kommandon i [push och hämta en avbildning](container-registry-get-started-docker-cli.md).
+När du har aktiverat ett register för att kryptera data med en kundhanterad nyckel kan du utföra samma registeråtgärder som du utför i ett register som inte är krypterat med en kundhanterad nyckel. Du kan till exempel autentisera med registret och push Docker-avbildningar. Se exempelkommandon i [Push och hämta en bild](container-registry-get-started-docker-cli.md).
 
-## <a name="rotate-key"></a>Rotations nyckel
+## <a name="rotate-key"></a>Rotera tangent
 
-Du kan rotera en kundhanterad nyckel i Azure Key Vault enligt efterlevnadsprinciper. Skapa en ny nyckel och uppdatera sedan registret för att kryptera data med hjälp av den nya nyckeln. Du kan utföra dessa steg med hjälp av Azure CLI eller i portalen.
+Du kan rotera en kundhanterad nyckel i Azure Key Vault enligt dina efterlevnadsprinciper. Skapa en ny nyckel och uppdatera sedan registret för att kryptera data med den nya nyckeln. Du kan utföra dessa steg med Hjälp av Azure CLI eller i portalen.
 
-Du kan till exempel köra kommandot [AZ Key Vault Create][az-keyvault-key-create] för att skapa en ny nyckel:
+Kör till exempel kommandot [az keyvault key create][az-keyvault-key-create] för att skapa en ny nyckel:
 
 ```azurecli
 az keyvault key create –-name <new-key-name> --vault-name <key-vault-name> 
 ```
 
-Kör sedan kommandot [AZ ACR Encryption rotation-Key][az-acr-encryption-rotate-key] och skicka det nya nyckel-ID: t och ägar-ID: t för den hanterade identitet som du tidigare har konfigurerat:
+Kör sedan kommandot [az acr-kryptering rotate-key,][az-acr-encryption-rotate-key] skicka det nya nyckel-ID:et och huvud-ID:n för den hanterade identitet som du tidigare konfigurerat:
 
 ```azurecli
 az acr encryption rotatekey \
@@ -378,7 +378,7 @@ az acr encryption rotatekey \
 
 ## <a name="revoke-key"></a>Återkalla nyckel
 
-Återkalla den Kundhanterade krypterings nyckeln genom att ändra åtkomst principen i nyckel valvet eller genom att ta bort nyckeln. Använd exempelvis kommandot [AZ-][az-keyvault-delete-policy] för att ändra åtkomst principen för den hanterade identitet som används av registret. Exempel:
+Återkalla den kundhanterade krypteringsnyckeln genom att ändra åtkomstprincipen i nyckelvalvet eller genom att ta bort nyckeln. Använd till exempel kommandot [az keyvault delete-policy][az-keyvault-delete-policy] för att ändra åtkomstprincipen för den hanterade identitet som används av registret. Ett exempel:
 
 ```azurecli
 az keyvault delete-policy \
@@ -387,13 +387,13 @@ az keyvault delete-policy \
   --object-id $identityPrincipalID
 ```
 
-Att återkalla nyckeln på ett effektivt sätt blockerar åtkomsten till alla register data, eftersom registret inte har åtkomst till krypterings nyckeln. Om åtkomst till nyckeln är aktive rad eller om den borttagna nyckeln återställs, kommer ditt register att välja nyckeln så att du kan komma åt krypterade register data igen.
+Om du återkallar nyckeln blockeras åtkomsten till alla registerdata effektivt, eftersom registret inte kan komma åt krypteringsnyckeln. Om åtkomsten till nyckeln är aktiverad eller om den borttagna nyckeln återställs, väljer registret nyckeln så att du kan komma åt de krypterade registerdatana igen.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Lär dig mer om [kryptering i vila i Azure](../security/fundamentals/encryption-atrest.md).
-* Lär dig mer om åtkomst principer och hur du [skyddar åtkomsten till ett nyckel valv](../key-vault/key-vault-secure-your-key-vault.md).
-* Om du vill ge feedback om Kundhanterade nycklar för Azure Container Registry går du till [webbplatsen för ACR GitHub](https://aka.ms/acr/issues).
+* Läs mer om [kryptering i vila i Azure](../security/fundamentals/encryption-atrest.md).
+* Läs mer om åtkomstprinciper och hur du [skyddar åtkomsten till ett nyckelvalv](../key-vault/key-vault-secure-your-key-vault.md).
+* Om du vill ge feedback om kundhanterade nycklar för Azure Container Registry besöker du [ACR GitHub-webbplatsen](https://aka.ms/acr/issues).
 
 
 <!-- LINKS - external -->
@@ -408,9 +408,9 @@ Att återkalla nyckeln på ett effektivt sätt blockerar åtkomsten till alla re
 [az-feature-register]: /cli/azure/feature#az-feature-register
 [az-group-deployment-create]: /cli/azure/group/deployment#az-group-deployment-create
 [az-keyvault-create]: /cli/azure/keyvault#az-keyvault-create
-[az-keyvault-key-create]: /cli/azure/keyvault/keyt#az-keyvault-key-create
-[az-keyvault-set-policy]: /cli/azure/keyvault/keyt#az-keyvault-set-policy
-[az-keyvault-delete-policy]: /cli/azure/keyvault/keyt#az-keyvault-delete-policy
+[az-keyvault-key-create]: /cli/azure/keyvault/key#az-keyvault-key-create
+[az-keyvault-set-policy]: /cli/azure/keyvault#az-keyvault-set-policy
+[az-keyvault-delete-policy]: /cli/azure/keyvault#az-keyvault-delete-policy
 [az-resource-show]: /cli/azure/resource#az-resource-show
 [az-acr-create]: /cli/azure/acr#az-acr-create
 [az-acr-show]: /cli/azure/acr#az-acr-show

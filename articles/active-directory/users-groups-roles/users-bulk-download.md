@@ -1,6 +1,6 @@
 ---
-title: Hämta en lista med användare (för hands version) i Azure Active Directory Portal | Microsoft Docs
-description: Hämta användar poster i bulk i Azure administrations centret i Azure Active Directory.
+title: Hämta en lista över användare (förhandsversion) i Azure Active Directory-portalen | Microsoft-dokument
+description: Hämta användarposter i grupp i Azure-administrationscentret i Azure Active Directory.
 services: active-directory
 author: curtand
 ms.author: curtand
@@ -14,30 +14,30 @@ ms.custom: it-pro
 ms.reviewer: krbain
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4716ff9547f64dc6551b4d4adb0a8578da9fa83e
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77063840"
 ---
-# <a name="download-a-list-of-users-preview-in-azure-active-directory-portal"></a>Hämta en lista med användare (förhands granskning) i Azure Active Directory Portal
+# <a name="download-a-list-of-users-preview-in-azure-active-directory-portal"></a>Hämta en lista över användare (förhandsversion) i Azure Active Directory-portalen
 
-Azure Active Directory (Azure AD) stöder åtgärder för Mass import av användare (skapa).
+Azure Active Directory (Azure AD) stöder massimportåtgärder för användare.Azure Active Directory (Azure AD) supports bulk user import (create) operations.
 
 ## <a name="required-permissions"></a>Nödvändiga behörigheter
 
-Du måste vara inloggad med en användare som är tilldelad en eller flera administratörs roller på organisations nivå i Azure AD för att kunna hämta listan över användare från Azure AD Admin Center. Gäst deltagare och programutvecklare betraktas inte som administratörs roller.
+Om du vill hämta listan över användare från Azure AD-administrationscentret måste du vara inloggad med en användare som tilldelats en eller flera administratörsroller på organisationsnivå i Azure AD. Gäst inbjudna och programutvecklare betraktas inte som administratörsroller.
 
-## <a name="to-download-a-list-of-users"></a>Hämta en lista med användare
+## <a name="to-download-a-list-of-users"></a>Så här hämtar du en lista över användare
 
-1. [Logga in på din Azure AD-organisation](https://aad.portal.azure.com) med ett användar administratörs konto i organisationen.
-2. Navigera till Azure Active Directory > användare. Välj sedan de användare som du vill inkludera i nedladdningen genom att kryssa i rutan i den vänstra kolumnen bredvid varje användare. Obs! det finns för tillfället inget sätt att markera alla användare för export. Var och en måste väljas individuellt.
-3. I Azure AD väljer **du användare** > **Ladda ned användare**.
-4. På sidan **Ladda ned användare** väljer du **Start** för att ta emot en CSV-fil som visar egenskaper för användar profiler. Om det finns fel kan du hämta och Visa resultat filen på resultat sidan för Mass åtgärder. Filen innehåller orsaken för varje fel.
+1. [Logga in på din Azure AD-organisation](https://aad.portal.azure.com) med ett användarkonto för användaradministratörer i organisationen.
+2. Navigera till Azure Active Directory >-användare. Välj sedan de användare som du vill inkludera i hämtningen genom att markera rutan i den vänstra kolumnen bredvid varje användare. Obs: För närvarande finns det inget sätt att välja alla användare för export. Var och en måste väljas individuellt.
+3. I Azure AD väljer du **Användare** > **Hämta användare**.
+4. På sidan **Hämta användare** väljer du **Start** för att ta emot en CSV-fil med användarprofilegenskaper. Om det finns fel kan du hämta och visa resultatfilen på sidan Massåtgärdsresultat. Filen innehåller orsaken till varje fel.
 
-   ![Välj var du vill att listan över användare som du vill ladda ned ska hämtas](./media/users-bulk-download/bulk-download.png)
+   ![Välj var du vill ha listan vilka användare du vill hämta](./media/users-bulk-download/bulk-download.png)
 
-   Nedladdnings filen innehåller den filtrerade listan över användare.
+   Hämtningsfilen innehåller den filtrerade listan över användare.
 
    Följande användarattribut ingår:
 
@@ -45,41 +45,41 @@ Du måste vara inloggad med en användare som är tilldelad en eller flera admin
    - displayName
    - surname
    - e-post
-   - givenName
-   - objekt-ID
-   - userType
-   - jobTitle
+   - förnamn
+   - Objectid
+   - userType (användare)
+   - jobbTitle
    - avdelning
    - accountEnabled
-   - usageLocation
-   - streetAddress
+   - användningLokalisering
+   - streetAddress (streetAddress)
    - state
-   - ursprungslandet
-   - physicalDeliveryOfficeName
+   - land
+   - fysisktDeliveryOfficeName
    - city
    - Postnummer
-   - telephoneNumber
-   - mobila
-   - authenticationPhoneNumber
-   - authenticationAlternativePhoneNumber
-   - authenticationEmail
+   - telefonAntal
+   - mobil
+   - autentiseringTelefonnummer
+   - autentiseringAlternativePhoneNumber
+   - autentiseringEpost
    - alternateEmailAddress
    - ageGroup
-   - consentProvidedForMinor
+   - samtyckeTillhandaladeForMinor
    - legalAgeGroupClassification
 
 ## <a name="check-status"></a>Kontrollera status
 
-Du kan se statusen för väntande Mass begär Anden på sidan för **Mass åtgärds resultat (förhands granskning)** .
+Du kan se statusen för dina väntande massbegäranden på sidan **Massåtgärdsresultat (förhandsversion).**
 
-   ![Kontrol lera uppladdnings status på sidan Mass åtgärds resultat](./media/users-bulk-download/bulk-center.png)
+   ![Kontrollera uppladdningsstatus på sidan Resultat för massåtgärder](./media/users-bulk-download/bulk-center.png)
 
-## <a name="bulk-download-service-limits"></a>Begränsningar för Mass nedladdnings tjänst
+## <a name="bulk-download-service-limits"></a>Begränsningar för masshämtningstjänsten
 
-Varje Mass aktivitet för att skapa en lista med användare kan köras i upp till en timme. På så sätt kan du skapa och ladda ned en lista med minst 500 000 användare.
+Varje massaktivitet för att skapa en lista över användare kan köras i upp till en timme. Detta gör det möjligt att skapa och hämta en lista över minst 500 000 användare.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Mass tillägg av användare](users-bulk-add.md)
-- [Mass borttagnings användare](users-bulk-delete.md)
-- [Mass återställnings användare](users-bulk-restore.md)
+- [Masstillägg av användare](users-bulk-add.md)
+- [Massborttagning användare](users-bulk-delete.md)
+- [Användare av massåterställning](users-bulk-restore.md)

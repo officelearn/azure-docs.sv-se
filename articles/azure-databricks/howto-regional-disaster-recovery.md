@@ -1,6 +1,6 @@
 ---
-title: Regional haveri beredskap för Azure Databricks
-description: I den här artikeln beskrivs en metod för att utföra haveri beredskap i Azure Databricks.
+title: Regional haveriberedskap för Azure Databricks
+description: I den här artikeln beskrivs en metod för att göra haveriberedskap i Azure Databricks.
 services: azure-databricks
 author: mamccrea
 ms.author: mamccrea
@@ -9,88 +9,88 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.openlocfilehash: 2604d5b357feacce3493b4a4ded971144262611d
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77161944"
 ---
-# <a name="regional-disaster-recovery-for-azure-databricks-clusters"></a>Regional haveri beredskap för Azure Databricks kluster
+# <a name="regional-disaster-recovery-for-azure-databricks-clusters"></a>Regional haveriberedskap för Azure Databricks-kluster
 
-I den här artikeln beskrivs en katastrof återställnings arkitektur som är användbar för Azure Databricks kluster och stegen för att utföra den här designen.
+I den här artikeln beskrivs en arkitektur för haveriberedskap som är användbar för Azure Databricks-kluster och stegen för att utföra den designen.
 
-## <a name="azure-databricks-architecture"></a>Azure Databricks arkitektur
+## <a name="azure-databricks-architecture"></a>Azure Databricks-arkitektur
 
-När du skapar en Azure Databricks arbets yta från Azure Portal på hög nivå distribueras en [hanterad](../azure-resource-manager/managed-applications/overview.md) installation som en Azure-resurs i din prenumeration, i den valda Azure-regionen (till exempel västra USA). Den här installationen är distribuerad i en [Azure-Virtual Network](../virtual-network/virtual-networks-overview.md) med en [nätverks säkerhets grupp](../virtual-network/manage-network-security-group.md) och ett Azure Storage konto som är tillgängligt i din prenumeration. Det virtuella nätverket tillhandahåller gräns nivå säkerhet till arbets ytan Databricks och skyddas via nätverks säkerhets gruppen. I arbets ytan kan du skapa Databricks-kluster genom att ange arbets-och driv Rutinens VM-typ och Databricks runtime-version. De sparade data är tillgängliga i ditt lagrings konto, som kan vara Azure Blob Storage eller Azure Data Lake Storage. När klustret har skapats kan du köra jobb via antecknings böcker, REST-API: er, ODBC/JDBC-slutpunkter genom att koppla dem till ett enskilt kluster.
+På en hög nivå, när du skapar en Azure Databricks-arbetsyta från Azure-portalen, distribueras en [hanterad installation](../azure-resource-manager/managed-applications/overview.md) som en Azure-resurs i din prenumeration, i den valda Azure-regionen (till exempel västra USA). Den här installationen distribueras i ett [virtuellt Azure-nätverk](../virtual-network/virtual-networks-overview.md) med en [nätverkssäkerhetsgrupp](../virtual-network/manage-network-security-group.md) och ett Azure Storage-konto som är tillgängligt i din prenumeration. Det virtuella nätverket ger perimeternivåsäkerhet till Databricks arbetsyta och skyddas via nätverkssäkerhetsgrupp. Inom arbetsytan kan du skapa Databricks-kluster genom att tillhandahålla den virtuella typen av arbets- och drivrutinstyp och Databricks runtime-version. Beständiga data är tillgängliga i ditt lagringskonto, som kan vara Azure Blob Storage eller Azure Data Lake Storage. När klustret har skapats kan du köra jobb via anteckningsböcker, REST-API:er, ODBC/JDBC-slutpunkter genom att koppla dem till ett visst kluster.
 
-Databricks kontroll planet hanterar och övervakar arbets ytan Databricks. Alla hanterings åtgärder, till exempel skapa kluster, kommer att initieras från kontroll planet. Alla metadata, till exempel schemalagda jobb, lagras i en Azure Database med geo-replikering för fel tolerans.
+Databricks styrplan hanterar och övervakar Databricks arbetsytemiljö. Alla hanteringsåtgärder som skapa kluster initieras från kontrollplanet. Alla metadata, till exempel schemalagda jobb, lagras i en Azure-databas med geo-replikering för feltolerans.
 
-![Databricks-arkitektur](media/howto-regional-disaster-recovery/databricks-architecture.png)
+![Databricks arkitektur](media/howto-regional-disaster-recovery/databricks-architecture.png)
 
-En av fördelarna med den här arkitekturen är att användarna kan ansluta Azure Databricks till valfri lagrings resurs i sitt konto. En viktig fördel är att både beräkning (Azure Databricks) och lagring kan skalas oberoende av varandra.
+En av fördelarna med den här arkitekturen är att användare kan ansluta Azure Databricks till alla lagringsresurser i sitt konto. En viktig fördel är att både beräkning (Azure Databricks) och lagring kan skalas oberoende av varandra.
 
-## <a name="how-to-create-a-regional-disaster-recovery-topology"></a>Så här skapar du en regional haveri beredskaps topologi
+## <a name="how-to-create-a-regional-disaster-recovery-topology"></a>Så här skapar du en regional katastrofåterställningstopologi
 
-Som du ser i föregående Beskrivning av arkitekturen, finns det ett antal komponenter som används för en stor data pipeline med Azure Databricks: Azure Storage, Azure Database och andra data källor. Azure Databricks är *beräkningen* för stor data pipelinen. Det är en *tillfällig* natur, vilket innebär att medan dina data fortfarande är tillgängliga i Azure Storage, kan *beräkningen* (Azure Databricks-kluster) avbrytas så att du inte behöver betala för beräkning när du inte behöver det. Data *bearbetningen* (Azure Databricks) och lagrings källorna måste vara i samma region så att jobben inte får hög latens.  
+Som du märker i föregående arkitekturbeskrivning finns det ett antal komponenter som används för en Big Data-pipeline med Azure Databricks: Azure Storage, Azure Database och andra datakällor. Azure Databricks är *beräkningen* för Big Data-pipelinen. Det är *efemärt* till sin natur, vilket innebär att medan dina data fortfarande är tillgängliga i Azure Storage, kan *beräkningen* (Azure Databricks-klustret) avslutas så att du inte behöver betala för beräkning när du inte behöver den. *Beräknings-(Azure* Databricks) och lagringskällor måste finnas i samma region så att jobben inte får hög svarstid.  
 
-Följ dessa krav för att skapa en egen regional haveri beredskaps topologi:
+Så här skapar du en egen regional katastrofåterställningstopologi:
 
-   1. Etablera flera Azure Databricks arbets ytor i separata Azure-regioner. Skapa till exempel den primära Azure Databricks arbets ytan i öst-2; USA. Skapa den sekundära haveri återställnings Azure Databricks arbets ytan i en separat region, till exempel västra USA.
+   1. Etablera flera Azure Databricks-arbetsytor i separata Azure-regioner. Skapa till exempel den primära Azure Databricks-arbetsytan i östra US2. Skapa den sekundära azure databricks-arbetsytan för katastrofåterställning i en separat region, till exempel västra USA.
 
-   2. Använd [Geo-redundant lagring](../storage/common/storage-redundancy.md). De data som associeras Azure Databricks lagras som standard i Azure Storage. Resultaten från Databricks-jobb lagras också i Azure Blob Storage, så att de bearbetade data är varaktiga och förblir hög tillgängliga när klustret har avslut ATS. Eftersom lagrings-och Databricks-klustret är samplacerade måste du använda Geo-redundant lagring så att data kan nås i den sekundära regionen om den primära regionen inte längre är tillgänglig.
+   2. Använd [geo-redundant lagring](../storage/common/storage-redundancy.md). De data associerade Azure Databricks lagras som standard i Azure Storage. Resultaten från Databricks-jobb lagras också i Azure Blob Storage, så att de bearbetade data är varaktiga och förblir mycket tillgängliga när klustret har avslutats. Eftersom lagrings- och databricks-klustret finns samtidigt måste du använda Geo-redundant lagring så att data kan nås i sekundär region om den primära regionen inte längre är tillgänglig.
 
-   3. När den sekundära regionen har skapats måste du migrera användare, användarmappar, bärbara datorer, kluster konfiguration, jobb konfiguration, bibliotek, lagring, init-skript och konfigurera om åtkomst kontroll. Ytterligare information beskrivs i följande avsnitt.
+   3. När den sekundära regionen har skapats måste du migrera användare, användarmappar, anteckningsböcker, klusterkonfiguration, jobbkonfiguration, bibliotek, lagring, init-skript och konfigurera om åtkomstkontroll. Ytterligare information beskrivs i följande avsnitt.
 
 ## <a name="detailed-migration-steps"></a>Detaljerade migreringssteg
 
-1. **Konfigurera kommando rads gränssnittet för Databricks på datorn**
+1. **Konfigurera databricks-kommandoradsgränssnittet på datorn**
 
-   I den här artikeln visas ett antal kod exempel som använder kommando rads gränssnittet för de flesta automatiserade steg, eftersom det är en lätt att användare i Azure Databricks REST API.
+   Den här artikeln visar ett antal kodexempel som använder kommandoradsgränssnittet för de flesta av de automatiserade stegen, eftersom det är ett lättanvänt omslag över Azure Databricks REST API.
 
-   Innan du utför några steg i migreringen installerar du databricks-CLI på din station ära dator eller på en virtuell dator där du planerar att utföra arbetet. Mer information finns i [Installera DATABRICKS CLI](/azure/databricks/dev-tools/databricks-cli)
+   Innan du utför några migreringssteg installerar du databricks-cli på din stationära dator eller en virtuell dator där du planerar att utföra arbetet. Mer information finns i [Installera Databricks CLI](/azure/databricks/dev-tools/databricks-cli)
 
    ```bash
    pip install databricks-cli
    ```
 
    > [!NOTE]
-   > Alla Python-skript som anges i den här artikeln förväntas fungera med python 2.7 + < 3. x.
+   > Alla pythonskript som finns i den här artikeln förväntas fungera med Python 2.7+ < 3.x.
 
 2. **Konfigurera två profiler.**
 
-   Konfigurera en för den primära arbets ytan och en annan för den sekundära arbets ytan:
+   Konfigurera en för den primära arbetsytan och en annan för den sekundära arbetsytan:
 
    ```bash
    databricks configure --profile primary
    databricks configure --profile secondary
    ```
 
-   Kod blocken i den här artikeln växlar mellan profiler i varje efterföljande steg med motsvarande arbets ytans kommando. Se till att namnen på profilerna som du skapar ersätts med varje kodblock.
+   Kodblocken i den här artikeln växlar mellan profiler i varje efterföljande steg med motsvarande arbetsytas kommando. Se till att namnen på de profiler du skapar ersätts med varje kodblock.
 
    ```python
    EXPORT_PROFILE = "primary"
    IMPORT_PROFILE = "secondary"
    ```
 
-   Du kan manuellt växla till kommando raden vid behov:
+   Du kan växla manuellt på kommandoraden om det behövs:
 
    ```bash
    databricks workspace ls --profile primary
    databricks workspace ls --profile secondary
    ```
 
-3. **Migrera Azure Active Directory användare**
+3. **Migrera Azure Active Directory-användare**
 
-   Lägg manuellt till samma Azure Active Directory användare till den sekundära arbets ytan som finns på den primära arbets ytan.
+   Lägg manuellt till samma Azure Active Directory-användare på den sekundära arbetsytan som finns på den primära arbetsytan.
 
-4. **Migrera användarens mappar och antecknings böcker**
+4. **Migrera användarmappar och anteckningsböcker**
 
-   Använd följande python-kod för att migrera de begränsade användar miljöerna, som inkluderar den kapslade mappstrukturen och antecknings böckerna per användare.
+   Använd följande python-kod för att migrera användarmiljöer i begränsat läge, som innehåller den kapslade mappstrukturen och anteckningsböcker per användare.
 
    > [!NOTE]
-   > Bibliotek kopieras inte över i det här steget eftersom det underliggande API: t inte stöder dem.
+   > Bibliotek kopieras inte över i det här steget, eftersom det underliggande API:et inte stöder dessa.
 
-   Kopiera och spara följande Python-skript till en fil och kör det i din Databricks-kommando rad. Till exempel `python scriptname.py`.
+   Kopiera och spara följande pythonskript i en fil och kör det på kommandoraden Databricks. Till exempel `python scriptname.py`.
 
    ```python
    from subprocess import call, check_output
@@ -124,16 +124,16 @@ Följ dessa krav för att skapa en egen regional haveri beredskaps topologi:
    print "All done"
    ```
 
-5. **Migrera klusterkonfigurationer**
+5. **Migrera klusterkonfigurationerna**
 
-   När antecknings böckerna har migrerats kan du också migrera klusterkonfigurationer till den nya arbets ytan. Det är nästan ett helt automatiserat steg med databricks-CLI, om du inte vill göra en selektiv kluster konfigurations migrering i stället för alla.
+   När anteckningsböcker har migrerats kan du också migrera klusterkonfigurationerna till den nya arbetsytan. Det är nästan ett helt automatiserat steg med databricks-cli, om du inte vill göra selektiv kluster config migrering snarare än för alla.
 
    > [!NOTE]
-   > Det finns tyvärr ingen skapa kluster konfigurations slut punkt och det här skriptet försöker skapa varje kluster direkt. Om det inte finns tillräckligt många tillgängliga kärnor i din prenumeration kan det hända att klustret inte kan skapas. Felen kan ignoreras så länge konfigurationen har överförts.
+   > Tyvärr finns det ingen skapa kluster config slutpunkt, och det här skriptet försöker skapa varje kluster direkt. Om det inte finns tillräckligt med kärnor som är tillgängliga i prenumerationen kan klusterskapandet misslyckas. Felet kan ignoreras så länge konfigurationen har överförts.
 
-   Följande skript tillhandahöll skriver ut en mappning från gamla till nya kluster-ID: n, som kan användas för att migrera jobb senare (för jobb som är konfigurerade att använda befintliga kluster).
+   Följande skript som innehåller utskrifter en mappning från gamla till nya kluster-ID: er, som kan användas för jobbmigrering senare (för jobb som är konfigurerade för att använda befintliga kluster).
 
-   Kopiera och spara följande Python-skript till en fil och kör det i din Databricks-kommando rad. Till exempel `python scriptname.py`.
+   Kopiera och spara följande pythonskript i en fil och kör det på kommandoraden Databricks. Till exempel `python scriptname.py`.
 
    ```python
    from subprocess import call, check_output
@@ -216,16 +216,16 @@ Följ dessa krav för att skapa en egen regional haveri beredskaps topologi:
    print ("       If you won't use those new clusters at the moment, please don't forget terminating your new clusters to avoid charges")
    ```
 
-6. **Migrera jobb konfigurationen**
+6. **Migrera jobbkonfigurationen**
 
-   Om du har migrerat klusterkonfigurationer i föregående steg kan du välja att migrera jobb konfigurationerna till den nya arbets ytan. Det är ett helt automatiserat steg med databricks-CLI, om du inte vill göra en selektiv jobb konfigurations migrering i stället för att göra det för alla jobb.
+   Om du har migrerat klusterkonfigurationer i föregående steg kan du välja att migrera jobbkonfigurationer till den nya arbetsytan. Det är ett helt automatiserat steg med databricks-cli, om du inte vill göra selektiv jobb config migrering snarare än att göra det för alla jobb.
 
    > [!NOTE]
-   > Konfigurationen för ett schemalagt jobb innehåller även "schema"-informationen, så som standard börjar arbetet enligt konfigurationen per konfigurerad tid så snart den migreras. Därför tar följande kodblock bort eventuell schema information under migreringen (för att undvika dubbla körningar i gamla och nya arbets ytor). Konfigurera scheman för sådana jobb när du är redo för start punkt.
+   > Konfigurationen för ett schemalagt jobb innehåller också "schemainformation", så som standard börjar den fungera enligt konfigurerad tid så snart den har migrerats. Därför tar följande kodblock bort all schemainformation under migreringen (för att undvika dubblettkörningar över gamla och nya arbetsytor). Konfigurera scheman för sådana jobb när du är redo för cutover.
 
-   Jobb konfigurationen kräver inställningar för ett nytt eller ett befintligt kluster. Om du använder ett befintligt kluster försöker skriptet/Code nedan att ersätta det gamla kluster-ID: t med nytt kluster-ID.
+   Jobbkonfigurationen kräver inställningar för ett nytt kluster eller ett befintligt kluster. Om du använder befintligt kluster försöker skriptet /koden nedan att ersätta det gamla kluster-ID:t med nytt kluster-ID.
 
-   Kopiera och spara följande Python-skript till en fil. Ersätt värdet för `old_cluster_id` och `new_cluster_id`, med utdata från kluster migreringen som utfördes i föregående steg. Kör den i din databricks-CLI-kommando rad, till exempel `python scriptname.py`.
+   Kopiera och spara följande pythonskript i en fil. Ersätt värdet `old_cluster_id` för `new_cluster_id`och , med utdata från klustermigrering gjort i föregående steg. Kör den i din databricks-cli kommandorad, `python scriptname.py`till exempel .
 
    ```python
    from subprocess import call, check_output
@@ -282,15 +282,15 @@ Följ dessa krav för att skapa en egen regional haveri beredskaps topologi:
 
 7. **Migrera bibliotek**
 
-   Det finns för närvarande inget enkelt sätt att migrera bibliotek från en arbets yta till en annan. Installera i stället dessa bibliotek i den nya arbets ytan manuellt. Det är möjligt att automatisera användningen av [DBFS CLI](https://github.com/databricks/databricks-cli#dbfs-cli-examples) för att ladda upp anpassade bibliotek till arbets ytan och [biblioteks-CLI](https://github.com/databricks/databricks-cli#libraries-cli).
+   Det finns för närvarande inget enkelt sätt att migrera bibliotek från en arbetsyta till en annan. Installera i stället om biblioteken i den nya arbetsytan manuellt. Det är möjligt att automatisera med hjälp av en kombination av [DBFS CLI](https://github.com/databricks/databricks-cli#dbfs-cli-examples) för att ladda upp anpassade bibliotek till arbetsytan och [bibliotek CLI](https://github.com/databricks/databricks-cli#libraries-cli).
 
-8. **Migrera Azure Blob Storage och Azure Data Lake Storage monteras**
+8. **Migrera Azure blob storage och Azure Data Lake Storage-fästen**
 
-   Montera manuellt alla [Azure Blob Storage](/azure/databricks/data/data-sources/azure/azure-storage) och [Azure Data Lake Storage (Gen 2)](/azure/databricks/data/data-sources/azure/azure-datalake-gen2) monterings punkter med en Notebook-baserad lösning. Lagrings resurserna skulle ha monterats på den primära arbets ytan och måste upprepas på den sekundära arbets ytan. Det finns inget externt API för monteringar.
+   Montera om alla [Azure Blob-lagring](/azure/databricks/data/data-sources/azure/azure-storage) och [Azure Data Lake Storage (Gen 2)](/azure/databricks/data/data-sources/azure/azure-datalake-gen2) montera punkter manuellt med hjälp av en anteckningsboksbaserad lösning. Lagringsresurserna skulle ha monterats på den primära arbetsytan och som måste upprepas på den sekundära arbetsytan. Det finns inget externt API för fästen.
 
 9. **Migrera kluster init-skript**
 
-   Eventuella kluster initierings skript kan migreras från gammal till ny arbets yta med hjälp av [DBFS CLI](https://github.com/databricks/databricks-cli#dbfs-cli-examples). Kopiera först de skript som krävs från `dbfs:/dat abricks/init/..` till ditt lokala skriv bord eller virtuell dator. Kopiera sedan dessa skript till den nya arbets ytan på samma sökväg.
+   Alla klusterinitiseringsskript kan migreras från gammal till ny arbetsyta med [DBFS CLI](https://github.com/databricks/databricks-cli#dbfs-cli-examples). Kopiera först de skript `dbfs:/dat abricks/init/..` som behövs från till det lokala skrivbordet eller den virtuella datorn. Kopiera sedan skripten till den nya arbetsytan på samma sökväg.
 
    ```bash
    // Primary to local
@@ -300,15 +300,15 @@ Följ dessa krav för att skapa en egen regional haveri beredskaps topologi:
    dbfs cp -r old-ws-init-scripts dbfs:/databricks/init --profile secondary
    ```
 
-10. **Konfigurera om och tillämpa åtkomst kontroll manuellt.**
+10. **Konfigurera om och tillämpa åtkomstkontrollen manuellt.**
 
-    Om din befintliga primära arbets yta har kon figurer ATS för att använda Premium nivån (SKU), är det troligt att du också använder [Access Control funktionen](/azure/databricks/administration-guide/access-control/index).
+    Om din befintliga primära arbetsyta är konfigurerad för att använda Premium-nivån (SKU) är det troligt att du också använder [funktionen Åtkomstkontroll](/azure/databricks/administration-guide/access-control/index).
 
-    Om du använder funktionen Access Control, tillämpa manuellt åtkomst kontrollen på resurserna (antecknings böcker, kluster, jobb, tabeller).
+    Om du använder funktionen Snabbkontroll använder du åtkomstkontrollen manuellt på resurserna (anteckningsböcker, kluster, jobb, tabeller).
 
-## <a name="disaster-recovery-for-your-azure-ecosystem"></a>Haveri beredskap för ditt Azure-eko system
+## <a name="disaster-recovery-for-your-azure-ecosystem"></a>Haveriberedskap för ditt Azure-ekosystem
 
-Om du använder andra Azure-tjänster bör du även implementera metod tips för haveri beredskap för dessa tjänster. Om du till exempel väljer att använda en extern Hive-metaarkiv-instans bör du överväga haveri beredskap för [azure SQL Server](../sql-database/sql-database-disaster-recovery.md), [Azure HDInsight](../hdinsight/hdinsight-high-availability-linux.md)och/eller [Azure Database for MySQL](../mysql/concepts-business-continuity.md). Allmän information om haveri beredskap finns i [haveri beredskap för Azure-program](https://docs.microsoft.com/azure/architecture/resiliency/disaster-recovery-azure-applications).
+Om du använder andra Azure-tjänster, se till att implementera metodtips för katastrofåterställning för dessa tjänster också. Om du till exempel väljer att använda en extern Hive-metastore-instans bör du överväga haveriberedskap för [Azure SQL Server](../sql-database/sql-database-disaster-recovery.md), Azure [HDInsight](../hdinsight/hdinsight-high-availability-linux.md)och/eller [Azure Database for MySQL](../mysql/concepts-business-continuity.md). Allmän information om haveriberedskap finns i [Haveriberedskap för Azure-program](https://docs.microsoft.com/azure/architecture/resiliency/disaster-recovery-azure-applications).
 
 ## <a name="next-steps"></a>Nästa steg
 

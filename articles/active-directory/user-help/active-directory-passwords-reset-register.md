@@ -1,6 +1,6 @@
 ---
-title: Registrera autentiseringsinformation för att återställa ditt eget lösen ord – Azure AD
-description: Registrera din verifierings metod information för återställning av lösen ord i Azure AD, så att du kan återställa ditt eget lösen ord utan Administratörs hjälp.
+title: Registrera autentiseringsinformation för att återställa ditt eget lösenord - Azure AD
+description: Registrera information om verifieringsmetoden för azure ad-självbetjäningslösenordsåterställning, så att du kan återställa ditt eget lösenord utan administratörshjälp.
 services: active-directory
 author: curtand
 manager: daveba
@@ -13,60 +13,60 @@ ms.topic: conceptual
 ms.date: 01/15/2020
 ms.author: curtand
 ms.openlocfilehash: 397e1fd7695fd7e74e1f22959d0f9f24af7d1ea3
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77062650"
 ---
-# <a name="register-your-verification-method-info-to-reset-your-own-password"></a>Registrera din verifierings metod information för att återställa ditt eget lösen ord
+# <a name="register-your-verification-method-info-to-reset-your-own-password"></a>Registrera information om verifieringsmetoden för att återställa ditt eget lösenord
 
-Om du har glömt lösen ordet till ditt arbets-eller skol konto, fick du aldrig ett lösen ord från din organisation eller har låsts av ditt konto, kan du använda din säkerhets information och din mobila enhet för att återställa lösen ordet till ditt arbets-eller skol konto.
+Om du har glömt ditt arbets- eller skollösenord, aldrig fått något lösenord från din organisation eller har låsts ute från ditt konto kan du använda din säkerhetsinformation och din mobila enhet för att återställa ditt arbets- eller skollösenord.
 
-Administratören måste aktivera den här funktionen så att du kan registrera din information och återställa ditt eget lösen ord. Om du inte ser alternativet **glömt mitt lösen ord** betyder det att administratören inte har aktiverat funktionen för din organisation. Om du tror att det är fel kan du kontakta supportavdelningen om du behöver hjälp.
+Administratören måste aktivera den här funktionen för att du ska kunna registrera din information och återställa ditt eget lösenord. Om alternativet **Glömt mitt lösenord** inte visas betyder det att administratören inte har aktiverat funktionen för din organisation. Om du anser att detta är felaktigt kontaktar du din helpdesk för att få hjälp.
 
 >[!Important]
->Den här artikeln är avsedd för användare som försöker använda registrera sig för självbetjäning för återställning av lösen ord. Det innebär att du kan återställa ditt eget lösen ord för arbetet eller skolan (till exempel alain@contoso.com), utan att behöva administratörens hjälp. Om du är administratör för att få information om hur du aktiverar lösen ords återställning via självbetjäning för dina anställda eller andra användare kan du läsa mer i [Distribuera Azure AD självbetjäning återställning av lösen ord och andra artiklar](https://docs.microsoft.com/azure/active-directory/authentication/howto-sspr-deployment).
+>Den här artikeln är avsedd för användare som försöker använda registrera dig för återställning av lösenord med självbetjäning. Det innebär att du kan återställa ditt eget arbets- eller alain@contoso.comskollösenord (till exempel ) utan att administratören behöver hjälp. Om du är administratör och letar efter information om hur du aktiverar återställning av lösenord för självbetjäning för anställda eller andra användare läser [du återställningen av självbetjäningslösenordet i Azure AD och andra artiklar](https://docs.microsoft.com/azure/active-directory/authentication/howto-sspr-deployment).
 
-## <a name="set-up-your-password-reset-verification-method"></a>Konfigurera verifierings metoden för lösen ords återställning
+## <a name="set-up-your-password-reset-verification-method"></a>Konfigurera verifieringsmetoden för återställning av lösenord
 
-1. Öppna webbläsaren på din enhet och gå till [sidan säkerhets information](https://account.activedirectory.windowsazure.com/PasswordReset/Register.aspx?regref=ssprsetup).
+1. Öppna webbläsaren på enheten och gå till [sidan säkerhetsinformation](https://account.activedirectory.windowsazure.com/PasswordReset/Register.aspx?regref=ssprsetup).
 
-2. Beroende på hur din administratör har konfigurerat din organisation, kommer ett eller flera av följande alternativ att vara tillgängliga så att du kan ställa in den som säkerhets verifierings metod. Om det finns flera tillgängliga alternativ rekommenderar vi starkt att du använder mer än en som säkerhets verifierings metod, om en av dina metoder blir otillgänglig.
+2. Beroende på hur administratören har konfigurerat din organisation är ett eller flera av följande alternativ tillgängliga för dig att konfigurera som din säkerhetsverifieringsmetod. Om flera alternativ är tillgängliga rekommenderar vi starkt att du använder mer än ett som din säkerhetsverifieringsmetod, om någon av dina metoder blir otillgänglig.
 
-    - **App för autentisering.** Välj att använda Microsoft Authenticator-appen eller någon annan Authenticator-app som säkerhets verifierings metod. Mer information om hur du konfigurerar appen finns i [Konfigurera appen Microsoft Authenticator som din verifierings metod](security-info-setup-auth-app.md).
+    - **Autentiseringsapp.** Välj att använda Microsoft Authenticator-appen eller annan autentiseringsapp som säkerhetsverifieringsmetod. Mer information om hur du konfigurerar appen finns i [Konfigurera Microsoft Authenticator-appen som verifieringsmetod](security-info-setup-auth-app.md).
 
-    - **SMS-meddelanden.** Välj att skicka text meddelanden till din mobila enhet. Mer information om hur du konfigurerar textmeddelanden finns i [Konfigurera SMS-meddelanden som din verifierings metod](security-info-setup-text-msg.md).
+    - **Sms.** Välj att skicka textmeddelanden till din mobila enhet. Mer information om hur du konfigurerar textmeddelanden finns i [Konfigurera textmeddelanden som verifieringsmetod](security-info-setup-text-msg.md).
 
-    - **Telefonsamtal.** Välj att hämta ett telefonsamtal till ditt registrerade telefonnummer. Mer information om hur du konfigurerar telefonsamtal finns i [Konfigurera ett telefonnummer som verifierings metod](security-info-setup-phone-number.md).
+    - **Telefonsamtal.** Välj att få ett telefonsamtal till ditt registrerade telefonnummer. Mer information om hur du konfigurerar telefonsamtal finns i [Konfigurera ett telefonnummer som verifieringsmetod](security-info-setup-phone-number.md).
 
-    - **Säkerhets nyckel.** Välj att använda en Microsoft-kompatibel säkerhets nyckel. Mer information finns i [Konfigurera en säkerhets nyckel som verifierings metod](security-info-setup-security-key.md).
+    - **Säkerhetsnyckel.** Välj att använda en Microsoft-kompatibel säkerhetsnyckel. Mer information finns i [Konfigurera en säkerhetsnyckel som verifieringsmetod](security-info-setup-security-key.md).
 
-    - **E-postadress.** Välj att använda en alternativ e-postadress som kan användas utan lösen ord som du glömt eller saknar. Detta fungerar bara för lösen ords återställning, inte som en säkerhets verifierings metod. Mer information om hur du konfigurerar en e-postadress finns i [Konfigurera en e-postadress som verifierings metod](security-info-setup-email.md).
+    - **E-postadress.** Välj att använda en alternativ e-postadress som kan användas utan att kräva ditt glömda eller saknade lösenord. Detta fungerar bara för återställning av lösenord, inte som en säkerhetsverifieringsmetod. Mer information om hur du konfigurerar en e-postadress finns i [Konfigurera en e-postadress som verifieringsmetod](security-info-setup-email.md).
 
-    - **Säkerhets frågor.** Välj att konfigurera och svara på fördefinierade säkerhets frågor som administratören har konfigurerat. Detta fungerar bara för lösen ords återställning, inte som en säkerhets verifierings metod. Mer information om säkerhets frågor finns i [Konfigurera säkerhets frågor som din verifierings metod](security-info-setup-questions.md).
+    - **Säkerhetsfrågor.** Välj att ställa in och svara på fördefinierade säkerhetsfrågor som konfigurerats av administratören. Detta fungerar bara för återställning av lösenord, inte som en säkerhetsverifieringsmetod. Mer information om säkerhetsfrågor finns i [Konfigurera säkerhetsfrågor som verifieringsmetod](security-info-setup-questions.md).
 
-3. När du har valt och konfigurerat dina metoder väljer du **Slutför** för att slutföra processen.
+3. När du har valt och ställt in metoderna väljer du **Slutför** för att slutföra processen.
 
     > [!Note]
-    > Information som lagts till för ditt telefonnummer eller din e-postadress delas inte med din organisations globala katalog. De enda personer som kan se den här informationen är du och din administratör. Du kan bara se svaren på dina säkerhets frågor.
+    > Information som läggs till för ditt telefonnummer eller din e-postadress delas inte med organisationens globala katalog. De enda som kan se den här informationen är du och din administratör. Det är bara du som kan se svaren på dina säkerhetsfrågor.
 
 ## <a name="common-problems-and-their-solutions"></a>Vanliga problem och lösningar
 
- Här följer några vanliga fel och deras lösningar:
+ Här är några vanliga felfall och deras lösningar:
 
 | Felmeddelande |  Möjlig lösning |
 | --- | --- | --- |
-| Kontakta administratören.<br>Vi har upptäckt att lösen ordet för ditt användar konto inte hanteras av Microsoft. Därför kan vi inte automatiskt återställa ditt lösen ord.<br>Kontakta IT-personalen om du vill ha mer hjälp.| Om du får det här fel meddelandet när du har skrivit ditt användar-ID, innebär det att din organisation hanterar ditt lösen ord internt och inte vill att du återställer ditt lösen ord från länken **kan inte komma åt ditt konto** . Om du vill återställa lösen ordet i den här situationen måste du kontakta din organisations supportavdelning eller be administratören om hjälp. |
-| Ditt konto har inte Aktiver ATS för lösen ords återställning.<br>Din IT-personal har tyvärr inte konfigurerat ditt konto för användning med den här tjänsten.<br>Om du vill kan vi kontakta en administratör i din organisation för att återställa lösen ordet åt dig. | Om du får det här fel meddelandet när du har skrivit ditt användar-ID, innebär det att antingen din organisation inte har aktiverat funktionen för lösen ords återställning eller om du inte får använda den. Om du vill återställa lösen ordet i den här situationen måste du välja länken **kontakta en administratör** . När du klickar på länken skickas ett e-postmeddelande till din organisations supportavdelning eller administratör, så att du vet att du vill återställa lösen ordet. |
-| Vi kunde inte verifiera ditt konto.<br>Om du vill kan vi kontakta en administratör i din organisation för att återställa lösen ordet åt dig. | Om du får det här fel meddelandet när du har skrivit ditt användar-ID, innebär det att din organisation har aktiverat lösen ords återställning och att du kan använda det, men som du inte har registrerat för tjänsten. I så fall måste du kontakta din organisations supportavdelning eller administratör för att återställa ditt lösen ord. Information om hur du registrerar dig för lösen ords återställning när du är tillbaka på enheten finns i processen ovan i den här artikeln. |
+| Kontakta din administratör.<br>Vi har upptäckt att lösenordet för ditt användarkonto inte hanteras av Microsoft. Därför kan vi inte automatiskt återställa ditt lösenord.<br>Kontakta din IT-personal för ytterligare hjälp.| Om du får det här felmeddelandet när du har skrivit ditt användar-ID betyder det att din organisation internt hanterar ditt lösenord och inte vill att du ska återställa lösenordet från länken **Kan inte komma åt ditt konto.** Om du vill återställa lösenordet i den här situationen måste du kontakta organisationens support eller administratör för att få hjälp. |
+| Ditt konto är inte aktiverat för återställning av lösenord.<br>Vi beklagar, men din IT-personal har inte konfigurerat ditt konto för användning med den här tjänsten.<br>Om du vill kan vi kontakta en administratör i organisationen för att återställa lösenordet åt dig. | Om du får det här felmeddelandet när du har skrivit ditt användar-ID betyder det att antingen har organisationen inte aktiverat funktionen för återställning av lösenord eller så får du inte använda det. Om du vill återställa lösenordet i den här situationen måste du välja länken **Kontakta en administratör.** När du har klickat på länken skickas ett e-postmeddelande till organisationens support eller administratör så att de vet att du vill återställa lösenordet. |
+| Vi kunde inte verifiera ditt konto.<br>Om du vill kan vi kontakta en administratör i organisationen för att återställa lösenordet åt dig. | Om du får det här felmeddelandet när du har skrivit ditt användar-ID betyder det att din organisation har aktiverat återställning av lösenord och att du kan använda det, men att du inte har registrerat dig för tjänsten. I det här fallet måste du kontakta organisationens support eller administratör för att återställa lösenordet. Information om hur du registrerar dig för återställning av lösenord när du är tillbaka på enheten finns i processen ovan i den här artikeln. |
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Ändra lösen ordet med hjälp av lösen ords återställning via självbetjäning](active-directory-passwords-update-your-own-password.md)
+- [Ändra ditt lösenord med hjälp av återställning av lösenord för självbetjäning](active-directory-passwords-update-your-own-password.md)
 
-- [Sidan säkerhets information](https://mysignins.microsoft.com/security-info)
+- [Sida för säkerhetsinformation](https://mysignins.microsoft.com/security-info)
 
 - [Portal för lösenordsåterställning](https://passwordreset.microsoftonline.com/)
 
-- [När du inte kan logga in på Microsoft-konto](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant)
+- [När du inte kan logga in på ditt Microsoft-konto](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant)

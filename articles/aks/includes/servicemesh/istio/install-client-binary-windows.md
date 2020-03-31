@@ -4,15 +4,15 @@ ms.topic: include
 ms.date: 11/15/2019
 ms.author: pabouwer
 ms.openlocfilehash: 562382cc1cfb6adb7e65d76e717df4c4e2962ba7
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77594003"
 ---
-## <a name="download-and-install-the-istio-istioctl-client-binary"></a>Hämta och installera Istio istioctl-klientens binärfil
+## <a name="download-and-install-the-istio-istioctl-client-binary"></a>Ladda ner och installera Istio istioctl-klienten binär
 
-I ett PowerShell-baserat gränssnitt i Windows använder du `Invoke-WebRequest` för att ladda ned Istio-versionen och sedan extrahera med `Expand-Archive` enligt följande:
+I ett PowerShell-baserat skal `Invoke-WebRequest` på Windows kan du använda för `Expand-Archive` att hämta Istio-versionen och sedan extrahera med följande:
 
 ```powershell
 # Specify the Istio version that will be leveraged throughout these instructions
@@ -24,7 +24,7 @@ $ProgressPreference = 'SilentlyContinue'; Invoke-WebRequest -URI "https://github
 Expand-Archive -Path "istio-$ISTIO_VERSION.zip" -DestinationPath .
 ```
 
-`istioctl`-klientens binärfil körs på klient datorn och gör att du kan interagera med Istio-tjänstens nät. Använd följande kommandon för att installera Istio-`istioctl`-klientens binärfil i ett PowerShell-baserat gränssnitt i Windows. De här kommandona kopierar `istioctl`-klientens binärfil till en Istio-mapp och gör den tillgänglig både direkt (i aktuellt gränssnitt) och permanent (mellan omstarter av gränssnittet) via din `PATH`. Du behöver inte utökade privilegier (admin) för att köra dessa kommandon och du behöver inte starta om gränssnittet.
+Klientbinären `istioctl` körs på klientmaskinen och låter dig interagera med Istio-servicenätet. Använd följande kommandon för att installera `istioctl` Istio-klientens binära i ett PowerShell-baserat skal i Windows. Dessa kommandon kopierar klientbinären `istioctl` till en Istio-mapp och gör den sedan tillgänglig både omedelbart `PATH`(i aktuellt skal) och permanent (över omstarter skalet) via din . Du behöver inte förhöjda (Admin) privilegier för att köra dessa kommandon och du behöver inte starta om skalet.
 
 ```powershell
 # Copy istioctl.exe to C:\Istio

@@ -1,6 +1,6 @@
 ---
-title: 'Snabb start: skapa en Xamarin iOS-app'
-description: I den här snabb starten får du lära dig hur du skapar en iOS-app med Xamarin med hjälp av spatiala ankare.
+title: 'Snabbstart: Skapa en Xamarin iOS-app'
+description: I den här snabbstarten får du lära dig hur du skapar en iOS-app med Xamarin med spatialankare.
 author: craigktreasure
 manager: vriveras
 services: azure-spatial-anchors
@@ -9,15 +9,15 @@ ms.date: 07/22/2019
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
 ms.openlocfilehash: c5e217a33c8b461a438e2d0209fe6733850634e6
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "75465143"
 ---
-# <a name="quickstart-create-a-xamarin-ios-app-with-azure-spatial-anchors"></a>Snabb start: skapa en Xamarin iOS-app med Azure spatial ankare
+# <a name="quickstart-create-a-xamarin-ios-app-with-azure-spatial-anchors"></a>Snabbstart: Skapa en Xamarin iOS-app med Azure Spatial Anchors
 
-Den här snabb starten beskriver hur du skapar en iOS-app med Xamarin med hjälp av [Azure spatiala ankare](../overview.md). Azure Spatial Anchors är en plattformsoberoende utvecklartjänst som du kan använda för att skapa Mixed Reality-upplevelser med hjälp av objekt som bevarar sin plats mellan enheter över tid. När du är klar har du en iOS-app som kan spara och återkalla en spatial fäst punkt.
+Den här snabbstarten beskriver hur du skapar en iOS-app med Xamarin med [Azure Spatial Anchors](../overview.md). Azure Spatial Anchors är en plattformsoberoende utvecklartjänst som du kan använda för att skapa upplevelser med mixad verklighet med hjälp av objekt som bevarar sin plats mellan enheter över tid. När du är klar har du en iOS-app som kan spara och återkalla ett rumsligt ankare.
 
 Du lär dig följande:
 
@@ -30,12 +30,12 @@ Du lär dig följande:
 
 ## <a name="prerequisites"></a>Krav
 
-Kontrollera att du har följande för genomföra den här snabbstarten:
-- En Mac som kör macOS med hög Sierra (10,13) eller högre än:
-  - Den senaste versionen av Xcode och iOS SDK som installerats från [App Store](https://itunes.apple.com/us/app/xcode/id497799835?mt=12).
-  - En uppdaterad version av <a href="https://docs.microsoft.com/visualstudio/mac/installation?view=vsmac-2019" target="_blank">Visual Studio för Mac 8.1 +</a>.
-  - <a href="https://git-scm.com/download/mac" target="_blank">Git för MacOS</a>.
-  - <a href="https://git-lfs.github.com/">Git-LF</a>.
+Kontrollera att du har följande så att du kan utföra den här snabbstarten:
+- En Mac som kör macOS High Sierra (10.13) eller högre med:
+  - Den senaste versionen av Xcode och iOS SDK installerad från [App Store](https://itunes.apple.com/us/app/xcode/id497799835?mt=12).
+  - En uppdaterad version av <a href="https://docs.microsoft.com/visualstudio/mac/installation?view=vsmac-2019" target="_blank">Visual Studio för Mac 8.1+</a>.
+  - <a href="https://git-scm.com/download/mac" target="_blank">Git för macOS</a>.
+  - <a href="https://git-lfs.github.com/">Git AKU</a>.
 
 [!INCLUDE [Create Spatial Anchors resource](../../../includes/spatial-anchors-get-started-create-resource.md)]
 
@@ -47,7 +47,7 @@ Kontrollera att du har följande för genomföra den här snabbstarten:
 
 ## <a name="configure-account-identifier-and-key"></a>Konfigurera konto-ID och -nyckel
 
-Nästa steg är att konfigurera appen så att den använder din konto identifierare och konto nyckeln. Du kopierade dem till en text redigerare när du [ställer in resursen för spatiala ankare](#create-a-spatial-anchors-resource).
+Nästa steg är att konfigurera appen så att den använder kontoidentifieraren och kontonyckeln. Du kopierade dem till en textredigerare när [du konfigurerade resursen Spatial Anchors](#create-a-spatial-anchors-resource).
 
 Öppna `Xamarin/SampleXamarin.Common/AccountDetails.cs`.
 
@@ -57,23 +57,23 @@ Leta upp fältet `SpatialAnchorsAccountId` och ersätt `Set me` med kontoidentif
 
 ## <a name="deploy-the-app-to-your-ios-device"></a>Distribuera appen till din iOS-enhet
 
-Starta iOS-enheten, logga in och Anslut den till datorn med en USB-kabel.
+Slå på iOS-enheten, logga in och anslut den till datorn med en USB-kabel.
 
-Ange att startprojektet ska **SampleXamarin. iOS**, ändra **lösningens konfiguration** till **version**och välj den enhet som du vill distribuera till i list rutan enhets väljare.
+Ställ in startprojektet på **SampleXamarin.iOS**, ändra **lösningskonfigurationen** till **Release**och välj den enhet som du vill distribuera till i listrutan enhetsväljare.
 
 ![Visual Studio-konfiguration](./media/get-started-xamarin-iOS/visual-studio-macos-configuration.jpg)
 
-Välj **kör** > **starta utan fel sökning** för att distribuera och starta din app.
+Välj **Kör** > **start utan felsökning för** att distribuera och starta appen.
 
-I appen väljer du **Basic** för att köra demonstrationen och följer anvisningarna för att placera och återkalla en fäst punkt.
+I appen väljer du **Grundläggande** för att köra demon och följ instruktionerna för att placera och återkalla ett ankare.
 
-> ![skärm bild 1](./media/get-started-xamarin-ios/screenshot-1.jpg)
-> ![skärm bild 2](./media/get-started-xamarin-ios/screenshot-2.jpg)
-> ![skärm bild 3](./media/get-started-xamarin-ios/screenshot-3.jpg)
+> ![Skärmdump 1](./media/get-started-xamarin-ios/screenshot-1.jpg)
+> ![Skärmdump](./media/get-started-xamarin-ios/screenshot-2.jpg)
+> ![2 Skärmdump 3](./media/get-started-xamarin-ios/screenshot-3.jpg)
 
 [!INCLUDE [Clean-up section](../../../includes/clean-up-section-portal.md)]
 
 [!INCLUDE [Next steps](../../../includes/spatial-anchors-quickstarts-nextsteps.md)]
 
 > [!div class="nextstepaction"]
-> [Självstudie: dela spatiala ankare mellan enheter](../tutorials/tutorial-share-anchors-across-devices.md)
+> [Självstudiekurs: Dela rumsliga ankare mellan enheter](../tutorials/tutorial-share-anchors-across-devices.md)

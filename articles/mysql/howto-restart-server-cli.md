@@ -1,33 +1,33 @@
 ---
-title: Starta om Server – Azure CLI – Azure Database for MySQL
-description: I den här artikeln beskrivs hur du startar om en Azure Database for MySQL-server med hjälp av Azure CLI.
+title: Starta om servern - Azure CLI - Azure Database för MySQL
+description: I den här artikeln beskrivs hur du kan starta om en Azure-databas för MySQL-server med Hjälp av Azure CLI.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 12/02/2019
-ms.openlocfilehash: 146c531805ff22544797c44c8df32b0e5d1e83b0
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.date: 3/18/2020
+ms.openlocfilehash: c1fd688fbfd892e3d0dfc3ebb1712dd931e0ed39
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74774231"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80063502"
 ---
-# <a name="restart-azure-database-for-mysql-server-using-the-azure-cli"></a>Starta om Azure Database for MySQL server med Azure CLI
-I det här avsnittet beskrivs hur du kan starta om en Azure Database for MySQL-server. Du kan behöva starta om servern för underhålls orsaker, vilket orsakar ett kort avbrott eftersom servern utför åtgärden.
+# <a name="restart-azure-database-for-mysql-server-using-the-azure-cli"></a>Starta om Azure Database för MySQL-server med Azure CLI
+I det här avsnittet beskrivs hur du kan starta om en Azure-databas för MySQL-server. Du kan behöva starta om servern av underhållsskäl, vilket medför ett kort avbrott när servern utför åtgärden.
 
-Servern kommer att startas om när tjänsten är upptagen. Tjänsten kan till exempel bearbeta en tidigare begärd åtgärd, till exempel skalnings virtuella kärnor.
+Omstarten av servern blockeras om tjänsten är upptagen. Tjänsten kan till exempel bearbeta en tidigare begärd åtgärd, till exempel skalning av virtuella kärnor.
 
-Tiden som krävs för att slutföra en omstart beror på MySQL-återställnings processen. För att minska omstarts tiden rekommenderar vi att du minimerar mängden aktivitet som inträffar på servern innan du startar om.
+Hur mycket tid det krävs för att slutföra en omstart beror på MySQL-återställningsprocessen. Om du vill minska omstartstiden rekommenderar vi att du minimerar mängden aktivitet som inträffar på servern före omstarten.
 
 ## <a name="prerequisites"></a>Krav
-För att slutföra den här instruktions guiden behöver du:
-- En [Azure Database for MySQL-server](quickstart-create-server-up-azure-cli.md)
+För att slutföra den här guiden behöver du:
+- En [Azure-databas för MySQL-server](quickstart-create-server-up-azure-cli.md)
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 > [!IMPORTANT]
-> Den här instruktions guiden kräver att du använder Azure CLI version 2,0 eller senare. Bekräfta versionen genom att ange `az --version`i kommando tolken för Azure CLI. Information om hur du installerar eller uppgraderar finns i [Installera Azure CLI]( /cli/azure/install-azure-cli).
+> Den här programguiden kräver att du använder Azure CLI version 2.0 eller senare. Om du vill bekräfta versionen anger du `az --version`i kommandotolken i Azure CLI . Information om hur du installerar eller uppgraderar finns i [Installera Azure CLI]( /cli/azure/install-azure-cli).
 
 
 ## <a name="restart-the-server"></a>Starta om servern
@@ -40,4 +40,4 @@ az mysql server restart --name mydemoserver --resource-group myresourcegroup
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig hur [du ställer in parametrar i Azure Database for MySQL](howto-configure-server-parameters-using-cli.md)
+Lär dig mer om [hur du anger parametrar i Azure Database för MySQL](howto-configure-server-parameters-using-cli.md)

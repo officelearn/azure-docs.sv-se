@@ -1,63 +1,63 @@
 ---
-title: Snabb start för att lägga till funktions flaggor till våren boot med Azure App konfiguration
-description: Lägg till funktions flaggor till våren Boot Apps och hantera dem med hjälp av Azure App konfiguration
+title: Snabbstart för att lägga till funktionsflaggor i Spring Boot med Azure App-konfiguration
+description: Lägga till funktionsflaggor i Spring Boot-appar och hantera dem med Azure App-konfiguration
 author: lisaguthrie
 ms.service: azure-app-configuration
 ms.topic: quickstart
 ms.date: 01/21/2020
 ms.author: lcozzens
 ms.openlocfilehash: 489bc0234580e8df8dcc85c1d3cc0add547818b1
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/09/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "78944340"
 ---
-# <a name="quickstart-add-feature-flags-to-a-spring-boot-app"></a>Snabb start: Lägg till funktions flaggor i en våren Boot-app
+# <a name="quickstart-add-feature-flags-to-a-spring-boot-app"></a>Snabbstart: Lägga till funktionsflaggor i en spring boot-app
 
-I den här snabb starten inkluderar du Azure App konfiguration i en våren Boot-webbapp för att skapa en slut punkt till slutpunkt-implementering av funktions hantering. Du kan använda app Configuration service för att centralt lagra alla funktions flaggor och kontrol lera deras tillstånd.
+I den här snabbstarten införlivar du Azure App-konfiguration i en Spring Boot-webbapp för att skapa en implementering från slutna till. Du kan använda tjänsten Appkonfiguration för att centralt lagra alla dina funktionsflaggor och styra deras tillstånd.
 
-Biblioteken våren Boot Feature Management utökar ramverket med omfattande stöd för funktions flaggor. Dessa bibliotek har **inget** beroende av några Azure-bibliotek. De integreras sömlöst med app-konfigurationen via sin våren Boot Configuration Provider.
+Spring Boot Feature Management bibliotek utöka ramen med omfattande funktion flagga stöd. Dessa bibliotek har **inte** ett beroende av några Azure-bibliotek. De integreras sömlöst med App-konfiguration via sin Spring Boot-konfigurationsleverantör.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-* Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/)
+* Azure-prenumeration - [skapa en gratis](https://azure.microsoft.com/free/)
 * En [Java Development Kit SDK](https://docs.microsoft.com/java/azure/jdk) som stöds med version 8.
-* [Apache maven](https://maven.apache.org/download.cgi) version 3,0 eller senare.
+* [Apache Maven](https://maven.apache.org/download.cgi) version 3.0 eller högre.
 
-## <a name="create-an-app-configuration-instance"></a>Skapa en app Configuration-instans
+## <a name="create-an-app-configuration-instance"></a>Skapa en appkonfigurationsinstans
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
-6. Välj **funktions hanteraren** >  **+ Lägg** till för att lägga till en funktions flagga som kallas `Beta`.
+6. Välj **Funktionshanteraren** > **+Lägg** till `Beta`om du vill lägga till en funktionsflagga med namnet .
 
     > [!div class="mx-imgBorder"]
-    > ![aktivera funktions flagga med namnet beta](media/add-beta-feature-flag.png)
+    > ![Aktivera funktionsflagga med namnet Beta](media/add-beta-feature-flag.png)
 
-    Lämna `label` odefinierat för tillfället.
+    Lämna `label` odefinierad för tillfället.
 
 ## <a name="create-a-spring-boot-app"></a>Skapa en Spring Boot-app
 
-Använd [vår Initializr](https://start.spring.io/) för att skapa ett nytt fjäder Boot-projekt.
+Använd [Spring Initializr](https://start.spring.io/) för att skapa ett nytt Spring Boot-projekt.
 
 1. Bläddra till <https://start.spring.io/>.
 
 1. Ange följande alternativ:
 
    * Generera ett **Maven**-projekt med **Java**.
-   * Ange en **våren Boot** -version som är lika med eller större än 2,0.
-   * Ange namnen för **Group** (Grupp) och **Artifact** (Artefakt) för ditt program.  I den här artikeln används `com.example` och `demo`.
-   * Lägg till **våren-** webbberoendet.
+   * Ange en **Spring Boot-version** som är lika med eller större än 2.0.
+   * Ange namnen för **Group** (Grupp) och **Artifact** (Artefakt) för ditt program.  Den här `com.example` `demo`artikeln använder och .
+   * Lägg till **fjäderwebbberoendet.**
 
-1. När du har angett föregående alternativ väljer du **generera projekt**. När du uppmanas att ladda ned projektet till den lokala datorn.
+1. När du har angett föregående alternativ väljer du **Generera projekt**. När du uppmanas till det laddar du ned projektet till den lokala datorn.
 
-## <a name="add-feature-management"></a>Lägg till funktions hantering
+## <a name="add-feature-management"></a>Lägga till funktionshantering
 
-1. När du har extraherat filerna i det lokala systemet är ditt våren Boot-program klart för redigering. Leta upp *Pom. XML* i appens rot Katalog.
+1. När du har extraherat filerna på ditt lokala system är springstartprogrammet redo för redigering. Leta reda på *pom.xml* i appens rotkatalog.
 
-1. Öppna filen *Pom. XML* i en text redigerare och Lägg till följande i listan över `<dependencies>`.:
+1. Öppna *filen pom.xml* i en textredigerare `<dependencies>`och lägg till följande i listan över .:
 
-### <a name="spring-cloud-11x"></a>Våren Cloud 1.1. x
+### <a name="spring-cloud-11x"></a>Vårmoln 1.1.x
 
     ```xml
     <dependency>
@@ -76,7 +76,7 @@ Använd [vår Initializr](https://start.spring.io/) för att skapa ett nytt fjä
     </dependency>
     ```
 
-### <a name="spring-cloud-12x"></a>Våren Cloud 1.2. x
+### <a name="spring-cloud-12x"></a>Vårmoln 1.2.x
 
     ```xml
     <dependency>
@@ -96,19 +96,19 @@ Använd [vår Initializr](https://start.spring.io/) för att skapa ett nytt fjä
     ```
 
 > [!Note]
-> Det finns ett bibliotek för funktions hantering utanför webben som inte är beroende av våren-webben. Läs mer om skillnaderna i GitHub- [dokumentationen](https://github.com/microsoft/spring-cloud-azure/tree/master/spring-cloud-azure-feature-management) .
+> Det finns ett icke-webbfunktionshanteringsbibliotek som inte är beroende av vårens webb. Se GitHubs [dokumentation](https://github.com/microsoft/spring-cloud-azure/tree/master/spring-cloud-azure-feature-management) för skillnader.
 
-## <a name="connect-to-an-app-configuration-store"></a>Anslut till ett konfigurations Arkiv för appen
+## <a name="connect-to-an-app-configuration-store"></a>Ansluta till ett appkonfigurationsarkiv
 
-1. Navigera till `resources` katalogen i appen och öppna `bootstrap.properties`.  Om filen inte finns skapar du den. Lägg till följande rad i filen.
+1. Navigera till `resources` katalogen för `bootstrap.properties`din app och öppna .  Om filen inte finns skapar du den. Lägg till följande rad i filen.
 
     ```properties
     spring.cloud.azure.appconfiguration.stores[0].name= ${APP_CONFIGURATION_CONNECTION_STRING}
     ```
 
-1. I appens konfigurations Portal för konfigurations arkivet väljer du `Access keys` från sid panelen. Välj fliken skrivskyddade nycklar. Kopiera värdet för den primära anslutnings strängen.
+1. Välj `Access keys` från sidofältet i appkonfigurationsportalen för konfigurationsarkivet. Välj fliken Skrivskyddade nycklar. Kopiera värdet för den primära anslutningssträngen.
 
-1. Lägg till den primära anslutnings strängen som en miljö variabel med variabel namnet `APP_CONFIGURATION_CONNECTION_STRING`.
+1. Lägg till den primära anslutningssträngen `APP_CONFIGURATION_CONNECTION_STRING`som en miljövariabel med variabelnamnet .
 
 1. Öppna huvudprogrammets Java-fil och lägg till `@EnableConfigurationProperties` för att aktivera den här funktionen.
 
@@ -184,7 +184,7 @@ Använd [vår Initializr](https://start.spring.io/) för att skapa ett nytt fjä
     }
     ```
 
-1. Skapa en ny HTML-fil med namnet *Welcome. html* i mappen mallar i appen.
+1. Skapa en ny HTML-fil med namnet *welcome.html* i mallkatalogen för din app.
 
     ```html
     <!DOCTYPE html>
@@ -241,7 +241,7 @@ Använd [vår Initializr](https://start.spring.io/) för att skapa ett nytt fjä
 
     ```
 
-1. Skapa en ny mapp med namnet CSS under `static` och inuti den som en ny CSS-fil med namnet *main. CSS*.
+1. Skapa en ny mapp `static` med namnet CSS under och inuti en ny CSS-fil med namnet *main.css*.
 
     ```css
     html {
@@ -283,11 +283,11 @@ Använd [vår Initializr](https://start.spring.io/) för att skapa ett nytt fjä
     mvn spring-boot:run
     ```
 
-1. Öppna ett webbläsarfönster och gå till standard-URL: en för en lokalt värdbaserad webbapp: `https://localhost:8080`.
+1. Öppna ett webbläsarfönster och gå till standardadressen för en `https://localhost:8080`lokalt värdwebbapp: .
 
     ![Snabbstart av lokal app](./media/quickstarts/spring-boot-feature-flag-local-before.png)
 
-1. I konfigurations portalen för app väljer du **funktions hanteraren**och ändrar status för **beta** nyckeln till **på**:
+1. I appkonfigurationsportalen väljer du **Funktionshanteraren**och ändrar **betanyckelns** tillstånd till **På**:
 
     | Nyckel | Status |
     |---|---|
@@ -303,8 +303,8 @@ Använd [vår Initializr](https://start.spring.io/) för att skapa ett nytt fjä
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabb starten skapade du ett nytt konfigurations Arkiv för appar och använde det för att hantera funktioner i en våren Boot-webbapp via [biblioteken för funktions hantering](https://go.microsoft.com/fwlink/?linkid=2074664).
+I den här snabbstarten skapade du en ny App Configuration Store och använde den för att hantera funktioner i en Spring Boot-webbapp via [funktionshanteringsbiblioteken](https://go.microsoft.com/fwlink/?linkid=2074664).
 
-* Läs mer om [funktions hantering](./concept-feature-management.md).
-* [Hantera funktions flaggor](./manage-feature-flags.md).
-* [Använd funktions flaggor i en webbapp Boot Core-app](./use-feature-flags-spring-boot.md).
+* Läs mer om [funktionshantering](./concept-feature-management.md).
+* [Hantera funktionsflaggor](./manage-feature-flags.md).
+* [Använd funktionsflaggor i en Spring Boot Core-app](./use-feature-flags-spring-boot.md).

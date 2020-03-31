@@ -1,6 +1,6 @@
 ---
-title: Metoder för routning av Azure Traffic Manager-trafik
-description: De här artiklarna hjälper dig att förstå de olika metoder för trafikroutning som används av Traffic Manager
+title: Azure Traffic Manager - trafikroutningsmetoder
+description: Den här artikeln hjälper dig att förstå de olika trafikroutningsmetoder som används av Traffic Manager
 services: traffic-manager
 author: rohinkoul
 ms.service: traffic-manager
@@ -11,175 +11,175 @@ ms.workload: infrastructure-services
 ms.date: 09/17/2018
 ms.author: rohink
 ms.openlocfilehash: 4a035506943eeffa2c3fc4fec27c47da4136683b
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79250912"
 ---
 # <a name="traffic-manager-routing-methods"></a>Traffic Manager-dirigeringsmetoder
 
-Azure Traffic Manager stöder sex metoder för trafik cirkulation för att fastställa hur nätverks trafik ska dirigeras till de olika tjänst slut punkterna. För en profil använder Traffic Manager den trafik-routningsmetod som är kopplad till den för varje DNS-fråga den tar emot. Traffic-routing-metoden avgör vilken slut punkt som returneras i DNS-svaret.
+Azure Traffic Manager stöder sex trafikdirigeringsmetoder för att avgöra hur nätverkstrafik ska dirigeras till de olika tjänstslutpunkterna. För alla profiler tillämpar Traffic Manager den trafikroutningsmetod som är kopplad till den för varje DNS-fråga som tas emot. Trafikroutningsmetoden avgör vilken slutpunkt som returneras i DNS-svaret.
 
-Följande metoder för trafik cirkulation är tillgängliga i Traffic Manager:
+Följande trafikroutningsmetoder är tillgängliga i Traffic Manager:
 
-* **[Prioritet](#priority-traffic-routing-method):** Välj **prioritet** när du vill använda en primär tjänst slut punkt för all trafik och ange säkerhets kopior om den primära eller säkerhets kopierings slut punkterna inte är tillgängliga.
-* **[Viktad](#weighted):** Välj **viktad** när du vill distribuera trafik över en uppsättning slut punkter, antingen jämnt eller enligt de vikter som du definierar.
-* **[Prestanda](#performance):** Välj **prestanda** när du har slut punkter på olika geografiska platser och du vill att slutanvändarna ska använda den "närmast" slut punkten i förhållande till den lägsta nätverks fördröjningen.
-* **[Geografisk](#geographic):** Välj **geografisk** så att användarna dirigeras till specifika slut punkter (Azure, externa eller kapslade) baserat på vilken geografisk plats deras DNS-fråga kommer från. Detta ger Traffic Manager kunder möjlighet att aktivera scenarier där man känner till en användares geografiska region och dirigerar dem baserat på det är viktigt. Exempel innefattar att följa data suveränitets uppdrag, lokalisering av innehåll & användar upplevelse och mätning av trafik från olika regioner.
-* **[Multivärde](#multivalue):** Välj **multivärde** för Traffic Manager profiler som bara kan ha IPv4/IPv6-adresser som slut punkter. När en fråga tas emot för den här profilen returneras alla felfria slut punkter.
-* **[Undernät](#subnet):** Välj **under näts** trafik-routningsmetod för att mappa uppsättningar av IP-adressintervall till en speciell slut punkt i en Traffic Manager profil. När en begäran tas emot är slut punkten som returneras den som är mappad för den begärda käll-IP-adressen. 
+* **[Prioritet:](#priority-traffic-routing-method)** Välj **Prioritet** när du vill använda en primär tjänstslutpunkt för all trafik och tillhandahålla säkerhetskopior om de primära slutpunkterna för säkerhetskopiering eller säkerhetskopiering inte är tillgängliga.
+* **[Viktad:](#weighted)** Välj **Viktad** när du vill distribuera trafik över en uppsättning slutpunkter, antingen jämnt eller enligt vikter, som du definierar.
+* **[Prestanda:](#performance)** Välj **prestanda** när du har slutpunkter på olika geografiska platser och du vill att slutanvändarna ska använda slutpunkten "närmaste" när det gäller den lägsta nätverksfördröjningen.
+* **[Geografisk](#geographic):** Välj **Geografiskt** så att användarna dirigeras till specifika slutpunkter (Azure, Extern eller Kapslad) baserat på vilken geografisk plats deras DNS-fråga kommer från. Detta ger Traffic Manager-kunder möjlighet att aktivera scenarier där det är viktigt att känna till en användares geografiska region och dirigera dem baserat på det. Exempel på detta är att följa datasuveränitetsmandat, lokalisering av innehåll & användarupplevelsen och mätning av trafik från olika regioner.
+* **[Multivärde:](#multivalue)** Välj **MultiValue** för Traffic Manager-profiler som bara kan ha IPv4/IPv6-adresser som slutpunkter. När en fråga tas emot för den här profilen returneras alla felfria slutpunkter.
+* **[Undernät](#subnet):** Välj Trafikroutningsmetod **i undernät** om du vill mappa uppsättningar med IP-adressintervall för slutanvändare till en viss slutpunkt i en Traffic Manager-profil. När en begäran tas emot är slutpunkten som returneras den som mappas för begärans källa IP-adress. 
 
 
-Alla Traffic Manager profiler omfattar övervakning av slut punkts hälsa och automatisk slut punkts växling. Mer information finns i [Traffic Manager slut punkts övervakning](traffic-manager-monitoring.md). En enskild Traffic Manager-profil kan bara använda en Traffic routing-metod. Du kan när som helst välja en annan Traffic routing-metod för din profil. Ändringarna tillämpas inom en minut och ingen stillestånds tid uppstår. Trafik-routningsmetoder kan kombineras med hjälp av kapslade Traffic Manager-profiler. Kapsling möjliggör sofistikerade och flexibla konfigurationer för trafikroutning som uppfyller behoven hos större, komplexa program. Mer information finns i [kapslade Traffic Manager-profiler](traffic-manager-nested-profiles.md).
+Alla Traffic Manager-profiler omfattar övervakning av slutpunktshälsa och automatisk redundans för slutpunkter. Mer information finns i [Traffic Manager Endpoint Monitoring](traffic-manager-monitoring.md). En enda Traffic Manager-profil kan bara använda en trafikroutningsmetod. Du kan välja en annan trafikroutningsmetod för din profil när som helst. Ändringar tillämpas inom en minut och inga driftstopp uppstår. Trafikdirigeringsmetoder kan kombineras med hjälp av kapslade Traffic Manager-profiler. Kapsling möjliggör sofistikerade och flexibla trafikdirigeringskonfigurationer som uppfyller behoven hos större, komplexa program. Mer information finns i [kapslade Traffic Manager-profiler](traffic-manager-nested-profiles.md).
 
-## <a name="priority-traffic-routing-method"></a>Metod för prioritets trafik
+## <a name="priority-traffic-routing-method"></a>Metod för prioriterad trafikdirigering
 
-En organisation vill ofta tillhandahålla tillförlitlighet för sina tjänster genom att distribuera en eller flera säkerhets kopierings tjänster, om deras primära tjänst slutar fungera. Med Traffic-metoden Traffic-routing kan Azure-kunder enkelt implementera det här mönstret för växling vid fel.
+Ofta vill en organisation tillhandahålla tillförlitlighet för sina tjänster genom att distribuera en eller flera säkerhetskopieringstjänster om deras primära tjänst går ner. Med trafikroutningsmetoden Prioritet kan Azure-kunder enkelt implementera det här redundansmönstret.
 
-![Traffic-routningsmetod för Azure Traffic Manager](media/traffic-manager-routing-methods/priority.png)
+![Azure Traffic Manager 'Prioritet' trafik-routning metod](media/traffic-manager-routing-methods/priority.png)
 
-Traffic Manager profilen innehåller en prioriterad lista över tjänst slut punkter. Som standard skickar Traffic Manager all trafik till den primära slut punkten (högst prioritet). Om den primära slut punkten inte är tillgänglig dirigerar Traffic Manager trafiken till den andra slut punkten. Om både den primära och den sekundära slut punkten inte är tillgängliga går trafiken till den tredje osv. Tillgängligheten för slut punkten baseras på konfigurerad status (aktive rad eller inaktive rad) och pågående slut punkts övervakning.
+Traffic Manager-profilen innehåller en prioriterad lista över tjänstslutpunkter. Som standard skickar Traffic Manager all trafik till den primära slutpunkten (högsta prioritet). Om den primära slutpunkten inte är tillgänglig dirigerar Traffic Manager trafiken till den andra slutpunkten. Om både den primära och den sekundära slutpunkter är otillgängliga går trafiken till den tredje och så vidare. Tillgängligheten för slutpunkten baseras på den konfigurerade statusen (aktiverad eller inaktiverad) samt pågående slutpunktsövervakning.
 
-### <a name="configuring-endpoints"></a>Konfigurera slut punkter
+### <a name="configuring-endpoints"></a>Konfigurera slutpunkter
 
-Med Azure Resource Manager konfigurerar du slut punkts prioriteten uttryckligen med hjälp av egenskapen Priority för varje slut punkt. Den här egenskapen är ett värde mellan 1 och 1000. Lägre värden representerar en högre prioritet. Slut punkter kan inte dela prioritets värden. Det är valfritt att ange egenskapen. När det utelämnas används en standard prioritet baserat på slut punkts ordningen.
+Med Azure Resource Manager konfigurerar du slutpunktsprioriteten uttryckligen med egenskapen "prioritet" för varje slutpunkt. Den här egenskapen är ett värde mellan 1 och 1000. Lägre värden representerar en högre prioritet. Slutpunkter kan inte dela prioritetsvärden. Det är valfritt att ange egenskapen. När den utelämnas används en standardprioritet som baseras på slutpunktsordningen.
 
-## <a name = "weighted"></a>Viktad metod för trafik dragning
-Med metoden "viktad" för trafik dragning kan du distribuera trafik jämnt eller använda en fördefinierad viktning.
+## <a name="weighted-traffic-routing-method"></a><a name = "weighted"></a>Metod för viktad trafikdirigering
+Med trafikroutningsmetoden "Viktad" kan du fördela trafiken jämnt eller använda en fördefinierad viktning.
 
-![Azure Traffic Manager "viktad" Traffic-routing-metod](media/traffic-manager-routing-methods/weighted.png)
+![Azure Traffic Manager 'Viktad" trafik-routning metod](media/traffic-manager-routing-methods/weighted.png)
 
-I den viktade metoden för trafik cirkulation tilldelar du en vikt för varje slut punkt i Traffic Manager profil konfigurationen. Vikten är ett heltal mellan 1 och 1 000. Den här parametern är valfri. Om detta utelämnas använder Traffic Manager en standard vikt på 1. Ju högre vikt, desto högre prioritet.
+I metoden Viktad trafikdirigering tilldelar du en vikt till varje slutpunkt i Traffic Manager-profilkonfigurationen. Vikten är ett heltal mellan 1 och 1 000. Den här parametern är valfri. Om det utelämnas använder trafikansvariga en standardvikt på "1". Ju högre vikt, desto högre prioritet.
 
-Traffic Manager slumpmässigt väljer en tillgänglig slut punkt för varje DNS-fråga som tas emot. Sannolikheten för att välja en slut punkt baseras på de vikter som tilldelats alla tillgängliga slut punkter. Om du använder samma vikt i alla slut punkter resulterar det i en jämn trafik distribution. Om du använder högre eller lägre vikter på vissa slut punkter returneras dessa slut punkter mer eller mindre ofta i DNS-svaren.
+För varje DNS-fråga som tas emot väljer Traffic Manager slumpmässigt en tillgänglig slutpunkt. Sannolikheten för att välja en slutpunkt baseras på de vikter som tilldelats till alla tillgängliga slutpunkter. Om du använder samma vikt för alla slutpunkter resulterar det i en jämn trafikfördelning. Om du använder högre eller lägre vikter på specifika slutpunkter returneras dessa slutpunkter mer eller mindre ofta i DNS-svaren.
 
-Den viktade metoden möjliggör vissa användbara scenarier:
+Den viktade metoden möjliggör några användbara scenarier:
 
-* Gradvis program uppgradering: allokera en procent andel av trafiken som ska dirigeras till en ny slut punkt och öka trafiken gradvis över tid till 100%.
-* Programmigrering till Azure: skapa en profil med både Azure och externa slut punkter. Justera slut punkternas tjocklek för att föredra de nya slut punkterna.
-* Cloud-burst för ytterligare kapacitet: utöka snabbt en lokal distribution till molnet genom att placera den bakom en Traffic Manager profil. När du behöver extra kapacitet i molnet kan du lägga till eller aktivera fler slut punkter och ange vilken del av trafiken som går till varje slut punkt.
+* Gradvis programuppgradering: Allokera en procentandel av trafiken för att dirigera till en ny slutpunkt och gradvis öka trafiken över tid till 100 %.
+* Programmigrering till Azure: Skapa en profil med både Azure och externa slutpunkter. Justera slutpunkternas vikt så att de vill de nya slutpunkterna.
+* Cloud-bursting för ytterligare kapacitet: Expandera snabbt en lokal distribution i molnet genom att lägga den bakom en Traffic Manager-profil. När du behöver extra kapacitet i molnet kan du lägga till eller aktivera fler slutpunkter och ange vilken del av trafiken som går till varje slutpunkt.
 
-Förutom att använda Azure Portal kan du konfigurera vikter med Azure PowerShell, CLI och REST-API: er.
+Förutom att använda Azure-portalen kan du konfigurera vikter med Azure PowerShell, CLI och REST API:er.
 
-Det är viktigt att förstå att DNS-svar cachelagras av klienter och av de rekursiva DNS-servrar som klienterna använder för att matcha DNS-namn. Denna cachelagring kan påverka viktade trafik distributioner. När antalet klienter och rekursiva DNS-servrar är stora fungerar trafik distributionen som förväntat. Men när antalet klienter eller rekursiva DNS-servrar är litet, kan cachelagringen dramatiskt skeva trafik distributionen.
+Det är viktigt att förstå att DNS-svar cachelagras av klienter och av de rekursiva DNS-servrar som klienterna använder för att matcha DNS-namn. Den här cachelagringen kan påverka viktade trafikdistributioner. När antalet klienter och rekursiva DNS-servrar är stort fungerar trafikdistributionen som förväntat. Men när antalet klienter eller rekursiva DNS-servrar är liten, kan cachelagring avsevärt skeva trafikdistributionen.
 
-Vanliga användnings områden är:
+Vanliga användningsfall är:
 
-* Utvecklings-och testnings miljöer
+* Utvecklings- och testmiljöer
 * Kommunikation mellan program och program
-* Program som syftar till en begränsad användar bas som delar en vanlig rekursiv DNS-infrastruktur (till exempel anställda av företag som ansluter via en proxy)
+* Program som riktar sig till en smal användarbas som delar en gemensam rekursiv DNS-infrastruktur (till exempel anställda i företag som ansluter via en proxy)
 
-Dessa konsekvenser för DNS-cachelagring är gemensamma för alla DNS-baserade trafikflödes system, inte bara Azure Traffic Manager. I vissa fall kan det vara en lösning att explicit rensa DNS-cachen. I andra fall kan en alternativ trafik cirkulations metod vara lämpligare.
+Dessa DNS-cachelagringseffekter är gemensamma för alla DNS-baserade trafikroutningssystem, inte bara Azure Traffic Manager. I vissa fall kan det vara en lösning att uttryckligen rensa DNS-cachen. I andra fall kan en alternativ trafikroutningsmetod vara lämpligare.
 
-## <a name = "performance"></a>Metod för att dirigera prestanda
+## <a name="performance-traffic-routing-method"></a><a name = "performance"></a>Prestanda trafik-routing metod
 
-Distribution av slut punkter på två eller flera platser över hela världen kan förbättra svars tiden för många program genom att dirigera trafiken till den plats som är närmast dig. Metoden "prestanda" för Traffic-routing tillhandahåller den här funktionen.
+Distribuera slutpunkter på två eller flera platser över hela världen kan förbättra svarstiden för många program genom att dirigera trafik till den plats som är "närmast" till dig. Trafikroutningsmetoden "Prestanda" ger den här funktionen.
 
-![Azure Traffic Manager "prestanda" för Traffic routing-metod](media/traffic-manager-routing-methods/performance.png)
+![Trafikroutningsmetoden för Azure Traffic Manager](media/traffic-manager-routing-methods/performance.png)
 
-Slut punkten närmast är inte nödvändigt vis närmast uppmätt av geografiskt avstånd. I stället avgör "prestanda" Traffic-routing-metoden den närmaste slut punkten genom att mäta nätverks fördröjningen. Traffic Manager underhåller en Internet fördröjnings tabell för att spåra tiden för fördröjningen mellan IP-adressintervall och varje Azure-datacenter.
+Slutpunkten "närmaste" är inte nödvändigtvis närmast mätt med geografiskt avstånd. I stället bestämmer trafikdirigeringsmetoden "Prestanda" den närmaste slutpunkten genom att mäta nätverksfördröjningen. Traffic Manager underhåller en Internet Latency Tabell för att spåra rundresa tid mellan IP-adressintervall och varje Azure datacenter.
 
-Traffic Manager letar upp käll-IP-adressen för den inkommande DNS-begäran i tabellen över Internet svars tider. Traffic Manager väljer sedan en tillgänglig slut punkt i Azure-datacenter som har den lägsta svars tiden för det IP-adressintervallet och returnerar slut punkten i DNS-svaret.
+Traffic Manager slår upp käll-IP-adressen för den inkommande DNS-begäran i tabellen Internet-svarstid. Traffic Manager väljer sedan en tillgänglig slutpunkt i Azure-datacentret som har den lägsta svarstiden för det IP-adressintervallet och returnerar slutpunkten i DNS-svaret.
 
-Som förklaras i [hur Traffic Manager fungerar](traffic-manager-how-it-works.md)Traffic Manager inte att ta emot DNS-frågor direkt från klienter. DNS-frågor kommer istället från den rekursiva DNS-tjänst som klienterna är konfigurerade att använda. Därför är IP-adressen som används för att fastställa den närmast slut punkten inte klientens IP-adress, men den är IP-adressen till den rekursiva DNS-tjänsten. I praktiken är den här IP-adressen en bra proxy för klienten.
-
-
-Traffic Manager uppdaterar regelbundet tabellen Internet latens för att redovisa ändringar i globala Internet och nya Azure-regioner. Program prestanda varierar dock beroende på real tids variationer i belastningen på Internet. Prestanda trafik – routning övervakar inte belastningen på en specifik tjänst slut punkt. Men om en slut punkt blir otillgänglig, inkluderas inte Traffic Manager i DNS-fråge svar.
+Som förklaras i [Hur Traffic Manager Works](traffic-manager-how-it-works.md)får Traffic Manager inte DNS-frågor direkt från klienter. Dns-frågor kommer snarare från den rekursiva DNS-tjänst som klienterna är konfigurerade att använda. Därför är IP-adressen som används för att fastställa den "närmaste" slutpunkten inte klientens IP-adress, men det är IP-adressen för den rekursiva DNS-tjänsten. I praktiken är den här IP-adressen en bra proxy för klienten.
 
 
-Saker att Observera:
+Traffic Manager uppdaterar regelbundet internetfördröjningstabellen för att ta hänsyn till ändringar i det globala Internet och nya Azure-regioner. Programprestanda varierar dock beroende på variationer i realtid i belastningen över Internet. Prestandatrafikdirigering övervakar inte belastningen på en viss tjänstslutpunkt. Men om en slutpunkt blir otillgänglig, inkluderar Traffic Manager inte den i DNS-frågesvar.
 
-* Om din profil innehåller flera slut punkter i samma Azure-region distribuerar Traffic Manager trafiken jämnt över tillgängliga slut punkter i den regionen. Om du föredrar en annan trafik distribution inom en region kan du använda [kapslade Traffic Manager-profiler](traffic-manager-nested-profiles.md).
-* Om alla aktiverade slut punkter i den närmaste Azure-regionen försämras, Traffic Manager flyttar trafik till slut punkterna i nästa närmaste Azure-region. Om du vill definiera en prioriterad växlings ordning använder du [kapslade Traffic Manager-profiler](traffic-manager-nested-profiles.md).
-* När du använder routningsmetoden för prestanda trafik med externa slut punkter eller kapslade slut punkter måste du ange platsen för dessa slut punkter. Välj den Azure-region som är närmast din distribution. Dessa platser är de värden som stöds av tabellen Internet fördröjning.
-* Algoritmen som väljer slut punkten är deterministisk. Upprepade DNS-frågor från samma klient dirigeras till samma slut punkt. Normalt använder klienter olika rekursiva DNS-servrar vid resor. Klienten kan dirigeras till en annan slut punkt. Routning kan också påverkas av uppdateringar av tabellen Internet fördröjning. Därför garanterar metoden för prestanda trafik-routning inte att en klient alltid dirigeras till samma slut punkt.
-* När Internet fördröjnings tabellen ändras kan du märka att vissa klienter dirigeras till en annan slut punkt. Den här Dirigerings ändringen är mer exakt baserad på aktuella latens-data. De här uppdateringarna är nödvändiga för att upprätthålla noggrannheten i prestanda trafiken i takt med att Internet utvecklas kontinuerligt.
 
-## <a name = "geographic"></a>Geografisk metod för trafik cirkulation
+Punkter att notera:
 
-Traffic Manager profiler kan konfigureras att använda den geografiska routningsmetod så att användarna dirigeras till specifika slut punkter (Azure, externt eller kapslade) baserat på vilken geografisk plats deras DNS-fråga kommer från. Detta ger Traffic Manager kunder möjlighet att aktivera scenarier där man känner till en användares geografiska region och dirigerar dem baserat på det är viktigt. Exempel innefattar att följa data suveränitets uppdrag, lokalisering av innehåll & användar upplevelse och mätning av trafik från olika regioner.
-När en profil har kon figurer ATS för geografisk routning måste varje slut punkt som är associerad med profilen ha en uppsättning geografiska regioner tilldelade till sig. En geografisk region kan vara i följande nivåer av granularitet 
-- Värld – valfri region
-- Regional gruppering – till exempel Afrika, Mellanöstern, Australien/Stilla havs området osv. 
-- Land/region – till exempel Irland, Peru, Hong Kong SAR osv. 
-- Delstat/provins – till exempel USA-Kalifornien, Australien-Queensland, Kanada-Alberta osv. (OBS! den här granularitet nivån stöds bara för delstater/provinser i Australien, Kanada och USA).
+* Om din profil innehåller flera slutpunkter i samma Azure-region distribuerar Traffic Manager trafiken jämnt över tillgängliga slutpunkter i den regionen. Om du föredrar en annan trafikfördelning inom en region kan du använda [kapslade Traffic Manager-profiler](traffic-manager-nested-profiles.md).
+* Om alla aktiverade slutpunkter i närmaste Azure-region försämras flyttar Traffic Manager trafik till slutpunkterna i nästa närmaste Azure-region. Om du vill definiera en önskad redundanssekvens använder du [kapslade Traffic Manager-profiler](traffic-manager-nested-profiles.md).
+* När du använder routningsmetoden Prestanda trafik med externa slutpunkter eller kapslade slutpunkter måste du ange platsen för dessa slutpunkter. Välj den Azure-region som är närmast distributionen. Dessa platser är de värden som stöds av internetfördröjningstabellen.
+* Algoritmen som väljer slutpunkten är deterministisk. Upprepade DNS-frågor från samma klient dirigeras till samma slutpunkt. Vanligtvis använder klienter olika rekursiva DNS-servrar när de reser. Klienten kan dirigeras till en annan slutpunkt. Routning kan också påverkas av uppdateringar av tabellen för internetfördröjning. Därför garanterar metoden För trafikdirigering av prestanda inte att en klient alltid dirigeras till samma slutpunkt.
+* När Internet-svarstidstabellen ändras kanske du märker att vissa klienter dirigeras till en annan slutpunkt. Den här routningsändringen är mer exakt baserat på aktuella svarstidsdata. Dessa uppdateringar är nödvändiga för att upprätthålla noggrannheten i trafikroutning av prestanda när Internet ständigt utvecklas.
 
-När en region eller en uppsättning regioner tilldelas till en slut punkt dirigeras alla förfrågningar från dessa regioner endast till den slut punkten. Traffic Manager använder käll-IP-adressen för DNS-frågan för att fastställa den region som en användare frågar från – vanligt vis är detta IP-adressen för den lokala DNS-matcharen som utför frågan för användarens räkning.  
+## <a name="geographic-traffic-routing-method"></a><a name = "geographic"></a>Geografisk trafikdirigeringsmetod
 
-![Azure Traffic Manager "geografisk" Traffic-routing-metod](./media/traffic-manager-routing-methods/geographic.png)
+Traffic Manager-profiler kan konfigureras för att använda den geografiska routningsmetoden så att användare dirigeras till specifika slutpunkter (Azure, extern eller kapslad) baserat på vilken geografisk plats deras DNS-fråga kommer från. Detta ger Traffic Manager-kunder möjlighet att aktivera scenarier där det är viktigt att känna till en användares geografiska region och dirigera dem baserat på det. Exempel på detta är att följa datasuveränitetsmandat, lokalisering av innehåll & användarupplevelsen och mätning av trafik från olika regioner.
+När en profil har konfigurerats för geografisk routning måste varje slutpunkt som är associerad med den profilen ha en uppsättning geografiska regioner tilldelade till den. Ett geografiskt område kan ligga på följande nivåer av granularitet 
+- Världen – vilken region som helst
+- Regional gruppering – till exempel Afrika, Mellanöstern, Australien/Stillahavsområdet etc. 
+- Land/region – till exempel Irland, Peru, Hongkong sar etc. 
+- Stat / provins - till exempel USA-Kalifornien, Australien-Queensland, Kanada-Alberta etc. (obs: denna granularitet nivå stöds endast för stater / provinser i Australien, Kanada och USA).
 
-Traffic Manager läser käll-IP-adressen för DNS-frågan och bestämmer vilken geografisk region den kommer från. Den ser sedan till att det finns en slut punkt som har mappats till den här geografiska regionen. Den här sökningen börjar på den lägsta granularitet nivån (delstat/provins där det stöds, annars på land/region-nivå) och går hela vägen upp till den högsta nivån, som är **värld**. Den första matchning som påträffas med den här genom gången anges som slut punkten som ska returneras i fråge svaret. Vid matchning med en kapslad typ slut punkt returneras en slut punkt inom den underordnade profilen, baserat på dess routningsmetod. Följande punkter gäller för detta beteende:
+När en region eller en uppsättning regioner tilldelas en slutpunkt dirigeras alla begäranden från dessa regioner endast till den slutpunkten. Traffic Manager använder källan IP-adressen för DNS-frågan för att avgöra vilken region som en användare frågar från - vanligtvis är detta IP-adressen för den lokala DNS-matcharen som gör frågan för användarens räkning.  
 
-- En geografisk region kan bara mappas till en slut punkt i en Traffic Manager profil när routningstjänsten är geografisk routning. Detta säkerställer att routningen av användare är deterministisk och kunder kan aktivera scenarier som kräver otvetydiga geografiska gränser.
-- Om en användares region kommer under två olika slut punkter geografisk mappning, Traffic Manager väljer slut punkten med den lägsta precisionen och tar inte över förfrågningar från den regionen till den andra slut punkten. Anta till exempel en geografisk typ profil för routning med två slut punkter – Endpoint1 och Endpoint2. Endpoint1 har kon figurer ATS för att ta emot trafik från Irland och Endpoint2 har kon figurer ATS för att ta emot trafik från Europa. Om en begäran kommer från Irland dirigeras den alltid till Endpoint1.
-- Eftersom en region bara kan mappas till en slut punkt returnerar Traffic Manager den oavsett om slut punkten är felfri eller inte.
+![Azure Traffic Manager 'Geografisk" trafik-routning metod](./media/traffic-manager-routing-methods/geographic.png)
+
+Traffic Manager läser källans IP-adress för DNS-frågan och bestämmer vilken geografisk region den kommer från. Den ser sedan ut att se om det finns en slutpunkt som har den här geografiska regionen mappad till den. Denna sökning börjar på den lägsta granularitetsnivå (stat / provins där det stöds, annars på land / region nivå) och går hela vägen upp till den högsta nivån, som är **världen**. Den första matchningen som hittades med den här traversalen anges som slutpunkt för att returnera i frågesvaret. När du matchar med en kapslad typslutpunkt returneras en slutpunkt i den underordnade profilen, baserat på dess routningsmetod. Följande punkter är tillämpliga på detta:
+
+- En geografisk region kan bara mappas till en slutpunkt i en Traffic Manager-profil när routningstypen är geografisk routning. Detta säkerställer att routning av användare är deterministisk och kunder kan aktivera scenarier som kräver entydiga geografiska gränser.
+- Om en användares region hamnar under två olika slutpunkters geografiska mappning väljer Traffic Manager slutpunkten med den lägsta granulariteten och överväger inte att dirigera begäranden från den regionen till den andra slutpunkten. Tänk dig till exempel en geografisk routningstypprofil med två slutpunkter - Slutpunkt1 och Slutpunkt2. Endpoint1 är konfigurerad för att ta emot trafik från Irland och Endpoint2 är konfigurerad för att ta emot trafik från Europa. Om en begäran kommer från Irland dirigeras den alltid till Endpoint1.
+- Eftersom en region bara kan mappas till en slutpunkt returnerar Traffic Manager den oavsett om slutpunkten är felfri eller inte.
 
     >[!IMPORTANT]
-    >Vi rekommenderar starkt att kunder som använder den geografiska routningsmetod associerar den med de kapslade typ slut punkterna som har underordnade profiler som innehåller minst två slut punkter inom var och en.
-- Om en slut punkts matchning hittas och den slut punkten är i **stoppat** läge returnerar Traffic Manager ett nodata-svar. I det här fallet görs inga ytterligare sökningar högre upp i hierarkin för geografisk region. Detta beteende gäller också för kapslade slut punkts typer när den underordnade profilen är i läget **stoppad** eller **inaktive rad** .
-- Om en slut punkt visar en **inaktive rad** status tas den inte med i matchnings processen för regioner. Detta beteende gäller också för kapslade slut punkts typer när slut punkten är i **inaktiverat** läge.
-- Om en fråga kommer från en geografisk region som inte har någon mappning i profilen returnerar Traffic Manager ett nodata-svar. Vi rekommenderar därför att kunderna använder geografisk routning med en slut punkt, helst av typen kapslad med minst två slut punkter i den underordnade profilen, med **den region som** är tilldelad till den. Detta säkerställer också att alla IP-adresser som inte mappas till en region hanteras.
+    >Vi rekommenderar starkt att kunder som använder den geografiska routningsmetoden associerar den med slutpunkterna För kapslad typ som har underordnade profiler som innehåller minst två slutpunkter inom varje.
+- Om en slutpunktsmatchning hittas och slutpunkten är i **tillståndet Stoppad** returnerar Traffic Manager ett NODATA-svar. I det här fallet görs inga ytterligare uppslag högre upp i den geografiska regionhierarkin. Det här beteendet gäller även för kapslade slutpunktstyper när den underordnade profilen är i tillståndet **Stoppad** eller **inaktiverad.**
+- Om en slutpunkt visar en **inaktiverad** status inkluderas den inte i regionmatchningsprocessen. Detta gäller även för kapslade slutpunktstyper när slutpunkten är i **inaktiverat** tillstånd.
+- Om en fråga kommer från ett geografiskt område som inte har någon mappning i den profilen returnerar Traffic Manager ett NODATA-svar. Därför rekommenderas starkt att kunder använder geografisk routning med en slutpunkt, helst av typen Kapslad med minst två slutpunkter i den underordnade profilen, med regionen **World** tilldelad den. Detta säkerställer också att alla IP-adresser som inte mappas till en region hanteras.
 
-Som förklaras i [hur Traffic Manager fungerar](traffic-manager-how-it-works.md)Traffic Manager inte att ta emot DNS-frågor direkt från klienter. DNS-frågor kommer istället från den rekursiva DNS-tjänst som klienterna är konfigurerade att använda. Därför är IP-adressen som används för att fastställa regionen inte klientens IP-adress, men den är IP-adressen till den rekursiva DNS-tjänsten. I praktiken är den här IP-adressen en bra proxy för klienten.
+Som förklaras i [Hur Traffic Manager Works](traffic-manager-how-it-works.md)får Traffic Manager inte DNS-frågor direkt från klienter. Dns-frågor kommer snarare från den rekursiva DNS-tjänst som klienterna är konfigurerade att använda. Därför är IP-adressen som används för att bestämma regionen inte klientens IP-adress, men det är IP-adressen för den rekursiva DNS-tjänsten. I praktiken är den här IP-adressen en bra proxy för klienten.
 
 ### <a name="faqs"></a>Vanliga frågor och svar
 
-* [Vad är några användnings fall där geografisk routning är användbart?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-are-some-use-cases-where-geographic-routing-is-useful)
+* [Vilka är några användningsfall där geografisk routning är användbar?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-are-some-use-cases-where-geographic-routing-is-useful)
 
-* [Hur gör jag för att avgöra om jag bör använda routningsmetod för prestanda eller geografisk routningsmetod?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-do-i-decide-if-i-should-use-performance-routing-method-or-geographic-routing-method)
+* [Hur avgör jag om jag ska använda prestandaroutningsmetod eller geografisk routningsmetod?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-do-i-decide-if-i-should-use-performance-routing-method-or-geographic-routing-method)
 
 * [Vilka regioner stöds av Traffic Manager för geografisk routning?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-are-the-regions-that-are-supported-by-traffic-manager-for-geographic-routing)
 
-* [Hur avgör Traffic Manager var en användare frågar från?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-does-traffic-manager-determine-where-a-user-is-querying-from)
+* [Hur avgör Traffic Manager var en användare frågar ifrån?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-does-traffic-manager-determine-where-a-user-is-querying-from)
 
-* [Är det garanterat att Traffic Manager korrekt kan fastställa den exakta geografiska platsen för användaren i varje fall?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#is-it-guaranteed-that-traffic-manager-can-correctly-determine-the-exact-geographic-location-of-the-user-in-every-case)
+* [Är det garanterat att Traffic Manager korrekt kan bestämma den exakta geografiska platsen för användaren i varje enskilt fall?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#is-it-guaranteed-that-traffic-manager-can-correctly-determine-the-exact-geographic-location-of-the-user-in-every-case)
 
-* [Behöver en slut punkt vara fysiskt placerad i samma region som den har kon figurer ATS för geografisk routning?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#does-an-endpoint-need-to-be-physically-located-in-the-same-region-as-the-one-it-is-configured-with-for-geographic-routing)
+* [Måste en slutpunkt vara fysiskt placerad i samma region som den som konfigureras med för geografisk routning?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#does-an-endpoint-need-to-be-physically-located-in-the-same-region-as-the-one-it-is-configured-with-for-geographic-routing)
 
-* [Kan jag tilldela geografiska regioner till slut punkter i en profil som inte har kon figurer ATS för att göra geografisk routning?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#can-i-assign-geographic-regions-to-endpoints-in-a-profile-that-is-not-configured-to-do-geographic-routing)
+* [Kan jag tilldela geografiska regioner till slutpunkter i en profil som inte är konfigurerad för geografisk routning?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#can-i-assign-geographic-regions-to-endpoints-in-a-profile-that-is-not-configured-to-do-geographic-routing)
 
-* [Varför får jag ett fel när jag försöker ändra routningsmetod för en befintlig profil till geografisk?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#why-am-i-getting-an-error-when-i-try-to-change-the-routing-method-of-an-existing-profile-to-geographic)
+* [Varför får jag ett felmeddelande när jag försöker ändra routningsmetoden för en befintlig profil till Geografisk?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#why-am-i-getting-an-error-when-i-try-to-change-the-routing-method-of-an-existing-profile-to-geographic)
 
-* [Varför rekommenderas det starkt att kunder skapar kapslade profiler i stället för slut punkter under en profil med geografisk routning aktive rad?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#why-is-it-strongly-recommended-that-customers-create-nested-profiles-instead-of-endpoints-under-a-profile-with-geographic-routing-enabled)
+* [Varför rekommenderas det starkt att kunder skapar kapslade profiler i stället för slutpunkter under en profil med geografisk routning aktiverad?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#why-is-it-strongly-recommended-that-customers-create-nested-profiles-instead-of-endpoints-under-a-profile-with-geographic-routing-enabled)
 
-* [Finns det några begränsningar för API-versionen som stöder den här typen av cirkulations typ?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#are-there-any-restrictions-on-the-api-version-that-supports-this-routing-type)
+* [Finns det några begränsningar för API-versionen som stöder den här routningstypen?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#are-there-any-restrictions-on-the-api-version-that-supports-this-routing-type)
 
-## <a name = "multivalue"></a>Metod för Multivärdes trafik – routningsmetod
-Med metoden för **Multivärdes** trafik-routning kan du hämta flera felfria slut punkter i ett enda DNS-fråge svar. Detta gör att anroparen kan utföra återförsök på klient sidan med andra slut punkter i händelse av en returnerad slut punkt som inte svarar. Det här mönstret kan öka tillgängligheten för en tjänst och minska svars tiden som associeras med en ny DNS-fråga för att få en felfri slut punkt. Routningsmetod för flera värden fungerar bara om alla slut punkter av typen ' external ' och anges som IPv4-eller IPv6-adresser. När en fråga tas emot för den här profilen returneras alla felfria slut punkter och omfattas av ett konfigurerbart Max antal retur antal.
-
-### <a name="faqs"></a>Vanliga frågor och svar
-
-* [Vad är några användnings fall där multivärde-routning är användbart?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-are-some-use-cases-where-multivalue-routing-is-useful)
-
-* [Hur många slut punkter returneras när multivärde-routning används?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-many-endpoints-are-returned-when-multivalue-routing-is-used)
-
-* [Får jag samma uppsättning slut punkter när multivärde-routning används?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#will-i-get-the-same-set-of-endpoints-when-multivalue-routing-is-used)
-
-## <a name = "subnet"></a>Under näts trafik – routningsmetod
-Med metoden för att dirigera **under nät** trafiken kan du mappa en uppsättning IP-adressintervall för slutanvändare till särskilda slut punkter i en profil. Om Traffic Manager tar emot en DNS-fråga för profilen, kommer den att inspektera käll-IP-adressen för den begäran (i de flesta fall är detta den utgående IP-adressen för den DNS-matchare som används av anroparen), avgöra vilken slut punkt den är mappad till och kommer att returnera t hatt-slutpunkt i svaret på frågan. 
-
-IP-adressen som ska mappas till en slut punkt kan anges som CIDR-intervall (t. ex. 1.2.3.0/24) eller som ett adress intervall (t. ex. 1.2.3.4-5.6.7.8). IP-intervallen som associeras med en slut punkt måste vara unika i profilen och får inte överlappa IP-adresserna för en annan slut punkt i samma profil.
-Om du definierar en slut punkt utan ett adress intervall fungerar det som en reserv och tar trafik från eventuella kvarvarande undernät. Om ingen återställnings punkt ingår, skickar Traffic Manager ett nodata-svar för alla odefinierade intervall. Vi rekommenderar därför starkt att du antingen definierar en återställnings slut punkt eller att du ser till att alla möjliga IP-intervall anges i dina slut punkter.
-
-Under näts dirigering kan användas för att ge en annan upplevelse för användare som ansluter från ett särskilt IP-utrymme. Till exempel kan en kund med hjälp av under näts dirigering dirigera alla förfrågningar från sitt företags kontor till en annan slut punkt där de kan testa en intern version av appen. Ett annat scenario är om du vill ge en annan upplevelse till användare som ansluter från en specifik Internet leverantör (till exempel blockera användare från en angiven Internet leverantör).
+## <a name="multivalue-traffic-routing-method"></a><a name = "multivalue"></a>Flervärdestrafikroutningsmetod
+Med metoden För trafikroutning med **flera** värden kan du få flera felfria slutpunkter i ett enda DNS-frågesvar. Detta gör det möjligt för anroparen att göra återförsök på klientsidan med andra slutpunkter i händelse av att en returnerad slutpunkt inte svarar. Det här mönstret kan öka tillgängligheten för en tjänst och minska den svarstid som är associerad med en ny DNS-fråga för att hämta en felfri slutpunkt. Routningsmetod för multivalue fungerar bara om alla slutpunkter av typen "Extern" och anges som IPv4- eller IPv6-adresser. När en fråga tas emot för den här profilen returneras alla felfria slutpunkter och är föremål för ett konfigurerbart maximalt avkastningsantal.
 
 ### <a name="faqs"></a>Vanliga frågor och svar
 
-* [Vad är några användnings fall där under näts dirigering är användbart?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-are-some-use-cases-where-subnet-routing-is-useful)
+* [Vilka är några användningsfall där MultiValue-routning är användbar?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-are-some-use-cases-where-multivalue-routing-is-useful)
 
-* [Hur vet Traffic Manager IP-adressen för slutanvändaren?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-does-traffic-manager-know-the-ip-address-of-the-end-user)
+* [Hur många slutpunkter returneras när MultiValue-routning används?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-many-endpoints-are-returned-when-multivalue-routing-is-used)
 
-* [Hur kan jag ange IP-adresser när jag använder Subnet-routning?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-can-i-specify-ip-addresses-when-using-subnet-routing)
+* [Kommer jag att få samma uppsättning slutpunkter när MultiValue-routning används?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#will-i-get-the-same-set-of-endpoints-when-multivalue-routing-is-used)
 
-* [Hur kan jag ange en återställnings slut punkt när jag använder under näts dirigering?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-can-i-specify-a-fallback-endpoint-when-using-subnet-routing)
+## <a name="subnet-traffic-routing-method"></a><a name = "subnet"></a>Trafikroutningsmetod för undernät
+Med trafikroutningsmetoden **undernät** kan du mappa en uppsättning IP-adressintervall för slutanvändare till specifika slutpunkter i en profil. Om Traffic Manager tar emot en DNS-fråga för den profilen, kommer den att granska källans IP-adress för den begäran (i de flesta fall kommer detta att vara den utgående IP-adressen för DNS-matcharen som används av anroparen), avgöra vilken slutpunkt den är mappad till och returnerar slutpunkten i frågesvaret. 
 
-* [Vad händer om en slut punkt är inaktive rad i en under näts typ profil?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-happens-if-an-endpoint-is-disabled-in-a-subnet-routing-type-profile)
+Den IP-adress som ska mappas till en slutpunkt kan anges som CIDR-intervall (t.ex. 1.2.3.0/24) eller som ett adressintervall (t.ex. 1.2.3.4-5.6.7.8). IP-intervallen som är associerade med en slutpunkt måste vara unika i den profilen och kan inte ha en överlappning med IP-adressuppsättningen för en annan slutpunkt i samma profil.
+Om du definierar en slutpunkt utan adressintervall fungerar den som en reserv och tar trafik från eventuella återstående undernät. Om ingen återgångsslutpunkt ingår skickar Traffic Manager ett NODATA-svar för odefinierade områden. Vi rekommenderar därför starkt att du antingen definierar en återgångsslutpunkt eller kontrollerar att alla möjliga IP-intervall anges över slutpunkterna.
+
+Undernätsroutning kan användas för att ge en annan upplevelse för användare som ansluter från ett visst IP-utrymme. Med undernätsdirigering kan en kund till exempel göra så att alla begäranden från företagskontoret dirigeras till en annan slutpunkt där de kanske testar en internt exklusiv version av företages app. Ett annat scenario är om du vill ge användare som ansluter från en specifik ISP en annan upplevelse (till exempel blockera användare från en viss ISP).
+
+### <a name="faqs"></a>Vanliga frågor och svar
+
+* [Vilka är några användningsfall där undernätsdirigering är användbar?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-are-some-use-cases-where-subnet-routing-is-useful)
+
+* [Hur känner Traffic Manager till slutanvändarens IP-adress?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-does-traffic-manager-know-the-ip-address-of-the-end-user)
+
+* [Hur kan jag ange IP-adresser när jag använder undernätsdirigering?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-can-i-specify-ip-addresses-when-using-subnet-routing)
+
+* [Hur kan jag ange en återgångsslutpunkt när jag använder undernätsroutning?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-can-i-specify-a-fallback-endpoint-when-using-subnet-routing)
+
+* [Vad händer om en slutpunkt inaktiveras i en profil för undernätsroutningstyp?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-happens-if-an-endpoint-is-disabled-in-a-subnet-routing-type-profile)
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig hur du utvecklar program med hög tillgänglighet med [Traffic Manager slut punkts övervakning](traffic-manager-monitoring.md)
+Lär dig hur du utvecklar program med hög tillgänglighet med hjälp av [Traffic Manager-slutpunktsövervakning](traffic-manager-monitoring.md)
 
 
 

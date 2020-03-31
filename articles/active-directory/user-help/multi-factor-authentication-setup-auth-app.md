@@ -1,6 +1,6 @@
 ---
-title: Konfigurera en Authenticator-app som metod med tvåstegsverifiering – Azure Active Directory | Microsoft Docs
-description: Lär dig hur du konfigurerar Microsoft Authenticator-appen som en metod för verifiering av två faktorer.
+title: Konfigurera en autentiseringsapp som din tvåfaktorsverifieringsmetod - Azure Active Directory | Microsoft-dokument
+description: Lär dig hur du konfigurerar Microsoft Authenticator-appen som din tvåfaktorsverifieringsmetod.
 services: active-directory
 author: curtand
 manager: daveba
@@ -11,112 +11,112 @@ ms.topic: overview
 ms.date: 08/12/2019
 ms.author: curtand
 ms.openlocfilehash: 6ab1f7c97173021cc112a5f117469abd74ac954d
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77062582"
 ---
-# <a name="set-up-an-authenticator-app-as-your-two-factor-verification-method"></a>Konfigurera en Authenticator-app som metod med tvåstegsverifiering
+# <a name="set-up-an-authenticator-app-as-your-two-factor-verification-method"></a>Konfigurera en autentiseringsapp som din tvåfaktorsverifieringsmetod
 
-Du kan ställa in en Authenticator-app för att skicka ett meddelande till din mobila enhet eller skicka en verifierings kod som säkerhets verifierings metod. Du behöver inte använda Microsoft Authenticator-appen, och du kan välja en annan app under installationen. Den här artikeln använder dock Microsoft Authenticator-appen.
+Du kan konfigurera en autentiseringsapp för att skicka ett meddelande till din mobila enhet eller skicka en verifieringskod som din säkerhetsverifieringsmetod. Du behöver inte använda Microsoft Authenticator-appen och du kan välja en annan app under installationen. I den här artikeln används dock Microsoft Authenticator-appen.
 
 >[!Important]
->Innan du kan lägga till ditt konto måste du ladda ned och installera Microsoft Authenticator-appen. Om du inte har gjort det än följer du stegen i artikeln [Hämta och installera appen](user-help-auth-app-download-install.md) .
+>Innan du kan lägga till ditt konto måste du hämta och installera Microsoft Authenticator-appen. Om du inte har gjort det ännu följer du stegen i [hämtnings- och installationsartikeln.](user-help-auth-app-download-install.md)
 
 >[!Note]
-> Om alternativet för mobilapp är nedtonat är det möjligt att organisationen inte tillåter att du använder en webbapp för verifiering. I så fall måste du välja en annan metod eller kontakta administratören om du vill ha mer hjälp.
+> Om alternativet Mobilapp är nedtonat är det möjligt att din organisation inte tillåter att du använder en autentiseringsapp för verifiering. I det här fallet måste du välja en annan metod eller kontakta administratören för mer hjälp.
 
 ## <a name="set-up-the-microsoft-authenticator-app-to-send-notifications"></a>Konfigurera Microsoft Authenticator-appen för att skicka meddelanden
 
-1. På sidan **ytterligare säkerhets verifiering** väljer du **mobilapp** från **steg 1: Hur ska vi kontakta** ditt ställe.
+1. På sidan **Ytterligare säkerhetsverifiering** väljer du **Mobilapp** i **steg 1: Hur ska vi kontakta dig.**
 
-2. Välj **ta emot aviseringar för verifiering** från rutan **Hur vill du använda** modulen för mobilapp och välj sedan **Konfigurera**.
+2. Välj **Ta emot meddelanden för verifiering** från området Hur vill du använda området för **mobilapp** och välj sedan **Konfigurera**.
 
-    ![Sidan ytterligare säkerhets verifiering med alternativ för mobilapp och meddelanden](media/multi-factor-authentication-verification-methods/multi-factor-authentication-auth-app-notification.png)
+    ![Ytterligare säkerhetsverifieringssida med mobilapp och meddelandealternativ](media/multi-factor-authentication-verification-methods/multi-factor-authentication-auth-app-notification.png)
 
     Sidan **Konfigurera mobilapp** visas.
 
     ![Skärm som tillhandahåller QR-koden](media/multi-factor-authentication-verification-methods/multi-factor-authentication-auth-app-barcode.png)
 
-3. Öppna appen Microsoft Authenticator, Välj **Lägg till konto** från ikonen **Anpassa och kontrol lera** längst upp till höger och välj sedan arbets- **eller skol konto**.
+3. Öppna Microsoft Authenticator-appen, välj **Lägg till konto** i ikonen Anpassa och **kontrollera** längst upp till höger och välj sedan **Arbets- eller skolkonto**.
 
     >[!Note]
-    >Om det här är första gången du konfigurerar Microsoft Authenticator-appen kan du få en fråga om du vill tillåta att appen får åtkomst till kameran (iOS) eller tillåter att appen tar bilder och spelar in video (Android). Du måste välja **Tillåt** så att Authenticator-appen kan komma åt kameran för att ta en bild av QR-koden i nästa steg. Om du inte tillåter kameran kan du fortfarande konfigurera Authenticator-appen, men du måste lägga till kod informationen manuellt. Information om hur du lägger till koden manuellt finns i se [lägga till ett konto manuellt i appen](user-help-auth-app-add-account-manual.md).
+    >Om det är första gången du konfigurerar Microsoft Authenticator-appen kan du få en uppmaning om du vill tillåta appen att komma åt kameran (iOS) eller låta appen ta bilder och spela in video (Android). Du måste välja **Tillåt** så att autentiseringsappen kan komma åt kameran för att ta en bild av QR-koden i nästa steg. Om du inte tillåter kameran kan du fortfarande konfigurera autentiseringsappen, men du måste lägga till kodinformationen manuellt. Information om hur du lägger till koden manuellt finns i [Lägg till ett konto manuellt i appen](user-help-auth-app-add-account-manual.md).
 
-4. Använd enhetens kamera för att skanna QR-koden från skärmen **Konfigurera mobilappen** på datorn och välj sedan **Nästa**.
+4. Använd enhetens kamera för att skanna QR-koden från skärmen **Konfigurera mobilapp** på datorn och välj sedan **Nästa**.
 
-5. Gå tillbaka till datorn och sidan **ytterligare säkerhets verifiering** , se till att du får meddelandet som säger att konfigurationen lyckades och välj sedan **Nästa**.
+5. Gå tillbaka till datorn och sidan **Ytterligare säkerhetsverifiering,** se till att du får meddelandet som säger att konfigurationen lyckades och välj sedan **Nästa**.
 
-    ![Sidan ytterligare säkerhets verifiering, med meddelande om lyckad](media/multi-factor-authentication-verification-methods/multi-factor-authentication-auth-app-notification-confirm.png)
+    ![Ytterligare säkerhetsverifieringssida med meddelande om lyckad](media/multi-factor-authentication-verification-methods/multi-factor-authentication-auth-app-notification-confirm.png)
 
-    Authenticator-appen skickar ett meddelande till din mobila enhet som ett test.
+    Autentiseringsappen skickar ett meddelande till din mobila enhet som ett test.
 
-6. Välj **Godkänn**på din mobila enhet.
+6. På din mobila enhet väljer du **Godkänn**.
 
-7. På din dator lägger du till din mobilen hets telefonnummer i **steg 3: om du förlorar åtkomsten till modulen mobilapp** och väljer sedan **Nästa**.
+7. Lägg till mobiltelefonnumret för din mobila enhet i **steg 3: Om du förlorar åtkomsten till mobilappsområdet** och sedan väljer **Nästa**.
 
-    Vi rekommenderar starkt att du lägger till mobilen hets telefonnumret för att fungera som en säkerhets kopia om du inte kan komma åt eller använda mobilappen av någon anledning.
+    Vi rekommenderar starkt att du lägger till ditt mobiltelefonnummer för att fungera som en säkerhetskopia om du av någon anledning inte kan komma åt eller använda mobilappen.
 
-8. I **steg 4: Fortsätt att använda dina befintliga program** , kopierar du det angivna applösenord och klistrar in det på en säker plats.
+8. Från **steg 4: Fortsätt att använda ditt befintliga programområde** kopierar du det medföljande applösenordet och klistrar in det på ett säkert ställe.
 
-    ![Plats för applösenord på sidan ytterligare säkerhets verifiering](media/multi-factor-authentication-verification-methods/multi-factor-authentication-app-passwords.png)
+    ![Området Applösenord på sidan Ytterligare säkerhetsverifiering](media/multi-factor-authentication-verification-methods/multi-factor-authentication-app-passwords.png)
 
     >[!Note]
-    >Information om hur du använder applösenord med dina äldre appar finns i [Hantera applösenord](multi-factor-authentication-end-user-app-passwords.md). Du behöver bara använda applösenord om du fortsätter att använda äldre appar som inte stöder tvåstegsverifiering.
+    >Information om hur du använder applösenordet med dina äldre appar finns i [Hantera applösenord](multi-factor-authentication-end-user-app-passwords.md). Du behöver bara använda applösenord om du fortsätter att använda äldre appar som inte stöder tvåfaktorsverifiering.
 
 9. Välj **Done** (Klar).
 
-## <a name="set-up-the-microsoft-authenticator-app-to-use-verification-codes"></a>Konfigurera appen Microsoft Authenticator att använda verifierings koder
+## <a name="set-up-the-microsoft-authenticator-app-to-use-verification-codes"></a>Konfigurera Microsoft Authenticator-appen så att verifieringskoder används
 
-1. På sidan **ytterligare säkerhets verifiering** väljer du **mobilapp** från **steg 1: Hur ska vi kontakta** ditt ställe.
+1. På sidan **Ytterligare säkerhetsverifiering** väljer du **Mobilapp** i **steg 1: Hur ska vi kontakta dig.**
 
-2. Välj **Använd verifierings kod** från den plats där **du vill använda mobilappen** och välj sedan **Konfigurera**.
+2. Välj **Använd verifieringskod** från **området Hur vill du använda området för mobilapp** och välj sedan **Konfigurera**.
 
-    ![Sidan ytterligare säkerhets verifiering med alternativ för mobilapp och meddelanden](media/multi-factor-authentication-verification-methods/multi-factor-authentication-auth-app-verification-code.png)
+    ![Ytterligare säkerhetsverifieringssida med mobilapp och meddelandealternativ](media/multi-factor-authentication-verification-methods/multi-factor-authentication-auth-app-verification-code.png)
 
     Sidan **Konfigurera mobilapp** visas.
 
     ![Skärm som tillhandahåller QR-koden](media/multi-factor-authentication-verification-methods/multi-factor-authentication-auth-app-barcode.png)
 
-3. Öppna appen Microsoft Authenticator, Välj **Lägg till konto** från ikonen **Anpassa och kontrol lera** längst upp till höger och välj sedan arbets- **eller skol konto**.
+3. Öppna Microsoft Authenticator-appen, välj **Lägg till konto** i ikonen Anpassa och **kontrollera** längst upp till höger och välj sedan **Arbets- eller skolkonto**.
 
     >[!Note]
-    >Om det här är första gången du konfigurerar Microsoft Authenticator-appen kan du få en fråga om du vill tillåta att appen får åtkomst till kameran (iOS) eller tillåter att appen tar bilder och spelar in video (Android). Du måste välja **Tillåt** så att Authenticator-appen kan komma åt kameran för att ta en bild av QR-koden i nästa steg. Om du inte tillåter kameran kan du fortfarande konfigurera Authenticator-appen, men du måste lägga till kod informationen manuellt. Information om hur du lägger till koden manuellt finns i se [lägga till ett konto manuellt i appen](user-help-auth-app-add-account-manual.md).
+    >Om det är första gången du konfigurerar Microsoft Authenticator-appen kan du få en uppmaning om du vill tillåta appen att komma åt kameran (iOS) eller låta appen ta bilder och spela in video (Android). Du måste välja **Tillåt** så att autentiseringsappen kan komma åt kameran för att ta en bild av QR-koden i nästa steg. Om du inte tillåter kameran kan du fortfarande konfigurera autentiseringsappen, men du måste lägga till kodinformationen manuellt. Information om hur du lägger till koden manuellt finns i [Lägg till ett konto manuellt i appen](user-help-auth-app-add-account-manual.md).
 
-4. Använd enhetens kamera för att skanna QR-koden från skärmen **Konfigurera mobilappen** på datorn och välj sedan **Nästa**.
+4. Använd enhetens kamera för att skanna QR-koden från skärmen **Konfigurera mobilapp** på datorn och välj sedan **Nästa**.
 
-5. Gå tillbaka till datorn och sidan **ytterligare säkerhets verifiering** , se till att du får meddelandet som säger att konfigurationen lyckades och välj sedan **Nästa**.
+5. Gå tillbaka till datorn och sidan **Ytterligare säkerhetsverifiering,** se till att du får meddelandet som säger att konfigurationen lyckades och välj sedan **Nästa**.
 
-    ![Sidan ytterligare säkerhets verifiering, med meddelande om lyckad](media/multi-factor-authentication-verification-methods/multi-factor-authentication-auth-app-verification-confirm.png)
+    ![Ytterligare säkerhetsverifieringssida med meddelande om lyckad](media/multi-factor-authentication-verification-methods/multi-factor-authentication-auth-app-verification-confirm.png)
 
-    Authenticator-appen ber om en verifierings kod som ett test.
+    Autentiseringsappen ber om en verifieringskod som ett test.
 
-6. Från Microsoft Authenticator-appen rullar du ned till ditt arbets-eller skol konto, kopierar och klistrar in den 6-siffriga koden från appen i **steg 2: Ange verifierings koden i rutan mobilapp** på datorn och välj sedan **Verifiera**.
+6. Bläddra ned till ditt arbets- eller skolkonto i Appen Microsoft Authenticator, kopiera och klistra in den sexsiffriga koden från appen i **steg 2: Ange verifieringskoden från mobilappsrutan** på datorn och välj sedan **Verifiera**.
 
-    ![Sidan ytterligare säkerhets verifiering, med verifierings kod test](media/multi-factor-authentication-verification-methods/multi-factor-authentication-auth-app-verification-test.png)
+    ![Ytterligare säkerhetsverifieringssida med test av verifieringskod](media/multi-factor-authentication-verification-methods/multi-factor-authentication-auth-app-verification-test.png)
 
-7. På din dator lägger du till din mobilen hets telefonnummer i **steg 3: om du förlorar åtkomsten till modulen mobilapp** och väljer sedan **Nästa**.
+7. Lägg till mobiltelefonnumret för din mobila enhet i **steg 3: Om du förlorar åtkomsten till mobilappsområdet** och sedan väljer **Nästa**.
 
-    Vi rekommenderar starkt att du lägger till mobilen hets telefonnumret för att fungera som en säkerhets kopia om du inte kan komma åt eller använda mobilappen av någon anledning.
+    Vi rekommenderar starkt att du lägger till ditt mobiltelefonnummer för att fungera som en säkerhetskopia om du av någon anledning inte kan komma åt eller använda mobilappen.
 
-8. I **steg 4: Fortsätt att använda dina befintliga program** , kopierar du det angivna applösenord och klistrar in det på en säker plats.
+8. Från **steg 4: Fortsätt att använda ditt befintliga programområde** kopierar du det medföljande applösenordet och klistrar in det på ett säkert ställe.
 
-    ![Plats för applösenord på sidan ytterligare säkerhets verifiering](media/multi-factor-authentication-verification-methods/multi-factor-authentication-app-passwords.png)
+    ![Området Applösenord på sidan Ytterligare säkerhetsverifiering](media/multi-factor-authentication-verification-methods/multi-factor-authentication-app-passwords.png)
 
     >[!Note]
-    >Information om hur du använder applösenord med dina äldre appar finns i [Hantera applösenord](multi-factor-authentication-end-user-app-passwords.md). Du behöver bara använda applösenord om du fortsätter att använda äldre appar som inte stöder tvåstegsverifiering.
+    >Information om hur du använder applösenordet med dina äldre appar finns i [Hantera applösenord](multi-factor-authentication-end-user-app-passwords.md). Du behöver bara använda applösenord om du fortsätter att använda äldre appar som inte stöder tvåfaktorsverifiering.
 
 9. Välj **Done** (Klar).
 
 ## <a name="next-steps"></a>Nästa steg
 
-När du har ställt in din metod för tvåfaktorautentisering kan du lägga till ytterligare metoder, hantera dina inställningar och applösenord, logga in eller få hjälp med några vanliga problem med att verifiera två faktorer.
+När du har konfigurerat din tvåfaktorsverifieringsmetod kan du lägga till ytterligare metoder, hantera inställningar och applösenord, logga in eller få hjälp med några vanliga tvåfaktorsverifieringsrelaterade problem.
 
-- [Hantera dina inställningar för verifierings metoden med två faktorer](multi-factor-authentication-end-user-manage-settings.md)
+- [Hantera inställningarna för tvåfaktorsverifieringsmetod](multi-factor-authentication-end-user-manage-settings.md)
 
 - [Hantera lösenord för appar](multi-factor-authentication-end-user-app-passwords.md)
 
-- [Logga in med tvåstegsverifiering](multi-factor-authentication-end-user-signin.md)
+- [Logga in med tvåfaktorsverifiering](multi-factor-authentication-end-user-signin.md)
 
-- [Få hjälp med tvåstegsverifiering](multi-factor-authentication-end-user-troubleshoot.md)
+- [Få hjälp med tvåfaktorsverifiering](multi-factor-authentication-end-user-troubleshoot.md)

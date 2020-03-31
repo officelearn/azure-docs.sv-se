@@ -1,6 +1,6 @@
 ---
-title: Hög tillgänglighet och belastnings utjämning – Azure AD-programproxy
-description: Hur trafik distribution fungerar med din Application Proxy-distribution. Innehåller tips för hur du optimerar anslutnings prestanda och använder belastnings utjämning för backend-servrar.
+title: Hög tillgänglighet och belastningsutjämning - Azure AD Application Proxy
+description: Så här fungerar trafikdistributionen med programproxydistributionen. Innehåller tips om hur du optimerar kontaktens prestanda och använder belastningsutjämning för backend-servrar.
 services: active-directory
 documentationcenter: ''
 author: msmimart
@@ -16,90 +16,90 @@ ms.author: mimart
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9add6ac30184d87ef50200c3ab944698a1a660f8
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 3202c2fbfedfce0b0b52be94b1e0d165a6e72546
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74275540"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79481321"
 ---
-# <a name="high-availability-and-load-balancing-of-your-application-proxy-connectors-and-applications"></a>Hög tillgänglighet och belastnings utjämning för dina Application Proxy-kopplingar och-program
+# <a name="high-availability-and-load-balancing-of-your-application-proxy-connectors-and-applications"></a>Hög tillgänglighet och belastningsutjämning av programproxyanslutningar och program
 
-Den här artikeln förklarar hur trafik distribution fungerar med din programproxy-distribution. Vi diskuterar:
+I den här artikeln beskrivs hur trafikdistribution fungerar med programproxydistributionen. Vi ska diskutera:
 
-- Hur trafiken fördelas mellan användare och anslutningar, tillsammans med tips för att optimera anslutnings prestanda
+- Hur trafiken fördelas mellan användare och kontakter, tillsammans med tips för att optimera anslutningsprestanda
 
-- Hur trafiken flödar mellan anslutningar och backend-AppData, med rekommendationer för belastnings utjämning mellan flera backend-servrar
+- Hur trafiken flödar mellan anslutningsappar och backend-appservrar, med rekommendationer för belastningsutjämning mellan flera backend-servrar
 
-## <a name="traffic-distribution-across-connectors"></a>Trafik distribution över anslutningar
+## <a name="traffic-distribution-across-connectors"></a>Trafikdistribution mellan anslutningar
 
-Anslutningar upprättar sina anslutningar baserat på principer för hög tillgänglighet. Det finns ingen garanti för att trafiken alltid fördelas jämnt mellan kopplingarna och att det inte finns någon sessions tillhörighet. Användningen varierar dock och begär Anden skickas slumpmässigt till Application Proxy Service-instanser. Det innebär att trafiken vanligt vis fördelas nästan jämnt över anslutningarna. Diagrammet och stegen nedan visar hur anslutningar upprättas mellan användare och anslutningar.
+Kopplingar upprättar sina anslutningar baserat på principer för hög tillgänglighet. Det finns ingen garanti för att trafiken alltid kommer att fördelas jämnt över kopplingar och det finns ingen sessionstillhörighet. Användningen varierar dock och begäranden skickas slumpmässigt till application proxy-tjänstinstanser. Därför fördelas trafiken vanligtvis nästan jämnt över kopplingarna. Diagrammet och stegen nedan illustrerar hur anslutningar upprättas mellan användare och kopplingar.
 
-![Diagram över anslutningar mellan användare och kopplingar](media/application-proxy-high-availability-load-balancing/application-proxy-connections.png)
+![Diagram som visar anslutningar mellan användare och kopplingar](media/application-proxy-high-availability-load-balancing/application-proxy-connections.png)
 
-1. En användare på en klient enhet försöker komma åt ett lokalt program som publicerats via programproxy.
-2. Begäran går via en Azure Load Balancer för att avgöra vilken Application Proxy-tjänstinstans som ska ta begäran. Per region finns det flera instanser av tillgängliga instanser att acceptera begäran. Den här metoden hjälper till att jämnt distribuera trafiken över tjänst instanserna.
+1. En användare på en klientenhet försöker komma åt ett lokalt program som publiceras via Programproxy.
+2. Begäran går via en Azure Load Balancer för att avgöra vilken application proxy-tjänstinstans som ska ta begäran. Per region finns det tiotals instanser tillgängliga för att acceptera begäran. Den här metoden hjälper till att fördela trafiken jämnt över tjänstinstanserna.
 3. Begäran skickas till [Service Bus](https://docs.microsoft.com/azure/service-bus-messaging/).
-4. Service Bus kontrollerar om anslutningen tidigare använde en befintlig koppling i anslutnings gruppen. I så fall återanvänder den anslutningen. Om ingen koppling är länkad till anslutningen ännu väljer den en tillgänglig anslutning som är slumpmässig för att signalera till. Anslutningen hämtar sedan begäran från Service Bus.
+4. Service Bus kontrollerar om anslutningen tidigare använde en befintlig anslutning i anslutningsgruppen. Om så är fallet återanvänds anslutningen. Om ingen kontakt är parkopplad med anslutningen ännu, väljer den en tillgänglig anslutning slumpmässigt att signalera till. Anslutningen hämtar sedan begäran från Service Bus.
 
-   - I steg 2 går förfrågningar till olika Application Proxy Service-instanser, så det är mer sannolikt att anslutningar görs med olika anslutningar. Därför är kopplingarna nästan jämnt använda i gruppen.
+   - I steg 2 går begäranden till olika application proxy-tjänstinstanser, så det är mer sannolikt att anslutningar görs med olika anslutningsappar. Som ett resultat används kopplingar nästan jämnt inom gruppen.
 
-   - En anslutning upprättas endast om anslutningen är bruten eller om en inaktiv period på 10 minuter inträffar. Till exempel kan anslutningen brytas när en dator eller anslutnings tjänst startas om eller om det uppstår ett nätverks avbrott.
+   - En anslutning återupprättas endast om anslutningen är bruten eller om en inaktiv period på 10 minuter inträffar. Anslutningen kan till exempel brytas när en dator eller anslutningstjänst startas om eller om det uppstår ett nätverksavbrott.
 
-5. Anslutningen skickar begäran till programmets backend-server. Sedan skickar programmet tillbaka svaret till anslutnings tjänsten.
-6. Anslutningen Slutför svaret genom att öppna en utgående anslutning till tjänst instansen varifrån begäran kom. Sedan stängs anslutningen omedelbart. Som standard är varje koppling begränsad till 200 samtidiga utgående anslutningar.
-7. Svaret skickas sedan tillbaka till klienten från tjänst instansen.
-8. Efterföljande förfrågningar från samma anslutning Upprepa stegen ovan tills den här anslutningen är bruten eller är inaktiv i 10 minuter.
+5. Anslutningen skickar begäran till programmets server för server för server för server för server med server för server med server för server. Sedan skickar programmet tillbaka svaret till kopplingen.
+6. Kopplingen slutför svaret genom att öppna en utgående anslutning till tjänstinstansen från den plats där begäran kom. Då stängs anslutningen omedelbart. Som standard är varje koppling begränsad till 200 samtidiga utgående anslutningar.
+7. Svaret skickas sedan tillbaka till klienten från tjänstinstansen.
+8. Efterföljande begäranden från samma anslutning upprepar stegen ovan tills anslutningen är bruten eller är inaktiv i 10 minuter.
 
-Ett program har ofta många resurser och öppnar flera anslutningar när de läses in. Varje anslutning går igenom stegen ovan för att bli allokerad till en tjänst instans, Välj en ny tillgänglig anslutning om anslutningen ännu inte har kopplats till en anslutning.
+Ett program har ofta många resurser och öppnar flera anslutningar när det läses in. Varje anslutning går igenom stegen ovan för att tilldelas en tjänstinstans, välj en ny tillgänglig anslutning om anslutningen ännu inte har parats ihop med en anslutning.
 
 
-## <a name="best-practices-for-high-availability-of-connectors"></a>Metod tips för hög tillgänglighet för anslutningar
+## <a name="best-practices-for-high-availability-of-connectors"></a>Metodtips för hög tillgänglighet av anslutningsappar
 
-- På grund av hur trafiken fördelas mellan anslutningar för hög tillgänglighet är det viktigt att alltid ha minst två kopplingar i en kopplings grupp. Tre kopplingar föredras för att ge ytterligare buffert mellan kopplingar. Om du vill fastställa rätt antal anslutningar som du behöver följer du dokumentation om kapacitets planering.
+- På grund av hur trafiken fördelas mellan kopplingar för hög tillgänglighet är det viktigt att alltid ha minst två kopplingar i en kopplingsgrupp. Tre kopplingar är att föredra för att tillhandahålla ytterligare buffert mellan kopplingar. Om du vill ta reda på hur många kopplingar du behöver följer du dokumentationen för kapacitetsplanering.
 
-- Placera anslutningar på olika utgående anslutningar för att undvika en enskild felpunkt. Om anslutningar använder samma utgående anslutning kan ett nätverks problem med anslutningen påverka alla anslutningar som använder den.
+- Placera kopplingar på olika utgående anslutningar för att undvika en enda felpunkt. Om anslutningsapparna använder samma utgående anslutning kan ett nätverksproblem med anslutningen påverka alla anslutningsappar som använder den.
 
-- Undvik att tvinga anslutningar att starta om när du är ansluten till produktions program. Om du gör det kan det påverka spridningen av trafik mellan kopplingarna. Att starta om anslutningar gör att fler anslutningar blir otillgängliga och tvingar fram anslutningar till den återstående tillgängliga anslutningen. Resultatet är en ojämn användning av anslutningarna från början.
+- Undvik att tvinga kopplingar att starta om när de är anslutna till produktionsprogram. Om du gör det kan det påverka fördelningen av trafiken negativt mellan kopplingar. Om du startar om kopplingarna kan fler kopplingar vara otillgängliga och anslutningar till den återstående tillgängliga kopplingen. Resultatet är en ojämn användning av kontakterna inledningsvis.
 
-- Undvik alla former av infogad kontroll på utgående TLS-kommunikation mellan anslutningar och Azure. Den här typen av inskriven granskning orsakar försämring av kommunikations flödet.
+- Undvik alla former av infogad inspektion på utgående TLS-kommunikation mellan anslutningar och Azure. Denna typ av inline inspektion orsakar försämring av kommunikationsflödet.
 
-- Se till att behålla automatiska uppdateringar som körs för dina anslutningar. Om programproxyn Connector Updater tjänsten körs uppdateras dina anslutningar automatiskt och tar emot den senaste uppgraderingen. Om du inte ser Connector Updater-tjänsten på servern måste du installera om anslutningen för att få några uppdateringar.
+- Se till att automatiska uppdateringar körs för dina kontakter. Om tjänsten Application Proxy Connector Updater körs uppdateras anslutningsapparna automatiskt och tar emot den senaste uppgraderade. Om du inte ser tjänsten Anslutningsuppdatering på servern måste du installera om kopplingen för att få uppdateringar.
 
-## <a name="traffic-flow-between-connectors-and-back-end-application-servers"></a>Trafikflöde mellan anslutningar och Server dels program servrar
+## <a name="traffic-flow-between-connectors-and-back-end-application-servers"></a>Trafikflöde mellan kopplingar och backend-programservrar
 
-En annan viktig yta där hög tillgänglighet är en faktor är anslutningen mellan anslutningar och backend-servrar. När ett program publiceras via Azure AD-programproxy flödar trafiken från användarna till programmen genom tre hopp:
+Ett annat nyckelområde där hög tillgänglighet är en faktor är anslutningen mellan kopplingar och backend-servrar. När ett program publiceras via Azure AD Application Proxy flödar trafiken från användarna till programmen via tre hopp:
 
-1. Användaren ansluter till den offentliga Azure AD-programproxy-tjänstens offentliga slut punkt på Azure. Anslutningen upprättas mellan klientens ursprungliga IP-adress (offentlig) och IP-adressen för programproxyns slut punkt.
-2. Application Proxy Connector hämtar HTTP-begäran för klienten från Application Proxy-tjänsten.
-3. Application Proxy Connector ansluter till mål programmet. Anslutnings tjänsten använder sin egen IP-adress för att upprätta anslutningen.
+1. Användaren ansluter till azure AD Application Proxy-tjänstens offentliga slutpunkt på Azure. Anslutningen upprättas mellan klientens ursprungs-IP-adress (offentlig) och IP-adressen för slutpunkten Programproxy.
+2. Application Proxy-anslutningen hämtar HTTP-begäran för klienten från application proxy-tjänsten.
+3. Application Proxy-anslutningen ansluter till målprogrammet. Anslutningen använder sin egen IP-adress för att upprätta anslutningen.
 
-![Diagram över användare som ansluter till ett program via programproxy](media/application-proxy-high-availability-load-balancing/application-proxy-three-hops.png)
+![Diagram över användare som ansluter till ett program via Application Proxy](media/application-proxy-high-availability-load-balancing/application-proxy-three-hops.png)
 
-### <a name="x-forwarded-for-header-field-considerations"></a>X-vidarebefordrad – för rubrik fälts överväganden
-I vissa situationer (t. ex. granskning, belastnings utjämning osv.) är det ett krav att dela den externa klientens ursprungliga IP-adress med den lokala miljön. För att lösa kravet lägger Azure AD-programproxy Connector till det X-vidarebefordrade – för huvud fältet med den ursprungliga klientens IP-adress (offentlig) till HTTP-begäran. Lämplig nätverks enhet (belastningsutjämnare, brand vägg) eller webb server eller Server dels program kan sedan läsa och använda informationen.
+### <a name="x-forwarded-for-header-field-considerations"></a>X-Vidarebefordrade-För huvudfält överväganden
+I vissa situationer (som granskning, belastningsutjämning etc.), dela den ursprungliga IP-adressen för den externa klienten med den lokala miljön är ett krav. För att åtgärda kravet lägger Azure AD Application Proxy-anslutning till fältet X-Forwarded-For-huvud med den ursprungliga klient-IP-adressen (offentlig) i HTTP-begäran. Lämplig nätverksenhet (belastningsutjämnare, brandvägg) eller webbservern eller backend-programmet kan sedan läsa och använda informationen.
 
-## <a name="best-practices-for-load-balancing-among-multiple-app-servers"></a>Metod tips för belastnings utjämning mellan flera App-servrar
-När kopplings gruppen som är tilldelad till Application Proxy-programmet har två eller fler anslutningar och du kör backend-webbprogrammet på flera servrar (Server grupp) krävs en bra belastnings Utjämnings strategi. En lämplig strategi garanterar att servrar hämtar klient begär Anden jämnt och förhindrar över-eller under användningen av servrar i Server gruppen.
-### <a name="scenario-1-back-end-application-does-not-require-session-persistence"></a>Scenario 1: backend-appen kräver inte sessions-persistence
-Det enklaste scenariot är att Server delens webb program inte kräver session varaktighet (persistence). Alla begär Anden från användaren kan hanteras av alla program instanser i Server gruppen. Du kan använda en Layer 4-belastningsutjämnare och konfigurera den utan tillhörighet. Vissa alternativ är Microsoft NLB (utjämning av nätverks belastning) och Azure Load Balancer eller en belastningsutjämnare från en annan leverantör. Alternativt kan du konfigurera resursallokering med DNS.
-### <a name="scenario-2-back-end-application-requires-session-persistence"></a>Scenario 2: backend-program kräver överpersists av sessionen
-I det här scenariot kräver backend-webbprogrammet session varaktighet (persistence) under den autentiserade sessionen. Alla begär Anden från användaren måste hanteras av Server dels program instansen som körs på samma server i Server gruppen.
-Det här scenariot kan vara mer komplicerat eftersom klienten vanligt vis upprättar flera anslutningar till Application Proxy-tjänsten. Förfrågningar över olika anslutningar kan komma från olika anslutningar och servrar i Server gruppen. Eftersom varje anslutning använder sin egen IP-adress för den här kommunikationen kan belastningsutjämnaren inte garantera varaktighet baserat på anslutningarnas IP-adress. Källans IP-tillhörighet kan inte användas.
-Här följer några alternativ för scenario 2:
+## <a name="best-practices-for-load-balancing-among-multiple-app-servers"></a>Metodtips för belastningsutjämning mellan flera appservrar
+När anslutningsgruppen som har tilldelats programmet Application Proxy har två eller flera kopplingar och du kör backend-webbprogrammet på flera servrar (servergrupp), krävs en bra strategi för belastningsutjämning. En bra strategi säkerställer att servrar plockar upp klientbegäranden jämnt och förhindrar över- eller underutnyttjande av servrar i servergruppen.
+### <a name="scenario-1-back-end-application-does-not-require-session-persistence"></a>Scenario 1: Backend-program kräver inte sessionsbeständighet
+Det enklaste scenariot är där backend-webbprogrammet inte kräver sessionss klibbighet (sessionsbeständighet). Alla förfrågningar från användaren kan hanteras av alla backend-programinstanser i servergruppen. Du kan använda en belastningsutjämnare för lager 4 och konfigurera den utan tillhörighet. Några alternativ är Microsoft Network Load Balancing och Azure Load Balancer eller en belastningsutjämnare från en annan leverantör. Alternativt kan round-robin DNS konfigureras.
+### <a name="scenario-2-back-end-application-requires-session-persistence"></a>Scenario 2: Backend-program kräver sessionsbeständighet
+I det här fallet kräver backend-webbprogrammet sessionssenighet (sessionsbeständighet) under den autentiserade sessionen. Alla begäranden från användaren måste hanteras av backend-programinstansen som körs på samma server i servergruppen.
+Det här scenariot kan vara mer komplicerat eftersom klienten vanligtvis upprättar flera anslutningar till application proxy-tjänsten. Begäranden via olika anslutningar kan komma fram till olika anslutningsappar och servrar i servergruppen. Eftersom varje anslutning använder sin egen IP-adress för den här kommunikationen kan belastningsutjämnaren inte säkerställa sessionss klibbighet baserat på kopplingarnas IP-adress. Käll-IP-tillhörighet kan inte heller användas.
+Här är några alternativ för scenario 2:
 
-- Alternativ 1: basera sessionen på en sessions-cookie som angetts av belastningsutjämnaren. Det här alternativet rekommenderas eftersom belastningen kan spridas jämnt mellan backend-servrarna. Den kräver en Layer 7-belastningsutjämnare med den här funktionen och kan hantera HTTP-trafiken och avsluta SSL-anslutningen. Du kan använda Azure Application Gateway (tillhörighet mellan sessioner) eller en belastningsutjämnare från en annan leverantör.
+- Alternativ 1: Basera sessionens persistens på en sessionscookie som ställts in av belastningsutjämnaren. Det här alternativet rekommenderas eftersom det gör att belastningen kan spridas jämnare mellan backend-servrarna. Det kräver en nivå 7 belastningsutjämnare med den här funktionen och som kan hantera HTTP-trafik och avsluta TLS-anslutningen. Du kan använda Azure Application Gateway (Sessionstillhörighet) eller en belastningsutjämnare från en annan leverantör.
 
-- Alternativ 2: basera sessionen på det X-vidarebefordrade – för huvud fältet. Det här alternativet kräver en Layer 7-belastningsutjämnare med den här funktionen och som kan hantera HTTP-trafiken och avsluta SSL-anslutningen.  
+- Alternativ 2: Basera sessionens persistens på fältet X-Forwarded-For-huvud. Det här alternativet kräver en belastningsutjämnare för layer 7 med den här funktionen och som kan hantera HTTP-trafiken och avsluta TLS-anslutningen.  
 
-- Alternativ 3: Konfigurera backend-programmet så att det inte kräver sessionens persistence.
+- Alternativ 3: Konfigurera backend-programmet så att det inte kräver sessionsbeständighet.
 
-Läs program varu leverantörens dokumentation för att förstå belastnings Utjämnings kraven för backend-programmet.
+Se programvaruleverantörens dokumentation för att förstå belastningsutjämningskraven för backend-programmet.
 
 ## <a name="next-steps"></a>Nästa steg
 
 - [Aktivera programproxy](application-proxy-add-on-premises-application.md)
 - [Aktivera enkel inloggning](application-proxy-configure-single-sign-on-with-kcd.md)
 - [Aktivera villkorlig åtkomst](application-proxy-integrate-with-sharepoint-server.md)
-- [Felsök problem med Application Proxy](application-proxy-troubleshoot.md)
-- [Lär dig hur Azure AD-arkitekturen stöder hög tillgänglighet](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-architecture)
+- [Felsöka problem med Application Proxy](application-proxy-troubleshoot.md)
+- [Lär dig hur Azure AD-arkitekturen har hög tillgänglighet](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-architecture)

@@ -1,7 +1,7 @@
 ---
-title: Lägg till en hierarki för en hierarki med en navigerings kategori
+title: Lägga till en fasterad navigeringskategorihierarki
 titleSuffix: Azure Cognitive Search
-description: Lägg till fasett navigering för självriktad filtrering i Sök program som integreras med Azure Kognitiv sökning.
+description: Lägg till fasterad navigering för självstyrd filtrering i sökprogram som integreras med Azure Cognitive Search.
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
@@ -9,109 +9,109 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: 5f4435ca213584fff84f3ddad9bda6f7e06628a1
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79283165"
 ---
-# <a name="how-to-implement-faceted-navigation-in-azure-cognitive-search"></a>Implementera fasettisk navigering i Azure Kognitiv sökning
+# <a name="how-to-implement-faceted-navigation-in-azure-cognitive-search"></a>Implementera fasterad navigering i Azure Cognitive Search
 
-Fasettisk navigering är en filtrerings funktion som ger självriktad detalj nivå navigering i Sök program. Termen "fasettisk navigering" kan vara okänd, men du har förmodligen använt det tidigare. I följande exempel visas en fasettisk navigering som inte är mer än de kategorier som används för att filtrera resultat.
+Fasterad navigering är en filtreringsmekanism som ger självstyrd navigering i detaljgranskning i sökprogram. Termen "fasterad navigering" kan vara obekant, men du har förmodligen använt den tidigare. Som följande exempel visar är fakterad navigering inget annat än de kategorier som används för att filtrera resultat.
 
- ![Demo om Azure Kognitiv sökning-jobb portalen](media/search-faceted-navigation/azure-search-faceting-example.png "Demo om Azure Kognitiv sökning-jobb portalen")
+ ![Demonstration av Azure Cognitive Search Job Portal](media/search-faceted-navigation/azure-search-faceting-example.png "Demonstration av Azure Cognitive Search Job Portal")
 
-Fasettisk navigering är en alternativ Start punkt att söka i. Det finns ett bekvämt alternativ för att skriva komplexa Sök uttryck. Ansikte kan hjälpa dig att hitta det du söker, samtidigt som du ser till att du inte får noll resultat. Som utvecklare kan du med hjälp av ansikts Visa de mest användbara Sök kriterierna för att navigera i Sök indexet. I återförsäljar-program är fasett-navigering ofta byggd över varumärken, avdelningar (barns skor), storlek, pris, popularitet och klassificering. 
+Fastrade navigering är en alternativ startpunkt för sökning. Det erbjuder ett bekvämt alternativ till att skriva komplexa sökuttryck för hand. Aspekter kan hjälpa dig att hitta det du letar efter, samtidigt som du ser till att du inte får noll resultat. Som utvecklare kan du med aspekter visa de mest användbara sökvillkoren för att navigera i sökindexet. I online detaljhandeln applikationer, fasterad navigering är ofta byggd över varumärken, avdelningar (barnens skor), storlek, pris, popularitet och betyg. 
 
-Implementering av aspekt navigering skiljer sig mellan Sök teknik. I Azure Kognitiv sökning skapas fasettisk navigering vid tid med fält som du tidigare har attributat i schemat.
+Implementering av fasterad navigering skiljer sig åt mellan sökteknik. I Azure Cognitive Search skapas fasterad navigering vid frågetid med hjälp av fält som du tidigare har tillskrivit i schemat.
 
--   I de frågor som ditt program skapar måste en fråga skicka *fasett-frågeparametrar* för att hämta de tillgängliga aspekt filter värdena för dokument resultat uppsättningen.
+-   I de frågor som programmet skapar måste en fråga skicka *fasettfrågeparametrar* för att få de tillgängliga aspektfiltervärdena för den dokumentresultatuppsättningen.
 
--   Om du vill trimma dokumentets resultat uppsättning måste programmet också använda ett `$filter`-uttryck.
+-   Om du vill trimma dokumentresultatuppsättningen måste `$filter` programmet också använda ett uttryck.
 
-I din program utveckling kan du skriva kod som konstruerar frågor utgör arbets delen. Många av de program beteenden som du förväntar dig från en aspektad navigering tillhandahålls av tjänsten, inklusive inbyggt stöd för att definiera intervall och för att räkna antalet aspekt resultat. Tjänsten innehåller också lämpliga-standardvärden som hjälper dig att undvika svårhanterligt navigerings strukturer. 
+I programutvecklingen utgör att skriva kod som konstruerar frågor huvuddelen av arbetet. Många av de programbeteenden som du förväntar dig av aspektbaserad navigering tillhandahålls av tjänsten, inklusive inbyggt stöd för att definiera intervall och få räknas för fasettresultat. Tjänsten innehåller också förnuftiga standardvärden som hjälper dig att undvika otympliga navigeringsstrukturer. 
 
-## <a name="sample-code-and-demo"></a>Exempel kod och demo
-I den här artikeln används en jobb Sök portal som exempel. Exemplet implementeras som ett ASP.NET MVC-program.
+## <a name="sample-code-and-demo"></a>Exempelkod och demo
+I den här artikeln används en jobbsökningsportal som ett exempel. Exemplet implementeras som ett ASP.NET MVC-program.
 
-- Se och testa arbets demon online på [Azure kognitiv sökning Job Portal-demon](https://aka.ms/azjobsdemo).
+- Se och testa den fungerande demon online på [Azure Cognitive Search Job Portal Demo](https://aka.ms/azjobsdemo).
 
-- Ladda ned koden från [Azure-samples-lagrings platsen på GitHub](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs).
+- Hämta koden från [reporäntan för Azure-Samples på GitHub](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs).
 
-## <a name="get-started"></a>Kom igång
-Om du inte har använt söknings utvecklingen på bästa sätt är det bästa sättet att tänka på den, och det visar möjligheterna för självriktad sökning. Det är en typ av detaljerad Sök upplevelse, baserat på fördefinierade filter, som används för att snabbt begränsa Sök resultaten genom att peka och klicka. 
+## <a name="get-started"></a>Komma igång
+Om du är ny på sökutveckling, är det bästa sättet att tänka på fasterad navigering att det visar möjligheterna till självstyrd sökning. Det är en typ av sökupplevelse för detaljgranskning, baserat på fördefinierade filter, som används för att snabbt begränsa sökresultaten genom peka-och-klicka-åtgärder. 
 
-### <a name="interaction-model"></a>Interaktions modell
+### <a name="interaction-model"></a>Interaktionsmodell
 
-Sök upplevelsen för den fasettiska navigeringen är iterativ, så vi börjar med att förstå det som en sekvens av frågor som Unfold som svar på användar åtgärder.
+Sökupplevelsen för fasterad navigering är iterativ, så låt oss börja med att förstå det som en sekvens av frågor som utvecklas som svar på användaråtgärder.
 
-Start punkten är en program sida som tillhandahåller fasett-navigering, vanligt vis placerad på omkretsen. Fasett-navigering är ofta en träd struktur med kryss rutor för varje värde eller text som kan klickas. 
+Utgångspunkten är en programsida som ger aspektig navigering, vanligtvis placerad i periferin. Fasterad navigering är ofta en trädstruktur, med kryssrutor för varje värde eller klickbar text. 
 
-1. En fråga som skickas till Azure Kognitiv sökning anger den fasettiska navigerings strukturen via en eller flera aspekt parametrar. Frågan kan till exempel innehålla `facet=Rating`, kanske med ett `:values` eller `:sort` alternativ för att ytterligare förfina presentationen.
-2. Presentations lagret återger en Sök sida som ger en fasett-navigering med hjälp av de fasetter som anges i begäran.
-3. Om du har en aspektad navigerings struktur som innehåller klassificering klickar du på "4" för att visa att endast produkter med en klassificering på 4 eller högre ska visas. 
-4. Som svar skickar programmet en fråga som innehåller `$filter=Rating ge 4` 
-5. Presentations lagret uppdaterar sidan med en reducerad resultat uppsättning som innehåller bara de objekt som uppfyller de nya villkoren (i det här fallet produkter som klassats 4 och uppåt).
+1. En fråga som skickas till Azure Cognitive Search anger den fasterade navigeringsstrukturen via en eller flera fastfrågaparametrar. Frågan kan till exempel `facet=Rating`innehålla , `:values` `:sort` kanske med ett eller alternativ för att ytterligare förfina presentationen.
+2. Presentationslagret återger en söksida som ger aspektig navigering med hjälp av de aspekter som anges på begäran.
+3. Med tanke på en fasterad navigeringsstruktur som inkluderar Betyg klickar du på "4" för att ange att endast produkter med en klassificering på 4 eller högre ska visas. 
+4. Som svar skickar programmet en fråga som innehåller`$filter=Rating ge 4` 
+5. Presentationslagret uppdaterar sidan och visar en reducerad resultatuppsättning som bara innehåller de objekt som uppfyller de nya kriterierna (i det här fallet produkter med klassat 4 och uppåt).
 
-En aspekt är en frågeparameter, men den kan inte förväxla den med frågans ingångar. Den används aldrig som urvals villkor i en fråga. Tänk i stället på fasett-frågeparametrar som indata till navigerings strukturen som kommer tillbaka i svaret. För varje aspekt-frågeparameter som du anger, utvärderar Azure Kognitiv sökning hur många dokument som finns i de partiella resultaten för varje fasett-värde.
+En aspekt är en frågeparameter, men förväxla den inte med frågeindata. Det används aldrig som urvalskriterier i en fråga. Tänk i stället på aspektfrågeparametrar som indata till navigeringsstrukturen som kommer tillbaka i svaret. För varje aspektfrågasparameter som du anger utvärderar Azure Cognitive Search hur många dokument som är i delresultaten för varje nominellt värde.
 
-Lägg märke till `$filter` i steg 4. Filtret är en viktig aspekt av en aspektad navigering. Även om ansikts och filter är oberoende av API: et, behöver du båda för att leverera den upplevelse som du har tänkt. 
+Lägg `$filter` märke till i steg 4. Filtret är en viktig aspekt av fasterad navigering. Även om faser och filter är oberoende i API: et, måste du både leverera den erfarenhet du tänker. 
 
-### <a name="app-design-pattern"></a>Design mönster för appen
+### <a name="app-design-pattern"></a>Mönster för appdesign
 
-I program kod är mönstret att använda fasett-frågeparametrar för att returnera den fasettiska navigerings strukturen tillsammans med fasett-resultat plus ett $filter-uttryck.  Filter uttrycket hanterar händelsen klickning på fasett svärdet. Tänk på `$filter`-uttrycket som koden bakom den faktiska trimningen av Sök resultat som returneras till presentations lagret. Med en palett med färger, klickar du på den röda färgen implementeras genom ett `$filter` uttryck som bara väljer de objekt som har en röd färg. 
+I programkoden är mönstret att använda fatfrågeparametrar för att returnera den fastrade navigeringsstrukturen tillsammans med fastresultat, plus ett $filter uttryck.  Filteruttrycket hanterar klickhändelsen på fasningsvärdet. Tänk på `$filter` uttrycket som koden bakom den faktiska trimningen av sökresultat som returneras till presentationslagret. Med tanke på en färgastektiv implementeras `$filter` färgen Röd genom ett uttryck som bara markerar de objekt som har en röd färg. 
 
-### <a name="query-basics"></a>Grundläggande frågor
+### <a name="query-basics"></a>Grunderna i fråga
 
-I Azure Kognitiv sökning anges en begäran via en eller flera frågeparametrar (se [Sökdokumenten](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) för en beskrivning av var och en). Ingen av frågeparametrar krävs, men du måste ha minst en för att en fråga ska vara giltig.
+I Azure Cognitive Search anges en begäran via en eller flera frågeparametrar (se [Sökdokument](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) för en beskrivning av var och en). Ingen av frågeparametrarna krävs, men du måste ha minst en för att en fråga ska vara giltig.
 
-Precision, som tolkas som möjligheten att filtrera bort irrelevanta träffar, uppnås genom ett eller båda dessa uttryck:
+Precision, förstås som förmågan att filtrera bort irrelevanta träffar, uppnås genom ett eller båda av dessa uttryck:
 
--   **Sök =**  
-    Värdet för den här parametern utgör Sök uttrycket. Det kan vara ett enda texts tycke eller ett komplext Sök uttryck som innehåller flera termer och operatorer. På-servern används ett Sök uttryck för full texts ökning, frågor i sökbara fält i indexet för matchande villkor, vilket returnerar resultat i rangordnings ordning. Om du anger `search` till null är frågekörningen över hela indexet (det vill säga `search=*`). I det här fallet är andra element i frågan, till exempel en `$filter` eller bedömnings profil, de viktigaste faktorer som påverkar vilka dokument som returneras `($filter`) och i vilken ordning (`scoringProfile` eller `$orderby`).
+-   **sök=**  
+    Värdet för den här parametern utgör sökuttrycket. Det kan vara en enda text, eller ett komplext sökuttryck som innehåller flera termer och operatorer. På servern används ett sökuttryck för fulltextsökning, frågar sökbara fält i indexet för matchande termer, returnerar resultat i rangordning. Om du `search` ställer in på null är frågekörningen `search=*`över hela indexet (d.v.s. ). I det här fallet är andra element `$filter` i frågan, till exempel en eller `($filter`poängsättningsprofil,`scoringProfile` de `$orderby`primära faktorer som påverkar vilka dokument som returneras ) och i vilken ordning ( eller ).
 
--   **$filter =**  
-    Ett filter är en kraftfull mekanism för att begränsa storleken på Sök resultat baserat på värdena för vissa dokumentattribut. En `$filter` utvärderas först, följt av aspekt logiken som genererar de tillgängliga värdena och motsvarande antal för varje värde
+-   **$filter=**  
+    Ett filter är en kraftfull mekanism för att begränsa storleken på sökresultaten baserat på värdena för specifika dokumentattribut. A `$filter` utvärderas först, följt av fasningslogik som genererar tillgängliga värden och motsvarande antal för varje värde
 
-Komplexa Sök uttryck minskar frågans prestanda. Om möjligt kan du använda välkända filter uttryck för att öka precisionen och förbättra frågans prestanda.
+Komplexa sökuttryck minskar frågans prestanda. Använd om möjligt välkonstruerade filteruttryck för att öka precisionen och förbättra frågeprestanda.
 
-För att bättre förstå hur ett filter lägger till mer precision, jämför ett komplext Sök uttryck till ett som innehåller ett filter uttryck:
+Om du bättre vill förstå hur ett filter lägger till mer precision kan du jämföra ett komplext sökuttryck med ett som innehåller ett filteruttryck:
 
 -   `GET /indexes/hotel/docs?search=lodging budget +Seattle –motel +parking`
 -   `GET /indexes/hotel/docs?search=lodging&$filter=City eq 'Seattle' and Parking and Type ne 'motel'`
 
-Båda frågorna är giltiga, men den andra är överlägsen om du söker efter icke-Motels med parkering i Seattle.
--   Den första frågan är beroende av de ord som nämns eller som inte nämns i sträng fält som namn, beskrivning och andra fält som innehåller sökbara data.
--   Den andra frågan söker efter exakta matchningar på strukturerade data och är förmodligen mycket mer exakt.
+Båda frågorna är giltiga, men den andra är överlägsen om du letar efter icke-motell med parkering i Seattle.
+-   Den första frågan bygger på att de specifika ord som nämns eller inte nämns i strängfält som Namn, Beskrivning och alla andra fält som innehåller sökbara data.
+-   Den andra frågan letar efter exakta matchningar på strukturerade data och kommer sannolikt att vara mycket mer exakt.
 
-Se till att varje användar åtgärd över en fasett-navigerings struktur åtföljs av en begränsning av Sök resultaten i program som innehåller fasett-navigering. Använd ett filter uttryck för att begränsa resultaten.
+I program som innehåller fasterad navigering kontrollerar du att varje användaråtgärd över en fasterad navigeringsstruktur åtföljs av en förträngning av sökresultaten. Om du vill begränsa resultaten använder du ett filteruttryck.
 
 <a name="howtobuildit"></a>
 
-## <a name="build-a-faceted-navigation-app"></a>Bygg en aspekt av en webbapp
-Du implementerar en aspektad navigering med Azure Kognitiv sökning i din program kod som skapar Sök förfrågan. Den fasettiska navigeringen är beroende av element i schemat som du definierade tidigare.
+## <a name="build-a-faceted-navigation-app"></a>Skapa en fasterad navigeringsapp
+Du implementerar fasterad navigering med Azure Cognitive Search i din programkod som skapar sökbegäran. Den fasterade navigeringen är beroende av element i schemat som du definierade tidigare.
 
-Fördefinierat i ditt sökindex är attributet `Facetable [true|false]` index, ange på valda fält för att aktivera eller inaktivera användningen i en fasett-navigerings struktur. Utan `"Facetable" = true`kan ett fält inte användas i aspekt navigering.
+Fördefinierad i sökindexet `Facetable [true|false]` är indexattributet, som anges på valda fält för att aktivera eller inaktivera deras användning i en aspektad navigeringsstruktur. Utan `"Facetable" = true`kan ett fält inte användas i aspektnavigering.
 
-Presentations lagret i din kod ger användar upplevelsen. Den ska visa en lista över delarna i den fasetten navigeringen, till exempel etikett, värden, kryss rutor och antalet. Azure Kognitiv sökning REST API är plattforms oberoende, så Använd det språk och den plattform som du vill använda. Det viktiga är att inkludera GRÄNSSNITTs element som stöder stegvis uppdatering, med uppdaterat GRÄNSSNITTs tillstånd som varje ytterligare aspekt är markerat. 
+Presentationslagret i koden ger användarupplevelsen. Den bör lista de ingående delarna av den fasterade navigeringen, till exempel etikett, värden, kryssrutor och antalet. Azure Cognitive Search REST API är plattformsoberoende, så använd vilket språk och vilken plattform du vill. Det viktiga är att inkludera gränssnittselement som stöder inkrementell uppdatering, med uppdaterat gränssnittstillstånd när varje ytterligare aspekt väljs. 
 
-Vid tidpunkten skapar din program kod en begäran som innehåller `facet=[string]`, en parameter för begäran som ger fältet att fasetta. En fråga kan ha flera facets, till exempel `&facet=color&facet=category&facet=rating`, var och en avgränsade med ett et-tecken (&).
+Vid frågetillfället skapar programkoden en `facet=[string]`begäran som innehåller en begäranparameter som ger fältet att aspekt av. En fråga kan ha flera aspekter, till exempel `&facet=color&facet=category&facet=rating`, var och en avgränsad med ett et-tecken (&).
 
-Program koden måste också skapa ett `$filter`-uttryck som hanterar klicknings händelserna i en fasett-navigering. Ett `$filter` minskar Sök resultaten med hjälp av fasett-värdet som filter villkor.
+Programkoden måste också `$filter` skapa ett uttryck för att hantera klickhändelser i aspektad navigering. A `$filter` minskar sökresultaten med hjälp av det nominella värdet som filtervillkor.
 
-Azure Kognitiv sökning returnerar Sök resultaten baserat på en eller flera villkor som du anger, tillsammans med uppdateringar av den fasettiska navigerings strukturen. I Azure Kognitiv sökning är den fasettiska navigeringen en konstruktion med en nivå med aspekt värden och antalet hur många resultat som finns för var och en av dem.
+Azure Cognitive Search returnerar sökresultaten, baserat på ett eller flera termer som du anger, tillsammans med uppdateringar av den fasterade navigeringsstrukturen. I Azure Cognitive Search är fasterad navigering en konstruktion på en nivå, med aspektvärden, och räknar med hur många resultat som hittas för var och en.
 
-I följande avsnitt tar vi en närmare titt på hur du skapar varje del.
+I följande avsnitt tar vi en närmare titt på hur man bygger varje del.
 
 <a name="buildindex"></a>
 
-## <a name="build-the-index"></a>Bygg indexet
-Fasettering har Aktiver ATS för ett fält-för-fält i indexet, via detta index-attribut: `"Facetable": true`.  
-Alla fält typer som kan användas i en fasett-navigering är `Facetable` som standard. Sådana fält typer är `Edm.String`, `Edm.DateTimeOffset`och alla numeriska fält typer (i stort sett alla fält typer är en aspekt bara, förutom `Edm.GeographyPoint`, som inte kan användas i en aspektad navigering). 
+## <a name="build-the-index"></a>Skapa indexet
+Fasning aktiveras fält för fält i indexet via det här `"Facetable": true`indexattributet: .  
+Alla fälttyper som eventuellt kan användas i `Facetable` fasterad navigering är som standard. Sådana fälttyper `Edm.String` `Edm.DateTimeOffset`inkluderar , och alla numeriska fälttyper (i huvudsak `Edm.GeographyPoint`är alla fälttyper vändbara utom , som inte kan användas i fasetterad navigering). 
 
-När du skapar ett index är det en bra idé att inaktivera fasett för fält som aldrig ska användas som aspekt.  I synnerhet bör sträng fält för singleton-värden, t. ex. ett ID eller ett produkt namn, anges till `"Facetable": false` för att förhindra att deras oavsiktliga (och ineffektiva) användning används i en fasett-navigering. Genom att inaktivera fasetter där du inte behöver det kan du behålla storleken på det små indexet, och normalt förbättra prestanda.
+När du skapar ett index är en bästa praxis för aspektad navigering att uttryckligen stänga av fasning för fält som aldrig ska användas som aspekt.  I synnerhet bör strängfält för singleton-värden, till exempel ett `"Facetable": false` ID eller produktnamn, ställas in så att de oavsiktlig (och ineffektiv) används i fasetterad navigering. Om du inaktiverar ytan där du inte behöver det kan du hålla storleken på indexet litet och förbättrar vanligtvis prestanda.
 
-Följande är en del av schemat för demonstrations exempel appen för jobb portalen, putsad av vissa attribut för att minska storleken:
+Följande är en del av schemat för exempelappen Job Portal Demo, trimmad av vissa attribut för att minska storleken:
 
 ```json
 {
@@ -139,37 +139,37 @@ Följande är en del av schemat för demonstrations exempel appen för jobb port
 }
 ```
 
-Som du kan se i exempel schemat är `Facetable` inaktive rad för sträng fält som inte ska användas som FACET, till exempel ID-värden. Genom att inaktivera fasetter där du inte behöver det kan du behålla storleken på det små indexet, och normalt förbättra prestanda.
+Som du kan se i `Facetable` exempelschemat är inaktiverat för strängfält som inte ska användas som fasett, till exempel ID-värden. Om du inaktiverar ytan där du inte behöver det kan du hålla storleken på indexet litet och förbättrar vanligtvis prestanda.
 
 > [!TIP]
-> Bästa praxis är att inkludera en fullständig uppsättning indexattribut för varje fält. Även om `Facetable` är aktiverat som standard för nästan alla fält, kan varje attribut hjälpa dig att tänka igenom konsekvenserna av varje schema beslut. 
+> Som bästa praxis bör du inkludera den fullständiga uppsättningen indexattribut för varje fält. Även `Facetable` om det är aktiverat som standard för nästan alla fält kan du tänka igenom konsekvenserna av varje schemabeslut avsiktligt. 
 
 <a name="checkdata"></a>
 
-## <a name="check-the-data"></a>Kontrol lera data
-Kvaliteten på dina data har en direkt inverkan på om den fasettiska navigerings strukturen materialiseras som du förväntar dig. Det påverkar också enklast konstruktion av filter för att minska resultat uppsättningen.
+## <a name="check-the-data"></a>Kontrollera data
+Kvaliteten på dina data har en direkt effekt på om den fasterade navigeringsstrukturen materialiseras som du förväntar dig. Det påverkar också hur enkelt det är att konstruera filter för att minska resultatuppsättningen.
 
-Om du vill aspekt av varumärke eller pris ska varje dokument innehålla värden för *BrandName* och *productPrice* som är giltiga, konsekventa och produktiva som ett filter alternativ.
+Om du vill aspekt av varumärke eller pris ska varje dokument innehålla värden för *BrandName* och *ProductPrice* som är giltiga, konsekventa och produktiva som ett filteralternativ.
 
-Här är några påminnelser om vad du behöver för att skrubba:
+Här är några påminnelser om vad man ska skrubba för:
 
-* Fråga dig själv om det innehåller värden som är lämpliga som filter i självhänvisad sökning för varje fält som du vill aspekt av. Värdena bör vara korta, beskrivande och tillräckligt distinkta för att erbjuda ett tydligt val mellan konkurrerande alternativ.
-* Fel stavning eller nästan matchande värden. Om du aspektar på färg, och fältvärdena innehåller orange och Ornage (en felstavad), kommer en aspekt som baseras på fältet färg att hämta båda.
-* Blandad Case-text kan också wreak oreda i fasett-navigering, med orange och orange visas som två olika värden. 
-* Enkla och plural-versioner av samma värde kan resultera i en separat aspekt för varje.
+* För varje fält som du vill aspekt av, fråga dig själv om det innehåller värden som är lämpliga som filter i självstyrd sökning. Värdena bör vara korta, beskrivande och tillräckligt distinkta för att kunna erbjuda ett tydligt val mellan konkurrerande alternativ.
+* Felstavningar eller nästan matchande värden. Om du aspekt på Färg och fältvärden inkluderar Orange och Ornage (en felstavning), en aspekt baserad på fältet Färg skulle plocka upp båda.
+* Blandad falltext kan också orsaka förödelse i fasterad navigering, med orange och Orange visas som två olika värden. 
+* Enstaka och pluralversioner av samma värde kan resultera i en separat aspekt för varje.
 
-Som du kan föreställa dig är noggrannhet för förberedelse av data en viktig aspekt av effektiv navigering.
+Som ni kan föreställa er, flit i att förbereda data är en viktig aspekt av effektiv aspekt av navigering.
 
 <a name="presentationlayer"></a>
 
 ## <a name="build-the-ui"></a>Skapa användargränssnittet
-Att arbeta från presentations lagret kan hjälpa dig att återställa krav som kan ha missats, och förstå vilka funktioner som är viktiga för Sök upplevelsen.
+Om du går tillbaka från presentationslagret kan du hitta krav som kan missas på annat sätt och förstå vilka funktioner som är nödvändiga för sökupplevelsen.
 
-Vid aspekt navigering visar din webb-eller program sida den fasett-navigerings struktur som identifierar användarindata på sidan och infogar de ändrade elementen. 
+När det gäller fasterad navigering visar webb- eller programsidan den fasterade navigeringsstrukturen, identifierar användarindata på sidan och infogar de ändrade elementen. 
 
-För webb program används AJAX ofta i presentations lagret eftersom det gör att du kan uppdatera stegvisa ändringar. Du kan också använda ASP.NET MVC eller någon annan visualiserings plattform som kan ansluta till en Azure Kognitiv sökning-tjänst via HTTP. Det exempel program som refereras till i den här artikeln – **Azure-kognitiv sökning jobb Portal demonstration** – sker som ett ASP.NET MVC-program.
+För webbapplikationer används AJAX ofta i presentationslagret eftersom det gör att du kan uppdatera inkrementella ändringar. Du kan också använda ASP.NET MVC eller någon annan visualiseringsplattform som kan ansluta till en Azure Cognitive Search-tjänst via HTTP. Exempelprogrammet som refereras i den här artikeln – **Azure Cognitive Search Job Portal Demo** – råkar vara ett ASP.NET MVC-program.
 
-I exemplet är en aspektad navigering inbyggd på sidan Sök resultat. Följande exempel, som hämtas från `index.cshtml`-filen i exempel programmet, visar den statiska HTML-strukturen för visning av fasett-navigering på sidan Sök resultat. Listan över Faces skapas eller återskapas dynamiskt när du skickar en sökterm eller väljer eller avmarkerar en aspekt.
+I exemplet är fasterad navigering inbyggd i sökresultatsidan. I följande exempel, `index.cshtml` taget från filen i exempelprogrammet, visas den statiska HTML-strukturen för att visa aspektig navigering på sökresultatsidan. Listan över fasor byggs eller återskapas dynamiskt när du skickar in en sökterm, eller väljer eller rensar en aspekt.
 
 ```html
 <div class="widget sidebar-widget jobs-filter-widget">
@@ -196,7 +196,7 @@ I exemplet är en aspektad navigering inbyggd på sidan Sök resultat. Följande
 </div>
 ```
 
-Följande kodfragment från sidan `index.cshtml` skapar dynamiskt HTML för att visa den första aspekten, affärs titeln. Samma funktioner skapar HTML-koden dynamiskt för de andra fasetterna. Varje aspekt har en etikett och ett antal som visar antalet objekt som hittades för det fasett-resultatet.
+Följande kodavsnitt från `index.cshtml` sidan skapar HTML-koden dynamiskt för att visa den första aspekten, Affärstitel. Liknande funktioner dynamiskt bygga HTML för andra aspekter. Varje aspekt har en etikett och ett antal, som visar antalet objekt som hittades för det aspektresultatet.
 
 ```js
 function UpdateBusinessTitleFacets(data) {
@@ -210,16 +210,16 @@ function UpdateBusinessTitleFacets(data) {
 ```
 
 > [!TIP]
-> Kom ihåg att lägga till en mekanism för att ta bort ansikte när du utformar Sök Resultat sidan. Om du lägger till kryss rutor kan du enkelt se hur du rensar filtren. För andra layouter kan du behöva ett navigerings mönster eller en annan kreativ metod. I exempel programmet jobb Sök Portal kan du till exempel klicka på `[X]` efter en vald aspekt för att ta bort aspekten.
+> Kom ihåg att lägga till en mekanism för att rensa fasor när du utformar sökresultatsidan. Om du lägger till kryssrutor kan du enkelt se hur du avmarkerar filtren. För andra layouter kan du behöva ett brödsmulor eller en annan kreativ metod. I exempelvis jobbsökningsportalens exempelprogram `[X]` kan du klicka på efter en markerad aspekt för att rensa aspekten.
 
 <a name="buildquery"></a>
 
-## <a name="build-the-query"></a>Bygg frågan
-Koden som du skriver för att skapa frågor ska ange alla delar av en giltig fråga, inklusive Sök uttryck, ansikts, filter, bedömnings profiler – allt som används för att formulera en begäran. I det här avsnittet ska vi utforska var ansikte passar in i en fråga och hur filter används med FACET för att leverera en reducerad resultat uppsättning.
+## <a name="build-the-query"></a>Skapa frågan
+Koden som du skriver för byggnadsfrågor ska ange alla delar av en giltig fråga, inklusive sökuttryck, faser, filter, bedömningsprofiler – allt som används för att formulera en begäran. I det här avsnittet utforskar vi var aspekter passar in i en fråga och hur filter används med fasor för att leverera en reducerad resultatuppsättning.
 
-Observera att ansikte är integrala i det här exempel programmet. Sök funktionen i demo versionen av jobb portalen är utformad runt navigering och filter. Den framträdande placeringen av den fasettiska navigeringen på sidan visar dess betydelse. 
+Observera att faset är integrerade i det här exempelprogrammet. Sökupplevelsen i Job Portal Demo är utformad kring fasterad navigering och filter. Den framträdande placeringen av fasterad navigering på sidan visar dess betydelse. 
 
-Ett exempel är ofta en bra plats att börja på. Följande exempel, som hämtas från `JobsSearch.cs`-filen, skapar en begäran som skapar aspekt navigering baserat på affärs rubrik, plats, bokförings typ och lägsta lön. 
+Ett exempel är ofta ett bra ställe att börja på. I följande exempel, `JobsSearch.cs` som hämtats från filen, skapas en begäran som skapar aspektnavigering baserat på affärstitel, plats, bokföringstyp och minimilön. 
 
 ```cs
 SearchParameters sp = new SearchParameters()
@@ -230,11 +230,11 @@ SearchParameters sp = new SearchParameters()
 };
 ```
 
-En aspekt av Frågeparametern har angetts till ett fält och kan, beroende på data typen, ytterligare parametriserade med kommaavgränsad lista med `count:<integer>`, `sort:<>`, `interval:<integer>`och `values:<list>`. En värde lista stöds för numeriska data vid inställning av intervall. Se [Sök i dokument (Azure KOGNITIV sökning API)](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) för användnings information.
+En aspektfrågaparameter är inställd på ett fält och beroende på datatyp kan den parameteriseras `count:<integer>` `sort:<>`ytterligare `interval:<integer>`av `values:<list>`kommaavgränsad lista som innehåller , , och . En värdelista stöds för numeriska data när du ställer in områden. Mer information om användning finns [i Sökdokument (Azure Cognitive Search API).](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)
 
-Tillsammans med FACET, bör begäran som formuleras av ditt program också skapa filter för att begränsa uppsättningen av kandidat dokument baserat på ett aspekt värdes val. För en cykel butik ger den fasettiska navigeringen LED trådar till frågor som *vilka färger, tillverkare och typer av cyklar är tillgängliga?* . Filtrera svar på frågor som *vilka exakta cyklar är röda, Mountain Bikes, i det här pris intervallet?* . När du klickar på "röd" för att ange att endast röda produkter ska visas, innehåller nästa fråga som programmet skickar `$filter=Color eq 'Red'`.
+Tillsammans med fasor, begäran formuleras av ditt program bör också bygga filter för att begränsa uppsättningen kandidatdokument baserat på ett nominellt värde val. För en cykel butik, fasterad navigering ger ledtrådar till frågor som *Vilka färger, tillverkare och typer av cyklar finns tillgängliga?*. Filtrering svarar på frågor som *Vilka exakta cyklar är röda, mountainbikes, i denna prisklass?*. När du klickar på "Röd" för att ange att endast röda `$filter=Color eq 'Red'`produkter ska visas, innehåller nästa fråga som programmet skickar .
 
-Följande kodfragment från sidan `JobsSearch.cs` lägger till den valda affärs titeln i filtret om du väljer ett värde från företagets rubrik aspekt.
+Följande kodavsnitt på `JobsSearch.cs` sidan lägger till den valda företagstiteln i filtret om du väljer ett värde från affärsrubrikens aspekt.
 
 ```cs
 if (businessTitleFacet != "")
@@ -245,161 +245,161 @@ if (businessTitleFacet != "")
 
 ## <a name="tips-and-best-practices"></a>Tips och regelverk
 
-### <a name="indexing-tips"></a>Indexerings tips
-**Förbättra index effektiviteten om du inte använder en sökruta**
+### <a name="indexing-tips"></a>Indexeringstips
+**Förbättra indexeffektiviteten om du inte använder en sökruta**
 
-Om ditt program använder fasettt navigering exklusivt (det vill säga ingen sökruta) kan du markera fältet som `searchable=false`, `facetable=true` för att skapa ett mer kompakt index. Indexering sker dessutom bara på hela aspekt värden, utan ord brytning eller indexering av komponent delarna i ett värde med flera ord.
+Om programmet använder aspekten navigering exklusivt (det vill säga ingen sökruta) kan du markera fältet som `searchable=false`för `facetable=true` att skapa ett mer kompakt index. Dessutom sker indexering endast på hela aspektvärden, utan ordbrytning eller indexering av komponentdelarna i ett flerordsvärde.
 
-**Ange vilka fält som kan användas som ansikts**
+**Ange vilka fält som kan användas som fasor**
 
-Kom ihåg att schema för indexet avgör vilka fält som är tillgängliga för användning som aspekt. Förutsatt att ett fält är fasettable anger frågan vilka fält som ska fasetta. Det fält som du fasetterar innehåller värdena som visas under etiketten. 
+Kom ihåg att schemat för indexet avgör vilka fält som är tillgängliga att använda som en aspekt. Om du antar att ett fält är facetable anger frågan vilka fält som ska visas. Det fält som du faser med innehåller värden som visas under etiketten. 
 
-De värden som visas under varje etikett hämtas från indexet. Om t. ex. aspekt fältet är *färg*, är de tillgängliga värdena för ytterligare filtrering värdena för fältet – röd, svart och så vidare.
+De värden som visas under varje etikett hämtas från indexet. Om faktfältet till exempel är *Färg*är de värden som är tillgängliga för ytterligare filtrering värdena för det fältet - Röd, Svart och så vidare.
 
-För numeriska värden och DateTime-värden kan du uttryckligen ange värden i aspekt fältet (till exempel `facet=Rating,values:1|2|3|4|5`). En värde lista är tillåten för dessa fält typer för att förenkla separering av fasett-resultat i sammanhängande intervall (antingen intervall baserat på numeriska värden eller tids perioder). 
+Endast för Numeriska värden och DateTime-värden kan du uttryckligen ange `facet=Rating,values:1|2|3|4|5`värden i aspektfältet (till exempel ). En värdelista tillåts för dessa fälttyper för att förenkla separationen av fastresultat i sammanhängande intervall (antingen intervall baserat på numeriska värden eller tidsperioder). 
 
-**Som standard kan du bara ha en nivå av fasett-navigering** 
+**Som standard kan du bara ha en nivå av fasterad navigering** 
 
-Det finns inget direkt stöd för att kapsla facets i en hierarki. Som standard har fasett-navigering i Azure Kognitiv sökning bara stöd för en nivå med filter. Det finns dock lösningar. Du kan koda en hierarkisk aspekt struktur i en `Collection(Edm.String)` med en start punkt per hierarki. Att implementera den här lösningen ligger utanför omfånget för den här artikeln. 
+Som nämnts finns det inget direkt stöd för kapsling aspekter i en hierarki. Som standard stöder fakterad navigering i Azure Cognitive Search bara en nivå av filter. Det finns dock lösningar. Du kan koda en hierarkisk `Collection(Edm.String)` aspektstruktur i en med en startpunkt per hierarki. Implementering av den här lösningen ligger utanför den här artikelns omfattning. 
 
-### <a name="querying-tips"></a>Tips om frågor
+### <a name="querying-tips"></a>Tips för frågor
 **Validera fält**
 
-Om du skapar listan över ansikte dynamiskt baserat på indata från ej betrodda användare, verifierar du att namnen på de fasettiska fälten är giltiga. Eller så kan du undanta namnen när du skapar URL: er genom att använda antingen `Uri.EscapeDataString()` i .NET eller motsvarande på valfri plattform.
+Om du skapar listan över fasor dynamiskt baserat på ej betrodda användarindata, verifiera att namnen på de fasterade fälten är giltiga. Du kan också undkomma namnen när `Uri.EscapeDataString()` du skapar webbadresser genom att använda antingen i .NET eller motsvarande i valfri plattform.
 
-### <a name="filtering-tips"></a>Filtrerings tips
-**Öka Sök precisionen med filter**
+### <a name="filtering-tips"></a>Filtrera tips
+**Öka sökprecisionen med filter**
 
-Använda filter. Om du bara använder Sök uttryck enskilt kan det hända att ett dokument returneras som inte har det exakta fasett-värdet i något av dess fält.
+Använd filter. Om du bara förlitar dig på enbart sökuttryck kan det leda till att ett dokument returneras som inte har det exakta nominella värdet i något av dess fält.
 
-**Öka Sök prestanda med filter**
+**Öka sökprestanda med filter**
 
-Filtren begränsar uppsättningen av kandidat dokument för sökning och undantar dem från rangordning. Om du har en stor uppsättning dokument ger du ofta bättre prestanda om du använder en selektiv aspekts ökning.
+Filter begränsar uppsättningen kandidatdokument för sökning och utesluter dem från rangordningen. Om du har en stor uppsättning dokument ger du ofta bättre prestanda med hjälp av en selektiv aspektgranskning.
   
-**Filtrera enbart de fasettiska fälten**
+**Filtrera endast fasterade fält**
 
-I fasetter kan du vanligt vis bara inkludera dokument som har fasett svärdet i ett angivet (fasett) fält, inte överallt i alla sökbara fält. Genom att lägga till ett filter kan du förstärka mål fältet genom att dirigera tjänsten till att bara söka i det fasettiska fältet för ett matchande värde.
+I aspektbaserad detaljgranskning vill du vanligtvis bara inkludera dokument som har det nominella värdet i ett specifikt (fasterat) fält, inte någonstans i alla sökbara fält. Om du lägger till ett filter förstärker målfältet genom att tjänsten endast söks i det fasterade fältet efter ett matchande värde.
 
-**Trimma fasett-resultat med fler filter**
+**Trimma fastresultat med fler filter**
 
-Fasett-resultat är dokument som finns i Sök resultaten som matchar en fasett-term. I följande exempel i Sök Resultat för *molnbaserad data behandling*har 254-objekt även *intern specifikation* som en innehålls typ. Objekt är inte alltid ömsesidigt uteslutande. Om ett objekt uppfyller kriterierna för båda filtren räknas det i vart och ett. Den här dupliceringen är möjlig vid aspektering i `Collection(Edm.String)` fält som ofta används för att implementera dokument taggning.
+Aspektresultat är dokument som finns i sökresultaten som matchar en aspektterm. I följande exempel, i sökresultat för *cloud computing*, har 254 objekt också *intern specifikation* som innehållstyp. Objekt är inte nödvändigtvis ömsesidigt uteslutande. Om en artikel uppfyller kriterierna för båda filtren räknas den i var och en. Duplicering är möjlig när `Collection(Edm.String)` du faceting på fält, som ofta används för att implementera dokumenttaggning.
 
         Search term: "cloud computing"
         Content type
            Internal specification (254)
            Video (10) 
 
-I allmänhet rekommenderar vi att du lägger till fler filter för att ge användarna fler alternativ för att begränsa sökningen, om du upptäcker att fasett-resultatet är konsekvent för stort.
+Om du upptäcker att aspektresultaten är konsekvent för stora rekommenderar vi i allmänhet att du lägger till fler filter för att ge användarna fler alternativ för att begränsa sökningen.
 
-### <a name="tips-about-result-count"></a>Tips om resultat antal
+### <a name="tips-about-result-count"></a>Tips om resultaträkning
 
-**Begränsa antalet objekt i aspekt navigeringen**
+**Begränsa antalet objekt i aspektnavigeringen**
 
-För varje fasettt fält i navigerings trädet finns det en standard gräns på 10 värden. Detta standardvärde är meningsfullt för navigerings strukturer eftersom den behåller värde listan till en hanterbar storlek. Du kan åsidosätta standardvärdet genom att tilldela ett värde till Count.
+För varje fasterat fält i navigeringsträdet finns det en standardgräns på 10 värden. Den här standardinställningen är meningsfull för navigeringsstrukturer eftersom den håller värdelistan till en hanterbar storlek. Du kan åsidosätta standardinställningen genom att tilldela ett värde som ska räknas.
 
-* `&facet=city,count:5` anger att endast de fem första städerna som finns i de översta rankade resultaten returneras som ett fasett-resultat. Överväg en exempel fråga med Sök termen "flyg plats" och 32 matchningar. Om frågan anger `&facet=city,count:5`, inkluderas bara de första fem unika städerna med de flesta dokument i Sök resultaten i fasett-resultatet.
+* `&facet=city,count:5`anger att endast de fem första städerna som finns i de högst rankade resultaten returneras som ett aspektresultat. Överväg en exempelfråga med söktermen "flygplats" och 32 matchningar. Om frågan anger `&facet=city,count:5`inkluderas endast de fem första unika städerna med flest dokument i sökresultaten i aspektresultaten.
 
-Observera skillnaden mellan fasett-resultat och Sök resultat. Sök resultat är alla dokument som matchar frågan. Fasett-resultat är matchningarna för varje fasett-värde. I exemplet innehåller Sök resultaten Orts namn som inte finns i aspekt klassificerings listan (5 i vårt exempel). Resultat som filtreras ut genom den fasettiska navigeringen blir synliga när du tar bort FACET eller väljer andra ansikte förutom stad. 
+Lägg märke till skillnaden mellan fatesresultat och sökresultat. Sökresultat är alla dokument som matchar frågan. Fastresultat är matchningarna för varje aspektvärde. I exemplet innehåller sökresultaten Ortnamn som inte finns i aspektklassificeringslistan (5 i vårt exempel). Resultat som filtreras bort via fasterad navigering blir synliga när du rensar fasor, eller väljer andra aspekter förutom City. 
 
 > [!NOTE]
-> Att diskutera `count` när det finns fler än en typ kan vara förvirrande. Följande tabell innehåller en kort sammanfattning av hur termen används i Azure Kognitiv sökning API, exempel kod och dokumentation. 
+> Att `count` diskutera när det finns mer än en typ kan vara förvirrande. Följande tabell innehåller en kort sammanfattning av hur termen används i Azure Cognitive Search API, exempelkod och dokumentation. 
 
 * `@colorFacet.count`<br/>
-  I presentations kod bör du se en Count-parameter på aspekten, som används för att visa antalet fasett-resultat. I aspekt resultat anger Count antalet dokument som matchar på fasett-termen eller intervallet.
+  I presentationskod bör du se en räkneparameter på aspekten som används för att visa antalet aspektresultat. I aspektresultat anger antalet dokument som matchar på aspekttermen eller intervallet.
 * `&facet=City,count:12`<br/>
-  I en aspekt fråga kan du ange Count till ett värde.  Standardvärdet är 10, men du kan ange det högre eller lägre. Om du anger `count:12` hämtas de översta 12 träffarna i fasett-resultatet efter dokument antal.
+  I en aspektfråga kan du ange antalet till ett värde.  Standardvärdet är 10, men du kan ställa in den högre eller lägre. Inställningen `count:12` får de 12 bästa matcherna i aspektresultat efter antal dokument.
 * "`@odata.count`"<br/>
-  I svaret på frågan anger det här värdet antalet matchande objekt i Sök resultatet. I genomsnitt är det större än summan av alla fasett-resultat kombinerat, på grund av förekomst av objekt som matchar Sök termen, men som inte har något värde för fasett-värde.
+  I frågesvaret anger det här värdet antalet matchande objekt i sökresultaten. I genomsnitt är den större än summan av alla sökresultat som kombineras, på grund av förekomsten av objekt som matchar söktermen, men som inte har några svarovärdesmatchningar.
 
-**Hämta antal i aspekt resultat**
+**Få räknas i aspektresultat**
 
-När du lägger till ett filter i en fasett-fråga kanske du vill behålla fasett-instruktionen (till exempel `facet=Rating&$filter=Rating ge 4`). Tekniskt, aspekt = klassificering behövs inte, men om du behåller den returneras antalet aspekt värden för klassificering 4 och högre. Om du till exempel klickar på "4" och frågan innehåller ett filter som är större än eller lika med "4" returneras antalet för varje klassificering som är 4 och högre.  
+När du lägger till ett filter i en aspektfråga kanske du vill `facet=Rating&$filter=Rating ge 4`behålla aspektsatsen (till exempel ). Tekniskt sett är facet =Rating inte behövs, men att hålla den returnerar antalet faktvärden för betyg 4 och högre. Om du till exempel klickar på "4" och frågan innehåller ett filter för större eller lika med "4", returneras antalet för varje klassificering som är 4 och högre.  
 
-**Se till att du får korrekta fasett-antal**
+**Se till att du får korrekta faktantal**
 
-Under vissa omständigheter kanske du upptäcker att fasett-antalet inte matchar resultat uppsättningarna (se [aspekten navigering i Azure kognitiv sökning (forum post)](https://social.msdn.microsoft.com/Forums/azure/06461173-ea26-4e6a-9545-fbbd7ee61c8f/faceting-on-azure-search?forum=azuresearch)).
+Under vissa omständigheter kan det hända att fatesantalet inte matchar resultatuppsättningarna (se [Fasterad navigering i Azure Cognitive Search (foruminlägg).](https://social.msdn.microsoft.com/Forums/azure/06461173-ea26-4e6a-9545-fbbd7ee61c8f/faceting-on-azure-search?forum=azuresearch)
 
-Fasett-antalet kan vara felaktigt på grund av horisontell partitionering-arkitekturen. Varje sökindex har flera Shards och varje Shard rapporterar de översta N fasetterna efter antal dokument, som sedan kombineras till ett enda resultat. Om vissa Shards har många matchande värden, medan andra har färre, kan det hända att vissa fasett-värden saknas eller under räkning i resultaten.
+Fastantal kan vara felaktigt på grund av fragmenteringsarkitekturen. Varje sökindex har flera shards och varje fragment rapporterar de översta N-aspekterna efter dokumentantal, som sedan kombineras till ett enda resultat. Om vissa shards har många matchande värden, medan andra har färre, kan du upptäcka att vissa aspektvärden saknas eller underräknas i resultaten.
 
-Även om detta beteende kan ändras när som helst, om du stöter på det här beteendet idag kan du kringgå det genom att artificiellt ange antalet:\<tal > till ett stort antal för att framtvinga fullständig rapportering från varje Shard. Om värdet för Count: är större än eller lika med antalet unika värden i fältet, garanterar du korrekta resultat. Men när antalet dokument är högt är det en prestanda försämring, så Använd det här alternativet sparsamt.
+Även om det här beteendet kan ändras när som helst, om du stöter\<på det här beteendet idag, kan du undvika det genom att blåsa upp antalet på konstgjord väg: antalet> till ett stort antal för att framtvinga fullständig rapportering från varje shard. Om värdet för antalet: är större än eller lika med antalet unika värden i fältet, garanteras du korrekta resultat. Men när antalet dokument är höga, det finns en prestanda straff, så använd det här alternativet omdömesgillt.
 
-### <a name="user-interface-tips"></a>Användar gränssnitts tips
-**Lägg till etiketter för varje fält i aspekt navigering**
+### <a name="user-interface-tips"></a>Tips för användargränssnitt
+**Lägga till etiketter för varje fält i aspektnavigering**
 
-Etiketter definieras vanligt vis i HTML eller form (`index.cshtml` i exempel programmet). Det finns inget API i Azure Kognitiv sökning för fasett-navigerings etiketter eller andra metadata.
+Etiketter definieras vanligtvis i HTML-`index.cshtml` eller formuläret (i exempelprogrammet). Det finns inget API i Azure Cognitive Search för aspektnavigeringsetiketter eller andra metadata.
 
 <a name="rangefacets"></a>
 
-## <a name="filter-based-on-a-range"></a>Filtrera baserat på ett intervall
-Fasettering över intervall med värden är ett vanligt Sök program krav. Intervall stöds för numeriska data och DateTime-värden. Du kan läsa mer om varje metod i [Sök dokument (Azure KOGNITIV sökning API)](https://docs.microsoft.com/rest/api/searchservice/Search-Documents).
+## <a name="filter-based-on-a-range"></a>Filter baserat på ett intervall
+Faceting över intervall av värden är ett vanligt sökprogram krav. Intervall stöds för numeriska data och DateTime-värden. Du kan läsa mer om varje metod i [sökdokument (Azure Cognitive Search API)](https://docs.microsoft.com/rest/api/searchservice/Search-Documents).
 
-Azure Kognitiv sökning fören klar intervall konstruktion genom att tillhandahålla två metoder för att beräkna ett intervall. För båda metoderna skapar Azure Kognitiv sökning lämpliga intervall med de indata som du har angett. Om du till exempel anger intervall värden på 10 | 20 | 30 skapar det automatiskt intervall på 0-10, 10-20, 20-30. Programmet kan eventuellt ta bort alla intervall som är tomma. 
+Azure Cognitive Search förenklar intervallkonstruktionen genom att tillhandahålla två metoder för att beräkna ett intervall. För båda metoderna skapar Azure Cognitive Search lämpliga intervall med tanke på de indata du har angett. Om du till exempel anger intervallvärden på 10|20|30 skapas intervall på 0–10, 10–20, 20–30. Programmet kan eventuellt ta bort alla toma intervall. 
 
-**Metod 1: Använd parametern Interval**  
-Om du vill ange pris facets i $10-steg, anger du: `&facet=price,interval:10`
+**Metod 1: Använd intervallparametern**  
+Om du vill ange prisastrar i steg om 10 000 kr anger du:`&facet=price,interval:10`
 
-**Metod 2: Använd en värde lista**  
-För numeriska data kan du använda en värde lista.  Ta hänsyn till aspekt intervallet för ett `listPrice` fält, återges på följande sätt:
+**Metod 2: Använd en värdelista**  
+För numeriska data kan du använda en värdelista.  Tänk på aspektintervallet `listPrice` för ett fält, återges enligt följande:
 
-  ![Lista med exempel värden](media/search-faceted-navigation/Facet-5-Prices.PNG "Lista med exempel värden")
+  ![Lista över exempelvärden](media/search-faceted-navigation/Facet-5-Prices.PNG "Lista över exempelvärden")
 
-Om du vill ange ett fasett-intervall som det som finns i föregående skärm bild, använder du en värde lista:
+Om du vill ange ett aspektintervall som det i föregående skärmbild använder du en värdelista:
 
     facet=listPrice,values:10|25|100|500|1000|2500
 
-Varje intervall skapas med 0 som start punkt, ett värde från listan som en slut punkt och rensas sedan det föregående intervallet för att skapa diskreta intervall. Azure Kognitiv sökning gör dessa saker som en del av den fasettiska navigeringen. Du behöver inte skriva kod för att strukturera varje intervall.
+Varje område skapas med 0 som utgångspunkt, ett värde från listan som en slutpunkt och trimmas sedan av föregående intervall för att skapa diskreta intervall. Azure Cognitive Search gör dessa saker som en del av fasterad navigering. Du behöver inte skriva kod för att strukturera varje intervall.
 
-### <a name="build-a-filter-for-a-range"></a>Bygga ett filter för ett intervall
-Om du vill filtrera dokument baserat på ett intervall som du väljer kan du använda operatorn `"ge"` och `"lt"` filter i ett uttryck i två delar som definierar Intervallets slut punkter. Om du till exempel väljer intervallet 10-25 för ett `listPrice`-fält blir filtret `$filter=listPrice ge 10 and listPrice lt 25`. I exempel koden använder filter uttrycket **priceFrom** -och **priceTo** -parametrar för att ange slut punkterna. 
+### <a name="build-a-filter-for-a-range"></a>Skapa ett filter för ett område
+Om du vill filtrera dokument baserat på `"ge"` ett `"lt"` område som du väljer kan du använda operatorerna och filtret i ett tvådelat uttryck som definierar slutpunkterna för intervallet. Om du till exempel väljer intervallet 10-25 för `listPrice` ett `$filter=listPrice ge 10 and listPrice lt 25`fält blir filtret . I exempelkoden använder filteruttrycket **priceFrom-** och **priceTo-parametrar** för att ange slutpunkter. 
 
-  ![Fråga efter ett värde intervall](media/search-faceted-navigation/Facet-6-buildfilter.PNG "Fråga efter ett värde intervall")
+  ![Fråga efter ett värdeområde](media/search-faceted-navigation/Facet-6-buildfilter.PNG "Fråga efter ett värdeområde")
 
 <a name="geofacets"></a> 
 
-## <a name="filter-based-on-distance"></a>Filtrera baserat på avstånd
-Det är vanligt att se filter som hjälper dig att välja en butik, restaurang eller destination baserat på dess närhet till din aktuella plats. Den här typen av filter kan se ut som fasett-navigering, men det är bara ett filter. Vi nämner det här för de som specifikt letar efter implementerings råd för det specifika design problemet.
+## <a name="filter-based-on-distance"></a>Filter baserat på avstånd
+Det är vanligt att se filter som hjälper dig att välja en butik, restaurang eller destination baserat på dess närhet till din aktuella plats. Även om den här typen av filter kan se ut som fasterad navigering, är det bara ett filter. Vi nämner det här för er som specifikt letar efter genomförande råd för just detta designproblem.
 
-Det finns två geospatiala funktioner i Azure Kognitiv sökning, **geo. Distance** och **geo. snitt**.
+Det finns två Geospatiala funktioner i Azure Cognitive Search, **geo.distance** och **geo.intersects**.
 
-* Funktionen **geo. Distance** returnerar avståndet i kilo meter mellan två punkter. En punkt är ett fält och andra är en konstant som skickas som en del av filtret. 
-* Funktionen **geo. intersects** returnerar true om en viss punkt ligger inom en viss polygon. Punkten är ett fält och polygonen anges som en konstant lista över koordinater som har överförts som en del av filtret.
+* **Geo.distance-funktionen** returnerar avståndet i kilometer mellan två punkter. En punkt är ett fält och en annan är en konstant som skickas som en del av filtret. 
+* Funktionen **geo.intersects returnerar** sant om en viss punkt finns inom en viss polygon. Punkten är ett fält och polygonen anges som en konstant lista över koordinater som skickas som en del av filtret.
 
-Du hittar filter exempel i [OData Expression-syntax (Azure kognitiv sökning)](query-odata-filter-orderby-syntax.md).
+Du hittar filterexempel i [OData-uttryckssyntax (Azure Cognitive Search)](query-odata-filter-orderby-syntax.md).
 
 <a name="tryitout"></a>
 
-## <a name="try-the-demo"></a>Prova demonstrationen
-Azure Kognitiv sökning Job Portal-demon innehåller exemplen som refereras i den här artikeln.
+## <a name="try-the-demo"></a>Prova demon
+Azure Cognitive Search Job Portal Demo innehåller de exempel som refereras i den här artikeln.
 
--   Se och testa arbets demon online på [Azure kognitiv sökning Job Portal-demon](https://aka.ms/azjobsdemo).
+-   Se och testa den fungerande demon online på [Azure Cognitive Search Job Portal Demo](https://aka.ms/azjobsdemo).
 
--   Ladda ned koden från [Azure-samples-lagrings platsen på GitHub](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs).
+-   Hämta koden från [reporäntan för Azure-Samples på GitHub](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs).
 
-När du arbetar med Sök resultat kan du titta på URL: en för ändringar i frågans konstruktion. Det här programmet sker för att lägga till FACET i URI: n när du väljer vart och ett.
+När du arbetar med sökresultat tittar du på webbadressen efter ändringar i frågekonstruktionen. Det här programmet råkar lägga till fasat till URI när du väljer var och en.
 
-1. Om du vill använda kart funktionen i demonstrations appen hämtar du en Bing Maps-nyckel från [Bing Maps dev Center](https://www.bingmapsportal.com/). Klistra in den över den befintliga nyckeln på sidan `index.cshtml`. Inställningen `BingApiKey` i `Web.config`-filen används inte. 
+1. Om du vill använda mappningsfunktionen i demoappen hämtar du en Bing Maps-nyckel från [Bing Maps Dev Center](https://www.bingmapsportal.com/). Klistra in den över `index.cshtml` den befintliga nyckeln på sidan. Inställningen `BingApiKey` i `Web.config` filen används inte. 
 
-2. Kör programmet. Ta den valfria rund turen eller Stäng dialog rutan.
+2. Kör appen. Ta den valfria turen eller stäng dialogrutan.
    
-3. Ange en sökterm, till exempel "analytikert" och klicka på Sök ikonen. Frågan körs snabbt.
+3. Ange en sökterm, till exempel "analytiker", och klicka på sökikonen. Frågan körs snabbt.
    
-   En fasett navigerings struktur returneras också med Sök resultaten. På sidan Sök Resultat innehåller den fasettiska navigerings strukturen antal för varje fasett-resultat. Inga fasetter har marker ATS, så alla matchande resultat returneras.
+   En fasterad navigeringsstruktur returneras också med sökresultaten. På sökresultatsidan innehåller den fasterade navigeringsstrukturen antal för varje aspektresultat. Inga aspekter är markerade, så alla matchande resultat returneras.
    
-   ![Sök resultat innan du väljer Faces](media/search-faceted-navigation/faceted-search-before-facets.png "Sök resultat innan du väljer Faces")
+   ![Sökresultat innan du väljer faset](media/search-faceted-navigation/faceted-search-before-facets.png "Sökresultat innan du väljer faset")
 
-4. Klicka på en affärs rubrik, plats eller lägsta lön. FACET var null i den inledande sökningen, men när de tar med värden, trimmas Sök resultaten för objekt som inte längre matchar.
+4. Klicka på en företagstitel, plats eller minimilön. Fasat var null på den första sökningen, men när de tar på värden, är sökresultaten trimmas av objekt som inte längre matchar.
    
-   ![Sök Resultat efter att du har valt ansikts](media/search-faceted-navigation/faceted-search-after-facets.png "Sök Resultat efter att du har valt ansikts")
+   ![Sökresultat efter att ha valt faset](media/search-faceted-navigation/faceted-search-after-facets.png "Sökresultat efter att ha valt faset")
 
-5. Om du vill ta bort den fasetta frågan så att du kan prova olika fråge beteenden, klickar du på `[X]` efter att de valda fasetterna har tagits bort.
+5. Om du vill rensa den fasterade frågan så `[X]` att du kan prova olika frågebeteenden klickar du på efter de markerade faserna för att rensa faserna.
    
 <a name="nextstep"></a>
 
 ## <a name="learn-more"></a>Läs mer
-Titta på [Azure kognitiv sökning djupgående](https://channel9.msdn.com/Events/TechEd/Europe/2014/DBI-B410). Vid 45:25 finns det en demonstration om hur du implementerar ansikte.
+Titta på [Azure Cognitive Search Deep Dive](https://channel9.msdn.com/Events/TechEd/Europe/2014/DBI-B410). Klockan 45:25 finns en demo om hur man implementerar aspekter.
 
-För mer information om design principer för fasett-navigering rekommenderar vi följande länkar:
+För mer information om designprinciper för aspekten navigering rekommenderar vi följande länkar:
 
-* [Design mönster: Fasettisk navigering](https://alistapart.com/article/design-patterns-faceted-navigation)
-* [Klient dels problem vid implementering av fasett-sökning – del 1](https://articles.uie.com/faceted_search2/)
+* [Designmönster: Fastrade navigering](https://alistapart.com/article/design-patterns-faceted-navigation)
+* [Front End oro vid genomförandet fasterad sökning - Del 1](https://articles.uie.com/faceted_search2/)
 

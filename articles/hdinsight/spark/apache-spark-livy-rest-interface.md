@@ -1,6 +1,6 @@
 ---
-title: Använd livy Spark för att skicka jobb till Spark-kluster i Azure HDInsight
-description: Lär dig hur du använder Apache Spark REST API för att skicka Spark-jobb via fjärr anslutning till ett Azure HDInsight-kluster.
+title: Använd Livy Spark för att skicka jobb till Spark-kluster på Azure HDInsight
+description: Lär dig hur du använder Apache Spark REST API för att skicka Spark-jobb på distans till ett Azure HDInsight-kluster.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -9,25 +9,25 @@ ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 02/28/2020
 ms.openlocfilehash: ac3904284ebf20fa1d5e75f9249732be3963f677
-ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/01/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78206290"
 ---
-# <a name="use-apache-spark-rest-api-to-submit-remote-jobs-to-an-hdinsight-spark-cluster"></a>Använd Apache Spark REST API för att skicka Fjärrjobb till ett HDInsight Spark-kluster
+# <a name="use-apache-spark-rest-api-to-submit-remote-jobs-to-an-hdinsight-spark-cluster"></a>Använda REST-API:et för Apache Spark för att skicka fjärrstyrda jobb till ett HDInsight Spark-kluster
 
-Lär dig hur du använder [Apache livy](https://livy.incubator.apache.org/), Apache Spark REST API, som används för att skicka Fjärrjobb till ett Azure HDInsight Spark-kluster. Detaljerad dokumentation finns i [Apache livy](https://livy.incubator.apache.org/docs/latest/rest-api.html).
+Lär dig hur du använder [Apache Livy](https://livy.incubator.apache.org/), Apache Spark REST API, som används för att skicka fjärrjobb till ett Azure HDInsight Spark-kluster. Detaljerad dokumentation finns i [Apache Livy](https://livy.incubator.apache.org/docs/latest/rest-api.html).
 
-Du kan använda livy för att köra interaktiva Spark-gränssnitt eller skicka batch-jobb som ska köras i Spark. Den här artikeln pratar om hur du använder livy för att skicka batch-jobb. Kodfragmenten i den här artikeln använder en sväng för att göra REST API anrop till livy Spark-slutpunkten.
+Du kan använda Livy för att köra interaktiva Spark-skal eller skicka batch-jobb som ska köras på Spark. Den här artikeln talar om att använda Livy att skicka batch jobb. Kodavsnitten i den här artikeln använder cURL för att ringa REST API-anrop till Livy Spark-slutpunkten.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Ett Apache Spark-kluster i HDInsight. Anvisningar finns i [Skapa Apache Spark-kluster i Azure HDInsight](apache-spark-jupyter-spark-sql.md).
 
-## <a name="submit-an-apache-livy-spark-batch-job"></a>Skicka ett batch-jobb för Apache livy Spark
+## <a name="submit-an-apache-livy-spark-batch-job"></a>Skicka in ett apache livy Spark-batchjobb
 
-Innan du skickar ett batch-jobb måste du ladda upp programmet jar på kluster lagringen som är associerad med klustret. Du kan använda [AzCopy](../../storage/common/storage-use-azcopy.md), ett kommando rads verktyg för att göra det. Det finns olika andra klienter som du kan använda för att överföra data. Det finns mer information om dem i [Ladda upp data för Apache Hadoop-jobb i HDInsight](../hdinsight-upload-data.md).
+Innan du skickar ett batchjobb måste du överföra programburken på klusterlagringen som är associerad med klustret. Du kan använda kommandoradsverktyget [AzCopy](../../storage/common/storage-use-azcopy.md) till att göra detta. Det finns flera andra klienter som du kan använda för att ladda upp data. Det finns mer information om dem i [Ladda upp data för Apache Hadoop-jobb i HDInsight](../hdinsight-upload-data.md).
 
 ```cmd
 curl -k --user "admin:password" -v -H "Content-Type: application/json" -X POST -d '{ "file":"<path to application jar>", "className":"<classname in jar>" }' 'https://<spark_cluster_name>.azurehdinsight.net/livy/batches' -H "X-Requested-By: admin"
@@ -35,19 +35,19 @@ curl -k --user "admin:password" -v -H "Content-Type: application/json" -X POST -
 
 ### <a name="examples"></a>Exempel
 
-* Om jar-filen finns på kluster lagringen (WASBS)
+* Om jar-filen finns i klusterlagringen (WASBS)
 
     ```cmd  
     curl -k --user "admin:mypassword1!" -v -H "Content-Type: application/json" -X POST -d '{ "file":"wasbs://mycontainer@mystorageaccount.blob.core.windows.net/data/SparkSimpleTest.jar", "className":"com.microsoft.spark.test.SimpleFile" }' "https://mysparkcluster.azurehdinsight.net/livy/batches" -H "X-Requested-By: admin"
     ```
 
-* Om du vill skicka jar-filnamnet och klass namnet som en del av en indatafil (i det här exemplet indata. txt)
+* Om du vill skicka jar-filnamnet och klassnamnet som en del av en indatafil (i det här exemplet input.txt)
 
     ```cmd
     curl -k  --user "admin:mypassword1!" -v -H "Content-Type: application/json" -X POST --data @C:\Temp\input.txt "https://mysparkcluster.azurehdinsight.net/livy/batches" -H "X-Requested-By: admin"
     ```
 
-## <a name="get-information-on-livy-spark-batches-running-on-the-cluster"></a>Hämta information om livy Spark-batchar som körs i klustret
+## <a name="get-information-on-livy-spark-batches-running-on-the-cluster"></a>Få information om Livy Spark-batchar som körs i klustret
 
 Syntax:
 
@@ -57,19 +57,19 @@ curl -k --user "admin:password" -v -X GET "https://<spark_cluster_name>.azurehdi
 
 ### <a name="examples"></a>Exempel
 
-* Om du vill hämta alla livy Spark-batchar som körs i klustret:
+* Om du vill hämta alla Livy Spark-batchar som körs i klustret:
 
     ```cmd
     curl -k --user "admin:mypassword1!" -v -X GET "https://mysparkcluster.azurehdinsight.net/livy/batches"
     ```
 
-* Om du vill hämta en specifik batch med ett angivet batch-ID
+* Om du vill hämta en viss batch med ett visst batch-ID
 
     ```cmd
     curl -k --user "admin:mypassword1!" -v -X GET "https://mysparkcluster.azurehdinsight.net/livy/batches/{batchId}"
     ```
 
-## <a name="delete-a-livy-spark-batch-job"></a>Ta bort ett livy Spark batch-jobb
+## <a name="delete-a-livy-spark-batch-job"></a>Ta bort ett batchjobb i Livy Spark
 
 ```cmd
 curl -k --user "admin:mypassword1!" -v -X DELETE "https://<spark_cluster_name>.azurehdinsight.net/livy/batches/{batchId}"
@@ -77,7 +77,7 @@ curl -k --user "admin:mypassword1!" -v -X DELETE "https://<spark_cluster_name>.a
 
 ### <a name="example"></a>Exempel
 
-Ta bort ett batch-jobb med batch-ID `5`.
+Ta bort ett batchjobb `5`med batch-ID .
 
 ```cmd
 curl -k --user "admin:mypassword1!" -v -X DELETE "https://mysparkcluster.azurehdinsight.net/livy/batches/5"
@@ -85,34 +85,34 @@ curl -k --user "admin:mypassword1!" -v -X DELETE "https://mysparkcluster.azurehd
 
 ## <a name="livy-spark-and-high-availability"></a>Livy Spark och hög tillgänglighet
 
-Livy ger hög tillgänglighet för Spark-jobb som körs i klustret. Här är några exempel.
+Livy ger hög tillgänglighet för Spark-jobb som körs i klustret. Här är ett par exempel.
 
-* Om livy-tjänsten slutar att fungera när du har skickat ett jobb till ett Spark-kluster fortsätter jobbet att köras i bakgrunden. När livy är säkerhets kopie rad återställer den jobbets status och rapporterar det igen.
-* Jupyter-anteckningsböcker för HDInsight drivs av livy i Server delen. Om en bärbar dator kör ett Spark-jobb och livy-tjänsten startas om fortsätter antecknings boken att köra kod cellerna.
+* Om Livy-tjänsten går ned efter att du har skickat ett jobb på distans till ett Spark-kluster fortsätter jobbet att köras i bakgrunden. När Livy är tillbaka upp, återställs status för jobbet och rapporterar tillbaka.
+* Jupyter bärbara datorer för HDInsight drivs av Livy i backend. Om en anteckningsbok kör ett Spark-jobb och Livy-tjänsten startas om fortsätter anteckningsboken att köra kodcellerna.
 
-## <a name="show-me-an-example"></a>Visa ett exempel
+## <a name="show-me-an-example"></a>Visa mig ett exempel
 
-I det här avsnittet tittar vi på exempel för att använda livy Spark för att skicka batch-jobb, övervaka jobbets förlopp och ta sedan bort det. Programmet som vi använder i det här exemplet är det som utvecklades i artikeln [skapa ett fristående Scala-program och köra på HDInsight Spark-kluster](apache-spark-create-standalone-application.md). Stegen här förutsätts:
+I det här avsnittet tittar vi på exempel för att använda Livy Spark för att skicka batch-jobb, övervaka förloppet för jobbet och sedan ta bort det. Programmet vi använder i det här exemplet är det som utvecklats i artikeln [Skapa ett fristående Scala-program och att köras på HDInsight Spark-kluster](apache-spark-create-standalone-application.md). Stegen här förutsätter:
 
-* Du har redan kopierat över Application jar till det lagrings konto som är associerat med klustret.
-* Du har spiral installerat på den dator där du provar de här stegen.
+* Du har redan kopierat över programburken till lagringskontot som är associerat med klustret.
+* Du har CuRL installerat på datorn där du försöker med de här stegen.
 
 Utför följande steg:
 
-1. Ange miljövariabler för enkel användning. Det här exemplet baseras på en Windows-miljö och ändrar variabler efter behov för din miljö. Ersätt `CLUSTERNAME`och `PASSWORD` med lämpliga värden.
+1. För enkel användning, ange miljövariabler. Det här exemplet baseras på en Windows-miljö och ändrar variabler efter behov för din miljö. Ersätt `CLUSTERNAME`och `PASSWORD` med lämpliga värden.
 
     ```cmd
     set clustername=CLUSTERNAME
     set password=PASSWORD
     ```
 
-1. Kontrol lera att livy Spark körs i klustret. Vi kan göra det genom att hämta en lista med att köra batchar. Om du kör ett jobb med livy för första gången ska utdata returnera noll.
+1. Kontrollera att Livy Spark körs i klustret. Vi kan göra det genom att få en lista över löpande batchar. Om du kör ett jobb med Livy för första gången ska utdata returnera noll.
 
     ```cmd
     curl -k --user "admin:%password%" -v -X GET "https://%clustername%.azurehdinsight.net/livy/batches"
     ```
 
-    Du bör få utdata som liknar följande kodfragment:
+    Du bör hämta en utdata som liknar följande kodavsnitt:
 
     ```output
     < HTTP/1.1 200 OK
@@ -126,15 +126,15 @@ Utför följande steg:
     {"from":0,"total":0,"sessions":[]}* Connection #0 to host mysparkcluster.azurehdinsight.net left intact
     ```
 
-    Observera att den sista raden i utdata visar **Total: 0**, vilket innebär att inga batchar körs.
+    Lägg märke till hur den sista raden i utdata säger **totalt:0**, vilket tyder på att inga löpande batchar körs.
 
-1. Låt oss nu skicka ett batch-jobb. I följande kodfragment används en indatafil (indata. txt) för att skicka jar-namnet och klass namnet som parametrar. Om du kör de här stegen från en Windows-dator rekommenderar vi att du använder en indatafil.
+1. Låt oss nu skicka in ett batchjobb. Följande kodavsnitt använder en indatafil (input.txt) för att skicka jarnamnet och klassnamnet som parametrar. Om du kör dessa steg från en Windows-dator är det rekommenderat att du använder en indatafil.
 
     ```cmd
     curl -k --user "admin:%password%" -v -H "Content-Type: application/json" -X POST --data @C:\Temp\input.txt "https://%clustername%.azurehdinsight.net/livy/batches" -H "X-Requested-By: admin"
     ```
 
-    Parametrarna i filen **indata. txt** definieras enligt följande:
+    Parametrarna i filen **input.txt** definieras på följande sätt:
 
     ```text
     { "file":"wasbs:///example/jars/SparkSimpleApp.jar", "className":"com.microsoft.spark.example.WasbIOTest" }
@@ -155,9 +155,9 @@ Utför följande steg:
     {"id":0,"state":"starting","log":[]}* Connection #0 to host mysparkcluster.azurehdinsight.net left intact
     ```
 
-    Observera hur den sista raden i utdata säger **status: Started**. Det heter också **ID: 0**. Här är **0** batch-ID.
+    Lägg märke till hur den sista raden i utdata säger **state:starting**. Det står också, **id:0**. Här är **0** batch-ID.
 
-1. Nu kan du hämta statusen för den här batchen med batch-ID: t.
+1. Du kan nu hämta status för den här specifika batchen med hjälp av batch-ID.
 
     ```cmd
     curl -k --user "admin:%password%" -v -X GET "https://%clustername%.azurehdinsight.net/livy/batches/0"
@@ -177,7 +177,7 @@ Utför följande steg:
     {"id":0,"state":"success","log":["\t diagnostics: N/A","\t ApplicationMaster host: 10.0.0.4","\t ApplicationMaster RPC port: 0","\t queue: default","\t start time: 1448063505350","\t final status: SUCCEEDED","\t tracking URL: http://myspar.lpel.jx.internal.cloudapp.net:8088/proxy/application_1447984474852_0002/","\t user: root","15/11/20 23:52:47 INFO Utils: Shutdown hook called","15/11/20 23:52:47 INFO Utils: Deleting directory /tmp/spark-b72cd2bf-280b-4c57-8ceb-9e3e69ac7d0c"]}* Connection #0 to host mysparkcluster.azurehdinsight.net left intact
     ```
 
-    Utdata visar nu **status: lyckades**, vilket tyder på att jobbet har slutförts.
+    Utdata visar nu **state:success**, vilket tyder på att jobbet har slutförts.
 
 1. Om du vill kan du nu ta bort batchen.
 
@@ -199,18 +199,18 @@ Utför följande steg:
     {"msg":"deleted"}* Connection #0 to host mysparkcluster.azurehdinsight.net left intact
     ```
 
-    Den sista raden i utdata visar att batchen har tagits bort. Om du tar bort ett jobb medan det körs, omsorg det också. Om du tar bort ett jobb som har slutförts, eller på annat sätt, tar bort jobb informationen helt.
+    Den sista raden i utdata visar att batchen har tagits bort. Att ta bort ett jobb, medan det körs, dödar också jobbet. Om du tar bort ett jobb som har slutförts, framgångsrikt eller på annat sätt, tas jobbinformationen bort helt.
 
-## <a name="updates-to-livy-configuration-starting-with-hdinsight-35-version"></a>Uppdateringar av livy-konfiguration från och med HDInsight 3,5-version
+## <a name="updates-to-livy-configuration-starting-with-hdinsight-35-version"></a>Uppdateringar av Livy-konfigurationen som börjar med HDInsight 3.5-versionen
 
-HDInsight 3,5-kluster och högre, som standard, inaktivera användning av lokala fil Sök vägar för att få åtkomst till exempel data-filer eller jar v7. Vi rekommenderar att du använder `wasbs://` Sök väg i stället för att komma åt jar v7-eller exempelfilerna från klustret.
+HDInsight 3.5 kluster och högre, som standard, inaktivera användningen av lokala sökvägar för att komma åt exempeldatafiler eller burkar. Vi rekommenderar att `wasbs://` du använder sökvägen i stället för att komma åt burkar eller exempeldatafiler från klustret.
 
-## <a name="submitting-livy-jobs-for-a-cluster-within-an-azure-virtual-network"></a>Skicka livy-jobb för ett kluster i ett virtuellt Azure-nätverk
+## <a name="submitting-livy-jobs-for-a-cluster-within-an-azure-virtual-network"></a>Skicka Livy-jobb för ett kluster i ett virtuellt Azure-nätverk
 
-Om du ansluter till ett HDInsight Spark-kluster från en Azure-Virtual Network, kan du ansluta direkt till livy i klustret. I sådana fall är URL: en för livy-slutpunkten `http://<IP address of the headnode>:8998/batches`. Här är **8998** den port där livy körs på klustrets huvudnoden. Mer information om hur du ansluter till tjänster på icke-offentliga portar finns i [portar som används av Apache Hadoop Services i HDInsight](../hdinsight-hadoop-port-settings-for-services.md).
+Om du ansluter till ett HDInsight Spark-kluster från ett Virtuellt Azure-nätverk kan du ansluta direkt till Livy i klustret. I så fall är `http://<IP address of the headnode>:8998/batches`url:en för Livy-slutpunkten . Här är **8998** den hamn där Livy körs på kluster headnode. Mer information om hur du får tillgång till tjänster i icke-offentliga portar finns [i Portar som används av Apache Hadoop-tjänster på HDInsight](../hdinsight-hadoop-port-settings-for-services.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Apache livy REST API-dokumentation](https://livy.incubator.apache.org/docs/latest/rest-api.html)
+* [Apache Livy REST API-dokumentation](https://livy.incubator.apache.org/docs/latest/rest-api.html)
 * [Hantera resurser för Apache Spark-klustret i Azure HDInsight](apache-spark-resource-manager.md)
 * [Följa och felsöka jobb som körs i ett Apache Spark-kluster i HDInsight](apache-spark-job-debugging.md)

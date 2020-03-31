@@ -1,6 +1,6 @@
 ---
-title: Migrera från Azure Media Services v2 till v3 | Microsoft Docs
-description: Den här artikeln beskriver ändringar som introducerades i Azure Media Services v3 och visar skillnaderna mellan två versioner. Artikeln innehåller även vägledning för migrering för att flytta från Media Services v2 till v3.
+title: Migrera från Azure Media Services v2 till v3 | Microsoft-dokument
+description: I den här artikeln beskrivs ändringar som introducerades i Azure Media Services v3 och visar skillnader mellan två versioner. Artikeln innehåller också migreringsvägledning för att flytta från Media Services v2 till v3.
 services: media-services
 documentationcenter: na
 author: Juliako
@@ -15,72 +15,72 @@ ms.tgt_pltfrm: multiple
 ms.workload: media
 ms.date: 03/09/2020
 ms.author: juliako
-ms.openlocfilehash: 5083dc79b146598142ac27eb6ac7ef9ed436f37d
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 72d413c5d8bc982d885d889da35b29a3607410cc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79251562"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79472075"
 ---
-# <a name="migration-guidance-for-moving-from-media-services-v2-to-v3"></a>Vägledning för migrering för att flytta från Media Services v2 till v3
+# <a name="migration-guidance-for-moving-from-media-services-v2-to-v3"></a>Migreringsvägledning för flyttning från Media Services v2 till v3
 
->Bli informerad om när du ska gå tillbaka till den här sidan för uppdateringar genom att kopiera och klistra in URL: en: `https://docs.microsoft.com/api/search/rss?search=%22Migrate+from+Azure+Media+Services+v2+to+v3%22&locale=en-us` i din RSS-feeds läsare.
+>Få ett meddelande om när du ska gå tillbaka till `https://docs.microsoft.com/api/search/rss?search=%22Migrate+from+Azure+Media+Services+v2+to+v3%22&locale=en-us` den här sidan för uppdateringar genom att kopiera och klistra in den här webbadressen: i rss-flödesläsaren.
 
-Den här artikeln innehåller en vägledning för migrering från Media Services v2 till v3.
+Den här artikeln innehåller migreringsvägledning från Media Services v2 till v3.
 
-Om du har en video tjänst som utvecklats idag ovanpå de [äldre Media Services v2-API: erna](../previous/media-services-overview.md)bör du läsa följande rikt linjer och överväganden innan du migrerar till v3-API: erna. Det finns många fördelar och nya funktioner i v3-API: et som förbättrar utvecklings upplevelsen och funktionerna i Media Services. Som du ser i avsnittet [kända problem](#known-issues) i den här artikeln finns det också vissa begränsningar på grund av ändringar mellan API-versionerna. Den här sidan kommer att behållas när Media Servicess teamet gör fortsatta förbättringar av v3-API: erna och åtgärdar luckorna mellan versionerna. 
+Om du har en videotjänst som utvecklats idag utöver de [äldre Api:erna för Media Services v2](../previous/media-services-overview.md)bör du granska följande riktlinjer och överväganden innan du migrerar till v3-API:erna. Det finns många fördelar och nya funktioner i v3 API som förbättrar utvecklarupplevelsen och funktionerna i Media Services. Men som kallas i avsnittet [Kända problem](#known-issues) i den här artikeln finns det också vissa begränsningar på grund av ändringar mellan API-versionerna. Den här sidan kommer att underhållas när Media Services-teamet gör fortsatta förbättringar av v3 API:er och åtgärdar luckorna mellan versionerna. 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-* Granska [Media Services v2 vs. v3](media-services-v2-vs-v3.md)
+* Granska [Media Services v2 vs v3](media-services-v2-vs-v3.md)
 * [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="benefits-of-media-services-v3"></a>Fördelar med Media Services v3
   
-### <a name="api-is-more-approachable"></a>API är mer lättare att nå
+### <a name="api-is-more-approachable"></a>API är mer lättillgängligt
 
-*  v3 baseras på en enhetlig API-yta som innehåller funktioner för både hantering och åtgärder som skapats på Azure Resource Manager. Azure Resource Manager mallar kan användas för att skapa och distribuera transformeringar, slut punkter för direkt uppspelning, Live-händelser och mycket annat.
-* [Openapi-specifikation (tidigare kallat Swagger)-](https://aka.ms/ams-v3-rest-sdk) dokument.
-    Exponerar schemat för alla tjänst komponenter, inklusive filbaserad kodning.
-* SDK: er är tillgängliga för [.net](https://aka.ms/ams-v3-dotnet-ref), .net Core, [Node. js](/javascript/api/overview/azure/mediaservices/management), [python](https://aka.ms/ams-v3-python-ref), [Java](https://aka.ms/ams-v3-java-ref), [Go](https://aka.ms/ams-v3-go-ref)och Ruby.
-* [Azure CLI](https://aka.ms/ams-v3-cli-ref) -integrering för enkel skript support.
+*  v3 baseras på en enhetlig API-yta som innehåller funktioner för både hantering och åtgärder som skapats på Azure Resource Manager. Azure Resource Manager-mallar kan användas för att skapa och distribuera transformeringar, slutpunkter för direktuppspelning, livehändelser med mera.
+* [OpenAPI Specification (tidigare kallat Swagger)](https://aka.ms/ams-v3-rest-sdk) dokument.
+    Exponerar schemat för alla tjänstkomponenter, inklusive filbaserad kodning.
+* SDK:er tillgängliga för [.NET](https://aka.ms/ams-v3-dotnet-ref), .NET Core, [Node.js](/javascript/api/overview/azure/mediaservices/management), [Python](https://aka.ms/ams-v3-python-ref), [Java](https://aka.ms/ams-v3-java-ref), [Go](https://aka.ms/ams-v3-go-ref)och Ruby.
+* [Azure CLI-integrering](https://aka.ms/ams-v3-cli-ref) för enkel skriptsupport.
 
 ### <a name="new-features"></a>Nya funktioner
 
-* För filbaserad jobb bearbetning kan du använda en HTTP (S)-URL som indata.<br/>Du behöver inte ha något innehåll som redan är lagrat i Azure, eller så behöver du inte skapa till gångar.
-* Introducerar begreppet [transformeringar](transforms-jobs-concept.md) för filbaserad jobb bearbetning. En transformering kan användas för att skapa återanvändbara konfigurationer, skapa Azure Resource Manager mallar och isolera bearbetnings inställningar mellan flera kunder eller klienter.
-* En till gång kan ha flera [positioner för strömning](streaming-locators-concept.md) med olika inställningar för [dynamisk paketering](dynamic-packaging-overview.md) och dynamisk kryptering.
-* [Innehålls skydd](content-key-policy-concept.md) stöder flera viktiga funktioner.
-* Du kan strömma direktsända händelser som är upp till 24 timmar långt när du använder Media Services för att avkoda en enskild bit i ett bidrags flöde för en bit hastighet till en utdataström som har flera bit hastigheter.
-* Ny support för Live-direktuppspelning med låg latens för Live-händelser. Mer information finns i [svars tid](live-event-latency.md).
-* För hands versionen av live event stöder [dynamisk paketering](dynamic-packaging-overview.md) och dynamisk kryptering. Detta aktiverar innehålls skydd för för hands versionen samt streck-och HLS-paket.
-* Live-utdata är enklare att använda än entiteten program i v2-API: erna. 
-* Förbättrat stöd för RTMP (ökad stabilitet och fler stöd för käll kodare).
-* RTMPs säker inmatning.<br/>När du skapar en Live-händelse får du 4 inmatnings-URL: er. De 4 inmatnings-URL: erna är nästan identiska, har samma strömnings-token (AppId), men endast port nummer delen är annorlunda. Två av URL: erna är primära och säkerhets kopiering för RTMP.   
-* Du har rollbaserad åtkomst kontroll (RBAC) över dina entiteter. 
+* För filbaserad jobbbearbetning kan du använda en HTTP(S)-URL som indata.<br/>Du behöver inte ha innehåll som redan lagrats i Azure, och du behöver inte heller skapa resurser.
+* Introducerar begreppet [Transforms](transforms-jobs-concept.md) för filbaserad jobbbearbetning. En transformering kan användas för att skapa återanvändbara konfigurationer, skapa Azure Resource Manager-mallar och isolera bearbetningsinställningar mellan flera kunder eller klienter.
+* En tillgång kan ha flera [streamingpositionerare](streaming-locators-concept.md) var och en med olika [inställningar för dynamisk paketering](dynamic-packaging-overview.md) och dynamisk kryptering.
+* [Innehållsskydd](content-key-policy-concept.md) stöder funktioner med flera nyckeltal.
+* Du kan strömma livehändelser som är upp till 24 timmar långa när du använder Media Services för omkodning av ett enda bithastighetsbidragsflöde till en utdataström som har flera bithastigheter.
+* Nytt stöd för livestreaming med låg latens på livehändelser. Mer information finns i [svarstiden](live-event-latency.md).
+* Live Event Preview stöder [dynamisk paketering](dynamic-packaging-overview.md) och dynamisk kryptering. Detta möjliggör innehållsskydd på förhandsversion samt DASH- och HLS-paket.
+* Live-utdata är enklare att använda än programentiteten i v2-API:erna. 
+* Förbättrat RTMP-stöd (ökad stabilitet och mer stöd för källkodare).
+* RTMPS säkrar intag.<br/>När du skapar en livehändelse får du 4 intjest webbadresser. De 4 intövande webbadresserna är nästan identiska, har samma streamingtoken (AppId), endast portnummerdelen är annorlunda. Två av webbadresserna är primära och säkerhetskopierade för RTMPS.   
+* Du har rollbaserad åtkomstkontroll (RBAC) över dina entiteter. 
 
 ## <a name="known-issues"></a>Kända problem
 
-*  För närvarande kan du använda [Azure Portal](https://portal.azure.com/) för att:
+*  För närvarande kan du använda [Azure-portalen](https://portal.azure.com/) för att:
 
-    * Hantera Media Services v3 [Live-händelser](live-events-outputs-concept.md), 
-    * Visa (inte hantera) v3- [till gångar](assets-concept.md), 
-    * [Hämta information om att komma åt API: er](access-api-portal.md). 
+    * hantera Media Services v3 [Live Events](live-events-outputs-concept.md), 
+    * visa (inte hantera) [v3-tillgångar](assets-concept.md), 
+    * [få information om hur du använder API:er](access-api-portal.md). 
 
-    För alla andra hanterings uppgifter (t. ex. [transformationer och jobb](transforms-jobs-concept.md) och [innehålls skydd](content-protection-overview.md)) använder du [REST API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref)eller någon av de [SDK](media-services-apis-overview.md#sdks): er som stöds.
-* Du måste etablera medie reserverade enheter (MRUs) i ditt konto för att kunna styra samtidigheten och prestandan för dina jobb, särskilt för video-eller ljud analys. Mer information finns i [Skala mediebearbetning](../previous/media-services-scale-media-processing-overview.md). Du kan hantera MRUs med [CLI 2,0 för Media Services v3](media-reserved-units-cli-how-to.md), med hjälp av [Azure Portal](../previous/media-services-portal-scale-media-processing.md)eller [v2-API: er](../previous/media-services-dotnet-encoding-units.md). Du måste etablera MRUs, oavsett om du använder Media Services v2 eller v3-API: er.
-* Media Services entiteter som har skapats med v3-API: t kan inte hanteras av v2-API: et.  
-* Alla entiteter i v2-API: t visas inte automatiskt i v3-API: et.  Följande är exempel på entiteter i de två versioner som är inkompatibla:  
-    * Jobb och uppgifter som skapas i v2 visas inte i v3 eftersom de inte är associerade med en transformering. Rekommendationen är att växla till v3-transformeringar och-jobb. Det kommer att finnas en relativt kort tids period för att övervaka synlighetssekvensnummer v2-jobben under växlingen.
-    * Kanaler och program som skapats med v2 (som mappas till Live-händelser och Live-utdata i v3) kan inte fortsätta hanteras med v3. Rekommendationen är att byta till v3 Live-händelser och direktsända utdata i ett bekvämt kanal avbrott.<br/>För närvarande kan du inte migrera kanaler som körs kontinuerligt.  
+    För alla andra hanteringsuppgifter (till exempel [Transforms and Jobs](transforms-jobs-concept.md) and [Content protection)](content-protection-overview.md)använder du [REST API](https://docs.microsoft.com/rest/api/media/), [CLI](https://aka.ms/ams-v3-cli-ref)eller någon av de [SDK:er som](media-services-apis-overview.md#sdks)stöds .
+* Du måste etablera mediereserverade enheter i ditt konto för att kontrollera samtidigheten och prestandan hos dina jobb, särskilt de som involverar video- eller ljudanalys. Mer information finns i [Skala mediebearbetning](../previous/media-services-scale-media-processing-overview.md). Du kan hantera MR:erna med [CLI 2.0 för Media Services v3,](media-reserved-units-cli-how-to.md)använda [Azure-portalen](../previous/media-services-portal-scale-media-processing.md)eller använda [v2 API:erna](../previous/media-services-dotnet-encoding-units.md). Du måste etablera MRUs, oavsett om du använder Media Services v2 eller v3 API: er.
+* Media Services-entiteter som skapats med v3-API:et kan inte hanteras av v2-API:et.  
+* Alla entiteter i V2 API visas inte automatiskt i V3 API.  Här följer exempel på entiteter i de två versionerna som är inkompatibla:  
+    * Jobb och uppgifter som skapas i v2 visas inte i v3 eftersom de inte är associerade med en transformering. Rekommendationen är att byta till v3 Transforms and Jobs. Det kommer att finnas en relativt kort tidsperiod för att behöva övervaka inflight v2 Jobb under övergången.
+    * Kanaler och program som skapats med v2 (som mappas till livehändelser och liveutdata i v3) kan inte fortsätta att hanteras med v3. Rekommendationen är att byta till v3 Live Events och Live Outputs vid ett bekvämt kanalstopp.<br/>För närvarande kan du inte migrera kontinuerligt köra kanaler.  
 
 > [!NOTE]
-> Den här sidan kommer att behållas när Media Servicess teamet gör fortsatta förbättringar av v3-API: erna och åtgärdar luckorna mellan versionerna.
+> Den här sidan kommer att underhållas när Media Services-teamet gör fortsatta förbättringar av v3 API:er och åtgärdar luckorna mellan versionerna.
 
-## <a name="ask-questions-give-feedback-get-updates"></a>Ställ frågor, ge feedback, hämta uppdateringar
+## <a name="ask-questions-give-feedback-get-updates"></a>Ställ frågor, ge feedback, få uppdateringar
 
-Kolla in [Azure Media Services community](media-services-community.md) -artikeln för att se olika sätt att ställa frågor, lämna feedback och få uppdateringar om Media Services.
+Kolla in [communityartikeln i Azure Media Services](media-services-community.md) för att se olika sätt att ställa frågor, ge feedback och få uppdateringar om Medietjänster.
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Självstudie: koda en fjärrfil baserat på URL och strömma videon – .NET](stream-files-dotnet-quickstart.md)
+[Självstudiekurs: Koda en fjärrfil baserat på URL och strömma videon - .NET](stream-files-dotnet-quickstart.md)

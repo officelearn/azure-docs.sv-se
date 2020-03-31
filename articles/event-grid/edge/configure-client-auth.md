@@ -1,6 +1,6 @@
 ---
-title: Konfigurera klientautentisering av inkommande anrop – Azure Event Grid IoT Edge | Microsoft Docs
-description: Konfigurera API-protokoll som exponeras av Event Grid på IoT Edge.
+title: Konfigurera klientautentisering av inkommande samtal - Azure Event Grid IoT Edge | Microsoft-dokument
+description: Konfigurera API-protokoll som exponeras av händelserutnät på IoT Edge.
 author: VidyaKukke
 manager: rajarv
 ms.author: vkukke
@@ -10,20 +10,20 @@ ms.topic: article
 ms.service: event-grid
 services: event-grid
 ms.openlocfilehash: 3363db4557dd19e8d72747ccd62bb535abb7b1e2
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76841799"
 ---
 # <a name="configure-client-authentication-of-incoming-calls"></a>Konfigurera klientautentisering av inkommande samtal
 
-Den här guiden innehåller exempel på konfigurationer av möjliga klientautentisering för Event Grid-modulen. Event Grid-modulen stöder två typer av klientautentisering:
+Den här guiden ger exempel på möjliga klientautentiseringskonfigurationer för modulen Event Grid. Event Grid-modulen stöder två typer av klientautentisering:
 
-* Signaturer för delad åtkomst (SAS)
+* SAS-signatur (Shared Access Signature)
 * Certifikatbaserad
 
-Se [säkerhets-och autentiserings](security-authentication.md) guide för alla möjliga konfigurationer.
+Se [säkerhets- och autentiseringsguiden](security-authentication.md) för alla möjliga konfigurationer.
 
 ## <a name="enable-certificate-based-client-authentication-no-self-signed-certificates"></a>Aktivera certifikatbaserad klientautentisering, inga självsignerade certifikat
 
@@ -38,7 +38,7 @@ Se [säkerhets-och autentiserings](security-authentication.md) guide för alla m
 }
  ```
 
-## <a name="enable-certificate-based-client-authentication-allow-self-signed-certificates"></a>Aktivera certifikatbaserad klientautentisering, Tillåt självsignerade certifikat
+## <a name="enable-certificate-based-client-authentication-allow-self-signed-certificates"></a>Aktivera certifikatbaserad klientautentisering, tillåt självsignerade certifikat
 
 ```json
  {
@@ -52,9 +52,9 @@ Se [säkerhets-och autentiserings](security-authentication.md) guide för alla m
 ```
 
 >[!NOTE]
->Ange egenskapen **inbound__clientAuth__clientCert__allowUnknownCA** till **Sant** endast i test miljöer som du vanligt vis använder självsignerade certifikat. För produktions arbets belastningar rekommenderar vi att du ställer in den här egenskapen på **false** och certifikat från en certifikat utfärdare (ca).
+>Ange att egenskapen **inbound__clientAuth__clientCert__allowUnknownCA** bara **är true** i testmiljöer eftersom du vanligtvis använder självsignerade certifikat. För produktionsarbetsbelastningar rekommenderar vi att du anger den här egenskapen till **false** och certifikat från en certifikatutfärdare.
 
-## <a name="enable-certificate-based-and-sas-key-based-client-authentication"></a>Aktivera certifikatbaserad autentisering och SAS-baserad klientautentisering
+## <a name="enable-certificate-based-and-sas-key-based-client-authentication"></a>Aktivera certifikatbaserad och sas-nyckelbaserad klientautentisering
 
 ```json
  {
@@ -70,4 +70,4 @@ Se [säkerhets-och autentiserings](security-authentication.md) guide för alla m
  ```
 
 >[!NOTE]
->SAS-baserad klientautentisering tillåter en icke-IoT Edge-modul för hanterings-och körnings åtgärder som förutsätter att API-portarna är tillgängliga utanför IoT Edge nätverket.
+>SAS nyckelbaserade klientautentisering gör det möjligt för en icke-IoT-kantmodul att utföra hanterings- och körningsåtgärder förutsatt att API-portarna är tillgängliga utanför IoT Edge-nätverket.

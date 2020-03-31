@@ -7,36 +7,38 @@
     - name: 'Jämför API: erna för Bing-sökresultat'
       href: ../Bing-Web-Search/bing-api-comparison.md
       maintainContext: true
-- name: Snabbstarter för REST API
+- name: Snabbstarter
   expanded: true
   items:
-    - name: 'C#'
-      href: quickstarts/csharp.md
-    - name: Java
-      href: quickstarts/java.md
-    - name: Node.js
-      href: quickstarts/nodejs.md
-    - name: PHP
-      href: quickstarts/php.md
-    - name: Python
-      href: quickstarts/python.md
-    - name: Ruby
-      href: quickstarts/ruby.md
-- name: Klientbibliotek
-  items:
-    - name: 'C#'
-      href: quickstarts/csharp-sdk.md
-    - name: Go
-      href: quickstarts/go-sdk.md
+    - name: REST-API
+      items:
+        - name: 'C#'
+          href: quickstarts/csharp.md
+        - name: Java
+          href: quickstarts/java.md
+        - name: Node.js
+          href: quickstarts/nodejs.md
+        - name: PHP
+          href: quickstarts/php.md
+        - name: Python
+          href: quickstarts/python.md
+        - name: Ruby
+          href: quickstarts/ruby.md
+    - name: Klientbibliotek
+      items:
+        - name: 'C#'
+          href: quickstarts/csharp-sdk.md
+        - name: Go
+          href: quickstarts/go-sdk.md
 - name: Självstudier
   items:
     - name: Enkelsidig webbapp
       href: tutorials/autosuggest.md
-- name: Instruktionsguider
+- name: Anvisningar
   items:
     - name: Uppgradera från v5 till v7
       href: bing-autosuggest-upgrade-guide-v5-to-v7.md
-- name: Koncept
+- name: Begrepp
   items:
     - name: Föreslå frågeord
       href: concepts/get-suggestions.md
@@ -63,7 +65,7 @@
       maintainContext: true
 - name: Resurser
   items:
-    - name: Priser
+    - name: Prissättning
       href: 'https://azure.microsoft.com/pricing/details/cognitive-services/autosuggest-api/'
     - name: UserVoice
       href: 'https://cognitive.uservoice.com/forums/598198-bing-autosuggest'

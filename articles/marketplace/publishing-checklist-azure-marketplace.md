@@ -1,18 +1,18 @@
 ---
 title: Publiceringschecklista för Azure Marketplace | Azure
 description: Publicering checklista för Azure Marketplace med Cloud Partner Portal.
-author: jm-aditi-ms
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 06/05/2018
 ms.author: dsindona
-ms.openlocfilehash: deee43628f8d9f782979b4112f1fec415d137340
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0409933a3cd4bb535427cf61bd06207d53d5a96e
+ms.sourcegitcommit: d0fd35f4f0f3ec71159e9fb43fcd8e89d653f3f2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80285001"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80387724"
 ---
 # <a name="publishing-checklist-for-azure-marketplace"></a>Publicera checklista för Azure Marketplace    
 Granska nödvändiga komponenter innan publiceringsprocessen påbörjas.  

@@ -1,143 +1,143 @@
 ---
-title: Konfigurera en Azure Migrate-apparat för fysiska servrar
-description: Lär dig hur du konfigurerar en Azure Migrate-apparat för fysisk server-utvärdering.
+title: Konfigurera en Azure Migrate-installation för fysiska servrar
+description: Lär dig hur du konfigurerar en Azure Migrate-installation för fysisk serverutvärdering.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: article
 ms.date: 11/19/2019
 ms.author: raynew
 ms.openlocfilehash: b60a30e5e30ee81cbaca7d5e4691ccedac2462b6
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77598178"
 ---
-# <a name="set-up-an-appliance-for-physical-servers"></a>Konfigurera en installation för fysiska servrar
+# <a name="set-up-an-appliance-for-physical-servers"></a>Konfigurera en apparat för fysiska servrar
 
-I den här artikeln beskrivs hur du konfigurerar Azure Migrate-enheten om du utvärderar fysiska servrar med verktyget Azure Migrate: Server bedömning.
+I den hÃ¤r artikeln beskrivs hur du konfigurerar Azure Migrate-anordningen om du bedömer fysiska servrar med verktyget Azure Migrate: Server Assessment.
 
-Azure Migrate-installationen är en förenklad installation som används av Azure Migrate Server bedömning för att göra följande:
+Azure Migrate-installationen är en lättviktsinstallation som används av Azure Migrate Server Assessment för att göra följande:
 
-- Identifiera lokala servrar.
-- Skicka metadata och prestanda data för identifierade servrar till Azure Migrate Server bedömning.
+- Upptäck lokala servrar.
+- Skicka metadata och prestandadata för identifierade servrar till Azure Migrate Server Assessment.
 
 [Läs mer](migrate-appliance.md) om Azure Migrate-enheten.
 
 
-## <a name="appliance-deployment-steps"></a>Distributions steg för installationen
+## <a name="appliance-deployment-steps"></a>Åtgärder för distribution av apparater
 
-Så här konfigurerar du den apparat som du:
-- Ladda ned en zippad fil med Azure Migrate Installer-skript från Azure Portal.
-- Extrahera innehållet från den zippade filen. Starta PowerShell-konsolen med administratörs behörighet.
-- Kör PowerShell-skriptet för att starta webb programmet för installationen.
-- Konfigurera enheten för första gången och registrera den med Azure Migrate-projektet.
+Så här ställer du in apparaten:
+- Hämta en zippad fil med Azure Migrate-installationsskript från Azure-portalen.
+- Extrahera innehållet från den zippade filen. Starta PowerShell-konsolen med administratörsbehörighet.
+- Kör PowerShell-skriptet för att starta programmet för apparatwebb.
+- Konfigurera installationen för första gången och registrera den med Azure Migrate-projektet.
 
-## <a name="download-the-installer-script"></a>Ladda ned installations skriptet
+## <a name="download-the-installer-script"></a>Hämta installationsskriptet
 
-Ladda ned den zippade filen för enheten.
+Ladda ner den zippade filen för apparaten.
 
-1. I **mål för migrering** > **servrar** > **Azure Migrate: Server utvärdering**, klicka på **identifiera**.
-2. I **identifiera datorer** > **dina datorer virtualiserade?** , klicka på **inte virtualiserad/annan**.
-3. Klicka på **Ladda ned** för att ladda ned den zippade filen.
+1. Klicka på **Identifiera**i **migreringsmålsservrar:** > **Servers** > **Serverutvärdering.**
+2. **I** **Upptäck-datorer** > **Virtualiseras dina datorer?**
+3. Klicka på **Hämta** om du vill hämta filen med dragkedja.
 
-    ![Hämta virtuell dator](./media/tutorial-assess-physical/download-appliance.png)
+    ![Ladda ner vm](./media/tutorial-assess-physical/download-appliance.png)
 
 
 ### <a name="verify-security"></a>Verifiera säkerhet
 
-Kontrol lera att den zippade filen är säker innan du distribuerar den.
+Kontrollera att den zippade filen är säker innan du distribuerar den.
 
 1. Öppna ett kommandofönster för administratör på den dator som du laddade ned filen till.
-2. Kör följande kommando för att generera hashen för den virtuella hård disken
+2. Kör följande kommando för att generera hash för DEN VIRTUELLA HÅRDDISKEN
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
     - Exempel på användning: ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
-3.  För den senaste versionen av produkten ska den genererade hashen matcha de här [inställningarna](https://docs.microsoft.com/azure/migrate/tutorial-assess-physical#verify-security).
+3.  För den senaste installationen version, den genererade hash bör matcha dessa [inställningar](https://docs.microsoft.com/azure/migrate/tutorial-assess-physical#verify-security).
 
 
 
-## <a name="run-the-azure-migrate-installer-script"></a>Kör installations skriptet för Azure Migrate
-Installations skriptet gör följande:
+## <a name="run-the-azure-migrate-installer-script"></a>Köra Azure Migrate-installationsskriptet
+Installationsskriptet gör följande:
 
-- Installerar agenter och ett webb program för identifiering och utvärdering av fysiska servrar.
+- Installerar agenter och ett webbprogram för identifiering och bedömning av fysiska servrar.
 - Installera Windows-roller, inklusive Windows Activation Service, IIS och PowerShell ISE.
-- Hämta och installera en skrivbar IIS-modul. [Läs mer](https://www.microsoft.com/download/details.aspx?id=7435).
-- Uppdaterar en register nyckel (HKLM) med beständig inställnings information för Azure Migrate.
+- Ladda ner och installerar en IIS rewritable modul. [Läs mer](https://www.microsoft.com/download/details.aspx?id=7435).
+- Uppdaterar en registernyckel (HKLM) med beständig inställningsinformation för Azure Migrate.
 - Skapar följande filer under sökvägen:
-    - **Config-filer**:%programdata%\Microsoft Azure\Config
-    - **Loggfiler**:%programdata%\Microsoft Azure\Logs
+    - **Config-filer**: %Programdata%\Microsoft Azure\Config
+    - **Loggfiler**: %Programdata%\Microsoft Azure\Loggar
 
 Kör skriptet på följande sätt:
 
-1. Extrahera den zippade filen till en mapp på den server som ska vara värd för-enheten.
-2. Starta PowerShell på servern med administratörs behörighet (förhöjt).
-3. Ändra PowerShell-katalogen till den mapp där innehållet har extraherats från den hämtade zippade filen.
-4. Kör skriptet med namnet **AzureMigrateInstaller. ps1** genom att köra följande kommando:
+1. Extrahera den zippade filen till en mapp på servern som ska vara värd för apparaten.
+2. Starta PowerShell på ovanstående server med administrativ (förhöjd) behörighet.
+3. Ändra PowerShell-katalogen till mappen där innehållet har extraherats från den nedladdade zippade filen.
+4. Kör skriptet **AzureMigrateInstaller.ps1** genom att köra följande kommando:
     ```
     PS C:\Users\administrator\Desktop\AzureMigrateInstaller> AzureMigrateInstaller.ps1
     ```
-Skriptet startar webb programmet för installationen när det har slutförts.
+Skriptet startar programmet för apparat när det är klart.
 
-Om det uppstår några problem kan du komma åt skript loggarna på C:\ProgramData\Microsoft Azure\Logs\ AzureMigrateScenarioInstaller_<em>timestamp</em>. log för fel sökning.
+Vid eventuella problem kan du komma åt skriptloggarna på C:\ProgramData\Microsoft Azure\Logs\AzureMigrateScenarioInstaller_<em>tidsstämpel</em>.log för felsökning.
 
 > [!NOTE]
-> Kör inte Azure Migrate Installer-skriptet på en befintlig Azure Migrate-installation.
+> Kör inte azure migrate-installationsskriptet på en befintlig Azure Migrate-installation.
 
-### <a name="verify-appliance-access-to-azure"></a>Verifiera åtkomst till enheten till Azure
+### <a name="verify-appliance-access-to-azure"></a>Verifiera åtkomst till Azure
 
-Se till att den virtuella datorns dator kan ansluta till de [Azure-webbadresser](migrate-appliance.md#url-access)som krävs.
+Se till att den virtuella datorn för den virtuella enheten kan ansluta till de [Azure-url:er](migrate-appliance.md#url-access)som krävs .
 
-## <a name="configure-the-appliance"></a>Konfigurera installationen
+## <a name="configure-the-appliance"></a>Konfigurera apparaten
 
-Konfigurera enheten för första gången.
+Ställ in apparaten för första gången.
 
-1. Öppna en webbläsare på vilken dator som helst som kan ansluta till den virtuella datorn och öppna URL: en för installations programmets webbapp: **https://-enhetens*namn eller IP-adress*: 44368**.
+1. Öppna en webbläsare på alla datorer som kan ansluta till den virtuella datorn och öppna url:en för appen för installationen: **https://*apparatens namn eller IP-adress:* 44368**.
 
-   Alternativt kan du öppna appen från Skriv bordet genom att klicka på genvägen till appen.
-2. I webbappen > **Konfigurera krav**gör du följande:
-    - **Licens**: Godkänn licens villkoren och Läs informationen från tredje part.
-    - **Anslutning**: appen kontrollerar att den virtuella datorn har Internet åtkomst. Om den virtuella datorn använder en proxyserver:
-        - Klicka på **proxyinställningar**och ange proxyadress och lyssnings port, i formatet http://ProxyIPAddress eller http://ProxyFQDN.
+   Alternativt kan du öppna appen från skrivbordet genom att klicka på appgenvägen.
+2. Gör följande i webbappen > **Konfigurera förutsättningar:**
+    - **Licens**: Acceptera licensvillkoren och läs informationen från tredje part.
+    - **Anslutning**: Appen kontrollerar att den virtuella datorn har tillgång till internet. Om den virtuella datorn använder en proxy:
+        - Klicka på **Proxyinställningar**och ange proxyadress och http://ProxyIPAddress lyssningsport i formuläret eller http://ProxyFQDN.
         - Ange autentiseringsuppgifter om proxyn kräver autentisering.
         - Endast HTTP-proxy stöds.
-    - **Tidssynkronisering**: tiden har verifierats. Tiden för installationen bör vara synkroniserad med Internet-tid för att VM-identifieringen ska fungera korrekt.
-    - **Installera uppdateringar**: Azure Migrate Server Assessment kontrollerar att installations programmet har de senaste uppdateringarna installerade.
+    - **Tidssynkronisering**: Tiden är verifierad. Tiden på apparaten ska vara synkroniserad med internettiden för att vm-identifiering ska fungera korrekt.
+    - **Installera uppdateringar:** Azure Migrate Server Assessment kontrollerar att installationen har de senaste uppdateringarna installerade.
 
-### <a name="register-the-appliance-with-azure-migrate"></a>Registrera enheten med Azure Migrate
+### <a name="register-the-appliance-with-azure-migrate"></a>Registrera installationen med Azure Migrate
 
-1. Klicka på **Logga**in. Om den inte visas kontrollerar du att du har inaktiverat blockering av popup-fönster i webbläsaren.
-2. På fliken nytt loggar du in med dina Azure-autentiseringsuppgifter.
-    - Logga in med ditt användar namn och lösen ord.
+1. Klicka på **Logga in**. Om den inte visas kontrollerar du att du har inaktiverat popup-blockeraren i webbläsaren.
+2. Logga in med dina Azure-autentiseringsuppgifter på den nya fliken.
+    - Logga in med ditt användarnamn och lösenord.
     - Inloggning med en PIN-kod stöds inte.
 3. När du har loggat in går du tillbaka till webbappen.
-4. Välj den prenumeration där Azure Migrate projektet skapades. Välj sedan projektet.
-5. Ange ett namn för enheten. Namnet måste vara alfanumeriskt med 14 tecken eller mindre.
+4. Välj den prenumeration där Azure Migrate-projektet skapades. Välj sedan projektet.
+5. Ange ett namn på apparaten. Namnet ska vara alfanumeriskt med högst 14 tecken.
 6. Klicka på **Registrera**.
 
 
 ## <a name="start-continuous-discovery"></a>Starta kontinuerlig identifiering
 
-Anslut från-enheten till fysiska servrar och starta identifieringen.
+Anslut från apparaten till fysiska servrar och starta identifieringen.
 
-1. Klicka på **Lägg till autentiseringsuppgifter** för att ange de kontoautentiseringsuppgifter som installationen ska använda för att identifiera servrar.  
-2. Ange **operativ system**, eget namn för autentiseringsuppgifterna, **användar** namn och **lösen ord** och klicka på **Lägg till**.
-Du kan lägga till en uppsättning autentiseringsuppgifter var för Windows-och Linux-servrar.
-4. Klicka på **Lägg till Server**och ange Server information – FQDN/IP-adress och eget namn på autentiseringsuppgifter (en post per rad) för att ansluta till servern.
-3. Klicka på **Validate** (Validera). Efter verifieringen visas en lista över de servrar som kan identifieras.
-    - Om verifieringen Miss lyckas för en server kan du granska felet genom att hovra över ikonen i kolumnen **status** . Åtgärda problem och verifiera igen.
-    - Om du vill ta bort en server väljer du > **ta bort**.
-4. Efter verifieringen klickar du på **Spara och starta identifiering** för att starta identifierings processen.
+1. Klicka på **Lägg till autentiseringsuppgifter** om du vill ange vilka kontouppgifter som används för att identifiera servrar.  
+2. Ange **operativsystem ,** eget namn för autentiseringsuppgifter, **användarnamn** och **lösenord** och klicka på **Lägg till**.
+Du kan lägga till en uppsättning autentiseringsuppgifter vardera för Windows- och Linux-servrar.
+4. Klicka på **Lägg till server**och ange serverinformation- FQDN/IP-adress och eget namn på autentiseringsuppgifter (en post per rad) för att ansluta till servern.
+3. Klicka på **Validate** (Validera). Efter valideringen visas listan över servrar som kan identifieras.
+    - Om valideringen misslyckas för en server granskar du felet genom att hovra över ikonen i kolumnen **Status.** Åtgärda problem och verifiera igen.
+    - Om du vill ta bort en server markerar du > **Ta bort**.
+4. När du har validerat klickar du på **Spara och startar identifieringen** för att starta identifieringsprocessen.
 
-Detta startar identifieringen. Det tar ungefär 15 minuter för metadata för identifierade virtuella datorer som visas i Azure Portal.
+Detta startar upptäckt. Det tar cirka 15 minuter innan metadata för identifierade virtuella datorer visas i Azure-portalen.
 
 ## <a name="verify-servers-in-the-portal"></a>Verifiera servrar i portalen
 
-När identifieringen är klar kan du kontrol lera att servrarna visas i portalen.
+När identifieringen är klar kan du kontrollera att servrarna visas i portalen.
 
-1. Öppna instrument panelen för Azure Migrate.
-2. På sidan **Azure Migrate-servrar** > **Azure Migrate: Server utvärdering** klickar du på ikonen som visar antalet för **identifierade servrar**.
+1. Öppna instrumentpanelen för Azure Migrate.
+2. I **Azure Migrate - Servers** > **Azure Migrate: Server Assessment** sida, klicka på ikonen som visar antalet för identifierade **servrar**.
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Testa [utvärderingen av fysiska servrar](tutorial-assess-physical.md) med Azure Migrate Server-utvärdering.
+Prova [bedömning av fysiska servrar](tutorial-assess-physical.md) med Azure Migrate Server Assessment.

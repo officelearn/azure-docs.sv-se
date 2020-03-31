@@ -1,6 +1,6 @@
 ---
-title: Felsök Windows Virtual Desktop-Session värd – Azure
-description: Så här löser du problem när du konfigurerar virtuella Windows-datorer för fjärrskrivbordssessioner-värd.
+title: Felsöka windows virtual desktop-sessionsvärd – Azure
+description: Så här löser du problem när du konfigurerar om Windows Virtual Desktop-session värd virtuella datorer.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -9,154 +9,154 @@ ms.date: 12/03/2019
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: c7d9a5d576ceec301eba7436c1e0af34412ae854
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/11/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79127597"
 ---
 # <a name="session-host-virtual-machine-configuration"></a>Session för konfiguration av virtuell värddator
 
-Använd den här artikeln för att felsöka problem som du har med när du konfigurerar virtuella Windows-sessioner för fjärrskrivbordssessioner värd för virtuella datorer (VM).
+Använd den här artikeln för att felsöka problem som du har när du konfigurerar Windows Virtual Desktop-sessionen är värd för virtuella datorer .
 
 ## <a name="provide-feedback"></a>Ge feedback
 
-Besök [Windows-Tech-communityn för Windows](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop) för att diskutera Windows Virtual Desktop-tjänsten med produkt teamet och aktiva community-medlemmar.
+Besök [Windows Virtual Desktop Tech Community](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop) för att diskutera Windows Virtual Desktop-tjänsten med produktteamet och aktiva communitymedlemmar.
 
 ## <a name="vms-are-not-joined-to-the-domain"></a>Virtuella datorer är inte anslutna till domänen
 
-Följ dessa instruktioner om du har problem med att ansluta till virtuella datorer till domänen.
+Följ de här instruktionerna om du har problem med att ansluta virtuella datorer till domänen.
 
-- Anslut den virtuella datorn manuellt med processen i [koppla en virtuell Windows Server-dator till en hanterad domän](../active-directory-domain-services/join-windows-vm.md) eller Använd [domän kopplings mal len](https://azure.microsoft.com/resources/templates/201-vm-domain-join-existing/).
-- Försök att pinga domän namnet från kommando raden på den virtuella datorn.
-- Granska listan över domän anslutnings fel meddelanden i fel [sökning av fel meddelanden för domän anslutning](https://social.technet.microsoft.com/wiki/contents/articles/1935.troubleshooting-domain-join-error-messages.aspx).
+- Gå med i den virtuella datorn manuellt med hjälp av processen i [Anslut en virtuell Windows Server-dator till en hanterad domän](../active-directory-domain-services/join-windows-vm.md) eller använda [domänanslutningsmallen](https://azure.microsoft.com/resources/templates/201-vm-domain-join-existing/).
+- Försök att pinga domännamnet från kommandoraden på den virtuella datorn.
+- Granska listan över felmeddelanden om domänkoppling i [Felsöka felmeddelanden om domänkoppling](https://social.technet.microsoft.com/wiki/contents/articles/1935.troubleshooting-domain-join-error-messages.aspx).
 
 ### <a name="error-incorrect-credentials"></a>Fel: Felaktiga autentiseringsuppgifter
 
-**Orsak:** Ett skrivnings fel inträffade när autentiseringsuppgifterna angavs i gränssnitts korrigeringarna för Azure Resource Manager-mall.
+**Orsak:** Det gjordes ett stavfel när autentiseringsuppgifterna angavs i azure Resource Manager-mallgränssnittet.
 
-**KORRIGERA:** Utför en av följande åtgärder för att lösa problemet.
+**Rättad:** Vidta en av följande åtgärder för att lösa.
 
-- Lägg till de virtuella datorerna i en domän manuellt.
-- Distribuera om mallen när autentiseringsuppgifterna har bekräftats. Se [skapa en adresspool med PowerShell](create-host-pools-powershell.md).
-- Använd en mall för att ansluta virtuella datorer till en domän med en [befintlig virtuell Windows-dator till AD-domän](https://azure.microsoft.com/resources/templates/201-vm-domain-join-existing/).
+- Lägg till de virtuella datorerna manuellt i en domän.
+- Distribuera om mallen när autentiseringsuppgifterna har bekräftats. Se [Skapa en värdpool med PowerShell](create-host-pools-powershell.md).
+- Ansluta virtuella datorer till en domän med en mall med [Ansluter en befintlig Windows VM till AD-domän](https://azure.microsoft.com/resources/templates/201-vm-domain-join-existing/).
 
-### <a name="error-timeout-waiting-for-user-input"></a>Fel: tids gräns väntar på användarindata
+### <a name="error-timeout-waiting-for-user-input"></a>Fel: Timeout väntar på användarindata
 
-**Orsak:** Det konto som används för att slutföra domän anslutningen kan ha Multi-Factor Authentication (MFA).
+**Orsak:** Kontot som används för att slutföra domänanslutningen kan ha MFA (Multi Factor Authentication).
 
-**KORRIGERA:** Utför en av följande åtgärder för att lösa problemet.
+**Rättad:** Vidta en av följande åtgärder för att lösa.
 
 - Ta tillfälligt bort MFA för kontot.
-- Använd ett tjänst konto.
+- Använd ett tjänstkonto.
 
-### <a name="error-the-account-used-during-provisioning-doesnt-have-permissions-to-complete-the-operation"></a>Fel: kontot som används under etableringen har inte behörighet att slutföra åtgärden
+### <a name="error-the-account-used-during-provisioning-doesnt-have-permissions-to-complete-the-operation"></a>Fel: Kontot som används vid etablering har inte behörighet att slutföra åtgärden
 
-**Orsak:** Kontot som används har inte behörighet att ansluta virtuella datorer till domänen på grund av efterlevnad och föreskrifter.
+**Orsak:** Kontot som används har inte behörighet att ansluta virtuella datorer till domänen på grund av efterlevnad och regler.
 
-**KORRIGERA:** Utför en av följande åtgärder för att lösa problemet.
+**Rättad:** Vidta en av följande åtgärder för att lösa.
 
-- Använd ett konto som är medlem i gruppen Administratörer.
-- Bevilja de behörigheter som krävs för det konto som används.
+- Använd ett konto som är medlem i gruppen Administratör.
+- Bevilja nödvändiga behörigheter till kontot som används.
 
-### <a name="error-domain-name-doesnt-resolve"></a>Fel: domän namnet matchar inte
+### <a name="error-domain-name-doesnt-resolve"></a>Fel: Domännamnet löser inte
 
-**Orsak 1:** Virtuella datorer finns i ett virtuellt nätverk som inte är kopplat till det virtuella nätverk (VNET) där domänen finns.
+**Orsak 1:** Virtuella datorer finns i ett virtuellt nätverk som inte är associerat med det virtuella nätverket (VNET) där domänen finns.
 
-**Korrigering 1:** Skapa VNET-peering mellan VNET där virtuella datorer etablerades och det virtuella nätverk där domänkontrollanten (DC) körs. Se [skapa ett virtuellt nätverk peering – Resource Manager, olika prenumerationer](../virtual-network/create-peering-different-subscriptions.md).
+**Åtgärda 1:** Skapa VNET-peering mellan det virtuella nätverket där virtuella datorer har etablerats och det virtuella nätverk där domänkontrollanten (DC) körs. Se [Skapa en virtuell nätverks peering - Resource Manager, olika prenumerationer](../virtual-network/create-peering-different-subscriptions.md).
 
-**Orsak 2:** När du använder Azure Active Directory Domain Services (Azure AD DS) har det virtuella nätverket inte uppdaterat sina DNS-serverinställningar så att de pekar på de hanterade domän kontrol Lanterna.
+**Orsak 2:** När du använder Azure Active Directory Domain Services (Azure AD DS) har det virtuella nätverket inte sina DNS-serverinställningar uppdaterade för att peka på de hanterade domänkontrollanterna.
 
-**Korrigera 2:** Information om hur du uppdaterar DNS-inställningarna för det virtuella nätverket som innehåller Azure AD DS finns i [Uppdatera DNS-inställningar för det virtuella Azure-nätverket](../active-directory-domain-services/tutorial-create-instance.md#update-dns-settings-for-the-azure-virtual-network).
+**Åtgärda 2:** Information om hur du uppdaterar DNS-inställningarna för det virtuella nätverket som innehåller Azure AD DS finns i [Uppdatera DNS-inställningar för det virtuella Azure-nätverket](../active-directory-domain-services/tutorial-create-instance.md#update-dns-settings-for-the-azure-virtual-network).
 
-**Orsak 3:** Nätverks gränssnittets DNS-serverinställningar pekar inte mot lämplig DNS-server i det virtuella nätverket.
+**Orsak 3:** Nätverksgränssnittets DNS-serverinställningar pekar inte på rätt DNS-server i det virtuella nätverket.
 
-**Korrigera 3:** Vidta någon av följande åtgärder för att lösa problemet genom att följa stegen i [ändra DNS-servrar].
-- Ändra nätverks gränssnittets DNS-serverinställningar till **anpassad** med stegen från [ändra DNS-servrar](../virtual-network/virtual-network-network-interface.md#change-dns-servers) och ange de privata IP-adresserna för DNS-servrarna i det virtuella nätverket.
-- Ändra nätverks gränssnittets DNS-serverinställningar så att de **ärver från Virtual Network** med stegen från [ändra DNS-servrar](../virtual-network/virtual-network-network-interface.md#change-dns-servers)och ändra sedan det virtuella nätverkets DNS-serverinställningar med stegen från [ändra DNS-servrar](../virtual-network/manage-virtual-network.md#change-dns-servers).
+**Åtgärda 3:** Vidta någon av följande åtgärder för att lösa, i följande steg i [Ändra DNS-servrar].
+- Ändra nätverksgränssnittets DNS-serverinställningar till **Anpassad** med stegen från [Ändra DNS-servrar](../virtual-network/virtual-network-network-interface.md#change-dns-servers) och ange dns-servrarnas privata IP-adresser i det virtuella nätverket.
+- Ändra nätverksgränssnittets DNS-serverinställningar till **Inherit från virtuellt nätverk** med stegen från Ändra [DNS-servrar](../virtual-network/virtual-network-network-interface.md#change-dns-servers)och ändra sedan det virtuella nätverkets DNS-serverinställningar med stegen från [Ändra DNS-servrar](../virtual-network/manage-virtual-network.md#change-dns-servers).
 
-## <a name="windows-virtual-desktop-agent-and-windows-virtual-desktop-boot-loader-are-not-installed"></a>Windows Virtual Desktop-agenten och start inläsaren för virtuella Windows-datorer har inte installerats
+## <a name="windows-virtual-desktop-agent-and-windows-virtual-desktop-boot-loader-are-not-installed"></a>Windows Virtual Desktop Agent och Windows Virtual Desktop Boot Loader är inte installerade
 
-Det rekommenderade sättet att etablera virtuella datorer med hjälp av Azure Resource Manager **skapa och etablera Windows-mall för värd för virtuella skriv bord** . Mallen installerar automatiskt Windows Virtual Desktop-agenten och start inläsaren för Windows Virtual Desktop agent.
+Det rekommenderade sättet att etablera virtuella datorer är att använda Azure Resource Manager **Skapa och etablera Windows Virtual Desktop värdpool** mall. Mallen installerar automatiskt Starthanteraren för Windows Virtual Desktop Agent och Windows Virtual Desktop Agent.
 
-Följ de här anvisningarna för att bekräfta att komponenterna är installerade och för att söka efter fel meddelanden.
+Följ dessa instruktioner för att bekräfta att komponenterna är installerade och för att kontrollera om det finns felmeddelanden.
 
-1. Bekräfta att de två komponenterna är installerade genom att kontrol lera i **kontroll panelen** > **program** > **program och funktioner**. Om **Windows Virtual Desktop-agenten** och **Start inläsaren för virtuella Skriv bords agenter** för Windows inte visas, är de inte installerade på den virtuella datorn.
-2. Öppna **Utforskaren** och gå till **C:\Windows\Temp\ScriptLog.log**. Om filen saknas, anger det att PowerShell DSC som installerade de två komponenterna inte kunde köras i den angivna säkerhets kontexten.
-3. Om filen **C:\Windows\Temp\ScriptLog.log** finns öppnar du den och kontrollerar om det finns fel meddelanden.
+1. Kontrollera att de två komponenterna installeras genom att checka in**Programs** > **Program och funktioner**på **Kontrollpanelen** > . Om **Windows Virtual Desktop Agent** och Windows Virtual Desktop Agent Boot **Loader** inte är synliga installeras de inte på den virtuella datorn.
+2. Öppna **Utforskaren** och navigera till **C:\Windows\Temp\ScriptLog.log**. Om filen saknas anger den att PowerShell DSC som installerade de två komponenterna inte kunde köras i säkerhetskontexten.
+3. Om filen **C:\Windows\Temp\ScriptLog.log** finns öppnar du den och söker efter felmeddelanden.
 
-### <a name="error-windows-virtual-desktop-agent-and-windows-virtual-desktop-agent-boot-loader-are-missing-cwindowstempscriptloglog-is-also-missing"></a>Fel: Windows Virtual Desktop-agenten och start inläsaren för Windows Virtual Desktop agent saknas. C:\Windows\Temp\ScriptLog.log saknas också
+### <a name="error-windows-virtual-desktop-agent-and-windows-virtual-desktop-agent-boot-loader-are-missing-cwindowstempscriptloglog-is-also-missing"></a>Fel: Windows Virtual Desktop Agent och Windows Virtual Desktop Agent Boot Loader saknas. C:\Windows\Temp\ScriptLog.log saknas också
 
-**Orsak 1:** Autentiseringsuppgifterna som angavs vid indata för Azure Resource Manager mal len var felaktiga eller var otillräckliga.
+**Orsak 1:** Autentiseringsuppgifter som angavs under indata för Azure Resource Manager-mallen var felaktiga eller behörigheter var otillräckliga.
 
-**Korrigering 1:** Lägg till de saknade komponenterna manuellt i de virtuella datorerna med hjälp av [skapa en adresspool med PowerShell](create-host-pools-powershell.md).
+**Åtgärda 1:** Lägg manuellt till de saknade komponenterna i de virtuella datorerna med [Skapa en värdpool med PowerShell](create-host-pools-powershell.md).
 
-**Orsak 2:** PowerShell DSC kunde starta och köra, men det gick inte att slutföra eftersom den inte kan logga in på Windows Virtual Desktop och hämta nödvändig information.
+**Orsak 2:** PowerShell DSC kunde starta och köra men kunde inte slutföra eftersom det inte kan logga in på Windows Virtual Desktop och hämta nödvändig information.
 
-**Korrigera 2:** Bekräfta objekten i följande lista.
+**Åtgärda 2:** Bekräfta objekten i följande lista.
 
-- Kontrol lera att kontot inte har MFA.
-- Bekräfta att klient organisationens namn är korrekt och att klient organisationen finns i det virtuella Windows-skrivbordet.
-- Bekräfta att kontot har minst behörighet för RDS-deltagare.
+- Kontrollera att kontot inte har MFA.
+- Bekräfta att klientnamnet är korrekt och att klienten finns i Windows Virtual Desktop.
+- Bekräfta att kontot har minst rds-deltagarebehörigheter.
 
 ### <a name="error-authentication-failed-error-in-cwindowstempscriptloglog"></a>Fel: Autentiseringen misslyckades, fel i C:\Windows\Temp\ScriptLog.log
 
-**Orsak:** PowerShell DSC kunde köra men kunde inte ansluta till det virtuella Windows-skrivbordet.
+**Orsak:** PowerShell DSC kunde köra men kunde inte ansluta till Windows Virtual Desktop.
 
-**KORRIGERA:** Bekräfta objekten i följande lista.
+**Rättad:** Bekräfta objekten i följande lista.
 
-- Registrera de virtuella datorerna manuellt med Windows Virtual Desktop-tjänsten.
-- Bekräfta att kontot som används för att ansluta till det virtuella Windows-skrivbordet har behörighet på klienten för att skapa värdar för pooler.
+- Registrera de virtuella datorerna manuellt med tjänsten Windows Virtual Desktop.
+- Bekräfta att konto som används för anslutning till Windows Virtual Desktop har behörigheter för klienten att skapa värdpooler.
 - Bekräfta att kontot inte har MFA.
 
-## <a name="windows-virtual-desktop-agent-is-not-registering-with-the-windows-virtual-desktop-service"></a>Windows Virtual Desktop-agenten registreras inte med Windows Virtual Desktop-tjänsten
+## <a name="windows-virtual-desktop-agent-is-not-registering-with-the-windows-virtual-desktop-service"></a>Windows Virtual Desktop Agent registrerar sig inte med tjänsten Windows Virtual Desktop
 
-När Windows-agenten för virtuella skriv bord installeras på en virtuell dator i Session Host (antingen manuellt eller via Azure Resource Manager-mallen och PowerShell DSC), innehåller den en registreringsbegäran. I följande avsnitt beskrivs fel söknings problem som är tillämpliga för Windows Virtual Desktop-agenten och token.
+När Windows Virtual Desktop Agent först installeras på virtuella datorer för sessionsvärdar (antingen manuellt eller via Azure Resource Manager-mallen och PowerShell DSC), innehåller den en registreringstoken. I följande avsnitt beskrivs felsökningsproblem som gäller för Windows Virtual Desktop Agent och token.
 
-### <a name="error-the-status-filed-in-get-rdssessionhost-cmdlet-shows-status-as-unavailable"></a>Fel: statusen som har arkiverats i get-RdsSessionHost-cmdlet: en visar status som otillgänglig
+### <a name="error-the-status-filed-in-get-rdssessionhost-cmdlet-shows-status-as-unavailable"></a>Fel: Statusen som arkiverats i Get-RdsSessionHost cmdlet visar status som otillgänglig
 
-![Get-RdsSessionHost-cmdlet: en visar status som ej tillgänglig.](media/23b8e5f525bb4e24494ab7f159fa6b62.png)
+![Cmdlet Get-RdsSessionHost visar status som ej tillgänglig.](media/23b8e5f525bb4e24494ab7f159fa6b62.png)
 
 **Orsak:** Agenten kan inte uppdatera sig själv till en ny version.
 
-**KORRIGERA:** Följ dessa instruktioner om du vill uppdatera agenten manuellt.
+**Rättad:** Följ dessa instruktioner för att uppdatera agenten manuellt.
 
-1. Hämta en ny version av agenten på den virtuella datorn för sessionens värd.
-2. Starta aktivitets hanteraren och stoppa RDAgentBootLoader-tjänsten på fliken tjänst.
-3. Kör installations programmet för den nya versionen av Windows-agenten för virtuella skriv bord.
-4. När du uppmanas att registrera token tar du bort posten INVALID_TOKEN och trycker på nästa (en ny token krävs inte).
-5. Slutför installations guiden.
-6. Öppna aktivitets hanteraren och starta RDAgentBootLoader-tjänsten.
+1. Hämta en ny version av agenten på den virtuella datorn för sessionsvärd.
+2. Starta Aktivitetshanteraren och stoppa tjänsten RDAgentBootLoader på servicefliken.
+3. Kör installationsprogrammet för den nya versionen av Windows Virtual Desktop Agent.
+4. När du uppmanas att ange registreringstoken tar du bort INVALID_TOKEN och trycker på nästa (en ny token krävs inte).
+5. Slutför installationsguiden.
+6. Öppna Aktivitetshanteraren och starta tjänsten RDAgentBootLoader.
 
-## <a name="error--windows-virtual-desktop-agent-registry-entry-isregistered-shows-a-value-of-0"></a>Fel: register posten Windows Virtual Desktop agent IsRegistered visar värdet 0
+## <a name="error--windows-virtual-desktop-agent-registry-entry-isregistered-shows-a-value-of-0"></a>Fel: Registerposten för Windows Virtual Desktop Agent IsRegistered visar värdet 0
 
-**Orsak:** Registrerings-token har upphört att gälla eller har genererats med ett förfallo värde på 999999.
+**Orsak:** Registreringstoken har upphört att gälla eller har genererats med utgångsvärdet 999999.
 
-**KORRIGERA:** Följ de här anvisningarna för att åtgärda agentens register fel.
+**Rättad:** Följ dessa instruktioner för att åtgärda agentregistrets fel.
 
-1. Om det redan finns en Registration-token tar du bort den med Remove-RDSRegistrationInfo.
-2. Generera en ny token med RDS-NewRegistrationInfo.
-3. Bekräfta att parametern-ExpriationHours är inställd på 72 (max värdet är 99999).
+1. Om det redan finns en registreringstoken tar du bort den med Remove-RDSRegistrationInfo.
+2. Generera ny token med Rds-NewRegistrationInfo.
+3. Bekräfta att parametern -ExpriationHours är inställd på 72 (maxvärdet är 99999).
 
-### <a name="error-windows-virtual-desktop-agent-isnt-reporting-a-heartbeat-when-running-get-rdssessionhost"></a>Fel: Windows Virtual Desktop-agenten rapporterar inget pulsslag vid körning av Get-RdsSessionHost
+### <a name="error-windows-virtual-desktop-agent-isnt-reporting-a-heartbeat-when-running-get-rdssessionhost"></a>Fel: Windows Virtual Desktop-agent rapporterar inte ett pulsslag när get-rdsSessionhost körs
 
 **Orsak 1:** RDAgentBootLoader-tjänsten har stoppats.
 
-**Korrigering 1:** Starta aktivitets hanteraren och starta tjänsten om tjänsten tjänst rapporterar en stoppad status för RDAgentBootLoader-tjänsten.
+**Åtgärda 1:** Starta Aktivitetshanteraren och starta tjänsten om fliken Tjänst rapporterar en stoppad status för TJÄNSTEN RDAgentBootLoader.
 
 **Orsak 2:** Port 443 kan vara stängd.
 
-**Korrigera 2:** Följ de här anvisningarna för att öppna port 443.
+**Åtgärda 2:** Följ dessa instruktioner för att öppna port 443.
 
-1. Bekräfta att port 443 är öppen genom att ladda ned verktyget PSPing från [Sysinternal-verktyg](/sysinternals/downloads/psping/).
-2. Installera PSPing på den virtuella värddatorn för sessionen där agenten körs.
-3. Öppna kommando tolken som administratör och utfärda kommandot nedan:
+1. Bekräfta att port 443 är öppen genom att hämta PSPing-verktyget från [Sysinternal-verktyg](/sysinternals/downloads/psping/).
+2. Installera PSPing på den virtuella datorn för sessionen där agenten körs.
+3. Öppna kommandotolken som administratör och utfärda kommandot nedan:
 
     ```cmd
     psping rdbroker.wvdselfhost.microsoft.com:443
     ```
 
-4. Bekräfta att PSPing tog emot information tillbaka från RDBroker:
+4. Bekräfta att PSPing fått information tillbaka från RDBroker:
 
     ```
     PsPing v2.10 - PsPing - ping, latency, bandwidth measurement utility
@@ -174,23 +174,23 @@ När Windows-agenten för virtuella skriv bord installeras på en virtuell dator
     Minimum = 2.12ms, Maximum = 3.83ms, Average = 2.58ms
     ```
 
-## <a name="troubleshooting-issues-with-the-windows-virtual-desktop-side-by-side-stack"></a>Fel sökning av problem med Windows Virtual Desktop sida vid sida
+## <a name="troubleshooting-issues-with-the-windows-virtual-desktop-side-by-side-stack"></a>Felsöka problem med Windows Virtual Desktop sida vid sida stack
 
-Windows Virtual Desktop sida-vid-sida-stacken installeras automatiskt med Windows Server 2019. Använd Microsoft Installer (MSI) för att installera stacken sida vid sida på Microsoft Windows Server 2016 eller Windows Server 2012 R2. För Microsoft Windows 10 är stacken för Windows Virtual Desktop sida vid sida aktive rad med **enablesxstackrs. ps1**.
+Windows Virtual Desktop sida vid sida-stack installeras automatiskt med Windows Server 2019. Använd Microsoft Installer (MSI) för att installera stacken sida vid sida på Microsoft Windows Server 2016 eller Windows Server 2012 R2. För Microsoft Windows 10 är Windows Virtual Desktop sida vid sida-stacken aktiverad med **enablesxstackrs.ps1**.
 
-Det finns tre sätt att placera stacken sida vid sida som är installerad eller aktive rad på virtuella datorer för fjärrskrivbordssessioner:
+Det finns tre huvudsakliga sätt som stacken installeras eller aktiveras sida vid sida på virtuella datorer i sessionsvärdpoolen:
 
-- Med Azure Resource Manager **skapa och etablera nya Windows-mallar för värdar för virtuella skriv bord**
-- Genom att inkluderas och aktive ras på huvud avbildningen
-- Installerad eller aktive rad manuellt på varje virtuell dator (eller med tillägg/PowerShell)
+- Med Azure Resource Manager **Skapa och etablera nya Windows Virtual Desktop värdpool** mall
+- Genom att inkluderas och aktiveras på huvudbilden
+- Installeras eller aktiveras manuellt på varje virtuell dator (eller med tillägg/PowerShell)
 
-Om du har problem med den virtuella Windows-skrivbordet sida vid sida, skriver du kommandot **Qwinsta** från kommando tolken för att bekräfta att stacken sida vid sida är installerad eller aktive rad.
+Om du har problem med Windows Virtual Desktop sida vid sida-stack skriver du **qwinsta-kommandot** från kommandotolken för att bekräfta att stacken är installerad eller aktiverad sida vid sida.
 
-Utdata från **Qwinsta** visar **RDP-SXS** i utdata om stacken sida vid sida är installerad och aktive rad.
+**Qwinstas** utdata **listar rdp-sxs** i utdata om stacken sida vid sida är installerad och aktiverad.
 
-![Staplad sida vid sida installeras eller aktive ras med Qwinsta listad som RDP-SXS i utdata.](media/23b8e5f525bb4e24494ab7f159fa6b62.png)
+![Stacken sida vid sida installerad eller aktiverad med qwinsta listad som rdp-sxs i utdata.](media/23b8e5f525bb4e24494ab7f159fa6b62.png)
 
-Granska register posterna i listan nedan och bekräfta att värdena stämmer överens. Om register nycklar saknas eller om värdena inte överensstämmer, följer du anvisningarna i [skapa en adresspool med PowerShell](create-host-pools-powershell.md) om hur du installerar om stacken sida vid sida.
+Undersök registerposterna nedan och bekräfta att deras värden matchar. Om registernycklar saknas eller om värdena inte stämmer överens följer du instruktionerna i [Skapa en värdpool med PowerShell](create-host-pools-powershell.md) om hur du installerar om stacken sida vid sida.
 
 ```registry
     HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Terminal
@@ -202,92 +202,92 @@ Granska register posterna i listan nedan och bekräfta att värdena stämmer öv
 
 ### <a name="error-o_reverse_connect_stack_failure"></a>Fel: O_REVERSE_CONNECT_STACK_FAILURE
 
-![O_REVERSE_CONNECT_STACK_FAILURE fel kod.](media/23b8e5f525bb4e24494ab7f159fa6b62.png)
+![O_REVERSE_CONNECT_STACK_FAILURE felkod.](media/23b8e5f525bb4e24494ab7f159fa6b62.png)
 
-**Orsak:** Stacken sida vid sida är inte installerad på den virtuella datorn för sessionen.
+**Orsak:** Stacken sida vid sida är inte installerad på den virtuella datorn för sessionsvärd.
 
-**KORRIGERA:** Följ de här anvisningarna för att installera stacken sida vid sida på den virtuella datorns Session Host.
+**Rättad:** Följ dessa instruktioner för att installera stacken sida vid sida på den virtuella datorn för sessionsvärd.
 
-1. Använd Remote Desktop Protocol (RDP) för att komma direkt till den virtuella datorns värd för sessionen som lokal administratör.
-2. Hämta och importera [Windows Virtual Desktop PowerShell-modulen](/powershell/windows-virtual-desktop/overview/) som ska användas i din PowerShell-session, om du inte redan har gjort det, kör denna cmdlet för att logga in på ditt konto:
+1. Använd RDP (Remote Desktop Protocol) för att komma direkt in i den virtuella datorn för sessionsvärd som lokal administratör.
+2. Hämta och importera [Windows Virtual Desktop PowerShell-modulen](/powershell/windows-virtual-desktop/overview/) som ska användas i PowerShell-sessionen om du inte redan har gjort det, kör sedan den här cmdleten för att logga in på ditt konto:
 
     ```powershell
     Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
     ```
 
-3. Installera stacken sida vid sida med hjälp av [skapa en värdbaserad pool med PowerShell](create-host-pools-powershell.md).
+3. Installera stacken sida vid sida med [Skapa en värdpool med PowerShell](create-host-pools-powershell.md).
 
-## <a name="how-to-fix-a-windows-virtual-desktop-side-by-side-stack-that-malfunctions"></a>Så här åtgärdar du en virtuell Windows-sida vid sida-stack som inte fungerar
+## <a name="how-to-fix-a-windows-virtual-desktop-side-by-side-stack-that-malfunctions"></a>Så här åtgärdar du en Windows Virtual Desktop sida vid sida-stack som inte fungerar
 
 Det finns kända omständigheter som kan orsaka att stacken sida vid sida inte fungerar:
 
-- Följer inte rätt ordning på stegen för att aktivera stack sida vid sida
-- Automatisk uppdatering till Windows 10 Enhanced mångsidig disk (EVD)
-- RDSH-rollen värd för fjärrskrivbordssession saknas
-- Kör enablesxsstackrc. ps1 flera gånger
-- Kör enablesxsstackrc. ps1 i ett konto som inte har lokal administratörs behörighet
+- Inte följer rätt ordning på stegen för att aktivera den sida vid sida stacken
+- Automatisk uppdatering till Windows 10 Förbättrad Mångsidig Skiva (EVD)
+- Saknas rollen Värd för fjärrskrivbordssession (RDSH)
+- Löpning enablesxsstackrc.ps1 flera gånger
+- Köra enablesxsstackrc.ps1 i ett konto som inte har lokala administratörsbehörighet
 
-Anvisningarna i det här avsnittet kan hjälpa dig att avinstallera Windows Virtual Desktop sida vid sida-stack. När du har avinstallerat stacken sida vid sida går du till "registrera den virtuella datorn med Windows-adresspoolen för virtuella skriv bord" i [skapa en adresspool med PowerShell](create-host-pools-powershell.md) för att installera om stacken sida vid sida.
+Instruktionerna i det här avsnittet kan hjälpa dig att avinstallera Windows Virtual Desktop sida vid sida stacken. När du har avinstallerat stacken sida vid sida går du till "Registrera den virtuella datorn med värdpoolen för Windows Virtual Desktop" i [Skapa en värdpool med PowerShell](create-host-pools-powershell.md) för att installera om stacken sida vid sida.
 
 Den virtuella datorn som används för att köra reparation måste finnas i samma undernät och domän som den virtuella datorn med den felaktiga stacken sida vid sida.
 
-Följ de här anvisningarna för att köra reparationen från samma undernät och domän:
+Följ dessa instruktioner för att köra reparation från samma undernät och domän:
 
-1. Anslut med standard Remote Desktop Protocol (RDP) till den virtuella datorn från den plats där korrigeringen ska tillämpas.
-2. Hämta PsExec från https://docs.microsoft.com/sysinternals/downloads/psexec.
-3. Zippa upp den hämtade filen.
-4. Starta kommando tolken som lokal administratör.
-5. Navigera till mappen där PsExec var zippad.
-6. Använd följande kommando från kommando tolken:
+1. Anslut med rdp (Standard Remote Desktop Protocol) till den virtuella datorn där korrigeringen ska tillämpas.
+2. Ladda ner PsExec från https://docs.microsoft.com/sysinternals/downloads/psexec.
+3. Packa upp den nedladdade filen.
+4. Starta kommandotolken som lokal administratör.
+5. Navigera till mappen där PsExec packades upp.
+6. Från kommandotolken använder du följande kommando:
 
     ```cmd
             psexec.exe \\<VMname> cmd
     ```
 
     >[!Note]
-    >VMname är dator namnet på den virtuella datorn med den felaktiga stacken sida vid sida.
+    >VMname är datornamnet på den virtuella datorn med den felaktiga stacken sida vid sida.
 
-7. Godkänn licens avtalet PsExec genom att klicka på Godkänn.
+7. Acceptera Licensavtalet för PsExec genom att klicka på Godkänn.
 
-    ![Skärm bild för program varu licens avtal.](media/SoftwareLicenseTerms.png)
+    ![Skärmdump av programvarulicensavtal.](media/SoftwareLicenseTerms.png)
 
     >[!Note]
-    >I den här dialog rutan visas endast den första gången PsExec körs.
+    >Den här dialogrutan visas bara första gången PsExec körs.
 
-8. När kommando tolken har öppnats på den virtuella datorn med fel sida-vid-sida-stack kör du Qwinsta och bekräftar att en post med namnet RDP-SXS är tillgänglig. Om inte, finns inte en sida-vid-sida-stack på den virtuella datorn, så problemet är inte kopplat till stacken sida vid sida.
+8. När kommandotolkssessionen har öppnats på den virtuella datorn med den felaktiga stacken sida vid sida kör du qwinsta och bekräftar att en post med namnet rdp-sxs är tillgänglig. Om inte, finns inte en stack sida vid sida på den virtuella datorn så problemet är inte bundet till stacken sida vid sida.
 
-    ![Administratörs kommando tolk](media/AdministratorCommandPrompt.png)
+    ![Kommandotolken administratör](media/AdministratorCommandPrompt.png)
 
-9. Kör följande kommando, som visar en lista över Microsoft-komponenter som är installerade på den virtuella datorn med den felaktiga stacken sida vid sida.
+9. Kör följande kommando, som listar Microsoft-komponenter som är installerade på den virtuella datorn med den felaktiga stacken sida vid sida.
 
     ```cmd
         wmic product get name
     ```
 
-10. Kör kommandot nedan med produkt namn från steg ovan.
+10. Kör kommandot nedan med produktnamn från steget ovan.
 
     ```cmd
         wmic product where name="<Remote Desktop Services Infrastructure Agent>" call uninstall
     ```
 
-11. Avinstallera alla produkter som börjar med "fjärr skrivbord".
+11. Avinstallera alla produkter som börjar med "Fjärrskrivbord".
 
-12. När alla komponenter för virtuella Windows-datorer har avinstallerats följer du anvisningarna för ditt operativ system:
+12. När alla Windows Virtual Desktop-komponenter har avinstallerats följer du instruktionerna för operativsystemet:
 
-13. Om operativ systemet är Windows Server startar du om den virtuella datorn med den felaktiga stacken sida vid sida (antingen med Azure Portal eller från PsExec-verktyget).
+13. Om operativsystemet är Windows Server startar du om den virtuella datorn som hade den felaktiga stacken sida vid sida (antingen med Azure-portalen eller från PsExec-verktyget).
 
-Om operativ systemet är Microsoft Windows 10 fortsätter du med instruktionerna nedan:
+Om ditt operativsystem är Microsoft Windows 10 fortsätter du med instruktionerna nedan:
 
-14. Från den virtuella datorn som kör PsExec öppnar du Utforskaren och kopierar disablesxsstackrc. ps1 till den virtuella datorns systemen het med fel sida vid sida-stack.
+14. Från den virtuella datorn som kör PsExec öppnar du Utforskaren och kopierar disablesxsstackrc.ps1 till den virtuella datorns systemenhet med den krånglade stacken sida vid sida.
 
     ```cmd
         \\<VMname>\c$\
     ```
 
     >[!NOTE]
-    >VMname är dator namnet på den virtuella datorn med den felaktiga stacken sida vid sida.
+    >VMname är datornamnet på den virtuella datorn med den felaktiga stacken sida vid sida.
 
-15. Den rekommenderade processen: starta PowerShell i PsExec-verktyget och navigera till mappen från föregående steg och kör disablesxsstackrc. ps1. Du kan också köra följande cmdlets:
+15. Den rekommenderade processen: starta PowerShell från PsExec-verktyget och navigera till mappen från föregående steg och kör disablesxsstackrc.ps1. Du kan också köra följande cmdlets:
 
     ```PowerShell
     Remove-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\ClusterSettings" -Name "SessionDirectoryListener" -Force
@@ -295,56 +295,56 @@ Om operativ systemet är Microsoft Windows 10 fortsätter du med instruktionerna
     Remove-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations" -Name "ReverseConnectionListener" -Force
     ```
 
-16. När cmdletarna har körts startar du om den virtuella datorn med den felaktiga stacken sida vid sida.
+16. När cmdlets är klar, starta om den virtuella datorn med den felaktiga sida vid sida stacken.
 
-## <a name="remote-desktop-licensing-mode-isnt-configured"></a>Licensierings läget för fjärr skrivbord är inte konfigurerat
+## <a name="remote-desktop-licensing-mode-isnt-configured"></a>Licensieringsläget för fjärrskrivbord är inte konfigurerat
 
-Om du loggar in på Windows 10 Enterprise multi-session med ett administratörs konto kan du få ett meddelande om att licens läget för fjärr skrivbord inte har kon figurer ATS, Fjärrskrivbordstjänster slutar att fungera om X dagar. Använd Serverhanteraren för att ange licensierings läget för fjärr skrivbord på anslutnings Utjämnings servern. "
+Om du loggar in på Windows 10 Enterprise multisession med ett administrativt konto kan du få ett meddelande om att "Licensieringsläget för fjärrskrivbord är inte konfigurerat, Fjärrskrivbordstjänster slutar fungera i X dagar. På servern För anslutningsutjämning använder du Serverhanteraren för att ange licensieringsläget för fjärrskrivbord."
 
-Om tids gränsen löper ut visas ett fel meddelande om att "Fjärrsessionen kopplades från eftersom det inte finns några åtkomst licenser för fjärr skrivbords klienten tillgängliga för den här datorn."
+Om tidsgränsen går ut visas ett felmeddelande med följande: "Fjärrsessionen kopplades från eftersom det inte finns några klientåtkomstlicenser för fjärrskrivbord för den här datorn.",
 
-Om något av dessa meddelanden visas innebär det att avbildningen inte har de senaste Windows-uppdateringarna installerade eller att du ställer in fjärr skrivbords licensierings läget via en grup princip. Följ stegen i nästa avsnitt för att kontrol lera grup princip inställningen, identifiera versionen av Windows 10 Enterprise multi-session och installera motsvarande uppdatering.  
-
->[!NOTE]
->Windows Virtual Desktop kräver bara en klient åtkomst licens för klient organisation (CAL) när din värddator innehåller Windows Server-sessionsbaserade värdar. Information om hur du konfigurerar en klient åtkomst licens för fjärr skrivbords tjänster finns i [licens för klient åtkomst licenser](/windows-server/remote/remote-desktop-services/rds-client-access-license/).
-
-### <a name="disable-the-remote-desktop-licensing-mode-group-policy-setting"></a>Inaktivera grup princip inställningen för fjärr skrivbords licensierings läge
-
-Kontrol lera grup princip inställningen genom att öppna grupprincip redigeraren på den virtuella datorn och gå till **Administrativa mallar** > **Windows-komponenter** > **Fjärrskrivbordstjänster** > **värd** för fjärrskrivbordssession > **licens** > **Ange licens läge för fjärr skrivbord**. Om grup princip inställningen är **aktive rad**ändrar du den till **inaktive rad**. Om den redan är inaktive rad lämnar du den som den är.
+Om något av dessa meddelanden visas innebär det att avbildningen inte har de senaste Windows-uppdateringarna installerade eller att du ställer in licensieringsläget för fjärrskrivbord via grupprincipen. Följ stegen i nästa avsnitt för att kontrollera grupprincipinställningen, identifiera versionen av Windows 10 Enterprise multisession och installera motsvarande uppdatering.  
 
 >[!NOTE]
->Om du anger grup princip via din domän inaktiverar du den här inställningen för principer som riktar sig mot de här Windows 10 Enterprise-datorer med flera sessioner.
+>Windows Virtual Desktop kräver bara en CAL-licens (RDS Client Access License) när värdpoolen innehåller Windows Server-sessionsvärdar. Mer information om hur du konfigurerar en RDS CAL finns i [Licensiera din RDS-distribution med klientåtkomstlicenser](/windows-server/remote/remote-desktop-services/rds-client-access-license/).
 
-### <a name="identify-which-version-of-windows-10-enterprise-multi-session-youre-using"></a>Identifiera vilken version av Windows 10 Enterprise multi-session som du använder
+### <a name="disable-the-remote-desktop-licensing-mode-group-policy-setting"></a>Inaktivera gruppprincipinställningen för licensieringsläge för fjärrskrivbord
 
-För att kontrol lera vilken version av Windows 10 Enterprise multi-session du har:
+Kontrollera gruppprincipinställningen genom att öppna redigeraren för grupprinciper i den virtuella datorn och navigera till **administrativa mallar** > **Windows Components** > **Remote Desktop Services** > **Remote Desktop Session Host** > **Licensing** > **Ange licensieringsläge för fjärrskrivbord**. Om grupprincipinställningen är **Aktiverad**ändrar du den till **Inaktiverad**. Om den redan är inaktiverad, lämna den som den är.
 
-1. Logga in med ditt administratörs konto.
-2. Ange "About" i Sök fältet bredvid Start-menyn.
-3. Välj **om din dator**.
-4. Kontrol lera numret bredvid "version". Talet ska vara antingen "1809" eller "1903", som du ser i följande bild.
+>[!NOTE]
+>Om du anger grupprincip via domänen inaktiverar du den här inställningen för principer som är inriktade på dessa virtuella datorer med flera flera sessioner i Windows 10 Enterprise.
 
-    ![En skärm bild av fönstret Windows-specifikationer. Versions numret är markerat i blått.](media/windows-specifications.png)
+### <a name="identify-which-version-of-windows-10-enterprise-multi-session-youre-using"></a>Identifiera vilken version av Windows 10 Enterprise multi-session du använder
 
-Nu när du vet versions numret kan du gå vidare till relevant avsnitt.
+Så här kontrollerar du vilken version av Windows 10 Enterprise multisession du har:
+
+1. Logga in med ditt administratörskonto.
+2. Skriv "Om" i sökfältet bredvid Start-menyn.
+3. Välj **Om din dator**.
+4. Kontrollera numret bredvid "Version". Numret ska vara antingen "1809" eller "1903", som visas i följande bild.
+
+    ![En skärmbild av fönstret Windows-specifikationer. Versionsnumret är markerat i blått.](media/windows-specifications.png)
+
+Nu när du känner till versionsnumret går du vidare till det relevanta avsnittet.
 
 ### <a name="version-1809"></a>Version 1809
 
-Om versions numret säger "1809" installerar [du KB4516077-uppdateringen](https://support.microsoft.com/help/4516077).
+Om versionsnumret säger "1809" installerar du [uppdateringen KB4516077](https://support.microsoft.com/help/4516077).
 
 ### <a name="version-1903"></a>Version 1903
 
-Distribuera om värd operativ systemet med den senaste versionen av Windows 10, version 1903-avbildningen från Azure-galleriet.
+Distribuera om värdoperativsystemet med den senaste versionen av Windows 10, version 1903-avbildningen från Azure Gallery.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- En översikt över fel sökning av virtuella Windows-datorer och eskalerade spår finns i [fel söknings översikt, feedback och support](troubleshoot-set-up-overview.md).
-- Information om hur du felsöker problem när du skapar en klient och en adresspool i en Windows Virtual Desktop-miljö finns i [skapa innehavare och skapa värdar för pooler](troubleshoot-set-up-issues.md).
-- Information om hur du felsöker problem när du konfigurerar en virtuell dator (VM) i Windows Virtual Desktop finns i [konfiguration av Session Host-dator](troubleshoot-vm-configuration.md).
-- Information om hur du felsöker problem med klient anslutningar för virtuella Windows-datorer finns i [Windows Virtual Desktop Service Connections](troubleshoot-service-connection.md).
-- Information om hur du felsöker problem med fjärr skrivbords klienter finns i [Felsöka fjärr skrivbords klienten](troubleshoot-client.md)
-- Information om hur du felsöker problem när du använder PowerShell med Windows Virtual Desktop finns i [Windows Virtual Desktop PowerShell](troubleshoot-powershell.md).
+- En översikt över felsökning av Windows Virtual Desktop och eskaleringsspåren finns i [Felsökningsöversikt, feedback och support](troubleshoot-set-up-overview.md).
+- Information om hur du felsöker problem när du skapar en klient- och värdpool i en Windows Virtual Desktop-miljö finns i [Skapandet av klient- och värdpooler](troubleshoot-set-up-issues.md).
+- Mer om du vill felsöka problem när du konfigurerar en virtuell dator (VM) i Windows Virtual Desktop finns i [Konfigurationen för virtuell dator för session värd](troubleshoot-vm-configuration.md).
+- Mer om du vill felsöka problem med Windows Virtual Desktop-klientanslutningar finns i [Windows Virtual Desktop-tjänstanslutningar](troubleshoot-service-connection.md).
+- Om du vill felsöka problem med fjärrskrivbordsklienter finns i [Felsöka klienten för fjärrskrivbord](troubleshoot-client.md)
+- Mer om du vill felsöka problem när du använder PowerShell med Virtuellt Windows-skrivbord finns i [Windows Virtual Desktop PowerShell](troubleshoot-powershell.md).
 - Mer information om tjänsten finns i [Windows Virtual Desktop-miljö](environment-setup.md).
-- Information om hur du går igenom en fel söknings kurs finns i [Självstudier: Felsöka distributioner av Resource Manager-mallar](../azure-resource-manager/templates/template-tutorial-troubleshoot.md).
-- Mer information om gransknings åtgärder finns i [gransknings åtgärder med Resource Manager](../azure-resource-manager/management/view-activity-logs.md).
-- Information om åtgärder för att fastställa felen under distributionen finns i [Visa distributions åtgärder](../azure-resource-manager/templates/deployment-history.md).
+- Information om hur du går igenom en felsökningsguide finns i [Självstudiekurs: Felsöka Resource Manager-malldistributioner](../azure-resource-manager/templates/template-tutorial-troubleshoot.md).
+- Mer information om granskningsåtgärder finns i [Granskningsåtgärder med Resurshanteraren](../azure-resource-manager/management/view-activity-logs.md).
+- Mer information om åtgärder för att fastställa fel under distributionen finns i [Visa distributionsåtgärder](../azure-resource-manager/templates/deployment-history.md).

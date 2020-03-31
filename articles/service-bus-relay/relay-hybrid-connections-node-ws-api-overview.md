@@ -1,6 +1,6 @@
 ---
-title: 'Översikt över API: er för Azure Relay Node | Microsoft Docs'
-description: 'Den här artikeln innehåller en översikt över Node. js-API: et för tjänsten Azure Relay. Det visar också hur du använder Hyco-WS-Node-paketet.'
+title: Översikt över AZURE Relay Node API:er | Microsoft-dokument
+description: Den här artikeln innehåller en översikt över Api:et node.js för Azure Relay-tjänsten. Den visar också hur du använder hyco-ws Node-paketet.
 services: service-bus-relay
 documentationcenter: na
 author: spelluru
@@ -15,29 +15,29 @@ ms.workload: na
 ms.date: 01/21/2020
 ms.author: spelluru
 ms.openlocfilehash: 2877284c419da4999e23490fc986e5da44e5d92e
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76514518"
 ---
-# <a name="relay-hybrid-connections-node-api-overview"></a>Översikt över API för relä Hybridanslutningar Node
+# <a name="relay-hybrid-connections-node-api-overview"></a>Api-överblick över Relay Hybrid Connections Nod
 
 ## <a name="overview"></a>Översikt
 
-[`hyco-ws`](https://www.npmjs.com/package/hyco-ws) Node-paketet för Azure Relay hybridanslutningar bygger på och utökar [WS](https://www.npmjs.com/package/ws) -NPM-paketet. Det här paketet exporterar om alla exporter av det här bas paketet och lägger till nya exporter som möjliggör integrering med funktionen Azure Relay service Hybridanslutningar. 
+[`hyco-ws`](https://www.npmjs.com/package/hyco-ws) Node-paketet för Azure Relay Hybrid-anslutningar bygger på och utökar [NPM-paketet ws.](https://www.npmjs.com/package/ws) Det här paketet återexporterar all export av baspaketet och lägger till ny export som möjliggör integrering med Azure Relay-tjänsten Hybrid-anslutningar. 
 
-Befintliga program som `require('ws')` kan använda det här paketet med `require('hyco-ws')` i stället, vilket också möjliggör hybrid scenarier där ett program kan lyssna efter WebSocket-anslutningar lokalt från "inuti brand väggen" och via Hybridanslutningar, allt på samma gång.
+Befintliga program `require('ws')` som kan `require('hyco-ws')` använda det här paketet med i stället, vilket också möjliggör hybridscenarier där ett program kan lyssna efter WebSocket-anslutningar lokalt från "inne i brandväggen" och via Hybridanslutningar, alla på samma gång.
   
 ## <a name="documentation"></a>Dokumentation
 
-API: erna [dokumenteras i huvud paketet WS](https://github.com/websockets/ws/blob/master/doc/ws.md). I den här artikeln beskrivs hur det här paketet skiljer sig från den bas linjen. 
+API:erna [dokumenteras i huvudpaketet "ws".](https://github.com/websockets/ws/blob/master/doc/ws.md) I den här artikeln beskrivs hur det här paketet skiljer sig från den baslinjen. 
 
-De viktigaste skillnaderna mellan bas paketet och detta ' Hyco-ws ' är att den lägger till en ny server klass som exporteras via `require('hyco-ws').RelayedServer`och några hjälp metoder.
+De viktigaste skillnaderna mellan baspaketet och denna "hyco-ws" är att den `require('hyco-ws').RelayedServer`lägger till en ny serverklass, exporteras via , och några hjälpmetoder.
 
-### <a name="package-helper-methods"></a>Hjälp metoder för paket
+### <a name="package-helper-methods"></a>Metoder för pakethjälp
 
-Det finns flera verktygs metoder som är tillgängliga för paket exporten som du kan referera till på följande sätt:
+Det finns flera verktygsmetoder som finns tillgängliga på paketexporten som du kan referera till på följande sätt:
 
 ```JavaScript
 const WebSocket = require('hyco-ws');
@@ -48,7 +48,7 @@ listenUri = WebSocket.appendRelayToken(listenUri, 'ruleName', '...key...')
 
 ```
 
-Hjälp metoder är för användning med det här paketet, men det kan också användas av en nod Server för att aktivera webb-eller enhets klienter för att skapa lyssnare eller sändare. Servern använder de här metoderna genom att skicka dem till URI: er som bäddar in korta livs längds-token. Dessa URI: er kan också användas med vanliga WebSocket-stackar som inte har stöd för att ange HTTP-huvuden för WebSocket-handskakningen. Inbäddning av autentiseringstoken i URI: n stöds främst för dessa bibliotek – externa användnings scenarier. 
+Hjälpmetoderna är till för användning med det här paketet, men kan också användas av en nodserver för att aktivera webb- eller enhetsklienter för att skapa lyssnare eller avsändare. Servern använder dessa metoder genom att skicka dem URI:er som bäddar in kortlivade token. Dessa URI:er kan också användas med vanliga WebSocket-stackar som inte stöder inställning av HTTP-huvuden för WebSocket-handskakningen. Inbäddning av auktoriseringstoken i URI:n stöds främst för de biblioteksutkrena användningsscenarier. 
 
 #### <a name="createrelaylistenuri"></a>createRelayListenUri
 
@@ -56,30 +56,30 @@ Hjälp metoder är för användning med det här paketet, men det kan också anv
 var uri = createRelayListenUri([namespaceName], [path], [[token]], [[id]])
 ```
 
-Skapar en giltig Azure Relay lyssnar-URI för Hybrid anslutning för det angivna namn området och sökvägen. Denna URI kan sedan användas med relä versionen av klassen WebSocketServer.
+Skapar en giltig Azure Relay Hybrid Connection lyssnare URI för det angivna namnområdet och sökvägen. Den här URI:n kan sedan användas med reläversionen av klassen WebSocketServer.
 
-- `namespaceName` (obligatoriskt) – det kvalificerade domän namnet för det Azure Relay namn område som ska användas.
-- `path` (obligatoriskt) – namnet på en befintlig Azure Relay hybrid anslutning i det namn området.
-- `token` (valfritt) – en tidigare utfärdad Relay-åtkomsttoken som är inbäddad i lyssnar-URI: n (se följande exempel).
-- `id` (valfritt) – ett spårnings-ID som gör det möjligt att spåra begär Anden från slut punkt till slut punkt.
+- `namespaceName`(obligatoriskt) - det domänkvalificerade namnet på Azure Relay-namnområdet som ska användas.
+- `path`(obligatoriskt) - namnet på en befintlig Azure Relay Hybrid-anslutning i det namnområdet.
+- `token`(valfritt) - en tidigare utfärdad Relay access-token som är inbäddad i lyssnaren URI (se följande exempel).
+- `id`(valfritt) - en spårningsidentifierare som möjliggör heltäckande diagnostikspårning av begäranden.
 
-`token` svärdet är valfritt och bör endast användas när det inte går att skicka HTTP-huvuden tillsammans med WebSocket-handskakningen, som är fallet med W3C WebSocket-stacken.                  
+Värdet `token` är valfritt och bör endast användas när det inte är möjligt att skicka HTTP-huvuden tillsammans med WebSocket-handskakningen, vilket är fallet med W3C WebSocket-stacken.                  
 
 
-#### <a name="createrelaysenduri"></a>createRelaySendUri
+#### <a name="createrelaysenduri"></a>skapaRelaySendUri
  
 ```JavaScript
 var uri = createRelaySendUri([namespaceName], [path], [[token]], [[id]])
 ```
 
-Skapar en giltig Azure Relay hybrid anslutning som skickar URI för det angivna namn området och sökvägen. Denna URI kan användas med valfri WebSocket-klient.
+Skapar en giltig Azure Relay Hybrid Connection skicka URI för det angivna namnområdet och sökvägen. Denna URI kan användas med alla WebSocket-klienter.
 
-- `namespaceName` (obligatoriskt) – det kvalificerade domän namnet för det Azure Relay namn område som ska användas.
-- `path` (obligatoriskt) – namnet på en befintlig Azure Relay hybrid anslutning i det namn området.
-- `token` (valfritt) – en tidigare utfärdad Relay-åtkomsttoken som är inbäddad i sändnings-URI (se följande exempel).
-- `id` (valfritt) – ett spårnings-ID som gör det möjligt att spåra begär Anden från slut punkt till slut punkt.
+- `namespaceName`(obligatoriskt) - det domänkvalificerade namnet på Azure Relay-namnområdet som ska användas.
+- `path`(obligatoriskt) - namnet på en befintlig Azure Relay Hybrid-anslutning i det namnområdet.
+- `token`(valfritt) - en tidigare utfärdad Relay access-token som är inbäddad i skicka URI (se följande exempel).
+- `id`(valfritt) - en spårningsidentifierare som möjliggör heltäckande diagnostikspårning av begäranden.
 
-`token` svärdet är valfritt och bör endast användas när det inte går att skicka HTTP-huvuden tillsammans med WebSocket-handskakningen, som är fallet med W3C WebSocket-stacken.                   
+Värdet `token` är valfritt och bör endast användas när det inte är möjligt att skicka HTTP-huvuden tillsammans med WebSocket-handskakningen, vilket är fallet med W3C WebSocket-stacken.                   
 
 
 #### <a name="createrelaytoken"></a>createRelayToken 
@@ -88,14 +88,14 @@ Skapar en giltig Azure Relay hybrid anslutning som skickar URI för det angivna 
 var token = createRelayToken([uri], [ruleName], [key], [[expirationSeconds]])
 ```
 
-Skapar en Azure Relay signatur för signatur för delad åtkomst (SAS) för den angivna mål-URI: n, SAS-regeln och SAS-regelsamlingen som är giltig för det angivna antalet sekunder eller en timme från det aktuella omedelbart om argumentet förfallo datum utelämnas.
+Skapar en AZURE Relay Shared Access Signature (SAS) token för den angivna mål-URI-, SAS-regeln och SAS-regelnyckeln som är giltig för det angivna antalet sekunder eller i en timme från det aktuella ögonblicket om argumentet för utgångsdatum utelämnas.
 
-- `uri` (krävs) – den URI som token ska utfärdas för. URI: n är normaliserad att använda HTTP-schemat och information om frågesträngen tas bort.
-- `ruleName` (obligatoriskt) – SAS-regelsamlingen för antingen entiteten som representeras av angiven URI eller för namn området som representeras av URI-värdservern.
-- `key` (obligatoriskt) – giltig nyckel för SAS-regeln. 
-- `expirationSeconds` (valfritt) – antalet sekunder tills den genererade token ska upphöra att gälla. Om inget värde anges är standardvärdet 1 timme (3600).
+- `uri`(obligatoriskt) - den URI för vilken token ska utfärdas. URI:et normaliseras för att använda HTTP-schemat och frågestränginformation tas bort.
+- `ruleName`(obligatoriskt) - SAS-regelnamn för antingen den enhet som representeras av den angivna URI:n eller för namnområdet som representeras av URI-värddelen.
+- `key`(obligatoriskt) - giltig nyckel för SAS-regeln. 
+- `expirationSeconds`(valfritt) - antalet sekunder tills den genererade token ska upphöra att gälla. Om inget anges är standardvärdet 1 timme (3600).
 
-Utfärdad token ger de rättigheter som är associerade med den angivna SAS-regeln för angiven varaktighet.
+Den utfärdade token ger de rättigheter som är associerade med den angivna SAS-regeln för den angivna varaktigheten.
 
 #### <a name="appendrelaytoken"></a>appendRelayToken
 
@@ -103,13 +103,13 @@ Utfärdad token ger de rättigheter som är associerade med den angivna SAS-rege
 var uri = appendRelayToken([uri], [ruleName], [key], [[expirationSeconds]])
 ```
 
-Den här metoden fungerar som likvärdig med den `createRelayToken` metod som dokumenterats tidigare, men returnerar token som är korrekt tillagd i Indataporten.
+Den här metoden är `createRelayToken` funktionellt likvärdig med den metod som dokumenterats tidigare, men returnerar token korrekt bifogad till indata-URI.
 
-### <a name="class-wsrelayedserver"></a>Klass ws. RelayedServer
+### <a name="class-wsrelayedserver"></a>Klass ws. Relässerver
 
-Klassen `hycows.RelayedServer` är ett alternativ till `ws.Server`-klassen som inte lyssnar på det lokala nätverket, men ombud lyssnar på Azure Relays tjänsten.
+Klassen `hycows.RelayedServer` är ett alternativ `ws.Server` till den klass som inte lyssnar på det lokala nätverket, men ombud som lyssnar på Azure Relay-tjänsten.
 
-De två klasserna är främst kontrakts kompatibla, vilket innebär att ett befintligt program som använder klassen `ws.Server` enkelt kan ändras för att använda den vidarebefordrade versionen. De huvudsakliga skillnaderna finns i konstruktorn och i de tillgängliga alternativen.
+De två klasserna är oftast kontraktskompatibla, vilket innebär att ett befintligt program som använder `ws.Server` klassen enkelt kan ändras för att använda den vidarebefordrade versionen. De största skillnaderna finns i konstruktorn och i de tillgängliga alternativen.
 
 #### <a name="constructor"></a>Konstruktor  
 
@@ -124,24 +124,24 @@ var wss = new server(
     });
 ```
 
-`RelayedServer`-konstruktorn har stöd för en annan uppsättning argument än `Server`eftersom det inte är en fristående lyssnare eller som kan bäddas in i ett befintligt HTTP Listener Framework. Det finns också färre tillgängliga alternativ eftersom WebSocket-hanteringen är i stort sett delegerad till relä tjänsten.
+Konstruktorn `RelayedServer` stöder en annan uppsättning `Server`argument än , eftersom den inte är en fristående lyssnare eller kan bäddas in i ett befintligt HTTP-lyssnareramverk. Det finns också färre alternativ tillgängliga eftersom WebSocket-hanteringen till stor del delegeras till relay-tjänsten.
 
-Argument för konstruktorn:
+Konstruktorargument:
 
-- `server` (krävs) – den fullständigt kvalificerade URI: n för ett hybrid anslutnings namn som du vill lyssna på, vanligt vis konstruerad med hjälp av WebSocket. createRelayListenUri ().
-- `token` (obligatoriskt) – det här argumentet innehåller antingen en tidigare Utfärdad token-sträng eller en callback-funktion som kan anropas för att hämta en sådan token-sträng. Alternativet motringning är att föredra, eftersom det möjliggör förnyelse av token.
+- `server`(obligatoriskt) - den fullt kvalificerade URI för ett hybridanslutningsnamn som du kan lyssna på, vanligtvis konstruerat med hjälpmetoden WebSocket.createRelayListenUri().
+- `token`(obligatoriskt) - det här argumentet innehåller antingen en tidigare utfärdad tokensträng eller en motringningsfunktion som kan anropas för att hämta en sådan tokensträng. Motringningsalternativet är att föredra eftersom det aktiverar tokenförnyelse.
 
-#### <a name="events"></a>Events
+#### <a name="events"></a>Händelser
 
-`RelayedServer` instanser genererar tre händelser som gör att du kan hantera inkommande begär Anden, upprätta anslutningar och identifiera fel villkor. Du måste prenumerera på `connect`-händelsen för att hantera meddelanden. 
+`RelayedServer`instanser avger tre händelser som gör att du kan hantera inkommande begäranden, upprätta anslutningar och identifiera feltillstånd. Du måste prenumerera `connect` på händelsen för att hantera meddelanden. 
 
-##### <a name="headers"></a>sidhuvud
+##### <a name="headers"></a>Headers
 
 ```JavaScript 
 function(headers)
 ```
 
-`headers` händelsen höjs strax innan en inkommande anslutning godkänns, vilket möjliggör ändring av huvudena som ska skickas till klienten. 
+Händelsen `headers` utlöses strax innan en inkommande anslutning accepteras, vilket gör att ändringar av rubrikerna kan skickas till klienten. 
 
 ##### <a name="connection"></a>anslutning
 
@@ -149,7 +149,7 @@ function(headers)
 function(socket)
 ```
 
-Genereras när en ny WebSocket-anslutning godkänns. Objektet är av typen `ws.WebSocket`, samma som med bas paketet.
+Avges när en ny WebSocket-anslutning accepteras. Objektet är av `ws.WebSocket`typ , samma som med baspaketet.
 
 
 ##### <a name="error"></a>fel
@@ -158,13 +158,13 @@ Genereras när en ny WebSocket-anslutning godkänns. Objektet är av typen `ws.W
 function(error)
 ```
 
-Om den underliggande servern avger ett fel vidarebefordras den här.  
+Om den underliggande servern avger ett fel vidarebefordras det här.  
 
-#### <a name="helpers"></a>Hjälp
+#### <a name="helpers"></a>Hjälpare
 
-För att förenkla starten av en vidarebefordrad Server och prenumerera direkt på inkommande anslutningar, visar paketet en enkel hjälp funktion, som också används i exemplen, enligt följande:
+För att förenkla starten av en vidarebefordrad server och omedelbart prenumerera på inkommande anslutningar, exponerar paketet en enkel hjälpfunktion, som också används i exemplen, enligt följande:
 
-##### <a name="createrelayedlistener"></a>createRelayedListener
+##### <a name="createrelayedlistener"></a>skapaRelayedListener
 
 ```JavaScript
 var WebSocket = require('hyco-ws');
@@ -185,17 +185,17 @@ var wss = WebSocket.createRelayedServer(
 });
 ``` 
 
-##### <a name="createrelayedserver"></a>createRelayedServer
+##### <a name="createrelayedserver"></a>skapaRelayedServer
 
 ```javascript
 var server = createRelayedServer([options], [connectCallback] )
 ```
 
-Den här metoden anropar konstruktorn för att skapa en ny instans av RelayedServer och prenumererar sedan på den angivna återanropet till "Connection"-händelsen.
+Den här metoden anropar konstruktorn för att skapa en ny instans av RelayedServer och prenumererar sedan på den angivna motringningen till händelsen "anslutning".
  
-##### <a name="relayedconnect"></a>relayedConnect
+##### <a name="relayedconnect"></a>vidarebefordrasAnslutning
 
-Genom att spegla `createRelayedServer`-hjälpen i fungerar `relayedConnect` skapa en klient anslutning och prenumerera på händelsen "öppen" på den resulterande socketen.
+Helt enkelt `createRelayedServer` speglar hjälparen `relayedConnect` i funktion, skapar en klientanslutning och prenumererar på "öppna" händelsen på den resulterande uttaget.
 
 ```JavaScript
 var uri = WebSocket.createRelaySendUri(ns, path);
@@ -209,6 +209,6 @@ WebSocket.relayedConnect(
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-Om du vill veta mer om Azure Relay går du till följande länkar:
+Mer information om Azure Relay finns i följande länkar:
 * [Vad är Azure Relay?](relay-what-is-it.md)
-* [Tillgängliga relä-API: er](relay-api-overview.md)
+* [Tillgängliga relay-API:er](relay-api-overview.md)

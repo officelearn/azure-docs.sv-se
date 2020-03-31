@@ -1,5 +1,5 @@
 ---
-title: Konfigurera flödet för autentiseringsuppgifter för resurs ägar lösen ord
+title: Konfigurera flödet för lösenord för resursägare
 titleSuffix: Azure AD B2C
 description: Lär dig hur du konfigurerar ROPC-flödet i Azure AD B2C.
 services: active-directory-b2c
@@ -12,33 +12,33 @@ ms.date: 02/27/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 70cd4f2ca3a4ac37bdf1d1e465d1f1a7d06ef9e1
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78189709"
 ---
-# <a name="configure-the-resource-owner-password-credentials-flow-in-azure-ad-b2c"></a>Konfigurera flödet för autentiseringsuppgifter för resurs ägar lösen ord i Azure AD B2C
+# <a name="configure-the-resource-owner-password-credentials-flow-in-azure-ad-b2c"></a>Konfigurera flödet för lösenord för resursägare i Azure AD B2C
 
-ROPC-flödet (Resource Owner Password Credential) är ett OAuth-standardautentiserings flöde där programmet, även kallat den förlitande parten, utbyter giltiga autentiseringsuppgifter som UserID och Password för en ID-token, åtkomsttoken och en uppdateringstoken.
+ROPC-flödet (Resource Owner Password Credentials) är ett OAuth-standardautentiseringsflöde där programmet, även kallat den förlitande parten, utbyter giltiga autentiseringsuppgifter som userid och lösenord för en ID-token, åtkomsttoken och en uppdateringstoken.
 
 [!INCLUDE [active-directory-b2c-public-preview](../../includes/active-directory-b2c-public-preview.md)]
 
 [!INCLUDE [active-directory-b2c-ropc-notes](../../includes/active-directory-b2c-ropc-notes.md)]
 
-##  <a name="create-a-resource-owner-user-flow"></a>Skapa ett användar flöde för resurs ägare
+##  <a name="create-a-resource-owner-user-flow"></a>Skapa ett användarflöde för en resursägare
 
-1. Logga in på Azure Portal som global administratör för din Azure AD B2C-klient.
-2. Om du vill växla till Azure AD B2C klient väljer du katalogen B2C i det övre högra hörnet i portalen.
-3. Klicka på **användar flöden**och välj **nytt användar flöde**.
-4. Klicka på fliken **alla** och välj **Logga in med ROPC**.
-5. Ange ett namn för användar flödet, t. ex. *ROPC_Auth*.
-6. Under **program anspråk**klickar du på **Visa fler**.
-7. Välj de program anspråk som du behöver för ditt program, till exempel visnings namn, e-postadress och identitets leverantör.
+1. Logga in på Azure Portal som global administratör för Azure AD B2C-klientorganisationen.
+2. Om du vill växla till din Azure AD B2C-klient väljer du B2C-katalogen i det övre högra hörnet av portalen.
+3. Klicka på **Användarflöden**och välj **Nytt användarflöde**.
+4. Klicka på fliken **Alla** och välj **Logga in med ROPC**.
+5. Ange ett namn för användarflödet, till exempel *ROPC_Auth*.
+6. Klicka på **Visa mer**under **Programanspråk**.
+7. Välj de programanspråk som du behöver för ditt program, till exempel Visningsnamn, E-postadress och Identitetsprovider.
 8. Välj **OK** och sedan **Skapa**.
-9. Klicka på **Kör användar flöde**.
+9. Klicka på **Kör användarflöde**.
 
-   Sedan visas en slut punkt som till exempel:
+   Du ser då en slutpunkt som det här exemplet:
 
    `https://yourtenant.b2clogin.com/yourtenant.onmicrosoft.com/v2.0/.well-known/openid-configuration?p=B2C_1_ROPC_Auth`
 
@@ -47,27 +47,27 @@ ROPC-flödet (Resource Owner Password Credential) är ett OAuth-standardautentis
 
 [!INCLUDE [active-directory-b2c-appreg-ropc](../../includes/active-directory-b2c-appreg-ropc.md)]
 
-## <a name="test-the-user-flow"></a>Testa användar flödet
+## <a name="test-the-user-flow"></a>Testa användarflödet
 
-Använd ditt favorit-API utvecklings program för att generera ett API-anrop och granska svaret för att felsöka ditt användar flöde. Skapa ett anrop som detta med informationen i följande tabell som brödtext i POST-begäran:
-- Ersätt *\<yourtenant. onmicrosoft. com >* med namnet på din B2C-klient.
-- Ersätt *\<B2C_1A_ROPC_Auth >* med det fullständiga namnet på din resurs ägar lösen ords princip för autentiseringsuppgifter.
-- Ersätt *\<bef2222d56-552f-4a5b-b90a-1988a7d634c3 >* med program-ID: t från registreringen.
+Använd ditt favoritprogram för API-utveckling för att generera ett API-anrop och granska svaret för att felsöka ditt användarflöde. Konstruera ett anrop som detta med informationen i följande tabell som brödtext för POST-begäran:
+- Ersätt * \<yourtenant.onmicrosoft.com>* med namnet på din B2C-klient.
+- Ersätt * \<B2C_1A_ROPC_Auth>* med det fullständiga namnet på principen för lösenord för resursägare.
+- Ersätt * \<bef2222d56-552f-4a5b-b90a-1988a7d634c3>* med ansöknings-ID från din registrering.
 
 `https://yourtenant.b2clogin.com/<yourtenant.onmicrosoft.com>/oauth2/v2.0/token?p=B2C_1_ROPC_Auth`
 
 | Nyckel | Värde |
 | --- | ----- |
 | användarnamn | leadiocl@outlook.com |
-| lösenord | Passxword1 |
-| grant_type | lösenord |
-| omfång | OpenID \<bef2222d56-552f-4a5b-b90a-1988a7d634c3 > offline_access |
-| client_id | \<bef2222d56-552f-4a5b-b90a-1988a7d634c3 > |
+| password | Lösenord1 |
+| grant_type | password |
+| omfång | openid \<bef2222d56-552f-4a5b-b90a-1988a7d634c3> offline_access |
+| client_id | \<bef222d56-552f-4a5b-b90a-1988a7d634c3> |
 | response_type | token id_token |
 
-*Client_id* är det värde som du tidigare antecknade som program-ID. *Offline_access* är valfritt om du vill ta emot en uppdateringstoken. Det användar namn och lösen ord som du använder måste vara autentiseringsuppgifter från en befintlig användare i Azure AD B2C-klienten.
+*Client_id* är det värde som du tidigare har ansett som program-ID. *Offline_access* är valfritt om du vill få en uppdateringstoken. Användarnamnet och lösenordet som du använder måste vara autentiseringsuppgifter från en befintlig användare i din Azure AD B2C-klient.
 
-Förfrågningen om faktisk POST ser ut ungefär så här:
+Den faktiska POST-begäran ser ut så här:
 
 ```
 POST /yourtenant.onmicrosoft.com/oauth2/v2.0/token?p=B2C_1_ROPC_Auth HTTP/1.1
@@ -78,7 +78,7 @@ username=leadiocl%40trashmail.ws&password=Passxword1&grant_type=password&scope=o
 ```
 
 
-Ett lyckat svar med offline-åtkomst ser ut som i följande exempel:
+Ett lyckat svar med offlineåtkomst ser ut som följande exempel:
 
 ```json
 {
@@ -90,9 +90,9 @@ Ett lyckat svar med offline-åtkomst ser ut som i följande exempel:
 }
 ```
 
-## <a name="redeem-a-refresh-token"></a>Lös in en uppdateringstoken
+## <a name="redeem-a-refresh-token"></a>Lösa in en uppdateringstoken
 
-Skapa ett POST samtal som det som visas här med informationen i följande tabell som brödtext i begäran:
+Konstruera ett POST-anrop som det som visas här med informationen i följande tabell som brödtext för begäran:
 
 `https://yourtenant.b2clogin.com/<yourtenant.onmicrosoft.com>/oauth2/v2.0/token?p=B2C_1_ROPC_Auth`
 
@@ -100,13 +100,13 @@ Skapa ett POST samtal som det som visas här med informationen i följande tabel
 | --- | ----- |
 | grant_type | refresh_token |
 | response_type | id_token |
-| client_id | \<bef2222d56-552f-4a5b-b90a-1988a7d634c3 > |
-| resource | \<bef2222d56-552f-4a5b-b90a-1988a7d634c3 > |
-| refresh_token | eyJraWQiOiJacW9pQlp2TW5pYVc2MUY0TnlfR3... |
+| client_id | \<bef222d56-552f-4a5b-b90a-1988a7d634c3> |
+| resource | \<bef222d56-552f-4a5b-b90a-1988a7d634c3> |
+| refresh_token | eyjraWQiOiJacW9pQlp2TW5pYVc2MUY0TnlfR3... |
 
-*Client_id* och *resurs* är de värden som du tidigare antecknade som program-ID. *Refresh_token* är den token som du fick i det autentiseringsfel som nämndes ovan.
+*Client_id* och *resurs* är de värden som du tidigare har ansett som program-ID. *Refresh_token* är den token som du fick i autentiseringsanropet som nämndes tidigare.
 
-Ett lyckat svar ser ut som i följande exempel:
+Ett lyckat svar ser ut som följande exempel:
 
 ```json
 {
@@ -124,13 +124,13 @@ Ett lyckat svar ser ut som i följande exempel:
 }
 ```
 > [!NOTE]
-> När du skapar användare via Graph API måste programmet ha behörigheterna "OpenID", "offline_access" och "profil" från Microsoft Graph.
+> När du skapar användare via Graph API måste programmet ha behörigheterna "openid", "offline_access" och "profile" från Microsoft Graph.
 
-## <a name="implement-with-your-preferred-native-sdk-or-use-app-auth"></a>Implementera med din önskade inbyggda SDK eller Använd app-auth
+## <a name="implement-with-your-preferred-native-sdk-or-use-app-auth"></a>Implementera med önskad inbyggd SDK eller använd App-Auth
 
-Azure AD B2C-implementeringen uppfyller OAuth 2,0-standarder för offentliga autentiseringsuppgifter för klient resurs ägare och bör vara kompatibel med de flesta klient-SDK: er. Vi har testat det här flödet i stor utsträckning i produktion med AppAuth för iOS och AppAuth för Android. Den senaste informationen finns i [native app SDK för OAuth 2,0 och OpenID Connect implementering av moderna bästa metoder](https://appauth.io/).
+Azure AD B2C-implementeringen uppfyller OAuth 2.0-standarder för lösenordsuppgifter för offentliga klientresurser och bör vara kompatibel med de flesta klient-SDK:er. Vi har testat detta flöde i stor utsträckning, i produktion, med AppAuth för iOS och AppAuth för Android. Den senaste informationen finns i [Native App SDK för OAuth 2.0 och OpenID Connect som implementerar moderna metodtips](https://appauth.io/).
 
-Hämta arbets exempel som har kon figurer ATS för användning med Azure AD B2C från GitHub, [för Android](https://aka.ms/aadb2cappauthropc) och [för iOS](https://aka.ms/aadb2ciosappauthropc).
+Hämta arbetsexempel som har konfigurerats för användning med Azure AD B2C från GitHub, [för Android](https://aka.ms/aadb2cappauthropc) och [iOS](https://aka.ms/aadb2ciosappauthropc).
 
 
 

@@ -16,10 +16,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: aed01ea11c1f53cb090d9c2e65ee23f521575649
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60456925"
 ---
 # <a name="hybrid-identity-directory-integration-tools-comparison"></a>Hybrididentitet: Jämförelse av katalogintegreringsverktyg
@@ -28,7 +28,7 @@ Katalogintegreringsverktygen har vuxit och utvecklats med åren.  Avsikten med d
 <!-- The hardcoded link is a workaround for campaign ids not working in acom links-->
 
 > [!NOTE]
-> Azure AD Connect innehåller komponenter och funktioner som tidigare gavs ut som DirSync och AAD Sync. Dessa verktyg ges inte längre ut individuellt. Alla framtida förbättringar tas med i Azure AD Connect-uppdateringarna så att du alltid vet var de senaste funktionerna finns.
+> Azure AD Connect innehåller de komponenter och funktioner som tidigare släppts som Dirsync och AAD Sync. Dessa verktyg släpps inte längre individuellt och alla framtida förbättringar kommer att inkluderas i uppdateringar av Azure AD Connect, så att du alltid vet var du kan få den senaste funktionen.
 > 
 > DirSync och Azure AD Sync är föråldrade. Mer information finns [här](reference-connect-dirsync-deprecated.md).
 > 

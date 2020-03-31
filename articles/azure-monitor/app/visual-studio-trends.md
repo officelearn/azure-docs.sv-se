@@ -8,14 +8,14 @@ ms.date: 03/17/2017
 ms.reviewer: mbullwin
 ms.custom: vs-azure
 ms.openlocfilehash: bb94d3596fde541f16edd1b7012f57b89ebf52eb
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77670873"
 ---
 # <a name="analyzing-trends-in-visual-studio"></a>Analysera trender i Visual Studio
-Verktyget Application Insights Trends hjälper dig att visualisera hur webbappens viktiga telemetrihändelser ändras med tiden, så att du snabbt kan identifiera problem och inkonsekvenser. Med länkar till mer detaljerad diagnostisk information kan Trends hjälpa dig att förbättra dina apprestanda, spåra orsakerna till undantag och avslöja insikter från anpassade händelser.
+Verktyget Application Insights Trends hjälper dig att visualisera hur webbappens viktiga telemetrihändelser ändras med tiden, så att du snabbt kan identifiera problem och inkonsekvenser. Med länkar till mer detaljerad diagnostiskinformation kan Trends hjälpa dig att förbättra dina apprestanda, spåra orsakerna till undantag och få insikter från anpassade händelser.
 
 ![Exempel på fönster i Trends](./media/visual-studio-trends/app-insights-trends-hero-750.png)
 
@@ -37,7 +37,7 @@ Du kan uppmanas att välja en resurs. Klicka på **Välj en resurs**, logga in m
 ## <a name="choose-a-trend-analysis"></a>Välj en trendanalys
 ![Meny över vanliga typer av trendanalyser](./media/visual-studio-trends/app-insights-trends-1-750.png)
 
-Kom igång genom att välja någon av fem vanliga trendanalyser, som var och en analyserar data från de senaste 24 timmarna:
+Sätt igång genom att välja någon av fem vanliga trendanalyser, som var och en analyserar data från de senaste 24 timmarna:
 
 * **Undersöka prestandaproblem med dina serverbegäranden** – Begäranden som görs till din tjänst, grupperade efter svarstider
 * **Analysera fel i dina serverbegäranden** – Begäranden som görs till din tjänst, grupperade efter HTTP-svarskod
@@ -45,23 +45,23 @@ Kom igång genom att välja någon av fem vanliga trendanalyser, som var och en 
 * **Kontrollera prestanda för ditt programs beroenden** – Tjänster som anropas av din tjänst, grupperade efter svarstider
 * **Granska dina anpassade händelser** – Anpassade händelser som du har konfigurerat för din tjänst, grupperade efter händelsetyp.
 
-Dessa fördefinierade analyser är tillgängliga senare från knappen **Visa vanliga typer av telemetrianalyser** i det övre vänstra hörnet i Trends-fönstret.
+Dessa fördefinierade analyser är tillgängliga senare från knappen **View common types of telemetry analysis** (Visa vanliga typer av telemetrianalyser) i det övre vänstra hörnet i Trends-fönstret.
 
 ## <a name="visualize-trends-in-your-application"></a>Visualisera trender i ditt program
-Application Insights Trends skapar en tidsserievisualisering från din apps telemetri. Varje tidsserievisualisering visar en typ av telemetri, grupperad efter en egenskap för den telemetrin, över en viss tidsperiod. Du kanske till exempel vill visa serverbegäranden grupperade efter det land som de kommer från, under de senaste 24 timmarna. I det här exemplet representerar varje bubbla i visualiseringen ett antal serverbegäranden för ett visst land/en viss region under en timme.
+Application Insights Trends skapar en tidsserievisualisering från din apps telemetri. Varje tidsserievisualisering visar en typ av telemetri, grupperad efter en egenskap för den telemetrin, över en viss tidsperiod. Du kanske till exempel vill visa serverbegäranden, grupperade efter det land som de kommer från, under de senaste 24 timmarna. I det här exemplet representerar varje bubbla i visualiseringen ett antal serverbegäranden för ett visst land/en viss region under en timme.
 
-Använd kontrollerna längst upp i fönstret för att justera vilka typer av telemetri som visas. Börja med att välja de typer av telemetri som du är intresserad av:
+Använd kontrollerna längst upp i fönstret för att välja vilka telemetrityper som visas. Börja med att välja de telemetrityper som du är intresserad av:
 
-* **Typ av telemetri** – server begär Anden, undantag, beroenden eller anpassade händelser
+* **Telemetrityp** - Serverbegäranden, undantag, beroenden eller anpassade händelser
 * **Tidsintervall** – Allt från de senaste 30 minuterna till de senaste 3 dagarna
 * **Gruppera efter** – Undantagstyp, problem-ID, land/region och mer.
 
-Klicka på **Analysera telemetri** för att köra frågan.
+Klicka sedan på **Analysera telemetri för** att köra frågan.
 
 Så här navigerar du mellan bubblor i visualiseringen:
 
 * Klicka för att välja en bubbla. När du gör det uppdateras filtren längst ned i fönstret och en sammanfattning över bara de händelser som inträffat under en viss tidsperiod visas.
-* Dubbelklicka på en bubbla för att navigera till sökverktyget och se alla enskilda telemetri händelser som inträffat under den tids perioden
+* Dubbelklicka på en bubbla för att navigera till sökverktyget och se alla enskilda telemetrihändelser som inträffade under den tidsperioden
 * Tryck på Ctrl och klicka på en bubbla om du vill avmarkera den i visualiseringen.
 
 > [!TIP]
@@ -70,23 +70,23 @@ Så här navigerar du mellan bubblor i visualiseringen:
 > 
 
 ## <a name="filter"></a>Filter
-Identifiera mer specifika trender med filterkontrollerna längst ned i fönstret. Om du vill använda ett filter klickar du på filtrets namn. Du kan snabbt växla mellan olika filter för att identifiera trender som kan vara dolda i en viss dimension av telemetrin. Om du använder ett filter i en dimension, t. ex. undantags typ, så förblir filter i andra dimensioner klickata även om de visas som nedtonade. Om du vill ta bort ett filter klickar du på det igen. Tryck på Ctrl och klicka för att markera flera filter i samma dimension.
+Identifiera mer specifika trender med filterkontrollerna längst ned i fönstret. Om du vill använda ett filter klickar du på filtrets namn. Du kan snabbt växla mellan olika filter för att identifiera trender som kan vara dolda i en viss dimension av telemetrin. Om du använder ett filter i en dimension, till exempel Undantagstyp, förblir filter i andra dimensioner klickbara även om de ser nedtonade ut. Om du vill ta bort ett filter klickar du på det igen. Tryck på Ctrl och klicka för att markera flera filter i samma dimension.
 
 ![Filter för trender](./media/visual-studio-trends/TrendsFiltering-750.png)
 
 Hur gör du om du vill använda flera filter? 
 
 1. Tillämpa det första filtret. 
-2. Klicka på knappen **Använd valda filter och fråga igen** vid namnet på dimensionen för ditt första filter. När du gör det skickas en fråga till telemetrin efter händelser som matchar det första filtret. 
+2. Klicka på knappen **Apply selected filters and query again** (Använd valda filter och fråga igen) vid namnet på dimensionen för ditt första filter. När du gör det skickas en fråga till telemetrin efter händelser som matchar det första filtret. 
 3. Tillämpa ett andra filter. 
-4. Upprepa stegen för att hitta trender i specifika delmängder av telemetrin. Till exempel serverbegäranden med namnet ”GET Home/Index” *och* som kommit från Tyskland *och* som tagit emot svarskod 500. 
+4. Upprepa samma steg för att hitta trender i specifika deluppsättningar av telemetrin. Till exempel serverbegäranden med namnet ”GET Home/Index” *och* som kommit från Tyskland *och* som tagit emot svarskod 500. 
 
-Om du vill ta bort dessa filter klickar du på knappen **Ta bort valda filter och fråga igen** för dimensionen.
+Om du vill ta bort filtren klickar du på knappen **Remove selected filters and query again** (Ta bort valda filter och fråga igen) för dimensionen.
 
 ![Flera filter](./media/visual-studio-trends/TrendsFiltering2-750.png)
 
 ## <a name="find-anomalies"></a>Identifiera avvikelser
-Verktyget Trends kan markera bubblor med händelser som är avvikande jämfört med andra bubblor i samma tidsserie. Välj **Antal i tidsenhet (markera avvikelser** eller **Procent i tidsenhet (markera avvikelser)** . Röda bubblor representerar bubblor med avvikande händelser. Avvikelser definieras som bubblor med antal/procent som överstiger 2,1 gånger standard avvikelsen för antal/procent som inträffat under de senaste två tids perioderna (48 timmar om du visar de senaste 24 timmarna osv.).
+Verktyget Trends kan märka ut bubblor med händelser som avviker från andra bubblor i samma tidsserie. Välj **Antal i tidsenhet (markera avvikelser** eller **Procent i tidsenhet (markera avvikelser)**. Röda bubblor representerar avvikelser. Avvikelser definieras som bubblor med antal/procentsatser som överstiger 2,1 gånger standardavvikelsen för de antal/procent som inträffade under de senaste två tidsperioderna (48 timmar om du visar de senaste 24 timmarna osv.).
 
 ![Färgade punkter representerar avvikelser](./media/visual-studio-trends/TrendsAnomalies-750.png)
 
@@ -95,7 +95,7 @@ Verktyget Trends kan markera bubblor med händelser som är avvikande jämfört 
 > 
 > 
 
-## <a name="next"></a>Nästa steg
+## <a name="next-steps"></a><a name="next"></a>Nästa steg
 |  |  |
 | --- | --- |
 | **[Arbeta med Application Insights i Visual Studio](../../azure-monitor/app/visual-studio.md)**<br/>Sök i telemetri, visa data i CodeLens och konfigurera Application Insights. Allt i Visual Studio. |![Högerklicka på projektet och välj Application Insights, Sök](./media/visual-studio-trends/34.png) |

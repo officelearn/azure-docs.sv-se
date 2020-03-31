@@ -1,7 +1,7 @@
 ---
-title: Säkerhets filter för trimning av resultat
+title: Säkerhetsfilter för trimning av resultat
 titleSuffix: Azure Cognitive Search
-description: Åtkomst kontroll på Azure Kognitiv sökning-innehåll med hjälp av säkerhets filter och användar identiteter.
+description: Åtkomstkontroll för Azure Cognitive Search-innehåll med hjälp av säkerhetsfilter och användaridentiteter.
 manager: nitinme
 author: brjohnstmsft
 ms.author: brjohnst
@@ -9,40 +9,40 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: 24f168f68a60ebb0408b7f1c367039ea5caea6d1
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72794266"
 ---
-# <a name="security-filters-for-trimming-results-in-azure-cognitive-search"></a>Säkerhets filter för att trimma resultat i Azure Kognitiv sökning
+# <a name="security-filters-for-trimming-results-in-azure-cognitive-search"></a>Säkerhetsfilter för trimning av resultat i Azure Cognitive Search
 
-Du kan använda säkerhets filter för att trimma Sök resultat i Azure Kognitiv sökning baserat på användar identitet. Den här Sök rutinen kräver vanligt vis en jämförelse av identiteten hos vem som begär sökningen mot ett fält som innehåller de principer som har behörighet till dokumentet. När en matchning hittas har användaren eller huvud kontot (till exempel en grupp eller roll) åtkomst till dokumentet.
+Du kan använda säkerhetsfilter för att trimma sökresultat i Azure Cognitive Search baserat på användaridentitet. Den här sökupplevelsen kräver i allmänhet att man jämför identiteten för den som begär sökningen mot ett fält som innehåller de principer som har behörighet i dokumentet. När en matchning hittas har användaren eller huvudnumret (till exempel en grupp eller roll) åtkomst till dokumentet.
 
-Ett sätt att uppnå säkerhets filtrering är genom en komplicerad disknutning av likhets uttryck: till exempel `Id eq 'id1' or Id eq 'id2'`, och så vidare. Den här metoden är fel känslig, svår att underhålla och i de fall där listan innehåller hundratals eller tusentals värden, saktar ned svars tiden för frågan med många sekunder. 
+Ett sätt att uppnå säkerhetsfiltrering är genom en komplicerad disjunction av jämställdhetsuttryck: till exempel `Id eq 'id1' or Id eq 'id2'`, och så vidare. Den här metoden är felbenägen, svår att underhålla och i de fall där listan innehåller hundratals eller tusentals värden, saktar ner frågesvarstiden med många sekunder. 
 
-En enklare och snabbare metod är genom `search.in` funktionen. Om du använder `search.in(Id, 'id1, id2, ...')` i stället för ett likhets uttryck kan du förvänta svars tider under en sekund.
+Ett enklare och snabbare `search.in` tillvägagångssätt är genom funktionen. Om du `search.in(Id, 'id1, id2, ...')` använder i stället för ett likhetsuttryck kan du förvänta dig svarstider under sekunden.
 
-Den här artikeln visar hur du utför säkerhets filtrering med hjälp av följande steg:
+I den här artikeln visas hur du utför säkerhetsfiltrering med hjälp av följande steg:
 > [!div class="checklist"]
-> * Skapa ett fält som innehåller huvud identifierare 
-> * Skicka eller uppdatera befintliga dokument med relevanta huvud identifierare
-> * Utfärda en sökbegäran med `search.in` `filter`
+> * Skapa ett fält som innehåller huvudidentifierare 
+> * Driva eller uppdatera befintliga dokument med relevanta huvudidentifierare
+> * Utfärda en sökbegäran med `search.in``filter`
 
 >[!NOTE]
-> Processen för att hämta huvud identifierarna omfattas inte av det här dokumentet. Du bör hämta den från din leverantör av identitets tjänster.
+> Processen att hämta huvudidentifierarna beskrivs inte i det här dokumentet. Du bör få det från din identitetstjänstleverantör.
 
 ## <a name="prerequisites"></a>Krav
 
-Den här artikeln förutsätter att du har en [Azure-prenumeration](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F), [Azure kognitiv sökning-tjänst](https://docs.microsoft.com/azure/search/search-create-service-portal)och [Azure kognitiv sökning-index](https://docs.microsoft.com/azure/search/search-create-index-portal).  
+Den här artikeln förutsätter att du har en [Azure-prenumeration,](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) [Azure Cognitive Search-tjänst](https://docs.microsoft.com/azure/search/search-create-service-portal)och [Azure Cognitive Search Index](https://docs.microsoft.com/azure/search/search-create-index-portal).  
 
-## <a name="create-security-field"></a>Skapa säkerhets fält
+## <a name="create-security-field"></a>Skapa säkerhetsfält
 
-Dokumenten måste innehålla ett fält som anger vilka grupper som har åtkomst. Den här informationen blir de filter villkor mot vilka dokument väljs eller avvisas från resultat uppsättningen som returneras till utfärdaren.
-Vi antar att vi har ett index över säkra filer och att varje fil kan nås av en annan uppsättning användare.
-1. Lägg till fält `group_ids` (du kan välja ett namn här) som ett `Collection(Edm.String)`. Kontrol lera att fältet har ett `filterable` attributet inställt på `true` så att Sök resultatet filtreras baserat på åtkomsten till användaren. Om du till exempel ställer in `group_ids` fältet till `["group_id1, group_id2"]` för dokumentet med `file_name` "secured_file_b", har endast användare som tillhör grupp-ID: n "group_id1" eller "group_id2" Läs åtkomst till filen.
-   Kontrol lera att fältets `retrievable`-attribut är inställt på `false` så att det inte returneras som en del av Sök förfrågan.
-2. Lägg också till `file_id` och `file_name` fält för det här exemplet.  
+Dina dokument måste innehålla ett fält som anger vilka grupper som har åtkomst. Den här informationen blir de filtervillkor mot vilka dokument väljs eller avvisas från resultatuppsättningen som returneras till utfärdaren.
+Låt oss anta att vi har ett index över säkra filer, och varje fil är tillgänglig för en annan uppsättning användare.
+1. Lägg `group_ids` till fält (du kan välja `Collection(Edm.String)`vilket namn som helst här) som ett . Kontrollera att fältet `filterable` har ett `true` attribut inställt på så att sökresultaten filtreras baserat på den åtkomst som användaren har. Om du till exempel `group_ids` anger `["group_id1, group_id2"]` fältet till `file_name` för dokumentet med "secured_file_b", har endast användare som tillhör grupp-ID :group_id1" eller "group_id2" läsbehörighet till filen.
+   Kontrollera att fältets `retrievable` attribut är `false` inställt på så att det inte returneras som en del av sökbegäran.
+2. Lägg `file_id` också `file_name` till och fält för det här exemplets skull.  
 
 ```JSON
 {
@@ -55,9 +55,9 @@ Vi antar att vi har ett index över säkra filer och att varje fil kan nås av e
 }
 ```
 
-## <a name="pushing-data-into-your-index-using-the-rest-api"></a>Skicka data till ditt index med hjälp av REST API
+## <a name="pushing-data-into-your-index-using-the-rest-api"></a>Att trycka in data i ditt index med REST API
   
-Skicka en HTTP POST-begäran till indexets URL-slutpunkt. Bröd texten i HTTP-begäran är ett JSON-objekt som innehåller de dokument som ska läggas till:
+Utfärda en HTTP POST-begäran till indexets URL-slutpunkt. Brödtexten för HTTP-begäran är ett JSON-objekt som innehåller de dokument som ska läggas till:
 
 ```
 POST https://[search service].search.windows.net/indexes/securedfiles/docs/index?api-version=2019-05-06  
@@ -65,7 +65,7 @@ Content-Type: application/json
 api-key: [admin key]
 ```
 
-I begär ande texten anger du innehållet i dina dokument:
+I brödtexten för begäran anger du innehållet i dina dokument:
 
 ```JSON
 {
@@ -92,7 +92,7 @@ I begär ande texten anger du innehållet i dina dokument:
 }
 ```
 
-Om du behöver uppdatera ett befintligt dokument med listan över grupper kan du använda åtgärden `merge` eller `mergeOrUpload`:
+Om du behöver uppdatera ett befintligt dokument med listan `merge` `mergeOrUpload` över grupper kan du använda åtgärden eller:
 
 ```JSON
 {
@@ -106,14 +106,14 @@ Om du behöver uppdatera ett befintligt dokument med listan över grupper kan du
 }
 ```
 
-För fullständig information om hur du lägger till eller uppdaterar dokument kan du läsa [Redigera dokument](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents).
+Fullständig information om hur du lägger till eller uppdaterar dokument kan du läsa [Redigera dokument](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents).
    
-## <a name="apply-the-security-filter"></a>Tillämpa säkerhets filtret
+## <a name="apply-the-security-filter"></a>Använda säkerhetsfiltret
 
-För att kunna rensa dokument baserat på `group_ids` åtkomst bör du utfärda en Sök fråga med ett `group_ids/any(g:search.in(g, 'group_id1, group_id2,...'))` filter, där "group_id1, group_id2,..." är de grupper som utfärdaren av Sök begär Anden tillhör.
-Det här filtret matchar alla dokument som `group_ids` fältet innehåller ett av de identifierade identifierarna.
-Fullständig information om hur du söker efter dokument med hjälp av Azure Kognitiv sökning kan du läsa [Sök dokument](https://docs.microsoft.com/rest/api/searchservice/search-documents).
-Observera att det här exemplet visar hur du söker efter dokument med en POST-begäran.
+För att trimma dokument `group_ids` baserat på åtkomst bör du `group_ids/any(g:search.in(g, 'group_id1, group_id2,...'))` utfärda en sökfråga med ett filter, där "group_id1, group_id2,..." är de grupper som utfärdaren för sökbegäran tillhör.
+Det här filtret matchar `group_ids` alla dokument för vilka fältet innehåller en av de angivna identifierarna.
+Fullständig information om hur du söker efter dokument med Hjälp av Azure Cognitive Search kan du läsa [Sökdokument](https://docs.microsoft.com/rest/api/searchservice/search-documents).
+Observera att det här exemplet visar hur du söker efter dokument med hjälp av en POST-begäran.
 
 Utfärda HTTP POST-begäran:
 
@@ -123,7 +123,7 @@ Content-Type: application/json
 api-key: [admin or query key]
 ```
 
-Ange filtret i begär ande texten:
+Ange filtret i begäranden:
 
 ```JSON
 {
@@ -131,7 +131,7 @@ Ange filtret i begär ande texten:
 }
 ```
 
-Du bör hämta dokumenten där `group_ids` innehåller antingen "group_id1" eller "group_id2". Med andra ord får du de dokument som begär ande utfärdaren har Läs behörighet för.
+Du bör få dokumenten tillbaka där `group_ids` innehåller antingen "group_id1" eller "group_id2". Med andra ord får du de dokument som utfärdaren för begäran har läsbehörighet till.
 
 ```JSON
 {
@@ -149,12 +149,12 @@ Du bör hämta dokumenten där `group_ids` innehåller antingen "group_id1" elle
  ]
 }
 ```
-## <a name="conclusion"></a>Sammanfattning
+## <a name="conclusion"></a>Slutsats
 
-Så här kan du filtrera resultat baserat på användar identitet och Azure Kognitiv sökning `search.in()` funktionen. Du kan använda den här funktionen för att skicka princip identifierare för den begär ande användaren att matcha mot huvud identifierare som är associerade med varje mål dokument. När en sökbegäran hanteras filtrerar funktionen `search.in` ut Sök Resultat för vilka ingen av användarens huvud namn har Läs behörighet. Huvud identifierarna kan representera saker som säkerhets grupper, roller eller till och med användarens egna identitet.
+Så här kan du filtrera resultat baserat på `search.in()` användaridentitet och Azure Cognitive Search-funktion. Du kan använda den här funktionen för att skicka principidentifierare för den begärande användaren att matcha mot huvudidentifierare som är associerade med varje måldokument. När en sökbegäran hanteras filtrerar `search.in` funktionen bort sökresultat som ingen av användarens huvudnamn har läsbehörighet för. Huvudidentifierarna kan representera saker som säkerhetsgrupper, roller eller till och med användarens egen identitet.
  
-## <a name="see-also"></a>Se också
+## <a name="see-also"></a>Se även
 
-+ [Active Directory identitets baserad åtkomst kontroll med Azure Kognitiv sökning-filter](search-security-trimming-for-azure-search-with-aad.md)
-+ [Filter i Azure Kognitiv sökning](search-filters.md)
-+ [Data säkerhet och åtkomst kontroll i Azure Kognitiv sökning åtgärder](search-security-overview.md)
++ [Active Directory-identitetsbaserad åtkomstkontroll med hjälp av Azure Cognitive Search-filter](search-security-trimming-for-azure-search-with-aad.md)
++ [Filter i Azure Cognitive Search](search-filters.md)
++ [Datasäkerhet och åtkomstkontroll i Azure Cognitive Search-åtgärder](search-security-overview.md)

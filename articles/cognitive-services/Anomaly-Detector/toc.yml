@@ -16,7 +16,7 @@
           href: quickstarts/detect-data-anomalies-python-sdk.md
         - name: Använda Node.js
           href: quickstarts/detect-data-anomalies-nodejs-sdk.md
-    - name: REST API
+    - name: REST-API
       items:
         - name: 'Använd C#'
           href: quickstarts/detect-data-anomalies-csharp.md
@@ -30,7 +30,7 @@
       href: tutorials/batch-anomaly-detection-powerbi.md
     - name: Avvikelseidentifiering på strömmade data med hjälp av Azure Databricks
       href: tutorials/anomaly-detection-streaming-databricks.md
-- name: Instruktionsguider
+- name: Anvisningar
   items:
     - name: Identifiera avvikelser i dina data
       href: how-to/identify-anomalies.md
@@ -44,7 +44,7 @@
           displayName: 'docker, container, apikey, billing, log, mount, run, pull, port'
         - name: Använda containerinstanser
           href: how-to/deploy-anomaly-detection-on-container-instances.md
-- name: Koncept
+- name: Begrepp
   items:
     - name: 'Regelverk för API:et för avvikelseidentifiering'
       href: concepts/anomaly-detection-best-practices.md
@@ -78,7 +78,17 @@
       href: 'https://arxiv.org/abs/1906.03821'
 - name: Resurser
   items:
-    - name: Priser
+    - name: Support
+      items:
+        - name: Få support
+          href: 'https://aka.ms/adsupport'
+        - name: Stack Overflow
+          href: 'https://aka.ms/adso'
+        - name: MSDN
+          href: 'https://aka.ms/admsdn'
+        - name: Röstanvändare
+          href: 'https://aka.ms/aduservoice'
+    - name: Prissättning
       href: 'https://aka.ms/adpricing'
     - name: Regional tillgänglighet
       href: 'https://aka.ms/adregion'
@@ -90,13 +100,3 @@
       href: 'https://azure.microsoft.com/solutions/architecture/anomaly-detector-process/'
     - name: Efterlevnad
       href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
-- name: Support
-  items:
-    - name: Få support
-      href: 'https://aka.ms/adsupport'
-    - name: Stack Overflow
-      href: 'https://aka.ms/adso'
-    - name: MSDN
-      href: 'https://aka.ms/admsdn'
-    - name: Röstanvändare
-      href: 'https://aka.ms/aduservoice'

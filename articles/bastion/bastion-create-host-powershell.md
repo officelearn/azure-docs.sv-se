@@ -1,6 +1,6 @@
 ---
-title: Skapa en skydds-värd med hjälp av Azure PowerShell | Microsoft Docs
-description: I den här artikeln lär du dig hur du skapar en Azure skydds-värd
+title: Skapa en Bastion-värd med Azure Powershell | Microsoft-dokument
+description: I den här artikeln kan du lära dig hur du skapar en Azure Bastion-värd
 services: bastion
 author: cherylmc
 ms.service: bastion
@@ -8,17 +8,17 @@ ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: cherylmc
 ms.openlocfilehash: c3e4c2f2bac45f2e366764473a34b0536bb4cc44
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/04/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76990461"
 ---
-# <a name="create-an-azure-bastion-host-using-azure-powershell"></a>Skapa en Azure skydds-värd med hjälp av Azure PowerShell
+# <a name="create-an-azure-bastion-host-using-azure-powershell"></a>Skapa en Azure Bastion-värd med Azure PowerShell
 
-Den här artikeln visar hur du skapar en Azure skydds-värd med PowerShell. När du etablerar Azure skydds-tjänsten i det virtuella nätverket är den sömlösa RDP/SSH-upplevelsen tillgänglig för alla virtuella datorer i samma virtuella nätverk. Azure skydds-distributionen är per virtuellt nätverk, inte per prenumeration/konto eller virtuell dator.
+Den här artikeln visar hur du skapar en Azure Bastion-värd med PowerShell. När du har etablerat Azure Bastion-tjänsten i ditt virtuella nätverk är den sömlösa RDP/SSH-upplevelsen tillgänglig för alla virtuella datorer i samma virtuella nätverk. Azure Bastion-distributionen är per virtuellt nätverk, inte per prenumeration/konto eller virtuell dator.
 
-Du kan också skapa en Azure skydds-värd med hjälp av [Azure Portal](bastion-create-host-portal.md).
+Du kan också skapa en Azure Bastion-värd med hjälp av [Azure-portalen](bastion-create-host-portal.md).
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
@@ -26,11 +26,11 @@ Kontrollera att du har en Azure-prenumeration. Om du inte har någon Azure-prenu
 
 [!INCLUDE [powershell](../../includes/vpn-gateway-cloud-shell-powershell-about.md)]
 
-## <a name="createhost"></a>Skapa en skydds-värd
+## <a name="create-a-bastion-host"></a><a name="createhost"></a>Skapa en Bastion-värd
 
-Det här avsnittet hjälper dig att skapa en ny Azure skydds-resurs med hjälp av Azure PowerShell.
+Det här avsnittet hjälper dig att skapa en ny Azure Bastion-resurs med Azure PowerShell.
 
-1. Skapa ett virtuellt nätverk och ett Azure skydds-undernät. Du måste skapa Azure skydds-undernätet med namnet Value **AzureBastionSubnet**. Med det här värdet kan Azure veta vilket undernät som skydds-resurserna ska distribueras till. Detta skiljer sig från ett Gateway-undernät. Du måste använda ett undernät med minst/27 eller större undernät (/27,/26 osv.). Skapa **AzureBastionSubnet** utan några routningstabeller eller delegeringar. Om du använder nätverks säkerhets grupper på **AzureBastionSubnet**, se artikeln [arbeta med NSG: er](bastion-nsg.md) .
+1. Skapa ett virtuellt nätverk och ett Azure Bastion-undernät. Du måste skapa undernätet Azure Bastion med namnvärdet **AzureBastionSubnet**. Det här värdet gör att Azure vet vilket undernät som bastionresurserna ska distribueras till. Detta skiljer sig från ett gateway-undernät. Du måste använda ett undernät på minst /27 eller större undernät (/27, /26 och så vidare). Skapa **AzureBastionSubnet** utan några vägtabeller eller delegeringar. Om du använder nätverkssäkerhetsgrupper på **AzureBastionSubnet**läser du artikeln [Arbeta med NSG:er.](bastion-nsg.md)
 
    ```azurepowershell-interactive
    $subnetName = "AzureBastionSubnet"
@@ -38,13 +38,13 @@ Det här avsnittet hjälper dig att skapa en ny Azure skydds-resurs med hjälp a
    $vnet = New-AzVirtualNetwork -Name "myVnet" -ResourceGroupName " myBastionRG " -Location "westeurope" -AddressPrefix 10.0.0.0/16 -Subnet $subnet
    ```
 
-2. Skapa en offentlig IP-adress för Azure-skydds. Den offentliga IP-adressen är den offentliga IP-adressen som skydds-resursen som RDP/SSH kommer att få åtkomst till (via port 443). Den offentliga IP-adressen måste finnas i samma region som den skydds-resurs som du skapar.
+2. Skapa en offentlig IP-adress för Azure Bastion. Den offentliga IP:n är den offentliga IP-adressen som den Bastion-resurs som RDP/SSH kommer att nås på (över port 443). Den offentliga IP-adressen måste finnas i samma region som den Bastion-resurs som du skapar.
 
    ```azurepowershell-interactive
    $publicip = New-AzPublicIpAddress -ResourceGroupName "myBastionRG" -name "myPublicIP" -location "westeurope" -AllocationMethod Static -Sku Standard
    ```
 
-3. Skapa en ny Azure skydds-resurs i AzureBastionSubnet för det virtuella nätverket. Det tar ungefär 5 minuter för skydds-resursen att skapa och distribuera.
+3. Skapa en ny Azure Bastion-resurs i AzureBastionSubnet i ditt virtuella nätverk. Det tar cirka 5 minuter för Bastion-resursen att skapa och distribuera.
 
    ```azurepowershell-interactive
    $bastion = New-AzBastion -ResourceGroupName " myBastionRG " -Name "myBastion" -PublicIpAddress $publicip -VirtualNetwork $vnet
@@ -52,6 +52,6 @@ Det här avsnittet hjälper dig att skapa en ny Azure skydds-resurs med hjälp a
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Mer information finns i [vanliga frågor och svar om skydds](bastion-faq.md) .
+* Läs [vanliga frågor om Bastion](bastion-faq.md) för ytterligare information.
 
-* Information om hur du använder nätverks säkerhets grupper med Azure skydds-undernätet finns i [arbeta med NSG: er](bastion-nsg.md).
+* Information om hur du använder nätverkssäkerhetsgrupper med undernätet Azure Bastion finns i [Arbeta med NSG.To](bastion-nsg.md)use Network Security Groups with the Azure Bastion subnet, see Work with NSGs .

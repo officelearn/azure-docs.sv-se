@@ -31,13 +31,18 @@
     - name: Hantera Azure Automation-data
       href: automation-managing-data.md
       displayName: backup
+    - name: Felsöka
+      items:
+        - name: Felsöka Automation-konton
+          href: troubleshoot/automation-account.md
+          displayName: troubleshoot
 - name: Processautomatisering
   items:
     - name: Översikt över Hybrid Runbook Worker
       href: automation-hybrid-runbook-worker.md
     - name: Runbook-galleri
       href: automation-runbook-gallery.md
-    - name: Koncept
+    - name: Begrepp
       items:
         - name: Runbook-typer
           href: automation-runbook-types.md
@@ -239,7 +244,7 @@
     - name: Översikt över statuskonfiguration
       href: automation-dsc-overview.md
       displayName: DSC
-    - name: Koncept
+    - name: Begrepp
       items:
         - name: PowerShell DSC
           href: /powershell/scripting/dsc/overview/overview
@@ -372,7 +377,7 @@
       href: 'https://azure.microsoft.com/roadmap/?category=management-tools&query=automation'
     - name: MSDN-forum
       href: 'https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azureautomation'
-    - name: Priser
+    - name: Prissättning
       href: 'https://azure.microsoft.com/pricing/details/automation/'
     - name: Priskalkylator
       href: 'https://azure.microsoft.com/pricing/calculator/'

@@ -39,8 +39,11 @@
       href: storage-files-scale-targets.md
     - name: Identitetsbaserad autentisering och auktorisering
       href: storage-files-active-directory-overview.md
-    - name: Kryptering i vila
+    - name: Azure Storage-kryptering i vila
       href: ../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+      items:
+        - name: Kundhanterade nycklar med Azure Key Vault
+          href: ../common/encryption-customer-managed-keys.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
     - name: Efterlevnadserbjudanden
       href: ../common/storage-compliance-offerings.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
     - name: Utveckling
@@ -93,6 +96,10 @@
           href: storage-how-to-use-files-mac.md
     - name: Nätverk
       items:
+        - name: Konfigurera nätverksslutpunkter för Azure Files
+          href: storage-files-networking-endpoints.md
+        - name: Konfigurera DNS-vidarebefordring för Azure Files
+          href: storage-files-networking-dns.md
         - name: Konfigurera en plats-till-plats-anslutning via VPN
           href: storage-files-configure-s2s-vpn.md
         - name: Konfigurera en punkt-till-plats-anslutning via VPN på Windows
@@ -117,12 +124,22 @@
           href: storage-sync-files-monitoring.md
     - name: Migrera
       items:
-        - name: Migrera till Azure File Sync
-          href: storage-sync-offline-data-transfer.md
-        - name: Migreringsguide för StorSimple 8100 och 8600
-          href: storage-files-migration-storsimple-8000.md
-        - name: Migreringsguide för StorSimple 1200
-          href: storage-files-migration-storsimple-1200.md
+        - name: Migrera till Azure-filresurser
+          href: storage-files-migration-overview.md
+        - name: Ange en hybriddistribution som mål
+          items:
+            - name: Migrera bulkdata till Azure File Sync med Azure DataBox
+              href: storage-sync-offline-data-transfer.md
+            - name: Migrera från Linux till en hybridfilserver med Azure File Sync
+              href: storage-files-migration-linux-hybrid.md
+            - name: Migrera från en lokal NAS till en hybridfilserver med Azure File Sync
+              href: storage-files-migration-nas-hybrid.md
+        - name: Från StorSimple
+          items:
+            - name: Migreringsguide för StorSimple 8100 och 8600
+              href: storage-files-migration-storsimple-8000.md
+            - name: Migreringsguide för StorSimple 1200
+              href: storage-files-migration-storsimple-1200.md
     - name: Utveckla
       items:
         - name: Konfigurera anslutningssträngar

@@ -5,8 +5,12 @@
   items:
     - name: Vad är Azure Active Directory?
       href: active-directory-whatis.md
+    - name: Jämför med Azure AD med ADDS
+      href: active-directory-compare-azure-ad-to-ad.md
     - name: Nyheter i Azure Active Directory
       href: whats-new.md
+    - name: Nyheter i Microsoft 365 Government
+      href: whats-new-microsoft-365-government.md
 - name: Snabbstarter
   expanded: true
   items:
@@ -17,8 +21,6 @@
 - name: Begrepp
   expanded: true
   items:
-    - name: Identitetssäker poäng
-      href: identity-secure-score.md
     - name: Säkerhet
       items:
         - name: Aktivera MFA
@@ -27,24 +29,30 @@
           href: concept-fundamentals-security-defaults.md
         - name: Blockera äldre autentisering
           href: concept-fundamentals-block-legacy-authentication.md
-    - name: Grupper och åtkomsthantering
-      href: active-directory-manage-groups.md
-    - name: Gruppbaserad licensiering
-      href: active-directory-licensing-whatis-azure-portal.md
-    - name: Azure AD-arkitekturen
-      href: active-directory-architecture.md
-    - name: Standardinställningar för användarbehörigheter
-      href: users-default-permissions.md
-    - name: 'Distribution 30, 90 och senare'
+        - name: Identitetssäker poäng
+          href: identity-secure-score.md
+    - name: Grupper och användare
+      items:
+        - name: Grupper och åtkomsthantering
+          href: active-directory-manage-groups.md
+        - name: Gruppbaserad licensiering
+          href: active-directory-licensing-whatis-azure-portal.md
+        - name: Standardinställningar för användarbehörigheter
+          href: users-default-permissions.md
+    - name: Arkitektur
+      items:
+        - name: Azure AD-arkitekturen
+          href: active-directory-architecture.md
+    - name: Distributionsguide
+      items:
+        - name: 'Distribution 30, 90 och senare'
       href: active-directory-deployment-checklist-p2.md
-    - name: Identitetsdatalagring för EU
-      href: active-directory-data-storage-eu.md
-    - name: Identitetsdatalagring för Australien och Nya Zeeland
-      href: active-directory-data-storage-australia-newzealand.md
-    - name: Nyheter i Microsoft 365 Government
-      href: whats-new-microsoft-365-government.md
-    - name: Jämför med Azure AD med ADDS
-      href: active-directory-compare-azure-ad-to-ad.md
+    - name: Datalagring
+      items:
+        - name: Identitetsdatalagring för Europa
+          href: active-directory-data-storage-eu.md
+        - name: Identitetsdatalagring för Australien och Nya Zeeland
+          href: active-directory-data-storage-australia-newzealand.md
     - name: Referens för Azure AD Operations
       items:
         - name: Introduktion

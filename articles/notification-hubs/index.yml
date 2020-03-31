@@ -1,59 +1,86 @@
-### YamlMime:YamlDocument
-documentType: LandingData
+### YamlMime:Landing
 title: Dokumentation om Azure Notification Hubs
+summary: Skicka push-meddelanden från serverdelar till alla mobila enheter. Självstudier, API-referenser och annan dokumentation.
 metadata:
-  title: 'Dokumentation om Azure Notification Hubs – Självstudier, API-referens | Microsoft Docs'
-  description: 'Lär dig hur du skickar push-meddelanden från alla serverdelar till alla mobila enheter med Notification Hubs. Självstudier, API-referenser och annan dokumentation.'
-  services: notification-hubs
-  author: sethmanheim
-  manager: femila
+  title: Dokumentation om Azure Notification Hubs
+  description: Skicka push-meddelanden från serverdelar till alla mobila enheter. Självstudier, API-referenser och annan dokumentation.
   ms.service: notification-hubs
-  ms.tgt_pltfrm: na
-  ms.devlang: na
   ms.topic: landing-page
-  ms.date: 03/01/2017
+  author: sethmanheim
   ms.author: sethm
-abstract:
-  description: 'Lär dig hur du använder Notification Hubs, en skalbar push-meddelandemotor för flera plattformar, med vilken du kan skicka miljontals meddelanden till program som körs på olika typer av enheter (Android, iOS, Windows, Windows Phone). <p>Självstudier, API-referenser och annan dokumentation som visar hur du konfigurerar och skickar push-meddelanden från alla serverdelar till alla mobila enheter.</p>'
-  aside:
-    image:
-      alt: null
-      height: 110
-      src: media/index/video.png
-      width: 250
-    title: Skicka push-meddelanden till Android-program
-    href: 'https://channel9.msdn.com/Shows/Azure-Friday/Using-Azure-Notification-Hubs-in-an-Android-Application'
-    width: 250
-sections:
-  - title: Steg för steg-självstudier
-    items:
-      - type: paragraph
-        text: 'Lär dig hur du skickar push-meddelanden med hjälp av Notification Hubs:'
-      - type: list
-        style: ordered
-        items:
-          - html: Skicka push-meddelanden till alla registrerade enheter – <a href="/azure/notification-hubs/notification-hubs-android-push-notification-google-fcm-get-started">Android</a> | <a href="/azure/notification-hubs/notification-hubs-ios-apple-push-notification-apns-get-started">iOS</a> | <a href="/azure/notification-hubs/notification-hubs-windows-store-dotnet-get-started-wns-push-notification">Windows</a> | <a href="/azure/notification-hubs/notification-hubs-windows-mobile-push-notifications-mpns">Windows Phone</a> | <a href="/azure/notification-hubs/xamarin-notification-hubs-push-notifications-android-gcm">Xamarin.Android</a> | <a href="/azure/notification-hubs/xamarin-notification-hubs-ios-push-notification-apns-get-started">Xamarin.iOS</a>
-          - html: Skicka push-meddelanden till specifika enheter – <a href="/azure/notification-hubs/notification-hubs-aspnet-backend-android-xplat-segmented-gcm-push-notification">Android</a> | <a href="/azure/notification-hubs/notification-hubs-ios-xplat-segmented-apns-push-notification">iOS</a> | <a href="/azure/notification-hubs/notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns">Windows</a> | <a href="/azure/notification-hubs/notification-hubs-windows-phone-push-xplat-segmented-mpns-notification">Windows Phone</a>
-          - html: Skicka push-meddelanden till specifika användare – <a href="/azure/notification-hubs/notification-hubs-aspnet-backend-gcm-android-push-to-user-google-notification">Android</a> | <a href="/azure/notification-hubs/notification-hubs-aspnet-backend-ios-apple-apns-notification">iOS</a> | <a href="/azure/notification-hubs/notification-hubs-aspnet-backend-windows-dotnet-wns-notification">Windows</a>
-          - html: Skicka platsbaserade push-meddelanden – <a href="/azure/notification-hubs/notification-hubs-push-bing-spatial-data-geofencing-notification">Windows</a>
-          - html: Skicka anpassade och lokaliserade push-meddelanden – <a href="/azure/notification-hubs/notification-hubs-ios-xplat-localized-apns-push-notification">iOS</a> | <a href="/azure/notification-hubs/notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification">Windows</a>
-  - title: Exempel
-    items:
-      - type: paragraph
-        text: 'Azure Notification Hubs-exempelappar är tillgängliga från flera källor. Vi paketerar plattformsspecifika exempel med enskilda SDK:er (länkar nedan) och den fristående lagringsplatsen med exempel innefattar exempel för andra plattformar.'
-      - type: list
-        style: unordered
-        items:
-          - html: '<a href="https://github.com/Azure/azure-notificationhubs-android">Android SDK</a>'
-          - html: '<a href="https://github.com/Azure/azure-notificationhubs-ios">iOS SDK</a>'
-          - html: '<a href="https://github.com/Azure/azure-notificationhubs-dotnet">.NET SDK</a>'
-          - html: '<a href="https://github.com/Azure/azure-notificationhubs-samples">Lagringsplats med exempel (andra plattformar)</a>'
-          - html: <a href="/azure/notification-hubs/samples-powershell">PowerShell</a>
-  - title: Referens
-    items:
-      - type: list
-        style: unordered
-        items:
-          - html: '<a href="https://docs.microsoft.com/powershell/module/az.notificationhubs">Azure PowerShell</a>'
-          - html: <a href="/dotnet/api/microsoft.azure.notificationhubs">.NET SDK</a>
-          - html: <a href="/rest/api/notificationhubs">REST API-referens</a>
+  ms.date: 03/11/2020
+  ms.openlocfilehash: bed452fcababb3a712da95e3041bdeec71116773
+  ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 03/26/2020
+  ms.locfileid: "80289115"
+landingContent:
+- title: Om Azure Notification Hubs
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Vad är Azure Notification Hubs?
+      url: notification-hubs-push-notification-overview.md
+    - text: Integrering med Mobilappar i Apptjänst
+      url: notification-hubs-app-service.md
+  - linkListType: concept
+    links:
+    - text: Push-arkitekturvägledning för företag
+      url: notification-hubs-enterprise-push-notification-architecture.md
+    - text: Registreringshantering
+      url: notification-hubs-push-notification-registration-management.md
+  - linkListType: video
+    links:
+    - text: Skicka push-meddelanden till Android-program
+      url: https://channel9.msdn.com/Shows/Azure-Friday/Using-Azure-Notification-Hubs-in-an-Android-Application
+- title: Kom igång
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Skapa en Azure-meddelandehubb i Azure-portalen
+      url: create-notification-hub-portal.md
+    - text: Konfigurera push-meddelanden i en meddelandehubb i Microsoft Azure-portalen
+      url: configure-notification-hub-portal-pns-settings.md
+- title: Skicka meddelanden till alla registrerade enheter
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Skicka push-meddelanden till alla registrerade Android-enheter
+      url: notification-hubs-android-push-notification-google-fcm-get-started.md
+    - text: Skicka push-meddelanden till Swift iOS-appar
+      url: notification-hubs-ios-push-notifications-swift-apps-get-started.md
+  - linkListType: how-to-guide
+    links:
+    - text: Skicka meddelanden mellan olika plattformar
+      url: notification-hubs-aspnet-cross-platform-notification.md
+    - text: Skicka schemalagda meddelanden
+      url: notification-hubs-send-push-notifications-scheduled.md
+- title: Exempel
+  linkLists:
+  - linkListType: sample
+    links:
+    - text: Azure Notification Hubs-exempel
+      url: samples.md
+    - text: PowerShell-exempel
+      url: samples-powershell.md
+- title: Referens
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: .NET-API
+      url: /dotnet/api/microsoft.azure.notificationhubs?view=azure-dotnet
+    - text: PowerShell
+      url: /powershell/module/az.notificationhubs/?view=azps-3.6.1
+    - text: CLI
+      url: /cli/azure/ext/notification-hub/notification-hub?view=azure-cli-latest
+- title: Resurser
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: VANLIGA FRÅGOR OCH SVAR
+      url: notification-hubs-push-notification-faq.md
+    - text: Supportalternativ
+      url: https://azure.microsoft.com/support/options/
+    - text: MSDN-forum
+      url: https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=notificationhubs

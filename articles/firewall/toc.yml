@@ -21,7 +21,7 @@
       href: sample-powershell.md
     - name: Azure Monitor-loggar
       href: log-analytics-samples.md
-- name: Koncept
+- name: Begrepp
   items:
     - name: FQDN-taggar
       href: fqdn-tags.md
@@ -43,7 +43,9 @@
       href: compliance-certifications.md
     - name: Central hantering
       href: central-management.md
-- name: Instruktionsguider
+    - name: Stöd för arbete hemma
+      href: remote-work-support.md
+- name: Anvisningar
   items:
     - name: Distribuera med hjälp av Azure PowerShell
       href: deploy-ps.md
@@ -93,7 +95,7 @@
       href: 'https://azure.microsoft.com/roadmap/'
     - name: Community-mallar
       href: 'https://azure.microsoft.com/documentation/templates'
-    - name: Priser
+    - name: Prissättning
       href: 'https://azure.microsoft.com/pricing/details/azure-firewall/'
     - name: Regional tillgänglighet
       href: 'https://azure.microsoft.com/regions/services/'

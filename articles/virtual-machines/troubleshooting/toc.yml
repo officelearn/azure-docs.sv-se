@@ -69,18 +69,24 @@
           href: boot-diagnostics.md
         - name: BitLocker-fel
           href: troubleshoot-bitlocker-boot-error.md
-        - name: Kontrollera filsystemfel
-          href: troubleshoot-check-disk-boot-error.md
         - name: Fel som visar en blå kraschskärm
           href: troubleshoot-common-blue-screen-error.md
-        - name: VM-uppstarten har fastnat
-          href: troubleshoot-vm-boot-configure-update.md
+        - name: Kontrollera filsystemfel
+          href: troubleshoot-check-disk-boot-error.md
+        - name: Kritisk process har inaktiverats
+          href: troubleshoot-guide-critical-process-died.md
         - name: Viktig tjänst misslyckades
           href: troubleshoot-critical-service-failed-boot-error.md
+        - name: Ingen startbar disk
+          href: troubleshoot-guide-not-bootable-disk.md
         - name: Omstartningsloop
           href: troubleshoot-reboot-loop.md
         - name: Windows-uppdateringen har fastnat
           href: troubleshoot-stuck-updating-boot-error.md
+        - name: VM-uppstarten har fastnat
+          href: troubleshoot-vm-boot-configure-update.md
+        - name: Den virtuella datorn kan inte starta på grund av Windows Boot Manager
+          href: troubleshoot-guide-windows-boot-manager-menu.md
 - name: Det går inte att ansluta till min virtuella dator
   items:
     - name: RDP
@@ -156,13 +162,13 @@
           items:
             - name: PowerShell
               href: troubleshoot-recovery-disks-windows.md
-            - name: Azure-portalen
+            - name: Azure Portal
               href: troubleshoot-recovery-disks-portal-windows.md
         - name: Linux
           items:
             - name: CLI
               href: troubleshoot-recovery-disks-linux.md
-            - name: Azure-portalen
+            - name: Azure Portal
               href: troubleshoot-recovery-disks-portal-linux.md
         - name: Enhetsnamnen har ändrats
           href: troubleshoot-device-names-problems.md

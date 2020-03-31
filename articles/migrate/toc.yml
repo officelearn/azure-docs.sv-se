@@ -8,13 +8,13 @@
       href: whats-new.md
     - name: Vanliga frågor
       items:
-        - name: Frågor om Azure Migrate
+        - name: Allmänt
           href: resources-faq.md
-        - name: Frågor om Azure Migrate-installation
+        - name: Azure Migrate-installation
           href: common-questions-appliance.md
-        - name: 'Frågor om identifiering, utvärdering/visualisering av beroenden'
+        - name: Verktyg för serverutvärdering/beroendeanalys
           href: common-questions-discovery-assessment.md
-        - name: Frågor om servermigrering
+        - name: Verktyg för servermigrering
           href: common-questions-server-migration.md
 - name: Självstudier
   items:
@@ -74,34 +74,40 @@
           href: migrate-appliance.md
         - name: Installationskrav för replikering
           href: migrate-replication-appliance.md
+    - name: Programarkitektur för Azure Migrate
+      href: migrate-appliance-architecture.md
     - name: Hyper-V-migreringsarkitektur
       href: hyper-v-migration-architecture.md
-    - name: Agentbaserad migreringsarkitektur
+    - name: VMware-agentbaserad migreringsarkitektur
       href: agent-based-migration-architecture.md
-    - name: Metodtips för utvärderingar
-      href: best-practices-assessment.md
     - name: Översikt över utvärderingar
       href: concepts-assessment-calculation.md
-    - name: Visualisering av beroenden
+    - name: Metodtips för utvärderingar
+      href: best-practices-assessment.md
+    - name: Översikt av beroendeanalys
       href: concepts-dependency-visualization.md
 - name: Anvisningar
   items:
-    - name: Arbeta med en tidigare version
-      href: migrate-v1.md
     - name: Skapa och hantera Azure Migrate-projekt
       href: create-manage-projects.md
-    - name: Distribuera en VMware-installation
-      href: how-to-set-up-appliance-vmware.md
-    - name: Distribuera en Hyper-V-installation
-      href: how-to-set-up-appliance-hyper-v.md
-    - name: Distribuera en fysisk server
-      href: how-to-set-up-appliance-physical.md
-    - name: Identifiera program/roller/funktioner
-      href: how-to-discover-applications.md
     - name: Lägga till ett verktyg för första gången
       href: how-to-add-tool-first-time.md
     - name: Lägga till utvärderingsverktyg
       href: how-to-assess.md
+    - name: Distribuera Azure Migrate-installation
+      items:
+        - name: Distribuera installation för VMware (OVA)
+          href: how-to-set-up-appliance-vmware.md
+        - name: Distribuera installation för Hyper-V (VHD)
+          href: how-to-set-up-appliance-hyper-v.md
+        - name: Distribuera installation för VMware/Hyper-V (skript)
+          href: deploy-appliance-script.md
+        - name: Distribuera installation för fysiska servrar
+          href: how-to-set-up-appliance-physical.md
+    - name: Begränsa identifieringsomfång för virtuella VMware-datorer
+      href: set-discovery-scope.md
+    - name: Identifiera program/roller/funktioner
+      href: how-to-discover-applications.md
     - name: Gruppera datorer för utvärdering
       href: how-to-create-a-group.md
     - name: Analysera datorberoenden (agentbaserade)
@@ -122,6 +128,8 @@
       href: prepare-for-migration.md
     - name: Ta bort ett Azure Migrate-projekt
       href: how-to-delete-project.md
+    - name: Arbeta med en tidigare version
+      href: migrate-v1.md
     - name: Utvärdera och migrera i stor skala
       items:
         - name: Utvärdera ett stort antal virtuella VMware-datorer

@@ -3,7 +3,7 @@ title: Övervakning och prestandajustering för Azure SQL Database
 summary: Azure SQL Database har verktyg som hjälper dig att samla in statistik och diagnostisk information så att du kan övervaka databasen och förbättra dess prestanda.
 metadata:
   title: Dokumentation om övervakning och justering för Azure SQL Database
-  description: Azure SQL Database har verktyg som hjälper dig att samla in statistik och diagnostisk information så att du kan övervaka databasen och förbättra dess prestanda.
+  description: Lär dig om Azure SQL Databases verktyg för övervakning och prestanda som hjälper dig att samla in statistik och diagnostisk och förbättra databasens prestanda.
   ms.service: sql-database
   ms.subservice: performance
   ms.topic: landing-page
@@ -11,12 +11,12 @@ metadata:
   author: CarlRabeler
   ms.author: carlrab
   ms.date: 03/10/2020
-  ms.openlocfilehash: 43f74ea126ab7e028b39a86e2eb1edad4cae41a2
-  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+  ms.openlocfilehash: bc2c2a64cfce8bde6f04835bf090b632b8839a6f
+  ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 03/25/2020
-  ms.locfileid: "79208897"
+  ms.lasthandoff: 03/27/2020
+  ms.locfileid: "80373105"
 landingContent:
 - title: Om övervakning och prestandajustering
   linkLists:

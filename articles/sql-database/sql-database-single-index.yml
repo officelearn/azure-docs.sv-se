@@ -1,16 +1,16 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: 'Azure SQL Database: Enskild databas'
+title: Azure SQL Database
 metadata:
-  title: Dokumentation – enkel databas
-  meta.description: Learn how to use Azure SQL databases.
+  title: 'Dokumentation – enkel databas, databasserver, elastisk pool'
+  description: 'Hitta snabbstarter, självstudier och exempel för enskilda databaser, elastiska pooler och databasservrar i Azure SQL Database.'
   services: sql-database
   requires-business-manager-approval: false
   ms.service: sql-database
   ms.subservice: single-database
   ms.topic: overview
   author: jovanpop-msft
-  ms.author: jovanpop-msft
+  ms.author: jovanpop
   ms.reviewer: carlrab
   manager: craigg
   ms.date: 04/26/2019

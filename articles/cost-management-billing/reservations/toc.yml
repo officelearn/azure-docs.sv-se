@@ -1,92 +1,115 @@
 - name: Dokumentation om Azure-reservationer
   href: index.yml
+- name: Översikt
+  expanded: true
   items:
-    - name: Översikt
-      expanded: true
+    - name: Vad är Azure Reservations?
+      href: save-compute-costs-reservations.md
+- name: Anvisningar
+  expanded: true
+  items:
+    - name: Bestämma vad som ska köpas in
       items:
-        - name: Vad är Azure Reservations?
-          href: save-compute-costs-reservations.md
-    - name: Anvisningar
+        - name: Välja reservation som ska köpas in
+          href: determine-reservation-purchase.md
+    - name: Köp reservationer
       items:
-        - name: Köpa en SQL Data Warehouse-reservation
-          href: prepay-sql-data-warehouse-charges.md
-        - name: Köpa en VM-reservation
-          href: ../../virtual-machines/windows/prepay-reserved-vm-instances.md?toc=/azure/billing/TOC.json
-        - name: Köpa en reservation för Dedicated Host
-          href: ../../virtual-machines/prepay-dedicated-hosts-reserved-instances.md
-        - name: Azure-disklagring
-          href: ../../virtual-machines/linux/disks-reserved-capacity.md?toc=/azure/billing/TOC.json
-        - name: Köpa en Azure Storage-reservation
-          href: ../../storage/blobs/storage-blob-reserved-capacity.md?toc=/azure/billing/TOC.json
-        - name: Köpa en Cosmos DB-reservation
-          href: ../../cosmos-db/cosmos-db-reserved-capacity.md?toc=/azure/billing/TOC.json
-        - name: Köpa en SQL Database-reservation
-          href: ../../sql-database/sql-database-reserved-capacity.md?toc=/azure/billing/TOC.json
-        - name: Köpa en Azure Data Explorer-reservation
-          href: ../../data-explorer/pricing-reserved-capacity.md?toc=/azure/billing/TOC.json
-        - name: Köpa en Azure Databricks-reservation
-          href: prepay-databricks-reserved-capacity.md
-        - name: Köpa en Azure Cache for Redis-reservation
-          href: ../../azure-cache-for-redis/cache-reserved-pricing.md?toc=/azure/billing/TOC.json
-        - name: Köpa en App Service-reservation
+        - name: Köp en Azure-reservation
+          href: prepare-buy-reservation.md
+        - name: App Service
           href: prepay-app-service-isolated-stamp.md
-        - name: Köpa reservationer av Azure-programvaruplaner
-          href: ../../virtual-machines/linux/prepay-suse-software-charges.md?toc=/azure/billing/TOC.json
-        - name: Köpa en reservation med månadsbetalning
-          href: monthly-payments-reservations.md
-        - name: Förnya reservationer
-          href: reservation-renew.md
-        - name: Byten och återbetalningar av reservationer
-          href: exchange-and-refund-azure-reservations.md
+        - name: Azure Cache for Redis-reservation
+          href: ../../azure-cache-for-redis/cache-reserved-pricing.md?toc=/azure/cost-management-billing/reservations/toc.json
+        - name: Cosmos DB
+          href: ../../cosmos-db/cosmos-db-reserved-capacity.md?toc=/azure/cost-management-billing/reservations/toc.json
+        - name: Databricks
+          href: prepay-databricks-reserved-capacity.md
+        - name: Data Explorer
+          href: ../../data-explorer/pricing-reserved-capacity.md?toc=/azure/cost-management-billing/reservations/toc.json
+        - name: Disklagring
+          href: ../../virtual-machines/linux/disks-reserved-capacity.md?toc=/azure/cost-management-billing/reservations/toc.json
+        - name: Dedikerad värd
+          href: ../../virtual-machines/prepay-dedicated-hosts-reserved-instances.md
+        - name: Programvaruplaner
+          href: ../../virtual-machines/linux/prepay-suse-software-charges.md?toc=/azure/cost-management-billing/reservations/toc.json
+        - name: Azure Storage
+          href: ../../storage/blobs/storage-blob-reserved-capacity.md?toc=/azure/cost-management-billing/reservations/toc.json
+        - name: SQL Database
+          href: ../../sql-database/sql-database-reserved-capacity.md?toc=/azure/cost-management-billing/reservations/toc.json
+        - name: SQL Data Warehouse
+          href: prepay-sql-data-warehouse-charges.md
+        - name: Virtuella datorer
+          href: ../../virtual-machines/windows/prepay-reserved-vm-instances.md?toc=/azure/cost-management-billing/reservations/toc.json
+    - name: 'Visa, hantera och optimera efter köp'
+      items:
+        - name: Visa reservationer och användning
+          href: view-reservations.md
         - name: Hantera reservationer
           href: manage-reserved-vm-instance.md
         - name: Ändra optimeringsinställningen
           href: 'manage-reserved-vm-instance.md#change-optimize-setting-for-reserved-vm-instances'
-        - name: Visa reservationer
-          href: view-reservations.md
-    - name: Begrepp
+        - name: Byten och återbetalningar av reservationer
+          href: exchange-and-refund-azure-reservations.md
+    - name: Förnya reservationer
       items:
-        - name: Så här skapas reservationsrekommendationer
-          href: reserved-instance-purchase-recommendations.md
-        - name: Rabatter för reserverade VM-instanser
-          href: ../manage/understand-vm-reservation-charges.md
-        - name: Rabatter för reserverade Dedicated Host
-          href: billing-understand-dedicated-hosts-reservation-charges.md
-        - name: Rabatter för reserverad kapacitet i Azure Storage
-          href: understand-storage-charges.md
-        - name: Reservationsrabatter för Azure-disklagring
-          href: understand-disk-reservations.md
-        - name: Rabatter för reserverad kapacitet i Cosmos DB
-          href: understand-cosmosdb-reservation-charges.md
-        - name: Rabatter för reserverad kapacitet i SQL Database
-          href: understand-reservation-charges.md
-        - name: Rabatter för SQL Data Warehouse
-          href: reservation-discount-azure-sql-dw.md
-        - name: Rabatter för Azure Data Explorer
-          href: understand-azure-data-explorer-reservation-charges.md
-        - name: Rabatter för Azure Databricks
-          href: reservation-discount-databricks.md
-        - name: Rabatter för Azure Database for MySQL
-          href: understand-reservation-charges-mysql.md
-        - name: Rabatter för Azure Database for PostgreSQL
-          href: understand-reservation-charges-postgresql.md
-        - name: Rabatter för Red Hat Linux Enterprise
-          href: understand-rhel-reservation-charges.md
-        - name: Rabatter för Azure Database for MariaDB
-          href: understand-reservation-charges-mariadb.md
-        - name: Rabatter för Azure Cache for Redis
-          href: understand-azure-cache-for-redis-reservation-charges.md
-        - name: Rabatter för App Service
+        - name: Förnya en reservation
+          href: reservation-renew.md
+- name: Begrepp
+  expanded: true
+  items:
+    - name: Så här skapas reservationsrekommendationer
+      href: reserved-instance-purchase-recommendations.md
+    - name: Så här tillämpas rabatter
+      items:
+        - name: Så tillämpas en reservationsrabatt för Azure-reservation
+          href: reservation-discount-application.md
+        - name: App Service
           href: reservation-discount-app-service-isolated-stamp.md
-        - name: Rabatter för programvaruplaner för Azure
+        - name: Azure Cache for Redis
+          href: understand-azure-cache-for-redis-reservation-charges.md
+        - name: Cosmos DB
+          href: understand-cosmosdb-reservation-charges.md
+        - name: Database for MariaDB
+          href: understand-reservation-charges-mariadb.md
+        - name: Database for MySQL
+          href: understand-reservation-charges-mysql.md
+        - name: Database for PostgreSQL
+          href: understand-reservation-charges-postgresql.md
+        - name: Databricks
+          href: reservation-discount-databricks.md
+        - name: Data Explorer
+          href: understand-azure-data-explorer-reservation-charges.md
+        - name: Dedikerade värdar
+          href: billing-understand-dedicated-hosts-reservation-charges.md
+        - name: Disklagring
+          href: understand-disk-reservations.md
+        - name: Red Hat Linux Enterprise
+          href: understand-rhel-reservation-charges.md
+        - name: Programvaruplaner
           href: understand-suse-reservation-charges.md
-        - name: Windows- och SQL-kostnader ingår inte
-          href: reserved-instance-windows-software-costs.md
-        - name: Användningsdata för enskilda prenumerationer
-          href: understand-reserved-instance-usage.md
-        - name: Användningsdata för Enterprise-kunder
-          href: understand-reserved-instance-usage-ea.md
-    - name: Referens
-      items:
-        - name: 'API:er för Azure-reservationer'
-          href: reservation-apis.md
+        - name: Storage
+          href: understand-storage-charges.md
+        - name: SQL Database
+          href: understand-reservation-charges.md
+        - name: SQL Data Warehouse
+          href: reservation-discount-azure-sql-dw.md
+        - name: Virtuella datorer
+          href: ../manage/understand-vm-reservation-charges.md
+    - name: Windows- och SQL-kostnader ingår inte
+      href: reserved-instance-windows-software-costs.md
+    - name: Användningsdata för enskilda prenumerationer
+      href: understand-reserved-instance-usage.md
+    - name: Användningsdata för Enterprise-kunder
+      href: understand-reserved-instance-usage-ea.md
+- name: Referens
+  items:
+    - name: REST-API för reservationer
+      href: reservation-apis.md
+    - name: Reservationer – Azure PowerShell
+      href: /powershell/module/azurerm.reservations
+    - name: Reservationer – CLI
+      href: /cli/azure/reservations/reservation
+    - name: Cost Management – REST-API för information om förbrukningsanvändning
+      href: /rest/api/consumption/usagedetails
+    - name: Cost Management – REST-API för information om förbrukningsreservationer
+      href: /rest/api/consumption/reservationsdetails

@@ -21,6 +21,8 @@
           href: cognitive-search-quickstart-blob.md
         - name: Skapa ett kunskapslager
           href: knowledge-store-create-portal.md
+        - name: Fråga med Sökutforskaren
+          href: search-explorer.md
     - name: 'C#'
       href: search-get-started-dotnet.md
     - name: Java
@@ -231,10 +233,10 @@
           href: search-query-simple-examples.md
         - name: Använda fullständig Lucene-syntax
           href: search-query-lucene-examples.md
-        - name: Använda Search Explorer (portalen)
-          href: search-explorer.md
         - name: Specialtecken och delvisa termer
           href: search-query-partial-matching.md
+        - name: Fråga från Power Apps
+          href: search-howto-powerapps.md
         - name: Syntaxreferens
           items:
             - name: Enkel frågesyntax

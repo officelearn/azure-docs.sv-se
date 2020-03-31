@@ -14,6 +14,8 @@
       href: ./servers/onboard-service-principal.md
     - name: Ansluta datorer till Azure Arc med PowerShell DSC
       href: ./servers/onboard-dsc.md
+- name: Hantera agent
+  href: ./servers/manage-agent.md
 - name: Referens
   items:
     - name: Azure Connected Machine Agent CLI-gränssnitt

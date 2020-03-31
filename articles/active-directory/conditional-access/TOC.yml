@@ -14,7 +14,7 @@
   items:
     - name: Kräv Azure Multi-Factor Authentication
       href: ../authentication/tutorial-enable-azure-mfa.md?toc=/azure/active-directory/conditional-access/toc.json&bc=/azure/active-directory/conditional-access/breadcrumb/toc.json
-- name: Koncept
+- name: Begrepp
   expanded: false
   items:
     - name: Vanliga principer för villkorlig åtkomst
@@ -49,7 +49,7 @@
       href: policy-migration.md
     - name: Principer för baslinjeskydd
       href: concept-baseline-protection.md
-- name: Instruktionsguider
+- name: Anvisningar
   expanded: true
   items:
     - name: Planera distributionen av villkorsstyrd åtkomst
@@ -58,22 +58,24 @@
       href: best-practices.md
     - name: Vanliga principer för villkorlig åtkomst
       items:
+        - name: Blockera äldre autentisering
+          href: howto-conditional-access-policy-block-legacy.md
         - name: Kräv MFA för administratörer
           href: howto-conditional-access-policy-admin-mfa.md
         - name: Kräv MFA för Azure-hantering
           href: howto-conditional-access-policy-azure-management.md
         - name: Kräv MFA för alla användare
           href: howto-conditional-access-policy-all-users-mfa.md
-        - name: Blockera äldre autentisering
-          href: howto-conditional-access-policy-block-legacy.md
         - name: Risk- och villkorsbaserad åtkomst
           href: howto-conditional-access-policy-risk.md
-        - name: Kräv betrodd plats för MFA-registrering
+        - name: Säker registrering av säkerhetsinformation
           href: howto-conditional-access-policy-registration.md
         - name: Blockera åtkomst efter plats
           href: howto-conditional-access-policy-location.md
         - name: Kräv kompatibla enheter
           href: howto-conditional-access-policy-compliant-device.md
+        - name: Blockera åtkomst
+          href: howto-conditional-access-policy-block-access.md
     - name: Blockera äldre autentisering
       href: block-legacy-authentication.md
     - name: Kräva godkända klientappar
@@ -94,6 +96,8 @@
       href: policy-migration-mfa.md
     - name: Felsökning
       items:
+        - name: Felsöka inloggningsproblem
+          href: troubleshoot-conditional-access.md
         - name: Felsöka med hjälp av What If-verktyget
           href: troubleshoot-conditional-access-what-if.md
 - name: Resurser
@@ -102,7 +106,7 @@
       href: 'https://feedback.azure.com/forums/169401-azure-active-directory'
     - name: MSDN-forum
       href: 'https://social.msdn.microsoft.com/Forums/azure/home?forum=WindowsAzureAD'
-    - name: Priser
+    - name: Prissättning
       href: 'https://azure.microsoft.com/pricing/details/active-directory/'
     - name: Tjänstuppdateringar
       href: ../fundamentals/whats-new.md

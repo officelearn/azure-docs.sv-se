@@ -3,7 +3,7 @@ documentType: LandingData
 title: SQL-hanterad instans
 metadata:
   title: 'Dokumentation om hanterad instans – självstudier, API-referens'
-  meta.description: Learn how to use a managed instance in Azure SQL Database.
+  description: 'Hitta snabbstarter, självstudier och exempel för en hanterad instans av Azure SQL Database, en fullständigt hanterad SQL Server Database Engine-instans i molnet.'
   services: sql-database
   author: jovanpop-msft
   ms.reviewer: carlrab
@@ -52,7 +52,7 @@ sections:
           - title: Migrering utan stilleståndstid
             href: /azure/dms/tutorial-sql-server-to-managed-instance
             html: <p>Migrera en flotta av databaser med minimal stilleståndstid med Database Migration Service.</p>
-          - title: Priser
+          - title: Prissättning
             href: 'https://azure.microsoft.com/pricing/hybrid-benefit/'
             html: "<p>Spara upp till 40\_% med Azure Hybrid-förmånen (AHB) med dina befintliga lokala licenser.</p>"
           - title: PaaS-funktioner
@@ -162,7 +162,7 @@ sections:
           - title: Bloggar
             html: '<p><a href="https://techcommunity.microsoft.com/t5/Azure-SQL-Database/bg-p/Azure-SQL-Database/label-name/SQLServerStorageEngine">Techcommunity</a></p><p><a href="https://medium.com/azure-sqldb-managed-instance">Medel</a></p>'
           - title: Vanliga frågor och svar
-            html: '<p><a href="https://stackoverflow.com/questions/tagged/azure-sql-managed-instance">Stackspill</a></p>'
+            html: '<p><a href="https://stackoverflow.com/questions/tagged/azure-sql-managed-instance">Stack Overflow</a></p>'
           - title: Community-kanal
             html: '<p><a href="https://sqlcommunity.slack.com/messages/CH854GD7D/">SQL-community (hanterad instans)</a></p>'
           - title: Utbildningsmaterial

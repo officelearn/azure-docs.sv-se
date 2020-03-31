@@ -1,7 +1,7 @@
 ---
 title: JavaScript-exempel
 titleSuffix: Azure AD B2C
-description: Lär dig hur du använder JavaScript i Azure Active Directory B2C.
+description: Lär dig mer om hur du använder JavaScript i Azure Active Directory B2C.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
@@ -12,43 +12,43 @@ ms.date: 02/10/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: a26f6c5e69ca083335580a0368459e062de3941e
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78187669"
 ---
 # <a name="javascript-samples-for-use-in-azure-active-directory-b2c"></a>JavaScript-exempel för användning i Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-public-preview](../../includes/active-directory-b2c-public-preview.md)]
 
-Du kan lägga till din egen kod för Java Script på klient sidan i Azure Active Directory B2C (Azure AD B2C)-program.
+Du kan lägga till din egen JavaScript-klientkod i dina Azure Active Directory B2C-program (Azure AD B2C).
 
-Så här aktiverar du Java Script för dina program:
+Så här aktiverar du JavaScript för dina program:
 
-* Lägg till ett element i din [anpassade princip](custom-policy-overview.md)
-* Välj en [Sidlayout](page-layout.md)
-* Använd [b2clogin.com](b2clogin.md) i dina begär Anden
+* Lägga till ett element i din [anpassade princip](custom-policy-overview.md)
+* Välja en [sidlayout](page-layout.md)
+* Använda [b2clogin.com](b2clogin.md) i dina begäranden
 
-I den här artikeln beskrivs hur du kan ändra den anpassade principen för att aktivera skript körning.
+I den här artikeln beskrivs hur du kan ändra din anpassade princip för att aktivera skriptkörning.
 
 > [!NOTE]
-> Om du vill aktivera Java Script för användar flöden, se [Java Script och versioner av sidlayout i Azure Active Directory B2C](user-flow-javascript-overview.md).
+> Om du vill aktivera JavaScript för användarflöden läser du [JavaScript- och sidlayoutversioner i Azure Active Directory B2C](user-flow-javascript-overview.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-### <a name="select-a-page-layout"></a>Välj en sidlayout
+### <a name="select-a-page-layout"></a>Välja en sidlayout
 
-* Välj en [Sidlayout](contentdefinitions.md#select-a-page-layout) för användar gränssnitts elementen i programmet.
+* Välj en [sidlayout](contentdefinitions.md#select-a-page-layout) för elementen i användargränssnittet i programmet.
 
-    Om du tänker använda Java Script måste du [definiera en version](contentdefinitions.md#migrating-to-page-layout) av sidlayouten med Page `contract` version för *alla* innehålls definitioner i den anpassade principen.
+    Om du tänker använda JavaScript måste du definiera en `contract` [sidlayoutversion](contentdefinitions.md#migrating-to-page-layout) med sidversion för *alla* innehållsdefinitioner i din anpassade princip.
 
-## <a name="add-the-scriptexecution-element"></a>Lägg till elementet ScriptExecution
+## <a name="add-the-scriptexecution-element"></a>Lägga till scriptexecution-elementet
 
-Du aktiverar skript körning genom att lägga till **ScriptExecution** -elementet i [RelyingParty](relyingparty.md) -elementet.
+Du aktiverar skriptkörning genom att lägga till **scriptexecution-elementet** i [elementet RelyingParty.](relyingparty.md)
 
-1. Öppna filen anpassad princip. Till exempel *SignUpOrSignin. XML*.
-2. Lägg till **ScriptExecution** -elementet i **UserJourneyBehaviors** -elementet för **RelyingParty**:
+1. Öppna din anpassade principfil. Registrera till exempel *Registrera DigOrSignin.xml*.
+2. Lägg till **elementet ScriptExecution** i **elementet UserJourneyBehaviors** **i RelyingParty:**
 
     ```XML
     <RelyingParty>
@@ -67,7 +67,7 @@ Du aktiverar skript körning genom att lägga till **ScriptExecution** -elemente
 
 ### <a name="show-or-hide-a-password"></a>Visa eller dölja ett lösenord
 
-Ett vanligt sätt att hjälpa dina kunder med framgången registrering är så att de kan se vad de har angett som sitt lösenord. Det här alternativet hjälper användare att registrera dig genom att enkelt se och göra ändringar av sitt lösenord om det behövs. Alla fält av typen lösen ord har en kryss ruta med etiketten **Visa lösen ord** .  På så sätt kan användare för att visa lösenordet i klartext. Inkludera det här kodstycket i din registrering eller inloggning mall för en självkontrollerad sida:
+Ett vanligt sätt att hjälpa dina kunder med deras anmälningsframgång är att låta dem se vad de har angett som lösenord. Det här alternativet hjälper användarna att registrera sig genom att göra det möjligt för dem att enkelt se och göra korrigeringar av sitt lösenord om det behövs. Alla fält av typen lösenord har en kryssruta med etiketten **Visa lösenord.**  Detta gör det möjligt för användaren att se lösenordet i oformaterad text. Inkludera kodavsnittet i din registrerings- eller inloggningsmall för en sida som själv har bekräftats:
 
 ```Javascript
 function makePwdToggler(pwd){
@@ -111,9 +111,9 @@ function setupPwdTogglers(){
 setupPwdTogglers();
 ```
 
-### <a name="add-terms-of-use"></a>Lägga till användningsvillkor
+### <a name="add-terms-of-use"></a>Lägg till användningsvillkor
 
-Inkludera följande kod på sidan där du vill inkludera en **användnings villkors** kryss ruta. Den här kryssrutan krävs normalt i lokalt konto registrering och sociala konto registrering sidorna.
+Inkludera följande kod på sidan där du vill inkludera en **checklista för användningsvillkor.** Den här kryssrutan behövs vanligtvis på dina registreringssidor för lokala konton och registrering av sociala konton.
 
 ```Javascript
 function addTermsOfUseLink() {
@@ -138,8 +138,8 @@ function addTermsOfUseLink() {
 }
 ```
 
-I koden ersätter du `termsOfUseUrl` med länken till dina användnings villkor. Skapa ett nytt användarattribut med namnet **termsofuse** i din katalog och ta sedan med **termsofuse** som användar-attribut.
+Ersätt `termsOfUseUrl` med länken till ditt användarvillkorsavtal i koden. Skapa ett nytt användarattribut som kallas **termsOfUse** för din katalog och inkludera sedan **termsOfUse** som ett användarattribut.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Hitta mer information om hur du kan anpassa användar gränssnittet för dina program i [Anpassa användar gränssnittet för ditt program med hjälp av en anpassad princip i Azure Active Directory B2C](custom-policy-ui-customization.md).
+Mer information om hur du kan anpassa användargränssnittet för dina program i [Anpassa användargränssnittet i ditt program med hjälp av en anpassad princip i Azure Active Directory B2C](custom-policy-ui-customization.md).

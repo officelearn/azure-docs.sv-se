@@ -1,6 +1,6 @@
 ---
-title: Hämta värden för app-autentisering
-description: Skapa ett huvud namn för tjänsten för att komma åt SQL Database från kod.
+title: Hämta värden för appautentisering
+description: Skapa ett tjänsthuvudnamn för åtkomst till SQL Database från kod.
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
@@ -11,25 +11,25 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/12/2019
-ms.openlocfilehash: d357740d340b248859d6dfadf73f83b6e6bb8014
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: 5b2c64660f37745f5b13d53559037e84ca20c47b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74421318"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79476974"
 ---
-# <a name="get-the-required-values-for-authenticating-an-application-to-access-sql-database-from-code"></a>Hämta de värden som krävs för att autentisera ett program för att få åtkomst till SQL Database från kod
+# <a name="get-the-required-values-for-authenticating-an-application-to-access-sql-database-from-code"></a>Hämta de värden som krävs för att autentisera ett program för att komma åt SQL Database från kod
 
-Om du vill skapa och hantera SQL Database från kod måste du registrera din app i Azure Active Directory-domänen (AAD) i prenumerationen där dina Azure-resurser har skapats.
+Om du vill skapa och hantera SQL Database från kod måste du registrera din app i Azure Active Directory (AAD) domänen i prenumerationen där dina Azure-resurser har skapats.
 
-## <a name="create-a-service-principal-to-access-resources-from-an-application"></a>Skapa ett huvud namn för tjänsten för att få åtkomst till resurser från ett program
+## <a name="create-a-service-principal-to-access-resources-from-an-application"></a>Skapa ett tjänsthuvudnamn för att komma åt resurser från ett program
 
-I följande exempel skapas Active Directory (AD)-programmet och tjänstens huvud namn som vi behöver för att C# autentisera vår app. Skriptet matar ut värden som vi behöver för det föregående C#-exemplet. Detaljerad information finns i [Skapa ett tjänstobjekt med Azure PowerShell för att komma åt resurser](../active-directory/develop/howto-authenticate-service-principal-powershell.md).
+Följande exempel skapar Active Directory (AD) programmet och tjänstens huvudnamn som vi behöver för att autentisera vår C# app. Skriptet matar ut värden som vi behöver för det föregående C#-exemplet. Detaljerad information finns i [Skapa ett tjänstobjekt med Azure PowerShell för att komma åt resurser](../active-directory/develop/howto-authenticate-service-principal-powershell.md).
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[Powershell](#tab/azure-powershell)
 
 > [!IMPORTANT]
-> PowerShell-modulen Azure Resource Manager (RM) stöds fortfarande av Azure SQL Database, men all framtida utveckling är för AZ. SQL-modulen. AzureRM-modulen kommer att fortsätta att ta emot fel korrigeringar fram till minst december 2020.  Argumenten för kommandona i AZ-modulen och i AzureRm-modulerna är i stort sett identiska. Mer information om deras kompatibilitet finns i [Introduktion till den nya Azure PowerShell AZ-modulen](/powershell/azure/new-azureps-module-az).
+> PowerShell Azure Resource Manager (RM) stöds fortfarande av Azure SQL Database, men all framtida utveckling är för Az.Sql-modulen. AzureRM-modulen fortsätter att ta emot buggfixar fram till åtminstone december 2020.  Argumenten för kommandona i Az-modulen och i AzureRm-modulerna är i stort sett identiska. Mer information om deras kompatibilitet finns i [Introduktion till den nya Azure PowerShell Az-modulen](/powershell/azure/new-azureps-module-az).
 
 ```powershell
 # sign in to Azure
@@ -63,9 +63,9 @@ Write-Output "_applicationId:" $azureAdApplication.ApplicationId.Guid
 Write-Output "_applicationSecret:" $secret
 ```
 
-# <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-```azure-cli
+```azurecli
 # sign in to Azure
 az login
 
@@ -101,5 +101,5 @@ Write-Output "_applicationSecret:" $secret
 
 ## <a name="see-also"></a>Se även
 
-[Skapa en SQL-databas medC#](sql-database-get-started-csharp.md)  
-[Ansluta till SQL Database med Azure Active Directory autentisering](sql-database-aad-authentication.md)
+[Skapa en SQL-databas med C #](sql-database-get-started-csharp.md)  
+[Ansluta till SQL Database med hjälp av Azure Active Directory-autentisering](sql-database-aad-authentication.md)

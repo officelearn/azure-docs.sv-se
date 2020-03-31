@@ -1,6 +1,6 @@
 ---
-title: ClaimsSchema – Azure Active Directory B2C | Microsoft Docs
-description: Ange ClaimsSchema-elementet för en anpassad princip i Azure Active Directory B2C.
+title: ClaimsSchema - Azure Active Directory B2C | Microsoft-dokument
+description: Ange elementet ClaimsSchema i en anpassad princip i Azure Active Directory B2C.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
@@ -11,17 +11,17 @@ ms.date: 03/05/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 4c3b3318e941723ec333597c7e4b3e48710152d1
-ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78397786"
 ---
 # <a name="claimsschema"></a>ClaimsSchema
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-**ClaimsSchema** -elementet definierar de anspråks typer som kan refereras till som en del av principen. Anspråks schema är den plats där du deklarerar dina anspråk. Ett anspråk kan vara förnamn, efter namn, visnings namn, telefonnummer och mycket annat. ClaimsSchema-elementet innehåller en lista över **claimType** -element. Elementet **claimType** innehåller **ID-** attributet, som är anspråks namnet.
+Elementet **ClaimsSchema** definierar de anspråkstyper som kan refereras som en del av principen. Anspråksschema är den plats där du deklarerar dina anspråk. Ett anspråk kan vara förnamn, efternamn, visningsnamn, telefonnummer med mera. ClaimsSchema-elementet innehåller en lista över **ClaimType-element.** **Elementet ClaimType** innehåller **ID-attributet,** som är anspråksnamnet.
 
 ```XML
 <BuildingBlocks>
@@ -38,64 +38,64 @@ ms.locfileid: "78397786"
       <UserInputType>TextBox</UserInputType>
 ```
 
-## <a name="claimtype"></a>ClaimType
+## <a name="claimtype"></a>ClaimType (Påståttstyp)
 
-Elementet **claimType** innehåller följande attribut:
+**Elementet ClaimType** innehåller följande attribut:
 
 | Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
-| Id | Ja | En identifierare som används för anspråks typen. Andra element kan använda den här identifieraren i principen. |
+| Id | Ja | En identifierare som används för anspråkstypen. Andra element kan använda den här identifieraren i principen. |
 
-Elementet **claimType** innehåller följande element:
+**Elementet ClaimType** innehåller följande element:
 
-| Element | Förekomster | Beskrivning |
+| Element | Händelser | Beskrivning |
 | ------- | ----------- | ----------- |
-| displayName | 1:1 | Rubriken som visas för användare på olika skärmar. Värdet kan [lokaliseras](localization.md). |
-| Datatyp | 1:1 | Anspråkets typ. |
-| DefaultPartnerClaimTypes | 0:1 | Partnerns standard anspråks typer som används för ett angivet protokoll. Värdet kan skrivas över i **PartnerClaimType** som anges i **InputClaim** -eller **OutputClaim** -elementen. Använd det här elementet för att ange standard namnet för ett protokoll.  |
-| Streckkodsmasker | 0:1 | En valfri sträng med maskering av tecken som kan användas när anspråket visas. Telefonnumret 324-232-4343 kan till exempel maskeras som XXX-XXX-4343. |
-| UserHelpText | 0:1 | En beskrivning av anspråks typen som kan vara till hjälp för användarna att förstå syftet. Värdet kan [lokaliseras](localization.md). |
-| UserInputType | 0:1 | Den typ av inmatnings kontroll som ska vara tillgänglig för användaren när anspråks data anges manuellt för anspråks typen. Se de indatatyps typer som definierats senare på den här sidan. |
-| AdminHelpText | 0:1 | En beskrivning av anspråks typen som kan vara till hjälp för administratörer att förstå dess syfte. |
-| Begränsning | 0:1 | Värde begränsningarna för detta anspråk, till exempel ett reguljärt uttryck (regex) eller en lista med acceptabla värden. Värdet kan [lokaliseras](localization.md). |
-PredicateValidationReference| 0:1 | En referens till ett **PredicateValidationsInput** -element. Med **PredicateValidationReference** -elementen kan du utföra en verifierings process för att säkerställa att endast korrekt utformade data anges. Mer information finns i [predikat](predicates.md). |
+| DisplayName | 1:1 | Titeln som visas för användare på olika skärmar. Värdet kan [lokaliseras](localization.md). |
+| DataType | 1:1 | Typ av fordran. |
+| DefaultPartnerClaimTypes | 0:1 | De anspråkstyper för partner som ska användas för ett angivet protokoll. Värdet kan skrivas över i **partnerclaimtypen** som anges i **elementen InputClaim** eller **OutputClaim.** Använd det här elementet om du vill ange standardnamnet för ett protokoll.  |
+| Mask | 0:1 | En valfri sträng med maskeringstecken som kan användas när anspråket visas. Telefonnumret 324-232-4343 kan till exempel maskeras som XXX-XXX-4343. |
+| UserHelpText | 0:1 | En beskrivning av anspråkstypen som kan vara till hjälp för användarna att förstå dess syfte. Värdet kan [lokaliseras](localization.md). |
+| UserInputType | 0:1 | Den typ av indatakontroll som ska vara tillgänglig för användaren när du manuellt anger anspråksdata för anspråkstypen. Se de indatatyper för användaren som definierats senare på den här sidan. |
+| AdminHelpText | 0:1 | En beskrivning av anspråkstypen som kan vara till hjälp för administratörer att förstå dess syfte. |
+| Begränsning | 0:1 | Värdebegränsningarna för det här anspråket, till exempel ett reguljärt uttryck (Regex) eller en lista med godtagbara värden. Värdet kan [lokaliseras](localization.md). |
+PredikatValidationReference| 0:1 | En referens till ett **predicateValidationsInput-element.** Med **elementen PredikatvalidationReference** kan du utföra en valideringsprocess för att säkerställa att endast korrekt formade data anges. Mer information finns i [Predikat](predicates.md). |
 
 
 
-### <a name="datatype"></a>Datatyp
+### <a name="datatype"></a>DataType
 
-Elementet **datatype** stöder följande värden:
+**DataType-elementet** stöder följande värden:
 
 | Typ | Beskrivning |
 | ------- | ----------- |
-|boolean|Representerar ett värde för boolesk (`true` eller `false`).|
-|date| Representerar en omedelbar tid, vanligt vis uttrycks som ett datum på en dag. Värdet för datumet följer ISO 8601-konventionen.|
-|Datum/tid|Representerar en omedelbar tid, vanligt vis uttryckt som datum och tid på dagen. Värdet för datumet följer ISO 8601-konventionen.|
-|duration|Representerar ett tidsintervall i år, månader, dagar, timmar, minuter och sekunder. Formatet för är `PnYnMnDTnHnMnS`, där `P` indikerar positiv eller `N` för negativt värde. `nY` är antalet år följt av en litteral `Y`. `nMo` är antalet månader följt av en litteral `Mo`. `nD` är antalet dagar följt av en litteral `D`. Exempel: `P21Y` representerar 21 år. `P1Y2Mo` representerar ett år och två månader. `P1Y2Mo5D` representerar ett år, två månader och fem dagar.  `P1Y2M5DT8H5M620S` representerar ett år, två månader, fem dagar, åtta timmar, fem minuter och tjugo sekunder.  |
+|boolean|Representerar ett`true` booleskt (eller) `false`värde.|
+|date| Representerar ett ögonblick i tiden, vanligtvis uttryckt som ett datum för en dag. Värdet av datumet följer ISO 8601 konvention.|
+|Datetime|Representerar ett ögonblick i tiden, vanligtvis uttryckt som ett datum och tid på dagen. Värdet av datumet följer ISO 8601 konvention.|
+|varaktighet|Representerar ett tidsintervall i år, månader, dagar, timmar, minuter och sekunder. Formatet är `PnYnMnDTnHnMnS`, `P` där anger positivt `N` eller för negativt värde. `nY`är antalet år följt av `Y`en bokstavlig . `nMo`är antalet månader följt av `Mo`en bokstavlig . `nD`är antalet dagar följt av `D`en bokstavlig . Exempel: `P21Y` representerar 21 år. `P1Y2Mo`ett år och två månader. `P1Y2Mo5D`representerar ett år, två månader och fem dagar.  `P1Y2M5DT8H5M620S`representerar ett år, två månader, fem dagar, åtta timmar, fem minuter och tjugo sekunder.  |
 |phoneNumber|Representerar ett telefonnummer. |
-|int| Representerar talet mellan-2 147 483 648 och 2 147 483 647|
-|long| Representerar talet mellan-9 och 9 223 372 036 854 775 807 |
-|sträng| Representerar text som en sekvens med UTF-16-kodade enheter.|
-|stringCollection|Representerar en samling av `string`.|
-|userIdentity| Representerar en användar identitet.|
-|userIdentityCollection|Representerar en samling av `userIdentity`.|
+|int| Representerar tal mellan -2 147 483 648 och 2 147 483 647|
+|long| Representerar tal mellan -9 223 372 036 854 775 808 till 9 223 372 036 854 775 807 |
+|sträng| Representerar text som en sekvens av UTF-16-kodenheter.|
+|strängInsamling|Representerar en `string`samling .|
+|användareIdentitet| Representerar en användaridentitet.|
+|användareIdentityKollection|Representerar en `userIdentity`samling .|
 
 ### <a name="defaultpartnerclaimtypes"></a>DefaultPartnerClaimTypes
 
 **DefaultPartnerClaimTypes** kan innehålla följande element:
 
-| Element | Förekomster | Beskrivning |
+| Element | Händelser | Beskrivning |
 | ------- | ----------- | ----------- |
-| Protokoll | 1: n | Lista med protokoll med sitt standard namn för partner anspråks typ. |
+| Protokoll | 1:n | Lista över protokoll med standardtypen för partneranspråk. |
 
-**Protokoll** elementet innehåller följande attribut:
+**Protokollelementet** innehåller följande attribut:
 
 | Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
 | Namn | Ja | Namnet på ett giltigt protokoll som stöds av Azure AD B2C. Möjliga värden är: OAuth1, OAuth2, SAML2, OpenIdConnect. |
-| PartnerClaimType | Ja | Namnet på anspråks typen som ska användas. |
+| PartnerClaimType | Ja | Namnet på anspråkstypen som ska användas. |
 
-I följande exempel, när ett identitets Miljös ramverk interagerar med en SAML2-identitetsprovider eller ett förlitande parts program, mappas kravet till `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`, med OpenIdConnect och OAuth2, så mappas **anspråket** till `family_name`.
+I följande exempel, när Identity Experience Framework interagerar med en SAML2-identitetsprovider `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`eller förlitande part-program, mappas **efternamnet** `family_name`till , med OpenIdConnect och OAuth2, anspråket mappas till .
 
 ```XML
 <ClaimType Id="surname">
@@ -109,7 +109,7 @@ I följande exempel, när ett identitets Miljös ramverk interagerar med en SAML
 </ClaimType>
 ```
 
-Det innebär att den JWT-token som utfärdas av Azure AD B2C, genererar `family_name` i stället för ClaimType **-namn efter namn.**
+Därför avger JWT-token som utfärdats av Azure AD `family_name` B2C i stället för ClaimType-efternamn . **surname**
 
 ```JSON
 {
@@ -121,16 +121,16 @@ Det innebär att den JWT-token som utfärdas av Azure AD B2C, genererar `family_
 }
 ```
 
-### <a name="mask"></a>Streckkodsmasker
+### <a name="mask"></a>Mask
 
-**Maskeringslagret** -elementet innehåller följande attribut:
+**Maskelementet** innehåller följande attribut:
 
 | Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
-| `Type` | Ja | Typ av anspråks mask. Möjliga värden: `Simple` eller `Regex`. Värdet `Simple` anger att en enkel textmask används för den inledande delen av ett sträng anspråk. Värdet `Regex` anger att ett reguljärt uttryck tillämpas på sträng anspråket som helhet.  Om `Regex`-värdet har angetts måste även ett valfritt attribut definieras med det reguljära uttrycket som ska användas. |
-| `Regex` | Nej | Om **`Type`** är inställt på `Regex`anger du det reguljära uttrycket som ska användas.
+| `Type` | Ja | Typ av anspråksmask. Möjliga `Simple` värden: `Regex`eller . Värdet `Simple` anger att en enkel textmask används på den inledande delen av ett stränganspråk. Värdet `Regex` anger att ett reguljärt uttryck används på stränganspråket som helhet.  Om `Regex` värdet anges måste ett valfritt attribut också definieras med det reguljära uttryck som ska användas. |
+| `Regex` | Inga | Om **`Type`** är `Regex`inställt på anger du det reguljära uttryck som ska användas.
 
-I följande exempel konfigureras ett **telefonnummer för telefonnummer** till `Simple` masken:
+I följande exempel konfigureras ett **PhoneNumber-anspråk** med masken: `Simple`
 
 ```XML
 <ClaimType Id="PhoneNumber">
@@ -141,11 +141,11 @@ I följande exempel konfigureras ett **telefonnummer för telefonnummer** till `
 </ClaimType>
 ```
 
-Med Identity Experience Framework återges telefonnumret när de första sex siffrorna döljs:
+Identity Experience Framework återger telefonnumret medan du döljer de sex första siffrorna:
 
-![Telefonnummer som visas i webbläsare med första sex siffror som maskeras av XS](./media/claimsschema/mask.png)
+![Telefonnummer anspråk visas i webbläsaren med första sex siffror maskerad av Xs](./media/claimsschema/mask.png)
 
-I följande exempel konfigureras ett **AlternateEmail** -anspråk med `Regex` masken:
+I följande exempel konfigureras ett **AlternateEmail-anspråk** med masken: `Regex`
 
 ```XML
 <ClaimType Id="AlternateEmail">
@@ -156,39 +156,39 @@ I följande exempel konfigureras ett **AlternateEmail** -anspråk med `Regex` ma
 </ClaimType>
 ```
 
-I ramverket med identitets upplevelsen återges bara den första bokstaven i e-postadressen och domän namnet för e-post:
+Identity Experience Framework återger bara den första bokstaven i e-postadressen och e-postdomännamnet:
 
-![E-postanspråk visas i webbläsare med tecken maskerade med asterisker](./media/claimsschema/mask-regex.png)
+![E-postanspråk som visas i webbläsaren med tecken maskerade av asterisker](./media/claimsschema/mask-regex.png)
 
 
 ### <a name="restriction"></a>Begränsning
 
-**Begränsnings** elementet kan innehålla följande attribut:
+**Begränsningselementet** kan innehålla följande attribut:
 
 | Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
-| MergeBehavior | Nej | Den metod som används för att sammanfoga uppräknings värden med en ClaimType i en överordnad princip med samma identifierare. Använd det här attributet när du skriver över ett anspråk som anges i bas principen. Möjliga värden: `Append`, `Prepend`eller `ReplaceAll`. `Append`-värdet är en samling data som ska läggas till i slutet av den samling som anges i den överordnade principen. `Prepend`-värdet är en samling data som ska läggas till före den samling som anges i den överordnade principen. `ReplaceAll`-värdet är en samling data som anges i den överordnade principen som ska ignoreras. |
+| MergeBehavior | Inga | Den metod som används för att sammanfoga uppräkningsvärden med en ClaimType i en överordnad princip med samma identifierare. Använd det här attributet när du skriver över ett anspråk som anges i basprincipen. Möjliga `Append`värden: `Prepend`, `ReplaceAll`, eller . Värdet `Append` är en samling data som ska läggas till i slutet av den samling som anges i den överordnade principen. Värdet `Prepend` är en samling data som ska läggas till före den samling som anges i den överordnade principen. Värdet `ReplaceAll` är en samling data som anges i den överordnade principen och som ska ignoreras. |
 
-**Begränsnings** elementet innehåller följande element:
+Elementet **Begränsning** innehåller följande element:
 
-| Element | Förekomster | Beskrivning |
+| Element | Händelser | Beskrivning |
 | ------- | ----------- | ----------- |
-| Uppräkning | 1: n | De tillgängliga alternativen i användar gränssnittet för användaren att välja för ett anspråk, till exempel ett värde i en listruta. |
-| Mönster | 1:1 | Det reguljära uttryck som ska användas. |
+| Uppräkning | 1:n | De tillgängliga alternativen i användargränssnittet som användaren kan välja för ett anspråk, till exempel ett värde i en listruta. |
+| Mönster | 1:1 | Det reguljära uttrycket som ska användas. |
 
 #### <a name="enumeration"></a>Uppräkning
 
-**Uppräknings** elementet definierar tillgängliga alternativ för användaren att välja för ett anspråk i användar gränssnittet, till exempel ett värde i en `CheckboxMultiSelect`, `DropdownSingleSelect`eller `RadioSingleSelect`. Alternativt kan du definiera och lokalisera tillgängliga alternativ med [LocalizedCollections](localization.md#localizedcollections) -element. Om du vill söka efter ett objekt från en anspråks **uppräknings** samling använder du [GetMappedValueFromLocalizedCollection](string-transformations.md#getmappedvaluefromlocalizedcollection) Claims-transformering.
+**Uppräkningselementet** definierar tillgängliga alternativ för användaren att välja för ett anspråk i `CheckboxMultiSelect`användargränssnittet, till exempel ett värde i en , `DropdownSingleSelect`, eller `RadioSingleSelect`. Du kan också definiera och lokalisera tillgängliga alternativ med [elementet LocalizedCollections.](localization.md#localizedcollections) Om du vill slå upp ett objekt från en **anspråksuppräkningssamling** använder du [GetMappedValueFromLocalizedCollection](string-transformations.md#getmappedvaluefromlocalizedcollection) claims transformation.
 
-**Uppräknings** elementet innehåller följande attribut:
+**Uppräkningselementet** innehåller följande attribut:
 
 | Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
-| Text | Ja | Den visnings sträng som visas för användaren i användar gränssnittet för det här alternativet. |
-|Värde | Ja | Anspråks värde som är associerat med att välja det här alternativet. |
-| SelectByDefault | Nej | Anger om det här alternativet ska vara markerat som standard i användar gränssnittet. Möjliga värden: true eller false. |
+| Text | Ja | Den visningssträng som visas för användaren i användargränssnittet för det här alternativet. |
+|Värde | Ja | Anspråksvärdet som är associerat med att välja det här alternativet. |
+| VäljByDefault | Inga | Anger om det här alternativet ska väljas som standard i användargränssnittet. Möjliga värden: Sant eller Falskt. |
 
-I följande exempel konfigureras List rutan för en **stad** med ett standardvärde som är inställt på `New York`:
+I följande exempel konfigureras ett anspråk på en `New York`stadslistgarderingslista med ett standardvärde inställt på: **city**
 
 ```XML
 <ClaimType Id="city">
@@ -203,20 +203,20 @@ I följande exempel konfigureras List rutan för en **stad** med ett standardvä
 </ClaimType>
 ```
 
-List rutan stad med ett standardvärde som är inställt på New York:
+Listruta med standardvärde inställt på New York:
 
-![List Rute kontroll återges i webbläsare och visar standardvärdet](./media/claimsschema/dropdownsingleselect.png)
+![Listkontrollen som återges i webbläsaren och visar standardvärdet](./media/claimsschema/dropdownsingleselect.png)
 
 ### <a name="pattern"></a>Mönster
 
-**Pattern** -elementet kan innehålla följande attribut:
+Elementet **Mönster** kan innehålla följande attribut:
 
 | Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
-| Reguljärt uttryck | Ja | Det reguljära uttrycket som anspråk av den här typen måste matcha för att vara giltigt. |
-| HelpText | Nej | Ett fel meddelande för användare om den reguljära uttrycks kontrollen Miss lyckas. |
+| RegelbundnaExpression | Ja | Det reguljära uttryck som anspråk av den här typen måste matcha för att vara giltigt. |
+| Hjälptext | Inga | Ett felmeddelande för användare om kontrollen av reguljära uttryck misslyckas. |
 
-I följande exempel konfigureras ett **e-** postanspråk med text verifiering och hjälp text i reguljärt uttryck:
+I följande exempel konfigureras ett **e-postanspråk** med validering av inmatning av reguljära uttryck och hjälptext:
 
 ```XML
 <ClaimType Id="email">
@@ -233,34 +233,34 @@ I följande exempel konfigureras ett **e-** postanspråk med text verifiering oc
  </ClaimType>
 ```
 
-Med Identity Experience Framework återges e-postadressen med e-postverifiering:
+Identity Experience Framework återger e-postadressen med validering av e-postformat:
 
-![Text ruta som visar fel meddelande som utlöses av regex-begränsning](./media/claimsschema/pattern.png)
+![TextBox som visar felmeddelande som utlöses av regex-begränsning](./media/claimsschema/pattern.png)
 
 ### <a name="userinputtype"></a>UserInputType
 
-Azure AD B2C stöder flera olika typer av användarindata, till exempel en text ruta, ett lösen ord och en listruta som kan användas när du anger anspråks data manuellt för anspråks typen. Du måste ange **UserInputType** när du samlar in information från användaren med hjälp av en [självkontrollerad teknisk profil](self-asserted-technical-profile.md) och [visnings kontroller](display-controls.md).
+Azure AD B2C stöder en mängd olika indatatyper för användare, till exempel en textruta, ett lösenord och en listruta som kan användas när anspråksdata för anspråkstypen anges manuellt. Du måste ange **UserInputType** när du samlar in information från användaren med hjälp av en [självpåförd teknisk profil](self-asserted-technical-profile.md) och [visningskontroller](display-controls.md).
 
-**UserInputType** -elementet är tillgängligt för användarens indata typer:
+**Elementet UserInputType** tillgängliga användarindatatyper:
 
 | UserInputType | ClaimType som stöds | Beskrivning |
 | --------- | -------- | ----------- |
-|CheckboxMultiSelect| `string` |Listruta för flera val. Anspråks värde representeras i en kommaavgränsad sträng för de valda värdena. |
-|DateTimeDropdown | `date`, `dateTime` |List rutor för att välja dag, månad och år. |
-|DropdownSingleSelect |`string` |Listruta för enkel markering. Anspråks värde är det valda värdet.|
-|E-postmeddelande | `string` |E-postfält. |
-|Paragraf | `boolean`, `date`, `dateTime`, `duration`, `int`, `long`, `string`|Ett fält som endast visar text i en stycke-tagg. |
-|lösenord | `string` |Text rutan lösen ord.|
-|RadioSingleSelect |`string` | Samling alternativ knappar. Anspråks värde är det valda värdet.|
-|ReadOnly | `boolean`, `date`, `dateTime`, `duration`, `int`, `long`, `string`| Skrivskyddad text ruta. |
-|TextBox |`boolean`, `int`, `string` |Text ruta med en rad. |
+|KryssrutaMultiSelect| `string` |Nedrullningsbara flervalsruta. Anspråksvärdet representeras i en kommaavgränsare sträng av de valda värdena. |
+|DatumTidsdropdown | `date`, `dateTime` |Rullgardinsmenyn för att välja en dag, månad och ett år. |
+|Rullgardinsmenyn |`string` |En enda listruta. Anspråksvärdet är det valda värdet.|
+|E-postbox | `string` |Fältet E-postinmatning. |
+|Stycke | `boolean`, `date`, `dateTime`, `duration`, `int`, `long`, `string`|Ett fält som bara visar text i en stycketagg. |
+|lösenord | `string` |Textruta för lösenord.|
+|RadiosingleSelect |`string` | Insamling av alternativknappar. Anspråksvärdet är det valda värdet.|
+|Readonly | `boolean`, `date`, `dateTime`, `duration`, `int`, `long`, `string`| Skrivskyddad textruta. |
+|TextBox |`boolean`, `int`, `string` |Textruta med en rad. |
 
 
 #### <a name="textbox"></a>TextBox
 
-Indatatypen för **text Rute** användaren används för att ange en text ruta med en rad.
+**TextBox-användarens** inmatningstyp används för att tillhandahålla en textruta med en rad.
 
-![Text ruta som visar egenskaper som anges i anspråks typ](./media/claimsschema/textbox.png)
+![TextBox som visar egenskaper som anges i anspråkstyp](./media/claimsschema/textbox.png)
 
 ```XML
 <ClaimType Id="displayName">
@@ -271,11 +271,11 @@ Indatatypen för **text Rute** användaren används för att ange en text ruta m
 </ClaimType>
 ```
 
-#### <a name="emailbox"></a>E-postmeddelande
+#### <a name="emailbox"></a>E-postbox
 
-**E-postmeddelandets** Indatatyp används för att ange ett grundläggande e-postfält.
+Indatatypen **e-postbox** används för att tillhandahålla ett grundläggande e-postinmatningsfält.
 
-![E-postmeddelande som visar egenskaper som anges i anspråks typ](./media/claimsschema/emailbox.png)
+![E-postbox som visar egenskaper som anges i anspråkstyp](./media/claimsschema/emailbox.png)
 
 ```XML
 <ClaimType Id="email">
@@ -291,9 +291,9 @@ Indatatypen för **text Rute** användaren används för att ange en text ruta m
 
 #### <a name="password"></a>lösenord
 
-**Användarens** Indatatyp används för att registrera ett lösen ord som anges av användaren.
+Inmatningstypen **Lösenordsanvändare** används för att registrera ett lösenord som anges av användaren.
 
-![Använda anspråks typ med lösen ord](./media/claimsschema/password.png)
+![Använda anspråkstyp med lösenord](./media/claimsschema/password.png)
 
 ```XML
 <ClaimType Id="password">
@@ -304,11 +304,11 @@ Indatatypen för **text Rute** användaren används för att ange en text ruta m
 </ClaimType>
 ```
 
-#### <a name="datetimedropdown"></a>DateTimeDropdown
+#### <a name="datetimedropdown"></a>DatumTidsdropdown
 
-**DateTimeDropdown** -användarens Indatatyp används för att ange en uppsättning List rutor för att välja dag, månad och år. Du kan använda predikat och PredicateValidations-element för att kontrol lera minimi-och Max datum värden. Mer information finns i avsnittet **Konfigurera ett datum intervall** i [predikat och PredicateValidations](predicates.md).
+Användarens inmatningstyp **dateTimeDropdown** används för att tillhandahålla en uppsättning listruppgångar för att välja en dag, månad och ett år. Du kan använda predikat- och predikatvalidationselement för att styra lägsta och högsta datumvärden. Mer information finns i avsnittet **Konfigurera ett datumintervall** [i predikat och predikatvalidationer](predicates.md).
 
-![Använda anspråks typ med datetimedropdown](./media/claimsschema/datetimedropdown.png)
+![Använda anspråkstyp med datetimedropdown](./media/claimsschema/datetimedropdown.png)
 
 ```XML
 <ClaimType Id="dateOfBirth">
@@ -319,11 +319,11 @@ Indatatypen för **text Rute** användaren används för att ange en text ruta m
 </ClaimType>
 ```
 
-#### <a name="radiosingleselect"></a>RadioSingleSelect
+#### <a name="radiosingleselect"></a>RadiosingleSelect
 
-**RadioSingleSelect** -användarens Indatatyp används för att tillhandahålla en samling alternativ knappar som gör att användaren kan välja ett alternativ.
+Indatatypen **RadioSingLeSelect** används för att tillhandahålla en samling alternativknappar som gör att användaren kan välja ett alternativ.
 
-![Använda anspråks typ med radiodsingleselect](./media/claimsschema/radiosingleselect.png)
+![Använda anspråkstyp med radiodsingleselect](./media/claimsschema/radiosingleselect.png)
 
 ```XML
 <ClaimType Id="color">
@@ -338,11 +338,11 @@ Indatatypen för **text Rute** användaren används för att ange en text ruta m
 </ClaimType>
 ```
 
-#### <a name="dropdownsingleselect"></a>DropdownSingleSelect
+#### <a name="dropdownsingleselect"></a>Rullgardinsmenyn
 
-Indatatypen **DropdownSingleSelect** används för att tillhandahålla en nedrullningsbar listruta där användaren kan välja ett alternativ.
+**ListdownSingleSelect-indatatypen** för användaren används för att tillhandahålla en listruta som gör att användaren kan välja ett alternativ.
 
-![Använda anspråks typ med dropdownsingleselect](./media/claimsschema/dropdownsingleselect.png)
+![Använda anspråkstyp med dropdownsingleselect](./media/claimsschema/dropdownsingleselect.png)
 
 ```XML
 <ClaimType Id="city">
@@ -357,11 +357,11 @@ Indatatypen **DropdownSingleSelect** används för att tillhandahålla en nedrul
 </ClaimType>
 ```
 
-#### <a name="checkboxmultiselect"></a>CheckboxMultiSelect
+#### <a name="checkboxmultiselect"></a>KryssrutaMultiSelect
 
-Indatatypen **CheckboxMultiSelect** används för att tillhandahålla en samling kryss rutor som gör det möjligt för användaren att välja flera alternativ.
+Indatatypen **CheckboxMultiSelect** används för att tillhandahålla en samling kryssrutor som gör att användaren kan välja flera alternativ.
 
-![Använda anspråks typ med checkboxmultiselect](./media/claimsschema/checkboxmultiselect.png)
+![Använda anspråkstyp med kryssrutamultiselect](./media/claimsschema/checkboxmultiselect.png)
 
 ```XML
 <ClaimType Id="languages">
@@ -376,11 +376,11 @@ Indatatypen **CheckboxMultiSelect** används för att tillhandahålla en samling
 </ClaimType>
 ```
 
-#### <a name="readonly"></a>ReadOnly
+#### <a name="readonly"></a>Readonly
 
-Den **skrivskyddade** användarens Indatatyp används för att tillhandahålla ett skrivskyddat fält för att Visa anspråket och värdet.
+Indatatypen **Readonly** används för att tillhandahålla ett läsinställfält för att visa anspråk och värde.
 
-![Använda anspråks typ med ReadOnly](./media/claimsschema/readonly.png)
+![Använda anspråkstyp med readonly](./media/claimsschema/readonly.png)
 
 ```XML
 <ClaimType Id="membershipNumber">
@@ -392,11 +392,11 @@ Den **skrivskyddade** användarens Indatatyp används för att tillhandahålla e
 ```
 
 
-#### <a name="paragraph"></a>Paragraf
+#### <a name="paragraph"></a>Stycke
 
-Indatatypen **stycke** användare används för att tillhandahålla ett fält som endast visar text i en stycke-tagg.  Till exempel &lt;p&gt;text&lt;/p&gt;. En indatatyp för **stycke** användare `OutputClaim` av självkontrollerad teknisk profil, måste ange attributet `Required` `false` (standard).
+Indatatypen **Stycke** används för att ange ett fält som bara visar text i en stycketagg.  Till exempel &lt;&gt;p&lt;text&gt;/p . En **styckeanvändares** indatatyp `OutputClaim` av självförsäkrad `Required` `false` teknisk profil måste ange attributet (standard).
 
-![Använda anspråks typ med stycke](./media/claimsschema/paragraph.png)
+![Använda anspråkstyp med stycke](./media/claimsschema/paragraph.png)
 
 ```XML
 <ClaimType Id="responseMsg">

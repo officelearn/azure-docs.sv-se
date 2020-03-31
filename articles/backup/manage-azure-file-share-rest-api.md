@@ -1,28 +1,28 @@
 ---
-title: Hantera säkerhets kopiering av Azure-filresurs med REST API
-description: Lär dig hur du använder REST API för att hantera och övervaka Azure-filresurser som säkerhets kopie ras av Azure Backup.
+title: Hantera säkerhetskopiering av Azure-fildelning med Rest API
+description: Lär dig hur du använder REST API för att hantera och övervaka Azure-filresurser som backas upp av Azure Backup.
 ms.topic: conceptual
 ms.date: 02/17/2020
 ms.openlocfilehash: 9d29b226aff568c91de8e1f19ddc0c64f8169e4d
-ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/18/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77444737"
 ---
-# <a name="manage-azure-file-share-backup-with-rest-api"></a>Hantera säkerhets kopiering av Azure-filresurs med REST API
+# <a name="manage-azure-file-share-backup-with-rest-api"></a>Hantera säkerhetskopiering av Azure-fildelning med REST API
 
-Den här artikeln förklarar hur du utför uppgifter för att hantera och övervaka Azure-filresurser som säkerhets kopie ras av [Azure Backup](https://docs.microsoft.com/azure/backup/backup-overview).
+I den här artikeln beskrivs hur du utför uppgifter för att hantera och övervaka Azure-filresurser som backas upp av [Azure Backup](https://docs.microsoft.com/azure/backup/backup-overview).
 
 ## <a name="monitor-jobs"></a>Övervaka jobb
 
-Azure Backups tjänsten utlöser jobb som körs i bakgrunden. Detta inkluderar scenarier som utlöser säkerhets kopiering, återställnings åtgärder och inaktiverar säkerhets kopiering. Dessa jobb kan spåras med hjälp av deras ID.
+Azure Backup-tjänsten utlöser jobb som körs i bakgrunden. Detta inkluderar scenarier som att utlösa säkerhetskopiering, återställa åtgärder och inaktivera säkerhetskopiering. Dessa jobb kan spåras med hjälp av deras ID.
 
-### <a name="fetch-job-information-from-operations"></a>Hämta jobb information från åtgärder
+### <a name="fetch-job-information-from-operations"></a>Hämta jobbinformation från operationer
 
-En åtgärd som utlöser säkerhets kopiering returnerar alltid en jobID i svaret.
+En åtgärd som utlöser säkerhetskopiering returnerar alltid ett jobID i svaret.
 
-Till exempel är det slutliga svaret på en [säkerhets kopierings REST API](backup-azure-file-share-rest-api.md#trigger-an-on-demand-backup-for-file-share) åtgärd följande:
+Det slutliga svaret för en [REST API-åtgärd](backup-azure-file-share-rest-api.md#trigger-an-on-demand-backup-for-file-share) för säkerhetskopiering av utlösare är följande:
 
 ```json
 {
@@ -38,7 +38,7 @@ Till exempel är det slutliga svaret på en [säkerhets kopierings REST API](bac
 }
 ```
 
-Säkerhets kopierings jobbet för Azure-filresursen identifieras av **jobId** -fältet och kan spåras på det sätt som anges [här](https://docs.microsoft.com/rest/api/backup/jobdetails/) med en get-begäran.
+Säkerhetskopieringsjobbet för Azure-filresurs identifieras av **jobId-fältet** och kan spåras som nämns [här](https://docs.microsoft.com/rest/api/backup/jobdetails/) med hjälp av en GET-begäran.
 
 ### <a name="tracking-the-job"></a>Spåra jobbet
 
@@ -46,7 +46,7 @@ Säkerhets kopierings jobbet för Azure-filresursen identifieras av **jobId** -f
 GET https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupJobs/{jobName}?api-version=2019-05-13
 ```
 
-{JobName} är "jobId" som nämnts ovan. Svaret är alltid "200 OK" med fältet **status** och indikerar jobbets status. När det är "slutfört" eller "CompletedWithWarnings" visar avsnittet **extendedInfo** mer information om jobbet.
+{jobName} är "jobId" som nämns ovan. Svaret är alltid "200 OK" med **statusfältet** som anger status för jobbet. När det är "Completed" eller "CompletedWithWarnings" visar **extendedInfo-avsnittet** mer information om jobbet.
 
 ```http
 GET https://management.azure.com/Subscriptions/ef4ab5a7-c2c0-4304-af80-af49f48af3d1/resourceGroups/azurefiles/providers/Microsoft.RecoveryServices/vaults/azurefilesvault/backupJobs/e2ca2cf4-2eb9-4d4b-b16a-8e592d2a658b?api-version=2019-05-13'
@@ -56,11 +56,11 @@ GET https://management.azure.com/Subscriptions/ef4ab5a7-c2c0-4304-af80-af49f48af
 
 Namn  | Typ  |  Beskrivning
 --- | --- | ----
-200 OK |  JobResource  | OK
+200 OK |  JobbKälla  | OK
 
-#### <a name="response-example"></a>Svars exempel
+#### <a name="response-example"></a>Exempel på svar
 
-När *Hämta* URI har skickats returneras ett 200-svar.
+När *GET* URI har skickats returneras ett 200-svar.
 
 ```http
 HTTP/1.1" 200
@@ -111,9 +111,9 @@ HTTP/1.1" 200
 
 ## <a name="modify-policy"></a>Ändra princip
 
-Om du vill ändra principen som fil resursen är skyddad med kan du använda samma format som att aktivera skydd. Ange bara det nya princip-ID: t i begär ande principen och skicka begäran.
+Om du vill ändra principen som filresursen är skyddad med kan du använda samma format som att aktivera skydd. Ange bara det nya princip-ID:t i begäraneprincipen och skicka begäran.
 
-Exempel: om du vill ändra skydds principen för *testshare* från *schedule1* till *schedule2*anger du *schedule2* -ID i begär ande texten.
+Om du till exempel vill ändra skyddsprincipen *för testdelning* från *schema1* till *schema2*anger du *id-programmet schema2* i begärandetexten.
 
 ```json
 {
@@ -125,9 +125,9 @@ Exempel: om du vill ändra skydds principen för *testshare* från *schedule1* t
 }
 ```
 
-## <a name="stop-protection-but-retain-existing-data"></a>Stoppa skyddet men behåll befintliga data
+## <a name="stop-protection-but-retain-existing-data"></a>Stoppa skyddet men behålla befintliga data
 
-Du kan ta bort skyddet för en skyddad fil resurs men Behåll de data som redan har säkerhetskopierats. Det gör du genom att ta bort principen i begär ande texten som du använde för att[Aktivera säkerhets kopiering](backup-azure-file-share-rest-api.md#enable-backup-for-the-file-share) och skicka begäran. När kopplingen med principen tas bort utlöses inte säkerhets kopieringarna och inga nya återställnings punkter skapas.
+Du kan ta bort skyddet för en skyddad filresurs men behålla de data som redan säkerhetskopierats. Om du vill göra det tar du bort principen i det begärandeorgan som du använde för att[aktivera säkerhetskopiering](backup-azure-file-share-rest-api.md#enable-backup-for-the-file-share) och skicka begäran. När kopplingen till principen har tagits bort utlöses inte längre säkerhetskopior och inga nya återställningspunkter skapas.
 
 ```json
 {
@@ -142,9 +142,9 @@ Du kan ta bort skyddet för en skyddad fil resurs men Behåll de data som redan 
 
 ### <a name="sample-response"></a>Exempelsvar
 
-Att stoppa skyddet av en fil resurs är en asynkron åtgärd. Åtgärden skapar en annan åtgärd som måste spåras. Den returnerar två svar: 202 (accepterad) när en annan åtgärd skapas och 200 när åtgärden har slutförts.
+Att stoppa skyddet för en filresurs är en asynkron åtgärd. Åtgärden skapar en annan åtgärd som måste spåras. Två svar returneras: 202 (Godkänd) när en annan åtgärd skapas och 200 när åtgärden är klar.
 
-Svars huvud när åtgärden har accepterats:
+Svarshuvudet när åtgärden har accepterats:
 
 ```http
 HTTP/1.1" 202
@@ -166,13 +166,13 @@ msrest.http_logger :     'Azure-AsyncOperation': 'https://management.azure.com/S
 'Content-Length': '0'
 ```
 
-Spåra sedan den resulterande åtgärden med hjälp av plats rubriken eller Azure-AsyncOperation-huvudet med ett GET-kommando:
+Spåra sedan den resulterande åtgärden med hjälp av platshuvudet eller Azure-AsyncOperation-huvudet med kommandot GET:
 
 ```http
 GET https://management.azure.com/Subscriptions/ef4ab5a7-c2c0-4304-af80-af49f48af3d1/resourceGroups/azurefiles/providers/Microsoft.RecoveryServices/vaults/azurefilesvault/backupoperations/b300922a-ad9c-4181-b4cd-d42ea780ad77?api-version=2016-12-01
 ```
 
-### <a name="response-body"></a>Svars text
+### <a name="response-body"></a>Själva svaret
 
 ```json
 {
@@ -188,9 +188,9 @@ GET https://management.azure.com/Subscriptions/ef4ab5a7-c2c0-4304-af80-af49f48af
 }
 ```
 
-## <a name="stop-protection-and-delete-data"></a>Stoppa skyddet och ta bort data
+## <a name="stop-protection-and-delete-data"></a>Stoppa skydd och ta bort data
 
-Ta bort skyddet på en skyddad fil resurs och ta bort säkerhetskopierade data också genom att utföra en borttagnings åtgärd som beskrivs [här](https://docs.microsoft.com/rest/api/backup/protecteditems/delete).
+Om du vill ta bort skyddet för en skyddad filresurs och även ta bort säkerhetskopierade data utför du en borttagningsåtgärd som beskrivs [här](https://docs.microsoft.com/rest/api/backup/protecteditems/delete).
 
 ```http
 DELETE https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/protectionContainers/{containerName}/protectedItems/{protectedItemName}?api-version=2019-05-13
@@ -198,7 +198,7 @@ DELETE https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroup
 
 Parametrarna {containerName} och {protectedItemName} anges [här](restore-azure-file-share-rest-api.md#fetch-containername-and-protecteditemname).
 
-I följande exempel utlöses en åtgärd för att stoppa skyddet av *testshare* -filresursen som skyddas med *azurefilesvault*.
+I följande exempel utlöses en åtgärd *testshare* för att stoppa skyddet för testdelningsfilresursen som skyddas med *azurefilesvault*.
 
 ```http
 DELETE https://management.azure.com/Subscriptions/ef4ab5a7-c2c0-4304-af80-af49f48af3d1/resourceGroups/azurefiles/providers/Microsoft.RecoveryServices/vaults/azurefilesvault/backupFabrics/Azure/protectionContainers/StorageContainer;Storage;AzureFiles;testvault2/protectedItems/azurefileshare;testshare?api-version=2016-12-01
@@ -206,9 +206,9 @@ DELETE https://management.azure.com/Subscriptions/ef4ab5a7-c2c0-4304-af80-af49f4
 
 ### <a name="responses"></a>Svar
 
-Borttagning av skydd är en asynkron åtgärd. Åtgärden skapar en annan åtgärd som måste spåras separat.
-Den returnerar två svar: 202 (accepterad) när en annan åtgärd skapas och 204 (inget innehåll) när åtgärden har slutförts.
+Ta bort skydd är en asynkron åtgärd. Åtgärden skapar en annan åtgärd som måste spåras separat.
+Två svar returneras: 202 (Accepterad) när en annan åtgärd skapas och 204 (NoContent) när åtgärden är klar.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Lär dig hur du [felsöker problem när du konfigurerar säkerhets kopiering för Azure-filresurser](troubleshoot-azure-files.md).
+* Lär dig hur du [felsöker problem när du konfigurerar säkerhetskopiering för Azure File-resurser](troubleshoot-azure-files.md).

@@ -1,39 +1,39 @@
 ---
-title: Skapa en mall för Azure Service Fabric-kluster
+title: Skapa en klustermall för Azure Service Fabric
 description: Lär dig hur du skapar en Resource Manager-mall för ett Service Fabric-kluster. Konfigurera säkerhet, Azure Key Vault och Azure Active Directory (Azure AD) för klientautentisering.
 ms.topic: conceptual
 ms.date: 08/16/2018
 ms.openlocfilehash: a00f2bc505acd89d9fb9488565b6235bf7d146ba
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79258881"
 ---
-# <a name="create-a-service-fabric-cluster-resource-manager-template"></a>Skapa en Service Fabric Cluster Resource Manager-mall
+# <a name="create-a-service-fabric-cluster-resource-manager-template"></a>Skapa en Resurshanterarens servermall för Service Fabric-kluster
 
-Ett [Azure Service Fabric-kluster](service-fabric-deploy-anywhere.md) är en nätverksansluten uppsättning virtuella datorer där dina mikrotjänster distribueras och hanteras. Ett Service Fabric kluster som körs i Azure är en Azure-resurs och distribueras, hanteras och övervakas med hjälp av Resource Manager.  Den här artikeln beskriver hur du skapar en Resource Manager-mall för ett Service Fabric kluster som körs i Azure.  När mallen är klar kan du [distribuera klustret på Azure](service-fabric-cluster-creation-via-arm.md).
+Ett [Azure Service Fabric-kluster](service-fabric-deploy-anywhere.md) är en nätverksansluten uppsättning virtuella datorer som dina mikrotjänster distribueras och hanteras till. Ett Service Fabric-kluster som körs i Azure är en Azure-resurs och distribueras, hanteras och övervakas med hjälp av Resource Manager.  I den här artikeln beskrivs hur du skapar en Resource Manager-mall för ett Service Fabric-kluster som körs i Azure.  När mallen är klar kan du [distribuera klustret på Azure](service-fabric-cluster-creation-via-arm.md).
 
-Kluster säkerhet konfigureras när klustret först konfigureras och kan inte ändras senare. Innan du konfigurerar ett kluster bör du läsa [Service Fabric kluster säkerhets scenarier][service-fabric-cluster-security]. I Azure använder Service Fabric x509-certifikat för att skydda klustret och dess slut punkter, autentisera klienter och kryptera data. Azure Active Directory rekommenderas också att skydda åtkomsten till hanterings slut punkter. Azure AD-klienter och användare måste skapas innan klustret skapas.  Mer information finns [i Konfigurera Azure AD för att autentisera klienter](service-fabric-cluster-creation-setup-aad.md).
+Klustersäkerhet konfigureras när klustret först konfigureras och kan inte ändras senare. Läs [säkerhetsscenarier för Service Fabric-kluster][service-fabric-cluster-security]innan du konfigurerar ett kluster . I Azure använder Service Fabric x509-certifikat för att skydda klustret och dess slutpunkter, autentisera klienter och kryptera data. Azure Active Directory rekommenderas också för att skydda åtkomst till hanteringsslutpunkter. Azure AD-klienter och användare måste skapas innan klustret skapas.  Mer information finns i [Konfigurera Azure AD för att autentisera klienter](service-fabric-cluster-creation-setup-aad.md).
 
-Innan du distribuerar ett produktions kluster för att köra produktions arbets belastningar bör du först läsa [Check listan för produktions beredskap](service-fabric-production-readiness-checklist.md).
+Innan du distribuerar ett produktionskluster för att köra produktionsarbetsbelastningar måste du först läsa [checklistan för produktionsberedskap](service-fabric-production-readiness-checklist.md).
 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="create-the-resource-manager-template"></a>Skapa Resource Manager-mallen
-Exempel på Resource Manager-mallar finns i [Azure-exemplen på GitHub](https://github.com/Azure-Samples/service-fabric-cluster-templates). Dessa mallar kan användas som utgångs punkt för kluster mal len.
+Exempel på Resource Manager-mallar är tillgängliga i [Azure-exemplen på GitHub](https://github.com/Azure-Samples/service-fabric-cluster-templates). Dessa mallar kan användas som utgångspunkt för klustermallen.
 
-I den här artikeln används mallarna för säker kluster och mallparametrar i [fem noder][service-fabric-secure-cluster-5-node-1-nodetype] . Ladda ned *azuredeploy. JSON* och *azuredeploy. Parameters. JSON* till datorn och öppna båda filerna i din favorit text redigerare.
+I den här artikeln används den säkra klusterextpelsmallen och mallparametrarna med [fem noder.][service-fabric-secure-cluster-5-node-1-nodetype] Hämta *azuredeploy.json* och *azuredeploy.parameters.json* till din dator och öppna båda filerna i din favorittextredigerare.
 
 > [!NOTE]
-> För nationella moln (Azure Government, Azure Kina, Azure Germany) bör du även lägga till följande `fabricSettings` i mallen: `AADLoginEndpoint`, `AADTokenEndpointFormat` och `AADCertEndpointFormat`.
+> För nationella moln (Azure Government, Azure China, Azure `fabricSettings` Germany) bör `AADLoginEndpoint` `AADTokenEndpointFormat` du `AADCertEndpointFormat`också lägga till följande i mallen: och .
 
-## <a name="add-certificates"></a>Lägg till certifikat
-Du lägger till certifikat i en kluster resurs hanterare-mall genom att referera till nyckel valvet som innehåller certifikat nycklarna. Lägg till dessa nyckel-valv parametrar och värden i en parameter fil för Resource Manager-mall (*azuredeploy. Parameters. JSON*).
+## <a name="add-certificates"></a>Lägga till certifikat
+Du lägger till certifikat i en klusterresurshanteraresmall genom att referera till nyckelvalvet som innehåller certifikatnycklarna. Lägg till dessa nyckelvalvsparametrar och värden i en Resource Manager-mallparametrarfil (*azuredeploy.parameters.json*).
 
-### <a name="add-all-certificates-to-the-virtual-machine-scale-set-osprofile"></a>Lägg till alla certifikat i den virtuella datorns skalnings uppsättning osProfile
-Alla certifikat som är installerade i klustret måste konfigureras i avsnittet **osProfile** i skalnings uppsättnings resursen (Microsoft. Compute/virtualMachineScaleSets). Den här åtgärden instruerar resurs leverantören att installera certifikatet på de virtuella datorerna. Den här installationen omfattar både kluster certifikatet och alla program säkerhets certifikat som du planerar att använda för dina program:
+### <a name="add-all-certificates-to-the-virtual-machine-scale-set-osprofile"></a>Lägga till alla certifikat i den virtuella datorns skalningsuppsättning osProfile
+Alla certifikat som installeras i klustret måste konfigureras i avsnittet **osProfile** i skalningsuppsättningsresursen (Microsoft.Compute/virtualMachineScaleSets). Den här åtgärden instruerar resursprovidern att installera certifikatet på de virtuella datorerna. Den här installationen innehåller både klustercertifikat och alla programsäkerhetscertifikat som du planerar att använda för dina program:
 
 ```json
 {
@@ -67,11 +67,11 @@ Alla certifikat som är installerade i klustret måste konfigureras i avsnittet 
 }
 ```
 
-### <a name="configure-the-service-fabric-cluster-certificate"></a>Konfigurera Service Fabric kluster certifikat
+### <a name="configure-the-service-fabric-cluster-certificate"></a>Konfigurera klustercertifikatet Service Fabric
 
-Certifikatet för klientautentisering måste konfigureras i både den Service Fabric kluster resursen (Microsoft. ServiceFabric/Clusters) och Service Fabric tillägget för virtuella dator skalnings uppsättningar i den virtuella datorns skalnings uppsättnings resurs. Med den här ordningen kan Service Fabric Resource Provider konfigurera den för användning av autentisering med kluster och serverautentisering för hanterings slut punkter.
+Klusterautentiseringscertifikatet måste konfigureras både i klusterresursen Service Fabric (Microsoft.ServiceFabric/clusters) och tillägget Service Fabric för skalningsuppsättningar för virtuella datorer i skaluppsättningsresursen för den virtuella datorn. Med den här ordningen kan resursprovidern för Service Fabric konfigurera den för användning för klusterautentisering och serverautentisering för hanteringsslutpunkter.
 
-#### <a name="add-the-certificate-information-the-virtual-machine-scale-set-resource"></a>Lägg till certifikat informationen i resursen för skalnings uppsättning för virtuell dator
+#### <a name="add-the-certificate-information-the-virtual-machine-scale-set-resource"></a>Lägga till certifikatinformationen för skalningsuppsättningen för virtuell dator
 
 ```json
 {
@@ -104,7 +104,7 @@ Certifikatet för klientautentisering måste konfigureras i både den Service Fa
 }
 ```
 
-#### <a name="add-the-certificate-information-to-the-service-fabric-cluster-resource"></a>Lägg till certifikat informationen i Service Fabric kluster resursen
+#### <a name="add-the-certificate-information-to-the-service-fabric-cluster-resource"></a>Lägga till certifikatinformationen i klusterresursen Service Fabric
 
 ```json
 {
@@ -132,10 +132,10 @@ Certifikatet för klientautentisering måste konfigureras i både den Service Fa
 
 ## <a name="add-azure-ad-configuration-to-use-azure-ad-for-client-access"></a>Lägga till Azure AD-konfiguration för att använda Azure AD för klientåtkomst
 
-Du lägger till Azure AD-konfigurationen i en kluster resurs hanterare-mall genom att referera till nyckel valvet som innehåller certifikat nycklarna. Lägg till de Azure AD-parametrar och-värden i en parameter fil för Resource Manager-mall (*azuredeploy. Parameters. JSON*). 
+Du lägger till Azure AD-konfigurationen i en klusterresurshanteraren-mall genom att referera till nyckelvalvet som innehåller certifikatnycklarna. Lägg till dessa Azure AD-parametrar och värden i en Resource Manager-mallparametrarfil (*azuredeploy.parameters.json*). 
 
 > [!NOTE]
-> I Linux måste du skapa Azure AD-klienter och användare innan du skapar klustret.  Mer information finns [i Konfigurera Azure AD för att autentisera klienter](service-fabric-cluster-creation-setup-aad.md).
+> På Linux måste Azure AD-klienter och användare skapas innan klustret skapas.  Mer information finns i [Konfigurera Azure AD för att autentisera klienter](service-fabric-cluster-creation-setup-aad.md).
 
 ```json
 {
@@ -164,14 +164,14 @@ Du lägger till Azure AD-konfigurationen i en kluster resurs hanterare-mall geno
 }
 ```
 
-## <a name="populate-the-parameter-file-with-the-values"></a>Fyll i parameter filen med värdena
+## <a name="populate-the-parameter-file-with-the-values"></a>Fylla parameterfilen med värdena
 
-Använd slutligen värdena från Key Vault-och Azure AD PowerShell-kommandona för att fylla i parameter filen.
+Slutligen använder du utdatavärdena från nyckelvalvet och Azure AD PowerShell-kommandona för att fylla i parameterfilen.
 
-Om du planerar att använda Azure Service Fabric RM PowerShell-modulerna behöver du inte fylla i information om kluster certifikatet. Om du vill att systemet ska generera det självsignerade certifikatet för kluster säkerhet behåller du bara dem som null. 
+Om du planerar att använda Azure-tjänstinfrastruktur RM PowerShell-modulerna behöver du inte fylla i klustercertifikatinformationen. Om du vill att systemet ska generera det självsignerade certifikatet för klustersäkerhet, behåll dem bara som null. 
 
 > [!NOTE]
-> För att RM-modulerna ska kunna hämta och fylla i dessa tomma parameter värden, matchar parameter namnen mycket namnen nedan
+> För rm-modulerna att plocka upp och fylla i dessa tomma parametervärden matchar parametrarna mycket namnen nedan
 
 ```json
 "clusterCertificateThumbprint": {
@@ -188,9 +188,9 @@ Om du planerar att använda Azure Service Fabric RM PowerShell-modulerna behöve
 },
 ```
 
-Om du använder program certifikat eller använder ett befintligt kluster som du har laddat upp till nyckel valvet måste du hämta informationen och fylla i det.
+Om du använder programcerter eller använder ett befintligt kluster som du har överfört till nyckelvalvet måste du hämta den här informationen och fylla i den.
 
-RM-modulerna har inte möjlighet att generera Azure AD-konfigurationen åt dig, så om du planerar att använda Azure AD för klient åtkomst måste du fylla i det.
+RM-modulerna har inte möjlighet att generera Azure AD-konfigurationen åt dig, så om du planerar att använda Azure AD för klientåtkomst måste du fylla i den.
 
 ```json
 {
@@ -230,34 +230,34 @@ RM-modulerna har inte möjlighet att generera Azure AD-konfigurationen åt dig, 
 }
 ```
 
-## <a name="test-your-template"></a>Testa din mall
-Använd följande PowerShell-kommando för att testa Resource Manager-mallen med en parameter fil:
+## <a name="test-your-template"></a>Testa mallen
+Använd följande PowerShell-kommando för att testa Resource Manager-mallen med en parameterfil:
 
 ```powershell
 Test-AzResourceGroupDeployment -ResourceGroupName "myresourcegroup" -TemplateFile .\azuredeploy.json -TemplateParameterFile .\azuredeploy.parameters.json
 ```
 
-Om du stöter på problem och får till gång till krypterings meddelanden använder du "-debug" som ett alternativ.
+Om du stöter på problem och får kryptiska meddelanden, använd sedan "-Debug" som ett alternativ.
 
 ```powershell
 Test-AzResourceGroupDeployment -ResourceGroupName "myresourcegroup" -TemplateFile .\azuredeploy.json -TemplateParameterFile .\azuredeploy.parameters.json -Debug
 ```
 
-Följande diagram illustrerar var nyckel valvet och Azure AD-konfigurationen passar in i Resource Manager-mallen.
+Följande diagram visar var din nyckelvalv och Azure AD-konfiguration passar in i din Resource Manager-mall.
 
-![Resurs hanterarens beroende karta][cluster-security-arm-dependency-map]
+![Beroendekarta för Resurshanteraren][cluster-security-arm-dependency-map]
 
 ## <a name="next-steps"></a>Nästa steg
-Nu när du har en mall för klustret kan du lära dig hur du [distribuerar klustret till Azure](service-fabric-cluster-creation-via-arm.md).  Om du inte redan har gjort det läser du check listan för [produktions beredskap](service-fabric-production-readiness-checklist.md) innan du distribuerar ett produktions kluster.
+Nu när du har en mall för klustret kan du läsa om hur du [distribuerar klustret till Azure](service-fabric-cluster-creation-via-arm.md).  Om du inte redan har gjort det läser du [checklistan för produktionsberedskap](service-fabric-production-readiness-checklist.md) innan du distribuerar ett produktionskluster.
 
-Information om JSON-syntaxen och egenskaperna för de resurser som distribueras i den här artikeln finns i:
+Mer information om JSON-syntaxen och egenskaperna för de resurser som distribueras i den här artikeln finns i:
 
-* [Microsoft. ServiceFabric/kluster](/azure/templates/microsoft.servicefabric/clusters)
-* [Microsoft. Storage/storageAccounts](/azure/templates/microsoft.storage/storageaccounts)
-* [Microsoft. Network/virtualNetworks](/azure/templates/microsoft.network/virtualnetworks)
-* [Microsoft. Network/publicIPAddresses](/azure/templates/microsoft.network/publicipaddresses)
-* [Microsoft. Network/belastningsutjämnare](/azure/templates/microsoft.network/loadbalancers)
-* [Microsoft. Compute/virtualMachineScaleSets](/azure/templates/microsoft.compute/virtualmachinescalesets)
+* [Microsoft.ServiceFabric/kluster](/azure/templates/microsoft.servicefabric/clusters)
+* [Microsoft.Storage/storageAccounts](/azure/templates/microsoft.storage/storageaccounts)
+* [Microsoft.Network/virtualNetworks](/azure/templates/microsoft.network/virtualnetworks)
+* [Microsoft.Network/publicIPAdresser](/azure/templates/microsoft.network/publicipaddresses)
+* [Microsoft.Network/loadBalancers](/azure/templates/microsoft.network/loadbalancers)
+* [Microsoft.Compute/virtualMachineScaleSets](/azure/templates/microsoft.compute/virtualmachinescalesets)
 
 <!-- Links -->
 [service-fabric-cluster-security]: service-fabric-cluster-security.md

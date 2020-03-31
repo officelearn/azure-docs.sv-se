@@ -1,6 +1,6 @@
 ---
-title: Så här migrerar du Azure API Management över flera regioner
-description: Lär dig hur du migrerar en API Management instans från en region till en annan.
+title: Migrera Azure API Management mellan regioner
+description: Lär dig hur du migrerar en API Management-instans från en region till en annan.
 services: api-management
 documentationcenter: ''
 author: miaojiang
@@ -13,37 +13,37 @@ ms.topic: article
 ms.date: 08/26/2019
 ms.author: apimpm
 ms.openlocfilehash: 3294a7b2112e9527041ef343f4452aedb7a2a272
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "70073470"
 ---
-# <a name="how-to-migrate-azure-api-management-across-regions"></a>Så här migrerar du Azure API Management över flera regioner
-Om du vill migrera API Management instanser från en Azure-region till en annan, kan du använda funktionen [säkerhets kopiering och återställning](api-management-howto-disaster-recovery-backup-restore.md) . Du bör välja samma API Management pris nivå i käll-och mål regionerna. 
+# <a name="how-to-migrate-azure-api-management-across-regions"></a>Migrera Azure API Management mellan regioner
+Om du vill migrera API Management-instanser från en Azure-region till en annan kan du använda [funktionen för säkerhetskopiering och återställning.](api-management-howto-disaster-recovery-backup-restore.md) Du bör välja samma API Management-prisnivå i käll- och målområdena. 
 
 > [!NOTE]
-> Säkerhets kopiering och återställning fungerar inte när du migrerar mellan olika moln typer. För det måste du exportera resursen [som en mall](https://docs.microsoft.com/azure/azure-resource-manager/manage-resource-groups-portal#export-resource-groups-to-templates). Sedan kan du anpassa den exporterade mallen för Azure-regionen och återskapa resursen. 
+> Säkerhetskopiering och återställning fungerar inte när du migrerar mellan olika molntyper. För det måste du exportera resursen [som en mall](https://docs.microsoft.com/azure/azure-resource-manager/manage-resource-groups-portal#export-resource-groups-to-templates). Anpassa sedan den exporterade mallen för azure-regionen för målet och återskapa resursen. 
 
-## <a name="option-1-use-a-different-api-management-instance-name"></a>Alternativ 1: Använd ett annat API Management instans namn
+## <a name="option-1-use-a-different-api-management-instance-name"></a>Alternativ 1: Använda ett annat API Management-förekomstnamn
 
-1. I mål regionen skapar du en ny API Management-instans med samma pris nivå som käll API Managements instansen. Den nya instansen bör ha ett annat namn. 
-1. Säkerhetskopiera befintlig API Management instans till ett lagrings konto.
-1. Återställ säkerhets kopian som skapades i steg 2 till den nya API Management-instansen som skapades i den nya regionen i steg 1.
-1. Om du har en anpassad domän som pekar på käll regionen API Management instans, uppdaterar du den anpassade domänen CNAME så att den pekar på den nya API Management-instansen. 
+1. Skapa en ny API Management-instans med samma prisnivå som käll-API Management-instansen i målregionen. Den nya instansen bör ha ett annat namn. 
+1. Säkerhetskopiera befintlig API Management-instans till ett lagringskonto.
+1. Återställ säkerhetskopian som skapats i steg 2 till den nya API Management-instansen som skapats i den nya regionen i steg 1.
+1. Om du har en anpassad domän som pekar på källregion API Management-instansen uppdaterar du den anpassade domänen CNAME så att den pekar på den nya API Management-instansen. 
 
 
-## <a name="option-2-use-the-same-api-management-instance-name"></a>Alternativ 2: Använd samma API Management instans namn
+## <a name="option-2-use-the-same-api-management-instance-name"></a>Alternativ 2: Använd samma API Management-instansnamn
 
 > [!NOTE]
-> Det här alternativet leder till stillestånds tid under migreringen.
+> Det här alternativet resulterar i driftstopp under migreringen.
 
-1. Säkerhetskopiera API Management-instansen i käll regionen till ett lagrings konto.
-1. Ta bort API Management i käll regionen. 
-1. Skapa en ny API Management-instans i mål regionen med samma namn som den i käll regionen.
-1. Återställ säkerhets kopian som skapades i steg 1 till den nya API Management-instansen i mål regionen.  
+1. Säkerhetskopiera API Management-instansen i källregionen till ett lagringskonto.
+1. Ta bort API-hanteringen i källregionen. 
+1. Skapa en ny API Management-instans i målregionen med samma namn som den i källregionen.
+1. Återställ säkerhetskopian som skapats i steg 1 till den nya API Management-instansen i målregionen.  
 
 
-## <a name="next-steps"> </a>Nästa steg
-* Mer information om funktionen för säkerhets kopiering och återställning finns i [implementera haveri beredskap](api-management-howto-disaster-recovery-backup-restore.md).
-* Information om hur du migrerar Azure-resurser finns i [Azures vägledning för migrering av flera regioner](https://github.com/Azure/Azure-Migration-Guidance).
+## <a name="next-steps"></a><a name="next-steps"> </a>Nästa steg
+* Mer information om säkerhetskopierings- och återställningsfunktionen finns i [hur du implementerar haveriberedskap](api-management-howto-disaster-recovery-backup-restore.md).
+* Information om migrering Azure-resurser finns i [Azure-vägledning för migrering mellan regioner](https://github.com/Azure/Azure-Migration-Guidance).

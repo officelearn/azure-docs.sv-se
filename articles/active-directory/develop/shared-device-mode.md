@@ -1,6 +1,6 @@
 ---
-title: Delat enhets läge för Android-enheter | Azure
-description: Lär dig mer om läget för delad enhet, vilket gör att firstline-arbetare kan dela en Android-enhet
+title: Läget Delad enhet för Android-enheter | Azure
+description: Lär dig mer om läget för delade enheter, som gör det möjligt för förstalinjens arbetare att dela en Android-enhet
 services: active-directory
 documentationcenter: dev-center-name
 author: mmacy
@@ -16,10 +16,10 @@ ms.author: marsma
 ms.reviwer: hahamil
 ms.custom: aaddev, identityplatformtop40
 ms.openlocfilehash: 9928b64d286cc5072f28f7cc17e4af3e95662cd0
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/08/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77085611"
 ---
 # <a name="shared-device-mode-for-android-devices"></a>Läge för delad enhet för Android-enheter
@@ -29,43 +29,43 @@ ms.locfileid: "77085611"
 > Den här förhandsversionen tillhandahålls utan serviceavtal och rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade.
 > Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Firstline-arbetskrafter, till exempel detalj handels företag, flyg besättnings medlemmar och fält tjänst arbetare, använder ofta en delad mobil enhet för att utföra sitt arbete. Det är problematiskt när de börjar dela lösen ord eller PIN-nummer för att komma åt kund-och affärs data på den delade enheten.
+Firstline-arbetare, till exempel butiksmedarbetare, flygbesättningsmedlemmar och fältservicearbetare, använder ofta en delad mobil enhet för att utföra sitt arbete. Det blir problematiskt när de börjar dela lösenord eller pinnummer för att komma åt kund- och affärsdata på den delade enheten.
 
-Med delad enhets läge kan du konfigurera en Android-enhet så att den enkelt kan delas av flera anställda. Anställda kan snabbt logga in och komma åt kund information. När de har slutförts med Skift eller uppgift kan de logga ut från enheten och det är omedelbart klart för nästa medarbetare att använda.
+Med läget delad enhet kan du konfigurera en Android-enhet så att den enkelt kan delas av flera anställda. Medarbetare kan logga in och komma åt kundinformation snabbt. När de är klara med skiftet eller uppgiften kan de logga ut från enheten och den är omedelbart redo för nästa medarbetare att använda.
 
-Delad enhets läge tillhandahåller även Microsoft-identitet för hantering av enheten.
+Läget delad enhet ger också Microsoft identitetsbaserad hantering av enheten.
 
-För att skapa en app för delad enhets läge fungerar utvecklare och moln enhets administratörer tillsammans:
+Så här skapar du en app för delat enhetsläge, utvecklare och administratörer för molnenheter:
 
-- Utvecklare skriver en app med ett enda konto (flera konton stöds inte i läget för delad enhet), Lägg till `"shared_device_mode_supported": true` i appens konfiguration och skriv kod för att hantera saker som delad enhets utloggning.
-- Enhets administratörer förbereder enheten för delning genom att installera Authenticator-appen och ställa in enheten till delat läge med hjälp av Authenticator-appen. Endast användare som är i rollen som [moln enhets administratör](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles#cloud-device-administrator) kan lagra en enhet i delat läge med hjälp av [Authenticator-appen](https://docs.microsoft.com/azure/active-directory/user-help/user-help-auth-app-overview). Du kan konfigurera medlemskap för dina organisations roller i Azure Portal via: **Azure Active Directory** > **roller och administratörer** > **moln enhets administratör**.
+- Utvecklare skriver en app med ett konto (appar med flera `"shared_device_mode_supported": true` konton stöds inte i läget delad enhet), lägger till i appens konfiguration och skriver kod för att hantera saker som ut logga ut på delad enhet.
+- Enhetsadministratörer förbereder enheten så att den delas genom att installera autentiseringsappen och ställa in enheten i delat läge med hjälp av autentiseringsappen. Endast användare som är med i rollen [Molnenhetsadministratör](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles#cloud-device-administrator) kan placera en enhet i delat läge med hjälp av [Authenticator-appen](https://docs.microsoft.com/azure/active-directory/user-help/user-help-auth-app-overview). Du kan konfigurera medlemskapet för dina organisationsroller i Azure-portalen via: **Azure Active Directory** > **Roles och Administrators** > **Cloud Device Administrator**.
 
- Den här artikeln fokuserar främst på vad utvecklare bör tänka på.
+ Denna artikel fokuserar främst vad utvecklare bör tänka på.
 
-## <a name="single-vs-multiple-account-applications"></a>Program med en vs-flera konton
+## <a name="single-vs-multiple-account-applications"></a>Program med ett eller flera konton
 
-Program som har skrivits med Microsoft Authentication Library SDK (MSAL) kan hantera ett enda konto eller flera konton. Mer information finns i läge för [enskilda konton eller flera konton](https://docs.microsoft.com/azure/active-directory/develop/single-multi-account). Vilka Microsoft Identity Platform-funktioner som är tillgängliga för din app beror på om programmet körs i enanvändarläge eller i läget för flera konton.
+Program som skrivs med Microsoft Authentication Library SDK (MSAL) kan hantera ett enda konto eller flera konton. Mer information finns i [läget för ett konto eller läget för flera konton](https://docs.microsoft.com/azure/active-directory/develop/single-multi-account). Microsoft identity-plattformsfunktioner som är tillgängliga för din app varierar beroende på om programmet körs i ett kontoläge eller flera konton.
 
-**Delade enhets läge appar fungerar bara i enanvändarläge**.
+**Appar med delat enhetsläge fungerar bara i ett kontoläge**.
 
 > [!IMPORTANT]
-> Program som endast stöder läge med flera konton kan inte köras på en delad enhet. Om en medarbetare läser in en app som inte har stöd för enanvändarläge, körs den inte på den delade enheten.
+> Program som bara stöder flera kontoläge kan inte köras på en delad enhet. Om en anställd läser in en app som inte stöder ett kontoläge körs den inte på den delade enheten.
 >
-> Appar som skrivits innan MSAL SDK lanserades i läget för flera konton och måste uppdateras för att stödja enanvändarläge innan de kan köras på en enhet i delat läge.
+> Appar som skrevs innan MSAL SDK släpptes körs i flerkontoläge och måste uppdateras för att stödja enkontoläge innan de kan köras på en enhet med delat läge.
 
 **Stöd för både ett konto och flera konton**
 
-Din app kan skapas för att stödja körning på både personliga enheter och delade enheter. Om din app för närvarande stöder flera konton och du vill ha stöd för delad enhets läge, lägger du till stöd för enskilt konto läge.
+Din app kan byggas för att stödja körning på både personliga enheter och delade enheter. Om din app för närvarande stöder flera konton och du vill ha stöd för delat enhetsläge lägger du till stöd för ett kontoläge.
 
-Du kanske också vill att appen ska ändra beteendet beroende på vilken typ av enhet som den körs på. Använd `ISingleAccountPublicClientApplication.isSharedDevice()` för att avgöra när du ska köra i enanvändarläge.
+Du kanske också vill att appen ska ändra sitt beteende beroende på vilken typ av enhet den körs på. Används `ISingleAccountPublicClientApplication.isSharedDevice()` för att bestämma när du ska köras i ett kontoläge.
 
-Det finns två olika gränssnitt som representerar den typ av enhet som ditt program är på. När du begär en program instans från MSALs program fabrik anges rätt program objekt automatiskt.
+Det finns två olika gränssnitt som representerar vilken typ av enhet ditt program är på. När du begär en programinstans från MSAL:s programfabrik tillhandahålls rätt programobjekt automatiskt.
 
-Följande objekt modell visar vilken typ av objekt som du kan ta emot och vad det innebär i kontexten för en delad enhet:
+Följande objektmodell illustrerar vilken typ av objekt du kan få och vad det innebär i samband med en delad enhet:
 
-![offentlig klient program arvs modell](media/v2-shared-device-mode/ipublic-client-app-inheritance.png)
+![arvsmodell för offentligt klientprogram](media/v2-shared-device-mode/ipublic-client-app-inheritance.png)
 
-Du måste göra en typ kontroll och omvandla till lämpligt gränssnitt när du får `PublicClientApplication`-objektet. Följande kod söker efter läge för flera konton eller enskilt konto och skickar programobjektet korrekt:
+Du måste göra en typ kontroll och kasta till lämpligt `PublicClientApplication` gränssnitt när du får ditt objekt. Följande kod söker efter flera kontoläge eller ett kontoläge och castar programobjektet på lämpligt sätt:
 
 ```java
 private IPublicClientApplication mApplication;
@@ -81,33 +81,33 @@ private IPublicClientApplication mApplication;
         }
 ```
 
-Följande skillnader gäller beroende på om din app körs på en delad eller personlig enhet:
+Följande skillnader gäller beroende på om appen körs på en delad eller personlig enhet:
 
 |  | Enhet för delat läge  | Personlig enhet |
 |---------|---------|---------|
-| **Leverantör**     | Enskilt konto | Flera konton |
-| **Inloggning** | Global | Global |
-| **Logga ut** | Global | Varje program kan styra om utloggningen är lokal i appen eller för program familjen. |
-| **Konto typer som stöds** | Endast arbets konton | Personliga konton och arbets konton stöds  |
+| **Konton**     | Ett konto | Flera konton |
+| **Logga in** | Global | Global |
+| **Logga ut** | Global | Varje program kan styra om ut logga ut är lokal för appen eller för programfamiljen. |
+| **Kontotyper som stöds** | Endast arbetskonton | Personliga konton och arbetskonton stöds  |
 
-## <a name="why-you-may-want-to-only-support-single-account-mode"></a>Därför kanske du bara vill ha stöd för enanvändarläge
+## <a name="why-you-may-want-to-only-support-single-account-mode"></a>Varför du kanske bara vill stödja ett kontoläge
 
-Om du skriver en app som endast ska användas för firstline-anställda som använder en delad enhet rekommenderar vi att du skriver ditt program så att det endast stöder enanvändarläge. Detta inkluderar de flesta program som är aktiviteter fokuserade som medicinska register appar, faktura program och de flesta branschspecifika appar. Endast stöd för enskilda konton fören klar utvecklingen eftersom du inte behöver implementera de ytterligare funktioner som ingår i flera konton.
+Om du skriver en app som bara används för förstahandsarbetare som använder en delad enhet rekommenderar vi att du skriver ditt program för att endast stödja ett kontoläge. Detta inkluderar de flesta program som är uppgiftsfokuserade, till exempel journalappar, fakturaappar och de flesta affärsappar. Endast stöd för ett konto-läge förenklar utvecklingen eftersom du inte behöver implementera ytterligare funktioner som ingår i appar med flera konton.
 
-## <a name="what-happens-when-the-device-mode-changes"></a>Vad händer när enhets läget ändras
+## <a name="what-happens-when-the-device-mode-changes"></a>Vad händer när enhetsläget ändras
 
-Om ditt program körs i ett läge med flera konton och en administratör försätter enheten i delad enhets läge, raderas alla konton på enheten från programmet och program över gångar till läge för enkel konto.
+Om programmet körs i flerkontoläge och en administratör placerar enheten i delat enhetsläge, rensas alla konton på enheten från programmet och programmet övergår till ett kontoläge.
 
-## <a name="shared-device-sign-out-and-the-overall-app-lifecycle"></a>Delad enhets utloggning och den övergripande appens livs cykel
+## <a name="shared-device-sign-out-and-the-overall-app-lifecycle"></a>Ut logga ut för delad enhet och den övergripande appens livscykel
 
-När en användare loggar ut måste du vidta åtgärder för att skydda användarens sekretess och data. Om du till exempel skapar en app för medicinska uppgifter vill du se till att när användaren loggar ut tidigare visade patient poster rensas. Ditt program måste förberedas för detta och kontrol lera varje gång det går in i förgrunden.
+När en användare loggar ut måste du vidta åtgärder för att skydda användarens integritet och data. Om du till exempel skapar en journalapp vill du vara säker på att patientjournaler rensas när användaren loggar ut som tidigare visades. Din ansökan måste vara förberedd för detta och kontrollera varje gång den kommer in i förgrunden.
 
-När din app använder MSAL för att logga ut användaren i en app som körs på enheten i delat läge, tas det inloggade kontot och cachelagrade token bort från både appen och enheten.
+När appen använder MSAL för att logga ut användaren i en app som körs på en enhet som är i delat läge tas inloggningskontot och cachelagrade token bort från både appen och enheten.
 
-Följande diagram visar den övergripande livs cykeln för appar och vanliga händelser som kan uppstå när din app körs. Diagrammet gäller från den tidpunkt då en aktivitet startas, inloggning och utloggning av ett konto, samt hur händelser som att pausa, återuppta och stoppa aktiviteten får plats i.
+Följande diagram visar den övergripande appens livscykel och vanliga händelser som kan inträffa medan appen körs. Diagrammet täcker från det att en aktivitet startar, loggar in och signerar ett konto och hur händelser som att pausa, återuppta och stoppa aktiviteten passar in.
 
-![Program livs cykel för delad enhet](media/v2-shared-device-mode/lifecycle.png)
+![Livscykel för appen Delad enhet](media/v2-shared-device-mode/lifecycle.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-Prova [läget Använd delad enhet i din Android-](tutorial-v2-shared-device-mode.md) programsjälvstudie som visar hur du kör en firstline Worker-app på en Android-enhet i delat läge.
+Prova [läget Använd delad enhet i självstudien för Android-program](tutorial-v2-shared-device-mode.md) som visar hur du kör en förstalinjearbetsapp på en Android-enhet i delat läge.

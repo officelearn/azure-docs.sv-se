@@ -1,6 +1,6 @@
 ---
-title: Loop för Windows-omstart på en virtuell Azure-dator | Microsoft Docs
-description: Lär dig hur du felsöker omstart av Windows-loop | Microsoft Docs
+title: Windows-omstartsloop på en virtuell Azure-dator | Microsoft-dokument
+description: Lär dig hur du felsöker Windows-omstartsloop | Microsoft-dokument
 services: virtual-machines-windows
 documentationCenter: ''
 author: genlin
@@ -13,104 +13,104 @@ ms.workload: infrastructure
 ms.date: 10/15/2018
 ms.author: genli
 ms.openlocfilehash: 3fd0a8bf6bacfec5e2be6dfa52ca51e46c7025f7
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75443589"
 ---
-# <a name="windows-reboot-loop-on-an-azure-vm"></a>Loop för Windows-omstart på en virtuell Azure-dator
-I den här artikeln beskrivs den omstart-loop som du kan uppleva på en virtuell Windows-dator (VM) i Microsoft Azure.
+# <a name="windows-reboot-loop-on-an-azure-vm"></a>Windows-omstartsloop på en virtuell Azure-dator
+I den här artikeln beskrivs omstartsloopen som kan uppstå på en virtuell dator (Virtuell Dator) i Microsoft Azure.
 
 ## <a name="symptom"></a>Symptom
 
-När du använder [startdiagnostik](./boot-diagnostics.md) för att hämta skärm bilderna för en virtuell dator, hittar du en virtuell dator, men start processen avbryts och processen börjar om.
+När du använder [Boot diagnostik](./boot-diagnostics.md) för att få skärmdumpar av en virtuell dator, hittar du den virtuella datorn startar men startprocessen blir avbruten och processen börjar om.
 
-![Start skärm 1](./media/troubleshoot-reboot-loop/start-screen-1.png)
+![Startskärm 1](./media/troubleshoot-reboot-loop/start-screen-1.png)
 
 ## <a name="cause"></a>Orsak
 
-Loopen för omstart inträffar på grund av följande orsaker:
+Omstartsloopen uppstår på grund av följande orsaker:
 
 ### <a name="cause-1"></a>Orsak 1
 
-Det finns en tjänst från tredje part som flaggats som kritisk och inte kan startas. Detta gör att operativ systemet startas om.
+Det finns en tjänst från tredje part som flaggas som kritisk och den kan inte startas. Detta medför att operativsystemet startar om.
 
 ### <a name="cause-2"></a>Orsak 2
 
-Vissa ändringar har gjorts i operativ systemet. Dessa är vanligt vis relaterade till en uppdaterings installation, program installation eller en ny princip. Du kan behöva kontrol lera följande loggar för ytterligare information:
+Vissa ändringar har gjorts i operativsystemet. Vanligtvis är dessa relaterade till en uppdateringsinstallation, programinstallation eller en ny princip. Du kan behöva kontrollera följande loggar för ytterligare information:
 
 - Händelseloggar
-- CBS.logWindows
-- Uppdatera. log
+- CBS.logFönster
+- Update.log
 
 ### <a name="cause-3"></a>Orsak 3
 
-Skadat fil system kan orsaka detta. Det är dock svårt att diagnostisera och identifiera den ändring som orsakar att operativ systemet skadas.
+Det kan orsaka skador på filsystemet. Det är dock svårt att diagnostisera och identifiera den förändring som orsakar skador på operativsystemet.
 
 ## <a name="solution"></a>Lösning
 
-Lös problemet genom att [säkerhetskopiera OS-disken](../windows/snapshot-copy-managed-disk.md)och [koppla OS-disken till en virtuell dator för räddning](../windows/troubleshoot-recovery-disks-portal.md)och följ sedan lösnings alternativen i enlighet med detta, eller prova lösningarna en i taget.
+Lös problemet genom [att säkerhetskopiera OS-disken](../windows/snapshot-copy-managed-disk.md)och [ansluta OS-disken till en virtuell räddnings-dator](../windows/troubleshoot-recovery-disks-portal.md)och följ sedan lösningsalternativen därefter, eller prova lösningarna en efter en.
 
 ### <a name="solution-for-cause-1"></a>Lösning för orsak 1
 
-1. När OS-disken är ansluten till en fungerande virtuell dator kontrollerar du att disken är flaggad som **online** i disk hanterings konsolen och noterar enhets beteckningen för den partition som innehåller mappen **\Windows** .
+1. När OS-disken är ansluten till en fungerande virtuell dator kontrollerar du att disken är flaggad som **online** i diskhanteringskonsolen och noterar enhetsbeteckningen för den partition som innehåller **mappen \Windows.**
 
-2. Om disken är **offline**anger du den till **online**.
+2. Om disken är inställd **på Offline**ställer du in den **på Online**.
 
-3. Skapa en kopia av **\Windows\System32\config** -mappen om det behövs en återställning av ändringarna.
+3. Skapa en kopia av mappen **\Windows\System32\config** om det behövs en återställning av ändringarna.
 
-4. På den rädda virtuella datorn öppnar du Windows Registereditorn (regedit).
+4. Öppna Windows-registereditorn (regedit) på den virtuella räddningsdatorn.
 
-5. Välj **HKEY_LOCAL_MACHINE** nyckel och välj sedan **Arkiv** > **läsa in Hive** på menyn.
+5. Välj **HKEY_LOCAL_MACHINE** och välj sedan **File** > **Filinläsningsdata från** menyn.
 
-6. Bläddra till SYSTEM filen i mappen **\Windows\System32\config**
+6. Bläddra till SYSTEM-filen i mappen **\Windows\System32\config.**
 
-7. Välj **Öppna**, Skriv **BROKENSYSTEM** som namn, expandera **HKEY_LOCAL_MACHINE** nyckeln och se ytterligare en nyckel med namnet **BROKENSYSTEM**.
+7. Välj **Öppna,** skriv **BROKENSYSTEM** för namnet, expandera **HKEY_LOCAL_MACHINE** och sedan visas ytterligare en nyckel som heter **BROKENSYSTEM**.
 
-8. Kontrol lera vilken ControlSet datorn startar från. Nyckel numret visas i följande register nyckel.
+8. Kontrollera vilken ControlSet datorn startar från. Du kommer att se dess nyckelnummer i följande registernyckel.
 
     `HKEY_LOCAL_MACHINE\BROKENSYSTEM\Select\Current`
 
-9. Kontrol lera vilken allvarlighets grad tjänsten för VM-agenten har genom följande register nyckel.
+9. Kontrollera vilken som är den kritiska vm-agenttjänsten via följande registernyckel.
 
     `HKEY_LOCAL_MACHINE\BROKENSYSTEM\ControlSet00x\Services\RDAgent\ErrorControl`
 
-10. Om värdet för register nyckeln inte är inställt på **2**, går du vidare till nästa minskning.
+10. Om värdet för registernyckeln inte är inställt på **2**går du sedan till nästa begränsning.
 
-11. Om värdet för register nyckeln är inställt på **2**, ändra värdet från **2** till **1**.
+11. Om värdet för registernyckeln är inställt på **2**ändrar du värdet från **2** till **1**.
 
-12. Om någon av följande nycklar finns och har värdet **2** eller **3**, och ändra sedan värdena till **1** :
+12. Om någon av följande nycklar finns och de har värdet **2** eller **3**och sedan ändra dessa värden till **1** i enlighet med detta:
 
     - `HKEY_LOCAL_MACHINE\BROKENSYSTEM\ControlSet00x\Services\AzureWLBackupCoordinatorSvc\ErrorControl`
     - `HKEY_LOCAL_MACHINE\BROKENSYSTEM\ControlSet00x\Services\AzureWLBackupInquirySvc\ErrorControl`
     - `HKEY_LOCAL_MACHINE\BROKENSYSTEM\ControlSet00x\Services\AzureWLBackupPluginSvc\ErrorControl`
 
-13. Välj nyckeln **BROKENSYSTEM** och välj sedan **Arkiv** > **ta bort Hive** från menyn.
+13. Välj **BROKENSYSTEM-tangenten** och välj sedan > **Filavlastningsdata från** menyn. **File**
 
-14. Koppla bort OS-disken från den virtuella fel söknings datorn.
+14. Koppla bort OS-disken från den virtuella felsökningsdatorn.
 
-15. Ta bort disken från den virtuella fel söknings datorn och vänta ungefär 2 minuter på att Azure ska frigöra disken.
+15. Ta bort disken från den virtuella felsökningsdatorn och vänta ca 2 minuter innan Azure släpper den här disken.
 
 16. [Skapa en ny virtuell dator från OS-disken](../windows/create-vm-specialized.md).
 
-17. Om problemet är löst kan du behöva installera om [RDAgent](https://blogs.msdn.microsoft.com/mast/2014/04/07/install-the-vm-agent-on-an-existing-azure-vm/) (WaAppAgent. exe).
+17. Om problemet är åtgärdat kan du behöva installera om [RDAgent](https://blogs.msdn.microsoft.com/mast/2014/04/07/install-the-vm-agent-on-an-existing-azure-vm/) (WaAppAgent.exe).
 
 ### <a name="solution-for-cause-2"></a>Lösning för orsak 2
 
-Återställ den virtuella datorn till den senast fungerande konfigurationen, Följ stegen i [så här startar du en virtuell Azure Windows-dator med senast fungerande konfiguration](https://support.microsoft.com/help/4016731/).
+Återställ den virtuella datorn till den senast fungerande konfigurationen, följ stegen i [Starta Azure Windows VM med Senast fungerande konfiguration](https://support.microsoft.com/help/4016731/).
 
 ### <a name="solution-for-cause-3"></a>Lösning för orsak 3
 >[!NOTE]
->Följande procedur bör endast användas som sista resurs. När återställning från Regback kan återställa åtkomst till datorn anses inte operativ systemet vara stabilt eftersom data går förlorade i registret mellan tidsstämpeln för Hive och den aktuella dagen. Du måste skapa en ny virtuell dator och göra planer på att migrera data.
+>Följande procedur bör endast användas som senaste resurs. Återställning från återskapning från återställning kan återställa åtkomsten till datorn, men operativsystemet anses inte vara stabilt eftersom data går förlorade i registret mellan tidsstämpeln för registreringsdatafilen och den aktuella dagen. Du måste skapa en ny virtuell dator och planera för att migrera data.
 
-1. När disken är ansluten till en fel söknings dator kontrollerar du att disken är flaggad som **online** i disk hanterings konsolen.
+1. När disken är ansluten till en felsökande virtuell dator kontrollerar du att disken är flaggad som **online** i diskhanteringskonsolen.
 
-2. Skapa en kopia av **\Windows\System32\config** -mappen om det behövs en återställning av ändringarna.
+2. Skapa en kopia av mappen **\Windows\System32\config** om det behövs en återställning av ändringarna.
 
-3. Kopiera filerna i mappen **\Windows\System32\config\regback** och ersätt filerna i mappen **\Windows\System32\config** .
+3. Kopiera filerna i mappen **\Windows\System32\config\regback** och ersätt filerna i mappen **\Windows\System32\config.**
 
-4. Ta bort disken från den virtuella fel söknings datorn och vänta ungefär 2 minuter på att Azure ska frigöra disken.
+4. Ta bort disken från den virtuella felsökningsdatorn och vänta ca 2 minuter innan Azure släpper den här disken.
 
 5. [Skapa en ny virtuell dator från OS-disken](../windows/create-vm-specialized.md).
 

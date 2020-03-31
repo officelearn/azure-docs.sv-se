@@ -1,103 +1,102 @@
 ---
-title: Marketplace-beskrivning för en Azure IoT Edge-modul | Azure Marketplace
-description: Skapa Marketplace-beskrivningen för en IoT Edge-modul.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: dan-wesley
+title: Marknadsplatsbeskrivning för en Azure IoT Edge-modul | Azure Marketplace
+description: Skapa marketplace-beskrivningen för en IoT Edge-modul.
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/24/2019
-ms.author: pabutler
-ms.openlocfilehash: 8021b6fe40e006a95b3eeff1031606c38cc47b87
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.author: dsindona
+ms.openlocfilehash: 3ff65a637c1d3722e773ab27f051b3b5bc109a23
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76721633"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80281739"
 ---
-# <a name="iot-edge-module-marketplace-tab"></a>Fliken Marketplace för IoT Edge modulen
+# <a name="iot-edge-module-marketplace-tab"></a>Fliken Marketplace för IoT Edge-modul
 
-På fliken **Marketplace** på sidan **ny erbjudande** kan du ge dina potentiella kunder information om marknadsföring, försäljning och juridisk information och avtal och hantera leads som genereras från Marketplace. Det här långa formuläret är uppdelat i fyra avsnitt: **Översikt**, **marknadsförings artefakter**, **lead-hantering**och **juridiskt**.
+På fliken **Marketplace** på sidan **Nytt erbjudande** kan du förse dina potentiella kunder med marknadsföring, försäljning och juridisk information och avtal och hantera leads som genereras från marknadsplatsen. Det här långa formuläret är indelat i fyra avsnitt: **Översikt**, **Marknadsföringsartefakter**, **Lead Management**och **Legal**.
 
 
 ## <a name="overview"></a>Översikt
 
-I det här avsnittet anger du allmän information om erbjudandet för Azure Marketplace.  En asterisk (*) som läggs till i fält namnet visar att det är obligatoriskt.
+I det här avsnittet anger du allmän information om ditt Azure Marketplace-erbjudande.  En asterisk (*) som läggs till i fältnamnet anger att det krävs.
 
-![Översikts avsnittet på fliken Marketplace i formuläret ny erbjudande för IoT Edge moduler](./media/iot-edge-module-marketplace-tab-overview.png)
+![Översiktsavsnittet på fliken Marketplace i formuläret Nytt erbjudande för IoT Edge-moduler](./media/iot-edge-module-marketplace-tab-overview.png)
 
-I följande tabell beskrivs syftet med och innehållet i dessa fält. Obligatoriska fält förutsägs av en asterisk (*).
+I följande tabell beskrivs syftet med och innehållet i dessa fält. Obligatoriska fält åtalas av en asterisk (*).
 
-|  **Fält**                |     **Beskrivning**                                                          |
+|  **Field**                |     **Beskrivning**                                                          |
 |  ---------                |     ---------------                                                          |
-| **Rubrik\***                 | Rubriken på erbjudandet. Den visas på ett framträdande sätt i Marketplace.  Maximal längd på 50 tecken. <!--ADD PICTURE IN ACTION-->|
+| **Titel\***                 | Erbjudandets titel. Det kommer att visas tydligt på marknaden.  Maximal längd på 50 tecken. <!--ADD PICTURE IN ACTION-->|
 | **Sammanfattning\***               | Kort sammanfattning av erbjudandet. Maximal längd på 100 tecken. <!--ADD PICTURE IN ACTION-->|
-| **Lång Sammanfattning\***          | Längre sammanfattning av erbjudandet (även om det kan vara samma som i **sammanfattningen**).  Maximal längd på 256 tecken. <!--ADD PICTURE IN ACTION-->|
-| **Beskrivning\***           | Beskrivning av erbjudandet.  Den maximala längden på 3000 tecken, stöder enkel HTML-formatering.<br/> Det måste innehålla ett stycke med *minsta maskin varu krav* längst ned. Exempel: <br/> <p><u>Minsta maskin varu krav:</u> Linux x64 och ARM32 OS, 1 GB RAM, 500 MB lagrings utrymme</p>
-| **Marknadsförings-ID\***  | En unik URL som associeras med det här erbjudandet, och innehåller vanligt vis organisations-och lösnings namn, högst 50 tecken.  Exempel: <br/> `https://azuremarketplace.microsoft.com/marketplace/apps/contoso.sampleIoTEdgeModule`  |
-| **Förhandsgranska prenumerations-ID: n** | Lägg till en till 100 prenumerations-ID för för hands visare. Dessa vita prenumerationer kommer att ha åtkomst till erbjudandet när det har publicerats, innan det går live. |
-| **Användbara länkar**          | Flera val av affärs-och teknik kategorier som erbjuder passar bäst för.  Högst 10 tillåts. Se till att lägga till minst en länk till din dokumentation och en länk till de kompatibla IoT Edge enheterna från [Azure IoT-katalogen](https://catalog.azureiotsolutions.com/). |
-| **Föreslagna kategorier\*** | Hämta upp till fem kategorier. De visas på produkt informations sidan. På sidan bläddra visas alla IoT Edge moduler under kategorin *Sakernas Internet \> IoT Edge modul* .|
+| **Lång sammanfattning\***          | Längre sammanfattning av erbjudandet (även om det kan vara samma som **sammanfattningen**).  Maximal längd på 256 tecken. <!--ADD PICTURE IN ACTION-->|
+| **Beskrivning\***           | Beskrivning av erbjudandet.  Maximal längd på 3000 tecken, stöder enkel HTML-formatering.<br/> Den måste innehålla ett stycke minimikrav på *maskinvarukrav* längst ned. till exempel: <br/> <p><u>Minimikrav på maskinvara:</u> Linux x64 och arm32 OS, 1 GB RAM, 500 Mb lagringsutrymme</p>
+| **Marknadsidentifierare\***  | En unik URL som ska associeras med det här erbjudandet, innehåller vanligtvis ditt organisations- och lösningsnamn, maximal längd på 50 tecken.  Ett exempel: <br/> `https://azuremarketplace.microsoft.com/marketplace/apps/contoso.sampleIoTEdgeModule`  |
+| **Förhandsgranska prenumerations-ID:er** | Lägg till en till 100 prenumerationsidentifierare för förhandsgranskningsspelare. Dessa vitlistade prenumerationer har tillgång till erbjudandet när det har publicerats, innan det publiceras. |
+| **Användbara länkar**          | Flerval av affärs- och teknikkategorier som erbjuder kan bäst associeras med.  Högst 10 tillåtna. Se till att lägga till minst en länk till din dokumentation och en länk till kompatibla IoT Edge-enheter från [Azure IoT-enhetskatalogen](https://catalog.azureiotsolutions.com/). |
+| **Föreslagna kategorier\*** | Plocka upp till fem kategorier. De visas på din produktinformationssida. På bläddringssidorna visas alla IoT Edge-moduler under *ioT \> Edge-modulekategorin Internet* of Things.|
 |  |  |
 
 
-### <a name="offer-example"></a>Erbjudande exempel
+### <a name="offer-example"></a>Exempel på erbjudande
 
- I följande exempel visas hur fälten **rubrik**, **Sammanfattning**, **Beskrivning**, **logo typer**och **skärm bilder** visas i olika vyer.
+ Följande exempel visar hur fälten **Titel,** **Sammanfattning,** **Beskrivning**, **Logotyper**och **Skärmbilder** visas i olika vyer.
 
  
-#### <a name="on-the-azure-marketplace-website"></a>På webbplatsen för Azure Marketplace:
+#### <a name="on-the-azure-marketplace-website"></a>På Webbplatsen för Azure Marketplace:
 
-- När du surfar erbjuder:
+- När du surfar erbjudanden:
 
-    ![Hur Marketplace-erbjudanden visas på webbplatsen för Azure Marketplace – Bläddra](./media/iot-edge-module-ampdotcom-card.png)
+    ![Så här visas marketplace-erbjudanden på Azure Marketplace-webbplatsen – bläddra](./media/iot-edge-module-ampdotcom-card.png)
 
-- När du tittar på erbjudande information:
+- När du tittar på erbjudande detaljer:
 
-    ![Hur IoT Edge-modulen visas när du tittar på produkt informationen på webbplatsen](./media/iot-edge-module-ampdotcom-pdp.png)
+    ![Hur IoT Edge-modulen dyker upp när du tittar på produktinformationen på webbplatsen](./media/iot-edge-module-ampdotcom-pdp.png)
 
 
-#### <a name="on-the-azure-portal-website"></a>På Azure Portal webbplats:
+#### <a name="on-the-azure-portal-website"></a>På Azure-portalens webbplats:
 
-- När du surfar erbjuder:
+- När du surfar erbjudanden:
 
-    ![Hur IoT Edge-modulen visas när du bläddrar i Azure Portal #1](./media/iot-edge-module-portal-browse.png)
+    ![Så här visas IoT Edge-modulen när du surfar på Azure-portalen #1](./media/iot-edge-module-portal-browse.png)
 
-    ![Hur IoT Edge-modulen visas när du bläddrar i Azure Portal #2](./media/iot-edge-module-portal-product-picker.png)
+    ![Så här visas IoT Edge-modulen när du surfar på Azure-portalen #2](./media/iot-edge-module-portal-product-picker.png)
 
 - När du söker efter ett erbjudande:
 
-    ![Hur IoT Edge-modulen visas när du söker i Azure Portal](./media/iot-edge-module-portal-search.png)
+    ![Så här visas IoT Edge-modulen när du söker i Azure-portalen](./media/iot-edge-module-portal-search.png)
 
-- När du tittar på erbjudande information:
+- När du tittar på erbjudande detaljer:
 
-    ![Hur IoT Edge modul visas när du tittar på produkt informationen i portalen](./media/iot-edge-module-portal-pdp.png)
+    ![Hur IoT Edge-modulen visas när du tittar på produktinformationen i portalen](./media/iot-edge-module-portal-pdp.png)
 
 
-## <a name="marketing-artifacts"></a>Marknadsförings artefakter
+## <a name="marketing-artifacts"></a>Marknadsföring Artefakter
 
-I det här avsnittet finns följande avsnitt: **logo typer**, **skärm**bilder och **videor**. 
+Det här avsnittet innehåller följande underavsnitt: **Logotyper,** **skärmbild**och **videor**. 
 
 >[!Note]
->Logo typer är de enda marknadsförings artefakter som krävs, men alla är starkt rekommenderade för bästa möjliga kund överklaga.
+>Logotyper är de enda nödvändiga marknadsföring artefakter, men alla rekommenderas starkt för bästa kund överklagande.
 
-![Avsnittet marknadsförings artefakter på fliken Marketplace i formuläret ny erbjudande för virtuella datorer](./media/publishvm_009.png)
+![Avsnittet Marknadsföringsartefakter på fliken Marketplace i formuläret Nytt erbjudande för virtuella datorer](./media/publishvm_009.png)
 
-|  **Fält**                |     **Beskrivning**                                                          |
+|  **Field**                |     **Beskrivning**                                                          |
 |  ---------                |     ---------------                                                          |
-| *Typerna*  | Se föregående skärm bild för att se hur och var dina logo typer kommer att användas.  |
-| **Liten\***                 | PNG-format för 40x40-bild                                                     |
-| **Medel\***                | PNG-format för 90x90-bild                                                     |
-| **Stor\***                 | PNG-format för 115x115-bild                                                  |
-| **Bred\***                  | PNG-format för 255x115-bild                                                   |
-| **Hjälte**                  | PNG-format för 815x290-bild.  Valfritt, men när du har laddat upp hjälte ikonen kan du inte ta bort den. |
-| *Par*  | Skärm dum par visas på produkt informations sidan. De är ett bra sätt att visuellt förmedla vad IoT Edge-modulen gör och hur det fungerar. Du kan visa arkitektur diagram eller användnings Falls illustrationer för en instans. Valfritt, men högst fem skärm bilder per SKU. |
-| **Namn**                  | Namn eller rubrik. Maximal längd på 100 tecken.                             |
-| **Avbildning**                 | Skärmdump-bild, 533x324 pixel PNG-format                               |
-| *Videoklipp*  | Videor visas på produkt informations sidan. De är ett bra sätt att visuellt förmedla vad IoT Edge-modulen gör och hur det fungerar. |
-| **Namn**                  | Namn eller rubrik. Maximal längd på 100 tecken.                             |
+| *Logotyper*  | Se föregående skärmdumpar för att se hur och var dina logotyper kommer att användas.  |
+| **Liten\***                 | PNG-format med 40 x 40 pixlar                                                     |
+| **Medium\***                | PNG-format med 90 x 90 pixlar                                                     |
+| **Stor\***                 | PNG-format med 115 x 115 pixlar                                                  |
+| **Brett\***                  | PNG-format med 255 x 115 pixlar                                                   |
+| **Hjälte**                  | PNG-format med 815 x 290 pixlar.  Valfritt, men när du har laddat upp hjälteikonen kan inte tas bort. |
+| *Skärmbilder*  | Skärmbilder visas på produktinformationssidan. De är ett bra sätt att visuellt kommunicera vad din IoT Edge-modul gör och hur den fungerar. Du kan visa arkitekturdiagram eller använda exempelvis exempelvis illustrationer. Valfritt, men högst fem skärmbilder per SKU. |
+| **Namn**                  | Namn eller titel. Maximal längd på 100 tecken.                             |
+| **Bild**                 | Bild av skärmtagning, PNG-format med 533 x 324 pixlar                               |
+| *Videor*  | Videor visas på produktinformationssidan. De är ett bra sätt att visuellt kommunicera vad din IoT Edge-modul gör och hur den fungerar. |
+| **Namn**                  | Namn eller titel. Maximal längd på 100 tecken.                             |
 | **Länk**                  | Video-URL, som finns på YouTube eller Vimeo                                        |
-| **Miniatyr**             | PNG-format för 533x324-bild                                                     |
+| **Miniatyr**             | PNG-format med 533 x 324 pixlar                                                     |
 |  |  |
 
 
@@ -106,28 +105,28 @@ I det här avsnittet finns följande avsnitt: **logo typer**, **skärm**bilder o
 <!-- It seems like this section could be better located in some common area, maybe an AMP Marketing/Design section 
 +1 this should all be in a common area and referenced from here to that location.-->
 
-Alla logo typer som laddats upp till Cloud Partner Portal bör följa rikt linjerna:
+Alla logotyper som laddas upp till Cloud Partner Portal bör följa riktlinjerna:
 
-*  Azure-designen har en enkel färgpalett. Behåll antalet primära och sekundära färger på din logo typ låg.
-*  Tema färgerna i Azure-portalen är vita och svarta. Undvik att använda dessa färger som bakgrunds färg för dina logo typer. Använd en färg som gör logo typerna framträdande i Azure Portal. Vi rekommenderar enkla primärfärger. Om du använder en genomskinlig bakgrund ser du till att logo typerna/texten inte är vita, svarta eller blå.
-*  Använd inte en tonings bakgrund på din logo typ.
-*  Undvik att placera text – även ditt företags-eller märkes namn – på logo typen. Utseendet på logo typen bör vara "flat" och undvika toningar.
-*  Sträck inte ut logo typen.
+*  Azure-designen har en enkel färgpalett. Håll antalet primära och sekundära färger på logotypen lågt.
+*  Temafärgerna i Azure Portal är vita och svarta. Undvik att använda dessa färger som bakgrundsfärg för logotyperna. Använd en färg som gör dina logotyper framträdande i Azure-portalen. Vi rekommenderar enkla primärfärger. Om du använder en genomskinlig bakgrund kontrollerar du att logotyperna/texten inte är vita, svarta eller blå.
+*  Använd inte en övertoningsbakgrund på logotypen.
+*  Undvik att placera text – även ditt företags- eller varumärke – på logotypen. Utseendet och känslan på din logotyp ska vara "platt" och bör undvika lutningar.
+*  Sträck inte ut logotypen.
 
 
 #### <a name="hero-logo"></a>Hero-logotyp
 
-Hjältens logo typ är valfri.
+Hero-logotypen är valfri.
 
 >[!Important]
->När hjälte logo typen har laddats upp går det inte att ta bort den.
+>När Hero-logotypen har laddats upp kan den inte tas bort.
 
-Använd följande rikt linjer för en hjälte logo typ: 
+Använd följande riktlinjer för en Hero-logotyp: 
 
-*  Svarta, vita och transparenta bakgrunder är inte tillåtna.
-*  Undvik att använda en ljus färg som bakgrund för logo typen.  Visnings namnet för utgivaren, plan rubriken och den långa sammanfattningen av erbjudandet visas i vit tecken färg och måste synas mot bakgrunden.
-*  Undvik att använda den mesta texten när du utformar logo typen. Utgivar namnet, plan rubriken, erbjudandet lång Sammanfattning och en knappen Skapa bäddas in program mässigt inuti logo typen när erbjudandet visas. 
-* Ta med ett oanvänt rektangulärt utrymme på den högra sidan av din hjälte logo typ. Det tomma utrymmet är 415x100 pixlar och förskjuts från vänster med 370 bild punkter.  
+*  Svarta, vita och genomskinliga bakgrunder är inte tillåtna.
+*  Undvik att använda ljus färg som bakgrund för logotypen.  Utgivarens visningsnamn, planrubrik och erbjudandets långa sammanfattning visas i vit teckenfärg och måste sticka ut mot bakgrunden.
+*  Undvik att använda de flesta text när du utformar logotypen. Utgivarens namn, plantitel, erbjudandets långa sammanfattning och en skapa-knapp bäddas in programmässigt i logotypen när erbjudandet visas. 
+* Inkludera ett oanvänt rektangulärt utrymme till höger om din hjältelogotyp. Det här tomma utrymmet är 415x100 pixlar och förskjuts från vänster med 370 pixlar.  
 
 <!-- P2: would be nice to also have an picture int he context of iot edge of the hero image
 As an example, the following hero icon is for the Azure Container Service.
@@ -138,19 +137,19 @@ As an example, the following hero icon is for the Azure Container Service.
 
 ## <a name="lead-management"></a>Leadhantering
 
-I det här avsnittet kan du ställa in alternativen för att samla in kund leads som genereras från dina Azure Marketplace-erbjudanden. Du kan välja följande lagrings alternativ i en listruta.
+I det här avsnittet kan du ställa in alternativen för att samla in kundleads som genereras från dina Azure Marketplace-erbjudanden. Du kan välja följande lagringsalternativ i en listruta.
 
-* **Ingen** -standardvärdet för lead-information samlas inte in.
-* Azure Table-skriven till Azure-tabellen som anges av en anslutnings sträng.
-* Dynamics CRM Online – skrivet till [Microsoft Dynamics 365 online](https://dynamics.microsoft.com/) -instansen som anges av en URL och autentiseringsuppgifter för autentisering.
-* HTTPS-slutpunkt – skrivs till den angivna HTTPS-slutpunkten som en JSON-nyttolast.
-* Marketo-skriven på den angivna [Marketo](https://www.marketo.com/) -instansen, anges av Server-ID, Munchkin-ID och formulär-ID.
-* Salesforce-skriven till en [Salesforce](https://www.salesforce.com/) -databas som anges av en objekt identifierare.
+* **Ingen** - standardinformationen samlas inte in.
+* Azure Table - skrivet till Azure-tabellen som anges av en anslutningssträng.
+* Dynamics CRM Online - skrivet till [Microsoft Dynamics 365](https://dynamics.microsoft.com/) Online-instansen, som anges av en URL och autentiseringsuppgifter.
+* HTTPS Slutpunkt - skrivet till den angivna HTTPS-slutpunkten som en JSON-nyttolast.
+* Marketo - skrivet [Marketo](https://www.marketo.com/) till den angivna Marketo-instansen, angiven av server-ID, munchkin-ID och formulär-ID.
+* Salesforce - skrivet till en [Salesforce-databas,](https://www.salesforce.com/) angiven av en objektidentifierare.
 
-När du har publicerat erbjudandet verifieras ledar anslutningen och ett test-lead skickas automatiskt till det mål som du har konfigurerat. 
+När du har publicerat erbjudandet verifieras leadanslutningen och en testled skickas automatiskt till det mål som du konfigurerade. 
 
 >[!Note]
->Lead-information ska hanteras kontinuerligt och de här inställningarna bör uppdateras när ändringar görs i din kund hanterings arkitektur.
+>Leadinformation bör hanteras kontinuerligt och dessa inställningar bör uppdateras snabbt när ändringar görs i din kundhanteringsarkitektur.
 
 <!-- there is missing some marketing imagess
 1. inside azure portal the wide logo/regular logo
@@ -159,18 +158,18 @@ När du har publicerat erbjudandet verifieras ledar anslutningen och ett test-le
 4. amp.com the tile -->
 
 
-## <a name="legal"></a>A4
+## <a name="legal"></a>Juridisk information
 
-I det här avsnittet kan du ange de två juridiska dokument som krävs för varje erbjudande: sekretess policy och användnings villkor.
+I det här avsnittet kan du tillhandahålla de två juridiska dokument som krävs för varje erbjudande: Sekretesspolicy och användarvillkoren.
 
-|  **Fält**                    |     **Beskrivning**                                                          |
+|  **Field**                    |     **Beskrivning**                                                          |
 |  ---------                    |     ---------------                                                          |
-| **URL för sekretess policy\***      | URL till din publicerade sekretess policy                                            |
-| **Använd standard Constract-\***  | Om standard mal len för Microsoft-kontrakt ska användas.  Mer information finns i [standard kontrakt](https://docs.microsoft.com/azure/marketplace/standard-contract).   |
-| **Användningsvillkor\***            | *Användningsvillkor* som infogad enkel HTML eller länka till dina publicerade användnings villkors sidor     |
+| **Url till sekretesspolicy\***      | URL till din bokförda sekretesspolicy                                            |
+| **Använd Standard Constract\***  | Om standardmallen för Microsoft-kontrakt ska användas.  Mer information finns i [Standardkontrakt](https://docs.microsoft.com/azure/marketplace/standard-contract).   |
+| **Användningsvillkor\***            | *Användarvillkor* som infogad enkel HTML eller länk till din bokförda användningsvillkor sida     |
 |  |  |
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Använd fliken [support](./cpp-support-tab.md) för att tillhandahålla support resurser för teknisk support och användare för ditt erbjudande.
+Använd fliken [Support](./cpp-support-tab.md) för att tillhandahålla tekniska resurser och användarsupport för ditt erbjudande.

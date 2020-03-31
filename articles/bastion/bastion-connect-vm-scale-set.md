@@ -1,6 +1,6 @@
 ---
-title: Ansluta till en skalnings uppsättning för virtuella Windows-datorer med hjälp av Azure skydds | Microsoft Docs
-description: I den här artikeln får du lära dig hur du ansluter till en skalnings uppsättning i en virtuell Azure-dator med hjälp av Azure skydds.
+title: Ansluta till en windows-skalningsuppsättning för virtuella datorer med Azure Bastion | Microsoft-dokument
+description: I den här artikeln får du lära dig hur du ansluter till en Azure-skalningsuppsättning för virtuella datorer med Azure Bastion.
 services: bastion
 author: cherylmc
 ms.service: bastion
@@ -8,36 +8,36 @@ ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: cherylmc
 ms.openlocfilehash: 4f513aaf113ef4bd6e75e5c4b31e0f0252d45f10
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/04/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76988098"
 ---
-# <a name="connect-to-a-virtual-machine-scale-set-using-azure-bastion"></a>Ansluta till en skalnings uppsättning för virtuella datorer med hjälp av Azure skydds
+# <a name="connect-to-a-virtual-machine-scale-set-using-azure-bastion"></a>Ansluta till en skalningsuppsättning för virtuella datorer med Azure Bastion
 
-Den här artikeln visar hur du på ett säkert och smidigt sätt kan använda RDP för den virtuella Windows-datorns skalnings uppsättnings instans i ett virtuellt Azure-nätverk med Azure skydds. Du kan ansluta till en instans av en skalnings uppsättning för virtuella datorer direkt från Azure Portal. När du använder Azure Bastion behövs ingen klient, agent eller ytterligare programvara för den virtuella datorn. Mer information om Azure-skydds finns i [översikten](bastion-overview.md).
+Den här artikeln visar hur du på ett säkert och smidigt sätt rdp till din Windows-uppsättning för virtuell datorskala i ett virtuellt Azure-nätverk med Azure Bastion. Du kan ansluta till en uppsättning instans för skalning av virtuella datorer direkt från Azure-portalen. När du använder Azure Bastion kräver virtuella datorer inte en klient, agent eller ytterligare programvara. Mer information om Azure Bastion finns i [översikten](bastion-overview.md).
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
-Kontrol lera att du har konfigurerat en Azure skydds-värd för det virtuella nätverk där den virtuella datorns skalnings uppsättning finns. Mer information finns i [skapa en Azure skydds-värd](bastion-create-host-portal.md). När skydds-tjänsten har tillhandahållits och distribuerats i det virtuella nätverket kan du använda den för att ansluta till en instans av en skalnings uppsättning för virtuella datorer i det här virtuella nätverket. Skydds förutsätter att du använder RDP för att ansluta till en skalnings uppsättning för virtuella Windows-datorer och SSH för att ansluta till din skalnings uppsättning för virtuella Linux-datorer. Information om hur du ansluter till en virtuell Linux-dator finns i [ansluta till en VM – Linux](bastion-connect-vm-ssh.md).
+Kontrollera att du har konfigurerat en Azure Bastion-värd för det virtuella nätverket där skalningsuppsättningen för den virtuella datorn finns. Mer information finns i [Skapa en Azure Bastion-värd](bastion-create-host-portal.md). När Tjänsten Bastion har etablerats och distribuerats i det virtuella nätverket kan du använda den för att ansluta till en uppsättning instans för skalning av virtuella datorer i det här virtuella nätverket. Bastion förutsätter att du använder RDP för att ansluta till en Windows virtuell dator skalningsuppsättning, och SSH för att ansluta till din Linux virtuell dator skala uppsättning. Information om anslutning till en Virtuell Linux finns i [Ansluta till en virtuell dator - Linux](bastion-connect-vm-ssh.md).
 
-## <a name="rdp"></a>Anslut via RDP
+## <a name="connect-using-rdp"></a><a name="rdp"></a>Ansluta med RDP
 
-1. Öppna [Azure-portalen](https://portal.azure.com). Navigera till den skalnings uppsättning för virtuella datorer som du vill ansluta till.
+1. Öppna [Azure-portalen](https://portal.azure.com). Navigera till den skaluppsättning för virtuella datorer som du vill ansluta till.
 
-   ![sökning](./media/bastion-connect-vm-scale-set/1.png)
-2. Gå till den instans av skalnings uppsättningen för virtuell dator som du vill ansluta till och välj sedan **Anslut**. När du använder en RDP-anslutning bör skalnings uppsättningen för den virtuella datorn vara en skalnings uppsättning för virtuella Windows-datorer.
+   ![navigate](./media/bastion-connect-vm-scale-set/1.png)
+2. Navigera till den uppsättning instans för virtuell dator som du vill ansluta till och välj sedan **Anslut**. När du använder en RDP-anslutning bör skaluppsättningen för den virtuella datorn vara en skalauppsättning för den virtuella datorn i Windows.
 
-   ![skalnings uppsättning för virtuell dator](./media/bastion-connect-vm-scale-set/2.png)
-3. När du har valt **Anslut**visas ett sido fält med tre flikar – RDP, SSH och skydds. Välj fliken **skydds** i sido fältet. Om du inte etablerar skydds för det virtuella nätverket kan du välja länken för att konfigurera skydds. Konfigurations anvisningar finns i [Konfigurera skydds](bastion-create-host-portal.md).
+   ![skalningsuppsättning för virtuell dator](./media/bastion-connect-vm-scale-set/2.png)
+3. När du har valt **Anslut**visas ett sidofält med tre flikar – RDP, SSH och Bastion. Välj fliken **Bastion** i sidofältet. Om du inte har etablerat Bastion för det virtuella nätverket kan du välja länken för att konfigurera Bastion. Konfigurationsinstruktioner finns i [Konfigurera Bastion](bastion-create-host-portal.md).
 
-   ![Fliken skydds](./media/bastion-connect-vm-scale-set/3.png)
-4. På fliken skydds anger du användar namn och lösen ord för skalnings uppsättningen för den virtuella datorn och väljer sedan **Anslut**.
+   ![Fliken Bastion](./media/bastion-connect-vm-scale-set/3.png)
+4. På fliken Bastion anger du användarnamn och lösenord för din virtuella datorskalauppsättning och väljer sedan **Anslut**.
 
    ![connect](./media/bastion-connect-vm-scale-set/4.png)
-5. RDP-anslutningen till den virtuella datorn via skydds öppnas direkt i Azure Portal (via HTML5) med port 443 och skydds-tjänsten.
+5. RDP-anslutningen till den här virtuella datorn via Bastion öppnas direkt i Azure-portalen (över HTML5) med port 443 och Bastion-tjänsten.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Läs [vanliga frågor och svar om skydds](bastion-faq.md).
+Läs [Vanliga frågor om Bastion](bastion-faq.md).

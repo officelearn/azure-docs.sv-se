@@ -9,17 +9,17 @@ ms.topic: how-to
 ms.date: 01/09/2019
 ms.author: alkohli
 ms.openlocfilehash: 01e3ed9f94b575aae4ce0ed12eb63e3cf40d99ce
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79259973"
 ---
 # <a name="use-azure-portal-to-administer-your-data-box-disk"></a>Använda Azure-portalen för att administrera din Data Box Disk
 
 Självstudierna i den här artikeln gäller för förhandsversionen av Microsoft Azure Data Box Disk. Den här artikeln beskriver några av de komplexa arbetsflöden och de administrativa uppgifter som du kan utföra med Data Box Disk. 
 
-Du kan hantera Data Box Disk via Azure Portal. Den här artikeln fokuserar på de uppgifter som du kan utföra med Azure-portalen. Använd Azure Portal för att hantera beställningar, hantera diskar och spåra orderstatusen från början till slut.
+Du kan hantera Data Box Disk via Azure Portal. Den här artikeln fokuserar på de uppgifter som du kan utföra på Azure Portal. Använd Azure Portal för att hantera beställningar, hantera diskar och spåra orderstatusen från början till slut.
 
 ## <a name="cancel-an-order"></a>Annullera en beställning
 
@@ -55,7 +55,7 @@ Följ stegen nedan om du vill klona en order.
 
 Klonen skapas på några minuter och portalen uppdateras och visar den nya ordern.
 
-[![Klona order 3](media/data-box-portal-ui-admin/clone-order3.png)](media/data-box-portal-ui-admin/clone-order3.png#lightbox) 
+[![Klona ordning 3](media/data-box-portal-ui-admin/clone-order3.png)](media/data-box-portal-ui-admin/clone-order3.png#lightbox) 
 
 ## <a name="delete-order"></a>Ta bort en order
 
@@ -87,7 +87,7 @@ Följ stegen nedan om du behöver ladda ned en fraktsedel.
 
 2.  Med det här alternativet laddas följande returfraktsedel ned. Spara fraktsedeln, skriv ut den och sätt fast den på returpaketet.
 
-    ![Exempel på fraktsedel](media/data-box-portal-ui-admin/example-shipping-label.png)
+    ![Exempel på adressetikett](media/data-box-portal-ui-admin/example-shipping-label.png)
 
 ## <a name="edit-shipping-address"></a>Redigera leveransadress
 
@@ -105,7 +105,7 @@ Följ stegen nedan om du vill redigera ordern.
 
 ## <a name="edit-notification-details"></a>Redigera meddelandeinformation
 
-Du kan behöva ändra vilka användare som ska få e-postmeddelanden om orderstatusen. Exempelvis kanske en användare ska meddelas när disken levereras eller hämtas. En annan användare kan behöva informeras när data kopieringen är klar så att de kan verifiera att data finns i Azure Storage-kontot innan de tas bort från källan. I dessa fall kan du redigera meddelandeinformationen.
+Du kan behöva ändra vilka användare som ska få e-postmeddelanden om orderstatusen. Exempelvis kanske en användare ska meddelas när disken levereras eller hämtas. En annan användare kan behöva informeras när datakopian är klar så att de kan verifiera att data finns i Azure-lagringskontot innan de tar bort dem från källan. I dessa fall kan du redigera meddelandeinformationen.
 
 Följ stegen nedan om du vill redigera meddelandeinformationen.
 
@@ -129,7 +129,7 @@ Följ stegen nedan om du vill redigera meddelandeinformationen.
 |Mottaget     | Dina diskar har tagits emot på Azures datacenter. Datakopieringen startar inom kort.        |
 |Kopierade data     |Data kopieras.<br> Vänta tills datakopieringen är klar.         |
 |Slutfört       |Ordern har slutförts.<br> Kontrollera att dina data finns i Azure innan du tar bort lokala data från servrarna.         |
-|Slutfört med fel| Datakopieringen slutfördes men det uppstod fel. <br> Granska fel loggarna för uppladdning med hjälp av sökvägen som anges i **översikten**. Mer information finns i [Ladda ned fel loggar för uppladdning](data-box-disk-troubleshoot-upload.md#download-logs).   |
+|Slutfört med fel| Datakopieringen slutfördes men det uppstod fel. <br> Granska felloggarna för uppladdning med hjälp av sökvägen i **översikten**. Mer information finns i [Hämta felloggar](data-box-disk-troubleshoot-upload.md#download-logs)för nedladdning .   |
 |Avbrutna            |Ordern har avbrutits. <br> Antingen annullerade du beställningen eller så påträffades ett fel som gjorde att tjänsten avbröt ordern.     |
 
 

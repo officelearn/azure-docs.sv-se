@@ -1,81 +1,81 @@
 ---
-title: Introduktion till resurs modellen i Azure Service Fabric
-description: Lär dig mer om Service Fabric resurs modell, en förenklad metod för att definiera Service Fabric nätprogram.
+title: Introduktion till Azure Service Fabric Resource Model
+description: Lär dig mer om Service Fabric Resource Model, en förenklad metod för att definiera Service Fabric Mesh-program.
 author: vturecek
 ms.topic: conceptual
 ms.date: 10/23/2018
 ms.author: vturecek
 ms.custom: mvc, devcenter
 ms.openlocfilehash: 0ae2ed163560aee4c0c3525ab31910e37afaa5b9
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79259141"
 ---
-# <a name="introduction-to-service-fabric-resource-model"></a>Introduktion till Service Fabric resurs modell
+# <a name="introduction-to-service-fabric-resource-model"></a>Introduktion till Service Fabric Resource Model
 
-I Service Fabric resurs modellen beskrivs en enkel metod för att definiera resurser som utgör ett Service Fabric nätprogram. Enskilda resurser kan distribueras till alla Service Fabrics miljöer.  Service Fabric resurs modellen är också kompatibel med Azure Resource Manager-modellen. Följande typer av resurser stöds för närvarande i den här modellen:
+Service Fabric Resource Model beskriver en enkel metod för att definiera resurser som utgör ett Service Fabric Mesh-program. Enskilda resurser kan distribueras till alla Service Fabric-miljöer.  Service Fabric Resource Model är också kompatibel med Azure Resource Manager-modellen. Följande typer av resurser stöds för närvarande i den här modellen:
 
 - Program och tjänster
 - Nätverk
 - Gateways
-- Hemligheter och hemligheter/värden
+- Hemligheter och hemligheter / Värden
 - Volymer
 
-Varje resurs beskrivs i deklarativt i en resurs fil, vilket är ett enkelt YAML-eller JSON-dokument som beskriver nätappen och som tillhandahålls av Service Fabrics plattformen.
+Varje resurs beskrivs deklarativt i en resursfil, vilket är ett enkelt YAML- eller JSON-dokument som beskriver meshprogrammet och som etableras av Service Fabric-plattformen.
 
 ## <a name="applications-and-services"></a>Program och tjänster
 
-En program resurs är enhets distribution, versions hantering och livs längd för ett nät program. Den består av en eller flera tjänst resurser som representerar en mikrotjänst. Varje tjänst resurs, i sin tur, består av ett eller flera kod paket som beskriver allt som behövs för att köra behållar avbildningen som är associerad med kod paketet.
+En programresurs är enheten för distribution, versionshantering och livstid för ett Mesh-program. Den består av en eller flera tjänstresurser som representerar en mikrotjänst. Varje tjänstresurs består i sin tur av ett eller flera kodpaket som beskriver allt som behövs för att köra behållaravbildningen som är associerad med kodpaketet.
 
 ![Appar och tjänster][Image1]
 
-En tjänst resurs deklarerar följande:
+En tjänstresurs deklarerar följande:
 
-- Behållarens namn, version och register
-- PROCESSOR-och minnes resurser som krävs för varje behållare
-- Nätverks slut punkter
-- Referenser till andra resurser, till exempel nätverk, volymer och hemligheter 
+- Behållarnamn, version och register
+- CPU- och minnesresurser som krävs för varje behållare
+- Nätverksslutpunkter
+- Referenser till andra resurser som nätverk, volymer och hemligheter 
 
-Alla kod paket som definieras som en del av en tjänst resurs distribueras och aktive ras tillsammans som en grupp. Tjänst resursen beskriver också hur många instanser av tjänsten som ska köras och refererar även till andra resurser (t. ex. nätverks resurser) som den är beroende av.
+Alla kodpaket som definierats som en del av en tjänstresurs distribueras och aktiveras tillsammans som en grupp. Serviceresursen beskriver också hur många instanser av tjänsten som ska köras och refererar även till andra resurser (till exempel Nätverksresurs) som den är beroende av.
 
-Om ett nätprogram består av mer än en tjänst, är de inte garanterade att de körs tillsammans på samma nod. Vid en uppgradering av programmet resulterar det dessutom i att alla tjänster återställs till tidigare versioner vid en uppgradering av en enskild tjänst.
+Om ett mesh-program består av mer än en tjänst garanteras de inte att köras tillsammans på samma nod. Under en uppgradering av programmet kommer det dessutom inte att leda till att alla tjänster återställs till den tidigare versionen under en uppgradering av programmet.
 
-Som alluded tidigare kan livs cykeln för varje program instans hanteras separat. Till exempel kan en program instans uppgraderas oberoende av de andra program instanserna. Normalt behåller du antalet tjänster i ett program på ett ganska litet sätt, som de fler tjänsterna du använder i ett program, desto svårare blir det att hantera varje tjänst oberoende av varandra.
+Som nämnts tidigare kan livscykeln för varje programinstans hanteras oberoende av varandra. En programinstans kan till exempel uppgraderas oberoende av de andra programinstanserna. Vanligtvis håller du antalet tjänster i ett program ganska liten, eftersom ju fler tjänster du lägger in i ett program, desto svårare blir det att hantera varje tjänst självständigt.
 
 ## <a name="networks"></a>Nätverk
 
-Nätverks resursen är en individuellt distribuerad resurs, oberoende av ett program eller en tjänst resurs som kan referera till den som ett beroende. Den används för att skapa ett nätverk för dina program. Flera tjänster från olika program kan vara en del av samma nätverk.  Mer information finns i avsnittet om [nätverk i Service Fabric nätappar](service-fabric-mesh-networks-and-gateways.md).
+Nätverksresursen är individuellt distributionsbar resurs, oberoende av en program- eller tjänstresurs som kan referera till den som sitt beroende. Det används för att skapa ett nätverk för dina program. Flera tjänster från olika program kan ingå i samma nätverk.  Mer information finns [i om nätverk i Service Fabric Mesh-program](service-fabric-mesh-networks-and-gateways.md).
 
 > [!NOTE]
-> Den aktuella för hands versionen stöder bara en till en mappning mellan program och nätverk
+> Den aktuella förhandsversionen stöder bara en mappning mellan program och nätverk
 
 ![Nätverk och gateway][Image2]
 
 ## <a name="gateways"></a>Gateways
-En gateway-resurs ansluter två nätverk och dirigerar trafik.  En gateway gör att tjänsterna kan kommunicera med externa klienter och ger en ingång i dina tjänster.  En gateway kan också användas för att ansluta ditt nätprogram till ditt eget, befintliga virtuella nätverk. Mer information finns i avsnittet om [nätverk i Service Fabric nätappar](service-fabric-mesh-networks-and-gateways.md).
+En gateway-resurs ansluter två nätverk och dirigerar trafik.  En gateway gör att dina tjänster kan kommunicera med externa klienter och ger en inträngning i dina tjänster.  En gateway kan också användas för att ansluta ditt Mesh-program med ditt eget, befintliga virtuella nätverk. Mer information finns [i om nätverk i Service Fabric Mesh-program](service-fabric-mesh-networks-and-gateways.md).
 
 ![Nätverk och gateway][Image2]
 
 ## <a name="secrets"></a>Hemligheter
 
-Hemligheter-resurser kan distribueras oberoende av ett program eller en tjänst resurs som kan referera till den som ett beroende. Den används för att på ett säkert sätt leverera hemligheter till dina program. Flera tjänster från olika program kan referera till värden av samma hemlighet.
+Hemligheter resurser kan distribueras oberoende av ett program eller tjänst resurs som kan hänvisa till det som sitt beroende. Det används för att säkert leverera hemligheter till dina program. Flera tjänster från olika program kan referera till värden för samma hemlighet.
 
 ## <a name="volumes"></a>Volymer
 
-Behållare gör ofta temporära diskar tillgängliga. Temporära diskar är tillfälliga, så du får en ny temporär disk och förlorar informationen när en behållare kraschar. Det är också svårt att dela information på temporära diskar med andra behållare. Volymer är kataloger som monteras i dina behållar instanser som du kan använda för att spara tillstånd. -Volymer ger dig generell fil lagring och gör att du kan läsa och skriva filer med hjälp av normal disk-I/O-fil-API: er. Volym resursen är ett deklarativ sätt att beskriva hur en katalog monteras och lagrings utrymmet för den (antingen Azure Files volym eller Service Fabric tillförlitlig volym).  Mer information finns i avsnittet om att [lagra tillstånd](service-fabric-mesh-storing-state.md#volumes).
+Behållare gör ofta tillfälliga diskar tillgängliga. Tillfälliga diskar är dock tillfälliga, så du får en ny tillfällig disk och förlorar informationen när en behållare kraschar. Det är också svårt att dela information om tillfälliga diskar med andra behållare. Volymer är kataloger som monteras i behållarinstanserna som du kan använda för att bevara tillståndet. Volymer ger dig allmänt ändamål fillagring och kan du läsa / skriva filer med hjälp av vanliga disk I / O-fil API: er. Volymresursen är ett deklarativt sätt att beskriva hur en katalog är monterad och bakgrundslagring för den (antingen Azure Files Volume eller Service Fabric Reliable Volume).  Mer information finns [i lagringstillståndet](service-fabric-mesh-storing-state.md#volumes).
 
 ![Volymer][Image3]
 
-## <a name="programming-models"></a>Programmerings modeller
-Tjänst resursen kräver bara en behållar avbildning att köras, som refereras till i de kod paket som är associerade med resursen. Du kan köra valfri kod, skrivet på valfritt språk, med hjälp av eventuella ramverk inuti behållaren utan att behöva känna till eller använda Service Fabric maskor specifika API: er. 
+## <a name="programming-models"></a>Programmeringsmodeller
+Tjänstresurs kräver bara en behållaravbildning som ska köras, som refereras i kodpaketen som är associerade med resursen. Du kan köra vilken kod som helst, skriven på vilket språk som helst, med valfri ramverk i behållaren utan att behöva känna till eller använda specifika API:er för Service Fabric Mesh. 
 
-Din program kod förblir portabel även utanför Service Fabric-nät och dina program distributioner är konsekventa oavsett vilket språk eller ramverk som används för att implementera dina tjänster. Om ditt program är ASP.NET Core, går eller bara en uppsättning processer och skript, är distributions modellen för Service Fabric-nätresursen densamma. 
+Programkoden förblir portabel även utanför Service Fabric Mesh och dina programdistributioner förblir konsekventa oavsett vilket språk eller ramverk som används för att implementera dina tjänster. Oavsett om ditt program är ASP.NET Core, Go eller bara en uppsättning processer och skript förblir distributionsmodellen för Service Fabric Mesh Resource densamma. 
 
-## <a name="packaging-and-deployment"></a>Paketering och distribution
+## <a name="packaging-and-deployment"></a>Förpackning och distribution
 
-Service Fabric nät program som baseras på resurs modellen paketeras som Docker-behållare.  Service Fabric nät är en delad miljö med flera klienter och behållare ger dig en hög isolerings nivå.  Dessa program beskrivs med hjälp av ett JSON-format eller ett YAML-format (som sedan konverteras till JSON). När du distribuerar ett nätprogram till Azure Service Fabric nät är JSON som används för att beskriva programmet en Azure Resource Manager mall. Resurser mappas till Azure-resurser.  När du distribuerar ett nätprogram till ett Service Fabric kluster (fristående eller Azure-värdbaserade), är JSON som används för att beskriva programmet ett format som liknar en Azure Resource Manager mall.  När du har distribuerat nätappar kan de hanteras via HTTP-gränssnitt eller Azure CLI. 
+Service Fabric Mesh-program baserade på resursmodellen är paketerade som Docker-behållare.  Service Fabric Mesh är en delad miljö med flera innehavare och behållare ger dig en hög isoleringsnivå.  Dessa program beskrivs med ett JSON-format eller ett YAML-format (som sedan konverteras till JSON). När du distribuerar ett Mesh-program till Azure Service Fabric Mesh är JSON som används för att beskriva programmet en Azure Resource Manager-mall. Resurser mappas till Azure-resurser.  När du distribuerar ett Mesh-program till ett Service Fabric-kluster (fristående eller Azure-värd) är JSON som används för att beskriva programmet ett format som liknar en Azure Resource Manager-mall.  När mesh-program har distribuerats kan de hanteras via HTTP-gränssnitt eller Azure CLI. 
 
 
 ## <a name="next-steps"></a>Nästa steg 

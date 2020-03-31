@@ -1,21 +1,21 @@
 ---
-title: Bygg en Xamarin-app med .NET och Azure Cosmos DB s API för MongoDB
+title: Skapa en Xamarin-app med .NET och Azure Cosmos DB:s API för MongoDB
 description: Presenterar ett Xamarin-kodexempel som du kan använda för att ansluta till och ställa frågor till Azure Cosmos DB:s API för MongoDB
 author: codemillmatt
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 06/20/2018
+ms.date: 03/16/2020
 ms.author: masoucou
-ms.openlocfilehash: a21e3705fe367e478ec02b82ec83c4ad7cfb4151
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 98b0ddf345ebd19e2cd974db3891e88c9f72530d
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75445447"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79481695"
 ---
-# <a name="quickstart-build-a-xamarinforms-app-with-net-sdk-and-azure-cosmos-dbs-api-for-mongodb"></a>Snabb start: Bygg en Xamarin. Forms-app med .NET SDK och Azure Cosmos DB s API för MongoDB
+# <a name="quickstart-build-a-xamarinforms-app-with-net-sdk-and-azure-cosmos-dbs-api-for-mongodb"></a>Snabbstart: Skapa en Xamarin.Forms-app med .NET SDK och Azure Cosmos DB:s API för MongoDB
 
 > [!div class="op_single_selector"]
 > * [.NET](create-mongodb-dotnet.md)
@@ -34,7 +34,7 @@ I den här snabbstarten visas hur du kan skapa ett [Cosmos-konto som konfigurera
 
 Om du vill köra exemplet behöver du [Visual Studio](https://www.visualstudio.com/downloads/) eller [Visual Studio för Mac](https://visualstudio.microsoft.com/vs/mac/) och ett giltigt Azure CosmosDB-konto.
 
-Om du inte redan har Visual Studio kan du ladda ned [Visual studio 2019 Community Edition](https://www.visualstudio.com/downloads/) med **mobil utveckling med .net** -arbets belastningar installerade med installations programmet.
+Om du inte redan har Visual Studio kan du ladda ned [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/) med **mobilutvecklingen med .NET-arbetsbelastning** installerad med installationen.
 
 Om du föredrar att arbeta på en Mac laddar du ned [Visual Studio för Mac](https://visualstudio.microsoft.com/vs/mac/) och kör installationsprogrammet.
 
@@ -52,10 +52,18 @@ Exemplet som beskrivs i den här artikeln är kompatibelt med MongoDB.Driver ver
 
 Ladda först ned eller klona exempelappen från GitHub. Den implementerar en att göra-app med MongoDB:s dokumentlagringsmodell.
 
-1. Öppna en kommandotolk, skapa en ny mapp som heter git-samples och stäng sedan kommandotolken.
+
+
+# <a name="windows"></a>[Windows](#tab/windows)
+
+1. I Windows öppnar du en kommandotolk eller på Mac öppnar du terminalen, skapar en ny mapp med namnet git-exempel och stänger sedan fönstret.
+
+    ```batch
+    md "C:\git-samples"
+    ```
 
     ```bash
-    md "C:\git-samples"
+    mkdir '$home\git-samples\
     ```
 
 2. Öppna ett git-terminalfönster, t.ex. git bash, och använd kommandot `cd` för att ändra till den nya mappen där du vill installera exempelappen.
@@ -86,6 +94,8 @@ Följande kodfragment är alla hämtade från klassen `MongoService`, som finns 
 
     settings.SslSettings =
         new SslSettings() { EnabledSslProtocols = SslProtocols.Tls12 };
+
+    settings.RetryWrites = false;
 
     MongoClient mongoClient = new MongoClient(settings);
     ```
@@ -159,6 +169,11 @@ Gå nu tillbaka till Azure Portal för att hämta information om din anslutnings
 2. Öppna filen **APIKeys.cs** i katalogen **Helpers** katalogen i projektet **TaskList.Core**.
 
 3. Kopiera värdet för **primär anslutningssträng** från portalen (med kopieringsknappen) och gör det till värdet för fältet **ConnectionString** i filen **APIKeys.cs**.
+
+4. Ta `&replicaSet=globaldb` bort från anslutningssträngen. Du får ett körningsfel om du inte tar bort det värdet från frågesträngen.
+
+> [!IMPORTANT]
+> Du måste `&replicaSet=globaldb` ta bort nyckel-/värdeparet från anslutningssträngens frågesträng för att undvika ett körningsfel.
 
 Du har nu uppdaterat appen med all information som behövs för kommunikation med Azure Cosmos DB.
 

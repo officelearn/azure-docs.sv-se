@@ -1,6 +1,6 @@
 ---
-title: 'Självstudie: lägga till en elastisk pool i en failover-grupp'
-description: Lägg till en Azure SQL Database elastisk pool i en failover-grupp med hjälp av Azure Portal, PowerShell eller Azure CLI.
+title: 'Självstudiekurs: Lägga till en elastisk pool i en redundansgrupp'
+description: Lägg till en elastisk Azure SQL Database-pool i en redundansgrupp med Azure-portalen, PowerShell eller Azure CLI.
 services: sql-database
 ms.service: sql-database
 ms.subservice: high-availability
@@ -12,67 +12,67 @@ ms.author: mathoma
 ms.reviewer: sstein, carlrab
 ms.date: 08/27/2019
 ms.openlocfilehash: c57f9eed2147504dd7b3313d58468fb76ab40caa
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79268982"
 ---
-# <a name="tutorial-add-an-azure-sql-database-elastic-pool-to-a-failover-group"></a>Självstudie: lägga till en Azure SQL Database elastisk pool i en failover-grupp
+# <a name="tutorial-add-an-azure-sql-database-elastic-pool-to-a-failover-group"></a>Självstudiekurs: Lägga till en elastisk Azure SQL Database-pool i en redundansgrupp
 
-Konfigurera en failover-grupp för en Azure SQL Database elastisk pool och testa redundans med hjälp av Azure Portal.  I den här självstudien får du lära dig hur man:
+Konfigurera en redundanskitetsgrupp för en elastisk Azure SQL Database-pool och testa redundans med Azure-portalen.  I den här självstudien får du lära dig hur man:
 
 > [!div class="checklist"]
-> - Skapa en Azure SQL Database enskild databas.
-> - Lägg till den enkla databasen i en elastisk pool. 
-> - Skapa en [grupp för växling vid fel](sql-database-auto-failover-group.md) för två elastiska pooler mellan två logiska SQL-servrar.
-> - Redundanstest.
+> - Skapa en enda Azure SQL-databas.
+> - Lägg till den enda databasen i en elastisk pool. 
+> - Skapa en [redundanskitetsgrupp](sql-database-auto-failover-group.md) för två elastiska pooler mellan två logiska SQL-servrar.
+> - Testa redundans.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att kunna följa den här självstudien måste du ha: 
 
-- En Azure-prenumeration. [Skapa ett kostnads fritt konto](https://azure.microsoft.com/free/) om du inte redan har ett.
+- En Azure-prenumeration. [Skapa ett gratis konto](https://azure.microsoft.com/free/) om du inte redan har ett.
 
 
-## <a name="1---create-a-single-database"></a>1 – Skapa en enskild databas 
+## <a name="1---create-a-single-database"></a>1 - Skapa en enda databas 
 
 [!INCLUDE [sql-database-create-single-database](includes/sql-database-create-single-database.md)]
 
-## <a name="2---add-single-database-to-elastic-pool"></a>2 – Lägg till en enkel databas i elastisk pool
-I det här steget ska du skapa en elastisk pool och lägga till en enkel databas i den. 
+## <a name="2---add-single-database-to-elastic-pool"></a>2 - Lägg till en databas i elastisk pool
+I det här steget ska du skapa en elastisk pool och lägga till din enda databas i den. 
 
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
-Skapa den elastiska poolen med hjälp av Azure Portal. 
+Skapa din elastiska pool med Azure-portalen. 
 
 
-1. Välj **Azure SQL** i den vänstra menyn i Azure Portal. Om **Azure SQL** inte finns i listan väljer du **alla tjänster**och skriver sedan Azure SQL i sökrutan. Valfritt Välj stjärnan bredvid **Azure SQL** för att Favorita den och lägga till den som ett objekt i navigeringen till vänster. 
-1. Välj **+ Lägg** till för att öppna **alternativ sidan Välj SQL-distribution** . Du kan visa ytterligare information om de olika databaserna genom att välja Visa information på panelen databaser.
-1. Välj **elastisk pool** i list rutan **resurs typ** i panelen SQL- **databaser** . Välj **skapa** för att skapa en elastisk pool. 
+1. Välj **Azure SQL** i menyn till vänster i Azure-portalen. Om **Azure SQL** inte finns i listan väljer du Alla **tjänster**och skriver sedan Azure SQL i sökrutan. (Valfritt) Välj stjärnan bredvid **Azure SQL** för att göra den favorit och lägg till den som ett objekt i vänsternavigering. 
+1. Välj **+ Lägg till** om du vill öppna **alternativsidan Välj SQL-distribution.** Du kan visa ytterligare information om de olika databaserna genom att välja Visa information på panelen Databaser.
+1. Välj **Elastisk pool** i listrutan **Resurstyp** på panelen **SQL-databaser.** Välj **Skapa** om du vill skapa din elastiska pool. 
 
     ![Välj elastisk pool](media/sql-database-elastic-pool-failover-group-tutorial/select-azure-sql-elastic-pool.png)
 
-1. Konfigurera den elastiska poolen med följande värden:
-   - **Namn**: Ange ett unikt namn för den elastiska poolen, till exempel `myElasticPool`. 
-   - **Prenumeration**: Välj din prenumeration från List rutan.
-   - **ResourceGroup**: Välj `myResourceGroup` i list rutan, resurs gruppen som du skapade i avsnitt 1. 
-   - **Server**: Välj den server som du skapade i avsnitt 1 i list rutan.  
+1. Konfigurera din elastiska pool med följande värden:
+   - **Namn**: Ange ett unikt namn för `myElasticPool`den elastiska poolen, till exempel . 
+   - **Prenumeration**: Välj din prenumeration i listrutan.
+   - **ResourceGroup**: `myResourceGroup` Välj i listrutan, den resursgrupp som du skapade i avsnitt 1. 
+   - **Server:** Välj den server som du skapade i avsnitt 1 i listrutan.  
 
-       ![Skapa en ny server för elastisk pool](media/sql-database-elastic-pool-failover-group-tutorial/use-existing-server-for-elastic-pool.png)
+       ![Skapa ny server för elastisk pool](media/sql-database-elastic-pool-failover-group-tutorial/use-existing-server-for-elastic-pool.png)
 
-   - **Compute + Storage**: Välj **Konfigurera elastisk pool** för att konfigurera din beräkning, lagring och lägga till din enda databas i den elastiska poolen. På fliken **Inställningar för pool** lämnar du standardvärdet Gen5, med 2 virtuella kärnor och 32 GB. 
+   - **Beräkning + lagring:** Välj **Konfigurera elastisk pool** för att konfigurera din beräkning, lagring och lägga till din enda databas i din elastiska pool. På fliken **Poolinställningar** lämnar du standardvärdet Gen5 med 2 virtuella kärnor och 32 gb. 
 
-1. Välj fliken **databaser** på sidan **Konfigurera** och välj sedan att **lägga till databas**. Välj den databas som du skapade i avsnitt 1 och välj sedan **tillämpa** för att lägga till den i den elastiska poolen. Välj **tillämpa** igen för att tillämpa inställningarna för elastisk pool och Stäng sidan **Konfigurera** . 
+1. På sidan **Konfigurera** markerar du fliken **Databaser** och väljer sedan att **lägga till databas**. Välj den databas som du skapade i avsnitt 1 och välj sedan **Använd** för att lägga till den i den elastiska poolen. Välj **Använd** igen om du vill använda inställningarna för den elastiska poolen och stäng sidan **Konfigurera.** 
 
-    ![Lägg till SQL DB i elastisk pool](media/sql-database-elastic-pool-failover-group-tutorial/add-database-to-elastic-pool.png)
+    ![Lägga till SQL DB i elastisk pool](media/sql-database-elastic-pool-failover-group-tutorial/add-database-to-elastic-pool.png)
 
-1. Välj **Granska + skapa** för att granska inställningarna för elastisk pool och välj sedan **skapa** för att skapa en elastisk pool. 
+1. Välj **Granska + skapa** om du vill granska inställningarna för elastiska pooler och välj sedan **Skapa** för att skapa din elastiska pool. 
 
 
-# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
-Skapa dina elastiska pooler och den sekundära servern med hjälp av PowerShell. 
+# <a name="powershell"></a>[Powershell](#tab/azure-powershell)
+Skapa dina elastiska pooler och sekundära server med PowerShell. 
 
    ```powershell-interactive
    # Set variables for your server and database
@@ -116,56 +116,56 @@ Skapa dina elastiska pooler och den sekundära servern med hjälp av PowerShell.
    $addDatabase
    ```
 
-I den här delen av självstudien används följande PowerShell-cmdletar:
+Den här delen av självstudien använder följande PowerShell-cmdlets:
 
 | Kommando | Anteckningar |
 |---|---|
-| [New-AzSqlElasticPool](/powershell/module/az.sql/new-azsqlelasticpool) | Skapar en Elastic Database-pool för en Azure SQL Database.| 
+| [Ny-AzSqlElasticPool](/powershell/module/az.sql/new-azsqlelasticpool) | Skapar en elastisk databaspool för en Azure SQL-databas.| 
 | [Set-AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase) | Anger egenskaper för en databas eller flyttar en befintlig databas till en elastisk pool. | 
 
 ---
 
-## <a name="3---create-the-failover-group"></a>3 – skapa redundans gruppen 
-I det här steget ska du skapa en [redundans grupp](sql-database-auto-failover-group.md) mellan en befintlig Azure SQL-Server och en ny Azure SQL-Server i en annan region. Lägg sedan till den elastiska poolen i gruppen redundans. 
+## <a name="3---create-the-failover-group"></a>3 - Skapa redundansgruppen 
+I det här steget skapar du en [redundansgrupp](sql-database-auto-failover-group.md) mellan en befintlig Azure SQL-server och en ny Azure SQL-server i en annan region. Lägg sedan till den elastiska poolen i redundansgruppen. 
 
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
-Skapa din failover-grupp med hjälp av Azure Portal. 
+Skapa din redundansk grupp med Azure-portalen. 
 
-1. Välj **Azure SQL** i den vänstra menyn i [Azure Portal](https://portal.azure.com). Om **Azure SQL** inte finns i listan väljer du **alla tjänster**och skriver sedan Azure SQL i sökrutan. Valfritt Välj stjärnan bredvid **Azure SQL** för att Favorita den och lägga till den som ett objekt i navigeringen till vänster. 
-1. Välj den elastiska pool som skapades i föregående avsnitt, till exempel `myElasticPool`. 
-1. I **översikts** fönstret väljer du namnet på servern under **Server namn** för att öppna inställningarna för servern.
+1. Välj **Azure SQL** i menyn till vänster i [Azure-portalen](https://portal.azure.com). Om **Azure SQL** inte finns i listan väljer du Alla **tjänster**och skriver sedan Azure SQL i sökrutan. (Valfritt) Välj stjärnan bredvid **Azure SQL** för att göra den favorit och lägg till den som ett objekt i vänsternavigering. 
+1. Markera den elastiska pool som skapats i föregående avsnitt, till exempel `myElasticPool`. 
+1. Öppna inställningarna för servern i fönstret **Server name** **Översikt.**
   
-    ![Öppna Server för elastisk pool](media/sql-database-elastic-pool-failover-group-tutorial/server-for-elastic-pool.png)
+    ![Öppen server för elastisk pool](media/sql-database-elastic-pool-failover-group-tutorial/server-for-elastic-pool.png)
 
-1. Välj **grupper för växling vid fel** i fönstret **Inställningar** och välj sedan **Lägg till grupp** för att skapa en ny grupp för redundans. 
+1. Välj **Redundansk grupper** under fönstret **Inställningar** och välj sedan Lägg **till grupp** för att skapa en ny redundanskitetsgrupp. 
 
-    ![Lägg till ny redundans grupp](media/sql-database-elastic-pool-failover-group-tutorial/elastic-pool-failover-group.png)
+    ![Lägga till ny redundansgrupp](media/sql-database-elastic-pool-failover-group-tutorial/elastic-pool-failover-group.png)
 
-1. På sidan **redundans** anger eller väljer du följande värden och väljer sedan **skapa**:
-    - **Namn på redundans grupp**: Ange ett unikt namn på redundans grupp, till exempel `failovergrouptutorial`. 
-    - **Sekundär server**: Välj alternativet för att *Konfigurera nödvändiga inställningar* och välj sedan att **skapa en ny server**. Alternativt kan du välja en redan befintlig server som den sekundära servern. När du har angett följande värden för den nya sekundära servern väljer du **Välj**. 
-        - **Server namn**: Ange ett unikt namn för den sekundära servern, t. ex. `mysqlsecondary`. 
-        - **Inloggning för Server administratör**: typ `azureuser`
-        - **Lösen ord**: Ange ett komplext lösen ord som uppfyller lösen ords kraven.
-        - **Plats**: Välj en plats i list rutan, till exempel `East US`. Den här platsen kan inte vara samma plats som den primära servern.
+1. På sidan **Redundansk gruppera** du eller markera följande värden och välj sedan **Skapa:**
+    - **Redundansgruppnamn**: Skriv in ett unikt `failovergrouptutorial`redundansktgruppnamn, till exempel . 
+    - **Sekundär server:** Välj alternativet för att *konfigurera nödvändiga inställningar* och välj sedan att skapa en ny **server**. Du kan också välja en redan befintlig server som sekundär server. När du har angett följande värden för den nya sekundära servern väljer du **Välj**. 
+        - **Servernamn**: Skriv in ett unikt namn `mysqlsecondary`för den sekundära servern, till exempel . 
+        - **Server admin inloggning:** Typ`azureuser`
+        - **Lösenord**: Skriv ett komplext lösenord som uppfyller lösenordskraven.
+        - **Plats**: Välj en plats i listrutan, till exempel `East US`. Den här platsen kan inte vara samma plats som den primära servern.
 
        > [!NOTE]
-       > Inställningarna för Server inloggning och brand vägg måste matcha den primära servern. 
+       > Serverinloggnings- och brandväggsinställningarna måste matcha den primära serverns. 
     
-       ![Skapa en sekundär server för redundans gruppen](media/sql-database-elastic-pool-failover-group-tutorial/create-secondary-failover-server.png)
+       ![Skapa en sekundär server för redundansgruppen](media/sql-database-elastic-pool-failover-group-tutorial/create-secondary-failover-server.png)
 
-1. Välj **databaser i gruppen** och välj sedan den elastiska pool som du skapade i avsnitt 2. En varning bör visas, så att du snabbt kan skapa en elastisk pool på den sekundära servern. Välj varningen och välj sedan **OK** för att skapa den elastiska poolen på den sekundära servern. 
+1. Välj **Databaser i gruppen** och välj sedan den elastiska pool som du skapade i avsnitt 2. En varning bör visas som uppmanar dig att skapa en elastisk pool på den sekundära servern. Välj varningen och välj sedan **OK** för att skapa den elastiska poolen på den sekundära servern. 
         
-    ![Lägg till elastisk pool i redundans gruppen](media/sql-database-elastic-pool-failover-group-tutorial/add-elastic-pool-to-failover-group.png)
+    ![Lägga till elastisk pool i redundansgruppen](media/sql-database-elastic-pool-failover-group-tutorial/add-elastic-pool-to-failover-group.png)
         
-1. Välj **Välj** om du vill tillämpa inställningarna för elastisk pool på gruppen växling vid fel och välj sedan **skapa** för att skapa din grupp för redundans. Om du lägger till den elastiska poolen i gruppen redundans startas geo-replikeringen automatiskt.
+1. Välj **Välj om** du vill använda inställningarna för den elastiska poolen på redundansgruppen och välj sedan **Skapa** för att skapa redundansgruppen. Om du lägger till den elastiska poolen i redundansgruppen startas georeplikeringsprocessen automatiskt.
 
 
-# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[Powershell](#tab/azure-powershell)
 
-Skapa din failover-grupp med hjälp av PowerShell. 
+Skapa redundansgruppen med PowerShell. 
 
    ```powershell-interactive
    # Set variables for your server and database
@@ -234,51 +234,51 @@ Skapa din failover-grupp med hjälp av PowerShell.
    $failoverGroup
    ```
 
-I den här delen av självstudien används följande PowerShell-cmdletar:
+Den här delen av självstudien använder följande PowerShell-cmdlets:
 
 | Kommando | Anteckningar |
 |---|---|
-| [New-AzSqlServer](/powershell/module/az.sql/new-azsqlserver) | Skapar en SQL Database-server som är värd för enkla databaser och elastiska pooler. |
-| [New-AzSqlServerFirewallRule](/powershell/module/az.sql/new-azsqlserverfirewallrule) | Skapar en brand Väggs regel för en logisk server. | 
-| [New-AzSqlElasticPool](/powershell/module/az.sql/new-azsqlelasticpool) | Skapar en Elastic Database-pool för en Azure SQL Database.| 
-| [New-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/new-azsqldatabasefailovergroup) | Skapar en ny grupp för redundans. |
-| [Add-AzSqlDatabaseToFailoverGroup](/powershell/module/az.sql/add-azsqldatabasetofailovergroup) | Lägger till en eller flera Azure SQL-databaser i en failover-grupp. |
-| [Get-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/get-azsqldatabasefailovergroup) | Hämtar eller listar Azure SQL Database redundans grupper. |
+| [Ny-AzSqlServer](/powershell/module/az.sql/new-azsqlserver) | Skapar en SQL Database-server som är värd för enkla databaser och elastiska pooler. |
+| [New-AzSqlServerFirewallRule](/powershell/module/az.sql/new-azsqlserverfirewallrule) | Skapar en brandväggsregel för en logisk server. | 
+| [Ny-AzSqlElasticPool](/powershell/module/az.sql/new-azsqlelasticpool) | Skapar en elastisk databaspool för en Azure SQL-databas.| 
+| [Nya-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/new-azsqldatabasefailovergroup) | Skapar en ny redundansgrupp. |
+| [Tillägg-AzSqlDatabaseToFailoverGroup](/powershell/module/az.sql/add-azsqldatabasetofailovergroup) | Lägger till en eller flera Azure SQL-databaser i en redundansgrupp. |
+| [Get-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/get-azsqldatabasefailovergroup) | Hämtar eller listar Redundansgrupper för Azure SQL Database. |
 
 ---
 
 
-## <a name="4---test-failover"></a>4 – redundanstest 
-I det här steget kommer du inte att kunna redundansväxla gruppen till den sekundära servern och sedan växla tillbaka med Azure Portal. 
+## <a name="4---test-failover"></a>4 - Testa redundans 
+I det här steget kommer du att växla över redundansgruppen till den sekundära servern och sedan växla tillbaka med Azure-portalen. 
 
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
-Testa redundans för din failover-grupp med hjälp av Azure Portal. 
+Testa redundans för redundansgruppen med Azure-portalen. 
 
-1. Välj **Azure SQL** i den vänstra menyn i [Azure Portal](https://portal.azure.com). Om **Azure SQL** inte finns i listan väljer du **alla tjänster**och skriver sedan Azure SQL i sökrutan. Valfritt Välj stjärnan bredvid **Azure SQL** för att Favorita den och lägga till den som ett objekt i navigeringen till vänster. 
-1. Välj den elastiska pool som skapades i föregående avsnitt, till exempel `myElasticPool`. 
-1. Välj namnet på servern under **Server namn** för att öppna inställningarna för servern.
+1. Välj **Azure SQL** i menyn till vänster i [Azure-portalen](https://portal.azure.com). Om **Azure SQL** inte finns i listan väljer du Alla **tjänster**och skriver sedan Azure SQL i sökrutan. (Valfritt) Välj stjärnan bredvid **Azure SQL** för att göra den favorit och lägg till den som ett objekt i vänsternavigering. 
+1. Markera den elastiska pool som skapats i föregående avsnitt, till exempel `myElasticPool`. 
+1. Välj namnet på servern under **Servernamn** för att öppna inställningarna för servern.
 
-    ![Öppna Server för elastisk pool](media/sql-database-elastic-pool-failover-group-tutorial/server-for-elastic-pool.png)
+    ![Öppen server för elastisk pool](media/sql-database-elastic-pool-failover-group-tutorial/server-for-elastic-pool.png)
 
-1. Välj **grupper för växling vid fel** i fönstret **Inställningar** och välj sedan den grupp för växling vid fel som du skapade i avsnitt 2. 
+1. Välj **Redundansk grupper** under fönstret **Inställningar** och välj sedan den redundansgrupp som du skapade i avsnitt 2. 
   
-   ![Välj gruppen redundans från portalen](media/sql-database-elastic-pool-failover-group-tutorial/select-failover-group.png)
+   ![Välj redundansgruppen från portalen](media/sql-database-elastic-pool-failover-group-tutorial/select-failover-group.png)
 
 1. Granska vilken server som är primär och vilken server som är sekundär. 
-1. Välj **redundans** från åtgärds fönstret för att Redundansväxla din redundansväxling som innehåller den elastiska poolen. 
-1. Välj **Ja** i varningen som meddelar dig att TDS-sessioner kommer att kopplas bort. 
+1. Välj **Redundans** i åtgärdsfönstret om du vill växla över redundansgruppen som innehåller den elastiska poolen. 
+1. Välj **Ja** på varningen som meddelar dig att TDS-sessioner kommer att kopplas från. 
 
-   ![Redundansväxla din failover-grupp som innehåller din SQL-databas](media/sql-database-elastic-pool-failover-group-tutorial/failover-sql-db.png)
+   ![Växla över redundansgruppen som innehåller SQL-databasen](media/sql-database-elastic-pool-failover-group-tutorial/failover-sql-db.png)
 
-1. Granska vilken server som är primär, vilken server som är sekundär. Om redundansväxlingen lyckades måste de två servrarna ha växlade roller. 
-1. Välj **redundans** igen om du vill att redundans-gruppen ska växla tillbaka till de ursprungliga inställningarna. 
+1. Granska vilken server som är primär, vilken server som är sekundär. Om redundansen lyckades bör de två servrarna ha bytt roller. 
+1. Välj **Redundans** igen om du vill återställa redundansgruppen till de ursprungliga inställningarna igen. 
 
 
-# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[Powershell](#tab/azure-powershell)
 
-Testa redundans för din failover-grupp med hjälp av PowerShell. 
+Testa redundans för redundansgruppen med PowerShell. 
 
    ```powershell-interactive
    # Set variables for your server and database
@@ -310,7 +310,7 @@ Testa redundans för din failover-grupp med hjälp av PowerShell.
    Write-host "Failover group failed over to" $drServerName 
    ```
 
-Redundansväxla din redundans till den sekundära servern och växla sedan tillbaka med hjälp av PowerShell. 
+Redundansgruppen redundans till den sekundära servern och växla sedan tillbaka med PowerShell. 
 
    ```powershell-interactive
    # Set variables for your server and database
@@ -342,30 +342,30 @@ Redundansväxla din redundans till den sekundära servern och växla sedan tillb
    Write-host "Failover group failed over to" $serverName 
    ```
 
-I den här delen av självstudien används följande PowerShell-cmdletar:
+Den här delen av självstudien använder följande PowerShell-cmdlets:
 
 | Kommando | Anteckningar |
 |---|---|
-| [Get-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/get-azsqldatabasefailovergroup) | Hämtar eller listar Azure SQL Database redundans grupper. |
-| [Switch-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/switch-azsqldatabasefailovergroup)| Kör en redundansväxling av en Azure SQL Database redundans grupp. |
+| [Get-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/get-azsqldatabasefailovergroup) | Hämtar eller listar Redundansgrupper för Azure SQL Database. |
+| [Switch-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/switch-azsqldatabasefailovergroup)| Kör en redundans för en redundansgrupp för Azure SQL Database. |
 
 
 ---
 
 ## <a name="clean-up-resources"></a>Rensa resurser 
 
-Rensa resurser genom att ta bort resurs gruppen. 
+Rensa resurser genom att ta bort resursgruppen. 
 
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
 
-1. Navigera till din resurs grupp i [Azure Portal](https://portal.azure.com).
-1. Välj **ta bort resurs grupp** för att ta bort alla resurser i gruppen, samt själva resurs gruppen. 
-1. Skriv namnet på resurs gruppen `myResourceGroup`i text rutan och välj sedan **ta bort** för att ta bort resurs gruppen. 
+1. Navigera till din resursgrupp i [Azure-portalen](https://portal.azure.com).
+1. Välj **Ta bort resursgrupp** om du vill ta bort alla resurser i gruppen och själva resursgruppen. 
+1. Skriv namnet på resursgruppen, `myResourceGroup`i textrutan och välj sedan Ta **bort** om du vill ta bort resursgruppen. 
 
 
-# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[Powershell](#tab/azure-powershell)
 
 Rensa dina resurser med PowerShell. 
 
@@ -379,20 +379,20 @@ Rensa dina resurser med PowerShell.
    Write-host "Resource group removed =" $resourceGroupName
    ```
 
-I den här delen av självstudien används följande PowerShell-cmdlet:
+Den här delen av självstudien använder följande PowerShell-cmdlet:
 
 | Kommando | Anteckningar |
 |---|---|
-| [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Tar bort en resurs grupp | 
+| [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Tar bort en resursgrupp | 
 
 ---
 
 > [!IMPORTANT]
-> Om du vill behålla resurs gruppen men ta bort den sekundära databasen tar du bort den från gruppen växling vid fel innan du tar bort den. Om du tar bort en sekundär databas innan den tas bort från redundans gruppen kan det orsaka oförutsägbart beteende. 
+> Om du vill behålla resursgruppen men ta bort den sekundära databasen tar du bort den från redundansgruppen innan du tar bort den. Om du tar bort en sekundär databas innan den tas bort från redundansgruppen kan det orsaka oförutsägbart beteende. 
 
 ## <a name="full-script"></a>Fullständigt skript
 
-# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[Powershell](#tab/azure-powershell)
 
 [!code-powershell-interactive[main](../../powershell_scripts/sql-database/failover-groups/add-elastic-pool-to-failover-group-az-ps.ps1 "Add elastic pool to a failover group")]
 
@@ -401,35 +401,35 @@ Det här skriptet använder följande kommandon. Varje kommando i tabellen länk
 | Kommando | Anteckningar |
 |---|---|
 | [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) | Skapar en resursgrupp där alla resurser lagras. |
-| [New-AzSqlServer](/powershell/module/az.sql/new-azsqlserver) | Skapar en SQL Database-server som är värd för enkla databaser och elastiska pooler. |
-| [New-AzSqlServerFirewallRule](/powershell/module/az.sql/new-azsqlserverfirewallrule) | Skapar en brand Väggs regel för en logisk server. | 
-| [New-AzSqlDatabase](/powershell/module/az.sql/new-azsqldatabase) | Skapar en ny Azure SQL Database enskild databas. | 
-| [New-AzSqlElasticPool](/powershell/module/az.sql/new-azsqlelasticpool) | Skapar en Elastic Database-pool för en Azure SQL Database.| 
+| [Ny-AzSqlServer](/powershell/module/az.sql/new-azsqlserver) | Skapar en SQL Database-server som är värd för enkla databaser och elastiska pooler. |
+| [New-AzSqlServerFirewallRule](/powershell/module/az.sql/new-azsqlserverfirewallrule) | Skapar en brandväggsregel för en logisk server. | 
+| [Ny-AzSqlDatabase](/powershell/module/az.sql/new-azsqldatabase) | Skapar en ny enda Azure SQL Database-databas. | 
+| [Ny-AzSqlElasticPool](/powershell/module/az.sql/new-azsqlelasticpool) | Skapar en elastisk databaspool för en Azure SQL-databas.| 
 | [Set-AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase) | Anger egenskaper för en databas eller flyttar en befintlig databas till en elastisk pool. | 
-| [New-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/new-azsqldatabasefailovergroup) | Skapar en ny grupp för redundans. |
-| [Get-AzSqlDatabase](/powershell/module/az.sql/get-azsqldatabase) | Hämtar en eller flera SQL-databaser. |
-| [Add-AzSqlDatabaseToFailoverGroup](/powershell/module/az.sql/add-azsqldatabasetofailovergroup) | Lägger till en eller flera Azure SQL-databaser i en failover-grupp. |
-| [Get-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/get-azsqldatabasefailovergroup) | Hämtar eller listar Azure SQL Database redundans grupper. |
-| [Switch-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/switch-azsqldatabasefailovergroup)| Kör en redundansväxling av en Azure SQL Database redundans grupp. |
-| [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Tar bort en resurs grupp | 
+| [Nya-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/new-azsqldatabasefailovergroup) | Skapar en ny redundansgrupp. |
+| [Hämta AzSqlDatabase](/powershell/module/az.sql/get-azsqldatabase) | Hämtar en eller flera SQL-databaser. |
+| [Tillägg-AzSqlDatabaseToFailoverGroup](/powershell/module/az.sql/add-azsqldatabasetofailovergroup) | Lägger till en eller flera Azure SQL-databaser i en redundansgrupp. |
+| [Get-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/get-azsqldatabasefailovergroup) | Hämtar eller listar Redundansgrupper för Azure SQL Database. |
+| [Switch-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/switch-azsqldatabasefailovergroup)| Kör en redundans för en redundansgrupp för Azure SQL Database. |
+| [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Tar bort en resursgrupp | 
 
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
-Det finns inga tillgängliga skript för Azure Portal.
+Det finns inga skript tillgängliga för Azure-portalen.
 
 ---
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudien lade du till en Azure SQL Database elastisk pool till en failover-grupp och testade redundans. Du har lärt dig att:
+I den här självstudien har du lagt till en elastisk Azure SQL Database-pool i en redundansgrupp och testade redundans. Du har lärt dig att:
 
 > [!div class="checklist"]
-> - Skapa en Azure SQL Database enskild databas.
-> - Lägg till den enkla databasen i en elastisk pool. 
-> - Skapa en [grupp för växling vid fel](sql-database-auto-failover-group.md) för två elastiska pooler mellan två logiska SQL-servrar.
-> - Redundanstest.
+> - Skapa en enda Azure SQL-databas.
+> - Lägg till den enda databasen i en elastisk pool. 
+> - Skapa en [redundanskitetsgrupp](sql-database-auto-failover-group.md) för två elastiska pooler mellan två logiska SQL-servrar.
+> - Testa redundans.
 
-Gå vidare till nästa självstudie om hur du migrerar med DMS.
+Gå vidare till nästa handledning om hur du migrerar med DMS.
 
 > [!div class="nextstepaction"]
-> [Självstudie: Migrera SQL Server till en poolad databas med DMS](../dms/tutorial-sql-server-to-azure-sql.md?toc=/azure/sql-database/toc.json)
+> [Självstudiekurs: Migrera SQL Server till en poolad databas med DMS](../dms/tutorial-sql-server-to-azure-sql.md?toc=/azure/sql-database/toc.json)

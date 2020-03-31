@@ -1,5 +1,5 @@
 ---
-title: 'Snabb start: lägga till en gäst användare med PowerShell – Azure AD'
+title: 'Snabbstart: Lägga till en gästanvändare med PowerShell - Azure AD'
 description: I den här snabbstarten får du lära dig hur du använder PowerShell för att skicka en inbjudan till en extern Azure AD B2B-samarbetsanvändare.
 services: active-directory
 ms.service: active-directory
@@ -13,19 +13,19 @@ ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b0faaf0394bddc2e443afc194bbd0ecef72625f9
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "79240928"
 ---
 # <a name="quickstart-add-a-guest-user-with-powershell"></a>Snabbstart: Lägg till en gästanvändare med PowerShell
 
 Det finns många sätt att bjuda in externa partners till dina appar och tjänster med Azure Active Directory B2B-samarbete. I den förra snabbstarten såg du hur du lägger till gästanvändare direkt i Azure Active Directory-administratörsportalen. Du kan också använda PowerShell för att lägga till gästanvändare antingen ett i taget eller i grupp. I den här snabbstarten får du använda kommandot New-AzureADMSInvitation för att lägga till en gästanvändare till din Azure-klientorganisation.
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar. 
+Om du inte har en Azure-prenumeration skapar du ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar. 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 ### <a name="install-the-latest-azureadpreview-module"></a>Installera den senaste AzureADPreview-modulen
 Se till att du installerar den senaste versionen av Azure AD PowerShell för Graph-modulen (AzureADPreview). 
@@ -75,7 +75,7 @@ Ange dina autentiseringsuppgifter när du uppmanas att göra det.
 
 ## <a name="send-an-invitation"></a>Skicka en inbjudan
 
-1. Om du vill skicka en inbjudan till test-e-postkontot kör du följande PowerShell-kommando (Ersätt **"Sanda"** och **sanda\@fabrikam.com** med ditt test-e-postkonto och e-postadress): 
+1. Om du vill skicka en inbjudan till ditt test-e-postkonto kör du följande PowerShell-kommando (ersätt **"Sanda"** och **\@sanda fabrikam.com** med ditt namn på test-e-postkonto och e-postadress): 
 
    ```powershell
    New-AzureADMSInvitation -InvitedUserDisplayName "Sanda" -InvitedUserEmailAddress sanda@fabrikam.com -InviteRedirectURL https://myapps.microsoft.com -SendInvitationMessage $true
@@ -91,7 +91,7 @@ Ange dina autentiseringsuppgifter när du uppmanas att göra det.
    ```powershell
    Get-AzureADUser -Filter "UserType eq 'Guest'"
    ```
-3. Kontrol lera utdata för att se till att användaren som du har bjudit in visas, med ett User Principal Name (UPN) i formatet *emailaddress*#EXT #\@- *domän*. Till exempel *sanda_fabrikam. com # ext #\@contoso.onmicrosoft.com*, där contoso.onmicrosoft.com är organisationen som du skickade inbjudningarna från.
+3. Kontrollera utdata för att se till att användaren du har bjudit in visas med ett användarnamn (UPN) i formatet *e-postadress*#EXT#\@*domän*. Till exempel *\@sanda_fabrikam.com#EXT# contoso.onmicrosoft.com*, där contoso.onmicrosoft.com är den organisation som du skickade inbjudningarna från.
 
    ![PowerShell-utdata som visar att gästanvändaren har lagts till](media/quickstart-invite-powershell/powershell-guest-user-added.png)
 
@@ -109,4 +109,4 @@ Exempel: `Remove-AzureADUser -ObjectId "sanda_fabrikam.com#EXT#@contoso.onmicros
 I den här snabbstarten har du bjudit in och lagt till en enda gästanvändare till din katalog med PowerShell. Nu får du lära dig hur du bjuder in gästanvändare gruppvis med PowerShell.
 
 > [!div class="nextstepaction"]
-> [Självstudier: Bjud in Azure AD B2B-samarbetsanvändare i grupp](tutorial-bulk-invite.md)
+> [Självstudier: Massinbjuda Azure AD B2B-samarbetsanvändare](tutorial-bulk-invite.md)

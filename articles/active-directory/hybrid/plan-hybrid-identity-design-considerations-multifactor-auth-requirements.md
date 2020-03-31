@@ -1,6 +1,6 @@
 ---
-title: Hybrid identity design - multifaktorautentiseringskrav Azure | Microsoft Docs
-description: Med villkorlig åtkomstkontroll kontrollerar de specifika villkor som du väljer när du autentiserar användaren och innan åtkomst ges till programmet i Azure Active Directory. När dessa villkor är uppfyllda, användaren autentiseras och får åtkomst till programmet.
+title: Hybrididentitetsdesign – multifaktorautentiseringskrav Azure | Microsoft-dokument
+description: Med kontrollen Villkorlig åtkomst kontrollerar Azure Active Directory de specifika villkor som du väljer när du autentiserar användaren och innan du tillåter åtkomst till programmet. När dessa villkor är uppfyllda autentiseras användaren och får åtkomst till programmet.
 documentationcenter: ''
 services: active-directory
 author: billmath
@@ -18,46 +18,46 @@ ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4743195fc79d43571ec79a13b8518edc7e81379b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67109300"
 ---
-# <a name="determine-multi-factor-authentication-requirements-for-your-hybrid-identity-solution"></a>Fastställa krav för multifaktorautentisering för dina hybrididentitetslösning
-I den här världen för mobilitet med användare som kommer åt data och program i molnet och på valfri enhet, har det blivit avgörande att skydda den här informationen.  Varje dag är det en ny rubrik om en säkerhetsöverträdelse.  Även om det finns ingen garanti mot överträdelser, ger multifaktorautentisering, ett extra lager av säkerhet för att förhindra dessa överträdelser.
-Börja med att utvärdera organisationer kraven för multifaktorautentisering. Det vill säga vad organisationen försöker skydda.  Den här utvärderingsversionen är viktigt att definiera de tekniska kraven för att konfigurera och aktivera organisationer användare för multifaktorautentisering.
+# <a name="determine-multi-factor-authentication-requirements-for-your-hybrid-identity-solution"></a>Fastställa multifaktorautentiseringskrav för din hybrididentitetslösning
+I denna värld av rörlighet, med användare som använder data och program i molnet och från alla enheter, har det blivit av största vikt att skydda den här informationen.  Varje dag finns det en ny rubrik om en säkerhetsöverträdelse.  Även om det inte finns någon garanti mot sådana överträdelser, multifaktorautentisering, ger ett extra lager av säkerhet för att förhindra dessa överträdelser.
+Börja med att utvärdera organisationens krav för multifaktorautentisering. Det vill än, vad är organisationen försöker säkra.  Den här utvärderingen är viktig för att definiera de tekniska kraven för att ställa in och aktivera organisationer som användare för multifaktorautentisering.
 
 Se till att svara på följande:
 
-* Är företaget vill du skydda Microsoft-appar 
-* Hur de här apparna har publicerats?
-* Företaget kan ge fjärråtkomst så att anställda åtkomst till lokala appar?
+* Försöker ditt företag skydda Microsoft-appar? 
+* Hur dessa appar publiceras?
+* Ger ditt företag fjärråtkomst så att anställda kan komma åt lokala appar?
 
-Om Ja, vilken typ av fjärråtkomst? Du måste också att utvärdera där användare som kommer åt dessa program kommer att finnas. Den här utvärderingsversionen är ett annat viktigt steg för att definiera en strategi för rätt multifaktorautentisering. Se till att besvara följande frågor:
+Om ja, vilken typ av fjärråtkomst? Du måste också utvärdera var de användare som har åtkomst till dessa program ska finnas. Den här utvärderingen är ytterligare ett viktigt steg för att definiera rätt multifaktorautentiseringsstrategi. Se till att svara på följande frågor:
 
-* Där användarna ska finnas?
-* Kan de finnas var som helst?
-* Vill ditt företag att upprätta begränsningar enligt användarens plats?
+* Var ska användarna finnas?
+* Kan de lokaliseras var som helst?
+* Vill ditt företag fastställa begränsningar beroende på användarens plats?
 
-När du förstår dessa krav, är det viktigt att utvärdera användarens krav för multifaktorautentisering. Den här utvärderingsversionen är viktig eftersom den definierar kraven för distribution av multifaktorautentisering. Se till att besvara följande frågor:
+När du förstår dessa krav är det viktigt att också utvärdera användarens krav för multifaktorautentisering. Den här utvärderingen är viktig eftersom den definierar kraven för att distribuera multifaktorautentisering. Se till att svara på följande frågor:
 
-* Är användarna bekant med Multi-Factor authentication?
-* Några användningsområden ombedd att ange ytterligare autentisering?  
-  * Om Ja, hela tiden, när de kommer från externa nätverk eller få åtkomst till specifika program eller andra villkor?
-* Användare kräver utbildning om hur du konfigurerar och implementera multifaktorautentisering?
-* Vilka är de scenarier som företaget vill aktivera multifaktorautentisering för sina användare?
+* Är användarna bekanta med multifaktorautentisering?
+* Kommer vissa användningsområden att krävas för att tillhandahålla ytterligare autentisering?  
+  * Om ja, hela tiden, när de kommer från externa nätverk, eller tillgång till specifika program, eller på andra villkor?
+* Kommer användarna att behöva utbildning om hur man ställer in och implementerar multifaktorautentisering?
+* Vilka är de viktigaste scenarierna som ditt företag vill aktivera multifaktorautentisering för sina användare?
 
-När du har svarat på tidigare frågor, kommer du att kunna se om det finns multifaktorautentisering redan implementerat den lokala. Den här utvärderingsversionen är viktigt att definiera de tekniska kraven för att konfigurera och aktivera organisationer användare för multifaktorautentisering. Se till att besvara följande frågor:
+När du har svarat på de tidigare frågorna kan du förstå om det redan finns multifaktorautentisering implementerad lokalt. Den här utvärderingen är viktig för att definiera de tekniska kraven för att ställa in och aktivera organisationer som användare för multifaktorautentisering. Se till att svara på följande frågor:
 
-* Behöver företaget att skydda Privilegierade konton med MFA?
-* Behöver företaget att aktivera MFA för vissa program av kompatibilitetsskäl?
-* Behöver företaget att aktivera MFA för alla berättigade användare av dessa program eller bara administratörer?
-* Du behöver har alltid aktiverat MFA eller bara när användare är inloggad utanför företagets nätverk?
+* Behöver ditt företag skydda privilegierade konton hos MFA?
+* Behöver ditt företag aktivera MFA för vissa ansökningar av efterlevnadsskäl?
+* Behöver ditt företag aktivera MFA för alla berättigade användare av dessa program eller bara administratörer?
+* Behöver du ha MFA alltid aktiverat eller bara när användarna är inloggade utanför företagets nätverk?
 
 ## <a name="next-steps"></a>Nästa steg
-[Definiera en hybrid identity införandestrategi](plan-hybrid-identity-design-considerations-identity-adoption-strategy.md)
+[Definiera en strategi för antagande av hybrididentitet](plan-hybrid-identity-design-considerations-identity-adoption-strategy.md)
 
-## <a name="see-also"></a>Se också
-[Översikt över design-överväganden](plan-hybrid-identity-design-considerations-overview.md)
+## <a name="see-also"></a>Se även
+[Översikt över designöverväganden](plan-hybrid-identity-design-considerations-overview.md)
 

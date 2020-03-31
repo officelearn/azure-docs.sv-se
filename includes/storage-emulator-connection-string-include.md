@@ -5,13 +5,13 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: tamram
 ms.openlocfilehash: 8c577db3e9f2bff9e86c3a7c37274630f90dd680
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "67187547"
 ---
-Storage-emulatorn stöder ett enda fast konto och en välkänd autentiseringsnyckel för autentisering med delad nyckel. Kontot och nyckeln är de enda delad nyckel-autentiseringsuppgifter som tillåts för användning med storage-emulatorn. De är:
+Lagringsemulatorn stöder ett enda fast konto och en välkänd autentiseringsnyckel för autentisering av delad nyckel. Det här kontot och nyckeln är de enda autentiseringsuppgifter för delad nyckel som tillåts för användning med lagringsemmulatorn. De är:
 
 ```
 Account name: devstoreaccount1
@@ -19,13 +19,13 @@ Account key: Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZ
 ```
 
 > [!NOTE]
-> Den autentiseringsnyckel som stöds av storage-emulatorn är avsedd endast för att testa funktionerna i klientkoden för autentisering. Den hanterar inte några något security syfte. Du kan inte använda din produktion lagringskontot och nyckeln med storage-emulatorn. Du bör inte använda kontot utveckling med produktionsdata.
+> Autentiseringsnyckeln som stöds av lagringsemulatorn är endast avsedd för testning av funktionerna i klientautentiseringskoden. Det tjänar inte något säkerhetssyfte. Du kan inte använda ditt produktionslagringskonto och nyckel med lagringsemulatorn. Du bör inte använda utvecklingskontot med produktionsdata.
 > 
-> Lagringsemulatorn stöder endast en anslutning via HTTP. Men är HTTPS det rekommendera protokollet för åtkomst till resurser i en Azure storage-konto.
+> Lagringsemulatorn stöder endast anslutning via HTTP. HTTPS är dock det rekommenderade protokollet för åtkomst till resurser i ett Azure-lagringskonto för produktion.
 > 
 
-#### <a name="connect-to-the-emulator-account-using-a-shortcut"></a>Anslut till emulatorn-konto med hjälp av en genväg
-Det enklaste sättet att ansluta till storage-emulatorn från ditt program är att konfigurera en anslutningssträng i programmets konfigurationsfil som refererar till genvägen `UseDevelopmentStorage=true`. Här är ett exempel på en anslutningssträng till storage-emulatorn i en *app.config* fil: 
+#### <a name="connect-to-the-emulator-account-using-a-shortcut"></a>Ansluta till emulatorkontot med en genväg
+Det enklaste sättet att ansluta till lagringsemulatorn från ditt program är att konfigurera en `UseDevelopmentStorage=true`anslutningssträng i programmets konfigurationsfil som refererar till genvägen . Här är ett exempel på en anslutningssträng till lagringsemulatorn i en *app.config-fil:* 
 
 ```xml
 <appSettings>
@@ -33,8 +33,8 @@ Det enklaste sättet att ansluta till storage-emulatorn från ditt program är a
 </appSettings>
 ```
 
-#### <a name="connect-to-the-emulator-account-using-the-well-known-account-name-and-key"></a>Anslut till emulatorn-konto med hjälp av det välkända kontonamnet och nyckeln
-Om du vill skapa en anslutningssträng som refererar till emulatorn namn och nyckel, måste du ange slutpunkterna för var och en av de tjänster som du vill använda från emulatorn i anslutningssträngen. Detta är nödvändigt för att anslutningssträngen ska referera till slutpunkter emulator, som skiljer sig från dem för ett lagringskonto för produktion. Värdet för anslutningssträngen ska se ut så här:
+#### <a name="connect-to-the-emulator-account-using-the-well-known-account-name-and-key"></a>Anslut till emulatorkontot med det välkända kontonamnet och nyckeln
+Om du vill skapa en anslutningssträng som refererar till emulatorkontonamnet och nyckeln måste du ange slutpunkterna för var och en av de tjänster som du vill använda från emulatorn i anslutningssträngen. Detta är nödvändigt så att anslutningssträngen refererar till emulatorslutpunkterna, som skiljer sig från dem för ett produktionslagringskonto. Värdet på anslutningssträngen ser till exempel ut så här:
 
 ```
 DefaultEndpointsProtocol=http;AccountName=devstoreaccount1;
@@ -44,10 +44,10 @@ TableEndpoint=http://127.0.0.1:10002/devstoreaccount1;
 QueueEndpoint=http://127.0.0.1:10001/devstoreaccount1;
 ```
 
-Det här värdet är identiska med genvägen ovan kan `UseDevelopmentStorage=true`.
+Det här värdet är identiskt `UseDevelopmentStorage=true`med genvägen som visas ovan.
 
 #### <a name="specify-an-http-proxy"></a>Ange en HTTP-proxy
-Du kan också ange en HTTP-proxy ska användas när du testar din tjänst mot storage-emulatorn. Detta kan vara användbart för får HTTP-begäranden och svar medan du felsöker åtgärder mot de storage-tjänsterna. Om du vill ange en proxy, lägger du till den `DevelopmentStorageProxyUri` alternativet på anslutningssträngen och ange värdet till proxy-URI. Här är till exempel en anslutningssträng som pekar på storage-emulatorn och konfigurerar en HTTP-proxy:
+Du kan också ange en HTTP-proxy som ska användas när du testar tjänsten mot lagringsemulatorn. Detta kan vara användbart för att observera HTTP-begäranden och svar medan du felsöker åtgärder mot lagringstjänsterna. Om du vill ange `DevelopmentStorageProxyUri` en proxy lägger du till alternativet i anslutningssträngen och anger dess värde till proxy-URI.To specify a proxy, add the option to the connection string, and set its value to the proxy URI. Här är till exempel en anslutningssträng som pekar på lagringsemulatorn och konfigurerar en HTTP-proxy:
 
 ```
 UseDevelopmentStorage=true;DevelopmentStorageProxyUri=http://myProxyUri

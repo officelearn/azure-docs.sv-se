@@ -1,7 +1,7 @@
 ---
-title: Övervaka status och resultat för indexerare
+title: Övervaka indexerarstatus och resultat
 titleSuffix: Azure Cognitive Search
-description: Övervaka status, förlopp och resultat för Azure Kognitiv sökning indexerare i Azure Portal, med hjälp av REST API eller .NET SDK.
+description: Övervaka status, förlopp och resultat för Azure Cognitive Search-indexerare i Azure-portalen med REST API eller .NET SDK.
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
@@ -10,82 +10,82 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: 699b5a4e5a7f10c883667ca5030dd971855467f5
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74112989"
 ---
-# <a name="how-to-monitor-azure-cognitive-search-indexer-status-and-results"></a>Övervaka status och resultat för Azure Kognitiv sökning Indexer
+# <a name="how-to-monitor-azure-cognitive-search-indexer-status-and-results"></a>Så här övervakar du Azure Cognitive Search-indexerarens status och resultat
 
-Azure Kognitiv sökning ger status och övervaknings information om aktuella och historiska körningar av alla indexerare.
+Azure Cognitive Search ger status och övervakningsinformation om aktuella och historiska körningar för varje indexerare.
 
-Indexerare övervakning är användbart när du vill:
+Indexeringsövervakning är användbar när du vill:
 
 * Spåra förloppet för en indexerare under en pågående körning.
-* Granska resultaten av pågående eller tidigare indexerare-körning.
-* Identifiera index på toppnivå fel och fel eller varningar om enskilda dokument som indexeras.
+* Granska resultaten av pågående eller tidigare indexeringskörning.
+* Identifiera indexeringsfel på den högsta nivån och fel eller varningar om att enskilda dokument indexeras.
 
-## <a name="get-status-and-history"></a>Hämta status och historik
+## <a name="get-status-and-history"></a>Få status och historik
 
-Du kan komma åt information om övervakning av indexerare på olika sätt, inklusive:
+Du kan komma åt indexerarövervakningsinformation på olika sätt, bland annat:
 
 * I [Azure Portal](#portal)
 * Använda [REST API](#restapi)
 * Använda [.NET SDK](#dotnetsdk)
 
-Den tillgängliga övervaknings informationen för indexeraren innehåller allt följande (även om data formaten skiljer sig beroende på vilken åtkomst metod som används):
+Tillgänglig övervakningsinformation för indexerare omfattar alla följande (även om dataformaten skiljer sig beroende på vilken åtkomstmetod som används):
 
 * Statusinformation om själva indexeraren
-* Information om den senaste körningen av indexeraren, inklusive status, start-och slut tider samt detaljerade fel och varningar.
-* En lista över historisk indexerare körs och deras status, resultat, fel och varningar.
+* Information om den senaste körningen av indexeraren, inklusive dess status, start- och sluttider och detaljerade fel och varningar.
+* En lista över historiska indexerare körs och deras status, resultat, fel och varningar.
 
-Indexerare som bearbetar stora data volymer kan ta lång tid att köra. Till exempel kan indexerare som hanterar miljon tals käll dokument köras i 24 timmar och sedan starta om nästan omedelbart. Status för hög volym indexerare kan alltid stå i **förlopp** i portalen. Även om en indexerare körs, finns det information om pågående förloppet och tidigare körningar.
+Indexerare som bearbetar stora mängder data kan ta lång tid att köra. Indexerare som hanterar miljontals källdokument kan till exempel köras i 24 timmar och sedan starta om nästan omedelbart. Statusen för högvolymsindexerare kan alltid säga **Pågår** i portalen. Även när en indexerare körs finns information om pågående framsteg och tidigare körningar.
 
 <a name="portal"></a>
 
 ## <a name="monitor-using-the-portal"></a>Övervaka med hjälp av portalen
 
-Du kan se aktuell status för alla indexerare i listan **indexerare** på sidan Översikt över Sök tjänsten.
+Du kan se aktuell status för alla indexare i **indexerarlistan** på sidan Översikt för söktjänsten.
 
-   ![Lista med indexerare](media/search-monitor-indexers/indexers-list.png "Lista med indexerare")
+   ![Indexerare lista](media/search-monitor-indexers/indexers-list.png "Indexerare lista")
 
-När en indexerare körs visas statusen i listan **i förlopp**och värdet för **dokument lyckades** visar antalet dokument som bearbetats hittills. Det kan ta några minuter för portalen att uppdatera indexerings status värden och antalet dokument.
+När en indexerare körs visar statusen i listan **Pågående**och värdet **För att lyckades med dokument** visar antalet dokument som bearbetats hittills. Det kan ta några minuter för portalen att uppdatera indexerarens statusvärden och antalet dokument.
 
-En indexerare vars senaste körning lyckades visas som **lyckad**. En indexerare-körning kan lyckas även om enskilda dokument innehåller fel, om antalet fel är mindre än inställningen för **maximalt antal misslyckade objekt** i indexeraren.
+En indexerare vars senaste körning lyckades visar **Framgång**. En indexeringskörning kan lyckas även om enskilda dokument har fel, om antalet fel är mindre än indexerarens **max-misslyckade objektinställning.**
 
-Om den senaste körningen avslutades med ett fel, visas statusen **misslyckades**. Status för **återställning** innebär att Indexeringens tillstånd för ändrings spårning återställdes.
+Om den senaste körningen slutade med ett fel visas **Det inte gick att visa**statusen Misslyckades . Status för **Återställ** innebär att indexerarens ändringsspårningstillstånd återställdes.
 
-Klicka på en indexerare i listan om du vill se mer information om indexeraren aktuella och senaste körningar.
+Klicka på en indexerare i listan för att se mer information om indexerarens aktuella och senaste körningar.
 
-   ![Sammanfattning och körnings historik för indexerare](media/search-monitor-indexers/indexer-summary.png "Sammanfattning och körnings historik för indexerare")
+   ![Indexer sammanfattning och körning historia](media/search-monitor-indexers/indexer-summary.png "Indexer sammanfattning och körning historia")
 
-I **sammanfattnings diagrammet för indexeraren** visas ett diagram över antalet bearbetade dokument i de senaste körningarna.
+Sammanfattningsdiagrammet **Indexer** visar ett diagram över antalet dokument som bearbetats i de senaste körningarna.
 
-Listan med **körnings information** visar upp till 50 av de senaste körnings resultaten.
+Listan **Körningsinformation** visar upp till 50 av de senaste körningsresultaten.
 
-Klicka på ett körnings resultat i listan om du vill se information om den här körningen. Detta omfattar dess start-och slut tider och eventuella fel och varningar som har inträffat.
+Klicka på ett körningsresultat i listan för att se detaljer om körningen. Detta inkluderar start- och sluttider och eventuella fel och varningar som inträffat.
 
-   ![Information om körning av indexerare](media/search-monitor-indexers/indexer-execution.png "Information om körning av indexerare")
+   ![Information om indexeringskörning](media/search-monitor-indexers/indexer-execution.png "Information om indexeringskörning")
 
-Om det fanns användarspecifika problem under körningen visas de i fälten fel och varningar.
+Om det fanns dokumentspecifika problem under körningen visas de i fälten Fel och varningar.
 
-   ![Information om indexerare med fel](media/search-monitor-indexers/indexer-execution-error.png "Information om indexerare med fel")
+   ![Indexer information med fel](media/search-monitor-indexers/indexer-execution-error.png "Indexer information med fel")
 
-Varningar är vanliga med vissa typer av indexerare och indikerar inte alltid ett problem. Till exempel indexerare som använder kognitiva tjänster kan rapportera varningar när bild-eller PDF-filer inte innehåller någon text att bearbeta.
+Varningar är vanliga med vissa typer av indexerare och tyder inte alltid på något problem. Indexerare som använder kognitiva tjänster kan till exempel rapportera varningar när bild- eller PDF-filer inte innehåller någon text att bearbeta.
 
-Mer information om hur du undersöker index fel och varningar finns i [Felsöka vanliga indexerings problem i Azure kognitiv sökning](search-indexer-troubleshooting.md).
+Mer information om hur du undersöker indexfel och varningar finns [i Felsöka vanliga indexeringsproblem i Azure Cognitive Search](search-indexer-troubleshooting.md).
 
 <a name="restapi"></a>
 
-## <a name="monitor-using-rest-apis"></a>Övervaka med hjälp av REST API: er
+## <a name="monitor-using-rest-apis"></a>Övervaka med REST-API:er
 
-Du kan hämta status och körnings historik för en indexerare med hjälp av [status kommandot Get indexerare](https://docs.microsoft.com/rest/api/searchservice/get-indexer-status):
+Du kan hämta status- och körningshistoriken för en indexerare med [kommandot Hämta indexerarestatus:](https://docs.microsoft.com/rest/api/searchservice/get-indexer-status)
 
     GET https://[service name].search.windows.net/indexers/[indexer name]/status?api-version=2019-05-06
     api-key: [Search service admin key]
 
-Svaret innehåller övergripande indexerings status, det sista (eller inaktuella) indexerings anropet och historiken för senaste indexerare-anrop.
+Svaret innehåller övergripande indexerarstatus, den sista (eller pågående) indexerarens åkallan och historiken för de senaste indexeringsyrkena.
 
     {
         "status":"running",
@@ -113,23 +113,23 @@ Svaret innehåller övergripande indexerings status, det sista (eller inaktuella
         }]
     }
 
-Körnings historiken innehåller upp till de 50 senaste körningarna, som sorteras i omvänd kronologisk ordning (senast första).
+Körningshistorik innehåller upp till de 50 senaste körningarna, som sorteras i omvänd kronologisk ordning (senaste först).
 
-Observera att det finns två olika status värden. Status på den högsta nivån är för själva indexeraren. En indexerare-status för **körning** innebär att indexeraren är korrekt inställd och tillgänglig för körning, men inte att den körs för närvarande.
+Observera att det finns två olika statusvärden. Status på den översta nivån är för indexeraren själv. En indexerarstatus **för körning** innebär att indexeraren är korrekt inställd och tillgänglig för körning, men inte att den körs för tillfället.
 
-Varje körning av indexeraren har också sin egen status som anger om den specifika körningen pågår (**körs**) eller redan har slutförts med statusen **lyckades**, **transientFailure**eller **persistentFailure** . 
+Varje körning av indexeraren har också sin egen status som anger om den specifika körningen pågår (**körs),** eller redan har slutförts med en **lyckad**, **transientFailure**eller **persistentFailure-status.** 
 
-När en indexerare återställs för att uppdatera status för ändrings spårning läggs en separat post för körnings historik till med en **återställnings** status.
+När en indexerare återställs för att uppdatera sitt ändringsspårningstillstånd läggs en separat körningshistorikpost till med status **för återställning.**
 
-Mer information om status koder och övervaknings data för indexerare finns i [GetIndexerStatus](https://docs.microsoft.com/rest/api/searchservice/get-indexer-status).
+Mer information om statuskoder och indexerarövervakningsdata finns i [GetIndexerStatus](https://docs.microsoft.com/rest/api/searchservice/get-indexer-status).
 
 <a name="dotnetsdk"></a>
 
 ## <a name="monitor-using-the-net-sdk"></a>Övervaka med hjälp av .NET SDK
 
-Du kan definiera schemat för en indexerare med hjälp av Azure Kognitiv sökning .NET SDK. Det gör du genom att lägga till egenskapen **schema** när du skapar eller uppdaterar en indexerare.
+Du kan definiera schemat för en indexerare med hjälp av Azure Cognitive Search .NET SDK. Det gör du **schedule** genom att inkludera schemaegenskapen när du skapar eller uppdaterar en indexerare.
 
-I följande C# exempel skrivs information om en indexerare status och resultatet av den senaste (eller pågående) körningen till-konsolen.
+I följande C#-exempel skrivs information om en indexerares status och resultatet av dess senaste (eller pågående) körning till konsolen.
 
 ```csharp
 static void CheckIndexerStatus(Indexer indexer, SearchServiceClient searchService)
@@ -161,7 +161,7 @@ static void CheckIndexerStatus(Indexer indexer, SearchServiceClient searchServic
 }
 ```
 
-Utdata i-konsolen ser ut ungefär så här:
+Utgången i konsolen kommer att se ut ungefär så här:
 
     Indexer has run 18 times.
     Indexer Status: Running
@@ -172,14 +172,14 @@ Utdata i-konsolen ser ut ungefär så här:
       ErrorMessage: none
       Document Errors: 0, Warnings: 0
 
-Observera att det finns två olika status värden. Status på den högsta nivån är status för själva indexeraren. En indexerare status för **körning** innebär att indexeraren är korrekt inställd och tillgänglig för körning, men inte att den körs.
+Observera att det finns två olika statusvärden. Status på den översta nivån är status för själva indexeraren. Status för status **för** indexering innebär att indexeraren är korrekt och tillgänglig för körning, men inte att den körs för tillfället.
 
-Varje körning av indexeraren har också sin egen status för huruvida den specifika körningen pågår (**körs**) eller redan har slutförts med statusen **lyckades** eller **TransientError** . 
+Varje körning av indexeraren har också sin egen status för om den specifika körningen pågår (**Kör**), eller redan har slutförts med **statusen Framgång** eller **TransientError.** 
 
-När en indexerare återställs för att uppdatera ändrings spårnings statusen läggs en separat historik post till med en **återställnings** status.
+När en indexerare återställs för att uppdatera sitt ändringsspårningstillstånd läggs en separat historikpost till med **återställningsstatus.**
 
-Mer information om status koder och information om övervakning av indexerare finns i [GetIndexerStatus](https://docs.microsoft.com/rest/api/searchservice/get-indexer-status) i REST API.
+Mer information om statuskoder och övervakningsinformation för indexerare finns i [GetIndexerStatus](https://docs.microsoft.com/rest/api/searchservice/get-indexer-status) i REST API.
 
-Information om användarspecifika fel eller varningar kan hämtas genom att räkna upp listor `IndexerExecutionResult.Errors` och `IndexerExecutionResult.Warnings`.
+Information om dokumentspecifika fel eller varningar kan hämtas genom `IndexerExecutionResult.Errors` att `IndexerExecutionResult.Warnings`räkna upp listorna och .
 
 Mer information om de .NET SDK-klasser som används för att övervaka indexerare finns i [IndexerExecutionInfo](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexerexecutioninfo?view=azure-dotnet) och [IndexerExecutionResult](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexerexecutionresult?view=azure-dotnet).

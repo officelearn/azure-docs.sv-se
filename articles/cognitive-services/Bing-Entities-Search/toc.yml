@@ -7,10 +7,10 @@
     - name: 'Jämför API: erna för Bing-sökresultat'
       href: ../Bing-Web-Search/bing-api-comparison.md
       maintainContext: true
-- name: Snabbstarter för REST API
+- name: Snabbstarter
   expanded: true
   items:
-    - name: REST API
+    - name: REST-API
       items:
         - name: 'Använd C#'
           href: quickstarts/csharp.md
@@ -36,12 +36,12 @@
   items:
     - name: Kodexempel
       href: 'https://azure.microsoft.com/resources/samples/?sort=0&service=cognitive-services&term=Bing+Entity+Search'
-- name: Instruktionsguider
+- name: Anvisningar
   items:
     - name: Ändra storlek på och beskär miniatyrer
       maintainContext: true
       href: ../bing-web-search/resize-and-crop-thumbnails.md
-- name: Koncept
+- name: Begrepp
   items:
     - name: Söka efter entiteter
       href: concepts/search-for-entities.md
@@ -68,7 +68,7 @@
           href: 'https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/entitysearch'
 - name: Resurser
   items:
-    - name: Priser
+    - name: Prissättning
       href: 'https://azure.microsoft.com/pricing/details/cognitive-services/bing-entity-search-api/'
     - name: UserVoice
       href: 'https://cognitive.uservoice.com/forums/601036-bing-entity-search-api'

@@ -1,6 +1,6 @@
 ---
-title: Metod tips för säker utveckling på Microsoft Azure
-description: Metod tips som hjälper dig att utveckla säkrare kod och distribuera ett säkrare program i molnet.
+title: Metodtips för säker utveckling på Microsoft Azure
+description: Metodtips som hjälper dig att utveckla säkrare kod och distribuera ett säkrare program i molnet.
 author: TerryLanfear
 manager: barbkess
 ms.author: terrylan
@@ -14,30 +14,30 @@ ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.openlocfilehash: c4314a0dcbbcb907ef4d6de0a2788cf04dfe1641
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "68934870"
 ---
-# <a name="secure-development-best-practices-on-azure"></a>Säkra bästa metoder för utveckling i Azure
-I den här artikel serien presenteras säkerhets aktiviteter och kontroller som du bör tänka på när du utvecklar program för molnet. Faserna i Microsoft Security Development Lifecycle (SDL) och säkerhets frågor och koncept som du bör tänka på under varje fas i livs cykeln omfattas. Målet är att hjälpa dig att definiera aktiviteter och Azure-tjänster som du kan använda i varje fas i livs cykeln för att utforma, utveckla och distribuera ett säkrare program.
+# <a name="secure-development-best-practices-on-azure"></a>Metodtips för säker utveckling på Azure
+Den här artikelserien innehåller säkerhetsaktiviteter och kontroller att tänka på när du utvecklar program för molnet. Faserna i Microsoft Security Development Lifecycle (SDL) och säkerhetsfrågor och begrepp som ska beaktas under varje fas av livscykeln behandlas. Målet är att hjälpa dig att definiera aktiviteter och Azure-tjänster som du kan använda i varje fas av livscykeln för att utforma, utveckla och distribuera ett säkrare program.
 
-Rekommendationerna i artiklarna kommer från vår erfarenhet av Azure-säkerhet och från våra kunders upplevelser. Du kan använda de här artiklarna som en referens för vad du bör tänka på under en bestämd fas i utvecklings projektet, men vi rekommenderar att du läser igenom alla artiklar från början till slut minst en gång. Genom att läsa alla artiklar får du en introduktion till koncept som du kanske har missat i tidigare faser av projektet. Genom att implementera dessa begrepp innan du släpper din produkt kan du hjälpa dig att bygga säker program vara, tillgodose kraven för efterlevnad och minska utvecklings kostnaderna.
+Rekommendationerna i artiklarna kommer från vår erfarenhet av Azure-säkerhet och från våra kunders erfarenheter. Du kan använda dessa artiklar som referens för vad du bör tänka på under en viss fas av ditt utvecklingsprojekt, men vi föreslår att du också läser igenom alla artiklar från början till minst en gång. Om du läser alla artiklar introduceras du till begrepp som du kanske har missat i tidigare faser av projektet. Genom att implementera dessa begrepp innan du släpper produkten kan du skapa säker programvara, uppfylla kraven på säkerhetsefterlevnad och minska utvecklingskostnaderna.
 
-Dessa artiklar är avsedda att vara en resurs för programmerare, utvecklare och testare på alla nivåer som skapar och distribuerar säkra Azure-program.
+Dessa artiklar är avsedda att vara en resurs för programvarudesigners, utvecklare och testare på alla nivåer som bygger och distribuerar säkra Azure-program.
 
 ## <a name="overview"></a>Översikt
 
-Säkerhet är en av de viktigaste aspekterna av alla program och det är inte en enkel sak att komma åt dig. Lyckligt vis tillhandahåller Azure många tjänster som kan hjälpa dig att skydda ditt program i molnet. De här artiklarna löser aktiviteter och Azure-tjänster som du kan implementera i varje steg i livs cykeln för program utveckling för att hjälpa dig att utveckla säkrare kod och distribuera ett säkrare program i molnet.
+Säkerhet är en av de viktigaste aspekterna av alla program, och det är inte en enkel sak att få rätt. Lyckligtvis tillhandahåller Azure många tjänster som kan hjälpa dig att skydda ditt program i molnet. Dessa artiklar behandlar aktiviteter och Azure-tjänster som du kan implementera i varje skede av livscykeln för programvaruutveckling för att hjälpa dig att utveckla säkrare kod och distribuera ett säkrare program i molnet.
 
-## <a name="security-development-lifecycle"></a>Livs cykel för säkerhets utveckling
+## <a name="security-development-lifecycle"></a>Säkerhetsutvecklingslivscykel (SDL)
 
-Följande metod tips för säker program varu utveckling kräver integrering av säkerhet i varje fas av program utvecklings livs cykeln, från krav analys till underhåll, oavsett projekt metodik (vattenfall[](https://en.wikipedia.org/wiki/Waterfall_model), [Agile ](https://en.wikipedia.org/wiki/Agile_software_development)eller [DevOps](https://en.wikipedia.org/wiki/DevOps)). Vid aktivering av data överträdelser med hög profil och användning av drifts säkerhets fel är fler utvecklare medveten om att säkerheten måste åtgärdas under hela utvecklings processen.
+För att följa bästa praxis för säker programvaruutveckling krävs att säkerheten integreras i varje fas av livscykeln för programvaruutveckling, från kravanalys till underhåll, oavsett projektmetodik ([vattenfall,](https://en.wikipedia.org/wiki/Waterfall_model) [agila](https://en.wikipedia.org/wiki/Agile_software_development)eller [DevOps](https://en.wikipedia.org/wiki/DevOps)). I kölvattnet av uppmärksammade dataintrång och utnyttjande av brister i driftsäkerheten förstår fler utvecklare att säkerhet måste åtgärdas under hela utvecklingsprocessen.
 
-Senare kan du åtgärda ett problem i utvecklings livs cykeln, desto mer som korrigeringen kostar dig. Säkerhets frågor är inget undantag. Om du åsidosätter säkerhets problem i tidiga faser av program varu utvecklingen kan varje fas som följer ärva säkerhets riskerna i föregående fas. Den slutliga produkten kommer att ha samlat flera säkerhets problem och risken för intrång. Att skapa säkerhet i varje fas i utvecklings livs cykeln hjälper dig att fånga upp problem tidigt och det hjälper dig att minska dina utvecklings kostnader.
+Ju senare du åtgärdar ett problem i utvecklingslivscykeln, desto mer kostar den korrigeringen dig. Säkerhetsproblem är inget undantag. Om du bortser från säkerhetsproblem i de tidiga faserna av programvaruutvecklingen kan varje fas som följer ärva sårbarheterna i föregående fas. Din slutprodukt kommer att ha samlat flera säkerhetsproblem och möjligheten till ett brott. Genom att skapa säkerhet i varje fas av utvecklingslivscykeln kan du fånga upp problem tidigt och det hjälper dig att minska dina utvecklingskostnader.
 
-Vi följer faserna i Microsoft [Security Development Lifecycle (SDL)](https://msdn.microsoft.com/library/windows/desktop/84aed186-1d75-4366-8e61-8d258746bopq.aspx) för att presentera aktiviteter och Azure-tjänster som du kan använda för att uppfylla säkra program utvecklings metoder i varje fas av livs cykeln.
+Vi följer faserna i [Microsoft Security Development Lifecycle (SDL)](https://msdn.microsoft.com/library/windows/desktop/84aed186-1d75-4366-8e61-8d258746bopq.aspx) för att introducera aktiviteter och Azure-tjänster som du kan använda för att uppfylla säkra metoder för programvaruutveckling i varje fas av livscykeln.
 
 SDL-faserna är:
 
@@ -49,34 +49,34 @@ SDL-faserna är:
   - Frisläpp
   - Svar
 
-![Livs cykel för säkerhets utveckling](./media/secure-dev-overview/01-sdl-phase.png)
+![Säkerhetsutvecklingslivscykel](./media/secure-dev-overview/01-sdl-phase.png)
 
-I de här artiklarna grupperar vi SDL-faserna till design, utveckling och distribution.
+I dessa artiklar grupperar vi SDL-faserna i design, utveckling och distribution.
 
-## <a name="engage-your-organizations-security-team"></a>Engagera organisationens säkerhets team
+## <a name="engage-your-organizations-security-team"></a>Engagera organisationens säkerhetsteam
 
-Din organisation kan ha ett formellt program säkerhets program som hjälper dig med säkerhets aktiviteter från början till slut under utvecklings livs cykeln. Om din organisation har säkerhets-och efterlevnadsprinciper måste du engagera dem innan du börjar utveckla ditt program. Fråga dem i varje fas i SDL om det finns några uppgifter som du har missat.
+Din organisation kan ha ett formellt programsäkerhetsprogram som hjälper dig med säkerhetsaktiviteter från början till under utvecklingslivscykeln. Om din organisation har säkerhets- och efterlevnadsteam måste du engagera dem innan du börjar utveckla programmet. Fråga dem i varje fas av SDL om det finns några uppgifter du missat.
 
-Vi förstår att många läsare kanske inte har någon säkerhets-eller Compliance team-grupp att delta. De här artiklarna kan hjälpa dig med säkerhets frågor och beslut som du behöver tänka på i varje fas av SDL.
+Vi förstår att många läsare kanske inte har ett säkerhets- eller efterlevnadsteam att engagera sig i. Dessa artiklar kan hjälpa dig i säkerhetsfrågor och beslut som du behöver tänka på i varje fas av SDL.
 
 ## <a name="resources"></a>Resurser
 
-Använd följande resurser för att lära dig mer om att utveckla säkra program och skydda dina program på Azure:
+Använd följande resurser för att lära dig mer om hur du utvecklar säkra program och för att skydda dina program på Azure:
 
-[Microsoft Security Development Lifecycle (SDL)](https://msdn.microsoft.com/library/windows/desktop/84aed186-1d75-4366-8e61-8d258746bopq.aspx) – sdl är en program utvecklings process från Microsoft som hjälper utvecklare att bygga säkrare program vara. Det hjälper dig att hantera krav för säkerhetskompatibilitet samtidigt som utvecklings kostnaderna sänks.
+[Microsoft Security Development Lifecycle (SDL)](https://msdn.microsoft.com/library/windows/desktop/84aed186-1d75-4366-8e61-8d258746bopq.aspx) – SDL är en process för programvaruutveckling från Microsoft som hjälper utvecklare att skapa säkrare programvara. Det hjälper dig att hantera krav på säkerhetsefterlevnad samtidigt som du minskar utvecklingskostnaderna.
 
-[Öppna webb program säkerhets projekt (OWASP)](https://www.owasp.org/index.php/Main_Page) – OWASP är en online-community som ger kostnads fritt tillgängliga artiklar, metoder, dokumentation, verktyg och tekniker i webb program säkerheten.
+[Open Web Application Security Project (OWASP)](https://www.owasp.org/index.php/Main_Page) – OWASP är en onlinecommunity som producerar fritt tillgängliga artiklar, metoder, dokumentation, verktyg och tekniker inom webbapplikationssäkerhet.
 
-Genom att lägga till [vänster, t. ex. en chef](https://code.likeagirl.io/pushing-left-like-a-boss-part-1-80f1f007da95?WT.mc_id=docs-blog-tajanca) – en serie med online-artiklar som beskriver olika typer av program säkerhets aktiviteter som utvecklare bör utföra för att skapa säkrare kod.
+[Pushing Vänster, som en chef](https://code.likeagirl.io/pushing-left-like-a-boss-part-1-80f1f007da95?WT.mc_id=docs-blog-tajanca) - En serie online-artiklar som beskriver olika typer av aktiviteter applikationssäkerhet som utvecklare bör slutföra för att skapa säkrare kod.
 
-[Microsoft Identity Platform](../../active-directory/develop/index.yml) – Microsoft Identity Platform är en utveckling av Azure AD Identity service och Developer Platform. Det är en komplett plattform som består av en autentiseringstjänst, bibliotek med öppen källkod, program registrering och konfiguration, fullständig dokumentation om utvecklare, kod exempel och annat innehåll i utvecklare. Microsoft Identity Platform stöder bransch standard protokoll som OAuth 2,0 och OpenID Connect.
+[Microsofts identitetsplattform](../../active-directory/develop/index.yml) – Microsofts identitetsplattform är en utveckling av Azure AD-identitetstjänsten och utvecklarplattformen. Det är en fullfjädrad plattform som består av en autentiseringstjänst, bibliotek med öppen källkod, programregistrering och konfiguration, fullständig utvecklardokumentation, kodexempel och annat utvecklarinnehåll. Microsofts identitetsplattform stöder protokoll av branschstandard som OAuth 2.0 och OpenID Connect.
 
-[Rekommenderade säkerhets metoder för Azure-lösningar](https://azure.microsoft.com/resources/security-best-practices-for-azure-solutions/) – en samling säkerhets metoder som du kan använda när du utformar, distribuerar och hanterar moln lösningar med hjälp av Azure. Det här dokumentet är avsett att vara en resurs för IT-proffs. Detta kan vara designers, arkitekter, utvecklare och testare som skapar och distribuerar säkra Azure-lösningar.
+[Metodtips för säkerhet för Azure-lösningar](https://azure.microsoft.com/resources/security-best-practices-for-azure-solutions/) – En samling metodtips för säkerhet som ska användas när du utformar, distribuerar och hanterar molnlösningar med hjälp av Azure. Detta dokument är avsett att vara en resurs för IT-proffs. Detta kan omfatta designers, arkitekter, utvecklare och testare som bygger och distribuerar säkra Azure-lösningar.
 
-[Ritningar för säkerhet och efterlevnad i Azure](https://servicetrust.microsoft.com/ViewPage/BlueprintOverview) – Azures säkerhets-och efterlevnads ritningar är resurser som kan hjälpa dig att bygga och starta molnbaserade program som uppfyller strängare bestämmelser och standarder.
+[Säkerhets- och efterlevnadsritningar på Azure](https://servicetrust.microsoft.com/ViewPage/BlueprintOverview) – Azure Security and Compliance Blueprints är resurser som kan hjälpa dig att skapa och starta molnbaserade program som uppfyller stränga regler och standarder.
 
 ## <a name="next-steps"></a>Nästa steg
-I följande artiklar rekommenderar vi säkerhets kontroller och aktiviteter som kan hjälpa dig att utforma, utveckla och distribuera säkra program.
+I följande artiklar rekommenderar vi säkerhetskontroller och aktiviteter som kan hjälpa dig att utforma, utveckla och distribuera säkra program.
 
 - [Utforma säkra program](secure-design.md)
 - [Utveckla säkra program](secure-develop.md)

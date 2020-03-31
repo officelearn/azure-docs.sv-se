@@ -5,15 +5,15 @@ ms.topic: include
 ms.date: 05/27/2019
 ms.author: glenga
 ms.openlocfilehash: d697334fe56fb9133a06cee79067c60bc3a37281
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "68639117"
 ---
-Det enklaste sättet att installera bindnings tillägg är att aktivera [paket för tillägg](../articles/azure-functions/functions-bindings-register.md#extension-bundles). När du aktiverar paket installeras en fördefinierad uppsättning tilläggs paket automatiskt.
+Det enklaste sättet att installera bindningstillägg är att aktivera [tilläggspaket](../articles/azure-functions/functions-bindings-register.md#extension-bundles). När du aktiverar paket installeras automatiskt en fördefinierad uppsättning tilläggspaket.
 
-Om du vill aktivera tilläggs paket öppnar du Host. JSON-filen och uppdaterar innehållet så att det matchar följande kod:
+Om du vill aktivera tilläggspaket öppnar du filen host.json och uppdaterar innehållet så att det matchar följande kod:
 
 ```json
 {

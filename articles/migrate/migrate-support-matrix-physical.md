@@ -3,19 +3,19 @@ title: Stöd för fysisk serverutvärdering i Azure Migrate
 description: Lär dig mer om stöd för fysisk serverutvärdering med Azure Migrate Server Assessment
 ms.topic: conceptual
 ms.date: 03/23/2020
-ms.openlocfilehash: f6c70ac2517a29497f4f11073e4b16067bab9576
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4bf7af74be35a521cdaa02e9209a7d7c0b91184f
+ms.sourcegitcommit: 0553a8b2f255184d544ab231b231f45caf7bbbb0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80336884"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80389468"
 ---
 # <a name="support-matrix-for-physical-server-assessment"></a>Stödmatris för fysisk serverbedömning 
 
-Den här artikeln sammanfattar förutsättningar och supportkrav för att bedöma fysiska servrar som förberedelse för migrering till Azure. Om du vill migrera fysiska servrar till Azure läser du [distributionsstödmatrisen](migrate-support-matrix-physical-migration.md).
+Den här artikeln sammanfattar krav på förutsättningar och support när du bedömer fysiska servrar för migrering till Azure med hjälp av verktyget [Azure Migrate:Server Assessment.](migrate-services-overview.md#azure-migrate-server-assessment-tool) Om du vill migrera fysiska servrar till Azure läser du [distributionsstödmatrisen](migrate-support-matrix-physical-migration.md).
 
 
-Du bedömer fysiska servrar med verktyget [Azure Migrate:Server Assessment.](migrate-services-overview.md#azure-migrate-server-assessment-tool) Du skapar ett Azure Migrate-projekt och lägger sedan till verktyget i projektet. När verktyget har lagts till distribuerar du [Azure Migrate-enheten](migrate-appliance.md). Installationen identifierar kontinuerligt lokala datorer och skickar datorns metadata och prestandadata till Azure. Efter datoridentifiering samlar du in identifierade datorer i grupper och kör en utvärdering för en grupp.
+Om du vill bedöma fysiska servrar skapar du ett Azure Migrate-projekt och lägger till serverbedömningsverktyget i projektet. När verktyget har lagts till distribuerar du [Azure Migrate-enheten](migrate-appliance.md). Installationen identifierar kontinuerligt lokala datorer och skickar datorns metadata och prestandadata till Azure. När identifieringen är klar samlar du identifierade datorer i grupper och kör en utvärdering för en grupp.
 
 
 ## <a name="limitations"></a>Begränsningar
@@ -35,12 +35,12 @@ Du bedömer fysiska servrar med verktyget [Azure Migrate:Server Assessment.](mig
 | :-------------------       | :------------------- |
 | **Distribuera fysisk server**       | Den fysiska servern kan vara fristående eller distribueras i ett kluster. |
 | **Behörigheter**           | **Windows:** Du behöver ett lokalt användarkonto eller domänanvändarkonto på alla Windows-servrar som du vill identifiera. Användarkontot ska läggas till i dessa grupper: Användare av fjärrskrivbord, användare av prestandaövervakaren och prestandalogganvändare. <br/><br/> **Linux:** Du behöver ett rotkonto på De Linux-servrar som du vill upptäcka. |
-| **Operativsystem** | Alla [Windows-](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines) och [Linux-operativsystem](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) stöds förutom Windows Server 2003 och SUSE Linux.|
+| **Operativsystem** | Alla [Windows-](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines) och [Linux-operativsystem](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) som stöds av Azure, förutom Windows Server 2003 och SUSE Linux.|
 
 
 ## <a name="azure-migrate-appliance-requirements"></a>Installationskrav för Azure Migrate
 
-Azure Migrate använder [Azure Migrate-enheten](migrate-appliance.md) för identifiering och utvärdering. Apparaten för fysiska servrar kan köras på en virtuell dator eller en fysisk dator. Du konfigurerar det med ett PowerShell-skript som du hämtar från Azure-portalen.
+Azure Migrate använder [Azure Migrate-enheten](migrate-appliance.md) för identifiering och utvärdering. Apparaten för fysiska servrar kan köras på en virtuell dator eller en fysisk dator. Du ställer in installationen med ett PowerShell-skript som du hämtar från Azure-portalen.
 
 - Läs mer om [installationskrav](migrate-appliance.md#appliance---physical) för fysiska servrar.
 - Läs mer om [webbadresser](migrate-appliance.md#url-access) som apparaten behöver komma åt.
@@ -54,30 +54,13 @@ I följande tabell sammanfattas portkrav för bedömning.
 **Apparaten** | Inkommande anslutningar på TCP-port 3389, för att tillåta fjärrskrivbordsanslutningar till apparaten.<br/><br/> Inkommande anslutningar på port 44368 för att fjärransluta till appen för hantering av apparater med hjälp av URL:en:``` https://<appliance-ip-or-name>:44368 ```<br/><br/> Utgående anslutningar på portar 443 (HTTPS), för att skicka identifierings- och prestandametadata till Azure Migrate.
 **Fysiska servrar** | **Windows:** Inkommande anslutningar på WinRM-portar 5985 (HTTP) och 5986 (HTTPS) för att hämta konfigurations- och prestandametadata från Windows-servrar. <br/><br/> **Linux:**  Inkommande anslutningar på port 22 (UDP), för att hämta konfigurations- och prestandametadata från Linux-servrar. |
 
-## <a name="agentless-dependency-analysis-requirements"></a>Krav på analys av agentlösa beroenden
-
-[Beroendeanalys](concepts-dependency-visualization.md) hjälper dig att identifiera beroenden mellan lokala datorer som du vill bedöma och migrera till Azure. Tabellen sammanfattar kraven för att ställa in agentlös beroendeanalys. 
-
-
-**Krav** | **Detaljer** 
---- | --- 
-**Före distribution** | Du bör ha ett Azure Migrate-projekt på plats, med verktyget Azure Migrate: Server Assessment som lagts till i projektet.<br/><br/>  Du distribuerar beroendevisualisering när du har konfigurerat en Azure Migrate-installation för att identifiera dina lokala VMWare-datorer.<br/><br/> [Läs om hur du](create-manage-projects.md) skapar ett projekt för första gången.<br/> [Läs om hur du](how-to-assess.md) lägger till ett bedömningsverktyg i ett befintligt projekt.<br/> [Lär dig hur du](how-to-set-up-appliance-vmware.md) konfigurerar Azure Migrate-enheten för bedömning av virtuella datorer med VMware.
-**Stöd för virtuell dator** | Stöds endast för virtuella datorer med VMware.
-**Virtuella Windows-datorer** | Windows Server 2016<br/> Windows Server 2012 R2<br/> Windows Server 2012<br/> Windows Server 2008 R2 (64-bitars).
-**Windows-konto** |  För beroendeanalys behöver Azure Migrate-enheten ett lokalt konto eller ett domänadministratörskonto för att komma åt virtuella windows-datorer.
-**Virtuella Linux-datorer** | Red Hat Enterprise Linux 7, 6, 5<br/> Ubuntu Linux 14,04, 16,04<br/> Debian 7, 8<br/> Oracle Linux 6, 7<br/> CentOS 5, 6, 7.
-**Linux-konto** | För beroendeanalys behöver Azure Migrate-installationen på Linux-datorer ett användarkonto med root-behörighet.<br/><br/> Alternativt behöver användarkontot dessa behörigheter för /bin/netstat- och /bin/ls-filer: CAP_DAC_READ_SEARCH och CAP_SYS_PTRACE.
-**Nödvändiga agenter** | Ingen agent krävs på maskiner som du vill analysera.
-**Verktyg för VMware** |  VMware Tools (senare än 10,2) måste installeras och köras på varje virtuell dator som du vill analysera.
-**vCenter Server** |  Beroendevisualisering kräver ett vCenter Server-konto med skrivskyddad åtkomst och privilegier som är aktiverade för virtuella datorer > gästoperationer. **ESXi-värdar:** På ESXi-värdar som kör virtuella datorer som du vill analysera måste Azure Migrate-enheten kunna ansluta till TCP-port 443.
-
 ## <a name="agent-based-dependency-analysis-requirements"></a>Agentbaserade krav på beroendeanalys
 
-[Beroendeanalys](concepts-dependency-visualization.md) hjälper dig att identifiera beroenden mellan lokala datorer som du vill bedöma och migrera till Azure. Tabellen sammanfattar kraven för att ställa in agentbaserad beroendeanalys. 
+[Beroendeanalys](concepts-dependency-visualization.md) hjälper dig att identifiera beroenden mellan lokala datorer som du vill bedöma och migrera till Azure. Tabellen sammanfattar kraven för att ställa in agentbaserad beroendeanalys. För närvarande stöds endast agentbaserad beroendeanalys för fysiska servrar.
 
 **Krav** | **Detaljer** 
 --- | --- 
-**Före distribution** | Du bör ha ett Azure Migrate-projekt på plats, med verktyget Azure Migrate: Server Assessment som lagts till i projektet.<br/><br/>  Du distribuerar beroendevisualisering efter att ha konfigurerat en Azure Migrate-installation för att identifiera dina lokala datorer<br/><br/> [Läs om hur du](create-manage-projects.md) skapar ett projekt för första gången.<br/> [Läs om hur du](how-to-assess.md) lägger till ett bedömningsverktyg i ett befintligt projekt.<br/> Lär dig hur du konfigurerar Azure Migrate-enheten för bedömning av [Hyper-V,](how-to-set-up-appliance-hyper-v.md) [VMware](how-to-set-up-appliance-vmware.md)eller fysiska servrar.
+**Före distribution** | Du bör ha ett Azure Migrate-projekt på plats, med serverbedömningsverktyget tillagt i projektet.<br/><br/>  Du distribuerar beroendevisualisering efter att ha konfigurerat en Azure Migrate-installation för att identifiera dina lokala datorer<br/><br/> [Läs om hur du](create-manage-projects.md) skapar ett projekt för första gången.<br/> [Läs om hur du](how-to-assess.md) lägger till ett bedömningsverktyg i ett befintligt projekt.<br/> Lär dig hur du konfigurerar Azure Migrate-enheten för bedömning av [Hyper-V,](how-to-set-up-appliance-hyper-v.md) [VMware](how-to-set-up-appliance-vmware.md)eller fysiska servrar.
 **Azure Government** | Beroendevisualisering är inte tillgängligt i Azure Government.
 **Logga Analytics** | Azure Migrate [Service Map](../operations-management-suite/operations-management-suite-service-map.md) använder servicemappningslösningen i [Azure Monitor-loggar](../log-analytics/log-analytics-overview.md) för beroendevisualisering.<br/><br/> Du associerar en ny eller befintlig Log Analytics-arbetsyta med ett Azure Migrate-projekt. Arbetsytan för ett Azure Migrate-projekt kan inte ändras när det har lagts till. <br/><br/> Arbetsytan måste finnas i samma prenumeration som Azure Migrate-projektet.<br/><br/> Arbetsytan måste finnas i regionerna Östra USA, Sydostasien eller Västeuropa. Arbetsytor i andra regioner kan inte associeras med ett projekt.<br/><br/> Arbetsytan måste finnas i en region där [Service Map stöds](../azure-monitor/insights/vminsights-enable-overview.md#prerequisites).<br/><br/> I Logganalys taggas arbetsytan som är associerad med Azure Migrate med nyckeln Migreringsprojekt och projektnamnet.
 **Nödvändiga agenter** | Installera följande agenter på varje dator som du vill analysera:<br/><br/> [Microsoft Monitoring agent (MMA)](https://docs.microsoft.com/azure/log-analytics/log-analytics-agent-windows).<br/> [Beroendeagenten](../azure-monitor/platform/agents-overview.md#dependency-agent).<br/><br/> Om lokala datorer inte är anslutna till internet måste du hämta och installera Log Analytics-gatewayen på dem.<br/><br/> Läs mer om hur du installerar [beroendeagenten](how-to-create-group-machine-dependencies.md#install-the-dependency-agent) och [MMA](how-to-create-group-machine-dependencies.md#install-the-mma).

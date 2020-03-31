@@ -1,6 +1,6 @@
 ---
-title: Konfigurera diagnostikloggar – Azure Event Hub | Microsoft Docs
-description: Lär dig hur du ställer in aktivitetsloggar och diagnostikloggar för händelsehubbar i Azure.
+title: Konfigurera diagnostikloggar – Azure Event Hub | Microsoft-dokument
+description: Lär dig hur du konfigurerar aktivitetsloggar och diagnostikloggar för händelsehubbar i Azure.
 keywords: ''
 documentationcenter: ''
 services: event-hubs
@@ -17,26 +17,26 @@ ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
 ms.openlocfilehash: 68aa62ad34f8db531d439a581ef024862da0f90c
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77162318"
 ---
 # <a name="set-up-diagnostic-logs-for-an-azure-event-hub"></a>Konfigurera diagnostikloggar för en Azure-händelsehubb
 
 Du kan visa två typer av loggar för Azure Event Hubs:
 
-* **[Aktivitets loggar](../azure-monitor/platform/platform-logs-overview.md)** : dessa loggar innehåller information om åtgärder som utförts i ett jobb. Loggarna är alltid aktiverat.
-* **[Diagnostikloggar](../azure-monitor/platform/platform-logs-overview.md)** : du kan konfigurera diagnostikloggar för en mer omfattande vy av allt som händer med ett jobb. Diagnostikloggar cover aktiviteter från den tidpunkt då jobbet skapades tills jobbet tas bort, inklusive uppdateringar och aktiviteter som inträffar när jobbet körs.
+* **[Aktivitetsloggar](../azure-monitor/platform/platform-logs-overview.md)**: Dessa loggar har information om åtgärder som utförs på ett jobb. Loggarna är alltid aktiverade.
+* **[Diagnostikloggar](../azure-monitor/platform/platform-logs-overview.md)**: Du kan konfigurera diagnostikloggar för en rikare vy över allt som händer med ett jobb. Diagnostikloggar täcker aktiviteter från det att jobbet skapas tills jobbet tas bort, inklusive uppdateringar och aktiviteter som inträffar medan jobbet körs.
 
 ## <a name="enable-diagnostic-logs"></a>Aktivera diagnostikloggar
 
-Diagnostikloggar är inaktiverade som standard. Följ dessa steg om du vill aktivera diagnostikloggar:
+Diagnostikloggar är inaktiverade som standard. Så här aktiverar du diagnostikloggar:
 
-1.  Klicka **på diagnostikloggar under** **övervakning och hantering**i [Azure Portal](https://portal.azure.com).
+1.  Klicka på **Diagnostikloggar**under **Övervakning + hantering**i [Azure-portalen](https://portal.azure.com).
 
-    ![Fönstret navigering till diagnostikloggar](./media/event-hubs-diagnostic-logs/image1.png)
+    ![Navigering i fönster till diagnostikloggar](./media/event-hubs-diagnostic-logs/image1.png)
 
 2.  Klicka på den resurs som du vill övervaka.
 
@@ -44,49 +44,49 @@ Diagnostikloggar är inaktiverade som standard. Följ dessa steg om du vill akti
 
     ![Aktivera diagnostikloggar](./media/event-hubs-diagnostic-logs/image2.png)
 
-4.  För **status**klickar du på **på**.
+4.  För **Status** **klickar**du på .
 
     ![Ändra status för diagnostikloggar](./media/event-hubs-diagnostic-logs/image3.png)
 
-5.  Ange det mål för arkivet som du vill använda. till exempel ett lagrings konto, en Event Hub-eller Azure Monitor-loggar.
+5.  Ange önskat arkivmål. till exempel ett lagringskonto, en händelsenav eller Azure Monitor-loggar.
 
-6.  Spara de nya diagnostikinställningarna för.
+6.  Spara de nya diagnostikinställningarna.
 
-Nya inställningarna träder i kraft i cirka 10 minuter. Därefter visas loggar i det konfigurerade lagrings målet i fönstret **diagnostikloggar** .
+Nya inställningar träder i kraft om cirka 10 minuter. Därefter visas loggar i det konfigurerade arkiveringsmålet i fönstret **Diagnostikloggar.**
 
-Mer information om hur du konfigurerar diagnostik finns i [översikten över Azure Diagnostic-loggar](../azure-monitor/platform/platform-logs-overview.md).
+Mer information om hur du konfigurerar diagnostik finns i [översikten över Diagnostikloggar i Azure](../azure-monitor/platform/platform-logs-overview.md).
 
-## <a name="diagnostic-logs-categories"></a>Diagnostikloggar kategorier
+## <a name="diagnostic-logs-categories"></a>Kategorier för diagnostikloggar
 
 Event Hubs samlar in diagnostikloggar för två kategorier:
 
-* **Arkiv loggar**: loggar som är relaterade till Event Hubs Arkiv, särskilt loggar som rör Arkiv fel.
-* **Drift loggar**: information om vad som händer under Event Hubs åtgärder, närmare bestämt åtgärds typen, inklusive skapande av händelsehubben, använda resurser och status för åtgärden.
+* **Arkivloggar:** loggar relaterade till Event Hubs arkiv, särskilt loggar relaterade till arkivfel.
+* **Operativa loggar:** information om vad som händer under event hubs-åtgärder, särskilt operationstypen, inklusive skapande av händelsehubben, resurser som används och åtgärdens status.
 
-## <a name="diagnostic-logs-schema"></a>Diagnostikloggar schema
+## <a name="diagnostic-logs-schema"></a>Schema för diagnostikloggar
 
-Alla loggar lagras i JavaScript Object Notation (JSON)-format. Varje post innehåller strängfält som använder formatet som beskrivs i följande avsnitt.
+Alla loggar lagras i JSON-format (JavaScript Object Notation). Varje post har strängfält som använder det format som beskrivs i följande avsnitt.
 
-### <a name="archive-logs-schema"></a>Arkivera loggar schema
+### <a name="archive-logs-schema"></a>Schema för arkivloggar
 
-Arkivera loggen JSON-strängar är uppgifter som anges i tabellen nedan:
+JSON-strängar för arkivlogg innehåller element som anges i följande tabell:
 
 Namn | Beskrivning
 ------- | -------
-Aktivitetsnamn | Beskrivning av den aktivitet som misslyckats.
-Aktivitets-ID | Internt ID som används för spårning.
-spårnings-ID | Internt ID som används för spårning.
-resourceId | Azure Resource Manager-resurs-ID.
-eventHub | Händelsehubb fullständigt namn (inklusive namnområdesnamn).
-partitionId | Skrivs till Event Hubs-partitionen.
-archiveStep | ArchiveFlushWriter
-startTime | Starttid för fel.
-fel | Antal gånger som ett fel inträffade vid.
-durationInSeconds | Varaktighet för felet.
+TaskName (3500 | Beskrivning av aktiviteten som misslyckades.
+ActivityId (på)ActivityId) | Internt ID, som används för spårning.
+trackingId (trackingId) | Internt ID, som används för spårning.
+resourceId | Resurs-ID för Azure Resource Manager.
+eventHub | Fullständigt namn på eventhubb (innehåller namnområdesnamn).
+Partitionid | Händelsehubbens partition skrivs till.
+arkivSteg | ArkivFlushWriter
+startTime | Fel starttid.
+Misslyckanden | Antalet misslyckade gånger inträffade.
+durationInSeconds | Varaktighet av misslyckande.
 meddelande | Felmeddelande.
-category | ArchiveLogs
+category | Arkivbild
 
-Följande kod är ett exempel på en arkivera loggen JSON-sträng:
+Följande kod är ett exempel på en JSON-sträng för arkivloggen:
 
 ```json
 {
@@ -105,23 +105,23 @@ Följande kod är ett exempel på en arkivera loggen JSON-sträng:
 }
 ```
 
-### <a name="operational-logs-schema"></a>Driftloggar schema
+### <a name="operational-logs-schema"></a>Schema för driftloggar
 
-Arbetsloggen JSON-strängar är uppgifter som anges i tabellen nedan:
+JSON-strängar med driftloggen innehåller element som anges i följande tabell:
 
 Namn | Beskrivning
 ------- | -------
-Aktivitets-ID | Internt ID som används för att spåra användning.
-EventName | Åtgärdens namn.  
-resourceId | Azure Resource Manager-resurs-ID.
+ActivityId (på)ActivityId) | Internt ID, används för att spåra syfte.
+EventName | Åtgärdsnamn.  
+resourceId | Resurs-ID för Azure Resource Manager.
 SubscriptionId | Prenumerations-ID.
-EventTimeString | Tiden för åtgärden.
-EventProperties | Åtgärden egenskaper.
-Status | Åtgärdsstatus.
-Anropare | Anroparen av åtgärden (Azure-portalen eller hantering klient).
+EventTimeString | Drifttid.
+EventProperties | Egenskaper för drift.
+Status | Status för åtgärden.
+Anropare | Anropare av åtgärden (Azure portal eller hanteringsklient).
 category | OperationalLogs
 
-Följande kod är ett exempel på en arbetsloggen JSON-sträng:
+Följande kod är ett exempel på en fungerande logg JSON-sträng:
 
 ```json
 Example:
@@ -139,10 +139,10 @@ Example:
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-- [Introduktion till Event Hubs](event-hubs-what-is-event-hubs.md)
+- [Introduktion till eventhubbar](event-hubs-what-is-event-hubs.md)
 - [Event Hubs API-översikt](event-hubs-api-overview.md)
 - Kom igång med händelsehubbar
     - [.NET Core](get-started-dotnet-standard-send-v2.md)
     - [Java](get-started-java-send-v2.md)
     - [Python](get-started-python-send-v2.md)
-    - [JavaScript](get-started-java-send-v2.md)
+    - [Javascript](get-started-java-send-v2.md)

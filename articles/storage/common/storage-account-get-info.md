@@ -1,7 +1,7 @@
 ---
-title: Hämta lagrings konto typ och SKU-namn med .NET
+title: Hämta lagringskontotyp och SKU-namn med .NET
 titleSuffix: Azure Storage
-description: Lär dig hur du hämtar Azure Storage konto typ och SKU-namn med hjälp av .NET-klient biblioteket.
+description: Lär dig hur du hämtar Azure Storage-kontotyp och SKU-namn med hjälp av .NET-klientbiblioteket.
 services: storage
 author: mhopkins-msft
 ms.author: mhopkins
@@ -10,29 +10,29 @@ ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
 ms.openlocfilehash: 1495ed55c24a0f94b911d60d1db0f32940ea134a
-ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79137066"
 ---
-# <a name="get-storage-account-type-and-sku-name-with-net"></a>Hämta lagrings konto typ och SKU-namn med .NET
+# <a name="get-storage-account-type-and-sku-name-with-net"></a>Hämta lagringskontotyp och SKU-namn med .NET
 
-Den här artikeln visar hur du hämtar Azure Storage konto typ och SKU-namn för en blob med hjälp av [Azure Storage klient biblioteket för .net](/dotnet/api/overview/azure/storage?view=azure-dotnet).
+Den här artikeln visar hur du hämtar azure storage-kontotypen och SKU-namnet för en blob med hjälp av [Azure Storage-klientbiblioteket för .NET](/dotnet/api/overview/azure/storage?view=azure-dotnet).
 
-Konto information finns på tjänst versioner som börjar med version 2018-03-28.
+Kontoinformation finns på tjänstversioner som börjar med version 2018-03-28.
 
 ## <a name="about-account-type-and-sku-name"></a>Om kontotyp och SKU-namn
 
-**Kontotyp**: giltiga konto typer är `BlobStorage`, `BlockBlobStorage`, `FileStorage`, `Storage`och `StorageV2`. [Översikt över Azure Storage-kontot](storage-account-overview.md) innehåller mer information, inklusive beskrivningar av de olika lagrings kontona.
+**Kontotyp**: Giltiga `BlobStorage`kontotyper `FileStorage` `Storage`inkluderar `StorageV2`, `BlockBlobStorage`, , och . [Översikt över Azure-lagringskonto](storage-account-overview.md) innehåller mer information, inklusive beskrivningar av de olika lagringskontona.
 
-**SKU-namn**: giltiga SKU-namn är `Premium_LRS`, `Premium_ZRS`, `Standard_GRS`, `Standard_GZRS`, `Standard_LRS`, `Standard_RAGRS`, `Standard_RAGZRS`och `Standard_ZRS`. SKU-namn är Skift läges känsliga och är sträng fält i [klassen SkuName](/dotnet/api/microsoft.azure.management.storage.models.skuname?view=azure-dotnet).
+**SKU-namn**: Giltiga `Premium_LRS`SKU-namn `Standard_RAGRS`inkluderar `Standard_RAGZRS`, `Standard_ZRS` `Premium_ZRS`, `Standard_GRS`, `Standard_GZRS`, `Standard_LRS`, , och . SKU-namn är skiftlägeskänsliga och är strängfält i [SkuName-klassen](/dotnet/api/microsoft.azure.management.storage.models.skuname?view=azure-dotnet).
 
-## <a name="retrieve-account-information"></a>Hämta konto information
+## <a name="retrieve-account-information"></a>Hämta kontoinformation
 
-Om du vill hämta lagrings konto typen och det SKU-namn som är associerat med en BLOB anropar du metoden [GetAccountProperties](/dotnet/api/microsoft.azure.storage.blob.cloudblob.getaccountproperties?view=azure-dotnet) eller [GetAccountPropertiesAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblob.getaccountpropertiesasync?view=azure-dotnet) .
+Om du vill hämta lagringskontotypen och SKU-namnet som är associerat med en blob anropar du metoden [GetAccountProperties](/dotnet/api/microsoft.azure.storage.blob.cloudblob.getaccountproperties?view=azure-dotnet) eller [GetAccountPropertiesAsync.](/dotnet/api/microsoft.azure.storage.blob.cloudblob.getaccountpropertiesasync?view=azure-dotnet)
 
-I följande kod exempel hämtas och visas de skrivskyddade konto egenskaperna.
+Följande kodexempel hämtar och visar de skrivskyddade kontoegenskaperna.
 
 ```csharp
 private static async Task GetAccountInfoAsync(CloudBlob blob)
@@ -62,6 +62,6 @@ private static async Task GetAccountInfoAsync(CloudBlob blob)
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig mer om andra åtgärder som du kan utföra på ett lagrings konto via [Azure Portal](https://portal.azure.com) och Azure-REST API.
+Lär dig mer om andra åtgärder som du kan utföra på ett lagringskonto via [Azure-portalen](https://portal.azure.com) och Azure REST API.
 
-- [Hämta konto informations åtgärd (REST)](/rest/api/storageservices/get-account-information)
+- [Hämta åtgärd för kontoinformation (REST)](/rest/api/storageservices/get-account-information)

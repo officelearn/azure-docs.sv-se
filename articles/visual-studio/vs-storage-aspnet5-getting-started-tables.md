@@ -1,6 +1,6 @@
 ---
-title: Kom igång med Table Storage med hjälp av Visual Studio (ASP.NET Core)
-description: Komma igång med Azure Table Storage i ett ASP.NET Core-projekt i Visual Studio efter anslutning till ett lagrings konto med hjälp av Visual Studio Connected Services
+title: Komma igång med tabelllagring med Visual Studio (ASP.NET Core)
+description: Komma igång med Azure Table-lagring i ett ASP.NET Core-projekt i Visual Studio efter anslutning till ett lagringskonto med Hjälp av Visual Studio-anslutna tjänster
 services: storage
 author: ghogen
 manager: jillfra
@@ -14,29 +14,29 @@ ms.date: 11/14/2017
 ms.author: ghogen
 ROBOTS: NOINDEX,NOFOLLOW
 ms.openlocfilehash: d209f8117b1e061877daf2f8d316bd01ed4f84cd
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72298809"
 ---
-# <a name="how-to-get-started-with-azure-table-storage-and-visual-studio-connected-services"></a>Komma igång med Azure Table Storage och anslutna Visual Studio-tjänster
+# <a name="how-to-get-started-with-azure-table-storage-and-visual-studio-connected-services"></a>Komma igång med Azure Table storage och Visual Studio-anslutna tjänster
 
 [!INCLUDE [storage-try-azure-tools-tables](../../includes/storage-try-azure-tools-tables.md)]
 
-Den här artikeln beskriver hur du kommer igång med Azure Table Storage i Visual Studio när du har skapat eller refererat till ett Azure Storage-konto i ett ASP.NET Core projekt med hjälp av funktionen Visual Studio **Connected Services** . Åtgärden **anslutna tjänster** installerar rätt NuGet-paket för att komma åt Azure Storage i projektet och lägger till anslutnings strängen för lagrings kontot i dina projekt konfigurationsfiler. (Se [lagrings dokumentation](https://azure.microsoft.com/documentation/services/storage/) för allmän information om Azure Storage.)
+I den här artikeln beskrivs hur du kommer igång med Azure Table storage i Visual Studio när du har skapat eller refererat till ett Azure-lagringskonto i ett ASP.NET Core-projekt med hjälp av Funktionen Visual Studio **Connected Services.** Åtgärden **Connected Services** installerar lämpliga NuGet-paket för att komma åt Azure-lagring i projektet och lägger till anslutningssträngen för lagringskontot i projektkonfigurationsfilerna. (Se [Lagringsdokumentation](https://azure.microsoft.com/documentation/services/storage/) för allmän information om Azure Storage.)
 
-Med tjänsten Azure Table Storage kan du lagra stora mängder strukturerade data. Tjänsten är ett NoSQL data lager som accepterar autentiserade anrop inifrån och utanför Azure-molnet. Azure-tabeller passar utmärkt för att lagra strukturerade, icke-relationella data. Mer allmän information om hur du använder Azure Table Storage finns i [komma igång med Azure Table Storage med hjälp av .net](../storage/storage-dotnet-how-to-use-tables.md).
+Med Azure Table Storage-tjänsten kan du lagra stora mängder strukturerad data. Tjänsten är ett NoSQL-datalager som accepterar autentiserade samtal från och utanför Azure-molnet. Azure-tabeller passar utmärkt för att lagra strukturerade, icke-relationella data. Mer allmän information om hur du använder Azure Table storage finns i [Komma igång med Azure Table storage med .NET](../storage/storage-dotnet-how-to-use-tables.md).
 
-Kom igång genom att först skapa en tabell i ditt lagrings konto. Den här artikeln visar hur du skapar en tabell i C# och hur du utför grundläggande tabell åtgärder, till exempel att lägga till, ändra, läsa och ta bort tabell poster.  Koden använder Azure Storage klient biblioteket för .NET. Mer information om ASP.NET finns i [ASP.net](https://www.asp.net).
+Kom igång genom att först skapa en tabell i ditt lagringskonto. Den här artikeln visar sedan hur du skapar en tabell i C# och hur du utför grundläggande tabellåtgärder som att lägga till, ändra, läsa och ta bort tabellposter.  Koden använder Azure Storage Client Library för .NET. Mer information om ASP.NET finns [i ASP.NET](https://www.asp.net).
 
-Några av de Azure Storage API: erna är asynkrona och koden i den här artikeln förutsätter att asynkrona metoder används. Mer information finns i [asynkron programmering](https://docs.microsoft.com/dotnet/csharp/async) .
+Vissa azure storage API:er är asynkrona och koden i den här artikeln förutsätter att asynkrometoder används. Mer information [finns i Asynkron programmering.](https://docs.microsoft.com/dotnet/csharp/async)
 
 ## <a name="access-tables-in-code"></a>Komma åt tabeller i kod
 
-Om du vill ha åtkomst till tabeller i ASP.NET Core-projekt måste du inkludera följande objekt C# i alla källfiler som har åtkomst till Azure Table Storage.
+Om du vill komma åt tabeller i ASP.NET Core-projekt måste du inkludera följande objekt till alla C#-källfiler som kommer åt Azure-tabelllagring.
 
-1. Lägg till nödvändiga `using`-uttryck:
+1. Lägg till `using` nödvändiga satser:
 
     ```csharp
     using Microsoft.WindowsAzure.Storage;
@@ -44,7 +44,7 @@ Om du vill ha åtkomst till tabeller i ASP.NET Core-projekt måste du inkludera 
     using System.Threading.Tasks;
     ```
 
-1. Hämta ett `CloudStorageAccount`-objekt som representerar lagrings konto informationen. Använd följande kod med namnet på ditt lagrings konto och konto nyckeln, som du hittar i lagrings anslutnings strängen i appSettings. JSON:
+1. Hämta `CloudStorageAccount` ett objekt som representerar din lagringskontoinformation. Använd följande kod med namnet på ditt lagringskonto och kontonyckeln, som du hittar i lagringsanslutningssträngen i appSettings.json:
 
     ```csharp
         CloudStorageAccount storageAccount = new CloudStorageAccount(
@@ -52,14 +52,14 @@ Om du vill ha åtkomst till tabeller i ASP.NET Core-projekt måste du inkludera 
                 "<name>", "<account-key>"), true);
     ```
 
-1. Hämta ett `CloudTableClient`-objekt för att referera till tabell objekt i ditt lagrings konto:
+1. Hämta `CloudTableClient` ett objekt som refererar till tabellobjekten i ditt lagringskonto:
 
     ```csharp
     // Create the table client.
     CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
     ```
 
-1. Hämta ett referens objekt för `CloudTable` för att referera till en speciell tabell och entiteter:
+1. Hämta `CloudTable` ett referensobjekt för att referera till en viss tabell och entitet:
 
     ```csharp
     // Get a reference to a table named "peopleTable"
@@ -68,7 +68,7 @@ Om du vill ha åtkomst till tabeller i ASP.NET Core-projekt måste du inkludera 
 
 ## <a name="create-a-table-in-code"></a>Skapa en tabell i kod
 
-Om du vill skapa Azure-tabellen skapar du en asynkron metod och ringer `CreateIfNotExistsAsync()` i:
+Om du vill skapa Azure-tabellen skapar du `CreateIfNotExistsAsync()`en asynkron metod och anropar den i den:
 
 ```csharp
 async void CreatePeopleTableAsync()
@@ -80,7 +80,7 @@ async void CreatePeopleTableAsync()
     
 ## <a name="add-an-entity-to-a-table"></a>Lägga till en entitet i en tabell
 
-Om du vill lägga till en entitet i en tabell skapar du en klass som definierar egenskaperna för entiteten. Följande kod definierar en entitets klass med namnet `CustomerEntity` som använder kundens förnamn som rad nyckel och efter namn som partitionsnyckel.
+Om du vill lägga till en entitet i en tabell skapar du en klass som definierar egenskaperna för din entitet. Följande kod definierar en `CustomerEntity` entitetsklass som anropas och som använder kundens förnamn som radnyckel och efternamn som partitionsnyckel.
 
 ```csharp
 public class CustomerEntity : TableEntity
@@ -99,7 +99,7 @@ public class CustomerEntity : TableEntity
 }
 ```
 
-Tabell åtgärder som involverar entiteter använder `CloudTable`-objektet som du skapade tidigare i [Access-tabeller i kod](#access-tables-in-code). Objektet `TableOperation` representerar den åtgärd som ska utföras. I följande kod exempel visas hur du skapar ett `CloudTable`-objekt och ett `CustomerEntity`-objekt. För att förbereda åtgärden skapas en `TableOperation` för att infoga kundentiteten i tabellen. Slutligen körs åtgärden genom att anropa `CloudTable.ExecuteAsync`.
+Tabellåtgärder som involverar `CloudTable` entiteter använder objektet som du skapade tidigare i [Access-tabeller i kod](#access-tables-in-code). Objektet `TableOperation` representerar den åtgärd som ska utföras. I följande kodexempel `CloudTable` visas hur `CustomerEntity` du skapar ett objekt och ett objekt. För att förbereda `TableOperation` operationen skapas en för att infoga kundentiteten i tabellen. Slutligen utförs åtgärden genom att `CloudTable.ExecuteAsync`anropa .
 
 ```csharp
 // Create a new customer entity.
@@ -116,7 +116,7 @@ await peopleTable.ExecuteAsync(insertOperation);
 
 ## <a name="insert-a-batch-of-entities"></a>Infoga en batch med entiteter
 
-Du kan infoga flera entiteter i en tabell i en enda Skriv åtgärd. Följande kod exempel skapar två entiteter ("Jeff Svensson" och "ben Svensson"), lägger till dem i ett `TableBatchOperation`-objekt med hjälp av metoden `Insert` och startar sedan åtgärden genom att anropa `CloudTable.ExecuteBatchAsync`.
+Du kan infoga flera entiteter i en tabell i en enda skrivåtgärd. I följande kodexempel skapas två entitetsobjekt ("Jeff `TableBatchOperation` Smith" `Insert` och "Ben Smith"), `CloudTable.ExecuteBatchAsync`läggs dem till i ett objekt med metoden och startar sedan åtgärden genom att anropa .
 
 ```csharp
 // Create the batch operation.
@@ -142,7 +142,7 @@ await peopleTable.ExecuteBatchAsync(batchOperation);
 
 ## <a name="get-all-of-the-entities-in-a-partition"></a>Hämta alla entiteter i en partition
 
-Om du vill fråga en tabell efter alla entiteter i en partition använder du ett `TableQuery`-objekt. I följande kodexempel anges ett filter för entiteter där partitionsnyckeln är ”Smith”. Det här exemplet skriver ut fälten för varje entitet i frågeresultatet till konsolen.
+Om du vill fråga en tabell efter alla `TableQuery` entiteter i en partition använder du ett objekt. I följande kodexempel anges ett filter för entiteter där partitionsnyckeln är ”Smith”. Det här exemplet skriver ut fälten för varje entitet i frågeresultatet till konsolen.
 
 ```csharp
 // Construct the query operation for all customer entities where PartitionKey="Smith".
@@ -163,9 +163,9 @@ do
 } while (token != null);
 ```
 
-## <a name="get-a-single-entity"></a>Hämta en enskild entitet
+## <a name="get-a-single-entity"></a>Skaffa en enda entitet
 
-Du kan skriva en fråga för att hämta en enskild, speciell entitet. I följande kod används ett `TableOperation`-objekt för att ange en kund med namnet "Ben Smith". Metoden returnerar bara en entitet i stället för en samling och det returnerade värdet i `TableResult.Result` är ett `CustomerEntity`-objekt. Att ange både partitions-och rad nycklar i en fråga är det snabbaste sättet att hämta en enskild entitet från tjänsten `Table`.
+Du kan skriva en fråga för att få en enda specifik entitet. Följande kod använder `TableOperation` ett objekt för att ange en kund med namnet "Ben Smith". Metoden returnerar bara en entitet i stället för `TableResult.Result` en `CustomerEntity` samling, och det returnerade värdet i är ett objekt. Att ange både partitions- och radnycklar i en fråga `Table` är det snabbaste sättet att hämta en enda entitet från tjänsten.
 
 ```csharp
 // Create a retrieve operation that takes a customer entity.
@@ -183,7 +183,7 @@ else
 
 ## <a name="delete-an-entity"></a>Ta bort en entitet
 
-Du kan ta bort en entitet när du har hittat den. Följande kod söker efter och tar bort en kundentitet med namnet "ben Svensson":
+Du kan ta bort en entitet när du har hittat den. Följande kod söker efter och tar bort en kundentitet med namnet "Ben Smith":
 
 ```csharp
 // Create a retrieve operation that expects a customer entity.

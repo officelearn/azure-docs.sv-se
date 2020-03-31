@@ -1,51 +1,51 @@
 ---
-title: Så här arbetar du med Sök Resultat
+title: Så här arbetar du med sökresultat
 titleSuffix: Azure Cognitive Search
-description: Strukturera och sortera Sök resultat, hämta ett dokument antal och Lägg till innehålls navigering till Sök resultat i Azure Kognitiv sökning.
+description: Strukturera och sortera sökresultat, få ett antal dokument och lägg till innehållsnavigering i sökresultaten i Azure Cognitive Search.
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/24/2020
-ms.openlocfilehash: e83ecb3888ed4b19933233f3ab511d1e86fb37af
-ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
+ms.openlocfilehash: 124f1ce3d30ce87d5e9d8fa027e5a7d6c0b3cb17
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2020
-ms.locfileid: "79136998"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79481610"
 ---
-# <a name="how-to-work-with-search-results-in-azure-cognitive-search"></a>Så här arbetar du med Sök resultat i Azure Kognitiv sökning
-Den här artikeln innehåller vägledning om hur du implementerar standard element på en Sök resultat sida, till exempel totala antal, dokument hämtning, sorterings ordning och navigering. Sid-relaterade alternativ som bidrar med data eller information till dina Sök Resultat anges genom [Sök dokument](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) begär Anden som skickas till din Azure kognitiv sökning-tjänst. 
+# <a name="how-to-work-with-search-results-in-azure-cognitive-search"></a>Så här arbetar du med sökresultat i Azure Cognitive Search
+Den här artikeln innehåller vägledning om hur du implementerar standardelement på en sökresultatsida, till exempel antal, dokumenthämtning, sorteringsorder och navigering. Sidrelaterade alternativ som bidrar med data eller information till sökresultaten anges i [sökdokumentbegäranden](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) som skickas till din Azure Cognitive Search-tjänst. 
 
-I REST API innehåller förfrågningarna GET-kommando, sökväg och frågeparametrar som informerar tjänsten vad som begärs och hur du formulerar svaret. I .NET SDK är motsvarande API [DocumentSearchResult-klass](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.documentsearchresult-1).
+I REST API innehåller begäranden ett GET-kommando, sökväg och frågeparametrar som informerar tjänsten om vad som begärs och hur du formulerar svaret. I .NET SDK är motsvarande API [Klassen DocumentSearchResult](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.documentsearchresult-1).
 
-Om du snabbt vill skapa en Sök sida för din klient kan du utforska följande alternativ:
+Om du snabbt vill skapa en söksida för din klient kan du utforska följande alternativ:
 
-+ Använd [Application Generator](search-create-app-portal.md) i portalen för att skapa en HTML-sida med ett sökfält, en fasett med en navigering och ett resultat område.
-+ Skapa en fungerande klient genom att följa anvisningarna för att [skapa din första app i C# ](tutorial-csharp-create-first-app.md) självstudien.
++ Använd [programgeneratorn](search-create-app-portal.md) i portalen för att skapa en HTML-sida med ett sökfält, fasterad navigering och resultatområde.
++ Skapa en funktionell klient genom att följa med i självstudien [Skapa din första app i C#.](tutorial-csharp-create-first-app.md)
 
-Flera kod exempel innehåller ett klient dels gränssnitt som du hittar här: [New York-jobb demonstrations app](https://aka.ms/azjobsdemo), [JavaScript-exempel kod med en Live Demo webbplats](https://github.com/liamca/azure-search-javascript-samples)och [CognitiveSearchFrontEnd](https://github.com/LuisCabrer/CognitiveSearchFrontEnd).
+Flera kodexempel inkluderar ett webbside-gränssnitt, som du hittar här: [New York City Jobs demoapp,](https://aka.ms/azjobsdemo) [JavaScript-exempelkod med en live demo-webbplats](https://github.com/liamca/azure-search-javascript-samples)och [CognitiveSearchFrontEnd](https://github.com/LuisCabrer/CognitiveSearchFrontEnd).
 
 > [!NOTE]
-> En giltig begäran innehåller ett antal element, till exempel en tjänst-URL och sökväg, HTTP-verb, `api-version`och så vidare. För det kortfattat trimmade vi exemplen för att markera bara den syntax som är relevant för sid brytning. Mer information om syntax för begäran finns i [Azure KOGNITIV sökning REST-API: er](https://docs.microsoft.com/rest/api/searchservice).
+> En giltig begäran innehåller ett antal element, till exempel en `api-version`tjänst-URL och sökväg, HTTP-verb och så vidare. För korthet, trimmade vi exemplen för att markera bara syntax som är relevant för sidnumrering. Mer information om syntax för begäran finns i [Azure Cognitive Search REST API:er](https://docs.microsoft.com/rest/api/searchservice).
 >
 
-## <a name="total-hits-and-page-counts"></a>Totalt antal träffar och sid antal
+## <a name="total-hits-and-page-counts"></a>Totalt antal träffar och sidantal
 
-Visar det totala antalet resultat som returnerades från en fråga och sedan returnerade resultaten i mindre segment, är grundläggande för nästan alla Sök sidor.
+Att visa det totala antalet resultat som returneras från en fråga och sedan returnera dessa resultat i mindre segment är grundläggande för praktiskt taget alla söksidor.
 
 ![][1]
 
-I Azure Kognitiv sökning använder du parametrarna `$count`, `$top`och `$skip` för att returnera dessa värden. I följande exempel visas en exempel förfrågan om totala antalet träffar i ett index som kallas "online-Catalog", returnerat som `@odata.count`:
+I Azure Cognitive Search `$count`använder `$top`du `$skip` parametrarna och parametrarna för att returnera dessa värden. I följande exempel visas en exempelbegäran för totala träffar på ett `@odata.count`index som kallas "onlinekatalog", returnerad som :
 
     GET /indexes/online-catalog/docs?$count=true
 
-Hämta dokument i grupper om 15 och Visa totalt antal träffar, från första sidan:
+Hämta dokument i grupper om 15 och visa även den totala träffar, med början på första sidan:
 
     GET /indexes/online-catalog/docs?search=*&$top=15&$skip=0&$count=true
 
-Sid brytnings resultat kräver både `$top` och `$skip`, där `$top` anger hur många objekt som ska returneras i en batch och `$skip` anger hur många objekt som ska hoppas över. I följande exempel visar varje sida de närmaste 15 objekten, vilket indikeras av de stegvisa hoppen i `$skip`-parametern.
+Sidnumrerande resultat `$top` `$skip`kräver `$top` både och , där anger hur `$skip` många artiklar som ska returneras i en batch och anger hur många artiklar som ska hoppa. I följande exempel visar varje sida de följande 15 objekten, som `$skip` indikeras av de inkrementella hoppen i parametern.
 
     GET /indexes/online-catalog/docs?search=*&$top=15&$skip=0&$count=true
 
@@ -55,49 +55,49 @@ Sid brytnings resultat kräver både `$top` och `$skip`, där `$top` anger hur m
 
 ## <a name="layout"></a>Layout
 
-På en Sök resultat sida kanske du vill visa en miniatyr bild, en delmängd av fälten och en länk till en fullständig produkt sida.
+På en sökresultatsida kanske du vill visa en miniatyrbild, en delmängd av fälten och en länk till en fullständig produktsida.
 
  ![][2]
 
-I Azure Kognitiv sökning använder du `$select` och en [söknings-API-begäran](https://docs.microsoft.com/rest/api/searchservice/search-documents) för att implementera den här upplevelsen.
+I Azure Cognitive Search `$select` använder du och en [begäran om sök-API](https://docs.microsoft.com/rest/api/searchservice/search-documents) för att implementera den här upplevelsen.
 
-Returnera en delmängd av fält för en sida vid sida-layout:
+Så här returnerar du en delmängd av fälten för en sida vid sida-layout:
 
     GET /indexes/online-catalog/docs?search=*&$select=productName,imageFile,description,price,rating
 
-Bilder och mediefiler är inte direkt sökbara och ska lagras på en annan lagrings plattform, till exempel Azure Blob Storage, för att minska kostnaderna. I index och dokument definierar du ett fält som lagrar URL-adressen för det externa innehållet. Du kan sedan använda fältet som en bild referens. URL: en till bilden ska vara i dokumentet.
+Avbildningar och mediefiler är inte direkt sökbara och bör lagras i en annan lagringsplattform, till exempel Azure Blob-lagring, för att minska kostnaderna. I indexet och dokumenten definierar du ett fält som lagrar URL-adressen för det externa innehållet. Du kan sedan använda fältet som en bildreferens. URL:en till bilden ska finnas i dokumentet.
 
-Om du vill hämta en produkt beskrivnings sida för händelsen **onclick** använder du [Lookup-dokument](https://docs.microsoft.com/rest/api/searchservice/Lookup-Document) för att skicka in nyckeln till det dokument som ska hämtas. Nyckelns datatyp är `Edm.String`. I det här exemplet är det *246810*.
+Om du vill hämta en produktbeskrivningssida för en **onClick-händelse** använder du [Uppslagsdokument](https://docs.microsoft.com/rest/api/searchservice/Lookup-Document) för att skicka in nyckeln till dokumentet som ska hämtas. Nyckelns datatyp är `Edm.String`. I det här exemplet är det *246810*.
 
     GET /indexes/online-catalog/docs/246810
 
 ## <a name="sort-by-relevance-rating-or-price"></a>Sortera efter relevans, betyg eller pris
 
-Sorterings ordningen används ofta som standard, men det är vanligt att göra alternativa sorterings beställningar tillgängliga så att kunder snabbt kan blanda befintliga resultat i en annan rangordnings ordning.
+Sortera order som ofta är standard för relevans, men det är vanligt att göra alternativa sorteringsorder lättillgängliga så att kunderna snabbt kan blanda om befintliga resultat till en annan rangordning.
 
  ![][3]
 
-I Azure Kognitiv sökning baseras sorteringen på `$orderby`-uttrycket för alla fält som indexeras som `"Sortable": true.` en `$orderby`-sats är ett OData-uttryck. Information om syntax finns i [syntax för OData-uttryck för filter och order by-satser](query-odata-filter-orderby-syntax.md).
+I Azure Cognitive Search baseras sortering på uttrycket, `$orderby` för `"Sortable": true.` alla `$orderby` fält som indexeras som en sats är ett OData-uttryck. Information om syntax finns i [OData-uttryckssyntax för filter och order-by-satser](query-odata-filter-orderby-syntax.md).
 
-Relevans är starkt kopplat till bedömnings profiler. Du kan använda standard poängen, som förlitar sig på text analys och statistik för att rangordna alla resultat, med högre resultat till dokument med fler eller starkare matchningar på en sökterm.
+Relevans är starkt förknippat med bedömningsprofiler. Du kan använda standardbedömningen, som bygger på textanalys och statistik för att rangordna ordning på alla resultat, med högre poäng som går till dokument med fler eller starkare matchningar på en sökterm.
 
-Alternativa sorterings ordningar är vanligt vis kopplade till **onclick** -händelser som anropar tillbaka till en metod som skapar sorterings ordningen. Till exempel har följande sid element angetts:
+Alternativa sorteringsorder associeras vanligtvis med **onClick-händelser** som anropar tillbaka till en metod som skapar sorteringsordningen. Med tanke på det här sidelementet:
 
  ![][4]
 
-Du kan skapa en metod som godkänner det valda sorterings alternativet som inmatat och returnerar en ordnad lista för de villkor som är associerade med det alternativet.
+Du skapar en metod som accepterar det valda sorteringsalternativet som indata och returnerar en ordnad lista för de villkor som är associerade med det alternativet.
 
  ![][5]
 
 > [!NOTE]
-> Även om standard poängen är tillräcklig för många scenarier rekommenderar vi att du i stället vill basera relevansen på en anpassad bedömnings profil. En anpassad bedömnings profil ger dig ett sätt att öka de objekt som är mer fördelaktiga för ditt företag. Mer information finns i [lägga till bedömnings profiler](index-add-scoring-profiles.md) .
+> Standardbedömningen är tillräcklig för många scenarier, men vi rekommenderar att du baserar relevans på en anpassad bedömningsprofil i stället. En anpassad bedömningsprofil ger dig ett sätt att marknadsföra objekt som är mer fördelaktiga för ditt företag. Mer information finns [i Lägga till bedömningsprofiler.](index-add-scoring-profiles.md)
 >
 
 ## <a name="hit-highlighting"></a>Träffmarkering
 
-Du kan använda formatering för att matcha termer i Sök resultat, vilket gör det lätt att hitta matchningen. Träff markerings instruktioner finns i [förfrågan](https://docs.microsoft.com/rest/api/searchservice/search-documents). 
+Du kan använda formatering för att matcha termer i sökresultaten, vilket gör det enkelt att upptäcka matchningen. Instruktioner för träffmarkering finns på [frågebegäran](https://docs.microsoft.com/rest/api/searchservice/search-documents). 
 
-Formatering tillämpas på frågor på hela termen. Frågor om del termer, till exempel fuzzy search eller jokertecken som resulterar i att en fråga utökas i motorn, kan inte använda träff markering.
+Formatering tillämpas på hela termfrågor. Frågor om partiella termer, till exempel fuzzy search eller jokerteckensökning som resulterar i frågeexpansion i motorn, kan inte använda träffmarkering.
 
 ```http
 POST /indexes/hotels/docs/search?api-version=2019-05-06 
@@ -107,28 +107,31 @@ POST /indexes/hotels/docs/search?api-version=2019-05-06
     }
 ```
 
-
+> [!IMPORTANT]
+> Tjänster som skapas efter den 15 juli 2020 kommer att ge en annan belysningsupplevelse. Tjänster som skapats före det datumet ändras inte i markeringsbeteendet. Med den här ändringen returneras endast fraser som matchar den fullständiga frasfrågan. Det är också möjligt att ange den fragmentstorlek som returneras för högdager.
+>
+> När du skriver klientkod som implementerar träffmarkering bör du vara medveten om den här ändringen. Observera att detta inte påverkar dig om du inte skapar en helt ny söktjänst.
 
 ## <a name="faceted-navigation"></a>Aspektbaserad navigering
 
-Sök navigering är vanligt på en resultat sida som ofta finns på sidan eller överst på en sida. I Azure Kognitiv sökning tillhandahåller fasett navigering självriktad sökning baserat på fördefinierade filter. Mer information finns i avsnittet om [aspekt navigering i Azure kognitiv sökning](search-faceted-navigation.md) .
+Söknavigering är vanligt på en resultatsida, som ofta finns längst upp på en sida eller överst på en sida. I Azure Cognitive Search ger aspektbaserad navigering självstyrd sökning baserat på fördefinierade filter. Mer information finns [i Fasterad navigering i Azure Cognitive Search.](search-faceted-navigation.md)
 
-## <a name="filters-at-the-page-level"></a>Filter på sid nivå
+## <a name="filters-at-the-page-level"></a>Filter på sidnivå
 
-Om din lösnings design inkluderar dedikerade Sök sidor för specifika typer av innehåll (till exempel ett program för åter försäljning som innehåller avdelningar som är listade överst på sidan), kan du infoga ett [filter uttryck](search-filters.md) tillsammans med en **onclick** -händelse för att öppna en sida i ett förfiltrerat tillstånd.
+Om lösningsdesignen innehöll dedikerade söksidor för specifika typer av innehåll (till exempel ett online-butiksprogram som har avdelningar listade högst upp på sidan) kan du infoga ett [filteruttryck](search-filters.md) tillsammans med en **onClick-händelse** för att öppna en sida i förfiltrerade tillstånd.
 
-Du kan skicka ett filter med eller utan ett Sök uttryck. Följande begäran kommer till exempel att filtrera efter märkes namn och bara returnera de dokument som matchar det.
+Du kan skicka ett filter med eller utan ett sökuttryck. Följande begäran filtrerar till exempel på varumärkesnamn och returnerar endast de dokument som matchar den.
 
     GET /indexes/online-catalog/docs?$filter=brandname eq 'Microsoft' and category eq 'Games'
 
-Mer information om `$filter`-uttryck finns i [Sök efter dokument (Azure KOGNITIV sökning API)](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) .
+Mer information om `$filter` uttryck finns i [Sökdokument (Azure Cognitive Search API).](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)
 
 ## <a name="see-also"></a>Se även
 
-- [Azure Kognitiv sökning REST API](https://docs.microsoft.com/rest/api/searchservice)
-- [Index åtgärder](https://docs.microsoft.com/rest/api/searchservice/Index-operations)
-- [Dokument åtgärder](https://docs.microsoft.com/rest/api/searchservice/Document-operations)
-- [Fasettisk navigering i Azure Kognitiv sökning](search-faceted-navigation.md)
+- [REST-API:er för Azure Cognitive Search](https://docs.microsoft.com/rest/api/searchservice)
+- [Index Verksamhet](https://docs.microsoft.com/rest/api/searchservice/Index-operations)
+- [Dokumentåtgärder](https://docs.microsoft.com/rest/api/searchservice/Document-operations)
+- [Fasterad navigering i Azure Cognitive Search](search-faceted-navigation.md)
 
 <!--Image references-->
 [1]: ./media/search-pagination-page-layout/Pages-1-Viewing1ofNResults.PNG

@@ -19,15 +19,13 @@
           href: connect-metamask.md
         - name: Med Geth
           href: connect-geth.md
-        - name: Med Truffle
-          href: connect-truffle.md
 - name: Självstudier
   items:
     - name: Skapa smarta kontrakt
       href: send-transaction.md
     - name: Publicera data med Data Manager
       href: data-manager-cosmosdb.md
-- name: Koncept
+- name: Begrepp
   items:
     - name: Konsortium
       href: consortium.md
@@ -41,7 +39,7 @@
       href: limits.md
     - name: 'Korrigering, uppdatering, versionshantering'
       href: ledger-versions.md
-- name: Instruktionsguider
+- name: Anvisningar
   items:
     - name: Konfigurera Azure AD-åtkomst
       href: configure-aad.md
@@ -77,7 +75,7 @@
       href: 'https://stackoverflow.com/questions/tagged/AzureBlockchainService'
     - name: Produktfeedback
       href: 'https://feedback.azure.com/forums/921130-azure-blockchain-service'
-    - name: Priser
+    - name: Prissättning
       href: 'https://azure.microsoft.com/pricing/details/blockchain-service'
     - name: Regional tillgänglighet
       href: 'https://azure.microsoft.com/global-infrastructure/services/?products=blockchainservice'

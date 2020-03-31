@@ -1,6 +1,6 @@
 ---
 title: Azure Snabbstart – Köra Batch-jobb – CLI
-description: Lär dig snabbt att köra ett Batch-jobb med Azure CLI. Skapa och hantera Azure-resurser från kommando raden eller i skript.
+description: Lär dig snabbt att köra ett Batch-jobb med Azure CLI. Skapa och hantera Azure-resurser från kommandoraden eller i skript.
 services: batch
 author: LauraBrenner
 manager: evansma
@@ -11,10 +11,10 @@ ms.date: 07/03/2018
 ms.author: labrenne
 ms.custom: mvc
 ms.openlocfilehash: 9106741e18354d39909fa84ce6e9f3a66ccf2014
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77024508"
 ---
 # <a name="quickstart-run-your-first-batch-job-with-the-azure-cli"></a>Snabbstart: Kör ditt första Batch-jobb med Azure CLI
@@ -105,7 +105,7 @@ az batch job create \
     --pool-id mypool
 ```
 
-## <a name="create-tasks"></a>Skapa aktiviteter
+## <a name="create-tasks"></a>Skapa uppgifter
 
 Använd nu kommandot [az batch task create](/cli/azure/batch/task#az-batch-task-create) för att skapa några aktiviteter att köra i jobbet. I det här exemplet skapar du fyra identiska aktiviteter. Varje aktivitet kör en `command-line` för att visa Batch-miljövariablerna på en beräkningsnod och väntar sedan i 90 sekunder. När du använder Batch är det på den här kommandoraden som anger du din app eller ditt skript. Batch tillhandahåller ett antal sätt att distribuera appar och skript till beräkningsnoder.
 
@@ -137,7 +137,7 @@ az batch task show \
 
 Kommandoutdata innehåller många detaljer, men observera `exitCode` på kommandoraden och `nodeId`. En `exitCode` på 0 anger att kommandoradsaktiviteten har slutförts. `nodeId` anger ID för den poolnod som aktiviteten kördes på.
 
-## <a name="view-task-output"></a>Visa utdata för uppgiften
+## <a name="view-task-output"></a>Visa aktivitetens utdata
 
 Om du vill visa en lista över filer som skapas av en aktivitet på en beräkningsnod ska du använda kommandot [az batch task file list](/cli/azure/batch/task). Följande kommando visar filer som skapas av *mytask1*: 
 

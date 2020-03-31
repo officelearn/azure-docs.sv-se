@@ -1,5 +1,5 @@
 ---
-title: Skapa en ASP.NET-webbapp med Azure cache för Redis
+title: Skapa en ASP.NET webbapp med Azure Cache för Redis
 description: I den här snabbstarten lär du dig hur du skapar en ASP.NET-webbapp med Azure Cache for Redis
 author: yegu-ms
 ms.service: cache
@@ -7,25 +7,25 @@ ms.topic: quickstart
 ms.date: 03/26/2018
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: 3da1902906c4fb12bf5eef473ee39e721e4efe3a
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 155993bb3da781e698398ed8ddffa626e8f6cb2d
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "74927072"
 ---
-# <a name="quickstart-use-azure-cache-for-redis-with-an-aspnet-web-app"></a>Snabb start: Använd Azure cache för Redis med en ASP.NET-webbapp 
+# <a name="quickstart-use-azure-cache-for-redis-with-an-aspnet-web-app"></a>Snabbstart: Använda Azure Cache för Redis med en ASP.NET webbapp 
 
-I den här snabb starten använder du Visual Studio 2019 för att skapa ett ASP.NET-webbprogram som ansluter till Azure cache för Redis för att lagra och hämta data från cachen. Sedan distribuerar du appen till Azure App Service.
+I den här snabbstarten använder du Visual Studio 2019 för att skapa ett ASP.NET webbprogram som ansluter till Azure Cache för Redis för att lagra och hämta data från cachen. Du distribuerar sedan appen till Azure App Service.
 
 ## <a name="prerequisites"></a>Krav
 
-- Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/)
-- [Visual Studio 2019](https://www.visualstudio.com/downloads/) med arbets belastningarna **ASP.net och webb utveckling** och **Azure-utveckling** .
+- Azure-prenumeration - [skapa en gratis](https://azure.microsoft.com/free/)
+- [Visual Studio 2019](https://www.visualstudio.com/downloads/) med **ASP.NET- och webbutvecklings-** och **Azure-utvecklingsarbetsbelastningar.**
 
 ## <a name="create-the-visual-studio-project"></a>Skapa Visual Studio-projektet
 
-1. Öppna Visual Studio och välj sedan **Arkiv** >**Nytt** > **Projekt**.
+1. Öppna Visual Studio och **File** >välj fil**nytt** > **projekt**.
 
 2. Gör följande i dialogrutan **Nytt projekt**:
 
@@ -59,7 +59,7 @@ Nu ska skapa du cachen för appen.
 
 #### <a name="to-edit-the-cachesecretsconfig-file"></a>Redigera filen *CacheSecrets.config*
 
-1. Skapa en fil på din dator med namnet *CacheSecrets. config*. Lägg till den på en plats där den inte checkas in med käll koden för ditt exempel program. För den här snabbstarten finns filen *CacheSecrets.config* i *C:\AppSecrets\CacheSecrets.config*.
+1. Skapa en fil på datorn med namnet *CacheSecrets.config*. Placera den på en plats där den inte kommer att checkas in med källkoden för ditt exempelprogram. För den här snabbstarten finns filen *CacheSecrets.config* i *C:\AppSecrets\CacheSecrets.config*.
 
 1. Redigera filen *CacheSecrets.config*. Lägg sedan till följande innehåll:
 
@@ -101,7 +101,7 @@ Eftersom *CacheSecrets.config* inte har distribuerats till Azure med din app anv
 2. Leta reda på elementet `<appSetting>` i filen *web.config*. Lägg sedan till följande `file`-attribut. Om du använder ett annat namn eller en annan plats, byter du ut dessa värden mot de som visas i exemplet.
 
 * Innan: `<appSettings>`
-* Efter: `<appSettings file="C:\AppSecrets\CacheSecrets.config">`
+* Efter:`<appSettings file="C:\AppSecrets\CacheSecrets.config">`
 
 ASP.NET-körningsmiljön sammanfogar innehållet i den externa filen med markeringen i `<appSettings>`-elementet. Vid körningen ignoreras filattributet om det inte går att hitta den angivna filen. Din hemliga information (anslutningssträngen till cachen) ingår inte i källkoden för programmet. När du distribuerar din webbapp till Azure så distribueras inte filen *CacheSecrets.config*.
 
@@ -143,7 +143,7 @@ ASP.NET-körningsmiljön sammanfogar innehållet i den externa filen med markeri
 
             // Connection refers to a property that returns a ConnectionMultiplexer
             // as shown in the previous example.
-            IDatabase cache = lazyConnection.GetDatabase();
+            IDatabase cache = lazyConnection.Value.GetDatabase();
 
             // Perform cache operations using the cache object...
 
@@ -166,7 +166,7 @@ ASP.NET-körningsmiljön sammanfogar innehållet i den externa filen med markeri
             ViewBag.command5 = "CLIENT LIST";
             ViewBag.command5Result = cache.Execute("CLIENT", "LIST").ToString().Replace(" id=", "\rid=");
 
-            lazyConnection.Dispose();
+            lazyConnection.Value.Dispose();
 
             return View();
         }
@@ -188,7 +188,7 @@ ASP.NET-körningsmiljön sammanfogar innehållet i den externa filen med markeri
 
 ### <a name="to-add-a-new-rediscache-view"></a>Lägga till en ny RedisCache-vy
 
-1. I **Solution Explorer** expanderar du mappen **Vyer** och högerklickar sedan på mappen **Start**. Välj **Lägg till** > **Vy...** .
+1. I **Solution Explorer** expanderar du mappen **Vyer** och högerklickar sedan på mappen **Start**. Välj **Lägg till** > **vy...**.
 
 2. Ange **RedisCache** som vynamn i dialogrutan **Lägg till vy**. Välj sedan **Lägg till**.
 
@@ -232,10 +232,10 @@ ASP.NET-körningsmiljön sammanfogar innehållet i den externa filen med markeri
 
 ## <a name="run-the-app-locally"></a>Köra appen lokalt
 
-Som standard konfigureras projektet som värd för appen lokalt i [IIS Express](https://docs.microsoft.com/iis/extensions/introduction-to-iis-express/iis-express-overview) för testning och felsökning.
+Som standard är projektet konfigurerat för att vara värd för appen lokalt i [IIS Express](https://docs.microsoft.com/iis/extensions/introduction-to-iis-express/iis-express-overview) för testning och felsökning.
 
 ### <a name="to-run-the-app-locally"></a>Köra appen lokalt
-1. I Visual Studio väljer du **Felsök** > **Börja felsöka** för att skapa och starta appen lokalt för testning och felsökning.
+1. I Visual Studio väljer du **Felsökning** > **av startfelsökning** för att skapa och starta appen lokalt för testning och felsökning.
 
 2. Välj **Azure Redis Cache for Redis-test** i webbläsarens navigeringsfält.
 
@@ -261,10 +261,10 @@ När du har testat appen lokalt distribuerar du den till Azure och kör den i mo
 
     | Inställning | Rekommenderat värde | Beskrivning |
     | ------- | :---------------: | ----------- |
-    | **Appens namn** | Använd standardvärdet. | Appnamnet blir värdnamnet för appen när den har distribuerats till Azure. Namnet kan ha ett tidsstämpelsuffix som lagts till för att göra det unikt, om det behövs. |
+    | **Appnamn** | Använd standardvärdet. | Appnamnet blir värdnamnet för appen när den har distribuerats till Azure. Namnet kan ha ett tidsstämpelsuffix som lagts till för att göra det unikt, om det behövs. |
     | **Prenumeration** | Välj din Azure-prenumeration. | Den här prenumerationen debiteras för eventuella relaterade värdkostnader. Om du har flera Azure-prenumerationer kontrollerar du att den önskade prenumerationen har valts.|
     | **Resursgrupp** | Använd den resursgrupp som du skapade cachen i (till exempel *TestResourceGroup*). | Resursgruppen hjälper dig att hantera alla resurser som en grupp. Senare när du vill ta bort appen är det bara att ta bort gruppen. |
-    | **App Service-plan** | Välj **Nytt** och skapa en ny App Service-Plan med namnet *TestingPlan*. <br />Använd samma **plats** du använde när du skapade cachen. <br />Välj **Ledigt** som storlek. | En App Service-plan definierar en uppsättning beräkningsresurser för en webbapp att köra med. |
+    | **App Service plan** | Välj **Nytt** och skapa en ny App Service-Plan med namnet *TestingPlan*. <br />Använd samma **plats** du använde när du skapade cachen. <br />Välj **Ledigt** som storlek. | En App Service-plan definierar en uppsättning beräkningsresurser för en webbapp att köra med. |
 
     ![Dialogrutan App Service](./media/cache-web-app-howto/cache-create-app-service-dialog.png)
 
@@ -309,7 +309,7 @@ Om du är klar med exempelappen i snabbstarten kan du ta bort Azure-resurserna s
 
 1. Logga in på [Azure-portalen](https://portal.azure.com) och välj **Resursgrupper**.
 
-2. Skriv namnet på din resursgrupp i rutan **Filtrera efter namn...** . Anvisningarna för den här artikeln använde en resursgrupp med namnet *TestResources*. På din resursgrupp i resultatlistan väljer du **...** och sedan **Ta bort resursgrupp**.
+2. Skriv namnet på din resursgrupp i rutan **Filtrera efter namn...**. Anvisningarna för den här artikeln använde en resursgrupp med namnet *TestResources*. På din resursgrupp i resultatlistan väljer du **...** och sedan **Ta bort resursgrupp**.
 
     ![Ta bort](./media/cache-web-app-howto/cache-delete-resource-group.png)
 
@@ -322,4 +322,4 @@ Efter en liten stund tas resursgruppen och de resurser som finns i den bort.
 I nästa kurs får du använda Azure Cache for Redis i ett mer realistiskt scenario så att du kan förbättra prestandan för en app. Du uppdaterar appen på cachens resultattavla med hjälp av cache-aside-mönstret med ASP.NET och en databas.
 
 > [!div class="nextstepaction"]
-> [Skapa en cache-aside-esultattavla för ASP.NET](cache-web-app-cache-aside-leaderboard.md)
+> [Skapa en cache-aside-resultattavla för ASP.NET](cache-web-app-cache-aside-leaderboard.md)

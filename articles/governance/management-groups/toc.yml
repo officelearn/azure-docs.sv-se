@@ -7,10 +7,22 @@
       href: ../azure-management.md
     - name: Hanteringsgrupper
       href: ./overview.md
-- name: Instruktionsguider
+- name: Anvisningar
   expanded: true
   items:
     - name: Skapa hanteringsgrupper
       href: ./create.md
     - name: Hantera dina resurser
       href: ./manage.md
+- name: Referens
+  items:
+    - name: Azure CLI
+      href: /cli/azure/account/management-group
+    - name: Azure PowerShell
+      href: '/powershell/module/az.resources/#resources'
+    - name: Azure SDK för .NET
+      href: /dotnet/api/overview/azure/managementgroups
+    - name: Azure SDK för Node
+      href: /javascript/api/@azure/arm-managementgroups/managementgroups
+    - name: REST
+      href: /rest/api/resources/managementgroups

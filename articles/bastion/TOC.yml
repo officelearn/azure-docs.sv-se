@@ -8,6 +8,10 @@
   items:
     - name: Skapa en Bastion-värd från VM-inställningar
       href: quickstart-host-portal.md
+- name: Begrepp
+  items:
+    - name: Distansarbete
+      href: work-remotely-support.md
 - name: Anvisningar
   items:
     - name: Skapa en Bastion-värd
@@ -16,6 +20,8 @@
           href: bastion-create-host-portal.md
         - name: Azure PowerShell
           href: bastion-create-host-powershell.md
+        - name: Azure CLI
+          href: create-host-cli.md
     - name: Ansluta till en virtuell dator
       items:
         - name: SSH (Linux)
@@ -40,6 +46,14 @@
       href: session-monitoring.md
     - name: Felsöka
       href: troubleshoot.md
+- name: Referens
+  items:
+    - name: Azure PowerShell
+      href: /powershell/module/az.network
+    - name: REST
+      href: /rest/api/virtualnetwork/bastionhosts
+    - name: Azure CLI
+      href: /cli/azure/network/bastion
 - name: Resurser
   items:
     - name: Vanliga frågor och svar om Bastion

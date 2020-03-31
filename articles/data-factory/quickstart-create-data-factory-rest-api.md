@@ -1,5 +1,5 @@
 ---
-title: Skapa en Azure-datafabrik med hjälp av REST API
+title: Skapa en Azure-datafabrik med REST API
 description: Skapa en Azure-datafabrik för att kopiera data från en plats i Azure Blob Storage till en annan plats.
 services: data-factory
 documentationcenter: ''
@@ -14,13 +14,13 @@ ms.topic: quickstart
 ms.date: 06/10/2019
 ms.author: jingwang
 ms.openlocfilehash: fbfd3e2577655e8cfccd84fffe2971ff509bd2f4
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "79240774"
 ---
-# <a name="quickstart-create-an-azure-data-factory-and-pipeline-by-using-the-rest-api"></a>Snabb start: skapa en Azure-datafabrik och pipeline med hjälp av REST API
+# <a name="quickstart-create-an-azure-data-factory-and-pipeline-by-using-the-rest-api"></a>Snabbstart: Skapa en Azure-datafabrik och pipeline med hjälp av REST API
 
 > [!div class="op_single_selector" title1="Välj den version av Data Factory-tjänsten som du använder:"]
 > * [Version 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
@@ -30,17 +30,17 @@ Azure Data Factory är en molnbaserad dataintegreringstjänst som gör att du ka
 
 Den här snabbstarten beskriver hur du använder REST API till att skapa en Azure-datafabrik. Pipeline i den här datafabriken kopierar data från en plats till en annan i Azure Blob Storage.
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
+Om du inte har en Azure-prenumeration skapar du ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 * **Azure-prenumeration**. Om du inte har en prenumeration kan du skapa ett [kostnadsfritt utvärderingskonto](https://azure.microsoft.com/pricing/free-trial/).
-* **Azure Storage-konto**. Du kan använda blob-lagringen som **källa** och **mottagare** för datalagringen. Om du inte har ett Azure Storage-konto finns det anvisningar om hur du skapar ett i artikeln [Skapa ett lagringskonto](../storage/common/storage-account-create.md) .
+* **Azure Storage-konto**. Du kan använda blob-lagringen som **källa** och **mottagare** för datalagringen. Om du inte har ett Azure-lagringskonto läser du artikeln [Skapa ett lagringskonto](../storage/common/storage-account-create.md) för steg för att skapa ett.
 * Skapa en **blobcontainer** i Blob Storage, skapa en **indatamapp** i containern och ladda upp några filer till mappen. Du kan använda verktyg som [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) för att ansluta till Azure Blob Storage, skapa en blobcontainer, ladda upp en indatafil och verifiera utdatafilen.
-* **Installera Azure PowerShell**. Följ instruktionerna i [Så här installerar och konfigurerar du Azure PowerShell](/powershell/azure/install-Az-ps). I den här snabbstarten används PowerShell för att göra REST API-anrop.
-* **Skapa en app i Azure Active Directory** med hjälp av [den här instruktionen](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application). Anteckna följande värden som du använder i senare steg: **program-ID**, **clientSecrets**och **klient-ID**. Tilldela appen rollen **Deltagare**.
+* Installera **Azure PowerShell**. Följ instruktionerna i [Så här installerar och konfigurerar du Azure PowerShell](/powershell/azure/install-Az-ps). I den här snabbstarten används PowerShell för att göra REST API-anrop.
+* **Skapa en app i Azure Active Directory** med hjälp av [den här instruktionen](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application). Anteckna följande värden som du använder i senare steg: **program-ID,** **clientSecrets**och **klient-ID**. Tilldela appen rollen **Deltagare**.
 
 ## <a name="set-global-variables"></a>Ange globala variabler
 
@@ -110,7 +110,7 @@ $response | ConvertTo-Json
 
 Observera följande punkter:
 
-* Namnet på Azure Data Factory måste vara globalt unikt. Om du har fått följande felmeddelande ändrar du namnet och försöker igen.
+* Namnet på Azure Data Factory måste vara globalt unikt. Om du får följande felmeddelande ändrar du namnet och försöker igen.
 
     ```
     Data factory name "ADFv2QuickStartDataFactory" is not available.
@@ -190,7 +190,7 @@ Här är exempel på utdata:
 ```
 ## <a name="create-datasets"></a>Skapa datauppsättningar
 
-Du definierar en datauppsättning som representerar data som ska kopieras från en källa till en mottagare. I det här exemplet skapar du två data uppsättningar: InputDataset och OutputDataset. De refererar till den länkade Azure Storage-tjänst du skapade i föregående avsnitt. Datauppsättningen för indata representerar källdata i indatamappen. I definition av data uppsättning för data uppsättning anger du Blob-containern (adftutorial), mappen (indata) och filen (EMP. txt) som innehåller källdata. Datauppsättningen för utdata representerar de data som kopieras till målet. I definitionen av data uppsättningen för utdata anger du Blob-containern (adftutorial), mappen (output) och filen som data kopieras till.
+Du definierar en datauppsättning som representerar data som ska kopieras från en källa till en mottagare. I det här exemplet skapar du två datauppsättningar: InputDataset och OutputDataset. De refererar till den länkade Azure Storage-tjänst du skapade i föregående avsnitt. Datauppsättningen för indata representerar källdata i indatamappen. I definitionen av datauppsättningen för indata anger du blobcontainern (adftutorial), mappen (input) och filen (emp.txt) som innehåller källdata. Datauppsättningen för utdata representerar de data som kopieras till målet. I definitionen av datauppsättningen för utdata anger du blobcontainern (adftutorial), mappen (output) och filen som data ska kopieras till.
 
 **Skapa InputDataset**
 
@@ -383,7 +383,7 @@ Här är exempel på utdata:
 
 I det här steget anger du värden för parametrarna **inputPath** och **outputPath** som anges i pipeline med de faktiska värdena för sökvägarna för käll- och mottagar-blob och utlöser en pipelinekörning. Pipelinekörningens ID som returneras i svarstexten används i senare övervaknings-API.
 
-Ersätt värdet för **inputPath** med **outputPath** med din sökväg till käll- och mottagar-blob att kopiera data från och till innan du sparar filen.
+Ersätt värdet **för inputPath** och **outputPath** med käll- och sink-blob-sökvägen för att kopiera data från och till innan filen sparas.
 
 
 ```powershell
@@ -491,7 +491,7 @@ Här är exempel på utdata:
     ```
 ## <a name="verify-the-output"></a>Verifiera utdata
 
-Använd Azure Storage Explorer för att kontrol lera att filen kopieras till "outputPath" från "inputPath" som du angav när du skapade en pipeline-körning.
+Använd Azure Storage Explorer för att kontrollera att filen kopieras till "outputPath" från "inputPath" som du angav när du skapade en pipeline-körning.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 Du kan rensa de resurser som du skapade i snabbstarten på två sätt. Du kan ta bort den [Azure-resursgrupp](../azure-resource-manager/management/overview.md) som innehåller alla resurser i resursgruppen. Om du vill behålla de andra resurserna intakta ska du bara ta bort den datafabrik du har skapat i den här självstudiekursen.

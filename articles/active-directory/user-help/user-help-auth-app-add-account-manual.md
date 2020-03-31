@@ -1,6 +1,6 @@
 ---
-title: Lägg till ett konto manuellt i appen-Azure Active Directory | Microsoft Docs
-description: Hur du lägger till dina konton manuellt i Microsoft Authenticator-appen för tvåstegsverifiering.
+title: Lägg till ett konto manuellt i appen - Azure Active Directory | Microsoft-dokument
+description: Så här lägger du manuellt till dina konton i Microsoft Authenticator-appen för tvåfaktorsverifiering.
 services: active-directory
 author: curtand
 manager: daveba
@@ -12,98 +12,98 @@ ms.date: 01/24/2019
 ms.author: curtand
 ms.reviewer: olhaun
 ms.openlocfilehash: b237f710866ad3960dd65902c0789228d8c391bc
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77062327"
 ---
-# <a name="manually-add-an-account-to-the-app"></a>Lägg till ett konto i appen manuellt
+# <a name="manually-add-an-account-to-the-app"></a>Lägg till ett konto manuellt i appen
 
-Om kameran inte kan avbilda QR-koden kan du manuellt lägga till din konto information i Microsoft Authenticator-appen för tvåstegsverifiering. Detta fungerar för arbets-eller skol konton och konton som inte kommer från Microsoft.
+Om kameran inte kan fånga QR-koden kan du manuellt lägga till kontoinformationen i Microsoft Authenticator-appen för tvåfaktorsverifiering. Detta fungerar för arbets- eller skolkonton och konton som inte kommer från Microsoft.
 
-De koder som anges för dina konton är inte Skift läges känsliga och kräver inte blank steg när de läggs till i Microsoft Authenticator-appen.
+Koderna för dina konton är inte skiftlägeskänsliga och kräver inte blanksteg när de läggs till i Microsoft Authenticator-appen.
 
 >[!Important]
->Innan du kan lägga till ditt konto måste du ladda ned och installera Microsoft Authenticator-appen. Om du inte har gjort det än följer du stegen i artikeln [Hämta och installera appen](user-help-auth-app-download-install.md) .
+>Innan du kan lägga till ditt konto måste du hämta och installera Microsoft Authenticator-appen. Om du inte har gjort det ännu följer du stegen i [hämtnings- och installationsartikeln.](user-help-auth-app-download-install.md)
 
-## <a name="add-your-work-or-school-account"></a>Lägg till ditt arbets-eller skol konto
+## <a name="add-your-work-or-school-account"></a>Lägga till ditt arbets- eller skolkonto
 
-1. På datorn noterar du **koden** och **URL** -informationen på sidan **Konfigurera mobilapp** . Behåll sidan öppen så att du kan se koden och URL: en.
+1. På datorn bör du tänka på informationen **om kod** **och url** på sidan **Konfigurera mobilapp.** Håll den här sidan öppen så att du kan se koden och webbadressen.
 
     ![Skärm som tillhandahåller QR-koden](./media/user-help-auth-app-add-account-manual/auth-app-barcode.png)
 
-2. Öppna appen Microsoft Authenticator, Välj **Lägg till konto** från ikonen **Anpassa och kontrol lera** längst upp till höger och välj sedan arbets- **eller skol konto**.
+2. Öppna Microsoft Authenticator-appen, välj **Lägg till konto** i ikonen Anpassa och **kontrollera** längst upp till höger och välj sedan **Arbets- eller skolkonto**.
 
-3. Välj **eller ange koden manuellt**.
+3. Välj **eller ange kod manuellt**.
 
     ![Skärm för att skanna en QR-kod](./media/user-help-auth-app-add-account-manual/auth-app-manual-code.png)
 
-4. Ange **koden** och **URL: en** från steg 1 och välj sedan **Slutför**.
+4. Ange **koden** och **URL:en** från steg 1 och välj sedan **Slutför**.
 
     ![Skärm för att ange kod och URL](./media/user-help-auth-app-add-account-manual/auth-app-code-url.png)
 
-    Skärmen **konton** i appen visar ditt konto namn och en sex-siffrig verifierings kod. För ytterligare säkerhet ändras verifierings koden var 30: e sekund som hindrar någon från att använda en kod flera gånger.
+    Skärmen **Konton** i appen visar ditt kontonamn och en sexsiffrig verifieringskod. För ytterligare säkerhet ändras verifieringskoden var 30:e sekund så att någon inte använder en kod flera gånger.
 
-## <a name="add-your-google-account"></a>Lägg till ditt Google-konto
+## <a name="add-your-google-account"></a>Lägga till ditt Google-konto
 
-1. På din dator kan du välja **att inte söka igenom den** från sidan **Konfigurera autentisering** med QR-koden.
+1. Välj **KAN INTE SKANNA IT** på sidan Konfigurera **autentiserare** med QR-koden på datorn.
 
-    Sidan för **att skanna streckkoder** visas med den hemliga koden. Behåll den här sidan öppen så att du kan se den hemliga koden.
+    Sidan **Det går inte att skanna streckkod** visas med den hemliga koden. Håll den här sidan öppen så att du kan se den hemliga koden.
 
-2. Öppna appen Microsoft Authenticator, Välj **Lägg till konto** från ikonen **Anpassa och kontrol lera** längst upp till höger, Välj **annat konto (Google, Facebook osv.)** och välj sedan **eller ange kod manuellt**.
+2. Öppna Microsoft Authenticator-appen, välj **Lägg till konto** från ikonen Anpassa och **kontrollera** längst upp till höger, välj Annat **konto (Google, Facebook, etc.)** och välj sedan **ELLER ANGE KOD MANUELLT**.
 
-3. Ange ett **konto namn** (till exempel Google) och skriv den **hemliga nyckeln** från steg 1 och välj sedan **Slutför**.
+3. Ange ett **kontonamn** (till exempel Google) och skriv **den hemliga nyckeln** från steg 1 och välj sedan **Slutför**.
 
-4. På sidan **Konfigurera autentiserare** på datorn anger du den sex-siffriga verifierings koden som anges i appen för ditt Google-konto och väljer sedan **Verifiera**.
+4. På sidan **Konfigurera autentiseringskontroll** på datorn skriver du den sexsiffriga verifieringskoden som finns i appen för ditt Google-konto och väljer sedan **Verifiera**.
 
-    Skärmen **konton** i appen visar ditt konto namn och en sex-siffrig verifierings kod. För ytterligare säkerhet ändras verifierings koden var 30: e sekund som hindrar någon från att använda en kod flera gånger.
+    Skärmen **Konton** i appen visar ditt kontonamn och en sexsiffrig verifieringskod. För ytterligare säkerhet ändras verifieringskoden var 30:e sekund så att någon inte använder en kod flera gånger.
 
     >[!NOTE]
-    >Mer information om tvåstegsverifiering och ditt Google-konto finns i [Aktivera tvåstegsverifiering](https://support.google.com/accounts/answer/185839) och [Lär dig mer om tvåstegsverifiering](https://www.google.com/landing/2step/help.html).
+    >Mer information om tvåfaktorsverifiering och ditt Google-konto finns i [Aktivera tvåstegsverifiering](https://support.google.com/accounts/answer/185839) och [läs mer om tvåstegsverifiering](https://www.google.com/landing/2step/help.html).
 
 ## <a name="add-your-facebook-account"></a>Lägg till ditt Facebook-konto
 
-1. På sidan **Konfigurera via tredjeparts verifiering** , som innehåller QR-koden, och en kod som skrivs ut för inmatning i din app. Behåll sidan öppen så att du kan se koden.
+1. På sidan **Konfigurera via tredje part,** som innehåller QR-koden, och en kod som skrivs ut för inträde i din app. Håll den här sidan öppen så att du kan se koden.
 
-2. Öppna appen Microsoft Authenticator, Välj **Lägg till konto** från ikonen **Anpassa och kontrol lera** längst upp till höger, Välj **annat konto (Google, Facebook osv.)** och välj sedan **eller ange kod manuellt**.
+2. Öppna Microsoft Authenticator-appen, välj **Lägg till konto** från ikonen Anpassa och **kontrollera** längst upp till höger, välj Annat **konto (Google, Facebook, etc.)** och välj sedan **ELLER ANGE KOD MANUELLT**.
 
-3. Ange ett **konto namn** (till exempel Facebook) och skriv den **hemliga nyckeln** från steg 1 och välj sedan **Slutför**.
+3. Ange ett **kontonamn** (till exempel Facebook) och skriv **den hemliga nyckeln** från steg 1 och välj sedan **Slutför**.
 
-4. På sidan med **tvåstegsverifiering** på datorn anger du den sex-siffriga verifierings koden som finns i appen för ditt Facebook-konto och väljer sedan **Verifiera**.
+4. På sidan **Two-Factor Authenticator** på datorn skriver du den sexsiffriga verifieringskoden som finns i appen för ditt Facebook-konto och väljer sedan **Verifiera**.
 
-    Skärmen **konton** i appen visar ditt konto namn och en sex-siffrig verifierings kod. För ytterligare säkerhet ändras verifierings koden var 30: e sekund som hindrar någon från att använda en kod flera gånger.
+    Skärmen **Konton** i appen visar ditt kontonamn och en sexsiffrig verifieringskod. För ytterligare säkerhet ändras verifieringskoden var 30:e sekund så att någon inte använder en kod flera gånger.
 
     >[!NOTE]
-    >Mer information om tvåstegsverifiering och ditt Facebook-konto finns i [Vad är tvåfaktorautentisering och hur fungerar det?](https://www.facebook.com/help/148233965247823).
+    >Mer information om tvåfaktorsverifiering och ditt Facebook-konto finns i [Vad är tvåfaktorsautentisering och hur fungerar det?](https://www.facebook.com/help/148233965247823).
 
 ## <a name="add-your-amazon-account"></a>Lägg till ditt Amazon-konto
 
-Du kan lägga till ditt Amazon-konto genom att aktivera tvåstegsverifiering och sedan lägga till kontot i appen.
+Du kan lägga till ditt Amazon-konto genom att aktivera tvåfaktorsverifiering och sedan lägga till kontot i appen.
 
-1. På datorn väljer du **kan inte skanna streckkoden** från sidan **Välj hur du tar emot koder** med QR-koden.
+1. Välj **Det går inte att skanna streckkoden** på sidan Välj hur du ska få **koder** med QR-koden.
 
-    Det **går inte att skanna streckkods** meddelandet visas med den hemliga koden. Se till att det här meddelandet är öppet så att du kan se den hemliga koden.
+    **Det går inte att skanna streckkodsmeddelandet** med den hemliga koden. Håll det här meddelandet öppet så att du kan se den hemliga koden.
 
-2. Öppna appen Microsoft Authenticator, Välj **Lägg till konto** från ikonen **Anpassa och kontrol lera** längst upp till höger, Välj **annat konto (Google, Facebook osv.)** och välj sedan **eller ange kod manuellt**.
+2. Öppna Microsoft Authenticator-appen, välj **Lägg till konto** från ikonen Anpassa och **kontrollera** längst upp till höger, välj Annat **konto (Google, Facebook, etc.)** och välj sedan **ELLER ANGE KOD MANUELLT**.
 
-3. Ange ett **konto namn** (till exempel Amazon) och skriv den **hemliga nyckeln** från steg 1 och välj sedan **Slutför**.
+3. Ange ett **kontonamn** (till exempel Amazon) och skriv **den hemliga nyckeln** från steg 1 och välj sedan **Slutför**.
 
-4. Slutför resten av registrerings processen, inklusive att lägga till en metod för säkerhets kopiering, till exempel ett textmeddelande, och välj sedan **Skicka kod**.
+4. Slutför resten av registreringsprocessen, inklusive att lägga till en verifieringsmetod för säkerhetskopiering, till exempel ett textmeddelande, och välj sedan **Skicka kod**.
 
-5. På sidan **Lägg till en verifierings metod för säkerhets kopiering** på datorn anger du den sexsiffriga verifierings koden som du fick från verifierings metoden för ditt Amazon-konto och väljer sedan **verifiera kod och fortsätt**.
+5. På sidan **Lägg till en verifieringsmetod** för säkerhetskopiering på datorn skriver du den sexsiffriga verifieringskoden som tillhandahålls av din säkerhetskopieringsverifieringsmetod för ditt Amazon-konto och väljer sedan **Verifiera kod och fortsätt**.
 
-6. På sidan nästan klar bestämmer du om du vill göra datorn till en betrodd enhet och välj sedan **Skaffa den. Aktivera tvåstegsverifiering**.
+6. På sidan Nästan klar bestämmer du om du vill göra datorn till en betrodd enhet och väljer sedan **Got it. Aktivera tvåstegsverifiering**.
 
-    Sidan **avancerade säkerhets inställningar** visas och visar din uppdaterade information om tvåstegsverifiering.
+    Sidan **Avancerade säkerhetsinställningar** visas och visar din uppdaterade information om tvåfaktorsverifiering.
 
     >[!NOTE]
-    >Mer information om tvåstegsverifiering och ditt Amazon-konto finns i [om](https://www.amazon.com/gp/help/customer/display.html?nodeId=201596330) tvåstegsverifiering och [Logga in med](https://www.amazon.com/gp/help/customer/display.html?nodeId=201962440)tvåstegsverifiering.    
+    >Mer information om tvåfaktorsverifiering och ditt Amazon-konto finns i [Om tvåstegsverifiering](https://www.amazon.com/gp/help/customer/display.html?nodeId=201596330) och [inloggning med tvåstegsverifiering](https://www.amazon.com/gp/help/customer/display.html?nodeId=201962440).    
 
 ## <a name="next-steps"></a>Nästa steg
 
-- När du har lagt till dina konton i appen kan du logga in med Microsoft Authenticator-appen på enheten. Mer information finns i [Logga in med appen](user-help-auth-app-sign-in.md).
+- När du har lagt till dina konton i appen kan du logga in med Appen Microsoft Authenticator på enheten. Mer information finns [i Logga in med appen](user-help-auth-app-sign-in.md).
 
-- Om du har problem med att hämta din verifierings kod för din personliga Microsoft-konto kan du läsa avsnittet **fel sökning av verifierings kod problem** i artikeln [Microsoft-konto säkerhets information & verifierings koder](https://support.microsoft.com/help/12428/microsoft-account-security-info-verification-codes) .
+- Om du har problem med att få din verifieringskod för ditt personliga Microsoft-konto läser du avsnittet **Felsöka verifieringskodproblem** i [säkerhetsinformationen för Microsoft-kontot & verifieringskoder.](https://support.microsoft.com/help/12428/microsoft-account-security-info-verification-codes)
 
-- För enheter som kör iOS kan du också säkerhetskopiera dina kontoautentiseringsuppgifter och relaterade appinställningar, till exempel ordningen på dina konton, i molnet. Mer information finns i [säkerhets kopiering och återställning med Microsoft Authenticator app](user-help-auth-app-backup-recovery.md).
+- För enheter som kör iOS kan du också säkerhetskopiera dina kontouppgifter och relaterade appinställningar, till exempel ordningen på dina konton, till molnet. Mer information finns i [Säkerhetskopiering och återställning med Microsoft Authenticator-appen](user-help-auth-app-backup-recovery.md).

@@ -1,6 +1,6 @@
 ---
-title: HANA-redundanskonfiguration till en katastrof webbplats för SAP HANA på Azure (stora instanser) | Microsoft Docs
-description: Så här utför du redundans till en katastrof återställnings plats för SAP HANA på Azure (stora instanser)
+title: Hana redundansprocedur till en katastrofplats för SAP HANA på Azure (Stora instanser) | Microsoft-dokument
+description: Så här utför du redundans till en haveriberedskapsplats för SAP HANA på Azure (stora instanser)
 services: virtual-machines-linux
 documentationcenter: ''
 author: saghorpa
@@ -14,111 +14,111 @@ ms.date: 04/22/2019
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 3fe3ee79318ab9fdc9f2c0e9585051439b76b5cf
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77617141"
 ---
 # <a name="disaster-recovery-failover-procedure"></a>Redundans för haveriberedskap
 
 
 >[!IMPORTANT]
->Den här artikeln ersätter inte SAP HANA administrations dokumentation eller SAP-anteckningar. Vi förutsätter att du har en heltäckande förståelse för och expertis i SAP HANA administration och åtgärder, särskilt för säkerhets kopiering, återställning, hög tillgänglighet och haveri beredskap (DR). I den här artikeln visas skärm bilder från SAP HANA Studio. Innehåll, struktur och beskaffenheten hos skärmarna i SAP-administrations verktyg och verktygen kan ändras från SAP HANA version till version.
+>Den här artikeln ersätter inte SAP HANA-administrationsdokumentationen eller SAP Notes. Vi förväntar oss att du har en gedigen förståelse för och expertis inom SAP HANA administration och drift, särskilt för säkerhetskopiering, återställning, hög tillgänglighet och katastrofåterställning (DR). I den här artikeln visas skärmdumpar från SAP HANA Studio. Innehåll, struktur och arten av skärmarna av SAP administrationsverktyg och verktygen själva kan ändras från SAP HANA release till release.
 
 Det finns två fall att tänka på när du växlar över till en DR-plats:
 
-- Du behöver SAP HANA databasen för att gå tillbaka till den senaste statusen för data. I det här fallet finns det ett självbetjänings skript där du kan utföra redundansväxlingen utan att behöva kontakta Microsoft. För återställning efter fel måste du arbeta med Microsoft.
-- Du vill återställa till en lagrings ögonblicks bild som inte är den senaste replikerade ögonblicks bilden. I det här fallet måste du arbeta med Microsoft. 
+- Du behöver SAP HANA-databasen för att gå tillbaka till den senaste statusen för data. I det här fallet finns det ett självbetjäningsskript som du kan utföra redundansen med utan att behöva kontakta Microsoft. För återställningen av återställningen måste du arbeta med Microsoft.
+- Du vill återställa till en ögonblicksbild av lagring som inte är den senaste replikerade ögonblicksbilden. I det här fallet måste du arbeta med Microsoft. 
 
 >[!NOTE]
->Följande steg måste utföras på volymen HANA stor instans som representerar DR-enheten. 
+>Följande steg måste göras på HANA Large Instance-enheten, som representerar DR-enheten. 
  
-Om du vill återställa till de senaste ögonblicks bilderna med replikerad lagring följer du stegen i "utföra fullständig DR-redundans-azure_hana_dr_failover" i [Microsoft Snapshot-verktyg för SAP HANA på Azure](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/snapshot_tools_v4.2/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20v4.2.1.pdf). 
+Om du vill återställa till de senaste replikerade lagringsögonblicksbilderna följer du stegen i "Utför fullständig DR-redundans – azure_hana_dr_failover" i [Microsofts ögonblicksbildverktyg för SAP HANA på Azure](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/snapshot_tools_v4.2/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20v4.2.1.pdf). 
 
-Om du vill att flera SAP HANA instanser ska växlas över kör du kommandot azure_hana_dr_failover flera gånger. Vid begäran anger du SAP HANA SID som du vill redundansväxla och återställa. 
+Om du vill att flera SAP HANA-instanser ska kunna gå över kör du kommandot azure_hana_dr_failover flera gånger. Ange det SAP HANA SID som du vill växla över och återställa på begäran. 
 
 
-Du kan testa DR-redundansväxlingen även utan att påverka den faktiska replikeringsrelationen. Om du vill utföra en redundanstest följer du stegen i avsnittet "utföra en test-DR-redundans-azure_hana_test_dr_failover" i [Microsoft Snapshot Tools för SAP HANA på Azure](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/snapshot_tools_v4.2/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20v4.2.1.pdf). 
+Du kan testa DR-redundansen också utan att påverka den faktiska replikeringsrelationen. Om du vill utföra en testväxling följer du stegen i "Utför en testdr-redundans – azure_hana_test_dr_failover" i [Microsofts snapshot-verktyg för SAP HANA på Azure](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/snapshot_tools_v4.2/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20v4.2.1.pdf). 
 
 >[!IMPORTANT]
->Kör *inte* några produktions transaktioner på instansen som du skapade på Dr-platsen genom att **testa en redundansväxling**. Kommandot azure_hana_test_dr_failover skapar en uppsättning volymer som inte har någon relation till den primära platsen. Därför går det *inte* att synkronisera tillbaka till den primära platsen. 
+>Kör *inga* produktionstransaktioner på den instans som du skapade på DR-platsen genom att **testa en redundans.** Kommandot azure_hana_test_dr_failover skapar en uppsättning volymer som inte har någon relation till den primära platsen. Därför är synkronisering tillbaka till den primära platsen *inte* möjlig. 
 
-Om du vill att flera SAP HANA instanser ska testa kör du skriptet flera gånger. Vid begäran anger du SAP HANA SID för den instans som du vill testa för redundans. 
+Om du vill att flera SAP HANA-instanser ska testas kör du skriptet flera gånger. Ange SAP HANA SID för den instans som du vill testa för redundans när det begärs. 
 
 >[!NOTE]
->Om du behöver redundansväxla till DR-platsen för att rädda data som har tagits bort sedan och måste återställas till en tidigare ögonblicks bild, gäller den här proceduren. 
+>Om du behöver växla över till DR-platsen för att rädda vissa data som togs bort för flera timmar sedan och behöver DR-volymerna för att ställas in på en tidigare ögonblicksbild, gäller den här proceduren. 
 
-1. Stäng av instansen av HANA på haveri beredskaps enheten för HANA-stora instanser som du kör. En vilande HANA-produktions instans förinstalleras.
-1. Kontrol lera att inga SAP HANAs processer körs. Använd följande kommando för den här kontrollen:
+1. Stäng av icke-produktionsinstansen för HANA på haveriberedskapsenheten för STORA HANA-instanser som du kör. En vilande HANA-produktionsinstans är förinstallerad.
+1. Kontrollera att inga SAP HANA-processer körs. Använd följande kommando för den här kontrollen:
 
       `/usr/sap/hostctrl/exe/sapcontrol –nr <HANA instance number> - function GetProcessList`.
 
-      Utdata bör visa **hdbdaemon** -processen i ett stoppat tillstånd och inga andra Hana-processer i ett tillstånd som körs eller startas.
-1. Bestäm till vilket ögonblicks bilds namn eller SAP HANA säkerhets kopierings-ID som du vill återställa återställnings platsen för haveri beredskap. I verkliga katastrof återställnings fall är den här ögonblicks bilden vanligt vis den senaste ögonblicks bilden. Om du behöver återställa förlorade data väljer du en tidigare ögonblicks bild.
-1. Kontakta Azure-supporten via en support förfrågan med hög prioritet. Be om återställningen av ögonblicks bilden med namnet och datumet för ögonblicks bilden eller säkerhets kopierings-ID: t för HANA på DR-platsen. Standardvärdet är att drifts sidan bara återställer/Hana/data-volymen. Om du vill ha/Hana/logbackups-volymer måste du särskilt ange det. *Återställ inte/Hana/Shared-volymen.* I stället väljer du vissa filer som global. ini av **. snapshot** -katalogen och dess under kataloger när du har monterat om/Hana/Shared-volymen för PRD. 
+      Utdata ska visa **dig hdbdaemonprocessen** i ett stoppat tillstånd och inga andra HANA-processer i kör eller startat tillstånd.
+1. Ta reda på vilket användarnamn eller SAP HANA-säkerhetskopierings-ID du vill att platsen för haveriberedskap ska återställas. I verkliga katastrofåterställningsfall är den här ögonblicksbilden vanligtvis den senaste ögonblicksbilden. Om du behöver återställa förlorade data väljer du en tidigare ögonblicksbild.
+1. Kontakta Azure Support via en supportbegäran med hög prioritet. Be om återställning av ögonblicksbilden med namn och datum för ögonblicksbilden eller HANA-säkerhetskopierings-ID på DR-platsen. Standard är att operationssidan återställer /hana/datavolymen endast. Om du vill ha volymerna /hana/logbackups också måste du ange det specifikt. *Återställ inte volymen /hana/shared.* Välj i stället specifika filer som global.ini från **.snapshot-katalogen** och dess underkataloger när du har återmontera volymen /hana/shared för PRD. 
 
-   På sidan åtgärder inträffar följande steg:
+   På verksamhetssidan inträffar följande steg:
 
-   a. Replikeringen av ögonblicks bilder från produktions volymen till Disaster Recovery-volymer stoppas. Det kan hända att störningen redan har inträffat om ett avbrott på produktions platsen är orsaken till att du behöver utföra en katastrof återställning.
+   a. Replikeringen av ögonblicksbilder från produktionsvolymen till katastrofåterställningsvolymerna stoppas. Den här störningen kan redan ha inträffat om ett avbrott på produktionsplatsen är orsaken till att du behöver utföra haveriberedskapsproceduren.
    
-   b. Namnet på ögonblicks bilden eller ögonblicks bilden med det säkerhets kopierings-ID som du valde återställs på haveri beredskaps volymerna.
+   b. Namnet på ögonblicksbilden för lagring eller ögonblicksbild med det säkerhetskopierings-ID som du valde återställs på katastrofåterställningsvolymerna.
    
-   c. Efter återställningen är Disaster Recovery-volymerna tillgängliga för montering till de stora HANA-instans enheterna i Disaster Recovery-regionen.
+   c. Efter återställningen är katastrofåterställningsvolymerna tillgängliga för att monteras på HANA-enheter för stora instans i katastrofåterställningsregionen.
       
-1. Montera Disaster Recovery-volymerna på den stora instans enheten i HANA på haveri beredskaps webbplatsen. 
-1. Starta den vilande SAP HANA produktions instansen.
-1. Om du väljer att kopiera logg böckerna för transaktions loggen för att minska återställnings tiden kan du sammanfoga transaktions logg säkerhets kopiorna i den nyligen monterade DR/Hana/logbackups-katalogen. Skriv inte över befintliga säkerhets kopior. Kopiera nyare säkerhets kopior som inte repliker ATS med den senaste replikeringen av en lagrings ögonblicks bild.
-1. Du kan också återställa enskilda filer från ögonblicks bilder som inte har repliker ATS till/hana/shared/PRD-volymen i Azure-regionen DR.
+1. Montera katastrofåterställningsvolymerna till HANA Large Instance-enheten på haveriberedskapsplatsen. 
+1. Starta den vilande SAP HANA-produktionsinstansen.
+1. Om du väljer att kopiera säkerhetskopieringsloggar för transaktionsloggar för att minska RPO-tiden sammanfogar du säkerhetskopiorna för transaktionsloggen till den nyligen monterade KATALOGEN DR /hana/logbackups. Skriv inte över befintliga säkerhetskopior. Kopiera nyare säkerhetskopior som inte replikerades med den senaste replikeringen av en ögonblicksbild av lagring.
+1. Du kan också återställa enskilda filer från ögonblicksbilder som inte replikerades till volymen /hana/shared/PRD i REGIONEN DR Azure.
 
-Följande steg visar hur du återställer SAP HANA produktions instansen baserat på den återställda ögonblicks bilden och de säkerhets kopior av transaktions loggen som är tillgängliga.
+Följande steg visar hur du återställer SAP HANA-produktionsinstansen baserat på den återställda lagringsögonblicksbilden och säkerhetskopiering av transaktionsloggen som är tillgängliga.
 
-1. Ändra platsen för säkerhets kopian till **/Hana/logbackups** med hjälp av SAP HANA Studio.
+1. Ändra säkerhetskopieringsplatsen till **/hana/logbackups** med hjälp av SAP HANA Studio.
 
-   ![Ändra säkerhets kopierings platsen för DR-återställning](./media/hana-overview-high-availability-disaster-recovery/change_backup_location_dr1.png)
+   ![Ändra säkerhetskopieringsplatsen för DR-återställning](./media/hana-overview-high-availability-disaster-recovery/change_backup_location_dr1.png)
 
-1. SAP HANA söker igenom platser för säkerhets kopiering och föreslår den senaste säkerhets kopian av transaktions loggen att återställa till. Genomsökningen kan ta några minuter tills en skärm som liknar följande visas:
+1. SAP HANA söker igenom säkerhetskopieringsfilplatserna och föreslår den senaste säkerhetskopieringen av transaktionsloggen att återställa till. Genomsökningen kan ta några minuter tills en skärm som följande visas:
 
-   ![Lista över säkerhets kopior av transaktions logg för DR-återställning](./media/hana-overview-high-availability-disaster-recovery/backup_list_dr2.PNG)
+   ![Lista över säkerhetskopior av transaktionsloggen för DR-återställning](./media/hana-overview-high-availability-disaster-recovery/backup_list_dr2.PNG)
 
 1. Justera några av standardinställningarna:
 
-      - Rensa **Använd delta-säkerhets kopieringar**.
-      - Välj **initiera logg områden**.
+      - Rensa **Använd Delta-säkerhetskopior**.
+      - Välj **Initiera loggområde**.
 
-   ![Ange zon för initierings logg](./media/hana-overview-high-availability-disaster-recovery/initialize_log_dr3.PNG)
+   ![Ange initieringsloggområdet](./media/hana-overview-high-availability-disaster-recovery/initialize_log_dr3.PNG)
 
 1. Välj **Slutför**.
 
-   ![Slutför DR-återställningen](./media/hana-overview-high-availability-disaster-recovery/finish_dr4.PNG)
+   ![Avsluta DR-återställningen](./media/hana-overview-high-availability-disaster-recovery/finish_dr4.PNG)
 
-En förlopps fönster, som det som visas här, ska visas. Kom ihåg att exemplet är en återställning av haveri beredskap för en skalbar SAP HANA konfiguration med tre noder.
+Ett förloppsfönster, som det som visas här, ska visas. Tänk på att exemplet är en återställning av haveriberedskap för en UTSKALNINGS-SAP HANA-konfiguration med tre nod.
 
-![Återställnings förlopp](./media/hana-overview-high-availability-disaster-recovery/restore_progress_dr5.PNG)
+![Återställ förloppet](./media/hana-overview-high-availability-disaster-recovery/restore_progress_dr5.PNG)
 
-Om återställningen slutar svara på skärmen **Slutför** och inte visar förlopps skärmen, kontrollerar du att alla SAP HANA instanser på arbetsnoderna körs. Om det behövs startar du SAP HANA instanserna manuellt.
+Om återställningen slutar svara på skärmen **Slutför** och inte visar förloppsskärmen bekräftar du att alla SAP HANA-instanser på arbetsnoderna körs. Starta SAP HANA-instanserna manuellt om det behövs.
 
 
-## <a name="failback-from-a-dr-to-a-production-site"></a>Återställning efter fel från en DR till en produktions plats
-Du kan växla tillbaka från en DR till en produktions plats. Nu ska vi titta på ett scenario där redundansväxlingen till webbplatsen för haveri beredskap orsakades av problem i Azure-regionen för produktion och inte genom att du behöver återställa förlorade data. 
+## <a name="failback-from-a-dr-to-a-production-site"></a>Återställning från en DR till en produktionsanläggning
+Du kan växla tillbaka från en DR till en produktionsplats. Låt oss titta på ett scenario där redundansen till platsen för haveriberedskap orsakades av problem i azure-regionen för produktion och inte av ditt behov av att återställa förlorade data. 
 
-Du har kört din arbets belastning för SAP-produktion för en stund på webbplatsen för haveri beredskap. När problemen i produktions platsen är lösta vill du växla tillbaka till produktions platsen. Eftersom du inte kan förlora data inkluderar steget tillbaka till produktions platsen flera steg och nära samarbete med SAP HANA i Azure Operations-teamet. Det är upp till dig att utlösa drifts teamet för att börja synkronisera tillbaka till produktions platsen när problemen har lösts.
+Du har kört din SAP-produktionsarbetsbelastning ett tag på haveriberedskapsplatsen. När problemen på produktionsplatsen har lösts vill du växla tillbaka till produktionsplatsen. Eftersom du inte kan förlora data innebär steget tillbaka till produktionsplatsen flera steg och nära samarbete med SAP HANA i Azure-operationsteamet. Det är upp till dig att utlösa operationsteamet för att börja synkronisera tillbaka till produktionsplatsen när problemen har lösts.
 
 Följ de här stegen:
 
-1. SAP HANA på Azure Operations-teamet hämtar utlösaren för att synkronisera produktions lagrings volymerna från lagrings volymerna för haveri beredskap, som nu representerar produktions status. I det här läget stängs den stora instans enheten HANA på produktions platsen.
-1. SAP HANA i Azure Operations-teamet övervakar replikeringen och ser till att den fångas upp innan de informerar dig.
-1. Du stänger av programmen som använder produktion HANA-instansen på webbplatsen för haveri beredskap. Du utför sedan en säkerhets kopiering av HANA-transaktions logg. Sedan stoppar du HANA-instansen som körs på de stora instanser i HANA-instansen på webbplatsen för haveri beredskap.
-1. När HANA-instansen som körs i den stora instans enheten HANA i haveri beredskap stängs av, synkroniserar drift teamet manuellt disk volymerna igen.
-1. SAP HANA på Azure Operations-teamet startar den stora volymen HANA i produktions platsen igen. De lämnar dem till dig. Du ser till att SAP HANA instansen är i ett stängnings tillstånd vid start tiden för den stora instans enheten i HANA.
-1. Du utför samma databas återställnings steg som du gjorde när du tidigare har redundansväxlats till webbplatsen för haveri beredskap.
+1. SAP HANA på Azure-driftteamet hämtar utlösaren för att synkronisera produktionslagringsvolymerna från lagringsvolymerna för haveriberedskap, som nu representerar produktionstillståndet. I det här läget stängs hana-enheten för stora instans på produktionsplatsen.
+1. SAP HANA på Azure-driftteamet övervakar replikeringen och ser till att den fångas upp innan de informerar dig.
+1. Du stänger av program som använder produktions-HANA-instansen på haveriberedskapsplatsen. Du utför sedan en HANA-transaktionsloggsäkerhetskopiering. Därefter stoppar du HANA-instansen som körs på HANA-enheter för stora instanser på haveriberedskapsplatsen.
+1. När HANA-instansen som körs i HANA-enheten för stor instans på haveriberedskapsplatsen har stängts av synkroniseras diskvolymerna manuellt igen.
+1. SAP HANA i Azure-driftteamet startar HANA Large Instance-enheten på produktionsplatsen igen. De lämnar över den till dig. Du kontrollerar att SAP HANA-instansen är i ett avstängningstillstånd vid starttiden för HANA Large Instance-enheten.
+1. Du utför samma steg för återställning av databaser som du gjorde när du tidigare misslyckades med att återställa haveri.
 
-## <a name="monitor-disaster-recovery-replication"></a>Övervaka replikering av haveri beredskap
+## <a name="monitor-disaster-recovery-replication"></a>Övervaka replikering av haveriberedskap
 
-Kör skriptet `azure_hana_replication_status`om du vill övervaka statusen för din Storage Replication-förlopp. Det här kommandot måste köras från en enhet som kör på återställnings platsen för haverier att fungera som förväntat. Kommandot fungerar oavsett om replikering är aktiv. Kommandot kan köras för varje HANA-stor instans enhet av din klient på haveri beredskaps platsen. Den kan inte användas för att hämta information om start volymen. 
+Om du vill övervaka statusen för `azure_hana_replication_status`lagringsreplikeringsförloppet kör du skriptet . Det här kommandot måste köras från en enhet som körs på haveriberedskapsplatsen för att fungera som förväntat. Kommandot fungerar oavsett om replikeringen är aktiv. Kommandot kan köras för varje HANA-stor instansenhet för din klient på platsen för haveriberedskap. Den kan inte användas för att få information om startvolymen. 
 
-Mer information om kommandot och dess utdata finns i "Hämta status för DR-replikering-azure_hana_replication_status" i [Microsoft Snapshot-verktyg för SAP HANA på Azure](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/snapshot_tools_v4.2/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20v4.2.1.pdf).
+Mer information om kommandot och dess utdata finns i "Hämta DR-replikeringsstatus - azure_hana_replication_status" i [Microsofts ögonblicksbildverktyg för SAP HANA på Azure](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/snapshot_tools_v4.2/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20v4.2.1.pdf).
 
 
 ## <a name="next-steps"></a>Nästa steg
-- Se [övervaka och Felsök från Hana-sidan](hana-monitor-troubleshoot.md).
+- Se [Övervaka och felsöka från HANA-sidan](hana-monitor-troubleshoot.md).

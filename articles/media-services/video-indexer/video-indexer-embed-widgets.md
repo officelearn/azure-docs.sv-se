@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 03/26/2020
 ms.author: juliako
-ms.openlocfilehash: 4d92bd3709c5f56db0095ca1be2caa0e9c78b42f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
-ms.translationtype: MT
+ms.openlocfilehash: e475c1bc1878c6b5a0efbbe41f2a3a0fe86bcff2
+ms.sourcegitcommit: 0553a8b2f255184d544ab231b231f45caf7bbbb0
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80336823"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80389383"
 ---
 # <a name="embed-video-indexer-widgets-in-your-apps"></a>Bädda in videoindexeringswidgetar i dina appar
 
@@ -48,7 +48,7 @@ Du kan använda widgeten Player för att strömma video med hjälp av adaptiv bi
 |`showCaptions` | Ett booleskt värde | Gör att spelaren läses in med aktiverad textning.<br/> Exempel: `showCaptions=true`. |
 |`type`| | Aktiverar ett ljudspelarskal (videodelen tas bort).<br/> Exempel: `type=audio`. |
 |`autoplay` | Ett booleskt värde | Anger om spelaren ska börja spela upp videon när den läses in. Standardvärdet är `true`.<br/> Exempel: `autoplay=false`. |
-|`language` | En språkkod | Styr spelarens språk. Standardvärdet är `en-US`.<br/>Exempel: `language=de-DE`.|
+|`language`/`locale` | En språkkod | Styr spelarens språk. Standardvärdet är `en-US`.<br/>Exempel: `language=de-DE`.|
 
 ### <a name="editor-widget"></a>Widgeten Redigerare
 
@@ -233,14 +233,14 @@ Om du bäddar in videoindexeringsstatistik med din `GetVttUrl` egen Azure Media 
 
 Du kan välja vilka typer av insikter du vill ha. Det gör du genom att ange dem som ett värde i följande URL-parameter som läggs till i `&widgets=<list of wanted widgets>`inbäddningskoden som du får (från API:et eller från webbappen): .
 
-De möjliga värdena är: **personer,** **nyckelord,** **känslor,** **transkription**och **sökning**.
+De möjliga värdena `animatedCharacters` `keywords`är: `sentiments` `people`, `keyframes`, `transcript` `ocr`, `speakers` `labels` `scenes`, `emotions`, `topics`, , , , , , och `namedEntities`.
 
-Om du till exempel vill bädda in en widget som bara innehåller personer och sökinsikter ser url:en för inbäddning av iframe ut så här:
+Om du till exempel vill bädda in en widget som bara innehåller personer och sökordsinsikter, ser iframe-inbäddningsadressen ut så här:
 
-`https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?widgets=people,search`
+`https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?widgets=people,keywords`
 
-Titeln på iframe-fönstret kan också `&title=<YourTitle>` anpassas genom att tillhandahålla iframe-URL:en. (HTML-titeln \<anpassas> värde).
-
+Titeln på iframe-fönstret kan också `&title=<YourTitle>` anpassas genom att tillhandahålla iframe-URL:en. (HTML-värdet <title> anpassas).
+   
 Om du till exempel vill ge iframe-fönstret titeln "MyInsights" kommer webbadressen att se ut så här:
 
 `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?title=MyInsights`
@@ -257,15 +257,14 @@ Ett exempel:
 
 Som standard har Video Indexer-spelaren automatiskt skapade dold textningar som baseras på utskriften av videon. Avskriften extraheras från videon med källspråket som valdes när videon laddades upp.
 
-Om du vill bädda in med ett `&captions=< Language | "all" | "false" >` annat språk kan du lägga till webbadressen till inbäddningsspelaren. Om du vill ha bildtexter på `all`alla tillgängliga språk använder du värdet . Om du vill att bildtexterna ska visas som `&showCaptions=true`standard kan du skicka .
+Om du vill bädda in med ett annat språk kan du lägga till &bildtexter=< språkkod > i url:en för inbäddningsspelaren. Om du vill att bildtexterna ska visas som standard kan du skicka &showCaptions=true.
 
 Bädda in URL då kommer att se ut så här:
 
-`https://www.videoindexer.ai/embed/player/<accountId>/<videoId>/?captions=italian`
-
-Om du vill inaktivera bildtexter kan `captions` du `false`skicka parametervärdet som .
+`https://www.videoindexer.ai/embed/player/<accountId>/<videoId>/?captions=en-us`
 
 #### <a name="autoplay"></a>Autoplay
+
 Som standard börjar spelaren spela upp videon. du kan välja att `&autoplay=false` inte gå vidare till föregående inbäddningsadress.
 
 ## <a name="code-samples"></a>Kodexempel

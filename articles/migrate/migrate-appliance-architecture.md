@@ -3,16 +3,16 @@ title: Azure Migrerarinstallationsarkitektur
 description: Ger en översikt över Azure Migrate-installationen som används vid serverutvärdering och migrering.
 ms.topic: conceptual
 ms.date: 03/23/2020
-ms.openlocfilehash: 25dc530199cde3408ce3bd6641aeb9bb8595465d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d55d123bb056b46b5e78dd8ac836eeaf9b42fe70
+ms.sourcegitcommit: 0553a8b2f255184d544ab231b231f45caf7bbbb0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80337602"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80389026"
 ---
 # <a name="azure-migrate-appliance-architecture"></a>Azure Migrerarinstallationsarkitektur
 
-I den här artikeln beskrivs Azure Migrate-installationarkitektur och processer. Azure Migrate-enheten är en lättinstallation som distribueras lokalt för att identifiera virtuella datorer och fysiska servrar som du vill bedöma för migrering till Azure. 
+I den här artikeln beskrivs Azure Migrate-installationarkitektur och processer. Azure Migrate-installationen är en lättinstallation som distribueras lokalt för att identifiera virtuella datorer och fysiska servrar för migrering till Azure. 
 
 ## <a name="deployment-scenarios"></a>Distributionsscenarier
 
@@ -20,10 +20,10 @@ Azure Migrate-enheten används i följande scenarier.
 
 **Scenario** | **Verktyg** | **Används för** 
 --- | --- | ---
-**VMware VM-utvärdering** | Azure Migrera: Serverutvärdering | Upptäck virtuella datorer med VMware.<br/><br/> Upptäck datorappar och beroenden.<br/><br/> Samla in datorns metadata och prestandametadata och skicka till Azure.
-**VMware VM-migrering (agentlös)** | Azure Migrera: Servermigrering | Upptäck virtuella datorer med VMware<br/><br/>  Replikera virtuella datorer med VMware med [agentlös migrering](server-migrate-overview.md).
-**Bedömning av virtuella datorer med hyper-V** | Azure Migrera: Serverutvärdering | Upptäck virtuella virtuella datorer med hyper-v.<br/><br/> Samla in datorns metadata och prestandametadata och skicka till Azure.
-**Fysisk maskin** |  Azure Migrera: Serverutvärdering |  Upptäck fysiska servrar.<br/><br/> Samla in datorns metadata och prestandametadata och skicka till Azure.
+**VMware VM-utvärdering** | Azure Migrera:Server-utvärdering | Upptäck virtuella datorer med VMware.<br/><br/> Upptäck datorappar och beroenden.<br/><br/> Samla in datorns metadata och prestandametadata och skicka till Azure.
+**VMware VM-migrering (agentlös)** | Azure Migrera:Servermigrering | Upptäck virtuella datorer med VMware<br/><br/>  Replikera virtuella datorer med VMware med [agentlös migrering](server-migrate-overview.md).
+**Bedömning av virtuella datorer med hyper-V** | Azure Migrera:Server-utvärdering | Upptäck virtuella virtuella datorer med hyper-v.<br/><br/> Samla in datorns metadata och prestandametadata och skicka till Azure.
+**Fysisk maskin** |  Azure Migrera:Server-utvärdering |  Upptäck fysiska servrar.<br/><br/> Samla in datorns metadata och prestandametadata och skicka till Azure.
 
 ## <a name="appliance-components"></a>Komponenter till apparaten
 
@@ -40,13 +40,13 @@ Apparaten har ett antal komponenter.
 
 ## <a name="appliance-deployment"></a>Distribution av apparater
 
-- Azure Migrate-enheten kan konfigureras med hjälp av en mall (endast Hyper-V eller VMware) eller en PowerShell-skriptinstallationsprogram. [Läs mer](deploy-appliance.md#deployment-options) om alternativen. 
+- Azure Migrate-installationen kan konfigureras med hjälp av en mall för [Hyper-V](how-to-set-up-appliance-hyper-v.md) eller [VMware](how-to-set-up-appliance-vmware.md) eller med hjälp av ett PowerShell-skriptinstallationsprogram för [VMware/Hyper-V](deploy-appliance-script.md)och för [fysiska servrar](how-to-set-up-appliance-physical.md). 
 - Installationskrav och driftsättningsförutsättningar sammanfattas i [stödmatrisen för apparater](migrate-appliance.md).
 
 
 ## <a name="appliance-registration"></a>Registrering av apparater
 
-Under installationen av installationen av installationen registrerar du installationen med Azure Migrate.Under installationen och registreringen sker de åtgärder som sammanfattas i tabellen.
+Under installationen av installationen av installationen registrerar du installationen med Azure Migrate och de åtgärder som sammanfattas i tabellen inträffar.
 
 **Åtgärd** | **Detaljer** | **Behörigheter**
 --- | --- | ---
@@ -58,7 +58,7 @@ Under installationen av installationen av installationen registrerar du installa
 
 ## <a name="collected-data"></a>Insamlade data
 
-Data som samlas in av klienten för alla distributionsscenarier fångas in helt i [stödmatrisen](migrate-appliance.md)för installationen .
+Data som samlas in av klienten för alla distributionsscenarier sammanfattas i [matrisen för stöd för apparat .](migrate-appliance.md)
 
 ## <a name="discovery-and-collection-process"></a>Identifierings- och insamlingsprocess
 
@@ -89,7 +89,8 @@ Installationen kommunicerar med vCenter-servrar och Hyper-V-värdar/-kluster med
 
 Installationen uppgraderas när Azure Migrate-agenter som körs på installationen uppdateras. Detta sker automatiskt eftersom automatisk uppdatering är aktiverad på apparaten som standard. Du kan ändra den här standardinställningen för att uppdatera agenterna manuellt.
 
-Du inaktiverar automatisk uppdatering i registret genom att ange HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureAppliance "AutoUpdate"-nyckeln till 0 (DWORD). Om du bestämmer dig för att använda manuella uppdateringar är det viktigt att uppdatera alla agenter på apparaten samtidigt med hjälp av **uppdateringsknappen** för varje föråldrad agent på apparaten.
+Du inaktiverar automatisk uppdatering i registret genom att ange HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureAppliance "AutoUpdate"-tangenten till 0 (DWORD).
+
  
 
 ## <a name="next-steps"></a>Nästa steg

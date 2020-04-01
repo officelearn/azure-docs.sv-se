@@ -1,22 +1,22 @@
 ---
 title: Konfigurera Facebook-autentisering
-description: Läs om hur du konfigurerar Facebook-autentisering som identitetsleverantör för apptjänstappen.
+description: Lär dig hur du konfigurerar Facebook-autentisering som identitetsleverantör för din App Service eller Azure Functions-app.
 ms.assetid: b6b4f062-fcb4-47b3-b75a-ec4cb51a62fd
 ms.topic: article
 ms.date: 06/06/2019
-ms.custom: seodec18
-ms.openlocfilehash: cd9c8a1bab3616b9b4eb1fe97ee3a9b2307ba77b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom: fasttrack-edit
+ms.openlocfilehash: 9a2d390a5647ed90284730e9186e981b8e699d10
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74671938"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80438007"
 ---
-# <a name="configure-your-app-service-app-to-use-facebook-login"></a>Konfigurera appen App Service så att den använder Facebook-inloggning
+# <a name="configure-your-app-service-or-azure-functions-app-to-use-facebook-login"></a>Konfigurera appen App Service eller Azure Functions så att den använder Facebook-inloggning
 
 [!INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]
 
-Den här artikeln visar hur du konfigurerar Azure App Service för att använda Facebook som autentiseringsleverantör.
+Den här artikeln visar hur du konfigurerar Azure App Service eller Azure Functions för att använda Facebook som autentiseringsleverantör.
 
 För att slutföra proceduren i den här artikeln behöver du ett Facebook-konto som har en verifierad e-postadress och ett mobiltelefonnummer. Om du vill skapa ett nytt Facebook-konto går du till [facebook.com].
 
@@ -78,4 +78,4 @@ Nu är du redo att använda Facebook för autentisering i din app.
 [Facebook-utvecklare]: https://go.microsoft.com/fwlink/p/?LinkId=268286
 [facebook.com]: https://go.microsoft.com/fwlink/p/?LinkId=268285
 [Get started with authentication]: /en-us/develop/mobile/tutorials/get-started-with-users-dotnet/
-[Azure-portal]: https://portal.azure.com/
+[Azure Portal]: https://portal.azure.com/

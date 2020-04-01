@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 02/26/2019
-ms.openlocfilehash: 10e6ed556abe8f8c438e5436fbb93c1b70b85d2b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 579767a0d535605a2316c35bd413a75474b5a3de
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75445167"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80410007"
 ---
 # <a name="how-to-globally-distribute-reads-using-azure-cosmos-dbs-api-for-mongodb"></a>Så här distribuerar du läsningar globalt med Azure Cosmos DB:s API för MongoDB
 
@@ -86,7 +86,7 @@ Mer information om hur du aktiverar var och en av dessa läsinställningslägen 
 Baserat på vanliga scenarier rekommenderar vi att du använder följande inställningar:
 
 1. Om det krävs **läsningar med låg latens** använder du **läget NÄRMAST** läsinställning. Den här inställningen dirigerar avläsningsåtgärderna till närmaste tillgängliga region. Observera att om den närmaste regionen är SKRIV-regionen dirigeras dessa åtgärder till den regionen.
-2. Om **hög tillgänglighet och geofördelning av läsningar** krävs (svarstid är inte en begränsning) använder du läsinställningsläget **SEKUNDÄRT.** Den här inställningen dirigerar läsåtgärder till en tillgänglig READ-region. Om det inte finns någon LÄS-region dirigeras begäranden till SKRIV-regionen.
+2. Om **hög tillgänglighet och geofördelning av läsningar** krävs (svarstid är inte en begränsning) använder du läsinställningsläget **PRIMÄRT PRIORITERAT** eller **SEKUNDÄRT.** Den här inställningen dirigerar läsåtgärder till en tillgänglig SKRIV- eller LÄS-region. Om regionen inte är tillgänglig dirigeras begäranden till nästa tillgängliga region enligt läsinställningsbeteendet.
 
 Följande utdrag från exempelprogrammet visar hur du konfigurerar NEAREST Läsinställningar i NodeJS:
 

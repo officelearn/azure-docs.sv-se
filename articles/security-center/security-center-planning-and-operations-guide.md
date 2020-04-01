@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 09/10/2019
 ms.author: memildin
-ms.openlocfilehash: 63b947a27c3aa24b42252bf33febd031f7caefbf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 46994413ba765e18a826eebfe85a38bb65efc749
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79282697"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80435624"
 ---
 # <a name="azure-security-center-planning-and-operations-guide"></a>Planerings- och användningsguide för Azure Security Center
 Den här guiden är avsedd för IT-proffs, IT-arkitekter, informationssäkerhetsanalytiker och molnadministratörer som planerar att använda Azure Security Center.
@@ -131,15 +131,15 @@ Security Center skapar automatiskt en standardsäkerhetsprincip för var och en 
 Innan du börjar konfigurera säkerhetsprinciper går du igenom de olika [säkerhetsrekommendationerna](https://docs.microsoft.com/azure/security-center/security-center-recommendations) och avgör om dessa principer passar dina olika prenumerationer och resursgrupper. Det är också viktigt att förstå vilka åtgärder som vidtas för att hantera säkerhetsrekommendationer och vem i din organisation är ansvarig för att övervaka nya rekommendationer och vidta nödvändiga åtgärder.
 
 ## <a name="data-collection-and-storage"></a>Datainsamling och datalagring
-Azure Security Center använder Microsoft Monitoring Agent – det här är samma agent som används av Azure Monitor-tjänsten – för att samla in säkerhetsdata från dina virtuella datorer. [Data som samlas in](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection) från den här agenten lagras på logganalysarbetsytan(er).
+Azure Security Center använder Log Analytics-agenten – det här är samma agent som används av Azure Monitor-tjänsten – för att samla in säkerhetsdata från dina virtuella datorer. [Data som samlas in](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection) från den här agenten lagras på logganalysarbetsytan(er).
 
 ### <a name="agent"></a>Agent
 
-När automatisk etablering är aktiverat i säkerhetsprincipen installeras Microsoft Monitoring Agent (för [Windows](https://docs.microsoft.com/azure/log-analytics/log-analytics-windows-agents) eller [Linux](https://docs.microsoft.com/azure/log-analytics/log-analytics-linux-agents)) på alla virtuella Azure-datorer som stöds och alla nya som skapas. Om den virtuella datorn eller datorn redan har Microsoft Monitoring Agent installerad, kommer Azure Security Center att utnyttja den befintliga installerade agenten. Agentens process är avsedd att vara icke-inkräktande och har mycket minimal påverkan på den virtuella datorns prestanda.
+När automatisk etablering är aktiverad i säkerhetsprincipen installeras Log Analytics-agenten (för [Windows](https://docs.microsoft.com/azure/log-analytics/log-analytics-windows-agents) eller [Linux)](https://docs.microsoft.com/azure/log-analytics/log-analytics-linux-agents)på alla azure-virtuella datorer som stöds och alla nya som skapas. Om den virtuella datorn eller datorn redan har Log Analytics-agenten installerad, kommer Azure Security Center att utnyttja den aktuella installerade agenten. Agentens process är avsedd att vara icke-inkräktande och har mycket minimal påverkan på den virtuella datorns prestanda.
 
-Microsoft Monitoring Agent för Windows kräver TCP-port 443. Se [Felsökningsartikeln](security-center-troubleshooting-guide.md) för ytterligare information.
+Log Analytics-agenten för Windows kräver användning av TCP-port 443. Se [Felsökningsartikeln](security-center-troubleshooting-guide.md) för ytterligare information.
 
-Om du vid ett senare tillfälle vill inaktivera datainsamlingen kan du göra det i säkerhetsprincipen. Men eftersom Microsoft Monitoring Agent kan användas av andra Azure-hanterings- och övervakningstjänster, avinstalleras agenten inte automatiskt när du inaktiverar datainsamling i Security Center. Du kan avinstallera agenten manuellt om det behövs.
+Om du vid ett senare tillfälle vill inaktivera datainsamlingen kan du göra det i säkerhetsprincipen. Eftersom Log Analytics-agenten kan användas av andra Azure-hanterings- och övervakningstjänster avinstalleras agenten inte automatiskt när du inaktiverar datainsamling i Security Center. Du kan avinstallera agenten manuellt om det behövs.
 
 > [!NOTE]
 > Om du vill veta vilka virtuella datorer som stöds finns en lista bland våra [vanliga frågor och svar om Azure Security Center](faq-vms.md).
@@ -148,7 +148,7 @@ Om du vid ett senare tillfälle vill inaktivera datainsamlingen kan du göra det
 
 En arbetsyta är en Azure-resurs som fungerar som en datacontainer. Du eller andra medlemmar i din organisation kan använda flera arbetsytor för att hantera olika uppsättningar av data som samlas in från alla eller delar av din IT-infrastruktur.
 
-Data som samlas in från Microsoft Monitoring Agent (för Azure Security Center) lagras i befintliga Log Analytics-arbetsytor som är associerade med din Azure-prenumeration eller nya arbetsytor med hänsyn till den virtuella datorns geografiska plats.
+Data som samlas in från Log Analytics-agenten (på uppdrag av Azure Security Center) lagras i antingen en befintlig Log Analytics-arbetsyta som är associerad med din Azure-prenumeration eller en ny arbetsyta, med beaktande av den virtuella datorns geo.
 
 Du kan bläddra om du vill se en lista över dina logganalysarbetsytor, inklusive alla som skapats av Azure Security Center i Azure-portalen. En relaterad resursgrupp skapas för nya arbetsytor. Både följer namnkonventionen:
 

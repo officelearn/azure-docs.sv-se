@@ -9,12 +9,12 @@ ms.topic: reference
 ms.author: jmartens
 author: j-martens
 ms.date: 03/10/2020
-ms.openlocfilehash: 70e8bf95022f88dab54fa13769df4b051cf41c92
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b55c351927a56afce697d07f41bfbe668144d68d
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80247154"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80475513"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Viktig information om Azure Machine Learning
 
@@ -624,7 +624,7 @@ Azure Machine Learning är nu en resursleverantör för Event Grid, du kan konfi
     + Fixade ett fel i run.get_metrics där begäranden skulle misslyckas om en körning hade för många barn
     + Fixade ett fel i [run.get_metrics](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run#get-metrics-name-none--recursive-false--run-type-none--populate-false-) där begäranden skulle misslyckas om en körning hade för många barn
     + Lade till stöd för autentisering i Arcadia-kluster.
-    + När du skapar ett experimentobjekt får eller skapas experimentet på arbetsytan Azure Machine Learning för spårning av körningshistorik. Experiment-ID och arkiverad tid fylls i experimentobjektet när det skapas. Exempel: experiment = Experiment(arbetsyta, "Nytt experiment") experiment_id = experiment.id archive() och reactivate() är funktioner som kan anropas på ett experiment för att dölja och återställa experimentet från att visas i användarupplevelsen eller returneras som standard i ett samtal för att lista experiment. Om ett nytt experiment skapas med samma namn som ett arkiverat experiment kan du byta namn på det arkiverade experimentet när du återaktiverar genom att skicka ett nytt namn. Det kan bara finnas ett aktivt experiment med ett förnamn. Exempel: experiment1 = Experiment(arbetsyta, "Aktivt experiment") experiment1.archive() # Skapa nytt aktivt experiment med samma namn som det arkiverade. experiment2. = Experiment(arbetsyta, experiment med aktivt experiment1.reactivate(new_name="Föregående aktivt experiment") Den statiska metodlistan() på Experiment kan ta ett namnfilter och ViewType-filtret. ViewType-värdena är "ACTIVE_ONLY", "ARCHIVED_ONLY" och "ALLA" Exempel: archived_experiments = Experiment.list(arbetsyta, view_type="ARCHIVED_ONLY") all_first_experiments = Experiment.list(arbetsyta, namn="Första experiment", view_type="ALLA")
+    + När du skapar ett experimentobjekt får eller skapas experimentet på arbetsytan Azure Machine Learning för spårning av körningshistorik. Experiment-ID och arkiverad tid fylls i experimentobjektet när det skapas. Exempel: experiment = Experiment(arbetsyta, "Nytt experiment") experiment_id = experiment.id archive() och reactivate() är funktioner som kan anropas på ett experiment för att dölja och återställa experimentet från att visas i användarupplevelsen eller returneras som standard i ett anrop till listexperiment. Om ett nytt experiment skapas med samma namn som ett arkiverat experiment kan du byta namn på det arkiverade experimentet när du återaktiverar genom att skicka ett nytt namn. Det kan bara finnas ett aktivt experiment med ett förnamn. Exempel: experiment1 = Experiment(arbetsyta, "Aktivt experiment") experiment1.archive() # Skapa nytt aktivt experiment med samma namn som det arkiverade. experiment2. = Experiment(arbetsyta, experiment med aktivt experiment1.reactivate(new_name="Föregående aktivt experiment") Den statiska metodlistan() på Experiment kan ta ett namnfilter och ViewType-filtret. ViewType-värdena är "ACTIVE_ONLY", "ARCHIVED_ONLY" och "ALLA" Exempel: archived_experiments = Experiment.list(arbetsyta, view_type="ARCHIVED_ONLY") all_first_experiments = Experiment.list(arbetsyta, namn="Första experiment", view_type="ALLA")
     + Stöd med miljö för modellut distribuera och serviceuppdatering
   + **azureml-datadrift**
     + Visa-attributet för klassen DataDriftDector stöder inte längre det valfria argumentet "with_details". Visa-attributet kommer bara att presentera datadriftkoefficient och data drift bidrag av funktionen kolumner.
@@ -798,8 +798,8 @@ Fliken Experiment i den [nya arbetsytan](https://ml.azure.com) har uppdaterats s
     + Undantag för att tidsstämpelkolumnen inte kan hittas kastas ut om tidsseriernas relaterade API anropas utan fin tidsstämpelkolumn tilldelad eller de tilldelade tidsstämpelkolumnerna tas bort.
     + Tidsseriekolumner ska tilldelas med kolumn vars typ är Datum, annars förväntas undantag
     + Tidsseriekolumner som tilldelar API 'with_timestamp_columns' kan ta Inget värde fint/grovt tidsstämpelkolumnnamn, som rensar tidigare tilldelade tidsstämpelkolumner.
-    + Undantaget kommer att kastas ut när antingen grovkornig eller finkornig tidsstämpelkolumn tas bort med indikation för användaren att släppa kan göras efter antingen exklusive tidsstämpelkolumn i släppa lista eller samtal with_time_stamp med Inget värde att släppa tidsstämpel Kolumner
-    + Undantag kommer att kastas ut när antingen grovkornig eller finkornig tidsstämpel kolumn inte ingår i hålla kolumner lista med uppgift för användaren att hålla kan göras efter antingen inklusive tidsstämpel kolumn i hålla kolumn lista eller samtal with_time_stamp med Ingen för att frigöra tidsstämpelkolumner.
+    + Undantag kommer att kastas ut när antingen grovkornig eller finkornig tidsstämpel kolumn tas bort med indikation för användaren att släppa kan göras efter antingen exklusive tidsstämpel kolumn i släppa lista eller samtal with_time_stamp med Inget värde att släppa tidsstämpelkolumner
+    + Undantaget kommer att kastas ut när antingen grovkornig eller finkornig tidsstämpelkolumn inte ingår i listan för behålla kolumner med uppgift om att behålla kan göras efter att antingen inkludera tidsstämpelkolumnen i listan behåll kolumn eller anropa with_time_stamp med Inget värde för att frigöra tidsstämpelkolumner.
     + Lade till loggning för storleken på en registrerad modell.
   + **azureml-explain-modell**
     + Fast varning tryckt till konsolen när "förpackning" python-paketet inte är installerat: "Använda äldre än stöds version av lightgbm, uppgradera till version större än 2.2.1"
@@ -925,13 +925,13 @@ Vid tidpunkten för den här versionen stöds följande webbläsare: Chrome, Fir
     + Uppdaterat gränssnitt för `RawDataContext` att skapa en `AutoMLBaseSettings` som bara kräver data och objektet.
     +  Tillåt AutoML-användare att släppa träningsserier som inte är tillräckligt långa när du förutser. - Tillåt AutoML-användare att släppa korn från testuppsättningen som inte finns i träningsuppsättningen när du förutser.
   + **azurblå-cli-ml**
-    + Du kan nu uppdatera SSL-certifikatet för bedömningsslutpunkten som distribueras på AKS-kluster både för Microsoft-genererat certifikat och kundcertifikat.
+    + Du kan nu uppdatera TLS/SSL-certifikatet för bedömningsslutpunkten som distribueras på AKS-klustret både för Microsoft-genererat certifikat och kundcertifikat.
   + **azureml-automl-core**
     + Åtgärdade ett problem i AutoML där rader med saknade etiketter inte togs bort korrekt.
     + Förbättrad felloggning i AutoML; fullständiga felmeddelanden kommer nu alltid att skrivas till loggfilen.
     + AutoML har uppdaterat sitt paket `azureml-defaults` `azureml-explain-model`fästa `azureml-dataprep`till att omfatta , och . AutoML varnar inte längre för paketfelmatchningar (förutom `azureml-train-automl` paket).
     + Fixade ett `timeseries` problem där cv-delningar är av olika storlek, vilket gör att lagerplatsberäkningen misslyckas.
-    + När du kör ensemble iteration för Cross-Validation utbildning typ, om vi hamnade har problem med att ladda ner de modeller som utbildats på hela datauppsättningen, vi hade en inkonsekvens mellan modellen vikter och de modeller som matas in i omröstningen Ensemble.
+    + När du kör ensemble iteration för Cross-Validation utbildning typ, om vi hamnade har problem med att ladda ner de modeller som utbildats på hela datauppsättningen, vi hade en inkonsekvens mellan modellen vikter och de modeller som matas in i omröstningen ensemble.
     + Fixade felet, som togs upp när tränings- och/eller valideringsetiketter (y och y_valid) tillhandahålls i form av pandas dataram men inte som numpy array.
     + Åtgärdade problemet med prognosaktiviteterna när Ingen påträffades i booleska kolumner i indatatabeller.
     + Tillåt AutoML-användare att släppa träningsserier som inte är tillräckligt långa när du förutser. - Tillåt AutoML-användare att släppa korn från testuppsättningen som inte finns i träningsuppsättningen när du förutser.
@@ -956,7 +956,7 @@ Vid tidpunkten för den här versionen stöds följande webbläsare: Chrome, Fir
     + Importera HTTP csv/tsv-filer i datauppsättning python SDK stöds.
     + Inaktuell metoden Workspace.setup(). Varningsmeddelande som visas för användare föreslår att du använder create() eller get()/from_config() i stället.
     + Added Environment.add_private_pip_wheel(), som gör det möjligt `whl`att överföra privata anpassade python-paket till arbetsytan och säkert använda dem för att skapa/materialisera miljön.
-    + Du kan nu uppdatera SSL-certifikatet för bedömningsslutpunkten som distribueras på AKS-kluster både för Microsoft-genererat certifikat och kundcertifikat.
+    + Du kan nu uppdatera TLS/SSL-certifikatet för bedömningsslutpunkten som distribueras på AKS-klustret både för Microsoft-genererat certifikat och kundcertifikat.
   + **azureml-explain-modell**
     + Lade till parameter för att lägga till ett modell-ID i förklaringar vid uppladdning.
     + Lade `is_raw` till taggning i förklaringar i minnet och ladda upp.

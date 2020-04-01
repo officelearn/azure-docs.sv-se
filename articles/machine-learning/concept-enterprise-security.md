@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
-ms.date: 01/09/2020
-ms.openlocfilehash: d945540a769f01c33ca3d3e467fe7c983fb5e286
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 03/13/2020
+ms.openlocfilehash: 359fd7fc787db5710deca75dd562215d25ed9148
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80287364"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80437495"
 ---
 # <a name="enterprise-security-for-azure-machine-learning"></a>Företagssäkerhet för Azure Machine Learning
 
@@ -107,6 +107,28 @@ Azure Machine Learning är beroende av andra Azure-tjänster för beräkningsres
 
 Mer information finns i Så här kör du [experiment och slutsatser i ett virtuellt nätverk](how-to-enable-virtual-network.md).
 
+Du kan också aktivera Azure Private Link för din arbetsyta. Med Private Link kan du begränsa kommunikationen till din arbetsyta från ett virtuellt Azure-nätverk. Mer information finns i [Så här konfigurerar du Privat länk](how-to-configure-private-link.md).
+
+> [!TIP]
+> Du kan kombinera virtuella nätverk och privat länk tillsammans för att skydda kommunikationen mellan din arbetsyta och andra Azure-resurser. Vissa kombinationer kräver dock en arbetsyta för Enterprise Edition. Använd följande tabell för att förstå vilka scenarier som kräver Enterprise Edition:
+>
+> | Scenario | Enterprise</br>Edition | Basic</br>Edition |
+> | ----- |:-----:|:-----:| 
+> | Inget virtuellt nätverk eller privat länk | ✔ | ✔ |
+> | Arbetsyta utan privat länk. Andra resurser (utom Azure Container Registry) i ett virtuellt nätverk | ✔ | ✔ |
+> | Arbetsyta utan privat länk. Andra resurser med Private Link | ✔ | |
+> | Arbetsyta med privat länk. Andra resurser (utom Azure Container Registry) i ett virtuellt nätverk | ✔ | ✔ |
+> | Arbetsyta och andra resurser med Privat länk | ✔ | |
+> | Arbetsyta med privat länk. Andra resurser utan Privat länk eller virtuellt nätverk | ✔ | ✔ |
+> | Azure Container-registret i ett virtuellt nätverk | ✔ | |
+> | Hanterade kundnycklar för arbetsyta | ✔ | |
+> 
+
+> [!WARNING]
+> Förhandsversionen av Azure Machine Learning-beräkningsinstanser stöds inte på en arbetsyta där Private Link är aktiverad.
+> 
+> Azure Machine Learning stöder inte användning av en Azure Kubernetes-tjänst som har privat länk aktiverad. I stället kan du använda Azure Kubernetes Service i ett virtuellt nätverk. Mer information finns [i Secure Azure ML-experiment och inferensjobb i ett Virtuellt Azure-nätverk](how-to-enable-virtual-network.md).
+
 ## <a name="data-encryption"></a>Datakryptering
 
 ### <a name="encryption-at-rest"></a>Vilande kryptering
@@ -123,6 +145,8 @@ Azure Machine Learning lagrar ögonblicksbilder, utdata och loggar i Azure Blob-
 Information om hur du använder dina egna nycklar för data som lagras i Azure Blob-lagring finns i [Azure Storage-kryptering med kundhanterade nycklar i Azure Key Vault](../storage/common/storage-encryption-keys-portal.md).
 
 Utbildningsdata lagras vanligtvis också i Azure Blob-lagring så att de är tillgängliga för beräkningsmål för utbildning. Den här lagringen hanteras inte av Azure Machine Learning men är monterad för att beräkna mål som ett fjärrfilsystem.
+
+Om du behöver __rotera eller återkalla__ nyckeln kan du göra det när som helst. När du roterar en nyckel börjar lagringskontot använda den nya nyckeln (den senaste versionen) för att kryptera data i vila. När du återkallar (inaktiverar) en nyckel tar lagringskontot hand om misslyckade begäranden. Det tar vanligtvis en timme för rotation eller återkallande att vara effektiv.
 
 Information om hur du återskapar åtkomstnycklarna finns i [Återskapa lagringsåtkomstnycklar](how-to-change-storage-access-key.md).
 
@@ -157,6 +181,8 @@ Den här Cosmos DB-instansen skapas i en Microsoft-hanterad resursgrupp i din pr
 > * Om du behöver ta bort den här Cosmos DB-instansen måste du ta bort arbetsytan Azure Machine Learning som använder den. 
 > * Standardenheterna för [__begäranden__](../cosmos-db/request-units.md) för det här Cosmos DB-kontot är __8000__. Det går inte att ändra det här värdet. 
 
+Om du behöver __rotera eller återkalla__ nyckeln kan du göra det när som helst. När du roterar en nyckel börjar Cosmos DB använda den nya nyckeln (den senaste versionen) för att kryptera data i vila. När cosmos DB återkallas (inaktiverar) en nyckel tar du hand om misslyckade begäranden. Det tar vanligtvis en timme för rotation eller återkallande att vara effektiv.
+
 Mer information om kundhanterade nycklar med Cosmos DB finns i [Konfigurera kundhanterade nycklar för ditt Azure Cosmos DB-konto](../cosmos-db/how-to-setup-cmk.md).
 
 #### <a name="azure-container-registry"></a>Azure Container Registry
@@ -172,7 +198,21 @@ Ett exempel på hur du skapar en arbetsyta med hjälp av ett befintligt Azure-be
 
 #### <a name="azure-container-instance"></a>Azure Container-instans
 
-Azure Container Instance stöder inte diskkryptering. Om du behöver diskkryptering rekommenderar vi [att du distribuerar till en Azure Kubernetes Service-instans](how-to-deploy-azure-kubernetes-service.md) i stället. I det här fallet kanske du också vill använda Azure Machine Learnings stöd för rollbaserade åtkomstkontroller för att förhindra distributioner till en Azure Container-instans i din prenumeration.
+Du kan kryptera en distribuerad Azure Container Instance (ACI) resurs med hjälp av kundhanterade nycklar. Den kundhanterade nyckeln som används för ACI kan lagras i Azure Key Vault för din arbetsyta. Information om hur du genererar en nyckel finns i [Kryptera data med en kundhanterad nyckel](../container-instances/container-instances-encrypt-data.md#generate-a-new-key).
+
+Om du vill använda nyckeln när du distribuerar en modell `AciWebservice.deploy_configuration()`till Azure Container Instance skapar du en ny distributionskonfiguration med . Ange viktig information med hjälp av följande parametrar:
+
+* `cmk_vault_base_url`: URL:en för nyckelvalvet som innehåller nyckeln.
+* `cmk_key_name`: Namnet på nyckeln.
+* `cmk_key_version`: Versionen av nyckeln.
+
+Mer information om hur du skapar och använder en distributionskonfiguration finns i följande artiklar:
+
+* [AciWebservice.deploy_configuration()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aci.aciwebservice?view=azure-ml-py#deploy-configuration-cpu-cores-none--memory-gb-none--tags-none--properties-none--description-none--location-none--auth-enabled-none--ssl-enabled-none--enable-app-insights-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--ssl-cname-none--dns-name-label-none--primary-key-none--secondary-key-none--collect-model-data-none--cmk-vault-base-url-none--cmk-key-name-none--cmk-key-version-none-) referens
+* [Var och hur du distribuerar](how-to-deploy-and-where.md)
+* [Distribuera en modell till Azure Container Instances](how-to-deploy-azure-container-instance.md)
+
+Mer information om hur du använder en kundhanterad nyckel med ACI finns i [Kryptera data med en kundhanterad nyckel](../container-instances/container-instances-encrypt-data.md#encrypt-data-with-a-customer-managed-key).
 
 #### <a name="azure-kubernetes-service"></a>Azure Kubernetes Service
 

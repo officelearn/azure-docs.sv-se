@@ -11,12 +11,12 @@ ms.workload: big-compute
 ms.date: 12/07/2018
 ms.author: labrenne
 ms.custom: seodec18
-ms.openlocfilehash: c7459c4dc700f034feafbf133b831a52b9233d11
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: df7db30e987c408ff158acfc468010948c821b8d
+ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77020173"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80397540"
 ---
 # <a name="use-azure-batch-cli-templates-and-file-transfer"></a>Använda Azure Batch CLI-mallar och filöverföring
 
@@ -28,7 +28,7 @@ Skapa och använd JSON-mallfiler med Azure CLI för att skapa batchpooler, jobb 
 
 Ett tillägg till Azure CLI gör att Batch kan användas från på sluten till sluttid av användare som inte är utvecklare. Med bara CLI-kommandon kan du skapa en pool, ladda upp indata, skapa jobb och associerade uppgifter och hämta de resulterande utdata. Ingen ytterligare kod krävs. Kör CLI-kommandona direkt eller integrera dem i skript.
 
-Batchmallar bygger på det [befintliga batchstöd i Azure CLI](batch-cli-get-started.md#json-files-for-resource-creation) för JSON-filer för att ange egenskapsvärden när du skapar pooler, jobb, uppgifter och andra objekt. Batchmallar lägger till följande funktioner:
+Batchmallar bygger på det befintliga batchstöd i [Azure CLI](batch-cli-get-started.md#json-files-for-resource-creation) för JSON-filer för att ange egenskapsvärden när du skapar pooler, jobb, uppgifter och andra objekt. Batchmallar lägger till följande funktioner:
 
 -   Parametrar kan definieras. När mallen används anges endast parametervärdena för att skapa objektet, med andra objektegenskapsvärden som anges i malltexten. En användare som förstår Batch och de program som ska köras av Batch kan skapa mallar och ange värden för pool, jobb och uppgiftsgenskap. En användare som är mindre bekant med Batch och/eller programmen behöver bara ange värdena för de definierade parametrarna.
 
@@ -68,7 +68,7 @@ Azure Batch-mallar liknar Azure Resource Manager-mallar, i funktionalitet och sy
 
 -   **Parametrar**
 
-    -   Tillåt att egenskapsvärden anges i ett brödtextavsnitt, där endast parametervärden måste anges när mallen används. Den fullständiga definitionen för en pool kan till exempel placeras i brödtexten och endast en parameter som definierats för pool-ID. Endast en pool-ID-sträng behöver därför levereras för att skapa en pool.
+    -   Tillåt att egenskapsvärden anges i ett brödtextavsnitt, där endast parametervärden måste anges när mallen används. Den fullständiga definitionen för en pool kan till exempel placeras i `poolId`brödtexten och endast en parameter som definierats för . Endast en pool-ID-sträng behöver därför levereras för att skapa en pool.
         
     -   Malltexten kan skapas av någon med kunskap om Batch och de program som ska köras av Batch; Endast värden för de författardefinierade parametrarna måste anges när mallen används. En användare utan fördjupad Batch och/eller applikationskunskap kan därför använda mallarna.
 

@@ -1,24 +1,24 @@
 ---
-title: Distribuera till Azure Functions med hjälp av plugin-programmet Jenkins Azure Functions
-description: Lär dig hur du distribuerar till Azure Functions med hjälp av Jenkins Azure Functions-plugin
+title: Distribuera till Azure-funktioner med hjälp av plugin-programmet Jenkins Azure Functions
+description: Lär dig hur du distribuerar till Azure-funktioner med hjälp av plugin-programmet Jenkins Azure Functions
 keywords: jenkins, azure, devops, java, azure functions
 ms.topic: tutorial
 ms.date: 10/23/2019
 ms.openlocfilehash: 731bac13a596bbeaf970b3f6ce976a582d1f11ae
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/03/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "78250912"
 ---
-# <a name="deploy-to-azure-functions-using-the-jenkins-azure-functions-plug-in"></a>Distribuera till Azure Functions med hjälp av plugin-programmet Jenkins Azure Functions
+# <a name="deploy-to-azure-functions-using-the-jenkins-azure-functions-plug-in"></a>Distribuera till Azure-funktioner med hjälp av plugin-programmet Jenkins Azure Functions
 
-[Azure Functions](/azure/azure-functions/) är en "serverlös" beräkningstjänst. Med Azure Functions kan köra du kod på begäran utan att tillhandahålla eller hantera infrastruktur. Den här självstudien visar hur du distribuerar en Java-funktion för att Azure Functions med hjälp av Azure Functions-plugin-programmet.
+[Azure Functions](/azure/azure-functions/) är en "serverlös" beräkningstjänst. Med Azure Functions kan köra du kod på begäran utan att tillhandahålla eller hantera infrastruktur. Den här självstudien visar hur du distribuerar en Java-funktion till Azure Functions med hjälp av plugin-programmet Azure Functions.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - **Azure-prenumeration**: Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) innan du börjar.
-- **Jenkins Server**: om du inte har installerat en Jenkins-Server kan du läsa artikeln [skapa en Jenkins-server på Azure](./install-jenkins-solution-template.md).
+- **Jenkins-server**: Om du inte har en Jenkins-server installerad läser du artikeln [Skapa en Jenkins-server på Azure](./install-jenkins-solution-template.md).
 
   > [!TIP]
   > Källkoden i den här självstudien finns i [Visual Studio Kina GitHub-lagringsplatsen](https://github.com/VSChina/odd-or-even-function/blob/master/src/main/java/com/microsoft/azure/Function.java).
@@ -29,7 +29,7 @@ Om du vill skapa en Java-funktion med Java-körningsstacken kan du använda anti
 
 Följande steg visar hur du skapar en Java-funktion med Azure CLI:
 
-1. Skapa en resursgrupp som ersätter platshållaren **&lt;resource_group >** med resursgruppens namn.
+1. Skapa en resursgrupp som ersätter ** &lt;resource_group>** platshållare med resursgruppsnamnet.
 
     ```azurecli
     az group create --name <resource_group> --location eastus
@@ -72,16 +72,16 @@ Följande steg beskriver hur du förbereder Jenkins-servern:
 
 1. Installera följande plugin-program i Jenkins-instrumentpanelen:
 
-    - Azure Functions-plugin
-    - EnvInject-plugin
+    - Plugin-program för Azure-funktioner
+    - Plugin-program för envInject
 
 1. Jenkins behöver Azure-tjänstens huvudnamn för att autentisera och få åtkomst till Azure-resurser. Referera till de stegvisa instruktionerna i [Distribuera till Azure App Service](./tutorial-jenkins-deploy-web-app-azure-app-service.md).
 
 1. Med Azure-tjänstens huvudnamn lägger du till ”Microsoft Azure Service Principal” som autentiseringstyp i Jenkins. Referera till självstudien [Distribuera till Azure App Service](./tutorial-jenkins-deploy-web-app-azure-app-service.md#add-service-principal-to-jenkins).
 
-## <a name="fork-the-sample-github-repo"></a>Förgrena exempel GitHub lagrings platsen
+## <a name="fork-the-sample-github-repo"></a>Gaffel provet GitHub repo
 
-1. [Logga in på GitHub-lagrings platsen för udda eller jämna exempel-appen](https://github.com/VSChina/odd-or-even-function.git).
+1. [Logga in på GitHub-repo för den udda eller till och med exempelappen](https://github.com/VSChina/odd-or-even-function.git).
 
 1. I det övre högra hörnet i GitHub väljer du **Fork** (Förgrening).
 
@@ -105,7 +105,7 @@ I det här avsnittet skapar du en [Jenkins-pipeline](https://jenkins.io/doc/book
     
 1. I avsnittet **Pipeline->Definition** väljer du **Pipeline-skript från SCM**.
 
-1. Ange GitHub-delens URL och skript Sök väg ("doc/Resources/Jenkins/JenkinsFile") som ska användas i [JenkinsFile-exemplet](https://github.com/VSChina/odd-or-even-function/blob/master/doc/resources/jenkins/JenkinsFile).
+1. Ange url:enens URL och skriptsökväg för GitHub ("doc/resources/jenkins/JenkinsFile") som ska användas i [jenkinsfile-exemplet](https://github.com/VSChina/odd-or-even-function/blob/master/doc/resources/jenkins/JenkinsFile).
 
    ```
    node {
@@ -133,7 +133,7 @@ Nu är det dags att köra Jenkins-jobbet.
 
 1. Först hämtar du auktoriseringsnyckeln via anvisningarna i artikeln om [HTTP-utlösare och bindningar i Azure Functions](/azure/azure-functions/functions-bindings-http-webhook-trigger#authorization-keys).
 
-1. Ange appens webbadress i webbläsaren. Ersätt platshållarna med lämpliga värden och ange ett numeriskt värde för **&lt;input_number >** som indata för funktionen Java.
+1. Ange appens webbadress i webbläsaren. Ersätt platshållarna med lämpliga värden och ange ** &lt;** ett numeriskt värde för input_number>som indata för Java-funktionen.
 
     ```
     https://<function_app>.azurewebsites.net/api/HttpTrigger-Java?code=<authorization_key>&number=<input_number>

@@ -1,6 +1,6 @@
 ---
-title: Kör en haveri beredskaps granskning till Azure med Azure Site Recovery
-description: Lär dig hur du kör en haveri beredskap från en lokal plats till Azure, med Azure Site Recovery.
+title: Kör en borrmaskin för haveriberedskap till Azure med Azure Site Recovery
+description: Lär dig hur du kör en haveriberedskapsövning från lokalt till Azure med Azure Site Recovery.
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
@@ -9,36 +9,36 @@ ms.date: 11/12/2019
 ms.author: raynew
 ms.custom: MVC
 ms.openlocfilehash: 5bd9f5316f8b8799633de8c0c84c61424c0e4f4a
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "79238904"
 ---
 # <a name="run-a-disaster-recovery-drill-to-azure"></a>Köra ett programåterställningstest till Azure
 
-Den här artikeln beskriver hur du kör en haveri beredskaps granskning för en lokal dator till Azure med hjälp av tjänsten [Azure Site Recovery](site-recovery-overview.md) . Med ett test kan du verifiera din replikeringsstrategi utan dataförlust.
+I den här artikeln beskrivs hur du kör en haveriberedskapsövning för en lokal dator till Azure med hjälp av [Azure Site Recovery-tjänsten.](site-recovery-overview.md) Med ett test kan du verifiera din replikeringsstrategi utan dataförlust.
 
 
-Det här är den fjärde självstudien i en serie som visar hur du konfigurerar haveri beredskap till Azure för lokala datorer.
+Det här är den fjärde självstudien i en serie som visar hur du konfigurerar haveriberedskap till Azure för lokala datorer.
 
 I den här självstudiekursen får du lära du dig att:
 
 > [!div class="checklist"]
 > * Ställer in ett isolerat nätverk för redundanstestet
 > * Förbereder för att ansluta till den virtuella Azure-datorn efter en redundansväxling
-> * Kör ett redundanstest för en enskild dator.
+> * Kör en testväxling för en enda dator.
 
 > [!NOTE]
-> Självstudier visar den enklaste distributions vägen för ett scenario. De använder standardalternativ där det är möjligt och visar inte alla möjliga inställningar och sökvägar. Läs [igenom den här artikeln](site-recovery-test-failover-to-azure.md)om du vill veta mer om haveri beredskap för haveri beredskap i detalj.
+> Självstudier visar den enklaste distributionsvägen för ett scenario. De använder standardalternativ där så är möjligt och visar inte alla möjliga inställningar och sökvägar. Om du vill veta mer om stegen för att återställa katastrofer mer i detalj [läser du den här artikeln](site-recovery-test-failover-to-azure.md).
 
 ## <a name="before-you-start"></a>Innan du börjar
 
-Slutför de föregående självstudierna:
+Slutför de tidigare självstudierna:
 
-1. Se till att du har [konfigurerat Azure](tutorial-prepare-azure.md) för lokal katastrof återställning av virtuella VMware-datorer, virtuella Hyper-V-datorer och fysiska datorer till Azure.
-2. Förbered din lokala [VMware](vmware-azure-tutorial-prepare-on-premises.md) [-eller Hyper-V-](hyper-v-prepare-on-premises-tutorial.md) miljö för haveri beredskap. Om du konfigurerar haveri beredskap för fysiska servrar granskar du [support mat ris](vmware-physical-secondary-support-matrix.md).
-3. Konfigurera katastrof återställning för [virtuella VMware-datorer](vmware-azure-tutorial.md), [virtuella Hyper-V-datorer](hyper-v-azure-tutorial.md)eller [fysiska datorer](physical-azure-disaster-recovery.md).
+1. Kontrollera att du har [konfigurerat Azure](tutorial-prepare-azure.md) för lokal haveriberedskap av virtuella datorer, virtuella datorer med hyper-V och fysiska datorer till Azure.
+2. Förbered din lokala [VMware-](vmware-azure-tutorial-prepare-on-premises.md) eller [Hyper-V-miljö](hyper-v-prepare-on-premises-tutorial.md) för haveriberedskap. Om du konfigurerar haveriberedskap för fysiska servrar läser du [supportmatrisen](vmware-physical-secondary-support-matrix.md).
+3. Konfigurera haveriberedskap för [virtuella datorer,](vmware-azure-tutorial.md)virtuella datorer med [hyper-v eller](hyper-v-azure-tutorial.md) [fysiska datorer](physical-azure-disaster-recovery.md).
  
 
 ## <a name="verify-vm-properties"></a>Kontrollera VM-egenskaperna
@@ -47,7 +47,7 @@ Kontrollera den virtuella datorns egenskaper innan du kör ett redundanstest, oc
 
 1. I **Skyddade objekt** klickar du på **Replikerade objekt** > och VM.
 2. I fönstret **Replikerade objekt** finns det en sammanfattning av VM-informationen, hälsostatus och de senaste tillgängliga återställningspunkterna. Klicka på **Egenskaper** för att se mer information.
-3. I **Beräkning och nätverk** kan du ändra Azure-namnet, resursgrupp, målstorlek, tillgänglighetsuppsättning och hanterade diskinställningar.
+3. I **Beräkning och Nätverk**kan du ändra Azure-namn, resursgrupp, målstorlek, tillgänglighetsuppsättning och hanterade diskinställningar.
 4. Du kan visa och ändra inställningar för nätverk, inklusive det nätverk/undernät där den virtuella Azure-datorn kommer att finnas efter redundansen och den IP-adress som kommer att tilldelas till den.
 5. I **Diskar** kan du se information om operativsystemet och vilka datadiskar som finns på den virtuella datorn.
 
@@ -69,24 +69,24 @@ När du kör ett redundanstest händer följande:
 
 Kör redundanstestet på följande sätt:
 
-1. I **Inställningar** > **Replikerade objekt** klickar du på > **+Testa redundans** för den virtuella datorn.
+1. Klicka på den virtuella datorn > **+Test Redundans**i **Inställningar** > **replikerade objekt.**
 2. Välj återställningspunkten **Senast bearbetade** för den här självstudien. Då redundansväxlar den virtuella datorn till den senast tillgängliga tidpunkten. Tidsstämpeln visas. Med det här alternativet läggs ingen tid på bearbetning av data, så den ger ett lågt RTO (mål för återställningstid).
 3. I **Redundanstest** väljer du det Azure-målnätverk som de virtuella Azure-datorerna ska ansluta till efter redundans.
 4. Starta redundansväxlingen genom att klicka på **OK**. Du kan följa förloppet genom att klicka på den virtuella datorn för att öppna dess egenskaper. Du kan också klicka på jobbet **Testa redundans** i valvnamnet > **Inställningar** > **Jobb** >
    **Platsåterställningsjobb**.
-5. När redundansen är klar visas repliken av den virtuella Azure-datorn i Azure-portalen > **Virtual Machines**. Kontrollera att den virtuella datorn har rätt storlek, att den är ansluten till rätt nätverk och att den körs.
+5. När redundansväxlingen är klar visas repliken av den virtuella Azure-datorn i Azure-portalen > **Virtual Machines**. Kontrollera att den virtuella datorn har rätt storlek, att den är ansluten till rätt nätverk och att den körs.
 6. Du bör nu kunna ansluta till den replikerade virtuella datorn i Azure.
 7. Vill du ta bort virtuella Azure-datorer som skapades under redundanstestningen klickar du på **Rensa redundanstestning** på den virtuella datorn. I **Kommentarer** skriver du och sparar eventuella observationer från redundanstestningen.
 
 I vissa fall kräver redundans ytterligare bearbetning som tar cirka 8 till 10 minuter att slutföra. Du kanske märker att redundanstiden är längre för VMware Linux-datorer, virtuella VMware-datorer som inte har aktiverat DHCP-tjänsten och virtuella VMware-datorer som inte har följande startdrivrutiner: storvsc, vmbus, storflt, intelide, atapi.
 
-## <a name="connect-after-failover"></a>Anslut efter redundans
+## <a name="connect-after-failover"></a>Ansluta efter redundans
 
-[Förbered för anslutning](site-recovery-test-failover-to-azure.md#prepare-to-connect-to-azure-vms-after-failover)om du vill ansluta till virtuella Azure-datorer med RDP/SSH efter redundans. Om det uppstår anslutnings problem efter redundansväxlingen följer du [fel söknings](site-recovery-failover-to-azure-troubleshoot.md) guiden.
+Om du vill ansluta till virtuella Azure-datorer med RDP/SSH efter redundans [förbereder du dig för att ansluta](site-recovery-test-failover-to-azure.md#prepare-to-connect-to-azure-vms-after-failover). Om du stöter på anslutningsproblem efter redundans följer du [felsökningsguiden.](site-recovery-failover-to-azure-troubleshoot.md)
 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Köra en redundansväxling och återställning efter fel för virtuella VMware-datorer](vmware-azure-tutorial-failover-failback.md)
-> [köra redundans och återställning efter fel för virtuella Hyper-V-datorer](hyper-v-azure-failover-failback-tutorial.md)
-> [köra redundans och återställning efter fel för fysiska datorer](physical-to-azure-failover-failback.md)
+> [Kör en redundans- och redundans för virtuella datorer](vmware-azure-tutorial-failover-failback.md)
+> med VMware[Kör en redundans- och redundans för virtuella hyper-virtuella datorer](hyper-v-azure-failover-failback-tutorial.md)
+> [Kör en redundans- och redundans för fysiska datorer](physical-to-azure-failover-failback.md)

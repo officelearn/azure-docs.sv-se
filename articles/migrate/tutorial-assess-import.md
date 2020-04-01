@@ -1,287 +1,286 @@
 ---
-title: Utvärdera servrar med hjälp av importerade Server data med Azure Migrate Server utvärdering
-description: Beskriver hur du bedömer lokala servrar för migrering till Azure med Azure Migrate Server bedömning med hjälp av importerade data.
+title: Utvärdera servrar med hjälp av importerade serverdata med Azure Migrate Server Assessment
+description: Beskriver hur du bedömer lokala servrar för migrering till Azure med Azure Migrate Server Assessment med importerade data.
 author: rayne-wiselman
 manager: carmonm
 ms.service: azure-migrate
 ms.topic: tutorial
 ms.date: 10/23/2019
 ms.author: raynew
-ms.openlocfilehash: 91b9c71e7c735fca08f71ca37ed28734c8d634a1
-ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
+ms.openlocfilehash: 23fa1a2a0b035d04334c51c02411de6de70f2cad
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/10/2020
-ms.locfileid: "79079858"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79453654"
 ---
-# <a name="assess-servers-by-using-imported-data"></a>Utvärdera servrar med hjälp av importerade data
+# <a name="assess-servers-by-using-imported-data"></a>Bedöma servrar med hjälp av importerade data
 
-Den här artikeln förklarar hur du bedömer lokala servrar med [Azure Migrate: Server utvärderings](migrate-services-overview.md#azure-migrate-server-assessment-tool) verktyget genom att importera serverns metadata i CSV-format (kommaavgränsade värden). Den här bedömnings metoden kräver inte att du konfigurerar Azure Migrate-installationen för att skapa en utvärdering. Det är användbart om:
+I den här artikeln beskrivs hur du bedömer lokala servrar med verktyget [Azure Migrate: Server Assessment](migrate-services-overview.md#azure-migrate-server-assessment-tool) genom att importera servermetadata i CSV-format (Comma-separated values). Den här bedömningsmetoden kräver inte att du konfigurerar Azure Migrate-enheten för att skapa en utvärdering. Det är användbart om:
 
-- Du vill skapa en snabb, första utvärdering innan du distribuerar installationen.
-- Du kan inte Distribuera Azure Migrate-enheten i din organisation.
-- Du kan inte dela autentiseringsuppgifter som tillåter åtkomst till lokala servrar.
-- Säkerhets begränsningar förhindrar att du samlar in och skickar data som samlas in av produkten till Azure. Du kan kontrol lera de data som du delar i en importerad fil. Dessutom är mycket av data (till exempel att tillhandahålla IP-adresser) valfria.
+- Du vill skapa en snabb, första bedömning innan du distribuerar apparaten.
+- Du kan inte distribuera Azure Migrate-enheten i din organisation.
+- Du kan inte dela autentiseringsuppgifter som ger åtkomst till lokala servrar.
+- Säkerhetsbegränsningar hindrar dig från att samla in och skicka data som samlas in av enheten till Azure. Du kan styra de data som du delar i en importerad fil. Dessutom är mycket av data (till exempel att tillhandahålla IP-adresser) valfritt.
 
 ## <a name="before-you-start"></a>Innan du börjar
 
-Tänk på följande punkter:
+Var medveten om dessa punkter:
 
-- Du kan lägga till upp till högst 20 000 servrar i en enda CSV-fil.
-- Du kan lägga till upp till 20 000-servrar i ett Azure Migrate-projekt med hjälp av CSV.
-- Du kan ladda upp Server information till Server utvärdering flera gånger med hjälp av CSV.
-- Att samla in programinformation är användbart när du ska utvärdera din lokala miljö för migrering. Server utvärderingen utför dock för närvarande inte utvärdering på program nivå eller tar program i beaktande när en utvärdering skapas.
+- Du kan lägga till upp till maximalt 20 000 servrar i en enda CSV-fil.
+- Du kan lägga till upp till 20 000 servrar i ett Azure Migrate-projekt med hjälp av CSV.
+- Du kan ladda upp serverinformation till Serverutvärdering flera gånger med hjälp av CSV.
+- Det är användbart att samla in programinformation när du utvärderar den lokala miljön för migrering. Serverutvärdering utför dock för närvarande inte utvärdering på programnivå eller tar hänsyn till program när du skapar en utvärdering.
 
-I den här guiden får du lära dig att:
+I den här självstudiekursen får du lära du dig att:
 > [!div class="checklist"]
 > * Konfigurera ett Azure Migrate-projekt.
-> * Fyll i en CSV-fil med Server information.
-> * Importera filen för att lägga till Server information i Server utvärderingen.
-> * Skapa och granska en utvärdering.
+> * Fyll i en CSV-fil med serverinformation.
+> * Importera filen för att lägga till serverinformation i Serverutvärdering.
+> * Skapa och granska en bedömning.
 
 > [!NOTE]
-> Självstudier visar dig den enklaste distributions vägen för ett scenario, så att du snabbt kan konfigurera ett koncept bevis. Självstudier använder standard alternativ där det är möjligt, och visar inte alla möjliga inställningar och sökvägar. Detaljerade anvisningar finns i instruktions guiderna.
+> Självstudier visar den enklaste distributionsvägen för ett scenario, så att du snabbt kan ställa in ett konceptbevis. Självstudier använder standardalternativ där det är möjligt och visar inte alla möjliga inställningar och sökvägar. Detaljerade instruktioner finns i instruktionsguiderna.
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial/) innan du börjar.
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/pricing/free-trial/) konto innan du börjar.
 
 ## <a name="set-azure-permissions-for-azure-migrate"></a>Ange Azure-behörigheter för Azure Migrate
 
-Ditt Azure-konto måste ha behörighet att skapa ett Azure Migrate-projekt.
+Ditt Azure-konto behöver behörigheter för att skapa ett Azure Migrate-projekt.
 
-1. Öppna prenumerationen i Azure Portal och välj **åtkomst kontroll (IAM)** .
-2. Leta upp det relevanta kontot i **kontrol lera åtkomst**och välj sedan det för att visa behörigheter.
-3. Kontrol lera att du har behörighet som **deltagare** eller **ägare** .
-    - Om du precis har skapat ett kostnads fritt Azure-konto är du ägare till din prenumeration.
-    - Om du inte är prenumerations ägare kan du samar beta med ägaren för att tilldela rollen.
+1. Öppna prenumerationen i Azure-portalen och välj **Åtkomstkontroll (IAM)**.
+2. Leta reda på det relevanta kontot i **Checkåtkomst**och välj det för att visa behörigheter.
+3. Kontrollera att du har **behörighet för deltagare** eller **ägare.**
+    - Om du just har skapat ett kostnadsfritt Azure-konto är du ägare till din prenumeration.
+    - Om du inte är prenumerationsägare arbetar du med ägaren för att tilldela rollen.
 
 ## <a name="set-up-an-azure-migrate-project"></a>Konfigurera ett Azure Migrate-projekt
 
 Så här konfigurerar du ett nytt Azure Migrate-projekt:
 
-1. I Azure Portal i **alla tjänster**söker du efter **Azure Migrate**.
+1. Sök efter Azure Migrate i **Alla tjänster**i Azure **Portal.**
 2. Under **Tjänster** väljer du **Azure Migrate**.
-3. I **Översikt**, under **Upptäck, utvärdera och migrera servrar**, väljer du **utvärdera och migrera servrar**.
+3. I **Översikt**väljer du Utvärdera och migrera servrar under **Upptäck, utvärdera och migrera** **servrar**.
 
-    ![Identifiera och utvärdera servrar](./media/tutorial-assess-import/assess-migrate.png)
+    ![Upptäck och utvärdera servrar](./media/tutorial-assess-import/assess-migrate.png)
 
-4. I **komma igång**väljer du **Lägg till verktyg**.
+4. Välj **Lägg till verktyg**i Komma **igång.**
 5. I **Migrera projekt** väljer du din Azure-prenumeration och skapar en resursgrupp om du inte har någon.
-6. I **projekt information**anger du projekt namnet och geografin som du vill skapa projektet i. Mer information:
+6. I **PROJEKTINFORMATION**anger du projektnamnet och geografin där du vill skapa projektet. Mer information:
 
-    - Granska [stödda geografiska](migrate-support-matrix.md#supported-geographies)områden. Projektgeografin används bara för att lagra de metadata som samlas in från lokala virtuella datorer.
+    - Granska [geografiska områden som stöds](migrate-support-matrix.md#supported-geographies). Projektgeografin används bara för att lagra de metadata som samlas in från lokala virtuella datorer.
     - Du kan välja vilken målregion du vill när du kör en migrering.
 
     ![Skapa ett Azure Migrate-projekt](./media/tutorial-assess-import/migrate-project.png)
 
 7. Välj **Nästa**.
-8. I **Välj bedömnings verktyg**väljer du **Azure Migrate: Server utvärdering** > **Nästa**.
+8. I **Välj bedömningsverktyg**väljer du **Azure Migrate: Serverutvärdering** > **nästa**.
 
     ![Skapa en Azure Migrate-utvärdering](./media/tutorial-assess-import/assessment-tool.png)
 
 9. I **Välj migreringsverktyg** väljer du **Hoppa över att lägga till ett migreringsverktyg just nu** > **Nästa**.
-10. I **Granska och Lägg till verktyg**granskar du inställningarna och väljer sedan **Lägg till verktyg**.
-11. Vänta några minuter tills Azure Migrate-projektet har distribuerats. Sedan kommer du till sidan projekt. Om du inte ser projektet kan du öppna det från **Servrar** i Azure Migrate-instrumentpanelen.
+10. Granska inställningarna i **Verktyg för Granskning + lägg till**och välj sedan Lägg till **verktyg**.
+11. Vänta några minuter tills Azure Migrate-projektet har distribuerats. Du kommer sedan till projektsidan. Om du inte ser projektet kan du öppna det från **Servrar** i Azure Migrate-instrumentpanelen.
 
 ## <a name="prepare-the-csv"></a>Förbered CSV
 
-Hämta CSV-mallen och Lägg till Server information till den.
+Hämta CSV-mallen och lägg till serverinformation i den.
 
 ### <a name="download-the-template"></a>Ladda ned mallen
 
-1. I **mål för migrering** > **servrar** > **Azure Migrate: Server utvärdering**, Välj **identifiera**.
-2. I **identifiera datorer**väljer du **Importera med hjälp av CSV**.
-3. Välj **Ladda ned** för att ladda ned CSV-mallen. Alternativt kan du [Ladda ned den direkt](https://go.microsoft.com/fwlink/?linkid=2109031).
+1. I **Migreringsmålsservrar** > **Servers** > **Azure Migrera: Serverutvärdering**väljer du **Upptäck**.
+2. I **Upptäck-datorer**väljer du **Importera med CSV**.
+3. Välj **Hämta** om du vill hämta CSV-mallen. Alternativt kan du [ladda ner den direkt](https://go.microsoft.com/fwlink/?linkid=2109031).
 
-    ![Hämta CSV-mall](./media/tutorial-assess-import/download-template.png)
+    ![Ladda ner CSV-mall](./media/tutorial-assess-import/download-template.png)
 
-### <a name="add-server-information"></a>Lägg till Server information
+### <a name="add-server-information"></a>Lägga till serverinformation
 
-Samla in Server data och Lägg till dem i CSV-filen.
+Samla in serverdata och lägg till dem i CSV-filen.
 
-- Om du vill samla in data kan du exportera dem från verktyg som du använder för lokal server hantering, till exempel VMware vSphere eller din databas för konfigurations hantering (CMDB).
-- Om du vill granska exempel data laddar du ned [exempel filen](https://go.microsoft.com/fwlink/?linkid=2108405).
+- Om du vill samla in data kan du exportera dem från verktyg som du använder för lokal serverhantering, till exempel VMware vSphere eller cmdb (Configuration-management Database).
+- Om du vill granska exempeldata laddar du ned vår [exempelfil](https://go.microsoft.com/fwlink/?linkid=2108405).
 
-I följande tabell sammanfattas fil fälten som ska fyllas i:
+I följande tabell sammanfattas de filfält som ska fyllas i:
 
-**Fältnamn** | **Erforderlig** | **Detaljer**
+**Fältnamn** | **Obligatoriska** | **Detaljer**
 --- | --- | ---
-**Servernamn** | Ja | Vi rekommenderar att du anger det fullständigt kvalificerade domän namnet (FQDN).
-**IP-adress** | Nej | Server adress.
-**Kärnor** | Ja | Antal processor kärnor som har allokerats till servern.
-**Minnesoptimerade** | Ja | Totalt RAM-minne, i MB, allokeras till servern.
-**OS-namn** | Ja | Serveroperativ system. <br/> Operativ system namn som matchar eller innehåller namnen [i listan känns](#supported-operating-system-names) igen av utvärderingen.
-**Operativsystemversion** | Nej | Serverns operativ system version.
-**Antal diskar** | Nej | Behövs inte om enskilda disk uppgifter anges.
-**Disk 1-storlek**  | Nej | Maximal disk storlek i GB.<br/>Du kan lägga till information om fler diskar genom [att lägga till kolumner](#add-multiple-disks) i mallen. Du kan lägga till upp till åtta diskar.
-**Disk 1, Läs OPS** | Nej | Disk läsnings åtgärder per sekund.
-**Disk 1 Skriv OPS** | Nej | Disk skrivnings åtgärder per sekund.
-**Disk 1 Läs data flöde** | Nej | Data läses från disken per sekund, i MB per sekund.
-**Disk 1 Skriv data flöde** | Nej | Data som skrivs till disk per sekund, i MB per sekund.
-**Procent andel CPU-användning** | Nej | Procent andel CPU som används.
-**Procent andel minnes användning** | Nej | Procent andelen RAM-minne som används.
-**Totalt antal diskar Read OPS** | Nej | Disk läsnings åtgärder per sekund.
-**Skriv Ops totalt antal diskar** | Nej | Disk-Skriv åtgärder per sekund.
-**Totalt antal diskar läsnings data flöde** | Nej | Data läses från disken, i MB per sekund.
-**Totalt antal diskar Skriv data flöde** | Nej | Data som skrivs till disk, i MB per sekund.
-**Nätverk i data flöde** | Nej | Data som tagits emot av servern, i MB per sekund.
-**Nätverks utflöde** | Nej | Data som överförs av servern, i MB per sekund.
-**Typ av inbyggd program vara** | Nej | Serverns inbyggda program vara. Värdena kan vara "BIOS" eller "UEFI".
-**Servertyp** | Nej | Värdena kan vara fysiska eller virtuella.
-**Hypervisor** | Nej | Hypervisor som datorn körs på. <br/> Värdena kan vara "VMware", "Hyper-V", "xen", "AWS", "GCP" eller "other".
-**Versions nummer för hypervisor** | Nej | Hypervisor-version.
-**ID för virtuell dator** | Nej | VM-ID. Detta är **InstanceUUid** -värdet för en virtuell VMware vCenter-dator eller **Hyper-v VM-ID** för Hyper-v.
-**Virtual Machine Manager-ID** | Nej | Detta är **InstanceUUid** -värdet för VMware vCenter. Det behövs inte för Hyper-V.
-**MAC-adress**| Nej | Serverns MAC-adress.
-**BIOS-ID** | Nej | Serverns BIOS-ID.
-**ID för anpassad server** | Nej | Lokalt, unikt server-ID lokalt. <br/> Användbart för att spåra den importerade servern med hjälp av lokalt ID.
-**Namn på program 1** | Nej | Namnet på den arbets belastning som körs på servern.<br/>Du kan lägga till information för fler appar genom [att lägga till kolumner](#add-multiple-applications) i mallen. Du kan lägga till upp till fem program.
-**Program 1-typ** | Nej | Typ av arbets belastning som körs på servern
-**Program 1-version** | Nej | Den version av arbets belastningen som körs på servern.
-**Licens förfallo datum för program 1** | Nej | Licens förfallo tid för arbets belastningen (om tillämpligt).
-**Affär senhet** | Nej | Affär senhet som servern tillhör.
-**Företags ägare** | Nej | Ägare av affär senhet.
-**Affärs program namn** | Nej | Namnet på programmet som appen tillhör.
-**Plats** | Nej | Data Center där-servern finns.
-**Serverns inställnings datum** | Nej | Inställnings datum för den fysiska servern eller den underliggande fysiska servern för den virtuella servern.
+**Servernamn** | Ja | Vi rekommenderar att du anger det fullständigt kvalificerade domännamnet (FQDN).
+**IP-adress** | Inga | Serveradress.
+**Kärnor** | Ja | Antal processorkärnor som tilldelats servern.
+**Minne** | Ja | Totalt RAM-minne, i MB, allokerat till servern.
+**OS-namn** | Ja | Serveroperativsystem. <br/> Operativsystemnamn som matchar eller innehåller namnen i den [här](#supported-operating-system-names) listan känns igen av utvärderingen.
+**Operativsystemversion** | Inga | Server operativsystem version.
+**Antal diskar** | Inga | Behövs inte om enskilda diskuppgifter tillhandahålls.
+**Disk 1 storlek**  | Inga | Maximal storlek på disken, i GB.<br/>Du kan lägga till information om fler diskar genom [att lägga till kolumner](#add-multiple-disks) i mallen. Du kan lägga till upp till åtta diskar.
+**Disk 1 läsa ops** | Inga | Diskavläsningsåtgärder per sekund.
+**Disk 1 skriv ops** | Inga | Diskskrivningsåtgärder per sekund.
+**Disk 1 läsflöde** | Inga | Data som läses från disken per sekund, i MB per sekund.
+**Skrivflöde för disk 1** | Inga | Data som skrivs till disk per sekund, i MB per sekund.
+**Procentsats för processoranvändning** | Inga | Procentandel processor som används.
+**Procentandel av minnesanvändningen** | Inga | Procentandel RAM-minne som används.
+**Totalt antal diskar som lästa ops** | Inga | Diskläsningsåtgärder per sekund.
+**Totalt antal diskar skriver ops** | Inga | Disk-skrivningsåtgärder per sekund.
+**Totalt antal diskar som läsdataflöde** | Inga | Data som läses från disken, i MB per sekund.
+**Totalt antal diskar skriver dataflöde** | Inga | Data som skrivs till disk, i MB per sekund.
+**Nätverk i dataflöde** | Inga | Data som tas emot av servern, i MB per sekund.
+**Dataflöde för nätverk** | Inga | Data som överförs av servern, i MB per sekund.
+**Typ av inbyggd programvara** | Inga | Serverns inbyggda programvara. Värden kan vara "BIOS" eller "UEFI".
+**Servertyp** | Inga | Värden kan vara "fysiska" eller "virtuella".
+**Hypervisor** | Inga | Hypervisor som en maskin körs på. <br/> Värden kan vara "VMware", "Hyper-V", "Xen", "AWS", "GCP" eller "Övrigt".
+**Hypervisor versionsnummer** | Inga | Hypervisor version.
+**Id för virtuell dator** | Inga | VM-identifierare. Det här är **värdet InstanceUUid** för en VMware vCenter-virtuell dator eller **Hyper-V VM-ID** för Hyper-V.
+**Id för hanteraren för virtuell dator** | Inga | Det här är **värdet InstanceUUid** för VMWare vCenter. Det behövs inte för Hyper-V.
+**MAC-adress**| Inga | Server MAC-adress.
+**BIOS-ID** | Inga | BIOS-ID för server.
+**Anpassat server-ID** | Inga | Lokalt, unikt server-ID lokalt. <br/> Användbart för att spåra den importerade servern med lokalt ID.
+**Namn på tillämpning 1** | Inga | Namn på arbetsbelastning som körs på servern.<br/>Du kan lägga till information om fler appar genom [att lägga till kolumner](#add-multiple-applications) i mallen. Du kan lägga till upp till fem program.
+**Typ av program 1** | Inga | Typ av arbetsbelastning som körs på servern
+**Ansökan 1 version** | Inga | Version av arbetsbelastningen som körs på servern.
+**Ansökan 1 licens löper ut** | Inga | Licensen upphör att gälla (om tillämpligt).
+**Affärsenhet** | Inga | Affärsenhet som servern tillhör.
+**Företagare** | Inga | Ägare av affärsenhet.
+**Namn på affärsprogram** | Inga | Namn på det program som appen tillhör.
+**Location** | Inga | Datacenter där servern finns.
 
-### <a name="add-operating-systems"></a>Lägg till operativ system
+### <a name="add-operating-systems"></a>Lägg till operativsystem
 
-Utvärderingen identifierar olika operativ system namn. Ett namn som du anger måste exakt matcha en av strängarna i [listan över namn som stöds](#supported-operating-system-names).
+Bedömning känner igen specifika operativsystemnamn. Alla namn som du anger måste exakt matcha en av strängarna i [namnlistan som stöds](#supported-operating-system-names).
 
-### <a name="add-multiple-disks"></a>Lägg till flera diskar
+### <a name="add-multiple-disks"></a>Lägga till flera diskar
 
-Mallen innehåller standard fält för den första disken. Du kan lägga till likartade kolumner för upp till åtta diskar.
+Mallen innehåller standardfält för den första disken. Du kan lägga till liknande kolumner för upp till åtta diskar.
 
-Om du till exempel vill ange alla fält för en annan disk lägger du till följande kolumner:
+Om du till exempel vill ange alla fält för en andra disk lägger du till följande kolumner:
 
-- Disk 2-storlek
-- Disk 2, Läs OPS
-- Disk 2 Skriv OPS
-- Disk 2 Läs data flöde
-- Disk 2 Skriv data flöde
+- Disk 2 storlek
+- Disk 2 läs ops
+- Disk 2 skriva ops
+- Disk 2 läsflöde
+- Skrivflöde för disk 2
 
-### <a name="add-multiple-applications"></a>Lägg till flera program
+### <a name="add-multiple-applications"></a>Lägga till flera program
 
-Mallen innehåller fält för ett enda program. Du kan lägga till likartade kolumner för upp till fem appar.  
+Mallen innehåller fält för ett enskilt program. Du kan lägga till liknande kolumner för upp till fem appar.  
 
 Om du till exempel vill ange alla fält för en andra app lägger du till följande kolumner:
 
-- Namn på program 2
-- Program 2-typ
-- Program 2-version
-- Licens förfallo datum för program 2
+- Namn på tillämpning 2
+- Typ av program 2
+- Version av program 2
+- Ansökan 2 licens löper ut
 
 > [!NOTE]
-> Information om appar är användbar när du ska utvärdera din lokala miljö för migrering. Azure Migrate Server utvärderingen utför dock för närvarande inte utvärdering på program nivå eller ta appar i beaktande när en utvärdering skapas.
+> Appinformation är användbar när du utvärderar din lokala miljö för migrering. Azure Migrate Server Assessment utför dock för närvarande inte utvärdering på appnivå eller tar hänsyn till appar när du skapar en utvärdering.
 
-## <a name="import-the-server-information"></a>Importera Server informationen
+## <a name="import-the-server-information"></a>Importera serverinformationen
 
-När du har lagt till information i CSV-mallen importerar du servrarna till Server utvärderingen.
+När du har lagt till information i CSV-mallen importerar du servrarna till Serverutvärdering.
 
-1. I Azure Migrate går du till den färdiga mallen i **identifiera datorer**.
+1. I Azure Migrate går du till den färdiga mallen i **Discover-datorer.**
 2. Välj **Importera**.
-3. Import status visas.
-    - Om varningar visas i statusen kan du antingen åtgärda dem eller fortsätta utan att behöva adressera dem.
-    - Förbättra utvärderings precisionen genom att förbättra Server informationen som föreslås i varningar.
-    - Om du vill visa och åtgärda varningar väljer du **Hämta varnings information. CSV**. Den här åtgärden hämtar CSV med varningar som ingår. Granska varningarna och åtgärda problemen vid behov.
-    - Om fel visas i statusen så att import status är **misslyckad**måste du åtgärda dessa fel innan du kan fortsätta med importen:
-        1. Hämta CSV-filen som nu innehåller fel information.
-        1. Granska och åtgärda felen vid behov. 
-        1. Överför den ändrade filen igen.
-4. När import statusen är **slutförd**har Server informationen importer ATS.
+3. Importstatusen visas.
+    - Om varningar visas i statusen kan du antingen åtgärda dem eller fortsätta utan att åtgärda dem.
+    - Förbättra serverinformationen i varningar om du vill förbättra bedömningsnoggrannheten.
+    - Om du vill visa och åtgärda varningar väljer du **Hämta varningsinformation . CSV**. Den här åtgärden hämtar CSV med varningar ingår. Granska varningarna och åtgärda problem efter behov.
+    - Om fel visas i statusen så att importstatusen **misslyckades**måste du åtgärda dessa fel innan du kan fortsätta med importen:
+        1. Ladda ner CSV, som nu innehåller felinformation.
+        1. Granska och åtgärda felen efter behov. 
+        1. Ladda upp den ändrade filen igen.
+4. När importstatusen är **slutförd**har serverinformationen importerats.
 
-## <a name="update-server-information"></a>Uppdatera Server information
+## <a name="update-server-information"></a>Uppdatera serverinformation
 
-Du kan uppdatera informationen för en server genom att importera data för servern igen med samma **Server namn**. Du kan inte ändra fältet **Server namn** . Det finns för närvarande inte stöd för att ta bort servrar.
+Du kan uppdatera informationen för en server genom att importera data för servern igen med samma **servernamn**. Du kan inte ändra fältet **Servernamn.** Det går inte att ta bort servrar.
 
 ## <a name="verify-servers-in-the-portal"></a>Verifiera servrar i portalen
 
-Så här kontrollerar du att servrarna visas i Azure Portal efter identifiering:
+Så här verifierar du att servrarna visas i Azure-portalen efter identifiering:
 
-1. Öppna instrument panelen för Azure Migrate.
-2. På sidan **Azure Migrate-servrar** > **Azure Migrate: Server utvärdering** väljer du den ikon som visar antalet för **identifierade servrar**.
-3. Välj fliken **Importera baserad** .
+1. Öppna instrumentpanelen för Azure Migrate.
+2. På sidan **Azure Migrate - Servers** > **Azure Migrate: Server Assessment** väljer du den ikon som visar antalet för identifierade **servrar**.
+3. Välj fliken **Importera baserat.**
 
-## <a name="set-up-and-run-an-assessment"></a>Konfigurera och kör en utvärdering
+## <a name="set-up-and-run-an-assessment"></a>Ställa in och köra en utvärdering
 
-Du kan skapa två typer av utvärderingar med hjälp av Server utvärdering.
+Du kan skapa två typer av utvärderingar med hjälp av Serverutvärdering.
 
-**Bedömnings typ** | **Detaljer** | **Data**
+**Typ av bedömning** | **Detaljer** | **Data**
 --- | --- | ---
-**Prestanda-baserade** | Utvärderingar baserat på prestanda data värden som anges. | **Rekommenderad VM-storlek**: baserat på processor-och minnes användnings data.<br/><br/> **Rekommenderad disktyp (standard-eller Premium-hanterad disk)** : baserat på indata/utdata per sekund (IOPS) och data flödet för lokala diskar.
-**Som lokalt** | Utvärderingar baserade på lokal storlek. | **Rekommenderad storlek på virtuell dator**: baserat på angiven server storlek.<br/><br> **Rekommenderad disktyp**: baserat på den typ av lagrings typ som du väljer för utvärderingen.
+**Prestationsbaserad** | Utvärderingar baserade på angivna prestandadatavärden. | **Rekommenderad VM-storlek:** Baserat på CPU- och minnesanvändningsdata.<br/><br/> **Rekommenderad disktyp (standard eller premiumhanterad disk)**: Baserat på indata/utdata per sekund (IOPS) och dataflöde för de lokala diskarna.
+**Som lokalt** | Bedömningar baserade på lokal storlek. | **Rekommenderad VM-storlek:** Baserat på den angivna serverstorleken.<br/><br> **Rekommenderad disktyp:** Baserat på den lagringstyp som du väljer för utvärderingen.
 
-Så här kör du en utvärdering:
+Så här gör du en bedömning:
 
-1. Gå igenom [metod tipsen](best-practices-assessment.md) för att skapa utvärderingar.
-2. På fliken **servrar** i panelen **Azure Migrate: Server bedömning** väljer du **utvärdera**.
+1. Granska [metodtipsen](best-practices-assessment.md) för att skapa utvärderingar.
+2. På fliken **Servrar** väljer du **Utvärdera**i panelen **Azure Migrate: Serverutvärdering.**
 
     ![Utvärdera](./media/tutorial-assess-physical/assess.png)
 
-3. I **utvärdera servrar**anger du ett namn för utvärderingen.
-4. I **identifierings källa**väljer **du datorer som har lagts till via import till Azure Migrate**.
-5. Klicka på **Visa alla** för att granska utvärderings egenskaperna.
+3. Ange ett namn för utvärderingen i **Bedöma servrar.**
+4. I **Identifieringskälla**väljer du **Datorer som lagts till via import till Azure Migrate**.
+5. Välj **Visa alla** om du vill granska bedömningsegenskaperna.
 
-    ![Bedömnings egenskaper](./media/tutorial-assess-physical/view-all.png)
+    ![Bedömningsegenskaper](./media/tutorial-assess-physical/view-all.png)
 
-6. I **Välj eller skapa en grupp**väljer du **Skapa ny**och anger ett grupp namn. En grupp samlar in en eller flera virtuella datorer för utvärdering.
-7. I **Lägg till datorer i gruppen**väljer du de servrar som ska läggas till i gruppen.
-8. Välj **Skapa utvärdering** för att skapa gruppen och kör sedan utvärderingen.
+6. Välj **Skapa ny**i Markera eller skapa **en grupp**och ange ett gruppnamn. En grupp samlar ihop en eller flera virtuella datorer för bedömning.
+7. I **Lägg till datorer i gruppen**väljer du servrar som ska läggas till i gruppen.
+8. Välj **Skapa bedömning** om du vill skapa gruppen och kör sedan utvärderingen.
 
     ![Skapa en utvärdering](./media/tutorial-assess-physical/assessment-create.png)
 
-9. När utvärderingen har skapats kan du Visa den i **servrar** > **Azure Migrate: Server bedömning** > **utvärderingar**.
-10. Välj **export-utvärdering** för att ladda ned den som en Microsoft Excel-fil.
+9. När utvärderingen har skapats visar du den i **Servrar** > **Azure Migrera: Serverutvärderingsutvärderingar** > **Assessments**.
+10. Välj **Exportera bedömning** om du vill hämta den som en Microsoft Excel-fil.
 
-## <a name="review-an-assessment"></a>Granska en utvärdering
+## <a name="review-an-assessment"></a>Granska en bedömning
 
-En utvärdering beskriver:
+En bedömning beskriver:
 
-- **Azure-beredskap**: om servrarna är lämpliga för migrering till Azure.
-- **Månads kostnads uppskattning**: Beräknad månatlig beräknings-och lagrings kostnad för att köra servrarna i Azure.
-- **Kostnads uppskattning för månatlig lagring**: beräknade kostnader för disk lagring efter migrering.
+- **Azure-beredskap**: Om servrar är lämpliga för migrering till Azure.
+- **Månatlig kostnadsuppskattning**: Uppskattade månatliga beräknings- och lagringskostnader för att köra servrarna i Azure.
+- **Uppskattning av månatliga lagringskostnader**: Uppskattade kostnader för disklagring efter migreringen.
 
-### <a name="view-an-assessment"></a>Visa en utvärdering
+### <a name="view-an-assessment"></a>Visa en bedömning
 
-1. I **mål för migrering** > **servrar**väljer du **utvärderingar** i **Azure Migrate: Server utvärdering**.
-2. I **utvärderingar**väljer du en utvärdering för att öppna den.
+1. I **Migreringsmålsservrar** > **Servers**väljer du **Utvärderingar** i **Azure Migrera: Serverutvärdering**.
+2. Välj en bedömning för att öppna den i **Utvärderingar.**
 
-    ![Utvärderings Sammanfattning](./media/tutorial-assess-physical/assessment-summary.png)
+    ![Sammanfattning av bedömning](./media/tutorial-assess-physical/assessment-summary.png)
 
-### <a name="review-azure-readiness"></a>Granska Azure readiness
+### <a name="review-azure-readiness"></a>Granska Azure-beredskap
 
-1. I **Azure-beredskap**kontrollerar du om servrarna är klara för migrering till Azure.
-2. Granska statusen:
-    - **Redo för Azure**: Azure Migrate rekommenderar en VM-storlek och kostnads uppskattning för virtuella datorer i utvärderingen.
-    - **Klar med villkor**: visar problem och Rekommenderad reparation.
-    - **Inte redo för Azure**: visar problem och Rekommenderad reparation.
-    - **Beredskap okänd**: Azure Migrate kan inte utvärdera beredskap på grund av data tillgänglighets problem.
+1. I **Azure-beredskap**bestämmer du om servrarna är redo för migrering till Azure.
+2. Granska status:
+    - **Klar för Azure:** Azure Migrate rekommenderar en vm-storlek och kostnadsuppskattningar för virtuella datorer i utvärderingen.
+    - **Redo med villkor**: Visar problem och föreslagen reparation.
+    - **Inte redo för Azure**: Visar problem och föreslagna reparation.
+    - **Okänd beredskap**: Azure Migrate kan inte bedöma beredskapen på grund av problem med datatillgänglighet.
 
-3. Välj en status för **Azure-beredskap** . Du kan visa information om Server beredskap och öka detalj nivån för att se Server information, inklusive beräknings-, lagrings-och nätverks inställningar.
+3. Välj en **Azure-beredskapsstatus.** Du kan visa information om serverberedskap och öka detaljnivån för att se serverinformation, inklusive beräknings-, lagrings- och nätverksinställningar.
 
-### <a name="review-cost-details"></a>Granska kostnads information
+### <a name="review-cost-details"></a>Granska kostnadsinformation
 
-I den här vyn visas den beräknade beräknings-och lagrings kostnaden för virtuella datorer som körs i Azure. Du kan:
+Den här vyn visar den uppskattade beräknings- och lagringskostnaden för att köra virtuella datorer i Azure. Du kan:
 
-- Granska kostnader för beräkning och lagring per månad. Kostnaderna sammanställs för alla servrar i den utvärderade gruppen.
+- Granska de månatliga beräknings- och lagringskostnaderna. Kostnaderna aggregeras för alla servrar i den bedömda gruppen.
 
-    - Kostnads uppskattningar baseras på storleks rekommendationerna för en dator och dess diskar och egenskaper.
-    - Uppskattade månatliga kostnader för beräkning och lagring visas.
-    - Kostnads uppskattningen är att köra lokala servrar som virtuella IaaS-datorer (Infrastructure-as-a-Service). Server utvärderingen betraktar inte PaaS-(Platform-as-a-Service) eller SaaS-kostnader (Software-as-a-Service).
+    - Kostnadsuppskattningar baseras på storleksrekommendationerna för en dator och dess diskar och egenskaper.
+    - Beräknade månadskostnader för beräkning och lagring visas.
+    - Kostnadsuppskattningen är för att köra de lokala servrarna som virtuella infrastruktur-som-en-tjänst (IaaS) virtuella datorer. Serverbedömningen tar inte hänsyn till PaaS-kostnader (Platform-as-a-Service) eller SaaS(Software-as-a-service).
 
-- Granska månads Visa lagrings kostnader. I den här vyn visas aggregerade lagrings kostnader för den utvärderade gruppen, delas mellan olika typer av lagrings diskar.
-- Granska nedåt för att se information om vissa virtuella datorer.
+- Granska månatliga uppskattningar av lagringskostnader. Den här vyn visar aggregerade lagringskostnader för den bedömda gruppen, uppdelade mellan olika typer av lagringsdiskar.
+- Öka detaljnivån för att se information om specifika virtuella datorer.
 
 > [!NOTE]
-> Tillförlitlighets klassificeringar har inte tilldelats utvärderingar av servrar som importeras till Server utvärdering med hjälp av CSV.
+> Konfidensklassificeringar tilldelas inte utvärderingar av servrar som importeras till Serverutvärdering med hjälp av CSV.
 
-## <a name="supported-operating-system-names"></a>Operativ system namn som stöds
+## <a name="supported-operating-system-names"></a>Namn på operativsystem som stöds
 
 <!-- BEGIN A - H -->
 
 :::row:::
    :::column span="2":::
-      **A – H**
+      **A - H**
    :::column-end:::
 :::row-end:::
 :::row:::
@@ -300,7 +299,7 @@ I den här vyn visas den beräknade beräknings-och lagrings kostnaden för virt
       CentOS 4/5
    :::column-end:::
    :::column span="":::
-      Core-Linux
+      CoreOS Linux
    :::column-end:::
 :::row-end:::
 :::row:::
@@ -320,7 +319,7 @@ I den här vyn visas den beräknade beräknings-och lagrings kostnaden för virt
 
 :::row:::
    :::column span="2":::
-      **I-R**
+      **I - R**
    :::column-end:::
 :::row-end:::
 :::row:::
@@ -328,7 +327,7 @@ I den här vyn visas den beräknade beräknings-och lagrings kostnaden för virt
       IBM OS/2
    :::column-end:::
    :::column span="":::
-      Initieringsfiler
+      Ms-dos
    :::column-end:::
 :::row-end:::
 :::row:::
@@ -351,7 +350,7 @@ I den här vyn visas den beräknade beräknings-och lagrings kostnaden för virt
       Red Hat Enterprise Linux 5<br/>
       Red Hat Enterprise Linux 6<br/>
       Red Hat Enterprise Linux 7<br/>
-      Red Hat-Fedora
+      Röd hatt Fedora
    :::column-end:::
 :::row-end:::
 
@@ -359,31 +358,31 @@ I den här vyn visas den beräknade beräknings-och lagrings kostnaden för virt
 
 :::row:::
    :::column span="2":::
-      **S-T**
+      **S - T**
    :::column-end:::
 :::row-end:::
 :::row:::
    :::column span="":::
       SCO OpenServer 5<br/>
       SCO OpenServer 6<br/>
-      SCO UNIX-7
+      SCO UnixWare 7
    :::column-end:::
    :::column span="":::
-      Serenity system eComStation 1<br/>
-      Serenity system eComStation 2
+      Serenity System eComStation 1<br/>
+      Serenity System eComStation 2
    :::column-end:::
 :::row-end:::
 :::row:::
    :::column span="":::
-      Sun Microsystems Solaris 8<br/>
-      Sun Microsystems Solaris 9
+      Sön Mikrosystem Solaris 8<br/>
+      Sön Mikrosystem Solaris 9
    :::column-end:::
    :::column span="":::
-      SUSE Linux Enterprise 10<br/>
-      SUSE Linux Enterprise 11<br/>
-      SUSE Linux Enterprise 12<br/>
+      SUSE Linux Företag 10<br/>
+      SUSE Linux Företag 11<br/>
+      SUSE Linux Företag 12<br/>
       SUSE Linux Enterprise 8/9<br/>
-      SUSE Linux Enterprise 11<br/>
+      SUSE Linux Företag 11<br/>
       SUSE openSUSE
    :::column-end:::
 :::row-end:::
@@ -391,7 +390,7 @@ I den här vyn visas den beräknade beräknings-och lagrings kostnaden för virt
 <!-- BEGIN U - Z -->
 :::row:::
    :::column span="2":::
-      **U-Z**
+      **U - Z**
    :::column-end:::
 :::row-end:::
 :::row:::
@@ -436,7 +435,7 @@ I den här vyn visas den beräknade beräknings-och lagrings kostnaden för virt
 I den här kursen får du:
 
 > [!div class="checklist"]
-> * Importerade servrar till Azure Migrate: Server utvärdering med hjälp av CSV.
-> * Skapade och granskade en utvärdering.
+> * Importerade servrar till Azure Migrate: Serverutvärdering med csv.
+> * Skapade och granskade en bedömning.
 
-Nu kan du [distribuera en](./migrate-appliance.md) installation för mer exakta utvärderingar och samla in servrar i grupper för djupare utvärdering genom att använda [beroende analys](./concepts-dependency-visualization.md).
+Distribuera [nu en apparat](./migrate-appliance.md) för mer exakta bedömningar och samla servrar till grupper för djupare bedömning med hjälp av [beroendeanalys](./concepts-dependency-visualization.md).

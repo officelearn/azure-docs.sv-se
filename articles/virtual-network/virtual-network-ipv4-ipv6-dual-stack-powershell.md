@@ -11,47 +11,26 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/17/2019
+ms.date: 03/31/2020
 ms.author: kumud
-ms.openlocfilehash: 003d677dcdead5792f932ecfe6350df63184cee2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3cfe80962c11e37c79549a74d7e4b19cd08f4684
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75368354"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80420922"
 ---
-# <a name="deploy-an-ipv6-dual-stack-application-using-basic-load-balancer---powershell-preview"></a>Distribuera ett IPv6-program med dubbla staplar med basic load balancer - PowerShell (förhandsgranskning)
+# <a name="deploy-an-ipv6-dual-stack-application-using-basic-load-balancer---powershell"></a>Distribuera ett IPv6-program med dubbla staplar med basic load balancer - PowerShell
 
-Den här artikeln visar hur du distribuerar ett IPv4 + IPv6-program med enkel belastningsutjämnad med Azure PowerShell som innehåller ett virtuellt nätverk och undernät med dubbla staplar, en grundläggande belastningsutjämnare med dubbla frontend-konfigurationer (IPv4 + IPv6), virtuella datorer med nätverkskort som innehåller nätverkskort som innehåller nätverkskort som innehåller har en dubbel IP-konfiguration, nätverkssäkerhetsgrupp och offentliga IP-adresser.
+Den här artikeln visar hur du distribuerar ett IPv4 + IPv6-program med grundläggande belastningsutjämnare med Azure PowerShell som innehåller ett virtuellt nätverk och undernät med dubbla staplar, en grundläggande belastningsutjämnare med dubbla frontend-konfigurationer (IPv4 + IPv6), virtuella datorer med nätverkskort som har en dubbel IP-konfiguration, nätverkssäkerhetsgrupp och offentliga IP-adresser.
 
 Information om hur du distribuerar ett IPV4 + IPv6-program med standardbelastningsutjämning finns i [Distribuera ett IPv6-program med dubbla staplar med Standard belastningsutjämnare med Azure PowerShell](virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md).
 
-> [!Important]
-> IPv6-stöd för Azure Virtual Network är för närvarande i offentlig förhandsversion. Den här förhandsversionen tillhandahålls utan serviceavtal och rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller kan ha begränsad funktionalitet. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 Om du väljer att installera och använda PowerShell lokalt kräver den här artikeln Azure PowerShell-modul version 6.9.0 eller senare. Kör `Get-Module -ListAvailable Az` för att hitta den installerade versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-Az-ps) (Installera Azure PowerShell-modul). Om du kör PowerShell lokalt måste du också köra `Connect-AzAccount` för att skapa en anslutning till Azure.
 
-## <a name="prerequisites"></a>Krav
-Innan du distribuerar ett program med dubbla stackar i Azure måste du konfigurera prenumerationen för den här förhandsversionen med hjälp av följande Azure PowerShell:
-
-Registrera dig enligt följande:
-
-```azurepowershell
-Register-AzProviderFeature -FeatureName AllowIPv6VirtualNetwork -ProviderNamespace Microsoft.Network
-Register-AzProviderFeature -FeatureName AllowIPv6CAOnStandardLB -ProviderNamespace Microsoft.Network
-```
-Det tar upp till 30 minuter innan funktionsregistreringen är klar. Du kan kontrollera din registreringsstatus genom att köra följande Azure PowerShell-kommando: Kontrollera registreringen på följande sätt:
-```azurepowershell
-Get-AzProviderFeature -FeatureName AllowIPv6VirtualNetwork -ProviderNamespace Microsoft.Network
-Get-AzProviderFeature -FeatureName AllowIPv6CAOnStandardLB -ProviderNamespace Microsoft.Network
-```
-När registreringen är klar kör du följande kommando:
-
-```azurepowershell
-Register-AzResourceProvider -ProviderNamespace Microsoft.Network
-```
 
 ## <a name="create-a-resource-group"></a>Skapa en resursgrupp
 
@@ -272,7 +251,7 @@ Skapa virtuella nätverkskort med [New-AzNetworkInterface](/powershell/module/az
     -PrivateIpAddressVersion IPv4 `
     -LoadBalancerBackendAddressPool $backendPoolv4 `
     -PublicIpAddress  $RdpPublicIP_1
-    
+      
   $Ip6Config=New-AzNetworkInterfaceIpConfig `
     -Name dsIp6Config `
     -Subnet $vnet.subnets[0] `
@@ -373,8 +352,6 @@ Du kan visa det virtuella nätverket IPv6 med dubbla stackar i Azure-portalen p�
 
   ![IPv6 virtuellt nätverk med dubbla staplar i Azure](./media/virtual-network-ipv4-ipv6-dual-stack-powershell/dual-stack-vnet.png)
 
-> [!NOTE]
-> Det virtuella nätverket IPv6 för Azure är tillgängligt i Azure-portalen i skrivskyddad för den här förhandsversionen.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 

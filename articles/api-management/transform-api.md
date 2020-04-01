@@ -14,10 +14,10 @@ ms.topic: tutorial
 ms.date: 02/26/2019
 ms.author: apimpm
 ms.openlocfilehash: 5dec08bd4bc0a63a419d2bdc63383348a69b02db
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "70067473"
 ---
 # <a name="transform-and-protect-your-api"></a>Transformera och skydda ditt API
@@ -26,7 +26,7 @@ I kursen visas hur du kan transformera ditt API så att det inte avslöjar någo
 
 Den här självstudiekursen beskriver också hur du enkelt kan skydda ditt serverdels-API genom att konfigurera frekvensbegränsningar med Azure API Management. Du vill kanske t.ex. begränsa det antal gånger som API:et anropas, så att det inte överutnyttjas av utvecklarna. Mer information finns i [API Management-principer](api-management-policies.md)
 
-I den här guiden får du lära dig att:
+I den här självstudiekursen får du lära du dig att:
 
 > [!div class="checklist"]
 >
@@ -37,7 +37,7 @@ I den här guiden får du lära dig att:
 
 ![Principer](./media/transform-api/api-management-management-console.png)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 -   Lär dig [Azure API Management-terminologin](api-management-terminology.md).
 -   Förstå [begreppet principer i Azure API Management](api-management-howto-policies.md).
@@ -73,14 +73,14 @@ Det ursprungliga svaret ska se ut så här:
 
 1. Välj **Demokonferens-API**.
 2. Överst på skärmen väljer du fliken **Design**.
-3. Välj **Alla åtgärder**.
-4. I avsnittet **Utgående bearbetning** klickar du på ikonen **</>** .
-5. Placera markören i elementet **&lt;utgående&gt;** .
+3. Välj **Alla operationer**.
+4. I avsnittet **Utgående bearbetning** klickar du på ikonen **</>**.
+5. Placera markören inuti det ** &lt;utgående&gt; ** elementet.
 6. Klicka på **+ Konfigurera HTTP-huvud** två gånger under **Transformationsprinciper** i det högra fönstret (så infogas två principkodavsnitt).
 
    ![Principer](./media/transform-api/transform-api.png)
 
-7. Ändra den utgående > koden så att den ser ut så här:  **\<**
+7. Ändra din ** \<utgående>** kod så att den ser ut så här:
 
        <set-header name="X-Powered-By" exists-action="delete" />
        <set-header name="X-AspNet-Version" exists-action="delete" />
@@ -109,28 +109,28 @@ Visa det ursprungliga svaret:
 ### <a name="set-the-transformation-policy"></a>Ange en transformationsprincip
 
 1.  Välj **Demokonferens-API**.
-2.  Välj **Alla åtgärder**.
+2.  Välj **Alla operationer**.
 3.  Överst på skärmen väljer du fliken **Design**.
-4.  I avsnittet **Utgående bearbetning** klickar du på ikonen **</>** .
-5.  Placera markören i elementet **&lt;utgående&gt;** .
+4.  I avsnittet **Utgående bearbetning** klickar du på ikonen **</>**.
+5.  Placera markören inuti det ** &lt;utgående&gt; ** elementet.
 6.  Klicka på **+ Sök och ersätt sträng i brödtext** under **Transformationsprinciper** i det högra fönstret.
-7.  Ersätt URL:en så att den matchar APIM-gatewayen genom att ändra din **find-and-replace**-kod (i **\<outbound\>** -elementet). Exempel:
+7.  Ersätt URL:en så att den matchar APIM-gatewayen genom att ändra din **find-and-replace**-kod (i **\<outbound\>**-elementet). Ett exempel:
 
         <find-and-replace from="://conferenceapi.azurewebsites.net" to="://apiphany.azure-api.net/conference"/>
 
 ## <a name="protect-an-api-by-adding-rate-limit-policy-throttling"></a>Skydda ett API genom att lägga till en princip för frekvensbegränsningar (begränsning)
 
-I det här avsnittet visas hur du lägger till skydd för ditt serverdels-API genom att konfigurera frekvensbegränsningar. Du vill kanske t.ex. begränsa det antal gånger som API:et anropas, så att det inte överutnyttjas av utvecklarna. I det här exemplet anges gränsen till 3 anrop per 15 sekunder för varje prenumerations-ID. Efter 15 sekunder kan en utvecklare försöka att anropa API:et igen.
+I det här avsnittet visas hur du lägger till skydd för ditt serverdels-API genom att konfigurera frekvensbegränsningar. Du vill kanske t.ex. begränsa det antal gånger som API:et anropas, så att det inte överutnyttjas av utvecklarna. I det här exemplet är gränsen inställd på 3 samtal per 15 sekunder för varje prenumerations-ID. Efter 15 sekunder kan en utvecklare försöka anropa API:et igen.
 
 ![Ange princip för inkommande](./media/transform-api/04-ProtectYourAPI-01-SetPolicy-Inbound.png)
 
 1.  Välj **Demokonferens-API**.
-2.  Välj **Alla åtgärder**.
+2.  Välj **Alla operationer**.
 3.  Överst på skärmen väljer du fliken **Design**.
-4.  I avsnittet **Inkommande bearbetning** klickar du på ikonen **</>** .
-5.  Placera markören i elementet **&lt;inkommande&gt;** .
+4.  I avsnittet **Inkommande bearbetning** klickar du på ikonen **</>**.
+5.  Placera markören ** &lt;&gt; ** inuti det inkommande elementet.
 6.  Klicka på **+ Begränsa anropsfrekvens per nyckel** under **Principer för åtkomstbegränsning** i det högra fönstret.
-7.  Ändra din **rate-limit-by-key**-kod (i **\<inbound\>** -elementet) till följande kod:
+7.  Ändra din **rate-limit-by-key**-kod (i **\<inbound\>**-elementet) till följande kod:
 
         <rate-limit-by-key calls="3" renewal-period="15" counter-key="@(context.Subscription.Id)" />
 

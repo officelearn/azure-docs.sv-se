@@ -1,18 +1,18 @@
 ---
-title: 'Snabb start: köra en Linux ASP.NET Core-app'
+title: 'Snabbstart: Kör en Linux-ASP.NET Core-app'
 description: Kom igång med Linux-appar på Azure App Service genom att distribuera din första ASP.NET Core-app till en Linux-behållare i App Service.
 keywords: azure app service, web app, dotnet, core, linux, oss
 ms.assetid: c02959e6-7220-496a-a417-9b2147638e2e
 ms.tgt_pltfrm: linux
 ms.topic: quickstart
 ms.date: 03/27/2019
-ms.custom: seodec18
-ms.openlocfilehash: a23ad0fbe55367552c0747c6199328130fd194d4
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.custom: mvc, cli-validate, seodec18
+ms.openlocfilehash: bd8cb11f5d4881eed4cb4371a7d85fc26818a651
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77524129"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80046206"
 ---
 # <a name="create-an-aspnet-core-app-in-app-service-on-linux"></a>Skapa en ASP.NET Core-app i App Service på Linux
 
@@ -20,7 +20,7 @@ ms.locfileid: "77524129"
 > I den här artikeln distribueras en app till App Service i Linux. Om du vill distribuera en app till App Service i _Windows_ kan du läsa [Skapa en ASP.NET Core-app i Azure](../app-service-web-get-started-dotnet.md).
 >
 
-Med [App Service på Linux](app-service-linux-intro.md) får du en mycket skalbar och automatiskt uppdaterad webbvärdtjänst. Den här snabbstarten visar hur du skapar en [.NET Core](https://docs.microsoft.com/aspnet/core/)-app med App Service på Linux. Du skapar appen med [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) och använder Git för att distribuera .NET Core-koden till appen.
+Med [App Service i Linux](app-service-linux-intro.md) får du en mycket skalbar och automatiskt uppdaterad webbvärdtjänst som utgår från operativsystemet Linux. Den här snabbstarten visar hur du skapar en [.NET Core](https://docs.microsoft.com/aspnet/core/)-app med App Service på Linux. Du skapar appen med [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) och använder Git för att distribuera .NET Core-koden till appen.
 
 ![Exempelapp som körs i Azure](media/quickstart-dotnetcore/dotnet-browse-azure.png)
 
@@ -28,7 +28,7 @@ Du kan följa stegen i den här artikeln på en Mac-, Windows- eller Linux-dator
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att slutföra den här snabbstarten behöver du:
 
@@ -86,7 +86,7 @@ git commit -m "first commit"
 
 [!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-dotnetcore-linux-no-h.md)]
 
-Bläddra till appen som precis skapades. Ersätt _&lt;app-name >_ med ditt namn på appen.
+Bläddra till appen som precis skapades. Ersätt _ &lt;appnamn>_ med ditt appnamn.
 
 ```bash
 http://<app-name>.azurewebsites.net
@@ -156,7 +156,7 @@ git commit -am "updated output"
 git push azure master
 ```
 
-När distributionen är klar går du tillbaka till webbläsarfönstret som öppnades när du skulle **söka efter appen** och klickar på knappen för att uppdatera.
+När distributionen är klar växlar du tillbaka till webbläsarfönstret som öppnades i **steget Bläddra till appen** och uppdaterar.
 
 ![Uppdaterad exempelapp som körs i Azure](media/quickstart-dotnetcore/dotnet-browse-azure-updated.png)
 
@@ -168,7 +168,7 @@ I den vänstra menyn, klickar du på **App Services** och därefter på namnet p
 
 ![Portalnavigering till Azure-app](./media/quickstart-dotnetcore/portal-app-service-list.png)
 
-Du ser din apps översiktssida. Här kan du utföra grundläggande hanteringsåtgärder som att bläddra, stoppa, starta, starta om och ta bort. 
+Nu visas översiktssidan för din app. Här kan du utföra grundläggande hanteringsåtgärder som att bläddra, stoppa, starta, starta om och ta bort. 
 
 ![App Service-sidan på Azure Portal](media/quickstart-dotnetcore/portal-app-overview.png)
 
@@ -179,7 +179,7 @@ Menyn till vänster innehåller olika sidor för att konfigurera appen.
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Självstudie: ASP.NET Core app med SQL Database](tutorial-dotnetcore-sqldb-app.md)
+> [Självstudiekurs: ASP.NET Core-appen med SQL Database](tutorial-dotnetcore-sqldb-app.md)
 
 > [!div class="nextstepaction"]
-> [Konfigurera ASP.NET Core app](configure-language-dotnetcore.md)
+> [Konfigurera ASP.NET Core-appen](configure-language-dotnetcore.md)

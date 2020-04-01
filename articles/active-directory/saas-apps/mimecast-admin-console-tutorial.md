@@ -1,5 +1,5 @@
 ---
-title: 'Självstudie: Azure Active Directory integration med Mimecast-administratörskonsolen | Microsoft Docs'
+title: 'Självstudiekurs: Azure Active Directory-integrering med Mimecast Admin Console | Microsoft-dokument'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Mimecast Admin Console.
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 12/27/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9edadd6462052f82f92c05c1678f845ece856cfb
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73160666"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-mimecast-admin-console"></a>Självstudie: Azure Active Directory integrering med Mimecast-administratörskonsolen
+# <a name="tutorial-azure-active-directory-integration-with-mimecast-admin-console"></a>Självstudiekurs: Azure Active Directory-integrering med Mimecast-administratörskonsolen
 
 I den här självstudien får du lära dig hur du integrerar Mimecast Admin Console med Azure Active Directory (AD Azure).
 Integreringen av Mimecast Admin Console med Azure AD medför följande fördelar:
@@ -33,13 +33,13 @@ Integreringen av Mimecast Admin Console med Azure AD medför följande fördelar
 * Du kan hantera dina konton på en central plats – Azure-portalen.
 
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
+Om du inte har en Azure-prenumeration [skapar du ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
 ## <a name="prerequisites"></a>Krav
 
 För att konfigurera Azure AD-integrering med Mimecast Admin Console behöver du följande:
 
-* En Azure AD-prenumeration. Om du inte har en Azure AD-miljö kan du få en månads utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/)
+* En Azure AD-prenumeration. Om du inte har någon Azure AD-miljö kan du hämta en månads utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/)
 * En Mimecast Admin Console-prenumeration med enkel inloggning aktiverat
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
@@ -54,7 +54,7 @@ För att konfigurera integreringen av Mimecast Admin Console med Azure AD måste
 
 **Utför följande steg för att lägga till Mimecast Admin Console från galleriet:**
 
-1. I **[Azure-portalen](https://portal.azure.com)** , i den vänstra navigeringspanelen, klickar du på **Azure Active Directory**-ikonen.
+1. I **[Azure-portalen](https://portal.azure.com)** går du till den vänstra navigeringspanelen och klickar på **Azure Active Directory**-ikonen.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
@@ -79,9 +79,9 @@ För att konfigurera och testa enkel inloggning i Azure AD med Mimecast Admin Co
 
 1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
 2. **[Konfigurera enkel inloggning för Mimecast Admin Console](#configure-mimecast-admin-console-single-sign-on)** – för att konfigurera inställningarna för enkel inloggning på programsidan.
-3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa en	 med Azure AD med Britta Simon.
+3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
 4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
-5. **[Skapa Mimecast Admin Console-testanvändare](#create-mimecast-admin-console-test-user)**  – för att skapa en motsvarighet till Britta Simon i Mimecast Admin Console som är länkad till Azure AD-representationen av användaren.
+5. **[Skapa Mimecast Admin Console-testanvändare](#create-mimecast-admin-console-test-user)** – för att skapa en motsvarighet till Britta Simon i Mimecast Admin Console som är länkad till Azure AD-representationen av användaren.
 6. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
@@ -92,7 +92,7 @@ Utför följande steg för att konfigurera enkel inloggning i Azure AD med Mimec
 
 1. Välj **Enkel inloggning** på sidan för programintegrering av **Mimecast Admin Console** på [Azure-portalen](https://portal.azure.com/).
 
-    ![Konfigurera enkel inloggning-länk](common/select-sso.png)
+    ![Konfigurera länk för enkel inloggning](common/select-sso.png)
 
 2. I dialogrutan **Välj en metod för enkel inloggning** väljer du läget **SAML/WS-Fed** för att aktivera enkel inloggning.
 
@@ -136,19 +136,19 @@ Utför följande steg för att konfigurera enkel inloggning i Azure AD med Mimec
 
 2. Gå till **Tjänster \> Program**.
 
-    ![Tjänster](./media/mimecast-admin-console-tutorial/ic794998.png "Services")
+    ![Tjänster](./media/mimecast-admin-console-tutorial/ic794998.png "Tjänster")
 
 3. Klicka på **Autentiseringsprofiler**.
 
-    ![Autentiseringsinställningar](./media/mimecast-admin-console-tutorial/ic794999.png "Autentiseringsinställningar")
+    ![Autentiseringsprofiler](./media/mimecast-admin-console-tutorial/ic794999.png "Autentiseringsprofiler")
     
 4. Klicka på **Ny autentiseringsprofil**.
 
-    ![Nya autentiseringsinställningar](./media/mimecast-admin-console-tutorial/ic795000.png "Nya autentiseringsinställningar")
+    ![Nya autentiseringsprofiler](./media/mimecast-admin-console-tutorial/ic795000.png "Nya autentiseringsprofiler")
 
 5. Utför följande steg i avsnittet **Autentiseringsprofil**:
 
-    ![Autentiseringsidentitet](./media/mimecast-admin-console-tutorial/ic795015.png "Autentiseringsidentitet")
+    ![Autentiseringsprofil](./media/mimecast-admin-console-tutorial/ic795015.png "Autentiseringsprofil")
     
     a. Ange ett namn för din konfiguration i textrutan **Beskrivning**.
     
@@ -165,11 +165,11 @@ Utför följande steg för att konfigurera enkel inloggning i Azure AD med Mimec
     >[!NOTE]
     >Värdet för inloggnings-URL:en och värdet för utloggnings-URL:en är samma för Mimecast Admin Console.
     
-    g. Öppna ditt base-64-certifikat som du hämtat från Azure-portalen i Anteckningar. Ta bort den första raden (” *--* ”) och den sista raden (” *--* ”). Kopiera resten av innehållet till Urklipp och klistra in det i textrutan **Identity Provider Certificate (Metadata)** (Certifikat för identitetsprovider (metadata)).
+    g. Öppna ditt bas-64-certifikat som hämtats från Azure-portalen i anteckningar, ta bort den första raden ("*--*") och den sista raden ("*--*"), kopiera det återstående innehållet i det i Urklipp och klistra sedan in det i textrutan **identitetsprovidercertifikat (Metadata).**
     
     h. Välj **Tillåt enkel inloggning**.
     
-    i. Klicka på **Save** (Spara).
+    i. Klicka på **Spara**.
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare 
 
@@ -179,7 +179,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     ![Länkarna ”Användare och grupper” och ”Alla grupper”](common/users.png)
 
-2. Välj **Ny användare** överst på skärmen.
+2. Välj **Ny användare** högst upp på skärmen.
 
     ![Knappen Ny användare](common/new-user.png)
 
@@ -189,7 +189,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     a. I fältet **Namn** anger du **BrittaSimon**.
   
-    b. I fältet **användar namn** skriver du **brittasimon\@yourcompanydomain. extension**  
+    b. I fältet **Användarnamn** skriver **du\@brittasimon yourcompanydomain.extension**  
     Till exempel, BrittaSimon@contoso.com
 
     c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
@@ -208,7 +208,7 @@ I det här avsnittet ska du göra det möjligt för Britta Simon att använda en
 
     ![Mimecast Admin Console-länken i listan över program](common/all-applications.png)
 
-3. I menyn till vänster väljer du **Användare och grupper**.
+3. På menyn till vänster väljer du **Användare och grupper**.
 
     ![Länken ”Användare och grupper”](common/users-groups-blade.png)
 
@@ -218,7 +218,7 @@ I det här avsnittet ska du göra det möjligt för Britta Simon att använda en
 
 5. I dialogrutan **Användare och grupper** väljer du **Britta Simon** i listan med användare och klickar på knappen **Välj** längst ned på skärmen.
 
-6. Om du förväntar dig ett rollvärde i SAML-försäkran väljer du i dialogrutan **Välj roll** lämplig roll för användaren i listan och klickar sedan på knappen **Välj** längst ned på skärmen.
+6. Om du förväntar dig något rollvärde i SAML-påståendet väljer du lämplig roll för användaren i listan i dialogrutan **Välj roll** och klickar sedan på knappen **Välj** längst ned på skärmen.
 
 7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
 
@@ -228,7 +228,7 @@ För att Azure AD-användare ska kunna logga in i Mimecast Admin Console måste 
 
 * Du måste registrera en domän innan du kan skapa användare.
 
-**Utför följande steg för att konfigurera användarförsörjning:**
+**Konfigurera användaretablering genom att utföra följande steg:**
 
 1. Logga in i **Mimecast Admin Console** som administratör.
 
@@ -250,7 +250,7 @@ För att Azure AD-användare ska kunna logga in i Mimecast Admin Console måste 
    
     a. Ange attributen **E-postadress**, **Globalt namn**, **Lösenord** och **Bekräfta lösenord** för ett giltigt Azure AD-konto som du vill etablera i de relevanta textrutorna.
 
-    b. Klicka på **Save** (Spara).
+    b. Klicka på **Spara**.
 
 >[!NOTE]
 >Du kan etablera Azure AD-användarkonton med hjälp av andra API:er eller genereringsverktyg för Mimecast Admin Console-användarkonton som är tillgängliga för Mimecast Admin Console. 
@@ -259,7 +259,7 @@ För att Azure AD-användare ska kunna logga in i Mimecast Admin Console måste 
 
 I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-När du klickar på panelen för Mimecast Admin Console på åtkomstpanelen bör du loggas in automatiskt i Mimecast Admin Console-programmet som du har konfigurerat enkel inloggning för. I [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) får du mer information.
+När du klickar på panelen för Mimecast Admin Console på åtkomstpanelen bör du loggas in automatiskt i Mimecast Admin Console-programmet som du har konfigurerat enkel inloggning för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 

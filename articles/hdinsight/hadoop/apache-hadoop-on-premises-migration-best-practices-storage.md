@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 12/10/2019
-ms.openlocfilehash: b68e438a01f9f771c16fc712597308089f628f62
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f19d4adad675cdf95f59aca0f752f46211b75e8f
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79409481"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80436921"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight"></a>Migrera lokala Apache Hadoop-kluster till Azure HDInsight
 
@@ -52,7 +52,7 @@ Du kan skapa [blob-ögonblicksbilder](https://docs.microsoft.com/rest/api/storag
 
 Följande metoder kan användas för att importera certifikat till Java-förtroendearkivet:
 
-Ladda ned Azure Blob SSL-certifikatet till en fil
+Ladda ned Azure Blob TLS/SSL-certifikatet till en fil
 
 ```bash
 echo -n | openssl s_client -connect <storage-account>.blob.core.windows.net:443 | sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' > Azure_Storage.cer

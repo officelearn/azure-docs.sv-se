@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: 972b5415b85e82a5afdaf7d85d3a3bcb9e144d4d
-ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
+ms.openlocfilehash: 5d947cf41e13abdea9a2fd29f8a740d0c101dc6f
+ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2020
-ms.locfileid: "80384950"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80397902"
 ---
 # <a name="workflow-automation"></a>Arbetsflödesautomation
 
@@ -96,10 +96,11 @@ Om du vill visa råa händelsescheman för säkerhetsaviseringar eller rekommend
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här artikeln lärde du dig om hur du skapar Logic Apps, kör dem manuellt i Security Center och automatiserar körningen. 
+I den här artikeln lärde du dig om hur du skapar Logic Apps, automatiserar deras körning i Security Center och körde dem manuellt. 
 
-För annat relaterat material, se följande artiklar: 
+För annat relaterat material, se: 
 
+- [Microsoft Learn-modulen om hur du använder automatisering av arbetsflöden för att automatisera ett säkerhetssvar](https://docs.microsoft.com/learn/modules/resolve-threats-with-azure-security-center/)
 - [Säkerhetsrekommendationer i Azure Security Center](security-center-recommendations.md)
 - [Säkerhetsaviseringar i Azure Security Center](security-center-alerts-overview.md)
 - [Om Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview)

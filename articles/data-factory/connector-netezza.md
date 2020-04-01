@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 09/02/2019
 ms.author: jingwang
-ms.openlocfilehash: c51469997af23be7a5e1b88677ecadb37e10ac64
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c7e17f7c4493560bd6118b8d4837fd795a6ab0c8
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79244542"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80422866"
 ---
 # <a name="copy-data-from-netezza-by-using-azure-data-factory"></a>Kopiera data från Netezza med hjälp av Azure Data Factory
 
@@ -43,7 +43,7 @@ Azure Data Factory tillhandahåller en inbyggd drivrutin för anslutning. Du beh
 
 [!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
 
-## <a name="get-started"></a>Komma igång
+## <a name="get-started"></a>Kom igång
 
 Du kan skapa en pipeline som använder en kopieringsaktivitet med hjälp av .NET SDK, Python SDK, Azure PowerShell, REST API eller en Azure Resource Manager-mall. Se [självstudien Kopiera aktivitet](quickstart-create-data-factory-dot-net.md) för steg-för-steg-instruktioner om hur du skapar en pipeline som har en kopieringsaktivitet.
 
@@ -158,7 +158,7 @@ Om du vill kopiera data från Netezza anger du **källtypen** i Kopiera aktivite
 |:--- |:--- |:--- |
 | typ | **Egenskapen Type** property för källan Kopiera aktivitet måste anges till **NetezzaSource**. | Ja |
 | DocumentDB | Använd den anpassade SQL-frågan för att läsa data. Exempel: `"SELECT * FROM MyTable"` | Nej (om "tableName" i datauppsättningen har angetts) |
-| partitionOptions | Anger de datapartitionsalternativ som används för att läsa in data från Netezza. <br>Tillåt värden är: **Ingen** (standard), **DataSlice**och **DynamicRange**.<br>När ett partitionsalternativ är aktiverat (det vill ha ), `None`styrs graden av parallellitet till samtidig inläsning av data från en Netezza-databas genom [`parallelCopies`](copy-activity-performance.md#parallel-copy) att ange på kopieringsaktiviteten. | Inga |
+| partitionOptions | Anger de datapartitionsalternativ som används för att läsa in data från Netezza. <br>Tillåt värden är: **Ingen** (standard), **DataSlice**och **DynamicRange**.<br>När ett partitionsalternativ är aktiverat (det vill ha ), `None`styrs graden av parallellitet till samtidig inläsning av data från en Netezza-databas genom [`parallelCopies`](copy-activity-performance-features.md#parallel-copy) att ange på kopieringsaktiviteten. | Inga |
 | partitionSätta | Ange gruppen för inställningarna för datapartitionering. <br>Använd när partitionsalternativet `None`inte är . | Inga |
 | partitionColumnName | Ange namnet på källkolumnen **i heltalstyp** som ska användas av områdespartitionering för parallellkopia. Om inget anges, är den primära nyckeln i tabellen automatisktdet och används som partitionskolumnen. <br>Använd när partitionsalternativet är `DynamicRange`. Om du använder en fråga för `?AdfRangePartitionColumnName` att hämta källdata ansluter du WHERE-satsen. Se exempel i [Parallellkopia från avsnittet Netezza.](#parallel-copy-from-netezza) | Inga |
 | partitionUpperBound | Det maximala värdet för partitionskolumnen för att kopiera data ut. <br>Använd när partitionsalternativet är `DynamicRange`. Om du använder frågan för `?AdfRangePartitionUpbound` att hämta källdata ansluter du WHERE-satsen. Ett exempel finns i avsnittet [Parallellkopia från Netezza.](#parallel-copy-from-netezza) | Inga |
@@ -202,7 +202,7 @@ Data Factory Netezza-anslutningen tillhandahåller inbyggd datapartitionering f�
 
 ![Skärmbild av partitionsalternativ](./media/connector-netezza/connector-netezza-partition-options.png)
 
-När du aktiverar partitionerad kopia kör Data Factory parallella frågor mot Netezza-källan för att läsa in data efter partitioner. Den parallella graden [`parallelCopies`](copy-activity-performance.md#parallel-copy) styrs av inställningen på kopieringsaktiviteten. Om du till `parallelCopies` exempel anger fyra genererar och kör Data Factory samtidigt fyra frågor baserat på det angivna partitionsalternativet och inställningarna, och varje fråga hämtar en del data från Netezza-databasen.
+När du aktiverar partitionerad kopia kör Data Factory parallella frågor mot Netezza-källan för att läsa in data efter partitioner. Den parallella graden [`parallelCopies`](copy-activity-performance-features.md#parallel-copy) styrs av inställningen på kopieringsaktiviteten. Om du till `parallelCopies` exempel anger fyra genererar och kör Data Factory samtidigt fyra frågor baserat på det angivna partitionsalternativet och inställningarna, och varje fråga hämtar en del data från Netezza-databasen.
 
 Du föreslås aktivera parallellkopiering med datapartitionering, särskilt när du läser in stora mängder data från Netezza-databasen. Följande är föreslagna konfigurationer för olika scenarier. När du kopierar data till filbaserat datalager rekommenderas att skriva till en mapp som flera filer (ange bara mappnamn), i vilket fall prestandan är bättre än att skriva till en enda fil.
 

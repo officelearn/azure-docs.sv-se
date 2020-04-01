@@ -11,12 +11,12 @@ ms.author: copeters
 author: lostmygithubaccount
 ms.date: 11/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3c481a2e12d83e865025cd90e59e0eba572ad9a5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 44acc81df9eb6dc6a6af28b5b0f4730aa93adffc
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75771401"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80475441"
 ---
 # <a name="collect-data-for-models-in-production"></a>Samla in data för modeller i produktion
 
@@ -129,11 +129,7 @@ Om du redan har en tjänst med beroenden installerade i miljöfilen och bedömni
 
    ![Redigera tjänsten](././media/how-to-enable-data-collection/EditService.PNG)
 
-1. I **Avancerade inställningar**väljer du Aktivera **datainsamling av modell**.
-
-    [![Välj datainsamling](./media/how-to-enable-data-collection/CheckDataCollection.png)](././media/how-to-enable-data-collection/CheckDataCollection.png#lightbox)
-
-   Du kan också välja **Aktivera AppInsights diagnostik** för att spåra hälsotillståndet för din tjänst.
+1. I **Avancerade inställningar**väljer du Aktivera diagnostik och datainsamling för **programinsikter**.
 
 1. Välj **Uppdatera** om du vill tillämpa ändringarna.
 
@@ -151,9 +147,7 @@ Du kan när som helst sluta samla in data. Använd Python-kod eller Azure Machin
 
    [![Välj alternativet Redigera](././media/how-to-enable-data-collection/EditService.PNG)](./././media/how-to-enable-data-collection/EditService.PNG#lightbox)
 
-1. I **Avancerade inställningar**avmarkerar du Aktivera **datainsamling av modell**.
-
-    [![Avmarkera kryssrutan Datainsamling](./media/how-to-enable-data-collection/UncheckDataCollection.png)](././media/how-to-enable-data-collection/UncheckDataCollection.png#lightbox)
+1. I **Avancerade inställningar**rensar du Aktivera diagnostik och datainsamling för **programinsikter**.
 
 1. Välj **Uppdatera** om du vill tillämpa ändringen.
 

@@ -1,26 +1,26 @@
 ---
-title: Självstudie – konfigurera kod tillägget för Azure terraform Visual Studio
+title: Självstudiekurs - Konfigurera azure Terraform Visual Studio-kodtillägget
 description: Lär dig hur du installerar och använder tillägget Azure Terraform i Visual Studio Code.
 ms.topic: tutorial
 ms.date: 10/26/2019
 ms.openlocfilehash: fcb47024fd26f061ca4475b01d00f1ae13303b61
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/19/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77472289"
 ---
-# <a name="tutorial-configure-the-azure-terraform-visual-studio-code-extension"></a>Självstudie: Konfigurera Azure-terraform Visual Studio Code extension
+# <a name="tutorial-configure-the-azure-terraform-visual-studio-code-extension"></a>Självstudiekurs: Konfigurera Azure Terraform Visual Studio-kodtillägget
 
-Med tillägget Azure terraform Visual Studio Code kan du arbeta med terraform från redigeraren. Med det här tillägget kan du redigera, testa och köra terraform-konfigurationer. Tillägget stöder även resurs diagram visualisering.
+Azure Terraform Visual Studio Code-tillägget gör att du kan arbeta med Terraform från redigeraren. Med det här tillägget kan du skapa, testa och köra Terraform-konfigurationer. Tillägget stöder också visualisering av resursdiagram.
 
 I den här artikeln kan du se hur du:
 > [!div class="checklist"]
-> * Automatisera etableringen av Azure-tjänster med terraform
-> * Installera och Använd terraform Visual Studio Code-tillägget för Azure-tjänster.
-> * Använd Visual Studio Code för att skriva, planera och köra terraform-planer.
+> * Automatisera etableringen av Azure-tjänster med Terraform
+> * installera och använda tillägget Terraform Visual Studio Code för Azure-tjänster.
+> * Använd Visual Studio Code för att skriva, planera och köra Terraform-planer.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 - **Azure-prenumeration**: Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) innan du börjar.
 
 - **Terraform**: [Installera och konfigurera Terraform](terraform-install-configure.md).
@@ -138,7 +138,7 @@ I den här övningen ska du skapa och köra en grundläggande Terraform-konfigur
 
     ![Vill du öppna Cloud Shell?](media/terraform-vscode-extension/tf-do-you-want-to-open-cloud-shell.png)
 
-1. Första gången du startar Cloud Shell från en ny mapp uppmanas du att skapa ett webb program. Välj **Öppna**.
+1. Första gången du startar Cloud Shell från en ny mapp uppmanas du att skapa ett webbprogram. Välj **Öppna**.
 
     ![Första starten av Cloud Shell](media/terraform-vscode-extension/tf-first-launch-of-cloud-shell.png)
 
@@ -159,7 +159,7 @@ I den här övningen ska du skapa och köra en grundläggande Terraform-konfigur
 
 1. Du kan stänga Cloud Shell
 
-1. Från menyraden väljer du **Visa** > **Kommandopalett** > **Azure Terraform: init**.
+1. På menyraden väljer du **Visa** > **kommandopaletten** > **Azure Terraform: init**.
 
     ![Terraform har initierats](media/terraform-vscode-extension/tf-terraform-has-been-successfully-initialized.png)
 
@@ -178,7 +178,7 @@ Terraform-kommandot *plan* används för att kontrollera om körningsplanen för
 >[!NOTE]
 >Terraform-kommandot *plan* gör inte några ändringar i de verkliga Azure-resurserna. För att faktiskt göra ändringarna i din plan använder vi Terraform-kommandot *apply*.
 
-- Från menyraden väljer du **Visa** > **Kommandopalett** > **Azure Terraform: plan**.
+- Välj **Visa** > **kommandopalett** > **Azure Terraform: planera**på menyraden .
 
     ![Terraform-plan](media/terraform-vscode-extension/tf-terraform-plan.png)
 
@@ -186,7 +186,7 @@ Terraform-kommandot *plan* används för att kontrollera om körningsplanen för
 
 När du är nöjd med resultatet från Terraform-kommandot *plan* kan du köra kommandot *apply*.
 
-1. Från menyraden väljer du **Visa** > **Kommandopalett** > **Azure Terraform: apply**.
+1. Välj **Visa** > **kommandopaletten** > Azure Terraform på menyraden:**använd**.
 
     ![Terraform-kommandot apply](media/terraform-vscode-extension/tf-terraform-apply.png)
 
@@ -211,7 +211,7 @@ Din nya resursgrupp bör visas i kolumnen **NAMN**.
 
 ### <a name="run-terraform-destroy-command"></a>Kör Terraform-kommandot *destroy*
 
-1. Från menyraden väljer du **Visa** > **Kommandopalett** > **Azure Terraform: destroy**.
+1. Välj **Visa** > **kommandopaletten** > **Azure Terraform**på menyraden.
 
     ![Terraform-kommandot destroy](media/terraform-vscode-extension/tf-terraform-destroy.png)
 

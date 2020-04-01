@@ -1,5 +1,5 @@
 ---
-title: 'Självstudie: diagnostisera ett problem med Routning av VM-nätverk – Azure Portal'
+title: 'Självstudiekurs: Diagnostisera ett problem med vm-nätverksroutning – Azure-portal'
 titleSuffix: Azure Network Watcher
 description: I den här självstudien får du lära dig hur du diagnostiserar problem med nätverksroutning för virtuella datorer med funktionen för nästa hopp i Azure Network Watcher.
 services: network-watcher
@@ -18,15 +18,15 @@ ms.date: 04/20/2018
 ms.author: damendo
 ms.custom: mvc
 ms.openlocfilehash: 52d398fa9c258528ef8f87842ba94f139bbf737b
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "76845216"
 ---
 # <a name="tutorial-diagnose-a-virtual-machine-network-routing-problem-using-the-azure-portal"></a>Självstudie: Diagnostisera problem med nätverksroutning i Azure Portal
 
-När du distribuerar en virtuell dator (VM) skapas flera standardvägar i Azure för den. Du kan skapa egna vägar som ersätter Azures standardvägar. Ibland kan en egen väg leda till att en virtuell dator inte kan kommunicera med andra resurser. I den här guiden får du lära dig hur man:
+När du distribuerar en virtuell dator (VM) skapas flera standardvägar i Azure för den. Du kan skapa egna vägar som ersätter Azures standardvägar. Ibland kan en egen väg leda till att en virtuell dator inte kan kommunicera med andra resurser. I den här självstudiekursen får du lära du dig att:
 
 > [!div class="checklist"]
 > * Skapa en virtuell dator
@@ -36,7 +36,7 @@ När du distribuerar en virtuell dator (VM) skapas flera standardvägar i Azure 
 
 Om du vill kan du diagnostisera problem med nätverksroutning via [Azures CLI](diagnose-vm-network-routing-problem-cli.md) eller [Azure PowerShell](diagnose-vm-network-routing-problem-powershell.md).
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
 
 ## <a name="log-in-to-azure"></a>Logga in på Azure
 
@@ -46,13 +46,13 @@ Logga in på Azure Portal på https://portal.azure.com.
 
 1. Klicka på **+ Skapa en resurs** längst upp till vänster på Azure Portal.
 2. Välj **Compute** och välj sedan **Windows Server 2016 Datacenter** eller **Ubuntu Server 17.10 VM**.
-3. Ange eller välj följande information, acceptera standardinställningarna för återstående inställningar och välj sedan **OK**:
+3. Ange, eller välj, följande information, acceptera standardinställningarna för de återstående inställningarna och välj sedan **OK:**
 
     |Inställning|Värde|
     |---|---|
     |Namn|myVm|
     |Användarnamn| Ange ett valfritt användarnamn.|
-    |Lösenord| Ange ett valfritt lösenord. Lösenordet måste vara minst 12 tecken långt och uppfylla [de definierade kraven på komplexitet](../virtual-machines/windows/faq.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
+    |lösenord| Ange ett valfritt lösenord. Lösenordet måste vara minst 12 tecken långt och uppfylla [de definierade kraven på komplexitet](../virtual-machines/windows/faq.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
     |Prenumeration| Välj din prenumeration.|
     |Resursgrupp| Välj **Skapa ny** och skriv **myResourceGroup**.|
     |Location| Välj **USA, östra**|
@@ -89,7 +89,7 @@ Azure skapar automatiskt vägar till olika standardmål. Du kan skapa egna väga
     | Virtuell dator         | Välj myVm                                            |
     | Nätverksgränssnitt       | myvm – namnet på ditt nätverksgränssnitt kan vara ett annat.   |
     | Källans IP-adress       | 10.0.0.4                                               |
-    | Mål-IP-adress  | 13.107.21.200 – en av adresserna för < www. Bing. com >. |
+    | Mål-IP-adress  | 13.107.21.200 - En av adresserna för <www.bing.com>. |
 
     ![Nästa hopp](./media/diagnose-vm-network-routing-problem/next-hop.png)
 
@@ -106,7 +106,7 @@ Azure skapar automatiskt vägar till olika standardmål. Du kan skapa egna väga
 
     När du körde testet med 13.107.21.200 i [Använda funktionen för nästa hopp](#use-next-hop) användes routningen med adressprefixet 0.0.0.0/0 till att dirigera trafik till adressen, eftersom ingen annan väg innehåller adressen. Som standard dirigeras alla adresser som inte anges inom adressprefixet till en annan väg till internet.
 
-    När du körde testet med 172.31.0.100 såg du däremot i resultatet att det inte fanns någon typ av nästa hopp. Som du ser i föregående bild är dock **Nästa hopptyp** **Ingen**, även om det finns en standardväg till prefixet 172.16.0.0/12 som innehåller adressen 172.31.0.100. Azure skapar en standardväg till 172.16.0.0/12 men anger inte en nästa hopptyp förrän det finns någon anledning till det. Om du till exempel lägger till adressintervallet 172.16.0.0/12 i adressutrymmet för det virtuella nätverket så ändrar Azure **Nästa hopptyp** till **Virtuellt nätverk** för vägen. Då skulle **Virtuellt nätverk** visas som **Nästa hopptyp**.
+    När du körde testet med 172.31.0.100 såg du däremot i resultatet att det inte fanns någon typ av nästa hopp. Som du ser i föregående bild är dock **Nästa hopptyp****Ingen**, även om det finns en standardväg till prefixet 172.16.0.0/12 som innehåller adressen 172.31.0.100. Azure skapar en standardväg till 172.16.0.0/12 men anger inte en nästa hopptyp förrän det finns någon anledning till det. Om du till exempel lägger till adressintervallet 172.16.0.0/12 i adressutrymmet för det virtuella nätverket så ändrar Azure **Nästa hopptyp** till **Virtuellt nätverk** för vägen. Då skulle **Virtuellt nätverk** visas som **Nästa hopptyp**.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
@@ -114,7 +114,7 @@ Ta bort resursgruppen, skalningsuppsättningen och alla resurser som den innehå
 
 1. Skriv *myResourceGroup* i **sökrutan** överst i portalen. När du ser **myResourceGroup** i sökresultatet väljer du den.
 2. Välj **Ta bort resursgrupp**.
-3. Skriv *myResourceGroup* där du uppmanas att **skriva resursgruppens namn:** (Skriv resursgruppens namn) och välj **Ta bort**.
+3. Skriv *myResourceGroup* i **SKRIV RESURSGRUPPSNAMNET:** och välj **Ta bort**.
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -13,17 +13,17 @@ ms.date: 08/28/2019
 ms.author: ryanwi
 ms.reviewer: sureshja
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 9fd5fa943468924c289587285fe7986a73c21dba
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 701aadcbfe03c82f6a4c341ef9698f8a1bf1a347
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77161349"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80476583"
 ---
 # <a name="how-to-use-the-azure-ad-graph-api"></a>Så här: Använd Azure AD Graph API
 
 > [!IMPORTANT]
-> Vi rekommenderar starkt att du använder [Microsoft Graph](https://developer.microsoft.com/graph) i stället för Azure AD Graph API för att komma åt Azure Active Directory (Azure AD) resurser. Vårt utvecklingsarbete koncentreras nu till Microsoft Graph och inga fler förbättringar planeras för Azure AD Graph API. Det finns ett mycket begränsat antal scenarier som Azure AD Graph API fortfarande kan vara lämpligt för. Mer information finns i [Microsoft Graph eller Azure AD Graph-blogginlägget](https://dev.office.com/blogs/microsoft-graph-or-azure-ad-graph) och migrera Azure AD [Graph-appar till Microsoft Graph](https://docs.microsoft.com/graph/migrate-azure-ad-graph-overview).
+> Vi rekommenderar starkt att du använder [Microsoft Graph](https://developer.microsoft.com/graph) i stället för Azure AD Graph API för att komma åt Azure Active Directory (Azure AD) resurser. Vårt utvecklingsarbete koncentreras nu till Microsoft Graph och inga fler förbättringar planeras för Azure AD Graph API. Det finns ett mycket begränsat antal scenarier som Azure AD Graph API fortfarande kan vara lämpligt för. Mer information finns i [Microsoft Graph eller Azure AD Graph-blogginlägget](https://developer.microsoft.com/office/blogs/microsoft-graph-or-azure-ad-graph/) och migrera Azure AD [Graph-appar till Microsoft Graph](https://docs.microsoft.com/graph/migrate-azure-ad-graph-overview).
 
 Azure AD Graph API ger programmatisk åtkomst till Azure AD via OData REST API-slutpunkter. Program kan använda Azure AD Graph API för att utföra åtgärder för att skapa, läsa, uppdatera och ta bort (CRUD) på katalogdata och objekt. Du kan till exempel använda Azure AD Graph API för att skapa en ny användare, visa eller uppdatera användarens egenskaper, ändra användarens lösenord, kontrollera gruppmedlemskap för rollbaserad åtkomst, inaktivera eller ta bort användaren. Mer information om Azure AD Graph API-funktioner och programscenarier finns i Azure [AD Graph API-](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog) och [Azure AD Graph API-förutsättningar](https://msdn.microsoft.com/library/hh974476.aspx). Azure AD Graph API fungerar bara med jobb- eller skol-/organisationskonton.
 

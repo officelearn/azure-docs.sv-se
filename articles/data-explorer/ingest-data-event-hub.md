@@ -7,18 +7,18 @@ ms.reviewer: tzgitlin
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 01/08/2020
-ms.openlocfilehash: bb9357ca4388bd1fb7ae3e3704cf4112d07c1105
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: bce92eeed669628fa1b6318abd6b0c13f7e84848
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77188194"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80411203"
 ---
 # <a name="ingest-data-from-event-hub-into-azure-data-explorer"></a>Mata in data från Event Hub i Azure Data Explorer
 
 > [!div class="op_single_selector"]
-> * [Portal](ingest-data-event-hub.md)
-> * [C#](data-connection-event-hub-csharp.md)
+> * [Portalen](ingest-data-event-hub.md)
+> * [C #](data-connection-event-hub-csharp.md)
 > * [Python](data-connection-event-hub-python.md)
 > * [Azure Resource Manager-mall](data-connection-event-hub-resource-manager.md)
 
@@ -92,7 +92,7 @@ Nu ska du skapa en tabell i Azure Data Explorer som Event Hubs skickar data till
 1. Kopiera följande kommando till fönstret och välj **Kör** för att mappa inkommande JSON-data till kolumnnamnen och datatyperna i tabellen (TestTable).
 
     ```Kusto
-    .create table TestTable ingestion json mapping 'TestMapping' '[{"column":"TimeStamp","path":"$.timeStamp","datatype":"datetime"},{"column":"Name","path":"$.name","datatype":"string"},{"column":"Metric","path":"$.metric","datatype":"int"},{"column":"Source","path":"$.source","datatype":"string"}]'
+    .create table TestTable ingestion json mapping 'TestMapping' '[{"column":"TimeStamp", "Properties": {"Path": "$.timeStamp"}},{"column":"Name", "Properties": {"Path":"$.name"}} ,{"column":"Metric", "Properties": {"Path":"$.metric"}}, {"column":"Source", "Properties": {"Path":"$.source"}}]'
     ```
 
 ## <a name="connect-to-the-event-hub"></a>Ansluta till händelsehubben
@@ -129,7 +129,7 @@ Nu ansluter du till händelsehubben från Azure-datautforskaren. När den här a
      **Inställning** | **Föreslaget värde** | **Fältbeskrivning**
     |---|---|---|
     | Tabell | *TestTable* | Tabellen som du skapade i **TestDatabase**. |
-    | Dataformat | *Json* | Format som stöds är Avro, CSV, JSON, MULTILINE JSON, PSV, SOHSV, SCSV, TSV, TSVE, TXT, ORC och PARKETT. |
+    | Dataformat | *JSON* | Format som stöds är Avro, CSV, JSON, MULTILINE JSON, PSV, SOHSV, SCSV, TSV, TSVE, TXT, ORC och PARKETT. |
     | Kolumnmappning | *TestMapping* | [Mappningen](/azure/kusto/management/mappings) som du skapade i **TestDatabase**, som mappar inkommande JSON-data till kolumnnamn och datatyper i **TestTable**. Krävs för JSON eller MULTILINE JSON, och som tillval för andra format.|
     | | |
 

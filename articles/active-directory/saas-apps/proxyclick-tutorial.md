@@ -1,6 +1,6 @@
 ---
-title: 'Självstudier: Azure Active Directory-integrering med Proxyclick | Microsoft Docs'
-description: I de här självstudierna lär du dig att konfigurera enkel inloggning mellan Azure Active Directory och Proxyclick.
+title: 'Självstudiekurs: Azure Active Directory-integrering med Proxyclick | Microsoft-dokument'
+description: I den här självstudien får du lära dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Proxyclick.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -16,194 +16,194 @@ ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
 ms.openlocfilehash: 6a4d1c8a390ebd1194d14c057bb32d3111bf39be
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67093497"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-proxyclick"></a>Självstudier: Azure Active Directory-integrering med Proxyclick
+# <a name="tutorial-azure-active-directory-integration-with-proxyclick"></a>Självstudiekurs: Azure Active Directory-integrering med Proxyclick
 
-I de här självstudierna lär du dig att integrera Proxyclick med Azure Active Directory (AD Azure).
-Den här integrationen har följande fördelar:
+I den här självstudien får du lära dig hur du integrerar Proxyclick med Azure Active Directory (Azure AD).
+Den här integrationen ger följande fördelar:
 
-* Du kan använda Azure AD för att kontrollera vem som har åtkomst till Proxyclick.
-* Du kan aktivera användarna att logga in automatiskt till Proxyclick (enkel inloggning) med sina Azure AD-konton.
+* Du kan använda Azure AD för att styra vem som har åtkomst till Proxyclick.
+* Du kan aktivera dina användare så att de automatiskt loggas in på Proxyclick (enkel inloggning) med sina Azure AD-konton.
 * Du kan hantera dina konton på en central plats: Azure-portalen.
 
 Läs mer om SaaS-appintegrering med Azure AD i [Enkel inloggning till program i Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
+Om du inte har en Azure-prenumeration [skapar du ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
-Om du vill konfigurera Azure AD-integrering med Proxyclick, måste du ha:
+Om du vill konfigurera Azure AD-integrering med Proxyclick måste du ha:
 
-* En Azure AD-prenumeration. Om du inte har en Azure AD-miljö kan du registrera dig för en [utvärderingsmånad](https://azure.microsoft.com/pricing/free-trial/).
-* En Proxyclick-prenumeration som har enkel inloggning aktiverat.
+* En Azure AD-prenumeration. Om du inte har en Azure AD-miljö kan du registrera dig för en [månads utvärderingsversion](https://azure.microsoft.com/pricing/free-trial/).
+* En Proxyclick-prenumeration som har enkel inloggning aktiverad.
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
-I den här självstudien får du konfigurera och testa Azure AD enkel inloggning i en testmiljö.
+I den här självstudien konfigurerar och testar du Azure AD enkel inloggning i en testmiljö.
 
-* Proxyclick stöder SP-initierat och IdP-initierad SSO.
+* Proxyclick stöder SP-initierad och IdP-initierad SSO.
 
 ## <a name="add-proxyclick-from-the-gallery"></a>Lägg till Proxyclick från galleriet
 
-Om du vill konfigurera integrering av Proxyclick i Azure AD, som du behöver lägga till Proxyclick från galleriet i din lista över hanterade SaaS-appar.
+Om du vill konfigurera integreringen av Proxyclick i Azure AD måste du lägga till Proxyclick från galleriet i listan över hanterade SaaS-appar.
 
-1. I den [Azure-portalen](https://portal.azure.com), i den vänstra rutan väljer **Azure Active Directory**:
+1. Välj **Azure Active Directory**i [Azure-portalen](https://portal.azure.com)i den vänstra rutan:
 
     ![Välj Azure Active Directory](common/select-azuread.png)
 
-2. Gå till **företagsprogram** > **alla program**:
+2. Gå till **Enterprise-program** > **Alla program:**
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-3. Om du vill lägga till ett program, Välj **nytt program** överst i fönstret:
+3. Om du vill lägga till ett program väljer du **Nytt program** högst upp i fönstret:
 
-    ![Välj nytt program](common/add-new-app.png)
+    ![Välj Nytt program](common/add-new-app.png)
 
-4. I sökrutan anger **Proxyclick**. Välj **Proxyclick** i sökresultatet och välj sedan **Lägg till**.
+4. Ange **Proxyclick**i sökrutan . Välj **Proxyclick** i sökresultaten och välj sedan **Lägg till**.
 
      ![Sökresultat](common/search-new-app.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
-I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med Proxyclick med hjälp av en användare med namnet Britta Simon.
-Om du vill aktivera enkel inloggning, måste du upprätta en relation mellan en Azure AD-användare och motsvarande användare i Proxyclick.
+I det här avsnittet konfigurerar och testar du Azure AD enkel inloggning med Proxyclick med hjälp av en testanvändare som heter Britta Simon.
+Om du vill aktivera enkel inloggning måste du upprätta en relation mellan en Azure AD-användare och motsvarande användare i Proxyclick.
 
-Om du vill konfigurera och testa Azure AD enkel inloggning med Proxyclick, måste du slutföra de här stegen:
+Om du vill konfigurera och testa en enkel Azure AD-inloggning med Proxyclick måste du utföra följande steg:
 
-1. **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on)**  att aktivera funktionen för dina användare.
-2. **[Konfigurera Proxyclick enkel inloggning](#configure-proxyclick-single-sign-on)**  på programsidan.
-3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  att testa Azure AD enkel inloggning.
-4. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  att aktivera Azure AD enkel inloggning för användaren.
-5. **[Skapa en testanvändare Proxyclick](#create-a-proxyclick-test-user)**  som är länkad till en Azure AD-representation av användaren.
-6. **[Testa enkel inloggning](#test-single-sign-on)**  att kontrollera att konfigurationen fungerar.
+1. **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on)** för att aktivera funktionen för dina användare.
+2. **[Konfigurera Proxyclick enkel inloggning på](#configure-proxyclick-single-sign-on)** programsidan.
+3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** för att testa Azure AD enkel inloggning.
+4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** för att aktivera azure AD-enkel inloggning för användaren.
+5. **[Skapa en Proxyclick-testanvändare](#create-a-proxyclick-test-user)** som är länkad till Azure AD-representationen för användaren.
+6. **[Testa enkel inloggning](#test-single-sign-on)** för att kontrollera att konfigurationen fungerar.
 
-### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera Azure AD enkel inloggning
+### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
-I det här avsnittet ska du aktivera Azure AD enkel inloggning i Azure-portalen.
+I det här avsnittet aktiverar du enkel Azure AD-inloggning i Azure-portalen.
 
-Konfigurera Azure AD enkel inloggning med Proxyclick genom att göra följande:
+Så här konfigurerar du en enkel Azure AD-inloggning med Proxyclick:
 
-1. I den [Azure-portalen](https://portal.azure.com/), på sidan Proxyclick application integration väljer **enkel inloggning**:
+1. Välj Enkel inloggning på sidan Proxyclick-programintegrering i [Azure-portalen](https://portal.azure.com/): **Single sign-on**
 
     ![Välj enkel inloggning](common/select-sso.png)
 
-2. I den **väljer du en metod för enkel inloggning** dialogrutan **SAML/WS-Fed** läge för att aktivera enkel inloggning:
+2. I dialogrutan **Välj en enda inloggningsmetod** väljer du **SAML/WS-Fed-läge** för att aktivera enkel inloggning:
 
-    ![Välj en metod för enkel inloggning](common/select-saml-option.png)
+    ![Välj en enda inloggningsmetod](common/select-saml-option.png)
 
-3. På den **ange in enkel inloggning med SAML** väljer den **redigera** ikonen för att öppna den **SAML grundkonfiguration** dialogrutan:
+3. På sidan Konfigurera enkel inloggning med SAML väljer du ikonen **Redigera** för att öppna dialogrutan **Grundläggande SAML-konfiguration:** **Set up Single Sign-On with SAML**
 
-    ![Ikonen Redigera](common/edit-urls.png)
+    ![Redigera-ikonen](common/edit-urls.png)
 
-4. I den **SAML grundkonfiguration** dialogrutan om du vill konfigurera programmet i IdP-initierad läge, vidta följande steg.
+4. Om du vill konfigurera programmet i IdP-initierat läge i dialogrutan Grundläggande SAML-konfiguration gör du följande i dialogrutan **Grundläggande SAML-konfiguration.**
 
-    ![Dialogrutan för grundläggande SAML-konfiguration](common/idp-intiated.png)
+    ![Dialogrutan Grundläggande SAML-konfiguration](common/idp-intiated.png)
 
-    1. I den **identifierare** anger en URL i det här mönstret:
+    1. Ange en URL i det här mönstret i rutan **Identifierare:**
    
        `https://saml.proxyclick.com/init/<companyId>`
 
-    1. I den **svars-URL** anger en URL i det här mönstret:
+    1. Ange en URL i det här mönstret i rutan **Svara url:**
 
        `https://saml.proxyclick.com/consume/<companyId>`
 
-5. Om du vill konfigurera programmet i SP-initierat läge väljer **ange ytterligare webbadresser**. I den **inloggnings-URL** anger en URL i det här mönstret:
+5. Om du vill konfigurera programmet i SP-initierat läge väljer du **Ange ytterligare webbadresser**. Ange en WEBBADRESS i det här mönstret i rutan **Logga in på webbadress:**
    
    `https://saml.proxyclick.com/init/<companyId>`
 
-    ![Proxyclick domän och URL: er med enkel inloggning för information](common/metadata-upload-additional-signon.png)
+    ![Proxyclick Domän och webbadresser enkel inloggningsinformation](common/metadata-upload-additional-signon.png)
 
     
 
     > [!NOTE]
-    > Dessa värden är platshållare. Du måste använda det faktiska ID: t, svars-URL och inloggnings-URL. Stegen för att hämta dessa värden beskrivs senare i den här självstudien.
+    > Dessa värden är platshållare. Du måste använda den faktiska identifieraren, svars-URL:en och inloggnings-URL:en. Steg för att hämta dessa värden beskrivs senare i den här självstudien.
 
-6. På den **ange in enkel inloggning med SAML** sidan den **SAML-signeringscertifikat** väljer den **hämta** länka bredvid **certifikat (Base64)** enligt krav och spara certifikatet på datorn:
+6. På sidan **Konfigurera enkel inloggning med SAML** i avsnittet **SAML-signeringscertifikat** väljer du länken **Hämta bredvid** **Certifikat (Base64)** enligt dina krav och sparar certifikatet på datorn:
 
     ![Länk för nedladdning av certifikat](common/certificatebase64.png)
 
-7. I den **konfigurera Proxyclick** avsnittet, kopiera de lämpliga URL: er, baserat på dina krav:
+7. I avsnittet **Konfigurera proxyclick** kopierar du lämpliga webbadresser baserat på dina krav:
 
-    ![Kopiera URL: er för konfiguration](common/copy-configuration-urls.png)
+    ![Kopiera konfigurationsadresserna](common/copy-configuration-urls.png)
 
-    1. **Inloggnings-URL**.
+    1. **Inloggningsadress**.
 
     1. **Azure AD-identifierare**.
 
-    1. **URL för utloggning**.
+    1. **Url för utloggning**.
 
 ### <a name="configure-proxyclick-single-sign-on"></a>Konfigurera Proxyclick enkel inloggning
 
-1. I ett nytt webbläsarfönster, loggar du in din Proxyclick företagets webbplats som en administratör.
+1. I ett nytt webbläsarfönster loggar du in på din Proxyclick-företagswebbplats som administratör.
 
-2. Välj **konto och inställningar**:
+2. Välj **inställningar för konto &:**
 
-    ![Välj konto och inställningar](./media/proxyclick-tutorial/configure1.png)
+    ![Välj inställningar för konto &](./media/proxyclick-tutorial/configure1.png)
 
-3. Rulla ned till den **integreringar** och väljer **SAML**:
+3. Bläddra ned till avsnittet **Integrationer** och välj **SAML:**
 
     ![Välj SAML](./media/proxyclick-tutorial/configure2.png)
 
-4. I den **SAML** avsnittet, vidta följande steg.
+4. I avsnittet **SAML** gör du följande steg:
 
-    ![SAML-avsnitt](./media/proxyclick-tutorial/configure3.png)
+    ![SAML-sektion](./media/proxyclick-tutorial/configure3.png)
 
-    1. Kopiera den **URL för SAML-konsument** värde och klistra in den i den **svars-URL** rutan den **SAML grundkonfiguration** dialogrutan i Azure-portalen.
+    1. Kopiera **URL-värdet för SAML-konsumenter** och klistra in det i rutan **Svars-URL** i dialogrutan **Grundläggande SAML-konfiguration** i Azure-portalen.
 
-    1. Kopiera den **omdirigerings-URL för SAML SSO** värde och klistra in den i den **inloggnings-URL** och **identifierare** rutorna i den **grundläggande SAML-konfiguration** dialogrutan i Azure-portalen.
+    1. Kopiera **URL-värdet för SAML SSO-omdirigering** och klistra in det i **rutorna Logga in på URL** och **Identifierare** i dialogrutan **Grundläggande SAML-konfiguration** i Azure-portalen.
 
-    1. I den **SAML begäran metoden** väljer **omdirigering för HTTP**.
+    1. Välj **HTTP-omdirigering**i listan **SAML-begärandemetod** .
 
-    1. I den **utfärdare** rutan, klistra in den **Azure AD-identifierare** värde som du kopierade från Azure-portalen.
+    1. I rutan **Utfärdare** klistrar du in **azure AD-identifierare** som du kopierade från Azure-portalen.
 
-    1. I den **slutpunkts-URL för SAML 2.0** rutan, klistra in den **inloggnings-URL** värde som du kopierade från Azure-portalen.
+    1. I **url-rutan SAML 2.0** klistrar du in värdet **för inloggnings-URL** som du kopierade från Azure-portalen.
 
-    1. Öppna certifikatfilen som du laddade ned från Azure-portalen i anteckningar. Klistra in innehållet i filen till den **certifikat** box.
+    1. Öppna certifikatfilen som du hämtade från Azure-portalen i Anteckningar. Klistra in innehållet i den här filen i rutan **Certifikat.**
 
     1. Välj **Spara ändringar**.
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 
-I det här avsnittet skapar du en användare med namnet Britta Simon i Azure-portalen.
+I det här avsnittet ska du skapa en testanvändare med namnet Britta Simon i Azure-portalen.
 
-1. I Azure-portalen väljer du **Azure Active Directory** i den vänstra rutan väljer **användare**, och välj sedan **alla användare**:
+1. I Azure-portalen väljer du **Azure Active Directory** i den vänstra rutan, väljer **Användare**och väljer sedan **Alla användare:**
 
     ![Välj alla användare](common/users.png)
 
-2. Välj **ny användare** överst på skärmen:
+2. Välj **Ny användare** högst upp på skärmen:
 
-    ![Välj ny användare](common/new-user.png)
+    ![Välj Ny användare](common/new-user.png)
 
-3. I den **användaren** dialogrutan rutan, vidta följande steg.
+3. Gör följande i dialogrutan **Användare.**
 
-    ![Användardialogrutan](common/user-properties.png)
+    ![Dialogrutan Användare](common/user-properties.png)
 
     1. I rutan **Namn** anger du **BrittaSimon**.
   
-    1. I den **användarnamn** anger **BrittaSimon @\<företagsdomänen >.\< tillägget >** . (Till exempel BrittaSimon@contoso.com.)
+    1. I rutan **Användarnamn** anger du **BrittaSimon@\<ditt företag>.\< förlängning>**. (Till exempel BrittaSimon@contoso.com.)
 
-    1. Välj **visa lösenord**, och sedan skriva ned det värde som är i den **lösenord** box.
+    1. Välj **Visa lösenord**och skriv sedan ned värdet i rutan **Lösenord.**
 
     1. Välj **Skapa**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
+### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
-I det här avsnittet ska du aktivera Britta Simon att använda Azure enkel inloggning ger användarens företagsidentitet åtkomst Proxyclick.
+I det här avsnittet ska du aktivera Britta Simon för att använda Azure enkel inloggning genom att ge henne åtkomst till Proxyclick.
 
-1. I Azure-portalen väljer du **företagsprogram**väljer **alla program**, och välj sedan **Proxyclick**.
+1. I Azure-portalen väljer du **Enterprise-program**, väljer **Alla program**och väljer sedan **Proxyclick**.
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-2. I listan med program väljer **Proxyclick**.
+2. Välj **Proxyclick**i listan över program .
 
-    ![Lista över program](common/all-applications.png)
+    ![Lista över ansökningar](common/all-applications.png)
 
-3. I den vänstra rutan väljer **användare och grupper**:
+3. Välj Användare och **grupper**i den vänstra rutan:
 
     ![Välj Användare och grupper](common/users-groups-blade.png)
 
@@ -211,49 +211,49 @@ I det här avsnittet ska du aktivera Britta Simon att använda Azure enkel inlog
 
     ![Välj Lägg till användare](common/add-assign-user.png)
 
-5. I den **användare och grupper** dialogrutan **Britta Simon** i listan och klicka sedan på den **Välj** knappen längst ned i fönstret.
+5. I dialogrutan **Användare och grupper** väljer du **Britta Simon** i användarlistan och klickar sedan på knappen **Välj** längst ned i fönstret.
 
-6. Om du förväntar dig ett rollvärde i SAML-försäkran i den **Välj roll** dialogrutan väljer du rätt roll för användaren i listan. Klicka på den **Välj** knappen längst ned i fönstret.
+6. Om du förväntar dig ett rollvärde i SAML- påståendet väljer du lämplig roll för användaren i listan i dialogrutan **Välj roll.** Klicka på knappen **Välj** längst ned i fönstret.
 
 7. I dialogrutan **Lägg till tilldelning** väljer du **Tilldela**.
 
-### <a name="create-a-proxyclick-test-user"></a>Skapa en Proxyclick testanvändare
+### <a name="create-a-proxyclick-test-user"></a>Skapa en Proxyclick-testanvändare
 
-Om du vill aktivera Azure AD-användare att logga in på Proxyclick som du behöver lägga till dem i Proxyclick. Du måste lägga till dem manuellt.
+Om du vill att Azure AD-användare ska kunna logga in på Proxyclick måste du lägga till dem i Proxyclick. Du måste lägga till dem manuellt.
 
-Skapa ett användarkonto genom att göra följande:
+Så här skapar du ett användarkonto:
 
-1. Logga in på webbplatsen Proxyclick företag som en administratör.
+1. Logga in på din Proxyclick-företagswebbplats som administratör.
 
-1. Välj **kollegor** överst i fönstret:
+1. Välj **Kollegor** högst upp i fönstret:
 
     ![Välj kollegor](./media/proxyclick-tutorial/user1.png)
 
-1. Välj **lägga till kollega**:
+1. Välj **Lägg till kollega:**
 
     ![Välj Lägg till kollega](./media/proxyclick-tutorial/user2.png)
 
-1. I den **lägga till en kollega** avsnittet, vidta följande steg.
+1. Gör följande i avsnittet **Lägg till en kollega.**
 
-    ![Lägg till en kollega-avsnitt](./media/proxyclick-tutorial/user3.png)
+    ![Lägga till ett kollegaavsnitt](./media/proxyclick-tutorial/user3.png)
 
-    1. I den **e-post** anger du e-postadressen för användaren. I det här fallet **brittasimon\@contoso.com**.
+    1. Ange användarens e-postadress i rutan **E-post.** I det här fallet **contoso.com brittasimon\@**.
 
-    1. I den **Förnamn** anger du det första namnet för användaren. I det här fallet **Britta**.
+    1. Ange användarens förnamn i rutan **Förnamn.** I det här **fallet, Britta**.
 
-    1. I den **efternamn** anger efternamn för användaren. I det här fallet **Simon**.
+    1. Ange användarens efternamn i rutan **Efternamn.** I det här fallet, **Simon.**
 
     1. Välj **Lägg till användare**.
 
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning
 
-Nu ska du testa Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
+Nu måste du testa din Azure AD-konfiguration med enkel inloggning med hjälp av åtkomstpanelen.
 
-När du väljer panelen Proxyclick i åtkomstpanelen, bör det vara loggas in automatiskt till Proxyclick-instansen som du ställer in enkel inloggning. Läs mer om åtkomstpanelen [öppna och använda appar på portalen Mina appar](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+När du väljer panelen Proxyclick på åtkomstpanelen bör du automatiskt loggas in i proxyclick-instansen som du ställer in SSO för. Mer information om Åtkomstpanelen finns i [Komma till åtkomst och använda appar på portalen Mina appar](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-- [Självstudier för att integrera SaaS-program med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Självstudier för att integrera SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 

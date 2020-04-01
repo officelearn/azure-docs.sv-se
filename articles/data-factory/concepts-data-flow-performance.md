@@ -7,12 +7,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.custom: seo-lt-2019
 ms.date: 03/11/2020
-ms.openlocfilehash: 95a60abef283984d66736358d2d02048f08d700d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4baf7974bdb0a5efe4cb556e820e9d13aeac5d8a
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80247001"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80409842"
 ---
 # <a name="mapping-data-flows-performance-and-tuning-guide"></a>Mappa dataflödens prestanda och justeringsguide
 
@@ -69,7 +69,7 @@ Som standard använder du standardkörningen för Azure Integration som skapas a
 
 Under **Källalternativ** i källomvandlingen kan följande inställningar påverka prestanda:
 
-* Batchstorlek instruerar ADF att lagra data i uppsättningar i minnet i stället för rad för rad. Batchstorlek är en valfri inställning och du kan få på resurser på beräkningsnoderna om de inte är rätt dimensionerade.
+* Batchstorlek instruerar ADF att lagra data i uppsättningar i Spark-minne i stället för rad för rad. Batchstorlek är en valfri inställning och du kan få på resurser på beräkningsnoderna om de inte är rätt dimensionerade. Om du inte anger den här egenskapen används standardinställningar för Spark-cachelagring.
 * Om du anger en fråga kan du filtrera rader vid källan innan de anländer till Dataflöde för bearbetning. Detta kan göra den första datainsamlingen snabbare. Om du använder en fråga kan du lägga till valfria frågetips för din Azure SQL DB, till exempel LÄS OENGAGERADE.
 * Läsa oengagerad ger snabbare frågeresultat på Källa omvandling
 
@@ -77,7 +77,7 @@ Under **Källalternativ** i källomvandlingen kan följande inställningar påve
 
 ### <a name="sink-batch-size"></a>Diskbänkssatsstorlek
 
-Om du vill undvika bearbetning rad för rad av dina dataflöden anger du **Batch-storlek** på fliken Inställningar för Azure SQL DB och Azure SQL DW-sänkor. Om batchstorleken har angetts bearbetar ADF databasskrivningar i batchar baserat på den angivna storleken.
+Om du vill undvika bearbetning rad för rad av dina dataflöden anger du **Batch-storlek** på fliken Inställningar för Azure SQL DB och Azure SQL DW-sänkor. Om batchstorleken har angetts bearbetar ADF databasskrivningar i batchar baserat på den angivna storleken. Om du inte anger den här egenskapen används standardinställningar för Spark-cachelagring.
 
 ![Kanalmottagare](media/data-flow/sink4.png "Kanalmottagare")
 

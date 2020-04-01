@@ -11,12 +11,12 @@ author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 02/10/2020
-ms.openlocfilehash: c78c1d3ce6dae874ace2abfa8b2bbec6d489538a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4025c620aea49dfb26ab203630c121d29d88d9d7
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79536487"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80474527"
 ---
 # <a name="create-azure-machine-learning-datasets"></a>Skapa Azure Machine Learning-datauppsättningar
 
@@ -52,7 +52,7 @@ Den viktigaste faktorn är hur stor datauppsättningen är i minnet, d.v.s. som 
  
 Om du använder Pandas, det finns ingen anledning att ha mer än 1 vCPU eftersom det är allt den kommer att använda. Du kan enkelt parallellisera till många virtuella processorer på en enda Azure Machine Learning-beräkningsinstans/nod via Modin och `import pandas as pd` `import modin.pandas as pd`Dask/Ray och skala ut till ett stort kluster om det behövs, genom att helt enkelt byta till . 
  
-Om du inte kan få en tillräckligt stor virtuell för data, har du två alternativ: använd ett ramverk som Spark eller Dask för att utföra behandlingen på data på minne, dvs dataramen laddas i RAM-partitionen av partition och bearbetas, med det slutliga resultatet samlades i slutet. Om detta är för långsamt kan du skala ut Spark eller Dask till ett kluster som fortfarande kan användas interaktivt. 
+Om du inte kan få en tillräckligt stor virtuell för data, har du två alternativ: använd ett ramverk som Spark eller Dask för att utföra behandlingen på data på minne, dvs dataramen laddas i RAM-partitionen av partition och bearbetas, med slutresultatet samlas in i slutet. Om detta är för långsamt kan du skala ut Spark eller Dask till ett kluster som fortfarande kan användas interaktivt. 
 
 ## <a name="dataset-types"></a>Datamängdstyper
 
@@ -108,6 +108,7 @@ När du skapar en tabelldatauppsättning härleds som standard kolumndatatyper a
 > Om lagringsutrymmet ligger bakom ett virtuellt nätverk eller en brandvägg stöds endast skapandet av en datauppsättning via SDK. Om du vill skapa datauppsättningen måste `validate=False` `infer_column_types=False` du `from_delimited_files()` inkludera parametrarna och metoden. Detta kringgår den första valideringskontrollen och säkerställer att du kan skapa din datauppsättning från dessa säkra filer. 
 
 ```Python
+from azureml.core import Dataset
 from azureml.data.dataset_factory import DataType
 
 # create a TabularDataset from a delimited file behind a public web url and convert column "Survived" to boolean

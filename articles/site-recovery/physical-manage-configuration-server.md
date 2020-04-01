@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 02/28/2019
 ms.author: mayg
-ms.openlocfilehash: 25be48e9caed446be3a86a11143ce3040808065a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: eb7e891c031be5ac01295905d5c3304dc6818737
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80294301"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80478976"
 ---
 # <a name="manage-the-configuration-server-for-physical-server-disaster-recovery"></a>Hantera konfigurationsservern för fysisk återställning av serverkatastrofer
 
@@ -290,8 +290,8 @@ Uppgradera servern enligt följande:
 > [!NOTE]
 > **Alternativet -Force** i alternativet Remove-AzSiteRecoveryFabric kan användas för att tvinga borttagning/borttagning av konfigurationsservern.
 
-## <a name="renew-ssl-certificates"></a>Förnya SSL-certifikat
-Konfigurationsservern har en inbyggd webbserver som dirigerar aktiviteter för mobilitetstjänsten, processservrar och huvudmålservrar som är anslutna till den. Webbservern använder ett SSL-certifikat för att autentisera klienter. Certifikatet upphör att gälla efter tre år och kan förnyas när som helst.
+## <a name="renew-tlsssl-certificates"></a>Förnya TLS/SSL-certifikat
+Konfigurationsservern har en inbyggd webbserver som dirigerar aktiviteter för mobilitetstjänsten, processservrar och huvudmålservrar som är anslutna till den. Webbservern använder ett TLS/SSL-certifikat för att autentisera klienter. Certifikatet upphör att gälla efter tre år och kan förnyas när som helst.
 
 ### <a name="check-expiry"></a>Kontrollera utgångsdatum
 

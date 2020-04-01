@@ -1,5 +1,5 @@
 ---
-title: 'Självstudier: Azure Active Directory-integrering med Sedgwick CMS | Microsoft Docs'
+title: 'Självstudiekurs: Azure Active Directory-integrering med Sedgwick CMS | Microsoft-dokument'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Sedgwick CMS.
 services: active-directory
 documentationCenter: na
@@ -17,44 +17,44 @@ ms.date: 04/10/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 94012a6830e59658562ed3e7485dad698f74974f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67091124"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-sedgwick-cms"></a>Självstudier: Azure Active Directory-integrering med Sedgwick CMS
+# <a name="tutorial-azure-active-directory-integration-with-sedgwick-cms"></a>Självstudiekurs: Azure Active Directory-integrering med Sedgwick CMS
 
-I den här självstudien får du lära dig hur du integrerar Sedgwick CMS med Azure Active Directory (AD Azure).
-Integrera Sedgwick CMS med Azure AD ger dig följande fördelar:
+I den här självstudien får du lära dig hur du integrerar Sedgwick CMS med Azure Active Directory (Azure AD).
+Genom att integrera Sedgwick CMS med Azure AD får du följande fördelar:
 
 * Du kan styra i Azure AD som har åtkomst till Sedgwick CMS.
-* Du kan aktivera användarna att vara automatiskt inloggad till Sedgwick CMS (Single Sign-On) med sina Azure AD-konton.
-* Du kan hantera dina konton på en central plats – Azure portal.
+* Du kan aktivera dina användare automatiskt inloggade på Sedgwick CMS (Single Sign-On) med sina Azure AD-konton.
+* Du kan hantera dina konton på en central plats – Azure-portalen.
 
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
+Om du inte har en Azure-prenumeration [skapar du ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
-Om du vill konfigurera Azure AD-integrering med Sedgwick CMS, behöver du följande objekt:
+Om du vill konfigurera Azure AD-integrering med Sedgwick CMS behöver du följande objekt:
 
-* En Azure AD-prenumeration. Om du inte har en Azure AD-miljö kan du få en [kostnadsfritt konto](https://azure.microsoft.com/free/)
-* Sedgwick CMS enkel inloggning aktiverat prenumeration
+* En Azure AD-prenumeration. Om du inte har en Azure AD-miljö kan du få ett [kostnadsfritt konto](https://azure.microsoft.com/free/)
+* Sedgwick CMS enkel inloggning aktiverad prenumeration
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
 I den här självstudien konfigurerar och testar du enkel inloggning med Azure AD i en testmiljö.
 
-* Har stöd för Sedgwick CMS **IDP** -initierad SSO
+* Sedgwick CMS stöder **IDP** initierad SSO
 
-## <a name="adding-sedgwick-cms-from-the-gallery"></a>Att lägga till Sedgwick CMS från galleriet
+## <a name="adding-sedgwick-cms-from-the-gallery"></a>Lägga till Sedgwick CMS från galleriet
 
-För att konfigurera integrering av Sedgwick CMS i Azure AD, som du behöver lägga till Sedgwick CMS från galleriet i din lista över hanterade SaaS-appar.
+Om du vill konfigurera integreringen av Sedgwick CMS i Azure AD måste du lägga till Sedgwick CMS från galleriet i listan över hanterade SaaS-appar.
 
-**Utför följande steg för att lägga till Sedgwick CMS från galleriet:**
+**Så här lägger du till Sedgwick CMS från galleriet:**
 
-1. I den **[Azure-portalen](https://portal.azure.com)** , klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
+1. I **[Azure-portalen](https://portal.azure.com)** går du till den vänstra navigeringspanelen och klickar på **Azure Active Directory**-ikonen.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
@@ -62,37 +62,37 @@ För att konfigurera integrering av Sedgwick CMS i Azure AD, som du behöver lä
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-3. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
+3. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
 
     ![Knappen Nytt program](common/add-new-app.png)
 
-4. I sökrutan skriver **Sedgwick CMS**väljer **Sedgwick CMS** resultatet panelen klickar **Lägg till** för att lägga till programmet.
+4. Skriv **Sedgwick CMS**i sökrutan och välj **Sedgwick CMS** från resultatpanelen och klicka sedan på **Lägg** till-knappen för att lägga till programmet.
 
     ![Sedgwick CMS i resultatlistan](common/search-new-app.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
-I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med Sedgwick CMS baserad på en testanvändare kallas **Britta Simon**.
-För enkel inloggning ska fungera, måste en länk förhållandet mellan en Azure AD-användare och relaterade användaren i Sedgwick CMS upprättas.
+I det här avsnittet konfigurerar och testar du azure AD-enkel inloggning med Sedgwick CMS baserat på en testanvändare som heter **Britta Simon**.
+För enkel inloggning för att fungera måste en länkrelation mellan en Azure AD-användare och den relaterade användaren i Sedgwick CMS upprättas.
 
-Om du vill konfigurera och testa Azure AD enkel inloggning med Sedgwick CMS, måste du utföra följande byggblock:
+Om du vill konfigurera och testa en enkel Azure AD-inloggning med Sedgwick CMS måste du slutföra följande byggblock:
 
-1. **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
-2. **[Konfigurera enkel inloggning för Sedgwick-CMS](#configure-sedgwick-cms-single-sign-on)**  – om du vill konfigurera inställningar för enkel inloggning på programsidan.
-3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
-4. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
-5. **[Skapa Sedgwick CMS testanvändare](#create-sedgwick-cms-test-user)**  – du har en motsvarighet för Britta Simon i Sedgwick CMS som är länkad till en Azure AD-representation av användaren.
-6. **[Testa enkel inloggning](#test-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
+1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
+2. **[Konfigurera Sedgwick CMS Single Sign-On](#configure-sedgwick-cms-single-sign-on)** - för att konfigurera inställningarna för enkel inloggning på programsidan.
+3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
+4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
+5. **[Skapa Sedgwick CMS-testanvändare](#create-sedgwick-cms-test-user)** - om du vill ha en motsvarighet till Britta Simon i Sedgwick CMS som är länkad till Azure AD-representationen av användaren.
+6. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
 I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure-portalen.
 
-Utför följande steg för att konfigurera Azure AD enkel inloggning med Sedgwick CMS:
+Så här konfigurerar du en enkel Azure AD-inloggning med Sedgwick CMS:
 
-1. I den [Azure-portalen](https://portal.azure.com/)på den **Sedgwick CMS** application integration markerar **enkel inloggning**.
+1. I [Azure-portalen](https://portal.azure.com/)väljer du Enkel inloggning på sidan **Sedgwick** CMS-programintegration . **Single sign-on**
 
-    ![Konfigurera enkel inloggning för länken](common/select-sso.png)
+    ![Konfigurera länk för enkel inloggning](common/select-sso.png)
 
 2. I dialogrutan **Välj en metod för enkel inloggning** väljer du läget **SAML/WS-Fed** för att aktivera enkel inloggning.
 
@@ -104,9 +104,9 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med Sedgwic
 
 4. På sidan **Konfigurera enkel inloggning med SAML** utför du följande steg:
 
-    ![Sedgwick CMS domän och URL: er med enkel inloggning för information](common/idp-intiated.png)
+    ![Sedgwick CMS-domän och webbadresser med enkel inloggning](common/idp-intiated.png)
 
-    a. I textrutan **Identifierare** skriver du en URL med följande mönster:
+    a. I textrutan **Identifierare** skriver du en URL med följande mönster:  
 
     | |
     |--|
@@ -121,25 +121,25 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med Sedgwic
     | `https://claimlookup.com/Voe/sso` |
 
     > [!NOTE]
-    > Dessa värden är inte verkliga. Uppdatera dessa värden med den faktiska identifieraren och svars-URL. Kontakta [Sedgwick CMS klienten supportteamet](https://www.sedgwick.com/help) att hämta dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
+    > Dessa värden är inte verkliga. Uppdatera dessa värden med den faktiska identifieraren och svars-URL. Kontakta [Sedgwick CMS Client supportteam](https://www.sedgwick.com/help) för att få dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
 5. På sidan **Set up Single Sign-On with SAML** (Konfigurera enkel inloggning med SAML) går du till avsnittet **SAML Signing Certificate** (SAML-signeringscertifikat), klickar på **Ladda ned** för att ladda ned **Federation Metadata-XML** från de angivna alternativen enligt dina behov och spara den på datorn.
 
-    ![Länk för hämtning av certifikat](common/metadataxml.png)
+    ![Länk för nedladdning av certifikatet](common/metadataxml.png)
 
-6. På den **konfigurera Sedgwick CMS** avsnittet, kopiera den lämpliga URL: er enligt dina behov.
+6. Kopiera lämpliga webbadresser enligt dina krav i avsnittet **Konfigurera Sedgwick CMS** enligt dina krav.
 
     ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
 
-    a. Inloggningswebbadress
+    a. Inloggnings-URL
 
-    b. Microsoft Azure Active Directory-identifierare
+    b. Azure AD-identifierare
 
     c. Utloggnings-URL
 
-### <a name="configure-sedgwick-cms-single-sign-on"></a>Konfigurera Sedgwick CMS enkel inloggning
+### <a name="configure-sedgwick-cms-single-sign-on"></a>Konfigurera Sedgwick CMS Enkel inloggning
 
-Att konfigurera enkel inloggning på **Sedgwick CMS** sida, som du behöver skicka de hämtade **FederationMetadata XML** och lämpliga kopierade URL: er från Azure portal för att [Sedgwick CMS-supportteamet ](https://www.sedgwick.com/help). De ställer du in SAML SSO ansluta till korrekt inställda på båda sidorna.
+Om du vill konfigurera enkel inloggning på **Sedgwick CMS-sidan** måste du skicka den nedladdade **FederationMetadata XML-koden** och lämpliga kopierade url:er från Azure-portalen till [Sedgwick CMS-supportteamet](https://www.sedgwick.com/help). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare 
 
@@ -149,7 +149,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     ![Länkarna ”Användare och grupper” och ”Alla grupper”](common/users.png)
 
-2. Välj **Ny användare** överst på skärmen.
+2. Välj **Ny användare** högst upp på skärmen.
 
     ![Knappen Ny användare](common/new-user.png)
 
@@ -159,23 +159,23 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     a. I fältet **Namn** anger du **BrittaSimon**.
   
-    b. I den **användarnamn** fälttyp `brittasimon@yourcompanydomain.extension`. Till exempel, BrittaSimon@contoso.com
+    b. I fältet **Användarnamn** `brittasimon@yourcompanydomain.extension`. Till exempel, BrittaSimon@contoso.com
 
     c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
 
     d. Klicka på **Skapa**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
+### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
-I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inloggning genom att bevilja åtkomst till Sedgwick CMS.
+I det här avsnittet kan du aktivera Britta Simon för att använda Azure enkel inloggning genom att bevilja åtkomst till Sedgwick CMS.
 
-1. I Azure-portalen väljer du **företagsprogram**väljer **alla program**och välj sedan **Sedgwick CMS**.
+1. I Azure-portalen väljer du **Enterprise Applications**, väljer **Alla program**och väljer sedan **Sedgwick CMS**.
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-2. I listan med program väljer **Sedgwick CMS**.
+2. Välj **Sedgwick CMS**i programlistan .
 
-    ![Sedgwick CMS-länk i listan med program](common/all-applications.png)
+    ![Länken Sedgwick CMS i listan Program](common/all-applications.png)
 
 3. På menyn till vänster väljer du **Användare och grupper**.
 
@@ -187,19 +187,19 @@ I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inlog
 
 5. I dialogrutan **Användare och grupper** väljer du **Britta Simon** i listan med användare och klickar på knappen **Välj** längst ned på skärmen.
 
-6. Om du förväntar dig ett rollvärde i SAML-försäkran väljer du i dialogrutan **Välj roll** lämplig roll för användaren i listan och klickar sedan på knappen **Välj** längst ned på skärmen.
+6. Om du förväntar dig något rollvärde i SAML-påståendet väljer du lämplig roll för användaren i listan i dialogrutan **Välj roll** och klickar sedan på knappen **Välj** längst ned på skärmen.
 
 7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
 
-### <a name="create-sedgwick-cms-test-user"></a>Skapa Sedgwick CMS testanvändare
+### <a name="create-sedgwick-cms-test-user"></a>Skapa Sedgwick CMS-testanvändare
 
-I det här avsnittet skapar du en användare som kallas Britta Simon i Sedgwick CMS. Arbeta med [Sedgwick CMS-supportteamet](https://www.sedgwick.com/help) att lägga till användare i Sedgwick CMS-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
+I det här avsnittet skapar du en användare som heter Britta Simon i Sedgwick CMS. Arbeta med [Sedgwick CMS supportteam](https://www.sedgwick.com/help) för att lägga till användarna i Sedgwick CMS-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
 
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning
 
-I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
+I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-När du klickar på panelen Sedgwick CMS på åtkomstpanelen, bör det vara loggas in automatiskt till den Sedgwick CMS som du ställer in enkel inloggning. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+När du klickar på panelen Sedgwick CMS på åtkomstpanelen ska du automatiskt loggas in på Sedgwick CMS som du ställer in SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 

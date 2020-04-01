@@ -1,22 +1,22 @@
 ---
 title: Konfigurera Googles autentisering
-description: Läs om hur du konfigurerar Googles autentisering som identitetsleverantör för apptjänstappen.
+description: Lär dig hur du konfigurerar Googles autentisering som identitetsleverantör för appen AppTjänst eller Azure Functions.
 ms.assetid: 2b2f9abf-9120-4aac-ac5b-4a268d9b6e2b
 ms.topic: article
 ms.date: 09/02/2019
-ms.custom: seodec18
-ms.openlocfilehash: 81ce3e393d308323c8d5a3d688c16c9b45e7be9d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom: fasttrack-edit
+ms.openlocfilehash: bb6b8eebef3247cf2c39ed4b111296e1e0521a74
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74670815"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80437981"
 ---
-# <a name="configure-your-app-service-app-to-use-google-login"></a>Konfigurera appen App Service så att den använder Google-inloggning
+# <a name="configure-your-app-service-or-azure-functions-app-to-use-google-login"></a>Konfigurera appen App Service eller Azure Functions så att den använder Google-inloggning
 
 [!INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]
 
-I det här avsnittet beskrivs hur du konfigurerar Azure App Service så att Google används som autentiseringsleverantör.
+Det här avsnittet visar hur du konfigurerar Azure App Service eller Azure Functions för att använda Google som autentiseringsleverantör.
 
 Om du vill slutföra proceduren i det här avsnittet måste du ha ett Google-konto som har en verifierad e-postadress. Gå till [accounts.google.com](https://go.microsoft.com/fwlink/p/?LinkId=268302) om du vill skapa ett nytt Google-konto.
 
@@ -63,5 +63,5 @@ Du är nu redo att använda Google för autentisering i din app.
 
 [Google apis]: https://go.microsoft.com/fwlink/p/?LinkId=268303
 
-[Azure-portal]: https://portal.azure.com/
+[Azure Portal]: https://portal.azure.com/
 

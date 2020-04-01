@@ -1,6 +1,6 @@
 ---
-title: 'Självstudie: skapa en anpassad roll för Azure-resurser med Azure PowerShell'
-description: Kom igång med att skapa en anpassad roll för Azure-resurser med hjälp av Azure PowerShell i den här självstudien.
+title: 'Självstudiekurs: Skapa en anpassad roll för Azure-resurser med Azure PowerShell'
+description: Kom igång med att skapa en anpassad roll för Azure-resurser med Azure PowerShell i den här självstudien.
 services: active-directory
 documentationCenter: ''
 author: rolyon
@@ -14,17 +14,17 @@ ms.workload: identity
 ms.date: 02/20/2019
 ms.author: rolyon
 ms.openlocfilehash: d337e31f554c0aabbb94771aa7bfca4afb19a431
-ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77138284"
 ---
-# <a name="tutorial-create-a-custom-role-for-azure-resources-using-azure-powershell"></a>Självstudie: skapa en anpassad roll för Azure-resurser med hjälp av Azure PowerShell
+# <a name="tutorial-create-a-custom-role-for-azure-resources-using-azure-powershell"></a>Självstudiekurs: Skapa en anpassad roll för Azure-resurser med Azure PowerShell
 
 Om de [inbyggda rollerna för Azure-resurser](built-in-roles.md) inte uppfyller organisationens specifika krav, kan du skapa egna anpassade roller. För den här självstudien skapar du en anpassad roll med namnet Reader Support Tickets (Läsare av supportbegäranden) med hjälp av Azure PowerShell. Med den här anpassade rollen kan användare visa allt i en prenumerations hanteringsplan samt öppna supportbegäranden.
 
-I den här guiden får du lära dig att:
+I den här självstudiekursen får du lära du dig att:
 
 > [!div class="checklist"]
 > * Skapa en anpassad roll
@@ -32,11 +32,11 @@ I den här guiden får du lära dig att:
 > * Uppdatera en anpassad roll
 > * Ta bort en anpassad roll
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
 
 [!INCLUDE [az-powershell-update](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att kunna genomföra den här kursen behöver du följande:
 
@@ -45,7 +45,7 @@ För att kunna genomföra den här kursen behöver du följande:
 
 ## <a name="sign-in-to-azure-powershell"></a>Logga in till Azure PowerShell
 
-Logga in till [Azure PowerShell](/powershell/azure/authenticate-azureps).
+Logga in på [Azure PowerShell](/powershell/azure/authenticate-azureps).
 
 ## <a name="create-a-custom-role"></a>Skapa en anpassad roll
 

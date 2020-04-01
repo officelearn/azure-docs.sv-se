@@ -1,5 +1,5 @@
 ---
-title: Övervaka enheter i fjärr styrnings lösningen – Azure | Microsoft Docs
+title: Övervaka enheter i lösningen för fjärrövervakning – Azure | Microsoft-dokument
 description: I den här självstudiekursen lär du dig hur du övervakar IoT-enheter med acceleratorn för fjärrövervakningslösning.
 author: dominicbetts
 manager: timlt
@@ -10,10 +10,10 @@ ms.date: 03/08/2019
 ms.topic: tutorial
 ms.custom: mvc
 ms.openlocfilehash: 400a71b11fde210b889d938041e88c5ebe73c1dc
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73890876"
 ---
 # <a name="tutorial-monitor-your-iot-devices"></a>Självstudier: Övervaka dina IoT-enheter
@@ -22,7 +22,7 @@ I den här självstudiekursen använder du acceleratorn för fjärrövervaknings
 
 I självstudien används två simulerade lastbilsenheter som skickar telemetri om plats, hastighet och lasttemperatur. Lastbilarna hanteras av en organisation som heter Contoso och är anslutna till acceleratorn Fjärrövervakningslösning. Som Contoso-operatör behöver du övervaka plats och beteende på fältet för en av dina lastbilar (truck-02).
 
-I den här kursen för du göra följande:
+I den här kursen får du:
 
 >[!div class="checklist"]
 > * Filtrera enheterna på instrumentpanelen
@@ -31,7 +31,7 @@ I den här kursen för du göra följande:
 > * Visa aviseringar från enheterna
 > * Visa system-KPI:er
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
 
 [!INCLUDE [iot-accelerators-tutorial-prereqs](../../includes/iot-accelerators-tutorial-prereqs.md)]
 
@@ -39,11 +39,11 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 Du kan välja vilka anslutna enheters som ska visas på sidan **Instrumentpanel** med hjälp av filter. Om du bara vill visa enheter av typen **Truck** (Lastbil) väljer du de inbyggda filtret **Trucks** (Lastbilar) i filterlistrutan:
 
-[![Filtrera lastbilar på instrumentpanelen](./media/iot-accelerators-remote-monitoring-monitor/dashboardtruckfilter-inline.png)](./media/iot-accelerators-remote-monitoring-monitor/dashboardtruckfilter-expanded.png#lightbox)
+[![Filter för lastbilar på instrumentpanelen](./media/iot-accelerators-remote-monitoring-monitor/dashboardtruckfilter-inline.png)](./media/iot-accelerators-remote-monitoring-monitor/dashboardtruckfilter-expanded.png#lightbox)
 
 När du använder ett filter visas endast de enheter som matchar filtervillkoren på kartan och i telemetripanelen. Du kan se att det finns två lastbilar som är anslutna till lösningsacceleratorn, inklusive truck-02:
 
-[![Bara lastbilar visas på kartan](./media/iot-accelerators-remote-monitoring-monitor/dashboardtruckmap-inline.png)](./media/iot-accelerators-remote-monitoring-monitor/dashboardtruckmap-expanded.png#lightbox)
+[![Endast lastbilar visas på kartan](./media/iot-accelerators-remote-monitoring-monitor/dashboardtruckmap-inline.png)](./media/iot-accelerators-remote-monitoring-monitor/dashboardtruckmap-expanded.png#lightbox)
 
 Du kan skapa, redigera och ta bort filter genom att klicka på **Hantera enhetsgrupper**.
 
@@ -51,11 +51,11 @@ Du kan skapa, redigera och ta bort filter genom att klicka på **Hantera enhetsg
 
 Lösningsacceleratorn kartlägger telemetridata i realtid på sidan **Instrumentpanel**. Högst upp i telemetridiagrammet visas tillgängliga telemetrityper för enheterna, inklusive truck-02, som valts av det aktuella filtret. Som standard visar diagrammet latitud för lastbilarna, och truck-02 verkar vara stillastående:
 
-[![Telemetrityper för lastbil](./media/iot-accelerators-remote-monitoring-monitor/dashboardtelemetryview-inline.png)](./media/iot-accelerators-remote-monitoring-monitor/dashboardtelemetryview-expanded.png#lightbox)
+[![Typer av lastbilstelemetri](./media/iot-accelerators-remote-monitoring-monitor/dashboardtelemetryview-inline.png)](./media/iot-accelerators-remote-monitoring-monitor/dashboardtelemetryview-expanded.png#lightbox)
 
 Visa temperaturtelemetri för lastbilarna genom att klicka på **Temperature** (Temperatur). Du kan se hur temperaturen för truck-02 har varierat under den senaste timmen:
 
-[![Telemetrikartläggning av lastbilstemperatur](./media/iot-accelerators-remote-monitoring-monitor/dashboardselecttelemetry-inline.png)](./media/iot-accelerators-remote-monitoring-monitor/dashboardselecttelemetry-expanded.png#lightbox)
+[![Telemetritomt för lastbilstemperatur](./media/iot-accelerators-remote-monitoring-monitor/dashboardselecttelemetry-inline.png)](./media/iot-accelerators-remote-monitoring-monitor/dashboardselecttelemetry-expanded.png#lightbox)
 
 ## <a name="view-the-map"></a>Visa kartan
 
@@ -71,7 +71,7 @@ Du kan visa information för truck-02 genom att panorera och zooma kartan för a
 
 ## <a name="view-alerts"></a>Visa aviseringar
 
-Panelen **Aviseringar** visar detaljerad information om de senaste aviseringarna från dina enheter. Aviseringarna från truck-02 tyder på att lasttemperaturen är högre än normalt:
+På **panelen Aviseringar** visas detaljerad information om de senaste aviseringarna från dina enheter. Aviseringarna från truck-02 tyder på att lasttemperaturen är högre än normalt:
 
 [![Visa enhetsaviseringar på instrumentpanelen](./media/iot-accelerators-remote-monitoring-monitor/dashboardsystemalarms-inline.png)](./media/iot-accelerators-remote-monitoring-monitor/dashboardsystemalarms-expanded.png#lightbox)
 
@@ -81,7 +81,7 @@ Du kan använda ett filter för att justera tidsintervallet för de senaste avis
 
 På sidan **Instrumentpanel** visas system-KPI:er beräknade av lösningsacceleratorn i panelen **Analys**:
 
-[![KPI:er på instrumentpanelen](./media/iot-accelerators-remote-monitoring-monitor/dashboardkpis-inline.png)](./media/iot-accelerators-remote-monitoring-monitor/dashboardkpis-expanded.png#lightbox)
+[![Instrumentpanelens KPI:er](./media/iot-accelerators-remote-monitoring-monitor/dashboardkpis-inline.png)](./media/iot-accelerators-remote-monitoring-monitor/dashboardkpis-expanded.png#lightbox)
 
 På instrumentpanelen visas tre KPI:er för aviseringarna som har valts av de aktuella filtren för aktuell enhet och tidsintervall:
 

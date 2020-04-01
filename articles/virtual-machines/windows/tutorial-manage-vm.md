@@ -1,5 +1,5 @@
 ---
-title: Självstudie – Skapa och hantera virtuella Windows-datorer med Azure PowerShell
+title: Självstudiekurs - Skapa och hantera virtuella Windows-datorer med Azure PowerShell
 description: I den här självstudien lär du dig hur du använder Azure PowerShell för att skapa och hantera virtuella Windows-datorer i Azure
 services: virtual-machines-windows
 documentationcenter: virtual-machines
@@ -16,10 +16,10 @@ ms.date: 06/06/2019
 ms.author: cynthn
 ms.custom: mvc
 ms.openlocfilehash: c48d5e514d854568043d001a22411b6a67f79e6a
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74067813"
 ---
 # <a name="tutorial-create-and-manage-windows-vms-with-azure-powershell"></a>Självstudie: skapa och hantera virtuella Windows-datorer med Azure PowerShell
@@ -37,13 +37,13 @@ Med virtuella Azure-datorer får du en fullständigt konfigurerbar och flexibel 
 
 Azure Cloud Shell är ett interaktivt gränssnitt som du kan använda för att utföra stegen i den här artikeln. Den har vanliga Azure-verktyg förinstallerat och har konfigurerats för användning med ditt konto. 
 
-Om du vill öppna Cloud Shell väljer du bara **Prova** från det övre högra hörnet i ett kodblock. Du kan också starta Cloud Shell i en separat webbläsarflik genom att gå till [https://shell.azure.com/powershell](https://shell.azure.com/powershell). Kopiera kodblocket genom att välja **Kopiera**, klistra in det i Cloud Shell och kör det genom att trycka på RETUR.
+Om du vill öppna Cloud Shell väljer du bara **Prova** från det övre högra hörnet i ett kodblock. Du kan också starta Cloud Shell i [https://shell.azure.com/powershell](https://shell.azure.com/powershell)en separat webbläsarflik genom att gå till . Kopiera kodblocket genom att välja **Kopiera**, klistra in det i Cloud Shell och kör det genom att trycka på RETUR.
 
 ## <a name="create-resource-group"></a>Skapa resursgrupp
 
 Skapa en resursgrupp med kommandot [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup).
 
-En Azure-resursgrupp är en logisk container där Azure-resurser distribueras och hanteras. En resursgrupp måste skapas före den virtuella datorn. I följande exempel skapas en resursgrupp med namnet *myResourceGroupVM* i regionen *EastUS*:
+En Azure-resursgrupp är en logisk container där Azure-resurser distribueras och hanteras. En resursgrupp måste skapas före den virtuella datorn. I följande exempel skapas en resursgrupp med namnet *myResourceGroupVM* i *Regionen EastUS:*
 
 ```azurepowershell-interactive
 New-AzResourceGroup `
@@ -51,7 +51,7 @@ New-AzResourceGroup `
    -Location "EastUS"
 ```
 
-Resursgruppen som anges när du skapar eller ändrar en VM visas i hela den här självstudien.
+Resursgruppen som anges när du skapar eller ändrar en virtuell dator visas i hela den här självstudien.
 
 ## <a name="create-a-vm"></a>Skapa en virtuell dator
 
@@ -77,7 +77,7 @@ New-AzVm `
     -Credential $cred
 ```
 
-## <a name="connect-to-vm"></a>Ansluta till VM
+## <a name="connect-to-vm"></a>Ansluta till virtuell dator
 
 När distributionen har slutförts kan du skapa en fjärrskrivbordsanslutning med den virtuella datorn.
 
@@ -183,7 +183,7 @@ I följande tabell kategoriseras storlekarna i användningsfall.
 | Typ                     | Normala storlekar           |    Beskrivning       |
 |--------------------------|-------------------|------------------------------------------------------------------------------------------------------------------------------------|
 | [Generellt syfte](sizes-general.md)         |B, Dsv3, Dv3, DSv2, Dv2, Av2, DC| Balanserat förhållande mellan processor och minne. Perfekt för utveckling eller test samt små till medelstora lösningar för program och data.  |
-| [Beräkningsoptimerad](sizes-compute.md)   | Fsv2          | Högt förhållande mellan processor och minne. Bra för program med medelhög trafik, nätverkstillämpningar och batchprocesser.        |
+| [Beräkningsoptimerad](sizes-compute.md)   | Fsv2 (på andra sätt)          | Högt förhållande mellan processor och minne. Bra för program med medelhög trafik, nätverkstillämpningar och batchprocesser.        |
 | [Minnesoptimerad](sizes-memory.md)    | Esv3, Ev3, M, DSv2, Dv2  | Högt förhållande mellan minne och kärna. Utmärkt för relationsdatabaser, mellanstora till stora cacheminnen och minnesinterna analyser.                 |
 | [Lagringsoptimerad](sizes-storage.md)      | Lsv2, Ls              | Högt diskgenomflöde och I/O. Perfekt för stordata, SQL- och NoSQL-databaser.                                                         |
 | [GPU](sizes-gpu.md)          | NV, NVv2, NC, NCv2, NCv3, ND            | Virtuella specialdatorer som är avsedda för tung grafisk rendering och videoredigering.       |
@@ -236,7 +236,7 @@ Start-AzVM `
    -Name $vm.name
 ```
 
-## <a name="vm-power-states"></a>Energisparlägen för VM
+## <a name="vm-power-states"></a>Energinivåer för VM
 
 En virtuell Azure-dator kan ha en av många energinivåer. 
 
@@ -317,4 +317,4 @@ I den här självstudien har du lärt dig om grundläggande VM-skapande och hant
 Gå vidare till nästa självstudie om du vill lära dig mer om diskar i virtuella dator.  
 
 > [!div class="nextstepaction"]
-> [Skapa och hantera diskar i virtuella datorer](./tutorial-manage-data-disk.md)
+> [Skapa och hantera VM-diskar](./tutorial-manage-data-disk.md)

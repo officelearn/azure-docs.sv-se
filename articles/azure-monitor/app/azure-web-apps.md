@@ -3,12 +3,12 @@ title: Övervaka prestanda för Azure-apptjänster | Microsoft-dokument
 description: Övervakning av programmets prestanda för Azure-apptjänster. Diagraminläsning och svarstid, beroendeinformation och ange aviseringar om prestanda.
 ms.topic: conceptual
 ms.date: 12/11/2019
-ms.openlocfilehash: 2ec503829d3e6edd7b2b6f6b36314db8a205a8cc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d2134e059a446c18108e8dd16bcc74504b42b15a
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80297607"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80437198"
 ---
 # <a name="monitor-azure-app-service-performance"></a>Övervaka Azure App Service-prestanda
 
@@ -28,7 +28,7 @@ Det finns två sätt att aktivera programövervakning för Azure App Services-v�
 
     * Den här metoden är mycket mer anpassningsbar, men det kräver [att du lägger till ett beroende av Application Insights SDK NuGet-paketen](https://docs.microsoft.com/azure/azure-monitor/app/asp-net). Den här metoden innebär också att du själv måste hantera uppdateringarna till den senaste versionen av paketen.
 
-    * Om du behöver göra anpassade API-anrop för att spåra händelser/beroenden som inte fångas in som standard med agentbaserad övervakning, måste du använda den här metoden. Kolla in [API för anpassade händelser och mått artikel](https://docs.microsoft.com/azure/azure-monitor/app/api-custom-events-metrics) om du vill veta mer.
+    * Om du behöver göra anpassade API-anrop för att spåra händelser/beroenden som inte fångas in som standard med agentbaserad övervakning, måste du använda den här metoden. Kolla in [API för anpassade händelser och mått artikel](https://docs.microsoft.com/azure/azure-monitor/app/api-custom-events-metrics) om du vill veta mer. Detta är också för närvarande det enda alternativet som stöds för Linux-baserade arbetsbelastningar.
 
 > [!NOTE]
 > Om både agentbaserad övervakning och manuell SDK-baserad instrumentering upptäcks, kommer endast inställningarna för manuell instrumentering att uppfyllas. Detta för att förhindra att dubblettdata skickas. Mer information om detta finns i [felsökningsavsnittet](https://docs.microsoft.com/azure/azure-monitor/app/azure-web-apps#troubleshooting) nedan.

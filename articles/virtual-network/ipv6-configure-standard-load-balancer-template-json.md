@@ -1,5 +1,5 @@
 ---
-title: Distribuera ett IPv6-program med dubbla staplar i virtuellt Azure-nätverk – Mallen Resurshanteraren (förhandsversion)
+title: Distribuera ett IPv6-program med dubbla stackar i Azure virtuellt nätverk - Resource Manger-mall
 titlesuffix: Azure Virtual Network
 description: Den här artikeln visar hur du distribuerar ett IPv6-program med dubbla stackar med Standard load Balancer i virtuella Azure-nätverk med hjälp av AZURE Resource Manager VM-mallar.
 services: virtual-network
@@ -10,18 +10,18 @@ ms.service: virtual-network
 ms.devlang: NA
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 07/15/2019
+ms.date: 03/31/2020
 ms.author: kumud
-ms.openlocfilehash: 8f2c6bc7fb7ab0939da20932fd531c158549ce7a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1f9531b5d1decfd462a82b9d389c5af519591c83
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "70012855"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80420650"
 ---
-# <a name="deploy-an-ipv6-dual-stack-application-in-azure-virtual-network---template-preview"></a>Distribuera ett IPv6-program med dubbla stackar i virtuellt Azure-nätverk – mall (förhandsversion)
+# <a name="deploy-an-ipv6-dual-stack-application-in-azure-virtual-network---template"></a>Distribuera ett IPv6-program med dubbla stackar i virtuellt Azure-nätverk – mall
 
-Den här artikeln innehåller en lista över IPv6-konfigurationsuppgifter med den del av Azure Resource Manager VM-mallen som gäller för. Använd mallen som beskrivs i den här artikeln för att distribuera ett IPv4 + IPv6-program (IPv4 + IPv6) med standardbelastningsutjämning i Azure som innehåller ett virtuellt nätverk med dubbla staplar med IPv4- och IPv6-undernät, en standardbelastningsutjämningstagare med dubbla frontend-enheter (IPv4 + IPv6) konfigurationer, virtuella datorer med nätverkskort som har en dubbel IP-konfiguration, nätverkssäkerhetsgrupp och offentliga IP-adresser. 
+Den här artikeln innehåller en lista över IPv6-konfigurationsuppgifter med den del av Azure Resource Manager VM-mallen som gäller för. Använd mallen som beskrivs i den här artikeln för att distribuera ett IPv4 + IPv6-program (Med dubbla stackar) med hjälp av standardbelastningsutjämning i Azure som innehåller ett virtuellt nätverk med dubbla staplar med IPv4- och IPv6-undernät, en standardbelastningsutjämning med dubbla frontend-konfigurationer (IPv4 + IPv6), virtuella datorer med nätverkskort som har en dubbel IP-konfiguration, nätverkssäkerhetsgrupp och offentliga IP-adresser. 
 
 ## <a name="required-configurations"></a>Nödvändiga konfigurationer
 

@@ -11,12 +11,12 @@ author: jpe316
 ms.reviewer: larryfr
 ms.date: 02/27/2020
 ms.custom: seoapril2019
-ms.openlocfilehash: 96d9a0722ae04dc150b639dced34fa290da93630
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0deace98c5be0b2ce2f29abce4c8a804145afdb1
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80159428"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80475618"
 ---
 # <a name="deploy-models-with-azure-machine-learning"></a>Distribuera modeller med Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -537,9 +537,9 @@ Klasserna för lokala Azure-behållarinstanser och AKS-webbtjänster kan importe
 from azureml.core.webservice import AciWebservice, AksWebservice, LocalWebservice
 ```
 
-### <a name="securing-deployments-with-ssl"></a>Skydda distributioner med SSL
+### <a name="securing-deployments-with-tls"></a>Skydda distributioner med TLS
 
-Mer information om hur du skyddar en webbtjänstdistribution finns i [Använda SSL för att skydda en webbtjänst](how-to-secure-web-service.md#enable).
+Mer information om hur du skyddar en webbtjänstdistribution finns i [Aktivera TLS och distribuera](how-to-secure-web-service.md#enable).
 
 ### <a name="local-deployment"></a><a id="local"></a>Lokal distribution
 
@@ -907,6 +907,24 @@ service_name = 'my-sklearn-service'
 service = Model.deploy(ws, service_name, [model])
 ```
 
+Modeller som stöder predict_proba använder den metoden som standard. För att åsidosätta detta för att använda förutsäga kan du ändra POST kroppen enligt nedan:
+```python
+import json
+
+
+input_payload = json.dumps({
+    'data': [
+        [ 0.03807591,  0.05068012,  0.06169621, 0.02187235, -0.0442235,
+         -0.03482076, -0.04340085, -0.00259226, 0.01990842, -0.01764613]
+    ],
+    'method': 'predict'  # If you have a classification model, the default behavior is to run 'predict_proba'.
+})
+
+output = service.run(input_payload)
+
+print(output)
+```
+
 Obs: Dessa beroenden ingår i den fördefinierade sklearn inferensbehållaren:
 
 ```yaml
@@ -1154,7 +1172,7 @@ def run(request):
 
 * [Distribuera en modell med en anpassad Docker-avbildning](how-to-deploy-custom-docker-image.md)
 * [Felsökning av distribution](how-to-troubleshoot-deployment.md)
-* [Säkra Azure Machine Learning-webbtjänster med SSL](how-to-secure-web-service.md)
+* [Använda TLS för att skydda en webbtjänst via Azure Machine Learning](how-to-secure-web-service.md)
 * [Använda en Azure Machine Learning-modell som distribueras som en webbtjänst](how-to-consume-web-service.md)
 * [Övervaka dina Azure Machine Learning-modeller med Application Insights](how-to-enable-app-insights.md)
 * [Samla in data för modeller i produktion](how-to-enable-data-collection.md)

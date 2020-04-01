@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/11/2020
 ms.author: spelluru
-ms.openlocfilehash: d7d697e3ea4b1b683275d53f6e407396f474b37b
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 7bb9d3ce4c80761362c1ea564f6a632bc7a7f68a
+ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77462028"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80398291"
 ---
 # <a name="send-events-to-and-receive-events-from-azure-event-hubs---net-core-azuremessagingeventhubs"></a>Skicka händelser till och ta emot händelser från Azure Event Hubs - .NET Core (Azure.Messaging.EventHubs) 
 Den här snabbstarten visar hur du skickar händelser till och ta emot händelser från en händelsehubb med **azure.messaging.eventhubs** .NET Core-biblioteket. 
@@ -118,6 +118,9 @@ I det här avsnittet visas hur du skapar ett .NET Core-konsolprogram för att sk
 I det här avsnittet visas hur du skriver ett .NET Core-konsolprogram som tar emot meddelanden från en händelsehubb med hjälp av en händelsebehandlare. Händelsebehandlaren förenklar mottagning av händelser från händelsehubbar genom att hantera beständiga kontrollpunkter och parallella mottagningar från dessa händelsehubbar. En händelsebehandlare är associerad med en specifik händelsehubb och en konsumentgrupp. Den tar emot händelser från flera partitioner i händelsehubben och skickar dem till ett hanteraredelegat för bearbetning med hjälp av kod som du anger. 
 
 
+> [!NOTE]
+> Om du körs på Azure Stack Hub kan den plattformen ha stöd för en annan version av Storage Blob SDK än de som vanligtvis är tillgängliga på Azure. Om du till exempel kör [på Azure Stack Hub version 2002](https://docs.microsoft.com/azure-stack/user/event-hubs-overview)är den högsta tillgängliga versionen för lagringstjänsten version 2017-11-09. I det här fallet, förutom följande steg i det här avsnittet, måste du också lägga till kod för att rikta lagringstjänstens API-version 2017-11-09. Ett exempel på hur du inriktar dig på en specifik storage API-version finns i [det här exemplet på GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/eventhub/Azure.Messaging.EventHubs.Processor/samples/Sample10_RunningWithDifferentStorageVersion.cs). Mer information om Azure Storage-tjänstversionerna som stöds på Azure Stack Hub finns i [Azure Stack Hub storage: Skillnader och överväganden](https://docs.microsoft.com/azure-stack/user/azure-stack-acs-differences).
+
 ### <a name="create-an-azure-storage-and-a-blob-container"></a>Skapa en Azure Storage och en blob-behållare
 I den här snabbstarten använder du Azure Storage som kontrollpunktslagring. Följ dessa steg för att skapa ett Azure Storage-konto. 
 
@@ -125,7 +128,7 @@ I den här snabbstarten använder du Azure Storage som kontrollpunktslagring. F�
 2. [Skapa en blobcontainer](../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container)
 3. [Hämta anslutningssträngen till lagringskontot](../storage/common/storage-configure-connection-string.md?#view-and-copy-a-connection-string)
 
-    Anteckna anslutningssträngen och behållarnamnet. Du kommer att använda dem i mottagningskoden. 
+    Anteckna anslutningssträngen och behållarnamnet. Du använder dem i mottagningskoden. 
 
 
 ### <a name="create-a-project-for-the-receiver"></a>Skapa ett projekt för mottagaren

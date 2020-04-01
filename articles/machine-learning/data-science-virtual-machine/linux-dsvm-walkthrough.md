@@ -9,12 +9,12 @@ author: vijetajo
 ms.author: vijetaj
 ms.topic: conceptual
 ms.date: 07/16/2018
-ms.openlocfilehash: 9857de0470baa35dcc8005e1622e5e593da95751
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1d15d53816d916bd28841aae39255685524faa2d
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80128357"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80477864"
 ---
 # <a name="data-science-with-a-linux-data-science-virtual-machine-in-azure"></a>Datavetenskap med en virtuell virtuell linuxdatavetenskapdator i Azure
 
@@ -29,7 +29,7 @@ I den här genomgången analyserar vi spambase-datauppsättningen. [spambase](ht
 Innan du kan använda en Linux DSVM måste du ha följande förutsättningar:
 
 * **Azure-prenumeration**. Information om hur du skaffar en Azure-prenumeration finns i [Skapa ditt kostnadsfria Azure-konto idag](https://azure.microsoft.com/free/).
-* [**Linux Data Science virtuell maskin**](https://azure.microsoft.com/marketplace/partners/microsoft-ads/linux-data-science-vm). Information om hur du etablerar den virtuella datorn finns i [Etablera virtuell virtuell dator för Linux Data Science](linux-dsvm-intro.md).
+* [**Linux Data Science virtuell maskin**](https://azure.microsoft.com/marketplace/apps/microsoft-dsvm.linux-data-science-vm-ubuntu). Information om hur du etablerar den virtuella datorn finns i [Etablera virtuell virtuell dator för Linux Data Science](linux-dsvm-intro.md).
 * [**X2Go**](https://wiki.x2go.org/doku.php) installerat på din dator med en öppen XFCE-session. Mer information finns i [Installera och konfigurera X2Go-klienten](linux-dsvm-intro.md#x2go).
 * För en smidigare rullningsupplevelse, i DSVM:s Firefox `gfx.xrender.enabled` webbläsare, växla flaggan i `about:config`. [Läs mer](https://www.reddit.com/r/firefox/comments/4nfmvp/ff_47_unbearable_slow_over_remote_x11/). Också överväga `mousewheel.enable_pixel_scrolling` `False`att ställa in till . [Läs mer](https://support.mozilla.org/questions/981140).
 * **Azure Machine Learning-konto**. Om du inte redan har ett kan du registrera dig för ett nytt konto på [startsidan](https://azure.microsoft.com/free/services/machine-learning//)för Azure Machine Learning .

@@ -8,12 +8,12 @@ ms.devlang: nodejs
 ms.topic: reference
 ms.date: 09/24/2018
 ms.author: dech
-ms.openlocfilehash: de1c1b93b813f71b321da0625bc60e0762a859c7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 181f43e060e3b4b41babeee375365a97e1d224aa
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "70207954"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80411274"
 ---
 # <a name="azure-cosmos-db-nodejs-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Node.js SDK för SQL API: Versionsanteckningar och resurser
 > [!div class="op_single_selector"]
@@ -24,7 +24,7 @@ ms.locfileid: "70207954"
 > * [Async Java](sql-api-sdk-async-java.md)
 > * [Java](sql-api-sdk-java.md)
 > * [Python](sql-api-sdk-python.md)
-> * [Resten](https://docs.microsoft.com/rest/api/cosmos-db/)
+> * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
 > * [REST-resursprovider](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
 > * [SQL](sql-api-query-reference.md)
 > * [Bulkutnrutören - .NET](sql-api-sdk-bulk-executor-dot-net.md)
@@ -318,7 +318,7 @@ Inte alltid de mest synliga förändringarna, men de hjälper vårt team leverer
 ### <a name=""></a><a name="1.11.0"/>1.11.0</a>
 * Lade till stöd för aggregeringsfrågor (ANTAL, MIN, MAX, SUMMA och AVG).
 * Lade till alternativet för att kontrollera graden av parallellism för korspartitionsfrågor.
-* Lade till alternativet för att inaktivera SSL-verifiering när du kör mot Azure Cosmos DB Emulator.
+* Lade till alternativet för att inaktivera TLS-verifiering när du kör mot Azure Cosmos DB Emulator.
 * Sänkt minsta genomströmning på partitionerade samlingar från 10 100 RU/s till 2500 RU/s.
 * Fixade att fel vid fortsättningstoken för enpartitionssamling. GitHub-problemet #107.
 * Fixade felet executeStoredProcedure i hanteringen 0 som en param. GitHub-problemet #155.
@@ -328,7 +328,7 @@ Inte alltid de mest synliga förändringarna, men de hjälper vårt team leverer
 * Mindre kodrensning.
 
 ### <a name=""></a><a name="1.10.1"/>1.10.1</a>
-* Inaktivera SSL-verifiering när du använder SDK för att rikta in sig på emulatorn(hostname=localhost).
+* Inaktivera TLS-verifiering när du använder SDK för att rikta in sig på emulatorn (hostname=localhost).
 * Lade till stöd för att aktivera skriptloggning under körning av lagrade procedurer.
 
 ### <a name=""></a><a name="1.10.0"/>1.10.0</a>

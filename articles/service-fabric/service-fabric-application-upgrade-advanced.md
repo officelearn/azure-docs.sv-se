@@ -3,12 +3,12 @@ title: Avancerade programuppgraderingsavsnitt
 description: Den här artikeln innehåller några avancerade ämnen som rör uppgradering av ett Service Fabric-program.
 ms.topic: conceptual
 ms.date: 1/28/2020
-ms.openlocfilehash: 09f3fdf1f26a13c6722eb039e132256f33be38ff
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 182ab6dc1663e160561b8941ebf3a36b5af3d950
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76845425"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80422816"
 ---
 # <a name="service-fabric-application-upgrade-advanced-topics"></a>Uppgradering av programuppgraderingen av Service Fabric: Avancerade ämnen
 
@@ -20,9 +20,9 @@ På samma sätt kan tjänsttyper tas bort från ett program som en del av en upp
 
 ## <a name="avoid-connection-drops-during-stateless-service-planned-downtime-preview"></a>Undvik anslutningsfall under tillståndslös tjänst planerad driftstopp (förhandsgranskning)
 
-För planerade tillståndslösa instansstopptider, till exempel uppgradering av program/kluster eller nodinaktivering, kan anslutningar tas bort på grund av att den exponerade slutpunkten tas bort när den har slopats.
+För planerade tillståndslösa instansstopptider, till exempel uppgradering av program/kluster eller nodavaktivering, kan anslutningar tas bort på grund av den exponerade slutpunkten tas bort när instansen går ned, vilket resulterar i tvångsanslutningsstängningar.
 
-Undvik detta genom att konfigurera funktionen *RequestDrain* (preview) genom att lägga till en *fördröjningstid för replikinstans* i tjänstkonfigurationen. Detta säkerställer att slutpunkten som annonseras av den tillståndslösa instansen tas bort *innan* fördröjningspekaren startar för att stänga instansen. Den här fördröjningen gör det möjligt för befintliga begäranden att tömma graciöst innan instansen faktiskt går ner. Klienter meddelas om slutpunktsändringen via motringningsfunktionen, så att de kan lösa slutpunkten igen och undvika att skicka nya begäranden till instansen som går ned.
+Undvik detta genom att konfigurera funktionen *RequestDrain* (preview) genom att lägga till en *fördröjningstid* för instans nära i tjänstkonfigurationen så att begäranden kan tömmas när du tar emot begäranden från andra tjänster i klustret och använder Omvänd proxy eller använder lösnings-API med meddelandemodell för uppdatering av slutpunkter. Detta säkerställer att slutpunkten som annonseras av den tillståndslösa instansen tas bort *innan* fördröjningen startar innan instansen stängs. Den här fördröjningen gör det möjligt för befintliga begäranden att tömma graciöst innan instansen faktiskt går ner. Klienter meddelas om slutpunktsändringen av en motringningsfunktion vid tidpunkten för start av fördröjningen, så att de kan lösa slutpunkten igen och undvika att skicka nya begäranden till den instans som går nedåt.
 
 ### <a name="service-configuration"></a>Tjänstkonfiguration
 
@@ -50,24 +50,8 @@ Det finns flera sätt att konfigurera fördröjningen på tjänstsidan.
 
 ### <a name="client-configuration"></a>Klientkonfiguration
 
-Om du vill få ett meddelande när en slutpunkt har ändrats kan klienter registrera en motringning (`ServiceManager_ServiceNotificationFilterMatched`) så här: 
-
-```csharp
-    var filterDescription = new ServiceNotificationFilterDescription
-    {
-        Name = new Uri(serviceName),
-        MatchNamePrefix = true
-    };
-    fbClient.ServiceManager.ServiceNotificationFilterMatched += ServiceManager_ServiceNotificationFilterMatched;
-    await fbClient.ServiceManager.RegisterServiceNotificationFilterAsync(filterDescription);
-
-private static void ServiceManager_ServiceNotificationFilterMatched(object sender, EventArgs e)
-{
-      // Resolve service to get a new endpoint list
-}
-```
-
-Ändringsmeddelandet är en indikation på att slutpunkterna har ändrats, klienten ska lösa slutpunkterna igen och inte använda slutpunkterna som inte annonseras längre eftersom de kommer att gå ner snart.
+Om du vill ta emot ett meddelande när en slutpunkt har ändrats bör klienter registrera en motringning se [ServiceNotificationFilterDescription](https://docs.microsoft.com/dotnet/api/system.fabric.description.servicenotificationfilterdescription).
+Ändringsmeddelandet är en indikation på att slutpunkterna har ändrats, klienten ska lösa slutpunkterna igen och inte använda slutpunkterna som inte annonseras längre, eftersom de kommer att gå ner snart.
 
 ### <a name="optional-upgrade-overrides"></a>Valfria uppgraderingsidosättningsidosättningar
 
@@ -80,6 +64,16 @@ Start-ServiceFabricClusterUpgrade [-CodePackageVersion] <String> [-ClusterManife
 ```
 
 Fördröjningstiden gäller endast för den anropade uppgraderingsinstansen och ändrar inte på annat sätt enskilda tjänstfördröjningskonfigurationer. Du kan till exempel använda detta `0` för att ange en fördröjning för att hoppa över eventuella förkonfigurerade uppgraderingsfördröjningar.
+
+> [!NOTE]
+> Inställningen för att tömma begäranden är inte avfäst för begäranden från Azure Load Balancer. Inställningen uppfylls inte om den anropande tjänsten använder klagomålsbaserad lösning.
+>
+>
+
+> [!NOTE]
+> Den här funktionen kan konfigureras i befintliga tjänster med hjälp av Update-ServiceFabricService cmdlet som nämnts ovan, när klusterkodversionen är 7.1.XXX eller högre.
+>
+>
 
 ## <a name="manual-upgrade-mode"></a>Manuellt uppgraderingsläge
 

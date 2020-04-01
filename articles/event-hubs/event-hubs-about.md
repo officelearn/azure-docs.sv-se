@@ -10,12 +10,12 @@ ms.topic: overview
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 9b3af6a6cee4375a110c894b6b72655605ad077d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
-ms.translationtype: HT
+ms.openlocfilehash: 45276ab59f1a3dabea42b904ff54bd37326fdeca
+ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80372244"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80398117"
 ---
 # <a name="azure-event-hubs--a-big-data-streaming-platform-and-event-ingestion-service"></a>Azure Event Hubs – en stordataströmningsplattform och händelseinmatningstjänst
 Azure Event Hubs är en stordataströmningsplattform och händelseinmatningstjänst. Den kan ta emot och behandla miljoner händelser per sekund. Data som skickas till en händelsehubb kan omvandlas och lagras med hjälp av valfri provider för realtidsanalys eller batchbearbetnings-/lagringsadaptrar.
@@ -61,7 +61,7 @@ Med Event Hubs kan du börja med dataströmmar i megabytestorlek och växa till 
 
 Med [Event Hubs för Apache Kafka-ekosystem](event-hubs-for-kafka-ecosystem-overview.md) kan [Apache Kafka-klienter och -program (1.0 och senare)](https://kafka.apache.org/) kommunicera med Event Hubs. Du behöver inte installera, konfigurera eller hantera några Kafka-kluster.
 
-Med ett brett ekosystem tillgängligt på olika [språk (.NET, Java, Python, Go, JavaScript)](https://github.com/Azure/azure-event-hubs)kan du enkelt börja bearbeta dina strömmar från Event Hubs. Alla klientspråk som stöds ger lågnivåintegrering. Ekosystemet innehåller också sömlös integrering med Azure-tjänster som Azure Stream Analytics och Azure Functions så att du kan skapa arkitekturer utan server.
+Med ett brett ekosystem tillgängligt på olika språk [.NET](https://github.com/Azure/azure-sdk-for-net/), [Java](https://github.com/Azure/azure-sdk-for-java/), [Python](https://github.com/Azure/azure-sdk-for-python/), [JavaScript](https://github.com/Azure/azure-sdk-for-js/)kan du enkelt börja bearbeta dina strömmar från Event Hubs. Alla klientspråk som stöds ger lågnivåintegrering. Ekosystemet innehåller också sömlös integrering med Azure-tjänster som Azure Stream Analytics och Azure Functions så att du kan skapa arkitekturer utan server.
 
 ## <a name="key-architecture-components"></a>Nyckelkomponenter i arkitektur
 Event Hubs innehåller följande [viktiga element](event-hubs-features.md):
@@ -74,7 +74,14 @@ Event Hubs innehåller följande [viktiga element](event-hubs-features.md):
 
 Följande bild visar strömhanteringsarkitekturen i Event Hubs:
 
-![Händelsehubbar](./media/event-hubs-about/event_hubs_architecture.png)
+![Event Hubs](./media/event-hubs-about/event_hubs_architecture.png)
+
+## <a name="event-hubs-on-azure-stack-hub"></a>Händelsehubbar på Azure Stack Hub
+Event Hubs på Azure Stack Hub kan du förverkliga hybridmoln scenarier. Streaming och händelsebaserade lösningar stöds, för både lokal och Azure-molnbearbetning. Oavsett om ditt scenario är hybrid (ansluten) eller frånkopplat kan din lösning stödja bearbetning av händelser/strömmar i stor skala. Ditt scenario är bara bundet av klusterstorleken Event Hubs, som du kan etablera efter dina behov. 
+
+Event Hubs-utgåvorna (på Azure Stack Hub och på Azure) erbjuder en hög grad av funktionsparitet. Den här pariteten innebär att SDK:er, exempel, PowerShell, CLI och portaler erbjuder en liknande upplevelse, med få skillnader. 
+
+Event Hubs on Stack är gratis under offentlig förhandsversion. Mer information finns i [Översikt över händelsehubbar på Azure Stack Hub](https://docs.microsoft.com/azure-stack/user/event-hubs-overview).
 
 
 ## <a name="next-steps"></a>Nästa steg
@@ -84,7 +91,7 @@ Information om hur du kommer igång med eventhubbar finns i självstudiekurserna
 - [.NET Core](get-started-dotnet-standard-send-v2.md)
 - [Java](get-started-java-send-v2.md)
 - [Python](get-started-python-send-v2.md)
-- [Javascript](get-started-node-send-v2.md)
+- [JavaScript](get-started-node-send-v2.md)
 - [Kör](event-hubs-go-get-started-send.md)
 - [C (skickar endast)](event-hubs-c-getstarted-send.md)
 - [Apache Storm (tar endast emot)](event-hubs-storm-getstarted-receive.md)

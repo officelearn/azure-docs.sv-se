@@ -1,5 +1,5 @@
 ---
-title: Översikt över IPv6 för Virtuellt Azure-nätverk (förhandsversion)
+title: Översikt över IPv6 för Virtuella Azure-nätverk
 titlesuffix: Azure Virtual Network
 description: IPv6-beskrivning av IPv6-slutpunkter och datasökvägar i ett virtuellt Azure-nätverk.
 services: virtual-network
@@ -10,24 +10,22 @@ ms.service: virtual-network
 ms.devlang: NA
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 12/19/2019
+ms.date: 03/31/2020
 ms.author: kumud
-ms.openlocfilehash: 9214886f468a4a052328a99289845361a059b650
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 03b279ead6b1f5d26ae92b63a8780a61dfd711bb
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75780087"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80420571"
 ---
-# <a name="what-is-ipv6-for-azure-virtual-network-preview"></a>Vad är IPv6 för Azure Virtual Network? (Förhandsversion)
+# <a name="what-is-ipv6-for-azure-virtual-network"></a>Vad är IPv6 för Azure Virtual Network?
 
 Med IPv6 för Azure Virtual Network (VNet) kan du vara värd för program i Azure med IPv6- och IPv4-anslutning både i ett virtuellt nätverk och till och från Internet. På grund av utmattningen av offentliga IPv4-adresser bygger nya nätverk för rörlighet och Sakernas Internet (IoT) ofta på IPv6. Även sedan länge etablerade INTERNET-och mobilnät håller på att omvandlas till IPv6. IPv4-tjänster kan hamna i en verklig nackdel på både befintliga och framväxande marknader. IPv4/IPv6-anslutning med dubbla staplar gör det möjligt för Azure-värdbaserade tjänster att gå igenom den här teknikklyftan med globalt tillgängliga, dual-stacked-tjänster som enkelt ansluter till både befintliga IPv4 och dessa nya IPv6-enheter och -nätverk.
 
 Azures ursprungliga IPv6-anslutning gör det enkelt att tillhandahålla internetanslutning med dubbla stackar (IPv4/IPv6) för program som finns i Azure. Det möjliggör enkel distribution av virtuella datorer med belastningsbalanserad IPv6-anslutning för både inkommande och utgående initierade anslutningar. Den här funktionen är fortfarande tillgänglig och mer information finns [här](../load-balancer/load-balancer-ipv6-overview.md).
 IPv6 för virtuella Azure-nätverk är mycket mer komplett- vilket gör att fullständiga IPv6-lösningsarkitekturer kan distribueras i Azure.
 
-> [!Important]
-> IPv6 för Azure Virtual Network är för närvarande i offentlig förhandsversion. Den här förhandsversionen tillhandahålls utan serviceavtal och rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller kan ha begränsad funktionalitet. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 I följande diagram visas en enkel IPv4/IPv6-distribution (IPv4/IPv6) i Azure:
 
@@ -74,7 +72,7 @@ IPv6 för Azure VNET är en grundläggande funktionsuppsättning som gör det m�
 
 ## <a name="limitations"></a>Begränsningar
 Den aktuella versionen av IPv6 för Azure-virtuella nätverk har följande begränsningar:
-- IPv6 för Azure virtuellt nätverk (Preview) är tillgängligt i alla globala Azure-regioner, men bara i Global Azure- ännu inte i myndighetsmoln.
+- IPv6 för Azure virtuellt nätverk är tillgängligt i alla globala Azure-regioner, men bara i Global Azure- ännu inte i myndighetsmoln.
 - ExpressRoute- och VPN-gateways kan inte användas i ett VNET med IPv6 aktiverat, antingen direkt eller peered med "UseRemoteGateway". 
 - Azure-plattformen (AKS, etc.) stöder inte IPv6-kommunikation för behållare.  
 

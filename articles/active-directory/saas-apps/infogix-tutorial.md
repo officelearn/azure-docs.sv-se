@@ -1,6 +1,6 @@
 ---
-title: 'Självstudier: Azure Active Directory-integrering med Infogix Data3Sixty styr | Microsoft Docs'
-description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Infogix Data3Sixty styr.
+title: 'Självstudiekurs: Azure Active Directory-integrering med Infogix Data3Sixty Govern | Microsoft-dokument'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Infogix Data3Sixty Govern.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -16,45 +16,45 @@ ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
 ms.openlocfilehash: a0b8dbb3992808bdcb94291d876192431c72f6c2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67100350"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-infogix-data3sixty-govern"></a>Självstudier: Azure Active Directory-integrering med Infogix Data3Sixty styr
+# <a name="tutorial-azure-active-directory-integration-with-infogix-data3sixty-govern"></a>Självstudiekurs: Azure Active Directory-integrering med Infogix Data3Sixty Govern
 
-I den här självstudien får du lära dig hur du integrerar Infogix Data3Sixty styr med Azure Active Directory (AD Azure).
-Integrera Infogix Data3Sixty styr med Azure AD ger dig följande fördelar:
+I den här självstudien får du lära dig hur du integrerar Infogix Data3Sixty Govern med Azure Active Directory (Azure AD).
+Genom att integrera Infogix Data3Sixty Govern med Azure AD får du följande fördelar:
 
-* Du kan styra i Azure AD som har åtkomst till Infogix Data3Sixty styr.
-* Du kan aktivera användarna att vara automatiskt inloggad till Infogix Data3Sixty styr (Single Sign-On) med sina Azure AD-konton.
-* Du kan hantera dina konton på en central plats – Azure portal.
+* Du kan styra i Azure AD som har åtkomst till Infogix Data3Sixty Govern.
+* Du kan aktivera dina användare så att de automatiskt loggas in på Infogix Data3Sixty Govern (Enkel inloggning) med sina Azure AD-konton.
+* Du kan hantera dina konton på en central plats – Azure-portalen.
 
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
+Om du inte har en Azure-prenumeration [skapar du ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
-Om du vill konfigurera Azure AD-integrering med Infogix Data3Sixty styr, behöver du följande objekt:
+Om du vill konfigurera Azure AD-integrering med Infogix Data3Sixty Govern behöver du följande objekt:
 
 * En Azure AD-prenumeration. Om du inte har någon Azure AD-miljö kan du hämta en månads utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/)
-* Infogix Data3Sixty styr enkel inloggning aktiverat prenumeration
+* Infogix Data3Sixty Govern enkel inloggning aktiverad prenumeration
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
 I den här självstudien konfigurerar och testar du enkel inloggning med Azure AD i en testmiljö.
 
-* Har stöd för Infogix Data3Sixty styr **SP och IDP** -initierad SSO
-* Har stöd för Infogix Data3Sixty styr **Just In Time** etableringen av användare
+* Infogix Data3Sixty Govern stöder **SP och IDP** initierade SSO
+* Infogix Data3Sixty Govern stöder just in time-användaretablering **Just In Time**
 
-## <a name="adding-infogix-data3sixty-govern-from-the-gallery"></a>Att lägga till Infogix Data3Sixty styr från galleriet
+## <a name="adding-infogix-data3sixty-govern-from-the-gallery"></a>Lägga till Infogix Data3Sixty Govern från galleriet
 
-För att konfigurera integrering av Infogix Data3Sixty styr i Azure AD, som du behöver lägga till Infogix Data3Sixty styr från galleriet i din lista över hanterade SaaS-appar.
+Om du vill konfigurera integreringen av Infogix Data3Sixty Govern i Azure AD måste du lägga till Infogix Data3Sixty Govern från galleriet i listan över hanterade SaaS-appar.
 
-**Om du vill lägga till Infogix Data3Sixty styr från galleriet, utför du följande steg:**
+**Så här lägger du till Infogix Data3Sixty Govern från galleriet:**
 
-1. I den **[Azure-portalen](https://portal.azure.com)** , klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
+1. I **[Azure-portalen](https://portal.azure.com)** går du till den vänstra navigeringspanelen och klickar på **Azure Active Directory**-ikonen.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
@@ -62,37 +62,37 @@ För att konfigurera integrering av Infogix Data3Sixty styr i Azure AD, som du b
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-3. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
+3. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
 
     ![Knappen Nytt program](common/add-new-app.png)
 
-4. I sökrutan skriver **Infogix Data3Sixty styr**väljer **Infogix Data3Sixty styr** resultatet panelen klickar **Lägg till** för att lägga till programmet.
+4. I sökrutan skriver du **Infogix Data3Sixty Govern**, välj **Infogix Data3Sixty Govern** från resultatpanelen och klicka sedan på **Lägg** till knappen för att lägga till programmet.
 
-     ![Infogix Data3Sixty styr i resultatlistan](common/search-new-app.png)
+     ![Infogix Data3Sixty Styr i resultatlistan](common/search-new-app.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
-I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med Infogix Data3Sixty styr baserat på en testanvändare kallas **Britta Simon**.
-För enkel inloggning ska fungera, måste en länk förhållandet mellan en Azure AD-användare och relaterade användaren i Infogix Data3Sixty styr upprättas.
+I det här avsnittet konfigurerar och testar du Azure AD enkel inloggning med Infogix Data3Sixty Govern baserat på en testanvändare som heter **Britta Simon**.
+För enkel inloggning för att fungera måste en länkrelation mellan en Azure AD-användare och den relaterade användaren i Infogix Data3Sixty Govern upprättas.
 
-Om du vill konfigurera och testa Azure AD enkel inloggning med Infogix Data3Sixty styr, måste du utföra följande byggblock:
+Om du vill konfigurera och testa en azure AD-inloggning med Infogix Data3Sixty Govern måste du slutföra följande byggblock:
 
-1. **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
-2. **[Konfigurera Infogix Data3Sixty styr enkel inloggning](#configure-infogix-data3sixty-govern-single-sign-on)**  – om du vill konfigurera inställningar för enkel inloggning på programsidan.
-3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
-4. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
-5. **[Skapa Infogix Data3Sixty styr testanvändare](#create-infogix-data3sixty-govern-test-user)**  – du har en motsvarighet för Britta Simon i Infogix Data3Sixty styr som är länkad till en Azure AD-representation av användaren.
-6. **[Testa enkel inloggning](#test-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
+1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
+2. **[Konfigurera Infogix Data3Sixty Govern Single Sign-On](#configure-infogix-data3sixty-govern-single-sign-on)** - för att konfigurera inställningarna för enkel inloggning på programsidan.
+3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
+4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
+5. **[Skapa Infogix Data3Sixty Govern testanvändare](#create-infogix-data3sixty-govern-test-user)** - att ha en motsvarighet till Britta Simon i Infogix Data3Sixty Govern som är kopplad till Azure AD-representationen av användaren.
+6. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
 I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure-portalen.
 
-Utför följande steg för att konfigurera Azure AD enkel inloggning med Infogix Data3Sixty styr:
+Så här konfigurerar du en enkel Azure AD-inloggning med Infogix Data3Sixty Govern:
 
-1. I den [Azure-portalen](https://portal.azure.com/)på den **Infogix Data3Sixty styr** application integration markerar **enkel inloggning**.
+1. I [Azure-portalen](https://portal.azure.com/)väljer du Enkel inloggning på sidan **Infogix Data3Sixty** **Govern-programintegration**.
 
-    ![Konfigurera enkel inloggning för länken](common/select-sso.png)
+    ![Konfigurera länk för enkel inloggning](common/select-sso.png)
 
 2. I dialogrutan **Välj en metod för enkel inloggning** väljer du läget **SAML/WS-Fed** för att aktivera enkel inloggning.
 
@@ -102,24 +102,24 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med Infogix
 
     ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
 
-4. I avsnittet **Grundläggande SAML-konfiguration**, om du vill konfigurera appen i **IDP**-initierat läge, gör du följande:
+4. Om du vill konfigurera programmet i **IDP-initierat** läge i avsnittet **Grundläggande SAML-konfiguration** gör du följande:
 
-    ![Infogix Data3Sixty styr domän och URL: er med enkel inloggning för information](common/idp-intiated.png)
+    ![Infogix Data3Sixty Govern Domain och WEBBADRESSER enkel inloggningsinformation](common/idp-intiated.png)
 
-    a. I textrutan **Identifierare** skriver du in en URL: `https://data3sixty.com/ui`
+    a. Skriv en URL i textrutan **Identifierare:**`https://data3sixty.com/ui`
 
-    b. I textrutan **Svars-URL** skriver du en URL med följande mönster: `https://<subdomain>.data3sixty.com/sso/acs`
+    b. Skriv en URL med följande mönster i textrutan **Svara URL:**`https://<subdomain>.data3sixty.com/sso/acs`
 
 5. Klicka på **Ange ytterligare URL:er** och gör följande om du vill konfigurera appen i **SP**-initierat läge:
 
-    ![Infogix Data3Sixty styr domän och URL: er med enkel inloggning för information](common/metadata-upload-additional-signon.png)
+    ![Infogix Data3Sixty Govern Domain och WEBBADRESSER enkel inloggningsinformation](common/metadata-upload-additional-signon.png)
 
-    I textrutan **Inloggnings-URL** skriver du in en URL med följande mönster: `https://<subdomain>.data3sixty.com`
+    Skriv en URL med hjälp av följande mönster i textrutan **Sign-on-URL:**`https://<subdomain>.data3sixty.com`
 
     > [!NOTE]
-    > Dessa värden är inte verkliga. Uppdatera värdena med faktisk svars-URL och inloggnings-URL. Kontakta [Infogix Data3Sixty styr klienten supportteamet](mailto:data3sixtysupport@infogix.com) att hämta dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
+    > Dessa värden är inte verkliga. Uppdatera värdena med faktisk svars-URL och inloggnings-URL. Kontakta [Infogix Data3Sixty Styr klientsupportteamet](mailto:data3sixtysupport@infogix.com) för att få dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
-6. Infogix Data3Sixty styra program som förväntar SAML-intyg i ett visst format. Konfigurera följande anspråk för det här programmet. Du kan hantera värdena för dessa attribut i avsnittet **Användarattribut** på sidan för programintegrering. På sidan **Konfigurera enkel inloggning med SAML** klickar du på knappen **Redigera** för att öppna dialogrutan **Användarattribut**.
+6. Infogix Data3Sixty Govern-programmet förväntar sig SAML-påståenden i ett visst format. Konfigurera följande anspråk för det här programmet. Du kan hantera värdena för dessa attribut i avsnittet **Användarattribut** på sidan för programintegrering. På sidan **Konfigurera enkel inloggning med SAML** klickar du på knappen **Redigera** för att öppna dialogrutan **Användarattribut**.
 
     ![image](common/edit-attribute.png)
 
@@ -128,8 +128,8 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med Infogix
     | Namn | Källattribut|
     | -----------| -------------- |
     | förnamn  | user.givenname |
-    | lastname   | user.surname |
-    | username   | user.mail    |
+    | efternamn   | user.surname |
+    | användarnamn   | user.mail    |
 
     a. Klicka på **Lägg till nytt anspråk** för att öppna dialogrutan **Hantera användaranspråk**.
 
@@ -151,21 +151,21 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med Infogix
 
 8. På sidan **Konfigurera enkel inloggning med SAML**, i avsnittet **SAML-signeringscertifikat**, klickar du på **Ladda ned** för att ladda ned **Certifikat (RAW)** från de angivna alternativen enligt dina behov och spara den på datorn.
 
-    ![Länk för hämtning av certifikat](common/certificateraw.png)
+    ![Länk för nedladdning av certifikatet](common/certificateraw.png)
 
-9. På den **konfigurera Infogix Data3Sixty styr** avsnittet, kopiera den lämpliga URL: er enligt dina behov.
+9. Kopiera lämpliga webbadresser enligt dina krav i avsnittet **Konfigurera Infogix Data3Sixty Govern.**
 
     ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
 
-    a. Inloggningswebbadress
+    a. Inloggnings-URL
 
-    b. Microsoft Azure Active Directory-identifierare
+    b. Azure AD-identifierare
 
     c. Utloggnings-URL
 
-### <a name="configure-infogix-data3sixty-govern-single-sign-on"></a>Konfigurera Infogix Data3Sixty styr enkel inloggning
+### <a name="configure-infogix-data3sixty-govern-single-sign-on"></a>Konfigurera Infogix Data3Sixty govern single sign-on
 
-Att konfigurera enkel inloggning på **Infogix Data3Sixty styr** sida, som du behöver skicka de hämtade **certifikat (Raw)** och lämpliga kopierade URL: er från Azure portal för att [Infogix Data3Sixty Styr supportteamet](mailto:data3sixtysupport@infogix.com). De ställer du in SAML SSO ansluta till korrekt inställda på båda sidorna.
+Om du vill konfigurera enkel inloggning på **infogix data3Sixty govern-sidan** måste du skicka det nedladdade **certifikatet (Raw)** och lämpliga kopierade url:er från Azure-portalen till [Infogix Data3Sixty Govern supportteam](mailto:data3sixtysupport@infogix.com). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare 
 
@@ -175,7 +175,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     ![Länkarna ”Användare och grupper” och ”Alla grupper”](common/users.png)
 
-2. Välj **Ny användare** överst på skärmen.
+2. Välj **Ny användare** högst upp på skärmen.
 
     ![Knappen Ny användare](common/new-user.png)
 
@@ -192,17 +192,17 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     d. Klicka på **Skapa**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
+### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
-I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inloggning genom att bevilja åtkomst till Infogix Data3Sixty styr.
+I det här avsnittet kan du aktivera Britta Simon för att använda Azure single sign-on genom att bevilja åtkomst till Infogix Data3Sixty Govern.
 
-1. I Azure-portalen väljer du **företagsprogram**väljer **alla program**och välj sedan **Infogix Data3Sixty styr**.
+1. I Azure-portalen väljer du **Företagsprogram**, väljer **Alla program**och väljer sedan **Infogix Data3Sixty Govern**.
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-2. I listan med program väljer **Infogix Data3Sixty styr**.
+2. Välj **Infogix Data3Sixty Govern**i programlistan .
 
-    ![Länken Infogix Data3Sixty styr i listan med program](common/all-applications.png)
+    ![Länken Infogix Data3Sixty Govern i listan Program](common/all-applications.png)
 
 3. På menyn till vänster väljer du **Användare och grupper**.
 
@@ -214,22 +214,22 @@ I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inlog
 
 5. I dialogrutan **Användare och grupper** väljer du **Britta Simon** i listan med användare och klickar på knappen **Välj** längst ned på skärmen.
 
-6. Om du förväntar dig ett rollvärde i SAML-försäkran väljer du i dialogrutan **Välj roll** lämplig roll för användaren i listan och klickar sedan på knappen **Välj** längst ned på skärmen.
+6. Om du förväntar dig något rollvärde i SAML-påståendet väljer du lämplig roll för användaren i listan i dialogrutan **Välj roll** och klickar sedan på knappen **Välj** längst ned på skärmen.
 
 7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
 
-### <a name="create-infogix-data3sixty-govern-test-user"></a>Skapa Infogix Data3Sixty styr testanvändare
+### <a name="create-infogix-data3sixty-govern-test-user"></a>Skapa Infogix Data3Sixty Govern testanvändare
 
-I det här avsnittet skapas en användare som kallas Britta Simon i Infogix Data3Sixty styr. Infogix Data3Sixty styr stöder etableringen av just-in-time-användare som är aktiverat som standard. Det finns inget åtgärdsobjekt för dig i det här avsnittet. Om en användare inte redan finns i Infogix Data3Sixty styr, skapas en ny efter autentisering.
+I det här avsnittet skapas en användare som heter Britta Simon i Infogix Data3Sixty Govern. Infogix Data3Sixty Govern stöder just-in-time-användaretablering, vilket är aktiverat som standard. Det finns inget åtgärdsobjekt för dig i det här avsnittet. Om en användare inte redan finns i Infogix Data3Sixty Govern skapas en ny efter autentisering.
 
 > [!Note]
-> Om du vill skapa en användare manuellt kan du kontakta [Infogix Data3Sixty styr supportteamet](mailto:data3sixtysupport@infogix.com).
+> Om du behöver skapa en användare manuellt kontaktar du [Infogix Data3Sixty Govern supportteam](mailto:data3sixtysupport@infogix.com).
 
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning
 
-I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
+I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-När du klickar på panelen Infogix Data3Sixty styr i åtkomstpanelen, bör det vara loggas in automatiskt till den Infogix Data3Sixty som reglerar som du ställer in enkel inloggning. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+När du klickar på panelen Infogix Data3Sixty Govern på åtkomstpanelen ska du automatiskt loggas in på den Infogix Data3Sixty Govern som du konfigurerar SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 

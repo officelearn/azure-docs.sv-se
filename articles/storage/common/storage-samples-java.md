@@ -1,6 +1,6 @@
 ---
-title: Azure Storage exempel med Java | Microsoft Docs
-description: Visa, ladda ned och kör exempel kod och program för Azure Storage. Upptäck kom igång-exempel för blobbar, köer, tabeller och filer med hjälp av klient biblioteken för Java-lagring.
+title: Azure Storage-exempel med Java | Microsoft-dokument
+description: Visa, hämta och kör exempelkod och program för Azure Storage. Upptäck komma igång-exempel för blobbar, köer, tabeller och filer med hjälp av Java-lagringsklientbiblioteken.
 author: mhopkins-msft
 ms.author: mhopkins
 ms.date: 02/13/2020
@@ -8,29 +8,29 @@ ms.service: storage
 ms.subservice: common
 ms.topic: sample
 ms.openlocfilehash: 46f19748ea56777bd1c23b3cf066fa28787d8882
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/20/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77486108"
 ---
-# <a name="azure-storage-samples-using-v12-java-client-libraries"></a>Azure Storage exempel med V12 Java-klient bibliotek
+# <a name="azure-storage-samples-using-v12-java-client-libraries"></a>Azure Storage-exempel med v12 Java-klientbibliotek
 
-Följande tabell innehåller en översikt över våra exempel lager och scenarier som beskrivs i varje exempel. Klicka på länkarna om du vill visa motsvarande exempel kod i GitHub.
+Följande tabell ger en översikt över vår exempeldatabas och de scenarier som ingår i varje exempel. Klicka på länkarna för att visa motsvarande exempelkod i GitHub.
 
 > [!NOTE]
-> De här exemplen använder det senaste Azure Storage Java V12-biblioteket. För äldre V8-kod, se [komma igång med Azure Blob service i Java](https://github.com/Azure-Samples/storage-blob-java-getting-started) i GitHub-lagringsplatsen.
+> Dessa exempel använder det senaste Azure Storage Java v12-biblioteket. Äldre v8-kod finns [i Komma igång med Azure Blob Service i Java](https://github.com/Azure-Samples/storage-blob-java-getting-started) i GitHub-databasen.
 
-## <a name="blob-samples"></a>BLOB-exempel
+## <a name="blob-samples"></a>Blob-exempel
 
 ### <a name="authentication"></a>Autentisering
 
 :::row:::
    :::column span="":::
-      [Autentisera med autentiseringsuppgifter för delad nyckel](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-blob/src/samples/java/com/azure/storage/blob/BasicExample.java#L38)
+      [Autentisera med en autentiserings bekräftande av delad nyckel](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-blob/src/samples/java/com/azure/storage/blob/BasicExample.java#L38)
    :::column-end:::
    :::column span="":::
-      [Autentisera med Azure-identitet](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-blob/src/samples/java/com/azure/storage/blob/AzureIdentityExample.java#L10)
+      [Autentisera med Azure Identity](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-blob/src/samples/java/com/azure/storage/blob/AzureIdentityExample.java#L10)
    :::column-end:::
 :::row-end:::
 
@@ -38,15 +38,15 @@ Följande tabell innehåller en översikt över våra exempel lager och scenarie
 
 :::row:::
    :::column span="":::
-      [Skapa en BLOB service-klient](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-blob/src/samples/java/com/azure/storage/blob/BasicExample.java#L49)
+      [Skapa en blob-tjänstklient](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-blob/src/samples/java/com/azure/storage/blob/BasicExample.java#L49)
    :::column-end:::
    :::column span="":::
-      [Lista behållare](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-blob/src/samples/java/com/azure/storage/blob/ListContainersExample.java#L10)
+      [Visa en lista med containrar](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-blob/src/samples/java/com/azure/storage/blob/ListContainersExample.java#L10)
    :::column-end:::
 :::row-end:::
 :::row:::
    :::column span="2":::
-      [Ta bort behållare](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-blob/src/samples/java/com/azure/storage/blob/ListContainersExample.java#L52)
+      [Ta bort containrar](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-blob/src/samples/java/com/azure/storage/blob/ListContainersExample.java#L52)
    :::column-end:::
 :::row-end:::
 
@@ -54,15 +54,15 @@ Följande tabell innehåller en översikt över våra exempel lager och scenarie
 
 :::row:::
    :::column span="":::
-      [Skapa en BLOB batch-klient](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-blob-batch/src/samples/java/com/azure/storage/blob/batch/ReadmeSamples.java#L41)
+      [Skapa en blob-batchklient](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-blob-batch/src/samples/java/com/azure/storage/blob/batch/ReadmeSamples.java#L41)
    :::column-end:::
    :::column span="":::
-      [Mass borttagning av blobar](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-blob-batch/src/samples/java/com/azure/storage/blob/batch/ReadmeSamples.java#L45)
+      [Massborttagningsblobar](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-blob-batch/src/samples/java/com/azure/storage/blob/batch/ReadmeSamples.java#L45)
    :::column-end:::
 :::row-end:::
 :::row:::
    :::column span="2":::
-      [Ange åtkomst nivå för en batch med blobbar](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-blob-batch/src/samples/java/com/azure/storage/blob/batch/ReadmeSamples.java#L51)
+      [Ange åtkomstnivå för en batch med blobbar](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-blob-batch/src/samples/java/com/azure/storage/blob/batch/ReadmeSamples.java#L51)
    :::column-end:::
 :::row-end:::
 
@@ -70,7 +70,7 @@ Följande tabell innehåller en översikt över våra exempel lager och scenarie
 
 :::row:::
    :::column span="":::
-      [Skapa en behållar klient](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-blob/src/samples/java/com/azure/storage/blob/BasicExample.java#L57)
+      [Skapa en behållarklient](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-blob/src/samples/java/com/azure/storage/blob/BasicExample.java#L57)
    :::column-end:::
    :::column span="":::
       [Skapa en behållare](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-blob/src/samples/java/com/azure/storage/blob/BasicExample.java#L64)
@@ -78,7 +78,7 @@ Följande tabell innehåller en översikt över våra exempel lager och scenarie
 :::row-end:::
 :::row:::
    :::column span="":::
-      [Lista blobbar](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-blob/src/samples/java/com/azure/storage/blob/BasicExample.java#L112)
+      [Lista blobar](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-blob/src/samples/java/com/azure/storage/blob/BasicExample.java#L112)
    :::column-end:::
    :::column span="":::
       [Ta bort en container](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-blob/src/samples/java/com/azure/storage/blob/BasicExample.java#L123)
@@ -89,49 +89,49 @@ Följande tabell innehåller en översikt över våra exempel lager och scenarie
 
 :::row:::
    :::column span="":::
-      [Ladda upp en BLOB](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-blob/src/samples/java/com/azure/storage/blob/BasicExample.java#L79)
+      [Ladda upp en blob](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-blob/src/samples/java/com/azure/storage/blob/BasicExample.java#L79)
    :::column-end:::
    :::column span="":::
-      [Ladda ned en BLOB](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-blob/src/samples/java/com/azure/storage/blob/BasicExample.java#L86)
+      [Ladda ned en blob](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-blob/src/samples/java/com/azure/storage/blob/BasicExample.java#L86)
    :::column-end:::
 :::row-end:::
 :::row:::
    :::column span="":::
-      [Ta bort en BLOB](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-blob/src/samples/java/com/azure/storage/blob/BasicExample.java#L118)
+      [Ta bort en blob](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-blob/src/samples/java/com/azure/storage/blob/BasicExample.java#L118)
    :::column-end:::
    :::column span="":::
-      [Ladda upp en BLOB från en stor fil](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-blob/src/samples/java/com/azure/storage/blob/FileTransferExample.java#L95)
+      [Ladda upp en blob från en stor fil](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-blob/src/samples/java/com/azure/storage/blob/FileTransferExample.java#L95)
    :::column-end:::
 :::row-end:::
 :::row:::
    :::column span="2":::
-      [Hämta en stor blob till en fil](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-blob/src/samples/java/com/azure/storage/blob/FileTransferExample.java#L100)
+      [Ladda ned en stor blob till en fil](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-blob/src/samples/java/com/azure/storage/blob/FileTransferExample.java#L100)
    :::column-end:::
 :::row-end:::
 
 ### <a name="troubleshooting"></a>Felsökning
 :::row:::
    :::column span="2":::
-      [Utlösa ett återställnings Bart fel med hjälp av en behållar klient](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-blob/src/samples/java/com/azure/storage/blob/StorageErrorHandlingExample.java#L11)
+      [Utlösa ett återställningsbart fel med hjälp av en behållarklient](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-blob/src/samples/java/com/azure/storage/blob/StorageErrorHandlingExample.java#L11)
    :::column-end:::
 :::row-end:::
 
-## <a name="data-lake-storage-gen2-samples"></a>Data Lake Storage Gen2 exempel
+## <a name="data-lake-storage-gen2-samples"></a>Data Lake Storage Gen2-exempel
 
-### <a name="data-lake-service"></a>Data Lake tjänst
+### <a name="data-lake-service"></a>Tjänsten Datasjö
 :::row:::
    :::column span="":::
-      [Skapa en Data Lake tjänst klient](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-datalake/src/samples/java/com/azure/storage/file/datalake/BasicExample.java#L48)
+      [Skapa en DataSjötjänstklient](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-datalake/src/samples/java/com/azure/storage/file/datalake/BasicExample.java#L48)
    :::column-end:::
    :::column span="":::
-      [Skapa en fil system klient](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-datalake/src/samples/java/com/azure/storage/file/datalake/BasicExample.java#L57)
+      [Skapa en filsystemklient](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-datalake/src/samples/java/com/azure/storage/file/datalake/BasicExample.java#L57)
    :::column-end:::
 :::row-end:::
 
 ### <a name="file-system"></a>Filsystem
 :::row:::
    :::column span="":::
-      [Skapa ett fil system](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-datalake/src/samples/java/com/azure/storage/file/datalake/BasicExample.java#L64)
+      [Skapa ett filsystem](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-datalake/src/samples/java/com/azure/storage/file/datalake/BasicExample.java#L64)
    :::column-end:::
    :::column span="":::
       [Skapa en katalog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-datalake/src/samples/java/com/azure/storage/file/datalake/BasicExample.java#L68)
@@ -139,23 +139,23 @@ Följande tabell innehåller en översikt över våra exempel lager och scenarie
 :::row-end:::
 :::row:::
    :::column span="":::
-      [Skapa en fil och under Katalog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-datalake/src/samples/java/com/azure/storage/file/datalake/BasicExample.java#L73)
+      [Skapa en fil och en underkatalog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-datalake/src/samples/java/com/azure/storage/file/datalake/BasicExample.java#L73)
    :::column-end:::
    :::column span="":::
-      [Skapa en fil klient](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-datalake/src/samples/java/com/azure/storage/file/datalake/BasicExample.java#L83)
+      [Skapa en filklient](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-datalake/src/samples/java/com/azure/storage/file/datalake/BasicExample.java#L83)
    :::column-end:::
 :::row-end:::
 :::row:::
    :::column span="":::
-      [Lista sökvägar i ett fil system](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-datalake/src/samples/java/com/azure/storage/file/datalake/BasicExample.java#L131)
+      [Lista sökvägar i ett filsystem](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-datalake/src/samples/java/com/azure/storage/file/datalake/BasicExample.java#L131)
    :::column-end:::
    :::column span="":::
-      [Ta bort ett fil system](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-datalake/src/samples/java/com/azure/storage/file/datalake/BasicExample.java#L142)
+      [Ta bort ett filsystem](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-datalake/src/samples/java/com/azure/storage/file/datalake/BasicExample.java#L142)
    :::column-end:::
 :::row-end:::
 :::row:::
    :::column span="2":::
-      [Lista fil system i ett Azure Storage-konto](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-datalake/src/samples/java/com/azure/storage/file/datalake/ListFileSystemsExample.java#L10)
+      [Lista filsystem i ett Azure-lagringskonto](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-datalake/src/samples/java/com/azure/storage/file/datalake/ListFileSystemsExample.java#L10)
    :::column-end:::
 :::row-end:::
 
@@ -163,7 +163,7 @@ Följande tabell innehåller en översikt över våra exempel lager och scenarie
 
 :::row:::
    :::column span="":::
-      [Skapa en katalog klient](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-datalake/src/samples/java/com/azure/storage/file/datalake/DirectoryExample.java#L31)
+      [Skapa en katalogklient](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-datalake/src/samples/java/com/azure/storage/file/datalake/DirectoryExample.java#L31)
    :::column-end:::
    :::column span="":::
       [Skapa en överordnad katalog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-datalake/src/samples/java/com/azure/storage/file/datalake/DirectoryExample.java#L37)
@@ -179,7 +179,7 @@ Följande tabell innehåller en översikt över våra exempel lager och scenarie
 :::row-end:::
 :::row:::
    :::column span="":::
-      [Hämta katalog egenskaper](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-datalake/src/samples/java/com/azure/storage/file/datalake/DirectoryExample.java#L68)
+      [Hämta katalogegenskaper](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-datalake/src/samples/java/com/azure/storage/file/datalake/DirectoryExample.java#L68)
    :::column-end:::
    :::column span="":::
       [Ta bort en underordnad katalog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-datalake/src/samples/java/com/azure/storage/file/datalake/DirectoryExample.java#L83)
@@ -195,7 +195,7 @@ Följande tabell innehåller en översikt över våra exempel lager och scenarie
 
 :::row:::
    :::column span="":::
-      [Skapa en fil med en fil klient](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-datalake/src/samples/java/com/azure/storage/file/datalake/BasicExample.java#L93)
+      [Skapa en fil med en filklient](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-datalake/src/samples/java/com/azure/storage/file/datalake/BasicExample.java#L93)
    :::column-end:::
    :::column span="":::
       [Ta bort en fil](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-datalake/src/samples/java/com/azure/storage/file/datalake/BasicExample.java#L137)
@@ -203,15 +203,15 @@ Följande tabell innehåller en översikt över våra exempel lager och scenarie
 :::row-end:::
 :::row:::
    :::column span="":::
-      [Ange åtkomst kontroller för en fil](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-datalake/src/samples/java/com/azure/storage/file/datalake/GetSetAccessControlExample.java#L82)
+      [Ange åtkomstkontroller för en fil](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-datalake/src/samples/java/com/azure/storage/file/datalake/GetSetAccessControlExample.java#L82)
    :::column-end:::
    :::column span="":::
-      [Få åtkomst kontroller för en fil](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-datalake/src/samples/java/com/azure/storage/file/datalake/GetSetAccessControlExample.java#L104)
+      [Hämta åtkomstkontroller för en fil](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-datalake/src/samples/java/com/azure/storage/file/datalake/GetSetAccessControlExample.java#L104)
    :::column-end:::
 :::row-end:::
 :::row:::
    :::column span="":::
-      [Skapa en fil med en Data Lake fil klient](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-datalake/src/samples/java/com/azure/storage/file/datalake/UploadDownloadExample.java#L67)
+      [Skapa en fil med hjälp av en DataSjöfilklient](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-datalake/src/samples/java/com/azure/storage/file/datalake/UploadDownloadExample.java#L67)
    :::column-end:::
    :::column span="":::
       [Lägga till data i en fil](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-datalake/src/samples/java/com/azure/storage/file/datalake/UploadDownloadExample.java#L85)
@@ -219,25 +219,25 @@ Följande tabell innehåller en översikt över våra exempel lager och scenarie
 :::row-end:::
 :::row:::
    :::column span="2":::
-      [Ladda ned en fil](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-datalake/src/samples/java/com/azure/storage/file/datalake/UploadDownloadExample.java#L127)
+      [Hämta en fil](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-datalake/src/samples/java/com/azure/storage/file/datalake/UploadDownloadExample.java#L127)
    :::column-end:::
 :::row-end:::
 
-## <a name="azure-file-samples"></a>Azure File-exempel
+## <a name="azure-file-samples"></a>Exempel på Azure-fil
 
 ### <a name="authentication"></a>Autentisering
 
 :::row:::
    :::column span="2":::
-      [Autentisera med hjälp av en anslutnings sträng](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-share/src/samples/java/com/azure/storage/file/share/ShareServiceSample.java#L27)
+      [Autentisera med hjälp av en anslutningssträng](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-share/src/samples/java/com/azure/storage/file/share/ShareServiceSample.java#L27)
    :::column-end:::
 :::row-end:::
 
-### <a name="file-service"></a>Fil tjänst
+### <a name="file-service"></a>Filtjänst
 
 :::row:::
    :::column span="":::
-      [Skapa fil resurser](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-share/src/samples/java/com/azure/storage/file/share/ShareServiceSample.java#L31)
+      [Skapa filresurser](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-share/src/samples/java/com/azure/storage/file/share/ShareServiceSample.java#L31)
    :::column-end:::
    :::column span="":::
       [Hämta egenskaper](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-share/src/samples/java/com/azure/storage/file/share/ShareServiceSample.java#L40)
@@ -245,7 +245,7 @@ Följande tabell innehåller en översikt över våra exempel lager och scenarie
 :::row-end:::
 :::row:::
    :::column span="":::
-      [List resurser](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-share/src/samples/java/com/azure/storage/file/share/ShareServiceSample.java#L49)
+      [Lista aktier](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-share/src/samples/java/com/azure/storage/file/share/ShareServiceSample.java#L49)
    :::column-end:::
    :::column span="":::
       [Ta bort resurser](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-share/src/samples/java/com/azure/storage/file/share/ShareServiceSample.java#L49)
@@ -256,7 +256,7 @@ Följande tabell innehåller en översikt över våra exempel lager och scenarie
 
 :::row:::
    :::column span="":::
-      [Skapa en resurs klient](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-share/src/samples/java/com/azure/storage/file/share/ShareSample.java#L29)
+      [Skapa en resursklient](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-share/src/samples/java/com/azure/storage/file/share/ShareSample.java#L29)
    :::column-end:::
    :::column span="":::
       [Skapa en resurs](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-share/src/samples/java/com/azure/storage/file/share/ShareSample.java#L40)
@@ -264,10 +264,10 @@ Följande tabell innehåller en översikt över våra exempel lager och scenarie
 :::row-end:::
 :::row:::
    :::column span="":::
-      [Skapa en resurs ögonblicks bild](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-share/src/samples/java/com/azure/storage/file/share/ShareSample.java#L55)
+      [Skapa en ögonblicksbild av en resurs](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-share/src/samples/java/com/azure/storage/file/share/ShareSample.java#L55)
    :::column-end:::
    :::column span="":::
-      [Skapa en katalog med en resurs klient](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-share/src/samples/java/com/azure/storage/file/share/ShareSample.java#L63)
+      [Skapa en katalog med en resursklient](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-share/src/samples/java/com/azure/storage/file/share/ShareSample.java#L63)
    :::column-end:::
 :::row-end:::
 :::row:::
@@ -275,7 +275,7 @@ Följande tabell innehåller en översikt över våra exempel lager och scenarie
       [Hämta egenskaper för en resurs](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-share/src/samples/java/com/azure/storage/file/share/ShareSample.java#L72)
    :::column-end:::
    :::column span="":::
-      [Hämta rot Katalog och lista över kataloger](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-share/src/samples/java/com/azure/storage/file/share/ShareSample.java#L100)
+      [Hämta rotkatalog- och listkataloger](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-share/src/samples/java/com/azure/storage/file/share/ShareSample.java#L100)
    :::column-end:::
 :::row-end:::
 :::row:::
@@ -299,7 +299,7 @@ Följande tabell innehåller en översikt över våra exempel lager och scenarie
       [Skapa en fil i en underordnad katalog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-share/src/samples/java/com/azure/storage/file/share/DirectorySample.java#L50)
    :::column-end:::
    :::column span="":::
-      [Lista över kataloger och filer](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-share/src/samples/java/com/azure/storage/file/share/DirectorySample.java#L66)
+      [Lista kataloger och filer](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-share/src/samples/java/com/azure/storage/file/share/DirectorySample.java#L66)
    :::column-end:::
 :::row-end:::
 :::row:::
@@ -315,7 +315,7 @@ Följande tabell innehåller en översikt över våra exempel lager och scenarie
 
 :::row:::
    :::column span="":::
-      [Skapa en fil klient](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-share/src/samples/java/com/azure/storage/file/share/FileSample.java#L45)
+      [Skapa en filklient](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-share/src/samples/java/com/azure/storage/file/share/FileSample.java#L45)
    :::column-end:::
    :::column span="":::
       [Överför en fil](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-share/src/samples/java/com/azure/storage/file/share/FileSample.java#L90)
@@ -323,10 +323,10 @@ Följande tabell innehåller en översikt över våra exempel lager och scenarie
 :::row-end:::
 :::row:::
    :::column span="":::
-      [Ladda ned en fil](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-share/src/samples/java/com/azure/storage/file/share/FileSample.java#L100)
+      [Hämta en fil](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-share/src/samples/java/com/azure/storage/file/share/FileSample.java#L100)
    :::column-end:::
    :::column span="":::
-      [Hämta fil egenskaper](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-share/src/samples/java/com/azure/storage/file/share/FileSample.java#L120)
+      [Hämta filegenskaper](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-share/src/samples/java/com/azure/storage/file/share/FileSample.java#L120)
    :::column-end:::
 :::row-end:::
 :::row:::
@@ -336,7 +336,7 @@ Följande tabell innehåller en översikt över våra exempel lager och scenarie
 :::row-end:::
 
 
-## <a name="queue-samples"></a>Köa exempel
+## <a name="queue-samples"></a>Exempel på kö
 
 ### <a name="authentication"></a>Autentisering
 
@@ -366,7 +366,7 @@ Följande tabell innehåller en översikt över våra exempel lager och scenarie
 
 :::row:::
    :::column span="":::
-      [Skapa en Queue-klient](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-queue/src/samples/java/com/azure/storage/queue/MessageSamples.java#L25)
+      [Skapa en köklient](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-queue/src/samples/java/com/azure/storage/queue/MessageSamples.java#L25)
    :::column-end:::
    :::column span="":::
       [Lägga till meddelanden i en kö](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-queue/src/samples/java/com/azure/storage/queue/MessageSamples.java#L27)
@@ -377,10 +377,10 @@ Följande tabell innehåller en översikt över våra exempel lager och scenarie
 
 :::row:::
    :::column span="":::
-      [Hämta antalet meddelanden](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-queue/src/samples/java/com/azure/storage/queue/MessageSamples.java#L34)
+      [Få antalet meddelanden](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-queue/src/samples/java/com/azure/storage/queue/MessageSamples.java#L34)
    :::column-end:::
    :::column span="":::
-      [Titta på meddelanden](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-queue/src/samples/java/com/azure/storage/queue/MessageSamples.java#L37)
+      [Kika på meddelanden](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-queue/src/samples/java/com/azure/storage/queue/MessageSamples.java#L37)
    :::column-end:::
 :::row-end:::
 :::row:::
@@ -405,7 +405,7 @@ Följande tabell innehåller en översikt över våra exempel lager och scenarie
    :::column-end:::
 :::row-end:::
 
-## <a name="table-samples-v11"></a>Tabell exempel (V11)
+## <a name="table-samples-v11"></a>Tabellprover (v11)
 
 :::row:::
    :::column span="":::
@@ -417,10 +417,10 @@ Följande tabell innehåller en översikt över våra exempel lager och scenarie
 :::row-end:::
 :::row:::
    :::column span="":::
-      [Infoga/sammanfoga/Ersätt entitet](https://github.com/Azure-Samples/storage-table-java-getting-started/blob/master/src/main/java/com/microsoft/azure/cosmosdb/tablesample/TableBasics.java#L195)
+      [Infoga/sammanfoga/ersätta entiteten](https://github.com/Azure-Samples/storage-table-java-getting-started/blob/master/src/main/java/com/microsoft/azure/cosmosdb/tablesample/TableBasics.java#L195)
    :::column-end:::
    :::column span="":::
-      [Fråga entiteter](https://github.com/Azure-Samples/storage-table-java-getting-started/blob/master/src/main/java/com/microsoft/azure/cosmosdb/tablesample/TableBasics.java#L234)
+      [Frågeentiteter](https://github.com/Azure-Samples/storage-table-java-getting-started/blob/master/src/main/java/com/microsoft/azure/cosmosdb/tablesample/TableBasics.java#L234)
    :::column-end:::
 :::row-end:::
 :::row:::
@@ -428,7 +428,7 @@ Följande tabell innehåller en översikt över våra exempel lager och scenarie
       [Frågetabeller](https://github.com/Azure-Samples/storage-table-java-getting-started/blob/master/src/main/java/com/microsoft/azure/cosmosdb/tablesample/TableBasics.java#L262)
    :::column-end:::
    :::column span="":::
-      [Tabell-ACL/egenskaper](https://github.com/Azure-Samples/storage-table-java-getting-started/blob/master/src/main/java/com/microsoft/azure/cosmosdb/tablesample/TableAdvanced.java#L49)
+      [Tabell ACL/egenskaper](https://github.com/Azure-Samples/storage-table-java-getting-started/blob/master/src/main/java/com/microsoft/azure/cosmosdb/tablesample/TableAdvanced.java#L49)
    :::column-end:::
 :::row-end:::
 :::row:::
@@ -437,31 +437,31 @@ Följande tabell innehåller en översikt över våra exempel lager och scenarie
    :::column-end:::
 :::row-end:::
 
-## <a name="azure-code-sample-libraries"></a>Exempel bibliotek för Azure-kod
+## <a name="azure-code-sample-libraries"></a>Exempelbibliotek för Azure-kod
 
-Om du vill visa de kompletta biblioteken för Java-exempel går du till:
+Om du vill visa hela Java-exempelbiblioteken går du till:
 
-* [Kod exempel för Azure-Blob](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-blob/src/samples/java/com/azure/storage/blob)
-* [Azure Data Lake kod exempel](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-file-datalake/src/samples/java/com/azure/storage/file/datalake)
-* [Azure Files kod exempel](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-file-share/src/samples/java/com/azure/storage/file/share)
-* [Kod exempel för Azure-kö](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-queue/src/samples/java/com/azure/storage/queue)
+* [Exempel på Azure-blobkod](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-blob/src/samples/java/com/azure/storage/blob)
+* [Exempel på Azure Data Lake-kod](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-file-datalake/src/samples/java/com/azure/storage/file/datalake)
+* [Exempel på Azure Files-kod](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-file-share/src/samples/java/com/azure/storage/file/share)
+* [Exempel på Azure-kökod](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-queue/src/samples/java/com/azure/storage/queue)
 
-Du kan bläddra och klona GitHub-lagringsplatsen för varje bibliotek.
+Du kan bläddra bland och klona GitHub-databasen för varje bibliotek.
 
-## <a name="getting-started-guides"></a>Komma igång guider
+## <a name="getting-started-guides"></a>Komma igång-guider
 
-Kolla in följande guider om du behöver instruktioner om hur du installerar och kommer igång med Azure Storage klient bibliotek.
+Kolla in följande guider om du letar efter instruktioner om hur du installerar och kommer igång med Azure Storage Client Libraries.
 
-* [Komma igång med Azure Blob service i Java](../blobs/storage-quickstart-blobs-java.md)
+* [Komma igång med Azure Blob Service i Java](../blobs/storage-quickstart-blobs-java.md)
 * [Komma igång med Azure Queue Service i Java](../queues/storage-quickstart-queues-java.md)
 * [Komma igång med Azure Table Service i Java](../../cosmos-db/table-storage-how-to-use-java.md)
 * [Komma igång med Azure File Service i Java](../files/storage-java-how-to-use-file-storage.md)
 
 ## <a name="next-steps"></a>Nästa steg
 
-Information om exempel för andra språk:
+För information om exempel för andra språk:
 
-* .NET: [Azure Storage exempel med .net](storage-samples-dotnet.md)
-* Python: [Azure Storage exempel med python](storage-samples-python.md)
-* Java Script/Node. js: [Azure Storage exempel med hjälp av Java Script](storage-samples-javascript.md)
-* Alla andra språk: [Azure Storage exempel](storage-samples.md)
+* .NET: [Azure Storage-exempel med .NET](storage-samples-dotnet.md)
+* Python: [Azure Storage-exempel med Python](storage-samples-python.md)
+* JavaScript/Node.js: [Azure Storage-exempel med JavaScript](storage-samples-javascript.md)
+* Alla andra språk: [Azure Storage-exempel](storage-samples.md)

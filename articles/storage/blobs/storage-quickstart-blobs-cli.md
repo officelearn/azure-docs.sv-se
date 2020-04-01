@@ -1,28 +1,28 @@
 ---
-title: Snabb start – skapa en blob med Azure CLI
+title: Snabbstart – Skapa en blob med Azure CLI
 titleSuffix: Azure Storage
-description: I den här snabb starten får du lära dig hur du använder Azure CLI för att ladda upp en blob till Azure Storage, laddar ned en blob och listar blobarna i en behållare.
+description: I den här snabbstarten får du lära dig hur du använder Azure CLI ladda upp en blob till Azure Storage, ladda ner en blob och lista blobbar i en behållare.
 services: storage
 author: tamram
-ms.custom: mvc
 ms.service: storage
+ms.subservice: blobs
 ms.topic: quickstart
 ms.date: 02/26/2020
 ms.author: tamram
-ms.openlocfilehash: 58532c6eb6e01a993bce7d6e22a7b5274a465963
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.openlocfilehash: 2e1b1ac2ea315759b18dc882b98837bca0a84d46
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78298221"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80061446"
 ---
-# <a name="quickstart-create-download-and-list-blobs-with-azure-cli"></a>Snabb start: skapa, ladda ned och lista blobar med Azure CLI
+# <a name="quickstart-create-download-and-list-blobs-with-azure-cli"></a>Snabbstart: Skapa, hämta och lista blobbar med Azure CLI
 
 Azure CLI är Azures kommandoradsmiljö för att hantera Azure-resurser. Du kan använda det i din webbläsare med Azure Cloud Shell. Du kan även installera det på macOS, Linux eller Windows och köra det från kommandoraden. I den här snabbstarten lär du dig att använda Azure CLI för att ladda upp och ned data till och från Azure Blob Storage.
 
 [!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 [!INCLUDE [storage-quickstart-prereq-include](../../../includes/storage-quickstart-prereq-include.md)]
 
@@ -30,29 +30,29 @@ Azure CLI är Azures kommandoradsmiljö för att hantera Azure-resurser. Du kan 
 
 ## <a name="install-the-azure-cli-locally"></a>Installera Azure CLI lokalt
 
-Om du väljer att installera och använda Azure CLI lokalt kräver den här snabb starten att du kör Azure CLI-version 2.0.46 eller senare. Kör `az --version` för att fastställa din version. Om du behöver installera eller uppgradera kan du läsa informationen i [Installera Azure CLI](/cli/azure/install-azure-cli).
+Om du väljer att installera och använda Azure CLI lokalt kräver den här snabbstarten att du kör Azure CLI version 2.0.46 eller senare. Kör `az --version` för att fastställa din version. Om du behöver installera eller uppgradera kan du läsa informationen i [Installera Azure CLI](/cli/azure/install-azure-cli).
 
-Om du kör Azure CLI lokalt måste du logga in och autentisera. Det här steget är inte nödvändigt om du använder Azure Cloud Shell. Logga in på Azure CLI genom att köra `az login` och autentisera i webbläsarfönstret:
+Om du kör Azure CLI lokalt måste du logga in och autentisera. Det här steget är inte nödvändigt om du använder Azure Cloud Shell. Så här loggar du `az login` in på Azure CLI och autentiserar i webbläsarfönstret:
 
 ```azurecli
 az login
 ```
 
-Mer information om autentisering med Azure CLI finns i [Logga in med Azure CLI](/cli/azure/authenticate-azure-cli).
+Mer information om autentisering med Azure CLI finns [i Logga in med Azure CLI](/cli/azure/authenticate-azure-cli).
 
-## <a name="authorize-access-to-blob-storage"></a>Auktorisera åtkomst till Blob Storage
+## <a name="authorize-access-to-blob-storage"></a>Auktorisera åtkomst till Blob-lagring
 
-Du kan ge åtkomst till Blob Storage från Azure CLI antingen med Azure AD-autentiseringsuppgifter eller med hjälp av åtkomst nyckeln för lagrings kontot. Du rekommenderas att använda Azure AD-autentiseringsuppgifter. Den här artikeln visar hur du auktoriserar Blob Storage-åtgärder med hjälp av Azure AD.
+Du kan auktorisera åtkomst till Blob-lagring från Azure CLI, antingen med Azure AD-autentiseringsuppgifter eller med hjälp av åtkomstnyckeln för lagringskonto. Användning av Azure AD-autentiseringsuppgifter rekommenderas. Den här artikeln visar hur du auktoriserar Blob-lagringsåtgärder med Azure AD.
 
-Azure CLI-kommandon för data åtgärder mot Blob Storage har stöd för parametern `--auth-mode` som gör att du kan ange hur en åtgärd ska auktoriseras. Ange `--auth-mode` parametern som ska `login` för att auktorisera med Azure AD-autentiseringsuppgifter. Mer information finns i [bevilja åtkomst till BLOB-eller Queue-data med Azure CLI](../common/authorize-data-operations-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+Azure CLI-kommandon för dataåtgärder mot `--auth-mode` Blob-lagring stöder parametern, vilket gör att du kan ange hur du ska auktorisera en viss åtgärd. Ange `--auth-mode` parametern `login` för att auktorisera med Azure AD-autentiseringsuppgifter. Mer information finns i [Auktorisera åtkomst till blob- eller ködata med Azure CLI](../common/authorize-data-operations-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
-Endast data åtgärder för Blob Storage stöder parametern `--auth-mode`. Hanterings åtgärder, till exempel att skapa en resurs grupp eller ett lagrings konto, använder automatiskt Azure AD-autentiseringsuppgifter för auktorisering.
+Endast Blob storage data `--auth-mode` åtgärder stöder parametern. Hanteringsåtgärder, till exempel skapa en resursgrupp eller ett lagringskonto, använder automatiskt Azure AD-autentiseringsuppgifter för auktorisering.
 
 ## <a name="create-a-resource-group"></a>Skapa en resursgrupp
 
 Skapa en Azure-resursgrupp med kommandot [az group create](/cli/azure/group). En resursgrupp är en logisk container där Azure-resurser distribueras och hanteras.
 
-Kom ihåg att ersätta plats hållarnas värden inom vinkelparenteser med dina egna värden:
+Kom ihåg att ersätta platshållarvärden i vinkelparenteser med dina egna värden:
 
 ```azurecli
 az group create \
@@ -60,11 +60,11 @@ az group create \
     --location <location>
 ```
 
-## <a name="create-a-storage-account"></a>skapar ett lagringskonto
+## <a name="create-a-storage-account"></a>Skapa ett lagringskonto
 
 Skapa ett allmänt lagringskonto med kommandot [az storage account create](/cli/azure/storage/account). Det allmänna lagringskontot kan användas för alla fyra tjänsterna: blobar, filer, tabeller och köer.
 
-Kom ihåg att ersätta plats hållarnas värden inom vinkelparenteser med dina egna värden:
+Kom ihåg att ersätta platshållarvärden i vinkelparenteser med dina egna värden:
 
 ```azurecli
 az storage account create \
@@ -77,9 +77,9 @@ az storage account create \
 
 ## <a name="create-a-container"></a>Skapa en container
 
-Blobar laddas alltid upp till en container. Du kan organisera grupper av blobbar i behållare på samma sätt som du ordnar dina filer på din dator i mappar.
+Blobar laddas alltid upp till en container. Du kan ordna grupper av blobbar i behållare som liknar hur du ordnar dina filer på datorn i mappar.
 
-Skapa en behållare för att lagra blobar med kommandot [az storage container create](/cli/azure/storage/container). Kom ihåg att ersätta plats hållarnas värden inom vinkelparenteser med dina egna värden:
+Skapa en behållare för att lagra blobar med kommandot [az storage container create](/cli/azure/storage/container). Kom ihåg att ersätta platshållarvärden i vinkelparenteser med dina egna värden:
 
 ```azurecli
 az storage container create \
@@ -90,17 +90,17 @@ az storage container create \
 
 ## <a name="upload-a-blob"></a>Ladda upp en blob
 
-Blob Storage stöder blockblobar, tilläggsblobar och sidblobar. I exemplen i den här snabb starten visas hur du arbetar med block-blobbar.
+Blob Storage stöder blockblobar, tilläggsblobar och sidblobar. Exemplen i den här snabbstarten visar hur du arbetar med blockblobar.
 
-Börja med att skapa en fil som ska laddas upp till en Block-Blob. Om du använder Azure Cloud Shell använder du följande kommando för att skapa en fil:
+Skapa först en fil som ska överföras till en blockblob. Om du använder Azure Cloud Shell använder du följande kommando för att skapa en fil:
 
 ```bash
 vi helloworld
 ```
 
-När filen öppnas trycker du på **Infoga**. Skriv *Hej världen*och tryck sedan på **ESC**. Skriv sedan *: x*och tryck på **RETUR**.
+När filen öppnas trycker du på **infoga**. Skriv *Hello world*och tryck sedan på **Esc**. Skriv sedan *:x*och tryck sedan **på Retur**.
 
-I det här exemplet laddar vi upp en blob till den container som vi skapade i det senaste steget med kommandot [az storage blob upload](/cli/azure/storage/blob). Det är inte nödvändigt att ange en fil Sök väg eftersom filen skapades i rot katalogen. Kom ihåg att ersätta plats hållarnas värden inom vinkelparenteser med dina egna värden:
+I det här exemplet laddar vi upp en blob till den container som vi skapade i det senaste steget med kommandot [az storage blob upload](/cli/azure/storage/blob). Det är inte nödvändigt att ange en filsökväg eftersom filen skapades i rotkatalogen. Kom ihåg att ersätta platshållarvärden i vinkelparenteser med dina egna värden:
 
 ```azurecli
 az storage blob upload \
@@ -117,7 +117,7 @@ Om du vill ladda upp flera filer samtidigt kan du använda kommandot [az storage
 
 ## <a name="list-the-blobs-in-a-container"></a>Visa en lista över blobarna i en container
 
-Lista blobarna i containern med kommandot [az storage blob list](/cli/azure/storage/blob). Kom ihåg att ersätta plats hållarnas värden inom vinkelparenteser med dina egna värden:
+Lista blobarna i containern med kommandot [az storage blob list](/cli/azure/storage/blob). Kom ihåg att ersätta platshållarvärden i vinkelparenteser med dina egna värden:
 
 ```azurecli
 az storage blob list \
@@ -129,7 +129,7 @@ az storage blob list \
 
 ## <a name="download-a-blob"></a>Ladda ned en blob
 
-Använd kommandot [az storage blob download](/cli/azure/storage/blob) för att ladda ned den blob som du laddade upp tidigare. Kom ihåg att ersätta plats hållarnas värden inom vinkelparenteser med dina egna värden:
+Använd kommandot [az storage blob download](/cli/azure/storage/blob) för att ladda ned den blob som du laddade upp tidigare. Kom ihåg att ersätta platshållarvärden i vinkelparenteser med dina egna värden:
 
 ```azurecli
 az storage blob download \
@@ -142,9 +142,9 @@ az storage blob download \
 
 ## <a name="data-transfer-with-azcopy"></a>Dataöverföring med AzCopy
 
-Kommando rads verktyget AzCopy erbjuder högpresterande, skript bara data överföring för Azure Storage. Du kan använda AzCopy för att överföra data till och från Blob Storage och Azure Files. För ytterligare information om AzCopy v10, den senaste versionen av AzCopy, se [Kom igång med AZCopy](../common/storage-use-azcopy-v10.md). Mer information om hur du använder AzCopy-v10 med Blob Storage finns i [överföra data med AzCopy och Blob Storage](../common/storage-use-azcopy-blobs.md).
+Kommandoradsverktyget AzCopy erbjuder högpresterande, skriptbar dataöverföring för Azure Storage. Du kan använda AzCopy för att överföra data till och från Blob-lagring och Azure-filer. Mer information om AzCopy v10, den senaste versionen av AzCopy, finns i [Kom igång med AzCopy](../common/storage-use-azcopy-v10.md). Mer information om hur du använder AzCopy v10 med Blob-lagring finns i [Överföra data med AzCopy- och Blob-lagring](../common/storage-use-azcopy-blobs.md).
 
-I följande exempel används AzCopy för att ladda upp en lokal fil till en blob. Kom ihåg att ersätta exempel värden med dina egna värden:
+I följande exempel används AzCopy för att överföra en lokal fil till en blob. Kom ihåg att ersätta exempelvärdena med dina egna värden:
 
 ```bash
 azcopy login
@@ -153,7 +153,7 @@ azcopy copy 'C:\myDirectory\myTextFile.txt' 'https://mystorageaccount.blob.core.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Om du vill ta bort de resurser som du skapade som en del av den här snabb starten, inklusive lagrings kontot, tar du bort resurs gruppen med kommandot [AZ Group Delete](/cli/azure/group) . Kom ihåg att ersätta plats hållarnas värden inom vinkelparenteser med dina egna värden:
+Om du vill ta bort de resurser som du skapade som en del av den här snabbstarten, inklusive lagringskontot, tar du bort resursgruppen med kommandot [az group delete.](/cli/azure/group) Kom ihåg att ersätta platshållarvärden i vinkelparenteser med dina egna värden:
 
 ```azurecli
 az group delete \
@@ -163,7 +163,7 @@ az group delete \
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabb starten har du lärt dig hur du överför filer mellan ett lokalt fil system och en behållare i Azure Blob Storage. Om du vill veta mer om att arbeta med blobar i Azure Storage kan du fortsätta med de självstudierna.
+I den här snabbstarten lärde du dig hur du överför filer mellan ett lokalt filsystem och en behållare i Azure Blob-lagring. Om du vill veta mer om att arbeta med blobar i Azure Storage kan du fortsätta med de självstudierna.
 
 > [!div class="nextstepaction"]
 > [Så gör du: Utföra åtgärder för Blob Storage med Azure CLI](storage-how-to-use-blobs-cli.md)

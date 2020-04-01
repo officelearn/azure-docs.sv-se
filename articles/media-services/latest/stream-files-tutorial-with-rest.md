@@ -1,5 +1,5 @@
 ---
-title: Koda en fjärrfil och strömma med Azure Media Services v3
+title: Koda en fjärrfil och ström med Azure Media Services v3
 description: Följ stegen i den här självstudien för att koda en fil baserat på en URL och strömma ditt innehåll med Azure Media Services med hjälp av REST.
 services: media-services
 documentationcenter: ''
@@ -10,16 +10,16 @@ ms.service: media-services
 ms.workload: ''
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 11/05/2019
+ms.date: 03/16/2020
 ms.author: juliako
-ms.openlocfilehash: d4175f2508edab1cf54e415652e9e9cb37b879b1
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 35be4ec2c4f5f8c299120c0ba7dbdcb1dd112473
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79238638"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79472041"
 ---
-# <a name="tutorial-encode-a-remote-file-based-on-url-and-stream-the-video---rest"></a>Självstudie: koda en fjärrfil baserat på URL och strömma videon REST
+# <a name="tutorial-encode-a-remote-file-based-on-url-and-stream-the-video---rest"></a>Självstudiekurs: Koda en fjärrfil baserat på URL och strömma videon - REST
 
 Med Azure Media Services kan du koda dina mediefiler till format som kan spelas upp på en mängd olika webbläsare och enheter. Du kanske vill strömma ditt innehåll i Apples HLS- eller MPEG DASH-formaten. Innan du strömmar, bör du koda dina högkvalitativa digitala mediafiler. Vägledning om kodning finns i [Kodningskoncept](encoding-concept.md).
 
@@ -31,7 +31,7 @@ I den här självstudiekursen lär du dig att:
 
 > [!div class="checklist"]
 > * Skapa ett Media Services-konto
-> * Åtkomst till Media Services API
+> * Åtkomst till Media Services-API:n
 > * Hämta Postman-filer
 > * Konfigurera Postman
 > * Skicka begäranden med Postman
@@ -40,7 +40,7 @@ I den här självstudiekursen lär du dig att:
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - [Skapa ett Media Services-konto](create-account-cli-how-to.md).
 
@@ -48,7 +48,7 @@ I den här självstudiekursen lär du dig att:
 
 - Installera [Postman](https://www.getpostman.com/) REST-klienten för att köra REST API:er som visas i några AMS REST-självstudierna. 
 
-    Vi använder **Postman** men ett REST-verktyg skulle vara lämpligt. Andra alternativ är: **Visual Studio Code** med plugin-programmet för REST eller **Telerik Fiddler**. 
+    Vi använder **Postman** men ett REST-verktyg skulle vara lämpligt. Andra alternativ är: **Visual Studio Code** med REST plugin eller **Telerik Fiddler**. 
 
 ## <a name="download-postman-files"></a>Hämta Postman-filer
 
@@ -58,13 +58,15 @@ Klona en GitHub-lagringsplats som innehåller Postman-samlingen och miljöfilern
  git clone https://github.com/Azure-Samples/media-services-v3-rest-postman.git
  ```
 
-[!INCLUDE [media-services-v3-cli-access-api-include](../../../includes/media-services-v3-cli-access-api-include.md)]
+## <a name="access-api"></a>API-åtkomst
+
+Detaljerad information finns i [Hämta autentiseringsuppgifter för att komma åt Api för Media Services](access-api-howto.md)
 
 ## <a name="configure-postman"></a>Konfigurera Postman
 
 ### <a name="configure-the-environment"></a>Konfigurera miljön 
 
-1. Öppna **Postman** -appen.
+1. Öppna **postman-appen.**
 2. På höger sida om skärmen, väljer du alternativet **Hantera miljö**.
 
     ![Hantera miljö](./media/develop-with-postman/postman-import-env.png)
@@ -75,7 +77,7 @@ Klona en GitHub-lagringsplats som innehåller Postman-samlingen och miljöfilern
     > [!Note]
     > Uppdatera åtkomstvariablerna med värden som du fick från avsnittet **Åtkomst till Media Services API** ovan.
 
-7. Dubbelklicka på den valda filen och ange värden som du har fått genom att följa stegen i [åtkomst till API](#access-the-media-services-api).
+7. Dubbelklicka på den valda filen och ange värden som du har fått genom att följa stegen i [åtkomst till API](#access-api).
 8. Stäng dialogrutan.
 9. Välj miljön **Azure Media Service v3-miljö** från listmenyn.
 
@@ -94,19 +96,19 @@ Klona en GitHub-lagringsplats som innehåller Postman-samlingen och miljöfilern
 I det här avsnittet skickar vi begäranden som är relevanta för att koda och skapa webbadresser, så att du kan direktuppspela en fil. Mer specifikt skickas följande begäranden:
 
 1. Hämta Azure AD-token för autentisering för tjänstens huvudnamn
-1. Starta en slut punkt för direkt uppspelning
+1. Starta en slutpunkt för direktuppspelning
 2. Skapa en utdatatillgång
 3. Skapa en transformering
 4. Skapa ett jobb
 5. Skapa en positionerare för direktuppspelning
-6. Lista sökvägar för streaming Locator
+6. Lista sökvägar för positioneraren för direktuppspelning
 
 > [!Note]
 >  Den här kursen förutsätter att du skapar alla resurser med unika namn.  
 
 ### <a name="get-azure-ad-token"></a>Hämta Azure AD-token 
 
-1. I det vänstra fönstret i Postman-appen väljer du "steg 1: Hämta AAD auth-token".
+1. I det vänstra fönstret i Postman-appen väljer du "Steg 1: Get AAD Auth token".
 2. Välj sedan Hämta Azure AD-token för autentisering för tjänstens huvudnamn.
 3. Tryck på **Skicka**.
 
@@ -121,41 +123,41 @@ I det här avsnittet skickar vi begäranden som är relevanta för att koda och 
     ![Hämta AAD-token](./media/develop-with-postman/postman-get-aad-auth-token.png)
 
 
-### <a name="start-a-streaming-endpoint"></a>Starta en slut punkt för direkt uppspelning
+### <a name="start-a-streaming-endpoint"></a>Starta en slutpunkt för direktuppspelning
 
-Om du vill aktivera direkt uppspelning måste du först starta den [strömnings slut punkt](https://docs.microsoft.com/azure/media-services/latest/streaming-endpoint-concept) som du vill strömma videon från.
+Om du vill aktivera direktuppspelning måste du först starta den slutpunkt för [direktuppspelning](https://docs.microsoft.com/azure/media-services/latest/streaming-endpoint-concept) som du vill strömma videon från.
 
 > [!NOTE]
-> Du faktureras bara när slut punkten för direkt uppspelning är i körnings läge.
+> Du faktureras bara när din slutpunkt för direktuppspelning är i körläge.
 
-1. I det vänstra fönstret i Postman-appen väljer du direkt uppspelning och Live.
-2. Välj sedan "starta StreamingEndpoint".
+1. I det vänstra fönstret i Postman-appen väljer du "Streaming och Live".
+2. Välj sedan "Starta StreamingEndpoint".
 3. Tryck på **Skicka**.
 
-    * Följande **post** -åtgärd skickas:
+    * Följande **POST-åtgärd** skickas:
 
         ```
         https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaservices/:accountName/streamingEndpoints/:streamingEndpointName/start?api-version={{api-version}}
         ```
-    * Om begäran lyckas returneras `Status: 202 Accepted`.
+    * Om begäran lyckas `Status: 202 Accepted` returneras begäran.
 
-        Denna status innebär att begäran har godkänts för bearbetning. men bearbetningen har inte slutförts. Du kan fråga efter åtgärds status baserat på värdet i `Azure-AsyncOperation` svars huvudet.
+        Denna status innebär att begäran har godkänts för behandling. behandlingen har dock inte slutförts. Du kan fråga efter åtgärdsstatus baserat `Azure-AsyncOperation` på värdet i svarshuvudet.
 
-        Följande GET-åtgärd returnerar till exempel status för din åtgärd:
+        Följande GET-åtgärd returnerar till exempel status för åtgärden:
         
         `https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/<resourceGroupName>/providers/Microsoft.Media/mediaservices/<accountName>/streamingendpointoperations/1be71957-4edc-4f3c-a29d-5c2777136a2e?api-version=2018-07-01`
 
-        Artikeln [spåra asynkrona Azure-åtgärder](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations) förklarar i djup hur du spårar statusen för asynkrona Azure-åtgärder via värden som returneras i svaret.
+        I artikeln [spåra asynkrona Azure-åtgärder](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations) beskrivs ingående hur du spårar status för asynkrona Azure-åtgärder genom värden som returneras i svaret.
 
 ### <a name="create-an-output-asset"></a>Skapa en utdatatillgång
 
-[Utdatatillgången](https://docs.microsoft.com/rest/api/media/assets) lagrar resultatet av ditt kodningsjobb. 
+[Utdatatillgången](https://docs.microsoft.com/rest/api/media/assets) lagrar resultatet av kodningsjobbet. 
 
-1. I det vänstra fönstret i Postman-appen väljer du "till gångar".
+1. Välj "Tillgångar" i det vänstra fönstret i Postman-appen.
 2. Välj därefter Skapa eller uppdatera en tillgång.
 3. Tryck på **Skicka**.
 
-    * Följande **PUT**-åtgärd skickas:
+    * Följande **PUT-åtgärd** skickas:
 
         ```
         https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/assets/:assetName?api-version={{api-version}}
@@ -182,7 +184,7 @@ Du kan använda en inbyggd EncoderNamedPreset eller anpassade förinställningar
 > [!Note]
 > När du skapar en [Transformering](https://docs.microsoft.com/rest/api/media/transforms) bör du först kontrollera om det redan finns en med **Get**-metoden. Den här kursen förutsätter att du skapar transformeringen med ett unikt namn.
 
-1. I det vänstra fönstret i Postman-appen väljer du kodning och analys.
+1. Välj "Kodning och analys" i det vänstra fönstret i Postman-appen.
 2. Välj sedan Skapa transformering.
 3. Tryck på **Skicka**.
 
@@ -191,7 +193,7 @@ Du kan använda en inbyggd EncoderNamedPreset eller anpassade förinställningar
         ```
         https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/transforms/:transformName?api-version={{api-version}}
         ```
-    * Åtgärden har följande innehåll:
+    * Åtgärden har följande text:
 
         ```json
         {
@@ -215,9 +217,9 @@ Du kan använda en inbyggd EncoderNamedPreset eller anpassade förinställningar
 
 Ett [Jobb](https://docs.microsoft.com/rest/api/media/jobs) är den faktiska begäran till Media Services om att tillämpa den skapade **Transformeringen** på en given indatavideo eller ett ljudinnehåll. **Jobb** anger information som platsen för indatavideon och platsen för utdatan.
 
-I det här exemplet baseras jobbets Indatatyp på en HTTPS-URL ("https:\//nimbuscdn-nimbuspm.streaming.mediaservices.windows.net/2b533311-b215-4409-80af-529c3e853622/").
+I det här exemplet baseras jobbets indata på en\/HTTPS-URL ("https: /nimbuscdn-nimbuspm.streaming.mediaservices.windows.net/2b533311-b215-4409-80af-529c3e853622/").
 
-1. I det vänstra fönstret i Postman-appen väljer du kodning och analys.
+1. Välj "Kodning och analys" i det vänstra fönstret i Postman-appen.
 2. Välj därefter Skapa eller uppdatera jobbet.
 3. Tryck på **Skicka**.
 
@@ -226,7 +228,7 @@ I det här exemplet baseras jobbets Indatatyp på en HTTPS-URL ("https:\//nimbus
         ```
         https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/transforms/:transformName/jobs/:jobName?api-version={{api-version}}
         ```
-    * Åtgärden har följande innehåll:
+    * Åtgärden har följande text:
 
         ```json
         {
@@ -254,23 +256,23 @@ Jobbet tar en stund att slutföra och du meddelas när detta sker. Om du vill se
 
 #### <a name="job-error-codes"></a>Jobbfelkoder
 
-Se [felkoder](https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode).
+Se [Felkoder](https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode).
 
 ### <a name="create-a-streaming-locator"></a>Skapa en positionerare för direktuppspelning
 
 När kodningsjobbet är klart, är nästa steg att göra videon i **utdatatillgången** tillgänglig för uppspelning av klienter. Du kan göra detta i två steg: Först skapar du en [StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglocators) och därefter skapar du de strömmande URL:er som klienterna ska använda. 
 
-Processen för att skapa en strömmande positionerare kallas publicering. Som standard är streaming Locator giltig omedelbart efter att du har gjort API-anrop och varar tills den tas bort, om du inte konfigurerar de valfria start-och slut tiderna. 
+Processen att skapa en streaming locator kallas publicering. Som standard är strömningspositioneraren giltig direkt efter att du har ringt API-anropen och varar tills den tas bort, såvida du inte konfigurerar de valfria start- och sluttiderna. 
 
-När du skapar en [StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglocators) behöver du ange önskat **StreamingPolicyName**. I det här exemplet kommer du att strömma in-Clear (eller icke-krypterad) innehåll, så den fördefinierade principen för att rensa strömmande Predefined_ClearStreamingOnly används.
+När du skapar en [StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglocators) behöver du ange önskat **StreamingPolicyName**. I det här exemplet kommer du att strömma in-the-clear (eller icke-krypterad) innehåll, så den fördefinierade rensa streamingprincipen "Predefined_ClearStreamingOnly" används.
 
 > [!IMPORTANT]
 > Om du använder en anpassad [StreamingPolicy](https://docs.microsoft.com/rest/api/media/streamingpolicies) bör du skapa en begränsad uppsättning av sådana principer för ditt Media Service-konto, och återanvända dem för dina StreamingLocators när samma krypterings- och protokollalternativ krävs. 
 
-Media Service-kontot har en kvot för antalet **strömningsprincipposter**. Du bör inte skapa en ny **strömmande princip** för varje strömmande positionerare.
+Ditt Media Service-konto har en kvot för antalet **direktuppspelningsprincipposter.** Du bör inte skapa en ny **streamingprincip** för varje streamingpositionerare.
 
-1. Välj "strömmande principer och positionerare" i det vänstra fönstret i Postman-appen.
-2. Välj sedan "skapa en strömmande Locator (rensa)".
+1. I det vänstra fönstret i Postman-appen väljer du "Streamingprinciper och positionerare".
+2. Välj sedan "Skapa en streamingpositionerare (klar)".
 3. Tryck på **Skicka**.
 
     * Följande **PUT**-åtgärd skickas.
@@ -278,7 +280,7 @@ Media Service-kontot har en kvot för antalet **strömningsprincipposter**. Du b
         ```
         https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/streamingLocators/:streamingLocatorName?api-version={{api-version}}
         ```
-    * Åtgärden har följande innehåll:
+    * Åtgärden har följande text:
 
         ```json
         {
@@ -297,7 +299,7 @@ Media Service-kontot har en kvot för antalet **strömningsprincipposter**. Du b
 
 Nu när [positioneraren för direktuppspelning](https://docs.microsoft.com/rest/api/media/streaminglocators) har skapats kan du hämta direktuppspelningswebbadresserna
 
-1. Välj "strömmande principer" i det vänstra fönstret i Postman-appen.
+1. Välj "Streamingpolicy" i det vänstra fönstret i Postman-appen.
 2. Välj sedan Lista sökvägar.
 3. Tryck på **Skicka**.
 
@@ -366,15 +368,15 @@ https://amsaccount-usw22.streaming.media.azure.net/cdb80234-1d94-42a9-b056-0eefa
 
 
 > [!NOTE]
-> Kontrollera att **slutpunkten för direktuppspelning** som du vill spela upp innehåll från körs.
+> Kontrollera att **slutpunkten för direktuppspelning** körs.
 
-I den här artikeln används Azure Media Player för att testa dataströmmen. 
+I den här artikeln används Azure Media Player till att testa strömningen. 
 
-1. Öppna en webbläsare och navigera till [https://aka.ms/azuremediaplayer/](https://aka.ms/azuremediaplayer/).
-2. I **URL:** -rutan klistrar du in den URL som du skapat. 
+1. Öppna en webbläsare och [https://aka.ms/azuremediaplayer/](https://aka.ms/azuremediaplayer/)navigera till .
+2. I **URL:**-rutan klistrar du in den URL som du skapat. 
 3. Tryck på **Uppdatera spelare**.
 
-Azure Media Player kan användas för att testa men ska inte användas i en produktionsmiljö. 
+Azure Media Player kan användas vid testning, men bör inte användas i en produktionsmiljö. 
 
 ## <a name="clean-up-resources-in-your-media-services-account"></a>Rensa resurser på ditt Media Services-konto
 
@@ -392,9 +394,9 @@ Kör följande CLI-kommando:
 az group delete --name amsResourceGroup
 ```
 
-## <a name="ask-questions-give-feedback-get-updates"></a>Ställ frågor, ge feedback, hämta uppdateringar
+## <a name="ask-questions-give-feedback-get-updates"></a>Ställ frågor, ge feedback, få uppdateringar
 
-Kolla in [Azure Media Services community](media-services-community.md) -artikeln för att se olika sätt att ställa frågor, lämna feedback och få uppdateringar om Media Services.
+Kolla in [communityartikeln i Azure Media Services](media-services-community.md) för att se olika sätt att ställa frågor, ge feedback och få uppdateringar om Medietjänster.
 
 ## <a name="next-steps"></a>Nästa steg
 

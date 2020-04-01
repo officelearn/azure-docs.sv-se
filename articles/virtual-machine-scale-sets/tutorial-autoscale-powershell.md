@@ -1,5 +1,5 @@
 ---
-title: Självstudie – Autoskala en skalnings uppsättning med Azure PowerShell
+title: Självstudiekurs - Skala en skalningsuppsättning automatiskt med Azure PowerShell
 description: Läs hur du automatiskt skalar en VM-skalningsuppsättning med Azure PowerShell allteftersom CPU-kraven varierar
 author: cynthn
 tags: azure-resource-manager
@@ -9,10 +9,10 @@ ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
 ms.openlocfilehash: 50fb0c1c13ceba88b1894fa0f3165dd40b8e23cf
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "76278416"
 ---
 # <a name="tutorial-automatically-scale-a-virtual-machine-scale-set-with-azure-powershell"></a>Självstudie: Skala en VM-skalningsuppsättning automatiskt med Azure PowerShell
@@ -27,7 +27,7 @@ När du skapar en skalningsuppsättning, definierar du antalet virtuella datorin
 > * Belastningstesta virtuella datorinstanser och utlös regler för automatisk skalning
 > * Skala tillbaka automatiskt när efterfrågan minskar
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
 
 Det finns ett känt problem som påverkar Azure PowerShell-modulversion 6.8.1 eller senare, inklusive den aktuella versionen av Azure Cloud Shell. Den här självstudien kan endast köras med Azure PowerShell-modulversion 6.0.0 till 6.8.0. Kör `Get-Module -ListAvailable AzureRM` för att hitta versionen. Om du kör PowerShell lokalt måste du också köra `Connect-AzureRmAccount` för att skapa en anslutning till Azure.
 
@@ -70,8 +70,8 @@ Följande parametrar används för den här regeln:
 | *-TimeGrain*            | Hur ofta måtten samlas in för analys.                                                                   | 1 minut       |
 | *-MetricStatistic*      | Definierar hur de insamlade mätvärdena ska aggregeras för analys.                                                | Medel        |
 | *-TimeWindow*           | Tidsperioden som övervakas innan värdena för måttet och tröskelvärdet jämförs.                                   | 5 minuter      |
-| *-Operator*             | Operator som används för att jämföra måttinformationen mot tröskelvärdet.                                                     | Större än   |
-| *-Threshold*            | Det värde som får regeln för automatisk skalning att utlösa en åtgärd.                                                      | 70 %            |
+| *-Operatör*             | Operator som används för att jämföra måttinformationen mot tröskelvärdet.                                                     | Större än   |
+| *-Tröskel*            | Det värde som får regeln för automatisk skalning att utlösa en åtgärd.                                                      | 70 %            |
 | *-ScaleActionDirection* | Anger om skalningsuppsättningen ska skala upp eller ner när regeln gäller.                                             | Öka       |
 | *-ScaleActionScaleType* | Anger att antalet virtuella datorinstanser ska ändras med ett specifikt värde.                                    | Ändra antal   |
 | *-ScaleActionValue*     | Procentandelen av virtuella datorinstanser som ska ändras när regeln utlöser.                                            | 3              |
@@ -129,7 +129,7 @@ $myScaleProfile = New-AzureRmAutoscaleProfile `
 ```
 
 
-## <a name="apply-autoscale-profile-to-a-scale-set"></a>Använd autoskalning-profil i en skalnings uppsättning
+## <a name="apply-autoscale-profile-to-a-scale-set"></a>Använda profil för automatisk skalning på en skalningsuppsättning
 Det sista steget är att använda profilen för automatisk skalning på din skalningsuppsättning. Din skalningsuppsättning kan därefter automatiskt skala in eller ut baserat på programmets efterfrågan. Använda autoskalningsprofilen med [Add-AzureRmAutoscaleSetting](/powershell/module/AzureRM.Insights/Add-AzureRmAutoscaleSetting) på följande sätt:
 
 ```azurepowershell-interactive
@@ -180,7 +180,7 @@ IpAddress
 52.168.121.216
 ```
 
-Skapa en fjärranslutning till din första virtuella datorinstans. Ange din egna offentliga IP-adress och ditt portnummer för nödvändig VM-instans såsom visas i föregående kommandon. När du uppmanas till det anger du de autentiseringsuppgifter som användes när du skapade skalnings uppsättningen (som standard i exempel kommandona är de *azureuser* och *P\@Ssw0Rd!* ). Om du använder Azure Cloud Shell, utför du den här åtgärden från en lokal PowerShell-kommandotolk eller klienten för fjärrskrivbord. Följande exempel ansluter till VM-instans *0*:
+Skapa en fjärranslutning till din första virtuella datorinstans. Ange din egna offentliga IP-adress och ditt portnummer för nödvändig VM-instans såsom visas i föregående kommandon. När du uppmanas till det anger du de autentiseringsuppgifter som används när du skapade skalningsuppsättningen (som standard i exempelkommandona är de *azureuser* och *\@P ssw0rd!*). Om du använder Azure Cloud Shell, utför du den här åtgärden från en lokal PowerShell-kommandotolk eller klienten för fjärrskrivbord. Följande exempel ansluter till VM-instans *0*:
 
 ```powershell
 mstsc /v 52.168.121.216:50001
@@ -189,8 +189,8 @@ mstsc /v 52.168.121.216:50001
 Efter att du loggat in kan du öppna Internet Explorer från aktivitetsfältet.
 
 - Välj **OK** för att acceptera uppmaningen *Använd rekommenderade inställningar för säkerhet, sekretess och kompatibilitet*
-- Skriv in *http://download.sysinternals.com/files/CPUSTRES.zip* i adressfältet.
-- Eftersom Förbättrad säkerhetskonfiguration i Internet Explorer är aktiverat, välj **Lägg till** *http://download.sysinternals.com* domänen i listan över betrodda platser.
+- Skriv *http://download.sysinternals.com/files/CPUSTRES.zip* i adressfältet.
+- Eftersom Förbättrad säkerhetskonfiguration i Internet Explorer är aktiverat, välj **Lägg till***http://download.sysinternals.com* domänen i listan över betrodda platser.
 - När du tillfrågas om filhämtning, välj **Öppna**och välj och **Kör** verktyget *CPUSTRES. EXE*.
 
 Om du vill generera viss CPU-belastning markerar du två kryssrutor för **Aktiva** trådar. Från den nedrullningsbara menyn **Aktivitet** för båda trådarna väljer du *Maximal*. Du kan öppna Aktivitetshanteraren för att bekräfta att CPU-belastningen på den virtuella datorn är på 100 %.

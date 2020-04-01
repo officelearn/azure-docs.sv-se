@@ -1,7 +1,7 @@
 ---
-title: 'Självstudie: träna din första Azure ML-modell i python'
+title: 'Självstudiekurs: Träna din första Azure ML-modell i Python'
 titleSuffix: Azure Machine Learning
-description: I den här självstudien får du lära dig grundläggande design mönster i Azure Machine Learning och träna en enkel scikit-modell som baseras på diabetes data uppsättning.
+description: I den här självstudien lär du dig de grundläggande designmönstren i Azure Machine Learning och tränar en enkel scikit-learn-modell baserat på diabetesdatauppsättningen.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,60 +11,60 @@ ms.author: trbye
 ms.reviewer: trbye
 ms.date: 02/10/2020
 ms.openlocfilehash: aa90655ecb14abe38ec8fdfc6c18e7d292abbef3
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "79238680"
 ---
-# <a name="tutorial-train-your-first-ml-model"></a>Självstudie: träna din första ML-modell
+# <a name="tutorial-train-your-first-ml-model"></a>Handledning: Träna din första ML-modell
 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-Självstudien är **del två i en självstudieserie i två delar**. I föregående självstudie [skapade du en arbets yta och valde en utvecklings miljö](tutorial-1st-experiment-sdk-setup.md). I den här självstudien får du lära dig grundläggande design mönster i Azure Machine Learning och träna en enkel scikit-modell som baseras på diabetes data uppsättning. När du har slutfört den här självstudien får du praktisk kunskap om SDK: n för att skala upp för att utveckla mer komplexa experiment och arbets flöden.
+Självstudien är **del två i en självstudieserie i två delar**. I föregående självstudie har du [skapat en arbetsyta och valt en utvecklingsmiljö](tutorial-1st-experiment-sdk-setup.md). I den här självstudien lär du dig de grundläggande designmönstren i Azure Machine Learning och tränar en enkel scikit-learn-modell baserat på diabetesdatauppsättningen. När du har slutfört den här självstudien får du praktisk kunskap om SDK för att skala upp till att utveckla mer komplexa experiment och arbetsflöden.
 
 I den här självstudien kommer du att lära dig följande:
 
 > [!div class="checklist"]
-> * Anslut din arbets yta och skapa ett experiment
-> * Läs in data och träna scikit – lär dig modeller
-> * Visa utbildnings resultat i portalen
+> * Anslut arbetsytan och skapa ett experiment
+> * Ladda data och träna scikit-learn-modeller
+> * Visa träningsresultat i portalen
 > * Hämta den bästa modellen
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-Den enda förutsättningen är att köra en del av den här självstudien, [installations miljön och arbets ytan](tutorial-1st-experiment-sdk-setup.md).
+Den enda förutsättningen är att köra del ett av den här [självstudien, installationsmiljön och arbetsytan](tutorial-1st-experiment-sdk-setup.md).
 
-I den här delen av självstudien kör du koden i exemplet Jupyter Notebooks *-självstudier/Create-First-ml-experiment/tutorial-1st-experiment-SDK-Train. ipynb* öppnas i slutet av del ett. Den här artikeln vägleder dig genom samma kod som finns i antecknings boken.
+I den här delen av självstudien kör du koden i exemplet Jupyter notebook *tutorials/create-first-ml-experiment/tutorial-1st-experiment-sdk-train.ipynb* öppnade i slutet av del ett. Den här artikeln går igenom samma kod som finns i anteckningsboken.
 
-## <a name="open-the-notebook"></a>Öppna antecknings boken
+## <a name="open-the-notebook"></a>Öppna anteckningsboken
 
-1. Logga in på [Azure Machine Learning Studio](https://ml.azure.com/).
+1. Logga in på [Azure Machine Learning studio](https://ml.azure.com/).
 
-1. Öppna **självstudien – 1st-experiment-SDK-träna. ipynb** i din mapp som du ser i [del ett](tutorial-1st-experiment-sdk-setup.md#open).
+1. Öppna **handledningen-1st-experiment-sdk-train.ipynb** i mappen som visas i [del ett](tutorial-1st-experiment-sdk-setup.md#open).
 
 
 > [!Warning]
-> Skapa **inte** en *ny* antecknings bok i Jupyter-gränssnittet! Självstudierna för bärbara datorer */create-First-ml-experiment/tutorial-1st-experiment-SDK-Train. ipynb* inkluderar **all kod och alla data som behövs** för den här självstudien.
+> Skapa **inte** en *ny* bärbar dator i Jupyter-gränssnittet! Den bärbara datorn *tutorials/create-first-ml-experiment/tutorial-1st-experiment-sdk-train.ipynb* är inklusive **all kod och data som behövs** för den här guiden.
 
-## <a name="connect-workspace-and-create-experiment"></a>Anslut arbets ytan och skapa experiment
+## <a name="connect-workspace-and-create-experiment"></a>Anslut arbetsytan och skapa experiment
 
 > [!Important]
-> Resten av den här artikeln innehåller samma innehåll som du ser i antecknings boken.  
+> Resten av den här artikeln innehåller samma innehåll som du ser i anteckningsboken.  
 >
-> Växla till antecknings boken för Jupyter nu om du vill läsa den samtidigt som du kör koden. 
-> Om du vill köra en enda kod cell i en bärbar dator klickar du på cellen kod och trycker på **SKIFT + RETUR**. Du kan också köra hela antecknings boken genom att välja **Kör alla** från det översta verktygsfältet.
+> Växla till Jupyter-anteckningsboken nu om du vill läsa tillsammans när du kör koden. 
+> Om du vill köra en en enda kodcell i en anteckningsbok klickar du på kodcellen och trycker på **Skift+Retur**. Du kan också köra hela anteckningsboken genom att välja **Kör alla** i det övre verktygsfältet.
 
-Importera `Workspace`-klassen och Läs in din prenumerations information från filen `config.json` med hjälp av funktionen `from_config().` detta söker efter JSON-filen i den aktuella katalogen som standard, men du kan också ange en Sök vägs parameter för att peka på filen med `from_config(path="your/file/path")`. I en molnbaserad Notebook-Server är filen automatiskt i rot katalogen.
+Importera `Workspace` klassen och läsa in prenumerationsinformationen från filen `config.json` med funktionen `from_config().` Detta söker efter JSON-filen i den aktuella katalogen `from_config(path="your/file/path")`som standard, men du kan också ange en sökvägsparameter som ska peka på filen med . I en molnanteckningsserver finns filen automatiskt i rotkatalogen.
 
-Om följande kod frågar efter ytterligare autentisering, klistrar du bara in länken i en webbläsare och anger autentiseringstoken.
+Om följande kod ber om ytterligare autentisering, helt enkelt klistra in länken i en webbläsare och ange autentisering token.
 
 ```python
 from azureml.core import Workspace
 ws = Workspace.from_config()
 ```
 
-Nu ska du skapa ett experiment i din arbets yta. Ett experiment är en annan grundläggande moln resurs som representerar en samling av försök (enskilda modell körningar). I den här självstudien använder du experimentet för att skapa körningar och spåra din modell utbildning i Azure Machine Learning Studio. Parametrar är en referens till din arbets yta och ett sträng namn för experimentet.
+Skapa nu ett experiment på arbetsytan. Ett experiment är en annan grundläggande molnresurs som representerar en samling utvärderingsversioner (enskilda modeller körs). I den här självstudien använder du experimentet för att skapa körningar och spåra din modellutbildning i Azure Machine Learning-studion. Parametrarna innehåller din arbetsytas referens och ett strängnamn för experimentet.
 
 
 ```python
@@ -72,9 +72,9 @@ from azureml.core import Experiment
 experiment = Experiment(workspace=ws, name="diabetes-experiment")
 ```
 
-## <a name="load-data-and-prepare-for-training"></a>Läs in data och Förbered för utbildning
+## <a name="load-data-and-prepare-for-training"></a>Ladda data och förbered för träning
 
-I den här självstudien använder du diabetes-datauppsättningen, som använder funktioner som ålder, kön och BMI för att förutse diabetes sjukdoms förlopp. Läs in data från klassen [öppna data uppsättningar i Azure](https://azure.microsoft.com/services/open-datasets/) och dela upp den i utbildning och test uppsättningar med hjälp av `train_test_split()`. Den här funktionen åtskiljer data så att modellen har osett data som ska användas för att testa följande utbildning.
+För den här guiden använder du diabetesdatauppsättningen, som använder funktioner som ålder, kön och BMI för att förutsäga utvecklingen av diabetessjukdomar. Läs in data från klassen [Azure Open Dataset](https://azure.microsoft.com/services/open-datasets/) och dela `train_test_split()`upp dem i tränings- och testuppsättningar med . Den här funktionen segregerar data så att modellen har osynliga data att använda för testning efter utbildning.
 
 
 ```python
@@ -89,9 +89,9 @@ X_train, X_test, y_train, y_test = train_test_split(x_df, y_df, test_size=0.2, r
 
 ## <a name="train-a-model"></a>Träna en modell
 
-Träna en enkel scikit-läre modell kan enkelt göras lokalt för småskalig utbildning, men vid inlärning av många iterationer med dussin tals olika typer av funktions permutationer och inställningar för en viss parameter, är det enkelt att förlora spår över vilka modeller du har tränat och hur du tränade dem. Följande design mönster visar hur du kan utnyttja SDK: n för att enkelt hålla koll på din utbildning i molnet.
+Utbildning en enkel scikit-lära modell kan enkelt göras lokalt för småskalig utbildning, men när utbildning många iterationer med dussintals olika funktioner permutationer och hyperparameter inställningar, är det lätt att tappa reda på vilka modeller du har tränat och hur du tränade dem. Följande designmönster visar hur du utnyttjar SDK för att enkelt hålla reda på din träning i molnet.
 
-Bygg ett skript som tågen Ridge modeller i en slinga genom olika alpha-värden för de olika parametrarna.
+Bygg ett skript som tränar åsmodeller i en slinga genom olika hyperparameter alfavärden.
 
 
 ```python
@@ -120,36 +120,36 @@ for alpha in alphas:
     run.complete()
 ```
 
-Ovanstående kod utför följande:
+Ovanstående kod åstadkommer följande:
 
-1. För varje alpha-värde i `alphas` matrisen skapas en ny körning i experimentet. Alfa-värdet loggas för att skilja mellan varje körning.
-1. I varje körning instansieras en Ridge-modell, tränas och används för att köra förutsägelser. Roten – genomsnitts-kvadratvärdet beräknas för de faktiska respektive förväntade värdena och logga sedan in på körningen. I det här läget har metadata kopplade till både alpha-värdet och rmse precision.
-1. Därefter serialiseras modellen för varje körning och överförs till körningen. På så sätt kan du ladda ned modell filen från körningen i portalen.
-1. I slutet av varje iteration slutförs körningen genom att anropa `run.complete()`.
+1. För varje alfahyperparametervärde i matrisen `alphas` skapas en ny körning i experimentet. Alfavärdet loggas för att skilja mellan varje körning.
+1. I varje körning instansieras en Ridge-modell, tränas och används för att köra förutsägelser. Rotvärdet-medelvärdet-kvadrat-fel beräknas för de faktiska kontra förväntade värdena och loggas sedan till körningen. Vid denna punkt körningen har metadata kopplade för både alfa värde och rmse noggrannhet.
+1. Därefter serialiseras modellen för varje körning och överförs till körningen. På så sätt kan du hämta modellfilen från körningen i portalen.
+1. I slutet av varje iteration avslutas `run.complete()`körningen genom att anropa .
 
-När utbildningen har slutförts anropar du `experiment`-variabeln för att hämta en länk till experimentet i portalen.
+När utbildningen är klar `experiment` anropar du variabeln för att hämta en länk till experimentet i portalen.
 
 ```python
 experiment
 ```
 
-<table style="width:100%"><tr><th>Namn</th><th>Arbetsyta</th><th>Rapport sida</th><th>Sidan dokument</th></tr><tr><td>diabetes – experiment</td><td>ditt-arbetsyte namn</td><td>Länk till Azure Portal</td><td>Länk till dokumentation</td></tr></table>
+<table style="width:100%"><tr><th>Namn</th><th>Arbetsyta</th><th>Rapportsida</th><th>Sidan Dokument</th></tr><tr><td>diabetes-experiment</td><td>ditt arbetsytenamn</td><td>Länk till Azure-portalen</td><td>Länk till dokumentation</td></tr></table>
 
-## <a name="view-training-results-in-portal"></a>Visa utbildnings resultat i portalen
+## <a name="view-training-results-in-portal"></a>Visa träningsresultat i portalen
 
-När du följer **länken till Azure Portal** går du till huvud experiment sidan. Här ser du alla enskilda körningar i experimentet. Alla anpassade, inloggade värden (`alpha_value` och `rmse`, i det här fallet) blir fält för varje körning och blir också tillgängliga för diagram och paneler överst på experiment sidan. För att lägga till ett inloggat mått i ett diagram eller en panel, Hovra över den, klicka på knappen Redigera och hitta ditt anpassade-loggade mått.
+När du följer **portalen Länk till Azure** går du till huvudexperimentsidan. Här ser du alla enskilda körningar i experimentet. Alla anpassade loggade`alpha_value` värden `rmse`( och , i det här fallet) blir fält för varje körning och blir också tillgängliga för diagram och paneler högst upp på experimentsidan. Om du vill lägga till ett loggat mått i ett diagram eller en panel håller du muspekaren över det, klickar på redigeringsknappen och hittar det anpassade loggade måttet.
 
-När utbildnings modeller skalas över hundratals och tusentals separata körningar, gör den här sidan det enkelt att se alla modeller som du har tränat, särskilt hur de har tränats, och hur dina unika mått har ändrats över tid.
+När du tränar modeller i skala över hundratals och tusentals separata körningar gör den här sidan det enkelt att se alla modeller du har tränat, särskilt hur de har tränats och hur dina unika mätvärden har förändrats med tiden.
 
-![Huvud experiment sidan i portalen](./media/tutorial-1st-experiment-sdk-train/experiment-main.png)
+![Sidan Huvudexperiment i Portal](./media/tutorial-1st-experiment-sdk-train/experiment-main.png)
 
-Om du klickar på en körnings nummer länk i kolumnen `RUN NUMBER` går du till sidan för varje enskild körning. På fliken standard visas mer **detaljerad information om** varje körning. Navigera till fliken **utdata** och se `.pkl`-filen för den modell som överfördes till körningen under varje inlärnings upprepning. Här kan du ladda ned modell filen i stället för att behöva träna den manuellt.
+Om du klickar på en `RUN NUMBER` länk för körningsnummer i kolumnen kommer du till sidan för varje enskild körning. **Standardfliken Detaljer** visar mer detaljerad information om varje körning. Navigera till fliken **Utdata** och `.pkl` du ser filen för modellen som laddades upp till körningen under varje träningsiteration. Här kan du ladda ner modellfilen, i stället för att behöva omskola den manuellt.
 
-![Sidan kör information i portalen](./media/tutorial-1st-experiment-sdk-train/model-download.png)
+![Sidan Kör information i Portal](./media/tutorial-1st-experiment-sdk-train/model-download.png)
 
 ## <a name="get-the-best-model"></a>Få den bästa modellen
 
-Förutom att kunna ladda ned presentationsfiler från experimentet i portalen kan du också ladda ned dem program mässigt. Följande kod itererar igenom varje körning i experimentet och använder både de loggade körnings måtten och körnings informationen (som innehåller run_id). Detta håller reda på den bästa körningen, i det här fallet körs med lägsta rot-genomsnitt-kvadratvärdet.
+Förutom att kunna ladda ner modellfiler från experimentet i portalen kan du också ladda ner dem programmässigt. Följande kod itererar genom varje körning i experimentet och kommer åt både de loggade körningsmåtten och körningsinformationen (som innehåller run_id). Detta håller reda på den bästa körningen, i det här fallet körningen med det lägsta rot-mean-squared-error.
 
 ```python
 minimum_rmse_runid = None
@@ -177,7 +177,7 @@ print("Best run_id rmse: " + str(minimum_rmse))
     Best run_id: 864f5ce7-6729-405d-b457-83250da99c80
     Best run_id rmse: 57.234760283951765
 
-Använd det bästa körnings-ID: t för att hämta den enskilda körningen med hjälp av `Run` konstruktorn tillsammans med experiment-objektet. Anropa sedan `get_file_names()` för att se alla filer som är tillgängliga för nedladdning från den här körningen. I det här fallet överför du bara en fil för varje körning under utbildningen.
+Använd det bästa körnings-ID:et för att hämta den enskilda körningen `Run` med konstruktorn tillsammans med experimentobjektet. Ring `get_file_names()` sedan för att se alla filer som är tillgängliga för nedladdning från den här körningen. I det här fallet har du bara laddat upp en fil för varje körning under träningen.
 
 ```python
 from azureml.core import Run
@@ -187,7 +187,7 @@ print(best_run.get_file_names())
 
     ['model_alpha_0.1.pkl']
 
-Anropa `download()` på objektet kör och ange modell fil namnet som ska hämtas. Som standard laddas den här funktionen ned till den aktuella katalogen.
+Anropar `download()` körningsobjektet och anger modellfilnamnet som ska hämtas. Som standard hämtas den här funktionen till den aktuella katalogen.
 
 ```python
 best_run.download_file(name="model_alpha_0.1.pkl")
@@ -195,9 +195,9 @@ best_run.download_file(name="model_alpha_0.1.pkl")
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Slutför inte det här avsnittet om du tänker köra andra Azure Machine Learning själv studie kurser.
+Fyll inte i det här avsnittet om du planerar att köra andra Azure Machine Learning-självstudier.
 
-### <a name="stop-the-compute-instance"></a>Stoppa beräknings instansen
+### <a name="stop-the-compute-instance"></a>Stoppa beräkningsinstansen
 
 [!INCLUDE [aml-stop-server](../../includes/aml-stop-server.md)]
 
@@ -209,12 +209,12 @@ Du kan också behålla resursgruppen men ta bort en enstaka arbetsyta. Visa arbe
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudien har du följande uppgifter:
+I den här självstudien gjorde du följande uppgifter:
 
 > [!div class="checklist"]
-> * Anslöt din arbets yta och skapade ett experiment
-> * Inlästa data och utbildade scikit – lär dig modeller
-> * Visa inlärnings resultat i portalen och hämtade modeller
+> * Kopplade din arbetsyta och skapade ett experiment
+> * Laddade data och utbildade scikit-learn-modeller
+> * Visade träningsresultat i portalen och hämtade modeller
 
 [Distribuera modellen](tutorial-deploy-models-with-aml.md) med Azure Machine Learning.
-Lär dig hur du utvecklar [automatiserade maskin inlärnings](tutorial-auto-train-models.md) experiment.
+Lär dig hur du utvecklar [automatiserade maskininlärningsexperiment.](tutorial-auto-train-models.md)

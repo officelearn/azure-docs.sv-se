@@ -1,5 +1,5 @@
 ---
-title: 'Självstudier: Azure Active Directory-integrering med Workable | Microsoft Docs'
+title: 'Självstudiekurs: Azure Active Directory-integrering med fungerande | Microsoft-dokument'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Workable.
 services: active-directory
 documentationCenter: na
@@ -17,25 +17,25 @@ ms.date: 04/15/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5fc1f6434bea8f75c7bcc7859c6f90d7abdd031b
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "71091043"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-workable"></a>Självstudier: Azure Active Directory-katalogintegrering med Workable
+# <a name="tutorial-azure-active-directory-integration-with-workable"></a>Självstudiekurs: Azure Active Directory-integrering med fungerande
 
 I den här självstudien lär du dig hur du integrerar Workable med Azure Active Directory (Azure AD).
 Du får följande fördelar när du integrerar Workable med Azure AD:
 
 * Du kan styra i Azure AD vilka som har åtkomst till Workable.
 * Du kan göra så att dina användare automatiskt loggas in på Workable (enkel inloggning) med sina Azure AD-konton.
-* Du kan hantera dina konton på en central plats – Azure portal.
+* Du kan hantera dina konton på en central plats – Azure-portalen.
 
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
+Om du inte har en Azure-prenumeration [skapar du ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att kunna konfigurera Azure AD-integrering med Workable behöver du följande:
 
@@ -55,7 +55,7 @@ För att kunna konfigurera integreringen av Workable i Azure AD måste du lägga
 
 **Gör följande för att lägga till Workable från galleriet:**
 
-1. I den **[Azure-portalen](https://portal.azure.com)** , klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
+1. I **[Azure-portalen](https://portal.azure.com)** går du till den vänstra navigeringspanelen och klickar på **Azure Active Directory**-ikonen.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
@@ -63,7 +63,7 @@ För att kunna konfigurera integreringen av Workable i Azure AD måste du lägga
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-3. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
+3. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
 
     ![Knappen Nytt program](common/add-new-app.png)
 
@@ -71,19 +71,19 @@ För att kunna konfigurera integreringen av Workable i Azure AD måste du lägga
 
     ![Workable i resultatlistan](common/search-new-app.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
 I det här avsnittet konfigurerar och testar du enkel inloggning med Azure AD med Workable baserat på en testanvändare med namnet **Britta Simon**.
 För att enkel inloggning ska fungera måste en länkrelation mellan en Azure AD-användare och den relaterade användaren i Workable upprättas.
 
 För att kunna konfigurera och testa enkel inloggning med test Azure AD med Workable måst e du slutföra följande byggblock:
 
-1. **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
+1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
 2. **[Konfigurera enkel inloggning med Workable](#configure-workable-single-sign-on)** – för att konfigurera inställningarna för enkel inloggning på programsidan.
-3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
-4. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
+3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
+4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
 5. **[Skapa Workable-testanvändare](#create-workable-test-user)** – så att det finns en motsvarighet till Britta Simon i Workable som är länkad till Azure AD-representationen av användaren.
-6. **[Testa enkel inloggning](#test-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
+6. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
@@ -93,7 +93,7 @@ Gör följande för att konfigurera enkel inloggning med Azure AD med Workable:
 
 1. I [Azure-portalen](https://portal.azure.com/) går du till sidan för **Workable**-programintegrering och väljer **Enkel inloggning**.
 
-    ![Konfigurera enkel inloggning för länken](common/select-sso.png)
+    ![Konfigurera länk för enkel inloggning](common/select-sso.png)
 
 2. I dialogrutan **Välj en metod för enkel inloggning** väljer du läget **SAML/WS-Fed** för att aktivera enkel inloggning.
 
@@ -103,32 +103,32 @@ Gör följande för att konfigurera enkel inloggning med Azure AD med Workable:
 
     ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
 
-4. I avsnittet **Grundläggande SAML-konfiguration**, om du vill konfigurera appen i **IDP**-initierat läge, gör du följande:
+4. Om du vill konfigurera programmet i **IDP-initierat** läge i avsnittet **Grundläggande SAML-konfiguration** gör du följande:
 
     ![Workable – enkel inloggning-information för domän och -URL:er](common/both-replyurl.png)
 
-    I textrutan **Svars-URL** skriver du en URL med följande mönster: `https://www.workable.com/auth/saml/<SUBDOMAIN>/callback`
+    Skriv en URL med följande mönster i textrutan **Svara URL:**`https://www.workable.com/auth/saml/<SUBDOMAIN>/callback`
 
-5. Klicka på **Ange ytterligare URL:er** och gör följande om du vill konfigurera appen i **SP**-initierat läge:
+5. Klicka på **Ange ytterligare webbadresser** och utför följande steg om du vill konfigurera programmet i **sp-initierat** läge:
 
     ![Workable – enkel inloggning-information för domän och -URL:er](common/both-signonurl.png)
 
-    I rutan **Inloggnings-URL** anger du en URL:  `https://www.workable.com/sso/signin`
+    Skriv en URL i textrutan **Sign-on-URL:**`https://www.workable.com/sso/signin`
 
     > [!NOTE]
-    > Värdet för svars-URL är inte verkligt. Uppdatera värdet för svars-URL med den faktiska svars-URL:en. Kontakta [Workable-kundsupporten](mailto:support@workable.com) för att få värdet. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
+    > Värdet för svars-URL:en är inte verkligt. Uppdatera värdet för svars-URL med den faktiska svars-URL:en. Kontakta [Workable-kundsupporten](mailto:support@workable.com) för att få värdet. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
 6. På sidan **Konfigurera enkel inloggning med SAML** går du till avsnittet **SAML-signeringscertifikat**, klickar du på **Ladda ned** för att ladda ned **Certifikat (Base64)** från de angivna alternativen enligt dina behov och sparar det på datorn.
 
-    ![Länk för hämtning av certifikat](common/certificatebase64.png)
+    ![Länk för nedladdning av certifikatet](common/certificatebase64.png)
 
 7. I avsnittet **Konfigurera Workable** kopierar du lämpliga URL:er enligt dina behov.
 
     ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
 
-    a. Inloggningswebbadress
+    a. Inloggnings-URL
 
-    b. Microsoft Azure Active Directory-identifierare
+    b. Azure AD-identifierare
 
     c. Utloggnings-URL
 
@@ -136,13 +136,13 @@ Gör följande för att konfigurera enkel inloggning med Azure AD med Workable:
 
 Om du vill aktivera enkel inloggning i Workable kontaktar du Workable-kontoansvarig och anger följande uppgifter.
 
-1. Inloggningswebbadress
+1. Inloggnings-URL
 
 2. Certifikatfil
 
 3. Utloggnings-URL
 
-När enkel inloggning har Aktiver ATS kommer din fungerande konto hanterare att meddela dig och du kan använda [fungerande inloggnings sida](https://help.workable.com/hc/en-us/articles/360000067753-Single-Sign-on-SSO-Overview-Pro) för att logga in med din fungerande konto under domän.
+När Enkel inloggning har aktiverats meddelar din fungerande kontohanterare dig och du kan använda [Workables SSO-sida](https://help.workable.com/hc/en-us/articles/360000067753-Single-Sign-on-SSO-Overview-Pro) för att logga in med underdomänen För fungerande konto.
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 
@@ -152,7 +152,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     ![Länkarna ”Användare och grupper” och ”Alla grupper”](common/users.png)
 
-2. Välj **Ny användare** överst på skärmen.
+2. Välj **Ny användare** högst upp på skärmen.
 
     ![Knappen Ny användare](common/new-user.png)
 
@@ -162,13 +162,13 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     a. I fältet **Namn** anger du **BrittaSimon**.
   
-    b. I `brittasimon\@yourcompanydomain.extension`fältet **användar namn** . Till exempel BrittaSimon@contoso.com.
+    b. I fältet **Användarnamn** `brittasimon\@yourcompanydomain.extension`. Till exempel BrittaSimon@contoso.com.
 
     c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
 
     d. Klicka på **Skapa**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
+### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
 I det här avsnittet gör du det möjligt för Britta Simon att använda enkel inloggning med Azure genom att bevilja åtkomst till Workable.
 
@@ -190,7 +190,7 @@ I det här avsnittet gör du det möjligt för Britta Simon att använda enkel i
 
 5. I dialogrutan **Användare och grupper** väljer du **Britta Simon** i listan med användare och klickar på knappen **Välj** längst ned på skärmen.
 
-6. Om du förväntar dig ett rollvärde i SAML-försäkran väljer du i dialogrutan **Välj roll** lämplig roll för användaren i listan och klickar sedan på knappen **Välj** längst ned på skärmen.
+6. Om du förväntar dig något rollvärde i SAML-påståendet väljer du lämplig roll för användaren i listan i dialogrutan **Välj roll** och klickar sedan på knappen **Välj** längst ned på skärmen.
 
 7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
 
@@ -200,7 +200,7 @@ I det här avsnittet skapas en användare som heter Britta Simon i Workable. Wor
 
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning
 
-I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
+I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
 När du klickar på Workable-panelen i åtkomstpanelen bör du automatiskt loggas in på Workable som du har konfigurerat enkel inloggning för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 

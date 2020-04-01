@@ -1,7 +1,7 @@
 ---
-title: Prognos cykel dela efter frågan med automatiserat ML experiment
+title: Prognos cykel delning efterfrågan med automatiserade ML experiment
 titleSuffix: Azure Machine Learning
-description: Lär dig hur du tränar och distribuerar en prognos modell för efter frågan med automatiserad maskin inlärning i Azure Machine Learning Studio.
+description: Lär dig hur du tränar och distribuerar en modell för efterfrågeprognoser med automatiserad maskininlärning i Azure Machine Learning studio.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,220 +11,220 @@ ms.reviewer: nibaccam
 author: cartacioS
 ms.date: 01/27/2020
 ms.openlocfilehash: 11e0a8a0076fb2e68c379b279f471ff74846df2e
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/08/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77088244"
 ---
-# <a name="tutorial-forecast-bike-sharing-demand-with-automated-machine-learning"></a>Självstudie: prognos för att dela efter frågan med automatiserad maskin inlärning
+# <a name="tutorial-forecast-bike-sharing-demand-with-automated-machine-learning"></a>Självstudiekurs: Prognos cykeldelning efterfrågan med automatiserad maskininlärning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
 
-I den här självstudien använder du Automatisk maskin inlärning, eller automatiserad ML, i Azure Machine Learning Studio för att skapa en tids serie prognos modell för att förutsäga behovet av en cykel delnings tjänst.
+I den här självstudien använder du automatiserad maskininlärning, eller automatiserad ML, i Azure Machine Learning-studion för att skapa en prognosmodell för tidsserier för att förutsäga hyresbehovet för en cykeldelningstjänst.
 
 I den här självstudien får du lära dig hur du utför följande uppgifter:
 
 > [!div class="checklist"]
-> * Skapa och läsa in en data uppsättning.
-> * Konfigurera och kör ett automatiserat ML experiment.
-> * Utforska experiment resultatet.
+> * Skapa och läs in en datauppsättning.
+> * Konfigurera och kör ett automatiserat ML-experiment.
+> * Utforska experimentresultaten.
 > * Distribuera den bästa modellen.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-* En Enterprise Edition Azure Machine Learning-arbetsyta. Om du inte har en arbets yta [skapar du en Enterprise Edition-arbetsyta](how-to-manage-workspace.md). 
-    * Automatisk maskin inlärning i Azure Machine Learning Studio är endast tillgängligt för Enterprise Edition-arbetsytor. 
-* Hämta data filen [Bike-No. csv](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-bike-share/bike-no.csv)
+* En Arbetsyta för Azure Machine Learning i Företagsutgåva. Om du inte har en arbetsyta [skapar du en arbetsyta för Enterprise Edition](how-to-manage-workspace.md). 
+    * Automatiserad maskininlärning i Azure Machine Learning-studion är endast tillgänglig för arbetsytor i Företagsutgåvor. 
+* Ladda ner [datafilen bike-no.csv](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-bike-share/bike-no.csv)
 
-## <a name="get-started-in-azure-machine-learning-studio"></a>Kom igång i Azure Machine Learning Studio
+## <a name="get-started-in-azure-machine-learning-studio"></a>Kom igång i Azure Machine Learning studio
 
-I den här självstudien får du skapa ett automatiserat ML experiment i Azure Machine Learning Studio, ett konsoliderat gränssnitt som innehåller maskin inlärnings verktyg för att utföra data vetenskaps scenarier för utbildnings nivåer för data vetenskap. Studio stöds inte i Internet Explorer-webbläsare.
+För den här självstudien skapar du din automatiska ML-experimentkörning i Azure Machine Learning Studio, ett konsoliderat gränssnitt som innehåller verktygsinlärningsverktyg för att utföra datavetenskapsscenarier för datavetenskapsutövare på alla färdighetsnivåer. Studion stöds inte i webbläsare i Internet Explorer.
 
-1. Logga in på [Azure Machine Learning Studio](https://ml.azure.com).
+1. Logga in på [Azure Machine Learning studio](https://ml.azure.com).
 
-1. Välj din prenumeration och arbets ytan du skapade.
+1. Välj din prenumeration och arbetsytan som du skapade.
 
 1. Välj **Kom igång**.
 
-1. I det vänstra fönstret väljer du **Automatisk ml** under avsnittet **författare** .
+1. Välj **Automatiserat ML** i den vänstra rutan under avsnittet **Författare.**
 
-1. Välj **+ ny automatiserad ml-körning**. 
+1. Välj **+Ny automatiserad ML-körning**. 
 
-## <a name="create-and-load-dataset"></a>Skapa och läsa in data uppsättning
+## <a name="create-and-load-dataset"></a>Skapa och läsa in datauppsättning
 
-Innan du konfigurerar experimentet laddar du upp data filen till din arbets yta i form av en Azure Machine Learning data uppsättning. På så sätt kan du se till att dina data formateras korrekt för experimentet.
+Innan du konfigurerar experimentet laddar du upp datafilen till arbetsytan i form av en Azure Machine Learning-datauppsättning. På så sätt kan du se till att dina data är korrekt formaterade för experimentet.
 
-1. I formuläret **Välj data uppsättning** väljer du **från lokala filer** från List rutan **+ skapa data uppsättning** . 
+1. I formuläret **Välj datauppsättning** väljer du **Från lokala filer** i listrutan **+Skapa datauppsättning.** 
 
-    1. Ge din data uppsättning ett namn i formuläret **grundläggande information** och ange en valfri beskrivning. Data uppsättnings typen ska vara standard i **tabell**, eftersom automatisk ML i Azure Machine Learning Studio endast stöder tabell data uppsättningar.
+    1. I formuläret **Grundläggande information** ger du ditt datauppsättning ett namn och ger en valfri beskrivning. Datauppsättningstypen ska som standard **tabellforma**, eftersom automatiserad ML i Azure Machine Learning studio för närvarande endast stöder tabelldatauppsättningar.
     
     1. Välj **Nästa** längst ned till vänster
 
-    1. I formuläret **data lager och fil markering** väljer du det standard data lager som konfigurerades automatiskt när arbets ytan skapades, **workspaceblobstore (Azure Blob Storage)** . Det här är lagrings platsen där du överför data filen. 
+    1. I formuläret **Datastore och filval** väljer du det standarddatalager som konfigurerades automatiskt när arbetsytan skapades, **workspaceblobstore (Azure Blob Storage)**. Det här är lagringsplatsen där du laddar upp datafilen. 
 
     1. Välj **Bläddra**. 
     
-    1. Välj filen **Bike-No. csv** på den lokala datorn. Det här är den fil som du laddade ned som en [förutsättning](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-bike-share/bike-no.csv).
+    1. Välj **filen bike-no.csv** på den lokala datorn. Det här är filen som du hämtade som en [förutsättning](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-bike-share/bike-no.csv).
 
     1. Välj **Nästa**
 
-       När uppladdningen är klar fylls inställningarna och förhands gransknings formuläret i förväg baserat på filtypen. 
+       När överföringen är klar fylls formuläret Inställningar och förhandsgranskning ifyllt baserat på filtypen. 
        
-    1. Kontrol lera att **inställningarna och förhands gransknings** formuläret är ifyllt enligt följande och välj **Nästa**.
+    1. Kontrollera att formuläret **Inställningar och förhandsgranskning** är ifyllt på följande sätt och välj **Nästa**.
         
-        Fält|Beskrivning| Värde för självstudier
+        Field|Beskrivning| Värde för självstudiekurs
         ---|---|---
-        Fil format|Definierar layout och typ av data som lagras i en fil.| Avgränsade
-        Avgränsare|Ett eller flera tecken för att ange avgränsningen mellan&nbsp; separata, oberoende regioner i oformaterad text eller andra data strömmar. |Kommaseparerade
-        Kodning|Identifierar vilken bit till Character-schema tabell som ska användas för att läsa din data uppsättning.| UTF-8
-        Kolumn rubriker| Anger hur data uppsättningens huvuden, om det finns, kommer att behandlas.| Använd huvuden från den första filen
-        Hoppa över rader | Anger hur många rader som ska hoppas över i data uppsättningen.| Ingen
+        Filformat|Definierar layout och typ av data som lagras i en fil.| Avgränsade
+        Avgränsare|Ett eller flera tecken för att&nbsp; ange gränsen mellan separata, oberoende regioner i oformaterad text eller andra dataströmmar. |Komma
+        Kodning|Identifierar vilken bit till tecken schematabell som ska användas för att läsa datauppsättningen.| UTF-8
+        Kolumnrubriker| Anger hur eventuella rubriker för datauppsättningen ska behandlas.| Använda rubriker från den första filen
+        Hoppa över rader | Anger hur många, om några, rader som hoppas över i datauppsättningen.| Inget
 
-    1. Med hjälp av **schema** formuläret kan du ytterligare konfigurera dina data för det här experimentet. 
+    1. **Schemaformuläret** möjliggör ytterligare konfiguration av dina data för det här experimentet. 
     
-        1. I det här exemplet väljer du att ignorera de **vardagliga** och **registrerade** kolumnerna. De här kolumnerna är en uppdelning av kolumnen **CNT** så därför inkluderar vi dem inte.
+        1. I det här exemplet väljer du att ignorera de **tillfälliga** och **registrerade** kolumnerna. Dessa kolumner är en uppdelning av **cnt** kolumnen så därför tar vi inte med dem.
 
-        1. I det här exemplet ska du också lämna standardvärdena för **egenskaperna** och **typen**. 
+        1. Lämna även standardvärdena för **egenskaper** och **typ**. 
         
         1. Välj **Nästa**.
 
-    1. I formuläret **bekräfta information** kontrollerar du att informationen stämmer överens med den **grundläggande informationen** och **inställningarna och för hands** formulären.
+    1. Kontrollera informationen i formuläret **Bekräfta information** som matchar vad som tidigare har fyllts i i **formulären Grundläggande information** och Inställningar och **förhandsgranska.**
 
-    1. Klicka på **skapa** för att slutföra skapandet av din data uppsättning.
+    1. Välj **Skapa** för att slutföra skapandet av datauppsättningen.
 
-    1. Välj din data uppsättning när den visas i listan.
+    1. Markera datauppsättningen när den visas i listan.
 
     1. Välj **Nästa**.
 
-## <a name="configure-experiment-run"></a>Konfigurera experiment körning
+## <a name="configure-experiment-run"></a>Konfigurera experimentkörning
 
-När du har läst in och konfigurerat dina data konfigurerar du ditt fjärrberäknings mål och väljer vilken kolumn i dina data du vill förutsäga.
+När du har laddat och konfigurerat dina data ställer du in fjärrberäkningsmålet och väljer vilken kolumn i dina data du vill förutsäga.
 
 1. Fyll i formuläret **Konfigurera körning** enligt följande:
-    1. Ange ett experiment namn: `automl-bikeshare`
+    1. Ange ett experimentnamn:`automl-bikeshare`
 
-    1. Välj **CNT** som mål kolumn, vad du vill förutsäga. Den här kolumnen visar antalet totala hyres hyror för cykel resurser.
+    1. Välj **cnt** som målkolumn, vad du vill förutsäga. Den här kolumnen anger antalet totala cykeldelningsuthyrningar.
 
-    1. Välj **skapa en ny beräkning** och konfigurera beräknings målet. Automatisk ML stöder endast Azure Machine Learning beräkning. 
+    1. Välj **Skapa en ny beräkning** och konfigurera beräkningsmålet. Automatiserad ML stöder endast Azure Machine Learning-beräkning. 
 
-        Fält | Beskrivning | Värde för självstudier
+        Field | Beskrivning | Värde för självstudiekurs
         ----|---|---
-        Compute-namn |Ett unikt namn som identifierar din beräknings kontext.|cykel – beräkning
-        Virtuell&nbsp;dator&nbsp;storlek| Välj storlek på den virtuella datorn för din beräkning.|Standard_DS12_V2
-        Min/max-noder (i avancerade inställningar)| Du måste ange 1 eller fler noder för att kunna profilera data.|Minsta antal noder: 1<br>Max noder: 6
+        Beräkningsnamn |Ett unikt namn som identifierar din beräkningskontext.|cykel-beräkning
+        Storlek&nbsp;&nbsp;på virtuell dator| Välj storleken på den virtuella datorn för din beräkning.|Standard_DS12_V2
+        Min / Max noder (i avancerade inställningar)| Om du vill profilera data måste du ange 1 eller fler noder.|Min noder: 1<br>Max noder: 6
   
-        1. Välj **skapa** för att hämta beräknings målet. 
+        1. Välj **Skapa** för att hämta beräkningsmålet. 
 
-            **Det tar några minuter att slutföra.** 
+            **Detta tar ett par minuter att slutföra.** 
 
-        1. När du har skapat väljer du det nya beräknings målet i den nedrullningsbara listan.
+        1. När du har skapat det väljer du det nya beräkningsmålet i listrutan.
 
     1. Välj **Nästa**.
 
-## <a name="select-task-type-and-settings"></a>Välj aktivitets typ och inställningar
+## <a name="select-task-type-and-settings"></a>Välj uppgiftstyp och inställningar
 
-Slutför installationen av ditt automatiserade ML-experiment genom att ange aktivitets typ och konfigurations inställningar för Machine Learning.
+Slutför installationen för det automatiska ML-experimentet genom att ange maskininlärningsuppgiftstyp och konfigurationsinställningar.
 
-1. I formuläret **uppgifts typ och inställningar** väljer du **prognos för tids serier** som typ av maskin inlärnings aktivitet.
+1. I formuläret **Aktivitetstyp och inställningar** väljer du **Prognostisering av tidsserier** som aktivitetstyp för maskininlärning.
 
-1. Välj **datum** som **tids kolumn** och låt **Gruppera efter kolumn (er)** vara tomt. 
+1. Välj **datum** som **kolumnen Tid** och lämna Grupp efter **kolumn(er)** tom. 
 
-    1. Välj **Visa ytterligare konfigurations inställningar** och fyll i fälten enligt följande. De här inställningarna är för att bättre styra utbildnings jobbet. Annars tillämpas standardvärdena utifrån experiment val och data.
+    1. Välj **Visa ytterligare konfigurationsinställningar** och fyll i fälten enligt följande. Dessa inställningar är att bättre kontrollera utbildning jobbet. Annars används standardvärden baserat på val av experiment och data.
 
   
-        Ytterligare&nbsp;konfigurationer|Beskrivning|Värde&nbsp;för&nbsp;själv studie kurs
+        Ytterligare&nbsp;konfigurationer|Beskrivning|Värde&nbsp;&nbsp;för självstudiekurs
         ------|---------|---
-        Primärt mått| Bedömnings mått som ska mätas av Machine Learning-algoritmen.|Normaliserat rot genomsnitts fel
-        Automatisk funktionalisering| Aktiverar för bearbetning. Detta inkluderar automatisk rensning av data, förberedelser och transformering för att generera syntetiska funktioner.| Aktivera
-        Förklara bästa modell (för hands version)| Visar automatiskt förklaringar för den bästa modellen som skapats av automatisk ML.| Aktivera
-        Blockerade algoritmer | Algoritmer som du vill undanta från utbildnings jobbet| Extrema slumpmässiga träd
-        Ytterligare prognos inställningar| De här inställningarna hjälper till att förbättra din modells precision <br><br> _**Prognos Horisont**_ : lång tid i framtiden som du vill förutsäga <br> _**Beräkna mål lags:**_ hur långt tillbaka du vill konstruera lags för en Target-variabel <br> _**Mål riktnings fönster**_ : anger storleken på det rullande fönster över vilka funktioner, till exempel *Max, min* och *Summa*, som ska genereras. |Prognos Horisont: 14 <br> Prognos&nbsp;mål&nbsp;lags: ingen <br> Mål&nbsp;rullande&nbsp;fönster&nbsp;storlek: ingen
-        Avslutnings kriterium| Om ett villkor uppfylls stoppas utbildnings jobbet. |Utbildning&nbsp;jobb&nbsp;tid (timmar): 3 <br> Mått&nbsp;Poäng&nbsp;tröskel: ingen
-        Validering | Välj en kors validerings typ och antalet tester.|Validerings typ:<br>&nbsp;k-vikning&nbsp;kors validering <br> <br> Antal verifieringar: 5
-        Samtidighet| Maximalt antal parallella iterationer som utförs per iteration| Max&nbsp;samtidiga&nbsp;iterationer: 6
+        Primärt mått| Utvärderingsmått som maskininlärningsalgoritmen ska mätas med.|Normaliserat rotmedelvärde i kvadratfel
+        Automatisk featurization| Aktiverar förbearbetning. Detta inkluderar automatisk datarensning, förberedelse och omvandling för att generera syntetiska funktioner.| Aktivera
+        Förklara bästa modellen (förhandsgranskning)| Visar automatiskt explainability på den bästa modellen som skapats av automatiserade ML.| Aktivera
+        Blockerade algoritmer | Algoritmer som du vill utesluta från utbildningsjobbet| Extrema slumpmässiga träd
+        Ytterligare prognosinställningar| De här inställningarna hjälper till att förbättra modellens noggrannhet <br><br> _**Prognoshorisont:**_ hur lång tid in i framtiden du vill förutsäga <br> _**Prognosmål släpar efter:**_ hur långt tillbaka du vill konstruera eftersläpningar av en målvariabel <br> _**Målrullningsfönstret**_: anger storleken på det rullande fönstret över vilka funktioner, till exempel *max, min* och *summa,* som ska genereras. |Prognoshorisont: 14 <br> &nbsp;Prognosmål&nbsp;släpar efter: Ingen <br> &nbsp;Målrullfönstrets&nbsp;&nbsp;storlek: Ingen
+        Avslutningskriterium| Om ett villkor uppfylls stoppas utbildningsjobbet. |Utbildning&nbsp;&nbsp;jobbtid (timmar): 3 <br> Tröskelvärde&nbsp;för måttpoäng:&nbsp;Ingen
+        Validering | Välj en korsvalideringstyp och antal tester.|Typ av validering:<br>&nbsp;k-fold&nbsp;korsvalidering <br> <br> Antal valideringar: 5
+        Samtidighet| Det maximala antalet parallella iterationer som utförs per iteration| Max&nbsp;samtidiga&nbsp;iterationer: 6
         
         Välj **Spara**.
 
-## <a name="run-experiment"></a>Kör experimentet
+## <a name="run-experiment"></a>Kör experiment
 
-Om du vill köra experimentet väljer du **Slutför**. Skärmen **Kör information** öppnas med status för **körning** högst upp bredvid körnings numret. Den här statusen uppdateras när experimentet fortskrider.
+Om du vill köra experimentet väljer du **Slutför**. Skärmen **Kör information** öppnas med **körstatusen** högst upp bredvid körningsnumret. Den här statusen uppdateras under experimentet.
 
 >[!IMPORTANT]
-> Förberedelserna tar **10-15 minuter** för att förbereda experiment körningen.
-> När du har kört det tar det **2-3 minuter för varje iteration**.  <br> <br>
-> I produktion skulle du förmodligen gå undan för en bit eftersom den här processen tar tid. Medan du väntar rekommenderar vi att du börjar utforska de testade algoritmerna på fliken **modeller** när de är klara. 
+> Förberedelser tar **10-15 minuter** att förbereda experimentkörningen.
+> När du kör, det tar **2-3 minuter mer för varje iteration**.  <br> <br>
+> I produktionen, skulle du sannolikt gå bort för lite som denna process tar tid. Medan du väntar föreslår vi att du börjar utforska de testade algoritmerna på fliken **Modeller** när de är klara. 
 
 ##  <a name="explore-models"></a>Utforska modeller
 
-Gå till fliken **modeller** om du vill se vilka algoritmer (modeller) som har testats. Som standard sorteras modellerna efter mått poäng när de är klara. I den här självstudien visas den modell som visar den högsta baserat på det valda **normaliserade rot medelvärdet** för ett kvadratvärde överst i listan.
+Navigera till fliken **Modeller** för att se de algoritmer (modeller) som testats. Som standard sorteras modellerna efter måttpoäng när de slutförs. För den här självstudien är den modell som får högst poäng baserat på det valda **normaliserade rotmedelvärdet för kvadratfel** högst upp i listan.
 
-Medan du väntar på att alla experiment modeller ska slutföras väljer du **algoritmens namn** för en slutförd modell för att utforska dess prestanda information. 
+Medan du väntar på att alla experimentmodeller ska slutföras väljer du **algoritmnamnet på** en färdig modell för att utforska dess prestandainformation. 
 
-I följande exempel navigerar du till flikarna **modell information** och **visualiseringar** för att visa den valda modellens egenskaper, mått och prestanda diagram. 
+I följande exempel navigeras du genom **flikarna Modellinformation** och **Visualiseringar** för att visa den valda modellens egenskaper, mått och prestandadiagram. 
 
-![Körnings information](./media/tutorial-automated-ml-forecast/explore-models-ui.gif)
+![Kör detalj](./media/tutorial-automated-ml-forecast/explore-models-ui.gif)
 
 ## <a name="deploy-the-model"></a>Distribuera modellen
 
-Med automatisk maskin inlärning i Azure Machine Learning Studio kan du distribuera den bästa modellen som en webb tjänst med några få steg. Distribution är integreringen av modellen så att den kan förutsäga nya data och identifiera potentiella områden i affärs möjligheten. 
+Med automatiserad maskininlärning i Azure Machine Learning studio kan du distribuera den bästa modellen som en webbtjänst i några få steg. Distribution är integreringen av modellen så att den kan förutsäga nya data och identifiera potentiella möjligheter. 
 
-För det här experimentet innebär distributionen till en webb tjänst att cykel resurs företaget nu har en iterativ och skalbar webb lösning för att bedöma behovet av att dela Hyr cykel. 
+För det här experimentet innebär distribution till en webbtjänst att cykelandelsföretaget nu har en iterativ och skalbar webblösning för prognostisering av cykeldelningsuthyrningsbehov. 
 
-När körningen är klar går du tillbaka till sidan **körnings information** och väljer fliken **modeller** .
+När körningen är klar navigerar du tillbaka till sidan **Körinformation** och väljer fliken **Modeller.**
 
-I den här experiment-kontexten betraktas **StackEnsemble** som den bästa modellen, baserat på det **normaliserade rot medelvärdet för fel** måttet.  Vi distribuerar den här modellen, men vi rekommenderar att distributionen tar ungefär 20 minuter att slutföra. Distributions processen innehåller flera steg som att registrera modellen, generera resurser och konfigurera dem för webb tjänsten.
+I det här experimentsammanhanget anses **StackEnsemble** vara den bästa modellen, baserat på det **normaliserade rotmedelvärdet för kvadratfel.**  Vi distribuerar den här modellen, men det tar cirka 20 minuter att slutföra distributionen. Distributionsprocessen innebär flera steg, bland annat genom att registrera modellen, generera resurser och konfigurera dem för webbtjänsten.
 
-1. Välj knappen **distribuera bästa modell** i det nedre vänstra hörnet.
+1. Välj knappen **Distribuera bästa modell** i det nedre vänstra hörnet.
 
-1. Fyll i fönstret **distribuera en modell** enligt följande:
+1. Fyll i **fönstret Distribuera en modell** enligt följande:
 
-    Fält| Värde
+    Field| Värde
     ----|----
-    Distributions namn| bikeshare – distribuera
-    Distributions Beskrivning| cykel resurs-distribution efter behov
-    Compute-typ | Välj Azure Compute Instance (ACI)
-    Aktivera autentisering| Tillåt. 
-    Använda anpassade distributions till gångar| Tillåt. Om du inaktiverar tillåter det att standard driv rutins filen (bedömnings skript) och miljö filen skapas automatiskt. 
+    Namn på distribution| bikeshare-distribuera
+    Beskrivning av distribution| distribution av cykelandelsbehov
+    Beräkningstyp | Välj Azure Compute Instance (ACI)
+    Aktivera autentisering| Inaktivera. 
+    Använda anpassade distributionsresurser| Inaktivera. Om du inaktiverar den standarddrivrutinsfil (bedömningsskript) och miljöfilen kan du skapa automatiskt. 
     
-    I det här exemplet använder vi de standardvärden som anges i menyn *Avancerat* . 
+    I det här exemplet använder vi standardinställningarna i *menyn Avancerat.* 
 
 1. Välj **Distribuera**.  
 
-    Ett grönt meddelande visas längst upp på skärmen **Kör** som angav att distributionen startades korrekt. Förloppet för distributionen kan hittas  
-    i fönstret **Rekommenderad modell** under **distributions status**.
+    Ett grönt meddelande visas högst upp på **skärmen Kör** som anges att distributionen har startats. Förloppet för distributionen kan hittas  
+    i fönstret **Rekommenderad modell** under **Distributionsstatus**.
     
-När distributionen har slutförts har du en fungerande webb tjänst för att generera förutsägelser. 
+När distributionen lyckas har du en fungerande webbtjänst för att generera förutsägelser. 
 
-Fortsätt till [**Nästa steg**](#next-steps) om du vill lära dig mer om hur du använder din nya webb tjänst och testa dina förutsägelser med hjälp av Power BI har inbyggd Azure Machine Learning support.
+Gå vidare till [**nästa steg**](#next-steps) om du vill veta mer om hur du använder din nya webbtjänst och testa dina förutsägelser med hjälp av Power BI:s inbyggda Azure Machine Learning-support.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Distributions filer är större än data-och experiment-filer, så att de kostar mer att lagra. Ta bara bort distributions filerna för att minimera kostnaderna till ditt konto, eller om du vill behålla arbets ytan och experimentet. Annars tar du bort hela resurs gruppen om du inte planerar att använda någon av filerna.  
+Distributionsfiler är större än data- och experimentfiler, så de kostar mer att lagra. Ta bara bort distributionsfilerna för att minimera kostnaderna för ditt konto, eller om du vill behålla arbetsytan och experimentfilerna. Annars tar du bort hela resursgruppen om du inte planerar att använda någon av filerna.  
 
-### <a name="delete-the-deployment-instance"></a>Ta bort distributions instansen
+### <a name="delete-the-deployment-instance"></a>Ta bort distributionsinstansen
 
-Ta bara bort distributions instansen från Azure Machine Learning Studio om du vill behålla resurs gruppen och arbets ytan för andra självstudier och utforskningar. 
+Ta bara bort distributionsinstansen från Azure Machine Learning-studion, om du vill behålla resursgruppen och arbetsytan för andra självstudier och utforskning. 
 
-1. Gå till [Azure Machine Learning Studio](https://ml.azure.com/). Gå till arbets ytan och välj **slut punkter**i fönstret **till** vänster. 
+1. Gå till [Azure Machine Learning-studion](https://ml.azure.com/). Navigera till arbetsytan och till vänster under **fönstret Tillgångar** väljer du **Slutpunkter**. 
 
-1. Välj den distribution som du vill ta bort och välj **ta bort**. 
+1. Markera den distribution som du vill ta bort och välj **Ta bort**. 
 
 1. Välj **Fortsätt**.
 
-### <a name="delete-the-resource-group"></a>Ta bort resurs gruppen
+### <a name="delete-the-resource-group"></a>Ta bort resursgruppen
 
 [!INCLUDE [aml-delete-resource-group](../../includes/aml-delete-resource-group.md)]
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudien har du använt automatisk ML i Azure Machine Learning Studio för att skapa och distribuera en tids serie prognos modell som förutsäger behovet av cykel resurs uthyrning. 
+I den här självstudien använde du automatiserad ML i Azure Machine Learning-studion för att skapa och distribuera en prognosmodell för tidsserier som förutsäger cykeldelningsuthyrningsbehov. 
 
-I den här artikeln finns anvisningar om hur du skapar ett schema för Power BI som stöds för att under lätta användningen av den nyligen distribuerade webb tjänsten:
+I den här artikeln finns några steg om hur du skapar ett Power BI-stödschema som stöds för att underlätta förbrukningen av din nyligen distribuerade webbtjänst:
 
 > [!div class="nextstepaction"]
-> [Använda en webb tjänst](how-to-consume-web-service.md#consume-the-service-from-power-bi)
+> [Använda en webbtjänst](how-to-consume-web-service.md#consume-the-service-from-power-bi)
 
 
 >[!NOTE]
-> Den här data uppsättningen för cykel resursen har ändrats för den här självstudien. Den här data uppsättningen har gjorts tillgänglig som en del av en [Kaggle-tävling](https://www.kaggle.com/c/bike-sharing-demand/data) och var ursprungligen tillgänglig via [kapital Bikeshare](https://www.capitalbikeshare.com/system-data). Det kan också finnas i den [Machine Learning databasen med](http://archive.ics.uci.edu/ml/datasets/Bike+Sharing+Dataset).<br><br>
-> Källa: Fanaee-T, Hadi, och Gama, Joao, händelse etiketter som kombinerar Ensemble-detektorer och bakgrunds kunskap, förloppet i artificiell intelligens (2013): s. 1-15, springer Berlin Heidelberg.
+> Den här cykelresursdatauppsättningen har ändrats för den här självstudien. Denna datauppsättning gjordes tillgänglig som en del av en [Kaggle konkurrens](https://www.kaggle.com/c/bike-sharing-demand/data) och var ursprungligen tillgänglig via [Capital Bikeshare](https://www.capitalbikeshare.com/system-data). Det finns också i [UCI Machine Learning Database](http://archive.ics.uci.edu/ml/datasets/Bike+Sharing+Dataset).<br><br>
+> Källa: Fanaee-T, Hadi, och Gama, Joao, Event märkning som kombinerar ensembledetektorer och bakgrundskunskap, Framsteg inom artificiell intelligens (2013): sid. 1-15, Springer Berlin Heidelberg.

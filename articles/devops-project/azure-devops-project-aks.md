@@ -1,5 +1,5 @@
 ---
-title: 'Självstudier: Distribuera ASP.NET Core-appar till Azure Kubernetes Service med Azure DevOps-projekt'
+title: 'Självstudie: Distribuera ASP.NET Core-appar till Azure Kubernetes Service med Azure DevOps-projekt'
 description: Azure DevOps Projects gör det enkelt att komma igång med Azure. Med DevOps Projects kan du distribuera din ASP.NET Core-app med Azure Kubernetes Service (AKS) i några få enkla steg.
 ms.author: mlearned
 ms.manager: gwallace
@@ -10,13 +10,13 @@ ms.date: 07/09/2018
 author: mlearned
 monikerRange: vsts
 ms.openlocfilehash: b27d56d78296dc5500f97802f811a8923c4e87a8
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "71969672"
 ---
-# <a name="tutorial-deploy-aspnet-core-apps-to-azure-kubernetes-service-with-azure-devops-projects"></a>Självstudier: Distribuera ASP.NET Core-appar till Azure Kubernetes Service med Azure DevOps-projekt
+# <a name="tutorial-deploy-aspnet-core-apps-to-azure-kubernetes-service-with-azure-devops-projects"></a>Självstudie: Distribuera ASP.NET Core-appar till Azure Kubernetes Service med Azure DevOps-projekt
 
 Azure DevOps Projects ger ett förenklat sätt att ta med befintlig kod och Git-lagringsplatser i Azure, eller välja ett exempelprogram för att skapa en pipeline för kontinuerlig integration (CI) och kontinuerlig leverans (CD) till Azure. 
 
@@ -37,7 +37,7 @@ I den här kursen ska du:
 > * Genomföra ändringar i Git och distribuera dem automatiskt till Azure
 > * Rensa resurser
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 * En Azure-prenumeration. Du kan få en kostnadsfritt med [Visual Studio Dev Essentials](https://visualstudio.microsoft.com/dev-essentials/).
 
@@ -108,7 +108,7 @@ DevOps Projects konfigurerar automatiskt en Azure CI/CD-pipeline i Azure DevOps-
 
 1. Välj bygg-pipelinens namn längst upp i bygg-pipelinen.
 
-1. Ändra på din bygg-pipeline till något mer beskrivande och välj alternativet för att **spara och placera i kö**. Välj sedan **Spara**.
+1. Ändra på din bygg-pipeline till något mer beskrivande, välj **Spara och köa** och sedan **Spara**.
 
 1. Under ditt bygg-pipelinenamn väljer du **Historik**.  
     I den här fönsterrutan visas en spårningslogg över de senaste ändringarna för versionen. Azure DevOps spårar alla ändringar som görs av bygg-pipelinen, vilket innebär att du kan jämföra versioner.
@@ -121,12 +121,12 @@ DevOps Projects konfigurerar automatiskt en Azure CI/CD-pipeline i Azure DevOps-
 
 ## <a name="examine-the-cd-release-pipeline"></a>Granska CD-versionspipelinen
 
-DevOps-projekt skapar och konfigurerar de nödvändiga stegen för att automatiskt distribuera från din Azure DevOps-organisation till din Azure-prenumeration. De här stegen innefattar att konfigurera en Azure-tjänstanslutning för att autentisera Azure DevOps till din Azure-prenumeration. Automationen skapar även en versionspipeline som tillhandahåller CD:n till Azure. Om du vill veta mer om versionspipelinen kan du göra följande:
+DevOps-projekt skapar och konfigurerar automatiskt de steg som är nödvändiga för att distribuera från din Azure DevOps-organisation till din Azure-prenumeration. De här stegen innefattar att konfigurera en Azure-tjänstanslutning för att autentisera Azure DevOps till din Azure-prenumeration. Automationen skapar även en versionspipeline som tillhandahåller CD:n till Azure. Om du vill veta mer om versionspipelinen kan du göra följande:
 
 1. Välj **Build and Release** (Byggen och versioner) och sedan **Versioner**.  
     DevOps Projects skapar en versionspipeline för att hantera distributioner till Azure.
 
-1. Välj ellipsen (...) intill din versionspipeline och välj sedan **Redigera**.  
+1. Välj ellipsen (...) bredvid din releasepipeline och välj sedan **Redigera**.  
     Versionspipelinen innehåller en *pipeline* som definierar släpprocessen.
 
 1. Under **Artefakter** väljer du **Släpp**.  
@@ -151,11 +151,11 @@ DevOps-projekt skapar och konfigurerar de nödvändiga stegen för att automatis
  > [!NOTE]
  > Följande procedur testar CI/CD-pipeline med en enkel textändring.
 
-Nu är du redo att samarbeta med ett team på din app med en CI/CD-process som automatiskt distribuerar ditt senaste arbete till din webbplats. Varje ändring i Git-lagringsplatsen startar en version i Azure DevOps och en CD-pipeline för kör en distribution till Azure. Följ proceduren i det här avsnittet eller använd en annan metod för att genomföra ändringarna för lagringsplatsen. Du kan till exempel klona Git-lagringsplatsen i ditt favoritverktyg eller IDE och sedan push-överföra ändringarna till den här lagringsplatsen.
+Nu är du redo att samarbeta med ett team på din app med en CI/CD-process som automatiskt distribuerar ditt senaste arbete till din webbplats. Varje ändring i Git-lagringsplatsen startar en version i Azure DevOps och en CD-pipeline för kör en distribution till Azure. Följ proceduren i det här avsnittet eller använd en annan metod för att checka in ändringarna till lagringsplatsen. Du kan till exempel klona Git-lagringsplatsen i ditt favoritverktyg eller IDE och sedan push-överföra ändringarna till den här lagringsplatsen.
 
-1. I Azure DevOps-menyn väljer du **Kod** > **Filer** och går sedan till din lagringsplats.
+1. På Azure DevOps-menyn väljer du > **Kodfiler**och går sedan till din repo. **Code**
 
-1. Gå till katalogen *Views\Home* och välj ellipsen (...) intill filen *Index.cshtml*. Välj sedan **Redigera**.
+1. Gå till katalogen *Views\Home* och välj ellipsen (...) bredvid filen *Index.cshtml*. Välj sedan **Redigera**.
 
 1. Gör en ändring i filen, till exempel att lägga till lite text i en av div-taggarna. 
 

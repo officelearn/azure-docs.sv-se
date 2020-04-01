@@ -1,19 +1,19 @@
 ---
-title: 'PowerShell: ta bort en säkerhets kopia av appen'
-description: Lär dig hur du använder Azure PowerShell för att automatisera distribution och hantering av App Service. Det här exemplet visar hur du tar bort en säkerhets kopia av en app.
+title: 'PowerShell: Ta bort en appsäkerhetskopiering'
+description: Lär dig hur du använder Azure PowerShell för att automatisera distribution och hantering av App Service. Det här exemplet visar hur du tar bort en appsäkerhetskopiering.
 author: msangapu-msft
 tags: azure-service-management
 ms.assetid: ebcadb49-755d-4202-a5eb-f211827a9168
 ms.topic: sample
 ms.date: 10/30/2017
 ms.author: msangapu
-ms.custom: seodec18
-ms.openlocfilehash: b8d3175b4266e132d94f6f2dde163cb60fb11396
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.custom: mvc, seodec18
+ms.openlocfilehash: 93b53bedef291b9aa740f5bbe9c492185f035f89
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74685804"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80044840"
 ---
 # <a name="delete-a-backup-for-a-web-using-azure-powershell"></a>Ta bort säkerhetskopiering för en webb med Azure PowerShell
 

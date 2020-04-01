@@ -1,6 +1,6 @@
 ---
-title: Apache HBase & Enterprise Security Package – Azure HDInsight
-description: Självstudie – lär dig hur du konfigurerar Apache Ranger-principer för HBase i Azure HDInsight med Enterprise Security Package.
+title: Apache HBase & Enterprise Security Package - Azure HDInsight
+description: Självstudiekurs – Lär dig hur du konfigurerar Apache Ranger-principer för HBase i Azure HDInsight med Enterprise Security Package.
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
@@ -8,17 +8,17 @@ ms.reviewer: jasonh
 ms.topic: tutorial
 ms.date: 09/04/2019
 ms.openlocfilehash: 89e9faeb3c67d0fd0c57adea3a3f69ec5438e3a0
-ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73044652"
 ---
-# <a name="tutorial-configure-apache-hbase-policies-in-hdinsight-with-enterprise-security-package"></a>Självstudie: Konfigurera Apache HBase-principer i HDInsight med Enterprise Security Package
+# <a name="tutorial-configure-apache-hbase-policies-in-hdinsight-with-enterprise-security-package"></a>Självstudiekurs: Konfigurera Apache HBase-principer i HDInsight med Enterprise Security Package
 
 Lär dig hur du konfigurerar Apache Ranger-principer för Apache HBase-kluster med Enterprise Security Package (ESP). ESP-kluster är anslutna till en domän så att användare kan autentisera med autentiseringsuppgifter för domänen. I den här självstudien skapar du två Ranger-principer för att begränsa åtkomsten till olika kolumnserier i en HBase-tabell.
 
-I den här guiden får du lära dig att:
+I den här självstudiekursen får du lära du dig att:
 
 > [!div class="checklist"]
 > * Skapa domänanvändare
@@ -28,7 +28,7 @@ I den här guiden får du lära dig att:
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
-* Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/).
+* Om du inte har en Azure-prenumeration skapar du ett [kostnadsfritt konto](https://azure.microsoft.com/free/).
 
 * Logga in på [Azure-portalen](https://portal.azure.com/).
 
@@ -49,7 +49,7 @@ Läs avsnittet om hur du [skapar ett HDInsight-kluster med Enterprise Security P
 
 ## <a name="create-hbase-tables-and-import-sample-data"></a>Skapa HBase-tabeller och importera exempeldata
 
-Du kan använda SSH för att ansluta till HBase-kluster och sedan använda [Apache HBase Shell](https://hbase.apache.org/0.94/book/shell.html) för att skapa HBase-tabeller, infoga data och köra frågor mot data. Mer information finns i [Use SSH with HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md) (Använda SSH med HDInsight).
+Du kan använda SSH för att ansluta till HBase-kluster och sedan använda [Apache HBase Shell](https://hbase.apache.org/0.94/book/shell.html) för att skapa HBase-tabeller, infoga data och köra frågor mot data. Mer information finns i [Använda SSH med HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
 ### <a name="to-use-the-hbase-shell"></a>Använda HBase-gränssnittet
 
@@ -89,15 +89,15 @@ Du kan använda SSH för att ansluta till HBase-kluster och sedan använda [Apac
     scan 'Customers'
     ```
 
-    ![HDInsight Hadoop HBase Shell-utdata](./media/apache-domain-joined-run-hbase/hbase-shell-scan-table.png)
+    ![HDInsight Hadoop HBase skal utgång](./media/apache-domain-joined-run-hbase/hbase-shell-scan-table.png)
 
 ## <a name="create-ranger-policies"></a>Skapa Ranger-principer
 
 Skapa en Ranger-princip för **sales_user1** och **marketing_user1**.
 
-1. Öppna **Ranger-administratörsanvändargränssnittet**. Klicka på **\<ClusterName>_hbase** (Klusternamn) under **HBase**.
+1. Öppna **Ranger-administratörsanvändargränssnittet**. Klicka på ** \<ClusterName>_hbase** under **HBase**.
 
-   ![HDInsight Apache Ranger-administratörs gränssnitt](./media/apache-domain-joined-run-hbase/apache-ranger-admin-login.png)
+   ![HDInsight Apache Ranger Admin UI](./media/apache-domain-joined-run-hbase/apache-ranger-admin-login.png)
 
 2. Skärmen **Lista över principer** visar alla Ranger-principer som skapats för det här klustret. En förkonfigurerad princip kan visas. Klicka på **Lägg till ny princip**.
 
@@ -120,7 +120,7 @@ Skapa en Ranger-princip för **sales_user1** och **marketing_user1**.
    * `*` anger noll eller flera förekomster av tecken.
    * `?` anger ett enskilt tecken.
 
-   ![Apache Ranger-princip skapa försäljning](./media/apache-domain-joined-run-hbase/apache-ranger-hbase-policy-create-sales.png)
+   ![Apache Ranger-principen skapar försäljning](./media/apache-domain-joined-run-hbase/apache-ranger-hbase-policy-create-sales.png)
 
    >[!NOTE]
    >Vänta en stund medan Ranger synkroniserar med Azure AD om en domänanvändare inte automatiskt har fyllts i för **Välj användare**.
@@ -139,7 +139,7 @@ Skapa en Ranger-princip för **sales_user1** och **marketing_user1**.
    |Välj användare  | marketing_user1 |
    |Behörigheter  | Läsa |
 
-   ![Apache Ranger policy skapa marknadsföring](./media/apache-domain-joined-run-hbase/apache-ranger-hbase-policy-create-marketing.png)  
+   ![Apache Ranger-principen skapar marknadsföring](./media/apache-domain-joined-run-hbase/apache-ranger-hbase-policy-create-marketing.png)  
 
 6. Klicka på **Lägg till** för att spara principen.
 
@@ -161,7 +161,7 @@ Baserat på de konfigurerade Ranger-principerna kan **sales_user1** visa alla da
    kinit sales_user1
    ```
 
-2. Öppna HBase-gränssnittet och skanna tabellen `Customers`.
+2. Öppna HBase-skalet och `Customers`skanna tabellen .
 
    ```hbaseshell
    hbase shell
@@ -203,7 +203,7 @@ Baserat på de konfigurerade Ranger-principerna kan **sales_user1** visa alla da
    kinit marketing_user1
    ```
 
-1. Öppna HBase-gränssnittet och skanna tabellen `Customers`:
+1. Öppna HBase-skalet och `Customers`skanna tabellen:
 
     ```hbaseshell
     hbase shell
@@ -229,7 +229,7 @@ Baserat på de konfigurerade Ranger-principerna kan **sales_user1** visa alla da
 
 1. Granska åtkomsthändelserna i Ranger-användargränssnittet.
 
-   ![Granskning av GRÄNSSNITTs princip för HDInsight Ranger](./media/apache-domain-joined-run-hbase/apache-ranger-admin-audit.png)
+   ![HdInsight Ranger UI-principgranskning](./media/apache-domain-joined-run-hbase/apache-ranger-admin-audit.png)
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 

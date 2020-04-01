@@ -1,5 +1,5 @@
 ---
-title: 'Självstudier: Azure Active Directory-integrering med UserEcho | Microsoft Docs'
+title: 'Självstudiekurs: Azure Active Directory-integrering med UserEcho | Microsoft-dokument'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och UserEcho.
 services: active-directory
 documentationCenter: na
@@ -16,44 +16,44 @@ ms.topic: tutorial
 ms.date: 03/29/2019
 ms.author: jeedes
 ms.openlocfilehash: 59d61eda7002fe46cf99fac63822b2333b2d64b5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67087770"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-userecho"></a>Självstudier: Azure Active Directory-integrering med UserEcho
+# <a name="tutorial-azure-active-directory-integration-with-userecho"></a>Självstudiekurs: Azure Active Directory-integrering med UserEcho
 
-I den här självstudien får du lära dig hur du integrerar UserEcho med Azure Active Directory (AD Azure).
-Integrera UserEcho med Azure AD ger dig följande fördelar:
+I den här självstudien får du lära dig hur du integrerar UserEcho med Azure Active Directory (Azure AD).
+Genom att integrera UserEcho med Azure AD får du följande fördelar:
 
 * Du kan styra i Azure AD som har åtkomst till UserEcho.
-* Du kan aktivera användarna att vara automatiskt inloggad till UserEcho (Single Sign-On) med sina Azure AD-konton.
-* Du kan hantera dina konton på en central plats – Azure portal.
+* Du kan aktivera dina användare så att de automatiskt loggas in på UserEcho (Enkel inloggning) med sina Azure AD-konton.
+* Du kan hantera dina konton på en central plats – Azure-portalen.
 
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
+Om du inte har en Azure-prenumeration [skapar du ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
-Om du vill konfigurera Azure AD-integrering med UserEcho, behöver du följande objekt:
+Om du vill konfigurera Azure AD-integrering med UserEcho behöver du följande objekt:
 
-* En Azure AD-prenumeration. Om du inte har en Azure AD-miljö kan du få en [kostnadsfritt konto](https://azure.microsoft.com/free/)
-* UserEcho enkel inloggning aktiverat prenumeration
+* En Azure AD-prenumeration. Om du inte har en Azure AD-miljö kan du få ett [kostnadsfritt konto](https://azure.microsoft.com/free/)
+* UserEcho enkel inloggning aktiverad prenumeration
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
 I den här självstudien konfigurerar och testar du enkel inloggning med Azure AD i en testmiljö.
 
-* Har stöd för UserEcho **SP** -initierad SSO
+* UserEcho stöder **SP** initierade SSO
 
-## <a name="adding-userecho-from-the-gallery"></a>Att lägga till UserEcho från galleriet
+## <a name="adding-userecho-from-the-gallery"></a>Lägga till UserEcho från galleriet
 
-För att konfigurera integrering av UserEcho i Azure AD, som du behöver lägga till UserEcho från galleriet i din lista över hanterade SaaS-appar.
+Om du vill konfigurera integreringen av UserEcho i Azure AD måste du lägga till UserEcho från galleriet i listan över hanterade SaaS-appar.
 
-**Utför följande steg för att lägga till UserEcho från galleriet:**
+**Så här lägger du till UserEcho från galleriet:**
 
-1. I den **[Azure-portalen](https://portal.azure.com)** , klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
+1. I **[Azure-portalen](https://portal.azure.com)** går du till den vänstra navigeringspanelen och klickar på **Azure Active Directory**-ikonen.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
@@ -61,37 +61,37 @@ För att konfigurera integrering av UserEcho i Azure AD, som du behöver lägga 
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-3. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
+3. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
 
     ![Knappen Nytt program](common/add-new-app.png)
 
-4. I sökrutan skriver **UserEcho**väljer **UserEcho** resultatet panelen klickar **Lägg till** för att lägga till programmet.
+4. Skriv **UserEcho**i sökrutan och välj **UserEcho** från resultatpanelen och klicka sedan på **Lägg** till för att lägga till programmet.
 
      ![UserEcho i resultatlistan](common/search-new-app.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
-I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med UserEcho baserat på en testanvändare kallas **Britta Simon**.
-För enkel inloggning ska fungera, måste en länk förhållandet mellan en Azure AD-användare och relaterade användaren i UserEcho upprättas.
+I det här avsnittet konfigurerar och testar du Azure AD enkel inloggning med UserEcho baserat på en testanvändare som heter **Britta Simon**.
+För enkel inloggning för att fungera måste en länkrelation mellan en Azure AD-användare och den relaterade användaren i UserEcho upprättas.
 
-Om du vill konfigurera och testa Azure AD enkel inloggning med UserEcho, måste du utföra följande byggblock:
+Om du vill konfigurera och testa en enkel Azure AD-inloggning med UserEcho måste du slutföra följande byggblock:
 
-1. **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
-2. **[Konfigurera UserEcho Single Sign-On](#configure-userecho-single-sign-on)**  – om du vill konfigurera inställningar för enkel inloggning på programsidan.
-3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
-4. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
-5. **[Skapa testanvändare UserEcho](#create-userecho-test-user)**  – du har en motsvarighet för Britta Simon i UserEcho som är länkad till en Azure AD-representation av användaren.
-6. **[Testa enkel inloggning](#test-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
+1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
+2. **[Konfigurera UserEcho Single Sign-On](#configure-userecho-single-sign-on)** - för att konfigurera inställningarna för enkel inloggning på programsidan.
+3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
+4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
+5. **[Skapa UserEcho-testanvändare](#create-userecho-test-user)** – om du vill ha en motsvarighet till Britta Simon i UserEcho som är länkad till Azure AD-representationen av användaren.
+6. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
 I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure-portalen.
 
-Utför följande steg för att konfigurera Azure AD enkel inloggning med UserEcho:
+Så här konfigurerar du en enkel Azure AD-inloggning med UserEcho:
 
-1. I den [Azure-portalen](https://portal.azure.com/)på den **UserEcho** application integration markerar **enkel inloggning**.
+1. Välj Enkel inloggning på sidan **UserEcho-programintegrering** på [Azure-portalen](https://portal.azure.com/). **Single sign-on**
 
-    ![Konfigurera enkel inloggning för länken](common/select-sso.png)
+    ![Konfigurera länk för enkel inloggning](common/select-sso.png)
 
 2. I dialogrutan **Välj en metod för enkel inloggning** väljer du läget **SAML/WS-Fed** för att aktivera enkel inloggning.
 
@@ -103,56 +103,56 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med UserEch
 
 4. I avsnittet **Grundläggande SAML-konfiguration** utför du följande steg:
 
-    ![UserEcho domän och URL: er med enkel inloggning för information](common/sp-identifier.png)
+    ![UserEcho-domän och webbadresser med enkel inloggning](common/sp-identifier.png)
 
     a. I textrutan **Inloggnings-URL** anger du en URL enligt följande mönster: `https://<companyname>.userecho.com/`
 
     b. I textrutan **Identifierare (entitets-ID)** anger du en URL enligt följande mönster: `https://<companyname>.userecho.com/saml/metadata/`
 
     > [!NOTE]
-    > Dessa värden är inte verkliga. Uppdatera de här värdena med faktisk inloggnings-URL och identifierare. Kontakta [UserEcho klienten supportteamet](https://feedback.userecho.com/) att hämta dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
+    > Dessa värden är inte verkliga. Uppdatera dessa värden med faktisk inloggnings-URL och identifierare. Kontakta [UserEcho Client supportteam](https://feedback.userecho.com/) för att få dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
 4. På sidan **Konfigurera enkel inloggning med SAML** går du till avsnittet **SAML-signeringscertifikat**, klickar du på **Ladda ned** för att ladda ned **Certifikat (Base64)** från de angivna alternativen enligt dina behov och sparar det på datorn.
 
-    ![Länk för hämtning av certifikat](common/certificatebase64.png)
+    ![Länk för nedladdning av certifikatet](common/certificatebase64.png)
 
-6. På den **konfigurera UserEcho** avsnittet, kopiera den lämpliga URL: er enligt dina behov.
+6. Kopiera lämpliga webbadresser enligt dina krav i avsnittet **Konfigurera UserEcho.**
 
     ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
 
-    a. Inloggningswebbadress
+    a. Inloggnings-URL
 
-    b. Microsoft Azure Active Directory-identifierare
+    b. Azure AD-identifierare
 
     c. Utloggnings-URL
 
-### <a name="configure-userecho-single-sign-on"></a>Konfigurera UserEcho Single Sign-On
+### <a name="configure-userecho-single-sign-on"></a>Konfigurera UserEcho Enkel inloggning
 
-1. I ett nytt webbläsarfönster inloggning till webbplatsen UserEcho företag som administratör.
+1. I ett annat webbläsarfönster loggar du in på UserEcho-företagets webbplats som administratör.
 
-2. I verktygsfältet högst upp, klickar du på ditt användarnamn så expanderar du menyn och klicka sedan på **installationsprogrammet**.
+2. Klicka på användarnamnet i verktygsfältet högst upp för att expandera menyn och klicka sedan på **Installationsprogrammet**.
    
     ![Konfigurera enkel inloggning](./media/userecho-tutorial/tutorial_userecho_06.png) 
 
-3. Klicka på **integreringar**.
+3. Klicka på **Integrationer**.
    
     ![Konfigurera enkel inloggning](./media/userecho-tutorial/tutorial_userecho_07.png) 
 
-4. Klicka på **webbplats**, och klicka sedan på **enkel inloggning (SAML2)** .
+4. Klicka på **Webbplats**och sedan **på Enkel inloggning (SAML2)**.
    
     ![Konfigurera enkel inloggning](./media/userecho-tutorial/tutorial_userecho_08.png) 
 
-5. På den **enkel inloggning (SAML)** utför följande steg:
+5. Gör följande på sidan **Saml (Single sign-on):**
    
     ![Konfigurera enkel inloggning](./media/userecho-tutorial/tutorial_userecho_09.png)
     
-    a. Som **SAML-aktiverade**väljer **Ja**.
+    a. Som **SAML-aktiverad**väljer du **Ja**.
     
-    b. Klistra in **inloggnings-URL**, som du har kopierat från Azure-portalen till den **URL för SAML SSO** textrutan.
+    b. Klistra in **inloggnings-URL**, som du har kopierat från Azure-portalen till **SMS-textrutan FÖR SAML SSO.**
     
-    c. Klistra in **URL för utloggning**, som du har kopierat från Azure-portalen till den **Remote URL för utloggning** textrutan.
+    c. Klistra in **URL för utloggning**, som du har kopierat från Azure-portalen till **url-textrutan för fjärrinloggning.**
     
-    d. Öppna din nedladdade certifikatet i anteckningar, kopiera innehållet och klistra in den i den **X.509-certifikat** textrutan.
+    d. Öppna det nedladdade certifikatet i Anteckningar, kopiera innehållet och klistra sedan in det i textrutan **X.509 Certificate.**
     
     e. Klicka på **Spara**.
 
@@ -164,7 +164,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     ![Länkarna ”Användare och grupper” och ”Alla grupper”](common/users.png)
 
-2. Välj **Ny användare** överst på skärmen.
+2. Välj **Ny användare** högst upp på skärmen.
 
     ![Knappen Ny användare](common/new-user.png)
 
@@ -174,23 +174,23 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     a. I fältet **Namn** anger du **BrittaSimon**.
   
-    b. I den **användarnamn** fälttyp brittasimon@yourcompanydomain.extension. Till exempel, BrittaSimon@contoso.com
+    b. I fältet **Användarnamn** brittasimon@yourcompanydomain.extension. Till exempel, BrittaSimon@contoso.com
 
     c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
 
     d. Klicka på **Skapa**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
+### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
-I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inloggning genom att bevilja åtkomst till UserEcho.
+I det här avsnittet kan du aktivera Britta Simon för att använda Azure enkel inloggning genom att bevilja åtkomst till UserEcho.
 
-1. I Azure-portalen väljer du **företagsprogram**väljer **alla program**och välj sedan **UserEcho**.
+1. I Azure-portalen väljer du **Enterprise Applications**, väljer **Alla program**och väljer sedan **UserEcho**.
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-2. I listan med program väljer **UserEcho**.
+2. Välj **UserEcho**i programlistan .
 
-    ![Länken UserEcho i listan med program](common/all-applications.png)
+    ![Länken UserEcho i programlistan](common/all-applications.png)
 
 3. På menyn till vänster väljer du **Användare och grupper**.
 
@@ -202,23 +202,23 @@ I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inlog
 
 5. I dialogrutan **Användare och grupper** väljer du **Britta Simon** i listan med användare och klickar på knappen **Välj** längst ned på skärmen.
 
-6. Om du förväntar dig ett rollvärde i SAML-försäkran väljer du i dialogrutan **Välj roll** lämplig roll för användaren i listan och klickar sedan på knappen **Välj** längst ned på skärmen.
+6. Om du förväntar dig något rollvärde i SAML-påståendet väljer du lämplig roll för användaren i listan i dialogrutan **Välj roll** och klickar sedan på knappen **Välj** längst ned på skärmen.
 
 7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
 
-### <a name="create-userecho-test-user"></a>Skapa UserEcho testanvändare
+### <a name="create-userecho-test-user"></a>Skapa UserEcho-testanvändare
 
-Målet med det här avsnittet är att skapa en användare som kallas Britta Simon i UserEcho.
+Syftet med detta avsnitt är att skapa en användare som heter Britta Simon i UserEcho.
 
-**Om du vill skapa en användare som kallas Britta Simon i UserEcho, utför du följande steg:**
+**Så här skapar du en användare som heter Britta Simon i UserEcho:**
 
-1. Inloggning till webbplatsen UserEcho företag som administratör.
+1. Logga in på UserEcho-företagets webbplats som administratör.
 
-2. I verktygsfältet högst upp, klickar du på ditt användarnamn så expanderar du menyn och klicka sedan på **installationsprogrammet**.
+2. Klicka på användarnamnet i verktygsfältet högst upp för att expandera menyn och klicka sedan på **Installationsprogrammet**.
    
     ![Konfigurera enkel inloggning](./media/userecho-tutorial/tutorial_userecho_06.png)
 
-3. Klicka på **användare**, för att expandera den **användare** avsnittet.
+3. Klicka på **Användare**om du vill expandera avsnittet **Användare.**
    
     ![Konfigurera enkel inloggning](./media/userecho-tutorial/tutorial_userecho_10.png)
 
@@ -230,11 +230,11 @@ Målet med det här avsnittet är att skapa en användare som kallas Britta Simo
    
     ![Konfigurera enkel inloggning](./media/userecho-tutorial/tutorial_userecho_12.png)
 
-6. På den **Bjud in en ny användare** dialogrutan utför följande steg:
+6. Gör följande i dialogrutan **Bjud in en ny användare:**
    
     ![Konfigurera enkel inloggning](./media/userecho-tutorial/tutorial_userecho_13.png)
 
-    a. I den **namn** textrutan, ange namnet på användaren som Britta Simon.
+    a. Skriv namnet på användaren som Britta Simon i textrutan **Namn.**
     
     b.  I textrutan **E-post** skriver du e-postadressen för användaren: Brittasimon@contoso.com.
     
@@ -242,9 +242,9 @@ Målet med det här avsnittet är att skapa en användare som kallas Britta Simo
 
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning 
 
-I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
+I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-När du klickar på panelen UserEcho i åtkomstpanelen, bör det vara loggas in automatiskt till UserEcho som du ställer in enkel inloggning. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+När du klickar på panelen UserEcho på åtkomstpanelen ska du automatiskt loggas in på den UserEcho som du konfigurerar SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 

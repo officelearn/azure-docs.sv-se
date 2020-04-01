@@ -1,5 +1,5 @@
 ---
-title: 'Självstudier: Azure Active Directory-integrering med SmartRecruiters | Microsoft Docs'
+title: 'Självstudiekurs: Azure Active Directory-integrering med SmartRecruiters | Microsoft-dokument'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och SmartRecruiters.
 services: active-directory
 documentationCenter: na
@@ -16,44 +16,44 @@ ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
 ms.openlocfilehash: f20a8a63160a498b9789f77eededad1fd6a02906
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67090110"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-smartrecruiters"></a>Självstudier: Azure Active Directory-integrering med SmartRecruiters
+# <a name="tutorial-azure-active-directory-integration-with-smartrecruiters"></a>Självstudiekurs: Azure Active Directory-integrering med SmartRecruiters
 
-I den här självstudien får du lära dig hur du integrerar SmartRecruiters med Azure Active Directory (AD Azure).
-Integrera SmartRecruiters med Azure AD ger dig följande fördelar:
+I den här självstudien får du lära dig hur du integrerar SmartRecruiters med Azure Active Directory (Azure AD).
+Genom att integrera SmartRecruiters med Azure AD får du följande fördelar:
 
 * Du kan styra i Azure AD som har åtkomst till SmartRecruiters.
-* Du kan aktivera användarna att vara automatiskt inloggad till SmartRecruiters (Single Sign-On) med sina Azure AD-konton.
-* Du kan hantera dina konton på en central plats – Azure portal.
+* Du kan aktivera dina användare så att de automatiskt loggas in på SmartRecruiters (Enkel inloggning) med sina Azure AD-konton.
+* Du kan hantera dina konton på en central plats – Azure-portalen.
 
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
+Om du inte har en Azure-prenumeration [skapar du ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
-Om du vill konfigurera Azure AD-integrering med SmartRecruiters, behöver du följande objekt:
+Om du vill konfigurera Azure AD-integrering med SmartRecruiters behöver du följande objekt:
 
 * En Azure AD-prenumeration. Om du inte har någon Azure AD-miljö kan du hämta en månads utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/)
-* SmartRecruiters enkel inloggning aktiverad prenumeration
+* SmartRecruiters enda inloggningsaktiverad prenumeration
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
 I den här självstudien konfigurerar och testar du enkel inloggning med Azure AD i en testmiljö.
 
-* Har stöd för SmartRecruiters **SP och IDP** -initierad SSO
+* SmartRecruiters stöder **SP och IDP** initierade SSO
 
-## <a name="adding-smartrecruiters-from-the-gallery"></a>Att lägga till SmartRecruiters från galleriet
+## <a name="adding-smartrecruiters-from-the-gallery"></a>Lägga till SmartRecruiters från galleriet
 
-För att konfigurera integrering av SmartRecruiters i Azure AD, som du behöver lägga till SmartRecruiters från galleriet i din lista över hanterade SaaS-appar.
+Om du vill konfigurera integreringen av SmartRecruiters i Azure AD måste du lägga till SmartRecruiters från galleriet i listan över hanterade SaaS-appar.
 
-**Utför följande steg för att lägga till SmartRecruiters från galleriet:**
+**Så här lägger du till SmartRecruiters från galleriet:**
 
-1. I den **[Azure-portalen](https://portal.azure.com)** , klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
+1. I **[Azure-portalen](https://portal.azure.com)** går du till den vänstra navigeringspanelen och klickar på **Azure Active Directory**-ikonen.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
@@ -61,37 +61,37 @@ För att konfigurera integrering av SmartRecruiters i Azure AD, som du behöver 
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-3. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
+3. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
 
     ![Knappen Nytt program](common/add-new-app.png)
 
-4. I sökrutan skriver **SmartRecruiters**väljer **SmartRecruiters** resultatet panelen klickar **Lägg till** för att lägga till programmet.
+4. Skriv **SmartRecruiters**i sökrutan och välj **SmartRecruiters** från resultatpanelen och klicka sedan på **Lägg** till-knappen för att lägga till programmet.
 
      ![SmartRecruiters i resultatlistan](common/search-new-app.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
-I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med SmartRecruiters baserat på en testanvändare kallas **Britta Simon**.
-För enkel inloggning ska fungera, måste en länk förhållandet mellan en Azure AD-användare och relaterade användaren i SmartRecruiters upprättas.
+I det här avsnittet konfigurerar och testar du en enda Azure AD-inloggning med SmartRecruiters baserat på en testanvändare som heter **Britta Simon**.
+För enkel inloggning för att fungera måste en länkrelation mellan en Azure AD-användare och den relaterade användaren i SmartRecruiters upprättas.
 
-Om du vill konfigurera och testa Azure AD enkel inloggning med SmartRecruiters, måste du utföra följande byggblock:
+Om du vill konfigurera och testa en enkel Azure AD-inloggning med SmartRecruiters måste du slutföra följande byggblock:
 
-1. **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
-2. **[Konfigurera SmartRecruiters Single Sign-On](#configure-smartrecruiters-single-sign-on)**  – om du vill konfigurera inställningar för enkel inloggning på programsidan.
-3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
-4. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
-5. **[Skapa testanvändare SmartRecruiters](#create-smartrecruiters-test-user)**  – du har en motsvarighet för Britta Simon i SmartRecruiters som är länkad till en Azure AD-representation av användaren.
-6. **[Testa enkel inloggning](#test-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
+1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
+2. **[Konfigurera SmartRecruiters Single Sign-On](#configure-smartrecruiters-single-sign-on)** - för att konfigurera inställningarna för enkel inloggning på programsidan.
+3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
+4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
+5. **[Skapa SmartRecruiters-testanvändare](#create-smartrecruiters-test-user)** – om du vill ha en motsvarighet till Britta Simon i SmartRecruiters som är länkad till Azure AD-representationen av användaren.
+6. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
 I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure-portalen.
 
-Utför följande steg för att konfigurera Azure AD enkel inloggning med SmartRecruiters:
+Så här konfigurerar du en enkel Azure AD-inloggning med SmartRecruiters:
 
-1. I den [Azure-portalen](https://portal.azure.com/)på den **SmartRecruiters** application integration markerar **enkel inloggning**.
+1. I [Azure-portalen](https://portal.azure.com/)väljer du Enkel inloggning på sidan **SmartRecruiters-programintegration** . **Single sign-on**
 
-    ![Konfigurera enkel inloggning för länken](common/select-sso.png)
+    ![Konfigurera länk för enkel inloggning](common/select-sso.png)
 
 2. I dialogrutan **Välj en metod för enkel inloggning** väljer du läget **SAML/WS-Fed** för att aktivera enkel inloggning.
 
@@ -101,62 +101,62 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med SmartRe
 
     ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
 
-4. I avsnittet **Grundläggande SAML-konfiguration**, om du vill konfigurera appen i **IDP**-initierat läge, gör du följande:
+4. Om du vill konfigurera programmet i **IDP-initierat** läge i avsnittet **Grundläggande SAML-konfiguration** gör du följande:
 
-    ![SmartRecruiters domän och URL: er med enkel inloggning för information](common/idp-intiated.png)
+    ![SmartRecruiters Domän och WEBBADRESSER enkel inloggningsinformation](common/idp-intiated.png)
 
-    a. I textrutan **Identifierare** skriver du en URL med följande mönster: `https://www.smartrecruiters.com/web-sso/saml/<companyname>`
+    a. Skriv en URL med följande mönster i textrutan **Identifierare:**`https://www.smartrecruiters.com/web-sso/saml/<companyname>`
 
-    b. I textrutan **Svars-URL** skriver du en URL med följande mönster: `https://www.smartrecruiters.com/web-sso/saml/<companyname>/callback`
+    b. Skriv en URL med följande mönster i textrutan **Svara URL:**`https://www.smartrecruiters.com/web-sso/saml/<companyname>/callback`
 
 5. Klicka på **Ange ytterligare URL:er** och gör följande om du vill konfigurera appen i **SP**-initierat läge:
 
-    ![SmartRecruiters domän och URL: er med enkel inloggning för information](common/metadata-upload-additional-signon.png)
+    ![SmartRecruiters Domän och WEBBADRESSER enkel inloggningsinformation](common/metadata-upload-additional-signon.png)
 
-    I textrutan **Inloggnings-URL** skriver du in en URL med följande mönster: `https://www.smartrecruiters.com/web-sso/saml/<companyname>/login`
+    Skriv en URL med hjälp av följande mönster i textrutan **Sign-on-URL:**`https://www.smartrecruiters.com/web-sso/saml/<companyname>/login`
 
     > [!NOTE]
-    > Dessa värden är inte verkliga. Uppdatera värdena med den faktiska identifieraren, svars-URL och inloggnings-URL. Kontakta [SmartRecruiters klienten supportteamet](https://www.smartrecruiters.com/about-us/contact-us/) att hämta dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
+    > Dessa värden är inte verkliga. Uppdatera värdena med den faktiska identifieraren, svars-URL och inloggnings-URL. Kontakta [SmartRecruiters Client support team](https://www.smartrecruiters.com/about-us/contact-us/) för att få dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
 6. På sidan **Konfigurera enkel inloggning med SAML** går du till avsnittet **SAML-signeringscertifikat**, klickar du på **Ladda ned** för att ladda ned **Certifikat (Base64)** från de angivna alternativen enligt dina behov och sparar det på datorn.
 
-    ![Länk för hämtning av certifikat](common/certificatebase64.png)
+    ![Länk för nedladdning av certifikatet](common/certificatebase64.png)
 
-7. På den **konfigurera SmartRecruiters** avsnittet, kopiera den lämpliga URL: er enligt dina behov.
+7. Kopiera lämpliga webbadresser enligt dina krav i avsnittet **Konfigurera SmartRecruiters.**
 
     ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
 
-    a. Inloggningswebbadress
+    a. Inloggnings-URL
 
-    b. Microsoft Azure Active Directory-identifierare
+    b. Azure AD-identifierare
 
     c. Utloggnings-URL
 
-### <a name="configure-smartrecruiters-single-sign-on"></a>Konfigurera SmartRecruiters Single Sign-On
+### <a name="configure-smartrecruiters-single-sign-on"></a>Konfigurera SmartRecruiters Enkel inloggning
 
-1. I ett annat webbläsarfönster logga du in på webbplatsen SmartRecruiters företag som administratör.
+1. I ett annat webbläsarfönster loggar du in på smartrecruiters-företagets webbplats som administratör.
 
-1. Gå till **inställningar / Admin**.
+1. Gå till **Inställningar / Admin**.
 
-    ![SmartRecruiters konfiguration](./media/smartrecruiters-tutorial/configure.png)
+    ![SmartRecruiters-konfiguration](./media/smartrecruiters-tutorial/configure.png)
 
-1. I den **Configuration** klickar du på **Enkelinloggning**.
+1. Klicka på **Webb-SSO**i avsnittet **Konfiguration** .
 
-    ![SmartRecruiters konfiguration](./media/smartrecruiters-tutorial/configure1.png)
+    ![SmartRecruiters-konfiguration](./media/smartrecruiters-tutorial/configure1.png)
 
-1. Visa/dölj **aktivera enkel inloggning på webben**.
+1. Växla **Aktivera webb-SSO**.
 
-    ![SmartRecruiters konfiguration](./media/smartrecruiters-tutorial/configure2.png)
+    ![SmartRecruiters-konfiguration](./media/smartrecruiters-tutorial/configure2.png)
 
-1. I **identitet providerkonfigurationen**, utför följande steg:
+1. I Konfiguration av **identitetsprovider**utför du följande steg:
 
-    ![SmartRecruiters konfiguration](./media/smartrecruiters-tutorial/configure4.png)
+    ![SmartRecruiters-konfiguration](./media/smartrecruiters-tutorial/configure4.png)
 
-    a. I **-URL för identitetsprovider** textrutan klistra in värdet för **inloggnings-URL** som du har kopierat från Azure-portalen.
+    a. Klistra in värdet för **inloggnings-URL** som du har kopierat från Azure-portalen i **URL-textrutan** för identitetsprovider.
 
-    b. Öppna **certificate(Base64)** som du har hämtat från Azure-portalen i anteckningar, kopiera innehållet i den och klistra in i **identitetsprovider certifikat** textrutan.
+    b. Öppna **certifikat(Base64)** som du har hämtat från Azure-portalen i Anteckningar, kopiera innehållet i den och klistra in i **textrutan för identitetsprovidercertifikat.**
 
-1. Klicka på **spara Web SSO-konfiguration**.
+1. Klicka på **Spara webb-SSO-konfiguration**.
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare 
 
@@ -166,7 +166,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     ![Länkarna ”Användare och grupper” och ”Alla grupper”](common/users.png)
 
-2. Välj **Ny användare** överst på skärmen.
+2. Välj **Ny användare** högst upp på skärmen.
 
     ![Knappen Ny användare](common/new-user.png)
 
@@ -183,17 +183,17 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     d. Klicka på **Skapa**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
+### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
-I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inloggning genom att bevilja åtkomst till SmartRecruiters.
+I det här avsnittet kan du aktivera Britta Simon för att använda Azure enkel inloggning genom att bevilja åtkomst till SmartRecruiters.
 
-1. I Azure-portalen väljer du **företagsprogram**väljer **alla program**och välj sedan **SmartRecruiters**.
+1. I Azure-portalen väljer du **Enterprise Applications**, väljer **Alla program**och väljer sedan **SmartRecruiters**.
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-2. I listan med program väljer **SmartRecruiters**.
+2. Välj **SmartRecruiters**i programlistan .
 
-    ![Länken SmartRecruiters i listan med program](common/all-applications.png)
+    ![Länken SmartRecruiters i programlistan](common/all-applications.png)
 
 3. På menyn till vänster väljer du **Användare och grupper**.
 
@@ -205,19 +205,19 @@ I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inlog
 
 5. I dialogrutan **Användare och grupper** väljer du **Britta Simon** i listan med användare och klickar på knappen **Välj** längst ned på skärmen.
 
-6. Om du förväntar dig ett rollvärde i SAML-försäkran väljer du i dialogrutan **Välj roll** lämplig roll för användaren i listan och klickar sedan på knappen **Välj** längst ned på skärmen.
+6. Om du förväntar dig något rollvärde i SAML-påståendet väljer du lämplig roll för användaren i listan i dialogrutan **Välj roll** och klickar sedan på knappen **Välj** längst ned på skärmen.
 
 7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
 
-### <a name="create-smartrecruiters-test-user"></a>Skapa SmartRecruiters testanvändare
+### <a name="create-smartrecruiters-test-user"></a>Skapa SmartRecruiters-testanvändare
 
-I det här avsnittet skapar du en användare som kallas Britta Simon i SmartRecruiters. Arbeta med [SmartRecruiters supportteam](https://www.smartrecruiters.com/about-us/contact-us/) att lägga till användare i SmartRecruiters-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
+I det här avsnittet skapar du en användare som heter Britta Simon i SmartRecruiters. Arbeta med [SmartRecruiters supportteam](https://www.smartrecruiters.com/about-us/contact-us/) för att lägga till användarna i SmartRecruiters-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
 
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning 
 
-I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
+I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-När du klickar på panelen SmartRecruiters i åtkomstpanelen, bör det vara loggas in automatiskt till SmartRecruiters som du ställer in enkel inloggning. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+När du klickar på panelen SmartRecruiters på åtkomstpanelen bör du automatiskt loggas in på de SmartRecruiters som du ställer in SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 

@@ -1,6 +1,6 @@
 ---
-title: 'Självstudier: Azure Active Directory-integrering med SensoScientific trådlösa temperatur övervakningssystemet | Microsoft Docs'
-description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och SensoScientific trådlösa temperatur av systemet.
+title: 'Självstudiekurs: Azure Active Directory-integrering med SensoScientific Wireless Temperature Monitoring System | Microsoft-dokument'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och SensoScientific Wireless Temperature Monitoring System.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -17,44 +17,44 @@ ms.date: 04/10/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ea2f5e33859852388357526052c39fa432471efb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67091270"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-sensoscientific-wireless-temperature-monitoring-system"></a>Självstudier: Azure Active Directory-integrering med SensoScientific trådlösa temperatur av systemet
+# <a name="tutorial-azure-active-directory-integration-with-sensoscientific-wireless-temperature-monitoring-system"></a>Självstudiekurs: Azure Active Directory-integrering med SensoScientific Wireless Temperature Monitoring System
 
-I den här självstudien får du lära dig hur du integrerar SensoScientific trådlösa temperatur av systemet med Azure Active Directory (AD Azure).
-Integrera SensoScientific trådlösa temperatur av systemet med Azure AD ger dig följande fördelar:
+I den här självstudien får du lära dig hur du integrerar SensoScientific Wireless Temperature Monitoring System med Azure Active Directory (Azure AD).
+Genom att integrera SensoScientific Wireless Temperature Monitoring System med Azure AD får du följande fördelar:
 
-* Du kan styra i Azure AD som har åtkomst till SensoScientific trådlösa temperatur av systemet.
-* Du kan aktivera användarna att vara automatiskt inloggad till SensoScientific trådlösa temperatur av systemet (Single Sign-On) med sina Azure AD-konton.
-* Du kan hantera dina konton på en central plats – Azure portal.
+* Du kan styra i Azure AD som har åtkomst till SensoScientific Wireless Temperature Monitoring System.
+* Du kan aktivera dina användare automatiskt inloggad på SensoScientific Wireless Temperature Monitoring System (Single Sign-On) med sina Azure AD-konton.
+* Du kan hantera dina konton på en central plats – Azure-portalen.
 
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
+Om du inte har en Azure-prenumeration [skapar du ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
-Om du vill konfigurera Azure AD-integrering med SensoScientific trådlösa temperatur av systemet, behöver du följande objekt:
+Om du vill konfigurera Azure AD-integrering med SensoScientific Wireless Temperature Monitoring System behöver du följande objekt:
 
-* En Azure AD-prenumeration. Om du inte har en Azure AD-miljö kan du få en [kostnadsfritt konto](https://azure.microsoft.com/free/)
-* SensoScientific trådlösa temperatur övervakningssystemet enkel inloggning aktiverat prenumeration
+* En Azure AD-prenumeration. Om du inte har en Azure AD-miljö kan du få ett [kostnadsfritt konto](https://azure.microsoft.com/free/)
+* SensoScientific Wireless Temperature Monitoring System enkel inloggning aktiverad prenumeration
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
 I den här självstudien konfigurerar och testar du enkel inloggning med Azure AD i en testmiljö.
 
-* Har stöd för SensoScientific trådlösa temperatur av systemet **IDP** -initierad SSO
+* SensoScientific Wireless Temperature Monitoring System stöder **IDP** initierad SSO
 
-## <a name="adding-sensoscientific-wireless-temperature-monitoring-system-from-the-gallery"></a>Att lägga till SensoScientific trådlösa temperatur av systemet från galleriet
+## <a name="adding-sensoscientific-wireless-temperature-monitoring-system-from-the-gallery"></a>Lägga till SensoScientific wireless temperature monitoring system från galleriet
 
-För att konfigurera integrering av SensoScientific trådlösa temperatur av systemet i Azure AD, som du behöver lägga till SensoScientific trådlösa temperatur av systemet från galleriet i din lista över hanterade SaaS-appar.
+Om du vill konfigurera integreringen av SensoScientific Wireless Temperature Monitoring System i Azure AD måste du lägga till SensoScientific Wireless Temperature Monitoring System från galleriet i listan över hanterade SaaS-appar.
 
-**Utför följande steg för att lägga till SensoScientific trådlösa temperatur av systemet från galleriet:**
+**Så här lägger du till SensoScientific Wireless Temperature Monitoring System från galleriet:**
 
-1. I den **[Azure-portalen](https://portal.azure.com)** , klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
+1. I **[Azure-portalen](https://portal.azure.com)** går du till den vänstra navigeringspanelen och klickar på **Azure Active Directory**-ikonen.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
@@ -62,37 +62,37 @@ För att konfigurera integrering av SensoScientific trådlösa temperatur av sys
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-3. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
+3. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
 
     ![Knappen Nytt program](common/add-new-app.png)
 
-4. I sökrutan skriver **SensoScientific trådlösa temperatur av systemet**väljer **SensoScientific trådlösa temperatur övervakningssystemet** resultatet panelen klickar **Lägg till**  för att lägga till programmet.
+4. I sökrutan skriver du **SensoScientific Wireless Temperature Monitoring System**, välj **SensoScientific Wireless Temperature Monitoring System** från resultatpanelen och klicka sedan på **Lägg** till knappen för att lägga till programmet.
 
-    ![SensoScientific trådlösa temperatur av systemet i resultatlistan](common/search-new-app.png)
+    ![SensoScientific trådlös temperatur övervakningssystem i resultatlistan](common/search-new-app.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
-I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med SensoScientific trådlösa temperatur av systemet baserat på en testanvändare kallas **Britta Simon**.
-För enkel inloggning ska fungera, måste en länk förhållandet mellan en Azure AD-användare och relaterade användaren i SensoScientific trådlösa temperatur övervakningssystemet upprättas.
+I det här avsnittet konfigurerar och testar du Azure AD enkel inloggning med SensoScientific Wireless Temperature Monitoring System baserat på en testanvändare som heter **Britta Simon**.
+För att enkel inloggning ska fungera måste en länkrelation mellan en Azure AD-användare och den relaterade användaren i SensoScientific Wireless Temperature Monitoring System upprättas.
 
-Om du vill konfigurera och testa Azure AD enkel inloggning med SensoScientific trådlösa temperatur av systemet, måste du utföra följande byggblock:
+Om du vill konfigurera och testa en enkel Azure AD-inloggning med SensoScientific Wireless Temperature Monitoring System måste du slutföra följande byggblock:
 
-1. **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
-2. **[Konfigurera SensoScientific trådlösa temperatur övervakning System enkel inloggning](#configure-sensoscientific-wireless-temperature-monitoring-system-single-sign-on)**  – om du vill konfigurera inställningar för enkel inloggning på programsidan.
-3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
-4. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
-5. **[Skapa SensoScientific trådlösa temperatur övervakningssystemet testanvändare](#create-sensoscientific-wireless-temperature-monitoring-system-test-user)**  – du har en motsvarighet för Britta Simon i SensoScientific trådlösa temperatur av systemet som är länkad till en Azure AD-representation av användaren.
-6. **[Testa enkel inloggning](#test-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
+1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
+2. **[Konfigurera SensoScientific Wireless Temperature Monitoring System Single Sign-On](#configure-sensoscientific-wireless-temperature-monitoring-system-single-sign-on)** - för att konfigurera inställningarna för enkel inloggning på programsidan.
+3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
+4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
+5. **[Skapa SensoScientific Wireless Temperature Monitoring System testanvändare](#create-sensoscientific-wireless-temperature-monitoring-system-test-user)** - att ha en motsvarighet till Britta Simon i SensoScientific wireless temperature monitoring system som är kopplat till Azure AD-representationen av användaren.
+6. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
 I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure-portalen.
 
-Utför följande steg för att konfigurera Azure AD enkel inloggning med SensoScientific trådlösa temperatur av systemet:
+Så här konfigurerar du en enkel Azure AD-inloggning med SensoScientific Wireless Temperature Monitoring System:
 
-1. I den [Azure-portalen](https://portal.azure.com/)på den **SensoScientific trådlösa temperatur övervakningssystemet** application integration markerar **enkel inloggning**.
+1. I [Azure-portalen](https://portal.azure.com/)väljer du **Enkel inloggning**på sidan **AvsoScientific Wireless Temperature Monitoring System** application integration .
 
-    ![Konfigurera enkel inloggning för länken](common/select-sso.png)
+    ![Konfigurera länk för enkel inloggning](common/select-sso.png)
 
 2. I dialogrutan **Välj en metod för enkel inloggning** väljer du läget **SAML/WS-Fed** för att aktivera enkel inloggning.
 
@@ -104,39 +104,39 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med SensoSc
 
 4. I avsnittet **Grundläggande SAML-konfiguration** behöver användaren inte utföra några steg eftersom appen redan är förintegrerad med Azure.
 
-    ![SensoScientific trådlösa temperatur övervakning System domän och URL: er med enkel inloggning för information](common/preintegrated.png)
+    ![SensoScientific Wireless Temperature Monitoring System Domain och WEBBADRESSer enkel inloggningsinformation](common/preintegrated.png)
 
 5. På sidan **Konfigurera enkel inloggning med SAML** går du till avsnittet **SAML-signeringscertifikat**, klickar du på **Ladda ned** för att ladda ned **Certifikat (Base64)** från de angivna alternativen enligt dina behov och sparar det på datorn.
 
-    ![Länk för hämtning av certifikat](common/certificatebase64.png)
+    ![Länk för nedladdning av certifikatet](common/certificatebase64.png)
 
-6. På den **konfigurera SensoScientific trådlösa temperatur övervakningssystemet** avsnittet, kopiera den lämpliga URL: er enligt dina behov.
+6. Kopiera lämpliga webbadresser enligt dina behov i avsnittet **Konfigurera SensoScientific Wireless Temperature Monitoring System.**
 
     ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
 
-    a. Inloggningswebbadress
+    a. Inloggnings-URL
 
-    b. Microsoft Azure Active Directory-identifierare
+    b. Azure AD-identifierare
 
     c. Utloggnings-URL
 
-### <a name="configure-sensoscientific-wireless-temperature-monitoring-system-single-sign-on"></a>Konfigurera SensoScientific trådlösa temperatur övervakning System enkel inloggning
+### <a name="configure-sensoscientific-wireless-temperature-monitoring-system-single-sign-on"></a>Konfigurera SensoScientific trådlös temperatur övervakningssystem enda sign-on
 
-1. Logga in på ditt övervakningssystem för SensoScientific trådlösa temperatur-program som administratör.
+1. Logga in på ditt SensoScientific Wireless Temperature Monitoring System-program som administratör.
 
-1. På överst navigeringsmenyn klickar du på **Configuration** och gå till **konfigurera** under **Single Sign On** att öppna på inställningar enkel inloggning och utför följande steg:
+1. I navigeringsmenyn högst upp klickar du på **Konfiguration** och gå **till Konfigurera** under Enkel **inloggning** för att öppna inställningarna för enkel inloggning och utför följande steg:
 
     ![Konfigurera enkel inloggning](./media/sensoscientific-tutorial/tutorial_sensoscientificwtms_admin.png)
 
-    a. Välj **Utfärdarens namn** som Azure AD.
+    a. Välj **Utfärdarnamn** som Azure AD.
 
-    b. I den **utfärdar-URL** textrutan klistra in den **Azure AD-identifierare** som du har kopierat från Azure-portalen.
+    b. I textrutan **Utfärdare URL** klistrar du in **Azure AD-identifieraren** som du har kopierat från Azure-portalen.
 
-    c. I den **enkel inloggnings-URL för** textrutan klistra in den **inloggnings-URL** som du har kopierat från Azure-portalen.
+    c. Klistra in **inloggningsadressen** som du har kopierat från Azure-portalen i **textrutan För tjänsten Enkel inloggningstjänst.**
 
-    d. I den **tjänst-URL för enkel utloggning** textrutan klistra in den **URL för utloggning** som du har kopierat från Azure-portalen.
+    d. I **textrutan URL för enkel utloggningstjänst** klistrar du in **url:en för utloggning** som du har kopierat från Azure-portalen.
 
-    e. Bläddra certifikatet som du har hämtat från Azure-portalen och laddar upp här.
+    e. Bläddra bland certifikatet som du har hämtat från Azure Portal och ladda upp här.
 
     f. Klicka på **Spara**.
 
@@ -148,7 +148,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     ![Länkarna ”Användare och grupper” och ”Alla grupper”](common/users.png)
 
-2. Välj **Ny användare** överst på skärmen.
+2. Välj **Ny användare** högst upp på skärmen.
 
     ![Knappen Ny användare](common/new-user.png)
 
@@ -158,23 +158,23 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     a. I fältet **Namn** anger du **BrittaSimon**.
   
-    b. I den **användarnamn** fälttyp `brittasimon@yourcompanydomain.extension`. Till exempel, BrittaSimon@contoso.com
+    b. I fältet **Användarnamn** `brittasimon@yourcompanydomain.extension`. Till exempel, BrittaSimon@contoso.com
 
     c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
 
     d. Klicka på **Skapa**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
+### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
-I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inloggning genom att bevilja åtkomst till SensoScientific trådlösa temperatur av systemet.
+I det här avsnittet kan du aktivera Britta Simon för att använda Azure enkel inloggning genom att bevilja åtkomst till SensoScientific Wireless Temperature Monitoring System.
 
-1. I Azure-portalen väljer du **företagsprogram**väljer **alla program**och välj sedan **SensoScientific trådlösa temperatur övervakningssystemet**.
+1. I Azure-portalen väljer du **Enterprise Applications**, väljer **Alla program**och väljer sedan **SensoScientific Wireless Temperature Monitoring System**.
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-2. I listan med program väljer **SensoScientific trådlösa temperatur övervakningssystemet**.
+2. Välj **SensoScientific Wireless Temperature Monitoring System**i programlistan .
 
-    ![Länken SensoScientific trådlösa temperatur av systemet i listan med program](common/all-applications.png)
+    ![Länken SensoScientific Wireless Temperature Monitoring System i listan Program](common/all-applications.png)
 
 3. På menyn till vänster väljer du **Användare och grupper**.
 
@@ -186,19 +186,19 @@ I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inlog
 
 5. I dialogrutan **Användare och grupper** väljer du **Britta Simon** i listan med användare och klickar på knappen **Välj** längst ned på skärmen.
 
-6. Om du förväntar dig ett rollvärde i SAML-försäkran väljer du i dialogrutan **Välj roll** lämplig roll för användaren i listan och klickar sedan på knappen **Välj** längst ned på skärmen.
+6. Om du förväntar dig något rollvärde i SAML-påståendet väljer du lämplig roll för användaren i listan i dialogrutan **Välj roll** och klickar sedan på knappen **Välj** längst ned på skärmen.
 
 7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
 
-### <a name="create-sensoscientific-wireless-temperature-monitoring-system-test-user"></a>Skapa SensoScientific trådlösa temperatur övervakningssystemet testanvändare
+### <a name="create-sensoscientific-wireless-temperature-monitoring-system-test-user"></a>Skapa testanvändare för test av SensoScientific Wireless Temperature Monitoring System
 
-Om du vill aktivera Azure AD-användare att logga in på SensoScientific trådlösa temperatur av systemet, måste de etableras i SensoScientific trådlösa temperatur av systemet. Arbeta med [SensoScientific trådlösa temperatur övervakningssystemet supportteamet](https://www.sensoscientific.com/contact-us/) att lägga till användare i plattformen SensoScientific trådlösa temperatur av systemet. Användare måste skapas och aktiveras innan du använder enkel inloggning.
+Om du vill att Azure AD-användare ska kunna logga in på SensoScientific Wireless Temperature Monitoring System måste de etableras i SensoScientific Wireless Temperature Monitoring System. Arbeta med [SensoScientific Wireless Temperature Monitoring System supportteam](https://www.sensoscientific.com/contact-us/) för att lägga till användare i SensoScientific Wireless Temperature Monitoring System plattform. Användare måste skapas och aktiveras innan du använder enkel inloggning.
 
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning
 
-I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
+I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-När du klickar på panelen SensoScientific trådlösa temperatur av systemet i åtkomstpanelen, bör det vara loggas in automatiskt till SensoScientific trådlösa temperatur övervakning av systemet som du ställer in enkel inloggning. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+När du klickar på panelen SensoScientific Wireless Temperature Monitoring System i åtkomstpanelen bör du automatiskt loggas in på det sensoscientific trådlösa temperaturövervakningssystem som du ställer in SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 

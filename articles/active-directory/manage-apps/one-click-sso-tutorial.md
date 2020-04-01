@@ -1,6 +1,6 @@
 ---
-title: Ett klick, enkel inloggning (SSO) konfigurationen av ditt Azure Marketplace-program | Microsoft Docs
-description: Stegen för en enda klickning konfigurationen för enkel inloggning för ditt program från Azure Marketplace.
+title: SSO-konfiguration (Single-Click, Single Sign-on) för ditt Azure Marketplace-program | Microsoft-dokument
+description: Steg för konfiguration med ett klick för SSO för ditt program från Azure Marketplace.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -17,73 +17,73 @@ ms.date: 06/11/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a83d27af4fd783b95c53ef3a9169cb72bfc29d34
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/15/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67872432"
 ---
-# <a name="one-click-app-configuration-of-single-sign-on"></a>Konfiguration av ett klick för enkel inloggning
+# <a name="one-click-app-configuration-of-single-sign-on"></a>Appkonfiguration med ett klick för enkel inloggning
 
- I den här självstudien får du lära dig hur du utför ett klick, enkel inloggning (SSO) konfiguration för SAML-stöd, Azure Active Directory (Azure AD)-program från Azure Marketplace.
+ I den här självstudien får du lära dig hur du utför en klick, enkel inloggning (SSO) konfiguration för SAML-stöd, Azure Active Directory (Azure AD) program från Azure Marketplace.
 
-## <a name="introduction-to-one-click-sso"></a>Introduktion till en enkel inloggning
+## <a name="introduction-to-one-click-sso"></a>Introduktion till SSO med ett klick
 
-Ett klick SSO-funktionen har utformats för att konfigurera enkel inloggning för Azure Marketplace-appar som stöder SAML-protokoll. På konfigurationssidan för enkel inloggning för Azure AD kan det här alternativet du automatiskt konfigurera Azure AD-metadata på programsidan. På så vis kan du snabbt konfigurera enkel inloggning med minimal manuellt arbete.
+SSO-funktionen med ett klick är utformad för att konfigurera enkel inloggning för Azure Marketplace-appar som stöder SAML-protokoll. På konfigurationssidan för Azure AD SSO kan du med det här alternativet automatiskt konfigurera Azure AD-metadata på programsidan. På så sätt kan du snabbt ställa in SSO med minimal manuell ansträngning.
 
-## <a name="advantages-of-one-click-sso"></a>Fördelarna med ett klick SSO
+## <a name="advantages-of-one-click-sso"></a>Fördelar med ett klick SSO
 
 - Snabb SSO-konfiguration av Azure Marketplace-program som kräver manuell installation på programsidan.
-- Mer effektiv och korrekt konfiguration för enkel inloggning.
-- Ingen partner kommunikation eller stöd för installationsprogrammet. Programmet tillhandahåller Användargränssnittet för SAML-konfiguration.
+- Effektivare och mer exakt SSO-konfiguration.
+- Ingen partnerkommunikation eller support behövs för installationen. Programmet tillhandahåller användargränssnittet för SAML-konfiguration.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-- En aktiv prenumeration av programmet för att konfigurera med enkel inloggning. Du måste också administratörsautentiseringsuppgifter.
-- Den **Mina appar skyddat inloggningstillägg** från Microsoft som installerats i webbläsaren. Mer information finns i [öppna och använda appar på portalen Mina appar](https://docs.microsoft.com/azure/active-directory/user-help/my-apps-portal-end-user-access).
+- En aktiv prenumeration på programmet för att konfigurera med SSO. Du behöver också administratörsautentiseringsuppgifter.
+- Tillägget **Säker inloggning för Mina appar** från Microsoft som är installerat i webbläsaren. Mer information finns i [Komma åt och använda appar på portalen Mina appar](https://docs.microsoft.com/azure/active-directory/user-help/my-apps-portal-end-user-access).
 
-## <a name="one-click-sso-configuration-steps"></a>Konfigurationsstegen för en enkel inloggning
+## <a name="one-click-sso-configuration-steps"></a>Steg med SSO-konfiguration med ett klick
 
 1. Lägg till programmet från Azure Marketplace.
 
-2. Välj **enkel inloggning**.
+2. Välj **Enkel inloggning**.
 
-3. Välj **aktivera enkel inloggning**.
+3. Välj **Aktivera enkel inloggning**.
 
-4. Fyll i obligatoriska konfigurationsvärdena i den **SAML grundkonfiguration** avsnittet.
+4. Fyll i de obligatoriska konfigurationsvärdena i avsnittet **Grundläggande SAML-konfiguration.**
 
     > [!NOTE]
-    > Om programmet har anpassade anspråk som du måste konfigurera kan du hantera dem innan du utför en enkel inloggning.
+    > Om programmet har anpassade anspråk som du behöver konfigurera kan du hantera dem innan du utför SSO med ett klick.
 
-5. Om ett klick SSO-funktionen är tillgänglig för ditt Azure Marketplace-program, se följande skärm. Du kan behöva installera det **Mina appar skyddat inloggning webbläsartillägget** genom att välja **installera tillägget**.
+5. Om SSO-funktionen med ett klick är tillgänglig för ditt Azure Marketplace-program visas följande skärm. Du kanske måste installera **webbläsartillägget För säker** inloggning för mina appar genom att välja **Installera tillägget**.
 
-   ![Installera Mina appar skyddat inloggning webbläsartillägg](./media/one-click-sso-tutorial/install-myappssecure-extension.png)
+   ![Installera webbläsartillägg för säker inloggning för mina appar](./media/one-click-sso-tutorial/install-myappssecure-extension.png)
 
-6. När du lägger till tillägget till webbläsaren, väljer **installationsprogrammet \<programnamn\>** . När du är omdirigeras till administrationsportalen för programmet, kan du logga in som administratör.
+6. När du har lagt till tillägget i webbläsaren väljer du ** \<Ange programnamn\>**. När du omdirigeras till programadministratörsportalen loggar du in som administratör.
 
-   ![Konfigurera programnamn](./media/one-click-sso-tutorial/setup-sso.png)
+   ![Namn på installationsprogram](./media/one-click-sso-tutorial/setup-sso.png)
 
-7. Webbläsartillägget konfigurerar automatiskt SSO på programmet. Bekräfta genom att välja **Ja**.
+7. Webbläsartillägget konfigurerar automatiskt SSO i programmet. Bekräfta genom att välja **Ja**.
 
-   ![Sparar data fylls](./media/one-click-sso-tutorial/save-autopopulate.png)
+   ![Spara data som fylls i automatiskt](./media/one-click-sso-tutorial/save-autopopulate.png)
 
    > [!NOTE]
-   > Om konfigurationen för enkel inloggning för ditt program kräver ytterligare steg, följa anvisningarna för att utföra stegen.
+   > Om SSO-konfigurationen för ditt program kräver ytterligare steg följer du anvisningarna för att utföra stegen.
 
-8. När konfigurationen är klar kan du välja **OK** att spara ändringarna.
+8. När konfigurationen är klar väljer du **OK** för att spara ändringarna.
 
-   ![Spara data fylls](./media/one-click-sso-tutorial/save-data.png)
+   ![Spara data som fylls i automatiskt](./media/one-click-sso-tutorial/save-data.png)
 
-9. Det visas ett bekräftelsefönster så att du vet att SSO-inställningar har angetts.
+9. Ett bekräftelsefönster visas så att du vet att SSO-inställningarna har konfigurerats.
 
-   ![Enkel inloggning konfigurerad](./media/one-click-sso-tutorial/sso-configured.png)
+   ![SSO konfigurerad](./media/one-click-sso-tutorial/sso-configured.png)
 
-10. När konfigurationen är klar kan du loggat ut från programmet och tillbaka till Azure-portalen.
+10. När konfigurationen har slutförts loggas du ut från programmet och returneras till Azure-portalen.
 
-11. Du kan välja **testa** att testa enkel inloggning.
+11. Du kan välja **Testa** för att testa enkel inloggning.
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/saas-apps/tutorial-list)
-* [Vad är webbläsartillägget Mina appar skyddat logga in?](https://docs.microsoft.com/azure/active-directory/user-help/my-apps-portal-end-user-access)
+* [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/saas-apps/tutorial-list)
+* [Vad är webbläsartillägget För säker inloggning för mina appar?](https://docs.microsoft.com/azure/active-directory/user-help/my-apps-portal-end-user-access)
  

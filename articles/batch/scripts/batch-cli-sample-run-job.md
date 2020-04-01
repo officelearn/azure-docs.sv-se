@@ -1,5 +1,5 @@
 ---
-title: Exempel på Azure CLI-skript – köra ett batch-jobb
+title: Azure CLI Script Exempel - Kör ett batchjobb
 description: Det här skriptet skapar ett Batch-jobb och lägger till en rad uppgifter i jobbet. Det visar även hur du övervakar ett jobb och dess uppgifter.
 services: batch
 documentationcenter: ''
@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 12/12/2019
 ms.author: labrenne
 ms.openlocfilehash: 8062f42d5b7d2c718502ee2e4a8c035919b9182d
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77023114"
 ---
 # <a name="cli-example-run-a-job-and-tasks-with-azure-batch"></a>CLI-exempel: Köra ett jobb och uppgifter med Azure Batch

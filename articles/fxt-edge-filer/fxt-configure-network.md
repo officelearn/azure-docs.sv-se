@@ -1,118 +1,118 @@
 ---
-title: 'Självstudie: Konfigurera nätverk i ett Azure FXT Edge-kluster'
-description: Anpassa nätverks inställningar när du har skapat Azure FXT Edge-kluster
+title: 'Självstudiekurs: Konfigurera nätverk i ett Azure FXT Edge Filer-kluster'
+description: Anpassa nätverksinställningarna när du har skapat Azure FXT Edge Filer-klustret
 author: ekpgh
 ms.author: rohogue
 ms.service: fxt-edge-filer
 ms.topic: tutorial
 ms.date: 06/20/2019
 ms.openlocfilehash: a40ff50dcb0934cbf1ea5222675bd75948ac1d03
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "79239800"
 ---
-# <a name="tutorial-configure-the-clusters-network-settings"></a>Självstudie: Konfigurera klustrets nätverks inställningar
+# <a name="tutorial-configure-the-clusters-network-settings"></a>Självstudiekurs: Konfigurera klustrets nätverksinställningar
 
-Innan du använder ett nyligen skapat Azure FXT Edge-kluster bör du kontrol lera och anpassa flera nätverks inställningar för arbets flödet. 
+Innan du använder ett nyligen skapat Azure FXT Edge Filer-kluster bör du kontrollera och anpassa flera nätverksinställningar för arbetsflödet. 
 
-I den här självstudien förklaras de nätverks inställningar som du kan behöva justera för ett nytt kluster. 
+I den här självstudien beskrivs de nätverksinställningar som du kan behöva justera för ett nytt kluster. 
 
 Du kommer att lära dig: 
 
 > [!div class="checklist"]
-> * Vilka nätverks inställningar som kan behöva uppdateras när du har skapat ett kluster
-> * Det krävs en AD-server eller en DNS-server för att använda fall av Azure FXT Edge 
-> * Konfigurera resursallokering (Round-Robin DNS) för att automatiskt belastningsutjämna klient begär anden till FXT-klustret
+> * Vilka nätverksinställningar som kan behöva uppdateras när du har skapat ett kluster
+> * Vilka Azure FXT Edge Filer-användningsfall kräver en AD-server eller en DNS-server 
+> * Konfigurera round-robin DNS (RRDNS) för att automatiskt läsa in klientbegäranden för belastningsutjämning till FXT-klustret
 
-Hur lång tid det tar att slutföra de här stegen beror på hur många konfigurations ändringar som krävs i systemet:
+Hur lång tid det tar att slutföra dessa steg beror på hur många konfigurationsändringar som behövs i systemet:
 
-* Om du bara behöver läsa igenom självstudien och kontrol lera några inställningar bör det ta 10 till 15 minuter. 
-* Om du behöver konfigurera resursallokering med DNS kan den aktiviteten ta en timme eller mer.
+* Om du bara behöver läsa igenom handledningen och kontrollera några inställningar, bör det ta 10 till 15 minuter. 
+* Om du behöver konfigurera round-robin DNS kan den uppgiften ta en timme eller mer.
 
-## <a name="adjust-network-settings"></a>Justera nätverks inställningar
+## <a name="adjust-network-settings"></a>Justera nätverksinställningar
 
-Flera nätverksrelaterade uppgifter är en del av att konfigurera ett nytt Azure FXT Edge-kluster. Markera listan och bestäm vilka som ska gälla för systemet.
+Flera nätverksrelaterade uppgifter är en del av att konfigurera ett nytt Azure FXT Edge Filer-kluster. Kontrollera den här listan och bestäm vilka som gäller för ditt system.
 
-Om du vill veta mer om nätverks inställningar för klustret läser du [Konfigurera nätverks tjänster](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/network_overview.html) i guiden kluster konfiguration.
+Mer information om nätverksinställningar för klustret finns i [Konfigurera nätverkstjänster](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/network_overview.html) i guiden klusterkonfiguration.
 
-* Konfigurera resursallokering (Round-Robin) för klient nätverk (valfritt)
+* Konfigurera ROUND-robin DNS för det klientinriktade nätverket (valfritt)
 
-  Belastnings Utjämnings kluster trafik genom att konfigurera DNS-systemet enligt beskrivningen i [Konfigurera DNS för FXT Edge-kluster](#configure-dns-for-load-balancing).
+  Belastningsjämna klustertrafik genom att konfigurera DNS-systemet enligt beskrivningen i [Konfigurera DNS för FXT Edge Filer-klustret](#configure-dns-for-load-balancing).
 
 * Verifiera NTP-inställningar
 
-* Konfigurera Active Directory-och användar namn/grupp namn nedladdningar (om det behövs)
+* Konfigurera hämtningar av Active Directory och användarnamn/gruppnamn (om det behövs)
 
-  Om dina nätverks värdar använder Active Directory eller någon annan typ av extern katalog tjänst måste du ändra klustrets konfiguration för katalog tjänster för att konfigurera hur klustret laddar ned användar namn och grupp information. Mer information finns i **kluster** > **katalog tjänster** i kluster konfigurations guiden.
+  Om nätverksvärdarna använder Active Directory eller någon annan typ av extern katalogtjänst måste du ändra klustrets konfiguration av katalogtjänster för att ställa in hur klustret hämtar användarnamn och gruppinformation. Mer information finns i > **Klusterkatalogtjänster** i guiden Klusterkonfiguration. **Cluster**
 
-  En AD-server krävs om du vill ha SMB-stöd. Konfigurera AD innan du börjar konfigurera SMB.
+  En AD-server krävs om du vill ha SMB-stöd. Konfigurera AD innan du börjar ställa in SMB.
 
 * Definiera VLAN (valfritt)
   
-  Konfigurera ytterligare VLAN behövs innan du definierar klustrets vservers och globala namn område. Mer information finns i [arbeta med VLAN](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/network_overview.html#vlan-overview) i kluster konfigurations guiden.
+  Konfigurera eventuella ytterligare VLAN som behövs innan du definierar klustrets virtuella servrar och globala namnområde. Läs [Arbeta med VLAN](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/network_overview.html#vlan-overview) i guiden för klusterkonfiguration om du vill veta mer.
 
-* Konfigurera proxyservrar (vid behov)
+* Konfigurera proxyservrar (om det behövs)
 
-  Om klustret använder en proxyserver för att komma åt externa adresser följer du dessa steg för att konfigurera den:
+  Om klustret använder en proxyserver för att nå externa adresser gör du så här för att konfigurera den:
 
-  1. Definiera proxyservern på sidan **konfigurations** inställningar för proxy
-  1. Använd konfigurationen för proxyservern på sidan för **kluster** > **allmänna installations** sidan eller sidan core-filer **information** .
+  1. Definiera proxyservern på sidan **Inställningar för proxykonfiguration**
+  1. Använd proxyserverkonfigurationen med sidan **Konfigurera klusterkonfiguration** > **General Setup** eller sidan **Kärnfilerinformation.**
   
-  Mer information finns i [använda webb-proxyservrar](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/proxy_overview.html) i guiden kluster konfiguration.
+  Mer information finns i [Använda webbprogram i](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/proxy_overview.html) klusterkonfigurationsguiden.
 
-* Ladda upp [krypterings certifikat](#encryption-certificates) för klustret som ska användas (valfritt)
+* Ladda upp [krypteringscertifikat för klustret](#encryption-certificates) som ska användas (valfritt)
 
-### <a name="encryption-certificates"></a>Krypterings certifikat
+### <a name="encryption-certificates"></a>Krypteringscertifikat
 
-FXT Edge-kluster använder X. 509-certifikat för dessa funktioner:
+FXT Edge Filer-klustret använder X.509-certifikat för följande funktioner:
 
-* Kryptera trafik för kluster administration
+* Så här krypterar du klusteradministrationstrafik
 
-* För att autentisera på uppdrag av en klient till KMIP-servrar från tredje part
+* Så här autentiserar du för en klients räkning till KMIP-servrar från tredje part
 
-* För att verifiera Cloud providers Server certifikat
+* För att verifiera molnleverantörers servercertifikat
 
-Om du behöver ladda upp certifikat till klustret använder du sidan Inställningar för **kluster** > **certifikat** . Information finns på sidan [kluster > certifikat](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_certificates.html) i guiden kluster konfiguration.
+Om du behöver överföra certifikat till klustret använder du**inställningssidan för klustercertifikat.** **Cluster** >  Information finns på sidan [Kluster > certifikat](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_certificates.html) i guiden klusterkonfiguration.
 
-Om du vill kryptera kluster hanterings kommunikationen använder du sidan **kluster** > **allmänna installations** inställningar för att välja vilket certifikat som ska användas för administration av SSL.
+Om du vill kryptera klusterhanteringskommunikation använder du inställningsinställningssidan **För kluster** > **allmänna** inställningar för att välja vilket certifikat som ska användas för administrativ SSL.
 
 > [!Note] 
-> Åtkomst nycklar för moln tjänster lagras med hjälp av konfigurations sidan **Cloud credentials** . I avsnittet [Lägg till en Core](fxt-add-storage.md#add-a-core-filer) -filer ovan visas ett exempel. Mer information finns i avsnittet [Cloud credentials](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_cloud_credentials.html) i guiden för kluster konfiguration. 
+> Åtkomstnycklar för molntjänst lagras med hjälp av konfigurationssidan **för molnautentiseringsuppgifter.** Avsnittet [Lägg till en kärna filer](fxt-add-storage.md#add-a-core-filer) ovan visar ett exempel. Läs avsnittet [Molnautentiseringsuppgifter för klusterkonfigurationsguiden](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_cloud_credentials.html) för mer information. 
 
-## <a name="configure-dns-for-load-balancing"></a>Konfigurera DNS för belastnings utjämning
+## <a name="configure-dns-for-load-balancing"></a>Konfigurera DNS för belastningsutjämning
 
-I det här avsnittet beskrivs grunderna i hur du konfigurerar ett RRDNS-system (Round-Robin) för att distribuera klient belastningen bland alla klienternas IP-adresser i ditt FXT Edge-kluster. 
+I det här avsnittet beskrivs grunderna i att konfigurera ett RRDNS-system (Round-Robin DNS) för att distribuera klientbelastningen mellan alla klientinriktade IP-adresser i FXT Edge Filer-klustret. 
 
-### <a name="decide-whether-or-not-to-use-dns"></a>Bestämma om DNS ska användas eller inte
+### <a name="decide-whether-or-not-to-use-dns"></a>Bestäm om DNS ska användas eller inte
 
-Belastnings utjämning rekommenderas alltid, men du behöver inte alltid använda DNS. Med vissa typer av klient arbets flöden kan det till exempel vara mer meningsfullt att använda ett skript för att tilldela kluster-IP-adresser jämnt mellan klienter när de monterar klustret. Vissa metoder beskrivs i [montera klustret](fxt-mount-clients.md). 
+Belastningsutjämning rekommenderas alltid, men du behöver inte alltid använda DNS. Med vissa typer av klientarbetsflöden kan det till exempel vara mer meningsfullt att använda ett skript för att tilldela kluster-IP-adresser jämnt mellan klienter när de monterar klustret. Vissa metoder beskrivs i [Montera klustret](fxt-mount-clients.md). 
 
-Tänk på följande när du bestämmer om du vill använda en DNS-Server: 
+Tänk på följande när du bestämmer dig för om du vill använda en DNS-server eller inte: 
 
-* Om systemet endast används av NFS-klienter krävs inte DNS. Det går att ange alla nätverks adresser genom att använda numeriska IP-adresser. 
+* Om ditt system endast används av NFS-klienter krävs inte DNS. Det är möjligt att ange alla nätverksadresser med numeriska IP-adresser. 
 
-* Om systemet har stöd för SMB-åtkomst, krävs DNS, eftersom du måste ange en DNS-domän för Active Directory-servern.
+* Om systemet stöder SMB-åtkomst krävs DNS, eftersom du måste ange en DNS-domän för Active Directory-servern.
 
 * DNS krävs om du vill använda Kerberos-autentisering.
 
-### <a name="round-robin-dns-configuration-details"></a>Information om DNS-konfiguration för resursallokering
+### <a name="round-robin-dns-configuration-details"></a>Information om DNS-konfiguration för avrundning
 
-När klienter får åtkomst till klustret, balanserar RRDNS automatiskt sina förfrågningar mellan alla tillgängliga gränssnitt.
+När klienter ansluter till klustret balanserar RRDNS automatiskt sina begäranden mellan alla tillgängliga gränssnitt.
 
-För optimala prestanda konfigurerar du DNS-servern så att den hanterar klientbaserade kluster adresser som visas i följande diagram.
+Om du vill ha bästa prestanda konfigurerar du DNS-servern så att den hanterar klientinriktade klusteradresser enligt följande diagram.
 
-Ett kluster vserver visas till vänster och IP-adresser visas i mitten och till höger. Konfigurera varje klient åtkomst punkt med en post och pekare som illustreras.
+En klustervserver visas till vänster och IP-adresser visas i mitten och till höger. Konfigurera varje klientåtkomstpunkt med A-poster och pekare enligt bilden.
 
-![Cluster Round-Robin DNS-diagram-detaljerad alternativ text länk Följ bild](media/fxt-cluster-config/fxt-rrdns-diagram.png) 
-[detaljerad text Beskrivning](https://azure.github.io/Avere/legacy/Azure-FXT-EdgeFilerDNSconfiguration-alt-text.html)
+![Kluster round-robin DNS-diagram - detaljerad](media/fxt-cluster-config/fxt-rrdns-diagram.png) 
+alternativ textlänk följer bild[detaljerad textbeskrivning](https://azure.github.io/Avere/legacy/Azure-FXT-EdgeFilerDNSconfiguration-alt-text.html)
 
-Varje klient riktad IP-adress måste ha ett unikt namn för intern användning av klustret. (I det här diagrammet heter klientens IP-adresser VS1-client-IP-* för tydlighetens skull, men i produktion bör du förmodligen använda något mer koncis, som klient *.)
+Varje klientvänd IP-adress måste ha ett unikt namn för internt bruk av klustret. (I det här diagrammet heter klient-IP-adresser vs1-client-IP-* för tydlighetens skull, men i produktion bör du förmodligen använda något mer koncist, som klient*.)
 
-Klienter monterar klustret med namnet vserver som server argument. 
+Klienter monterar klustret med vservernamnet som serverargument. 
 
-Ändra DNS-serverns ``named.conf``-fil för att ange cyklisk ordning för frågor till din vserver. Det här alternativet säkerställer att alla tillgängliga värden går igenom. Lägg till en instruktion som följande:
+Ändra DNS-serverns ``named.conf`` fil för att ställa in cyklisk ordning för frågor till din vserver. Det här alternativet säkerställer att alla tillgängliga värden växlas igenom. Lägg till ett uttryck som följande:
 
 ```
 options {
@@ -122,7 +122,7 @@ options {
 };
 ```
 
-Följande ``nsupdate``-kommandon innehåller ett exempel på hur du konfigurerar DNS korrekt:
+Följande ``nsupdate`` kommandon ger ett exempel på att konfigurera DNS korrekt:
 
 ```
 update add vserver1.example.com. 86400 A 10.0.0.10
@@ -138,18 +138,18 @@ update add 12.0.0.10.in-addr.arpa. 86400 PTR vs1-client-IP-12.example.com
 
 ### <a name="enable-dns-in-the-cluster"></a>Aktivera DNS i klustret 
 
-Ange den DNS-server som klustret använder på sidan **kluster** > **administrativa nätverks** inställningar. Inställningarna på sidan är:
+Ange den DNS-server som klustret använder på sidan Inställningar för > **klusteradministrationsnätverk.** **Cluster** Inställningarna på den sidan inkluderar:
 
 * DNS-serveradress
 * DNS-domännamn
 * DNS-sökdomäner
 
-Mer information finns i [DNS-inställningar](<https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_admin_network.html#gui-dns>) i guiden kluster konfiguration.
+Mer information finns i [DNS-inställningar](<https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_admin_network.html#gui-dns>) i guiden för klusterkonfiguration.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Detta är det sista grundläggande konfigurations steget för Azure FXT Edge-klustret. 
+Det här är det sista grundläggande konfigurationssteget för Azure FXT Edge Filer-klustret. 
 
-* Lär dig mer om systemets indikatorer och andra indikatorer i [övervaka maskin varu status](fxt-monitor.md).
-* Läs mer om hur klienter ska montera FXT Edge-kluster i [montera klustret](fxt-mount-clients.md). 
-* Mer information om hur du hanterar ett FXT Edge-kluster finns i [kluster konfigurations guiden](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/ops_conf_index.html). 
+* Lär dig mer om systemets lysdioder och andra indikatorer i [Övervaka maskinvarustatus](fxt-monitor.md).
+* Läs mer om hur klienter ska montera FXT Edge Filer-klustret i [Montera klustret](fxt-mount-clients.md). 
+* Mer information om hur du använder och hanterar ett FXT Edge Filer-kluster finns i [guiden för klusterkonfiguration](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/ops_conf_index.html). 

@@ -5,34 +5,34 @@ ms.topic: include
 ms.date: 1/30/2019
 ms.author: rgarcia
 ms.openlocfilehash: ec8fb6efab126dcf5556a9abfdf58d1fd69d4212
-ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "72882322"
 ---
-## <a name="androidtabandroid"></a>[Android](#tab/Android)
+## <a name="android"></a>[Android](#tab/Android)
 
-Java Android-exemplet stöder delning mellan enheter.
-Öppna filen `SharedActivity.java` från mappen Samples i Android Studio. Ange URL: en som du fick i föregående steg (från ASP.NET-webbappens Azure-distribution) som värde för `SharingAnchorsServiceUrl` i `SharedActivity.java`-filen. Ersätt `index.html` i URL: en med `api/anchors`. Det bör se ut så här: `https://<app_name>.azurewebsites.net/api/anchors`.
-
-[!INCLUDE [Run shared sample](spatial-anchors-run-sample.md)]
-
-## <a name="iostabios"></a>[iOS](#tab/iOS)
-
-Mål-C iOS-exemplet stöder delning mellan enheter.
-Öppna filen `SharedDemoViewController.m` i mappen Samples. Ange URL: en som du fick i föregående steg (från ASP.NET-webbappens Azure-distribution) som värde för `SharingAnchorsServiceUrl` i `SharedActivity.java`-filen. Ersätt `index.html` i URL: en med `api/anchors`. Det bör se ut så här: `https://<app_name>.azurewebsites.net/api/anchors`.
+Java-android-exemplet stöder delning mellan enheter.
+Öppna filen `SharedActivity.java` från exempelmappen i Android Studio. Ange webbadressen som du fick i föregående steg (från din ASP.NET webbapp Azure-distribution) som värde för `SharingAnchorsServiceUrl` i `SharedActivity.java` filen. Ersätt `index.html` url:en `api/anchors`med . Det bör se `https://<app_name>.azurewebsites.net/api/anchors`ut så här: .
 
 [!INCLUDE [Run shared sample](spatial-anchors-run-sample.md)]
 
-## <a name="xamarintabxamarin"></a>[Xamarin](#tab/Xamarin)
+## <a name="ios"></a>[iOS](#tab/iOS)
 
-Både Xamarin Android och iOS-exempel stöder delning mellan enheter.
-Öppna filen `AccountDetails.cs` i mappen Samples. Ange URL: en som du fick i föregående steg (från ASP.NET-webbappens Azure-distribution) som värde för `AnchorSharingServiceUrl` i `SharedActivity.java`-filen. Ersätt `index.html` i URL: en med `api/anchors`. Det bör se ut så här: `https://<app_name>.azurewebsites.net/api/anchors`.
+Objective-C iOS-exemplet stöder delning mellan enheter.
+Öppna filen `SharedDemoViewController.m` i exempelmappen. Ange webbadressen som du fick i föregående steg (från din ASP.NET webbapp Azure-distribution) som värde för `SharingAnchorsServiceUrl` i `SharedActivity.java` filen. Ersätt `index.html` url:en `api/anchors`med . Det bör se `https://<app_name>.azurewebsites.net/api/anchors`ut så här: .
 
 [!INCLUDE [Run shared sample](spatial-anchors-run-sample.md)]
 
-## <a name="unitytabunity"></a>[Unity](#tab/Unity)
+## <a name="xamarin"></a>[Xamarin](#tab/Xamarin)
+
+Både Xamarin Android- och iOS-exempel stöder delning mellan enheter.
+Öppna filen `AccountDetails.cs` i exempelmappen. Ange webbadressen som du fick i föregående steg (från din ASP.NET webbapp Azure-distribution) som värde för `AnchorSharingServiceUrl` i `SharedActivity.java` filen. Ersätt `index.html` url:en `api/anchors`med . Det bör se `https://<app_name>.azurewebsites.net/api/anchors`ut så här: .
+
+[!INCLUDE [Run shared sample](spatial-anchors-run-sample.md)]
+
+## <a name="unity"></a>[Unity](#tab/Unity)
 
 [!INCLUDE [Open Unity Project](spatial-anchors-open-unity-project.md)]
 
@@ -44,27 +44,27 @@ Både Xamarin Android och iOS-exempel stöder delning mellan enheter.
 
 [!INCLUDE [iOS Unity Build Settings](spatial-anchors-unity-ios-build-settings.md)]
 
-## <a name="configure-the-account-identifier-and-key"></a>Konfigurera konto identifieraren och nyckeln
+## <a name="configure-the-account-identifier-and-key"></a>Konfigurera kontoidentifieraren och nyckeln
 
 I fönstret **Projekt** går du till `Assets/AzureSpatialAnchorsPlugin/Examples` och öppnar scenfilen `AzureSpatialAnchorsLocalSharedDemo.unity`.
 
 [!INCLUDE [Configure Unity Scene](spatial-anchors-unity-configure-scene.md)]
 
-I fönstret **projekt** navigerar du till `Assets\AzureSpatialAnchors.Examples\Resources`. Välj `SpatialAnchorSamplesConfig`. I fönstret **kontrollant** anger du sedan `Sharing Anchors Service url` (från ASP.net-webbappens Azure-distribution) som värde för `Base Sharing Url`, och ersätter `index.html` med `api/anchors`. Det bör se ut så här: `https://<app_name>.azurewebsites.net/api/anchors`.
+Navigera till `Assets\AzureSpatialAnchors.Examples\Resources`i **projektfönstret** . Välj `SpatialAnchorSamplesConfig`. Ange sedan **Inspector** `Sharing Anchors Service url` (från din ASP.NET webbapp Azure-distribution) som värde för `Base Sharing Url`, `index.html` `api/anchors`ersätt med . Det bör se `https://<app_name>.azurewebsites.net/api/anchors`ut så här: .
 
-Spara scenen genom att välja **Arkiv** > **Spara**.
+Spara scenen genom att välja **Spara fil** > **.**
 
 ## <a name="deploy-to-your-device"></a>Distribuera till din nya enhet
 
 ### <a name="deploy-to-android-device"></a>Distribuera till Android-enhet
 
-Logga in på din Android-enhet och Anslut den till datorn med hjälp av en USB-kabel.
+Logga in på din Android-enhet och anslut den till datorn med hjälp av en USB-kabel.
 
 Öppna **Build Settings** (Bygginställningar) genom att välja **Arkiv** > **Build Settings** (Bygginställningar).
 
-Se till att alla scener har en bock bredvid dem under **scener i build**.
+Under **Scener i build**kontrollerar du att alla scener har en bock bredvid dem.
 
-Kontrol lera att **export projekt** inte har en bock markering. Välj **skapa och kör**. Du uppmanas att spara `.apk`-filen. Du kan välja ett namn för det.
+Kontrollera att **Export project** inte är markerat. Välj **Bygg och kör**. Du uppmanas att spara `.apk` filen. Du kan välja vilket namn som helst för det.
 
 [!INCLUDE [Run shared sample](spatial-anchors-run-sample.md)]
 
@@ -72,10 +72,10 @@ Kontrol lera att **export projekt** inte har en bock markering. Välj **skapa oc
 
 Öppna **Build Settings** (Bygginställningar) genom att välja **Arkiv** > **Build Settings** (Bygginställningar).
 
-Se till att alla scener har en bock bredvid dem under **scener i build**.
+Under **Scener i build**kontrollerar du att alla scener har en bock bredvid dem.
 
 [!INCLUDE [Configure Xcode](spatial-anchors-unity-ios-xcode.md)]
 
 [!INCLUDE [Run shared sample](spatial-anchors-run-sample.md)]
 
-Stoppa appen genom att välja **stoppa**i Xcode.
+Stoppa appen i Xcode genom att välja **Stoppa**.

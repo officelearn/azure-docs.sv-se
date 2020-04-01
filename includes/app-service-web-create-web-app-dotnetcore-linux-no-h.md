@@ -9,15 +9,15 @@ ms.date: 08/06/2019
 ms.author: cephalin
 ms.custom: include file
 ms.openlocfilehash: 2dc35727a82459750b4414b6e3eeddf28b31b718
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "68824700"
 ---
 Skapa en [webbapp](../articles/app-service/containers/app-service-linux-intro.md) i `myAppServicePlan` App Service-planen. 
 
-I Cloud Shell kan du använda kommandot [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest). Ersätt `<app-name>` med ett globalt unikt appnamn (giltiga tecken är `a-z`, `0-9` och `-`) i följande exempel. Körningen har angetts till `DOTNETCORE|2.2`. Om du vill se alla körningar som stöds ska du köra [`az webapp list-runtimes --linux`](/cli/azure/webapp?view=azure-cli-latest). 
+I Cloud Shell kan du [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest) använda kommandot. Ersätt `<app-name>` med ett globalt unikt appnamn (giltiga tecken är `a-z`, `0-9` och `-`) i följande exempel. Körningen har angetts till `DOTNETCORE|2.2`. Kör [`az webapp list-runtimes --linux`](/cli/azure/webapp?view=azure-cli-latest)om du vill visa alla runtimes som stöds . 
 
 ```azurecli-interactive
 # Bash

@@ -1,6 +1,6 @@
 ---
-title: 'CLI: skapa ASP.NET Core app från ACR'
-description: Lär dig hur du använder Azure CLI för att automatisera distribution och hantering av din App Service-app. Det här exemplet visar hur du skapar en Linux ASP.NET Core-app från ACR.
+title: 'CLI: Skapa ASP.NET Core-appen från ACR'
+description: Lär dig hur du använder Azure CLI för att automatisera distribution och hantering av din App Service-app. Det här exemplet visar hur du skapar en Linux-ASP.NET Core-app från ACR.
 author: msangapu-msft
 tags: azure-service-management
 ms.assetid: 3a2d1983-ff7b-476a-ac44-49ec2aabb31a
@@ -8,17 +8,17 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.date: 12/13/2018
 ms.author: msangapu
-ms.custom: seodec18
-ms.openlocfilehash: 9733475753cb9d7fae5f452b33842602f56eff52
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.custom: mvc, seodec18
+ms.openlocfilehash: 64177d00b302f9df8a0b28067031bd7cc1b3a156
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74685977"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80057772"
 ---
 # <a name="create-an-aspnet-core-app-in-a-docker-container-in-app-service-from-azure-container-registry"></a>Skapa en ASP.NET Core-app i en Docker-container i App Service från Azure Container Registry
 
-Det här exempelskriptet skapar en resursgrupp, en Linux App Service-plan och en app. Det distribuerar sedan ett ASP.NET Core-program med en Docker-behållare från Azure Container Registry.
+Det här exempelskriptet skapar en resursgrupp, en Linux App Service plan och en app. Det distribuerar sedan ett ASP.NET Core-program med en Docker-behållare från Azure Container Registry.
 
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]

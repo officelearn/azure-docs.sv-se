@@ -2,25 +2,19 @@
 title: Exempel på Azure PowerShell-skript – Ta bort containrar efter prefix | Microsoft Docs
 description: Ta bort Azure Storage-blobcontainrar baserat på containerns namnprefix.
 services: storage
-documentationcenter: na
 author: tamram
-manager: timlt
-editor: tysonn
-ms.assetid: ''
-ms.custom: mvc
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: azurecli
+ms.subservice: blobs
+ms.devlang: powershell
 ms.topic: sample
 ms.date: 06/13/2017
 ms.author: tamram
-ms.openlocfilehash: e0c41ed1fc2cdb7559d36a7056ebb7b9a6ecc186
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 73c2f221d2ac0b3ceb76e3db0fdc6379a6dd330a
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61216308"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80060889"
 ---
 # <a name="delete-containers-based-on-container-name-prefix"></a>Ta bort containrar baserat på containerns namnprefix
 
@@ -34,7 +28,7 @@ Det här skriptet tar bort containrar i Azure Blob Storage baserat på ett prefi
 
 [!code-powershell[main](../../../powershell_scripts/storage/delete-containers-by-prefix/delete-containers-by-prefix.ps1 "Delete containers by prefix")]
 
-## <a name="clean-up-deployment"></a>Rensa distribution 
+## <a name="clean-up-deployment"></a>Rensa distribution
 
 Kör följande kommando för att ta bort resursgruppen, återstående containrar och alla relaterade resurser.
 

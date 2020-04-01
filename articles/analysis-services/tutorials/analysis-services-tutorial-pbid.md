@@ -1,17 +1,17 @@
 ---
-title: Självstudie – ansluta Azure Analysis Services med Power BI Desktop | Microsoft Docs
+title: Självstudiekurs – Anslut Azure Analysis Services med Power BI-skrivbordet | Microsoft-dokument
 author: minewiskan
-description: Lär dig hur du hämtar ett Analysis Services server namn från Azure Portal och sedan ansluter till servern med hjälp av Power BI Desktop.
+description: Lär dig hur du hämtar ett Analysis Services-servernamn från Azure-portalen och sedan ansluter till servern med hjälp av Power BI Desktop.
 ms.service: azure-analysis-services
 ms.topic: tutorial
 ms.date: 10/30/2019
 ms.author: owend
 ms.reviewer: owend
 ms.openlocfilehash: 4d8c753f06e58fd1cce1c55eca213637cb70e436
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73572321"
 ---
 # <a name="tutorial-connect-with-power-bi-desktop"></a>Självstudie: Ansluta med Power BI Desktop
@@ -23,7 +23,7 @@ I den här självstudien använder du Power BI Desktop för att ansluta till exe
 > * Anslut med hjälp av Power BI Desktop
 > * Skapa en enkel rapport
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 - [Lägg till exempelmodelldatabasen adventureworks](../analysis-services-create-sample-model.md) på din server.
 - Se till att du har [*läsbehörighet*](../analysis-services-server-admins.md) för exempelmodelldatabasen adventureworks.
@@ -43,7 +43,7 @@ Välj **Azure Portal** > server > **Översikt** > **Servernamn** och kopiera ser
 
 ## <a name="connect-in-power-bi-desktop"></a>Ansluta i Power BI Desktop
 
-1. I Power BI Desktop klickar du på **Hämta data** > **Azure** > **Azure Analysis Services-databas**.
+1. Klicka på Hämta **data** > **Azure** > **Azure Analysis Services-databas**i Power BI Desktop .
 
    ![Ansluta i Hämta data](./media/analysis-services-tutorial-pbid/aas-pbid-connect-aasserver.png)
 
@@ -59,7 +59,7 @@ Välj **Azure Portal** > server > **Översikt** > **Servernamn** och kopiera ser
 
    ![Visualiseringar](./media/analysis-services-tutorial-pbid/aas-pbid-visualizations-report.png)
 
-5. I **FÄLT** > **Internet Sales**-tabellen (Internetförsäljning) väljer du måtten **Internet Sales Total** (Total Internetförsäljning) och **Margin** (Marginal). Välj **Product Category Name** (Namn på produktkategori) i tabellen **Product Category** (Produktkategori).
+5. I tabellen **Fält** > **internetförsäljning** väljer du **måtten Totalt internetförsäljning** och **Marginalmått.** Välj **Product Category Name** (Namn på produktkategori) i tabellen **Product Category** (Produktkategori).
 
    ![Slutför rapporten](./media/analysis-services-tutorial-pbid/aas-pbid-complete-report.png)
 
@@ -70,4 +70,4 @@ Välj **Azure Portal** > server > **Översikt** > **Servernamn** och kopiera ser
 Om du inte behöver rapporten längre behöver du inte spara den. Du kan också ta bort filen om du har sparat den.
 
 ## <a name="next-steps"></a>Nästa steg
-I den här självstudien har du lärt dig att använda Power BI Desktop för att ansluta till en datamodell på en server och skapa en enkel rapport. Om du inte är bekant med hur du skapar en data modell kan du läsa [själv studie kursen om data modellering i Adventure Works Internet Sales](https://docs.microsoft.com/analysis-services/tutorial-tabular-1400/as-adventure-works-tutorial) i SQL Server Analysis Services-dokumenten.
+I den här självstudien har du lärt dig att använda Power BI Desktop för att ansluta till en datamodell på en server och skapa en enkel rapport. Om du inte är bekant med hur du skapar en datamodell läser du [tabelldatamodelleringshandledningen adventure works Internet Sales](https://docs.microsoft.com/analysis-services/tutorial-tabular-1400/as-adventure-works-tutorial) i doc-dokumenten för SQL Server Analysis Services.

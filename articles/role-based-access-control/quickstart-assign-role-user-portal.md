@@ -1,6 +1,6 @@
 ---
-title: 'Självstudie: bevilja användar åtkomst till Azure-resurser med RBAC och Azure Portal '
-description: I den här självstudien får du lära dig att ge en användare åtkomst till Azure-resurser med hjälp av rollbaserad åtkomst kontroll (RBAC) i Azure Portal.
+title: 'Självstudiekurs: Bevilja användaråtkomst till Azure-resurser med RBAC och Azure-portalen '
+description: I den här självstudien kan du lära dig hur du ger en användare åtkomst till Azure-resurser med hjälp av rollbaserad åtkomstkontroll (RBAC) i Azure-portalen.
 services: role-based-access-control
 documentationCenter: ''
 author: rolyon
@@ -14,23 +14,23 @@ ms.workload: identity
 ms.date: 02/22/2019
 ms.author: rolyon
 ms.openlocfilehash: 6281c9a1818a3b46ac4f7a62f8ae76668db56887
-ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77138096"
 ---
-# <a name="tutorial-grant-a-user-access-to-azure-resources-using-rbac-and-the-azure-portal"></a>Självstudie: ge en användare åtkomst till Azure-resurser med RBAC och Azure Portal
+# <a name="tutorial-grant-a-user-access-to-azure-resources-using-rbac-and-the-azure-portal"></a>Självstudiekurs: Bevilja en användare åtkomst till Azure-resurser med HJÄLP AV RBAC och Azure-portalen
 
-[Rollbaserad åtkomstkontroll (RBAC)](overview.md) är metoden som du använder när du hanterar åtkomst till Azure-resurser. I den här självstudien ger du en användare behörighet att skapa och hantera virtuella datorer i en resursgrupp.
+[Rollbaserad åtkomstkontroll (RBAC)](overview.md) är det du använder för att hantera åtkomst till Azure-resurser. I den här självstudien ger du en användare behörighet att skapa och hantera virtuella datorer i en resursgrupp.
 
-I den här guiden får du lära dig att:
+I den här självstudiekursen får du lära du dig att:
 
 > [!div class="checklist"]
 > * Bevilja åtkomst för en användare i ett resursgruppomfång
 > * Tar bort åtkomst
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 
@@ -62,13 +62,13 @@ För att skapa åtkomst i RBAC skapar du rolltilldelningar.
 
 1. I listan över **Resursgrupper** klicka du på den nya resursgruppen **rbac-resource-group**.
 
-1. Klicka på **Åtkomstkontroll (IAM)** .
+1. Klicka på **Åtkomstkontroll (IAM)**.
 
 1. Klicka på fliken **Rolltilldelningar** för att visa den aktuella listan med rolltilldelningar.
 
    ![Bladet Åtkomstkontroll (IAM) för resursgruppen](./media/quickstart-assign-role-user-portal/access-control.png)
 
-1. Klicka på **Lägg till** > **Lägg till rolltilldelning** för att öppna fönsterrutan Lägg till rolltilldelning.
+1. Klicka på **Lägg** > **till till rolltilldelning** för att öppna fönstret Lägg till rolltilldelning.
 
    Om du inte har behörighet att tilldela roller är alternativet Lägg till rolltilldelning inaktiverat.
 
@@ -115,4 +115,4 @@ I RBAC kan du ta bort en rolltilldelning för att ta bort åtkomst.
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Självstudie: ge en användare åtkomst till Azure-resurser med RBAC och Azure PowerShell](tutorial-role-assignments-user-powershell.md)
+> [Självstudiekurs: Bevilja en användare åtkomst till Azure-resurser med RBAC och Azure PowerShell](tutorial-role-assignments-user-powershell.md)

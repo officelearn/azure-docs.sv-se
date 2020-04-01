@@ -1,5 +1,5 @@
 ---
-title: Skript exempel för Azure CLI – distribuera LAMP-stacken i en belastningsutjämnad skalnings uppsättning för virtuella datorer
+title: Exempel på Azure CLI-skript – distribuera LAMP-stacken i en belastningsbalanserad skalningsuppsättning för virtuella datorer
 description: Använd ett tillägg för anpassat skript för att distribuera LAMP-stacken i en belastningsutjämnad skalningsuppsättning med virtuella datorer i Azure.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -14,10 +14,10 @@ ms.workload: infrastructure
 ms.custom: mvc
 ms.date: 04/05/2017
 ms.openlocfilehash: 00aa744f09b7bcbbbc258b92a8fd5ab750e447c7
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74039103"
 ---
 # <a name="deploy-the-lamp-stack-in-a-load-balanced-virtual-machine-scale-set"></a>Distribuera LAMP-stacken i en belastningsutjämnad skalningsuppsättning med virtuella datorer
@@ -63,4 +63,4 @@ I det här skriptet används följande kommandon för att skapa en resursgrupp, 
 
 Mer information om Azure CLI finns i [Azure CLI-dokumentationen](https://docs.microsoft.com/cli/azure).
 
-Ytterligare CLI-skriptexempel för virtuella datorer finns i [dokumentationen för virtuella Azure Linux-datorer](../linux/cli-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Ytterligare CLI-skriptexempel för virtuella datorer finns i [Dokumentation för virtuella Azure Linux-datorer](../linux/cli-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).

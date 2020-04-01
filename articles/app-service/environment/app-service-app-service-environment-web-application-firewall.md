@@ -1,18 +1,18 @@
 ---
 title: Konfigurera en WAF
-description: Lär dig hur du konfigurerar en brand vägg för webbaserade program (WAF) framför dina App Service-miljön, antingen med Azure Application Gateway eller WAF från tredje part.
+description: Lär dig hur du konfigurerar en brandvägg för webbprogram (WAF) framför apptjänstmiljön, antingen med Azure Application Gateway eller en WAF från tredje part.
 author: ccompy
 ms.assetid: a2101291-83ba-4169-98a2-2c0ed9a65e8d
 ms.topic: tutorial
 ms.date: 03/03/2018
 ms.author: stefsch
-ms.custom: seodec18
-ms.openlocfilehash: ba53438eb5ae1870cb180b169348ab0f92e5f305
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.custom: mvc, seodec18
+ms.openlocfilehash: 51375c13d842bda2450a83e1bbc48b741adba39b
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74688762"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80057452"
 ---
 # <a name="configuring-a-web-application-firewall-waf-for-app-service-environment"></a>Konfigurera en brandvägg för webbaserade program (WAF) för en App Service-miljö
 ## <a name="overview"></a>Översikt
@@ -23,7 +23,7 @@ Det finns flera alternativ utöver Azure Application Gateway, till exempel [Barr
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../../includes/app-service-web-to-api-and-mobile.md)] 
 
-## <a name="setup"></a>Konfiguration
+## <a name="setup"></a>Installation
 I det här dokumentet konfigurerar vi App Service-miljön bakom flera belastningsutjämnade instanser av Barracuda WAF så att endast trafik från WAF kan nå App Service-miljön och att det inte går att komma åt miljön från DMZ. Vi har också Azure Traffic Manager framför Barracuda WAF-instanserna för att belastningsutjämna över Azure-datacenter och -regioner. Ett översiktsdiagram över hur konfigurationen skulle se ut:
 
 ![Arkitektur][Architecture] 

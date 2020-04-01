@@ -1,17 +1,17 @@
 ---
-title: Självstudie – konfigurera köer i Azure Service Bus med Ansible
-description: Lär dig hur du använder Ansible för att skapa en Azure Service Bus kö
-keywords: Ansible, Azure, DevOps, bash, Spelbok, Service Bus, Queue
+title: Självstudiekurs - Konfigurera köer i Azure Service Bus med Ansible
+description: Lär dig hur du använder Ansible för att skapa en Azure Service Bus-kö
+keywords: ansible, azurblå, devops, bash, playbook, servicebuss, kö
 ms.topic: tutorial
 ms.date: 04/30/2019
 ms.openlocfilehash: 8ba4c2296d903c4f35aa36eb92dfbc3b56ec4b18
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "76713232"
 ---
-# <a name="tutorial-configure-queues-in-azure-service-bus-using-ansible"></a>Självstudie: konfigurera köer i Azure Service Bus med Ansible
+# <a name="tutorial-configure-queues-in-azure-service-bus-using-ansible"></a>Självstudiekurs: Konfigurera köer i Azure Service Bus med Ansible
 
 [!INCLUDE [ansible-28-note.md](../../includes/ansible-28-note.md)]
 
@@ -23,21 +23,21 @@ ms.locfileid: "76713232"
 >
 > * Skapa en kö
 > * Skapa en SAS-plicy
-> * Hämta namn områdes information
-> * Hämta Queue-information
-> * Återkalla SAS-principen för kön
+> * Hämta namnområdesinformation
+> * Hämta köinformation
+> * Återkalla sas-principen i kön
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../../includes/open-source-devops-prereqs-azure-subscription.md)]
 [!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-cloudshell-use-or-vm-creation2.md)]
 
-## <a name="create-the-service-bus-queue"></a>Skapa Service Bus kön
+## <a name="create-the-service-bus-queue"></a>Skapa servicebusskön
 
-Exemplet Spelbok-koden skapar följande resurser:
+Exempelspelbokskoden skapar följande resurser:
 - Azure-resursgrupp
-- Service Bus namn område i resurs gruppen
-- Service Bus kö med namn området
+- Service Bus-namnområde i resursgruppen
+- Service Bus kö med namnområdet
 
 Spara följande spelbok som `servicebus_queue.yml`:
 
@@ -68,7 +68,7 @@ Spara följande spelbok som `servicebus_queue.yml`:
           var: queue
 ```
 
-Kör Spelbok med kommandot `ansible-playbook`:
+Kör spelboken med `ansible-playbook` kommandot:
 
 ```bash
 ansible-playbook servicebus_queue.yml
@@ -76,9 +76,9 @@ ansible-playbook servicebus_queue.yml
 
 ## <a name="create-the-sas-policy"></a>Skapa SAS-principen
 
-En [signatur för delad åtkomst (SAS)](/azure/storage/common/storage-dotnet-shared-access-signature-part-1) är en anspråksbaserad mekanism för auktorisering med hjälp av tokens. 
+En [SAS (Shared Access Signature)](/azure/storage/common/storage-dotnet-shared-access-signature-part-1) är en anspråksbaserad auktoriseringsmekanism med token. 
 
-Exempel koden Spelbok skapar två SAS-principer för en Service Bus kö med olika behörigheter.
+Exempelspelskoden skapar två SAS-principer för en Service Bus-kö med olika behörigheter.
 
 Spara följande spelbok som `servicebus_queue_policy.yml`:
 
@@ -102,18 +102,18 @@ Spara följande spelbok som `servicebus_queue_policy.yml`:
           var: policy
 ```
 
-Se följande anmärkningar innan du kör Spelbok:
-- Värdet `rights` representerar den behörighet som en användare har i kön. Ange något av följande värden: `manage`, `listen`, `send`eller `listen_send`.
+Innan du kör spelboken läser du följande anmärkningar:
+- Värdet `rights` representerar det privilegium en användare har med kön. Ange något av följande `manage` `listen`värden: , , `send`eller `listen_send`.
 
-Kör Spelbok med kommandot `ansible-playbook`:
+Kör spelboken med `ansible-playbook` kommandot:
 
 ```bash
 ansible-playbook servicebus_queue_policy.yml
 ```
 
-## <a name="retrieve-namespace-information"></a>Hämta namn områdes information
+## <a name="retrieve-namespace-information"></a>Hämta namnområdesinformation
 
-Exempel koden Spelbok frågar efter namn områdes informationen.
+Exempel på spelbokskod frågar namnområdesinformationen.
 
 Spara följande spelbok som `servicebus_namespace_info.yml`:
 
@@ -135,18 +135,18 @@ Spara följande spelbok som `servicebus_namespace_info.yml`:
           var: ns
 ```
 
-Se följande anmärkningar innan du kör Spelbok:
-- Värdet `show_sas_policies` anger om SAS-principerna ska visas i den angivna namn rymden. Som standard är värdet `False` för att undvika ytterligare nätverks belastning.
+Innan du kör spelboken läser du följande anmärkningar:
+- Värdet `show_sas_policies` anger om SAS-principerna ska visas under det angivna namnområdet. Som standard är `False` värdet att undvika ytterligare nätverksomkostnader.
 
-Kör Spelbok med kommandot `ansible-playbook`:
+Kör spelboken med `ansible-playbook` kommandot:
 
 ```bash
 ansible-playbook servicebus_namespace_info.yml
 ```
 
-## <a name="retrieve-queue-information"></a>Hämta Queue-information
+## <a name="retrieve-queue-information"></a>Hämta köinformation
 
-Spelbok-koden frågar efter Queue-information. 
+Exempel på spelbokskod frågar köinformation. 
 
 Spara följande spelbok som `servicebus_queue_info.yml`:
 
@@ -170,18 +170,18 @@ Spara följande spelbok som `servicebus_queue_info.yml`:
           var: queue
 ```
 
-Se följande anmärkningar innan du kör Spelbok:
-- Värdet `show_sas_policies` anger om SAS-principerna ska visas i den angivna kön. Som standard är det här värdet inställt på `False` för att undvika ytterligare nätverks belastning.
+Innan du kör spelboken läser du följande anmärkningar:
+- Värdet `show_sas_policies` anger om SAS-principerna ska visas under den angivna kön. Som standard är det `False` här värdet inställt på att undvika ytterligare nätverksomkostnader.
 
-Kör Spelbok med kommandot `ansible-playbook`:
+Kör spelboken med `ansible-playbook` kommandot:
 
 ```bash
 ansible-playbook servicebus_queue_info.yml
 ```
 
-## <a name="revoke-the-queue-sas-policy"></a>Återkalla SAS-principen för kön
+## <a name="revoke-the-queue-sas-policy"></a>Återkalla sas-principen i kön
 
-Spelbok-koden tar bort en SAS-princip för kö.
+Exempelspelbokskoden tar bort en SAS-köprincip.
 
 Spara följande spelbok som `servicebus_queue_policy_delete.yml`:
 
@@ -202,7 +202,7 @@ Spara följande spelbok som `servicebus_queue_policy_delete.yml`:
           state: absent
 ```
 
-Kör Spelbok med kommandot `ansible-playbook`:
+Kör spelboken med `ansible-playbook` kommandot:
 
 ```bash
 ansible-playbook servicebus_queue_policy_delete.yml
@@ -210,9 +210,9 @@ ansible-playbook servicebus_queue_policy_delete.yml
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Ta bort de resurser som skapats i den här artikeln när de inte längre behövs. 
+När det inte längre behövs tar du bort de resurser som skapas i den här artikeln. 
 
-Spara följande kod som `cleanup.yml`:
+Spara följande kod `cleanup.yml`som:
 
 ```yml
 ---
@@ -240,7 +240,7 @@ Spara följande kod som `cleanup.yml`:
           force_delete_nonempty: yes
 ```
 
-Kör Spelbok med kommandot `ansible-playbook`:
+Kör spelboken med `ansible-playbook` kommandot:
 
 ```bash
 ansible-playbook cleanup.yml
@@ -248,4 +248,4 @@ ansible-playbook cleanup.yml
 
 ## <a name="next-steps"></a>Nästa steg
 > [!div class="nextstepaction"] 
-> [Självstudie: Konfigurera ett ämne i Azure Service Bus med Ansible](ansible-service-bus-topic-configure.md)
+> [Självstudiekurs: Konfigurera ett ämne i Azure Service Bus med Ansible](ansible-service-bus-topic-configure.md)

@@ -8,10 +8,10 @@ ms.date: 02/20/2018
 ms.author: rogarana
 ms.subservice: blobs
 ms.openlocfilehash: dc0f8171e18598e4f805a03a4bc6d17de220fbe1
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "68698975"
 ---
 # <a name="verify-throughput-and-latency-metrics-for-a-storage-account"></a>Kontrollera måtten för dataflöde och svarstid för ett lagringskonto
@@ -41,7 +41,7 @@ Följande mått ger dig en uppfattning om programmets svarstid och dataflöde. D
 |**Lyckad E2E-svarstid**|Den genomsnittliga svarstiden från slutpunkt till slutpunkt för lyckade begäranden som gjorts till en lagringstjänst eller för en angiven API-åtgärd. Värdet innefattar bearbetningstiden som krävs i Azure Storage för att läsa begäran, skicka svaret och ta emot en bekräftelse av svaret.|
 |**Lyckad serversvarstid**|Den genomsnittliga tiden det tar för Azure Storage att bearbeta en lyckad begäran. Det här värdet innefattar inte nätverksfördröjningen som anges i SuccessE2ELatency. |
 |**Transaktioner**|Antalet begäranden som görs till en lagringstjänst eller för den angivna API-åtgärden. Det här värdet innefattar lyckade och misslyckade begäranden samt begäranden som genererat fel. I det här exemplet angavs blockstorleken till 100 MB. I det här fallet betraktas varje block på 100 MB som en transaktion.|
-|**Inkommande**|Mängden inkommande data. Det här värdet innefattar inkommande data från en extern klient till Azure Storage samt inkommande data inom Azure. |
+|**Ingress**|Mängden inkommande data. Det här värdet innefattar inkommande data från en extern klient till Azure Storage samt inkommande data inom Azure. |
 |**Utgående**|Mängden utgående data. Det här värdet innefattar utgående data från en extern klient till Azure Storage samt utgående data inom Azure. Därför motsvarar inte det här värdet fakturerbara utgående data. |
 
 Välj **Senaste 24 timmarna (automatisk)** bredvid **Tid**. Välj **Senaste timmen** och **Minut** för **Tidskornighet** och klicka sedan på **Tillämpa**.

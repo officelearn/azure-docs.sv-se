@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 03/16/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: bc3d35830d833c0223a400140c53e583d2f6ed37
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 79f85261115dbddcb0b04cd2863a90912de2ab87
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79475433"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80474900"
 ---
 # <a name="app-service-networking-features"></a>Nätverksfunktioner för App Service
 
@@ -81,7 +81,7 @@ När du använder en app tilldelad adress går trafiken fortfarande igenom samma
 * Stöd för IP-baserade SSL-behov för din app
 * Ange en dedikerad adress för din app som inte delas med något annat
 
-Du kan lära dig hur du ställer in en adress i din app med självstudien om [Konfigurera IP-baserad SSL][appassignedaddress]. 
+Du kan lära dig hur du anger en adress i din app med självstudien om [Lägg till ett TLS/SSL-certifikat i Azure App Service][appassignedaddress]. 
 
 ### <a name="access-restrictions"></a>Begränsningar för åtkomst 
 

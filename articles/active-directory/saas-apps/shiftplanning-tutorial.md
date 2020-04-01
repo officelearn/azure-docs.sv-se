@@ -1,5 +1,5 @@
 ---
-title: 'Självstudie: Azure Active Directory integrering med mänskligheten | Microsoft Docs'
+title: 'Självstudiekurs: Azure Active Directory-integrering med mänskligheten | Microsoft-dokument'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Humanity.
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 02/15/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: fd7cfe93aa39982836944230f860c603c7117ceb
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74233442"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-humanity"></a>Självstudie: Azure Active Directory integrering med mänskligheten
+# <a name="tutorial-azure-active-directory-integration-with-humanity"></a>Självstudiekurs: Azure Active Directory-integrering med mänskligheten
 
 I den här självstudien lär du dig att integrera Humanity med Azure Active Directory (AD Azure).
 Integreringen av Humanity med Azure AD medför följande fördelar:
@@ -33,7 +33,7 @@ Integreringen av Humanity med Azure AD medför följande fördelar:
 * Du kan hantera dina konton på en central plats – Azure-portalen.
 
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
+Om du inte har en Azure-prenumeration [skapar du ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
 ## <a name="prerequisites"></a>Krav
 
@@ -108,10 +108,10 @@ Utför följande steg för att konfigurera enkel inloggning i Azure AD med Human
 
     a. I textrutan **Inloggnings-URL** anger du en URL enligt följande mönster: `https://company.humanity.com/includes/saml/`
 
-    b. I textrutan **Identifierare (entitets-ID)** skriver du en URL med följande mönster: `https://company.humanity.com/app/`
+    b. I textrutan **Identifierare (entitets-ID)** anger du en URL enligt följande mönster: `https://company.humanity.com/app/`
 
     > [!NOTE]
-    > Dessa värden är inte verkliga. Uppdatera de här värdena med faktisk inloggnings-URL och identifierare. Kontakta [kundsupporten för Humanity](https://www.humanity.com/support/) och be om dessa värden. Du kan även se de mönster som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
+    > Dessa värden är inte verkliga. Uppdatera dessa värden med faktisk inloggnings-URL och identifierare. Kontakta [kundsupporten för Humanity](https://www.humanity.com/support/) och be om dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
 4. På sidan **Konfigurera enkel inloggning med SAML** går du till avsnittet **SAML-signeringscertifikat**, klickar du på **Ladda ned** för att ladda ned **Certifikat (Base64)** från de angivna alternativen enligt dina behov och sparar det på datorn.
 
@@ -133,7 +133,7 @@ Utför följande steg för att konfigurera enkel inloggning i Azure AD med Human
 
 2. På menyn längst upp klickar du på **Admin**.
 
-    ![Innehavaradministration](./media/shiftplanning-tutorial/iC786619.png "Admin")
+    ![Administratör](./media/shiftplanning-tutorial/iC786619.png "Admin")
 3. Under **Integrering** klickar du på **Enkel inloggning**.
 
     ![Enkel inloggning](./media/shiftplanning-tutorial/iC786620.png "för Aha!")
@@ -142,7 +142,7 @@ Utför följande steg för att konfigurera enkel inloggning i Azure AD med Human
 
     ![Enkel inloggning](./media/shiftplanning-tutorial/iC786905.png "för Aha!")
 
-    a. Välj **SAML-aktiverat** .
+    a. Välj **SAML-aktiverat **.
 
     b. Välj **Allow Password Login** (Tillåt inloggning med lösenord).
 
@@ -162,7 +162,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     ![Länkarna ”Användare och grupper” och ”Alla grupper”](common/users.png)
 
-2. Välj **Ny användare** överst på skärmen.
+2. Välj **Ny användare** högst upp på skärmen.
 
     ![Knappen Ny användare](common/new-user.png)
 
@@ -172,7 +172,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     a. I fältet **Namn** anger du **BrittaSimon**.
   
-    b. I fältet **användar namn** skriver du **brittasimon\@yourcompanydomain. extension**  
+    b. I fältet **Användarnamn** skriver **du\@brittasimon yourcompanydomain.extension**  
     Till exempel, BrittaSimon@contoso.com
 
     c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
@@ -201,7 +201,7 @@ I det här avsnittet gör du det möjligt för Britta Simon att använda enkel i
 
 5. I dialogrutan **Användare och grupper** väljer du **Britta Simon** i listan med användare och klickar på knappen **Välj** längst ned på skärmen.
 
-6. Om du förväntar dig ett rollvärde i SAML-försäkran väljer du i dialogrutan **Välj roll** lämplig roll för användaren i listan och klickar sedan på knappen **Välj** längst ned på skärmen.
+6. Om du förväntar dig något rollvärde i SAML-påståendet väljer du lämplig roll för användaren i listan i dialogrutan **Välj roll** och klickar sedan på knappen **Välj** längst ned på skärmen.
 
 7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
 
@@ -209,17 +209,17 @@ I det här avsnittet gör du det möjligt för Britta Simon att använda enkel i
 
 För att göra det möjligt för Azure AD-användare att logga in på Humanity måste de etableras till Humanity. När det gäller Humanity är etablering en manuell uppgift.
 
-**Utför följande steg för att etablera ett användarkonto:**
+**Gör följande för att etablera ett användarkonto:**
 
 1. Logga in på din **Humanity**-företagswebbplats som administratör.
 
 2. Klicka på **Admin**.
 
-    ![Innehavaradministration](./media/shiftplanning-tutorial/iC786619.png "Admin")
+    ![Administratör](./media/shiftplanning-tutorial/iC786619.png "Admin")
 
 3. Klicka på **Staff** (Personal).
 
-    ![Bilda](./media/shiftplanning-tutorial/ic786623.png "Bilda")
+    ![Personal](./media/shiftplanning-tutorial/ic786623.png "Personal")
 
 4. Under **Åtgärder** klickar du på **Add Employees** (Lägg till medarbetare).
 
@@ -229,12 +229,12 @@ För att göra det möjligt för Azure AD-användare att logga in på Humanity m
 
     ![Spara medarbetare](./media/shiftplanning-tutorial/iC786625.png "Spara medarbetare")
 
-    a. Ange **förnamn**, **efter namn**och **e-postadress** för ett giltigt Azure AD-konto som du vill etablera i de relaterade text rutorna.
+    a. Skriv **förnamn,** **efternamn**och **e-post** för ett giltigt Azure AD-konto som du vill etablera i relaterade textrutor.
 
     b. Klicka på **Save Employees** (Spara medarbetare).
 
 > [!NOTE]
-> Du kan använda andra verktyg för mänskligheten av användar konton eller API: er som tillhandahålls av mänskligheten för att etablera Azure AD-användarkonton.
+> Du kan använda andra verktyg för att skapa mänsklighetens användarkonto eller API:er som tillhandahålls av mänskligheten för att etablera Azure AD-användarkonton.
 
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning
 

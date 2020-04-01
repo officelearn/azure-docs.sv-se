@@ -1,5 +1,5 @@
 ---
-title: 'Självstudie: Azure Active Directory integrering med IdeaScale | Microsoft Docs'
+title: 'Självstudiekurs: Azure Active Directory-integrering med IdeaScale | Microsoft-dokument'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och IdeaScale.
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 02/20/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 81594e6a21372f2b4dacedbda638cc87bad966db
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74227569"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-ideascale"></a>Självstudie: Azure Active Directory integrering med IdeaScale
+# <a name="tutorial-azure-active-directory-integration-with-ideascale"></a>Självstudiekurs: Azure Active Directory-integrering med IdeaScale
 
 I den här självstudien lär du dig att integrera IdeaScale med Azure Active Directory (AD Azure).
 När du integrerar IdeaScale med Azure AD innebär det följande fördelar:
@@ -33,7 +33,7 @@ När du integrerar IdeaScale med Azure AD innebär det följande fördelar:
 * Du kan hantera dina konton på en central plats – Azure-portalen.
 
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
+Om du inte har en Azure-prenumeration [skapar du ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
 ## <a name="prerequisites"></a>Krav
 
@@ -90,7 +90,7 @@ I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure-portalen
 
 Utför följande steg för att konfigurera enkel inloggning i Azure AD med IdeaScale:
 
-1. Välj [Enkel inloggning](https://portal.azure.com/) på sidan för programintegrering av **IdeaScale** på **Azure-portalen**.
+1. Välj **Enkel inloggning** på sidan för programintegrering av **IdeaScale** på [Azure-portalen](https://portal.azure.com/).
 
     ![Konfigurera länk för enkel inloggning](common/select-sso.png)
 
@@ -108,7 +108,7 @@ Utför följande steg för att konfigurera enkel inloggning i Azure AD med IdeaS
 
     a. I textrutan **Inloggnings-URL** anger du en URL enligt följande mönster: `https://<companyname>.ideascale.com`
 
-    b. I textrutan **Identifierare (entitets-ID)** anger du en URL enligt följande mönster:
+    b. I textrutan **Identifierare (entitets-ID)** anger du en URL enligt följande mönster: 
     
     | |
     |--|
@@ -116,9 +116,9 @@ Utför följande steg för att konfigurera enkel inloggning i Azure AD med IdeaS
     | `https://<companyname>.ideascale.com` |
 
     > [!NOTE]
-    > Dessa värden är inte verkliga. Uppdatera de här värdena med faktisk inloggnings-URL och identifierare. Kontakta [supportteamet för IdeaScale-klienten](https://support.ideascale.com/) för att få dessa värden. Du kan även se de mönster som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
+    > Dessa värden är inte verkliga. Uppdatera dessa värden med faktisk inloggnings-URL och identifierare. Kontakta [supportteamet för IdeaScale-klienten](https://support.ideascale.com/) för att få dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
-5. Klicka på **Ladda ned** i avsnittet **SAML-signeringscertifikat** på sidan **Konfigurera enkel inloggning med SAML** när du ska ladda ned **Federation Metadata XML** från de angivna alternativen enligt dina behov och spara det på datorn.
+5. På sidan **Set up Single Sign-On with SAML** (Konfigurera enkel inloggning med SAML) går du till avsnittet **SAML Signing Certificate** (SAML-signeringscertifikat), klickar på **Ladda ned** för att ladda ned **Federation Metadata-XML** från de angivna alternativen enligt dina behov och spara den på datorn.
 
     ![Länk för nedladdning av certifikatet](common/metadataxml.png)
 
@@ -142,15 +142,15 @@ Utför följande steg för att konfigurera enkel inloggning i Azure AD med IdeaS
 
 3. Gå till **Säkerhet \> Inställningar för enkel inloggning**.
 
-    ![Inställningar för enskilda inloggning](./media/ideascale-tutorial/ic790848.png "Inställningar för enskilda inloggning")
+    ![Inställningar för enkel inloggning](./media/ideascale-tutorial/ic790848.png "Inställningar för enkel inloggning")
 
 4. Som **typ av enkel inloggning** väljer du **SAML 2.0**.
 
-    ![Enskild inloggning-typ](./media/ideascale-tutorial/ic790849.png "Enskild inloggning-typ")
+    ![Enkel signontyp](./media/ideascale-tutorial/ic790849.png "Enkel signontyp")
 
 5. I dialogrutan **Inställningar för enkel inloggning** utför du följande steg:
 
-    ![Inställningar för enskilda inloggning](./media/ideascale-tutorial/ic790850.png "Inställningar för enskilda inloggning")
+    ![Inställningar för enkel inloggning](./media/ideascale-tutorial/ic790850.png "Inställningar för enkel inloggning")
 
     a. I textrutan för **SAML-entitets-ID för IdP** klistrar du in värdet för **Azure Ad-identifieraren**, som du har kopierat från Azure-portalen.
 
@@ -168,7 +168,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     ![Länkarna ”Användare och grupper” och ”Alla grupper”](common/users.png)
 
-2. Välj **Ny användare** överst på skärmen.
+2. Välj **Ny användare** högst upp på skärmen.
 
     ![Knappen Ny användare](common/new-user.png)
 
@@ -178,7 +178,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     a. I fältet **Namn** anger du **BrittaSimon**.
   
-    b. I fältet **användar namn** skriver du **brittasimon\@yourcompanydomain. extension**  
+    b. I fältet **Användarnamn** skriver **du\@brittasimon yourcompanydomain.extension**  
     Till exempel, BrittaSimon@contoso.com
 
     c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
@@ -207,7 +207,7 @@ I det här avsnittet gör du det möjligt för Britta Simon att använda enkel i
 
 5. I dialogrutan **Användare och grupper** väljer du **Britta Simon** i listan med användare och klickar på knappen **Välj** längst ned på skärmen.
 
-6. Om du förväntar dig ett rollvärde i SAML-försäkran väljer du i dialogrutan **Välj roll** lämplig roll för användaren i listan och klickar sedan på knappen **Välj** längst ned på skärmen.
+6. Om du förväntar dig något rollvärde i SAML-påståendet väljer du lämplig roll för användaren i listan i dialogrutan **Välj roll** och klickar sedan på knappen **Välj** längst ned på skärmen.
 
 7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
 
@@ -215,7 +215,7 @@ I det här avsnittet gör du det möjligt för Britta Simon att använda enkel i
 
 Om du vill att Azure AD-användare ska kunna logga in på IdeaScale måste de vara etablerade i IdeaScale. I IdeaScale görs etablering manuellt.
 
-**Utför följande steg för att konfigurera användarförsörjning:**
+**Konfigurera användaretablering genom att utföra följande steg:**
 
 1. Logga in på din **IdeaScale**-företagsplats som administratör.
 
@@ -227,7 +227,7 @@ Om du vill att Azure AD-användare ska kunna logga in på IdeaScale måste de va
 
 4. Klicka på **Lägg till medlem**.
 
-    ![Medlems hantering](./media/ideascale-tutorial/ic790852.png "Medlems hantering")
+    ![Medlemshantering](./media/ideascale-tutorial/ic790852.png "Medlemshantering")
 
 5. I avsnittet Lägga till ny medlem utför du följande steg:
 
@@ -241,7 +241,7 @@ Om du vill att Azure AD-användare ska kunna logga in på IdeaScale måste de va
     > Azure Active Directory-kontoinnehavaren får ett e-postmeddelande med en länk för att bekräfta kontot innan det blir aktivt.
 
 > [!NOTE]
-> Du kan använda andra verktyg för IdeaScale av användar konton eller API: er som tillhandahålls av IdeaScale för att etablera Azure AD-användarkonton.
+> Du kan använda andra verktyg eller API:er för att skapa ett användarkonto i IdeaScale för att etablera Azure AD-användarkonton.
 
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning
 

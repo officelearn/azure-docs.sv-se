@@ -1,25 +1,25 @@
 ---
-title: 'Självstudie: ASP.NET-app med SQL Database'
+title: 'Självstudiekurs: ASP.NET app med SQL Database'
 description: Lär dig hur du distribuerar en C# ASP.NET-app med en SQL Server-databas till Azure.
 ms.assetid: 03c584f1-a93c-4e3d-ac1b-c82b50c75d3e
 ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 06/25/2018
-ms.custom: seodec18
-ms.openlocfilehash: 2a0b3994af48372b8ed0a3c6eaecf4289d0980c1
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.custom: mvc, devcenter, vs-azure, seodec18
+ms.openlocfilehash: a9acb55f0a03a6ec1ba0bb6bb38c665b059b672b
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74671385"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80047023"
 ---
 # <a name="tutorial-build-an-aspnet-app-in-azure-with-sql-database"></a>Självstudie: Skapa en ASP.NET-app i Azure med SQL Database
 
-Med [Azure App Service](overview.md) får du en automatiskt uppdaterad webbvärdtjänst med hög skalbarhet. Den här självstudien visar hur du distribuerar en datadriven ASP.NET-app i App Service och ansluter den till [Azure SQL Database](../sql-database/sql-database-technical-overview.md). När du är klar har du en ASP.NET-app som körs i Azure och är ansluten till SQL Database.
+[Azure App Service](overview.md) tillhandahåller en mycket skalbar, självkorrigering webbhotell. Den här självstudien visar hur du distribuerar en datadriven ASP.NET-app i App Service och ansluter den till [Azure SQL Database](../sql-database/sql-database-technical-overview.md). När du är klar har du en ASP.NET app som körs i Azure och ansluten till SQL Database.
 
 ![Publicerat ASP.NET-program i Azure App Service](./media/app-service-web-tutorial-dotnet-sqldatabase/azure-app-in-browser.png)
 
-I den här guiden får du lära dig att:
+I den här självstudiekursen får du lära du dig att:
 
 > [!div class="checklist"]
 > * skapa en SQL Database i Azure
@@ -33,16 +33,16 @@ I den här guiden får du lära dig att:
 
 ## <a name="prerequisites"></a>Krav
 
-För att slutföra den här självstudien behöver du:
+För att slutföra den här kursen behöver du:
 
-Installera <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2019</a> med arbets belastningen **ASP.net och webb utveckling** .
+Installera <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2019</a> med **arbetsbelastningen ASP.NET och webbutveckling.**
 
-Om du redan har installerat Visual Studio lägger du till arbetsbelastningarna i Visual Studio genom att klicka på **Tools (Verktyg)**  > **Get Tools and Features (Skaffa verktyg och funktioner)** .
+Om du redan har installerat Visual Studio lägger du till arbetsbelastningarna i Visual Studio genom att klicka på **Verktyg** > **hämta verktyg och funktioner**.
 
 ## <a name="download-the-sample"></a>Hämta exemplet
 
 - [Ladda ned exempelprojektet](https://github.com/Azure-Samples/dotnet-sqldb-tutorial/archive/master.zip).
-- Extrahera (zippa upp) filen *dotnet-sqldb-tutorial-master.zip*.
+- Extrahera (packa upp) *filen dotnet-sqldb-tutorial-master.zip.*
 
 Exempelprojektet innehåller en enkel [ASP.NET MVC](https://www.asp.net/mvc) CRUD-app (create-read-update-delete) som använder [Entity Framework Code First](/aspnet/mvc/overview/getting-started/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application).
 
@@ -109,8 +109,8 @@ I dialogrutan **Configure App Service Plan** (Konfigurera App Service-plan) ange
 
 | Inställning  | Föreslaget värde | Mer information |
 | ----------------- | ------------ | ----|
-|**App Service-plan**| myAppServicePlan | [App Service-planer](../app-service/overview-hosting-plans.md) |
-|**Plats**| Europa, västra | [Azure-regioner](https://azure.microsoft.com/regions/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) |
+|**Plan för apptjänst**| myAppServicePlan | [App Service-planer](../app-service/overview-hosting-plans.md) |
+|**Location**| Europa, västra | [Azure-regioner](https://azure.microsoft.com/regions/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) |
 |**Storlek**| Kostnadsfri | [Prisnivåer](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)|
 
 ### <a name="create-a-sql-server-instance"></a>Skapa en SQL Server-instans
@@ -119,7 +119,7 @@ Innan du skapar en databas behöver du en [logisk server för Azure SQL Database
 
 Klicka på **Skapa en SQL Database**.
 
-![Skapa en SQL-databas](media/app-service-web-tutorial-dotnet-sqldatabase/web-app-name.png)
+![Skapa en SQL Database](media/app-service-web-tutorial-dotnet-sqldatabase/web-app-name.png)
 
 Dialogrutan **Configure SQL Database** (Konfigurera SQL-databas) öppnas. Klicka på **New** (Nytt) bredvid **SQL Server**. 
 
@@ -134,9 +134,9 @@ Kom ihåg det här användarnamnet och lösenordet. Du behöver dem senare för 
 
 ![Skapa SQL Server-instans](media/app-service-web-tutorial-dotnet-sqldatabase/configure-sql-database-server.png)
 
-Klicka på **OK** Stäng inte dialogrutan **Configure SQL Database** (Konfigurera SQL Database) ännu.
+Klicka på **OK**. Stäng inte dialogrutan **Configure SQL Database** (Konfigurera SQL Database) ännu.
 
-### <a name="create-a-sql-database"></a>Skapa en SQL-databas
+### <a name="create-a-sql-database"></a>Skapa en SQL Database
 
 I dialogrutan **Configure SQL Database** (Konfigurera SQL Database): 
 
@@ -156,7 +156,7 @@ Lägg till några att-göra-uppgifter.
 
 ![Publicerat ASP.NET-program i Azure app](./media/app-service-web-tutorial-dotnet-sqldatabase/azure-app-in-browser.png)
 
-Gratulerar! Din datadrivna ASP.NET-app körs live i Azure App Service.
+Grattis! Din datadrivna ASP.NET-app körs live i Azure App Service.
 
 ## <a name="access-the-sql-database-locally"></a>Lokal åtkomst till SQL Database
 
@@ -192,7 +192,7 @@ När Visual Studio har skapat brandväggsinställningen för SQL Database-instan
 
 Här kan du utföra de vanligaste databasåtgärderna, till exempel köra frågor, skapa vyer och lagrade procedurer och mycket mer. 
 
-Expandera din anslutning > **Databaser** >  **&lt;din databas>**  > **Tabeller**. Högerklicka på tabellen `Todoes` och välj **Visa data**. 
+Expandera anslutningen > **databaser** > **&lt;som databasen>**  >  **tabeller**. Högerklicka på tabellen `Todoes` och välj **Visa data**. 
 
 ![Utforska SQL Database-objekt](./media/app-service-web-tutorial-dotnet-sqldatabase/explore-sql-database.png)
 
@@ -300,9 +300,9 @@ Klicka på **Konfigurera** för att öppna publiceringsinställningarna.
 
 ![Öppna publiceringsinställningar](./media/app-service-web-tutorial-dotnet-sqldatabase/publish-settings.png)
 
-Klicka på **Nästa** i guiden.
+Klicka på **Nästa**i guiden .
 
-Kontrollera att anslutningssträngen för din SQL Database fylls i för **MyDatabaseContext (MyDbConnection)** . Du kan behöva välja databasen **myToDoAppDb** i listrutan. 
+Kontrollera att anslutningssträngen för din SQL Database fylls i för **MyDatabaseContext (MyDbConnection)**. Du kan behöva välja databasen **myToDoAppDb** i listrutan. 
 
 Välj **Execute Code First Migrations (runs on application start)** (Utför Code First Migrations (körs när programmet startar)) och klicka på **Save** (Spara).
 
@@ -355,12 +355,12 @@ Om du vill ändra spårningsnivåerna och ta emot andra spårningsmeddelanden sk
 
 Högerklicka på din Azure-app igen och välj **Visa inställningar**.
 
-I listrutan **Application Logging (File System)** (Programloggning (filsystem)) väljer du **Verbose** (Utförlig). Klicka på **Save** (Spara).
+I listrutan **Application Logging (File System)** (Programloggning (filsystem)) väljer du **Verbose** (Utförlig). Klicka på **Spara**.
 
 ![Ändra spårningsnivån till utförlig](./media/app-service-web-tutorial-dotnet-sqldatabase/trace-level-verbose.png)
 
 > [!TIP]
-> Du kan experimentera med olika spårningsnivåer och se vilka typer av meddelanden som visas för varje nivå. Till exempel omfattar nivån **Information** alla loggar som skapats av `Trace.TraceInformation()`, `Trace.TraceWarning()` och `Trace.TraceError()`, men inte loggar som skapats av `Trace.WriteLine()`.
+> Du kan experimentera med olika spårningsnivåer och se vilka typer av meddelanden som visas för varje nivå. **Informationsnivån** innehåller till exempel alla `Trace.TraceInformation()`loggar `Trace.TraceWarning()`som `Trace.TraceError()`skapats av , `Trace.WriteLine()`och , men inte loggar som skapats av .
 >
 >
 
@@ -383,11 +383,11 @@ Om du vill avsluta loggströmningstjänsten klickar du på knappen **Stop monito
 
 ## <a name="manage-your-azure-app"></a>Hantera din Azure-app
 
-Gå till [Azure Portal](https://portal.azure.com) för att hantera webbappen. Sök efter och välj **app Services**. 
+Gå till [Azure Portal](https://portal.azure.com) för att hantera webbappen. Sök efter och välj **AppTjänster**. 
 
-![Sök efter Azure App tjänster](./media/app-service-web-tutorial-dotnet-sqldatabase/azure-portal-navigate-app-services.png)
+![Sök efter Azure App Services](./media/app-service-web-tutorial-dotnet-sqldatabase/azure-portal-navigate-app-services.png)
 
-Välj namnet på din Azure-App.
+Välj namnet på din Azure-app.
 
 ![Portalnavigering till Azure-app](./media/app-service-web-tutorial-dotnet-sqldatabase/access-portal.png)
 

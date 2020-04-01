@@ -2,25 +2,19 @@
 title: Exempel på Azure CLI-skript – Rotera åtkomstnycklar för lagringskonto | Microsoft Docs
 description: Skapa ett Azure Storage-konto och sedan hämta och rotera kontoåtkomstnycklarna.
 services: storage
-documentationcenter: na
 author: tamram
-manager: timlt
-editor: tysonn
-ms.assetid: ''
-ms.custom: mvc
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: azurecli
+ms.subservice: blobs
+ms.devlang: cli
 ms.topic: sample
 ms.date: 06/22/2017
 ms.author: tamram
-ms.openlocfilehash: ac58886225221677aa003833167ff58cd578255d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: aa7cba00d865bb7b2c1e0fd1f0059fb35ffff690
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61228655"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80060833"
 ---
 # <a name="create-a-storage-account-and-rotate-its-account-access-keys"></a>Skapa ett lagringskonto och rotera kontoåtkomstnycklarna
 
@@ -34,7 +28,7 @@ Det här skriptet skapar ett Azure Storage-konto, visar åtkomstnycklarna för d
 
 [!code-azurecli-interactive[main](../../../cli_scripts/storage/rotate-storage-account-keys/rotate-storage-account-keys.sh "Rotate storage account keys")]
 
-## <a name="clean-up-deployment"></a>Rensa distribution 
+## <a name="clean-up-deployment"></a>Rensa distribution
 
 Kör följande kommando för att ta bort resursgruppen, lagringskontot och alla relaterade resurser.
 

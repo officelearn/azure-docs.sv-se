@@ -1,23 +1,24 @@
 ---
-title: Säker åtkomst till program data
+title: Säker åtkomst till programdata
 titleSuffix: Azure Storage
 description: Skydda ditt programs data i molnet med SAS-token, kryptering och HTTPS.
 services: storage
 author: tamram
 ms.service: storage
+ms.subservice: blobs
 ms.topic: tutorial
 ms.date: 03/06/2020
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.custom: mvc
-ms.openlocfilehash: b027ed6b936761e35e835401f9ce8398fac33073
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.openlocfilehash: 13a2a0bcc362a13b0c42650509d356f613527cfc
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79129637"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80061316"
 ---
-# <a name="secure-access-to-application-data"></a>Säker åtkomst till program data
+# <a name="secure-access-to-application-data"></a>Säker åtkomst till programdata
 
 Den här självstudiekursen är den tredje delen i en serie. Du lär dig hur du skyddar åtkomsten till lagringskontot. 
 
@@ -28,11 +29,11 @@ I den tredje delen i serien får du lära dig att:
 > * Aktiverar kryptering på serversidan
 > * Aktiverar endast HTTPS-transport
 
-[Azure Blob Storage](../common/storage-introduction.md#blob-storage) tillhandahåller en robust tjänst för att lagra filer för program. I den här självstudien går vi igenom [föregående avsnitt][previous-tutorial] och visar hur du skyddar åtkomsten till ditt lagrings konto från ett webb program. När du är klar är bilderna krypterade och i webbappen används säkra SAS-token för att få åtkomst till miniatyrbilderna.
+[Azure Blob Storage](../common/storage-introduction.md#blob-storage) tillhandahåller en robust tjänst för att lagra filer för program. Den här självstudiekursen kompletterar [det föregående avsnittet ][previous-tutorial] och visar hur du skyddar åtkomsten till ditt lagringskonto från ett webbprogram. När du är klar är bilderna krypterade och i webbappen används säkra SAS-token för att få åtkomst till miniatyrbilderna.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-För att slutföra den här kursen måste du ha slutfört den tidigare lagrings kursen: [Automatisera storleken på överförda bilder med hjälp av event Grid][previous-tutorial].
+För att kunna utföra den här kursen måste du ha slutfört den föregående Storage-självstudiekursen: [Automatisera storleksändring av överförda bilder med Event Grid][previous-tutorial].
 
 ## <a name="set-container-public-access"></a>Ange offentlig åtkomst till containrar
 
@@ -53,7 +54,7 @@ az storage container set-permission \
 
 ## <a name="configure-sas-tokens-for-thumbnails"></a>Konfigurera SAS-token för miniatyrbilder
 
-I den första delen i den här kursserien visade webbprogrammet bilder från en offentlig container. I den här delen av serien använder du SAS-token (Shared Access Signatures) för att hämta miniatyr bilderna. SAS-token ger dig begränsad åtkomst till en container eller blob baserat på IP-protokoll, tidsintervall eller rättigheter. Mer information om SAS finns i [bevilja begränsad åtkomst till Azure Storage resurser med hjälp av signaturer för delad åtkomst (SAS)](../common/storage-sas-overview.md).
+I den första delen i den här kursserien visade webbprogrammet bilder från en offentlig container. I den här delen av serien använder du SAS-token (Shared Access Signatures) för att hämta miniatyrbilderna. SAS-token ger dig begränsad åtkomst till en container eller blob baserat på IP-protokoll, tidsintervall eller rättigheter. Mer information om SAS finns i [Bevilja begränsad åtkomst till Azure Storage-resurser med hjälp av SAS (Shared Access Signatures).](../common/storage-sas-overview.md)
 
 I det här exemplet använder lagringsplatsen för källkod `sasTokens`-grenen, som har ett uppdaterat kodexempel. Ta bort den befintliga GitHub-distributionen med [az webapp deployment source delete](/cli/azure/webapp/deployment/source). Konfigurera sedan GitHub-distributionen till webbappen med kommandot [az webapp deployment source config](/cli/azure/webapp/deployment/source).
 
@@ -67,7 +68,7 @@ az webapp deployment source config --name <web_app> \
     --repo-url https://github.com/Azure-Samples/storage-blob-upload-from-webapp
 ```
 
-`sasTokens`-grenen av lagringsplatsen uppdaterar filen `StorageHelper.cs`. Den ersätter aktiviteten `GetThumbNailUrls` med kodexemplet nedan. Den uppdaterade aktiviteten hämtar miniatyr webb adresser genom att använda en [BlobSasBuilder](/dotnet/api/azure.storage.sas.blobsasbuilder) för att ange start tid, förfallo tid och behörigheter för SAS-token. När webbappen har distribuerats hämtas nu miniatyrbilderna med en URL med hjälp av en SAS-token. Den uppdaterade aktiviteten visas i följande exempel:
+`sasTokens`-grenen av lagringsplatsen uppdaterar filen `StorageHelper.cs`. Den ersätter aktiviteten `GetThumbNailUrls` med kodexemplet nedan. Den uppdaterade aktiviteten hämtar miniatyr-URL:erna med hjälp av en [BlobSasBuilder](/dotnet/api/azure.storage.sas.blobsasbuilder) för att ange starttid, utgångstid och behörigheter för SAS-token. När webbappen har distribuerats hämtas nu miniatyrbilderna med en URL med hjälp av en SAS-token. Den uppdaterade aktiviteten visas i följande exempel:
 
 ```csharp
 public static async Task<List<string>> GetThumbNailUrls(AzureStorageConfig _storageConfig)
@@ -127,12 +128,12 @@ Följande klasser, egenskaper och metoder används i den föregående aktivitete
 | Klass | Egenskaper | Metoder |
 |-------|------------|---------|
 |[StorageSharedKeyCredential](/dotnet/api/azure.storage.storagesharedkeycredential) |  |  |
-|[BlobServiceClient](/dotnet/api/azure.storage.blobs.blobserviceclient) |  |[GetBlobContainerClient](/dotnet/api/azure.storage.blobs.blobserviceclient.getblobcontainerclient) |
-|[BlobContainerClient](/dotnet/api/azure.storage.blobs.blobcontainerclient) | [URI](/dotnet/api/azure.storage.blobs.blobcontainerclient.uri) |[Finns](/dotnet/api/azure.storage.blobs.blobcontainerclient.exists) <br> [GetBlobs](/dotnet/api/azure.storage.blobs.blobcontainerclient.getblobs) |
-|[BlobSasBuilder](/dotnet/api/azure.storage.sas.blobsasbuilder) |  | [SetPermissions](/dotnet/api/azure.storage.sas.blobsasbuilder.setpermissions) <br> [ToSasQueryParameters](/dotnet/api/azure.storage.sas.blobsasbuilder.tosasqueryparameters) |
-|[BlobItem](/dotnet/api/azure.storage.blobs.models.blobitem) | [Namn](/dotnet/api/azure.storage.blobs.models.blobitem.name) |  |
-|[UriBuilder](/dotnet/api/system.uribuilder) | [Fråga](/dotnet/api/system.uribuilder.query) |  |
-|[Lista](/dotnet/api/system.collections.generic.list-1) | | [Skapa](/dotnet/api/system.collections.generic.list-1.add) |
+|[BlobServiceClient](/dotnet/api/azure.storage.blobs.blobserviceclient) |  |[FåBlobContainerClient](/dotnet/api/azure.storage.blobs.blobserviceclient.getblobcontainerclient) |
+|[BlobContainerClient](/dotnet/api/azure.storage.blobs.blobcontainerclient) | [Uri](/dotnet/api/azure.storage.blobs.blobcontainerclient.uri) |[Finns](/dotnet/api/azure.storage.blobs.blobcontainerclient.exists) <br> [GetBlobs](/dotnet/api/azure.storage.blobs.blobcontainerclient.getblobs) |
+|[BlobSasByggare](/dotnet/api/azure.storage.sas.blobsasbuilder) |  | [SetPermissions](/dotnet/api/azure.storage.sas.blobsasbuilder.setpermissions) <br> [ToSasQueryParameters](/dotnet/api/azure.storage.sas.blobsasbuilder.tosasqueryparameters) |
+|[BlobItem (BlobItem)](/dotnet/api/azure.storage.blobs.models.blobitem) | [Namn](/dotnet/api/azure.storage.blobs.models.blobitem.name) |  |
+|[UriBuilder (UriBuilder)](/dotnet/api/system.uribuilder) | [Söka i data](/dotnet/api/system.uribuilder.query) |  |
+|[Lista](/dotnet/api/system.collections.generic.list-1) | | [Lägg till](/dotnet/api/system.collections.generic.list-1.add) |
 
 ## <a name="server-side-encryption"></a>Kryptering på serversidan
 

@@ -1,5 +1,5 @@
 ---
-title: 'Självstudier: Azure Active Directory-integrering med PlanGrid | Microsoft Docs'
+title: 'Självstudiekurs: Azure Active Directory-integrering med PlanGrid | Microsoft-dokument'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och PlanGrid.
 services: active-directory
 documentationCenter: na
@@ -16,44 +16,44 @@ ms.topic: tutorial
 ms.date: 03/19/2019
 ms.author: jeedes
 ms.openlocfilehash: 16b87018b86d9734a066d2cb5361602c9be0f00c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67094379"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-plangrid"></a>Självstudier: Azure Active Directory-integrering med PlanGrid
+# <a name="tutorial-azure-active-directory-integration-with-plangrid"></a>Självstudiekurs: Azure Active Directory-integrering med PlanGrid
 
-I den här självstudien får du lära dig hur du integrerar PlanGrid med Azure Active Directory (AD Azure).
-Integrera PlanGrid med Azure AD ger dig följande fördelar:
+I den här självstudien får du lära dig hur du integrerar PlanGrid med Azure Active Directory (Azure AD).
+Genom att integrera PlanGrid med Azure AD får du följande fördelar:
 
 * Du kan styra i Azure AD som har åtkomst till PlanGrid.
-* Du kan aktivera användarna att vara automatiskt inloggad till PlanGrid (Single Sign-On) med sina Azure AD-konton.
-* Du kan hantera dina konton på en central plats – Azure portal.
+* Du kan aktivera dina användare så att de automatiskt loggas in på PlanGrid (Enkel inloggning) med sina Azure AD-konton.
+* Du kan hantera dina konton på en central plats – Azure-portalen.
 
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
+Om du inte har en Azure-prenumeration [skapar du ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
-Om du vill konfigurera Azure AD-integrering med PlanGrid, behöver du följande objekt:
+Om du vill konfigurera Azure AD-integrering med PlanGrid behöver du följande objekt:
 
 * En Azure AD-prenumeration. Om du inte har någon Azure AD-miljö kan du hämta en månads utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/)
-* PlanGrid enkel inloggning aktiverat prenumeration
+* PlanGrid enkel inloggning aktiverad prenumeration
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
 I den här självstudien konfigurerar och testar du enkel inloggning med Azure AD i en testmiljö.
 
-* Har stöd för PlanGrid **SP** och **IDP** -initierad SSO
+* PlanGrid stöder **SP** och **IDP** initierade SSO
 
-## <a name="adding-plangrid-from-the-gallery"></a>Att lägga till PlanGrid från galleriet
+## <a name="adding-plangrid-from-the-gallery"></a>Lägga till PlanGrid från galleriet
 
-För att konfigurera integrering av PlanGrid i Azure AD, som du behöver lägga till PlanGrid från galleriet i din lista över hanterade SaaS-appar.
+Om du vill konfigurera integreringen av PlanGrid i Azure AD måste du lägga till PlanGrid från galleriet i listan över hanterade SaaS-appar.
 
-**Utför följande steg för att lägga till PlanGrid från galleriet:**
+**Så här lägger du till PlanGrid från galleriet:**
 
-1. I den **[Azure-portalen](https://portal.azure.com)** , klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
+1. I **[Azure-portalen](https://portal.azure.com)** går du till den vänstra navigeringspanelen och klickar på **Azure Active Directory**-ikonen.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
@@ -61,37 +61,37 @@ För att konfigurera integrering av PlanGrid i Azure AD, som du behöver lägga 
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-3. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
+3. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
 
     ![Knappen Nytt program](common/add-new-app.png)
 
-4. I sökrutan skriver **PlanGrid**väljer **PlanGrid** resultatet panelen klickar **Lägg till** för att lägga till programmet.
+4. Skriv **PlanGrid**i sökrutan och välj **PlanGrid** från resultatpanelen och klicka sedan på **Lägg** till för att lägga till programmet.
 
      ![PlanGrid i resultatlistan](common/search-new-app.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
-I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med PlanGrid baserat på en testanvändare kallas **Britta Simon**.
-För enkel inloggning ska fungera, måste en länk förhållandet mellan en Azure AD-användare och relaterade användaren i PlanGrid upprättas.
+I det här avsnittet konfigurerar och testar du azure AD-enkel inloggning med PlanGrid baserat på en testanvändare som heter **Britta Simon**.
+För enkel inloggning för att fungera måste en länkrelation mellan en Azure AD-användare och den relaterade användaren i PlanGrid upprättas.
 
-Om du vill konfigurera och testa Azure AD enkel inloggning med PlanGrid, måste du utföra följande byggblock:
+Om du vill konfigurera och testa en enkel Azure AD-inloggning med PlanGrid måste du slutföra följande byggblock:
 
-1. **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
-2. **[Konfigurera PlanGrid Single Sign-On](#configure-plangrid-single-sign-on)**  – om du vill konfigurera inställningar för enkel inloggning på programsidan.
-3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
-4. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
-5. **[Skapa testanvändare PlanGrid](#create-plangrid-test-user)**  – du har en motsvarighet för Britta Simon i PlanGrid som är länkad till en Azure AD-representation av användaren.
-6. **[Testa enkel inloggning](#test-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
+1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
+2. **[Konfigurera PlanGrid Single Sign-On](#configure-plangrid-single-sign-on)** - för att konfigurera inställningarna för enkel inloggning på programsidan.
+3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
+4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
+5. **[Skapa PlanGrid-testanvändare](#create-plangrid-test-user)** – om du vill ha en motsvarighet till Britta Simon i PlanGrid som är länkad till Azure AD-representationen av användaren.
+6. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
 I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure-portalen.
 
-Utför följande steg för att konfigurera Azure AD enkel inloggning med PlanGrid:
+Så här konfigurerar du en enkel Azure AD-inloggning med PlanGrid:
 
-1. I den [Azure-portalen](https://portal.azure.com/)på den **PlanGrid** application integration markerar **enkel inloggning**.
+1. Välj [Azure portal](https://portal.azure.com/) **Enkel inloggning**på sidan Programintegrering av PlanGrid på sidan Programintegrering i **PlanGrid** .
 
-    ![Konfigurera enkel inloggning för länken](common/select-sso.png)
+    ![Konfigurera länk för enkel inloggning](common/select-sso.png)
 
 2. I dialogrutan **Välj en metod för enkel inloggning** väljer du läget **SAML/WS-Fed** för att aktivera enkel inloggning.
 
@@ -101,9 +101,9 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med PlanGri
 
     ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
 
-4. På den **SAML grundkonfiguration** om du vill konfigurera programmet i **IDP** initierade läge, utföra följande steg:
+4. Om du vill konfigurera programmet i **IDP-initierat** läge i avsnittet **Grundläggande SAML-konfiguration** gör du följande steg:
 
-    ![PlanGrid domän och URL: er med enkel inloggning för information](common/idp-identifier.png)
+    ![PlanGrid-domän och webbadresser med enkel inloggning](common/idp-identifier.png)
 
     I textrutan **Identifierare** skriver du en URL: `https://io.plangrid.com/sessions/saml/metadata`
 
@@ -111,25 +111,25 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med PlanGri
 
     ![image](common/both-preintegrated-signon.png)
 
-    I rutan **Inloggnings-URL** anger du en URL: `https://app.plangrid.com/login`
+    Skriv en URL i textrutan **Sign-on-URL:**`https://app.plangrid.com/login`
 
-6. På sidan **Konfigurera enkel inloggning med SAML** går du till avsnittet **SAML-signeringscertifikat**, klickar på **Hämta** för att hämta **Metadata-XML för federationen** från de angivna alternativen enligt dina behov och spara den på datorn.
+6. På sidan **Set up Single Sign-On with SAML** (Konfigurera enkel inloggning med SAML) går du till avsnittet **SAML Signing Certificate** (SAML-signeringscertifikat), klickar på **Ladda ned** för att ladda ned **Federation Metadata-XML** från de angivna alternativen enligt dina behov och spara den på datorn.
 
-    ![Länk för hämtning av certifikat](common/metadataxml.png)
+    ![Länk för nedladdning av certifikatet](common/metadataxml.png)
 
-7. På den **konfigurera PlanGrid** avsnittet, kopiera den lämpliga URL: er enligt dina behov.
+7. Kopiera lämpliga webbadresser enligt dina krav i avsnittet **Konfigurera PlanGrid.**
 
     ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
 
-    a. Inloggningswebbadress
+    a. Inloggnings-URL
 
-    b. Microsoft Azure Active Directory-identifierare
+    b. Azure AD-identifierare
 
     c. Utloggnings-URL
 
-### <a name="configure-plangrid-single-sign-on"></a>Konfigurera PlanGrid Single Sign-On
+### <a name="configure-plangrid-single-sign-on"></a>Konfigurera PlanGrid enkel inloggning
 
-Att konfigurera enkel inloggning på **PlanGrid** sida, som du behöver skicka de hämtade **XML-Metadata för Federation** och lämpliga kopierade URL: er från Azure portal för att [PlanGrid supportteamet](mailto:help@plangrid.com). De ställer du in SAML SSO ansluta till korrekt inställda på båda sidorna.
+Om du vill konfigurera enkel inloggning på **PlanGrid-sidan** måste du skicka den nedladdade **XML-koden för federationsmetadata** och lämpliga kopierade URL:er från Azure-portalen till [PlanGrid-supportteamet](mailto:help@plangrid.com). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare 
 
@@ -139,7 +139,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     ![Länkarna ”Användare och grupper” och ”Alla grupper”](common/users.png)
 
-2. Välj **Ny användare** överst på skärmen.
+2. Välj **Ny användare** högst upp på skärmen.
 
     ![Knappen Ny användare](common/new-user.png)
 
@@ -156,17 +156,17 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     d. Klicka på **Skapa**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
+### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
-I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inloggning genom att bevilja åtkomst till PlanGrid.
+I det här avsnittet kan du aktivera Britta Simon för att använda Azure enkel inloggning genom att bevilja åtkomst till PlanGrid.
 
-1. I Azure-portalen väljer du **företagsprogram**väljer **alla program**och välj sedan **PlanGrid**.
+1. I Azure-portalen väljer du **Enterprise Applications**, väljer **Alla program**och väljer sedan **PlanGrid**.
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-2. I listan med program väljer **PlanGrid**.
+2. Välj **PlanGrid**i programlistan .
 
-    ![Länken PlanGrid i listan med program](common/all-applications.png)
+    ![Länken PlanGrid i listan Program](common/all-applications.png)
 
 3. På menyn till vänster väljer du **Användare och grupper**.
 
@@ -178,19 +178,19 @@ I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inlog
 
 5. I dialogrutan **Användare och grupper** väljer du **Britta Simon** i listan med användare och klickar på knappen **Välj** längst ned på skärmen.
 
-6. Om du förväntar dig ett rollvärde i SAML-försäkran väljer du i dialogrutan **Välj roll** lämplig roll för användaren i listan och klickar sedan på knappen **Välj** längst ned på skärmen.
+6. Om du förväntar dig något rollvärde i SAML-påståendet väljer du lämplig roll för användaren i listan i dialogrutan **Välj roll** och klickar sedan på knappen **Välj** längst ned på skärmen.
 
 7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
 
-### <a name="create-plangrid-test-user"></a>Skapa PlanGrid testanvändare
+### <a name="create-plangrid-test-user"></a>Skapa PlanGrid-testanvändare
 
-I det här avsnittet skapar du en användare som kallas Britta Simon i PlanGrid. Arbeta med [PlanGrid supportteamet](mailto:help@plangrid.com) att lägga till användare i PlanGrid-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
+I det här avsnittet skapar du en användare som heter Britta Simon i PlanGrid. Arbeta med [PlanGrids supportteam](mailto:help@plangrid.com) för att lägga till användarna i PlanGrid-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
 
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning 
 
-I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
+I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-När du klickar på panelen PlanGrid i åtkomstpanelen, bör det vara loggas in automatiskt till PlanGrid som du ställer in enkel inloggning. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+När du klickar på panelen PlanGrid på åtkomstpanelen ska du automatiskt loggas in på den PlanGrid som du konfigurerar SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 

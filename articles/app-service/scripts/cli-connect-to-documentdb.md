@@ -1,5 +1,5 @@
 ---
-title: 'CLI: ansluta en app till Cosmos DB'
+title: 'CLI: Anslut en app till Cosmos DB'
 description: Lär dig hur du använder Azure CLI för att automatisera distribution och hantering av din App Service-app. Det här exemplet visar hur du ansluter en app till MongoDB (Cosmos DB).
 author: msangapu-msft
 tags: azure-service-management
@@ -8,13 +8,13 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.date: 12/11/2017
 ms.author: msangapu
-ms.custom: seodec18
-ms.openlocfilehash: 4c19ac6db22c04f958bf332d0b5cdf327294108d
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.custom: mvc, seodec18
+ms.openlocfilehash: 911282e71491c86fefa86d342e916cdff4fa8c9b
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74686571"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80058672"
 ---
 # <a name="connect-an-app-service-app-to-cosmos-db-using-cli"></a>Ansluta en App Service-app till Cosmos DB med hjälp av CLI
 
@@ -43,7 +43,7 @@ I det här skriptet används följande kommandon för att skapa en resursgrupp, 
 | [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) | Skapar en App Service-app. |
 | [`az cosmosdb create`](/cli/azure/cosmosdb?view=azure-cli-latest#az-cosmosdb-create) | Skapar ett Cosmos DB-konto. |
 | [`az cosmosdb list-connection-strings`](/cli/azure/cosmosdb?view=azure-cli-latest#az-cosmosdb-list-connection-strings) | Anger anslutningssträngar för det angivna Cosmos DB-kontot. |
-| [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) | Skapar eller uppdaterar en app-inställning för en App Service-app. Appinställningarna visas som miljövariabler för din app. |
+| [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) | Skapar eller uppdaterar en appinställning för en App Service-app. Appinställningarna visas som miljövariabler för din app. |
 
 ## <a name="next-steps"></a>Nästa steg
 

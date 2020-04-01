@@ -1,5 +1,5 @@
 ---
-title: 'Självstudier: Azure Active Directory-integrering med Workfront | Microsoft Docs'
+title: 'Självstudiekurs: Azure Active Directory-integrering med Workfront | Microsoft-dokument'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Workfront.
 services: active-directory
 documentationCenter: na
@@ -17,44 +17,44 @@ ms.date: 04/03/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 51fd45729a4e34fa1669f758c5a9c8f5cbec498f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67087014"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-workfront"></a>Självstudier: Azure Active Directory-integrering med Workfront
+# <a name="tutorial-azure-active-directory-integration-with-workfront"></a>Självstudiekurs: Azure Active Directory-integrering med Workfront
 
-I den här självstudien får du lära dig hur du integrerar Workfront med Azure Active Directory (AD Azure).
-Integrera Workfront med Azure AD ger dig följande fördelar:
+I den här självstudien får du lära dig hur du integrerar Workfront med Azure Active Directory (Azure AD).
+Genom att integrera Workfront med Azure AD får du följande fördelar:
 
 * Du kan styra i Azure AD som har åtkomst till Workfront.
-* Du kan aktivera användarna att vara automatiskt inloggad till Workfront (Single Sign-On) med sina Azure AD-konton.
-* Du kan hantera dina konton på en central plats – Azure portal.
+* Du kan aktivera dina användare automatiskt inloggade på Workfront (Enkel inloggning) med sina Azure AD-konton.
+* Du kan hantera dina konton på en central plats – Azure-portalen.
 
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
+Om du inte har en Azure-prenumeration [skapar du ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
-Om du vill konfigurera Azure AD-integrering med Workfront, behöver du följande objekt:
+Om du vill konfigurera Azure AD-integrering med Workfront behöver du följande objekt:
 
-* En Azure AD-prenumeration. Om du inte har en Azure AD-miljö kan du få en [kostnadsfritt konto](https://azure.microsoft.com/free/)
-* Workfront enkel inloggning aktiverat prenumeration
+* En Azure AD-prenumeration. Om du inte har en Azure AD-miljö kan du få ett [kostnadsfritt konto](https://azure.microsoft.com/free/)
+* En prenumeration med enkel inloggning för Workfront
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
 I den här självstudien konfigurerar och testar du enkel inloggning med Azure AD i en testmiljö.
 
-* Har stöd för Workfront **SP** -initierad SSO
+* Workfront stödjer **SP** initierade SSO
 
-## <a name="adding-workfront-from-the-gallery"></a>Att lägga till Workfront från galleriet
+## <a name="adding-workfront-from-the-gallery"></a>Lägga till Workfront från galleriet
 
-För att konfigurera integrering av Workfront i Azure AD, som du behöver lägga till Workfront från galleriet i din lista över hanterade SaaS-appar.
+Om du vill konfigurera integreringen av Workfront i Azure AD måste du lägga till Workfront från galleriet i listan över hanterade SaaS-appar.
 
-**Utför följande steg för att lägga till Workfront från galleriet:**
+**Så här lägger du till Workfront från galleriet:**
 
-1. I den **[Azure-portalen](https://portal.azure.com)** , klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
+1. I **[Azure-portalen](https://portal.azure.com)** går du till den vänstra navigeringspanelen och klickar på **Azure Active Directory**-ikonen.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
@@ -62,37 +62,37 @@ För att konfigurera integrering av Workfront i Azure AD, som du behöver lägga
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-3. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
+3. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
 
     ![Knappen Nytt program](common/add-new-app.png)
 
-4. I sökrutan skriver **Workfront**väljer **Workfront** resultatet panelen klickar **Lägg till** för att lägga till programmet.
+4. Skriv **Workfront**i sökrutan och välj **Workfront** från resultatpanelen och klicka sedan på **Lägg** till för att lägga till programmet.
 
     ![Workfront i resultatlistan](common/search-new-app.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
-I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med Workfront baserat på en testanvändare kallas **Britta Simon**.
-För enkel inloggning ska fungera, måste en länk förhållandet mellan en Azure AD-användare och relaterade användaren i Workfront upprättas.
+I det här avsnittet konfigurerar och testar du azure AD-enkel inloggning med Workfront baserat på en testanvändare som heter **Britta Simon**.
+För enkel inloggning för att fungera måste en länkrelation mellan en Azure AD-användare och den relaterade användaren i Workfront upprättas.
 
-Om du vill konfigurera och testa Azure AD enkel inloggning med Workfront, måste du utföra följande byggblock:
+Om du vill konfigurera och testa en enkel Azure AD-inloggning med Workfront måste du slutföra följande byggblock:
 
-1. **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
-2. **[Konfigurera Workfront Single Sign-On](#configure-workfront-single-sign-on)**  – om du vill konfigurera inställningar för enkel inloggning på programsidan.
-3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
-4. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
-5. **[Skapa testanvändare Workfront](#create-workfront-test-user)**  – du har en motsvarighet för Britta Simon i Workfront som är länkad till en Azure AD-representation av användaren.
-6. **[Testa enkel inloggning](#test-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
+1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
+2. **[Konfigurera Enstaka inloggning för Workfront](#configure-workfront-single-sign-on)** – för att konfigurera inställningarna för enkel inloggning på programsidan.
+3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
+4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
+5. **[Skapa Workfront-testanvändare](#create-workfront-test-user)** - om du vill ha en motsvarighet till Britta Simon i Workfront som är kopplad till Azure AD-representationen av användaren.
+6. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
 I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure-portalen.
 
-Utför följande steg för att konfigurera Azure AD enkel inloggning med Workfront:
+Så här konfigurerar du en enkel Azure AD-inloggning med Workfront:
 
-1. I den [Azure-portalen](https://portal.azure.com/)på den **Workfront** application integration markerar **enkel inloggning**.
+1. Välj Enkel inloggning på sidan Workfront-programintegrering på [Azure-portalen](https://portal.azure.com/). **Workfront** **Single sign-on**
 
-    ![Konfigurera enkel inloggning för länken](common/select-sso.png)
+    ![Konfigurera länk för enkel inloggning](common/select-sso.png)
 
 2. I dialogrutan **Välj en metod för enkel inloggning** väljer du läget **SAML/WS-Fed** för att aktivera enkel inloggning.
 
@@ -104,48 +104,48 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med Workfro
 
 4. I avsnittet **Grundläggande SAML-konfiguration** utför du följande steg:
 
-    ![Workfront domän och URL: er med enkel inloggning för information](common/sp-identifier.png)
+    ![Workfront Domän och webbadresser enkel inloggningsinformation](common/sp-identifier.png)
 
     a. I textrutan **Inloggnings-URL** anger du en URL enligt följande mönster: `https://<companyname>.attask-ondemand.com`
 
     b. I textrutan **Identifierare (entitets-ID)** anger du en URL enligt följande mönster: `https://<companyname>.attasksandbox.com/SAML2`
 
     > [!NOTE]
-    > Dessa värden är inte verkliga. Uppdatera de här värdena med faktisk inloggnings-URL och identifierare. Kontakta [Workfront klienten supportteamet](https://www.workfront.com/services-and-support) att hämta dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
+    > Dessa värden är inte verkliga. Uppdatera dessa värden med faktisk inloggnings-URL och identifierare. Kontakta Supportteamet för [Workfront Client](https://www.workfront.com/services-and-support) för att få dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
 5. På sidan **Konfigurera enkel inloggning med SAML** går du till avsnittet **SAML-signeringscertifikat**, klickar du på **Ladda ned** för att ladda ned **Certifikat (Base64)** från de angivna alternativen enligt dina behov och sparar det på datorn.
 
-    ![Länk för hämtning av certifikat](common/certificatebase64.png)
+    ![Länk för nedladdning av certifikatet](common/certificatebase64.png)
 
-6. På den **konfigurera Workfront** avsnittet, kopiera den lämpliga URL: er enligt dina behov.
+6. Kopiera lämpliga webbadresser enligt dina krav i avsnittet **Konfigurera Workfront.**
 
     ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
 
-    a. Inloggningswebbadress
+    a. Inloggnings-URL
 
-    b. Microsoft Azure Active Directory-identifierare
+    b. Azure AD-identifierare
 
     c. Utloggnings-URL
 
-### <a name="configure-workfront-single-sign-on"></a>Konfigurera Workfront Single Sign-On
+### <a name="configure-workfront-single-sign-on"></a>Konfigurera enkel inloggning i Workfront
 
-1. Inloggning till webbplatsen Workfront företag som administratör.
+1. Logga in på workfront-företagets webbplats som administratör.
 
-2. Gå till **enkel inloggning på konfigurationen**.
+2. Gå till **konfigurationen för enkel inloggning**.
 
-3. På den **enkel inloggning** dialogrutan utför följande steg
+3. I dialogrutan **Enkel inloggning** utför du följande steg
     
     ![Konfigurera enkel inloggning][23]
    
-    a. Som **typ**väljer **SAML 2.0**.
+    a. Välj **SAML 2.0**som **typ**.
    
-    b. Välj **Provider-ID för tjänstens**.
+    b. Välj **tjänstprovider-ID**.
    
-    c. Klistra in den **inloggnings-URL** till den **inloggnings-URL för portalen** textrutan.
+    c. Klistra in **inloggningsadressen** i textrutan **för inloggningsportalens WEBBADRESS.**
    
-    d. Klistra in **URL för utloggning** till den **URL: en för utloggning** textrutan.
+    d. Klistra in **URL för utloggning** i textrutan **Sign-Out URL.**
    
-    e. Klistra in **ändra lösenord URL** till den **ändra lösenord URL** textrutan.
+    e. Klistra in **URL för ändra lösenord** i textrutan Ändra **lösenordsadress.**
    
     f. Klicka på **Spara**.
 
@@ -157,7 +157,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     ![Länkarna ”Användare och grupper” och ”Alla grupper”](common/users.png)
 
-2. Välj **Ny användare** överst på skärmen.
+2. Välj **Ny användare** högst upp på skärmen.
 
     ![Knappen Ny användare](common/new-user.png)
 
@@ -167,23 +167,23 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     a. I fältet **Namn** anger du **BrittaSimon**.
   
-    b. I den **användarnamn** fälttyp `brittasimon@yourcompanydomain.extension`. Till exempel, BrittaSimon@contoso.com
+    b. I fältet **Användarnamn** `brittasimon@yourcompanydomain.extension`. Till exempel, BrittaSimon@contoso.com
 
     c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
 
     d. Klicka på **Skapa**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
+### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
-I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inloggning genom att bevilja åtkomst till Workfront.
+I det här avsnittet kan du aktivera Britta Simon för att använda Azure enkel inloggning genom att bevilja åtkomst till Workfront.
 
-1. I Azure-portalen väljer du **företagsprogram**väljer **alla program**och välj sedan **Workfront**.
+1. I Azure-portalen väljer du **Företagsprogram**, väljer **Alla program**och väljer sedan **Workfront**.
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-2. I listan med program väljer **Workfront**.
+2. Välj **Workfront**i programlistan .
 
-    ![Länken Workfront i listan med program](common/all-applications.png)
+    ![Länken Workfront i programlistan](common/all-applications.png)
 
 3. På menyn till vänster väljer du **Användare och grupper**.
 
@@ -195,39 +195,39 @@ I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inlog
 
 5. I dialogrutan **Användare och grupper** väljer du **Britta Simon** i listan med användare och klickar på knappen **Välj** längst ned på skärmen.
 
-6. Om du förväntar dig ett rollvärde i SAML-försäkran väljer du i dialogrutan **Välj roll** lämplig roll för användaren i listan och klickar sedan på knappen **Välj** längst ned på skärmen.
+6. Om du förväntar dig något rollvärde i SAML-påståendet väljer du lämplig roll för användaren i listan i dialogrutan **Välj roll** och klickar sedan på knappen **Välj** längst ned på skärmen.
 
 7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
 
-### <a name="create-workfront-test-user"></a>Skapa Workfront testanvändare
+### <a name="create-workfront-test-user"></a>Skapa Workfront-testanvändare
 
-Målet med det här avsnittet är att skapa en användare som kallas Britta Simon i Workfront.
+Syftet med detta avsnitt är att skapa en användare som heter Britta Simon i Workfront.
 
-**Om du vill skapa en användare som kallas Britta Simon i Workfront, utför du följande steg:**
+**Så här skapar du en användare som heter Britta Simon i Workfront:**
 
-1. Logga in på webbplatsen Workfront företag som administratör.
+1. Logga in på workfront-företagets webbplats som administratör.
  
-2. Klicka på menyn längst upp **personer**.
+2. Klicka på **Kontakter**högst upp.
  
-3. Klicka på **ny Person**. 
+3. Klicka på **Ny person**. 
 
-4. I dialogrutan Ny Person utför du följande steg:
+4. Gör följande i dialogrutan Ny person:
    
-    ![Skapa en Workfront testanvändare][21] 
+    ![Skapa en Workfront-testanvändare][21] 
    
-    a. I den **Förnamn** textrutan skriver du ”Britta”.
+    a. Skriv "Britta" i textrutan **Förnamn.**
    
-    b. I den **efternamn** textrutan skriver du ”Simon”.
+    b. Skriv "Simon" i textrutan **Efternamn.**
    
-    c. I den **e-postadress** textrutan skriver Britta Simon e-postadress i Azure Active Directory.
+    c. Skriv Britta Simons e-postadress i Azure Active Directory i textrutan **E-postadress.**
    
     d. Klicka på **Lägg till person**.
 
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning 
 
-I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
+I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-När du klickar på panelen Workfront i åtkomstpanelen, bör det vara loggas in automatiskt till Workfront som du ställer in enkel inloggning. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+När du klickar på panelen Workfront på åtkomstpanelen ska du automatiskt loggas in på den Workfront som du konfigurerar SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 

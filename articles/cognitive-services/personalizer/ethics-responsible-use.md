@@ -10,12 +10,12 @@ ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 06/12/2019
 ms.author: diberry
-ms.openlocfilehash: 11b626c0033814f0886ac76fff0c5d4087a80554
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e422284b871214dbeca31b5dd17b9177a18ad3c8
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "71720244"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80478103"
 ---
 # <a name="guidelines-for-responsible-implementation-of-personalizer"></a>Riktlinjer för ansvarsfullt genomförande av Personalizer
 
@@ -25,7 +25,7 @@ Dessa riktlinjer är inte avsedda som juridisk rådgivning och du bör separat s
 
 När du utformar din applikation med Personalizer bör du också ta hänsyn till en bred uppsättning ansvarsområden som du har när du utvecklar alla datacentrerade AI-system, inklusive etik, sekretess, säkerhet, säkerhet, inkludering, öppenhet och ansvarsskyldighet. Du kan läsa mer om dessa i avsnittet [Rekommenderad läsning.](#recommended-reading)
 
-Du kan använda följande innehåll som en checklista för start och anpassa och förfina det till ditt scenario. Det här dokumentet innehåller två huvudavsnitt: Den första är dedikerad till att lyfta fram överväganden om ansvarsfull användning när du väljer scenarier, funktioner och belöningar för Personalizer. Den andra ta en uppsättning värden som Microsoft anser bör beaktas när man bygger AI-system, och ger användbara förslag och risker om hur din användning av Personalizer påverkar dem. 
+Du kan använda följande innehåll som en checklista för start och anpassa och förfina det till ditt scenario. Det här dokumentet innehåller två huvudavsnitt: Den första är dedikerad till att lyfta fram överväganden om ansvarsfull användning när du väljer scenarier, funktioner och belöningar för Personalizer. Den andra ta en uppsättning värden som Microsoft anser bör beaktas när man bygger AI-system, och ger användbara förslag och risker om hur din användning av Personalizer påverkar dem.
 
 
 ## <a name="your-responsibility"></a>Ditt ansvar
@@ -42,18 +42,18 @@ Microsoft lägger kontinuerligt kraft vid sina verktyg och dokument för att hj�
 Implementera Personalizer kan vara av stort värde för dina användare och ditt företag. Om du vill implementera Personalizer på ett ansvarsfullt sätt börjar du med följande riktlinjer när:
 
 * Välja användningsfall för att använda Anpassning.
-* Bygga [belöningsfunktioner](https://github.com/Azure/personalization-rl/blob/master/docs/concepts-rewards.md).
-* Välja vilka [funktioner](https://github.com/Azure/personalization-rl/blob/master/docs/concepts-features.md) om sammanhanget och möjliga åtgärder som du ska använda för anpassning.
+* Bygga [belöningsfunktioner](concept-rewards.md).
+* Välja vilka [funktioner](concepts-features.md) om sammanhanget och möjliga åtgärder som du ska använda för anpassning.
 
 
 ## <a name="choosing-use-cases-for-personalizer"></a>Välja användningsfall för Personalizer
 
-Det är användbart att använda en tjänst som lär sig att anpassa innehåll och användargränssnitt. Det kan också tillämpas felaktigt om hur personalisering skapar negativa biverkningar i den verkliga världen, inklusive om användarna är omedvetna om innehållsanpassning. 
+Det är användbart att använda en tjänst som lär sig att anpassa innehåll och användargränssnitt. Det kan också tillämpas felaktigt om hur personalisering skapar negativa biverkningar i den verkliga världen, inklusive om användarna är omedvetna om innehållsanpassning.
 
-Exempel på användning av Personalizer med ökad potential för negativa biverkningar eller brist på öppenhet inkluderar scenarier där "belöningen" beror på många långsiktiga komplexa faktorer som, när över-förenklas till en omedelbar belöning kan ha ogynnsamma resultat för individer. Dessa tenderar att betraktas som "följdval" eller val som innebär en risk för skada. Ett exempel: 
+Exempel på användning av Personalizer med ökad potential för negativa biverkningar eller brist på öppenhet inkluderar scenarier där "belöning" beror på många långsiktiga komplexa faktorer som, när över-förenklas till en omedelbar belöning kan ha ogynnsamma resultat för individer. Dessa tenderar att betraktas som "följdval" eller val som innebär en risk för skada. Ett exempel:
 
 
-* **Ekonomi**: Anpassa erbjudanden på lån, finansiella och försäkringsprodukter, där riskfaktorer är baserade på data som individerna inte känner till, inte kan få eller inte kan bestrida. 
+* **Ekonomi**: Anpassa erbjudanden på lån, finansiella och försäkringsprodukter, där riskfaktorer är baserade på data som individerna inte känner till, inte kan få eller inte kan bestrida.
 * **Utbildning**: Anpassa leden för skolkurser och utbildningsinstitutioner där rekommendationer kan sprida fördomar och minska användarnas medvetenhet om andra alternativ.
 * **Demokrati och medborgerligt deltagande**: Att anpassa innehåll för användare med målet att påverka åsikter är följdriktigt och manipulativt.
 * **Belöningsutvärdering från tredje part**: Anpassa objekt där belöningen baseras på en utvärdering från tredje part av användaren, i stället för att ha en belöning som genereras av användarens eget beteende.
@@ -85,8 +85,8 @@ Använd följande metoder när du väljer funktioner som ska skickas i sammanhan
 * Tänk på lagligheten och etiken i att använda vissa funktioner för vissa applikationer, och om oskyldiga utseende funktioner kan vara proxyservrar för andra du vill eller bör undvika,
 * Var transparent för användare att algoritmer och dataanalys används för att anpassa de alternativ de ser.
 * Fråga dig själv: Skulle mina användare bry sig och vara glad om jag använde denna information för att anpassa innehållet för dem? Skulle jag känna mig bekväm att visa dem hur beslutet fattades att markera eller dölja vissa objekt?
-* Använd beteendemässiga snarare än klassificerings- eller segmenteringsdata baserat på andra egenskaper. Demografisk information har traditionellt använts av återförsäljare av historiska skäl - demografiska attribut verkade enkla att samla in och agera på innan en digital era, - men fråga hur relevant demografisk information är när du har faktisk interaktion, kontextuella och historiska data som är närmare användarnas preferenser och identitet.
-* Fundera på hur du förhindrar att funktioner blir "falska" av illvilliga användare, vilket om de utnyttjas i stort antal kan leda till utbildning Personalizer på vilseledande sätt att målmedvetet störa, genera och trakassera vissa klasser av användare. 
+* Använd beteendemässiga snarare än klassificerings- eller segmenteringsdata baserat på andra egenskaper. Demografisk information användes traditionellt av återförsäljare av historiska skäl - demografiska attribut verkade enkla att samla in och agera på före en digital era, - men fråga hur relevant demografisk information är när du har faktisk interaktion, kontextuella och historiska data som relaterar närmare preferenser och identitet användare.
+* Fundera på hur du förhindrar att funktioner blir "falska" av illvilliga användare, vilket om de utnyttjas i stort antal kan leda till utbildning Personalizer på vilseledande sätt att målmedvetet störa, genera och trakassera vissa klasser av användare.
 * När det är lämpligt och genomförbart kan du utforma ditt program så att användarna kan välja eller välja bort vissa personliga funktioner. Dessa kan grupperas, till exempel "Platsinformation", "Enhetsinformation", "Tidigare inköpshistorik" etc.
 
 
@@ -101,13 +101,13 @@ Till exempel, givande på klick kommer att göra Personalizer Service söka klic
 Som ett kontrasterande exempel kanske en nyhetswebbplats vill ange belöningar som är knutna till något mer meningsfullt än klick, till exempel "Har användaren spenderat tillräckligt med tid för att läsa innehållet?" "Har de klicka på relevanta artiklar eller referenser?". Med Personalizer är det lätt att knyta mått nära belöningar. Men var noga med att inte blanda ihop kortsiktiga användare engagemang med goda resultat.
 
 ### <a name="unintended-consequences-from-reward-scores"></a>Oavsiktliga konsekvenser från belöningspoäng
-Belöningspoäng kan byggas med de bästa avsikter, men kan fortfarande skapa oväntade konsekvenser eller oavsiktliga resultat på hur Personalizer rankar innehåll. 
+Belöningspoäng kan byggas med de bästa avsikter, men kan fortfarande skapa oväntade konsekvenser eller oavsiktliga resultat på hur Personalizer rankar innehåll.
 
 Överväg följande exempel:
 
 * Belöna videoinnehåll anpassning på andelen av videolängden såg kommer förmodligen tenderar att rangordna kortare videor.
 * Belöna sociala medier aktier, utan sentiment analys av hur det delas eller själva innehållet, kan leda till rangordning offensiv, omodererat eller inflammatoriskt innehåll, som tenderar att hetsa en hel del "engagemang", men tillför lite värde.
-* Att belöna åtgärden på element i användargränssnittet som användarna inte förväntar sig att ändra kan störa användargränssnittets användbarhet och förutsägbarhet, där knapparna överraskande ändrar plats eller syfte utan förvarning, vilket gör det svårare för vissa grupper av användare för att vara produktiva.
+* Att belöna åtgärden på element i användargränssnittet som användarna inte förväntar sig att ändra kan störa användargränssnittets användbarhet och förutsägbarhet, där knapparna överraskande ändrar plats eller syfte utan förvarning, vilket gör det svårare för vissa grupper av användare att förbli produktiva.
 
 Implementera följande metodtips:
 
@@ -122,7 +122,7 @@ Följande är designområden för ansvarsfulla implementeringar av AI. Läs mer 
 ![AI-värden från framtida beräknad](media/ethics-and-responsible-use/ai-values-future-computed.png)
 
 ### <a name="accountability"></a>Ansvar
-*Människor som utformar och distribuerar AI-system måste vara ansvariga för hur deras system fungerar.* 
+*Människor som utformar och distribuerar AI-system måste vara ansvariga för hur deras system fungerar.*
 
 * Skapa interna riktlinjer för hur du implementerar Personalizer, dokumentera och kommunicera dem till ditt team, chefer och leverantörer.
 * Utför regelbundna granskningar av hur belöningspoäng beräknas, utför offlineutvärderingar för att se vilka funktioner som påverkar Personalizer och använd resultaten för att eliminera onödiga och onödiga funktioner.
@@ -155,9 +155,9 @@ Följande är designområden för ansvarsfulla implementeringar av AI. Läs mer 
 *AI-system bör vara säkra och respektera integriteten.* När du använder Personalizer:
 
 * *Informera användarna på framsidan om de data som samlas in och hur de används och få deras samtycke i förväg,* enligt dina lokala och branschregler.
-* *Tillhandahålla användarkontroller som skyddar sekretessen.* För program som lagrar personlig information kan du överväga att tillhandahålla en lättsökningsknapp för funktioner som: 
-   * `Show me all you know about me`    
-   * `Forget my last interaction` 
+* *Tillhandahålla användarkontroller som skyddar sekretessen.* För program som lagrar personlig information kan du överväga att tillhandahålla en lättsökningsknapp för funktioner som:
+   * `Show me all you know about me`
+   * `Forget my last interaction`
    * `Delete all you know about me`
 
 I vissa fall kan dessa krävas enligt lag. Tänk på kompromisserna i omskolningsmodeller med jämna mellanrum så att de inte innehåller spår av borttagna data.
@@ -165,7 +165,7 @@ I vissa fall kan dessa krävas enligt lag. Tänk på kompromisserna i omskolning
 ### <a name="inclusiveness"></a>Delaktighet
 *Ta itu med ett brett spektrum av mänskliga behov och erfarenheter*.
 * *Tillhandahålla anpassade upplevelser för hjälpmedelsaktiverade gränssnitt.* Den effektivitet som kommer från god personalisering - tillämpas för att minska mängden ansträngning, rörelse, och onödig upprepning i interaktioner- kan vara särskilt fördelaktigt för personer med funktionshinder.
-* *Justera programbeteendet till kontext*. Du kan använda Personalizer för att skilja mellan avsikter i en chattrobot, till exempel, eftersom rätt tolkning kan vara kontextuell och en storlek kanske inte passar alla. 
+* *Justera programbeteendet till kontext*. Du kan använda Personalizer för att skilja mellan avsikter i en chattrobot, till exempel, eftersom rätt tolkning kan vara kontextuell och en storlek kanske inte passar alla.
 
 
 ## <a name="proactive-readiness-for-increased-data-protection-and-governance"></a>Proaktiv beredskap för ökat dataskydd och ökad styrning
@@ -185,7 +185,7 @@ Det är svårt att förutse specifika förändringar i regleringssammanhang, men
 Varje person som tänker på biverkningar av användning av någon teknik begränsas av deras perspektiv och livserfarenhet. Utöka antalet tillgängliga åsikter genom att ta in mer olika röster i dina team, användare eller rådgivande nämnder. så att det är möjligt och uppmuntras för dem att säga ifrån. Överväg utbildning och läromedel för att ytterligare utöka gruppkunskaperna i den här domänen och lägga till funktioner för att diskutera komplexa och känsliga ämnen.
 
 Överväg att behandla uppgifter om ansvarsfull användning precis som andra övergripande uppgifter i programmets livscykel, till exempel uppgifter som är relaterade till användarupplevelse, säkerhet eller DevOps. Dessa uppgifter och deras krav kan inte vara en eftertanke. Ansvarsfull användning bör diskuteras och verifieras under hela programmets livscykel.
- 
+
 ## <a name="questions-and-feedback"></a>Frågor och feedback
 
 Microsoft lägger kontinuerligt kraft vid verktyg och dokument som hjälper dig att agera utifrån dessa ansvarsområden. Vårt team uppmanar dig att [ge feedback till Microsoft](mailto:cogsvcs-RL-feedback@microsoft.com?subject%3DPersonalizer%20Responsible%20Use%20Feedback&body%3D%5BPlease%20share%20any%20question%2C%20idea%20or%20concern%5D) om du tror att ytterligare verktyg, produktfunktioner och dokument skulle hjälpa dig att implementera dessa riktlinjer för att använda Personalizer.

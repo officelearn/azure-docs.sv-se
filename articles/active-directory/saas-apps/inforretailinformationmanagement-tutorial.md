@@ -1,6 +1,6 @@
 ---
-title: 'Självstudier: Azure Active Directory-integrering med Infor detaljhandeln – informationshantering | Microsoft Docs'
-description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Infor detaljhandeln – informationshantering.
+title: 'Självstudiekurs: Azure Active Directory-integrering med Infor Retail – Informationshantering | Microsoft-dokument'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Infor Retail – Informationshantering.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -17,44 +17,44 @@ ms.date: 04/16/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6572560833e6336495b3bec782a096b584be1ec0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67100275"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-infor-retail--information-management"></a>Självstudier: Azure Active Directory-integrering med Infor detaljhandeln – informationshantering
+# <a name="tutorial-azure-active-directory-integration-with-infor-retail--information-management"></a>Självstudiekurs: Azure Active Directory-integrering med Infor Retail – Informationshantering
 
-I den här självstudien får du lära dig hur du integrerar Infor detaljhandeln – informationshantering med Azure Active Directory (AD Azure).
-Integrera Infor detaljhandeln – informationshantering med Azure AD ger dig följande fördelar:
+I den här självstudien får du lära dig hur du integrerar Infor Retail – Informationshantering med Azure Active Directory (Azure AD).
+Genom att integrera Infor Retail – Informationshantering med Azure AD får du följande fördelar:
 
-* Du kan styra i Azure AD som har åtkomst till Infor detaljhandeln – informationshantering.
-* Du kan aktivera användarna att vara automatiskt inloggad till Infor detaljhandeln – informationshantering (Single Sign-On) med sina Azure AD-konton.
-* Du kan hantera dina konton på en central plats – Azure portal.
+* Du kan styra i Azure AD som har åtkomst till Infor Retail – Informationshantering.
+* Du kan aktivera dina användare automatiskt inloggade på Infor Retail – Information Management (Single Sign-On) med sina Azure AD-konton.
+* Du kan hantera dina konton på en central plats – Azure-portalen.
 
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
+Om du inte har en Azure-prenumeration [skapar du ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
-Om du vill konfigurera Azure AD-integrering med Infor detaljhandeln – informationshantering, behöver du följande objekt:
+Om du vill konfigurera Azure AD-integrering med Infor Retail – Informationshantering behöver du följande objekt:
 
-* En Azure AD-prenumeration. Om du inte har en Azure AD-miljö kan du få en [kostnadsfritt konto](https://azure.microsoft.com/free/)
-* Infor detaljhandeln – informationshantering enkel inloggning aktiverat prenumeration
+* En Azure AD-prenumeration. Om du inte har en Azure AD-miljö kan du få ett [kostnadsfritt konto](https://azure.microsoft.com/free/)
+* Infor Retail – En inloggningsaktiverad prenumeration för informationshantering
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
 I den här självstudien konfigurerar och testar du enkel inloggning med Azure AD i en testmiljö.
 
-* Infor detaljhandeln – informationshantering stöder **SP och IDP** -initierad SSO
+* Infor Retail – Informationshantering stöder **SP och IDP** initierade SSO
 
-## <a name="adding-infor-retail--information-management-from-the-gallery"></a>Att lägga till Infor detaljhandeln – informationshantering från galleriet
+## <a name="adding-infor-retail--information-management-from-the-gallery"></a>Lägga till Infor Retail – Informationshantering från galleriet
 
-Om du vill konfigurera integreringen av Infor detaljhandeln – informationshantering i Azure AD som du behöver lägga till Infor detaljhandeln – informationshantering från galleriet i din lista över hanterade SaaS-appar.
+För att konfigurera integreringen av Infor Retail – Informationshantering i Azure AD måste du lägga till Infor Retail – Informationshantering från galleriet till listan över hanterade SaaS-appar.
 
-**Utför följande steg för att lägga till Infor detaljhandeln – informationshantering från galleriet:**
+**Så här lägger du till Infor Retail – Informationshantering från galleriet:**
 
-1. I den **[Azure-portalen](https://portal.azure.com)** , klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
+1. I **[Azure-portalen](https://portal.azure.com)** går du till den vänstra navigeringspanelen och klickar på **Azure Active Directory**-ikonen.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
@@ -62,37 +62,37 @@ Om du vill konfigurera integreringen av Infor detaljhandeln – informationshant
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-3. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
+3. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
 
     ![Knappen Nytt program](common/add-new-app.png)
 
-4. I sökrutan skriver **Infor detaljhandeln – informationshantering**väljer **Infor detaljhandeln – informationshantering** resultatet panelen klickar **Lägg till** för att lägga till den programmet.
+4. Skriv **Infor Retail – Informationshantering**i sökrutan och välj **Infor Retail – Informationshantering** från resultatpanelen och klicka sedan på **Lägg** till knappen för att lägga till programmet.
 
-    ![Infor detaljhandeln – informationshantering i resultatlistan](common/search-new-app.png)
+    ![Infor Retail – Informationshantering i resultatlistan](common/search-new-app.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
-I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med Infor detaljhandel – informationshantering baserat på en testanvändare kallas **Britta Simon**.
-För enkel inloggning ska fungera, måste en länk förhållandet mellan en Azure AD-användare och relaterade användaren i Infor detaljhandeln – informationshantering upprättas.
+I det här avsnittet konfigurerar och testar du azure AD-enkel inloggning med Infor Retail – Informationshantering baserat på en testanvändare som heter **Britta Simon**.
+För enkel inloggning för att fungera måste en länkrelation mellan en Azure AD-användare och den relaterade användaren i Infor Retail – Informationshantering upprättas.
 
-Om du vill konfigurera och testa Azure AD enkel inloggning med Infor detaljhandeln – informationshantering, måste du utföra följande byggblock:
+Om du vill konfigurera och testa azure AD-enkel inloggning med Infor Retail – Informationshantering måste du slutföra följande byggblock:
 
-1. **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
-2. **[Konfigurera Infor detaljhandeln – Information Management enkel inloggning](#configure-infor-retail--information-management-single-sign-on)**  – om du vill konfigurera inställningar för enkel inloggning på programsidan.
-3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
-4. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
-5. **[Skapa Infor detaljhandel – informationshantering testanvändare](#create-infor-retail--information-management-test-user)**  – du har en motsvarighet för Britta Simon i Infor detaljhandeln – informationshantering som är länkad till en Azure AD-representation av användaren.
-6. **[Testa enkel inloggning](#test-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
+1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
+2. **[Konfigurera Infor Retail – Enkel inloggning för informationshantering](#configure-infor-retail--information-management-single-sign-on)** – för att konfigurera inställningarna för enkel inloggning på programsidan.
+3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
+4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
+5. **[Skapa Infor Retail – Information Management testanvändare](#create-infor-retail--information-management-test-user)** – för att ha en motsvarighet till Britta Simon i Infor Retail – Informationshantering som är kopplad till Azure AD-representationen av användaren.
+6. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
 I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure-portalen.
 
-Om du vill konfigurera Azure utför AD enkel inloggning med Infor detaljhandeln – informationshantering, du följande steg:
+Så här konfigurerar du en enkel Azure AD-inloggning med Infor Retail – Informationshantering:
 
-1. I den [Azure-portalen](https://portal.azure.com/)på den **Infor detaljhandeln – informationshantering** application integration markerar **enkel inloggning**.
+1. I [Azure-portalen](https://portal.azure.com/)väljer du **Enkel inloggning**på sidan Programintegrering av **Infor Retail – Informationshantering** .
 
-    ![Konfigurera enkel inloggning för länken](common/select-sso.png)
+    ![Konfigurera länk för enkel inloggning](common/select-sso.png)
 
 2. I dialogrutan **Välj en metod för enkel inloggning** väljer du läget **SAML/WS-Fed** för att aktivera enkel inloggning.
 
@@ -102,45 +102,45 @@ Om du vill konfigurera Azure utför AD enkel inloggning med Infor detaljhandeln 
 
     ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
 
-4. Om du vill konfigurera programmet i **IDP**-initierat läge gör du följande i avsnittet **Grundläggande SAML-konfiguration**:
+4. Om du vill konfigurera programmet i **IDP-initierat** läge i avsnittet **Grundläggande SAML-konfiguration** gör du följande:
 
-    ![Infor detaljhandeln – Information Management domän och URL: er enkel inloggning för information](common/idp-intiated.png)
+    ![Infor Retail – Informationshanteringsdomän och webbadresser enkel inloggningsinformation](common/idp-intiated.png)
 
-    a. I textrutan **Identifierare** skriver du en URL med följande mönster:
+    a. I textrutan **Identifierare** skriver du en URL med följande mönster:  
     
     | |
     |--|
     | `https://<company name>.mingle.infor.com` |
     | `http://<company name>.mingledev.infor.com` |
 
-    b. I textrutan **Svars-URL** skriver du en URL med följande mönster: `https://<company name>.mingle.infor.com/sp/ACS.saml2`
+    b. Skriv en URL med följande mönster i textrutan **Svara URL:**`https://<company name>.mingle.infor.com/sp/ACS.saml2`
 
 5. Klicka på **Ange ytterligare URL:er** och gör följande om du vill konfigurera appen i **SP**-initierat läge:
 
-    ![Infor detaljhandeln – Information Management domän och URL: er enkel inloggning för information](common/metadata-upload-additional-signon.png)
+    ![Infor Retail – Informationshanteringsdomän och webbadresser enkel inloggningsinformation](common/metadata-upload-additional-signon.png)
 
-    I textrutan **Inloggnings-URL** skriver du in en URL med följande mönster: `https://<company name>.mingle.infor.com/<company code>`
+    Skriv en URL med hjälp av följande mönster i textrutan **Sign-on-URL:**`https://<company name>.mingle.infor.com/<company code>`
 
     > [!NOTE]
-    > Dessa värden är inte verkliga. Uppdatera värdena med den faktiska identifieraren, svars-URL och inloggnings-URL. Kontakta [Infor detaljhandeln – Information Hanteringsklient supportteamet](mailto:innovate@infor.com) att hämta dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
+    > Dessa värden är inte verkliga. Uppdatera värdena med den faktiska identifieraren, svars-URL och inloggnings-URL. Kontakta [Infor Retail – Supportteamet för informationshantering](mailto:innovate@infor.com) för att få dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
 6. På sidan **Set up Single Sign-On with SAML** (Konfigurera enkel inloggning med SAML) går du till avsnittet **SAML Signing Certificate** (SAML-signeringscertifikat), klickar på **Ladda ned** för att ladda ned **Federation Metadata-XML** från de angivna alternativen enligt dina behov och spara den på datorn.
 
-    ![Länk för hämtning av certifikat](common/metadataxml.png)
+    ![Länk för nedladdning av certifikatet](common/metadataxml.png)
 
-7. På den **konfigurera Infor detaljhandeln – informationshantering** avsnittet, kopiera den lämpliga URL: er enligt dina behov.
+7. Kopiera lämpliga webbadresser enligt dina krav i avsnittet **Konfigurera Infor Retail – Informationshantering** enligt dina krav.
 
     ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
 
-    a. Inloggningswebbadress
+    a. Inloggnings-URL
 
-    b. Microsoft Azure Active Directory-identifierare
+    b. Azure AD-identifierare
 
     c. Utloggnings-URL
 
-### <a name="configure-infor-retail--information-management-single-sign-on"></a>Konfigurera Infor detaljhandeln – Information Management enkel inloggning
+### <a name="configure-infor-retail--information-management-single-sign-on"></a>Konfigurera Infor Retail – enkel inloggning för informationshantering
 
-Att konfigurera enkel inloggning på **Infor detaljhandeln – informationshantering** sida, som du behöver skicka de hämtade **XML-Metadata för** och lämpliga kopierade URL: er från Azure portal för att [Infor detaljhandeln – Information Management supportteam](mailto:innovate@infor.com). De ställer du in SAML SSO ansluta till korrekt inställda på båda sidorna.
+Om du vill konfigurera enkel inloggning på **Infor Retail – informationshanteringssidan** måste du skicka den nedladdade **metadata-XML:n** och lämpliga kopierade URL:er från Azure-portalen till [Infor Retail – Supportteam för informationshantering](mailto:innovate@infor.com). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 
@@ -150,7 +150,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     ![Länkarna ”Användare och grupper” och ”Alla grupper”](common/users.png)
 
-2. Välj **Ny användare** överst på skärmen.
+2. Välj **Ny användare** högst upp på skärmen.
 
     ![Knappen Ny användare](common/new-user.png)
 
@@ -160,23 +160,23 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     a. I fältet **Namn** anger du **BrittaSimon**.
   
-    b. I den **användarnamn** fälttyp `brittasimon@yourcompanydomain.extension`. Till exempel, BrittaSimon@contoso.com
+    b. I fältet **Användarnamn** `brittasimon@yourcompanydomain.extension`. Till exempel, BrittaSimon@contoso.com
 
     c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
 
     d. Klicka på **Skapa**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
+### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
-I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inloggning genom att bevilja åtkomst till Infor detaljhandeln – informationshantering.
+I det här avsnittet kan du aktivera Britta Simon för att använda Azure single sign-on genom att bevilja åtkomst till Infor Retail – Information Management.
 
-1. I Azure-portalen väljer du **företagsprogram**väljer **alla program**och välj sedan **Infor detaljhandeln – informationshantering**.
+1. I Azure-portalen väljer du **Företagsprogram**, väljer **Alla program**och väljer sedan **Infor Retail – Informationshantering**.
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-2. I listan med program väljer **Infor detaljhandeln – informationshantering**.
+2. I programlistan väljer du **Infor Retail – Informationshantering**.
 
-    ![Infor detaljhandeln – informationshantering länk i listan med program](common/all-applications.png)
+    ![Länken Infor Retail – Informationshantering i programlistan](common/all-applications.png)
 
 3. På menyn till vänster väljer du **Användare och grupper**.
 
@@ -188,19 +188,19 @@ I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inlog
 
 5. I dialogrutan **Användare och grupper** väljer du **Britta Simon** i listan med användare och klickar på knappen **Välj** längst ned på skärmen.
 
-6. Om du förväntar dig ett rollvärde i SAML-försäkran väljer du i dialogrutan **Välj roll** lämplig roll för användaren i listan och klickar sedan på knappen **Välj** längst ned på skärmen.
+6. Om du förväntar dig något rollvärde i SAML-påståendet väljer du lämplig roll för användaren i listan i dialogrutan **Välj roll** och klickar sedan på knappen **Välj** längst ned på skärmen.
 
 7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
 
-### <a name="create-infor-retail--information-management-test-user"></a>Skapa Infor detaljhandeln – informationshantering testanvändare
+### <a name="create-infor-retail--information-management-test-user"></a>Skapa Infor Retail – Testanvändare för informationshantering
 
-I det här avsnittet skapar du en användare som kallas Britta Simon i Infor detaljhandeln – informationshantering. Arbeta med [Infor detaljhandeln – informationshantering supportteamet](mailto:innovate@infor.com) att lägga till användare i Infor detaljhandeln – plattform för Information. Användare måste skapas och aktiveras innan du använder enkel inloggning.
+I det här avsnittet skapar du en användare som heter Britta Simon i Infor Retail – Informationshantering. Arbeta med [Infor Retail – Supportteamet för informationshantering](mailto:innovate@infor.com) för att lägga till användarna i Infor Retail – Information Management-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
 
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning
 
-I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
+I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-När du klickar på Infor detaljhandeln – informationshantering panel i åtkomstpanelen, bör det vara loggas in automatiskt till Infor detaljhandeln – informationshantering som du ställer in enkel inloggning. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+När du klickar på panelen Infor Retail – Informationshantering på åtkomstpanelen ska du automatiskt loggas in på den Informationshantering för Infor Retail som du konfigurerar SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 

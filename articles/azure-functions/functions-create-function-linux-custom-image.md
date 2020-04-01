@@ -1,47 +1,47 @@
 ---
-title: Skapa Azure Functions på Linux med en anpassad avbildning
+title: Skapa Azure-funktioner på Linux med hjälp av en anpassad avbildning
 description: Lär dig hur du skapar en Azure Functions som körs på en anpassad Linux-avbildning.
 ms.date: 01/15/2020
 ms.topic: tutorial
 ms.custom: mvc
 zone_pivot_groups: programming-languages-set-functions
 ms.openlocfilehash: 8c074c677c645dd03e3cf5288d82aa3e65720e8b
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "79239632"
 ---
-# <a name="create-a-function-on-linux-using-a-custom-container"></a>Skapa en funktion i Linux med en anpassad behållare
+# <a name="create-a-function-on-linux-using-a-custom-container"></a>Skapa en funktion på Linux med en anpassad behållare
 
-I den här självstudien skapar du och distribuerar python-kod till Azure Functions som en anpassad Docker-behållare med en Linux-bas avbildning. Du använder vanligt vis en anpassad bild när funktionerna kräver en specifik språk version eller har ett särskilt beroende eller en specifik konfiguration som inte tillhandahålls av den inbyggda avbildningen.
+I den här självstudien skapar och distribuerar du Python-kod till Azure Functions som en anpassad Docker-behållare med hjälp av en Linux-basavbildning. Du använder vanligtvis en anpassad avbildning när dina funktioner kräver en viss språkversion eller har ett specifikt beroende eller en specifik konfiguration som inte tillhandahålls av den inbyggda avbildningen.
 
-Du kan också använda en standard-Azure App Service-behållare enligt beskrivningen i [skapa din första funktion på Linux](functions-create-first-azure-function-azure-cli-linux.md). Bas avbildningar som stöds för Azure Functions finns i [Azure Functions Base images-lagrings platsen](https://hub.docker.com/_/microsoft-azure-functions-base).
+Du kan också använda en standardbehållare för Azure App Service enligt beskrivningen på [Skapa din första funktion som finns på Linux](functions-create-first-azure-function-azure-cli-linux.md). Basavbildningar som stöds för Azure Functions finns i [azure functions basavbildningar repo](https://hub.docker.com/_/microsoft-azure-functions-base).
 
-I den här guiden får du lära dig att:
+I den här självstudiekursen får du lära du dig att:
 
 > [!div class="checklist"]
-> * Skapa en Function-app och Dockerfile med hjälp av Azure Functions Core Tools.
+> * Skapa en funktionsapp och Dockerfile med hjälp av Azure Functions Core Tools.
 > * skapa en anpassad avbildning med Docker
 > * Publicera en anpassad avbildning till ett containerregister.
-> * Skapa stöd resurser i Azure för Function-appen
+> * Skapa stödresurser i Azure för funktionsappen
 > * distribuera en funktionsapp från Docker Hub
 > * lägga till programinställningar i funktionsappen.
 > * Aktivera kontinuerlig distribution.
 > * Aktivera SSH-anslutningar till behållaren.
-> * Lägg till en utgående bindning för kö Storage. 
+> * Lägg till en kölagringsutdatabindning. 
 
-Du kan följa den här självstudien på alla datorer som kör Windows, Mac OS eller Linux. När du har slutfört kursen debiteras du för några amerikanska dollar i ditt Azure-konto.
+Du kan följa den här självstudien på alla datorer som kör Windows, Mac OS eller Linux. Om du slutför självstudien kostar det några us-dollar i ditt Azure-konto.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-- Ett Azure-konto med en aktiv prenumeration. [Skapa ett konto kostnads fritt](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-- [Azure Functions Core tools](./functions-run-local.md#v2) version 2.7.1846 eller senare
-- [Azure CLI](/cli/azure/install-azure-cli) -version 2.0.77 eller senare
-- [Azure Functions 2. x-körningsmiljön](functions-versions.md)
-- Följande språk körnings komponenter:
+- Ett Azure-konto med en aktiv prenumeration. [Skapa ett konto gratis](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+- [Azure Functions Core Tools](./functions-run-local.md#v2) version 2.7.1846 eller senare
+- [Azure CLI](/cli/azure/install-azure-cli) version 2.0.77 eller senare
+- [Azure Functions 2.x-körningen](functions-versions.md)
+- Följande språkkörningskomponenter:
     ::: zone pivot="programming-language-csharp"
-    - [.NET Core 2.2. x eller senare](https://dotnet.microsoft.com/download)
+    - [.NET Core 2.2.x eller senare](https://dotnet.microsoft.com/download)
     ::: zone-end
     ::: zone pivot="programming-language-javascript"
     - [Node.js](https://nodejs.org/en/download/)
@@ -50,7 +50,7 @@ Du kan följa den här självstudien på alla datorer som kör Windows, Mac OS e
     - [PowerShell](/powershell/scripting/install/installing-windows-powershell?view=powershell-7)
     ::: zone-end
     ::: zone pivot="programming-language-python"
-    - [Python 3,6-64-bitars](https://www.python.org/downloads/release/python-3610/) eller [Python 3,7-64 bitar](https://www.python.org/downloads/release/python-376/)
+    - [Python 3.6 - 64 bitar](https://www.python.org/downloads/release/python-3610/) eller [Python 3.7 - 64 bitar](https://www.python.org/downloads/release/python-376/)
     ::: zone-end
     ::: zone pivot="programming-language-typescript"
     - [Node.js](https://nodejs.org/en/download/)
@@ -59,20 +59,20 @@ Du kan följa den här självstudien på alla datorer som kör Windows, Mac OS e
 - [Docker](https://docs.docker.com/install/)
 - Ett [Docker-ID](https://hub.docker.com/signup)
 
-### <a name="prerequisite-check"></a>Krav kontroll
+### <a name="prerequisite-check"></a>Förutsättningskontroll
 
-1. I ett terminalfönster eller kommando fönster kör `func --version` för att kontrol lera att Azure Functions Core Tools är version 2.7.1846 eller senare.
-1. Kör `az --version` för att kontrol lera att Azure CLI-versionen är 2.0.76 eller senare.
+1. I ett terminal- eller `func --version` kommandofönster kör du för att kontrollera att Azure Functions Core Tools är version 2.7.1846 eller senare.
+1. Kör `az --version` för att kontrollera att Azure CLI-versionen är 2.0.76 eller senare.
 1. Kör `az login` för att logga in på Azure och verifiera en aktiv prenumeration.
-1. Kör `docker login` för att logga in på Docker. Detta kommando Miss lyckas om Docker inte körs, i vilket fall startar Docker och försöker köra kommandot igen.
+1. Kör `docker login` för att logga in på Docker. Det här kommandot misslyckas om Docker inte körs, i vilket fall starta docker och försök igen kommandot.
 
-## <a name="create-and-test-the-local-functions-project"></a>Skapa och testa det lokala Functions-projektet
+## <a name="create-and-test-the-local-functions-project"></a>Skapa och testa projektet för lokala funktioner
 
-1. I en terminal-eller kommando tolk skapar du en mapp för den här självstudien på en lämplig plats och navigerar sedan till mappen.
+1. I en terminal eller kommandotolk skapar du en mapp för den här självstudien på en lämplig plats och navigerar sedan till den mappen.
 
-1. Följ anvisningarna i [skapa och aktivera en virtuell miljö](/azure/azure-functions/functions-create-first-azure-function-azure-cli?pivots=programming-language-python#create-venv) för att skapa en virtuell miljö som du kan använda med den här självstudien.
+1. Följ instruktionerna på [Skapa och aktivera en virtuell miljö](/azure/azure-functions/functions-create-first-azure-function-azure-cli?pivots=programming-language-python#create-venv) för att skapa en virtuell miljö som kan användas med den här självstudien.
 
-1. Kör följande kommando för ditt valda språk för att skapa ett Function app-projekt i en mapp med namnet `LocalFunctionsProject`. Alternativet `--docker` genererar en `Dockerfile` för projektet, som definierar en lämplig anpassad behållare för användning med Azure Functions och den valda körningen.
+1. Kör följande kommando för det språk du valt om `LocalFunctionsProject`du vill skapa ett funktionsappprojekt i en mapp med namnet . Alternativet `--docker` genererar en `Dockerfile` för projektet, som definierar en lämplig anpassad behållare för användning med Azure Functions och den valda körningen.
 
     ::: zone pivot="programming-language-csharp"
     ```
@@ -110,13 +110,13 @@ Du kan följa den här självstudien på alla datorer som kör Windows, Mac OS e
     cd LocalFunctionsProject
     ```
     
-1. Lägg till en funktion i projektet med hjälp av följande kommando, där argumentet `--name` är det unika namnet på din funktion och argumentet `--template` anger funktionens utlösare. `func new` skapa en undermapp som matchar funktions namnet som innehåller en kod fil som är lämplig för projektets valda språk och en konfigurations fil med namnet *Function. JSON*.
+1. Lägg till en funktion i projektet med `--name` hjälp av följande kommando, där `--template` argumentet är det unika namnet på din funktion och argumentet anger funktionens utlösare. `func new`skapa en undermapp som matchar funktionsnamnet som innehåller en kodfil som är lämplig för projektets valda språk och en konfigurationsfil med namnet *function.json*.
 
     ```
     func new --name HttpExample --template "HTTP trigger"
     ```
 
-1. Du testar funktionen lokalt genom att starta den lokala Azure Functions körnings värd i mappen *LocalFunctionsProject* :
+1. Om du vill testa funktionen lokalt startar du den lokala Azure Functions-körningsvärden i mappen *LocalFunctionsProject:*
    
     ::: zone pivot="programming-language-csharp"
     ```
@@ -152,13 +152,13 @@ Du kan följa den här självstudien på alla datorer som kör Windows, Mac OS e
     ```
     ::: zone-end
 
-1. När du ser `HttpExample`-slutpunkten visas i utdata går du till `http://localhost:7071/api/HttpExample?name=Functions`. Webbläsaren ska visa ett meddelande som "Hello, Functions" (variera något beroende på ditt valda programmeringsspråk).
+1. När du `HttpExample` ser slutpunkten visas i `http://localhost:7071/api/HttpExample?name=Functions`utdata navigerar du till . Webbläsaren ska visa ett meddelande som "Hello, Functions" (varierat något beroende på ditt valda programmeringsspråk).
 
 1. Använd **Ctrl**-**C** för att stoppa värden.
 
-## <a name="build-the-container-image-and-test-locally"></a>Bygg behållar avbildningen och testa lokalt
+## <a name="build-the-container-image-and-test-locally"></a>Skapa behållaravbildningen och testa lokalt
 
-1. Valfritt Granska * Dockerfile i mappen *LocalFunctionsProj* Dockerfile beskriver den miljö som krävs för att köra Function-appen på Linux: 
+1. (Valfritt) Undersök *Dockerfile" i mappen *LocalFunctionsProj.* Dockerfile beskriver den miljö som krävs för att köra funktionsappen på Linux: 
 
     ::: zone pivot="programming-language-csharp"
     ```Dockerfile
@@ -240,216 +240,216 @@ Du kan följa den här självstudien på alla datorer som kör Windows, Mac OS e
     ::: zone-end
 
     > [!NOTE]
-    > Den fullständiga listan med bas avbildningar som stöds för Azure Functions finns på [sidan för Azure Functions Base-avbildning](https://hub.docker.com/_/microsoft-azure-functions-base).
+    > Den fullständiga listan över basavbildningar som stöds för Azure Functions finns på bassidan för [Azure Functions.](https://hub.docker.com/_/microsoft-azure-functions-base)
     
-1. I mappen *LocalFunctionsProject* kör du kommandot [Docker build](https://docs.docker.com/engine/reference/commandline/build/) och anger ett namn, `azurefunctionsimage`och tagg `v1.0.0`. Ersätt `<docker_id>` med ditt konto-ID för Docker Hub. Det här kommandot skapar Docker-avbildningen för containern.
+1. I mappen *LocalFunctionsProject* kör du [kommandot docker build](https://docs.docker.com/engine/reference/commandline/build/) `azurefunctionsimage`och anger `v1.0.0`ett namn, och en tagg, . Ersätt `<docker_id>` med ditt konto-ID för Docker Hub. Det här kommandot skapar Docker-avbildningen för containern.
 
     ```
     docker build --tag <docker_id>/azurefunctionsimage:v1.0.0 .
     ```
     
-    När kommandot har slutförts kan du köra den nya behållaren lokalt.
+    När kommandot är klart kan du köra den nya behållaren lokalt.
     
-1. Testa versionen genom att köra avbildningen i en lokal behållare med kommandot [Docker Run](https://docs.docker.com/engine/reference/commandline/run/) , ersätta `<docker_id>` med Docker-ID: t och lägga till port argumentet `-p 8080:80`:
+1. Om du vill testa versionen kör du avbildningen i en `<docker_id>` lokal behållare med kommandot [docker run, ersätter](https://docs.docker.com/engine/reference/commandline/run/) igen med Docker-ID:et och lägger till portarargumentet: `-p 8080:80`
 
     ```
     docker run -p 8080:80 -it <docker_id>/azurefunctionsimage:v1.0.0
     ```
     
-1. När avbildningen körs i en lokal behållare öppnar du en webbläsare för att `http://localhost:8080`, som ska Visa platshållarbilden som visas nedan. Avbildningen visas nu eftersom din funktion körs i den lokala behållaren, som i Azure, vilket innebär att den skyddas av en åtkomst nyckel som definieras i *Function. JSON* med egenskapen `"authLevel": "function"`. Behållaren har inte publicerats i en Function-app i Azure, men nyckeln är inte tillgänglig ännu. Om du vill testa lokalt, stoppa Docker, ändra egenskapen Authorization till `"authLevel": "anonymous"`, återskapa avbildningen och starta om Docker. Återställ sedan `"authLevel": "function"` i *Function. JSON*. Mer information finns i [Authorization Keys](functions-bindings-http-webhook-trigger.md#authorization-keys).
+1. När bilden körs i en lokal behållare `http://localhost:8080`öppnar du en webbläsare för , som ska visa platshållarbilden som visas nedan. Avbildningen visas nu eftersom din funktion körs i den lokala behållaren, som den skulle i Azure, vilket innebär att `"authLevel": "function"` den skyddas av en åtkomstnyckel enligt definitionen i *function.json* med egenskapen. Behållaren har ännu inte publicerats till en funktionsapp i Azure, så nyckeln är ännu inte tillgänglig. Om du vill testa lokalt, stoppa docker, `"authLevel": "anonymous"`ändra auktoriseringsegenskapen till , återskapa avbildningen och starta om docker. Återställ `"authLevel": "function"` sedan i *function.json*. Mer information finns i [auktoriseringsnycklar](functions-bindings-http-webhook-trigger.md#authorization-keys).
 
-    ![Platshållarbild som visar att behållaren körs lokalt](./media/functions-create-function-linux-custom-image/run-image-local-success.png)
+    ![Platshållarbild som anger att behållaren körs lokalt](./media/functions-create-function-linux-custom-image/run-image-local-success.png)
 
-1. När du har verifierat Function-appen i behållaren, stoppa Docker med **Ctrl**+**C**.
+1. När du har verifierat funktionsappen i behållaren stoppar du dockern med **Ctrl**+**C**.
 
-## <a name="push-the-image-to-docker-hub"></a>Push-överför avbildningen till Docker Hub
+## <a name="push-the-image-to-docker-hub"></a>Skicka bilden till Docker Hub
 
-Docker Hub är ett behållar register som är värd för avbildningar och tillhandahåller avbildnings-och container tjänster. Om du vill dela din avbildning, som inkluderar distribution till Azure, måste du skicka den till ett register.
+Docker Hub är ett behållarregister som är värd för avbildningar och tillhandahåller avbildnings- och behållartjänster. Om du vill dela avbildningen, som inkluderar distribution till Azure, måste du skicka den till ett register.
 
-1. Om du inte redan har loggat in på Docker gör du det med kommandot [Docker login](https://docs.docker.com/engine/reference/commandline/login/) och ersätter `<docker_id>` med Docker-ID. Med det här kommandot uppmanas du att ange ditt användar namn och lösen ord. Meddelandet "inloggningen lyckades" bekräftar att du är inloggad.
+1. Om du inte redan har loggat in på Docker gör `<docker_id>` du det med [inloggningskommandot docker](https://docs.docker.com/engine/reference/commandline/login/) och ersätter med Docker-ID:t. Detta kommando frågar dig för ditt användarnamn och lösenord. Meddelandet "Inloggning lyckades" bekräftar att du är inloggad.
 
     ```
     docker login
     ```
     
-1. När du har loggat in skickar du avbildningen till Docker Hub med hjälp av kommandot [Docker push](https://docs.docker.com/engine/reference/commandline/push/) och ersätter `<docker_id>` med ditt Docker-ID.
+1. När du har loggat in skickar du avbildningen till Docker `<docker_id>` Hub med hjälp av [docker-push-kommandot](https://docs.docker.com/engine/reference/commandline/push/) och ersätter igen med Docker-ID:t.
 
     ```
     docker push <docker_id>/azurefunctionsimage:v1.0.0
     ```
 
-1. Beroende på din nätverks hastighet kan det ta några minuter att skicka avbildningen första gången (det går mycket snabbare att överföra efterföljande ändringar). Medan du väntar kan du fortsätta till nästa avsnitt och skapa Azure-resurser i en annan terminal.
+1. Beroende på nätverkshastigheten kan det ta några minuter att trycka på bilden första gången (det går mycket snabbare att trycka på den efterföljande datorn). Medan du väntar kan du gå vidare till nästa avsnitt och skapa Azure-resurser i en annan terminal.
 
 ## <a name="create-supporting-azure-resources-for-your-function"></a>Skapa stöd för Azure-resurser för din funktion
 
-Om du vill distribuera funktions koden till Azure måste du skapa tre resurser:
+Om du vill distribuera funktionskoden till Azure måste du skapa tre resurser:
 
-- En resurs grupp, som är en logisk behållare för relaterade resurser.
-- Ett Azure Storage konto som upprätthåller tillstånd och annan information om dina projekt.
-- En Azure Functions-app som tillhandahåller miljön för att köra funktions koden. En Function-app mappar till ditt lokala Function-projekt och gör att du kan gruppera funktioner som en logisk enhet för enklare hantering, distribution och delning av resurser.
+- En resursgrupp, som är en logisk behållare för relaterade resurser.
+- Ett Azure Storage-konto som upprätthåller tillstånd och annan information om dina projekt.
+- En Azure-funktionsapp som tillhandahåller miljön för att köra din funktionskod. En funktionsapp mappas till ditt lokala funktionsprojekt och låter dig gruppera funktioner som en logisk enhet för enklare hantering, distribution och delning av resurser.
 
-Du kan använda Azure CLI-kommandon för att skapa dessa objekt. Varje kommando innehåller JSON-utdata när den har slutförts.
+Du använder Azure CLI-kommandon för att skapa dessa objekt. Varje kommando ger JSON-utdata när det är klart.
 
-1. Logga in på Azure med kommandot [AZ login](/cli/azure/reference-index#az-login) :
+1. Logga in på Azure med kommandot [az login:](/cli/azure/reference-index#az-login)
 
     ```azurecli
     az login
     ```
     
-1. Skapa en resursgrupp med kommandot [az group create](/cli/azure/group#az-group-create). I följande exempel skapas en resurs grupp med namnet `AzureFunctionsContainers-rg` i `westeurope` region. (Du skapar vanligt vis resurs gruppen och resurserna i en region nära dig, med hjälp av en tillgänglig region från kommandot `az account list-locations`.)
+1. Skapa en resursgrupp med kommandot [az group create](/cli/azure/group#az-group-create). I följande exempel skapas `AzureFunctionsContainers-rg` en `westeurope` resursgrupp med namnet i regionen. (Du skapar vanligtvis resursgruppen och resurserna i en region nära `az account list-locations` dig med hjälp av en tillgänglig region från kommandot.)
 
     ```azurecli
     az group create --name AzureFunctionsContainers-rg --location westeurope
     ```
     
     > [!NOTE]
-    > Du kan inte vara värd för Linux-och Windows-appar i samma resurs grupp. Om du har en befintlig resurs grupp med namnet `AzureFunctionsContainers-rg` med en Windows Function-app eller en webbapp måste du använda en annan resurs grupp.
+    > Du kan inte vara värd för Linux- och Windows-appar i samma resursgrupp. Om du har en `AzureFunctionsContainers-rg` befintlig resursgrupp med namnet med en Windows-funktionsapp eller webbapp måste du använda en annan resursgrupp.
     
-1. Skapa ett allmänt lagrings konto i din resurs grupp och region med hjälp av kommandot [AZ Storage Account Create](/cli/azure/storage/account#az-storage-account-create) . I följande exempel ersätter du `<storage_name>` med ett globalt unikt namn som passar dig. Namn måste innehålla mellan 3 och 24 tecken och endast små bokstäver. `Standard_LRS` anger ett typiskt allmänt syftes konto.
+1. Skapa ett allmänt lagringskonto i resursgruppen och regionen med kommandot [skapa az-lagringskonto.](/cli/azure/storage/account#az-storage-account-create) I följande exempel `<storage_name>` ersätter du med ett globalt unikt namn som passar dig. Namnen får innehålla endast tre till 24 teckens siffror och gemener. `Standard_LRS`anger ett typiskt konto för allmänt ändamål.
 
     ```azurecli
     az storage account create --name <storage_name> --location westeurope --resource-group AzureFunctionsContainers-rg --sku Standard_LRS
     ```
     
-    Lagrings kontot förväntar sig bara några USD cent för den här självstudien.
+    Lagringskontot ådrar sig bara några USD cent för den här guiden.
     
-1. Använd kommandot för att skapa en Premium-plan för Azure Functions med namnet `myPremiumPlan` på pris nivån på **elastisk Premium 1** (`--sku EP1`) i regionen Europa, västra (`-location westeurope`), eller Använd en lämplig region nära dig) och i en Linux-behållare (`--is-linux`).
+1. Använd kommandot för att skapa en `myPremiumPlan` Premium-plan för Azure-funktioner`--sku EP1`som namnges i`-location westeurope`prisnivån Elastisk **Premium 1** ( ),`--is-linux`i regionen Västeuropa ( eller använd en lämplig region nära dig) och i en Linux-behållare ( ).
 
     ```azurecli
     az functionapp plan create --resource-group AzureFunctionsContainers-rg --name myPremiumPlan --location westeurope --number-of-workers 1 --sku EP1 --is-linux
     ```   
 
-    Linux-värd för anpassade funktions behållare stöds på [dedikerade (App Service) planer](functions-scale.md#app-service-plan) och [Premium-planer](functions-premium-plan.md#features). Vi använder Premium planen här, som kan skalas efter behov. Mer information om värdfunktioner finns i [Azure Functions hosting plans comparison](functions-scale.md) (Jämförelse av Azure Functions-värdplaner). Information om hur du beräknar kostnader finns i [prissättnings sidan för funktioner](https://azure.microsoft.com/pricing/details/functions/).
+    Linux hosting för anpassade funktioner behållare stöds på [Dedikerade (App Service) planer](functions-scale.md#app-service-plan) och [Premium planer](functions-premium-plan.md#features). Vi använder Premium-planen här, som kan skala efter behov. Mer information om värdfunktioner finns i [Azure Functions hosting plans comparison](functions-scale.md) (Jämförelse av Azure Functions-värdplaner). Om du vill beräkna kostnader finns på [sidan Funktioners priser](https://azure.microsoft.com/pricing/details/functions/).
 
-    Kommandot etablerar även en associerad Azure Application insikts-instans i samma resurs grupp, som du kan använda för att övervaka din Function-app och Visa loggar. Mer information finns i [övervaka Azure Functions](functions-monitoring.md). Instansen debiteras inga kostnader förrän du aktiverar den.
+    Kommandot etablerar också en associerad Azure Application Insights-instans i samma resursgrupp, med vilken du kan övervaka din funktionsapp och visa loggar. Mer information finns i [Övervaka Azure-funktioner](functions-monitoring.md). Instansen medför inga kostnader förrän du aktiverar den.
 
-## <a name="create-and-configure-a-function-app-on-azure-with-the-image"></a>Skapa och konfigurera en Function-app på Azure med avbildningen
+## <a name="create-and-configure-a-function-app-on-azure-with-the-image"></a>Skapa och konfigurera en funktionsapp på Azure med avbildningen
 
-En Function-app på Azure hanterar körningen av dina funktioner i värd planen. I det här avsnittet använder du Azure-resurserna från föregående avsnitt för att skapa en Function-app från en avbildning på Docker Hub och konfigurera den med en anslutnings sträng till Azure Storage.
+En funktionsapp på Azure hanterar körningen av dina funktioner i din värdplan. I det här avsnittet använder du Azure-resurserna från föregående avsnitt för att skapa en funktionsapp från en avbildning på Docker Hub och konfigurera den med en anslutningssträng till Azure Storage.
 
-1. Skapa Functions-appen med kommandot [AZ functionapp Create](/cli/azure/functionapp#az-functionapp-create) . I följande exempel ersätter du `<storage_name>` med det namn som du använde i föregående avsnitt för lagrings kontot. Ersätt också `<app_name>` med ett globalt unikt namn som passar dig, och `<docker_id>` med ditt Docker-ID.
+1. Skapa appen Funktioner med kommandot [az functionapp create.](/cli/azure/functionapp#az-functionapp-create) I följande exempel `<storage_name>` ersätter du med det namn som du använde i föregående avsnitt för lagringskontot. Ersätt `<app_name>` också med ett globalt unikt namn `<docker_id>` som passar dig och med Docker-ID:n.
 
     ```azurecli
     az functionapp create --name <app_name> --storage-account <storage_name> --resource-group AzureFunctionsContainers-rg --plan myPremiumPlan --deployment-container-image-name <docker_id>/azurefunctionsimage:v1.0.0
     ```
     
-    Parametern *Deployment-container-Image-Name* anger vilken avbildning som ska användas för Function-appen. Du kan använda kommandot [AZ functionapp config container show](/cli/azure/functionapp/config/container#az-functionapp-config-container-show) för att visa information om den avbildning som används för distribution. Du kan också använda kommandot [AZ functionapp config container set](/cli/azure/functionapp/config/container#az-functionapp-config-container-set) för att distribuera från en annan avbildning.
+    Parametern *deployment-container-image-name* anger vilken avbildning som ska användas för funktionsappen. Du kan använda kommandot [az functionapp config container show](/cli/azure/functionapp/config/container#az-functionapp-config-container-show) för att visa information om avbildningen som används för distribution. Du kan också använda kommandot [az functionapp config container set](/cli/azure/functionapp/config/container#az-functionapp-config-container-set) för att distribuera från en annan avbildning.
 
-1. Hämta anslutnings strängen för det lagrings konto som du skapade med kommandot [AZ Storage Account show-Connection-String](/cli/azure/storage/account) och tilldela det till en Shell-variabel `storageConnectionString`:
+1. Hämta anslutningssträngen för lagringskontot som du skapade med kommandot az storage account `storageConnectionString` [show-connection-string](/cli/azure/storage/account) och tilldela den till en skalvariabel:
 
     ```azurecli
     az storage account show-connection-string --resource-group AzureFunctionsContainers-rg --name <storage_name> --query connectionString --output tsv
     ```
     
-1. Lägg till den här inställningen i Function-appen med hjälp av kommandot [AZ functionapp config appSettings set](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set) . I följande kommando ersätter du `<app_name>` med namnet på din Function-app och ersätter `<connection_string>` med anslutnings strängen från föregående steg (en lång kodad sträng som börjar med "DefaultEndpointProtocol ="):
+1. Lägg till den här inställningen i funktionsappen med kommandot [az functionapp config appsettings](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set) set. I följande kommando `<app_name>` ersätter du med namnet på `<connection_string>` funktionsappen och ersätter med anslutningssträngen från föregående steg (en lång kodad sträng som börjar med "DefaultEndpointProtocol="):
  
     ```azurecli
     az functionapp config appsettings set --name <app_name> --resource-group AzureFunctionsContainers-rg --settings AzureWebJobsStorage=<connection_string>
     ```
 
-1. Funktionen kan nu använda den här anslutnings strängen för att komma åt lagrings kontot.
+1. Funktionen kan nu använda den här anslutningssträngen för att komma åt lagringskontot.
 
 > [!TIP]
-> I bash kan du använda en gränssnitts variabel för att avbilda anslutnings strängen i stället för att använda Urklipp. Använd först följande kommando för att skapa en variabel med anslutnings strängen:
+> I bash kan du använda en skalvariabel för att fånga anslutningssträngen i stället för att använda Urklipp. Använd först följande kommando för att skapa en variabel med anslutningssträngen:
 > 
 > ```bash
 > storageConnectionString=$(az storage account show-connection-string --resource-group AzureFunctionsContainers-rg --name <storage_name> --query connectionString --output tsv)
 > ```
 > 
-> Referera sedan till variabeln i det andra kommandot:
+> Se sedan variabeln i det andra kommandot:
 > 
 > ```azurecli
 > az functionapp config appsettings set --name <app_name> --resource-group AzureFunctionsContainers-rg --settings AzureWebJobsStorage=$storageConnectionString
 > ```
 
 > [!NOTE]    
-> Om du publicerar en anpassad avbildning till ett privat behållar konto bör du i stället använda miljövariabler i Dockerfile för anslutnings strängen. Mer information finns i avsnittet om [miljö](https://docs.docker.com/engine/reference/builder/#env). Du bör också ange variablerna `DOCKER_REGISTRY_SERVER_USERNAME` och `DOCKER_REGISTRY_SERVER_PASSWORD`. Om du vill använda värdena måste du återskapa avbildningen, push-överför avbildningen till registret och sedan starta om Function-appen på Azure.
+> Om du publicerar den anpassade avbildningen på ett privat behållarkonto bör du använda miljövariabler i Dockerfile för anslutningssträngen i stället. Mer information finns i [ENV-instruktionen](https://docs.docker.com/engine/reference/builder/#env). Du bör också ställa `DOCKER_REGISTRY_SERVER_USERNAME` `DOCKER_REGISTRY_SERVER_PASSWORD`in variablerna och . Om du vill använda värdena måste du sedan återskapa avbildningen, skicka avbildningen till registret och sedan starta om funktionsappen på Azure.
 
-## <a name="verify-your-functions-on-azure"></a>Verifiera dina funktioner i Azure
+## <a name="verify-your-functions-on-azure"></a>Verifiera dina funktioner på Azure
 
-Med den avbildning som distribueras till Function-appen på Azure kan du nu anropa funktionen via HTTP-begäranden. Eftersom definitionen av *Function. JSON* innehåller egenskapen `"authLevel": "function"`måste du först hämta åtkomst nyckeln (kallas även "funktions nyckel") och ta med den som en URL-parameter i alla begär anden till slut punkten.
+Med avbildningen distribuerad till funktionsappen på Azure kan du nu anropa funktionen via HTTP-begäranden. Eftersom *function.json-definitionen* innehåller `"authLevel": "function"`egenskapen måste du först hämta åtkomstnyckeln (kallas även "funktionsnyckeln") och inkludera den som en URL-parameter i alla begäranden till slutpunkten.
 
-1. Hämta funktions webb adressen med åtkomst nyckeln (Function) med hjälp av Azure Portal eller med hjälp av Azure CLI med kommandot `az rest`.)
+1. Hämta funktions-URL:en med åtkomstnyckeln (funktion) med hjälp av `az rest` Azure-portalen eller genom att använda Azure CLI med kommandot.)
 
-    # <a name="portal"></a>[Portal](#tab/portal)
+    # <a name="portal"></a>[Portalen](#tab/portal)
 
-    1. Logga in på Azure Portal och leta sedan reda på din Function-app genom att ange namnet på din app i rutan **Sök** högst upp på sidan. I resultaten väljer du **App Service** resursen.
+    1. Logga in på Azure-portalen och leta sedan reda på din funktionsapp genom att ange namnet på din funktionsapp i **sökrutan** högst upp på sidan. I resultatet väljer du **App Service-resursen.**
 
-    1. Välj namnet på din funktion under **funktioner (skrivskyddad)** i den vänstra navigerings panelen.
+    1. Välj namnet på funktionen under **Funktioner (Skrivskyddade)** på den vänstra navigeringspanelen.
 
-    1. I informations panelen väljer du **</> Hämta funktions webb adress**:
+    1. Välj **</> Hämta funktions-URL**på informationspanelen:
     
-        ![URL-kommandot Hämta funktion på Azure Portal](./media/functions-create-function-linux-custom-image/functions-portal-get-url-key.png)   
+        ![Kommandot Hämta funktions-URL på Azure-portalen](./media/functions-create-function-linux-custom-image/functions-portal-get-url-key.png)   
 
-    1. I popup-fönstret väljer du **Standard (funktions nyckel)** och sedan **Kopiera**. Nyckeln är en sträng med tecken som följer `?code=`.
+    1. I popup-fönstret väljer du **standard (funktionstangent)** och **kopierar**sedan . Nyckeln är teckensträngen `?code=`som följer .
 
-        ![Kopiera funktions webb adressen från Azure Portal](./media/functions-create-function-linux-custom-image/functions-portal-get-url-key-popup.png)   
+        ![Kopiera funktions-URL:en från Azure-portalen](./media/functions-create-function-linux-custom-image/functions-portal-get-url-key-popup.png)   
 
     > [!NOTE]  
-    > Eftersom din Function-app distribueras som en behållare kan du inte göra ändringar i funktions koden i portalen. Du måste i stället uppdatera projektet i den lokala avbildningen, push-överför avbildningen till registret igen och sedan distribuera om till Azure. Du kan ställa in kontinuerlig distribution i ett senare avsnitt.
+    > Eftersom din funktionsapp distribueras som en behållare kan du inte göra ändringar i funktionskoden i portalen. Du måste i stället uppdatera projektet i den lokala avbildningen, skicka avbildningen till registret igen och sedan distribuera om till Azure. Du kan ställa in kontinuerlig distribution i ett senare avsnitt.
     
     # <a name="azure-cli"></a>[Azure CLI](#tab/azurecli)
 
-    1. Skapa en URL-sträng i följande format, ersätta `<subscription_id>`, `<resource_group>`och `<app_name>` med ditt Azure-prenumerations-ID, resurs gruppen för din Function-app och namnet på din Function-app:
+    1. Skapa en URL-sträng i `<subscription_id>`följande `<resource_group>`format `<app_name>` och ersätt , och med ditt Azure-prenumerations-ID, resursgruppen för din funktionsapp respektive namnet på din funktionsapp:
 
         ```
         "/subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Web/sites/<app_name>/host/default/listKeys?api-version=2018-11-01"
         ```
 
-        URL-adressen kan till exempel se ut så här:
+        Webbadressen kan till exempel se ut som följande adress:
 
         ```
         "/subscriptions/1234aaf4-1234-abcd-a79a-245ed34eabcd/resourceGroups/AzureFunctionsContainers-rg/providers/Microsoft.Web/sites/msdocsfunctionscontainer/host/default/listKeys?api-version=2018-11-01"
         ```
 
         > [!TIP]
-        > För enkelhetens skull kan du i stället tilldela URL: en till en miljö variabel och använda den i kommandot `az rest`.
+        > För enkelhetens skull kan du i stället tilldela `az rest` url:en till en miljövariabel och använda den i kommandot.
     
-    1. Kör följande `az rest` kommando (tillgängligt i Azure CLI-versionen 2.0.77 och senare) och ersätt `<uri>` med URI-strängen från det sista steget, inklusive citat tecken:
+    1. Kör följande `az rest` kommando (tillgängligt i Azure CLI version 2.0.77 och senare) och ersätt med `<uri>` URI-strängen från det sista steget, inklusive citattecken:
 
         ```azurecli
         az rest --method post --uri <uri> --query functionKeys.default --output tsv
         ```
 
-    1. Kommandots utdata är funktions tangenten. URL: en för fullständig funktion `https://<app_name>.azurewebsites.net/api/<function_name>?code=<key>`, ersätter `<app_name>`, `<function_name>`och `<key>` med dina egna värden.
+    1. Utdata från kommandot är funktionsnyckeln. Den fullständiga `https://<app_name>.azurewebsites.net/api/<function_name>?code=<key>`funktions-URL:en ersätter `<app_name>`sedan , `<function_name>`och `<key>` med dina specifika värden.
     
         > [!NOTE]
-        > Nyckeln som hämtas här är *värd* nyckeln som fungerar för alla funktioner i functions-appen. metoden som visas för portalen hämtar bara nyckeln för den enda funktionen.
+        > Nyckeln som hämtas här är *värdnyckeln* som fungerar för alla funktioner i funktionsappen. den metod som visas för portalen hämtar bara nyckeln för en funktion.
 
     ---
 
-1. Klistra in funktions webb adressen i webbläsarens Adress fält och Lägg till parametern `&name=Azure` i slutet av denna URL. Text som "Hej Azure" ska visas i webbläsaren.
+1. Klistra in funktions-URL:en i webbläsarens `&name=Azure` adressfält och lägg till parametern i slutet av webbadressen. Text som "Hello Azure" ska visas i webbläsaren.
 
     ![Funktionssvar i webbläsaren.](./media/functions-create-function-linux-custom-image/function-app-browser-testing.png)
 
-1. Om du vill testa auktorisering tar du bort koden = parameter från URL: en och kontrollerar att du inte får något svar från funktionen.
+1. Om du vill testa auktoriseringen tar du bort parametern code= från URL:en och kontrollerar att du inte får något svar från funktionen.
 
 
 ## <a name="enable-continuous-deployment-to-azure"></a>Aktivera kontinuerlig distribution till Azure
 
-Du kan aktivera Azure Functions att automatiskt uppdatera distributionen av en avbildning varje gång du uppdaterar avbildningen i registret.
+Du kan aktivera Azure Functions för att automatiskt uppdatera distributionen av en avbildning när du uppdaterar avbildningen i registret.
 
-1. Aktivera kontinuerlig distribution med hjälp av kommandot [AZ functionapp Deployment container config](/cli/azure/functionapp/deployment/container#az-functionapp-deployment-container-config) , och ersätt `<app_name>` med namnet på din Function-app:
+1. Aktivera kontinuerlig distribution med kommandot [az functionapp deployment container config](/cli/azure/functionapp/deployment/container#az-functionapp-deployment-container-config) och ersätt med `<app_name>` namnet på funktionsappen:
 
     ```azurecli
     az functionapp deployment container config --enable-cd --query CI_CD_URL --output tsv --name <app_name> --resource-group AzureFunctionsContainers-rg
     ```
     
-    Det här kommandot aktiverar kontinuerlig distribution och returnerar distributions-webhook-URL: en. (Du kan hämta denna URL vid ett senare tillfälle genom att använda kommandot [AZ functionapp Deployment container show-CD-URL](/cli/azure/functionapp/deployment/container#az-functionapp-deployment-container-show-cd-url) .)
+    Det här kommandot möjliggör kontinuerlig distribution och returnerar webbkroks-URL:en för distribution. (Du kan hämta den här URL:en när som helst med kommandot [az functionapp deployment container show-cd-url.)](/cli/azure/functionapp/deployment/container#az-functionapp-deployment-container-show-cd-url)
 
-1. Kopiera distributions-webhook-URL: en till Urklipp.
+1. Kopiera url:en för distributionswebbkrok till Urklipp.
 
-1. Öppna [Docker Hub](https://hub.docker.com/), logga in och välj **databaser** i navigerings fältet. Leta upp och välj bild, Välj fliken **Webhooks** , ange ett **webhook-namn**, klistra in URL: en i **webhook-URL**och välj sedan **skapa**:
+1. Öppna [Docker Hub,](https://hub.docker.com/)logga in och välj **Databaser** i navigeringsfältet. Leta reda på och markera bild, välj fliken **Webhooks,** ange ett **Webhook-namn,** klistra in webbadressen i **Webhook-URL:en**och välj sedan **Skapa:**
 
-    ![Lägg till webhooken i din DockerHub-lagrings platsen](./media/functions-create-function-linux-custom-image/dockerhub-set-continuous-webhook.png)  
+    ![Lägg till webhooken i repoeten i DockerHub](./media/functions-create-function-linux-custom-image/dockerhub-set-continuous-webhook.png)  
 
-1. Med webhook-uppsättningen, Azure Functions distribuerar avbildningen igen när du uppdaterar den i Docker Hub.
+1. Med webhook-uppsättningen distribuerar Azure Functions om avbildningen när du uppdaterar den i Docker Hub.
 
 ## <a name="enable-ssh-connections"></a>Aktivera SSH-anslutningar
 
-SSH möjliggör säker kommunikation mellan en container och en klient. Med SSH aktiverat kan du ansluta till din behållare med hjälp av App Service Advanced tools (kudu). För att göra det enkelt att ansluta till din behållare med hjälp av SSH tillhandahåller Azure Functions en bas avbildning med SSH redan aktive rad. Du behöver bara redigera din Dockerfile, sedan återskapa och omdistribuera avbildningen. Sedan kan du ansluta till behållaren via avancerade verktyg (kudu)
+SSH möjliggör säker kommunikation mellan en container och en klient. Med SSH aktiverat kan du ansluta till din behållare med Hjälp av Kudu (App Service Advanced Tools). Azure Functions tillhandahåller en basavbildning som redan har aktiverat SSH för att göra det enkelt att ansluta till din behållare med SSH. Du behöver bara redigera Dockerfile och sedan återskapa och distribuera om avbildningen. Du kan sedan ansluta till behållaren via De avancerade verktygen (Kudu)
 
-1. I din Dockerfile lägger du till sträng `-appservice` till bas avbildningen i `FROM`s instruktionen:
+1. Lägg till strängen `-appservice` i basbilden i `FROM` instruktionen i Dockerfile:
 
     ::: zone pivot="programming-language-csharp"
     ```Dockerfile
@@ -481,78 +481,78 @@ SSH möjliggör säker kommunikation mellan en container och en klient. Med SSH 
     ```
     ::: zone-end
 
-    Skillnaderna mellan bas avbildningarna beskrivs i [själv studie kursen app Services anpassade Docker-avbildningar](../app-service/containers/tutorial-custom-docker-image.md#enable-ssh-connections).
+    Skillnaderna mellan basavbildningarna beskrivs i [självstudiekursen App Services - Custom docker-avbildningar](../app-service/containers/tutorial-custom-docker-image.md#enable-ssh-connections).
 
-1. Återskapa avbildningen med hjälp av `docker build` kommandot igen och ersätt `<docker_id>` med ditt Docker-ID:
+1. Återskapa avbildningen `docker build` med kommandot `<docker_id>` igen och ersätt med Docker-ID:Rebuild the image by using the command again, replacing with your Docker ID:
 
     ```
     docker build --tag <docker_id>/azurefunctionsimage:v1.0.0 .
     ```
     
-1. Push-överför den uppdaterade avbildningen till Docker Hub, vilket bör ta avsevärt kortare tid än den första push-gränsen som bara de uppdaterade segmenten i bilden behöver överföras.
+1. Skicka den uppdaterade bilden till Docker Hub, vilket bör ta betydligt kortare tid än den första push endast de uppdaterade segmenten av bilden behöver laddas upp.
 
     ```
     docker push <docker_id>/azurefunctionsimage:v1.0.0
     ```
     
-1. Azure Functions distribuerar automatiskt om avbildningen till Functions-appen. processen äger rum på mindre än en minut.
+1. Azure Functions distribuerar automatiskt om avbildningen till din funktionsapp. processen sker på mindre än en minut.
 
-1. Öppna `https://<app_name>.scm.azurewebsites.net/`i en webbläsare och ersätt `<app_name>` med ditt unika namn. Den här URL: en är kudu-slutpunkten (Advanced tools) för din Function app-behållare.
+1. Öppna `https://<app_name>.scm.azurewebsites.net/`i en webbläsare `<app_name>` och ersätt med ditt unika namn. Den här URL:en är slutpunkten avancerade verktyg (Kudu) för din funktionsappbehållare.
 
-1. Logga in på ditt Azure-konto och välj sedan **SSH** för att upprätta en anslutning till behållaren. Det kan ta en stund att ansluta. om Azure fortfarande håller på att uppdatera behållar avbildningen.
+1. Logga in på ditt Azure-konto och välj sedan **SSH** för att upprätta en anslutning till behållaren. Det kan ta en stund att ansluta om Azure fortfarande håller på att uppdatera behållaravbildningen.
 
-1. När en anslutning har upprättats med din behållare kör du kommandot `top` för att visa de processer som körs. 
+1. När en anslutning har upprättats med `top` behållaren kör du kommandot för att visa de processer som körs. 
 
-    ![Linux Top-kommando som körs i en SSH-session](media/functions-create-function-linux-custom-image/linux-custom-kudu-ssh-top.png)
+    ![Linux-toppkommando som körs i en SSH-session](media/functions-create-function-linux-custom-image/linux-custom-kudu-ssh-top.png)
 
-## <a name="write-to-an-azure-storage-queue"></a>Skriv till en Azure Storage kö
+## <a name="write-to-an-azure-storage-queue"></a>Skriv till en Azure Storage-kö
 
-Med Azure Functions kan du ansluta dina funktioner till andra Azure-tjänster och-resurser som behöver skriva din egen integrerings kod. Dessa *bindningar*, som representerar både indata och utdata, deklareras i funktions definitionen. Data från bindningar tillhandahålls till funktionen som parametrar. En *utlösare* är en särskild typ av ingående bindning. Även om en funktion bara har en utlösare, kan den ha flera indata och utdata-bindningar. Mer information finns i [Azure Functions utlösare och bindningar begrepp](functions-triggers-bindings.md).
+Med Azure Functions kan du ansluta dina funktioner till andra Azure-tjänster och resurser som måste skriva din egen integrationskod. Dessa *bindningar*, som representerar både indata och utdata, deklareras i funktionsdefinitionen. Data från bindningar anges för funktionen som parametrar. En *utlösare* är en speciell typ av indatabindning. Även om en funktion bara har en utlösare kan den ha flera in- och utdatabindningar. Mer information finns i [Azure Functions utlösare och bindningar](functions-triggers-bindings.md)begrepp .
 
-I det här avsnittet visas hur du integrerar din funktion med en Azure Storage kö. Den utgående bindning som du lägger till i den här funktionen skriver data från en HTTP-begäran till ett meddelande i kön.
+Det här avsnittet visar hur du integrerar din funktion med en Azure Storage-kö. Utdatabindningen som du lägger till i den här funktionen skriver data från en HTTP-begäran till ett meddelande i kön.
 
-## <a name="retrieve-the-azure-storage-connection-string"></a>Hämta Azure Storage anslutnings sträng
+## <a name="retrieve-the-azure-storage-connection-string"></a>Hämta anslutningssträngen för Azure Storage
 
-Tidigare skapade du ett Azure Storage-konto som ska användas av Function-appen. Anslutnings strängen för det här kontot lagras på ett säkert sätt i appinställningar i Azure. Genom att Hämta inställningen till den *lokala. Settings. JSON* -filen kan du använda den för att skriva till en lagrings kö i samma konto när funktionen körs lokalt. 
+Tidigare har du skapat ett Azure Storage-konto som ska användas av funktionsappen. Anslutningssträngen för det här kontot lagras säkert i appinställningar i Azure. Genom att hämta inställningen till filen *local.settings.json* kan du använda den anslutningsskrivningen till en lagringskö i samma konto när du kör funktionen lokalt. 
 
-1. Kör följande kommando från roten av projektet och ersätt `<app_name>` med namnet på din Function-app från föregående snabb start. Det här kommandot skriver över alla befintliga värden i filen.
+1. Från projektets rot kör du följande `<app_name>` kommando och ersätter med namnet på funktionsappen från föregående snabbstart. Det här kommandot skriver över alla befintliga värden i filen.
 
     ```
     func azure functionapp fetch-app-settings <app_name>
     ```
     
-1. Öppna *Local. Settings. JSON* och leta upp värdet med namnet `AzureWebJobsStorage`, vilket är anslutnings strängen för lagrings kontot. Du använder namnet `AzureWebJobsStorage` och anslutnings strängen i andra avsnitt i den här artikeln.
+1. Öppna *local.settings.json* och leta `AzureWebJobsStorage`reda på värdet med namnet , som är anslutningssträngen för lagringskonto. Du använder `AzureWebJobsStorage` namnet och anslutningssträngen i andra avsnitt i den här artikeln.
 
 > [!IMPORTANT]
-> Eftersom *Local. Settings. JSON* innehåller hemligheter som hämtats från Azure, ska du alltid utesluta den här filen från käll kontroll. Filen *. gitignore* som skapas med ett lokalt Functions-projekt utesluter filen som standard.
+> Eftersom *local.settings.json* innehåller hemligheter som hämtats från Azure, utesluter du alltid den här filen från källkontrollen. *Gitignore-filen* som skapats med ett lokalt funktionsprojekt utesluter filen som standard.
 
-### <a name="add-an-output-binding-to-functionjson"></a>Lägg till en utgående bindning till function. JSON
+### <a name="add-an-output-binding-to-functionjson"></a>Lägga till en utdatabindning i function.json
 
-I Azure Functions kräver varje typ av bindning en `direction`, `type`och en unik `name` som ska definieras i *Function. JSON* -filen. Din *Function. JSON* innehåller redan en inkommande bindning för typen "httpTrigger" och en utgående bindning för http-svaret. Om du vill lägga till en bindning till en lagrings kö ändrar du filen enligt följande, som lägger till en utgående bindning för typen "kö", där kön visas i koden som ett indataargument med namnet `msg`. Queue-bindningen kräver också namnet på kön som ska användas, i det här fallet `outqueue`och namnet på de inställningar som innehåller anslutnings strängen, i det här fallet `AzureWebJobStorage`.
+I Azure Functions kräver varje `direction`typ `type`av bindning en , och en unik `name` som ska definieras i filen *function.json.* Din *function.json* innehåller redan en indatabindning för typen "httpTrigger" och en utdatabindning för HTTP-svaret. Om du vill lägga till en bindning i en lagringskö ändrar du filen på följande sätt, som lägger till en utdatabindning för typen "kö", där kön visas i koden som ett indataargument med namnet `msg`. Köbindningen kräver också namnet på den kö `outqueue`som ska användas, i det här fallet `AzureWebJobStorage`, och namnet på de inställningar som innehåller anslutningssträngen, i det här fallet .
 
 ::: zone pivot="programming-language-csharp"
 
-I ett C# klass biblioteks projekt definieras bindningarna som binding-attribut i funktions metoden. *Function. JSON* -filen genereras sedan automatiskt baserat på dessa attribut.
+I ett C#-klassbiblioteksprojekt definieras bindningarna som bindningsattribut på funktionsmetoden. *Filen function.json* skapas sedan automatiskt baserat på dessa attribut.
 
-1. För köns bindning kör du följande [dotNet Add Package](/dotnet/core/tools/dotnet-add-package) -kommando för att lägga till lagrings tilläggs paketet i projektet.
+1. För köbindningen kör du följande [dotnet add-paketkommando](/dotnet/core/tools/dotnet-add-package) för att lägga till lagringstilläggspaketet i projektet.
 
     ```
     dotnet add package Microsoft.Azure.WebJobs.Extensions.Storage --version 3.0.4
     ```
 
-1. Öppna filen *HttpTrigger.cs* och Lägg till följande `using`-instruktion:
+1. Öppna *HttpTrigger.cs-filen* och lägg till `using` följande uttryck:
 
     ```cs
     using Microsoft.Azure.WebJobs.Extensions.Storage;
     ```
     
-1. Lägg till följande parameter i definitions metoden för `Run`:
+1. Lägg till följande `Run` parameter i metoddefinitionen:
     
     ```csharp
     [Queue("outqueue"), StorageAccount("AzureWebJobsStorage")] ICollector<string> msg
     ```
     
-    Den `Run` metod definitionen bör nu matcha följande kod:
+    Metoddefinitionen `Run` ska nu matcha följande kod:
     
     ```csharp
     [FunctionName("HttpTrigger")]
@@ -561,13 +561,13 @@ I ett C# klass biblioteks projekt definieras bindningarna som binding-attribut i
         [Queue("outqueue"), StorageAccount("AzureWebJobsStorage")] ICollector<string> msg, ILogger log)
     ```
 
-Parametern `msg` är en `ICollector<T>` typ, som representerar en samling meddelanden som skrivs till en utgående bindning när funktionen slutförs. I det här fallet är utdata en lagrings kö med namnet `outqueue`. Anslutnings strängen för lagrings kontot anges av `StorageAccountAttribute`. Det här attributet anger den inställning som innehåller lagrings kontots anslutnings sträng och kan tillämpas på klass-, metod-eller parameter nivå. I det här fallet kan du utelämna `StorageAccountAttribute` eftersom du redan använder standard lagrings kontot.
+Parametern `msg` är `ICollector<T>` en typ som representerar en samling meddelanden som skrivs till en utdatabindning när funktionen är klar. I det här fallet är utdata en lagringskö med namnet `outqueue`. Anslutningssträngen för lagringskontot `StorageAccountAttribute`anges av . Det här attributet anger den inställning som innehåller anslutningssträngen för lagringskonto och kan användas på klass-, metod- eller parameternivå. I det här fallet `StorageAccountAttribute` kan du utelämna eftersom du redan använder standardlagringskontot.
 
 ::: zone-end
 
 ::: zone pivot="programming-language-javascript"
 
-Uppdatera *Function. JSON* så att den matchar följande genom att lägga till en Queue-bindning efter http-bindningen:
+Uppdatera *function.json* så att följande matchas genom att lägga till köbindningen efter HTTP-bindningen:
 
 ```json
 {
@@ -601,7 +601,7 @@ Uppdatera *Function. JSON* så att den matchar följande genom att lägga till e
 
 ::: zone pivot="programming-language-powershell"
 
-Uppdatera *Function. JSON* så att den matchar följande genom att lägga till en Queue-bindning efter http-bindningen:
+Uppdatera *function.json* så att följande matchas genom att lägga till köbindningen efter HTTP-bindningen:
 
 ```json
 {
@@ -635,7 +635,7 @@ Uppdatera *Function. JSON* så att den matchar följande genom att lägga till e
 
 ::: zone pivot="programming-language-python"
 
-Uppdatera *Function. JSON* så att den matchar följande genom att lägga till en Queue-bindning efter http-bindningen:
+Uppdatera *function.json* så att följande matchas genom att lägga till köbindningen efter HTTP-bindningen:
 
 ```json
 {
@@ -670,7 +670,7 @@ Uppdatera *Function. JSON* så att den matchar följande genom att lägga till e
 
 ::: zone pivot="programming-language-typescript"
 
-Uppdatera *Function. JSON* så att den matchar följande genom att lägga till en Queue-bindning efter http-bindningen:
+Uppdatera *function.json* så att följande matchas genom att lägga till köbindningen efter HTTP-bindningen:
 
 ```json
 {
@@ -702,9 +702,9 @@ Uppdatera *Function. JSON* så att den matchar följande genom att lägga till e
 ```
 ::: zone-end
 
-## <a name="add-code-to-use-the-output-binding"></a>Lägg till kod för att använda utgående bindning
+## <a name="add-code-to-use-the-output-binding"></a>Lägga till kod för att använda utdatabindningen
 
-När bindningen har definierats visas namnet på bindningen, i det här fallet `msg`, i funktions koden som ett argument (eller i `context`-objektet i Java Script och TypeScript). Du kan sedan använda variabeln för att skriva meddelanden till kön. Du måste skriva kod för autentisering, få en referens till kön eller skriva data. Alla dessa integrations aktiviteter hanteras bekvämt i Azure Functions Runtime-och Queue-bindning.
+När bindningen har definierats visas namnet `msg`på bindningen i det här fallet `context` i funktionskoden som ett argument (eller i objektet i JavaScript och TypeScript). Du kan sedan använda variabeln för att skriva meddelanden till kön. Du måste skriva en kod för autentisering, hämta en köreferens eller skriva data. Alla dessa integrationsuppgifter hanteras bekvämt i Azure Functions runtime och köutdatabindning.
 
 ::: zone pivot="programming-language-csharp"
 ```csharp
@@ -856,29 +856,29 @@ export default httpTrigger;
 
 ### <a name="update-the-image-in-the-registry"></a>Uppdatera avbildningen i registret
 
-1. I rotmappen kör `docker build` igen och den här gången uppdaterar du versionen i taggen för att `v1.0.1`. Som tidigare ersätter du `<docker_id>` med ditt konto-ID för Docker Hub:
+1. I rotmappen `docker build` kör du igen och den här `v1.0.1`gången uppdaterar du versionen i taggen till . Som tidigare, `<docker_id>` ersätt med ditt Docker Hub-konto-ID:
 
     ```
     docker build --tag <docker_id>/azurefunctionsimage:v1.0.1
     ```
     
-1. Skicka tillbaka den uppdaterade avbildningen till lagrings platsen med `docker push`:
+1. Skicka tillbaka den uppdaterade bilden `docker push`till databasen med:
 
     ```
     docker push <docker_id>/azurefunctionsimage:v1.0.1
     ```
 
-1. Eftersom du konfigurerade kontinuerlig leverans uppdaterar avbildningen i registret igen automatiskt din Function-app i Azure.
+1. Eftersom du har konfigurerat kontinuerlig leverans uppdateras automatiskt din funktionsapp i Azure genom att uppdatera avbildningen i registret igen.
 
-## <a name="view-the-message-in-the-azure-storage-queue"></a>Visa meddelandet i Azure Storage kön
+## <a name="view-the-message-in-the-azure-storage-queue"></a>Visa meddelandet i Azure Storage-kön
 
-I en webbläsare använder du samma URL som innan du anropar din funktion. Webbläsaren ska visa samma svar som tidigare eftersom du inte har ändrat den delen av funktions koden. Den tillagda koden skrev dock ett meddelande med hjälp av parametern `name` URL till `outqueue` lagrings kön.
+I en webbläsare använder du samma WEBBADRESS som tidigare för att anropa din funktion. Webbläsaren ska visa samma svar som tidigare, eftersom du inte har ändrat den delen av funktionskoden. Den tillagda koden skrev dock `name` ett meddelande `outqueue` med url-parametern i lagringskön.
 
-Du kan visa kön i [Azure Portal](../storage/queues/storage-quickstart-queues-portal.md) eller i [Microsoft Azure Storage Explorer](https://storageexplorer.com/). Du kan också visa kön i Azure CLI enligt beskrivningen i följande steg:
+Du kan visa kön i [Azure-portalen](../storage/queues/storage-quickstart-queues-portal.md) eller i [Microsoft Azure Storage Explorer](https://storageexplorer.com/). Du kan också visa kön i Azure CLI enligt beskrivningen i följande steg:
 
-1. Öppna funktions projektets *lokala. Ange. JSON* -fil och kopiera värdet för anslutnings strängen. Kör följande kommando i ett terminalfönster-eller kommando fönster för att skapa en miljö variabel med namnet `AZURE_STORAGE_CONNECTION_STRING`, och klistra in din speciella anslutnings sträng i stället för `<connection_string>`. (Denna miljö variabel innebär att du inte behöver ange anslutnings strängen för varje efterföljande kommando med hjälp av argumentet `--connection-string`.)
+1. Öppna funktionsprojektets *local.setting.json-fil* och kopiera anslutningssträngvärdet. I ett terminal- eller kommandofönster kör du följande `AZURE_STORAGE_CONNECTION_STRING`kommando för att skapa en `<connection_string>`miljövariabel med namnet , klistra in din specifika anslutningssträng i stället för . (Den här miljövariabeln innebär att du inte behöver ange `--connection-string` anslutningssträngen till varje efterföljande kommando med argumentet.)
 
-    # <a name="bash"></a>[bash](#tab/bash)
+    # <a name="bash"></a>[Bash](#tab/bash)
     
     ```bash
     AZURE_STORAGE_CONNECTION_STRING="<connection_string>"
@@ -890,7 +890,7 @@ Du kan visa kön i [Azure Portal](../storage/queues/storage-quickstart-queues-po
     $env:AZURE_STORAGE_CONNECTION_STRING = "<connection_string>"
     ```
     
-    # <a name="cmd"></a>[Kommandot](#tab/cmd)
+    # <a name="cmd"></a>[Cmd](#tab/cmd)
     
     ```cmd
     set AZURE_STORAGE_CONNECTION_STRING="<connection_string>"
@@ -898,9 +898,9 @@ Du kan visa kön i [Azure Portal](../storage/queues/storage-quickstart-queues-po
     
     ---
     
-1. Valfritt Använd kommandot [`az storage queue list`](/cli/azure/storage/queue#az-storage-queue-list) för att Visa lagrings köerna i ditt konto. Utdata från det här kommandot ska innehålla en kö med namnet `outqueue`, som skapades när funktionen skrev sitt första meddelande till kön.
+1. (Valfritt) Använd [`az storage queue list`](/cli/azure/storage/queue#az-storage-queue-list) kommandot för att visa lagringsköerna i ditt konto. Utdata från det här kommandot `outqueue`ska innehålla en kö med namnet , som skapades när funktionen skrev sitt första meddelande till den kön.
     
-    # <a name="bash"></a>[bash](#tab/bash)
+    # <a name="bash"></a>[Bash](#tab/bash)
     
     ```azurecli
     az storage queue list --output tsv
@@ -912,7 +912,7 @@ Du kan visa kön i [Azure Portal](../storage/queues/storage-quickstart-queues-po
     az storage queue list --output tsv
     ```
     
-    # <a name="cmd"></a>[Kommandot](#tab/cmd)
+    # <a name="cmd"></a>[Cmd](#tab/cmd)
     
     ```azurecli
     az storage queue list --output tsv
@@ -920,9 +920,9 @@ Du kan visa kön i [Azure Portal](../storage/queues/storage-quickstart-queues-po
     
     ---
 
-1. Använd kommandot [`az storage message peek`](/cli/azure/storage/message#az-storage-message-peek) för att visa meddelanden i den här kön, vilket bör vara det första namnet du använde när du testar funktionen tidigare. Kommandot hämtar det första meddelandet i kön i [base64-kodning](functions-bindings-storage-queue-trigger.md#encoding), så du måste också avkoda meddelandet för att visa som text.
+1. Använd [`az storage message peek`](/cli/azure/storage/message#az-storage-message-peek) kommandot för att visa meddelandena i den här kön, vilket ska vara det förnamn som du använde när du testade funktionen tidigare. Kommandot hämtar det första meddelandet i kön i [base64-kodningen,](functions-bindings-storage-queue-trigger.md#encoding)så du måste också avkoda meddelandet så att det visas som text.
 
-    # <a name="bash"></a>[bash](#tab/bash)
+    # <a name="bash"></a>[Bash](#tab/bash)
     
     ```bash
     echo `echo $(az storage message peek --queue-name outqueue -o tsv --query '[].{Message:content}') | base64 --decode`
@@ -934,17 +934,17 @@ Du kan visa kön i [Azure Portal](../storage/queues/storage-quickstart-queues-po
     [System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String($(az storage message peek --queue-name outqueue -o tsv --query '[].{Message:content}')))
     ```
     
-    # <a name="cmd"></a>[Kommandot](#tab/cmd)
+    # <a name="cmd"></a>[Cmd](#tab/cmd)
     
-    Eftersom du måste referera till meddelande samlingen och avkoda från base64 kör du PowerShell och använder PowerShell-kommandot.
+    Eftersom du måste avreferna meddelandesamlingen och avkoda från base64 kör du PowerShell och använder kommandot PowerShell.
 
     ---
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Om du vill fortsätta att arbeta med Azure-funktionen med hjälp av de resurser som du skapade i den här självstudien kan du lämna alla dessa resurser på plats. Eftersom du har skapat en Premium-plan för Azure Functions får du en eller två USD per dag i löpande kostnad.
+Om du vill fortsätta arbeta med Azure-funktionen med hjälp av de resurser som du skapade i den här självstudien kan du lämna alla dessa resurser på plats. Eftersom du har skapat en Premium-plan för Azure Functions ådrar du dig en eller två USD per dag i löpande kostnader.
 
-Ta bort den `AzureFunctionsContainer-rg` resurs gruppen om du vill rensa alla resurser i gruppen för att undvika kontinuerliga kostnader: 
+Om du vill undvika `AzureFunctionsContainer-rg` löpande kostnader tar du bort resursgruppen för att rensa alla resurser i den gruppen: 
 
 ```azurecli
 az group delete --name AzureFunctionsContainer-rg
@@ -952,6 +952,6 @@ az group delete --name AzureFunctionsContainer-rg
 
 ## <a name="next-steps"></a>Nästa steg
 
-+ [Övervaknings funktioner](functions-monitoring.md)
-+ [Skalnings-och värd alternativ](functions-scale.md)
-+ [Kubernetes-baserad server lös värd](functions-kubernetes-keda.md)
++ [Övervakningsfunktioner](functions-monitoring.md)
++ [Alternativ för skalning och hosting](functions-scale.md)
++ [Kubernetes-baserad serverlös hosting](functions-kubernetes-keda.md)

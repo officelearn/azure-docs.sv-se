@@ -1,29 +1,29 @@
 ---
-title: Självstudie – Konfigurera rollbaserad åtkomst kontroll (RBAC) roller i Azure Kubernetes service (AKS) med hjälp av Ansible
-description: Lär dig hur du använder Ansible för att konfigurera RBAC i Azure Kubernetes service (AKS)-kluster
-keywords: Ansible, Azure, DevOps, bash, cloudshell, Spelbok, AKS, container, AKS, Kubernetes, Azure Active Directory, RBAC
+title: Självstudiekurs - Konfigurera RBAC-roller (Role-based Access Control) i Azure Kubernetes Service (AKS) med Ansible
+description: Lär dig hur du använder Ansible för att konfigurera RBAC i AKS-kluster (Azure Kubernetes Service)
+keywords: ansible, azure, devops, bash, cloudshell, playbook, aks, container, aks, kubernetes, azure active directory, rbac
 ms.topic: tutorial
 ms.date: 04/30/2019
 ms.openlocfilehash: 5fac42383ee56318cc4b8f39323c02d05853dbb6
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "76836974"
 ---
-# <a name="tutorial-configure-role-based-access-control-rbac-roles-in-azure-kubernetes-service-aks-using-ansible"></a>Självstudie: Konfigurera rollbaserad åtkomst kontroll (RBAC) roller i Azure Kubernetes service (AKS) med hjälp av Ansible
+# <a name="tutorial-configure-role-based-access-control-rbac-roles-in-azure-kubernetes-service-aks-using-ansible"></a>Självstudiekurs: Konfigurera RBAC-roller (Role-based Access Control) i Azure Kubernetes Service (AKS) med Ansible
 
 [!INCLUDE [ansible-28-note.md](../../includes/ansible-28-note.md)]
 
 [!INCLUDE [open-source-devops-intro-aks.md](../../includes/open-source-devops-intro-aks.md)]
 
-AKS kan konfigureras för att använda [Azure Active Directory (AD)](/azure/active-directory/) för användarautentisering. När du har konfigurerat använder du Azure AD-autentiseringstoken för att logga in på AKS-klustret. RBAC kan baseras på användarens identitet eller katalog grupp medlemskap.
+AKS kan konfigureras för att använda [Azure Active Directory (AD)](/azure/active-directory/) för användarautentisering. När du har konfigurerats använder du din Azure AD-autentiseringstoken för att logga in på AKS-klustret. RBAC kan baseras på en användares identitet eller kataloggruppmedlemskap.
 
 [!INCLUDE [ansible-tutorial-goals.md](../../includes/ansible-tutorial-goals.md)]
 
 > [!div class="checklist"]
 >
-> * Skapa ett Azure AD-aktiverat AKS-kluster
+> * Skapa ett AZURE AD-aktiverat AKS-kluster
 > * Konfigurera en RBAC-roll i klustret
 
 ## <a name="prerequisites"></a>Krav
@@ -35,25 +35,25 @@ AKS kan konfigureras för att använda [Azure Active Directory (AD)](/azure/acti
 
 ## <a name="configure-azure-ad-for-aks-authentication"></a>Konfigurera Azure AD för AKS-autentisering
 
-När du konfigurerar Azure AD för AKS-autentisering konfigureras två Azure AD-program. Den här åtgärden måste utföras av en Azure-innehavaradministratör. Mer information finns i [integrera Azure Active Directory med AKS](/azure/aks/aad-integration#create-the-server-application). 
+När du konfigurerar Azure AD för AKS-autentisering konfigureras två Azure AD-program. Den här åtgärden måste slutföras av en Azure-klientadministratör. Mer information finns i [Integrera Azure Active Directory med AKS](/azure/aks/aad-integration#create-the-server-application). 
 
-Hämta följande värden från Azure-klientens administratör:
+Hämta följande värden från Azure-klientadministratören:
 
-- Server App Secret
-- Server App-ID
+- Hemlighet för serverapp
+- ID-fil för serverapp
 - App-ID för klient 
 - Klient-ID:t
 
-Dessa värden behövs för att köra exemplet Spelbok.  
+Dessa värden behövs för att köra exempelspelboken.  
 
 ## <a name="create-an-aks-cluster"></a>Skapa ett AKS-kluster
 
 I det här avsnittet skapar du en AKS med [Azure AD-programmet](#configure-azure-ad-for-aks-authentication).
 
-Här följer några viktiga kommentarer att tänka på när du arbetar med exemplet Spelbok:
+Här är några viktiga anteckningar att tänka på när du arbetar med exempelspelsboken:
 
-- Spelbok läser in `ssh_key` från `~/.ssh/id_rsa.pub`. Om du ändrar det använder du det enkla formatet – från och med "SSH-RSA" (utan citationstecken).
-- Värdena för `client_id` och `client_secret` läses in från `~/.azure/credentials`, vilket är standard filen för autentiseringsuppgifter. Du kan ange dessa värden till tjänstens huvud namn eller läsa in dessa värden från miljövariablerna:
+- Spelboken laddas `ssh_key` `~/.ssh/id_rsa.pub`från . Om du ändrar det, använd single-line format - börjar med "ssh-rsa" (utan citattecken).
+- `client_id` Värdena `client_secret` och läses in från `~/.azure/credentials`, som är standardfilen för autentiseringsuppgifter. Du kan ange dessa värden på tjänstens huvudnamn eller läsa in dessa värden från miljövariabler:
 
     ```yml
     client_id: "{{ lookup('env', 'AZURE_CLIENT_ID') }}"
@@ -117,27 +117,27 @@ Spara följande spelbok som `aks-create.yml`:
 
 ## <a name="get-the-azure-ad-object-id"></a>Hämta Azure AD-objekt-ID
 
-Om du vill skapa en RBAC-bindning måste du först hämta Azure AD-objekt-ID: t. 
+Om du vill skapa en RBAC-bindning måste du först hämta Azure AD Object ID. 
 
-1. Logga in på [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Logga in på [Azure-portalen](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 
-1. Ange `Azure Active Directory`i fältet Sök högst upp på sidan. 
+1. Ange i sökfältet högst upp på `Azure Active Directory`sidan . 
 
 1. Klicka på `Enter`.
 
-1. I menyn **Hantera** väljer **du användare**.
+1. Välj **Användare**på **Menyn Hantera** .
 
-1. Sök efter ditt konto i fältet namn.
+1. Sök efter ditt konto i namnfältet.
 
-1. I kolumnen **namn** väljer du länken till ditt konto.
+1. Välj länken till ditt konto i kolumnen **Namn.**
 
-1. I avsnittet **identitet** kopierar du **objekt-ID: t**.
+1. Kopiera **objekt-ID:t**i avsnittet **Identitet** .
 
-    ![Kopiera objekt-ID för Azure AD.](./media/ansible-aks-configure-rbac/ansible-aad-object-id.png)
+    ![Kopiera Azure AD-objekt-ID.](./media/ansible-aks-configure-rbac/ansible-aad-object-id.png)
 
 ## <a name="create-rbac-binding"></a>Skapa RBAC-bindning
 
-I det här avsnittet skapar du en roll bindning eller en kluster roll bindning i AKS. 
+I det här avsnittet skapar du en rollbindning eller klusterrollbindning i AKS. 
 
 Spara följande spelbok som `kube-role.yml`:
 
@@ -156,9 +156,9 @@ subjects:
   name: <your-aad-account>
 ```
 
-Ersätt `<your-aad-account>` plats hållaren med ditt Azure AD [-klientens objekt-ID](#get-the-azure-ad-object-id).
+Ersätt `<your-aad-account>` platshållaren med ditt Azure [AD-klientobjekt-ID](#get-the-azure-ad-object-id).
 
-Spara följande Spelbok – som distribuerar den nya rollen till AKS-som `aks-kube-deploy.yml`:
+Spara följande spelbok - som distribuerar din nya `aks-kube-deploy.yml`roll till AKS - som:
 
 ```yml
 - name: Apply role to AKS
@@ -167,9 +167,9 @@ Spara följande Spelbok – som distribuerar den nya rollen till AKS-som `aks-ku
       kubeconfig: "aks-{{ name }}-kubeconfig"
 ```
 
-## <a name="run-the-sample-playbook"></a>Kör exemplet Spelbok
+## <a name="run-the-sample-playbook"></a>Kör exempeluppspelningsboken
 
-I det här avsnittet visas den fullständiga Spelbok som anropar de uppgifter som skapas i den här artikeln. 
+I det här avsnittet visas hela exempeluppspelningsboken som anropar de uppgifter som skapas i den här artikeln. 
 
 Spara följande spelbok som `aks-rbac.yml`:
 
@@ -198,14 +198,14 @@ Spara följande spelbok som `aks-rbac.yml`:
        include_tasks: aks-kube-deploy.yml
 ```
 
-Ersätt följande plats hållare i avsnittet `vars` med din Azure AD-information:
+I `vars` avsnittet ersätter du följande platshållare med din Azure AD-information:
 
 - `<client id>`
 - `<server id>`
 - `<server secret>`
 - `<tenant id>`
 
-Kör den fullständiga Spelbok med kommandot `ansible-playbook`:
+Kör hela spelboken `ansible-playbook` med kommandot:
 
 ```bash
 ansible-playbook aks-rbac.yml
@@ -213,17 +213,17 @@ ansible-playbook aks-rbac.yml
 
 ## <a name="verify-the-results"></a>Verifiera resultaten
 
-I det här avsnittet använder du kubectl för att visa en lista över noderna som skapas i den här artikeln.
+I det här avsnittet använder du kubectl-listan som noderna skapar i den här artikeln.
 
-Ange följande kommando i en Terminal-prompt:
+Ange följande kommando vid en terminalfråga:
 
 ```bash
 kubectl --kubeconfig aks-aksansibletest-kubeconfig-user get nodes
 ```
 
-Kommandot leder dig till en autentiserings sida. Logga in med ditt Azure-konto.
+Kommandot leder dig till en autentiseringssida. Logga in med ditt Azure-konto.
 
-När autentiseringen har autentiserats visar kubectl noderna på samma sätt som följande resultat:
+När kubectl har autentiserats visar du noderna på samma sätt som följande resultat:
 
 ```txt
 To sign in, use a web browser to open the page https://microsoft.com/devicelogin and enter the code XXXXXXXX to authenticate.
@@ -235,9 +235,9 @@ aks-nodepool1-33413200-2   Ready    agent   49m   v1.12.6
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Ta bort de resurser som skapats i den här artikeln när de inte längre behövs. 
+När det inte längre behövs tar du bort de resurser som skapas i den här artikeln. 
 
-Spara följande kod som `cleanup.yml`:
+Spara följande kod `cleanup.yml`som:
 
 ```yml
 ---
@@ -257,7 +257,7 @@ Spara följande kod som `cleanup.yml`:
             path: "aks-{{ name }}-kubeconfig"
 ```
 
-Kör Spelbok med kommandot `ansible-playbook`:
+Kör spelboken med `ansible-playbook` kommandot:
 
 ```bash
 ansible-playbook cleanup.yml

@@ -1,5 +1,5 @@
 ---
-title: Azure CLI-exempel – skapa en skalnings uppsättning för virtuella datorer
+title: Azure CLI-exempel – Skapa en skaluppsättning för virtuella datorer
 description: Det här skriptet skapar en Azure VM-skalningsuppsättning med ett Ubuntu-operativsystem och relaterade nätverksresurser inklusive en lastbalanserare.
 author: cynthn
 tags: azure-resource-manager
@@ -10,10 +10,10 @@ ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
 ms.openlocfilehash: 95ea48b3fc19d58f37a5c727e8f4408643422757
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "76278821"
 ---
 # <a name="create-a-virtual-machine-scale-set-with-the-azure-cli"></a>Skapa en VM-skalningsuppsättning med Azure CLI

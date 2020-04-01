@@ -1,5 +1,5 @@
 ---
-title: Skript exempel för Azure CLI – starta om virtuella datorer
+title: Exempel på Azure CLI-skript – starta om virtuella datorer
 description: Skriptexempel för Azure CLI – Starta om virtuella datorer med tagg och ID
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 03/01/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 5545fc07bd7b30225bcaf01eee8f10a141cd8d57
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 47a6db8d554cd0e6b913e887a4dd3d7bdc438ed0
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74040252"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80066463"
 ---
 # <a name="restart-vms"></a>Starta om virtuella datorer
 
@@ -33,13 +33,13 @@ Det här exemplet visar ett par olika sätt att hämta vissa virtuella datorer o
 
 Det första startar om alla virtuella datorer i resursgruppen.
 
-```bash
+```azurecli
 az vm restart --ids $(az vm list --resource-group myResourceGroup --query "[].id" -o tsv)
 ```
 
 Det andra hämtar de taggade virtuella datorerna med hjälp av `az resource list` och filtrerar till de resurser som är virtuella datorer samt startar om de här virtuella datorerna.
 
-```bash
+```azurecli
 az vm restart --ids $(az resource list --tag "restart-tag" --query "[?type=='Microsoft.Compute/virtualMachines'].id" -o tsv)
 ```
 
@@ -77,7 +77,7 @@ Det här skriptet startar om alla virtuella datorer i resursgruppen och sedan st
 
 När skriptexemplet har körts kan följande kommando användas för att ta bort resursgrupperna, virtuella datorer och alla relaterade resurser.
 
-```azurecli-interactive 
+```azurecli-interactive
 az group delete -n myResourceGroup --no-wait --yes
 ```
 
@@ -98,4 +98,4 @@ I det här skriptet används följande kommandon för att skapa en resursgrupp, 
 
 Mer information om Azure CLI finns i [Azure CLI-dokumentationen](https://docs.microsoft.com/cli/azure).
 
-Ytterligare CLI-skriptexempel för virtuella datorer finns i [dokumentationen för virtuella Azure Linux-datorer](../linux/cli-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Ytterligare CLI-skriptexempel för virtuella datorer finns i [Dokumentation för virtuella Azure Linux-datorer](../linux/cli-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).

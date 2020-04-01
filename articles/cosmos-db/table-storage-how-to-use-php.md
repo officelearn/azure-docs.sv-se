@@ -1,6 +1,6 @@
 ---
-title: Använda Azure Storage Table service eller Azure Cosmos DB Tabell-API från PHP
-description: Lagra strukturerade data i molnet med Azure Table Storage eller Azure Cosmos DB Table-API:et.
+title: Använda Azure Storage Table-tjänsten eller Azure Cosmos DB Table API från PHP
+description: Lagra strukturerade data i molnet med Azure Table Storage eller Azure Cosmos DB Table API.
 author: sakash279
 ms.author: akshanka
 ms.service: cosmos-db
@@ -9,10 +9,10 @@ ms.devlang: php
 ms.topic: sample
 ms.date: 04/05/2018
 ms.openlocfilehash: a19928516685e7496dc3e892d2598b24b5abae19
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/28/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "76771061"
 ---
 # <a name="how-to-use-azure-storage-table-service-or-the-azure-cosmos-db-table-api-from-php"></a>Använda tjänsten Azure Storage Table eller Azure Cosmos DB Table-API:et från PHP
@@ -20,7 +20,7 @@ ms.locfileid: "76771061"
 [!INCLUDE [storage-table-applies-to-storagetable-and-cosmos](../../includes/storage-table-applies-to-storagetable-and-cosmos.md)]
 
 ## <a name="overview"></a>Översikt
-Den här guiden beskriver hur du utför vanliga scenarier med hjälp av tjänsten Azure Storage Table och Azure Cosmos DB Table-API:et. Exemplen är skrivna i PHP och använder [klient biblioteket för Azure Storage Table php][download]. Guiden innehåller scenarier som beskriver hur du **skapar och tar bort en tabell** och hur du **infogar, tar bort och kör frågor mot entiteter i en tabell**. Mer information om Azure Table-tjänsten finns under [Nästa steg](#next-steps).
+Den här guiden beskriver hur du utför vanliga scenarier med hjälp av tjänsten Azure Storage Table och Azure Cosmos DB Table-API:et. Exemplen är skrivna i PHP och använder [PHP-klientbiblioteket för Azure Storage Table][download]. Guiden innehåller scenarier som beskriver hur du **skapar och tar bort en tabell** och hur du **infogar, tar bort och kör frågor mot entiteter i en tabell**. Mer information om Azure Table-tjänsten finns under [Nästa steg](#next-steps).
 
 
 ## <a name="create-an-azure-service-account"></a>Skapa ett Azure-tjänstkonto
@@ -62,7 +62,7 @@ I den här guiden använder du Storage Table-tjänsten eller Azure Cosmos DB-fun
 ## <a name="add-required-references"></a>Lägga till nödvändiga referenser
 För att kunna använda Storage Table-tjänsten eller Azure Cosmos DB-API:er måste du:
 
-* Referera till den automatiska inläsnings filen med hjälp av [require_once][require_once] -instruktionen och
+* Referera till autoloader-filen med hjälp av instruktionen [require_once][require_once] och
 * Referera till de klasser som du använder.
 
 Följande exempel beskriver hur du lägger till autoloader-filen och refererar till klassen **TableRestProxy**.
@@ -98,7 +98,7 @@ UseDevelopmentStorage = true
 När du skapar en Azure Table Storage-klient eller Azure Cosmos DB-klient måste du använda klassen **TableRestProxy**. Du kan:
 
 * Ange anslutningssträngen direkt i klassen eller
-* Hämta anslutningssträngen från externa källor med hjälp av **CloudConfigurationManager (CCM)** :
+* Hämta anslutningssträngen från externa källor med hjälp av **CloudConfigurationManager (CCM)**:
   * Som standard finns stöd för en extern källa – miljövariabler.
   * Du kan lägga till nya källor genom att utöka `ConnectionStringSource`-klassen.
 
@@ -113,7 +113,7 @@ $tableClient = TableRestProxy::createTableService($connectionString);
 ```
 
 ## <a name="create-a-table"></a>Skapa en tabell
-Med **TableRestProxy**-objektet kan du skapa en tabell med metoden **createTable**. När du skapar en tabell kan du ange ett timeout-värde för Table Storage-tjänsten. (Mer information om Table service timeout finns i [ställa in tids gränser för tabell tjänst åtgärder][table-service-timeouts].)
+Med **TableRestProxy**-objektet kan du skapa en tabell med metoden **createTable**. När du skapar en tabell kan du ange ett timeout-värde för Table Storage-tjänsten. (Mer information om tidsgränser för Table Storage finns i [Setting Timeouts for Table Service Operations][table-service-timeouts] (Konfigurera tidsgränser för åtgärder i Table Storage).)
 
 ```php
 require_once 'vendor\autoload.php';
@@ -137,10 +137,10 @@ catch(ServiceException $e){
 }
 ```
 
-Information om begränsningar för tabell namn finns i [förstå tabell tjänstens data modell][table-data-model].
+Mer information om begränsningar för tabellnamn finns i [Understanding the Table Service Data Model][table-data-model] (Så här fungerar datamodellen för Table Storage).
 
 ## <a name="add-an-entity-to-a-table"></a>Lägga till en entitet i en tabell
-Du lägger till en entitet i en tabell genom att skapa ett nytt **Entity**-objekt och skicka det till **TableRestProxy->insertEntity**. Observera att du måste ange `PartitionKey` och `RowKey` när du skapar en entitet. Det här är entitetens unika identifierare. Du kan fråga dessa värden mycket snabbare än andra entitetsegenskaper. `PartitionKey` används för att automatiskt distribuera tabellens entiteter mellan flera Storage-noder. Entiteter med samma `PartitionKey` lagras på samma nod. (Åtgärder på flera entiteter som lagras på samma nod fungerar bättre än för entiteter som lagras på olika noder.) `RowKey` är det unika ID: t för en entitet i en partition.
+Du lägger till en entitet i en tabell genom att skapa ett nytt **Entity**-objekt och skicka det till **TableRestProxy->insertEntity**. Observera att du måste ange `PartitionKey` och `RowKey` när du skapar en entitet. Det här är entitetens unika identifierare. Du kan fråga dessa värden mycket snabbare än andra entitetsegenskaper. `PartitionKey` används för att automatiskt distribuera tabellens entiteter mellan flera Storage-noder. Entiteter med samma `PartitionKey` lagras på samma nod. (Åtgärder på flera entiteter som lagras på samma nod presterar bättre än på entiteter som lagras över olika noder.) Det `RowKey` är det unika ID:t för en entitet i en partition.
 
 ```php
 require_once 'vendor/autoload.php';
@@ -174,7 +174,7 @@ catch(ServiceException $e){
 }
 ```
 
-Information om tabell egenskaper och typer finns i [förstå tabell tjänstens data modell][table-data-model].
+Information om tabellegenskaper och tabelltyper finns i [Understanding the Table Service Data Model][table-data-model] (Så här fungerar datamodellen för Table Storage).
 
 Klassen **TableRestProxy** har två alternativa metoder som kan användas för att infoga entiteter: **insertOrMergeEntity** och **insertOrReplaceEntity**. Om du vill använda dessa metoder skapar du en ny **entitet** och skickar den som en parameter till någon av metoderna. Båda metoderna infogar entiteten om den inte finns. Om entiteten redan finns uppdaterar **insertOrMergeEntity** egenskapsvärdena om egenskaperna redan finns och lägger till nya egenskaper om de inte finns, medan **insertOrReplaceEntity** helt ersätter en befintlig entitet. Följande exempel visar hur du använder **insertOrMergeEntity**. Om entiteten med `PartitionKey` "tasksSeattle" och `RowKey` "1" inte redan finns, infogas den. Om den däremot redan har infogats tidigare (som i exemplet ovan), uppdateras egenskapen `DueDate` och egenskapen `Status` läggs till. Egenskaperna `Description` och `Location` uppdateras också, men med värden som inte ändrar dem. Om dessa sista två egenskaper inte läggs till (som i exemplet), men de finns på målentiteten, så ändras inte deras befintliga värden.
 
@@ -248,7 +248,7 @@ echo $entity->getPartitionKey().":".$entity->getRowKey();
 ```
 
 ## <a name="retrieve-all-entities-in-a-partition"></a>Hämta alla entiteter i en partition
-Enhets frågor skapas med hjälp av filter (mer information finns i [fråga tabeller och entiteter][filters]). Om du vill hämta alla entiteter i en partition använder du filtret ”PartitionKey eq *partitionens_namn*”. I följande exempel beskriver vi hur du hämtar alla entiteter i partitionen `tasksSeattle` genom att ange ett filter i metoden **queryEntities**.
+Entitetsfrågor skapas med hjälp av filter (mer information finns i [Querying Tables and Entities][filters] (Köra frågor mot tabeller och entiteter)). Om du vill hämta alla entiteter i en partition använder du filtret ”PartitionKey eq *partitionens_namn*”. I följande exempel beskriver vi hur du hämtar alla entiteter i partitionen `tasksSeattle` genom att ange ett filter i metoden **queryEntities**.
 
 ```php
 require_once 'vendor/autoload.php';
@@ -281,7 +281,8 @@ foreach($entities as $entity){
 ```
 
 ## <a name="retrieve-a-subset-of-entities-in-a-partition"></a>Hämta en deluppsättning entiteter i en partition
-Samma mönster som används i föregående exempel kan användas för att hämta en deluppsättning entiteter i en partition. Den delmängd entiteter som du hämtar bestäms av det filter du använder (mer information finns i [fråga tabeller och entiteter][filters]). I följande exempel visas hur du använder ett filter för att hämta alla entiteter med ett visst `Location` och ett `DueDate` mindre än ett angivet datum.
+Samma mönster som används i föregående exempel kan användas för att hämta en deluppsättning entiteter i en partition. Hur stor deluppsättning som hämtas beror på vilket filter du använder (mer information finns i [Querying Tables and Entities
+][filters] (Köra frågor mot tabeller och entiteter)). Följande exempel visar hur du använder ett filter som hämtar alla entiteter med en specifik `Location` och ett `DueDate` som är mindre än det angivna datumet.
 
 ```php
 require_once 'vendor/autoload.php';
@@ -314,7 +315,7 @@ foreach($entities as $entity){
 ```
 
 ## <a name="retrieve-a-subset-of-entity-properties"></a>Hämta en deluppsättning entitetsegenskaper
-En fråga kan hämta en deluppsättning entitetsegenskaper. Den här tekniken, kallad *projektion*, minskar bandbredden och kan förbättra frågeprestanda, i synnerhet för stora entiteter. Du anger en egenskap som ska hämtas genom att skicka namnet på egenskapen till metoden **Query->addSelectField**. Du kan anropa den här metoden flera gånger om du vill lägga till fler egenskaper. När du har kört **TableRestProxy->queryEntities** har entiteterna som returneras endast de valda egenskaperna. (Om du vill returnera en deluppsättning tabellentiteter använder du ett filter som i frågorna ovan.)
+En fråga kan hämta en deluppsättning entitetsegenskaper. Den här tekniken, som kallas *projektion,* minskar bandbredden och kan förbättra frågeprestanda, särskilt för stora entiteter. Du anger en egenskap som ska hämtas genom att skicka namnet på egenskapen till metoden **Query->addSelectField**. Du kan anropa den här metoden flera gånger om du vill lägga till fler egenskaper. När du har kört **TableRestProxy->queryEntities** har entiteterna som returneras endast de valda egenskaperna. (Om du vill returnera en deluppsättning tabellentiteter använder du ett filter som i frågorna ovan.)
 
 ```php
 require_once 'vendor/autoload.php';
@@ -472,7 +473,7 @@ catch(ServiceException $e){
 }
 ```
 
-Mer information om åtgärder för batch-tabeller finns i [utföra enhets grupp transaktioner][entity-group-transactions].
+Mer information om batchbearbetning av tabellåtgärder finns i [Utföra entitetsgrupptransaktioner][entity-group-transactions].
 
 ## <a name="delete-a-table"></a>Ta bort en tabell
 Om du vill ta bort en tabell anger du tabellnamnet i metoden **TableRestProxy->deleteTable**.

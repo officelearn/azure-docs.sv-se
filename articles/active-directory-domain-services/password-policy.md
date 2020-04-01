@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: article
-ms.date: 01/21/2020
+ms.date: 03/30/2020
 ms.author: iainfou
-ms.openlocfilehash: c4402c1ce2f051c8d1911e7c0332d4cac787ce1d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: cc1863ff4200ee4cca94f18e3adfffa7ea42db96
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77613191"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80475963"
 ---
 # <a name="password-and-account-lockout-policies-on-managed-domains"></a>Principer för lösenords- och kontoutelåsning på hanterade domäner
 
@@ -105,20 +105,20 @@ Om du vill skapa en anpassad lösenordsprincip använder du Administrationsverkt
     * Inställningar som lösenordskomplexitet, ålder eller förfallotid endast för användare som skapats manuellt i en Azure AD DS-hanterad domän.
     * Kontoutelåsningsinställningar gäller för alla användare, men börjar bara gälla inom den hanterade domänen och inte i Azure AD själv.
 
-    ![Skapa en anpassad detaljerad lösenordsprincip](./media/how-to/custom-fgpp.png)
+    ![Skapa en anpassad detaljerad lösenordsprincip](./media/password-policy/custom-fgpp.png)
 
 1. Avmarkera **Skydda mot oavsiktlig borttagning**. Om det här alternativet är markerat kan du inte spara FGPP.
 1. Välj knappen **Lägg** till i avsnittet **Direkt gäller** för. Välj knappen **Platser** i dialogrutan **Välj användare eller grupper.**
 
-    ![Välj de användare och grupper som ska tillämpas på lösenordsprincipen](./media/how-to/fgpp-applies-to.png)
+    ![Välj de användare och grupper som ska tillämpas på lösenordsprincipen](./media/password-policy/fgpp-applies-to.png)
 
 1. Lösenordsprinciper kan endast tillämpas på grupper. Expandera domännamnet på plats i dialogrutan **Platser,** till exempel *aaddscontoso.com*, och välj sedan en organisationsenhet, till exempel **AADDC-användare**. Om du har en anpassad organisationsenhet som innehåller en grupp användare som du vill använda väljer du den organisationsenheten.
 
-    ![Välj den organisationsenheten som gruppen tillhör](./media/how-to/fgpp-container.png)
+    ![Välj den organisationsenheten som gruppen tillhör](./media/password-policy/fgpp-container.png)
 
 1. Skriv namnet på den grupp som du vill koppla principen till och välj sedan **Kontrollera namn** för att verifiera att gruppen finns.
 
-    ![Sök efter och välj den grupp som ska användas för kvinnlig könsstympning](./media/how-to/fgpp-apply-group.png)
+    ![Sök efter och välj den grupp som ska användas för kvinnlig könsstympning](./media/password-policy/fgpp-apply-group.png)
 
 1. När namnet på den grupp som du har valt nu visas i avsnittet **Direkt gäller för** väljer du **OK** för att spara din anpassade lösenordsprincip.
 

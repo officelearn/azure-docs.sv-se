@@ -1,5 +1,5 @@
 ---
-title: 'CLI: distribuera till mellanlagringsplats'
+title: 'CLI: Distribuera till mellanlagringsplats'
 description: Lär dig hur du använder Azure CLI för att automatisera distribution och hantering av din App Service-app. Det här exemplet visar hur du distribuerar kod till en mellanlagringsplats.
 author: msangapu-msft
 tags: azure-service-management
@@ -7,13 +7,13 @@ ms.assetid: 2b995dcd-e471-4355-9fda-00babcdb156e
 ms.devlang: azurecli
 ms.topic: sample
 ms.date: 12/11/2017
-ms.custom: seodec18
-ms.openlocfilehash: 1997d421a51e833e09b8d3062ba42bc0a2cf406b
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.custom: mvc, seodec18
+ms.openlocfilehash: 0f535e902bc86ba3c098dd2238766a3bd547781f
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74686185"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80057855"
 ---
 # <a name="create-an-app-service-app-and-deploy-code-to-a-staging-environment-using-azure-cli"></a>Skapa en App Service-app och distribuera kod till en mellanlagringsmiljö med hjälp av Azure CLI
 

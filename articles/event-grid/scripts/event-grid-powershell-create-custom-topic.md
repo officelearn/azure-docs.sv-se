@@ -1,6 +1,6 @@
 ---
 title: Azure PowerShell-skriptexempel – Skapa anpassat ämne | Microsoft Docs
-description: Den här artikeln innehåller ett exempel på Azure PowerShell-skript som visar hur du skapar ett Event Grid anpassat ämne.
+description: Den här artikeln innehåller ett exempel på Azure PowerShell-skript som visar hur du skapar ett anpassat ämne för händelserutnät.
 services: event-grid
 documentationcenter: na
 author: spelluru
@@ -12,10 +12,10 @@ ms.workload: na
 ms.date: 01/23/2020
 ms.author: tomfitz
 ms.openlocfilehash: 900f31ff87e6a588fc1d1e3efd854437d2c8c1b9
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "76719950"
 ---
 # <a name="create-event-grid-custom-topic-with-powershell"></a>Skapa anpassat Event Grid-ämne med PowerShell
@@ -36,9 +36,9 @@ Det här skriptet använder följande kommandon för att skapa det anpassade äm
 
 | Kommando | Anteckningar |
 |---|---|
-| [New-AzEventGridTopic](https://docs.microsoft.com/powershell/module/az.eventgrid/new-azeventgridtopic) | Skapa ett Event Grid-anpassat ämne. |
+| [Ny-AzEventGridTopic](https://docs.microsoft.com/powershell/module/az.eventgrid/new-azeventgridtopic) | Skapa ett Event Grid-anpassat ämne. |
 
 ## <a name="next-steps"></a>Nästa steg
 
-* En introduktion till hanterade program finns i [översikten över Azure Managed Application](../overview.md).
+* En introduktion till hanterade program finns i [Azure Managed Application overview](../overview.md) (Översikt över Azure Managed Application).
 * Mer information om PowerShell finns i [Azure PowerShell-dokumentationen](https://docs.microsoft.com/powershell/azure/get-started-azureps).

@@ -1,5 +1,5 @@
 ---
-title: 'CLI: Distribuera App-filer med FTP'
+title: 'CLI: Distribuera appfiler med FTP'
 description: Lär dig hur du använder Azure CLI för att automatisera distribution och hantering av din App Service-app. Det här exemplet visar hur du skapar en app och distribuerar filer med FTP.
 author: msangapu-msft
 tags: azure-service-management
@@ -7,13 +7,13 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.date: 12/12/2017
 ms.author: msangapu
-ms.custom: seodec18
-ms.openlocfilehash: 320f293073ce0a97cf4b73b420f38d91c5206013
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.custom: mvc, seodec18
+ms.openlocfilehash: ccef4443661f9227163b2bbe9cd8a6475f856caa
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74688363"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80044883"
 ---
 # <a name="create-an-app-service-app-and-deploy-files-with-ftp-using-azure-cli"></a>Skapa en App Service-app och distribuera filer med FTP och Azure CLI
 

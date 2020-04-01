@@ -1,24 +1,24 @@
 ---
-title: 'PowerShell: Ladda upp och bind SSL'
+title: 'PowerShell: Ladda upp och binda SSL'
 description: Lär dig hur du använder Azure PowerShell för att automatisera distribution och hantering av App Service. Det här exemplet visar hur du binder ett anpassat SSL-certifikat till en app.
 author: msangapu-msft
 tags: azure-service-management
 ms.assetid: 23e83b74-614a-49a0-bc08-7542120eeec5
 ms.topic: sample
 ms.date: 03/20/2017
-ms.custom: seodec18
-ms.openlocfilehash: 4e5e1835927b135037d416ebaca84157c851d361
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.custom: mvc, seodec18
+ms.openlocfilehash: 8422c4ef29366888a2bdd53c18462e6cfb680c78
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74685598"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80044565"
 ---
 # <a name="bind-a-custom-ssl-certificate-to-a-web-app-using-powershell"></a>Binda ett anpassat SSL-certifikat till en webbapp med hjälp av PowerShell
 
 Det här exempelskriptet skapar en webbapp i App Service med dess relaterade resurser och binder sedan SSL-certifikatet för ett anpassat domännamn till den. 
 
-Om det behövs installerar du Azure PowerShell med hjälp av instruktionerna i [Azure PowerShell-guiden](/powershell/azure/overview) och kör sedan `Connect-AzAccount` för att skapa en anslutning till Azure. Se också till att:
+Om det behövs installerar du Azure PowerShell med hjälp av instruktionen som finns i [Azure PowerShell-guiden](/powershell/azure/overview)och kör `Connect-AzAccount` sedan för att skapa en anslutning med Azure. Se också till att:
 
 - En anslutning har skapats med Azure med hjälp av kommandot `az login`.
 - Du har åtkomst till din domänregistrators DNS-konfigurationssida.

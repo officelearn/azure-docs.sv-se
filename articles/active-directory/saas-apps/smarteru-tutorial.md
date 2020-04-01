@@ -1,5 +1,5 @@
 ---
-title: 'Självstudie: Azure Active Directory integrering med SmarterU | Microsoft Docs'
+title: 'Självstudiekurs: Azure Active Directory-integrering med SmarterU | Microsoft-dokument'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och SmarterU.
 services: active-directory
 documentationCenter: na
@@ -16,47 +16,47 @@ ms.topic: tutorial
 ms.date: 03/19/2019
 ms.author: jeedes
 ms.openlocfilehash: 712e7bcf513592f97950902faff2f7754093b9fc
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "76549299"
 ---
 > [!NOTE]
 > Processen för att integrera SmarterU med Azure Active Directory dokumenteras och underhålls också i [SmarterU-hjälpsystemet](https://help.smarteru.com/ID2053086).
 
-# <a name="tutorial-azure-active-directory-integration-with-smarteru"></a>Självstudie: Azure Active Directory integrering med SmarterU
+# <a name="tutorial-azure-active-directory-integration-with-smarteru"></a>Självstudiekurs: Azure Active Directory-integrering med SmarterU
 
 I den här självstudien får du lära dig hur du integrerar SmarterU med Azure Active Directory (Azure AD).
 Genom att integrera SmarterU med Azure AD får du följande fördelar:
 
 * Du kan styra i Azure AD som har åtkomst till SmarterU.
-* Du kan göra det möjligt för användarna att logga in automatiskt till SmarterU (enkel inloggning) med sina Azure AD-konton.
+* Du kan aktivera dina användare automatiskt inloggade på SmarterU (Enkel inloggning) med sina Azure AD-konton.
 * Du kan hantera dina konton på en central plats – Azure-portalen.
 
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
+Om du inte har en Azure-prenumeration [skapar du ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
 ## <a name="prerequisites"></a>Krav
 
 Om du vill konfigurera Azure AD-integrering med SmarterU behöver du följande objekt:
 
 * En Azure AD-prenumeration. Om du inte har någon Azure AD-miljö kan du hämta en månads utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/)
-* SmarterU-aktiverad prenumeration med enkel inloggning
+* SmartareU enkel inloggning aktiverad prenumeration
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
 I den här självstudien konfigurerar och testar du enkel inloggning med Azure AD i en testmiljö.
 
-* SmarterU stöder **IDP** INITIERAd SSO
+* SmarterU stöder **IDP-initierad** SSO
 
 ## <a name="adding-smarteru-from-the-gallery"></a>Lägga till SmarterU från galleriet
 
 Om du vill konfigurera integreringen av SmarterU i Azure AD måste du lägga till SmarterU från galleriet i listan över hanterade SaaS-appar.
 
-**Utför följande steg för att lägga till SmarterU från galleriet:**
+**Så här lägger du till SmarterU från galleriet:**
 
-1. I **[Azure-portalen](https://portal.azure.com)** , i den vänstra navigeringspanelen, klickar du på **Azure Active Directory**-ikonen.
+1. I **[Azure-portalen](https://portal.azure.com)** går du till den vänstra navigeringspanelen och klickar på **Azure Active Directory**-ikonen.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
@@ -64,37 +64,37 @@ Om du vill konfigurera integreringen av SmarterU i Azure AD måste du lägga til
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-3. Om du vill lägga till ett nytt program klickar du på knappen **nytt program** överst i dialog rutan.
+3. Om du vill lägga till ett nytt program klickar du på **Knappen Nytt program** högst upp i dialogrutan.
 
     ![Knappen Nytt program](common/add-new-app.png)
 
-4. I rutan Sök skriver du **SmarterU**, väljer **SmarterU** från resultat panelen och klickar sedan på **Lägg till** för att lägga till programmet.
+4. Skriv **SmarterU**i sökrutan och välj **SmartareU** från resultatpanelen och klicka sedan på **Lägg** till-knappen för att lägga till programmet.
 
-     ![SmarterU i resultat listan](common/search-new-app.png)
+     ![SmartareU i resultatlistan](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
-I det här avsnittet konfigurerar och testar du enkel inloggning med Azure AD med SmarterU baserat på en test användare som kallas **Britta Simon**.
-För att enkel inloggning ska fungera måste en länk relation mellan en Azure AD-användare och den relaterade användaren i SmarterU upprättas.
+I det här avsnittet konfigurerar och testar du azure AD enkel inloggning med SmarterU baserat på en testanvändare som heter **Britta Simon**.
+För enkel inloggning för att fungera måste en länkrelation mellan en Azure AD-användare och den relaterade användaren i SmarterU upprättas.
 
-Om du vill konfigurera och testa enkel inloggning med SmarterU i Azure AD måste du slutföra följande Bygg stenar:
+Om du vill konfigurera och testa en enkel Azure AD-inloggning med SmarterU måste du slutföra följande byggstenar:
 
 1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
-2. **[Konfigurera SmarterU-enkel inloggning](#configure-smarteru-single-sign-on)** för att konfigurera inställningarna för enkel inloggning på program sidan.
-3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa en	 med Azure AD med Britta Simon.
+2. **[Konfigurera SmarterU Enkel inloggning](#configure-smarteru-single-sign-on)** – för att konfigurera inställningarna för enkel inloggning på programsidan.
+3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
 4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
-5. **[Skapa SmarterU test User](#create-smarteru-test-user)** – om du vill ha en motsvarighet till Britta Simon i SmarterU som är länkad till Azure AD-representation av användare.
+5. **[Skapa SmarterU-testanvändare](#create-smarteru-test-user)** – om du vill ha en motsvarighet till Britta Simon i SmarterU som är länkad till Azure AD-representationen av användaren.
 6. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
 I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure-portalen.
 
-Utför följande steg för att konfigurera enkel inloggning med SmarterU i Azure AD:
+Så här konfigurerar du en enkel Azure AD-inloggning med SmarterU:
 
-1. Välj **enkel inloggning**på sidan **SmarterU** Application Integration i [Azure Portal](https://portal.azure.com/).
+1. I [Azure-portalen](https://portal.azure.com/)väljer du Enkel inloggning på sidan **SmarterU-programintegration** . **Single sign-on**
 
-    ![Konfigurera enkel inloggning-länk](common/select-sso.png)
+    ![Konfigurera länk för enkel inloggning](common/select-sso.png)
 
 2. I dialogrutan **Välj en metod för enkel inloggning** väljer du läget **SAML/WS-Fed** för att aktivera enkel inloggning.
 
@@ -106,15 +106,15 @@ Utför följande steg för att konfigurera enkel inloggning med SmarterU i Azure
 
 4. I avsnittet **Grundläggande SAML-konfiguration** utför du följande steg:
 
-    ![Information om enkel inloggning för SmarterU-domän och URL: er](common/idp-identifier.png)
+    ![SmarterU-domän och webbadresser med enkel inloggning](common/idp-identifier.png)
 
     I textrutan **Identifierare** skriver du URL:en: `https://www.smarteru.com/`
 
-5. På sidan **Konfigurera enkel inloggning med SAML** går du till avsnittet **SAML-signeringscertifikat**, klickar på **Hämta** för att hämta **Metadata-XML för federationen** från de angivna alternativen enligt dina behov och spara den på datorn.
+5. På sidan **Set up Single Sign-On with SAML** (Konfigurera enkel inloggning med SAML) går du till avsnittet **SAML Signing Certificate** (SAML-signeringscertifikat), klickar på **Ladda ned** för att ladda ned **Federation Metadata-XML** från de angivna alternativen enligt dina behov och spara den på datorn.
 
     ![Länk för nedladdning av certifikatet](common/metadataxml.png)
 
-6. I avsnittet **Konfigurera SmarterU** kopierar du lämpliga URL: er enligt ditt krav.
+6. Kopiera lämpliga webbadresser enligt dina krav i avsnittet **Konfigurera SmarterU.**
 
     ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
 
@@ -124,13 +124,13 @@ Utför följande steg för att konfigurera enkel inloggning med SmarterU i Azure
 
     c. Utloggnings-URL
 
-### <a name="configure-smarteru-single-sign-on"></a>Konfigurera SmarterU enkel inloggning
+### <a name="configure-smarteru-single-sign-on"></a>Konfigurera Smarteru enkel inloggning
 
-1. Logga in på din SmarterU-företags webbplats som administratör i ett annat webbläsarfönster.
+1. I ett annat webbläsarfönster loggar du in på smarteru-företagets webbplats som administratör.
 
-1. I verktygsfältet högst upp klickar du på **konto inställningar**.
+1. Klicka på **Kontoinställningar**i verktygsfältet högst upp .
 
-    ![Account Settings](./media/smarteru-tutorial/accountsettings.png)
+    ![Kontoinställningar](./media/smarteru-tutorial/accountsettings.png)
 
 1. På sidan för kontokonfiguration utför du följande steg:
 
@@ -138,15 +138,15 @@ Utför följande steg för att konfigurera enkel inloggning med SmarterU i Azure
 
     a. Välj **Aktivera extern auktorisering**.
   
-    b. I avsnittet **huvud inloggnings kontroll** väljer du fliken **SmarterU** .
+    b. Välj fliken **SmartareU** i avsnittet **Huvudinloggningskontroll.**
   
-    c. I avsnittet **användarens standard inloggning** väljer du fliken **SmarterU** .
+    c. Välj fliken **SmartareU** i avsnittet **Använda standardinloggning.**
   
     d. Välj **Aktivera SAML**.
   
-    e. Kopiera innehållet i den hämtade metadatafilen och klistra sedan in den i text rutan **IDP metadata** .
+    e. Kopiera innehållet i den nedladdade metadatafilen och klistra sedan in det i **textrutan IdP Metadata.**
 
-    f. Välj ett **Identifier-attribut/-anspråk**.
+    f. Välj ett **identifieraresattribut/anspråk**.
   
     g. Klicka på **Spara**.
 
@@ -158,7 +158,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     ![Länkarna ”Användare och grupper” och ”Alla grupper”](common/users.png)
 
-2. Välj **Ny användare** överst på skärmen.
+2. Välj **Ny användare** högst upp på skärmen.
 
     ![Knappen Ny användare](common/new-user.png)
 
@@ -177,15 +177,15 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
-I det här avsnittet aktiverar du Britta Simon för att använda enkel inloggning med Azure genom att bevilja åtkomst till SmarterU.
+I det här avsnittet kan du aktivera Britta Simon för att använda Azure enkel inloggning genom att bevilja åtkomst till SmarterU.
 
-1. I Azure Portal väljer du **företags program**, väljer **alla program**och väljer sedan **SmarterU**.
+1. I Azure-portalen väljer du **Enterprise Applications**, väljer **Alla program**och väljer sedan **SmarterU**.
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-2. I listan program väljer du **SmarterU**.
+2. Välj **SmarterU**i programlistan .
 
-    ![SmarterU-länken i program listan](common/all-applications.png)
+    ![SmarterU-länken i programlistan](common/all-applications.png)
 
 3. På menyn till vänster väljer du **Användare och grupper**.
 
@@ -197,40 +197,40 @@ I det här avsnittet aktiverar du Britta Simon för att använda enkel inloggnin
 
 5. I dialogrutan **Användare och grupper** väljer du **Britta Simon** i listan med användare och klickar på knappen **Välj** längst ned på skärmen.
 
-6. Om du förväntar dig ett rollvärde i SAML-försäkran väljer du i dialogrutan **Välj roll** lämplig roll för användaren i listan och klickar sedan på knappen **Välj** längst ned på skärmen.
+6. Om du förväntar dig något rollvärde i SAML-påståendet väljer du lämplig roll för användaren i listan i dialogrutan **Välj roll** och klickar sedan på knappen **Välj** längst ned på skärmen.
 
 7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
 
-### <a name="create-smarteru-test-user"></a>Skapa SmarterU test användare
+### <a name="create-smarteru-test-user"></a>Skapa SmarterU-testanvändare
 
-Om du vill att Azure AD-användare ska kunna logga in på SmarterU måste de tillhandahållas i SmarterU. När det gäller SmarterU är etableringen en manuell uppgift.
+Om du vill att Azure AD-användare ska kunna logga in på SmarterU måste de etableras i SmarterU. När det gäller SmarterU är etablering en manuell aktivitet.
 
-**Utför följande steg för att etablera ett användarkonto:**
+**Gör följande för att etablera ett användarkonto:**
 
-1. Logga in på din **SmarterU** -klient.
+1. logga in på din **SmarterU-klient.**
 
-1. Gå till **användare**.
+1. Gå till **Användare**.
 
-1. Utför följande steg i avsnittet användare:
+1. Gör följande i användaravsnittet:
 
     ![Ny användare](./media/smarteru-tutorial/adduser.png)  
 
-    a. Klicka på **+ användare**.
+    a. Klicka på **+Användare**.
 
-    b. Ange de relaterade attributvärdena för Azure AD-användarkontot i följande text rutor: **primär e-post**, **anställnings-ID**, **lösen ord**, **Verifiera lösen ord**, **förnamn**, efter namn **.**
+    b. Skriv de relaterade attributvärdena för Azure AD-användarkontot i följande textrutor: **Primär e-post,** **medarbetar-ID**, **Lösenord**, **Verifiera lösenord**, **Förnamn**, **Efternamn**.
 
-    c. Klicka på **aktiv**.
+    c. Klicka på **Aktiv**.
 
     d. Klicka på **Spara**.
 
 > [!NOTE]
-> Du kan använda andra verktyg för SmarterU av användar konton eller API: er som tillhandahålls av SmarterU för att etablera Azure AD-användarkonton.
+> Du kan använda andra smartare verktyg för att skapa användarkonton eller API:er som tillhandahålls av SmarterU för att etablera Azure AD-användarkonton.
 
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning
 
 I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-När du klickar på panelen SmarterU på åtkomst panelen, bör du loggas in automatiskt på den SmarterU som du ställer in SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+När du klickar på smarteru-panelen på åtkomstpanelen ska du automatiskt loggas in på smartareu som du konfigurerar SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 

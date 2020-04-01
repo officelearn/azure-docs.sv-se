@@ -1,5 +1,5 @@
 ---
-title: 'Självstudie: Azure Active Directory integrering med Periscope-data | Microsoft Docs'
+title: 'Självstudiekurs: Azure Active Directory-integrering med Periscope-data | Microsoft-dokument'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Periscope Data.
 services: active-directory
 documentationCenter: na
@@ -16,13 +16,13 @@ ms.topic: tutorial
 ms.date: 02/21/2019
 ms.author: jeedes
 ms.openlocfilehash: ffa0176c4dde6334e70b9a56b066a677d1610b48
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73160206"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-periscope-data"></a>Självstudie: Azure Active Directory integrering med Periscope-data
+# <a name="tutorial-azure-active-directory-integration-with-periscope-data"></a>Självstudiekurs: Azure Active Directory-integrering med Periscope-data
 
 I den här självstudien lär du dig att integrera Periscope Data med Azure Active Directory (AD Azure).
 Integreringen av Periscope Data med Azure AD medför följande fördelar:
@@ -32,13 +32,13 @@ Integreringen av Periscope Data med Azure AD medför följande fördelar:
 * Du kan hantera dina konton på en central plats – Azure-portalen.
 
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
+Om du inte har en Azure-prenumeration [skapar du ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
 ## <a name="prerequisites"></a>Krav
 
 För att konfigurera Azure AD-integrering med Periscope Data behöver du följande:
 
-* En Azure AD-prenumeration. Om du inte har en Azure AD-miljö kan du få en månads utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/)
+* En Azure AD-prenumeration. Om du inte har någon Azure AD-miljö kan du hämta en månads utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/)
 * Periscope Data-prenumeration med enkel inloggning aktiverat
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
@@ -53,7 +53,7 @@ För att konfigurera integreringen av Periscope Data i Azure AD behöver du läg
 
 **Utför följande steg för att lägga till Periscope Data från galleriet:**
 
-1. I **[Azure-portalen](https://portal.azure.com)** , i den vänstra navigeringspanelen, klickar du på **Azure Active Directory**-ikonen.
+1. I **[Azure-portalen](https://portal.azure.com)** går du till den vänstra navigeringspanelen och klickar på **Azure Active Directory**-ikonen.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
@@ -78,7 +78,7 @@ För att kunna konfigurera och testa enkel inloggning i Azure AD med Periscope D
 
 1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
 2. **[Konfigurera enkel inloggning för Periscope Data](#configure-periscope-data-single-sign-on)** – för att konfigurera inställningarna för enkel inloggning på programsidan.
-3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa en	 med Azure AD med Britta Simon.
+3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
 4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
 5. **[Skapa Periscope Data-testanvändare](#create-periscope-data-test-user)** – för att ha en motsvarighet för Britta Simon i Periscope Data som är länkad till Azure AD-representationen av användaren.
 6. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
@@ -91,7 +91,7 @@ Utför följande steg för att konfigurera enkel inloggning i Azure AD med Peris
 
 1. I [Azure-portalen](https://portal.azure.com/) går du till programintegreringssidan för **Periscope Data** och väljer **Enkel inloggning**.
 
-    ![Konfigurera enkel inloggning-länk](common/select-sso.png)
+    ![Konfigurera länk för enkel inloggning](common/select-sso.png)
 
 2. I dialogrutan **Välj en metod för enkel inloggning** väljer du läget **SAML/WS-Fed** för att aktivera enkel inloggning.
 
@@ -117,7 +117,7 @@ Utför följande steg för att konfigurera enkel inloggning i Azure AD med Peris
     > [!NOTE]
     > Värdet för inloggnings-URL är inte verkligt. Uppdatera värdena med den faktiska inloggnings-URL:en. Kontakta [kundsupporten för Periscope Data](mailto:support@periscopedata.com) för att hämta det här värdet och det identifierarvärde som du får från avsnittet **Konfigurera enkel inloggning för Periscope Data**, vilket förklaras senare i självstudien. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
-5. Klicka på kopieringsknappen i avsnittet **SAML-signeringscertifikat** på sidan **Konfigurera enkel inloggning med SAML** om du vill kopiera **URL:en för federationsmetadata** och spara den på datorn.
+5. På sidan **Set up Single Sign-On with SAML** (Konfigurera enkel inloggning med SAML) går du till avsnittet **SAML Signing Certificate** (SAML-signeringscertifikat), klickar på kopieringsknappen för att kopiera **App Federation Metadata-URL** och spara den på datorn.
 
     ![Länk för nedladdning av certifikatet](common/copy-metadataurl.png)
 
@@ -125,7 +125,7 @@ Utför följande steg för att konfigurera enkel inloggning i Azure AD med Peris
 
 1. I ett annat webbläsarfönster loggar du in på Periscope Data som administratör.
 
-2. Öppna kugghjulsmenyn nere till vänster, öppna menyn **Fakturering** > **Säkerhet** och utför följande steg. Endast administratörer har åtkomst till de här inställningarna.
+2. Öppna kugghjulsmenyn längst ned till vänster och öppna menyn > **Faktureringssäkerhet** och utför följande steg. **Billing** Endast administratörer har åtkomst till de här inställningarna.
 
     ![Konfigurera information för Periscope Data](./media/periscope-data-tutorial/configure01.png)
 
@@ -137,9 +137,9 @@ Utför följande steg för att konfigurera enkel inloggning i Azure AD med Peris
 
     d. Leta upp taggen **SingleLogoutService** och klistra in värdet för **Plats** i textrutan **SLO URL** (URL för enkel utloggning).
 
-    e. Kopiera **ID** -värdet för din instans och klistra in det i en **identifierare (entitets-ID)** i text rutan för det **grundläggande SAML-konfigurations** avsnittet på Azure Portal.
+    e. Kopiera **identifierare** för din instans och klistra in det i **textrutan Identifierar (Entitets-ID)** i avsnittet **Grundläggande SAML-konfiguration** på Azure-portalen.
 
-    f. Hitta den första taggen i XML-filen, kopiera värdet för **entityId** och klistra in det i text rutan **utfärdare** .
+    f. Leta reda på den första taggen i XML-filen, kopiera värdet **för entityID** och klistra in den i textrutan **Utfärdare.**
 
     g. Leta upp taggen **IDPSSODescriptor** med SAML-protokoll. I det avsnittet letar du upp taggen **KeyDescriptor** med **use=signing**. Kopiera värdet för **X509Certificate** och klistra in det i textrutan **Certifikat**.
 
@@ -157,7 +157,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     ![Länkarna ”Användare och grupper” och ”Alla grupper”](common/users.png)
 
-2. Välj **Ny användare** överst på skärmen.
+2. Välj **Ny användare** högst upp på skärmen.
 
     ![Knappen Ny användare](common/new-user.png)
 
@@ -167,7 +167,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     a. I fältet **Namn** anger du **BrittaSimon**.
   
-    b. I fältet **användar namn** skriver du **brittasimon\@yourcompanydomain. extension**  
+    b. I fältet **Användarnamn** skriver **du\@brittasimon yourcompanydomain.extension**  
     Till exempel, BrittaSimon@contoso.com
 
     c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
@@ -186,7 +186,7 @@ I det här avsnittet gör du det möjligt för Britta Simon att använda enkel i
 
     ![Länken för Periscope Data i programlistan](common/all-applications.png)
 
-3. I menyn till vänster väljer du **Användare och grupper**.
+3. På menyn till vänster väljer du **Användare och grupper**.
 
     ![Länken ”Användare och grupper”](common/users-groups-blade.png)
 
@@ -196,7 +196,7 @@ I det här avsnittet gör du det möjligt för Britta Simon att använda enkel i
 
 5. I dialogrutan **Användare och grupper** väljer du **Britta Simon** i listan med användare och klickar på knappen **Välj** längst ned på skärmen.
 
-6. Om du förväntar dig ett rollvärde i SAML-försäkran väljer du i dialogrutan **Välj roll** lämplig roll för användaren i listan och klickar sedan på knappen **Välj** längst ned på skärmen.
+6. Om du förväntar dig något rollvärde i SAML-påståendet väljer du lämplig roll för användaren i listan i dialogrutan **Välj roll** och klickar sedan på knappen **Välj** längst ned på skärmen.
 
 7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
 
@@ -204,7 +204,7 @@ I det här avsnittet gör du det möjligt för Britta Simon att använda enkel i
 
 För att göra det möjligt för Azure AD-användare att logga in på Periscope Data måste de etableras till Periscope Data. I Periscope Data är etablering en manuell uppgift.
 
-**Utför följande steg för att etablera ett användarkonto:**
+**Gör följande för att etablera ett användarkonto:**
 
 1. Logga in på Periscope Data som administratör.
 
@@ -218,17 +218,17 @@ För att göra det möjligt för Azure AD-användare att logga in på Periscope 
 
     a. I textrutan **Förnamn** anger du förnamnet på användaren som **Britta**.
 
-    b. I textrutan **Efternamn** anger du efternamnet på användaren som **Simon**.
+    b. I textrutan **Efternamn** anger du efternamn på användaren som **Simon**.
 
-    c. I text rutan **e-postadress** anger du e-postmeddelandet som **brittasimon\@contoso.com**.
+    c. I **Textrutan E-post** anger du e-post för användare som **brittasimon\@contoso.com**.
 
-    d. Klicka på **ADD** (Lägg till).
+    d. Klicka på **LÄGG TILL**.
 
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning 
 
 I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-När du klickar på Periscope Data-panelen i åtkomstpanelen bör du automatiskt loggas in på Periscope Data som du har konfigurerat enkel inloggning för. I [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) får du mer information.
+När du klickar på Periscope Data-panelen i åtkomstpanelen bör du automatiskt loggas in på Periscope Data som du har konfigurerat enkel inloggning för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 

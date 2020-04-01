@@ -12,12 +12,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 02/13/2020
 ms.author: juliako
-ms.openlocfilehash: 1a2a370ac92ea3edf925d97af6f5e721c79d0d2d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a8674714451f3cc686acb74d6c66ac6800b75936
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79529704"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80478077"
 ---
 # <a name="streaming-endpoints-origin-in-azure-media-services"></a>Strömmande slutpunkter (Origin) i Azure Media Services
 
@@ -68,7 +68,7 @@ CDN|Azure CDN, CDN från tredje part eller ingen CDN.|Azure CDN, CDN från tredj
 Faktureringen är proportionell| Varje dag|Varje dag
 Dynamisk kryptering|Ja|Ja
 Dynamisk paketering|Ja|Ja
-Skalning|Auto skalas upp till det riktade dataflödet.|Ytterligare SUs
+Skala|Auto skalas upp till det riktade dataflödet.|Ytterligare SUs
 IP-filtrering/G20/Anpassad värd <sup>1</sup>|Ja|Ja
 Progressiv nedladdning|Ja|Ja
 Rekommenderad användning |Rekommenderas för de allra flesta streamingscenarier.|Professionell användning.
@@ -118,7 +118,7 @@ I det här avsnittet finns information om några av slutpunkten för direktuppsp
     > [!NOTE]
     > Strömmande slutpunkter som finns i samma datacenter kan inte dela samma anpassade värdnamn.
 
-    För närvarande stöder Media Services inte SSL med anpassade domäner.
+    För närvarande stöder Media Services inte TLS med anpassade domäner.
 
 - `maxCacheAge`- Åsidosätter standard max-age HTTP-cache kontroll huvudet som anges av strömmande slutpunkt på mediefragment och on-demand manifest. Värdet anges på några sekunder.
 - `resourceState` -

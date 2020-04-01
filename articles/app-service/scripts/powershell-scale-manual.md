@@ -1,5 +1,5 @@
 ---
-title: 'PowerShell: skala en webbapp manuellt'
+title: 'PowerShell: Skala en webbapp manuellt'
 description: Lär dig hur du använder Azure PowerShell för att automatisera distribution och hantering av App Service. Det här exemplet visar hur du skalar en app manuellt.
 author: msangapu-msft
 tags: azure-service-management
@@ -7,19 +7,19 @@ ms.assetid: de5d4285-9c7d-4735-a695-288264047375
 ms.topic: sample
 ms.date: 03/20/2017
 ms.author: msangapu
-ms.custom: seodec18
-ms.openlocfilehash: 2ee88ef3d125ccc1ec9675437ea99ac11fe65dff
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.custom: mvc, seodec18
+ms.openlocfilehash: cb0af65f938baf24b2af574b21e09e099b70ba85
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74684224"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80060290"
 ---
 # <a name="scale-a-web-app-manually-using-powershell"></a>Skala en webbapp manuellt med Azure PowerShell
 
 I det här scenariot du lär dig att skapa en resursgrupp, en App Service-plan och webbapp. Sedan skalar du upp App Service-planen från en enda instans till flera instanser.
 
-Om det behövs installerar du Azure PowerShell med hjälp av instruktionerna i [Azure PowerShell-guiden](/powershell/azure/overview) och kör sedan `Connect-AzAccount` för att skapa en anslutning till Azure.
+Om det behövs installerar du Azure PowerShell med hjälp av instruktionen som finns i [Azure PowerShell-guiden](/powershell/azure/overview)och kör `Connect-AzAccount` sedan för att skapa en anslutning med Azure.
 
 ## <a name="sample-script"></a>Exempelskript
 

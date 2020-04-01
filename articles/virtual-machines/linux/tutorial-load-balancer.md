@@ -1,5 +1,5 @@
 ---
-title: Självstudie – belastningsutjämna virtuella Linux-datorer i Azure
+title: Självstudiekurs - Belastningsutjämna Linux virtuella datorer i Azure
 description: I den här självstudien lär du dig hur du använder Azure CLI för att skapa en lastbalanserare för ett säkert program med hög tillgänglighet på tre virtuella Linux-datorer
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 11/13/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: daad74ae5f046edb1b4bf6eef547c963e52593f5
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 918703a93e350c1ba82a9b503dde14976358f614
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74034440"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80066475"
 ---
 # <a name="tutorial-load-balance-linux-virtual-machines-in-azure-to-create-a-highly-available-application-with-the-azure-cli"></a>Självstudie: lastbalansera virtuella Linux-datorer i Azure för att skapa ett program med hög tillgänglighet med Azure CLI
 
@@ -36,9 +36,9 @@ Med belastningsutjämning får du högre tillgänglighet genom att inkommande be
 > * visa en lastbalanserare i praktiken
 > * lägga till och ta bort virtuella datorer från en lastbalanserare.
 
-I den här självstudien används CLI i [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview), som uppdateras kontinuerligt till den senaste versionen. Om du vill öppna Cloud Shell väljer du **testa den** överst i ett kodblock.
+Den här självstudien använder CLI i [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview), som ständigt uppdateras till den senaste versionen. Om du vill öppna Cloud Shell väljer du **Prova det** överst i alla kodblock.
 
-Om du väljer att installera och använda CLI:t lokalt för den här självstudien måste du köra Azure CLI version 2.0.30 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI]( /cli/azure/install-azure-cli).
+Om du väljer att installera och använda CLI lokalt krävs Azure CLI version 2.0.30 eller senare för att du ska kunna genomföra den här självstudiekursen. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI]( /cli/azure/install-azure-cli).
 
 ## <a name="azure-load-balancer-overview"></a>Översikt över Azure Load Balancer
 En Azure-lastbalanserare är en Layer-4-lastbalanserare (TCP, UDP) som ger hög tillgänglighet genom att distribuera inkommande trafik till felfria virtuella datorer. Lastbalanseraren har en hälsoavsökningsfunktion som övervakar en given port på varje virtuell dator och ser till att trafik endast distribueras till virtuella datorer som fungerar.
@@ -53,16 +53,16 @@ Om du följde den föregående självstudien [skapa en VM-skalningsuppsättning]
 
 
 ## <a name="create-azure-load-balancer"></a>Skapa en Azure Load Balancer
-I det här avsnittet beskrivs hur du skapar och konfigurerar varje komponent i lastbalanseraren. Innan du kan skapa lastbalanseraren måste du skapa en resursgrupp med [az group create](/cli/azure/group). I följande exempel skapas en resursgrupp med namnet *myResourceGroupLoadBalancer* på platsen *eastus*:
+I det här avsnittet beskrivs hur du skapar och konfigurerar varje komponent i lastbalanseraren. Innan du kan skapa lastbalanseraren måste du skapa en resursgrupp med [az group create](/cli/azure/group). I följande exempel skapas en resursgrupp med namnet *myResourceGroupLoadBalancer* på *eastus-platsen:*
 
-```azurecli-interactive 
+```azurecli-interactive
 az group create --name myResourceGroupLoadBalancer --location eastus
 ```
 
 ### <a name="create-a-public-ip-address"></a>Skapa en offentlig IP-adress
 För att kunna komma åt din app på Internet behöver du en offentlig IP-adress för lastbalanseraren. Skapa en offentlig IP-adress med [az network public-ip create](/cli/azure/network/public-ip). I följande exempel skapas en offentlig IP-adress med namnet *myPublicIP* i resursgruppen *myResourceGroupLoadBalancer*:
 
-```azurecli-interactive 
+```azurecli-interactive
 az network public-ip create \
     --resource-group myResourceGroupLoadBalancer \
     --name myPublicIP
@@ -71,7 +71,7 @@ az network public-ip create \
 ### <a name="create-a-load-balancer"></a>Skapa en lastbalanserare
 Skapa en lastbalanserare med [az network lb create](/cli/azure/network/lb). Det här exemplet skapar en lastbalanserare med namnet *myLoadBalancer* och tilldelar *myPublicIP*-adressen till IP-konfigurationen för klienten:
 
-```azurecli-interactive 
+```azurecli-interactive
 az network lb create \
     --resource-group myResourceGroupLoadBalancer \
     --name myLoadBalancer \
@@ -87,7 +87,7 @@ I följande exempel skapas en TCP-avsökning. Du kan också skapa anpassade HTTP
 
 Skapa en TCP-hälsoavsökning med [az network lb probe create](/cli/azure/network/lb/probe). I följande exempel skapas en hälsoavsökning med namnet *myHealthProbe*:
 
-```azurecli-interactive 
+```azurecli-interactive
 az network lb probe create \
     --resource-group myResourceGroupLoadBalancer \
     --lb-name myLoadBalancer \
@@ -101,7 +101,7 @@ En lastbalanseringsregel används för att definiera hur trafiken ska distribuer
 
 Använd [az network lb rule create](/cli/azure/network/lb/rule) för att skapa en regel för lastbalanseraren. I följande exempel skapas en belastningsutjämningsregel med namnet *myLoadBalancerRule* som använder hälsoavsökningen *myHealthProbe* och utjämnar trafiken på port *80*:
 
-```azurecli-interactive 
+```azurecli-interactive
 az network lb rule create \
     --resource-group myResourceGroupLoadBalancer \
     --lb-name myLoadBalancer \
@@ -121,7 +121,7 @@ Innan du kan distribuera virtuella datorer och testa din belastningsutjämnare s
 ### <a name="create-network-resources"></a>Skapa nätverksresurser
 Skapa ett virtuellt nätverk med kommandot [az network vnet create](/cli/azure/network/vnet). I följande exempel skapas ett virtuellt nätverk med namnet *myVnet* med ett undernät med namnet *mySubnet*:
 
-```azurecli-interactive 
+```azurecli-interactive
 az network vnet create \
     --resource-group myResourceGroupLoadBalancer \
     --name myVnet \
@@ -130,7 +130,7 @@ az network vnet create \
 
 Använd kommandot [az network nsg create](/cli/azure/network/nsg) för att lägga till en nätverkssäkerhetsgrupp. I följande exempel skapas en nätverkssäkerhetsgrupp med namnet *myNetworkSecurityGroup*:
 
-```azurecli-interactive 
+```azurecli-interactive
 az network nsg create \
     --resource-group myResourceGroupLoadBalancer \
     --name myNetworkSecurityGroup
@@ -138,7 +138,7 @@ az network nsg create \
 
 Skapa en nätverkssäkerhetsgruppregel med [az network nsg rule create](/cli/azure/network/nsg/rule). I följande exempel skapas en nätverkssäkerhetsgruppregel med namnet *myNetworkSecurityGroupRule*:
 
-```azurecli-interactive 
+```azurecli-interactive
 az network nsg rule create \
     --resource-group myResourceGroupLoadBalancer \
     --nsg-name myNetworkSecurityGroup \
@@ -150,7 +150,7 @@ az network nsg rule create \
 
 Virtuella nätverkskort skapas med [az network nic create](/cli/azure/network/nic). I följande exempel skapas tre virtuella nätverkskort. (Det vill säga ett virtuellt nätverkskort för varje virtuell dator som du skapar för din app i följande steg.) Du kan skapa ytterligare virtuella nätverkskort och virtuella datorer när du vill och lägga till dem i lastbalanseraren:
 
-```bash
+```azurecli
 for i in `seq 1 3`; do
     az network nic create \
         --resource-group myResourceGroupLoadBalancer \
@@ -218,7 +218,7 @@ runcmd:
 ### <a name="create-virtual-machines"></a>Skapa virtuella datorer
 Placera dina virtuella datorer i en tillgänglighetsuppsättning för att förbättra tillgängligheten för din app. Mer information om tillgänglighetsuppsättningar finns i den tidigare självstudien [Skapa virtuella datorer med hög tillgänglighet](tutorial-availability-sets.md).
 
-Skapa en tillgänglighetsuppsättning med [az vm availability-set create](/cli/azure/vm/availability-set). I följande exempel skapas en tillgänglighetsuppsättning med namnet *myAvailabilitySet*:
+Skapa en tillgänglighetsuppsättning med [az vm-tillgänglighetsuppsättning skapa](/cli/azure/vm/availability-set). I följande exempel skapas en tillgänglighetsuppsättning med namnet *myAvailabilitySet*:
 
 ```azurecli-interactive 
 az vm availability-set create \
@@ -228,7 +228,7 @@ az vm availability-set create \
 
 Nu kan du skapa de virtuella datorerna med [az vm create](/cli/azure/vm). I följande exempel skapas tre virtuella datorer och SSH-nycklar om de inte redan finns:
 
-```bash
+```azurecli
 for i in `seq 1 3`; do
     az vm create \
         --resource-group myResourceGroupLoadBalancer \
@@ -243,13 +243,13 @@ for i in `seq 1 3`; do
 done
 ```
 
-Det finns bakgrundsaktiviteter som fortsätter köras när Azure CLI återgår till frågan. Parametern `--no-wait` väntar inte på att alla uppgifter slutförs. Det kan ta några minuter innan du kan öppna programmet. Lastbalanserarens hälsoavsökning känner automatiskt av när appen körs på varje virtuell dator. När appen körs börjar lastbalanserarens regel att distribuera trafiken.
+Det finns bakgrundsaktiviteter som fortsätter att köras när Azure CLI återgår till kommandotolken. Parametern `--no-wait` väntar inte på att alla uppgifter slutförs. Det kan ta några minuter innan du kan öppna appen. Lastbalanserarens hälsoavsökning känner automatiskt av när appen körs på varje virtuell dator. När appen körs börjar lastbalanserarens regel att distribuera trafiken.
 
 
 ## <a name="test-load-balancer"></a>Testa lastbalanseraren
 Hämta den offentliga IP-adressen för lastbalanseraren med [az network public-ip show](/cli/azure/network/public-ip). I följande exempel hämtas IP-adressen för *myPublicIP* som skapades tidigare:
 
-```azurecli-interactive 
+```azurecli-interactive
 az network public-ip show \
     --resource-group myResourceGroupLoadBalancer \
     --name myPublicIP \
@@ -270,7 +270,7 @@ Du kan behöva utföra underhåll på de virtuella datorerna som kör appen, til
 ### <a name="remove-a-vm-from-the-load-balancer"></a>Ta bort en virtuell dator från lastbalanseraren
 Du kan ta bort en virtuell dator från serverdelsadresspoolen med [az network nic ip-config address-pool remove](/cli/azure/network/nic/ip-config/address-pool). Följande exempel tar bort det virtuella nätverkskortet för **myVM2** från *myLoadBalancer*:
 
-```azurecli-interactive 
+```azurecli-interactive
 az network nic ip-config address-pool remove \
     --resource-group myResourceGroupLoadBalancer \
     --nic-name myNic2 \
@@ -294,7 +294,7 @@ az network lb address-pool show \
 
 Utdata liknar följande exempel som visar att det virtuella nätverkskortet för VM 2 inte längre ingår i serverdelsadresspoolen:
 
-```bash
+```output
 /subscriptions/<guid>/resourceGroups/myResourceGroupLoadBalancer/providers/Microsoft.Network/networkInterfaces/myNic1/ipConfigurations/ipconfig1
 /subscriptions/<guid>/resourceGroups/myResourceGroupLoadBalancer/providers/Microsoft.Network/networkInterfaces/myNic3/ipConfigurations/ipconfig1
 ```
@@ -302,7 +302,7 @@ Utdata liknar följande exempel som visar att det virtuella nätverkskortet för
 ### <a name="add-a-vm-to-the-load-balancer"></a>Lägga till en virtuell dator i lastbalanseraren
 När du utfört underhåll på en virtuell dator eller om kapaciteten måste utökas kan du lägga till en virtuell dator i serverdelsadresspoolen med [az network nic ip-config address-pool add](/cli/azure/network/nic/ip-config/address-pool). Följande exempel lägger till det virtuella nätverkskortet för **myVM2** i *myLoadBalancer*:
 
-```azurecli-interactive 
+```azurecli-interactive
 az network nic ip-config address-pool add \
     --resource-group myResourceGroupLoadBalancer \
     --nic-name myNic2 \

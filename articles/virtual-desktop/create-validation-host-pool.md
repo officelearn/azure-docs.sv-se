@@ -1,6 +1,6 @@
 ---
-title: Uppdateringar av tjänsten Host pool i Windows virtuella skriv bord – Azure
-description: Så här skapar du en pool för validering av värdar för övervakning av tjänst uppdateringar innan uppdateringar distribueras till produktion.
+title: Uppdateringar av windows virtual desktop-värdpooltjänst - Azure
+description: Så här skapar du en verifieringsvärdpool för att övervaka tjänstuppdateringar innan du distribuerar uppdateringar till produktion.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -9,52 +9,52 @@ ms.date: 03/13/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: f2b51213dfc6d7e55f76e78b92d12111f84736be
-ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/14/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "79365397"
 ---
-# <a name="tutorial-create-a-host-pool-to-validate-service-updates"></a>Självstudie: skapa en adresspool för att verifiera tjänst uppdateringar
+# <a name="tutorial-create-a-host-pool-to-validate-service-updates"></a>Självstudiekurs: Skapa en värdpool för att validera tjänstuppdateringar
 
-Värdbaserade pooler är en samling av en eller flera identiska virtuella datorer i Windows-miljöer för virtuella Skriv bords klienter. Innan du distribuerar lagringspooler till produktions miljön rekommenderar vi starkt att du skapar en pool för validerings värdar. Uppdateringar tillämpas först på verifiering av värdbaserade pooler, så att du kan övervaka tjänst uppdateringar innan du återställer dem till produktions miljön. Utan en verifierings värd kan du inte identifiera ändringar som innehåller fel, vilket kan leda till stillestånds tid för användare i produktions miljön.
+Värdpooler är en samling av en eller flera identiska virtuella datorer i Windows Virtual Desktop-klientmiljöer. Innan du distribuerar värdpooler till din produktionsmiljö rekommenderar vi starkt att du skapar en verifieringsvärdpool. Uppdateringar tillämpas först på verifieringsvärdpooler, så att du kan övervaka tjänstuppdateringar innan du distribuerar dem till produktionsmiljön. Utan en verifieringsvärdpool kan du inte upptäcka ändringar som medför fel, vilket kan resultera i driftstopp för användare i produktionsmiljön.
 
-För att se till att dina appar fungerar med de senaste uppdateringarna bör verifierings värddatorn vara lika likadan som lagringspooler i produktions miljön som möjligt. Användarna bör ansluta så ofta som de använder för att köra en pool för värden för autentisering. Om du har automatiserat tester på din värd-pool bör du inkludera automatiserad testning på verifierings värds poolen.
+För att säkerställa att dina appar fungerar med de senaste uppdateringarna bör verifieringsvärdpoolen vara lika lik värdpooler i produktionsmiljön som möjligt. Användare bör ansluta så ofta som de till produktionsvärdpoolen. Om du har automatisk testning på värdpoolen bör du inkludera automatisk testning på verifieringsvärdpoolen.
 
-Du kan felsöka problem i poolen för validering av värdar med hjälp [av en diagnostisk funktion](diagnostics-role-service.md) eller [fel söknings artiklarna för Windows Virtual Desktop](troubleshoot-set-up-overview.md).
+Du kan felsöka problem i verifieringsvärdpoolen med antingen [diagnostikfunktionen](diagnostics-role-service.md) eller [felsökningsartiklarna](troubleshoot-set-up-overview.md)för Windows Virtual Desktop .
 
 >[!NOTE]
-> Vi rekommenderar att du lämnar validerings värd för poolen på plats för att testa alla framtida uppdateringar.
+> Vi rekommenderar att du lämnar verifieringsvärdpoolen på plats för att testa alla framtida uppdateringar.
 
-Innan du börjar [hämtar och importerar du Windows Virtual Desktop PowerShell-modulen](/powershell/windows-virtual-desktop/overview/), om du inte redan gjort det. Sedan kör du följande cmdlet för att logga in på ditt konto:
+Innan du börjar hämtar och importerar du [PowerShell-modulen för Windows Virtual Desktop](/powershell/windows-virtual-desktop/overview/), om du inte redan har gjort det. Därefter kör du följande cmdlet för att logga in på ditt konto:
 
 ```powershell
 Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
 ```
 
-## <a name="create-your-host-pool"></a>Skapa din värd bassäng
+## <a name="create-your-host-pool"></a>Skapa din värdpool
 
-Du kan skapa en adresspool genom att följa anvisningarna i någon av följande artiklar:
-- [Självstudie: skapa en värdbaserad pool med Azure Marketplace](create-host-pools-azure-marketplace.md)
-- [Skapa en värdbaserad pool med en Azure Resource Manager-mall](create-host-pools-arm-template.md)
-- [Skapa en värdbaserad pool med PowerShell](create-host-pools-powershell.md)
+Du kan skapa en värdpool genom att följa instruktionerna i någon av dessa artiklar:
+- [Självstudiekurs: Skapa en värdpool med Azure Marketplace](create-host-pools-azure-marketplace.md)
+- [Skapa en värdpool med en Azure Resource Manager-mall](create-host-pools-arm-template.md)
+- [Skapa en värdpool med PowerShell](create-host-pools-powershell.md)
 
-## <a name="define-your-host-pool-as-a-validation-host-pool"></a>Definiera poolen som värd för en pool för validerings värdar
+## <a name="define-your-host-pool-as-a-validation-host-pool"></a>Definiera värdpoolen som en verifieringsvärdpool
 
-Kör följande PowerShell-cmdlets för att definiera den nya poolen som en validerings värd pool. Ersätt värdena i citat tecken med de värden som är relevanta för din session:
+Kör följande PowerShell-cmdlets för att definiera den nya värdpoolen som en verifieringsvärdpool. Ersätt värdena inom citationstecken med de värden som är relevanta för din session:
 
 ```powershell
 Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
 Set-RdsHostPool -TenantName $myTenantName -Name "contosoHostPool" -ValidationEnv $true
 ```
 
-Kör följande PowerShell-cmdlet för att bekräfta att validerings egenskapen har angetts. Ersätt värdena i citationstecken med de värden som är relevanta för din session.
+Kör följande PowerShell-cmdlet för att bekräfta att valideringsegenskapen har angetts. Ersätt värdena inom citationstecken med de värden som är relevanta för sessionen.
 
 ```powershell
 Get-RdsHostPool -TenantName $myTenantName -Name "contosoHostPool"
 ```
 
-Resultatet från cmdleten bör likna följande utdata:
+Resultaten från cmdlet bör se ut ungefär som denna utgång:
 
 ```
     TenantName          : contoso 
@@ -70,13 +70,13 @@ Resultatet från cmdleten bör likna följande utdata:
     Ring                :
 ```
 
-## <a name="update-schedule"></a>Uppdaterings schema
+## <a name="update-schedule"></a>Uppdatera schema
 
-Tjänst uppdateringar sker varje månad. Om det uppstår allvarliga problem kommer kritiska uppdateringar att tillhandahållas oftare.
+Serviceuppdateringar sker varje månad. Om det finns stora problem kommer viktiga uppdateringar att tillhandahållas i en mer frekvent takt.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nu när du har skapat en pool för validerings värdar kan du lära dig hur du använder Azure Service Health för att övervaka distributionen av virtuella Windows-datorer. 
+Nu när du har skapat en verifieringsvärdpool kan du läsa om hur du använder Azure Service Health för att övervaka distributionen av ditt Virtuella Windows-skrivbord. 
 
 > [!div class="nextstepaction"]
-> [Konfigurera tjänst aviseringar](./set-up-service-alerts.md)
+> [Konfigurera tjänstaviseringar](./set-up-service-alerts.md)

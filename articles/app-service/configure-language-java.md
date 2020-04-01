@@ -9,12 +9,12 @@ ms.date: 04/12/2019
 ms.author: jafreebe
 ms.reviewer: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 2b21061e8a939b91c637ef05bbe6375c0b3f82e8
-ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
+ms.openlocfilehash: 2b09a7765cff20fb49ce6ab3d1e7bce2e15f0e9e
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2020
-ms.locfileid: "80383981"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80475209"
 ---
 # <a name="configure-a-windows-java-app-for-azure-app-service"></a>Konfigurera en Windows Java-app för Azure App Service
 
@@ -74,7 +74,7 @@ Azure App Service stöder out of the box tuning and customization via Azure port
 
 - [Konfigurera appinställningar](configure-common.md#configure-app-settings)
 - [Konfigurera en anpassad domän](app-service-web-tutorial-custom-domain.md)
-- [Konfigurera SSL-bindningar](configure-ssl-bindings.md)
+- [Konfigurera TLS-bindningar](configure-ssl-bindings.md)
 - [Lägga till ett CDN](../cdn/cdn-add-to-web-app.md)
 - [Konfigurera Kudu-webbplatsen](https://github.com/projectkudu/kudu/wiki/Configurable-settings)
 
@@ -183,7 +183,7 @@ Om du vill inaktivera den `WEBSITE_AUTH_SKIP_PRINCIPAL` här funktionen `1`skapa
 
 ### <a name="configure-tlsssl"></a>Konfigurera TLS/SSL
 
-Följ instruktionerna i [Secure ett anpassat DNS-namn med en SSL-bindning i Azure App Service](configure-ssl-bindings.md) för att ladda upp ett befintligt SSL-certifikat och binda det till ditt programs domännamn. Som standard tillåter ditt program fortfarande HTTP-anslutningar att följa de specifika stegen i självstudien för att framtvinga SSL och TLS.
+Följ instruktionerna i [Secure ett anpassat DNS-namn med en TLS-bindning i Azure App Service](configure-ssl-bindings.md) för att ladda upp ett befintligt TLS/SSL-certifikat och binda det till ditt programs domännamn. Som standard tillåter ditt program fortfarande HTTP-anslutningar att följa de specifika stegen i självstudien för att framtvinga SSL och TLS.
 
 ### <a name="use-keyvault-references"></a>Använda KeyVault-referenser
 

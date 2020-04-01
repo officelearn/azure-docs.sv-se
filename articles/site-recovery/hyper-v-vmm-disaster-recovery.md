@@ -4,16 +4,15 @@ description: Lär dig att konfigurera haveriberedskap för virtuella Hyper-V-dat
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
-ms.topic: tutorial
+ms.topic: how-to
 ms.date: 11/14/2019
 ms.author: raynew
-ms.custom: MVC
-ms.openlocfilehash: 8d89c7eda845f0e5ed9bc8ccc7b6b3812ba275f9
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: f7de3c28463a86852cba03713ca4c500e7ca0339
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "74132986"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80437508"
 ---
 # <a name="set-up-disaster-recovery-for-hyper-v-vms-to-a-secondary-on-premises-site"></a>Konfigurera haveriberedskap för virtuella Hyper-V-datorer till en sekundär lokal plats
 
@@ -45,7 +44,7 @@ För att slutföra den här kursen gör du följande:
 
 - Ansluter virtuella datorer till lämpliga VM-målnätverk efter redundansväxling. 
 - Placerar virtuella replikdatorer optimalt på Hyper-V-målvärdservrar. 
-- Om du inte konfigurerar nätverksmappning kommer inte virtuella replikdatorer att vara anslutna till något virtuellt datornätverk efter redundansväxling.
+- Om du inte konfigurerar nätverksmappning ansluts inte virtuella repliker till ett VM-nätverk efter redundans.
 
 Förbereda VMM:er på följande sätt:
 

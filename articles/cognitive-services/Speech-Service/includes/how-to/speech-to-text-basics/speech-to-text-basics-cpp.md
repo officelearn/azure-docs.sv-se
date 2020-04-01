@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/06/2020
 ms.author: dapine
-ms.openlocfilehash: 8392e03f272c6db2bb384c8031cb975bca53d530
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: 0c0fa3e07e0cdae6ce28fcd1521b63cb2575767f
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "79372804"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80501684"
 ---
 ## <a name="prerequisites"></a>Krav
 
@@ -37,7 +37,7 @@ Det finns några sätt som du [`SpeechConfig`](https://docs.microsoft.com/cpp/co
 * Med en värd: skicka in en värdadress. En nyckel eller auktoriseringstoken är valfri.
 * Med en auktoriseringstoken: skicka in en auktoriseringstoken och den associerade regionen.
 
-Låt oss ta en titt [`SpeechConfig`](https://docs.microsoft.com/cpp/cognitive-services/speech/speechconfig) på hur en skapas med hjälp av en nyckel och region.
+Låt oss ta en titt [`SpeechConfig`](https://docs.microsoft.com/cpp/cognitive-services/speech/speechconfig) på hur en skapas med hjälp av en nyckel och region. Se [regionens supportsida](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#speech-sdk) för att hitta din regionidentifierare.
 
 ```cpp
 auto config = SpeechConfig::FromSubscription("YourSubscriptionKey", "YourServiceRegion");

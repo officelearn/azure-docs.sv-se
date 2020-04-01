@@ -2,13 +2,13 @@
 title: Förbättra kunskapsbasen - QnA Maker
 description: Förbättra kvaliteten på din kunskapsbas med aktivt lärande. Granska, acceptera eller avvisa, lägg till utan att ta bort eller ändra befintliga frågor.
 ms.topic: conceptual
-ms.date: 03/16/2020
-ms.openlocfilehash: 8b2176731ce456b70521cc9208435d0b19943ab8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 03/31/2020
+ms.openlocfilehash: 1eb0ed42f700c14350a5e4f1eff9b7592cbf8ef6
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80053074"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80474895"
 ---
 # <a name="accept-active-learning-suggested-questions-in-the-knowledge-base"></a>Acceptera aktivt lärande föreslagna frågor i kunskapsbasen
 
@@ -203,7 +203,7 @@ I [exemplet Med Azure Bot](https://aka.ms/activelearningsamplebot)har båda dess
 
 ### <a name="example-c-code-for-train-api-with-bot-framework-4x"></a>Exempel C#-kod för Tåg-API med Bot Framework 4.x
 
-Följande kod visar hur du skickar tillbaka information till QnA Maker med Tåg-API:et. Det här [fullständiga kodexemplet](https://github.com/microsoft/BotBuilder-Samples/tree/master/experimental/qnamaker-activelearning/csharp_dotnetcore) är tillgängligt på GitHub.
+Följande kod visar hur du skickar tillbaka information till QnA Maker med Tåg-API:et.
 
 ```csharp
 public class FeedbackRecords
@@ -266,7 +266,7 @@ public async static void CallTrain(string endpoint, FeedbackRecords feedbackReco
 
 ### <a name="example-nodejs-code-for-train-api-with-bot-framework-4x"></a>Exempel nod.js-kod för Tåg-API med Bot Framework 4.x
 
-Följande kod visar hur du skickar tillbaka information till QnA Maker med Tåg-API:et. Det här [fullständiga kodexemplet](https://github.com/microsoft/BotBuilder-Samples/blob/master/experimental/qnamaker-activelearning/javascript_nodejs) är tillgängligt på GitHub.
+Följande kod visar hur du skickar tillbaka information till QnA Maker med Tåg-API:et.
 
 ```javascript
 async callTrain(stepContext){
@@ -331,7 +331,7 @@ Kolumnen `SuggestedQuestions` är ett JSON-objekt med `autosuggested`information
 ```
 
 Du kan också använda api:et för hämtningsändringar för att granska dessa ändringar med REST eller någon av de språkbaserade SDK:erna:
-* [REST API](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fc)
+* [REST-API](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fc)
 * [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.alterationsextensions.getasync?view=azure-dotnet)
 
 

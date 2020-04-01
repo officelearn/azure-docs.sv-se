@@ -8,14 +8,14 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 05/15/2019
+ms.date: 03/30/2020
 ms.author: juliako
-ms.openlocfilehash: eacbeca275192e1a68b6682c3036da2d5c09bd54
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: dd41596b6631bb63e1625325f8bec065b43881cd
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77619882"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80421387"
 ---
 # <a name="video-indexer-frequently-asked-questions"></a>Video Indexer ofta ställde frågor
 
@@ -175,6 +175,12 @@ Api:et för videoindexerare innehåller ett Auktoriserings-API och ett operation
 ### <a name="how-often-do-i-need-to-get-a-new-access-token-when-do-access-tokens-expire"></a>Hur ofta behöver jag skaffa en ny åtkomsttoken? När upphör åtkomsttoken?
 
 Åtkomsttoken upphör att gälla varje timme, så du måste generera en ny åtkomsttoken varje timme. 
+
+### <a name="what-are-the-login-options-to-video-indexer-developer-portal"></a>Vilka är inloggningsalternativen till Video Indexer Developer portal?
+
+Du kan logga in med Azure AD, Microsoft-konto, Google-konto eller Facebook-konto. 
+
+När du har registrerat ditt e-postkonto med en identitetsleverantör kan du inte använda det här e-postkontot hos en annan identitetsleverantör.
 
 ## <a name="billing-questions"></a>Frågor om fakturering
 

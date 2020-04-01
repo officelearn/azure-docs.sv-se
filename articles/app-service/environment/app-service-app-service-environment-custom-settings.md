@@ -1,18 +1,18 @@
 ---
 title: Konfigurera anpassade inställningar
-description: Konfigurera inställningar som gäller för hela Azure App Services miljön. Lär dig hur du gör det med Azure Resource Manager mallar.
+description: Konfigurera inställningar som gäller för hela Azure App Service-miljön. Lär dig hur du gör det med Azure Resource Manager-mallar.
 author: stefsch
 ms.assetid: 1d1d85f3-6cc6-4d57-ae1a-5b37c642d812
 ms.topic: tutorial
 ms.date: 12/19/2019
 ms.author: stefsch
-ms.custom: seodec18
-ms.openlocfilehash: 42a06724274288955b11c3daf9cbf33d72ddf75d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.custom: mvc, seodec18
+ms.openlocfilehash: 25393007a3cc878737ea5927cb65bcf7ef945313
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75430493"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80057572"
 ---
 # <a name="custom-configuration-settings-for-app-service-environments"></a>Anpassade konfigurationsinställningar för App Service-miljöer
 ## <a name="overview"></a>Översikt
@@ -47,7 +47,7 @@ Attributet **clusterSettings** kan ingå i en Resource Manager-mall för att upp
 ## <a name="use-azure-resource-explorer-to-update-an-app-service-environment"></a>Använda Azure Resource Explorer för att uppdatera en App Service-miljö
 Du kan också uppdatera App Service-miljön med hjälp av [Azure Resource Explorer](https://resources.azure.com).  
 
-1. Gå till noden för App Service-miljön i resursutforskaren (**subscriptions** > **resourceGroups** > **providers** > **Microsoft.Web** > **hostingEnvironments**). Klicka sedan på den specifika App Service-miljö du vill uppdatera.
+1. I Resource Explorer går du till noden för App Service Environment (**subscriptions** > **resourceGroups** > **providers** > **Microsoft.Web** > **hostingEnvironments**). Klicka sedan på den specifika App Service-miljö du vill uppdatera.
 2. I den högra rutan klickar du på **Läs/Skriv** i det övre verktygsfältet för att tillåta interaktiv redigering i resursutofrskaren.  
 3. Klicka på den blå **redigeringsknappen** att Resource Manager-mallen kan redigeras.
 4. Rulla längst ned i den högra rutan. Attributet **clusterSettings** är allra längst ned på sidan, där du kan ange eller uppdatera dess värde.
@@ -59,7 +59,7 @@ Om en App Service-miljö exempelvis har fyra klientdelar tar det ungefär två t
 
 ## <a name="enable-internal-encryption"></a>Aktivera intern kryptering
 
-App Service-miljön fungerar som ett svart Box-system där du inte kan se interna komponenter eller kommunikationen i systemet. Om du vill aktivera högre data flöde är kryptering inte aktiverat som standard mellan interna komponenter. Systemet är säkert eftersom trafiken är helt otillgänglig för övervakning eller åtkomst. Om du har ett krav på efterlevnad, men som kräver fullständig kryptering av data Sök vägen från slut punkt till slut punkt, finns det ett sätt att aktivera detta med en clusterSetting.  
+App Service Environment fungerar som ett svart låda system där du inte kan se de interna komponenterna eller kommunikationen i systemet. Kryptering aktiveras som standard inte mellan interna komponenter för att aktivera högre dataflöde. Systemet är säkert eftersom trafiken är helt otillgänglig för att övervakas eller nås. Om du har ett efterlevnadskrav men som kräver fullständig kryptering av datasökvägen från till, finns det ett sätt att aktivera detta med en clusterSetting.  
 
         "clusterSettings": [
             {
@@ -68,7 +68,7 @@ App Service-miljön fungerar som ett svart Box-system där du inte kan se intern
             }
         ],
  
-När InternalEncryption-clusterSetting har Aktiver ATS kan det påverka systemets prestanda. När du gör ändringen för att aktivera InternalEncryption, kommer ASE att vara i ett instabilt tillstånd tills ändringen har spridits helt. Det kan ta några timmar att slutföra spridningen av ändringen, beroende på hur många instanser du har i din ASE. Vi rekommenderar starkt att du inte aktiverar detta på en ASE medan den används. Om du behöver aktivera detta på en aktivt Använd ASE rekommenderar vi starkt att du avinstallerar trafik till en säkerhets kopierings miljö tills åtgärden har slutförts. 
+När InternalEncryption clusterSetting är aktiverat kan det påverka systemets prestanda. När du gör ändringen för att aktivera InternalEncryption, kommer DIN ASE att vara i ett instabilt tillstånd tills ändringen är helt spridd. Fullständig spridning av ändringen kan ta några timmar att slutföra, beroende på hur många instanser du har i din ASE. Vi rekommenderar starkt att du inte aktiverar detta på en ASE när den används. Om du behöver aktivera detta på en aktivt använd ASE rekommenderar vi starkt att du dirigerar om trafiken till en säkerhetskopieringsmiljö tills åtgärden är klar. 
 
 ## <a name="disable-tls-10-and-tls-11"></a>Inaktivera TLS 1.0 och TLS 1.1
 
@@ -100,7 +100,7 @@ En annan fråga från kunder är om de kan ändra listan över chiffer som förh
 > 
 > 
 
-## <a name="get-started"></a>Kom i gång
+## <a name="get-started"></a>Kom igång
 På mallwebbplatsen för Azure-snabbstarten för Resource Manager finns en mall med basdefinitionen för att [skapa en App Service-miljö](https://azure.microsoft.com/documentation/templates/201-web-app-ase-create/).
 
 <!-- LINKS -->

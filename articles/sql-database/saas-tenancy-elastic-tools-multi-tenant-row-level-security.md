@@ -11,12 +11,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: sstein
 ms.date: 12/18/2018
-ms.openlocfilehash: a5fe5d6d4076c5d82d33737d05bb95ede0a89c00
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4cf260620d4e907fdb9190a052155fa22f1c7985
+ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73822023"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80398329"
 ---
 # <a name="multi-tenant-applications-with-elastic-database-tools-and-row-level-security"></a>Program med flera innehavare med elastiska databasverktyg och säkerhet på radnivå
 
@@ -253,7 +253,7 @@ GO
 ```
 
 > [!TIP]
-> I ett komplext projekt kan du behöva lägga till predikatet på hundratals tabeller, vilket kan vara tråkigt. Det finns en lagrad hjälpprocedur som automatiskt genererar en säkerhetsprincip och lägger till ett predikat i alla tabeller i ett schema. Mer information finns i blogginlägget på Tillämpa säkerhet på [radnivå i alla tabeller – hjälpskript (blogg)](https://blogs.msdn.com/b/sqlsecurity/archive/20../../apply-row-level-security-to-all-tables-helper-script).
+> I ett komplext projekt kan du behöva lägga till predikatet på hundratals tabeller, vilket kan vara tråkigt. Det finns en lagrad hjälpprocedur som automatiskt genererar en säkerhetsprincip och lägger till ett predikat i alla tabeller i ett schema. Mer information finns i blogginlägget på Tillämpa säkerhet på [radnivå i alla tabeller – hjälpskript (blogg)](https://techcommunity.microsoft.com/t5/sql-server/apply-row-level-security-to-all-tables-helper-script/ba-p/384360).
 
 Om du kör exempelprogrammet igen ser klienter bara rader som tillhör dem. Dessutom kan programmet inte infoga rader som tillhör andra klienter än den som för närvarande är ansluten till fragmentdatabasen. Appen kan inte heller uppdatera TenantId på några rader som den kan se. Om appen försöker göra något av dem höjs ett DbUpdateException.
 

@@ -1,6 +1,6 @@
 ---
 title: Synkronisera enhetens tillstånd från Azure IoT Hub | Microsoft Docs
-description: Lär dig hur du använder enhets dubbla för att konfigurera dina enheter från molnet och ta emot status-och efterlevnadsprinciper från dina enheter.
+description: Lär dig hur du använder enhetstvillingar för att konfigurera dina enheter från molnet och ta emot status- och efterlevnadsdata från dina enheter.
 services: iot-hub
 author: wesmc7777
 ms.author: wesmc
@@ -10,10 +10,10 @@ ms.topic: tutorial
 ms.date: 06/21/2019
 ms.custom: mvc
 ms.openlocfilehash: bda8f1e3419f80faabb2f469a9ac5fd5c77bd79e
-ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "78674402"
 ---
 <!-- **TODO** Update publish config with repo paths before publishing! -->
@@ -35,13 +35,13 @@ I den här självstudien utför du följande åtgärder:
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har en Azure-prenumeration skapar du ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-De två exempelprogram som du kör i den här snabbstarten skrivs med Node.js. Du behöver Node. js v10. x. x eller senare på din utvecklings dator.
+De två exempelprogram som du kör i den här snabbstarten skrivs med Node.js. Du behöver Node.js v10.x.x eller senare på din utvecklingsmaskin.
 
-Du kan ladda ned Node.js för flera plattformar från [nodejs.org](https://nodejs.org).
+Du kan hämta Node.js för flera plattformar från [nodejs.org](https://nodejs.org).
 
 Du kan kontrollera den aktuella versionen av Node.js på utvecklingsdatorn med följande kommando:
 
@@ -51,7 +51,7 @@ node --version
 
 Ladda ned exempelprojektet för Node.js från https://github.com/Azure-Samples/azure-iot-samples-node/archive/master.zip och extrahera ZIP-arkivet.
 
-Kontrol lera att port 8883 är öppen i brand väggen. Enhets exemplet i den här självstudien använder MQTT-protokoll, som kommunicerar via port 8883. Den här porten kan blockeras i vissa företags-och miljö nätverks miljöer. Mer information och sätt att kringgå det här problemet finns i [ansluta till IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
+Kontrollera att port 8883 är öppen i brandväggen. Enhetsexemplet i den här självstudien använder MQTT-protokollet, som kommunicerar över port 8883. Den här porten kan vara blockerad i vissa företags- och utbildningsnätverksmiljöer. Mer information och sätt att lösa problemet finns i [Ansluta till IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
 ## <a name="set-up-azure-resources"></a>Ställa in Azure-resurser
 
@@ -130,7 +130,7 @@ Följande hanterare reagerar endast på ändringar som gjorts i den önskade ege
 
 ### <a name="handlers-for-multiple-properties"></a>Hanterare för flera egenskaper
 
-I exemplet önskade egenskaper för JSON som vi såg tidigare innehåller noden **klimatförändringar** under **komponenter** två egenskaper: **minTemperature** och  **maxTemperature**.
+I exemplet önskade egenskaper för JSON som vi såg tidigare innehåller noden **klimatförändringar** under **komponenter** två egenskaper: **minTemperature** och ** maxTemperature**.
 
 En enhet som har lokala **tvillingobjekt** lagrar en fullständig uppsättning önskade och rapporterade egenskaper. **Delta** som skickas från en slutpunkt kanske endast uppdaterar en delmängd av egenskaperna. I följande kodavsnitt, om den simulerade enheten tar emot en uppdatering för antingen **minTemperature** eller **maxTemperature**, används värdet i den lokala tvillingen för det andra värdet för att konfigurera enheten :
 
@@ -238,7 +238,7 @@ Följande skärmbild visar utdata från det simulerade enhetsprogrammet och visa
 
 ![Simulerad enhet](./media/tutorial-device-twins/SimulatedDevice2.png)
 
-Följande skärm bild visar utdata från Server dels programmet och visar hur den tar emot och bearbetar en rapporterad egenskaps uppdatering från en enhet:
+Följande skärmbild visar utdata från backend-programmet och belyser hur den tar emot och bearbetar en rapporterad egenskapsuppdatering från en enhet:
 
 ![Serverdelsprogram](./media/tutorial-device-twins/BackEnd2.png)
 

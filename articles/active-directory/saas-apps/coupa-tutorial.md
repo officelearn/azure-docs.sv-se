@@ -1,5 +1,5 @@
 ---
-title: 'Självstudie: Azure Active Directory integration med kopplings funktion | Microsoft Docs'
+title: 'Självstudiekurs: Azure Active Directory-integrering med Coupa | Microsoft-dokument'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Coupa.
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 01/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 709f3a5b66db660ade482660cd9b3930ff0b7141
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74227654"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-coupa"></a>Självstudie: Azure Active Directory integration med koppling
+# <a name="tutorial-azure-active-directory-integration-with-coupa"></a>Självstudiekurs: Azure Active Directory-integrering med Coupa
 
 I den här självstudien lär du dig att integrera Coupa med Azure Active Directory (AD Azure).
 Integreringen av Coupa med Azure AD medför följande fördelar:
@@ -33,7 +33,7 @@ Integreringen av Coupa med Azure AD medför följande fördelar:
 * Du kan hantera dina konton på en central plats – Azure-portalen.
 
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
+Om du inte har en Azure-prenumeration [skapar du ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
 ## <a name="prerequisites"></a>Krav
 
@@ -106,12 +106,12 @@ Utför följande steg för att konfigurera enkel inloggning i Azure AD med Coupa
 
     ![Information om enkel inloggning med Coupa-domän och -URL:er](common/sp-identifier-reply.png)
 
-    a. Skriv en URL med följande mönster i textrutan **Inloggnings-URL**: `https://<companyname>.coupahost.com`
+    a. Skriv en URL med hjälp av följande mönster i textrutan **Sign-on-URL:**`https://<companyname>.coupahost.com`
 
     > [!NOTE]
     > Inloggnings-URL-värdet är inte verkligt. Uppdatera värdet med den faktiska inloggnings-URL:en. Kontakta [kundsupporten för Coupa](https://success.coupa.com/Support/Contact_Us?) och be om det här värdet.
 
-    b. I textrutan **Identifierare** skriver du in en URL:
+    b. I textrutan **Identifierare** skriver du in en URL: 
 
     | Miljö  | URL |
     |:-------------|----|
@@ -119,7 +119,7 @@ Utför följande steg för att konfigurera enkel inloggning i Azure AD med Coupa
     | Produktion | `sso-prd1.coupahost.com`|
     | | |
 
-    c. I textrutan **Svars-URL** skriver du en URL:
+    c. Skriv en URL i textrutan **Svars-URL**: 
 
     | Miljö | URL |
     |------------- |----|
@@ -127,7 +127,7 @@ Utför följande steg för att konfigurera enkel inloggning i Azure AD med Coupa
     | Produktion | `https://sso-prd1.coupahost.com/sp/ACS.saml2`|
     | | |
 
-4. Klicka på **Ladda ned** i avsnittet **SAML-signeringscertifikat** på sidan **Konfigurera enkel inloggning med SAML** när du ska ladda ned **Federation Metadata XML** från de angivna alternativen enligt dina behov och spara det på datorn.
+4. På sidan **Set up Single Sign-On with SAML** (Konfigurera enkel inloggning med SAML) går du till avsnittet **SAML Signing Certificate** (SAML-signeringscertifikat), klickar på **Ladda ned** för att ladda ned **Federation Metadata-XML** från de angivna alternativen enligt dina behov och spara den på datorn.
 
     ![Länk för nedladdning av certifikatet](common/metadataxml.png)
 
@@ -147,17 +147,17 @@ Utför följande steg för att konfigurera enkel inloggning i Azure AD med Coupa
 
 2. Gå till **Setup \> Security Control** (Konfiguration > Säkerhetskontroll).
 
-    ![Säkerhets kontroller](./media/coupa-tutorial/ic791900.png "Säkerhets kontroller")
+    ![Säkerhetskontroller](./media/coupa-tutorial/ic791900.png "Säkerhetskontroller")
 
 3. I avsnittet **Log in using Coupa credentials** (Logga in med autentiseringsuppgifter för Coupa) utför du följande steg:
 
-    ![Kopplings-SP-metadata](./media/coupa-tutorial/ic791901.png "Kopplings-SP-metadata")
+    ![Coupa SP-metadata](./media/coupa-tutorial/ic791901.png "Coupa SP-metadata")
 
     a. Välj **Log in using SAML** (Logga in med hjälp av SAML).
 
     b. Klicka på **Bläddra** för att ladda upp de metadata som du laddade ned från Azure-portalen.
 
-    c. Klicka på **Save** (Spara).
+    c. Klicka på **Spara**.
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare 
 
@@ -167,7 +167,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     ![Länkarna ”Användare och grupper” och ”Alla grupper”](common/users.png)
 
-2. Välj **Ny användare** överst på skärmen.
+2. Välj **Ny användare** högst upp på skärmen.
 
     ![Knappen Ny användare](common/new-user.png)
 
@@ -177,7 +177,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     a. I fältet **Namn** anger du **BrittaSimon**.
   
-    b. I fältet **användar namn** skriver du **brittasimon\@yourcompanydomain. extension**  
+    b. I fältet **Användarnamn** skriver **du\@brittasimon yourcompanydomain.extension**  
     Till exempel, BrittaSimon@contoso.com
 
     c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
@@ -206,7 +206,7 @@ I det här avsnittet gör du det möjligt för Britta Simon att använda enkel i
 
 5. I dialogrutan **Användare och grupper** väljer du **Britta Simon** i listan med användare och klickar på knappen **Välj** längst ned på skärmen.
 
-6. Om du förväntar dig ett rollvärde i SAML-försäkran väljer du i dialogrutan **Välj roll** lämplig roll för användaren i listan och klickar sedan på knappen **Välj** längst ned på skärmen.
+6. Om du förväntar dig något rollvärde i SAML-påståendet väljer du lämplig roll för användaren i listan i dialogrutan **Välj roll** och klickar sedan på knappen **Välj** längst ned på skärmen.
 
 7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
 
@@ -216,7 +216,7 @@ För att Azure AD-användare ska kunna logga in i Coupa måste de etableras till
 
 * När det gäller Coupa är etablering en manuell uppgift.
 
-**Utför följande steg för att konfigurera användarförsörjning:**
+**Konfigurera användaretablering genom att utföra följande steg:**
 
 1. Logga in på din **Coupa**-företagsplats som administratör.
 
@@ -230,7 +230,7 @@ För att Azure AD-användare ska kunna logga in i Coupa måste de etableras till
 
 4. I avsnittet **Skapa användare** utför du följande steg:
 
-    ![Användar information](./media/coupa-tutorial/ic791910.png "Användar information")
+    ![Användarinformation](./media/coupa-tutorial/ic791910.png "Användarinformation")
 
     a. Skriv attributen **Inloggning**, **Förnamn**, **Efternamn**, **ID för enkel inloggning** och **E-post** för ett giltigt Azure Active Directory-konto som du vill etablera i de relaterade textrutorna.
 
@@ -241,7 +241,7 @@ För att Azure AD-användare ska kunna logga in i Coupa måste de etableras till
     >
 
 >[!NOTE]
->Du kan använda andra verktyg för skapande av användar konton eller API: er som tillhandahålls av kopplings verktyg för att etablera Azure AD-användarkonton.
+>Du kan använda andra Verktyg eller API:er för att skapa Coupa-användarkonton som tillhandahålls av Coupa för att etablera Azure AD-användarkonton.
 
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning 
 

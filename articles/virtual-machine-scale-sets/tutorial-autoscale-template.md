@@ -1,5 +1,5 @@
 ---
-title: Självstudie – Autoskala en skalnings uppsättning med Azure-mallar
+title: Självstudiekurs - Skala en skalningsuppsättning automatiskt med Azure-mallar
 description: Läs hur du använder Azure Resource Manager-mallar för att automatiskt skala en VM-skalningsuppsättning allteftersom CPU-kraven varierar
 author: cynthn
 tags: azure-resource-manager
@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 9d7e0a99a7ba2c00b2ebe5ea8c77d527765ead67
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: f9b60ca31765ac52f4693e4efaac09af2ec2f293
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76271419"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80062772"
 ---
 # <a name="tutorial-automatically-scale-a-virtual-machine-scale-set-with-an-azure-template"></a>Självstudie: Skala en VM-skalningsuppsättning automatiskt med en Azure-mall
 När du skapar en skalningsuppsättning, definierar du antalet virtuella datorinstanser som du vill köra. När ditt program behöver ändras, kan du automatiskt öka eller minska antalet virtuella datorinstanser. Möjligheten att skala automatiskt låter dig hålla dig uppdaterad med kundernas behov eller svara på ändringar i programprestandan under hela livscykeln för din app. I den här guiden får du lära du dig hur man:
@@ -24,7 +24,7 @@ När du skapar en skalningsuppsättning, definierar du antalet virtuella datorin
 > * Belastningstesta virtuella datorinstanser och utlös regler för automatisk skalning
 > * Skala tillbaka automatiskt när efterfrågan minskar
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har en Azure-prenumeration skapar du ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -66,13 +66,13 @@ Följande parametrar används för den här regeln:
 | Parameter         | Förklaring                                                                                                         | Värde           |
 |-------------------|---------------------------------------------------------------------------------------------------------------------|-----------------|
 | *metricName*      | Prestandamått för att övervaka och tillämpa åtgärder för skalningsuppsättningar på.                                                   | Procent CPU  |
-| *timeGrain*       | Hur ofta måtten samlas in för analys.                                                                   | 1 minut        |
+| *tidGrain*       | Hur ofta måtten samlas in för analys.                                                                   | 1 minut        |
 | *timeAggregation* | Definierar hur de insamlade mätvärdena ska aggregeras för analys.                                                | Medel         |
-| *timeWindow*      | Tidsperioden som övervakas innan värdena för måttet och tröskelvärdet jämförs.                                   | 5 minuter       |
-| *operator*        | Operator som används för att jämföra måttinformationen mot tröskelvärdet.                                                     | Större än    |
-| *tröskelvärde*       | Det värde som får regeln för automatisk skalning att utlösa en åtgärd.                                                      | 70 %             |
+| *tidWindow*      | Tidsperioden som övervakas innan värdena för måttet och tröskelvärdet jämförs.                                   | 5 minuter       |
+| *Operatör*        | Operator som används för att jämföra måttinformationen mot tröskelvärdet.                                                     | Större än    |
+| *Tröskel*       | Det värde som får regeln för automatisk skalning att utlösa en åtgärd.                                                      | 70 %             |
 | *riktning*       | Anger om skalningsuppsättningen ska skala in eller ut när regeln gäller.                                              | Öka        |
-| *typ*            | Anger att antalet virtuella datorinstanser ska ändras med ett specifikt värde.                                    | Ändra antal    |
+| *Typ*            | Anger att antalet virtuella datorinstanser ska ändras med ett specifikt värde.                                    | Ändra antal    |
 | *värde*           | Hur många virtuella datorinstanser ska skalas in eller ut när regeln gäller.                                             | 3               |
 | *cooldown*        | Hur lång tid ska gå innan regeln tillämpas igen så att de automatiska skalningsåtgärderna har tid att börja gälla. | 5 minuter       |
 
@@ -136,7 +136,7 @@ Följande exempel definierar en regel som skalar in antalet virtuella datorinsta
 ## <a name="create-an-autoscaling-scale-set"></a>Skapa en skalningsuppsättning som skalar automatiskt
 Vi använder en exempelmall för att skapa en skalningsuppsättning och tillämpa regler för automatisk skalning. Du kan [granska den fullständiga mallen](https://raw.githubusercontent.com/Azure-Samples/compute-automation-configurations/master/scale_sets/autoscale.json), eller [se resourceprovider-avsnittet *Microsoft.insights/autoscalesettings*](https://github.com/Azure-Samples/compute-automation-configurations/blob/master/scale_sets/autoscale.json#L220) för mallen.
 
-Skapa först en resursgrupp med [az group create](/cli/azure/group). I följande exempel skapas en resursgrupp med namnet *myResourceGroup* på platsen *eastus*:
+Skapa först en resursgrupp med [az group create](/cli/azure/group). I följande exempel skapas en resursgrupp med namnet *myResourceGroup* på *eastus-platsen:*
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
@@ -175,13 +175,13 @@ Följande exempelutdata visar instansnamnet, den offentliga IP-adressen för las
 
 SSH till din första virtuella datorinstans. Ange din egen offentliga IP-adress och portnummer med parametern `-p`, som det visas i föregående kommando:
 
-```azurecli-interactive
+```console
 ssh azureuser@13.92.224.66 -p 50001
 ```
 
-När du är inloggad, installerar du **stress**-verktyget. Starta *10* **stress** arbetare som genererar CPU-belastning. De här arbetarna kör i *420* sekunder, vilket räcker för att få reglerna för automatisk skalning att implementera den önskade åtgärden.
+När du är inloggad, installerar du **stress**-verktyget. Starta *10* **stress**-arbetare som genererar CPU-belastning. De här arbetarna kör i *420* sekunder, vilket räcker för att få reglerna för automatisk skalning att implementera den önskade åtgärden.
 
-```azurecli-interactive
+```console
 sudo apt-get -y install stress
 sudo stress --cpu 10 --timeout 420 &
 ```
@@ -190,26 +190,26 @@ När **stress** visar utdata som liknar *stress: info: [2688] dispatching hogs: 
 
 Kontrollera att **stress** genererar CPU-belastning genom att granska den aktiva systembelastningen med **top**-verktyget:
 
-```azurecli-interactive
+```console
 top
 ```
 
 Avsluta **top**, stäng sedan anslutningen till den virtuella datorinstansen. **stress** fortsätter att köras på den virtuella datorinstansen.
 
-```azurecli-interactive
+```console
 Ctrl-c
 exit
 ```
 
 Anslut till en andra virtuell datorinstans med det portnummer som listas från den föregående [az vmss list-instance-connection-info](/cli/azure/vmss):
 
-```azurecli-interactive
+```console
 ssh azureuser@13.92.224.66 -p 50003
 ```
 
 Installera och kör **stress** och starta sedan tio arbetare på den här andra virtuella datorinstansen.
 
-```azurecli-interactive
+```console
 sudo apt-get -y install stress
 sudo stress --cpu 10 --timeout 420 &
 ```
@@ -218,7 +218,7 @@ När **stress** återigen visar utdata som liknar *stress: info: [2713] dispatch
 
 Stäng din anslutning till den andra virtuella datorinstansen. **stress** fortsätter att köras på den virtuella datorinstansen.
 
-```azurecli-interactive
+```console
 exit
 ```
 
@@ -234,7 +234,7 @@ watch az vmss list-instances \
 
 När CPU-tröskelvärdet har uppnåtts, ökar reglerna för automatisk skalning antalet virtuella datorinstanser i skalningsuppsättningen. Följande utdata visar tre virtuella datorer som skapats när skalningsuppsättningen skalar ut automatiskt:
 
-```bash
+```output
 Every 2.0s: az vmss list-instances --resource-group myResourceGroup --name myScaleSet --output table
 
   InstanceId  LatestModelApplied    Location    Name          ProvisioningState    ResourceGroup    VmId
@@ -248,7 +248,7 @@ Every 2.0s: az vmss list-instances --resource-group myResourceGroup --name mySca
 
 När **stress** stoppar på den första virtuella datorn, återgår den genomsnittliga CPU-belastningen till normal. Efter 5 minuter till, skalar reglerna för automatisk skalning in antalet virtuella datorinstanser. Skalan in-åtgärder tar först bort de virtuella datorinstanserna med de högsta ID. När en skalningsuppsättning använder tillgänglighetsuppsättningar eller tillgänglighetszoner fördelas skala in-åtgärder jämnt över dessa VM-instanser. Följande exempelutdata visar en VM-instans som tas bort eftersom skalningsuppsättningen skalar in automatiskt:
 
-```bash
+```output
            6  True                  eastus      myScaleSet_6  Deleting             MYRESOURCEGROUP  9e4133dd-2c57-490e-ae45-90513ce3b336
 ```
 

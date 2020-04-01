@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 02/17/2020
-ms.openlocfilehash: fa165c21622110bb18476efdebf3264a11e26ad7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e1a3ff32956e8a8530684ba7f300f06d0c032227
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79265888"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80421115"
 ---
 # <a name="copy-data-from-sap-hana-using-azure-data-factory"></a>Kopiera data från SAP HANA med Azure Data Factory
 > [!div class="op_single_selector" title1="Välj den version av Data Factory-tjänsten som du använder:"]
@@ -188,7 +188,7 @@ Om du vill kopiera data från SAP HANA stöds följande egenskaper i avsnittet k
 |:--- |:--- |:--- |
 | typ | Egenskapen Type property för kopians aktivitetskälla måste anges till: **SapHanaSource** | Ja |
 | DocumentDB | Anger den SQL-fråga som ska läsas data från SAP HANA-instansen. | Ja |
-| partitionOptions | Anger de datapartitionsalternativ som används för att använda data från SAP HANA. Läs mer från [Parallellkopia från SAP HANA-avsnittet.](#parallel-copy-from-sap-hana)<br>Tillåt värden är: **Inga** (standard), **PhysicalPartitionsOfTable**, **SapHanaDynamicRange**. Läs mer från [Parallellkopia från SAP HANA-avsnittet.](#parallel-copy-from-sap-hana) `PhysicalPartitionsOfTable`kan bara användas när data kopieras från en tabell men inte fråga. <br>När ett partitionsalternativ är aktiverat (det vill ha), `None`styrs graden av parallellitet till samtidig inläsning av data från SAP HANA av [`parallelCopies`](copy-activity-performance.md#parallel-copy) inställningen på kopieringsaktiviteten. | False |
+| partitionOptions | Anger de datapartitionsalternativ som används för att använda data från SAP HANA. Läs mer från [Parallellkopia från SAP HANA-avsnittet.](#parallel-copy-from-sap-hana)<br>Tillåt värden är: **Inga** (standard), **PhysicalPartitionsOfTable**, **SapHanaDynamicRange**. Läs mer från [Parallellkopia från SAP HANA-avsnittet.](#parallel-copy-from-sap-hana) `PhysicalPartitionsOfTable`kan bara användas när data kopieras från en tabell men inte fråga. <br>När ett partitionsalternativ är aktiverat (det vill ha), `None`styrs graden av parallellitet till samtidig inläsning av data från SAP HANA av [`parallelCopies`](copy-activity-performance-features.md#parallel-copy) inställningen på kopieringsaktiviteten. | False |
 | partitionSätta | Ange gruppen för inställningarna för datapartitionering.<br>Använd när partitionsalternativet är `SapHanaDynamicRange`. | False |
 | partitionColumnName | Ange namnet på källkolumnen som ska användas av partitionen för parallellkopia. Om inget anges identifieras indexet eller primärnyckeln för tabellen automatiskt och används som partitionskolumn.<br>Använd när partitionsalternativet är `SapHanaDynamicRange`. Om du använder en fråga för `?AdfHanaDynamicRangePartitionCondition` att hämta källdata ansluter du WHERE-satsen. Se exempel i [Parallellkopia från AVSNITTET SAP HANA.](#parallel-copy-from-sap-hana) | Ja när `SapHanaDynamicRange` du använder partitionen. |
 | packetSize | Anger nätverkspaketstorleken (i Kilobytes) för att dela upp data till flera block. Om du har stora mängder data att kopiera kan öka paketstorleken öka läshastigheten från SAP HANA i de flesta fall. Prestandatestning rekommenderas när paketstorleken justeras. | Nej.<br>Standardvärdet är 2048 (2 MB). |
@@ -233,7 +233,7 @@ Data Factory SAP HANA-anslutningen tillhandahåller inbyggd datapartitionering f
 
 ![Skärmbild av partitionsalternativ](./media/connector-sap-hana/connector-sap-hana-partition-options.png)
 
-När du aktiverar partitionerad kopia kör Data Factory parallella frågor mot DIN SAP HANA-källa för att hämta data efter partitioner. Den parallella graden [`parallelCopies`](copy-activity-performance.md#parallel-copy) styrs av inställningen på kopieringsaktiviteten. Om du till `parallelCopies` exempel anger fyra genererar och kör Data Factory samtidigt fyra frågor baserat på det angivna partitionsalternativet och inställningarna, och varje fråga hämtar en del data från DIN SAP HANA.
+När du aktiverar partitionerad kopia kör Data Factory parallella frågor mot DIN SAP HANA-källa för att hämta data efter partitioner. Den parallella graden [`parallelCopies`](copy-activity-performance-features.md#parallel-copy) styrs av inställningen på kopieringsaktiviteten. Om du till `parallelCopies` exempel anger fyra genererar och kör Data Factory samtidigt fyra frågor baserat på det angivna partitionsalternativet och inställningarna, och varje fråga hämtar en del data från DIN SAP HANA.
 
 Du föreslås aktivera parallellkopiering med datapartitionering, särskilt när du intar stora mängder data från DIN SAP HANA. Följande är föreslagna konfigurationer för olika scenarier. När du kopierar data till filbaserat datalager rekommenderas att du skriver till en mapp som flera filer (ange bara mappnamn), i vilket fall prestandan är bättre än att skriva till en enda fil.
 

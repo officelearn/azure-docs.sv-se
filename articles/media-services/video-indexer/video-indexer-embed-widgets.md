@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 03/26/2020
 ms.author: juliako
-ms.openlocfilehash: e475c1bc1878c6b5a0efbbe41f2a3a0fe86bcff2
-ms.sourcegitcommit: 0553a8b2f255184d544ab231b231f45caf7bbbb0
-ms.translationtype: HT
+ms.openlocfilehash: 6ed5c509cf310b743e4ef52f411dfa34e5db09c1
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/30/2020
-ms.locfileid: "80389383"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80411610"
 ---
 # <a name="embed-video-indexer-widgets-in-your-apps"></a>Bädda in videoindexeringswidgetar i dina appar
 
@@ -66,16 +66,12 @@ Du kan använda widgeten Redigerare för att skapa nya projekt och hantera en vi
 
 1. Logga in på [videoindexerarens](https://www.videoindexer.ai/) webbplats.
 2. Välj den video som du vill arbeta med.
-3. Välj knappen **Bädda in** som visas under videon.
-
-    ![Knappen Bädda in i Video Indexer](./media/video-indexer-embed-widgets/video-indexer-widget01.png)
+3. Välj den inbäddningsknapp (**</>**) som visas under videon.
 
     När du har valt knappen **Bädda in** kan du välja den widget som du vill bädda in i appen.
 4. Välj den typ av widget som du vill använda (**Kognitiva insikter**, **Spelare**eller **Redigerare**).
- 
-5. Kopiera inbäddningskoden och lägg sedan till den i appen.
-
-    ![Bädda in kod för appen – Video Indexer](./media/video-indexer-embed-widgets/video-indexer-widget02.png)
+5. Kopiera inbäddningskoden (visas i **Kopiera den inbäddade koden** i dialogrutan Dela & Bädda **in).**
+6. Lägg till koden i appen.
 
 > [!NOTE]
 > Om du har problem med att `location` dela dina videoadresser lägger du till parametern i länken. Parametern ska anges till [Azure-regioner där Video Indexer finns](regions.md). Till exempel: `https://www.videoindexer.ai/accounts/00000000-0000-0000-0000-000000000000/videos/b2b2c74b8e/?location=trial`.
@@ -239,7 +235,7 @@ Om du till exempel vill bädda in en widget som bara innehåller personer och s�
 
 `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?widgets=people,keywords`
 
-Titeln på iframe-fönstret kan också `&title=<YourTitle>` anpassas genom att tillhandahålla iframe-URL:en. (HTML-värdet <title> anpassas).
+Titeln på iframe-fönstret kan också `&title=<YourTitle>` anpassas genom att tillhandahålla iframe-URL:en. (HTML-värdet `<title>` anpassas).
    
 Om du till exempel vill ge iframe-fönstret titeln "MyInsights" kommer webbadressen att se ut så här:
 
@@ -257,7 +253,7 @@ Ett exempel:
 
 Som standard har Video Indexer-spelaren automatiskt skapade dold textningar som baseras på utskriften av videon. Avskriften extraheras från videon med källspråket som valdes när videon laddades upp.
 
-Om du vill bädda in med ett annat språk kan du lägga till &bildtexter=< språkkod > i url:en för inbäddningsspelaren. Om du vill att bildtexterna ska visas som standard kan du skicka &showCaptions=true.
+Om du vill bädda in med ett `&captions=<Language Code>` annat språk kan du lägga till webbadressen till inbäddningsspelaren. Om du vill att bildtexterna ska visas som standard kan du skicka &showCaptions=true.
 
 Bädda in URL då kommer att se ut så här:
 

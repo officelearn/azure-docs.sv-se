@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 916c828365c8f9f50f408bd6c51182bb6e89605f
-ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
+ms.openlocfilehash: 113ab07af8ada16c0779da510c5f5b1f1f5a290b
+ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2020
-ms.locfileid: "80384202"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80398239"
 ---
 # <a name="get-sensor-data-from-sensor-partners"></a>Hämta sensordata från sensorpartners
 
@@ -37,43 +37,44 @@ När du har påbörjat strömningen av sensordata kan du påbörja processen med
  - Klienthemlighet
  - Anslutningssträng för EventHub
 
-Du kan generera ovanstående information genom att följa dessa steg: (Observera att dessa steg måste göras på Azure så att du behöver åtkomst till Azure-prenumerationen där FarmBeats distribueras)
+Följ stegen nedan för att generera ovanstående information:
+
+> [!NOTE]
+> Dessa steg måste slutföras på Azure för att komma åt Azure-prenumerationen där FarmBeats distribueras.
 
 1. Logga in på https://portal.azure.com/.
 
-2. **Om du är på FarmBeats version 1.2.7 eller senare, hoppa över steg 2a, 2b och 2c, och gå till steg 3.**. Du kan kontrollera FarmBeats version genom att klicka på ikonen Inställningar längst upp till höger i FarmBeats UI.
+2. **Om du är på FarmBeats version 1.2.7 eller senare, hoppa över steg a, b och c, och gå till steg 3.** Du kan kontrollera FarmBeats-versionen genom att välja **ikonen Inställningar** längst upp till höger i FarmBeats-användargränssnittet.
 
-2a. Gå till Azure Active Directory -> Appregistreringar
+      a.  Gå till Azure Active > **Directory-appregistreringar** **Azure Active Directory**
 
-2b. Klicka på appregistreringen som skapades som en del av din FarmBeats-distribution. Det kommer att ha samma namn som din FarmBeats datahubb.
+      b. Välj den **appregistrering** som skapades som en del av distributionen av FarmBeats. Det kommer att ha samma namn som din FarmBeats datahub.
 
-2c. Klicka på "Exponera ett API" -> Klicka på "Lägg till ett klientprogram" och skriv **in 04b07795-8ddb-461a-bbee-02f9e1bf7b46** och kontrollera "Auktorisera omfattning". Detta ger åtkomst till Azure CLI (Cloud Shell) för att utföra stegen nedan.
+      c. Välj **Exponera ett API** > väljer Lägg till ett **klientprogram** och ange **04b07795-8ddb-461a-bbee-02f9e1bf7b46** och kontrollera **Auktorisera omfattning**. Detta ger åtkomst till Azure CLI (Cloud Shell) för att utföra stegen nedan:
 
 3. Öppna Cloud Shell. Det här alternativet är tillgängligt i verktygsfältet i det övre högra hörnet av Azure-portalen.
 
     ![Verktygsfältet Azure Portal](./media/get-drone-imagery-from-drone-partner/navigation-bar-1.png)
 
-5. Kontrollera att miljön är inställd på **PowerShell**. Som standard är den inställd på Bash.
+4. Se till att miljön är inställd på **PowerShell**. Som standard är den inställd på Bash.
 
     ![Verktygsfältsinställningen i PowerShell](./media/get-sensor-data-from-sensor-partner/power-shell-new-1.png)
 
-6. Gå till din hemkatalog.
+5. Gå till din hemkatalog.
 
-   ```azurepowershell-interactive 
-
+    ```azurepowershell-interactive 
     cd  
-
     ```
 
-7. Kör följande kommando. Detta kommer att ladda ner ett skript till din hemkatalog.
+6. Kör följande kommando. Detta kommer att ladda ner ett skript till din hemkatalog.
 
     ```azurepowershell-interactive 
 
-    wget –q https://aka.ms/farmbeatspartnerscriptv3 -O ./generatePartnerCredentials.ps1 
+    wget –q https://aka.ms/farmbeatspartnerscriptv3 -O ./generatePartnerCredentials.ps1
 
     ```
 
-8. Kör följande skript. Skriptet frågar efter klient-ID som kan erhållas från Azure Active Directory -> översiktssida.
+7. Kör följande skript. Skriptet frågar efter klient-ID, som kan erhållas från **Azure Active Directory** > **Overview** sida.
 
     ```azurepowershell-interactive 
 
@@ -81,7 +82,7 @@ Du kan generera ovanstående information genom att följa dessa steg: (Observera
 
     ```
 
-9. Följ instruktionerna på skärmen för att samla in värdena för **API-slutpunkt,** **klient-ID,** **klient-ID,** **Klienthemlighet**och **EventHub-anslutningssträng**.
+8. Följ instruktionerna på skärmen för att samla in värdena för **API-slutpunkt,** **klient-ID,** **klient-ID,** **Klienthemlighet**och **EventHub-anslutningssträng**.
 
 ### <a name="integrate-device-data-by-using-the-generated-credentials"></a>Integrera enhetsdata med hjälp av genererade autentiseringsuppgifter
 
@@ -91,16 +92,16 @@ Nu har du följande information som genereras från föregående avsnitt.
  - Klientorganisations-ID
  - Klienthemlighet
  - Klient-ID:t
- 
-Du måste ge detta till din enhetspartner för att länka FarmBeats. Gå till enhetspartnerportalen för att göra samma sak. Om du till exempel använder enheter från Davis Instruments, Teralytic eller Pessl Instruments (Metos.at) gå till motsvarande sidor som nämns nedan:
 
-[Davis instrument](https://weatherlink.github.io/azure-farmbeats/setup)
+Du måste ge detta till din enhetspartner för att länka FarmBeats. Gå till enhetspartnerportalen för att göra samma sak. Om du till exempel använder enheter från Davis Instruments, Teralytic eller Pessl Instruments (Metos.at) går du till motsvarande sidor som nämns nedan:
 
-[Teralytisk](https://app.teralytic.com/)
+1. [Davis instrument](https://weatherlink.github.io/azure-farmbeats/setup)
 
-[Pessl Instrument](https://ng.fieldclimate.com/user-api-services)
+2. [Teralytisk](https://app.teralytic.com/)
 
- Enhetsprovidern bekräftar en lyckad integrering. Vid bekräftelse kan du visa alla enheter och sensorer på Azure FarmBeats.
+3. [Pessl Instrument](https://ng.fieldclimate.com/user-api-services)
+
+Enhetsprovidern bekräftar en lyckad integrering. Vid bekräftelse kan du visa alla enheter och sensorer på Azure FarmBeats.
 
 ## <a name="view-devices-and-sensors"></a>Visa enheter och sensorer
 
@@ -113,7 +114,7 @@ FarmBeats stöder för närvarande följande enheter:
 - **Nod:** En enhet som en eller flera sensorer är anslutna till.
 - **Gateway**: En enhet som en eller flera noder är anslutna till.
 
-Följ de här stegen.
+Följ de här stegen:
 
 1. Välj **Enheter** på startsidan på menyn.
   Sidan **Enheter** visar enhetstyp, modell, status, den servergrupp den placeras i och det senast uppdaterade datumet för metadata. Som standard är servergruppskolumnen inställd på *NULL*. Du kan välja att tilldela en enhet till en servergrupp. Mer information finns i [Tilldela enheter](#assign-devices).
@@ -123,7 +124,7 @@ Följ de här stegen.
 
 ### <a name="view-sensors"></a>Visa sensorer
 
-Följ de här stegen.
+Följ de här stegen:
 
 1. Välj **Sensorer** på startsidan på menyn.
   På sidan **Sensorer** visas information om vilken typ av sensor, vilken servergrupp den är ansluten till, överordnad enhet, portnamn, porttyp och den senast uppdaterade statusen.
@@ -147,11 +148,12 @@ När sensordata flödar in kan du tilldela den till den servergrupp där du dist
     ![Fönstret Associera enheter](./media/get-sensor-data-from-sensor-partner/associate-devices-1.png)
 
 6. Om du vill associera varje enhet till en annan servergrupp markerar du nedpilen i kolumnen **Tilldela till servergrupp** och väljer en servergrupp för varje enhetsrad.
+
 7. Välj **Tilldela** om du vill slutföra enhetstilldelningen.
 
 ### <a name="visualize-sensor-data"></a>Visualisera sensordata
 
-Följ de här stegen.
+Följ de här stegen:
 
 1. På startsidan väljer du **Gårdar** på menyn för att visa sidan **Grupper.**
 2. Välj den **servergrupp** som du vill visa sensordata för.
@@ -161,7 +163,7 @@ Följ de här stegen.
 
 ## <a name="delete-a-sensor"></a>Ta bort en sensor
 
-Följ de här stegen.
+Följ de här stegen:
 
 1. På startsidan väljer du **Sensorer** på menyn för att visa **sidan Sensorer.**
 2. Markera den enhet som du vill ta bort och välj **Ta bort** i bekräftelsefönstret.
@@ -172,7 +174,7 @@ Ett bekräftelsemeddelande visar att sensorn har tagits bort.
 
 ## <a name="delete-devices"></a>Ta bort enheter
 
-Följ de här stegen.
+Följ de här stegen:
 
 1. På startsidan väljer du **Enheter** på menyn för att visa sidan **Enheter.**
 2. Markera den enhet som du vill ta bort och välj **Ta bort** i bekräftelsefönstret.

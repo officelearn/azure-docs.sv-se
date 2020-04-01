@@ -13,17 +13,17 @@ ms.date: 11/26/2019
 ms.author: ryanwi
 ms.reviewer: dkershaw, sureshja
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: ef042b9eb625a0d0de5d5dcb883b823c3a499aa9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9515238449b3ece79815c9b3c616bd715b3b3400
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76698925"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80476537"
 ---
 # <a name="azure-active-directory-graph-api"></a>Azure Active Directory Graph API
 
 > [!IMPORTANT]
-> Vi rekommenderar starkt att du använder [Microsoft Graph](https://developer.microsoft.com/graph) i stället för Azure AD Graph API för att komma åt Azure Active Directory (Azure AD) resurser. Vårt utvecklingsarbete koncentreras nu till Microsoft Graph och inga fler förbättringar planeras för Azure AD Graph API. Det finns ett mycket begränsat antal scenarier som Azure AD Graph API fortfarande kan vara lämpligt för. Mer information finns i [Microsoft Graph eller Azure AD Graph-blogginlägget](https://dev.office.com/blogs/microsoft-graph-or-azure-ad-graph) och migrera Azure AD [Graph-appar till Microsoft Graph](https://docs.microsoft.com/graph/migrate-azure-ad-graph-overview).
+> Vi rekommenderar starkt att du använder [Microsoft Graph](https://developer.microsoft.com/graph) i stället för Azure AD Graph API för att komma åt Azure Active Directory (Azure AD) resurser. Vårt utvecklingsarbete koncentreras nu till Microsoft Graph och inga fler förbättringar planeras för Azure AD Graph API. Det finns ett mycket begränsat antal scenarier som Azure AD Graph API fortfarande kan vara lämpligt för. Mer information finns i [Microsoft Graph eller Azure AD Graph-blogginlägget](https://developer.microsoft.com/office/blogs/microsoft-graph-or-azure-ad-graph/) och migrera Azure AD [Graph-appar till Microsoft Graph](https://docs.microsoft.com/graph/migrate-azure-ad-graph-overview).
 
 Den här artikeln gäller Azure AD Graph API. Liknande information om Microsoft Graph API finns [i Använda Microsoft Graph API](https://docs.microsoft.com/graph/use-the-api).
 

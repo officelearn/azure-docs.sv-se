@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2019
 ms.author: allensu
-ms.openlocfilehash: 5ada709350802344bfa65cce269735baa416edf6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d3bd1156de4aed7d1ea5c530605697f2dc80d63c
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80234452"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80476978"
 ---
 # <a name="high-availability-ports-overview"></a>Översikt över portar med hög tillgänglighet
 
@@ -95,7 +95,7 @@ Du kan konfigurera *en* offentlig standardbelastningsutjämningsresurs för back
 ## <a name="limitations"></a>Begränsningar
 
 - HA-portars belastningsutjämningsregler är endast tillgängliga för interna standardbelastningsutjämningsmedel.
-- Kombinationen av en HA-portar belastningsutjämningsregel och en belastningsutjämningsregel som inte är HA-portar stöds inte.
+- Kombinationen av en HA-portar belastningsutjämningsregel och en belastningsutjämningsregel som inte är HA-portar som pekar på samma serverd ipkonfigurationer stöds inte.
 - Befintliga IP-fragment vidarebefordras av HA Ports belastningsutjämningsregler till samma mål som det första paketet.  IP-fragmentering av ett UDP- eller TCP-paket stöds inte.
 - Flödessymmetri (främst för NVA-scenarier) stöds med serverdainstans och en enda nätverkskort (och en enda IP-konfiguration) endast när den används som visas i diagrammet ovan och med hjälp av HA Ports belastningsutjämningsregler. Det finns inte i något annat scenario. Detta innebär att två eller flera belastningsutjämna resurser och deras respektive regler fattar självständiga beslut och aldrig samordnas. Se beskrivningen och diagrammet för [virtuella nätverksinstallationer](#nva). När du använder flera nätverkskort eller sandwiching NVA mellan en offentlig och intern load balancer, flöde symmetri är inte tillgänglig.  Du kanske kan komma runt detta genom att köpa NAT'ing ingressflödet till IP för enheten så att svar kan komma fram på samma NVA.  Vi rekommenderar dock starkt att du använder ett enda nätverkskort och använder referensarkitekturen som visas i diagrammet ovan.
 

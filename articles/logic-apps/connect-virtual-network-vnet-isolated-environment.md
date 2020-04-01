@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 03/12/2020
-ms.openlocfilehash: fedc1f6ce8fbaeaf0d2cae3a1b04169192868e61
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6683c1b78b0e7ecba162026708c83843e2c08180
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79270698"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80478880"
 ---
 # <a name="connect-to-azure-virtual-networks-from-azure-logic-apps-by-using-an-integration-service-environment-ise"></a>Ansluta till virtuella Azure-nätverk från Azure Logic Apps med hjälp av en integrationstjänstmiljö (ISE)
 
@@ -32,7 +32,7 @@ I den här artikeln beskrivs hur du slutför dessa uppgifter med hjälp av Azure
 * Skapa din ISE.
 * Lägg till extra kapacitet till din ISE.
 
-Du kan också skapa en ISE med hjälp av LOGIC Apps REST API, inklusive att konfigurera kundhanterade nycklar:
+Du kan också skapa en ISE med hjälp av [snabbstartsmallen för Azure Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/201-integration-service-environment) eller med hjälp av REST-API:et för Logic Apps, inklusive att konfigurera kundhanterade nycklar:
 
 * [Skapa en integrationstjänstmiljö (ISE) med hjälp av REST-API:et för Logic Apps](../logic-apps/create-integration-service-environment-rest-api.md)
 * [Konfigurera kundhanterade nycklar för att kryptera data i vila för ISE:er](../logic-apps/customer-managed-keys-integration-service-environment.md)
@@ -110,7 +110,7 @@ I den här tabellen beskrivs portarna i det virtuella Azure-nätverket som din I
 | Azure Active Directory | Utgående | 80, 443 | VirtualNetwork | AzureActiveDirectory | |
 | Hantering av anslutningar | Utgående | 443 | VirtualNetwork  | AppService | |
 | Publicera diagnostikloggar & mått | Utgående | 443 | VirtualNetwork  | AzureMonitor (På andra) | |
-| Azure Storage-beroende | Utgående | 80, 443, 445 | VirtualNetwork | Lagring | |
+| Azure Storage-beroende | Utgående | 80, 443, 445 | VirtualNetwork | Storage | |
 | Azure SQL-beroende | Utgående | 1433 | VirtualNetwork | SQL | |
 | Azure Resource Health | Utgående | 1886 | VirtualNetwork | AzureMonitor (På andra) | Krävs för att publicera hälsostatus till Resurshälsa |
 | Beroende från logg till händelsehubbprincip och övervakningsagent | Utgående | 5672 | VirtualNetwork | EventHub | |

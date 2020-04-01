@@ -1,5 +1,5 @@
 ---
-title: Självstudie – belastningsutjämna virtuella Windows-datorer i Azure
+title: Självstudiekurs - Belastningsutjämna Windows virtuella datorer i Azure
 description: I den här självstudiekursen lär du dig hur du använder Azure PowerShell för att skapa en lastbalanserare för ett säkert program med hög tillgänglighet på tre virtuella Windows-datorer
 services: virtual-machines-windows
 documentationcenter: virtual-machines
@@ -16,10 +16,10 @@ ms.date: 12/03/2018
 ms.author: cynthn
 ms.custom: mvc
 ms.openlocfilehash: 05a796d7bbe08f8e560c6545f3ed37c0f54b9cf9
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74067854"
 ---
 # <a name="tutorial-load-balance-windows-virtual-machines-in-azure-to-create-a-highly-available-application-with-azure-powershell"></a>Självstudier: Belastningsutjämna virtuella Windows-datorer i Azure för att skapa ett program med hög tillgänglighet med Azure PowerShell
@@ -47,7 +47,7 @@ För att styra trafikflödet definierar du regler för lastbalanseraren för spe
 
 Azure Cloud Shell är ett interaktivt gränssnitt som du kan använda för att utföra stegen i den här artikeln. Den har vanliga Azure-verktyg förinstallerat och har konfigurerats för användning med ditt konto. 
 
-Om du vill öppna Cloud Shell väljer du bara **Prova** från det övre högra hörnet i ett kodblock. Du kan också starta Cloud Shell i en separat webbläsarflik genom att gå till [https://shell.azure.com/powershell](https://shell.azure.com/powershell). Kopiera kodblocket genom att välja **Kopiera**, klistra in det i Cloud Shell och kör det genom att trycka på RETUR.
+Om du vill öppna Cloud Shell väljer du bara **Prova** från det övre högra hörnet i ett kodblock. Du kan också starta Cloud Shell i [https://shell.azure.com/powershell](https://shell.azure.com/powershell)en separat webbläsarflik genom att gå till . Kopiera kodblocket genom att välja **Kopiera**, klistra in det i Cloud Shell och kör det genom att trycka på RETUR.
 
 ## <a name="create-azure-load-balancer"></a>Skapa en Azure Load Balancer
 I det här avsnittet beskrivs hur du skapar och konfigurerar varje komponent i lastbalanseraren. Innan du kan skapa lastbalanseraren skapar du en resursgrupp med hjälp av [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup). I följande exempel skapas en resursgrupp med namnet *myResourceGroupLoadBalancer* på platsen *EastUS* (Östra USA):
@@ -224,7 +224,7 @@ Parametern `-AsJob` skapar den virtuella datorn som en bakgrundsaktivitet så at
 
 
 ### <a name="install-iis-with-custom-script-extension"></a>Installera IIS med tillägget för anpassat skript
-I en tidigare självstudiekurs om [hur du konfigurerar en virtuell Windows-dator](tutorial-automate-vm-deployment.md) lärde du dig hur du automatiserar VM-anpassning med tillägget för anpassat skript för Windows. Du kan använda samma tillvägagångssätt för att installera och konfigurera IIS på dina virtuella datorer.
+I en tidigare självstudiekurs om [hur du anpassar en virtuell Windows-dator](tutorial-automate-vm-deployment.md) lärde du dig hur du automatiserar VM-anpassning med tillägget för anpassat skript för Windows. Du kan använda samma tillvägagångssätt för att installera och konfigurera IIS på dina virtuella datorer.
 
 Använd [Set-AzVMExtension](https://docs.microsoft.com/powershell/module/az.compute/set-azvmextension) för att installera Anpassat skripttillägg. Tillägget kör `powershell Add-WindowsFeature Web-Server` för att installera IIS-webbservern och uppdaterar sedan sidan *Default.htm* till att visa värddatornamnet för den virtuella datorn:
 

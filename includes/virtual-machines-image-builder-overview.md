@@ -5,12 +5,12 @@ ms.date: 01/23/2020
 ms.topic: include
 ms.service: virtual-machines-linux
 manager: gwallace
-ms.openlocfilehash: 00fc3a01e6f42c2704af9dbc807dce193ff2971c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 658910dc4291375c7b2ab22e88c599b970b885af
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80117047"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80419231"
 ---
 Standardiserade vm-avbildningar (Virtual Machine) gör det möjligt för organisationer att migrera till molnet och säkerställa konsekvens i distributionerna. Avbildningar innehåller vanligtvis fördefinierade säkerhets- och konfigurationsinställningar och nödvändig programvara. Ställa in din egen avbildningspipeline kräver tid, infrastruktur och installation, men med Azure VM Image Builder, bara ge en enkel konfiguration som beskriver din avbildning, skicka den till tjänsten och avbildningen är byggd och distribuerad.
  
@@ -51,7 +51,7 @@ AIB stöder Azure Marketplace base OS-avbildningar:
 - CentOS 7,6, 7,7
 - SLES 12 SP4
 - SLES 15, SLES 15 SP1
-- Windows 10 RS5 Enterprise/Professional/Enterprise för virtuellt skrivbord (EVD) 
+- Windows 10 RS5 Enterprise/Enterprise multi-session/Professional
 - Windows 2016
 - Windows 2019
 
@@ -78,7 +78,7 @@ Azure Image Builder är en fullständigt hanterad Azure-tjänst som är tillgän
 
 ## <a name="permissions"></a>Behörigheter
 
-Om du vill att Azure VM Image Builder ska kunna distribuera avbildningar till antingen hanterade avbildningar eller till ett delat avbildningsgalleri måste du ange bidragsbehörigheter för tjänsten "Azure Virtual Machine Image Builder" (app-ID: cf32a0cc-373c-47c9-9156-0db11f6a6dfc ) på resursgrupperna. 
+Om du vill att Azure VM Image Builder ska kunna distribuera avbildningar till antingen hanterade avbildningar eller till ett delat avbildningsgalleri måste du ange bidragsbehörigheter för tjänsten "Azure Virtual Machine Image Builder" (app-ID: cf32a0cc-373c-47c9-9156-0db11f6a6dfc) för resursgrupperna. 
 
 Om du använder en befintlig anpassad hanterad avbildning eller avbildningsversion behöver Azure Image Builder minst Reader-åtkomst till dessa resursgrupper.
 

@@ -8,12 +8,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 11/22/2019
 ms.author: victorh
-ms.openlocfilehash: 1ddbc8e909c5ba0b720e893e87c0f495d256a886
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c7b38ad40977e1042032210d3a82a73ff6169adc
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79279161"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80411062"
 ---
 # <a name="back-end-health-and-diagnostic-logs-for-application-gateway"></a>Backend-hälso- och diagnostikloggar för Application Gateway
 
@@ -91,14 +91,14 @@ Följande kodavsnitt visar ett exempel på svaret:
 }
 ```
 
-## <a name="diagnostic-logs"></a><a name="diagnostic-logging"></a>Diagnostiska loggar
+## <a name="diagnostic-logs"></a><a name="diagnostic-logging"></a>Diagnostikloggar
 
 Du kan använda olika typer av loggar i Azure för att hantera och felsöka programgateways. Du kan komma åt vissa av de här loggarna via portalen. Alla loggar kan extraheras från Azure Blob-lagring och visas i olika verktyg, till exempel [Azure Monitor-loggar,](../azure-monitor/insights/azure-networking-analytics.md)Excel och Power BI. Du kan läsa mer om de olika typerna av loggar från följande lista:
 
 * **Aktivitetslogg:** Du kan använda [Azure-aktivitetsloggar](../monitoring-and-diagnostics/insights-debugging-with-events.md) (tidigare kallade driftloggar och granskningsloggar) för att visa alla åtgärder som skickas till din Azure-prenumeration och deras status. Aktivitetsloggposter samlas in som standard, och du kan visa dem i Azure Portal.
-* **Åtkomstlogg:** Du kan använda den här loggen för att visa åtkomstmönster för Application Gateway och analysera viktig information. Detta inkluderar anroparens IP, begärd URL, svarssvarstid, returkod och byte in och ut. En åtkomstlogg samlas in var 300:e sekund. Den här loggen innehåller en post per instans av Application Gateway. Application Gateway-instansen identifieras av egenskapen instanceId.
+* **Åtkomstlogg:** Du kan använda den här loggen för att visa åtkomstmönster för Application Gateway och analysera viktig information. Detta inkluderar anroparens IP, begärd URL, svarssvarstid, returkod och byte in och ut. En åtkomstlogg samlas in var 60:e sekund. Den här loggen innehåller en post per instans av Application Gateway. Application Gateway-instansen identifieras av egenskapen instanceId.
 * **Prestandalogg:** Du kan använda den här loggen för att visa hur Application Gateway-instanser fungerar. Den här loggen samlar in prestandainformation för varje instans, inklusive totala begäranden, dataflöde i byte, totalt antal begäranden, antal misslyckade begäranden och felfritt antal serverd-instanser. En prestandalogg samlas in var 60:e sekund. Prestandaloggen är endast tillgänglig för v1 SKU. För v2 SKU använder du [Mått](application-gateway-metrics.md) för prestandadata.
-* **Brandväggslogg:** Du kan använda den här loggen för att visa de begäranden som loggas via identifierings- eller förebyggande läge för en programgateway som är konfigurerad med brandväggen för webbprogrammet.
+* **Brandväggslogg:** Du kan använda den här loggen för att visa de begäranden som loggas via identifierings- eller förebyggande läge för en programgateway som är konfigurerad med brandväggen för webbprogrammet. Brandväggsloggar samlas in var 60:e sekund. 
 
 > [!NOTE]
 > Loggar är endast tillgängliga för resurser som distribueras i Azure Resource Manager-distributionsmodellen. Du kan inte använda loggar för resurser i den klassiska distributionsmodellen. För en bättre förståelse av de två modellerna, se [Förstå Resurshanteraren distribution och klassisk distribution](../azure-resource-manager/management/deployment-models.md) artikel.

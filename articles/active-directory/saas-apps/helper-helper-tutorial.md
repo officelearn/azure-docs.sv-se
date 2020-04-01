@@ -1,5 +1,5 @@
 ---
-title: 'Självstudier: Azure Active Directory-integrering med Helper Helper | Microsoft Docs'
+title: 'Självstudiekurs: Azure Active Directory-integrering med Helper Helper | Microsoft-dokument'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Helper Helper.
 services: active-directory
 documentationCenter: na
@@ -17,137 +17,137 @@ ms.date: 05/31/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 0d70cdade93b028c90c9f62374cd6b997556dd52
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67101274"
 ---
-# <a name="tutorial-integrate-helper-helper-with-azure-active-directory"></a>Självstudier: Integrera Helper Helper med Azure Active Directory
+# <a name="tutorial-integrate-helper-helper-with-azure-active-directory"></a>Självstudiekurs: Integrera hjälphjälparen med Azure Active Directory
 
-I de här självstudierna lär du dig att integrera Helper Helper med Azure Active Directory (AD Azure). När du integrerar Helper Helper med Azure AD, kan du:
+I den här självstudien får du lära dig hur du integrerar Hjälphjälpen med Azure Active Directory (Azure AD). När du integrerar Hjälphjälpare med Azure AD kan du:
 
-* Styr i Azure AD som har åtkomst till Helper Helper.
-* Ge dina användare att automatiskt inloggad till Helper Helper med sina Azure AD-konton.
-* Hantera konton på en central plats – Azure portal.
+* Kontroll i Azure AD som har åtkomst till Helper Helper.
+* Gör att användarna automatiskt loggas in på Helper Helper med sina Azure AD-konton.
+* Hantera dina konton på en central plats - Azure-portalen.
 
-Läs mer om integrering av SaaS-app med Azure AD i [vad är programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Mer information om Integrering av SaaS-appar med Azure AD finns i [Vad är programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
-För att komma igång behöver du följande objekt:
+För att komma igång behöver du följande:
 
-* En Azure AD-prenumeration. Om du inte har en prenumeration kan du få en [kostnadsfritt konto](https://azure.microsoft.com/free/).
-* Aktiverat prenumeration Helper Helper enkel inloggning (SSO).
+* En Azure AD-prenumeration. Om du inte har en prenumeration kan du få ett [gratis konto](https://azure.microsoft.com/free/).
+* En sso-prenumeration (Helper Single Sign-on).
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
-I den här självstudien, konfigurera och testa Azure AD enkel inloggning i en testmiljö. Har stöd för Helper Helper **SP och IDP** initierad SSO och stöder **Just In Time** etableringen av användare.
+I den här självstudien konfigurerar och testar du Azure AD SSO i en testmiljö. Helper Helper stöder **SP och IDP** initierade SSO och stöder just in time-användaretablering. **Just In Time**
 
-## <a name="adding-helper-helper-from-the-gallery"></a>Att lägga till Helper Helper från galleriet
+## <a name="adding-helper-helper-from-the-gallery"></a>Lägga till Hjälphjälp från galleriet
 
-För att konfigurera integrering av Helper Helper i Azure AD, som du behöver lägga till Helper Helper från galleriet i din lista över hanterade SaaS-appar.
+Om du vill konfigurera integreringen av Helper Helper i Azure AD måste du lägga till hjälphjälp från galleriet i listan över hanterade SaaS-appar.
 
-1. Logga in på [Azure-portalen](https://portal.azure.com) med ett arbets- eller skolkonto eller ett personligt Microsoft-konto.
-1. I det vänstra navigeringsfönstret, väljer den **Azure Active Directory** service.
-1. Gå till **företagsprogram** och välj sedan **alla program**.
-1. Om du vill lägga till nytt program, Välj **nytt program**.
-1. I den **Lägg till från galleriet** Skriv **Helper Helper** i sökrutan.
-1. Välj **Helper Helper** från resultaten panelen och lägger sedan till appen. Vänta några sekunder medan appen läggs till i din klient.
+1. Logga in på [Azure-portalen](https://portal.azure.com) med antingen ett arbets- eller skolkonto eller ett personligt Microsoft-konto.
+1. Välj **Azure Active Directory-tjänsten** i det vänstra navigeringsfönstret.
+1. Navigera till **företagsprogram** och välj sedan **Alla program**.
+1. Om du vill lägga till ett nytt program väljer du **Nytt program**.
+1. Skriv **Hjälphjälpen** i sökrutan i avsnittet **Lägg till från galleriet.**
+1. Välj **Hjälphjälp från** resultatpanelen och lägg sedan till appen. Vänta några sekunder medan appen läggs till i din klientorganisation.
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
-Konfigurera och testa Azure AD enkel inloggning med Helper Helper med en testanvändare kallas **B. Simon**. Du måste upprätta en länk förhållandet mellan en Azure AD-användare och den relaterade användaren i Helper Helper för SSO ska fungera.
+Konfigurera och testa Azure AD SSO med Hjälphjälp med hjälp av en testanvändare som heter **B. Simon**. För att SSO ska fungera måste du upprätta en länkrelation mellan en Azure AD-användare och den relaterade användaren i Helper Helper.
 
-Om du vill konfigurera och testa Azure AD enkel inloggning med Helper Helper, utför du följande byggblock:
+Om du vill konfigurera och testa Azure AD SSO med Helper Helper slutför du följande byggblock:
 
-1. **[Konfigurera Azure AD SSO](#configure-azure-ad-sso)**  vill tillåta att användarna använda den här funktionen.
-2. **[Konfigurera Helper Helper](#configure-helper-helper)**  att konfigurera inställningar för enkel inloggning på programsidan.
-3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  att testa Azure AD enkel inloggning med B. Simon.
-4. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  att aktivera B. Simon att använda Azure AD enkel inloggning.
-5. **[Skapa Helper Helper testanvändare](#create-helper-helper-test-user)**  har en motsvarighet för B. Simon i Helper Helper som är länkad till en Azure AD-representation av användaren.
-6. **[Testa SSO](#test-sso)**  att kontrollera om konfigurationen fungerar.
+1. **[Konfigurera Azure AD SSO](#configure-azure-ad-sso)** så att användarna kan använda den här funktionen.
+2. **[Konfigurera hjälphjälparen](#configure-helper-helper)** för att konfigurera SSO-inställningarna på programsidan.
+3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** för att testa Azure AD enkel inloggning med B. Simon.
+4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** för att aktivera B. Simon för att använda Azure AD enkel inloggning.
+5. **[Skapa helper-testanvändare](#create-helper-helper-test-user)** för att få en motsvarighet till B. Simon i hjälphjälpen som är länkad till Azure AD-representationen av användaren.
+6. **[Testa SSO](#test-sso)** för att kontrollera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-sso"></a>Konfigurera Azure AD SSO
 
-Följ dessa steg om du vill aktivera enkel inloggning för Azure AD i Azure-portalen.
+Följ dessa steg för att aktivera Azure AD SSO i Azure-portalen.
 
-1. I den [Azure-portalen](https://portal.azure.com/)på den **Helper Helper** programsidan integration, hitta den **hantera** och väljer **enkel inloggning**.
-1. På den **väljer du en metod för enkel inloggning** väljer **SAML**.
-1. På den **ange in enkel inloggning med SAML** klickar du på ikonen Redigera/penna för **SAML grundkonfiguration** att redigera inställningarna.
+1. Leta reda på avsnittet **Hantera** på sidan **Hjälpprogram** i [Azure-portalen](https://portal.azure.com/)och välj **Enkel inloggning**.
+1. På sidan **Välj en enskild inloggningsmetod** väljer du **SAML**.
+1. På sidan **Konfigurera enkel inloggning med SAML** klickar du på redigerings-/pennikonen för Grundläggande **SAML-konfiguration** för att redigera inställningarna.
 
    ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
 
-1. På den **SAML grundkonfiguration** om du har **tjänstleverantör metadatafil** och vill konfigurera i **IDP** initierad läge utför följande steg:
+1. Om du har metadatafil för **Service Provider** och vill konfigurera i **IDP-initierat** läge i avsnittet **Grundläggande SAML-konfiguration** utför du följande steg:
 
     >[!NOTE]
-    >Gå till URL: en `https://sso.helperhelper.com/saml/<customer_id>` att hämta metadatafilen tjänstleverantör. Kontakta [Helper Helper klienten supportteamet](mailto:info@helperhelper.com) för `<customer_id>`.
+    >Gå till `https://sso.helperhelper.com/saml/<customer_id>` url:en för att hämta metadatafilen för Tjänsteleverantören. Kontakta [Helper Helper Client support team](mailto:info@helperhelper.com) för `<customer_id>`.
 
-    a. Klicka på **ladda upp metadatafilen**.
+    a. Klicka på **Ladda upp metadatafil**.
 
-    b. Klicka på **mappen logotyp** att välja metadatafilen och klicka på **överför**.
+    b. Klicka på **mappikonen** för att välja metadatafilen och klicka på **Ladda upp**.
 
-    c. När metadatafilen har överförts den **identifierare** och **svars-URL** värden får automatiskt ifylld i avsnittet grundläggande SAML-konfiguration.
+    c. När metadatafilen har överförts fylls **url-värdena identifierare** och **svar** i automatiskt i avsnittet Grundläggande SAML-konfiguration.
 
     > [!Note]
     > Om värdena **Identifierare** och **Svars-URL** inte fylls i automatiskt fyller du i värdena manuellt enligt dina krav.
 
 1. Klicka på **Ange ytterligare URL:er** och gör följande om du vill konfigurera appen i **SP**-initierat läge:
 
-    I textrutan **Inloggnings-URL** skriver du in en URL med följande mönster: `https://sso.helperhelper.com/saml/<customer_id>/login`
+    Skriv en URL med hjälp av följande mönster i textrutan **Sign-on-URL:**`https://sso.helperhelper.com/saml/<customer_id>/login`
 
     > [!NOTE]
-    > Inloggnings-URL-värdet är inte verkligt. Uppdatera värdet med den faktiska inloggnings-URL:en. Kontakta [Helper Helper klienten supportteamet](mailto:info@helperhelper.com) att hämta det här värdet. Du kan också referera till de mönster som visas i den **SAML grundkonfiguration** avsnitt i Azure portal.l.
+    > Inloggnings-URL-värdet är inte verkligt. Uppdatera värdet med den faktiska inloggnings-URL:en. Kontakta [Helper Helper Client supportteam](mailto:info@helperhelper.com) för att få det här värdet. Du kan också referera till de mönster som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure portal.l.
 
-1. På den **ange in enkel inloggning med SAML** sidan den **SAML-signeringscertifikat** klickar du på kopieringsknappen för att kopiera **Appfederationsmetadata** och spara den på din anteckningar .
+1. Klicka på knappen Kopiera i avsnittet **SAML-signeringscertifikat** på sidan **Konfigurera enkel inloggning med SAML** för att kopiera Url till App **Federationsmetadata** och spara den på anteckningarna.
 
-   ![Länk för hämtning av certifikat](common/copy-metadataurl.png)
+   ![Länk för nedladdning av certifikatet](common/copy-metadataurl.png)
 
-1. På den **konfigurera Helper Helper** avsnittet, kopiera den lämpliga URL: er efter behov.
+1. Kopiera lämpliga webbadresser i avsnittet Konfigurera hjälphjälp för att konfigurera **hjälphjälpen** baserat på dina behov.
 
    ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
 
-### <a name="configure-helper-helper"></a>Konfigurera Helper Helper
+### <a name="configure-helper-helper"></a>Konfigurera hjälphjälphjälpen
 
-Att konfigurera enkel inloggning på **Helper Helper** sida, som du behöver skicka den **Appfederationsmetadata** till [Helper Helper-supportteamet](mailto:info@helperhelper.com). De ställer du in SAML SSO ansluta till korrekt inställda på båda sidorna.
+Om du vill konfigurera enkel inloggning på **helpersidan** måste du skicka **url:en för appfederationsmetadata** till [hjälphjälparteamet](mailto:info@helperhelper.com). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 
-I det här avsnittet skapar du en användare i Azure-portalen kallas B. Simon.
+I det här avsnittet ska du skapa en testanvändare i Azure-portalen som heter B. Simon.
 
-1. På menyn till vänster i Azure-portalen väljer du **Azure Active Directory**väljer **användare**, och välj sedan **alla användare**.
-1. Välj **ny användare** överst på skärmen.
-1. I den **användaren** egenskaper, Följ dessa steg:
+1. Välj Azure Active Directory i den vänstra rutan i **Azure-portalen,** välj **Användare**och välj sedan **Alla användare**.
+1. Välj **Ny användare** högst upp på skärmen.
+1. Gör så här i egenskaperna **Användare:**
    1. I **Namn**-fältet skriver du `B. Simon`.  
-   1. I den **användarnamn** fältet, anger du den username@companydomain.extension. Till exempel `BrittaSimon@contoso.com`.
+   1. Ange **.** username@companydomain.extension Till exempel `BrittaSimon@contoso.com`.
    1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
    1. Klicka på **Skapa**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
+### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
-I det här avsnittet ska du aktivera B. Simon att använda Azure enkel inloggning genom att bevilja åtkomst till Helper Helper.
+I det här avsnittet aktiverar du B. Simon för att använda Azure enkel inloggning genom att bevilja åtkomst till Helper Helper.
 
-1. I Azure-portalen väljer du **företagsprogram**, och välj sedan **alla program**.
-1. I listan med program väljer **Helper Helper**.
-1. Appens översiktssidan, hitta den **hantera** och väljer **användare och grupper**.
+1. I Azure-portalen väljer du **Enterprise Applications**och väljer sedan **Alla program**.
+1. Välj **Hjälphjälp i**programlistan .
+1. På appens översiktssida letar du reda på avsnittet **Hantera** och väljer **Användare och grupper**.
 
-   ![Länken ”användare och grupper”](common/users-groups-blade.png)
+   ![Länken ”Användare och grupper”](common/users-groups-blade.png)
 
-1. Välj **Lägg till användare**och välj sedan **användare och grupper** i den **Lägg till tilldelning** dialogrutan.
+1. Välj **Lägg till användare**och välj sedan Användare och **grupper** i dialogrutan Lägg **till tilldelning.**
 
     ![Länken Lägg till användare](common/add-assign-user.png)
 
-1. I den **användare och grupper** dialogrutan **B. Simon** från listan över användare klickar på **Välj** längst ned på skärmen.
-1. Om du förväntar dig något rollvärde i SAML-försäkran i den **Välj roll** dialogrutan Välj rätt roll för användaren i listan och klicka sedan på den **Välj** längst ned på skärmen.
-1. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
+1. I dialogrutan **Användare och grupper** väljer du **B. Simon** i listan Användare och klickar sedan på knappen **Välj** längst ned på skärmen.
+1. Om du förväntar dig något rollvärde i SAML-påståendet väljer du lämplig roll för användaren i listan i dialogrutan **Välj roll** och klickar sedan på knappen **Välj** längst ned på skärmen.
+1. Klicka på knappen **Tilldela** i dialogrutan **Lägg till tilldelning.**
 
-### <a name="create-helper-helper-test-user"></a>Skapa Helper Helper testanvändare
+### <a name="create-helper-helper-test-user"></a>Skapa testanvändare för hjälphjälp
 
-I det här avsnittet skapas en användare som kallas Britta Simon i Helper Helper. Helper Helper stöder etableringen av just-in-time-användare som är aktiverat som standard. Det finns inget åtgärdsobjekt för dig i det här avsnittet. Om en användare inte redan finns i Hjälp-Helper, skapas en ny efter autentisering.
+I det här avsnittet skapas en användare som heter Britta Simon i Helper Helper. Helper Helper stöder just-in-time-användaretablering, vilket är aktiverat som standard. Det finns inget åtgärdsobjekt för dig i det här avsnittet. Om en användare inte redan finns i Hjälphjälpen skapas en ny efter autentisering.
 
-### <a name="test-sso"></a>Testa enkel inloggning
+### <a name="test-sso"></a>Testa SSO
 
-När du väljer panelen Helper Helper i åtkomstpanelen, bör det vara loggas in automatiskt till Helper-Helper som du ställer in enkel inloggning. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+När du väljer panelen Hjälphjälp för hjälpen på åtkomstpanelen bör du automatiskt loggas in på hjälphjälpavsnittet som du konfigurerar SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 

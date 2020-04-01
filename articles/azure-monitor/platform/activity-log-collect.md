@@ -1,58 +1,114 @@
 ---
-title: Samla in Azure-aktivitetslogg i Log Analytics-arbetsytan
+title: Samla in och analysera Azure-aktivitetsloggen i Azure Monitor
 description: Samla in Azure Activity Log i Azure Monitor Logs och använd övervakningslösningen för att analysera och söka i Azure-aktivitetsloggen i alla dina Azure-prenumerationer.
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 09/30/2019
-ms.openlocfilehash: 407bff10e2480c5210d3057bcccd6c60e591c165
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 03/24/2020
+ms.openlocfilehash: 4265f6050b237cb40afeddfc228ade9be06be039
+ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80055313"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80396796"
 ---
-# <a name="collect-and-analyze-azure-activity-logs-in-log-analytics-workspace-in-azure-monitor"></a>Samla in och analysera Azure-aktivitetsloggar i Log Analytics-arbetsytan i Azure Monitor
+# <a name="collect-and-analyze-azure-activity-log-in-azure-monitor"></a>Samla in och analysera Azure Activity-loggen i Azure Monitor
+[Azure Activity-loggen](platform-logs-overview.md) är en [plattformslogg](platform-logs-overview.md) som ger insikt i händelser på prenumerationsnivå som har inträffat i Azure. Även om du kan visa aktivitetsloggen i Azure-portalen bör du konfigurera den för att skicka till en Log Analytics-arbetsyta för att aktivera ytterligare funktioner i Azure Monitor. I den här artikeln beskrivs hur du utför den här konfigurationen och hur du skickar aktivitetsloggen till Azure-lagrings- och händelsehubbar.
 
-> [!WARNING]
-> Du kan nu samla in aktivitetsloggen till en Log Analytics-arbetsyta med hjälp av en diagnostikinställning som liknar hur du samlar in resursloggar. Se [Samla in och analysera Azure-aktivitetsloggar i Log Analytics-arbetsytan i Azure Monitor](diagnostic-settings-legacy.md).
+Att samla in aktivitetsloggen på en log analytics-arbetsyta ger följande fördelar:
 
-[Azure-aktivitetsloggen](platform-logs-overview.md) ger insikt i händelser på prenumerationsnivå som har inträffat i din Azure-prenumeration. I den här artikeln beskrivs hur du samlar in aktivitetsloggen på en log analytics-arbetsyta och hur du använder [övervakningslösningen](../insights/solutions.md)Aktivitetslogganalys , som tillhandahåller loggfrågor och vyer för att analysera dessa data. 
-
-Att ansluta aktivitetsloggen till en log analytics-arbetsyta ger följande fördelar:
-
-- Konsolidera aktivitetsloggen från flera Azure-prenumerationer till en plats för analys.
-- Lagra aktivitetsloggposter längre än 90 dagar.
+- Ingen datainmatning eller datalagringsavgift för aktivitetsloggdata som lagras på en Log Analytics-arbetsyta.
 - Korrelera aktivitetsloggdata med andra övervakningsdata som samlas in av Azure Monitor.
-- Använd [loggfrågor](../log-query/log-query-overview.md) för att utföra komplexa analyser och få djupa insikter om aktivitetsloggposter.
+- Använd loggfrågor för att utföra komplexa analyser och få djupa insikter om aktivitetsloggposter.
+- Använd loggaviseringar med aktivitetsposter som möjliggör mer komplex varningslogik.
+- Lagra aktivitetsloggposter längre än 90 dagar.
+- Konsolidera loggposter från flera Azure-prenumerationer och klienter till en plats för analys tillsammans.
 
-## <a name="connect-to-log-analytics-workspace"></a>Ansluta till log analytics-arbetsyta
-En enda arbetsyta kan anslutas till aktivitetsloggen för flera prenumerationer i samma Azure-klientorganisation. Insamling över flera klienter finns i [Samla in Azure-aktivitetsloggar i en Log Analytics-arbetsyta över prenumerationer i olika Azure Active Directory-klienter](activity-log-collect-tenants.md).
 
-> [!IMPORTANT]
-> Ett felmeddelande kan visas med följande procedur om resursleverantörerna Microsoft.OperationalInsights och Microsoft.OperationsManagement inte är registrerade för din prenumeration. Se [Azure-resursleverantörer och -typer](../../azure-resource-manager/management/resource-providers-and-types.md) för att registrera dessa leverantörer.
 
-Använd följande procedur för att ansluta aktivitetsloggen till logganalysarbetsytan:
+## <a name="collecting-activity-log"></a>Samla in aktivitetslogg
+Aktivitetsloggen samlas in automatiskt för [visning i Azure-portalen](activity-log-view.md). Om du vill samla in den på en Log Analytics-arbetsyta eller skicka den till Azure-lagrings- eller händelsehubbar skapar du en [diagnostikinställning](diagnostic-settings.md). Detta är samma metod som används av resursloggar vilket gör det konsekvent för alla [plattformsloggar](platform-logs-overview.md).  
+
+Om du vill skapa en diagnostikinställning för aktivitetsloggen väljer du **Diagnostikinställningar** på **aktivitetsloggmenyn** i Azure Monitor. Se [Skapa diagnostikinställning för att samla in plattformsloggar och mått i Azure](diagnostic-settings.md) för mer information om hur du skapar inställningen. Se [Kategorier i aktivitetsloggen](activity-log-view.md#categories-in-the-activity-log) för en beskrivning av de kategorier som du kan filtrera. Om du har några äldre inställningar måste du inaktivera dem innan du skapar en diagnostikinställning. Om båda har aktiverat kan det resultera i dubblettdata.
+
+![Diagnostikinställningar](media/diagnostic-settings-subscription/diagnostic-settings.png)
+
+
+> [!NOTE]
+> För närvarande kan du bara skapa en diagnostikinställning på prenumerationsnivå med Azure-portalen och en Resource Manager-mall. 
+
+
+## <a name="legacy-settings"></a>Äldre inställningar 
+Även om diagnostikinställningar är den metod som föredras för att skicka aktivitetsloggen till olika mål, fortsätter äldre metoder att fungera om du inte väljer att ersätta med en diagnostikinställning. Diagnostikinställningarna har följande fördelar jämfört med äldre metoder och vi rekommenderar att du uppdaterar konfigurationen:
+
+- Konsekvent metod för att samla in alla plattformsloggar.
+- Samla in aktivitetslogg över flera prenumerationer och klienter.
+- Filtrera insamling för att endast samla in loggar för vissa kategorier.
+- Samla in alla aktivitetsloggkategorier. Vissa kategorier samlas inte in med äldre metod.
+- Snabbare svarstid för logga inmatning. Den tidigare metoden har ca 15 minuters latens medan diagnostikinställningarna lägger till endast ca 1 minut.
+
+
+
+### <a name="log-profiles"></a>Loggprofiler
+Loggprofiler är äldre metod för att skicka aktivitetsloggen till Azure-lagring eller händelsehubbar. Använd följande procedur för att fortsätta arbeta med en loggprofil eller inaktivera den som förberedelse för migrering till en diagnostikinställning.
+
+1. Välj **Aktivitetslogg**på **Azure Monitor-menyn** i Azure-portalen .
+3. Klicka på **Diagnostikinställningar**.
+
+   ![Diagnostikinställningar](media/diagnostic-settings-subscription/diagnostic-settings.png)
+
+4. Klicka på den lila banderollen för äldreupplevelsen.
+
+    ![Äldre erfarenhet](media/diagnostic-settings-subscription/legacy-experience.png)
+
+### <a name="log-analytics-workspace"></a>Log Analytics-arbetsyta
+Den äldre metoden för att samla in aktivitetsloggen på en Log Analytics-arbetsyta ansluter loggen i arbetsytans konfiguration. 
 
 1. På menyn **Logganalysarbetsytor** i Azure-portalen väljer du arbetsytan för att samla in aktivitetsloggen.
 1. I avsnittet **Datakällor på arbetsytan** på arbetsytans meny väljer du **Azure Activity log**.
 1. Klicka på den prenumeration som du vill ansluta.
 
-    ![Arbetsytor](media/activity-log-export/workspaces.png)
+    ![Arbetsytor](media/activity-log-collect/workspaces.png)
 
 1. Klicka på **Anslut** om du vill ansluta aktivitetsloggen i prenumerationen till den valda arbetsytan. Om prenumerationen redan är ansluten till en annan arbetsyta klickar du på **Koppla från** först för att koppla från den.
 
-    ![Ansluta arbetsytor](media/activity-log-export/connect-workspace.png)
+    ![Ansluta arbetsytor](media/activity-log-collect/connect-workspace.png)
 
-## <a name="analyze-in-log-analytics-workspace"></a>Analysera i Log Analytics-arbetsyta
-När du ansluter en aktivitetslogg till en Log Analytics-arbetsyta skrivs poster till arbetsytan till en tabell som heter **AzureActivity** som du kan hämta med en [loggfråga](../log-query/log-query-overview.md). Strukturen för den här tabellen varierar beroende på [kategorin loggpost](activity-log-view.md#categories-in-the-activity-log). Se [Azure Activity Log händelseschema](activity-log-schema.md) för en beskrivning av varje kategori.
+
+Om du vill inaktivera inställningen utför du samma procedur och klickar på **Koppla** för att ta bort prenumerationen från arbetsytan.
+
+
+## <a name="analyze-activity-log-in-log-analytics-workspace"></a>Analysera aktivitetslogg i logganalysarbetsyta
+När du ansluter en aktivitetslogg till en Log Analytics-arbetsyta skrivs poster till arbetsytan till en tabell som heter *AzureActivity* som du kan hämta med en [loggfråga](../log-query/log-query-overview.md). Tabellens struktur varierar beroende på [loggpostens kategori](activity-log-view.md#categories-in-the-activity-log). Se [Azure Activity Log händelseschema](activity-log-schema.md) för en beskrivning av varje kategori.
+
+
+### <a name="data-structure-changes"></a>Förändringar i datastruktur
+Diagnostikinställningar samlar in samma data som den äldre metoden som används för att samla in aktivitetsloggen med vissa ändringar i strukturen i tabellen *AzureActivity.*
+
+Kolumnerna i följande tabell har inaktuellts i det uppdaterade schemat. De finns fortfarande i *AzureActivity* men de har inga data. Ersättningen för dessa kolumner är inte ny, men de innehåller samma data som den inaktuella kolumnen. De är i ett annat format, så du kan behöva ändra loggfrågor som använder dem. 
+
+| Föråldrad kolumn | Ersättningskolumn |
+|:---|:---|
+| Aktivitetsstatus    | ActivityStatusValue    |
+| AktivitetSubstatus | ActivitySubstatusVärdera |
+| OperationName     | OperationNameVärde     |
+| ResourceProvider  | ResursProviderVärde  |
+
+> [!IMPORTANT]
+> I vissa fall kan värdena i dessa kolumner vara i versaler. Om du har en fråga som innehåller dessa kolumner bör du använda [operatorn =~](https://docs.microsoft.com/azure/kusto/query/datatypes-string-operators) för att göra en okänslig jämförelse.
+
+Följande kolumn har lagts till i *AzureActivity* i det uppdaterade schemat:
+
+- Authorization_d
+- Claims_d
+- Properties_d
+
 
 ## <a name="activity-logs-analytics-monitoring-solution"></a>Övervakningslösning för Aktivitetsloggar Analytics
-Övervakningslösningen för Azure Log Analytics innehåller flera loggfrågor och vyer för att analysera aktivitetsloggposterna på din Log Analytics-arbetsyta.
+Övervakningslösningen för Azure Log Analytics kommer snart att inaktiveras och ersättas av en arbetsbok med det uppdaterade schemat på logganalysarbetsytan. Du kan fortfarande använda lösningen om du redan har aktiverat den, men den kan bara användas om du samlar in aktivitetsloggen med äldre inställningar. 
 
-### <a name="install-the-solution"></a>Installera lösningen
-Använd proceduren i [Installera en övervakningslösning](../insights/solutions.md#install-a-monitoring-solution) för att installera **lösningen för Aktivitetslogganalys.** Det krävs ingen ytterligare konfiguration.
+
 
 ### <a name="use-the-solution"></a>Använd lösningen
 Övervakningslösningar nås från **Monitor-menyn** i Azure-portalen. Välj **Mer** i avsnittet **Insikter** om du vill öppna sidan **Översikt** med lösningspanelerna. Panelen **Azure Activity Logs** visar antalet **AzureActivity-poster** på arbetsytan.
@@ -64,12 +120,96 @@ Klicka på panelen **Azure-aktivitetsloggar** för att öppna vyn **Azure-aktivi
 
 ![Instrumentpanelen Azure Activity Logs](media/collect-activity-logs/activity-log-dash.png)
 
-| Visualiseringsdel | Beskrivning |
-| --- | --- |
-| Azure-aktivitetsloggposter | Visar ett stapeldiagram över de översta summorna för Azure Activity Log-postsumman för det datumintervall som du har valt och visar en lista över de 10 främsta aktivitetssamtalen. Klicka på stapeldiagrammet om `AzureActivity`du vill köra en loggsökning efter . Klicka på ett uppringarobjekt om du vill köra en loggsökning som returnerar alla aktivitetsloggtransaktioner för objektet. |
-| Aktivitetsloggar efter status | Visar ett ringdiagram för Azure Activity Log-status för det valda datumintervallet och en lista över de tio bästa statusposterna. Klicka på diagrammet om du `AzureActivity | summarize AggregatedValue = count() by ActivityStatus`vill köra en loggfråga för . Klicka på ett statusobjekt om du vill köra en loggsökning som returnerar alla aktivitetsloggtransaktioner för den statusposten. |
-| Aktivitetsloggar efter resurs | Visar det totala antalet resurser med aktivitetsloggar och listar de tio största resurserna med postantal för varje resurs. Klicka på det totala området `AzureActivity | summarize AggregatedValue = count() by Resource`för att köra en loggsökning för , som visar alla Azure-resurser som är tillgängliga för lösningen. Klicka på en resurs om du vill köra en loggfråga som returnerar alla aktivitetsposter för den resursen. |
-| Aktivitetsloggar efter resursprovider | Visar det totala antalet resursleverantörer som producerar aktivitetsloggar och listar de tio bästa. Klicka på det totala området `AzureActivity | summarize AggregatedValue = count() by ResourceProvider`för att köra en loggfråga för , som visar alla Azure-resursleverantörer. Klicka på en resursprovider om du vill köra en loggfråga som returnerar alla aktivitetsposter för providern. |
+
+### <a name="enable-the-solution-for-new-subscriptions"></a>Aktivera lösningen för nya prenumerationer
+Du kommer snart inte längre att kunna lägga till aktivitetslogganalyslösningen i din prenumeration med Hjälp av Azure-portalen. Du kan lägga till den med hjälp av följande procedur med en resurshanterares mall. 
+
+1. Kopiera följande json till en fil som heter *ActivityLogTemplate*.json.
+
+    ```json
+    {
+    "$schema": "https://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "workspaceName": {
+            "type": "String",
+            "defaultValue": "my-workspace",
+            "metadata": {
+              "description": "Specifies the name of the workspace."
+            }
+        },
+        "location": {
+            "type": "String",
+            "allowedValues": [
+              "east us",
+              "west us",
+              "australia central",
+              "west europe"
+            ],
+            "defaultValue": "australia central",
+            "metadata": {
+              "description": "Specifies the location in which to create the workspace."
+            }
+        }
+      },
+        "resources": [
+        {
+            "type": "Microsoft.OperationalInsights/workspaces",
+            "name": "[parameters('workspaceName')]",
+            "apiVersion": "2015-11-01-preview",
+            "location": "[parameters('location')]",
+            "properties": {
+                "features": {
+                    "searchVersion": 2
+                }
+            }
+        },
+        {
+            "type": "Microsoft.OperationsManagement/solutions",
+            "apiVersion": "2015-11-01-preview",
+            "name": "[concat('AzureActivity(', parameters('workspaceName'),')')]",
+            "location": "[parameters('location')]",
+            "dependsOn": [
+                "[resourceId('microsoft.operationalinsights/workspaces', parameters('workspaceName'))]"
+            ],
+            "plan": {
+                "name": "[concat('AzureActivity(', parameters('workspaceName'),')')]",
+                "promotionCode": "",
+                "product": "OMSGallery/AzureActivity",
+                "publisher": "Microsoft"
+            },
+            "properties": {
+                "workspaceResourceId": "[resourceId('microsoft.operationalinsights/workspaces', parameters('workspaceName'))]",
+                "containedResources": [
+                    "[concat(resourceId('microsoft.operationalinsights/workspaces', parameters('workspaceName')), '/views/AzureActivity(',parameters('workspaceName'))]"
+                ]
+            }
+        },
+        {
+          "type": "Microsoft.OperationalInsights/workspaces/datasources",
+          "kind": "AzureActivityLog",
+          "name": "[concat(parameters('workspaceName'), '/', subscription().subscriptionId)]",
+          "apiVersion": "2015-11-01-preview",
+          "location": "[parameters('location')]",
+          "dependsOn": [
+              "[parameters('WorkspaceName')]"
+          ],
+          "properties": {
+              "linkedResourceId": "[concat(subscription().Id, '/providers/microsoft.insights/eventTypes/management')]"
+          }
+        }
+      ]
+    }    
+    ```
+
+2. Distribuera mallen med följande PowerShell-kommandon:
+
+    ```PowerShell
+    Connect-AzAccount
+    Select-AzSubscription <SubscriptionName>
+    New-AzResourceGroupDeployment -Name activitysolution -ResourceGroupName <ResourceGroup> -TemplateFile <Path to template file>
+    ```
+
 
 ## <a name="next-steps"></a>Nästa steg
 

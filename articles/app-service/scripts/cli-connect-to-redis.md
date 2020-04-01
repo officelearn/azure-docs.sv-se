@@ -1,5 +1,5 @@
 ---
-title: 'CLI: ansluta en app till Redis'
+title: 'CLI: Anslut en app till Redis'
 description: Lär dig hur du använder Azure CLI för att automatisera distribution och hantering av din App Service-app. Det här exemplet visar hur du ansluter en app till en Azure-cache för Redis.
 author: msangapu-msft
 tags: azure-service-management
@@ -8,13 +8,13 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.date: 12/11/2017
 ms.author: msangapu
-ms.custom: seodec18
-ms.openlocfilehash: a5654ea8c0333e21421e0f9c55cc00d70a7be567
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.custom: mvc, seodec18
+ms.openlocfilehash: 27b7040bace80fff5cbcb6a12e4020cfe0c7fc9a
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74688435"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80058643"
 ---
 # <a name="connect-an-app-service-app-to-an-azure-cache-for-redis-using-cli"></a>Ansluta en App Service-app till Azure Cache for Redis med hjälp av CLI
 
@@ -43,7 +43,7 @@ I det här skriptet används följande kommandon för att skapa en resursgrupp, 
 | [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) | Skapar en App Service-app. |
 | [`az redis create`](/cli/azure/redis?view=azure-cli-latest#az-redis-create) | Skapa ny Azure Cache for Redis-instans. |
 | [`az redis list-keys`](/cli/azure/redis?view=azure-cli-latest#az-redis-list-keys) | Visar åtkomstnycklarna för Azure Cache for Redis-instansen. |
-| [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) | Skapar eller uppdaterar en app-inställning för en App Service-app. Appinställningarna visas som miljövariabler för din app. |
+| [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) | Skapar eller uppdaterar en appinställning för en App Service-app. Appinställningarna visas som miljövariabler för din app. |
 
 ## <a name="next-steps"></a>Nästa steg
 

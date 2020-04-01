@@ -4,12 +4,12 @@ description: Felsöka installation, registrering av Azure Backup Server och säk
 ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 07/05/2019
-ms.openlocfilehash: cc0cf7e91c1aacbc637d33ab1e5546cc54836b28
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: deff49a7d00a335c396a6fa36d3846ef353331c5
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78673118"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80421297"
 ---
 # <a name="troubleshoot-azure-backup-server"></a>Felsöka Azure Backup Server
 
@@ -26,7 +26,7 @@ Vi rekommenderar att du utför valideringen nedan innan du börjar felsöka Micr
 - Om registreringen misslyckas kontrollerar du att servern där du försöker installera Azure Backup Server inte redan är registrerad i ett annat valv
 - Kontrollera om DPM-agenten redan finns om push-överföringen misslyckas. Om den gör det avinstallerar du agenten och provar att installera igen
 - [Se till att inga andra processer eller antivirusprogram stör Azure Backup](https://docs.microsoft.com/azure/backup/backup-azure-troubleshoot-slow-backup-performance-issue#cause-another-process-or-antivirus-software-interfering-with-azure-backup)<br>
-- Kontrollera att SQL Agent-tjänsten körs och är inställd som automatisk på MAB-servern<br>
+- Kontrollera att SQL Agent-tjänsten körs och ställs in på automatisk i MABS-servern<br>
 
 ## <a name="invalid-vault-credentials-provided"></a>Ogiltiga valvautentiseringsuppgifter har angetts
 
@@ -38,13 +38,13 @@ Vi rekommenderar att du utför valideringen nedan innan du börjar felsöka Micr
 
 | Åtgärd | Felinformation | Lösning |
 | --- | --- | --- |
-| Säkerhetskopiering | Repliken är inkonsekvent | Kontrollera att alternativet för automatisk konsekvenskontroll i guiden Skyddsgrupp är aktiverat. Mer information om orsakerna till replikkonsekvens och relevanta förslag finns i artikeln [Repliken är inkonsekvent](https://docs.microsoft.com/previous-versions/system-center/data-protection-manager-2006/cc161593(v=technet.10)).<br> <ol><li> Om det finns säkerhetskopiering av systemtillstånd/BMR kontrollerar du att Windows Server Backup är installerat på den skyddade servern.</li><li> Sök efter utrymmesrelaterade problem i DPM-lagringspoolen på DPM/Microsoft Azure Backup Server och allokera lagring efter behov.</li><li> Kontrollera tillståndet för tjänsten Volume Shadow Copy på den skyddade servern. Om den är inaktiverad ställer du in den så att den startar manuellt. Starta tjänsten på servern. Gå sedan tillbaka till DPM/Microsoft Azure Backup Server-konsolen och starta synkroniseringen med jobbet för konsekvenskontroll.</li></ol>|
+| Backup | Repliken är inkonsekvent | Kontrollera att alternativet för automatisk konsekvenskontroll i guiden Skyddsgrupp är aktiverat. Mer information om orsakerna till replikkonsekvens och relevanta förslag finns i artikeln [Repliken är inkonsekvent](https://docs.microsoft.com/previous-versions/system-center/data-protection-manager-2006/cc161593(v=technet.10)).<br> <ol><li> Om det finns säkerhetskopiering av systemtillstånd/BMR kontrollerar du att Windows Server Backup är installerat på den skyddade servern.</li><li> Sök efter utrymmesrelaterade problem i DPM-lagringspoolen på DPM/Microsoft Azure Backup Server och allokera lagring efter behov.</li><li> Kontrollera tillståndet för tjänsten Volume Shadow Copy på den skyddade servern. Om den är inaktiverad ställer du in den så att den startar manuellt. Starta tjänsten på servern. Gå sedan tillbaka till DPM/Microsoft Azure Backup Server-konsolen och starta synkroniseringen med jobbet för konsekvenskontroll.</li></ol>|
 
 ## <a name="online-recovery-point-creation-failed"></a>Det gick inte att skapa återställningspunkten online
 
 | Åtgärd | Felinformation | Lösning |
 | --- | --- | --- |
-| Säkerhetskopiering | Det gick inte att skapa återställningspunkten online | **Felmeddelande:** Windows Azure Backup Agent kunde inte skapa en ögonblicksbild av den valda volymen. <br> **Lösning:** Försök att öka utrymmet i replik- och återställningspunktsvolymen.<br> <br> **Felmeddelande:** Windows Azure Backup Agent kan inte ansluta till OBEngine-tjänsten <br> **Lösning**: kontrollera att OBEngine finns i listan över tjänster som körs på datorn. Om OBEngine-tjänsten inte körs använder du kommandot "net start OBEngine" för att starta OBEngine-tjänsten. <br> <br> **Felmeddelande:** Krypteringslösenfrasen för den här servern har inte angetts. Konfigurera en krypteringslösenfras. <br> **Lösning:** Försök konfigurera en krypteringslösenfras. Om det misslyckas gör du följande: <br> <ol><li>Kontrollera att scratch-platsen finns. Det här är den plats som nämns i registret **HKEY_LOCAL_MACHINE\Software\Microsoft\Windows Azure Backup\Config**, med namnet **ScratchLocation** bör finnas.</li><li> Om scratch-platsen finns kan du försöka registrera om med hjälp av den gamla lösenfrasen. *När du konfigurerar en krypteringslösenfras sparar du den på en säker plats.*</li><ol>|
+| Backup | Det gick inte att skapa återställningspunkten online | **Felmeddelande:** Windows Azure Backup Agent kunde inte skapa en ögonblicksbild av den valda volymen. <br> **Lösning:** Försök att öka utrymmet i replik- och återställningspunktsvolymen.<br> <br> **Felmeddelande:** Windows Azure Backup Agent kan inte ansluta till OBEngine-tjänsten <br> **Lösning**: kontrollera att OBEngine finns i listan över tjänster som körs på datorn. Om OBEngine-tjänsten inte körs använder du kommandot "net start OBEngine" för att starta OBEngine-tjänsten. <br> <br> **Felmeddelande:** Krypteringslösenfrasen för den här servern har inte angetts. Konfigurera en krypteringslösenfras. <br> **Lösning:** Försök konfigurera en krypteringslösenfras. Om det misslyckas gör du följande: <br> <ol><li>Kontrollera att scratch-platsen finns. Det här är den plats som nämns i registret **HKEY_LOCAL_MACHINE\Software\Microsoft\Windows Azure Backup\Config**, med namnet **ScratchLocation** bör finnas.</li><li> Om scratch-platsen finns kan du försöka registrera om med hjälp av den gamla lösenfrasen. *När du konfigurerar en krypteringslösenfras sparar du den på en säker plats.*</li><ol>|
 
 ## <a name="the-original-and-external-dpm-servers-must-be-registered-to-the-same-vault"></a>De ursprungliga och externa DPM-servrarna måste vara registrerade i samma valv
 
@@ -56,7 +56,7 @@ Vi rekommenderar att du utför valideringen nedan innan du börjar felsöka Micr
 
 | Åtgärd | Felinformation | Lösning |
 | --- | --- | --- |
-| Säkerhetskopiering | Online återställningspunkt skapa jobb för VMware VM misslyckas. DPM påträffade ett fel från VMware när du försökte få ChangeTracking-information. ErrorCode - FileFaultFault (ID 33621) |  <ol><li> Återställ CTK på VMware för de berörda virtuella datorerna.</li> <li>Kontrollera att oberoende disk inte finns på plats på VMware.</li> <li>Stoppa skyddet för de berörda virtuella datorerna och rotera igen med knappen **Uppdatera.** </li><li>Kör en kopia för de berörda virtuella datorerna.</li></ol>|
+| Backup | Online återställningspunkt skapa jobb för VMware VM misslyckas. DPM påträffade ett fel från VMware när du försökte få ChangeTracking-information. ErrorCode - FileFaultFault (ID 33621) |  <ol><li> Återställ CTK på VMware för de berörda virtuella datorerna.</li> <li>Kontrollera att oberoende disk inte finns på plats på VMware.</li> <li>Stoppa skyddet för de berörda virtuella datorerna och rotera igen med knappen **Uppdatera.** </li><li>Kör en kopia för de berörda virtuella datorerna.</li></ol>|
 
 ## <a name="the-agent-operation-failed-because-of-a-communication-error-with-the-dpm-agent-coordinator-service-on-the-server"></a>Agentåtgärden misslyckades på grund av ett kommunikationsfel med DPM-agentkoordinatorn på servern
 
@@ -88,15 +88,15 @@ Vi rekommenderar att du utför valideringen nedan innan du börjar felsöka Micr
 | Konfigurera skyddsgrupper | Det finns inte tillräckligt med ledigt utrymme i lagringspoolen för den här skyddsgruppen. | Diskarna som läggs till i lagringspoolen [bör inte innehålla en partition](https://docs.microsoft.com/previous-versions/system-center/system-center-2012-R2/hh758075(v=sc.12)). Ta bort alla befintliga volymer på diskarna. Lägg sedan till dem i lagringspoolen.|
 | Ändring av politiken |Det gick inte att ändra säkerhetskopieringsprincipen. Fel: Den aktuella åtgärden misslyckades på grund av ett internt tjänstfel [0x29834]. Försök igen när en viss tid har gått. Kontakta Microsofts supportavdelning om problemet kvarstår. | **Orsaka:**<br/>Det här felet uppstår under tre förhållanden: när säkerhetsinställningar är aktiverade, när du försöker minska kvarhållningsområdet under de minimivärden som angetts tidigare och när du är på en version som inte stöds. (Versioner som inte stöds är de som finns under Uppdatering 2.0.0.052 och Uppdatering 1 av Azure Backup Server.) <br/>**Rekommenderad åtgärd:**<br/> Om du vill fortsätta med principrelaterade uppdateringar anger du kvarhållningsperioden över den angivna minsta kvarhållningsperioden. (Den minsta retentionstiden är sju dagar för varje dag, fyra veckor för varje vecka, tre veckor för månadsvis eller ett år för varje år.) <br><br>Alternativt är en annan prioriterad metod att uppdatera säkerhetskopieringsagenten och Azure Backup Server för att utnyttja alla säkerhetsuppdateringar. |
 
-## <a name="backup"></a>Säkerhetskopiering
+## <a name="backup"></a>Backup
 
 | Åtgärd | Felinformation | Lösning |
 | --- | --- | --- |
-| Säkerhetskopiering | Ett oväntat fel uppstod när jobbet kördes. Enheten är inte klar. | **Om den rekommenderade åtgärden som visas i produkten inte fungerar gör du följande:** <br> <ul><li>Ange att lagringsutrymmet för skuggkopiering ska vara obegränsat för objekten i skyddsgruppen och kör sedan konsekvenskontrollen.<br></li> Jag vet inte vad du ska ta på dig. <li>Prova att ta bort den befintliga skyddsgruppen och skapa flera nya grupper. Varje ny skyddsgrupp bör ha en enskild artikel i den.</li></ul> |
-| Säkerhetskopiering | Om du säkerhetskopierar systemtillståndet kontrollerar du att det finns tillräckligt med ledigt utrymme på den skyddade datorn för att lagra säkerhetskopian av systemtillståndet. | <ol><li>Kontrollera att Windows Server Backup är installerat på den skyddade datorn.</li><li>Kontrollera att det finns tillräckligt med utrymme på den skyddade datorn för systemtillståndet. Det enklaste sättet att kontrollera detta är att gå till den skyddade datorn, öppna Windows Server Backup, klicka igenom valen och sedan välja BMR. Användargränssnittet talar sedan om hur mycket utrymme som krävs. Öppna **WSB** > Lokal**säkerhetskopieringsschemaVal** > **Local backup** > **Backup Configuration** > **Full server** (storleken visas). Använd den här storleken för verifiering.</li></ol>
-| Säkerhetskopiering | Säkerhetskopiera fel för BMR | Om BMR-storleken är stor flyttar du vissa programfiler till OS-enheten och försöker igen. |
-| Säkerhetskopiering | Alternativet att återreda en virtuell virtuell vmware-dator på en ny Microsoft Azure Backup Server visas inte som tillgängligt att lägga till. | VMware-egenskaper pekar på en gammal, pensionerad instans av Microsoft Azure Backup Server. Gör så här för att lösa problemet:<br><ol><li>I VCenter (MOTSVARANDE SC-VMM) går du till fliken **Sammanfattning** och går sedan till **Anpassade attribut**.</li>  <li>Ta bort det gamla Microsoft Azure Backup Server-namnet från **DPMServer-värdet.**</li>  <li>Gå tillbaka till den nya Microsoft Azure Backup Server och ändra PG.  När du har **markerat** knappen Uppdatera visas den virtuella datorn med en kryssruta som finns att lägga till i skyddet.</li></ol> |
-| Säkerhetskopiering | Fel vid åtkomst till filer/delade mappar | Prova att ändra antivirusinställningarna som föreslås i den här artikeln [Kör antivirusprogram på DPM-servern](https://docs.microsoft.com/previous-versions/system-center/system-center-2012-R2/hh757911(v=sc.12)).|
+| Backup | Ett oväntat fel uppstod när jobbet kördes. Enheten är inte klar. | **Om den rekommenderade åtgärden som visas i produkten inte fungerar gör du följande:** <br> <ul><li>Ange att lagringsutrymmet för skuggkopiering ska vara obegränsat för objekten i skyddsgruppen och kör sedan konsekvenskontrollen.<br></li> Jag vet inte vad du ska ta på dig. <li>Prova att ta bort den befintliga skyddsgruppen och skapa flera nya grupper. Varje ny skyddsgrupp bör ha en enskild artikel i den.</li></ul> |
+| Backup | Om du säkerhetskopierar systemtillståndet kontrollerar du att det finns tillräckligt med ledigt utrymme på den skyddade datorn för att lagra säkerhetskopian av systemtillståndet. | <ol><li>Kontrollera att Windows Server Backup är installerat på den skyddade datorn.</li><li>Kontrollera att det finns tillräckligt med utrymme på den skyddade datorn för systemtillståndet. Det enklaste sättet att kontrollera detta är att gå till den skyddade datorn, öppna Windows Server Backup, klicka igenom valen och sedan välja BMR. Användargränssnittet talar sedan om hur mycket utrymme som krävs. Öppna **WSB** > Lokal**säkerhetskopieringsschemaVal** > **Local backup** > **Backup Configuration** > **Full server** (storleken visas). Använd den här storleken för verifiering.</li></ol>
+| Backup | Säkerhetskopiera fel för BMR | Om BMR-storleken är stor flyttar du vissa programfiler till OS-enheten och försöker igen. |
+| Backup | Alternativet att återreda en virtuell virtuell vmware-dator på en ny Microsoft Azure Backup Server visas inte som tillgängligt att lägga till. | VMware-egenskaper pekar på en gammal, pensionerad instans av Microsoft Azure Backup Server. Gör så här för att lösa problemet:<br><ol><li>I VCenter (MOTSVARANDE SC-VMM) går du till fliken **Sammanfattning** och går sedan till **Anpassade attribut**.</li>  <li>Ta bort det gamla Microsoft Azure Backup Server-namnet från **DPMServer-värdet.**</li>  <li>Gå tillbaka till den nya Microsoft Azure Backup Server och ändra PG.  När du har **markerat** knappen Uppdatera visas den virtuella datorn med en kryssruta som finns att lägga till i skyddet.</li></ol> |
+| Backup | Fel vid åtkomst till filer/delade mappar | Prova att ändra antivirusinställningarna som föreslås i den här artikeln [Kör antivirusprogram på DPM-servern](https://docs.microsoft.com/previous-versions/system-center/system-center-2012-R2/hh757911(v=sc.12)).|
 
 ## <a name="change-passphrase"></a>Ändra lösenfras
 

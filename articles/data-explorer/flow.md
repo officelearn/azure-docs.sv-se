@@ -6,13 +6,13 @@ ms.author: orspodek
 ms.reviewer: dorcohen
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 03/15/2020
-ms.openlocfilehash: 7745888dcaa1324d4a9d956e93d0504c8da8c026
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 03/25/2020
+ms.openlocfilehash: 198b78d5bab15057fdb6c7f6d4e8fff9f77d496e
+ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79501781"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80397103"
 ---
 # <a name="microsoft-flow-connector-preview"></a>Microsoft Flow-anslutningsapp (förhandsgranskning)
 
@@ -116,7 +116,7 @@ Använd kommandot Kör kontroll och visualisera resultat för att köra ett [kon
 ### <a name="run-query-and-list-results"></a>Kör fråge- och listresultat
 
 > [!Note]
-> Om frågan börjar med en punkt (vilket innebär att det är ett [kontrollkommando)](https://docs.microsoft.com/azure/kusto/management/index)använder du [kommandot Kör kontroll och visualiserar resultat](#run-control-command-and-visualize-results)
+> Om frågan börjar med en punkt (vilket innebär att det är ett [kontrollkommando)](https://docs.microsoft.com/azure/kusto/management/index)använder du [kommandot Kör kontroll och visualiserar resultat](#run-control-command-and-visualize-results).
 
 Den här åtgärden skickar en fråga till Kusto-klustret. De åtgärder som läggs till efteråt iterera över varje rad i resultatet av frågan.
 
@@ -130,7 +130,7 @@ I följande exempel utlöses en fråga varje minut och skickar ett e-postmeddela
 ### <a name="run-query-and-visualize-results"></a>Kör fråge- och visualisera resultat
         
 > [!Note]
-> Om frågan börjar med en punkt (vilket innebär att det är ett [kontrollkommando)](https://docs.microsoft.com/azure/kusto/management/index)använder du [kommandot Kör kontroll och visualiserar resultat](#run-control-command-and-visualize-results)
+> Om frågan börjar med en punkt (vilket innebär att det är ett [kontrollkommando)](https://docs.microsoft.com/azure/kusto/management/index)använder du [kommandot Kör kontroll och visualiserar resultat](#run-control-command-and-visualize-results).
         
 Använd åtgärden Kör fråga och visualisera resultat för att visualisera Kusto-frågeresultatet som en tabell eller ett diagram. Använd till exempel det här flödet för att ta emot dagliga ICM-rapporter via e-post. 
     
@@ -147,17 +147,21 @@ Du kan inkludera ett steg i valfritt flöde för att skicka rapporter via e-post
 
 1. Välj **+ Nytt steg** om du vill lägga till ett nytt steg i flödet.
 1. I sökfältet anger du Office 365 och väljer **Office 365 Outlook**.
-1. Välj **Skicka ett e-postmeddelande**.
+1. Välj **Skicka ett e-postmeddelande (V2)**.
 1. Ange e-postadressen till den plats där du vill att e-postrapporten ska skickas.
 1. Ange ämnet för e-postmeddelandet.
-1. Välj **Brödtext**i fältet *Brödtext* i fältet Dynamiskt innehåll .
+1. Välj **kodvy**.
+1. Placera markören i fältet *Brödtext* och välj **Lägg till dynamiskt innehåll**.
+1. Välj **BodyHtml**.
+    ![Skicka e-post](./media/flow/flow-send-email.png)
 1. Välj **visa avancerade alternativ**.
 1. Välj *Bifogadenknamn* i fältet **Bifogade**filer namn .
 1. Välj *Bifogat* innehåll i fältet **Bifogade filer.**
+1. Om det behövs lägger du till fler bilagor. 
 1. Om det behövs, ställ in betydelsenivån.
 1. Välj **Spara**.
 
-![Skicka e-post](./media/flow/flow-sendemail.png)
+![Skicka e-post](./media/flow/flow-add-attachments.png)
 
 ## <a name="check-if-your-flow-succeeded"></a>Kontrollera om flödet lyckades
 

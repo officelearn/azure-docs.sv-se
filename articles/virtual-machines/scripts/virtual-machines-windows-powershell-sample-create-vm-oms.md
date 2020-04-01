@@ -1,6 +1,6 @@
 ---
-title: Azure PowerShell skript exempel – Azure Monitor loggar
-description: Azure PowerShell skript exempel – Azure Monitor loggar
+title: Exempel på Azure PowerShell-skript – Azure Monitor-loggar
+description: Exempel på Azure PowerShell-skript – Azure Monitor-loggar
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: cynthn
@@ -16,13 +16,13 @@ ms.date: 12/12/2017
 ms.author: cynthn
 ms.custom: mvc
 ms.openlocfilehash: fdffb05ac7aff8aac2db9ac588c1dedf8f5c9ea5
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74038963"
 ---
-# <a name="create-an-azure-monitor-vm-with-powershell"></a>Skapa en virtuell Azure Monitor virtuell dator med PowerShell 
+# <a name="create-an-azure-monitor-vm-with-powershell"></a>Skapa en virtuell Azure-övervakare med PowerShell 
 
 Det här skriptet skapar en virtuell Azure-dator, installerar Log Analytics-agenten och registrerar systemet på en Log Analytics-arbetsyta. När skriptet har körts visas den virtuella datorn i Azure Monitor. Du behöver dessutom uppdatera Log Analytics-arbetsytans ID och arbetsytans nyckel.
 
@@ -49,7 +49,7 @@ Det här skriptet använder följande kommandon för att skapa distributionen. V
 | Kommando | Anteckningar |
 |---|---|
 | [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup) | Skapar en resursgrupp där alla resurser lagras. |
-| [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) | Skapar den virtuella datorn och ansluter den till nätverkskortet, ett virtuellt nätverk, ett undernät och en nätverkssäkerhetsgrupp. Det här kommandot öppnar också port 80 och anger administratörsautentiseringen. |
+| [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) | Skapar den virtuella datorn och ansluter den till nätverkskortet, ett virtuellt nätverk, ett undernät och en nätverkssäkerhetsgrupp. Det här kommandot öppnar också port 80 och anger administrativa autentiseringsuppgifter. |
 | [Set-AzVMExtension](https://docs.microsoft.com/powershell/module/az.compute/set-azvmextension) | Lägg till ett virtuellt datortillägg till den virtuella datorn. |
 |[Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) | Tar bort en resursgrupp och alla resurser som ingår i gruppen. |
 

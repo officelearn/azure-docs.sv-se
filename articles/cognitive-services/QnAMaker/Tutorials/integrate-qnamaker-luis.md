@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 09/26/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 7e1ea234bde96ce84259841bbc592bf6373bc639
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c01f5f41e61cd65855789bb753a7a297fe475885
+ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "71802796"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80396351"
 ---
 # <a name="use-bot-with-qna-maker-and-luis-to-distribute-your-knowledge-base"></a>Använd bot med QnA Maker och LUIS för att distribuera din kunskapsbas
 När din QnA Maker kunskapsbas växer sig stor, blir det svårt att behålla den som en enda monolitisk uppsättning och det finns ett behov av att dela upp kunskapsbasen i mindre logiska bitar.
@@ -37,13 +37,13 @@ I ovanstående scenario får QnA Maker först avsikten med den inkommande fråga
 1. [Skapa en app](https://docs.microsoft.com/azure/cognitive-services/luis/create-new-app).
 1. [Lägg till en avsikt](https://docs.microsoft.com/azure/cognitive-services/luis/add-intents) för varje QnA Maker-kunskapsbas. Exempelyttrandena bör motsvara frågor i QnA Maker-kunskapsbaserna.
 1. [Träna LUIS-appen](https://docs.microsoft.com/azure/cognitive-services/luis/luis-how-to-train) och [publicera LUIS-appen](https://docs.microsoft.com/azure/cognitive-services/luis/publishapp) din LUIS-app.
-1. I avsnittet **Hantera** antecknar du luis-app-ID: n, LUIS-slutpunktsnyckeln och [det anpassade domännamnet](../../cognitive-services-custom-subdomains.md). Du behöver dessa värden senare. 
+1. I avsnittet **Hantera** antecknar du luis-app-ID: n, LUIS-slutpunktsnyckeln och [det anpassade domännamnet](../../cognitive-services-custom-subdomains.md). Du behöver dessa värden senare.
 
 ## <a name="create-qna-maker-knowledge-bases"></a>Skapa QnA Maker kunskapsbaser
 
 1. Logga in på [QnA Maker](https://qnamaker.ai).
 1. [Skapa](https://www.qnamaker.ai/Create) kunskapsbaser för varje avsikt i LUIS-appen.
-1. Testa och publicera kunskapsbaserna. När du publicerar varje KB noterar du KB-ID:t, resursnamn (anpassad underdomän före _.azurewebsites.net/qnamaker_) och nyckeln för auktoriseringsslutpunkt. Du behöver dessa värden senare. 
+1. Testa och publicera kunskapsbaserna. När du publicerar varje KB noterar du KB-ID:t, resursnamn (anpassad underdomän före _.azurewebsites.net/qnamaker_) och nyckeln för auktoriseringsslutpunkt. Du behöver dessa värden senare.
 
     Den här artikeln förutsätter att KBs alla skapas i samma Azure QnA Maker-prenumeration.
 
@@ -60,7 +60,7 @@ I ovanstående scenario får QnA Maker först avsikten med den inkommande fråga
 
 ## <a name="change-code-in-basicluisdialogcs"></a>Ändra kod i BasicLuisDialog.cs
 1. Välj **Skapa**i avsnittet **Bothantering** i webbappronvigeringen i Azure-portalen .
-2. Välj **Öppna kodredigeraren online**. En ny webbläsarflik öppnas med onlineredigeringsmiljön. 
+2. Välj **Öppna kodredigeraren online**. En ny webbläsarflik öppnas med onlineredigeringsmiljön.
 3. I avsnittet **WWWROOT** väljer du katalogen **Dialogrutor** och öppnar sedan **BasicLuisDialog.cs**.
 4. Lägg till beroenden överst i **BasicLuisDialog.cs-filen:**
 
@@ -155,7 +155,7 @@ I ovanstående scenario får QnA Maker först avsikten med den inkommande fråga
     ```
 
 
-7. Ändra klassen BasicLuisDialog. Varje LUIS avsikt bör ha en metod dekorerad med **LuisIntent**. Parametern till dekorationen är det faktiska LUIS-avsiktsnamnet. Metodnamnet som är inrett _ska_ vara LUIS-avsiktsnamnet för läsbarhet och underhåll, men behöver inte vara detsamma vid design eller körning.  
+7. Ändra klassen BasicLuisDialog. Varje LUIS avsikt bör ha en metod dekorerad med **LuisIntent**. Parametern till dekorationen är det faktiska LUIS-avsiktsnamnet. Metodnamnet som är inrett _ska_ vara LUIS-avsiktsnamnet för läsbarhet och underhåll, men behöver inte vara detsamma vid design eller körning.
 
     ```csharp
     [Serializable]
@@ -170,7 +170,7 @@ I ovanstående scenario får QnA Maker först avsikten med den inkommande fråga
         // assumes all KBs are created with same Azure service
         static string qnamaker_endpointKey = "<QnA Maker endpoint KEY>";
         static string qnamaker_resourceName = "my-qnamaker-s0-s";
-        
+
         // QnA Maker Human Resources Knowledge base
         static string HR_kbID = "<QnA Maker KNOWLEDGE BASE ID>";
 
@@ -240,4 +240,4 @@ I Azure-portalen väljer du **Testa i webbchatt** för att testa roboten. Skriv 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Skapa en affärskontinuitetsplan för QnA Maker](../How-To/business-continuity-plan.md)
+> [Integrera din kunskapsbas med en Power Virtual Agent](integrate-with-power-virtual-assistant-fallback-topic.md)

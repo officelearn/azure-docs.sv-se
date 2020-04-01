@@ -10,12 +10,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 05/02/2019
 ms.author: robreed
-ms.openlocfilehash: 698fab470cdc8b8d04fa4319fd71c31b58d1c5a3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2c7cad2dfdcd55073a1cf09d79e5223b666ced5f
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80066883"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80478146"
 ---
 # <a name="custom-script-extension-for-windows"></a>Anpassat skripttillägg för Windows
 
@@ -106,7 +106,7 @@ Dessa objekt ska behandlas som känsliga data och anges i den skyddade inställn
 > Det går inte att installera endast en version av ett tillägg på en virtuell dator vid en tidpunkt, och det går inte att ange anpassade skript två gånger i samma Resource Manager-mall för samma virtuella dator.
 
 > [!NOTE]
-> Vi kan använda det här schemat i VirtualMachine-resursen eller som en fristående resurs. Namnet på resursen måste vara i det här formatet "virtualMachineName/extensionName", om det här tillägget används som en fristående resurs i ARM-mallen. 
+> Vi kan använda det här schemat i VirtualMachine-resursen eller som en fristående resurs. Namnet på resursen måste vara i det här formatet "virtualMachineName/extensionName", om det här tillägget används som en fristående resurs i ARM-mallen.
 
 ### <a name="property-values"></a>Egenskapsvärden
 
@@ -146,6 +146,8 @@ Använda offentliga inställningar kanske användbart för felsökning, men vi r
 Offentliga inställningar skickas i klartext till den virtuella datorn där skriptet ska köras.  Skyddade inställningar krypteras med en nyckel som bara är känd för Azure och den virtuella datorn. Inställningarna sparas på den virtuella datorn när de skickades, det vill än om inställningarna krypterades de sparas krypterade på den virtuella datorn. Certifikatet som används för att dekryptera de krypterade värdena lagras på den virtuella datorn och används för att dekryptera inställningar (om det behövs) vid körning.
 
 ####  <a name="property-managedidentity"></a>Fastighetsförmedling: hanteradIdentity
+> [!NOTE]
+> Den här egenskapen **får** endast anges i skyddade inställningar.
 
 CustomScript (version 1.10 och framåt) stöder [hanterad identitet](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) för nedladdning av filer från webbadresser som anges i inställningen "fileUris". Det gör att CustomScript kan komma åt privata azure storage-blobbar eller behållare utan att användaren behöver skicka hemligheter som SAS-token eller lagringskontonycklar.
 
@@ -268,7 +270,7 @@ Om du använder [Invoke-WebRequest](/powershell/module/microsoft.powershell.util
 ```error
 The response content cannot be parsed because the Internet Explorer engine is not available, or Internet Explorer's first-launch configuration is not complete. Specify the UseBasicParsing parameter and try again.
 ```
-## <a name="virtual-machine-scale-sets"></a>Skalningsuppsättningar för Virtual Machines
+## <a name="virtual-machine-scale-sets"></a>Virtual Machine Scale Sets
 
 Information om hur du distribuerar det anpassade skripttillägget i en skalningsuppsättning finns [i Add-AzVmssExtension](https://docs.microsoft.com/powershell/module/az.compute/add-azvmssextension?view=azps-3.3.0)
 

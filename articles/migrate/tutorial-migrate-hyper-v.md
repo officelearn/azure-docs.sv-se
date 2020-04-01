@@ -3,13 +3,15 @@ title: Migrera virtuella virtuella hyper-v-datorer till Azure med Azure Migrera 
 description: Lär dig hur du migrerar lokala virtuella hyper-V-datorer till Azure med Azure Migrera servermigrering
 ms.topic: tutorial
 ms.date: 11/18/2019
-ms.custom: fasttrack-edit
-ms.openlocfilehash: 2b9ed56186649b7644adbd1237ad74af50474cc5
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.custom:
+- MVC
+- fasttrack-edit
+ms.openlocfilehash: b5d37da7ea0c53a7e8cbb5b579d529dd4a799fed
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80279716"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80422686"
 ---
 # <a name="migrate-hyper-v-vms-to-azure"></a>Migrera virtuella Hyper-V-datorer till Azure 
 
@@ -62,7 +64,7 @@ Om du har följt den andra självstudien och redan har ett Azure Migrate-projekt
 
 4. Välj **Azure Migrate: Servermigreringstillägg** > **Add tool** i verktygslistan
 
-    ![Verktyget Servermigrering](./media/tutorial-migrate-hyper-v/server-migration-tool.png)
+    ![Verktyg för servermigrering](./media/tutorial-migrate-hyper-v/server-migration-tool.png)
 
 
 ## <a name="set-up-the-azure-migrate-appliance"></a>Konfigurera Azure Migrate-enheten

@@ -6,17 +6,22 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 09/01/2019
+ms.date: 03/23/2020
 ms.author: ramkris
 ms.reviewer: sngun
-ms.openlocfilehash: d7600267dcd196a9a5c06c29774ea21d582cd7ce
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 40ef05107f20a3396f6710f894a2dbad2d7fa6c9
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79246882"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80478844"
 ---
 # <a name="use-the-bulk-executor-net-library-to-perform-bulk-operations-in-azure-cosmos-db"></a>Använd massutnämningen .NET-bibliotek för att utföra massåtgärder i Azure Cosmos DB
+
+> [!NOTE]
+> Det här massutnrösatorbiblioteket som beskrivs i den här artikeln underhålls för program som använder .NET SDK 2.x-versionen. För nya program kan du använda **masssupporten** som är direkt tillgänglig med [.NET SDK version 3.x](tutorial-sql-api-dotnet-bulk-import.md) och det kräver inget externt bibliotek. 
+
+> Om du för närvarande använder massutnrösatorbiblioteket och planerar att migrera till massstöd på nyare SDK använder du stegen i [migreringsguiden](how-to-migrate-from-bulk-executor-library.md) för att migrera programmet.
 
 Den här självstudien innehåller instruktioner om hur du använder massutdelningsutdeltagaren .NET-biblioteket för att importera och uppdatera dokument till en Azure Cosmos-behållare. Mer information om massutflödesbiblioteket och hur det hjälper dig att utnyttja massivt dataflöde och lagringsutrymme finns i översiktsartikeln [för massutflödesbiblioteket.](bulk-executor-overview.md) I den här självstudien visas ett exempel på .NET-program som massimporterar slumpmässigt genererade dokument till en Azure Cosmos-behållare. När du har importerat den visas hur du kan masskopiera uppdatering av importerade data genom att ange korrigeringsfiler som åtgärder som ska utföras på specifika dokumentfält.
 

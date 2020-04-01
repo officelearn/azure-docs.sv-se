@@ -4,16 +4,16 @@ description: Lär dig hur du lägger till ett huvudnamn för en automatiseringst
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/29/2019
+ms.date: 03/30/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 1370f65405963ebf825e986e6801607a0d96156e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 925fbbb51ac240b96486a2c0aa09c850a8d164bc
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78298096"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80408649"
 ---
 # <a name="add-a-service-principal-to-the-server-administrator-role"></a>Lägga till ett tjänsthuvudnamn i serveradministratörsrollen 
 

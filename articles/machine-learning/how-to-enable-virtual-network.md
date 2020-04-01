@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
-ms.date: 01/13/2020
-ms.openlocfilehash: c813e8a27a7f85eccff2c23d9ffdcfa4a1442f34
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 03/13/2020
+ms.openlocfilehash: 6e300bbec097201b33f0c576db91c2ca720fb921
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80282842"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80437356"
 ---
 # <a name="secure-azure-ml-experimentation-and-inference-jobs-within-an-azure-virtual-network"></a>Skydda Azure ML-experiment och slutledningsjobb i ett virtuellt Azure-nätverk
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -63,7 +63,7 @@ Så här använder du ett Azure-lagringskonto för arbetsytan i ett virtuellt n�
     - Under __Virtuella nätverk__väljer du länken Lägg till __befintligt virtuellt nätverk.__ Den här åtgärden lägger till det virtuella nätverket där beräkningen finns (se steg 1).
 
         > [!IMPORTANT]
-        > Lagringskontot måste finnas i samma virtuella nätverk som de beräkningsinstanser eller kluster som används för utbildning eller slutledning.
+        > Lagringskontot måste finnas i samma virtuella nätverk och undernät som beräkningsinstanserna eller kluster som används för utbildning eller slutledning.
 
     - Markera kryssrutan __Tillåt betrodda Microsoft-tjänster för att komma åt det här lagringskontot.__
 
@@ -180,8 +180,6 @@ Om du inte vill använda standardreglerna för utgående och vill begränsa den 
    - Azure Storage, med hjälp av __Service Tag__ of __Storage.RegionName__. Var `{RegionName}` är namnet på en Azure-region.
    - Azure Container Registry, med hjälp av __Service Tag__ i __AzureContainerRegistry.RegionName__. Var `{RegionName}` är namnet på en Azure-region.
    - Azure Machine Learning, med hjälp av __Service Tag__ i __AzureMachineLearning__
-   
-- För en __beräkningsinstans__lägger du även till följande objekt:
    - Azure Resource Manager, med hjälp av __Service Tag__ i __AzureResourceManager__
    - Azure Active Directory, med hjälp av __Service Tag__ of __AzureActiveDirectory__
 
@@ -242,19 +240,19 @@ Mer information finns i [Skapa en Azure Batch-pool i ett virtuellt nätverk](../
 
 Så här skapar du ett Machine Learning Compute-kluster:
 
-1. Välj arbetsytan Azure Machine Learning i [Azure-portalen.](https://portal.azure.com)
+1. Logga in på [Azure Machine Learning studio](https://ml.azure.com/)och välj sedan din prenumeration och arbetsyta.
 
-1. I avsnittet __Program__ väljer du __Beräkna__och väljer sedan __Lägg till beräkning__.
+1. Välj __Beräkna__ till vänster.
 
-1. Så här konfigurerar du den här beräkningsresursen så att den använder ett virtuellt nätverk:
+1. Välj __Utbildningskluster__ från mitten __+__ och välj sedan .
 
-    a. För __Nätverkskonfiguration__väljer du __Avancerat__.
+1. Expandera avsnittet __Avancerade inställningar__ i dialogrutan __Nytt träningskluster.__
 
-    b. I listrutan __Resursgrupp__ väljer du den resursgrupp som innehåller det virtuella nätverket.
+1. Om du vill konfigurera den här beräkningsresursen så att den använder ett virtuellt nätverk utför du följande åtgärder i avsnittet __Konfigurera virtuellt nätverk:__
 
-    c. I listrutan __Virtuellt nätverk__ väljer du det virtuella nätverk som innehåller undernätet.
-
-    d. Markera det undernät som ska användas i listrutan __Undernät.__
+    1. I listrutan __Resursgrupp__ väljer du den resursgrupp som innehåller det virtuella nätverket.
+    1. I listrutan __Virtuellt nätverk__ väljer du det virtuella nätverk som innehåller undernätet.
+    1. Markera det undernät som ska användas i listrutan __Undernät.__
 
    ![De virtuella nätverksinställningarna för Machine Learning Compute](./media/how-to-enable-virtual-network/amlcompute-virtual-network-screen.png)
 
@@ -356,29 +354,25 @@ Så här lägger du till AKS i ett virtuellt nätverk på arbetsytan:
 >
 > AKS-instansen och det virtuella Azure-nätverket måste finnas i samma region. Om du skyddar de Azure Storage-konton som används av arbetsytan i ett virtuellt nätverk måste de finnas i samma virtuella nätverk som AKS-instansen.
 
-1. I [Azure-portalen](https://portal.azure.com)kontrollerar du att NSG som styr det virtuella nätverket har en inkommande regel som är aktiverad för Azure Machine Learning med Hjälp av __AzureMachineLearning__ som **KÄLLA**.
+> [!WARNING]
+> Azure Machine Learning stöder inte användning av en Azure Kubernetes-tjänst som har privat länk aktiverad.
 
-    [![Fönstret Lägg till beräkning i Azure Machine Learning](./media/how-to-enable-virtual-network/aks-vnet-inbound-nsg-aml.png)](./media/how-to-enable-virtual-network/aks-vnet-inbound-nsg-aml.png#lightbox)
+1. Logga in på [Azure Machine Learning studio](https://ml.azure.com/)och välj sedan din prenumeration och arbetsyta.
 
-1. Välj arbetsytan Azure Machine Learning.
+1. Välj __Beräkna__ till vänster.
 
-1. I avsnittet __Program__ väljer du __Beräkna__och väljer sedan __Lägg till beräkning__.
+1. Välj __Inferenskluster__ från mitten __+__ och välj sedan .
+
+1. I dialogrutan __Nytt inferenskluster__ väljer du __Avancerat__ under __Nätverkskonfiguration__.
 
 1. Så här konfigurerar du den här beräkningsresursen så att den använder ett virtuellt nätverk:
 
-    - För __Nätverkskonfiguration__väljer du __Avancerat__.
-
-    - I listrutan __Resursgrupp__ väljer du den resursgrupp som innehåller det virtuella nätverket.
-
-    - I listrutan __Virtuellt nätverk__ väljer du det virtuella nätverk som innehåller undernätet.
-
-    - Markera undernätet i listrutan __Undernät.__
-
-    - I rutan __Kubernetes Service-adressintervall__ anger du serviceadressintervallet För Kubernetes. Det här adressintervallet använder ett CIDR-notations-IP-intervall (Classless Inter-Domain Routing) för att definiera de IP-adresser som är tillgängliga för klustret. Den får inte överlappa med några IP-intervall i undernätet (till exempel 10.0.0.0/16).
-
-    - I rutan __Kubernetes DNS-tjänst IP-adress__ anger du KUBernetes DNS-tjänst IP-adress. Den här IP-adressen tilldelas kubernetes DNS-tjänst. Det måste finnas inom Kubernetes serviceadressintervall (till exempel 10.0.0.10).
-
-    - Ange Docker-bryggans adress i rutan __Docker-brygga.__ Den här IP-adressen har tilldelats Docker Bridge. Det får inte finnas i något IP-intervall i undernät eller kubernetes tjänstadressintervall (till exempel 172.17.0.1/16).
+    1. I listrutan __Resursgrupp__ väljer du den resursgrupp som innehåller det virtuella nätverket.
+    1. I listrutan __Virtuellt nätverk__ väljer du det virtuella nätverk som innehåller undernätet.
+    1. Markera undernätet i listrutan __Undernät.__
+    1. I rutan __Kubernetes Service-adressintervall__ anger du serviceadressintervallet För Kubernetes. Det här adressintervallet använder ett CIDR-notations-IP-intervall (Classless Inter-Domain Routing) för att definiera de IP-adresser som är tillgängliga för klustret. Den får inte överlappa med några IP-intervall i undernätet (till exempel 10.0.0.0/16).
+    1. I rutan __Kubernetes DNS-tjänst IP-adress__ anger du KUBernetes DNS-tjänst IP-adress. Den här IP-adressen tilldelas kubernetes DNS-tjänst. Det måste finnas inom Kubernetes serviceadressintervall (till exempel 10.0.0.10).
+    1. Ange Docker-bryggans adress i rutan __Docker-brygga.__ Den här IP-adressen har tilldelats Docker Bridge. Det får inte finnas i något IP-intervall i undernät eller kubernetes tjänstadressintervall (till exempel 172.17.0.1/16).
 
    ![Azure Machine Learning: Virtuella nätverksinställningar för Machine Learning Compute](./media/how-to-enable-virtual-network/aks-virtual-network-screen.png)
 
@@ -445,7 +439,7 @@ except:
     prov_config.docker_bridge_cidr = "172.17.0.1/16"
 
     # Create compute target
-    aks_target = ComputeTarget.create(workspace = ws, name = “myaks”, provisioning_configuration = prov_config)
+    aks_target = ComputeTarget.create(workspace = ws, name = "myaks", provisioning_configuration = prov_config)
     # Wait for the operation to complete
     aks_target.wait_for_completion(show_output = True)
     
@@ -466,7 +460,7 @@ Innehållet i `body.json` filen som refereras av kommandot liknar följande JSON
 
 ```json
 { 
-    "location": “<region>”, 
+    "location": "<region>", 
     "properties": { 
         "resourceId": "/subscriptions/<subscription-id>/resourcegroups/<resource-group>/providers/Microsoft.ContainerService/managedClusters/<aks-resource-id>", 
         "computeType": "AKS", 
@@ -504,7 +498,102 @@ Mer information om hur du konfigurerar en nätverksregel finns i [Distribuera oc
 
 ## <a name="use-azure-container-registry"></a>Använda Azure Container Registry
 
-När du använder ett virtuellt nätverk med Azure Machine Learning ska __du inte__ placera Azure Container Registry för arbetsytan i det virtuella nätverket. Konfigurationen stöds inte.
+> [!IMPORTANT]
+> Acr (Azure Container Registry) kan placeras i ett virtuellt nätverk, men du måste uppfylla följande förutsättningar:
+>
+> * Din Azure Machine Learning-arbetsyta måste vara Enterprise Edition. Information om hur du uppgraderar finns i [Uppgradera till Enterprise-utgåvan](how-to-manage-workspace.md#upgrade).
+> * Ditt Azure-behållarregister måste vara Premium-version . Mer information om uppgradering finns i [Ändra SKU: er](/azure/container-registry/container-registry-skus#changing-skus).
+> * Ditt Azure Container-register måste finnas i samma virtuella nätverk och undernät som lagringskontot och beräkningsmålen som används för utbildning eller slutledning.
+> * Din Azure Machine Learning-arbetsyta måste innehålla ett [Azure Machine Learning-beräkningskluster](how-to-set-up-training-targets.md#amlcompute).
+>
+>     När ACR ligger bakom ett virtuellt nätverk kan Azure Machine Learning inte använda det för att direkt skapa Docker-avbildningar. I stället används beräkningsklustret för att skapa avbildningarna.
+
+1. Om du vill hitta namnet på Azure Container Registry för din arbetsyta använder du någon av följande metoder:
+
+    __Azure Portal__
+
+    Från översiktsavsnittet på arbetsytan länkar __registervärdet__ till Azure Container Registry.
+
+    ![Azure Container Registry för arbetsytan](./media/how-to-enable-virtual-network/azure-machine-learning-container-registry.png)
+
+    __Azure CLI__
+
+    Om du har [installerat machine learning-tillägget för Azure CLI](reference-azure-machine-learning-cli.md)kan du använda `az ml workspace show` kommandot för att visa arbetsytan information.
+
+    ```azurecli-interactive
+    az ml workspace show -w yourworkspacename -g resourcegroupname --query 'containerRegistry'
+    ```
+
+    Det här kommandot returnerar ett värde som liknar `"/subscriptions/{GUID}/resourceGroups/{resourcegroupname}/providers/Microsoft.ContainerRegistry/registries/{ACRname}"`. Den sista delen av strängen är namnet på Azure Container Registry för arbetsytan.
+
+1. Om du vill begränsa åtkomsten till det virtuella nätverket använder du stegen i [Konfigurera nätverksåtkomst för registret](../container-registry/container-registry-vnet.md#configure-network-access-for-registry). När du lägger till det virtuella nätverket väljer du det virtuella nätverket och undernätet för dina Azure Machine Learning-resurser.
+
+1. Använd Azure Machine Learning Python SDK för att konfigurera ett beräkningskluster för att skapa dockeravbildningar. Följande kodavsnitt visar hur du gör detta:
+
+    ```python
+    from azureml.core import Workspace
+    # Load workspace from an existing config file
+    ws = Workspace.from_config()
+    # Update the workspace to use an existing compute cluster
+    ws.update(image_build_compute = 'mycomputecluster')
+    ```
+
+    > [!IMPORTANT]
+    > Ditt lagringskonto, beräkningskluster och Azure Container-registret måste alla finnas i samma undernät i det virtuella nätverket.
+    
+    Mer information finns i metodreferensen [update().](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py#update-friendly-name-none--description-none--tags-none--image-build-compute-none-)
+
+1. Om du använder Privat länk för din Azure Machine Learning-arbetsyta och placerar Azure Container-registret för din arbetsyta i ett virtuellt nätverk, måste du också använda följande Azure Resource Manager-mall. Med den här mallen kan arbetsytan kommunicera med ACR via den privata länken.
+
+    ```json
+    {
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "keyVaultArmId": {
+        "type": "string"
+        },
+        "workspaceName": {
+        "type": "string"
+        },
+        "containerRegistryArmId": {
+        "type": "string"
+        },
+        "applicationInsightsArmId": {
+        "type": "string"
+        },
+        "storageAccountArmId": {
+        "type": "string"
+        },
+        "location": {
+        "type": "string"
+        }
+    },
+    "resources": [
+        {
+        "type": "Microsoft.MachineLearningServices/workspaces",
+        "apiVersion": "2019-11-01",
+        "name": "[parameters('workspaceName')]",
+        "location": "[parameters('location')]",
+        "identity": {
+            "type": "SystemAssigned"
+        },
+        "sku": {
+            "tier": "enterprise",
+            "name": "enterprise"
+        },
+        "properties": {
+            "sharedPrivateLinkResources":
+    [{"Name":"Acr","Properties":{"PrivateLinkResourceId":"[concat(parameters('containerRegistryArmId'), '/privateLinkResources/registry')]","GroupId":"registry","RequestMessage":"Approve","Status":"Pending"}}],
+            "keyVault": "[parameters('keyVaultArmId')]",
+            "containerRegistry": "[parameters('containerRegistryArmId')]",
+            "applicationInsights": "[parameters('applicationInsightsArmId')]",
+            "storageAccount": "[parameters('storageAccountArmId')]"
+        }
+        }
+    ]
+    }
+    ```
 
 ## <a name="next-steps"></a>Nästa steg
 

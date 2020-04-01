@@ -6,18 +6,18 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 03/11/2020
-ms.openlocfilehash: 2c6e35b1e7d160064998004f87c5b14d0eaeac5e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0670331d2338b4b6419ffbff1452b5fbac91029f
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79127651"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80478826"
 ---
 # <a name="create-an-integration-service-environment-ise-by-using-the-logic-apps-rest-api"></a>Skapa en integrationstjänstmiljö (ISE) med hjälp av REST-API:et för Logic Apps
 
 Den här artikeln visar hur du skapar en [ *integrationstjänstmiljö* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) via LOGIC Apps REST API för scenarier där dina logikappar och integrationskonton behöver åtkomst till ett [virtuellt Azure-nätverk](../virtual-network/virtual-networks-overview.md). En ISE är en isolerad miljö som använder dedikerad lagring och andra resurser som hålls åtskilda från den "globala" Logic Apps-tjänsten för flera innehavare. Den här separationen minskar också all påverkan som andra Azure-klienter kan ha på dina appars prestanda. En ISE ger dig också dina egna statiska IP-adresser. Dessa IP-adresser är åtskilda från de statiska IP-adresser som delas av logikapparna i den offentliga tjänsten med flera innehavare.
 
-Information om hur du skapar en ISE med hjälp av Azure-portalen i stället finns i [Anslut till virtuella Azure-nätverk från Azure Logic Apps](../logic-apps/connect-virtual-network-vnet-isolated-environment.md).
+Du kan också skapa en ISE med hjälp av [snabbstartsmallen för Azure Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/201-integration-service-environment) eller med hjälp av [Azure-portalen](../logic-apps/connect-virtual-network-vnet-isolated-environment.md).
 
 > [!IMPORTANT]
 > Logikappar, inbyggda utlösare, inbyggda åtgärder och kopplingar som körs i ISE använder en prisplan som skiljer sig från den förbrukningsbaserade prisplanen. Mer information om hur prissättning och fakturering fungerar för ISE finns i [logic apps-prismodellen](../logic-apps/logic-apps-pricing.md#fixed-pricing). Prispriser finns i [Logic Apps prissättning](../logic-apps/logic-apps-pricing.md).

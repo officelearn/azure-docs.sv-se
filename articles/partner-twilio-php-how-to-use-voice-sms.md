@@ -12,12 +12,12 @@ ms.devlang: PHP
 ms.topic: article
 ms.date: 11/25/2014
 ms.author: gwallace
-ms.openlocfilehash: 34057f1962338927a252011dccc56ed6a77bec47
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f9fb250109a1c9000eae8da0d6337c96f19f0f89
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "69636027"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80410546"
 ---
 # <a name="how-to-use-twilio-for-voice-and-sms-capabilities-in-php"></a>Hur man använder Twilio för röst-och SMS-funktioner i PHP
 Den här guiden visar hur du utför vanliga programmeringsuppgifter med Twilio API-tjänsten på Azure. Scenarierna som omfattas är att ringa ett telefonsamtal och skicka ett SMS-meddelande (Short Message Service). Mer information om Twilio och hur du använder röst och SMS i dina program finns i avsnittet [Nästa steg.](#NextSteps)
@@ -138,7 +138,7 @@ Följande visar hur du ringer ett utgående samtal med **Services_Twilio** klass
 
 Som nämnts använder den här koden en Twilio-tillsedd plats för att returnera TwiML-svaret. Du kan istället använda din egen webbplats för att ge TwiML-svaret. Mer information finns i [Så här ger du TwiML-svar från din egen webbplats](#howto_provide_twiml_responses).
 
-* **Om**du vill felsöka valideringsfel för SSL-certifikat läser du[http://readthedocs.org/docs/twilio-php/en/latest/usage/rest.html][ssl_validation] 
+* **Om**du vill felsöka valideringsfel för TLS/SSL-certifikat läser du[http://readthedocs.org/docs/twilio-php/en/latest/usage/rest.html][ssl_validation] 
 
 ## <a name="how-to-send-an-sms-message"></a><a id="howto_send_sms"></a>Så här skickar du ett SMS
 Följande visar hur du skickar ett SMS-meddelande med **Services_Twilio** klassen. **Från-numret** tillhandahålls av Twilio för utvärderingskonton för att skicka SMS-meddelanden. **Till-numret** måste verifieras för ditt Twilio-konto innan koden körs.

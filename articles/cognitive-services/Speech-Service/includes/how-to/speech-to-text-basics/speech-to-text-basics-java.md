@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/11/2020
 ms.author: dapine
-ms.openlocfilehash: 7d29f781950784cdb8951b3a6e45d5b5d0f9819f
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: c2b474c9d6485bdba31412435f4edbdd2383b3c0
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "79539817"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80502375"
 ---
 ## <a name="prerequisites"></a>Krav
 
@@ -36,7 +36,7 @@ Det finns några sätt som du [`SpeechConfig`](https://docs.microsoft.com/java/a
 * Med en värd: skicka in en värdadress. En nyckel eller auktoriseringstoken är valfri.
 * Med en auktoriseringstoken: skicka in en auktoriseringstoken och den associerade regionen.
 
-Låt oss ta en titt [`SpeechConfig`](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechconfig?view=azure-java-stable) på hur en skapas med hjälp av en nyckel och region.
+Låt oss ta en titt [`SpeechConfig`](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechconfig?view=azure-java-stable) på hur en skapas med hjälp av en nyckel och region. Se [regionens supportsida](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#speech-sdk) för att hitta din regionidentifierare.
 
 ```java
 SpeechConfig config = SpeechConfig.fromSubscription("YourSubscriptionKey", "YourServiceRegion");

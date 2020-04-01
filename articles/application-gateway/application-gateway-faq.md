@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 03/24/2020
 ms.author: victorh
-ms.openlocfilehash: 242fc115c5b2324c770de480fb19985e8b874893
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 290467d5d20a74f8b8b2c23f6da0dcadfd74cc56
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80371253"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80411017"
 ---
 # <a name="frequently-asked-questions-about-application-gateway"></a>Vanliga frågor och svar om Application Gateway
 
@@ -353,11 +353,11 @@ För närvarande kan en instans av Ingress Controller endast associeras till en 
 
 Application Gateway innehåller tre loggar: 
 
-* **ApplicationGatewayAccessLog**: Åtkomstloggen innehåller varje begäran som skickas till klientåtkomsten för programmet. Data inkluderar anroparens IP, begärd URL, svarssvarstid, returkod och byte in och ut. Åtkomstloggen samlas in var 300:e sekund. Den innehåller en post per programgateway.
+* **ApplicationGatewayAccessLog**: Åtkomstloggen innehåller varje begäran som skickas till klientåtkomsten för programmet. Data inkluderar anroparens IP, begärd URL, svarssvarstid, returkod och byte in och ut. Den innehåller en post per programgateway.
 * **ApplicationGatewayPerformanceLog**: Prestandaloggen samlar in prestandainformation för varje programgateway. Informationen omfattar dataflödet i byte, totalt antal begäranden, antal misslyckade begäranden och antalet felaktiga serveringsinstanser.
 * **ApplicationGatewayFirewallLog**: För programgateways som du konfigurerar med WAF innehåller brandväggsloggen begäranden som loggas antingen i identifieringsläge eller förebyggande läge.
 
-Mer information finns i [Backend-hälsotillstånd, diagnostikloggar och mått för Application Gateway](application-gateway-diagnostics.md).
+Alla loggar samlas in var 60:e sekund. Mer information finns i [Backend-hälsotillstånd, diagnostikloggar och mått för Application Gateway](application-gateway-diagnostics.md).
 
 ### <a name="how-do-i-know-if-my-backend-pool-members-are-healthy"></a>Hur vet jag om mina backend pool medlemmar är friska?
 

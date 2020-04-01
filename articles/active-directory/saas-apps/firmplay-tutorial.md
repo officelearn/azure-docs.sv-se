@@ -1,6 +1,6 @@
 ---
-title: 'Självstudier: Azure Active Directory-integrering med FirmPlay - medarbetare kundstöd för rekrytering | Microsoft Docs'
-description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och FirmPlay - medarbetare kundstöd för rekrytering.
+title: 'Självstudiekurs: Azure Active Directory-integrering med FirmPlay – Medarbetarpåverkan för rekrytering | Microsoft-dokument'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och FirmPlay - Employee Advocacy för rekrytering.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -16,44 +16,44 @@ ms.topic: tutorial
 ms.date: 04/01/2019
 ms.author: jeedes
 ms.openlocfilehash: 2bdc3a13582f079cc9325ef1c6949c3ae10138eb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67102527"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-firmplay---employee-advocacy-for-recruiting"></a>Självstudier: Azure Active Directory-integrering med FirmPlay - medarbetare kundstöd för rekrytering
+# <a name="tutorial-azure-active-directory-integration-with-firmplay---employee-advocacy-for-recruiting"></a>Självstudiekurs: Azure Active Directory-integrering med FirmPlay - Medarbetares opinionsbildning för rekrytering
 
-I den här självstudien får du lära dig hur du integrerar FirmPlay - medarbetare kundstöd för rekrytering med Azure Active Directory (AD Azure).
-Integrera FirmPlay - medarbetare kundstöd för rekrytering med Azure AD ger dig följande fördelar:
+I den här självstudien får du lära dig hur du integrerar FirmPlay – Employee Advocacy för rekrytering med Azure Active Directory (Azure AD).
+Genom att integrera FirmPlay – Medarbetares opinionsbildning för rekrytering med Azure AD får du följande fördelar:
 
-* Du kan styra i Azure AD som har åtkomst till FirmPlay - medarbetare kundstöd för rekrytering.
-* Du kan aktivera användarna att vara automatiskt inloggad till FirmPlay - medarbetare kundstöd för rekrytering (Single Sign-On) med sina Azure AD-konton.
-* Du kan hantera dina konton på en central plats – Azure portal.
+* Du kan styra i Azure AD som har åtkomst till FirmPlay - Employee Advocacy för rekrytering.
+* Du kan aktivera dina användare automatiskt inloggade på FirmPlay - Employee Advocacy for Recruiting (Single Sign-On) med sina Azure AD-konton.
+* Du kan hantera dina konton på en central plats – Azure-portalen.
 
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
+Om du inte har en Azure-prenumeration [skapar du ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
-Om du vill konfigurera Azure AD-integrering med FirmPlay - medarbetare kundstöd för rekrytering, behöver du följande objekt:
+Om du vill konfigurera Azure AD-integrering med FirmPlay – Employee Advocacy for Recruiting behöver du följande objekt:
 
-* En Azure AD-prenumeration. Om du inte har en Azure AD-miljö kan du få en [kostnadsfritt konto](https://azure.microsoft.com/free/)
-* FirmPlay - medarbetare kundstöd för rekrytering enkel inloggning aktiverat prenumeration
+* En Azure AD-prenumeration. Om du inte har en Azure AD-miljö kan du få ett [kostnadsfritt konto](https://azure.microsoft.com/free/)
+* FirmPlay - Medarbetares opinionsbildning för att rekrytera enkel inloggning aktiverad prenumeration
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
 I den här självstudien konfigurerar och testar du enkel inloggning med Azure AD i en testmiljö.
 
-* Har stöd för FirmPlay - medarbetare kundstöd för rekrytering **SP** -initierad SSO
+* FirmPlay - Employee Advocacy för rekrytering stöder **SP** initierade SSO
 
-## <a name="adding-firmplay---employee-advocacy-for-recruiting-from-the-gallery"></a>Att lägga till FirmPlay - medarbetare kundstöd för rekrytering från galleriet
+## <a name="adding-firmplay---employee-advocacy-for-recruiting-from-the-gallery"></a>Lägga FirmPlay - Anställd Advocacy för rekrytering från galleriet
 
-Om du vill konfigurera integreringen av FirmPlay - medarbetare kundstöd för rekrytering i Azure AD som du behöver lägga till FirmPlay - medarbetare kundstöd för rekrytering från galleriet i din lista över hanterade SaaS-appar.
+Om du vill konfigurera integreringen av FirmPlay – Employee Advocacy for Recruiting into Azure AD måste du lägga till FirmPlay - Employee Advocacy for Recruiting from the gallery till din lista över hanterade SaaS-appar.
 
-**Utför följande steg för att lägga till FirmPlay - medarbetare kundstöd för rekrytering från galleriet:**
+**Så här lägger du till FirmPlay - Employee Advocacy for Recruiting från galleriet:**
 
-1. I den **[Azure-portalen](https://portal.azure.com)** , klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
+1. I **[Azure-portalen](https://portal.azure.com)** går du till den vänstra navigeringspanelen och klickar på **Azure Active Directory**-ikonen.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
@@ -61,37 +61,37 @@ Om du vill konfigurera integreringen av FirmPlay - medarbetare kundstöd för re
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-3. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
+3. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
 
     ![Knappen Nytt program](common/add-new-app.png)
 
-4. I sökrutan skriver **FirmPlay - medarbetare kundstöd för rekrytering**väljer **FirmPlay - medarbetare kundstöd för rekrytering** resultatet panelen klickar **Lägg till** för att Lägg till programmet.
+4. I sökrutan skriver du **FirmPlay - Employee Advocacy for Recruiting**, select **FirmPlay - Employee Advocacy for Recruiting** from result panel och klickar sedan på **Lägg** till knappen för att lägga till programmet.
 
-     ![FirmPlay - medarbetare kundstöd för rekrytering i resultatlistan](common/search-new-app.png)
+     ![FirmPlay - Medarbetares opinionsbildning för rekrytering i resultatlistan](common/search-new-app.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
-I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med FirmPlay, anställd kundstöd för rekrytering baserat på en testanvändare kallas **Britta Simon**.
-För enkel inloggning till arbete, en länk förhållandet mellan en Azure AD-användare och relaterade användaren i FirmPlay - måste medarbetare kundstöd för rekrytering upprättas.
+I det här avsnittet konfigurerar och testar du azure AD enkel inloggning med FirmPlay - Employee Advocacy for Recruiting baserat på en testanvändare som heter **Britta Simon**.
+För enkel inloggning för att fungera måste en länkrelation mellan en Azure AD-användare och den relaterade användaren i FirmPlay - Employee Advocacy for Recruiting upprättas.
 
-Om du vill konfigurera och testa Azure AD enkel inloggning med FirmPlay - medarbetare kundstöd för rekrytering, måste du slutföra följande byggblock:
+Om du vill konfigurera och testa en enda Azure AD-inloggning med FirmPlay – Employee Advocacy for Recruiting måste du slutföra följande byggblock:
 
-1. **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
-2. **[Konfigurera FirmPlay - medarbetare kundstöd för rekrytering enkel inloggning](#configure-firmplay---employee-advocacy-for-recruiting-single-sign-on)**  – om du vill konfigurera inställningar för enkel inloggning på programsidan.
-3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
-4. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
-5. **[Skapa FirmPlay - medarbetare kundstöd för rekrytering testanvändare](#create-firmplay---employee-advocacy-for-recruiting-test-user)**  - har en motsvarighet för Britta Simon i FirmPlay - medarbetare kundstöd för rekrytering som är länkad till en Azure AD-representation av användaren.
-6. **[Testa enkel inloggning](#test-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
+1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
+2. **[Konfigurera FirmPlay - Medarbetares opinionsbildning för att rekrytera enkel inloggning](#configure-firmplay---employee-advocacy-for-recruiting-single-sign-on)** - för att konfigurera inställningarna för enkel inloggning på programsidan.
+3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
+4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
+5. **[Skapa FirmPlay - Medarbetares opinionsbildning för att rekrytera testanvändare](#create-firmplay---employee-advocacy-for-recruiting-test-user)** - om du vill ha en motsvarighet till Britta Simon i FirmPlay - Employee Advocacy for Recruiting som är kopplad till Azure AD-representationen av användaren.
+6. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
 I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure-portalen.
 
-Om du vill konfigurera Azure AD enkel inloggning med FirmPlay - medarbetare kundstöd för rekrytering, utför du följande steg:
+Så här konfigurerar du enkel Azure AD-inloggning med FirmPlay – Employee Advocacy for Recruiting:
 
-1. I den [Azure-portalen](https://portal.azure.com/)på den **FirmPlay - medarbetare kundstöd för rekrytering** application integration markerar **enkel inloggning**.
+1. I [Azure-portalen](https://portal.azure.com/)väljer du Enkel inloggning på sidan **FirmPlay - Employee Advocacy för rekrytering av** **programintegrering**.
 
-    ![Konfigurera enkel inloggning för länken](common/select-sso.png)
+    ![Konfigurera länk för enkel inloggning](common/select-sso.png)
 
 2. I dialogrutan **Välj en metod för enkel inloggning** väljer du läget **SAML/WS-Fed** för att aktivera enkel inloggning.
 
@@ -103,30 +103,30 @@ Om du vill konfigurera Azure AD enkel inloggning med FirmPlay - medarbetare kund
 
 4. I avsnittet **Grundläggande SAML-konfiguration** utför du följande steg:
 
-    ![FirmPlay - medarbetare kundstöd rekrytering domän och URL: er enkel inloggning för information](common/sp-signonurl.png)
+    ![FirmPlay - Medarbetare Advocacy för rekrytering domän och webbadresser enda inloggningsinformation](common/sp-signonurl.png)
 
-    I textrutan **Inloggnings-URL** skriver du in en URL med följande mönster: `https://<your-subdomain>.firmplay.com/`
+    Skriv en URL med hjälp av följande mönster i textrutan **Sign-on-URL:**`https://<your-subdomain>.firmplay.com/`
 
     > [!NOTE]
-    > Värdet är inte verkligt. Uppdatera värdet med den faktiska inloggnings-URL:en. Kontakta [FirmPlay - medarbetare kundstöd för rekrytering klienten supportteamet](mailto:engineering@firmplay.com) att hämta värdet. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
+    > Värdet är inte verkligt. Uppdatera värdet med den faktiska inloggnings-URL:en. Kontakta [FirmPlay - Employee Advocacy för att rekrytera kundsupportteam för](mailto:engineering@firmplay.com) att få värdet. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
 5. På sidan **Konfigurera enkel inloggning med SAML** går du till avsnittet **SAML-signeringscertifikat**, klickar du på **Ladda ned** för att ladda ned **Certifikat (Base64)** från de angivna alternativen enligt dina behov och sparar det på datorn.
 
-    ![Länk för hämtning av certifikat](common/certificatebase64.png)
+    ![Länk för nedladdning av certifikatet](common/certificatebase64.png)
 
-6. På den **konfigurera FirmPlay - medarbetare kundstöd för rekrytering** avsnittet, kopiera den lämpliga URL: er enligt dina behov.
+6. Kopiera lämpliga webbadresser enligt dina krav i avsnittet **Konfigurera FirmPlay - Medarbetares påverkanssättning för rekrytering.**
 
     ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
 
-    a. Inloggningswebbadress
+    a. Inloggnings-URL
 
-    b. Microsoft Azure Active Directory-identifierare
+    b. Azure AD-identifierare
 
     c. Utloggnings-URL
 
-### <a name="configure-firmplay---employee-advocacy-for-recruiting-single-sign-on"></a>Konfigurera FirmPlay - medarbetare kundstöd för rekrytering enkel inloggning
+### <a name="configure-firmplay---employee-advocacy-for-recruiting-single-sign-on"></a>Konfigurera FirmPlay - Medarbetares opinionsbildning för att rekrytera enkel inloggning
 
-Att konfigurera enkel inloggning på **FirmPlay - medarbetare kundstöd för rekrytering** sida, som du behöver skicka de hämtade **certifikat (Base64)** och lämpliga kopieras URL: er från Azure portal för att [ FirmPlay - medarbetare kundstöd för rekrytering supportteamet](mailto:engineering@firmplay.com). De ställer du in SAML SSO ansluta till korrekt inställda på båda sidorna.
+Om du vill konfigurera enkel inloggning på **FirmPlay - Employee Advocacy för rekryteringssidan** måste du skicka det nedladdade **certifikatet (Base64)** och lämpliga kopierade url:er från Azure-portalen till [FirmPlay - Employee Advocacy för rekryteringssupportteam](mailto:engineering@firmplay.com). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare 
 
@@ -136,7 +136,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     ![Länkarna ”Användare och grupper” och ”Alla grupper”](common/users.png)
 
-2. Välj **Ny användare** överst på skärmen.
+2. Välj **Ny användare** högst upp på skärmen.
 
     ![Knappen Ny användare](common/new-user.png)
 
@@ -146,23 +146,23 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     a. I fältet **Namn** anger du **BrittaSimon**.
   
-    b. I den **användarnamn** fälttyp brittasimon@yourcompanydomain.extension. Till exempel, BrittaSimon@contoso.com
+    b. I fältet **Användarnamn** brittasimon@yourcompanydomain.extension. Till exempel, BrittaSimon@contoso.com
 
     c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
 
     d. Klicka på **Skapa**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
+### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
-I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inloggning genom att bevilja åtkomst till FirmPlay - medarbetare kundstöd för rekrytering.
+I det här avsnittet kan du aktivera Britta Simon för att använda Azure enkel inloggning genom att bevilja åtkomst till FirmPlay - Employee Advocacy för rekrytering.
 
-1. I Azure-portalen väljer du **företagsprogram**väljer **alla program**och välj sedan **FirmPlay - medarbetare kundstöd för rekrytering**.
+1. I Azure-portalen väljer du **Enterprise Applications**, väljer **Alla program**och väljer sedan **FirmPlay - Employee Advocacy för rekrytering**.
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-2. I listan med program väljer **FirmPlay - medarbetare kundstöd för rekrytering**.
+2. I programlistan väljer du **FirmPlay - Employee Advocacy för rekrytering**.
 
-    ![FirmPlay - medarbetare kundstöd för rekrytering länk i listan med program](common/all-applications.png)
+    ![FirmPlay - Medarbetare Advocacy för rekrytering länk i listan Program](common/all-applications.png)
 
 3. På menyn till vänster väljer du **Användare och grupper**.
 
@@ -174,19 +174,19 @@ I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inlog
 
 5. I dialogrutan **Användare och grupper** väljer du **Britta Simon** i listan med användare och klickar på knappen **Välj** längst ned på skärmen.
 
-6. Om du förväntar dig ett rollvärde i SAML-försäkran väljer du i dialogrutan **Välj roll** lämplig roll för användaren i listan och klickar sedan på knappen **Välj** längst ned på skärmen.
+6. Om du förväntar dig något rollvärde i SAML-påståendet väljer du lämplig roll för användaren i listan i dialogrutan **Välj roll** och klickar sedan på knappen **Välj** längst ned på skärmen.
 
 7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
 
-### <a name="create-firmplay---employee-advocacy-for-recruiting-test-user"></a>Skapa FirmPlay - medarbetare kundstöd för rekrytering testanvändare
+### <a name="create-firmplay---employee-advocacy-for-recruiting-test-user"></a>Skapa FirmPlay - Medarbetares opinionsbildning för att rekrytera testanvändare
 
-I det här avsnittet skapar du en användare som kallas Britta Simon i FirmPlay - medarbetare kundstöd för rekrytering. Arbeta med [FirmPlay - medarbetare kundstöd för rekrytering supportteamet](mailto:engineering@firmplay.com) att lägga till användare i FirmPlay - medarbetare kundstöd för rekrytering plattform. Användare måste skapas och aktiveras innan du använder enkel inloggning.
+I det här avsnittet skapar du en användare som heter Britta Simon i FirmPlay - Employee Advocacy for Recruiting. Arbeta med [FirmPlay - Employee Advocacy för att rekrytera supportteam för](mailto:engineering@firmplay.com) att lägga till användarna i FirmPlay - Employee Advocacy for Recruiting-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
 
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning 
 
-I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
+I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-När du klickar på FirmPlay - medarbetare kundstöd för rekrytering panel i åtkomstpanelen, du bör vara loggas in automatiskt FirmPlay - medarbetare kundstöd för rekrytering för vilket du ställer in enkel inloggning. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+När du klickar på panelen FirmPlay - Medarbetare för rekrytering i åtkomstpanelen ska du automatiskt loggas in på firmplay - medarbetares opinionsbildning för rekrytering som du ställer in SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 

@@ -8,23 +8,31 @@ ms.topic: conceptual
 ms.date: 01/23/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 967fd1fa182b7c8e581fd74cc287c5a6ba0e4038
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8c5de43ed29856451ad67e02a426b07cc34a0d54
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79127826"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80422422"
 ---
 # <a name="linux-support"></a>Linux-support
 
-Du kan använda Linux SDK för Windows Virtual Desktop för att skapa en fristående Windows Virtual Desktop-klient. Du kan också använda den för att aktivera Windows Virtual Desktop-stöd för klientprogrammet. Denna snabbguide kommer att förklara vad Linux SDK är och hur man börjar använda den.
+Partner kan använda Linux SDK för Windows Virtual Desktop för att skapa en fristående Windows Virtual Desktop-klient. Du kan också använda den för att aktivera Windows Virtual Desktop-stöd för klientprogrammet. Denna snabbguide kommer att förklara vad Linux SDK är och hur man börjar använda den.
+
+## <a name="connect-with-your-linux-device"></a>Anslut med din Linux-enhet
+
+Följande partner har godkända Windows Virtual Desktop-klienter för Linux-enheter.
+
+|Partner|Dokumentation från partner|Partnersupport|
+|:------|:--------------------|:--------------|
+|![IGEL-logotyp](./media/partners/igel.png)|[IGEL-klientdokumentation](https://www.igel.com/igel-solution-family/windows-virtual-desktop/)|[Support för IGEL](https://www.igel.com/support/)|
 
 ## <a name="what-is-the-linux-sdk"></a>Vad är Linux SDK?
 
 Du kan använda SDK-API:erna för att hämta resursflöden, ansluta till skrivbords- eller fjärrprogramsessioner och använda många av de omdirigeringar som våra förstapartsklienter stöder.
 
 > [!NOTE]
-> SDK är för närvarande under utveckling. Vi uppdaterar det här dokumentet med instruktioner för att komma åt SDK när det är tillgängligt.
+> SDK är för närvarande under utveckling. Vi uppdaterar det här dokumentet med instruktioner för att komma åt SDK när det är allmänt tillgängligt.
 
 ### <a name="supported-linux-distributions"></a>Linuxdistributioner som stöds
 

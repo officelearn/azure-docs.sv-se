@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/14/2020
+ms.date: 03/30/2020
 ms.author: allensu
-ms.openlocfilehash: 4a273801290a0a5833ebd83983a8b6b0ad856b45
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: c012a8d83761b88cc59b62d11fd3d5542ca7f7a1
+ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79408492"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80396095"
 ---
 # <a name="troubleshoot-azure-virtual-network-nat-connectivity"></a>Felsöka AZURE Virtual Network NAT-anslutning
 
@@ -40,14 +40,15 @@ LÃ¶s dessa problem genom att sÃ¥ lÃ¤5 nde i följande avsnitt.
 
 En enda [NAT-gatewayresurs](nat-gateway-resource.md) stöder från 64 000 upp till 1 miljon samtidiga flöden.  Varje IP-adress tillhandahåller 64 000 SNAT-portar till det tillgängliga lagret. Du kan använda upp till 16 IP-adresser per NAT-gatewayresurs.  SNAT-mekanismen beskrivs [här](nat-gateway-resource.md#source-network-address-translation) mer i detalj.
 
-Ofta är grundorsaken till SNAT-utmattning ett anti-mönster för hur utgående anslutning upprättas och hanteras.  Granska det här avsnittet noggrant.
+Ofta är grundorsaken till SNAT-utmattning ett anti-mönster för hur utgående anslutning upprättas, hanteras eller konfigurerbara timers ändras från deras standardvärden.  Granska det här avsnittet noggrant.
 
 #### <a name="steps"></a>Steg
 
-1. Undersök hur ditt program skapar utgående anslutning (till exempel kodgranskning eller paketinsamling). 
-2. Ta reda på om den här aktiviteten är förväntat eller om programmet missköter sig.  Använd [mått](nat-metrics.md) i Azure Monitor för att underbygga dina resultat. Använd kategorin "Misslyckades" för SNAT-anslutningar.
-3. Utvärdera om lämpliga mönster följs.
-4. Utvärdera om SNAT-portutmattning bör minskas med ytterligare IP-adresser som tilldelats NAT gateway-resurs.
+1. Kontrollera om du har ändrat standardtidsgränsen för inaktiv tid till ett värde som är högre än 4 minuter.
+2. Undersök hur ditt program skapar utgående anslutning (till exempel kodgranskning eller paketinsamling). 
+3. Ta reda på om den här aktiviteten är förväntat eller om programmet missköter sig.  Använd [mått](nat-metrics.md) i Azure Monitor för att underbygga dina resultat. Använd kategorin "Misslyckades" för SNAT-anslutningar.
+4. Utvärdera om lämpliga mönster följs.
+5. Utvärdera om SNAT-portutmattning bör minskas med ytterligare IP-adresser som tilldelats NAT gateway-resurs.
 
 #### <a name="design-patterns"></a>Designmönster
 
@@ -55,15 +56,17 @@ Dra alltid nytta av återanvändning och anslutningspoolning när det är möjli
 
 _**Lösning:**_ Använd lämpliga mönster och metodtips
 
+- NAT gateway-resurser har en standardtidsutbetalning för TCP-inaktiv på 4 minuter.  Om den här inställningen ändras till ett högre värde kommer NAT att hålla fast vid flödena längre och kan orsaka [onödigt tryck på SNAT-portlager](nat-gateway-resource.md#timers).
 - Atomic förfrågningar (en begäran per anslutning) är ett dåligt designval. Sådana anti-mönster begränsar skala, minskar prestanda och minskar tillförlitligheten. Återanvänd i stället HTTP/S-anslutningar för att minska antalet anslutningar och associerade SNAT-portar. Programskalan ökar och prestanda förbättras på grund av minskade handslag, omkostnader och kryptografiska driftkostnader när du använder TLS.
 - DNS kan introducera många enskilda flöden på volym när klienten inte cachelagrar DNS-resolvers-resultatet. Använd cachelagring.
 - UDP-flöden (till exempel DNS-sökning) allokerar SNAT-portar under den inaktiva tidsgränsen. Ju längre inaktiv timeout, desto högre tryck på SNAT-portar. Använd kort tidsgränsen för inaktiv utskrift (till exempel 4 minuter).
 - Använd anslutningspooler för att forma anslutningsvolymen.
-- Överge aldrig tyst ett TCP-flöde och förlita dig på TCP-timers för att rensa upp flödet. Detta lämnar tillstånd som allokerats vid mellanliggande system och slutpunkter och gör portar otillgängliga för andra anslutningar. Detta kan utlösa programfel och SNAT-utmattning. 
-- TCP nära relaterade timervärden bör inte ändras utan expertkunskap om påverkan. TCP återställs, men programmets prestanda kan påverkas negativt när slutpunkterna för en anslutning har inte motsvarat förväntningarna. Viljan att byta timers är oftast ett tecken på ett underliggande designproblem. Granska följande rekommendationer.
+- Överge aldrig tyst ett TCP-flöde och förlita dig på TCP-timers för att rensa upp flödet. Om du inte låter TCP uttryckligen stänga anslutningen förblir tillståndet allokerat vid mellanliggande system och slutpunkter och gör SNAT-portar otillgängliga för andra anslutningar. Detta kan utlösa programfel och SNAT-utmattning. 
+- Ändra inte TCP-relaterade tidsbegränsade tidsbegränsade tidsbegränsade värden på OS-nivå utan expertkunskap om påverkan. TCP-stacken återställs, men programprestandan kan påverkas negativt när slutpunkterna för en anslutning har gett efter förväntningar. Viljan att byta timers är oftast ett tecken på ett underliggande designproblem. Granska följande rekommendationer.
 
 Ofta kan SNAT-utmattning också förstärkas med andra anti-mönster i den underliggande applikationen. Granska dessa ytterligare mönster och metodtips för att förbättra tjänstens omfattning och tillförlitlighet.
 
+- Utforska effekten av att minska [TCP-tidsgränsen](nat-gateway-resource.md#timers) för inaktiv till lägre värden, inklusive standardtidsgräns för inaktiv 4 minuter för att frigöra SNAT-portlager tidigare.
 - Överväg [asynkrona avsökningsmönster](https://docs.microsoft.com/azure/architecture/patterns/async-request-reply) för tidskrävande åtgärder för att frigöra anslutningsresurser för andra åtgärder.
 - Långlivade flöden (till exempel återanvända TCP-anslutningar) bör använda TCP keepalives eller applikationsskikt keepalives för att undvika mellanliggande system timing out. Att öka tidsgränsen för inaktiv tid är en sista utväg och kanske inte löser grundorsaken. En lång timeout kan orsaka låg hastighet fel när timeout löper ut och införa fördröjning och onödiga fel.
 - Graciösa [återförsöksmönster](https://docs.microsoft.com/azure/architecture/patterns/retry) bör användas för att undvika aggressiva återförsök/bursts vid övergående fel eller felåterställning.
@@ -175,7 +178,7 @@ Du kan ange intresse för ytterligare funktioner via [NAT UserVoice för virtuel
 ## <a name="next-steps"></a>Nästa steg
 
 * Lär dig mer om [NAT för virtuellt nätverk](nat-overview.md)
-* Lär dig ab Stek ut [NAT gateway resurs](nat-gateway-resource.md)
+* Lär dig mer om [NAT-gatewayresurs](nat-gateway-resource.md)
 * Lär dig mer om [mått och aviseringar för NAT-gatewayresurser](nat-metrics.md).
 * [Berätta vad du ska bygga härnäst för VIRTUELLT NÄTVERK NAT i UserVoice](https://aka.ms/natuservoice).
 

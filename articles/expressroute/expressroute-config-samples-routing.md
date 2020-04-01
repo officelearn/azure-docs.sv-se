@@ -5,14 +5,14 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: article
-ms.date: 12/06/2018
-ms.author: cherylmc
-ms.openlocfilehash: 2c37dadeb669fb88f858b5487379828a8dddec6c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 03/26/2020
+ms.author: osamaz
+ms.openlocfilehash: 5304aefaf3ad70bb552b4b0d1b26fcce9867c9c0
+ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74076670"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80397732"
 ---
 # <a name="router-configuration-samples-to-set-up-and-manage-routing"></a>Exempel på routerkonfiguration för att konfigurera och hantera routning
 Den här sidan innehåller gränssnitts- och routningskonfigurationsexempel för Cisco IOS-XE- och Juniper MX-serieroutrar när du arbetar med ExpressRoute. Dessa är endast avsedda att vara prover för vägledning och får inte användas som de är. Du kan arbeta med leverantören för att komma med lämpliga konfigurationer för nätverket. 
@@ -91,6 +91,25 @@ Du kan använda ruttkartor och prefixlistor för att filtrera prefix som sprids 
     !
     route-map <MS_Prefixes_Inbound> permit 10
      match ip address prefix-list <MS_Prefixes>
+    !
+
+### <a name="5-configuring-bfd"></a>5. Konfigurera BFD
+
+Du kommer att konfigurera BFD på två ställen. En på gränssnittsnivå och annan på BGP-nivå. Exemplet nedan är för QinQ-gränssnittet. 
+
+    interface GigabitEthernet<Interface_Number>.<Number>
+     bfd interval 300 min_rx 300 multiplier 3
+     encapsulation dot1Q <s-tag> seconddot1Q <c-tag>
+     ip address <IPv4_Address><Subnet_Mask>
+    
+    router bgp <Customer_ASN>
+     bgp log-neighbor-changes
+     neighbor <IP#2_used_by_Azure> remote-as 12076
+     !        
+     address-family ipv4
+      neighbor <IP#2_used_by_Azure> activate
+      neighbor <IP#2_used_by_Azure> fall-over bfd
+     exit-address-family
     !
 
 
@@ -173,7 +192,7 @@ Du kan konfigurera routern så att den annonserar om utvalda prefix till Microso
     }
 
 
-### <a name="4-route-maps"></a>4. Ruttkartor
+### <a name="4-route-policies"></a>4. Rutt politik
 Du kan använda ruttkartor och prefixlistor för att filtrera prefix som sprids i nätverket. Du kan använda exemplet nedan för att utföra uppgiften. Kontrollera att du har lämplig konfiguration av prefixlistor.
 
     policy-options {
@@ -203,6 +222,24 @@ Du kan använda ruttkartor och prefixlistor för att filtrera prefix som sprids 
         }                                   
     }
 
+### <a name="4-configuring-bfd"></a>4. Konfigurera BFD
+Du kommer endast att konfigurera BFD under protokollets BGP-avsnitt.
+
+    protocols {
+        bgp { 
+            group <Group_Name> { 
+                peer-as 12076;              
+                neighbor <IP#2_used_by_Azure>;
+                bfd-liveness-detection {
+                       minimum-interval 3000;
+                       multiplier 3;
+                }
+            }                               
+        }                                   
+    }
+
 ## <a name="next-steps"></a>Efterföljande moment
 Se [Vanliga frågor och svar om ExpressRoute](expressroute-faqs.md) för mer information.
+
+
 

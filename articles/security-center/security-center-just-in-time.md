@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 02/25/2020
 ms.author: memildin
-ms.openlocfilehash: 4b2b388fb736997010a6cbbdf93b23b77c7ef3a3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 51985c5fa4b2296e43c0a062d0af84a1bb51e89c
+ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77603984"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80397760"
 ---
 # <a name="secure-your-management-ports-with-just-in-time-access"></a>Säkra hanteringsportarna med just-in-time-åtkomst
 
@@ -202,53 +202,37 @@ Om du vill använda just-in-time VM-åtkomstlösningen via PowerShell använder 
 
 I följande exempel anges en åtkomstprincip för just-in-time-vm på en viss virtuell dator och följande anges:
 
-1.  Stäng portarna 22 och 3389.
+1.    Stäng portarna 22 och 3389.
 
-2.  Ange ett maximalt tidsfönster på 3 timmar för varje så att de kan öppnas per godkänd begäran.
-3.  Tillåter den användare som begär åtkomst för att styra källans IP-adresser och tillåter användaren att upprätta en lyckad session på en godkänd just-in-time-åtkomstbegäran.
+2.    Ange ett maximalt tidsfönster på 3 timmar för varje så att de kan öppnas per godkänd begäran.
+3.    Tillåter den användare som begär åtkomst för att styra källans IP-adresser och tillåter användaren att upprätta en lyckad session på en godkänd just-in-time-åtkomstbegäran.
 
 Kör följande i PowerShell för att åstadkomma detta:
 
-1.  Tilldela en variabel som innehåller åtkomstprincipen för ny virtuell dator för en virtuell dator:
+1.    Tilldela en variabel som innehåller åtkomstprincipen för ny virtuell dator för en virtuell dator:
 
-        $JitPolicy = (@{
-         id="/subscriptions/SUBSCRIPTIONID/resourceGroups/RESOURCEGROUP/providers/Microsoft.Compute/virtualMachines/VMNAME"
-        ports=(@{
-             number=22;
-             protocol="*";
-             allowedSourceAddressPrefix=@("*");
-             maxRequestAccessDuration="PT3H"},
-             @{
-             number=3389;
-             protocol="*";
-             allowedSourceAddressPrefix=@("*");
-             maxRequestAccessDuration="PT3H"})})
+        $JitPolicy = (@{ id="/subscriptions/SUBSCRIPTIONID/resourceGroups/RESOURCEGROUP/providers/Microsoft.Compute/virtualMachines/VMNAME" ports=(@{ number=22;        protokoll="*".        allowedSourceAddressPrefix=@("*");        maxRequestAccessDuration="PT3H"}, @{ number=3389;        protokoll="*".        allowedSourceAddressPrefix=@("*");        maxRequestAccessDuration="PT3H"})})
 
-2.  Infoga åtkomstprincipen för virtuell dator med bara i tid i en matris:
+2.    Infoga åtkomstprincipen för virtuell dator med bara i tid i en matris:
     
         $JitPolicyArr=@($JitPolicy)
 
-3.  Konfigurera åtkomstprincipen för just-in-time VM på den valda virtuella datorn:
+3.    Konfigurera åtkomstprincipen för just-in-time VM på den valda virtuella datorn:
     
-        Set-AzJitNetworkAccessPolicy -Kind "Basic" -Location "LOCATION" -Name "default" -ResourceGroupName "RESOURCEGROUP" -VirtualMachine $JitPolicyArr 
+        Set-AzJitNetworkAccessPolicy -Typ "Grundläggande" -Plats "PLATS" -Namn "standard" -ResourceGroupName "RESOURCEGROUP" -VirtualMachine $JitPolicyArr 
 
 ### <a name="request-access-to-a-vm-via-powershell"></a>Begär åtkomst till en virtuell dator via PowerShell
 
 I följande exempel kan du se en ny virtuell datoråtkomstbegäran till en viss virtuell dator där port 22 begärs öppnas för en viss IP-adress och under en viss tid:
 
 Kör följande i PowerShell:
-1.  Konfigurera åtkomstegenskaperna för vm-begäran
+1.    Konfigurera åtkomstegenskaperna för vm-begäran
 
-        $JitPolicyVm1 = (@{
-          id="/SUBSCRIPTIONID/resourceGroups/RESOURCEGROUP/providers/Microsoft.Compute/virtualMachines/VMNAME"
-        ports=(@{
-           number=22;
-           endTimeUtc="2018-09-17T17:00:00.3658798Z";
-           allowedSourceAddressPrefix=@("IPV4ADDRESS")})})
-2.  Infoga parametrarna för åtkomstbegäran för virtuella datorer i en matris:
+        $JitPolicyVm1 = (@{ id="/SUBSCRIPTIONID/resourceGroups/RESOURCEGROUP/providers/Microsoft.Compute/virtualMachines/VMNAME" ports=(@{ number=22;      endTimeUtc="2018-09-17T17:00:00.3658798Z";      allowedSourceAddressPrefix=@("IPV4ADDRESS")}})
+2.    Infoga parametrarna för åtkomstbegäran för virtuella datorer i en matris:
 
         $JitPolicyArr=@($JitPolicyVm1)
-3.  Skicka åtkomsten för begäran (använd det resurs-ID du fick i steg 1)
+3.    Skicka åtkomsten för begäran (använd det resurs-ID du fick i steg 1)
 
         Start-AzJitNetworkAccessPolicy -ResourceId "/subscriptions/SUBSCRIPTIONID/resourceGroups/RESOURCEGROUP/providers/Microsoft.Security/locations/LOCATION/jitNetworkAccessPolicies/default" -VirtualMachine $JitPolicyArr
 
@@ -271,6 +255,7 @@ I den här artikeln fick du veta hur just-in-time VM-åtkomst i Security Center 
 
 I följande avsnitt kan du lära dig mer om Security Center:
 
+- Microsoft [Learn-modulen Skydda dina servrar och virtuella datorer från angrepp av brute force och malware med Azure Security Center](https://docs.microsoft.com/learn/modules/secure-vms-with-azure-security-center/)
 - [Ange säkerhetsprinciper](tutorial-security-policy.md) – Lär dig hur du konfigurerar säkerhetsprinciper för dina Azure-prenumerationer och resursgrupper.
 - [Hantera säkerhetsrekommendationer](security-center-recommendations.md) – Lär dig hur rekommendationer hjälper dig att skydda dina Azure-resurser.
 - Övervakning av [säkerhetshälsa](security-center-monitoring.md) – Lär dig hur du övervakar hälsotillståndet för dina Azure-resurser.

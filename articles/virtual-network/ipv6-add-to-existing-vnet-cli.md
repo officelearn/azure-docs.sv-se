@@ -11,21 +11,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/23/2019
+ms.date: 03/31/2020
 ms.author: kumud
-ms.openlocfilehash: 5dc231febc2e9b605b9e7f603f5d036b8a2c62eb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f3f9b32ea55f0ceebf08b22ccc7e2ceec0b6227e
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80240764"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80420791"
 ---
-# <a name="add-ipv6-to-an-ipv4-application-in-azure-virtual-network---azure-cli-preview"></a>Lägga till IPv6 i ett IPv4-program i virtuella Azure-nätverk – Azure CLI (förhandsversion)
+# <a name="add-ipv6-to-an-ipv4-application-in-azure-virtual-network---azure-cli"></a>Lägga till IPv6 i ett IPv4-program i virtuella Azure-nätverk - Azure CLI
 
 Den här artikeln visar hur du lägger till IPv6-adresser i ett program som använder IPv4-offentlig IP-adress i ett virtuellt Azure-nätverk för en standardbelastningsutjämning med Azure CLI. Uppgraderingen på plats innehåller ett virtuellt nätverk och undernät, en standardbelastningsutjämning med IPv4 + IPV6-frontendkonfigurationer, virtuella datorer med nätverkskort som har en IPv4 + IPv6-konfiguration, nätverkssäkerhetsgrupp och offentliga IP-adresser.
 
-> [!Important]
-> IPv6-stöd för Azure Virtual Network är för närvarande i offentlig förhandsversion. Den här förhandsversionen tillhandahålls utan serviceavtal och rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller kan ha begränsad funktionalitet. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -33,29 +31,6 @@ Om du väljer att installera och använda CLI lokalt i stället, måste du köra
 
 ## <a name="prerequisites"></a>Krav
 
-### <a name="register-the-service"></a>Registrera tjänsten
-
-Innan du distribuerar ett program med dubbla staplar i Azure måste du konfigurera prenumerationen för den här förhandsversionen med hjälp av följande Azure CLI:
-
-```azurecli
-az feature register --name AllowIPv6VirtualNetwork --namespace Microsoft.Network
-az feature register --name AllowIPv6CAOnStandardLB --namespace Microsoft.Network
-```
-
-Det tar upp till 30 minuter innan funktionsregistreringen är klar. Du kan kontrollera din registreringsstatus genom att köra följande Azure CLI-kommando:
-
-```azurecli
-az feature show --name AllowIPv6VirtualNetwork --namespace Microsoft.Network
-az feature show --name AllowIPv6CAOnStandardLB --namespace Microsoft.Network
-```
-
-När registreringen är klar kör du följande kommando:
-
-```azurecli
-az provider register --namespace Microsoft.Network
-```
-
-### <a name="create-a-standard-load-balancer"></a>Skapa en Standard Load Balancer
 Den här artikeln förutsätter att du har distribuerat en standardbelastningsutjämning enligt beskrivningen i [Snabbstart: Skapa en standardbelastningsutjämnare - Azure CLI](../load-balancer/quickstart-load-balancer-standard-public-cli.md).
 
 ## <a name="create-ipv6-addresses"></a>Skapa IPv6-adresser
@@ -173,8 +148,6 @@ Du kan visa det virtuella nätverket IPv6 med dubbla stackar i Azure-portalen p�
 
   ![IPv6 virtuellt nätverk med dubbla staplar i Azure](./media/ipv6-add-to-existing-vnet-powershell/ipv6-dual-stack-vnet.png)
 
-> [!NOTE]
-> Det virtuella nätverket IPv6 för Azure är tillgängligt i Azure-portalen i skrivskyddad för den här förhandsversionen.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 

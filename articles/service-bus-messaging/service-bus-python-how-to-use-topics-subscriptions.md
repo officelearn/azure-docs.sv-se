@@ -13,12 +13,12 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 01/27/2020
 ms.author: aschhab
-ms.openlocfilehash: 03e22c4c179850e5140015c0abc2d89f16d4b624
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 4745d675086f1b07bf7fccf17c14c76e4b18fba2
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "76774549"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80478070"
 ---
 # <a name="quickstart-use-service-bus-topics-and-subscriptions-with-python"></a>Snabbstart: Använd avsnitt och prenumerationer på Service Bus med Python
 
@@ -35,7 +35,7 @@ I den här artikeln beskrivs hur du använder Python med Azure Service Bus-ämne
 ## <a name="prerequisites"></a>Krav
 - En Azure-prenumeration. Du kan aktivera dina fördelar för [Visual Studio- eller MSDN-prenumeranter](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) eller registrera dig för ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
 - Ett servicebussnamnområde som skapats genom att följa stegen i [Snabbstart: Använd Azure-portalen för att skapa ett servicebussämne och prenumerationer](service-bus-quickstart-topics-subscriptions-portal.md). Kopiera namnområdesnamnet, namnet på nyckeln för delad åtkomst och primärnyckelvärdet från skärmen Principer för **delad åtkomst** som ska användas senare i den här snabbstarten. 
-- Python 3.4x eller högre, med [Azure Python SDK-paketet][Azure Python package] installerat. Mer information finns i [installationsguiden](/azure/python/python-sdk-azure-install)för Python .
+- Python 3.4x eller högre, med [Azure Python SDK-paketet][Azure Python package] installerat. Mer information finns i [installationsguiden](/azure/developer/python/azure-sdk-install)för Python .
 
 ## <a name="create-a-servicebusservice-object"></a>Skapa ett ServiceBusService-objekt
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 06/27/2019
 ms.author: jeedes
-ms.openlocfilehash: c733873a5545bb01f03abd8178ed2f371e2dd3aa
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 60fdd9b0a8fb272da885df97e39804a98e48de67
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "74074072"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80478862"
 ---
 # <a name="tutorial-integrate-myworkdrive-with-azure-active-directory"></a>Självstudiekurs: Integrera MyWorkDrive med Azure Active Directory
 
@@ -92,7 +92,7 @@ Följ dessa steg för att aktivera Azure AD SSO i Azure-portalen.
     > 
     > Url för inloggning:`https://yourserver.yourdomain.com/Account/Login-saml`
     > 
-    > Kontakta [MyWorkDrive-supportteamet](mailto:support@myworkdrive.com) om du är osäker på hur du konfigurerar ditt eget värdnamn och SSL-certifikat för dessa värden.
+    > Kontakta [MyWorkDrive-supportteamet](mailto:support@myworkdrive.com) om du är osäker på hur du konfigurerar ditt eget värdnamn och TLS/SSL-certifikat för dessa värden.
 
 1. Klicka på knappen Kopiera i avsnittet **SAML-signeringscertifikat** på sidan **Konfigurera enkel inloggning med SAML** för att kopiera Url till App **Federationsmetadata** till Urklipp.
 

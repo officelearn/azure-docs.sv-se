@@ -4,12 +4,12 @@ description: Den kurerade listan över de vanligaste frågorna om QnA Maker-tjä
 ms.topic: troubleshooting
 ms.date: 03/25/2020
 ms.author: diberry
-ms.openlocfilehash: e002efe74bf7bcd3d944b01b0a25a731a2db3f66
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 310cfe0cc8c1f647c09b8e0efb435a1ab326ff62
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80284270"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80474958"
 ---
 # <a name="troubleshooting-for-qna-maker"></a>Felsökning för QnA Maker
 
@@ -30,7 +30,7 @@ Läs mer om [prisnivåer](Concepts/azure-resources.md).
 <details>
 <summary><b>Så här skaffar du QnAMaker-tjänstens slutpunkt</b></summary>
 
-**Svar:** QnAMaker-tjänstslutpunkten är användbar för felsökning när du kontaktar QnAMaker Support eller UserVoice. Slutpunkten är en URL i https://your-resource-name.azurewebsites.netdet här formuläret: .
+**Svar:** QnAMaker-tjänstslutpunkten är användbar för felsökning när du kontaktar QnAMaker Support eller UserVoice. Slutpunkten är en URL i `https://your-resource-name.azurewebsites.net`det här formuläret: .
 
 1. Gå till din QnAMaker-tjänst (resursgrupp) i [Azure-portalen](https://portal.azure.com)
 

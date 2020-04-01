@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
-ms.date: 02/19/2020
+ms.date: 03/31/2020
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 89240102837b65ed2a09d9f4865ad47ee5d5afa2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 91d285e2a839a7d6266c5d58f52901a48a7a8c84
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80154567"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80473166"
 ---
 # <a name="azure-ad-authentication-and-authorization-error-codes"></a>Azure AD-autentiserings- och auktoriseringsfelkoder
 
@@ -148,7 +148,7 @@ Sök på den numeriska delen av den returnerade felkoden.  Om du till exempel ha
 | AADSTS54000 | MinorUserBlockedLegalAgeGroupRule |
 | AADSTS65001 | DelegationDoesNotExist - Användaren eller administratören har inte samtyckt till att använda programmet med ID X. Skicka en interaktiv auktoriseringsbegäran för den här användaren och resursen. |
 | AADSTS65004 | UserDeclinedConsent - Användaren avböjde att godkänna åtkomst till appen. Låt användaren logga in igen och ge samtycke till appen|
-| AADSTS65005 | Felaktig konfiguration - Den app som krävs resursåtkomstlista innehåller inte appar som kan identifieras av resursen eller klientappen har begärt åtkomst till resursen, vilket inte angavs i den obligatoriska resursåtkomstlistan eller graph-tjänsten returnerade dåligt begäran eller resurs hittades inte. Om appen stöder SAML kan du ha konfigurerat appen med fel identifierare (entitet). Prova upplösningen som anges för SAML med hjälp av länken nedan:[https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#no-resource-in-requiredresourceaccess-list](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav) |
+| AADSTS65005 | Felkonfigureradtillämpning – Listan över resursåtkomst för appen innehåller inte appar som kan identifieras av resursen eller klientappen har begärt åtkomst till resursen, vilket inte angavs i den obligatoriska resursåtkomstlistan eller graph-tjänsten returnerade dålig begäran eller resurs hittades inte. Om appen stöder SAML kan du ha konfigurerat appen med fel identifierare (entitet). Prova upplösningen som anges för SAML med hjälp av länken nedan:[https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#no-resource-in-requiredresourceaccess-list](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav) |
 | AADSTS67003 | ActorNotValidServiceIdentity |
 | AADSTS70000 | InvalidGrant - Autentisering misslyckades. Uppdateringstoken är ogiltig. Felet kan bero på följande:<ul><li>Tokenbindningshuvudet är tomt</li><li>Tokenbindningshh matchar inte</li></ul> |
 | AADSTS70001 | UnauthorizedClient - Programmet är inaktiverat. |
@@ -271,6 +271,8 @@ Sök på den numeriska delen av den returnerade felkoden.  Om du till exempel ha
 | AADSTS700020 | InteractionRequired - Åtkomstbidraget kräver interaktion. |
 | AADSTS700022 | InvalidMultipleResourcesScope - Det angivna värdet för indataparameteromfånget är inte giltigt eftersom det innehåller mer än en resurs. |
 | AADSTS700023 | InvalidResourcelessScope - Det angivna värdet för indataparameteromfånget är inte giltigt när du begär en åtkomsttoken. |
+| AADSTS7000222| InvalidClientSecretExpiredKeysProvided - De angivna klienthemliga nycklarna har upphört att gälla. Besök Azure Portal för att skapa nya nycklar för din app, eller överväg att använda certifikatuppgifter för ökad säkerhet:https://aka.ms/certCreds |
+| AADSTS700005 | InvalidGrantRedeemAgainstWrongTenant - Förutsatt auktoriseringskod är avsedd att användas mot andra innehavare, och avvisas därför. OAuth2 auktoriseringskod måste lösas in mot samma klient som den förvärvades för (/common eller /{tenant-ID} som är tillämpligt) |
 | AADSTS1000000 | UserNotBoundError - Bind API kräver att Azure AD-användaren också autentiserar med ett externt IDP, vilket inte har hänt ännu. |
 | AADSTS1000002 | BindCompleteInterruptError - Bindningen har slutförts, men användaren måste informeras. |
 | AADSTS7000112 | UnauthorizedClientApplicationDisabled - Programmet är inaktiverat. |

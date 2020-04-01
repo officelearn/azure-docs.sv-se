@@ -4,12 +4,12 @@ description: Förstå hur du konfigurerar och konfigurerar den omvända proxytj�
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: pepogors
-ms.openlocfilehash: 131440036896d323cbf821d7a220328456e1db36
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6e3edb0fe238dcaddb7d99cc68660591f081581c
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75645454"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80476666"
 ---
 # <a name="set-up-and-configure-reverse-proxy-in-azure-service-fabric"></a>Konfigurera omvänd proxy i Azure Service Fabric
 Omvänd proxy är en valfri Azure Service Fabric-tjänst som hjälper mikrotjänster som körs i ett Service Fabric-kluster att identifiera och kommunicera med andra tjänster som har http-slutpunkter. Mer information finns [i Omvänd proxy i Azure Service Fabric](service-fabric-reverseproxy.md). Den här artikeln visar hur du konfigurerar omvänd proxy i klustret. 
@@ -23,7 +23,7 @@ Om du vill konfigurera omvänd proxy när du [skapar ett kluster med Azure-porta
 1. I **steg 2: Klusterkonfiguration**väljer du **Aktivera omvänd proxy**under **Nodtyp.**
 
    ![Aktivera omvänd proxy på portalen](./media/service-fabric-reverseproxy-setup/enable-rp-portal.png)
-2. (Valfritt) Om du vill konfigurera säker omvänd proxy måste du konfigurera ett SSL-certifikat. I **steg 3: Säkerhet**väljer du **Anpassad**under Konfigurationstyp under **Configure cluster security settings** **Konfigurationstyp**. Välj sedan **Inkludera ett SSL-certifikat för omvänd proxy** under Omvänd **proxy-SSL-certifikat**och ange dina certifikatuppgifter.
+2. (Valfritt) Om du vill konfigurera säker omvänd proxy måste du konfigurera ett TLS/SSL-certifikat. I **steg 3: Säkerhet**väljer du **Anpassad**under Konfigurationstyp under **Configure cluster security settings** **Konfigurationstyp**. Välj sedan **Inkludera ett SSL-certifikat för omvänd proxy** under Omvänd **proxy-SSL-certifikat**och ange dina certifikatuppgifter.
 
    ![Konfigurera säker omvänd proxy på portalen](./media/service-fabric-reverseproxy-setup/configure-rp-certificate-portal.png)
 
@@ -74,7 +74,7 @@ När du har en Resource Manager-mall kan du aktivera omvänd proxy med följande
         ...
     }
     ```
-3. Om du vill konfigurera SSL-certifikat på porten för omvänd proxy lägger du till certifikatet i egenskapen ***reverseProxyCertificate*** i avsnittet **Microsoft.ServiceFabric/clusters** [Resource type](../resource-group-authoring-templates.md).
+3. Om du vill konfigurera TLS/SSL-certifikat på porten för omvänd proxy lägger du till certifikatet i egenskapen ***reverseProxyCertificate*** i avsnittet **Microsoft.ServiceFabric/clusters** [Resource type](../resource-group-authoring-templates.md).
 
     ```json
     {

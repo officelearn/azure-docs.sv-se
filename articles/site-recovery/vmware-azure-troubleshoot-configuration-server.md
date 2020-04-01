@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 02/13/2019
 ms.author: ramamill
-ms.openlocfilehash: 25e2b488d3b6e7e5cabd1a71d1489efaf01231b3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0383a512dfb7c2bb1ae2422b9ade1e3c7387a70c
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73748545"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80478301"
 ---
 # <a name="troubleshoot-configuration-server-issues"></a>Felsöka konfigurationsserverfel
 
@@ -42,7 +42,7 @@ Källmaskinen registrerar sig med konfigurationsservern när du installerar mobi
     3. Kontrollera att mapparna i [mappen Site Recovery-undantag från antivirusprogram](vmware-azure-set-up-source.md#azure-site-recovery-folder-exclusions-from-antivirus-program) inte ingår i antivirusprogrammet.
     4. När nätverksproblem har lösts försöker du igen registreringen genom att följa riktlinjerna i [Registrera källdatorn med konfigurationsservern](vmware-azure-troubleshoot-configuration-server.md#register-source-machine-with-configuration-server).
 
-6. Om **begäran om stränginlägg: (7) - Det gick inte att ansluta till servern** hittades, leta efter strängbegäran i samma loggfil: **(60) - Peer-certifikatet kan inte autentiseras med givna certifikatutfärdare**. Det här felet kan uppstå eftersom konfigurationsservercertifikatet har upphört att gälla eller att källdatorn inte stöder TLS 1.0 eller senare SSL-protokoll. Det kan också inträffa om en brandvägg blockerar SSL-kommunikation mellan källdatorn och konfigurationsservern. Om strängen hittas: 
+6. Om **begäran om stränginlägg: (7) - Det gick inte att ansluta till servern** hittades, leta efter strängbegäran i samma loggfil: **(60) - Peer-certifikatet kan inte autentiseras med givna certifikatutfärdare**. Det här felet kan uppstå eftersom konfigurationsservercertifikatet har upphört att gälla eller att källdatorn inte stöder TLS 1.0 eller senare protokoll. Det kan också inträffa om en brandvägg blockerar TLS-kommunikation mellan källdatorn och konfigurationsservern. Om strängen hittas: 
     1. Lös problemet genom att ansluta till konfigurationsserverns IP-adress med hjälp av en webbläsare på källdatorn. Använd URI https:\/ \/<konfigurationsserverNS\>IP-adress :443/. Se till att källmaskinen kan nå konfigurationsservern via port 443.
     2. Kontrollera om några brandväggsregler på källdatorn behöver läggas till eller tas bort för att källdatorn ska kunna prata med konfigurationsservern. På grund av de olika brandväggsprogram som kan användas kan vi inte lista alla nödvändiga brandväggskonfigurationer. Arbeta med nätverksadministratörerna för att häva blockeringen av anslutningsproblem.
     3. Kontrollera att mapparna i [mappen Site Recovery-undantag från antivirusprogram](vmware-azure-set-up-source.md#azure-site-recovery-folder-exclusions-from-antivirus-program) inte ingår i antivirusprogrammet.  

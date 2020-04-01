@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: troubleshooting
-ms.date: 3/18/2020
-ms.openlocfilehash: a35a586a519ff78e8b32d986b92bd008b2c6b858
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
-ms.translationtype: HT
+ms.date: 3/30/2020
+ms.openlocfilehash: 59b8753007c3b9130c397dda30c571580cbb5326
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80067873"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80411095"
 ---
 # <a name="how-to-use-sys_schema-for-performance-tuning-and-database-maintenance-in-azure-database-for-mysql"></a>Så här använder du sys_schema för prestandajustering och databasunderhåll i Azure Database for MySQL
 
@@ -60,6 +60,9 @@ I det här exemplet azure-databas för MySQL tillbringade 53 minuter tömning sl
 ## <a name="database-maintenance"></a>Underhåll av databasen
 
 ### <a name="sysinnodb_buffer_stats_by_table"></a>*sys.innodb_buffer_stats_by_table*
+
+[!IMPORTANT]
+> Om du frågar den här vyn kan prestanda påverkas. Vi rekommenderar att du utför den här felsökningen under lågtrafik.
 
 InnoDB-buffertpoolen finns i minnet och är den viktigaste cachemekanismen mellan DBMS och lagring. Storleken på InnoDB-buffertpoolen är knuten till prestandanivån och kan inte ändras om inte en annan produkt SKU har valts. Som med minne i operativsystemet byts gamla sidor ut för att göra plats för nyare data. Om du vill ta reda på vilka tabeller som förbrukar det mesta av InnoDB-buffertpoolens minne kan du fråga *sys.innodb_buffer_stats_by_table* vyn.
 

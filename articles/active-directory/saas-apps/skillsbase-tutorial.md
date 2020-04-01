@@ -1,6 +1,6 @@
 ---
-title: 'Självstudier: Azure Active Directory-integrering med kunskaper Base | Microsoft Docs'
-description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och färdigheter Base.
+title: 'Självstudiekurs: Azure Active Directory-integrering med kompetensbas | Microsoft-dokument'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Skills Base.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -16,45 +16,45 @@ ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
 ms.openlocfilehash: a088675bc1610daf275bac77ae222f0e664afd67
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67090547"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-skills-base"></a>Självstudier: Azure Active Directory-integrering med kunskaper Base
+# <a name="tutorial-azure-active-directory-integration-with-skills-base"></a>Självstudiekurs: Azure Active Directory-integrering med kompetensbas
 
-Lär dig hur du integrerar grundläggande kunskaper med Azure Active Directory (AD Azure) i den här självstudien.
-Integrera grundläggande kunskaper med Azure AD ger dig följande fördelar:
+I den här självstudien får du lära dig hur du integrerar kompetensbas med Azure Active Directory (Azure AD).
+Genom att integrera kompetensbasen med Azure AD får du följande fördelar:
 
-* Du kan styra i Azure AD som har åtkomst till grundläggande kunskaper.
-* Du kan aktivera användarna att vara automatiskt inloggad kunskaper basen (Single Sign-On) med sina Azure AD-konton.
-* Du kan hantera dina konton på en central plats – Azure portal.
+* Du kan styra i Azure AD som har åtkomst till kompetensbasen.
+* Du kan aktivera dina användare så att de automatiskt loggas in på Kompetensbas (Enkel inloggning) med sina Azure AD-konton.
+* Du kan hantera dina konton på en central plats – Azure-portalen.
 
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
+Om du inte har en Azure-prenumeration [skapar du ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
-Om du vill konfigurera Azure AD-integrering med grundläggande kunskaper, behöver du följande objekt:
+Om du vill konfigurera Azure AD-integrering med Kompetensbas behöver du följande objekt:
 
 * En Azure AD-prenumeration. Om du inte har någon Azure AD-miljö kan du hämta en månads utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/)
-* Kunskaper grundläggande enkel inloggning aktiverat prenumeration
+* Kunskaper Base enkel inloggning aktiverad prenumeration
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
 I den här självstudien konfigurerar och testar du enkel inloggning med Azure AD i en testmiljö.
 
-* Har stöd för kunskaper Base **SP** -initierad SSO
-* Har stöd för kunskaper Base **Just In Time** etableringen av användare
+* Skills Base stöder **SP** initierade SSO
+* Skills Base stöder just in time-användaretablering **Just In Time**
 
-## <a name="adding-skills-base-from-the-gallery"></a>Att lägga till kunskap Base från galleriet
+## <a name="adding-skills-base-from-the-gallery"></a>Lägga till kompetensbas från galleriet
 
-För att konfigurera integrering av grundläggande kunskaper i Azure AD, som du behöver lägga till kunskap Base från galleriet i din lista över hanterade SaaS-appar.
+Om du vill konfigurera integreringen av kompetensbas i Azure AD måste du lägga till kompetensbas från galleriet i listan över hanterade SaaS-appar.
 
-**Utför följande steg för att lägga till kunskap Base från galleriet:**
+**Så här lägger du till kompetensbas från galleriet:**
 
-1. I den **[Azure-portalen](https://portal.azure.com)** , klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
+1. I **[Azure-portalen](https://portal.azure.com)** går du till den vänstra navigeringspanelen och klickar på **Azure Active Directory**-ikonen.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
@@ -62,37 +62,37 @@ För att konfigurera integrering av grundläggande kunskaper i Azure AD, som du 
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-3. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
+3. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
 
     ![Knappen Nytt program](common/add-new-app.png)
 
-4. I sökrutan skriver **kunskaper Base**väljer **kunskaper Base** resultatet panelen klickar **Lägg till** för att lägga till programmet.
+4. Skriv **Kompetensbas**i sökrutan och välj **Kompetensbas** från resultatpanelen och klicka sedan på **Lägg** till för att lägga till programmet.
 
-     ![Grundläggande kunskaper i resultatlistan](common/search-new-app.png)
+     ![Kompetensbas i resultatlistan](common/search-new-app.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
-I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med kunskaper Base baserat på en testanvändare kallas **Britta Simon**.
-För enkel inloggning ska fungera, måste en länk förhållandet mellan en Azure AD-användare och relaterade användaren i kunskaper Base upprättas.
+I det här avsnittet konfigurerar och testar du azure AD enkel inloggning med Kompetensbas baserat på en testanvändare som heter **Britta Simon**.
+För enkel inloggning för att fungera måste en länkrelation mellan en Azure AD-användare och den relaterade användaren i Kompetensbasen upprättas.
 
-Om du vill konfigurera och testa Azure AD enkel inloggning med grundläggande kunskaper, måste du utföra följande byggblock:
+Om du vill konfigurera och testa en enkel Azure AD-inloggning med Kompetensbas måste du slutföra följande byggblock:
 
-1. **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
-2. **[Konfigurera enkel inloggning för kunskaper-Base](#configure-skills-base-single-sign-on)**  – om du vill konfigurera inställningar för enkel inloggning på programsidan.
-3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
-4. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
-5. **[Skapa kunskaper Base testanvändare](#create-skills-base-test-user)**  – du har en motsvarighet för Britta Simon i kunskaper Base som är länkad till en Azure AD-representation av användaren.
-6. **[Testa enkel inloggning](#test-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
+1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
+2. **[Konfigurera kunskaper bas enkel inloggning](#configure-skills-base-single-sign-on)** - för att konfigurera inställningarna för enkel inloggning på programsidan.
+3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
+4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
+5. **[Skapa kunskaper bas testanvändare](#create-skills-base-test-user)** - att ha en motsvarighet till Britta Simon i Kompetensbas som är kopplad till Azure AD representation av användaren.
+6. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
 I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure-portalen.
 
-Utför följande steg för att konfigurera Azure AD enkel inloggning med grundläggande kunskaper:
+Så här konfigurerar du en enkel Azure AD-inloggning med Kompetensbasen:
 
-1. I den [Azure-portalen](https://portal.azure.com/)på den **kunskaper Base** application integration markerar **enkel inloggning**.
+1. I [Azure-portalen](https://portal.azure.com/)väljer du Enkel inloggning på sidan Programintegreringssida **för** **kunskapersbas** .
 
-    ![Konfigurera enkel inloggning för länken](common/select-sso.png)
+    ![Konfigurera länk för enkel inloggning](common/select-sso.png)
 
 2. I dialogrutan **Välj en metod för enkel inloggning** väljer du läget **SAML/WS-Fed** för att aktivera enkel inloggning.
 
@@ -104,47 +104,47 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med grundl�
 
 4. I avsnittet **Grundläggande SAML-konfiguration** utför du följande steg:
 
-    ![Kunskaper Base domän och URL: er med enkel inloggning för information](common/sp-signonurl.png)
+    ![Kompetensbasdomän och webbadresser enkel inloggningsinformation](common/sp-signonurl.png)
 
-    I textrutan **Inloggnings-URL** skriver du in en URL med följande mönster: `https://app.skills-base.com/o/<customer-unique-key>`
+    Skriv en URL med hjälp av följande mönster i textrutan **Sign-on-URL:**`https://app.skills-base.com/o/<customer-unique-key>`
 
     > [!NOTE]
-    > Du kan hämta inloggnings-URL: en från kunskaper Base program. . Logga in som administratör och gå till Admin -> Inställningar -> instans information -> kommandot. Kopiera inloggnings URL och klistra in det i ovanför textrutan.
+    > Du kan hämta inloggnings-URL:en från programmet Skills Base. Logga in som administratör och gå till admin-> Inställningar-> instansinformation -> genvägslänk. Kopiera inloggnings-URL:en och klistra in den i textrutan ovanför.
 
-5. På sidan **Konfigurera enkel inloggning med SAML** går du till avsnittet **SAML-signeringscertifikat**, klickar på **Hämta** för att hämta **Metadata-XML för federationen** från de angivna alternativen enligt dina behov och spara den på datorn.
+5. På sidan **Set up Single Sign-On with SAML** (Konfigurera enkel inloggning med SAML) går du till avsnittet **SAML Signing Certificate** (SAML-signeringscertifikat), klickar på **Ladda ned** för att ladda ned **Federation Metadata-XML** från de angivna alternativen enligt dina behov och spara den på datorn.
 
-    ![Länk för hämtning av certifikat](common/metadataxml.png)
+    ![Länk för nedladdning av certifikatet](common/metadataxml.png)
 
-6. På den **ställa in kunskaper Base** avsnittet, kopiera den lämpliga URL: er enligt dina behov.
+6. Kopiera lämpliga webbadresser enligt dina krav i avsnittet **Konfigurera kompetensbaser.**
 
     ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
 
-    a. Inloggningswebbadress
+    a. Inloggnings-URL
 
-    b. Microsoft Azure Active Directory-identifierare
+    b. Azure AD-identifierare
 
     c. Utloggnings-URL
 
-### <a name="configure-skills-base-single-sign-on"></a>Konfigurera kunskaper grundläggande enkel inloggning
+### <a name="configure-skills-base-single-sign-on"></a>Konfigurera enstaka inloggningsbas för kunskaper
 
-1. I ett annat webbläsarfönster, logga in på färdigheter Base som en administratör.
+1. I ett annat webbläsarfönster loggar du in på Kompetensbasen som säkerhetsadministratör.
 
-2. Från vänster sida av menyn under **ADMIN** klickar du på **autentisering**.
+2. Klicka på **Autentisering**under **ADMIN** på menyn till vänster på menyn.
 
-    ![Administratören](./media/skillsbase-tutorial/tutorial_skillsbase_auth.png)
+    ![Adminen](./media/skillsbase-tutorial/tutorial_skillsbase_auth.png)
 
-3. På den **autentisering** väljer du enkel inloggning som **SAML 2**.
+3. På **autentiseringssidan** väljer du Enkel inloggning som **SAML 2**.
 
     ![Enskild](./media/skillsbase-tutorial/tutorial_skillsbase_single.png)
 
-4. På den **autentisering** utför följande steg:
+4. Gör följande på **autentiseringssidan:**
 
     ![Enskild](./media/skillsbase-tutorial/tutorial_skillsbase_save.png)
 
-    a. Klicka på **uppdatering IdP metadata** bredvid knappen **Status** alternativet och klistra in innehållet i XML-Metadata som du hämtade från Azure-portalen i angivna textrutan.
+    a. Klicka på knappen **Uppdatera IdP-metadata bredvid** **statusalternativet** och klistra in innehållet i METADATA-XML som du hämtade från Azure-portalen i den angivna textrutan.
 
     > [!Note]
-    > Du kan också bekräfta idp metadata via den **Metadata verifieraren** verktyget som markerade i skärmbilden ovan.
+    > Du kan också validera idp-metadata via **metadata validator-verktyget** som markerat i skärmbilden ovan.
 
     b. Klicka på **Spara**.
 
@@ -156,7 +156,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     ![Länkarna ”Användare och grupper” och ”Alla grupper”](common/users.png)
 
-2. Välj **Ny användare** överst på skärmen.
+2. Välj **Ny användare** högst upp på skärmen.
 
     ![Knappen Ny användare](common/new-user.png)
 
@@ -173,17 +173,17 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     d. Klicka på **Skapa**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
+### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
-I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inloggning genom att bevilja åtkomst till grundläggande kunskaper.
+I det här avsnittet kan du aktivera Britta Simon för att använda Azure enkel inloggning genom att bevilja åtkomst till Kompetensbas.
 
-1. I Azure-portalen väljer du **företagsprogram**väljer **alla program**och välj sedan **kunskaper Base**.
+1. I Azure-portalen väljer du **Enterprise Applications**, väljer **Alla program**och väljer sedan **Kunskapsbas**.
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-2. I listan med program väljer **kunskaper Base**.
+2. Välj **Kompetensbas i**programlistan .
 
-    ![Länken grundläggande kunskaper i listan med program](common/all-applications.png)
+    ![Länken Kompetensbas i programlistan](common/all-applications.png)
 
 3. På menyn till vänster väljer du **Användare och grupper**.
 
@@ -195,22 +195,22 @@ I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inlog
 
 5. I dialogrutan **Användare och grupper** väljer du **Britta Simon** i listan med användare och klickar på knappen **Välj** längst ned på skärmen.
 
-6. Om du förväntar dig ett rollvärde i SAML-försäkran väljer du i dialogrutan **Välj roll** lämplig roll för användaren i listan och klickar sedan på knappen **Välj** längst ned på skärmen.
+6. Om du förväntar dig något rollvärde i SAML-påståendet väljer du lämplig roll för användaren i listan i dialogrutan **Välj roll** och klickar sedan på knappen **Välj** längst ned på skärmen.
 
 7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
 
-### <a name="create-skills-base-test-user"></a>Skapa kunskaper Base testanvändare
+### <a name="create-skills-base-test-user"></a>Skapa testanvändare för kunskapsbas
 
-I det här avsnittet skapas en användare som kallas Britta Simon i grundläggande kunskaper. Kunskaper Base stöder etableringen av just-in-time-användare som är aktiverat som standard. Det finns inget åtgärdsobjekt för dig i det här avsnittet. Om en användare inte redan finns i grundläggande kunskaper, skapas en ny efter autentisering.
+I det här avsnittet skapas en användare som heter Britta Simon i Skills Base. Skills Base stöder just-in-time-användaretablering, vilket är aktiverat som standard. Det finns inget åtgärdsobjekt för dig i det här avsnittet. Om en användare inte redan finns i Kompetensbasen skapas en ny efter autentisering.
 
 > [!Note]
-> Om du behöver skapa en användare manuellt följer du anvisningarna [här](http://wiki.skills-base.net/index.php?title=Adding_people_and_enabling_them_to_log_in).
+> Om du behöver skapa en användare manuellt följer du instruktionerna [här](http://wiki.skills-base.net/index.php?title=Adding_people_and_enabling_them_to_log_in).
 
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning
 
-I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
+I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-När du klickar på panelen grundläggande kunskaper i åtkomstpanelen, bör det vara loggas in automatiskt för kunskaper basen som du ställer in enkel inloggning. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+När du klickar på panelen Kompetensbas på åtkomstpanelen bör du automatiskt loggas in på den kompetensbas som du ställer in SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 

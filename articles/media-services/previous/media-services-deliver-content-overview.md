@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 22d98656f42f52f2fba0845fac6f1d210d2cf0bd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c8d32a6434db0fad18b9fe7c2d6e2117795eb651
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76264686"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80476734"
 ---
 # <a name="deliver-content-to-customers"></a>Leverera innehåll till kunder
 När du levererar ditt strömmande innehåll eller video-on-demand-innehåll till kunder är ditt mål att leverera högkvalitativ video till olika enheter under olika nätverksförhållanden.
@@ -40,7 +40,7 @@ Den här artikeln innehåller en översikt över viktiga innehållsleveransbegre
 Mer om du vill kontrollera kända problem finns i [Kända problem](media-services-deliver-content-overview.md#known-issues).
 
 ## <a name="dynamic-packaging"></a>Dynamisk paketering
-Med den dynamiska förpackning som Media Services tillhandahåller kan du leverera ditt adaptiva bithastighets-MP4- eller Smooth Streaming-kodat innehåll i direktuppspelningsformat som stöds av Media Services (MPEG-DASH, HLS, Smooth Streaming)) utan att behöva paketera om till dessa strömmande format. Vi rekommenderar att du levererar ditt innehåll med dynamiska förpackningar.
+Med den dynamiska förpackning som Media Services tillhandahåller kan du leverera ditt adaptiva bithastighets-MP4- eller Smooth Streaming-kodat innehåll i direktuppspelningsformat som stöds av Media Services (MPEG-DASH, HLS, Smooth Streaming) utan att behöva paketera om till dessa direktuppspelningsformat. Vi rekommenderar att du levererar ditt innehåll med dynamiska förpackningar.
 
 För att dra nytta av dynamiska förpackningar måste du koda din mezzanine (källa) fil i en uppsättning adaptiv-bitrate MP4-filer eller adaptiv bitrate Smooth Streaming filer.
 
@@ -82,10 +82,10 @@ Adaptiv bithastighetsteknik gör det möjligt för videospelarprogram att bestä
 Om du vill ge användarna strömmande webbadresser måste du först skapa en OnDemandOrigin-positionerare. När du skapar positioneraren får du bassökvägen till den tillgång som innehåller det innehåll som du vill strömma. Men för att kunna strömma det här innehållet måste du ändra den här sökvägen ytterligare. Om du vill skapa en fullständig URL till manifestfilen för direktuppspelning måste du sammanfoga locatorns sökvägsvärde och filnamnet manifest (filename.ism). Lägg sedan till **/Manifest** och ett lämpligt format (om det behövs) till positionerarsökvägen.
 
 > [!NOTE]
-> Du kan också strömma ditt innehåll via en SSL-anslutning. Det gör du genom att se till att dina strömmande webbadresser börjar med HTTPS. Observera att AMS för närvarande inte stöder SSL med anpassade domäner.  
+> Du kan också strömma ditt innehåll via en TLS-anslutning. Det gör du genom att se till att dina strömmande webbadresser börjar med HTTPS. Observera att AMS för närvarande inte stöder TLS med anpassade domäner.  
 > 
 
-Du kan bara strömma via SSL om slutpunkten för direktuppspelning som du levererar ditt innehåll från skapades från efter den 10 september 2014. Om dina strömmande webbadresser baseras på slutpunkter för direktuppspelning som skapats efter den 10 september 2014 innehåller webbadressen "streaming.mediaservices.windows.net". Strömmande webbadresser som innehåller "origin.mediaservices.windows.net" (det gamla formatet) stöder inte SSL. Om webbadressen är i det gamla formatet och du vill kunna strömma via SSL skapar du en ny slutpunkt för direktuppspelning. Använd webbadresser baserat på den nya slutpunkten för direktuppspelning för att strömma ditt innehåll via SSL.
+Du kan bara strömma över TLS om slutpunkten för direktuppspelning som du levererar ditt innehåll från skapades från efter den 10 september 2014. Om dina strömmande webbadresser baseras på slutpunkter för direktuppspelning som skapats efter den 10 september 2014 innehåller webbadressen "streaming.mediaservices.windows.net". Strömmande webbadresser som innehåller "origin.mediaservices.windows.net" (det gamla formatet) stöder inte TLS. Om webbadressen är i det gamla formatet och du vill kunna strömma över TLS skapar du en ny slutpunkt för direktuppspelning. Använd webbadresser baserat på den nya slutpunkten för direktuppspelning för att strömma ditt innehåll via TLS.
 
 ## <a name="streaming-url-formats"></a><a id="URLs"/>Strömmande URL-format
 
@@ -155,7 +155,7 @@ En slutpunkt för direktuppspelning representerar en strömningstjänst som kan 
 
 ## <a name="known-issues"></a>Kända problem
 ### <a name="changes-to-smooth-streaming-manifest-version"></a>Ändringar i manifestversionen för Smooth Streaming
-Före tjänstutgåvan i juli 2016 – när tillgångar som produceras av Media Encoder Standard, Media Encoder Premium Workflow eller den tidigare Azure Media Encoder strömmades med hjälp av dynamisk förpackning – det smooth streaming-manifest som returneras överensstämmer med version 2.0. I version 2.0 använder fragmentets varaktigheter inte de så kallade upprepningstaggarna (r). Ett exempel:
+Före tjänstutgåvan från juli 2016 – när tillgångar som produceras av Media Encoder Standard, Media Encoder Premium Workflow eller den tidigare Azure Media Encoder strömmades med hjälp av dynamisk förpackning – det smooth streaming-manifest som returneras överensstämmer med version 2.0. I version 2.0 använder fragmentets varaktigheter inte de så kallade upprepningstaggarna (r). Ett exempel:
 
 
     <?xml version="1.0" encoding="UTF-8"?>

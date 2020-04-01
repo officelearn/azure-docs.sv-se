@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 04/11/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: c4d34a6db774712e13ea86d38ae48a543a07a8bc
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: e60d3f0221bce836f49e87a96c762e68cf8a60ad
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79529772"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80473682"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-core-web-app"></a>Snabbstart: Lägga till inloggning med Microsoft i en ASP.NET Core-webbapp
 I den här snabbstarten använder du ett kodexempel för att lära dig hur en ASP.NET Core-webbapp kan logga in på personliga konton (hotmail.com, outlook.com, andra) och arbets- och skolkonton från en Azure Active Directory-instans (Azure AD). (Se [Hur exemplet fungerar](#how-the-sample-works) för en illustration.)
@@ -75,7 +75,7 @@ I den här snabbstarten använder du ett kodexempel för att lära dig hur en AS
 > Vi har konfigurerat ditt projekt med värden för appens egenskaper och det är redo att köras. 
 > [!div class="sxs-lookup" renderon="portal"]
 > > [!NOTE]
-> > Enter_the_Supported_Account_Info_Here
+> > `Enter_the_Supported_Account_Info_Here`
 > [!div renderon="docs"]
 > #### <a name="step-3-run-your-visual-studio-project"></a>Steg 3: Kör visual studio-projektet
 > 1. Extrahera zip-filen i en lokal mapp i rotkatalogen, till exempel **C:\Azure-Samples**
@@ -165,7 +165,7 @@ Du kan skydda en kontrollant eller kontrollantmetoder med attributet `[Authorize
 
 ## <a name="next-steps"></a>Nästa steg
 
-Kolla in GitHub-repo för den här ASP.NET Core-självstudien för mer information, inklusive instruktioner om hur du lägger till autentisering i ett helt nytt ASP.NET Core-webbprogram, hur man anropar Microsoft Graph och andra Microsoft-API:er, hur du anropar egna API:er, hur du lägger till auktorisering, hur du loggar in användare i nationella moln eller med sociala identiteter med mera:
+Kolla in GitHub-repo för den här ASP.NET Core-självstudien för mer information, inklusive instruktioner om hur du lägger till autentisering i en helt ny ASP.NET Core Web-program, hur du anropar Microsoft Graph och andra Microsoft-API:er, hur du anropar egna API:er, hur du lägger till auktorisering, hur du loggar in användare i nationella moln eller med sociala identiteter med mera :
 
 > [!div class="nextstepaction"]
 > [självstudiekurs för ASP.NET Core Web App](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/)

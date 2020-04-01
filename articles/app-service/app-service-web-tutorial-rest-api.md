@@ -1,23 +1,23 @@
 ---
-title: 'Självstudie: värd-RESTful-API med CORS'
-description: 'Lär dig hur Azure App Service hjälper dig att vara värd för dina RESTful-API:er med CORS-stöd. App Service kan vara värd för både frontend-webbappar och Server dels-API: er.'
+title: 'Självstudiekurs: Värd för RESTful API med CORS'
+description: Lär dig hur Azure App Service hjälper dig att vara värd för dina RESTful-API:er med CORS-stöd. Apptjänsten kan vara värd för både frontend-webbappar och klientdat API:er.
 ms.assetid: a820e400-06af-4852-8627-12b3db4a8e70
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 02/11/2020
-ms.custom: seodec18
-ms.openlocfilehash: 28848d8b676bb5f4182a887f5efdd48c6221041a
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.custom: mvc, devcenter, seo-javascript-september2019, seo-javascript-october2019, seodec18
+ms.openlocfilehash: 766b860e6c711107472645d84db50412aaba0e12
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79239702"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80046774"
 ---
 # <a name="tutorial-host-a-restful-api-with-cors-in-azure-app-service"></a>Självstudie: Vara värd för en RESTful-API med CORS i Azure App Service
 
-Med [Azure App Service](overview.md) får du en automatiskt uppdaterad webbvärdtjänst med hög skalbarhet. Dessutom har App Service ett inbyggt stöd för [CORS (Cross-Origin Resource Sharing)](https://wikipedia.org/wiki/Cross-Origin_Resource_Sharing) för RESTful-API:er. Den här självstudien visar hur du distribuerar en ASP.NET Core API-app till App Service med CORS-stöd. Du konfigurerar appen med hjälp av kommandoradsverktyg och distribuerar appen med Git. 
+[Azure App Service](overview.md) tillhandahåller en mycket skalbar, självkorrigering webbhotell. Dessutom har App Service ett inbyggt stöd för [CORS (Cross-Origin Resource Sharing)](https://wikipedia.org/wiki/Cross-Origin_Resource_Sharing) för RESTful-API:er. Den här självstudien visar hur du distribuerar en ASP.NET Core API-app till App Service med CORS-stöd. Du konfigurerar appen med hjälp av kommandoradsverktyg och distribuerar appen med Git. 
 
-I den här guiden får du lära dig att:
+I den här självstudiekursen får du lära du dig att:
 
 > [!div class="checklist"]
 > * Skapa App Service-resurser med Azure CLI
@@ -28,7 +28,7 @@ Du kan följa stegen i den här självstudien i macOS, Linux och Windows.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att slutföra den här kursen behöver du:
 
@@ -51,7 +51,7 @@ git clone https://github.com/Azure-Samples/dotnet-core-api
 
 Den här lagringsplatsen innehåller ett program som baseras på följande självstudie: [Hjälpsidor för ASP.NET Cores webb-API med Swagger](/aspnet/core/tutorials/web-api-help-pages-using-swagger?tabs=visual-studio). En Swagger-generator används för att hantera [Swagger-användargränssnittet](https://swagger.io/swagger-ui/) och Swagger JSON-slutpunkten.
 
-### <a name="run-the-application"></a>Köra programmet
+### <a name="run-the-application"></a>Köra appen
 
 Kör följande kommandon för att installera de nödvändiga paketen, köra databasmigreringar och starta programmet.
 
@@ -73,7 +73,7 @@ Du kan när som helst stoppa ASP.NET Core genom att trycka på `Ctrl+C` i termin
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## <a name="deploy-app-to-azure"></a>Distribuera appen till Azure
+## <a name="deploy-app-to-azure"></a>Distribuera app till Azure
 
 I det här steget distribuerar du din SQL Database-anslutna .NET Core-app till App Service.
 
@@ -141,7 +141,7 @@ Därefter aktiverar du det inbyggda CORS-stödet i App Service för din API.
 
 Öppna _wwwroot/index.html_ på din lokala lagringsplats.
 
-På rad 51 anger du `apiEndpoint`-variabeln till URL:en för din distribuerade API (`http://<app_name>.azurewebsites.net`). Ersätt _\<appname >_ med ditt appnamn i App Service.
+På rad 51 anger du `apiEndpoint`-variabeln till URL:en för din distribuerade API (`http://<app_name>.azurewebsites.net`). Ersätt _ \<appnamn>_ med ditt appnamn i App Service.
 
 Kör exempelappen igen i ditt lokala terminalfönster.
 
@@ -149,7 +149,7 @@ Kör exempelappen igen i ditt lokala terminalfönster.
 dotnet run
 ```
 
-Gå till webbläsarappen på `http://localhost:5000`. Öppna fönstret utvecklarverktyg i webbläsaren (`Ctrl`+`Shift`+`i` i Chrome för Windows) och granska fliken **konsol** . Du bör nu se fel meddelandet `No 'Access-Control-Allow-Origin' header is present on the requested resource`.
+Gå till webbläsarappen på `http://localhost:5000`. Öppna fönstret utvecklarverktyg i`Ctrl` + `Shift` + `i` webbläsaren (i Chrome för Windows) och kontrollera fliken **Konsol.** Du bör nu se `No 'Access-Control-Allow-Origin' header is present on the requested resource`felmeddelandet .
 
 ![CORS-fel i webbläsarklienten](./media/app-service-web-tutorial-rest-api/azure-app-service-cors-error.png)
 
@@ -159,7 +159,7 @@ Webbläsarappen bör ha en offentlig URL i stället för en localhost-URL i prod
 
 ### <a name="enable-cors"></a>Aktivera CORS 
 
-I Cloud Shell aktiverar du CORS till din klient-URL med kommandot [`az resource update`](/cli/azure/resource#az-resource-update). Ersätt platshållaren _&lt;appname>_ .
+Aktivera CORS till klientens URL i Cloud [`az resource update`](/cli/azure/resource#az-resource-update) Shell med kommandot. Ersätt _ &lt;>platshållare för appnamnet._
 
 ```azurecli-interactive
 az resource update --name web --resource-group myResourceGroup --namespace Microsoft.Web --resource-type config --parent sites/<app_name> --set properties.cors.allowedOrigins="['http://localhost:5000']" --api-version 2015-06-01
@@ -168,7 +168,7 @@ az resource update --name web --resource-group myResourceGroup --namespace Micro
 Du kan ange fler än en klient-URL i `properties.cors.allowedOrigins` (`"['URL1','URL2',...]"`). Du kan också aktivera alla klient-URL:er med `"['*']"`.
 
 > [!NOTE]
-> Om din app kräver att autentiseringsuppgifter såsom cookies eller autentiseringstoken skickas kan webbläsaren kräva huvudet `ACCESS-CONTROL-ALLOW-CREDENTIALS` i svaret. Om du vill aktivera detta i App Service anger du `properties.cors.supportCredentials` till `true` i CORS-konfigurationen. Detta kan inte aktive ras när `allowedOrigins` innehåller `'*'`.
+> Om din app kräver att autentiseringsuppgifter såsom cookies eller autentiseringstoken skickas kan webbläsaren kräva huvudet `ACCESS-CONTROL-ALLOW-CREDENTIALS` i svaret. Om du vill aktivera `properties.cors.supportCredentials` detta `true` i App Service, ställ in på i din CORS-konfiguration. Detta kan inte `allowedOrigins` aktiveras när det ingår `'*'`.
 
 ### <a name="test-cors-again"></a>Testa CORS igen
 

@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 02/14/2020
-ms.openlocfilehash: e0b4bcac8494f136dde21b03422e12b72cecb8f3
-ms.sourcegitcommit: 07d62796de0d1f9c0fa14bfcc425f852fdb08fb1
+ms.openlocfilehash: 4517f85fae278bd8bc15a9586d9dc0202e7dfe56
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80366444"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80475223"
 ---
 # <a name="understand-outputs-from-azure-stream-analytics"></a>Förstå utdata från Azure Stream Analytics
 
@@ -101,7 +101,7 @@ När du använder Blob-lagring som utdata skapas en ny fil i blobben i följande
 * Om utdata partitioneras av ett anpassat fält och en ny blob skapas per partitionsnyckel om den inte finns.
 * Om utdata partitioneras av ett anpassat fält där partitionsnyckeln kardinalitet överstiger 8.000 och en ny blob skapas per partitionsnyckel.
 
-## <a name="event-hubs"></a>Händelsehubbar
+## <a name="event-hubs"></a>Event Hubs
 
 [Azure Event Hubs-tjänsten](https://azure.microsoft.com/services/event-hubs/) är en mycket skalbar publicerings-prenumerera händelse ingestor. Det kan samla in miljontals händelser per sekund. En användning av en händelsehubb som utdata är när utdata från ett Stream Analytics-jobb blir indata för ett annat direktuppspelningsjobb. Information om den maximala meddelandestorleken och optimeringen för batchstorlek finns i avsnittet [utdatabatchstorlek.](#output-batch-size)
 
@@ -188,7 +188,7 @@ I följande tabell visas egenskapsnamnen och beskrivningarna för att skapa en t
 | Tabellnamn |Namnet på tabellen. Tabellen skapas om den inte finns. |
 | Partitionsnyckeln |Namnet på utdatakolumnen som innehåller partitionsnyckeln. Partitionsnyckeln är en unik identifierare för partitionen i en tabell som utgör den första delen av en entitets primära nyckel. Det är ett strängvärde som kan vara upp till 1 KB i storlek. |
 | Radtangent |Namnet på utdatakolumnen som innehåller radtangenten. Radnyckeln är en unik identifierare för en entitet i en partition. Den utgör den andra delen av en entitets primärnyckel. Radtangenten är ett strängvärde som kan vara upp till 1 KB i storlek. |
-| Batchstorlek |Antalet poster för en batchoperation. Standardinställningen (100) är tillräcklig för de flesta jobb. Mer information om hur du ändrar den här inställningen finns i [specifikationen för tabellbatch-drift.](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.table._table_batch_operation) |
+| Batchstorlek |Antalet poster för en batchoperation. Standardinställningen (100) är tillräcklig för de flesta jobb. Mer information om hur du ändrar den här inställningen finns i [specifikationen för tabellbatch-drift.](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.table.tablebatchoperation) |
 
 ## <a name="service-bus-queues"></a>Service Bus-köer
 
@@ -342,18 +342,18 @@ Azure Stream Analytics använder batchar med variabel storlek för att bearbeta 
 
 I följande tabell beskrivs några av övervägandena för batchbearbetning av utdata:
 
-| Utdatatyp | Max meddelandestorlek | Optimering av batchstorlek |
+| Utdatatyp |    Max meddelandestorlek | Optimering av batchstorlek |
 | :--- | :--- | :--- |
 | Azure Data Lake Store | Se [Begränsningar för lagring av datasjö](../azure-resource-manager/management/azure-subscription-service-limits.md#data-lake-store-limits). | Använd upp till 4 MB per skrivåtgärd. |
 | Azure SQL Database | Konfigurerbart med max batchantal. 10 000 max och 100 minsta rader per enskild bulkinsats som standard.<br />Se [Azure SQL-gränser](../sql-database/sql-database-resource-limits.md). |  Varje batch är ursprungligen bulk infogas med maximalt partiantal. Batchen delas på mitten (tills minsta batchantal) baseras på återförsöksbara fel från SQL. |
 | Azure Blob Storage | Se [Azure Storage-gränser](../azure-resource-manager/management/azure-subscription-service-limits.md#storage-limits). | Den maximala blobblockstorleken är 4 MB.<br />Det maximala blob bockantalet är 50 000. |
-| Azure Event Hubs  | 256 KB eller 1 MB per meddelande. <br />Se [gränser för händelsehubbar](../event-hubs/event-hubs-quotas.md). |  När indata-/utdatapartitioneringen inte är justerad packas varje händelse individuellt in `EventData` och skickas i en batch med upp till den maximala meddelandestorleken. Detta händer också om [anpassade metadataegenskaper](#custom-metadata-properties-for-output) används. <br /><br />  När indata-/utdatapartitioneringen är justerad packas flera händelser i en enda `EventData` instans, upp till den maximala meddelandestorleken och skickas. |
+| Azure Event Hubs    | 256 KB eller 1 MB per meddelande. <br />Se [gränser för händelsehubbar](../event-hubs/event-hubs-quotas.md). |    När indata-/utdatapartitioneringen inte är justerad packas varje händelse individuellt in `EventData` och skickas i en batch med upp till den maximala meddelandestorleken. Detta händer också om [anpassade metadataegenskaper](#custom-metadata-properties-for-output) används. <br /><br />  När indata-/utdatapartitioneringen är justerad packas flera händelser i en enda `EventData` instans, upp till den maximala meddelandestorleken och skickas.    |
 | Power BI | Se [Api-gränser för Power BI-viloplats](https://msdn.microsoft.com/library/dn950053.aspx). |
 | Azure Table Storage | Se [Azure Storage-gränser](../azure-resource-manager/management/azure-subscription-service-limits.md#storage-limits). | Standardvärdet är 100 enheter per enskild transaktion. Du kan konfigurera den till ett mindre värde efter behov. |
-| Azure Service Bus-kö   | 256 KB per meddelande för standardnivå, 1 MB för Premium-nivå.<br /> Se [Service Bus gränser](../service-bus-messaging/service-bus-quotas.md). | Använd en enskild händelse per meddelande. |
+| Azure Service Bus-kö    | 256 KB per meddelande för standardnivå, 1 MB för Premium-nivå.<br /> Se [Service Bus gränser](../service-bus-messaging/service-bus-quotas.md). | Använd en enskild händelse per meddelande. |
 | Azure Service Bus-ämne | 256 KB per meddelande för standardnivå, 1 MB för Premium-nivå.<br /> Se [Service Bus gränser](../service-bus-messaging/service-bus-quotas.md). | Använd en enskild händelse per meddelande. |
-| Azure Cosmos DB   | Se [Azure Cosmos DB-gränser](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-cosmos-db-limits). | Batchstorlek och skrivfrekvens justeras dynamiskt baserat på Azure Cosmos DB-svar. <br /> Det finns inga förutbestämda begränsningar från Stream Analytics. |
-| Azure Functions   | | Standardbatchstorleken är 262 144 byte (256 KB). <br /> Standardantalet för händelser per batch är 100. <br /> Batchstorleken kan konfigureras och kan ökas eller minskas i [utdataalternativen](#azure-functions)Stream Analytics .
+| Azure Cosmos DB    | Se [Azure Cosmos DB-gränser](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-cosmos-db-limits). | Batchstorlek och skrivfrekvens justeras dynamiskt baserat på Azure Cosmos DB-svar. <br /> Det finns inga förutbestämda begränsningar från Stream Analytics. |
+| Azure Functions    | | Standardbatchstorleken är 262 144 byte (256 KB). <br /> Standardantalet för händelser per batch är 100. <br /> Batchstorleken kan konfigureras och kan ökas eller minskas i [utdataalternativen](#azure-functions)Stream Analytics .
 
 ## <a name="next-steps"></a>Nästa steg
 > [!div class="nextstepaction"]

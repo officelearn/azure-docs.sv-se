@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-local-business
 ms.topic: overview
-ms.date: 11/29/2019
+ms.date: 03/24/2020
 ms.author: aahi
-ms.openlocfilehash: 4e08596e8cf71bbb0e88abdc51f5d8e69972464d
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: 0006761126eb1d561da7eeff97e8a9928d62ddb0
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74665263"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80478931"
 ---
 # <a name="what-is-bing-local-business-search"></a>Vad är Bing Local Business Search?
 Api:et för lokala företag i Bing är en RESTful-tjänst som gör att dina program kan hitta information om lokala företag baserat på sökfrågor. Till exempel `q=<business-name> in Redmond, Washington`, `q=Italian restaurants near me`eller . 
@@ -44,4 +44,4 @@ Anropa API:et för lokal företagssökning på Bing från alla programmeringsspr
 - [Fråga och svar](local-search-query-response.md)
 - [Snabbstart för lokal företagssökning](quickstarts/local-quickstart.md)
 - [API-referens för sökning efter lokala företag](local-search-reference.md)
-- [Användnings- och visningskrav](use-display-requirements.md)
+- [Använda och visa krav](use-display-requirements.md)

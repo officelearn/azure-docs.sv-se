@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 02/11/2020
 ms.author: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: f1e0bf44515aab18019b19b4f0a6f84183e5aac3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c1799b25ec1adf44342d2305d3b2a29039c39cd4
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77160091"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80419706"
 ---
 # <a name="single-page-application-code-configuration"></a>Ensidigt program: Kodkonfiguration
 
@@ -27,18 +27,18 @@ Lär dig hur du konfigurerar koden för ditt ensidiga program (SPA).
 
 ## <a name="msal-libraries-that-support-implicit-flow"></a>MSAL-bibliotek som stöder implicit flöde
 
-Microsoft-identitetsplattformen tillhandahåller följande MSAL-bibliotek (Microsoft Authentication Library) som stöder implicit flöde med hjälp av branschberekommendationerade säkerhetsrutiner:  
+Microsoft-identitetsplattformen tillhandahåller följande MSAL-bibliotek (Microsoft Authentication Library) som stöder implicit flöde med hjälp av branschberekommendationerade säkerhetsrutiner:
 
 | MSAL-bibliotek | Beskrivning |
 |--------------|--------------|
 | ![MSAL.js](media/sample-v2-code/logo_js.png) <br/> [MSAL.js](https://github.com/AzureAD/microsoft-authentication-library-for-js)  | Vanligt JavaScript-bibliotek för användning i alla webbappar på klientsidan som är inbyggda via JavaScript- eller SPA-ramverk som Angular, Vue.js och React.js. |
-| ![MSAL Vinkel](media/sample-v2-code/logo_angular.png) <br/> [MSAL Vinkel](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angular/README.md) | Omslag till msal.js-biblioteket för att förenkla användningen i ensidiga appar som är byggda via vinkelramverket. Det här biblioteket är i förhandsversion och har [kända problem](https://github.com/AzureAD/microsoft-authentication-library-for-js/issues?q=is%3Aopen+is%3Aissue+label%3Aangular) med vissa vinkelversioner och webbläsare. |
+| ![MSAL Vinkel](media/sample-v2-code/logo_angular.png) <br/> [MSAL Vinkel](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angular/README.md) | Omslag till msal.js-biblioteket för att förenkla användningen i ensidiga appar som är byggda via vinkelramverket. |
 
 ## <a name="application-code-configuration"></a>Konfiguration av programkod
 
 I ett MSAL-bibliotek skickas programregistreringsinformationen som konfiguration under bibliotekets initiering.
 
-# <a name="javascript"></a>[Javascript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 ```javascript
 // Configuration object constructed.
@@ -58,16 +58,20 @@ Mer information om de konfigurerbara alternativen finns i [Initiera program med 
 # <a name="angular"></a>[Angular](#tab/angular)
 
 ```javascript
-//In app.module.ts
+// App.module.ts
 import { MsalModule } from '@azure/msal-angular';
 
 @NgModule({
-  imports: [ MsalModule.forRoot({
-                clientID: 'your_app_id'
-            })]
-         })
+    imports: [
+        MsalModule.forRoot({
+            auth: {
+                clientId: 'your_app_id'
+            }
+        })
+    ]
+})
 
-  export class AppModule { }
+export class AppModule { }
 ```
 
 ---

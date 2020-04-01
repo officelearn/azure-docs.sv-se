@@ -4,19 +4,18 @@ description: Lär dig mer om några av de överväganden om virtuell nätverksde
 services: active-directory-ds
 author: iainfoulds
 manager: daveba
-ms.assetid: 23a857a5-2720-400a-ab9b-1ba61e7b145a
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 01/21/2020
+ms.date: 03/30/2020
 ms.author: iainfou
-ms.openlocfilehash: e00ec8448739ac30950877a2ae196aa78cde750c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 69f8cd0f78a45c6c5e53368edc5902c4b6695701
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79264198"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80408834"
 ---
 # <a name="virtual-network-design-considerations-and-configuration-options-for-azure-ad-domain-services"></a>Hänsyn till virtual network design och konfigurationsalternativ för Azure AD Domain Services
 
@@ -76,7 +75,7 @@ Du kan ansluta ett virtuellt nätverk till ett annat virtuellt nätverk (VNet-ti
 
 ![Virtuell nätverksanslutning med en VPN-gateway](./media/active-directory-domain-services-design-guide/vnet-connection-vpn-gateway.jpg)
 
-Mer information om hur du använder virtuella privata nätverk finns i [Konfigurera en VNet-till-VNet VPN-gateway-anslutning med hjälp av Azure-portalen](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal).
+Mer information om hur du använder virtuella privata nätverk finns i [Konfigurera en VNet-till-VNet VPN-gateway-anslutning med hjälp av Azure-portalen](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md).
 
 ## <a name="name-resolution-when-connecting-virtual-networks"></a>Namnmatchning vid anslutning av virtuella nätverk
 
@@ -97,11 +96,11 @@ En Azure AD DS-hanterad domän skapar vissa nätverksresurser under distribution
 | Regler för lastbalanserare                     | När en Azure AD DS-hanterad domän har konfigurerats för säker LDAP på TCP-port 636 skapas och används tre regler på en belastningsutjämnare för att distribuera trafiken. |
 
 > [!WARNING]
-> Ta inte bort någon av de nätverksresurser som skapats av Azure AD DS. Om du tar bort någon av nätverksresurserna uppstår ett avbrott i Azure AD DS-tjänsten.
+> Ta inte bort eller ändra någon av de nätverksresurser som skapats av Azure AD DS, till exempel konfigurera belastningsutjämnaren eller reglerna manuellt. Om du tar bort eller ändrar någon av nätverksresurserna kan ett avbrott i Azure AD DS-tjänsten uppstå.
 
 ## <a name="network-security-groups-and-required-ports"></a>Nätverkssäkerhetsgrupper och nödvändiga portar
 
-En [nätverkssäkerhetsgrupp (NSG)](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg) innehåller en lista över regler som tillåter eller nekar nätverkstrafik till trafik i ett virtuellt Azure-nätverk. En nätverkssäkerhetsgrupp skapas när du distribuerar Azure AD DS som innehåller en uppsättning regler som gör att tjänsten kan tillhandahålla autentiserings- och hanteringsfunktioner. Den här standardnätverkssäkerhetsgruppen är associerad med det virtuella nätverksundernätet som din Azure AD DS-hanterade domän distribueras till.
+En [nätverkssäkerhetsgrupp (NSG)](../virtual-network/virtual-networks-nsg.md) innehåller en lista över regler som tillåter eller nekar nätverkstrafik till trafik i ett virtuellt Azure-nätverk. En nätverkssäkerhetsgrupp skapas när du distribuerar Azure AD DS som innehåller en uppsättning regler som gör att tjänsten kan tillhandahålla autentiserings- och hanteringsfunktioner. Den här standardnätverkssäkerhetsgruppen är associerad med det virtuella nätverksundernätet som din Azure AD DS-hanterade domän distribueras till.
 
 Följande regler för nätverkssäkerhetsgrupper krävs för att Azure AD DS ska kunna tillhandahålla autentiserings- och hanteringstjänster. Redigera eller ta inte bort dessa regler för nätverkssäkerhetsgrupp för det virtuella nätverksundernätet som din Azure AD DS-hanterade domän distribueras till.
 

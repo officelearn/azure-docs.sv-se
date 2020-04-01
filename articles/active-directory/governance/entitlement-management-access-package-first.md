@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.subservice: compliance
-ms.date: 10/22/2019
+ms.date: 03/30/2020
 ms.author: ajburnle
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cd4feeb83acc3842874e7a2e4bbd32dacabcc00d
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: c2d31ef46dfba31a8f217f68e8d5f98b67d58da5
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75422657"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80410606"
 ---
 # <a name="tutorial-create-your-first-access-package-in-azure-ad-entitlement-management"></a>Självstudiekurs: Skapa ditt första åtkomstpaket i Azure AD-berättigandehantering
 
@@ -84,79 +84,83 @@ Ett *åtkomstpaket* är en bunt resurser som en grupp eller ett projekt behöver
 
 1. Klicka på Azure Active Directory i Azure-portalen i den vänstra **navigeringen**.
 
-1. Klicka på **Identitetsstyrning** på den vänstra menyn
+2. Klicka på **Identitetsstyrning** på den vänstra menyn
 
-1. Klicka på **Access-paket**på menyn till vänster.  Om du ser **Nekad Åtkomst**kontrollerar du att det finns en Azure AD Premium P2-licens i katalogen.
+3. Klicka på **Access-paket**på menyn till vänster.  Om du ser **Nekad Åtkomst**kontrollerar du att det finns en Azure AD Premium P2-licens i katalogen.
 
-1. Klicka på **Nytt åtkomstpaket**.
+4. Klicka på **Nytt åtkomstpaket**.
 
     ![Hantering av rättigheter i Azure-portalen](./media/entitlement-management-shared/access-packages-list.png)
 
-1. På fliken Grunderna skriver du namnet **Marknadsföringskampanjåtkomstpaket** och beskrivning **Åtkomst till resurser för kampanjen**. **Basics**
+5. På fliken Grunderna skriver du namnet **Marknadsföringskampanjåtkomstpaket** och beskrivning **Åtkomst till resurser för kampanjen**. **Basics**
 
-1. Lämna listrutan **Katalog** inställd på **Allmänt**.
+6. Lämna listrutan **Katalog** inställd på **Allmänt**.
 
     ![Nytt åtkomstpaket - fliken Grunderna](./media/entitlement-management-access-package-first/basics.png)
 
-1. Klicka på **Nästa** för att öppna fliken **Resursroller.**
+7. Klicka på **Nästa** för att öppna fliken **Resursroller.**
 
     På den här fliken väljer du de resurser och den resursroll som ska ingå i åtkomstpaketet.
 
-1. Klicka på **Grupper och lag**.
+8. Klicka på **Grupper och lag**.
 
-1. Leta reda på och välj gruppen **Marknadsföringsresurser som** du skapade tidigare i fönstret Välj grupper.
+9. Leta reda på och välj gruppen **Marknadsföringsresurser som** du skapade tidigare i fönstret Välj grupper.
 
     Som standard visas grupper i och utanför katalogen **Allmänt.** När du väljer en grupp utanför katalogen **Allmänt** läggs den till i katalogen **Allmänt.**
 
     ![Nytt åtkomstpaket - fliken Resursroller](./media/entitlement-management-access-package-first/resource-roles-select-groups.png)
 
-1. Klicka på **Markera** om du vill lägga till gruppen i listan.
+10. Klicka på **Markera** om du vill lägga till gruppen i listan.
 
-1. Välj **Medlem**i listrutan **Roll** .
+11. Välj **Medlem**i listrutan **Roll** .
 
     ![Nytt åtkomstpaket - fliken Resursroller](./media/entitlement-management-access-package-first/resource-roles.png)
 
-1. Klicka på **Nästa** för att öppna fliken **Begäranden.**
+    >[!NOTE]
+    > När du använder [dynamiska grupper](../users-groups-roles/groups-create-rule.md) ser du inga andra roller som är tillgängliga förutom ägare. Det här är avsiktligt.
+    > ![Scenarioöversikt](./media/entitlement-management-access-package-first/dynamic-group-warning.png)
+
+12. Klicka på **Nästa** för att öppna fliken **Begäranden.**
 
     På den här fliken skapar du en begärandeprincip. En *princip* definierar regler eller skyddsräcken för att komma åt ett åtkomstpaket. Du skapar en princip som gör att en viss användare i resurskatalogen kan begära det här åtkomstpaketet.
 
-1. I avsnittet **Användare som kan begära åtkomst** klickar du på För användare i **katalogen** och sedan på **Specifika användare och grupper**.
+13. I avsnittet **Användare som kan begära åtkomst** klickar du på För användare i **katalogen** och sedan på **Specifika användare och grupper**.
 
     ![Nytt åtkomstpaket - fliken Begäranden](./media/entitlement-management-access-package-first/requests.png)
 
-1. Klicka på **Lägg till användare och grupper**.
+14. Klicka på **Lägg till användare och grupper**.
 
-1. I fönstret Välj användare och grupper väljer du den **Requestor1-användare** som du skapade tidigare.
+15. I fönstret Välj användare och grupper väljer du den **Requestor1-användare** som du skapade tidigare.
 
     ![Nytt åtkomstpaket - fliken Begäranden - Välj användare och grupper](./media/entitlement-management-access-package-first/requests-select-users-groups.png)
 
-1. Klicka på **Markera**.
+16. Klicka på **Markera**.
 
-1. Bläddra ned till avsnitten **Godkännande** och **Aktivera begäranden.**
+17. Bläddra ned till avsnitten **Godkännande** och **Aktivera begäranden.**
 
-1. Lämna **Kräv godkännande** inställt på **Nr**.
+18. Lämna **Kräv godkännande** inställt på **Nr**.
 
-1. För **Aktivera begäranden**klickar du på **Ja** för att aktivera det här åtkomstpaketet så snart det har skapats.
+19. För **Aktivera begäranden**klickar du på **Ja** för att aktivera det här åtkomstpaketet så snart det har skapats.
 
     ![Nytt åtkomstpaket - fliken Begäranden - Begäranden om godkännande och aktivera begäranden](./media/entitlement-management-access-package-first/requests-approval-enable.png)
 
-1. Klicka på **Nästa** för att öppna fliken **Livscykel.**
+20. Klicka på **Nästa** för att öppna fliken **Livscykel.**
 
-1. I avsnittet **Förfallodatum** anger du **åtkomstpakettilldelningar som upphör** att gälla **antal dagar**.
+21. I avsnittet **Förfallodatum** anger du **åtkomstpakettilldelningar som upphör** att gälla **antal dagar**.
 
-1. Ange **att tilldelningar upphör** att gälla efter till **30** dagar.
+22. Ange **att tilldelningar upphör** att gälla efter till **30** dagar.
 
     ![Nytt åtkomstpaket – fliken Livscykel](./media/entitlement-management-access-package-first/lifecycle.png)
 
-1. Klicka på **Nästa** för att öppna fliken **Granska + Skapa.**
+23. Klicka på **Nästa** för att öppna fliken **Granska + Skapa.**
 
     ![Nytt åtkomstpaket - fliken Granska + Skapa](./media/entitlement-management-access-package-first/review-create.png)
 
     Efter en stund bör du se ett meddelande om att åtkomstpaketet har skapats.
 
-1. Klicka på **Översikt**i menyn Marknadsföringskampanj i accesspaketet för marknadsföringskampanj .
+24. Klicka på **Översikt**i menyn Marknadsföringskampanj i accesspaketet för marknadsföringskampanj .
 
-1. Kopiera **länken Min Access-portal**.
+25. Kopiera **länken Min Access-portal**.
 
     Du ska använda den här länken för nästa steg.
 

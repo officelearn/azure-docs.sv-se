@@ -1,22 +1,14 @@
 ---
 title: 'Självstudiekurs: extrahera strukturerade data med maskininlärd entitet - LUIS'
-titleSuffix: Azure Cognitive Services
 description: Extrahera strukturerade data från ett uttryck med hjälp av den maskininlärda entiteten. Om du vill öka extraktionsnoggrannheten lägger du till delkomponenter med deskriptorer och begränsningar.
-services: cognitive-services
-author: diberry
-manager: nitinme
-ms.custom: seodec18
-ms.service: cognitive-services
-ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 12/17/2019
-ms.author: diberry
-ms.openlocfilehash: e1709a5e86c8fed8d7f724ad1b105bd02df9fa56
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.date: 03/31/2020
+ms.openlocfilehash: f521e634c129aaf03ee341328721bd89723e8264
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75381774"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80478339"
 ---
 # <a name="tutorial-extract-structured-data-from-user-utterance-with-machine-learned-entities-in-language-understanding-luis"></a>Självstudiekurs: Extrahera strukturerade data från användarutseende med maskininlärda entiteter i Språkförståelse (LUIS)
 
@@ -44,19 +36,19 @@ Den maskininlärda entiteten stöder [modelluppdelningskonceptet](luis-concept-m
 
 Den här självstudien lägger till en dator som lärt sig entiteten för att extrahera data från ett uttryck.
 
-Syftet med en entitet är att definiera de data som ska extraheras. Detta inkluderar att ge data ett namn, en typ (om möjligt), eventuell upplösning av data om det finns tvetydighet och den exakta texten som utgör data.
+Entiteten definierar data som ska extraheras från uttryck. Detta inkluderar att ge data ett namn, en typ (om möjligt), eventuell upplösning av data om det finns tvetydighet och den exakta texten som utgör data.
 
-För att definiera entiteten måste du skapa entiteten och sedan märka texten som representerar entiteten i exempelutseendet. Dessa märkta exempel lär LUIS vad entiteten är och var den finns i ett uttryck.
+För att definiera entiteten måste du skapa entiteten och sedan märka texten som representerar entiteten i exempelyttrandena i alla avsikter. Dessa märkta exempel lär LUIS vad entiteten är och var den finns i ett uttryck.
 
 ## <a name="entity-decomposability-is-important"></a>Enhetsnedjänlighet är viktigt
 
-Entitetsförmultnalighet är viktigt både för avsiktsförutsägelse och för datautvinning.
+Entitetsuppdekompatibilitet är viktigt för både avsiktsförutsägelse och för datautvinning med entiteten.
 
 Börja med en datorinlärd entitet, som är början och den översta nivånheten för datautvinning. Sedan förmultna entiteten i de delar som behövs av klientprogrammet.
 
 Du kanske inte vet hur detaljerad du vill ha din entitet när du börjar appen, men en metod är att börja med en maskininlärd entitet och sedan delas upp med delkomponenter när appen mognar.
 
-I praktiken skapar du en maskininlärd enhet för att representera en order på en pizzaapp. Ordern bör ha alla delar som är nödvändiga för att fullfil ordern. Till att börja med extraherar entiteten orderrelaterad text, drar ut storlek och kvantitet.
+I det här skapar du en maskininlärd entitet som representerar en order för en pizzaapp. Ordern bör ha alla delar som är nödvändiga för att fullfil ordern. Till att börja med extraherar entiteten orderrelaterad text, drar ut storlek och kvantitet.
 
 Ett yttrande `Please deliver one large cheese pizza to me` för `one large cheese pizza` bör extrahera som ordning, sedan också extrahera `1` och `large`.
 
@@ -92,7 +84,7 @@ Om du vill extrahera information om en pizzabeställning `Order` skapar du en en
     ![Lägga till struktur i entiteten](media/tutorial-machine-learned-entity/add-structure-to-entity.png)
 
 1. Lägg till `Size` i rutan Struktur i rutan **Skapa** **en dator som lärt sig entiteten.**
-1. Om du vill lägga till `+` en **deskriptor**markerar du i området **Deskriptorer för storlek** och väljer sedan Skapa ny **fraslista**.
+1. Om du vill lägga till `+` en **deskriptor**markerar du området i **deskriptorerna** och väljer sedan **Skapa ny fraslista**.
 
 1. I rutan **Skapa ny fraslista anger** du `SizeDescriptor` namnet och `small`anger `medium`sedan `large`värden för: , och . När rutan **Förslag fylls** i `extra large`markerar `xl`du och . Välj **Klar** om du vill skapa den nya fraslistan.
 
@@ -108,7 +100,7 @@ Om du vill extrahera information om en pizzabeställning `Order` skapar du en en
 
     ![Märk storlekentiteten för text i uttryck.](media/tutorial-machine-learned-entity/mark-and-create-size-entity.png)
 
-    Raden är heldragen under texten eftersom både märkningen och förutsägelsen matchar eftersom du uttryckligen har märkt texten.
+    Raden är heldragen under texten eftersom både märkningen och förutsägelsen matchar eftersom du _uttryckligen_ har märkt texten.
 
 1. Märk `Order` entiteten i de återstående yttrandena tillsammans med storlekentiteten. De hakparenteser i `Order` texten anger `Size` den märkta entiteten och entiteten inom.
 
@@ -132,7 +124,7 @@ Om du vill extrahera information om en pizzabeställning `Order` skapar du en en
     |--|
     |`pickup XL meat lovers pizza`|
 
-    Den övergripande översta `Order` entiteten, `Size` är märkt och underkomponenten är också märkt med prickade linjer. Detta är en lyckad förutsägelse.
+    Den övergripande översta `Order` entiteten, `Size` är märkt och underkomponenten är också märkt med prickade linjer.
 
     ![Nytt exempel yttrande förutspås med entitet](media/tutorial-machine-learned-entity/new-example-utterance-predicted-with-entity.png)
 
@@ -160,20 +152,20 @@ Börja med att lägga till den fördefinierade nummerentiteten i appen.
 
 ## <a name="create-subcomponent-entity-with-constraint-to-help-extract-data"></a>Skapa underkomponententitet med begränsning för att extrahera data
 
-Entiteten `Order` ska `Quantity` ha en delkomponent för att avgöra hur många av en artikel som är i ordern. Kvantiteten ska begränsas till ett tal så att de extraherade data omedelbart kan användas av klientprogrammet.
+Entiteten `Order` ska `Quantity` ha en delkomponent för att avgöra hur många av en artikel som är i ordern. Kvantiteten ska begränsas till ett tal så att de extraherade data omedelbart är tillgängliga för klientprogrammet efter namn.
 
 Ett villkor används som en textmatchning, antingen med exakt matchning (till exempel en listentitet) eller genom reguljära uttryck (till exempel en reguljär uttrycksentitet eller en fördefinierad entitet).
 
 Genom att använda ett villkor extraheras endast text som matchar det villkoret.
 
 1. Välj **Entiteter** och välj sedan `Order` entiteten.
-1. Välj **+ Lägg till** `Quantity` komponent och ange sedan namnet och välj sedan Retur för att lägga till den nya entiteten i appen.
-1. När meddelandet om lyckade försök har du valt `Quantity` underkomponenten och välj sedan pennan Begränsning.
+1. Välj **+ Lägg till** `Quantity` komponent och ange sedan namnet och välj `Order` sedan Retur för att lägga till den nya delkomponenten i entiteten.
+1. Efter meddelandet om lyckade alternativ väljer du pennan Begränsning i **avancerade alternativ.**
 1. Välj det fördefinierade numret i listrutan.
 
     ![Skapa kvantitetentitet med fördefinierat tal som villkor.](media/tutorial-machine-learned-entity/create-constraint-from-prebuilt-number.png)
 
-    Entiteten `Quantity` tillämpas om och endast om text som matchar det fördefinierade talet entiteten hittas.
+    Entiteten `Quantity` tillämpas när texten matchar det fördefinierade talettiteten.
 
     Entiteten med begränsningen skapas men tillämpas ännu inte på exempelyttrandena.
 
@@ -182,7 +174,7 @@ Genom att använda ett villkor extraheras endast text som matchar det villkoret.
 
 ## <a name="label-example-utterance-to-teach-luis-about-the-entity"></a>Etikettexempel yttrande för att lära LUIS om entiteten
 
-1. Välj **Avsikter** från den vänstra navigeringen och välj sedan **OrderPizza-avsikten.** De tre talen i följande yttranden är märkta `Order` men ligger visuellt under entitetsraden. Den lägre nivån innebär att enheterna hittas men `Order` inte betraktas som isär av enheten.
+1. Välj **Avsikter** från den vänstra navigeringen och välj sedan **OrderPizza-avsikten.** De tre talen i följande yttranden är märkta `Order` men ligger visuellt under entitetsraden. Den lägre nivån innebär att enheterna hittas men `Order` inte betraktas som en del av företaget.
 
     ![Fördefinierat tal hittas men betraktas inte som en annan än orderentiteten ännu.](media/tutorial-machine-learned-entity/prebuilt-number-not-part-of-order-entity.png)
 
@@ -192,7 +184,7 @@ Genom att använda ett villkor extraheras endast text som matchar det villkoret.
 
 ## <a name="train-the-app-to-apply-the-entity-changes-to-the-app"></a>Träna appen för att tillämpa entitetsändringarna i appen
 
-Välj **Träna** om du vill träna appen med de här nya yttrandena.
+Välj **Träna** om du vill träna appen med de här nya yttrandena. Efter träningen `Quantity` förutses delkomponenten korrekt i komponenten. `Order` Denna korrekta förutsägelse indikeras med en heldragen linje.
 
 ![Träna appen och granska sedan exempelyttrandena.](media/tutorial-machine-learned-entity/trained-example-utterances.png)
 
@@ -213,7 +205,7 @@ Testa appen med **Test** hjälp av den interaktiva testpanelen. Med den här pro
 
     Storleken identifierades korrekt. Kom ihåg att exempelyttrandena i avsikten `OrderPizza` `medium` inte har ett exempel på som `SizeDescriptor` en storlek, men använder en deskriptor av en fraslista som innehåller medium.
 
-    Kvantiteten är inte korrekt förutsedd. För att åtgärda detta kan du lägga till fler exempel yttranden med `Quantity` det ordet för att ange kvantitet och etikett som ord som en entitet.
+    Kvantiteten är inte korrekt förutsedd. Du kan åtgärda detta i klientprogrammet som standardstorlek till en (1) om ingen storlek returneras i LUIS-förutsägelsen.
 
 ## <a name="publish-the-app-to-access-it-from-the-http-endpoint"></a>Publicera appen för att komma åt den från HTTP-slutpunkten
 
@@ -223,7 +215,7 @@ Testa appen med **Test** hjälp av den interaktiva testpanelen. Med den här pro
 
 1. [!INCLUDE [LUIS How to get endpoint first step](includes/howto-get-endpoint.md)]
 
-1. Gå till slutet av webbadressen i adressen och ange samma fråga som du angav på den interaktiva testpanelen.
+1. Gå till slutet av WEBBADRESSEN i adressen och ersätt _YOUR_QUERY_HERE_ med samma fråga som du angav på den interaktiva testpanelen.
 
     `deliver a medium veggie pizza`
 

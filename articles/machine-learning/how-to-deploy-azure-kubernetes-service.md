@@ -10,12 +10,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 01/16/2020
-ms.openlocfilehash: db2e80ebb6cbe5f31f2d99a1403a15daf38fd877
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 792964f28ddb3fcb10932b8de9499a9c7027960f
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76722415"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80475391"
 ---
 # <a name="deploy-a-model-to-an-azure-kubernetes-service-cluster"></a>Distribuera en modell till ett Azure Kubernetes-tjänstkluster
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -131,7 +131,7 @@ Om du `cluster_purpose = AksCompute.ClusterPurpose.DEV_TEST`anger behöver klust
 > [!WARNING]
 > Skapa inte flera, samtidiga bilagor till samma AKS-kluster från arbetsytan. Bifoga till exempel ett AKS-kluster till en arbetsyta med två olika namn. Varje ny bilaga kommer att bryta den tidigare befintliga bilagan(er).
 >
-> Om du vill återankoppla ett AKS-kluster, till exempel för att ändra SSL eller annan klusterkonfigurationsinställning, måste du först ta bort den befintliga bilagan med [AksCompute.ta bort()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py#detach--).
+> Om du vill återankoppla ett AKS-kluster, till exempel för att ändra TLS eller annan klusterkonfigurationsinställning, måste du först ta bort den befintliga bilagan med [AksCompute.ta bort()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py#detach--).
 
 Mer information om hur du skapar ett AKS-kluster med Hjälp av Azure CLI eller portal finns i följande artiklar:
 
@@ -348,7 +348,7 @@ print(token)
 * [Säker experiment och slutledning i ett virtuellt nätverk](how-to-enable-virtual-network.md)
 * [Distribuera en modell med en anpassad Docker-avbildning](how-to-deploy-custom-docker-image.md)
 * [Felsökning av distribution](how-to-troubleshoot-deployment.md)
-* [Säkra Azure Machine Learning-webbtjänster med SSL](how-to-secure-web-service.md)
+* [Använda TLS för att skydda en webbtjänst via Azure Machine Learning](how-to-secure-web-service.md)
 * [Använda en ML-modell som distribueras som en webbtjänst](how-to-consume-web-service.md)
 * [Övervaka dina Azure Machine Learning-modeller med Application Insights](how-to-enable-app-insights.md)
 * [Samla in data för modeller i produktion](how-to-enable-data-collection.md)

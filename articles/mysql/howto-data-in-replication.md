@@ -6,18 +6,18 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 3/27/2020
-ms.openlocfilehash: 2148ce41267627d9d6e0437897a99a8dbdbe0746
-ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
+ms.openlocfilehash: 18c1d8b42dc73951901ec4ae9b79715ddbd47617
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2020
-ms.locfileid: "80382774"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80474036"
 ---
 # <a name="how-to-configure-azure-database-for-mysql-data-in-replication"></a>Konfigurera Azure Database för MySQL-data-in Replication
 
-I den här artikeln får du lära dig hur du konfigurerar data-in Replication i Azure Database for MySQL-tjänsten genom att konfigurera huvud- och replikservrarna. Med data-in Replication kan du synkronisera data från en huvud-MySQL-server som körs lokalt, i virtuella datorer eller databastjänster som finns hos andra molnleverantörer till en replik i Azure Database for MySQL-tjänsten. 
+I den här artikeln beskrivs hur du konfigurerar data-in Replication i Azure Database för MySQL genom att konfigurera huvud- och replikservrarna. Den här artikeln förutsätter att du har viss tidigare erfarenhet av MySQL-servrar och databaser.
 
-Den här artikeln förutsätter att du har åtminstone några tidigare erfarenheter med MySQL-servrar och databaser.
+Om du vill skapa en replik i Azure Database for MySQL-tjänsten synkroniserar Data-in Replication data från en lokal mysql-server i en huvudserver, i virtuella datorer eller i molndatabastjänster.
 
 Granska [begränsningarna och kraven](concepts-data-in-replication.md#limitations-and-considerations) för data-in-replikering innan du utför stegen i den här artikeln.
 
@@ -47,7 +47,7 @@ Följande steg förbereder och konfigurerar MySQL-servern som finns lokalt, på 
 
    Kontrollera till exempel att huvudservern tillåter både inkommande och utgående trafik på port 3306 och att huvudservern har en **offentlig IP-adress**, DNS är allmänt tillgänglig eller har ett fullständigt kvalificerat domännamn (FQDN). 
    
-   Testa anslutningen till huvudservern genom att försöka ansluta från ett verktyg som mySQL-kommandoraden som finns på en annan dator eller från [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) som är tillgängligt i Azure-portalen 
+   Testa anslutningen till huvudservern genom att försöka ansluta från ett verktyg som mySQL-kommandoraden som finns på en annan dator eller från [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) som är tillgängligt i Azure-portalen.
 
 2. Aktivera binär loggning
 
@@ -71,7 +71,7 @@ Följande steg förbereder och konfigurerar MySQL-servern som finns lokalt, på 
 
 4. Skapa en ny replikeringsroll och ställ in behörighet
 
-   Skapa ett användarkonto på huvudservern som har konfigurerats med replikeringsbehörighet. Detta kan göras via SQL-kommandon eller ett verktyg som MySQL Workbench. Överväg om du planerar att replikera med SSL eftersom detta måste anges när du skapar användaren. Se MySQL-dokumentationen för att förstå hur du lägger till [användarkonton](https://dev.mysql.com/doc/refman/5.7/en/adding-users.html) på huvudservern. 
+   Skapa ett användarkonto på huvudservern som har konfigurerats med replikeringsbehörighet. Detta kan göras via SQL-kommandon eller ett verktyg som MySQL Workbench. Överväg om du planerar att replikera med SSL eftersom detta måste anges när du skapar användaren. Se MySQL-dokumentationen för att förstå hur du lägger till [användarkonton](https://dev.mysql.com/doc/refman/5.7/en/user-names.html) på huvudservern. 
 
    I kommandona nedan kan den nya replikeringsrollen som skapas komma åt mastern från vilken dator som helst, inte bara den dator som är värd för själva mastern. Detta görs genom att ange "syncuser@'%'" i kommandot skapa användare. Mer information om hur du [anger kontonamn](https://dev.mysql.com/doc/refman/5.7/en/account-names.html)finns i MySQL-dokumentationen.
 

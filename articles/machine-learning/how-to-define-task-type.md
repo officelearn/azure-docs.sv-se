@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
 ms.date: 11/04/2019
-ms.openlocfilehash: a58959904559cd3b2cec27762f2df93cfea72abd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fef3f0347d963b8a7d5fe2f1ca771293e9c3d2a9
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75540534"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80475500"
 ---
 # <a name="how-to-define-a-machine-learning-task"></a>Så här definierar du en maskininlärningsuppgift 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -76,6 +76,6 @@ Du kan ange uppgiften som en del av din automatiska ML-experimentkörning som sk
 
 + Läs mer om [automatiserad ml](concept-automated-ml.md) i Azure Machine Learning.
 + Läs mer om automatisk utbildning av en prognosmodell i [tidsserier](how-to-auto-train-forecast.md) i Azure Machine Learning
-+ Prova [självstudiekursen för automatisk maskininlärningsklassificering.](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning/model-explanation)
-+ Prova exempelboken [för automatisk regressionsprov för maskininlärning.](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning/model-explanation)
++ Prova [självstudiekursen för automatisk maskininlärningsklassificering.](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-credit-card-fraud/auto-ml-classification-credit-card-fraud.ipynb)
++ Prova exempelboken [för automatisk regressionsprov för maskininlärning.](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/regression-hardware-performance-explanation-and-featurization/auto-ml-regression-hardware-performance-explanation-and-featurization.ipynb)
 

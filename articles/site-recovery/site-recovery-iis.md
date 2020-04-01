@@ -7,18 +7,18 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: mayg
-ms.openlocfilehash: 513a0f28fc03cbf24e35112245c9756d5ce00783
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: dfed398124ca20771e169f6f9e7d08d4d799ee1e
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73954670"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80478284"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-iis-based-web-application"></a>Konfigurera haveriberedskap för ett IIS-baserat webbprogram på flera nivåer
 
 Programvara är motorn i företagets produktivitet i en organisation. Olika webbapplikationer kan tjäna olika syften i en organisation. Vissa program, till exempel program som används för lönebearbetning, ekonomiska program och kundinriktade webbplatser, kan vara avgörande för en organisation. För att förhindra förlust av produktivitet är det viktigt för organisationen att ha dessa program igång kontinuerligt. Ännu viktigare är att ha dessa program konsekvent tillgängliga kan bidra till att förhindra skador på varumärket eller bilden av organisationen.
 
-Kritiska webbprogram ställs vanligtvis in som program på flera nivåer: webben, databasen och programmet finns på olika nivåer. Förutom att spridas över olika nivåer kan programmen också använda flera servrar på varje nivå för att läsa in trafiken. Dessutom kan mappningarna mellan olika nivåer och på webbservern baseras på statiska IP-adresser. Vid redundans måste vissa av dessa mappningar uppdateras, särskilt om flera webbplatser är konfigurerade på webbservern. Om webbprogram använder SSL måste du uppdatera certifikatbindningar.
+Kritiska webbprogram ställs vanligtvis in som program på flera nivåer: webben, databasen och programmet finns på olika nivåer. Förutom att spridas över olika nivåer kan programmen också använda flera servrar på varje nivå för att läsa in trafiken. Dessutom kan mappningarna mellan olika nivåer och på webbservern baseras på statiska IP-adresser. Vid redundans måste vissa av dessa mappningar uppdateras, särskilt om flera webbplatser är konfigurerade på webbservern. Om webbprogram använder TLS måste du uppdatera certifikatbindningar.
 
 Traditionella återställningsmetoder som inte baseras på replikering innebär säkerhetskopiering av olika konfigurationsfiler, registerinställningar, bindningar, anpassade komponenter (COM eller .NET), innehåll och certifikat. Filer återställs genom en uppsättning manuella steg. De traditionella återställningsmetoderna för säkerhetskopiering och återställning av filer manuellt är besvärliga, felbenägna och inte skalbara. Du kan till exempel lätt glömma att säkerhetskopiera certifikat. Efter redundans, du har inget annat val än att köpa nya certifikat för servern.
 
@@ -118,22 +118,22 @@ Varje webbplats består av bindande information. Bindningsinformationen omfattar
 >
 > Om du anger webbplatsbindningen till **Alla som inte tilldelats**behöver du inte uppdatera bindningen efter redundansen. Om IP-adressen som är associerad med en webbplats inte ändras efter redundans behöver du inte uppdatera webbplatsbindningen. (Bevarandet av IP-adressen beror på nätverksarkitekturen och undernäten som tilldelats de primära platserna och återställningsplatserna. Det kanske inte är möjligt att uppdatera dem för din organisation.)
 
-![Skärmbild som visar inställningen SSL-bindning](./media/site-recovery-iis/sslbinding.png)
+![Skärmbild som visar inställningen TLS/SSL-bindning](./media/site-recovery-iis/sslbinding.png)
 
 Om du har associerat IP-adressen med en plats uppdaterar du alla platsbindningar med den nya IP-adressen. Om du vill ändra webbplatsbindningar lägger du till ett [IIS-webbnivåuppdateringsskript](https://aka.ms/asr-web-tier-update-runbook-classic) efter grupp 3 i återställningsplanen.
 
 #### <a name="update-the-load-balancer-ip-address"></a>Uppdatera IP-adressen för belastningsutjämnaren
 Om du har en virtuell ARR-dator lägger du till ett [IIS ARR-redundanskript](https://aka.ms/asr-iis-arrtier-failover-script-classic) efter grupp 4 för att uppdatera IP-adressen.
 
-#### <a name="ssl-certificate-binding-for-an-https-connection"></a>SSL-certifikatbindning för en HTTPS-anslutning
-En webbplats kan ha ett associerat SSL-certifikat som säkerställer en säker kommunikation mellan webbservern och användarens webbläsare. Om webbplatsen har en HTTPS-anslutning och även har en associerad HTTPS-platsbindning till IP-adressen för IIS-servern med en SSL-certifikatbindning, måste du lägga till en ny platsbindning för certifikatet med IP-adressen för IIS-virtuella datorn efter redundansen.
+#### <a name="tlsssl-certificate-binding-for-an-https-connection"></a>TLS/SSL-certifikatbindning för en HTTPS-anslutning
+En webbplats kan ha ett associerat TLS/SSL-certifikat som säkerställer en säker kommunikation mellan webbservern och användarens webbläsare. Om webbplatsen har en HTTPS-anslutning och även har en associerad HTTPS-platsbindning till IP-adressen för IIS-servern med en TLS/SSL-certifikatbindning, måste du lägga till en ny platsbindning för certifikatet med IP-adressen för den virtuella IIS-datorn efter redundansen.
 
-SSL-certifikatet kan utfärdas mot dessa komponenter:
+TLS/SSL-certifikatet kan utfärdas mot dessa komponenter:
 
 * Webbplatsens fullständiga domännamn.
 * Namnet på servern.
 * Ett jokerteckencertifikat för domännamnet.  
-* En IP-adress. Om SSL-certifikatet utfärdas mot IP-adressen för IIS-servern måste ett annat SSL-certifikat utfärdas mot IP-adressen för IIS-servern på Azure-platsen. En ytterligare SSL-bindning för det här certifikatet måste skapas. På grund av detta rekommenderar vi att du inte använder ett SSL-certifikat som utfärdats mot IP-adressen. Detta alternativ är mindre utbredd och kommer snart att föråldras i enlighet med nya ändringar certifikatutfärdare / webbläsare forum.
+* En IP-adress. Om TLS/SSL-certifikatet utfärdas mot IP-adressen för IIS-servern måste ett annat TLS/SSL-certifikat utfärdas mot IP-adressen för IIS-servern på Azure-platsen. En ytterligare TLS-bindning för det här certifikatet måste skapas. På grund av detta rekommenderar vi att du inte använder ett TLS/SSL-certifikat som utfärdats mot IP-adressen. Detta alternativ är mindre utbredd och kommer snart att föråldras i enlighet med nya ändringar certifikatutfärdare / webbläsare forum.
 
 #### <a name="update-the-dependency-between-the-web-tier-and-the-application-tier"></a>Uppdatera beroendet mellan webbnivån och programnivån
 Om du har ett programspecifikt beroende som baseras på IP-adressen för de virtuella datorerna måste du uppdatera det här beroendet efter redundansen.

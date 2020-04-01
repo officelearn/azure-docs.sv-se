@@ -8,12 +8,12 @@ ms.service: digital-twins
 ms.topic: include
 ms.date: 3/11/2020
 ms.custom: include file
-ms.openlocfilehash: 6ec72dfa227d62804e5cbafef0e2d1acf483e84b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: cb36863f0072b031a8c40dd3dc8efcf26a29fb58
+ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79370396"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80407986"
 ---
 > [!NOTE]
-> Förhandsversionen av Azure Digital Twins är för närvarande kapacitet. Därför läggs inte nya kunder längre till och **inga ytterligare Azure Digital Twins-resurser kan skapas just nu.** Om en instans någonstans tas bort, är det möjligt att din resurs skapas kommer att lyckas och du kan fortsätta normalt, men detta är inte garanterat. Fortsätt att kontrollera tillbaka för alla uppdateringar av denna status.
+> Tack för ditt intresse för azure digital twins preview-programmet. På grund av överväldigande efterfrågan är förhandsgranskningsprogrammet tillfälligt stängt när vi förbereder oss för den kommande versionen av nya funktioner. Därför kanske du inte kan skapa nya Azure Digital Twins-resurser just nu. Fortsätt att söka tillbaka för ny information.

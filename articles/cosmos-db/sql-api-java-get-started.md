@@ -9,16 +9,16 @@ ms.topic: tutorial
 ms.date: 11/05/2019
 ms.author: sngun
 ms.openlocfilehash: a046f97dccdcc4a9cb9fe180447c1ff9a316f0df
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73720811"
 ---
 # <a name="nosql-tutorial-build-a-sql-api-java-console-application"></a>Självstudiekurs om NoSQL: Skapa ett Java-konsolprogram med SQL API
 
 > [!div class="op_single_selector"]
-> * [NET](sql-api-get-started.md)
+> * [.NET](sql-api-get-started.md)
 > * [Java](sql-api-java-get-started.md)
 > * [Async Java](sql-api-async-java-get-started.md)
 > * [Node.js](sql-api-nodejs-get-started.md)
@@ -42,10 +42,10 @@ Vi går igenom:
 
 Nu sätter vi igång!
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 Se till att du har följande:
 
-* Ett aktivt Azure-konto. Om du inte har ett kan du registrera dig för ett [kostnadsfritt konto](https://azure.microsoft.com/free/). 
+* Ett aktivt Azure-konto. Om du inte har ett kan du registrera dig för en [kostnadsfri utvärderingsversion](https://azure.microsoft.com/free/). 
 
   [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
@@ -58,7 +58,7 @@ Nu ska vi skapa ett Azure Cosmos DB-konto. Om du redan har ett konto som du vill
 
 [!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
-## <a id="GitClone"></a>Steg 2: Klona GitHub-projekt
+## <a name="step-2-clone-the-github-project"></a><a id="GitClone"></a>Steg 2: Klona GitHub-projekt
 Du kan komma igång genom att klona GitHub-lagringsplatsen. Gå till [Komma igång med Azure Cosmos DB och Java](https://github.com/Azure-Samples/documentdb-java-getting-started). Från en lokal katalog kör du till exempel följande för att hämta exempelprojektet lokalt.
 
     git clone git@github.com:Azure-Samples/azure-cosmos-db-documentdb-java-getting-started.git
@@ -73,8 +73,8 @@ Katalogen innehåller en `pom.xml`-fil för projektet och en `src`-mapp med Java
         <version>LATEST</version>
     </dependency>
 
-## <a id="Connect"></a>Steg 3: Ansluta till ett Azure Cosmos DB-konto
-Gå sedan tillbaka till [Azure-portalen](https://portal.azure.com) för att hämta din slutpunkt och primära huvudnyckel. Azure DB Cosmos-slutpunkten och den primära nyckeln krävs för att ditt program ska veta vart det ska ansluta, och för att Azure Cosmos DB ska lita på programmets anslutning.
+## <a name="step-3-connect-to-an-azure-cosmos-db-account"></a><a id="Connect"></a>Steg 3: Ansluta till ett Azure Cosmos DB-konto
+Gå sedan tillbaka till [Azure-portalen](https://portal.azure.com) för att hämta din slutpunkt och primär huvudnyckel. Azure DB Cosmos-slutpunkten och den primära nyckeln krävs för att ditt program ska veta vart det ska ansluta, och för att Azure Cosmos DB ska lita på programmets anslutning.
 
 Gå till ditt Azure Cosmos DB-konto på Azure Portal och klicka på **Nycklar**. Kopiera URI:n från portalen och klistra in den i `https://FILLME.documents.azure.com` i Program.java-filen. Kopiera sedan PRIMÄRNYCKELN från portalen och klistra in den i `FILLME`.
 
@@ -84,7 +84,7 @@ Gå till ditt Azure Cosmos DB-konto på Azure Portal och klicka på **Nycklar**.
         , new ConnectionPolicy(),
         ConsistencyLevel.Session);
 
-![Skärm bild av Azure Portal som används av NoSQL-självstudien för att skapa ett Java-konsolprogram. Visar ett Azure Cosmos DB-konto där den AKTIVA hubben är markerad, där knappen NYCKLAR är markerad på bladet för Azure Cosmos DB-kontot och där värdena för URI, PRIMÄR NYCKEL och SEKUNDÄR NYCKEL är markerade på bladet Nycklar][keys]
+![Skärmbild av Azure-portalen som används av nosql-självstudien för att skapa ett Java-konsolprogram. Visar ett Azure Cosmos DB-konto där den AKTIVA hubben är markerad, där knappen NYCKLAR är markerad på bladet för Azure Cosmos DB-kontot och där värdena för URI, PRIMÄR NYCKEL och SEKUNDÄR NYCKEL är markerade på bladet Nycklar][keys]
 
 ## <a name="step-4-create-a-database"></a>Steg 4: Skapa en databas
 Azure Cosmos DB-[databasen](databases-containers-items.md#azure-cosmos-databases) kan skapas med metoden [createDatabase](/java/api/com.microsoft.azure.documentdb.documentclient.createdatabase) i **DocumentClient**-klassen. En databas är en logisk container för JSON-dokumentlagring, partitionerad över samlingarna.
@@ -93,7 +93,7 @@ Azure Cosmos DB-[databasen](databases-containers-items.md#azure-cosmos-databases
     database.setId("familydb");
     this.client.createDatabase(database, null);
 
-## <a id="CreateColl"></a>Steg 5: Skapa en samling
+## <a name="step-5-create-a-collection"></a><a id="CreateColl"></a>Steg 5: Skapa en samling
 > [!WARNING]
 > **createCollection** skapar en ny samling med reserverat dataflöde, vilket får priskonsekvenser. Mer information finns på vår [prissättningssida](https://azure.microsoft.com/pricing/details/cosmos-db/).
 > 
@@ -112,8 +112,8 @@ En samling kan skapas med metoden [createCollection](/java/api/com.microsoft.azu
 
     this.client.createCollection("/dbs/familydb", collectionInfo, requestOptions);
 
-## <a id="CreateDoc"></a>Steg 6: Skapa JSON-dokument
-Ett dokument kan skapas med hjälp av metoden [createDocument](/java/api/com.microsoft.azure.documentdb.documentclient.createdocument) för klassen **DocumentClient**. Dokument är användardefinierat (godtyckligt) JSON-innehåll. Vi kan nu infoga ett eller flera dokument. Om du redan har data som du vill lagra i databasen kan du använda [datamigreringsverktyget](import-data.md) för Azure Cosmos DB för att importera dina data till en databas.
+## <a name="step-6-create-json-documents"></a><a id="CreateDoc"></a>Steg 6: Skapa JSON-dokument
+Ett dokument kan skapas med hjälp av [metoden createDocument](/java/api/com.microsoft.azure.documentdb.documentclient.createdocument) i klassen **DocumentClient.** Dokument är användardefinierat (godtyckligt) JSON-innehåll. Vi kan nu infoga ett eller flera dokument. Om du redan har data som du vill lagra i databasen kan du använda [datamigreringsverktyget](import-data.md) för Azure Cosmos DB för att importera dina data till en databas.
 
     // Insert your Java objects as documents 
     Family andersenFamily = new Family();
@@ -135,8 +135,8 @@ Ett dokument kan skapas med hjälp av metoden [createDocument](/java/api/com.mic
 
 ![Diagram som illustrerar den hierarkiska relationen mellan kontot, onlinedatabasen, samlingen och dokumenten som används i NoSQL-självstudiekursen för att skapa ett Java-konsolprogram](./media/sql-api-get-started/nosql-tutorial-account-database.png)
 
-## <a id="Query"></a>Steg 7: Skicka frågor mot Azure Cosmos DB-resurser
-Azure Cosmos DB stöder [komplexa frågor](how-to-sql-query.md) mot JSON-dokument som lagras i varje samling.  Följande exempelkod visar hur du frågar dokument i Azure Cosmos DB med hjälp av SQL-syntaxen med [queryDocuments](/java/api/com.microsoft.azure.documentdb.documentclient.querydocuments)-metoden.
+## <a name="step-7-query-azure-cosmos-db-resources"></a><a id="Query"></a>Steg 7: Skicka frågor mot Azure Cosmos DB-resurser
+Azure Cosmos DB stöder omfattande [frågor](how-to-sql-query.md) mot JSON-dokument som lagras i varje samling.  Följande exempelkod visar hur du frågar dokument i Azure Cosmos DB med hjälp av SQL-syntaxen med [queryDocuments](/java/api/com.microsoft.azure.documentdb.documentclient.querydocuments)-metoden.
 
     FeedResponse<Document> queryResults = this.client.queryDocuments(
         "/dbs/familydb/colls/familycoll",
@@ -148,7 +148,7 @@ Azure Cosmos DB stöder [komplexa frågor](how-to-sql-query.md) mot JSON-dokumen
         System.out.println(String.format("\tRead %s", family));
     }
 
-## <a id="ReplaceDocument"></a>Steg 8: Ersätta JSON-dokument
+## <a name="step-8-replace-json-document"></a><a id="ReplaceDocument"></a>Steg 8: Ersätta JSON-dokument
 Azure Cosmos DB stöder uppdatering av JSON-dokument med hjälp av [replaceDocument](/java/api/com.microsoft.azure.documentdb.documentclient.replacedocument)-metoden.
 
     // Update a property
@@ -159,17 +159,17 @@ Azure Cosmos DB stöder uppdatering av JSON-dokument med hjälp av [replaceDocum
         andersenFamily,
         null);
 
-## <a id="DeleteDocument"></a>Steg 9: Ta bort JSON-dokument
+## <a name="step-9-delete-json-document"></a><a id="DeleteDocument"></a>Steg 9: Ta bort JSON-dokument
 På motsvarande sätt stöder Azure Cosmos DB borttagning av JSON-dokument med hjälp av [deleteDocument](/java/api/com.microsoft.azure.documentdb.documentclient.deletedocument)-metoden.  
 
     this.client.delete("/dbs/familydb/colls/familycoll/docs/Andersen.1", null);
 
-## <a id="DeleteDatabase"></a>Steg 10: Ta bort databasen
+## <a name="step-10-delete-the-database"></a><a id="DeleteDatabase"></a>Steg 10: Ta bort databasen
 Om du tar bort databasen du skapade försvinner databasen och alla underordnade resurser (t.ex. samlingar och dokument).
 
     this.client.deleteDatabase("/dbs/familydb", null);
 
-## <a id="Run"></a>Steg 11: Kör ditt Java-konsolprogram i sin helhet!
+## <a name="step-11-run-your-java-console-application-all-together"></a><a id="Run"></a>Steg 11: Kör ditt Java-konsolprogram i sin helhet!
 Om du vill köra programmet från konsolen går du till projektmappen och kompilerar med hjälp av Maven:
     
     mvn package

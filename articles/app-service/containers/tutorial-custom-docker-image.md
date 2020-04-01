@@ -1,37 +1,37 @@
 ---
-title: 'Självstudie: skapa och köra en anpassad avbildning'
-description: Lär dig hur du skapar en anpassad Linux-avbildning som kan köras på Azure App Service, distribuera den till Azure Container Registration och köra den i App Service.
+title: 'Självstudiekurs: Skapa och kör en anpassad avbildning'
+description: Lär dig hur du skapar en anpassad Linux-avbildning som kan köras på Azure App Service, distribuera den till Azure Container Register och köra den i App Service.
 keywords: azure app service, web app, linux, docker, container
 author: msangapu-msft
 ms.assetid: b97bd4e6-dff0-4976-ac20-d5c109a559a8
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: msangapu
-ms.custom: seodec18
-ms.openlocfilehash: 965897afc8e23c123575de0c497d4071ff4ca85a
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.custom: mvc, seodec18
+ms.openlocfilehash: a6c9eb354bce09a5f652895f4af34df1f6750bec
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79239268"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80045750"
 ---
-# <a name="tutorial-build-a-custom-image-and-run-in-app-service-from-a-private-registry"></a>Självstudie: skapa en anpassad avbildning och köra i App Service från ett privat register
+# <a name="tutorial-build-a-custom-image-and-run-in-app-service-from-a-private-registry"></a>Självstudiekurs: Skapa en anpassad avbildning och kör i App Service från ett privat register
 
-[App Service](app-service-linux-intro.md) tillhandahåller inbyggda Docker-avbildningar i Linux med stöd för vissa versioner, till exempel php 7,3 och Node. js 10,14. App Service använder Docker-behållar tekniken för att vara värd för både inbyggda avbildningar och anpassade avbildningar som en plattform som en tjänst. I den här självstudien får du lära dig hur du skapar en anpassad avbildning och kör den i App Service. Det här mönstret är användbart när de inbyggda avbildningarna inte inkluderar ditt språkval eller när ditt program kräver en specifik konfiguration som inte ingår i de inbyggda avbildningarna.
+[App Service](app-service-linux-intro.md) ger inbyggda Docker-avbildningar på Linux med stöd för specifika versioner, till exempel PHP 7.3 och Node.js 10.14. App Service använder Docker-behållartekniken för att vara värd för både inbyggda avbildningar och anpassade avbildningar som en plattform som en tjänst. I den här självstudien får du lära dig hur du skapar en anpassad avbildning och kör den i App Service. Det här mönstret är användbart när de inbyggda avbildningarna inte inkluderar ditt språkval eller när ditt program kräver en specifik konfiguration som inte ingår i de inbyggda avbildningarna.
 
-I den här guiden får du lära dig att:
+I den här självstudiekursen får du lära du dig att:
 
 > [!div class="checklist"]
-> * Distribuera en anpassad avbildning till ett privat behållar register
-> * Kör den anpassade avbildningen i App Service
+> * Distribuera en anpassad avbildning till ett privat behållarregister
+> * Köra den anpassade avbildningen i App Service
 > * Konfigurera miljövariabler
-> * Uppdatera och distribuera om avbildningen
+> * Uppdatera och distribuera om bilden
 > * Få åtkomst till diagnostikloggar
 > * Anslut till containern med SSH
 
 [!INCLUDE [Free trial note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att slutföra den här kursen behöver du:
 
@@ -49,7 +49,7 @@ cd docker-django-webapp-linux
 
 ## <a name="build-the-image-from-the-docker-file"></a>Skapa avbildningen från Docker-filen
 
-På Git-lagringsplatsen tar du en titt på _Dockerfile_. Den här filen beskriver Python-miljön som krävs för att köra programmet. Dessutom konfigurerar avbildningen en [SSH](https://www.ssh.com/ssh/protocol/)-server för säker kommunikation mellan containern och värden.
+På Git-lagringsplatsen tar du en titt på _Dockerfile_. Den här filen beskriver Python-miljön som krävs för att köra programmet. Dessutom konfigurerar avbildningen en [SSH](https://www.ssh.com/ssh/protocol/)-server för säker kommunikation mellan containern och värden. Den sista raden i _Dockerfile_ `ENTRYPOINT ["init.sh"]` `init.sh` anropar , för att starta SSH-tjänsten och Python-servern.
 
 ```Dockerfile
 FROM python:3.4
@@ -73,17 +73,19 @@ COPY init.sh /usr/local/bin/
     
 RUN chmod u+x /usr/local/bin/init.sh
 EXPOSE 8000 2222
+
+#service SSH start
 #CMD ["python", "/code/manage.py", "runserver", "0.0.0.0:8000"]
 ENTRYPOINT ["init.sh"]
 ```
 
-Bygg Docker-avbildningen med kommandot `docker build`.
+Skapa Docker-avbildningen `docker build` med kommandot.
 
 ```bash
 docker build --tag mydockerimage .
 ```
 
-Testa att versionen fungerar genom att köra Docker-containern. Utfärda kommandot [`docker run`](https://docs.docker.com/engine/reference/commandline/run/) och skicka avbildningens namn och tagg. Kom ihåg att ange porten med argumentet `-p`.
+Testa att versionen fungerar genom att köra Docker-containern. Utfärda [`docker run`](https://docs.docker.com/engine/reference/commandline/run/) kommandot och skicka namnet och taggen för bilden till det. Se till att ange porten som använder argumentet `-p`.
 
 ```bash
 docker run -p 8000:8000 mydockerimage
@@ -95,9 +97,9 @@ Verifiera att webbappen och containern fungerar som de ska genom att bläddra ti
 
 [!INCLUDE [Try Cloud Shell](../../../includes/cloud-shell-try-it.md)]
 
-## <a name="deploy-app-to-azure"></a>Distribuera appen till Azure
+## <a name="deploy-app-to-azure"></a>Distribuera app till Azure
 
-Om du vill skapa en app som använder avbildningen som du nyss har skapat kör du Azure CLI-kommandon som skapar en resurs grupp, push-överför avbildningen och skapar sedan App Service plan-webbappen för att köra den.
+Om du vill skapa en app som använder den avbildning som du just skapade kör du Azure CLI-kommandon som skapar en resursgrupp, skickar avbildningen och skapar sedan apptjänstens planwebbapp för att köra den.
 
 ### <a name="create-a-resource-group"></a>Skapa en resursgrupp
 
@@ -105,21 +107,21 @@ Om du vill skapa en app som använder avbildningen som du nyss har skapat kör d
 
 ### <a name="create-an-azure-container-registry"></a>Skapa ett Azure Container Registry
 
-I Cloud Shell använder du kommandot [`az acr create`](/cli/azure/acr?view=azure-cli-latest#az-acr-create) för att skapa ett Azure Container Registry.
+I Cloud Shell använder [`az acr create`](/cli/azure/acr?view=azure-cli-latest#az-acr-create) du kommandot för att skapa ett Azure-behållarregister.
 
 ```azurecli-interactive
 az acr create --name <azure-container-registry-name> --resource-group myResourceGroup --sku Basic --admin-enabled true
 ```
 
-### <a name="sign-in-to-azure-container-registry"></a>Logga in på Azure Container Registry
+### <a name="sign-in-to-azure-container-registry"></a>Logga in i Azure Container Registry
 
-Om du vill skicka en avbildning till registret måste du autentisera med det privata registret. I Cloud Shell använder du kommandot [`az acr show`](/cli/azure/acr?view=azure-cli-latest#az-acr-show) för att hämta autentiseringsuppgifterna från registret som du skapade.
+Om du vill skicka en avbildning till registret måste du autentisera med det privata registret. I Cloud Shell använder [`az acr show`](/cli/azure/acr?view=azure-cli-latest#az-acr-show) du kommandot för att hämta autentiseringsuppgifterna från registret som du skapade.
 
 ```azurecli-interactive
 az acr credential show --name <azure-container-registry-name>
 ```
 
-Utdata visar två lösen ord tillsammans med användar namnet.
+Utdata visar två lösenord tillsammans med användarnamnet.
 
 ```json
 {
@@ -137,17 +139,17 @@ Utdata visar två lösen ord tillsammans med användar namnet.
 }
 ```
 
-Från det lokala terminalfönstret loggar du in på Azure Container Registry med kommandot `docker login`, som du ser i följande exempel. Ersätt *\<Azure-Container-Registry-name >* och *\<registry-username >* med värden för registret. När du uppmanas till det skriver du ett av lösen orden från föregående steg.
+Logga in i Azure Container-registret från det `docker login` lokala terminalfönstret med kommandot, som visas i följande exempel. Ersätt * \<azure-container-register-name>* och * \<register-användarnamn>* med värden för registret. Skriv in ett av lösenorden från föregående steg när du uppmanas att göra det.
 
 ```bash
 docker login <azure-container-registry-name>.azurecr.io --username <registry-username>
 ```
 
-Bekräfta att inloggningen lyckades.
+Bekräfta att inloggningen lyckas.
 
 ### <a name="push-image-to-azure-container-registry"></a>Push-överför avbildningen till Azure Container Registry
 
-Tagga den lokala avbildningen för Azure Container Registry. Exempel:
+Tagga din lokala avbildning för Azure Container Registry. Ett exempel:
 ```bash
 docker tag mydockerimage <azure-container-registry-name>.azurecr.io/mydockerimage:v1.0.0
 ```
@@ -158,13 +160,13 @@ Push-överför avbildningen med kommandot `docker push`. Tagga avbildningen med 
 docker push <azure-container-registry-name>.azurecr.io/mydockerimage:v1.0.0
 ```
 
-Kontrol lera att push-åtgärden har slutförts i Cloud Shell.
+Kontrollera att push-pushen lyckas i Cloud Shell.
 
 ```azurecli-interactive
 az acr repository list -n <azure-container-registry-name>
 ```
 
-Du bör få följande utdata.
+Du bör få följande utgång.
 
 ```json
 [
@@ -178,7 +180,7 @@ Du bör få följande utdata.
 
 ### <a name="create-web-app"></a>Skapa webbapp
 
-I Cloud Shell skapar du en [webbapp](app-service-linux-intro.md) i `myAppServicePlan`App Service-planen med kommandot [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create). Ersätt _\<app-name >_ med ett unikt namn på appen och _\<Azure-Container-registry-Name >_ med ditt register namn.
+Skapa i Cloud Shell en [webbapp](app-service-linux-intro.md) i `myAppServicePlan` App Service-planen med kommandot [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create). Ersätt _ \<appnamn>_ med ett unikt appnamn och _ \<azure-container-registry-name>_ med ditt registernamn.
 
 ```azurecli-interactive
 az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app-name> --deployment-container-image-name <azure-container-registry-name>.azurecr.io/mydockerimage:v1.0.0
@@ -201,23 +203,23 @@ När webbappen har skapats visar Azure CLI utdata liknande den i följande exemp
 }
 ```
 
-### <a name="configure-registry-credentials-in-web-app"></a>Konfigurera autentiseringsuppgifter för registret i en webbapp
+### <a name="configure-registry-credentials-in-web-app"></a>Konfigurera registerautentiseringsuppgifter i webbapp
 
-För att App Service ska kunna hämta den privata avbildningen behöver den information om registret och avbildningen. I Cloud Shell anger du dem med kommandot [`az webapp config container set`](/cli/azure/webapp/config/container?view=azure-cli-latest#az-webapp-config-container-set) . Ersätt *\<app-name >* , *\<Azure-Container-registry-name >* , _\<registry-username >_ och _\<Password >_ .
+För att App Service ska kunna hämta den privata avbildningen behöver den information om registret och avbildningen. I Cloud Shell, förse [`az webapp config container set`](/cli/azure/webapp/config/container?view=azure-cli-latest#az-webapp-config-container-set) dem med kommandot. Ersätt * \<>för>*, * \<azure-container-register-name>*, _ \<register-användarnamn>_ och _ \<lösenord>_.
 
 ```azurecli-interactive
 az webapp config container set --name <app-name> --resource-group myResourceGroup --docker-custom-image-name <azure-container-registry-name>.azurecr.io/mydockerimage:v1.0.0 --docker-registry-server-url https://<azure-container-registry-name>.azurecr.io --docker-registry-server-user <registry-username> --docker-registry-server-password <password>
 ```
 
 > [!NOTE]
-> När du använder ett annat register än Docker Hub måste `--docker-registry-server-url` formateras som `https://` följt av registrets fullständigt kvalificerade domän namn.
+> När du använder ett annat register `--docker-registry-server-url` än Docker `https://` Hub måste det formateras enligt registrets fullständigt kvalificerade domännamn.
 >
 
 ### <a name="configure-environment-variables"></a>Konfigurera miljövariabler
 
-De flesta Docker-avbildningar använder anpassade miljövariabler, till exempel en annan port än 80. Du anger App Service om porten som avbildningen använder med hjälp av inställningen `WEBSITES_PORT` app. GitHub-sidan för [Python-exemplet i den här självstudien](https://github.com/Azure-Samples/docker-django-webapp-linux) visar att du behöver ställa in `WEBSITES_PORT` på _8000_.
+De flesta Docker-avbildningar använder anpassade miljövariabler, till exempel en annan port än 80. Du berättar för App Service om den `WEBSITES_PORT` port som bilden använder med hjälp av appinställningen. GitHub-sidan för [Python-exemplet i den här självstudien](https://github.com/Azure-Samples/docker-django-webapp-linux) visar att du behöver ställa in `WEBSITES_PORT` på _8000_.
 
-Om du vill konfigurera appinställningar använder du kommandot [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) i Cloud Shell. Appinställningar är skifteslägeskänsliga och avgränsas med blanksteg.
+Om du vill ange [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) appinställningar använder du kommandot i Cloud Shell. Appinställningar är skifteslägeskänsliga och avgränsas med blanksteg.
 
 ```azurecli-interactive
 az webapp config appsettings set --resource-group myResourceGroup --name <app-name> --settings WEBSITES_PORT=8000
@@ -228,7 +230,7 @@ az webapp config appsettings set --resource-group myResourceGroup --name <app-na
 Verifiera att webbappen fungerar genom att bläddra till den (`http://<app-name>.azurewebsites.net`).
 
 > [!NOTE]
-> Första gången du öppnar appen kan det ta lite tid eftersom App Service måste hämta hela avbildningen. Om tids gränsen för webbläsaren uppdateras, behöver du bara uppdatera sidan.
+> Första gången du öppnar appen kan det ta lite tid eftersom App Service måste hämta hela bilden. Om webbläsaren time out, bara uppdatera sidan.
 
 ![Testa webbappens portkonfiguration](./media/app-service-linux-using-custom-docker-image/app-service-linux-browse-azure.png)
 
@@ -246,7 +248,7 @@ I din lokala Git-lagringsplats öppnar du app/templates/app/index.html. Leta red
   </nav>
 ```
 
-När du har ändrat Python-filen och sparat den måste du återskapa och push-överföra den nya Docker-avbildningen. Starta sedan om webbappen för att ändringarna ska börja gälla. Använd samma kommandon som du tidigare har använt i den här självstudien. Du kan referera till att [bygga avbildningen från Docker-filen](#build-the-image-from-the-docker-file) och [push-avbildningen till Azure Container Registry](#push-image-to-azure-container-registry). Testa webbappen genom att följa anvisningarna i [Testa webbappen](#test-the-web-app).
+När du har ändrat Python-filen och sparat den måste du återskapa och push-överföra den nya Docker-avbildningen. Starta sedan om webbappen för att ändringarna ska börja gälla. Använd samma kommandon som du tidigare har använt i den här självstudien. Du kan referera till [Skapa avbildningen från Docker-filen](#build-the-image-from-the-docker-file) och [Push-avbildningen till Azure Container Registry](#push-image-to-azure-container-registry). Testa webbappen genom att följa anvisningarna i [Testa webbappen](#test-the-web-app).
 
 ## <a name="access-diagnostic-logs"></a>Få åtkomst till diagnostikloggar
 
@@ -254,9 +256,9 @@ När du har ändrat Python-filen och sparat den måste du återskapa och push-ö
 
 ## <a name="enable-ssh-connections"></a>Aktivera SSH-anslutningar
 
-SSH möjliggör säker kommunikation mellan en container och en klient. Din anpassade avbildning måste vara konfigurerad för att du ska kunna aktivera SSH-anslutningen till din behållare. Låt oss ta en titt på den exempel lagrings plats som redan har den konfiguration som krävs.
+SSH möjliggör säker kommunikation mellan en container och en klient. Om du vill aktivera SSH-anslutning till behållaren måste den anpassade avbildningen konfigureras för den. Låt oss ta en titt på exempeldatabasen som redan har den nödvändiga konfigurationen.
 
-* I [Dockerfile](https://github.com/Azure-Samples/docker-django-webapp-linux/blob/master/Dockerfile)installerar följande kod SSH-servern och anger också inloggnings uppgifterna.
+* I [Dockerfile](https://github.com/Azure-Samples/docker-django-webapp-linux/blob/master/Dockerfile)installeras SSH-servern med följande kod och även inloggningsuppgifterna.
 
     ```Dockerfile
     ENV SSH_PASSWD "root:Docker!"
@@ -270,7 +272,7 @@ SSH möjliggör säker kommunikation mellan en container och en klient. Din anpa
     > [!NOTE]
     > Den här konfigurationen tillåter inga externa anslutningar till containern. SSH är endast tillgängligt via webbplatsen för Kudu/SCM. Kudu/SCM-webbplatsen autentiseras med ditt Azure-konto.
 
-* [Dockerfile](https://github.com/Azure-Samples/docker-django-webapp-linux/blob/master/Dockerfile#L18) kopierar [sshd_config](https://github.com/Azure-Samples/docker-django-webapp-linux/blob/master/sshd_config) -filen i lagrings platsen till katalogen */etc/ssh/* .
+* [Dockerfile kopierar](https://github.com/Azure-Samples/docker-django-webapp-linux/blob/master/Dockerfile#L18) [sshd_config](https://github.com/Azure-Samples/docker-django-webapp-linux/blob/master/sshd_config) filen i databasen till katalogen */etc/ssh/.*
 
     ```Dockerfile
     COPY sshd_config /etc/ssh/
@@ -282,7 +284,7 @@ SSH möjliggör säker kommunikation mellan en container och en klient. Din anpa
     EXPOSE 8000 2222
     ```
 
-* [Inmatnings skriptet](https://github.com/Azure-Samples/docker-django-webapp-linux/blob/master/init.sh#L5) startar SSH-servern.
+* [Inmatningsskriptet](https://github.com/Azure-Samples/docker-django-webapp-linux/blob/master/init.sh#L5) startar SSH-servern.
 
     ```bash
     #!/bin/bash
@@ -291,7 +293,7 @@ SSH möjliggör säker kommunikation mellan en container och en klient. Din anpa
 
 ### <a name="open-ssh-connection-to-container"></a>Öppna SSH-anslutning till container
 
-SSH-anslutningen är bara tillgänglig via kudu-webbplatsen, som är tillgänglig på `https://<app-name>.scm.azurewebsites.net`.
+SSH-anslutning är endast tillgänglig via Kudu-webbplatsen, som är tillgänglig på `https://<app-name>.scm.azurewebsites.net`.
 
 Anslut genom att gå till `https://<app-name>.scm.azurewebsites.net/webssh/host` och logga in med ditt Azure-konto.
 
@@ -320,7 +322,7 @@ PID USER      PR  NI    VIRT    RES    SHR S %CPU %MEM     TIME+ COMMAND
 77 root      20   0   21920   2304   1972 R  0.0  0.1   0:00.00 top
 ```
 
-Gratulerar! Du har konfigurerat en anpassad Linux-behållare i App Service.
+Grattis! Du har konfigurerat en anpassad Linux-behållare i App Service.
 
 [!INCLUDE [Clean-up section](../../../includes/cli-script-clean-up.md)]
 
@@ -329,22 +331,22 @@ Gratulerar! Du har konfigurerat en anpassad Linux-behållare i App Service.
 Vad du lärt dig:
 
 > [!div class="checklist"]
-> * Distribuera en anpassad avbildning till ett privat behållar register
-> * Kör den anpassade avbildningen i App Service
+> * Distribuera en anpassad avbildning till ett privat behållarregister
+> * Köra den anpassade avbildningen i App Service
 > * Konfigurera miljövariabler
-> * Uppdatera och distribuera om avbildningen
+> * Uppdatera och distribuera om bilden
 > * Få åtkomst till diagnostikloggar
 > * Anslut till containern med SSH
 
-Gå vidare till nästa självstudie för att läsa hur du mappar ett anpassat DNS-namn till din app.
+Gå vidare till nästa självstudie där du får lära dig att mappa ett anpassat DNS-namn till appen.
 
 > [!div class="nextstepaction"]
-> [Självstudie: mappa ett anpassat DNS-namn till din app](../app-service-web-tutorial-custom-domain.md)
+> [Självstudiekurs: Mappa anpassat DNS-namn till din app](../app-service-web-tutorial-custom-domain.md)
 
-Eller kolla ut andra resurser:
-
-> [!div class="nextstepaction"]
-> [Konfigurera anpassad behållare](configure-custom-container.md)
+Eller kolla in andra resurser:
 
 > [!div class="nextstepaction"]
-> [Självstudie: WordPress-app med flera behållare](tutorial-multi-container-app.md)
+> [Konfigurera en anpassad container](configure-custom-container.md)
+
+> [!div class="nextstepaction"]
+> [Självstudiekurs: WordPress-appen med flera behållare](tutorial-multi-container-app.md)

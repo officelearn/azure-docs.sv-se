@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
-ms.openlocfilehash: 69e2c053c9fb874889bc3d5b08be6e0c7ce875a5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 260ddccc1a1b0bd4090284025b79e20ff5ce4fdc
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77162913"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80475243"
 ---
 # <a name="azure-media-services-concepts"></a>Azure Media Services-koncept 
 
@@ -98,7 +98,7 @@ Azure Media Services innehåller flera alternativ för kodning av media i molnet
 När du börjar med Media Services är det viktigt att förstå skillnaden mellan codec-enheter och filformat.
 Codecs är den programvara som implementerar komprimerings-/dekompressionsalgoritmerna medan filformat är behållare som innehåller den komprimerade videon.
 
-Media Services tillhandahåller dynamiska förpackningar som gör att du kan leverera ditt adaptiva bithastighets-MP4- eller Smooth Streaming-kodat innehåll i strömmande format som stöds av Media Services (MPEG DASH, HLS, Smooth Streaming) utan att du behöver paketera om till dessa strömmande format.
+Media Services tillhandahåller dynamiska förpackningar som gör att du kan leverera ditt adaptiva bithastighets-MP4- eller Smooth Streaming-kodat innehåll i direktuppspelningsformat som stöds av Media Services (MPEG DASH, HLS, Smooth Streaming) utan att du behöver paketera om till dessa streamingformat.
 
 För att dra nytta av [dynamiska förpackningar](media-services-dynamic-packaging-overview.md)måste du koda din mezzanine (källa) fil i en uppsättning adaptiva bitrate MP4-filer eller adaptiv bitrate Smooth Streaming filer och har minst en standard eller premium streaming slutpunkt i startat tillstånd.
 
@@ -167,7 +167,7 @@ När du arbetar med Media Services rekommenderar vi att du kodar mezzaninfilerna
 ### <a name="streaming-endpoint"></a>Slutpunkt för direktuppspelning
 En StreamingEndpoint representerar en streamingtjänst som kan leverera innehåll direkt till ett klientspelarprogram eller till ett CDN (Content Delivery Network) för vidare distribution (Azure Media Services tillhandahåller nu Azure CDN-integreringen.) Den utgående strömmen från en slutpunktstjänst för direktuppspelning kan vara en livestream eller en video på begäran Tillgång i ditt Media Services-konto. Media Services-kunder väljer antingen en **Standard**-slutpunkt för direktuppspelning eller en eller flera **Premium**-slutpunkter för direktuppspelning, utifrån behov. Standardströmavslutpunkten för direktuppspelning är lämplig för de flesta arbetsbelastningar för direktuppspelning. 
 
-Standard-slutpunkt för direktuppspelning passar de flesta arbetsbelastningar för direktuppspelning. Standardstreamingslutpunkter erbjuder flexibiliteten att leverera ditt innehåll till praktiskt taget alla enheter genom dynamisk paketering till HLS, MPEG-DASH och Smooth Streaming samt dynamisk kryptering för Microsoft PlayReady, Google Widevine, Apple Fairplay och AES128.  De skalar också från mycket liten till mycket stor publik med tusentals samtidiga tittare via Azure CDN-integrering. Om du har en avancerad arbetsbelastning eller om kraven på strömningskapacitet inte passar till standardmål för dataflöde för direktuppspelning eller om du vill styra streamingens kapacitet för att hantera växande bandbreddsbehov, rekommenderas att tillföra skalningsenheter (kallas även premiumstreamingenheter).
+Standard-slutpunkt för direktuppspelning passar de flesta arbetsbelastningar för direktuppspelning. Standardstreamingslutpunkter erbjuder flexibiliteten att leverera ditt innehåll till praktiskt taget alla enheter genom dynamisk förpackning till HLS, MPEG-DASH och Smooth Streaming samt dynamisk kryptering för Microsoft PlayReady, Google Widevine, Apple Fairplay och AES128.  De skalar också från mycket liten till mycket stor publik med tusentals samtidiga tittare via Azure CDN-integrering. Om du har en avancerad arbetsbelastning eller om kraven på strömningskapacitet inte passar till standardmål för dataflöde för direktuppspelning eller om du vill styra kapaciteten för StreamingEndpoint-tjänsten för att hantera växande bandbreddsbehov, rekommenderas att skala enheter (kallas även premiumstreamingenheter).
 
 Vi rekommenderar att du använder dynamisk förpackning och/eller dynamisk kryptering.
 
@@ -181,7 +181,7 @@ Som standard kan du ha upp till två slutpunkter för direktuppspelning i ditt M
 Du faktureras bara när din StreamingEndpoint körs.
 
 ### <a name="asset-delivery-policy"></a>Policy för leverans av tillgångar
-Ett av stegen i arbetsflödet för innehållsleverans i Media Services är att konfigurera [leveransprinciper för tillgångar](https://docs.microsoft.com/rest/api/media/operations/assetdeliverypolicy)som du vill ska strömmas. Principen för tillgångsleverans talar om för Media Services hur du vill att din tillgång ska levereras: till vilket direktuppspelningsprotokoll som din tillgång ska paketeras dynamiskt (till exempel MPEG DASH, HLS, Smooth Streaming eller alla), oavsett om du vill kryptera dynamiskt eller inte tillgång och hur (kuvert eller gemensam kryptering).
+Ett av stegen i arbetsflödet för innehållsleverans i Media Services är att konfigurera [leveransprinciper för tillgångar](https://docs.microsoft.com/rest/api/media/operations/assetdeliverypolicy)som du vill ska strömmas. Principen för tillgångsleverans talar om för Media Services hur du vill att din tillgång ska levereras: till vilket direktuppspelningsprotokoll ska din tillgång paketeras dynamiskt (till exempel MPEG DASH, HLS, Smooth Streaming eller alla), oavsett om du vill kryptera din tillgång dynamiskt och hur (kuvert eller gemensam kryptering).
 
 Om du har en lagringskrypterad tillgång, innan din tillgång kan strömmas, tar strömningsservern bort lagringskrypteringen och strömmar ditt innehåll med den angivna leveransprincipen. Om du till exempel vill leverera din tillgång krypterad med AES-krypteringsnyckel (Advanced Encryption Standard) anger du principtypen till DynamicEnvelopeEncryption. Om du vill ta bort lagringskryptering och strömma tillgången i clear anger du principtypen till NoDynamicEncryption.
 
@@ -198,10 +198,10 @@ http://amstest1.streaming.mediaservices.windows.net/3c5fe676-199c-4620-9b03-ba01
 ### <a name="streaming-urls"></a>Url:er för direktuppspelning
 Strömma ditt innehåll till klienter. Om du vill ge användarna strömmande webbadresser måste du först skapa en OnDemandOrigin-positionerare. När du skapar positioneraren får du bassökvägen till den tillgång som innehåller det innehåll som du vill strömma. För att kunna strömma det här innehållet måste du dock ändra den här sökvägen ytterligare. Om du vill skapa en fullständig URL till manifestfilen för direktuppspelning måste du sammanfoga locatorns sökvägsvärde och filnamnet manifest (filename.ism). Lägg sedan till /Manifest och ett lämpligt format (om det behövs) i positionerarsökvägen.
 
-Du kan också strömma ditt innehåll via en SSL-anslutning. Det gör du genom att se till att dina strömmande webbadresser börjar med HTTPS. För närvarande stöder AMS inte SSL med anpassade domäner.  
+Du kan också strömma ditt innehåll via en TLS-anslutning. Det gör du genom att se till att dina strömmande webbadresser börjar med HTTPS. För närvarande stöder AMS inte TLS med anpassade domäner.  
 
 >[!NOTE]
->Du kan bara strömma via SSL om slutpunkten för direktuppspelning som du levererar ditt innehåll från skapades från efter den 10 september 2014. Om dina strömmande webbadresser baseras på slutpunkter för direktuppspelning som skapats efter den 10 september innehåller webbadressen "streaming.mediaservices.windows.net" (det nya formatet). Strömmande webbadresser som innehåller "origin.mediaservices.windows.net" (det gamla formatet) stöder inte SSL. Om webbadressen är i det gamla formatet och du vill kunna strömma via SSL skapar du en ny slutpunkt för direktuppspelning. Använd webbadresser som skapats baserat på den nya slutpunkten för direktuppspelning för att strömma ditt innehåll via SSL.
+>Du kan bara strömma över TLS om slutpunkten för direktuppspelning som du levererar ditt innehåll från skapades från efter den 10 september 2014. Om dina strömmande webbadresser baseras på slutpunkter för direktuppspelning som skapats efter den 10 september innehåller webbadressen "streaming.mediaservices.windows.net" (det nya formatet). Strömmande webbadresser som innehåller "origin.mediaservices.windows.net" (det gamla formatet) stöder inte TLS. Om webbadressen är i det gamla formatet och du vill kunna strömma över TLS skapar du en ny slutpunkt för direktuppspelning. Använd webbadresser som skapats baserat på den nya slutpunkten för direktuppspelning för att strömma ditt innehåll via TLS.
 
 I följande lista beskrivs olika direktuppspelningsformat och exempel:
 

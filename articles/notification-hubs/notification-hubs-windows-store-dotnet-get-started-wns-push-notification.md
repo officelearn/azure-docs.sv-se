@@ -179,7 +179,7 @@ Du kan snabbt testa att ta emot meddelanden i appen genom att skicka meddelanden
 Du har skickat broadcast-meddelanden till alla dina Windows-enheter med hjälp av portalen eller en konsolapp. Information om hur du skickar meddelanden till specifika enheter finns i följande självstudie:
 
 > [!div class="nextstepaction"]
->[Push-meddelanden till specifika enheter](
+>[Skicka push-meddelanden till specifika enheter](
 notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns.md)
 
 <!-- Images. -->

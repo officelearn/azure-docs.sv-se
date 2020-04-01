@@ -1,5 +1,5 @@
 ---
-title: 'Snabbstart: Sök efter bilder REST API och Ruby - Bing Image Search'
+title: 'Snabbstart: Sök efter bilder med REST API för Bing-bildsökning och Ruby'
 titleSuffix: Azure Cognitive Services
 description: Använd den här snabbstarten när du vill skicka bildsökningsbegäranden till REST API för bildsökning i Bing med hjälp av Ruby och få JSON-svar.
 services: cognitive-services
@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.date: 12/06/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 97b05327b2de4daa43f5f1fa3e4a22ecd79a9085
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: 238f390ac998a05f0c726dd9ed024550b9a5ba3d
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74930723"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80478523"
 ---
 # <a name="quickstart-search-for-images-using-the-bing-image-search-rest-api-and-ruby"></a>Snabbstart: Sök efter bilder med REST API för Bing-bildsökning och Ruby
 

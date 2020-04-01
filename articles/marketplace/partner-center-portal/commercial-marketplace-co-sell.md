@@ -6,13 +6,13 @@ ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 12/06/2019
-ms.openlocfilehash: 3b0b38b767495b1a06405f0d41222b73baee8d53
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 03/31/2020
+ms.openlocfilehash: f290b08d1f625600d03c9540b28c289e9b449471
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80277081"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80475155"
 ---
 # <a name="co-sell-option-in-partner-center"></a>Samförsäljningsalternativ i Partner center
 
@@ -22,11 +22,11 @@ Medsåldraralternativet i Partner Center är för närvarande tillgängligt för
 
 | **Typ av erbjudande** | **Samsälja sida tillgänglig i Partner Center** |
 |    -----------------------    |    -----------------------------  |
-| Programvara som en tjänst (SaaS) |     Allmän tillgänglighet runt februari 2020      |
+| Programvara som en tjänst (SaaS) |     Allmän tillgänglighet runt april 2020     |
 | Dynamics 365 för kundengagemang & PowerApps      |     Tillgängligt nu      |
 | Dynamics 365 for Operations     |     Tillgängligt nu       |
-| Dynamics 365 Business Central      |  Allmän tillgänglighet runt februari 2020     |
-| Azure Application     |     Allmän tillgänglighet runt februari 2020     |
+| Dynamics 365 Business Central      |  Allmän tillgänglighet runt april 2020    |
+| Azure Application     |     Allmän tillgänglighet runt april 2020     |
 | Virtuell Azure-dator      |     Kommer att tillkännages       |
 | Azure-behållare     |     Kommer att tillkännages       |
 | Konsulttjänst      |     Kommer att tillkännages       |

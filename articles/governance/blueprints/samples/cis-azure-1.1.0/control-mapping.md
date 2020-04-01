@@ -1,463 +1,463 @@
 ---
-title: Exempel kontroller för benchmark-Microsoft Azure
-description: Rekommendations mappning av CIS-exemplet Microsoft Azure grunderna för att Azure Policy.
+title: CIS Microsoft Azure Foundations Benchmark-exempelkontroller
+description: Rekommendationsmappning av CIS Microsoft Azure Foundations Benchmark-skissexempel till Azure Policy.
 ms.date: 11/04/2019
 ms.topic: sample
 ms.openlocfilehash: 34d38f34dcd4233706f9b4578bc2dc2a644e4c2c
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74707414"
 ---
-# <a name="recommendation-mapping-of-the-cis-microsoft-azure-foundations-benchmark-blueprint-sample"></a>Rekommendations mappning av CIS-exemplet för benchmark-Microsoft Azure grunderna
+# <a name="recommendation-mapping-of-the-cis-microsoft-azure-foundations-benchmark-blueprint-sample"></a>Rekommendationsmappning av cis Microsoft Azure Foundations benchmark-skissprov
 
-I följande artikel beskrivs hur Azure-ritningar CIS-Microsoft Azure Base-exempel kartor mappar till CIS-Microsoft Azure grunderna för benchmark-rekommendationer. Mer information om rekommendationerna finns i [CIS Microsoft Azure stiftelser benchmark](https://www.cisecurity.org/benchmark/azure/).
+I följande artikel beskrivs hur azure blueprints CIS Microsoft Azure Foundations Benchmark-skissen mappas till CIS Microsoft Azure Foundations Benchmark-rekommendationer. Mer information om rekommendationerna finns i [CIS Microsoft Azure Foundations Benchmark](https://www.cisecurity.org/benchmark/azure/).
 
-Följande mappningar är till **CIS Microsoft Azure grunderna 1.1.0** -rekommendationer för benchmark. Använd navigeringen till höger om du vill gå direkt till en bestämd rekommendations mappning.
-Många av de mappade rekommendationerna implementeras med ett [Azure policy](../../../policy/overview.md) initiativ. Om du vill granska hela initiativet öppnar du **princip** i Azure Portal och väljer sidan **definitioner** . Leta sedan reda på och välj **\[för hands versions\] granska CIS Microsoft Azure grunderna för benchmark v-1.1.0 och distribuera särskilda VM-tillägg för att stödja gransknings krav** inbyggda princip initiativ.
+Följande mappningar är till **CIS Microsoft Azure Foundations Benchmark v1.1.0** rekommendationer. Använd navigeringen till höger för att hoppa direkt till en specifik rekommendationsmappning.
+Många av de mappade rekommendationerna implementeras med ett [Azure Policy-initiativ.](../../../policy/overview.md) Om du vill granska hela initiativet öppnar du **Princip** i Azure-portalen och väljer sidan **Definitioner.** Leta sedan reda på och välj ** \[rekommendationerna för Förhandsgranskning\] av CiS Microsoft Azure Foundations Benchmark v1.1.0 och distribuera specifika VM-tillägg för att stödja inbyggda** principinitiativ för granskningskrav.
 
 > [!IMPORTANT]
-> Varje kontroll nedan är kopplad till en eller flera [Azure policy](../../../policy/overview.md) -definitioner. Dessa principer kan hjälpa dig att [utvärdera efterlevnaden](../../../policy/how-to/get-compliance-data.md) av kontrollen. Det finns dock ofta ingen 1:1 eller fullständig matchning mellan en kontroll och en eller flera principer. Som sådan är **kompatibel** i Azure policy endast som avser själva principerna. Detta garanterar inte att du är helt kompatibel med alla krav för en kontroll. Standarden för efterlevnad innehåller dessutom kontroller som inte åtgärdas av några Azure Policy definitioner för tillfället. Därför är regelefterlevnad i Azure Policy bara en partiell vy av din övergripande kompatibilitetsstatus. Kopplingarna mellan kontroller och Azure Policy definitioner för det här skiss exemplet för efterlevnad kan ändras med tiden. Om du vill visa ändrings historiken läser du [inchecknings historiken för GitHub](https://github.com/MicrosoftDocs/azure-docs/commits/master/articles/governance/blueprints/samples/cis-azure-1.1.0/control-mapping.md).
+> Varje kontroll nedan är associerad med en eller flera [Azure-principdefinitioner.](../../../policy/overview.md) Dessa policyer kan hjälpa dig att [bedöma efterlevnaden](../../../policy/how-to/get-compliance-data.md) av kontrollen. Det finns dock ofta inte en 1:1 eller fullständig matchning mellan en kontroll och en eller flera principer. Som sådan refererar **kompatibel** i Azure-princip endast till principerna själva. Detta säkerställer inte att du är helt kompatibel med alla krav på en kontroll. Dessutom innehåller efterlevnadsstandarden kontroller som inte åtgärdas av några Azure-principdefinitioner just nu. Därför är efterlevnad i Azure Policy bara en partiell bild av din övergripande efterlevnadsstatus. Associationerna mellan kontroller och Azure-principdefinitioner för det härmplet för efterlevnadsritning kan ändras med tiden. Om du vill visa ändringshistoriken läser du [GitHub Commit-historiken](https://github.com/MicrosoftDocs/azure-docs/commits/master/articles/governance/blueprints/samples/cis-azure-1.1.0/control-mapping.md).
 
-## <a name="11-ensure-that-multi-factor-authentication-is-enabled-for-all-privileged-users"></a>1,1 se till att Multi-Factor Authentication har Aktiver ATS för alla privilegierade användare
+## <a name="11-ensure-that-multi-factor-authentication-is-enabled-for-all-privileged-users"></a>1.1 Se till att multifaktorautentisering är aktiverat för alla privilegierade användare
 
-Den här skissen tilldelar [Azure policy](../../../policy/overview.md) definitioner som hjälper dig att övervaka när Multi-Factor Authentication inte har Aktiver ATS för privilegierade Azure Active Directory-konton.
+Den här skissen tilldelar [Azure-principdefinitioner](../../../policy/overview.md) som hjälper dig att övervaka när multifaktorautentisering inte är aktiverad på privilegierade Azure Active Directory-konton.
 
-- MFA ska vara aktiverat på konton med ägar behörigheter för din prenumeration
-- MFA ska vara aktiverat på konton med Skriv behörighet för din prenumeration
+- MFA ska aktiveras på konton med ägarbehörighet för din prenumeration
+- MFA ska aktiveras på konton med skrivbehörighet för din prenumeration
 
-## <a name="12-ensure-that-multi-factor-authentication-is-enabled-for-all-non-privileged-users"></a>1,2 se till att Multi-Factor Authentication har Aktiver ATS för alla icke-privilegierade användare
+## <a name="12-ensure-that-multi-factor-authentication-is-enabled-for-all-non-privileged-users"></a>1.2 Se till att multifaktorautentisering är aktiverat för alla användare som inte har förmånen
 
-Den här skissen tilldelar en [Azure policy](../../../policy/overview.md) definition som hjälper dig att övervaka när multifaktorautentisering inte har Aktiver ATS för icke-privilegierade Azure Active Directory-konton.
+Den här skissen tilldelar en [Azure-principdefinition](../../../policy/overview.md) som hjälper dig att övervaka när multifaktorautentisering inte är aktiverad på icke-privilegierade Azure Active Directory-konton.
 
-- MFA ska vara aktiverat på konton med Läs behörighet för din prenumeration
+- MFA ska aktiveras på konton med läsbehörighet för din prenumeration
 
-## <a name="13-ensure-that-there-are-no-guest-users"></a>1,3 se till att det inte finns några gäst användare
+## <a name="13-ensure-that-there-are-no-guest-users"></a>1.3 Se till att det inte finns några gästanvändare
 
-Den här skissen tilldelar [Azure policy](../../../policy/overview.md) definitioner som hjälper dig att övervaka för gäst konton som kan behöva tas bort.
+Den här skissen tilldelar [Azure Policy-definitioner](../../../policy/overview.md) som hjälper dig att övervaka för gästkonton som kan behöva tas bort.
 
-- Externa konton med ägar behörigheter bör tas bort från din prenumeration
-- Externa konton med Läs behörighet bör tas bort från din prenumeration
-- Externa konton med skrivbehörigheter bör tas bort från prenumerationen
+- Externa konton med ägarbehörigheter ska tas bort från din prenumeration
+- Externa konton med läsbehörighet bör tas bort från din prenumeration
+- Externa konton med skrivbehörighet ska tas bort från din prenumeration
 
-## <a name="123-ensure-that-no-custom-subscription-owner-roles-are-created"></a>1,23 Se till att inga anpassade prenumerations ägar roller skapas
+## <a name="123-ensure-that-no-custom-subscription-owner-roles-are-created"></a>1.23 Se till att inga anpassade prenumerationsägare skapas
 
-Den här skissen tilldelar [Azure policy](../../../policy/overview.md) definitioner som hjälper dig att övervaka för anpassade prenumerations ägar roller som kan behöva tas bort.
+Den här skissen tilldelar [Azure Policy-definitioner](../../../policy/overview.md) som hjälper dig att övervaka anpassade prenumerationsägare roller som kan behöva tas bort.
 
-- Roller för anpassade prenumerationer får inte finnas
+- Anpassade prenumerationsägare roller bör inte finnas
 
-## <a name="21-ensure-that-standard-pricing-tier-is-selected"></a>2,1 se till att standard pris nivån är vald
+## <a name="21-ensure-that-standard-pricing-tier-is-selected"></a>2.1 Se till att standardprisnivån väljs
 
-Den här skissen tilldelar en [Azure policy](../../../policy/overview.md) -definition som hjälper dig att övervaka nätverk och virtuella datorer där Security Center standard nivån inte är aktive rad.
+Den här skissen tilldelar en [Azure Policy-definition](../../../policy/overview.md) som hjälper dig att övervaka nätverk och virtuella datorer där Security Center-standardnivån inte är aktiverad.
 
- - Security Center standard pris nivå ska väljas
+ - Standardprisnivå för Security Center-standard bör väljas
 
-## <a name="22-ensure-that-automatic-provisioning-of-monitoring-agent-is-set-to-on"></a>2,2 kontrol lera att "automatisk etablering av övervaknings agent" är inställt på "on"
+## <a name="22-ensure-that-automatic-provisioning-of-monitoring-agent-is-set-to-on"></a>2.2 Se till att "automatisk tillhandahållande av övervakningsagent" är inställt på "På"
 
-Den här skissen tilldelar en [Azure policy](../../../policy/overview.md) -definition som hjälper dig att säkerställa att den automatiska etableringen av log Analyticss agent är aktive rad.
+Den här skissen tilldelar en [Azure-principdefinition](../../../policy/overview.md) som hjälper dig att säkerställa automatisk etablering av Log Analytics-agenten är aktiverad.
 
-- Automatisk etablering av Log Analytics övervaknings agenten ska vara aktive rad för din prenumeration
+- Automatisk etablering av log analytics-övervakningsagenten bör aktiveras på din prenumeration
 
-## <a name="23-ensure-asc-default-policy-setting-monitor-system-updates-is-not-disabled"></a>2,3 se till att ASC standard princip inställningen "övervaka system uppdateringar" inte är inaktive rad
+## <a name="23-ensure-asc-default-policy-setting-monitor-system-updates-is-not-disabled"></a>2.3 Se till att ASC:s standardprincipinställning "Övervaka systemuppdateringar" inte är "inaktiverad"
 
-Den här skissen tilldelar en [Azure policy](../../../policy/overview.md) -definition som hjälper dig att säkerställa att system uppdateringar installeras på virtuella datorer.
+Den här skissen tilldelar en [Azure Policy-definition](../../../policy/overview.md) som hjälper dig att se till att systemuppdateringar installeras på virtuella datorer.
 
-- System uppdateringar bör installeras på dina datorer
+- Systemuppdateringar ska ha installerats på dina datorer
 
-## <a name="24-ensure-asc-default-policy-setting-monitor-os-vulnerabilities-is-not-disabled"></a>2,4 kontrol lera att ASC-standardprincip inställningen "övervaka OS-sårbarheter" inte är inaktive rad
+## <a name="24-ensure-asc-default-policy-setting-monitor-os-vulnerabilities-is-not-disabled"></a>2.4 Se till att ASC:s standardprincipinställning "Övervaka os-sårbarheter" inte är "inaktiverad"
 
-Den här skissen tilldelar en [Azure policy](../../../policy/overview.md) -definition som hjälper dig att övervaka för unremediated virtuella dator sårbarheter.
+Den här skissen tilldelar en [Azure Policy-definition](../../../policy/overview.md) som hjälper dig att övervaka för omediatmediated virtuella dator sårbarheter.
 
-- Säkerhets problem i säkerhets konfiguration på dina datorer bör åtgärdas
+- Sårbarheter i säkerhetskonfigurationen på dina datorer bör åtgärdas
 
-## <a name="25-ensure-asc-default-policy-setting-monitor-endpoint-protection-is-not-disabled"></a>2,5 Se till att ASC standard princip inställningen "övervaka Endpoint Protection" inte är inaktive rad
+## <a name="25-ensure-asc-default-policy-setting-monitor-endpoint-protection-is-not-disabled"></a>2.5 Se till att ASC:s standardprincipinställning "Övervaka slutpunktsskydd" inte är "inaktiverad"
 
-Den här skissen tilldelar en [Azure policy](../../../policy/overview.md) -definition som hjälper dig att se till att Endpoint Protection har Aktiver ATS på virtuella datorer.
+Den här skissen tilldelar en [Azure-principdefinition](../../../policy/overview.md) som hjälper dig att se till att slutpunktsskydd är aktiverat på virtuella datorer.
 
-- Övervaka saknade Endpoint Protection i Azure Security Center
+- Övervaka saknade slutpunktsskydd i Azure Security Center
 
-## <a name="26-ensure-asc-default-policy-setting-monitor-disk-encryption-is-not-disabled"></a>2,6 Se till att ASC standard princip inställningen "övervaka disk kryptering" inte är inaktive rad
+## <a name="26-ensure-asc-default-policy-setting-monitor-disk-encryption-is-not-disabled"></a>2.6 Se till att ASC:s standardprincipinställning "Bildskärmsdiskkryptering" inte är "inaktiverad"
 
-Den här skissen tilldelar en [Azure policy](../../../policy/overview.md) -definition som hjälper dig att säkerställa att virtuella dator diskar är krypterade.
+Den här skissen tilldelar en [Azure Policy](../../../policy/overview.md) definition som hjälper dig att se till att virtuella datordiskar är krypterade.
 
-- Disk kryptering bör tillämpas på virtuella datorer
+- Diskkryptering bör tillämpas på virtuella datorer
 
-## <a name="27-ensure-asc-default-policy-setting-monitor-network-security-groups-is-not-disabled"></a>2,7 Se till att ASC standard princip inställningen "övervaka nätverks säkerhets grupper" inte är inaktive rad
+## <a name="27-ensure-asc-default-policy-setting-monitor-network-security-groups-is-not-disabled"></a>2.7 Se till att ASC:s standardprincipinställning "Övervaka nätverkssäkerhetsgrupper" inte är "inaktiverad"
 
-Den här skissen tilldelar en [Azure policy](../../../policy/overview.md) -definition som hjälper dig att skydda virtuella datorer som är riktade mot Internet.
+Den här skissen tilldelar en [Azure Policy-definition](../../../policy/overview.md) som hjälper dig att skydda internetvända virtuella datorer.
 
-- Regler för nätverks säkerhets grupper för virtuella datorer som riktas mot Internet bör vara skärpta
+- Regler för nätverkssäkerhetsgrupp för internetvända virtuella datorer bör skärpas
 
-## <a name="28-ensure-asc-default-policy-setting-monitor-web-application-firewall-is-not-disabled"></a>2,8 Se till att ASC-standardprincip inställningen "övervaka brand vägg för webbaserade program" inte är inaktive rad
+## <a name="28-ensure-asc-default-policy-setting-monitor-web-application-firewall-is-not-disabled"></a>2.8 Se till att ASC:s standardprincipinställning "Monitor Web Application Firewall" inte är "inaktiverad"
 
-Den här skissen tilldelar en [Azure policy](../../../policy/overview.md) -definition som hjälper dig att skydda virtuella datorer som kör webb program.
+Den här skissen tilldelar en [Azure Policy-definition](../../../policy/overview.md) som hjälper dig att skydda virtuella datorer som kör webbprogram.
 
-- NSG: er-reglerna för webb program på IaaS bör vara härdade
+- NSGs-reglerna för webbapplikationer på IaaS bör härdas
 
-## <a name="29-ensure-asc-default-policy-setting-enable-next-generation-firewallngfw-monitoring-is-not-disabled"></a>2,9 Se till att ASC-standardprincip inställningen "Aktivera nästa generations brand vägg (NGFW) övervakning" inte är inaktive rad "
+## <a name="29-ensure-asc-default-policy-setting-enable-next-generation-firewallngfw-monitoring-is-not-disabled"></a>2.9 Se till att ASC:s standardprincipinställning "Aktivera övervakning av nästa generations brandvägg(NGFW) inte är "inaktiverad"
 
-Den här skissen tilldelar [Azure policy](../../../policy/overview.md) definitioner som skyddar undernät och virtuella datorer mot hot genom att begränsa åtkomsten. Den Security Center-princip som den här CIS-Microsoft Azure grunderna om benchmark-rekommendation har ersatts av två nya rekommendationer. De principer som refereras nedan åtgärdar de nya rekommendationerna.
+Den här skissen tilldelar [Azure Policy-definitioner](../../../policy/overview.md) som hjälper till att skydda undernät och virtuella datorer från hot genom att begränsa åtkomsten. Security Center-principen som refereras av den här CIS Microsoft Azure Foundations Benchmark-rekommendationen har ersatts av två nya rekommendationer. De riktlinjer som nämns nedan tar upp de nya rekommendationerna.
 
-- Undernät ska associeras med en nätverks säkerhets grupp
-- Virtuella datorer ska associeras med en nätverks säkerhets grupp
+- Undernät ska associeras med en nätverkssäkerhetsgrupp
+- Virtuella datorer bör associeras med en nätverkssäkerhetsgrupp
 
-## <a name="210-ensure-asc-default-policy-setting-monitor-vulnerability-assessment-is-not-disabled"></a>2,10 Se till att ASC standard princip inställningen "övervaka sårbarhets bedömning" inte är inaktive rad
+## <a name="210-ensure-asc-default-policy-setting-monitor-vulnerability-assessment-is-not-disabled"></a>2.10 Se till att ASC:s standardprincipinställning "Övervaka sårbarhetsbedömning" inte är "inaktiverad"
 
-Den här skissen tilldelar en [Azure policy](../../../policy/overview.md) -definition som hjälper dig att se till att sårbarheter identifieras och åtgärdas.
+Den här skissen tilldelar en [Azure Policy-definition](../../../policy/overview.md) som hjälper dig att se till att säkerhetsproblem upptäcks och åtgärdas.
 
-- Säkerhets risker bör åtgärdas av en lösning för sårbarhets bedömning
+- Sårbarheter bör åtgärdas med en sårbarhetsbedömningslösning
 
-## <a name="211-ensure-asc-default-policy-setting-monitor-storage-blob-encryption-is-not-disabled"></a>2,11 kontrol lera att ASC-standardprincip inställningen "övervaka Storage BLOB Encryption" inte är inaktive rad
+## <a name="211-ensure-asc-default-policy-setting-monitor-storage-blob-encryption-is-not-disabled"></a>2.11 Se till att ASC:s standardprincipinställning "Monitor Storage Blob Encryption" inte är "inaktiverad"
 
-Azure Storage kryptering har Aktiver ATS för alla nya och befintliga lagrings konton och kan inte inaktive ras. (Det här är en standard funktion i Azure, det finns ingen princip tilldelning.)
+Azure Storage-kryptering är aktiverat för alla nya och befintliga lagringskonton och kan inte inaktiveras. (Detta är en standard Azure-funktion, det finns ingen principtilldelning.)
 
-## <a name="212-ensure-asc-default-policy-setting-monitor-jit-network-access-is-not-disabled"></a>2,12 Se till att ASC standard princip inställningen "övervaka JIT-nätverksanslutning" inte är inaktive rad
+## <a name="212-ensure-asc-default-policy-setting-monitor-jit-network-access-is-not-disabled"></a>2.12 Se till att ASC:s standardprincipinställning "Övervaka JIT-nätverksåtkomst" inte är "inaktiverad"
 
-Den här skissen tilldelar en [Azure policy](../../../policy/overview.md) -definition som hjälper dig att kontrol lera åtkomsten till virtuella datorer.
+Den här skissen tilldelar en [Azure-principdefinition](../../../policy/overview.md) som hjälper dig att kontrollera åtkomsten till virtuella datorer.
 
-- Just-in-Time-kontroll för nätverks åtkomst ska tillämpas på virtuella datorer
+- Just-in-time-kontroller av nätverksåtkomst ska tillämpas på virtuella datorer
 
-## <a name="213-ensure-asc-default-policy-setting-monitor-adaptive-application-whitelisting-is-not-disabled"></a>2,13 kontrol lera att ASC-standardprincip inställningen "övervaka adaptiv program vit listning" inte är inaktive rad
+## <a name="213-ensure-asc-default-policy-setting-monitor-adaptive-application-whitelisting-is-not-disabled"></a>2.13 Se till att ASC:s standardprincipinställning "Monitor Adaptive Application Whitelisting" inte är "inaktiverad"
 
-Den här skissen tilldelar en [Azure policy](../../../policy/overview.md) -definition som hjälper dig att se till att adaptiva program kontroller är aktiverat på virtuella datorer.
+Den här skissen tilldelar en [Azure-principdefinition](../../../policy/overview.md) som hjälper dig att se till att anpassade programkontroller är aktiverade på virtuella datorer.
 
-- Anpassningsbara program kontroller ska vara aktiverade på virtuella datorer
+- Adaptiva programkontroller bör aktiveras på virtuella datorer
 
-## <a name="214-ensure-asc-default-policy-setting-monitor-sql-auditing-is-not-disabled"></a>2,14 kontrol lera att ASC-standardprincip inställningen övervaka SQL-granskning är inaktive rad
+## <a name="214-ensure-asc-default-policy-setting-monitor-sql-auditing-is-not-disabled"></a>2.14 Se till att ASC:s standardprincipinställning "Monitor SQL Auditing" inte är "inaktiverad"
 
-Den här skissen tilldelar en [Azure policy](../../../policy/overview.md) definition som hjälper till att säkerställa att SQL Server Auditing är aktiverat.
+Den här skissen tilldelar en [Azure Policy-definition](../../../policy/overview.md) som säkerställer att SQL-servergranskning är aktiverad.
 
-- Granskning ska aktive ras för avancerade data säkerhets inställningar på SQL Server
+- Granskning bör aktiveras vid avancerade datasäkerhetsinställningar på SQL Server
 
-## <a name="215-ensure-asc-default-policy-setting-monitor-sql-encryption-is-not-disabled"></a>2,15 kontrol lera att ASC-standardprincip inställningen "övervaka SQL-kryptering" inte är inaktive rad
+## <a name="215-ensure-asc-default-policy-setting-monitor-sql-encryption-is-not-disabled"></a>2.15 Se till att ASC-standardprincipinställningen "Övervaka SQL-kryptering" inte är "inaktiverad"
 
-Den här skissen tilldelar en [Azure policy](../../../policy/overview.md) -definition som hjälper dig att se till att Transparent datakryptering är aktiverat på SQL-databaser.
+Den här skissen tilldelar en [Azure Policy-definition](../../../policy/overview.md) som hjälper dig att säkerställa transparent datakryptering är aktiverad på SQL-databaser.
 
-- transparent datakryptering på SQL-databaser ska aktive ras
+- Transparent datakryptering i SQL-databaser bör aktiveras
 
-## <a name="216-ensure-that-security-contact-emails-is-set"></a>2,16 kontrol lera att e-postmeddelandet för säkerhets kontakt har angetts
+## <a name="216-ensure-that-security-contact-emails-is-set"></a>2.16 Se till att e-postmeddelanden med säkerhetskontakter är inställda
 
-Den här skissen tilldelar en [Azure policy](../../../policy/overview.md) -definition som hjälper dig att säkerställa att säkerhetsaviseringar är korrekt aktiverade
+Den här skissen tilldelar en [Azure-principdefinition](../../../policy/overview.md) som hjälper dig att se till att säkerhetsmeddelanden är korrekt aktiverade
 
-- Du måste tillhandahålla en e-postadress till en säkerhets kontakt för din prenumeration
+- En e-postadress för säkerhetskontakter ska anges för din prenumeration
 
-## <a name="217-ensure-that-security-contact-phone-number-is-set"></a>2,17 Se till att säkerhets kontaktens telefonnummer har angetts
+## <a name="217-ensure-that-security-contact-phone-number-is-set"></a>2.17 Se till att säkerhetskontakten "Telefonnummer" är inställt
 
-Den här skissen tilldelar en [Azure policy](../../../policy/overview.md) -definition som hjälper dig att säkerställa att säkerhetsaviseringar är korrekt aktiverade
+Den här skissen tilldelar en [Azure-principdefinition](../../../policy/overview.md) som hjälper dig att se till att säkerhetsmeddelanden är korrekt aktiverade
 
-- Du måste tillhandahålla ett telefonnummer till en säkerhets kontakt för din prenumeration
+- Ett telefonnummer för säkerhetskontakter ska anges för din prenumeration
 
-## <a name="218-ensure-that-send-email-notification-for-high-severity-alerts-is-set-to-on"></a>2,18 Se till att "skicka e-postmeddelande om aviseringar med hög allvarlighets grad" är inställt på "on"
+## <a name="218-ensure-that-send-email-notification-for-high-severity-alerts-is-set-to-on"></a>2.18 Se till att "Skicka e-postmeddelande för varningar om hög allvarlighetsgrad" är inställt på "På"
 
-Den här skissen tilldelar en [Azure policy](../../../policy/overview.md) -definition som hjälper dig att säkerställa att säkerhetsaviseringar är korrekt aktiverade
+Den här skissen tilldelar en [Azure-principdefinition](../../../policy/overview.md) som hjälper dig att se till att säkerhetsmeddelanden är korrekt aktiverade
 
-- E-postavisering om aviseringar med hög allvarlighets grad ska aktive ras
+- E-postmeddelande för varningar om hög allvarlighetsgrad bör aktiveras
 
-## <a name="219-ensure-that-send-email-also-to-subscription-owners-is-set-to-on"></a>2,19 Se till att "skicka e-post även till prenumerations ägare" är inställt på "på"
+## <a name="219-ensure-that-send-email-also-to-subscription-owners-is-set-to-on"></a>2.19 Se till att "Skicka e-post även till prenumerationsägare" är inställt på "På"
 
-Den här skissen tilldelar en [Azure policy](../../../policy/overview.md) -definition som hjälper dig att säkerställa att säkerhetsaviseringar är korrekt aktiverade
+Den här skissen tilldelar en [Azure-principdefinition](../../../policy/overview.md) som hjälper dig att se till att säkerhetsmeddelanden är korrekt aktiverade
 
-- E-postmeddelande till Prenumerationens ägare för aviseringar med hög allvarlighets grad måste vara aktiverat
+- E-postmeddelande till prenumerationsägaren för varningar om hög allvarlighetsgrad bör aktiveras
 
-## <a name="31-ensure-that-secure-transfer-required-is-set-to-enabled"></a>3,1 kontrol lera att "säker överföring krävs" är inställt på ' Enabled '
+## <a name="31-ensure-that-secure-transfer-required-is-set-to-enabled"></a>3.1 Se till att "säker överföring krävs" är inställt på "Aktiverad"
 
-Den här skissen tilldelar en [Azure policy](../../../policy/overview.md) -definition som hjälper dig att övervaka lagrings konton som tillåter oskyddade anslutningar.
+Den här skissen tilldelar en [Azure Policy-definition](../../../policy/overview.md) som hjälper dig att övervaka lagringskonton som tillåter osäkra anslutningar.
 
-- Säker överföring till lagrings konton ska vara aktiverat
+- Säker överföring till lagringskonton ska vara aktiverat
 
-## <a name="37-ensure-default-network-access-rule-for-storage-accounts-is-set-to-deny"></a>3,7 Se till att standard regeln för nätverks åtkomst för lagrings konton är inställd på neka
+## <a name="37-ensure-default-network-access-rule-for-storage-accounts-is-set-to-deny"></a>3.7 Kontrollera att standardregeln för nätverksåtkomst för lagringskonton är inställd på att neka
 
-Den här skissen tilldelar en [Azure policy](../../../policy/overview.md) -definition som hjälper dig att övervaka lagrings konton som tillåter obegränsad åtkomst.
+Den här skissen tilldelar en [Azure-principdefinition](../../../policy/overview.md) som hjälper dig att övervaka lagringskonton som tillåter obegränsad åtkomst.
 
-- Granska obegränsad nätverks åtkomst till lagrings konton
+- Granska obegränsad nätverksåtkomst till lagringskonton
 
-## <a name="38-ensure-trusted-microsoft-services-is-enabled-for-storage-account-access"></a>3,8 Se till att betrodda Microsoft-tjänster är aktiverat för åtkomst till lagrings kontot
+## <a name="38-ensure-trusted-microsoft-services-is-enabled-for-storage-account-access"></a>3.8 Se till att betrodda Microsoft-tjänster är aktiverat för åtkomst till lagringskonto
 
-Den här skissen tilldelar en [Azure policy](../../../policy/overview.md) -definition som hjälper dig att övervaka lagrings konton som inte tillåter åtkomst från betrodda Microsoft-tjänster.
+Den här skissen tilldelar en [Azure Policy-definition](../../../policy/overview.md) som hjälper dig att övervaka lagringskonton som inte tillåter åtkomst från betrodda Microsoft-tjänster.
 
-- Lagrings konton ska tillåta åtkomst från betrodda Microsoft-tjänster
+- Lagringskonton bör tillåta åtkomst från betrodda Microsoft-tjänster
 
-## <a name="41-ensure-that-auditing-is-set-to-on"></a>4,1 se till att "granskning" är inställt på "on"
+## <a name="41-ensure-that-auditing-is-set-to-on"></a>4.1 Se till att "revision" är inställt på "På"
 
-Den här skissen tilldelar en [Azure policy](../../../policy/overview.md) definition som hjälper till att säkerställa att SQL Server Auditing är aktiverat. 
+Den här skissen tilldelar en [Azure Policy-definition](../../../policy/overview.md) som säkerställer att SQL-servergranskning är aktiverad. 
 
-- Granskning ska aktive ras för avancerade data säkerhets inställningar på SQL Server
+- Granskning bör aktiveras vid avancerade datasäkerhetsinställningar på SQL Server
 
-## <a name="42-ensure-that-auditactiongroups-in-auditing-policy-for-a-sql-server-is-set-properly"></a>4,2 kontrol lera att AuditActionGroups i gransknings principen för en SQL Server är korrekt inställd
+## <a name="42-ensure-that-auditactiongroups-in-auditing-policy-for-a-sql-server-is-set-properly"></a>4.2 Se till att "AuditActionGroups" i granskningsprincipen för en SQL-server är korrekt inställd
 
-Den här skissen tilldelar en [Azure policy](../../../policy/overview.md) -definition som hjälper dig att se till att SQL Server-granskningen är korrekt konfigurerad.
+Den här skissen tilldelar en [Azure Policy-definition](../../../policy/overview.md) som hjälper dig att se till att SQL-servergranskning är korrekt konfigurerad.
 
-- Inställningarna för SQL-granskning bör ha åtgärds grupper konfigurerade för att fånga kritiska aktiviteter
+- SQL-granskningsinställningar bör ha åtgärdsgrupper konfigurerade för att samla in kritiska aktiviteter
 
-## <a name="43-ensure-that-auditing-retention-is-greater-than-90-days"></a>4,3 kontrol lera att kvarhållning av granskning är större än 90 dagar
+## <a name="43-ensure-that-auditing-retention-is-greater-than-90-days"></a>4.3 Se till att "auditing"-lagring är "större än 90 dagar"
 
-Den här skissen tilldelar en [Azure policy](../../../policy/overview.md) -definition som hjälper dig att se till att SQL Server-loggar bevaras i minst 90 dagar.
+Den här skissen tilldelar en [Azure Policy-definition](../../../policy/overview.md) som hjälper dig att se till att SQL-serverloggar behålls i minst 90 dagar.
 
-- SQL-servrar bör konfigureras med granskning av antalet dagar som är större än 90 dagar.
+- SQL-servrar bör konfigureras med granskning kvarhållningsdagar som är större än 90 dagar.
 
-## <a name="44-ensure-that-advanced-data-security-on-a-sql-server-is-set-to-on"></a>4,4 se till att "avancerad data säkerhet" på en SQL-Server är inställt på "på"
+## <a name="44-ensure-that-advanced-data-security-on-a-sql-server-is-set-to-on"></a>4.4 Se till att "Avancerad datasäkerhet" på en SQL-server är inställt på "På"
 
-Den här skissen tilldelar en [Azure policy](../../../policy/overview.md) -definition som hjälper dig att säkerställa att avancerad data säkerhet är aktiverat på SQL-servrar och SQL-hanterade instanser.
+Den här skissen tilldelar en [Azure Policy-definition](../../../policy/overview.md) som hjälper dig att säkerställa avancerad datasäkerhet är aktiverad på SQL-servrar och SQL-hanterade instanser.
 
-- Avancerad data säkerhet ska vara aktiverat på SQL-hanterade instanser
+- Avancerad datasäkerhet bör aktiveras på dina SQL-hanterade instanser
 - Avancerad datasäkerhet bör aktiveras på dina SQL-servrar
 
-## <a name="45-ensure-that-threat-detection-types-is-set-to-all"></a>4,5 Se till att hot identifierings typerna är inställt på all
+## <a name="45-ensure-that-threat-detection-types-is-set-to-all"></a>4.5 Se till att "typer av hotdetektering" är inställda på "Alla"
 
-Den här skissen tilldelar [Azure policy](../../../policy/overview.md) definitioner som hjälper dig att säkerställa att Avancerat skydd är korrekt KONFIGURERAT på SQL-servrar och SQL-hanterade instanser.
+Den här skissen tilldelar [Azure Policy-definitioner](../../../policy/overview.md) som hjälper dig att säkerställa att avancerat skydd mot hot är korrekt konfigurerat på SQL-servrar och SQL-hanterade instanser.
 
-- Avancerade skydds typer måste anges till alla i avancerade data säkerhets inställningar för SQL Server
-- Avancerade skydds typer måste anges till alla i avancerade data säkerhets inställningar för SQL-hanterad instans
+- Avancerade typer av skydd mot hot bör ställas in på alla i avancerade datasäkerhetsinställningar för SQL-servern
+- Avancerade typer av skydd mot hot bör ställas in på alla i SQL-hanterade instans avancerade datasäkerhetsinställningar
 
-## <a name="46-ensure-that-send-alerts-to-is-set"></a>4,6 kontrol lera att skicka aviseringar till har angetts
+## <a name="46-ensure-that-send-alerts-to-is-set"></a>4.6 Se till att "Skicka varningar till" är inställd
 
-Den här skissen tilldelar en [Azure policy](../../../policy/overview.md) -definition som hjälper dig att säkerställa att avancerade data säkerhets meddelanden är korrekt aktiverade.
+Den här skissen tilldelar en [Azure Policy-definition](../../../policy/overview.md) som hjälper dig att se till att avancerade datasäkerhetsmeddelanden är korrekt aktiverade.
 
-- Avancerade data säkerhets inställningar för SQL-hanterad instans ska innehålla en e-postadress för att ta emot säkerhets aviseringar
-- Avancerade data säkerhets inställningar för SQL Server ska innehålla en e-postadress för att ta emot säkerhets aviseringar
+- Avancerade datasäkerhetsinställningar för SQL-hanterad instans bör innehålla en e-postadress för att ta emot säkerhetsaviseringar
+- Avancerade datasäkerhetsinställningar för SQL-servern bör innehålla en e-postadress för att ta emot säkerhetsaviseringar
 
-## <a name="47-ensure-that-email-service-and-co-administrators-is-enabled"></a>4,7 kontrol lera att "e-posttjänst och medadministratörer" är aktiverat
+## <a name="47-ensure-that-email-service-and-co-administrators-is-enabled"></a>4.7 Se till att "E-posttjänst och medadministratörer" är aktiverade
 
-Den här skissen tilldelar en [Azure policy](../../../policy/overview.md) -definition som hjälper dig att säkerställa att avancerade data säkerhets meddelanden är korrekt aktiverade.
+Den här skissen tilldelar en [Azure Policy-definition](../../../policy/overview.md) som hjälper dig att se till att avancerade datasäkerhetsmeddelanden är korrekt aktiverade.
 
-- E-postaviseringar till administratörer och prenumerations ägare måste vara aktiverade i avancerade data säkerhets inställningar för SQL-hanterad instans
-- E-postaviseringar till administratörer och prenumerationsägare bör aktiveras i de avancerade inställningarna för datasäkerhet för SQL-servern
+- E-postmeddelanden till administratörer och prenumerationsägare bör aktiveras i avancerade inställningar för SQL-hanterad instans
+- E-postmeddelanden till administratörer och prenumerationsägare bör aktiveras i avancerade datasäkerhetsinställningar för SQL-servern
 
-## <a name="48-ensure-that-azure-active-directory-admin-is-configured"></a>4,8 kontrol lera att Azure Active Directory admin har kon figurer ATS
+## <a name="48-ensure-that-azure-active-directory-admin-is-configured"></a>4.8 Kontrollera att Azure Active Directory Admin är konfigurerad
 
-Den här skissen tilldelar en [Azure policy](../../../policy/overview.md) -definition som hjälper dig att säkerställa att en Azure Active Directory-administratör tillhandahålls för SQL-servrar.
+Den här skissen tilldelar en [Azure-principdefinition](../../../policy/overview.md) som hjälper dig att se till att en Azure Active Directory-administratör har etablerats för SQL-servrar.
 
-- En Azure Active Directory administratör bör tillhandahållas för SQL-servrar
+- En Azure Active Directory-administratör bör etableras för SQL-servrar
 
-## <a name="49-ensure-that-data-encryption-is-set-to-on-on-a-sql-database"></a>4,9 Se till att "data kryptering" är inställt på "on" på en SQL Database
+## <a name="49-ensure-that-data-encryption-is-set-to-on-on-a-sql-database"></a>4.9 Se till att "Datakryptering" är inställt på "På" i en SQL-databas
 
-Den här skissen tilldelar en [Azure policy](../../../policy/overview.md) -definition som hjälper dig att se till att Transparent datakryptering är aktiverat på SQL-databaser.
+Den här skissen tilldelar en [Azure Policy-definition](../../../policy/overview.md) som hjälper dig att säkerställa transparent datakryptering är aktiverad på SQL-databaser.
 
-- transparent datakryptering på SQL-databaser ska aktive ras
+- Transparent datakryptering i SQL-databaser bör aktiveras
 
-## <a name="410-ensure-sql-servers-tde-protector-is-encrypted-with-byok-use-your-own-key"></a>4,10 kontrol lera att SQL Servers TDE-skydd krypteras med BYOK (Använd din egen nyckel)
+## <a name="410-ensure-sql-servers-tde-protector-is-encrypted-with-byok-use-your-own-key"></a>4.10 Se till att SQL-serverns TDE-skydd krypteras med BYOK (Använd din egen nyckel)
 
-Den här skissen tilldelar [Azure policy](../../../policy/overview.md) definitioner som hjälper dig att se till att transparenta data krypterade skydd för SQL-servrar och SQL-hanterade instanser krypteras med din egen nyckel.
+Den här skissen tilldelar [Azure Policy-definitioner](../../../policy/overview.md) som hjälper dig att se till att det transparenta datakrypterade skydd för SQL-servrar och SQL-hanterade instanser krypteras med din egen nyckel.
 
-- SQL-hanterad instans TDE-skydd ska vara krypterat med din egen nyckel
-- SQL-serverns TDE-skydd bör krypteras med din egen nyckel
+- SQL-hanterad instans TDE-skydd ska krypteras med din egen nyckel
+- SQL-server TDE-skydd ska krypteras med din egen nyckel
 
-## <a name="411-ensure-enforce-ssl-connection-is-set-to-enabled-for-mysql-database-server"></a>4,11 Se till att tvinga SSL-anslutning är inställt på ENABLEd för MySQL-databasserver
+## <a name="411-ensure-enforce-ssl-connection-is-set-to-enabled-for-mysql-database-server"></a>4.11 Se till att "Framtvinga SSL-anslutning" är inställt på "AKTIVERAD" för MySQL Database Server
 
-Den här skissen tilldelar en [Azure policy](../../../policy/overview.md) -definition som hjälper dig att se till att MySQL-databas servrar tvingar SSL-anslutningar.
+Den här skissen tilldelar en [Azure Policy-definition](../../../policy/overview.md) som hjälper dig att se till att MySQL-databasservrar framtvingar SSL-anslutningar.
 
-- Tvinga SSL-anslutning ska vara aktive rad för MySQL-databas servrar
+- Framtvinga SSL-anslutning bör aktiveras för MySQL-databasservrar
 
-## <a name="412-ensure-server-parameter-log_checkpoints-is-set-to-on-for-postgresql-database-server"></a>4,12 Se till att Server parametern "log_checkpoints" är inställd på "ON" för PostgreSQL Database Server
+## <a name="412-ensure-server-parameter-log_checkpoints-is-set-to-on-for-postgresql-database-server"></a>4.12 Se till att serverparametern "log_checkpoints" är inställd på "ON" för PostgreSQL Database Server
 
-Den här skissen tilldelar en [Azure policy](../../../policy/overview.md) -definition som hjälper dig att se till att postgresql loggar kontroll punkter för databas servrar.
+Den här skissen tilldelar en [Azure Policy](../../../policy/overview.md) definition som hjälper dig att säkerställa PostgreSQL databasservrar logga kontrollpunkter.
 
-- Logg kontroll punkter ska vara aktiverade för PostgreSQL-databas servrar
+- Loggkontrollpunkter bör aktiveras för PostgreSQL-databasservrar
 
-## <a name="413-ensure-enforce-ssl-connection-is-set-to-enabled-for-postgresql-database-server"></a>4,13 Se till att tvinga SSL-anslutning är inställt på ENABLEd för PostgreSQL Database Server
+## <a name="413-ensure-enforce-ssl-connection-is-set-to-enabled-for-postgresql-database-server"></a>4.13 Se till att "Framtvinga SSL-anslutning" är inställt på "AKTIVERAD" för PostgreSQL Database Server
 
-Den här skissen tilldelar en [Azure policy](../../../policy/overview.md) definition som hjälper dig att säkerställa att PostgreSQL-databas servrar tvingar SSL-anslutningar.
+Den här skissen tilldelar en [Azure Policy-definition](../../../policy/overview.md) som hjälper dig att se till att PostgreSQL-databasservrar framtvingar SSL-anslutningar.
 
-- Tvinga SSL-anslutning ska vara aktive rad för PostgreSQL-databas servrar
+- Framtvinga SSL-anslutning bör aktiveras för PostgreSQL-databasservrar
 
-## <a name="414-ensure-server-parameter-log_connections-is-set-to-on-for-postgresql-database-server"></a>4,14 Se till att Server parametern "log_connections" är inställd på "ON" för PostgreSQL Database Server
+## <a name="414-ensure-server-parameter-log_connections-is-set-to-on-for-postgresql-database-server"></a>4.14 Se till att serverparametern "log_connections" är inställd på "ON" för PostgreSQL Database Server
 
-Den här skissen tilldelar en [Azure policy](../../../policy/overview.md) -definition som hjälper dig att se till att databas servrarnas logg anslutningar postgresql.
+Den här skissen tilldelar en [Azure Policy-definition](../../../policy/overview.md) som hjälper dig att säkerställa PostgreSQL-databasservrar logga anslutningar.
 
-- Logg anslutningar ska vara aktiverade för PostgreSQL-databas servrar
+- Logganslutningar bör aktiveras för PostgreSQL-databasservrar
 
-## <a name="415-ensure-server-parameter-log_disconnections-is-set-to-on-for-postgresql-database-server"></a>4,15 Se till att Server parametern "log_disconnections" är inställd på "ON" för PostgreSQL Database Server
+## <a name="415-ensure-server-parameter-log_disconnections-is-set-to-on-for-postgresql-database-server"></a>4.15 Se till att serverparametern "log_disconnections" är inställd på "ON" för PostgreSQL Database Server
 
-Den här skissen tilldelar en [Azure policy](../../../policy/overview.md) definition som hjälper dig att säkerställa att PostgreSQL databas servrar loggar från kopplingar.
+Den här skissen tilldelar en [Azure Policy](../../../policy/overview.md) definition som hjälper dig att säkerställa PostgreSQL databasservrar logga frånkopplingar.
 
-- Från kopplingar ska loggas för PostgreSQL-databas servrar.
+- Frånkopplingar bör loggas för PostgreSQL databasservrar.
 
-## <a name="416-ensure-server-parameter-log_duration-is-set-to-on-for-postgresql-database-server"></a>4,16 Se till att Server parametern "log_duration" är inställd på "ON" för PostgreSQL Database Server
+## <a name="416-ensure-server-parameter-log_duration-is-set-to-on-for-postgresql-database-server"></a>4.16 Se till att serverparametern "log_duration" är inställd på "ON" för PostgreSQL Database Server
 
-Den här skissen tilldelar en [Azure policy](../../../policy/overview.md) -definition som hjälper dig att säkerställa att PostgreSQL-databas servrar loggar varaktigheten för slutförda instruktioner.
+Den här skissen tilldelar en [Azure Policy-definition](../../../policy/overview.md) som hjälper dig att säkerställa att PostgreSQL-databasservrar loggar varaktigheten för slutförda utdrag.
 
-- Loggens varaktighet ska vara aktive rad för PostgreSQL-databas servrar
+- Loggens varaktighet bör aktiveras för PostgreSQL-databasservrar
 
-## <a name="417-ensure-server-parameter-connection_throttling-is-set-to-on-for-postgresql-database-server"></a>4,17 Se till att Server parametern "connection_throttling" är inställd på "ON" för PostgreSQL Database Server
+## <a name="417-ensure-server-parameter-connection_throttling-is-set-to-on-for-postgresql-database-server"></a>4.17 Se till att serverparametern "connection_throttling" är inställd på "ON" för PostgreSQL Database Server
 
-Den här skissen tilldelar en [Azure policy](../../../policy/overview.md) -definition som hjälper dig att begränsa brute force-attacker på PostgreSQL-databas servrar.
+Den här skissen tilldelar en [Azure Policy-definition](../../../policy/overview.md) som hjälper dig att minska brute force-attacker på PostgreSQL-databasservrar.
 
-- Anslutnings begränsning ska vara aktiverat för PostgreSQL-databas servrar
+- Anslutningsbegränsning bör aktiveras för PostgreSQL-databasservrar
 
-## <a name="419-ensure-that-azure-active-directory-admin-is-configured"></a>4,19 kontrol lera att Azure Active Directory admin har kon figurer ATS
+## <a name="419-ensure-that-azure-active-directory-admin-is-configured"></a>4.19 Se till att Azure Active Directory Admin är konfigurerad
 
-Den här skissen tilldelar en [Azure policy](../../../policy/overview.md) -definition som hjälper dig att säkerställa att en Azure Active Directory-administratör tillhandahålls för SQL-servrar. CIS-Microsoft Azure grunderna omfattar den här rekommendationen. Det är dock en dubblett av [rekommendation 4,8](#48-ensure-that-azure-active-directory-admin-is-configured).
+Den här skissen tilldelar en [Azure-principdefinition](../../../policy/overview.md) som hjälper dig att se till att en Azure Active Directory-administratör har etablerats för SQL-servrar. CIS Microsoft Azure Foundations Benchmark innehåller den här rekommendationen. Det är dock en kopia av [rekommendation 4.8](#48-ensure-that-azure-active-directory-admin-is-configured).
 
-- En Azure Active Directory administratör bör tillhandahållas för SQL-servrar
+- En Azure Active Directory-administratör bör etableras för SQL-servrar
 
-## <a name="511-ensure-that-a-log-profile-exists"></a>5.1.1 se till att det finns en logg profil
+## <a name="511-ensure-that-a-log-profile-exists"></a>5.1.1 Se till att det finns en loggprofil
 
-Den här skissen tilldelar en [Azure policy](../../../policy/overview.md) -definition som hjälper dig att se till att det finns en logg profil för alla Azure-prenumerationer. 
+Den här skissen tilldelar en [Azure Policy-definition](../../../policy/overview.md) som hjälper dig att se till att det finns en loggprofil för alla Azure-prenumerationer. 
 
-- Azure-prenumerationer ska ha en logg profil för aktivitets loggen
+- Azure-prenumerationer bör ha en loggprofil för aktivitetslogg
 
-## <a name="512-ensure-that-activity-log-retention-is-set-365-days-or-greater"></a>5.1.2 se till att aktivitets loggens kvarhållning är inställt på 365 dagar eller mer
+## <a name="512-ensure-that-activity-log-retention-is-set-365-days-or-greater"></a>5.1.2 Se till att bevarandet av aktivitetsloggen är 365 dagar eller mer
 
-Den här skissen tilldelar en [Azure policy](../../../policy/overview.md) -definition som hjälper dig att se till att aktivitets loggarna bevaras i minst ett år.
+Den här skissen tilldelar en [Azure-principdefinition](../../../policy/overview.md) som hjälper dig att se till att aktivitetsloggar behålls i minst ett år.
 
-- Aktivitets loggen ska behållas i minst ett år
+- Aktivitetsloggen ska behållas i minst ett år
 
-## <a name="513-ensure-audit-profile-captures-all-the-activities"></a>5.1.3 se till att gransknings profilen fångar alla aktiviteter
+## <a name="513-ensure-audit-profile-captures-all-the-activities"></a>5.1.3 Se till att revisionsprofilen samlar in all verksamhet
 
-Den här skissen tilldelar en [Azure policy](../../../policy/overview.md) -definition som hjälper dig att se till att logg profilen är korrekt konfigurerad.
+Den här skissen tilldelar en [Azure Policy-definition](../../../policy/overview.md) som hjälper dig att se till att loggprofilen är korrekt konfigurerad.
 
-- Azure Monitor logg profil ska samla in loggar för kategorier "Write," Delete "och" Action "
+- Azure Monitor-loggprofilen ska samla in loggar för kategorierna "write", "delete" och 'action'
 
-## <a name="514-ensure-the-log-profile-captures-activity-logs-for-all-regions-including-global"></a>5.1.4 se till att logg profilen fångar in aktivitets loggar för alla regioner, inklusive global
+## <a name="514-ensure-the-log-profile-captures-activity-logs-for-all-regions-including-global"></a>5.1.4 Se till att loggprofilen samlar in aktivitetsloggar för alla regioner, inklusive globala
 
-Den här skissen tilldelar en [Azure policy](../../../policy/overview.md) -definition som hjälper dig att se till att logg profilen är korrekt konfigurerad.
+Den här skissen tilldelar en [Azure Policy-definition](../../../policy/overview.md) som hjälper dig att se till att loggprofilen är korrekt konfigurerad.
 
-- Azure Monitor ska samla in aktivitets loggar från alla regioner
+- Azure Monitor bör samla in aktivitetsloggar från alla regioner
 
-## <a name="517-ensure-that-logging-for-azure-keyvault-is-enabled"></a>5.1.7 kontrol lera att loggning för Azure-valv är aktiverat
+## <a name="517-ensure-that-logging-for-azure-keyvault-is-enabled"></a>5.1.7 Se till att loggning för Azure KeyVault är aktiverat
 
-Den här skissen tilldelar en [Azure policy](../../../policy/overview.md) -definition som hjälper dig att se till att diagnostikloggar är aktiverade för nyckel valv.
+Den här skissen tilldelar en [Azure Policy-definition](../../../policy/overview.md) som hjälper dig att säkerställa att diagnostikloggar är aktiverade för nyckelvalv.
 
-- Diagnostikloggar i Key Vault ska vara aktive rad
+- Diagnostikloggar i Key Vault ska aktiveras
 
-## <a name="65-ensure-that-network-watcher-is-enabled"></a>6,5 kontrol lera att Network Watcher är aktive rad
+## <a name="65-ensure-that-network-watcher-is-enabled"></a>6.5 Se till att network watcher är "aktiverad"
 
-Den här skissen tilldelar en [Azure policy](../../../policy/overview.md) -definition som hjälper dig att se till att Network Watcher har Aktiver ATS för alla regioner där resurser distribueras. Den här principen kräver en parameter mat ris som anger alla tillämpliga regioner. Standardvärdet i denna princip initiativs definition är "öst".
+Den här skissen tilldelar en [Azure Policy-definition](../../../policy/overview.md) som hjälper dig att se till att Network Watcher är aktiverat för alla regioner där resurser distribueras. Den här principen kräver en parametermatris som anger alla tillämpliga regioner. Standardvärdet i denna definition av politiska initiativ är "eastus".
 
-- Network Watcher ska vara aktiverat
+- Network Watcher ska vara aktiverad
 
-## <a name="71-ensure-that-os-disk-are-encrypted"></a>7,1 kontrol lera att OS-disken är krypterad
+## <a name="71-ensure-that-os-disk-are-encrypted"></a>7.1 Se till att "OS-disken" är krypterad
 
-Den här skissen tilldelar en [Azure policy](../../../policy/overview.md) -definition som hjälper dig att säkerställa att disk kryptering är aktiverat på virtuella datorer.
+Den här skissen tilldelar en [Azure Policy](../../../policy/overview.md) definition som hjälper dig att säkerställa diskkryptering är aktiverad på virtuella datorer.
 
-- Disk kryptering bör tillämpas på virtuella datorer
+- Diskkryptering bör tillämpas på virtuella datorer
 
-## <a name="72-ensure-that-data-disks-are-encrypted"></a>7,2 kontrol lera att data diskarna är krypterade
+## <a name="72-ensure-that-data-disks-are-encrypted"></a>7.2 Se till att "Datadiskar" är krypterade
 
-Den här skissen tilldelar en [Azure policy](../../../policy/overview.md) -definition som hjälper dig att säkerställa att disk kryptering är aktiverat på virtuella datorer.
+Den här skissen tilldelar en [Azure Policy](../../../policy/overview.md) definition som hjälper dig att säkerställa diskkryptering är aktiverad på virtuella datorer.
 
-- Disk kryptering bör tillämpas på virtuella datorer
+- Diskkryptering bör tillämpas på virtuella datorer
 
-## <a name="73-ensure-that-unattached-disks-are-encrypted"></a>7,3 se till att "icke anslutna diskar" är krypterade
+## <a name="73-ensure-that-unattached-disks-are-encrypted"></a>7.3 Se till att "Obundna diskar" är krypterade
 
-Den här skissen tilldelar en [Azure policy](../../../policy/overview.md) -definition som hjälper dig att se till att frånkopplade diskar är krypterade.
+Den här skissen tilldelar en [Azure Policy-definition](../../../policy/overview.md) som hjälper dig att se till att obundna diskar är krypterade.
 
-- Ej anslutna diskar ska vara krypterade
+- Obundna diskar ska krypteras
 
-## <a name="74-ensure-that-only-approved-extensions-are-installed"></a>7,4 se till att endast godkända tillägg är installerade
+## <a name="74-ensure-that-only-approved-extensions-are-installed"></a>7.4 Se till att endast godkända tillägg är installerade
 
-Den här skissen tilldelar en [Azure policy](../../../policy/overview.md) -definition som hjälper dig att se till att endast godkända tillägg för virtuella datorer är installerade. Den här principen kräver en parameter mat ris som anger alla godkända tillägg för virtuella datorer. Den här policy initiativs definitionen innehåller föreslagna standardvärden som kunderna bör validera. 
+Den här skissen tilldelar en [Azure Policy-definition](../../../policy/overview.md) som hjälper dig att se till att endast godkända tillägg för virtuella datorer installeras. Den här principen kräver en parametermatris som anger alla godkända tillägg för virtuella datorer. Den här principinitiativdefinitionen innehåller föreslagna standardvärden som kunder bör validera. 
 
  - Endast godkända VM-tillägg ska installeras
 
-## <a name="75-ensure-that-the-latest-os-patches-for-all-virtual-machines-are-applied"></a>7,5 Se till att de senaste OS-korrigeringarna för alla Virtual Machines tillämpas
+## <a name="75-ensure-that-the-latest-os-patches-for-all-virtual-machines-are-applied"></a>7.5 Se till att de senaste OS-korrigeringarna för alla virtuella datorer tillämpas
 
-Den här skissen tilldelar en [Azure policy](../../../policy/overview.md) -definition som hjälper dig att säkerställa att system uppdateringar installeras på virtuella datorer.
+Den här skissen tilldelar en [Azure Policy-definition](../../../policy/overview.md) som hjälper dig att se till att systemuppdateringar installeras på virtuella datorer.
 
-- System uppdateringar bör installeras på dina datorer
+- Systemuppdateringar ska ha installerats på dina datorer
 
-## <a name="76-ensure-that-the-endpoint-protection-for-all-virtual-machines-is-installed"></a>7,6 Se till att Endpoint Protection för alla Virtual Machines har installerats
+## <a name="76-ensure-that-the-endpoint-protection-for-all-virtual-machines-is-installed"></a>7.6 Se till att slutpunktsskyddet för alla virtuella datorer är installerat
 
-Den här skissen tilldelar en [Azure policy](../../../policy/overview.md) -definition som hjälper dig att se till att Endpoint Protection har Aktiver ATS på virtuella datorer.
+Den här skissen tilldelar en [Azure-principdefinition](../../../policy/overview.md) som hjälper dig att se till att slutpunktsskydd är aktiverat på virtuella datorer.
 
-- Övervaka saknade Endpoint Protection i Azure Security Center
+- Övervaka saknade slutpunktsskydd i Azure Security Center
 
-## <a name="84-ensure-the-key-vault-is-recoverable"></a>8,4 se till att nyckel valvet är återställnings Bart
+## <a name="84-ensure-the-key-vault-is-recoverable"></a>8.4 Se till att nyckelvalvet kan återställas
 
-Den här skissen tilldelar en [Azure policy](../../../policy/overview.md) -definition som hjälper dig att se till att nyckel valvs objekt kan återskapas vid oavsiktlig borttagning.
+Den här skissen tilldelar en [Azure Policy-definition](../../../policy/overview.md) som hjälper dig att se till att nyckelvalvsobjekt kan återställas vid oavsiktlig borttagning.
 
-- Key Vault objekt ska vara återställnings bara
+- Key Vault-objekt ska kunna återställas
 
-## <a name="85-enable-role-based-access-control-rbac-within-azure-kubernetes-services"></a>8,5 aktivera rollbaserad åtkomst kontroll (RBAC) i Azure Kubernetes Services
+## <a name="85-enable-role-based-access-control-rbac-within-azure-kubernetes-services"></a>8.5 Aktivera rollbaserad åtkomstkontroll (RBAC) i Azure Kubernetes Services
 
-Den här skissen tilldelar en [Azure policy](../../../policy/overview.md) -definition som hjälper dig att säkerställa att rollbaserad åtkomst kontroll används för hanterade behörigheter i Kubernetes-tjänstekluster
+Den här skissen tilldelar en [Azure-principdefinition](../../../policy/overview.md) som hjälper dig att se till att rollbaserad åtkomstkontroll används för hanterade behörigheter i Kubernetes tjänstkluster
 
-- \[för hands version\]: rollbaserad Access Control (RBAC) ska användas på Kubernetes-tjänster
+- \[Preview\]: Rollbaserad åtkomstkontroll (RBAC) ska användas på Kubernetes Services
 
-## <a name="92-ensure-web-app-redirects-all-http-traffic-to-https-in-azure-app-service"></a>9,2 se till att webbapp omdirigerar all HTTP-trafik till HTTPS i Azure App Service
+## <a name="92-ensure-web-app-redirects-all-http-traffic-to-https-in-azure-app-service"></a>9.2 Se till att webbappen omdirigerar all HTTP-trafik till HTTPS i Azure App Service
 
-Den här skissen tilldelar en [Azure policy](../../../policy/overview.md) -definition som hjälper dig att säkerställa att webb program bara är tillgängliga via säkra anslutningar.
+Den här skissen tilldelar en [Azure Policy-definition](../../../policy/overview.md) som hjälper dig att säkerställa att webbprogram endast är tillgängliga via säkra anslutningar.
 
-- Webb program bör endast vara tillgängliga via HTTPS
+- Webbprogrammet ska endast vara tillgängligt via HTTPS
 
-## <a name="93-ensure-web-app-is-using-the-latest-version-of-tls-encryption"></a>9,3 kontrol lera att webb programmet använder den senaste versionen av TLS-kryptering
+## <a name="93-ensure-web-app-is-using-the-latest-version-of-tls-encryption"></a>9.3 Se till att webbappen använder den senaste versionen av TLS-kryptering
 
-Den här skissen tilldelar [Azure policy](../../../policy/overview.md) definitioner som hjälper dig att säkerställa att webbappar använder den senaste TLS-versionen.
+Den här skissen tilldelar [Azure Policy-definitioner](../../../policy/overview.md) som hjälper dig att se till att webbappar använder den senaste TLS-versionen.
 
-- Den senaste TLS-versionen ska användas i din API-app
-- Den senaste TLS-versionen ska användas i Funktionsapp
-- Den senaste TLS-versionen ska användas i din webbapp
+- Senaste TLS-versionen ska användas i din API-app
+- Senaste TLS-versionen ska användas i din funktionsapp
+- Senaste TLS-versionen ska användas i din Webbapp
 
-## <a name="94-ensure-the-web-app-has-client-certificates-incoming-client-certificates-set-to-on"></a>9,4 se till att webbappen har "klient certifikat (inkommande klient certifikat)" inställd på "på"
+## <a name="94-ensure-the-web-app-has-client-certificates-incoming-client-certificates-set-to-on"></a>9.4 Se till att webbappen har "Klientcertifikat (inkommande klientcertifikat)" inställt på "På"
 
-Den här skissen tilldelar [Azure policy](../../../policy/overview.md) definitioner som hjälper dig att se till att endast klienter med giltiga certifikat kan komma åt en webbapp.
+Den här skissen tilldelar [Azure Policy-definitioner](../../../policy/overview.md) som hjälper dig att se till att endast klienter med giltiga certifikat kan nå en webbapp.
 
-- Se till att API-appen har klient certifikat (inkommande klient certifikat) inställd på
-- Se till att Function-appen har klient certifikat (inkommande klient certifikat) inställd på
-- Se till att WEBBAPP har "klient certifikat (inkommande klient certifikat)" inställd på "på"
+- Kontrollera api-app har "Klientcertifikat (inkommande klientcertifikat)" inställt på "På"
+- Kontrollera att funktionsappen har "Klientcertifikat (inkommande klientcertifikat)" inställt på 'På'
+- Kontrollera att WEB-appen har "Klientcertifikat (inkommande klientcertifikat)" inställt på 'På'
 
-## <a name="95-ensure-that-register-with-azure-active-directory-is-enabled-on-app-service"></a>9,5 kontrol lera att register med Azure Active Directory är aktiverat på App Service
+## <a name="95-ensure-that-register-with-azure-active-directory-is-enabled-on-app-service"></a>9.5 Se till att registrera dig med Azure Active Directory är aktiverat på App Service
 
-Den här skissen tilldelar [Azure policy](../../../policy/overview.md) -definitioner som hjälper dig att se till att webbappar använder en hanterad identitet.
+Den här skissen tilldelar [Azure Policy-definitioner](../../../policy/overview.md) som hjälper dig att se till att webbappar använder en hanterad identitet.
 
-- Kontrol lera att register med Azure Active Directory är aktiverat i API-appen
-- Kontrol lera att register med Azure Active Directory är aktiverat på Funktionsapp
-- Kontrol lera att register med Azure Active Directory är aktiverat i webbappen
+- Kontrollera att Registrera dig med Azure Active Directory är aktiverat i API-appen
+- Kontrollera att Registrera dig med Azure Active Directory är aktiverat på Function App
+- Kontrollera att Registrera dig med Azure Active Directory är aktiverat på WEB App
 
-## <a name="96-ensure-that-net-framework-version-is-the-latest-if-used-as-a-part-of-the-web-app"></a>9,6 Se till att .NET Framework-versionen är den senaste, om den används som en del av webbappen
+## <a name="96-ensure-that-net-framework-version-is-the-latest-if-used-as-a-part-of-the-web-app"></a>9.6 Se till att ".Net Framework"-versionen är den senaste, om den används som en del av webbappen
 
-Den här skissen tilldelar [Azure policy](../../../policy/overview.md) -definitioner som hjälper dig att se till att webbappar använder den senaste versionen av .NET Framework.
+Den här skissen tilldelar [Azure Policy-definitioner](../../../policy/overview.md) som hjälper dig att se till att webbappar använder den senaste versionen av .Net Framework.
 
-- Se till att .NET Framework-versionen är den senaste, om den används som en del av API-appen
-- Se till att .NET Framework-versionen är den senaste, om den används som en del av Funktionsapp
-- Se till att .NET Framework-versionen är den senaste, om den används som en del av webbappen
+- Se till att ".Net Framework"-versionen är den senaste, om den används som en del av API-appen
+- Se till att ".Net Framework"-versionen är den senaste, om den används som en del av funktionsappen
+- Se till att ".Net Framework"-versionen är den senaste, om den används som en del av webbappen
 
-## <a name="97-ensure-that-php-version-is-the-latest-if-used-to-run-the-web-app"></a>9,7 Se till att PHP-versionen är den senaste, om den används för att köra webbappen
+## <a name="97-ensure-that-php-version-is-the-latest-if-used-to-run-the-web-app"></a>9.7 Se till att "PHP-versionen" är den senaste, om den används för att köra webbappen
 
-Den här skissen tilldelar [Azure policy](../../../policy/overview.md) -definitioner som hjälper dig att se till att webbappar använder den senaste versionen av php.
+Den här skissen tilldelar [Azure Policy-definitioner](../../../policy/overview.md) som hjälper dig att se till att webbappar använder den senaste versionen av PHP.
 
-- Se till att PHP-version är den senaste, om den används som en del av API-appen
-- Se till att PHP-version är den senaste, om den används som en del av Function-appen
-- Se till att PHP-version är den senaste, om den används som en del av webbappen
+- Se till att "PHP-versionen" är den senaste, om den används som en del av Api-appen
+- Se till att "PHP-versionen" är den senaste, om den används som en del av funktionsappen
+- Se till att "PHP-versionen" är den senaste, om den används som en del av webbappen
 
-## <a name="98-ensure-that-python-version-is-the-latest-if-used-to-run-the-web-app"></a>9,8 Se till att "python-version" är den senaste, om den används för att köra webbappen
+## <a name="98-ensure-that-python-version-is-the-latest-if-used-to-run-the-web-app"></a>9.8 Se till att Python-versionen är den senaste, om den används för att köra webbappen
 
-Den här skissen tilldelar [Azure policy](../../../policy/overview.md) -definitioner som hjälper dig att se till att webbappar använder den senaste versionen av python.
+Den här skissen tilldelar [Azure Policy-definitioner](../../../policy/overview.md) som hjälper dig att se till att webbappar använder den senaste versionen av Python.
 
-- Se till att "python-version" är den senaste, om den används som en del av API-appen
-- Se till att "python-version" är den senaste, om den används som en del av Function-appen
-- Se till att "python-version" är den senaste, om den används som en del av webbappen
+- Se till att Python-versionen är den senaste, om den används som en del av Api-appen
+- Se till att Python-versionen är den senaste, om den används som en del av funktionsappen
+- Se till att Python-versionen är den senaste, om den används som en del av webbappen
 
-## <a name="99-ensure-that-java-version-is-the-latest-if-used-to-run-the-web-app"></a>9,9 Se till att Java-version är den senaste, om den används för att köra webbappen
+## <a name="99-ensure-that-java-version-is-the-latest-if-used-to-run-the-web-app"></a>9.9 Se till att "Java-versionen" är den senaste, om den används för att köra webbappen
 
-Den här skissen tilldelar [Azure policy](../../../policy/overview.md) -definitioner som hjälper dig att se till att webbappar använder den senaste versionen av Java.
+Den här skissen tilldelar [Azure Policy-definitioner](../../../policy/overview.md) som hjälper dig att se till att webbappar använder den senaste versionen av Java.
 
-- Se till att Java-version är den senaste, om den används som en del av API-appen
-- Se till att Java-version är den senaste, om den används som en del av funtion-appen
-- Se till att Java-version är den senaste, om den används som en del av webbappen
+- Se till att "Java-versionen" är den senaste, om den används som en del av Api-appen
+- Se till att "Java-versionen" är den senaste, om den används som en del av Funtion-appen
+- Se till att "Java-versionen" är den senaste, om den används som en del av webbappen
 
-## <a name="910-ensure-that-http-version-is-the-latest-if-used-to-run-the-web-app"></a>9,10 Se till att "HTTP-version" är den senaste, om den används för att köra webbappen
+## <a name="910-ensure-that-http-version-is-the-latest-if-used-to-run-the-web-app"></a>9.10 Se till att "HTTP-versionen" är den senaste, om den används för att köra webbappen
 
-Den här skissen tilldelar [Azure policy](../../../policy/overview.md) -definitioner som hjälper dig att se till att webbappar använder den senaste versionen av http.
+Den här skissen tilldelar [Azure Policy-definitioner](../../../policy/overview.md) som hjälper dig att se till att webbappar använder den senaste versionen av HTTP.
 
-- Se till att "HTTP-version" är den senaste, om den används för att köra API-appen
-- Se till att "HTTP-version" är den senaste, om den används för att köra Function-appen
-- Se till att "HTTP-version" är den senaste, om den används för att köra webbappen
+- Kontrollera att HTTP-versionen är den senaste, om den används för att köra Api-appen
+- Kontrollera att HTTP-versionen är den senaste, om den används för att köra funktionsappen
+- Kontrollera att HTTP-versionen är den senaste, om den används för att köra webbappen
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nu när du har granskat kontroll mappningen av CIS Microsoft Azure grunderna benchmark-skiss kan du gå till följande artiklar om du vill lära dig mer om skissen eller besöka Azure Policy i Azure Portal för att tilldela initiativet:
+Nu när du har granskat kontrollmappningen av CIS Microsoft Azure Foundations Benchmark-skiss kan du besöka följande artiklar om skissen eller besöka Azure Policy i Azure-portalen för att tilldela initiativet:
 
 > [!div class="nextstepaction"]
-> [Cis Microsoft Azure grunderna – översikts översikt](./index.md)
-> [CIS Microsoft Azure grunderna benchmark-skiss – distribuera steg](./deploy.md)
+> [Cis Microsoft Azure Foundations benchmark-ritning – Översikt CIS](./index.md)
+> [Microsoft Azure Foundations benchmark-skiss – distributionssteg](./deploy.md)
 
 Ytterligare artiklar om skisser och hur de används:
 
-- Mer information om [livscykeln för en skiss](../../concepts/lifecycle.md).
+- Läs mer om [skisslivscykeln](../../concepts/lifecycle.md).
 - Förstå hur du använder [statiska och dynamiska parametrar](../../concepts/parameters.md).
-- Lär dig hur du anpassar [sekvensordningen för en skiss](../../concepts/sequencing-order.md).
-- Lär dig hur du använder [resurslåsning för en skiss](../../concepts/resource-locking.md).
+- Lär dig att anpassa [ordningsföljden för skisssekvensering](../../concepts/sequencing-order.md).
+- Ta reda på hur du använder [skiss resurs låsning](../../concepts/resource-locking.md).
 - Lär dig hur du [uppdaterar befintliga tilldelningar](../../how-to/update-existing-assignments.md).

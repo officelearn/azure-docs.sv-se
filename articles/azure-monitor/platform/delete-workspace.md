@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/14/2020
-ms.openlocfilehash: ead0ac04fbd2244fce97dd043ebd44f24fb0f67f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1dceb3db4572ecdaf504745dba1099a5eccead43
+ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80054923"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80395788"
 ---
 # <a name="delete-and-recover-azure-log-analytics-workspace"></a>Ta bort och återställa Azure Log Analytics-arbetsytan
 
@@ -56,6 +56,17 @@ Du kan ta bort en arbetsyta med [PowerShell,](https://docs.microsoft.com/powersh
 ```PowerShell
 PS C:\>Remove-AzOperationalInsightsWorkspace -ResourceGroupName "resource-group-name" -Name "workspace-name"
 ```
+
+### <a name="troubleshooting"></a>Felsökning
+
+Du måste ha behörigheten Log Analytics Contributor för att kunna ta bort Log Analytics-arbetsytan.<br>
+Om du får ett felmeddelande '*Det här arbetsytenamnet används redan*' när du skapar en arbetsyta, kan det vara sedan:
+* Arbetsytans namn är inte tillgängligt och används av någon i organisationen eller av andra kunder.
+* Arbetsytan har tagits bort under de senaste 14 dagarna och dess namn har reserverats för perioden för mjuk borttagning. Om du vill åsidosätta den mjuka borttagningen och omedelbart ta bort arbetsytan och skapa en ny arbetsyta med samma namn gör du så här för att återställa arbetsytan först och utföra permanent borttagning:<br>
+   1. [Återställ](https://docs.microsoft.com/azure/azure-monitor/platform/delete-workspace#recover-workspace) arbetsytan.
+   2. Ta bort arbetsytan [permanent.](https://docs.microsoft.com/azure/azure-monitor/platform/delete-workspace#permanent-workspace-delete)
+   3. Skapa en ny arbetsyta med samma arbetsytenamn.
+
 
 ## <a name="permanent-workspace-delete"></a>Permanent borttagning av arbetsyta
 Metoden för mjuk borttagning kanske inte får plats i vissa scenarier, till exempel utveckling och testning, där du måste upprepa en distribution med samma inställningar och arbetsytans namn. I sådana fall kan du permanent ta bort arbetsytan och "åsidosätta" den mjuka borttagningsperioden. Den permanenta borttagningsåtgärden för arbetsytan släpper arbetsytans namn och du kan skapa en ny arbetsyta med samma namn.

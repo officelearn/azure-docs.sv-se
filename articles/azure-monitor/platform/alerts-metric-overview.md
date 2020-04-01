@@ -4,12 +4,12 @@ description: Få en översikt över vad du kan göra med måttaviseringar och hu
 ms.date: 03/17/2020
 ms.topic: conceptual
 ms.subservice: alerts
-ms.openlocfilehash: b6d8bc69a407838025c5e78e0a1c773ab457c409
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a6860cad077b597df923274f8971f5652d4ba9e3
+ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79480240"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80397979"
 ---
 # <a name="understand-how-metric-alerts-work-in-azure-monitor"></a>Förstå hur måttaviseringar fungerar i Azure Monitor
 
@@ -51,7 +51,7 @@ Anta att du har skapat en enkel måttvarningsregel för dynamiska tröskelvärde
 - Tillbakablick: 4
 - Antal överträdelser: 4
 
-När varningsregeln har skapats hämtar machine learning-algoritmen för dynamiska tröskelvärden historiska data som är tillgängliga, beräknar tröskelvärdet som bäst passar beteendemönstret för måttserien och lär sig kontinuerligt baserat på nya data för att göra tröskel mer exakt.
+När varningsregeln har skapats hämtar machine learning-algoritmen för dynamiska tröskelvärden historiska data som är tillgängliga, beräknar tröskelvärdet som bäst passar beteendemönstret för måttserien och lär sig kontinuerligt baserat på nya data för att göra tröskelvärdet mer exakt.
 
 Från det att aviseringsregeln skapas körs övervakaren var 1:e minut och tittar på måttvärden under de senaste 20 minuterna grupperade i 5 minuter och kontrollerar om medelvärdet av periodvärdena i var och en av de 4 perioderna överskrider det förväntade tröskelvärdet. Om villkoret uppfylls, det vill ha, avvek den genomsnittliga procentprocessorn under de senaste 20 minuterna (fyra 5 minuter) från förväntat beteende fyra gånger, aviseringsregeln ett aktiverat meddelande. Om du har konfigurerat ett e-postmeddelande eller en webbkrokåtgärd i åtgärdsgruppen som är associerad med varningsregeln får du ett aktiverat meddelande på båda.
 
@@ -140,6 +140,10 @@ Du kan ange omfattningen av övervakning av en enda måttaviseringsregel på ett
 - alla virtuella datorer (i en Azure-region) i en prenumeration
 
 Att skapa måttaviseringsregler som övervakar flera resurser är som [att skapa andra måttaviseringar](alerts-metric.md) som övervakar en enda resurs. Enda skillnaden är att du skulle välja alla resurser som du vill övervaka. Du kan också skapa dessa regler via [Azure Resource Manager-mallar](../../azure-monitor/platform/alerts-metric-create-templates.md#template-for-a-metric-alert-that-monitors-multiple-resources). Du får individuella meddelanden för varje övervakad resurs.
+
+> [!NOTE]
+>
+> I en måttaviseringsregel som övervakar flera resurser tillåts endast ett villkor.
 
 ## <a name="typical-latency"></a>Typisk latens
 

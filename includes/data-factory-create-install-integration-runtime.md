@@ -5,15 +5,15 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: jingwang
 ms.openlocfilehash: e7717cdeec33a32f926cb5ef4c1f6d28c25f9d93
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/04/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "76989100"
 ---
 ## <a name="create-a-self-hosted-integration-runtime"></a>Skapa en lokal Integration Runtime
 
-I det här avsnittet kan du skapa en lokal Integration Runtime och koppla den till en lokal dator med SQL Server-databasen. Integration runtime med egen värd är den komponent som kopierar data från SQL Server på din dator till Azure SQL Database. 
+I det här avsnittet kan du skapa en lokal Integration Runtime och koppla den till en lokal dator med SQL Server-databasen. Den självvärderade integrationskörningen är den komponent som kopierar data från SQL Server på datorn till Azure SQL-databasen. 
 
 1. Skapa en variabel för namnet på din Integration Runtime. Använd ett unikt namn och anteckna det. Du använder det senare i den här självstudien. 
 
@@ -83,7 +83,7 @@ I det här avsnittet kan du skapa en lokal Integration Runtime och koppla den ti
 
 5. Kopiera en av nycklarna (uteslut de dubbla citattecknen) för att registrera den lokala installation av Integration Runtime som du installerar på datorn i följande steg.  
 
-## <a name="install-the-integration-runtime-tool"></a>Installera integration runtime-verktyget
+## <a name="install-the-integration-runtime-tool"></a>Installera verktyget för integreringskörning
 
 1. Om du redan har Integration Runtime på din dator ska du avinstallera det med **Lägg till eller ta bort program**. 
 
@@ -97,13 +97,13 @@ I det här avsnittet kan du skapa en lokal Integration Runtime och koppla den ti
 
 6. På sidan **Klar att installera Microsoft Integration Runtime** väljer du **Installera**.
 
-7. På sidan **Slutfört installationen av Microsoft Integration Runtime**  väljer du **Slutför**.
+7. På sidan **Slutfört installationen av Microsoft Integration Runtime ** väljer du **Slutför**.
 
 8. Klistra in den nyckel som du sparade i föregående avsnitt på sidan **Registrera Integration Runtime (lokal installation)** och välj **Registrera**. 
 
     ![Registrera Integration Runtime](media/data-factory-create-install-integration-runtime/register-integration-runtime.png)
 
-9. På sidan **ny integration Runtime (lokal installation) nod** väljer du **Slutför**. 
+9. På sidan **Ny integrationskörningsnod (självvärd)** väljer du **Slutför**. 
 
 10. När integration runtime med egen värd har registrerats ser du följande meddelande:
 
@@ -131,7 +131,7 @@ I det här avsnittet kan du skapa en lokal Integration Runtime och koppla den ti
 
     f. Ange användarnamnet.
 
-    g. Ange lösen ordet som är kopplat till för användar namnet.
+    g. Ange det lösenord som är kopplat till för användarnamnet.
 
     h. Klicka på **Test** för att bekräfta att Integration Runtime kan ansluta till SQL Server. Du ser en grön bockmarkering om anslutningen är klar. Om anslutningen inte lyckats får du ett felmeddelande. Åtgärda eventuella problem och se till att Integration Runtime kan ansluta till SQL Server.    
 

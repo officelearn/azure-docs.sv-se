@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 02/19/2020
 ms.author: cherylmc
-ms.openlocfilehash: 78ed07560fdb15efb2de13c194549f5b433b775a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 381aad5d0a56362d9966ed54b931a8478f2f6bf2
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77500603"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80410490"
 ---
 # <a name="about-point-to-site-vpn"></a>Om VPN från punkt till plats
 
@@ -22,9 +22,9 @@ Med en VPN-gatewayanslutning för punkt-till-plats (P2S) kan du skapa en säker 
 
 Point-to-site VPN kan använda något av följande protokoll:
 
-* **OpenVPN® Protocol**, ett SSL/TLS-baserat VPN-protokoll. En SSL VPN-lösning kan penetrera brandväggar, eftersom de flesta brandväggar öppnar TCP-port 443 utgående, som SSL använder. OpenVPN kan användas för att ansluta från Android, iOS (version 11.0 och högre), Windows, Linux och Mac-enheter (OSX-versioner 10.13 och senare).
+* **OpenVPN® Protocol**, ett SSL/TLS-baserat VPN-protokoll. En TLS VPN-lösning kan penetrera brandväggar, eftersom de flesta brandväggar öppnar TCP-port 443 utgående, som TLS använder. OpenVPN kan användas för att ansluta från Android, iOS (version 11.0 och högre), Windows, Linux och Mac-enheter (OSX-versioner 10.13 och senare).
 
-* Secure Socket Tunneling Protocol (SSTP), ett eget SSL-baserat VPN-protokoll. En SSL VPN-lösning kan penetrera brandväggar, eftersom de flesta brandväggar öppnar TCP-port 443 utgående, som SSL använder. SSTP stöds endast på Windows-enheter. Azure stöder alla versioner av Windows som har SSTP (Windows 7 och senare).
+* Secure Socket Tunneling Protocol (SSTP), ett eget TLS-baserat VPN-protokoll. En TLS VPN-lösning kan penetrera brandväggar, eftersom de flesta brandväggar öppnar TCP-port 443 utgående, som TLS använder. SSTP stöds endast på Windows-enheter. Azure stöder alla versioner av Windows som har SSTP (Windows 7 och senare).
 
 * IKEv2 VPN, en standardbaserad IPsec VPN-lösning. IKEv2 VPN kan användas för att ansluta från Mac-enheter (OSX-versionerna 10.11 och senare).
 

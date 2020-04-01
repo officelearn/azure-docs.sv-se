@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 10/01/2019
-ms.openlocfilehash: efb6cd1a45ac14dcbd5b2b6d8e70f5ee096ddbd8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5a9917010b7301bf70c3bebf68c35d82f4839e0f
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79255839"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80409049"
 ---
 # <a name="hyperscale-service-tier"></a>Hyperskalatjänstnivå
 
@@ -25,7 +25,7 @@ Azure SQL Database baseras på SQL Server Database Engine-arkitektur som har jus
 -  Hyperskala
 -  Affärskritiskt/Premium
 
-Tjänstnivån Hyperskala i Azure SQL Database är den senaste tjänstnivån i den vCore-baserade inköpsmodellen. Den här tjänstnivån är en mycket skalbar lagrings- och beräkningsprestandanivå som utnyttjar Azure-arkitekturen för att skala ut lagrings- och beräkningsresurserna för en Azure SQL-databas som ligger betydligt utanför de gränser som är tillgängliga för det allmänna syftet och Business Kritiska tjänstnivåer.
+Tjänstnivån Hyperskala i Azure SQL Database är den senaste tjänstnivån i den vCore-baserade inköpsmodellen. Den här tjänstnivån är en mycket skalbar lagrings- och beräkningsprestandanivå som utnyttjar Azure-arkitekturen för att skala ut lagrings- och beräkningsresurserna för en Azure SQL-databas som ligger betydligt utanför de gränser som är tillgängliga för tjänstnivåerna Allmänt ändamål och Affärskritiskt.
 
 > 
 > [!NOTE]
@@ -96,7 +96,7 @@ Sidservrar är system som representerar en utskalad lagringsmotor.  Varje sidser
 
 ### <a name="log-service"></a>Loggtjänst
 
-Loggtjänsten accepterar loggposter från den primära beräkningsrepliken, beständiga dem i en varaktig cache och vidarebefordrar loggposterna till resten av beräkningsrepliker (så att de kan uppdatera sina cacheminnen) samt relevanta sidserver(er), så att data kan uppdateras Det. På så sätt sprids alla dataändringar från den primära beräkningsrepliken via loggtjänsten till alla sekundära beräkningsrepliker och sidservrar. Slutligen trycks loggposterna ut till långsiktig lagring i Azure Storage, som är en praktiskt taget oändlig lagringsdatabas. Den här mekanismen tar bort behovet av frekvent logg trunkering. Loggtjänsten har också lokal cache för att påskynda åtkomsten till loggposter.
+Loggtjänsten accepterar loggposter från den primära beräkningsrepliken, beständiga dem i en varaktig cache och vidarebefordrar loggposterna till resten av beräkningsrepliker (så att de kan uppdatera sina cacheminnen) samt relevanta sidserver(er), så att data kan uppdateras där. På så sätt sprids alla dataändringar från den primära beräkningsrepliken via loggtjänsten till alla sekundära beräkningsrepliker och sidservrar. Slutligen trycks loggposterna ut till långsiktig lagring i Azure Storage, som är en praktiskt taget oändlig lagringsdatabas. Den här mekanismen tar bort behovet av frekvent logg trunkering. Loggtjänsten har också lokal cache för att påskynda åtkomsten till loggposter.
 
 ### <a name="azure-storage"></a>Azure Storage
 
@@ -205,8 +205,7 @@ Dessa är de aktuella begränsningarna för tjänstnivån Hyperskala från och m
 | Problem | Beskrivning |
 | :---- | :--------- |
 | Fönstret Hantera säkerhetskopior för en logisk server visar inte att hyperskalningsdatabaser filtreras från SQL-servern  | Hyperskala har en separat metod för att hantera säkerhetskopior, och som sådan den långsiktiga kvarhållning och punkt i tid backup Lagringsinställningar inte gäller / är ogiltiga. Hyperskaladatabaser visas därför inte i fönstret Hantera säkerhetskopiering. |
-| Återställning från tidpunkt | När en databas har migrerats till tjänstnivån Hyperskala återställs den till en punkt i tid innan migreringen inte stöds.|
-| Återställning av db från oöverlagring till hyperskala och vice versa | Du kan inte återställa en hyperskaladatabas till en databas som inte är hyperskallig och du kan inte heller återställa en databas som inte är hyperskala till en hyperskaladatabas.|
+| Återställning från tidpunkt | Du kan återställa en hyperskaladatabas till en databas som inte är hyperskallig inom lagringsperioden som inte är hyperskala. Du kan inte återställa en databas som inte är hyperskala till en hyperskaladatabas.|
 | Om en databas har en eller flera datafiler som är större än 1 TB misslyckas migreringen | I vissa fall kan det vara möjligt att undvika problemet genom att krympa de stora filerna till mindre än 1 TB. Om du migrerar en databas som används under migreringsprocessen kontrollerar du att ingen fil blir större än 1 TB. Använd följande fråga för att bestämma storleken på databasfiler. `SELECT *, name AS file_name, size * 8. / 1024 / 1024 AS file_size_GB FROM sys.database_files WHERE type_desc = 'ROWS'`;|
 | Managed Instance | Azure SQL Database Managed Instance stöds för närvarande inte med hyperskaladatabaser. |
 | Elastiska pooler |  Elastiska pooler stöds för närvarande inte med SQL Database Hyperscale.|

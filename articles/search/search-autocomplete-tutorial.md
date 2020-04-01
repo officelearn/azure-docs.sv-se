@@ -1,7 +1,7 @@
 ---
-title: Lägga till förslag och Autoavsluta i en sökruta
+title: Lägga till förslag och komplettera automatiskt i en sökruta
 titleSuffix: Azure Cognitive Search
-description: Aktivera typeahead Query-åtgärder i Azure Kognitiv sökning genom att skapa förslag och utforma förfrågningar som fyller i en sökruta med slutförda villkor eller fraser.
+description: Aktivera typeahead-frågeåtgärder i Azure Cognitive Search genom att skapa förslagsställare och formulera begäranden som fyller i en sökruta med slutförda termer eller fraser.
 manager: nitinme
 author: mrcarter8
 ms.author: mcarter
@@ -9,70 +9,70 @@ ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 11/04/2019
 ms.openlocfilehash: 64c4e65ca7b69c7d61c706b48591ac19be3bfcf5
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "72792512"
 ---
-# <a name="add-suggestions-or-autocomplete-to-your-azure-cognitive-search-application"></a>Lägg till förslag eller Autoavsluta till ditt Azure Kognitiv sökning-program
+# <a name="add-suggestions-or-autocomplete-to-your-azure-cognitive-search-application"></a>Lägga till förslag eller komplettera automatiskt i ditt Azure Cognitive Search-program
 
-I den här artikeln får du lära dig hur du använder [förslag](https://docs.microsoft.com/rest/api/searchservice/suggestions) och [Autoavsluta](https://docs.microsoft.com/rest/api/searchservice/autocomplete) för att bygga en kraftfull sökruta som stöder beteenden för sökning efter typ.
+I den här artikeln kan du läsa om hur du använder [förslag](https://docs.microsoft.com/rest/api/searchservice/suggestions) och [komplettera automatiskt](https://docs.microsoft.com/rest/api/searchservice/autocomplete) för att skapa en kraftfull sökruta som stöder sök-som-du-typ beteenden.
 
-+ *Förslag* är föreslagna resultat som skapas när du skriver, där varje förslag är ett enda resultat från det index som matchar det du har skrivit hittills. 
++ *Förslag föreslås* resultat som genereras när du skriver, där varje förslag är ett enda resultat från indexet som matchar det du har skrivit hittills. 
 
-+ *Autoavsluta* "avslutar" ordet eller frasen som en användare skriver för närvarande. I stället för att returnera resultat slutförs en fråga som du sedan kan köra för att returnera resultat. Precis som med förslag används ett ifyllt ord eller en fras i en fråga för en matchning i indexet. Tjänsten erbjuder inte frågor som returnerar noll resultat i indexet.
++ *Komplettera automatiskt* "avslutar" ordet eller frasen som en användare för närvarande skriver. I stället för att returnera resultat slutförs en fråga som du sedan kan köra för att returnera resultat. Precis som med förslag baseras ett färdigt ord eller en fras i en fråga på en matchning i indexet. Tjänsten erbjuder inte frågor som returnerar noll resultat i indexet.
 
-Du kan hämta och köra exempel koden i **DotNetHowToAutocomplete** för att utvärdera dessa funktioner. Exempel koden riktar sig till ett fördefinierat index som är ifyllt med [NYCJobs demo-data](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs). NYCJobs-indexet innehåller en [förslags konstruktion](index-add-suggesters.md), vilket är ett krav för att använda antingen förslag eller Autoavsluta. Du kan använda det för beredda index som finns i en sandbox-tjänst eller [fylla i ditt eget index](#configure-app) med en data inläsare i NYCJobs-exempel lösningen. 
+Du kan hämta och köra exempelkoden i **DotNetHowToAutocomplete** för att utvärdera dessa funktioner. Exempelkoden är inriktad på ett fördefinierat index som fylls med [NYCJobs demodata](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs). Den NYCJobs index innehåller en [Suggester konstruera](index-add-suggesters.md), vilket är ett krav för att använda antingen förslag eller komplettera automatiskt. Du kan använda det förberedda indexet som finns i en sandbox-tjänst eller [fylla i ditt eget index](#configure-app) med hjälp av en datainläsare i EXEMPELlösningen FÖR NYCJobs. 
 
-I **DotNetHowToAutocomplete** -exemplet visas både förslag och Autoavsluta i både C# och språk versionerna i Java Script. C#utvecklare kan gå igenom ett ASP.NET MVC-baserat program som använder [Azure kognitiv sökning .NET SDK](https://aka.ms/search-sdk). Logiken för att skapa Autoavsluta-och föreslagna fråge anrop finns i filen HomeController.cs. JavaScript-utvecklare kommer att hitta motsvarande frågeplan i IndexJavaScript. cshtml, som innehåller direkta anrop till [Azure Kognitiv sökning REST API](https://docs.microsoft.com/rest/api/searchservice/). 
+**Exemplet DotNetHowToAutocomplete** visar både förslag och komplettera automatiskt, i både C# och JavaScript-språkversioner. C#-utvecklare kan gå igenom ett ASP.NET MVC-baserat program som använder [Azure Cognitive Search .NET SDK](https://aka.ms/search-sdk). Logiken för att göra automatisk komplettering och föreslagna frågeanrop finns i HomeController.cs filen. JavaScript-utvecklare hittar motsvarande frågelogik i IndexJavaScript.cshtml, som innehåller direkta anrop till [AZURE Cognitive Search REST API](https://docs.microsoft.com/rest/api/searchservice/). 
 
-För båda språk versionerna är klient delen av användar upplevelsen baserad på jQuery- [gränssnittet](https://jqueryui.com/autocomplete/) och [XDSoft](https://xdsoft.net/jqplugins/autocomplete/) -biblioteken. Vi använder dessa bibliotek för att bygga sökrutan som stöder både förslag och Autoavsluta. Indata som samlas in i sökrutan kombineras med förslag och åtgärder för automatisk komplettering, till exempel de som definieras i HomeController.cs eller IndexJavaScript. cshtml.
+För båda språkversionerna baseras frontend-användarupplevelsen på [biblioteken jQuery UI](https://jqueryui.com/autocomplete/) och [XDSoft.](https://xdsoft.net/jqplugins/autocomplete/) Vi använder dessa bibliotek för att skapa sökrutan som stöder både förslag och komplettera automatiskt. Indata som samlas in i sökrutan paras ihop med förslag och åtgärder för automatisk komplettering, till exempel de som definieras i HomeController.cs eller IndexJavaScript.cshtml.
 
-Den här övningen vägleder dig genom följande uppgifter:
+Den här övningen går igenom följande uppgifter:
 
 > [!div class="checklist"]
-> * Implementera en sökruta i Java Script och utfärda begär Anden för föreslagna matchningar eller komplettera villkor
-> * I C#definierar du förslag och åtgärder för automatisk komplettering i HomeController.CS
-> * Anropa REST-API: er direkt i Java Script för att ge samma funktioner
+> * Implementera en sökinmatningsruta i JavaScript och utfärda begäranden om föreslagna matchningar eller autocompleted termer
+> * I C#, definiera förslag och komplettera automatiskt åtgärder i HomeController.cs
+> * I JavaScript anropar du REST-API:erna direkt för att tillhandahålla samma funktioner
 
 ## <a name="prerequisites"></a>Krav
 
-En Azure Kognitiv sökning-tjänst är valfri för den här övningen eftersom lösningen använder en Live sandbox-tjänst som värd för ett för berett NYCJobs demo index. Om du vill köra det här exemplet på din egen Sök tjänst, se [Konfigurera NYC Jobs index](#configure-app) för instruktioner.
+En Azure Cognitive Search-tjänst är valfri för den här övningen eftersom lösningen använder en live-sandlådetjänst som är värd för ett förberett NYCJobs-demoindex. Om du vill köra det här exemplet på din egen söktjänst läser [du Konfigurera NYC Jobs-index](#configure-app) för instruktioner.
 
-* [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/), vilken utgåva som helst. Exempel kod och instruktioner har testats i den kostnads fria community-versionen.
+* [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/), vilken utgåva som helst. Exempelkod och instruktioner testades på den kostnadsfria gemenskapsutgåvan.
 
-* Hämta [DotNetHowToAutoComplete-exemplet](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowToAutocomplete).
+* Ladda ner [exemplet DotNetHowToAutoComplete](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowToAutocomplete).
 
-Exemplet är omfattande, täcker förslag, Autoavsluta, upprullningsbar navigering och cachelagring på klient sidan. Läs igenom viktigt och kommentarer för en fullständig beskrivning av vad exemplet erbjuder.
+Exemplet är omfattande, som omfattar förslag, komplettera automatiskt, fasterad navigering och cachelagring på klientsidan. Granska readme och kommentarer för en fullständig beskrivning av vad exemplet erbjuder.
 
 ## <a name="run-the-sample"></a>Kör exemplet
 
-1. Öppna **AutocompleteTutorial. SLN** i Visual Studio. Lösningen innehåller ett ASP.NET MVC-projekt med en anslutning till NYC-jobbets demo index.
+1. Öppna **Komplettera automatisktTutorial.sln** i Visual Studio. Lösningen innehåller ett ASP.NET MVC-projekt med en anslutning till NYC Jobs demoindex.
 
 2. Tryck på F5 för att köra projektet och läsa in sidan i din webbläsare.
 
-Överst på sidan visas en möjlighet att välja C# eller JavaScript. C# Alternativet anropar HomeController från webbläsaren och använder Azure KOGNITIV sökning .NET SDK för att hämta resultat. 
+Överst på sidan visas en möjlighet att välja C# eller JavaScript. Alternativet C# anropar HomeController från webbläsaren och använder Azure Cognitive Search .NET SDK för att hämta resultat. 
 
-JavaScript-alternativet anropar Azure Kognitiv sökning REST API direkt från webbläsaren. Det här alternativet har normalt märkbart bättre prestanda eftersom kontrollanten tas bort från flödet. Du kan välja det alternativ som passar dina behov och språkinställningar. Det finns flera exempel på automatisk komplettering på sidan med viss vägledning för vart och ett av dem. Varje exempel har rekommenderad exempeltext som du kan prova.  
+JavaScript-alternativet anropar AZURE Cognitive Search REST API direkt från webbläsaren. Det här alternativet har normalt märkbart bättre prestanda eftersom kontrollanten tas bort från flödet. Du kan välja det alternativ som passar dina behov och språkinställningar. Det finns flera exempel på automatisk komplettering på sidan med viss vägledning för vart och ett av dem. Varje exempel har rekommenderad exempeltext som du kan prova.  
 
 Prova att skriva in ett par tecken i varje sökruta och se vad som händer.
 
 ## <a name="search-box"></a>Sökruta
 
-För både C# -och JavaScript-versioner är sökrutan är exakt densamma. 
+För både C# och JavaScript-versioner är sökrutans implementering exakt densamma. 
 
-Öppna filen **index. cshtml** under mappen \Views\Home för att visa koden:
+Öppna filen **Index.cshtml** under mappen \Views\Home för att visa koden:
 
 ```html
 <input class="searchBox" type="text" id="example1a" placeholder="search">
 ```
 
-Det här exemplet är en enkel text ruta med en klass för formatering, ett ID som ska refereras till av Java Script och platshållartext.  Magic är i det inbäddade Java Script.
+Det här exemplet är en enkel textruta med en klass för styling, ett ID som ska refereras av JavaScript och platshållartext.  Magin finns i det inbäddade JavaScript.
 
-C# Språk exemplet använder Java Script i index. cshtml för att utnyttja [jQuery UI-biblioteket för automatisk komplettering](https://jqueryui.com/autocomplete/). Det här biblioteket lägger till autocomplete-upplevelsen i sökrutan genom att göra asynkrona anrop till MVC-kontrollanten för att hämta förslag. Språk versionen för Java Script är i IndexJavaScript. cshtml. Den innehåller skriptet nedan för Sök fältet och REST API anrop till Azure Kognitiv sökning.
+I exemplet med C#används JavaScript i Index.cshtml för att utnyttja [biblioteket för automatisk komplettering av jQuery UI.](https://jqueryui.com/autocomplete/) Det här biblioteket lägger till den automatiska kompletteringsupplevelsen i sökrutan genom att ringa asynkrona anrop till MVC-styrenheten för att hämta förslag. JavaScript-språkversionen finns i IndexJavaScript.cshtml. Den innehåller skriptet nedan för sökfältet, samt REST API-anrop till Azure Cognitive Search.
 
-Nu ska vi titta på JavaScript-koden för det första exemplet, som anropar jQuery UI komplettera automatiskt och skickar en begäran om förslag:
+Låt oss titta på JavaScript-koden för det första exemplet, som anropar jQuery UI Autocomplete-funktionen, och skickar in en begäran om förslag:
 
 ```javascript
 $(function () {
@@ -87,17 +87,17 @@ $(function () {
 });
 ```
 
-Ovanstående kod körs i webbläsaren på sid inläsning för att konfigurera jQuery UI komplettera automatiskt för indatamängden "example1a".  `minLength: 3` ser till att rekommendationerna endast visas när det finns minst tre tecken i sökrutan.  Källvärdet är viktigt:
+Ovanstående kod körs i webbläsaren på sidan belastning för att konfigurera jQuery UI komplettera automatiskt för "example1a" inmatningsrutan.  `minLength: 3` ser till att rekommendationerna endast visas när det finns minst tre tecken i sökrutan.  Källvärdet är viktigt:
 
 ```javascript
 source: "/home/suggest?highlights=false&fuzzy=false&",
 ```
 
-Ovanstående rad visar funktionen jQuery UI komplettera automatiskt där du kan hämta listan över objekt som ska visas under sökrutan. Eftersom projektet är ett MVC-projekt anropas funktionen föreslå i HomeController.cs som innehåller logiken för att returnera fråge förslag (mer information om föreslå i nästa avsnitt). Den här funktionen skickar också några parametrar för att kontrol lera högdagrar, fuzzy Matching och term. JavaScript-API:et för automatisk komplettering lägger till term-parametern.
+Ovanstående rad talar om för funktionen automatisk komplettering av jQuery UI var listan med objekt ska visas under sökrutan. Eftersom det här projektet är ett MVC-projekt anropas funktionen Föreslå i HomeController.cs som innehåller logiken för att returnera frågeförslag (mer om Föreslå i nästa avsnitt). Den här funktionen skickar också några parametrar för att styra högdagrar, luddig matchning och term. JavaScript-API:et för automatisk komplettering lägger till term-parametern.
 
 ### <a name="extending-the-sample-to-support-fuzzy-matching"></a>Utöka exemplet för att stödja fuzzy-matchning
 
-Med fuzzy-sökningar kan du få resultat för nära matchningar även om användaren stavar fel på ett ord i sökrutan. Även om det inte krävs förbättrar den stabilheten hos en typeahead upplevelse. Vi testar detta genom att ändra källraden för att aktivera fuzzy-matchning.
+Med fuzzy-sökningar kan du få resultat för nära matchningar även om användaren stavar fel på ett ord i sökrutan. Även om det inte krävs, förbättrar det avsevärt robustheten i en typeahead erfarenhet. Vi testar detta genom att ändra källraden för att aktivera fuzzy-matchning.
 
 Ändra följande rad från det här:
 
@@ -105,7 +105,7 @@ Med fuzzy-sökningar kan du få resultat för nära matchningar även om använd
 source: "/home/suggest?highlights=false&fuzzy=false&",
 ```
 
-till det här:
+till denna:
 
 ```javascript
 source: "/home/suggest?highlights=false&fuzzy=true&",
@@ -115,9 +115,9 @@ Starta programmet genom att trycka på F5.
 
 Prova att skriva något som ”execative” och observera hur du får resultat för ”executive”, även om det inte är en exakt matchning på de bokstäver som du skrev.
 
-### <a name="jquery-autocomplete--backed-by-azure-cognitive-search-autocomplete"></a>jQuery-komplettering som backas upp av Azure Kognitiv sökning komplettera automatiskt
+### <a name="jquery-autocomplete--backed-by-azure-cognitive-search-autocomplete"></a>jQuery Komplettera automatiskt backas upp av Azure Cognitive Search komplettera automatiskt
 
-Hittills har Sök-UX-koden centrerats på förslagen. Nästa kodblock visar funktionen Komplettera automatiskt i jQuery UI (rad 91 i index. cshtml), som skickar i en begäran om automatisk komplettering av Azure-Kognitiv sökning:
+Hittills har sök-UX-koden centrerats på förslagen. Nästa kodblock visar funktionen automatisk komplettering av jQuery UI (rad 91 i index.cshtml), som skickar in en begäran om automatisk komplettering av Azure Cognitive Search:
 
 ```javascript
 $(function () {
@@ -154,15 +154,15 @@ $(function () {
 });
 ```
 
-## <a name="c-example"></a>C#exempel
+## <a name="c-example"></a>C# exempel
 
-Nu när vi har granskat JavaScript-koden för webb sidan ska vi titta på C# Server sidans styrenhets kod som faktiskt hämtar de föreslagna matchningarna med Azure KOGNITIV sökning .NET SDK.
+Nu när vi har granskat JavaScript-koden för webbsidan, låt oss titta på C # server-side controller kod som faktiskt hämtar de föreslagna matchningarna med Hjälp av Azure Cognitive Search .NET SDK.
 
-Öppna filen **HomeController.cs** i katalogen controllers. 
+Öppna **HomeController.cs-filen** under katalogen Controllers. 
 
-Det första du kanske märker är en metod överst i klassen som heter `InitSearch`. Den här metoden skapar en autentiserad HTTP-index klient till Azure Kognitiv sökning-tjänsten. Mer information finns i [så här använder du Azure kognitiv sökning från ett .NET-program](https://docs.microsoft.com/azure/search/search-howto-dotnet-sdk).
+Det första du kanske märker är en metod `InitSearch`högst upp i klassen som kallas . Den här metoden skapar en autentiserat HTTP-indexklient till Azure Cognitive Search-tjänsten. Mer information finns i [Så här använder du Azure Cognitive Search från ett .NET-program](https://docs.microsoft.com/azure/search/search-howto-dotnet-sdk).
 
-Lägg märke till funktionen föreslå på rad 41. Den baseras på [metoden DocumentsOperationsExtensions. föreslå](/dotnet/api/microsoft.azure.search.documentsoperationsextensions.suggest?view=azure-dotnet).
+På linje 41, lägg märke till funktionen Föreslå. Den är baserad på [metoden DocumentsOperationsExtensions.Suggest](/dotnet/api/microsoft.azure.search.documentsoperationsextensions.suggest?view=azure-dotnet).
 
 ```csharp
 public ActionResult Suggest(bool highlights, bool fuzzy, string term)
@@ -194,9 +194,9 @@ public ActionResult Suggest(bool highlights, bool fuzzy, string term)
 }
 ```
 
-Funktionen Suggest (Föreslå) tar två parametrar som bestämmer om träffmarkeringar returneras eller om fuzzy-matchning används utöver sökordsindata. Metoden skapar ett [SuggestParameters-objekt](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.suggestparameters?view=azure-dotnet), som sedan skickas till föreslå API. Resultatet konverteras sedan till JSON, så att det kan visas i klienten.
+Funktionen Suggest (Föreslå) tar två parametrar som bestämmer om träffmarkeringar returneras eller om fuzzy-matchning används utöver sökordsindata. Metoden skapar ett [SuggestParameters-objekt](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.suggestparameters?view=azure-dotnet), som sedan skickas till Föreslå API. Resultatet konverteras sedan till JSON, så att det kan visas i klienten.
 
-Lägg märke till funktionen Komplettera automatiskt på rad 69. Den baseras på [metoden DocumentsOperationsExtensions. Autocomplete](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.documentsoperationsextensions.autocomplete?view=azure-dotnet).
+På linje 69 lägger du märke till funktionen Komplettera automatiskt. Den är baserad på [metoden DocumentsOperationsExtensions.Autocomplete](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.documentsoperationsextensions.autocomplete?view=azure-dotnet).
 
 ```csharp
 public ActionResult AutoComplete(string term)
@@ -221,17 +221,17 @@ public ActionResult AutoComplete(string term)
 }
 ```
 
-Funktionen Autoavsluta tar search term-indatamängden. Metoden skapar ett [AutoCompleteParameters-objekt](https://docs.microsoft.com/rest/api/searchservice/autocomplete). Resultatet konverteras sedan till JSON, så att det kan visas i klienten.
+Funktionen Komplettera automatiskt tar ingången till söktermen. Metoden skapar ett [Komplettera automatisktParameters-objekt](https://docs.microsoft.com/rest/api/searchservice/autocomplete). Resultatet konverteras sedan till JSON, så att det kan visas i klienten.
 
-(Valfritt) Lägg till en brytpunkt i början av Suggest-funktionen och stega igenom koden. Observera svaret som returnerades av SDK och hur det konverteras till det resultat som returneras från-metoden.
+(Valfritt) Lägg till en brytpunkt i början av Suggest-funktionen och stega igenom koden. Lägg märke till svaret som returneras av SDK och hur det konverteras till resultatet som returneras från metoden.
 
-De andra exemplen på sidan följer samma mönster för att lägga till träff markeringar och fasetter som stöder cachelagring på klient sidan av Autoavsluta-resultatet. Granska varje exempel så att du förstår hur de fungerar och hur du kan använda dem i din sökfunktion.
+De andra exemplen på sidan följer samma mönster för att lägga till träffmarkering och fasetter för att stödja cachelagring på klientsidan av resultaten för automatisk komplettering. Granska varje exempel så att du förstår hur de fungerar och hur du kan använda dem i din sökfunktion.
 
 ## <a name="javascript-example"></a>JavaScript-exempel
 
-En JavaScript-implementering av Autoavsluta och Suggestions anropar REST API med hjälp av en URI som källa för att ange index och åtgärd. 
+En Javascript-implementering av komplettera automatiskt och förslag anropar REST API, med hjälp av en URI som källa för att ange index och åtgärder. 
 
-Om du vill granska JavaScript-implementeringen öppnar du **IndexJavaScript. cshtml**. Observera att funktionen Komplettera automatiskt i jQuery-gränssnittet används även för sökrutan och samlar in sökord och gör asynkrona anrop till Azure Kognitiv sökning för att hämta föreslagna matchningar eller slutförda villkor. 
+Om du vill granska JavaScript-implementeringen öppnar du **IndexJavaScript.cshtml**. Observera att funktionen automatisk komplettering av jQuery UI också används för sökrutan, samla in söktermsindata och ringa asynkrona anrop till Azure Cognitive Search för att hämta föreslagna matchningar eller slutförda termer. 
 
 Låt oss titta på JavaScript-koden i det första exemplet:
 
@@ -269,53 +269,53 @@ $(function () {
 });
 ```
 
-Om du jämför det här exemplet med exemplet ovan som anropar start styrenheten, ser du flera likheter.  Konfigurationen för automatisk komplettering för `minLength` och `position` är identisk. 
+Om du jämför det här exemplet med exemplet ovan som anropar hemkontrollanten ser du flera likheter.  Konfigurationen för automatisk komplettering för `minLength` och `position` är identisk. 
 
-Den stora ändringen här är källan. I stället för att anropa metoden föreslå i Start styrenheten skapas en REST-begäran i en JavaScript-funktion och körs med Ajax. Svaret bearbetas sedan i ”success” och används som källa.
+Den stora ändringen här är källan. I stället för att anropa föreslå-metoden i hemkontrollanten skapas en REST-begäran i en JavaScript-funktion och körs med Ajax. Svaret bearbetas sedan i ”success” och används som källa.
 
-REST-anrop använder URI: er för att ange om ett för [kompletterings](https://docs.microsoft.com/rest/api/searchservice/autocomplete) -eller [förslags](https://docs.microsoft.com/rest/api/searchservice/suggestions) -API-anrop görs. Följande URI: er finns på raderna 9 respektive 10.
+REST-anrop använder URI:er för att ange om ett [API-anrop för automatisk komplettering](https://docs.microsoft.com/rest/api/searchservice/autocomplete) eller [förslag](https://docs.microsoft.com/rest/api/searchservice/suggestions) ska göras. Följande URI:er finns på raderna 9 respektive 10.
 
 ```javascript
 var suggestUri = "https://" + searchServiceName + ".search.windows.net/indexes/" + indexName + "/docs/suggest?api-version=" + apiVersion;
 var autocompleteUri = "https://" + searchServiceName + ".search.windows.net/indexes/" + indexName + "/docs/autocomplete?api-version=" + apiVersion;
 ```
 
-På rad 148 hittar du ett skript som anropar `autocompleteUri`. Det första anropet till `suggestUri` är på rad 39.
+På rad 148 hittar du ett `autocompleteUri`skript som anropar . Det första `suggestUri` samtalet till är på linje 39.
 
 > [!Note]
-> Att göra REST-anrop till tjänsten i Java Script erbjuds här som en bekväm demonstration av REST API, men bör inte tolkas som en bästa praxis eller rekommendation. Inkludering av en API-nyckel och en slut punkt i ett skript öppnar din tjänst upp till denial of Service-attacker till alla som kan läsa dessa värden från skriptet. Även om det är säkert att använda Java Script i inlärnings syfte, kanske vi på index som finns på den kostnads fria tjänsten C# , rekommenderar att du använder Java eller för indexering och frågor i produktions koden. 
+> Att göra REST-anrop till tjänsten i JavaScript erbjuds här som en bekväm demonstration av REST API, men bör inte tolkas som en bästa praxis eller rekommendation. Införandet av en API-nyckel och slutpunkt i ett skript öppnar tjänsten upp till denial of service-attacker till alla som kan läsa dessa värden utanför skriptet. Medan dess säkra att använda JavaScript för inlärningsändamål, kanske på index värd på den kostnadsfria tjänsten, rekommenderar vi att du använder Java eller C # för indexering och frågor i produktionskod. 
 
 <a name="configure-app"></a>
 
 ## <a name="configure-nycjobs-to-run-on-your-service"></a>Konfigurera NYCJobs så att de körs på din tjänst
 
-Fram till nu har du använt demonstrations indexet för den värdbaserade NYCJobs. Om du vill ha fullständig insyn i all kod, inklusive indexet, följer du dessa instruktioner för att skapa och läsa in indexet i din egen Sök tjänst.
+Hittills har du använt värd NYCJobs demoindex. Om du vill ha full insyn i all kod, inklusive indexet, följer du dessa instruktioner för att skapa och läsa in indexet i din egen söktjänst.
 
-1. [Skapa en Azure kognitiv sökning-tjänst](search-create-service-portal.md) eller [hitta en befintlig tjänst](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under din aktuella prenumeration. Du kan använda en kostnads fri tjänst för det här exemplet. 
+1. [Skapa en Azure Cognitive Search-tjänst](search-create-service-portal.md) eller [hitta en befintlig tjänst](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under din aktuella prenumeration. Du kan använda en kostnadsfri tjänst i det här exemplet. 
 
    > [!Note]
-   > Om du använder den kostnads fria Azure Kognitiv sökning-tjänsten är du begränsad till tre index. NYCJobs-datainläsaren skapar två index. Se till att det finns utrymme på din tjänst för dessa nya index.
+   > Om du använder den kostnadsfria Azure Cognitive Search-tjänsten är du begränsad till tre index. NYCJobs-datainläsaren skapar två index. Se till att det finns utrymme på din tjänst för dessa nya index.
 
-1. Hämta [NYCJobs](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs) exempel kod.
+1. Ladda ner [NYCJobs](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs) exempelkod.
 
-1. I mappen DataLoader i exempel koden NYCJobs öppnar du **DataLoader. SLN** i Visual Studio.
+1. Öppna **DataLoader.sln** i Visual Studio i mappen DataLoader iMPLS-exempelkoden.
 
-1. Lägg till anslutnings informationen för din Azure Kognitiv sökning-tjänst. Öppna app. config i DataLoader-projektet och ändra TargetSearchServiceName-och TargetSearchServiceApiKey-appSettings för att avspegla din Azure Kognitiv sökning-tjänst och Azure Kognitiv sökning service API-nyckel. Du hittar den här informationen i Azure Portal.
+1. Lägg till anslutningsinformationen för din Azure Cognitive Search-tjänst. Öppna App.config i DataLoader-projektet och ändra TargetSearchServiceName- och TargetSearchServiceApiKey-appSettings för att återspegla din Azure Cognitive Search-tjänst och Azure Cognitive Search service API-nyckel. Den här informationen finns i Azure-portalen.
 
-1. Tryck på F5 för att starta programmet, skapa två index och importera NYCJob-exempel data.
+1. Tryck på F5 för att starta programmet, skapa två index och importera NYCJob-exempeldata.
 
-1. Öppna **AutocompleteTutorial. SLN** och redigera Web. config i **AutocompleteTutorial** -projektet. Ändra värdena för SearchServiceName och SearchServiceApiKey till värden som är giltiga för din Sök tjänst.
+1. Öppna **Komplettera automatisktTutorial.sln** och redigera web.config i projektet **Komplettera** automatiskt. Ändra värdena SearchServiceName och SearchServiceApiKey till värden som är giltiga för söktjänsten.
 
-1. Tryck på F5 för att köra appen. Exempel webb programmet öppnas i standard webbläsaren. Upplevelsen är identisk med sandbox-versionen, bara index och data finns på din tjänst.
+1. Tryck på F5 för att köra appen. Exempelwebbappen öppnas i standardwebbläsaren. Upplevelsen är identisk med sandlådeversionen, bara index och data finns på din tjänst.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Det här exemplet demonstrerar de grundläggande stegen för att skapa en sökruta som stöder Autoavsluta och förslag. Du såg hur du kan bygga ett ASP.NET MVC-program och använda antingen Azure Kognitiv sökning .NET SDK eller REST API för att hämta förslag.
+Det här exemplet visar de grundläggande stegen för att skapa en sökruta som stöder automatisk komplettering och förslag. Du såg hur du kunde skapa ett ASP.NET MVC-program och använda azure cognitive search .NET SDK eller REST API för att hämta förslag.
 
-Nästa steg är att försöka integrera förslag och komplettera automatiskt i din Sök funktion. Följande referens artiklar bör hjälpa dig.
+Som ett nästa steg, försöker integrera förslag och komplettera automatiskt i din sökupplevelse. Följande referensartiklar bör vara till hjälp.
 
 > [!div class="nextstepaction"]
-> [REST-API för automatisk komplettering](https://docs.microsoft.com/rest/api/searchservice/autocomplete)
-> [REST-API för förslag](https://docs.microsoft.com/rest/api/searchservice/suggestions)
-> [Fasettindexattribut på ett REST-API för att skapa index](https://docs.microsoft.com/rest/api/searchservice/create-index)
+> [Komplettera REST API-förslag](https://docs.microsoft.com/rest/api/searchservice/autocomplete)
+> automatiskt REST
+> [API-indexattribut för REST API-fasetter på ett REST-API för skapa index på ett rest-API för skapa index](https://docs.microsoft.com/rest/api/searchservice/create-index) [Suggestions REST API](https://docs.microsoft.com/rest/api/searchservice/suggestions)
 

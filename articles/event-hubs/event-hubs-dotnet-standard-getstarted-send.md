@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/11/2020
 ms.author: spelluru
-ms.openlocfilehash: 1d399ffec2cd702dcfa39310803bc780b85bfde1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a8124e9860ba5703e96f96c90bc0cf37e42baf9c
+ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77187463"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80398345"
 ---
 # <a name="send-events-to-or-receive-events-from-azure-event-hubs-using-net-core-microsoftazureeventhubs"></a>Skicka händelser till eller ta emot händelser från Azure Event Hubs med .NET Core (Microsoft.Azure.EventHubs)
 Den här snabbstarten visar hur du skickar händelser till och ta emot händelser från en händelsehubb med **Microsoft.Azure.EventHubs** .NET Core-biblioteket.
 
 > [!WARNING]
-> Den här snabbstarten använder det gamla **Microsoft.Azure.EventHubs-paketet.** En snabbstart som använder det senaste **Azure.Messaging.EventHubs-biblioteket** finns i [Skicka och ta emot händelser med Azure.Messaging.EventHubs-biblioteket](get-started-dotnet-standard-send-v2.md). Information om hur du flyttar ditt program från att använda det gamla biblioteket till ett nytt finns i [guiden för att migrera från Microsoft.Azure.EventHubs till Azure.Messaging.EventHubs](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/migration-guide-from-v4.md).
+> Den här snabbstarten använder det gamla **Microsoft.Azure.EventHubs-paketet.** En snabbstart som använder det senaste **Azure.Messaging.EventHubs-biblioteket** finns i [Skicka och ta emot händelser med Azure.Messaging.EventHubs-biblioteket](get-started-dotnet-standard-send-v2.md). Information om hur du flyttar ditt program från att använda det gamla biblioteket till ett nytt finns i [guiden för att migrera från Microsoft.Azure.EventHubs till Azure.Messaging.EventHubs](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/MigrationGuide.md).
 
 ## <a name="prerequisites"></a>Krav
 Om du inte har gjort det tidigare i Azure Event Hubs läser du [översikt över eventhubbar](event-hubs-about.md) innan du gör den här snabbstarten. 

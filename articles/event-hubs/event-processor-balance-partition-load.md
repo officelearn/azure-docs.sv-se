@@ -12,17 +12,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/16/2020
 ms.author: shvija
-ms.openlocfilehash: 1244fe64d0c23782fdae7a0f92415bada4bef55a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: bf90120157bf64bd62a3b5ec9d8a6b2c6260e024
+ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76907661"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80398299"
 ---
 # <a name="balance-partition-load-across-multiple-instances-of-your-application"></a>Balansera partitionsbelastning över flera instanser av ditt program
 Om du vill skala händelsebearbetningsprogrammet kan du köra flera instanser av programmet och låta det balansera belastningen sinsemellan. I de äldre versionerna kunde Du med [EventProcessorHost](event-hubs-event-processor-host.md) balansera belastningen mellan flera instanser av programmet och kontrollpunktshändelser när du tar emot. I de nyare versionerna (5.0 och framåt) kan du göra samma sak i **EventProcessorClient** (.NET och Java) eller **EventHubConsumerClient** (Python och JavaScript). Utvecklingsmodellen förenklas med hjälp av händelser. Du prenumererar på de händelser som du är intresserad av genom att registrera en händelsehanterare.
 
-I den här artikeln beskrivs ett exempelscenario för att använda flera instanser för att läsa händelser från en händelsehubb och sedan ge dig information om funktioner i händelseprocessorklienten, vilket gör att du kan ta emot händelser från flera partitioner samtidigt och belastningsbalans med andra konsumenter som använder samma händelsenav och konsumentgrupp.
+I den här artikeln beskrivs ett exempelscenario för att använda flera instanser för att läsa händelser från en händelsehubb och sedan ge dig information om funktioner i händelsebehandlareklienten, vilket gör att du kan ta emot händelser från flera partitioner samtidigt och belastningsbalans med andra konsumenter som använder samma händelsehubb och konsumentgrupp.
 
 > [!NOTE]
 > Nyckeln till skala för Event Hubs är idén om partitionerade konsumenter. I motsats till det [konkurrerande konsumentmönstret](https://msdn.microsoft.com/library/dn568101.aspx) möjliggör det avskiljade konsumentmönstret högskalan genom att undanröja flaskhalsen i påståendet och underlätta parallellitet från till.
@@ -83,6 +83,13 @@ Om en händelseprocessor kopplas från en partition kan en annan instans återup
 
 När kontrollpunkten utförs för att markera en händelse som bearbetad läggs en post i kontrollpunktsarkivet till eller uppdateras med händelsens förskjutnings- och sekvensnummer. Användarna bör bestämma hur ofta kontrollpunkten uppdateras. Uppdatering efter varje bearbetad händelse kan ha prestanda- och kostnadskonsekvenser eftersom den utlöser en skrivåtgärd till det underliggande kontrollpunktsarkivet. Kontrollpunkter varje enskild händelse är också ett tecken på ett köat meddelandemönster för vilket en Service Bus-kö kan vara ett bättre alternativ än en händelsehubb. Tanken bakom Event Hubs är att du får "minst en gång" leverans i stor skala. Genom att göra dina nedströms system idempotenta, är det lätt att återställa från fel eller omstarter som resulterar i samma händelser som tas emot flera gånger.
 
+> [!NOTE]
+> Om du använder Azure Blob Storage som kontrollpunktslagring i en miljö som stöder en annan version av Storage Blob SDK än de som vanligtvis är tillgängliga på Azure, måste du använda koden för att ändra API-versionen för lagringstjänsten till den specifika versionen som stöds av den miljön. Om du till exempel kör [Event Hubs på en Azure Stack Hub version 2002](https://docs.microsoft.com/azure-stack/user/event-hubs-overview)är den högsta tillgängliga versionen för lagringstjänsten version 2017-11-09. I det här fallet måste du använda kod för att rikta api-versionen för lagringstjänsten till 2017-11-09. Ett exempel på hur du inriktar dig på en specifik Storage API-version finns i dessa exempel på GitHub: 
+> - [.NET](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/eventhub/Azure.Messaging.EventHubs.Processor/samples/Sample10_RunningWithDifferentStorageVersion.cs). 
+> - [Java](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/eventhubs/azure-messaging-eventhubs-checkpointstore-blob/src/samples/java/com/azure/messaging/eventhubs/checkpointstore/blob/EventProcessorWithOlderStorageVersion.java)
+> - [JavaScript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/eventhubs-checkpointstore-blob/samples/receiveEventsWithDownleveledStorage.js) eller [TypeScript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/eventhubs-checkpointstore-blob/samples/receiveEventsWithDownleveledStorage.ts)
+> - [Python](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub-checkpointstoreblob-aio/samples/event_processor_blob_storage_example_with_storage_api_version.py)
+
 ## <a name="thread-safety-and-processor-instances"></a>Trådsäkerhets- och processorinstanser
 
 Som standard är händelsebehandlare eller konsument trådsäker och beter sig på ett synkront sätt. När händelser anländer för en partition anropas funktionen som bearbetar händelserna. Efterföljande meddelanden och anrop till den här funktionskön bakom kulisserna när meddelandepumpen fortsätter att köras i bakgrunden på andra trådar. Denna tråd säkerhet tar bort behovet av trådsäkra samlingar och dramatiskt ökar prestanda.
@@ -93,4 +100,4 @@ Se följande snabbstarter:
 - [.NET Core](get-started-dotnet-standard-send-v2.md)
 - [Java](event-hubs-java-get-started-send.md)
 - [Python](get-started-python-send-v2.md)
-- [Javascript](get-started-node-send-v2.md)
+- [JavaScript](get-started-node-send-v2.md)

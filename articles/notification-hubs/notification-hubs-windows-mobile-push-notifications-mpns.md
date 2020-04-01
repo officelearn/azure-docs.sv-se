@@ -154,7 +154,7 @@ I det här avsnittet skapar du ett Windows Phone-program som registrerar sig sj�
 I det här enkla exemplet skickade du push-meddelanden till alla dina Windows Phone 8-enheter. Gå vidare till följande självstudiekurs om du vill lära dig hur man skickar meddelanden till specifika enheter:
 
 > [!div class="nextstepaction"]
->[Push-meddelanden till specifika enheter](notification-hubs-windows-phone-push-xplat-segmented-mpns-notification.md)
+>[Skicka push-meddelanden till specifika enheter](notification-hubs-windows-phone-push-xplat-segmented-mpns-notification.md)
 
 <!-- Images. -->
 [6]: ./media/notification-hubs-windows-phone-get-started/notification-hub-create-console-app.png

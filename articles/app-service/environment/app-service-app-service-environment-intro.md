@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: f655b7793bfbb5bbeddfc2f1f8e7bc973dabeb4c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: cd3881617227430488f8dd3f2f3d24072b24b8ce
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74687364"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80478738"
 ---
 # <a name="introduction-to-app-service-environment-v1"></a>Introduktion till App Service Environment v1
 
@@ -48,7 +48,7 @@ Alla beräkningsresurser i en App Service-miljö är endast avsedda för en enda
 
 En App Service-miljö består av en frontend-beräkningsresurspool samt en till tre arbetsberäkningsresurspooler.
 
-Frontend-poolen innehåller beräkningsresurser som ansvarar för SSL-avslutning samt automatisk belastningsutjämning av appbegäranden i en App Service-miljö.
+Frontend-poolen innehåller beräkningsresurser som ansvarar för TLS-avslutning samt automatisk belastningsutjämning av appbegäranden i en App Service-miljö.
 
 Varje arbetarpool innehåller beräkningsresurser som allokerats till [App Service Plans][AppServicePlan], som i sin tur innehåller en eller flera Azure App Service-appar.  Eftersom det kan finnas upp till tre olika arbetspooler i en App Service-miljö har du flexibiliteten att välja olika beräkningsresurser för varje arbetspool.  
 

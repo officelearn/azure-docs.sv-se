@@ -2,13 +2,13 @@
 title: Mallfunktioner - resurser
 description: Beskriver de funktioner som ska användas i en Azure Resource Manager-mall för att hämta värden om resurser.
 ms.topic: conceptual
-ms.date: 02/10/2020
-ms.openlocfilehash: e9e1d700282652304f0bede5e697ba8625f5a5d6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 03/31/2020
+ms.openlocfilehash: 641602218aa19b790eb6e7feabdb7b46a520b590
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80156301"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80478272"
 ---
 # <a name="resource-functions-for-arm-templates"></a>Resursfunktioner för ARM-mallar
 
@@ -170,8 +170,8 @@ Möjliga användningsområden för listan* visas i följande tabell.
 | Microsoft.DocumentDB/databasKonton | [listTangenter](/rest/api/cosmos-db-resource-provider/databaseaccounts/listkeys) |
 | Microsoft.DomainRegistration | [listaDomänerKommendationer](/rest/api/appservice/domains/listrecommendations) |
 | Microsoft.DomainRegistration/topLevelDomains | [listaAvtal](/rest/api/appservice/topleveldomains/listagreements) |
-| Microsoft.EventGrid/domäner | [listTangenter](/rest/api/eventgrid/domains/listsharedaccesskeys) |
-| Ämnen för Microsoft.EventGrid/Event | [listTangenter](/rest/api/eventgrid/topics/listsharedaccesskeys) |
+| Microsoft.EventGrid/domäner | [listTangenter](/rest/api/eventgrid/version2019-06-01/domains/listsharedaccesskeys) |
+| Ämnen för Microsoft.EventGrid/Event | [listTangenter](/rest/api/eventgrid/version2019-06-01/topics/listsharedaccesskeys) |
 | Microsoft.EventHub/namespaces/authorizationRules | [listnycklar](/rest/api/eventhub/namespaces/listkeys) |
 | Microsoft.EventHub/namespaces/disasterRecoveryConfigs/authorizationRules | [listnycklar](/rest/api/eventhub/disasterrecoveryconfigs/listkeys) |
 | Microsoft.EventHub/namespaces/eventhubs/authorizationRules | [listnycklar](/rest/api/eventhub/eventhubs/listkeys) |

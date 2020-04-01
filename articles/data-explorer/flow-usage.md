@@ -7,12 +7,12 @@ ms.reviewer: dorcohen
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 03/15/2020
-ms.openlocfilehash: 759ea9800a0ed051fed887adfb10b06f7a53b72f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 796b37f98fed7e389fa71a15b5e6697a14db1a16
+ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79529211"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80397191"
 ---
 # <a name="microsoft-flow-connector-preview-usage-examples"></a>Exempel på användning av Microsoft Flow connector (förhandsversion)
 
@@ -119,7 +119,9 @@ Visualisera den här informationen som ett cirkeldiagram och skicka den till tea
     * I fältet *Brödtext* infogar du den önskade brödtexten så att det visualiserade resultatet av frågan inkluderas i e-postmeddelandets brödtext.
     * Om du vill lägga till en bifogad fil i e-postmeddelandet lägger du till Namn och innehåll för bifogade filer.
     
-    ![E-post flera bilagor](./media/flow-usage/flow-emailmultipleattachments.png)
+    ![E-post flera bilagor](./media/flow-usage/flow-email-multiple-attachments.png)
+
+    Fullständiga instruktioner om hur du skapar en e-poståtgärd finns i [E-postutfrågeresultatet för Kusto.](flow.md#email-kusto-query-results) 
 
 Resultat:
 

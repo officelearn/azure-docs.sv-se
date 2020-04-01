@@ -1,22 +1,22 @@
 ---
 title: Konfigurera Microsoft-autentisering
-description: Lär dig hur du konfigurerar Microsoft-kontoautentisering som identitetsleverantör för apptjänstappen.
+description: Lär dig hur du konfigurerar Microsoft-kontoautentisering som identitetsleverantör för appen AppTjänst eller Azure Functions.
 ms.assetid: ffbc6064-edf6-474d-971c-695598fd08bf
 ms.topic: article
 ms.date: 08/08/2019
-ms.custom: seodec18
-ms.openlocfilehash: 95c603d4a10eb0e4d0817e20755c0f9b36baa96f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom: fasttrack-edit
+ms.openlocfilehash: ea745aa00f8990a2d1232a19780fdc70e2f78996
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76842341"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80437971"
 ---
-# <a name="configure-your-app-service-app-to-use-microsoft-account-login"></a>Konfigurera appen App Service så att den använder Microsoft Account-inloggning
+# <a name="configure-your-app-service-or-azure-functions-app-to-use-microsoft-account-login"></a>Konfigurera appen App Service eller Azure Functions så att den använder Microsoft Account-inloggning
 
 [!INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]
 
-Det här avsnittet visar hur du konfigurerar Azure App Service för att använda AAD för att stödja personliga Microsoft-kontoinloggningar.
+Det här avsnittet visar hur du konfigurerar Azure App Service eller Azure Functions för att använda AAD för att stödja personliga Microsoft-kontoinloggningar.
 
 > [!NOTE]
 > Både personliga Microsoft-konton och organisationskonton använder AAD-identitetsprovidern. För närvarande är det inte möjligt att konfigurera den här identitetsprovidern för att stödja båda typerna av inloggningar.
@@ -61,4 +61,4 @@ Du är nu redo att använda Microsoft-konto för autentisering i din app.
 <!-- URLs. -->
 
 [My Applications]: https://go.microsoft.com/fwlink/p/?LinkId=262039
-[Azure-portal]: https://portal.azure.com/
+[Azure Portal]: https://portal.azure.com/

@@ -1,6 +1,6 @@
 ---
-title: 'CLI: skapa en schemalagd säkerhets kopiering'
-description: Lär dig hur du använder Azure CLI för att automatisera distribution och hantering av din App Service-app. Det här exemplet visar hur du skapar en schemalagd säkerhets kopiering för en app.
+title: 'CLI: Skapa en schemalagd säkerhetskopiering'
+description: Lär dig hur du använder Azure CLI för att automatisera distribution och hantering av din App Service-app. Det här exemplet visar hur du skapar en schemalagd säkerhetskopia för en app.
 author: msangapu-msft
 tags: azure-service-management
 ms.devlang: azurecli
@@ -8,13 +8,13 @@ ms.topic: sample
 ms.date: 12/11/2017
 ms.author: msangapu
 ms.reviewer: cephalin
-ms.custom: seodec18
-ms.openlocfilehash: e301b5503cee939846bdcfd1d0c4e755f3debe21
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.custom: mvc, seodec18
+ms.openlocfilehash: 327b48052e0134ae97f0a97f0a43f36e75f2e003
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74686778"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80058779"
 ---
 # <a name="create-a-scheduled-backup-for-an-app-service-app-using-cli"></a>Skapa en schemalagd säkerhetskopiering för en App Service-app med hjälp av CLI
 

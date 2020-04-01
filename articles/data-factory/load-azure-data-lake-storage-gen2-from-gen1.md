@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 05/13/2019
-ms.openlocfilehash: ea0a9de5dde02b45ae34e3e98e24b31fd01fa713
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f782985d975dd137aa2da48d12757685b47e62b1
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80235829"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80421250"
 ---
 # <a name="copy-data-from-azure-data-lake-storage-gen1-to-gen2-with-azure-data-factory"></a>Kopiera data från Azure Data Lake Storage Gen1 till Gen2 med Azure Data Factory
 
@@ -146,7 +146,7 @@ Information om hur du utvärderar uppgradering från Azure Data Lake Storage Gen
 
 Använd ett proof of concept för att verifiera lösningen från slutna till slutna mål och testa kopieringsdataflödet i din miljö. Större proof-of-concept steg: 
 
-1. Skapa en Data Factory-pipeline med en enda kopieringsaktivitet för att kopiera flera datapunkter från Data Lake Storage Gen1 till Data Lake Storage Gen2 för att få en databasprestandabaslinje. Börja med [dataintegrationsenheter som](copy-activity-performance.md#data-integration-units) 128. 
+1. Skapa en Data Factory-pipeline med en enda kopieringsaktivitet för att kopiera flera datapunkter från Data Lake Storage Gen1 till Data Lake Storage Gen2 för att få en databasprestandabaslinje. Börja med [dataintegrationsenheter som](copy-activity-performance-features.md#data-integration-units) 128. 
 2. Baserat på kopieringsdataflödet som du får i steg 1 beräknar du den beräknade tid som krävs för hela datamigrering. 
 3. (Valfritt) Skapa en kontrolltabell och definiera filfiltret för att partitionera de filer som ska migreras. Sättet att partitionera filerna är att: 
 

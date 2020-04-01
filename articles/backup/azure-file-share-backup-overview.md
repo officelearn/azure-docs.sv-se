@@ -3,12 +3,12 @@ title: Om säkerhetskopiering av Azure-fildelning
 description: Lär dig hur du säkerhetskopierar Azure-filresurser i Recovery Services-valvet
 ms.topic: conceptual
 ms.date: 03/05/2020
-ms.openlocfilehash: 0e17b05a3febaa673fb29d45c2bcef25e2996df8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
-ms.translationtype: HT
+ms.openlocfilehash: fd5bb51b2c7b5c09e9d859b69c3094eb50c205b5
+ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78386725"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80396269"
 ---
 # <a name="about-azure-file-share-backup"></a>Om säkerhetskopiering av Azure-fildelning
 
@@ -43,6 +43,15 @@ Azure-filresurssäkerhetskopiering är en inbyggd, molnbaserad säkerhetskopieri
 6. Du kan återställa Azure-filresursinnehållet (enskilda filer eller hela resursen) från ögonblicksbilder som är tillgängliga på källfilresursen. När åtgärden har utlösts hämtas url:en ögonblicksbild från metadataarkivet och data visas och överförs från källögonblicksbilden till den målfilsresurs du väljer.
 
 7. Säkerhetskopierings- och återställningsjobbövervakningsdata överförs till azure backup monitoring-tjänsten. På så sätt kan du övervaka säkerhetskopieringar i molnet för filresurserna på en enda instrumentpanel. Dessutom kan du också konfigurera aviseringar eller e-postmeddelanden när säkerhetskopieringshälsan påverkas. E-postmeddelanden skickas via Azure-e-posttjänsten.
+
+## <a name="backup-costs"></a>Kostnader för säkerhetskopiering
+
+Azure File share backup är en ögonblicksbild-baserad lösning och lagringsavgifter som uppkommit för ögonblicksbilder faktureras tillsammans med Azure Files Usage enligt prisinformation som nämns [här](https://azure.microsoft.com/pricing/details/storage/files/).
+
+Den skyddade instansavgiften för att utnyttja säkerhetskopieringslösningen är dock enligt den prismodell som beskrivs under avsnittet [Backup For Azure Files.](https://azure.microsoft.com/pricing/details/backup/) För närvarande har det faktiska priset uppdaterats endast för Västra centrala USA. För andra regioner kommer exakta priser att uppdateras snart med vissa regionala variationer, men med samma prismodell.
+
+>[!NOTE]
+>Under förhandsversionen finns det ingen avgift för "skyddad instans" och du debiteras endast för ögonblicksbilder enligt den prissättning som nämns [här](https://azure.microsoft.com/pricing/details/storage/files/).
 
 ## <a name="next-steps"></a>Nästa steg
 

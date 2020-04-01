@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2019
 ms.author: juliako
-ms.openlocfilehash: a55ef4f814c0d13a6efbeeb8cd9a5565d2869432
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a3893c8d19c89b639e0584f203cbcd1adf7e2dee
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78183303"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80474841"
 ---
 # <a name="azure-media-services-release-notes"></a>Viktig information om Azure Media Services
 
@@ -344,9 +344,9 @@ Den här versionen markerade standardkonstruktören Microsoft.WindowsAzure.Media
 * Relativa förskjutningar för BeginDate och ExpirationDate i licensmallen PlayReady har lagts till.
 
 ## <a name="november-2014-release"></a><a id="november_changes_14"></a>November 2014 release
-* Nu kan du använda Media Services för att använda innehåll med direktuppspelning (fMP4) via en SSL-anslutning. Om du vill börja använda via SSL måste du uppdatera intvalnings-URL:en till HTTPS. För närvarande stöder Media Services inte SSL med anpassade domäner. Mer information om livestreaming finns i [Arbeta med Azure Media Services Live Streaming](https://msdn.microsoft.com/library/azure/dn783466.aspx).
-* För närvarande kan du inte inta en RTMP-livestream via en SSL-anslutning.
-* Du kan bara strömma via SSL om slutpunkten för direktuppspelning som du levererar ditt innehåll från skapades från efter den 10 september 2014. Om dina strömmande webbadresser baseras på slutpunkter för direktuppspelning som skapats efter den 10 september 2014 innehåller webbadressen "streaming.mediaservices.windows.net" (det nya formatet). Strömmande webbadresser som innehåller "origin.mediaservices.windows.net" (det gamla formatet) stöder inte SSL. Om webbadressen är i det gamla formatet och du vill strömma via SSL skapar du [en ny slutpunkt för direktuppspelning](media-services-portal-manage-streaming-endpoints.md). Om du vill strömma ditt innehåll via SSL använder du webbadresser baserat på den nya slutpunkten för direktuppspelning.
+* Nu kan du använda Media Services för att använda innehåll med direktuppspelning (fMP4) via en TLS-anslutning. Om du vill börja använda över TLS kontrollerar du att den intöste URL:en uppdateras till HTTPS. För närvarande stöder Media Services inte TLS med anpassade domäner. Mer information om livestreaming finns i [Arbeta med Azure Media Services Live Streaming](https://msdn.microsoft.com/library/azure/dn783466.aspx).
+* För närvarande kan du inte inta en RTMP-livestream via en TLS-anslutning.
+* Du kan bara strömma via TLS om slutpunkten för direktuppspelning som du levererar ditt innehåll från skapades efter den 10 september 2014. Om dina strömmande webbadresser baseras på slutpunkter för direktuppspelning som skapats efter den 10 september 2014 innehåller webbadressen "streaming.mediaservices.windows.net" (det nya formatet). Strömmande webbadresser som innehåller "origin.mediaservices.windows.net" (det gamla formatet) stöder inte TLS. Om webbadressen är i det gamla formatet och du vill strömma över TLS skapar du [en ny slutpunkt för direktuppspelning](media-services-portal-manage-streaming-endpoints.md). Om du vill strömma ditt innehåll via TLS använder du webbadresser baserat på den nya slutpunkten för direktuppspelning.
 
 ### <a name="media-services-net-sdk"></a><a id="oct_sdk"></a>Media Services .NET SDK
 Media Services SDK för .NET-tillägg är nu version 2.0.0.3.

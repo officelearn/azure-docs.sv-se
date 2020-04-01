@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/22/2020
 ms.author: kumud
-ms.openlocfilehash: a2a85d98bf29e78d58bf0c578ce79943bae21fc1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b5655a58c3538ac47e8649619b079dc46ee01242
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79244971"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80473229"
 ---
 # <a name="add-change-or-remove-ip-addresses-for-an-azure-network-interface"></a>Lägga till, ändra eller ta bort IP-adresser för ett Azure-nätverksgränssnitt
 
@@ -78,7 +78,7 @@ Du kan behöva ändra tilldelningsmetoden för en IPv4-adress, ändra den statis
 6. Välj **Spara**.
 
 >[!NOTE]
->Om det primära nätverksgränssnittet har flera IP-konfigurationer och du ändrar den privata IP-adressen för den primära IP-konfigurationen, måste du manuellt tilldela de primära och sekundära IP-adresserna till nätverksgränssnittet i Windows (krävs inte för Linux) . Information om hur du manuellt tilldelar IP-adresser till ett nätverksgränssnitt i ett operativsystem finns [i Tilldela flera IP-adresser till virtuella datorer](virtual-network-multiple-ip-addresses-portal.md#os-config). Särskilda överväganden innan du lägger till IP-adresser manuellt i ett operativsystem för virtuella datorer finns i [privata](#private) IP-adresser. Lägg inte till några offentliga IP-adresser till operativsystemet för virtuella datorer.
+>Om det primära nätverksgränssnittet har flera IP-konfigurationer och du ändrar den privata IP-adressen för den primära IP-konfigurationen måste du manuellt tilldela om de primära och sekundära IP-adresserna till nätverksgränssnittet i Windows (krävs inte för Linux). Information om hur du manuellt tilldelar IP-adresser till ett nätverksgränssnitt i ett operativsystem finns [i Tilldela flera IP-adresser till virtuella datorer](virtual-network-multiple-ip-addresses-portal.md#os-config). Särskilda överväganden innan du lägger till IP-adresser manuellt i ett operativsystem för virtuella datorer finns i [privata](#private) IP-adresser. Lägg inte till några offentliga IP-adresser till operativsystemet för virtuella datorer.
 
 **Kommandon**
 
@@ -120,7 +120,7 @@ Förutom en primär IP-konfiguration kan ett nätverksgränssnitt ha noll eller 
 
 - Måste ha tilldelats en privat IPv4- eller IPv6-adress. Om adressen är IPv6 kan nätverksgränssnittet bara ha en sekundär IP-konfiguration. Om adressen är IPv4 kan nätverksgränssnittet ha flera sekundära IP-konfigurationer tilldelade. Mer information om hur många privata och offentliga IPv4-adresser som kan tilldelas ett nätverksgränssnitt finns i artikeln [Azure-begränsningar.](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits)
 - Kan också ha tilldelats en offentlig IPv4- eller IPv6-adress. Det är praktiskt att tilldela flera IPv4-adresser till ett nätverksgränssnitt i scenarier som:
-  - Du kan hantera flera webbplatser eller tjänster med olika IP-adresser och SSL-certifikat på en enda server.
+  - Värd för flera webbplatser eller tjänster med olika IP-adresser och TLS/SSL-certifikat på en enda server.
   - En virtuell dator som fungerar som en virtuell nätverksinstallation, till exempel en brandvägg eller belastningsutjämnare.
   - Möjligheten att lägga till någon av de privata IPv4-adresserna för något av nätverksgränssnitten i en Azure Load Balancer-backend-pool. Tidigare kunde endast den primära IPv4-adressen för det primära nätverksgränssnittet läggas till i en backend-pool. Mer information om hur du läser in flera IPv4-konfigurationer finns i artikeln [Belastningsutjämning av flera IP-konfigurationer.](../load-balancer/load-balancer-multiple-ip.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 
   - Möjligheten att läsa in en IPv6-adress som tilldelats ett nätverksgränssnitt. Mer information om hur du läser in aldot till en privat IPv6-adress finns i artikeln [Belastningsutjämning iPv6-adresser.](../load-balancer/load-balancer-ipv6-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
@@ -136,7 +136,7 @@ Privata [IPv4-](#ipv4) eller IPv6-adresser gör det möjligt för en virtuell da
 Som standard tilldelar Azure DHCP-servrar den privata IPv4-adressen för den [primära IP-konfigurationen](#primary) av Azure-nätverksgränssnittet till nätverksgränssnittet i operativsystemet för virtuella datorer. Om det inte behövs bör du aldrig manuellt ange IP-adressen för ett nätverksgränssnitt i den virtuella datorns operativsystem.
 
 > [!WARNING]
-> Om IPv4-adressen som angetts som den primära IP-adressen för ett nätverksgränssnitt i en virtuell dators operativsystem någonsin skiljer sig från den privata IPv4-adress som tilldelats den primära IP-konfigurationen för det primära nätverksgränssnittet som är kopplat till en virtuell dator inom Azure förlorar du anslutningen till den virtuella datorn.
+> Om IPv4-adressen som angetts som den primära IP-adressen för ett nätverksgränssnitt i en virtuell dators operativsystem någonsin skiljer sig från den privata IPv4-adress som tilldelats den primära IP-konfigurationen för det primära nätverksgränssnittet som är kopplat till en virtuell dator i Azure, förlorar du anslutningen till den virtuella datorn.
 
 Det finns scenarier där det är nödvändigt att manuellt ange IP-adressen för ett nätverksgränssnitt i den virtuella datorns operativsystem. Du måste till exempel manuellt ange de primära och sekundära IP-adresserna för ett Windows-operativsystem när du lägger till flera IP-adresser till en virtuell Azure-dator. För en virtuell Linux-dator behöver du bara manuellt ange de sekundära IP-adresserna. Mer information finns [i Lägga till IP-adresser i ett vm-operativsystem.](virtual-network-multiple-ip-addresses-portal.md#os-config) Om du behöver ändra adressen som tilldelats en IP-konfiguration rekommenderar vi att du:
 

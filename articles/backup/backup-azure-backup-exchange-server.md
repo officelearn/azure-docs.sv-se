@@ -4,12 +4,12 @@ description: Lär dig hur du säkerhetskopierar en Exchange-server till Azure Ba
 ms.reviewer: kasinh
 ms.topic: conceptual
 ms.date: 01/31/2019
-ms.openlocfilehash: 389713767409ff49c6fc83a4d6e8dc3c87272fc9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b45efa0623edbec47b8ae12d3a97b1e032626530
+ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77614372"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80396406"
 ---
 # <a name="back-up-an-exchange-server-to-azure-backup-with-system-center-2012-r2-dpm"></a>Säkerhetskopiera en Exchange-server till Azure Backup med System Center 2012 R2 DPM
 
@@ -49,7 +49,7 @@ Så här installerar du DPM-skyddsagenten på Exchange-servern:
 4. Markera den Exchange-serverdatabas som du vill skydda och klicka på **Nästa**.
 
    > [!NOTE]
-   > Om du skyddar Exchange 2013 kontrollerar du [förutsättningarna för Exchange 2013](https://docs.microsoft.com/previous-versions/system-center/system-center-2012-R2/dn751029(v=sc.12)).
+   > Om du skyddar Exchange 2013 kontrollerar du [förutsättningarna för Exchange 2013](https://docs.microsoft.com/system-center/dpm/back-up-exchange?view=sc-dpm-2016).
    >
    >
 

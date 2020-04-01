@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 03/03/2018
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: dfb6d72b3f8f61e1350101173ecec6134a614edf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e4838597c50898748eb4b33e81ff22eaeea37b30
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74687140"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80476901"
 ---
 # <a name="integrate-your-ilb-app-service-environment-with-the-azure-application-gateway"></a>Integrera en ILB App Service-miljö med Azure Application Gateway #
 
@@ -20,7 +20,7 @@ ms.locfileid: "74687140"
 
 Brandväggar för webbprogram hjälper till att skydda dina webbprogram genom att inspektera inkommande webbtrafik för att blockera SQL-injektioner, cross-site scripting, malware uppladdningar & ansökan DDoS och andra attacker. Den granskar också svaren från backend-webbservrar för dataförbränningsprevention (DLP). Du kan hämta en WAF-enhet från Azure marketplace eller så kan du använda [Azure Application Gateway][appgw].
 
-Azure Application Gateway är en virtuell installation som ger lager 7 belastningsutjämning, SSL-avlastning och WAF-skydd (Web Application Firewall). Den kan lyssna på en offentlig IP-adress och dirigera trafik till programslutpunkten. Följande information beskriver hur du integrerar en WAF-konfigurerad programgateway med en app i en ILB App Service Environment.  
+Azure Application Gateway är en virtuell installation som ger lager 7 belastningsutjämning, TLS/ SSL avlastning och webbprogram brandvägg (WAF) skydd. Den kan lyssna på en offentlig IP-adress och dirigera trafik till programslutpunkten. Följande information beskriver hur du integrerar en WAF-konfigurerad programgateway med en app i en ILB App Service Environment.  
 
 Integreringen av programgatewayen med ILB App Service Environment är på appnivå. När du konfigurerar programgatewayen med din ILB App Service Environment gör du det för specifika appar i ILB App Service Environment. Den här tekniken gör det möjligt att vara värd för säkra program med flera skikt i en enda ILB App Service Environment.  
 

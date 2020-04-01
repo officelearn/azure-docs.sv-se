@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: queues
 ms.topic: conceptual
 ms.reviewer: cbrooks
-ms.openlocfilehash: bd2f372bdcb949b64f748d186a9b060bb9cbec4a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 96828a854c340b89c26023ce60f9c85dd1bb4cdd
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77087064"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80473925"
 ---
 # <a name="perform-azure-queue-storage-operations-with-azure-powershell"></a>Utför Azure Queue Storage-åtgärder med Azure PowerShell
 
@@ -103,7 +103,7 @@ Get-AzStorageQueue -Context $ctx | Select-Object Name
 
 ## <a name="add-a-message-to-a-queue"></a>Lägga till ett meddelande i en kö
 
-Åtgärder som påverkar de faktiska meddelandena i kön använder .NET-lagringsklientbiblioteket som exponerat i PowerShell. Om du vill lägga till ett meddelande i en kö skapar du en ny instans av meddelandeobjektet, klassen [Microsoft.Azure.Storage.Queue.CloudQueueMessage.](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.queue._cloud_queue_message) Därefter anropar du [AddMessage](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.queue._cloud_queue.addmessage)-metoden. Du kan skapa ett CloudQueueMessage antingen från en sträng (i UTF-8-format) eller från en byte-matris.
+Åtgärder som påverkar de faktiska meddelandena i kön använder .NET-lagringsklientbiblioteket som exponerat i PowerShell. Om du vill lägga till ett meddelande i en kö skapar du en ny instans av meddelandeobjektet, klassen [Microsoft.Azure.Storage.Queue.CloudQueueMessage.](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.queue.cloudqueuemessage) Därefter anropar du [AddMessage](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.queue.cloudqueue.addmessage)-metoden. Du kan skapa ett CloudQueueMessage antingen från en sträng (i UTF-8-format) eller från en byte-matris.
 
 I följande exempel visas hur du lägger till ett meddelande i kön.
 

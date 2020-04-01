@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/15/2020
 ms.author: memildin
-ms.openlocfilehash: 6ea951b542d893b8fef3cdf19a964ce2ef8a034d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
-ms.translationtype: HT
+ms.openlocfilehash: 8e44ce594375deeac47f037515d96c57d15c8359
+ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79415684"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80398410"
 ---
 # <a name="manage-and-respond-to-security-alerts-in-azure-security-center"></a>Hantera och besvara säkerhetsaviseringar i Azure Security Center
 
@@ -73,5 +73,6 @@ Security Center samlar automatiskt in, analyserar och integrerar loggdata från 
 
 I det här avsnittet har vi berättat hur du ställer in säkerhetsprinciper i Security Center. I följande avsnitt kan du lära dig mer om Security Center:
 
+- [Microsoft Learn-modulen om hur du använder varningsfunktionerna i Azure Security Center för att hålla utkik efter och svara på hot](https://docs.microsoft.com/learn/modules/resolve-threats-with-azure-security-center/)
 * [Säkerhetsaviseringar i Azure Security Center](security-center-alerts-overview.md).
 * [Hantering av säkerhetsincidenter](security-center-incident.md)

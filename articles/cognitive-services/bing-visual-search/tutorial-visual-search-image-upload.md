@@ -1,21 +1,21 @@
 ---
-title: 'Självstudie: Så här laddar du upp en bild – Visuell sökning i Bing'
+title: 'Självstudiekurs: Så här laddar du upp bilden med api:et för visuell sökning i Bing'
 titleSuffix: Azure Cognitive Services
-description: Delar upp processen att ladda upp en bild till Bing för att få information om den, samt parsar och visar svaret.
+description: Läs om hur du laddar upp en bild till Bing, får insikter om den, visar svaret.
 services: cognitive-services
 author: swhite-msft
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: tutorial
-ms.date: 11/29/2019
+ms.date: 03/31/2020
 ms.author: scottwhi
-ms.openlocfilehash: 84a8219221525400a9d3241c2f183d24344c2f6a
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: ecd1ab5e613bb326b65f6aa50f3f85172bc334ac
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74689185"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80477931"
 ---
 # <a name="tutorial-upload-images-to-the-bing-visual-search-api"></a>Självstudiekurs: Ladda upp bilder till API:et för visuell sökning i Bing
 

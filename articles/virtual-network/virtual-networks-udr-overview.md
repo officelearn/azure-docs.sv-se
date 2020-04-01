@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 10/26/2017
 ms.author: malop
 ms.reviewer: kumud
-ms.openlocfilehash: 8b95bb45436f45dc0e62fb12d6ab1b24c37372e1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d9ed11cd00909a104b5ea54463f8a98020837e10
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79280071"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80477873"
 ---
 # <a name="virtual-network-traffic-routing"></a>Trafikdirigering i virtuella nätverk
 
@@ -122,7 +122,7 @@ En lokal nätverksgateway kan utbyta vägar med en virtuell nätverksgateway i A
 
 När du skickar vägar till Azure med hjälp av BGP läggs en separat väg till i routningstabellen för alla undernät i ett virtuellt nätverk för varje annonserat prefix. Vägen läggs till med *Virtuell nätverksgateway* angiven som källa och nästa hopptyp. 
 
-ER- och VPN Gateway-vägspridning kan inaktiveras i ett undernät med hjälp av en egenskap på en vägtabell. När du byter vägar med Azure med BGP läggs vägar inte till i vägtabellen för alla undernät med dirigerarrrspridning för virtuellt nätverk inaktiverat. Anslutningar via VPN uppnås med hjälp av [anpassade vägar](#custom-routes) där nästa hopp har typen *Virtual network gateway* (gateway för virtuellt nätverk). Mer information finns i [Så här inaktiverar du dirigerar för virtual network gateway route.](manage-route-table.md#create-a-route-table)
+ER- och VPN Gateway-vägspridning kan inaktiveras i ett undernät med hjälp av en egenskap på en vägtabell. När du byter vägar med Azure med BGP läggs vägar inte till i vägtabellen för alla undernät med dirigerarrrspridning för virtuellt nätverk inaktiverat. Anslutningar via VPN uppnås med hjälp av [anpassade vägar](#custom-routes) där nästa hopp har typen *Virtual network gateway* (gateway för virtuellt nätverk). **Cirkulerarspridning bör inte inaktiveras på GatewaySubnet. Gatewayen fungerar inte med den här inställningen inaktiverad.** Mer information finns i [Så här inaktiverar du dirigerar för virtual network gateway route.](manage-route-table.md#create-a-route-table)
 
 ## <a name="how-azure-selects-a-route"></a>Hur Azure väljer en väg
 

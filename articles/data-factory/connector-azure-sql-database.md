@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 03/12/2020
-ms.openlocfilehash: 52928b9a4d77a99f3d8b160713c7b4a7cade2d4e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8f5065a0f4a2a96a747a45f64e00e86f7990bfb8
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80238771"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80437799"
 ---
 # <a name="copy-and-transform-data-in-azure-sql-database-by-using-azure-data-factory"></a>Kopiera och omvandla data i Azure SQL Database med hjälp av Azure Data Factory
 
@@ -48,7 +48,7 @@ För kopieringsaktivitet stöder den här Azure SQL Database-anslutningen dessa 
 > Om du kopierar data med hjälp av Azure Data Factory-integreringskörningen konfigurerar du en [Azure SQL Server-brandvägg](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure) så att Azure-tjänster kan komma åt servern.
 > Om du kopierar data med hjälp av en självvärd integreringskörning konfigurerar du Azure SQL Server-brandväggen så att det tillåter lämpligt IP-intervall. Det här intervallet innehåller datorns IP som används för att ansluta till Azure SQL Database.
 
-## <a name="get-started"></a>Komma igång
+## <a name="get-started"></a>Kom igång
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -143,7 +143,7 @@ Så här använder du en principbaserad Azure AD-programtokenautentisering:
 4. Bevilja tjänstens huvudnamn nödvändiga behörigheter som vanligt för SQL-användare eller andra. Kör följande kod. Fler alternativ finns i [det här dokumentet](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?view=sql-server-2017).
 
     ```sql
-    EXEC sp_addrolemember [role name], [your application name];
+    ALTER ROLE [role name] ADD MEMBER [your application name];
     ```
 
 5. Konfigurera en Azure SQL Database-länkad tjänst i Azure Data Factory.
@@ -190,7 +190,7 @@ Så här använder du autentisering av hanterad identitet.
 3. Bevilja datafabrikens hanterade identitet som behövs som du normalt gör för SQL-användare och andra. Kör följande kod. Fler alternativ finns i [det här dokumentet](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?view=sql-server-2017).
 
     ```sql
-    EXEC sp_addrolemember [role name], [your Data Factory name];
+    ALTER ROLE [role name] ADD MEMBER [your Data Factory name];
     ```
 
 4. Konfigurera en Azure SQL Database-länkad tjänst i Azure Data Factory.

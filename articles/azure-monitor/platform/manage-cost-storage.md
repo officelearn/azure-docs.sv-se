@@ -11,23 +11,20 @@ ms.service: azure-monitor
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 03/16/2020
+ms.date: 03/30/2020
 ms.author: bwren
 ms.subservice: ''
-ms.openlocfilehash: 6911afa5dfcd14f9e5d1068acbcb2355200c5545
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5b532908df4b8dd58177b7e128f4e55aa96458e6
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79479815"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80409955"
 ---
 # <a name="manage-usage-and-costs-with-azure-monitor-logs"></a>Hantera användning och kostnader med Azure Monitor Logs
 
 > [!NOTE]
-> I den här artikeln beskrivs hur du förstår och styr dina kostnader för Azure Monitor Logs. En relaterad artikel, [Övervakning av användning och uppskattade kostnader](https://docs.microsoft.com/azure/azure-monitor/platform/usage-estimated-costs) beskriver hur du visar användning och uppskattade kostnader över flera Azure-övervakningsfunktioner för olika prismodeller.
-
-> [!NOTE]
-> Alla priser och kostnader som visas i den här artikeln är till exempel endast avsedda som exempel. 
+> I den här artikeln beskrivs hur du förstår och styr dina kostnader för Azure Monitor Logs. En relaterad artikel, [Övervakning av användning och uppskattade kostnader](https://docs.microsoft.com/azure/azure-monitor/platform/usage-estimated-costs) beskriver hur du visar användning och uppskattade kostnader över flera Azure-övervakningsfunktioner för olika prismodeller. Alla priser och kostnader som visas i den här artikeln är till exempel endast avsedda som exempel. 
 
 Azure Monitor Logs är utformad för att skala och stödja insamling, indexering och lagring av stora mängder data per dag från valfri källa i ditt företag eller distribueras i Azure.  Även om detta kan vara en primär drivkraft för din organisation, är kostnadseffektivitet i slutändan den underliggande drivrutinen. Därför är det viktigt att förstå att kostnaden för en Log Analytics-arbetsyta inte bara baseras på mängden data som samlas in, att den också är beroende av den valda planen och hur länge du väljer att lagra data som genereras från dina anslutna källor.  
 
@@ -41,7 +38,7 @@ Standardprissättningen för Log Analytics är en **Pay-As-You-Go-modell** som b
   - Antal datorer som övervakas
   - Typ av data som samlas in från varje övervakad virtuell dator 
   
-Förutom pay-as-you-go-modellen har Log Analytics **kapacitetsreserveringsnivåer** som gör att du kan spara så mycket som 25 % jämfört med priset för betala och spara med dig. Med prissättningen för kapacitetsreservation kan du köpa en bokning som börjar på 100 GB/dag. All användning över bokningsnivån kommer att debiteras till priset betala per användning. Kapacitetsreserveringsnivåerna har en åtagandeperiod på 31 dagar. Under åtagandeperioden kan du ändra till en högre nivå på kapacitetsbokningsnivån (som startar om åtagandeperioden på 31 dagar), men du kan inte gå tillbaka till användningsbaserad betalning eller till en nivå med lägre kapacitetsreservering förrän efter åtagandeperioden är Färdiga. 
+Förutom pay-as-you-go-modellen har Log Analytics **kapacitetsreserveringsnivåer** som gör att du kan spara så mycket som 25 % jämfört med priset för betala och spara med dig. Med prissättningen för kapacitetsreservation kan du köpa en bokning som börjar på 100 GB/dag. All användning över bokningsnivån kommer att debiteras till priset betala per användning. Kapacitetsreserveringsnivåerna har en åtagandeperiod på 31 dagar. Under åtagandeperioden kan du ändra till en högre nivå Kapacitetsbokningsnivå (som startar om åtagandeperioden på 31 dagar), men du kan inte flytta tillbaka till Användningsbaserad betalning eller till en nivå med lägre kapacitetsreservering förrän åtagandeperioden är klar. 
 [Läs mer](https://azure.microsoft.com/pricing/details/monitor/) om priser för inloggningsanalysbaserad användningsbaserad betalning och kapacitetsbokning. 
 
 I alla prisnivåer beräknas datavolymen från en strängrepresentation av data när den är förberedd för att lagras. Flera egenskaper som är [gemensamma för alla datatyper](https://docs.microsoft.com/azure/azure-monitor/platform/log-standard-properties) ingår `_ResourceId`inte `_ItemId` `_IsBillable` i `_BilledSize`beräkningen av händelsestorleken, inklusive , och .
@@ -70,7 +67,7 @@ Log Analytics-avgifter läggs till i din Azure-faktura. Du kan se information om
 
 Azure tillhandahåller en hel del användbara funktioner i [Azure Cost Management + Billing](https://docs.microsoft.com/azure/cost-management/quick-acm-cost-analysis?toc=/azure/billing/TOC.json) hub. Med funktionen Kostnadsanalys kan du till exempel visa dina utgifter för Azure-resurser. Genom att lägga till ett filter efter resurstyp (i microsoft.operationalinsights/workspace for Log Analytics) kan du spåra dina utgifter.
 
-Mer förståelse för din användning kan vinnas genom [att ladda ner din användning från Azure-portalen](https://docs.microsoft.com/azure/billing/billing-download-azure-invoice-daily-usage-date#download-usage-in-azure-portal). I det hämtade kalkylbladet kan du se användning per Azure-resurs (t.ex. log analytics-arbetsyta) per dag. I det här Excel-kalkylbladet kan användning från dina Log Analytics-arbetsytor hittas genom att först filtrera i kolumnen Mätarkategori för att visa "Insikter och analyser" (används av några av de äldre prisnivåerna) och "Log Analytics" och sedan lägga till ett filter på "Instansen" ID-kolumnen som är "innehåller arbetsyta". Användningen visas i kolumnen "Förbrukat antal" och enheten för varje post visas i kolumnen "Enhet".  Mer information finns tillgänglig för att hjälpa dig att [förstå din Microsoft Azure-faktura](https://docs.microsoft.com/azure/billing/billing-understand-your-bill). 
+Mer förståelse för din användning kan vinnas genom [att ladda ner din användning från Azure-portalen](https://docs.microsoft.com/azure/billing/billing-download-azure-invoice-daily-usage-date#download-usage-in-azure-portal). I det hämtade kalkylbladet kan du se användning per Azure-resurs (t.ex. log analytics-arbetsyta) per dag. I det här Excel-kalkylbladet kan användning från dina Log Analytics-arbetsytor hittas genom att först filtrera i kolumnen "Mätarkategori" för att visa "Insikter och analyser" (används av några av de äldre prisnivåerna) och "Log Analytics", och sedan lägga till ett filter i kolumnen "Instans-ID" som är "innehåller arbetsyta". Användningen visas i kolumnen "Förbrukat antal" och enheten för varje post visas i kolumnen "Enhet".  Mer information finns tillgänglig för att hjälpa dig att [förstå din Microsoft Azure-faktura](https://docs.microsoft.com/azure/billing/billing-understand-your-bill). 
 
 ## <a name="changing-pricing-tier"></a>Ändra prisnivå
 
@@ -88,7 +85,9 @@ Du kan också [ange prisnivån via Azure Resource Manager](https://docs.microsof
 
 ## <a name="legacy-pricing-tiers"></a>Äldre prisnivåer
 
-Prenumerationer som hade en log Analytics-arbetsyta eller Application Insights-resurs i den före den 2 april 2018, eller som är länkade till ett Enterprise-avtal som startade före den 1 februari 2019, kommer att fortsätta att ha åtkomst till att använda äldre prisnivåer: **Gratis**, **Fristående (Per GB)** och **Per Node (OMS)**.  Arbetsytor på den kostnadsfria prisnivån har dagligt datainmatning begränsat till 500 MB (förutom säkerhetsdatatyper som samlas in av Azure Security Center) och datalagringen är begränsad till 7 dagar. Den kostnadsfria prisnivån är endast avsedd för utvärderingsändamål. Arbetsytor på prisnivåerna Fristående eller per nod har användarkonfigurerbar kvarhållning på upp till 2 år. 
+Prenumerationer som hade en log Analytics-arbetsyta eller Application Insights-resurs i den före den 2 april 2018, eller som är länkade till ett Enterprise-avtal som startade före den 1 februari 2019, kommer att fortsätta att ha åtkomst till att använda äldre prisnivåer: **Gratis**, **Fristående (Per GB)** och **Per Node (OMS)**.  Arbetsytor på den kostnadsfria prisnivån har dagligt datainmatning begränsat till 500 MB (förutom säkerhetsdatatyper som samlas in av Azure Security Center) och datalagringen är begränsad till 7 dagar. Den kostnadsfria prisnivån är endast avsedd för utvärderingsändamål. Arbetsytor på prisnivåerna Fristående eller per nod har användarkonfigurerbar kvarhållning från 30 till 730 dagar.
+
+Prisnivånivån per nod per övervakad virtuell dator (nod) på en timmes granularitet. För varje övervakad nod tilldelas arbetsytan 500 MB data per dag som inte faktureras. Den här allokeringen aggregeras på arbetsytasnivå. Data som intas ovanför den sammanlagda dagliga dataallokeringen faktureras per GB som dataöverpris. Observera att på din faktura kommer tjänsten att vara **Insight och Analytics** för Log Analytics-användning om arbetsytan finns på prisnivån per nod. 
 
 Arbetsytor som skapats före april 2016 kan också komma åt de ursprungliga **standard-** och **premiumprisnivåerna** som har fast datalagring på 30 respektive 365 dagar. Nya arbetsytor kan inte skapas på prisnivåerna **Standard** eller **Premium,** och om en arbetsyta flyttas från dessa nivåer kan den inte flyttas tillbaka. 
 
@@ -99,7 +98,7 @@ Mer information om begränsningar på prisnivå finns [här](https://docs.micros
 
 ## <a name="change-the-data-retention-period"></a>Ändra kvarhållningsperioden för data
 
-I följande steg beskrivs hur du konfigurerar hur länge loggdata sparas på arbetsytan.
+I följande steg beskrivs hur du konfigurerar hur länge loggdata sparas på arbetsytan. Datalagring kan konfigureras från 30 till 730 dagar (2 år) för alla arbetsytor om de inte använder den äldre kostnadsfria prisnivån. 
 
 ### <a name="default-retention"></a>Kvarhållning för standard
 
@@ -117,7 +116,7 @@ Två datatyper `Usage` - `AzureActivity` och - behålls i 90 dagar som standard,
 
 ### <a name="retention-by-data-type"></a>Lagring efter datatyp
 
-Det är också möjligt att ange olika lagringsinställningar för enskilda datatyper. Varje datatyp är en underresurs till arbetsytan. Tabellen SecurityEvent kan till exempel adresseras i [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) som:
+Det är också möjligt att ange olika lagringsinställningar för enskilda datatyper från 30 till 730 dagar (förutom arbetsytor i den äldre kostnadsfria prisnivån). Varje datatyp är en underresurs till arbetsytan. Tabellen SecurityEvent kan till exempel adresseras i [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) som:
 
 ```
 /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/MyResourceGroupName/providers/Microsoft.OperationalInsights/workspaces/MyWorkspaceName/Tables/SecurityEvent
@@ -147,6 +146,8 @@ Om du vill ställa in lagringen av en viss datatyp (i det här exemplet Security
     }
 ```
 
+Giltiga värden `retentionInDays` för är från 30 till 730.
+
 Det `Usage` `AzureActivity` går inte att ange datatyperna och datatyperna med anpassad kvarhållning. De tar på sig det maximala av standardlagringen av arbetsytan eller 90 dagar. 
 
 Ett bra verktyg för att ansluta direkt till Azure Resource Manager för att ange lagring efter datatyp är OSS-verktyget [ARMclient](https://github.com/projectkudu/ARMClient).  Läs mer om ARMclient från artiklar av [David Ebbo](http://blog.davidebbo.com/2015/01/azure-resource-manager-client.html) och [Daniel Bowbyes](https://blog.bowbyes.co.nz/2016/11/02/using-armclient-to-directly-access-azure-arm-rest-apis-and-list-arm-policy-details/).  Här är ett exempel med ARMClient, ställa in SecurityEvent-data till en 730 dagars kvarhållning:
@@ -155,20 +156,17 @@ Ett bra verktyg för att ansluta direkt till Azure Resource Manager för att ang
 armclient PUT /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/MyResourceGroupName/providers/Microsoft.OperationalInsights/workspaces/MyWorkspaceName/Tables/SecurityEvent?api-version=2017-04-26-preview "{properties: {retentionInDays: 730}}"
 ```
 
-> [!NOTE]
+> [!TIP]
 > Att ange lagring på enskilda datatyper kan användas för att minska kostnaderna för datalagring.  För data som samlas in från och med oktober 2019 (när den här funktionen släpptes) kan det minska lagringen för vissa datatyper minska lagringskostnaden över tid.  För data som samlats in tidigare påverkar inställningen en lägre kvarhållning för en enskild typ inte dina lagringskostnader.  
 
 ## <a name="manage-your-maximum-daily-data-volume"></a>Hantera din maximala dagliga datavolym
 
 Du kan konfigurera ett dagligt tak och begränsa det dagliga inmatningen för din arbetsyta, men var försiktig eftersom ditt mål inte ska vara att nå den dagliga gränsen.  Annars förlorar du data för resten av dagen, vilket kan påverka andra Azure-tjänster och lösningar vars funktioner kan bero på att aktuella data är tillgängliga på arbetsytan.  Som ett resultat, din förmåga att observera och ta emot varningar när hälsotillståndet för resurser som stöder IT-tjänster påverkas.  Det dagliga taket är avsett att användas som ett sätt att hantera den oväntade ökningen av datavolymen från dina hanterade resurser och hålla dig inom din gräns, eller när du vill begränsa oplanerade avgifter för din arbetsyta.  
 
-När den dagliga gränsen har uppnåtts stoppas insamlingen av fakturerbara datatyper resten av dagen. En varningsbanderoll visas överst på sidan för den valda Log Analytics-arbetsytan och en åtgärdshändelse skickas till *tabellen Åtgärd* under kategorin **LogManagement.** Datainsamlingen återupptas efter den återställningstid som definieras under *Daglig gräns kommer att ställas in på*. Vi rekommenderar att du definierar en varningsregel baserat på den här åtgärdshändelsen, konfigurerad för att meddela när den dagliga datagränsen har uppnåtts. 
+Strax efter att den dagliga gränsen har nåtts stoppas insamlingen av fakturerbara datatyper för resten av dagen. (Latens inneboende i tillämpningen av det dagliga taket kan innebära att locket inte tillämpas som exakt den angivna dagliga taknivån.) En varningsbanderoll visas överst på sidan för den valda Log Analytics-arbetsytan och en åtgärdshändelse skickas till *tabellen Åtgärd* under kategorin **LogManagement.** Datainsamlingen återupptas efter den återställningstid som definieras under *Daglig gräns kommer att ställas in på*. Vi rekommenderar att du definierar en varningsregel baserat på den här åtgärdshändelsen, konfigurerad för att meddela när den dagliga datagränsen har uppnåtts. 
 
-> [!NOTE]
+> [!WARNING]
 > Det dagliga taket stoppar inte insamlingen av data från Azure Security Center, förutom arbetsytor där Azure Security Center installerades före den 19 juni 2017. 
-
-> [!NOTE]
-> Latens inneboende i tillämpningen av det dagliga locket kan innebära att locket inte tillämpas som exakt den angivna dagliga taknivån. 
 
 ### <a name="identify-what-daily-data-limit-to-define"></a>Identifiera vilken daglig datagräns som ska definieras
 
@@ -240,7 +238,7 @@ union withsource = tt *
 | summarize TotalVolumeBytes=sum(_BilledSize) by computerName
 ```
 
-> [!NOTE]
+> [!TIP]
 > Använd `union withsource = tt *` dessa frågor sparsamt eftersom sökningar över datatyper är dyra att köra. Den här frågan ersätter det gamla sättet att fråga information per dator med datatypen Användning.  
 
 ## <a name="understanding-ingested-data-volume"></a>Förstå intas datavolym
@@ -346,7 +344,7 @@ union withsource = tt *
 
 Om `subscriptionId` `resourceGroup` du ändrar till visas den fakturerbara intjesterade datavolymen för Azure-resursgruppen. 
 
-> [!NOTE]
+> [!WARNING]
 > Vissa fält i datatypen Användning, medan de fortfarande är i schemat, har inaktuellt och kommer att fyllas i deras värden inte längre. Dessa är **dator-** samt fält relaterade till intag (**TotalBatches**, **BatchesWithinSla**, **BatchesOutsideSla,** **BatchesCapped** och **AverageProcessingTimeMs**.
 
 ### <a name="querying-for-common-data-types"></a>Fråga efter vanliga datatyper

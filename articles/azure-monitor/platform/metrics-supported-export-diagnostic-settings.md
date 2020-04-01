@@ -3,14 +3,14 @@ title: Azure Monitor-plattformsmått som kan exporteras via diagnostikinställni
 description: Lista över tillgängliga mått för varje resurstyp med Azure Monitor.
 services: azure-monitor
 ms.topic: reference
-ms.date: 02/10/2020
+ms.date: 03/30/2020
 ms.subservice: metrics
-ms.openlocfilehash: 7a75655d1707dd2491065974ed8addc4c2da1a6a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6be8cb1b7e74301d16a1174f5ca2b774334dac3f
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77661370"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80422114"
 ---
 # <a name="azure-monitor-platform-metrics-exportable-via-diagnostic-settings"></a>Azure Monitor-plattformsmått som kan exporteras via diagnostikinställningar
 
@@ -24,7 +24,9 @@ På grund av krångligheter i Azure Monitor-backend kan inte alla mått exporter
 
 ## <a name="change-to-behavior-for-nulls-and-zero-values"></a>Ändra till beteende för NULLs och Nollvärden 
  
-För plattformsmått som kan exporteras via diagnostikinställningar finns det några mått som Azure Monitor tolkar 0:0 som "Nulls". Detta har orsakat viss förvirring mellan verkliga "0s" (som avges av resurs) och tolkade "0s" (Nulls). Från och med **den 1 april 2020** kommer plattformsmått som exporteras via diagnostikinställningar inte längre att exportera 0:0 om de inte verkligen har avgetts av den underliggande resursen. Observera följande:
+För plattformsmått som kan exporteras via diagnostikinställningar finns det några mått som Azure Monitor tolkar 0:0 som "Nulls". Detta har orsakat viss förvirring mellan verkliga "0s" (som avges av resurs) och tolkade "0s" (Nulls). Snart kommer en förändring att ske och plattformsmått som exporteras via diagnostikinställningar exporterar inte längre 0:0 om de inte verkligen har avgetts av den underliggande resursen. Ändringen var planerad till den 1 april 2020, men har försenats på grund av prioriterade skift på grund av COVID-19. 
+
+Observera följande:
 
 1.  Om du tar bort en resursgrupp eller en viss resurs skickas inte längre måttdata från de påverkade resurserna till diagnostikinställningsexportdestinationer. Det vill än, det kommer inte längre att visas i Event Hubs, Storage Accounts och Log Analytics Workspaces.
 2.  Denna förbättring kommer att vara tillgänglig i alla offentliga och privata moln.
@@ -49,7 +51,7 @@ Tabellen innehåller följande kolumner.
 > Tabellen nedan kan ha en vågrät rullningslist längst ned. Om du tror att du saknar information kontrollerar du att rullningslisten är hela vägen till vänster.  
 
 
-| Kan du exportera via diagnostikinställningar?  | Avger NULLs |  ResourceType  |  Mått  |  MetricDisplayName  |  Enhet  |  Aggregeringstyp | 
+| Kan du exportera via diagnostikinställningar?  | Redan avger NULLs |  ResourceType  |  Mått  |  MetricDisplayName  |  Enhet  |  Aggregeringstyp | 
 |---|---| ---- | ----- | ------ | ---- | ---- | 
 | Ja****  | Inga |  Microsoft.AnalysisServices/servrar  |  CleanerCurrentPrice  |  Minne: Renare nuvarande pris  |  Antal  |  Medel | 
 | Ja****  | Inga |  Microsoft.AnalysisServices/servrar  |  CleanerMemoryNonshrinkable  |  Minne: Renare minne nonshrinkable  |  Byte  |  Medel | 

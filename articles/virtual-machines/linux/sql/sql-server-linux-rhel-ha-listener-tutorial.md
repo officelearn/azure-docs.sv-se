@@ -1,6 +1,6 @@
 ---
-title: Konfigurera tillgänglighets grupps lyssnare för SQL Server på virtuella RHEL-datorer i Azure-Virtuella Linux-datorer | Microsoft Docs
-description: Lär dig mer om att konfigurera en tillgänglighets grupps lyssnare i SQL Server på virtuella RHEL-datorer i Azure
+title: Konfigurera tillgänglighetsgruppavlyssnare för SQL Server på virtuella RHEL-datorer i Azure - Linux Virtual Machines | Microsoft-dokument
+description: Lär dig mer om hur du konfigurerar en lyssnare i tillgänglighetsgruppen i SQL Server på virtuella RHEL-datorer i Azure
 ms.service: virtual-machines-linux
 ms.subservice: ''
 ms.topic: tutorial
@@ -9,167 +9,167 @@ ms.author: vanto
 ms.reviewer: jroth
 ms.date: 03/11/2020
 ms.openlocfilehash: 80557eb3776ba17a4922d1fc384b87419ffbd67e
-ms.sourcegitcommit: be53e74cd24bbabfd34597d0dcb5b31d5e7659de
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/11/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "79096586"
 ---
-# <a name="tutorial-configure-availability-group-listener-for-sql-server-on-rhel-virtual-machines-in-azure"></a>Självstudie: Konfigurera tillgänglighets grupps lyssnare för SQL Server på virtuella RHEL-datorer i Azure
+# <a name="tutorial-configure-availability-group-listener-for-sql-server-on-rhel-virtual-machines-in-azure"></a>Självstudiekurs: Konfigurera tillgänglighetsgruppavlyssnare för SQL Server på virtuella RHEL-datorer i Azure
 
 > [!NOTE]
-> Den självstudien som presenteras är i **offentlig för hands version**. 
+> Handledningen presenteras är i **offentlig förhandsvisning**. 
 >
-> Vi använder SQL Server 2017 med RHEL 7,6 i den här självstudien, men det går att använda SQL Server 2019 i RHEL 7 eller RHEL 8 för att konfigurera HA. De kommandon som används för att konfigurera tillgänglighets grupp resurser har ändrats i RHEL 8, och du vill titta på artikeln, [skapa tillgänglighets grupp resurs](/sql/linux/sql-server-linux-availability-group-cluster-rhel#create-availability-group-resource) och RHEL 8-resurser för mer information om rätt kommandon.
+> Vi använder SQL Server 2017 med RHEL 7.6 i den här självstudien, men det är möjligt att använda SQL Server 2019 i RHEL 7 eller RHEL 8 för att konfigurera HA. Kommandona för att konfigurera resurser för tillgänglighetsgrupper har ändrats i RHEL 8 och du bör titta på artikeln, [Skapa tillgänglighetsgruppresurs](/sql/linux/sql-server-linux-availability-group-cluster-rhel#create-availability-group-resource) och RHEL 8-resurser för mer information om rätt kommandon.
 
-I den här självstudien får du lära dig hur du skapar en lyssnare för en tillgänglighets grupp för dina SQL-servrar på virtuella RHEL-datorer i Azure. Du lär dig hur du:
+Den här självstudien går igenom steg om hur du skapar en tillgänglighetsgruppavlyssnare för dina SQL-servrar på virtuella RHEL-datorer i Azure. Du lär dig att göra följande:
 
 > [!div class="checklist"]
-> - Skapa en belastningsutjämnare i Azure Portal
+> - Skapa en belastningsutjämnare i Azure-portalen
 > - Konfigurera backend-poolen för belastningsutjämnaren
 > - Skapa en avsökning för belastningsutjämnaren
-> - Ange regler för belastnings utjämning
-> - Skapa belastnings Utjämnings resursen i klustret
-> - Skapa tillgänglighets gruppens lyssnare
+> - Ange regler för belastningsutjämning
+> - Skapa belastningsutjämnarens resurs i klustret
+> - Skapa lyssnaren för tillgänglighetsgruppen
 > - Testa att ansluta till lyssnaren
-> - Testa en redundansväxling
+> - Testa en redundans
 
 ## <a name="prerequisite"></a>Krav
 
-Slutförd [ **självstudie: Konfigurera tillgänglighets grupper för SQL Server på virtuella RHEL-datorer i Azure**](sql-server-linux-rhel-ha-stonith-tutorial.md)
+Slutförd [ **självstudiekurs: Konfigurera tillgänglighetsgrupper för SQL Server på virtuella RHEL-datorer i Azure**](sql-server-linux-rhel-ha-stonith-tutorial.md)
 
-## <a name="create-the-load-balancer-in-the-azure-portal"></a>Skapa belastningsutjämnaren i Azure Portal
+## <a name="create-the-load-balancer-in-the-azure-portal"></a>Skapa belastningsutjämnaren i Azure-portalen
 
-Följande instruktioner tar dig igenom steg 1 till 4 från guiden för att [skapa och konfigurera belastningsutjämnaren i Azure Portal](../../../virtual-machines/windows/sql/virtual-machines-windows-portal-sql-alwayson-int-listener.md#create-and-configure-the-load-balancer-in-the-azure-portal) avsnittet i artikeln [load balances-Azure Portal](../../../virtual-machines/windows/sql/virtual-machines-windows-portal-sql-alwayson-int-listener.md) .
+Följande instruktioner tar dig igenom steg 1 till 4 från [skapa och konfigurera belastningsutjämnaren i Azure-portalavsnittet i](../../../virtual-machines/windows/sql/virtual-machines-windows-portal-sql-alwayson-int-listener.md#create-and-configure-the-load-balancer-in-the-azure-portal) artikeln [Belastningsutjämnad - Azure-portal.](../../../virtual-machines/windows/sql/virtual-machines-windows-portal-sql-alwayson-int-listener.md)
 
 ### <a name="create-the-load-balancer"></a>Skapa lastbalanseraren
 
-1. Öppna den resurs grupp som innehåller de SQL Server virtuella datorerna i Azure Portal. 
+1. Öppna resursgruppen som innehåller virtuella SQL Server-datorer i Azure-portalen. 
 
-2. I resurs gruppen klickar du på **Lägg till**.
+2. Klicka på Lägg **till**i resursgruppen .
 
-3. Sök efter **belastningsutjämnare** och välj **Load Balancer**i Sök resultaten, som publiceras av **Microsoft**.
+3. Sök efter **belastningsutjämnare** och välj sedan **Belastningsutjämnare**i sökresultaten , som publiceras av **Microsoft**.
 
-4. Klicka på **skapa**på bladet **Load Balancer** .
+4. Klicka på **Skapa**på bladet **Belastningsutjämnare** .
 
-5. I dialog rutan **skapa belastnings utjämning** konfigurerar du belastningsutjämnaren enligt följande:
+5. Konfigurera belastningsutjämnaren i dialogrutan **Skapa belastningsutjämnare** på följande sätt:
 
    | Inställning | Värde |
    | --- | --- |
-   | **Namn** |Ett text namn som representerar belastningsutjämnaren. Till exempel **sqlLB**. |
+   | **Namn** |Ett textnamn som representerar belastningsutjämnaren. Till exempel **sqlLB**. |
    | **Typ** |**Intern** |
-   | **Virtuellt nätverk** |Standard-VNet som skapades ska ha namnet **VM1VNET**. |
-   | **Undernät** |Välj det undernät som de SQL Server instanserna finns i. Standardvärdet ska vara **VM1Subnet**.|
-   | **Tilldelning av IP-adress** |**Oföränderlig** |
-   | **Privat IP-adress** |Använd `virtualip` IP-adress som skapades i klustret. |
-   | **Prenumeration** |Använd den prenumeration som användes för din resurs grupp. |
-   | **Resursgrupp** |Välj den resurs grupp som SQL Server instanserna finns i. |
-   | **Plats** |Välj den Azure-plats som SQL Server instanserna finns i. |
+   | **Virtuellt nätverk** |Standard-VNet som skapades bör heta **VM1VNET**. |
+   | **Undernät** |Markera det undernät som SQL Server-instanserna finns i. Standardvärdet ska vara **VM1Subnet**.|
+   | **TILLDELNING AV IP-adress** |**Statisk** |
+   | **Privat IP-adress** |Använd `virtualip` IP-adressen som skapades i klustret. |
+   | **Prenumeration** |Använd prenumerationen som användes för resursgruppen. |
+   | **Resursgrupp** |Markera den resursgrupp som SQL Server-instanserna finns i. |
+   | **Location** |Välj den Azure-plats som SQL Server-instanserna finns i. |
 
 ### <a name="configure-the-back-end-pool"></a>Konfigurera backend-poolen
-Azure anropar *backend-adresspoolen*för backend-adresspoolen. I det här fallet är backend-poolen adresserna till de tre SQL Server instanserna i tillgänglighets gruppen. 
+Azure anropar *backend-adresspoolens backend-pool*. I det här fallet är backend-poolen adresserna för de tre SQL Server-instanserna i din tillgänglighetsgrupp. 
 
-1. I resurs gruppen klickar du på den belastningsutjämnare som du har skapat. 
+1. Klicka på den belastningsutjämnare som du skapade i resursgruppen. 
 
-2. I **Inställningar**klickar du på **backend-pooler**.
+2. Klicka på **Backend-pooler i** **Inställningar**.
 
-3. På **backend-pooler**klickar du på **Lägg till** för att skapa en backend-adresspool. 
+3. I **Backend-pooler**klickar du på **Lägg till** för att skapa en backend-adresspool. 
 
-4. I **Lägg till backend-pool**, under **namn**, anger du ett namn för backend-poolen.
+4. Skriv ett namn för backend-poolen under **Namn**i Poolen Lägg **till backend.**
 
-5. Under **kopplad till**väljer du **virtuell dator**. 
+5. Under **Associerad till**väljer du **Virtuell dator**. 
 
-6. Välj varje virtuell dator i miljön och koppla lämplig IP-adress till varje val.
+6. Välj varje virtuell dator i miljön och associera lämplig IP-adress till varje val.
 
-    :::image type="content" source="media/sql-server-linux-rhel-ha-listener-tutorial/add-backend-pool.png" alt-text="Lägg till backend-pool":::
+    :::image type="content" source="media/sql-server-linux-rhel-ha-listener-tutorial/add-backend-pool.png" alt-text="Lägga till backend-pool":::
 
 7. Klicka på **Lägg till**. 
 
 ### <a name="create-a-probe"></a>Skapa en avsökning
 
-Avsökningen definierar hur Azure verifierar vilken av de SQL Server instanser som för närvarande äger tillgänglighets gruppens lyssnare. Azure avsöker tjänsten baserat på IP-adressen på en port som du anger när du skapar avsökningen.
+Avsökningen definierar hur Azure verifierar vilken av SQL Server-instanserna som för närvarande äger tillgänglighetsgruppavlyssnaren. Azure avsöker tjänsten baserat på IP-adressen på en port som du definierar när du skapar avsökningen.
 
-1. Klicka på **hälso avsökningar**på bladet **Inställningar** för belastnings utjämning. 
+1. Klicka på Hälsoavsökningar på bladet **Inställningar för belastningsutjämnare** . **Health probes** 
 
-2. På bladet **hälso avsökningar** klickar du på **Lägg till**.
+2. Klicka på **Lägg till**på bladet **Hälsa avsökningar** .
 
-3. Konfigurera avsökningen på bladet **Lägg till sökning** . Använd följande värden för att konfigurera avsökningen:
+3. Konfigurera avsökningen på **Bladet Lägg till sond.** Använd följande värden för att konfigurera avsökningen:
 
    | Inställning | Värde |
    | --- | --- |
-   | **Namn** |Ett text namn som representerar avsökningen. Till exempel **SQLAlwaysOnEndPointProbe**. |
-   | **Protokoll** |**TCP** |
-   | **Port** |Du kan använda valfri tillgänglig port. Till exempel *59999*. |
+   | **Namn** |Ett textnamn som representerar avsökningen. Till exempel **SQLAlwaysOnEndPointProbe**. |
+   | **Protokollet** |**TCP** |
+   | **Port** |Du kan använda vilken tillgänglig port som helst. Till exempel *59999*. |
    | **Intervall** |*5* |
-   | **Tröskelvärde för ej felfri** |*2* |
+   | **Felfritt tröskelvärde** |*2* |
 
-4.  Klicka på **OK** 
+4.  Klicka på **OK**. 
 
-5. Logga in på alla virtuella datorer och öppna avsöknings porten med följande kommandon:
+5. Logga in på alla virtuella datorer och öppna avsökningsporten med följande kommandon:
 
     ```bash
     sudo firewall-cmd --zone=public --add-port=59999/tcp --permanent
     sudo firewall-cmd --reload
     ```
 
-Azure skapar avsökningen och använder den för att testa vilken SQL Server instans som har lyssnaren för tillgänglighets gruppen.
+Azure skapar avsökningen och använder den sedan för att testa vilken SQL Server-instans som har lyssnaren för tillgänglighetsgruppen.
 
-### <a name="set-the-load-balancing-rules"></a>Ange regler för belastnings utjämning
+### <a name="set-the-load-balancing-rules"></a>Ange regler för belastningsutjämning
 
-Reglerna för belastnings utjämning anger hur belastningsutjämnaren dirigerar trafik till SQL Server instanser. För den här belastningsutjämnaren aktiverar du direkt Server retur eftersom endast en av de tre SQL Server instanserna äger tillgänglighets gruppens lyssnar resurs i taget.
+Belastningsutjämningsreglerna konfigurerar hur belastningsutjämnaren dirigerar trafik till SQL Server-instanserna. För den här belastningsutjämnaren aktiverar du direkt serverretur eftersom endast en av de tre SQL Server-instanserna äger tillgänglighetsgruppens lyssnarresurs åt gången.
 
-1. Klicka på **belastnings Utjämnings regler**på bladet **Inställningar** för belastningsutjämnare. 
+1. Klicka på **Belastningsutjämningsregler**på bladet Inställningar för belastningsutjämnare . **Settings** 
 
-2. Klicka på **Lägg till**på bladet **belastnings Utjämnings regler** .
+2. Klicka på **Lägg till**på bladet **Belastningsutjämningsregler** .
 
-3. Konfigurera belastnings Utjämnings regeln på bladet **Lägg till belastnings Utjämnings regler** . Använd följande inställningar: 
+3. Konfigurera belastningsutjämningsregeln på bladet **Lägg till belastningsutjämningsregler.** Använd följande inställningar: 
 
    | Inställning | Värde |
    | --- | --- |
-   | **Namn** |Ett text namn som representerar belastnings Utjämnings reglerna. Till exempel **SQLAlwaysOnEndPointListener**. |
-   | **Protokoll** |**TCP** |
+   | **Namn** |Ett textnamn som representerar belastningsutjämningsreglerna. **SqlAlwaysOnEndPointListener**. |
+   | **Protokollet** |**TCP** |
    | **Port** |*1433* |
-   | **Backend-port** |*1433*. det här värdet ignoreras eftersom den här regeln använder **flytande IP (direkt Server retur)** . |
-   | **Provtagning** |Använd namnet på avsökningen som du skapade för den här belastningsutjämnaren. |
-   | **Beständig session** |**Alternativet** |
-   | **Tids gräns för inaktivitet (minuter)** |*4* |
-   | **Flytande IP (direkt Server retur)** |**Aktiverad** |
+   | **Backend-port** |*1433*. Det här värdet ignoreras eftersom den här regeln använder **flytande IP (direkt serverretur)**. |
+   | **Avsökning** |Använd namnet på den avsökning som du skapade för den här belastningsutjämnaren. |
+   | **Sessionspermanens** |**Inget** |
+   | **Tidsgränsen för inaktiv tid (minuter)** |*4* |
+   | **Flytande IP (direkt serverretur)** |**Enabled** |
 
-   :::image type="content" source="media/sql-server-linux-rhel-ha-listener-tutorial/add-load-balancing-rule.png" alt-text="Lägg till belastnings Utjämnings regel":::
+   :::image type="content" source="media/sql-server-linux-rhel-ha-listener-tutorial/add-load-balancing-rule.png" alt-text="Lägga till belastningsutjämningsregel":::
 
-4. Klicka på **OK** 
-5. Azure konfigurerar belastnings Utjämnings regeln. Nu konfigureras belastningsutjämnaren för att dirigera trafik till den SQL Server-instans som är värd för lyssnaren för tillgänglighets gruppen. 
+4. Klicka på **OK**. 
+5. Azure konfigurerar belastningsutjämningsregeln. Nu är belastningsutjämnaren konfigurerad för att dirigera trafik till SQL Server-instansen som är värd för lyssnaren för tillgänglighetsgruppen. 
 
-I det här läget har resurs gruppen en belastningsutjämnare som ansluter till alla SQL Server datorer. Belastningsutjämnaren innehåller också en IP-adress för SQL Server Always on-tillgänglighetsgrupper, så att alla datorer kan svara på begär Anden för tillgänglighets grupper.
+Nu har resursgruppen en belastningsutjämnare som ansluter till alla SQL Server-datorer. Belastningsutjämnaren innehåller också en IP-adress för SQL Server Always On availability group listener, så att alla datorer kan svara på begäranden för tillgänglighetsgrupperna.
 
-## <a name="create-the-load-balancer-resource-in-the-cluster"></a>Skapa belastnings Utjämnings resursen i klustret
+## <a name="create-the-load-balancer-resource-in-the-cluster"></a>Skapa belastningsutjämnarens resurs i klustret
 
-1. Logga in på den primära virtuella datorn. Vi måste skapa resursen för att aktivera avsöknings porten för Azure Load Balancer (59999 används i vårt exempel). Kör följande kommando:
+1. Logga in på den primära virtuella datorn. Vi måste skapa resursen för att aktivera Azure load balancer-avsökningsporten (59999 används i vårt exempel). Kör följande kommando:
 
     ```bash
     sudo pcs resource create azure_load_balancer azure-lb port=59999
     ```
 
-1. Skapa en grupp som innehåller `virtualip` och `azure_load_balancer` resurs:
+1. Skapa en grupp som `virtualip` `azure_load_balancer` innehåller resursen och:
 
     ```bash
     sudo pcs resource group add virtualip_group azure_load_balancer virtualip
     ```
 
-### <a name="add-constraints"></a>Lägg till begränsningar
+### <a name="add-constraints"></a>Lägga till begränsningar
 
-1. En samplacerings begränsning måste konfigureras för att se till att IP-adressen för Azure Load Balancer och AG-resursen körs på samma nod. Kör följande kommando:
+1. En samlokaliseringsbegränsning måste konfigureras för att säkerställa azure load balancer IP-adress och AG-resursen körs på samma nod. Kör följande kommando:
 
     ```bash
     sudo pcs constraint colocation add azure_load_balancer ag_cluster-master INFINITY with-rsc-role=Master
     ```
-1. Skapa en ordnings begränsning för att säkerställa att AG-resursen är igång innan IP-adressen för Azure Load Balancer. Även om den samplacerings begränsningen indikerar en ordnings begränsning används den.
+1. Skapa ett ordervillkor för att säkerställa att AG-resursen är igång före AZURE-belastningsutjämnarens IP-adress. Även om samlokaliseringsbegränsningen innebär ett beställningsvillkor, verkställer detta det.
 
     ```bash
     sudo pcs constraint order promote ag_cluster-master then start azure_load_balancer
     ```
 
-1. Verifiera begränsningarna genom att köra följande kommando:
+1. Om du vill kontrollera begränsningarna kör du följande kommando:
 
     ```bash
     sudo pcs constraint list --full
@@ -188,11 +188,11 @@ I det här läget har resurs gruppen en belastningsutjämnare som ansluter till 
     Ticket Constraints:
     ```
 
-## <a name="create-the-availability-group-listener"></a>Skapa tillgänglighets gruppens lyssnare
+## <a name="create-the-availability-group-listener"></a>Skapa lyssnaren för tillgänglighetsgruppen
 
-1. Kör följande kommando på den primära noden i SQLCMD eller SSMS:
+1. Kör följande kommando i SQLCMD eller SSMS på den primära noden:
 
-    - Ersätt IP-adressen som används nedan med `virtualip` IP-adressen.
+    - Ersätt IP-adressen som `virtualip` används nedan med IP-adressen.
 
     ```sql
     ALTER AVAILABILITY
@@ -203,65 +203,65 @@ I det här läget har resurs gruppen en belastningsutjämnare som ansluter till 
     GO
     ```
 
-1. Logga in på varje VM-nod. Använd följande kommando för att öppna hosts-filen och konfigurera värd namns matchning för `ag1-listener` på varje dator.
+1. Logga in på varje VM-nod. Använd följande kommando för att öppna hosts-filen och `ag1-listener` ställa in värdnamnsmatchning för på varje dator.
 
     ```
     sudo vi /etc/hosts
     ```
 
-    I redigeraren för **vi** skriver du `i` för att infoga text och på en tom rad lägger du till IP-adressen för `ag1-listener`. Lägg sedan till `ag1-listener` efter ett blank steg bredvid IP-adressen.
+    I **vi** vi-redigeraren `i` anger du för att infoga text och `ag1-listener`på en tom rad lägger du till IP-adressen för . Lägg `ag1-listener` sedan till efter ett blanksteg bredvid IP-adressen.
 
     ```output
     <IP of ag1-listener> ag1-listener
     ```
 
-    Om du vill avsluta **vi** -redigeraren trycker du först på **ESC** -tangenten och anger sedan kommandot `:wq` för att skriva filen och avsluta. Gör detta på varje nod.
+    Om du vill avsluta vi-redigeraren trycker du `:wq` först på **Esc-tangenten** och anger sedan kommandot för att skriva filen och avsluta. **vi** Gör detta på varje nod.
 
-## <a name="test-the-listener-and-a-failover"></a>Testa lyssnaren och redundansväxlingen
+## <a name="test-the-listener-and-a-failover"></a>Testa lyssnaren och en redundans
 
-### <a name="test-logging-into-sql-server-using-the-availability-group-listener"></a>Testa loggning i SQL Server med tillgänglighets gruppens lyssnare
+### <a name="test-logging-into-sql-server-using-the-availability-group-listener"></a>Testa att logga in på SQL Server med hjälp av tillgänglighetsgrupplyssnaren
 
-1. Använd SQLCMD för att logga in på den primära noden för SQL Server med hjälp av tillgänglighets gruppens lyssnar namn:
+1. Använd SQLCMD för att logga in på den primära noden i SQL Server med hjälp av tillgänglighetsgruppens lyssnarenamn:
 
-    - Använd en inloggning som tidigare har skapats och ersätt `<YourPassword>` med rätt lösen ord. I exemplet nedan används den `sa` inloggning som skapades med SQL Server.
+    - Använd en inloggning som tidigare `<YourPassword>` har skapats och ersätts med rätt lösenord. I exemplet nedan `sa` används inloggningen som skapades med SQL Server.
 
     ```bash
     sqlcmd -S ag1-listener -U sa -P <YourPassword>
     ```
 
-1. Kontrol lera namnet på den server som du är ansluten till. Kör följande kommando i SQLCMD:
+1. Kontrollera namnet på den server som du är ansluten till. Kör följande kommando i SQLCMD:
 
     ```sql
     SELECT @@SERVERNAME
     ```
 
-    Din utdata bör visa den aktuella primära noden. Detta bör vara `VM1` om du aldrig har testat en redundansväxling.
+    Utdata ska visa den aktuella primära noden. Detta bör `VM1` vara om du aldrig har testat en redundans.
 
-    Avsluta SQL-sessionen genom att skriva kommandot `exit`.
+    Avsluta SQL-sessionen genom `exit` att skriva kommandot.
 
-### <a name="test-a-failover"></a>Testa en redundansväxling
+### <a name="test-a-failover"></a>Testa en redundans
 
-1. Kör följande kommando för att manuellt redundansväxla den primära repliken till `<VM2>` eller till en annan replik. Ersätt `<VM2>` med värdet för Server namnet.
+1. Kör följande kommando för att manuellt redundans den primära repliken till `<VM2>` eller en annan replik. Ersätt `<VM2>` med värdet på servernamnet.
 
     ```bash
     sudo pcs resource move ag_cluster-master <VM2> --master
     ```
 
-1. Om du kontrollerar dina begränsningar ser du att en annan begränsning har lagts till på grund av manuell redundans:
+1. Om du kontrollerar dina begränsningar ser du att ett annat villkor har lagts till på grund av den manuella redundansen:
 
     ```bash
     sudo pcs constraint list --full
     ```
 
-    Du ser att en begränsning med ID `cli-prefer-ag_cluster-master` har lagts till.
+    Du kommer att se att `cli-prefer-ag_cluster-master` ett villkor med ID har lagts till.
 
-1. Ta bort begränsningen med ID `cli-prefer-ag_cluster-master` med följande kommando:
+1. Ta bort villkoret `cli-prefer-ag_cluster-master` med ID med följande kommando:
 
     ```bash
     sudo pcs constraint remove cli-prefer-ag_cluster-master
     ```
 
-1. Kontrol lera kluster resurserna med kommandot `sudo pcs resource`och du bör se att den primära instansen nu `<VM2>`.
+1. Kontrollera klusterresurserna med `sudo pcs resource`kommandot och du bör se `<VM2>`att den primära instansen är nu .
 
     ```output
     [<username>@<VM1> ~]$ sudo pcs resource
@@ -273,25 +273,25 @@ I det här läget har resurs gruppen en belastningsutjämnare som ansluter till 
         virtualip  (ocf::heartbeat:IPaddr2):       Started <VM2>
     ```
 
-1. Använd SQLCMD för att logga in på din primära replik med hjälp av lyssnar namnet:
+1. Använd SQLCMD för att logga in på din primära replik med lyssnarens namn:
 
-    - Använd en inloggning som tidigare har skapats och ersätt `<YourPassword>` med rätt lösen ord. I exemplet nedan används den `sa` inloggning som skapades med SQL Server.
+    - Använd en inloggning som tidigare `<YourPassword>` har skapats och ersätts med rätt lösenord. I exemplet nedan `sa` används inloggningen som skapades med SQL Server.
 
     ```bash
     sqlcmd -S ag1-listener -U sa -P <YourPassword>
     ```
 
-1. Kontrol lera den server som du är ansluten till. Kör följande kommando i SQLCMD:
+1. Kontrollera servern som du är ansluten till. Kör följande kommando i SQLCMD:
 
     ```sql
     SELECT @@SERVERNAME
     ```
 
-    Du bör se att du nu är ansluten till den virtuella datorn som du har växlat till.
+    Du bör se att du nu är ansluten till den virtuella datorn som du misslyckades med.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om belastnings utjämning i Azure finns i:
+Mer information om belastningsutjämnare i Azure finns i:
 
 > [!div class="nextstepaction"]
-> [Konfigurera en belastningsutjämnare för en tillgänglighets grupp på Azure SQL Server virtuella datorer](../../../virtual-machines/windows/sql/virtual-machines-windows-portal-sql-alwayson-int-listener.md)
+> [Konfigurera en belastningsutjämnare för en tillgänglighetsgrupp på virtuella Azure SQL Server-datorer](../../../virtual-machines/windows/sql/virtual-machines-windows-portal-sql-alwayson-int-listener.md)

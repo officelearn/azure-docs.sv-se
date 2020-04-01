@@ -1,5 +1,5 @@
 ---
-title: 'Självstudie: Azure Active Directory integrering med asana | Microsoft Docs'
+title: 'Självstudiekurs: Azure Active Directory-integrering med Asana | Microsoft-dokument'
 description: Läs hur du konfigurerar enkel inloggning mellan Azure Active Directory och Asana.
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 12/31/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5531a7c1a95e472239c639e3307623fc4ccedd37
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73157861"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-asana"></a>Självstudie: Azure Active Directory integrering med asana
+# <a name="tutorial-azure-active-directory-integration-with-asana"></a>Självstudiekurs: Azure Active Directory-integrering med Asana
 
 I den här självstudien får du lära dig hur du integrerar Asana med Azure Active Directory (Azure AD).
 När du integrerar Asana med Azure AD så får du följande fördelar:
@@ -33,13 +33,13 @@ När du integrerar Asana med Azure AD så får du följande fördelar:
 * Du kan hantera dina konton på en central plats – Azure-portalen.
 
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
+Om du inte har en Azure-prenumeration [skapar du ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
 ## <a name="prerequisites"></a>Krav
 
 Om du vill konfigurera Azure AD-integrering med Asana så behöver du följande objekt:
 
-* En Azure AD-prenumeration. Om du inte har en Azure AD-miljö kan du få en månads utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/)
+* En Azure AD-prenumeration. Om du inte har någon Azure AD-miljö kan du hämta en månads utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/)
 * Asana-prenumeration med enkel inloggning aktiverat
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
@@ -56,7 +56,7 @@ Om du vill konfigurera integrering av Asana i Azure AD så behöver du lägga ti
 
 **Utför följande steg för att lägga till Asana från galleriet:**
 
-1. I **[Azure-portalen](https://portal.azure.com)** , i den vänstra navigeringspanelen, klickar du på **Azure Active Directory**-ikonen.
+1. I **[Azure-portalen](https://portal.azure.com)** går du till den vänstra navigeringspanelen och klickar på **Azure Active Directory**-ikonen.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
@@ -81,7 +81,7 @@ Om du vill konfigurera och testa Azure AD enkel inloggning med Asana så måste 
 
 1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
 2. **[Konfigurera enkel inloggning för Asana](#configure-asana-single-sign-on)** – för att konfigurera inställningarna för enkel inloggning på programsidan.
-3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa en	 med Azure AD med Britta Simon.
+3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
 4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
 5. **[Skapa Asana-testanvändare](#create-asana-test-user)** – för att få en motpart för Britta Simon i Asana som är länkad till en Azure AD-representation av användaren.
 6. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
@@ -94,7 +94,7 @@ Konfigurera Azure AD enkel inloggning med Asana genom att utföra följande steg
 
 1. I [Azure-portalen](https://portal.azure.com/) på programintegreringssidan för **Asana** så väljer du **Enkel inloggning**.
 
-    ![Konfigurera enkel inloggning-länk](common/select-sso.png)
+    ![Konfigurera länk för enkel inloggning](common/select-sso.png)
 
 2. I dialogrutan **Välj en metod för enkel inloggning** väljer du läget **SAML/WS-Fed** för att aktivera enkel inloggning.
 
@@ -128,7 +128,7 @@ Konfigurera Azure AD enkel inloggning med Asana genom att utföra följande steg
 
 ### <a name="configure-asana-single-sign-on"></a>Konfigurera enkel inloggning i Asana
 
-1. Logga in i ditt Asana-program i en annan webbläsare. Om du vill konfigurera enkel inloggning i Asana så öppnar du arbetsyteinställningarna genom att klicka på arbetsytans namn i det övre högra hörnet på skärmen. Klicka därefter på **\<ditt arbetsytenamn\> Inställningar**.
+1. Logga in i ditt Asana-program i en annan webbläsare. Om du vill konfigurera enkel inloggning i Asana så öppnar du arbetsyteinställningarna genom att klicka på arbetsytans namn i det övre högra hörnet på skärmen. Klicka sedan på ** \<namnet\> på arbetsytan Inställningar**.
 
     ![Inställningar för enkel inloggning i Asana](./media/asana-tutorial/tutorial_asana_09.png)
 
@@ -140,7 +140,7 @@ Konfigurera Azure AD enkel inloggning med Asana genom att utföra följande steg
 
     b. Högerklicka på det certifikat som hämtats från Azure-portalen och öppna sedan certifikatfilen med Anteckningar eller din önskade textredigerare. Kopiera innehållet mellan start- och slutcertifikatets titel och klistra in det i textrutan **X.509-certifikat**.
 
-3. Klicka på **Save** (Spara). Gå till [Asana-guide för att konfigurera enkel inloggning](https://asana.com/guide/help/premium/authentication#gl-saml) om du behöver ytterligare hjälp.
+3. Klicka på **Spara**. Gå till [Asana-guide för att konfigurera enkel inloggning](https://asana.com/guide/help/premium/authentication#gl-saml) om du behöver ytterligare hjälp.
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 
@@ -150,7 +150,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     ![Länkarna ”Användare och grupper” och ”Alla grupper”](common/users.png)
 
-2. Välj **Ny användare** överst på skärmen.
+2. Välj **Ny användare** högst upp på skärmen.
 
     ![Knappen Ny användare](common/new-user.png)
 
@@ -160,7 +160,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     a. I fältet **Namn** anger du **BrittaSimon**.
   
-    b. I fältet **användar namn** skriver du **brittasimon\@yourcompanydomain. extension**  
+    b. I fältet **Användarnamn** skriver **du\@brittasimon yourcompanydomain.extension**  
     Till exempel, BrittaSimon@contoso.com
 
     c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
@@ -179,7 +179,7 @@ I det här avsnittet så låter du Britta Simon använda Azure enkel inloggning 
 
     ![Asana-länken i programlistan](common/all-applications.png)
 
-3. I menyn till vänster väljer du **Användare och grupper**.
+3. På menyn till vänster väljer du **Användare och grupper**.
 
     ![Länken ”Användare och grupper”](common/users-groups-blade.png)
 
@@ -189,7 +189,7 @@ I det här avsnittet så låter du Britta Simon använda Azure enkel inloggning 
 
 5. I dialogrutan **Användare och grupper** väljer du **Britta Simon** i listan med användare och klickar på knappen **Välj** längst ned på skärmen.
 
-6. Om du förväntar dig ett rollvärde i SAML-försäkran väljer du i dialogrutan **Välj roll** lämplig roll för användaren i listan och klickar sedan på knappen **Välj** längst ned på skärmen.
+6. Om du förväntar dig något rollvärde i SAML-påståendet väljer du lämplig roll för användaren i listan i dialogrutan **Välj roll** och klickar sedan på knappen **Välj** längst ned på skärmen.
 
 7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
 
@@ -205,7 +205,7 @@ I det här avsnittet skapar du en användare som heter Britta Simon i Asana.
 
     ![Skapa en testanvändare för Azure AD](./media/asana-tutorial/tutorial_asana_12.png)
 
-2. Skriv e-postadressen till användaren som **Britta. simon\@contoso.com** i text rutan och välj sedan **Bjud in**.
+2. Skriv e-postmeddelandet för användaren som **britta.simon\@contoso.com** i textrutan och välj sedan **Bjud in**.
 
 3. Klicka på **Skicka inbjudan**. Den nya användaren får ett e-postmeddelande på sitt e-postkonto. användaren måste skapa och validera kontot.
 
@@ -213,7 +213,7 @@ I det här avsnittet skapar du en användare som heter Britta Simon i Asana.
 
 I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-När du klickar på Asana-panelen i åtkomstpanelen så bör du automatiskt loggas in på den Asana som du har konfigurerat enkel inloggning för. I [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) får du mer information.
+När du klickar på Asana-panelen i åtkomstpanelen så bör du automatiskt loggas in på den Asana som du har konfigurerat enkel inloggning för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
@@ -223,4 +223,4 @@ När du klickar på Asana-panelen i åtkomstpanelen så bör du automatiskt logg
 
 - [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
-- [Konfigurera användarförsörjning](asana-provisioning-tutorial.md)
+- [Konfigurera etablering av användare](asana-provisioning-tutorial.md)

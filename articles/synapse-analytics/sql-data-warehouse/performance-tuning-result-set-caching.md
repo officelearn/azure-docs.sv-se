@@ -11,12 +11,12 @@ ms.date: 10/10/2019
 ms.author: xiaoyul
 ms.reviewer: nidejaco;
 ms.custom: azure-synapse
-ms.openlocfilehash: 0c2190c29054301a8e21a9a27eb078802fbc9612
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: da476dc14949ebab1a054a9624d91acb25b9f2b4
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80350864"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80474480"
 ---
 # <a name="performance-tuning-with-result-set-caching"></a>Prestandajustering med cachelagring av resultatuppsättningar  
 När cachelagring av resultatuppsättning är aktiverat cachelagrar SQL Analytics automatiskt frågeresultat i användardatabasen för upprepad användning.  Detta gör att efterföljande frågekörningar kan hämta resultat direkt från den beständiga cachen så att omdämning inte behövs.   Cachelagring av resultat ger resultat förbättrar frågeprestanda och minskar beräkningsresursanvändningen.  Dessutom använder frågor som använder cachelagrade resultatuppsättning inte några samtidighetsplatser och räknas därför inte mot befintliga samtidighetsgränser. För säkerhet kan användare bara komma åt de cachelagrade resultaten om de har samma behörigheter för dataåtkomst som de användare som skapar de cachelagrade resultaten.  
@@ -65,10 +65,10 @@ Cachelagrade resultatuppsättning återanvänds för en fråga om alla följande
 - Det finns en exakt matchning mellan den nya frågan och den föregående frågan som genererade resultatuppsättningscachen.
 - Det finns inga data- eller schemaändringar i tabellerna där den cachelagrade resultatuppsättningen genererades från.
 
-Kör det här kommandot för att kontrollera om en fråga har körts med en resultatcacheträff eller miss. Om det finns en cache träff, kommer result_cache_hit tillbaka 1.
+Kör det här kommandot för att kontrollera om en fråga har körts med en resultatcacheträff eller miss. Kolumnen result_set_cache returnerar 1 för cacheträff, 0 för cachemiss och negativa värden av skäl till varför cachelagring av resultatuppsättning inte användes. Mer information finns [i sys.dm_pdw_exec_requests.](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?view=aps-pdw-2016-au7)
 
 ```sql
-SELECT request_id, command, result_cache_hit FROM sys.dm_pdw_exec_requests 
+SELECT request_id, command, result_set_cache FROM sys.dm_pdw_exec_requests
 WHERE request_id = <'Your_Query_Request_ID'>
 ```
 

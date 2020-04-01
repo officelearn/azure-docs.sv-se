@@ -1,5 +1,5 @@
 ---
-title: 'Självstudie: Azure Active Directory integrering med Brightidea | Microsoft Docs'
+title: 'Självstudiekurs: Azure Active Directory-integrering med Brightidea | Microsoft-dokument'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Brightidea.
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 01/23/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ff89f7323ba4cdf14ed1c052b2dd4e4e06356e00
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73157612"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-brightidea"></a>Självstudie: Azure Active Directory integrering med Brightidea
+# <a name="tutorial-azure-active-directory-integration-with-brightidea"></a>Självstudiekurs: Azure Active Directory-integrering med Brightidea
 
 I den här självstudien lär du dig att integrera Brightidea med Azure Active Directory (Azure AD).
 Integreringen av Brightidea med Azure AD medför följande fördelar:
@@ -33,13 +33,13 @@ Integreringen av Brightidea med Azure AD medför följande fördelar:
 * Du kan hantera dina konton på en central plats – Azure-portalen.
 
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
+Om du inte har en Azure-prenumeration [skapar du ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
 ## <a name="prerequisites"></a>Krav
 
 Du behöver följande saker för att konfigurera Azure AD-integrering med Brightidea:
 
-* En Azure AD-prenumeration. Om du inte har en Azure AD-miljö kan du få en månads utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/)
+* En Azure AD-prenumeration. Om du inte har någon Azure AD-miljö kan du hämta en månads utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/)
 * Brightidea-prenumeration med enkel inloggning aktiverat
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
@@ -57,7 +57,7 @@ För att konfigurera integrering av Brightidea med Azure AD behöver du lägga t
 
 **Utför följande steg för att lägga till Brightidea från galleriet:**
 
-1. I **[Azure-portalen](https://portal.azure.com)** , i den vänstra navigeringspanelen, klickar du på **Azure Active Directory**-ikonen.
+1. I **[Azure-portalen](https://portal.azure.com)** går du till den vänstra navigeringspanelen och klickar på **Azure Active Directory**-ikonen.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
@@ -82,7 +82,7 @@ Du behöver slutföra följande byggstenar för att konfigurera och testa enkel 
 
 1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
 2. **[Konfigurera enkel inloggning för Brightidea](#configure-brightidea-single-sign-on)** – för att konfigurera inställningarna för enkel inloggning på programsidan.
-3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa en	 med Azure AD med Britta Simon.
+3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
 4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
 5. **[Skapa Brightidea-testanvändare](#create-brightidea-test-user)** – för att ha en motsvarighet till Britta Simon i Brightidea som är länkad till en Azure AD-representation av användaren.
 6. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
@@ -95,7 +95,7 @@ Utför följande steg för att konfigurera enkel inloggning med Azure AD för Br
 
 1. I [Azure-portalen](https://portal.azure.com/) går du till programintegreringssidan för **Brightidea** och väljer **Enkel inloggning**.
 
-    ![Konfigurera enkel inloggning-länk](common/select-sso.png)
+    ![Konfigurera länk för enkel inloggning](common/select-sso.png)
 
 2. I dialogrutan **Välj en metod för enkel inloggning** väljer du läget **SAML/WS-Fed** för att aktivera enkel inloggning.
 
@@ -117,16 +117,16 @@ Utför följande steg för att konfigurera enkel inloggning med Azure AD för Br
 
     c. När metadatafilen har laddats upp fylls värdena **Identifierare** och **Svars-URL** i automatiskt i textrutan för avsnittet Brightidea:
 
-    ![mallar](common/idp-intiated.png)
+    ![image](common/idp-intiated.png)
 
     > [!Note]
     > Om värdena **Identifierare** och **Svars-URL** inte fylls i automatiskt fyller du i värdena manuellt enligt dina krav.
 
 5. Klicka på **Ange ytterligare URL:er** och gör följande om du vill konfigurera appen i **SP**-initierat läge:
 
-    ![mallar](common/metadata-upload-additional-signon.png)
+    ![image](common/metadata-upload-additional-signon.png)
 
-    I textrutan **Inloggnings-URL** skriver du in en URL med följande mönster: `https://<SUBDOMAIN>.brightidea.com`
+    Skriv en URL med hjälp av följande mönster i textrutan **Sign-on-URL:**`https://<SUBDOMAIN>.brightidea.com`
 
 4. På sidan **Konfigurera enkel inloggning med SAML** går du till avsnittet **SAML-signeringscertifikat**, klickar på **Ladda ned** för att ladda ned **XML-federationsmetadata** från de angivna alternativen enligt dina behov och sparar dem på datorn.
 
@@ -146,11 +146,11 @@ Utför följande steg för att konfigurera enkel inloggning med Azure AD för Br
 
 1. I ett annat webbläsarfönster loggar du in på Brightidea med autentiseringsuppgifter för administratör.
 
-2. För att komma till funktionen SSO i Brightidea-systemet går du till fliken **Enterprise Setup** -> **Authentication**. Där visas två underflikar: val av auth & SAML-profiler.
+2. Om du vill komma till SSO-funktionen i Brightidea-systemet navigerar du till**fliken Autentisering** **av företagsinställningar** -> . Där ser du två underflikar: Auth Selection & SAML-profiler.
 
     ![Brightidea-konfiguration](./media/brightidea-tutorial/configure1.png)
 
-3. Välj **Auth Selection** (Autentiseringsval). Som standard visar det bara två standard metoder: Brightidea login & Registration. När en metod för enkel inloggning har lagts till visas den i listan.
+3. Välj **Auth Selection** (Autentiseringsval). Som standard visas bara två standardmetoder: Brightidea-inloggning & registrering. När en metod för enkel inloggning har lagts till visas den i listan.
 
     ![Brightidea-konfiguration](./media/brightidea-tutorial/configure2.png)
 
@@ -185,7 +185,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     ![Länkarna ”Användare och grupper” och ”Alla grupper”](common/users.png)
 
-2. Välj **Ny användare** överst på skärmen.
+2. Välj **Ny användare** högst upp på skärmen.
 
     ![Knappen Ny användare](common/new-user.png)
 
@@ -193,9 +193,9 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     ![Dialogrutan Användare](common/user-properties.png)
 
-    a. I fältet **Namn** anger du **BrittaSimon**.
+    a. Ange **BrittaSimon**i fältet **Namn** .
   
-    b. I fältet **användar namn** skriver du **brittasimon\@yourcompanydomain. extension**  
+    b. Skriv **brittasimon\@ditt företaganydomain.extension** i fältet **Användarnamn**  
     Till exempel, BrittaSimon@contoso.com
 
     c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
@@ -214,7 +214,7 @@ I det här avsnittet gör du det möjligt för Britta Simon att använda enkel i
 
     ![Länken för Brightidea i programlistan](common/all-applications.png)
 
-3. I menyn till vänster väljer du **Användare och grupper**.
+3. På menyn till vänster väljer du **Användare och grupper**.
 
     ![Länken ”Användare och grupper”](common/users-groups-blade.png)
 
@@ -222,11 +222,11 @@ I det här avsnittet gör du det möjligt för Britta Simon att använda enkel i
 
     ![Fönstret Lägg till tilldelning](common/add-assign-user.png)
 
-5. I dialogrutan **Användare och grupper** väljer du **Britta Simon** i listan med användare och klickar på knappen **Välj** längst ned på skärmen.
+5. I dialogrutan **Användare och grupper** väljer du **Britta Simon** i listan Användare och klickar sedan på knappen **Välj** längst ned på skärmen.
 
-6. Om du förväntar dig ett rollvärde i SAML-försäkran väljer du i dialogrutan **Välj roll** lämplig roll för användaren i listan och klickar sedan på knappen **Välj** längst ned på skärmen.
+6. Om du förväntar dig något rollvärde i SAML-påståendet väljer du lämplig roll för användaren i listan i dialogrutan **Välj roll** och klickar sedan på knappen **Välj** längst ned på skärmen.
 
-7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
+7. Klicka på knappen **Tilldela** i dialogrutan **Lägg till tilldelning.**
 
 ### <a name="create-brightidea-test-user"></a>Skapa Brightidea-testanvändare
 
@@ -236,7 +236,7 @@ I det här avsnittet skapas en användare som heter Britta Simon i Brightidea. B
 
 I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-När du klickar på Brightidea-panelen i åtkomstpanelen bör du automatiskt loggas in på Brightidea som du har konfigurerat enkel inloggning för. I [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) får du mer information.
+När du klickar på Brightidea-panelen i åtkomstpanelen bör du automatiskt loggas in på Brightidea som du har konfigurerat enkel inloggning för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 

@@ -1,5 +1,5 @@
 ---
-title: Använd enhetssammanfattning i StorSimple 8000-serien | Microsoft-dokument
+title: Använda enhetssammanfattning i StorSimple Enhetshanterarens tjänst
 description: Beskriver sammanfattningen av StorSimple Device Manager-tjänstenheten och hur du använder den för att visa lagringsmått och anslutna initierare och hitta serienumret och IQN.
 services: storsimple
 documentationcenter: NA
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 07/03/2017
 ms.author: alkohli
-ms.openlocfilehash: 1d88af2c0739c30b2562bad7660015b890e8159c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7801cdc6573799330e5173db82dead8d4f2cd83f
+ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "60578325"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80398254"
 ---
 # <a name="use-the-device-summary-in-storsimple-device-manager-service"></a>Använda enhetssammanfattningen i StorSimple Enhetshanteraren
 

@@ -1,22 +1,22 @@
 ---
 title: Vad är API för webbsökning i Bing?
 titleSuffix: Azure Cognitive Services
-description: API:et för webbsökning i Bing är en RESTful-tjänst som ger svar direkt på användarförfrågningar. Det är enkelt att konfigurera sökresultaten så att de omfattar webbsidor, bilder, video, nyheter, översättningar med mera. Resultaten tillhandahålls som JSON och baserat på sökrelevans och prenumerationer för webbsökning i Bing.
+description: Api:et för webbsökning på Bing är en RESTful-tjänst som ger omedelbara svar på webbsökningsfrågor. Konfigurera resultat så att de innehåller webbsidor, bilder, videor, nyheter med mera. Resultaten tillhandahålls som JSON och baserat på sökrelevans och prenumerationer för webbsökning i Bing.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: overview
-ms.date: 12/05/2019
+ms.date: 03/31/2020
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: a7b2627b5837a124ebbcd76783bb49679cbe6313
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: 5ea98a4ef759937c5962dc86f0384051b8fa0bb3
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77650290"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80477463"
 ---
 # <a name="what-is-the-bing-web-search-api"></a>Vad är API för webbsökning i Bing?
 

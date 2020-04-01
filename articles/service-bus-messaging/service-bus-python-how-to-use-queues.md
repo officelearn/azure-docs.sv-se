@@ -14,12 +14,12 @@ ms.topic: quickstart
 ms.date: 01/27/2020
 ms.author: aschhab
 ms.custom: seo-python-october2019
-ms.openlocfilehash: aa9ffc48d9b1374fa510f450bab2c66641421446
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: acb0b0e84804ecf6025e05590133dee9b0d54c48
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "76773498"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80478653"
 ---
 # <a name="quickstart-use-azure-service-bus-queues-with-python"></a>Snabbstart: Använd Azure Service Bus-köer med Python
 
@@ -32,7 +32,7 @@ Mer information om Python Azure Service Bus-biblioteken finns i [Service Bus-bib
 ## <a name="prerequisites"></a>Krav
 - En Azure-prenumeration. Du kan aktivera dina fördelar för [Visual Studio- eller MSDN-prenumeranter](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) eller registrera dig för ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
 - Ett servicebussnamnområde som skapats genom att följa stegen i [Snabbstart: Använd Azure-portalen för att skapa ett servicebussämne och prenumerationer](service-bus-quickstart-topics-subscriptions-portal.md). Kopiera den primära **anslutningssträngen** från skärmen Principer för delad åtkomst om du vill använda senare i den här artikeln. 
-- Python 3.4x eller högre, med [Python Azure Service Bus-paketet][Python Azure Service Bus package] installerat. Mer information finns i [installationsguiden](/azure/python/python-sdk-azure-install)för Python . 
+- Python 3.4x eller högre, med [Python Azure Service Bus-paketet][Python Azure Service Bus package] installerat. Mer information finns i [installationsguiden](/azure/developer/python/azure-sdk-install)för Python . 
 
 ## <a name="create-a-queue"></a>Skapa en kö
 

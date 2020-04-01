@@ -1,9 +1,9 @@
 ---
 ms.openlocfilehash: bdd46f06357a806a707882a623520235e3903581
-ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "79381796"
 ---
 ## <a name="app-configuration"></a>App Configuration
@@ -22,7 +22,7 @@ ms.locfileid: "79381796"
 
 [!INCLUDE [azure-policy-samples-policies-automation](azure-policy-samples-policies-automation.md)]
 
-## <a name="backup"></a>Säkerhetskopiering
+## <a name="backup"></a>Backup
 
 [!INCLUDE [azure-policy-samples-policies-backup](azure-policy-samples-policies-backup.md)]
 
@@ -46,7 +46,7 @@ ms.locfileid: "79381796"
 
 [!INCLUDE [azure-policy-samples-policies-cosmos-db](azure-policy-samples-policies-cosmos-db.md)]
 
-## <a name="custom-provider"></a>Anpassad Provider
+## <a name="custom-provider"></a>Anpassad leverantör
 
 [!INCLUDE [azure-policy-samples-policies-custom-provider](azure-policy-samples-policies-custom-provider.md)]
 
@@ -66,7 +66,7 @@ ms.locfileid: "79381796"
 
 [!INCLUDE [azure-policy-samples-policies-guest-configuration](azure-policy-samples-policies-guest-configuration.md)]
 
-## <a name="internet-of-things"></a>Sakernas Internet
+## <a name="internet-of-things"></a>Internet of Things
 
 [!INCLUDE [azure-policy-samples-policies-internet-of-things](azure-policy-samples-policies-internet-of-things.md)]
 
@@ -78,7 +78,7 @@ ms.locfileid: "79381796"
 
 [!INCLUDE [azure-policy-samples-policies-kubernetes](azure-policy-samples-policies-kubernetes.md)]
 
-## <a name="kubernetes-service"></a>Kubernetes-tjänst
+## <a name="kubernetes-service"></a>Tjänsten Kubernetes
 
 [!INCLUDE [azure-policy-samples-policies-kubernetes-service](azure-policy-samples-policies-kubernetes-service.md)]
 
@@ -102,7 +102,7 @@ ms.locfileid: "79381796"
 
 [!INCLUDE [azure-policy-samples-policies-network](azure-policy-samples-policies-network.md)]
 
-## <a name="search"></a>Söka
+## <a name="search"></a>Search
 
 [!INCLUDE [azure-policy-samples-policies-search](azure-policy-samples-policies-search.md)]
 

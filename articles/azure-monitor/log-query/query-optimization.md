@@ -5,13 +5,13 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 02/28/2019
-ms.openlocfilehash: c32731ce2de2b0f886a1e21ee8ccad3996e395eb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 03/30/2019
+ms.openlocfilehash: 29d5213b8eecd94ed8c8ce565972c9f98872a362
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79480274"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80411434"
 ---
 # <a name="optimize-log-queries-in-azure-monitor"></a>Optimera loggfrågor i Azure Monitor
 Azure Monitor Logs använder [Azure Data Explorer (ADX)](/azure/data-explorer/) för att lagra loggdata och köra frågor för att analysera dessa data. Det skapar, hanterar och underhåller ADX-kluster för dig och optimerar dem för din logganalysarbetsbelastning. När du kör en fråga optimeras den och dirigeras till lämpligt ADX-kluster som lagrar arbetsytans data. Både Azure Monitor Logs och Azure Data Explorer använder många automatiska frågeoptimeringsmekanismer. Även om automatiska optimeringar ger betydande skjuts, är de i vissa fall där du dramatiskt kan förbättra frågeprestanda. I den här artikeln beskrivs prestandaöverväganden och flera tekniker för att åtgärda dem.
@@ -57,7 +57,7 @@ Frågebearbetningstiden spenderas på:
 - Datahämtning – hämtning av gamla data förbrukar mer tid än hämtning av de senaste data.
 - Databehandling – logik och utvärdering av data. 
 
-Förutom tid i frågebearbetningsnoderna finns det ytterligare tid som spenderas av Azure Monitor Logs för att: autentisera användaren och verifiera att de har rätt att komma åt dessa data, hitta datalagret, tolka frågan och allokera frågebearbetningen Noder. Den här gången ingår inte i frågans totala CPU-tid.
+Förutom tid i frågebearbetningsnoderna finns det ytterligare tid som spenderas av Azure Monitor Logs för att: autentisera användaren och verifiera att de har rätt att komma åt dessa data, hitta datalagret, tolka frågan och allokera frågebearbetningsnoderna. Den här gången ingår inte i frågans totala CPU-tid.
 
 ### <a name="early-filtering-of-records-prior-of-using-high-cpu-functions"></a>Tidig filtrering av poster innan du använder höga CPU-funktioner
 
@@ -155,6 +155,21 @@ Heartbeat
 
 > [!NOTE]
 > Den här indikatorn visar endast CPU från det omedelbara klustret. I frågan med flera regioner skulle den bara representera en av regionerna. I frågan om flera arbetsytor kanske den inte innehåller alla arbetsytor.
+
+### <a name="avoid-full-xml-and-json-parsing-when-string-parsing-works"></a>Undvik fullständig XML- och JSON-tolkning när strängtolka fungerar
+Fullständig tolkning av ett XML- eller JSON-objekt kan förbruka hög CPU- och minnesresurser. I många fall, när endast en eller två parametrar behövs och XML- eller JSON-objekten är enkla, är det lättare att tolka dem som strängar med hjälp av [parsaoperatorn](/azure/kusto/query/parseoperator) eller andra [texttolka tekniker](/azure/azure-monitor/log-query/parse-text). Prestandaökningen blir mer betydande i takt med att antalet poster i XML- eller JSON-objektet ökar. Det är viktigt när antalet poster når tiotals miljoner.
+
+Följande fråga returnerar till exempel exakt samma resultat som frågorna ovan utan att utföra fullständig XML-tolkning. Observera att det gör vissa antaganden om XML-filstrukturen, till exempel att FilePath-elementet kommer efter FileHash och att ingen av dem har attribut. 
+
+```Kusto
+//even more efficient
+SecurityEvent
+| where EventID == 8002 //Only this event have FileHash
+| where EventData !has "%SYSTEM32" //Early removal of unwanted records
+| parse EventData with * "<FilePath>" FilePath "</FilePath>" * "<FileHash>" FileHash "</FileHash>" *
+| summarize count() by FileHash, FilePath
+| where FileHash != "" // No need to filter out %SYSTEM32 here as it was removed before
+```
 
 
 ## <a name="data-used-for-processed-query"></a>Data som används för bearbetad fråga

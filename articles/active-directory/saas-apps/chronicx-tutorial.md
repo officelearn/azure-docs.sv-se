@@ -1,5 +1,5 @@
 ---
-title: 'Självstudie: Azure Active Directory integration med ChronicX® | Microsoft Docs'
+title: 'Självstudiekurs: Azure Active Directory-integrering med ChronicX® | Microsoft-dokument'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och ChronicX®.
 services: active-directory
 documentationCenter: na
@@ -17,45 +17,45 @@ ms.date: 02/20/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 24990ce397d91bb71ebbc455be345d9451d2dce1
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73158655"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-chronicx"></a>Självstudie: Azure Active Directory integrering med ChronicX®
+# <a name="tutorial-azure-active-directory-integration-with-chronicx"></a>Självstudiekurs: Azure Active Directory-integrering med ChronicX®
 
-I den här självstudien får du lära dig att integrera ChronicX-® med Azure Active Directory (Azure AD).
-Genom att integrera ChronicX-® med Azure AD får du följande fördelar:
+I den här självstudien får du lära dig hur du integrerar ChronicX® med Azure Active Directory (Azure AD).
+Genom att integrera ChronicX® med Azure AD får du följande fördelar:
 
-* Du kan styra Azure AD som har åtkomst till ChronicX®.
-* Du kan göra det möjligt för användarna att logga in automatiskt till ChronicX® (enkel inloggning) med sina Azure AD-konton.
+* Du kan styra i Azure AD som har åtkomst till ChronicX®.
+* Du kan aktivera dina användare automatiskt inloggad på ChronicX® (Enkel inloggning) med sina Azure AD-konton.
 * Du kan hantera dina konton på en central plats – Azure-portalen.
 
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
+Om du inte har en Azure-prenumeration [skapar du ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
 ## <a name="prerequisites"></a>Krav
 
 Om du vill konfigurera Azure AD-integrering med ChronicX® behöver du följande objekt:
 
-* En Azure AD-prenumeration. Om du inte har en Azure AD-miljö kan du få en månads utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/)
-* ChronicX® enkel inloggning aktive rad prenumeration
+* En Azure AD-prenumeration. Om du inte har någon Azure AD-miljö kan du hämta en månads utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/)
+* ChronicX® enda inloggningsaktiverad prenumeration
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
 I den här självstudien konfigurerar och testar du enkel inloggning med Azure AD i en testmiljö.
 
-* ChronicX® stöder **SP** -INITIERAd SSO
-* ChronicX® stöder **just-in-Time** User-etablering
+* ChronicX® stöder **SP** initierade SSO
+* ChronicX® stöder just in time-användaretablering **Just In Time**
 
 ## <a name="adding-chronicx-from-the-gallery"></a>Lägga till ChronicX® från galleriet
 
-Om du vill konfigurera integreringen av ChronicX-® i Azure AD måste du lägga till ChronicX® från galleriet till listan över hanterade SaaS-appar.
+Om du vill konfigurera integreringen av ChronicX® i Azure AD måste du lägga till ChronicX® från galleriet till listan över hanterade SaaS-appar.
 
-**Utför följande steg för att lägga till ChronicX® från galleriet:**
+**Så här lägger du till ChronicX® från galleriet:**
 
-1. I **[Azure-portalen](https://portal.azure.com)** , i den vänstra navigeringspanelen, klickar du på **Azure Active Directory**-ikonen.
+1. I **[Azure-portalen](https://portal.azure.com)** går du till den vänstra navigeringspanelen och klickar på **Azure Active Directory**-ikonen.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
@@ -67,33 +67,33 @@ Om du vill konfigurera integreringen av ChronicX-® i Azure AD måste du lägga 
 
     ![Knappen Nytt program](common/add-new-app.png)
 
-4. I rutan Sök skriver du **ChronicX®**, väljer **ChronicX®** från resultat panelen och klickar sedan på **Lägg till** för att lägga till programmet.
+4. Skriv **ChronicX®**i sökrutan och välj **ChronicX®** från resultatpanelen och klicka sedan på **Lägg** till knappen för att lägga till programmet.
 
-     ![ChronicX® i resultat listan](common/search-new-app.png)
+     ![ChronicX® i resultatlistan](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
-I det här avsnittet konfigurerar och testar du enkel inloggning med Azure AD med ChronicX® baserat på en test användare som kallas **Britta Simon**.
-För att enkel inloggning ska fungera måste en länk relation mellan en Azure AD-användare och den relaterade användaren i ChronicX-® upprättas.
+I det här avsnittet konfigurerar och testar du azure AD enkel inloggning med ChronicX® baserat på en testanvändare som heter **Britta Simon**.
+För enkel inloggning för att fungera måste en länkrelation mellan en Azure AD-användare och den relaterade användaren i ChronicX® upprättas.
 
-Om du vill konfigurera och testa enkel inloggning med ChronicX® i Azure AD måste du slutföra följande Bygg stenar:
+Om du vill konfigurera och testa en enkel Azure AD-inloggning med ChronicX® måste du slutföra följande byggblock:
 
 1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
-2. **[Konfigurera ChronicX® enkel inloggning](#configure-chronicx-single-sign-on)** för att konfigurera inställningarna för enkel inloggning på program sidan.
-3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa en	 med Azure AD med Britta Simon.
+2. **[Konfigurera ChronicX® Single Sign-On](#configure-chronicx-single-sign-on)** - för att konfigurera inställningarna för enkel inloggning på programsidan.
+3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
 4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
-5. **[Skapa ChronicX® test User](#create-chronicx-test-user)** – om du vill ha en motsvarighet till Britta Simon i ChronicX® som är länkad till Azure AD-representation av användare.
+5. **[Skapa ChronicX® testanvändare](#create-chronicx-test-user)** - att ha en motsvarighet till Britta Simon i ChronicX® som är kopplad till Azure AD-representationen av användaren.
 6. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
 I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure-portalen.
 
-Utför följande steg för att konfigurera enkel inloggning för Azure AD med ChronicX®:
+Så här konfigurerar du en enkel Azure AD-inloggning med ChronicX®:
 
-1. I [Azure Portal](https://portal.azure.com/)på sidan **ChronicX®** program integration väljer du **enkel inloggning**.
+1. I [Azure-portalen](https://portal.azure.com/)väljer du **Enkel inloggning**på sidan Integrering av **KroniskX®-program** .
 
-    ![Konfigurera enkel inloggning-länk](common/select-sso.png)
+    ![Konfigurera länk för enkel inloggning](common/select-sso.png)
 
 2. I dialogrutan **Välj en metod för enkel inloggning** väljer du läget **SAML/WS-Fed** för att aktivera enkel inloggning.
 
@@ -105,20 +105,20 @@ Utför följande steg för att konfigurera enkel inloggning för Azure AD med Ch
 
 4. I avsnittet **Grundläggande SAML-konfiguration** utför du följande steg:
 
-    ![ChronicX® domän och URL-information för enkel inloggning](common/sp-identifier.png)
+    ![ChronicX® domän och webbadresser enkel inloggningsinformation](common/sp-identifier.png)
 
     a. I textrutan **Inloggnings-URL** anger du en URL enligt följande mönster: `https://<subdomain>.chronicx.com/ups/processlogonSSO.jsp`
 
-    b. I textrutan **Identifierare (entitets-ID)** anger du en URL: `ups.chronicx.com`
+    b. Skriv en URL i textrutan **Identifierare (enhets-ID):**`ups.chronicx.com`
 
     > [!NOTE]
-    >Inloggnings-URL-värdet är inte verkligt. Uppdatera värdet med den faktiska inloggnings-URL:en. Kontakta [ChronicX® klient support teamet](https://www.casebank.com/contact-us/) för att hämta värdet. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
+    >Inloggnings-URL-värdet är inte verkligt. Uppdatera värdet med den faktiska inloggnings-URL:en. Kontakta [ChronicX® Client support team](https://www.casebank.com/contact-us/) för att få värdet. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
-5. Klicka på **Ladda ned** i avsnittet **SAML-signeringscertifikat** på sidan **Konfigurera enkel inloggning med SAML** när du ska ladda ned **Federation Metadata XML** från de angivna alternativen enligt dina behov och spara det på datorn.
+5. På sidan **Set up Single Sign-On with SAML** (Konfigurera enkel inloggning med SAML) går du till avsnittet **SAML Signing Certificate** (SAML-signeringscertifikat), klickar på **Ladda ned** för att ladda ned **Federation Metadata-XML** från de angivna alternativen enligt dina behov och spara den på datorn.
 
     ![Länk för nedladdning av certifikatet](common/metadataxml.png)
 
-6. I avsnittet **Konfigurera ChronicX®** kopierar du lämpliga URL: er enligt ditt krav.
+6. Kopiera lämpliga webbadresser enligt dina krav i avsnittet **Konfigurera ChronicX®** enligt dina krav.
 
     ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
 
@@ -128,9 +128,9 @@ Utför följande steg för att konfigurera enkel inloggning för Azure AD med Ch
 
     c. Utloggnings-URL
 
-### <a name="configure-chronicx-single-sign-on"></a>Konfigurera ChronicX enkel inloggning
+### <a name="configure-chronicx-single-sign-on"></a>Konfigurera ChronicX single sign-on
 
-Om du vill konfigurera enkel inloggning på **ChronicX®** sidan, måste du skicka den hämtade **XML-metadata för federationsmetadata** och lämpliga kopierade url: er från Azure Portal till [ChronicX® support teamet](https://www.casebank.com/contact-us/). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
+Om du vill konfigurera enkel inloggning på **ChronicX®-sidan** måste du skicka den nedladdade **XML-koden för federationsmetadata** och lämpliga kopierade URL:er från Azure-portalen till [ChronicX® supportteam](https://www.casebank.com/contact-us/). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 
@@ -140,7 +140,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     ![Länkarna ”Användare och grupper” och ”Alla grupper”](common/users.png)
 
-2. Välj **Ny användare** överst på skärmen.
+2. Välj **Ny användare** högst upp på skärmen.
 
     ![Knappen Ny användare](common/new-user.png)
 
@@ -150,7 +150,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     a. I fältet **Namn** anger du **BrittaSimon**.
   
-    b. I fältet **användar namn** skriver du **brittasimon\@yourcompanydomain. extension**  
+    b. I fältet **Användarnamn** skriver **du\@brittasimon yourcompanydomain.extension**  
     Till exempel, BrittaSimon@contoso.com
 
     c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
@@ -159,17 +159,17 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
-I det här avsnittet aktiverar du Britta Simon för att använda enkel inloggning med Azure genom att bevilja åtkomst till ChronicX®.
+I det här avsnittet kan du aktivera Britta Simon för att använda Azure enkel inloggning genom att bevilja åtkomst till ChronicX®.
 
-1. I Azure Portal väljer du **företags program**, väljer **alla program**och väljer sedan **ChronicX®**.
+1. I Azure-portalen väljer du **Enterprise Applications**, väljer **Alla program**och väljer sedan **ChronicX®**.
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-2. I listan program väljer du **ChronicX®**.
+2. Välj **ChronicX®**i programlistan .
 
-    ![ChronicX-®-länken i program listan](common/all-applications.png)
+    ![Länken ChronicX® i listan Program](common/all-applications.png)
 
-3. I menyn till vänster väljer du **Användare och grupper**.
+3. På menyn till vänster väljer du **Användare och grupper**.
 
     ![Länken ”Användare och grupper”](common/users-groups-blade.png)
 
@@ -179,22 +179,22 @@ I det här avsnittet aktiverar du Britta Simon för att använda enkel inloggnin
 
 5. I dialogrutan **Användare och grupper** väljer du **Britta Simon** i listan med användare och klickar på knappen **Välj** längst ned på skärmen.
 
-6. Om du förväntar dig ett rollvärde i SAML-försäkran väljer du i dialogrutan **Välj roll** lämplig roll för användaren i listan och klickar sedan på knappen **Välj** längst ned på skärmen.
+6. Om du förväntar dig något rollvärde i SAML-påståendet väljer du lämplig roll för användaren i listan i dialogrutan **Välj roll** och klickar sedan på knappen **Välj** längst ned på skärmen.
 
 7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
 
-### <a name="create-chronicx-test-user"></a>Skapa ChronicX test användare
+### <a name="create-chronicx-test-user"></a>Skapa användare av ChronicX-test
 
-I det här avsnittet skapas en användare som kallas Britta Simon i ChronicX®. ChronicX® stöder just-in-Time-etablering, som är aktiverat som standard. Det finns inget åtgärdsobjekt för dig i det här avsnittet. Om en användare inte redan finns i ChronicX® skapas en ny efter autentiseringen.
+I det här avsnittet skapas en användare som heter Britta Simon i ChronicX®. ChronicX® stöder just-in-time-användaretablering, vilket är aktiverat som standard. Det finns inget åtgärdsobjekt för dig i det här avsnittet. Om en användare inte redan finns i ChronicX® skapas en ny efter autentisering.
 
 > [!Note]
-> Om du behöver skapa en användare manuellt kontaktar du [ChronicX® support team](https://www.casebank.com/contact-us/).
+> Om du behöver skapa en användare manuellt kontaktar du [Supportteamet för ChronicX®](https://www.casebank.com/contact-us/).
 
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning
 
 I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-När du klickar på panelen ChronicX® på åtkomst panelen, bör du loggas in automatiskt på den ChronicX® som du ställer in SSO för. I [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) får du mer information.
+När du klickar på panelen ChronicX® på åtkomstpanelen bör du automatiskt loggas in på den ChronicX® som du ställer in SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 

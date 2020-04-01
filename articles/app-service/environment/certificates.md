@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 08/29/2018
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 65fc4ed25b0fd360de8e3b1439d1766485eb2e58
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ba1d06ce83d50b6f0db84d1e423e66eae98f665d
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74688647"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80477510"
 ---
 # <a name="certificates-and-the-app-service-environment"></a>Certifikat och apptjänstmiljön 
 
@@ -22,7 +22,7 @@ ASE är ett enda klientsystem. Eftersom det är en enda klient finns det vissa f
 
 ## <a name="ilb-ase-certificates"></a>ILB ASE-certifikat 
 
-Om du använder en extern ASE nås dina appar på [appnamn]. [asename].p.azurewebsites.net. Som standard skapas alla ASEs, även ILB ASEs, med certifikat som följer det formatet. När du har en ILB ASE nås apparna baserat på det domännamn som du anger när du skapar ILB ASE. För att apparna ska stödja SSL måste du ladda upp certifikat. Skaffa ett giltigt SSL-certifikat med hjälp av interna certifikatutfärdare, köpa ett certifikat från en extern utfärdare eller använda ett självsignerat certifikat. 
+Om du använder en extern ASE nås dina appar på [appnamn]. [asename].p.azurewebsites.net. Som standard skapas alla ASEs, även ILB ASEs, med certifikat som följer det formatet. När du har en ILB ASE nås apparna baserat på det domännamn som du anger när du skapar ILB ASE. För att apparna ska stödja TLS måste du ladda upp certifikat. Skaffa ett giltigt TLS/SSL-certifikat med hjälp av interna certifikatutfärdare, köpa ett certifikat från en extern utfärdare eller använda ett självsignerat certifikat. 
 
 Det finns två alternativ för att konfigurera certifikat med din ILB ASE.  Du kan ange ett jokerteckenstandardcertifikat för ILB ASE eller ange certifikat på de enskilda webbapparna i ASE.  Oavsett vilket val du väljer måste följande certifikatattribut konfigureras korrekt:
 
@@ -58,7 +58,7 @@ Appar som finns i en ASE kan använda de appcentrerade certifikatfunktioner som 
 - IP-baserad SSL, som endast stöds med en extern ASE.  En ILB ASE stöder inte IP-baserad SSL.
 - KeyVault värdcertifikat 
 
-Instruktionerna för att ladda upp och hantera dessa certifikat är tillgängliga i [Lägg till ett SSL-certifikat i Azure App Service](../configure-ssl-certificate.md).  Om du bara konfigurerar certifikat så att de matchar ett eget domännamn som du har tilldelat din webbapp räcker dessa instruktioner. Om du laddar upp certifikatet för en ILB ASE-webbapp med standarddomännamnet anger du scm-platsen i CERTIFIKATET för certifikatet som tidigare nämnts. 
+Instruktionerna för att ladda upp och hantera dessa certifikat finns i [Lägg till ett TLS/SSL-certifikat i Azure App Service](../configure-ssl-certificate.md).  Om du bara konfigurerar certifikat så att de matchar ett eget domännamn som du har tilldelat din webbapp räcker dessa instruktioner. Om du laddar upp certifikatet för en ILB ASE-webbapp med standarddomännamnet anger du scm-platsen i CERTIFIKATET för certifikatet som tidigare nämnts. 
 
 ## <a name="tls-settings"></a>TLS-inställningar 
 

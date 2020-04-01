@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/06/2019
 ms.author: memildin
-ms.openlocfilehash: 84ed5db54874231d8bde4d892eedbc60c42a3430
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 11201d6560319dd34ec829f1fb34bd13d45011d7
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77918765"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80435824"
 ---
 # <a name="what-is-azure-security-center"></a>Vad är Azure Security Center?
 
@@ -49,7 +49,7 @@ Som en hjälp i skyddet mot dessa utmaningar erbjuder Security Center dig verkty
 
 Eftersom Security Center ingår internt i Azure, så övervakas och skyddas PaaS-tjänster i Azure, som Service Fabric, SQL-databaser och lagringskonton, utan att det krävs någon distribution.
 
-Dessutom skyddar Security Center Azure-servrar och virtuella datorer i molnet eller lokalt för både Windows och Linux-servrar genom att installera Microsoft Monitoring Agent på dem. Virtuella Azure-datorer etableras automatiskt i Security Center.
+Dessutom skyddar Security Center servrar som inte är Azure-servrar och virtuella datorer i molnet eller lokalt, för både Windows- och Linux-servrar, genom att installera Log Analytics-agenten på dem. Virtuella Azure-datorer etableras automatiskt i Security Center.
 
 De händelser som samlas in från agenterna och från Azure är korrelerade i säkerhetsanalysmotorn för att ge dig skräddarsydda rekommendationer (härdade uppgifter), som du bör följa för att se till att dina arbetsbelastningar är säkra och säkerhetsaviseringar. Du bör kontrollera dessa aviseringar så snart som möjligt så att du kan försäkra dig om att dina arbetsbelastningar inte utsätts för potentiellt skadliga attacker.
 
@@ -129,11 +129,11 @@ Security Center innehåller funktioner som hjälper dig att utföra automatisk k
 
 ### <a name="protect-iot-and-hybrid-cloud-workloads"></a>Skydda arbetsbelastningar för IoT- och hybridmoln
 
-Azure Security Center for IoT (Sakernas Internet) förenklar skyddet av hybridarbetsbelastningen genom att tillhandahålla enhetlig synlighet och kontroll, adaptiv hotförebyggande och intelligent hotskydd och hothantering över arbetsbelastningar som körs på kant, lokalt, i Azure och i andra moln. Mer information finns i [Azure Security Center för IoT](https://docs.microsoft.com/azure/asc-for-iot/).
+Azure Security Center for IoT (Sakernas Internet) förenklar skyddet av hybridarbetsbelastningen genom att leverera enhetlig synlighet och kontroll, adaptivt hotförebyggande och intelligent hotskydd och respons över arbetsbelastningar som körs på kant, lokalt, i Azure och i andra moln. Mer information finns i [Azure Security Center för IoT](https://docs.microsoft.com/azure/asc-for-iot/).
 
 ## <a name="get-secure-faster"></a>Bli skyddad snabbare
 
-Inbyggd Azure-integrering (inklusive Azure-princip- och Azure Monitor-loggar) i kombination med sömlös integrering med andra Microsoft-säkerhetslösningar, till exempel Microsoft Cloud App Security och Windows Defender Advanced Threat Protection, hjälper dig att se till att säkerhetslösningen är omfattande och enkel att gå ombord och rulla ut.
+Inbyggd Azure-integrering (inklusive Azure Policy- och Azure Monitor-loggar) i kombination med sömlös integrering med andra Microsoft-säkerhetslösningar, till exempel Microsoft Cloud App Security och Windows Defender Advanced Threat Protection, hjälper dig att se till att säkerhetslösningen är heltäckande och enkel att installera och distribuera.
 
 Dessutom kan du utöka den fullständiga lösningen utöver Azure till arbetsbelastningar som körs i andra moln och i lokala datacentra.
 

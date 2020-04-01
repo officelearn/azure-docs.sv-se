@@ -7,12 +7,12 @@ ms.date: 08/21/2019
 ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
-ms.openlocfilehash: 1f13efeb5c2ebcb8b23dea6f9ae997039972f089
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
-ms.translationtype: HT
+ms.openlocfilehash: 997aa9d96f2f52331865fd15d97443d74bb8bc1f
+ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "72428309"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80398004"
 ---
 # <a name="use-the-azure-storage-emulator-for-development-and-testing"></a>Använd Azure-lagringsemulatorn för utveckling och testning
 
@@ -325,6 +325,6 @@ Det finns inga skillnader som är specifika för kölagring i emulatorn.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Utvärdera den plattformsoberoende, community-underhållna lagringsemulatorn [Azurite](https://github.com/arafato/azurite)med öppen källkod . 
+* Utvärdera den plattformsoberoende, community-underhållna lagringsemulatorn [Azurite](https://github.com/azure/azurite)med öppen källkod . 
 * [Azure Storage-exempel med .NET](../storage-samples-dotnet.md) innehåller länkar till flera kodexempel som du kan använda när du utvecklar ditt program.
 * Du kan använda [Microsoft Azure Storage Explorer](https://storageexplorer.com) för att arbeta med resurser i ditt molnlagringskonto och i lagringsemmulatorn.

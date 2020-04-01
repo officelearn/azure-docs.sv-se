@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 03/11/2020
-ms.openlocfilehash: 963b86852a7df557ad7179e444e7c3a2692f57d9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a14f4d548053fb7aaf6f450176fdc49bc7b119bf
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79531460"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80421041"
 ---
 # <a name="troubleshoot-copy-activity-performance"></a>Felsöka prestanda för kopieringsaktivitet
 
@@ -88,7 +88,7 @@ När kopieringsaktivitetsprestandan inte uppfyller dina förväntningar, för at
 
   - Kontrollera kopieringskällan och handfatmönstret: 
 
-    - Om kopieringsmönstret stöder större än 4 dataintegrationsenheter (DIUs) - se [det här avsnittet](copy-activity-performance.md#data-integration-units) om detaljer, kan du i allmänhet försöka öka dius för att få bättre prestanda. 
+    - Om kopieringsmönstret stöder större än 4 dataintegrationsenheter (DIUs) - se [det här avsnittet](copy-activity-performance-features.md#data-integration-units) om detaljer, kan du i allmänhet försöka öka dius för att få bättre prestanda. 
 
     - Annars kan du överväga att dela upp enstaka stora datauppsättningar i flera mindre datauppsättningar och låta dessa kopieringsjobb köra samtidigt varje tar itu med en del av data. Du kan göra detta med Lookup/GetMetadata + ForEach + Copy. Se [Kopiera filer från flera behållare](solution-template-copy-files-multiple-containers.md), Migrera data från Amazon [S3 till ADLS Gen2](solution-template-migration-s3-azure.md)eller [Masskopiering med en](solution-template-bulk-copy-with-control-table.md) kontrolltabelllösningsmallar som allmänt exempel.
 
@@ -102,7 +102,7 @@ När kopieringsaktivitetsprestandan inte uppfyller dina förväntningar, för at
 
   - Kontrollera kopieringskällan och handfatmönstret: 
 
-    - Om kopieringsmönstret stöder större än 4 dataintegrationsenheter (DIUs) - se [det här avsnittet](copy-activity-performance.md#data-integration-units) om detaljer, kan du i allmänhet försöka öka dius för att få bättre prestanda. 
+    - Om kopieringsmönstret stöder större än 4 dataintegrationsenheter (DIUs) - se [det här avsnittet](copy-activity-performance-features.md#data-integration-units) om detaljer, kan du i allmänhet försöka öka dius för att få bättre prestanda. 
 
     - Annars, gradvis ställa in [parallella kopior](copy-activity-performance-features.md), observera att alltför många parallella kopior kan även skada prestanda.
 

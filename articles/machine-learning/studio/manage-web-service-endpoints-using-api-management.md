@@ -10,12 +10,12 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 11/03/2017
-ms.openlocfilehash: cbe01ee9b8edeab349db484cea6c25dca32bf213
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7064101c21c11b48d8616dbeaa2fd9075660fd3b
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79218015"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80473470"
 ---
 # <a name="manage-azure-machine-learning-studio-classic-web-services-using-api-management"></a>Hantera Azure Machine Learning Studio (klassiska) webbtjänster med HJÄLP AV API Management
 
@@ -217,7 +217,7 @@ Klicka på **Ja** om du vill publicera experimentet.
 ![ja-till-publicera](./media/manage-web-service-endpoints-using-api-management/yes-to-publish.png)
 
 ### <a name="test-the-web-service"></a>Testa webbtjänsten
-En AzureML-webbtjänst består av slutpunkter för RSS-meddelanden (begäran/svar) och BES (batchexekveringstjänst). RSS är för synkron körning. BES är för asynkron jobbkörning. Om du vill testa webbtjänsten med exempel på Python-källan nedan kan du behöva hämta och installera Azure SDK för Python (se: [Så här installerar](/azure/python/python-sdk-azure-install)du Python ).
+En AzureML-webbtjänst består av slutpunkter för RSS-meddelanden (begäran/svar) och BES (batchexekveringstjänst). RSS är för synkron körning. BES är för asynkron jobbkörning. Om du vill testa webbtjänsten med exempel på Python-källan nedan kan du behöva hämta och installera Azure SDK för Python (se: [Så här installerar](/azure/developer/python/azure-sdk-install)du Python ).
 
 Du behöver också **arbetsytan,** **tjänsten**och **api_key** för experimentet för exempelkällan nedan. Du hittar arbetsytan och tjänsten genom att klicka på **Request/Response** eller **Batch Execution** för experimentet på instrumentpanelen för webbtjänsten.
 

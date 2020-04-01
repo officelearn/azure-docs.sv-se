@@ -8,14 +8,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: overview
-ms.date: 01/22/2020
+ms.date: 03/30/2020
 ms.author: iainfou
-ms.openlocfilehash: ea0fa0e9d4e475a8496d1ee52b4cdfea11a13d8d
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: cf961b00c4823d0c9efcf44b0db7bb75a80d3dfa
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "76544127"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80474336"
 ---
 # <a name="what-is-azure-active-directory-domain-services"></a>Vad är Azure Active Directory Domain Services?
 
@@ -51,7 +51,7 @@ Azure AD DS erbjuder alternativ till behovet av att skapa VPN-anslutningar tillb
 
 ## <a name="azure-ad-ds-features-and-benefits"></a>Azure AD DS-funktioner och fördelar
 
-För att tillhandahålla identitetstjänster till program och virtuella datorer i molnet är Azure AD DS fullt kompatibel med en traditionell AD DS-miljö för åtgärder som domänanslutning, säker LDAP (LDAPS), grupprincip- och DNS-hantering och LDAP-bindning och lässupport. LDAP-skrivstöd är tillgängligt för objekt som skapats i Azure AD DS-hanterad domän, men inte resurser som synkroniseras från Azure AD. Följande funktioner i Azure AD DS förenklar distributions- och hanteringsåtgärder:
+Azure AD DS är helt kompatibelt med en traditionell AD DS-miljö för åtgärder som domänanslutning, säker LDAP (LDAPS), grupprincip, DNS-hantering och LDAP-bindning och lässupport. LDAP-skrivstöd är tillgängligt för objekt som skapats i Azure AD DS-hanterad domän, men inte resurser som synkroniseras från Azure AD. Följande funktioner i Azure AD DS förenklar distributions- och hanteringsåtgärder:
 
 * **Förenklad distributionsupplevelse:** Azure AD DS är aktiverat för din Azure AD-klient med hjälp av en enda guide i Azure-portalen.
 * **Integrerad med Azure AD:** Användarkonton, gruppmedlemskap och autentiseringsuppgifter är automatiskt tillgängliga från din Azure AD-klientorganisation. Nya användare, grupper eller ändringar av attribut från din Azure AD-klientorganisation eller din lokala AD DS-miljö synkroniseras automatiskt till Azure AD DS.

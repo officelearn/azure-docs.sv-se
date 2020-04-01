@@ -1,5 +1,5 @@
 ---
-title: 'Självstudier: Azure Active Directory-integrering med Procore SSO | Microsoft Docs'
+title: 'Självstudiekurs: Azure Active Directory-integrering med Procore SSO | Microsoft-dokument'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Procore SSO.
 services: active-directory
 documentationCenter: na
@@ -17,44 +17,44 @@ ms.date: 04/03/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ca6863a6b02e867afd732ce1662136051b8afec8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67093666"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-procore-sso"></a>Självstudier: Azure Active Directory-integrering med Procore SSO
+# <a name="tutorial-azure-active-directory-integration-with-procore-sso"></a>Självstudiekurs: Azure Active Directory-integrering med Procore SSO
 
-I den här självstudien får du lära dig hur du integrerar Procore enkel inloggning med Azure Active Directory (AD Azure).
-Integrera Procore enkel inloggning med Azure AD ger dig följande fördelar:
+I den här självstudien får du lära dig hur du integrerar Procore SSO med Azure Active Directory (Azure AD).
+Genom att integrera Procore SSO med Azure AD får du följande fördelar:
 
 * Du kan styra i Azure AD som har åtkomst till Procore SSO.
-* Du kan aktivera användarna att vara automatiskt inloggad till Procore SSO (enkel inloggning) med sina Azure AD-konton.
-* Du kan hantera dina konton på en central plats – Azure portal.
+* Du kan aktivera dina användare automatiskt inloggad på Procore SSO (Single Sign-On) med sina Azure AD-konton.
+* Du kan hantera dina konton på en central plats – Azure-portalen.
 
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
+Om du inte har en Azure-prenumeration [skapar du ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
-Om du vill konfigurera Azure AD-integrering med Procore SSO, behöver du följande objekt:
+Om du vill konfigurera Azure AD-integrering med Procore SSO behöver du följande objekt:
 
-* En Azure AD-prenumeration. Om du inte har en Azure AD-miljö kan du få en [kostnadsfritt konto](https://azure.microsoft.com/free/)
-* Procore SSO enkel inloggning aktiverat prenumeration
+* En Azure AD-prenumeration. Om du inte har en Azure AD-miljö kan du få ett [kostnadsfritt konto](https://azure.microsoft.com/free/)
+* Procore SSO enkel inloggning aktiverad prenumeration
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
 I den här självstudien konfigurerar och testar du enkel inloggning med Azure AD i en testmiljö.
 
-* Har stöd för procore SSO **IDP** -initierad SSO
+* Procore SSO stöder **IDP-initierad** SSO
 
-## <a name="adding-procore-sso-from-the-gallery"></a>Att lägga till Procore SSO från galleriet
+## <a name="adding-procore-sso-from-the-gallery"></a>Lägga till Procore SSO från galleriet
 
-Om du vill konfigurera integreringen av Procore enkel inloggning till Azure AD, som du behöver lägga till Procore SSO från galleriet i din lista över hanterade SaaS-appar.
+Om du vill konfigurera integreringen av Procore SSO i Azure AD måste du lägga till Procore SSO från galleriet i listan över hanterade SaaS-appar.
 
-**Utför följande steg för att lägga till Procore SSO från galleriet:**
+**Så här lägger du till Procore SSO från galleriet:**
 
-1. I den **[Azure-portalen](https://portal.azure.com)** , klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
+1. I **[Azure-portalen](https://portal.azure.com)** går du till den vänstra navigeringspanelen och klickar på **Azure Active Directory**-ikonen.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
@@ -62,37 +62,37 @@ Om du vill konfigurera integreringen av Procore enkel inloggning till Azure AD, 
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-3. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
+3. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
 
     ![Knappen Nytt program](common/add-new-app.png)
 
-4. I sökrutan skriver **Procore SSO**väljer **Procore SSO** resultatet panelen klickar **Lägg till** för att lägga till programmet.
+4. Skriv **Procore SSO**i sökrutan och välj **Procore SSO** från resultatpanelen och klicka sedan på **Lägg** till-knappen för att lägga till programmet.
 
     ![Procore SSO i resultatlistan](common/search-new-app.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
-I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med Procore SSO baserat på en testanvändare kallas **Britta Simon**.
-För enkel inloggning ska fungera, måste en länk förhållandet mellan en Azure AD-användare och relaterade användaren i Procore SSO ska upprättas.
+I det här avsnittet konfigurerar och testar du Azure AD enkel inloggning med Procore SSO baserat på en testanvändare som heter **Britta Simon**.
+För enkel inloggning för att fungera måste en länkrelation mellan en Azure AD-användare och den relaterade användaren i Procore SSO upprättas.
 
-Om du vill konfigurera och testa Azure AD enkel inloggning med Procore enkel inloggning, måste du utföra följande byggblock:
+Om du vill konfigurera och testa azure AD-enkel inloggning med Procore SSO måste du slutföra följande byggstenar:
 
-1. **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
-2. **[Konfigurera Procore SSO enkel inloggning](#configure-procore-sso-single-sign-on)**  – om du vill konfigurera inställningar för enkel inloggning på programsidan.
-3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
-4. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
-5. **[Skapa Procore SSO testanvändare](#create-procore-sso-test-user)**  – du har en motsvarighet för Britta Simon i Procore enkel inloggning som är länkad till en Azure AD-representation av användaren.
-6. **[Testa enkel inloggning](#test-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
+1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
+2. **[Konfigurera Procore SSO Single Sign-On](#configure-procore-sso-single-sign-on)** - för att konfigurera inställningarna för enkel inloggning på programsidan.
+3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
+4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
+5. **[Skapa Procore SSO-testanvändare](#create-procore-sso-test-user)** – om du vill ha en motsvarighet till Britta Simon i Procore SSO som är länkad till Azure AD-representationen av användaren.
+6. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
 I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure-portalen.
 
-Utför följande steg för att konfigurera Azure AD enkel inloggning med Procore enkel inloggning:
+Så här konfigurerar du enkel Azure AD-inloggning med Procore SSO:
 
-1. I den [Azure-portalen](https://portal.azure.com/)på den **Procore SSO** application integration markerar **enkel inloggning**.
+1. I [Azure-portalen](https://portal.azure.com/)väljer du Enkel inloggning på sidan **Procore SSO-programintegration** . **Single sign-on**
 
-    ![Konfigurera enkel inloggning för länken](common/select-sso.png)
+    ![Konfigurera länk för enkel inloggning](common/select-sso.png)
 
 2. I dialogrutan **Välj en metod för enkel inloggning** väljer du läget **SAML/WS-Fed** för att aktivera enkel inloggning.
 
@@ -104,43 +104,43 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med Procore
 
 4. I avsnittet **Grundläggande SAML-konfiguration** behöver användaren inte utföra några steg eftersom appen redan är förintegrerad med Azure.
 
-    ![Procore SSO-domän och URL: er med enkel inloggning för information](common/preintegrated.png)
+    ![Procore SSO-domän och webbadresser enkel inloggningsinformation](common/preintegrated.png)
 
-5. På sidan **Konfigurera enkel inloggning med SAML** går du till avsnittet **SAML-signeringscertifikat**, klickar på **Hämta** för att hämta **Metadata-XML för federationen** från de angivna alternativen enligt dina behov och spara den på datorn.
+5. På sidan **Set up Single Sign-On with SAML** (Konfigurera enkel inloggning med SAML) går du till avsnittet **SAML Signing Certificate** (SAML-signeringscertifikat), klickar på **Ladda ned** för att ladda ned **Federation Metadata-XML** från de angivna alternativen enligt dina behov och spara den på datorn.
 
-    ![Länk för hämtning av certifikat](common/metadataxml.png)
+    ![Länk för nedladdning av certifikatet](common/metadataxml.png)
 
-6. På den **konfigurera Procore SSO** avsnittet, kopiera den lämpliga URL: er enligt dina behov.
+6. Kopiera lämpliga webbadresser enligt dina krav i avsnittet **Konfigurera Procore SSO** enligt dina krav.
 
     ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
 
-    a. Inloggningswebbadress
+    a. Inloggnings-URL
 
-    b. Microsoft Azure Active Directory-identifierare
+    b. Azure AD-identifierare
 
     c. Utloggnings-URL
 
 ### <a name="configure-procore-sso-single-sign-on"></a>Konfigurera Procore SSO enkel inloggning
 
-1. Att konfigurera enkel inloggning på **Procore SSO** sida, logga in på webbplatsen procore företag som administratör.
+1. Om du vill konfigurera enkel inloggning på **Procore SSO-sidan** loggar du in på procore-företagets webbplats som administratör.
 
-2. I verktygslådan listrutan ned, klickar du på **Admin** att öppna inställningssidan för enkel inloggning.
+2. Från verktygslådan rullgardinsmenyn, klicka på **Admin** för att öppna SSO inställningar sidan.
 
     ![Konfigurera enkel inloggning](./media/procoresso-tutorial/procore_tool_admin.png)
 
-3. Klistra in värden i rutorna enligt beskrivningen nedan-
+3. Klistra in värdena i rutorna enligt beskrivningen nedan-
 
     ![Konfigurera enkel inloggning](./media/procoresso-tutorial/procore_setting_admin.png)  
 
-    a. I den **enkel inloggning på utfärdar-URL** text rutan, klistra in värdet för **Azure AD-identifierare** som du har kopierat från Azure-portalen.
+    a. Klistra in värdet för **Azure AD-identifierare** som du har kopierat från Azure-portalen i textrutan URL för **enkel inloggning.**
 
-    b. I den **SAML-inloggning på mål-URL** rutan, klistra in värdet för **inloggnings-URL** som du har kopierat från Azure-portalen.
+    b. Klistra in värdet för **inloggnings-URL** som du har kopierat från Azure-portalen i **rutan SAML Sign On Target URL.**
 
-    c. Öppna nu den **XML-Metadata för Federation** ned ovan från Azure-portalen och kopiera certifikatet i taggen med namnet **X509Certificate**. Klistra in det kopierade värdet till den **Single Sign On x509 certifikat** box.
+    c. Öppna nu **XML-koden för federationsmetadata** som hämtats ovan från Azure-portalen och kopiera certifikatet i taggen **X509Certificate**. Klistra in det kopierade värdet i rutan **Certifikat för enkel inloggning x509.**
 
 4. Klicka på **Spara ändringar**.
 
-5. När du har dessa inställningar du behöver skicka den **domännamn** (t.ex **contoso.com**) via som du loggar in Procore till den [Procore supportteamet](https://support.procore.com/) och de kommer Aktivera federerad enkel inloggning för domänen.
+5. Efter dessa inställningar måste du skicka **domännamnet** (t.ex. **contoso.com)** genom vilket du loggar in på Procore till [Procore Support-teamet](https://support.procore.com/) och de aktiverar federerade SSO för den domänen.
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare 
 
@@ -150,7 +150,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     ![Länkarna ”Användare och grupper” och ”Alla grupper”](common/users.png)
 
-2. Välj **Ny användare** överst på skärmen.
+2. Välj **Ny användare** högst upp på skärmen.
 
     ![Knappen Ny användare](common/new-user.png)
 
@@ -160,23 +160,23 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     a. I fältet **Namn** anger du **BrittaSimon**.
   
-    b. I den **användarnamn** fälttyp `brittasimon@yourcompanydomain.extension`. Till exempel, BrittaSimon@contoso.com
+    b. I fältet **Användarnamn** `brittasimon@yourcompanydomain.extension`. Till exempel, BrittaSimon@contoso.com
 
     c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
 
     d. Klicka på **Skapa**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
+### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
-I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inloggning genom att bevilja åtkomst till Procore SSO.
+I det här avsnittet kan du aktivera Britta Simon för att använda Azure enkel inloggning genom att bevilja åtkomst till Procore SSO.
 
-1. I Azure-portalen väljer du **företagsprogram**väljer **alla program**och välj sedan **Procore SSO**.
+1. I Azure-portalen väljer du **Enterprise Applications**, väljer **Alla program**och väljer sedan **Procore SSO**.
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-2. I listan med program väljer **Procore SSO**.
+2. Välj **Procore SSO**i programlistan .
 
-    ![Länken Procore SSO i listan med program](common/all-applications.png)
+    ![Länken Procore SSO i programlistan](common/all-applications.png)
 
 3. På menyn till vänster väljer du **Användare och grupper**.
 
@@ -188,31 +188,31 @@ I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inlog
 
 5. I dialogrutan **Användare och grupper** väljer du **Britta Simon** i listan med användare och klickar på knappen **Välj** längst ned på skärmen.
 
-6. Om du förväntar dig ett rollvärde i SAML-försäkran väljer du i dialogrutan **Välj roll** lämplig roll för användaren i listan och klickar sedan på knappen **Välj** längst ned på skärmen.
+6. Om du förväntar dig något rollvärde i SAML-påståendet väljer du lämplig roll för användaren i listan i dialogrutan **Välj roll** och klickar sedan på knappen **Välj** längst ned på skärmen.
 
 7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
 
-### <a name="create-procore-sso-test-user"></a>Skapa Procore SSO testanvändare
+### <a name="create-procore-sso-test-user"></a>Skapa Procore SSO-testanvändare
 
-Följ de stegen nedan för att skapa en Procore testanvändare på Procore SSO-sida.
+Följ stegen nedan för att skapa en Procore-testanvändare på Procore SSO-sidan.
 
-1. Logga in på webbplatsen procore företag som administratör.    
+1. Logga in på procore-företagets webbplats som administratör.    
 
-2. I verktygslådan listrutan ned, klickar du på **Directory** att öppna sidan företagets katalog.
+2. Från verktygslådan rullgardinsmenyn, klicka på **Katalog** för att öppna företagets katalogsida.
 
     ![Konfigurera enkel inloggning](./media/procoresso-tutorial/Procore_sso_directory.png)
 
-3. Klicka på **lägga till en Person** alternativet för att öppna formuläret och ange utföra följande alternativ -
+3. Klicka på **Lägg till ett personalternativ** för att öppna formuläret och ange utföra följande alternativ -
 
     ![Konfigurera enkel inloggning](./media/procoresso-tutorial/Procore_user_add.png)
 
-    a. I den **Förnamn** textrutan typ användarens förnamn som **Britta**.
+    a. Skriv användarens förnamn som **Britta**i textrutan **Förnamn** .
 
-    b. I den **efternamn** textrutan typ användarens efternamn som **Simon**.
+    b. Skriv användarens efternamn som **Simon**i textrutan **Efternamn** .
 
-    c. I den **e-postadress** textrutan typ användarens e-postadress som BrittaSimon@contoso.com.
+    c. Skriv **Email Address** användarens e-postadress som BrittaSimon@contoso.com.
 
-    d. Välj **behörighet mallen** som **tillämpa behörighet mallen senare**.
+    d. Välj **behörighetsmall** som **Använd behörighetsmall senare**.
 
     e. Klicka på **Skapa**.
 
@@ -220,15 +220,15 @@ Följ de stegen nedan för att skapa en Procore testanvändare på Procore SSO-s
 
     ![Konfigurera enkel inloggning](./media/procoresso-tutorial/Procore_user_check.png)
 
-5. Klicka på **spara och skicka inbjudan** (om det krävs en inbjudan via e-post) eller **spara** (spara direkt) för att slutföra registreringen för användaren.
+5. Klicka på **Spara och skicka inbjudan** (om en inbjudan via e-post krävs) eller **Spara** (Spara direkt) för att slutföra användarregistreringen.
     
     ![Konfigurera enkel inloggning](./media/procoresso-tutorial/Procore_user_save.png)
 
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning 
 
-I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
+I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-När du klickar på panelen Procore SSO i åtkomstpanelen, bör det vara loggas in automatiskt till Procore SSO som du ställer in enkel inloggning. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+När du klickar på Procore SSO-panelen på åtkomstpanelen ska du automatiskt loggas in på den Procore SSO som du konfigurerar SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 

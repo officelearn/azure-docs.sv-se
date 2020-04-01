@@ -1,5 +1,5 @@
 ---
-title: Självstudie – Skapa en GENOMSNITTs stack på en virtuell Linux-dator i Azure
+title: Självstudiekurs - Skapa en MEAN-stack på en virtuell Linux-dator i Azure
 description: I den här självstudiekursen lär du dig hur du skapar en stack för MongoDB, Express, AngularJS och Node.js (MEAN) på en virtuell Linux-dator i Azure.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 08/08/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 50ccf0d6db5a50f7dd89732bc870ced6bcf1c2d7
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 9e0ed3454f11907c5f183f08fd2ec51db3384225
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74034394"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80154329"
 ---
 # <a name="tutorial-create-a-mongodb-express-angularjs-and-nodejs-mean-stack-on-a-linux-virtual-machine-in-azure"></a>Självstudier: Skapa en stack för MongoDB, Express, AngularJS och Node.js (MEAN) på en virtuell Linux-dator i Azure
 
@@ -32,11 +32,11 @@ Den här självstudiekursen beskriver hur du implementerar en stack för MongoDB
 > * Installera MongoDB och konfigurera servern
 > * Installera Express och konfigurera vägar till servern
 > * Få åtkomst till vägar med AngularJS
-> * Köra programmet
+> * Köra appen
 
-I den här självstudien används CLI i [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview), som uppdateras kontinuerligt till den senaste versionen. Om du vill öppna Cloud Shell väljer du **testa den** överst i ett kodblock.
+Den här självstudien använder CLI i [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview), som ständigt uppdateras till den senaste versionen. Om du vill öppna Cloud Shell väljer du **Prova det** överst i alla kodblock.
 
-Om du väljer att installera och använda CLI:t lokalt för den här självstudien måste du köra Azure CLI version 2.0.30 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI]( /cli/azure/install-azure-cli).
+Om du väljer att installera och använda CLI lokalt krävs Azure CLI version 2.0.30 eller senare för att du ska kunna genomföra den här självstudiekursen. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI]( /cli/azure/install-azure-cli).
 
 
 ## <a name="create-a-linux-vm"></a>Skapa en virtuell Linux-dator
@@ -220,7 +220,7 @@ sudo apt-get install -y nodejs
 
 [AngularJS](https://angularjs.org) tillhandahåller ett webbramverk med vilket du kan skapa dynamiska vyer i dina webbprogram. I den här självstudiekursen använder vi AngularJS för att ansluta vår webbsida med Express och utföra åtgärder på vår bokdatabas.
 
-1. Ändra katalogen tillbaka till *Böcker* (`cd ../..`), och skapa sedan en mapp med namnet *offentligt* och lägg till en fil med namnet *script.js* med den definierade styrenhetskonfigurationen.
+1. Ändra katalogen tillbaka *Books* upp`cd ../..`till Böcker ( ), och sedan skapa en mapp med namnet *offentlig* och lägga till en fil med namnet *script.js* med styrenheten konfigurationen definieras.
 
     ```javascript
     var app = angular.module('myApp', []);
@@ -315,9 +315,9 @@ sudo apt-get install -y nodejs
     </html>
     ```
 
-##  <a name="run-the-application"></a>Köra programmet
+##  <a name="run-the-application"></a>Köra appen
 
-1. Ändra katalogen tillbaka till *Böcker* (`cd ..`) och starta servern genom att köra följande kommando:
+1. Ändra katalogen tillbaka *Books* upp`cd ..`till Böcker ( ) och starta servern genom att köra det här kommandot:
 
     ```bash
     nodejs server.js
@@ -327,7 +327,7 @@ sudo apt-get install -y nodejs
 
     ![Bokpost](media/tutorial-mean/meanstack-init.png)
 
-3. Fyll i data i textrutorna och klicka på **Lägg till**. Exempel:
+3. Fyll i data i textrutorna och klicka på **Lägg till**. Ett exempel:
 
     ![Lägg till en bokpost](media/tutorial-mean/meanstack-add.png)
 
@@ -347,9 +347,9 @@ I den här självstudiekursen har du skapat ett webbprogram som håller koll på
 > * Installera MongoDB och konfigurera servern
 > * Installera Express och konfigurera vägar till servern
 > * Få åtkomst till vägar med AngularJS
-> * Köra programmet
+> * Köra appen
 
-Gå vidare till nästa självstudiekurs där du får lära dig att skydda webbservrar med SSL-certifikat.
+Gå vidare till nästa självstudiekurs om du vill lära dig hur du skyddar webbservrar med TLS-certifikat.
 
 > [!div class="nextstepaction"]
-> [Säker webbserver med SSL](tutorial-secure-web-server.md)
+> [Säker webbserver med TLS](tutorial-secure-web-server.md)

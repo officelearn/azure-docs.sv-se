@@ -3,12 +3,12 @@ title: Ändra klusterinställningar för Azure Service Fabric
 description: I den här artikeln beskrivs infrastrukturinställningarna och de principer för uppgradering av infrastruktur som du kan anpassa.
 ms.topic: reference
 ms.date: 08/30/2019
-ms.openlocfilehash: a4e64a4db70d419a3ef6441545d53abd298c85bb
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 8ca40791e625f1ea5904c4e2516e3f211ba551cf
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80346798"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80477905"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>Anpassa Service Fabric-klusterinställningar
 I den här artikeln beskrivs de olika inställningarna för infrastruktur för ditt Service Fabric-kluster som du kan anpassa. För kluster som finns i Azure kan du anpassa inställningarna via [Azure-portalen](https://portal.azure.com) eller med hjälp av en Azure Resource Manager-mall. Mer information finns i [Uppgradera konfigurationen av ett Azure-kluster](service-fabric-cluster-config-upgrade-azure.md). För fristående kluster kan du anpassa inställningarna genom att uppdatera *filen ClusterConfig.json* och utföra en konfigurationsuppgradering i klustret. Mer information finns i [Uppgradera konfigurationen av ett fristående kluster](service-fabric-cluster-config-upgrade-windows-server.md).
@@ -55,9 +55,9 @@ Följande är en lista över inställningar för Fabric som du kan anpassa, ordn
 | **Parametern** | **Tillåtna värden** | **Uppgraderingsprincip** | **Vägledning eller kort beskrivning** |
 | --- | --- | --- | --- |
 |MinReplicaSetSize|int är standard 0|Statisk|MinReplicaSetSize för BackupRestoreService |
-|Placeringsspärrar|sträng, är standard ""|Statisk|  Tjänsten PlacementConstraints for BackupRestore |
+|Placeringsspärrar|sträng, är standard ""|Statisk|    Tjänsten PlacementConstraints for BackupRestore |
 |SecretEncryptionCertThumbprint|sträng, är standard ""|Dynamisk|Tumavtryck för det hemliga krypterings-X509-certifikatet |
-|SecretEncryptionCertX509StoreName|sträng är standard "Min"|   Dynamisk|    Detta anger certifikatet som ska användas för kryptering och dekryptering av creds Name of X.509-certifikatarkiv som används för att kryptera dekrypteringsarkivets autentiseringsuppgifter som används av tjänsten Återställning av säkerhetskopiering |
+|SecretEncryptionCertX509StoreName|sträng är standard "Min"|    Dynamisk|    Detta anger certifikatet som ska användas för kryptering och dekryptering av creds Name of X.509-certifikatarkiv som används för att kryptera dekrypteringsarkivets autentiseringsuppgifter som används av tjänsten Återställning av säkerhetskopiering |
 |TargetReplicaSetSize|int är standard 0|Statisk| TargetReplicaSetSize för BackupRestoreService |
 
 ## <a name="clustermanager"></a>Klustermanager
@@ -147,7 +147,7 @@ Följande är en lista över inställningar för Fabric som du kan anpassa, ordn
 | **Parametern** | **Tillåtna värden** | **Uppgraderingsprincip** | **Vägledning eller kort beskrivning** |
 | --- | --- | --- | --- |
 |MinReplicaSetSize|int är standard 0|Statisk|Tjänsten MinReplicaSetSize för EventStore |
-|Placeringsspärrar|sträng, är standard ""|Statisk|  Tjänsten PlacementConstraints för EventStore |
+|Placeringsspärrar|sträng, är standard ""|Statisk|    Tjänsten PlacementConstraints för EventStore |
 |TargetReplicaSetSize|int är standard 0|Statisk| Tjänsten TargetReplicaSetSize för EventStore |
 
 ## <a name="fabricclient"></a>TygClient
@@ -270,7 +270,7 @@ Följande är en lista över inställningar för Fabric som du kan anpassa, ordn
 |CommonNameNtlmPasswordSecret|SecureString, standard är Vanligt::SecureString("")| Statisk|Lösenordshemligheten som används som seed för att generera samma lösenord när NTLM-autentisering används |
 |DiskSpaceHealthReportingIntervalWhenCloseToOutOfDiskSpace |TimeSpan, standard är Vanligt::TimeSpan::FromMinutes(5)|Dynamisk|Ange tidsintervall i sekunder. Tidsintervallet mellan kontroll av diskutrymme för rapportering av hälsohändelse när disken är nära på utrymme. |
 |DiskSpaceHealthReportingIntervalWhenEnoughDiskSpace |TimeSpan, standard är Vanligt::TimeSpan::FrånMinuter(15)|Dynamisk|Ange tidsintervall i sekunder. Tidsintervallet mellan kontroll av diskutrymme för rapportering av hälsohändelse när det finns tillräckligt med utrymme på disken. |
-|AktiveraImageStoreHealthReporting |bool, standard är SANT |Statisk|Config för att avgöra om fillagringstjänsten ska rapportera dess hälsa. |
+|AktiveraImageStoreHealthReporting |bool, standard är SANT    |Statisk|Config för att avgöra om fillagringstjänsten ska rapportera dess hälsa. |
 |FreeDiskSpaceNotificationSizeInKB|int64, standard är\*25 1024 |Dynamisk|Storleken på ledigt diskutrymme under vilket hälsovarning kan uppstå. Minimivärdet för den här config och FreeDiskSpaceNotificationThresholdPercentage config används för att bestämma sändning av hälsovarningen. |
 |FreeDiskSpaceNotificationThresholdPercentage|dubbel, standard är 0,02 |Dynamisk|Den procentandel ledigt diskutrymme under vilket hälsovarning kan uppstå. Minimivärdet för den här config och FreeDiskSpaceNotificationInMB config används för att bestämma sändning av hälsovarning. |
 |Generera V1CommonNameAccount| bool, standard är SANT|Statisk|Anger om ett konto med användarnamn V1-genereringsalgoritm ska genereras. Från och med Service Fabric version 6.1; ett konto med v2 generation skapas alltid. V1-kontot är nödvändigt för uppgraderingar från/till versioner som inte stöder V2-generationen (före 6.1).|
@@ -547,7 +547,7 @@ Följande är en lista över inställningar för Fabric som du kan anpassa, ordn
 |MinPlacementInterval | Tid i sekunder, standard är 1 |Dynamisk| Ange tidsintervall i sekunder. Definierar den minsta tid som måste gå före två på varandra följande placeringsrundor. |
 |FlyttaExistingReplicaForPlacement | Bool, standard är sant |Dynamisk|Ange vilken som avgör om befintlig replik ska flyttas under placeringen. |
 |MovementPerPartitionThrottleCountingInterval | Tid i sekunder, standard är 600 |Statisk| Ange tidsintervall i sekunder. Ange längden på det tidigare intervallet för vilket replikrörelser för varje partition (används tillsammans med MovementPerPartitionThrottleThreshold). |
-|MovementPerPartitionThrottleThreshold | Uint, standard är 50 |Dynamisk| Ingen balanseringsrelaterad rörelse kommer att ske för en partition om antalet balanseringsrelaterade rörelser för repliker av den partitionen har nått eller överskridit MovementPerFailoverUnitThrottleThreshold under det tidigare intervallet som indikeras av MovementPerPartitionThrottleCountingInterval. |
+|MovementPerPartitionThrottleThreshold | Uint, standard är 50 |Dynamisk| Ingen balanseringsrelaterad rörelse kommer att ske för en partition om antalet balanserande relaterade rörelser för repliker av den partitionen har nått eller överskridit MovementPerFailoverUnitThrottleThreshold i det tidigare intervallet som indikeras av MovementPerPartitionThrottleCountingInterval. |
 |MoveParentToFixAffinityViolation | Bool, standard är falskt |Dynamisk| Inställning som avgör om överordnade repliker kan flyttas för att åtgärda tillhörighetsbegränsningar.|
 |Delvis Placerade Tjänster | Bool, standard är sant |Dynamisk| Avgör om alla tjänstrepliker i klustret kommer att placeras "allt eller inget" med tanke på begränsade lämpliga noder för dem.|
 |PlaceChildUtanFörälder | Bool, standard är sant | Dynamisk|Inställning som avgör om underordnad servicereplik kan placeras om ingen överordnad replik är uppe. |
@@ -568,8 +568,8 @@ Följande är en lista över inställningar för Fabric som du kan anpassa, ordn
 |TraceCRMReasons |Bool, standard är sant |Dynamisk|Anger om orsaker till CRM-utfärdade meddelanden ska spåras till kanalen för drifthändelser. |
 |UppgraderaDomainConstraintPriority | Int, standard är 1| Dynamisk|Bestämmer prioriteten för uppgraderingsdomänbegränsningen: 0: Hård; 1: Mjuk; negativ: Ignorera. |
 |AnvändaMoveCostReports | Bool, standard är falskt | Dynamisk|Instruerar LB att ignorera kostnadselementet i poängfunktionen. potentiellt stort antal drag för bättre balanserad placering. |
-|AnvändSeparateSecondaryLoad | Bool, standard är sant | Dynamisk|Inställning som avgör om du använder olika sekundära belastningar. |
-|AnvändSeparateSecondaryMoveCost|Bool, standard är FALSKT | Dynamisk|Inställning som avgör om PLB ska använda olika flyttkostnader för sekundär på varje nod Om UseSeparateSecondaryMoveCost är inaktiverat: - Rapporterad flyttkostnad för sekundär på en nod resulterar i översmärtningsflyttningskostnad för varje sekundär (på alla andra noder) Om UseSeparateSecondaryMoveCost är aktiverat: - Rapporterad flyttkostnad för sekundär på en nod börjar endast gälla på den sekundära (ingen effekt på sekundärfiler på andra noder) - Om replikkrasch inträffar - skapas ny replik med standardflyttkostnaden som anges på tjänsten nivå - Om PLB flyttar befintlig replika - flytta kostnaden går med det |
+|AnvändSeparateSecondaryLoad | Bool, standard är sant | Dynamisk|Inställning som avgör om separat belastning ska användas för sekundära repliker. |
+|AnvändSeparateSecondaryMoveCost | Bool, standard är falskt | Dynamisk|Inställning som avgör om separat flyttkostnad ska användas för sekundära repliker. |
 |ValidatePlacementConstraint | Bool, standard är sant |Dynamisk| Anger om placementConstraint-uttrycket för en tjänst valideras när tjänstens ServiceDescription uppdateras. |
 |ValideraPrimaryPlacementConstraintOnPromote| Bool, standard är SANT |Dynamisk|Anger om placementConstraint-uttrycket för en tjänst utvärderas för primär invald vid redundans. |
 |VerboseHealthReportLimit | Int, standard är 20 | Dynamisk|Definierar hur många gånger en replik måste gå oplacerad innan en hälsovarning rapporteras för den (om detaljerad hälsorapportering är aktiverad). |
@@ -685,7 +685,7 @@ Följande är en lista över inställningar för Fabric som du kan anpassa, ordn
 |InställningarX509StoreName| sträng, är standard "MY"| Dynamisk|X509-certifikatarkiv som används av tyg för konfigurationsskydd |
 |AnvändaClusterCertForIpcServerTlsSecurity|bool, standard är FALSKT|Statisk|Om klustercertifikat ska användas för att skydda TLS-transportenhet för IPC Server |
 |X509Mapp|sträng är standardvärdet /var/lib/waagent|Statisk|Mapp där X509-certifikat och privata nycklar finns |
-|TLS1_2_CipherList| sträng| Statisk|Om den är inställd på en sträng som inte är tom. åsidosätter listan över chiffer som stöds för TLS1.2 och lägre. Se dokumentationen "openssl-chiffer" för att hämta listan över chiffer som stöds och listformatet Exempel på stark chifferlista för TLS1.2: "ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES256-GCM-SHA384: ECDHE-RSA-AES-128-GCM-SHA256:ECDHE-ECDSA-AES256-CBC-SHA384:ECDHE-ECDSA-AES128-CBC-SHA256:ECDHE-RSA-AES256-CBC-SHA384:ECDHE-RSA-AES128-CBC-SHA256" Gäller endast Linux. |
+|TLS1_2_CipherList| sträng| Statisk|Om den är inställd på en sträng som inte är tom. åsidosätter listan över chiffer som stöds för TLS1.2 och lägre. Se dokumentationen "openssl-chiffer" för att hämta listan över chiffer som stöds och listformatet Exempel på stark chifferlista för TLS1.2: "ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-RSA-AES-128-GCM-SHA256:ECDHE-ECDSA-AES256-CBC-SHA384:ECDHE-ECDSA-AES128-CB CC-SHA256:ECDHE-RSA-AES256-CBC-SHA384:ECDHE-RSA-AES128-CBC-SHA256" Gäller endast Linux. |
 
 ## <a name="securityadminclientx509names"></a>Säkerhet/AdminClientX509Namn
 

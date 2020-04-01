@@ -1,6 +1,6 @@
 ---
-title: 'Självstudie: Azure Active Directory integration med Natura | Microsoft Docs'
-description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och-typ.
+title: 'Självstudiekurs: Azure Active Directory-integrering med Kindling | Microsoft-dokument'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Kindling.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -17,45 +17,45 @@ ms.date: 02/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: eda2886c21e64faf71391d4eff1c6c53ea1a7f17
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73159785"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-kindling"></a>Självstudie: Azure Active Directory integrering med typ
+# <a name="tutorial-azure-active-directory-integration-with-kindling"></a>Självstudiekurs: Azure Active Directory-integrering med Kindling
 
-I den här självstudien får du lära dig att integrera Natura med Azure Active Directory (Azure AD).
-Att integrera Natura med Azure AD ger följande fördelar:
+I den här självstudien får du lära dig hur du integrerar Kindling med Azure Active Directory (Azure AD).
+Genom att integrera Kindling med Azure AD får du följande fördelar:
 
-* Du kan styra i Azure AD som har åtkomst till-typ.
-* Du kan göra det möjligt för dina användare att vara automatiskt inloggade till Natura (enkel inloggning) med deras Azure AD-konton.
+* Du kan styra i Azure AD som har åtkomst till Kindling.
+* Du kan aktivera dina användare så att de automatiskt loggas in på Kindling (Enkel inloggning) med sina Azure AD-konton.
 * Du kan hantera dina konton på en central plats – Azure-portalen.
 
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
+Om du inte har en Azure-prenumeration [skapar du ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
 ## <a name="prerequisites"></a>Krav
 
-Om du vill konfigurera Azure AD-integrering med-typ behöver du följande objekt:
+Om du vill konfigurera Azure AD-integrering med Kindling behöver du följande objekt:
 
-* En Azure AD-prenumeration. Om du inte har en Azure AD-miljö kan du få en månads utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/)
-* Aktive rad prenumeration för enkel inloggning
+* En Azure AD-prenumeration. Om du inte har någon Azure AD-miljö kan du hämta en månads utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/)
+* Tändning av enkel inloggning aktiverad prenumeration
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
 I den här självstudien konfigurerar och testar du enkel inloggning med Azure AD i en testmiljö.
 
-* Typ stöd för **SP** -INITIERAd SSO
-* Natura stöder **just-in-Time** User-etablering
+* Tändning stöder **SP** initierade SSO
+* Tändning stöder just in time-användaresetablering **Just In Time**
 
-## <a name="adding-kindling-from-the-gallery"></a>Lägga till slag från galleriet
+## <a name="adding-kindling-from-the-gallery"></a>Lägga kindling från galleriet
 
-Om du vill konfigurera integrering av typ i Azure AD, måste du lägga till typ hantering från galleriet i listan över hanterade SaaS-appar.
+Om du vill konfigurera integreringen av Kindling i Azure AD måste du lägga till Kindling från galleriet i listan över hanterade SaaS-appar.
 
-**Utför följande steg för att lägga till Natura från galleriet:**
+**Så här lägger du till Kindling från galleriet:**
 
-1. I **[Azure-portalen](https://portal.azure.com)** , i den vänstra navigeringspanelen, klickar du på **Azure Active Directory**-ikonen.
+1. I **[Azure-portalen](https://portal.azure.com)** går du till den vänstra navigeringspanelen och klickar på **Azure Active Directory**-ikonen.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
@@ -67,33 +67,33 @@ Om du vill konfigurera integrering av typ i Azure AD, måste du lägga till typ 
 
     ![Knappen Nytt program](common/add-new-app.png)
 
-4. I sökrutan **skriver du typ,** väljer **typ** av resultat och klickar sedan på knappen **Lägg till** för att lägga till programmet.
+4. Skriv **Kindling**i sökrutan och välj **Tändning** från resultatpanelen och klicka sedan på **Lägg** till för att lägga till programmet.
 
-     ![Typ i resultat listan](common/search-new-app.png)
+     ![Tändning i resultatlistan](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
-I det här avsnittet konfigurerar och testar du enkel inloggning med Azure AD med Natura baserat på en test användare som kallas **Britta Simon**.
-För att enkel inloggning ska fungera måste du upprätta en länk relation mellan en Azure AD-användare och den relaterade användaren.
+I det här avsnittet konfigurerar och testar du azure AD-enkel inloggning med Kindling baserat på en testanvändare som heter **Britta Simon**.
+För enkel inloggning för att fungera måste en länkrelation mellan en Azure AD-användare och den relaterade användaren i Kindling upprättas.
 
-Om du vill konfigurera och testa enkel inloggning med-typ i Azure AD måste du slutföra följande Bygg stenar:
+Om du vill konfigurera och testa en enkel Azure AD-inloggning med Kindling måste du slutföra följande byggstenar:
 
 1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
-2. **[Konfigurera enkel inloggning med enkel inloggning](#configure-kindling-single-sign-on)** för att konfigurera inställningarna för enkel inloggning på program sidan.
-3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa en	 med Azure AD med Britta Simon.
+2. **[Konfigurera Kindling Single Sign-On](#configure-kindling-single-sign-on)** - för att konfigurera inställningarna för enkel inloggning på programsidan.
+3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
 4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
-5. **[Skapa typ av test användare](#create-kindling-test-user)** – för att få en motsvarighet till Britta Simon i Natura som är länkad till Azure AD-representation av användare.
+5. **[Skapa Kindling testanvändare](#create-kindling-test-user)** - att ha en motsvarighet till Britta Simon i Kindling som är kopplad till Azure AD-representationen av användaren.
 6. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
 I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure-portalen.
 
-Utför följande steg för att konfigurera enkel inloggning för Azure AD med-typ:
+Så här konfigurerar du en enkel Azure AD-inloggning med Kindling:
 
-1. I [Azure Portal](https://portal.azure.com/)på sidan **typ** av program integration väljer du **enkel inloggning**.
+1. I [Azure-portalen](https://portal.azure.com/)väljer du Enkel inloggning på sidan **Kindling-programintegration**. **Kindling**
 
-    ![Konfigurera enkel inloggning-länk](common/select-sso.png)
+    ![Konfigurera länk för enkel inloggning](common/select-sso.png)
 
 2. I dialogrutan **Välj en metod för enkel inloggning** väljer du läget **SAML/WS-Fed** för att aktivera enkel inloggning.
 
@@ -105,20 +105,20 @@ Utför följande steg för att konfigurera enkel inloggning för Azure AD med-ty
 
 4. I avsnittet **Grundläggande SAML-konfiguration** utför du följande steg:
 
-    ![Information om enkel inloggning för domäner och URL: er](common/sp-identifier.png)
+    ![Information om ingående domän och webbadresser med enkel inloggning](common/sp-identifier.png)
 
     a. I textrutan **Inloggnings-URL** anger du en URL enligt följande mönster: `https://<companyname>.kindlingapp.com`
 
     b. I textrutan **Identifierare (entitets-ID)** anger du en URL enligt följande mönster: `https://<companyname>.kindlingapp.com/saml/module.php/saml/sp/metadata.php/clientIDP`
 
     > [!NOTE]
-    > Dessa värden är inte verkliga. Uppdatera de här värdena med faktisk inloggnings-URL och identifierare. Kontakta [support teamet](mailto:support@kindlingapp.com) för kontakt typ för att hämta dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
+    > Dessa värden är inte verkliga. Uppdatera dessa värden med faktisk inloggnings-URL och identifierare. Kontakta [Kindling Client supportteam](mailto:support@kindlingapp.com) för att få dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
 5. På sidan **Konfigurera enkel inloggning med SAML** går du till avsnittet **SAML-signeringscertifikat**, klickar du på **Ladda ned** för att ladda ned **Certifikat (Base64)** från de angivna alternativen enligt dina behov och sparar det på datorn.
 
     ![Länk för nedladdning av certifikatet](common/certificatebase64.png)
 
-6. I avsnittet **Konfigurera typ** , kopierar du lämpliga URL: er enligt ditt krav.
+6. Kopiera lämpliga webbadresser enligt dina krav i avsnittet **Konfigurera tändning.**
 
     ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
 
@@ -128,9 +128,9 @@ Utför följande steg för att konfigurera enkel inloggning för Azure AD med-ty
 
     c. Utloggnings-URL
 
-### <a name="configure-kindling-single-sign-on"></a>Konfigurera enkel inloggning för Natura
+### <a name="configure-kindling-single-sign-on"></a>Konfigurera tändning enkel inloggning
 
-Om du vill konfigurera enkel inloggning på **typ** sidan måste du skicka det nedladdade **certifikatet (base64)** och lämpliga kopierade url: er från Azure Portal till [typ support teamet](mailto:support@kindlingapp.com). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
+Om du vill konfigurera enkel inloggning på **Kindling-sidan** måste du skicka det nedladdade **certifikatet (Base64)** och lämpliga kopierade url:er från Azure-portalen till [Kindling supportteam](mailto:support@kindlingapp.com). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 
@@ -140,7 +140,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     ![Länkarna ”Användare och grupper” och ”Alla grupper”](common/users.png)
 
-2. Välj **Ny användare** överst på skärmen.
+2. Välj **Ny användare** högst upp på skärmen.
 
     ![Knappen Ny användare](common/new-user.png)
 
@@ -150,7 +150,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     a. I fältet **Namn** anger du **BrittaSimon**.
   
-    b. I fältet **användar namn** skriver du **brittasimon\@yourcompanydomain. extension**  
+    b. I fältet **Användarnamn** skriver **du\@brittasimon yourcompanydomain.extension**  
     Till exempel, BrittaSimon@contoso.com
 
     c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
@@ -159,17 +159,17 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
-I det här avsnittet aktiverar du Britta Simon för att använda enkel inloggning med Azure genom att bevilja åtkomst till Natura.
+I det här avsnittet kan du aktivera Britta Simon för att använda Azure enkel inloggning genom att bevilja åtkomst till Kindling.
 
-1. I Azure Portal väljer du **företags program**, väljer **alla program**och väljer sedan **typ**.
+1. I Azure-portalen väljer du **Enterprise Applications**, väljer **Alla program**och väljer sedan **Kindling**.
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-2. I listan program väljer du **typ**av.
+2. Välj **Kindling**i programlistan .
 
-    ![Typ länken i program listan](common/all-applications.png)
+    ![Tändningslänken i programlistan](common/all-applications.png)
 
-3. I menyn till vänster väljer du **Användare och grupper**.
+3. På menyn till vänster väljer du **Användare och grupper**.
 
     ![Länken ”Användare och grupper”](common/users-groups-blade.png)
 
@@ -179,19 +179,19 @@ I det här avsnittet aktiverar du Britta Simon för att använda enkel inloggnin
 
 5. I dialogrutan **Användare och grupper** väljer du **Britta Simon** i listan med användare och klickar på knappen **Välj** längst ned på skärmen.
 
-6. Om du förväntar dig ett rollvärde i SAML-försäkran väljer du i dialogrutan **Välj roll** lämplig roll för användaren i listan och klickar sedan på knappen **Välj** längst ned på skärmen.
+6. Om du förväntar dig något rollvärde i SAML-påståendet väljer du lämplig roll för användaren i listan i dialogrutan **Välj roll** och klickar sedan på knappen **Välj** längst ned på skärmen.
 
 7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
 
-### <a name="create-kindling-test-user"></a>Skapa typ av test användare
+### <a name="create-kindling-test-user"></a>Skapa tändningstestanvändare
 
-I det här avsnittet skapas en användare som kallas Britta Simon i form av. Natura stöder just-in-Time-etablering, som är aktiverat som standard. Det finns inget åtgärdsobjekt för dig i det här avsnittet. Om en användare inte redan finns i Natura skapas en ny efter autentiseringen.
+I det här avsnittet skapas en användare som heter Britta Simon i Kindling. Att tända stöder just-in-time-användaretablering, vilket är aktiverat som standard. Det finns inget åtgärdsobjekt för dig i det här avsnittet. Om en användare inte redan finns i Kindling skapas en ny efter autentisering.
 
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning
 
 I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-När du klickar på panelen typ i åtkomst panelen, bör du loggas in automatiskt på den typ som du ställer in SSO för. I [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) får du mer information.
+När du klickar på panelen Tändning på åtkomstpanelen ska du automatiskt loggas in på den tändning som du konfigurerar SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 

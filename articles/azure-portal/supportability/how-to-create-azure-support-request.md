@@ -7,14 +7,14 @@ manager: scotthit
 ms.assetid: fd6841ea-c1d5-4bb7-86bd-0c708d193b89
 ms.service: azure-supportability
 ms.topic: article
-ms.date: 01/23/2020
+ms.date: 03/31/2020
 ms.author: kfollis
-ms.openlocfilehash: 28a29bbb94f63657a69e873bb8f969e96ee92c76
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2b68b6ddf19d6b07475e7009b47e162bfb2d0d2f
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79248494"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80478986"
 ---
 # <a name="how-to-create-an-azure-support-request"></a>Skapa en supportbegäran för Azure
 
@@ -43,7 +43,7 @@ Du kan komma åt **hjälp + support** i Azure-portalen. Den är tillgänglig fr�
 
 ### <a name="role-based-access-control"></a>Rollbaserad åtkomstkontroll
 
-Om du vill skapa en supportbegäran måste du vara administratör eller tilldelas rollen [Support request contributor](../../role-based-access-control/built-in-roles.md#support-request-contributor) på prenumerationsnivå.
+Om du vill skapa en supportbegäran måste du vara [ägare,](../../role-based-access-control/built-in-roles.md#owner) [deltagare](../../role-based-access-control/built-in-roles.md#contributor) eller tilldelad rollen [supportbegäran på](../../role-based-access-control/built-in-roles.md#support-request-contributor) prenumerationsnivå. Om du vill skapa en supportbegäran utan en prenumeration, till exempel Azure Active Directory (AAD) måste du vara [administratör](../../active-directory/users-groups-roles/directory-assign-admin-roles.md).
 
 ### <a name="go-to-help--support-from-the-global-header"></a>Gå till hjälp + stöd från det globala huvudet
 

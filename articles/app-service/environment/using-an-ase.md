@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 01/01/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 7ca6882aea7225dcb97c9f913267b2543de07fef
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8a73c1998203a8696b67a5e7eb3af23898239265
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80133130"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80477632"
 ---
 # <a name="use-an-app-service-environment"></a>Använd App Service Environment
 
@@ -88,7 +88,7 @@ I en ASE kan du skala en apptjänstplan upp till 100 instanser. En ASE kan ha up
 
 ## <a name="ip-addresses"></a>IP-adresser
 
-Apptjänsten kan allokera en dedikerad IP-adress till en app. Den här funktionen är tillgänglig när du har konfigurerat IP-baserad SSL, enligt beskrivningen i [Bind ett befintligt anpassat SSL-certifikat till Azure App Service][ConfigureSSL]. I en ILB ASE kan du inte lägga till fler IP-adresser som ska användas för IP-baserad SSL.
+Apptjänsten kan allokera en dedikerad IP-adress till en app. Den här funktionen är tillgänglig när du har konfigurerat IP-baserad SSL, enligt beskrivningen i [Bind ett befintligt anpassat TLS/SSL-certifikat till Azure App Service][ConfigureSSL]. I en ILB ASE kan du inte lägga till fler IP-adresser som ska användas för IP-baserad SSL.
 
 Med en extern ASE kan du konfigurera IP-baserad SSL för din app på samma sätt som i apptjänsten för flera trogna. Det finns alltid en ledig adress i ASE, upp till 30 IP-adresser. Varje gång du använder en läggs en annan till så att en adress alltid är lätt tillgänglig. En tidsfördröjning krävs för att allokera en annan IP-adress. Den fördröjningen förhindrar att IP-adresser lägger tills i snabb följd.
 
@@ -138,7 +138,7 @@ Utan ytterligare ändringar fungerar internetbaserade KI-system som GitHub och A
 
 Publiceringsslutpunkterna för appar i en ILB ASE använder domänen som ILB ASE skapades med. Du kan se den i appens publiceringsprofil och i appens portalfönster (i > **Översiktsavsikter** och även i **Egenskaper**). **Overview**
 
-## <a name="storage"></a>Lagring
+## <a name="storage"></a>Storage
 
 En ASE har 1 TB lagringsutrymme för alla appar i ASE. En App Service-plan i den isolerade prissättningen SKU har en gräns på 250 GB som standard. Om du har fem eller fler App Service-planer bör du vara noga med att inte överskrida 1 TB-gränsen för ASE. Om du behöver mer än gränsen på 250 GB i en App Service-plan kontaktar du supporten för att justera appserviceplansgränsen till maximalt 1 TB. När plangränsen har justerats finns det fortfarande en gräns på 1 TB i alla App Service-planer i ASE.
 

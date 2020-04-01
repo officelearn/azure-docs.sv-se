@@ -3,12 +3,12 @@ title: Säkerhetskopiera virtuella Hyper-V-datorer med MABS
 description: Den här artikeln innehåller procedurer för säkerhetskopiering och återställning av virtuella datorer med Hjälp av Microsoft Azure Backup Server (MABS).
 ms.topic: conceptual
 ms.date: 07/18/2019
-ms.openlocfilehash: 00d1dd04522c51e4d68450a7b8f25d7159d63724
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 71cf446472ef0cf4f50bf64e47d359ea08ccc087
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78255053"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80420407"
 ---
 # <a name="back-up-hyper-v-virtual-machines-with-azure-backup-server"></a>Säkerhetskopiera virtuella Hyper-V-datorer med Azure Backup Server
 
@@ -99,83 +99,6 @@ Dessa är förutsättningarna för säkerhetskopiering av virtuella Hyper-V-dato
 9. På sidan **Alternativ för konsekvenskontroll** väljer du hur du vill automatisera konsekvenskontroller. Du kan aktivera att en kontroll endast körs när replikdata blir inkonsekvent, eller enligt ett schema. Om du inte vill konfigurera automatiska konsekvenskontroller kan du när som helst köra en manuell kontroll genom att högerklicka på skyddsgruppen och välja **Utför konsekvenskontroll**.
 
     När du har skapat skyddsgruppen utförs inledande replikering av data i enlighet med den metod som du har valt. Efter den inledande replikeringen utförs varje säkerhetskopiering i enlighet med inställningarna för skyddsgruppen. Om du behöver återställa säkerhetskopierade data bör du tänka på följande:
-
-## <a name="back-up-virtual-machines-configured-for-live-migration"></a>Säkerhetskopiera virtuella datorer som är konfigurerade för direktmigrering
-
-När virtuella datorer är involverade i livemigrering fortsätter MABS att skydda de virtuella datorerna så länge MABS-skyddsagenten är installerad på Hyper-V-värden. Hur MABS skyddar de virtuella datorerna beror på vilken typ av livemigrering det innebär.
-
-**Live migrering inom ett kluster** - När en virtuell dator migreras inom ett kluster MABS identifierar migreringen och säkerhetskopierar den virtuella datorn från den nya klusternoden utan några krav på användarintervention. Eftersom lagringsplatsen inte har ändrats fortsätter MABS med fullständiga säkerhetskopior.
-
-**Livemigrering utanför klustret** – När en virtuell dator migreras mellan fristående servrar, olika kluster eller mellan en fristående server och ett kluster identifierar MABS migreringen och kan säkerhetskopiera den virtuella datorn utan att användaren behöver ingripa.
-
-### <a name="requirements-for-maintaining-protection"></a>Krav för att bevara skyddet
-
-Följande är krav för att bevara skyddet under direktmigrering:
-
-- Hyper-V-värdarna för de virtuella datorerna måste finnas i ett VMM-moln i System Center, på en VMM-server som kör minst System Center 2012 med SP1.
-
-- MABS-skyddsagenten måste vara installerad på alla Hyper-V-värdar.
-
-- MABS-servrar måste vara anslutna till VMM-servern. Alla Hyper-V-värdservrar i VMM-molnet måste också vara anslutna till MABS-servrarna. Detta gör att MABS att kommunicera med VMM-servern så MABS kan ta reda på på vilken Hyper-V-värdserver den virtuella datorn körs för närvarande och skapa en ny säkerhetskopia från den Hyper-V-servern. Om en anslutning inte kan upprättas till Hyper-V-servern misslyckas säkerhetskopieringen med ett meddelande om att MABS-skyddsagenten inte kan nås.
-
-- Alla MABS-servrar, VMM-servrar och Hyper-V-värdservrar måste finnas i samma domän.
-
-### <a name="details-about-live-migration"></a>Information om direktmigrering
-
-Observera följande om säkerhetskopiering under direktmigrering:
-
-- Om en livemigrering överför lagring utför MABS en fullständig konsekvenskontroll av den virtuella datorn och fortsätter sedan med fullständiga snabbsäkerhetskopior. När direktmigrering av lagring sker omorganiserar Hyper-V den virtuella hårddisken (VHD) eller VHDX, vilket medför en engångsökning i storleken på MABS-säkerhetskopieringsdata.
-
-- Aktivera automatisk montering på den virtuella datorvärden om du vill aktivera virtuellt skydd, och inaktivera TCP Chimney-avlastning.
-
-- MABS använder port 6070 som standardport för att vara värd för DPM-VMM Helper Service. Så här ändrar du i registret:
-
-    1. Navigera till **HKLM\Software\Microsoft\Microsoft Data Protection Manager\Configuration**.
-    2. Skapa ett 32-bitars DWORD-värde: DpmVmmHelperServicePort, och skriv det uppdaterade portnumret som en del av registernyckeln.
-    3. Öppna ```<Install directory>\Azure Backup Server\DPM\DPM\VmmHelperService\VmmHelperServiceHost.exe.config```, och ändra portnumret från 6070 till den nya porten. Exempel: ```<add baseAddress="net.tcp://localhost:6080/VmmHelperService/" />```
-    4. Starta om DPM-VMM Helper Service och starta om DPM-tjänsten.
-
-### <a name="set-up-protection-for-live-migration"></a>Konfigurera skydd vid direktmigrering
-
-Så här konfigurerar du skydd vid direktmigrering:
-
-1. Konfigurera MABS-servern och dess lagring och installera MABS-skyddsagenten på varje Hyper-V-värdserver eller klusternod i VMM-molnet. Om du använder SMB-lagring i ett kluster installerar du MABS-skyddsagenten på alla klusternoder.
-
-2. Installera VMM-konsolen som en klientkomponent på MABS-servern så att MABS kan kommunicera med VMM-servern. Konsolen ska vara av samma version som den som körs på VMM-servern.
-
-3. Tilldela KONTOT MABSMachineName$ som ett skrivskyddat administratörskonto på VMM-hanteringsservern.
-
-4. Anslut alla Hyper-V-värdservrar till alla `Set-DPMGlobalProperty` MABS-servrar med PowerShell-cmdleten. Cmdlet accepterar flera MABS-servernamn. Använd formatet `Set-DPMGlobalProperty -dpmservername <MABSservername> -knownvmmservers <vmmservername>`. Mer information finns i [Set-DPMGlobalProperty](https://docs.microsoft.com/powershell/module/dataprotectionmanager/set-dpmglobalproperty?view=systemcenter-ps-2019).
-
-5. När alla virtuella datorer som körs på Hyper-V-värdarna i VMM-molnet har identifierats i VMM skapar du en skyddsgrupp och lägger till de virtuella datorer som du vill skydda. Automatiska konsekvenskontroller bör aktiveras på skyddsgruppsnivå för skydd under mobilitetsscenarier för virtuella datorer.
-
-6. När inställningarna har konfigurerats fortsätter alla säkerhetskopior som förväntat när en virtuell dator migrerar från ett kluster till ett annat. Så här gör du för att kontrollera att direktmigreringen aktiveras som väntat:
-
-   1. Kontrollera att DPM-VMM Helper Service körs. Om det inte är det, starta den.
-
-   2. Öppna Microsoft SQL Server Management Studio och anslut till den instans som är värd för MABS-databasen (DPMDB). Kör följande fråga på DPMDB:`SELECT TOP 1000 [PropertyName] ,[PropertyValue] FROM[DPMDB].[dbo].[tbl_DLS_GlobalSetting]`.
-
-      Den här frågan innehåller `KnownVMMServer`en egenskap som heter . Detta värde bör vara detsamma som värdet som du angav med cmdletten `Set-DPMGlobalProperty`.
-
-   3. Kör följande fråga för att verifiera parametern *VMMIdentifier* i `PhysicalPathXML` för en specifik virtuell dator. Ersätt `VMName` med den virtuella datorns namn.
-
-      ```sql
-      select cast(PhysicalPath as XML) from tbl_IM_ProtectedObject where DataSourceId in (select datasourceid from tbl_IM_DataSource   where DataSourceName like '%<VMName>%')
-      ```
-
-   4. Öppna xml-filen som den här frågan returnerar och kontrollera att fältet *VMMIdentifier* har ett värde.
-
-### <a name="run-manual-migration"></a>Köra manuell migrering
-
-När du har slutfört stegen i föregående avsnitt och jobbet MABS Summary Manager har slutförts aktiveras migreringen. Detta jobb startas normalt vid midnatt och körs varje morgon. Gör så här om du vill köra en manuell migrering för att kontrollera att allt fungerar som förväntat:
-
-1. Öppna SQL Server Management Studio och anslut till den instans som är värd för MABS-databasen.
-
-2. Kör följande fråga: `SELECT SCH.ScheduleId FROM tbl_JM_JobDefinition JD JOIN tbl_SCH_ScheduleDefinition SCH ON JD.JobDefinitionId = SCH.JobDefinitionId WHERE JD.Type = '282faac6-e3cb-4015-8c6d-4276fcca11d4' AND JD.IsDeleted = 0 AND SCH.IsDeleted = 0`. Frågan returnerar **ScheduleID**. Skriv upp detta ID eftersom du kommer att använda det i nästa steg.
-
-3. Utöka **SQL Server Agent** i SQL Server Management Studio och utöka sedan **Jobs (Jobb)**. Högerklicka på det **ScheduleID (Schema-ID) **som du har antecknat och välj **Start Job at Step (Starta jobb vid steg)**.
-
-Säkerhetskopieringsprestanda påverkas när jobbet körs. Distributionens storlek och skala avgör hur lång tid jobbet tar.
 
 ## <a name="back-up-replica-virtual-machines"></a>Säkerhetskopiera virtuella replikdatorer
 

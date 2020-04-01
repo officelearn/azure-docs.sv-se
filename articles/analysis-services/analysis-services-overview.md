@@ -4,21 +4,21 @@ description: Lär dig mer om Azure Analysis Services, en fullständigt hanterad 
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: overview
-ms.date: 02/20/2020
+ms.date: 03/30/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 3a18218635b5fc576bd9255eb73c136756ac3caa
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 7eb46e0eda1cd702f26829fac49ffe0e7916626f
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79240606"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80410389"
 ---
 # <a name="what-is-azure-analysis-services"></a>Vad är Azure Analysis Services?
 
 ![Azure Analysis Services](./media/analysis-services-overview/aas-overview-aas-icon.png)
 
-Azure Analysis Services är en fullständigt hanterad plattform som tjänst (PaaS) som tillhandahåller datamodeller i företagsklass i molnet. Använd avancerade kombinations- och modelleringsfunktioner för att kombinera data från flera datakällor, definiera mätvärden och skydda dina data i en enda tillförlitlig tabellsemantisk datamodell. Datamodellen ger användarna ett enklare och snabbare sätt att bläddra bland stora mängder data för ad hoc-dataanalys.
+Azure Analysis Services är en fullständigt hanterad plattform som tjänst (PaaS) som tillhandahåller datamodeller i företagsklass i molnet. Använd avancerade kombinations- och modelleringsfunktioner för att kombinera data från flera datakällor, definiera mätvärden och skydda dina data i en enda tillförlitlig tabellsemantisk datamodell. Datamodellen är ett enklare och snabbare sätt för användare att utföra ad hoc-dataanalys med verktyg som Power BI och Excel.
 
 ![Datakällor](./media/analysis-services-overview/aas-overview-overall.png)
 
@@ -38,7 +38,7 @@ Azure Analysis Services är tillgängligt på nivåerna **Developer**, **Basic**
 
 ### <a name="developer-tier"></a>Developer-nivå
 
-Den här nivån rekommenderas för utvärderings-, utvecklings- och testscenarier. En enskild plan inkluderar samma funktioner som på Standard-nivån, men funktionerna för processorkraft, QPU:er och minnesstorlek är begränsade. Skalning av frågerepliker *är inte tillgängligt* på den här nivån. Den här nivån omfattas inte av något serviceavtal.
+Den här nivån rekommenderas för utvärderings-, utvecklings- och testscenarier. En enskild plan inkluderar samma funktioner som på Standard-nivån, men funktionerna för processorkraft, QPU:er och minnesstorlek är begränsade. Utskalning av frågereplik *är inte tillgänglig* för den här nivån. Den här nivån omfattas inte av något serviceavtal.
 
 |Planera  |QPU:er  |Minne (GB)  |
 |---------|---------|---------|
@@ -208,6 +208,10 @@ Microsoft Analysis Services Projects finns som ett kostnadsfritt installerbart V
 
 Hantera dina servrar och modelldatabaser med hjälp av [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms). Ansluta till servrar i molnet. Kör TMSL-skript direkt från XMLA-frågefönstret och automatisera uppgifter med hjälp av TMSL-skript och PowerShell. Nya funktioner och funktionaliteter införs snabbt och SSMS uppdateras varje månad.
 
+### <a name="open-source-tools"></a>Verktyg med öppen källkod
+
+Analysis Services har en levande gemenskap av utvecklare som skapar verktyg. Var noga med att kolla in [Tabellredigeraren](https://tabulareditor.github.io/), ett verktyg med öppen källkod för att skapa, underhålla och hantera tabellmodeller med hjälp av en intuitiv, lätt redigerare. [DAX Studio](https://daxstudio.org/), är ett bra verktyg med öppen källkod för DAX-redigering, diagnos, prestandajustering och analys.
+
 ### <a name="powershell"></a>PowerShell
 
 Under hanteringsaktiviteter för serverresurser såsom att skapa serverresurser, pausa eller återuppta serveråtgärder eller ändra servicenivån använder du Azure PowerShell-cmdletar. Under andra aktiviteter för hantering av databaser, till exempel att lägga till eller ta bort rollmedlemmar, behandla eller köra TMSL-skript, används cmdletar i SqlServer-modulen. Se [Hantera Azure Analysis Services med PowerShell](analysis-services-powershell.md) för mer information.
@@ -232,19 +236,15 @@ Azure Analysis Services stöder även [dynamiska hanteringsvyer (DMV: er)](https
 
 Dokumentation specifik för Azure Analysis Services ingår. Använd innehållsförteckningen på vänster sida av webbläsarskärmen för att hitta artiklar. 
 
-Eftersom Azure Analysis Services tabellmodeller är ungefär desamma som tabellmodeller i SQL Server Analysis Services, finns det ett omfattande bibliotek med självstudier för delad datamodellering, konceptuella, procedurmässiga, utvecklar- och referensartiklar i [DOKUMENTATIONEN](https://docs.microsoft.com/analysis-services/analysis-services-overview)till SQL Server Analysis Services . Artiklar i dokumentation för SQL Server Analysis Services visar om de gäller även för Azure Analysis Services med banderollen GÄLLER FÖR under rubriken.
+Eftersom tabellmodeller i Azure Analysis Services är ungefär desamma som tabellmodeller i SQL Server Analysis Services och Power BI Premium-datauppsättningar, finns det ett omfattande bibliotek med självstudier för delad datamodellering, konceptuella, procedurmässiga, utvecklare och referensartiklar i [Analysis Services-dokumentationen](https://docs.microsoft.com/analysis-services/?view=azure-analysis-services-current). Artiklar i den delade Analysis Services-dokumentationen visar om de även gäller för Azure Analysis Services av en APPLIES TO-banderoll under rubriken. Du kan också använda versionsväljaren ovanför innehållsförteckningen för att bara se de artiklar som gäller för den plattform du använder.
 
 ![Delad dokumentation](./media/analysis-services-overview/aas-overview-applies-to.png)
 
 ### <a name="contribute"></a>Bidra!
 
-Analysis Services-dokumentation, som den här artikeln, är en öppen källa. Om du har ett GitHub-konto kan du redigera en artikel genom att klicka på Redigera (pennan) i det övre högra hörnet av webbläsarskärmen. Använd redigeringsprogrammet i webbläsaren och klicka på Föreslå filändring. 
+Analysis Services-dokumentation, som den här artikeln, är en öppen källa. Mer information om hur du kan bidra finns i [docs-deltagarguiden](https://docs.microsoft.com/contribute/). 
 
-![Delad dokumentation](./media/analysis-services-overview/aas-overview-edit.png)
-
-Ditt bidrag granskas av dokumentationsteamet och om det godkänns visas ditt GitHub-kontonamn som deltagare. Mer information finns i [guide för dokumentdeltagare](https://docs.microsoft.com/contribute/).
-
-Dokumentation för Azure Analysis Services använder också [GitHub-problem](https://docs.microsoft.com/teamblog/a-new-feedback-system-is-coming-to-docs). Du kan lämna feedback om produkten eller dokumentationen. Använd **Feedback** längst ned i en artikel. GitHub-problem har ännu inte aktiverats för dokumentation för SQL Server Analysis Services. 
+Dokumentation för Azure Analysis Services använder också [GitHub-problem](https://docs.microsoft.com/teamblog/a-new-feedback-system-is-coming-to-docs). Du kan lämna feedback om produkten eller dokumentationen. Använd **Feedback** längst ned i en artikel. GitHub-problem är inte aktiverade för den delade Analysis Services-dokumentationen. 
 
 ## <a name="blogs"></a>Bloggar
 

@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/14/2020
+ms.date: 03/31/2020
 ms.author: spelluru
-ms.openlocfilehash: d2115b1dc7e9f3150e44eb5ee9417e88ebeaa279
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 56c31e03eeec0c81207dc402e864eadec2d768bd
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80370833"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80474074"
 ---
 # <a name="connect-your-labs-network-with-a-peer-virtual-network-in-azure-lab-services"></a>Ansluta labbets nätverk med ett virtuellt peer-nätverk i Azure Lab Services 
 Den här artikeln innehåller information om peering ditt labbnätverk med ett annat nätverk. 
@@ -38,6 +38,8 @@ Vissa lokala nätverk är anslutna till Azure Virtual Network antingen via [Expr
 
 ## <a name="configure-at-the-time-of-lab-account-creation"></a>Konfigurera vid tidpunkten för skapandet av labbkonto
 När det nya labbkontot skapas kan du välja ett befintligt virtuellt nätverk som visas i listrutan **Peer-virtuellt nätverk** på fliken **Avancerat.** Det valda virtuella nätverket är anslutet (peer-peer) till labb som skapats under labbkontot. Alla virtuella datorer i labb som skapas efter att den här ändringen har åtkomst till resurserna i det peer-indelade virtuella nätverket. 
+
+Det finns också en bestämmelse om att tillhandahålla **adressintervall** för virtuella datorer för labben. Om adressintervallet anges skapas alla virtuella datorer i labben under labbkontot i det adressintervallet. Adressintervallet bör vara i CIDR-notation (t.ex. 10.20.0.0/20) och inte överlappa med några befintliga adressintervall. När du anger ett adressintervall är det viktigt att tänka på antalet virtuella datorer som kommer att skapas i labben och tillhandahålla ett adressintervall för att hantera det. För ett visst intervall visas antalet labb som det kan rymma.
 
 ![Välj VNet till peer](../media/how-to-connect-peer-virtual-network/select-vnet-to-peer.png)
 

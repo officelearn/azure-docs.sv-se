@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 5/1/2019
 ms.author: alsin
-ms.openlocfilehash: 87ccb1c4995337b385f685797980a9fc3962bc6f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 68089a86b8b832638abd30aa7c36aa1c5bd84225
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79267006"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80410125"
 ---
 # <a name="azure-serial-console-for-windows"></a>Azure Serial Console för Windows
 
@@ -60,7 +60,7 @@ Om du vill aktivera seriell konsol för Windows virtuella datorer/skalningsupps�
 
 1. Ansluta till windows virtuella datorn med fjärrskrivbord
 1. Kör följande kommandon i en administrativ kommandotolk:
-    - `bcdedit /ems {current} on`
+    - `bcdedit /ems {current} on`, `bcdedit /ems '{current}' on` eller om du använder PowerShell
     - `bcdedit /emssettings EMSPORT:1 EMSBAUDRATE:115200`
 1. Starta om systemet för att SAC-konsolen ska aktiveras.
 
@@ -102,15 +102,15 @@ Om du behöver aktivera uppmaningar om windows-starthanterare att visas i seriek
 
     ![Ansluta till SAC](./media/virtual-machines-serial-console/virtual-machine-windows-serial-console-connect-sac.png)
 
-1.  Ange `cmd` om du vill skapa en kanal med en CMD-förekomst.
+1.    Ange `cmd` om du vill skapa en kanal med en CMD-förekomst.
 
-1.  Ange `ch -si 1` eller `<esc>+<tab>` tryck på kortkommandon för att växla till den kanal som kör CMD-instansen.
+1.    Ange `ch -si 1` eller `<esc>+<tab>` tryck på kortkommandon för att växla till den kanal som kör CMD-instansen.
 
-1.  Tryck på **Retur**och ange sedan inloggningsuppgifter med administratörsbehörighet.
+1.    Tryck på **Retur**och ange sedan inloggningsuppgifter med administratörsbehörighet.
 
-1.  När du har angett giltiga autentiseringsuppgifter öppnas CMD-instansen.
+1.    När du har angett giltiga autentiseringsuppgifter öppnas CMD-instansen.
 
-1.  Om du vill starta `PowerShell` en PowerShell-instans anger du i CMD-instansen och trycker sedan på **Retur**.
+1.    Om du vill starta `PowerShell` en PowerShell-instans anger du i CMD-instansen och trycker sedan på **Retur**.
 
     ![Öppna PowerShell-instans](./media/virtual-machines-serial-console/virtual-machine-windows-serial-console-powershell.png)
 

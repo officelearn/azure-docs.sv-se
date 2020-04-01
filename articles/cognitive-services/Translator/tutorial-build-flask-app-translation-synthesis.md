@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: tutorial
 ms.date: 02/10/2020
 ms.author: swmachan
-ms.openlocfilehash: b41b68725b6747cbada13a9acc321724b3f89d67
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: 5034dafa015054e9e9d0804088f345929815b974
+ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77118576"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80397942"
 ---
 # <a name="tutorial-build-a-flask-app-with-azure-cognitive-services"></a>Självstudiekurs: Skapa en flaskapp med Azure Cognitive Services
 
@@ -182,7 +182,7 @@ Den här koden säkerställer att `http://your-web-app.com/about` när `about.ht
 
 Även om dessa exempel illustrerar hur du renderar html-sidor för en användare, kan rutter också användas för att anropa API:er när en knapp trycks in, eller vidta valfritt antal åtgärder utan att behöva navigera bort från startsidan. Det visas i praktiken när du skapar vägar för översättning, sentiment och talsyntes.
 
-### <a name="get-started"></a>Komma igång
+### <a name="get-started"></a>Kom igång
 
 1. Öppna projektet i IDE:et och `app.py` skapa sedan en fil som namnges i roten till arbetskatalogen. Kopiera sedan den `app.py` här koden till och spara:
 
@@ -239,7 +239,7 @@ Den här koden säkerställer att `http://your-web-app.com/about` när `about.ht
    flask run
    ```
 
-4. Öppna en webbläsare och navigera till webbadressen. Du bör se din ensidiga app. Tryck på **Ctrl + c** för att döda appen.
+4. Öppna en webbläsare och navigera till webbadressen. Du bör se din ensidiga app. Tryck på **Ctrl + C** för att döda appen.
 
 ## <a name="translate-text"></a>Översätt text
 
@@ -780,7 +780,7 @@ Nu när du har en funktion för att konvertera text-till-tal, och en väg i din 
        <option value="(zh-TW, Yating, Apollo)">Chinese (Taiwan)| Female | Yaiting, Apollo</option>
        <option value="(zh-TW, Zhiwei, Apollo)">Chinese (Taiwan) | Male | Zhiwei, Apollo</option>
        <option value="(hr-HR, Matej)">Croatian | Male | Matej</option>
-       <option value="(en-US, Jessa24kRUS)">English (US) | Female | Jessa24kRUS</option>
+       <option value="(en-US, AriaRUS)">English (US) | Female | AriaRUS</option>
        <option value="(en-US, Guy24kRUS)">English (US) | Male | Guy24kRUS</option>
        <option value="(en-IE, Sean)">English (IE) | Male | Sean</option>
        <option value="(fr-FR, Julie, Apollo)">French | Female | Julie, Apollo</option>

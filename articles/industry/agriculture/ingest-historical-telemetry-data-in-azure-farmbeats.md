@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: b0b9d62e8761cfb67d0642d8e5a97e7d1f05af12
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e0a5e89f256b562ce5f702e9ff1388cb4d021bf5
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80064460"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80437698"
 ---
 # <a name="ingest-historical-telemetry-data"></a>Mata in historiska telemetridata
 
@@ -37,37 +37,48 @@ Följ de här stegen:
 > [!NOTE]
 > Du måste vara administratör för att kunna göra följande.
 
-1. Ladda ner [zip-filen](https://aka.ms/farmbeatspartnerscriptv2)och extrahera den till din lokala enhet. Det kommer att finnas en fil inuti zip-filen.
+1. Logga in på https://portal.azure.com/.
 
-2. Logga in https://portal.azure.com/ på och gå till **Azure Active Directory** > **App Registrations**.
+2. **Om du är på FarmBeats version 1.2.7 eller senare, hoppa över steg a, b och c, och gå till steg 3.** Du kan kontrollera FarmBeats-versionen genom att välja **ikonen Inställningar** längst upp till höger i FarmBeats-användargränssnittet.
 
-3. Välj den **appregistrering** som skapades som en del av distributionen av FarmBeats. Det kommer att ha samma namn som din FarmBeats Datahub.
+      a.  Gå till Azure Active > **Directory-appregistreringar** **Azure Active Directory**
 
-4. Välj **Exponera ett API** > Välj Lägg till ett **klientprogram** och ange **04b07795-8ddb-461a-bbee-02f9e1bf7b46** och kontrollera **Auktorisera omfattning**. Detta ger åtkomst till Azure CLI (Cloud Shell) för att utföra följande steg:
+      b. Välj den **appregistrering** som skapades som en del av distributionen av FarmBeats. Det kommer att ha samma namn som din FarmBeats datahub.
 
-5. Öppna Cloud Shell. Det här alternativet är tillgängligt i verktygsfältet i det övre högra hörnet av Azure-portalen.
+      c. Välj **Exponera ett API** > väljer Lägg till ett **klientprogram** och ange **04b07795-8ddb-461a-bbee-02f9e1bf7b46** och kontrollera **Auktorisera omfattning**. Detta ger åtkomst till Azure CLI (Cloud Shell) för att utföra stegen nedan:
+
+3. Öppna Cloud Shell. Det här alternativet är tillgängligt i verktygsfältet i det övre högra hörnet av Azure-portalen.
 
     ![Verktygsfältet Azure Portal](./media/get-drone-imagery-from-drone-partner/navigation-bar-1.png)
 
-6. Se till att miljön är inställd på **PowerShell**. Som standard är den inställd på Bash.
+4. Se till att miljön är inställd på **PowerShell**. Som standard är den inställd på Bash.
 
     ![Verktygsfältsinställningen i PowerShell](./media/get-sensor-data-from-sensor-partner/power-shell-new-1.png)
 
-7. Ladda upp filen från steg 1 i Cloud Shell-instansen.
+5. Gå till din hemkatalog.
 
-    ![Knappen Ladda upp verktygsfält](./media/get-sensor-data-from-sensor-partner/power-shell-two-1.png)
+    ```azurepowershell-interactive 
+    cd  
+    ```
 
-8. Gå till katalogen där filen laddades upp. Som standard överförs filer till arbetskatalogen under användarnamnet.
+6. Kör följande kommando. Detta kommer att ladda ner ett skript till din hemkatalog.
 
-9. Kör följande skript. Skriptet frågar efter klient-ID: t, som kan erhållas från **Azure Active Directory** > **Overview page**.
+    ```azurepowershell-interactive 
 
-    ```azurepowershell-interactive
+    wget –q https://aka.ms/farmbeatspartnerscriptv3 -O ./generatePartnerCredentials.ps1
+
+    ```
+
+7. Kör följande skript. Skriptet frågar efter klient-ID, som kan erhållas från **Azure Active Directory** > **Overview** sida.
+
+    ```azurepowershell-interactive 
 
     ./generatePartnerCredentials.ps1   
 
     ```
 
-10. Följ instruktionerna på skärmen för att samla in värdena för **API-slutpunkt,** **klient-ID,** **klient-ID,** **Klienthemlighet**och **EventHub-anslutningssträng**.
+8. Följ instruktionerna på skärmen för att samla in värdena för **API-slutpunkt,** **klient-ID,** **klient-ID,** **Klienthemlighet**och **EventHub-anslutningssträng**.
+
 
 ## <a name="create-device-or-sensor-metadata"></a>Skapa enhets- eller sensormetadata
 
@@ -108,8 +119,8 @@ Följ de här stegen:
 |     Produktkod| Produktkod eller modellnamn eller nummer. Till exempel RS-CO2-N01. |
 |       SensorÅtgärder > namn       | Sensormåttets namn. Endast gemener stöds. För mätningar från olika djup anger du djupet. Till exempel soil_moisture_15cm. Det här namnet måste vara förenligt med telemetridata.  |
 |          SensorÅtgärder > DataType       |Telemetridatatyp. För närvarande stöds dubbel.|
-|    SensorÅtgärder > typ    |Mättyp för sensortelemetridata. De systemdefinierade typerna är AmbientTemperature, CO2, Djup, Elektriskkonduktivitet, LeafWetness, Längd, LiquidLevel, Nitrat, O2, PH, Fosfat, PointInTime, Kalium, Tryck, RainGauge, RelativeHumidity, Salthalt, SoilMoisture, SoilTemperature, SolarRadiation, Stat, TimeDuration, UVRadiation, UVIndex, Volym, WindDirection, WindRun, WindSpeed, Evapotranspiration, PAR. Mer information finns i API:et /ExtendedType.|
-|        SensorÅtgärder > enhet              | Enhet av sensortelemetridata. De systemdefinierade enheterna är NoUnit, Celsius, Fahrenheit, Kelvin, Rankine, Pascal, Mercury, PSI, MilliMeter, CentiMeter, Meter, Inch, Feet, Mile, KiloMeter, MilesPerHour, MilesPerSecond, KMPerHour, KMPerSecond, MetersPerHour, MetersPerSecond, Grad, WattsPerSquareMeter, KiloWattsPerSquareMeter, MilliWattsPerSquareCentiMeter, MilliJoulesPerSquareCentiMeter, VolumetricWaterContent, Percentage, PartsPerMillion, MicroMol, MicroMolesPerLiter, SiemensPerSquareMeterPerMole, MilliSiemensPerCentiMeter, Centibar, DeciSiemensPerMeter, KiloPascal, VolumetricIonContent, Liter, MilliLiter, Seconds, UnixTimestamp, MicroMolPerMeterSquaredPerSecond, InchesPerHour Om du vill lägga till fler läser du API:et /ExtendedType.|
+|    SensorÅtgärder > typ    |Mättyp för sensortelemetridata. De systemdefinierade typerna är AmbientTemperature, CO2, Djup, ElektriskKonduktivitet, LeafWetness, Längd, LiquidLevel, Nitrat, O2, PH, Fosfat, PointInTime, Kalium, Tryck, RainGauge, RelativeHumidity, Salthalt, SoilMoisture, SoilTemperature, SolarRadiation, State, TimeDuration, UVRadiation, UVIndex, Volym, WindDirection, WindRun, WindSpeed, Evaranpotspiration, PAR. Mer information finns i API:et /ExtendedType.|
+|        SensorÅtgärder > enhet              | Enhet av sensortelemetridata. De systemdefinierade enheterna är NoUnit, Celsius, Fahrenheit, Kelvin, Rankine, Pascal, Mercury, PSI, MilliMeter, CentiMeter, Meter, Inch, Feet, Mile, KiloMeter, MilesPerHour, MilesPerSecond, KMPerHour, KMPerSecond, MetersPerHour, MetersPerSecond, Degree, WattsPerSquareMeter, KilowattsPerSquareMeter, MilliWattsPerSquareCentiMeter, MilliJoulesPerSquareCentiMeter, VolumetricWaterContent, Procent, PartsPerMillion, MicroMol, MicroMolesPerLiter, SiemensPerSquareMeterPerMole, MilliSiemensPerCentiMeter, Centibar, DeciSiemensPerMeter, KiloPascal, VolumetricIonContent, MilliLit Liter, MilliLit Liter, MilliLit Liter, MilliLit Liter, MilliLit liter, MilliLit liter, MilliLit liter, Liter liter, MilliLit liter, Liter liter, MilliLit liter, Liter liter, MilliLit liter, Liter liter, Liter liter, liter, liter, liter, VolymtricIonContent, MilliLiter Liter, MilliLiter Liter, Liter Liter, Liter Liter, Liter, Liter, Sekunder, UnixTimestamp, MicroMolPerMeterSquaredPerSecond, InchesPerHour Om du vill lägga till fler läser du API:et /ExtendedType.|
 |    SensorÅtgärder > AggregationType    |  Värden kan vara ingen, medelvärde, maximum, minimum eller StandardDeviation.  |
 |          Namn            | Namn för att identifiera en resurs. Till exempel modellnamnet eller produktnamnet.  |
 |    Beskrivning        | Ge en meningsfull beskrivning av modellen.|
@@ -351,11 +362,11 @@ Konvertera det historiska sensordataformatet till ett kanoniskt format som Azure
       "sensordata": [
         {
           "timestamp": "< timestamp in ISO 8601 format >",
-          "<sensor measure name (as defined in the Sensor Model)>": "<value>"
+          "<sensor measure name (as defined in the Sensor Model)>": <value>
         },
         {
           "timestamp": "<timestamp in ISO 8601 format>",
-          "<sensor measure name (as defined in the Sensor Model)>": "<values>"
+          "<sensor measure name (as defined in the Sensor Model)>": <value>
         }
       ]
     }
@@ -429,11 +440,11 @@ Här är ett exempel på ett telemetrimeddelande:
       "sensordata": [
         {
           "timestamp": "< timestamp in ISO 8601 format >",
-          "<sensor measure name (as defined in the Sensor Model)>": "<value>"
+          "<sensor measure name (as defined in the Sensor Model)>": <value>
         },
         {
           "timestamp": "<timestamp in ISO 8601 format>",
-          "<sensor measure name (as defined in the Sensor Model)>": "<value>"
+          "<sensor measure name (as defined in the Sensor Model)>": <value>
         }
       ]
     }

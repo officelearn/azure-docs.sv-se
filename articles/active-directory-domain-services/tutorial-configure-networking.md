@@ -7,14 +7,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 10/30/2019
+ms.date: 03/30/2020
 ms.author: iainfou
-ms.openlocfilehash: 26122278ad74fb1d383ca7a900810b6060ee78f5
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: af284e4c10487123c8c2a2105a25a2285ae0aa99
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "73172643"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80474353"
 ---
 # <a name="tutorial-configure-virtual-networking-for-an-azure-active-directory-domain-services-instance"></a>Självstudiekurs: Konfigurera virtuella nätverk för en Azure Active Directory Domain Services-instans
 
@@ -29,7 +29,7 @@ I den här självstudiekursen får du lära du dig att:
 > * Skapa ett IP-adressintervall och ytterligare undernät i det virtuella Azure AD DS-nätverket
 > * Konfigurera virtuell nätverks peering till ett nätverk som är skilt från Azure AD DS
 
-Om du inte har en Azure-prenumeration [skapar du ett konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har någon Azure-prenumeration [skapar du ett konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 ## <a name="prerequisites"></a>Krav
 
@@ -72,18 +72,18 @@ Som standard innehåller det virtuella Azure-nätverk som skapats med azure AD D
 Så här skapar du ett virtuellt nätverksundernät för virtuella datorer och programarbetsbelastningar:
 
 1. I Azure-portalen väljer du resursgruppen för din Azure AD DS-hanterade domän, till exempel *myResourceGroup*. Välj standard virtuellt nätverk i listan över resurser, till exempel *aadds-vnet*.
-1. Välj **Adressutrymme**i menyn till vänster i det virtuella nätverksfönstret . Det virtuella nätverket skapas med ett enda adressutrymme *på 10.0.1.0/24*, som används av standardundernätet.
+1. Välj **Adressutrymme**i menyn till vänster i det virtuella nätverksfönstret . Det virtuella nätverket skapas med ett enda adressutrymme på *10.0.2.0/24*, som används av standardundernätet.
 
     Lägg till ytterligare ett IP-adressintervall i det virtuella nätverket. Storleken på det här adressintervallet och det faktiska IP-adressintervall som ska användas beror på andra nätverksresurser som redan har distribuerats. IP-adressintervallet bör inte överlappa med befintliga adressintervall i din Azure- eller lokala miljö. Se till att du lägger upp IP-adressintervallet tillräckligt stort för det antal virtuella datorer som du förväntar dig att distribuera till undernätet.
 
-    I följande exempel läggs ytterligare ett IP-adressintervall *på 10.0.2.0/24* till. När du är klar väljer du **Spara**.
+    I följande exempel läggs ytterligare ett IP-adressintervall *på 10.0.3.0/24* till. När du är klar väljer du **Spara**.
 
     ![Lägga till ytterligare ett IP-adressintervall för virtuellt nätverk i Azure-portalen](./media/tutorial-configure-networking/add-vnet-address-range.png)
 
 1. Välj sedan **Undernät**i menyn till vänster i det virtuella nätverksfönstret och välj sedan **+ Undernät** för att lägga till ett undernät.
 1. Ange ett namn för undernätet, till exempel *arbetsbelastningar*. Om det behövs uppdaterar du **adressintervallet** om du vill använda en delmängd av IP-adressintervallet som konfigurerats för det virtuella nätverket i föregående steg. För tillfället, lämna standardvärden för alternativ som nätverkssäkerhet grupp, rutttabell, serviceslutpunkter.
 
-    I följande exempel skapas ett undernät med namnet *arbetsbelastningar* som använder IP-adressintervallet *10.0.2.0/24:*
+    I följande exempel skapas ett undernät med namnet *arbetsbelastningar* som använder IP-adressintervallet *10.0.3.0/24:*
 
     ![Lägga till ytterligare ett virtuellt nätverksundernät i Azure-portalen](./media/tutorial-configure-networking/add-vnet-subnet.png)
 
@@ -130,7 +130,7 @@ I den här självstudien ska vi konfigurera AZURE-DNS-servrar för virtuella nä
 
 1. I Azure-portalen väljer du resursgruppen för det peer-inkopplade virtuella nätverket, till exempel *myResourceGroup*. Välj det peer-inkopplade virtuella nätverket, till exempel *myVnet.*
 1. Välj **DNS-servrar**i menyn till vänster i det virtuella nätverksfönstret .
-1. Som standard använder ett virtuellt nätverk de inbyggda DNS-servrarna som tillhandahålls av Azure. Välj att använda **anpassade** DNS-servrar. Ange IP-adresserna för Azure AD DS-domänkontrollanterna, som vanligtvis är *10.0.1.4* och *10.0.1.5*. Bekräfta dessa IP-adresser i **översiktsfönstret för** din Azure AD DS-hanterade domän i portalen.
+1. Som standard använder ett virtuellt nätverk de inbyggda DNS-servrarna som tillhandahålls av Azure. Välj att använda **anpassade** DNS-servrar. Ange IP-adresserna för Azure AD DS-domänkontrollanterna, som vanligtvis är *10.0.2.4* och *10.0.2.5*. Bekräfta dessa IP-adresser i **översiktsfönstret för** din Azure AD DS-hanterade domän i portalen.
 
     ![Konfigurera DNS-servrar för virtuellt nätverk så att Azure AD DS-domänkontrollanter används](./media/tutorial-configure-networking/custom-dns.png)
 

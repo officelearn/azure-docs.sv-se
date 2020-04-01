@@ -9,10 +9,10 @@ ms.date: 07/20/2018
 ms.author: normesta
 ms.reviewer: fryu
 ms.openlocfilehash: 3a2381302a378e7b2635b84c32a87e844e4605a7
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "68844877"
 ---
 # <a name="monitor-and-troubleshoot-a-cloud-storage-application"></a>Övervaka och felsöka ett molnlagringsprogram
@@ -31,7 +31,7 @@ Med [Azure Storage Analytics](../common/storage-analytics.md) kan du logga och v
 
 Loggning och mått från lagringskonton aktiveras på fliken **Diagnostik** i Azure Portal. Med loggningen i Storage kan du registrera information för både lyckade och misslyckade begäranden i ditt lagringskonto. I loggarna kan du se information om läs-, skriv- och borttagningsåtgärder för dina tabeller, köer och blobar i Azure. Du kan också se orsaker till varför begäranden har misslyckats, till exempel tidsgränser som uppnåtts, nätverksbegränsning och auktoriseringsfel.
 
-## <a name="log-in-to-the-azure-portal"></a>Logga in på Azure-portalen
+## <a name="log-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
 Logga in på [Azure-portalen](https://portal.azure.com)
 
@@ -41,7 +41,7 @@ På menyn till vänster väljer du **Resursgrupper**, **myResourceGroup** och se
 
 Under **Diagnostikinställningar (klassisk)** anger du **Status** till **På**. Kontrollera att alla alternativ under **Blobegenskaper** är aktiverade.
 
-Klicka på **Spara** när du är klar
+När du är klar klickar du på **Spara**
 
 ![Fönstret Diagnostik](media/storage-monitor-troubleshoot-storage-application/enable-diagnostics.png)
 
@@ -51,7 +51,7 @@ E-postadministratörer kan använda aviseringar för att utlösa en webhook när
 
 ### <a name="navigate-to-the-storage-account-in-the-azure-portal"></a>Navigera till lagringskontot i Azure Portal
 
-Under avsnittet **Övervakning** väljer du **Aviseringar (klassisk)** .
+Under avsnittet **Övervakning** väljer du **Aviseringar (klassisk)**.
 
 Välj **Lägg till måttavisering (klassisk)** och slutför formuläret **Lägg till regel** genom att fylla i nödvändig information. Från listrutan **Mått** väljer du `SASClientOtherError`. För att tillåta att aviseringen utlöses vid det första felet går du till listrutan **Villkor** och väljer **Större än eller lika med**.
 
@@ -89,7 +89,7 @@ I det här scenariot använder du [Microsoft Message Analyzer](https://technet.m
 
 Ladda ned [Microsoft Message Analyzer](https://www.microsoft.com/download/details.aspx?id=44226) och installera programmet.
 
-Starta programmet och välj **File** (Fil)  > **Open** (Öppna) > **From Other File Sources** (Från andra filkällor).
+Starta programmet och välj**Öppna** >  **fil** > **från andra filkällor**.
 
 I dialogrutan **File Selector** (Filväljaren) väljer du **+ Add Azure Connection** (Lägg till Azure-anslutning). Ange **namnet på ditt lagringskonto** och **kontonyckeln** och klicka sedan på **OK**.
 

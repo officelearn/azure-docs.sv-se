@@ -15,27 +15,27 @@ ms.custom: mvc
 ms.date: 01/18/2019
 ms.author: spelluru
 ms.openlocfilehash: ee9a68df685095244fc9471b7d4ab0f6cee0642d
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/19/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "68360274"
 ---
-# <a name="tutorial-access-a-lab-in-azure-devtest-labs"></a>Självstudier: Komma åt ett labb i Azure DevTest Labs
-I den här självstudien använder du det labb som skapades i [Självstudie: Skapa ett labb i Azure DevTest Labs](tutorial-create-custom-lab.md).
+# <a name="tutorial-access-a-lab-in-azure-devtest-labs"></a>Självstudie: Få åtkomst till ett labb i Azure DevTest Labs
+I den här självstudien använder du det labbet som skapades i [Självstudie: Skapa ett labb i Azure DevTests Labs](tutorial-create-custom-lab.md) .
 
-I de här självstudierna gör du följande:
+I den här självstudien gör du följande:
 
 > [!div class="checklist"]
 > * Göra anspråk på en virtuell dator (VM) i ett labb
 > * Anslut till VM:en
 > * Släppa anspråk på en virtuell dator
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
 ## <a name="access-the-lab"></a>Åtkomst till labbet
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
+1. Logga in på [Azure-portalen](https://portal.azure.com).
 2. Välj **Alla resurser** på menyn till vänster. 
 3. Välj **DevTest Labs** som resurstyp. 
 4. Välj labbet. 
@@ -61,12 +61,12 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
     Om du vill ansluta till en virtuell Linux-dator måste SSH- och/eller RDP-åtkomst aktiveras för den virtuella datorn. Anvisningar för hur du ansluter till en virtuell Linux-dator via RDP finns i [Installera och konfigurera Fjärrskrivbord för att ansluta till en virtuell Linux-dator i Azure](../virtual-machines/linux/use-remote-desktop.md). 
 
     > [!NOTE]
-    > Det finns andra sätt att gå till sidan för den virtuella datorn för den virtuella datorn. Här är några av dem: 
+    > Det finns andra sätt att komma till sidan Virtuell dator för den virtuella datorn. Här är några av dem: 
     > 
-    > 1. Sök efter alla virtuella datorer i din prenumeration. Välj den virtuella datorn i listan över virtuella datorer som ska visas på sidan för den **virtuella datorn** .
-    > 2. Gå till **resurs** grupp sidan för resurs gruppen. Välj sedan den virtuella datorn i listan över resurser i resurs gruppen för att komma till sidan för den **virtuella datorn** . 
+    > 1. Sök efter alla virtuella datorer i din prenumeration. Välj din virtuella dator i listan över virtuella datorer för att komma till sidan **Virtuell dator.**
+    > 2. Navigera till sidan **Resursgrupp** för resursgruppen. Välj sedan den virtuella datorn i listan över resurser i resursgruppen för att komma till sidan **Virtuell dator.** 
     >
-    > Använd inte knappen **Anslut** i verktygsfältet på sidan för den **virtuella datorn** som du kommer till genom att använda de här alternativen. I stället navigerar du till sidan för den **virtuella datorn** från **DevTest Labs** -sidan, som du ser i den här artikeln och använder sedan knappen **Anslut** i verktygsfältet.
+    > Använd inte knappen **Anslut** i verktygsfältet på sidan **Virtuell dator** som du kommer åt med hjälp av dessa alternativ. Navigera i stället till sidan **Virtuell dator** från sidan DevTest Labs enligt den här artikeln och använd sedan knappen **Anslut** i **verktygsfältet.**
 
 
 ## <a name="unclaim-the-vm"></a>Släppa anspråk på en virtuell dator
@@ -86,5 +86,5 @@ När du är klar med den virtuella datorn släpper du anspråket på den virtuel
 Den här självstudiekursen visade hur du använder ett labb som har skapats med hjälp av Azure DevTest Labs. Läs mer om åtkomst till och användning av virtuella datorer i ett labb i 
 
 > [!div class="nextstepaction"]
-> [Anvisningar: Använda virtuella datorer i ett labb](devtest-lab-add-vm.md)
+> [Anvisningar: använda virtuella datorer i ett labb](devtest-lab-add-vm.md)
 
